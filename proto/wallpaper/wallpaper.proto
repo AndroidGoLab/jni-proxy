@@ -5,3 +5,495 @@ syntax = "proto3";
 package wallpaper;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/wallpaper";
+
+message DescribeContentsRequest {
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message EqualsRequest {
+  int64 arg0 = 1;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message GetComponentRequest {
+}
+
+message GetComponentResponse {
+  int64 result = 1;
+}
+
+message GetContentRequest {
+}
+
+message GetContentResponse {
+  int64 result = 1;
+}
+
+message GetContextDescriptionRequest {
+}
+
+message GetContextDescriptionResponse {
+  int64 result = 1;
+}
+
+message GetContextUriRequest {
+}
+
+message GetContextUriResponse {
+  int64 result = 1;
+}
+
+message GetIdRequest {
+}
+
+message GetIdResponse {
+  string result = 1;
+}
+
+message GetThumbnailRequest {
+}
+
+message GetThumbnailResponse {
+  int64 result = 1;
+}
+
+message GetTitleRequest {
+}
+
+message GetTitleResponse {
+  int64 result = 1;
+}
+
+message HashCodeRequest {
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message ToBuilderRequest {
+}
+
+message ToBuilderResponse {
+  int64 result = 1;
+}
+
+message ToStringRequest {
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteToParcelResponse {
+}
+
+message BuildRequest {
+}
+
+message BuildResponse {
+  int64 result = 1;
+}
+
+message SetContentRequest {
+  int64 arg0 = 1;
+}
+
+message SetContentResponse {
+  int64 result = 1;
+}
+
+message SetContextDescriptionRequest {
+  string arg0 = 1;
+}
+
+message SetContextDescriptionResponse {
+  int64 result = 1;
+}
+
+message SetContextUriRequest {
+  int64 arg0 = 1;
+}
+
+message SetContextUriResponse {
+  int64 result = 1;
+}
+
+message SetIdRequest {
+  string arg0 = 1;
+}
+
+message SetIdResponse {
+  int64 result = 1;
+}
+
+message SetThumbnailRequest {
+  int64 arg0 = 1;
+}
+
+message SetThumbnailResponse {
+  int64 result = 1;
+}
+
+message SetTitleRequest {
+  string arg0 = 1;
+}
+
+message SetTitleResponse {
+  int64 result = 1;
+}
+
+message NewInstanceRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewInstanceResponse {
+  int64 result = 1;
+}
+
+message InstanceDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message InstanceEqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetDescriptionRequest {
+  int64 handle = 1;
+}
+
+message GetDescriptionResponse {
+  int64 result = 1;
+}
+
+message InstanceGetIdRequest {
+  int64 handle = 1;
+}
+
+message GetInfoRequest {
+  int64 handle = 1;
+}
+
+message GetInfoResponse {
+  int64 result = 1;
+}
+
+message InstanceHashCodeRequest {
+  int64 handle = 1;
+}
+
+message InstanceWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message OnBindRequest {
+  int64 arg0 = 1;
+}
+
+message OnBindResponse {
+  int64 result = 1;
+}
+
+message OnCreateRequest {
+}
+
+message OnCreateResponse {
+}
+
+message OnCreateEngine0Request {
+}
+
+message OnCreateEngine0Response {
+  int64 result = 1;
+}
+
+message OnCreateEngine1_1Request {
+  int64 arg0 = 1;
+}
+
+message OnCreateEngine1_1Response {
+  int64 result = 1;
+}
+
+message OnDestroyRequest {
+}
+
+message OnDestroyResponse {
+}
+
+message GetDesiredMinimumHeightRequest {
+}
+
+message GetDesiredMinimumHeightResponse {
+  int32 result = 1;
+}
+
+message GetDesiredMinimumWidthRequest {
+}
+
+message GetDesiredMinimumWidthResponse {
+  int32 result = 1;
+}
+
+message GetDisplayContextRequest {
+}
+
+message GetDisplayContextResponse {
+  int64 result = 1;
+}
+
+message GetSurfaceHolderRequest {
+}
+
+message GetSurfaceHolderResponse {
+  int64 result = 1;
+}
+
+message GetWallpaperFlagsRequest {
+}
+
+message GetWallpaperFlagsResponse {
+  int32 result = 1;
+}
+
+message IsPreviewRequest {
+}
+
+message IsPreviewResponse {
+  bool result = 1;
+}
+
+message IsVisibleRequest {
+}
+
+message IsVisibleResponse {
+  bool result = 1;
+}
+
+message NotifyColorsChangedRequest {
+}
+
+message NotifyColorsChangedResponse {
+}
+
+message OnApplyWallpaperRequest {
+  int32 arg0 = 1;
+}
+
+message OnApplyWallpaperResponse {
+  int64 result = 1;
+}
+
+message OnApplyWindowInsetsRequest {
+  int64 arg0 = 1;
+}
+
+message OnApplyWindowInsetsResponse {
+}
+
+message OnCommandRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int64 arg4 = 5;
+  bool arg5 = 6;
+}
+
+message OnCommandResponse {
+  int64 result = 1;
+}
+
+message OnComputeColorsRequest {
+}
+
+message OnComputeColorsResponse {
+  int64 result = 1;
+}
+
+message ServiceEngineOnCreateRequest {
+  int64 arg0 = 1;
+}
+
+message OnDesiredSizeChangedRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message OnDesiredSizeChangedResponse {
+}
+
+message OnOffsetsChangedRequest {
+  float arg0 = 1;
+  float arg1 = 2;
+  float arg2 = 3;
+  float arg3 = 4;
+  int32 arg4 = 5;
+  int32 arg5 = 6;
+}
+
+message OnOffsetsChangedResponse {
+}
+
+message OnSurfaceChangedRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message OnSurfaceChangedResponse {
+}
+
+message OnSurfaceCreatedRequest {
+  int64 arg0 = 1;
+}
+
+message OnSurfaceCreatedResponse {
+}
+
+message OnSurfaceDestroyedRequest {
+  int64 arg0 = 1;
+}
+
+message OnSurfaceDestroyedResponse {
+}
+
+message OnSurfaceRedrawNeededRequest {
+  int64 arg0 = 1;
+}
+
+message OnSurfaceRedrawNeededResponse {
+}
+
+message OnTouchEventRequest {
+  int64 arg0 = 1;
+}
+
+message OnTouchEventResponse {
+}
+
+message OnVisibilityChangedRequest {
+  bool arg0 = 1;
+}
+
+message OnVisibilityChangedResponse {
+}
+
+message OnWallpaperFlagsChangedRequest {
+  int32 arg0 = 1;
+}
+
+message OnWallpaperFlagsChangedResponse {
+}
+
+message OnZoomChangedRequest {
+  float arg0 = 1;
+}
+
+message OnZoomChangedResponse {
+}
+
+message SetOffsetNotificationsEnabledRequest {
+  bool arg0 = 1;
+}
+
+message SetOffsetNotificationsEnabledResponse {
+}
+
+message SetTouchEventsEnabledRequest {
+  bool arg0 = 1;
+}
+
+message SetTouchEventsEnabledResponse {
+}
+
+service DescriptionService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetComponent (GetComponentRequest) returns (GetComponentResponse);
+  rpc GetContent (GetContentRequest) returns (GetContentResponse);
+  rpc GetContextDescription (GetContextDescriptionRequest) returns (GetContextDescriptionResponse);
+  rpc GetContextUri (GetContextUriRequest) returns (GetContextUriResponse);
+  rpc GetId (GetIdRequest) returns (GetIdResponse);
+  rpc GetThumbnail (GetThumbnailRequest) returns (GetThumbnailResponse);
+  rpc GetTitle (GetTitleRequest) returns (GetTitleResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToBuilder (ToBuilderRequest) returns (ToBuilderResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service DescriptionBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetContent (SetContentRequest) returns (SetContentResponse);
+  rpc SetContextDescription (SetContextDescriptionRequest) returns (SetContextDescriptionResponse);
+  rpc SetContextUri (SetContextUriRequest) returns (SetContextUriResponse);
+  rpc SetId (SetIdRequest) returns (SetIdResponse);
+  rpc SetThumbnail (SetThumbnailRequest) returns (SetThumbnailResponse);
+  rpc SetTitle (SetTitleRequest) returns (SetTitleResponse);
+}
+
+service InstanceService {
+  rpc NewInstance (NewInstanceRequest) returns (NewInstanceResponse);
+  rpc DescribeContents (InstanceDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (InstanceEqualsRequest) returns (EqualsResponse);
+  rpc GetDescription (GetDescriptionRequest) returns (GetDescriptionResponse);
+  rpc GetId (InstanceGetIdRequest) returns (GetIdResponse);
+  rpc GetInfo (GetInfoRequest) returns (GetInfoResponse);
+  rpc HashCode (InstanceHashCodeRequest) returns (HashCodeResponse);
+  rpc WriteToParcel (InstanceWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ServiceService {
+  rpc OnBind (OnBindRequest) returns (OnBindResponse);
+  rpc OnCreate (OnCreateRequest) returns (OnCreateResponse);
+  rpc OnCreateEngine0 (OnCreateEngine0Request) returns (OnCreateEngine0Response);
+  rpc OnCreateEngine1_1 (OnCreateEngine1_1Request) returns (OnCreateEngine1_1Response);
+  rpc OnDestroy (OnDestroyRequest) returns (OnDestroyResponse);
+}
+
+service ServiceEngineService {
+  rpc GetDesiredMinimumHeight (GetDesiredMinimumHeightRequest) returns (GetDesiredMinimumHeightResponse);
+  rpc GetDesiredMinimumWidth (GetDesiredMinimumWidthRequest) returns (GetDesiredMinimumWidthResponse);
+  rpc GetDisplayContext (GetDisplayContextRequest) returns (GetDisplayContextResponse);
+  rpc GetSurfaceHolder (GetSurfaceHolderRequest) returns (GetSurfaceHolderResponse);
+  rpc GetWallpaperFlags (GetWallpaperFlagsRequest) returns (GetWallpaperFlagsResponse);
+  rpc IsPreview (IsPreviewRequest) returns (IsPreviewResponse);
+  rpc IsVisible (IsVisibleRequest) returns (IsVisibleResponse);
+  rpc NotifyColorsChanged (NotifyColorsChangedRequest) returns (NotifyColorsChangedResponse);
+  rpc OnApplyWallpaper (OnApplyWallpaperRequest) returns (OnApplyWallpaperResponse);
+  rpc OnApplyWindowInsets (OnApplyWindowInsetsRequest) returns (OnApplyWindowInsetsResponse);
+  rpc OnCommand (OnCommandRequest) returns (OnCommandResponse);
+  rpc OnComputeColors (OnComputeColorsRequest) returns (OnComputeColorsResponse);
+  rpc OnCreate (ServiceEngineOnCreateRequest) returns (OnCreateResponse);
+  rpc OnDesiredSizeChanged (OnDesiredSizeChangedRequest) returns (OnDesiredSizeChangedResponse);
+  rpc OnDestroy (OnDestroyRequest) returns (OnDestroyResponse);
+  rpc OnOffsetsChanged (OnOffsetsChangedRequest) returns (OnOffsetsChangedResponse);
+  rpc OnSurfaceChanged (OnSurfaceChangedRequest) returns (OnSurfaceChangedResponse);
+  rpc OnSurfaceCreated (OnSurfaceCreatedRequest) returns (OnSurfaceCreatedResponse);
+  rpc OnSurfaceDestroyed (OnSurfaceDestroyedRequest) returns (OnSurfaceDestroyedResponse);
+  rpc OnSurfaceRedrawNeeded (OnSurfaceRedrawNeededRequest) returns (OnSurfaceRedrawNeededResponse);
+  rpc OnTouchEvent (OnTouchEventRequest) returns (OnTouchEventResponse);
+  rpc OnVisibilityChanged (OnVisibilityChangedRequest) returns (OnVisibilityChangedResponse);
+  rpc OnWallpaperFlagsChanged (OnWallpaperFlagsChangedRequest) returns (OnWallpaperFlagsChangedResponse);
+  rpc OnZoomChanged (OnZoomChangedRequest) returns (OnZoomChangedResponse);
+  rpc SetOffsetNotificationsEnabled (SetOffsetNotificationsEnabledRequest) returns (SetOffsetNotificationsEnabledResponse);
+  rpc SetTouchEventsEnabled (SetTouchEventsEnabledRequest) returns (SetTouchEventsEnabledResponse);
+}

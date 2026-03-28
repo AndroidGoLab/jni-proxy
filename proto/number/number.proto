@@ -5,3 +5,649 @@ syntax = "proto3";
 package number;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/number";
+
+message WithExponentSignDisplayRequest {
+  int64 arg0 = 1;
+}
+
+message WithExponentSignDisplayResponse {
+  int64 result = 1;
+}
+
+message WithMinExponentDigitsRequest {
+  int32 arg0 = 1;
+}
+
+message WithMinExponentDigitsResponse {
+  int64 result = 1;
+}
+
+message ByBigDecimalRequest {
+  int64 arg0 = 1;
+}
+
+message ByBigDecimalResponse {
+  int64 result = 1;
+}
+
+message ByDoubleRequest {
+  double arg0 = 1;
+}
+
+message ByDoubleResponse {
+  int64 result = 1;
+}
+
+message ByDoubleAndPowerOfTenRequest {
+  double arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message ByDoubleAndPowerOfTenResponse {
+  int64 result = 1;
+}
+
+message NoneRequest {
+}
+
+message NoneResponse {
+  int64 result = 1;
+}
+
+message PowerOfTenRequest {
+  int32 arg0 = 1;
+}
+
+message PowerOfTenResponse {
+  int64 result = 1;
+}
+
+message WithMaxDigitsRequest {
+  int32 arg0 = 1;
+}
+
+message WithMaxDigitsResponse {
+  int64 result = 1;
+}
+
+message WithMinDigitsRequest {
+  int32 arg0 = 1;
+}
+
+message WithMinDigitsResponse {
+  int64 result = 1;
+}
+
+message WithSignificantDigitsRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message WithSignificantDigitsResponse {
+  int64 result = 1;
+}
+
+message TrailingZeroDisplayRequest {
+  int64 arg0 = 1;
+}
+
+message TrailingZeroDisplayResponse {
+  int64 result = 1;
+}
+
+message CurrencyRequest {
+  int64 arg0 = 1;
+}
+
+message CurrencyResponse {
+  int64 result = 1;
+}
+
+message FixedFractionRequest {
+  int32 arg0 = 1;
+}
+
+message FixedFractionResponse {
+  int64 result = 1;
+}
+
+message FixedSignificantDigitsRequest {
+  int32 arg0 = 1;
+}
+
+message FixedSignificantDigitsResponse {
+  int64 result = 1;
+}
+
+message IncrementRequest {
+  int64 arg0 = 1;
+}
+
+message IncrementResponse {
+  int64 result = 1;
+}
+
+message IntegerRequest {
+}
+
+message IntegerResponse {
+  int64 result = 1;
+}
+
+message MaxFractionRequest {
+  int32 arg0 = 1;
+}
+
+message MaxFractionResponse {
+  int64 result = 1;
+}
+
+message MaxSignificantDigitsRequest {
+  int32 arg0 = 1;
+}
+
+message MaxSignificantDigitsResponse {
+  int64 result = 1;
+}
+
+message MinFractionRequest {
+  int32 arg0 = 1;
+}
+
+message MinFractionResponse {
+  int64 result = 1;
+}
+
+message MinMaxFractionRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message MinMaxFractionResponse {
+  int64 result = 1;
+}
+
+message MinMaxSignificantDigitsRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message MinMaxSignificantDigitsResponse {
+  int64 result = 1;
+}
+
+message MinSignificantDigitsRequest {
+  int32 arg0 = 1;
+}
+
+message MinSignificantDigitsResponse {
+  int64 result = 1;
+}
+
+message UnlimitedRequest {
+}
+
+message UnlimitedResponse {
+  int64 result = 1;
+}
+
+message FormatRange2Request {
+  double arg0 = 1;
+  double arg1 = 2;
+}
+
+message FormatRange2Response {
+  int64 result = 1;
+}
+
+message FormatRange2_1Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message FormatRange2_1Response {
+  int64 result = 1;
+}
+
+message FormatRange2_2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message FormatRange2_2Response {
+  int64 result = 1;
+}
+
+message WithoutLocaleRequest {
+}
+
+message WithoutLocaleResponse {
+  int64 result = 1;
+}
+
+message WithRequest {
+}
+
+message WithResponse {
+  int64 result = 1;
+}
+
+message WithLocale1Request {
+  int64 arg0 = 1;
+}
+
+message WithLocale1Response {
+  int64 result = 1;
+}
+
+message WithLocale1_1Request {
+  int64 arg0 = 1;
+}
+
+message WithLocale1_1Response {
+  int64 result = 1;
+}
+
+message ValuesRequest {
+}
+
+message ValuesResponse {
+  int64 result = 1;
+}
+
+message ValueOfRequest {
+  string arg0 = 1;
+}
+
+message ValueOfResponse {
+  int64 result = 1;
+}
+
+message Format1Request {
+  int64 arg0 = 1;
+}
+
+message Format1Response {
+  int64 result = 1;
+}
+
+message Format1_1Request {
+  double arg0 = 1;
+}
+
+message Format1_1Response {
+  int64 result = 1;
+}
+
+message Format1_2Request {
+  int64 arg0 = 1;
+}
+
+message Format1_2Response {
+  int64 result = 1;
+}
+
+message Format1_3Request {
+  int64 arg0 = 1;
+}
+
+message Format1_3Response {
+  int64 result = 1;
+}
+
+message ToFormatRequest {
+}
+
+message ToFormatResponse {
+  int64 result = 1;
+}
+
+message EqualsRequest {
+  int64 arg0 = 1;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message HashCodeRequest {
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message TruncateAtRequest {
+  int32 arg0 = 1;
+}
+
+message TruncateAtResponse {
+  int64 result = 1;
+}
+
+message ZeroFillToRequest {
+  int32 arg0 = 1;
+}
+
+message ZeroFillToResponse {
+  int64 result = 1;
+}
+
+message Locale1Request {
+  int64 arg0 = 1;
+}
+
+message Locale1Response {
+  int64 result = 1;
+}
+
+message Locale1_1Request {
+  int64 arg0 = 1;
+}
+
+message Locale1_1Response {
+  int64 result = 1;
+}
+
+message CompactLongRequest {
+}
+
+message CompactLongResponse {
+  int64 result = 1;
+}
+
+message CompactShortRequest {
+}
+
+message CompactShortResponse {
+  int64 result = 1;
+}
+
+message EngineeringRequest {
+}
+
+message EngineeringResponse {
+  int64 result = 1;
+}
+
+message ScientificRequest {
+}
+
+message ScientificResponse {
+  int64 result = 1;
+}
+
+message SimpleRequest {
+}
+
+message SimpleResponse {
+  int64 result = 1;
+}
+
+message CharAtRequest {
+  int32 arg0 = 1;
+}
+
+message CharAtResponse {
+  int32 result = 1;
+}
+
+message GetFirstBigDecimalRequest {
+}
+
+message GetFirstBigDecimalResponse {
+  int64 result = 1;
+}
+
+message GetIdentityResultRequest {
+}
+
+message GetIdentityResultResponse {
+  int64 result = 1;
+}
+
+message GetSecondBigDecimalRequest {
+}
+
+message GetSecondBigDecimalResponse {
+  int64 result = 1;
+}
+
+message LengthRequest {
+}
+
+message LengthResponse {
+  int32 result = 1;
+}
+
+message NextPositionRequest {
+  int64 arg0 = 1;
+}
+
+message NextPositionResponse {
+  bool result = 1;
+}
+
+message SubSequenceRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message SubSequenceResponse {
+  int64 result = 1;
+}
+
+message ToCharacterIteratorRequest {
+}
+
+message ToCharacterIteratorResponse {
+  int64 result = 1;
+}
+
+message ToStringRequest {
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message GetNounClassRequest {
+}
+
+message GetNounClassResponse {
+  int64 result = 1;
+}
+
+message GetOutputUnitRequest {
+}
+
+message GetOutputUnitResponse {
+  int64 result = 1;
+}
+
+message ToBigDecimalRequest {
+}
+
+message ToBigDecimalResponse {
+  int64 result = 1;
+}
+
+message WithCurrencyRequest {
+  int64 arg0 = 1;
+}
+
+message WithCurrencyResponse {
+  int64 result = 1;
+}
+
+service ScientificNotationService {
+  rpc WithExponentSignDisplay (WithExponentSignDisplayRequest) returns (WithExponentSignDisplayResponse);
+  rpc WithMinExponentDigits (WithMinExponentDigitsRequest) returns (WithMinExponentDigitsResponse);
+}
+
+service ScaleService {
+  rpc ByBigDecimal (ByBigDecimalRequest) returns (ByBigDecimalResponse);
+  rpc ByDouble (ByDoubleRequest) returns (ByDoubleResponse);
+  rpc ByDoubleAndPowerOfTen (ByDoubleAndPowerOfTenRequest) returns (ByDoubleAndPowerOfTenResponse);
+  rpc None (NoneRequest) returns (NoneResponse);
+  rpc PowerOfTen (PowerOfTenRequest) returns (PowerOfTenResponse);
+}
+
+service FractionPrecisionService {
+  rpc WithMaxDigits (WithMaxDigitsRequest) returns (WithMaxDigitsResponse);
+  rpc WithMinDigits (WithMinDigitsRequest) returns (WithMinDigitsResponse);
+  rpc WithSignificantDigits (WithSignificantDigitsRequest) returns (WithSignificantDigitsResponse);
+}
+
+service PrecisionService {
+  rpc TrailingZeroDisplay (TrailingZeroDisplayRequest) returns (TrailingZeroDisplayResponse);
+  rpc Currency (CurrencyRequest) returns (CurrencyResponse);
+  rpc FixedFraction (FixedFractionRequest) returns (FixedFractionResponse);
+  rpc FixedSignificantDigits (FixedSignificantDigitsRequest) returns (FixedSignificantDigitsResponse);
+  rpc Increment (IncrementRequest) returns (IncrementResponse);
+  rpc Integer (IntegerRequest) returns (IntegerResponse);
+  rpc MaxFraction (MaxFractionRequest) returns (MaxFractionResponse);
+  rpc MaxSignificantDigits (MaxSignificantDigitsRequest) returns (MaxSignificantDigitsResponse);
+  rpc MinFraction (MinFractionRequest) returns (MinFractionResponse);
+  rpc MinMaxFraction (MinMaxFractionRequest) returns (MinMaxFractionResponse);
+  rpc MinMaxSignificantDigits (MinMaxSignificantDigitsRequest) returns (MinMaxSignificantDigitsResponse);
+  rpc MinSignificantDigits (MinSignificantDigitsRequest) returns (MinSignificantDigitsResponse);
+  rpc Unlimited (UnlimitedRequest) returns (UnlimitedResponse);
+}
+
+service LocalizedNumberRangeFormatterService {
+  rpc FormatRange2 (FormatRange2Request) returns (FormatRange2Response);
+  rpc FormatRange2_1 (FormatRange2_1Request) returns (FormatRange2_1Response);
+  rpc FormatRange2_2 (FormatRange2_2Request) returns (FormatRange2_2Response);
+  rpc WithoutLocale (WithoutLocaleRequest) returns (WithoutLocaleResponse);
+}
+
+service FormatterService {
+  rpc With (WithRequest) returns (WithResponse);
+  rpc WithLocale1 (WithLocale1Request) returns (WithLocale1Response);
+  rpc WithLocale1_1 (WithLocale1_1Request) returns (WithLocale1_1Response);
+}
+
+service FormatterDecimalSeparatorDisplayService {
+  rpc Values (ValuesRequest) returns (ValuesResponse);
+  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
+}
+
+service FormatterGroupingStrategyService {
+  rpc Values (ValuesRequest) returns (ValuesResponse);
+  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
+}
+
+service FormatterRoundingPriorityService {
+  rpc Values (ValuesRequest) returns (ValuesResponse);
+  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
+}
+
+service FormatterSignDisplayService {
+  rpc Values (ValuesRequest) returns (ValuesResponse);
+  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
+}
+
+service FormatterTrailingZeroDisplayService {
+  rpc Values (ValuesRequest) returns (ValuesResponse);
+  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
+}
+
+service FormatterUnitWidthService {
+  rpc Values (ValuesRequest) returns (ValuesResponse);
+  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
+}
+
+service LocalizedNumberFormatterService {
+  rpc Format1 (Format1Request) returns (Format1Response);
+  rpc Format1_1 (Format1_1Request) returns (Format1_1Response);
+  rpc Format1_2 (Format1_2Request) returns (Format1_2Response);
+  rpc Format1_3 (Format1_3Request) returns (Format1_3Response);
+  rpc ToFormat (ToFormatRequest) returns (ToFormatResponse);
+  rpc WithoutLocale (WithoutLocaleRequest) returns (WithoutLocaleResponse);
+}
+
+service RangeFormatterSettingsService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service IntegerWidthService {
+  rpc TruncateAt (TruncateAtRequest) returns (TruncateAtResponse);
+  rpc ZeroFillTo (ZeroFillToRequest) returns (ZeroFillToResponse);
+}
+
+service UnlocalizedNumberFormatterService {
+  rpc Locale1 (Locale1Request) returns (Locale1Response);
+  rpc Locale1_1 (Locale1_1Request) returns (Locale1_1Response);
+}
+
+service NotationService {
+  rpc CompactLong (CompactLongRequest) returns (CompactLongResponse);
+  rpc CompactShort (CompactShortRequest) returns (CompactShortResponse);
+  rpc Engineering (EngineeringRequest) returns (EngineeringResponse);
+  rpc Scientific (ScientificRequest) returns (ScientificResponse);
+  rpc Simple (SimpleRequest) returns (SimpleResponse);
+}
+
+service FormattedNumberRangeService {
+  rpc CharAt (CharAtRequest) returns (CharAtResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetFirstBigDecimal (GetFirstBigDecimalRequest) returns (GetFirstBigDecimalResponse);
+  rpc GetIdentityResult (GetIdentityResultRequest) returns (GetIdentityResultResponse);
+  rpc GetSecondBigDecimal (GetSecondBigDecimalRequest) returns (GetSecondBigDecimalResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc Length (LengthRequest) returns (LengthResponse);
+  rpc NextPosition (NextPositionRequest) returns (NextPositionResponse);
+  rpc SubSequence (SubSequenceRequest) returns (SubSequenceResponse);
+  rpc ToCharacterIterator (ToCharacterIteratorRequest) returns (ToCharacterIteratorResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service RangeFormatterService {
+  rpc With (WithRequest) returns (WithResponse);
+  rpc WithLocale1 (WithLocale1Request) returns (WithLocale1Response);
+  rpc WithLocale1_1 (WithLocale1_1Request) returns (WithLocale1_1Response);
+}
+
+service RangeFormatterRangeCollapseService {
+  rpc Values (ValuesRequest) returns (ValuesResponse);
+  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
+}
+
+service RangeFormatterRangeIdentityFallbackService {
+  rpc Values (ValuesRequest) returns (ValuesResponse);
+  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
+}
+
+service RangeFormatterRangeIdentityResultService {
+  rpc Values (ValuesRequest) returns (ValuesResponse);
+  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
+}
+
+service UnlocalizedNumberRangeFormatterService {
+  rpc Locale1 (Locale1Request) returns (Locale1Response);
+  rpc Locale1_1 (Locale1_1Request) returns (Locale1_1Response);
+}
+
+service FormattedNumberService {
+  rpc CharAt (CharAtRequest) returns (CharAtResponse);
+  rpc GetNounClass (GetNounClassRequest) returns (GetNounClassResponse);
+  rpc GetOutputUnit (GetOutputUnitRequest) returns (GetOutputUnitResponse);
+  rpc Length (LengthRequest) returns (LengthResponse);
+  rpc NextPosition (NextPositionRequest) returns (NextPositionResponse);
+  rpc SubSequence (SubSequenceRequest) returns (SubSequenceResponse);
+  rpc ToBigDecimal (ToBigDecimalRequest) returns (ToBigDecimalResponse);
+  rpc ToCharacterIterator (ToCharacterIteratorRequest) returns (ToCharacterIteratorResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service FormatterSettingsService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service CurrencyPrecisionService {
+  rpc WithCurrency (WithCurrencyRequest) returns (WithCurrencyResponse);
+}

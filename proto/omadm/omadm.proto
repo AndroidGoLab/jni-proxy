@@ -5,3 +5,15 @@ syntax = "proto3";
 package omadm;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/omadm";
+
+message ParseMoTextRequest {
+  string arg0 = 1;
+}
+
+message ParseMoTextResponse {
+  int64 result = 1;
+}
+
+service PpsMoParserService {
+  rpc ParseMoText (ParseMoTextRequest) returns (ParseMoTextResponse);
+}

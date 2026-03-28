@@ -5,3 +5,216 @@ syntax = "proto3";
 package rtp;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/rtp";
+
+message NewAudioStreamRequest {
+  int64 arg0 = 1;
+}
+
+message NewAudioStreamResponse {
+  int64 result = 1;
+}
+
+message GetCodecRequest {
+  int64 handle = 1;
+}
+
+message GetCodecResponse {
+  int64 result = 1;
+}
+
+message GetDtmfTypeRequest {
+  int64 handle = 1;
+}
+
+message GetDtmfTypeResponse {
+  int32 result = 1;
+}
+
+message GetGroupRequest {
+  int64 handle = 1;
+}
+
+message GetGroupResponse {
+  int64 result = 1;
+}
+
+message IsBusyRequest {
+  int64 handle = 1;
+}
+
+message IsBusyResponse {
+  bool result = 1;
+}
+
+message JoinRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message JoinResponse {
+}
+
+message SetCodecRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetCodecResponse {
+}
+
+message SetDtmfTypeRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetDtmfTypeResponse {
+}
+
+message AssociateRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message AssociateResponse {
+}
+
+message GetLocalAddressRequest {
+}
+
+message GetLocalAddressResponse {
+  int64 result = 1;
+}
+
+message GetLocalPortRequest {
+}
+
+message GetLocalPortResponse {
+  int32 result = 1;
+}
+
+message GetModeRequest {
+}
+
+message GetModeResponse {
+  int32 result = 1;
+}
+
+message GetRemoteAddressRequest {
+}
+
+message GetRemoteAddressResponse {
+  int64 result = 1;
+}
+
+message GetRemotePortRequest {
+}
+
+message GetRemotePortResponse {
+  int32 result = 1;
+}
+
+message StreamIsBusyRequest {
+}
+
+message ReleaseRequest {
+}
+
+message ReleaseResponse {
+}
+
+message SetModeRequest {
+  int32 arg0 = 1;
+}
+
+message SetModeResponse {
+}
+
+message NewAudioGroupRequest {
+  int64 arg0 = 1;
+}
+
+message NewAudioGroupResponse {
+  int64 result = 1;
+}
+
+message ClearRequest {
+  int64 handle = 1;
+}
+
+message ClearResponse {
+}
+
+message AudioGroupGetModeRequest {
+  int64 handle = 1;
+}
+
+message GetStreamsRequest {
+  int64 handle = 1;
+}
+
+message GetStreamsResponse {
+  int64 result = 1;
+}
+
+message SendDtmfRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SendDtmfResponse {
+}
+
+message AudioGroupSetModeRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message AudioCodecGetCodecRequest {
+  int32 arg0 = 1;
+  string arg1 = 2;
+  string arg2 = 3;
+}
+
+message GetCodecsRequest {
+}
+
+message GetCodecsResponse {
+  int64 result = 1;
+}
+
+service AudioStreamService {
+  rpc NewAudioStream (NewAudioStreamRequest) returns (NewAudioStreamResponse);
+  rpc GetCodec (GetCodecRequest) returns (GetCodecResponse);
+  rpc GetDtmfType (GetDtmfTypeRequest) returns (GetDtmfTypeResponse);
+  rpc GetGroup (GetGroupRequest) returns (GetGroupResponse);
+  rpc IsBusy (IsBusyRequest) returns (IsBusyResponse);
+  rpc Join (JoinRequest) returns (JoinResponse);
+  rpc SetCodec (SetCodecRequest) returns (SetCodecResponse);
+  rpc SetDtmfType (SetDtmfTypeRequest) returns (SetDtmfTypeResponse);
+}
+
+service StreamService {
+  rpc Associate (AssociateRequest) returns (AssociateResponse);
+  rpc GetLocalAddress (GetLocalAddressRequest) returns (GetLocalAddressResponse);
+  rpc GetLocalPort (GetLocalPortRequest) returns (GetLocalPortResponse);
+  rpc GetMode (GetModeRequest) returns (GetModeResponse);
+  rpc GetRemoteAddress (GetRemoteAddressRequest) returns (GetRemoteAddressResponse);
+  rpc GetRemotePort (GetRemotePortRequest) returns (GetRemotePortResponse);
+  rpc IsBusy (StreamIsBusyRequest) returns (IsBusyResponse);
+  rpc Release (ReleaseRequest) returns (ReleaseResponse);
+  rpc SetMode (SetModeRequest) returns (SetModeResponse);
+}
+
+service AudioGroupService {
+  rpc NewAudioGroup (NewAudioGroupRequest) returns (NewAudioGroupResponse);
+  rpc Clear (ClearRequest) returns (ClearResponse);
+  rpc GetMode (AudioGroupGetModeRequest) returns (GetModeResponse);
+  rpc GetStreams (GetStreamsRequest) returns (GetStreamsResponse);
+  rpc SendDtmf (SendDtmfRequest) returns (SendDtmfResponse);
+  rpc SetMode (AudioGroupSetModeRequest) returns (SetModeResponse);
+}
+
+service AudioCodecService {
+  rpc GetCodec (AudioCodecGetCodecRequest) returns (GetCodecResponse);
+  rpc GetCodecs (GetCodecsRequest) returns (GetCodecsResponse);
+}

@@ -6,6 +6,160 @@ package health;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/health";
 
+message GetDataTypeRequest {
+}
+
+message GetDataTypeResponse {
+  string result = 1;
+}
+
+message GetMeasurementRequest {
+  int32 arg0 = 1;
+}
+
+message GetMeasurementResponse {
+  int64 result = 1;
+}
+
+message GetMeasurementKeyAtRequest {
+  int32 arg0 = 1;
+}
+
+message GetMeasurementKeyAtResponse {
+  int32 result = 1;
+}
+
+message GetMeasurementKeyCountRequest {
+}
+
+message GetMeasurementKeyCountResponse {
+  int32 result = 1;
+}
+
+message GetMeasurementsKeyAtRequest {
+  int32 arg0 = 1;
+}
+
+message GetMeasurementsKeyAtResponse {
+  int32 result = 1;
+}
+
+message GetMeasurementsKeyCountRequest {
+}
+
+message GetMeasurementsKeyCountResponse {
+  int32 result = 1;
+}
+
+message GetStatsKeyAtRequest {
+  int32 arg0 = 1;
+}
+
+message GetStatsKeyAtResponse {
+  int32 result = 1;
+}
+
+message GetStatsKeyCountRequest {
+}
+
+message GetStatsKeyCountResponse {
+  int32 result = 1;
+}
+
+message GetTimerRequest {
+  int32 arg0 = 1;
+}
+
+message GetTimerResponse {
+  int64 result = 1;
+}
+
+message GetTimerCountRequest {
+  int32 arg0 = 1;
+}
+
+message GetTimerCountResponse {
+  int32 result = 1;
+}
+
+message GetTimerKeyAtRequest {
+  int32 arg0 = 1;
+}
+
+message GetTimerKeyAtResponse {
+  int32 result = 1;
+}
+
+message GetTimerKeyCountRequest {
+}
+
+message GetTimerKeyCountResponse {
+  int32 result = 1;
+}
+
+message GetTimerTimeRequest {
+  int32 arg0 = 1;
+}
+
+message GetTimerTimeResponse {
+  int64 result = 1;
+}
+
+message GetTimersKeyAtRequest {
+  int32 arg0 = 1;
+}
+
+message GetTimersKeyAtResponse {
+  int32 result = 1;
+}
+
+message GetTimersKeyCountRequest {
+}
+
+message GetTimersKeyCountResponse {
+  int32 result = 1;
+}
+
+message HasMeasurementRequest {
+  int32 arg0 = 1;
+}
+
+message HasMeasurementResponse {
+  bool result = 1;
+}
+
+message HasMeasurementsRequest {
+  int32 arg0 = 1;
+}
+
+message HasMeasurementsResponse {
+  bool result = 1;
+}
+
+message HasStatsRequest {
+  int32 arg0 = 1;
+}
+
+message HasStatsResponse {
+  bool result = 1;
+}
+
+message HasTimerRequest {
+  int32 arg0 = 1;
+}
+
+message HasTimerResponse {
+  bool result = 1;
+}
+
+message HasTimersRequest {
+  int32 arg0 = 1;
+}
+
+message HasTimersResponse {
+  bool result = 1;
+}
+
 message GetCpuHeadroomRequest {
   int64 arg0 = 1;
 }
@@ -66,6 +220,85 @@ message TakeUidSnapshotsResponse {
   int64 result = 1;
 }
 
+message NewTimerStatRequest {
+}
+
+message NewTimerStatResponse {
+  int64 result = 1;
+}
+
+message DescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message GetCountRequest {
+  int64 handle = 1;
+}
+
+message GetCountResponse {
+  int32 result = 1;
+}
+
+message GetTimeRequest {
+  int64 handle = 1;
+}
+
+message GetTimeResponse {
+  int64 result = 1;
+}
+
+message SetCountRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetCountResponse {
+}
+
+message SetTimeRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetTimeResponse {
+}
+
+message WriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message WriteToParcelResponse {
+}
+
+service StatsService {
+  rpc GetDataType (GetDataTypeRequest) returns (GetDataTypeResponse);
+  rpc GetMeasurement (GetMeasurementRequest) returns (GetMeasurementResponse);
+  rpc GetMeasurementKeyAt (GetMeasurementKeyAtRequest) returns (GetMeasurementKeyAtResponse);
+  rpc GetMeasurementKeyCount (GetMeasurementKeyCountRequest) returns (GetMeasurementKeyCountResponse);
+  rpc GetMeasurementsKeyAt (GetMeasurementsKeyAtRequest) returns (GetMeasurementsKeyAtResponse);
+  rpc GetMeasurementsKeyCount (GetMeasurementsKeyCountRequest) returns (GetMeasurementsKeyCountResponse);
+  rpc GetStatsKeyAt (GetStatsKeyAtRequest) returns (GetStatsKeyAtResponse);
+  rpc GetStatsKeyCount (GetStatsKeyCountRequest) returns (GetStatsKeyCountResponse);
+  rpc GetTimer (GetTimerRequest) returns (GetTimerResponse);
+  rpc GetTimerCount (GetTimerCountRequest) returns (GetTimerCountResponse);
+  rpc GetTimerKeyAt (GetTimerKeyAtRequest) returns (GetTimerKeyAtResponse);
+  rpc GetTimerKeyCount (GetTimerKeyCountRequest) returns (GetTimerKeyCountResponse);
+  rpc GetTimerTime (GetTimerTimeRequest) returns (GetTimerTimeResponse);
+  rpc GetTimersKeyAt (GetTimersKeyAtRequest) returns (GetTimersKeyAtResponse);
+  rpc GetTimersKeyCount (GetTimersKeyCountRequest) returns (GetTimersKeyCountResponse);
+  rpc HasMeasurement (HasMeasurementRequest) returns (HasMeasurementResponse);
+  rpc HasMeasurements (HasMeasurementsRequest) returns (HasMeasurementsResponse);
+  rpc HasStats (HasStatsRequest) returns (HasStatsResponse);
+  rpc HasTimer (HasTimerRequest) returns (HasTimerResponse);
+  rpc HasTimers (HasTimersRequest) returns (HasTimersResponse);
+}
+
 service SystemHealthManagerService {
   rpc GetCpuHeadroom (GetCpuHeadroomRequest) returns (GetCpuHeadroomResponse);
   rpc GetCpuHeadroomMinIntervalMillis (GetCpuHeadroomMinIntervalMillisRequest) returns (GetCpuHeadroomMinIntervalMillisResponse);
@@ -75,4 +308,14 @@ service SystemHealthManagerService {
   rpc TakeMyUidSnapshot (TakeMyUidSnapshotRequest) returns (TakeMyUidSnapshotResponse);
   rpc TakeUidSnapshot (TakeUidSnapshotRequest) returns (TakeUidSnapshotResponse);
   rpc TakeUidSnapshots (TakeUidSnapshotsRequest) returns (TakeUidSnapshotsResponse);
+}
+
+service TimerStatService {
+  rpc NewTimerStat (NewTimerStatRequest) returns (NewTimerStatResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetCount (GetCountRequest) returns (GetCountResponse);
+  rpc GetTime (GetTimeRequest) returns (GetTimeResponse);
+  rpc SetCount (SetCountRequest) returns (SetCountResponse);
+  rpc SetTime (SetTimeRequest) returns (SetTimeResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }

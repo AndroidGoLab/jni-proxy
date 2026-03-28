@@ -6,6 +6,660 @@ package wifi;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/wifi";
 
+message DescribeContentsRequest {
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message EqualsRequest {
+  int64 arg0 = 1;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message GetApMldMacAddressRequest {
+}
+
+message GetApMldMacAddressResponse {
+  int64 result = 1;
+}
+
+message GetApMloLinkIdRequest {
+}
+
+message GetApMloLinkIdResponse {
+  int32 result = 1;
+}
+
+message GetApplicableRedactionsRequest {
+}
+
+message GetApplicableRedactionsResponse {
+  int64 result = 1;
+}
+
+message GetBSSIDRequest {
+}
+
+message GetBSSIDResponse {
+  string result = 1;
+}
+
+message GetCurrentSecurityTypeRequest {
+}
+
+message GetCurrentSecurityTypeResponse {
+  int32 result = 1;
+}
+
+message GetFrequencyRequest {
+}
+
+message GetFrequencyResponse {
+  int32 result = 1;
+}
+
+message GetHiddenSSIDRequest {
+}
+
+message GetHiddenSSIDResponse {
+  bool result = 1;
+}
+
+message GetIpAddressRequest {
+}
+
+message GetIpAddressResponse {
+  int32 result = 1;
+}
+
+message GetLinkSpeedRequest {
+}
+
+message GetLinkSpeedResponse {
+  int32 result = 1;
+}
+
+message GetMacAddressRequest {
+}
+
+message GetMacAddressResponse {
+  string result = 1;
+}
+
+message GetMaxSupportedRxLinkSpeedMbpsRequest {
+}
+
+message GetMaxSupportedRxLinkSpeedMbpsResponse {
+  int32 result = 1;
+}
+
+message GetMaxSupportedTxLinkSpeedMbpsRequest {
+}
+
+message GetMaxSupportedTxLinkSpeedMbpsResponse {
+  int32 result = 1;
+}
+
+message GetNetworkIdRequest {
+}
+
+message GetNetworkIdResponse {
+  int32 result = 1;
+}
+
+message GetPasspointFqdnRequest {
+}
+
+message GetPasspointFqdnResponse {
+  string result = 1;
+}
+
+message GetPasspointProviderFriendlyNameRequest {
+}
+
+message GetPasspointProviderFriendlyNameResponse {
+  string result = 1;
+}
+
+message GetPasspointUniqueIdRequest {
+}
+
+message GetPasspointUniqueIdResponse {
+  string result = 1;
+}
+
+message GetRssiRequest {
+}
+
+message GetRssiResponse {
+  int32 result = 1;
+}
+
+message GetRxLinkSpeedMbpsRequest {
+}
+
+message GetRxLinkSpeedMbpsResponse {
+  int32 result = 1;
+}
+
+message GetSSIDRequest {
+}
+
+message GetSSIDResponse {
+  string result = 1;
+}
+
+message GetSubscriptionIdRequest {
+}
+
+message GetSubscriptionIdResponse {
+  int32 result = 1;
+}
+
+message GetSupplicantStateRequest {
+}
+
+message GetSupplicantStateResponse {
+  int64 result = 1;
+}
+
+message GetTxLinkSpeedMbpsRequest {
+}
+
+message GetTxLinkSpeedMbpsResponse {
+  int32 result = 1;
+}
+
+message GetWifiStandardRequest {
+}
+
+message GetWifiStandardResponse {
+  int32 result = 1;
+}
+
+message HashCodeRequest {
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message IsRestrictedRequest {
+}
+
+message IsRestrictedResponse {
+  bool result = 1;
+}
+
+message MakeCopyRequest {
+  int64 arg0 = 1;
+}
+
+message MakeCopyResponse {
+  int64 result = 1;
+}
+
+message ToStringRequest {
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteToParcelResponse {
+}
+
+message GetDetailedStateOfRequest {
+  int64 arg0 = 1;
+}
+
+message GetDetailedStateOfResponse {
+  int64 result = 1;
+}
+
+message BuildRequest {
+}
+
+message BuildResponse {
+  int64 result = 1;
+}
+
+message SetBssidRequest {
+  string arg0 = 1;
+}
+
+message SetBssidResponse {
+  int64 result = 1;
+}
+
+message SetCurrentSecurityTypeRequest {
+  int32 arg0 = 1;
+}
+
+message SetCurrentSecurityTypeResponse {
+  int64 result = 1;
+}
+
+message SetNetworkIdRequest {
+  int32 arg0 = 1;
+}
+
+message SetNetworkIdResponse {
+  int64 result = 1;
+}
+
+message SetRssiRequest {
+  int32 arg0 = 1;
+}
+
+message SetRssiResponse {
+  int64 result = 1;
+}
+
+message SetSsidRequest {
+  int64 arg0 = 1;
+}
+
+message SetSsidResponse {
+  int64 result = 1;
+}
+
+message SetSubscriptionIdRequest {
+  int32 arg0 = 1;
+}
+
+message SetSubscriptionIdResponse {
+  int64 result = 1;
+}
+
+message GetBssidRequest {
+}
+
+message GetBssidResponse {
+  int64 result = 1;
+}
+
+message GetChannelsRequest {
+}
+
+message GetChannelsResponse {
+  int64 result = 1;
+}
+
+message GetPassphraseRequest {
+}
+
+message GetPassphraseResponse {
+  string result = 1;
+}
+
+message GetSecurityTypeRequest {
+}
+
+message GetSecurityTypeResponse {
+  int32 result = 1;
+}
+
+message GetSsidRequest {
+}
+
+message GetSsidResponse {
+  string result = 1;
+}
+
+message GetWifiSsidRequest {
+}
+
+message GetWifiSsidResponse {
+  int64 result = 1;
+}
+
+message IsHiddenSsidRequest {
+}
+
+message IsHiddenSsidResponse {
+  bool result = 1;
+}
+
+message SetChannelsRequest {
+  int64 arg0 = 1;
+}
+
+message SetChannelsResponse {
+  int64 result = 1;
+}
+
+message GetEnterpriseConfigRequest {
+}
+
+message GetEnterpriseConfigResponse {
+  int64 result = 1;
+}
+
+message GetMacRandomizationSettingRequest {
+}
+
+message GetMacRandomizationSettingResponse {
+  int32 result = 1;
+}
+
+message GetPasspointConfigRequest {
+}
+
+message GetPasspointConfigResponse {
+  int64 result = 1;
+}
+
+message GetPriorityRequest {
+}
+
+message GetPriorityResponse {
+  int32 result = 1;
+}
+
+message GetPriorityGroupRequest {
+}
+
+message GetPriorityGroupResponse {
+  int32 result = 1;
+}
+
+message GetSubscriptionGroupRequest {
+}
+
+message GetSubscriptionGroupResponse {
+  int64 result = 1;
+}
+
+message IsAppInteractionRequiredRequest {
+}
+
+message IsAppInteractionRequiredResponse {
+  bool result = 1;
+}
+
+message IsCarrierMergedRequest {
+}
+
+message IsCarrierMergedResponse {
+  bool result = 1;
+}
+
+message IsCredentialSharedWithUserRequest {
+}
+
+message IsCredentialSharedWithUserResponse {
+  bool result = 1;
+}
+
+message IsEnhancedOpenRequest {
+}
+
+message IsEnhancedOpenResponse {
+  bool result = 1;
+}
+
+message IsInitialAutojoinEnabledRequest {
+}
+
+message IsInitialAutojoinEnabledResponse {
+  bool result = 1;
+}
+
+message IsMeteredRequest {
+}
+
+message IsMeteredResponse {
+  bool result = 1;
+}
+
+message IsUntrustedRequest {
+}
+
+message IsUntrustedResponse {
+  bool result = 1;
+}
+
+message IsUserInteractionRequiredRequest {
+}
+
+message IsUserInteractionRequiredResponse {
+  bool result = 1;
+}
+
+message IsWifi7EnabledRequest {
+}
+
+message IsWifi7EnabledResponse {
+  bool result = 1;
+}
+
+message NetworkSuggestionBuilderSetBssidRequest {
+  int64 arg0 = 1;
+}
+
+message SetCarrierMergedRequest {
+  bool arg0 = 1;
+}
+
+message SetCarrierMergedResponse {
+  int64 result = 1;
+}
+
+message SetCredentialSharedWithUserRequest {
+  bool arg0 = 1;
+}
+
+message SetCredentialSharedWithUserResponse {
+  int64 result = 1;
+}
+
+message SetIsAppInteractionRequiredRequest {
+  bool arg0 = 1;
+}
+
+message SetIsAppInteractionRequiredResponse {
+  int64 result = 1;
+}
+
+message SetIsEnhancedOpenRequest {
+  bool arg0 = 1;
+}
+
+message SetIsEnhancedOpenResponse {
+  int64 result = 1;
+}
+
+message SetIsHiddenSsidRequest {
+  bool arg0 = 1;
+}
+
+message SetIsHiddenSsidResponse {
+  int64 result = 1;
+}
+
+message SetIsInitialAutojoinEnabledRequest {
+  bool arg0 = 1;
+}
+
+message SetIsInitialAutojoinEnabledResponse {
+  int64 result = 1;
+}
+
+message SetIsMeteredRequest {
+  bool arg0 = 1;
+}
+
+message SetIsMeteredResponse {
+  int64 result = 1;
+}
+
+message SetIsUserInteractionRequiredRequest {
+  bool arg0 = 1;
+}
+
+message SetIsUserInteractionRequiredResponse {
+  int64 result = 1;
+}
+
+message SetIsWpa3SaeH2eOnlyModeEnabledRequest {
+  bool arg0 = 1;
+}
+
+message SetIsWpa3SaeH2eOnlyModeEnabledResponse {
+  int64 result = 1;
+}
+
+message SetMacRandomizationSettingRequest {
+  int32 arg0 = 1;
+}
+
+message SetMacRandomizationSettingResponse {
+  int64 result = 1;
+}
+
+message SetPasspointConfigRequest {
+  int64 arg0 = 1;
+}
+
+message SetPasspointConfigResponse {
+  int64 result = 1;
+}
+
+message SetPriorityRequest {
+  int32 arg0 = 1;
+}
+
+message SetPriorityResponse {
+  int64 result = 1;
+}
+
+message SetPriorityGroupRequest {
+  int32 arg0 = 1;
+}
+
+message SetPriorityGroupResponse {
+  int64 result = 1;
+}
+
+message SetRestrictedRequest {
+  bool arg0 = 1;
+}
+
+message SetRestrictedResponse {
+  int64 result = 1;
+}
+
+message NetworkSuggestionBuilderSetSsidRequest {
+  string arg0 = 1;
+}
+
+message SetSubscriptionGroupRequest {
+  int64 arg0 = 1;
+}
+
+message SetSubscriptionGroupResponse {
+  int64 result = 1;
+}
+
+message SetUntrustedRequest {
+  bool arg0 = 1;
+}
+
+message SetUntrustedResponse {
+  int64 result = 1;
+}
+
+message SetWapiEnterpriseConfigRequest {
+  int64 arg0 = 1;
+}
+
+message SetWapiEnterpriseConfigResponse {
+  int64 result = 1;
+}
+
+message SetWapiPassphraseRequest {
+  string arg0 = 1;
+}
+
+message SetWapiPassphraseResponse {
+  int64 result = 1;
+}
+
+message SetWifi7EnabledRequest {
+  bool arg0 = 1;
+}
+
+message SetWifi7EnabledResponse {
+  int64 result = 1;
+}
+
+message SetWifiSsidRequest {
+  int64 arg0 = 1;
+}
+
+message SetWifiSsidResponse {
+  int64 result = 1;
+}
+
+message SetWpa2EnterpriseConfigRequest {
+  int64 arg0 = 1;
+}
+
+message SetWpa2EnterpriseConfigResponse {
+  int64 result = 1;
+}
+
+message SetWpa2PassphraseRequest {
+  string arg0 = 1;
+}
+
+message SetWpa2PassphraseResponse {
+  int64 result = 1;
+}
+
+message SetWpa3Enterprise192BitModeConfigRequest {
+  int64 arg0 = 1;
+}
+
+message SetWpa3Enterprise192BitModeConfigResponse {
+  int64 result = 1;
+}
+
+message SetWpa3EnterpriseConfigRequest {
+  int64 arg0 = 1;
+}
+
+message SetWpa3EnterpriseConfigResponse {
+  int64 result = 1;
+}
+
+message SetWpa3EnterpriseStandardModeConfigRequest {
+  int64 arg0 = 1;
+}
+
+message SetWpa3EnterpriseStandardModeConfigResponse {
+  int64 result = 1;
+}
+
+message SetWpa3PassphraseRequest {
+  string arg0 = 1;
+}
+
+message SetWpa3PassphraseResponse {
+  int64 result = 1;
+}
+
 message AddLocalOnlyConnectionFailureListenerRequest {
   int64 arg0 = 1;
   int64 arg1 = 2;
@@ -718,6 +1372,1137 @@ message CompareSignalLevelResponse {
   int32 result = 1;
 }
 
+message GetInterfaceTypeRequest {
+}
+
+message GetInterfaceTypeResponse {
+  int32 result = 1;
+}
+
+message OnConnectionFailedRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message OnConnectionFailedResponse {
+}
+
+message OnFailedRequest {
+  int32 arg0 = 1;
+}
+
+message OnFailedResponse {
+}
+
+message OnStartedRequest {
+  int64 arg0 = 1;
+}
+
+message OnStartedResponse {
+}
+
+message OnStoppedRequest {
+}
+
+message OnStoppedResponse {
+}
+
+message CloseRequest {
+}
+
+message CloseResponse {
+}
+
+message GetSoftApConfigurationRequest {
+}
+
+message GetSoftApConfigurationResponse {
+  int64 result = 1;
+}
+
+message GetWifiConfigurationRequest {
+}
+
+message GetWifiConfigurationResponse {
+  int64 result = 1;
+}
+
+message AcquireRequest {
+}
+
+message AcquireResponse {
+}
+
+message IsHeldRequest {
+}
+
+message IsHeldResponse {
+  bool result = 1;
+}
+
+message ReleaseRequest {
+}
+
+message ReleaseResponse {
+}
+
+message SetReferenceCountedRequest {
+  bool arg0 = 1;
+}
+
+message SetReferenceCountedResponse {
+}
+
+message OnScanResultsAvailableRequest {
+}
+
+message OnScanResultsAvailableResponse {
+}
+
+message OnSubsystemRestartedRequest {
+}
+
+message OnSubsystemRestartedResponse {
+}
+
+message OnSubsystemRestartingRequest {
+}
+
+message OnSubsystemRestartingResponse {
+}
+
+message OnConnectionStatusRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message OnConnectionStatusResponse {
+}
+
+message OnUserApprovalStatusChangeRequest {
+  int32 arg0 = 1;
+}
+
+message OnUserApprovalStatusChangeResponse {
+}
+
+message SetWorkSourceRequest {
+  int64 arg0 = 1;
+}
+
+message SetWorkSourceResponse {
+}
+
+message OnWifiStateChangedRequest {
+}
+
+message OnWifiStateChangedResponse {
+}
+
+message ManagerWpsCallbackOnStartedRequest {
+  string arg0 = 1;
+}
+
+message OnSucceededRequest {
+}
+
+message OnSucceededResponse {
+}
+
+message NewEnterpriseConfigRequest {
+}
+
+message NewEnterpriseConfigResponse {
+  int64 result = 1;
+}
+
+message EnterpriseConfigDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message EnableTrustOnFirstUseRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message EnableTrustOnFirstUseResponse {
+}
+
+message GetAltSubjectMatchRequest {
+  int64 handle = 1;
+}
+
+message GetAltSubjectMatchResponse {
+  string result = 1;
+}
+
+message GetAnonymousIdentityRequest {
+  int64 handle = 1;
+}
+
+message GetAnonymousIdentityResponse {
+  string result = 1;
+}
+
+message GetCaCertificateRequest {
+  int64 handle = 1;
+}
+
+message GetCaCertificateResponse {
+  int64 result = 1;
+}
+
+message GetCaCertificatesRequest {
+  int64 handle = 1;
+}
+
+message GetCaCertificatesResponse {
+  int64 result = 1;
+}
+
+message GetClientCertificateRequest {
+  int64 handle = 1;
+}
+
+message GetClientCertificateResponse {
+  int64 result = 1;
+}
+
+message GetClientCertificateChainRequest {
+  int64 handle = 1;
+}
+
+message GetClientCertificateChainResponse {
+  int64 result = 1;
+}
+
+message GetClientKeyPairAliasRequest {
+  int64 handle = 1;
+}
+
+message GetClientKeyPairAliasResponse {
+  string result = 1;
+}
+
+message GetClientPrivateKeyRequest {
+  int64 handle = 1;
+}
+
+message GetClientPrivateKeyResponse {
+  int64 result = 1;
+}
+
+message GetDecoratedIdentityPrefixRequest {
+  int64 handle = 1;
+}
+
+message GetDecoratedIdentityPrefixResponse {
+  string result = 1;
+}
+
+message GetDomainSuffixMatchRequest {
+  int64 handle = 1;
+}
+
+message GetDomainSuffixMatchResponse {
+  string result = 1;
+}
+
+message GetEapMethodRequest {
+  int64 handle = 1;
+}
+
+message GetEapMethodResponse {
+  int32 result = 1;
+}
+
+message GetIdentityRequest {
+  int64 handle = 1;
+}
+
+message GetIdentityResponse {
+  string result = 1;
+}
+
+message GetMinimumTlsVersionRequest {
+  int64 handle = 1;
+}
+
+message GetMinimumTlsVersionResponse {
+  int32 result = 1;
+}
+
+message GetPasswordRequest {
+  int64 handle = 1;
+}
+
+message GetPasswordResponse {
+  string result = 1;
+}
+
+message GetPhase2MethodRequest {
+  int64 handle = 1;
+}
+
+message GetPhase2MethodResponse {
+  int32 result = 1;
+}
+
+message GetPlmnRequest {
+  int64 handle = 1;
+}
+
+message GetPlmnResponse {
+  string result = 1;
+}
+
+message GetRealmRequest {
+  int64 handle = 1;
+}
+
+message GetRealmResponse {
+  string result = 1;
+}
+
+message GetSubjectMatchRequest {
+  int64 handle = 1;
+}
+
+message GetSubjectMatchResponse {
+  string result = 1;
+}
+
+message HasCaCertificateRequest {
+  int64 handle = 1;
+}
+
+message HasCaCertificateResponse {
+  bool result = 1;
+}
+
+message IsAuthenticationSimBasedRequest {
+  int64 handle = 1;
+}
+
+message IsAuthenticationSimBasedResponse {
+  bool result = 1;
+}
+
+message IsEapMethodServerCertUsedRequest {
+  int64 handle = 1;
+}
+
+message IsEapMethodServerCertUsedResponse {
+  bool result = 1;
+}
+
+message IsServerCertValidationEnabledRequest {
+  int64 handle = 1;
+}
+
+message IsServerCertValidationEnabledResponse {
+  bool result = 1;
+}
+
+message IsTrustOnFirstUseEnabledRequest {
+  int64 handle = 1;
+}
+
+message IsTrustOnFirstUseEnabledResponse {
+  bool result = 1;
+}
+
+message SetAltSubjectMatchRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetAltSubjectMatchResponse {
+}
+
+message SetAnonymousIdentityRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetAnonymousIdentityResponse {
+}
+
+message SetCaCertificateRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetCaCertificateResponse {
+}
+
+message SetCaCertificatesRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetCaCertificatesResponse {
+}
+
+message SetClientKeyEntryRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message SetClientKeyEntryResponse {
+}
+
+message SetClientKeyEntryWithCertificateChainRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message SetClientKeyEntryWithCertificateChainResponse {
+}
+
+message SetClientKeyPairAliasRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetClientKeyPairAliasResponse {
+}
+
+message SetDecoratedIdentityPrefixRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetDecoratedIdentityPrefixResponse {
+}
+
+message SetDomainSuffixMatchRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetDomainSuffixMatchResponse {
+}
+
+message SetEapMethodRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetEapMethodResponse {
+}
+
+message SetIdentityRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetIdentityResponse {
+}
+
+message SetMinimumTlsVersionRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetMinimumTlsVersionResponse {
+}
+
+message SetPasswordRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetPasswordResponse {
+}
+
+message SetPhase2MethodRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetPhase2MethodResponse {
+}
+
+message SetPlmnRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetPlmnResponse {
+}
+
+message SetRealmRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetRealmResponse {
+}
+
+message SetSubjectMatchRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetSubjectMatchResponse {
+}
+
+message EnterpriseConfigToStringRequest {
+  int64 handle = 1;
+}
+
+message EnterpriseConfigWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message NewConfigurationRequest {
+}
+
+message NewConfigurationResponse {
+  int64 result = 1;
+}
+
+message ConfigurationDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message GetHttpProxyRequest {
+  int64 handle = 1;
+}
+
+message GetHttpProxyResponse {
+  int64 result = 1;
+}
+
+message GetKeyRequest {
+  int64 handle = 1;
+}
+
+message GetKeyResponse {
+  string result = 1;
+}
+
+message ConfigurationGetMacRandomizationSettingRequest {
+  int64 handle = 1;
+}
+
+message GetRandomizedMacAddressRequest {
+  int64 handle = 1;
+}
+
+message GetRandomizedMacAddressResponse {
+  int64 result = 1;
+}
+
+message IsDppConfiguratorRequest {
+  int64 handle = 1;
+}
+
+message IsDppConfiguratorResponse {
+  bool result = 1;
+}
+
+message IsPasspointRequest {
+  int64 handle = 1;
+}
+
+message IsPasspointResponse {
+  bool result = 1;
+}
+
+message SetHttpProxyRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetHttpProxyResponse {
+}
+
+message SetIpConfigurationRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetIpConfigurationResponse {
+}
+
+message ConfigurationSetMacRandomizationSettingRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message ConfigurationSetMacRandomizationSettingResponse {
+}
+
+message SetSecurityParamsRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetSecurityParamsResponse {
+}
+
+message ConfigurationToStringRequest {
+  int64 handle = 1;
+}
+
+message ConfigurationWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message NewWpsInfoRequest {
+}
+
+message NewWpsInfoResponse {
+  int64 result = 1;
+}
+
+message WpsInfoDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message WpsInfoToStringRequest {
+  int64 handle = 1;
+}
+
+message WpsInfoWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message NewScanResultRequest {
+}
+
+message NewScanResultResponse {
+  int64 result = 1;
+}
+
+message ScanResultDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message ScanResultGetApMldMacAddressRequest {
+  int64 handle = 1;
+}
+
+message ScanResultGetApMloLinkIdRequest {
+  int64 handle = 1;
+}
+
+message GetSecurityTypesRequest {
+  int64 handle = 1;
+}
+
+message GetSecurityTypesResponse {
+  int64 result = 1;
+}
+
+message ScanResultGetWifiSsidRequest {
+  int64 handle = 1;
+}
+
+message ScanResultGetWifiStandardRequest {
+  int64 handle = 1;
+}
+
+message Is80211azNtbResponderRequest {
+  int64 handle = 1;
+}
+
+message Is80211azNtbResponderResponse {
+  bool result = 1;
+}
+
+message Is80211mcResponderRequest {
+  int64 handle = 1;
+}
+
+message Is80211mcResponderResponse {
+  bool result = 1;
+}
+
+message IsPasspointNetworkRequest {
+  int64 handle = 1;
+}
+
+message IsPasspointNetworkResponse {
+  bool result = 1;
+}
+
+message IsRangingFrameProtectionRequiredRequest {
+  int64 handle = 1;
+}
+
+message IsRangingFrameProtectionRequiredResponse {
+  bool result = 1;
+}
+
+message IsSecureHeLtfSupportedRequest {
+  int64 handle = 1;
+}
+
+message IsSecureHeLtfSupportedResponse {
+  bool result = 1;
+}
+
+message IsTwtResponderRequest {
+  int64 handle = 1;
+}
+
+message IsTwtResponderResponse {
+  bool result = 1;
+}
+
+message ScanResultToStringRequest {
+  int64 handle = 1;
+}
+
+message ScanResultWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message ConvertChannelToFrequencyMhzIfSupportedRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message ConvertChannelToFrequencyMhzIfSupportedResponse {
+  int32 result = 1;
+}
+
+message ConvertFrequencyMhzToChannelIfSupportedRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message ConvertFrequencyMhzToChannelIfSupportedResponse {
+  int32 result = 1;
+}
+
+message GetBytesRequest {
+}
+
+message GetBytesResponse {
+  int64 result = 1;
+}
+
+message GetIdRequest {
+}
+
+message GetIdResponse {
+  int32 result = 1;
+}
+
+message GetIdExtRequest {
+}
+
+message GetIdExtResponse {
+  int32 result = 1;
+}
+
+message ValuesRequest {
+}
+
+message ValuesResponse {
+  int64 result = 1;
+}
+
+message ValueOfRequest {
+  string arg0 = 1;
+}
+
+message ValueOfResponse {
+  int64 result = 1;
+}
+
+message IsValidStateRequest {
+  int64 arg0 = 1;
+}
+
+message IsValidStateResponse {
+  bool result = 1;
+}
+
+message CanBeSatisfiedByRequest {
+  int64 arg0 = 1;
+}
+
+message CanBeSatisfiedByResponse {
+  bool result = 1;
+}
+
+message GetBandRequest {
+}
+
+message GetBandResponse {
+  int32 result = 1;
+}
+
+message GetPreferredChannelFrequenciesMhzRequest {
+}
+
+message GetPreferredChannelFrequenciesMhzResponse {
+  int64 result = 1;
+}
+
+message RedactRequest {
+}
+
+message RedactResponse {
+  int64 result = 1;
+}
+
+message SetBandRequest {
+  int32 arg0 = 1;
+}
+
+message SetBandResponse {
+  int64 result = 1;
+}
+
+message NetworkSpecifierBuilderSetBssidRequest {
+  int64 arg0 = 1;
+}
+
+message SetBssidPatternRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SetBssidPatternResponse {
+  int64 result = 1;
+}
+
+message SetPreferredChannelsFrequenciesMhzRequest {
+  int64 arg0 = 1;
+}
+
+message SetPreferredChannelsFrequenciesMhzResponse {
+  int64 result = 1;
+}
+
+message NetworkSpecifierBuilderSetSsidRequest {
+  string arg0 = 1;
+}
+
+message SetSsidPatternRequest {
+  int64 arg0 = 1;
+}
+
+message SetSsidPatternResponse {
+  int64 result = 1;
+}
+
+message GetBlockingTimeSecondsRequest {
+}
+
+message GetBlockingTimeSecondsResponse {
+  int32 result = 1;
+}
+
+message IsBlockingBssidOnlyRequest {
+}
+
+message IsBlockingBssidOnlyResponse {
+  bool result = 1;
+}
+
+message SetBlockingBssidOnlyRequest {
+  bool arg0 = 1;
+}
+
+message SetBlockingBssidOnlyResponse {
+  int64 result = 1;
+}
+
+message NewMloLinkRequest {
+}
+
+message NewMloLinkResponse {
+  int64 result = 1;
+}
+
+message MloLinkDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message MloLinkEqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetApMacAddressRequest {
+  int64 handle = 1;
+}
+
+message GetApMacAddressResponse {
+  int64 result = 1;
+}
+
+message MloLinkGetBandRequest {
+  int64 handle = 1;
+}
+
+message GetChannelRequest {
+  int64 handle = 1;
+}
+
+message GetChannelResponse {
+  int32 result = 1;
+}
+
+message GetLinkIdRequest {
+  int64 handle = 1;
+}
+
+message GetLinkIdResponse {
+  int32 result = 1;
+}
+
+message MloLinkGetRssiRequest {
+  int64 handle = 1;
+}
+
+message MloLinkGetRxLinkSpeedMbpsRequest {
+  int64 handle = 1;
+}
+
+message GetStaMacAddressRequest {
+  int64 handle = 1;
+}
+
+message GetStaMacAddressResponse {
+  int64 result = 1;
+}
+
+message GetStateRequest {
+  int64 handle = 1;
+}
+
+message GetStateResponse {
+  int32 result = 1;
+}
+
+message MloLinkGetTxLinkSpeedMbpsRequest {
+  int64 handle = 1;
+}
+
+message MloLinkHashCodeRequest {
+  int64 handle = 1;
+}
+
+message MloLinkToStringRequest {
+  int64 handle = 1;
+}
+
+message MloLinkWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message FromBytesRequest {
+  int64 arg0 = 1;
+}
+
+message FromBytesResponse {
+  int64 result = 1;
+}
+
+message NewAvailableChannelRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message NewAvailableChannelResponse {
+  int64 result = 1;
+}
+
+message AvailableChannelDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message AvailableChannelEqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetChannelWidthRequest {
+  int64 handle = 1;
+}
+
+message GetChannelWidthResponse {
+  int32 result = 1;
+}
+
+message GetFrequencyMhzRequest {
+  int64 handle = 1;
+}
+
+message GetFrequencyMhzResponse {
+  int32 result = 1;
+}
+
+message GetOperationalModesRequest {
+  int64 handle = 1;
+}
+
+message GetOperationalModesResponse {
+  int32 result = 1;
+}
+
+message AvailableChannelHashCodeRequest {
+  int64 handle = 1;
+}
+
+message AvailableChannelToStringRequest {
+  int64 handle = 1;
+}
+
+message AvailableChannelWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+service InfoService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetApMldMacAddress (GetApMldMacAddressRequest) returns (GetApMldMacAddressResponse);
+  rpc GetApMloLinkId (GetApMloLinkIdRequest) returns (GetApMloLinkIdResponse);
+  rpc GetApplicableRedactions (GetApplicableRedactionsRequest) returns (GetApplicableRedactionsResponse);
+  rpc GetBSSID (GetBSSIDRequest) returns (GetBSSIDResponse);
+  rpc GetCurrentSecurityType (GetCurrentSecurityTypeRequest) returns (GetCurrentSecurityTypeResponse);
+  rpc GetFrequency (GetFrequencyRequest) returns (GetFrequencyResponse);
+  rpc GetHiddenSSID (GetHiddenSSIDRequest) returns (GetHiddenSSIDResponse);
+  rpc GetIpAddress (GetIpAddressRequest) returns (GetIpAddressResponse);
+  rpc GetLinkSpeed (GetLinkSpeedRequest) returns (GetLinkSpeedResponse);
+  rpc GetMacAddress (GetMacAddressRequest) returns (GetMacAddressResponse);
+  rpc GetMaxSupportedRxLinkSpeedMbps (GetMaxSupportedRxLinkSpeedMbpsRequest) returns (GetMaxSupportedRxLinkSpeedMbpsResponse);
+  rpc GetMaxSupportedTxLinkSpeedMbps (GetMaxSupportedTxLinkSpeedMbpsRequest) returns (GetMaxSupportedTxLinkSpeedMbpsResponse);
+  rpc GetNetworkId (GetNetworkIdRequest) returns (GetNetworkIdResponse);
+  rpc GetPasspointFqdn (GetPasspointFqdnRequest) returns (GetPasspointFqdnResponse);
+  rpc GetPasspointProviderFriendlyName (GetPasspointProviderFriendlyNameRequest) returns (GetPasspointProviderFriendlyNameResponse);
+  rpc GetPasspointUniqueId (GetPasspointUniqueIdRequest) returns (GetPasspointUniqueIdResponse);
+  rpc GetRssi (GetRssiRequest) returns (GetRssiResponse);
+  rpc GetRxLinkSpeedMbps (GetRxLinkSpeedMbpsRequest) returns (GetRxLinkSpeedMbpsResponse);
+  rpc GetSSID (GetSSIDRequest) returns (GetSSIDResponse);
+  rpc GetSubscriptionId (GetSubscriptionIdRequest) returns (GetSubscriptionIdResponse);
+  rpc GetSupplicantState (GetSupplicantStateRequest) returns (GetSupplicantStateResponse);
+  rpc GetTxLinkSpeedMbps (GetTxLinkSpeedMbpsRequest) returns (GetTxLinkSpeedMbpsResponse);
+  rpc GetWifiStandard (GetWifiStandardRequest) returns (GetWifiStandardResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc IsRestricted (IsRestrictedRequest) returns (IsRestrictedResponse);
+  rpc MakeCopy (MakeCopyRequest) returns (MakeCopyResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc GetDetailedStateOf (GetDetailedStateOfRequest) returns (GetDetailedStateOfResponse);
+}
+
+service InfoBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetBssid (SetBssidRequest) returns (SetBssidResponse);
+  rpc SetCurrentSecurityType (SetCurrentSecurityTypeRequest) returns (SetCurrentSecurityTypeResponse);
+  rpc SetNetworkId (SetNetworkIdRequest) returns (SetNetworkIdResponse);
+  rpc SetRssi (SetRssiRequest) returns (SetRssiResponse);
+  rpc SetSsid (SetSsidRequest) returns (SetSsidResponse);
+  rpc SetSubscriptionId (SetSubscriptionIdRequest) returns (SetSubscriptionIdResponse);
+}
+
+service SoftApConfigurationService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetBssid (GetBssidRequest) returns (GetBssidResponse);
+  rpc GetChannels (GetChannelsRequest) returns (GetChannelsResponse);
+  rpc GetPassphrase (GetPassphraseRequest) returns (GetPassphraseResponse);
+  rpc GetSecurityType (GetSecurityTypeRequest) returns (GetSecurityTypeResponse);
+  rpc GetSsid (GetSsidRequest) returns (GetSsidResponse);
+  rpc GetWifiSsid (GetWifiSsidRequest) returns (GetWifiSsidResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc IsHiddenSsid (IsHiddenSsidRequest) returns (IsHiddenSsidResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service SoftApConfigurationBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetChannels (SetChannelsRequest) returns (SetChannelsResponse);
+}
+
+service NetworkSuggestionService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetBssid (GetBssidRequest) returns (GetBssidResponse);
+  rpc GetEnterpriseConfig (GetEnterpriseConfigRequest) returns (GetEnterpriseConfigResponse);
+  rpc GetMacRandomizationSetting (GetMacRandomizationSettingRequest) returns (GetMacRandomizationSettingResponse);
+  rpc GetPassphrase (GetPassphraseRequest) returns (GetPassphraseResponse);
+  rpc GetPasspointConfig (GetPasspointConfigRequest) returns (GetPasspointConfigResponse);
+  rpc GetPriority (GetPriorityRequest) returns (GetPriorityResponse);
+  rpc GetPriorityGroup (GetPriorityGroupRequest) returns (GetPriorityGroupResponse);
+  rpc GetSsid (GetSsidRequest) returns (GetSsidResponse);
+  rpc GetSubscriptionGroup (GetSubscriptionGroupRequest) returns (GetSubscriptionGroupResponse);
+  rpc GetSubscriptionId (GetSubscriptionIdRequest) returns (GetSubscriptionIdResponse);
+  rpc GetWifiSsid (GetWifiSsidRequest) returns (GetWifiSsidResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc IsAppInteractionRequired (IsAppInteractionRequiredRequest) returns (IsAppInteractionRequiredResponse);
+  rpc IsCarrierMerged (IsCarrierMergedRequest) returns (IsCarrierMergedResponse);
+  rpc IsCredentialSharedWithUser (IsCredentialSharedWithUserRequest) returns (IsCredentialSharedWithUserResponse);
+  rpc IsEnhancedOpen (IsEnhancedOpenRequest) returns (IsEnhancedOpenResponse);
+  rpc IsHiddenSsid (IsHiddenSsidRequest) returns (IsHiddenSsidResponse);
+  rpc IsInitialAutojoinEnabled (IsInitialAutojoinEnabledRequest) returns (IsInitialAutojoinEnabledResponse);
+  rpc IsMetered (IsMeteredRequest) returns (IsMeteredResponse);
+  rpc IsRestricted (IsRestrictedRequest) returns (IsRestrictedResponse);
+  rpc IsUntrusted (IsUntrustedRequest) returns (IsUntrustedResponse);
+  rpc IsUserInteractionRequired (IsUserInteractionRequiredRequest) returns (IsUserInteractionRequiredResponse);
+  rpc IsWifi7Enabled (IsWifi7EnabledRequest) returns (IsWifi7EnabledResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service NetworkSuggestionBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetBssid (NetworkSuggestionBuilderSetBssidRequest) returns (SetBssidResponse);
+  rpc SetCarrierMerged (SetCarrierMergedRequest) returns (SetCarrierMergedResponse);
+  rpc SetCredentialSharedWithUser (SetCredentialSharedWithUserRequest) returns (SetCredentialSharedWithUserResponse);
+  rpc SetIsAppInteractionRequired (SetIsAppInteractionRequiredRequest) returns (SetIsAppInteractionRequiredResponse);
+  rpc SetIsEnhancedOpen (SetIsEnhancedOpenRequest) returns (SetIsEnhancedOpenResponse);
+  rpc SetIsHiddenSsid (SetIsHiddenSsidRequest) returns (SetIsHiddenSsidResponse);
+  rpc SetIsInitialAutojoinEnabled (SetIsInitialAutojoinEnabledRequest) returns (SetIsInitialAutojoinEnabledResponse);
+  rpc SetIsMetered (SetIsMeteredRequest) returns (SetIsMeteredResponse);
+  rpc SetIsUserInteractionRequired (SetIsUserInteractionRequiredRequest) returns (SetIsUserInteractionRequiredResponse);
+  rpc SetIsWpa3SaeH2eOnlyModeEnabled (SetIsWpa3SaeH2eOnlyModeEnabledRequest) returns (SetIsWpa3SaeH2eOnlyModeEnabledResponse);
+  rpc SetMacRandomizationSetting (SetMacRandomizationSettingRequest) returns (SetMacRandomizationSettingResponse);
+  rpc SetPasspointConfig (SetPasspointConfigRequest) returns (SetPasspointConfigResponse);
+  rpc SetPriority (SetPriorityRequest) returns (SetPriorityResponse);
+  rpc SetPriorityGroup (SetPriorityGroupRequest) returns (SetPriorityGroupResponse);
+  rpc SetRestricted (SetRestrictedRequest) returns (SetRestrictedResponse);
+  rpc SetSsid (NetworkSuggestionBuilderSetSsidRequest) returns (SetSsidResponse);
+  rpc SetSubscriptionGroup (SetSubscriptionGroupRequest) returns (SetSubscriptionGroupResponse);
+  rpc SetSubscriptionId (SetSubscriptionIdRequest) returns (SetSubscriptionIdResponse);
+  rpc SetUntrusted (SetUntrustedRequest) returns (SetUntrustedResponse);
+  rpc SetWapiEnterpriseConfig (SetWapiEnterpriseConfigRequest) returns (SetWapiEnterpriseConfigResponse);
+  rpc SetWapiPassphrase (SetWapiPassphraseRequest) returns (SetWapiPassphraseResponse);
+  rpc SetWifi7Enabled (SetWifi7EnabledRequest) returns (SetWifi7EnabledResponse);
+  rpc SetWifiSsid (SetWifiSsidRequest) returns (SetWifiSsidResponse);
+  rpc SetWpa2EnterpriseConfig (SetWpa2EnterpriseConfigRequest) returns (SetWpa2EnterpriseConfigResponse);
+  rpc SetWpa2Passphrase (SetWpa2PassphraseRequest) returns (SetWpa2PassphraseResponse);
+  rpc SetWpa3Enterprise192BitModeConfig (SetWpa3Enterprise192BitModeConfigRequest) returns (SetWpa3Enterprise192BitModeConfigResponse);
+  rpc SetWpa3EnterpriseConfig (SetWpa3EnterpriseConfigRequest) returns (SetWpa3EnterpriseConfigResponse);
+  rpc SetWpa3EnterpriseStandardModeConfig (SetWpa3EnterpriseStandardModeConfigRequest) returns (SetWpa3EnterpriseStandardModeConfigResponse);
+  rpc SetWpa3Passphrase (SetWpa3PassphraseRequest) returns (SetWpa3PassphraseResponse);
+}
+
 service ManagerService {
   rpc AddLocalOnlyConnectionFailureListener (AddLocalOnlyConnectionFailureListenerRequest) returns (AddLocalOnlyConnectionFailureListenerResponse);
   rpc AddNetwork (AddNetworkRequest) returns (AddNetworkResponse);
@@ -816,4 +2601,270 @@ service ManagerService {
   rpc ValidateSoftApConfiguration (ValidateSoftApConfigurationRequest) returns (ValidateSoftApConfigurationResponse);
   rpc CalculateSignalLevel2_1 (CalculateSignalLevel2_1Request) returns (CalculateSignalLevel2_1Response);
   rpc CompareSignalLevel (CompareSignalLevelRequest) returns (CompareSignalLevelResponse);
+}
+
+service ManagerAddNetworkResultService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ManagerInterfaceCreationImpactService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetInterfaceType (GetInterfaceTypeRequest) returns (GetInterfaceTypeResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service ManagerLocalOnlyConnectionFailureListenerService {
+  rpc OnConnectionFailed (OnConnectionFailedRequest) returns (OnConnectionFailedResponse);
+}
+
+service ManagerLocalOnlyHotspotCallbackService {
+  rpc OnFailed (OnFailedRequest) returns (OnFailedResponse);
+  rpc OnStarted (OnStartedRequest) returns (OnStartedResponse);
+  rpc OnStopped (OnStoppedRequest) returns (OnStoppedResponse);
+}
+
+service ManagerLocalOnlyHotspotReservationService {
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc GetSoftApConfiguration (GetSoftApConfigurationRequest) returns (GetSoftApConfigurationResponse);
+  rpc GetWifiConfiguration (GetWifiConfigurationRequest) returns (GetWifiConfigurationResponse);
+}
+
+service ManagerMulticastLockService {
+  rpc Acquire (AcquireRequest) returns (AcquireResponse);
+  rpc IsHeld (IsHeldRequest) returns (IsHeldResponse);
+  rpc Release (ReleaseRequest) returns (ReleaseResponse);
+  rpc SetReferenceCounted (SetReferenceCountedRequest) returns (SetReferenceCountedResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service ManagerScanResultsCallbackService {
+  rpc OnScanResultsAvailable (OnScanResultsAvailableRequest) returns (OnScanResultsAvailableResponse);
+}
+
+service ManagerSubsystemRestartTrackingCallbackService {
+  rpc OnSubsystemRestarted (OnSubsystemRestartedRequest) returns (OnSubsystemRestartedResponse);
+  rpc OnSubsystemRestarting (OnSubsystemRestartingRequest) returns (OnSubsystemRestartingResponse);
+}
+
+service ManagerSuggestionConnectionStatusListenerService {
+  rpc OnConnectionStatus (OnConnectionStatusRequest) returns (OnConnectionStatusResponse);
+}
+
+service ManagerSuggestionUserApprovalStatusListenerService {
+  rpc OnUserApprovalStatusChange (OnUserApprovalStatusChangeRequest) returns (OnUserApprovalStatusChangeResponse);
+}
+
+service ManagerWifiLockService {
+  rpc Acquire (AcquireRequest) returns (AcquireResponse);
+  rpc IsHeld (IsHeldRequest) returns (IsHeldResponse);
+  rpc Release (ReleaseRequest) returns (ReleaseResponse);
+  rpc SetReferenceCounted (SetReferenceCountedRequest) returns (SetReferenceCountedResponse);
+  rpc SetWorkSource (SetWorkSourceRequest) returns (SetWorkSourceResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service ManagerWifiStateChangedListenerService {
+  rpc OnWifiStateChanged (OnWifiStateChangedRequest) returns (OnWifiStateChangedResponse);
+}
+
+service ManagerWpsCallbackService {
+  rpc OnFailed (OnFailedRequest) returns (OnFailedResponse);
+  rpc OnStarted (ManagerWpsCallbackOnStartedRequest) returns (OnStartedResponse);
+  rpc OnSucceeded (OnSucceededRequest) returns (OnSucceededResponse);
+}
+
+service EnterpriseConfigService {
+  rpc NewEnterpriseConfig (NewEnterpriseConfigRequest) returns (NewEnterpriseConfigResponse);
+  rpc DescribeContents (EnterpriseConfigDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc EnableTrustOnFirstUse (EnableTrustOnFirstUseRequest) returns (EnableTrustOnFirstUseResponse);
+  rpc GetAltSubjectMatch (GetAltSubjectMatchRequest) returns (GetAltSubjectMatchResponse);
+  rpc GetAnonymousIdentity (GetAnonymousIdentityRequest) returns (GetAnonymousIdentityResponse);
+  rpc GetCaCertificate (GetCaCertificateRequest) returns (GetCaCertificateResponse);
+  rpc GetCaCertificates (GetCaCertificatesRequest) returns (GetCaCertificatesResponse);
+  rpc GetClientCertificate (GetClientCertificateRequest) returns (GetClientCertificateResponse);
+  rpc GetClientCertificateChain (GetClientCertificateChainRequest) returns (GetClientCertificateChainResponse);
+  rpc GetClientKeyPairAlias (GetClientKeyPairAliasRequest) returns (GetClientKeyPairAliasResponse);
+  rpc GetClientPrivateKey (GetClientPrivateKeyRequest) returns (GetClientPrivateKeyResponse);
+  rpc GetDecoratedIdentityPrefix (GetDecoratedIdentityPrefixRequest) returns (GetDecoratedIdentityPrefixResponse);
+  rpc GetDomainSuffixMatch (GetDomainSuffixMatchRequest) returns (GetDomainSuffixMatchResponse);
+  rpc GetEapMethod (GetEapMethodRequest) returns (GetEapMethodResponse);
+  rpc GetIdentity (GetIdentityRequest) returns (GetIdentityResponse);
+  rpc GetMinimumTlsVersion (GetMinimumTlsVersionRequest) returns (GetMinimumTlsVersionResponse);
+  rpc GetPassword (GetPasswordRequest) returns (GetPasswordResponse);
+  rpc GetPhase2Method (GetPhase2MethodRequest) returns (GetPhase2MethodResponse);
+  rpc GetPlmn (GetPlmnRequest) returns (GetPlmnResponse);
+  rpc GetRealm (GetRealmRequest) returns (GetRealmResponse);
+  rpc GetSubjectMatch (GetSubjectMatchRequest) returns (GetSubjectMatchResponse);
+  rpc HasCaCertificate (HasCaCertificateRequest) returns (HasCaCertificateResponse);
+  rpc IsAuthenticationSimBased (IsAuthenticationSimBasedRequest) returns (IsAuthenticationSimBasedResponse);
+  rpc IsEapMethodServerCertUsed (IsEapMethodServerCertUsedRequest) returns (IsEapMethodServerCertUsedResponse);
+  rpc IsServerCertValidationEnabled (IsServerCertValidationEnabledRequest) returns (IsServerCertValidationEnabledResponse);
+  rpc IsTrustOnFirstUseEnabled (IsTrustOnFirstUseEnabledRequest) returns (IsTrustOnFirstUseEnabledResponse);
+  rpc SetAltSubjectMatch (SetAltSubjectMatchRequest) returns (SetAltSubjectMatchResponse);
+  rpc SetAnonymousIdentity (SetAnonymousIdentityRequest) returns (SetAnonymousIdentityResponse);
+  rpc SetCaCertificate (SetCaCertificateRequest) returns (SetCaCertificateResponse);
+  rpc SetCaCertificates (SetCaCertificatesRequest) returns (SetCaCertificatesResponse);
+  rpc SetClientKeyEntry (SetClientKeyEntryRequest) returns (SetClientKeyEntryResponse);
+  rpc SetClientKeyEntryWithCertificateChain (SetClientKeyEntryWithCertificateChainRequest) returns (SetClientKeyEntryWithCertificateChainResponse);
+  rpc SetClientKeyPairAlias (SetClientKeyPairAliasRequest) returns (SetClientKeyPairAliasResponse);
+  rpc SetDecoratedIdentityPrefix (SetDecoratedIdentityPrefixRequest) returns (SetDecoratedIdentityPrefixResponse);
+  rpc SetDomainSuffixMatch (SetDomainSuffixMatchRequest) returns (SetDomainSuffixMatchResponse);
+  rpc SetEapMethod (SetEapMethodRequest) returns (SetEapMethodResponse);
+  rpc SetIdentity (SetIdentityRequest) returns (SetIdentityResponse);
+  rpc SetMinimumTlsVersion (SetMinimumTlsVersionRequest) returns (SetMinimumTlsVersionResponse);
+  rpc SetPassword (SetPasswordRequest) returns (SetPasswordResponse);
+  rpc SetPhase2Method (SetPhase2MethodRequest) returns (SetPhase2MethodResponse);
+  rpc SetPlmn (SetPlmnRequest) returns (SetPlmnResponse);
+  rpc SetRealm (SetRealmRequest) returns (SetRealmResponse);
+  rpc SetSubjectMatch (SetSubjectMatchRequest) returns (SetSubjectMatchResponse);
+  rpc ToString (EnterpriseConfigToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (EnterpriseConfigWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ConfigurationService {
+  rpc NewConfiguration (NewConfigurationRequest) returns (NewConfigurationResponse);
+  rpc DescribeContents (ConfigurationDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetHttpProxy (GetHttpProxyRequest) returns (GetHttpProxyResponse);
+  rpc GetKey (GetKeyRequest) returns (GetKeyResponse);
+  rpc GetMacRandomizationSetting (ConfigurationGetMacRandomizationSettingRequest) returns (GetMacRandomizationSettingResponse);
+  rpc GetRandomizedMacAddress (GetRandomizedMacAddressRequest) returns (GetRandomizedMacAddressResponse);
+  rpc IsDppConfigurator (IsDppConfiguratorRequest) returns (IsDppConfiguratorResponse);
+  rpc IsPasspoint (IsPasspointRequest) returns (IsPasspointResponse);
+  rpc SetHttpProxy (SetHttpProxyRequest) returns (SetHttpProxyResponse);
+  rpc SetIpConfiguration (SetIpConfigurationRequest) returns (SetIpConfigurationResponse);
+  rpc SetMacRandomizationSetting (ConfigurationSetMacRandomizationSettingRequest) returns (ConfigurationSetMacRandomizationSettingResponse);
+  rpc SetSecurityParams (SetSecurityParamsRequest) returns (SetSecurityParamsResponse);
+  rpc ToString (ConfigurationToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (ConfigurationWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service WpsInfoService {
+  rpc NewWpsInfo (NewWpsInfoRequest) returns (NewWpsInfoResponse);
+  rpc DescribeContents (WpsInfoDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc ToString (WpsInfoToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WpsInfoWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ScanResultService {
+  rpc NewScanResult (NewScanResultRequest) returns (NewScanResultResponse);
+  rpc DescribeContents (ScanResultDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetApMldMacAddress (ScanResultGetApMldMacAddressRequest) returns (GetApMldMacAddressResponse);
+  rpc GetApMloLinkId (ScanResultGetApMloLinkIdRequest) returns (GetApMloLinkIdResponse);
+  rpc GetSecurityTypes (GetSecurityTypesRequest) returns (GetSecurityTypesResponse);
+  rpc GetWifiSsid (ScanResultGetWifiSsidRequest) returns (GetWifiSsidResponse);
+  rpc GetWifiStandard (ScanResultGetWifiStandardRequest) returns (GetWifiStandardResponse);
+  rpc Is80211azNtbResponder (Is80211azNtbResponderRequest) returns (Is80211azNtbResponderResponse);
+  rpc Is80211mcResponder (Is80211mcResponderRequest) returns (Is80211mcResponderResponse);
+  rpc IsPasspointNetwork (IsPasspointNetworkRequest) returns (IsPasspointNetworkResponse);
+  rpc IsRangingFrameProtectionRequired (IsRangingFrameProtectionRequiredRequest) returns (IsRangingFrameProtectionRequiredResponse);
+  rpc IsSecureHeLtfSupported (IsSecureHeLtfSupportedRequest) returns (IsSecureHeLtfSupportedResponse);
+  rpc IsTwtResponder (IsTwtResponderRequest) returns (IsTwtResponderResponse);
+  rpc ToString (ScanResultToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (ScanResultWriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc ConvertChannelToFrequencyMhzIfSupported (ConvertChannelToFrequencyMhzIfSupportedRequest) returns (ConvertChannelToFrequencyMhzIfSupportedResponse);
+  rpc ConvertFrequencyMhzToChannelIfSupported (ConvertFrequencyMhzToChannelIfSupportedRequest) returns (ConvertFrequencyMhzToChannelIfSupportedResponse);
+}
+
+service ScanResultInformationElementService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetBytes (GetBytesRequest) returns (GetBytesResponse);
+  rpc GetId (GetIdRequest) returns (GetIdResponse);
+  rpc GetIdExt (GetIdExtRequest) returns (GetIdExtResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service SupplicantStateService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc Values (ValuesRequest) returns (ValuesResponse);
+  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
+  rpc IsValidState (IsValidStateRequest) returns (IsValidStateResponse);
+}
+
+service NetworkSpecifierService {
+  rpc CanBeSatisfiedBy (CanBeSatisfiedByRequest) returns (CanBeSatisfiedByResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetBand (GetBandRequest) returns (GetBandResponse);
+  rpc GetPreferredChannelFrequenciesMhz (GetPreferredChannelFrequenciesMhzRequest) returns (GetPreferredChannelFrequenciesMhzResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc Redact (RedactRequest) returns (RedactResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service NetworkSpecifierBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetBand (SetBandRequest) returns (SetBandResponse);
+  rpc SetBssid (NetworkSpecifierBuilderSetBssidRequest) returns (SetBssidResponse);
+  rpc SetBssidPattern (SetBssidPatternRequest) returns (SetBssidPatternResponse);
+  rpc SetIsEnhancedOpen (SetIsEnhancedOpenRequest) returns (SetIsEnhancedOpenResponse);
+  rpc SetIsHiddenSsid (SetIsHiddenSsidRequest) returns (SetIsHiddenSsidResponse);
+  rpc SetPreferredChannelsFrequenciesMhz (SetPreferredChannelsFrequenciesMhzRequest) returns (SetPreferredChannelsFrequenciesMhzResponse);
+  rpc SetSsid (NetworkSpecifierBuilderSetSsidRequest) returns (SetSsidResponse);
+  rpc SetSsidPattern (SetSsidPatternRequest) returns (SetSsidPatternResponse);
+  rpc SetWpa2EnterpriseConfig (SetWpa2EnterpriseConfigRequest) returns (SetWpa2EnterpriseConfigResponse);
+  rpc SetWpa2Passphrase (SetWpa2PassphraseRequest) returns (SetWpa2PassphraseResponse);
+  rpc SetWpa3Enterprise192BitModeConfig (SetWpa3Enterprise192BitModeConfigRequest) returns (SetWpa3Enterprise192BitModeConfigResponse);
+  rpc SetWpa3EnterpriseConfig (SetWpa3EnterpriseConfigRequest) returns (SetWpa3EnterpriseConfigResponse);
+  rpc SetWpa3EnterpriseStandardModeConfig (SetWpa3EnterpriseStandardModeConfigRequest) returns (SetWpa3EnterpriseStandardModeConfigResponse);
+  rpc SetWpa3Passphrase (SetWpa3PassphraseRequest) returns (SetWpa3PassphraseResponse);
+}
+
+service BlockingOptionService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetBlockingTimeSeconds (GetBlockingTimeSecondsRequest) returns (GetBlockingTimeSecondsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc IsBlockingBssidOnly (IsBlockingBssidOnlyRequest) returns (IsBlockingBssidOnlyResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service BlockingOptionBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetBlockingBssidOnly (SetBlockingBssidOnlyRequest) returns (SetBlockingBssidOnlyResponse);
+}
+
+service MloLinkService {
+  rpc NewMloLink (NewMloLinkRequest) returns (NewMloLinkResponse);
+  rpc DescribeContents (MloLinkDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (MloLinkEqualsRequest) returns (EqualsResponse);
+  rpc GetApMacAddress (GetApMacAddressRequest) returns (GetApMacAddressResponse);
+  rpc GetBand (MloLinkGetBandRequest) returns (GetBandResponse);
+  rpc GetChannel (GetChannelRequest) returns (GetChannelResponse);
+  rpc GetLinkId (GetLinkIdRequest) returns (GetLinkIdResponse);
+  rpc GetRssi (MloLinkGetRssiRequest) returns (GetRssiResponse);
+  rpc GetRxLinkSpeedMbps (MloLinkGetRxLinkSpeedMbpsRequest) returns (GetRxLinkSpeedMbpsResponse);
+  rpc GetStaMacAddress (GetStaMacAddressRequest) returns (GetStaMacAddressResponse);
+  rpc GetState (GetStateRequest) returns (GetStateResponse);
+  rpc GetTxLinkSpeedMbps (MloLinkGetTxLinkSpeedMbpsRequest) returns (GetTxLinkSpeedMbpsResponse);
+  rpc HashCode (MloLinkHashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (MloLinkToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (MloLinkWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service SsidService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetBytes (GetBytesRequest) returns (GetBytesResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc FromBytes (FromBytesRequest) returns (FromBytesResponse);
+}
+
+service AvailableChannelService {
+  rpc NewAvailableChannel (NewAvailableChannelRequest) returns (NewAvailableChannelResponse);
+  rpc DescribeContents (AvailableChannelDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (AvailableChannelEqualsRequest) returns (EqualsResponse);
+  rpc GetChannelWidth (GetChannelWidthRequest) returns (GetChannelWidthResponse);
+  rpc GetFrequencyMhz (GetFrequencyMhzRequest) returns (GetFrequencyMhzResponse);
+  rpc GetOperationalModes (GetOperationalModesRequest) returns (GetOperationalModesResponse);
+  rpc HashCode (AvailableChannelHashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (AvailableChannelToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (AvailableChannelWriteToParcelRequest) returns (WriteToParcelResponse);
 }

@@ -5,3 +5,296 @@ syntax = "proto3";
 package mediastore;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/mediastore";
+
+message NewMediaStoreRequest {
+}
+
+message NewMediaStoreResponse {
+  int64 result = 1;
+}
+
+message CanManageMediaRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message CanManageMediaResponse {
+  bool result = 1;
+}
+
+message GetDocumentUriRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message GetDocumentUriResponse {
+  int64 result = 1;
+}
+
+message GetGenerationRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+}
+
+message GetGenerationResponse {
+  int64 result = 1;
+}
+
+message GetMediaScannerUriRequest {
+  int64 handle = 1;
+}
+
+message GetMediaScannerUriResponse {
+  int64 result = 1;
+}
+
+message GetMediaUriRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message GetMediaUriResponse {
+  int64 result = 1;
+}
+
+message GetOriginalMediaFormatFileDescriptorRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message GetOriginalMediaFormatFileDescriptorResponse {
+  int64 result = 1;
+}
+
+message GetPickImagesMaxLimitRequest {
+  int64 handle = 1;
+}
+
+message GetPickImagesMaxLimitResponse {
+  int32 result = 1;
+}
+
+message GetRedactedUriRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message GetRedactedUriResponse {
+  int64 result = 1;
+}
+
+message GetRequireOriginalRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetRequireOriginalResponse {
+  bool result = 1;
+}
+
+message GetVersion1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetVersion1Response {
+  string result = 1;
+}
+
+message GetVersion2_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+}
+
+message GetVersion2_1Response {
+  string result = 1;
+}
+
+message GetVolumeNameRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetVolumeNameResponse {
+  string result = 1;
+}
+
+message IsCurrentCloudMediaProviderAuthorityRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+}
+
+message IsCurrentCloudMediaProviderAuthorityResponse {
+  bool result = 1;
+}
+
+message IsCurrentSystemGalleryRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+  string arg2 = 4;
+}
+
+message IsCurrentSystemGalleryResponse {
+  bool result = 1;
+}
+
+message IsSupportedCloudMediaProviderAuthorityRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+}
+
+message IsSupportedCloudMediaProviderAuthorityResponse {
+  bool result = 1;
+}
+
+message NotifyCloudMediaChangedEventRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+  string arg2 = 4;
+}
+
+message NotifyCloudMediaChangedEventResponse {
+}
+
+message OpenAssetFileDescriptorRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  string arg2 = 4;
+  int64 arg3 = 5;
+}
+
+message OpenAssetFileDescriptorResponse {
+  int64 result = 1;
+}
+
+message OpenFileDescriptorRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  string arg2 = 4;
+  int64 arg3 = 5;
+}
+
+message OpenFileDescriptorResponse {
+  int64 result = 1;
+}
+
+message OpenTypedAssetFileDescriptorRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  string arg2 = 4;
+  int64 arg3 = 5;
+  int64 arg4 = 6;
+}
+
+message OpenTypedAssetFileDescriptorResponse {
+  int64 result = 1;
+}
+
+message SetIncludePendingRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetIncludePendingResponse {
+  int64 result = 1;
+}
+
+message SetRequireOriginalRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetRequireOriginalResponse {
+  int64 result = 1;
+}
+
+message KeyForRequest {
+  string arg0 = 1;
+}
+
+message KeyForResponse {
+  string result = 1;
+}
+
+message GetContentUri1Request {
+  string arg0 = 1;
+}
+
+message GetContentUri1Response {
+  int64 result = 1;
+}
+
+message GetContentUri2_1Request {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message GetContentUri2_1Response {
+  int64 result = 1;
+}
+
+message QueryRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message QueryResponse {
+  int64 result = 1;
+}
+
+service MediaStoreService {
+  rpc NewMediaStore (NewMediaStoreRequest) returns (NewMediaStoreResponse);
+  rpc CanManageMedia (CanManageMediaRequest) returns (CanManageMediaResponse);
+  rpc GetDocumentUri (GetDocumentUriRequest) returns (GetDocumentUriResponse);
+  rpc GetGeneration (GetGenerationRequest) returns (GetGenerationResponse);
+  rpc GetMediaScannerUri (GetMediaScannerUriRequest) returns (GetMediaScannerUriResponse);
+  rpc GetMediaUri (GetMediaUriRequest) returns (GetMediaUriResponse);
+  rpc GetOriginalMediaFormatFileDescriptor (GetOriginalMediaFormatFileDescriptorRequest) returns (GetOriginalMediaFormatFileDescriptorResponse);
+  rpc GetPickImagesMaxLimit (GetPickImagesMaxLimitRequest) returns (GetPickImagesMaxLimitResponse);
+  rpc GetRedactedUri (GetRedactedUriRequest) returns (GetRedactedUriResponse);
+  rpc GetRequireOriginal (GetRequireOriginalRequest) returns (GetRequireOriginalResponse);
+  rpc GetVersion1 (GetVersion1Request) returns (GetVersion1Response);
+  rpc GetVersion2_1 (GetVersion2_1Request) returns (GetVersion2_1Response);
+  rpc GetVolumeName (GetVolumeNameRequest) returns (GetVolumeNameResponse);
+  rpc IsCurrentCloudMediaProviderAuthority (IsCurrentCloudMediaProviderAuthorityRequest) returns (IsCurrentCloudMediaProviderAuthorityResponse);
+  rpc IsCurrentSystemGallery (IsCurrentSystemGalleryRequest) returns (IsCurrentSystemGalleryResponse);
+  rpc IsSupportedCloudMediaProviderAuthority (IsSupportedCloudMediaProviderAuthorityRequest) returns (IsSupportedCloudMediaProviderAuthorityResponse);
+  rpc NotifyCloudMediaChangedEvent (NotifyCloudMediaChangedEventRequest) returns (NotifyCloudMediaChangedEventResponse);
+  rpc OpenAssetFileDescriptor (OpenAssetFileDescriptorRequest) returns (OpenAssetFileDescriptorResponse);
+  rpc OpenFileDescriptor (OpenFileDescriptorRequest) returns (OpenFileDescriptorResponse);
+  rpc OpenTypedAssetFileDescriptor (OpenTypedAssetFileDescriptorRequest) returns (OpenTypedAssetFileDescriptorResponse);
+  rpc SetIncludePending (SetIncludePendingRequest) returns (SetIncludePendingResponse);
+  rpc SetRequireOriginal (SetRequireOriginalRequest) returns (SetRequireOriginalResponse);
+}
+
+service MediaStoreAudioService {
+  rpc KeyFor (KeyForRequest) returns (KeyForResponse);
+}
+
+service MediaStoreDownloadsService {
+  rpc GetContentUri1 (GetContentUri1Request) returns (GetContentUri1Response);
+  rpc GetContentUri2_1 (GetContentUri2_1Request) returns (GetContentUri2_1Response);
+}
+
+service MediaStoreFilesService {
+  rpc GetContentUri1 (GetContentUri1Request) returns (GetContentUri1Response);
+  rpc GetContentUri2_1 (GetContentUri2_1Request) returns (GetContentUri2_1Response);
+}
+
+service MediaStoreVideoService {
+  rpc Query (QueryRequest) returns (QueryResponse);
+}

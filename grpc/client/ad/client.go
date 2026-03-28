@@ -46,3 +46,796 @@ func (c *TvAdManagerClient) UnregisterCallback(ctx context.Context, arg0 int64) 
 	})
 	return err
 }
+
+// TvAdManagerTvAdServiceCallbackClient wraps the gRPC TvAdManagerTvAdServiceCallbackService client.
+type TvAdManagerTvAdServiceCallbackClient struct {
+	svc pb.TvAdManagerTvAdServiceCallbackServiceClient
+}
+
+// NewTvAdManagerTvAdServiceCallbackClient creates a new TvAdManagerTvAdServiceCallback client.
+func NewTvAdManagerTvAdServiceCallbackClient(cc grpc.ClientConnInterface) *TvAdManagerTvAdServiceCallbackClient {
+	return &TvAdManagerTvAdServiceCallbackClient{
+		svc: pb.NewTvAdManagerTvAdServiceCallbackServiceClient(cc),
+	}
+}
+
+// OnAdServiceAdded calls the OnAdServiceAdded RPC.
+func (c *TvAdManagerTvAdServiceCallbackClient) OnAdServiceAdded(ctx context.Context, arg0 string) error {
+	_, err := c.svc.OnAdServiceAdded(ctx, &pb.OnAdServiceAddedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnAdServiceRemoved calls the OnAdServiceRemoved RPC.
+func (c *TvAdManagerTvAdServiceCallbackClient) OnAdServiceRemoved(ctx context.Context, arg0 string) error {
+	_, err := c.svc.OnAdServiceRemoved(ctx, &pb.OnAdServiceRemovedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnAdServiceUpdated calls the OnAdServiceUpdated RPC.
+func (c *TvAdManagerTvAdServiceCallbackClient) OnAdServiceUpdated(ctx context.Context, arg0 string) error {
+	_, err := c.svc.OnAdServiceUpdated(ctx, &pb.OnAdServiceUpdatedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// TvAdServiceInfoClient wraps the gRPC TvAdServiceInfoService client.
+type TvAdServiceInfoClient struct {
+	svc pb.TvAdServiceInfoServiceClient
+}
+
+// NewTvAdServiceInfoClient creates a new TvAdServiceInfo client.
+func NewTvAdServiceInfoClient(cc grpc.ClientConnInterface) *TvAdServiceInfoClient {
+	return &TvAdServiceInfoClient{
+		svc: pb.NewTvAdServiceInfoServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *TvAdServiceInfoClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetId calls the GetId RPC.
+func (c *TvAdServiceInfoClient) GetId(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetServiceInfo calls the GetServiceInfo RPC.
+func (c *TvAdServiceInfoClient) GetServiceInfo(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetServiceInfo(ctx, &pb.GetServiceInfoRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *TvAdServiceInfoClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// TvAdViewClient wraps the gRPC TvAdViewService client.
+type TvAdViewClient struct {
+	svc pb.TvAdViewServiceClient
+}
+
+// NewTvAdViewClient creates a new TvAdView client.
+func NewTvAdViewClient(cc grpc.ClientConnInterface) *TvAdViewClient {
+	return &TvAdViewClient{
+		svc: pb.NewTvAdViewServiceClient(cc),
+	}
+}
+
+// ClearCallback calls the ClearCallback RPC.
+func (c *TvAdViewClient) ClearCallback(ctx context.Context, handle int64) error {
+	_, err := c.svc.ClearCallback(ctx, &pb.ClearCallbackRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// ClearOnUnhandledInputEventListener calls the ClearOnUnhandledInputEventListener RPC.
+func (c *TvAdViewClient) ClearOnUnhandledInputEventListener(ctx context.Context, handle int64) error {
+	_, err := c.svc.ClearOnUnhandledInputEventListener(ctx, &pb.ClearOnUnhandledInputEventListenerRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// DispatchKeyEvent calls the DispatchKeyEvent RPC.
+func (c *TvAdViewClient) DispatchKeyEvent(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.DispatchKeyEvent(ctx, &pb.DispatchKeyEventRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DispatchUnhandledInputEvent calls the DispatchUnhandledInputEvent RPC.
+func (c *TvAdViewClient) DispatchUnhandledInputEvent(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.DispatchUnhandledInputEvent(ctx, &pb.DispatchUnhandledInputEventRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOnUnhandledInputEventListener calls the GetOnUnhandledInputEventListener RPC.
+func (c *TvAdViewClient) GetOnUnhandledInputEventListener(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetOnUnhandledInputEventListener(ctx, &pb.GetOnUnhandledInputEventListenerRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// NotifyError calls the NotifyError RPC.
+func (c *TvAdViewClient) NotifyError(ctx context.Context, handle int64, arg0 string, arg1 int64) error {
+	_, err := c.svc.NotifyError(ctx, &pb.NotifyErrorRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// NotifyTvMessage calls the NotifyTvMessage RPC.
+func (c *TvAdViewClient) NotifyTvMessage(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
+	_, err := c.svc.NotifyTvMessage(ctx, &pb.NotifyTvMessageRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// OnAttachedToWindow calls the OnAttachedToWindow RPC.
+func (c *TvAdViewClient) OnAttachedToWindow(ctx context.Context, handle int64) error {
+	_, err := c.svc.OnAttachedToWindow(ctx, &pb.OnAttachedToWindowRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// OnDetachedFromWindow calls the OnDetachedFromWindow RPC.
+func (c *TvAdViewClient) OnDetachedFromWindow(ctx context.Context, handle int64) error {
+	_, err := c.svc.OnDetachedFromWindow(ctx, &pb.OnDetachedFromWindowRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// OnLayout calls the OnLayout RPC.
+func (c *TvAdViewClient) OnLayout(ctx context.Context, handle int64, arg0 bool, arg1 int32, arg2 int32, arg3 int32, arg4 int32) error {
+	_, err := c.svc.OnLayout(ctx, &pb.OnLayoutRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+	})
+	return err
+}
+
+// OnMeasure calls the OnMeasure RPC.
+func (c *TvAdViewClient) OnMeasure(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
+	_, err := c.svc.OnMeasure(ctx, &pb.OnMeasureRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// OnUnhandledInputEvent calls the OnUnhandledInputEvent RPC.
+func (c *TvAdViewClient) OnUnhandledInputEvent(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.OnUnhandledInputEvent(ctx, &pb.OnUnhandledInputEventRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnVisibilityChanged calls the OnVisibilityChanged RPC.
+func (c *TvAdViewClient) OnVisibilityChanged(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.OnVisibilityChanged(ctx, &pb.OnVisibilityChangedRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// PrepareAdService calls the PrepareAdService RPC.
+func (c *TvAdViewClient) PrepareAdService(ctx context.Context, handle int64, arg0 string, arg1 string) error {
+	_, err := c.svc.PrepareAdService(ctx, &pb.PrepareAdServiceRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// Reset calls the Reset RPC.
+func (c *TvAdViewClient) Reset(ctx context.Context, handle int64) error {
+	_, err := c.svc.Reset(ctx, &pb.ResetRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// ResetAdService calls the ResetAdService RPC.
+func (c *TvAdViewClient) ResetAdService(ctx context.Context, handle int64) error {
+	_, err := c.svc.ResetAdService(ctx, &pb.ResetAdServiceRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// SendCurrentChannelUri calls the SendCurrentChannelUri RPC.
+func (c *TvAdViewClient) SendCurrentChannelUri(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SendCurrentChannelUri(ctx, &pb.SendCurrentChannelUriRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SendCurrentTvInputId calls the SendCurrentTvInputId RPC.
+func (c *TvAdViewClient) SendCurrentTvInputId(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.SendCurrentTvInputId(ctx, &pb.SendCurrentTvInputIdRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SendCurrentVideoBounds calls the SendCurrentVideoBounds RPC.
+func (c *TvAdViewClient) SendCurrentVideoBounds(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SendCurrentVideoBounds(ctx, &pb.SendCurrentVideoBoundsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SendSigningResult calls the SendSigningResult RPC.
+func (c *TvAdViewClient) SendSigningResult(ctx context.Context, handle int64, arg0 string, arg1 int64) error {
+	_, err := c.svc.SendSigningResult(ctx, &pb.SendSigningResultRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SetCallback calls the SetCallback RPC.
+func (c *TvAdViewClient) SetCallback(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
+	_, err := c.svc.SetCallback(ctx, &pb.SetCallbackRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SetOnUnhandledInputEventListener calls the SetOnUnhandledInputEventListener RPC.
+func (c *TvAdViewClient) SetOnUnhandledInputEventListener(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetOnUnhandledInputEventListener(ctx, &pb.SetOnUnhandledInputEventListenerRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetTvView calls the SetTvView RPC.
+func (c *TvAdViewClient) SetTvView(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.SetTvView(ctx, &pb.SetTvViewRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetZOrderMediaOverlay calls the SetZOrderMediaOverlay RPC.
+func (c *TvAdViewClient) SetZOrderMediaOverlay(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetZOrderMediaOverlay(ctx, &pb.SetZOrderMediaOverlayRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetZOrderOnTop calls the SetZOrderOnTop RPC.
+func (c *TvAdViewClient) SetZOrderOnTop(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetZOrderOnTop(ctx, &pb.SetZOrderOnTopRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// StartAdService calls the StartAdService RPC.
+func (c *TvAdViewClient) StartAdService(ctx context.Context, handle int64) error {
+	_, err := c.svc.StartAdService(ctx, &pb.StartAdServiceRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// StopAdService calls the StopAdService RPC.
+func (c *TvAdViewClient) StopAdService(ctx context.Context, handle int64) error {
+	_, err := c.svc.StopAdService(ctx, &pb.StopAdServiceRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// TvAdViewOnUnhandledInputEventListenerClient wraps the gRPC TvAdViewOnUnhandledInputEventListenerService client.
+type TvAdViewOnUnhandledInputEventListenerClient struct {
+	svc pb.TvAdViewOnUnhandledInputEventListenerServiceClient
+}
+
+// NewTvAdViewOnUnhandledInputEventListenerClient creates a new TvAdViewOnUnhandledInputEventListener client.
+func NewTvAdViewOnUnhandledInputEventListenerClient(cc grpc.ClientConnInterface) *TvAdViewOnUnhandledInputEventListenerClient {
+	return &TvAdViewOnUnhandledInputEventListenerClient{
+		svc: pb.NewTvAdViewOnUnhandledInputEventListenerServiceClient(cc),
+	}
+}
+
+// OnUnhandledInputEvent calls the OnUnhandledInputEvent RPC.
+func (c *TvAdViewOnUnhandledInputEventListenerClient) OnUnhandledInputEvent(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.OnUnhandledInputEvent(ctx, &pb.TvAdViewOnUnhandledInputEventListenerOnUnhandledInputEventRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// TvAdViewTvAdCallbackClient wraps the gRPC TvAdViewTvAdCallbackService client.
+type TvAdViewTvAdCallbackClient struct {
+	svc pb.TvAdViewTvAdCallbackServiceClient
+}
+
+// NewTvAdViewTvAdCallbackClient creates a new TvAdViewTvAdCallback client.
+func NewTvAdViewTvAdCallbackClient(cc grpc.ClientConnInterface) *TvAdViewTvAdCallbackClient {
+	return &TvAdViewTvAdCallbackClient{
+		svc: pb.NewTvAdViewTvAdCallbackServiceClient(cc),
+	}
+}
+
+// OnRequestCurrentChannelUri calls the OnRequestCurrentChannelUri RPC.
+func (c *TvAdViewTvAdCallbackClient) OnRequestCurrentChannelUri(ctx context.Context, arg0 string) error {
+	_, err := c.svc.OnRequestCurrentChannelUri(ctx, &pb.OnRequestCurrentChannelUriRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnRequestCurrentTvInputId calls the OnRequestCurrentTvInputId RPC.
+func (c *TvAdViewTvAdCallbackClient) OnRequestCurrentTvInputId(ctx context.Context, arg0 string) error {
+	_, err := c.svc.OnRequestCurrentTvInputId(ctx, &pb.OnRequestCurrentTvInputIdRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnRequestCurrentVideoBounds calls the OnRequestCurrentVideoBounds RPC.
+func (c *TvAdViewTvAdCallbackClient) OnRequestCurrentVideoBounds(ctx context.Context, arg0 string) error {
+	_, err := c.svc.OnRequestCurrentVideoBounds(ctx, &pb.OnRequestCurrentVideoBoundsRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnRequestSigning calls the OnRequestSigning RPC.
+func (c *TvAdViewTvAdCallbackClient) OnRequestSigning(ctx context.Context, arg0 string, arg1 string, arg2 string, arg3 string, arg4 int64) error {
+	_, err := c.svc.OnRequestSigning(ctx, &pb.OnRequestSigningRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// OnRequestTrackInfoList calls the OnRequestTrackInfoList RPC.
+func (c *TvAdViewTvAdCallbackClient) OnRequestTrackInfoList(ctx context.Context, arg0 string) error {
+	_, err := c.svc.OnRequestTrackInfoList(ctx, &pb.OnRequestTrackInfoListRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnStateChanged calls the OnStateChanged RPC.
+func (c *TvAdViewTvAdCallbackClient) OnStateChanged(ctx context.Context, arg0 string, arg1 int32, arg2 int32) error {
+	_, err := c.svc.OnStateChanged(ctx, &pb.OnStateChangedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// TvAdServiceClient wraps the gRPC TvAdServiceService client.
+type TvAdServiceClient struct {
+	svc pb.TvAdServiceServiceClient
+}
+
+// NewTvAdServiceClient creates a new TvAdService client.
+func NewTvAdServiceClient(cc grpc.ClientConnInterface) *TvAdServiceClient {
+	return &TvAdServiceClient{
+		svc: pb.NewTvAdServiceServiceClient(cc),
+	}
+}
+
+// OnAppLinkCommand calls the OnAppLinkCommand RPC.
+func (c *TvAdServiceClient) OnAppLinkCommand(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnAppLinkCommand(ctx, &pb.OnAppLinkCommandRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnBind calls the OnBind RPC.
+func (c *TvAdServiceClient) OnBind(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.OnBind(ctx, &pb.OnBindRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnCreateSession calls the OnCreateSession RPC.
+func (c *TvAdServiceClient) OnCreateSession(ctx context.Context, arg0 string, arg1 string) (int64, error) {
+	resp, err := c.svc.OnCreateSession(ctx, &pb.OnCreateSessionRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// TvAdServiceSessionClient wraps the gRPC TvAdServiceSessionService client.
+type TvAdServiceSessionClient struct {
+	svc pb.TvAdServiceSessionServiceClient
+}
+
+// NewTvAdServiceSessionClient creates a new TvAdServiceSession client.
+func NewTvAdServiceSessionClient(cc grpc.ClientConnInterface) *TvAdServiceSessionClient {
+	return &TvAdServiceSessionClient{
+		svc: pb.NewTvAdServiceSessionServiceClient(cc),
+	}
+}
+
+// IsMediaViewEnabled calls the IsMediaViewEnabled RPC.
+func (c *TvAdServiceSessionClient) IsMediaViewEnabled(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsMediaViewEnabled(ctx, &pb.IsMediaViewEnabledRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// LayoutSurface calls the LayoutSurface RPC.
+func (c *TvAdServiceSessionClient) LayoutSurface(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
+	_, err := c.svc.LayoutSurface(ctx, &pb.LayoutSurfaceRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// NotifySessionStateChanged calls the NotifySessionStateChanged RPC.
+func (c *TvAdServiceSessionClient) NotifySessionStateChanged(ctx context.Context, arg0 int32, arg1 int32) error {
+	_, err := c.svc.NotifySessionStateChanged(ctx, &pb.NotifySessionStateChangedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnCreateMediaView calls the OnCreateMediaView RPC.
+func (c *TvAdServiceSessionClient) OnCreateMediaView(ctx context.Context) (int64, error) {
+	resp, err := c.svc.OnCreateMediaView(ctx, &pb.OnCreateMediaViewRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnCurrentChannelUri calls the OnCurrentChannelUri RPC.
+func (c *TvAdServiceSessionClient) OnCurrentChannelUri(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnCurrentChannelUri(ctx, &pb.OnCurrentChannelUriRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnCurrentTvInputId calls the OnCurrentTvInputId RPC.
+func (c *TvAdServiceSessionClient) OnCurrentTvInputId(ctx context.Context, arg0 string) error {
+	_, err := c.svc.OnCurrentTvInputId(ctx, &pb.OnCurrentTvInputIdRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnCurrentVideoBounds calls the OnCurrentVideoBounds RPC.
+func (c *TvAdServiceSessionClient) OnCurrentVideoBounds(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnCurrentVideoBounds(ctx, &pb.OnCurrentVideoBoundsRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnError calls the OnError RPC.
+func (c *TvAdServiceSessionClient) OnError(ctx context.Context, arg0 string, arg1 int64) error {
+	_, err := c.svc.OnError(ctx, &pb.OnErrorRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnGenericMotionEvent calls the OnGenericMotionEvent RPC.
+func (c *TvAdServiceSessionClient) OnGenericMotionEvent(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.OnGenericMotionEvent(ctx, &pb.OnGenericMotionEventRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnKeyDown calls the OnKeyDown RPC.
+func (c *TvAdServiceSessionClient) OnKeyDown(ctx context.Context, arg0 int32, arg1 int64) (bool, error) {
+	resp, err := c.svc.OnKeyDown(ctx, &pb.OnKeyDownRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnKeyLongPress calls the OnKeyLongPress RPC.
+func (c *TvAdServiceSessionClient) OnKeyLongPress(ctx context.Context, arg0 int32, arg1 int64) (bool, error) {
+	resp, err := c.svc.OnKeyLongPress(ctx, &pb.OnKeyLongPressRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnKeyMultiple calls the OnKeyMultiple RPC.
+func (c *TvAdServiceSessionClient) OnKeyMultiple(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) (bool, error) {
+	resp, err := c.svc.OnKeyMultiple(ctx, &pb.OnKeyMultipleRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnKeyUp calls the OnKeyUp RPC.
+func (c *TvAdServiceSessionClient) OnKeyUp(ctx context.Context, arg0 int32, arg1 int64) (bool, error) {
+	resp, err := c.svc.OnKeyUp(ctx, &pb.OnKeyUpRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnMediaViewSizeChanged calls the OnMediaViewSizeChanged RPC.
+func (c *TvAdServiceSessionClient) OnMediaViewSizeChanged(ctx context.Context, arg0 int32, arg1 int32) error {
+	_, err := c.svc.OnMediaViewSizeChanged(ctx, &pb.OnMediaViewSizeChangedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnRelease calls the OnRelease RPC.
+func (c *TvAdServiceSessionClient) OnRelease(ctx context.Context) error {
+	_, err := c.svc.OnRelease(ctx, &pb.OnReleaseRequest{})
+	return err
+}
+
+// OnResetAdService calls the OnResetAdService RPC.
+func (c *TvAdServiceSessionClient) OnResetAdService(ctx context.Context) error {
+	_, err := c.svc.OnResetAdService(ctx, &pb.OnResetAdServiceRequest{})
+	return err
+}
+
+// OnSetSurface calls the OnSetSurface RPC.
+func (c *TvAdServiceSessionClient) OnSetSurface(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.OnSetSurface(ctx, &pb.OnSetSurfaceRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnSigningResult calls the OnSigningResult RPC.
+func (c *TvAdServiceSessionClient) OnSigningResult(ctx context.Context, arg0 string, arg1 int64) error {
+	_, err := c.svc.OnSigningResult(ctx, &pb.OnSigningResultRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnStartAdService calls the OnStartAdService RPC.
+func (c *TvAdServiceSessionClient) OnStartAdService(ctx context.Context) error {
+	_, err := c.svc.OnStartAdService(ctx, &pb.OnStartAdServiceRequest{})
+	return err
+}
+
+// OnStopAdService calls the OnStopAdService RPC.
+func (c *TvAdServiceSessionClient) OnStopAdService(ctx context.Context) error {
+	_, err := c.svc.OnStopAdService(ctx, &pb.OnStopAdServiceRequest{})
+	return err
+}
+
+// OnSurfaceChanged calls the OnSurfaceChanged RPC.
+func (c *TvAdServiceSessionClient) OnSurfaceChanged(ctx context.Context, arg0 int32, arg1 int32, arg2 int32) error {
+	_, err := c.svc.OnSurfaceChanged(ctx, &pb.OnSurfaceChangedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// OnTouchEvent calls the OnTouchEvent RPC.
+func (c *TvAdServiceSessionClient) OnTouchEvent(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.OnTouchEvent(ctx, &pb.OnTouchEventRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnTrackballEvent calls the OnTrackballEvent RPC.
+func (c *TvAdServiceSessionClient) OnTrackballEvent(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.OnTrackballEvent(ctx, &pb.OnTrackballEventRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnTvInputSessionData calls the OnTvInputSessionData RPC.
+func (c *TvAdServiceSessionClient) OnTvInputSessionData(ctx context.Context, arg0 string, arg1 int64) error {
+	_, err := c.svc.OnTvInputSessionData(ctx, &pb.OnTvInputSessionDataRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnTvMessage calls the OnTvMessage RPC.
+func (c *TvAdServiceSessionClient) OnTvMessage(ctx context.Context, arg0 int32, arg1 int64) error {
+	_, err := c.svc.OnTvMessage(ctx, &pb.OnTvMessageRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// RequestCurrentChannelUri calls the RequestCurrentChannelUri RPC.
+func (c *TvAdServiceSessionClient) RequestCurrentChannelUri(ctx context.Context) error {
+	_, err := c.svc.RequestCurrentChannelUri(ctx, &pb.RequestCurrentChannelUriRequest{})
+	return err
+}
+
+// RequestCurrentTvInputId calls the RequestCurrentTvInputId RPC.
+func (c *TvAdServiceSessionClient) RequestCurrentTvInputId(ctx context.Context) error {
+	_, err := c.svc.RequestCurrentTvInputId(ctx, &pb.RequestCurrentTvInputIdRequest{})
+	return err
+}
+
+// RequestCurrentVideoBounds calls the RequestCurrentVideoBounds RPC.
+func (c *TvAdServiceSessionClient) RequestCurrentVideoBounds(ctx context.Context) error {
+	_, err := c.svc.RequestCurrentVideoBounds(ctx, &pb.RequestCurrentVideoBoundsRequest{})
+	return err
+}
+
+// RequestSigning calls the RequestSigning RPC.
+func (c *TvAdServiceSessionClient) RequestSigning(ctx context.Context, arg0 string, arg1 string, arg2 string, arg3 int64) error {
+	_, err := c.svc.RequestSigning(ctx, &pb.RequestSigningRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// RequestTrackInfoList calls the RequestTrackInfoList RPC.
+func (c *TvAdServiceSessionClient) RequestTrackInfoList(ctx context.Context) error {
+	_, err := c.svc.RequestTrackInfoList(ctx, &pb.RequestTrackInfoListRequest{})
+	return err
+}
+
+// SendTvAdSessionData calls the SendTvAdSessionData RPC.
+func (c *TvAdServiceSessionClient) SendTvAdSessionData(ctx context.Context, arg0 string, arg1 int64) error {
+	_, err := c.svc.SendTvAdSessionData(ctx, &pb.SendTvAdSessionDataRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// SetMediaViewEnabled calls the SetMediaViewEnabled RPC.
+func (c *TvAdServiceSessionClient) SetMediaViewEnabled(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetMediaViewEnabled(ctx, &pb.SetMediaViewEnabledRequest{
+		Arg0: arg0,
+	})
+	return err
+}

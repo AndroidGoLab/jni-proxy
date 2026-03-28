@@ -6,6 +6,309 @@ package appwidget;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/appwidget";
 
+message NewAppWidgetProviderRequest {
+}
+
+message NewAppWidgetProviderResponse {
+  int64 result = 1;
+}
+
+message OnAppWidgetOptionsChangedRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int32 arg2 = 4;
+  int64 arg3 = 5;
+}
+
+message OnAppWidgetOptionsChangedResponse {
+}
+
+message OnDeletedRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message OnDeletedResponse {
+}
+
+message OnDisabledRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OnDisabledResponse {
+}
+
+message OnEnabledRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OnEnabledResponse {
+}
+
+message OnReceiveRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message OnReceiveResponse {
+}
+
+message OnRestoredRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message OnRestoredResponse {
+}
+
+message OnUpdateRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message OnUpdateResponse {
+}
+
+message NewAppWidgetHostViewRequest {
+  int64 arg0 = 1;
+}
+
+message NewAppWidgetHostViewResponse {
+  int64 result = 1;
+}
+
+message GenerateLayoutParams1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GenerateLayoutParams1Response {
+  int64 result = 1;
+}
+
+message GetAppWidgetIdRequest {
+  int64 handle = 1;
+}
+
+message GetAppWidgetIdResponse {
+  int32 result = 1;
+}
+
+message GetAppWidgetInfoRequest {
+  int64 handle = 1;
+}
+
+message GetAppWidgetInfoResponse {
+  int64 result = 1;
+}
+
+message OnWindowFocusChangedRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message OnWindowFocusChangedResponse {
+}
+
+message ResetColorResourcesRequest {
+  int64 handle = 1;
+}
+
+message ResetColorResourcesResponse {
+}
+
+message SetAppWidgetRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message SetAppWidgetResponse {
+}
+
+message SetColorResourcesRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetColorResourcesResponse {
+}
+
+message SetExecutorRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetExecutorResponse {
+}
+
+message SetOnLightBackgroundRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetOnLightBackgroundResponse {
+}
+
+message UpdateAppWidgetRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message UpdateAppWidgetResponse {
+}
+
+message UpdateAppWidgetOptionsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message UpdateAppWidgetOptionsResponse {
+}
+
+message UpdateAppWidgetSizeRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
+  int32 arg4 = 6;
+}
+
+message UpdateAppWidgetSizeResponse {
+}
+
+message GenerateLayoutParams1_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GenerateLayoutParams1_1Response {
+  int64 result = 1;
+}
+
+message GetDefaultPaddingForWidgetRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message GetDefaultPaddingForWidgetResponse {
+  int64 result = 1;
+}
+
+message NewAppWidgetProviderInfoRequest {
+}
+
+message NewAppWidgetProviderInfoResponse {
+  int64 result = 1;
+}
+
+message Clone0Request {
+  int64 handle = 1;
+}
+
+message Clone0Response {
+  int64 result = 1;
+}
+
+message DescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message GetActivityInfoRequest {
+  int64 handle = 1;
+}
+
+message GetActivityInfoResponse {
+  int64 result = 1;
+}
+
+message GetProfileRequest {
+  int64 handle = 1;
+}
+
+message GetProfileResponse {
+  int64 result = 1;
+}
+
+message LoadDescriptionRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message LoadDescriptionResponse {
+  int64 result = 1;
+}
+
+message LoadIconRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message LoadIconResponse {
+  int64 result = 1;
+}
+
+message LoadLabelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message LoadLabelResponse {
+  string result = 1;
+}
+
+message LoadPreviewImageRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message LoadPreviewImageResponse {
+  int64 result = 1;
+}
+
+message ToStringRequest {
+  int64 handle = 1;
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message WriteToParcelResponse {
+}
+
+message Clone0_1Request {
+  int64 handle = 1;
+}
+
+message Clone0_1Response {
+  int64 result = 1;
+}
+
 message BindAppWidgetIdIfAllowed2Request {
   int32 arg0 = 1;
   int64 arg1 = 2;
@@ -44,12 +347,8 @@ message GetAppWidgetIdsResponse {
   int64 result = 1;
 }
 
-message GetAppWidgetInfoRequest {
+message AppWidgetManagerGetAppWidgetInfoRequest {
   int32 arg0 = 1;
-}
-
-message GetAppWidgetInfoResponse {
-  int64 result = 1;
 }
 
 message GetAppWidgetOptionsRequest {
@@ -161,12 +460,9 @@ message UpdateAppWidget2_2Request {
 message UpdateAppWidget2_2Response {
 }
 
-message UpdateAppWidgetOptionsRequest {
+message AppWidgetManagerUpdateAppWidgetOptionsRequest {
   int32 arg0 = 1;
   int64 arg1 = 2;
-}
-
-message UpdateAppWidgetOptionsResponse {
 }
 
 message UpdateAppWidgetProviderInfoRequest {
@@ -185,12 +481,144 @@ message GetInstanceResponse {
   int64 result = 1;
 }
 
+message NewAppWidgetHostRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message NewAppWidgetHostResponse {
+  int64 result = 1;
+}
+
+message AllocateAppWidgetIdRequest {
+  int64 handle = 1;
+}
+
+message AllocateAppWidgetIdResponse {
+  int32 result = 1;
+}
+
+message CreateViewRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message CreateViewResponse {
+  int64 result = 1;
+}
+
+message DeleteAppWidgetIdRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message DeleteAppWidgetIdResponse {
+}
+
+message DeleteHostRequest {
+  int64 handle = 1;
+}
+
+message DeleteHostResponse {
+}
+
+message AppWidgetHostGetAppWidgetIdsRequest {
+  int64 handle = 1;
+}
+
+message OnAppWidgetRemovedRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message OnAppWidgetRemovedResponse {
+}
+
+message StartAppWidgetConfigureActivityForResultRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
+  int64 arg4 = 6;
+}
+
+message StartAppWidgetConfigureActivityForResultResponse {
+}
+
+message StartListeningRequest {
+  int64 handle = 1;
+}
+
+message StartListeningResponse {
+}
+
+message StopListeningRequest {
+  int64 handle = 1;
+}
+
+message StopListeningResponse {
+}
+
+message DeleteAllHostsRequest {
+  int64 handle = 1;
+}
+
+message DeleteAllHostsResponse {
+}
+
+service AppWidgetProviderService {
+  rpc NewAppWidgetProvider (NewAppWidgetProviderRequest) returns (NewAppWidgetProviderResponse);
+  rpc OnAppWidgetOptionsChanged (OnAppWidgetOptionsChangedRequest) returns (OnAppWidgetOptionsChangedResponse);
+  rpc OnDeleted (OnDeletedRequest) returns (OnDeletedResponse);
+  rpc OnDisabled (OnDisabledRequest) returns (OnDisabledResponse);
+  rpc OnEnabled (OnEnabledRequest) returns (OnEnabledResponse);
+  rpc OnReceive (OnReceiveRequest) returns (OnReceiveResponse);
+  rpc OnRestored (OnRestoredRequest) returns (OnRestoredResponse);
+  rpc OnUpdate (OnUpdateRequest) returns (OnUpdateResponse);
+}
+
+service AppWidgetHostViewService {
+  rpc NewAppWidgetHostView (NewAppWidgetHostViewRequest) returns (NewAppWidgetHostViewResponse);
+  rpc GenerateLayoutParams1 (GenerateLayoutParams1Request) returns (GenerateLayoutParams1Response);
+  rpc GetAppWidgetId (GetAppWidgetIdRequest) returns (GetAppWidgetIdResponse);
+  rpc GetAppWidgetInfo (GetAppWidgetInfoRequest) returns (GetAppWidgetInfoResponse);
+  rpc OnWindowFocusChanged (OnWindowFocusChangedRequest) returns (OnWindowFocusChangedResponse);
+  rpc ResetColorResources (ResetColorResourcesRequest) returns (ResetColorResourcesResponse);
+  rpc SetAppWidget (SetAppWidgetRequest) returns (SetAppWidgetResponse);
+  rpc SetColorResources (SetColorResourcesRequest) returns (SetColorResourcesResponse);
+  rpc SetExecutor (SetExecutorRequest) returns (SetExecutorResponse);
+  rpc SetOnLightBackground (SetOnLightBackgroundRequest) returns (SetOnLightBackgroundResponse);
+  rpc UpdateAppWidget (UpdateAppWidgetRequest) returns (UpdateAppWidgetResponse);
+  rpc UpdateAppWidgetOptions (UpdateAppWidgetOptionsRequest) returns (UpdateAppWidgetOptionsResponse);
+  rpc UpdateAppWidgetSize (UpdateAppWidgetSizeRequest) returns (UpdateAppWidgetSizeResponse);
+  rpc GenerateLayoutParams1_1 (GenerateLayoutParams1_1Request) returns (GenerateLayoutParams1_1Response);
+  rpc GetDefaultPaddingForWidget (GetDefaultPaddingForWidgetRequest) returns (GetDefaultPaddingForWidgetResponse);
+}
+
+service AppWidgetProviderInfoService {
+  rpc NewAppWidgetProviderInfo (NewAppWidgetProviderInfoRequest) returns (NewAppWidgetProviderInfoResponse);
+  rpc Clone0 (Clone0Request) returns (Clone0Response);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetActivityInfo (GetActivityInfoRequest) returns (GetActivityInfoResponse);
+  rpc GetProfile (GetProfileRequest) returns (GetProfileResponse);
+  rpc LoadDescription (LoadDescriptionRequest) returns (LoadDescriptionResponse);
+  rpc LoadIcon (LoadIconRequest) returns (LoadIconResponse);
+  rpc LoadLabel (LoadLabelRequest) returns (LoadLabelResponse);
+  rpc LoadPreviewImage (LoadPreviewImageRequest) returns (LoadPreviewImageResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc Clone0_1 (Clone0_1Request) returns (Clone0_1Response);
+}
+
 service AppWidgetManagerService {
   rpc BindAppWidgetIdIfAllowed2 (BindAppWidgetIdIfAllowed2Request) returns (BindAppWidgetIdIfAllowed2Response);
   rpc BindAppWidgetIdIfAllowed3_1 (BindAppWidgetIdIfAllowed3_1Request) returns (BindAppWidgetIdIfAllowed3_1Response);
   rpc BindAppWidgetIdIfAllowed4_2 (BindAppWidgetIdIfAllowed4_2Request) returns (BindAppWidgetIdIfAllowed4_2Response);
   rpc GetAppWidgetIds (GetAppWidgetIdsRequest) returns (GetAppWidgetIdsResponse);
-  rpc GetAppWidgetInfo (GetAppWidgetInfoRequest) returns (GetAppWidgetInfoResponse);
+  rpc GetAppWidgetInfo (AppWidgetManagerGetAppWidgetInfoRequest) returns (GetAppWidgetInfoResponse);
   rpc GetAppWidgetOptions (GetAppWidgetOptionsRequest) returns (GetAppWidgetOptionsResponse);
   rpc GetWidgetPreview (GetWidgetPreviewRequest) returns (GetWidgetPreviewResponse);
   rpc IsRequestPinAppWidgetSupported (IsRequestPinAppWidgetSupportedRequest) returns (IsRequestPinAppWidgetSupportedResponse);
@@ -204,7 +632,21 @@ service AppWidgetManagerService {
   rpc UpdateAppWidget2 (UpdateAppWidget2Request) returns (UpdateAppWidget2Response);
   rpc UpdateAppWidget2_1 (UpdateAppWidget2_1Request) returns (UpdateAppWidget2_1Response);
   rpc UpdateAppWidget2_2 (UpdateAppWidget2_2Request) returns (UpdateAppWidget2_2Response);
-  rpc UpdateAppWidgetOptions (UpdateAppWidgetOptionsRequest) returns (UpdateAppWidgetOptionsResponse);
+  rpc UpdateAppWidgetOptions (AppWidgetManagerUpdateAppWidgetOptionsRequest) returns (UpdateAppWidgetOptionsResponse);
   rpc UpdateAppWidgetProviderInfo (UpdateAppWidgetProviderInfoRequest) returns (UpdateAppWidgetProviderInfoResponse);
   rpc GetInstance (GetInstanceRequest) returns (GetInstanceResponse);
+}
+
+service AppWidgetHostService {
+  rpc NewAppWidgetHost (NewAppWidgetHostRequest) returns (NewAppWidgetHostResponse);
+  rpc AllocateAppWidgetId (AllocateAppWidgetIdRequest) returns (AllocateAppWidgetIdResponse);
+  rpc CreateView (CreateViewRequest) returns (CreateViewResponse);
+  rpc DeleteAppWidgetId (DeleteAppWidgetIdRequest) returns (DeleteAppWidgetIdResponse);
+  rpc DeleteHost (DeleteHostRequest) returns (DeleteHostResponse);
+  rpc GetAppWidgetIds (AppWidgetHostGetAppWidgetIdsRequest) returns (GetAppWidgetIdsResponse);
+  rpc OnAppWidgetRemoved (OnAppWidgetRemovedRequest) returns (OnAppWidgetRemovedResponse);
+  rpc StartAppWidgetConfigureActivityForResult (StartAppWidgetConfigureActivityForResultRequest) returns (StartAppWidgetConfigureActivityForResultResponse);
+  rpc StartListening (StartListeningRequest) returns (StartListeningResponse);
+  rpc StopListening (StopListeningRequest) returns (StopListeningResponse);
+  rpc DeleteAllHosts (DeleteAllHostsRequest) returns (DeleteAllHostsResponse);
 }

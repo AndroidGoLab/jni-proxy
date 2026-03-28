@@ -9,6 +9,564 @@ import (
 	"google.golang.org/grpc"
 )
 
+// SurfaceHolderClient wraps the gRPC SurfaceHolderService client.
+type SurfaceHolderClient struct {
+	svc pb.SurfaceHolderServiceClient
+}
+
+// NewSurfaceHolderClient creates a new SurfaceHolder client.
+func NewSurfaceHolderClient(cc grpc.ClientConnInterface) *SurfaceHolderClient {
+	return &SurfaceHolderClient{
+		svc: pb.NewSurfaceHolderServiceClient(cc),
+	}
+}
+
+// AddCallback calls the AddCallback RPC.
+func (c *SurfaceHolderClient) AddCallback(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.AddCallback(ctx, &pb.AddCallbackRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// GetSurface calls the GetSurface RPC.
+func (c *SurfaceHolderClient) GetSurface(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSurface(ctx, &pb.GetSurfaceRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSurfaceFrame calls the GetSurfaceFrame RPC.
+func (c *SurfaceHolderClient) GetSurfaceFrame(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSurfaceFrame(ctx, &pb.GetSurfaceFrameRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsCreating calls the IsCreating RPC.
+func (c *SurfaceHolderClient) IsCreating(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsCreating(ctx, &pb.IsCreatingRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// LockCanvas0 calls the LockCanvas0 RPC.
+func (c *SurfaceHolderClient) LockCanvas0(ctx context.Context) (int64, error) {
+	resp, err := c.svc.LockCanvas0(ctx, &pb.LockCanvas0Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// LockCanvas1_1 calls the LockCanvas1_1 RPC.
+func (c *SurfaceHolderClient) LockCanvas1_1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.LockCanvas1_1(ctx, &pb.LockCanvas1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RemoveCallback calls the RemoveCallback RPC.
+func (c *SurfaceHolderClient) RemoveCallback(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.RemoveCallback(ctx, &pb.RemoveCallbackRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetFixedSize calls the SetFixedSize RPC.
+func (c *SurfaceHolderClient) SetFixedSize(ctx context.Context, arg0 int32, arg1 int32) error {
+	_, err := c.svc.SetFixedSize(ctx, &pb.SetFixedSizeRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// SetFormat calls the SetFormat RPC.
+func (c *SurfaceHolderClient) SetFormat(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetFormat(ctx, &pb.SetFormatRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetKeepScreenOn calls the SetKeepScreenOn RPC.
+func (c *SurfaceHolderClient) SetKeepScreenOn(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetKeepScreenOn(ctx, &pb.SetKeepScreenOnRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetSizeFromLayout calls the SetSizeFromLayout RPC.
+func (c *SurfaceHolderClient) SetSizeFromLayout(ctx context.Context) error {
+	_, err := c.svc.SetSizeFromLayout(ctx, &pb.SetSizeFromLayoutRequest{})
+	return err
+}
+
+// SetType calls the SetType RPC.
+func (c *SurfaceHolderClient) SetType(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetType(ctx, &pb.SetTypeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// UnlockCanvasAndPost calls the UnlockCanvasAndPost RPC.
+func (c *SurfaceHolderClient) UnlockCanvasAndPost(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.UnlockCanvasAndPost(ctx, &pb.UnlockCanvasAndPostRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// DisplayClient wraps the gRPC DisplayService client.
+type DisplayClient struct {
+	svc pb.DisplayServiceClient
+}
+
+// NewDisplayClient creates a new Display client.
+func NewDisplayClient(cc grpc.ClientConnInterface) *DisplayClient {
+	return &DisplayClient{
+		svc: pb.NewDisplayServiceClient(cc),
+	}
+}
+
+// GetAppVsyncOffsetNanos calls the GetAppVsyncOffsetNanos RPC.
+func (c *DisplayClient) GetAppVsyncOffsetNanos(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAppVsyncOffsetNanos(ctx, &pb.GetAppVsyncOffsetNanosRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCurrentSizeRange calls the GetCurrentSizeRange RPC.
+func (c *DisplayClient) GetCurrentSizeRange(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.GetCurrentSizeRange(ctx, &pb.GetCurrentSizeRangeRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// GetCutout calls the GetCutout RPC.
+func (c *DisplayClient) GetCutout(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetCutout(ctx, &pb.GetCutoutRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDeviceProductInfo calls the GetDeviceProductInfo RPC.
+func (c *DisplayClient) GetDeviceProductInfo(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDeviceProductInfo(ctx, &pb.GetDeviceProductInfoRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDisplayId calls the GetDisplayId RPC.
+func (c *DisplayClient) GetDisplayId(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetDisplayId(ctx, &pb.GetDisplayIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFlags calls the GetFlags RPC.
+func (c *DisplayClient) GetFlags(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetFlags(ctx, &pb.GetFlagsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHdrCapabilities calls the GetHdrCapabilities RPC.
+func (c *DisplayClient) GetHdrCapabilities(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetHdrCapabilities(ctx, &pb.GetHdrCapabilitiesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHdrSdrRatio calls the GetHdrSdrRatio RPC.
+func (c *DisplayClient) GetHdrSdrRatio(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetHdrSdrRatio(ctx, &pb.GetHdrSdrRatioRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHeight calls the GetHeight RPC.
+func (c *DisplayClient) GetHeight(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetHeight(ctx, &pb.GetHeightRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHighestHdrSdrRatio calls the GetHighestHdrSdrRatio RPC.
+func (c *DisplayClient) GetHighestHdrSdrRatio(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetHighestHdrSdrRatio(ctx, &pb.GetHighestHdrSdrRatioRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMetrics calls the GetMetrics RPC.
+func (c *DisplayClient) GetMetrics(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.GetMetrics(ctx, &pb.GetMetricsRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// GetMode calls the GetMode RPC.
+func (c *DisplayClient) GetMode(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetMode(ctx, &pb.GetModeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetName calls the GetName RPC.
+func (c *DisplayClient) GetName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetName(ctx, &pb.GetNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOrientation calls the GetOrientation RPC.
+func (c *DisplayClient) GetOrientation(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetOrientation(ctx, &pb.GetOrientationRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOverlaySupport calls the GetOverlaySupport RPC.
+func (c *DisplayClient) GetOverlaySupport(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetOverlaySupport(ctx, &pb.GetOverlaySupportRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPixelFormat calls the GetPixelFormat RPC.
+func (c *DisplayClient) GetPixelFormat(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetPixelFormat(ctx, &pb.GetPixelFormatRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPreferredWideGamutColorSpace calls the GetPreferredWideGamutColorSpace RPC.
+func (c *DisplayClient) GetPreferredWideGamutColorSpace(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPreferredWideGamutColorSpace(ctx, &pb.GetPreferredWideGamutColorSpaceRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPresentationDeadlineNanos calls the GetPresentationDeadlineNanos RPC.
+func (c *DisplayClient) GetPresentationDeadlineNanos(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPresentationDeadlineNanos(ctx, &pb.GetPresentationDeadlineNanosRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRealMetrics calls the GetRealMetrics RPC.
+func (c *DisplayClient) GetRealMetrics(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.GetRealMetrics(ctx, &pb.GetRealMetricsRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// GetRealSize calls the GetRealSize RPC.
+func (c *DisplayClient) GetRealSize(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.GetRealSize(ctx, &pb.GetRealSizeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// GetRectSize calls the GetRectSize RPC.
+func (c *DisplayClient) GetRectSize(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.GetRectSize(ctx, &pb.GetRectSizeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// GetRefreshRate calls the GetRefreshRate RPC.
+func (c *DisplayClient) GetRefreshRate(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetRefreshRate(ctx, &pb.GetRefreshRateRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRotation calls the GetRotation RPC.
+func (c *DisplayClient) GetRotation(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetRotation(ctx, &pb.GetRotationRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRoundedCorner calls the GetRoundedCorner RPC.
+func (c *DisplayClient) GetRoundedCorner(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetRoundedCorner(ctx, &pb.GetRoundedCornerRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetShape calls the GetShape RPC.
+func (c *DisplayClient) GetShape(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetShape(ctx, &pb.GetShapeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSize calls the GetSize RPC.
+func (c *DisplayClient) GetSize(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.GetSize(ctx, &pb.GetSizeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// GetState calls the GetState RPC.
+func (c *DisplayClient) GetState(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetState(ctx, &pb.GetStateRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSuggestedFrameRate calls the GetSuggestedFrameRate RPC.
+func (c *DisplayClient) GetSuggestedFrameRate(ctx context.Context, arg0 int32) (float32, error) {
+	resp, err := c.svc.GetSuggestedFrameRate(ctx, &pb.GetSuggestedFrameRateRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSupportedModes calls the GetSupportedModes RPC.
+func (c *DisplayClient) GetSupportedModes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSupportedModes(ctx, &pb.GetSupportedModesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSupportedRefreshRates calls the GetSupportedRefreshRates RPC.
+func (c *DisplayClient) GetSupportedRefreshRates(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSupportedRefreshRates(ctx, &pb.GetSupportedRefreshRatesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWidth calls the GetWidth RPC.
+func (c *DisplayClient) GetWidth(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetWidth(ctx, &pb.GetWidthRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasArrSupport calls the HasArrSupport RPC.
+func (c *DisplayClient) HasArrSupport(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasArrSupport(ctx, &pb.HasArrSupportRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsHdr calls the IsHdr RPC.
+func (c *DisplayClient) IsHdr(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsHdr(ctx, &pb.IsHdrRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsHdrSdrRatioAvailable calls the IsHdrSdrRatioAvailable RPC.
+func (c *DisplayClient) IsHdrSdrRatioAvailable(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsHdrSdrRatioAvailable(ctx, &pb.IsHdrSdrRatioAvailableRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsMinimalPostProcessingSupported calls the IsMinimalPostProcessingSupported RPC.
+func (c *DisplayClient) IsMinimalPostProcessingSupported(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsMinimalPostProcessingSupported(ctx, &pb.IsMinimalPostProcessingSupportedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsValid calls the IsValid RPC.
+func (c *DisplayClient) IsValid(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsValid(ctx, &pb.IsValidRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsWideColorGamut calls the IsWideColorGamut RPC.
+func (c *DisplayClient) IsWideColorGamut(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsWideColorGamut(ctx, &pb.IsWideColorGamutRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RegisterHdrSdrRatioChangedListener calls the RegisterHdrSdrRatioChangedListener RPC.
+func (c *DisplayClient) RegisterHdrSdrRatioChangedListener(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.RegisterHdrSdrRatioChangedListener(ctx, &pb.RegisterHdrSdrRatioChangedListenerRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ToString calls the ToString RPC.
+func (c *DisplayClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// UnregisterHdrSdrRatioChangedListener calls the UnregisterHdrSdrRatioChangedListener RPC.
+func (c *DisplayClient) UnregisterHdrSdrRatioChangedListener(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.UnregisterHdrSdrRatioChangedListener(ctx, &pb.UnregisterHdrSdrRatioChangedListenerRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// MetricsClient wraps the gRPC MetricsService client.
+type MetricsClient struct {
+	svc pb.MetricsServiceClient
+}
+
+// NewMetricsClient creates a new Metrics client.
+func NewMetricsClient(cc grpc.ClientConnInterface) *MetricsClient {
+	return &MetricsClient{
+		svc: pb.NewMetricsServiceClient(cc),
+	}
+}
+
+// Equals1 calls the Equals1 RPC.
+func (c *MetricsClient) Equals1(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals1(ctx, &pb.Equals1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals1_1 calls the Equals1_1 RPC.
+func (c *MetricsClient) Equals1_1(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals1_1(ctx, &pb.Equals1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *MetricsClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetTo calls the SetTo RPC.
+func (c *MetricsClient) SetTo(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetTo(ctx, &pb.SetToRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetToDefaults calls the SetToDefaults RPC.
+func (c *MetricsClient) SetToDefaults(ctx context.Context) error {
+	_, err := c.svc.SetToDefaults(ctx, &pb.SetToDefaultsRequest{})
+	return err
+}
+
+// ToString calls the ToString RPC.
+func (c *MetricsClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
 // WindowManagerClient wraps the gRPC WindowManagerService client.
 type WindowManagerClient struct {
 	svc pb.WindowManagerServiceClient
@@ -33,6 +591,7222 @@ func (c *WindowManagerClient) GetDefaultDisplay(ctx context.Context) (int64, err
 // RemoveViewImmediate calls the RemoveViewImmediate RPC.
 func (c *WindowManagerClient) RemoveViewImmediate(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.RemoveViewImmediate(ctx, &pb.RemoveViewImmediateRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ViewClient wraps the gRPC ViewService client.
+type ViewClient struct {
+	svc pb.ViewServiceClient
+}
+
+// NewViewClient creates a new View client.
+func NewViewClient(cc grpc.ClientConnInterface) *ViewClient {
+	return &ViewClient{
+		svc: pb.NewViewServiceClient(cc),
+	}
+}
+
+// AddChildrenForAccessibility calls the AddChildrenForAccessibility RPC.
+func (c *ViewClient) AddChildrenForAccessibility(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.AddChildrenForAccessibility(ctx, &pb.AddChildrenForAccessibilityRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// AddExtraDataToAccessibilityNodeInfo calls the AddExtraDataToAccessibilityNodeInfo RPC.
+func (c *ViewClient) AddExtraDataToAccessibilityNodeInfo(ctx context.Context, arg0 int64, arg1 string, arg2 int64) error {
+	_, err := c.svc.AddExtraDataToAccessibilityNodeInfo(ctx, &pb.AddExtraDataToAccessibilityNodeInfoRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// AddFocusables2 calls the AddFocusables2 RPC.
+func (c *ViewClient) AddFocusables2(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.AddFocusables2(ctx, &pb.AddFocusables2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// AddFocusables3_1 calls the AddFocusables3_1 RPC.
+func (c *ViewClient) AddFocusables3_1(ctx context.Context, arg0 int64, arg1 int32, arg2 int32) error {
+	_, err := c.svc.AddFocusables3_1(ctx, &pb.AddFocusables3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// AddKeyboardNavigationClusters calls the AddKeyboardNavigationClusters RPC.
+func (c *ViewClient) AddKeyboardNavigationClusters(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.AddKeyboardNavigationClusters(ctx, &pb.AddKeyboardNavigationClustersRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// AddOnAttachStateChangeListener calls the AddOnAttachStateChangeListener RPC.
+func (c *ViewClient) AddOnAttachStateChangeListener(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.AddOnAttachStateChangeListener(ctx, &pb.AddOnAttachStateChangeListenerRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// AddOnLayoutChangeListener calls the AddOnLayoutChangeListener RPC.
+func (c *ViewClient) AddOnLayoutChangeListener(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.AddOnLayoutChangeListener(ctx, &pb.AddOnLayoutChangeListenerRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// AddOnUnhandledKeyEventListener calls the AddOnUnhandledKeyEventListener RPC.
+func (c *ViewClient) AddOnUnhandledKeyEventListener(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.AddOnUnhandledKeyEventListener(ctx, &pb.AddOnUnhandledKeyEventListenerRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// AddTouchables calls the AddTouchables RPC.
+func (c *ViewClient) AddTouchables(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.AddTouchables(ctx, &pb.AddTouchablesRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// Animate calls the Animate RPC.
+func (c *ViewClient) Animate(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Animate(ctx, &pb.AnimateRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AnnounceForAccessibility calls the AnnounceForAccessibility RPC.
+func (c *ViewClient) AnnounceForAccessibility(ctx context.Context, arg0 string) error {
+	_, err := c.svc.AnnounceForAccessibility(ctx, &pb.AnnounceForAccessibilityRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// Autofill1 calls the Autofill1 RPC.
+func (c *ViewClient) Autofill1(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.Autofill1(ctx, &pb.Autofill1Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// Autofill1_1 calls the Autofill1_1 RPC.
+func (c *ViewClient) Autofill1_1(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.Autofill1_1(ctx, &pb.Autofill1_1Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// BringToFront calls the BringToFront RPC.
+func (c *ViewClient) BringToFront(ctx context.Context) error {
+	_, err := c.svc.BringToFront(ctx, &pb.BringToFrontRequest{})
+	return err
+}
+
+// BuildDrawingCache0 calls the BuildDrawingCache0 RPC.
+func (c *ViewClient) BuildDrawingCache0(ctx context.Context) error {
+	_, err := c.svc.BuildDrawingCache0(ctx, &pb.BuildDrawingCache0Request{})
+	return err
+}
+
+// BuildDrawingCache1_1 calls the BuildDrawingCache1_1 RPC.
+func (c *ViewClient) BuildDrawingCache1_1(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.BuildDrawingCache1_1(ctx, &pb.BuildDrawingCache1_1Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// BuildLayer calls the BuildLayer RPC.
+func (c *ViewClient) BuildLayer(ctx context.Context) error {
+	_, err := c.svc.BuildLayer(ctx, &pb.BuildLayerRequest{})
+	return err
+}
+
+// CallOnClick calls the CallOnClick RPC.
+func (c *ViewClient) CallOnClick(ctx context.Context) (bool, error) {
+	resp, err := c.svc.CallOnClick(ctx, &pb.CallOnClickRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CanResolveLayoutDirection calls the CanResolveLayoutDirection RPC.
+func (c *ViewClient) CanResolveLayoutDirection(ctx context.Context) (bool, error) {
+	resp, err := c.svc.CanResolveLayoutDirection(ctx, &pb.CanResolveLayoutDirectionRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CanResolveTextAlignment calls the CanResolveTextAlignment RPC.
+func (c *ViewClient) CanResolveTextAlignment(ctx context.Context) (bool, error) {
+	resp, err := c.svc.CanResolveTextAlignment(ctx, &pb.CanResolveTextAlignmentRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CanResolveTextDirection calls the CanResolveTextDirection RPC.
+func (c *ViewClient) CanResolveTextDirection(ctx context.Context) (bool, error) {
+	resp, err := c.svc.CanResolveTextDirection(ctx, &pb.CanResolveTextDirectionRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CanScrollHorizontally calls the CanScrollHorizontally RPC.
+func (c *ViewClient) CanScrollHorizontally(ctx context.Context, arg0 int32) (bool, error) {
+	resp, err := c.svc.CanScrollHorizontally(ctx, &pb.CanScrollHorizontallyRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CanScrollVertically calls the CanScrollVertically RPC.
+func (c *ViewClient) CanScrollVertically(ctx context.Context, arg0 int32) (bool, error) {
+	resp, err := c.svc.CanScrollVertically(ctx, &pb.CanScrollVerticallyRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CancelDragAndDrop calls the CancelDragAndDrop RPC.
+func (c *ViewClient) CancelDragAndDrop(ctx context.Context) error {
+	_, err := c.svc.CancelDragAndDrop(ctx, &pb.CancelDragAndDropRequest{})
+	return err
+}
+
+// CancelLongPress calls the CancelLongPress RPC.
+func (c *ViewClient) CancelLongPress(ctx context.Context) error {
+	_, err := c.svc.CancelLongPress(ctx, &pb.CancelLongPressRequest{})
+	return err
+}
+
+// CancelPendingInputEvents calls the CancelPendingInputEvents RPC.
+func (c *ViewClient) CancelPendingInputEvents(ctx context.Context) error {
+	_, err := c.svc.CancelPendingInputEvents(ctx, &pb.CancelPendingInputEventsRequest{})
+	return err
+}
+
+// CheckInputConnectionProxy calls the CheckInputConnectionProxy RPC.
+func (c *ViewClient) CheckInputConnectionProxy(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.CheckInputConnectionProxy(ctx, &pb.CheckInputConnectionProxyRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearAnimation calls the ClearAnimation RPC.
+func (c *ViewClient) ClearAnimation(ctx context.Context) error {
+	_, err := c.svc.ClearAnimation(ctx, &pb.ClearAnimationRequest{})
+	return err
+}
+
+// ClearFocus calls the ClearFocus RPC.
+func (c *ViewClient) ClearFocus(ctx context.Context) error {
+	_, err := c.svc.ClearFocus(ctx, &pb.ClearFocusRequest{})
+	return err
+}
+
+// ClearPendingCredentialRequest calls the ClearPendingCredentialRequest RPC.
+func (c *ViewClient) ClearPendingCredentialRequest(ctx context.Context) error {
+	_, err := c.svc.ClearPendingCredentialRequest(ctx, &pb.ClearPendingCredentialRequestRequest{})
+	return err
+}
+
+// ClearViewTranslationCallback calls the ClearViewTranslationCallback RPC.
+func (c *ViewClient) ClearViewTranslationCallback(ctx context.Context) error {
+	_, err := c.svc.ClearViewTranslationCallback(ctx, &pb.ClearViewTranslationCallbackRequest{})
+	return err
+}
+
+// ComputeScroll calls the ComputeScroll RPC.
+func (c *ViewClient) ComputeScroll(ctx context.Context) error {
+	_, err := c.svc.ComputeScroll(ctx, &pb.ComputeScrollRequest{})
+	return err
+}
+
+// ComputeSystemWindowInsets calls the ComputeSystemWindowInsets RPC.
+func (c *ViewClient) ComputeSystemWindowInsets(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.ComputeSystemWindowInsets(ctx, &pb.ComputeSystemWindowInsetsRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateAccessibilityNodeInfo calls the CreateAccessibilityNodeInfo RPC.
+func (c *ViewClient) CreateAccessibilityNodeInfo(ctx context.Context) (int64, error) {
+	resp, err := c.svc.CreateAccessibilityNodeInfo(ctx, &pb.CreateAccessibilityNodeInfoRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateContextMenu calls the CreateContextMenu RPC.
+func (c *ViewClient) CreateContextMenu(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.CreateContextMenu(ctx, &pb.CreateContextMenuRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// DestroyDrawingCache calls the DestroyDrawingCache RPC.
+func (c *ViewClient) DestroyDrawingCache(ctx context.Context) error {
+	_, err := c.svc.DestroyDrawingCache(ctx, &pb.DestroyDrawingCacheRequest{})
+	return err
+}
+
+// DispatchApplyWindowInsets calls the DispatchApplyWindowInsets RPC.
+func (c *ViewClient) DispatchApplyWindowInsets(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.DispatchApplyWindowInsets(ctx, &pb.DispatchApplyWindowInsetsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DispatchCapturedPointerEvent calls the DispatchCapturedPointerEvent RPC.
+func (c *ViewClient) DispatchCapturedPointerEvent(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.DispatchCapturedPointerEvent(ctx, &pb.DispatchCapturedPointerEventRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DispatchConfigurationChanged calls the DispatchConfigurationChanged RPC.
+func (c *ViewClient) DispatchConfigurationChanged(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.DispatchConfigurationChanged(ctx, &pb.DispatchConfigurationChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// DispatchCreateViewTranslationRequest calls the DispatchCreateViewTranslationRequest RPC.
+func (c *ViewClient) DispatchCreateViewTranslationRequest(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
+	_, err := c.svc.DispatchCreateViewTranslationRequest(ctx, &pb.DispatchCreateViewTranslationRequestRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// DispatchDisplayHint calls the DispatchDisplayHint RPC.
+func (c *ViewClient) DispatchDisplayHint(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.DispatchDisplayHint(ctx, &pb.DispatchDisplayHintRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// DispatchDragEvent calls the DispatchDragEvent RPC.
+func (c *ViewClient) DispatchDragEvent(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.DispatchDragEvent(ctx, &pb.DispatchDragEventRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DispatchDrawableHotspotChanged calls the DispatchDrawableHotspotChanged RPC.
+func (c *ViewClient) DispatchDrawableHotspotChanged(ctx context.Context, arg0 float32, arg1 float32) error {
+	_, err := c.svc.DispatchDrawableHotspotChanged(ctx, &pb.DispatchDrawableHotspotChangedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// DispatchFinishTemporaryDetach calls the DispatchFinishTemporaryDetach RPC.
+func (c *ViewClient) DispatchFinishTemporaryDetach(ctx context.Context) error {
+	_, err := c.svc.DispatchFinishTemporaryDetach(ctx, &pb.DispatchFinishTemporaryDetachRequest{})
+	return err
+}
+
+// DispatchGenericMotionEvent calls the DispatchGenericMotionEvent RPC.
+func (c *ViewClient) DispatchGenericMotionEvent(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.DispatchGenericMotionEvent(ctx, &pb.DispatchGenericMotionEventRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DispatchKeyEvent calls the DispatchKeyEvent RPC.
+func (c *ViewClient) DispatchKeyEvent(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.DispatchKeyEvent(ctx, &pb.DispatchKeyEventRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DispatchKeyEventPreIme calls the DispatchKeyEventPreIme RPC.
+func (c *ViewClient) DispatchKeyEventPreIme(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.DispatchKeyEventPreIme(ctx, &pb.DispatchKeyEventPreImeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DispatchKeyShortcutEvent calls the DispatchKeyShortcutEvent RPC.
+func (c *ViewClient) DispatchKeyShortcutEvent(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.DispatchKeyShortcutEvent(ctx, &pb.DispatchKeyShortcutEventRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DispatchNestedFling calls the DispatchNestedFling RPC.
+func (c *ViewClient) DispatchNestedFling(ctx context.Context, arg0 float32, arg1 float32, arg2 bool) (bool, error) {
+	resp, err := c.svc.DispatchNestedFling(ctx, &pb.DispatchNestedFlingRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DispatchNestedPreFling calls the DispatchNestedPreFling RPC.
+func (c *ViewClient) DispatchNestedPreFling(ctx context.Context, arg0 float32, arg1 float32) (bool, error) {
+	resp, err := c.svc.DispatchNestedPreFling(ctx, &pb.DispatchNestedPreFlingRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DispatchNestedPrePerformAccessibilityAction calls the DispatchNestedPrePerformAccessibilityAction RPC.
+func (c *ViewClient) DispatchNestedPrePerformAccessibilityAction(ctx context.Context, arg0 int32, arg1 int64) (bool, error) {
+	resp, err := c.svc.DispatchNestedPrePerformAccessibilityAction(ctx, &pb.DispatchNestedPrePerformAccessibilityActionRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DispatchNestedPreScroll calls the DispatchNestedPreScroll RPC.
+func (c *ViewClient) DispatchNestedPreScroll(ctx context.Context, arg0 int32, arg1 int32, arg2 int64, arg3 int64) (bool, error) {
+	resp, err := c.svc.DispatchNestedPreScroll(ctx, &pb.DispatchNestedPreScrollRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DispatchNestedScroll calls the DispatchNestedScroll RPC.
+func (c *ViewClient) DispatchNestedScroll(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int64) (bool, error) {
+	resp, err := c.svc.DispatchNestedScroll(ctx, &pb.DispatchNestedScrollRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DispatchPointerCaptureChanged calls the DispatchPointerCaptureChanged RPC.
+func (c *ViewClient) DispatchPointerCaptureChanged(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.DispatchPointerCaptureChanged(ctx, &pb.DispatchPointerCaptureChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// DispatchPopulateAccessibilityEvent calls the DispatchPopulateAccessibilityEvent RPC.
+func (c *ViewClient) DispatchPopulateAccessibilityEvent(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.DispatchPopulateAccessibilityEvent(ctx, &pb.DispatchPopulateAccessibilityEventRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DispatchProvideAutofillStructure calls the DispatchProvideAutofillStructure RPC.
+func (c *ViewClient) DispatchProvideAutofillStructure(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.DispatchProvideAutofillStructure(ctx, &pb.DispatchProvideAutofillStructureRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// DispatchProvideStructure calls the DispatchProvideStructure RPC.
+func (c *ViewClient) DispatchProvideStructure(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.DispatchProvideStructure(ctx, &pb.DispatchProvideStructureRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// DispatchScrollCaptureSearch calls the DispatchScrollCaptureSearch RPC.
+func (c *ViewClient) DispatchScrollCaptureSearch(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.DispatchScrollCaptureSearch(ctx, &pb.DispatchScrollCaptureSearchRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// DispatchStartTemporaryDetach calls the DispatchStartTemporaryDetach RPC.
+func (c *ViewClient) DispatchStartTemporaryDetach(ctx context.Context) error {
+	_, err := c.svc.DispatchStartTemporaryDetach(ctx, &pb.DispatchStartTemporaryDetachRequest{})
+	return err
+}
+
+// DispatchSystemUiVisibilityChanged calls the DispatchSystemUiVisibilityChanged RPC.
+func (c *ViewClient) DispatchSystemUiVisibilityChanged(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.DispatchSystemUiVisibilityChanged(ctx, &pb.DispatchSystemUiVisibilityChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// DispatchTouchEvent calls the DispatchTouchEvent RPC.
+func (c *ViewClient) DispatchTouchEvent(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.DispatchTouchEvent(ctx, &pb.DispatchTouchEventRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DispatchTrackballEvent calls the DispatchTrackballEvent RPC.
+func (c *ViewClient) DispatchTrackballEvent(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.DispatchTrackballEvent(ctx, &pb.DispatchTrackballEventRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DispatchUnhandledMove calls the DispatchUnhandledMove RPC.
+func (c *ViewClient) DispatchUnhandledMove(ctx context.Context, arg0 int64, arg1 int32) (bool, error) {
+	resp, err := c.svc.DispatchUnhandledMove(ctx, &pb.DispatchUnhandledMoveRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DispatchWindowFocusChanged calls the DispatchWindowFocusChanged RPC.
+func (c *ViewClient) DispatchWindowFocusChanged(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.DispatchWindowFocusChanged(ctx, &pb.DispatchWindowFocusChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// DispatchWindowInsetsAnimationEnd calls the DispatchWindowInsetsAnimationEnd RPC.
+func (c *ViewClient) DispatchWindowInsetsAnimationEnd(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.DispatchWindowInsetsAnimationEnd(ctx, &pb.DispatchWindowInsetsAnimationEndRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// DispatchWindowInsetsAnimationPrepare calls the DispatchWindowInsetsAnimationPrepare RPC.
+func (c *ViewClient) DispatchWindowInsetsAnimationPrepare(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.DispatchWindowInsetsAnimationPrepare(ctx, &pb.DispatchWindowInsetsAnimationPrepareRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// DispatchWindowInsetsAnimationProgress calls the DispatchWindowInsetsAnimationProgress RPC.
+func (c *ViewClient) DispatchWindowInsetsAnimationProgress(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.DispatchWindowInsetsAnimationProgress(ctx, &pb.DispatchWindowInsetsAnimationProgressRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DispatchWindowInsetsAnimationStart calls the DispatchWindowInsetsAnimationStart RPC.
+func (c *ViewClient) DispatchWindowInsetsAnimationStart(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.DispatchWindowInsetsAnimationStart(ctx, &pb.DispatchWindowInsetsAnimationStartRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DispatchWindowSystemUiVisiblityChanged calls the DispatchWindowSystemUiVisiblityChanged RPC.
+func (c *ViewClient) DispatchWindowSystemUiVisiblityChanged(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.DispatchWindowSystemUiVisiblityChanged(ctx, &pb.DispatchWindowSystemUiVisiblityChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// DispatchWindowVisibilityChanged calls the DispatchWindowVisibilityChanged RPC.
+func (c *ViewClient) DispatchWindowVisibilityChanged(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.DispatchWindowVisibilityChanged(ctx, &pb.DispatchWindowVisibilityChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// Draw calls the Draw RPC.
+func (c *ViewClient) Draw(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.Draw(ctx, &pb.DrawRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// DrawableHotspotChanged calls the DrawableHotspotChanged RPC.
+func (c *ViewClient) DrawableHotspotChanged(ctx context.Context, arg0 float32, arg1 float32) error {
+	_, err := c.svc.DrawableHotspotChanged(ctx, &pb.DrawableHotspotChangedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// FindFocus calls the FindFocus RPC.
+func (c *ViewClient) FindFocus(ctx context.Context) (int64, error) {
+	resp, err := c.svc.FindFocus(ctx, &pb.FindFocusRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// FindOnBackInvokedDispatcher calls the FindOnBackInvokedDispatcher RPC.
+func (c *ViewClient) FindOnBackInvokedDispatcher(ctx context.Context) (int64, error) {
+	resp, err := c.svc.FindOnBackInvokedDispatcher(ctx, &pb.FindOnBackInvokedDispatcherRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// FindViewsWithText calls the FindViewsWithText RPC.
+func (c *ViewClient) FindViewsWithText(ctx context.Context, arg0 int64, arg1 string, arg2 int32) error {
+	_, err := c.svc.FindViewsWithText(ctx, &pb.FindViewsWithTextRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// FocusSearch calls the FocusSearch RPC.
+func (c *ViewClient) FocusSearch(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.FocusSearch(ctx, &pb.FocusSearchRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ForceHasOverlappingRendering calls the ForceHasOverlappingRendering RPC.
+func (c *ViewClient) ForceHasOverlappingRendering(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.ForceHasOverlappingRendering(ctx, &pb.ForceHasOverlappingRenderingRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ForceLayout calls the ForceLayout RPC.
+func (c *ViewClient) ForceLayout(ctx context.Context) error {
+	_, err := c.svc.ForceLayout(ctx, &pb.ForceLayoutRequest{})
+	return err
+}
+
+// GatherTransparentRegion calls the GatherTransparentRegion RPC.
+func (c *ViewClient) GatherTransparentRegion(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.GatherTransparentRegion(ctx, &pb.GatherTransparentRegionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GenerateDisplayHash calls the GenerateDisplayHash RPC.
+func (c *ViewClient) GenerateDisplayHash(ctx context.Context, arg0 string, arg1 int64, arg2 int64, arg3 int64) error {
+	_, err := c.svc.GenerateDisplayHash(ctx, &pb.GenerateDisplayHashRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// GetAccessibilityClassName calls the GetAccessibilityClassName RPC.
+func (c *ViewClient) GetAccessibilityClassName(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAccessibilityClassName(ctx, &pb.GetAccessibilityClassNameRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAccessibilityDelegate calls the GetAccessibilityDelegate RPC.
+func (c *ViewClient) GetAccessibilityDelegate(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAccessibilityDelegate(ctx, &pb.GetAccessibilityDelegateRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAccessibilityLiveRegion calls the GetAccessibilityLiveRegion RPC.
+func (c *ViewClient) GetAccessibilityLiveRegion(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetAccessibilityLiveRegion(ctx, &pb.GetAccessibilityLiveRegionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAccessibilityNodeProvider calls the GetAccessibilityNodeProvider RPC.
+func (c *ViewClient) GetAccessibilityNodeProvider(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAccessibilityNodeProvider(ctx, &pb.GetAccessibilityNodeProviderRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAccessibilityPaneTitle calls the GetAccessibilityPaneTitle RPC.
+func (c *ViewClient) GetAccessibilityPaneTitle(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAccessibilityPaneTitle(ctx, &pb.GetAccessibilityPaneTitleRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAccessibilityTraversalAfter calls the GetAccessibilityTraversalAfter RPC.
+func (c *ViewClient) GetAccessibilityTraversalAfter(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetAccessibilityTraversalAfter(ctx, &pb.GetAccessibilityTraversalAfterRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAccessibilityTraversalBefore calls the GetAccessibilityTraversalBefore RPC.
+func (c *ViewClient) GetAccessibilityTraversalBefore(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetAccessibilityTraversalBefore(ctx, &pb.GetAccessibilityTraversalBeforeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAllowedHandwritingDelegatePackageName calls the GetAllowedHandwritingDelegatePackageName RPC.
+func (c *ViewClient) GetAllowedHandwritingDelegatePackageName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetAllowedHandwritingDelegatePackageName(ctx, &pb.GetAllowedHandwritingDelegatePackageNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAllowedHandwritingDelegatorPackageName calls the GetAllowedHandwritingDelegatorPackageName RPC.
+func (c *ViewClient) GetAllowedHandwritingDelegatorPackageName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetAllowedHandwritingDelegatorPackageName(ctx, &pb.GetAllowedHandwritingDelegatorPackageNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAlpha calls the GetAlpha RPC.
+func (c *ViewClient) GetAlpha(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetAlpha(ctx, &pb.GetAlphaRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAnimation calls the GetAnimation RPC.
+func (c *ViewClient) GetAnimation(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAnimation(ctx, &pb.GetAnimationRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAnimationMatrix calls the GetAnimationMatrix RPC.
+func (c *ViewClient) GetAnimationMatrix(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAnimationMatrix(ctx, &pb.GetAnimationMatrixRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetApplicationWindowToken calls the GetApplicationWindowToken RPC.
+func (c *ViewClient) GetApplicationWindowToken(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetApplicationWindowToken(ctx, &pb.GetApplicationWindowTokenRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAttributeResolutionStack calls the GetAttributeResolutionStack RPC.
+func (c *ViewClient) GetAttributeResolutionStack(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetAttributeResolutionStack(ctx, &pb.GetAttributeResolutionStackRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAutofillHints calls the GetAutofillHints RPC.
+func (c *ViewClient) GetAutofillHints(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAutofillHints(ctx, &pb.GetAutofillHintsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAutofillId calls the GetAutofillId RPC.
+func (c *ViewClient) GetAutofillId(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAutofillId(ctx, &pb.GetAutofillIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAutofillType calls the GetAutofillType RPC.
+func (c *ViewClient) GetAutofillType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetAutofillType(ctx, &pb.GetAutofillTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAutofillValue calls the GetAutofillValue RPC.
+func (c *ViewClient) GetAutofillValue(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAutofillValue(ctx, &pb.GetAutofillValueRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBackground calls the GetBackground RPC.
+func (c *ViewClient) GetBackground(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetBackground(ctx, &pb.GetBackgroundRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBackgroundTintBlendMode calls the GetBackgroundTintBlendMode RPC.
+func (c *ViewClient) GetBackgroundTintBlendMode(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetBackgroundTintBlendMode(ctx, &pb.GetBackgroundTintBlendModeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBackgroundTintList calls the GetBackgroundTintList RPC.
+func (c *ViewClient) GetBackgroundTintList(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetBackgroundTintList(ctx, &pb.GetBackgroundTintListRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBackgroundTintMode calls the GetBackgroundTintMode RPC.
+func (c *ViewClient) GetBackgroundTintMode(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetBackgroundTintMode(ctx, &pb.GetBackgroundTintModeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBaseline calls the GetBaseline RPC.
+func (c *ViewClient) GetBaseline(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetBaseline(ctx, &pb.GetBaselineRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBottom calls the GetBottom RPC.
+func (c *ViewClient) GetBottom(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetBottom(ctx, &pb.GetBottomRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCameraDistance calls the GetCameraDistance RPC.
+func (c *ViewClient) GetCameraDistance(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetCameraDistance(ctx, &pb.GetCameraDistanceRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetClipBounds0 calls the GetClipBounds0 RPC.
+func (c *ViewClient) GetClipBounds0(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetClipBounds0(ctx, &pb.GetClipBounds0Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetClipBounds1_1 calls the GetClipBounds1_1 RPC.
+func (c *ViewClient) GetClipBounds1_1(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.GetClipBounds1_1(ctx, &pb.GetClipBounds1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetClipToOutline calls the GetClipToOutline RPC.
+func (c *ViewClient) GetClipToOutline(ctx context.Context) (bool, error) {
+	resp, err := c.svc.GetClipToOutline(ctx, &pb.GetClipToOutlineRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetContentCaptureSession calls the GetContentCaptureSession RPC.
+func (c *ViewClient) GetContentCaptureSession(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetContentCaptureSession(ctx, &pb.GetContentCaptureSessionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetContentDescription calls the GetContentDescription RPC.
+func (c *ViewClient) GetContentDescription(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetContentDescription(ctx, &pb.GetContentDescriptionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetContentSensitivity calls the GetContentSensitivity RPC.
+func (c *ViewClient) GetContentSensitivity(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetContentSensitivity(ctx, &pb.GetContentSensitivityRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetContext calls the GetContext RPC.
+func (c *ViewClient) GetContext(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetContext(ctx, &pb.GetContextRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDefaultFocusHighlightEnabled calls the GetDefaultFocusHighlightEnabled RPC.
+func (c *ViewClient) GetDefaultFocusHighlightEnabled(ctx context.Context) (bool, error) {
+	resp, err := c.svc.GetDefaultFocusHighlightEnabled(ctx, &pb.GetDefaultFocusHighlightEnabledRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDisplay calls the GetDisplay RPC.
+func (c *ViewClient) GetDisplay(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDisplay(ctx, &pb.GetDisplayRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDrawableState calls the GetDrawableState RPC.
+func (c *ViewClient) GetDrawableState(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDrawableState(ctx, &pb.GetDrawableStateRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDrawingCache0 calls the GetDrawingCache0 RPC.
+func (c *ViewClient) GetDrawingCache0(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDrawingCache0(ctx, &pb.GetDrawingCache0Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDrawingCache1_1 calls the GetDrawingCache1_1 RPC.
+func (c *ViewClient) GetDrawingCache1_1(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.GetDrawingCache1_1(ctx, &pb.GetDrawingCache1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDrawingCacheBackgroundColor calls the GetDrawingCacheBackgroundColor RPC.
+func (c *ViewClient) GetDrawingCacheBackgroundColor(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetDrawingCacheBackgroundColor(ctx, &pb.GetDrawingCacheBackgroundColorRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDrawingCacheQuality calls the GetDrawingCacheQuality RPC.
+func (c *ViewClient) GetDrawingCacheQuality(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetDrawingCacheQuality(ctx, &pb.GetDrawingCacheQualityRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDrawingRect calls the GetDrawingRect RPC.
+func (c *ViewClient) GetDrawingRect(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.GetDrawingRect(ctx, &pb.GetDrawingRectRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// GetDrawingTime calls the GetDrawingTime RPC.
+func (c *ViewClient) GetDrawingTime(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDrawingTime(ctx, &pb.GetDrawingTimeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetElevation calls the GetElevation RPC.
+func (c *ViewClient) GetElevation(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetElevation(ctx, &pb.GetElevationRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExplicitStyle calls the GetExplicitStyle RPC.
+func (c *ViewClient) GetExplicitStyle(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetExplicitStyle(ctx, &pb.GetExplicitStyleRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFilterTouchesWhenObscured calls the GetFilterTouchesWhenObscured RPC.
+func (c *ViewClient) GetFilterTouchesWhenObscured(ctx context.Context) (bool, error) {
+	resp, err := c.svc.GetFilterTouchesWhenObscured(ctx, &pb.GetFilterTouchesWhenObscuredRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFitsSystemWindows calls the GetFitsSystemWindows RPC.
+func (c *ViewClient) GetFitsSystemWindows(ctx context.Context) (bool, error) {
+	resp, err := c.svc.GetFitsSystemWindows(ctx, &pb.GetFitsSystemWindowsRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFocusable calls the GetFocusable RPC.
+func (c *ViewClient) GetFocusable(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetFocusable(ctx, &pb.GetFocusableRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFocusables calls the GetFocusables RPC.
+func (c *ViewClient) GetFocusables(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetFocusables(ctx, &pb.GetFocusablesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFocusedRect calls the GetFocusedRect RPC.
+func (c *ViewClient) GetFocusedRect(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.GetFocusedRect(ctx, &pb.GetFocusedRectRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// GetForeground calls the GetForeground RPC.
+func (c *ViewClient) GetForeground(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetForeground(ctx, &pb.GetForegroundRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetForegroundGravity calls the GetForegroundGravity RPC.
+func (c *ViewClient) GetForegroundGravity(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetForegroundGravity(ctx, &pb.GetForegroundGravityRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetForegroundTintBlendMode calls the GetForegroundTintBlendMode RPC.
+func (c *ViewClient) GetForegroundTintBlendMode(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetForegroundTintBlendMode(ctx, &pb.GetForegroundTintBlendModeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetForegroundTintList calls the GetForegroundTintList RPC.
+func (c *ViewClient) GetForegroundTintList(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetForegroundTintList(ctx, &pb.GetForegroundTintListRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetForegroundTintMode calls the GetForegroundTintMode RPC.
+func (c *ViewClient) GetForegroundTintMode(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetForegroundTintMode(ctx, &pb.GetForegroundTintModeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFrameContentVelocity calls the GetFrameContentVelocity RPC.
+func (c *ViewClient) GetFrameContentVelocity(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetFrameContentVelocity(ctx, &pb.GetFrameContentVelocityRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetGlobalVisibleRect1 calls the GetGlobalVisibleRect1 RPC.
+func (c *ViewClient) GetGlobalVisibleRect1(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.GetGlobalVisibleRect1(ctx, &pb.GetGlobalVisibleRect1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetGlobalVisibleRect2_1 calls the GetGlobalVisibleRect2_1 RPC.
+func (c *ViewClient) GetGlobalVisibleRect2_1(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
+	resp, err := c.svc.GetGlobalVisibleRect2_1(ctx, &pb.GetGlobalVisibleRect2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHandler calls the GetHandler RPC.
+func (c *ViewClient) GetHandler(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetHandler(ctx, &pb.GetHandlerRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHandwritingBoundsOffsetBottom calls the GetHandwritingBoundsOffsetBottom RPC.
+func (c *ViewClient) GetHandwritingBoundsOffsetBottom(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetHandwritingBoundsOffsetBottom(ctx, &pb.GetHandwritingBoundsOffsetBottomRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHandwritingBoundsOffsetLeft calls the GetHandwritingBoundsOffsetLeft RPC.
+func (c *ViewClient) GetHandwritingBoundsOffsetLeft(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetHandwritingBoundsOffsetLeft(ctx, &pb.GetHandwritingBoundsOffsetLeftRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHandwritingBoundsOffsetRight calls the GetHandwritingBoundsOffsetRight RPC.
+func (c *ViewClient) GetHandwritingBoundsOffsetRight(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetHandwritingBoundsOffsetRight(ctx, &pb.GetHandwritingBoundsOffsetRightRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHandwritingBoundsOffsetTop calls the GetHandwritingBoundsOffsetTop RPC.
+func (c *ViewClient) GetHandwritingBoundsOffsetTop(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetHandwritingBoundsOffsetTop(ctx, &pb.GetHandwritingBoundsOffsetTopRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHandwritingDelegateFlags calls the GetHandwritingDelegateFlags RPC.
+func (c *ViewClient) GetHandwritingDelegateFlags(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetHandwritingDelegateFlags(ctx, &pb.GetHandwritingDelegateFlagsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHandwritingDelegatorCallback calls the GetHandwritingDelegatorCallback RPC.
+func (c *ViewClient) GetHandwritingDelegatorCallback(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetHandwritingDelegatorCallback(ctx, &pb.GetHandwritingDelegatorCallbackRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHasOverlappingRendering calls the GetHasOverlappingRendering RPC.
+func (c *ViewClient) GetHasOverlappingRendering(ctx context.Context) (bool, error) {
+	resp, err := c.svc.GetHasOverlappingRendering(ctx, &pb.GetHasOverlappingRenderingRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHeight calls the GetHeight RPC.
+func (c *ViewClient) GetHeight(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetHeight(ctx, &pb.GetHeightRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHitRect calls the GetHitRect RPC.
+func (c *ViewClient) GetHitRect(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.GetHitRect(ctx, &pb.GetHitRectRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// GetHorizontalFadingEdgeLength calls the GetHorizontalFadingEdgeLength RPC.
+func (c *ViewClient) GetHorizontalFadingEdgeLength(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetHorizontalFadingEdgeLength(ctx, &pb.GetHorizontalFadingEdgeLengthRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHorizontalScrollbarThumbDrawable calls the GetHorizontalScrollbarThumbDrawable RPC.
+func (c *ViewClient) GetHorizontalScrollbarThumbDrawable(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetHorizontalScrollbarThumbDrawable(ctx, &pb.GetHorizontalScrollbarThumbDrawableRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHorizontalScrollbarTrackDrawable calls the GetHorizontalScrollbarTrackDrawable RPC.
+func (c *ViewClient) GetHorizontalScrollbarTrackDrawable(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetHorizontalScrollbarTrackDrawable(ctx, &pb.GetHorizontalScrollbarTrackDrawableRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetId calls the GetId RPC.
+func (c *ViewClient) GetId(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetImportantForAccessibility calls the GetImportantForAccessibility RPC.
+func (c *ViewClient) GetImportantForAccessibility(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetImportantForAccessibility(ctx, &pb.GetImportantForAccessibilityRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetImportantForAutofill calls the GetImportantForAutofill RPC.
+func (c *ViewClient) GetImportantForAutofill(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetImportantForAutofill(ctx, &pb.GetImportantForAutofillRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetImportantForContentCapture calls the GetImportantForContentCapture RPC.
+func (c *ViewClient) GetImportantForContentCapture(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetImportantForContentCapture(ctx, &pb.GetImportantForContentCaptureRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetKeepScreenOn calls the GetKeepScreenOn RPC.
+func (c *ViewClient) GetKeepScreenOn(ctx context.Context) (bool, error) {
+	resp, err := c.svc.GetKeepScreenOn(ctx, &pb.GetKeepScreenOnRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetKeyDispatcherState calls the GetKeyDispatcherState RPC.
+func (c *ViewClient) GetKeyDispatcherState(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetKeyDispatcherState(ctx, &pb.GetKeyDispatcherStateRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLabelFor calls the GetLabelFor RPC.
+func (c *ViewClient) GetLabelFor(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetLabelFor(ctx, &pb.GetLabelForRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLayerType calls the GetLayerType RPC.
+func (c *ViewClient) GetLayerType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetLayerType(ctx, &pb.GetLayerTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLayoutDirection calls the GetLayoutDirection RPC.
+func (c *ViewClient) GetLayoutDirection(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetLayoutDirection(ctx, &pb.GetLayoutDirectionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLayoutParams calls the GetLayoutParams RPC.
+func (c *ViewClient) GetLayoutParams(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetLayoutParams(ctx, &pb.GetLayoutParamsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLeft calls the GetLeft RPC.
+func (c *ViewClient) GetLeft(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetLeft(ctx, &pb.GetLeftRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLocalVisibleRect calls the GetLocalVisibleRect RPC.
+func (c *ViewClient) GetLocalVisibleRect(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.GetLocalVisibleRect(ctx, &pb.GetLocalVisibleRectRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLocationInSurface calls the GetLocationInSurface RPC.
+func (c *ViewClient) GetLocationInSurface(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.GetLocationInSurface(ctx, &pb.GetLocationInSurfaceRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// GetLocationInWindow calls the GetLocationInWindow RPC.
+func (c *ViewClient) GetLocationInWindow(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.GetLocationInWindow(ctx, &pb.GetLocationInWindowRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// GetLocationOnScreen calls the GetLocationOnScreen RPC.
+func (c *ViewClient) GetLocationOnScreen(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.GetLocationOnScreen(ctx, &pb.GetLocationOnScreenRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// GetMatrix calls the GetMatrix RPC.
+func (c *ViewClient) GetMatrix(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetMatrix(ctx, &pb.GetMatrixRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMeasuredHeight calls the GetMeasuredHeight RPC.
+func (c *ViewClient) GetMeasuredHeight(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMeasuredHeight(ctx, &pb.GetMeasuredHeightRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMeasuredHeightAndState calls the GetMeasuredHeightAndState RPC.
+func (c *ViewClient) GetMeasuredHeightAndState(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMeasuredHeightAndState(ctx, &pb.GetMeasuredHeightAndStateRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMeasuredState calls the GetMeasuredState RPC.
+func (c *ViewClient) GetMeasuredState(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMeasuredState(ctx, &pb.GetMeasuredStateRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMeasuredWidth calls the GetMeasuredWidth RPC.
+func (c *ViewClient) GetMeasuredWidth(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMeasuredWidth(ctx, &pb.GetMeasuredWidthRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMeasuredWidthAndState calls the GetMeasuredWidthAndState RPC.
+func (c *ViewClient) GetMeasuredWidthAndState(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMeasuredWidthAndState(ctx, &pb.GetMeasuredWidthAndStateRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMinimumHeight calls the GetMinimumHeight RPC.
+func (c *ViewClient) GetMinimumHeight(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMinimumHeight(ctx, &pb.GetMinimumHeightRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMinimumWidth calls the GetMinimumWidth RPC.
+func (c *ViewClient) GetMinimumWidth(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMinimumWidth(ctx, &pb.GetMinimumWidthRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNextClusterForwardId calls the GetNextClusterForwardId RPC.
+func (c *ViewClient) GetNextClusterForwardId(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetNextClusterForwardId(ctx, &pb.GetNextClusterForwardIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNextFocusDownId calls the GetNextFocusDownId RPC.
+func (c *ViewClient) GetNextFocusDownId(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetNextFocusDownId(ctx, &pb.GetNextFocusDownIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNextFocusForwardId calls the GetNextFocusForwardId RPC.
+func (c *ViewClient) GetNextFocusForwardId(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetNextFocusForwardId(ctx, &pb.GetNextFocusForwardIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNextFocusLeftId calls the GetNextFocusLeftId RPC.
+func (c *ViewClient) GetNextFocusLeftId(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetNextFocusLeftId(ctx, &pb.GetNextFocusLeftIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNextFocusRightId calls the GetNextFocusRightId RPC.
+func (c *ViewClient) GetNextFocusRightId(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetNextFocusRightId(ctx, &pb.GetNextFocusRightIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNextFocusUpId calls the GetNextFocusUpId RPC.
+func (c *ViewClient) GetNextFocusUpId(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetNextFocusUpId(ctx, &pb.GetNextFocusUpIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOnFocusChangeListener calls the GetOnFocusChangeListener RPC.
+func (c *ViewClient) GetOnFocusChangeListener(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetOnFocusChangeListener(ctx, &pb.GetOnFocusChangeListenerRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOutlineAmbientShadowColor calls the GetOutlineAmbientShadowColor RPC.
+func (c *ViewClient) GetOutlineAmbientShadowColor(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetOutlineAmbientShadowColor(ctx, &pb.GetOutlineAmbientShadowColorRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOutlineProvider calls the GetOutlineProvider RPC.
+func (c *ViewClient) GetOutlineProvider(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetOutlineProvider(ctx, &pb.GetOutlineProviderRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOutlineSpotShadowColor calls the GetOutlineSpotShadowColor RPC.
+func (c *ViewClient) GetOutlineSpotShadowColor(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetOutlineSpotShadowColor(ctx, &pb.GetOutlineSpotShadowColorRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOverScrollMode calls the GetOverScrollMode RPC.
+func (c *ViewClient) GetOverScrollMode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetOverScrollMode(ctx, &pb.GetOverScrollModeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOverlay calls the GetOverlay RPC.
+func (c *ViewClient) GetOverlay(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetOverlay(ctx, &pb.GetOverlayRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPaddingBottom calls the GetPaddingBottom RPC.
+func (c *ViewClient) GetPaddingBottom(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetPaddingBottom(ctx, &pb.GetPaddingBottomRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPaddingEnd calls the GetPaddingEnd RPC.
+func (c *ViewClient) GetPaddingEnd(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetPaddingEnd(ctx, &pb.GetPaddingEndRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPaddingLeft calls the GetPaddingLeft RPC.
+func (c *ViewClient) GetPaddingLeft(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetPaddingLeft(ctx, &pb.GetPaddingLeftRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPaddingRight calls the GetPaddingRight RPC.
+func (c *ViewClient) GetPaddingRight(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetPaddingRight(ctx, &pb.GetPaddingRightRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPaddingStart calls the GetPaddingStart RPC.
+func (c *ViewClient) GetPaddingStart(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetPaddingStart(ctx, &pb.GetPaddingStartRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPaddingTop calls the GetPaddingTop RPC.
+func (c *ViewClient) GetPaddingTop(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetPaddingTop(ctx, &pb.GetPaddingTopRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetParent calls the GetParent RPC.
+func (c *ViewClient) GetParent(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetParent(ctx, &pb.GetParentRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetParentForAccessibility calls the GetParentForAccessibility RPC.
+func (c *ViewClient) GetParentForAccessibility(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetParentForAccessibility(ctx, &pb.GetParentForAccessibilityRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPendingCredentialRequest calls the GetPendingCredentialRequest RPC.
+func (c *ViewClient) GetPendingCredentialRequest(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPendingCredentialRequest(ctx, &pb.GetPendingCredentialRequestRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPivotX calls the GetPivotX RPC.
+func (c *ViewClient) GetPivotX(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetPivotX(ctx, &pb.GetPivotXRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPivotY calls the GetPivotY RPC.
+func (c *ViewClient) GetPivotY(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetPivotY(ctx, &pb.GetPivotYRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPointerIcon calls the GetPointerIcon RPC.
+func (c *ViewClient) GetPointerIcon(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPointerIcon(ctx, &pb.GetPointerIconRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPreferKeepClearRects calls the GetPreferKeepClearRects RPC.
+func (c *ViewClient) GetPreferKeepClearRects(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPreferKeepClearRects(ctx, &pb.GetPreferKeepClearRectsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetReceiveContentMimeTypes calls the GetReceiveContentMimeTypes RPC.
+func (c *ViewClient) GetReceiveContentMimeTypes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetReceiveContentMimeTypes(ctx, &pb.GetReceiveContentMimeTypesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRequestedFrameRate calls the GetRequestedFrameRate RPC.
+func (c *ViewClient) GetRequestedFrameRate(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetRequestedFrameRate(ctx, &pb.GetRequestedFrameRateRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetResources calls the GetResources RPC.
+func (c *ViewClient) GetResources(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetResources(ctx, &pb.GetResourcesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRevealOnFocusHint calls the GetRevealOnFocusHint RPC.
+func (c *ViewClient) GetRevealOnFocusHint(ctx context.Context) (bool, error) {
+	resp, err := c.svc.GetRevealOnFocusHint(ctx, &pb.GetRevealOnFocusHintRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRight calls the GetRight RPC.
+func (c *ViewClient) GetRight(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetRight(ctx, &pb.GetRightRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRootSurfaceControl calls the GetRootSurfaceControl RPC.
+func (c *ViewClient) GetRootSurfaceControl(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetRootSurfaceControl(ctx, &pb.GetRootSurfaceControlRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRootView calls the GetRootView RPC.
+func (c *ViewClient) GetRootView(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetRootView(ctx, &pb.GetRootViewRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRootWindowInsets calls the GetRootWindowInsets RPC.
+func (c *ViewClient) GetRootWindowInsets(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetRootWindowInsets(ctx, &pb.GetRootWindowInsetsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRotation calls the GetRotation RPC.
+func (c *ViewClient) GetRotation(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetRotation(ctx, &pb.GetRotationRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRotationX calls the GetRotationX RPC.
+func (c *ViewClient) GetRotationX(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetRotationX(ctx, &pb.GetRotationXRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRotationY calls the GetRotationY RPC.
+func (c *ViewClient) GetRotationY(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetRotationY(ctx, &pb.GetRotationYRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetScaleX calls the GetScaleX RPC.
+func (c *ViewClient) GetScaleX(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetScaleX(ctx, &pb.GetScaleXRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetScaleY calls the GetScaleY RPC.
+func (c *ViewClient) GetScaleY(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetScaleY(ctx, &pb.GetScaleYRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetScrollBarDefaultDelayBeforeFade calls the GetScrollBarDefaultDelayBeforeFade RPC.
+func (c *ViewClient) GetScrollBarDefaultDelayBeforeFade(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetScrollBarDefaultDelayBeforeFade(ctx, &pb.GetScrollBarDefaultDelayBeforeFadeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetScrollBarFadeDuration calls the GetScrollBarFadeDuration RPC.
+func (c *ViewClient) GetScrollBarFadeDuration(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetScrollBarFadeDuration(ctx, &pb.GetScrollBarFadeDurationRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetScrollBarSize calls the GetScrollBarSize RPC.
+func (c *ViewClient) GetScrollBarSize(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetScrollBarSize(ctx, &pb.GetScrollBarSizeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetScrollBarStyle calls the GetScrollBarStyle RPC.
+func (c *ViewClient) GetScrollBarStyle(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetScrollBarStyle(ctx, &pb.GetScrollBarStyleRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetScrollCaptureHint calls the GetScrollCaptureHint RPC.
+func (c *ViewClient) GetScrollCaptureHint(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetScrollCaptureHint(ctx, &pb.GetScrollCaptureHintRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetScrollIndicators calls the GetScrollIndicators RPC.
+func (c *ViewClient) GetScrollIndicators(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetScrollIndicators(ctx, &pb.GetScrollIndicatorsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetScrollX calls the GetScrollX RPC.
+func (c *ViewClient) GetScrollX(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetScrollX(ctx, &pb.GetScrollXRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetScrollY calls the GetScrollY RPC.
+func (c *ViewClient) GetScrollY(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetScrollY(ctx, &pb.GetScrollYRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSolidColor calls the GetSolidColor RPC.
+func (c *ViewClient) GetSolidColor(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetSolidColor(ctx, &pb.GetSolidColorRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSourceLayoutResId calls the GetSourceLayoutResId RPC.
+func (c *ViewClient) GetSourceLayoutResId(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetSourceLayoutResId(ctx, &pb.GetSourceLayoutResIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStateDescription calls the GetStateDescription RPC.
+func (c *ViewClient) GetStateDescription(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetStateDescription(ctx, &pb.GetStateDescriptionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStateListAnimator calls the GetStateListAnimator RPC.
+func (c *ViewClient) GetStateListAnimator(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetStateListAnimator(ctx, &pb.GetStateListAnimatorRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSupplementalDescription calls the GetSupplementalDescription RPC.
+func (c *ViewClient) GetSupplementalDescription(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSupplementalDescription(ctx, &pb.GetSupplementalDescriptionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSystemGestureExclusionRects calls the GetSystemGestureExclusionRects RPC.
+func (c *ViewClient) GetSystemGestureExclusionRects(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSystemGestureExclusionRects(ctx, &pb.GetSystemGestureExclusionRectsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSystemUiVisibility calls the GetSystemUiVisibility RPC.
+func (c *ViewClient) GetSystemUiVisibility(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetSystemUiVisibility(ctx, &pb.GetSystemUiVisibilityRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTag0 calls the GetTag0 RPC.
+func (c *ViewClient) GetTag0(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTag0(ctx, &pb.GetTag0Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTag1_1 calls the GetTag1_1 RPC.
+func (c *ViewClient) GetTag1_1(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetTag1_1(ctx, &pb.GetTag1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTextAlignment calls the GetTextAlignment RPC.
+func (c *ViewClient) GetTextAlignment(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetTextAlignment(ctx, &pb.GetTextAlignmentRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTextDirection calls the GetTextDirection RPC.
+func (c *ViewClient) GetTextDirection(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetTextDirection(ctx, &pb.GetTextDirectionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTooltipText calls the GetTooltipText RPC.
+func (c *ViewClient) GetTooltipText(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTooltipText(ctx, &pb.GetTooltipTextRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTop calls the GetTop RPC.
+func (c *ViewClient) GetTop(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetTop(ctx, &pb.GetTopRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTouchDelegate calls the GetTouchDelegate RPC.
+func (c *ViewClient) GetTouchDelegate(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTouchDelegate(ctx, &pb.GetTouchDelegateRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTouchables calls the GetTouchables RPC.
+func (c *ViewClient) GetTouchables(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTouchables(ctx, &pb.GetTouchablesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTransitionAlpha calls the GetTransitionAlpha RPC.
+func (c *ViewClient) GetTransitionAlpha(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetTransitionAlpha(ctx, &pb.GetTransitionAlphaRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTransitionName calls the GetTransitionName RPC.
+func (c *ViewClient) GetTransitionName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetTransitionName(ctx, &pb.GetTransitionNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTranslationX calls the GetTranslationX RPC.
+func (c *ViewClient) GetTranslationX(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetTranslationX(ctx, &pb.GetTranslationXRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTranslationY calls the GetTranslationY RPC.
+func (c *ViewClient) GetTranslationY(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetTranslationY(ctx, &pb.GetTranslationYRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTranslationZ calls the GetTranslationZ RPC.
+func (c *ViewClient) GetTranslationZ(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetTranslationZ(ctx, &pb.GetTranslationZRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUniqueDrawingId calls the GetUniqueDrawingId RPC.
+func (c *ViewClient) GetUniqueDrawingId(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetUniqueDrawingId(ctx, &pb.GetUniqueDrawingIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVerticalFadingEdgeLength calls the GetVerticalFadingEdgeLength RPC.
+func (c *ViewClient) GetVerticalFadingEdgeLength(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetVerticalFadingEdgeLength(ctx, &pb.GetVerticalFadingEdgeLengthRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVerticalScrollbarPosition calls the GetVerticalScrollbarPosition RPC.
+func (c *ViewClient) GetVerticalScrollbarPosition(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetVerticalScrollbarPosition(ctx, &pb.GetVerticalScrollbarPositionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVerticalScrollbarThumbDrawable calls the GetVerticalScrollbarThumbDrawable RPC.
+func (c *ViewClient) GetVerticalScrollbarThumbDrawable(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetVerticalScrollbarThumbDrawable(ctx, &pb.GetVerticalScrollbarThumbDrawableRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVerticalScrollbarTrackDrawable calls the GetVerticalScrollbarTrackDrawable RPC.
+func (c *ViewClient) GetVerticalScrollbarTrackDrawable(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetVerticalScrollbarTrackDrawable(ctx, &pb.GetVerticalScrollbarTrackDrawableRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVerticalScrollbarWidth calls the GetVerticalScrollbarWidth RPC.
+func (c *ViewClient) GetVerticalScrollbarWidth(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetVerticalScrollbarWidth(ctx, &pb.GetVerticalScrollbarWidthRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetViewTranslationResponse calls the GetViewTranslationResponse RPC.
+func (c *ViewClient) GetViewTranslationResponse(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetViewTranslationResponse(ctx, &pb.GetViewTranslationResponseRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetViewTreeObserver calls the GetViewTreeObserver RPC.
+func (c *ViewClient) GetViewTreeObserver(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetViewTreeObserver(ctx, &pb.GetViewTreeObserverRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVisibility calls the GetVisibility RPC.
+func (c *ViewClient) GetVisibility(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetVisibility(ctx, &pb.GetVisibilityRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWidth calls the GetWidth RPC.
+func (c *ViewClient) GetWidth(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetWidth(ctx, &pb.GetWidthRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWindowId calls the GetWindowId RPC.
+func (c *ViewClient) GetWindowId(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetWindowId(ctx, &pb.GetWindowIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWindowInsetsController calls the GetWindowInsetsController RPC.
+func (c *ViewClient) GetWindowInsetsController(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetWindowInsetsController(ctx, &pb.GetWindowInsetsControllerRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWindowSystemUiVisibility calls the GetWindowSystemUiVisibility RPC.
+func (c *ViewClient) GetWindowSystemUiVisibility(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetWindowSystemUiVisibility(ctx, &pb.GetWindowSystemUiVisibilityRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWindowToken calls the GetWindowToken RPC.
+func (c *ViewClient) GetWindowToken(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetWindowToken(ctx, &pb.GetWindowTokenRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWindowVisibility calls the GetWindowVisibility RPC.
+func (c *ViewClient) GetWindowVisibility(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetWindowVisibility(ctx, &pb.GetWindowVisibilityRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWindowVisibleDisplayFrame calls the GetWindowVisibleDisplayFrame RPC.
+func (c *ViewClient) GetWindowVisibleDisplayFrame(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.GetWindowVisibleDisplayFrame(ctx, &pb.GetWindowVisibleDisplayFrameRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// GetX calls the GetX RPC.
+func (c *ViewClient) GetX(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetX(ctx, &pb.GetXRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetY calls the GetY RPC.
+func (c *ViewClient) GetY(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetY(ctx, &pb.GetYRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetZ calls the GetZ RPC.
+func (c *ViewClient) GetZ(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetZ(ctx, &pb.GetZRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasExplicitFocusable calls the HasExplicitFocusable RPC.
+func (c *ViewClient) HasExplicitFocusable(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasExplicitFocusable(ctx, &pb.HasExplicitFocusableRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasFocus calls the HasFocus RPC.
+func (c *ViewClient) HasFocus(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasFocus(ctx, &pb.HasFocusRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasFocusable calls the HasFocusable RPC.
+func (c *ViewClient) HasFocusable(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasFocusable(ctx, &pb.HasFocusableRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasNestedScrollingParent calls the HasNestedScrollingParent RPC.
+func (c *ViewClient) HasNestedScrollingParent(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasNestedScrollingParent(ctx, &pb.HasNestedScrollingParentRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasOnClickListeners calls the HasOnClickListeners RPC.
+func (c *ViewClient) HasOnClickListeners(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasOnClickListeners(ctx, &pb.HasOnClickListenersRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasOnLongClickListeners calls the HasOnLongClickListeners RPC.
+func (c *ViewClient) HasOnLongClickListeners(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasOnLongClickListeners(ctx, &pb.HasOnLongClickListenersRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasOverlappingRendering calls the HasOverlappingRendering RPC.
+func (c *ViewClient) HasOverlappingRendering(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasOverlappingRendering(ctx, &pb.HasOverlappingRenderingRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasPointerCapture calls the HasPointerCapture RPC.
+func (c *ViewClient) HasPointerCapture(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasPointerCapture(ctx, &pb.HasPointerCaptureRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasTransientState calls the HasTransientState RPC.
+func (c *ViewClient) HasTransientState(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasTransientState(ctx, &pb.HasTransientStateRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasWindowFocus calls the HasWindowFocus RPC.
+func (c *ViewClient) HasWindowFocus(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasWindowFocus(ctx, &pb.HasWindowFocusRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Invalidate0 calls the Invalidate0 RPC.
+func (c *ViewClient) Invalidate0(ctx context.Context) error {
+	_, err := c.svc.Invalidate0(ctx, &pb.Invalidate0Request{})
+	return err
+}
+
+// Invalidate1_1 calls the Invalidate1_1 RPC.
+func (c *ViewClient) Invalidate1_1(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.Invalidate1_1(ctx, &pb.Invalidate1_1Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// Invalidate4_2 calls the Invalidate4_2 RPC.
+func (c *ViewClient) Invalidate4_2(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
+	_, err := c.svc.Invalidate4_2(ctx, &pb.Invalidate4_2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// InvalidateDrawable calls the InvalidateDrawable RPC.
+func (c *ViewClient) InvalidateDrawable(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.InvalidateDrawable(ctx, &pb.InvalidateDrawableRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// InvalidateOutline calls the InvalidateOutline RPC.
+func (c *ViewClient) InvalidateOutline(ctx context.Context) error {
+	_, err := c.svc.InvalidateOutline(ctx, &pb.InvalidateOutlineRequest{})
+	return err
+}
+
+// IsAccessibilityDataSensitive calls the IsAccessibilityDataSensitive RPC.
+func (c *ViewClient) IsAccessibilityDataSensitive(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsAccessibilityDataSensitive(ctx, &pb.IsAccessibilityDataSensitiveRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsAccessibilityFocused calls the IsAccessibilityFocused RPC.
+func (c *ViewClient) IsAccessibilityFocused(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsAccessibilityFocused(ctx, &pb.IsAccessibilityFocusedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsAccessibilityHeading calls the IsAccessibilityHeading RPC.
+func (c *ViewClient) IsAccessibilityHeading(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsAccessibilityHeading(ctx, &pb.IsAccessibilityHeadingRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsActivated calls the IsActivated RPC.
+func (c *ViewClient) IsActivated(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsActivated(ctx, &pb.IsActivatedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsAttachedToWindow calls the IsAttachedToWindow RPC.
+func (c *ViewClient) IsAttachedToWindow(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsAttachedToWindow(ctx, &pb.IsAttachedToWindowRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsAutoHandwritingEnabled calls the IsAutoHandwritingEnabled RPC.
+func (c *ViewClient) IsAutoHandwritingEnabled(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsAutoHandwritingEnabled(ctx, &pb.IsAutoHandwritingEnabledRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsClickable calls the IsClickable RPC.
+func (c *ViewClient) IsClickable(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsClickable(ctx, &pb.IsClickableRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsContentSensitive calls the IsContentSensitive RPC.
+func (c *ViewClient) IsContentSensitive(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsContentSensitive(ctx, &pb.IsContentSensitiveRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsContextClickable calls the IsContextClickable RPC.
+func (c *ViewClient) IsContextClickable(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsContextClickable(ctx, &pb.IsContextClickableRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsCredential calls the IsCredential RPC.
+func (c *ViewClient) IsCredential(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsCredential(ctx, &pb.IsCredentialRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsDirty calls the IsDirty RPC.
+func (c *ViewClient) IsDirty(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsDirty(ctx, &pb.IsDirtyRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsDrawingCacheEnabled calls the IsDrawingCacheEnabled RPC.
+func (c *ViewClient) IsDrawingCacheEnabled(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsDrawingCacheEnabled(ctx, &pb.IsDrawingCacheEnabledRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsDuplicateParentStateEnabled calls the IsDuplicateParentStateEnabled RPC.
+func (c *ViewClient) IsDuplicateParentStateEnabled(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsDuplicateParentStateEnabled(ctx, &pb.IsDuplicateParentStateEnabledRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsEnabled calls the IsEnabled RPC.
+func (c *ViewClient) IsEnabled(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsEnabled(ctx, &pb.IsEnabledRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsFocusable calls the IsFocusable RPC.
+func (c *ViewClient) IsFocusable(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsFocusable(ctx, &pb.IsFocusableRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsFocusableInTouchMode calls the IsFocusableInTouchMode RPC.
+func (c *ViewClient) IsFocusableInTouchMode(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsFocusableInTouchMode(ctx, &pb.IsFocusableInTouchModeRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsFocused calls the IsFocused RPC.
+func (c *ViewClient) IsFocused(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsFocused(ctx, &pb.IsFocusedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsFocusedByDefault calls the IsFocusedByDefault RPC.
+func (c *ViewClient) IsFocusedByDefault(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsFocusedByDefault(ctx, &pb.IsFocusedByDefaultRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsForceDarkAllowed calls the IsForceDarkAllowed RPC.
+func (c *ViewClient) IsForceDarkAllowed(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsForceDarkAllowed(ctx, &pb.IsForceDarkAllowedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsHandwritingDelegate calls the IsHandwritingDelegate RPC.
+func (c *ViewClient) IsHandwritingDelegate(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsHandwritingDelegate(ctx, &pb.IsHandwritingDelegateRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsHapticFeedbackEnabled calls the IsHapticFeedbackEnabled RPC.
+func (c *ViewClient) IsHapticFeedbackEnabled(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsHapticFeedbackEnabled(ctx, &pb.IsHapticFeedbackEnabledRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsHardwareAccelerated calls the IsHardwareAccelerated RPC.
+func (c *ViewClient) IsHardwareAccelerated(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsHardwareAccelerated(ctx, &pb.IsHardwareAcceleratedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsHorizontalFadingEdgeEnabled calls the IsHorizontalFadingEdgeEnabled RPC.
+func (c *ViewClient) IsHorizontalFadingEdgeEnabled(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsHorizontalFadingEdgeEnabled(ctx, &pb.IsHorizontalFadingEdgeEnabledRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsHorizontalScrollBarEnabled calls the IsHorizontalScrollBarEnabled RPC.
+func (c *ViewClient) IsHorizontalScrollBarEnabled(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsHorizontalScrollBarEnabled(ctx, &pb.IsHorizontalScrollBarEnabledRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsHovered calls the IsHovered RPC.
+func (c *ViewClient) IsHovered(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsHovered(ctx, &pb.IsHoveredRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsImportantForAccessibility calls the IsImportantForAccessibility RPC.
+func (c *ViewClient) IsImportantForAccessibility(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsImportantForAccessibility(ctx, &pb.IsImportantForAccessibilityRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsImportantForAutofill calls the IsImportantForAutofill RPC.
+func (c *ViewClient) IsImportantForAutofill(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsImportantForAutofill(ctx, &pb.IsImportantForAutofillRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsImportantForContentCapture calls the IsImportantForContentCapture RPC.
+func (c *ViewClient) IsImportantForContentCapture(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsImportantForContentCapture(ctx, &pb.IsImportantForContentCaptureRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsInEditMode calls the IsInEditMode RPC.
+func (c *ViewClient) IsInEditMode(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsInEditMode(ctx, &pb.IsInEditModeRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsInLayout calls the IsInLayout RPC.
+func (c *ViewClient) IsInLayout(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsInLayout(ctx, &pb.IsInLayoutRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsInTouchMode calls the IsInTouchMode RPC.
+func (c *ViewClient) IsInTouchMode(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsInTouchMode(ctx, &pb.IsInTouchModeRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsKeyboardNavigationCluster calls the IsKeyboardNavigationCluster RPC.
+func (c *ViewClient) IsKeyboardNavigationCluster(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsKeyboardNavigationCluster(ctx, &pb.IsKeyboardNavigationClusterRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsLaidOut calls the IsLaidOut RPC.
+func (c *ViewClient) IsLaidOut(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsLaidOut(ctx, &pb.IsLaidOutRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsLayoutDirectionResolved calls the IsLayoutDirectionResolved RPC.
+func (c *ViewClient) IsLayoutDirectionResolved(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsLayoutDirectionResolved(ctx, &pb.IsLayoutDirectionResolvedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsLayoutRequested calls the IsLayoutRequested RPC.
+func (c *ViewClient) IsLayoutRequested(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsLayoutRequested(ctx, &pb.IsLayoutRequestedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsLongClickable calls the IsLongClickable RPC.
+func (c *ViewClient) IsLongClickable(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsLongClickable(ctx, &pb.IsLongClickableRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsNestedScrollingEnabled calls the IsNestedScrollingEnabled RPC.
+func (c *ViewClient) IsNestedScrollingEnabled(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsNestedScrollingEnabled(ctx, &pb.IsNestedScrollingEnabledRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsOpaque calls the IsOpaque RPC.
+func (c *ViewClient) IsOpaque(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsOpaque(ctx, &pb.IsOpaqueRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsPaddingRelative calls the IsPaddingRelative RPC.
+func (c *ViewClient) IsPaddingRelative(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsPaddingRelative(ctx, &pb.IsPaddingRelativeRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsPivotSet calls the IsPivotSet RPC.
+func (c *ViewClient) IsPivotSet(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsPivotSet(ctx, &pb.IsPivotSetRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsPreferKeepClear calls the IsPreferKeepClear RPC.
+func (c *ViewClient) IsPreferKeepClear(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsPreferKeepClear(ctx, &pb.IsPreferKeepClearRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsPressed calls the IsPressed RPC.
+func (c *ViewClient) IsPressed(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsPressed(ctx, &pb.IsPressedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsSaveEnabled calls the IsSaveEnabled RPC.
+func (c *ViewClient) IsSaveEnabled(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsSaveEnabled(ctx, &pb.IsSaveEnabledRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsSaveFromParentEnabled calls the IsSaveFromParentEnabled RPC.
+func (c *ViewClient) IsSaveFromParentEnabled(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsSaveFromParentEnabled(ctx, &pb.IsSaveFromParentEnabledRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsScreenReaderFocusable calls the IsScreenReaderFocusable RPC.
+func (c *ViewClient) IsScreenReaderFocusable(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsScreenReaderFocusable(ctx, &pb.IsScreenReaderFocusableRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsScrollContainer calls the IsScrollContainer RPC.
+func (c *ViewClient) IsScrollContainer(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsScrollContainer(ctx, &pb.IsScrollContainerRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsScrollbarFadingEnabled calls the IsScrollbarFadingEnabled RPC.
+func (c *ViewClient) IsScrollbarFadingEnabled(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsScrollbarFadingEnabled(ctx, &pb.IsScrollbarFadingEnabledRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsSelected calls the IsSelected RPC.
+func (c *ViewClient) IsSelected(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsSelected(ctx, &pb.IsSelectedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsShowingLayoutBounds calls the IsShowingLayoutBounds RPC.
+func (c *ViewClient) IsShowingLayoutBounds(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsShowingLayoutBounds(ctx, &pb.IsShowingLayoutBoundsRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsShown calls the IsShown RPC.
+func (c *ViewClient) IsShown(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsShown(ctx, &pb.IsShownRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsSoundEffectsEnabled calls the IsSoundEffectsEnabled RPC.
+func (c *ViewClient) IsSoundEffectsEnabled(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsSoundEffectsEnabled(ctx, &pb.IsSoundEffectsEnabledRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsTemporarilyDetached calls the IsTemporarilyDetached RPC.
+func (c *ViewClient) IsTemporarilyDetached(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsTemporarilyDetached(ctx, &pb.IsTemporarilyDetachedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsTextAlignmentResolved calls the IsTextAlignmentResolved RPC.
+func (c *ViewClient) IsTextAlignmentResolved(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsTextAlignmentResolved(ctx, &pb.IsTextAlignmentResolvedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsTextDirectionResolved calls the IsTextDirectionResolved RPC.
+func (c *ViewClient) IsTextDirectionResolved(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsTextDirectionResolved(ctx, &pb.IsTextDirectionResolvedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsVerticalFadingEdgeEnabled calls the IsVerticalFadingEdgeEnabled RPC.
+func (c *ViewClient) IsVerticalFadingEdgeEnabled(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsVerticalFadingEdgeEnabled(ctx, &pb.IsVerticalFadingEdgeEnabledRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsVerticalScrollBarEnabled calls the IsVerticalScrollBarEnabled RPC.
+func (c *ViewClient) IsVerticalScrollBarEnabled(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsVerticalScrollBarEnabled(ctx, &pb.IsVerticalScrollBarEnabledRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsVisibleToUserForAutofill calls the IsVisibleToUserForAutofill RPC.
+func (c *ViewClient) IsVisibleToUserForAutofill(ctx context.Context, arg0 int32) (bool, error) {
+	resp, err := c.svc.IsVisibleToUserForAutofill(ctx, &pb.IsVisibleToUserForAutofillRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// JumpDrawablesToCurrentState calls the JumpDrawablesToCurrentState RPC.
+func (c *ViewClient) JumpDrawablesToCurrentState(ctx context.Context) error {
+	_, err := c.svc.JumpDrawablesToCurrentState(ctx, &pb.JumpDrawablesToCurrentStateRequest{})
+	return err
+}
+
+// KeyboardNavigationClusterSearch calls the KeyboardNavigationClusterSearch RPC.
+func (c *ViewClient) KeyboardNavigationClusterSearch(ctx context.Context, arg0 int64, arg1 int32) (int64, error) {
+	resp, err := c.svc.KeyboardNavigationClusterSearch(ctx, &pb.KeyboardNavigationClusterSearchRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Layout calls the Layout RPC.
+func (c *ViewClient) Layout(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
+	_, err := c.svc.Layout(ctx, &pb.LayoutRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// Measure calls the Measure RPC.
+func (c *ViewClient) Measure(ctx context.Context, arg0 int32, arg1 int32) error {
+	_, err := c.svc.Measure(ctx, &pb.MeasureRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OffsetLeftAndRight calls the OffsetLeftAndRight RPC.
+func (c *ViewClient) OffsetLeftAndRight(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.OffsetLeftAndRight(ctx, &pb.OffsetLeftAndRightRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OffsetTopAndBottom calls the OffsetTopAndBottom RPC.
+func (c *ViewClient) OffsetTopAndBottom(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.OffsetTopAndBottom(ctx, &pb.OffsetTopAndBottomRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnApplyWindowInsets calls the OnApplyWindowInsets RPC.
+func (c *ViewClient) OnApplyWindowInsets(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.OnApplyWindowInsets(ctx, &pb.OnApplyWindowInsetsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnCancelPendingInputEvents calls the OnCancelPendingInputEvents RPC.
+func (c *ViewClient) OnCancelPendingInputEvents(ctx context.Context) error {
+	_, err := c.svc.OnCancelPendingInputEvents(ctx, &pb.OnCancelPendingInputEventsRequest{})
+	return err
+}
+
+// OnCapturedPointerEvent calls the OnCapturedPointerEvent RPC.
+func (c *ViewClient) OnCapturedPointerEvent(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.OnCapturedPointerEvent(ctx, &pb.OnCapturedPointerEventRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnCheckIsTextEditor calls the OnCheckIsTextEditor RPC.
+func (c *ViewClient) OnCheckIsTextEditor(ctx context.Context) (bool, error) {
+	resp, err := c.svc.OnCheckIsTextEditor(ctx, &pb.OnCheckIsTextEditorRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnCreateInputConnection calls the OnCreateInputConnection RPC.
+func (c *ViewClient) OnCreateInputConnection(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.OnCreateInputConnection(ctx, &pb.OnCreateInputConnectionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnCreateViewTranslationRequest calls the OnCreateViewTranslationRequest RPC.
+func (c *ViewClient) OnCreateViewTranslationRequest(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.OnCreateViewTranslationRequest(ctx, &pb.OnCreateViewTranslationRequestRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnCreateVirtualViewTranslationRequests calls the OnCreateVirtualViewTranslationRequests RPC.
+func (c *ViewClient) OnCreateVirtualViewTranslationRequests(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.OnCreateVirtualViewTranslationRequests(ctx, &pb.OnCreateVirtualViewTranslationRequestsRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// OnDragEvent calls the OnDragEvent RPC.
+func (c *ViewClient) OnDragEvent(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.OnDragEvent(ctx, &pb.OnDragEventRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnDrawForeground calls the OnDrawForeground RPC.
+func (c *ViewClient) OnDrawForeground(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnDrawForeground(ctx, &pb.OnDrawForegroundRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnFilterTouchEventForSecurity calls the OnFilterTouchEventForSecurity RPC.
+func (c *ViewClient) OnFilterTouchEventForSecurity(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.OnFilterTouchEventForSecurity(ctx, &pb.OnFilterTouchEventForSecurityRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnFinishTemporaryDetach calls the OnFinishTemporaryDetach RPC.
+func (c *ViewClient) OnFinishTemporaryDetach(ctx context.Context) error {
+	_, err := c.svc.OnFinishTemporaryDetach(ctx, &pb.OnFinishTemporaryDetachRequest{})
+	return err
+}
+
+// OnGenericMotionEvent calls the OnGenericMotionEvent RPC.
+func (c *ViewClient) OnGenericMotionEvent(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.OnGenericMotionEvent(ctx, &pb.OnGenericMotionEventRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnHoverChanged calls the OnHoverChanged RPC.
+func (c *ViewClient) OnHoverChanged(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.OnHoverChanged(ctx, &pb.OnHoverChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnHoverEvent calls the OnHoverEvent RPC.
+func (c *ViewClient) OnHoverEvent(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.OnHoverEvent(ctx, &pb.OnHoverEventRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnInitializeAccessibilityEvent calls the OnInitializeAccessibilityEvent RPC.
+func (c *ViewClient) OnInitializeAccessibilityEvent(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnInitializeAccessibilityEvent(ctx, &pb.OnInitializeAccessibilityEventRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnInitializeAccessibilityNodeInfo calls the OnInitializeAccessibilityNodeInfo RPC.
+func (c *ViewClient) OnInitializeAccessibilityNodeInfo(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnInitializeAccessibilityNodeInfo(ctx, &pb.OnInitializeAccessibilityNodeInfoRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnKeyDown calls the OnKeyDown RPC.
+func (c *ViewClient) OnKeyDown(ctx context.Context, arg0 int32, arg1 int64) (bool, error) {
+	resp, err := c.svc.OnKeyDown(ctx, &pb.OnKeyDownRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnKeyLongPress calls the OnKeyLongPress RPC.
+func (c *ViewClient) OnKeyLongPress(ctx context.Context, arg0 int32, arg1 int64) (bool, error) {
+	resp, err := c.svc.OnKeyLongPress(ctx, &pb.OnKeyLongPressRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnKeyMultiple calls the OnKeyMultiple RPC.
+func (c *ViewClient) OnKeyMultiple(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) (bool, error) {
+	resp, err := c.svc.OnKeyMultiple(ctx, &pb.OnKeyMultipleRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnKeyPreIme calls the OnKeyPreIme RPC.
+func (c *ViewClient) OnKeyPreIme(ctx context.Context, arg0 int32, arg1 int64) (bool, error) {
+	resp, err := c.svc.OnKeyPreIme(ctx, &pb.OnKeyPreImeRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnKeyShortcut calls the OnKeyShortcut RPC.
+func (c *ViewClient) OnKeyShortcut(ctx context.Context, arg0 int32, arg1 int64) (bool, error) {
+	resp, err := c.svc.OnKeyShortcut(ctx, &pb.OnKeyShortcutRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnKeyUp calls the OnKeyUp RPC.
+func (c *ViewClient) OnKeyUp(ctx context.Context, arg0 int32, arg1 int64) (bool, error) {
+	resp, err := c.svc.OnKeyUp(ctx, &pb.OnKeyUpRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnPointerCaptureChange calls the OnPointerCaptureChange RPC.
+func (c *ViewClient) OnPointerCaptureChange(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.OnPointerCaptureChange(ctx, &pb.OnPointerCaptureChangeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnPopulateAccessibilityEvent calls the OnPopulateAccessibilityEvent RPC.
+func (c *ViewClient) OnPopulateAccessibilityEvent(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnPopulateAccessibilityEvent(ctx, &pb.OnPopulateAccessibilityEventRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnProvideAutofillStructure calls the OnProvideAutofillStructure RPC.
+func (c *ViewClient) OnProvideAutofillStructure(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.OnProvideAutofillStructure(ctx, &pb.OnProvideAutofillStructureRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnProvideAutofillVirtualStructure calls the OnProvideAutofillVirtualStructure RPC.
+func (c *ViewClient) OnProvideAutofillVirtualStructure(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.OnProvideAutofillVirtualStructure(ctx, &pb.OnProvideAutofillVirtualStructureRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnProvideContentCaptureStructure calls the OnProvideContentCaptureStructure RPC.
+func (c *ViewClient) OnProvideContentCaptureStructure(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.OnProvideContentCaptureStructure(ctx, &pb.OnProvideContentCaptureStructureRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnProvideStructure calls the OnProvideStructure RPC.
+func (c *ViewClient) OnProvideStructure(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnProvideStructure(ctx, &pb.OnProvideStructureRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnProvideVirtualStructure calls the OnProvideVirtualStructure RPC.
+func (c *ViewClient) OnProvideVirtualStructure(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnProvideVirtualStructure(ctx, &pb.OnProvideVirtualStructureRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnReceiveContent calls the OnReceiveContent RPC.
+func (c *ViewClient) OnReceiveContent(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.OnReceiveContent(ctx, &pb.OnReceiveContentRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnResolvePointerIcon calls the OnResolvePointerIcon RPC.
+func (c *ViewClient) OnResolvePointerIcon(ctx context.Context, arg0 int64, arg1 int32) (int64, error) {
+	resp, err := c.svc.OnResolvePointerIcon(ctx, &pb.OnResolvePointerIconRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnRtlPropertiesChanged calls the OnRtlPropertiesChanged RPC.
+func (c *ViewClient) OnRtlPropertiesChanged(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.OnRtlPropertiesChanged(ctx, &pb.OnRtlPropertiesChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnScreenStateChanged calls the OnScreenStateChanged RPC.
+func (c *ViewClient) OnScreenStateChanged(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.OnScreenStateChanged(ctx, &pb.OnScreenStateChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnScrollCaptureSearch calls the OnScrollCaptureSearch RPC.
+func (c *ViewClient) OnScrollCaptureSearch(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.OnScrollCaptureSearch(ctx, &pb.OnScrollCaptureSearchRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// OnStartTemporaryDetach calls the OnStartTemporaryDetach RPC.
+func (c *ViewClient) OnStartTemporaryDetach(ctx context.Context) error {
+	_, err := c.svc.OnStartTemporaryDetach(ctx, &pb.OnStartTemporaryDetachRequest{})
+	return err
+}
+
+// OnTouchEvent calls the OnTouchEvent RPC.
+func (c *ViewClient) OnTouchEvent(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.OnTouchEvent(ctx, &pb.OnTouchEventRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnTrackballEvent calls the OnTrackballEvent RPC.
+func (c *ViewClient) OnTrackballEvent(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.OnTrackballEvent(ctx, &pb.OnTrackballEventRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnViewTranslationResponse calls the OnViewTranslationResponse RPC.
+func (c *ViewClient) OnViewTranslationResponse(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnViewTranslationResponse(ctx, &pb.OnViewTranslationResponseRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnVirtualViewTranslationResponses calls the OnVirtualViewTranslationResponses RPC.
+func (c *ViewClient) OnVirtualViewTranslationResponses(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnVirtualViewTranslationResponses(ctx, &pb.OnVirtualViewTranslationResponsesRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnVisibilityAggregated calls the OnVisibilityAggregated RPC.
+func (c *ViewClient) OnVisibilityAggregated(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.OnVisibilityAggregated(ctx, &pb.OnVisibilityAggregatedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnWindowFocusChanged calls the OnWindowFocusChanged RPC.
+func (c *ViewClient) OnWindowFocusChanged(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.OnWindowFocusChanged(ctx, &pb.OnWindowFocusChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnWindowSystemUiVisibilityChanged calls the OnWindowSystemUiVisibilityChanged RPC.
+func (c *ViewClient) OnWindowSystemUiVisibilityChanged(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.OnWindowSystemUiVisibilityChanged(ctx, &pb.OnWindowSystemUiVisibilityChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// PerformAccessibilityAction calls the PerformAccessibilityAction RPC.
+func (c *ViewClient) PerformAccessibilityAction(ctx context.Context, arg0 int32, arg1 int64) (bool, error) {
+	resp, err := c.svc.PerformAccessibilityAction(ctx, &pb.PerformAccessibilityActionRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PerformClick calls the PerformClick RPC.
+func (c *ViewClient) PerformClick(ctx context.Context) (bool, error) {
+	resp, err := c.svc.PerformClick(ctx, &pb.PerformClickRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PerformContextClick0 calls the PerformContextClick0 RPC.
+func (c *ViewClient) PerformContextClick0(ctx context.Context) (bool, error) {
+	resp, err := c.svc.PerformContextClick0(ctx, &pb.PerformContextClick0Request{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PerformContextClick2_1 calls the PerformContextClick2_1 RPC.
+func (c *ViewClient) PerformContextClick2_1(ctx context.Context, arg0 float32, arg1 float32) (bool, error) {
+	resp, err := c.svc.PerformContextClick2_1(ctx, &pb.PerformContextClick2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PerformHapticFeedback1 calls the PerformHapticFeedback1 RPC.
+func (c *ViewClient) PerformHapticFeedback1(ctx context.Context, arg0 int32) (bool, error) {
+	resp, err := c.svc.PerformHapticFeedback1(ctx, &pb.PerformHapticFeedback1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PerformHapticFeedback2_1 calls the PerformHapticFeedback2_1 RPC.
+func (c *ViewClient) PerformHapticFeedback2_1(ctx context.Context, arg0 int32, arg1 int32) (bool, error) {
+	resp, err := c.svc.PerformHapticFeedback2_1(ctx, &pb.PerformHapticFeedback2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PerformLongClick0 calls the PerformLongClick0 RPC.
+func (c *ViewClient) PerformLongClick0(ctx context.Context) (bool, error) {
+	resp, err := c.svc.PerformLongClick0(ctx, &pb.PerformLongClick0Request{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PerformLongClick2_1 calls the PerformLongClick2_1 RPC.
+func (c *ViewClient) PerformLongClick2_1(ctx context.Context, arg0 float32, arg1 float32) (bool, error) {
+	resp, err := c.svc.PerformLongClick2_1(ctx, &pb.PerformLongClick2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PerformReceiveContent calls the PerformReceiveContent RPC.
+func (c *ViewClient) PerformReceiveContent(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.PerformReceiveContent(ctx, &pb.PerformReceiveContentRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PlaySoundEffect calls the PlaySoundEffect RPC.
+func (c *ViewClient) PlaySoundEffect(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.PlaySoundEffect(ctx, &pb.PlaySoundEffectRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// Post calls the Post RPC.
+func (c *ViewClient) Post(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Post(ctx, &pb.PostRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PostDelayed calls the PostDelayed RPC.
+func (c *ViewClient) PostDelayed(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
+	resp, err := c.svc.PostDelayed(ctx, &pb.PostDelayedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PostInvalidate0 calls the PostInvalidate0 RPC.
+func (c *ViewClient) PostInvalidate0(ctx context.Context) error {
+	_, err := c.svc.PostInvalidate0(ctx, &pb.PostInvalidate0Request{})
+	return err
+}
+
+// PostInvalidate4_1 calls the PostInvalidate4_1 RPC.
+func (c *ViewClient) PostInvalidate4_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
+	_, err := c.svc.PostInvalidate4_1(ctx, &pb.PostInvalidate4_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// PostInvalidateDelayed1 calls the PostInvalidateDelayed1 RPC.
+func (c *ViewClient) PostInvalidateDelayed1(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.PostInvalidateDelayed1(ctx, &pb.PostInvalidateDelayed1Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// PostInvalidateDelayed5_1 calls the PostInvalidateDelayed5_1 RPC.
+func (c *ViewClient) PostInvalidateDelayed5_1(ctx context.Context, arg0 int64, arg1 int32, arg2 int32, arg3 int32, arg4 int32) error {
+	_, err := c.svc.PostInvalidateDelayed5_1(ctx, &pb.PostInvalidateDelayed5_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// PostInvalidateOnAnimation0 calls the PostInvalidateOnAnimation0 RPC.
+func (c *ViewClient) PostInvalidateOnAnimation0(ctx context.Context) error {
+	_, err := c.svc.PostInvalidateOnAnimation0(ctx, &pb.PostInvalidateOnAnimation0Request{})
+	return err
+}
+
+// PostInvalidateOnAnimation4_1 calls the PostInvalidateOnAnimation4_1 RPC.
+func (c *ViewClient) PostInvalidateOnAnimation4_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
+	_, err := c.svc.PostInvalidateOnAnimation4_1(ctx, &pb.PostInvalidateOnAnimation4_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// PostOnAnimation calls the PostOnAnimation RPC.
+func (c *ViewClient) PostOnAnimation(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.PostOnAnimation(ctx, &pb.PostOnAnimationRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// PostOnAnimationDelayed calls the PostOnAnimationDelayed RPC.
+func (c *ViewClient) PostOnAnimationDelayed(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.PostOnAnimationDelayed(ctx, &pb.PostOnAnimationDelayedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// RefreshDrawableState calls the RefreshDrawableState RPC.
+func (c *ViewClient) RefreshDrawableState(ctx context.Context) error {
+	_, err := c.svc.RefreshDrawableState(ctx, &pb.RefreshDrawableStateRequest{})
+	return err
+}
+
+// ReleasePointerCapture calls the ReleasePointerCapture RPC.
+func (c *ViewClient) ReleasePointerCapture(ctx context.Context) error {
+	_, err := c.svc.ReleasePointerCapture(ctx, &pb.ReleasePointerCaptureRequest{})
+	return err
+}
+
+// RemoveCallbacks calls the RemoveCallbacks RPC.
+func (c *ViewClient) RemoveCallbacks(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.RemoveCallbacks(ctx, &pb.RemoveCallbacksRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RemoveOnAttachStateChangeListener calls the RemoveOnAttachStateChangeListener RPC.
+func (c *ViewClient) RemoveOnAttachStateChangeListener(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.RemoveOnAttachStateChangeListener(ctx, &pb.RemoveOnAttachStateChangeListenerRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// RemoveOnLayoutChangeListener calls the RemoveOnLayoutChangeListener RPC.
+func (c *ViewClient) RemoveOnLayoutChangeListener(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.RemoveOnLayoutChangeListener(ctx, &pb.RemoveOnLayoutChangeListenerRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// RemoveOnUnhandledKeyEventListener calls the RemoveOnUnhandledKeyEventListener RPC.
+func (c *ViewClient) RemoveOnUnhandledKeyEventListener(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.RemoveOnUnhandledKeyEventListener(ctx, &pb.RemoveOnUnhandledKeyEventListenerRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ReportAppJankStats calls the ReportAppJankStats RPC.
+func (c *ViewClient) ReportAppJankStats(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.ReportAppJankStats(ctx, &pb.ReportAppJankStatsRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// RequestApplyInsets calls the RequestApplyInsets RPC.
+func (c *ViewClient) RequestApplyInsets(ctx context.Context) error {
+	_, err := c.svc.RequestApplyInsets(ctx, &pb.RequestApplyInsetsRequest{})
+	return err
+}
+
+// RequestFitSystemWindows calls the RequestFitSystemWindows RPC.
+func (c *ViewClient) RequestFitSystemWindows(ctx context.Context) error {
+	_, err := c.svc.RequestFitSystemWindows(ctx, &pb.RequestFitSystemWindowsRequest{})
+	return err
+}
+
+// RequestFocus0 calls the RequestFocus0 RPC.
+func (c *ViewClient) RequestFocus0(ctx context.Context) (bool, error) {
+	resp, err := c.svc.RequestFocus0(ctx, &pb.RequestFocus0Request{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RequestFocus1_1 calls the RequestFocus1_1 RPC.
+func (c *ViewClient) RequestFocus1_1(ctx context.Context, arg0 int32) (bool, error) {
+	resp, err := c.svc.RequestFocus1_1(ctx, &pb.RequestFocus1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RequestFocus2_2 calls the RequestFocus2_2 RPC.
+func (c *ViewClient) RequestFocus2_2(ctx context.Context, arg0 int32, arg1 int64) (bool, error) {
+	resp, err := c.svc.RequestFocus2_2(ctx, &pb.RequestFocus2_2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RequestFocusFromTouch calls the RequestFocusFromTouch RPC.
+func (c *ViewClient) RequestFocusFromTouch(ctx context.Context) (bool, error) {
+	resp, err := c.svc.RequestFocusFromTouch(ctx, &pb.RequestFocusFromTouchRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RequestLayout calls the RequestLayout RPC.
+func (c *ViewClient) RequestLayout(ctx context.Context) error {
+	_, err := c.svc.RequestLayout(ctx, &pb.RequestLayoutRequest{})
+	return err
+}
+
+// RequestPointerCapture calls the RequestPointerCapture RPC.
+func (c *ViewClient) RequestPointerCapture(ctx context.Context) error {
+	_, err := c.svc.RequestPointerCapture(ctx, &pb.RequestPointerCaptureRequest{})
+	return err
+}
+
+// RequestRectangleOnScreen1 calls the RequestRectangleOnScreen1 RPC.
+func (c *ViewClient) RequestRectangleOnScreen1(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.RequestRectangleOnScreen1(ctx, &pb.RequestRectangleOnScreen1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RequestRectangleOnScreen2_1 calls the RequestRectangleOnScreen2_1 RPC.
+func (c *ViewClient) RequestRectangleOnScreen2_1(ctx context.Context, arg0 int64, arg1 bool) (bool, error) {
+	resp, err := c.svc.RequestRectangleOnScreen2_1(ctx, &pb.RequestRectangleOnScreen2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RequestUnbufferedDispatch1 calls the RequestUnbufferedDispatch1 RPC.
+func (c *ViewClient) RequestUnbufferedDispatch1(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.RequestUnbufferedDispatch1(ctx, &pb.RequestUnbufferedDispatch1Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// RequestUnbufferedDispatch1_1 calls the RequestUnbufferedDispatch1_1 RPC.
+func (c *ViewClient) RequestUnbufferedDispatch1_1(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.RequestUnbufferedDispatch1_1(ctx, &pb.RequestUnbufferedDispatch1_1Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ResetPivot calls the ResetPivot RPC.
+func (c *ViewClient) ResetPivot(ctx context.Context) error {
+	_, err := c.svc.ResetPivot(ctx, &pb.ResetPivotRequest{})
+	return err
+}
+
+// RestoreDefaultFocus calls the RestoreDefaultFocus RPC.
+func (c *ViewClient) RestoreDefaultFocus(ctx context.Context) (bool, error) {
+	resp, err := c.svc.RestoreDefaultFocus(ctx, &pb.RestoreDefaultFocusRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RestoreHierarchyState calls the RestoreHierarchyState RPC.
+func (c *ViewClient) RestoreHierarchyState(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.RestoreHierarchyState(ctx, &pb.RestoreHierarchyStateRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SaveAttributeDataForStyleable calls the SaveAttributeDataForStyleable RPC.
+func (c *ViewClient) SaveAttributeDataForStyleable(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64, arg4 int32, arg5 int32) error {
+	_, err := c.svc.SaveAttributeDataForStyleable(ctx, &pb.SaveAttributeDataForStyleableRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+	})
+	return err
+}
+
+// SaveHierarchyState calls the SaveHierarchyState RPC.
+func (c *ViewClient) SaveHierarchyState(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SaveHierarchyState(ctx, &pb.SaveHierarchyStateRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ScheduleDrawable calls the ScheduleDrawable RPC.
+func (c *ViewClient) ScheduleDrawable(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.ScheduleDrawable(ctx, &pb.ScheduleDrawableRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// ScrollBy calls the ScrollBy RPC.
+func (c *ViewClient) ScrollBy(ctx context.Context, arg0 int32, arg1 int32) error {
+	_, err := c.svc.ScrollBy(ctx, &pb.ScrollByRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ScrollTo calls the ScrollTo RPC.
+func (c *ViewClient) ScrollTo(ctx context.Context, arg0 int32, arg1 int32) error {
+	_, err := c.svc.ScrollTo(ctx, &pb.ScrollToRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// SendAccessibilityEvent calls the SendAccessibilityEvent RPC.
+func (c *ViewClient) SendAccessibilityEvent(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SendAccessibilityEvent(ctx, &pb.SendAccessibilityEventRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SendAccessibilityEventUnchecked calls the SendAccessibilityEventUnchecked RPC.
+func (c *ViewClient) SendAccessibilityEventUnchecked(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SendAccessibilityEventUnchecked(ctx, &pb.SendAccessibilityEventUncheckedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetAccessibilityDataSensitive calls the SetAccessibilityDataSensitive RPC.
+func (c *ViewClient) SetAccessibilityDataSensitive(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetAccessibilityDataSensitive(ctx, &pb.SetAccessibilityDataSensitiveRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetAccessibilityDelegate calls the SetAccessibilityDelegate RPC.
+func (c *ViewClient) SetAccessibilityDelegate(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetAccessibilityDelegate(ctx, &pb.SetAccessibilityDelegateRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetAccessibilityHeading calls the SetAccessibilityHeading RPC.
+func (c *ViewClient) SetAccessibilityHeading(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetAccessibilityHeading(ctx, &pb.SetAccessibilityHeadingRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetAccessibilityLiveRegion calls the SetAccessibilityLiveRegion RPC.
+func (c *ViewClient) SetAccessibilityLiveRegion(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetAccessibilityLiveRegion(ctx, &pb.SetAccessibilityLiveRegionRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetAccessibilityPaneTitle calls the SetAccessibilityPaneTitle RPC.
+func (c *ViewClient) SetAccessibilityPaneTitle(ctx context.Context, arg0 string) error {
+	_, err := c.svc.SetAccessibilityPaneTitle(ctx, &pb.SetAccessibilityPaneTitleRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetAccessibilityTraversalAfter calls the SetAccessibilityTraversalAfter RPC.
+func (c *ViewClient) SetAccessibilityTraversalAfter(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetAccessibilityTraversalAfter(ctx, &pb.SetAccessibilityTraversalAfterRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetAccessibilityTraversalBefore calls the SetAccessibilityTraversalBefore RPC.
+func (c *ViewClient) SetAccessibilityTraversalBefore(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetAccessibilityTraversalBefore(ctx, &pb.SetAccessibilityTraversalBeforeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetActivated calls the SetActivated RPC.
+func (c *ViewClient) SetActivated(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetActivated(ctx, &pb.SetActivatedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetAllowClickWhenDisabled calls the SetAllowClickWhenDisabled RPC.
+func (c *ViewClient) SetAllowClickWhenDisabled(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetAllowClickWhenDisabled(ctx, &pb.SetAllowClickWhenDisabledRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetAllowedHandwritingDelegatePackage calls the SetAllowedHandwritingDelegatePackage RPC.
+func (c *ViewClient) SetAllowedHandwritingDelegatePackage(ctx context.Context, arg0 string) error {
+	_, err := c.svc.SetAllowedHandwritingDelegatePackage(ctx, &pb.SetAllowedHandwritingDelegatePackageRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetAllowedHandwritingDelegatorPackage calls the SetAllowedHandwritingDelegatorPackage RPC.
+func (c *ViewClient) SetAllowedHandwritingDelegatorPackage(ctx context.Context, arg0 string) error {
+	_, err := c.svc.SetAllowedHandwritingDelegatorPackage(ctx, &pb.SetAllowedHandwritingDelegatorPackageRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetAlpha calls the SetAlpha RPC.
+func (c *ViewClient) SetAlpha(ctx context.Context, arg0 float32) error {
+	_, err := c.svc.SetAlpha(ctx, &pb.SetAlphaRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetAnimation calls the SetAnimation RPC.
+func (c *ViewClient) SetAnimation(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetAnimation(ctx, &pb.SetAnimationRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetAnimationMatrix calls the SetAnimationMatrix RPC.
+func (c *ViewClient) SetAnimationMatrix(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetAnimationMatrix(ctx, &pb.SetAnimationMatrixRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetAutoHandwritingEnabled calls the SetAutoHandwritingEnabled RPC.
+func (c *ViewClient) SetAutoHandwritingEnabled(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetAutoHandwritingEnabled(ctx, &pb.SetAutoHandwritingEnabledRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetAutofillHints calls the SetAutofillHints RPC.
+func (c *ViewClient) SetAutofillHints(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetAutofillHints(ctx, &pb.SetAutofillHintsRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetAutofillId calls the SetAutofillId RPC.
+func (c *ViewClient) SetAutofillId(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetAutofillId(ctx, &pb.SetAutofillIdRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetBackground calls the SetBackground RPC.
+func (c *ViewClient) SetBackground(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetBackground(ctx, &pb.SetBackgroundRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetBackgroundColor calls the SetBackgroundColor RPC.
+func (c *ViewClient) SetBackgroundColor(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetBackgroundColor(ctx, &pb.SetBackgroundColorRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetBackgroundDrawable calls the SetBackgroundDrawable RPC.
+func (c *ViewClient) SetBackgroundDrawable(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetBackgroundDrawable(ctx, &pb.SetBackgroundDrawableRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetBackgroundResource calls the SetBackgroundResource RPC.
+func (c *ViewClient) SetBackgroundResource(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetBackgroundResource(ctx, &pb.SetBackgroundResourceRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetBackgroundTintBlendMode calls the SetBackgroundTintBlendMode RPC.
+func (c *ViewClient) SetBackgroundTintBlendMode(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetBackgroundTintBlendMode(ctx, &pb.SetBackgroundTintBlendModeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetBackgroundTintList calls the SetBackgroundTintList RPC.
+func (c *ViewClient) SetBackgroundTintList(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetBackgroundTintList(ctx, &pb.SetBackgroundTintListRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetBackgroundTintMode calls the SetBackgroundTintMode RPC.
+func (c *ViewClient) SetBackgroundTintMode(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetBackgroundTintMode(ctx, &pb.SetBackgroundTintModeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetBottom calls the SetBottom RPC.
+func (c *ViewClient) SetBottom(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetBottom(ctx, &pb.SetBottomRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetCameraDistance calls the SetCameraDistance RPC.
+func (c *ViewClient) SetCameraDistance(ctx context.Context, arg0 float32) error {
+	_, err := c.svc.SetCameraDistance(ctx, &pb.SetCameraDistanceRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetClickable calls the SetClickable RPC.
+func (c *ViewClient) SetClickable(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetClickable(ctx, &pb.SetClickableRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetClipBounds calls the SetClipBounds RPC.
+func (c *ViewClient) SetClipBounds(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetClipBounds(ctx, &pb.SetClipBoundsRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetClipToOutline calls the SetClipToOutline RPC.
+func (c *ViewClient) SetClipToOutline(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetClipToOutline(ctx, &pb.SetClipToOutlineRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetContentCaptureSession calls the SetContentCaptureSession RPC.
+func (c *ViewClient) SetContentCaptureSession(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetContentCaptureSession(ctx, &pb.SetContentCaptureSessionRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetContentDescription calls the SetContentDescription RPC.
+func (c *ViewClient) SetContentDescription(ctx context.Context, arg0 string) error {
+	_, err := c.svc.SetContentDescription(ctx, &pb.SetContentDescriptionRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetContentSensitivity calls the SetContentSensitivity RPC.
+func (c *ViewClient) SetContentSensitivity(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetContentSensitivity(ctx, &pb.SetContentSensitivityRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetContextClickable calls the SetContextClickable RPC.
+func (c *ViewClient) SetContextClickable(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetContextClickable(ctx, &pb.SetContextClickableRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetDefaultFocusHighlightEnabled calls the SetDefaultFocusHighlightEnabled RPC.
+func (c *ViewClient) SetDefaultFocusHighlightEnabled(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetDefaultFocusHighlightEnabled(ctx, &pb.SetDefaultFocusHighlightEnabledRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetDrawingCacheBackgroundColor calls the SetDrawingCacheBackgroundColor RPC.
+func (c *ViewClient) SetDrawingCacheBackgroundColor(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetDrawingCacheBackgroundColor(ctx, &pb.SetDrawingCacheBackgroundColorRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetDrawingCacheEnabled calls the SetDrawingCacheEnabled RPC.
+func (c *ViewClient) SetDrawingCacheEnabled(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetDrawingCacheEnabled(ctx, &pb.SetDrawingCacheEnabledRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetDrawingCacheQuality calls the SetDrawingCacheQuality RPC.
+func (c *ViewClient) SetDrawingCacheQuality(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetDrawingCacheQuality(ctx, &pb.SetDrawingCacheQualityRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetDuplicateParentStateEnabled calls the SetDuplicateParentStateEnabled RPC.
+func (c *ViewClient) SetDuplicateParentStateEnabled(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetDuplicateParentStateEnabled(ctx, &pb.SetDuplicateParentStateEnabledRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetElevation calls the SetElevation RPC.
+func (c *ViewClient) SetElevation(ctx context.Context, arg0 float32) error {
+	_, err := c.svc.SetElevation(ctx, &pb.SetElevationRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetEnabled calls the SetEnabled RPC.
+func (c *ViewClient) SetEnabled(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetEnabled(ctx, &pb.SetEnabledRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetFadingEdgeLength calls the SetFadingEdgeLength RPC.
+func (c *ViewClient) SetFadingEdgeLength(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetFadingEdgeLength(ctx, &pb.SetFadingEdgeLengthRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetFilterTouchesWhenObscured calls the SetFilterTouchesWhenObscured RPC.
+func (c *ViewClient) SetFilterTouchesWhenObscured(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetFilterTouchesWhenObscured(ctx, &pb.SetFilterTouchesWhenObscuredRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetFitsSystemWindows calls the SetFitsSystemWindows RPC.
+func (c *ViewClient) SetFitsSystemWindows(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetFitsSystemWindows(ctx, &pb.SetFitsSystemWindowsRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetFocusable1 calls the SetFocusable1 RPC.
+func (c *ViewClient) SetFocusable1(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetFocusable1(ctx, &pb.SetFocusable1Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetFocusable1_1 calls the SetFocusable1_1 RPC.
+func (c *ViewClient) SetFocusable1_1(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetFocusable1_1(ctx, &pb.SetFocusable1_1Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetFocusableInTouchMode calls the SetFocusableInTouchMode RPC.
+func (c *ViewClient) SetFocusableInTouchMode(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetFocusableInTouchMode(ctx, &pb.SetFocusableInTouchModeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetFocusedByDefault calls the SetFocusedByDefault RPC.
+func (c *ViewClient) SetFocusedByDefault(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetFocusedByDefault(ctx, &pb.SetFocusedByDefaultRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetForceDarkAllowed calls the SetForceDarkAllowed RPC.
+func (c *ViewClient) SetForceDarkAllowed(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetForceDarkAllowed(ctx, &pb.SetForceDarkAllowedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetForeground calls the SetForeground RPC.
+func (c *ViewClient) SetForeground(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetForeground(ctx, &pb.SetForegroundRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetForegroundGravity calls the SetForegroundGravity RPC.
+func (c *ViewClient) SetForegroundGravity(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetForegroundGravity(ctx, &pb.SetForegroundGravityRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetForegroundTintBlendMode calls the SetForegroundTintBlendMode RPC.
+func (c *ViewClient) SetForegroundTintBlendMode(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetForegroundTintBlendMode(ctx, &pb.SetForegroundTintBlendModeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetForegroundTintList calls the SetForegroundTintList RPC.
+func (c *ViewClient) SetForegroundTintList(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetForegroundTintList(ctx, &pb.SetForegroundTintListRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetForegroundTintMode calls the SetForegroundTintMode RPC.
+func (c *ViewClient) SetForegroundTintMode(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetForegroundTintMode(ctx, &pb.SetForegroundTintModeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetFrameContentVelocity calls the SetFrameContentVelocity RPC.
+func (c *ViewClient) SetFrameContentVelocity(ctx context.Context, arg0 float32) error {
+	_, err := c.svc.SetFrameContentVelocity(ctx, &pb.SetFrameContentVelocityRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetHandwritingBoundsOffsets calls the SetHandwritingBoundsOffsets RPC.
+func (c *ViewClient) SetHandwritingBoundsOffsets(ctx context.Context, arg0 float32, arg1 float32, arg2 float32, arg3 float32) error {
+	_, err := c.svc.SetHandwritingBoundsOffsets(ctx, &pb.SetHandwritingBoundsOffsetsRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// SetHandwritingDelegateFlags calls the SetHandwritingDelegateFlags RPC.
+func (c *ViewClient) SetHandwritingDelegateFlags(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetHandwritingDelegateFlags(ctx, &pb.SetHandwritingDelegateFlagsRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetHandwritingDelegatorCallback calls the SetHandwritingDelegatorCallback RPC.
+func (c *ViewClient) SetHandwritingDelegatorCallback(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetHandwritingDelegatorCallback(ctx, &pb.SetHandwritingDelegatorCallbackRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetHapticFeedbackEnabled calls the SetHapticFeedbackEnabled RPC.
+func (c *ViewClient) SetHapticFeedbackEnabled(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetHapticFeedbackEnabled(ctx, &pb.SetHapticFeedbackEnabledRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetHasTransientState calls the SetHasTransientState RPC.
+func (c *ViewClient) SetHasTransientState(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetHasTransientState(ctx, &pb.SetHasTransientStateRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetHorizontalFadingEdgeEnabled calls the SetHorizontalFadingEdgeEnabled RPC.
+func (c *ViewClient) SetHorizontalFadingEdgeEnabled(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetHorizontalFadingEdgeEnabled(ctx, &pb.SetHorizontalFadingEdgeEnabledRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetHorizontalScrollBarEnabled calls the SetHorizontalScrollBarEnabled RPC.
+func (c *ViewClient) SetHorizontalScrollBarEnabled(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetHorizontalScrollBarEnabled(ctx, &pb.SetHorizontalScrollBarEnabledRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetHorizontalScrollbarThumbDrawable calls the SetHorizontalScrollbarThumbDrawable RPC.
+func (c *ViewClient) SetHorizontalScrollbarThumbDrawable(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetHorizontalScrollbarThumbDrawable(ctx, &pb.SetHorizontalScrollbarThumbDrawableRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetHorizontalScrollbarTrackDrawable calls the SetHorizontalScrollbarTrackDrawable RPC.
+func (c *ViewClient) SetHorizontalScrollbarTrackDrawable(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetHorizontalScrollbarTrackDrawable(ctx, &pb.SetHorizontalScrollbarTrackDrawableRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetHovered calls the SetHovered RPC.
+func (c *ViewClient) SetHovered(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetHovered(ctx, &pb.SetHoveredRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetId calls the SetId RPC.
+func (c *ViewClient) SetId(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetId(ctx, &pb.SetIdRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetImportantForAccessibility calls the SetImportantForAccessibility RPC.
+func (c *ViewClient) SetImportantForAccessibility(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetImportantForAccessibility(ctx, &pb.SetImportantForAccessibilityRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetImportantForAutofill calls the SetImportantForAutofill RPC.
+func (c *ViewClient) SetImportantForAutofill(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetImportantForAutofill(ctx, &pb.SetImportantForAutofillRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetImportantForContentCapture calls the SetImportantForContentCapture RPC.
+func (c *ViewClient) SetImportantForContentCapture(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetImportantForContentCapture(ctx, &pb.SetImportantForContentCaptureRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetIsCredential calls the SetIsCredential RPC.
+func (c *ViewClient) SetIsCredential(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetIsCredential(ctx, &pb.SetIsCredentialRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetIsHandwritingDelegate calls the SetIsHandwritingDelegate RPC.
+func (c *ViewClient) SetIsHandwritingDelegate(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetIsHandwritingDelegate(ctx, &pb.SetIsHandwritingDelegateRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetKeepScreenOn calls the SetKeepScreenOn RPC.
+func (c *ViewClient) SetKeepScreenOn(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetKeepScreenOn(ctx, &pb.SetKeepScreenOnRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetKeyboardNavigationCluster calls the SetKeyboardNavigationCluster RPC.
+func (c *ViewClient) SetKeyboardNavigationCluster(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetKeyboardNavigationCluster(ctx, &pb.SetKeyboardNavigationClusterRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetLabelFor calls the SetLabelFor RPC.
+func (c *ViewClient) SetLabelFor(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetLabelFor(ctx, &pb.SetLabelForRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetLayerPaint calls the SetLayerPaint RPC.
+func (c *ViewClient) SetLayerPaint(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetLayerPaint(ctx, &pb.SetLayerPaintRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetLayerType calls the SetLayerType RPC.
+func (c *ViewClient) SetLayerType(ctx context.Context, arg0 int32, arg1 int64) error {
+	_, err := c.svc.SetLayerType(ctx, &pb.SetLayerTypeRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// SetLayoutDirection calls the SetLayoutDirection RPC.
+func (c *ViewClient) SetLayoutDirection(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetLayoutDirection(ctx, &pb.SetLayoutDirectionRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetLayoutParams calls the SetLayoutParams RPC.
+func (c *ViewClient) SetLayoutParams(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetLayoutParams(ctx, &pb.SetLayoutParamsRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetLeft calls the SetLeft RPC.
+func (c *ViewClient) SetLeft(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetLeft(ctx, &pb.SetLeftRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetLeftTopRightBottom calls the SetLeftTopRightBottom RPC.
+func (c *ViewClient) SetLeftTopRightBottom(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
+	_, err := c.svc.SetLeftTopRightBottom(ctx, &pb.SetLeftTopRightBottomRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// SetLongClickable calls the SetLongClickable RPC.
+func (c *ViewClient) SetLongClickable(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetLongClickable(ctx, &pb.SetLongClickableRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetMinimumHeight calls the SetMinimumHeight RPC.
+func (c *ViewClient) SetMinimumHeight(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetMinimumHeight(ctx, &pb.SetMinimumHeightRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetMinimumWidth calls the SetMinimumWidth RPC.
+func (c *ViewClient) SetMinimumWidth(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetMinimumWidth(ctx, &pb.SetMinimumWidthRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetNestedScrollingEnabled calls the SetNestedScrollingEnabled RPC.
+func (c *ViewClient) SetNestedScrollingEnabled(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetNestedScrollingEnabled(ctx, &pb.SetNestedScrollingEnabledRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetNextClusterForwardId calls the SetNextClusterForwardId RPC.
+func (c *ViewClient) SetNextClusterForwardId(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetNextClusterForwardId(ctx, &pb.SetNextClusterForwardIdRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetNextFocusDownId calls the SetNextFocusDownId RPC.
+func (c *ViewClient) SetNextFocusDownId(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetNextFocusDownId(ctx, &pb.SetNextFocusDownIdRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetNextFocusForwardId calls the SetNextFocusForwardId RPC.
+func (c *ViewClient) SetNextFocusForwardId(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetNextFocusForwardId(ctx, &pb.SetNextFocusForwardIdRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetNextFocusLeftId calls the SetNextFocusLeftId RPC.
+func (c *ViewClient) SetNextFocusLeftId(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetNextFocusLeftId(ctx, &pb.SetNextFocusLeftIdRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetNextFocusRightId calls the SetNextFocusRightId RPC.
+func (c *ViewClient) SetNextFocusRightId(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetNextFocusRightId(ctx, &pb.SetNextFocusRightIdRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetNextFocusUpId calls the SetNextFocusUpId RPC.
+func (c *ViewClient) SetNextFocusUpId(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetNextFocusUpId(ctx, &pb.SetNextFocusUpIdRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetOnApplyWindowInsetsListener calls the SetOnApplyWindowInsetsListener RPC.
+func (c *ViewClient) SetOnApplyWindowInsetsListener(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetOnApplyWindowInsetsListener(ctx, &pb.SetOnApplyWindowInsetsListenerRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetOnCapturedPointerListener calls the SetOnCapturedPointerListener RPC.
+func (c *ViewClient) SetOnCapturedPointerListener(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetOnCapturedPointerListener(ctx, &pb.SetOnCapturedPointerListenerRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetOnClickListener calls the SetOnClickListener RPC.
+func (c *ViewClient) SetOnClickListener(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetOnClickListener(ctx, &pb.SetOnClickListenerRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetOnContextClickListener calls the SetOnContextClickListener RPC.
+func (c *ViewClient) SetOnContextClickListener(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetOnContextClickListener(ctx, &pb.SetOnContextClickListenerRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetOnCreateContextMenuListener calls the SetOnCreateContextMenuListener RPC.
+func (c *ViewClient) SetOnCreateContextMenuListener(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetOnCreateContextMenuListener(ctx, &pb.SetOnCreateContextMenuListenerRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetOnDragListener calls the SetOnDragListener RPC.
+func (c *ViewClient) SetOnDragListener(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetOnDragListener(ctx, &pb.SetOnDragListenerRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetOnFocusChangeListener calls the SetOnFocusChangeListener RPC.
+func (c *ViewClient) SetOnFocusChangeListener(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetOnFocusChangeListener(ctx, &pb.SetOnFocusChangeListenerRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetOnGenericMotionListener calls the SetOnGenericMotionListener RPC.
+func (c *ViewClient) SetOnGenericMotionListener(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetOnGenericMotionListener(ctx, &pb.SetOnGenericMotionListenerRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetOnHoverListener calls the SetOnHoverListener RPC.
+func (c *ViewClient) SetOnHoverListener(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetOnHoverListener(ctx, &pb.SetOnHoverListenerRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetOnKeyListener calls the SetOnKeyListener RPC.
+func (c *ViewClient) SetOnKeyListener(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetOnKeyListener(ctx, &pb.SetOnKeyListenerRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetOnLongClickListener calls the SetOnLongClickListener RPC.
+func (c *ViewClient) SetOnLongClickListener(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetOnLongClickListener(ctx, &pb.SetOnLongClickListenerRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetOnReceiveContentListener calls the SetOnReceiveContentListener RPC.
+func (c *ViewClient) SetOnReceiveContentListener(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.SetOnReceiveContentListener(ctx, &pb.SetOnReceiveContentListenerRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// SetOnScrollChangeListener calls the SetOnScrollChangeListener RPC.
+func (c *ViewClient) SetOnScrollChangeListener(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetOnScrollChangeListener(ctx, &pb.SetOnScrollChangeListenerRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetOnSystemUiVisibilityChangeListener calls the SetOnSystemUiVisibilityChangeListener RPC.
+func (c *ViewClient) SetOnSystemUiVisibilityChangeListener(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetOnSystemUiVisibilityChangeListener(ctx, &pb.SetOnSystemUiVisibilityChangeListenerRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetOnTouchListener calls the SetOnTouchListener RPC.
+func (c *ViewClient) SetOnTouchListener(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetOnTouchListener(ctx, &pb.SetOnTouchListenerRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetOutlineAmbientShadowColor calls the SetOutlineAmbientShadowColor RPC.
+func (c *ViewClient) SetOutlineAmbientShadowColor(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetOutlineAmbientShadowColor(ctx, &pb.SetOutlineAmbientShadowColorRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetOutlineProvider calls the SetOutlineProvider RPC.
+func (c *ViewClient) SetOutlineProvider(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetOutlineProvider(ctx, &pb.SetOutlineProviderRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetOutlineSpotShadowColor calls the SetOutlineSpotShadowColor RPC.
+func (c *ViewClient) SetOutlineSpotShadowColor(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetOutlineSpotShadowColor(ctx, &pb.SetOutlineSpotShadowColorRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetOverScrollMode calls the SetOverScrollMode RPC.
+func (c *ViewClient) SetOverScrollMode(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetOverScrollMode(ctx, &pb.SetOverScrollModeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetPadding calls the SetPadding RPC.
+func (c *ViewClient) SetPadding(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
+	_, err := c.svc.SetPadding(ctx, &pb.SetPaddingRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// SetPaddingRelative calls the SetPaddingRelative RPC.
+func (c *ViewClient) SetPaddingRelative(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
+	_, err := c.svc.SetPaddingRelative(ctx, &pb.SetPaddingRelativeRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// SetPendingCredentialRequest calls the SetPendingCredentialRequest RPC.
+func (c *ViewClient) SetPendingCredentialRequest(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.SetPendingCredentialRequest(ctx, &pb.SetPendingCredentialRequestRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// SetPivotX calls the SetPivotX RPC.
+func (c *ViewClient) SetPivotX(ctx context.Context, arg0 float32) error {
+	_, err := c.svc.SetPivotX(ctx, &pb.SetPivotXRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetPivotY calls the SetPivotY RPC.
+func (c *ViewClient) SetPivotY(ctx context.Context, arg0 float32) error {
+	_, err := c.svc.SetPivotY(ctx, &pb.SetPivotYRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetPointerIcon calls the SetPointerIcon RPC.
+func (c *ViewClient) SetPointerIcon(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetPointerIcon(ctx, &pb.SetPointerIconRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetPreferKeepClear calls the SetPreferKeepClear RPC.
+func (c *ViewClient) SetPreferKeepClear(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetPreferKeepClear(ctx, &pb.SetPreferKeepClearRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetPreferKeepClearRects calls the SetPreferKeepClearRects RPC.
+func (c *ViewClient) SetPreferKeepClearRects(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetPreferKeepClearRects(ctx, &pb.SetPreferKeepClearRectsRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetPressed calls the SetPressed RPC.
+func (c *ViewClient) SetPressed(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetPressed(ctx, &pb.SetPressedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetRenderEffect calls the SetRenderEffect RPC.
+func (c *ViewClient) SetRenderEffect(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetRenderEffect(ctx, &pb.SetRenderEffectRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetRequestedFrameRate calls the SetRequestedFrameRate RPC.
+func (c *ViewClient) SetRequestedFrameRate(ctx context.Context, arg0 float32) error {
+	_, err := c.svc.SetRequestedFrameRate(ctx, &pb.SetRequestedFrameRateRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetRevealOnFocusHint calls the SetRevealOnFocusHint RPC.
+func (c *ViewClient) SetRevealOnFocusHint(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetRevealOnFocusHint(ctx, &pb.SetRevealOnFocusHintRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetRight calls the SetRight RPC.
+func (c *ViewClient) SetRight(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetRight(ctx, &pb.SetRightRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetRotation calls the SetRotation RPC.
+func (c *ViewClient) SetRotation(ctx context.Context, arg0 float32) error {
+	_, err := c.svc.SetRotation(ctx, &pb.SetRotationRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetRotationX calls the SetRotationX RPC.
+func (c *ViewClient) SetRotationX(ctx context.Context, arg0 float32) error {
+	_, err := c.svc.SetRotationX(ctx, &pb.SetRotationXRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetRotationY calls the SetRotationY RPC.
+func (c *ViewClient) SetRotationY(ctx context.Context, arg0 float32) error {
+	_, err := c.svc.SetRotationY(ctx, &pb.SetRotationYRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetSaveEnabled calls the SetSaveEnabled RPC.
+func (c *ViewClient) SetSaveEnabled(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetSaveEnabled(ctx, &pb.SetSaveEnabledRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetSaveFromParentEnabled calls the SetSaveFromParentEnabled RPC.
+func (c *ViewClient) SetSaveFromParentEnabled(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetSaveFromParentEnabled(ctx, &pb.SetSaveFromParentEnabledRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetScaleX calls the SetScaleX RPC.
+func (c *ViewClient) SetScaleX(ctx context.Context, arg0 float32) error {
+	_, err := c.svc.SetScaleX(ctx, &pb.SetScaleXRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetScaleY calls the SetScaleY RPC.
+func (c *ViewClient) SetScaleY(ctx context.Context, arg0 float32) error {
+	_, err := c.svc.SetScaleY(ctx, &pb.SetScaleYRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetScreenReaderFocusable calls the SetScreenReaderFocusable RPC.
+func (c *ViewClient) SetScreenReaderFocusable(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetScreenReaderFocusable(ctx, &pb.SetScreenReaderFocusableRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetScrollBarDefaultDelayBeforeFade calls the SetScrollBarDefaultDelayBeforeFade RPC.
+func (c *ViewClient) SetScrollBarDefaultDelayBeforeFade(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetScrollBarDefaultDelayBeforeFade(ctx, &pb.SetScrollBarDefaultDelayBeforeFadeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetScrollBarFadeDuration calls the SetScrollBarFadeDuration RPC.
+func (c *ViewClient) SetScrollBarFadeDuration(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetScrollBarFadeDuration(ctx, &pb.SetScrollBarFadeDurationRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetScrollBarSize calls the SetScrollBarSize RPC.
+func (c *ViewClient) SetScrollBarSize(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetScrollBarSize(ctx, &pb.SetScrollBarSizeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetScrollBarStyle calls the SetScrollBarStyle RPC.
+func (c *ViewClient) SetScrollBarStyle(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetScrollBarStyle(ctx, &pb.SetScrollBarStyleRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetScrollCaptureCallback calls the SetScrollCaptureCallback RPC.
+func (c *ViewClient) SetScrollCaptureCallback(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetScrollCaptureCallback(ctx, &pb.SetScrollCaptureCallbackRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetScrollCaptureHint calls the SetScrollCaptureHint RPC.
+func (c *ViewClient) SetScrollCaptureHint(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetScrollCaptureHint(ctx, &pb.SetScrollCaptureHintRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetScrollContainer calls the SetScrollContainer RPC.
+func (c *ViewClient) SetScrollContainer(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetScrollContainer(ctx, &pb.SetScrollContainerRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetScrollIndicators1 calls the SetScrollIndicators1 RPC.
+func (c *ViewClient) SetScrollIndicators1(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetScrollIndicators1(ctx, &pb.SetScrollIndicators1Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetScrollIndicators2_1 calls the SetScrollIndicators2_1 RPC.
+func (c *ViewClient) SetScrollIndicators2_1(ctx context.Context, arg0 int32, arg1 int32) error {
+	_, err := c.svc.SetScrollIndicators2_1(ctx, &pb.SetScrollIndicators2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// SetScrollX calls the SetScrollX RPC.
+func (c *ViewClient) SetScrollX(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetScrollX(ctx, &pb.SetScrollXRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetScrollY calls the SetScrollY RPC.
+func (c *ViewClient) SetScrollY(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetScrollY(ctx, &pb.SetScrollYRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetScrollbarFadingEnabled calls the SetScrollbarFadingEnabled RPC.
+func (c *ViewClient) SetScrollbarFadingEnabled(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetScrollbarFadingEnabled(ctx, &pb.SetScrollbarFadingEnabledRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetSelected calls the SetSelected RPC.
+func (c *ViewClient) SetSelected(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetSelected(ctx, &pb.SetSelectedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetSoundEffectsEnabled calls the SetSoundEffectsEnabled RPC.
+func (c *ViewClient) SetSoundEffectsEnabled(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetSoundEffectsEnabled(ctx, &pb.SetSoundEffectsEnabledRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetStateDescription calls the SetStateDescription RPC.
+func (c *ViewClient) SetStateDescription(ctx context.Context, arg0 string) error {
+	_, err := c.svc.SetStateDescription(ctx, &pb.SetStateDescriptionRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetStateListAnimator calls the SetStateListAnimator RPC.
+func (c *ViewClient) SetStateListAnimator(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetStateListAnimator(ctx, &pb.SetStateListAnimatorRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetSupplementalDescription calls the SetSupplementalDescription RPC.
+func (c *ViewClient) SetSupplementalDescription(ctx context.Context, arg0 string) error {
+	_, err := c.svc.SetSupplementalDescription(ctx, &pb.SetSupplementalDescriptionRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetSystemGestureExclusionRects calls the SetSystemGestureExclusionRects RPC.
+func (c *ViewClient) SetSystemGestureExclusionRects(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetSystemGestureExclusionRects(ctx, &pb.SetSystemGestureExclusionRectsRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetSystemUiVisibility calls the SetSystemUiVisibility RPC.
+func (c *ViewClient) SetSystemUiVisibility(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetSystemUiVisibility(ctx, &pb.SetSystemUiVisibilityRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetTag2 calls the SetTag2 RPC.
+func (c *ViewClient) SetTag2(ctx context.Context, arg0 int32, arg1 int64) error {
+	_, err := c.svc.SetTag2(ctx, &pb.SetTag2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// SetTag1_1 calls the SetTag1_1 RPC.
+func (c *ViewClient) SetTag1_1(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetTag1_1(ctx, &pb.SetTag1_1Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetTextAlignment calls the SetTextAlignment RPC.
+func (c *ViewClient) SetTextAlignment(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetTextAlignment(ctx, &pb.SetTextAlignmentRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetTextDirection calls the SetTextDirection RPC.
+func (c *ViewClient) SetTextDirection(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetTextDirection(ctx, &pb.SetTextDirectionRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetTooltipText calls the SetTooltipText RPC.
+func (c *ViewClient) SetTooltipText(ctx context.Context, arg0 string) error {
+	_, err := c.svc.SetTooltipText(ctx, &pb.SetTooltipTextRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetTop calls the SetTop RPC.
+func (c *ViewClient) SetTop(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetTop(ctx, &pb.SetTopRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetTouchDelegate calls the SetTouchDelegate RPC.
+func (c *ViewClient) SetTouchDelegate(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetTouchDelegate(ctx, &pb.SetTouchDelegateRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetTransitionAlpha calls the SetTransitionAlpha RPC.
+func (c *ViewClient) SetTransitionAlpha(ctx context.Context, arg0 float32) error {
+	_, err := c.svc.SetTransitionAlpha(ctx, &pb.SetTransitionAlphaRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetTransitionName calls the SetTransitionName RPC.
+func (c *ViewClient) SetTransitionName(ctx context.Context, arg0 string) error {
+	_, err := c.svc.SetTransitionName(ctx, &pb.SetTransitionNameRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetTransitionVisibility calls the SetTransitionVisibility RPC.
+func (c *ViewClient) SetTransitionVisibility(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetTransitionVisibility(ctx, &pb.SetTransitionVisibilityRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetTranslationX calls the SetTranslationX RPC.
+func (c *ViewClient) SetTranslationX(ctx context.Context, arg0 float32) error {
+	_, err := c.svc.SetTranslationX(ctx, &pb.SetTranslationXRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetTranslationY calls the SetTranslationY RPC.
+func (c *ViewClient) SetTranslationY(ctx context.Context, arg0 float32) error {
+	_, err := c.svc.SetTranslationY(ctx, &pb.SetTranslationYRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetTranslationZ calls the SetTranslationZ RPC.
+func (c *ViewClient) SetTranslationZ(ctx context.Context, arg0 float32) error {
+	_, err := c.svc.SetTranslationZ(ctx, &pb.SetTranslationZRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetVerticalFadingEdgeEnabled calls the SetVerticalFadingEdgeEnabled RPC.
+func (c *ViewClient) SetVerticalFadingEdgeEnabled(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetVerticalFadingEdgeEnabled(ctx, &pb.SetVerticalFadingEdgeEnabledRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetVerticalScrollBarEnabled calls the SetVerticalScrollBarEnabled RPC.
+func (c *ViewClient) SetVerticalScrollBarEnabled(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetVerticalScrollBarEnabled(ctx, &pb.SetVerticalScrollBarEnabledRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetVerticalScrollbarPosition calls the SetVerticalScrollbarPosition RPC.
+func (c *ViewClient) SetVerticalScrollbarPosition(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetVerticalScrollbarPosition(ctx, &pb.SetVerticalScrollbarPositionRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetVerticalScrollbarThumbDrawable calls the SetVerticalScrollbarThumbDrawable RPC.
+func (c *ViewClient) SetVerticalScrollbarThumbDrawable(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetVerticalScrollbarThumbDrawable(ctx, &pb.SetVerticalScrollbarThumbDrawableRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetVerticalScrollbarTrackDrawable calls the SetVerticalScrollbarTrackDrawable RPC.
+func (c *ViewClient) SetVerticalScrollbarTrackDrawable(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetVerticalScrollbarTrackDrawable(ctx, &pb.SetVerticalScrollbarTrackDrawableRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetViewTranslationCallback calls the SetViewTranslationCallback RPC.
+func (c *ViewClient) SetViewTranslationCallback(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetViewTranslationCallback(ctx, &pb.SetViewTranslationCallbackRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetVisibility calls the SetVisibility RPC.
+func (c *ViewClient) SetVisibility(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetVisibility(ctx, &pb.SetVisibilityRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetWillNotCacheDrawing calls the SetWillNotCacheDrawing RPC.
+func (c *ViewClient) SetWillNotCacheDrawing(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetWillNotCacheDrawing(ctx, &pb.SetWillNotCacheDrawingRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetWillNotDraw calls the SetWillNotDraw RPC.
+func (c *ViewClient) SetWillNotDraw(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetWillNotDraw(ctx, &pb.SetWillNotDrawRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetWindowInsetsAnimationCallback calls the SetWindowInsetsAnimationCallback RPC.
+func (c *ViewClient) SetWindowInsetsAnimationCallback(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetWindowInsetsAnimationCallback(ctx, &pb.SetWindowInsetsAnimationCallbackRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetX calls the SetX RPC.
+func (c *ViewClient) SetX(ctx context.Context, arg0 float32) error {
+	_, err := c.svc.SetX(ctx, &pb.SetXRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetY calls the SetY RPC.
+func (c *ViewClient) SetY(ctx context.Context, arg0 float32) error {
+	_, err := c.svc.SetY(ctx, &pb.SetYRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetZ calls the SetZ RPC.
+func (c *ViewClient) SetZ(ctx context.Context, arg0 float32) error {
+	_, err := c.svc.SetZ(ctx, &pb.SetZRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ShowContextMenu0 calls the ShowContextMenu0 RPC.
+func (c *ViewClient) ShowContextMenu0(ctx context.Context) (bool, error) {
+	resp, err := c.svc.ShowContextMenu0(ctx, &pb.ShowContextMenu0Request{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ShowContextMenu2_1 calls the ShowContextMenu2_1 RPC.
+func (c *ViewClient) ShowContextMenu2_1(ctx context.Context, arg0 float32, arg1 float32) (bool, error) {
+	resp, err := c.svc.ShowContextMenu2_1(ctx, &pb.ShowContextMenu2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// StartActionMode1 calls the StartActionMode1 RPC.
+func (c *ViewClient) StartActionMode1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.StartActionMode1(ctx, &pb.StartActionMode1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// StartActionMode2_1 calls the StartActionMode2_1 RPC.
+func (c *ViewClient) StartActionMode2_1(ctx context.Context, arg0 int64, arg1 int32) (int64, error) {
+	resp, err := c.svc.StartActionMode2_1(ctx, &pb.StartActionMode2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// StartAnimation calls the StartAnimation RPC.
+func (c *ViewClient) StartAnimation(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.StartAnimation(ctx, &pb.StartAnimationRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// StartDrag calls the StartDrag RPC.
+func (c *ViewClient) StartDrag(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int32) (bool, error) {
+	resp, err := c.svc.StartDrag(ctx, &pb.StartDragRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// StartDragAndDrop calls the StartDragAndDrop RPC.
+func (c *ViewClient) StartDragAndDrop(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int32) (bool, error) {
+	resp, err := c.svc.StartDragAndDrop(ctx, &pb.StartDragAndDropRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// StartNestedScroll calls the StartNestedScroll RPC.
+func (c *ViewClient) StartNestedScroll(ctx context.Context, arg0 int32) (bool, error) {
+	resp, err := c.svc.StartNestedScroll(ctx, &pb.StartNestedScrollRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// StopNestedScroll calls the StopNestedScroll RPC.
+func (c *ViewClient) StopNestedScroll(ctx context.Context) error {
+	_, err := c.svc.StopNestedScroll(ctx, &pb.StopNestedScrollRequest{})
+	return err
+}
+
+// ToString calls the ToString RPC.
+func (c *ViewClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// TransformMatrixToGlobal calls the TransformMatrixToGlobal RPC.
+func (c *ViewClient) TransformMatrixToGlobal(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.TransformMatrixToGlobal(ctx, &pb.TransformMatrixToGlobalRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// TransformMatrixToLocal calls the TransformMatrixToLocal RPC.
+func (c *ViewClient) TransformMatrixToLocal(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.TransformMatrixToLocal(ctx, &pb.TransformMatrixToLocalRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// UnscheduleDrawable1 calls the UnscheduleDrawable1 RPC.
+func (c *ViewClient) UnscheduleDrawable1(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.UnscheduleDrawable1(ctx, &pb.UnscheduleDrawable1Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// UnscheduleDrawable2_1 calls the UnscheduleDrawable2_1 RPC.
+func (c *ViewClient) UnscheduleDrawable2_1(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.UnscheduleDrawable2_1(ctx, &pb.UnscheduleDrawable2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// UpdateDragShadow calls the UpdateDragShadow RPC.
+func (c *ViewClient) UpdateDragShadow(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.UpdateDragShadow(ctx, &pb.UpdateDragShadowRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// WillNotCacheDrawing calls the WillNotCacheDrawing RPC.
+func (c *ViewClient) WillNotCacheDrawing(ctx context.Context) (bool, error) {
+	resp, err := c.svc.WillNotCacheDrawing(ctx, &pb.WillNotCacheDrawingRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WillNotDraw calls the WillNotDraw RPC.
+func (c *ViewClient) WillNotDraw(ctx context.Context) (bool, error) {
+	resp, err := c.svc.WillNotDraw(ctx, &pb.WillNotDrawRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CombineMeasuredStates calls the CombineMeasuredStates RPC.
+func (c *ViewClient) CombineMeasuredStates(ctx context.Context, arg0 int32, arg1 int32) (int32, error) {
+	resp, err := c.svc.CombineMeasuredStates(ctx, &pb.CombineMeasuredStatesRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GenerateViewId calls the GenerateViewId RPC.
+func (c *ViewClient) GenerateViewId(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GenerateViewId(ctx, &pb.GenerateViewIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDefaultSize calls the GetDefaultSize RPC.
+func (c *ViewClient) GetDefaultSize(ctx context.Context, arg0 int32, arg1 int32) (int32, error) {
+	resp, err := c.svc.GetDefaultSize(ctx, &pb.GetDefaultSizeRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Inflate calls the Inflate RPC.
+func (c *ViewClient) Inflate(ctx context.Context, arg0 int64, arg1 int32, arg2 int64) (int64, error) {
+	resp, err := c.svc.Inflate(ctx, &pb.InflateRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ResolveSize calls the ResolveSize RPC.
+func (c *ViewClient) ResolveSize(ctx context.Context, arg0 int32, arg1 int32) (int32, error) {
+	resp, err := c.svc.ResolveSize(ctx, &pb.ResolveSizeRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ResolveSizeAndState calls the ResolveSizeAndState RPC.
+func (c *ViewClient) ResolveSizeAndState(ctx context.Context, arg0 int32, arg1 int32, arg2 int32) (int32, error) {
+	resp, err := c.svc.ResolveSizeAndState(ctx, &pb.ResolveSizeAndStateRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SurfaceClient wraps the gRPC SurfaceService client.
+type SurfaceClient struct {
+	svc pb.SurfaceServiceClient
+}
+
+// NewSurfaceClient creates a new Surface client.
+func NewSurfaceClient(cc grpc.ClientConnInterface) *SurfaceClient {
+	return &SurfaceClient{
+		svc: pb.NewSurfaceServiceClient(cc),
+	}
+}
+
+// ClearFrameRate calls the ClearFrameRate RPC.
+func (c *SurfaceClient) ClearFrameRate(ctx context.Context) error {
+	_, err := c.svc.ClearFrameRate(ctx, &pb.ClearFrameRateRequest{})
+	return err
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *SurfaceClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsValid calls the IsValid RPC.
+func (c *SurfaceClient) IsValid(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsValid(ctx, &pb.IsValidRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// LockCanvas calls the LockCanvas RPC.
+func (c *SurfaceClient) LockCanvas(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.LockCanvas(ctx, &pb.LockCanvasRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// LockHardwareCanvas calls the LockHardwareCanvas RPC.
+func (c *SurfaceClient) LockHardwareCanvas(ctx context.Context) (int64, error) {
+	resp, err := c.svc.LockHardwareCanvas(ctx, &pb.LockHardwareCanvasRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ReadFromParcel calls the ReadFromParcel RPC.
+func (c *SurfaceClient) ReadFromParcel(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.ReadFromParcel(ctx, &pb.ReadFromParcelRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// Release calls the Release RPC.
+func (c *SurfaceClient) Release(ctx context.Context) error {
+	_, err := c.svc.Release(ctx, &pb.ReleaseRequest{})
+	return err
+}
+
+// SetFrameRate2 calls the SetFrameRate2 RPC.
+func (c *SurfaceClient) SetFrameRate2(ctx context.Context, arg0 float32, arg1 int32) error {
+	_, err := c.svc.SetFrameRate2(ctx, &pb.SetFrameRate2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// SetFrameRate3_1 calls the SetFrameRate3_1 RPC.
+func (c *SurfaceClient) SetFrameRate3_1(ctx context.Context, arg0 float32, arg1 int32, arg2 int32) error {
+	_, err := c.svc.SetFrameRate3_1(ctx, &pb.SetFrameRate3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// ToString calls the ToString RPC.
+func (c *SurfaceClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// UnlockCanvas calls the UnlockCanvas RPC.
+func (c *SurfaceClient) UnlockCanvas(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.UnlockCanvas(ctx, &pb.UnlockCanvasRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// UnlockCanvasAndPost calls the UnlockCanvasAndPost RPC.
+func (c *SurfaceClient) UnlockCanvasAndPost(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.UnlockCanvasAndPost(ctx, &pb.UnlockCanvasAndPostRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *SurfaceClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ViewGroupClient wraps the gRPC ViewGroupService client.
+type ViewGroupClient struct {
+	svc pb.ViewGroupServiceClient
+}
+
+// NewViewGroupClient creates a new ViewGroup client.
+func NewViewGroupClient(cc grpc.ClientConnInterface) *ViewGroupClient {
+	return &ViewGroupClient{
+		svc: pb.NewViewGroupServiceClient(cc),
+	}
+}
+
+// AddChildrenForAccessibility calls the AddChildrenForAccessibility RPC.
+func (c *ViewGroupClient) AddChildrenForAccessibility(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.AddChildrenForAccessibility(ctx, &pb.AddChildrenForAccessibilityRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// AddExtraDataToAccessibilityNodeInfo calls the AddExtraDataToAccessibilityNodeInfo RPC.
+func (c *ViewGroupClient) AddExtraDataToAccessibilityNodeInfo(ctx context.Context, arg0 int64, arg1 string, arg2 int64) error {
+	_, err := c.svc.AddExtraDataToAccessibilityNodeInfo(ctx, &pb.AddExtraDataToAccessibilityNodeInfoRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// AddFocusables calls the AddFocusables RPC.
+func (c *ViewGroupClient) AddFocusables(ctx context.Context, arg0 int64, arg1 int32, arg2 int32) error {
+	_, err := c.svc.AddFocusables(ctx, &pb.AddFocusablesRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// AddKeyboardNavigationClusters calls the AddKeyboardNavigationClusters RPC.
+func (c *ViewGroupClient) AddKeyboardNavigationClusters(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.AddKeyboardNavigationClusters(ctx, &pb.AddKeyboardNavigationClustersRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// AddStatesFromChildren calls the AddStatesFromChildren RPC.
+func (c *ViewGroupClient) AddStatesFromChildren(ctx context.Context) (bool, error) {
+	resp, err := c.svc.AddStatesFromChildren(ctx, &pb.AddStatesFromChildrenRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddTouchables calls the AddTouchables RPC.
+func (c *ViewGroupClient) AddTouchables(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.AddTouchables(ctx, &pb.AddTouchablesRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// AddView1 calls the AddView1 RPC.
+func (c *ViewGroupClient) AddView1(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.AddView1(ctx, &pb.AddView1Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// AddView2_1 calls the AddView2_1 RPC.
+func (c *ViewGroupClient) AddView2_1(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.AddView2_1(ctx, &pb.AddView2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// AddView2_2 calls the AddView2_2 RPC.
+func (c *ViewGroupClient) AddView2_2(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.AddView2_2(ctx, &pb.AddView2_2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// AddView3_3 calls the AddView3_3 RPC.
+func (c *ViewGroupClient) AddView3_3(ctx context.Context, arg0 int64, arg1 int32, arg2 int64) error {
+	_, err := c.svc.AddView3_3(ctx, &pb.AddView3_3Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// AddView3_4 calls the AddView3_4 RPC.
+func (c *ViewGroupClient) AddView3_4(ctx context.Context, arg0 int64, arg1 int32, arg2 int32) error {
+	_, err := c.svc.AddView3_4(ctx, &pb.AddView3_4Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// BringChildToFront calls the BringChildToFront RPC.
+func (c *ViewGroupClient) BringChildToFront(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.BringChildToFront(ctx, &pb.BringChildToFrontRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ChildDrawableStateChanged calls the ChildDrawableStateChanged RPC.
+func (c *ViewGroupClient) ChildDrawableStateChanged(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.ChildDrawableStateChanged(ctx, &pb.ChildDrawableStateChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ChildHasTransientStateChanged calls the ChildHasTransientStateChanged RPC.
+func (c *ViewGroupClient) ChildHasTransientStateChanged(ctx context.Context, arg0 int64, arg1 bool) error {
+	_, err := c.svc.ChildHasTransientStateChanged(ctx, &pb.ChildHasTransientStateChangedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ClearChildFocus calls the ClearChildFocus RPC.
+func (c *ViewGroupClient) ClearChildFocus(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.ClearChildFocus(ctx, &pb.ClearChildFocusRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ClearDisappearingChildren calls the ClearDisappearingChildren RPC.
+func (c *ViewGroupClient) ClearDisappearingChildren(ctx context.Context) error {
+	_, err := c.svc.ClearDisappearingChildren(ctx, &pb.ClearDisappearingChildrenRequest{})
+	return err
+}
+
+// ClearFocus calls the ClearFocus RPC.
+func (c *ViewGroupClient) ClearFocus(ctx context.Context) error {
+	_, err := c.svc.ClearFocus(ctx, &pb.ClearFocusRequest{})
+	return err
+}
+
+// DispatchApplyWindowInsets calls the DispatchApplyWindowInsets RPC.
+func (c *ViewGroupClient) DispatchApplyWindowInsets(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.DispatchApplyWindowInsets(ctx, &pb.DispatchApplyWindowInsetsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DispatchCapturedPointerEvent calls the DispatchCapturedPointerEvent RPC.
+func (c *ViewGroupClient) DispatchCapturedPointerEvent(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.DispatchCapturedPointerEvent(ctx, &pb.DispatchCapturedPointerEventRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DispatchConfigurationChanged calls the DispatchConfigurationChanged RPC.
+func (c *ViewGroupClient) DispatchConfigurationChanged(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.DispatchConfigurationChanged(ctx, &pb.DispatchConfigurationChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// DispatchCreateViewTranslationRequest calls the DispatchCreateViewTranslationRequest RPC.
+func (c *ViewGroupClient) DispatchCreateViewTranslationRequest(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
+	_, err := c.svc.DispatchCreateViewTranslationRequest(ctx, &pb.DispatchCreateViewTranslationRequestRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// DispatchDisplayHint calls the DispatchDisplayHint RPC.
+func (c *ViewGroupClient) DispatchDisplayHint(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.DispatchDisplayHint(ctx, &pb.DispatchDisplayHintRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// DispatchDragEvent calls the DispatchDragEvent RPC.
+func (c *ViewGroupClient) DispatchDragEvent(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.DispatchDragEvent(ctx, &pb.DispatchDragEventRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DispatchDrawableHotspotChanged calls the DispatchDrawableHotspotChanged RPC.
+func (c *ViewGroupClient) DispatchDrawableHotspotChanged(ctx context.Context, arg0 float32, arg1 float32) error {
+	_, err := c.svc.DispatchDrawableHotspotChanged(ctx, &pb.DispatchDrawableHotspotChangedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// DispatchFinishTemporaryDetach calls the DispatchFinishTemporaryDetach RPC.
+func (c *ViewGroupClient) DispatchFinishTemporaryDetach(ctx context.Context) error {
+	_, err := c.svc.DispatchFinishTemporaryDetach(ctx, &pb.DispatchFinishTemporaryDetachRequest{})
+	return err
+}
+
+// DispatchKeyEvent calls the DispatchKeyEvent RPC.
+func (c *ViewGroupClient) DispatchKeyEvent(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.DispatchKeyEvent(ctx, &pb.DispatchKeyEventRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DispatchKeyEventPreIme calls the DispatchKeyEventPreIme RPC.
+func (c *ViewGroupClient) DispatchKeyEventPreIme(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.DispatchKeyEventPreIme(ctx, &pb.DispatchKeyEventPreImeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DispatchKeyShortcutEvent calls the DispatchKeyShortcutEvent RPC.
+func (c *ViewGroupClient) DispatchKeyShortcutEvent(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.DispatchKeyShortcutEvent(ctx, &pb.DispatchKeyShortcutEventRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DispatchPointerCaptureChanged calls the DispatchPointerCaptureChanged RPC.
+func (c *ViewGroupClient) DispatchPointerCaptureChanged(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.DispatchPointerCaptureChanged(ctx, &pb.DispatchPointerCaptureChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// DispatchProvideAutofillStructure calls the DispatchProvideAutofillStructure RPC.
+func (c *ViewGroupClient) DispatchProvideAutofillStructure(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.DispatchProvideAutofillStructure(ctx, &pb.DispatchProvideAutofillStructureRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// DispatchProvideStructure calls the DispatchProvideStructure RPC.
+func (c *ViewGroupClient) DispatchProvideStructure(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.DispatchProvideStructure(ctx, &pb.DispatchProvideStructureRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// DispatchScrollCaptureSearch calls the DispatchScrollCaptureSearch RPC.
+func (c *ViewGroupClient) DispatchScrollCaptureSearch(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.DispatchScrollCaptureSearch(ctx, &pb.DispatchScrollCaptureSearchRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// DispatchSetActivated calls the DispatchSetActivated RPC.
+func (c *ViewGroupClient) DispatchSetActivated(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.DispatchSetActivated(ctx, &pb.DispatchSetActivatedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// DispatchSetSelected calls the DispatchSetSelected RPC.
+func (c *ViewGroupClient) DispatchSetSelected(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.DispatchSetSelected(ctx, &pb.DispatchSetSelectedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// DispatchStartTemporaryDetach calls the DispatchStartTemporaryDetach RPC.
+func (c *ViewGroupClient) DispatchStartTemporaryDetach(ctx context.Context) error {
+	_, err := c.svc.DispatchStartTemporaryDetach(ctx, &pb.DispatchStartTemporaryDetachRequest{})
+	return err
+}
+
+// DispatchSystemUiVisibilityChanged calls the DispatchSystemUiVisibilityChanged RPC.
+func (c *ViewGroupClient) DispatchSystemUiVisibilityChanged(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.DispatchSystemUiVisibilityChanged(ctx, &pb.DispatchSystemUiVisibilityChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// DispatchTouchEvent calls the DispatchTouchEvent RPC.
+func (c *ViewGroupClient) DispatchTouchEvent(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.DispatchTouchEvent(ctx, &pb.DispatchTouchEventRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DispatchTrackballEvent calls the DispatchTrackballEvent RPC.
+func (c *ViewGroupClient) DispatchTrackballEvent(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.DispatchTrackballEvent(ctx, &pb.DispatchTrackballEventRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DispatchUnhandledMove calls the DispatchUnhandledMove RPC.
+func (c *ViewGroupClient) DispatchUnhandledMove(ctx context.Context, arg0 int64, arg1 int32) (bool, error) {
+	resp, err := c.svc.DispatchUnhandledMove(ctx, &pb.DispatchUnhandledMoveRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DispatchWindowFocusChanged calls the DispatchWindowFocusChanged RPC.
+func (c *ViewGroupClient) DispatchWindowFocusChanged(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.DispatchWindowFocusChanged(ctx, &pb.DispatchWindowFocusChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// DispatchWindowInsetsAnimationEnd calls the DispatchWindowInsetsAnimationEnd RPC.
+func (c *ViewGroupClient) DispatchWindowInsetsAnimationEnd(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.DispatchWindowInsetsAnimationEnd(ctx, &pb.DispatchWindowInsetsAnimationEndRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// DispatchWindowInsetsAnimationPrepare calls the DispatchWindowInsetsAnimationPrepare RPC.
+func (c *ViewGroupClient) DispatchWindowInsetsAnimationPrepare(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.DispatchWindowInsetsAnimationPrepare(ctx, &pb.DispatchWindowInsetsAnimationPrepareRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// DispatchWindowInsetsAnimationProgress calls the DispatchWindowInsetsAnimationProgress RPC.
+func (c *ViewGroupClient) DispatchWindowInsetsAnimationProgress(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.DispatchWindowInsetsAnimationProgress(ctx, &pb.DispatchWindowInsetsAnimationProgressRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DispatchWindowInsetsAnimationStart calls the DispatchWindowInsetsAnimationStart RPC.
+func (c *ViewGroupClient) DispatchWindowInsetsAnimationStart(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.DispatchWindowInsetsAnimationStart(ctx, &pb.DispatchWindowInsetsAnimationStartRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DispatchWindowSystemUiVisiblityChanged calls the DispatchWindowSystemUiVisiblityChanged RPC.
+func (c *ViewGroupClient) DispatchWindowSystemUiVisiblityChanged(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.DispatchWindowSystemUiVisiblityChanged(ctx, &pb.DispatchWindowSystemUiVisiblityChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// DispatchWindowVisibilityChanged calls the DispatchWindowVisibilityChanged RPC.
+func (c *ViewGroupClient) DispatchWindowVisibilityChanged(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.DispatchWindowVisibilityChanged(ctx, &pb.DispatchWindowVisibilityChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// EndViewTransition calls the EndViewTransition RPC.
+func (c *ViewGroupClient) EndViewTransition(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.EndViewTransition(ctx, &pb.EndViewTransitionRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// FindFocus calls the FindFocus RPC.
+func (c *ViewGroupClient) FindFocus(ctx context.Context) (int64, error) {
+	resp, err := c.svc.FindFocus(ctx, &pb.FindFocusRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// FindOnBackInvokedDispatcherForChild calls the FindOnBackInvokedDispatcherForChild RPC.
+func (c *ViewGroupClient) FindOnBackInvokedDispatcherForChild(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.FindOnBackInvokedDispatcherForChild(ctx, &pb.FindOnBackInvokedDispatcherForChildRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// FindViewsWithText calls the FindViewsWithText RPC.
+func (c *ViewGroupClient) FindViewsWithText(ctx context.Context, arg0 int64, arg1 string, arg2 int32) error {
+	_, err := c.svc.FindViewsWithText(ctx, &pb.FindViewsWithTextRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// FocusSearch calls the FocusSearch RPC.
+func (c *ViewGroupClient) FocusSearch(ctx context.Context, arg0 int64, arg1 int32) (int64, error) {
+	resp, err := c.svc.FocusSearch(ctx, &pb.ViewGroupFocusSearchRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// FocusableViewAvailable calls the FocusableViewAvailable RPC.
+func (c *ViewGroupClient) FocusableViewAvailable(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.FocusableViewAvailable(ctx, &pb.FocusableViewAvailableRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// GatherTransparentRegion calls the GatherTransparentRegion RPC.
+func (c *ViewGroupClient) GatherTransparentRegion(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.GatherTransparentRegion(ctx, &pb.GatherTransparentRegionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GenerateLayoutParams calls the GenerateLayoutParams RPC.
+func (c *ViewGroupClient) GenerateLayoutParams(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GenerateLayoutParams(ctx, &pb.GenerateLayoutParamsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAccessibilityClassName calls the GetAccessibilityClassName RPC.
+func (c *ViewGroupClient) GetAccessibilityClassName(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAccessibilityClassName(ctx, &pb.GetAccessibilityClassNameRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetChildAt calls the GetChildAt RPC.
+func (c *ViewGroupClient) GetChildAt(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetChildAt(ctx, &pb.GetChildAtRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetChildCount calls the GetChildCount RPC.
+func (c *ViewGroupClient) GetChildCount(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetChildCount(ctx, &pb.GetChildCountRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetChildDrawingOrder calls the GetChildDrawingOrder RPC.
+func (c *ViewGroupClient) GetChildDrawingOrder(ctx context.Context, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetChildDrawingOrder(ctx, &pb.GetChildDrawingOrderRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetChildVisibleRect calls the GetChildVisibleRect RPC.
+func (c *ViewGroupClient) GetChildVisibleRect(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (bool, error) {
+	resp, err := c.svc.GetChildVisibleRect(ctx, &pb.GetChildVisibleRectRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetClipChildren calls the GetClipChildren RPC.
+func (c *ViewGroupClient) GetClipChildren(ctx context.Context) (bool, error) {
+	resp, err := c.svc.GetClipChildren(ctx, &pb.GetClipChildrenRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetClipToPadding calls the GetClipToPadding RPC.
+func (c *ViewGroupClient) GetClipToPadding(ctx context.Context) (bool, error) {
+	resp, err := c.svc.GetClipToPadding(ctx, &pb.GetClipToPaddingRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDescendantFocusability calls the GetDescendantFocusability RPC.
+func (c *ViewGroupClient) GetDescendantFocusability(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetDescendantFocusability(ctx, &pb.GetDescendantFocusabilityRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFocusedChild calls the GetFocusedChild RPC.
+func (c *ViewGroupClient) GetFocusedChild(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetFocusedChild(ctx, &pb.GetFocusedChildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLayoutAnimation calls the GetLayoutAnimation RPC.
+func (c *ViewGroupClient) GetLayoutAnimation(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetLayoutAnimation(ctx, &pb.GetLayoutAnimationRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLayoutAnimationListener calls the GetLayoutAnimationListener RPC.
+func (c *ViewGroupClient) GetLayoutAnimationListener(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetLayoutAnimationListener(ctx, &pb.GetLayoutAnimationListenerRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLayoutMode calls the GetLayoutMode RPC.
+func (c *ViewGroupClient) GetLayoutMode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetLayoutMode(ctx, &pb.GetLayoutModeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLayoutTransition calls the GetLayoutTransition RPC.
+func (c *ViewGroupClient) GetLayoutTransition(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetLayoutTransition(ctx, &pb.GetLayoutTransitionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNestedScrollAxes calls the GetNestedScrollAxes RPC.
+func (c *ViewGroupClient) GetNestedScrollAxes(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetNestedScrollAxes(ctx, &pb.GetNestedScrollAxesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOverlay0 calls the GetOverlay0 RPC.
+func (c *ViewGroupClient) GetOverlay0(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetOverlay0(ctx, &pb.GetOverlay0Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPersistentDrawingCache calls the GetPersistentDrawingCache RPC.
+func (c *ViewGroupClient) GetPersistentDrawingCache(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetPersistentDrawingCache(ctx, &pb.GetPersistentDrawingCacheRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTouchscreenBlocksFocus calls the GetTouchscreenBlocksFocus RPC.
+func (c *ViewGroupClient) GetTouchscreenBlocksFocus(ctx context.Context) (bool, error) {
+	resp, err := c.svc.GetTouchscreenBlocksFocus(ctx, &pb.GetTouchscreenBlocksFocusRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasFocus calls the HasFocus RPC.
+func (c *ViewGroupClient) HasFocus(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasFocus(ctx, &pb.HasFocusRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasTransientState calls the HasTransientState RPC.
+func (c *ViewGroupClient) HasTransientState(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasTransientState(ctx, &pb.HasTransientStateRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IndexOfChild calls the IndexOfChild RPC.
+func (c *ViewGroupClient) IndexOfChild(ctx context.Context, arg0 int64) (int32, error) {
+	resp, err := c.svc.IndexOfChild(ctx, &pb.IndexOfChildRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// InvalidateChild calls the InvalidateChild RPC.
+func (c *ViewGroupClient) InvalidateChild(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.InvalidateChild(ctx, &pb.InvalidateChildRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// InvalidateChildInParent calls the InvalidateChildInParent RPC.
+func (c *ViewGroupClient) InvalidateChildInParent(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.InvalidateChildInParent(ctx, &pb.InvalidateChildInParentRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsAlwaysDrawnWithCacheEnabled calls the IsAlwaysDrawnWithCacheEnabled RPC.
+func (c *ViewGroupClient) IsAlwaysDrawnWithCacheEnabled(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsAlwaysDrawnWithCacheEnabled(ctx, &pb.IsAlwaysDrawnWithCacheEnabledRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsAnimationCacheEnabled calls the IsAnimationCacheEnabled RPC.
+func (c *ViewGroupClient) IsAnimationCacheEnabled(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsAnimationCacheEnabled(ctx, &pb.IsAnimationCacheEnabledRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsLayoutSuppressed calls the IsLayoutSuppressed RPC.
+func (c *ViewGroupClient) IsLayoutSuppressed(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsLayoutSuppressed(ctx, &pb.IsLayoutSuppressedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsMotionEventSplittingEnabled calls the IsMotionEventSplittingEnabled RPC.
+func (c *ViewGroupClient) IsMotionEventSplittingEnabled(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsMotionEventSplittingEnabled(ctx, &pb.IsMotionEventSplittingEnabledRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsTransitionGroup calls the IsTransitionGroup RPC.
+func (c *ViewGroupClient) IsTransitionGroup(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsTransitionGroup(ctx, &pb.IsTransitionGroupRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// JumpDrawablesToCurrentState calls the JumpDrawablesToCurrentState RPC.
+func (c *ViewGroupClient) JumpDrawablesToCurrentState(ctx context.Context) error {
+	_, err := c.svc.JumpDrawablesToCurrentState(ctx, &pb.JumpDrawablesToCurrentStateRequest{})
+	return err
+}
+
+// Layout calls the Layout RPC.
+func (c *ViewGroupClient) Layout(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
+	_, err := c.svc.Layout(ctx, &pb.LayoutRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// NotifySubtreeAccessibilityStateChanged calls the NotifySubtreeAccessibilityStateChanged RPC.
+func (c *ViewGroupClient) NotifySubtreeAccessibilityStateChanged(ctx context.Context, arg0 int64, arg1 int64, arg2 int32) error {
+	_, err := c.svc.NotifySubtreeAccessibilityStateChanged(ctx, &pb.NotifySubtreeAccessibilityStateChangedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// OffsetDescendantRectToMyCoords calls the OffsetDescendantRectToMyCoords RPC.
+func (c *ViewGroupClient) OffsetDescendantRectToMyCoords(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.OffsetDescendantRectToMyCoords(ctx, &pb.OffsetDescendantRectToMyCoordsRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OffsetRectIntoDescendantCoords calls the OffsetRectIntoDescendantCoords RPC.
+func (c *ViewGroupClient) OffsetRectIntoDescendantCoords(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.OffsetRectIntoDescendantCoords(ctx, &pb.OffsetRectIntoDescendantCoordsRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnDescendantInvalidated calls the OnDescendantInvalidated RPC.
+func (c *ViewGroupClient) OnDescendantInvalidated(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.OnDescendantInvalidated(ctx, &pb.OnDescendantInvalidatedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnInterceptHoverEvent calls the OnInterceptHoverEvent RPC.
+func (c *ViewGroupClient) OnInterceptHoverEvent(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.OnInterceptHoverEvent(ctx, &pb.OnInterceptHoverEventRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnInterceptTouchEvent calls the OnInterceptTouchEvent RPC.
+func (c *ViewGroupClient) OnInterceptTouchEvent(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.OnInterceptTouchEvent(ctx, &pb.OnInterceptTouchEventRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnNestedFling calls the OnNestedFling RPC.
+func (c *ViewGroupClient) OnNestedFling(ctx context.Context, arg0 int64, arg1 float32, arg2 float32, arg3 bool) (bool, error) {
+	resp, err := c.svc.OnNestedFling(ctx, &pb.OnNestedFlingRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnNestedPreFling calls the OnNestedPreFling RPC.
+func (c *ViewGroupClient) OnNestedPreFling(ctx context.Context, arg0 int64, arg1 float32, arg2 float32) (bool, error) {
+	resp, err := c.svc.OnNestedPreFling(ctx, &pb.OnNestedPreFlingRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnNestedPrePerformAccessibilityAction calls the OnNestedPrePerformAccessibilityAction RPC.
+func (c *ViewGroupClient) OnNestedPrePerformAccessibilityAction(ctx context.Context, arg0 int64, arg1 int32, arg2 int64) (bool, error) {
+	resp, err := c.svc.OnNestedPrePerformAccessibilityAction(ctx, &pb.OnNestedPrePerformAccessibilityActionRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnNestedPreScroll calls the OnNestedPreScroll RPC.
+func (c *ViewGroupClient) OnNestedPreScroll(ctx context.Context, arg0 int64, arg1 int32, arg2 int32, arg3 int64) error {
+	_, err := c.svc.OnNestedPreScroll(ctx, &pb.OnNestedPreScrollRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// OnNestedScroll calls the OnNestedScroll RPC.
+func (c *ViewGroupClient) OnNestedScroll(ctx context.Context, arg0 int64, arg1 int32, arg2 int32, arg3 int32, arg4 int32) error {
+	_, err := c.svc.OnNestedScroll(ctx, &pb.OnNestedScrollRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// OnNestedScrollAccepted calls the OnNestedScrollAccepted RPC.
+func (c *ViewGroupClient) OnNestedScrollAccepted(ctx context.Context, arg0 int64, arg1 int64, arg2 int32) error {
+	_, err := c.svc.OnNestedScrollAccepted(ctx, &pb.OnNestedScrollAcceptedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// OnRequestSendAccessibilityEvent calls the OnRequestSendAccessibilityEvent RPC.
+func (c *ViewGroupClient) OnRequestSendAccessibilityEvent(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
+	resp, err := c.svc.OnRequestSendAccessibilityEvent(ctx, &pb.OnRequestSendAccessibilityEventRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnResolvePointerIcon calls the OnResolvePointerIcon RPC.
+func (c *ViewGroupClient) OnResolvePointerIcon(ctx context.Context, arg0 int64, arg1 int32) (int64, error) {
+	resp, err := c.svc.OnResolvePointerIcon(ctx, &pb.OnResolvePointerIconRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnStartNestedScroll calls the OnStartNestedScroll RPC.
+func (c *ViewGroupClient) OnStartNestedScroll(ctx context.Context, arg0 int64, arg1 int64, arg2 int32) (bool, error) {
+	resp, err := c.svc.OnStartNestedScroll(ctx, &pb.OnStartNestedScrollRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnStopNestedScroll calls the OnStopNestedScroll RPC.
+func (c *ViewGroupClient) OnStopNestedScroll(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnStopNestedScroll(ctx, &pb.OnStopNestedScrollRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnViewAdded calls the OnViewAdded RPC.
+func (c *ViewGroupClient) OnViewAdded(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnViewAdded(ctx, &pb.OnViewAddedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnViewRemoved calls the OnViewRemoved RPC.
+func (c *ViewGroupClient) OnViewRemoved(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnViewRemoved(ctx, &pb.OnViewRemovedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// PropagateRequestedFrameRate calls the PropagateRequestedFrameRate RPC.
+func (c *ViewGroupClient) PropagateRequestedFrameRate(ctx context.Context, arg0 float32, arg1 bool) error {
+	_, err := c.svc.PropagateRequestedFrameRate(ctx, &pb.PropagateRequestedFrameRateRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// RecomputeViewAttributes calls the RecomputeViewAttributes RPC.
+func (c *ViewGroupClient) RecomputeViewAttributes(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.RecomputeViewAttributes(ctx, &pb.RecomputeViewAttributesRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// RemoveAllViews calls the RemoveAllViews RPC.
+func (c *ViewGroupClient) RemoveAllViews(ctx context.Context) error {
+	_, err := c.svc.RemoveAllViews(ctx, &pb.RemoveAllViewsRequest{})
+	return err
+}
+
+// RemoveAllViewsInLayout calls the RemoveAllViewsInLayout RPC.
+func (c *ViewGroupClient) RemoveAllViewsInLayout(ctx context.Context) error {
+	_, err := c.svc.RemoveAllViewsInLayout(ctx, &pb.RemoveAllViewsInLayoutRequest{})
+	return err
+}
+
+// RemoveView calls the RemoveView RPC.
+func (c *ViewGroupClient) RemoveView(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.RemoveView(ctx, &pb.RemoveViewRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// RemoveViewAt calls the RemoveViewAt RPC.
+func (c *ViewGroupClient) RemoveViewAt(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.RemoveViewAt(ctx, &pb.RemoveViewAtRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// RemoveViewInLayout calls the RemoveViewInLayout RPC.
+func (c *ViewGroupClient) RemoveViewInLayout(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.RemoveViewInLayout(ctx, &pb.RemoveViewInLayoutRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// RemoveViews calls the RemoveViews RPC.
+func (c *ViewGroupClient) RemoveViews(ctx context.Context, arg0 int32, arg1 int32) error {
+	_, err := c.svc.RemoveViews(ctx, &pb.RemoveViewsRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// RemoveViewsInLayout calls the RemoveViewsInLayout RPC.
+func (c *ViewGroupClient) RemoveViewsInLayout(ctx context.Context, arg0 int32, arg1 int32) error {
+	_, err := c.svc.RemoveViewsInLayout(ctx, &pb.RemoveViewsInLayoutRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// RequestChildFocus calls the RequestChildFocus RPC.
+func (c *ViewGroupClient) RequestChildFocus(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.RequestChildFocus(ctx, &pb.RequestChildFocusRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// RequestChildRectangleOnScreen calls the RequestChildRectangleOnScreen RPC.
+func (c *ViewGroupClient) RequestChildRectangleOnScreen(ctx context.Context, arg0 int64, arg1 int64, arg2 bool) (bool, error) {
+	resp, err := c.svc.RequestChildRectangleOnScreen(ctx, &pb.RequestChildRectangleOnScreenRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RequestDisallowInterceptTouchEvent calls the RequestDisallowInterceptTouchEvent RPC.
+func (c *ViewGroupClient) RequestDisallowInterceptTouchEvent(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.RequestDisallowInterceptTouchEvent(ctx, &pb.RequestDisallowInterceptTouchEventRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// RequestFocus calls the RequestFocus RPC.
+func (c *ViewGroupClient) RequestFocus(ctx context.Context, arg0 int32, arg1 int64) (bool, error) {
+	resp, err := c.svc.RequestFocus(ctx, &pb.RequestFocusRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RequestSendAccessibilityEvent calls the RequestSendAccessibilityEvent RPC.
+func (c *ViewGroupClient) RequestSendAccessibilityEvent(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
+	resp, err := c.svc.RequestSendAccessibilityEvent(ctx, &pb.RequestSendAccessibilityEventRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RequestTransparentRegion calls the RequestTransparentRegion RPC.
+func (c *ViewGroupClient) RequestTransparentRegion(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.RequestTransparentRegion(ctx, &pb.RequestTransparentRegionRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// RestoreDefaultFocus calls the RestoreDefaultFocus RPC.
+func (c *ViewGroupClient) RestoreDefaultFocus(ctx context.Context) (bool, error) {
+	resp, err := c.svc.RestoreDefaultFocus(ctx, &pb.RestoreDefaultFocusRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ScheduleLayoutAnimation calls the ScheduleLayoutAnimation RPC.
+func (c *ViewGroupClient) ScheduleLayoutAnimation(ctx context.Context) error {
+	_, err := c.svc.ScheduleLayoutAnimation(ctx, &pb.ScheduleLayoutAnimationRequest{})
+	return err
+}
+
+// SetAddStatesFromChildren calls the SetAddStatesFromChildren RPC.
+func (c *ViewGroupClient) SetAddStatesFromChildren(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetAddStatesFromChildren(ctx, &pb.SetAddStatesFromChildrenRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetAlwaysDrawnWithCacheEnabled calls the SetAlwaysDrawnWithCacheEnabled RPC.
+func (c *ViewGroupClient) SetAlwaysDrawnWithCacheEnabled(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetAlwaysDrawnWithCacheEnabled(ctx, &pb.SetAlwaysDrawnWithCacheEnabledRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetAnimationCacheEnabled calls the SetAnimationCacheEnabled RPC.
+func (c *ViewGroupClient) SetAnimationCacheEnabled(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetAnimationCacheEnabled(ctx, &pb.SetAnimationCacheEnabledRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetClipChildren calls the SetClipChildren RPC.
+func (c *ViewGroupClient) SetClipChildren(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetClipChildren(ctx, &pb.SetClipChildrenRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetClipToPadding calls the SetClipToPadding RPC.
+func (c *ViewGroupClient) SetClipToPadding(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetClipToPadding(ctx, &pb.SetClipToPaddingRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetDescendantFocusability calls the SetDescendantFocusability RPC.
+func (c *ViewGroupClient) SetDescendantFocusability(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetDescendantFocusability(ctx, &pb.SetDescendantFocusabilityRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetLayoutAnimation calls the SetLayoutAnimation RPC.
+func (c *ViewGroupClient) SetLayoutAnimation(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetLayoutAnimation(ctx, &pb.SetLayoutAnimationRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetLayoutAnimationListener calls the SetLayoutAnimationListener RPC.
+func (c *ViewGroupClient) SetLayoutAnimationListener(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetLayoutAnimationListener(ctx, &pb.SetLayoutAnimationListenerRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetLayoutMode calls the SetLayoutMode RPC.
+func (c *ViewGroupClient) SetLayoutMode(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetLayoutMode(ctx, &pb.SetLayoutModeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetLayoutTransition calls the SetLayoutTransition RPC.
+func (c *ViewGroupClient) SetLayoutTransition(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetLayoutTransition(ctx, &pb.SetLayoutTransitionRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetMotionEventSplittingEnabled calls the SetMotionEventSplittingEnabled RPC.
+func (c *ViewGroupClient) SetMotionEventSplittingEnabled(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetMotionEventSplittingEnabled(ctx, &pb.SetMotionEventSplittingEnabledRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetOnHierarchyChangeListener calls the SetOnHierarchyChangeListener RPC.
+func (c *ViewGroupClient) SetOnHierarchyChangeListener(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetOnHierarchyChangeListener(ctx, &pb.SetOnHierarchyChangeListenerRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetPersistentDrawingCache calls the SetPersistentDrawingCache RPC.
+func (c *ViewGroupClient) SetPersistentDrawingCache(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetPersistentDrawingCache(ctx, &pb.SetPersistentDrawingCacheRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetRequestedFrameRate calls the SetRequestedFrameRate RPC.
+func (c *ViewGroupClient) SetRequestedFrameRate(ctx context.Context, arg0 float32) error {
+	_, err := c.svc.SetRequestedFrameRate(ctx, &pb.SetRequestedFrameRateRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetTouchscreenBlocksFocus calls the SetTouchscreenBlocksFocus RPC.
+func (c *ViewGroupClient) SetTouchscreenBlocksFocus(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetTouchscreenBlocksFocus(ctx, &pb.SetTouchscreenBlocksFocusRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetTransitionGroup calls the SetTransitionGroup RPC.
+func (c *ViewGroupClient) SetTransitionGroup(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetTransitionGroup(ctx, &pb.SetTransitionGroupRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetWindowInsetsAnimationCallback calls the SetWindowInsetsAnimationCallback RPC.
+func (c *ViewGroupClient) SetWindowInsetsAnimationCallback(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetWindowInsetsAnimationCallback(ctx, &pb.SetWindowInsetsAnimationCallbackRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ShouldDelayChildPressedState calls the ShouldDelayChildPressedState RPC.
+func (c *ViewGroupClient) ShouldDelayChildPressedState(ctx context.Context) (bool, error) {
+	resp, err := c.svc.ShouldDelayChildPressedState(ctx, &pb.ShouldDelayChildPressedStateRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ShowContextMenuForChild1 calls the ShowContextMenuForChild1 RPC.
+func (c *ViewGroupClient) ShowContextMenuForChild1(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.ShowContextMenuForChild1(ctx, &pb.ShowContextMenuForChild1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ShowContextMenuForChild3_1 calls the ShowContextMenuForChild3_1 RPC.
+func (c *ViewGroupClient) ShowContextMenuForChild3_1(ctx context.Context, arg0 int64, arg1 float32, arg2 float32) (bool, error) {
+	resp, err := c.svc.ShowContextMenuForChild3_1(ctx, &pb.ShowContextMenuForChild3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// StartActionModeForChild2 calls the StartActionModeForChild2 RPC.
+func (c *ViewGroupClient) StartActionModeForChild2(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.StartActionModeForChild2(ctx, &pb.StartActionModeForChild2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// StartActionModeForChild3_1 calls the StartActionModeForChild3_1 RPC.
+func (c *ViewGroupClient) StartActionModeForChild3_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int32) (int64, error) {
+	resp, err := c.svc.StartActionModeForChild3_1(ctx, &pb.StartActionModeForChild3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// StartLayoutAnimation calls the StartLayoutAnimation RPC.
+func (c *ViewGroupClient) StartLayoutAnimation(ctx context.Context) error {
+	_, err := c.svc.StartLayoutAnimation(ctx, &pb.StartLayoutAnimationRequest{})
+	return err
+}
+
+// StartViewTransition calls the StartViewTransition RPC.
+func (c *ViewGroupClient) StartViewTransition(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.StartViewTransition(ctx, &pb.StartViewTransitionRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SuppressLayout calls the SuppressLayout RPC.
+func (c *ViewGroupClient) SuppressLayout(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SuppressLayout(ctx, &pb.SuppressLayoutRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// UpdateViewLayout calls the UpdateViewLayout RPC.
+func (c *ViewGroupClient) UpdateViewLayout(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.UpdateViewLayout(ctx, &pb.UpdateViewLayoutRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// GetOverlay0_1 calls the GetOverlay0_1 RPC.
+func (c *ViewGroupClient) GetOverlay0_1(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetOverlay0_1(ctx, &pb.GetOverlay0_1Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetChildMeasureSpec calls the GetChildMeasureSpec RPC.
+func (c *ViewGroupClient) GetChildMeasureSpec(ctx context.Context, arg0 int32, arg1 int32, arg2 int32) (int32, error) {
+	resp, err := c.svc.GetChildMeasureSpec(ctx, &pb.GetChildMeasureSpecRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SurfaceViewClient wraps the gRPC SurfaceViewService client.
+type SurfaceViewClient struct {
+	svc pb.SurfaceViewServiceClient
+}
+
+// NewSurfaceViewClient creates a new SurfaceView client.
+func NewSurfaceViewClient(cc grpc.ClientConnInterface) *SurfaceViewClient {
+	return &SurfaceViewClient{
+		svc: pb.NewSurfaceViewServiceClient(cc),
+	}
+}
+
+// ApplyTransactionToFrame calls the ApplyTransactionToFrame RPC.
+func (c *SurfaceViewClient) ApplyTransactionToFrame(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.ApplyTransactionToFrame(ctx, &pb.ApplyTransactionToFrameRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ClearChildSurfacePackage calls the ClearChildSurfacePackage RPC.
+func (c *SurfaceViewClient) ClearChildSurfacePackage(ctx context.Context) error {
+	_, err := c.svc.ClearChildSurfacePackage(ctx, &pb.ClearChildSurfacePackageRequest{})
+	return err
+}
+
+// Draw calls the Draw RPC.
+func (c *SurfaceViewClient) Draw(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.Draw(ctx, &pb.DrawRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// GatherTransparentRegion calls the GatherTransparentRegion RPC.
+func (c *SurfaceViewClient) GatherTransparentRegion(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.GatherTransparentRegion(ctx, &pb.GatherTransparentRegionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAccessibilityClassName calls the GetAccessibilityClassName RPC.
+func (c *SurfaceViewClient) GetAccessibilityClassName(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAccessibilityClassName(ctx, &pb.GetAccessibilityClassNameRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetChildSurfacePackage calls the GetChildSurfacePackage RPC.
+func (c *SurfaceViewClient) GetChildSurfacePackage(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetChildSurfacePackage(ctx, &pb.GetChildSurfacePackageRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCompositionOrder calls the GetCompositionOrder RPC.
+func (c *SurfaceViewClient) GetCompositionOrder(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetCompositionOrder(ctx, &pb.GetCompositionOrderRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHolder calls the GetHolder RPC.
+func (c *SurfaceViewClient) GetHolder(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetHolder(ctx, &pb.GetHolderRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHostToken calls the GetHostToken RPC.
+func (c *SurfaceViewClient) GetHostToken(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetHostToken(ctx, &pb.GetHostTokenRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetImportantForAccessibility calls the GetImportantForAccessibility RPC.
+func (c *SurfaceViewClient) GetImportantForAccessibility(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetImportantForAccessibility(ctx, &pb.GetImportantForAccessibilityRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSurfaceControl calls the GetSurfaceControl RPC.
+func (c *SurfaceViewClient) GetSurfaceControl(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSurfaceControl(ctx, &pb.GetSurfaceControlRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasOverlappingRendering calls the HasOverlappingRendering RPC.
+func (c *SurfaceViewClient) HasOverlappingRendering(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasOverlappingRendering(ctx, &pb.HasOverlappingRenderingRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetAlpha calls the SetAlpha RPC.
+func (c *SurfaceViewClient) SetAlpha(ctx context.Context, arg0 float32) error {
+	_, err := c.svc.SetAlpha(ctx, &pb.SetAlphaRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetChildSurfacePackage calls the SetChildSurfacePackage RPC.
+func (c *SurfaceViewClient) SetChildSurfacePackage(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetChildSurfacePackage(ctx, &pb.SetChildSurfacePackageRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetClipBounds calls the SetClipBounds RPC.
+func (c *SurfaceViewClient) SetClipBounds(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetClipBounds(ctx, &pb.SetClipBoundsRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetCompositionOrder calls the SetCompositionOrder RPC.
+func (c *SurfaceViewClient) SetCompositionOrder(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetCompositionOrder(ctx, &pb.SetCompositionOrderRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetDesiredHdrHeadroom calls the SetDesiredHdrHeadroom RPC.
+func (c *SurfaceViewClient) SetDesiredHdrHeadroom(ctx context.Context, arg0 float32) error {
+	_, err := c.svc.SetDesiredHdrHeadroom(ctx, &pb.SetDesiredHdrHeadroomRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetSecure calls the SetSecure RPC.
+func (c *SurfaceViewClient) SetSecure(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetSecure(ctx, &pb.SetSecureRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetSurfaceLifecycle calls the SetSurfaceLifecycle RPC.
+func (c *SurfaceViewClient) SetSurfaceLifecycle(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetSurfaceLifecycle(ctx, &pb.SetSurfaceLifecycleRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetVisibility calls the SetVisibility RPC.
+func (c *SurfaceViewClient) SetVisibility(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetVisibility(ctx, &pb.SetVisibilityRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetZOrderMediaOverlay calls the SetZOrderMediaOverlay RPC.
+func (c *SurfaceViewClient) SetZOrderMediaOverlay(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetZOrderMediaOverlay(ctx, &pb.SetZOrderMediaOverlayRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetZOrderOnTop calls the SetZOrderOnTop RPC.
+func (c *SurfaceViewClient) SetZOrderOnTop(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetZOrderOnTop(ctx, &pb.SetZOrderOnTopRequest{
 		Arg0: arg0,
 	})
 	return err
@@ -79,7 +7853,7 @@ func (c *ManagerClient) CreateVirtualDisplay6_1(ctx context.Context, arg0 string
 
 // GetDisplay calls the GetDisplay RPC.
 func (c *ManagerClient) GetDisplay(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetDisplay(ctx, &pb.GetDisplayRequest{
+	resp, err := c.svc.GetDisplay(ctx, &pb.ManagerGetDisplayRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -142,4 +7916,1851 @@ func (c *ManagerClient) UnregisterDisplayListener(ctx context.Context, arg0 int6
 		Arg0: arg0,
 	})
 	return err
+}
+
+// ManagerDisplayListenerClient wraps the gRPC ManagerDisplayListenerService client.
+type ManagerDisplayListenerClient struct {
+	svc pb.ManagerDisplayListenerServiceClient
+}
+
+// NewManagerDisplayListenerClient creates a new ManagerDisplayListener client.
+func NewManagerDisplayListenerClient(cc grpc.ClientConnInterface) *ManagerDisplayListenerClient {
+	return &ManagerDisplayListenerClient{
+		svc: pb.NewManagerDisplayListenerServiceClient(cc),
+	}
+}
+
+// OnDisplayAdded calls the OnDisplayAdded RPC.
+func (c *ManagerDisplayListenerClient) OnDisplayAdded(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.OnDisplayAdded(ctx, &pb.OnDisplayAddedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnDisplayChanged calls the OnDisplayChanged RPC.
+func (c *ManagerDisplayListenerClient) OnDisplayChanged(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.OnDisplayChanged(ctx, &pb.OnDisplayChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnDisplayRemoved calls the OnDisplayRemoved RPC.
+func (c *ManagerDisplayListenerClient) OnDisplayRemoved(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.OnDisplayRemoved(ctx, &pb.OnDisplayRemovedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// DeviceProductInfoClient wraps the gRPC DeviceProductInfoService client.
+type DeviceProductInfoClient struct {
+	svc pb.DeviceProductInfoServiceClient
+}
+
+// NewDeviceProductInfoClient creates a new DeviceProductInfo client.
+func NewDeviceProductInfoClient(cc grpc.ClientConnInterface) *DeviceProductInfoClient {
+	return &DeviceProductInfoClient{
+		svc: pb.NewDeviceProductInfoServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *DeviceProductInfoClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DeviceProductInfoDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *DeviceProductInfoClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetConnectionToSinkType calls the GetConnectionToSinkType RPC.
+func (c *DeviceProductInfoClient) GetConnectionToSinkType(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetConnectionToSinkType(ctx, &pb.GetConnectionToSinkTypeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetManufactureWeek calls the GetManufactureWeek RPC.
+func (c *DeviceProductInfoClient) GetManufactureWeek(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetManufactureWeek(ctx, &pb.GetManufactureWeekRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetManufactureYear calls the GetManufactureYear RPC.
+func (c *DeviceProductInfoClient) GetManufactureYear(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetManufactureYear(ctx, &pb.GetManufactureYearRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetManufacturerPnpId calls the GetManufacturerPnpId RPC.
+func (c *DeviceProductInfoClient) GetManufacturerPnpId(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetManufacturerPnpId(ctx, &pb.GetManufacturerPnpIdRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetModelYear calls the GetModelYear RPC.
+func (c *DeviceProductInfoClient) GetModelYear(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetModelYear(ctx, &pb.GetModelYearRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetName calls the GetName RPC.
+func (c *DeviceProductInfoClient) GetName(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetName(ctx, &pb.DeviceProductInfoGetNameRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetProductId calls the GetProductId RPC.
+func (c *DeviceProductInfoClient) GetProductId(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetProductId(ctx, &pb.GetProductIdRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *DeviceProductInfoClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.DeviceProductInfoHashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *DeviceProductInfoClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.DeviceProductInfoToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *DeviceProductInfoClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.DeviceProductInfoWriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// HdrConversionModeClient wraps the gRPC HdrConversionModeService client.
+type HdrConversionModeClient struct {
+	svc pb.HdrConversionModeServiceClient
+}
+
+// NewHdrConversionModeClient creates a new HdrConversionMode client.
+func NewHdrConversionModeClient(cc grpc.ClientConnInterface) *HdrConversionModeClient {
+	return &HdrConversionModeClient{
+		svc: pb.NewHdrConversionModeServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *HdrConversionModeClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DeviceProductInfoDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *HdrConversionModeClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetConversionMode calls the GetConversionMode RPC.
+func (c *HdrConversionModeClient) GetConversionMode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetConversionMode(ctx, &pb.GetConversionModeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPreferredHdrOutputType calls the GetPreferredHdrOutputType RPC.
+func (c *HdrConversionModeClient) GetPreferredHdrOutputType(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetPreferredHdrOutputType(ctx, &pb.GetPreferredHdrOutputTypeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *HdrConversionModeClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.DeviceProductInfoHashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *HdrConversionModeClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.DeviceProductInfoToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *HdrConversionModeClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.DeviceProductInfoWriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// VirtualDisplayConfigClient wraps the gRPC VirtualDisplayConfigService client.
+type VirtualDisplayConfigClient struct {
+	svc pb.VirtualDisplayConfigServiceClient
+}
+
+// NewVirtualDisplayConfigClient creates a new VirtualDisplayConfig client.
+func NewVirtualDisplayConfigClient(cc grpc.ClientConnInterface) *VirtualDisplayConfigClient {
+	return &VirtualDisplayConfigClient{
+		svc: pb.NewVirtualDisplayConfigServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *VirtualDisplayConfigClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.VirtualDisplayConfigDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *VirtualDisplayConfigClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.VirtualDisplayConfigEqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDefaultBrightness calls the GetDefaultBrightness RPC.
+func (c *VirtualDisplayConfigClient) GetDefaultBrightness(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetDefaultBrightness(ctx, &pb.GetDefaultBrightnessRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDensityDpi calls the GetDensityDpi RPC.
+func (c *VirtualDisplayConfigClient) GetDensityDpi(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetDensityDpi(ctx, &pb.GetDensityDpiRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDimBrightness calls the GetDimBrightness RPC.
+func (c *VirtualDisplayConfigClient) GetDimBrightness(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetDimBrightness(ctx, &pb.GetDimBrightnessRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFlags calls the GetFlags RPC.
+func (c *VirtualDisplayConfigClient) GetFlags(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetFlags(ctx, &pb.GetFlagsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHeight calls the GetHeight RPC.
+func (c *VirtualDisplayConfigClient) GetHeight(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetHeight(ctx, &pb.GetHeightRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetName calls the GetName RPC.
+func (c *VirtualDisplayConfigClient) GetName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetName(ctx, &pb.VirtualDisplayConfigGetNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRequestedRefreshRate calls the GetRequestedRefreshRate RPC.
+func (c *VirtualDisplayConfigClient) GetRequestedRefreshRate(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetRequestedRefreshRate(ctx, &pb.GetRequestedRefreshRateRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSurface calls the GetSurface RPC.
+func (c *VirtualDisplayConfigClient) GetSurface(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSurface(ctx, &pb.GetSurfaceRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWidth calls the GetWidth RPC.
+func (c *VirtualDisplayConfigClient) GetWidth(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetWidth(ctx, &pb.GetWidthRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *VirtualDisplayConfigClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.VirtualDisplayConfigHashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *VirtualDisplayConfigClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.VirtualDisplayConfigToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *VirtualDisplayConfigClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.VirtualDisplayConfigWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// VirtualDisplayConfigBrightnessListenerClient wraps the gRPC VirtualDisplayConfigBrightnessListenerService client.
+type VirtualDisplayConfigBrightnessListenerClient struct {
+	svc pb.VirtualDisplayConfigBrightnessListenerServiceClient
+}
+
+// NewVirtualDisplayConfigBrightnessListenerClient creates a new VirtualDisplayConfigBrightnessListener client.
+func NewVirtualDisplayConfigBrightnessListenerClient(cc grpc.ClientConnInterface) *VirtualDisplayConfigBrightnessListenerClient {
+	return &VirtualDisplayConfigBrightnessListenerClient{
+		svc: pb.NewVirtualDisplayConfigBrightnessListenerServiceClient(cc),
+	}
+}
+
+// OnBrightnessChanged calls the OnBrightnessChanged RPC.
+func (c *VirtualDisplayConfigBrightnessListenerClient) OnBrightnessChanged(ctx context.Context, arg0 float32) error {
+	_, err := c.svc.OnBrightnessChanged(ctx, &pb.OnBrightnessChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// VirtualDisplayConfigBuilderClient wraps the gRPC VirtualDisplayConfigBuilderService client.
+type VirtualDisplayConfigBuilderClient struct {
+	svc pb.VirtualDisplayConfigBuilderServiceClient
+}
+
+// NewVirtualDisplayConfigBuilderClient creates a new VirtualDisplayConfigBuilder client.
+func NewVirtualDisplayConfigBuilderClient(cc grpc.ClientConnInterface) *VirtualDisplayConfigBuilderClient {
+	return &VirtualDisplayConfigBuilderClient{
+		svc: pb.NewVirtualDisplayConfigBuilderServiceClient(cc),
+	}
+}
+
+// AddDisplayCategory calls the AddDisplayCategory RPC.
+func (c *VirtualDisplayConfigBuilderClient) AddDisplayCategory(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.AddDisplayCategory(ctx, &pb.AddDisplayCategoryRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Build calls the Build RPC.
+func (c *VirtualDisplayConfigBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetBrightnessListener calls the SetBrightnessListener RPC.
+func (c *VirtualDisplayConfigBuilderClient) SetBrightnessListener(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.SetBrightnessListener(ctx, &pb.SetBrightnessListenerRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetDefaultBrightness calls the SetDefaultBrightness RPC.
+func (c *VirtualDisplayConfigBuilderClient) SetDefaultBrightness(ctx context.Context, arg0 float32) (int64, error) {
+	resp, err := c.svc.SetDefaultBrightness(ctx, &pb.SetDefaultBrightnessRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetDimBrightness calls the SetDimBrightness RPC.
+func (c *VirtualDisplayConfigBuilderClient) SetDimBrightness(ctx context.Context, arg0 float32) (int64, error) {
+	resp, err := c.svc.SetDimBrightness(ctx, &pb.SetDimBrightnessRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetFlags calls the SetFlags RPC.
+func (c *VirtualDisplayConfigBuilderClient) SetFlags(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetFlags(ctx, &pb.SetFlagsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetRequestedRefreshRate calls the SetRequestedRefreshRate RPC.
+func (c *VirtualDisplayConfigBuilderClient) SetRequestedRefreshRate(ctx context.Context, arg0 float32) (int64, error) {
+	resp, err := c.svc.SetRequestedRefreshRate(ctx, &pb.SetRequestedRefreshRateRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSurface calls the SetSurface RPC.
+func (c *VirtualDisplayConfigBuilderClient) SetSurface(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetSurface(ctx, &pb.SetSurfaceRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WindowManagerLayoutParamsClient wraps the gRPC WindowManagerLayoutParamsService client.
+type WindowManagerLayoutParamsClient struct {
+	svc pb.WindowManagerLayoutParamsServiceClient
+}
+
+// NewWindowManagerLayoutParamsClient creates a new WindowManagerLayoutParams client.
+func NewWindowManagerLayoutParamsClient(cc grpc.ClientConnInterface) *WindowManagerLayoutParamsClient {
+	return &WindowManagerLayoutParamsClient{
+		svc: pb.NewWindowManagerLayoutParamsServiceClient(cc),
+	}
+}
+
+// AreWallpaperTouchEventsEnabled calls the AreWallpaperTouchEventsEnabled RPC.
+func (c *WindowManagerLayoutParamsClient) AreWallpaperTouchEventsEnabled(ctx context.Context) (bool, error) {
+	resp, err := c.svc.AreWallpaperTouchEventsEnabled(ctx, &pb.AreWallpaperTouchEventsEnabledRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CanPlayMoveAnimation calls the CanPlayMoveAnimation RPC.
+func (c *WindowManagerLayoutParamsClient) CanPlayMoveAnimation(ctx context.Context) (bool, error) {
+	resp, err := c.svc.CanPlayMoveAnimation(ctx, &pb.CanPlayMoveAnimationRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CopyFrom calls the CopyFrom RPC.
+func (c *WindowManagerLayoutParamsClient) CopyFrom(ctx context.Context, arg0 int64) (int32, error) {
+	resp, err := c.svc.CopyFrom(ctx, &pb.CopyFromRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Debug calls the Debug RPC.
+func (c *WindowManagerLayoutParamsClient) Debug(ctx context.Context, arg0 string) (string, error) {
+	resp, err := c.svc.Debug(ctx, &pb.DebugRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *WindowManagerLayoutParamsClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBlurBehindRadius calls the GetBlurBehindRadius RPC.
+func (c *WindowManagerLayoutParamsClient) GetBlurBehindRadius(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetBlurBehindRadius(ctx, &pb.GetBlurBehindRadiusRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetColorMode calls the GetColorMode RPC.
+func (c *WindowManagerLayoutParamsClient) GetColorMode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetColorMode(ctx, &pb.GetColorModeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDesiredHdrHeadroom calls the GetDesiredHdrHeadroom RPC.
+func (c *WindowManagerLayoutParamsClient) GetDesiredHdrHeadroom(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetDesiredHdrHeadroom(ctx, &pb.GetDesiredHdrHeadroomRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFitInsetsSides calls the GetFitInsetsSides RPC.
+func (c *WindowManagerLayoutParamsClient) GetFitInsetsSides(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetFitInsetsSides(ctx, &pb.GetFitInsetsSidesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFitInsetsTypes calls the GetFitInsetsTypes RPC.
+func (c *WindowManagerLayoutParamsClient) GetFitInsetsTypes(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetFitInsetsTypes(ctx, &pb.GetFitInsetsTypesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFrameRateBoostOnTouchEnabled calls the GetFrameRateBoostOnTouchEnabled RPC.
+func (c *WindowManagerLayoutParamsClient) GetFrameRateBoostOnTouchEnabled(ctx context.Context) (bool, error) {
+	resp, err := c.svc.GetFrameRateBoostOnTouchEnabled(ctx, &pb.GetFrameRateBoostOnTouchEnabledRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTitle calls the GetTitle RPC.
+func (c *WindowManagerLayoutParamsClient) GetTitle(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTitle(ctx, &pb.GetTitleRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsFitInsetsIgnoringVisibility calls the IsFitInsetsIgnoringVisibility RPC.
+func (c *WindowManagerLayoutParamsClient) IsFitInsetsIgnoringVisibility(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsFitInsetsIgnoringVisibility(ctx, &pb.IsFitInsetsIgnoringVisibilityRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsFrameRatePowerSavingsBalanced calls the IsFrameRatePowerSavingsBalanced RPC.
+func (c *WindowManagerLayoutParamsClient) IsFrameRatePowerSavingsBalanced(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsFrameRatePowerSavingsBalanced(ctx, &pb.IsFrameRatePowerSavingsBalancedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsHdrConversionEnabled calls the IsHdrConversionEnabled RPC.
+func (c *WindowManagerLayoutParamsClient) IsHdrConversionEnabled(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsHdrConversionEnabled(ctx, &pb.IsHdrConversionEnabledRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetBlurBehindRadius calls the SetBlurBehindRadius RPC.
+func (c *WindowManagerLayoutParamsClient) SetBlurBehindRadius(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetBlurBehindRadius(ctx, &pb.SetBlurBehindRadiusRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetCanPlayMoveAnimation calls the SetCanPlayMoveAnimation RPC.
+func (c *WindowManagerLayoutParamsClient) SetCanPlayMoveAnimation(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetCanPlayMoveAnimation(ctx, &pb.SetCanPlayMoveAnimationRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetColorMode calls the SetColorMode RPC.
+func (c *WindowManagerLayoutParamsClient) SetColorMode(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetColorMode(ctx, &pb.SetColorModeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetDesiredHdrHeadroom calls the SetDesiredHdrHeadroom RPC.
+func (c *WindowManagerLayoutParamsClient) SetDesiredHdrHeadroom(ctx context.Context, arg0 float32) error {
+	_, err := c.svc.SetDesiredHdrHeadroom(ctx, &pb.WindowManagerLayoutParamsSetDesiredHdrHeadroomRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetFitInsetsIgnoringVisibility calls the SetFitInsetsIgnoringVisibility RPC.
+func (c *WindowManagerLayoutParamsClient) SetFitInsetsIgnoringVisibility(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetFitInsetsIgnoringVisibility(ctx, &pb.SetFitInsetsIgnoringVisibilityRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetFitInsetsSides calls the SetFitInsetsSides RPC.
+func (c *WindowManagerLayoutParamsClient) SetFitInsetsSides(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetFitInsetsSides(ctx, &pb.SetFitInsetsSidesRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetFitInsetsTypes calls the SetFitInsetsTypes RPC.
+func (c *WindowManagerLayoutParamsClient) SetFitInsetsTypes(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetFitInsetsTypes(ctx, &pb.SetFitInsetsTypesRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetFrameRateBoostOnTouchEnabled calls the SetFrameRateBoostOnTouchEnabled RPC.
+func (c *WindowManagerLayoutParamsClient) SetFrameRateBoostOnTouchEnabled(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetFrameRateBoostOnTouchEnabled(ctx, &pb.SetFrameRateBoostOnTouchEnabledRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetFrameRatePowerSavingsBalanced calls the SetFrameRatePowerSavingsBalanced RPC.
+func (c *WindowManagerLayoutParamsClient) SetFrameRatePowerSavingsBalanced(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetFrameRatePowerSavingsBalanced(ctx, &pb.SetFrameRatePowerSavingsBalancedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetHdrConversionEnabled calls the SetHdrConversionEnabled RPC.
+func (c *WindowManagerLayoutParamsClient) SetHdrConversionEnabled(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetHdrConversionEnabled(ctx, &pb.SetHdrConversionEnabledRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetTitle calls the SetTitle RPC.
+func (c *WindowManagerLayoutParamsClient) SetTitle(ctx context.Context, arg0 string) error {
+	_, err := c.svc.SetTitle(ctx, &pb.SetTitleRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetWallpaperTouchEventsEnabled calls the SetWallpaperTouchEventsEnabled RPC.
+func (c *WindowManagerLayoutParamsClient) SetWallpaperTouchEventsEnabled(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetWallpaperTouchEventsEnabled(ctx, &pb.SetWallpaperTouchEventsEnabledRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ToString calls the ToString RPC.
+func (c *WindowManagerLayoutParamsClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *WindowManagerLayoutParamsClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// MayUseInputMethod calls the MayUseInputMethod RPC.
+func (c *WindowManagerLayoutParamsClient) MayUseInputMethod(ctx context.Context, arg0 int32) (bool, error) {
+	resp, err := c.svc.MayUseInputMethod(ctx, &pb.MayUseInputMethodRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ViewGroupLayoutParamsClient wraps the gRPC ViewGroupLayoutParamsService client.
+type ViewGroupLayoutParamsClient struct {
+	svc pb.ViewGroupLayoutParamsServiceClient
+}
+
+// NewViewGroupLayoutParamsClient creates a new ViewGroupLayoutParams client.
+func NewViewGroupLayoutParamsClient(cc grpc.ClientConnInterface) *ViewGroupLayoutParamsClient {
+	return &ViewGroupLayoutParamsClient{
+		svc: pb.NewViewGroupLayoutParamsServiceClient(cc),
+	}
+}
+
+// ResolveLayoutDirection calls the ResolveLayoutDirection RPC.
+func (c *ViewGroupLayoutParamsClient) ResolveLayoutDirection(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.ResolveLayoutDirection(ctx, &pb.ResolveLayoutDirectionRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ViewGroupMarginLayoutParamsClient wraps the gRPC ViewGroupMarginLayoutParamsService client.
+type ViewGroupMarginLayoutParamsClient struct {
+	svc pb.ViewGroupMarginLayoutParamsServiceClient
+}
+
+// NewViewGroupMarginLayoutParamsClient creates a new ViewGroupMarginLayoutParams client.
+func NewViewGroupMarginLayoutParamsClient(cc grpc.ClientConnInterface) *ViewGroupMarginLayoutParamsClient {
+	return &ViewGroupMarginLayoutParamsClient{
+		svc: pb.NewViewGroupMarginLayoutParamsServiceClient(cc),
+	}
+}
+
+// GetLayoutDirection calls the GetLayoutDirection RPC.
+func (c *ViewGroupMarginLayoutParamsClient) GetLayoutDirection(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetLayoutDirection(ctx, &pb.GetLayoutDirectionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMarginEnd calls the GetMarginEnd RPC.
+func (c *ViewGroupMarginLayoutParamsClient) GetMarginEnd(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMarginEnd(ctx, &pb.GetMarginEndRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMarginStart calls the GetMarginStart RPC.
+func (c *ViewGroupMarginLayoutParamsClient) GetMarginStart(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMarginStart(ctx, &pb.GetMarginStartRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsMarginRelative calls the IsMarginRelative RPC.
+func (c *ViewGroupMarginLayoutParamsClient) IsMarginRelative(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsMarginRelative(ctx, &pb.IsMarginRelativeRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ResolveLayoutDirection calls the ResolveLayoutDirection RPC.
+func (c *ViewGroupMarginLayoutParamsClient) ResolveLayoutDirection(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.ResolveLayoutDirection(ctx, &pb.ResolveLayoutDirectionRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetLayoutDirection calls the SetLayoutDirection RPC.
+func (c *ViewGroupMarginLayoutParamsClient) SetLayoutDirection(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetLayoutDirection(ctx, &pb.SetLayoutDirectionRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetMarginEnd calls the SetMarginEnd RPC.
+func (c *ViewGroupMarginLayoutParamsClient) SetMarginEnd(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetMarginEnd(ctx, &pb.SetMarginEndRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetMarginStart calls the SetMarginStart RPC.
+func (c *ViewGroupMarginLayoutParamsClient) SetMarginStart(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetMarginStart(ctx, &pb.SetMarginStartRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetMargins calls the SetMargins RPC.
+func (c *ViewGroupMarginLayoutParamsClient) SetMargins(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
+	_, err := c.svc.SetMargins(ctx, &pb.SetMarginsRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// ViewGroupOnHierarchyChangeListenerClient wraps the gRPC ViewGroupOnHierarchyChangeListenerService client.
+type ViewGroupOnHierarchyChangeListenerClient struct {
+	svc pb.ViewGroupOnHierarchyChangeListenerServiceClient
+}
+
+// NewViewGroupOnHierarchyChangeListenerClient creates a new ViewGroupOnHierarchyChangeListener client.
+func NewViewGroupOnHierarchyChangeListenerClient(cc grpc.ClientConnInterface) *ViewGroupOnHierarchyChangeListenerClient {
+	return &ViewGroupOnHierarchyChangeListenerClient{
+		svc: pb.NewViewGroupOnHierarchyChangeListenerServiceClient(cc),
+	}
+}
+
+// OnChildViewAdded calls the OnChildViewAdded RPC.
+func (c *ViewGroupOnHierarchyChangeListenerClient) OnChildViewAdded(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.OnChildViewAdded(ctx, &pb.OnChildViewAddedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnChildViewRemoved calls the OnChildViewRemoved RPC.
+func (c *ViewGroupOnHierarchyChangeListenerClient) OnChildViewRemoved(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.OnChildViewRemoved(ctx, &pb.OnChildViewRemovedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// HdrCapabilitiesClient wraps the gRPC HdrCapabilitiesService client.
+type HdrCapabilitiesClient struct {
+	svc pb.HdrCapabilitiesServiceClient
+}
+
+// NewHdrCapabilitiesClient creates a new HdrCapabilities client.
+func NewHdrCapabilitiesClient(cc grpc.ClientConnInterface) *HdrCapabilitiesClient {
+	return &HdrCapabilitiesClient{
+		svc: pb.NewHdrCapabilitiesServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *HdrCapabilitiesClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *HdrCapabilitiesClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.HdrCapabilitiesEqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDesiredMaxAverageLuminance calls the GetDesiredMaxAverageLuminance RPC.
+func (c *HdrCapabilitiesClient) GetDesiredMaxAverageLuminance(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetDesiredMaxAverageLuminance(ctx, &pb.GetDesiredMaxAverageLuminanceRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDesiredMaxLuminance calls the GetDesiredMaxLuminance RPC.
+func (c *HdrCapabilitiesClient) GetDesiredMaxLuminance(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetDesiredMaxLuminance(ctx, &pb.GetDesiredMaxLuminanceRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDesiredMinLuminance calls the GetDesiredMinLuminance RPC.
+func (c *HdrCapabilitiesClient) GetDesiredMinLuminance(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetDesiredMinLuminance(ctx, &pb.GetDesiredMinLuminanceRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSupportedHdrTypes calls the GetSupportedHdrTypes RPC.
+func (c *HdrCapabilitiesClient) GetSupportedHdrTypes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSupportedHdrTypes(ctx, &pb.GetSupportedHdrTypesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *HdrCapabilitiesClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HdrCapabilitiesHashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *HdrCapabilitiesClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *HdrCapabilitiesClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ModeClient wraps the gRPC ModeService client.
+type ModeClient struct {
+	svc pb.ModeServiceClient
+}
+
+// NewModeClient creates a new Mode client.
+func NewModeClient(cc grpc.ClientConnInterface) *ModeClient {
+	return &ModeClient{
+		svc: pb.NewModeServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ModeClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *ModeClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.HdrCapabilitiesEqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAlternativeRefreshRates calls the GetAlternativeRefreshRates RPC.
+func (c *ModeClient) GetAlternativeRefreshRates(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAlternativeRefreshRates(ctx, &pb.GetAlternativeRefreshRatesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetModeId calls the GetModeId RPC.
+func (c *ModeClient) GetModeId(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetModeId(ctx, &pb.GetModeIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPhysicalHeight calls the GetPhysicalHeight RPC.
+func (c *ModeClient) GetPhysicalHeight(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetPhysicalHeight(ctx, &pb.GetPhysicalHeightRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPhysicalWidth calls the GetPhysicalWidth RPC.
+func (c *ModeClient) GetPhysicalWidth(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetPhysicalWidth(ctx, &pb.GetPhysicalWidthRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRefreshRate calls the GetRefreshRate RPC.
+func (c *ModeClient) GetRefreshRate(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetRefreshRate(ctx, &pb.GetRefreshRateRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSupportedHdrTypes calls the GetSupportedHdrTypes RPC.
+func (c *ModeClient) GetSupportedHdrTypes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSupportedHdrTypes(ctx, &pb.GetSupportedHdrTypesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *ModeClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.ModeHashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *ModeClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ModeClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// SurfaceHolderCallbackClient wraps the gRPC SurfaceHolderCallbackService client.
+type SurfaceHolderCallbackClient struct {
+	svc pb.SurfaceHolderCallbackServiceClient
+}
+
+// NewSurfaceHolderCallbackClient creates a new SurfaceHolderCallback client.
+func NewSurfaceHolderCallbackClient(cc grpc.ClientConnInterface) *SurfaceHolderCallbackClient {
+	return &SurfaceHolderCallbackClient{
+		svc: pb.NewSurfaceHolderCallbackServiceClient(cc),
+	}
+}
+
+// SurfaceChanged calls the SurfaceChanged RPC.
+func (c *SurfaceHolderCallbackClient) SurfaceChanged(ctx context.Context, arg0 int64, arg1 int32, arg2 int32, arg3 int32) error {
+	_, err := c.svc.SurfaceChanged(ctx, &pb.SurfaceChangedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// SurfaceCreated calls the SurfaceCreated RPC.
+func (c *SurfaceHolderCallbackClient) SurfaceCreated(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SurfaceCreated(ctx, &pb.SurfaceCreatedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SurfaceDestroyed calls the SurfaceDestroyed RPC.
+func (c *SurfaceHolderCallbackClient) SurfaceDestroyed(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SurfaceDestroyed(ctx, &pb.SurfaceDestroyedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SurfaceHolderCallback2Client wraps the gRPC SurfaceHolderCallback2Service client.
+type SurfaceHolderCallback2Client struct {
+	svc pb.SurfaceHolderCallback2ServiceClient
+}
+
+// NewSurfaceHolderCallback2Client creates a new SurfaceHolderCallback2 client.
+func NewSurfaceHolderCallback2Client(cc grpc.ClientConnInterface) *SurfaceHolderCallback2Client {
+	return &SurfaceHolderCallback2Client{
+		svc: pb.NewSurfaceHolderCallback2ServiceClient(cc),
+	}
+}
+
+// SurfaceRedrawNeeded calls the SurfaceRedrawNeeded RPC.
+func (c *SurfaceHolderCallback2Client) SurfaceRedrawNeeded(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SurfaceRedrawNeeded(ctx, &pb.SurfaceRedrawNeededRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ViewAccessibilityDelegateClient wraps the gRPC ViewAccessibilityDelegateService client.
+type ViewAccessibilityDelegateClient struct {
+	svc pb.ViewAccessibilityDelegateServiceClient
+}
+
+// NewViewAccessibilityDelegateClient creates a new ViewAccessibilityDelegate client.
+func NewViewAccessibilityDelegateClient(cc grpc.ClientConnInterface) *ViewAccessibilityDelegateClient {
+	return &ViewAccessibilityDelegateClient{
+		svc: pb.NewViewAccessibilityDelegateServiceClient(cc),
+	}
+}
+
+// AddExtraDataToAccessibilityNodeInfo calls the AddExtraDataToAccessibilityNodeInfo RPC.
+func (c *ViewAccessibilityDelegateClient) AddExtraDataToAccessibilityNodeInfo(ctx context.Context, arg0 int64, arg1 int64, arg2 string, arg3 int64) error {
+	_, err := c.svc.AddExtraDataToAccessibilityNodeInfo(ctx, &pb.ViewAccessibilityDelegateAddExtraDataToAccessibilityNodeInfoRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// DispatchPopulateAccessibilityEvent calls the DispatchPopulateAccessibilityEvent RPC.
+func (c *ViewAccessibilityDelegateClient) DispatchPopulateAccessibilityEvent(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
+	resp, err := c.svc.DispatchPopulateAccessibilityEvent(ctx, &pb.ViewAccessibilityDelegateDispatchPopulateAccessibilityEventRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAccessibilityNodeProvider calls the GetAccessibilityNodeProvider RPC.
+func (c *ViewAccessibilityDelegateClient) GetAccessibilityNodeProvider(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetAccessibilityNodeProvider(ctx, &pb.ViewAccessibilityDelegateGetAccessibilityNodeProviderRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnInitializeAccessibilityEvent calls the OnInitializeAccessibilityEvent RPC.
+func (c *ViewAccessibilityDelegateClient) OnInitializeAccessibilityEvent(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.OnInitializeAccessibilityEvent(ctx, &pb.ViewAccessibilityDelegateOnInitializeAccessibilityEventRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnInitializeAccessibilityNodeInfo calls the OnInitializeAccessibilityNodeInfo RPC.
+func (c *ViewAccessibilityDelegateClient) OnInitializeAccessibilityNodeInfo(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.OnInitializeAccessibilityNodeInfo(ctx, &pb.ViewAccessibilityDelegateOnInitializeAccessibilityNodeInfoRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnPopulateAccessibilityEvent calls the OnPopulateAccessibilityEvent RPC.
+func (c *ViewAccessibilityDelegateClient) OnPopulateAccessibilityEvent(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.OnPopulateAccessibilityEvent(ctx, &pb.ViewAccessibilityDelegateOnPopulateAccessibilityEventRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnRequestSendAccessibilityEvent calls the OnRequestSendAccessibilityEvent RPC.
+func (c *ViewAccessibilityDelegateClient) OnRequestSendAccessibilityEvent(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (bool, error) {
+	resp, err := c.svc.OnRequestSendAccessibilityEvent(ctx, &pb.ViewAccessibilityDelegateOnRequestSendAccessibilityEventRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PerformAccessibilityAction calls the PerformAccessibilityAction RPC.
+func (c *ViewAccessibilityDelegateClient) PerformAccessibilityAction(ctx context.Context, arg0 int64, arg1 int32, arg2 int64) (bool, error) {
+	resp, err := c.svc.PerformAccessibilityAction(ctx, &pb.ViewAccessibilityDelegatePerformAccessibilityActionRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SendAccessibilityEvent calls the SendAccessibilityEvent RPC.
+func (c *ViewAccessibilityDelegateClient) SendAccessibilityEvent(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.SendAccessibilityEvent(ctx, &pb.ViewAccessibilityDelegateSendAccessibilityEventRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// SendAccessibilityEventUnchecked calls the SendAccessibilityEventUnchecked RPC.
+func (c *ViewAccessibilityDelegateClient) SendAccessibilityEventUnchecked(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.SendAccessibilityEventUnchecked(ctx, &pb.ViewAccessibilityDelegateSendAccessibilityEventUncheckedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ViewBaseSavedStateClient wraps the gRPC ViewBaseSavedStateService client.
+type ViewBaseSavedStateClient struct {
+	svc pb.ViewBaseSavedStateServiceClient
+}
+
+// NewViewBaseSavedStateClient creates a new ViewBaseSavedState client.
+func NewViewBaseSavedStateClient(cc grpc.ClientConnInterface) *ViewBaseSavedStateClient {
+	return &ViewBaseSavedStateClient{
+		svc: pb.NewViewBaseSavedStateServiceClient(cc),
+	}
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ViewBaseSavedStateClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ViewDragShadowBuilderClient wraps the gRPC ViewDragShadowBuilderService client.
+type ViewDragShadowBuilderClient struct {
+	svc pb.ViewDragShadowBuilderServiceClient
+}
+
+// NewViewDragShadowBuilderClient creates a new ViewDragShadowBuilder client.
+func NewViewDragShadowBuilderClient(cc grpc.ClientConnInterface) *ViewDragShadowBuilderClient {
+	return &ViewDragShadowBuilderClient{
+		svc: pb.NewViewDragShadowBuilderServiceClient(cc),
+	}
+}
+
+// GetView calls the GetView RPC.
+func (c *ViewDragShadowBuilderClient) GetView(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetView(ctx, &pb.GetViewRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnDrawShadow calls the OnDrawShadow RPC.
+func (c *ViewDragShadowBuilderClient) OnDrawShadow(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnDrawShadow(ctx, &pb.OnDrawShadowRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnProvideShadowMetrics calls the OnProvideShadowMetrics RPC.
+func (c *ViewDragShadowBuilderClient) OnProvideShadowMetrics(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.OnProvideShadowMetrics(ctx, &pb.OnProvideShadowMetricsRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ViewMeasureSpecClient wraps the gRPC ViewMeasureSpecService client.
+type ViewMeasureSpecClient struct {
+	svc pb.ViewMeasureSpecServiceClient
+}
+
+// NewViewMeasureSpecClient creates a new ViewMeasureSpec client.
+func NewViewMeasureSpecClient(cc grpc.ClientConnInterface) *ViewMeasureSpecClient {
+	return &ViewMeasureSpecClient{
+		svc: pb.NewViewMeasureSpecServiceClient(cc),
+	}
+}
+
+// GetMode calls the GetMode RPC.
+func (c *ViewMeasureSpecClient) GetMode(ctx context.Context, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetMode(ctx, &pb.ViewMeasureSpecGetModeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSize calls the GetSize RPC.
+func (c *ViewMeasureSpecClient) GetSize(ctx context.Context, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetSize(ctx, &pb.ViewMeasureSpecGetSizeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MakeMeasureSpec calls the MakeMeasureSpec RPC.
+func (c *ViewMeasureSpecClient) MakeMeasureSpec(ctx context.Context, arg0 int32, arg1 int32) (int32, error) {
+	resp, err := c.svc.MakeMeasureSpec(ctx, &pb.MakeMeasureSpecRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *ViewMeasureSpecClient) ToString(ctx context.Context, arg0 int32) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ViewMeasureSpecToStringRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// ViewOnApplyWindowInsetsListenerClient wraps the gRPC ViewOnApplyWindowInsetsListenerService client.
+type ViewOnApplyWindowInsetsListenerClient struct {
+	svc pb.ViewOnApplyWindowInsetsListenerServiceClient
+}
+
+// NewViewOnApplyWindowInsetsListenerClient creates a new ViewOnApplyWindowInsetsListener client.
+func NewViewOnApplyWindowInsetsListenerClient(cc grpc.ClientConnInterface) *ViewOnApplyWindowInsetsListenerClient {
+	return &ViewOnApplyWindowInsetsListenerClient{
+		svc: pb.NewViewOnApplyWindowInsetsListenerServiceClient(cc),
+	}
+}
+
+// OnApplyWindowInsets calls the OnApplyWindowInsets RPC.
+func (c *ViewOnApplyWindowInsetsListenerClient) OnApplyWindowInsets(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.OnApplyWindowInsets(ctx, &pb.ViewOnApplyWindowInsetsListenerOnApplyWindowInsetsRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ViewOnAttachStateChangeListenerClient wraps the gRPC ViewOnAttachStateChangeListenerService client.
+type ViewOnAttachStateChangeListenerClient struct {
+	svc pb.ViewOnAttachStateChangeListenerServiceClient
+}
+
+// NewViewOnAttachStateChangeListenerClient creates a new ViewOnAttachStateChangeListener client.
+func NewViewOnAttachStateChangeListenerClient(cc grpc.ClientConnInterface) *ViewOnAttachStateChangeListenerClient {
+	return &ViewOnAttachStateChangeListenerClient{
+		svc: pb.NewViewOnAttachStateChangeListenerServiceClient(cc),
+	}
+}
+
+// OnViewAttachedToWindow calls the OnViewAttachedToWindow RPC.
+func (c *ViewOnAttachStateChangeListenerClient) OnViewAttachedToWindow(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnViewAttachedToWindow(ctx, &pb.OnViewAttachedToWindowRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnViewDetachedFromWindow calls the OnViewDetachedFromWindow RPC.
+func (c *ViewOnAttachStateChangeListenerClient) OnViewDetachedFromWindow(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnViewDetachedFromWindow(ctx, &pb.OnViewDetachedFromWindowRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ViewOnCapturedPointerListenerClient wraps the gRPC ViewOnCapturedPointerListenerService client.
+type ViewOnCapturedPointerListenerClient struct {
+	svc pb.ViewOnCapturedPointerListenerServiceClient
+}
+
+// NewViewOnCapturedPointerListenerClient creates a new ViewOnCapturedPointerListener client.
+func NewViewOnCapturedPointerListenerClient(cc grpc.ClientConnInterface) *ViewOnCapturedPointerListenerClient {
+	return &ViewOnCapturedPointerListenerClient{
+		svc: pb.NewViewOnCapturedPointerListenerServiceClient(cc),
+	}
+}
+
+// OnCapturedPointer calls the OnCapturedPointer RPC.
+func (c *ViewOnCapturedPointerListenerClient) OnCapturedPointer(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
+	resp, err := c.svc.OnCapturedPointer(ctx, &pb.OnCapturedPointerRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ViewOnClickListenerClient wraps the gRPC ViewOnClickListenerService client.
+type ViewOnClickListenerClient struct {
+	svc pb.ViewOnClickListenerServiceClient
+}
+
+// NewViewOnClickListenerClient creates a new ViewOnClickListener client.
+func NewViewOnClickListenerClient(cc grpc.ClientConnInterface) *ViewOnClickListenerClient {
+	return &ViewOnClickListenerClient{
+		svc: pb.NewViewOnClickListenerServiceClient(cc),
+	}
+}
+
+// OnClick calls the OnClick RPC.
+func (c *ViewOnClickListenerClient) OnClick(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnClick(ctx, &pb.OnClickRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ViewOnContextClickListenerClient wraps the gRPC ViewOnContextClickListenerService client.
+type ViewOnContextClickListenerClient struct {
+	svc pb.ViewOnContextClickListenerServiceClient
+}
+
+// NewViewOnContextClickListenerClient creates a new ViewOnContextClickListener client.
+func NewViewOnContextClickListenerClient(cc grpc.ClientConnInterface) *ViewOnContextClickListenerClient {
+	return &ViewOnContextClickListenerClient{
+		svc: pb.NewViewOnContextClickListenerServiceClient(cc),
+	}
+}
+
+// OnContextClick calls the OnContextClick RPC.
+func (c *ViewOnContextClickListenerClient) OnContextClick(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.OnContextClick(ctx, &pb.OnContextClickRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ViewOnCreateContextMenuListenerClient wraps the gRPC ViewOnCreateContextMenuListenerService client.
+type ViewOnCreateContextMenuListenerClient struct {
+	svc pb.ViewOnCreateContextMenuListenerServiceClient
+}
+
+// NewViewOnCreateContextMenuListenerClient creates a new ViewOnCreateContextMenuListener client.
+func NewViewOnCreateContextMenuListenerClient(cc grpc.ClientConnInterface) *ViewOnCreateContextMenuListenerClient {
+	return &ViewOnCreateContextMenuListenerClient{
+		svc: pb.NewViewOnCreateContextMenuListenerServiceClient(cc),
+	}
+}
+
+// OnCreateContextMenu calls the OnCreateContextMenu RPC.
+func (c *ViewOnCreateContextMenuListenerClient) OnCreateContextMenu(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.OnCreateContextMenu(ctx, &pb.OnCreateContextMenuRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// ViewOnDragListenerClient wraps the gRPC ViewOnDragListenerService client.
+type ViewOnDragListenerClient struct {
+	svc pb.ViewOnDragListenerServiceClient
+}
+
+// NewViewOnDragListenerClient creates a new ViewOnDragListener client.
+func NewViewOnDragListenerClient(cc grpc.ClientConnInterface) *ViewOnDragListenerClient {
+	return &ViewOnDragListenerClient{
+		svc: pb.NewViewOnDragListenerServiceClient(cc),
+	}
+}
+
+// OnDrag calls the OnDrag RPC.
+func (c *ViewOnDragListenerClient) OnDrag(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
+	resp, err := c.svc.OnDrag(ctx, &pb.OnDragRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ViewOnFocusChangeListenerClient wraps the gRPC ViewOnFocusChangeListenerService client.
+type ViewOnFocusChangeListenerClient struct {
+	svc pb.ViewOnFocusChangeListenerServiceClient
+}
+
+// NewViewOnFocusChangeListenerClient creates a new ViewOnFocusChangeListener client.
+func NewViewOnFocusChangeListenerClient(cc grpc.ClientConnInterface) *ViewOnFocusChangeListenerClient {
+	return &ViewOnFocusChangeListenerClient{
+		svc: pb.NewViewOnFocusChangeListenerServiceClient(cc),
+	}
+}
+
+// OnFocusChange calls the OnFocusChange RPC.
+func (c *ViewOnFocusChangeListenerClient) OnFocusChange(ctx context.Context, arg0 int64, arg1 bool) error {
+	_, err := c.svc.OnFocusChange(ctx, &pb.OnFocusChangeRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ViewOnGenericMotionListenerClient wraps the gRPC ViewOnGenericMotionListenerService client.
+type ViewOnGenericMotionListenerClient struct {
+	svc pb.ViewOnGenericMotionListenerServiceClient
+}
+
+// NewViewOnGenericMotionListenerClient creates a new ViewOnGenericMotionListener client.
+func NewViewOnGenericMotionListenerClient(cc grpc.ClientConnInterface) *ViewOnGenericMotionListenerClient {
+	return &ViewOnGenericMotionListenerClient{
+		svc: pb.NewViewOnGenericMotionListenerServiceClient(cc),
+	}
+}
+
+// OnGenericMotion calls the OnGenericMotion RPC.
+func (c *ViewOnGenericMotionListenerClient) OnGenericMotion(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
+	resp, err := c.svc.OnGenericMotion(ctx, &pb.OnGenericMotionRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ViewOnHoverListenerClient wraps the gRPC ViewOnHoverListenerService client.
+type ViewOnHoverListenerClient struct {
+	svc pb.ViewOnHoverListenerServiceClient
+}
+
+// NewViewOnHoverListenerClient creates a new ViewOnHoverListener client.
+func NewViewOnHoverListenerClient(cc grpc.ClientConnInterface) *ViewOnHoverListenerClient {
+	return &ViewOnHoverListenerClient{
+		svc: pb.NewViewOnHoverListenerServiceClient(cc),
+	}
+}
+
+// OnHover calls the OnHover RPC.
+func (c *ViewOnHoverListenerClient) OnHover(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
+	resp, err := c.svc.OnHover(ctx, &pb.OnHoverRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ViewOnKeyListenerClient wraps the gRPC ViewOnKeyListenerService client.
+type ViewOnKeyListenerClient struct {
+	svc pb.ViewOnKeyListenerServiceClient
+}
+
+// NewViewOnKeyListenerClient creates a new ViewOnKeyListener client.
+func NewViewOnKeyListenerClient(cc grpc.ClientConnInterface) *ViewOnKeyListenerClient {
+	return &ViewOnKeyListenerClient{
+		svc: pb.NewViewOnKeyListenerServiceClient(cc),
+	}
+}
+
+// OnKey calls the OnKey RPC.
+func (c *ViewOnKeyListenerClient) OnKey(ctx context.Context, arg0 int64, arg1 int32, arg2 int64) (bool, error) {
+	resp, err := c.svc.OnKey(ctx, &pb.OnKeyRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ViewOnLayoutChangeListenerClient wraps the gRPC ViewOnLayoutChangeListenerService client.
+type ViewOnLayoutChangeListenerClient struct {
+	svc pb.ViewOnLayoutChangeListenerServiceClient
+}
+
+// NewViewOnLayoutChangeListenerClient creates a new ViewOnLayoutChangeListener client.
+func NewViewOnLayoutChangeListenerClient(cc grpc.ClientConnInterface) *ViewOnLayoutChangeListenerClient {
+	return &ViewOnLayoutChangeListenerClient{
+		svc: pb.NewViewOnLayoutChangeListenerServiceClient(cc),
+	}
+}
+
+// OnLayoutChange calls the OnLayoutChange RPC.
+func (c *ViewOnLayoutChangeListenerClient) OnLayoutChange(ctx context.Context, arg0 int64, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int32, arg6 int32, arg7 int32, arg8 int32) error {
+	_, err := c.svc.OnLayoutChange(ctx, &pb.OnLayoutChangeRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+		Arg6: arg6,
+		Arg7: arg7,
+		Arg8: arg8,
+	})
+	return err
+}
+
+// ViewOnLongClickListenerClient wraps the gRPC ViewOnLongClickListenerService client.
+type ViewOnLongClickListenerClient struct {
+	svc pb.ViewOnLongClickListenerServiceClient
+}
+
+// NewViewOnLongClickListenerClient creates a new ViewOnLongClickListener client.
+func NewViewOnLongClickListenerClient(cc grpc.ClientConnInterface) *ViewOnLongClickListenerClient {
+	return &ViewOnLongClickListenerClient{
+		svc: pb.NewViewOnLongClickListenerServiceClient(cc),
+	}
+}
+
+// OnLongClick calls the OnLongClick RPC.
+func (c *ViewOnLongClickListenerClient) OnLongClick(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.OnLongClick(ctx, &pb.OnLongClickRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ViewOnScrollChangeListenerClient wraps the gRPC ViewOnScrollChangeListenerService client.
+type ViewOnScrollChangeListenerClient struct {
+	svc pb.ViewOnScrollChangeListenerServiceClient
+}
+
+// NewViewOnScrollChangeListenerClient creates a new ViewOnScrollChangeListener client.
+func NewViewOnScrollChangeListenerClient(cc grpc.ClientConnInterface) *ViewOnScrollChangeListenerClient {
+	return &ViewOnScrollChangeListenerClient{
+		svc: pb.NewViewOnScrollChangeListenerServiceClient(cc),
+	}
+}
+
+// OnScrollChange calls the OnScrollChange RPC.
+func (c *ViewOnScrollChangeListenerClient) OnScrollChange(ctx context.Context, arg0 int64, arg1 int32, arg2 int32, arg3 int32, arg4 int32) error {
+	_, err := c.svc.OnScrollChange(ctx, &pb.OnScrollChangeRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// ViewOnSystemUiVisibilityChangeListenerClient wraps the gRPC ViewOnSystemUiVisibilityChangeListenerService client.
+type ViewOnSystemUiVisibilityChangeListenerClient struct {
+	svc pb.ViewOnSystemUiVisibilityChangeListenerServiceClient
+}
+
+// NewViewOnSystemUiVisibilityChangeListenerClient creates a new ViewOnSystemUiVisibilityChangeListener client.
+func NewViewOnSystemUiVisibilityChangeListenerClient(cc grpc.ClientConnInterface) *ViewOnSystemUiVisibilityChangeListenerClient {
+	return &ViewOnSystemUiVisibilityChangeListenerClient{
+		svc: pb.NewViewOnSystemUiVisibilityChangeListenerServiceClient(cc),
+	}
+}
+
+// OnSystemUiVisibilityChange calls the OnSystemUiVisibilityChange RPC.
+func (c *ViewOnSystemUiVisibilityChangeListenerClient) OnSystemUiVisibilityChange(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.OnSystemUiVisibilityChange(ctx, &pb.OnSystemUiVisibilityChangeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ViewOnTouchListenerClient wraps the gRPC ViewOnTouchListenerService client.
+type ViewOnTouchListenerClient struct {
+	svc pb.ViewOnTouchListenerServiceClient
+}
+
+// NewViewOnTouchListenerClient creates a new ViewOnTouchListener client.
+func NewViewOnTouchListenerClient(cc grpc.ClientConnInterface) *ViewOnTouchListenerClient {
+	return &ViewOnTouchListenerClient{
+		svc: pb.NewViewOnTouchListenerServiceClient(cc),
+	}
+}
+
+// OnTouch calls the OnTouch RPC.
+func (c *ViewOnTouchListenerClient) OnTouch(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
+	resp, err := c.svc.OnTouch(ctx, &pb.OnTouchRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ViewOnUnhandledKeyEventListenerClient wraps the gRPC ViewOnUnhandledKeyEventListenerService client.
+type ViewOnUnhandledKeyEventListenerClient struct {
+	svc pb.ViewOnUnhandledKeyEventListenerServiceClient
+}
+
+// NewViewOnUnhandledKeyEventListenerClient creates a new ViewOnUnhandledKeyEventListener client.
+func NewViewOnUnhandledKeyEventListenerClient(cc grpc.ClientConnInterface) *ViewOnUnhandledKeyEventListenerClient {
+	return &ViewOnUnhandledKeyEventListenerClient{
+		svc: pb.NewViewOnUnhandledKeyEventListenerServiceClient(cc),
+	}
+}
+
+// OnUnhandledKeyEvent calls the OnUnhandledKeyEvent RPC.
+func (c *ViewOnUnhandledKeyEventListenerClient) OnUnhandledKeyEvent(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
+	resp, err := c.svc.OnUnhandledKeyEvent(ctx, &pb.OnUnhandledKeyEventRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
 }

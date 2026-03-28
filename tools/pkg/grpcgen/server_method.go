@@ -13,6 +13,7 @@ type ServerMethod struct {
 	HasResult    bool   // Whether the javagen method returns a non-void value
 	GoReturnType string // Go type of the return value, e.g. "bool", "string", "*jni.Object"
 	NeedsHandles bool   // Whether any param or return uses object handles
+	IsConstructor bool  // Whether this is the constructor RPC for a constructor class
 	// Pre-rendered conversion expression for result assignment in proto response.
 	ResultExpr string // e.g. "result", "int32(result)"
 	// Pre-rendered data class conversion for the response.

@@ -21,7 +21,18 @@ message UnregisterStateChangeListenerRequest {
 message UnregisterStateChangeListenerResponse {
 }
 
+message OnEnabledStateChangedRequest {
+  bool arg0 = 1;
+}
+
+message OnEnabledStateChangedResponse {
+}
+
 service ManagerService {
   rpc RegisterStateChangeListener (RegisterStateChangeListenerRequest) returns (RegisterStateChangeListenerResponse);
   rpc UnregisterStateChangeListener (UnregisterStateChangeListenerRequest) returns (UnregisterStateChangeListenerResponse);
+}
+
+service StateChangeListenerService {
+  rpc OnEnabledStateChanged (OnEnabledStateChangedRequest) returns (OnEnabledStateChangedResponse);
 }

@@ -29,8 +29,721 @@ message UnregisterCallbackRequest {
 message UnregisterCallbackResponse {
 }
 
+message OnAdServiceAddedRequest {
+  string arg0 = 1;
+}
+
+message OnAdServiceAddedResponse {
+}
+
+message OnAdServiceRemovedRequest {
+  string arg0 = 1;
+}
+
+message OnAdServiceRemovedResponse {
+}
+
+message OnAdServiceUpdatedRequest {
+  string arg0 = 1;
+}
+
+message OnAdServiceUpdatedResponse {
+}
+
+message NewTvAdServiceInfoRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewTvAdServiceInfoResponse {
+  int64 result = 1;
+}
+
+message DescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message GetIdRequest {
+  int64 handle = 1;
+}
+
+message GetIdResponse {
+  string result = 1;
+}
+
+message GetServiceInfoRequest {
+  int64 handle = 1;
+}
+
+message GetServiceInfoResponse {
+  int64 result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message WriteToParcelResponse {
+}
+
+message NewTvAdViewRequest {
+  int64 arg0 = 1;
+}
+
+message NewTvAdViewResponse {
+  int64 result = 1;
+}
+
+message ClearCallbackRequest {
+  int64 handle = 1;
+}
+
+message ClearCallbackResponse {
+}
+
+message ClearOnUnhandledInputEventListenerRequest {
+  int64 handle = 1;
+}
+
+message ClearOnUnhandledInputEventListenerResponse {
+}
+
+message DispatchKeyEventRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message DispatchKeyEventResponse {
+  bool result = 1;
+}
+
+message DispatchUnhandledInputEventRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message DispatchUnhandledInputEventResponse {
+  bool result = 1;
+}
+
+message GetOnUnhandledInputEventListenerRequest {
+  int64 handle = 1;
+}
+
+message GetOnUnhandledInputEventListenerResponse {
+  int64 result = 1;
+}
+
+message NotifyErrorRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message NotifyErrorResponse {
+}
+
+message NotifyTvMessageRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message NotifyTvMessageResponse {
+}
+
+message OnAttachedToWindowRequest {
+  int64 handle = 1;
+}
+
+message OnAttachedToWindowResponse {
+}
+
+message OnDetachedFromWindowRequest {
+  int64 handle = 1;
+}
+
+message OnDetachedFromWindowResponse {
+}
+
+message OnLayoutRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
+  int32 arg4 = 6;
+}
+
+message OnLayoutResponse {
+}
+
+message OnMeasureRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message OnMeasureResponse {
+}
+
+message OnUnhandledInputEventRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OnUnhandledInputEventResponse {
+  bool result = 1;
+}
+
+message OnVisibilityChangedRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message OnVisibilityChangedResponse {
+}
+
+message PrepareAdServiceRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  string arg1 = 3;
+}
+
+message PrepareAdServiceResponse {
+}
+
+message ResetRequest {
+  int64 handle = 1;
+}
+
+message ResetResponse {
+}
+
+message ResetAdServiceRequest {
+  int64 handle = 1;
+}
+
+message ResetAdServiceResponse {
+}
+
+message SendCurrentChannelUriRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SendCurrentChannelUriResponse {
+}
+
+message SendCurrentTvInputIdRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SendCurrentTvInputIdResponse {
+}
+
+message SendCurrentVideoBoundsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SendCurrentVideoBoundsResponse {
+}
+
+message SendSigningResultRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message SendSigningResultResponse {
+}
+
+message SetCallbackRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message SetCallbackResponse {
+}
+
+message SetOnUnhandledInputEventListenerRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetOnUnhandledInputEventListenerResponse {
+}
+
+message SetTvViewRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetTvViewResponse {
+  bool result = 1;
+}
+
+message SetZOrderMediaOverlayRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetZOrderMediaOverlayResponse {
+}
+
+message SetZOrderOnTopRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetZOrderOnTopResponse {
+}
+
+message StartAdServiceRequest {
+  int64 handle = 1;
+}
+
+message StartAdServiceResponse {
+}
+
+message StopAdServiceRequest {
+  int64 handle = 1;
+}
+
+message StopAdServiceResponse {
+}
+
+message TvAdViewOnUnhandledInputEventListenerOnUnhandledInputEventRequest {
+  int64 arg0 = 1;
+}
+
+message OnRequestCurrentChannelUriRequest {
+  string arg0 = 1;
+}
+
+message OnRequestCurrentChannelUriResponse {
+}
+
+message OnRequestCurrentTvInputIdRequest {
+  string arg0 = 1;
+}
+
+message OnRequestCurrentTvInputIdResponse {
+}
+
+message OnRequestCurrentVideoBoundsRequest {
+  string arg0 = 1;
+}
+
+message OnRequestCurrentVideoBoundsResponse {
+}
+
+message OnRequestSigningRequest {
+  string arg0 = 1;
+  string arg1 = 2;
+  string arg2 = 3;
+  string arg3 = 4;
+  int64 arg4 = 5;
+}
+
+message OnRequestSigningResponse {
+}
+
+message OnRequestTrackInfoListRequest {
+  string arg0 = 1;
+}
+
+message OnRequestTrackInfoListResponse {
+}
+
+message OnStateChangedRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message OnStateChangedResponse {
+}
+
+message OnAppLinkCommandRequest {
+  int64 arg0 = 1;
+}
+
+message OnAppLinkCommandResponse {
+}
+
+message OnBindRequest {
+  int64 arg0 = 1;
+}
+
+message OnBindResponse {
+  int64 result = 1;
+}
+
+message OnCreateSessionRequest {
+  string arg0 = 1;
+  string arg1 = 2;
+}
+
+message OnCreateSessionResponse {
+  int64 result = 1;
+}
+
+message IsMediaViewEnabledRequest {
+}
+
+message IsMediaViewEnabledResponse {
+  bool result = 1;
+}
+
+message LayoutSurfaceRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message LayoutSurfaceResponse {
+}
+
+message NotifySessionStateChangedRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message NotifySessionStateChangedResponse {
+}
+
+message OnCreateMediaViewRequest {
+}
+
+message OnCreateMediaViewResponse {
+  int64 result = 1;
+}
+
+message OnCurrentChannelUriRequest {
+  int64 arg0 = 1;
+}
+
+message OnCurrentChannelUriResponse {
+}
+
+message OnCurrentTvInputIdRequest {
+  string arg0 = 1;
+}
+
+message OnCurrentTvInputIdResponse {
+}
+
+message OnCurrentVideoBoundsRequest {
+  int64 arg0 = 1;
+}
+
+message OnCurrentVideoBoundsResponse {
+}
+
+message OnErrorRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnErrorResponse {
+}
+
+message OnGenericMotionEventRequest {
+  int64 arg0 = 1;
+}
+
+message OnGenericMotionEventResponse {
+  bool result = 1;
+}
+
+message OnKeyDownRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnKeyDownResponse {
+  bool result = 1;
+}
+
+message OnKeyLongPressRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnKeyLongPressResponse {
+  bool result = 1;
+}
+
+message OnKeyMultipleRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message OnKeyMultipleResponse {
+  bool result = 1;
+}
+
+message OnKeyUpRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnKeyUpResponse {
+  bool result = 1;
+}
+
+message OnMediaViewSizeChangedRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message OnMediaViewSizeChangedResponse {
+}
+
+message OnReleaseRequest {
+}
+
+message OnReleaseResponse {
+}
+
+message OnResetAdServiceRequest {
+}
+
+message OnResetAdServiceResponse {
+}
+
+message OnSetSurfaceRequest {
+  int64 arg0 = 1;
+}
+
+message OnSetSurfaceResponse {
+  bool result = 1;
+}
+
+message OnSigningResultRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnSigningResultResponse {
+}
+
+message OnStartAdServiceRequest {
+}
+
+message OnStartAdServiceResponse {
+}
+
+message OnStopAdServiceRequest {
+}
+
+message OnStopAdServiceResponse {
+}
+
+message OnSurfaceChangedRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message OnSurfaceChangedResponse {
+}
+
+message OnTouchEventRequest {
+  int64 arg0 = 1;
+}
+
+message OnTouchEventResponse {
+  bool result = 1;
+}
+
+message OnTrackballEventRequest {
+  int64 arg0 = 1;
+}
+
+message OnTrackballEventResponse {
+  bool result = 1;
+}
+
+message OnTvInputSessionDataRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnTvInputSessionDataResponse {
+}
+
+message OnTvMessageRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnTvMessageResponse {
+}
+
+message RequestCurrentChannelUriRequest {
+}
+
+message RequestCurrentChannelUriResponse {
+}
+
+message RequestCurrentTvInputIdRequest {
+}
+
+message RequestCurrentTvInputIdResponse {
+}
+
+message RequestCurrentVideoBoundsRequest {
+}
+
+message RequestCurrentVideoBoundsResponse {
+}
+
+message RequestSigningRequest {
+  string arg0 = 1;
+  string arg1 = 2;
+  string arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message RequestSigningResponse {
+}
+
+message RequestTrackInfoListRequest {
+}
+
+message RequestTrackInfoListResponse {
+}
+
+message SendTvAdSessionDataRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SendTvAdSessionDataResponse {
+}
+
+message SetMediaViewEnabledRequest {
+  bool arg0 = 1;
+}
+
+message SetMediaViewEnabledResponse {
+}
+
 service TvAdManagerService {
   rpc RegisterCallback (RegisterCallbackRequest) returns (RegisterCallbackResponse);
   rpc SendAppLinkCommand (SendAppLinkCommandRequest) returns (SendAppLinkCommandResponse);
   rpc UnregisterCallback (UnregisterCallbackRequest) returns (UnregisterCallbackResponse);
+}
+
+service TvAdManagerTvAdServiceCallbackService {
+  rpc OnAdServiceAdded (OnAdServiceAddedRequest) returns (OnAdServiceAddedResponse);
+  rpc OnAdServiceRemoved (OnAdServiceRemovedRequest) returns (OnAdServiceRemovedResponse);
+  rpc OnAdServiceUpdated (OnAdServiceUpdatedRequest) returns (OnAdServiceUpdatedResponse);
+}
+
+service TvAdServiceInfoService {
+  rpc NewTvAdServiceInfo (NewTvAdServiceInfoRequest) returns (NewTvAdServiceInfoResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetId (GetIdRequest) returns (GetIdResponse);
+  rpc GetServiceInfo (GetServiceInfoRequest) returns (GetServiceInfoResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service TvAdViewService {
+  rpc NewTvAdView (NewTvAdViewRequest) returns (NewTvAdViewResponse);
+  rpc ClearCallback (ClearCallbackRequest) returns (ClearCallbackResponse);
+  rpc ClearOnUnhandledInputEventListener (ClearOnUnhandledInputEventListenerRequest) returns (ClearOnUnhandledInputEventListenerResponse);
+  rpc DispatchKeyEvent (DispatchKeyEventRequest) returns (DispatchKeyEventResponse);
+  rpc DispatchUnhandledInputEvent (DispatchUnhandledInputEventRequest) returns (DispatchUnhandledInputEventResponse);
+  rpc GetOnUnhandledInputEventListener (GetOnUnhandledInputEventListenerRequest) returns (GetOnUnhandledInputEventListenerResponse);
+  rpc NotifyError (NotifyErrorRequest) returns (NotifyErrorResponse);
+  rpc NotifyTvMessage (NotifyTvMessageRequest) returns (NotifyTvMessageResponse);
+  rpc OnAttachedToWindow (OnAttachedToWindowRequest) returns (OnAttachedToWindowResponse);
+  rpc OnDetachedFromWindow (OnDetachedFromWindowRequest) returns (OnDetachedFromWindowResponse);
+  rpc OnLayout (OnLayoutRequest) returns (OnLayoutResponse);
+  rpc OnMeasure (OnMeasureRequest) returns (OnMeasureResponse);
+  rpc OnUnhandledInputEvent (OnUnhandledInputEventRequest) returns (OnUnhandledInputEventResponse);
+  rpc OnVisibilityChanged (OnVisibilityChangedRequest) returns (OnVisibilityChangedResponse);
+  rpc PrepareAdService (PrepareAdServiceRequest) returns (PrepareAdServiceResponse);
+  rpc Reset (ResetRequest) returns (ResetResponse);
+  rpc ResetAdService (ResetAdServiceRequest) returns (ResetAdServiceResponse);
+  rpc SendCurrentChannelUri (SendCurrentChannelUriRequest) returns (SendCurrentChannelUriResponse);
+  rpc SendCurrentTvInputId (SendCurrentTvInputIdRequest) returns (SendCurrentTvInputIdResponse);
+  rpc SendCurrentVideoBounds (SendCurrentVideoBoundsRequest) returns (SendCurrentVideoBoundsResponse);
+  rpc SendSigningResult (SendSigningResultRequest) returns (SendSigningResultResponse);
+  rpc SetCallback (SetCallbackRequest) returns (SetCallbackResponse);
+  rpc SetOnUnhandledInputEventListener (SetOnUnhandledInputEventListenerRequest) returns (SetOnUnhandledInputEventListenerResponse);
+  rpc SetTvView (SetTvViewRequest) returns (SetTvViewResponse);
+  rpc SetZOrderMediaOverlay (SetZOrderMediaOverlayRequest) returns (SetZOrderMediaOverlayResponse);
+  rpc SetZOrderOnTop (SetZOrderOnTopRequest) returns (SetZOrderOnTopResponse);
+  rpc StartAdService (StartAdServiceRequest) returns (StartAdServiceResponse);
+  rpc StopAdService (StopAdServiceRequest) returns (StopAdServiceResponse);
+}
+
+service TvAdViewOnUnhandledInputEventListenerService {
+  rpc OnUnhandledInputEvent (TvAdViewOnUnhandledInputEventListenerOnUnhandledInputEventRequest) returns (OnUnhandledInputEventResponse);
+}
+
+service TvAdViewTvAdCallbackService {
+  rpc OnRequestCurrentChannelUri (OnRequestCurrentChannelUriRequest) returns (OnRequestCurrentChannelUriResponse);
+  rpc OnRequestCurrentTvInputId (OnRequestCurrentTvInputIdRequest) returns (OnRequestCurrentTvInputIdResponse);
+  rpc OnRequestCurrentVideoBounds (OnRequestCurrentVideoBoundsRequest) returns (OnRequestCurrentVideoBoundsResponse);
+  rpc OnRequestSigning (OnRequestSigningRequest) returns (OnRequestSigningResponse);
+  rpc OnRequestTrackInfoList (OnRequestTrackInfoListRequest) returns (OnRequestTrackInfoListResponse);
+  rpc OnStateChanged (OnStateChangedRequest) returns (OnStateChangedResponse);
+}
+
+service TvAdServiceService {
+  rpc OnAppLinkCommand (OnAppLinkCommandRequest) returns (OnAppLinkCommandResponse);
+  rpc OnBind (OnBindRequest) returns (OnBindResponse);
+  rpc OnCreateSession (OnCreateSessionRequest) returns (OnCreateSessionResponse);
+}
+
+service TvAdServiceSessionService {
+  rpc IsMediaViewEnabled (IsMediaViewEnabledRequest) returns (IsMediaViewEnabledResponse);
+  rpc LayoutSurface (LayoutSurfaceRequest) returns (LayoutSurfaceResponse);
+  rpc NotifySessionStateChanged (NotifySessionStateChangedRequest) returns (NotifySessionStateChangedResponse);
+  rpc OnCreateMediaView (OnCreateMediaViewRequest) returns (OnCreateMediaViewResponse);
+  rpc OnCurrentChannelUri (OnCurrentChannelUriRequest) returns (OnCurrentChannelUriResponse);
+  rpc OnCurrentTvInputId (OnCurrentTvInputIdRequest) returns (OnCurrentTvInputIdResponse);
+  rpc OnCurrentVideoBounds (OnCurrentVideoBoundsRequest) returns (OnCurrentVideoBoundsResponse);
+  rpc OnError (OnErrorRequest) returns (OnErrorResponse);
+  rpc OnGenericMotionEvent (OnGenericMotionEventRequest) returns (OnGenericMotionEventResponse);
+  rpc OnKeyDown (OnKeyDownRequest) returns (OnKeyDownResponse);
+  rpc OnKeyLongPress (OnKeyLongPressRequest) returns (OnKeyLongPressResponse);
+  rpc OnKeyMultiple (OnKeyMultipleRequest) returns (OnKeyMultipleResponse);
+  rpc OnKeyUp (OnKeyUpRequest) returns (OnKeyUpResponse);
+  rpc OnMediaViewSizeChanged (OnMediaViewSizeChangedRequest) returns (OnMediaViewSizeChangedResponse);
+  rpc OnRelease (OnReleaseRequest) returns (OnReleaseResponse);
+  rpc OnResetAdService (OnResetAdServiceRequest) returns (OnResetAdServiceResponse);
+  rpc OnSetSurface (OnSetSurfaceRequest) returns (OnSetSurfaceResponse);
+  rpc OnSigningResult (OnSigningResultRequest) returns (OnSigningResultResponse);
+  rpc OnStartAdService (OnStartAdServiceRequest) returns (OnStartAdServiceResponse);
+  rpc OnStopAdService (OnStopAdServiceRequest) returns (OnStopAdServiceResponse);
+  rpc OnSurfaceChanged (OnSurfaceChangedRequest) returns (OnSurfaceChangedResponse);
+  rpc OnTouchEvent (OnTouchEventRequest) returns (OnTouchEventResponse);
+  rpc OnTrackballEvent (OnTrackballEventRequest) returns (OnTrackballEventResponse);
+  rpc OnTvInputSessionData (OnTvInputSessionDataRequest) returns (OnTvInputSessionDataResponse);
+  rpc OnTvMessage (OnTvMessageRequest) returns (OnTvMessageResponse);
+  rpc RequestCurrentChannelUri (RequestCurrentChannelUriRequest) returns (RequestCurrentChannelUriResponse);
+  rpc RequestCurrentTvInputId (RequestCurrentTvInputIdRequest) returns (RequestCurrentTvInputIdResponse);
+  rpc RequestCurrentVideoBounds (RequestCurrentVideoBoundsRequest) returns (RequestCurrentVideoBoundsResponse);
+  rpc RequestSigning (RequestSigningRequest) returns (RequestSigningResponse);
+  rpc RequestTrackInfoList (RequestTrackInfoListRequest) returns (RequestTrackInfoListResponse);
+  rpc SendTvAdSessionData (SendTvAdSessionDataRequest) returns (SendTvAdSessionDataResponse);
+  rpc SetMediaViewEnabled (SetMediaViewEnabledRequest) returns (SetMediaViewEnabledResponse);
 }

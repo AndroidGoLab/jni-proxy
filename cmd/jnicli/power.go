@@ -481,6 +481,221 @@ var powerManagerRemoveThermalStatusListenerCmd = &cobra.Command{
 	},
 }
 
+var powerManagerOnThermalStatusChangedListenerCmd = &cobra.Command{
+	Use:   "manager-on-thermal-status-changed-listener",
+	Short: "ManagerOnThermalStatusChangedListenerService operations",
+}
+
+var powerManagerOnThermalStatusChangedListenerOnThermalStatusChangedCmd = &cobra.Command{
+	Use:   "on-thermal-status-changed",
+	Short: "OnThermalStatusChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerOnThermalStatusChangedListenerServiceClient(grpcConn)
+		req := &pb.OnThermalStatusChangedRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnThermalStatusChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var powerManagerWakeLockCmd = &cobra.Command{
+	Use:   "manager-wake-lock",
+	Short: "ManagerWakeLockService operations",
+}
+
+var powerManagerWakeLockAcquire0Cmd = &cobra.Command{
+	Use:   "acquire0",
+	Short: "Acquire0 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerWakeLockServiceClient(grpcConn)
+		req := &pb.Acquire0Request{}
+		resp, err := client.Acquire0(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var powerManagerWakeLockAcquire1_1Cmd = &cobra.Command{
+	Use:   "acquire1_1",
+	Short: "Acquire1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerWakeLockServiceClient(grpcConn)
+		req := &pb.Acquire1_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Acquire1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var powerManagerWakeLockIsHeldCmd = &cobra.Command{
+	Use:   "is-held",
+	Short: "IsHeld RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerWakeLockServiceClient(grpcConn)
+		req := &pb.IsHeldRequest{}
+		resp, err := client.IsHeld(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var powerManagerWakeLockRelease0Cmd = &cobra.Command{
+	Use:   "release0",
+	Short: "Release0 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerWakeLockServiceClient(grpcConn)
+		req := &pb.Release0Request{}
+		resp, err := client.Release0(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var powerManagerWakeLockRelease1_1Cmd = &cobra.Command{
+	Use:   "release1_1",
+	Short: "Release1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerWakeLockServiceClient(grpcConn)
+		req := &pb.Release1_1Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Release1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var powerManagerWakeLockSetReferenceCountedCmd = &cobra.Command{
+	Use:   "set-reference-counted",
+	Short: "SetReferenceCounted RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerWakeLockServiceClient(grpcConn)
+		req := &pb.SetReferenceCountedRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetReferenceCounted(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var powerManagerWakeLockSetStateListenerCmd = &cobra.Command{
+	Use:   "set-state-listener",
+	Short: "SetStateListener RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerWakeLockServiceClient(grpcConn)
+		req := &pb.SetStateListenerRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetStateListener(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var powerManagerWakeLockSetWorkSourceCmd = &cobra.Command{
+	Use:   "set-work-source",
+	Short: "SetWorkSource RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerWakeLockServiceClient(grpcConn)
+		req := &pb.SetWorkSourceRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetWorkSource(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var powerManagerWakeLockToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerWakeLockServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var powerManagerWakeLockStateListenerCmd = &cobra.Command{
+	Use:   "manager-wake-lock-state-listener",
+	Short: "ManagerWakeLockStateListenerService operations",
+}
+
+var powerManagerWakeLockStateListenerOnStateChangedCmd = &cobra.Command{
+	Use:   "on-state-changed",
+	Short: "OnStateChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerWakeLockStateListenerServiceClient(grpcConn)
+		req := &pb.OnStateChangedRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnStateChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 func init() {
 	powerManagerAddThermalHeadroomListener1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	powerManagerCmd.AddCommand(powerManagerAddThermalHeadroomListener1Cmd)
@@ -525,5 +740,27 @@ func init() {
 	powerManagerRemoveThermalStatusListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	powerManagerCmd.AddCommand(powerManagerRemoveThermalStatusListenerCmd)
 	powerCmd.AddCommand(powerManagerCmd)
+	powerManagerOnThermalStatusChangedListenerOnThermalStatusChangedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	powerManagerOnThermalStatusChangedListenerCmd.AddCommand(powerManagerOnThermalStatusChangedListenerOnThermalStatusChangedCmd)
+	powerCmd.AddCommand(powerManagerOnThermalStatusChangedListenerCmd)
+	powerManagerWakeLockCmd.AddCommand(powerManagerWakeLockAcquire0Cmd)
+	powerManagerWakeLockAcquire1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	powerManagerWakeLockCmd.AddCommand(powerManagerWakeLockAcquire1_1Cmd)
+	powerManagerWakeLockCmd.AddCommand(powerManagerWakeLockIsHeldCmd)
+	powerManagerWakeLockCmd.AddCommand(powerManagerWakeLockRelease0Cmd)
+	powerManagerWakeLockRelease1_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	powerManagerWakeLockCmd.AddCommand(powerManagerWakeLockRelease1_1Cmd)
+	powerManagerWakeLockSetReferenceCountedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	powerManagerWakeLockCmd.AddCommand(powerManagerWakeLockSetReferenceCountedCmd)
+	powerManagerWakeLockSetStateListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	powerManagerWakeLockSetStateListenerCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	powerManagerWakeLockCmd.AddCommand(powerManagerWakeLockSetStateListenerCmd)
+	powerManagerWakeLockSetWorkSourceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	powerManagerWakeLockCmd.AddCommand(powerManagerWakeLockSetWorkSourceCmd)
+	powerManagerWakeLockCmd.AddCommand(powerManagerWakeLockToStringCmd)
+	powerCmd.AddCommand(powerManagerWakeLockCmd)
+	powerManagerWakeLockStateListenerOnStateChangedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	powerManagerWakeLockStateListenerCmd.AddCommand(powerManagerWakeLockStateListenerOnStateChangedCmd)
+	powerCmd.AddCommand(powerManagerWakeLockStateListenerCmd)
 	rootCmd.AddCommand(powerCmd)
 }

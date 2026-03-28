@@ -5,3 +5,614 @@ syntax = "proto3";
 package drm;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/drm";
+
+message NewManagerClientRequest {
+  int64 arg0 = 1;
+}
+
+message NewManagerClientResponse {
+  int64 result = 1;
+}
+
+message AcquireDrmInfoRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AcquireDrmInfoResponse {
+  int64 result = 1;
+}
+
+message AcquireRightsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AcquireRightsResponse {
+  int32 result = 1;
+}
+
+message CanHandle2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+}
+
+message CanHandle2Response {
+  bool result = 1;
+}
+
+message CanHandle2_1Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  string arg1 = 3;
+}
+
+message CanHandle2_1Response {
+  bool result = 1;
+}
+
+message CheckRightsStatus1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message CheckRightsStatus1Response {
+  int32 result = 1;
+}
+
+message CheckRightsStatus2_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message CheckRightsStatus2_1Response {
+  int32 result = 1;
+}
+
+message CheckRightsStatus1_2Request {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message CheckRightsStatus1_2Response {
+  int32 result = 1;
+}
+
+message CheckRightsStatus2_3Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message CheckRightsStatus2_3Response {
+  int32 result = 1;
+}
+
+message CloseRequest {
+  int64 handle = 1;
+}
+
+message CloseResponse {
+}
+
+message CloseConvertSessionRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message CloseConvertSessionResponse {
+  int64 result = 1;
+}
+
+message ConvertDataRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message ConvertDataResponse {
+  int64 result = 1;
+}
+
+message GetAvailableDrmEnginesRequest {
+  int64 handle = 1;
+}
+
+message GetAvailableDrmEnginesResponse {
+  int64 result = 1;
+}
+
+message GetConstraints2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message GetConstraints2Response {
+  int64 result = 1;
+}
+
+message GetConstraints2_1Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message GetConstraints2_1Response {
+  int64 result = 1;
+}
+
+message GetDrmObjectType2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+}
+
+message GetDrmObjectType2Response {
+  int32 result = 1;
+}
+
+message GetDrmObjectType2_1Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  string arg1 = 3;
+}
+
+message GetDrmObjectType2_1Response {
+  int32 result = 1;
+}
+
+message GetMetadata1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetMetadata1Response {
+  int64 result = 1;
+}
+
+message GetMetadata1_1Request {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message GetMetadata1_1Response {
+  int64 result = 1;
+}
+
+message GetOriginalMimeType1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetOriginalMimeType1Response {
+  string result = 1;
+}
+
+message GetOriginalMimeType1_1Request {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message GetOriginalMimeType1_1Response {
+  string result = 1;
+}
+
+message OpenConvertSessionRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message OpenConvertSessionResponse {
+  int32 result = 1;
+}
+
+message ProcessDrmInfoRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message ProcessDrmInfoResponse {
+  int32 result = 1;
+}
+
+message ReleaseRequest {
+  int64 handle = 1;
+}
+
+message ReleaseResponse {
+}
+
+message RemoveAllRightsRequest {
+  int64 handle = 1;
+}
+
+message RemoveAllRightsResponse {
+  int32 result = 1;
+}
+
+message RemoveRights1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message RemoveRights1Response {
+  int32 result = 1;
+}
+
+message RemoveRights1_1Request {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message RemoveRights1_1Response {
+  int32 result = 1;
+}
+
+message SaveRightsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+  string arg2 = 4;
+}
+
+message SaveRightsResponse {
+  int32 result = 1;
+}
+
+message OnErrorRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnErrorResponse {
+}
+
+message OnEventRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnEventResponse {
+}
+
+message OnInfoRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnInfoResponse {
+}
+
+message NewUtilsRequest {
+}
+
+message NewUtilsResponse {
+  int64 result = 1;
+}
+
+message GetExtendedMetadataParserRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetExtendedMetadataParserResponse {
+  int64 result = 1;
+}
+
+message GetRequest {
+  string arg0 = 1;
+}
+
+message GetResponse {
+  string result = 1;
+}
+
+message NewSupportInfoRequest {
+}
+
+message NewSupportInfoResponse {
+  int64 result = 1;
+}
+
+message AddFileSuffixRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message AddFileSuffixResponse {
+}
+
+message AddMimeTypeRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message AddMimeTypeResponse {
+}
+
+message EqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message GetDescripritionRequest {
+  int64 handle = 1;
+}
+
+message GetDescripritionResponse {
+  string result = 1;
+}
+
+message GetDescriptionRequest {
+  int64 handle = 1;
+}
+
+message GetDescriptionResponse {
+  string result = 1;
+}
+
+message HashCodeRequest {
+  int64 handle = 1;
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message SetDescriptionRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetDescriptionResponse {
+}
+
+message NewInfoRequestRequest {
+  int32 arg0 = 1;
+  string arg1 = 2;
+}
+
+message NewInfoRequestResponse {
+  int64 result = 1;
+}
+
+message InfoRequestGetRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message InfoRequestGetResponse {
+  int64 result = 1;
+}
+
+message GetInfoTypeRequest {
+  int64 handle = 1;
+}
+
+message GetInfoTypeResponse {
+  int32 result = 1;
+}
+
+message GetMimeTypeRequest {
+  int64 handle = 1;
+}
+
+message GetMimeTypeResponse {
+  string result = 1;
+}
+
+message PutRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message PutResponse {
+}
+
+message GetAttributeRequest {
+  string arg0 = 1;
+}
+
+message GetAttributeResponse {
+  int64 result = 1;
+}
+
+message GetMessageRequest {
+}
+
+message GetMessageResponse {
+  string result = 1;
+}
+
+message GetTypeRequest {
+}
+
+message GetTypeResponse {
+  int32 result = 1;
+}
+
+message GetUniqueIdRequest {
+}
+
+message GetUniqueIdResponse {
+  int32 result = 1;
+}
+
+message NewRightsRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+}
+
+message NewRightsResponse {
+  int64 result = 1;
+}
+
+message GetAccountIdRequest {
+  int64 handle = 1;
+}
+
+message GetAccountIdResponse {
+  string result = 1;
+}
+
+message GetDataRequest {
+  int64 handle = 1;
+}
+
+message GetDataResponse {
+  int64 result = 1;
+}
+
+message GetSubscriptionIdRequest {
+  int64 handle = 1;
+}
+
+message GetSubscriptionIdResponse {
+  string result = 1;
+}
+
+message NewInfoRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+  string arg2 = 3;
+}
+
+message NewInfoResponse {
+  int64 result = 1;
+}
+
+message InfoGetRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message InfoGetResponse {
+  int64 result = 1;
+}
+
+message ProcessedDataGetAccountIdRequest {
+}
+
+message ProcessedDataGetDataRequest {
+}
+
+message ProcessedDataGetSubscriptionIdRequest {
+}
+
+message NewInfoRequestOpRequest {
+  int32 arg0 = 1;
+  string arg1 = 2;
+}
+
+message NewInfoRequestOpResponse {
+  int64 result = 1;
+}
+
+service ManagerClientService {
+  rpc NewManagerClient (NewManagerClientRequest) returns (NewManagerClientResponse);
+  rpc AcquireDrmInfo (AcquireDrmInfoRequest) returns (AcquireDrmInfoResponse);
+  rpc AcquireRights (AcquireRightsRequest) returns (AcquireRightsResponse);
+  rpc CanHandle2 (CanHandle2Request) returns (CanHandle2Response);
+  rpc CanHandle2_1 (CanHandle2_1Request) returns (CanHandle2_1Response);
+  rpc CheckRightsStatus1 (CheckRightsStatus1Request) returns (CheckRightsStatus1Response);
+  rpc CheckRightsStatus2_1 (CheckRightsStatus2_1Request) returns (CheckRightsStatus2_1Response);
+  rpc CheckRightsStatus1_2 (CheckRightsStatus1_2Request) returns (CheckRightsStatus1_2Response);
+  rpc CheckRightsStatus2_3 (CheckRightsStatus2_3Request) returns (CheckRightsStatus2_3Response);
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc CloseConvertSession (CloseConvertSessionRequest) returns (CloseConvertSessionResponse);
+  rpc ConvertData (ConvertDataRequest) returns (ConvertDataResponse);
+  rpc GetAvailableDrmEngines (GetAvailableDrmEnginesRequest) returns (GetAvailableDrmEnginesResponse);
+  rpc GetConstraints2 (GetConstraints2Request) returns (GetConstraints2Response);
+  rpc GetConstraints2_1 (GetConstraints2_1Request) returns (GetConstraints2_1Response);
+  rpc GetDrmObjectType2 (GetDrmObjectType2Request) returns (GetDrmObjectType2Response);
+  rpc GetDrmObjectType2_1 (GetDrmObjectType2_1Request) returns (GetDrmObjectType2_1Response);
+  rpc GetMetadata1 (GetMetadata1Request) returns (GetMetadata1Response);
+  rpc GetMetadata1_1 (GetMetadata1_1Request) returns (GetMetadata1_1Response);
+  rpc GetOriginalMimeType1 (GetOriginalMimeType1Request) returns (GetOriginalMimeType1Response);
+  rpc GetOriginalMimeType1_1 (GetOriginalMimeType1_1Request) returns (GetOriginalMimeType1_1Response);
+  rpc OpenConvertSession (OpenConvertSessionRequest) returns (OpenConvertSessionResponse);
+  rpc ProcessDrmInfo (ProcessDrmInfoRequest) returns (ProcessDrmInfoResponse);
+  rpc Release (ReleaseRequest) returns (ReleaseResponse);
+  rpc RemoveAllRights (RemoveAllRightsRequest) returns (RemoveAllRightsResponse);
+  rpc RemoveRights1 (RemoveRights1Request) returns (RemoveRights1Response);
+  rpc RemoveRights1_1 (RemoveRights1_1Request) returns (RemoveRights1_1Response);
+  rpc SaveRights (SaveRightsRequest) returns (SaveRightsResponse);
+}
+
+service ManagerClientOnErrorListenerService {
+  rpc OnError (OnErrorRequest) returns (OnErrorResponse);
+}
+
+service ManagerClientOnEventListenerService {
+  rpc OnEvent (OnEventRequest) returns (OnEventResponse);
+}
+
+service ManagerClientOnInfoListenerService {
+  rpc OnInfo (OnInfoRequest) returns (OnInfoResponse);
+}
+
+service UtilsService {
+  rpc NewUtils (NewUtilsRequest) returns (NewUtilsResponse);
+  rpc GetExtendedMetadataParser (GetExtendedMetadataParserRequest) returns (GetExtendedMetadataParserResponse);
+}
+
+service UtilsExtendedMetadataParserService {
+  rpc Get (GetRequest) returns (GetResponse);
+}
+
+service SupportInfoService {
+  rpc NewSupportInfo (NewSupportInfoRequest) returns (NewSupportInfoResponse);
+  rpc AddFileSuffix (AddFileSuffixRequest) returns (AddFileSuffixResponse);
+  rpc AddMimeType (AddMimeTypeRequest) returns (AddMimeTypeResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetDescriprition (GetDescripritionRequest) returns (GetDescripritionResponse);
+  rpc GetDescription (GetDescriptionRequest) returns (GetDescriptionResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc SetDescription (SetDescriptionRequest) returns (SetDescriptionResponse);
+}
+
+service InfoRequestService {
+  rpc NewInfoRequestOp (NewInfoRequestOpRequest) returns (NewInfoRequestOpResponse);
+  rpc Get (InfoRequestGetRequest) returns (InfoRequestGetResponse);
+  rpc GetInfoType (GetInfoTypeRequest) returns (GetInfoTypeResponse);
+  rpc GetMimeType (GetMimeTypeRequest) returns (GetMimeTypeResponse);
+  rpc Put (PutRequest) returns (PutResponse);
+}
+
+service EventService {
+  rpc GetAttribute (GetAttributeRequest) returns (GetAttributeResponse);
+  rpc GetMessage (GetMessageRequest) returns (GetMessageResponse);
+  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
+  rpc GetUniqueId (GetUniqueIdRequest) returns (GetUniqueIdResponse);
+}
+
+service RightsService {
+  rpc NewRights (NewRightsRequest) returns (NewRightsResponse);
+  rpc GetAccountId (GetAccountIdRequest) returns (GetAccountIdResponse);
+  rpc GetData (GetDataRequest) returns (GetDataResponse);
+  rpc GetMimeType (GetMimeTypeRequest) returns (GetMimeTypeResponse);
+  rpc GetSubscriptionId (GetSubscriptionIdRequest) returns (GetSubscriptionIdResponse);
+}
+
+service InfoService {
+  rpc NewInfo (NewInfoRequest) returns (NewInfoResponse);
+  rpc Get (InfoGetRequest) returns (InfoGetResponse);
+  rpc GetData (GetDataRequest) returns (GetDataResponse);
+  rpc GetInfoType (GetInfoTypeRequest) returns (GetInfoTypeResponse);
+  rpc GetMimeType (GetMimeTypeRequest) returns (GetMimeTypeResponse);
+  rpc Put (PutRequest) returns (PutResponse);
+}
+
+service ProcessedDataService {
+  rpc GetAccountId (ProcessedDataGetAccountIdRequest) returns (GetAccountIdResponse);
+  rpc GetData (ProcessedDataGetDataRequest) returns (GetDataResponse);
+  rpc GetSubscriptionId (ProcessedDataGetSubscriptionIdRequest) returns (GetSubscriptionIdResponse);
+}

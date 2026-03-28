@@ -21,6 +21,14408 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
+	AdRequestService_NewAdRequest_FullMethodName          = "/tv.AdRequestService/NewAdRequest"
+	AdRequestService_DescribeContents_FullMethodName      = "/tv.AdRequestService/DescribeContents"
+	AdRequestService_GetEchoIntervalMillis_FullMethodName = "/tv.AdRequestService/GetEchoIntervalMillis"
+	AdRequestService_GetFileDescriptor_FullMethodName     = "/tv.AdRequestService/GetFileDescriptor"
+	AdRequestService_GetId_FullMethodName                 = "/tv.AdRequestService/GetId"
+	AdRequestService_GetMediaFileType_FullMethodName      = "/tv.AdRequestService/GetMediaFileType"
+	AdRequestService_GetMetadata_FullMethodName           = "/tv.AdRequestService/GetMetadata"
+	AdRequestService_GetRequestType_FullMethodName        = "/tv.AdRequestService/GetRequestType"
+	AdRequestService_GetStartTimeMillis_FullMethodName    = "/tv.AdRequestService/GetStartTimeMillis"
+	AdRequestService_GetStopTimeMillis_FullMethodName     = "/tv.AdRequestService/GetStopTimeMillis"
+	AdRequestService_GetUri_FullMethodName                = "/tv.AdRequestService/GetUri"
+	AdRequestService_WriteToParcel_FullMethodName         = "/tv.AdRequestService/WriteToParcel"
+)
+
+// AdRequestServiceClient is the client API for AdRequestService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AdRequestServiceClient interface {
+	NewAdRequest(ctx context.Context, in *NewAdRequestRequest, opts ...grpc.CallOption) (*NewAdRequestResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetEchoIntervalMillis(ctx context.Context, in *GetEchoIntervalMillisRequest, opts ...grpc.CallOption) (*GetEchoIntervalMillisResponse, error)
+	GetFileDescriptor(ctx context.Context, in *GetFileDescriptorRequest, opts ...grpc.CallOption) (*GetFileDescriptorResponse, error)
+	GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error)
+	GetMediaFileType(ctx context.Context, in *GetMediaFileTypeRequest, opts ...grpc.CallOption) (*GetMediaFileTypeResponse, error)
+	GetMetadata(ctx context.Context, in *GetMetadataRequest, opts ...grpc.CallOption) (*GetMetadataResponse, error)
+	GetRequestType(ctx context.Context, in *GetRequestTypeRequest, opts ...grpc.CallOption) (*GetRequestTypeResponse, error)
+	GetStartTimeMillis(ctx context.Context, in *GetStartTimeMillisRequest, opts ...grpc.CallOption) (*GetStartTimeMillisResponse, error)
+	GetStopTimeMillis(ctx context.Context, in *GetStopTimeMillisRequest, opts ...grpc.CallOption) (*GetStopTimeMillisResponse, error)
+	GetUri(ctx context.Context, in *GetUriRequest, opts ...grpc.CallOption) (*GetUriResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type adRequestServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAdRequestServiceClient(cc grpc.ClientConnInterface) AdRequestServiceClient {
+	return &adRequestServiceClient{cc}
+}
+
+func (c *adRequestServiceClient) NewAdRequest(ctx context.Context, in *NewAdRequestRequest, opts ...grpc.CallOption) (*NewAdRequestResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewAdRequestResponse)
+	err := c.cc.Invoke(ctx, AdRequestService_NewAdRequest_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adRequestServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, AdRequestService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adRequestServiceClient) GetEchoIntervalMillis(ctx context.Context, in *GetEchoIntervalMillisRequest, opts ...grpc.CallOption) (*GetEchoIntervalMillisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEchoIntervalMillisResponse)
+	err := c.cc.Invoke(ctx, AdRequestService_GetEchoIntervalMillis_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adRequestServiceClient) GetFileDescriptor(ctx context.Context, in *GetFileDescriptorRequest, opts ...grpc.CallOption) (*GetFileDescriptorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFileDescriptorResponse)
+	err := c.cc.Invoke(ctx, AdRequestService_GetFileDescriptor_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adRequestServiceClient) GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetIdResponse)
+	err := c.cc.Invoke(ctx, AdRequestService_GetId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adRequestServiceClient) GetMediaFileType(ctx context.Context, in *GetMediaFileTypeRequest, opts ...grpc.CallOption) (*GetMediaFileTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMediaFileTypeResponse)
+	err := c.cc.Invoke(ctx, AdRequestService_GetMediaFileType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adRequestServiceClient) GetMetadata(ctx context.Context, in *GetMetadataRequest, opts ...grpc.CallOption) (*GetMetadataResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMetadataResponse)
+	err := c.cc.Invoke(ctx, AdRequestService_GetMetadata_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adRequestServiceClient) GetRequestType(ctx context.Context, in *GetRequestTypeRequest, opts ...grpc.CallOption) (*GetRequestTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRequestTypeResponse)
+	err := c.cc.Invoke(ctx, AdRequestService_GetRequestType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adRequestServiceClient) GetStartTimeMillis(ctx context.Context, in *GetStartTimeMillisRequest, opts ...grpc.CallOption) (*GetStartTimeMillisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStartTimeMillisResponse)
+	err := c.cc.Invoke(ctx, AdRequestService_GetStartTimeMillis_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adRequestServiceClient) GetStopTimeMillis(ctx context.Context, in *GetStopTimeMillisRequest, opts ...grpc.CallOption) (*GetStopTimeMillisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStopTimeMillisResponse)
+	err := c.cc.Invoke(ctx, AdRequestService_GetStopTimeMillis_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adRequestServiceClient) GetUri(ctx context.Context, in *GetUriRequest, opts ...grpc.CallOption) (*GetUriResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetUriResponse)
+	err := c.cc.Invoke(ctx, AdRequestService_GetUri_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adRequestServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, AdRequestService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AdRequestServiceServer is the server API for AdRequestService service.
+// All implementations must embed UnimplementedAdRequestServiceServer
+// for forward compatibility.
+type AdRequestServiceServer interface {
+	NewAdRequest(context.Context, *NewAdRequestRequest) (*NewAdRequestResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetEchoIntervalMillis(context.Context, *GetEchoIntervalMillisRequest) (*GetEchoIntervalMillisResponse, error)
+	GetFileDescriptor(context.Context, *GetFileDescriptorRequest) (*GetFileDescriptorResponse, error)
+	GetId(context.Context, *GetIdRequest) (*GetIdResponse, error)
+	GetMediaFileType(context.Context, *GetMediaFileTypeRequest) (*GetMediaFileTypeResponse, error)
+	GetMetadata(context.Context, *GetMetadataRequest) (*GetMetadataResponse, error)
+	GetRequestType(context.Context, *GetRequestTypeRequest) (*GetRequestTypeResponse, error)
+	GetStartTimeMillis(context.Context, *GetStartTimeMillisRequest) (*GetStartTimeMillisResponse, error)
+	GetStopTimeMillis(context.Context, *GetStopTimeMillisRequest) (*GetStopTimeMillisResponse, error)
+	GetUri(context.Context, *GetUriRequest) (*GetUriResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedAdRequestServiceServer()
+}
+
+// UnimplementedAdRequestServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedAdRequestServiceServer struct{}
+
+func (UnimplementedAdRequestServiceServer) NewAdRequest(context.Context, *NewAdRequestRequest) (*NewAdRequestResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewAdRequest not implemented")
+}
+func (UnimplementedAdRequestServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedAdRequestServiceServer) GetEchoIntervalMillis(context.Context, *GetEchoIntervalMillisRequest) (*GetEchoIntervalMillisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEchoIntervalMillis not implemented")
+}
+func (UnimplementedAdRequestServiceServer) GetFileDescriptor(context.Context, *GetFileDescriptorRequest) (*GetFileDescriptorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFileDescriptor not implemented")
+}
+func (UnimplementedAdRequestServiceServer) GetId(context.Context, *GetIdRequest) (*GetIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetId not implemented")
+}
+func (UnimplementedAdRequestServiceServer) GetMediaFileType(context.Context, *GetMediaFileTypeRequest) (*GetMediaFileTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMediaFileType not implemented")
+}
+func (UnimplementedAdRequestServiceServer) GetMetadata(context.Context, *GetMetadataRequest) (*GetMetadataResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMetadata not implemented")
+}
+func (UnimplementedAdRequestServiceServer) GetRequestType(context.Context, *GetRequestTypeRequest) (*GetRequestTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRequestType not implemented")
+}
+func (UnimplementedAdRequestServiceServer) GetStartTimeMillis(context.Context, *GetStartTimeMillisRequest) (*GetStartTimeMillisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetStartTimeMillis not implemented")
+}
+func (UnimplementedAdRequestServiceServer) GetStopTimeMillis(context.Context, *GetStopTimeMillisRequest) (*GetStopTimeMillisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetStopTimeMillis not implemented")
+}
+func (UnimplementedAdRequestServiceServer) GetUri(context.Context, *GetUriRequest) (*GetUriResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetUri not implemented")
+}
+func (UnimplementedAdRequestServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedAdRequestServiceServer) mustEmbedUnimplementedAdRequestServiceServer() {}
+func (UnimplementedAdRequestServiceServer) testEmbeddedByValue()                          {}
+
+// UnsafeAdRequestServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AdRequestServiceServer will
+// result in compilation errors.
+type UnsafeAdRequestServiceServer interface {
+	mustEmbedUnimplementedAdRequestServiceServer()
+}
+
+func RegisterAdRequestServiceServer(s grpc.ServiceRegistrar, srv AdRequestServiceServer) {
+	// If the following call panics, it indicates UnimplementedAdRequestServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&AdRequestService_ServiceDesc, srv)
+}
+
+func _AdRequestService_NewAdRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewAdRequestRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdRequestServiceServer).NewAdRequest(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdRequestService_NewAdRequest_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdRequestServiceServer).NewAdRequest(ctx, req.(*NewAdRequestRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdRequestService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdRequestServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdRequestService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdRequestServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdRequestService_GetEchoIntervalMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEchoIntervalMillisRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdRequestServiceServer).GetEchoIntervalMillis(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdRequestService_GetEchoIntervalMillis_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdRequestServiceServer).GetEchoIntervalMillis(ctx, req.(*GetEchoIntervalMillisRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdRequestService_GetFileDescriptor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFileDescriptorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdRequestServiceServer).GetFileDescriptor(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdRequestService_GetFileDescriptor_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdRequestServiceServer).GetFileDescriptor(ctx, req.(*GetFileDescriptorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdRequestService_GetId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdRequestServiceServer).GetId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdRequestService_GetId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdRequestServiceServer).GetId(ctx, req.(*GetIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdRequestService_GetMediaFileType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMediaFileTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdRequestServiceServer).GetMediaFileType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdRequestService_GetMediaFileType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdRequestServiceServer).GetMediaFileType(ctx, req.(*GetMediaFileTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdRequestService_GetMetadata_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMetadataRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdRequestServiceServer).GetMetadata(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdRequestService_GetMetadata_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdRequestServiceServer).GetMetadata(ctx, req.(*GetMetadataRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdRequestService_GetRequestType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRequestTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdRequestServiceServer).GetRequestType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdRequestService_GetRequestType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdRequestServiceServer).GetRequestType(ctx, req.(*GetRequestTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdRequestService_GetStartTimeMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStartTimeMillisRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdRequestServiceServer).GetStartTimeMillis(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdRequestService_GetStartTimeMillis_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdRequestServiceServer).GetStartTimeMillis(ctx, req.(*GetStartTimeMillisRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdRequestService_GetStopTimeMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStopTimeMillisRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdRequestServiceServer).GetStopTimeMillis(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdRequestService_GetStopTimeMillis_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdRequestServiceServer).GetStopTimeMillis(ctx, req.(*GetStopTimeMillisRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdRequestService_GetUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUriRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdRequestServiceServer).GetUri(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdRequestService_GetUri_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdRequestServiceServer).GetUri(ctx, req.(*GetUriRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdRequestService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdRequestServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdRequestService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdRequestServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AdRequestService_ServiceDesc is the grpc.ServiceDesc for AdRequestService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AdRequestService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "tv.AdRequestService",
+	HandlerType: (*AdRequestServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewAdRequest",
+			Handler:    _AdRequestService_NewAdRequest_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _AdRequestService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetEchoIntervalMillis",
+			Handler:    _AdRequestService_GetEchoIntervalMillis_Handler,
+		},
+		{
+			MethodName: "GetFileDescriptor",
+			Handler:    _AdRequestService_GetFileDescriptor_Handler,
+		},
+		{
+			MethodName: "GetId",
+			Handler:    _AdRequestService_GetId_Handler,
+		},
+		{
+			MethodName: "GetMediaFileType",
+			Handler:    _AdRequestService_GetMediaFileType_Handler,
+		},
+		{
+			MethodName: "GetMetadata",
+			Handler:    _AdRequestService_GetMetadata_Handler,
+		},
+		{
+			MethodName: "GetRequestType",
+			Handler:    _AdRequestService_GetRequestType_Handler,
+		},
+		{
+			MethodName: "GetStartTimeMillis",
+			Handler:    _AdRequestService_GetStartTimeMillis_Handler,
+		},
+		{
+			MethodName: "GetStopTimeMillis",
+			Handler:    _AdRequestService_GetStopTimeMillis_Handler,
+		},
+		{
+			MethodName: "GetUri",
+			Handler:    _AdRequestService_GetUri_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _AdRequestService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/tv/tv.proto",
+}
+
+const (
+	PesRequestService_NewPesRequest_FullMethodName    = "/tv.PesRequestService/NewPesRequest"
+	PesRequestService_DescribeContents_FullMethodName = "/tv.PesRequestService/DescribeContents"
+	PesRequestService_GetStreamId_FullMethodName      = "/tv.PesRequestService/GetStreamId"
+	PesRequestService_GetTsPid_FullMethodName         = "/tv.PesRequestService/GetTsPid"
+	PesRequestService_WriteToParcel_FullMethodName    = "/tv.PesRequestService/WriteToParcel"
+)
+
+// PesRequestServiceClient is the client API for PesRequestService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type PesRequestServiceClient interface {
+	NewPesRequest(ctx context.Context, in *NewPesRequestRequest, opts ...grpc.CallOption) (*NewPesRequestResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetStreamId(ctx context.Context, in *GetStreamIdRequest, opts ...grpc.CallOption) (*GetStreamIdResponse, error)
+	GetTsPid(ctx context.Context, in *GetTsPidRequest, opts ...grpc.CallOption) (*GetTsPidResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type pesRequestServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewPesRequestServiceClient(cc grpc.ClientConnInterface) PesRequestServiceClient {
+	return &pesRequestServiceClient{cc}
+}
+
+func (c *pesRequestServiceClient) NewPesRequest(ctx context.Context, in *NewPesRequestRequest, opts ...grpc.CallOption) (*NewPesRequestResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewPesRequestResponse)
+	err := c.cc.Invoke(ctx, PesRequestService_NewPesRequest_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *pesRequestServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, PesRequestService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *pesRequestServiceClient) GetStreamId(ctx context.Context, in *GetStreamIdRequest, opts ...grpc.CallOption) (*GetStreamIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStreamIdResponse)
+	err := c.cc.Invoke(ctx, PesRequestService_GetStreamId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *pesRequestServiceClient) GetTsPid(ctx context.Context, in *GetTsPidRequest, opts ...grpc.CallOption) (*GetTsPidResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTsPidResponse)
+	err := c.cc.Invoke(ctx, PesRequestService_GetTsPid_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *pesRequestServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, PesRequestService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// PesRequestServiceServer is the server API for PesRequestService service.
+// All implementations must embed UnimplementedPesRequestServiceServer
+// for forward compatibility.
+type PesRequestServiceServer interface {
+	NewPesRequest(context.Context, *NewPesRequestRequest) (*NewPesRequestResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetStreamId(context.Context, *GetStreamIdRequest) (*GetStreamIdResponse, error)
+	GetTsPid(context.Context, *GetTsPidRequest) (*GetTsPidResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedPesRequestServiceServer()
+}
+
+// UnimplementedPesRequestServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedPesRequestServiceServer struct{}
+
+func (UnimplementedPesRequestServiceServer) NewPesRequest(context.Context, *NewPesRequestRequest) (*NewPesRequestResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewPesRequest not implemented")
+}
+func (UnimplementedPesRequestServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedPesRequestServiceServer) GetStreamId(context.Context, *GetStreamIdRequest) (*GetStreamIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetStreamId not implemented")
+}
+func (UnimplementedPesRequestServiceServer) GetTsPid(context.Context, *GetTsPidRequest) (*GetTsPidResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTsPid not implemented")
+}
+func (UnimplementedPesRequestServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedPesRequestServiceServer) mustEmbedUnimplementedPesRequestServiceServer() {}
+func (UnimplementedPesRequestServiceServer) testEmbeddedByValue()                           {}
+
+// UnsafePesRequestServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to PesRequestServiceServer will
+// result in compilation errors.
+type UnsafePesRequestServiceServer interface {
+	mustEmbedUnimplementedPesRequestServiceServer()
+}
+
+func RegisterPesRequestServiceServer(s grpc.ServiceRegistrar, srv PesRequestServiceServer) {
+	// If the following call panics, it indicates UnimplementedPesRequestServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&PesRequestService_ServiceDesc, srv)
+}
+
+func _PesRequestService_NewPesRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewPesRequestRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PesRequestServiceServer).NewPesRequest(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PesRequestService_NewPesRequest_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PesRequestServiceServer).NewPesRequest(ctx, req.(*NewPesRequestRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PesRequestService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PesRequestServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PesRequestService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PesRequestServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PesRequestService_GetStreamId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStreamIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PesRequestServiceServer).GetStreamId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PesRequestService_GetStreamId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PesRequestServiceServer).GetStreamId(ctx, req.(*GetStreamIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PesRequestService_GetTsPid_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTsPidRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PesRequestServiceServer).GetTsPid(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PesRequestService_GetTsPid_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PesRequestServiceServer).GetTsPid(ctx, req.(*GetTsPidRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PesRequestService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PesRequestServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PesRequestService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PesRequestServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// PesRequestService_ServiceDesc is the grpc.ServiceDesc for PesRequestService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var PesRequestService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "tv.PesRequestService",
+	HandlerType: (*PesRequestServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewPesRequest",
+			Handler:    _PesRequestService_NewPesRequest_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _PesRequestService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetStreamId",
+			Handler:    _PesRequestService_GetStreamId_Handler,
+		},
+		{
+			MethodName: "GetTsPid",
+			Handler:    _PesRequestService_GetTsPid_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _PesRequestService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/tv/tv.proto",
+}
+
+const (
+	StreamEventResponseService_NewStreamEventResponse_FullMethodName = "/tv.StreamEventResponseService/NewStreamEventResponse"
+	StreamEventResponseService_DescribeContents_FullMethodName       = "/tv.StreamEventResponseService/DescribeContents"
+	StreamEventResponseService_GetData_FullMethodName                = "/tv.StreamEventResponseService/GetData"
+	StreamEventResponseService_GetEventId_FullMethodName             = "/tv.StreamEventResponseService/GetEventId"
+	StreamEventResponseService_GetNptMillis_FullMethodName           = "/tv.StreamEventResponseService/GetNptMillis"
+	StreamEventResponseService_WriteToParcel_FullMethodName          = "/tv.StreamEventResponseService/WriteToParcel"
+)
+
+// StreamEventResponseServiceClient is the client API for StreamEventResponseService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type StreamEventResponseServiceClient interface {
+	NewStreamEventResponse(ctx context.Context, in *NewStreamEventResponseRequest, opts ...grpc.CallOption) (*NewStreamEventResponseResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetData(ctx context.Context, in *GetDataRequest, opts ...grpc.CallOption) (*GetDataResponse, error)
+	GetEventId(ctx context.Context, in *GetEventIdRequest, opts ...grpc.CallOption) (*GetEventIdResponse, error)
+	GetNptMillis(ctx context.Context, in *GetNptMillisRequest, opts ...grpc.CallOption) (*GetNptMillisResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type streamEventResponseServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewStreamEventResponseServiceClient(cc grpc.ClientConnInterface) StreamEventResponseServiceClient {
+	return &streamEventResponseServiceClient{cc}
+}
+
+func (c *streamEventResponseServiceClient) NewStreamEventResponse(ctx context.Context, in *NewStreamEventResponseRequest, opts ...grpc.CallOption) (*NewStreamEventResponseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewStreamEventResponseResponse)
+	err := c.cc.Invoke(ctx, StreamEventResponseService_NewStreamEventResponse_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *streamEventResponseServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, StreamEventResponseService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *streamEventResponseServiceClient) GetData(ctx context.Context, in *GetDataRequest, opts ...grpc.CallOption) (*GetDataResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDataResponse)
+	err := c.cc.Invoke(ctx, StreamEventResponseService_GetData_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *streamEventResponseServiceClient) GetEventId(ctx context.Context, in *GetEventIdRequest, opts ...grpc.CallOption) (*GetEventIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEventIdResponse)
+	err := c.cc.Invoke(ctx, StreamEventResponseService_GetEventId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *streamEventResponseServiceClient) GetNptMillis(ctx context.Context, in *GetNptMillisRequest, opts ...grpc.CallOption) (*GetNptMillisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetNptMillisResponse)
+	err := c.cc.Invoke(ctx, StreamEventResponseService_GetNptMillis_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *streamEventResponseServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, StreamEventResponseService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// StreamEventResponseServiceServer is the server API for StreamEventResponseService service.
+// All implementations must embed UnimplementedStreamEventResponseServiceServer
+// for forward compatibility.
+type StreamEventResponseServiceServer interface {
+	NewStreamEventResponse(context.Context, *NewStreamEventResponseRequest) (*NewStreamEventResponseResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetData(context.Context, *GetDataRequest) (*GetDataResponse, error)
+	GetEventId(context.Context, *GetEventIdRequest) (*GetEventIdResponse, error)
+	GetNptMillis(context.Context, *GetNptMillisRequest) (*GetNptMillisResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedStreamEventResponseServiceServer()
+}
+
+// UnimplementedStreamEventResponseServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedStreamEventResponseServiceServer struct{}
+
+func (UnimplementedStreamEventResponseServiceServer) NewStreamEventResponse(context.Context, *NewStreamEventResponseRequest) (*NewStreamEventResponseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewStreamEventResponse not implemented")
+}
+func (UnimplementedStreamEventResponseServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedStreamEventResponseServiceServer) GetData(context.Context, *GetDataRequest) (*GetDataResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetData not implemented")
+}
+func (UnimplementedStreamEventResponseServiceServer) GetEventId(context.Context, *GetEventIdRequest) (*GetEventIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEventId not implemented")
+}
+func (UnimplementedStreamEventResponseServiceServer) GetNptMillis(context.Context, *GetNptMillisRequest) (*GetNptMillisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetNptMillis not implemented")
+}
+func (UnimplementedStreamEventResponseServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedStreamEventResponseServiceServer) mustEmbedUnimplementedStreamEventResponseServiceServer() {
+}
+func (UnimplementedStreamEventResponseServiceServer) testEmbeddedByValue() {}
+
+// UnsafeStreamEventResponseServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to StreamEventResponseServiceServer will
+// result in compilation errors.
+type UnsafeStreamEventResponseServiceServer interface {
+	mustEmbedUnimplementedStreamEventResponseServiceServer()
+}
+
+func RegisterStreamEventResponseServiceServer(s grpc.ServiceRegistrar, srv StreamEventResponseServiceServer) {
+	// If the following call panics, it indicates UnimplementedStreamEventResponseServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&StreamEventResponseService_ServiceDesc, srv)
+}
+
+func _StreamEventResponseService_NewStreamEventResponse_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewStreamEventResponseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StreamEventResponseServiceServer).NewStreamEventResponse(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StreamEventResponseService_NewStreamEventResponse_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StreamEventResponseServiceServer).NewStreamEventResponse(ctx, req.(*NewStreamEventResponseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StreamEventResponseService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StreamEventResponseServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StreamEventResponseService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StreamEventResponseServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StreamEventResponseService_GetData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDataRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StreamEventResponseServiceServer).GetData(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StreamEventResponseService_GetData_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StreamEventResponseServiceServer).GetData(ctx, req.(*GetDataRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StreamEventResponseService_GetEventId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEventIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StreamEventResponseServiceServer).GetEventId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StreamEventResponseService_GetEventId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StreamEventResponseServiceServer).GetEventId(ctx, req.(*GetEventIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StreamEventResponseService_GetNptMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetNptMillisRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StreamEventResponseServiceServer).GetNptMillis(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StreamEventResponseService_GetNptMillis_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StreamEventResponseServiceServer).GetNptMillis(ctx, req.(*GetNptMillisRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StreamEventResponseService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StreamEventResponseServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StreamEventResponseService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StreamEventResponseServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// StreamEventResponseService_ServiceDesc is the grpc.ServiceDesc for StreamEventResponseService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var StreamEventResponseService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "tv.StreamEventResponseService",
+	HandlerType: (*StreamEventResponseServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewStreamEventResponse",
+			Handler:    _StreamEventResponseService_NewStreamEventResponse_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _StreamEventResponseService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetData",
+			Handler:    _StreamEventResponseService_GetData_Handler,
+		},
+		{
+			MethodName: "GetEventId",
+			Handler:    _StreamEventResponseService_GetEventId_Handler,
+		},
+		{
+			MethodName: "GetNptMillis",
+			Handler:    _StreamEventResponseService_GetNptMillis_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _StreamEventResponseService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/tv/tv.proto",
+}
+
+const (
+	InputServiceService_OnBind_FullMethodName                      = "/tv.InputServiceService/OnBind"
+	InputServiceService_OnCreateRecordingSession1_FullMethodName   = "/tv.InputServiceService/OnCreateRecordingSession1"
+	InputServiceService_OnCreateRecordingSession2_1_FullMethodName = "/tv.InputServiceService/OnCreateRecordingSession2_1"
+	InputServiceService_OnCreateSession1_FullMethodName            = "/tv.InputServiceService/OnCreateSession1"
+	InputServiceService_OnCreateSession2_1_FullMethodName          = "/tv.InputServiceService/OnCreateSession2_1"
+	InputServiceService_OnCreateSession3_2_FullMethodName          = "/tv.InputServiceService/OnCreateSession3_2"
+)
+
+// InputServiceServiceClient is the client API for InputServiceService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type InputServiceServiceClient interface {
+	OnBind(ctx context.Context, in *OnBindRequest, opts ...grpc.CallOption) (*OnBindResponse, error)
+	OnCreateRecordingSession1(ctx context.Context, in *OnCreateRecordingSession1Request, opts ...grpc.CallOption) (*OnCreateRecordingSession1Response, error)
+	OnCreateRecordingSession2_1(ctx context.Context, in *OnCreateRecordingSession2_1Request, opts ...grpc.CallOption) (*OnCreateRecordingSession2_1Response, error)
+	OnCreateSession1(ctx context.Context, in *OnCreateSession1Request, opts ...grpc.CallOption) (*OnCreateSession1Response, error)
+	OnCreateSession2_1(ctx context.Context, in *OnCreateSession2_1Request, opts ...grpc.CallOption) (*OnCreateSession2_1Response, error)
+	OnCreateSession3_2(ctx context.Context, in *OnCreateSession3_2Request, opts ...grpc.CallOption) (*OnCreateSession3_2Response, error)
+}
+
+type inputServiceServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewInputServiceServiceClient(cc grpc.ClientConnInterface) InputServiceServiceClient {
+	return &inputServiceServiceClient{cc}
+}
+
+func (c *inputServiceServiceClient) OnBind(ctx context.Context, in *OnBindRequest, opts ...grpc.CallOption) (*OnBindResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnBindResponse)
+	err := c.cc.Invoke(ctx, InputServiceService_OnBind_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceServiceClient) OnCreateRecordingSession1(ctx context.Context, in *OnCreateRecordingSession1Request, opts ...grpc.CallOption) (*OnCreateRecordingSession1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnCreateRecordingSession1Response)
+	err := c.cc.Invoke(ctx, InputServiceService_OnCreateRecordingSession1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceServiceClient) OnCreateRecordingSession2_1(ctx context.Context, in *OnCreateRecordingSession2_1Request, opts ...grpc.CallOption) (*OnCreateRecordingSession2_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnCreateRecordingSession2_1Response)
+	err := c.cc.Invoke(ctx, InputServiceService_OnCreateRecordingSession2_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceServiceClient) OnCreateSession1(ctx context.Context, in *OnCreateSession1Request, opts ...grpc.CallOption) (*OnCreateSession1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnCreateSession1Response)
+	err := c.cc.Invoke(ctx, InputServiceService_OnCreateSession1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceServiceClient) OnCreateSession2_1(ctx context.Context, in *OnCreateSession2_1Request, opts ...grpc.CallOption) (*OnCreateSession2_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnCreateSession2_1Response)
+	err := c.cc.Invoke(ctx, InputServiceService_OnCreateSession2_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceServiceClient) OnCreateSession3_2(ctx context.Context, in *OnCreateSession3_2Request, opts ...grpc.CallOption) (*OnCreateSession3_2Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnCreateSession3_2Response)
+	err := c.cc.Invoke(ctx, InputServiceService_OnCreateSession3_2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// InputServiceServiceServer is the server API for InputServiceService service.
+// All implementations must embed UnimplementedInputServiceServiceServer
+// for forward compatibility.
+type InputServiceServiceServer interface {
+	OnBind(context.Context, *OnBindRequest) (*OnBindResponse, error)
+	OnCreateRecordingSession1(context.Context, *OnCreateRecordingSession1Request) (*OnCreateRecordingSession1Response, error)
+	OnCreateRecordingSession2_1(context.Context, *OnCreateRecordingSession2_1Request) (*OnCreateRecordingSession2_1Response, error)
+	OnCreateSession1(context.Context, *OnCreateSession1Request) (*OnCreateSession1Response, error)
+	OnCreateSession2_1(context.Context, *OnCreateSession2_1Request) (*OnCreateSession2_1Response, error)
+	OnCreateSession3_2(context.Context, *OnCreateSession3_2Request) (*OnCreateSession3_2Response, error)
+	mustEmbedUnimplementedInputServiceServiceServer()
+}
+
+// UnimplementedInputServiceServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedInputServiceServiceServer struct{}
+
+func (UnimplementedInputServiceServiceServer) OnBind(context.Context, *OnBindRequest) (*OnBindResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnBind not implemented")
+}
+func (UnimplementedInputServiceServiceServer) OnCreateRecordingSession1(context.Context, *OnCreateRecordingSession1Request) (*OnCreateRecordingSession1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnCreateRecordingSession1 not implemented")
+}
+func (UnimplementedInputServiceServiceServer) OnCreateRecordingSession2_1(context.Context, *OnCreateRecordingSession2_1Request) (*OnCreateRecordingSession2_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnCreateRecordingSession2_1 not implemented")
+}
+func (UnimplementedInputServiceServiceServer) OnCreateSession1(context.Context, *OnCreateSession1Request) (*OnCreateSession1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnCreateSession1 not implemented")
+}
+func (UnimplementedInputServiceServiceServer) OnCreateSession2_1(context.Context, *OnCreateSession2_1Request) (*OnCreateSession2_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnCreateSession2_1 not implemented")
+}
+func (UnimplementedInputServiceServiceServer) OnCreateSession3_2(context.Context, *OnCreateSession3_2Request) (*OnCreateSession3_2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnCreateSession3_2 not implemented")
+}
+func (UnimplementedInputServiceServiceServer) mustEmbedUnimplementedInputServiceServiceServer() {}
+func (UnimplementedInputServiceServiceServer) testEmbeddedByValue()                             {}
+
+// UnsafeInputServiceServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to InputServiceServiceServer will
+// result in compilation errors.
+type UnsafeInputServiceServiceServer interface {
+	mustEmbedUnimplementedInputServiceServiceServer()
+}
+
+func RegisterInputServiceServiceServer(s grpc.ServiceRegistrar, srv InputServiceServiceServer) {
+	// If the following call panics, it indicates UnimplementedInputServiceServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&InputServiceService_ServiceDesc, srv)
+}
+
+func _InputServiceService_OnBind_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnBindRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceServiceServer).OnBind(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceService_OnBind_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceServiceServer).OnBind(ctx, req.(*OnBindRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceService_OnCreateRecordingSession1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnCreateRecordingSession1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceServiceServer).OnCreateRecordingSession1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceService_OnCreateRecordingSession1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceServiceServer).OnCreateRecordingSession1(ctx, req.(*OnCreateRecordingSession1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceService_OnCreateRecordingSession2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnCreateRecordingSession2_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceServiceServer).OnCreateRecordingSession2_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceService_OnCreateRecordingSession2_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceServiceServer).OnCreateRecordingSession2_1(ctx, req.(*OnCreateRecordingSession2_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceService_OnCreateSession1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnCreateSession1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceServiceServer).OnCreateSession1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceService_OnCreateSession1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceServiceServer).OnCreateSession1(ctx, req.(*OnCreateSession1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceService_OnCreateSession2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnCreateSession2_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceServiceServer).OnCreateSession2_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceService_OnCreateSession2_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceServiceServer).OnCreateSession2_1(ctx, req.(*OnCreateSession2_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceService_OnCreateSession3_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnCreateSession3_2Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceServiceServer).OnCreateSession3_2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceService_OnCreateSession3_2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceServiceServer).OnCreateSession3_2(ctx, req.(*OnCreateSession3_2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// InputServiceService_ServiceDesc is the grpc.ServiceDesc for InputServiceService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var InputServiceService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "tv.InputServiceService",
+	HandlerType: (*InputServiceServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnBind",
+			Handler:    _InputServiceService_OnBind_Handler,
+		},
+		{
+			MethodName: "OnCreateRecordingSession1",
+			Handler:    _InputServiceService_OnCreateRecordingSession1_Handler,
+		},
+		{
+			MethodName: "OnCreateRecordingSession2_1",
+			Handler:    _InputServiceService_OnCreateRecordingSession2_1_Handler,
+		},
+		{
+			MethodName: "OnCreateSession1",
+			Handler:    _InputServiceService_OnCreateSession1_Handler,
+		},
+		{
+			MethodName: "OnCreateSession2_1",
+			Handler:    _InputServiceService_OnCreateSession2_1_Handler,
+		},
+		{
+			MethodName: "OnCreateSession3_2",
+			Handler:    _InputServiceService_OnCreateSession3_2_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/tv/tv.proto",
+}
+
+const (
+	InputServiceHardwareSessionService_GetHardwareInputId_FullMethodName         = "/tv.InputServiceHardwareSessionService/GetHardwareInputId"
+	InputServiceHardwareSessionService_OnHardwareVideoAvailable_FullMethodName   = "/tv.InputServiceHardwareSessionService/OnHardwareVideoAvailable"
+	InputServiceHardwareSessionService_OnHardwareVideoUnavailable_FullMethodName = "/tv.InputServiceHardwareSessionService/OnHardwareVideoUnavailable"
+	InputServiceHardwareSessionService_OnSetSurface_FullMethodName               = "/tv.InputServiceHardwareSessionService/OnSetSurface"
+)
+
+// InputServiceHardwareSessionServiceClient is the client API for InputServiceHardwareSessionService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type InputServiceHardwareSessionServiceClient interface {
+	GetHardwareInputId(ctx context.Context, in *GetHardwareInputIdRequest, opts ...grpc.CallOption) (*GetHardwareInputIdResponse, error)
+	OnHardwareVideoAvailable(ctx context.Context, in *OnHardwareVideoAvailableRequest, opts ...grpc.CallOption) (*OnHardwareVideoAvailableResponse, error)
+	OnHardwareVideoUnavailable(ctx context.Context, in *OnHardwareVideoUnavailableRequest, opts ...grpc.CallOption) (*OnHardwareVideoUnavailableResponse, error)
+	OnSetSurface(ctx context.Context, in *OnSetSurfaceRequest, opts ...grpc.CallOption) (*OnSetSurfaceResponse, error)
+}
+
+type inputServiceHardwareSessionServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewInputServiceHardwareSessionServiceClient(cc grpc.ClientConnInterface) InputServiceHardwareSessionServiceClient {
+	return &inputServiceHardwareSessionServiceClient{cc}
+}
+
+func (c *inputServiceHardwareSessionServiceClient) GetHardwareInputId(ctx context.Context, in *GetHardwareInputIdRequest, opts ...grpc.CallOption) (*GetHardwareInputIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetHardwareInputIdResponse)
+	err := c.cc.Invoke(ctx, InputServiceHardwareSessionService_GetHardwareInputId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceHardwareSessionServiceClient) OnHardwareVideoAvailable(ctx context.Context, in *OnHardwareVideoAvailableRequest, opts ...grpc.CallOption) (*OnHardwareVideoAvailableResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnHardwareVideoAvailableResponse)
+	err := c.cc.Invoke(ctx, InputServiceHardwareSessionService_OnHardwareVideoAvailable_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceHardwareSessionServiceClient) OnHardwareVideoUnavailable(ctx context.Context, in *OnHardwareVideoUnavailableRequest, opts ...grpc.CallOption) (*OnHardwareVideoUnavailableResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnHardwareVideoUnavailableResponse)
+	err := c.cc.Invoke(ctx, InputServiceHardwareSessionService_OnHardwareVideoUnavailable_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceHardwareSessionServiceClient) OnSetSurface(ctx context.Context, in *OnSetSurfaceRequest, opts ...grpc.CallOption) (*OnSetSurfaceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnSetSurfaceResponse)
+	err := c.cc.Invoke(ctx, InputServiceHardwareSessionService_OnSetSurface_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// InputServiceHardwareSessionServiceServer is the server API for InputServiceHardwareSessionService service.
+// All implementations must embed UnimplementedInputServiceHardwareSessionServiceServer
+// for forward compatibility.
+type InputServiceHardwareSessionServiceServer interface {
+	GetHardwareInputId(context.Context, *GetHardwareInputIdRequest) (*GetHardwareInputIdResponse, error)
+	OnHardwareVideoAvailable(context.Context, *OnHardwareVideoAvailableRequest) (*OnHardwareVideoAvailableResponse, error)
+	OnHardwareVideoUnavailable(context.Context, *OnHardwareVideoUnavailableRequest) (*OnHardwareVideoUnavailableResponse, error)
+	OnSetSurface(context.Context, *OnSetSurfaceRequest) (*OnSetSurfaceResponse, error)
+	mustEmbedUnimplementedInputServiceHardwareSessionServiceServer()
+}
+
+// UnimplementedInputServiceHardwareSessionServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedInputServiceHardwareSessionServiceServer struct{}
+
+func (UnimplementedInputServiceHardwareSessionServiceServer) GetHardwareInputId(context.Context, *GetHardwareInputIdRequest) (*GetHardwareInputIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetHardwareInputId not implemented")
+}
+func (UnimplementedInputServiceHardwareSessionServiceServer) OnHardwareVideoAvailable(context.Context, *OnHardwareVideoAvailableRequest) (*OnHardwareVideoAvailableResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnHardwareVideoAvailable not implemented")
+}
+func (UnimplementedInputServiceHardwareSessionServiceServer) OnHardwareVideoUnavailable(context.Context, *OnHardwareVideoUnavailableRequest) (*OnHardwareVideoUnavailableResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnHardwareVideoUnavailable not implemented")
+}
+func (UnimplementedInputServiceHardwareSessionServiceServer) OnSetSurface(context.Context, *OnSetSurfaceRequest) (*OnSetSurfaceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnSetSurface not implemented")
+}
+func (UnimplementedInputServiceHardwareSessionServiceServer) mustEmbedUnimplementedInputServiceHardwareSessionServiceServer() {
+}
+func (UnimplementedInputServiceHardwareSessionServiceServer) testEmbeddedByValue() {}
+
+// UnsafeInputServiceHardwareSessionServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to InputServiceHardwareSessionServiceServer will
+// result in compilation errors.
+type UnsafeInputServiceHardwareSessionServiceServer interface {
+	mustEmbedUnimplementedInputServiceHardwareSessionServiceServer()
+}
+
+func RegisterInputServiceHardwareSessionServiceServer(s grpc.ServiceRegistrar, srv InputServiceHardwareSessionServiceServer) {
+	// If the following call panics, it indicates UnimplementedInputServiceHardwareSessionServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&InputServiceHardwareSessionService_ServiceDesc, srv)
+}
+
+func _InputServiceHardwareSessionService_GetHardwareInputId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetHardwareInputIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceHardwareSessionServiceServer).GetHardwareInputId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceHardwareSessionService_GetHardwareInputId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceHardwareSessionServiceServer).GetHardwareInputId(ctx, req.(*GetHardwareInputIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceHardwareSessionService_OnHardwareVideoAvailable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnHardwareVideoAvailableRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceHardwareSessionServiceServer).OnHardwareVideoAvailable(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceHardwareSessionService_OnHardwareVideoAvailable_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceHardwareSessionServiceServer).OnHardwareVideoAvailable(ctx, req.(*OnHardwareVideoAvailableRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceHardwareSessionService_OnHardwareVideoUnavailable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnHardwareVideoUnavailableRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceHardwareSessionServiceServer).OnHardwareVideoUnavailable(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceHardwareSessionService_OnHardwareVideoUnavailable_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceHardwareSessionServiceServer).OnHardwareVideoUnavailable(ctx, req.(*OnHardwareVideoUnavailableRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceHardwareSessionService_OnSetSurface_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnSetSurfaceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceHardwareSessionServiceServer).OnSetSurface(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceHardwareSessionService_OnSetSurface_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceHardwareSessionServiceServer).OnSetSurface(ctx, req.(*OnSetSurfaceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// InputServiceHardwareSessionService_ServiceDesc is the grpc.ServiceDesc for InputServiceHardwareSessionService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var InputServiceHardwareSessionService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "tv.InputServiceHardwareSessionService",
+	HandlerType: (*InputServiceHardwareSessionServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetHardwareInputId",
+			Handler:    _InputServiceHardwareSessionService_GetHardwareInputId_Handler,
+		},
+		{
+			MethodName: "OnHardwareVideoAvailable",
+			Handler:    _InputServiceHardwareSessionService_OnHardwareVideoAvailable_Handler,
+		},
+		{
+			MethodName: "OnHardwareVideoUnavailable",
+			Handler:    _InputServiceHardwareSessionService_OnHardwareVideoUnavailable_Handler,
+		},
+		{
+			MethodName: "OnSetSurface",
+			Handler:    _InputServiceHardwareSessionService_OnSetSurface_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/tv/tv.proto",
+}
+
+const (
+	InputServiceRecordingSessionService_NotifyError_FullMethodName            = "/tv.InputServiceRecordingSessionService/NotifyError"
+	InputServiceRecordingSessionService_NotifyRecordingStopped_FullMethodName = "/tv.InputServiceRecordingSessionService/NotifyRecordingStopped"
+	InputServiceRecordingSessionService_NotifyTuned_FullMethodName            = "/tv.InputServiceRecordingSessionService/NotifyTuned"
+	InputServiceRecordingSessionService_OnAppPrivateCommand_FullMethodName    = "/tv.InputServiceRecordingSessionService/OnAppPrivateCommand"
+	InputServiceRecordingSessionService_OnPauseRecording_FullMethodName       = "/tv.InputServiceRecordingSessionService/OnPauseRecording"
+	InputServiceRecordingSessionService_OnRelease_FullMethodName              = "/tv.InputServiceRecordingSessionService/OnRelease"
+	InputServiceRecordingSessionService_OnResumeRecording_FullMethodName      = "/tv.InputServiceRecordingSessionService/OnResumeRecording"
+	InputServiceRecordingSessionService_OnStartRecording1_FullMethodName      = "/tv.InputServiceRecordingSessionService/OnStartRecording1"
+	InputServiceRecordingSessionService_OnStartRecording2_1_FullMethodName    = "/tv.InputServiceRecordingSessionService/OnStartRecording2_1"
+	InputServiceRecordingSessionService_OnStopRecording_FullMethodName        = "/tv.InputServiceRecordingSessionService/OnStopRecording"
+	InputServiceRecordingSessionService_OnTune1_FullMethodName                = "/tv.InputServiceRecordingSessionService/OnTune1"
+	InputServiceRecordingSessionService_OnTune2_1_FullMethodName              = "/tv.InputServiceRecordingSessionService/OnTune2_1"
+)
+
+// InputServiceRecordingSessionServiceClient is the client API for InputServiceRecordingSessionService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type InputServiceRecordingSessionServiceClient interface {
+	NotifyError(ctx context.Context, in *NotifyErrorRequest, opts ...grpc.CallOption) (*NotifyErrorResponse, error)
+	NotifyRecordingStopped(ctx context.Context, in *NotifyRecordingStoppedRequest, opts ...grpc.CallOption) (*NotifyRecordingStoppedResponse, error)
+	NotifyTuned(ctx context.Context, in *NotifyTunedRequest, opts ...grpc.CallOption) (*NotifyTunedResponse, error)
+	OnAppPrivateCommand(ctx context.Context, in *OnAppPrivateCommandRequest, opts ...grpc.CallOption) (*OnAppPrivateCommandResponse, error)
+	OnPauseRecording(ctx context.Context, in *OnPauseRecordingRequest, opts ...grpc.CallOption) (*OnPauseRecordingResponse, error)
+	OnRelease(ctx context.Context, in *OnReleaseRequest, opts ...grpc.CallOption) (*OnReleaseResponse, error)
+	OnResumeRecording(ctx context.Context, in *OnResumeRecordingRequest, opts ...grpc.CallOption) (*OnResumeRecordingResponse, error)
+	OnStartRecording1(ctx context.Context, in *OnStartRecording1Request, opts ...grpc.CallOption) (*OnStartRecording1Response, error)
+	OnStartRecording2_1(ctx context.Context, in *OnStartRecording2_1Request, opts ...grpc.CallOption) (*OnStartRecording2_1Response, error)
+	OnStopRecording(ctx context.Context, in *OnStopRecordingRequest, opts ...grpc.CallOption) (*OnStopRecordingResponse, error)
+	OnTune1(ctx context.Context, in *OnTune1Request, opts ...grpc.CallOption) (*OnTune1Response, error)
+	OnTune2_1(ctx context.Context, in *OnTune2_1Request, opts ...grpc.CallOption) (*OnTune2_1Response, error)
+}
+
+type inputServiceRecordingSessionServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewInputServiceRecordingSessionServiceClient(cc grpc.ClientConnInterface) InputServiceRecordingSessionServiceClient {
+	return &inputServiceRecordingSessionServiceClient{cc}
+}
+
+func (c *inputServiceRecordingSessionServiceClient) NotifyError(ctx context.Context, in *NotifyErrorRequest, opts ...grpc.CallOption) (*NotifyErrorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NotifyErrorResponse)
+	err := c.cc.Invoke(ctx, InputServiceRecordingSessionService_NotifyError_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceRecordingSessionServiceClient) NotifyRecordingStopped(ctx context.Context, in *NotifyRecordingStoppedRequest, opts ...grpc.CallOption) (*NotifyRecordingStoppedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NotifyRecordingStoppedResponse)
+	err := c.cc.Invoke(ctx, InputServiceRecordingSessionService_NotifyRecordingStopped_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceRecordingSessionServiceClient) NotifyTuned(ctx context.Context, in *NotifyTunedRequest, opts ...grpc.CallOption) (*NotifyTunedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NotifyTunedResponse)
+	err := c.cc.Invoke(ctx, InputServiceRecordingSessionService_NotifyTuned_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceRecordingSessionServiceClient) OnAppPrivateCommand(ctx context.Context, in *OnAppPrivateCommandRequest, opts ...grpc.CallOption) (*OnAppPrivateCommandResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnAppPrivateCommandResponse)
+	err := c.cc.Invoke(ctx, InputServiceRecordingSessionService_OnAppPrivateCommand_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceRecordingSessionServiceClient) OnPauseRecording(ctx context.Context, in *OnPauseRecordingRequest, opts ...grpc.CallOption) (*OnPauseRecordingResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnPauseRecordingResponse)
+	err := c.cc.Invoke(ctx, InputServiceRecordingSessionService_OnPauseRecording_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceRecordingSessionServiceClient) OnRelease(ctx context.Context, in *OnReleaseRequest, opts ...grpc.CallOption) (*OnReleaseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnReleaseResponse)
+	err := c.cc.Invoke(ctx, InputServiceRecordingSessionService_OnRelease_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceRecordingSessionServiceClient) OnResumeRecording(ctx context.Context, in *OnResumeRecordingRequest, opts ...grpc.CallOption) (*OnResumeRecordingResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnResumeRecordingResponse)
+	err := c.cc.Invoke(ctx, InputServiceRecordingSessionService_OnResumeRecording_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceRecordingSessionServiceClient) OnStartRecording1(ctx context.Context, in *OnStartRecording1Request, opts ...grpc.CallOption) (*OnStartRecording1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnStartRecording1Response)
+	err := c.cc.Invoke(ctx, InputServiceRecordingSessionService_OnStartRecording1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceRecordingSessionServiceClient) OnStartRecording2_1(ctx context.Context, in *OnStartRecording2_1Request, opts ...grpc.CallOption) (*OnStartRecording2_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnStartRecording2_1Response)
+	err := c.cc.Invoke(ctx, InputServiceRecordingSessionService_OnStartRecording2_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceRecordingSessionServiceClient) OnStopRecording(ctx context.Context, in *OnStopRecordingRequest, opts ...grpc.CallOption) (*OnStopRecordingResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnStopRecordingResponse)
+	err := c.cc.Invoke(ctx, InputServiceRecordingSessionService_OnStopRecording_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceRecordingSessionServiceClient) OnTune1(ctx context.Context, in *OnTune1Request, opts ...grpc.CallOption) (*OnTune1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnTune1Response)
+	err := c.cc.Invoke(ctx, InputServiceRecordingSessionService_OnTune1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceRecordingSessionServiceClient) OnTune2_1(ctx context.Context, in *OnTune2_1Request, opts ...grpc.CallOption) (*OnTune2_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnTune2_1Response)
+	err := c.cc.Invoke(ctx, InputServiceRecordingSessionService_OnTune2_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// InputServiceRecordingSessionServiceServer is the server API for InputServiceRecordingSessionService service.
+// All implementations must embed UnimplementedInputServiceRecordingSessionServiceServer
+// for forward compatibility.
+type InputServiceRecordingSessionServiceServer interface {
+	NotifyError(context.Context, *NotifyErrorRequest) (*NotifyErrorResponse, error)
+	NotifyRecordingStopped(context.Context, *NotifyRecordingStoppedRequest) (*NotifyRecordingStoppedResponse, error)
+	NotifyTuned(context.Context, *NotifyTunedRequest) (*NotifyTunedResponse, error)
+	OnAppPrivateCommand(context.Context, *OnAppPrivateCommandRequest) (*OnAppPrivateCommandResponse, error)
+	OnPauseRecording(context.Context, *OnPauseRecordingRequest) (*OnPauseRecordingResponse, error)
+	OnRelease(context.Context, *OnReleaseRequest) (*OnReleaseResponse, error)
+	OnResumeRecording(context.Context, *OnResumeRecordingRequest) (*OnResumeRecordingResponse, error)
+	OnStartRecording1(context.Context, *OnStartRecording1Request) (*OnStartRecording1Response, error)
+	OnStartRecording2_1(context.Context, *OnStartRecording2_1Request) (*OnStartRecording2_1Response, error)
+	OnStopRecording(context.Context, *OnStopRecordingRequest) (*OnStopRecordingResponse, error)
+	OnTune1(context.Context, *OnTune1Request) (*OnTune1Response, error)
+	OnTune2_1(context.Context, *OnTune2_1Request) (*OnTune2_1Response, error)
+	mustEmbedUnimplementedInputServiceRecordingSessionServiceServer()
+}
+
+// UnimplementedInputServiceRecordingSessionServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedInputServiceRecordingSessionServiceServer struct{}
+
+func (UnimplementedInputServiceRecordingSessionServiceServer) NotifyError(context.Context, *NotifyErrorRequest) (*NotifyErrorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NotifyError not implemented")
+}
+func (UnimplementedInputServiceRecordingSessionServiceServer) NotifyRecordingStopped(context.Context, *NotifyRecordingStoppedRequest) (*NotifyRecordingStoppedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NotifyRecordingStopped not implemented")
+}
+func (UnimplementedInputServiceRecordingSessionServiceServer) NotifyTuned(context.Context, *NotifyTunedRequest) (*NotifyTunedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NotifyTuned not implemented")
+}
+func (UnimplementedInputServiceRecordingSessionServiceServer) OnAppPrivateCommand(context.Context, *OnAppPrivateCommandRequest) (*OnAppPrivateCommandResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnAppPrivateCommand not implemented")
+}
+func (UnimplementedInputServiceRecordingSessionServiceServer) OnPauseRecording(context.Context, *OnPauseRecordingRequest) (*OnPauseRecordingResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnPauseRecording not implemented")
+}
+func (UnimplementedInputServiceRecordingSessionServiceServer) OnRelease(context.Context, *OnReleaseRequest) (*OnReleaseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnRelease not implemented")
+}
+func (UnimplementedInputServiceRecordingSessionServiceServer) OnResumeRecording(context.Context, *OnResumeRecordingRequest) (*OnResumeRecordingResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnResumeRecording not implemented")
+}
+func (UnimplementedInputServiceRecordingSessionServiceServer) OnStartRecording1(context.Context, *OnStartRecording1Request) (*OnStartRecording1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnStartRecording1 not implemented")
+}
+func (UnimplementedInputServiceRecordingSessionServiceServer) OnStartRecording2_1(context.Context, *OnStartRecording2_1Request) (*OnStartRecording2_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnStartRecording2_1 not implemented")
+}
+func (UnimplementedInputServiceRecordingSessionServiceServer) OnStopRecording(context.Context, *OnStopRecordingRequest) (*OnStopRecordingResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnStopRecording not implemented")
+}
+func (UnimplementedInputServiceRecordingSessionServiceServer) OnTune1(context.Context, *OnTune1Request) (*OnTune1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnTune1 not implemented")
+}
+func (UnimplementedInputServiceRecordingSessionServiceServer) OnTune2_1(context.Context, *OnTune2_1Request) (*OnTune2_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnTune2_1 not implemented")
+}
+func (UnimplementedInputServiceRecordingSessionServiceServer) mustEmbedUnimplementedInputServiceRecordingSessionServiceServer() {
+}
+func (UnimplementedInputServiceRecordingSessionServiceServer) testEmbeddedByValue() {}
+
+// UnsafeInputServiceRecordingSessionServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to InputServiceRecordingSessionServiceServer will
+// result in compilation errors.
+type UnsafeInputServiceRecordingSessionServiceServer interface {
+	mustEmbedUnimplementedInputServiceRecordingSessionServiceServer()
+}
+
+func RegisterInputServiceRecordingSessionServiceServer(s grpc.ServiceRegistrar, srv InputServiceRecordingSessionServiceServer) {
+	// If the following call panics, it indicates UnimplementedInputServiceRecordingSessionServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&InputServiceRecordingSessionService_ServiceDesc, srv)
+}
+
+func _InputServiceRecordingSessionService_NotifyError_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NotifyErrorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceRecordingSessionServiceServer).NotifyError(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceRecordingSessionService_NotifyError_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceRecordingSessionServiceServer).NotifyError(ctx, req.(*NotifyErrorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceRecordingSessionService_NotifyRecordingStopped_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NotifyRecordingStoppedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceRecordingSessionServiceServer).NotifyRecordingStopped(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceRecordingSessionService_NotifyRecordingStopped_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceRecordingSessionServiceServer).NotifyRecordingStopped(ctx, req.(*NotifyRecordingStoppedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceRecordingSessionService_NotifyTuned_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NotifyTunedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceRecordingSessionServiceServer).NotifyTuned(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceRecordingSessionService_NotifyTuned_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceRecordingSessionServiceServer).NotifyTuned(ctx, req.(*NotifyTunedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceRecordingSessionService_OnAppPrivateCommand_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnAppPrivateCommandRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceRecordingSessionServiceServer).OnAppPrivateCommand(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceRecordingSessionService_OnAppPrivateCommand_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceRecordingSessionServiceServer).OnAppPrivateCommand(ctx, req.(*OnAppPrivateCommandRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceRecordingSessionService_OnPauseRecording_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnPauseRecordingRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceRecordingSessionServiceServer).OnPauseRecording(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceRecordingSessionService_OnPauseRecording_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceRecordingSessionServiceServer).OnPauseRecording(ctx, req.(*OnPauseRecordingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceRecordingSessionService_OnRelease_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnReleaseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceRecordingSessionServiceServer).OnRelease(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceRecordingSessionService_OnRelease_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceRecordingSessionServiceServer).OnRelease(ctx, req.(*OnReleaseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceRecordingSessionService_OnResumeRecording_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnResumeRecordingRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceRecordingSessionServiceServer).OnResumeRecording(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceRecordingSessionService_OnResumeRecording_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceRecordingSessionServiceServer).OnResumeRecording(ctx, req.(*OnResumeRecordingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceRecordingSessionService_OnStartRecording1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnStartRecording1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceRecordingSessionServiceServer).OnStartRecording1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceRecordingSessionService_OnStartRecording1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceRecordingSessionServiceServer).OnStartRecording1(ctx, req.(*OnStartRecording1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceRecordingSessionService_OnStartRecording2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnStartRecording2_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceRecordingSessionServiceServer).OnStartRecording2_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceRecordingSessionService_OnStartRecording2_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceRecordingSessionServiceServer).OnStartRecording2_1(ctx, req.(*OnStartRecording2_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceRecordingSessionService_OnStopRecording_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnStopRecordingRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceRecordingSessionServiceServer).OnStopRecording(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceRecordingSessionService_OnStopRecording_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceRecordingSessionServiceServer).OnStopRecording(ctx, req.(*OnStopRecordingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceRecordingSessionService_OnTune1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnTune1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceRecordingSessionServiceServer).OnTune1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceRecordingSessionService_OnTune1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceRecordingSessionServiceServer).OnTune1(ctx, req.(*OnTune1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceRecordingSessionService_OnTune2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnTune2_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceRecordingSessionServiceServer).OnTune2_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceRecordingSessionService_OnTune2_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceRecordingSessionServiceServer).OnTune2_1(ctx, req.(*OnTune2_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// InputServiceRecordingSessionService_ServiceDesc is the grpc.ServiceDesc for InputServiceRecordingSessionService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var InputServiceRecordingSessionService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "tv.InputServiceRecordingSessionService",
+	HandlerType: (*InputServiceRecordingSessionServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NotifyError",
+			Handler:    _InputServiceRecordingSessionService_NotifyError_Handler,
+		},
+		{
+			MethodName: "NotifyRecordingStopped",
+			Handler:    _InputServiceRecordingSessionService_NotifyRecordingStopped_Handler,
+		},
+		{
+			MethodName: "NotifyTuned",
+			Handler:    _InputServiceRecordingSessionService_NotifyTuned_Handler,
+		},
+		{
+			MethodName: "OnAppPrivateCommand",
+			Handler:    _InputServiceRecordingSessionService_OnAppPrivateCommand_Handler,
+		},
+		{
+			MethodName: "OnPauseRecording",
+			Handler:    _InputServiceRecordingSessionService_OnPauseRecording_Handler,
+		},
+		{
+			MethodName: "OnRelease",
+			Handler:    _InputServiceRecordingSessionService_OnRelease_Handler,
+		},
+		{
+			MethodName: "OnResumeRecording",
+			Handler:    _InputServiceRecordingSessionService_OnResumeRecording_Handler,
+		},
+		{
+			MethodName: "OnStartRecording1",
+			Handler:    _InputServiceRecordingSessionService_OnStartRecording1_Handler,
+		},
+		{
+			MethodName: "OnStartRecording2_1",
+			Handler:    _InputServiceRecordingSessionService_OnStartRecording2_1_Handler,
+		},
+		{
+			MethodName: "OnStopRecording",
+			Handler:    _InputServiceRecordingSessionService_OnStopRecording_Handler,
+		},
+		{
+			MethodName: "OnTune1",
+			Handler:    _InputServiceRecordingSessionService_OnTune1_Handler,
+		},
+		{
+			MethodName: "OnTune2_1",
+			Handler:    _InputServiceRecordingSessionService_OnTune2_1_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/tv/tv.proto",
+}
+
+const (
+	InputServiceSessionService_LayoutSurface_FullMethodName                          = "/tv.InputServiceSessionService/LayoutSurface"
+	InputServiceSessionService_NotifyAdBufferConsumed_FullMethodName                 = "/tv.InputServiceSessionService/NotifyAdBufferConsumed"
+	InputServiceSessionService_NotifyAdResponse_FullMethodName                       = "/tv.InputServiceSessionService/NotifyAdResponse"
+	InputServiceSessionService_NotifyAitInfoUpdated_FullMethodName                   = "/tv.InputServiceSessionService/NotifyAitInfoUpdated"
+	InputServiceSessionService_NotifyAudioPresentationSelected_FullMethodName        = "/tv.InputServiceSessionService/NotifyAudioPresentationSelected"
+	InputServiceSessionService_NotifyAvailableSpeeds_FullMethodName                  = "/tv.InputServiceSessionService/NotifyAvailableSpeeds"
+	InputServiceSessionService_NotifyBroadcastInfoResponse_FullMethodName            = "/tv.InputServiceSessionService/NotifyBroadcastInfoResponse"
+	InputServiceSessionService_NotifyChannelRetuned_FullMethodName                   = "/tv.InputServiceSessionService/NotifyChannelRetuned"
+	InputServiceSessionService_NotifyContentAllowed_FullMethodName                   = "/tv.InputServiceSessionService/NotifyContentAllowed"
+	InputServiceSessionService_NotifyContentBlocked_FullMethodName                   = "/tv.InputServiceSessionService/NotifyContentBlocked"
+	InputServiceSessionService_NotifyCueingMessageAvailability_FullMethodName        = "/tv.InputServiceSessionService/NotifyCueingMessageAvailability"
+	InputServiceSessionService_NotifySignalStrength_FullMethodName                   = "/tv.InputServiceSessionService/NotifySignalStrength"
+	InputServiceSessionService_NotifyTimeShiftMode_FullMethodName                    = "/tv.InputServiceSessionService/NotifyTimeShiftMode"
+	InputServiceSessionService_NotifyTimeShiftStatusChanged_FullMethodName           = "/tv.InputServiceSessionService/NotifyTimeShiftStatusChanged"
+	InputServiceSessionService_NotifyTrackSelected_FullMethodName                    = "/tv.InputServiceSessionService/NotifyTrackSelected"
+	InputServiceSessionService_NotifyTuned_FullMethodName                            = "/tv.InputServiceSessionService/NotifyTuned"
+	InputServiceSessionService_NotifyTvMessage_FullMethodName                        = "/tv.InputServiceSessionService/NotifyTvMessage"
+	InputServiceSessionService_NotifyVideoAvailable_FullMethodName                   = "/tv.InputServiceSessionService/NotifyVideoAvailable"
+	InputServiceSessionService_NotifyVideoFreezeUpdated_FullMethodName               = "/tv.InputServiceSessionService/NotifyVideoFreezeUpdated"
+	InputServiceSessionService_NotifyVideoUnavailable_FullMethodName                 = "/tv.InputServiceSessionService/NotifyVideoUnavailable"
+	InputServiceSessionService_OnAdBufferReady_FullMethodName                        = "/tv.InputServiceSessionService/OnAdBufferReady"
+	InputServiceSessionService_OnAppPrivateCommand_FullMethodName                    = "/tv.InputServiceSessionService/OnAppPrivateCommand"
+	InputServiceSessionService_OnCreateOverlayView_FullMethodName                    = "/tv.InputServiceSessionService/OnCreateOverlayView"
+	InputServiceSessionService_OnGenericMotionEvent_FullMethodName                   = "/tv.InputServiceSessionService/OnGenericMotionEvent"
+	InputServiceSessionService_OnKeyDown_FullMethodName                              = "/tv.InputServiceSessionService/OnKeyDown"
+	InputServiceSessionService_OnKeyLongPress_FullMethodName                         = "/tv.InputServiceSessionService/OnKeyLongPress"
+	InputServiceSessionService_OnKeyMultiple_FullMethodName                          = "/tv.InputServiceSessionService/OnKeyMultiple"
+	InputServiceSessionService_OnKeyUp_FullMethodName                                = "/tv.InputServiceSessionService/OnKeyUp"
+	InputServiceSessionService_OnOverlayViewSizeChanged_FullMethodName               = "/tv.InputServiceSessionService/OnOverlayViewSizeChanged"
+	InputServiceSessionService_OnRelease_FullMethodName                              = "/tv.InputServiceSessionService/OnRelease"
+	InputServiceSessionService_OnRemoveBroadcastInfo_FullMethodName                  = "/tv.InputServiceSessionService/OnRemoveBroadcastInfo"
+	InputServiceSessionService_OnRequestAd_FullMethodName                            = "/tv.InputServiceSessionService/OnRequestAd"
+	InputServiceSessionService_OnRequestBroadcastInfo_FullMethodName                 = "/tv.InputServiceSessionService/OnRequestBroadcastInfo"
+	InputServiceSessionService_OnResumePlayback_FullMethodName                       = "/tv.InputServiceSessionService/OnResumePlayback"
+	InputServiceSessionService_OnSelectAudioPresentation_FullMethodName              = "/tv.InputServiceSessionService/OnSelectAudioPresentation"
+	InputServiceSessionService_OnSelectTrack_FullMethodName                          = "/tv.InputServiceSessionService/OnSelectTrack"
+	InputServiceSessionService_OnSetCaptionEnabled_FullMethodName                    = "/tv.InputServiceSessionService/OnSetCaptionEnabled"
+	InputServiceSessionService_OnSetInteractiveAppNotificationEnabled_FullMethodName = "/tv.InputServiceSessionService/OnSetInteractiveAppNotificationEnabled"
+	InputServiceSessionService_OnSetStreamVolume_FullMethodName                      = "/tv.InputServiceSessionService/OnSetStreamVolume"
+	InputServiceSessionService_OnSetSurface_FullMethodName                           = "/tv.InputServiceSessionService/OnSetSurface"
+	InputServiceSessionService_OnSetTvMessageEnabled_FullMethodName                  = "/tv.InputServiceSessionService/OnSetTvMessageEnabled"
+	InputServiceSessionService_OnStopPlayback_FullMethodName                         = "/tv.InputServiceSessionService/OnStopPlayback"
+	InputServiceSessionService_OnSurfaceChanged_FullMethodName                       = "/tv.InputServiceSessionService/OnSurfaceChanged"
+	InputServiceSessionService_OnTimeShiftGetCurrentPosition_FullMethodName          = "/tv.InputServiceSessionService/OnTimeShiftGetCurrentPosition"
+	InputServiceSessionService_OnTimeShiftGetStartPosition_FullMethodName            = "/tv.InputServiceSessionService/OnTimeShiftGetStartPosition"
+	InputServiceSessionService_OnTimeShiftPause_FullMethodName                       = "/tv.InputServiceSessionService/OnTimeShiftPause"
+	InputServiceSessionService_OnTimeShiftPlay_FullMethodName                        = "/tv.InputServiceSessionService/OnTimeShiftPlay"
+	InputServiceSessionService_OnTimeShiftResume_FullMethodName                      = "/tv.InputServiceSessionService/OnTimeShiftResume"
+	InputServiceSessionService_OnTimeShiftSeekTo_FullMethodName                      = "/tv.InputServiceSessionService/OnTimeShiftSeekTo"
+	InputServiceSessionService_OnTimeShiftSetMode_FullMethodName                     = "/tv.InputServiceSessionService/OnTimeShiftSetMode"
+	InputServiceSessionService_OnTimeShiftSetPlaybackParams_FullMethodName           = "/tv.InputServiceSessionService/OnTimeShiftSetPlaybackParams"
+	InputServiceSessionService_OnTouchEvent_FullMethodName                           = "/tv.InputServiceSessionService/OnTouchEvent"
+	InputServiceSessionService_OnTrackballEvent_FullMethodName                       = "/tv.InputServiceSessionService/OnTrackballEvent"
+	InputServiceSessionService_OnTune1_FullMethodName                                = "/tv.InputServiceSessionService/OnTune1"
+	InputServiceSessionService_OnTune2_1_FullMethodName                              = "/tv.InputServiceSessionService/OnTune2_1"
+	InputServiceSessionService_OnTvAdSessionData_FullMethodName                      = "/tv.InputServiceSessionService/OnTvAdSessionData"
+	InputServiceSessionService_OnTvMessage_FullMethodName                            = "/tv.InputServiceSessionService/OnTvMessage"
+	InputServiceSessionService_OnUnblockContent_FullMethodName                       = "/tv.InputServiceSessionService/OnUnblockContent"
+	InputServiceSessionService_SendTvInputSessionData_FullMethodName                 = "/tv.InputServiceSessionService/SendTvInputSessionData"
+	InputServiceSessionService_SetOverlayViewEnabled_FullMethodName                  = "/tv.InputServiceSessionService/SetOverlayViewEnabled"
+)
+
+// InputServiceSessionServiceClient is the client API for InputServiceSessionService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type InputServiceSessionServiceClient interface {
+	LayoutSurface(ctx context.Context, in *LayoutSurfaceRequest, opts ...grpc.CallOption) (*LayoutSurfaceResponse, error)
+	NotifyAdBufferConsumed(ctx context.Context, in *NotifyAdBufferConsumedRequest, opts ...grpc.CallOption) (*NotifyAdBufferConsumedResponse, error)
+	NotifyAdResponse(ctx context.Context, in *NotifyAdResponseRequest, opts ...grpc.CallOption) (*NotifyAdResponseResponse, error)
+	NotifyAitInfoUpdated(ctx context.Context, in *NotifyAitInfoUpdatedRequest, opts ...grpc.CallOption) (*NotifyAitInfoUpdatedResponse, error)
+	NotifyAudioPresentationSelected(ctx context.Context, in *NotifyAudioPresentationSelectedRequest, opts ...grpc.CallOption) (*NotifyAudioPresentationSelectedResponse, error)
+	NotifyAvailableSpeeds(ctx context.Context, in *NotifyAvailableSpeedsRequest, opts ...grpc.CallOption) (*NotifyAvailableSpeedsResponse, error)
+	NotifyBroadcastInfoResponse(ctx context.Context, in *NotifyBroadcastInfoResponseRequest, opts ...grpc.CallOption) (*NotifyBroadcastInfoResponseResponse, error)
+	NotifyChannelRetuned(ctx context.Context, in *NotifyChannelRetunedRequest, opts ...grpc.CallOption) (*NotifyChannelRetunedResponse, error)
+	NotifyContentAllowed(ctx context.Context, in *NotifyContentAllowedRequest, opts ...grpc.CallOption) (*NotifyContentAllowedResponse, error)
+	NotifyContentBlocked(ctx context.Context, in *NotifyContentBlockedRequest, opts ...grpc.CallOption) (*NotifyContentBlockedResponse, error)
+	NotifyCueingMessageAvailability(ctx context.Context, in *NotifyCueingMessageAvailabilityRequest, opts ...grpc.CallOption) (*NotifyCueingMessageAvailabilityResponse, error)
+	NotifySignalStrength(ctx context.Context, in *NotifySignalStrengthRequest, opts ...grpc.CallOption) (*NotifySignalStrengthResponse, error)
+	NotifyTimeShiftMode(ctx context.Context, in *NotifyTimeShiftModeRequest, opts ...grpc.CallOption) (*NotifyTimeShiftModeResponse, error)
+	NotifyTimeShiftStatusChanged(ctx context.Context, in *NotifyTimeShiftStatusChangedRequest, opts ...grpc.CallOption) (*NotifyTimeShiftStatusChangedResponse, error)
+	NotifyTrackSelected(ctx context.Context, in *NotifyTrackSelectedRequest, opts ...grpc.CallOption) (*NotifyTrackSelectedResponse, error)
+	NotifyTuned(ctx context.Context, in *NotifyTunedRequest, opts ...grpc.CallOption) (*NotifyTunedResponse, error)
+	NotifyTvMessage(ctx context.Context, in *NotifyTvMessageRequest, opts ...grpc.CallOption) (*NotifyTvMessageResponse, error)
+	NotifyVideoAvailable(ctx context.Context, in *NotifyVideoAvailableRequest, opts ...grpc.CallOption) (*NotifyVideoAvailableResponse, error)
+	NotifyVideoFreezeUpdated(ctx context.Context, in *NotifyVideoFreezeUpdatedRequest, opts ...grpc.CallOption) (*NotifyVideoFreezeUpdatedResponse, error)
+	NotifyVideoUnavailable(ctx context.Context, in *NotifyVideoUnavailableRequest, opts ...grpc.CallOption) (*NotifyVideoUnavailableResponse, error)
+	OnAdBufferReady(ctx context.Context, in *OnAdBufferReadyRequest, opts ...grpc.CallOption) (*OnAdBufferReadyResponse, error)
+	OnAppPrivateCommand(ctx context.Context, in *OnAppPrivateCommandRequest, opts ...grpc.CallOption) (*OnAppPrivateCommandResponse, error)
+	OnCreateOverlayView(ctx context.Context, in *OnCreateOverlayViewRequest, opts ...grpc.CallOption) (*OnCreateOverlayViewResponse, error)
+	OnGenericMotionEvent(ctx context.Context, in *OnGenericMotionEventRequest, opts ...grpc.CallOption) (*OnGenericMotionEventResponse, error)
+	OnKeyDown(ctx context.Context, in *OnKeyDownRequest, opts ...grpc.CallOption) (*OnKeyDownResponse, error)
+	OnKeyLongPress(ctx context.Context, in *OnKeyLongPressRequest, opts ...grpc.CallOption) (*OnKeyLongPressResponse, error)
+	OnKeyMultiple(ctx context.Context, in *OnKeyMultipleRequest, opts ...grpc.CallOption) (*OnKeyMultipleResponse, error)
+	OnKeyUp(ctx context.Context, in *OnKeyUpRequest, opts ...grpc.CallOption) (*OnKeyUpResponse, error)
+	OnOverlayViewSizeChanged(ctx context.Context, in *OnOverlayViewSizeChangedRequest, opts ...grpc.CallOption) (*OnOverlayViewSizeChangedResponse, error)
+	OnRelease(ctx context.Context, in *OnReleaseRequest, opts ...grpc.CallOption) (*OnReleaseResponse, error)
+	OnRemoveBroadcastInfo(ctx context.Context, in *OnRemoveBroadcastInfoRequest, opts ...grpc.CallOption) (*OnRemoveBroadcastInfoResponse, error)
+	OnRequestAd(ctx context.Context, in *OnRequestAdRequest, opts ...grpc.CallOption) (*OnRequestAdResponse, error)
+	OnRequestBroadcastInfo(ctx context.Context, in *OnRequestBroadcastInfoRequest, opts ...grpc.CallOption) (*OnRequestBroadcastInfoResponse, error)
+	OnResumePlayback(ctx context.Context, in *OnResumePlaybackRequest, opts ...grpc.CallOption) (*OnResumePlaybackResponse, error)
+	OnSelectAudioPresentation(ctx context.Context, in *OnSelectAudioPresentationRequest, opts ...grpc.CallOption) (*OnSelectAudioPresentationResponse, error)
+	OnSelectTrack(ctx context.Context, in *OnSelectTrackRequest, opts ...grpc.CallOption) (*OnSelectTrackResponse, error)
+	OnSetCaptionEnabled(ctx context.Context, in *OnSetCaptionEnabledRequest, opts ...grpc.CallOption) (*OnSetCaptionEnabledResponse, error)
+	OnSetInteractiveAppNotificationEnabled(ctx context.Context, in *OnSetInteractiveAppNotificationEnabledRequest, opts ...grpc.CallOption) (*OnSetInteractiveAppNotificationEnabledResponse, error)
+	OnSetStreamVolume(ctx context.Context, in *OnSetStreamVolumeRequest, opts ...grpc.CallOption) (*OnSetStreamVolumeResponse, error)
+	OnSetSurface(ctx context.Context, in *OnSetSurfaceRequest, opts ...grpc.CallOption) (*OnSetSurfaceResponse, error)
+	OnSetTvMessageEnabled(ctx context.Context, in *OnSetTvMessageEnabledRequest, opts ...grpc.CallOption) (*OnSetTvMessageEnabledResponse, error)
+	OnStopPlayback(ctx context.Context, in *OnStopPlaybackRequest, opts ...grpc.CallOption) (*OnStopPlaybackResponse, error)
+	OnSurfaceChanged(ctx context.Context, in *OnSurfaceChangedRequest, opts ...grpc.CallOption) (*OnSurfaceChangedResponse, error)
+	OnTimeShiftGetCurrentPosition(ctx context.Context, in *OnTimeShiftGetCurrentPositionRequest, opts ...grpc.CallOption) (*OnTimeShiftGetCurrentPositionResponse, error)
+	OnTimeShiftGetStartPosition(ctx context.Context, in *OnTimeShiftGetStartPositionRequest, opts ...grpc.CallOption) (*OnTimeShiftGetStartPositionResponse, error)
+	OnTimeShiftPause(ctx context.Context, in *OnTimeShiftPauseRequest, opts ...grpc.CallOption) (*OnTimeShiftPauseResponse, error)
+	OnTimeShiftPlay(ctx context.Context, in *OnTimeShiftPlayRequest, opts ...grpc.CallOption) (*OnTimeShiftPlayResponse, error)
+	OnTimeShiftResume(ctx context.Context, in *OnTimeShiftResumeRequest, opts ...grpc.CallOption) (*OnTimeShiftResumeResponse, error)
+	OnTimeShiftSeekTo(ctx context.Context, in *OnTimeShiftSeekToRequest, opts ...grpc.CallOption) (*OnTimeShiftSeekToResponse, error)
+	OnTimeShiftSetMode(ctx context.Context, in *OnTimeShiftSetModeRequest, opts ...grpc.CallOption) (*OnTimeShiftSetModeResponse, error)
+	OnTimeShiftSetPlaybackParams(ctx context.Context, in *OnTimeShiftSetPlaybackParamsRequest, opts ...grpc.CallOption) (*OnTimeShiftSetPlaybackParamsResponse, error)
+	OnTouchEvent(ctx context.Context, in *OnTouchEventRequest, opts ...grpc.CallOption) (*OnTouchEventResponse, error)
+	OnTrackballEvent(ctx context.Context, in *OnTrackballEventRequest, opts ...grpc.CallOption) (*OnTrackballEventResponse, error)
+	OnTune1(ctx context.Context, in *OnTune1Request, opts ...grpc.CallOption) (*InputServiceSessionOnTune1Response, error)
+	OnTune2_1(ctx context.Context, in *OnTune2_1Request, opts ...grpc.CallOption) (*InputServiceSessionOnTune2_1Response, error)
+	OnTvAdSessionData(ctx context.Context, in *OnTvAdSessionDataRequest, opts ...grpc.CallOption) (*OnTvAdSessionDataResponse, error)
+	OnTvMessage(ctx context.Context, in *OnTvMessageRequest, opts ...grpc.CallOption) (*OnTvMessageResponse, error)
+	OnUnblockContent(ctx context.Context, in *OnUnblockContentRequest, opts ...grpc.CallOption) (*OnUnblockContentResponse, error)
+	SendTvInputSessionData(ctx context.Context, in *SendTvInputSessionDataRequest, opts ...grpc.CallOption) (*SendTvInputSessionDataResponse, error)
+	SetOverlayViewEnabled(ctx context.Context, in *SetOverlayViewEnabledRequest, opts ...grpc.CallOption) (*SetOverlayViewEnabledResponse, error)
+}
+
+type inputServiceSessionServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewInputServiceSessionServiceClient(cc grpc.ClientConnInterface) InputServiceSessionServiceClient {
+	return &inputServiceSessionServiceClient{cc}
+}
+
+func (c *inputServiceSessionServiceClient) LayoutSurface(ctx context.Context, in *LayoutSurfaceRequest, opts ...grpc.CallOption) (*LayoutSurfaceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(LayoutSurfaceResponse)
+	err := c.cc.Invoke(ctx, InputServiceSessionService_LayoutSurface_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceSessionServiceClient) NotifyAdBufferConsumed(ctx context.Context, in *NotifyAdBufferConsumedRequest, opts ...grpc.CallOption) (*NotifyAdBufferConsumedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NotifyAdBufferConsumedResponse)
+	err := c.cc.Invoke(ctx, InputServiceSessionService_NotifyAdBufferConsumed_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceSessionServiceClient) NotifyAdResponse(ctx context.Context, in *NotifyAdResponseRequest, opts ...grpc.CallOption) (*NotifyAdResponseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NotifyAdResponseResponse)
+	err := c.cc.Invoke(ctx, InputServiceSessionService_NotifyAdResponse_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceSessionServiceClient) NotifyAitInfoUpdated(ctx context.Context, in *NotifyAitInfoUpdatedRequest, opts ...grpc.CallOption) (*NotifyAitInfoUpdatedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NotifyAitInfoUpdatedResponse)
+	err := c.cc.Invoke(ctx, InputServiceSessionService_NotifyAitInfoUpdated_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceSessionServiceClient) NotifyAudioPresentationSelected(ctx context.Context, in *NotifyAudioPresentationSelectedRequest, opts ...grpc.CallOption) (*NotifyAudioPresentationSelectedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NotifyAudioPresentationSelectedResponse)
+	err := c.cc.Invoke(ctx, InputServiceSessionService_NotifyAudioPresentationSelected_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceSessionServiceClient) NotifyAvailableSpeeds(ctx context.Context, in *NotifyAvailableSpeedsRequest, opts ...grpc.CallOption) (*NotifyAvailableSpeedsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NotifyAvailableSpeedsResponse)
+	err := c.cc.Invoke(ctx, InputServiceSessionService_NotifyAvailableSpeeds_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceSessionServiceClient) NotifyBroadcastInfoResponse(ctx context.Context, in *NotifyBroadcastInfoResponseRequest, opts ...grpc.CallOption) (*NotifyBroadcastInfoResponseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NotifyBroadcastInfoResponseResponse)
+	err := c.cc.Invoke(ctx, InputServiceSessionService_NotifyBroadcastInfoResponse_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceSessionServiceClient) NotifyChannelRetuned(ctx context.Context, in *NotifyChannelRetunedRequest, opts ...grpc.CallOption) (*NotifyChannelRetunedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NotifyChannelRetunedResponse)
+	err := c.cc.Invoke(ctx, InputServiceSessionService_NotifyChannelRetuned_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceSessionServiceClient) NotifyContentAllowed(ctx context.Context, in *NotifyContentAllowedRequest, opts ...grpc.CallOption) (*NotifyContentAllowedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NotifyContentAllowedResponse)
+	err := c.cc.Invoke(ctx, InputServiceSessionService_NotifyContentAllowed_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceSessionServiceClient) NotifyContentBlocked(ctx context.Context, in *NotifyContentBlockedRequest, opts ...grpc.CallOption) (*NotifyContentBlockedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NotifyContentBlockedResponse)
+	err := c.cc.Invoke(ctx, InputServiceSessionService_NotifyContentBlocked_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceSessionServiceClient) NotifyCueingMessageAvailability(ctx context.Context, in *NotifyCueingMessageAvailabilityRequest, opts ...grpc.CallOption) (*NotifyCueingMessageAvailabilityResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NotifyCueingMessageAvailabilityResponse)
+	err := c.cc.Invoke(ctx, InputServiceSessionService_NotifyCueingMessageAvailability_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceSessionServiceClient) NotifySignalStrength(ctx context.Context, in *NotifySignalStrengthRequest, opts ...grpc.CallOption) (*NotifySignalStrengthResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NotifySignalStrengthResponse)
+	err := c.cc.Invoke(ctx, InputServiceSessionService_NotifySignalStrength_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceSessionServiceClient) NotifyTimeShiftMode(ctx context.Context, in *NotifyTimeShiftModeRequest, opts ...grpc.CallOption) (*NotifyTimeShiftModeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NotifyTimeShiftModeResponse)
+	err := c.cc.Invoke(ctx, InputServiceSessionService_NotifyTimeShiftMode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceSessionServiceClient) NotifyTimeShiftStatusChanged(ctx context.Context, in *NotifyTimeShiftStatusChangedRequest, opts ...grpc.CallOption) (*NotifyTimeShiftStatusChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NotifyTimeShiftStatusChangedResponse)
+	err := c.cc.Invoke(ctx, InputServiceSessionService_NotifyTimeShiftStatusChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceSessionServiceClient) NotifyTrackSelected(ctx context.Context, in *NotifyTrackSelectedRequest, opts ...grpc.CallOption) (*NotifyTrackSelectedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NotifyTrackSelectedResponse)
+	err := c.cc.Invoke(ctx, InputServiceSessionService_NotifyTrackSelected_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceSessionServiceClient) NotifyTuned(ctx context.Context, in *NotifyTunedRequest, opts ...grpc.CallOption) (*NotifyTunedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NotifyTunedResponse)
+	err := c.cc.Invoke(ctx, InputServiceSessionService_NotifyTuned_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceSessionServiceClient) NotifyTvMessage(ctx context.Context, in *NotifyTvMessageRequest, opts ...grpc.CallOption) (*NotifyTvMessageResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NotifyTvMessageResponse)
+	err := c.cc.Invoke(ctx, InputServiceSessionService_NotifyTvMessage_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceSessionServiceClient) NotifyVideoAvailable(ctx context.Context, in *NotifyVideoAvailableRequest, opts ...grpc.CallOption) (*NotifyVideoAvailableResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NotifyVideoAvailableResponse)
+	err := c.cc.Invoke(ctx, InputServiceSessionService_NotifyVideoAvailable_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceSessionServiceClient) NotifyVideoFreezeUpdated(ctx context.Context, in *NotifyVideoFreezeUpdatedRequest, opts ...grpc.CallOption) (*NotifyVideoFreezeUpdatedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NotifyVideoFreezeUpdatedResponse)
+	err := c.cc.Invoke(ctx, InputServiceSessionService_NotifyVideoFreezeUpdated_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceSessionServiceClient) NotifyVideoUnavailable(ctx context.Context, in *NotifyVideoUnavailableRequest, opts ...grpc.CallOption) (*NotifyVideoUnavailableResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NotifyVideoUnavailableResponse)
+	err := c.cc.Invoke(ctx, InputServiceSessionService_NotifyVideoUnavailable_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceSessionServiceClient) OnAdBufferReady(ctx context.Context, in *OnAdBufferReadyRequest, opts ...grpc.CallOption) (*OnAdBufferReadyResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnAdBufferReadyResponse)
+	err := c.cc.Invoke(ctx, InputServiceSessionService_OnAdBufferReady_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceSessionServiceClient) OnAppPrivateCommand(ctx context.Context, in *OnAppPrivateCommandRequest, opts ...grpc.CallOption) (*OnAppPrivateCommandResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnAppPrivateCommandResponse)
+	err := c.cc.Invoke(ctx, InputServiceSessionService_OnAppPrivateCommand_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceSessionServiceClient) OnCreateOverlayView(ctx context.Context, in *OnCreateOverlayViewRequest, opts ...grpc.CallOption) (*OnCreateOverlayViewResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnCreateOverlayViewResponse)
+	err := c.cc.Invoke(ctx, InputServiceSessionService_OnCreateOverlayView_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceSessionServiceClient) OnGenericMotionEvent(ctx context.Context, in *OnGenericMotionEventRequest, opts ...grpc.CallOption) (*OnGenericMotionEventResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnGenericMotionEventResponse)
+	err := c.cc.Invoke(ctx, InputServiceSessionService_OnGenericMotionEvent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceSessionServiceClient) OnKeyDown(ctx context.Context, in *OnKeyDownRequest, opts ...grpc.CallOption) (*OnKeyDownResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnKeyDownResponse)
+	err := c.cc.Invoke(ctx, InputServiceSessionService_OnKeyDown_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceSessionServiceClient) OnKeyLongPress(ctx context.Context, in *OnKeyLongPressRequest, opts ...grpc.CallOption) (*OnKeyLongPressResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnKeyLongPressResponse)
+	err := c.cc.Invoke(ctx, InputServiceSessionService_OnKeyLongPress_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceSessionServiceClient) OnKeyMultiple(ctx context.Context, in *OnKeyMultipleRequest, opts ...grpc.CallOption) (*OnKeyMultipleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnKeyMultipleResponse)
+	err := c.cc.Invoke(ctx, InputServiceSessionService_OnKeyMultiple_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceSessionServiceClient) OnKeyUp(ctx context.Context, in *OnKeyUpRequest, opts ...grpc.CallOption) (*OnKeyUpResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnKeyUpResponse)
+	err := c.cc.Invoke(ctx, InputServiceSessionService_OnKeyUp_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceSessionServiceClient) OnOverlayViewSizeChanged(ctx context.Context, in *OnOverlayViewSizeChangedRequest, opts ...grpc.CallOption) (*OnOverlayViewSizeChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnOverlayViewSizeChangedResponse)
+	err := c.cc.Invoke(ctx, InputServiceSessionService_OnOverlayViewSizeChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceSessionServiceClient) OnRelease(ctx context.Context, in *OnReleaseRequest, opts ...grpc.CallOption) (*OnReleaseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnReleaseResponse)
+	err := c.cc.Invoke(ctx, InputServiceSessionService_OnRelease_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceSessionServiceClient) OnRemoveBroadcastInfo(ctx context.Context, in *OnRemoveBroadcastInfoRequest, opts ...grpc.CallOption) (*OnRemoveBroadcastInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnRemoveBroadcastInfoResponse)
+	err := c.cc.Invoke(ctx, InputServiceSessionService_OnRemoveBroadcastInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceSessionServiceClient) OnRequestAd(ctx context.Context, in *OnRequestAdRequest, opts ...grpc.CallOption) (*OnRequestAdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnRequestAdResponse)
+	err := c.cc.Invoke(ctx, InputServiceSessionService_OnRequestAd_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceSessionServiceClient) OnRequestBroadcastInfo(ctx context.Context, in *OnRequestBroadcastInfoRequest, opts ...grpc.CallOption) (*OnRequestBroadcastInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnRequestBroadcastInfoResponse)
+	err := c.cc.Invoke(ctx, InputServiceSessionService_OnRequestBroadcastInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceSessionServiceClient) OnResumePlayback(ctx context.Context, in *OnResumePlaybackRequest, opts ...grpc.CallOption) (*OnResumePlaybackResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnResumePlaybackResponse)
+	err := c.cc.Invoke(ctx, InputServiceSessionService_OnResumePlayback_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceSessionServiceClient) OnSelectAudioPresentation(ctx context.Context, in *OnSelectAudioPresentationRequest, opts ...grpc.CallOption) (*OnSelectAudioPresentationResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnSelectAudioPresentationResponse)
+	err := c.cc.Invoke(ctx, InputServiceSessionService_OnSelectAudioPresentation_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceSessionServiceClient) OnSelectTrack(ctx context.Context, in *OnSelectTrackRequest, opts ...grpc.CallOption) (*OnSelectTrackResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnSelectTrackResponse)
+	err := c.cc.Invoke(ctx, InputServiceSessionService_OnSelectTrack_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceSessionServiceClient) OnSetCaptionEnabled(ctx context.Context, in *OnSetCaptionEnabledRequest, opts ...grpc.CallOption) (*OnSetCaptionEnabledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnSetCaptionEnabledResponse)
+	err := c.cc.Invoke(ctx, InputServiceSessionService_OnSetCaptionEnabled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceSessionServiceClient) OnSetInteractiveAppNotificationEnabled(ctx context.Context, in *OnSetInteractiveAppNotificationEnabledRequest, opts ...grpc.CallOption) (*OnSetInteractiveAppNotificationEnabledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnSetInteractiveAppNotificationEnabledResponse)
+	err := c.cc.Invoke(ctx, InputServiceSessionService_OnSetInteractiveAppNotificationEnabled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceSessionServiceClient) OnSetStreamVolume(ctx context.Context, in *OnSetStreamVolumeRequest, opts ...grpc.CallOption) (*OnSetStreamVolumeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnSetStreamVolumeResponse)
+	err := c.cc.Invoke(ctx, InputServiceSessionService_OnSetStreamVolume_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceSessionServiceClient) OnSetSurface(ctx context.Context, in *OnSetSurfaceRequest, opts ...grpc.CallOption) (*OnSetSurfaceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnSetSurfaceResponse)
+	err := c.cc.Invoke(ctx, InputServiceSessionService_OnSetSurface_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceSessionServiceClient) OnSetTvMessageEnabled(ctx context.Context, in *OnSetTvMessageEnabledRequest, opts ...grpc.CallOption) (*OnSetTvMessageEnabledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnSetTvMessageEnabledResponse)
+	err := c.cc.Invoke(ctx, InputServiceSessionService_OnSetTvMessageEnabled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceSessionServiceClient) OnStopPlayback(ctx context.Context, in *OnStopPlaybackRequest, opts ...grpc.CallOption) (*OnStopPlaybackResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnStopPlaybackResponse)
+	err := c.cc.Invoke(ctx, InputServiceSessionService_OnStopPlayback_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceSessionServiceClient) OnSurfaceChanged(ctx context.Context, in *OnSurfaceChangedRequest, opts ...grpc.CallOption) (*OnSurfaceChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnSurfaceChangedResponse)
+	err := c.cc.Invoke(ctx, InputServiceSessionService_OnSurfaceChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceSessionServiceClient) OnTimeShiftGetCurrentPosition(ctx context.Context, in *OnTimeShiftGetCurrentPositionRequest, opts ...grpc.CallOption) (*OnTimeShiftGetCurrentPositionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnTimeShiftGetCurrentPositionResponse)
+	err := c.cc.Invoke(ctx, InputServiceSessionService_OnTimeShiftGetCurrentPosition_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceSessionServiceClient) OnTimeShiftGetStartPosition(ctx context.Context, in *OnTimeShiftGetStartPositionRequest, opts ...grpc.CallOption) (*OnTimeShiftGetStartPositionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnTimeShiftGetStartPositionResponse)
+	err := c.cc.Invoke(ctx, InputServiceSessionService_OnTimeShiftGetStartPosition_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceSessionServiceClient) OnTimeShiftPause(ctx context.Context, in *OnTimeShiftPauseRequest, opts ...grpc.CallOption) (*OnTimeShiftPauseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnTimeShiftPauseResponse)
+	err := c.cc.Invoke(ctx, InputServiceSessionService_OnTimeShiftPause_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceSessionServiceClient) OnTimeShiftPlay(ctx context.Context, in *OnTimeShiftPlayRequest, opts ...grpc.CallOption) (*OnTimeShiftPlayResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnTimeShiftPlayResponse)
+	err := c.cc.Invoke(ctx, InputServiceSessionService_OnTimeShiftPlay_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceSessionServiceClient) OnTimeShiftResume(ctx context.Context, in *OnTimeShiftResumeRequest, opts ...grpc.CallOption) (*OnTimeShiftResumeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnTimeShiftResumeResponse)
+	err := c.cc.Invoke(ctx, InputServiceSessionService_OnTimeShiftResume_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceSessionServiceClient) OnTimeShiftSeekTo(ctx context.Context, in *OnTimeShiftSeekToRequest, opts ...grpc.CallOption) (*OnTimeShiftSeekToResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnTimeShiftSeekToResponse)
+	err := c.cc.Invoke(ctx, InputServiceSessionService_OnTimeShiftSeekTo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceSessionServiceClient) OnTimeShiftSetMode(ctx context.Context, in *OnTimeShiftSetModeRequest, opts ...grpc.CallOption) (*OnTimeShiftSetModeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnTimeShiftSetModeResponse)
+	err := c.cc.Invoke(ctx, InputServiceSessionService_OnTimeShiftSetMode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceSessionServiceClient) OnTimeShiftSetPlaybackParams(ctx context.Context, in *OnTimeShiftSetPlaybackParamsRequest, opts ...grpc.CallOption) (*OnTimeShiftSetPlaybackParamsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnTimeShiftSetPlaybackParamsResponse)
+	err := c.cc.Invoke(ctx, InputServiceSessionService_OnTimeShiftSetPlaybackParams_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceSessionServiceClient) OnTouchEvent(ctx context.Context, in *OnTouchEventRequest, opts ...grpc.CallOption) (*OnTouchEventResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnTouchEventResponse)
+	err := c.cc.Invoke(ctx, InputServiceSessionService_OnTouchEvent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceSessionServiceClient) OnTrackballEvent(ctx context.Context, in *OnTrackballEventRequest, opts ...grpc.CallOption) (*OnTrackballEventResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnTrackballEventResponse)
+	err := c.cc.Invoke(ctx, InputServiceSessionService_OnTrackballEvent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceSessionServiceClient) OnTune1(ctx context.Context, in *OnTune1Request, opts ...grpc.CallOption) (*InputServiceSessionOnTune1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(InputServiceSessionOnTune1Response)
+	err := c.cc.Invoke(ctx, InputServiceSessionService_OnTune1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceSessionServiceClient) OnTune2_1(ctx context.Context, in *OnTune2_1Request, opts ...grpc.CallOption) (*InputServiceSessionOnTune2_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(InputServiceSessionOnTune2_1Response)
+	err := c.cc.Invoke(ctx, InputServiceSessionService_OnTune2_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceSessionServiceClient) OnTvAdSessionData(ctx context.Context, in *OnTvAdSessionDataRequest, opts ...grpc.CallOption) (*OnTvAdSessionDataResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnTvAdSessionDataResponse)
+	err := c.cc.Invoke(ctx, InputServiceSessionService_OnTvAdSessionData_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceSessionServiceClient) OnTvMessage(ctx context.Context, in *OnTvMessageRequest, opts ...grpc.CallOption) (*OnTvMessageResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnTvMessageResponse)
+	err := c.cc.Invoke(ctx, InputServiceSessionService_OnTvMessage_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceSessionServiceClient) OnUnblockContent(ctx context.Context, in *OnUnblockContentRequest, opts ...grpc.CallOption) (*OnUnblockContentResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnUnblockContentResponse)
+	err := c.cc.Invoke(ctx, InputServiceSessionService_OnUnblockContent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceSessionServiceClient) SendTvInputSessionData(ctx context.Context, in *SendTvInputSessionDataRequest, opts ...grpc.CallOption) (*SendTvInputSessionDataResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SendTvInputSessionDataResponse)
+	err := c.cc.Invoke(ctx, InputServiceSessionService_SendTvInputSessionData_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputServiceSessionServiceClient) SetOverlayViewEnabled(ctx context.Context, in *SetOverlayViewEnabledRequest, opts ...grpc.CallOption) (*SetOverlayViewEnabledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetOverlayViewEnabledResponse)
+	err := c.cc.Invoke(ctx, InputServiceSessionService_SetOverlayViewEnabled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// InputServiceSessionServiceServer is the server API for InputServiceSessionService service.
+// All implementations must embed UnimplementedInputServiceSessionServiceServer
+// for forward compatibility.
+type InputServiceSessionServiceServer interface {
+	LayoutSurface(context.Context, *LayoutSurfaceRequest) (*LayoutSurfaceResponse, error)
+	NotifyAdBufferConsumed(context.Context, *NotifyAdBufferConsumedRequest) (*NotifyAdBufferConsumedResponse, error)
+	NotifyAdResponse(context.Context, *NotifyAdResponseRequest) (*NotifyAdResponseResponse, error)
+	NotifyAitInfoUpdated(context.Context, *NotifyAitInfoUpdatedRequest) (*NotifyAitInfoUpdatedResponse, error)
+	NotifyAudioPresentationSelected(context.Context, *NotifyAudioPresentationSelectedRequest) (*NotifyAudioPresentationSelectedResponse, error)
+	NotifyAvailableSpeeds(context.Context, *NotifyAvailableSpeedsRequest) (*NotifyAvailableSpeedsResponse, error)
+	NotifyBroadcastInfoResponse(context.Context, *NotifyBroadcastInfoResponseRequest) (*NotifyBroadcastInfoResponseResponse, error)
+	NotifyChannelRetuned(context.Context, *NotifyChannelRetunedRequest) (*NotifyChannelRetunedResponse, error)
+	NotifyContentAllowed(context.Context, *NotifyContentAllowedRequest) (*NotifyContentAllowedResponse, error)
+	NotifyContentBlocked(context.Context, *NotifyContentBlockedRequest) (*NotifyContentBlockedResponse, error)
+	NotifyCueingMessageAvailability(context.Context, *NotifyCueingMessageAvailabilityRequest) (*NotifyCueingMessageAvailabilityResponse, error)
+	NotifySignalStrength(context.Context, *NotifySignalStrengthRequest) (*NotifySignalStrengthResponse, error)
+	NotifyTimeShiftMode(context.Context, *NotifyTimeShiftModeRequest) (*NotifyTimeShiftModeResponse, error)
+	NotifyTimeShiftStatusChanged(context.Context, *NotifyTimeShiftStatusChangedRequest) (*NotifyTimeShiftStatusChangedResponse, error)
+	NotifyTrackSelected(context.Context, *NotifyTrackSelectedRequest) (*NotifyTrackSelectedResponse, error)
+	NotifyTuned(context.Context, *NotifyTunedRequest) (*NotifyTunedResponse, error)
+	NotifyTvMessage(context.Context, *NotifyTvMessageRequest) (*NotifyTvMessageResponse, error)
+	NotifyVideoAvailable(context.Context, *NotifyVideoAvailableRequest) (*NotifyVideoAvailableResponse, error)
+	NotifyVideoFreezeUpdated(context.Context, *NotifyVideoFreezeUpdatedRequest) (*NotifyVideoFreezeUpdatedResponse, error)
+	NotifyVideoUnavailable(context.Context, *NotifyVideoUnavailableRequest) (*NotifyVideoUnavailableResponse, error)
+	OnAdBufferReady(context.Context, *OnAdBufferReadyRequest) (*OnAdBufferReadyResponse, error)
+	OnAppPrivateCommand(context.Context, *OnAppPrivateCommandRequest) (*OnAppPrivateCommandResponse, error)
+	OnCreateOverlayView(context.Context, *OnCreateOverlayViewRequest) (*OnCreateOverlayViewResponse, error)
+	OnGenericMotionEvent(context.Context, *OnGenericMotionEventRequest) (*OnGenericMotionEventResponse, error)
+	OnKeyDown(context.Context, *OnKeyDownRequest) (*OnKeyDownResponse, error)
+	OnKeyLongPress(context.Context, *OnKeyLongPressRequest) (*OnKeyLongPressResponse, error)
+	OnKeyMultiple(context.Context, *OnKeyMultipleRequest) (*OnKeyMultipleResponse, error)
+	OnKeyUp(context.Context, *OnKeyUpRequest) (*OnKeyUpResponse, error)
+	OnOverlayViewSizeChanged(context.Context, *OnOverlayViewSizeChangedRequest) (*OnOverlayViewSizeChangedResponse, error)
+	OnRelease(context.Context, *OnReleaseRequest) (*OnReleaseResponse, error)
+	OnRemoveBroadcastInfo(context.Context, *OnRemoveBroadcastInfoRequest) (*OnRemoveBroadcastInfoResponse, error)
+	OnRequestAd(context.Context, *OnRequestAdRequest) (*OnRequestAdResponse, error)
+	OnRequestBroadcastInfo(context.Context, *OnRequestBroadcastInfoRequest) (*OnRequestBroadcastInfoResponse, error)
+	OnResumePlayback(context.Context, *OnResumePlaybackRequest) (*OnResumePlaybackResponse, error)
+	OnSelectAudioPresentation(context.Context, *OnSelectAudioPresentationRequest) (*OnSelectAudioPresentationResponse, error)
+	OnSelectTrack(context.Context, *OnSelectTrackRequest) (*OnSelectTrackResponse, error)
+	OnSetCaptionEnabled(context.Context, *OnSetCaptionEnabledRequest) (*OnSetCaptionEnabledResponse, error)
+	OnSetInteractiveAppNotificationEnabled(context.Context, *OnSetInteractiveAppNotificationEnabledRequest) (*OnSetInteractiveAppNotificationEnabledResponse, error)
+	OnSetStreamVolume(context.Context, *OnSetStreamVolumeRequest) (*OnSetStreamVolumeResponse, error)
+	OnSetSurface(context.Context, *OnSetSurfaceRequest) (*OnSetSurfaceResponse, error)
+	OnSetTvMessageEnabled(context.Context, *OnSetTvMessageEnabledRequest) (*OnSetTvMessageEnabledResponse, error)
+	OnStopPlayback(context.Context, *OnStopPlaybackRequest) (*OnStopPlaybackResponse, error)
+	OnSurfaceChanged(context.Context, *OnSurfaceChangedRequest) (*OnSurfaceChangedResponse, error)
+	OnTimeShiftGetCurrentPosition(context.Context, *OnTimeShiftGetCurrentPositionRequest) (*OnTimeShiftGetCurrentPositionResponse, error)
+	OnTimeShiftGetStartPosition(context.Context, *OnTimeShiftGetStartPositionRequest) (*OnTimeShiftGetStartPositionResponse, error)
+	OnTimeShiftPause(context.Context, *OnTimeShiftPauseRequest) (*OnTimeShiftPauseResponse, error)
+	OnTimeShiftPlay(context.Context, *OnTimeShiftPlayRequest) (*OnTimeShiftPlayResponse, error)
+	OnTimeShiftResume(context.Context, *OnTimeShiftResumeRequest) (*OnTimeShiftResumeResponse, error)
+	OnTimeShiftSeekTo(context.Context, *OnTimeShiftSeekToRequest) (*OnTimeShiftSeekToResponse, error)
+	OnTimeShiftSetMode(context.Context, *OnTimeShiftSetModeRequest) (*OnTimeShiftSetModeResponse, error)
+	OnTimeShiftSetPlaybackParams(context.Context, *OnTimeShiftSetPlaybackParamsRequest) (*OnTimeShiftSetPlaybackParamsResponse, error)
+	OnTouchEvent(context.Context, *OnTouchEventRequest) (*OnTouchEventResponse, error)
+	OnTrackballEvent(context.Context, *OnTrackballEventRequest) (*OnTrackballEventResponse, error)
+	OnTune1(context.Context, *OnTune1Request) (*InputServiceSessionOnTune1Response, error)
+	OnTune2_1(context.Context, *OnTune2_1Request) (*InputServiceSessionOnTune2_1Response, error)
+	OnTvAdSessionData(context.Context, *OnTvAdSessionDataRequest) (*OnTvAdSessionDataResponse, error)
+	OnTvMessage(context.Context, *OnTvMessageRequest) (*OnTvMessageResponse, error)
+	OnUnblockContent(context.Context, *OnUnblockContentRequest) (*OnUnblockContentResponse, error)
+	SendTvInputSessionData(context.Context, *SendTvInputSessionDataRequest) (*SendTvInputSessionDataResponse, error)
+	SetOverlayViewEnabled(context.Context, *SetOverlayViewEnabledRequest) (*SetOverlayViewEnabledResponse, error)
+	mustEmbedUnimplementedInputServiceSessionServiceServer()
+}
+
+// UnimplementedInputServiceSessionServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedInputServiceSessionServiceServer struct{}
+
+func (UnimplementedInputServiceSessionServiceServer) LayoutSurface(context.Context, *LayoutSurfaceRequest) (*LayoutSurfaceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method LayoutSurface not implemented")
+}
+func (UnimplementedInputServiceSessionServiceServer) NotifyAdBufferConsumed(context.Context, *NotifyAdBufferConsumedRequest) (*NotifyAdBufferConsumedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NotifyAdBufferConsumed not implemented")
+}
+func (UnimplementedInputServiceSessionServiceServer) NotifyAdResponse(context.Context, *NotifyAdResponseRequest) (*NotifyAdResponseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NotifyAdResponse not implemented")
+}
+func (UnimplementedInputServiceSessionServiceServer) NotifyAitInfoUpdated(context.Context, *NotifyAitInfoUpdatedRequest) (*NotifyAitInfoUpdatedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NotifyAitInfoUpdated not implemented")
+}
+func (UnimplementedInputServiceSessionServiceServer) NotifyAudioPresentationSelected(context.Context, *NotifyAudioPresentationSelectedRequest) (*NotifyAudioPresentationSelectedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NotifyAudioPresentationSelected not implemented")
+}
+func (UnimplementedInputServiceSessionServiceServer) NotifyAvailableSpeeds(context.Context, *NotifyAvailableSpeedsRequest) (*NotifyAvailableSpeedsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NotifyAvailableSpeeds not implemented")
+}
+func (UnimplementedInputServiceSessionServiceServer) NotifyBroadcastInfoResponse(context.Context, *NotifyBroadcastInfoResponseRequest) (*NotifyBroadcastInfoResponseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NotifyBroadcastInfoResponse not implemented")
+}
+func (UnimplementedInputServiceSessionServiceServer) NotifyChannelRetuned(context.Context, *NotifyChannelRetunedRequest) (*NotifyChannelRetunedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NotifyChannelRetuned not implemented")
+}
+func (UnimplementedInputServiceSessionServiceServer) NotifyContentAllowed(context.Context, *NotifyContentAllowedRequest) (*NotifyContentAllowedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NotifyContentAllowed not implemented")
+}
+func (UnimplementedInputServiceSessionServiceServer) NotifyContentBlocked(context.Context, *NotifyContentBlockedRequest) (*NotifyContentBlockedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NotifyContentBlocked not implemented")
+}
+func (UnimplementedInputServiceSessionServiceServer) NotifyCueingMessageAvailability(context.Context, *NotifyCueingMessageAvailabilityRequest) (*NotifyCueingMessageAvailabilityResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NotifyCueingMessageAvailability not implemented")
+}
+func (UnimplementedInputServiceSessionServiceServer) NotifySignalStrength(context.Context, *NotifySignalStrengthRequest) (*NotifySignalStrengthResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NotifySignalStrength not implemented")
+}
+func (UnimplementedInputServiceSessionServiceServer) NotifyTimeShiftMode(context.Context, *NotifyTimeShiftModeRequest) (*NotifyTimeShiftModeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NotifyTimeShiftMode not implemented")
+}
+func (UnimplementedInputServiceSessionServiceServer) NotifyTimeShiftStatusChanged(context.Context, *NotifyTimeShiftStatusChangedRequest) (*NotifyTimeShiftStatusChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NotifyTimeShiftStatusChanged not implemented")
+}
+func (UnimplementedInputServiceSessionServiceServer) NotifyTrackSelected(context.Context, *NotifyTrackSelectedRequest) (*NotifyTrackSelectedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NotifyTrackSelected not implemented")
+}
+func (UnimplementedInputServiceSessionServiceServer) NotifyTuned(context.Context, *NotifyTunedRequest) (*NotifyTunedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NotifyTuned not implemented")
+}
+func (UnimplementedInputServiceSessionServiceServer) NotifyTvMessage(context.Context, *NotifyTvMessageRequest) (*NotifyTvMessageResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NotifyTvMessage not implemented")
+}
+func (UnimplementedInputServiceSessionServiceServer) NotifyVideoAvailable(context.Context, *NotifyVideoAvailableRequest) (*NotifyVideoAvailableResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NotifyVideoAvailable not implemented")
+}
+func (UnimplementedInputServiceSessionServiceServer) NotifyVideoFreezeUpdated(context.Context, *NotifyVideoFreezeUpdatedRequest) (*NotifyVideoFreezeUpdatedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NotifyVideoFreezeUpdated not implemented")
+}
+func (UnimplementedInputServiceSessionServiceServer) NotifyVideoUnavailable(context.Context, *NotifyVideoUnavailableRequest) (*NotifyVideoUnavailableResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NotifyVideoUnavailable not implemented")
+}
+func (UnimplementedInputServiceSessionServiceServer) OnAdBufferReady(context.Context, *OnAdBufferReadyRequest) (*OnAdBufferReadyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnAdBufferReady not implemented")
+}
+func (UnimplementedInputServiceSessionServiceServer) OnAppPrivateCommand(context.Context, *OnAppPrivateCommandRequest) (*OnAppPrivateCommandResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnAppPrivateCommand not implemented")
+}
+func (UnimplementedInputServiceSessionServiceServer) OnCreateOverlayView(context.Context, *OnCreateOverlayViewRequest) (*OnCreateOverlayViewResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnCreateOverlayView not implemented")
+}
+func (UnimplementedInputServiceSessionServiceServer) OnGenericMotionEvent(context.Context, *OnGenericMotionEventRequest) (*OnGenericMotionEventResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnGenericMotionEvent not implemented")
+}
+func (UnimplementedInputServiceSessionServiceServer) OnKeyDown(context.Context, *OnKeyDownRequest) (*OnKeyDownResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnKeyDown not implemented")
+}
+func (UnimplementedInputServiceSessionServiceServer) OnKeyLongPress(context.Context, *OnKeyLongPressRequest) (*OnKeyLongPressResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnKeyLongPress not implemented")
+}
+func (UnimplementedInputServiceSessionServiceServer) OnKeyMultiple(context.Context, *OnKeyMultipleRequest) (*OnKeyMultipleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnKeyMultiple not implemented")
+}
+func (UnimplementedInputServiceSessionServiceServer) OnKeyUp(context.Context, *OnKeyUpRequest) (*OnKeyUpResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnKeyUp not implemented")
+}
+func (UnimplementedInputServiceSessionServiceServer) OnOverlayViewSizeChanged(context.Context, *OnOverlayViewSizeChangedRequest) (*OnOverlayViewSizeChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnOverlayViewSizeChanged not implemented")
+}
+func (UnimplementedInputServiceSessionServiceServer) OnRelease(context.Context, *OnReleaseRequest) (*OnReleaseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnRelease not implemented")
+}
+func (UnimplementedInputServiceSessionServiceServer) OnRemoveBroadcastInfo(context.Context, *OnRemoveBroadcastInfoRequest) (*OnRemoveBroadcastInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnRemoveBroadcastInfo not implemented")
+}
+func (UnimplementedInputServiceSessionServiceServer) OnRequestAd(context.Context, *OnRequestAdRequest) (*OnRequestAdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnRequestAd not implemented")
+}
+func (UnimplementedInputServiceSessionServiceServer) OnRequestBroadcastInfo(context.Context, *OnRequestBroadcastInfoRequest) (*OnRequestBroadcastInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnRequestBroadcastInfo not implemented")
+}
+func (UnimplementedInputServiceSessionServiceServer) OnResumePlayback(context.Context, *OnResumePlaybackRequest) (*OnResumePlaybackResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnResumePlayback not implemented")
+}
+func (UnimplementedInputServiceSessionServiceServer) OnSelectAudioPresentation(context.Context, *OnSelectAudioPresentationRequest) (*OnSelectAudioPresentationResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnSelectAudioPresentation not implemented")
+}
+func (UnimplementedInputServiceSessionServiceServer) OnSelectTrack(context.Context, *OnSelectTrackRequest) (*OnSelectTrackResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnSelectTrack not implemented")
+}
+func (UnimplementedInputServiceSessionServiceServer) OnSetCaptionEnabled(context.Context, *OnSetCaptionEnabledRequest) (*OnSetCaptionEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnSetCaptionEnabled not implemented")
+}
+func (UnimplementedInputServiceSessionServiceServer) OnSetInteractiveAppNotificationEnabled(context.Context, *OnSetInteractiveAppNotificationEnabledRequest) (*OnSetInteractiveAppNotificationEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnSetInteractiveAppNotificationEnabled not implemented")
+}
+func (UnimplementedInputServiceSessionServiceServer) OnSetStreamVolume(context.Context, *OnSetStreamVolumeRequest) (*OnSetStreamVolumeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnSetStreamVolume not implemented")
+}
+func (UnimplementedInputServiceSessionServiceServer) OnSetSurface(context.Context, *OnSetSurfaceRequest) (*OnSetSurfaceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnSetSurface not implemented")
+}
+func (UnimplementedInputServiceSessionServiceServer) OnSetTvMessageEnabled(context.Context, *OnSetTvMessageEnabledRequest) (*OnSetTvMessageEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnSetTvMessageEnabled not implemented")
+}
+func (UnimplementedInputServiceSessionServiceServer) OnStopPlayback(context.Context, *OnStopPlaybackRequest) (*OnStopPlaybackResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnStopPlayback not implemented")
+}
+func (UnimplementedInputServiceSessionServiceServer) OnSurfaceChanged(context.Context, *OnSurfaceChangedRequest) (*OnSurfaceChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnSurfaceChanged not implemented")
+}
+func (UnimplementedInputServiceSessionServiceServer) OnTimeShiftGetCurrentPosition(context.Context, *OnTimeShiftGetCurrentPositionRequest) (*OnTimeShiftGetCurrentPositionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnTimeShiftGetCurrentPosition not implemented")
+}
+func (UnimplementedInputServiceSessionServiceServer) OnTimeShiftGetStartPosition(context.Context, *OnTimeShiftGetStartPositionRequest) (*OnTimeShiftGetStartPositionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnTimeShiftGetStartPosition not implemented")
+}
+func (UnimplementedInputServiceSessionServiceServer) OnTimeShiftPause(context.Context, *OnTimeShiftPauseRequest) (*OnTimeShiftPauseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnTimeShiftPause not implemented")
+}
+func (UnimplementedInputServiceSessionServiceServer) OnTimeShiftPlay(context.Context, *OnTimeShiftPlayRequest) (*OnTimeShiftPlayResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnTimeShiftPlay not implemented")
+}
+func (UnimplementedInputServiceSessionServiceServer) OnTimeShiftResume(context.Context, *OnTimeShiftResumeRequest) (*OnTimeShiftResumeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnTimeShiftResume not implemented")
+}
+func (UnimplementedInputServiceSessionServiceServer) OnTimeShiftSeekTo(context.Context, *OnTimeShiftSeekToRequest) (*OnTimeShiftSeekToResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnTimeShiftSeekTo not implemented")
+}
+func (UnimplementedInputServiceSessionServiceServer) OnTimeShiftSetMode(context.Context, *OnTimeShiftSetModeRequest) (*OnTimeShiftSetModeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnTimeShiftSetMode not implemented")
+}
+func (UnimplementedInputServiceSessionServiceServer) OnTimeShiftSetPlaybackParams(context.Context, *OnTimeShiftSetPlaybackParamsRequest) (*OnTimeShiftSetPlaybackParamsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnTimeShiftSetPlaybackParams not implemented")
+}
+func (UnimplementedInputServiceSessionServiceServer) OnTouchEvent(context.Context, *OnTouchEventRequest) (*OnTouchEventResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnTouchEvent not implemented")
+}
+func (UnimplementedInputServiceSessionServiceServer) OnTrackballEvent(context.Context, *OnTrackballEventRequest) (*OnTrackballEventResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnTrackballEvent not implemented")
+}
+func (UnimplementedInputServiceSessionServiceServer) OnTune1(context.Context, *OnTune1Request) (*InputServiceSessionOnTune1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnTune1 not implemented")
+}
+func (UnimplementedInputServiceSessionServiceServer) OnTune2_1(context.Context, *OnTune2_1Request) (*InputServiceSessionOnTune2_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnTune2_1 not implemented")
+}
+func (UnimplementedInputServiceSessionServiceServer) OnTvAdSessionData(context.Context, *OnTvAdSessionDataRequest) (*OnTvAdSessionDataResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnTvAdSessionData not implemented")
+}
+func (UnimplementedInputServiceSessionServiceServer) OnTvMessage(context.Context, *OnTvMessageRequest) (*OnTvMessageResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnTvMessage not implemented")
+}
+func (UnimplementedInputServiceSessionServiceServer) OnUnblockContent(context.Context, *OnUnblockContentRequest) (*OnUnblockContentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnUnblockContent not implemented")
+}
+func (UnimplementedInputServiceSessionServiceServer) SendTvInputSessionData(context.Context, *SendTvInputSessionDataRequest) (*SendTvInputSessionDataResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SendTvInputSessionData not implemented")
+}
+func (UnimplementedInputServiceSessionServiceServer) SetOverlayViewEnabled(context.Context, *SetOverlayViewEnabledRequest) (*SetOverlayViewEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetOverlayViewEnabled not implemented")
+}
+func (UnimplementedInputServiceSessionServiceServer) mustEmbedUnimplementedInputServiceSessionServiceServer() {
+}
+func (UnimplementedInputServiceSessionServiceServer) testEmbeddedByValue() {}
+
+// UnsafeInputServiceSessionServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to InputServiceSessionServiceServer will
+// result in compilation errors.
+type UnsafeInputServiceSessionServiceServer interface {
+	mustEmbedUnimplementedInputServiceSessionServiceServer()
+}
+
+func RegisterInputServiceSessionServiceServer(s grpc.ServiceRegistrar, srv InputServiceSessionServiceServer) {
+	// If the following call panics, it indicates UnimplementedInputServiceSessionServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&InputServiceSessionService_ServiceDesc, srv)
+}
+
+func _InputServiceSessionService_LayoutSurface_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LayoutSurfaceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceSessionServiceServer).LayoutSurface(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceSessionService_LayoutSurface_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceSessionServiceServer).LayoutSurface(ctx, req.(*LayoutSurfaceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceSessionService_NotifyAdBufferConsumed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NotifyAdBufferConsumedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceSessionServiceServer).NotifyAdBufferConsumed(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceSessionService_NotifyAdBufferConsumed_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceSessionServiceServer).NotifyAdBufferConsumed(ctx, req.(*NotifyAdBufferConsumedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceSessionService_NotifyAdResponse_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NotifyAdResponseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceSessionServiceServer).NotifyAdResponse(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceSessionService_NotifyAdResponse_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceSessionServiceServer).NotifyAdResponse(ctx, req.(*NotifyAdResponseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceSessionService_NotifyAitInfoUpdated_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NotifyAitInfoUpdatedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceSessionServiceServer).NotifyAitInfoUpdated(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceSessionService_NotifyAitInfoUpdated_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceSessionServiceServer).NotifyAitInfoUpdated(ctx, req.(*NotifyAitInfoUpdatedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceSessionService_NotifyAudioPresentationSelected_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NotifyAudioPresentationSelectedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceSessionServiceServer).NotifyAudioPresentationSelected(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceSessionService_NotifyAudioPresentationSelected_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceSessionServiceServer).NotifyAudioPresentationSelected(ctx, req.(*NotifyAudioPresentationSelectedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceSessionService_NotifyAvailableSpeeds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NotifyAvailableSpeedsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceSessionServiceServer).NotifyAvailableSpeeds(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceSessionService_NotifyAvailableSpeeds_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceSessionServiceServer).NotifyAvailableSpeeds(ctx, req.(*NotifyAvailableSpeedsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceSessionService_NotifyBroadcastInfoResponse_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NotifyBroadcastInfoResponseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceSessionServiceServer).NotifyBroadcastInfoResponse(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceSessionService_NotifyBroadcastInfoResponse_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceSessionServiceServer).NotifyBroadcastInfoResponse(ctx, req.(*NotifyBroadcastInfoResponseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceSessionService_NotifyChannelRetuned_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NotifyChannelRetunedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceSessionServiceServer).NotifyChannelRetuned(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceSessionService_NotifyChannelRetuned_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceSessionServiceServer).NotifyChannelRetuned(ctx, req.(*NotifyChannelRetunedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceSessionService_NotifyContentAllowed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NotifyContentAllowedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceSessionServiceServer).NotifyContentAllowed(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceSessionService_NotifyContentAllowed_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceSessionServiceServer).NotifyContentAllowed(ctx, req.(*NotifyContentAllowedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceSessionService_NotifyContentBlocked_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NotifyContentBlockedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceSessionServiceServer).NotifyContentBlocked(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceSessionService_NotifyContentBlocked_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceSessionServiceServer).NotifyContentBlocked(ctx, req.(*NotifyContentBlockedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceSessionService_NotifyCueingMessageAvailability_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NotifyCueingMessageAvailabilityRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceSessionServiceServer).NotifyCueingMessageAvailability(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceSessionService_NotifyCueingMessageAvailability_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceSessionServiceServer).NotifyCueingMessageAvailability(ctx, req.(*NotifyCueingMessageAvailabilityRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceSessionService_NotifySignalStrength_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NotifySignalStrengthRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceSessionServiceServer).NotifySignalStrength(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceSessionService_NotifySignalStrength_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceSessionServiceServer).NotifySignalStrength(ctx, req.(*NotifySignalStrengthRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceSessionService_NotifyTimeShiftMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NotifyTimeShiftModeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceSessionServiceServer).NotifyTimeShiftMode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceSessionService_NotifyTimeShiftMode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceSessionServiceServer).NotifyTimeShiftMode(ctx, req.(*NotifyTimeShiftModeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceSessionService_NotifyTimeShiftStatusChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NotifyTimeShiftStatusChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceSessionServiceServer).NotifyTimeShiftStatusChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceSessionService_NotifyTimeShiftStatusChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceSessionServiceServer).NotifyTimeShiftStatusChanged(ctx, req.(*NotifyTimeShiftStatusChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceSessionService_NotifyTrackSelected_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NotifyTrackSelectedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceSessionServiceServer).NotifyTrackSelected(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceSessionService_NotifyTrackSelected_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceSessionServiceServer).NotifyTrackSelected(ctx, req.(*NotifyTrackSelectedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceSessionService_NotifyTuned_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NotifyTunedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceSessionServiceServer).NotifyTuned(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceSessionService_NotifyTuned_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceSessionServiceServer).NotifyTuned(ctx, req.(*NotifyTunedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceSessionService_NotifyTvMessage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NotifyTvMessageRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceSessionServiceServer).NotifyTvMessage(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceSessionService_NotifyTvMessage_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceSessionServiceServer).NotifyTvMessage(ctx, req.(*NotifyTvMessageRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceSessionService_NotifyVideoAvailable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NotifyVideoAvailableRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceSessionServiceServer).NotifyVideoAvailable(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceSessionService_NotifyVideoAvailable_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceSessionServiceServer).NotifyVideoAvailable(ctx, req.(*NotifyVideoAvailableRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceSessionService_NotifyVideoFreezeUpdated_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NotifyVideoFreezeUpdatedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceSessionServiceServer).NotifyVideoFreezeUpdated(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceSessionService_NotifyVideoFreezeUpdated_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceSessionServiceServer).NotifyVideoFreezeUpdated(ctx, req.(*NotifyVideoFreezeUpdatedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceSessionService_NotifyVideoUnavailable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NotifyVideoUnavailableRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceSessionServiceServer).NotifyVideoUnavailable(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceSessionService_NotifyVideoUnavailable_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceSessionServiceServer).NotifyVideoUnavailable(ctx, req.(*NotifyVideoUnavailableRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceSessionService_OnAdBufferReady_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnAdBufferReadyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceSessionServiceServer).OnAdBufferReady(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceSessionService_OnAdBufferReady_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceSessionServiceServer).OnAdBufferReady(ctx, req.(*OnAdBufferReadyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceSessionService_OnAppPrivateCommand_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnAppPrivateCommandRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceSessionServiceServer).OnAppPrivateCommand(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceSessionService_OnAppPrivateCommand_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceSessionServiceServer).OnAppPrivateCommand(ctx, req.(*OnAppPrivateCommandRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceSessionService_OnCreateOverlayView_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnCreateOverlayViewRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceSessionServiceServer).OnCreateOverlayView(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceSessionService_OnCreateOverlayView_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceSessionServiceServer).OnCreateOverlayView(ctx, req.(*OnCreateOverlayViewRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceSessionService_OnGenericMotionEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnGenericMotionEventRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceSessionServiceServer).OnGenericMotionEvent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceSessionService_OnGenericMotionEvent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceSessionServiceServer).OnGenericMotionEvent(ctx, req.(*OnGenericMotionEventRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceSessionService_OnKeyDown_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnKeyDownRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceSessionServiceServer).OnKeyDown(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceSessionService_OnKeyDown_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceSessionServiceServer).OnKeyDown(ctx, req.(*OnKeyDownRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceSessionService_OnKeyLongPress_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnKeyLongPressRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceSessionServiceServer).OnKeyLongPress(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceSessionService_OnKeyLongPress_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceSessionServiceServer).OnKeyLongPress(ctx, req.(*OnKeyLongPressRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceSessionService_OnKeyMultiple_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnKeyMultipleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceSessionServiceServer).OnKeyMultiple(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceSessionService_OnKeyMultiple_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceSessionServiceServer).OnKeyMultiple(ctx, req.(*OnKeyMultipleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceSessionService_OnKeyUp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnKeyUpRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceSessionServiceServer).OnKeyUp(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceSessionService_OnKeyUp_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceSessionServiceServer).OnKeyUp(ctx, req.(*OnKeyUpRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceSessionService_OnOverlayViewSizeChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnOverlayViewSizeChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceSessionServiceServer).OnOverlayViewSizeChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceSessionService_OnOverlayViewSizeChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceSessionServiceServer).OnOverlayViewSizeChanged(ctx, req.(*OnOverlayViewSizeChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceSessionService_OnRelease_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnReleaseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceSessionServiceServer).OnRelease(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceSessionService_OnRelease_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceSessionServiceServer).OnRelease(ctx, req.(*OnReleaseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceSessionService_OnRemoveBroadcastInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnRemoveBroadcastInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceSessionServiceServer).OnRemoveBroadcastInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceSessionService_OnRemoveBroadcastInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceSessionServiceServer).OnRemoveBroadcastInfo(ctx, req.(*OnRemoveBroadcastInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceSessionService_OnRequestAd_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnRequestAdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceSessionServiceServer).OnRequestAd(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceSessionService_OnRequestAd_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceSessionServiceServer).OnRequestAd(ctx, req.(*OnRequestAdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceSessionService_OnRequestBroadcastInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnRequestBroadcastInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceSessionServiceServer).OnRequestBroadcastInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceSessionService_OnRequestBroadcastInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceSessionServiceServer).OnRequestBroadcastInfo(ctx, req.(*OnRequestBroadcastInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceSessionService_OnResumePlayback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnResumePlaybackRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceSessionServiceServer).OnResumePlayback(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceSessionService_OnResumePlayback_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceSessionServiceServer).OnResumePlayback(ctx, req.(*OnResumePlaybackRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceSessionService_OnSelectAudioPresentation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnSelectAudioPresentationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceSessionServiceServer).OnSelectAudioPresentation(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceSessionService_OnSelectAudioPresentation_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceSessionServiceServer).OnSelectAudioPresentation(ctx, req.(*OnSelectAudioPresentationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceSessionService_OnSelectTrack_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnSelectTrackRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceSessionServiceServer).OnSelectTrack(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceSessionService_OnSelectTrack_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceSessionServiceServer).OnSelectTrack(ctx, req.(*OnSelectTrackRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceSessionService_OnSetCaptionEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnSetCaptionEnabledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceSessionServiceServer).OnSetCaptionEnabled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceSessionService_OnSetCaptionEnabled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceSessionServiceServer).OnSetCaptionEnabled(ctx, req.(*OnSetCaptionEnabledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceSessionService_OnSetInteractiveAppNotificationEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnSetInteractiveAppNotificationEnabledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceSessionServiceServer).OnSetInteractiveAppNotificationEnabled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceSessionService_OnSetInteractiveAppNotificationEnabled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceSessionServiceServer).OnSetInteractiveAppNotificationEnabled(ctx, req.(*OnSetInteractiveAppNotificationEnabledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceSessionService_OnSetStreamVolume_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnSetStreamVolumeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceSessionServiceServer).OnSetStreamVolume(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceSessionService_OnSetStreamVolume_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceSessionServiceServer).OnSetStreamVolume(ctx, req.(*OnSetStreamVolumeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceSessionService_OnSetSurface_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnSetSurfaceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceSessionServiceServer).OnSetSurface(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceSessionService_OnSetSurface_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceSessionServiceServer).OnSetSurface(ctx, req.(*OnSetSurfaceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceSessionService_OnSetTvMessageEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnSetTvMessageEnabledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceSessionServiceServer).OnSetTvMessageEnabled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceSessionService_OnSetTvMessageEnabled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceSessionServiceServer).OnSetTvMessageEnabled(ctx, req.(*OnSetTvMessageEnabledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceSessionService_OnStopPlayback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnStopPlaybackRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceSessionServiceServer).OnStopPlayback(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceSessionService_OnStopPlayback_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceSessionServiceServer).OnStopPlayback(ctx, req.(*OnStopPlaybackRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceSessionService_OnSurfaceChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnSurfaceChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceSessionServiceServer).OnSurfaceChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceSessionService_OnSurfaceChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceSessionServiceServer).OnSurfaceChanged(ctx, req.(*OnSurfaceChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceSessionService_OnTimeShiftGetCurrentPosition_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnTimeShiftGetCurrentPositionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceSessionServiceServer).OnTimeShiftGetCurrentPosition(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceSessionService_OnTimeShiftGetCurrentPosition_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceSessionServiceServer).OnTimeShiftGetCurrentPosition(ctx, req.(*OnTimeShiftGetCurrentPositionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceSessionService_OnTimeShiftGetStartPosition_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnTimeShiftGetStartPositionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceSessionServiceServer).OnTimeShiftGetStartPosition(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceSessionService_OnTimeShiftGetStartPosition_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceSessionServiceServer).OnTimeShiftGetStartPosition(ctx, req.(*OnTimeShiftGetStartPositionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceSessionService_OnTimeShiftPause_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnTimeShiftPauseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceSessionServiceServer).OnTimeShiftPause(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceSessionService_OnTimeShiftPause_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceSessionServiceServer).OnTimeShiftPause(ctx, req.(*OnTimeShiftPauseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceSessionService_OnTimeShiftPlay_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnTimeShiftPlayRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceSessionServiceServer).OnTimeShiftPlay(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceSessionService_OnTimeShiftPlay_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceSessionServiceServer).OnTimeShiftPlay(ctx, req.(*OnTimeShiftPlayRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceSessionService_OnTimeShiftResume_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnTimeShiftResumeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceSessionServiceServer).OnTimeShiftResume(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceSessionService_OnTimeShiftResume_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceSessionServiceServer).OnTimeShiftResume(ctx, req.(*OnTimeShiftResumeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceSessionService_OnTimeShiftSeekTo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnTimeShiftSeekToRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceSessionServiceServer).OnTimeShiftSeekTo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceSessionService_OnTimeShiftSeekTo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceSessionServiceServer).OnTimeShiftSeekTo(ctx, req.(*OnTimeShiftSeekToRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceSessionService_OnTimeShiftSetMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnTimeShiftSetModeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceSessionServiceServer).OnTimeShiftSetMode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceSessionService_OnTimeShiftSetMode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceSessionServiceServer).OnTimeShiftSetMode(ctx, req.(*OnTimeShiftSetModeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceSessionService_OnTimeShiftSetPlaybackParams_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnTimeShiftSetPlaybackParamsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceSessionServiceServer).OnTimeShiftSetPlaybackParams(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceSessionService_OnTimeShiftSetPlaybackParams_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceSessionServiceServer).OnTimeShiftSetPlaybackParams(ctx, req.(*OnTimeShiftSetPlaybackParamsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceSessionService_OnTouchEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnTouchEventRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceSessionServiceServer).OnTouchEvent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceSessionService_OnTouchEvent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceSessionServiceServer).OnTouchEvent(ctx, req.(*OnTouchEventRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceSessionService_OnTrackballEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnTrackballEventRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceSessionServiceServer).OnTrackballEvent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceSessionService_OnTrackballEvent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceSessionServiceServer).OnTrackballEvent(ctx, req.(*OnTrackballEventRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceSessionService_OnTune1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnTune1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceSessionServiceServer).OnTune1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceSessionService_OnTune1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceSessionServiceServer).OnTune1(ctx, req.(*OnTune1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceSessionService_OnTune2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnTune2_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceSessionServiceServer).OnTune2_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceSessionService_OnTune2_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceSessionServiceServer).OnTune2_1(ctx, req.(*OnTune2_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceSessionService_OnTvAdSessionData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnTvAdSessionDataRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceSessionServiceServer).OnTvAdSessionData(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceSessionService_OnTvAdSessionData_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceSessionServiceServer).OnTvAdSessionData(ctx, req.(*OnTvAdSessionDataRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceSessionService_OnTvMessage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnTvMessageRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceSessionServiceServer).OnTvMessage(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceSessionService_OnTvMessage_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceSessionServiceServer).OnTvMessage(ctx, req.(*OnTvMessageRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceSessionService_OnUnblockContent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnUnblockContentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceSessionServiceServer).OnUnblockContent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceSessionService_OnUnblockContent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceSessionServiceServer).OnUnblockContent(ctx, req.(*OnUnblockContentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceSessionService_SendTvInputSessionData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SendTvInputSessionDataRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceSessionServiceServer).SendTvInputSessionData(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceSessionService_SendTvInputSessionData_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceSessionServiceServer).SendTvInputSessionData(ctx, req.(*SendTvInputSessionDataRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputServiceSessionService_SetOverlayViewEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetOverlayViewEnabledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputServiceSessionServiceServer).SetOverlayViewEnabled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputServiceSessionService_SetOverlayViewEnabled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputServiceSessionServiceServer).SetOverlayViewEnabled(ctx, req.(*SetOverlayViewEnabledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// InputServiceSessionService_ServiceDesc is the grpc.ServiceDesc for InputServiceSessionService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var InputServiceSessionService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "tv.InputServiceSessionService",
+	HandlerType: (*InputServiceSessionServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "LayoutSurface",
+			Handler:    _InputServiceSessionService_LayoutSurface_Handler,
+		},
+		{
+			MethodName: "NotifyAdBufferConsumed",
+			Handler:    _InputServiceSessionService_NotifyAdBufferConsumed_Handler,
+		},
+		{
+			MethodName: "NotifyAdResponse",
+			Handler:    _InputServiceSessionService_NotifyAdResponse_Handler,
+		},
+		{
+			MethodName: "NotifyAitInfoUpdated",
+			Handler:    _InputServiceSessionService_NotifyAitInfoUpdated_Handler,
+		},
+		{
+			MethodName: "NotifyAudioPresentationSelected",
+			Handler:    _InputServiceSessionService_NotifyAudioPresentationSelected_Handler,
+		},
+		{
+			MethodName: "NotifyAvailableSpeeds",
+			Handler:    _InputServiceSessionService_NotifyAvailableSpeeds_Handler,
+		},
+		{
+			MethodName: "NotifyBroadcastInfoResponse",
+			Handler:    _InputServiceSessionService_NotifyBroadcastInfoResponse_Handler,
+		},
+		{
+			MethodName: "NotifyChannelRetuned",
+			Handler:    _InputServiceSessionService_NotifyChannelRetuned_Handler,
+		},
+		{
+			MethodName: "NotifyContentAllowed",
+			Handler:    _InputServiceSessionService_NotifyContentAllowed_Handler,
+		},
+		{
+			MethodName: "NotifyContentBlocked",
+			Handler:    _InputServiceSessionService_NotifyContentBlocked_Handler,
+		},
+		{
+			MethodName: "NotifyCueingMessageAvailability",
+			Handler:    _InputServiceSessionService_NotifyCueingMessageAvailability_Handler,
+		},
+		{
+			MethodName: "NotifySignalStrength",
+			Handler:    _InputServiceSessionService_NotifySignalStrength_Handler,
+		},
+		{
+			MethodName: "NotifyTimeShiftMode",
+			Handler:    _InputServiceSessionService_NotifyTimeShiftMode_Handler,
+		},
+		{
+			MethodName: "NotifyTimeShiftStatusChanged",
+			Handler:    _InputServiceSessionService_NotifyTimeShiftStatusChanged_Handler,
+		},
+		{
+			MethodName: "NotifyTrackSelected",
+			Handler:    _InputServiceSessionService_NotifyTrackSelected_Handler,
+		},
+		{
+			MethodName: "NotifyTuned",
+			Handler:    _InputServiceSessionService_NotifyTuned_Handler,
+		},
+		{
+			MethodName: "NotifyTvMessage",
+			Handler:    _InputServiceSessionService_NotifyTvMessage_Handler,
+		},
+		{
+			MethodName: "NotifyVideoAvailable",
+			Handler:    _InputServiceSessionService_NotifyVideoAvailable_Handler,
+		},
+		{
+			MethodName: "NotifyVideoFreezeUpdated",
+			Handler:    _InputServiceSessionService_NotifyVideoFreezeUpdated_Handler,
+		},
+		{
+			MethodName: "NotifyVideoUnavailable",
+			Handler:    _InputServiceSessionService_NotifyVideoUnavailable_Handler,
+		},
+		{
+			MethodName: "OnAdBufferReady",
+			Handler:    _InputServiceSessionService_OnAdBufferReady_Handler,
+		},
+		{
+			MethodName: "OnAppPrivateCommand",
+			Handler:    _InputServiceSessionService_OnAppPrivateCommand_Handler,
+		},
+		{
+			MethodName: "OnCreateOverlayView",
+			Handler:    _InputServiceSessionService_OnCreateOverlayView_Handler,
+		},
+		{
+			MethodName: "OnGenericMotionEvent",
+			Handler:    _InputServiceSessionService_OnGenericMotionEvent_Handler,
+		},
+		{
+			MethodName: "OnKeyDown",
+			Handler:    _InputServiceSessionService_OnKeyDown_Handler,
+		},
+		{
+			MethodName: "OnKeyLongPress",
+			Handler:    _InputServiceSessionService_OnKeyLongPress_Handler,
+		},
+		{
+			MethodName: "OnKeyMultiple",
+			Handler:    _InputServiceSessionService_OnKeyMultiple_Handler,
+		},
+		{
+			MethodName: "OnKeyUp",
+			Handler:    _InputServiceSessionService_OnKeyUp_Handler,
+		},
+		{
+			MethodName: "OnOverlayViewSizeChanged",
+			Handler:    _InputServiceSessionService_OnOverlayViewSizeChanged_Handler,
+		},
+		{
+			MethodName: "OnRelease",
+			Handler:    _InputServiceSessionService_OnRelease_Handler,
+		},
+		{
+			MethodName: "OnRemoveBroadcastInfo",
+			Handler:    _InputServiceSessionService_OnRemoveBroadcastInfo_Handler,
+		},
+		{
+			MethodName: "OnRequestAd",
+			Handler:    _InputServiceSessionService_OnRequestAd_Handler,
+		},
+		{
+			MethodName: "OnRequestBroadcastInfo",
+			Handler:    _InputServiceSessionService_OnRequestBroadcastInfo_Handler,
+		},
+		{
+			MethodName: "OnResumePlayback",
+			Handler:    _InputServiceSessionService_OnResumePlayback_Handler,
+		},
+		{
+			MethodName: "OnSelectAudioPresentation",
+			Handler:    _InputServiceSessionService_OnSelectAudioPresentation_Handler,
+		},
+		{
+			MethodName: "OnSelectTrack",
+			Handler:    _InputServiceSessionService_OnSelectTrack_Handler,
+		},
+		{
+			MethodName: "OnSetCaptionEnabled",
+			Handler:    _InputServiceSessionService_OnSetCaptionEnabled_Handler,
+		},
+		{
+			MethodName: "OnSetInteractiveAppNotificationEnabled",
+			Handler:    _InputServiceSessionService_OnSetInteractiveAppNotificationEnabled_Handler,
+		},
+		{
+			MethodName: "OnSetStreamVolume",
+			Handler:    _InputServiceSessionService_OnSetStreamVolume_Handler,
+		},
+		{
+			MethodName: "OnSetSurface",
+			Handler:    _InputServiceSessionService_OnSetSurface_Handler,
+		},
+		{
+			MethodName: "OnSetTvMessageEnabled",
+			Handler:    _InputServiceSessionService_OnSetTvMessageEnabled_Handler,
+		},
+		{
+			MethodName: "OnStopPlayback",
+			Handler:    _InputServiceSessionService_OnStopPlayback_Handler,
+		},
+		{
+			MethodName: "OnSurfaceChanged",
+			Handler:    _InputServiceSessionService_OnSurfaceChanged_Handler,
+		},
+		{
+			MethodName: "OnTimeShiftGetCurrentPosition",
+			Handler:    _InputServiceSessionService_OnTimeShiftGetCurrentPosition_Handler,
+		},
+		{
+			MethodName: "OnTimeShiftGetStartPosition",
+			Handler:    _InputServiceSessionService_OnTimeShiftGetStartPosition_Handler,
+		},
+		{
+			MethodName: "OnTimeShiftPause",
+			Handler:    _InputServiceSessionService_OnTimeShiftPause_Handler,
+		},
+		{
+			MethodName: "OnTimeShiftPlay",
+			Handler:    _InputServiceSessionService_OnTimeShiftPlay_Handler,
+		},
+		{
+			MethodName: "OnTimeShiftResume",
+			Handler:    _InputServiceSessionService_OnTimeShiftResume_Handler,
+		},
+		{
+			MethodName: "OnTimeShiftSeekTo",
+			Handler:    _InputServiceSessionService_OnTimeShiftSeekTo_Handler,
+		},
+		{
+			MethodName: "OnTimeShiftSetMode",
+			Handler:    _InputServiceSessionService_OnTimeShiftSetMode_Handler,
+		},
+		{
+			MethodName: "OnTimeShiftSetPlaybackParams",
+			Handler:    _InputServiceSessionService_OnTimeShiftSetPlaybackParams_Handler,
+		},
+		{
+			MethodName: "OnTouchEvent",
+			Handler:    _InputServiceSessionService_OnTouchEvent_Handler,
+		},
+		{
+			MethodName: "OnTrackballEvent",
+			Handler:    _InputServiceSessionService_OnTrackballEvent_Handler,
+		},
+		{
+			MethodName: "OnTune1",
+			Handler:    _InputServiceSessionService_OnTune1_Handler,
+		},
+		{
+			MethodName: "OnTune2_1",
+			Handler:    _InputServiceSessionService_OnTune2_1_Handler,
+		},
+		{
+			MethodName: "OnTvAdSessionData",
+			Handler:    _InputServiceSessionService_OnTvAdSessionData_Handler,
+		},
+		{
+			MethodName: "OnTvMessage",
+			Handler:    _InputServiceSessionService_OnTvMessage_Handler,
+		},
+		{
+			MethodName: "OnUnblockContent",
+			Handler:    _InputServiceSessionService_OnUnblockContent_Handler,
+		},
+		{
+			MethodName: "SendTvInputSessionData",
+			Handler:    _InputServiceSessionService_SendTvInputSessionData_Handler,
+		},
+		{
+			MethodName: "SetOverlayViewEnabled",
+			Handler:    _InputServiceSessionService_SetOverlayViewEnabled_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/tv/tv.proto",
+}
+
+const (
+	BroadcastInfoRequestService_DescribeContents_FullMethodName = "/tv.BroadcastInfoRequestService/DescribeContents"
+	BroadcastInfoRequestService_GetOption_FullMethodName        = "/tv.BroadcastInfoRequestService/GetOption"
+	BroadcastInfoRequestService_GetRequestId_FullMethodName     = "/tv.BroadcastInfoRequestService/GetRequestId"
+	BroadcastInfoRequestService_GetType_FullMethodName          = "/tv.BroadcastInfoRequestService/GetType"
+	BroadcastInfoRequestService_WriteToParcel_FullMethodName    = "/tv.BroadcastInfoRequestService/WriteToParcel"
+)
+
+// BroadcastInfoRequestServiceClient is the client API for BroadcastInfoRequestService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type BroadcastInfoRequestServiceClient interface {
+	DescribeContents(ctx context.Context, in *BroadcastInfoRequestDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetOption(ctx context.Context, in *GetOptionRequest, opts ...grpc.CallOption) (*GetOptionResponse, error)
+	GetRequestId(ctx context.Context, in *GetRequestIdRequest, opts ...grpc.CallOption) (*GetRequestIdResponse, error)
+	GetType(ctx context.Context, in *GetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error)
+	WriteToParcel(ctx context.Context, in *BroadcastInfoRequestWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type broadcastInfoRequestServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewBroadcastInfoRequestServiceClient(cc grpc.ClientConnInterface) BroadcastInfoRequestServiceClient {
+	return &broadcastInfoRequestServiceClient{cc}
+}
+
+func (c *broadcastInfoRequestServiceClient) DescribeContents(ctx context.Context, in *BroadcastInfoRequestDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, BroadcastInfoRequestService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *broadcastInfoRequestServiceClient) GetOption(ctx context.Context, in *GetOptionRequest, opts ...grpc.CallOption) (*GetOptionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetOptionResponse)
+	err := c.cc.Invoke(ctx, BroadcastInfoRequestService_GetOption_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *broadcastInfoRequestServiceClient) GetRequestId(ctx context.Context, in *GetRequestIdRequest, opts ...grpc.CallOption) (*GetRequestIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRequestIdResponse)
+	err := c.cc.Invoke(ctx, BroadcastInfoRequestService_GetRequestId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *broadcastInfoRequestServiceClient) GetType(ctx context.Context, in *GetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTypeResponse)
+	err := c.cc.Invoke(ctx, BroadcastInfoRequestService_GetType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *broadcastInfoRequestServiceClient) WriteToParcel(ctx context.Context, in *BroadcastInfoRequestWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, BroadcastInfoRequestService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// BroadcastInfoRequestServiceServer is the server API for BroadcastInfoRequestService service.
+// All implementations must embed UnimplementedBroadcastInfoRequestServiceServer
+// for forward compatibility.
+type BroadcastInfoRequestServiceServer interface {
+	DescribeContents(context.Context, *BroadcastInfoRequestDescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetOption(context.Context, *GetOptionRequest) (*GetOptionResponse, error)
+	GetRequestId(context.Context, *GetRequestIdRequest) (*GetRequestIdResponse, error)
+	GetType(context.Context, *GetTypeRequest) (*GetTypeResponse, error)
+	WriteToParcel(context.Context, *BroadcastInfoRequestWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedBroadcastInfoRequestServiceServer()
+}
+
+// UnimplementedBroadcastInfoRequestServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedBroadcastInfoRequestServiceServer struct{}
+
+func (UnimplementedBroadcastInfoRequestServiceServer) DescribeContents(context.Context, *BroadcastInfoRequestDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedBroadcastInfoRequestServiceServer) GetOption(context.Context, *GetOptionRequest) (*GetOptionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetOption not implemented")
+}
+func (UnimplementedBroadcastInfoRequestServiceServer) GetRequestId(context.Context, *GetRequestIdRequest) (*GetRequestIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRequestId not implemented")
+}
+func (UnimplementedBroadcastInfoRequestServiceServer) GetType(context.Context, *GetTypeRequest) (*GetTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetType not implemented")
+}
+func (UnimplementedBroadcastInfoRequestServiceServer) WriteToParcel(context.Context, *BroadcastInfoRequestWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedBroadcastInfoRequestServiceServer) mustEmbedUnimplementedBroadcastInfoRequestServiceServer() {
+}
+func (UnimplementedBroadcastInfoRequestServiceServer) testEmbeddedByValue() {}
+
+// UnsafeBroadcastInfoRequestServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to BroadcastInfoRequestServiceServer will
+// result in compilation errors.
+type UnsafeBroadcastInfoRequestServiceServer interface {
+	mustEmbedUnimplementedBroadcastInfoRequestServiceServer()
+}
+
+func RegisterBroadcastInfoRequestServiceServer(s grpc.ServiceRegistrar, srv BroadcastInfoRequestServiceServer) {
+	// If the following call panics, it indicates UnimplementedBroadcastInfoRequestServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&BroadcastInfoRequestService_ServiceDesc, srv)
+}
+
+func _BroadcastInfoRequestService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BroadcastInfoRequestDescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BroadcastInfoRequestServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BroadcastInfoRequestService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BroadcastInfoRequestServiceServer).DescribeContents(ctx, req.(*BroadcastInfoRequestDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BroadcastInfoRequestService_GetOption_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetOptionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BroadcastInfoRequestServiceServer).GetOption(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BroadcastInfoRequestService_GetOption_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BroadcastInfoRequestServiceServer).GetOption(ctx, req.(*GetOptionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BroadcastInfoRequestService_GetRequestId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRequestIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BroadcastInfoRequestServiceServer).GetRequestId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BroadcastInfoRequestService_GetRequestId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BroadcastInfoRequestServiceServer).GetRequestId(ctx, req.(*GetRequestIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BroadcastInfoRequestService_GetType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BroadcastInfoRequestServiceServer).GetType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BroadcastInfoRequestService_GetType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BroadcastInfoRequestServiceServer).GetType(ctx, req.(*GetTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BroadcastInfoRequestService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BroadcastInfoRequestWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BroadcastInfoRequestServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BroadcastInfoRequestService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BroadcastInfoRequestServiceServer).WriteToParcel(ctx, req.(*BroadcastInfoRequestWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// BroadcastInfoRequestService_ServiceDesc is the grpc.ServiceDesc for BroadcastInfoRequestService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var BroadcastInfoRequestService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "tv.BroadcastInfoRequestService",
+	HandlerType: (*BroadcastInfoRequestServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _BroadcastInfoRequestService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetOption",
+			Handler:    _BroadcastInfoRequestService_GetOption_Handler,
+		},
+		{
+			MethodName: "GetRequestId",
+			Handler:    _BroadcastInfoRequestService_GetRequestId_Handler,
+		},
+		{
+			MethodName: "GetType",
+			Handler:    _BroadcastInfoRequestService_GetType_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _BroadcastInfoRequestService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/tv/tv.proto",
+}
+
+const (
+	DsmccResponseService_NewDsmccResponse_FullMethodName    = "/tv.DsmccResponseService/NewDsmccResponse"
+	DsmccResponseService_DescribeContents_FullMethodName    = "/tv.DsmccResponseService/DescribeContents"
+	DsmccResponseService_GetBiopMessageType_FullMethodName  = "/tv.DsmccResponseService/GetBiopMessageType"
+	DsmccResponseService_GetFile_FullMethodName             = "/tv.DsmccResponseService/GetFile"
+	DsmccResponseService_GetStreamEventIds_FullMethodName   = "/tv.DsmccResponseService/GetStreamEventIds"
+	DsmccResponseService_GetStreamEventNames_FullMethodName = "/tv.DsmccResponseService/GetStreamEventNames"
+	DsmccResponseService_WriteToParcel_FullMethodName       = "/tv.DsmccResponseService/WriteToParcel"
+)
+
+// DsmccResponseServiceClient is the client API for DsmccResponseService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type DsmccResponseServiceClient interface {
+	NewDsmccResponse(ctx context.Context, in *NewDsmccResponseRequest, opts ...grpc.CallOption) (*NewDsmccResponseResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetBiopMessageType(ctx context.Context, in *GetBiopMessageTypeRequest, opts ...grpc.CallOption) (*GetBiopMessageTypeResponse, error)
+	GetFile(ctx context.Context, in *GetFileRequest, opts ...grpc.CallOption) (*GetFileResponse, error)
+	GetStreamEventIds(ctx context.Context, in *GetStreamEventIdsRequest, opts ...grpc.CallOption) (*GetStreamEventIdsResponse, error)
+	GetStreamEventNames(ctx context.Context, in *GetStreamEventNamesRequest, opts ...grpc.CallOption) (*GetStreamEventNamesResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type dsmccResponseServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewDsmccResponseServiceClient(cc grpc.ClientConnInterface) DsmccResponseServiceClient {
+	return &dsmccResponseServiceClient{cc}
+}
+
+func (c *dsmccResponseServiceClient) NewDsmccResponse(ctx context.Context, in *NewDsmccResponseRequest, opts ...grpc.CallOption) (*NewDsmccResponseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewDsmccResponseResponse)
+	err := c.cc.Invoke(ctx, DsmccResponseService_NewDsmccResponse_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dsmccResponseServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, DsmccResponseService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dsmccResponseServiceClient) GetBiopMessageType(ctx context.Context, in *GetBiopMessageTypeRequest, opts ...grpc.CallOption) (*GetBiopMessageTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetBiopMessageTypeResponse)
+	err := c.cc.Invoke(ctx, DsmccResponseService_GetBiopMessageType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dsmccResponseServiceClient) GetFile(ctx context.Context, in *GetFileRequest, opts ...grpc.CallOption) (*GetFileResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFileResponse)
+	err := c.cc.Invoke(ctx, DsmccResponseService_GetFile_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dsmccResponseServiceClient) GetStreamEventIds(ctx context.Context, in *GetStreamEventIdsRequest, opts ...grpc.CallOption) (*GetStreamEventIdsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStreamEventIdsResponse)
+	err := c.cc.Invoke(ctx, DsmccResponseService_GetStreamEventIds_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dsmccResponseServiceClient) GetStreamEventNames(ctx context.Context, in *GetStreamEventNamesRequest, opts ...grpc.CallOption) (*GetStreamEventNamesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStreamEventNamesResponse)
+	err := c.cc.Invoke(ctx, DsmccResponseService_GetStreamEventNames_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dsmccResponseServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, DsmccResponseService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// DsmccResponseServiceServer is the server API for DsmccResponseService service.
+// All implementations must embed UnimplementedDsmccResponseServiceServer
+// for forward compatibility.
+type DsmccResponseServiceServer interface {
+	NewDsmccResponse(context.Context, *NewDsmccResponseRequest) (*NewDsmccResponseResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetBiopMessageType(context.Context, *GetBiopMessageTypeRequest) (*GetBiopMessageTypeResponse, error)
+	GetFile(context.Context, *GetFileRequest) (*GetFileResponse, error)
+	GetStreamEventIds(context.Context, *GetStreamEventIdsRequest) (*GetStreamEventIdsResponse, error)
+	GetStreamEventNames(context.Context, *GetStreamEventNamesRequest) (*GetStreamEventNamesResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedDsmccResponseServiceServer()
+}
+
+// UnimplementedDsmccResponseServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedDsmccResponseServiceServer struct{}
+
+func (UnimplementedDsmccResponseServiceServer) NewDsmccResponse(context.Context, *NewDsmccResponseRequest) (*NewDsmccResponseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewDsmccResponse not implemented")
+}
+func (UnimplementedDsmccResponseServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedDsmccResponseServiceServer) GetBiopMessageType(context.Context, *GetBiopMessageTypeRequest) (*GetBiopMessageTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetBiopMessageType not implemented")
+}
+func (UnimplementedDsmccResponseServiceServer) GetFile(context.Context, *GetFileRequest) (*GetFileResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFile not implemented")
+}
+func (UnimplementedDsmccResponseServiceServer) GetStreamEventIds(context.Context, *GetStreamEventIdsRequest) (*GetStreamEventIdsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetStreamEventIds not implemented")
+}
+func (UnimplementedDsmccResponseServiceServer) GetStreamEventNames(context.Context, *GetStreamEventNamesRequest) (*GetStreamEventNamesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetStreamEventNames not implemented")
+}
+func (UnimplementedDsmccResponseServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedDsmccResponseServiceServer) mustEmbedUnimplementedDsmccResponseServiceServer() {}
+func (UnimplementedDsmccResponseServiceServer) testEmbeddedByValue()                              {}
+
+// UnsafeDsmccResponseServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to DsmccResponseServiceServer will
+// result in compilation errors.
+type UnsafeDsmccResponseServiceServer interface {
+	mustEmbedUnimplementedDsmccResponseServiceServer()
+}
+
+func RegisterDsmccResponseServiceServer(s grpc.ServiceRegistrar, srv DsmccResponseServiceServer) {
+	// If the following call panics, it indicates UnimplementedDsmccResponseServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&DsmccResponseService_ServiceDesc, srv)
+}
+
+func _DsmccResponseService_NewDsmccResponse_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewDsmccResponseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DsmccResponseServiceServer).NewDsmccResponse(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DsmccResponseService_NewDsmccResponse_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DsmccResponseServiceServer).NewDsmccResponse(ctx, req.(*NewDsmccResponseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DsmccResponseService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DsmccResponseServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DsmccResponseService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DsmccResponseServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DsmccResponseService_GetBiopMessageType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetBiopMessageTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DsmccResponseServiceServer).GetBiopMessageType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DsmccResponseService_GetBiopMessageType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DsmccResponseServiceServer).GetBiopMessageType(ctx, req.(*GetBiopMessageTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DsmccResponseService_GetFile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFileRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DsmccResponseServiceServer).GetFile(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DsmccResponseService_GetFile_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DsmccResponseServiceServer).GetFile(ctx, req.(*GetFileRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DsmccResponseService_GetStreamEventIds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStreamEventIdsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DsmccResponseServiceServer).GetStreamEventIds(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DsmccResponseService_GetStreamEventIds_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DsmccResponseServiceServer).GetStreamEventIds(ctx, req.(*GetStreamEventIdsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DsmccResponseService_GetStreamEventNames_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStreamEventNamesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DsmccResponseServiceServer).GetStreamEventNames(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DsmccResponseService_GetStreamEventNames_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DsmccResponseServiceServer).GetStreamEventNames(ctx, req.(*GetStreamEventNamesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DsmccResponseService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DsmccResponseServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DsmccResponseService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DsmccResponseServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// DsmccResponseService_ServiceDesc is the grpc.ServiceDesc for DsmccResponseService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var DsmccResponseService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "tv.DsmccResponseService",
+	HandlerType: (*DsmccResponseServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewDsmccResponse",
+			Handler:    _DsmccResponseService_NewDsmccResponse_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _DsmccResponseService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetBiopMessageType",
+			Handler:    _DsmccResponseService_GetBiopMessageType_Handler,
+		},
+		{
+			MethodName: "GetFile",
+			Handler:    _DsmccResponseService_GetFile_Handler,
+		},
+		{
+			MethodName: "GetStreamEventIds",
+			Handler:    _DsmccResponseService_GetStreamEventIds_Handler,
+		},
+		{
+			MethodName: "GetStreamEventNames",
+			Handler:    _DsmccResponseService_GetStreamEventNames_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _DsmccResponseService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/tv/tv.proto",
+}
+
+const (
+	PesResponseService_NewPesResponse_FullMethodName       = "/tv.PesResponseService/NewPesResponse"
+	PesResponseService_DescribeContents_FullMethodName     = "/tv.PesResponseService/DescribeContents"
+	PesResponseService_GetSharedFilterToken_FullMethodName = "/tv.PesResponseService/GetSharedFilterToken"
+	PesResponseService_WriteToParcel_FullMethodName        = "/tv.PesResponseService/WriteToParcel"
+)
+
+// PesResponseServiceClient is the client API for PesResponseService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type PesResponseServiceClient interface {
+	NewPesResponse(ctx context.Context, in *NewPesResponseRequest, opts ...grpc.CallOption) (*NewPesResponseResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetSharedFilterToken(ctx context.Context, in *GetSharedFilterTokenRequest, opts ...grpc.CallOption) (*GetSharedFilterTokenResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type pesResponseServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewPesResponseServiceClient(cc grpc.ClientConnInterface) PesResponseServiceClient {
+	return &pesResponseServiceClient{cc}
+}
+
+func (c *pesResponseServiceClient) NewPesResponse(ctx context.Context, in *NewPesResponseRequest, opts ...grpc.CallOption) (*NewPesResponseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewPesResponseResponse)
+	err := c.cc.Invoke(ctx, PesResponseService_NewPesResponse_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *pesResponseServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, PesResponseService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *pesResponseServiceClient) GetSharedFilterToken(ctx context.Context, in *GetSharedFilterTokenRequest, opts ...grpc.CallOption) (*GetSharedFilterTokenResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSharedFilterTokenResponse)
+	err := c.cc.Invoke(ctx, PesResponseService_GetSharedFilterToken_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *pesResponseServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, PesResponseService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// PesResponseServiceServer is the server API for PesResponseService service.
+// All implementations must embed UnimplementedPesResponseServiceServer
+// for forward compatibility.
+type PesResponseServiceServer interface {
+	NewPesResponse(context.Context, *NewPesResponseRequest) (*NewPesResponseResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetSharedFilterToken(context.Context, *GetSharedFilterTokenRequest) (*GetSharedFilterTokenResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedPesResponseServiceServer()
+}
+
+// UnimplementedPesResponseServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedPesResponseServiceServer struct{}
+
+func (UnimplementedPesResponseServiceServer) NewPesResponse(context.Context, *NewPesResponseRequest) (*NewPesResponseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewPesResponse not implemented")
+}
+func (UnimplementedPesResponseServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedPesResponseServiceServer) GetSharedFilterToken(context.Context, *GetSharedFilterTokenRequest) (*GetSharedFilterTokenResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSharedFilterToken not implemented")
+}
+func (UnimplementedPesResponseServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedPesResponseServiceServer) mustEmbedUnimplementedPesResponseServiceServer() {}
+func (UnimplementedPesResponseServiceServer) testEmbeddedByValue()                            {}
+
+// UnsafePesResponseServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to PesResponseServiceServer will
+// result in compilation errors.
+type UnsafePesResponseServiceServer interface {
+	mustEmbedUnimplementedPesResponseServiceServer()
+}
+
+func RegisterPesResponseServiceServer(s grpc.ServiceRegistrar, srv PesResponseServiceServer) {
+	// If the following call panics, it indicates UnimplementedPesResponseServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&PesResponseService_ServiceDesc, srv)
+}
+
+func _PesResponseService_NewPesResponse_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewPesResponseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PesResponseServiceServer).NewPesResponse(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PesResponseService_NewPesResponse_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PesResponseServiceServer).NewPesResponse(ctx, req.(*NewPesResponseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PesResponseService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PesResponseServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PesResponseService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PesResponseServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PesResponseService_GetSharedFilterToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSharedFilterTokenRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PesResponseServiceServer).GetSharedFilterToken(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PesResponseService_GetSharedFilterToken_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PesResponseServiceServer).GetSharedFilterToken(ctx, req.(*GetSharedFilterTokenRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PesResponseService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PesResponseServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PesResponseService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PesResponseServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// PesResponseService_ServiceDesc is the grpc.ServiceDesc for PesResponseService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var PesResponseService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "tv.PesResponseService",
+	HandlerType: (*PesResponseServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewPesResponse",
+			Handler:    _PesResponseService_NewPesResponse_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _PesResponseService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetSharedFilterToken",
+			Handler:    _PesResponseService_GetSharedFilterToken_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _PesResponseService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/tv/tv.proto",
+}
+
+const (
+	RecordingInfoService_NewRecordingInfo_FullMethodName            = "/tv.RecordingInfoService/NewRecordingInfo"
+	RecordingInfoService_DescribeContents_FullMethodName            = "/tv.RecordingInfoService/DescribeContents"
+	RecordingInfoService_GetChannelUri_FullMethodName               = "/tv.RecordingInfoService/GetChannelUri"
+	RecordingInfoService_GetDescription_FullMethodName              = "/tv.RecordingInfoService/GetDescription"
+	RecordingInfoService_GetEndPaddingMillis_FullMethodName         = "/tv.RecordingInfoService/GetEndPaddingMillis"
+	RecordingInfoService_GetName_FullMethodName                     = "/tv.RecordingInfoService/GetName"
+	RecordingInfoService_GetProgramUri_FullMethodName               = "/tv.RecordingInfoService/GetProgramUri"
+	RecordingInfoService_GetRecordingDurationMillis_FullMethodName  = "/tv.RecordingInfoService/GetRecordingDurationMillis"
+	RecordingInfoService_GetRecordingId_FullMethodName              = "/tv.RecordingInfoService/GetRecordingId"
+	RecordingInfoService_GetRecordingStartTimeMillis_FullMethodName = "/tv.RecordingInfoService/GetRecordingStartTimeMillis"
+	RecordingInfoService_GetRecordingUri_FullMethodName             = "/tv.RecordingInfoService/GetRecordingUri"
+	RecordingInfoService_GetRepeatDays_FullMethodName               = "/tv.RecordingInfoService/GetRepeatDays"
+	RecordingInfoService_GetScheduledDurationMillis_FullMethodName  = "/tv.RecordingInfoService/GetScheduledDurationMillis"
+	RecordingInfoService_GetScheduledStartTimeMillis_FullMethodName = "/tv.RecordingInfoService/GetScheduledStartTimeMillis"
+	RecordingInfoService_GetStartPaddingMillis_FullMethodName       = "/tv.RecordingInfoService/GetStartPaddingMillis"
+	RecordingInfoService_SetDescription_FullMethodName              = "/tv.RecordingInfoService/SetDescription"
+	RecordingInfoService_SetName_FullMethodName                     = "/tv.RecordingInfoService/SetName"
+	RecordingInfoService_WriteToParcel_FullMethodName               = "/tv.RecordingInfoService/WriteToParcel"
+)
+
+// RecordingInfoServiceClient is the client API for RecordingInfoService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type RecordingInfoServiceClient interface {
+	NewRecordingInfo(ctx context.Context, in *NewRecordingInfoRequest, opts ...grpc.CallOption) (*NewRecordingInfoResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetChannelUri(ctx context.Context, in *GetChannelUriRequest, opts ...grpc.CallOption) (*GetChannelUriResponse, error)
+	GetDescription(ctx context.Context, in *GetDescriptionRequest, opts ...grpc.CallOption) (*GetDescriptionResponse, error)
+	GetEndPaddingMillis(ctx context.Context, in *GetEndPaddingMillisRequest, opts ...grpc.CallOption) (*GetEndPaddingMillisResponse, error)
+	GetName(ctx context.Context, in *GetNameRequest, opts ...grpc.CallOption) (*GetNameResponse, error)
+	GetProgramUri(ctx context.Context, in *GetProgramUriRequest, opts ...grpc.CallOption) (*GetProgramUriResponse, error)
+	GetRecordingDurationMillis(ctx context.Context, in *GetRecordingDurationMillisRequest, opts ...grpc.CallOption) (*GetRecordingDurationMillisResponse, error)
+	GetRecordingId(ctx context.Context, in *GetRecordingIdRequest, opts ...grpc.CallOption) (*GetRecordingIdResponse, error)
+	GetRecordingStartTimeMillis(ctx context.Context, in *GetRecordingStartTimeMillisRequest, opts ...grpc.CallOption) (*GetRecordingStartTimeMillisResponse, error)
+	GetRecordingUri(ctx context.Context, in *GetRecordingUriRequest, opts ...grpc.CallOption) (*GetRecordingUriResponse, error)
+	GetRepeatDays(ctx context.Context, in *GetRepeatDaysRequest, opts ...grpc.CallOption) (*GetRepeatDaysResponse, error)
+	GetScheduledDurationMillis(ctx context.Context, in *GetScheduledDurationMillisRequest, opts ...grpc.CallOption) (*GetScheduledDurationMillisResponse, error)
+	GetScheduledStartTimeMillis(ctx context.Context, in *GetScheduledStartTimeMillisRequest, opts ...grpc.CallOption) (*GetScheduledStartTimeMillisResponse, error)
+	GetStartPaddingMillis(ctx context.Context, in *GetStartPaddingMillisRequest, opts ...grpc.CallOption) (*GetStartPaddingMillisResponse, error)
+	SetDescription(ctx context.Context, in *SetDescriptionRequest, opts ...grpc.CallOption) (*SetDescriptionResponse, error)
+	SetName(ctx context.Context, in *SetNameRequest, opts ...grpc.CallOption) (*SetNameResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type recordingInfoServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewRecordingInfoServiceClient(cc grpc.ClientConnInterface) RecordingInfoServiceClient {
+	return &recordingInfoServiceClient{cc}
+}
+
+func (c *recordingInfoServiceClient) NewRecordingInfo(ctx context.Context, in *NewRecordingInfoRequest, opts ...grpc.CallOption) (*NewRecordingInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewRecordingInfoResponse)
+	err := c.cc.Invoke(ctx, RecordingInfoService_NewRecordingInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordingInfoServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, RecordingInfoService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordingInfoServiceClient) GetChannelUri(ctx context.Context, in *GetChannelUriRequest, opts ...grpc.CallOption) (*GetChannelUriResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetChannelUriResponse)
+	err := c.cc.Invoke(ctx, RecordingInfoService_GetChannelUri_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordingInfoServiceClient) GetDescription(ctx context.Context, in *GetDescriptionRequest, opts ...grpc.CallOption) (*GetDescriptionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDescriptionResponse)
+	err := c.cc.Invoke(ctx, RecordingInfoService_GetDescription_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordingInfoServiceClient) GetEndPaddingMillis(ctx context.Context, in *GetEndPaddingMillisRequest, opts ...grpc.CallOption) (*GetEndPaddingMillisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEndPaddingMillisResponse)
+	err := c.cc.Invoke(ctx, RecordingInfoService_GetEndPaddingMillis_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordingInfoServiceClient) GetName(ctx context.Context, in *GetNameRequest, opts ...grpc.CallOption) (*GetNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetNameResponse)
+	err := c.cc.Invoke(ctx, RecordingInfoService_GetName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordingInfoServiceClient) GetProgramUri(ctx context.Context, in *GetProgramUriRequest, opts ...grpc.CallOption) (*GetProgramUriResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetProgramUriResponse)
+	err := c.cc.Invoke(ctx, RecordingInfoService_GetProgramUri_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordingInfoServiceClient) GetRecordingDurationMillis(ctx context.Context, in *GetRecordingDurationMillisRequest, opts ...grpc.CallOption) (*GetRecordingDurationMillisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRecordingDurationMillisResponse)
+	err := c.cc.Invoke(ctx, RecordingInfoService_GetRecordingDurationMillis_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordingInfoServiceClient) GetRecordingId(ctx context.Context, in *GetRecordingIdRequest, opts ...grpc.CallOption) (*GetRecordingIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRecordingIdResponse)
+	err := c.cc.Invoke(ctx, RecordingInfoService_GetRecordingId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordingInfoServiceClient) GetRecordingStartTimeMillis(ctx context.Context, in *GetRecordingStartTimeMillisRequest, opts ...grpc.CallOption) (*GetRecordingStartTimeMillisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRecordingStartTimeMillisResponse)
+	err := c.cc.Invoke(ctx, RecordingInfoService_GetRecordingStartTimeMillis_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordingInfoServiceClient) GetRecordingUri(ctx context.Context, in *GetRecordingUriRequest, opts ...grpc.CallOption) (*GetRecordingUriResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRecordingUriResponse)
+	err := c.cc.Invoke(ctx, RecordingInfoService_GetRecordingUri_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordingInfoServiceClient) GetRepeatDays(ctx context.Context, in *GetRepeatDaysRequest, opts ...grpc.CallOption) (*GetRepeatDaysResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRepeatDaysResponse)
+	err := c.cc.Invoke(ctx, RecordingInfoService_GetRepeatDays_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordingInfoServiceClient) GetScheduledDurationMillis(ctx context.Context, in *GetScheduledDurationMillisRequest, opts ...grpc.CallOption) (*GetScheduledDurationMillisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetScheduledDurationMillisResponse)
+	err := c.cc.Invoke(ctx, RecordingInfoService_GetScheduledDurationMillis_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordingInfoServiceClient) GetScheduledStartTimeMillis(ctx context.Context, in *GetScheduledStartTimeMillisRequest, opts ...grpc.CallOption) (*GetScheduledStartTimeMillisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetScheduledStartTimeMillisResponse)
+	err := c.cc.Invoke(ctx, RecordingInfoService_GetScheduledStartTimeMillis_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordingInfoServiceClient) GetStartPaddingMillis(ctx context.Context, in *GetStartPaddingMillisRequest, opts ...grpc.CallOption) (*GetStartPaddingMillisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStartPaddingMillisResponse)
+	err := c.cc.Invoke(ctx, RecordingInfoService_GetStartPaddingMillis_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordingInfoServiceClient) SetDescription(ctx context.Context, in *SetDescriptionRequest, opts ...grpc.CallOption) (*SetDescriptionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetDescriptionResponse)
+	err := c.cc.Invoke(ctx, RecordingInfoService_SetDescription_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordingInfoServiceClient) SetName(ctx context.Context, in *SetNameRequest, opts ...grpc.CallOption) (*SetNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetNameResponse)
+	err := c.cc.Invoke(ctx, RecordingInfoService_SetName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordingInfoServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, RecordingInfoService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// RecordingInfoServiceServer is the server API for RecordingInfoService service.
+// All implementations must embed UnimplementedRecordingInfoServiceServer
+// for forward compatibility.
+type RecordingInfoServiceServer interface {
+	NewRecordingInfo(context.Context, *NewRecordingInfoRequest) (*NewRecordingInfoResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetChannelUri(context.Context, *GetChannelUriRequest) (*GetChannelUriResponse, error)
+	GetDescription(context.Context, *GetDescriptionRequest) (*GetDescriptionResponse, error)
+	GetEndPaddingMillis(context.Context, *GetEndPaddingMillisRequest) (*GetEndPaddingMillisResponse, error)
+	GetName(context.Context, *GetNameRequest) (*GetNameResponse, error)
+	GetProgramUri(context.Context, *GetProgramUriRequest) (*GetProgramUriResponse, error)
+	GetRecordingDurationMillis(context.Context, *GetRecordingDurationMillisRequest) (*GetRecordingDurationMillisResponse, error)
+	GetRecordingId(context.Context, *GetRecordingIdRequest) (*GetRecordingIdResponse, error)
+	GetRecordingStartTimeMillis(context.Context, *GetRecordingStartTimeMillisRequest) (*GetRecordingStartTimeMillisResponse, error)
+	GetRecordingUri(context.Context, *GetRecordingUriRequest) (*GetRecordingUriResponse, error)
+	GetRepeatDays(context.Context, *GetRepeatDaysRequest) (*GetRepeatDaysResponse, error)
+	GetScheduledDurationMillis(context.Context, *GetScheduledDurationMillisRequest) (*GetScheduledDurationMillisResponse, error)
+	GetScheduledStartTimeMillis(context.Context, *GetScheduledStartTimeMillisRequest) (*GetScheduledStartTimeMillisResponse, error)
+	GetStartPaddingMillis(context.Context, *GetStartPaddingMillisRequest) (*GetStartPaddingMillisResponse, error)
+	SetDescription(context.Context, *SetDescriptionRequest) (*SetDescriptionResponse, error)
+	SetName(context.Context, *SetNameRequest) (*SetNameResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedRecordingInfoServiceServer()
+}
+
+// UnimplementedRecordingInfoServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedRecordingInfoServiceServer struct{}
+
+func (UnimplementedRecordingInfoServiceServer) NewRecordingInfo(context.Context, *NewRecordingInfoRequest) (*NewRecordingInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewRecordingInfo not implemented")
+}
+func (UnimplementedRecordingInfoServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedRecordingInfoServiceServer) GetChannelUri(context.Context, *GetChannelUriRequest) (*GetChannelUriResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetChannelUri not implemented")
+}
+func (UnimplementedRecordingInfoServiceServer) GetDescription(context.Context, *GetDescriptionRequest) (*GetDescriptionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDescription not implemented")
+}
+func (UnimplementedRecordingInfoServiceServer) GetEndPaddingMillis(context.Context, *GetEndPaddingMillisRequest) (*GetEndPaddingMillisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEndPaddingMillis not implemented")
+}
+func (UnimplementedRecordingInfoServiceServer) GetName(context.Context, *GetNameRequest) (*GetNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetName not implemented")
+}
+func (UnimplementedRecordingInfoServiceServer) GetProgramUri(context.Context, *GetProgramUriRequest) (*GetProgramUriResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetProgramUri not implemented")
+}
+func (UnimplementedRecordingInfoServiceServer) GetRecordingDurationMillis(context.Context, *GetRecordingDurationMillisRequest) (*GetRecordingDurationMillisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRecordingDurationMillis not implemented")
+}
+func (UnimplementedRecordingInfoServiceServer) GetRecordingId(context.Context, *GetRecordingIdRequest) (*GetRecordingIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRecordingId not implemented")
+}
+func (UnimplementedRecordingInfoServiceServer) GetRecordingStartTimeMillis(context.Context, *GetRecordingStartTimeMillisRequest) (*GetRecordingStartTimeMillisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRecordingStartTimeMillis not implemented")
+}
+func (UnimplementedRecordingInfoServiceServer) GetRecordingUri(context.Context, *GetRecordingUriRequest) (*GetRecordingUriResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRecordingUri not implemented")
+}
+func (UnimplementedRecordingInfoServiceServer) GetRepeatDays(context.Context, *GetRepeatDaysRequest) (*GetRepeatDaysResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRepeatDays not implemented")
+}
+func (UnimplementedRecordingInfoServiceServer) GetScheduledDurationMillis(context.Context, *GetScheduledDurationMillisRequest) (*GetScheduledDurationMillisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetScheduledDurationMillis not implemented")
+}
+func (UnimplementedRecordingInfoServiceServer) GetScheduledStartTimeMillis(context.Context, *GetScheduledStartTimeMillisRequest) (*GetScheduledStartTimeMillisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetScheduledStartTimeMillis not implemented")
+}
+func (UnimplementedRecordingInfoServiceServer) GetStartPaddingMillis(context.Context, *GetStartPaddingMillisRequest) (*GetStartPaddingMillisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetStartPaddingMillis not implemented")
+}
+func (UnimplementedRecordingInfoServiceServer) SetDescription(context.Context, *SetDescriptionRequest) (*SetDescriptionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetDescription not implemented")
+}
+func (UnimplementedRecordingInfoServiceServer) SetName(context.Context, *SetNameRequest) (*SetNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetName not implemented")
+}
+func (UnimplementedRecordingInfoServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedRecordingInfoServiceServer) mustEmbedUnimplementedRecordingInfoServiceServer() {}
+func (UnimplementedRecordingInfoServiceServer) testEmbeddedByValue()                              {}
+
+// UnsafeRecordingInfoServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to RecordingInfoServiceServer will
+// result in compilation errors.
+type UnsafeRecordingInfoServiceServer interface {
+	mustEmbedUnimplementedRecordingInfoServiceServer()
+}
+
+func RegisterRecordingInfoServiceServer(s grpc.ServiceRegistrar, srv RecordingInfoServiceServer) {
+	// If the following call panics, it indicates UnimplementedRecordingInfoServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&RecordingInfoService_ServiceDesc, srv)
+}
+
+func _RecordingInfoService_NewRecordingInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewRecordingInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordingInfoServiceServer).NewRecordingInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordingInfoService_NewRecordingInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordingInfoServiceServer).NewRecordingInfo(ctx, req.(*NewRecordingInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordingInfoService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordingInfoServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordingInfoService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordingInfoServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordingInfoService_GetChannelUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetChannelUriRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordingInfoServiceServer).GetChannelUri(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordingInfoService_GetChannelUri_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordingInfoServiceServer).GetChannelUri(ctx, req.(*GetChannelUriRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordingInfoService_GetDescription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDescriptionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordingInfoServiceServer).GetDescription(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordingInfoService_GetDescription_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordingInfoServiceServer).GetDescription(ctx, req.(*GetDescriptionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordingInfoService_GetEndPaddingMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEndPaddingMillisRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordingInfoServiceServer).GetEndPaddingMillis(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordingInfoService_GetEndPaddingMillis_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordingInfoServiceServer).GetEndPaddingMillis(ctx, req.(*GetEndPaddingMillisRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordingInfoService_GetName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordingInfoServiceServer).GetName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordingInfoService_GetName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordingInfoServiceServer).GetName(ctx, req.(*GetNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordingInfoService_GetProgramUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetProgramUriRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordingInfoServiceServer).GetProgramUri(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordingInfoService_GetProgramUri_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordingInfoServiceServer).GetProgramUri(ctx, req.(*GetProgramUriRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordingInfoService_GetRecordingDurationMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRecordingDurationMillisRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordingInfoServiceServer).GetRecordingDurationMillis(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordingInfoService_GetRecordingDurationMillis_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordingInfoServiceServer).GetRecordingDurationMillis(ctx, req.(*GetRecordingDurationMillisRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordingInfoService_GetRecordingId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRecordingIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordingInfoServiceServer).GetRecordingId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordingInfoService_GetRecordingId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordingInfoServiceServer).GetRecordingId(ctx, req.(*GetRecordingIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordingInfoService_GetRecordingStartTimeMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRecordingStartTimeMillisRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordingInfoServiceServer).GetRecordingStartTimeMillis(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordingInfoService_GetRecordingStartTimeMillis_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordingInfoServiceServer).GetRecordingStartTimeMillis(ctx, req.(*GetRecordingStartTimeMillisRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordingInfoService_GetRecordingUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRecordingUriRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordingInfoServiceServer).GetRecordingUri(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordingInfoService_GetRecordingUri_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordingInfoServiceServer).GetRecordingUri(ctx, req.(*GetRecordingUriRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordingInfoService_GetRepeatDays_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRepeatDaysRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordingInfoServiceServer).GetRepeatDays(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordingInfoService_GetRepeatDays_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordingInfoServiceServer).GetRepeatDays(ctx, req.(*GetRepeatDaysRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordingInfoService_GetScheduledDurationMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetScheduledDurationMillisRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordingInfoServiceServer).GetScheduledDurationMillis(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordingInfoService_GetScheduledDurationMillis_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordingInfoServiceServer).GetScheduledDurationMillis(ctx, req.(*GetScheduledDurationMillisRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordingInfoService_GetScheduledStartTimeMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetScheduledStartTimeMillisRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordingInfoServiceServer).GetScheduledStartTimeMillis(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordingInfoService_GetScheduledStartTimeMillis_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordingInfoServiceServer).GetScheduledStartTimeMillis(ctx, req.(*GetScheduledStartTimeMillisRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordingInfoService_GetStartPaddingMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStartPaddingMillisRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordingInfoServiceServer).GetStartPaddingMillis(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordingInfoService_GetStartPaddingMillis_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordingInfoServiceServer).GetStartPaddingMillis(ctx, req.(*GetStartPaddingMillisRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordingInfoService_SetDescription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetDescriptionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordingInfoServiceServer).SetDescription(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordingInfoService_SetDescription_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordingInfoServiceServer).SetDescription(ctx, req.(*SetDescriptionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordingInfoService_SetName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordingInfoServiceServer).SetName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordingInfoService_SetName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordingInfoServiceServer).SetName(ctx, req.(*SetNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordingInfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordingInfoServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordingInfoService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordingInfoServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// RecordingInfoService_ServiceDesc is the grpc.ServiceDesc for RecordingInfoService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var RecordingInfoService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "tv.RecordingInfoService",
+	HandlerType: (*RecordingInfoServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewRecordingInfo",
+			Handler:    _RecordingInfoService_NewRecordingInfo_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _RecordingInfoService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetChannelUri",
+			Handler:    _RecordingInfoService_GetChannelUri_Handler,
+		},
+		{
+			MethodName: "GetDescription",
+			Handler:    _RecordingInfoService_GetDescription_Handler,
+		},
+		{
+			MethodName: "GetEndPaddingMillis",
+			Handler:    _RecordingInfoService_GetEndPaddingMillis_Handler,
+		},
+		{
+			MethodName: "GetName",
+			Handler:    _RecordingInfoService_GetName_Handler,
+		},
+		{
+			MethodName: "GetProgramUri",
+			Handler:    _RecordingInfoService_GetProgramUri_Handler,
+		},
+		{
+			MethodName: "GetRecordingDurationMillis",
+			Handler:    _RecordingInfoService_GetRecordingDurationMillis_Handler,
+		},
+		{
+			MethodName: "GetRecordingId",
+			Handler:    _RecordingInfoService_GetRecordingId_Handler,
+		},
+		{
+			MethodName: "GetRecordingStartTimeMillis",
+			Handler:    _RecordingInfoService_GetRecordingStartTimeMillis_Handler,
+		},
+		{
+			MethodName: "GetRecordingUri",
+			Handler:    _RecordingInfoService_GetRecordingUri_Handler,
+		},
+		{
+			MethodName: "GetRepeatDays",
+			Handler:    _RecordingInfoService_GetRepeatDays_Handler,
+		},
+		{
+			MethodName: "GetScheduledDurationMillis",
+			Handler:    _RecordingInfoService_GetScheduledDurationMillis_Handler,
+		},
+		{
+			MethodName: "GetScheduledStartTimeMillis",
+			Handler:    _RecordingInfoService_GetScheduledStartTimeMillis_Handler,
+		},
+		{
+			MethodName: "GetStartPaddingMillis",
+			Handler:    _RecordingInfoService_GetStartPaddingMillis_Handler,
+		},
+		{
+			MethodName: "SetDescription",
+			Handler:    _RecordingInfoService_SetDescription_Handler,
+		},
+		{
+			MethodName: "SetName",
+			Handler:    _RecordingInfoService_SetName_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _RecordingInfoService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/tv/tv.proto",
+}
+
+const (
+	SignalingDataResponseService_NewSignalingDataResponse_FullMethodName = "/tv.SignalingDataResponseService/NewSignalingDataResponse"
+	SignalingDataResponseService_DescribeContents_FullMethodName         = "/tv.SignalingDataResponseService/DescribeContents"
+	SignalingDataResponseService_WriteToParcel_FullMethodName            = "/tv.SignalingDataResponseService/WriteToParcel"
+)
+
+// SignalingDataResponseServiceClient is the client API for SignalingDataResponseService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SignalingDataResponseServiceClient interface {
+	NewSignalingDataResponse(ctx context.Context, in *NewSignalingDataResponseRequest, opts ...grpc.CallOption) (*NewSignalingDataResponseResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type signalingDataResponseServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSignalingDataResponseServiceClient(cc grpc.ClientConnInterface) SignalingDataResponseServiceClient {
+	return &signalingDataResponseServiceClient{cc}
+}
+
+func (c *signalingDataResponseServiceClient) NewSignalingDataResponse(ctx context.Context, in *NewSignalingDataResponseRequest, opts ...grpc.CallOption) (*NewSignalingDataResponseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewSignalingDataResponseResponse)
+	err := c.cc.Invoke(ctx, SignalingDataResponseService_NewSignalingDataResponse_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *signalingDataResponseServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, SignalingDataResponseService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *signalingDataResponseServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, SignalingDataResponseService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SignalingDataResponseServiceServer is the server API for SignalingDataResponseService service.
+// All implementations must embed UnimplementedSignalingDataResponseServiceServer
+// for forward compatibility.
+type SignalingDataResponseServiceServer interface {
+	NewSignalingDataResponse(context.Context, *NewSignalingDataResponseRequest) (*NewSignalingDataResponseResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedSignalingDataResponseServiceServer()
+}
+
+// UnimplementedSignalingDataResponseServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSignalingDataResponseServiceServer struct{}
+
+func (UnimplementedSignalingDataResponseServiceServer) NewSignalingDataResponse(context.Context, *NewSignalingDataResponseRequest) (*NewSignalingDataResponseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewSignalingDataResponse not implemented")
+}
+func (UnimplementedSignalingDataResponseServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedSignalingDataResponseServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedSignalingDataResponseServiceServer) mustEmbedUnimplementedSignalingDataResponseServiceServer() {
+}
+func (UnimplementedSignalingDataResponseServiceServer) testEmbeddedByValue() {}
+
+// UnsafeSignalingDataResponseServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SignalingDataResponseServiceServer will
+// result in compilation errors.
+type UnsafeSignalingDataResponseServiceServer interface {
+	mustEmbedUnimplementedSignalingDataResponseServiceServer()
+}
+
+func RegisterSignalingDataResponseServiceServer(s grpc.ServiceRegistrar, srv SignalingDataResponseServiceServer) {
+	// If the following call panics, it indicates UnimplementedSignalingDataResponseServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SignalingDataResponseService_ServiceDesc, srv)
+}
+
+func _SignalingDataResponseService_NewSignalingDataResponse_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewSignalingDataResponseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SignalingDataResponseServiceServer).NewSignalingDataResponse(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SignalingDataResponseService_NewSignalingDataResponse_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SignalingDataResponseServiceServer).NewSignalingDataResponse(ctx, req.(*NewSignalingDataResponseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SignalingDataResponseService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SignalingDataResponseServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SignalingDataResponseService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SignalingDataResponseServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SignalingDataResponseService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SignalingDataResponseServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SignalingDataResponseService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SignalingDataResponseServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SignalingDataResponseService_ServiceDesc is the grpc.ServiceDesc for SignalingDataResponseService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SignalingDataResponseService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "tv.SignalingDataResponseService",
+	HandlerType: (*SignalingDataResponseServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewSignalingDataResponse",
+			Handler:    _SignalingDataResponseService_NewSignalingDataResponse_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _SignalingDataResponseService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _SignalingDataResponseService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/tv/tv.proto",
+}
+
+const (
+	BroadcastInfoResponseService_DescribeContents_FullMethodName  = "/tv.BroadcastInfoResponseService/DescribeContents"
+	BroadcastInfoResponseService_GetRequestId_FullMethodName      = "/tv.BroadcastInfoResponseService/GetRequestId"
+	BroadcastInfoResponseService_GetResponseResult_FullMethodName = "/tv.BroadcastInfoResponseService/GetResponseResult"
+	BroadcastInfoResponseService_GetSequence_FullMethodName       = "/tv.BroadcastInfoResponseService/GetSequence"
+	BroadcastInfoResponseService_GetType_FullMethodName           = "/tv.BroadcastInfoResponseService/GetType"
+	BroadcastInfoResponseService_WriteToParcel_FullMethodName     = "/tv.BroadcastInfoResponseService/WriteToParcel"
+)
+
+// BroadcastInfoResponseServiceClient is the client API for BroadcastInfoResponseService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type BroadcastInfoResponseServiceClient interface {
+	DescribeContents(ctx context.Context, in *BroadcastInfoResponseDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetRequestId(ctx context.Context, in *GetRequestIdRequest, opts ...grpc.CallOption) (*GetRequestIdResponse, error)
+	GetResponseResult(ctx context.Context, in *GetResponseResultRequest, opts ...grpc.CallOption) (*GetResponseResultResponse, error)
+	GetSequence(ctx context.Context, in *GetSequenceRequest, opts ...grpc.CallOption) (*GetSequenceResponse, error)
+	GetType(ctx context.Context, in *GetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error)
+	WriteToParcel(ctx context.Context, in *BroadcastInfoResponseWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type broadcastInfoResponseServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewBroadcastInfoResponseServiceClient(cc grpc.ClientConnInterface) BroadcastInfoResponseServiceClient {
+	return &broadcastInfoResponseServiceClient{cc}
+}
+
+func (c *broadcastInfoResponseServiceClient) DescribeContents(ctx context.Context, in *BroadcastInfoResponseDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, BroadcastInfoResponseService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *broadcastInfoResponseServiceClient) GetRequestId(ctx context.Context, in *GetRequestIdRequest, opts ...grpc.CallOption) (*GetRequestIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRequestIdResponse)
+	err := c.cc.Invoke(ctx, BroadcastInfoResponseService_GetRequestId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *broadcastInfoResponseServiceClient) GetResponseResult(ctx context.Context, in *GetResponseResultRequest, opts ...grpc.CallOption) (*GetResponseResultResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetResponseResultResponse)
+	err := c.cc.Invoke(ctx, BroadcastInfoResponseService_GetResponseResult_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *broadcastInfoResponseServiceClient) GetSequence(ctx context.Context, in *GetSequenceRequest, opts ...grpc.CallOption) (*GetSequenceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSequenceResponse)
+	err := c.cc.Invoke(ctx, BroadcastInfoResponseService_GetSequence_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *broadcastInfoResponseServiceClient) GetType(ctx context.Context, in *GetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTypeResponse)
+	err := c.cc.Invoke(ctx, BroadcastInfoResponseService_GetType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *broadcastInfoResponseServiceClient) WriteToParcel(ctx context.Context, in *BroadcastInfoResponseWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, BroadcastInfoResponseService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// BroadcastInfoResponseServiceServer is the server API for BroadcastInfoResponseService service.
+// All implementations must embed UnimplementedBroadcastInfoResponseServiceServer
+// for forward compatibility.
+type BroadcastInfoResponseServiceServer interface {
+	DescribeContents(context.Context, *BroadcastInfoResponseDescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetRequestId(context.Context, *GetRequestIdRequest) (*GetRequestIdResponse, error)
+	GetResponseResult(context.Context, *GetResponseResultRequest) (*GetResponseResultResponse, error)
+	GetSequence(context.Context, *GetSequenceRequest) (*GetSequenceResponse, error)
+	GetType(context.Context, *GetTypeRequest) (*GetTypeResponse, error)
+	WriteToParcel(context.Context, *BroadcastInfoResponseWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedBroadcastInfoResponseServiceServer()
+}
+
+// UnimplementedBroadcastInfoResponseServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedBroadcastInfoResponseServiceServer struct{}
+
+func (UnimplementedBroadcastInfoResponseServiceServer) DescribeContents(context.Context, *BroadcastInfoResponseDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedBroadcastInfoResponseServiceServer) GetRequestId(context.Context, *GetRequestIdRequest) (*GetRequestIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRequestId not implemented")
+}
+func (UnimplementedBroadcastInfoResponseServiceServer) GetResponseResult(context.Context, *GetResponseResultRequest) (*GetResponseResultResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetResponseResult not implemented")
+}
+func (UnimplementedBroadcastInfoResponseServiceServer) GetSequence(context.Context, *GetSequenceRequest) (*GetSequenceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSequence not implemented")
+}
+func (UnimplementedBroadcastInfoResponseServiceServer) GetType(context.Context, *GetTypeRequest) (*GetTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetType not implemented")
+}
+func (UnimplementedBroadcastInfoResponseServiceServer) WriteToParcel(context.Context, *BroadcastInfoResponseWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedBroadcastInfoResponseServiceServer) mustEmbedUnimplementedBroadcastInfoResponseServiceServer() {
+}
+func (UnimplementedBroadcastInfoResponseServiceServer) testEmbeddedByValue() {}
+
+// UnsafeBroadcastInfoResponseServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to BroadcastInfoResponseServiceServer will
+// result in compilation errors.
+type UnsafeBroadcastInfoResponseServiceServer interface {
+	mustEmbedUnimplementedBroadcastInfoResponseServiceServer()
+}
+
+func RegisterBroadcastInfoResponseServiceServer(s grpc.ServiceRegistrar, srv BroadcastInfoResponseServiceServer) {
+	// If the following call panics, it indicates UnimplementedBroadcastInfoResponseServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&BroadcastInfoResponseService_ServiceDesc, srv)
+}
+
+func _BroadcastInfoResponseService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BroadcastInfoResponseDescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BroadcastInfoResponseServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BroadcastInfoResponseService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BroadcastInfoResponseServiceServer).DescribeContents(ctx, req.(*BroadcastInfoResponseDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BroadcastInfoResponseService_GetRequestId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRequestIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BroadcastInfoResponseServiceServer).GetRequestId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BroadcastInfoResponseService_GetRequestId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BroadcastInfoResponseServiceServer).GetRequestId(ctx, req.(*GetRequestIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BroadcastInfoResponseService_GetResponseResult_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetResponseResultRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BroadcastInfoResponseServiceServer).GetResponseResult(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BroadcastInfoResponseService_GetResponseResult_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BroadcastInfoResponseServiceServer).GetResponseResult(ctx, req.(*GetResponseResultRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BroadcastInfoResponseService_GetSequence_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSequenceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BroadcastInfoResponseServiceServer).GetSequence(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BroadcastInfoResponseService_GetSequence_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BroadcastInfoResponseServiceServer).GetSequence(ctx, req.(*GetSequenceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BroadcastInfoResponseService_GetType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BroadcastInfoResponseServiceServer).GetType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BroadcastInfoResponseService_GetType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BroadcastInfoResponseServiceServer).GetType(ctx, req.(*GetTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BroadcastInfoResponseService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BroadcastInfoResponseWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BroadcastInfoResponseServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BroadcastInfoResponseService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BroadcastInfoResponseServiceServer).WriteToParcel(ctx, req.(*BroadcastInfoResponseWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// BroadcastInfoResponseService_ServiceDesc is the grpc.ServiceDesc for BroadcastInfoResponseService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var BroadcastInfoResponseService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "tv.BroadcastInfoResponseService",
+	HandlerType: (*BroadcastInfoResponseServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _BroadcastInfoResponseService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetRequestId",
+			Handler:    _BroadcastInfoResponseService_GetRequestId_Handler,
+		},
+		{
+			MethodName: "GetResponseResult",
+			Handler:    _BroadcastInfoResponseService_GetResponseResult_Handler,
+		},
+		{
+			MethodName: "GetSequence",
+			Handler:    _BroadcastInfoResponseService_GetSequence_Handler,
+		},
+		{
+			MethodName: "GetType",
+			Handler:    _BroadcastInfoResponseService_GetType_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _BroadcastInfoResponseService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/tv/tv.proto",
+}
+
+const (
+	ContractService_BuildChannelLogoUri1_FullMethodName                 = "/tv.ContractService/BuildChannelLogoUri1"
+	ContractService_BuildChannelLogoUri1_1_FullMethodName               = "/tv.ContractService/BuildChannelLogoUri1_1"
+	ContractService_BuildChannelUri_FullMethodName                      = "/tv.ContractService/BuildChannelUri"
+	ContractService_BuildChannelUriForPassthroughInput_FullMethodName   = "/tv.ContractService/BuildChannelUriForPassthroughInput"
+	ContractService_BuildChannelsUriForInput_FullMethodName             = "/tv.ContractService/BuildChannelsUriForInput"
+	ContractService_BuildInputId_FullMethodName                         = "/tv.ContractService/BuildInputId"
+	ContractService_BuildPreviewProgramUri_FullMethodName               = "/tv.ContractService/BuildPreviewProgramUri"
+	ContractService_BuildPreviewProgramsUriForChannel1_FullMethodName   = "/tv.ContractService/BuildPreviewProgramsUriForChannel1"
+	ContractService_BuildPreviewProgramsUriForChannel1_1_FullMethodName = "/tv.ContractService/BuildPreviewProgramsUriForChannel1_1"
+	ContractService_BuildProgramUri_FullMethodName                      = "/tv.ContractService/BuildProgramUri"
+	ContractService_BuildProgramsUriForChannel1_FullMethodName          = "/tv.ContractService/BuildProgramsUriForChannel1"
+	ContractService_BuildProgramsUriForChannel3_1_FullMethodName        = "/tv.ContractService/BuildProgramsUriForChannel3_1"
+	ContractService_BuildProgramsUriForChannel1_2_FullMethodName        = "/tv.ContractService/BuildProgramsUriForChannel1_2"
+	ContractService_BuildProgramsUriForChannel3_3_FullMethodName        = "/tv.ContractService/BuildProgramsUriForChannel3_3"
+	ContractService_BuildRecordedProgramUri_FullMethodName              = "/tv.ContractService/BuildRecordedProgramUri"
+	ContractService_BuildWatchNextProgramUri_FullMethodName             = "/tv.ContractService/BuildWatchNextProgramUri"
+	ContractService_IsChannelUri_FullMethodName                         = "/tv.ContractService/IsChannelUri"
+	ContractService_IsChannelUriForPassthroughInput_FullMethodName      = "/tv.ContractService/IsChannelUriForPassthroughInput"
+	ContractService_IsChannelUriForTunerInput_FullMethodName            = "/tv.ContractService/IsChannelUriForTunerInput"
+	ContractService_IsProgramUri_FullMethodName                         = "/tv.ContractService/IsProgramUri"
+	ContractService_IsRecordedProgramUri_FullMethodName                 = "/tv.ContractService/IsRecordedProgramUri"
+	ContractService_RequestChannelBrowsable_FullMethodName              = "/tv.ContractService/RequestChannelBrowsable"
+)
+
+// ContractServiceClient is the client API for ContractService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ContractServiceClient interface {
+	BuildChannelLogoUri1(ctx context.Context, in *BuildChannelLogoUri1Request, opts ...grpc.CallOption) (*BuildChannelLogoUri1Response, error)
+	BuildChannelLogoUri1_1(ctx context.Context, in *BuildChannelLogoUri1_1Request, opts ...grpc.CallOption) (*BuildChannelLogoUri1_1Response, error)
+	BuildChannelUri(ctx context.Context, in *BuildChannelUriRequest, opts ...grpc.CallOption) (*BuildChannelUriResponse, error)
+	BuildChannelUriForPassthroughInput(ctx context.Context, in *BuildChannelUriForPassthroughInputRequest, opts ...grpc.CallOption) (*BuildChannelUriForPassthroughInputResponse, error)
+	BuildChannelsUriForInput(ctx context.Context, in *BuildChannelsUriForInputRequest, opts ...grpc.CallOption) (*BuildChannelsUriForInputResponse, error)
+	BuildInputId(ctx context.Context, in *BuildInputIdRequest, opts ...grpc.CallOption) (*BuildInputIdResponse, error)
+	BuildPreviewProgramUri(ctx context.Context, in *BuildPreviewProgramUriRequest, opts ...grpc.CallOption) (*BuildPreviewProgramUriResponse, error)
+	BuildPreviewProgramsUriForChannel1(ctx context.Context, in *BuildPreviewProgramsUriForChannel1Request, opts ...grpc.CallOption) (*BuildPreviewProgramsUriForChannel1Response, error)
+	BuildPreviewProgramsUriForChannel1_1(ctx context.Context, in *BuildPreviewProgramsUriForChannel1_1Request, opts ...grpc.CallOption) (*BuildPreviewProgramsUriForChannel1_1Response, error)
+	BuildProgramUri(ctx context.Context, in *BuildProgramUriRequest, opts ...grpc.CallOption) (*BuildProgramUriResponse, error)
+	BuildProgramsUriForChannel1(ctx context.Context, in *BuildProgramsUriForChannel1Request, opts ...grpc.CallOption) (*BuildProgramsUriForChannel1Response, error)
+	BuildProgramsUriForChannel3_1(ctx context.Context, in *BuildProgramsUriForChannel3_1Request, opts ...grpc.CallOption) (*BuildProgramsUriForChannel3_1Response, error)
+	BuildProgramsUriForChannel1_2(ctx context.Context, in *BuildProgramsUriForChannel1_2Request, opts ...grpc.CallOption) (*BuildProgramsUriForChannel1_2Response, error)
+	BuildProgramsUriForChannel3_3(ctx context.Context, in *BuildProgramsUriForChannel3_3Request, opts ...grpc.CallOption) (*BuildProgramsUriForChannel3_3Response, error)
+	BuildRecordedProgramUri(ctx context.Context, in *BuildRecordedProgramUriRequest, opts ...grpc.CallOption) (*BuildRecordedProgramUriResponse, error)
+	BuildWatchNextProgramUri(ctx context.Context, in *BuildWatchNextProgramUriRequest, opts ...grpc.CallOption) (*BuildWatchNextProgramUriResponse, error)
+	IsChannelUri(ctx context.Context, in *IsChannelUriRequest, opts ...grpc.CallOption) (*IsChannelUriResponse, error)
+	IsChannelUriForPassthroughInput(ctx context.Context, in *IsChannelUriForPassthroughInputRequest, opts ...grpc.CallOption) (*IsChannelUriForPassthroughInputResponse, error)
+	IsChannelUriForTunerInput(ctx context.Context, in *IsChannelUriForTunerInputRequest, opts ...grpc.CallOption) (*IsChannelUriForTunerInputResponse, error)
+	IsProgramUri(ctx context.Context, in *IsProgramUriRequest, opts ...grpc.CallOption) (*IsProgramUriResponse, error)
+	IsRecordedProgramUri(ctx context.Context, in *IsRecordedProgramUriRequest, opts ...grpc.CallOption) (*IsRecordedProgramUriResponse, error)
+	RequestChannelBrowsable(ctx context.Context, in *RequestChannelBrowsableRequest, opts ...grpc.CallOption) (*RequestChannelBrowsableResponse, error)
+}
+
+type contractServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewContractServiceClient(cc grpc.ClientConnInterface) ContractServiceClient {
+	return &contractServiceClient{cc}
+}
+
+func (c *contractServiceClient) BuildChannelLogoUri1(ctx context.Context, in *BuildChannelLogoUri1Request, opts ...grpc.CallOption) (*BuildChannelLogoUri1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildChannelLogoUri1Response)
+	err := c.cc.Invoke(ctx, ContractService_BuildChannelLogoUri1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contractServiceClient) BuildChannelLogoUri1_1(ctx context.Context, in *BuildChannelLogoUri1_1Request, opts ...grpc.CallOption) (*BuildChannelLogoUri1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildChannelLogoUri1_1Response)
+	err := c.cc.Invoke(ctx, ContractService_BuildChannelLogoUri1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contractServiceClient) BuildChannelUri(ctx context.Context, in *BuildChannelUriRequest, opts ...grpc.CallOption) (*BuildChannelUriResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildChannelUriResponse)
+	err := c.cc.Invoke(ctx, ContractService_BuildChannelUri_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contractServiceClient) BuildChannelUriForPassthroughInput(ctx context.Context, in *BuildChannelUriForPassthroughInputRequest, opts ...grpc.CallOption) (*BuildChannelUriForPassthroughInputResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildChannelUriForPassthroughInputResponse)
+	err := c.cc.Invoke(ctx, ContractService_BuildChannelUriForPassthroughInput_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contractServiceClient) BuildChannelsUriForInput(ctx context.Context, in *BuildChannelsUriForInputRequest, opts ...grpc.CallOption) (*BuildChannelsUriForInputResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildChannelsUriForInputResponse)
+	err := c.cc.Invoke(ctx, ContractService_BuildChannelsUriForInput_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contractServiceClient) BuildInputId(ctx context.Context, in *BuildInputIdRequest, opts ...grpc.CallOption) (*BuildInputIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildInputIdResponse)
+	err := c.cc.Invoke(ctx, ContractService_BuildInputId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contractServiceClient) BuildPreviewProgramUri(ctx context.Context, in *BuildPreviewProgramUriRequest, opts ...grpc.CallOption) (*BuildPreviewProgramUriResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildPreviewProgramUriResponse)
+	err := c.cc.Invoke(ctx, ContractService_BuildPreviewProgramUri_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contractServiceClient) BuildPreviewProgramsUriForChannel1(ctx context.Context, in *BuildPreviewProgramsUriForChannel1Request, opts ...grpc.CallOption) (*BuildPreviewProgramsUriForChannel1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildPreviewProgramsUriForChannel1Response)
+	err := c.cc.Invoke(ctx, ContractService_BuildPreviewProgramsUriForChannel1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contractServiceClient) BuildPreviewProgramsUriForChannel1_1(ctx context.Context, in *BuildPreviewProgramsUriForChannel1_1Request, opts ...grpc.CallOption) (*BuildPreviewProgramsUriForChannel1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildPreviewProgramsUriForChannel1_1Response)
+	err := c.cc.Invoke(ctx, ContractService_BuildPreviewProgramsUriForChannel1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contractServiceClient) BuildProgramUri(ctx context.Context, in *BuildProgramUriRequest, opts ...grpc.CallOption) (*BuildProgramUriResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildProgramUriResponse)
+	err := c.cc.Invoke(ctx, ContractService_BuildProgramUri_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contractServiceClient) BuildProgramsUriForChannel1(ctx context.Context, in *BuildProgramsUriForChannel1Request, opts ...grpc.CallOption) (*BuildProgramsUriForChannel1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildProgramsUriForChannel1Response)
+	err := c.cc.Invoke(ctx, ContractService_BuildProgramsUriForChannel1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contractServiceClient) BuildProgramsUriForChannel3_1(ctx context.Context, in *BuildProgramsUriForChannel3_1Request, opts ...grpc.CallOption) (*BuildProgramsUriForChannel3_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildProgramsUriForChannel3_1Response)
+	err := c.cc.Invoke(ctx, ContractService_BuildProgramsUriForChannel3_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contractServiceClient) BuildProgramsUriForChannel1_2(ctx context.Context, in *BuildProgramsUriForChannel1_2Request, opts ...grpc.CallOption) (*BuildProgramsUriForChannel1_2Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildProgramsUriForChannel1_2Response)
+	err := c.cc.Invoke(ctx, ContractService_BuildProgramsUriForChannel1_2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contractServiceClient) BuildProgramsUriForChannel3_3(ctx context.Context, in *BuildProgramsUriForChannel3_3Request, opts ...grpc.CallOption) (*BuildProgramsUriForChannel3_3Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildProgramsUriForChannel3_3Response)
+	err := c.cc.Invoke(ctx, ContractService_BuildProgramsUriForChannel3_3_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contractServiceClient) BuildRecordedProgramUri(ctx context.Context, in *BuildRecordedProgramUriRequest, opts ...grpc.CallOption) (*BuildRecordedProgramUriResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildRecordedProgramUriResponse)
+	err := c.cc.Invoke(ctx, ContractService_BuildRecordedProgramUri_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contractServiceClient) BuildWatchNextProgramUri(ctx context.Context, in *BuildWatchNextProgramUriRequest, opts ...grpc.CallOption) (*BuildWatchNextProgramUriResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildWatchNextProgramUriResponse)
+	err := c.cc.Invoke(ctx, ContractService_BuildWatchNextProgramUri_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contractServiceClient) IsChannelUri(ctx context.Context, in *IsChannelUriRequest, opts ...grpc.CallOption) (*IsChannelUriResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsChannelUriResponse)
+	err := c.cc.Invoke(ctx, ContractService_IsChannelUri_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contractServiceClient) IsChannelUriForPassthroughInput(ctx context.Context, in *IsChannelUriForPassthroughInputRequest, opts ...grpc.CallOption) (*IsChannelUriForPassthroughInputResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsChannelUriForPassthroughInputResponse)
+	err := c.cc.Invoke(ctx, ContractService_IsChannelUriForPassthroughInput_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contractServiceClient) IsChannelUriForTunerInput(ctx context.Context, in *IsChannelUriForTunerInputRequest, opts ...grpc.CallOption) (*IsChannelUriForTunerInputResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsChannelUriForTunerInputResponse)
+	err := c.cc.Invoke(ctx, ContractService_IsChannelUriForTunerInput_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contractServiceClient) IsProgramUri(ctx context.Context, in *IsProgramUriRequest, opts ...grpc.CallOption) (*IsProgramUriResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsProgramUriResponse)
+	err := c.cc.Invoke(ctx, ContractService_IsProgramUri_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contractServiceClient) IsRecordedProgramUri(ctx context.Context, in *IsRecordedProgramUriRequest, opts ...grpc.CallOption) (*IsRecordedProgramUriResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsRecordedProgramUriResponse)
+	err := c.cc.Invoke(ctx, ContractService_IsRecordedProgramUri_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contractServiceClient) RequestChannelBrowsable(ctx context.Context, in *RequestChannelBrowsableRequest, opts ...grpc.CallOption) (*RequestChannelBrowsableResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RequestChannelBrowsableResponse)
+	err := c.cc.Invoke(ctx, ContractService_RequestChannelBrowsable_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ContractServiceServer is the server API for ContractService service.
+// All implementations must embed UnimplementedContractServiceServer
+// for forward compatibility.
+type ContractServiceServer interface {
+	BuildChannelLogoUri1(context.Context, *BuildChannelLogoUri1Request) (*BuildChannelLogoUri1Response, error)
+	BuildChannelLogoUri1_1(context.Context, *BuildChannelLogoUri1_1Request) (*BuildChannelLogoUri1_1Response, error)
+	BuildChannelUri(context.Context, *BuildChannelUriRequest) (*BuildChannelUriResponse, error)
+	BuildChannelUriForPassthroughInput(context.Context, *BuildChannelUriForPassthroughInputRequest) (*BuildChannelUriForPassthroughInputResponse, error)
+	BuildChannelsUriForInput(context.Context, *BuildChannelsUriForInputRequest) (*BuildChannelsUriForInputResponse, error)
+	BuildInputId(context.Context, *BuildInputIdRequest) (*BuildInputIdResponse, error)
+	BuildPreviewProgramUri(context.Context, *BuildPreviewProgramUriRequest) (*BuildPreviewProgramUriResponse, error)
+	BuildPreviewProgramsUriForChannel1(context.Context, *BuildPreviewProgramsUriForChannel1Request) (*BuildPreviewProgramsUriForChannel1Response, error)
+	BuildPreviewProgramsUriForChannel1_1(context.Context, *BuildPreviewProgramsUriForChannel1_1Request) (*BuildPreviewProgramsUriForChannel1_1Response, error)
+	BuildProgramUri(context.Context, *BuildProgramUriRequest) (*BuildProgramUriResponse, error)
+	BuildProgramsUriForChannel1(context.Context, *BuildProgramsUriForChannel1Request) (*BuildProgramsUriForChannel1Response, error)
+	BuildProgramsUriForChannel3_1(context.Context, *BuildProgramsUriForChannel3_1Request) (*BuildProgramsUriForChannel3_1Response, error)
+	BuildProgramsUriForChannel1_2(context.Context, *BuildProgramsUriForChannel1_2Request) (*BuildProgramsUriForChannel1_2Response, error)
+	BuildProgramsUriForChannel3_3(context.Context, *BuildProgramsUriForChannel3_3Request) (*BuildProgramsUriForChannel3_3Response, error)
+	BuildRecordedProgramUri(context.Context, *BuildRecordedProgramUriRequest) (*BuildRecordedProgramUriResponse, error)
+	BuildWatchNextProgramUri(context.Context, *BuildWatchNextProgramUriRequest) (*BuildWatchNextProgramUriResponse, error)
+	IsChannelUri(context.Context, *IsChannelUriRequest) (*IsChannelUriResponse, error)
+	IsChannelUriForPassthroughInput(context.Context, *IsChannelUriForPassthroughInputRequest) (*IsChannelUriForPassthroughInputResponse, error)
+	IsChannelUriForTunerInput(context.Context, *IsChannelUriForTunerInputRequest) (*IsChannelUriForTunerInputResponse, error)
+	IsProgramUri(context.Context, *IsProgramUriRequest) (*IsProgramUriResponse, error)
+	IsRecordedProgramUri(context.Context, *IsRecordedProgramUriRequest) (*IsRecordedProgramUriResponse, error)
+	RequestChannelBrowsable(context.Context, *RequestChannelBrowsableRequest) (*RequestChannelBrowsableResponse, error)
+	mustEmbedUnimplementedContractServiceServer()
+}
+
+// UnimplementedContractServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedContractServiceServer struct{}
+
+func (UnimplementedContractServiceServer) BuildChannelLogoUri1(context.Context, *BuildChannelLogoUri1Request) (*BuildChannelLogoUri1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method BuildChannelLogoUri1 not implemented")
+}
+func (UnimplementedContractServiceServer) BuildChannelLogoUri1_1(context.Context, *BuildChannelLogoUri1_1Request) (*BuildChannelLogoUri1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method BuildChannelLogoUri1_1 not implemented")
+}
+func (UnimplementedContractServiceServer) BuildChannelUri(context.Context, *BuildChannelUriRequest) (*BuildChannelUriResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method BuildChannelUri not implemented")
+}
+func (UnimplementedContractServiceServer) BuildChannelUriForPassthroughInput(context.Context, *BuildChannelUriForPassthroughInputRequest) (*BuildChannelUriForPassthroughInputResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method BuildChannelUriForPassthroughInput not implemented")
+}
+func (UnimplementedContractServiceServer) BuildChannelsUriForInput(context.Context, *BuildChannelsUriForInputRequest) (*BuildChannelsUriForInputResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method BuildChannelsUriForInput not implemented")
+}
+func (UnimplementedContractServiceServer) BuildInputId(context.Context, *BuildInputIdRequest) (*BuildInputIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method BuildInputId not implemented")
+}
+func (UnimplementedContractServiceServer) BuildPreviewProgramUri(context.Context, *BuildPreviewProgramUriRequest) (*BuildPreviewProgramUriResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method BuildPreviewProgramUri not implemented")
+}
+func (UnimplementedContractServiceServer) BuildPreviewProgramsUriForChannel1(context.Context, *BuildPreviewProgramsUriForChannel1Request) (*BuildPreviewProgramsUriForChannel1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method BuildPreviewProgramsUriForChannel1 not implemented")
+}
+func (UnimplementedContractServiceServer) BuildPreviewProgramsUriForChannel1_1(context.Context, *BuildPreviewProgramsUriForChannel1_1Request) (*BuildPreviewProgramsUriForChannel1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method BuildPreviewProgramsUriForChannel1_1 not implemented")
+}
+func (UnimplementedContractServiceServer) BuildProgramUri(context.Context, *BuildProgramUriRequest) (*BuildProgramUriResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method BuildProgramUri not implemented")
+}
+func (UnimplementedContractServiceServer) BuildProgramsUriForChannel1(context.Context, *BuildProgramsUriForChannel1Request) (*BuildProgramsUriForChannel1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method BuildProgramsUriForChannel1 not implemented")
+}
+func (UnimplementedContractServiceServer) BuildProgramsUriForChannel3_1(context.Context, *BuildProgramsUriForChannel3_1Request) (*BuildProgramsUriForChannel3_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method BuildProgramsUriForChannel3_1 not implemented")
+}
+func (UnimplementedContractServiceServer) BuildProgramsUriForChannel1_2(context.Context, *BuildProgramsUriForChannel1_2Request) (*BuildProgramsUriForChannel1_2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method BuildProgramsUriForChannel1_2 not implemented")
+}
+func (UnimplementedContractServiceServer) BuildProgramsUriForChannel3_3(context.Context, *BuildProgramsUriForChannel3_3Request) (*BuildProgramsUriForChannel3_3Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method BuildProgramsUriForChannel3_3 not implemented")
+}
+func (UnimplementedContractServiceServer) BuildRecordedProgramUri(context.Context, *BuildRecordedProgramUriRequest) (*BuildRecordedProgramUriResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method BuildRecordedProgramUri not implemented")
+}
+func (UnimplementedContractServiceServer) BuildWatchNextProgramUri(context.Context, *BuildWatchNextProgramUriRequest) (*BuildWatchNextProgramUriResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method BuildWatchNextProgramUri not implemented")
+}
+func (UnimplementedContractServiceServer) IsChannelUri(context.Context, *IsChannelUriRequest) (*IsChannelUriResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsChannelUri not implemented")
+}
+func (UnimplementedContractServiceServer) IsChannelUriForPassthroughInput(context.Context, *IsChannelUriForPassthroughInputRequest) (*IsChannelUriForPassthroughInputResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsChannelUriForPassthroughInput not implemented")
+}
+func (UnimplementedContractServiceServer) IsChannelUriForTunerInput(context.Context, *IsChannelUriForTunerInputRequest) (*IsChannelUriForTunerInputResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsChannelUriForTunerInput not implemented")
+}
+func (UnimplementedContractServiceServer) IsProgramUri(context.Context, *IsProgramUriRequest) (*IsProgramUriResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsProgramUri not implemented")
+}
+func (UnimplementedContractServiceServer) IsRecordedProgramUri(context.Context, *IsRecordedProgramUriRequest) (*IsRecordedProgramUriResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsRecordedProgramUri not implemented")
+}
+func (UnimplementedContractServiceServer) RequestChannelBrowsable(context.Context, *RequestChannelBrowsableRequest) (*RequestChannelBrowsableResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RequestChannelBrowsable not implemented")
+}
+func (UnimplementedContractServiceServer) mustEmbedUnimplementedContractServiceServer() {}
+func (UnimplementedContractServiceServer) testEmbeddedByValue()                         {}
+
+// UnsafeContractServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ContractServiceServer will
+// result in compilation errors.
+type UnsafeContractServiceServer interface {
+	mustEmbedUnimplementedContractServiceServer()
+}
+
+func RegisterContractServiceServer(s grpc.ServiceRegistrar, srv ContractServiceServer) {
+	// If the following call panics, it indicates UnimplementedContractServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ContractService_ServiceDesc, srv)
+}
+
+func _ContractService_BuildChannelLogoUri1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildChannelLogoUri1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContractServiceServer).BuildChannelLogoUri1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContractService_BuildChannelLogoUri1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContractServiceServer).BuildChannelLogoUri1(ctx, req.(*BuildChannelLogoUri1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContractService_BuildChannelLogoUri1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildChannelLogoUri1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContractServiceServer).BuildChannelLogoUri1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContractService_BuildChannelLogoUri1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContractServiceServer).BuildChannelLogoUri1_1(ctx, req.(*BuildChannelLogoUri1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContractService_BuildChannelUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildChannelUriRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContractServiceServer).BuildChannelUri(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContractService_BuildChannelUri_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContractServiceServer).BuildChannelUri(ctx, req.(*BuildChannelUriRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContractService_BuildChannelUriForPassthroughInput_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildChannelUriForPassthroughInputRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContractServiceServer).BuildChannelUriForPassthroughInput(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContractService_BuildChannelUriForPassthroughInput_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContractServiceServer).BuildChannelUriForPassthroughInput(ctx, req.(*BuildChannelUriForPassthroughInputRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContractService_BuildChannelsUriForInput_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildChannelsUriForInputRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContractServiceServer).BuildChannelsUriForInput(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContractService_BuildChannelsUriForInput_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContractServiceServer).BuildChannelsUriForInput(ctx, req.(*BuildChannelsUriForInputRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContractService_BuildInputId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildInputIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContractServiceServer).BuildInputId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContractService_BuildInputId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContractServiceServer).BuildInputId(ctx, req.(*BuildInputIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContractService_BuildPreviewProgramUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildPreviewProgramUriRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContractServiceServer).BuildPreviewProgramUri(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContractService_BuildPreviewProgramUri_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContractServiceServer).BuildPreviewProgramUri(ctx, req.(*BuildPreviewProgramUriRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContractService_BuildPreviewProgramsUriForChannel1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildPreviewProgramsUriForChannel1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContractServiceServer).BuildPreviewProgramsUriForChannel1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContractService_BuildPreviewProgramsUriForChannel1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContractServiceServer).BuildPreviewProgramsUriForChannel1(ctx, req.(*BuildPreviewProgramsUriForChannel1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContractService_BuildPreviewProgramsUriForChannel1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildPreviewProgramsUriForChannel1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContractServiceServer).BuildPreviewProgramsUriForChannel1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContractService_BuildPreviewProgramsUriForChannel1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContractServiceServer).BuildPreviewProgramsUriForChannel1_1(ctx, req.(*BuildPreviewProgramsUriForChannel1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContractService_BuildProgramUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildProgramUriRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContractServiceServer).BuildProgramUri(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContractService_BuildProgramUri_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContractServiceServer).BuildProgramUri(ctx, req.(*BuildProgramUriRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContractService_BuildProgramsUriForChannel1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildProgramsUriForChannel1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContractServiceServer).BuildProgramsUriForChannel1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContractService_BuildProgramsUriForChannel1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContractServiceServer).BuildProgramsUriForChannel1(ctx, req.(*BuildProgramsUriForChannel1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContractService_BuildProgramsUriForChannel3_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildProgramsUriForChannel3_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContractServiceServer).BuildProgramsUriForChannel3_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContractService_BuildProgramsUriForChannel3_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContractServiceServer).BuildProgramsUriForChannel3_1(ctx, req.(*BuildProgramsUriForChannel3_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContractService_BuildProgramsUriForChannel1_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildProgramsUriForChannel1_2Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContractServiceServer).BuildProgramsUriForChannel1_2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContractService_BuildProgramsUriForChannel1_2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContractServiceServer).BuildProgramsUriForChannel1_2(ctx, req.(*BuildProgramsUriForChannel1_2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContractService_BuildProgramsUriForChannel3_3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildProgramsUriForChannel3_3Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContractServiceServer).BuildProgramsUriForChannel3_3(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContractService_BuildProgramsUriForChannel3_3_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContractServiceServer).BuildProgramsUriForChannel3_3(ctx, req.(*BuildProgramsUriForChannel3_3Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContractService_BuildRecordedProgramUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRecordedProgramUriRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContractServiceServer).BuildRecordedProgramUri(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContractService_BuildRecordedProgramUri_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContractServiceServer).BuildRecordedProgramUri(ctx, req.(*BuildRecordedProgramUriRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContractService_BuildWatchNextProgramUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildWatchNextProgramUriRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContractServiceServer).BuildWatchNextProgramUri(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContractService_BuildWatchNextProgramUri_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContractServiceServer).BuildWatchNextProgramUri(ctx, req.(*BuildWatchNextProgramUriRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContractService_IsChannelUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsChannelUriRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContractServiceServer).IsChannelUri(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContractService_IsChannelUri_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContractServiceServer).IsChannelUri(ctx, req.(*IsChannelUriRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContractService_IsChannelUriForPassthroughInput_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsChannelUriForPassthroughInputRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContractServiceServer).IsChannelUriForPassthroughInput(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContractService_IsChannelUriForPassthroughInput_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContractServiceServer).IsChannelUriForPassthroughInput(ctx, req.(*IsChannelUriForPassthroughInputRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContractService_IsChannelUriForTunerInput_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsChannelUriForTunerInputRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContractServiceServer).IsChannelUriForTunerInput(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContractService_IsChannelUriForTunerInput_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContractServiceServer).IsChannelUriForTunerInput(ctx, req.(*IsChannelUriForTunerInputRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContractService_IsProgramUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsProgramUriRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContractServiceServer).IsProgramUri(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContractService_IsProgramUri_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContractServiceServer).IsProgramUri(ctx, req.(*IsProgramUriRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContractService_IsRecordedProgramUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsRecordedProgramUriRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContractServiceServer).IsRecordedProgramUri(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContractService_IsRecordedProgramUri_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContractServiceServer).IsRecordedProgramUri(ctx, req.(*IsRecordedProgramUriRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContractService_RequestChannelBrowsable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RequestChannelBrowsableRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContractServiceServer).RequestChannelBrowsable(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContractService_RequestChannelBrowsable_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContractServiceServer).RequestChannelBrowsable(ctx, req.(*RequestChannelBrowsableRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ContractService_ServiceDesc is the grpc.ServiceDesc for ContractService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ContractService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "tv.ContractService",
+	HandlerType: (*ContractServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "BuildChannelLogoUri1",
+			Handler:    _ContractService_BuildChannelLogoUri1_Handler,
+		},
+		{
+			MethodName: "BuildChannelLogoUri1_1",
+			Handler:    _ContractService_BuildChannelLogoUri1_1_Handler,
+		},
+		{
+			MethodName: "BuildChannelUri",
+			Handler:    _ContractService_BuildChannelUri_Handler,
+		},
+		{
+			MethodName: "BuildChannelUriForPassthroughInput",
+			Handler:    _ContractService_BuildChannelUriForPassthroughInput_Handler,
+		},
+		{
+			MethodName: "BuildChannelsUriForInput",
+			Handler:    _ContractService_BuildChannelsUriForInput_Handler,
+		},
+		{
+			MethodName: "BuildInputId",
+			Handler:    _ContractService_BuildInputId_Handler,
+		},
+		{
+			MethodName: "BuildPreviewProgramUri",
+			Handler:    _ContractService_BuildPreviewProgramUri_Handler,
+		},
+		{
+			MethodName: "BuildPreviewProgramsUriForChannel1",
+			Handler:    _ContractService_BuildPreviewProgramsUriForChannel1_Handler,
+		},
+		{
+			MethodName: "BuildPreviewProgramsUriForChannel1_1",
+			Handler:    _ContractService_BuildPreviewProgramsUriForChannel1_1_Handler,
+		},
+		{
+			MethodName: "BuildProgramUri",
+			Handler:    _ContractService_BuildProgramUri_Handler,
+		},
+		{
+			MethodName: "BuildProgramsUriForChannel1",
+			Handler:    _ContractService_BuildProgramsUriForChannel1_Handler,
+		},
+		{
+			MethodName: "BuildProgramsUriForChannel3_1",
+			Handler:    _ContractService_BuildProgramsUriForChannel3_1_Handler,
+		},
+		{
+			MethodName: "BuildProgramsUriForChannel1_2",
+			Handler:    _ContractService_BuildProgramsUriForChannel1_2_Handler,
+		},
+		{
+			MethodName: "BuildProgramsUriForChannel3_3",
+			Handler:    _ContractService_BuildProgramsUriForChannel3_3_Handler,
+		},
+		{
+			MethodName: "BuildRecordedProgramUri",
+			Handler:    _ContractService_BuildRecordedProgramUri_Handler,
+		},
+		{
+			MethodName: "BuildWatchNextProgramUri",
+			Handler:    _ContractService_BuildWatchNextProgramUri_Handler,
+		},
+		{
+			MethodName: "IsChannelUri",
+			Handler:    _ContractService_IsChannelUri_Handler,
+		},
+		{
+			MethodName: "IsChannelUriForPassthroughInput",
+			Handler:    _ContractService_IsChannelUriForPassthroughInput_Handler,
+		},
+		{
+			MethodName: "IsChannelUriForTunerInput",
+			Handler:    _ContractService_IsChannelUriForTunerInput_Handler,
+		},
+		{
+			MethodName: "IsProgramUri",
+			Handler:    _ContractService_IsProgramUri_Handler,
+		},
+		{
+			MethodName: "IsRecordedProgramUri",
+			Handler:    _ContractService_IsRecordedProgramUri_Handler,
+		},
+		{
+			MethodName: "RequestChannelBrowsable",
+			Handler:    _ContractService_RequestChannelBrowsable_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/tv/tv.proto",
+}
+
+const (
+	ContractChannelsService_GetVideoResolution_FullMethodName = "/tv.ContractChannelsService/GetVideoResolution"
+)
+
+// ContractChannelsServiceClient is the client API for ContractChannelsService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ContractChannelsServiceClient interface {
+	GetVideoResolution(ctx context.Context, in *GetVideoResolutionRequest, opts ...grpc.CallOption) (*GetVideoResolutionResponse, error)
+}
+
+type contractChannelsServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewContractChannelsServiceClient(cc grpc.ClientConnInterface) ContractChannelsServiceClient {
+	return &contractChannelsServiceClient{cc}
+}
+
+func (c *contractChannelsServiceClient) GetVideoResolution(ctx context.Context, in *GetVideoResolutionRequest, opts ...grpc.CallOption) (*GetVideoResolutionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetVideoResolutionResponse)
+	err := c.cc.Invoke(ctx, ContractChannelsService_GetVideoResolution_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ContractChannelsServiceServer is the server API for ContractChannelsService service.
+// All implementations must embed UnimplementedContractChannelsServiceServer
+// for forward compatibility.
+type ContractChannelsServiceServer interface {
+	GetVideoResolution(context.Context, *GetVideoResolutionRequest) (*GetVideoResolutionResponse, error)
+	mustEmbedUnimplementedContractChannelsServiceServer()
+}
+
+// UnimplementedContractChannelsServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedContractChannelsServiceServer struct{}
+
+func (UnimplementedContractChannelsServiceServer) GetVideoResolution(context.Context, *GetVideoResolutionRequest) (*GetVideoResolutionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetVideoResolution not implemented")
+}
+func (UnimplementedContractChannelsServiceServer) mustEmbedUnimplementedContractChannelsServiceServer() {
+}
+func (UnimplementedContractChannelsServiceServer) testEmbeddedByValue() {}
+
+// UnsafeContractChannelsServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ContractChannelsServiceServer will
+// result in compilation errors.
+type UnsafeContractChannelsServiceServer interface {
+	mustEmbedUnimplementedContractChannelsServiceServer()
+}
+
+func RegisterContractChannelsServiceServer(s grpc.ServiceRegistrar, srv ContractChannelsServiceServer) {
+	// If the following call panics, it indicates UnimplementedContractChannelsServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ContractChannelsService_ServiceDesc, srv)
+}
+
+func _ContractChannelsService_GetVideoResolution_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetVideoResolutionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContractChannelsServiceServer).GetVideoResolution(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContractChannelsService_GetVideoResolution_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContractChannelsServiceServer).GetVideoResolution(ctx, req.(*GetVideoResolutionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ContractChannelsService_ServiceDesc is the grpc.ServiceDesc for ContractChannelsService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ContractChannelsService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "tv.ContractChannelsService",
+	HandlerType: (*ContractChannelsServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetVideoResolution",
+			Handler:    _ContractChannelsService_GetVideoResolution_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/tv/tv.proto",
+}
+
+const (
+	TsRequestService_NewTsRequest_FullMethodName     = "/tv.TsRequestService/NewTsRequest"
+	TsRequestService_DescribeContents_FullMethodName = "/tv.TsRequestService/DescribeContents"
+	TsRequestService_GetTsPid_FullMethodName         = "/tv.TsRequestService/GetTsPid"
+	TsRequestService_WriteToParcel_FullMethodName    = "/tv.TsRequestService/WriteToParcel"
+)
+
+// TsRequestServiceClient is the client API for TsRequestService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TsRequestServiceClient interface {
+	NewTsRequest(ctx context.Context, in *NewTsRequestRequest, opts ...grpc.CallOption) (*NewTsRequestResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetTsPid(ctx context.Context, in *GetTsPidRequest, opts ...grpc.CallOption) (*GetTsPidResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type tsRequestServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTsRequestServiceClient(cc grpc.ClientConnInterface) TsRequestServiceClient {
+	return &tsRequestServiceClient{cc}
+}
+
+func (c *tsRequestServiceClient) NewTsRequest(ctx context.Context, in *NewTsRequestRequest, opts ...grpc.CallOption) (*NewTsRequestResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewTsRequestResponse)
+	err := c.cc.Invoke(ctx, TsRequestService_NewTsRequest_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tsRequestServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, TsRequestService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tsRequestServiceClient) GetTsPid(ctx context.Context, in *GetTsPidRequest, opts ...grpc.CallOption) (*GetTsPidResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTsPidResponse)
+	err := c.cc.Invoke(ctx, TsRequestService_GetTsPid_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tsRequestServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, TsRequestService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TsRequestServiceServer is the server API for TsRequestService service.
+// All implementations must embed UnimplementedTsRequestServiceServer
+// for forward compatibility.
+type TsRequestServiceServer interface {
+	NewTsRequest(context.Context, *NewTsRequestRequest) (*NewTsRequestResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetTsPid(context.Context, *GetTsPidRequest) (*GetTsPidResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedTsRequestServiceServer()
+}
+
+// UnimplementedTsRequestServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTsRequestServiceServer struct{}
+
+func (UnimplementedTsRequestServiceServer) NewTsRequest(context.Context, *NewTsRequestRequest) (*NewTsRequestResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewTsRequest not implemented")
+}
+func (UnimplementedTsRequestServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedTsRequestServiceServer) GetTsPid(context.Context, *GetTsPidRequest) (*GetTsPidResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTsPid not implemented")
+}
+func (UnimplementedTsRequestServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedTsRequestServiceServer) mustEmbedUnimplementedTsRequestServiceServer() {}
+func (UnimplementedTsRequestServiceServer) testEmbeddedByValue()                          {}
+
+// UnsafeTsRequestServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TsRequestServiceServer will
+// result in compilation errors.
+type UnsafeTsRequestServiceServer interface {
+	mustEmbedUnimplementedTsRequestServiceServer()
+}
+
+func RegisterTsRequestServiceServer(s grpc.ServiceRegistrar, srv TsRequestServiceServer) {
+	// If the following call panics, it indicates UnimplementedTsRequestServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TsRequestService_ServiceDesc, srv)
+}
+
+func _TsRequestService_NewTsRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewTsRequestRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TsRequestServiceServer).NewTsRequest(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TsRequestService_NewTsRequest_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TsRequestServiceServer).NewTsRequest(ctx, req.(*NewTsRequestRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TsRequestService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TsRequestServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TsRequestService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TsRequestServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TsRequestService_GetTsPid_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTsPidRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TsRequestServiceServer).GetTsPid(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TsRequestService_GetTsPid_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TsRequestServiceServer).GetTsPid(ctx, req.(*GetTsPidRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TsRequestService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TsRequestServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TsRequestService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TsRequestServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TsRequestService_ServiceDesc is the grpc.ServiceDesc for TsRequestService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TsRequestService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "tv.TsRequestService",
+	HandlerType: (*TsRequestServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewTsRequest",
+			Handler:    _TsRequestService_NewTsRequest_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _TsRequestService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetTsPid",
+			Handler:    _TsRequestService_GetTsPid_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _TsRequestService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/tv/tv.proto",
+}
+
+const (
+	TimelineRequestService_NewTimelineRequest_FullMethodName = "/tv.TimelineRequestService/NewTimelineRequest"
+	TimelineRequestService_DescribeContents_FullMethodName   = "/tv.TimelineRequestService/DescribeContents"
+	TimelineRequestService_GetIntervalMillis_FullMethodName  = "/tv.TimelineRequestService/GetIntervalMillis"
+	TimelineRequestService_GetSelector_FullMethodName        = "/tv.TimelineRequestService/GetSelector"
+	TimelineRequestService_WriteToParcel_FullMethodName      = "/tv.TimelineRequestService/WriteToParcel"
+)
+
+// TimelineRequestServiceClient is the client API for TimelineRequestService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TimelineRequestServiceClient interface {
+	NewTimelineRequest(ctx context.Context, in *NewTimelineRequestRequest, opts ...grpc.CallOption) (*NewTimelineRequestResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetIntervalMillis(ctx context.Context, in *GetIntervalMillisRequest, opts ...grpc.CallOption) (*GetIntervalMillisResponse, error)
+	GetSelector(ctx context.Context, in *GetSelectorRequest, opts ...grpc.CallOption) (*GetSelectorResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type timelineRequestServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTimelineRequestServiceClient(cc grpc.ClientConnInterface) TimelineRequestServiceClient {
+	return &timelineRequestServiceClient{cc}
+}
+
+func (c *timelineRequestServiceClient) NewTimelineRequest(ctx context.Context, in *NewTimelineRequestRequest, opts ...grpc.CallOption) (*NewTimelineRequestResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewTimelineRequestResponse)
+	err := c.cc.Invoke(ctx, TimelineRequestService_NewTimelineRequest_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *timelineRequestServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, TimelineRequestService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *timelineRequestServiceClient) GetIntervalMillis(ctx context.Context, in *GetIntervalMillisRequest, opts ...grpc.CallOption) (*GetIntervalMillisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetIntervalMillisResponse)
+	err := c.cc.Invoke(ctx, TimelineRequestService_GetIntervalMillis_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *timelineRequestServiceClient) GetSelector(ctx context.Context, in *GetSelectorRequest, opts ...grpc.CallOption) (*GetSelectorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSelectorResponse)
+	err := c.cc.Invoke(ctx, TimelineRequestService_GetSelector_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *timelineRequestServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, TimelineRequestService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TimelineRequestServiceServer is the server API for TimelineRequestService service.
+// All implementations must embed UnimplementedTimelineRequestServiceServer
+// for forward compatibility.
+type TimelineRequestServiceServer interface {
+	NewTimelineRequest(context.Context, *NewTimelineRequestRequest) (*NewTimelineRequestResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetIntervalMillis(context.Context, *GetIntervalMillisRequest) (*GetIntervalMillisResponse, error)
+	GetSelector(context.Context, *GetSelectorRequest) (*GetSelectorResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedTimelineRequestServiceServer()
+}
+
+// UnimplementedTimelineRequestServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTimelineRequestServiceServer struct{}
+
+func (UnimplementedTimelineRequestServiceServer) NewTimelineRequest(context.Context, *NewTimelineRequestRequest) (*NewTimelineRequestResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewTimelineRequest not implemented")
+}
+func (UnimplementedTimelineRequestServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedTimelineRequestServiceServer) GetIntervalMillis(context.Context, *GetIntervalMillisRequest) (*GetIntervalMillisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetIntervalMillis not implemented")
+}
+func (UnimplementedTimelineRequestServiceServer) GetSelector(context.Context, *GetSelectorRequest) (*GetSelectorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSelector not implemented")
+}
+func (UnimplementedTimelineRequestServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedTimelineRequestServiceServer) mustEmbedUnimplementedTimelineRequestServiceServer() {
+}
+func (UnimplementedTimelineRequestServiceServer) testEmbeddedByValue() {}
+
+// UnsafeTimelineRequestServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TimelineRequestServiceServer will
+// result in compilation errors.
+type UnsafeTimelineRequestServiceServer interface {
+	mustEmbedUnimplementedTimelineRequestServiceServer()
+}
+
+func RegisterTimelineRequestServiceServer(s grpc.ServiceRegistrar, srv TimelineRequestServiceServer) {
+	// If the following call panics, it indicates UnimplementedTimelineRequestServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TimelineRequestService_ServiceDesc, srv)
+}
+
+func _TimelineRequestService_NewTimelineRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewTimelineRequestRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TimelineRequestServiceServer).NewTimelineRequest(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TimelineRequestService_NewTimelineRequest_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TimelineRequestServiceServer).NewTimelineRequest(ctx, req.(*NewTimelineRequestRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TimelineRequestService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TimelineRequestServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TimelineRequestService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TimelineRequestServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TimelineRequestService_GetIntervalMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIntervalMillisRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TimelineRequestServiceServer).GetIntervalMillis(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TimelineRequestService_GetIntervalMillis_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TimelineRequestServiceServer).GetIntervalMillis(ctx, req.(*GetIntervalMillisRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TimelineRequestService_GetSelector_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSelectorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TimelineRequestServiceServer).GetSelector(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TimelineRequestService_GetSelector_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TimelineRequestServiceServer).GetSelector(ctx, req.(*GetSelectorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TimelineRequestService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TimelineRequestServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TimelineRequestService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TimelineRequestServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TimelineRequestService_ServiceDesc is the grpc.ServiceDesc for TimelineRequestService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TimelineRequestService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "tv.TimelineRequestService",
+	HandlerType: (*TimelineRequestServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewTimelineRequest",
+			Handler:    _TimelineRequestService_NewTimelineRequest_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _TimelineRequestService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetIntervalMillis",
+			Handler:    _TimelineRequestService_GetIntervalMillis_Handler,
+		},
+		{
+			MethodName: "GetSelector",
+			Handler:    _TimelineRequestService_GetSelector_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _TimelineRequestService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/tv/tv.proto",
+}
+
+const (
+	TableResponseService_NewTableResponse_FullMethodName     = "/tv.TableResponseService/NewTableResponse"
+	TableResponseService_DescribeContents_FullMethodName     = "/tv.TableResponseService/DescribeContents"
+	TableResponseService_GetSize_FullMethodName              = "/tv.TableResponseService/GetSize"
+	TableResponseService_GetTableByteArray_FullMethodName    = "/tv.TableResponseService/GetTableByteArray"
+	TableResponseService_GetTableSharedMemory_FullMethodName = "/tv.TableResponseService/GetTableSharedMemory"
+	TableResponseService_GetTableUri_FullMethodName          = "/tv.TableResponseService/GetTableUri"
+	TableResponseService_GetVersion_FullMethodName           = "/tv.TableResponseService/GetVersion"
+	TableResponseService_WriteToParcel_FullMethodName        = "/tv.TableResponseService/WriteToParcel"
+)
+
+// TableResponseServiceClient is the client API for TableResponseService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TableResponseServiceClient interface {
+	NewTableResponse(ctx context.Context, in *NewTableResponseRequest, opts ...grpc.CallOption) (*NewTableResponseResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetSize(ctx context.Context, in *GetSizeRequest, opts ...grpc.CallOption) (*GetSizeResponse, error)
+	GetTableByteArray(ctx context.Context, in *GetTableByteArrayRequest, opts ...grpc.CallOption) (*GetTableByteArrayResponse, error)
+	GetTableSharedMemory(ctx context.Context, in *GetTableSharedMemoryRequest, opts ...grpc.CallOption) (*GetTableSharedMemoryResponse, error)
+	GetTableUri(ctx context.Context, in *GetTableUriRequest, opts ...grpc.CallOption) (*GetTableUriResponse, error)
+	GetVersion(ctx context.Context, in *GetVersionRequest, opts ...grpc.CallOption) (*GetVersionResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type tableResponseServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTableResponseServiceClient(cc grpc.ClientConnInterface) TableResponseServiceClient {
+	return &tableResponseServiceClient{cc}
+}
+
+func (c *tableResponseServiceClient) NewTableResponse(ctx context.Context, in *NewTableResponseRequest, opts ...grpc.CallOption) (*NewTableResponseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewTableResponseResponse)
+	err := c.cc.Invoke(ctx, TableResponseService_NewTableResponse_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tableResponseServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, TableResponseService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tableResponseServiceClient) GetSize(ctx context.Context, in *GetSizeRequest, opts ...grpc.CallOption) (*GetSizeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSizeResponse)
+	err := c.cc.Invoke(ctx, TableResponseService_GetSize_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tableResponseServiceClient) GetTableByteArray(ctx context.Context, in *GetTableByteArrayRequest, opts ...grpc.CallOption) (*GetTableByteArrayResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTableByteArrayResponse)
+	err := c.cc.Invoke(ctx, TableResponseService_GetTableByteArray_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tableResponseServiceClient) GetTableSharedMemory(ctx context.Context, in *GetTableSharedMemoryRequest, opts ...grpc.CallOption) (*GetTableSharedMemoryResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTableSharedMemoryResponse)
+	err := c.cc.Invoke(ctx, TableResponseService_GetTableSharedMemory_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tableResponseServiceClient) GetTableUri(ctx context.Context, in *GetTableUriRequest, opts ...grpc.CallOption) (*GetTableUriResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTableUriResponse)
+	err := c.cc.Invoke(ctx, TableResponseService_GetTableUri_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tableResponseServiceClient) GetVersion(ctx context.Context, in *GetVersionRequest, opts ...grpc.CallOption) (*GetVersionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetVersionResponse)
+	err := c.cc.Invoke(ctx, TableResponseService_GetVersion_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tableResponseServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, TableResponseService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TableResponseServiceServer is the server API for TableResponseService service.
+// All implementations must embed UnimplementedTableResponseServiceServer
+// for forward compatibility.
+type TableResponseServiceServer interface {
+	NewTableResponse(context.Context, *NewTableResponseRequest) (*NewTableResponseResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetSize(context.Context, *GetSizeRequest) (*GetSizeResponse, error)
+	GetTableByteArray(context.Context, *GetTableByteArrayRequest) (*GetTableByteArrayResponse, error)
+	GetTableSharedMemory(context.Context, *GetTableSharedMemoryRequest) (*GetTableSharedMemoryResponse, error)
+	GetTableUri(context.Context, *GetTableUriRequest) (*GetTableUriResponse, error)
+	GetVersion(context.Context, *GetVersionRequest) (*GetVersionResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedTableResponseServiceServer()
+}
+
+// UnimplementedTableResponseServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTableResponseServiceServer struct{}
+
+func (UnimplementedTableResponseServiceServer) NewTableResponse(context.Context, *NewTableResponseRequest) (*NewTableResponseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewTableResponse not implemented")
+}
+func (UnimplementedTableResponseServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedTableResponseServiceServer) GetSize(context.Context, *GetSizeRequest) (*GetSizeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSize not implemented")
+}
+func (UnimplementedTableResponseServiceServer) GetTableByteArray(context.Context, *GetTableByteArrayRequest) (*GetTableByteArrayResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTableByteArray not implemented")
+}
+func (UnimplementedTableResponseServiceServer) GetTableSharedMemory(context.Context, *GetTableSharedMemoryRequest) (*GetTableSharedMemoryResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTableSharedMemory not implemented")
+}
+func (UnimplementedTableResponseServiceServer) GetTableUri(context.Context, *GetTableUriRequest) (*GetTableUriResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTableUri not implemented")
+}
+func (UnimplementedTableResponseServiceServer) GetVersion(context.Context, *GetVersionRequest) (*GetVersionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetVersion not implemented")
+}
+func (UnimplementedTableResponseServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedTableResponseServiceServer) mustEmbedUnimplementedTableResponseServiceServer() {}
+func (UnimplementedTableResponseServiceServer) testEmbeddedByValue()                              {}
+
+// UnsafeTableResponseServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TableResponseServiceServer will
+// result in compilation errors.
+type UnsafeTableResponseServiceServer interface {
+	mustEmbedUnimplementedTableResponseServiceServer()
+}
+
+func RegisterTableResponseServiceServer(s grpc.ServiceRegistrar, srv TableResponseServiceServer) {
+	// If the following call panics, it indicates UnimplementedTableResponseServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TableResponseService_ServiceDesc, srv)
+}
+
+func _TableResponseService_NewTableResponse_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewTableResponseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TableResponseServiceServer).NewTableResponse(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TableResponseService_NewTableResponse_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TableResponseServiceServer).NewTableResponse(ctx, req.(*NewTableResponseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TableResponseService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TableResponseServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TableResponseService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TableResponseServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TableResponseService_GetSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSizeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TableResponseServiceServer).GetSize(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TableResponseService_GetSize_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TableResponseServiceServer).GetSize(ctx, req.(*GetSizeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TableResponseService_GetTableByteArray_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTableByteArrayRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TableResponseServiceServer).GetTableByteArray(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TableResponseService_GetTableByteArray_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TableResponseServiceServer).GetTableByteArray(ctx, req.(*GetTableByteArrayRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TableResponseService_GetTableSharedMemory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTableSharedMemoryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TableResponseServiceServer).GetTableSharedMemory(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TableResponseService_GetTableSharedMemory_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TableResponseServiceServer).GetTableSharedMemory(ctx, req.(*GetTableSharedMemoryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TableResponseService_GetTableUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTableUriRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TableResponseServiceServer).GetTableUri(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TableResponseService_GetTableUri_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TableResponseServiceServer).GetTableUri(ctx, req.(*GetTableUriRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TableResponseService_GetVersion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetVersionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TableResponseServiceServer).GetVersion(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TableResponseService_GetVersion_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TableResponseServiceServer).GetVersion(ctx, req.(*GetVersionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TableResponseService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TableResponseServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TableResponseService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TableResponseServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TableResponseService_ServiceDesc is the grpc.ServiceDesc for TableResponseService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TableResponseService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "tv.TableResponseService",
+	HandlerType: (*TableResponseServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewTableResponse",
+			Handler:    _TableResponseService_NewTableResponse_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _TableResponseService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetSize",
+			Handler:    _TableResponseService_GetSize_Handler,
+		},
+		{
+			MethodName: "GetTableByteArray",
+			Handler:    _TableResponseService_GetTableByteArray_Handler,
+		},
+		{
+			MethodName: "GetTableSharedMemory",
+			Handler:    _TableResponseService_GetTableSharedMemory_Handler,
+		},
+		{
+			MethodName: "GetTableUri",
+			Handler:    _TableResponseService_GetTableUri_Handler,
+		},
+		{
+			MethodName: "GetVersion",
+			Handler:    _TableResponseService_GetVersion_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _TableResponseService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/tv/tv.proto",
+}
+
+const (
+	TableResponseBuilderService_Build_FullMethodName                = "/tv.TableResponseBuilderService/Build"
+	TableResponseBuilderService_SetTableByteArray_FullMethodName    = "/tv.TableResponseBuilderService/SetTableByteArray"
+	TableResponseBuilderService_SetTableSharedMemory_FullMethodName = "/tv.TableResponseBuilderService/SetTableSharedMemory"
+	TableResponseBuilderService_SetTableUri_FullMethodName          = "/tv.TableResponseBuilderService/SetTableUri"
+)
+
+// TableResponseBuilderServiceClient is the client API for TableResponseBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TableResponseBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetTableByteArray(ctx context.Context, in *SetTableByteArrayRequest, opts ...grpc.CallOption) (*SetTableByteArrayResponse, error)
+	SetTableSharedMemory(ctx context.Context, in *SetTableSharedMemoryRequest, opts ...grpc.CallOption) (*SetTableSharedMemoryResponse, error)
+	SetTableUri(ctx context.Context, in *SetTableUriRequest, opts ...grpc.CallOption) (*SetTableUriResponse, error)
+}
+
+type tableResponseBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTableResponseBuilderServiceClient(cc grpc.ClientConnInterface) TableResponseBuilderServiceClient {
+	return &tableResponseBuilderServiceClient{cc}
+}
+
+func (c *tableResponseBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, TableResponseBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tableResponseBuilderServiceClient) SetTableByteArray(ctx context.Context, in *SetTableByteArrayRequest, opts ...grpc.CallOption) (*SetTableByteArrayResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetTableByteArrayResponse)
+	err := c.cc.Invoke(ctx, TableResponseBuilderService_SetTableByteArray_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tableResponseBuilderServiceClient) SetTableSharedMemory(ctx context.Context, in *SetTableSharedMemoryRequest, opts ...grpc.CallOption) (*SetTableSharedMemoryResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetTableSharedMemoryResponse)
+	err := c.cc.Invoke(ctx, TableResponseBuilderService_SetTableSharedMemory_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tableResponseBuilderServiceClient) SetTableUri(ctx context.Context, in *SetTableUriRequest, opts ...grpc.CallOption) (*SetTableUriResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetTableUriResponse)
+	err := c.cc.Invoke(ctx, TableResponseBuilderService_SetTableUri_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TableResponseBuilderServiceServer is the server API for TableResponseBuilderService service.
+// All implementations must embed UnimplementedTableResponseBuilderServiceServer
+// for forward compatibility.
+type TableResponseBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetTableByteArray(context.Context, *SetTableByteArrayRequest) (*SetTableByteArrayResponse, error)
+	SetTableSharedMemory(context.Context, *SetTableSharedMemoryRequest) (*SetTableSharedMemoryResponse, error)
+	SetTableUri(context.Context, *SetTableUriRequest) (*SetTableUriResponse, error)
+	mustEmbedUnimplementedTableResponseBuilderServiceServer()
+}
+
+// UnimplementedTableResponseBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTableResponseBuilderServiceServer struct{}
+
+func (UnimplementedTableResponseBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedTableResponseBuilderServiceServer) SetTableByteArray(context.Context, *SetTableByteArrayRequest) (*SetTableByteArrayResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetTableByteArray not implemented")
+}
+func (UnimplementedTableResponseBuilderServiceServer) SetTableSharedMemory(context.Context, *SetTableSharedMemoryRequest) (*SetTableSharedMemoryResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetTableSharedMemory not implemented")
+}
+func (UnimplementedTableResponseBuilderServiceServer) SetTableUri(context.Context, *SetTableUriRequest) (*SetTableUriResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetTableUri not implemented")
+}
+func (UnimplementedTableResponseBuilderServiceServer) mustEmbedUnimplementedTableResponseBuilderServiceServer() {
+}
+func (UnimplementedTableResponseBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeTableResponseBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TableResponseBuilderServiceServer will
+// result in compilation errors.
+type UnsafeTableResponseBuilderServiceServer interface {
+	mustEmbedUnimplementedTableResponseBuilderServiceServer()
+}
+
+func RegisterTableResponseBuilderServiceServer(s grpc.ServiceRegistrar, srv TableResponseBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedTableResponseBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TableResponseBuilderService_ServiceDesc, srv)
+}
+
+func _TableResponseBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TableResponseBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TableResponseBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TableResponseBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TableResponseBuilderService_SetTableByteArray_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetTableByteArrayRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TableResponseBuilderServiceServer).SetTableByteArray(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TableResponseBuilderService_SetTableByteArray_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TableResponseBuilderServiceServer).SetTableByteArray(ctx, req.(*SetTableByteArrayRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TableResponseBuilderService_SetTableSharedMemory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetTableSharedMemoryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TableResponseBuilderServiceServer).SetTableSharedMemory(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TableResponseBuilderService_SetTableSharedMemory_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TableResponseBuilderServiceServer).SetTableSharedMemory(ctx, req.(*SetTableSharedMemoryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TableResponseBuilderService_SetTableUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetTableUriRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TableResponseBuilderServiceServer).SetTableUri(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TableResponseBuilderService_SetTableUri_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TableResponseBuilderServiceServer).SetTableUri(ctx, req.(*SetTableUriRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TableResponseBuilderService_ServiceDesc is the grpc.ServiceDesc for TableResponseBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TableResponseBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "tv.TableResponseBuilderService",
+	HandlerType: (*TableResponseBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _TableResponseBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetTableByteArray",
+			Handler:    _TableResponseBuilderService_SetTableByteArray_Handler,
+		},
+		{
+			MethodName: "SetTableSharedMemory",
+			Handler:    _TableResponseBuilderService_SetTableSharedMemory_Handler,
+		},
+		{
+			MethodName: "SetTableUri",
+			Handler:    _TableResponseBuilderService_SetTableUri_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/tv/tv.proto",
+}
+
+const (
+	DsmccRequestService_NewDsmccRequest_FullMethodName  = "/tv.DsmccRequestService/NewDsmccRequest"
+	DsmccRequestService_DescribeContents_FullMethodName = "/tv.DsmccRequestService/DescribeContents"
+	DsmccRequestService_GetUri_FullMethodName           = "/tv.DsmccRequestService/GetUri"
+	DsmccRequestService_WriteToParcel_FullMethodName    = "/tv.DsmccRequestService/WriteToParcel"
+)
+
+// DsmccRequestServiceClient is the client API for DsmccRequestService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type DsmccRequestServiceClient interface {
+	NewDsmccRequest(ctx context.Context, in *NewDsmccRequestRequest, opts ...grpc.CallOption) (*NewDsmccRequestResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetUri(ctx context.Context, in *GetUriRequest, opts ...grpc.CallOption) (*GetUriResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type dsmccRequestServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewDsmccRequestServiceClient(cc grpc.ClientConnInterface) DsmccRequestServiceClient {
+	return &dsmccRequestServiceClient{cc}
+}
+
+func (c *dsmccRequestServiceClient) NewDsmccRequest(ctx context.Context, in *NewDsmccRequestRequest, opts ...grpc.CallOption) (*NewDsmccRequestResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewDsmccRequestResponse)
+	err := c.cc.Invoke(ctx, DsmccRequestService_NewDsmccRequest_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dsmccRequestServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, DsmccRequestService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dsmccRequestServiceClient) GetUri(ctx context.Context, in *GetUriRequest, opts ...grpc.CallOption) (*GetUriResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetUriResponse)
+	err := c.cc.Invoke(ctx, DsmccRequestService_GetUri_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dsmccRequestServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, DsmccRequestService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// DsmccRequestServiceServer is the server API for DsmccRequestService service.
+// All implementations must embed UnimplementedDsmccRequestServiceServer
+// for forward compatibility.
+type DsmccRequestServiceServer interface {
+	NewDsmccRequest(context.Context, *NewDsmccRequestRequest) (*NewDsmccRequestResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetUri(context.Context, *GetUriRequest) (*GetUriResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedDsmccRequestServiceServer()
+}
+
+// UnimplementedDsmccRequestServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedDsmccRequestServiceServer struct{}
+
+func (UnimplementedDsmccRequestServiceServer) NewDsmccRequest(context.Context, *NewDsmccRequestRequest) (*NewDsmccRequestResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewDsmccRequest not implemented")
+}
+func (UnimplementedDsmccRequestServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedDsmccRequestServiceServer) GetUri(context.Context, *GetUriRequest) (*GetUriResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetUri not implemented")
+}
+func (UnimplementedDsmccRequestServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedDsmccRequestServiceServer) mustEmbedUnimplementedDsmccRequestServiceServer() {}
+func (UnimplementedDsmccRequestServiceServer) testEmbeddedByValue()                             {}
+
+// UnsafeDsmccRequestServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to DsmccRequestServiceServer will
+// result in compilation errors.
+type UnsafeDsmccRequestServiceServer interface {
+	mustEmbedUnimplementedDsmccRequestServiceServer()
+}
+
+func RegisterDsmccRequestServiceServer(s grpc.ServiceRegistrar, srv DsmccRequestServiceServer) {
+	// If the following call panics, it indicates UnimplementedDsmccRequestServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&DsmccRequestService_ServiceDesc, srv)
+}
+
+func _DsmccRequestService_NewDsmccRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewDsmccRequestRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DsmccRequestServiceServer).NewDsmccRequest(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DsmccRequestService_NewDsmccRequest_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DsmccRequestServiceServer).NewDsmccRequest(ctx, req.(*NewDsmccRequestRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DsmccRequestService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DsmccRequestServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DsmccRequestService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DsmccRequestServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DsmccRequestService_GetUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUriRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DsmccRequestServiceServer).GetUri(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DsmccRequestService_GetUri_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DsmccRequestServiceServer).GetUri(ctx, req.(*GetUriRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DsmccRequestService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DsmccRequestServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DsmccRequestService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DsmccRequestServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// DsmccRequestService_ServiceDesc is the grpc.ServiceDesc for DsmccRequestService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var DsmccRequestService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "tv.DsmccRequestService",
+	HandlerType: (*DsmccRequestServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewDsmccRequest",
+			Handler:    _DsmccRequestService_NewDsmccRequest_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _DsmccRequestService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetUri",
+			Handler:    _DsmccRequestService_GetUri_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _DsmccRequestService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/tv/tv.proto",
+}
+
+const (
+	AitInfoService_NewAitInfo_FullMethodName       = "/tv.AitInfoService/NewAitInfo"
+	AitInfoService_DescribeContents_FullMethodName = "/tv.AitInfoService/DescribeContents"
+	AitInfoService_GetType_FullMethodName          = "/tv.AitInfoService/GetType"
+	AitInfoService_GetVersion_FullMethodName       = "/tv.AitInfoService/GetVersion"
+	AitInfoService_ToString_FullMethodName         = "/tv.AitInfoService/ToString"
+	AitInfoService_WriteToParcel_FullMethodName    = "/tv.AitInfoService/WriteToParcel"
+)
+
+// AitInfoServiceClient is the client API for AitInfoService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AitInfoServiceClient interface {
+	NewAitInfo(ctx context.Context, in *NewAitInfoRequest, opts ...grpc.CallOption) (*NewAitInfoResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetType(ctx context.Context, in *AitInfoGetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error)
+	GetVersion(ctx context.Context, in *GetVersionRequest, opts ...grpc.CallOption) (*GetVersionResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type aitInfoServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAitInfoServiceClient(cc grpc.ClientConnInterface) AitInfoServiceClient {
+	return &aitInfoServiceClient{cc}
+}
+
+func (c *aitInfoServiceClient) NewAitInfo(ctx context.Context, in *NewAitInfoRequest, opts ...grpc.CallOption) (*NewAitInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewAitInfoResponse)
+	err := c.cc.Invoke(ctx, AitInfoService_NewAitInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *aitInfoServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, AitInfoService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *aitInfoServiceClient) GetType(ctx context.Context, in *AitInfoGetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTypeResponse)
+	err := c.cc.Invoke(ctx, AitInfoService_GetType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *aitInfoServiceClient) GetVersion(ctx context.Context, in *GetVersionRequest, opts ...grpc.CallOption) (*GetVersionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetVersionResponse)
+	err := c.cc.Invoke(ctx, AitInfoService_GetVersion_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *aitInfoServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, AitInfoService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *aitInfoServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, AitInfoService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AitInfoServiceServer is the server API for AitInfoService service.
+// All implementations must embed UnimplementedAitInfoServiceServer
+// for forward compatibility.
+type AitInfoServiceServer interface {
+	NewAitInfo(context.Context, *NewAitInfoRequest) (*NewAitInfoResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetType(context.Context, *AitInfoGetTypeRequest) (*GetTypeResponse, error)
+	GetVersion(context.Context, *GetVersionRequest) (*GetVersionResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedAitInfoServiceServer()
+}
+
+// UnimplementedAitInfoServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedAitInfoServiceServer struct{}
+
+func (UnimplementedAitInfoServiceServer) NewAitInfo(context.Context, *NewAitInfoRequest) (*NewAitInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewAitInfo not implemented")
+}
+func (UnimplementedAitInfoServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedAitInfoServiceServer) GetType(context.Context, *AitInfoGetTypeRequest) (*GetTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetType not implemented")
+}
+func (UnimplementedAitInfoServiceServer) GetVersion(context.Context, *GetVersionRequest) (*GetVersionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetVersion not implemented")
+}
+func (UnimplementedAitInfoServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedAitInfoServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedAitInfoServiceServer) mustEmbedUnimplementedAitInfoServiceServer() {}
+func (UnimplementedAitInfoServiceServer) testEmbeddedByValue()                        {}
+
+// UnsafeAitInfoServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AitInfoServiceServer will
+// result in compilation errors.
+type UnsafeAitInfoServiceServer interface {
+	mustEmbedUnimplementedAitInfoServiceServer()
+}
+
+func RegisterAitInfoServiceServer(s grpc.ServiceRegistrar, srv AitInfoServiceServer) {
+	// If the following call panics, it indicates UnimplementedAitInfoServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&AitInfoService_ServiceDesc, srv)
+}
+
+func _AitInfoService_NewAitInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewAitInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AitInfoServiceServer).NewAitInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AitInfoService_NewAitInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AitInfoServiceServer).NewAitInfo(ctx, req.(*NewAitInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AitInfoService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AitInfoServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AitInfoService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AitInfoServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AitInfoService_GetType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AitInfoGetTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AitInfoServiceServer).GetType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AitInfoService_GetType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AitInfoServiceServer).GetType(ctx, req.(*AitInfoGetTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AitInfoService_GetVersion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetVersionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AitInfoServiceServer).GetVersion(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AitInfoService_GetVersion_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AitInfoServiceServer).GetVersion(ctx, req.(*GetVersionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AitInfoService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AitInfoServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AitInfoService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AitInfoServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AitInfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AitInfoServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AitInfoService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AitInfoServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AitInfoService_ServiceDesc is the grpc.ServiceDesc for AitInfoService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AitInfoService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "tv.AitInfoService",
+	HandlerType: (*AitInfoServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewAitInfo",
+			Handler:    _AitInfoService_NewAitInfo_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _AitInfoService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetType",
+			Handler:    _AitInfoService_GetType_Handler,
+		},
+		{
+			MethodName: "GetVersion",
+			Handler:    _AitInfoService_GetVersion_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _AitInfoService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _AitInfoService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/tv/tv.proto",
+}
+
+const (
+	InputInfoService_CanPauseRecording_FullMethodName    = "/tv.InputInfoService/CanPauseRecording"
+	InputInfoService_CanRecord_FullMethodName            = "/tv.InputInfoService/CanRecord"
+	InputInfoService_CreateSettingsIntent_FullMethodName = "/tv.InputInfoService/CreateSettingsIntent"
+	InputInfoService_CreateSetupIntent_FullMethodName    = "/tv.InputInfoService/CreateSetupIntent"
+	InputInfoService_DescribeContents_FullMethodName     = "/tv.InputInfoService/DescribeContents"
+	InputInfoService_Equals_FullMethodName               = "/tv.InputInfoService/Equals"
+	InputInfoService_GetExtras_FullMethodName            = "/tv.InputInfoService/GetExtras"
+	InputInfoService_GetId_FullMethodName                = "/tv.InputInfoService/GetId"
+	InputInfoService_GetParentId_FullMethodName          = "/tv.InputInfoService/GetParentId"
+	InputInfoService_GetServiceInfo_FullMethodName       = "/tv.InputInfoService/GetServiceInfo"
+	InputInfoService_GetTunerCount_FullMethodName        = "/tv.InputInfoService/GetTunerCount"
+	InputInfoService_GetType_FullMethodName              = "/tv.InputInfoService/GetType"
+	InputInfoService_HashCode_FullMethodName             = "/tv.InputInfoService/HashCode"
+	InputInfoService_IsHidden_FullMethodName             = "/tv.InputInfoService/IsHidden"
+	InputInfoService_IsPassthroughInput_FullMethodName   = "/tv.InputInfoService/IsPassthroughInput"
+	InputInfoService_LoadCustomLabel_FullMethodName      = "/tv.InputInfoService/LoadCustomLabel"
+	InputInfoService_LoadIcon_FullMethodName             = "/tv.InputInfoService/LoadIcon"
+	InputInfoService_LoadLabel_FullMethodName            = "/tv.InputInfoService/LoadLabel"
+	InputInfoService_ToString_FullMethodName             = "/tv.InputInfoService/ToString"
+	InputInfoService_WriteToParcel_FullMethodName        = "/tv.InputInfoService/WriteToParcel"
+)
+
+// InputInfoServiceClient is the client API for InputInfoService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type InputInfoServiceClient interface {
+	CanPauseRecording(ctx context.Context, in *CanPauseRecordingRequest, opts ...grpc.CallOption) (*CanPauseRecordingResponse, error)
+	CanRecord(ctx context.Context, in *CanRecordRequest, opts ...grpc.CallOption) (*CanRecordResponse, error)
+	CreateSettingsIntent(ctx context.Context, in *CreateSettingsIntentRequest, opts ...grpc.CallOption) (*CreateSettingsIntentResponse, error)
+	CreateSetupIntent(ctx context.Context, in *CreateSetupIntentRequest, opts ...grpc.CallOption) (*CreateSetupIntentResponse, error)
+	DescribeContents(ctx context.Context, in *InputInfoDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetExtras(ctx context.Context, in *GetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error)
+	GetId(ctx context.Context, in *InputInfoGetIdRequest, opts ...grpc.CallOption) (*InputInfoGetIdResponse, error)
+	GetParentId(ctx context.Context, in *GetParentIdRequest, opts ...grpc.CallOption) (*GetParentIdResponse, error)
+	GetServiceInfo(ctx context.Context, in *GetServiceInfoRequest, opts ...grpc.CallOption) (*GetServiceInfoResponse, error)
+	GetTunerCount(ctx context.Context, in *GetTunerCountRequest, opts ...grpc.CallOption) (*GetTunerCountResponse, error)
+	GetType(ctx context.Context, in *GetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	IsHidden(ctx context.Context, in *IsHiddenRequest, opts ...grpc.CallOption) (*IsHiddenResponse, error)
+	IsPassthroughInput(ctx context.Context, in *IsPassthroughInputRequest, opts ...grpc.CallOption) (*IsPassthroughInputResponse, error)
+	LoadCustomLabel(ctx context.Context, in *LoadCustomLabelRequest, opts ...grpc.CallOption) (*LoadCustomLabelResponse, error)
+	LoadIcon(ctx context.Context, in *LoadIconRequest, opts ...grpc.CallOption) (*LoadIconResponse, error)
+	LoadLabel(ctx context.Context, in *LoadLabelRequest, opts ...grpc.CallOption) (*LoadLabelResponse, error)
+	ToString(ctx context.Context, in *InputInfoToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *InputInfoWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type inputInfoServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewInputInfoServiceClient(cc grpc.ClientConnInterface) InputInfoServiceClient {
+	return &inputInfoServiceClient{cc}
+}
+
+func (c *inputInfoServiceClient) CanPauseRecording(ctx context.Context, in *CanPauseRecordingRequest, opts ...grpc.CallOption) (*CanPauseRecordingResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CanPauseRecordingResponse)
+	err := c.cc.Invoke(ctx, InputInfoService_CanPauseRecording_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputInfoServiceClient) CanRecord(ctx context.Context, in *CanRecordRequest, opts ...grpc.CallOption) (*CanRecordResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CanRecordResponse)
+	err := c.cc.Invoke(ctx, InputInfoService_CanRecord_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputInfoServiceClient) CreateSettingsIntent(ctx context.Context, in *CreateSettingsIntentRequest, opts ...grpc.CallOption) (*CreateSettingsIntentResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateSettingsIntentResponse)
+	err := c.cc.Invoke(ctx, InputInfoService_CreateSettingsIntent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputInfoServiceClient) CreateSetupIntent(ctx context.Context, in *CreateSetupIntentRequest, opts ...grpc.CallOption) (*CreateSetupIntentResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateSetupIntentResponse)
+	err := c.cc.Invoke(ctx, InputInfoService_CreateSetupIntent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputInfoServiceClient) DescribeContents(ctx context.Context, in *InputInfoDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, InputInfoService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputInfoServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, InputInfoService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputInfoServiceClient) GetExtras(ctx context.Context, in *GetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetExtrasResponse)
+	err := c.cc.Invoke(ctx, InputInfoService_GetExtras_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputInfoServiceClient) GetId(ctx context.Context, in *InputInfoGetIdRequest, opts ...grpc.CallOption) (*InputInfoGetIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(InputInfoGetIdResponse)
+	err := c.cc.Invoke(ctx, InputInfoService_GetId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputInfoServiceClient) GetParentId(ctx context.Context, in *GetParentIdRequest, opts ...grpc.CallOption) (*GetParentIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetParentIdResponse)
+	err := c.cc.Invoke(ctx, InputInfoService_GetParentId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputInfoServiceClient) GetServiceInfo(ctx context.Context, in *GetServiceInfoRequest, opts ...grpc.CallOption) (*GetServiceInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetServiceInfoResponse)
+	err := c.cc.Invoke(ctx, InputInfoService_GetServiceInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputInfoServiceClient) GetTunerCount(ctx context.Context, in *GetTunerCountRequest, opts ...grpc.CallOption) (*GetTunerCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTunerCountResponse)
+	err := c.cc.Invoke(ctx, InputInfoService_GetTunerCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputInfoServiceClient) GetType(ctx context.Context, in *GetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTypeResponse)
+	err := c.cc.Invoke(ctx, InputInfoService_GetType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputInfoServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, InputInfoService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputInfoServiceClient) IsHidden(ctx context.Context, in *IsHiddenRequest, opts ...grpc.CallOption) (*IsHiddenResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsHiddenResponse)
+	err := c.cc.Invoke(ctx, InputInfoService_IsHidden_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputInfoServiceClient) IsPassthroughInput(ctx context.Context, in *IsPassthroughInputRequest, opts ...grpc.CallOption) (*IsPassthroughInputResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsPassthroughInputResponse)
+	err := c.cc.Invoke(ctx, InputInfoService_IsPassthroughInput_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputInfoServiceClient) LoadCustomLabel(ctx context.Context, in *LoadCustomLabelRequest, opts ...grpc.CallOption) (*LoadCustomLabelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(LoadCustomLabelResponse)
+	err := c.cc.Invoke(ctx, InputInfoService_LoadCustomLabel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputInfoServiceClient) LoadIcon(ctx context.Context, in *LoadIconRequest, opts ...grpc.CallOption) (*LoadIconResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(LoadIconResponse)
+	err := c.cc.Invoke(ctx, InputInfoService_LoadIcon_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputInfoServiceClient) LoadLabel(ctx context.Context, in *LoadLabelRequest, opts ...grpc.CallOption) (*LoadLabelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(LoadLabelResponse)
+	err := c.cc.Invoke(ctx, InputInfoService_LoadLabel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputInfoServiceClient) ToString(ctx context.Context, in *InputInfoToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, InputInfoService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputInfoServiceClient) WriteToParcel(ctx context.Context, in *InputInfoWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, InputInfoService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// InputInfoServiceServer is the server API for InputInfoService service.
+// All implementations must embed UnimplementedInputInfoServiceServer
+// for forward compatibility.
+type InputInfoServiceServer interface {
+	CanPauseRecording(context.Context, *CanPauseRecordingRequest) (*CanPauseRecordingResponse, error)
+	CanRecord(context.Context, *CanRecordRequest) (*CanRecordResponse, error)
+	CreateSettingsIntent(context.Context, *CreateSettingsIntentRequest) (*CreateSettingsIntentResponse, error)
+	CreateSetupIntent(context.Context, *CreateSetupIntentRequest) (*CreateSetupIntentResponse, error)
+	DescribeContents(context.Context, *InputInfoDescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetExtras(context.Context, *GetExtrasRequest) (*GetExtrasResponse, error)
+	GetId(context.Context, *InputInfoGetIdRequest) (*InputInfoGetIdResponse, error)
+	GetParentId(context.Context, *GetParentIdRequest) (*GetParentIdResponse, error)
+	GetServiceInfo(context.Context, *GetServiceInfoRequest) (*GetServiceInfoResponse, error)
+	GetTunerCount(context.Context, *GetTunerCountRequest) (*GetTunerCountResponse, error)
+	GetType(context.Context, *GetTypeRequest) (*GetTypeResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	IsHidden(context.Context, *IsHiddenRequest) (*IsHiddenResponse, error)
+	IsPassthroughInput(context.Context, *IsPassthroughInputRequest) (*IsPassthroughInputResponse, error)
+	LoadCustomLabel(context.Context, *LoadCustomLabelRequest) (*LoadCustomLabelResponse, error)
+	LoadIcon(context.Context, *LoadIconRequest) (*LoadIconResponse, error)
+	LoadLabel(context.Context, *LoadLabelRequest) (*LoadLabelResponse, error)
+	ToString(context.Context, *InputInfoToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *InputInfoWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedInputInfoServiceServer()
+}
+
+// UnimplementedInputInfoServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedInputInfoServiceServer struct{}
+
+func (UnimplementedInputInfoServiceServer) CanPauseRecording(context.Context, *CanPauseRecordingRequest) (*CanPauseRecordingResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CanPauseRecording not implemented")
+}
+func (UnimplementedInputInfoServiceServer) CanRecord(context.Context, *CanRecordRequest) (*CanRecordResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CanRecord not implemented")
+}
+func (UnimplementedInputInfoServiceServer) CreateSettingsIntent(context.Context, *CreateSettingsIntentRequest) (*CreateSettingsIntentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CreateSettingsIntent not implemented")
+}
+func (UnimplementedInputInfoServiceServer) CreateSetupIntent(context.Context, *CreateSetupIntentRequest) (*CreateSetupIntentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CreateSetupIntent not implemented")
+}
+func (UnimplementedInputInfoServiceServer) DescribeContents(context.Context, *InputInfoDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedInputInfoServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedInputInfoServiceServer) GetExtras(context.Context, *GetExtrasRequest) (*GetExtrasResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetExtras not implemented")
+}
+func (UnimplementedInputInfoServiceServer) GetId(context.Context, *InputInfoGetIdRequest) (*InputInfoGetIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetId not implemented")
+}
+func (UnimplementedInputInfoServiceServer) GetParentId(context.Context, *GetParentIdRequest) (*GetParentIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetParentId not implemented")
+}
+func (UnimplementedInputInfoServiceServer) GetServiceInfo(context.Context, *GetServiceInfoRequest) (*GetServiceInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetServiceInfo not implemented")
+}
+func (UnimplementedInputInfoServiceServer) GetTunerCount(context.Context, *GetTunerCountRequest) (*GetTunerCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTunerCount not implemented")
+}
+func (UnimplementedInputInfoServiceServer) GetType(context.Context, *GetTypeRequest) (*GetTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetType not implemented")
+}
+func (UnimplementedInputInfoServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedInputInfoServiceServer) IsHidden(context.Context, *IsHiddenRequest) (*IsHiddenResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsHidden not implemented")
+}
+func (UnimplementedInputInfoServiceServer) IsPassthroughInput(context.Context, *IsPassthroughInputRequest) (*IsPassthroughInputResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsPassthroughInput not implemented")
+}
+func (UnimplementedInputInfoServiceServer) LoadCustomLabel(context.Context, *LoadCustomLabelRequest) (*LoadCustomLabelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method LoadCustomLabel not implemented")
+}
+func (UnimplementedInputInfoServiceServer) LoadIcon(context.Context, *LoadIconRequest) (*LoadIconResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method LoadIcon not implemented")
+}
+func (UnimplementedInputInfoServiceServer) LoadLabel(context.Context, *LoadLabelRequest) (*LoadLabelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method LoadLabel not implemented")
+}
+func (UnimplementedInputInfoServiceServer) ToString(context.Context, *InputInfoToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedInputInfoServiceServer) WriteToParcel(context.Context, *InputInfoWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedInputInfoServiceServer) mustEmbedUnimplementedInputInfoServiceServer() {}
+func (UnimplementedInputInfoServiceServer) testEmbeddedByValue()                          {}
+
+// UnsafeInputInfoServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to InputInfoServiceServer will
+// result in compilation errors.
+type UnsafeInputInfoServiceServer interface {
+	mustEmbedUnimplementedInputInfoServiceServer()
+}
+
+func RegisterInputInfoServiceServer(s grpc.ServiceRegistrar, srv InputInfoServiceServer) {
+	// If the following call panics, it indicates UnimplementedInputInfoServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&InputInfoService_ServiceDesc, srv)
+}
+
+func _InputInfoService_CanPauseRecording_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CanPauseRecordingRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputInfoServiceServer).CanPauseRecording(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputInfoService_CanPauseRecording_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputInfoServiceServer).CanPauseRecording(ctx, req.(*CanPauseRecordingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputInfoService_CanRecord_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CanRecordRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputInfoServiceServer).CanRecord(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputInfoService_CanRecord_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputInfoServiceServer).CanRecord(ctx, req.(*CanRecordRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputInfoService_CreateSettingsIntent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateSettingsIntentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputInfoServiceServer).CreateSettingsIntent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputInfoService_CreateSettingsIntent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputInfoServiceServer).CreateSettingsIntent(ctx, req.(*CreateSettingsIntentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputInfoService_CreateSetupIntent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateSetupIntentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputInfoServiceServer).CreateSetupIntent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputInfoService_CreateSetupIntent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputInfoServiceServer).CreateSetupIntent(ctx, req.(*CreateSetupIntentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputInfoService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(InputInfoDescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputInfoServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputInfoService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputInfoServiceServer).DescribeContents(ctx, req.(*InputInfoDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputInfoService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputInfoServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputInfoService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputInfoServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputInfoService_GetExtras_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetExtrasRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputInfoServiceServer).GetExtras(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputInfoService_GetExtras_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputInfoServiceServer).GetExtras(ctx, req.(*GetExtrasRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputInfoService_GetId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(InputInfoGetIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputInfoServiceServer).GetId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputInfoService_GetId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputInfoServiceServer).GetId(ctx, req.(*InputInfoGetIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputInfoService_GetParentId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetParentIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputInfoServiceServer).GetParentId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputInfoService_GetParentId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputInfoServiceServer).GetParentId(ctx, req.(*GetParentIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputInfoService_GetServiceInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetServiceInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputInfoServiceServer).GetServiceInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputInfoService_GetServiceInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputInfoServiceServer).GetServiceInfo(ctx, req.(*GetServiceInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputInfoService_GetTunerCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTunerCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputInfoServiceServer).GetTunerCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputInfoService_GetTunerCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputInfoServiceServer).GetTunerCount(ctx, req.(*GetTunerCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputInfoService_GetType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputInfoServiceServer).GetType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputInfoService_GetType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputInfoServiceServer).GetType(ctx, req.(*GetTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputInfoService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputInfoServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputInfoService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputInfoServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputInfoService_IsHidden_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsHiddenRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputInfoServiceServer).IsHidden(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputInfoService_IsHidden_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputInfoServiceServer).IsHidden(ctx, req.(*IsHiddenRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputInfoService_IsPassthroughInput_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsPassthroughInputRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputInfoServiceServer).IsPassthroughInput(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputInfoService_IsPassthroughInput_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputInfoServiceServer).IsPassthroughInput(ctx, req.(*IsPassthroughInputRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputInfoService_LoadCustomLabel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LoadCustomLabelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputInfoServiceServer).LoadCustomLabel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputInfoService_LoadCustomLabel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputInfoServiceServer).LoadCustomLabel(ctx, req.(*LoadCustomLabelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputInfoService_LoadIcon_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LoadIconRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputInfoServiceServer).LoadIcon(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputInfoService_LoadIcon_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputInfoServiceServer).LoadIcon(ctx, req.(*LoadIconRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputInfoService_LoadLabel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LoadLabelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputInfoServiceServer).LoadLabel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputInfoService_LoadLabel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputInfoServiceServer).LoadLabel(ctx, req.(*LoadLabelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputInfoService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(InputInfoToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputInfoServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputInfoService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputInfoServiceServer).ToString(ctx, req.(*InputInfoToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputInfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(InputInfoWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputInfoServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputInfoService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputInfoServiceServer).WriteToParcel(ctx, req.(*InputInfoWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// InputInfoService_ServiceDesc is the grpc.ServiceDesc for InputInfoService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var InputInfoService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "tv.InputInfoService",
+	HandlerType: (*InputInfoServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "CanPauseRecording",
+			Handler:    _InputInfoService_CanPauseRecording_Handler,
+		},
+		{
+			MethodName: "CanRecord",
+			Handler:    _InputInfoService_CanRecord_Handler,
+		},
+		{
+			MethodName: "CreateSettingsIntent",
+			Handler:    _InputInfoService_CreateSettingsIntent_Handler,
+		},
+		{
+			MethodName: "CreateSetupIntent",
+			Handler:    _InputInfoService_CreateSetupIntent_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _InputInfoService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _InputInfoService_Equals_Handler,
+		},
+		{
+			MethodName: "GetExtras",
+			Handler:    _InputInfoService_GetExtras_Handler,
+		},
+		{
+			MethodName: "GetId",
+			Handler:    _InputInfoService_GetId_Handler,
+		},
+		{
+			MethodName: "GetParentId",
+			Handler:    _InputInfoService_GetParentId_Handler,
+		},
+		{
+			MethodName: "GetServiceInfo",
+			Handler:    _InputInfoService_GetServiceInfo_Handler,
+		},
+		{
+			MethodName: "GetTunerCount",
+			Handler:    _InputInfoService_GetTunerCount_Handler,
+		},
+		{
+			MethodName: "GetType",
+			Handler:    _InputInfoService_GetType_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _InputInfoService_HashCode_Handler,
+		},
+		{
+			MethodName: "IsHidden",
+			Handler:    _InputInfoService_IsHidden_Handler,
+		},
+		{
+			MethodName: "IsPassthroughInput",
+			Handler:    _InputInfoService_IsPassthroughInput_Handler,
+		},
+		{
+			MethodName: "LoadCustomLabel",
+			Handler:    _InputInfoService_LoadCustomLabel_Handler,
+		},
+		{
+			MethodName: "LoadIcon",
+			Handler:    _InputInfoService_LoadIcon_Handler,
+		},
+		{
+			MethodName: "LoadLabel",
+			Handler:    _InputInfoService_LoadLabel_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _InputInfoService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _InputInfoService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/tv/tv.proto",
+}
+
+const (
+	InputInfoBuilderService_Build_FullMethodName                = "/tv.InputInfoBuilderService/Build"
+	InputInfoBuilderService_SetCanPauseRecording_FullMethodName = "/tv.InputInfoBuilderService/SetCanPauseRecording"
+	InputInfoBuilderService_SetCanRecord_FullMethodName         = "/tv.InputInfoBuilderService/SetCanRecord"
+	InputInfoBuilderService_SetExtras_FullMethodName            = "/tv.InputInfoBuilderService/SetExtras"
+	InputInfoBuilderService_SetTunerCount_FullMethodName        = "/tv.InputInfoBuilderService/SetTunerCount"
+)
+
+// InputInfoBuilderServiceClient is the client API for InputInfoBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type InputInfoBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetCanPauseRecording(ctx context.Context, in *SetCanPauseRecordingRequest, opts ...grpc.CallOption) (*SetCanPauseRecordingResponse, error)
+	SetCanRecord(ctx context.Context, in *SetCanRecordRequest, opts ...grpc.CallOption) (*SetCanRecordResponse, error)
+	SetExtras(ctx context.Context, in *SetExtrasRequest, opts ...grpc.CallOption) (*SetExtrasResponse, error)
+	SetTunerCount(ctx context.Context, in *SetTunerCountRequest, opts ...grpc.CallOption) (*SetTunerCountResponse, error)
+}
+
+type inputInfoBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewInputInfoBuilderServiceClient(cc grpc.ClientConnInterface) InputInfoBuilderServiceClient {
+	return &inputInfoBuilderServiceClient{cc}
+}
+
+func (c *inputInfoBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, InputInfoBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputInfoBuilderServiceClient) SetCanPauseRecording(ctx context.Context, in *SetCanPauseRecordingRequest, opts ...grpc.CallOption) (*SetCanPauseRecordingResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetCanPauseRecordingResponse)
+	err := c.cc.Invoke(ctx, InputInfoBuilderService_SetCanPauseRecording_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputInfoBuilderServiceClient) SetCanRecord(ctx context.Context, in *SetCanRecordRequest, opts ...grpc.CallOption) (*SetCanRecordResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetCanRecordResponse)
+	err := c.cc.Invoke(ctx, InputInfoBuilderService_SetCanRecord_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputInfoBuilderServiceClient) SetExtras(ctx context.Context, in *SetExtrasRequest, opts ...grpc.CallOption) (*SetExtrasResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetExtrasResponse)
+	err := c.cc.Invoke(ctx, InputInfoBuilderService_SetExtras_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputInfoBuilderServiceClient) SetTunerCount(ctx context.Context, in *SetTunerCountRequest, opts ...grpc.CallOption) (*SetTunerCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetTunerCountResponse)
+	err := c.cc.Invoke(ctx, InputInfoBuilderService_SetTunerCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// InputInfoBuilderServiceServer is the server API for InputInfoBuilderService service.
+// All implementations must embed UnimplementedInputInfoBuilderServiceServer
+// for forward compatibility.
+type InputInfoBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetCanPauseRecording(context.Context, *SetCanPauseRecordingRequest) (*SetCanPauseRecordingResponse, error)
+	SetCanRecord(context.Context, *SetCanRecordRequest) (*SetCanRecordResponse, error)
+	SetExtras(context.Context, *SetExtrasRequest) (*SetExtrasResponse, error)
+	SetTunerCount(context.Context, *SetTunerCountRequest) (*SetTunerCountResponse, error)
+	mustEmbedUnimplementedInputInfoBuilderServiceServer()
+}
+
+// UnimplementedInputInfoBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedInputInfoBuilderServiceServer struct{}
+
+func (UnimplementedInputInfoBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedInputInfoBuilderServiceServer) SetCanPauseRecording(context.Context, *SetCanPauseRecordingRequest) (*SetCanPauseRecordingResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetCanPauseRecording not implemented")
+}
+func (UnimplementedInputInfoBuilderServiceServer) SetCanRecord(context.Context, *SetCanRecordRequest) (*SetCanRecordResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetCanRecord not implemented")
+}
+func (UnimplementedInputInfoBuilderServiceServer) SetExtras(context.Context, *SetExtrasRequest) (*SetExtrasResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetExtras not implemented")
+}
+func (UnimplementedInputInfoBuilderServiceServer) SetTunerCount(context.Context, *SetTunerCountRequest) (*SetTunerCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetTunerCount not implemented")
+}
+func (UnimplementedInputInfoBuilderServiceServer) mustEmbedUnimplementedInputInfoBuilderServiceServer() {
+}
+func (UnimplementedInputInfoBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeInputInfoBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to InputInfoBuilderServiceServer will
+// result in compilation errors.
+type UnsafeInputInfoBuilderServiceServer interface {
+	mustEmbedUnimplementedInputInfoBuilderServiceServer()
+}
+
+func RegisterInputInfoBuilderServiceServer(s grpc.ServiceRegistrar, srv InputInfoBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedInputInfoBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&InputInfoBuilderService_ServiceDesc, srv)
+}
+
+func _InputInfoBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputInfoBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputInfoBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputInfoBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputInfoBuilderService_SetCanPauseRecording_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetCanPauseRecordingRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputInfoBuilderServiceServer).SetCanPauseRecording(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputInfoBuilderService_SetCanPauseRecording_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputInfoBuilderServiceServer).SetCanPauseRecording(ctx, req.(*SetCanPauseRecordingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputInfoBuilderService_SetCanRecord_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetCanRecordRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputInfoBuilderServiceServer).SetCanRecord(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputInfoBuilderService_SetCanRecord_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputInfoBuilderServiceServer).SetCanRecord(ctx, req.(*SetCanRecordRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputInfoBuilderService_SetExtras_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetExtrasRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputInfoBuilderServiceServer).SetExtras(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputInfoBuilderService_SetExtras_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputInfoBuilderServiceServer).SetExtras(ctx, req.(*SetExtrasRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputInfoBuilderService_SetTunerCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetTunerCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputInfoBuilderServiceServer).SetTunerCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputInfoBuilderService_SetTunerCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputInfoBuilderServiceServer).SetTunerCount(ctx, req.(*SetTunerCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// InputInfoBuilderService_ServiceDesc is the grpc.ServiceDesc for InputInfoBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var InputInfoBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "tv.InputInfoBuilderService",
+	HandlerType: (*InputInfoBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _InputInfoBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetCanPauseRecording",
+			Handler:    _InputInfoBuilderService_SetCanPauseRecording_Handler,
+		},
+		{
+			MethodName: "SetCanRecord",
+			Handler:    _InputInfoBuilderService_SetCanRecord_Handler,
+		},
+		{
+			MethodName: "SetExtras",
+			Handler:    _InputInfoBuilderService_SetExtras_Handler,
+		},
+		{
+			MethodName: "SetTunerCount",
+			Handler:    _InputInfoBuilderService_SetTunerCount_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/tv/tv.proto",
+}
+
+const (
+	AdBufferService_NewAdBuffer_FullMethodName           = "/tv.AdBufferService/NewAdBuffer"
+	AdBufferService_DescribeContents_FullMethodName      = "/tv.AdBufferService/DescribeContents"
+	AdBufferService_GetFlags_FullMethodName              = "/tv.AdBufferService/GetFlags"
+	AdBufferService_GetId_FullMethodName                 = "/tv.AdBufferService/GetId"
+	AdBufferService_GetLength_FullMethodName             = "/tv.AdBufferService/GetLength"
+	AdBufferService_GetMimeType_FullMethodName           = "/tv.AdBufferService/GetMimeType"
+	AdBufferService_GetOffset_FullMethodName             = "/tv.AdBufferService/GetOffset"
+	AdBufferService_GetPresentationTimeUs_FullMethodName = "/tv.AdBufferService/GetPresentationTimeUs"
+	AdBufferService_GetSharedMemory_FullMethodName       = "/tv.AdBufferService/GetSharedMemory"
+	AdBufferService_WriteToParcel_FullMethodName         = "/tv.AdBufferService/WriteToParcel"
+)
+
+// AdBufferServiceClient is the client API for AdBufferService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AdBufferServiceClient interface {
+	NewAdBuffer(ctx context.Context, in *NewAdBufferRequest, opts ...grpc.CallOption) (*NewAdBufferResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetFlags(ctx context.Context, in *GetFlagsRequest, opts ...grpc.CallOption) (*GetFlagsResponse, error)
+	GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error)
+	GetLength(ctx context.Context, in *GetLengthRequest, opts ...grpc.CallOption) (*GetLengthResponse, error)
+	GetMimeType(ctx context.Context, in *GetMimeTypeRequest, opts ...grpc.CallOption) (*GetMimeTypeResponse, error)
+	GetOffset(ctx context.Context, in *GetOffsetRequest, opts ...grpc.CallOption) (*GetOffsetResponse, error)
+	GetPresentationTimeUs(ctx context.Context, in *GetPresentationTimeUsRequest, opts ...grpc.CallOption) (*GetPresentationTimeUsResponse, error)
+	GetSharedMemory(ctx context.Context, in *GetSharedMemoryRequest, opts ...grpc.CallOption) (*GetSharedMemoryResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type adBufferServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAdBufferServiceClient(cc grpc.ClientConnInterface) AdBufferServiceClient {
+	return &adBufferServiceClient{cc}
+}
+
+func (c *adBufferServiceClient) NewAdBuffer(ctx context.Context, in *NewAdBufferRequest, opts ...grpc.CallOption) (*NewAdBufferResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewAdBufferResponse)
+	err := c.cc.Invoke(ctx, AdBufferService_NewAdBuffer_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adBufferServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, AdBufferService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adBufferServiceClient) GetFlags(ctx context.Context, in *GetFlagsRequest, opts ...grpc.CallOption) (*GetFlagsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFlagsResponse)
+	err := c.cc.Invoke(ctx, AdBufferService_GetFlags_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adBufferServiceClient) GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetIdResponse)
+	err := c.cc.Invoke(ctx, AdBufferService_GetId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adBufferServiceClient) GetLength(ctx context.Context, in *GetLengthRequest, opts ...grpc.CallOption) (*GetLengthResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLengthResponse)
+	err := c.cc.Invoke(ctx, AdBufferService_GetLength_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adBufferServiceClient) GetMimeType(ctx context.Context, in *GetMimeTypeRequest, opts ...grpc.CallOption) (*GetMimeTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMimeTypeResponse)
+	err := c.cc.Invoke(ctx, AdBufferService_GetMimeType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adBufferServiceClient) GetOffset(ctx context.Context, in *GetOffsetRequest, opts ...grpc.CallOption) (*GetOffsetResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetOffsetResponse)
+	err := c.cc.Invoke(ctx, AdBufferService_GetOffset_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adBufferServiceClient) GetPresentationTimeUs(ctx context.Context, in *GetPresentationTimeUsRequest, opts ...grpc.CallOption) (*GetPresentationTimeUsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPresentationTimeUsResponse)
+	err := c.cc.Invoke(ctx, AdBufferService_GetPresentationTimeUs_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adBufferServiceClient) GetSharedMemory(ctx context.Context, in *GetSharedMemoryRequest, opts ...grpc.CallOption) (*GetSharedMemoryResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSharedMemoryResponse)
+	err := c.cc.Invoke(ctx, AdBufferService_GetSharedMemory_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adBufferServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, AdBufferService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AdBufferServiceServer is the server API for AdBufferService service.
+// All implementations must embed UnimplementedAdBufferServiceServer
+// for forward compatibility.
+type AdBufferServiceServer interface {
+	NewAdBuffer(context.Context, *NewAdBufferRequest) (*NewAdBufferResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetFlags(context.Context, *GetFlagsRequest) (*GetFlagsResponse, error)
+	GetId(context.Context, *GetIdRequest) (*GetIdResponse, error)
+	GetLength(context.Context, *GetLengthRequest) (*GetLengthResponse, error)
+	GetMimeType(context.Context, *GetMimeTypeRequest) (*GetMimeTypeResponse, error)
+	GetOffset(context.Context, *GetOffsetRequest) (*GetOffsetResponse, error)
+	GetPresentationTimeUs(context.Context, *GetPresentationTimeUsRequest) (*GetPresentationTimeUsResponse, error)
+	GetSharedMemory(context.Context, *GetSharedMemoryRequest) (*GetSharedMemoryResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedAdBufferServiceServer()
+}
+
+// UnimplementedAdBufferServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedAdBufferServiceServer struct{}
+
+func (UnimplementedAdBufferServiceServer) NewAdBuffer(context.Context, *NewAdBufferRequest) (*NewAdBufferResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewAdBuffer not implemented")
+}
+func (UnimplementedAdBufferServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedAdBufferServiceServer) GetFlags(context.Context, *GetFlagsRequest) (*GetFlagsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFlags not implemented")
+}
+func (UnimplementedAdBufferServiceServer) GetId(context.Context, *GetIdRequest) (*GetIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetId not implemented")
+}
+func (UnimplementedAdBufferServiceServer) GetLength(context.Context, *GetLengthRequest) (*GetLengthResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLength not implemented")
+}
+func (UnimplementedAdBufferServiceServer) GetMimeType(context.Context, *GetMimeTypeRequest) (*GetMimeTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMimeType not implemented")
+}
+func (UnimplementedAdBufferServiceServer) GetOffset(context.Context, *GetOffsetRequest) (*GetOffsetResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetOffset not implemented")
+}
+func (UnimplementedAdBufferServiceServer) GetPresentationTimeUs(context.Context, *GetPresentationTimeUsRequest) (*GetPresentationTimeUsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPresentationTimeUs not implemented")
+}
+func (UnimplementedAdBufferServiceServer) GetSharedMemory(context.Context, *GetSharedMemoryRequest) (*GetSharedMemoryResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSharedMemory not implemented")
+}
+func (UnimplementedAdBufferServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedAdBufferServiceServer) mustEmbedUnimplementedAdBufferServiceServer() {}
+func (UnimplementedAdBufferServiceServer) testEmbeddedByValue()                         {}
+
+// UnsafeAdBufferServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AdBufferServiceServer will
+// result in compilation errors.
+type UnsafeAdBufferServiceServer interface {
+	mustEmbedUnimplementedAdBufferServiceServer()
+}
+
+func RegisterAdBufferServiceServer(s grpc.ServiceRegistrar, srv AdBufferServiceServer) {
+	// If the following call panics, it indicates UnimplementedAdBufferServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&AdBufferService_ServiceDesc, srv)
+}
+
+func _AdBufferService_NewAdBuffer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewAdBufferRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdBufferServiceServer).NewAdBuffer(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdBufferService_NewAdBuffer_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdBufferServiceServer).NewAdBuffer(ctx, req.(*NewAdBufferRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdBufferService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdBufferServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdBufferService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdBufferServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdBufferService_GetFlags_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFlagsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdBufferServiceServer).GetFlags(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdBufferService_GetFlags_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdBufferServiceServer).GetFlags(ctx, req.(*GetFlagsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdBufferService_GetId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdBufferServiceServer).GetId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdBufferService_GetId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdBufferServiceServer).GetId(ctx, req.(*GetIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdBufferService_GetLength_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLengthRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdBufferServiceServer).GetLength(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdBufferService_GetLength_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdBufferServiceServer).GetLength(ctx, req.(*GetLengthRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdBufferService_GetMimeType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMimeTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdBufferServiceServer).GetMimeType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdBufferService_GetMimeType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdBufferServiceServer).GetMimeType(ctx, req.(*GetMimeTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdBufferService_GetOffset_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetOffsetRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdBufferServiceServer).GetOffset(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdBufferService_GetOffset_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdBufferServiceServer).GetOffset(ctx, req.(*GetOffsetRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdBufferService_GetPresentationTimeUs_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPresentationTimeUsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdBufferServiceServer).GetPresentationTimeUs(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdBufferService_GetPresentationTimeUs_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdBufferServiceServer).GetPresentationTimeUs(ctx, req.(*GetPresentationTimeUsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdBufferService_GetSharedMemory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSharedMemoryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdBufferServiceServer).GetSharedMemory(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdBufferService_GetSharedMemory_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdBufferServiceServer).GetSharedMemory(ctx, req.(*GetSharedMemoryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdBufferService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdBufferServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdBufferService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdBufferServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AdBufferService_ServiceDesc is the grpc.ServiceDesc for AdBufferService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AdBufferService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "tv.AdBufferService",
+	HandlerType: (*AdBufferServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewAdBuffer",
+			Handler:    _AdBufferService_NewAdBuffer_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _AdBufferService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetFlags",
+			Handler:    _AdBufferService_GetFlags_Handler,
+		},
+		{
+			MethodName: "GetId",
+			Handler:    _AdBufferService_GetId_Handler,
+		},
+		{
+			MethodName: "GetLength",
+			Handler:    _AdBufferService_GetLength_Handler,
+		},
+		{
+			MethodName: "GetMimeType",
+			Handler:    _AdBufferService_GetMimeType_Handler,
+		},
+		{
+			MethodName: "GetOffset",
+			Handler:    _AdBufferService_GetOffset_Handler,
+		},
+		{
+			MethodName: "GetPresentationTimeUs",
+			Handler:    _AdBufferService_GetPresentationTimeUs_Handler,
+		},
+		{
+			MethodName: "GetSharedMemory",
+			Handler:    _AdBufferService_GetSharedMemory_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _AdBufferService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/tv/tv.proto",
+}
+
+const (
+	ViewService_NewView_FullMethodName                              = "/tv.ViewService/NewView"
+	ViewService_DispatchGenericMotionEvent_FullMethodName           = "/tv.ViewService/DispatchGenericMotionEvent"
+	ViewService_DispatchKeyEvent_FullMethodName                     = "/tv.ViewService/DispatchKeyEvent"
+	ViewService_DispatchTouchEvent_FullMethodName                   = "/tv.ViewService/DispatchTouchEvent"
+	ViewService_DispatchTrackballEvent_FullMethodName               = "/tv.ViewService/DispatchTrackballEvent"
+	ViewService_DispatchUnhandledInputEvent_FullMethodName          = "/tv.ViewService/DispatchUnhandledInputEvent"
+	ViewService_DispatchWindowFocusChanged_FullMethodName           = "/tv.ViewService/DispatchWindowFocusChanged"
+	ViewService_Draw_FullMethodName                                 = "/tv.ViewService/Draw"
+	ViewService_GatherTransparentRegion_FullMethodName              = "/tv.ViewService/GatherTransparentRegion"
+	ViewService_GetSelectedTrack_FullMethodName                     = "/tv.ViewService/GetSelectedTrack"
+	ViewService_OnUnhandledInputEvent_FullMethodName                = "/tv.ViewService/OnUnhandledInputEvent"
+	ViewService_OverrideTvAppAttributionSource_FullMethodName       = "/tv.ViewService/OverrideTvAppAttributionSource"
+	ViewService_Reset_FullMethodName                                = "/tv.ViewService/Reset"
+	ViewService_ResumePlayback_FullMethodName                       = "/tv.ViewService/ResumePlayback"
+	ViewService_SelectAudioPresentation_FullMethodName              = "/tv.ViewService/SelectAudioPresentation"
+	ViewService_SelectTrack_FullMethodName                          = "/tv.ViewService/SelectTrack"
+	ViewService_SendAppPrivateCommand_FullMethodName                = "/tv.ViewService/SendAppPrivateCommand"
+	ViewService_SetCallback_FullMethodName                          = "/tv.ViewService/SetCallback"
+	ViewService_SetCaptionEnabled_FullMethodName                    = "/tv.ViewService/SetCaptionEnabled"
+	ViewService_SetInteractiveAppNotificationEnabled_FullMethodName = "/tv.ViewService/SetInteractiveAppNotificationEnabled"
+	ViewService_SetOnUnhandledInputEventListener_FullMethodName     = "/tv.ViewService/SetOnUnhandledInputEventListener"
+	ViewService_SetStreamVolume_FullMethodName                      = "/tv.ViewService/SetStreamVolume"
+	ViewService_SetTimeShiftPositionCallback_FullMethodName         = "/tv.ViewService/SetTimeShiftPositionCallback"
+	ViewService_SetTvMessageEnabled_FullMethodName                  = "/tv.ViewService/SetTvMessageEnabled"
+	ViewService_SetVideoFrozen_FullMethodName                       = "/tv.ViewService/SetVideoFrozen"
+	ViewService_SetZOrderMediaOverlay_FullMethodName                = "/tv.ViewService/SetZOrderMediaOverlay"
+	ViewService_SetZOrderOnTop_FullMethodName                       = "/tv.ViewService/SetZOrderOnTop"
+	ViewService_StopPlayback_FullMethodName                         = "/tv.ViewService/StopPlayback"
+	ViewService_TimeShiftPause_FullMethodName                       = "/tv.ViewService/TimeShiftPause"
+	ViewService_TimeShiftPlay_FullMethodName                        = "/tv.ViewService/TimeShiftPlay"
+	ViewService_TimeShiftResume_FullMethodName                      = "/tv.ViewService/TimeShiftResume"
+	ViewService_TimeShiftSeekTo_FullMethodName                      = "/tv.ViewService/TimeShiftSeekTo"
+	ViewService_TimeShiftSetMode_FullMethodName                     = "/tv.ViewService/TimeShiftSetMode"
+	ViewService_TimeShiftSetPlaybackParams_FullMethodName           = "/tv.ViewService/TimeShiftSetPlaybackParams"
+	ViewService_Tune2_FullMethodName                                = "/tv.ViewService/Tune2"
+	ViewService_Tune3_1_FullMethodName                              = "/tv.ViewService/Tune3_1"
+)
+
+// ViewServiceClient is the client API for ViewService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ViewServiceClient interface {
+	NewView(ctx context.Context, in *NewViewRequest, opts ...grpc.CallOption) (*NewViewResponse, error)
+	DispatchGenericMotionEvent(ctx context.Context, in *DispatchGenericMotionEventRequest, opts ...grpc.CallOption) (*DispatchGenericMotionEventResponse, error)
+	DispatchKeyEvent(ctx context.Context, in *DispatchKeyEventRequest, opts ...grpc.CallOption) (*DispatchKeyEventResponse, error)
+	DispatchTouchEvent(ctx context.Context, in *DispatchTouchEventRequest, opts ...grpc.CallOption) (*DispatchTouchEventResponse, error)
+	DispatchTrackballEvent(ctx context.Context, in *DispatchTrackballEventRequest, opts ...grpc.CallOption) (*DispatchTrackballEventResponse, error)
+	DispatchUnhandledInputEvent(ctx context.Context, in *DispatchUnhandledInputEventRequest, opts ...grpc.CallOption) (*DispatchUnhandledInputEventResponse, error)
+	DispatchWindowFocusChanged(ctx context.Context, in *DispatchWindowFocusChangedRequest, opts ...grpc.CallOption) (*DispatchWindowFocusChangedResponse, error)
+	Draw(ctx context.Context, in *DrawRequest, opts ...grpc.CallOption) (*DrawResponse, error)
+	GatherTransparentRegion(ctx context.Context, in *GatherTransparentRegionRequest, opts ...grpc.CallOption) (*GatherTransparentRegionResponse, error)
+	GetSelectedTrack(ctx context.Context, in *GetSelectedTrackRequest, opts ...grpc.CallOption) (*GetSelectedTrackResponse, error)
+	OnUnhandledInputEvent(ctx context.Context, in *OnUnhandledInputEventRequest, opts ...grpc.CallOption) (*OnUnhandledInputEventResponse, error)
+	OverrideTvAppAttributionSource(ctx context.Context, in *OverrideTvAppAttributionSourceRequest, opts ...grpc.CallOption) (*OverrideTvAppAttributionSourceResponse, error)
+	Reset(ctx context.Context, in *ResetRequest, opts ...grpc.CallOption) (*ResetResponse, error)
+	ResumePlayback(ctx context.Context, in *ResumePlaybackRequest, opts ...grpc.CallOption) (*ResumePlaybackResponse, error)
+	SelectAudioPresentation(ctx context.Context, in *SelectAudioPresentationRequest, opts ...grpc.CallOption) (*SelectAudioPresentationResponse, error)
+	SelectTrack(ctx context.Context, in *SelectTrackRequest, opts ...grpc.CallOption) (*SelectTrackResponse, error)
+	SendAppPrivateCommand(ctx context.Context, in *SendAppPrivateCommandRequest, opts ...grpc.CallOption) (*SendAppPrivateCommandResponse, error)
+	SetCallback(ctx context.Context, in *SetCallbackRequest, opts ...grpc.CallOption) (*SetCallbackResponse, error)
+	SetCaptionEnabled(ctx context.Context, in *SetCaptionEnabledRequest, opts ...grpc.CallOption) (*SetCaptionEnabledResponse, error)
+	SetInteractiveAppNotificationEnabled(ctx context.Context, in *SetInteractiveAppNotificationEnabledRequest, opts ...grpc.CallOption) (*SetInteractiveAppNotificationEnabledResponse, error)
+	SetOnUnhandledInputEventListener(ctx context.Context, in *SetOnUnhandledInputEventListenerRequest, opts ...grpc.CallOption) (*SetOnUnhandledInputEventListenerResponse, error)
+	SetStreamVolume(ctx context.Context, in *SetStreamVolumeRequest, opts ...grpc.CallOption) (*SetStreamVolumeResponse, error)
+	SetTimeShiftPositionCallback(ctx context.Context, in *SetTimeShiftPositionCallbackRequest, opts ...grpc.CallOption) (*SetTimeShiftPositionCallbackResponse, error)
+	SetTvMessageEnabled(ctx context.Context, in *SetTvMessageEnabledRequest, opts ...grpc.CallOption) (*SetTvMessageEnabledResponse, error)
+	SetVideoFrozen(ctx context.Context, in *SetVideoFrozenRequest, opts ...grpc.CallOption) (*SetVideoFrozenResponse, error)
+	SetZOrderMediaOverlay(ctx context.Context, in *SetZOrderMediaOverlayRequest, opts ...grpc.CallOption) (*SetZOrderMediaOverlayResponse, error)
+	SetZOrderOnTop(ctx context.Context, in *SetZOrderOnTopRequest, opts ...grpc.CallOption) (*SetZOrderOnTopResponse, error)
+	StopPlayback(ctx context.Context, in *StopPlaybackRequest, opts ...grpc.CallOption) (*StopPlaybackResponse, error)
+	TimeShiftPause(ctx context.Context, in *TimeShiftPauseRequest, opts ...grpc.CallOption) (*TimeShiftPauseResponse, error)
+	TimeShiftPlay(ctx context.Context, in *TimeShiftPlayRequest, opts ...grpc.CallOption) (*TimeShiftPlayResponse, error)
+	TimeShiftResume(ctx context.Context, in *TimeShiftResumeRequest, opts ...grpc.CallOption) (*TimeShiftResumeResponse, error)
+	TimeShiftSeekTo(ctx context.Context, in *TimeShiftSeekToRequest, opts ...grpc.CallOption) (*TimeShiftSeekToResponse, error)
+	TimeShiftSetMode(ctx context.Context, in *TimeShiftSetModeRequest, opts ...grpc.CallOption) (*TimeShiftSetModeResponse, error)
+	TimeShiftSetPlaybackParams(ctx context.Context, in *TimeShiftSetPlaybackParamsRequest, opts ...grpc.CallOption) (*TimeShiftSetPlaybackParamsResponse, error)
+	Tune2(ctx context.Context, in *Tune2Request, opts ...grpc.CallOption) (*Tune2Response, error)
+	Tune3_1(ctx context.Context, in *Tune3_1Request, opts ...grpc.CallOption) (*Tune3_1Response, error)
+}
+
+type viewServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewViewServiceClient(cc grpc.ClientConnInterface) ViewServiceClient {
+	return &viewServiceClient{cc}
+}
+
+func (c *viewServiceClient) NewView(ctx context.Context, in *NewViewRequest, opts ...grpc.CallOption) (*NewViewResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewViewResponse)
+	err := c.cc.Invoke(ctx, ViewService_NewView_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *viewServiceClient) DispatchGenericMotionEvent(ctx context.Context, in *DispatchGenericMotionEventRequest, opts ...grpc.CallOption) (*DispatchGenericMotionEventResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DispatchGenericMotionEventResponse)
+	err := c.cc.Invoke(ctx, ViewService_DispatchGenericMotionEvent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *viewServiceClient) DispatchKeyEvent(ctx context.Context, in *DispatchKeyEventRequest, opts ...grpc.CallOption) (*DispatchKeyEventResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DispatchKeyEventResponse)
+	err := c.cc.Invoke(ctx, ViewService_DispatchKeyEvent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *viewServiceClient) DispatchTouchEvent(ctx context.Context, in *DispatchTouchEventRequest, opts ...grpc.CallOption) (*DispatchTouchEventResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DispatchTouchEventResponse)
+	err := c.cc.Invoke(ctx, ViewService_DispatchTouchEvent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *viewServiceClient) DispatchTrackballEvent(ctx context.Context, in *DispatchTrackballEventRequest, opts ...grpc.CallOption) (*DispatchTrackballEventResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DispatchTrackballEventResponse)
+	err := c.cc.Invoke(ctx, ViewService_DispatchTrackballEvent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *viewServiceClient) DispatchUnhandledInputEvent(ctx context.Context, in *DispatchUnhandledInputEventRequest, opts ...grpc.CallOption) (*DispatchUnhandledInputEventResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DispatchUnhandledInputEventResponse)
+	err := c.cc.Invoke(ctx, ViewService_DispatchUnhandledInputEvent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *viewServiceClient) DispatchWindowFocusChanged(ctx context.Context, in *DispatchWindowFocusChangedRequest, opts ...grpc.CallOption) (*DispatchWindowFocusChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DispatchWindowFocusChangedResponse)
+	err := c.cc.Invoke(ctx, ViewService_DispatchWindowFocusChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *viewServiceClient) Draw(ctx context.Context, in *DrawRequest, opts ...grpc.CallOption) (*DrawResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DrawResponse)
+	err := c.cc.Invoke(ctx, ViewService_Draw_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *viewServiceClient) GatherTransparentRegion(ctx context.Context, in *GatherTransparentRegionRequest, opts ...grpc.CallOption) (*GatherTransparentRegionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GatherTransparentRegionResponse)
+	err := c.cc.Invoke(ctx, ViewService_GatherTransparentRegion_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *viewServiceClient) GetSelectedTrack(ctx context.Context, in *GetSelectedTrackRequest, opts ...grpc.CallOption) (*GetSelectedTrackResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSelectedTrackResponse)
+	err := c.cc.Invoke(ctx, ViewService_GetSelectedTrack_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *viewServiceClient) OnUnhandledInputEvent(ctx context.Context, in *OnUnhandledInputEventRequest, opts ...grpc.CallOption) (*OnUnhandledInputEventResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnUnhandledInputEventResponse)
+	err := c.cc.Invoke(ctx, ViewService_OnUnhandledInputEvent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *viewServiceClient) OverrideTvAppAttributionSource(ctx context.Context, in *OverrideTvAppAttributionSourceRequest, opts ...grpc.CallOption) (*OverrideTvAppAttributionSourceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OverrideTvAppAttributionSourceResponse)
+	err := c.cc.Invoke(ctx, ViewService_OverrideTvAppAttributionSource_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *viewServiceClient) Reset(ctx context.Context, in *ResetRequest, opts ...grpc.CallOption) (*ResetResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ResetResponse)
+	err := c.cc.Invoke(ctx, ViewService_Reset_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *viewServiceClient) ResumePlayback(ctx context.Context, in *ResumePlaybackRequest, opts ...grpc.CallOption) (*ResumePlaybackResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ResumePlaybackResponse)
+	err := c.cc.Invoke(ctx, ViewService_ResumePlayback_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *viewServiceClient) SelectAudioPresentation(ctx context.Context, in *SelectAudioPresentationRequest, opts ...grpc.CallOption) (*SelectAudioPresentationResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SelectAudioPresentationResponse)
+	err := c.cc.Invoke(ctx, ViewService_SelectAudioPresentation_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *viewServiceClient) SelectTrack(ctx context.Context, in *SelectTrackRequest, opts ...grpc.CallOption) (*SelectTrackResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SelectTrackResponse)
+	err := c.cc.Invoke(ctx, ViewService_SelectTrack_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *viewServiceClient) SendAppPrivateCommand(ctx context.Context, in *SendAppPrivateCommandRequest, opts ...grpc.CallOption) (*SendAppPrivateCommandResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SendAppPrivateCommandResponse)
+	err := c.cc.Invoke(ctx, ViewService_SendAppPrivateCommand_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *viewServiceClient) SetCallback(ctx context.Context, in *SetCallbackRequest, opts ...grpc.CallOption) (*SetCallbackResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetCallbackResponse)
+	err := c.cc.Invoke(ctx, ViewService_SetCallback_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *viewServiceClient) SetCaptionEnabled(ctx context.Context, in *SetCaptionEnabledRequest, opts ...grpc.CallOption) (*SetCaptionEnabledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetCaptionEnabledResponse)
+	err := c.cc.Invoke(ctx, ViewService_SetCaptionEnabled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *viewServiceClient) SetInteractiveAppNotificationEnabled(ctx context.Context, in *SetInteractiveAppNotificationEnabledRequest, opts ...grpc.CallOption) (*SetInteractiveAppNotificationEnabledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetInteractiveAppNotificationEnabledResponse)
+	err := c.cc.Invoke(ctx, ViewService_SetInteractiveAppNotificationEnabled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *viewServiceClient) SetOnUnhandledInputEventListener(ctx context.Context, in *SetOnUnhandledInputEventListenerRequest, opts ...grpc.CallOption) (*SetOnUnhandledInputEventListenerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetOnUnhandledInputEventListenerResponse)
+	err := c.cc.Invoke(ctx, ViewService_SetOnUnhandledInputEventListener_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *viewServiceClient) SetStreamVolume(ctx context.Context, in *SetStreamVolumeRequest, opts ...grpc.CallOption) (*SetStreamVolumeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetStreamVolumeResponse)
+	err := c.cc.Invoke(ctx, ViewService_SetStreamVolume_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *viewServiceClient) SetTimeShiftPositionCallback(ctx context.Context, in *SetTimeShiftPositionCallbackRequest, opts ...grpc.CallOption) (*SetTimeShiftPositionCallbackResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetTimeShiftPositionCallbackResponse)
+	err := c.cc.Invoke(ctx, ViewService_SetTimeShiftPositionCallback_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *viewServiceClient) SetTvMessageEnabled(ctx context.Context, in *SetTvMessageEnabledRequest, opts ...grpc.CallOption) (*SetTvMessageEnabledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetTvMessageEnabledResponse)
+	err := c.cc.Invoke(ctx, ViewService_SetTvMessageEnabled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *viewServiceClient) SetVideoFrozen(ctx context.Context, in *SetVideoFrozenRequest, opts ...grpc.CallOption) (*SetVideoFrozenResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetVideoFrozenResponse)
+	err := c.cc.Invoke(ctx, ViewService_SetVideoFrozen_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *viewServiceClient) SetZOrderMediaOverlay(ctx context.Context, in *SetZOrderMediaOverlayRequest, opts ...grpc.CallOption) (*SetZOrderMediaOverlayResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetZOrderMediaOverlayResponse)
+	err := c.cc.Invoke(ctx, ViewService_SetZOrderMediaOverlay_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *viewServiceClient) SetZOrderOnTop(ctx context.Context, in *SetZOrderOnTopRequest, opts ...grpc.CallOption) (*SetZOrderOnTopResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetZOrderOnTopResponse)
+	err := c.cc.Invoke(ctx, ViewService_SetZOrderOnTop_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *viewServiceClient) StopPlayback(ctx context.Context, in *StopPlaybackRequest, opts ...grpc.CallOption) (*StopPlaybackResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(StopPlaybackResponse)
+	err := c.cc.Invoke(ctx, ViewService_StopPlayback_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *viewServiceClient) TimeShiftPause(ctx context.Context, in *TimeShiftPauseRequest, opts ...grpc.CallOption) (*TimeShiftPauseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(TimeShiftPauseResponse)
+	err := c.cc.Invoke(ctx, ViewService_TimeShiftPause_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *viewServiceClient) TimeShiftPlay(ctx context.Context, in *TimeShiftPlayRequest, opts ...grpc.CallOption) (*TimeShiftPlayResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(TimeShiftPlayResponse)
+	err := c.cc.Invoke(ctx, ViewService_TimeShiftPlay_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *viewServiceClient) TimeShiftResume(ctx context.Context, in *TimeShiftResumeRequest, opts ...grpc.CallOption) (*TimeShiftResumeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(TimeShiftResumeResponse)
+	err := c.cc.Invoke(ctx, ViewService_TimeShiftResume_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *viewServiceClient) TimeShiftSeekTo(ctx context.Context, in *TimeShiftSeekToRequest, opts ...grpc.CallOption) (*TimeShiftSeekToResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(TimeShiftSeekToResponse)
+	err := c.cc.Invoke(ctx, ViewService_TimeShiftSeekTo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *viewServiceClient) TimeShiftSetMode(ctx context.Context, in *TimeShiftSetModeRequest, opts ...grpc.CallOption) (*TimeShiftSetModeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(TimeShiftSetModeResponse)
+	err := c.cc.Invoke(ctx, ViewService_TimeShiftSetMode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *viewServiceClient) TimeShiftSetPlaybackParams(ctx context.Context, in *TimeShiftSetPlaybackParamsRequest, opts ...grpc.CallOption) (*TimeShiftSetPlaybackParamsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(TimeShiftSetPlaybackParamsResponse)
+	err := c.cc.Invoke(ctx, ViewService_TimeShiftSetPlaybackParams_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *viewServiceClient) Tune2(ctx context.Context, in *Tune2Request, opts ...grpc.CallOption) (*Tune2Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Tune2Response)
+	err := c.cc.Invoke(ctx, ViewService_Tune2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *viewServiceClient) Tune3_1(ctx context.Context, in *Tune3_1Request, opts ...grpc.CallOption) (*Tune3_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Tune3_1Response)
+	err := c.cc.Invoke(ctx, ViewService_Tune3_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ViewServiceServer is the server API for ViewService service.
+// All implementations must embed UnimplementedViewServiceServer
+// for forward compatibility.
+type ViewServiceServer interface {
+	NewView(context.Context, *NewViewRequest) (*NewViewResponse, error)
+	DispatchGenericMotionEvent(context.Context, *DispatchGenericMotionEventRequest) (*DispatchGenericMotionEventResponse, error)
+	DispatchKeyEvent(context.Context, *DispatchKeyEventRequest) (*DispatchKeyEventResponse, error)
+	DispatchTouchEvent(context.Context, *DispatchTouchEventRequest) (*DispatchTouchEventResponse, error)
+	DispatchTrackballEvent(context.Context, *DispatchTrackballEventRequest) (*DispatchTrackballEventResponse, error)
+	DispatchUnhandledInputEvent(context.Context, *DispatchUnhandledInputEventRequest) (*DispatchUnhandledInputEventResponse, error)
+	DispatchWindowFocusChanged(context.Context, *DispatchWindowFocusChangedRequest) (*DispatchWindowFocusChangedResponse, error)
+	Draw(context.Context, *DrawRequest) (*DrawResponse, error)
+	GatherTransparentRegion(context.Context, *GatherTransparentRegionRequest) (*GatherTransparentRegionResponse, error)
+	GetSelectedTrack(context.Context, *GetSelectedTrackRequest) (*GetSelectedTrackResponse, error)
+	OnUnhandledInputEvent(context.Context, *OnUnhandledInputEventRequest) (*OnUnhandledInputEventResponse, error)
+	OverrideTvAppAttributionSource(context.Context, *OverrideTvAppAttributionSourceRequest) (*OverrideTvAppAttributionSourceResponse, error)
+	Reset(context.Context, *ResetRequest) (*ResetResponse, error)
+	ResumePlayback(context.Context, *ResumePlaybackRequest) (*ResumePlaybackResponse, error)
+	SelectAudioPresentation(context.Context, *SelectAudioPresentationRequest) (*SelectAudioPresentationResponse, error)
+	SelectTrack(context.Context, *SelectTrackRequest) (*SelectTrackResponse, error)
+	SendAppPrivateCommand(context.Context, *SendAppPrivateCommandRequest) (*SendAppPrivateCommandResponse, error)
+	SetCallback(context.Context, *SetCallbackRequest) (*SetCallbackResponse, error)
+	SetCaptionEnabled(context.Context, *SetCaptionEnabledRequest) (*SetCaptionEnabledResponse, error)
+	SetInteractiveAppNotificationEnabled(context.Context, *SetInteractiveAppNotificationEnabledRequest) (*SetInteractiveAppNotificationEnabledResponse, error)
+	SetOnUnhandledInputEventListener(context.Context, *SetOnUnhandledInputEventListenerRequest) (*SetOnUnhandledInputEventListenerResponse, error)
+	SetStreamVolume(context.Context, *SetStreamVolumeRequest) (*SetStreamVolumeResponse, error)
+	SetTimeShiftPositionCallback(context.Context, *SetTimeShiftPositionCallbackRequest) (*SetTimeShiftPositionCallbackResponse, error)
+	SetTvMessageEnabled(context.Context, *SetTvMessageEnabledRequest) (*SetTvMessageEnabledResponse, error)
+	SetVideoFrozen(context.Context, *SetVideoFrozenRequest) (*SetVideoFrozenResponse, error)
+	SetZOrderMediaOverlay(context.Context, *SetZOrderMediaOverlayRequest) (*SetZOrderMediaOverlayResponse, error)
+	SetZOrderOnTop(context.Context, *SetZOrderOnTopRequest) (*SetZOrderOnTopResponse, error)
+	StopPlayback(context.Context, *StopPlaybackRequest) (*StopPlaybackResponse, error)
+	TimeShiftPause(context.Context, *TimeShiftPauseRequest) (*TimeShiftPauseResponse, error)
+	TimeShiftPlay(context.Context, *TimeShiftPlayRequest) (*TimeShiftPlayResponse, error)
+	TimeShiftResume(context.Context, *TimeShiftResumeRequest) (*TimeShiftResumeResponse, error)
+	TimeShiftSeekTo(context.Context, *TimeShiftSeekToRequest) (*TimeShiftSeekToResponse, error)
+	TimeShiftSetMode(context.Context, *TimeShiftSetModeRequest) (*TimeShiftSetModeResponse, error)
+	TimeShiftSetPlaybackParams(context.Context, *TimeShiftSetPlaybackParamsRequest) (*TimeShiftSetPlaybackParamsResponse, error)
+	Tune2(context.Context, *Tune2Request) (*Tune2Response, error)
+	Tune3_1(context.Context, *Tune3_1Request) (*Tune3_1Response, error)
+	mustEmbedUnimplementedViewServiceServer()
+}
+
+// UnimplementedViewServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedViewServiceServer struct{}
+
+func (UnimplementedViewServiceServer) NewView(context.Context, *NewViewRequest) (*NewViewResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewView not implemented")
+}
+func (UnimplementedViewServiceServer) DispatchGenericMotionEvent(context.Context, *DispatchGenericMotionEventRequest) (*DispatchGenericMotionEventResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DispatchGenericMotionEvent not implemented")
+}
+func (UnimplementedViewServiceServer) DispatchKeyEvent(context.Context, *DispatchKeyEventRequest) (*DispatchKeyEventResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DispatchKeyEvent not implemented")
+}
+func (UnimplementedViewServiceServer) DispatchTouchEvent(context.Context, *DispatchTouchEventRequest) (*DispatchTouchEventResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DispatchTouchEvent not implemented")
+}
+func (UnimplementedViewServiceServer) DispatchTrackballEvent(context.Context, *DispatchTrackballEventRequest) (*DispatchTrackballEventResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DispatchTrackballEvent not implemented")
+}
+func (UnimplementedViewServiceServer) DispatchUnhandledInputEvent(context.Context, *DispatchUnhandledInputEventRequest) (*DispatchUnhandledInputEventResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DispatchUnhandledInputEvent not implemented")
+}
+func (UnimplementedViewServiceServer) DispatchWindowFocusChanged(context.Context, *DispatchWindowFocusChangedRequest) (*DispatchWindowFocusChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DispatchWindowFocusChanged not implemented")
+}
+func (UnimplementedViewServiceServer) Draw(context.Context, *DrawRequest) (*DrawResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Draw not implemented")
+}
+func (UnimplementedViewServiceServer) GatherTransparentRegion(context.Context, *GatherTransparentRegionRequest) (*GatherTransparentRegionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GatherTransparentRegion not implemented")
+}
+func (UnimplementedViewServiceServer) GetSelectedTrack(context.Context, *GetSelectedTrackRequest) (*GetSelectedTrackResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSelectedTrack not implemented")
+}
+func (UnimplementedViewServiceServer) OnUnhandledInputEvent(context.Context, *OnUnhandledInputEventRequest) (*OnUnhandledInputEventResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnUnhandledInputEvent not implemented")
+}
+func (UnimplementedViewServiceServer) OverrideTvAppAttributionSource(context.Context, *OverrideTvAppAttributionSourceRequest) (*OverrideTvAppAttributionSourceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OverrideTvAppAttributionSource not implemented")
+}
+func (UnimplementedViewServiceServer) Reset(context.Context, *ResetRequest) (*ResetResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Reset not implemented")
+}
+func (UnimplementedViewServiceServer) ResumePlayback(context.Context, *ResumePlaybackRequest) (*ResumePlaybackResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ResumePlayback not implemented")
+}
+func (UnimplementedViewServiceServer) SelectAudioPresentation(context.Context, *SelectAudioPresentationRequest) (*SelectAudioPresentationResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SelectAudioPresentation not implemented")
+}
+func (UnimplementedViewServiceServer) SelectTrack(context.Context, *SelectTrackRequest) (*SelectTrackResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SelectTrack not implemented")
+}
+func (UnimplementedViewServiceServer) SendAppPrivateCommand(context.Context, *SendAppPrivateCommandRequest) (*SendAppPrivateCommandResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SendAppPrivateCommand not implemented")
+}
+func (UnimplementedViewServiceServer) SetCallback(context.Context, *SetCallbackRequest) (*SetCallbackResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetCallback not implemented")
+}
+func (UnimplementedViewServiceServer) SetCaptionEnabled(context.Context, *SetCaptionEnabledRequest) (*SetCaptionEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetCaptionEnabled not implemented")
+}
+func (UnimplementedViewServiceServer) SetInteractiveAppNotificationEnabled(context.Context, *SetInteractiveAppNotificationEnabledRequest) (*SetInteractiveAppNotificationEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetInteractiveAppNotificationEnabled not implemented")
+}
+func (UnimplementedViewServiceServer) SetOnUnhandledInputEventListener(context.Context, *SetOnUnhandledInputEventListenerRequest) (*SetOnUnhandledInputEventListenerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetOnUnhandledInputEventListener not implemented")
+}
+func (UnimplementedViewServiceServer) SetStreamVolume(context.Context, *SetStreamVolumeRequest) (*SetStreamVolumeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetStreamVolume not implemented")
+}
+func (UnimplementedViewServiceServer) SetTimeShiftPositionCallback(context.Context, *SetTimeShiftPositionCallbackRequest) (*SetTimeShiftPositionCallbackResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetTimeShiftPositionCallback not implemented")
+}
+func (UnimplementedViewServiceServer) SetTvMessageEnabled(context.Context, *SetTvMessageEnabledRequest) (*SetTvMessageEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetTvMessageEnabled not implemented")
+}
+func (UnimplementedViewServiceServer) SetVideoFrozen(context.Context, *SetVideoFrozenRequest) (*SetVideoFrozenResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetVideoFrozen not implemented")
+}
+func (UnimplementedViewServiceServer) SetZOrderMediaOverlay(context.Context, *SetZOrderMediaOverlayRequest) (*SetZOrderMediaOverlayResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetZOrderMediaOverlay not implemented")
+}
+func (UnimplementedViewServiceServer) SetZOrderOnTop(context.Context, *SetZOrderOnTopRequest) (*SetZOrderOnTopResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetZOrderOnTop not implemented")
+}
+func (UnimplementedViewServiceServer) StopPlayback(context.Context, *StopPlaybackRequest) (*StopPlaybackResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method StopPlayback not implemented")
+}
+func (UnimplementedViewServiceServer) TimeShiftPause(context.Context, *TimeShiftPauseRequest) (*TimeShiftPauseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method TimeShiftPause not implemented")
+}
+func (UnimplementedViewServiceServer) TimeShiftPlay(context.Context, *TimeShiftPlayRequest) (*TimeShiftPlayResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method TimeShiftPlay not implemented")
+}
+func (UnimplementedViewServiceServer) TimeShiftResume(context.Context, *TimeShiftResumeRequest) (*TimeShiftResumeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method TimeShiftResume not implemented")
+}
+func (UnimplementedViewServiceServer) TimeShiftSeekTo(context.Context, *TimeShiftSeekToRequest) (*TimeShiftSeekToResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method TimeShiftSeekTo not implemented")
+}
+func (UnimplementedViewServiceServer) TimeShiftSetMode(context.Context, *TimeShiftSetModeRequest) (*TimeShiftSetModeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method TimeShiftSetMode not implemented")
+}
+func (UnimplementedViewServiceServer) TimeShiftSetPlaybackParams(context.Context, *TimeShiftSetPlaybackParamsRequest) (*TimeShiftSetPlaybackParamsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method TimeShiftSetPlaybackParams not implemented")
+}
+func (UnimplementedViewServiceServer) Tune2(context.Context, *Tune2Request) (*Tune2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Tune2 not implemented")
+}
+func (UnimplementedViewServiceServer) Tune3_1(context.Context, *Tune3_1Request) (*Tune3_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Tune3_1 not implemented")
+}
+func (UnimplementedViewServiceServer) mustEmbedUnimplementedViewServiceServer() {}
+func (UnimplementedViewServiceServer) testEmbeddedByValue()                     {}
+
+// UnsafeViewServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ViewServiceServer will
+// result in compilation errors.
+type UnsafeViewServiceServer interface {
+	mustEmbedUnimplementedViewServiceServer()
+}
+
+func RegisterViewServiceServer(s grpc.ServiceRegistrar, srv ViewServiceServer) {
+	// If the following call panics, it indicates UnimplementedViewServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ViewService_ServiceDesc, srv)
+}
+
+func _ViewService_NewView_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewViewRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewServiceServer).NewView(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewService_NewView_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewServiceServer).NewView(ctx, req.(*NewViewRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ViewService_DispatchGenericMotionEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DispatchGenericMotionEventRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewServiceServer).DispatchGenericMotionEvent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewService_DispatchGenericMotionEvent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewServiceServer).DispatchGenericMotionEvent(ctx, req.(*DispatchGenericMotionEventRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ViewService_DispatchKeyEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DispatchKeyEventRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewServiceServer).DispatchKeyEvent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewService_DispatchKeyEvent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewServiceServer).DispatchKeyEvent(ctx, req.(*DispatchKeyEventRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ViewService_DispatchTouchEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DispatchTouchEventRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewServiceServer).DispatchTouchEvent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewService_DispatchTouchEvent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewServiceServer).DispatchTouchEvent(ctx, req.(*DispatchTouchEventRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ViewService_DispatchTrackballEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DispatchTrackballEventRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewServiceServer).DispatchTrackballEvent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewService_DispatchTrackballEvent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewServiceServer).DispatchTrackballEvent(ctx, req.(*DispatchTrackballEventRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ViewService_DispatchUnhandledInputEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DispatchUnhandledInputEventRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewServiceServer).DispatchUnhandledInputEvent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewService_DispatchUnhandledInputEvent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewServiceServer).DispatchUnhandledInputEvent(ctx, req.(*DispatchUnhandledInputEventRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ViewService_DispatchWindowFocusChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DispatchWindowFocusChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewServiceServer).DispatchWindowFocusChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewService_DispatchWindowFocusChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewServiceServer).DispatchWindowFocusChanged(ctx, req.(*DispatchWindowFocusChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ViewService_Draw_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DrawRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewServiceServer).Draw(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewService_Draw_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewServiceServer).Draw(ctx, req.(*DrawRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ViewService_GatherTransparentRegion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GatherTransparentRegionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewServiceServer).GatherTransparentRegion(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewService_GatherTransparentRegion_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewServiceServer).GatherTransparentRegion(ctx, req.(*GatherTransparentRegionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ViewService_GetSelectedTrack_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSelectedTrackRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewServiceServer).GetSelectedTrack(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewService_GetSelectedTrack_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewServiceServer).GetSelectedTrack(ctx, req.(*GetSelectedTrackRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ViewService_OnUnhandledInputEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnUnhandledInputEventRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewServiceServer).OnUnhandledInputEvent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewService_OnUnhandledInputEvent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewServiceServer).OnUnhandledInputEvent(ctx, req.(*OnUnhandledInputEventRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ViewService_OverrideTvAppAttributionSource_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OverrideTvAppAttributionSourceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewServiceServer).OverrideTvAppAttributionSource(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewService_OverrideTvAppAttributionSource_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewServiceServer).OverrideTvAppAttributionSource(ctx, req.(*OverrideTvAppAttributionSourceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ViewService_Reset_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ResetRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewServiceServer).Reset(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewService_Reset_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewServiceServer).Reset(ctx, req.(*ResetRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ViewService_ResumePlayback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ResumePlaybackRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewServiceServer).ResumePlayback(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewService_ResumePlayback_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewServiceServer).ResumePlayback(ctx, req.(*ResumePlaybackRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ViewService_SelectAudioPresentation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SelectAudioPresentationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewServiceServer).SelectAudioPresentation(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewService_SelectAudioPresentation_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewServiceServer).SelectAudioPresentation(ctx, req.(*SelectAudioPresentationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ViewService_SelectTrack_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SelectTrackRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewServiceServer).SelectTrack(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewService_SelectTrack_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewServiceServer).SelectTrack(ctx, req.(*SelectTrackRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ViewService_SendAppPrivateCommand_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SendAppPrivateCommandRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewServiceServer).SendAppPrivateCommand(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewService_SendAppPrivateCommand_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewServiceServer).SendAppPrivateCommand(ctx, req.(*SendAppPrivateCommandRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ViewService_SetCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetCallbackRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewServiceServer).SetCallback(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewService_SetCallback_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewServiceServer).SetCallback(ctx, req.(*SetCallbackRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ViewService_SetCaptionEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetCaptionEnabledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewServiceServer).SetCaptionEnabled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewService_SetCaptionEnabled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewServiceServer).SetCaptionEnabled(ctx, req.(*SetCaptionEnabledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ViewService_SetInteractiveAppNotificationEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetInteractiveAppNotificationEnabledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewServiceServer).SetInteractiveAppNotificationEnabled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewService_SetInteractiveAppNotificationEnabled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewServiceServer).SetInteractiveAppNotificationEnabled(ctx, req.(*SetInteractiveAppNotificationEnabledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ViewService_SetOnUnhandledInputEventListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetOnUnhandledInputEventListenerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewServiceServer).SetOnUnhandledInputEventListener(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewService_SetOnUnhandledInputEventListener_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewServiceServer).SetOnUnhandledInputEventListener(ctx, req.(*SetOnUnhandledInputEventListenerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ViewService_SetStreamVolume_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetStreamVolumeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewServiceServer).SetStreamVolume(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewService_SetStreamVolume_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewServiceServer).SetStreamVolume(ctx, req.(*SetStreamVolumeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ViewService_SetTimeShiftPositionCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetTimeShiftPositionCallbackRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewServiceServer).SetTimeShiftPositionCallback(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewService_SetTimeShiftPositionCallback_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewServiceServer).SetTimeShiftPositionCallback(ctx, req.(*SetTimeShiftPositionCallbackRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ViewService_SetTvMessageEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetTvMessageEnabledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewServiceServer).SetTvMessageEnabled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewService_SetTvMessageEnabled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewServiceServer).SetTvMessageEnabled(ctx, req.(*SetTvMessageEnabledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ViewService_SetVideoFrozen_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetVideoFrozenRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewServiceServer).SetVideoFrozen(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewService_SetVideoFrozen_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewServiceServer).SetVideoFrozen(ctx, req.(*SetVideoFrozenRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ViewService_SetZOrderMediaOverlay_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetZOrderMediaOverlayRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewServiceServer).SetZOrderMediaOverlay(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewService_SetZOrderMediaOverlay_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewServiceServer).SetZOrderMediaOverlay(ctx, req.(*SetZOrderMediaOverlayRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ViewService_SetZOrderOnTop_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetZOrderOnTopRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewServiceServer).SetZOrderOnTop(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewService_SetZOrderOnTop_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewServiceServer).SetZOrderOnTop(ctx, req.(*SetZOrderOnTopRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ViewService_StopPlayback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StopPlaybackRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewServiceServer).StopPlayback(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewService_StopPlayback_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewServiceServer).StopPlayback(ctx, req.(*StopPlaybackRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ViewService_TimeShiftPause_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TimeShiftPauseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewServiceServer).TimeShiftPause(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewService_TimeShiftPause_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewServiceServer).TimeShiftPause(ctx, req.(*TimeShiftPauseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ViewService_TimeShiftPlay_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TimeShiftPlayRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewServiceServer).TimeShiftPlay(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewService_TimeShiftPlay_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewServiceServer).TimeShiftPlay(ctx, req.(*TimeShiftPlayRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ViewService_TimeShiftResume_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TimeShiftResumeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewServiceServer).TimeShiftResume(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewService_TimeShiftResume_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewServiceServer).TimeShiftResume(ctx, req.(*TimeShiftResumeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ViewService_TimeShiftSeekTo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TimeShiftSeekToRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewServiceServer).TimeShiftSeekTo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewService_TimeShiftSeekTo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewServiceServer).TimeShiftSeekTo(ctx, req.(*TimeShiftSeekToRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ViewService_TimeShiftSetMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TimeShiftSetModeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewServiceServer).TimeShiftSetMode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewService_TimeShiftSetMode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewServiceServer).TimeShiftSetMode(ctx, req.(*TimeShiftSetModeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ViewService_TimeShiftSetPlaybackParams_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TimeShiftSetPlaybackParamsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewServiceServer).TimeShiftSetPlaybackParams(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewService_TimeShiftSetPlaybackParams_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewServiceServer).TimeShiftSetPlaybackParams(ctx, req.(*TimeShiftSetPlaybackParamsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ViewService_Tune2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Tune2Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewServiceServer).Tune2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewService_Tune2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewServiceServer).Tune2(ctx, req.(*Tune2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ViewService_Tune3_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Tune3_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewServiceServer).Tune3_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewService_Tune3_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewServiceServer).Tune3_1(ctx, req.(*Tune3_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ViewService_ServiceDesc is the grpc.ServiceDesc for ViewService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ViewService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "tv.ViewService",
+	HandlerType: (*ViewServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewView",
+			Handler:    _ViewService_NewView_Handler,
+		},
+		{
+			MethodName: "DispatchGenericMotionEvent",
+			Handler:    _ViewService_DispatchGenericMotionEvent_Handler,
+		},
+		{
+			MethodName: "DispatchKeyEvent",
+			Handler:    _ViewService_DispatchKeyEvent_Handler,
+		},
+		{
+			MethodName: "DispatchTouchEvent",
+			Handler:    _ViewService_DispatchTouchEvent_Handler,
+		},
+		{
+			MethodName: "DispatchTrackballEvent",
+			Handler:    _ViewService_DispatchTrackballEvent_Handler,
+		},
+		{
+			MethodName: "DispatchUnhandledInputEvent",
+			Handler:    _ViewService_DispatchUnhandledInputEvent_Handler,
+		},
+		{
+			MethodName: "DispatchWindowFocusChanged",
+			Handler:    _ViewService_DispatchWindowFocusChanged_Handler,
+		},
+		{
+			MethodName: "Draw",
+			Handler:    _ViewService_Draw_Handler,
+		},
+		{
+			MethodName: "GatherTransparentRegion",
+			Handler:    _ViewService_GatherTransparentRegion_Handler,
+		},
+		{
+			MethodName: "GetSelectedTrack",
+			Handler:    _ViewService_GetSelectedTrack_Handler,
+		},
+		{
+			MethodName: "OnUnhandledInputEvent",
+			Handler:    _ViewService_OnUnhandledInputEvent_Handler,
+		},
+		{
+			MethodName: "OverrideTvAppAttributionSource",
+			Handler:    _ViewService_OverrideTvAppAttributionSource_Handler,
+		},
+		{
+			MethodName: "Reset",
+			Handler:    _ViewService_Reset_Handler,
+		},
+		{
+			MethodName: "ResumePlayback",
+			Handler:    _ViewService_ResumePlayback_Handler,
+		},
+		{
+			MethodName: "SelectAudioPresentation",
+			Handler:    _ViewService_SelectAudioPresentation_Handler,
+		},
+		{
+			MethodName: "SelectTrack",
+			Handler:    _ViewService_SelectTrack_Handler,
+		},
+		{
+			MethodName: "SendAppPrivateCommand",
+			Handler:    _ViewService_SendAppPrivateCommand_Handler,
+		},
+		{
+			MethodName: "SetCallback",
+			Handler:    _ViewService_SetCallback_Handler,
+		},
+		{
+			MethodName: "SetCaptionEnabled",
+			Handler:    _ViewService_SetCaptionEnabled_Handler,
+		},
+		{
+			MethodName: "SetInteractiveAppNotificationEnabled",
+			Handler:    _ViewService_SetInteractiveAppNotificationEnabled_Handler,
+		},
+		{
+			MethodName: "SetOnUnhandledInputEventListener",
+			Handler:    _ViewService_SetOnUnhandledInputEventListener_Handler,
+		},
+		{
+			MethodName: "SetStreamVolume",
+			Handler:    _ViewService_SetStreamVolume_Handler,
+		},
+		{
+			MethodName: "SetTimeShiftPositionCallback",
+			Handler:    _ViewService_SetTimeShiftPositionCallback_Handler,
+		},
+		{
+			MethodName: "SetTvMessageEnabled",
+			Handler:    _ViewService_SetTvMessageEnabled_Handler,
+		},
+		{
+			MethodName: "SetVideoFrozen",
+			Handler:    _ViewService_SetVideoFrozen_Handler,
+		},
+		{
+			MethodName: "SetZOrderMediaOverlay",
+			Handler:    _ViewService_SetZOrderMediaOverlay_Handler,
+		},
+		{
+			MethodName: "SetZOrderOnTop",
+			Handler:    _ViewService_SetZOrderOnTop_Handler,
+		},
+		{
+			MethodName: "StopPlayback",
+			Handler:    _ViewService_StopPlayback_Handler,
+		},
+		{
+			MethodName: "TimeShiftPause",
+			Handler:    _ViewService_TimeShiftPause_Handler,
+		},
+		{
+			MethodName: "TimeShiftPlay",
+			Handler:    _ViewService_TimeShiftPlay_Handler,
+		},
+		{
+			MethodName: "TimeShiftResume",
+			Handler:    _ViewService_TimeShiftResume_Handler,
+		},
+		{
+			MethodName: "TimeShiftSeekTo",
+			Handler:    _ViewService_TimeShiftSeekTo_Handler,
+		},
+		{
+			MethodName: "TimeShiftSetMode",
+			Handler:    _ViewService_TimeShiftSetMode_Handler,
+		},
+		{
+			MethodName: "TimeShiftSetPlaybackParams",
+			Handler:    _ViewService_TimeShiftSetPlaybackParams_Handler,
+		},
+		{
+			MethodName: "Tune2",
+			Handler:    _ViewService_Tune2_Handler,
+		},
+		{
+			MethodName: "Tune3_1",
+			Handler:    _ViewService_Tune3_1_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/tv/tv.proto",
+}
+
+const (
+	ViewOnUnhandledInputEventListenerService_OnUnhandledInputEvent_FullMethodName = "/tv.ViewOnUnhandledInputEventListenerService/OnUnhandledInputEvent"
+)
+
+// ViewOnUnhandledInputEventListenerServiceClient is the client API for ViewOnUnhandledInputEventListenerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ViewOnUnhandledInputEventListenerServiceClient interface {
+	OnUnhandledInputEvent(ctx context.Context, in *ViewOnUnhandledInputEventListenerOnUnhandledInputEventRequest, opts ...grpc.CallOption) (*OnUnhandledInputEventResponse, error)
+}
+
+type viewOnUnhandledInputEventListenerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewViewOnUnhandledInputEventListenerServiceClient(cc grpc.ClientConnInterface) ViewOnUnhandledInputEventListenerServiceClient {
+	return &viewOnUnhandledInputEventListenerServiceClient{cc}
+}
+
+func (c *viewOnUnhandledInputEventListenerServiceClient) OnUnhandledInputEvent(ctx context.Context, in *ViewOnUnhandledInputEventListenerOnUnhandledInputEventRequest, opts ...grpc.CallOption) (*OnUnhandledInputEventResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnUnhandledInputEventResponse)
+	err := c.cc.Invoke(ctx, ViewOnUnhandledInputEventListenerService_OnUnhandledInputEvent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ViewOnUnhandledInputEventListenerServiceServer is the server API for ViewOnUnhandledInputEventListenerService service.
+// All implementations must embed UnimplementedViewOnUnhandledInputEventListenerServiceServer
+// for forward compatibility.
+type ViewOnUnhandledInputEventListenerServiceServer interface {
+	OnUnhandledInputEvent(context.Context, *ViewOnUnhandledInputEventListenerOnUnhandledInputEventRequest) (*OnUnhandledInputEventResponse, error)
+	mustEmbedUnimplementedViewOnUnhandledInputEventListenerServiceServer()
+}
+
+// UnimplementedViewOnUnhandledInputEventListenerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedViewOnUnhandledInputEventListenerServiceServer struct{}
+
+func (UnimplementedViewOnUnhandledInputEventListenerServiceServer) OnUnhandledInputEvent(context.Context, *ViewOnUnhandledInputEventListenerOnUnhandledInputEventRequest) (*OnUnhandledInputEventResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnUnhandledInputEvent not implemented")
+}
+func (UnimplementedViewOnUnhandledInputEventListenerServiceServer) mustEmbedUnimplementedViewOnUnhandledInputEventListenerServiceServer() {
+}
+func (UnimplementedViewOnUnhandledInputEventListenerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeViewOnUnhandledInputEventListenerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ViewOnUnhandledInputEventListenerServiceServer will
+// result in compilation errors.
+type UnsafeViewOnUnhandledInputEventListenerServiceServer interface {
+	mustEmbedUnimplementedViewOnUnhandledInputEventListenerServiceServer()
+}
+
+func RegisterViewOnUnhandledInputEventListenerServiceServer(s grpc.ServiceRegistrar, srv ViewOnUnhandledInputEventListenerServiceServer) {
+	// If the following call panics, it indicates UnimplementedViewOnUnhandledInputEventListenerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ViewOnUnhandledInputEventListenerService_ServiceDesc, srv)
+}
+
+func _ViewOnUnhandledInputEventListenerService_OnUnhandledInputEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ViewOnUnhandledInputEventListenerOnUnhandledInputEventRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewOnUnhandledInputEventListenerServiceServer).OnUnhandledInputEvent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewOnUnhandledInputEventListenerService_OnUnhandledInputEvent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewOnUnhandledInputEventListenerServiceServer).OnUnhandledInputEvent(ctx, req.(*ViewOnUnhandledInputEventListenerOnUnhandledInputEventRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ViewOnUnhandledInputEventListenerService_ServiceDesc is the grpc.ServiceDesc for ViewOnUnhandledInputEventListenerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ViewOnUnhandledInputEventListenerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "tv.ViewOnUnhandledInputEventListenerService",
+	HandlerType: (*ViewOnUnhandledInputEventListenerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnUnhandledInputEvent",
+			Handler:    _ViewOnUnhandledInputEventListenerService_OnUnhandledInputEvent_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/tv/tv.proto",
+}
+
+const (
+	ViewTimeShiftPositionCallbackService_OnTimeShiftCurrentPositionChanged_FullMethodName = "/tv.ViewTimeShiftPositionCallbackService/OnTimeShiftCurrentPositionChanged"
+	ViewTimeShiftPositionCallbackService_OnTimeShiftStartPositionChanged_FullMethodName   = "/tv.ViewTimeShiftPositionCallbackService/OnTimeShiftStartPositionChanged"
+)
+
+// ViewTimeShiftPositionCallbackServiceClient is the client API for ViewTimeShiftPositionCallbackService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ViewTimeShiftPositionCallbackServiceClient interface {
+	OnTimeShiftCurrentPositionChanged(ctx context.Context, in *OnTimeShiftCurrentPositionChangedRequest, opts ...grpc.CallOption) (*OnTimeShiftCurrentPositionChangedResponse, error)
+	OnTimeShiftStartPositionChanged(ctx context.Context, in *OnTimeShiftStartPositionChangedRequest, opts ...grpc.CallOption) (*OnTimeShiftStartPositionChangedResponse, error)
+}
+
+type viewTimeShiftPositionCallbackServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewViewTimeShiftPositionCallbackServiceClient(cc grpc.ClientConnInterface) ViewTimeShiftPositionCallbackServiceClient {
+	return &viewTimeShiftPositionCallbackServiceClient{cc}
+}
+
+func (c *viewTimeShiftPositionCallbackServiceClient) OnTimeShiftCurrentPositionChanged(ctx context.Context, in *OnTimeShiftCurrentPositionChangedRequest, opts ...grpc.CallOption) (*OnTimeShiftCurrentPositionChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnTimeShiftCurrentPositionChangedResponse)
+	err := c.cc.Invoke(ctx, ViewTimeShiftPositionCallbackService_OnTimeShiftCurrentPositionChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *viewTimeShiftPositionCallbackServiceClient) OnTimeShiftStartPositionChanged(ctx context.Context, in *OnTimeShiftStartPositionChangedRequest, opts ...grpc.CallOption) (*OnTimeShiftStartPositionChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnTimeShiftStartPositionChangedResponse)
+	err := c.cc.Invoke(ctx, ViewTimeShiftPositionCallbackService_OnTimeShiftStartPositionChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ViewTimeShiftPositionCallbackServiceServer is the server API for ViewTimeShiftPositionCallbackService service.
+// All implementations must embed UnimplementedViewTimeShiftPositionCallbackServiceServer
+// for forward compatibility.
+type ViewTimeShiftPositionCallbackServiceServer interface {
+	OnTimeShiftCurrentPositionChanged(context.Context, *OnTimeShiftCurrentPositionChangedRequest) (*OnTimeShiftCurrentPositionChangedResponse, error)
+	OnTimeShiftStartPositionChanged(context.Context, *OnTimeShiftStartPositionChangedRequest) (*OnTimeShiftStartPositionChangedResponse, error)
+	mustEmbedUnimplementedViewTimeShiftPositionCallbackServiceServer()
+}
+
+// UnimplementedViewTimeShiftPositionCallbackServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedViewTimeShiftPositionCallbackServiceServer struct{}
+
+func (UnimplementedViewTimeShiftPositionCallbackServiceServer) OnTimeShiftCurrentPositionChanged(context.Context, *OnTimeShiftCurrentPositionChangedRequest) (*OnTimeShiftCurrentPositionChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnTimeShiftCurrentPositionChanged not implemented")
+}
+func (UnimplementedViewTimeShiftPositionCallbackServiceServer) OnTimeShiftStartPositionChanged(context.Context, *OnTimeShiftStartPositionChangedRequest) (*OnTimeShiftStartPositionChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnTimeShiftStartPositionChanged not implemented")
+}
+func (UnimplementedViewTimeShiftPositionCallbackServiceServer) mustEmbedUnimplementedViewTimeShiftPositionCallbackServiceServer() {
+}
+func (UnimplementedViewTimeShiftPositionCallbackServiceServer) testEmbeddedByValue() {}
+
+// UnsafeViewTimeShiftPositionCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ViewTimeShiftPositionCallbackServiceServer will
+// result in compilation errors.
+type UnsafeViewTimeShiftPositionCallbackServiceServer interface {
+	mustEmbedUnimplementedViewTimeShiftPositionCallbackServiceServer()
+}
+
+func RegisterViewTimeShiftPositionCallbackServiceServer(s grpc.ServiceRegistrar, srv ViewTimeShiftPositionCallbackServiceServer) {
+	// If the following call panics, it indicates UnimplementedViewTimeShiftPositionCallbackServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ViewTimeShiftPositionCallbackService_ServiceDesc, srv)
+}
+
+func _ViewTimeShiftPositionCallbackService_OnTimeShiftCurrentPositionChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnTimeShiftCurrentPositionChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewTimeShiftPositionCallbackServiceServer).OnTimeShiftCurrentPositionChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewTimeShiftPositionCallbackService_OnTimeShiftCurrentPositionChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewTimeShiftPositionCallbackServiceServer).OnTimeShiftCurrentPositionChanged(ctx, req.(*OnTimeShiftCurrentPositionChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ViewTimeShiftPositionCallbackService_OnTimeShiftStartPositionChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnTimeShiftStartPositionChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewTimeShiftPositionCallbackServiceServer).OnTimeShiftStartPositionChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewTimeShiftPositionCallbackService_OnTimeShiftStartPositionChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewTimeShiftPositionCallbackServiceServer).OnTimeShiftStartPositionChanged(ctx, req.(*OnTimeShiftStartPositionChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ViewTimeShiftPositionCallbackService_ServiceDesc is the grpc.ServiceDesc for ViewTimeShiftPositionCallbackService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ViewTimeShiftPositionCallbackService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "tv.ViewTimeShiftPositionCallbackService",
+	HandlerType: (*ViewTimeShiftPositionCallbackServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnTimeShiftCurrentPositionChanged",
+			Handler:    _ViewTimeShiftPositionCallbackService_OnTimeShiftCurrentPositionChanged_Handler,
+		},
+		{
+			MethodName: "OnTimeShiftStartPositionChanged",
+			Handler:    _ViewTimeShiftPositionCallbackService_OnTimeShiftStartPositionChanged_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/tv/tv.proto",
+}
+
+const (
+	ViewTvInputCallbackService_OnAitInfoUpdated_FullMethodName            = "/tv.ViewTvInputCallbackService/OnAitInfoUpdated"
+	ViewTvInputCallbackService_OnAudioPresentationSelected_FullMethodName = "/tv.ViewTvInputCallbackService/OnAudioPresentationSelected"
+	ViewTvInputCallbackService_OnAvailableSpeeds_FullMethodName           = "/tv.ViewTvInputCallbackService/OnAvailableSpeeds"
+	ViewTvInputCallbackService_OnChannelRetuned_FullMethodName            = "/tv.ViewTvInputCallbackService/OnChannelRetuned"
+	ViewTvInputCallbackService_OnConnectionFailed_FullMethodName          = "/tv.ViewTvInputCallbackService/OnConnectionFailed"
+	ViewTvInputCallbackService_OnContentAllowed_FullMethodName            = "/tv.ViewTvInputCallbackService/OnContentAllowed"
+	ViewTvInputCallbackService_OnContentBlocked_FullMethodName            = "/tv.ViewTvInputCallbackService/OnContentBlocked"
+	ViewTvInputCallbackService_OnCueingMessageAvailability_FullMethodName = "/tv.ViewTvInputCallbackService/OnCueingMessageAvailability"
+	ViewTvInputCallbackService_OnDisconnected_FullMethodName              = "/tv.ViewTvInputCallbackService/OnDisconnected"
+	ViewTvInputCallbackService_OnSignalStrengthUpdated_FullMethodName     = "/tv.ViewTvInputCallbackService/OnSignalStrengthUpdated"
+	ViewTvInputCallbackService_OnTimeShiftMode_FullMethodName             = "/tv.ViewTvInputCallbackService/OnTimeShiftMode"
+	ViewTvInputCallbackService_OnTimeShiftStatusChanged_FullMethodName    = "/tv.ViewTvInputCallbackService/OnTimeShiftStatusChanged"
+	ViewTvInputCallbackService_OnTrackSelected_FullMethodName             = "/tv.ViewTvInputCallbackService/OnTrackSelected"
+	ViewTvInputCallbackService_OnTuned_FullMethodName                     = "/tv.ViewTvInputCallbackService/OnTuned"
+	ViewTvInputCallbackService_OnTvMessage_FullMethodName                 = "/tv.ViewTvInputCallbackService/OnTvMessage"
+	ViewTvInputCallbackService_OnVideoAvailable_FullMethodName            = "/tv.ViewTvInputCallbackService/OnVideoAvailable"
+	ViewTvInputCallbackService_OnVideoFreezeUpdated_FullMethodName        = "/tv.ViewTvInputCallbackService/OnVideoFreezeUpdated"
+	ViewTvInputCallbackService_OnVideoSizeChanged_FullMethodName          = "/tv.ViewTvInputCallbackService/OnVideoSizeChanged"
+	ViewTvInputCallbackService_OnVideoUnavailable_FullMethodName          = "/tv.ViewTvInputCallbackService/OnVideoUnavailable"
+)
+
+// ViewTvInputCallbackServiceClient is the client API for ViewTvInputCallbackService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ViewTvInputCallbackServiceClient interface {
+	OnAitInfoUpdated(ctx context.Context, in *OnAitInfoUpdatedRequest, opts ...grpc.CallOption) (*OnAitInfoUpdatedResponse, error)
+	OnAudioPresentationSelected(ctx context.Context, in *OnAudioPresentationSelectedRequest, opts ...grpc.CallOption) (*OnAudioPresentationSelectedResponse, error)
+	OnAvailableSpeeds(ctx context.Context, in *OnAvailableSpeedsRequest, opts ...grpc.CallOption) (*OnAvailableSpeedsResponse, error)
+	OnChannelRetuned(ctx context.Context, in *OnChannelRetunedRequest, opts ...grpc.CallOption) (*OnChannelRetunedResponse, error)
+	OnConnectionFailed(ctx context.Context, in *OnConnectionFailedRequest, opts ...grpc.CallOption) (*OnConnectionFailedResponse, error)
+	OnContentAllowed(ctx context.Context, in *OnContentAllowedRequest, opts ...grpc.CallOption) (*OnContentAllowedResponse, error)
+	OnContentBlocked(ctx context.Context, in *OnContentBlockedRequest, opts ...grpc.CallOption) (*OnContentBlockedResponse, error)
+	OnCueingMessageAvailability(ctx context.Context, in *OnCueingMessageAvailabilityRequest, opts ...grpc.CallOption) (*OnCueingMessageAvailabilityResponse, error)
+	OnDisconnected(ctx context.Context, in *OnDisconnectedRequest, opts ...grpc.CallOption) (*OnDisconnectedResponse, error)
+	OnSignalStrengthUpdated(ctx context.Context, in *OnSignalStrengthUpdatedRequest, opts ...grpc.CallOption) (*OnSignalStrengthUpdatedResponse, error)
+	OnTimeShiftMode(ctx context.Context, in *OnTimeShiftModeRequest, opts ...grpc.CallOption) (*OnTimeShiftModeResponse, error)
+	OnTimeShiftStatusChanged(ctx context.Context, in *OnTimeShiftStatusChangedRequest, opts ...grpc.CallOption) (*OnTimeShiftStatusChangedResponse, error)
+	OnTrackSelected(ctx context.Context, in *OnTrackSelectedRequest, opts ...grpc.CallOption) (*OnTrackSelectedResponse, error)
+	OnTuned(ctx context.Context, in *OnTunedRequest, opts ...grpc.CallOption) (*OnTunedResponse, error)
+	OnTvMessage(ctx context.Context, in *ViewTvInputCallbackOnTvMessageRequest, opts ...grpc.CallOption) (*OnTvMessageResponse, error)
+	OnVideoAvailable(ctx context.Context, in *OnVideoAvailableRequest, opts ...grpc.CallOption) (*OnVideoAvailableResponse, error)
+	OnVideoFreezeUpdated(ctx context.Context, in *OnVideoFreezeUpdatedRequest, opts ...grpc.CallOption) (*OnVideoFreezeUpdatedResponse, error)
+	OnVideoSizeChanged(ctx context.Context, in *OnVideoSizeChangedRequest, opts ...grpc.CallOption) (*OnVideoSizeChangedResponse, error)
+	OnVideoUnavailable(ctx context.Context, in *OnVideoUnavailableRequest, opts ...grpc.CallOption) (*OnVideoUnavailableResponse, error)
+}
+
+type viewTvInputCallbackServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewViewTvInputCallbackServiceClient(cc grpc.ClientConnInterface) ViewTvInputCallbackServiceClient {
+	return &viewTvInputCallbackServiceClient{cc}
+}
+
+func (c *viewTvInputCallbackServiceClient) OnAitInfoUpdated(ctx context.Context, in *OnAitInfoUpdatedRequest, opts ...grpc.CallOption) (*OnAitInfoUpdatedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnAitInfoUpdatedResponse)
+	err := c.cc.Invoke(ctx, ViewTvInputCallbackService_OnAitInfoUpdated_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *viewTvInputCallbackServiceClient) OnAudioPresentationSelected(ctx context.Context, in *OnAudioPresentationSelectedRequest, opts ...grpc.CallOption) (*OnAudioPresentationSelectedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnAudioPresentationSelectedResponse)
+	err := c.cc.Invoke(ctx, ViewTvInputCallbackService_OnAudioPresentationSelected_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *viewTvInputCallbackServiceClient) OnAvailableSpeeds(ctx context.Context, in *OnAvailableSpeedsRequest, opts ...grpc.CallOption) (*OnAvailableSpeedsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnAvailableSpeedsResponse)
+	err := c.cc.Invoke(ctx, ViewTvInputCallbackService_OnAvailableSpeeds_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *viewTvInputCallbackServiceClient) OnChannelRetuned(ctx context.Context, in *OnChannelRetunedRequest, opts ...grpc.CallOption) (*OnChannelRetunedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnChannelRetunedResponse)
+	err := c.cc.Invoke(ctx, ViewTvInputCallbackService_OnChannelRetuned_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *viewTvInputCallbackServiceClient) OnConnectionFailed(ctx context.Context, in *OnConnectionFailedRequest, opts ...grpc.CallOption) (*OnConnectionFailedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnConnectionFailedResponse)
+	err := c.cc.Invoke(ctx, ViewTvInputCallbackService_OnConnectionFailed_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *viewTvInputCallbackServiceClient) OnContentAllowed(ctx context.Context, in *OnContentAllowedRequest, opts ...grpc.CallOption) (*OnContentAllowedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnContentAllowedResponse)
+	err := c.cc.Invoke(ctx, ViewTvInputCallbackService_OnContentAllowed_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *viewTvInputCallbackServiceClient) OnContentBlocked(ctx context.Context, in *OnContentBlockedRequest, opts ...grpc.CallOption) (*OnContentBlockedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnContentBlockedResponse)
+	err := c.cc.Invoke(ctx, ViewTvInputCallbackService_OnContentBlocked_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *viewTvInputCallbackServiceClient) OnCueingMessageAvailability(ctx context.Context, in *OnCueingMessageAvailabilityRequest, opts ...grpc.CallOption) (*OnCueingMessageAvailabilityResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnCueingMessageAvailabilityResponse)
+	err := c.cc.Invoke(ctx, ViewTvInputCallbackService_OnCueingMessageAvailability_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *viewTvInputCallbackServiceClient) OnDisconnected(ctx context.Context, in *OnDisconnectedRequest, opts ...grpc.CallOption) (*OnDisconnectedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnDisconnectedResponse)
+	err := c.cc.Invoke(ctx, ViewTvInputCallbackService_OnDisconnected_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *viewTvInputCallbackServiceClient) OnSignalStrengthUpdated(ctx context.Context, in *OnSignalStrengthUpdatedRequest, opts ...grpc.CallOption) (*OnSignalStrengthUpdatedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnSignalStrengthUpdatedResponse)
+	err := c.cc.Invoke(ctx, ViewTvInputCallbackService_OnSignalStrengthUpdated_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *viewTvInputCallbackServiceClient) OnTimeShiftMode(ctx context.Context, in *OnTimeShiftModeRequest, opts ...grpc.CallOption) (*OnTimeShiftModeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnTimeShiftModeResponse)
+	err := c.cc.Invoke(ctx, ViewTvInputCallbackService_OnTimeShiftMode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *viewTvInputCallbackServiceClient) OnTimeShiftStatusChanged(ctx context.Context, in *OnTimeShiftStatusChangedRequest, opts ...grpc.CallOption) (*OnTimeShiftStatusChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnTimeShiftStatusChangedResponse)
+	err := c.cc.Invoke(ctx, ViewTvInputCallbackService_OnTimeShiftStatusChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *viewTvInputCallbackServiceClient) OnTrackSelected(ctx context.Context, in *OnTrackSelectedRequest, opts ...grpc.CallOption) (*OnTrackSelectedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnTrackSelectedResponse)
+	err := c.cc.Invoke(ctx, ViewTvInputCallbackService_OnTrackSelected_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *viewTvInputCallbackServiceClient) OnTuned(ctx context.Context, in *OnTunedRequest, opts ...grpc.CallOption) (*OnTunedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnTunedResponse)
+	err := c.cc.Invoke(ctx, ViewTvInputCallbackService_OnTuned_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *viewTvInputCallbackServiceClient) OnTvMessage(ctx context.Context, in *ViewTvInputCallbackOnTvMessageRequest, opts ...grpc.CallOption) (*OnTvMessageResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnTvMessageResponse)
+	err := c.cc.Invoke(ctx, ViewTvInputCallbackService_OnTvMessage_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *viewTvInputCallbackServiceClient) OnVideoAvailable(ctx context.Context, in *OnVideoAvailableRequest, opts ...grpc.CallOption) (*OnVideoAvailableResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnVideoAvailableResponse)
+	err := c.cc.Invoke(ctx, ViewTvInputCallbackService_OnVideoAvailable_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *viewTvInputCallbackServiceClient) OnVideoFreezeUpdated(ctx context.Context, in *OnVideoFreezeUpdatedRequest, opts ...grpc.CallOption) (*OnVideoFreezeUpdatedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnVideoFreezeUpdatedResponse)
+	err := c.cc.Invoke(ctx, ViewTvInputCallbackService_OnVideoFreezeUpdated_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *viewTvInputCallbackServiceClient) OnVideoSizeChanged(ctx context.Context, in *OnVideoSizeChangedRequest, opts ...grpc.CallOption) (*OnVideoSizeChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnVideoSizeChangedResponse)
+	err := c.cc.Invoke(ctx, ViewTvInputCallbackService_OnVideoSizeChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *viewTvInputCallbackServiceClient) OnVideoUnavailable(ctx context.Context, in *OnVideoUnavailableRequest, opts ...grpc.CallOption) (*OnVideoUnavailableResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnVideoUnavailableResponse)
+	err := c.cc.Invoke(ctx, ViewTvInputCallbackService_OnVideoUnavailable_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ViewTvInputCallbackServiceServer is the server API for ViewTvInputCallbackService service.
+// All implementations must embed UnimplementedViewTvInputCallbackServiceServer
+// for forward compatibility.
+type ViewTvInputCallbackServiceServer interface {
+	OnAitInfoUpdated(context.Context, *OnAitInfoUpdatedRequest) (*OnAitInfoUpdatedResponse, error)
+	OnAudioPresentationSelected(context.Context, *OnAudioPresentationSelectedRequest) (*OnAudioPresentationSelectedResponse, error)
+	OnAvailableSpeeds(context.Context, *OnAvailableSpeedsRequest) (*OnAvailableSpeedsResponse, error)
+	OnChannelRetuned(context.Context, *OnChannelRetunedRequest) (*OnChannelRetunedResponse, error)
+	OnConnectionFailed(context.Context, *OnConnectionFailedRequest) (*OnConnectionFailedResponse, error)
+	OnContentAllowed(context.Context, *OnContentAllowedRequest) (*OnContentAllowedResponse, error)
+	OnContentBlocked(context.Context, *OnContentBlockedRequest) (*OnContentBlockedResponse, error)
+	OnCueingMessageAvailability(context.Context, *OnCueingMessageAvailabilityRequest) (*OnCueingMessageAvailabilityResponse, error)
+	OnDisconnected(context.Context, *OnDisconnectedRequest) (*OnDisconnectedResponse, error)
+	OnSignalStrengthUpdated(context.Context, *OnSignalStrengthUpdatedRequest) (*OnSignalStrengthUpdatedResponse, error)
+	OnTimeShiftMode(context.Context, *OnTimeShiftModeRequest) (*OnTimeShiftModeResponse, error)
+	OnTimeShiftStatusChanged(context.Context, *OnTimeShiftStatusChangedRequest) (*OnTimeShiftStatusChangedResponse, error)
+	OnTrackSelected(context.Context, *OnTrackSelectedRequest) (*OnTrackSelectedResponse, error)
+	OnTuned(context.Context, *OnTunedRequest) (*OnTunedResponse, error)
+	OnTvMessage(context.Context, *ViewTvInputCallbackOnTvMessageRequest) (*OnTvMessageResponse, error)
+	OnVideoAvailable(context.Context, *OnVideoAvailableRequest) (*OnVideoAvailableResponse, error)
+	OnVideoFreezeUpdated(context.Context, *OnVideoFreezeUpdatedRequest) (*OnVideoFreezeUpdatedResponse, error)
+	OnVideoSizeChanged(context.Context, *OnVideoSizeChangedRequest) (*OnVideoSizeChangedResponse, error)
+	OnVideoUnavailable(context.Context, *OnVideoUnavailableRequest) (*OnVideoUnavailableResponse, error)
+	mustEmbedUnimplementedViewTvInputCallbackServiceServer()
+}
+
+// UnimplementedViewTvInputCallbackServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedViewTvInputCallbackServiceServer struct{}
+
+func (UnimplementedViewTvInputCallbackServiceServer) OnAitInfoUpdated(context.Context, *OnAitInfoUpdatedRequest) (*OnAitInfoUpdatedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnAitInfoUpdated not implemented")
+}
+func (UnimplementedViewTvInputCallbackServiceServer) OnAudioPresentationSelected(context.Context, *OnAudioPresentationSelectedRequest) (*OnAudioPresentationSelectedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnAudioPresentationSelected not implemented")
+}
+func (UnimplementedViewTvInputCallbackServiceServer) OnAvailableSpeeds(context.Context, *OnAvailableSpeedsRequest) (*OnAvailableSpeedsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnAvailableSpeeds not implemented")
+}
+func (UnimplementedViewTvInputCallbackServiceServer) OnChannelRetuned(context.Context, *OnChannelRetunedRequest) (*OnChannelRetunedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnChannelRetuned not implemented")
+}
+func (UnimplementedViewTvInputCallbackServiceServer) OnConnectionFailed(context.Context, *OnConnectionFailedRequest) (*OnConnectionFailedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnConnectionFailed not implemented")
+}
+func (UnimplementedViewTvInputCallbackServiceServer) OnContentAllowed(context.Context, *OnContentAllowedRequest) (*OnContentAllowedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnContentAllowed not implemented")
+}
+func (UnimplementedViewTvInputCallbackServiceServer) OnContentBlocked(context.Context, *OnContentBlockedRequest) (*OnContentBlockedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnContentBlocked not implemented")
+}
+func (UnimplementedViewTvInputCallbackServiceServer) OnCueingMessageAvailability(context.Context, *OnCueingMessageAvailabilityRequest) (*OnCueingMessageAvailabilityResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnCueingMessageAvailability not implemented")
+}
+func (UnimplementedViewTvInputCallbackServiceServer) OnDisconnected(context.Context, *OnDisconnectedRequest) (*OnDisconnectedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnDisconnected not implemented")
+}
+func (UnimplementedViewTvInputCallbackServiceServer) OnSignalStrengthUpdated(context.Context, *OnSignalStrengthUpdatedRequest) (*OnSignalStrengthUpdatedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnSignalStrengthUpdated not implemented")
+}
+func (UnimplementedViewTvInputCallbackServiceServer) OnTimeShiftMode(context.Context, *OnTimeShiftModeRequest) (*OnTimeShiftModeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnTimeShiftMode not implemented")
+}
+func (UnimplementedViewTvInputCallbackServiceServer) OnTimeShiftStatusChanged(context.Context, *OnTimeShiftStatusChangedRequest) (*OnTimeShiftStatusChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnTimeShiftStatusChanged not implemented")
+}
+func (UnimplementedViewTvInputCallbackServiceServer) OnTrackSelected(context.Context, *OnTrackSelectedRequest) (*OnTrackSelectedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnTrackSelected not implemented")
+}
+func (UnimplementedViewTvInputCallbackServiceServer) OnTuned(context.Context, *OnTunedRequest) (*OnTunedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnTuned not implemented")
+}
+func (UnimplementedViewTvInputCallbackServiceServer) OnTvMessage(context.Context, *ViewTvInputCallbackOnTvMessageRequest) (*OnTvMessageResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnTvMessage not implemented")
+}
+func (UnimplementedViewTvInputCallbackServiceServer) OnVideoAvailable(context.Context, *OnVideoAvailableRequest) (*OnVideoAvailableResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnVideoAvailable not implemented")
+}
+func (UnimplementedViewTvInputCallbackServiceServer) OnVideoFreezeUpdated(context.Context, *OnVideoFreezeUpdatedRequest) (*OnVideoFreezeUpdatedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnVideoFreezeUpdated not implemented")
+}
+func (UnimplementedViewTvInputCallbackServiceServer) OnVideoSizeChanged(context.Context, *OnVideoSizeChangedRequest) (*OnVideoSizeChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnVideoSizeChanged not implemented")
+}
+func (UnimplementedViewTvInputCallbackServiceServer) OnVideoUnavailable(context.Context, *OnVideoUnavailableRequest) (*OnVideoUnavailableResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnVideoUnavailable not implemented")
+}
+func (UnimplementedViewTvInputCallbackServiceServer) mustEmbedUnimplementedViewTvInputCallbackServiceServer() {
+}
+func (UnimplementedViewTvInputCallbackServiceServer) testEmbeddedByValue() {}
+
+// UnsafeViewTvInputCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ViewTvInputCallbackServiceServer will
+// result in compilation errors.
+type UnsafeViewTvInputCallbackServiceServer interface {
+	mustEmbedUnimplementedViewTvInputCallbackServiceServer()
+}
+
+func RegisterViewTvInputCallbackServiceServer(s grpc.ServiceRegistrar, srv ViewTvInputCallbackServiceServer) {
+	// If the following call panics, it indicates UnimplementedViewTvInputCallbackServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ViewTvInputCallbackService_ServiceDesc, srv)
+}
+
+func _ViewTvInputCallbackService_OnAitInfoUpdated_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnAitInfoUpdatedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewTvInputCallbackServiceServer).OnAitInfoUpdated(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewTvInputCallbackService_OnAitInfoUpdated_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewTvInputCallbackServiceServer).OnAitInfoUpdated(ctx, req.(*OnAitInfoUpdatedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ViewTvInputCallbackService_OnAudioPresentationSelected_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnAudioPresentationSelectedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewTvInputCallbackServiceServer).OnAudioPresentationSelected(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewTvInputCallbackService_OnAudioPresentationSelected_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewTvInputCallbackServiceServer).OnAudioPresentationSelected(ctx, req.(*OnAudioPresentationSelectedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ViewTvInputCallbackService_OnAvailableSpeeds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnAvailableSpeedsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewTvInputCallbackServiceServer).OnAvailableSpeeds(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewTvInputCallbackService_OnAvailableSpeeds_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewTvInputCallbackServiceServer).OnAvailableSpeeds(ctx, req.(*OnAvailableSpeedsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ViewTvInputCallbackService_OnChannelRetuned_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnChannelRetunedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewTvInputCallbackServiceServer).OnChannelRetuned(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewTvInputCallbackService_OnChannelRetuned_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewTvInputCallbackServiceServer).OnChannelRetuned(ctx, req.(*OnChannelRetunedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ViewTvInputCallbackService_OnConnectionFailed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnConnectionFailedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewTvInputCallbackServiceServer).OnConnectionFailed(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewTvInputCallbackService_OnConnectionFailed_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewTvInputCallbackServiceServer).OnConnectionFailed(ctx, req.(*OnConnectionFailedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ViewTvInputCallbackService_OnContentAllowed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnContentAllowedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewTvInputCallbackServiceServer).OnContentAllowed(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewTvInputCallbackService_OnContentAllowed_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewTvInputCallbackServiceServer).OnContentAllowed(ctx, req.(*OnContentAllowedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ViewTvInputCallbackService_OnContentBlocked_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnContentBlockedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewTvInputCallbackServiceServer).OnContentBlocked(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewTvInputCallbackService_OnContentBlocked_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewTvInputCallbackServiceServer).OnContentBlocked(ctx, req.(*OnContentBlockedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ViewTvInputCallbackService_OnCueingMessageAvailability_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnCueingMessageAvailabilityRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewTvInputCallbackServiceServer).OnCueingMessageAvailability(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewTvInputCallbackService_OnCueingMessageAvailability_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewTvInputCallbackServiceServer).OnCueingMessageAvailability(ctx, req.(*OnCueingMessageAvailabilityRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ViewTvInputCallbackService_OnDisconnected_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnDisconnectedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewTvInputCallbackServiceServer).OnDisconnected(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewTvInputCallbackService_OnDisconnected_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewTvInputCallbackServiceServer).OnDisconnected(ctx, req.(*OnDisconnectedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ViewTvInputCallbackService_OnSignalStrengthUpdated_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnSignalStrengthUpdatedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewTvInputCallbackServiceServer).OnSignalStrengthUpdated(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewTvInputCallbackService_OnSignalStrengthUpdated_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewTvInputCallbackServiceServer).OnSignalStrengthUpdated(ctx, req.(*OnSignalStrengthUpdatedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ViewTvInputCallbackService_OnTimeShiftMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnTimeShiftModeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewTvInputCallbackServiceServer).OnTimeShiftMode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewTvInputCallbackService_OnTimeShiftMode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewTvInputCallbackServiceServer).OnTimeShiftMode(ctx, req.(*OnTimeShiftModeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ViewTvInputCallbackService_OnTimeShiftStatusChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnTimeShiftStatusChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewTvInputCallbackServiceServer).OnTimeShiftStatusChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewTvInputCallbackService_OnTimeShiftStatusChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewTvInputCallbackServiceServer).OnTimeShiftStatusChanged(ctx, req.(*OnTimeShiftStatusChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ViewTvInputCallbackService_OnTrackSelected_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnTrackSelectedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewTvInputCallbackServiceServer).OnTrackSelected(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewTvInputCallbackService_OnTrackSelected_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewTvInputCallbackServiceServer).OnTrackSelected(ctx, req.(*OnTrackSelectedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ViewTvInputCallbackService_OnTuned_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnTunedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewTvInputCallbackServiceServer).OnTuned(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewTvInputCallbackService_OnTuned_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewTvInputCallbackServiceServer).OnTuned(ctx, req.(*OnTunedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ViewTvInputCallbackService_OnTvMessage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ViewTvInputCallbackOnTvMessageRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewTvInputCallbackServiceServer).OnTvMessage(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewTvInputCallbackService_OnTvMessage_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewTvInputCallbackServiceServer).OnTvMessage(ctx, req.(*ViewTvInputCallbackOnTvMessageRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ViewTvInputCallbackService_OnVideoAvailable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnVideoAvailableRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewTvInputCallbackServiceServer).OnVideoAvailable(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewTvInputCallbackService_OnVideoAvailable_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewTvInputCallbackServiceServer).OnVideoAvailable(ctx, req.(*OnVideoAvailableRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ViewTvInputCallbackService_OnVideoFreezeUpdated_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnVideoFreezeUpdatedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewTvInputCallbackServiceServer).OnVideoFreezeUpdated(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewTvInputCallbackService_OnVideoFreezeUpdated_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewTvInputCallbackServiceServer).OnVideoFreezeUpdated(ctx, req.(*OnVideoFreezeUpdatedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ViewTvInputCallbackService_OnVideoSizeChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnVideoSizeChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewTvInputCallbackServiceServer).OnVideoSizeChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewTvInputCallbackService_OnVideoSizeChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewTvInputCallbackServiceServer).OnVideoSizeChanged(ctx, req.(*OnVideoSizeChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ViewTvInputCallbackService_OnVideoUnavailable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnVideoUnavailableRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewTvInputCallbackServiceServer).OnVideoUnavailable(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewTvInputCallbackService_OnVideoUnavailable_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewTvInputCallbackServiceServer).OnVideoUnavailable(ctx, req.(*OnVideoUnavailableRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ViewTvInputCallbackService_ServiceDesc is the grpc.ServiceDesc for ViewTvInputCallbackService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ViewTvInputCallbackService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "tv.ViewTvInputCallbackService",
+	HandlerType: (*ViewTvInputCallbackServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnAitInfoUpdated",
+			Handler:    _ViewTvInputCallbackService_OnAitInfoUpdated_Handler,
+		},
+		{
+			MethodName: "OnAudioPresentationSelected",
+			Handler:    _ViewTvInputCallbackService_OnAudioPresentationSelected_Handler,
+		},
+		{
+			MethodName: "OnAvailableSpeeds",
+			Handler:    _ViewTvInputCallbackService_OnAvailableSpeeds_Handler,
+		},
+		{
+			MethodName: "OnChannelRetuned",
+			Handler:    _ViewTvInputCallbackService_OnChannelRetuned_Handler,
+		},
+		{
+			MethodName: "OnConnectionFailed",
+			Handler:    _ViewTvInputCallbackService_OnConnectionFailed_Handler,
+		},
+		{
+			MethodName: "OnContentAllowed",
+			Handler:    _ViewTvInputCallbackService_OnContentAllowed_Handler,
+		},
+		{
+			MethodName: "OnContentBlocked",
+			Handler:    _ViewTvInputCallbackService_OnContentBlocked_Handler,
+		},
+		{
+			MethodName: "OnCueingMessageAvailability",
+			Handler:    _ViewTvInputCallbackService_OnCueingMessageAvailability_Handler,
+		},
+		{
+			MethodName: "OnDisconnected",
+			Handler:    _ViewTvInputCallbackService_OnDisconnected_Handler,
+		},
+		{
+			MethodName: "OnSignalStrengthUpdated",
+			Handler:    _ViewTvInputCallbackService_OnSignalStrengthUpdated_Handler,
+		},
+		{
+			MethodName: "OnTimeShiftMode",
+			Handler:    _ViewTvInputCallbackService_OnTimeShiftMode_Handler,
+		},
+		{
+			MethodName: "OnTimeShiftStatusChanged",
+			Handler:    _ViewTvInputCallbackService_OnTimeShiftStatusChanged_Handler,
+		},
+		{
+			MethodName: "OnTrackSelected",
+			Handler:    _ViewTvInputCallbackService_OnTrackSelected_Handler,
+		},
+		{
+			MethodName: "OnTuned",
+			Handler:    _ViewTvInputCallbackService_OnTuned_Handler,
+		},
+		{
+			MethodName: "OnTvMessage",
+			Handler:    _ViewTvInputCallbackService_OnTvMessage_Handler,
+		},
+		{
+			MethodName: "OnVideoAvailable",
+			Handler:    _ViewTvInputCallbackService_OnVideoAvailable_Handler,
+		},
+		{
+			MethodName: "OnVideoFreezeUpdated",
+			Handler:    _ViewTvInputCallbackService_OnVideoFreezeUpdated_Handler,
+		},
+		{
+			MethodName: "OnVideoSizeChanged",
+			Handler:    _ViewTvInputCallbackService_OnVideoSizeChanged_Handler,
+		},
+		{
+			MethodName: "OnVideoUnavailable",
+			Handler:    _ViewTvInputCallbackService_OnVideoUnavailable_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/tv/tv.proto",
+}
+
+const (
+	SectionResponseService_NewSectionResponse_FullMethodName = "/tv.SectionResponseService/NewSectionResponse"
+	SectionResponseService_DescribeContents_FullMethodName   = "/tv.SectionResponseService/DescribeContents"
+	SectionResponseService_GetSessionData_FullMethodName     = "/tv.SectionResponseService/GetSessionData"
+	SectionResponseService_GetSessionId_FullMethodName       = "/tv.SectionResponseService/GetSessionId"
+	SectionResponseService_GetVersion_FullMethodName         = "/tv.SectionResponseService/GetVersion"
+	SectionResponseService_WriteToParcel_FullMethodName      = "/tv.SectionResponseService/WriteToParcel"
+)
+
+// SectionResponseServiceClient is the client API for SectionResponseService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SectionResponseServiceClient interface {
+	NewSectionResponse(ctx context.Context, in *NewSectionResponseRequest, opts ...grpc.CallOption) (*NewSectionResponseResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetSessionData(ctx context.Context, in *GetSessionDataRequest, opts ...grpc.CallOption) (*GetSessionDataResponse, error)
+	GetSessionId(ctx context.Context, in *GetSessionIdRequest, opts ...grpc.CallOption) (*GetSessionIdResponse, error)
+	GetVersion(ctx context.Context, in *GetVersionRequest, opts ...grpc.CallOption) (*GetVersionResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type sectionResponseServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSectionResponseServiceClient(cc grpc.ClientConnInterface) SectionResponseServiceClient {
+	return &sectionResponseServiceClient{cc}
+}
+
+func (c *sectionResponseServiceClient) NewSectionResponse(ctx context.Context, in *NewSectionResponseRequest, opts ...grpc.CallOption) (*NewSectionResponseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewSectionResponseResponse)
+	err := c.cc.Invoke(ctx, SectionResponseService_NewSectionResponse_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sectionResponseServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, SectionResponseService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sectionResponseServiceClient) GetSessionData(ctx context.Context, in *GetSessionDataRequest, opts ...grpc.CallOption) (*GetSessionDataResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSessionDataResponse)
+	err := c.cc.Invoke(ctx, SectionResponseService_GetSessionData_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sectionResponseServiceClient) GetSessionId(ctx context.Context, in *GetSessionIdRequest, opts ...grpc.CallOption) (*GetSessionIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSessionIdResponse)
+	err := c.cc.Invoke(ctx, SectionResponseService_GetSessionId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sectionResponseServiceClient) GetVersion(ctx context.Context, in *GetVersionRequest, opts ...grpc.CallOption) (*GetVersionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetVersionResponse)
+	err := c.cc.Invoke(ctx, SectionResponseService_GetVersion_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sectionResponseServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, SectionResponseService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SectionResponseServiceServer is the server API for SectionResponseService service.
+// All implementations must embed UnimplementedSectionResponseServiceServer
+// for forward compatibility.
+type SectionResponseServiceServer interface {
+	NewSectionResponse(context.Context, *NewSectionResponseRequest) (*NewSectionResponseResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetSessionData(context.Context, *GetSessionDataRequest) (*GetSessionDataResponse, error)
+	GetSessionId(context.Context, *GetSessionIdRequest) (*GetSessionIdResponse, error)
+	GetVersion(context.Context, *GetVersionRequest) (*GetVersionResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedSectionResponseServiceServer()
+}
+
+// UnimplementedSectionResponseServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSectionResponseServiceServer struct{}
+
+func (UnimplementedSectionResponseServiceServer) NewSectionResponse(context.Context, *NewSectionResponseRequest) (*NewSectionResponseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewSectionResponse not implemented")
+}
+func (UnimplementedSectionResponseServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedSectionResponseServiceServer) GetSessionData(context.Context, *GetSessionDataRequest) (*GetSessionDataResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSessionData not implemented")
+}
+func (UnimplementedSectionResponseServiceServer) GetSessionId(context.Context, *GetSessionIdRequest) (*GetSessionIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSessionId not implemented")
+}
+func (UnimplementedSectionResponseServiceServer) GetVersion(context.Context, *GetVersionRequest) (*GetVersionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetVersion not implemented")
+}
+func (UnimplementedSectionResponseServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedSectionResponseServiceServer) mustEmbedUnimplementedSectionResponseServiceServer() {
+}
+func (UnimplementedSectionResponseServiceServer) testEmbeddedByValue() {}
+
+// UnsafeSectionResponseServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SectionResponseServiceServer will
+// result in compilation errors.
+type UnsafeSectionResponseServiceServer interface {
+	mustEmbedUnimplementedSectionResponseServiceServer()
+}
+
+func RegisterSectionResponseServiceServer(s grpc.ServiceRegistrar, srv SectionResponseServiceServer) {
+	// If the following call panics, it indicates UnimplementedSectionResponseServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SectionResponseService_ServiceDesc, srv)
+}
+
+func _SectionResponseService_NewSectionResponse_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewSectionResponseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SectionResponseServiceServer).NewSectionResponse(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SectionResponseService_NewSectionResponse_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SectionResponseServiceServer).NewSectionResponse(ctx, req.(*NewSectionResponseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SectionResponseService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SectionResponseServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SectionResponseService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SectionResponseServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SectionResponseService_GetSessionData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSessionDataRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SectionResponseServiceServer).GetSessionData(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SectionResponseService_GetSessionData_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SectionResponseServiceServer).GetSessionData(ctx, req.(*GetSessionDataRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SectionResponseService_GetSessionId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSessionIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SectionResponseServiceServer).GetSessionId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SectionResponseService_GetSessionId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SectionResponseServiceServer).GetSessionId(ctx, req.(*GetSessionIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SectionResponseService_GetVersion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetVersionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SectionResponseServiceServer).GetVersion(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SectionResponseService_GetVersion_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SectionResponseServiceServer).GetVersion(ctx, req.(*GetVersionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SectionResponseService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SectionResponseServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SectionResponseService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SectionResponseServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SectionResponseService_ServiceDesc is the grpc.ServiceDesc for SectionResponseService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SectionResponseService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "tv.SectionResponseService",
+	HandlerType: (*SectionResponseServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewSectionResponse",
+			Handler:    _SectionResponseService_NewSectionResponse_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _SectionResponseService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetSessionData",
+			Handler:    _SectionResponseService_GetSessionData_Handler,
+		},
+		{
+			MethodName: "GetSessionId",
+			Handler:    _SectionResponseService_GetSessionId_Handler,
+		},
+		{
+			MethodName: "GetVersion",
+			Handler:    _SectionResponseService_GetVersion_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _SectionResponseService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/tv/tv.proto",
+}
+
+const (
+	AdResponseService_NewAdResponse_FullMethodName        = "/tv.AdResponseService/NewAdResponse"
+	AdResponseService_DescribeContents_FullMethodName     = "/tv.AdResponseService/DescribeContents"
+	AdResponseService_GetElapsedTimeMillis_FullMethodName = "/tv.AdResponseService/GetElapsedTimeMillis"
+	AdResponseService_GetId_FullMethodName                = "/tv.AdResponseService/GetId"
+	AdResponseService_GetResponseType_FullMethodName      = "/tv.AdResponseService/GetResponseType"
+	AdResponseService_WriteToParcel_FullMethodName        = "/tv.AdResponseService/WriteToParcel"
+)
+
+// AdResponseServiceClient is the client API for AdResponseService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AdResponseServiceClient interface {
+	NewAdResponse(ctx context.Context, in *NewAdResponseRequest, opts ...grpc.CallOption) (*NewAdResponseResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetElapsedTimeMillis(ctx context.Context, in *GetElapsedTimeMillisRequest, opts ...grpc.CallOption) (*GetElapsedTimeMillisResponse, error)
+	GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error)
+	GetResponseType(ctx context.Context, in *GetResponseTypeRequest, opts ...grpc.CallOption) (*GetResponseTypeResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type adResponseServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAdResponseServiceClient(cc grpc.ClientConnInterface) AdResponseServiceClient {
+	return &adResponseServiceClient{cc}
+}
+
+func (c *adResponseServiceClient) NewAdResponse(ctx context.Context, in *NewAdResponseRequest, opts ...grpc.CallOption) (*NewAdResponseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewAdResponseResponse)
+	err := c.cc.Invoke(ctx, AdResponseService_NewAdResponse_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adResponseServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, AdResponseService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adResponseServiceClient) GetElapsedTimeMillis(ctx context.Context, in *GetElapsedTimeMillisRequest, opts ...grpc.CallOption) (*GetElapsedTimeMillisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetElapsedTimeMillisResponse)
+	err := c.cc.Invoke(ctx, AdResponseService_GetElapsedTimeMillis_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adResponseServiceClient) GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetIdResponse)
+	err := c.cc.Invoke(ctx, AdResponseService_GetId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adResponseServiceClient) GetResponseType(ctx context.Context, in *GetResponseTypeRequest, opts ...grpc.CallOption) (*GetResponseTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetResponseTypeResponse)
+	err := c.cc.Invoke(ctx, AdResponseService_GetResponseType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adResponseServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, AdResponseService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AdResponseServiceServer is the server API for AdResponseService service.
+// All implementations must embed UnimplementedAdResponseServiceServer
+// for forward compatibility.
+type AdResponseServiceServer interface {
+	NewAdResponse(context.Context, *NewAdResponseRequest) (*NewAdResponseResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetElapsedTimeMillis(context.Context, *GetElapsedTimeMillisRequest) (*GetElapsedTimeMillisResponse, error)
+	GetId(context.Context, *GetIdRequest) (*GetIdResponse, error)
+	GetResponseType(context.Context, *GetResponseTypeRequest) (*GetResponseTypeResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedAdResponseServiceServer()
+}
+
+// UnimplementedAdResponseServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedAdResponseServiceServer struct{}
+
+func (UnimplementedAdResponseServiceServer) NewAdResponse(context.Context, *NewAdResponseRequest) (*NewAdResponseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewAdResponse not implemented")
+}
+func (UnimplementedAdResponseServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedAdResponseServiceServer) GetElapsedTimeMillis(context.Context, *GetElapsedTimeMillisRequest) (*GetElapsedTimeMillisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetElapsedTimeMillis not implemented")
+}
+func (UnimplementedAdResponseServiceServer) GetId(context.Context, *GetIdRequest) (*GetIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetId not implemented")
+}
+func (UnimplementedAdResponseServiceServer) GetResponseType(context.Context, *GetResponseTypeRequest) (*GetResponseTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetResponseType not implemented")
+}
+func (UnimplementedAdResponseServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedAdResponseServiceServer) mustEmbedUnimplementedAdResponseServiceServer() {}
+func (UnimplementedAdResponseServiceServer) testEmbeddedByValue()                           {}
+
+// UnsafeAdResponseServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AdResponseServiceServer will
+// result in compilation errors.
+type UnsafeAdResponseServiceServer interface {
+	mustEmbedUnimplementedAdResponseServiceServer()
+}
+
+func RegisterAdResponseServiceServer(s grpc.ServiceRegistrar, srv AdResponseServiceServer) {
+	// If the following call panics, it indicates UnimplementedAdResponseServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&AdResponseService_ServiceDesc, srv)
+}
+
+func _AdResponseService_NewAdResponse_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewAdResponseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdResponseServiceServer).NewAdResponse(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdResponseService_NewAdResponse_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdResponseServiceServer).NewAdResponse(ctx, req.(*NewAdResponseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdResponseService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdResponseServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdResponseService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdResponseServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdResponseService_GetElapsedTimeMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetElapsedTimeMillisRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdResponseServiceServer).GetElapsedTimeMillis(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdResponseService_GetElapsedTimeMillis_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdResponseServiceServer).GetElapsedTimeMillis(ctx, req.(*GetElapsedTimeMillisRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdResponseService_GetId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdResponseServiceServer).GetId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdResponseService_GetId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdResponseServiceServer).GetId(ctx, req.(*GetIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdResponseService_GetResponseType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetResponseTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdResponseServiceServer).GetResponseType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdResponseService_GetResponseType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdResponseServiceServer).GetResponseType(ctx, req.(*GetResponseTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdResponseService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdResponseServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdResponseService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdResponseServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AdResponseService_ServiceDesc is the grpc.ServiceDesc for AdResponseService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AdResponseService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "tv.AdResponseService",
+	HandlerType: (*AdResponseServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewAdResponse",
+			Handler:    _AdResponseService_NewAdResponse_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _AdResponseService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetElapsedTimeMillis",
+			Handler:    _AdResponseService_GetElapsedTimeMillis_Handler,
+		},
+		{
+			MethodName: "GetId",
+			Handler:    _AdResponseService_GetId_Handler,
+		},
+		{
+			MethodName: "GetResponseType",
+			Handler:    _AdResponseService_GetResponseType_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _AdResponseService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/tv/tv.proto",
+}
+
+const (
+	SectionRequestService_NewSectionRequest_FullMethodName = "/tv.SectionRequestService/NewSectionRequest"
+	SectionRequestService_DescribeContents_FullMethodName  = "/tv.SectionRequestService/DescribeContents"
+	SectionRequestService_GetTableId_FullMethodName        = "/tv.SectionRequestService/GetTableId"
+	SectionRequestService_GetTsPid_FullMethodName          = "/tv.SectionRequestService/GetTsPid"
+	SectionRequestService_GetVersion_FullMethodName        = "/tv.SectionRequestService/GetVersion"
+	SectionRequestService_WriteToParcel_FullMethodName     = "/tv.SectionRequestService/WriteToParcel"
+)
+
+// SectionRequestServiceClient is the client API for SectionRequestService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SectionRequestServiceClient interface {
+	NewSectionRequest(ctx context.Context, in *NewSectionRequestRequest, opts ...grpc.CallOption) (*NewSectionRequestResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetTableId(ctx context.Context, in *GetTableIdRequest, opts ...grpc.CallOption) (*GetTableIdResponse, error)
+	GetTsPid(ctx context.Context, in *GetTsPidRequest, opts ...grpc.CallOption) (*GetTsPidResponse, error)
+	GetVersion(ctx context.Context, in *GetVersionRequest, opts ...grpc.CallOption) (*GetVersionResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type sectionRequestServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSectionRequestServiceClient(cc grpc.ClientConnInterface) SectionRequestServiceClient {
+	return &sectionRequestServiceClient{cc}
+}
+
+func (c *sectionRequestServiceClient) NewSectionRequest(ctx context.Context, in *NewSectionRequestRequest, opts ...grpc.CallOption) (*NewSectionRequestResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewSectionRequestResponse)
+	err := c.cc.Invoke(ctx, SectionRequestService_NewSectionRequest_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sectionRequestServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, SectionRequestService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sectionRequestServiceClient) GetTableId(ctx context.Context, in *GetTableIdRequest, opts ...grpc.CallOption) (*GetTableIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTableIdResponse)
+	err := c.cc.Invoke(ctx, SectionRequestService_GetTableId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sectionRequestServiceClient) GetTsPid(ctx context.Context, in *GetTsPidRequest, opts ...grpc.CallOption) (*GetTsPidResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTsPidResponse)
+	err := c.cc.Invoke(ctx, SectionRequestService_GetTsPid_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sectionRequestServiceClient) GetVersion(ctx context.Context, in *GetVersionRequest, opts ...grpc.CallOption) (*GetVersionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetVersionResponse)
+	err := c.cc.Invoke(ctx, SectionRequestService_GetVersion_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sectionRequestServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, SectionRequestService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SectionRequestServiceServer is the server API for SectionRequestService service.
+// All implementations must embed UnimplementedSectionRequestServiceServer
+// for forward compatibility.
+type SectionRequestServiceServer interface {
+	NewSectionRequest(context.Context, *NewSectionRequestRequest) (*NewSectionRequestResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetTableId(context.Context, *GetTableIdRequest) (*GetTableIdResponse, error)
+	GetTsPid(context.Context, *GetTsPidRequest) (*GetTsPidResponse, error)
+	GetVersion(context.Context, *GetVersionRequest) (*GetVersionResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedSectionRequestServiceServer()
+}
+
+// UnimplementedSectionRequestServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSectionRequestServiceServer struct{}
+
+func (UnimplementedSectionRequestServiceServer) NewSectionRequest(context.Context, *NewSectionRequestRequest) (*NewSectionRequestResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewSectionRequest not implemented")
+}
+func (UnimplementedSectionRequestServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedSectionRequestServiceServer) GetTableId(context.Context, *GetTableIdRequest) (*GetTableIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTableId not implemented")
+}
+func (UnimplementedSectionRequestServiceServer) GetTsPid(context.Context, *GetTsPidRequest) (*GetTsPidResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTsPid not implemented")
+}
+func (UnimplementedSectionRequestServiceServer) GetVersion(context.Context, *GetVersionRequest) (*GetVersionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetVersion not implemented")
+}
+func (UnimplementedSectionRequestServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedSectionRequestServiceServer) mustEmbedUnimplementedSectionRequestServiceServer() {}
+func (UnimplementedSectionRequestServiceServer) testEmbeddedByValue()                               {}
+
+// UnsafeSectionRequestServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SectionRequestServiceServer will
+// result in compilation errors.
+type UnsafeSectionRequestServiceServer interface {
+	mustEmbedUnimplementedSectionRequestServiceServer()
+}
+
+func RegisterSectionRequestServiceServer(s grpc.ServiceRegistrar, srv SectionRequestServiceServer) {
+	// If the following call panics, it indicates UnimplementedSectionRequestServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SectionRequestService_ServiceDesc, srv)
+}
+
+func _SectionRequestService_NewSectionRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewSectionRequestRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SectionRequestServiceServer).NewSectionRequest(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SectionRequestService_NewSectionRequest_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SectionRequestServiceServer).NewSectionRequest(ctx, req.(*NewSectionRequestRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SectionRequestService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SectionRequestServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SectionRequestService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SectionRequestServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SectionRequestService_GetTableId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTableIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SectionRequestServiceServer).GetTableId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SectionRequestService_GetTableId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SectionRequestServiceServer).GetTableId(ctx, req.(*GetTableIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SectionRequestService_GetTsPid_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTsPidRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SectionRequestServiceServer).GetTsPid(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SectionRequestService_GetTsPid_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SectionRequestServiceServer).GetTsPid(ctx, req.(*GetTsPidRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SectionRequestService_GetVersion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetVersionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SectionRequestServiceServer).GetVersion(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SectionRequestService_GetVersion_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SectionRequestServiceServer).GetVersion(ctx, req.(*GetVersionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SectionRequestService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SectionRequestServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SectionRequestService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SectionRequestServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SectionRequestService_ServiceDesc is the grpc.ServiceDesc for SectionRequestService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SectionRequestService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "tv.SectionRequestService",
+	HandlerType: (*SectionRequestServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewSectionRequest",
+			Handler:    _SectionRequestService_NewSectionRequest_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _SectionRequestService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetTableId",
+			Handler:    _SectionRequestService_GetTableId_Handler,
+		},
+		{
+			MethodName: "GetTsPid",
+			Handler:    _SectionRequestService_GetTsPid_Handler,
+		},
+		{
+			MethodName: "GetVersion",
+			Handler:    _SectionRequestService_GetVersion_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _SectionRequestService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/tv/tv.proto",
+}
+
+const (
+	TableRequestService_NewTableRequest_FullMethodName  = "/tv.TableRequestService/NewTableRequest"
+	TableRequestService_DescribeContents_FullMethodName = "/tv.TableRequestService/DescribeContents"
+	TableRequestService_GetTableId_FullMethodName       = "/tv.TableRequestService/GetTableId"
+	TableRequestService_GetTableName_FullMethodName     = "/tv.TableRequestService/GetTableName"
+	TableRequestService_GetVersion_FullMethodName       = "/tv.TableRequestService/GetVersion"
+	TableRequestService_WriteToParcel_FullMethodName    = "/tv.TableRequestService/WriteToParcel"
+)
+
+// TableRequestServiceClient is the client API for TableRequestService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TableRequestServiceClient interface {
+	NewTableRequest(ctx context.Context, in *NewTableRequestRequest, opts ...grpc.CallOption) (*NewTableRequestResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetTableId(ctx context.Context, in *GetTableIdRequest, opts ...grpc.CallOption) (*GetTableIdResponse, error)
+	GetTableName(ctx context.Context, in *GetTableNameRequest, opts ...grpc.CallOption) (*GetTableNameResponse, error)
+	GetVersion(ctx context.Context, in *GetVersionRequest, opts ...grpc.CallOption) (*GetVersionResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type tableRequestServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTableRequestServiceClient(cc grpc.ClientConnInterface) TableRequestServiceClient {
+	return &tableRequestServiceClient{cc}
+}
+
+func (c *tableRequestServiceClient) NewTableRequest(ctx context.Context, in *NewTableRequestRequest, opts ...grpc.CallOption) (*NewTableRequestResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewTableRequestResponse)
+	err := c.cc.Invoke(ctx, TableRequestService_NewTableRequest_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tableRequestServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, TableRequestService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tableRequestServiceClient) GetTableId(ctx context.Context, in *GetTableIdRequest, opts ...grpc.CallOption) (*GetTableIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTableIdResponse)
+	err := c.cc.Invoke(ctx, TableRequestService_GetTableId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tableRequestServiceClient) GetTableName(ctx context.Context, in *GetTableNameRequest, opts ...grpc.CallOption) (*GetTableNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTableNameResponse)
+	err := c.cc.Invoke(ctx, TableRequestService_GetTableName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tableRequestServiceClient) GetVersion(ctx context.Context, in *GetVersionRequest, opts ...grpc.CallOption) (*GetVersionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetVersionResponse)
+	err := c.cc.Invoke(ctx, TableRequestService_GetVersion_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tableRequestServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, TableRequestService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TableRequestServiceServer is the server API for TableRequestService service.
+// All implementations must embed UnimplementedTableRequestServiceServer
+// for forward compatibility.
+type TableRequestServiceServer interface {
+	NewTableRequest(context.Context, *NewTableRequestRequest) (*NewTableRequestResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetTableId(context.Context, *GetTableIdRequest) (*GetTableIdResponse, error)
+	GetTableName(context.Context, *GetTableNameRequest) (*GetTableNameResponse, error)
+	GetVersion(context.Context, *GetVersionRequest) (*GetVersionResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedTableRequestServiceServer()
+}
+
+// UnimplementedTableRequestServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTableRequestServiceServer struct{}
+
+func (UnimplementedTableRequestServiceServer) NewTableRequest(context.Context, *NewTableRequestRequest) (*NewTableRequestResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewTableRequest not implemented")
+}
+func (UnimplementedTableRequestServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedTableRequestServiceServer) GetTableId(context.Context, *GetTableIdRequest) (*GetTableIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTableId not implemented")
+}
+func (UnimplementedTableRequestServiceServer) GetTableName(context.Context, *GetTableNameRequest) (*GetTableNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTableName not implemented")
+}
+func (UnimplementedTableRequestServiceServer) GetVersion(context.Context, *GetVersionRequest) (*GetVersionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetVersion not implemented")
+}
+func (UnimplementedTableRequestServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedTableRequestServiceServer) mustEmbedUnimplementedTableRequestServiceServer() {}
+func (UnimplementedTableRequestServiceServer) testEmbeddedByValue()                             {}
+
+// UnsafeTableRequestServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TableRequestServiceServer will
+// result in compilation errors.
+type UnsafeTableRequestServiceServer interface {
+	mustEmbedUnimplementedTableRequestServiceServer()
+}
+
+func RegisterTableRequestServiceServer(s grpc.ServiceRegistrar, srv TableRequestServiceServer) {
+	// If the following call panics, it indicates UnimplementedTableRequestServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TableRequestService_ServiceDesc, srv)
+}
+
+func _TableRequestService_NewTableRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewTableRequestRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TableRequestServiceServer).NewTableRequest(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TableRequestService_NewTableRequest_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TableRequestServiceServer).NewTableRequest(ctx, req.(*NewTableRequestRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TableRequestService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TableRequestServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TableRequestService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TableRequestServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TableRequestService_GetTableId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTableIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TableRequestServiceServer).GetTableId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TableRequestService_GetTableId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TableRequestServiceServer).GetTableId(ctx, req.(*GetTableIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TableRequestService_GetTableName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTableNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TableRequestServiceServer).GetTableName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TableRequestService_GetTableName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TableRequestServiceServer).GetTableName(ctx, req.(*GetTableNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TableRequestService_GetVersion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetVersionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TableRequestServiceServer).GetVersion(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TableRequestService_GetVersion_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TableRequestServiceServer).GetVersion(ctx, req.(*GetVersionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TableRequestService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TableRequestServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TableRequestService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TableRequestServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TableRequestService_ServiceDesc is the grpc.ServiceDesc for TableRequestService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TableRequestService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "tv.TableRequestService",
+	HandlerType: (*TableRequestServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewTableRequest",
+			Handler:    _TableRequestService_NewTableRequest_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _TableRequestService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetTableId",
+			Handler:    _TableRequestService_GetTableId_Handler,
+		},
+		{
+			MethodName: "GetTableName",
+			Handler:    _TableRequestService_GetTableName_Handler,
+		},
+		{
+			MethodName: "GetVersion",
+			Handler:    _TableRequestService_GetVersion_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _TableRequestService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/tv/tv.proto",
+}
+
+const (
+	SignalingDataRequestService_NewSignalingDataRequest_FullMethodName = "/tv.SignalingDataRequestService/NewSignalingDataRequest"
+	SignalingDataRequestService_DescribeContents_FullMethodName        = "/tv.SignalingDataRequestService/DescribeContents"
+	SignalingDataRequestService_GetGroup_FullMethodName                = "/tv.SignalingDataRequestService/GetGroup"
+	SignalingDataRequestService_WriteToParcel_FullMethodName           = "/tv.SignalingDataRequestService/WriteToParcel"
+)
+
+// SignalingDataRequestServiceClient is the client API for SignalingDataRequestService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SignalingDataRequestServiceClient interface {
+	NewSignalingDataRequest(ctx context.Context, in *NewSignalingDataRequestRequest, opts ...grpc.CallOption) (*NewSignalingDataRequestResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetGroup(ctx context.Context, in *GetGroupRequest, opts ...grpc.CallOption) (*GetGroupResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type signalingDataRequestServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSignalingDataRequestServiceClient(cc grpc.ClientConnInterface) SignalingDataRequestServiceClient {
+	return &signalingDataRequestServiceClient{cc}
+}
+
+func (c *signalingDataRequestServiceClient) NewSignalingDataRequest(ctx context.Context, in *NewSignalingDataRequestRequest, opts ...grpc.CallOption) (*NewSignalingDataRequestResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewSignalingDataRequestResponse)
+	err := c.cc.Invoke(ctx, SignalingDataRequestService_NewSignalingDataRequest_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *signalingDataRequestServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, SignalingDataRequestService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *signalingDataRequestServiceClient) GetGroup(ctx context.Context, in *GetGroupRequest, opts ...grpc.CallOption) (*GetGroupResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetGroupResponse)
+	err := c.cc.Invoke(ctx, SignalingDataRequestService_GetGroup_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *signalingDataRequestServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, SignalingDataRequestService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SignalingDataRequestServiceServer is the server API for SignalingDataRequestService service.
+// All implementations must embed UnimplementedSignalingDataRequestServiceServer
+// for forward compatibility.
+type SignalingDataRequestServiceServer interface {
+	NewSignalingDataRequest(context.Context, *NewSignalingDataRequestRequest) (*NewSignalingDataRequestResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetGroup(context.Context, *GetGroupRequest) (*GetGroupResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedSignalingDataRequestServiceServer()
+}
+
+// UnimplementedSignalingDataRequestServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSignalingDataRequestServiceServer struct{}
+
+func (UnimplementedSignalingDataRequestServiceServer) NewSignalingDataRequest(context.Context, *NewSignalingDataRequestRequest) (*NewSignalingDataRequestResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewSignalingDataRequest not implemented")
+}
+func (UnimplementedSignalingDataRequestServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedSignalingDataRequestServiceServer) GetGroup(context.Context, *GetGroupRequest) (*GetGroupResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetGroup not implemented")
+}
+func (UnimplementedSignalingDataRequestServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedSignalingDataRequestServiceServer) mustEmbedUnimplementedSignalingDataRequestServiceServer() {
+}
+func (UnimplementedSignalingDataRequestServiceServer) testEmbeddedByValue() {}
+
+// UnsafeSignalingDataRequestServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SignalingDataRequestServiceServer will
+// result in compilation errors.
+type UnsafeSignalingDataRequestServiceServer interface {
+	mustEmbedUnimplementedSignalingDataRequestServiceServer()
+}
+
+func RegisterSignalingDataRequestServiceServer(s grpc.ServiceRegistrar, srv SignalingDataRequestServiceServer) {
+	// If the following call panics, it indicates UnimplementedSignalingDataRequestServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SignalingDataRequestService_ServiceDesc, srv)
+}
+
+func _SignalingDataRequestService_NewSignalingDataRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewSignalingDataRequestRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SignalingDataRequestServiceServer).NewSignalingDataRequest(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SignalingDataRequestService_NewSignalingDataRequest_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SignalingDataRequestServiceServer).NewSignalingDataRequest(ctx, req.(*NewSignalingDataRequestRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SignalingDataRequestService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SignalingDataRequestServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SignalingDataRequestService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SignalingDataRequestServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SignalingDataRequestService_GetGroup_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetGroupRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SignalingDataRequestServiceServer).GetGroup(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SignalingDataRequestService_GetGroup_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SignalingDataRequestServiceServer).GetGroup(ctx, req.(*GetGroupRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SignalingDataRequestService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SignalingDataRequestServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SignalingDataRequestService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SignalingDataRequestServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SignalingDataRequestService_ServiceDesc is the grpc.ServiceDesc for SignalingDataRequestService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SignalingDataRequestService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "tv.SignalingDataRequestService",
+	HandlerType: (*SignalingDataRequestServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewSignalingDataRequest",
+			Handler:    _SignalingDataRequestService_NewSignalingDataRequest_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _SignalingDataRequestService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetGroup",
+			Handler:    _SignalingDataRequestService_GetGroup_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _SignalingDataRequestService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/tv/tv.proto",
+}
+
+const (
 	InputManagerService_GetInputState_FullMethodName             = "/tv.InputManagerService/GetInputState"
 	InputManagerService_GetTvInputInfo_FullMethodName            = "/tv.InputManagerService/GetTvInputInfo"
 	InputManagerService_IsParentalControlsEnabled_FullMethodName = "/tv.InputManagerService/IsParentalControlsEnabled"
@@ -306,6 +14708,4810 @@ var InputManagerService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UpdateTvInputInfo",
 			Handler:    _InputManagerService_UpdateTvInputInfo_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/tv/tv.proto",
+}
+
+const (
+	InputManagerTvInputCallbackService_OnInputAdded_FullMethodName         = "/tv.InputManagerTvInputCallbackService/OnInputAdded"
+	InputManagerTvInputCallbackService_OnInputRemoved_FullMethodName       = "/tv.InputManagerTvInputCallbackService/OnInputRemoved"
+	InputManagerTvInputCallbackService_OnInputStateChanged_FullMethodName  = "/tv.InputManagerTvInputCallbackService/OnInputStateChanged"
+	InputManagerTvInputCallbackService_OnInputUpdated_FullMethodName       = "/tv.InputManagerTvInputCallbackService/OnInputUpdated"
+	InputManagerTvInputCallbackService_OnTvInputInfoUpdated_FullMethodName = "/tv.InputManagerTvInputCallbackService/OnTvInputInfoUpdated"
+)
+
+// InputManagerTvInputCallbackServiceClient is the client API for InputManagerTvInputCallbackService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type InputManagerTvInputCallbackServiceClient interface {
+	OnInputAdded(ctx context.Context, in *OnInputAddedRequest, opts ...grpc.CallOption) (*OnInputAddedResponse, error)
+	OnInputRemoved(ctx context.Context, in *OnInputRemovedRequest, opts ...grpc.CallOption) (*OnInputRemovedResponse, error)
+	OnInputStateChanged(ctx context.Context, in *OnInputStateChangedRequest, opts ...grpc.CallOption) (*OnInputStateChangedResponse, error)
+	OnInputUpdated(ctx context.Context, in *OnInputUpdatedRequest, opts ...grpc.CallOption) (*OnInputUpdatedResponse, error)
+	OnTvInputInfoUpdated(ctx context.Context, in *OnTvInputInfoUpdatedRequest, opts ...grpc.CallOption) (*OnTvInputInfoUpdatedResponse, error)
+}
+
+type inputManagerTvInputCallbackServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewInputManagerTvInputCallbackServiceClient(cc grpc.ClientConnInterface) InputManagerTvInputCallbackServiceClient {
+	return &inputManagerTvInputCallbackServiceClient{cc}
+}
+
+func (c *inputManagerTvInputCallbackServiceClient) OnInputAdded(ctx context.Context, in *OnInputAddedRequest, opts ...grpc.CallOption) (*OnInputAddedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnInputAddedResponse)
+	err := c.cc.Invoke(ctx, InputManagerTvInputCallbackService_OnInputAdded_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputManagerTvInputCallbackServiceClient) OnInputRemoved(ctx context.Context, in *OnInputRemovedRequest, opts ...grpc.CallOption) (*OnInputRemovedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnInputRemovedResponse)
+	err := c.cc.Invoke(ctx, InputManagerTvInputCallbackService_OnInputRemoved_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputManagerTvInputCallbackServiceClient) OnInputStateChanged(ctx context.Context, in *OnInputStateChangedRequest, opts ...grpc.CallOption) (*OnInputStateChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnInputStateChangedResponse)
+	err := c.cc.Invoke(ctx, InputManagerTvInputCallbackService_OnInputStateChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputManagerTvInputCallbackServiceClient) OnInputUpdated(ctx context.Context, in *OnInputUpdatedRequest, opts ...grpc.CallOption) (*OnInputUpdatedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnInputUpdatedResponse)
+	err := c.cc.Invoke(ctx, InputManagerTvInputCallbackService_OnInputUpdated_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inputManagerTvInputCallbackServiceClient) OnTvInputInfoUpdated(ctx context.Context, in *OnTvInputInfoUpdatedRequest, opts ...grpc.CallOption) (*OnTvInputInfoUpdatedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnTvInputInfoUpdatedResponse)
+	err := c.cc.Invoke(ctx, InputManagerTvInputCallbackService_OnTvInputInfoUpdated_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// InputManagerTvInputCallbackServiceServer is the server API for InputManagerTvInputCallbackService service.
+// All implementations must embed UnimplementedInputManagerTvInputCallbackServiceServer
+// for forward compatibility.
+type InputManagerTvInputCallbackServiceServer interface {
+	OnInputAdded(context.Context, *OnInputAddedRequest) (*OnInputAddedResponse, error)
+	OnInputRemoved(context.Context, *OnInputRemovedRequest) (*OnInputRemovedResponse, error)
+	OnInputStateChanged(context.Context, *OnInputStateChangedRequest) (*OnInputStateChangedResponse, error)
+	OnInputUpdated(context.Context, *OnInputUpdatedRequest) (*OnInputUpdatedResponse, error)
+	OnTvInputInfoUpdated(context.Context, *OnTvInputInfoUpdatedRequest) (*OnTvInputInfoUpdatedResponse, error)
+	mustEmbedUnimplementedInputManagerTvInputCallbackServiceServer()
+}
+
+// UnimplementedInputManagerTvInputCallbackServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedInputManagerTvInputCallbackServiceServer struct{}
+
+func (UnimplementedInputManagerTvInputCallbackServiceServer) OnInputAdded(context.Context, *OnInputAddedRequest) (*OnInputAddedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnInputAdded not implemented")
+}
+func (UnimplementedInputManagerTvInputCallbackServiceServer) OnInputRemoved(context.Context, *OnInputRemovedRequest) (*OnInputRemovedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnInputRemoved not implemented")
+}
+func (UnimplementedInputManagerTvInputCallbackServiceServer) OnInputStateChanged(context.Context, *OnInputStateChangedRequest) (*OnInputStateChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnInputStateChanged not implemented")
+}
+func (UnimplementedInputManagerTvInputCallbackServiceServer) OnInputUpdated(context.Context, *OnInputUpdatedRequest) (*OnInputUpdatedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnInputUpdated not implemented")
+}
+func (UnimplementedInputManagerTvInputCallbackServiceServer) OnTvInputInfoUpdated(context.Context, *OnTvInputInfoUpdatedRequest) (*OnTvInputInfoUpdatedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnTvInputInfoUpdated not implemented")
+}
+func (UnimplementedInputManagerTvInputCallbackServiceServer) mustEmbedUnimplementedInputManagerTvInputCallbackServiceServer() {
+}
+func (UnimplementedInputManagerTvInputCallbackServiceServer) testEmbeddedByValue() {}
+
+// UnsafeInputManagerTvInputCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to InputManagerTvInputCallbackServiceServer will
+// result in compilation errors.
+type UnsafeInputManagerTvInputCallbackServiceServer interface {
+	mustEmbedUnimplementedInputManagerTvInputCallbackServiceServer()
+}
+
+func RegisterInputManagerTvInputCallbackServiceServer(s grpc.ServiceRegistrar, srv InputManagerTvInputCallbackServiceServer) {
+	// If the following call panics, it indicates UnimplementedInputManagerTvInputCallbackServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&InputManagerTvInputCallbackService_ServiceDesc, srv)
+}
+
+func _InputManagerTvInputCallbackService_OnInputAdded_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnInputAddedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputManagerTvInputCallbackServiceServer).OnInputAdded(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputManagerTvInputCallbackService_OnInputAdded_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputManagerTvInputCallbackServiceServer).OnInputAdded(ctx, req.(*OnInputAddedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputManagerTvInputCallbackService_OnInputRemoved_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnInputRemovedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputManagerTvInputCallbackServiceServer).OnInputRemoved(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputManagerTvInputCallbackService_OnInputRemoved_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputManagerTvInputCallbackServiceServer).OnInputRemoved(ctx, req.(*OnInputRemovedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputManagerTvInputCallbackService_OnInputStateChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnInputStateChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputManagerTvInputCallbackServiceServer).OnInputStateChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputManagerTvInputCallbackService_OnInputStateChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputManagerTvInputCallbackServiceServer).OnInputStateChanged(ctx, req.(*OnInputStateChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputManagerTvInputCallbackService_OnInputUpdated_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnInputUpdatedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputManagerTvInputCallbackServiceServer).OnInputUpdated(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputManagerTvInputCallbackService_OnInputUpdated_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputManagerTvInputCallbackServiceServer).OnInputUpdated(ctx, req.(*OnInputUpdatedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InputManagerTvInputCallbackService_OnTvInputInfoUpdated_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnTvInputInfoUpdatedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InputManagerTvInputCallbackServiceServer).OnTvInputInfoUpdated(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InputManagerTvInputCallbackService_OnTvInputInfoUpdated_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InputManagerTvInputCallbackServiceServer).OnTvInputInfoUpdated(ctx, req.(*OnTvInputInfoUpdatedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// InputManagerTvInputCallbackService_ServiceDesc is the grpc.ServiceDesc for InputManagerTvInputCallbackService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var InputManagerTvInputCallbackService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "tv.InputManagerTvInputCallbackService",
+	HandlerType: (*InputManagerTvInputCallbackServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnInputAdded",
+			Handler:    _InputManagerTvInputCallbackService_OnInputAdded_Handler,
+		},
+		{
+			MethodName: "OnInputRemoved",
+			Handler:    _InputManagerTvInputCallbackService_OnInputRemoved_Handler,
+		},
+		{
+			MethodName: "OnInputStateChanged",
+			Handler:    _InputManagerTvInputCallbackService_OnInputStateChanged_Handler,
+		},
+		{
+			MethodName: "OnInputUpdated",
+			Handler:    _InputManagerTvInputCallbackService_OnInputUpdated_Handler,
+		},
+		{
+			MethodName: "OnTvInputInfoUpdated",
+			Handler:    _InputManagerTvInputCallbackService_OnTvInputInfoUpdated_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/tv/tv.proto",
+}
+
+const (
+	CommandResponseService_NewCommandResponse_FullMethodName = "/tv.CommandResponseService/NewCommandResponse"
+	CommandResponseService_DescribeContents_FullMethodName   = "/tv.CommandResponseService/DescribeContents"
+	CommandResponseService_GetResponse_FullMethodName        = "/tv.CommandResponseService/GetResponse"
+	CommandResponseService_GetResponseType_FullMethodName    = "/tv.CommandResponseService/GetResponseType"
+	CommandResponseService_WriteToParcel_FullMethodName      = "/tv.CommandResponseService/WriteToParcel"
+)
+
+// CommandResponseServiceClient is the client API for CommandResponseService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type CommandResponseServiceClient interface {
+	NewCommandResponse(ctx context.Context, in *NewCommandResponseRequest, opts ...grpc.CallOption) (*NewCommandResponseResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetResponse(ctx context.Context, in *GetResponseRequest, opts ...grpc.CallOption) (*GetResponseResponse, error)
+	GetResponseType(ctx context.Context, in *GetResponseTypeRequest, opts ...grpc.CallOption) (*CommandResponseGetResponseTypeResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type commandResponseServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewCommandResponseServiceClient(cc grpc.ClientConnInterface) CommandResponseServiceClient {
+	return &commandResponseServiceClient{cc}
+}
+
+func (c *commandResponseServiceClient) NewCommandResponse(ctx context.Context, in *NewCommandResponseRequest, opts ...grpc.CallOption) (*NewCommandResponseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewCommandResponseResponse)
+	err := c.cc.Invoke(ctx, CommandResponseService_NewCommandResponse_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *commandResponseServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, CommandResponseService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *commandResponseServiceClient) GetResponse(ctx context.Context, in *GetResponseRequest, opts ...grpc.CallOption) (*GetResponseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetResponseResponse)
+	err := c.cc.Invoke(ctx, CommandResponseService_GetResponse_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *commandResponseServiceClient) GetResponseType(ctx context.Context, in *GetResponseTypeRequest, opts ...grpc.CallOption) (*CommandResponseGetResponseTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CommandResponseGetResponseTypeResponse)
+	err := c.cc.Invoke(ctx, CommandResponseService_GetResponseType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *commandResponseServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, CommandResponseService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// CommandResponseServiceServer is the server API for CommandResponseService service.
+// All implementations must embed UnimplementedCommandResponseServiceServer
+// for forward compatibility.
+type CommandResponseServiceServer interface {
+	NewCommandResponse(context.Context, *NewCommandResponseRequest) (*NewCommandResponseResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetResponse(context.Context, *GetResponseRequest) (*GetResponseResponse, error)
+	GetResponseType(context.Context, *GetResponseTypeRequest) (*CommandResponseGetResponseTypeResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedCommandResponseServiceServer()
+}
+
+// UnimplementedCommandResponseServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedCommandResponseServiceServer struct{}
+
+func (UnimplementedCommandResponseServiceServer) NewCommandResponse(context.Context, *NewCommandResponseRequest) (*NewCommandResponseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewCommandResponse not implemented")
+}
+func (UnimplementedCommandResponseServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedCommandResponseServiceServer) GetResponse(context.Context, *GetResponseRequest) (*GetResponseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetResponse not implemented")
+}
+func (UnimplementedCommandResponseServiceServer) GetResponseType(context.Context, *GetResponseTypeRequest) (*CommandResponseGetResponseTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetResponseType not implemented")
+}
+func (UnimplementedCommandResponseServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedCommandResponseServiceServer) mustEmbedUnimplementedCommandResponseServiceServer() {
+}
+func (UnimplementedCommandResponseServiceServer) testEmbeddedByValue() {}
+
+// UnsafeCommandResponseServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CommandResponseServiceServer will
+// result in compilation errors.
+type UnsafeCommandResponseServiceServer interface {
+	mustEmbedUnimplementedCommandResponseServiceServer()
+}
+
+func RegisterCommandResponseServiceServer(s grpc.ServiceRegistrar, srv CommandResponseServiceServer) {
+	// If the following call panics, it indicates UnimplementedCommandResponseServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&CommandResponseService_ServiceDesc, srv)
+}
+
+func _CommandResponseService_NewCommandResponse_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewCommandResponseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CommandResponseServiceServer).NewCommandResponse(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CommandResponseService_NewCommandResponse_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CommandResponseServiceServer).NewCommandResponse(ctx, req.(*NewCommandResponseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CommandResponseService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CommandResponseServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CommandResponseService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CommandResponseServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CommandResponseService_GetResponse_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetResponseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CommandResponseServiceServer).GetResponse(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CommandResponseService_GetResponse_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CommandResponseServiceServer).GetResponse(ctx, req.(*GetResponseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CommandResponseService_GetResponseType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetResponseTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CommandResponseServiceServer).GetResponseType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CommandResponseService_GetResponseType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CommandResponseServiceServer).GetResponseType(ctx, req.(*GetResponseTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CommandResponseService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CommandResponseServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CommandResponseService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CommandResponseServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// CommandResponseService_ServiceDesc is the grpc.ServiceDesc for CommandResponseService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var CommandResponseService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "tv.CommandResponseService",
+	HandlerType: (*CommandResponseServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewCommandResponse",
+			Handler:    _CommandResponseService_NewCommandResponse_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _CommandResponseService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetResponse",
+			Handler:    _CommandResponseService_GetResponse_Handler,
+		},
+		{
+			MethodName: "GetResponseType",
+			Handler:    _CommandResponseService_GetResponseType_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _CommandResponseService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/tv/tv.proto",
+}
+
+const (
+	TsResponseService_NewTsResponse_FullMethodName        = "/tv.TsResponseService/NewTsResponse"
+	TsResponseService_DescribeContents_FullMethodName     = "/tv.TsResponseService/DescribeContents"
+	TsResponseService_GetSharedFilterToken_FullMethodName = "/tv.TsResponseService/GetSharedFilterToken"
+	TsResponseService_WriteToParcel_FullMethodName        = "/tv.TsResponseService/WriteToParcel"
+)
+
+// TsResponseServiceClient is the client API for TsResponseService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TsResponseServiceClient interface {
+	NewTsResponse(ctx context.Context, in *NewTsResponseRequest, opts ...grpc.CallOption) (*NewTsResponseResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetSharedFilterToken(ctx context.Context, in *GetSharedFilterTokenRequest, opts ...grpc.CallOption) (*GetSharedFilterTokenResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type tsResponseServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTsResponseServiceClient(cc grpc.ClientConnInterface) TsResponseServiceClient {
+	return &tsResponseServiceClient{cc}
+}
+
+func (c *tsResponseServiceClient) NewTsResponse(ctx context.Context, in *NewTsResponseRequest, opts ...grpc.CallOption) (*NewTsResponseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewTsResponseResponse)
+	err := c.cc.Invoke(ctx, TsResponseService_NewTsResponse_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tsResponseServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, TsResponseService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tsResponseServiceClient) GetSharedFilterToken(ctx context.Context, in *GetSharedFilterTokenRequest, opts ...grpc.CallOption) (*GetSharedFilterTokenResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSharedFilterTokenResponse)
+	err := c.cc.Invoke(ctx, TsResponseService_GetSharedFilterToken_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tsResponseServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, TsResponseService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TsResponseServiceServer is the server API for TsResponseService service.
+// All implementations must embed UnimplementedTsResponseServiceServer
+// for forward compatibility.
+type TsResponseServiceServer interface {
+	NewTsResponse(context.Context, *NewTsResponseRequest) (*NewTsResponseResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetSharedFilterToken(context.Context, *GetSharedFilterTokenRequest) (*GetSharedFilterTokenResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedTsResponseServiceServer()
+}
+
+// UnimplementedTsResponseServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTsResponseServiceServer struct{}
+
+func (UnimplementedTsResponseServiceServer) NewTsResponse(context.Context, *NewTsResponseRequest) (*NewTsResponseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewTsResponse not implemented")
+}
+func (UnimplementedTsResponseServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedTsResponseServiceServer) GetSharedFilterToken(context.Context, *GetSharedFilterTokenRequest) (*GetSharedFilterTokenResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSharedFilterToken not implemented")
+}
+func (UnimplementedTsResponseServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedTsResponseServiceServer) mustEmbedUnimplementedTsResponseServiceServer() {}
+func (UnimplementedTsResponseServiceServer) testEmbeddedByValue()                           {}
+
+// UnsafeTsResponseServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TsResponseServiceServer will
+// result in compilation errors.
+type UnsafeTsResponseServiceServer interface {
+	mustEmbedUnimplementedTsResponseServiceServer()
+}
+
+func RegisterTsResponseServiceServer(s grpc.ServiceRegistrar, srv TsResponseServiceServer) {
+	// If the following call panics, it indicates UnimplementedTsResponseServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TsResponseService_ServiceDesc, srv)
+}
+
+func _TsResponseService_NewTsResponse_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewTsResponseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TsResponseServiceServer).NewTsResponse(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TsResponseService_NewTsResponse_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TsResponseServiceServer).NewTsResponse(ctx, req.(*NewTsResponseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TsResponseService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TsResponseServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TsResponseService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TsResponseServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TsResponseService_GetSharedFilterToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSharedFilterTokenRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TsResponseServiceServer).GetSharedFilterToken(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TsResponseService_GetSharedFilterToken_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TsResponseServiceServer).GetSharedFilterToken(ctx, req.(*GetSharedFilterTokenRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TsResponseService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TsResponseServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TsResponseService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TsResponseServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TsResponseService_ServiceDesc is the grpc.ServiceDesc for TsResponseService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TsResponseService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "tv.TsResponseService",
+	HandlerType: (*TsResponseServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewTsResponse",
+			Handler:    _TsResponseService_NewTsResponse_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _TsResponseService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetSharedFilterToken",
+			Handler:    _TsResponseService_GetSharedFilterToken_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _TsResponseService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/tv/tv.proto",
+}
+
+const (
+	StreamEventRequestService_NewStreamEventRequest_FullMethodName = "/tv.StreamEventRequestService/NewStreamEventRequest"
+	StreamEventRequestService_DescribeContents_FullMethodName      = "/tv.StreamEventRequestService/DescribeContents"
+	StreamEventRequestService_GetEventName_FullMethodName          = "/tv.StreamEventRequestService/GetEventName"
+	StreamEventRequestService_GetTargetUri_FullMethodName          = "/tv.StreamEventRequestService/GetTargetUri"
+	StreamEventRequestService_WriteToParcel_FullMethodName         = "/tv.StreamEventRequestService/WriteToParcel"
+)
+
+// StreamEventRequestServiceClient is the client API for StreamEventRequestService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type StreamEventRequestServiceClient interface {
+	NewStreamEventRequest(ctx context.Context, in *NewStreamEventRequestRequest, opts ...grpc.CallOption) (*NewStreamEventRequestResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetEventName(ctx context.Context, in *GetEventNameRequest, opts ...grpc.CallOption) (*GetEventNameResponse, error)
+	GetTargetUri(ctx context.Context, in *GetTargetUriRequest, opts ...grpc.CallOption) (*GetTargetUriResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type streamEventRequestServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewStreamEventRequestServiceClient(cc grpc.ClientConnInterface) StreamEventRequestServiceClient {
+	return &streamEventRequestServiceClient{cc}
+}
+
+func (c *streamEventRequestServiceClient) NewStreamEventRequest(ctx context.Context, in *NewStreamEventRequestRequest, opts ...grpc.CallOption) (*NewStreamEventRequestResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewStreamEventRequestResponse)
+	err := c.cc.Invoke(ctx, StreamEventRequestService_NewStreamEventRequest_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *streamEventRequestServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, StreamEventRequestService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *streamEventRequestServiceClient) GetEventName(ctx context.Context, in *GetEventNameRequest, opts ...grpc.CallOption) (*GetEventNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEventNameResponse)
+	err := c.cc.Invoke(ctx, StreamEventRequestService_GetEventName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *streamEventRequestServiceClient) GetTargetUri(ctx context.Context, in *GetTargetUriRequest, opts ...grpc.CallOption) (*GetTargetUriResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTargetUriResponse)
+	err := c.cc.Invoke(ctx, StreamEventRequestService_GetTargetUri_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *streamEventRequestServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, StreamEventRequestService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// StreamEventRequestServiceServer is the server API for StreamEventRequestService service.
+// All implementations must embed UnimplementedStreamEventRequestServiceServer
+// for forward compatibility.
+type StreamEventRequestServiceServer interface {
+	NewStreamEventRequest(context.Context, *NewStreamEventRequestRequest) (*NewStreamEventRequestResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetEventName(context.Context, *GetEventNameRequest) (*GetEventNameResponse, error)
+	GetTargetUri(context.Context, *GetTargetUriRequest) (*GetTargetUriResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedStreamEventRequestServiceServer()
+}
+
+// UnimplementedStreamEventRequestServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedStreamEventRequestServiceServer struct{}
+
+func (UnimplementedStreamEventRequestServiceServer) NewStreamEventRequest(context.Context, *NewStreamEventRequestRequest) (*NewStreamEventRequestResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewStreamEventRequest not implemented")
+}
+func (UnimplementedStreamEventRequestServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedStreamEventRequestServiceServer) GetEventName(context.Context, *GetEventNameRequest) (*GetEventNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEventName not implemented")
+}
+func (UnimplementedStreamEventRequestServiceServer) GetTargetUri(context.Context, *GetTargetUriRequest) (*GetTargetUriResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTargetUri not implemented")
+}
+func (UnimplementedStreamEventRequestServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedStreamEventRequestServiceServer) mustEmbedUnimplementedStreamEventRequestServiceServer() {
+}
+func (UnimplementedStreamEventRequestServiceServer) testEmbeddedByValue() {}
+
+// UnsafeStreamEventRequestServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to StreamEventRequestServiceServer will
+// result in compilation errors.
+type UnsafeStreamEventRequestServiceServer interface {
+	mustEmbedUnimplementedStreamEventRequestServiceServer()
+}
+
+func RegisterStreamEventRequestServiceServer(s grpc.ServiceRegistrar, srv StreamEventRequestServiceServer) {
+	// If the following call panics, it indicates UnimplementedStreamEventRequestServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&StreamEventRequestService_ServiceDesc, srv)
+}
+
+func _StreamEventRequestService_NewStreamEventRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewStreamEventRequestRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StreamEventRequestServiceServer).NewStreamEventRequest(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StreamEventRequestService_NewStreamEventRequest_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StreamEventRequestServiceServer).NewStreamEventRequest(ctx, req.(*NewStreamEventRequestRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StreamEventRequestService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StreamEventRequestServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StreamEventRequestService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StreamEventRequestServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StreamEventRequestService_GetEventName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEventNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StreamEventRequestServiceServer).GetEventName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StreamEventRequestService_GetEventName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StreamEventRequestServiceServer).GetEventName(ctx, req.(*GetEventNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StreamEventRequestService_GetTargetUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTargetUriRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StreamEventRequestServiceServer).GetTargetUri(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StreamEventRequestService_GetTargetUri_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StreamEventRequestServiceServer).GetTargetUri(ctx, req.(*GetTargetUriRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StreamEventRequestService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StreamEventRequestServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StreamEventRequestService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StreamEventRequestServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// StreamEventRequestService_ServiceDesc is the grpc.ServiceDesc for StreamEventRequestService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var StreamEventRequestService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "tv.StreamEventRequestService",
+	HandlerType: (*StreamEventRequestServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewStreamEventRequest",
+			Handler:    _StreamEventRequestService_NewStreamEventRequest_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _StreamEventRequestService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetEventName",
+			Handler:    _StreamEventRequestService_GetEventName_Handler,
+		},
+		{
+			MethodName: "GetTargetUri",
+			Handler:    _StreamEventRequestService_GetTargetUri_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _StreamEventRequestService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/tv/tv.proto",
+}
+
+const (
+	SignalingDataInfoService_NewSignalingDataInfo_FullMethodName = "/tv.SignalingDataInfoService/NewSignalingDataInfo"
+	SignalingDataInfoService_DescribeContents_FullMethodName     = "/tv.SignalingDataInfoService/DescribeContents"
+	SignalingDataInfoService_GetEncoding_FullMethodName          = "/tv.SignalingDataInfoService/GetEncoding"
+	SignalingDataInfoService_GetGroup_FullMethodName             = "/tv.SignalingDataInfoService/GetGroup"
+	SignalingDataInfoService_GetSignalingDataType_FullMethodName = "/tv.SignalingDataInfoService/GetSignalingDataType"
+	SignalingDataInfoService_GetTable_FullMethodName             = "/tv.SignalingDataInfoService/GetTable"
+	SignalingDataInfoService_GetVersion_FullMethodName           = "/tv.SignalingDataInfoService/GetVersion"
+	SignalingDataInfoService_WriteToParcel_FullMethodName        = "/tv.SignalingDataInfoService/WriteToParcel"
+)
+
+// SignalingDataInfoServiceClient is the client API for SignalingDataInfoService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SignalingDataInfoServiceClient interface {
+	NewSignalingDataInfo(ctx context.Context, in *NewSignalingDataInfoRequest, opts ...grpc.CallOption) (*NewSignalingDataInfoResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetEncoding(ctx context.Context, in *GetEncodingRequest, opts ...grpc.CallOption) (*GetEncodingResponse, error)
+	GetGroup(ctx context.Context, in *GetGroupRequest, opts ...grpc.CallOption) (*GetGroupResponse, error)
+	GetSignalingDataType(ctx context.Context, in *GetSignalingDataTypeRequest, opts ...grpc.CallOption) (*GetSignalingDataTypeResponse, error)
+	GetTable(ctx context.Context, in *GetTableRequest, opts ...grpc.CallOption) (*GetTableResponse, error)
+	GetVersion(ctx context.Context, in *GetVersionRequest, opts ...grpc.CallOption) (*GetVersionResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type signalingDataInfoServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSignalingDataInfoServiceClient(cc grpc.ClientConnInterface) SignalingDataInfoServiceClient {
+	return &signalingDataInfoServiceClient{cc}
+}
+
+func (c *signalingDataInfoServiceClient) NewSignalingDataInfo(ctx context.Context, in *NewSignalingDataInfoRequest, opts ...grpc.CallOption) (*NewSignalingDataInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewSignalingDataInfoResponse)
+	err := c.cc.Invoke(ctx, SignalingDataInfoService_NewSignalingDataInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *signalingDataInfoServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, SignalingDataInfoService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *signalingDataInfoServiceClient) GetEncoding(ctx context.Context, in *GetEncodingRequest, opts ...grpc.CallOption) (*GetEncodingResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEncodingResponse)
+	err := c.cc.Invoke(ctx, SignalingDataInfoService_GetEncoding_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *signalingDataInfoServiceClient) GetGroup(ctx context.Context, in *GetGroupRequest, opts ...grpc.CallOption) (*GetGroupResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetGroupResponse)
+	err := c.cc.Invoke(ctx, SignalingDataInfoService_GetGroup_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *signalingDataInfoServiceClient) GetSignalingDataType(ctx context.Context, in *GetSignalingDataTypeRequest, opts ...grpc.CallOption) (*GetSignalingDataTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSignalingDataTypeResponse)
+	err := c.cc.Invoke(ctx, SignalingDataInfoService_GetSignalingDataType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *signalingDataInfoServiceClient) GetTable(ctx context.Context, in *GetTableRequest, opts ...grpc.CallOption) (*GetTableResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTableResponse)
+	err := c.cc.Invoke(ctx, SignalingDataInfoService_GetTable_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *signalingDataInfoServiceClient) GetVersion(ctx context.Context, in *GetVersionRequest, opts ...grpc.CallOption) (*GetVersionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetVersionResponse)
+	err := c.cc.Invoke(ctx, SignalingDataInfoService_GetVersion_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *signalingDataInfoServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, SignalingDataInfoService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SignalingDataInfoServiceServer is the server API for SignalingDataInfoService service.
+// All implementations must embed UnimplementedSignalingDataInfoServiceServer
+// for forward compatibility.
+type SignalingDataInfoServiceServer interface {
+	NewSignalingDataInfo(context.Context, *NewSignalingDataInfoRequest) (*NewSignalingDataInfoResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetEncoding(context.Context, *GetEncodingRequest) (*GetEncodingResponse, error)
+	GetGroup(context.Context, *GetGroupRequest) (*GetGroupResponse, error)
+	GetSignalingDataType(context.Context, *GetSignalingDataTypeRequest) (*GetSignalingDataTypeResponse, error)
+	GetTable(context.Context, *GetTableRequest) (*GetTableResponse, error)
+	GetVersion(context.Context, *GetVersionRequest) (*GetVersionResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedSignalingDataInfoServiceServer()
+}
+
+// UnimplementedSignalingDataInfoServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSignalingDataInfoServiceServer struct{}
+
+func (UnimplementedSignalingDataInfoServiceServer) NewSignalingDataInfo(context.Context, *NewSignalingDataInfoRequest) (*NewSignalingDataInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewSignalingDataInfo not implemented")
+}
+func (UnimplementedSignalingDataInfoServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedSignalingDataInfoServiceServer) GetEncoding(context.Context, *GetEncodingRequest) (*GetEncodingResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEncoding not implemented")
+}
+func (UnimplementedSignalingDataInfoServiceServer) GetGroup(context.Context, *GetGroupRequest) (*GetGroupResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetGroup not implemented")
+}
+func (UnimplementedSignalingDataInfoServiceServer) GetSignalingDataType(context.Context, *GetSignalingDataTypeRequest) (*GetSignalingDataTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSignalingDataType not implemented")
+}
+func (UnimplementedSignalingDataInfoServiceServer) GetTable(context.Context, *GetTableRequest) (*GetTableResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTable not implemented")
+}
+func (UnimplementedSignalingDataInfoServiceServer) GetVersion(context.Context, *GetVersionRequest) (*GetVersionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetVersion not implemented")
+}
+func (UnimplementedSignalingDataInfoServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedSignalingDataInfoServiceServer) mustEmbedUnimplementedSignalingDataInfoServiceServer() {
+}
+func (UnimplementedSignalingDataInfoServiceServer) testEmbeddedByValue() {}
+
+// UnsafeSignalingDataInfoServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SignalingDataInfoServiceServer will
+// result in compilation errors.
+type UnsafeSignalingDataInfoServiceServer interface {
+	mustEmbedUnimplementedSignalingDataInfoServiceServer()
+}
+
+func RegisterSignalingDataInfoServiceServer(s grpc.ServiceRegistrar, srv SignalingDataInfoServiceServer) {
+	// If the following call panics, it indicates UnimplementedSignalingDataInfoServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SignalingDataInfoService_ServiceDesc, srv)
+}
+
+func _SignalingDataInfoService_NewSignalingDataInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewSignalingDataInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SignalingDataInfoServiceServer).NewSignalingDataInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SignalingDataInfoService_NewSignalingDataInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SignalingDataInfoServiceServer).NewSignalingDataInfo(ctx, req.(*NewSignalingDataInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SignalingDataInfoService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SignalingDataInfoServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SignalingDataInfoService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SignalingDataInfoServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SignalingDataInfoService_GetEncoding_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEncodingRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SignalingDataInfoServiceServer).GetEncoding(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SignalingDataInfoService_GetEncoding_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SignalingDataInfoServiceServer).GetEncoding(ctx, req.(*GetEncodingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SignalingDataInfoService_GetGroup_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetGroupRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SignalingDataInfoServiceServer).GetGroup(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SignalingDataInfoService_GetGroup_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SignalingDataInfoServiceServer).GetGroup(ctx, req.(*GetGroupRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SignalingDataInfoService_GetSignalingDataType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSignalingDataTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SignalingDataInfoServiceServer).GetSignalingDataType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SignalingDataInfoService_GetSignalingDataType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SignalingDataInfoServiceServer).GetSignalingDataType(ctx, req.(*GetSignalingDataTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SignalingDataInfoService_GetTable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTableRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SignalingDataInfoServiceServer).GetTable(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SignalingDataInfoService_GetTable_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SignalingDataInfoServiceServer).GetTable(ctx, req.(*GetTableRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SignalingDataInfoService_GetVersion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetVersionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SignalingDataInfoServiceServer).GetVersion(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SignalingDataInfoService_GetVersion_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SignalingDataInfoServiceServer).GetVersion(ctx, req.(*GetVersionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SignalingDataInfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SignalingDataInfoServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SignalingDataInfoService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SignalingDataInfoServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SignalingDataInfoService_ServiceDesc is the grpc.ServiceDesc for SignalingDataInfoService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SignalingDataInfoService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "tv.SignalingDataInfoService",
+	HandlerType: (*SignalingDataInfoServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewSignalingDataInfo",
+			Handler:    _SignalingDataInfoService_NewSignalingDataInfo_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _SignalingDataInfoService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetEncoding",
+			Handler:    _SignalingDataInfoService_GetEncoding_Handler,
+		},
+		{
+			MethodName: "GetGroup",
+			Handler:    _SignalingDataInfoService_GetGroup_Handler,
+		},
+		{
+			MethodName: "GetSignalingDataType",
+			Handler:    _SignalingDataInfoService_GetSignalingDataType_Handler,
+		},
+		{
+			MethodName: "GetTable",
+			Handler:    _SignalingDataInfoService_GetTable_Handler,
+		},
+		{
+			MethodName: "GetVersion",
+			Handler:    _SignalingDataInfoService_GetVersion_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _SignalingDataInfoService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/tv/tv.proto",
+}
+
+const (
+	TimelineResponseService_NewTimelineResponse_FullMethodName = "/tv.TimelineResponseService/NewTimelineResponse"
+	TimelineResponseService_DescribeContents_FullMethodName    = "/tv.TimelineResponseService/DescribeContents"
+	TimelineResponseService_GetSelector_FullMethodName         = "/tv.TimelineResponseService/GetSelector"
+	TimelineResponseService_GetTicks_FullMethodName            = "/tv.TimelineResponseService/GetTicks"
+	TimelineResponseService_GetUnitsPerSecond_FullMethodName   = "/tv.TimelineResponseService/GetUnitsPerSecond"
+	TimelineResponseService_GetUnitsPerTick_FullMethodName     = "/tv.TimelineResponseService/GetUnitsPerTick"
+	TimelineResponseService_GetWallClock_FullMethodName        = "/tv.TimelineResponseService/GetWallClock"
+	TimelineResponseService_WriteToParcel_FullMethodName       = "/tv.TimelineResponseService/WriteToParcel"
+)
+
+// TimelineResponseServiceClient is the client API for TimelineResponseService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TimelineResponseServiceClient interface {
+	NewTimelineResponse(ctx context.Context, in *NewTimelineResponseRequest, opts ...grpc.CallOption) (*NewTimelineResponseResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetSelector(ctx context.Context, in *GetSelectorRequest, opts ...grpc.CallOption) (*TimelineResponseGetSelectorResponse, error)
+	GetTicks(ctx context.Context, in *GetTicksRequest, opts ...grpc.CallOption) (*GetTicksResponse, error)
+	GetUnitsPerSecond(ctx context.Context, in *GetUnitsPerSecondRequest, opts ...grpc.CallOption) (*GetUnitsPerSecondResponse, error)
+	GetUnitsPerTick(ctx context.Context, in *GetUnitsPerTickRequest, opts ...grpc.CallOption) (*GetUnitsPerTickResponse, error)
+	GetWallClock(ctx context.Context, in *GetWallClockRequest, opts ...grpc.CallOption) (*GetWallClockResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type timelineResponseServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTimelineResponseServiceClient(cc grpc.ClientConnInterface) TimelineResponseServiceClient {
+	return &timelineResponseServiceClient{cc}
+}
+
+func (c *timelineResponseServiceClient) NewTimelineResponse(ctx context.Context, in *NewTimelineResponseRequest, opts ...grpc.CallOption) (*NewTimelineResponseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewTimelineResponseResponse)
+	err := c.cc.Invoke(ctx, TimelineResponseService_NewTimelineResponse_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *timelineResponseServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, TimelineResponseService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *timelineResponseServiceClient) GetSelector(ctx context.Context, in *GetSelectorRequest, opts ...grpc.CallOption) (*TimelineResponseGetSelectorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(TimelineResponseGetSelectorResponse)
+	err := c.cc.Invoke(ctx, TimelineResponseService_GetSelector_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *timelineResponseServiceClient) GetTicks(ctx context.Context, in *GetTicksRequest, opts ...grpc.CallOption) (*GetTicksResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTicksResponse)
+	err := c.cc.Invoke(ctx, TimelineResponseService_GetTicks_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *timelineResponseServiceClient) GetUnitsPerSecond(ctx context.Context, in *GetUnitsPerSecondRequest, opts ...grpc.CallOption) (*GetUnitsPerSecondResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetUnitsPerSecondResponse)
+	err := c.cc.Invoke(ctx, TimelineResponseService_GetUnitsPerSecond_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *timelineResponseServiceClient) GetUnitsPerTick(ctx context.Context, in *GetUnitsPerTickRequest, opts ...grpc.CallOption) (*GetUnitsPerTickResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetUnitsPerTickResponse)
+	err := c.cc.Invoke(ctx, TimelineResponseService_GetUnitsPerTick_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *timelineResponseServiceClient) GetWallClock(ctx context.Context, in *GetWallClockRequest, opts ...grpc.CallOption) (*GetWallClockResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetWallClockResponse)
+	err := c.cc.Invoke(ctx, TimelineResponseService_GetWallClock_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *timelineResponseServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, TimelineResponseService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TimelineResponseServiceServer is the server API for TimelineResponseService service.
+// All implementations must embed UnimplementedTimelineResponseServiceServer
+// for forward compatibility.
+type TimelineResponseServiceServer interface {
+	NewTimelineResponse(context.Context, *NewTimelineResponseRequest) (*NewTimelineResponseResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetSelector(context.Context, *GetSelectorRequest) (*TimelineResponseGetSelectorResponse, error)
+	GetTicks(context.Context, *GetTicksRequest) (*GetTicksResponse, error)
+	GetUnitsPerSecond(context.Context, *GetUnitsPerSecondRequest) (*GetUnitsPerSecondResponse, error)
+	GetUnitsPerTick(context.Context, *GetUnitsPerTickRequest) (*GetUnitsPerTickResponse, error)
+	GetWallClock(context.Context, *GetWallClockRequest) (*GetWallClockResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedTimelineResponseServiceServer()
+}
+
+// UnimplementedTimelineResponseServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTimelineResponseServiceServer struct{}
+
+func (UnimplementedTimelineResponseServiceServer) NewTimelineResponse(context.Context, *NewTimelineResponseRequest) (*NewTimelineResponseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewTimelineResponse not implemented")
+}
+func (UnimplementedTimelineResponseServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedTimelineResponseServiceServer) GetSelector(context.Context, *GetSelectorRequest) (*TimelineResponseGetSelectorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSelector not implemented")
+}
+func (UnimplementedTimelineResponseServiceServer) GetTicks(context.Context, *GetTicksRequest) (*GetTicksResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTicks not implemented")
+}
+func (UnimplementedTimelineResponseServiceServer) GetUnitsPerSecond(context.Context, *GetUnitsPerSecondRequest) (*GetUnitsPerSecondResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetUnitsPerSecond not implemented")
+}
+func (UnimplementedTimelineResponseServiceServer) GetUnitsPerTick(context.Context, *GetUnitsPerTickRequest) (*GetUnitsPerTickResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetUnitsPerTick not implemented")
+}
+func (UnimplementedTimelineResponseServiceServer) GetWallClock(context.Context, *GetWallClockRequest) (*GetWallClockResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetWallClock not implemented")
+}
+func (UnimplementedTimelineResponseServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedTimelineResponseServiceServer) mustEmbedUnimplementedTimelineResponseServiceServer() {
+}
+func (UnimplementedTimelineResponseServiceServer) testEmbeddedByValue() {}
+
+// UnsafeTimelineResponseServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TimelineResponseServiceServer will
+// result in compilation errors.
+type UnsafeTimelineResponseServiceServer interface {
+	mustEmbedUnimplementedTimelineResponseServiceServer()
+}
+
+func RegisterTimelineResponseServiceServer(s grpc.ServiceRegistrar, srv TimelineResponseServiceServer) {
+	// If the following call panics, it indicates UnimplementedTimelineResponseServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TimelineResponseService_ServiceDesc, srv)
+}
+
+func _TimelineResponseService_NewTimelineResponse_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewTimelineResponseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TimelineResponseServiceServer).NewTimelineResponse(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TimelineResponseService_NewTimelineResponse_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TimelineResponseServiceServer).NewTimelineResponse(ctx, req.(*NewTimelineResponseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TimelineResponseService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TimelineResponseServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TimelineResponseService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TimelineResponseServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TimelineResponseService_GetSelector_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSelectorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TimelineResponseServiceServer).GetSelector(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TimelineResponseService_GetSelector_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TimelineResponseServiceServer).GetSelector(ctx, req.(*GetSelectorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TimelineResponseService_GetTicks_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTicksRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TimelineResponseServiceServer).GetTicks(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TimelineResponseService_GetTicks_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TimelineResponseServiceServer).GetTicks(ctx, req.(*GetTicksRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TimelineResponseService_GetUnitsPerSecond_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUnitsPerSecondRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TimelineResponseServiceServer).GetUnitsPerSecond(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TimelineResponseService_GetUnitsPerSecond_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TimelineResponseServiceServer).GetUnitsPerSecond(ctx, req.(*GetUnitsPerSecondRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TimelineResponseService_GetUnitsPerTick_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUnitsPerTickRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TimelineResponseServiceServer).GetUnitsPerTick(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TimelineResponseService_GetUnitsPerTick_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TimelineResponseServiceServer).GetUnitsPerTick(ctx, req.(*GetUnitsPerTickRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TimelineResponseService_GetWallClock_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetWallClockRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TimelineResponseServiceServer).GetWallClock(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TimelineResponseService_GetWallClock_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TimelineResponseServiceServer).GetWallClock(ctx, req.(*GetWallClockRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TimelineResponseService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TimelineResponseServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TimelineResponseService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TimelineResponseServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TimelineResponseService_ServiceDesc is the grpc.ServiceDesc for TimelineResponseService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TimelineResponseService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "tv.TimelineResponseService",
+	HandlerType: (*TimelineResponseServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewTimelineResponse",
+			Handler:    _TimelineResponseService_NewTimelineResponse_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _TimelineResponseService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetSelector",
+			Handler:    _TimelineResponseService_GetSelector_Handler,
+		},
+		{
+			MethodName: "GetTicks",
+			Handler:    _TimelineResponseService_GetTicks_Handler,
+		},
+		{
+			MethodName: "GetUnitsPerSecond",
+			Handler:    _TimelineResponseService_GetUnitsPerSecond_Handler,
+		},
+		{
+			MethodName: "GetUnitsPerTick",
+			Handler:    _TimelineResponseService_GetUnitsPerTick_Handler,
+		},
+		{
+			MethodName: "GetWallClock",
+			Handler:    _TimelineResponseService_GetWallClock_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _TimelineResponseService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/tv/tv.proto",
+}
+
+const (
+	RecordingClientService_NewRecordingClient_FullMethodName      = "/tv.RecordingClientService/NewRecordingClient"
+	RecordingClientService_PauseRecording0_FullMethodName         = "/tv.RecordingClientService/PauseRecording0"
+	RecordingClientService_PauseRecording1_1_FullMethodName       = "/tv.RecordingClientService/PauseRecording1_1"
+	RecordingClientService_Release_FullMethodName                 = "/tv.RecordingClientService/Release"
+	RecordingClientService_ResumeRecording0_FullMethodName        = "/tv.RecordingClientService/ResumeRecording0"
+	RecordingClientService_ResumeRecording1_1_FullMethodName      = "/tv.RecordingClientService/ResumeRecording1_1"
+	RecordingClientService_SendAppPrivateCommand_FullMethodName   = "/tv.RecordingClientService/SendAppPrivateCommand"
+	RecordingClientService_SetTvInteractiveAppView_FullMethodName = "/tv.RecordingClientService/SetTvInteractiveAppView"
+	RecordingClientService_StartRecording1_FullMethodName         = "/tv.RecordingClientService/StartRecording1"
+	RecordingClientService_StartRecording2_1_FullMethodName       = "/tv.RecordingClientService/StartRecording2_1"
+	RecordingClientService_StopRecording_FullMethodName           = "/tv.RecordingClientService/StopRecording"
+	RecordingClientService_Tune2_FullMethodName                   = "/tv.RecordingClientService/Tune2"
+	RecordingClientService_Tune3_1_FullMethodName                 = "/tv.RecordingClientService/Tune3_1"
+)
+
+// RecordingClientServiceClient is the client API for RecordingClientService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type RecordingClientServiceClient interface {
+	NewRecordingClient(ctx context.Context, in *NewRecordingClientRequest, opts ...grpc.CallOption) (*NewRecordingClientResponse, error)
+	PauseRecording0(ctx context.Context, in *PauseRecording0Request, opts ...grpc.CallOption) (*PauseRecording0Response, error)
+	PauseRecording1_1(ctx context.Context, in *PauseRecording1_1Request, opts ...grpc.CallOption) (*PauseRecording1_1Response, error)
+	Release(ctx context.Context, in *ReleaseRequest, opts ...grpc.CallOption) (*ReleaseResponse, error)
+	ResumeRecording0(ctx context.Context, in *ResumeRecording0Request, opts ...grpc.CallOption) (*ResumeRecording0Response, error)
+	ResumeRecording1_1(ctx context.Context, in *ResumeRecording1_1Request, opts ...grpc.CallOption) (*ResumeRecording1_1Response, error)
+	SendAppPrivateCommand(ctx context.Context, in *SendAppPrivateCommandRequest, opts ...grpc.CallOption) (*SendAppPrivateCommandResponse, error)
+	SetTvInteractiveAppView(ctx context.Context, in *SetTvInteractiveAppViewRequest, opts ...grpc.CallOption) (*SetTvInteractiveAppViewResponse, error)
+	StartRecording1(ctx context.Context, in *StartRecording1Request, opts ...grpc.CallOption) (*StartRecording1Response, error)
+	StartRecording2_1(ctx context.Context, in *StartRecording2_1Request, opts ...grpc.CallOption) (*StartRecording2_1Response, error)
+	StopRecording(ctx context.Context, in *StopRecordingRequest, opts ...grpc.CallOption) (*StopRecordingResponse, error)
+	Tune2(ctx context.Context, in *Tune2Request, opts ...grpc.CallOption) (*Tune2Response, error)
+	Tune3_1(ctx context.Context, in *Tune3_1Request, opts ...grpc.CallOption) (*Tune3_1Response, error)
+}
+
+type recordingClientServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewRecordingClientServiceClient(cc grpc.ClientConnInterface) RecordingClientServiceClient {
+	return &recordingClientServiceClient{cc}
+}
+
+func (c *recordingClientServiceClient) NewRecordingClient(ctx context.Context, in *NewRecordingClientRequest, opts ...grpc.CallOption) (*NewRecordingClientResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewRecordingClientResponse)
+	err := c.cc.Invoke(ctx, RecordingClientService_NewRecordingClient_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordingClientServiceClient) PauseRecording0(ctx context.Context, in *PauseRecording0Request, opts ...grpc.CallOption) (*PauseRecording0Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(PauseRecording0Response)
+	err := c.cc.Invoke(ctx, RecordingClientService_PauseRecording0_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordingClientServiceClient) PauseRecording1_1(ctx context.Context, in *PauseRecording1_1Request, opts ...grpc.CallOption) (*PauseRecording1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(PauseRecording1_1Response)
+	err := c.cc.Invoke(ctx, RecordingClientService_PauseRecording1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordingClientServiceClient) Release(ctx context.Context, in *ReleaseRequest, opts ...grpc.CallOption) (*ReleaseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ReleaseResponse)
+	err := c.cc.Invoke(ctx, RecordingClientService_Release_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordingClientServiceClient) ResumeRecording0(ctx context.Context, in *ResumeRecording0Request, opts ...grpc.CallOption) (*ResumeRecording0Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ResumeRecording0Response)
+	err := c.cc.Invoke(ctx, RecordingClientService_ResumeRecording0_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordingClientServiceClient) ResumeRecording1_1(ctx context.Context, in *ResumeRecording1_1Request, opts ...grpc.CallOption) (*ResumeRecording1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ResumeRecording1_1Response)
+	err := c.cc.Invoke(ctx, RecordingClientService_ResumeRecording1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordingClientServiceClient) SendAppPrivateCommand(ctx context.Context, in *SendAppPrivateCommandRequest, opts ...grpc.CallOption) (*SendAppPrivateCommandResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SendAppPrivateCommandResponse)
+	err := c.cc.Invoke(ctx, RecordingClientService_SendAppPrivateCommand_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordingClientServiceClient) SetTvInteractiveAppView(ctx context.Context, in *SetTvInteractiveAppViewRequest, opts ...grpc.CallOption) (*SetTvInteractiveAppViewResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetTvInteractiveAppViewResponse)
+	err := c.cc.Invoke(ctx, RecordingClientService_SetTvInteractiveAppView_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordingClientServiceClient) StartRecording1(ctx context.Context, in *StartRecording1Request, opts ...grpc.CallOption) (*StartRecording1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(StartRecording1Response)
+	err := c.cc.Invoke(ctx, RecordingClientService_StartRecording1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordingClientServiceClient) StartRecording2_1(ctx context.Context, in *StartRecording2_1Request, opts ...grpc.CallOption) (*StartRecording2_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(StartRecording2_1Response)
+	err := c.cc.Invoke(ctx, RecordingClientService_StartRecording2_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordingClientServiceClient) StopRecording(ctx context.Context, in *StopRecordingRequest, opts ...grpc.CallOption) (*StopRecordingResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(StopRecordingResponse)
+	err := c.cc.Invoke(ctx, RecordingClientService_StopRecording_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordingClientServiceClient) Tune2(ctx context.Context, in *Tune2Request, opts ...grpc.CallOption) (*Tune2Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Tune2Response)
+	err := c.cc.Invoke(ctx, RecordingClientService_Tune2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordingClientServiceClient) Tune3_1(ctx context.Context, in *Tune3_1Request, opts ...grpc.CallOption) (*Tune3_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Tune3_1Response)
+	err := c.cc.Invoke(ctx, RecordingClientService_Tune3_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// RecordingClientServiceServer is the server API for RecordingClientService service.
+// All implementations must embed UnimplementedRecordingClientServiceServer
+// for forward compatibility.
+type RecordingClientServiceServer interface {
+	NewRecordingClient(context.Context, *NewRecordingClientRequest) (*NewRecordingClientResponse, error)
+	PauseRecording0(context.Context, *PauseRecording0Request) (*PauseRecording0Response, error)
+	PauseRecording1_1(context.Context, *PauseRecording1_1Request) (*PauseRecording1_1Response, error)
+	Release(context.Context, *ReleaseRequest) (*ReleaseResponse, error)
+	ResumeRecording0(context.Context, *ResumeRecording0Request) (*ResumeRecording0Response, error)
+	ResumeRecording1_1(context.Context, *ResumeRecording1_1Request) (*ResumeRecording1_1Response, error)
+	SendAppPrivateCommand(context.Context, *SendAppPrivateCommandRequest) (*SendAppPrivateCommandResponse, error)
+	SetTvInteractiveAppView(context.Context, *SetTvInteractiveAppViewRequest) (*SetTvInteractiveAppViewResponse, error)
+	StartRecording1(context.Context, *StartRecording1Request) (*StartRecording1Response, error)
+	StartRecording2_1(context.Context, *StartRecording2_1Request) (*StartRecording2_1Response, error)
+	StopRecording(context.Context, *StopRecordingRequest) (*StopRecordingResponse, error)
+	Tune2(context.Context, *Tune2Request) (*Tune2Response, error)
+	Tune3_1(context.Context, *Tune3_1Request) (*Tune3_1Response, error)
+	mustEmbedUnimplementedRecordingClientServiceServer()
+}
+
+// UnimplementedRecordingClientServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedRecordingClientServiceServer struct{}
+
+func (UnimplementedRecordingClientServiceServer) NewRecordingClient(context.Context, *NewRecordingClientRequest) (*NewRecordingClientResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewRecordingClient not implemented")
+}
+func (UnimplementedRecordingClientServiceServer) PauseRecording0(context.Context, *PauseRecording0Request) (*PauseRecording0Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method PauseRecording0 not implemented")
+}
+func (UnimplementedRecordingClientServiceServer) PauseRecording1_1(context.Context, *PauseRecording1_1Request) (*PauseRecording1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method PauseRecording1_1 not implemented")
+}
+func (UnimplementedRecordingClientServiceServer) Release(context.Context, *ReleaseRequest) (*ReleaseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Release not implemented")
+}
+func (UnimplementedRecordingClientServiceServer) ResumeRecording0(context.Context, *ResumeRecording0Request) (*ResumeRecording0Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method ResumeRecording0 not implemented")
+}
+func (UnimplementedRecordingClientServiceServer) ResumeRecording1_1(context.Context, *ResumeRecording1_1Request) (*ResumeRecording1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method ResumeRecording1_1 not implemented")
+}
+func (UnimplementedRecordingClientServiceServer) SendAppPrivateCommand(context.Context, *SendAppPrivateCommandRequest) (*SendAppPrivateCommandResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SendAppPrivateCommand not implemented")
+}
+func (UnimplementedRecordingClientServiceServer) SetTvInteractiveAppView(context.Context, *SetTvInteractiveAppViewRequest) (*SetTvInteractiveAppViewResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetTvInteractiveAppView not implemented")
+}
+func (UnimplementedRecordingClientServiceServer) StartRecording1(context.Context, *StartRecording1Request) (*StartRecording1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method StartRecording1 not implemented")
+}
+func (UnimplementedRecordingClientServiceServer) StartRecording2_1(context.Context, *StartRecording2_1Request) (*StartRecording2_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method StartRecording2_1 not implemented")
+}
+func (UnimplementedRecordingClientServiceServer) StopRecording(context.Context, *StopRecordingRequest) (*StopRecordingResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method StopRecording not implemented")
+}
+func (UnimplementedRecordingClientServiceServer) Tune2(context.Context, *Tune2Request) (*Tune2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Tune2 not implemented")
+}
+func (UnimplementedRecordingClientServiceServer) Tune3_1(context.Context, *Tune3_1Request) (*Tune3_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Tune3_1 not implemented")
+}
+func (UnimplementedRecordingClientServiceServer) mustEmbedUnimplementedRecordingClientServiceServer() {
+}
+func (UnimplementedRecordingClientServiceServer) testEmbeddedByValue() {}
+
+// UnsafeRecordingClientServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to RecordingClientServiceServer will
+// result in compilation errors.
+type UnsafeRecordingClientServiceServer interface {
+	mustEmbedUnimplementedRecordingClientServiceServer()
+}
+
+func RegisterRecordingClientServiceServer(s grpc.ServiceRegistrar, srv RecordingClientServiceServer) {
+	// If the following call panics, it indicates UnimplementedRecordingClientServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&RecordingClientService_ServiceDesc, srv)
+}
+
+func _RecordingClientService_NewRecordingClient_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewRecordingClientRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordingClientServiceServer).NewRecordingClient(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordingClientService_NewRecordingClient_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordingClientServiceServer).NewRecordingClient(ctx, req.(*NewRecordingClientRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordingClientService_PauseRecording0_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PauseRecording0Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordingClientServiceServer).PauseRecording0(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordingClientService_PauseRecording0_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordingClientServiceServer).PauseRecording0(ctx, req.(*PauseRecording0Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordingClientService_PauseRecording1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PauseRecording1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordingClientServiceServer).PauseRecording1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordingClientService_PauseRecording1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordingClientServiceServer).PauseRecording1_1(ctx, req.(*PauseRecording1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordingClientService_Release_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReleaseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordingClientServiceServer).Release(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordingClientService_Release_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordingClientServiceServer).Release(ctx, req.(*ReleaseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordingClientService_ResumeRecording0_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ResumeRecording0Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordingClientServiceServer).ResumeRecording0(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordingClientService_ResumeRecording0_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordingClientServiceServer).ResumeRecording0(ctx, req.(*ResumeRecording0Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordingClientService_ResumeRecording1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ResumeRecording1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordingClientServiceServer).ResumeRecording1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordingClientService_ResumeRecording1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordingClientServiceServer).ResumeRecording1_1(ctx, req.(*ResumeRecording1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordingClientService_SendAppPrivateCommand_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SendAppPrivateCommandRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordingClientServiceServer).SendAppPrivateCommand(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordingClientService_SendAppPrivateCommand_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordingClientServiceServer).SendAppPrivateCommand(ctx, req.(*SendAppPrivateCommandRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordingClientService_SetTvInteractiveAppView_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetTvInteractiveAppViewRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordingClientServiceServer).SetTvInteractiveAppView(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordingClientService_SetTvInteractiveAppView_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordingClientServiceServer).SetTvInteractiveAppView(ctx, req.(*SetTvInteractiveAppViewRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordingClientService_StartRecording1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StartRecording1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordingClientServiceServer).StartRecording1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordingClientService_StartRecording1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordingClientServiceServer).StartRecording1(ctx, req.(*StartRecording1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordingClientService_StartRecording2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StartRecording2_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordingClientServiceServer).StartRecording2_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordingClientService_StartRecording2_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordingClientServiceServer).StartRecording2_1(ctx, req.(*StartRecording2_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordingClientService_StopRecording_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StopRecordingRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordingClientServiceServer).StopRecording(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordingClientService_StopRecording_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordingClientServiceServer).StopRecording(ctx, req.(*StopRecordingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordingClientService_Tune2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Tune2Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordingClientServiceServer).Tune2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordingClientService_Tune2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordingClientServiceServer).Tune2(ctx, req.(*Tune2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordingClientService_Tune3_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Tune3_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordingClientServiceServer).Tune3_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordingClientService_Tune3_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordingClientServiceServer).Tune3_1(ctx, req.(*Tune3_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// RecordingClientService_ServiceDesc is the grpc.ServiceDesc for RecordingClientService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var RecordingClientService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "tv.RecordingClientService",
+	HandlerType: (*RecordingClientServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewRecordingClient",
+			Handler:    _RecordingClientService_NewRecordingClient_Handler,
+		},
+		{
+			MethodName: "PauseRecording0",
+			Handler:    _RecordingClientService_PauseRecording0_Handler,
+		},
+		{
+			MethodName: "PauseRecording1_1",
+			Handler:    _RecordingClientService_PauseRecording1_1_Handler,
+		},
+		{
+			MethodName: "Release",
+			Handler:    _RecordingClientService_Release_Handler,
+		},
+		{
+			MethodName: "ResumeRecording0",
+			Handler:    _RecordingClientService_ResumeRecording0_Handler,
+		},
+		{
+			MethodName: "ResumeRecording1_1",
+			Handler:    _RecordingClientService_ResumeRecording1_1_Handler,
+		},
+		{
+			MethodName: "SendAppPrivateCommand",
+			Handler:    _RecordingClientService_SendAppPrivateCommand_Handler,
+		},
+		{
+			MethodName: "SetTvInteractiveAppView",
+			Handler:    _RecordingClientService_SetTvInteractiveAppView_Handler,
+		},
+		{
+			MethodName: "StartRecording1",
+			Handler:    _RecordingClientService_StartRecording1_Handler,
+		},
+		{
+			MethodName: "StartRecording2_1",
+			Handler:    _RecordingClientService_StartRecording2_1_Handler,
+		},
+		{
+			MethodName: "StopRecording",
+			Handler:    _RecordingClientService_StopRecording_Handler,
+		},
+		{
+			MethodName: "Tune2",
+			Handler:    _RecordingClientService_Tune2_Handler,
+		},
+		{
+			MethodName: "Tune3_1",
+			Handler:    _RecordingClientService_Tune3_1_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/tv/tv.proto",
+}
+
+const (
+	RecordingClientRecordingCallbackService_OnConnectionFailed_FullMethodName = "/tv.RecordingClientRecordingCallbackService/OnConnectionFailed"
+	RecordingClientRecordingCallbackService_OnDisconnected_FullMethodName     = "/tv.RecordingClientRecordingCallbackService/OnDisconnected"
+	RecordingClientRecordingCallbackService_OnError_FullMethodName            = "/tv.RecordingClientRecordingCallbackService/OnError"
+	RecordingClientRecordingCallbackService_OnRecordingStopped_FullMethodName = "/tv.RecordingClientRecordingCallbackService/OnRecordingStopped"
+	RecordingClientRecordingCallbackService_OnTuned_FullMethodName            = "/tv.RecordingClientRecordingCallbackService/OnTuned"
+)
+
+// RecordingClientRecordingCallbackServiceClient is the client API for RecordingClientRecordingCallbackService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type RecordingClientRecordingCallbackServiceClient interface {
+	OnConnectionFailed(ctx context.Context, in *OnConnectionFailedRequest, opts ...grpc.CallOption) (*OnConnectionFailedResponse, error)
+	OnDisconnected(ctx context.Context, in *OnDisconnectedRequest, opts ...grpc.CallOption) (*OnDisconnectedResponse, error)
+	OnError(ctx context.Context, in *OnErrorRequest, opts ...grpc.CallOption) (*OnErrorResponse, error)
+	OnRecordingStopped(ctx context.Context, in *OnRecordingStoppedRequest, opts ...grpc.CallOption) (*OnRecordingStoppedResponse, error)
+	OnTuned(ctx context.Context, in *RecordingClientRecordingCallbackOnTunedRequest, opts ...grpc.CallOption) (*OnTunedResponse, error)
+}
+
+type recordingClientRecordingCallbackServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewRecordingClientRecordingCallbackServiceClient(cc grpc.ClientConnInterface) RecordingClientRecordingCallbackServiceClient {
+	return &recordingClientRecordingCallbackServiceClient{cc}
+}
+
+func (c *recordingClientRecordingCallbackServiceClient) OnConnectionFailed(ctx context.Context, in *OnConnectionFailedRequest, opts ...grpc.CallOption) (*OnConnectionFailedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnConnectionFailedResponse)
+	err := c.cc.Invoke(ctx, RecordingClientRecordingCallbackService_OnConnectionFailed_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordingClientRecordingCallbackServiceClient) OnDisconnected(ctx context.Context, in *OnDisconnectedRequest, opts ...grpc.CallOption) (*OnDisconnectedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnDisconnectedResponse)
+	err := c.cc.Invoke(ctx, RecordingClientRecordingCallbackService_OnDisconnected_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordingClientRecordingCallbackServiceClient) OnError(ctx context.Context, in *OnErrorRequest, opts ...grpc.CallOption) (*OnErrorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnErrorResponse)
+	err := c.cc.Invoke(ctx, RecordingClientRecordingCallbackService_OnError_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordingClientRecordingCallbackServiceClient) OnRecordingStopped(ctx context.Context, in *OnRecordingStoppedRequest, opts ...grpc.CallOption) (*OnRecordingStoppedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnRecordingStoppedResponse)
+	err := c.cc.Invoke(ctx, RecordingClientRecordingCallbackService_OnRecordingStopped_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordingClientRecordingCallbackServiceClient) OnTuned(ctx context.Context, in *RecordingClientRecordingCallbackOnTunedRequest, opts ...grpc.CallOption) (*OnTunedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnTunedResponse)
+	err := c.cc.Invoke(ctx, RecordingClientRecordingCallbackService_OnTuned_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// RecordingClientRecordingCallbackServiceServer is the server API for RecordingClientRecordingCallbackService service.
+// All implementations must embed UnimplementedRecordingClientRecordingCallbackServiceServer
+// for forward compatibility.
+type RecordingClientRecordingCallbackServiceServer interface {
+	OnConnectionFailed(context.Context, *OnConnectionFailedRequest) (*OnConnectionFailedResponse, error)
+	OnDisconnected(context.Context, *OnDisconnectedRequest) (*OnDisconnectedResponse, error)
+	OnError(context.Context, *OnErrorRequest) (*OnErrorResponse, error)
+	OnRecordingStopped(context.Context, *OnRecordingStoppedRequest) (*OnRecordingStoppedResponse, error)
+	OnTuned(context.Context, *RecordingClientRecordingCallbackOnTunedRequest) (*OnTunedResponse, error)
+	mustEmbedUnimplementedRecordingClientRecordingCallbackServiceServer()
+}
+
+// UnimplementedRecordingClientRecordingCallbackServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedRecordingClientRecordingCallbackServiceServer struct{}
+
+func (UnimplementedRecordingClientRecordingCallbackServiceServer) OnConnectionFailed(context.Context, *OnConnectionFailedRequest) (*OnConnectionFailedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnConnectionFailed not implemented")
+}
+func (UnimplementedRecordingClientRecordingCallbackServiceServer) OnDisconnected(context.Context, *OnDisconnectedRequest) (*OnDisconnectedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnDisconnected not implemented")
+}
+func (UnimplementedRecordingClientRecordingCallbackServiceServer) OnError(context.Context, *OnErrorRequest) (*OnErrorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnError not implemented")
+}
+func (UnimplementedRecordingClientRecordingCallbackServiceServer) OnRecordingStopped(context.Context, *OnRecordingStoppedRequest) (*OnRecordingStoppedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnRecordingStopped not implemented")
+}
+func (UnimplementedRecordingClientRecordingCallbackServiceServer) OnTuned(context.Context, *RecordingClientRecordingCallbackOnTunedRequest) (*OnTunedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnTuned not implemented")
+}
+func (UnimplementedRecordingClientRecordingCallbackServiceServer) mustEmbedUnimplementedRecordingClientRecordingCallbackServiceServer() {
+}
+func (UnimplementedRecordingClientRecordingCallbackServiceServer) testEmbeddedByValue() {}
+
+// UnsafeRecordingClientRecordingCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to RecordingClientRecordingCallbackServiceServer will
+// result in compilation errors.
+type UnsafeRecordingClientRecordingCallbackServiceServer interface {
+	mustEmbedUnimplementedRecordingClientRecordingCallbackServiceServer()
+}
+
+func RegisterRecordingClientRecordingCallbackServiceServer(s grpc.ServiceRegistrar, srv RecordingClientRecordingCallbackServiceServer) {
+	// If the following call panics, it indicates UnimplementedRecordingClientRecordingCallbackServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&RecordingClientRecordingCallbackService_ServiceDesc, srv)
+}
+
+func _RecordingClientRecordingCallbackService_OnConnectionFailed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnConnectionFailedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordingClientRecordingCallbackServiceServer).OnConnectionFailed(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordingClientRecordingCallbackService_OnConnectionFailed_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordingClientRecordingCallbackServiceServer).OnConnectionFailed(ctx, req.(*OnConnectionFailedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordingClientRecordingCallbackService_OnDisconnected_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnDisconnectedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordingClientRecordingCallbackServiceServer).OnDisconnected(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordingClientRecordingCallbackService_OnDisconnected_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordingClientRecordingCallbackServiceServer).OnDisconnected(ctx, req.(*OnDisconnectedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordingClientRecordingCallbackService_OnError_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnErrorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordingClientRecordingCallbackServiceServer).OnError(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordingClientRecordingCallbackService_OnError_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordingClientRecordingCallbackServiceServer).OnError(ctx, req.(*OnErrorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordingClientRecordingCallbackService_OnRecordingStopped_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnRecordingStoppedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordingClientRecordingCallbackServiceServer).OnRecordingStopped(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordingClientRecordingCallbackService_OnRecordingStopped_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordingClientRecordingCallbackServiceServer).OnRecordingStopped(ctx, req.(*OnRecordingStoppedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordingClientRecordingCallbackService_OnTuned_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RecordingClientRecordingCallbackOnTunedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordingClientRecordingCallbackServiceServer).OnTuned(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordingClientRecordingCallbackService_OnTuned_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordingClientRecordingCallbackServiceServer).OnTuned(ctx, req.(*RecordingClientRecordingCallbackOnTunedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// RecordingClientRecordingCallbackService_ServiceDesc is the grpc.ServiceDesc for RecordingClientRecordingCallbackService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var RecordingClientRecordingCallbackService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "tv.RecordingClientRecordingCallbackService",
+	HandlerType: (*RecordingClientRecordingCallbackServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnConnectionFailed",
+			Handler:    _RecordingClientRecordingCallbackService_OnConnectionFailed_Handler,
+		},
+		{
+			MethodName: "OnDisconnected",
+			Handler:    _RecordingClientRecordingCallbackService_OnDisconnected_Handler,
+		},
+		{
+			MethodName: "OnError",
+			Handler:    _RecordingClientRecordingCallbackService_OnError_Handler,
+		},
+		{
+			MethodName: "OnRecordingStopped",
+			Handler:    _RecordingClientRecordingCallbackService_OnRecordingStopped_Handler,
+		},
+		{
+			MethodName: "OnTuned",
+			Handler:    _RecordingClientRecordingCallbackService_OnTuned_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/tv/tv.proto",
+}
+
+const (
+	TrackInfoService_DescribeContents_FullMethodName                = "/tv.TrackInfoService/DescribeContents"
+	TrackInfoService_Equals_FullMethodName                          = "/tv.TrackInfoService/Equals"
+	TrackInfoService_GetAudioChannelCount_FullMethodName            = "/tv.TrackInfoService/GetAudioChannelCount"
+	TrackInfoService_GetAudioSampleRate_FullMethodName              = "/tv.TrackInfoService/GetAudioSampleRate"
+	TrackInfoService_GetDescription_FullMethodName                  = "/tv.TrackInfoService/GetDescription"
+	TrackInfoService_GetEncoding_FullMethodName                     = "/tv.TrackInfoService/GetEncoding"
+	TrackInfoService_GetExtra_FullMethodName                        = "/tv.TrackInfoService/GetExtra"
+	TrackInfoService_GetId_FullMethodName                           = "/tv.TrackInfoService/GetId"
+	TrackInfoService_GetLanguage_FullMethodName                     = "/tv.TrackInfoService/GetLanguage"
+	TrackInfoService_GetType_FullMethodName                         = "/tv.TrackInfoService/GetType"
+	TrackInfoService_GetVideoActiveFormatDescription_FullMethodName = "/tv.TrackInfoService/GetVideoActiveFormatDescription"
+	TrackInfoService_GetVideoFrameRate_FullMethodName               = "/tv.TrackInfoService/GetVideoFrameRate"
+	TrackInfoService_GetVideoHeight_FullMethodName                  = "/tv.TrackInfoService/GetVideoHeight"
+	TrackInfoService_GetVideoPixelAspectRatio_FullMethodName        = "/tv.TrackInfoService/GetVideoPixelAspectRatio"
+	TrackInfoService_GetVideoWidth_FullMethodName                   = "/tv.TrackInfoService/GetVideoWidth"
+	TrackInfoService_HashCode_FullMethodName                        = "/tv.TrackInfoService/HashCode"
+	TrackInfoService_IsAudioDescription_FullMethodName              = "/tv.TrackInfoService/IsAudioDescription"
+	TrackInfoService_IsEncrypted_FullMethodName                     = "/tv.TrackInfoService/IsEncrypted"
+	TrackInfoService_IsHardOfHearing_FullMethodName                 = "/tv.TrackInfoService/IsHardOfHearing"
+	TrackInfoService_IsSpokenSubtitle_FullMethodName                = "/tv.TrackInfoService/IsSpokenSubtitle"
+	TrackInfoService_WriteToParcel_FullMethodName                   = "/tv.TrackInfoService/WriteToParcel"
+)
+
+// TrackInfoServiceClient is the client API for TrackInfoService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TrackInfoServiceClient interface {
+	DescribeContents(ctx context.Context, in *TrackInfoDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetAudioChannelCount(ctx context.Context, in *GetAudioChannelCountRequest, opts ...grpc.CallOption) (*GetAudioChannelCountResponse, error)
+	GetAudioSampleRate(ctx context.Context, in *GetAudioSampleRateRequest, opts ...grpc.CallOption) (*GetAudioSampleRateResponse, error)
+	GetDescription(ctx context.Context, in *TrackInfoGetDescriptionRequest, opts ...grpc.CallOption) (*TrackInfoGetDescriptionResponse, error)
+	GetEncoding(ctx context.Context, in *TrackInfoGetEncodingRequest, opts ...grpc.CallOption) (*GetEncodingResponse, error)
+	GetExtra(ctx context.Context, in *GetExtraRequest, opts ...grpc.CallOption) (*GetExtraResponse, error)
+	GetId(ctx context.Context, in *TrackInfoGetIdRequest, opts ...grpc.CallOption) (*TrackInfoGetIdResponse, error)
+	GetLanguage(ctx context.Context, in *GetLanguageRequest, opts ...grpc.CallOption) (*GetLanguageResponse, error)
+	GetType(ctx context.Context, in *GetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error)
+	GetVideoActiveFormatDescription(ctx context.Context, in *GetVideoActiveFormatDescriptionRequest, opts ...grpc.CallOption) (*GetVideoActiveFormatDescriptionResponse, error)
+	GetVideoFrameRate(ctx context.Context, in *GetVideoFrameRateRequest, opts ...grpc.CallOption) (*GetVideoFrameRateResponse, error)
+	GetVideoHeight(ctx context.Context, in *GetVideoHeightRequest, opts ...grpc.CallOption) (*GetVideoHeightResponse, error)
+	GetVideoPixelAspectRatio(ctx context.Context, in *GetVideoPixelAspectRatioRequest, opts ...grpc.CallOption) (*GetVideoPixelAspectRatioResponse, error)
+	GetVideoWidth(ctx context.Context, in *GetVideoWidthRequest, opts ...grpc.CallOption) (*GetVideoWidthResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	IsAudioDescription(ctx context.Context, in *IsAudioDescriptionRequest, opts ...grpc.CallOption) (*IsAudioDescriptionResponse, error)
+	IsEncrypted(ctx context.Context, in *IsEncryptedRequest, opts ...grpc.CallOption) (*IsEncryptedResponse, error)
+	IsHardOfHearing(ctx context.Context, in *IsHardOfHearingRequest, opts ...grpc.CallOption) (*IsHardOfHearingResponse, error)
+	IsSpokenSubtitle(ctx context.Context, in *IsSpokenSubtitleRequest, opts ...grpc.CallOption) (*IsSpokenSubtitleResponse, error)
+	WriteToParcel(ctx context.Context, in *TrackInfoWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type trackInfoServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTrackInfoServiceClient(cc grpc.ClientConnInterface) TrackInfoServiceClient {
+	return &trackInfoServiceClient{cc}
+}
+
+func (c *trackInfoServiceClient) DescribeContents(ctx context.Context, in *TrackInfoDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, TrackInfoService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackInfoServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, TrackInfoService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackInfoServiceClient) GetAudioChannelCount(ctx context.Context, in *GetAudioChannelCountRequest, opts ...grpc.CallOption) (*GetAudioChannelCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAudioChannelCountResponse)
+	err := c.cc.Invoke(ctx, TrackInfoService_GetAudioChannelCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackInfoServiceClient) GetAudioSampleRate(ctx context.Context, in *GetAudioSampleRateRequest, opts ...grpc.CallOption) (*GetAudioSampleRateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAudioSampleRateResponse)
+	err := c.cc.Invoke(ctx, TrackInfoService_GetAudioSampleRate_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackInfoServiceClient) GetDescription(ctx context.Context, in *TrackInfoGetDescriptionRequest, opts ...grpc.CallOption) (*TrackInfoGetDescriptionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(TrackInfoGetDescriptionResponse)
+	err := c.cc.Invoke(ctx, TrackInfoService_GetDescription_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackInfoServiceClient) GetEncoding(ctx context.Context, in *TrackInfoGetEncodingRequest, opts ...grpc.CallOption) (*GetEncodingResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEncodingResponse)
+	err := c.cc.Invoke(ctx, TrackInfoService_GetEncoding_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackInfoServiceClient) GetExtra(ctx context.Context, in *GetExtraRequest, opts ...grpc.CallOption) (*GetExtraResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetExtraResponse)
+	err := c.cc.Invoke(ctx, TrackInfoService_GetExtra_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackInfoServiceClient) GetId(ctx context.Context, in *TrackInfoGetIdRequest, opts ...grpc.CallOption) (*TrackInfoGetIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(TrackInfoGetIdResponse)
+	err := c.cc.Invoke(ctx, TrackInfoService_GetId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackInfoServiceClient) GetLanguage(ctx context.Context, in *GetLanguageRequest, opts ...grpc.CallOption) (*GetLanguageResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLanguageResponse)
+	err := c.cc.Invoke(ctx, TrackInfoService_GetLanguage_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackInfoServiceClient) GetType(ctx context.Context, in *GetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTypeResponse)
+	err := c.cc.Invoke(ctx, TrackInfoService_GetType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackInfoServiceClient) GetVideoActiveFormatDescription(ctx context.Context, in *GetVideoActiveFormatDescriptionRequest, opts ...grpc.CallOption) (*GetVideoActiveFormatDescriptionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetVideoActiveFormatDescriptionResponse)
+	err := c.cc.Invoke(ctx, TrackInfoService_GetVideoActiveFormatDescription_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackInfoServiceClient) GetVideoFrameRate(ctx context.Context, in *GetVideoFrameRateRequest, opts ...grpc.CallOption) (*GetVideoFrameRateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetVideoFrameRateResponse)
+	err := c.cc.Invoke(ctx, TrackInfoService_GetVideoFrameRate_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackInfoServiceClient) GetVideoHeight(ctx context.Context, in *GetVideoHeightRequest, opts ...grpc.CallOption) (*GetVideoHeightResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetVideoHeightResponse)
+	err := c.cc.Invoke(ctx, TrackInfoService_GetVideoHeight_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackInfoServiceClient) GetVideoPixelAspectRatio(ctx context.Context, in *GetVideoPixelAspectRatioRequest, opts ...grpc.CallOption) (*GetVideoPixelAspectRatioResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetVideoPixelAspectRatioResponse)
+	err := c.cc.Invoke(ctx, TrackInfoService_GetVideoPixelAspectRatio_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackInfoServiceClient) GetVideoWidth(ctx context.Context, in *GetVideoWidthRequest, opts ...grpc.CallOption) (*GetVideoWidthResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetVideoWidthResponse)
+	err := c.cc.Invoke(ctx, TrackInfoService_GetVideoWidth_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackInfoServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, TrackInfoService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackInfoServiceClient) IsAudioDescription(ctx context.Context, in *IsAudioDescriptionRequest, opts ...grpc.CallOption) (*IsAudioDescriptionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsAudioDescriptionResponse)
+	err := c.cc.Invoke(ctx, TrackInfoService_IsAudioDescription_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackInfoServiceClient) IsEncrypted(ctx context.Context, in *IsEncryptedRequest, opts ...grpc.CallOption) (*IsEncryptedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsEncryptedResponse)
+	err := c.cc.Invoke(ctx, TrackInfoService_IsEncrypted_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackInfoServiceClient) IsHardOfHearing(ctx context.Context, in *IsHardOfHearingRequest, opts ...grpc.CallOption) (*IsHardOfHearingResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsHardOfHearingResponse)
+	err := c.cc.Invoke(ctx, TrackInfoService_IsHardOfHearing_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackInfoServiceClient) IsSpokenSubtitle(ctx context.Context, in *IsSpokenSubtitleRequest, opts ...grpc.CallOption) (*IsSpokenSubtitleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsSpokenSubtitleResponse)
+	err := c.cc.Invoke(ctx, TrackInfoService_IsSpokenSubtitle_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackInfoServiceClient) WriteToParcel(ctx context.Context, in *TrackInfoWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, TrackInfoService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TrackInfoServiceServer is the server API for TrackInfoService service.
+// All implementations must embed UnimplementedTrackInfoServiceServer
+// for forward compatibility.
+type TrackInfoServiceServer interface {
+	DescribeContents(context.Context, *TrackInfoDescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetAudioChannelCount(context.Context, *GetAudioChannelCountRequest) (*GetAudioChannelCountResponse, error)
+	GetAudioSampleRate(context.Context, *GetAudioSampleRateRequest) (*GetAudioSampleRateResponse, error)
+	GetDescription(context.Context, *TrackInfoGetDescriptionRequest) (*TrackInfoGetDescriptionResponse, error)
+	GetEncoding(context.Context, *TrackInfoGetEncodingRequest) (*GetEncodingResponse, error)
+	GetExtra(context.Context, *GetExtraRequest) (*GetExtraResponse, error)
+	GetId(context.Context, *TrackInfoGetIdRequest) (*TrackInfoGetIdResponse, error)
+	GetLanguage(context.Context, *GetLanguageRequest) (*GetLanguageResponse, error)
+	GetType(context.Context, *GetTypeRequest) (*GetTypeResponse, error)
+	GetVideoActiveFormatDescription(context.Context, *GetVideoActiveFormatDescriptionRequest) (*GetVideoActiveFormatDescriptionResponse, error)
+	GetVideoFrameRate(context.Context, *GetVideoFrameRateRequest) (*GetVideoFrameRateResponse, error)
+	GetVideoHeight(context.Context, *GetVideoHeightRequest) (*GetVideoHeightResponse, error)
+	GetVideoPixelAspectRatio(context.Context, *GetVideoPixelAspectRatioRequest) (*GetVideoPixelAspectRatioResponse, error)
+	GetVideoWidth(context.Context, *GetVideoWidthRequest) (*GetVideoWidthResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	IsAudioDescription(context.Context, *IsAudioDescriptionRequest) (*IsAudioDescriptionResponse, error)
+	IsEncrypted(context.Context, *IsEncryptedRequest) (*IsEncryptedResponse, error)
+	IsHardOfHearing(context.Context, *IsHardOfHearingRequest) (*IsHardOfHearingResponse, error)
+	IsSpokenSubtitle(context.Context, *IsSpokenSubtitleRequest) (*IsSpokenSubtitleResponse, error)
+	WriteToParcel(context.Context, *TrackInfoWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedTrackInfoServiceServer()
+}
+
+// UnimplementedTrackInfoServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTrackInfoServiceServer struct{}
+
+func (UnimplementedTrackInfoServiceServer) DescribeContents(context.Context, *TrackInfoDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedTrackInfoServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedTrackInfoServiceServer) GetAudioChannelCount(context.Context, *GetAudioChannelCountRequest) (*GetAudioChannelCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAudioChannelCount not implemented")
+}
+func (UnimplementedTrackInfoServiceServer) GetAudioSampleRate(context.Context, *GetAudioSampleRateRequest) (*GetAudioSampleRateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAudioSampleRate not implemented")
+}
+func (UnimplementedTrackInfoServiceServer) GetDescription(context.Context, *TrackInfoGetDescriptionRequest) (*TrackInfoGetDescriptionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDescription not implemented")
+}
+func (UnimplementedTrackInfoServiceServer) GetEncoding(context.Context, *TrackInfoGetEncodingRequest) (*GetEncodingResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEncoding not implemented")
+}
+func (UnimplementedTrackInfoServiceServer) GetExtra(context.Context, *GetExtraRequest) (*GetExtraResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetExtra not implemented")
+}
+func (UnimplementedTrackInfoServiceServer) GetId(context.Context, *TrackInfoGetIdRequest) (*TrackInfoGetIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetId not implemented")
+}
+func (UnimplementedTrackInfoServiceServer) GetLanguage(context.Context, *GetLanguageRequest) (*GetLanguageResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLanguage not implemented")
+}
+func (UnimplementedTrackInfoServiceServer) GetType(context.Context, *GetTypeRequest) (*GetTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetType not implemented")
+}
+func (UnimplementedTrackInfoServiceServer) GetVideoActiveFormatDescription(context.Context, *GetVideoActiveFormatDescriptionRequest) (*GetVideoActiveFormatDescriptionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetVideoActiveFormatDescription not implemented")
+}
+func (UnimplementedTrackInfoServiceServer) GetVideoFrameRate(context.Context, *GetVideoFrameRateRequest) (*GetVideoFrameRateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetVideoFrameRate not implemented")
+}
+func (UnimplementedTrackInfoServiceServer) GetVideoHeight(context.Context, *GetVideoHeightRequest) (*GetVideoHeightResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetVideoHeight not implemented")
+}
+func (UnimplementedTrackInfoServiceServer) GetVideoPixelAspectRatio(context.Context, *GetVideoPixelAspectRatioRequest) (*GetVideoPixelAspectRatioResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetVideoPixelAspectRatio not implemented")
+}
+func (UnimplementedTrackInfoServiceServer) GetVideoWidth(context.Context, *GetVideoWidthRequest) (*GetVideoWidthResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetVideoWidth not implemented")
+}
+func (UnimplementedTrackInfoServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedTrackInfoServiceServer) IsAudioDescription(context.Context, *IsAudioDescriptionRequest) (*IsAudioDescriptionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsAudioDescription not implemented")
+}
+func (UnimplementedTrackInfoServiceServer) IsEncrypted(context.Context, *IsEncryptedRequest) (*IsEncryptedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsEncrypted not implemented")
+}
+func (UnimplementedTrackInfoServiceServer) IsHardOfHearing(context.Context, *IsHardOfHearingRequest) (*IsHardOfHearingResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsHardOfHearing not implemented")
+}
+func (UnimplementedTrackInfoServiceServer) IsSpokenSubtitle(context.Context, *IsSpokenSubtitleRequest) (*IsSpokenSubtitleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsSpokenSubtitle not implemented")
+}
+func (UnimplementedTrackInfoServiceServer) WriteToParcel(context.Context, *TrackInfoWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedTrackInfoServiceServer) mustEmbedUnimplementedTrackInfoServiceServer() {}
+func (UnimplementedTrackInfoServiceServer) testEmbeddedByValue()                          {}
+
+// UnsafeTrackInfoServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TrackInfoServiceServer will
+// result in compilation errors.
+type UnsafeTrackInfoServiceServer interface {
+	mustEmbedUnimplementedTrackInfoServiceServer()
+}
+
+func RegisterTrackInfoServiceServer(s grpc.ServiceRegistrar, srv TrackInfoServiceServer) {
+	// If the following call panics, it indicates UnimplementedTrackInfoServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TrackInfoService_ServiceDesc, srv)
+}
+
+func _TrackInfoService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TrackInfoDescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackInfoServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackInfoService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackInfoServiceServer).DescribeContents(ctx, req.(*TrackInfoDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackInfoService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackInfoServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackInfoService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackInfoServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackInfoService_GetAudioChannelCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAudioChannelCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackInfoServiceServer).GetAudioChannelCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackInfoService_GetAudioChannelCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackInfoServiceServer).GetAudioChannelCount(ctx, req.(*GetAudioChannelCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackInfoService_GetAudioSampleRate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAudioSampleRateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackInfoServiceServer).GetAudioSampleRate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackInfoService_GetAudioSampleRate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackInfoServiceServer).GetAudioSampleRate(ctx, req.(*GetAudioSampleRateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackInfoService_GetDescription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TrackInfoGetDescriptionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackInfoServiceServer).GetDescription(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackInfoService_GetDescription_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackInfoServiceServer).GetDescription(ctx, req.(*TrackInfoGetDescriptionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackInfoService_GetEncoding_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TrackInfoGetEncodingRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackInfoServiceServer).GetEncoding(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackInfoService_GetEncoding_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackInfoServiceServer).GetEncoding(ctx, req.(*TrackInfoGetEncodingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackInfoService_GetExtra_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetExtraRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackInfoServiceServer).GetExtra(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackInfoService_GetExtra_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackInfoServiceServer).GetExtra(ctx, req.(*GetExtraRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackInfoService_GetId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TrackInfoGetIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackInfoServiceServer).GetId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackInfoService_GetId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackInfoServiceServer).GetId(ctx, req.(*TrackInfoGetIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackInfoService_GetLanguage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLanguageRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackInfoServiceServer).GetLanguage(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackInfoService_GetLanguage_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackInfoServiceServer).GetLanguage(ctx, req.(*GetLanguageRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackInfoService_GetType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackInfoServiceServer).GetType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackInfoService_GetType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackInfoServiceServer).GetType(ctx, req.(*GetTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackInfoService_GetVideoActiveFormatDescription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetVideoActiveFormatDescriptionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackInfoServiceServer).GetVideoActiveFormatDescription(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackInfoService_GetVideoActiveFormatDescription_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackInfoServiceServer).GetVideoActiveFormatDescription(ctx, req.(*GetVideoActiveFormatDescriptionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackInfoService_GetVideoFrameRate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetVideoFrameRateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackInfoServiceServer).GetVideoFrameRate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackInfoService_GetVideoFrameRate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackInfoServiceServer).GetVideoFrameRate(ctx, req.(*GetVideoFrameRateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackInfoService_GetVideoHeight_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetVideoHeightRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackInfoServiceServer).GetVideoHeight(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackInfoService_GetVideoHeight_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackInfoServiceServer).GetVideoHeight(ctx, req.(*GetVideoHeightRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackInfoService_GetVideoPixelAspectRatio_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetVideoPixelAspectRatioRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackInfoServiceServer).GetVideoPixelAspectRatio(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackInfoService_GetVideoPixelAspectRatio_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackInfoServiceServer).GetVideoPixelAspectRatio(ctx, req.(*GetVideoPixelAspectRatioRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackInfoService_GetVideoWidth_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetVideoWidthRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackInfoServiceServer).GetVideoWidth(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackInfoService_GetVideoWidth_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackInfoServiceServer).GetVideoWidth(ctx, req.(*GetVideoWidthRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackInfoService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackInfoServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackInfoService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackInfoServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackInfoService_IsAudioDescription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsAudioDescriptionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackInfoServiceServer).IsAudioDescription(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackInfoService_IsAudioDescription_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackInfoServiceServer).IsAudioDescription(ctx, req.(*IsAudioDescriptionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackInfoService_IsEncrypted_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsEncryptedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackInfoServiceServer).IsEncrypted(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackInfoService_IsEncrypted_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackInfoServiceServer).IsEncrypted(ctx, req.(*IsEncryptedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackInfoService_IsHardOfHearing_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsHardOfHearingRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackInfoServiceServer).IsHardOfHearing(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackInfoService_IsHardOfHearing_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackInfoServiceServer).IsHardOfHearing(ctx, req.(*IsHardOfHearingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackInfoService_IsSpokenSubtitle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsSpokenSubtitleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackInfoServiceServer).IsSpokenSubtitle(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackInfoService_IsSpokenSubtitle_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackInfoServiceServer).IsSpokenSubtitle(ctx, req.(*IsSpokenSubtitleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackInfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TrackInfoWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackInfoServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackInfoService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackInfoServiceServer).WriteToParcel(ctx, req.(*TrackInfoWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TrackInfoService_ServiceDesc is the grpc.ServiceDesc for TrackInfoService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TrackInfoService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "tv.TrackInfoService",
+	HandlerType: (*TrackInfoServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _TrackInfoService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _TrackInfoService_Equals_Handler,
+		},
+		{
+			MethodName: "GetAudioChannelCount",
+			Handler:    _TrackInfoService_GetAudioChannelCount_Handler,
+		},
+		{
+			MethodName: "GetAudioSampleRate",
+			Handler:    _TrackInfoService_GetAudioSampleRate_Handler,
+		},
+		{
+			MethodName: "GetDescription",
+			Handler:    _TrackInfoService_GetDescription_Handler,
+		},
+		{
+			MethodName: "GetEncoding",
+			Handler:    _TrackInfoService_GetEncoding_Handler,
+		},
+		{
+			MethodName: "GetExtra",
+			Handler:    _TrackInfoService_GetExtra_Handler,
+		},
+		{
+			MethodName: "GetId",
+			Handler:    _TrackInfoService_GetId_Handler,
+		},
+		{
+			MethodName: "GetLanguage",
+			Handler:    _TrackInfoService_GetLanguage_Handler,
+		},
+		{
+			MethodName: "GetType",
+			Handler:    _TrackInfoService_GetType_Handler,
+		},
+		{
+			MethodName: "GetVideoActiveFormatDescription",
+			Handler:    _TrackInfoService_GetVideoActiveFormatDescription_Handler,
+		},
+		{
+			MethodName: "GetVideoFrameRate",
+			Handler:    _TrackInfoService_GetVideoFrameRate_Handler,
+		},
+		{
+			MethodName: "GetVideoHeight",
+			Handler:    _TrackInfoService_GetVideoHeight_Handler,
+		},
+		{
+			MethodName: "GetVideoPixelAspectRatio",
+			Handler:    _TrackInfoService_GetVideoPixelAspectRatio_Handler,
+		},
+		{
+			MethodName: "GetVideoWidth",
+			Handler:    _TrackInfoService_GetVideoWidth_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _TrackInfoService_HashCode_Handler,
+		},
+		{
+			MethodName: "IsAudioDescription",
+			Handler:    _TrackInfoService_IsAudioDescription_Handler,
+		},
+		{
+			MethodName: "IsEncrypted",
+			Handler:    _TrackInfoService_IsEncrypted_Handler,
+		},
+		{
+			MethodName: "IsHardOfHearing",
+			Handler:    _TrackInfoService_IsHardOfHearing_Handler,
+		},
+		{
+			MethodName: "IsSpokenSubtitle",
+			Handler:    _TrackInfoService_IsSpokenSubtitle_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _TrackInfoService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/tv/tv.proto",
+}
+
+const (
+	TrackInfoBuilderService_Build_FullMethodName                           = "/tv.TrackInfoBuilderService/Build"
+	TrackInfoBuilderService_SetAudioChannelCount_FullMethodName            = "/tv.TrackInfoBuilderService/SetAudioChannelCount"
+	TrackInfoBuilderService_SetAudioDescription_FullMethodName             = "/tv.TrackInfoBuilderService/SetAudioDescription"
+	TrackInfoBuilderService_SetAudioSampleRate_FullMethodName              = "/tv.TrackInfoBuilderService/SetAudioSampleRate"
+	TrackInfoBuilderService_SetDescription_FullMethodName                  = "/tv.TrackInfoBuilderService/SetDescription"
+	TrackInfoBuilderService_SetEncoding_FullMethodName                     = "/tv.TrackInfoBuilderService/SetEncoding"
+	TrackInfoBuilderService_SetEncrypted_FullMethodName                    = "/tv.TrackInfoBuilderService/SetEncrypted"
+	TrackInfoBuilderService_SetExtra_FullMethodName                        = "/tv.TrackInfoBuilderService/SetExtra"
+	TrackInfoBuilderService_SetHardOfHearing_FullMethodName                = "/tv.TrackInfoBuilderService/SetHardOfHearing"
+	TrackInfoBuilderService_SetLanguage_FullMethodName                     = "/tv.TrackInfoBuilderService/SetLanguage"
+	TrackInfoBuilderService_SetSpokenSubtitle_FullMethodName               = "/tv.TrackInfoBuilderService/SetSpokenSubtitle"
+	TrackInfoBuilderService_SetVideoActiveFormatDescription_FullMethodName = "/tv.TrackInfoBuilderService/SetVideoActiveFormatDescription"
+	TrackInfoBuilderService_SetVideoFrameRate_FullMethodName               = "/tv.TrackInfoBuilderService/SetVideoFrameRate"
+	TrackInfoBuilderService_SetVideoHeight_FullMethodName                  = "/tv.TrackInfoBuilderService/SetVideoHeight"
+	TrackInfoBuilderService_SetVideoPixelAspectRatio_FullMethodName        = "/tv.TrackInfoBuilderService/SetVideoPixelAspectRatio"
+	TrackInfoBuilderService_SetVideoWidth_FullMethodName                   = "/tv.TrackInfoBuilderService/SetVideoWidth"
+)
+
+// TrackInfoBuilderServiceClient is the client API for TrackInfoBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TrackInfoBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetAudioChannelCount(ctx context.Context, in *SetAudioChannelCountRequest, opts ...grpc.CallOption) (*SetAudioChannelCountResponse, error)
+	SetAudioDescription(ctx context.Context, in *SetAudioDescriptionRequest, opts ...grpc.CallOption) (*SetAudioDescriptionResponse, error)
+	SetAudioSampleRate(ctx context.Context, in *SetAudioSampleRateRequest, opts ...grpc.CallOption) (*SetAudioSampleRateResponse, error)
+	SetDescription(ctx context.Context, in *TrackInfoBuilderSetDescriptionRequest, opts ...grpc.CallOption) (*TrackInfoBuilderSetDescriptionResponse, error)
+	SetEncoding(ctx context.Context, in *SetEncodingRequest, opts ...grpc.CallOption) (*SetEncodingResponse, error)
+	SetEncrypted(ctx context.Context, in *SetEncryptedRequest, opts ...grpc.CallOption) (*SetEncryptedResponse, error)
+	SetExtra(ctx context.Context, in *SetExtraRequest, opts ...grpc.CallOption) (*SetExtraResponse, error)
+	SetHardOfHearing(ctx context.Context, in *SetHardOfHearingRequest, opts ...grpc.CallOption) (*SetHardOfHearingResponse, error)
+	SetLanguage(ctx context.Context, in *SetLanguageRequest, opts ...grpc.CallOption) (*SetLanguageResponse, error)
+	SetSpokenSubtitle(ctx context.Context, in *SetSpokenSubtitleRequest, opts ...grpc.CallOption) (*SetSpokenSubtitleResponse, error)
+	SetVideoActiveFormatDescription(ctx context.Context, in *SetVideoActiveFormatDescriptionRequest, opts ...grpc.CallOption) (*SetVideoActiveFormatDescriptionResponse, error)
+	SetVideoFrameRate(ctx context.Context, in *SetVideoFrameRateRequest, opts ...grpc.CallOption) (*SetVideoFrameRateResponse, error)
+	SetVideoHeight(ctx context.Context, in *SetVideoHeightRequest, opts ...grpc.CallOption) (*SetVideoHeightResponse, error)
+	SetVideoPixelAspectRatio(ctx context.Context, in *SetVideoPixelAspectRatioRequest, opts ...grpc.CallOption) (*SetVideoPixelAspectRatioResponse, error)
+	SetVideoWidth(ctx context.Context, in *SetVideoWidthRequest, opts ...grpc.CallOption) (*SetVideoWidthResponse, error)
+}
+
+type trackInfoBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTrackInfoBuilderServiceClient(cc grpc.ClientConnInterface) TrackInfoBuilderServiceClient {
+	return &trackInfoBuilderServiceClient{cc}
+}
+
+func (c *trackInfoBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, TrackInfoBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackInfoBuilderServiceClient) SetAudioChannelCount(ctx context.Context, in *SetAudioChannelCountRequest, opts ...grpc.CallOption) (*SetAudioChannelCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetAudioChannelCountResponse)
+	err := c.cc.Invoke(ctx, TrackInfoBuilderService_SetAudioChannelCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackInfoBuilderServiceClient) SetAudioDescription(ctx context.Context, in *SetAudioDescriptionRequest, opts ...grpc.CallOption) (*SetAudioDescriptionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetAudioDescriptionResponse)
+	err := c.cc.Invoke(ctx, TrackInfoBuilderService_SetAudioDescription_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackInfoBuilderServiceClient) SetAudioSampleRate(ctx context.Context, in *SetAudioSampleRateRequest, opts ...grpc.CallOption) (*SetAudioSampleRateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetAudioSampleRateResponse)
+	err := c.cc.Invoke(ctx, TrackInfoBuilderService_SetAudioSampleRate_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackInfoBuilderServiceClient) SetDescription(ctx context.Context, in *TrackInfoBuilderSetDescriptionRequest, opts ...grpc.CallOption) (*TrackInfoBuilderSetDescriptionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(TrackInfoBuilderSetDescriptionResponse)
+	err := c.cc.Invoke(ctx, TrackInfoBuilderService_SetDescription_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackInfoBuilderServiceClient) SetEncoding(ctx context.Context, in *SetEncodingRequest, opts ...grpc.CallOption) (*SetEncodingResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetEncodingResponse)
+	err := c.cc.Invoke(ctx, TrackInfoBuilderService_SetEncoding_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackInfoBuilderServiceClient) SetEncrypted(ctx context.Context, in *SetEncryptedRequest, opts ...grpc.CallOption) (*SetEncryptedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetEncryptedResponse)
+	err := c.cc.Invoke(ctx, TrackInfoBuilderService_SetEncrypted_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackInfoBuilderServiceClient) SetExtra(ctx context.Context, in *SetExtraRequest, opts ...grpc.CallOption) (*SetExtraResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetExtraResponse)
+	err := c.cc.Invoke(ctx, TrackInfoBuilderService_SetExtra_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackInfoBuilderServiceClient) SetHardOfHearing(ctx context.Context, in *SetHardOfHearingRequest, opts ...grpc.CallOption) (*SetHardOfHearingResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetHardOfHearingResponse)
+	err := c.cc.Invoke(ctx, TrackInfoBuilderService_SetHardOfHearing_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackInfoBuilderServiceClient) SetLanguage(ctx context.Context, in *SetLanguageRequest, opts ...grpc.CallOption) (*SetLanguageResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetLanguageResponse)
+	err := c.cc.Invoke(ctx, TrackInfoBuilderService_SetLanguage_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackInfoBuilderServiceClient) SetSpokenSubtitle(ctx context.Context, in *SetSpokenSubtitleRequest, opts ...grpc.CallOption) (*SetSpokenSubtitleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetSpokenSubtitleResponse)
+	err := c.cc.Invoke(ctx, TrackInfoBuilderService_SetSpokenSubtitle_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackInfoBuilderServiceClient) SetVideoActiveFormatDescription(ctx context.Context, in *SetVideoActiveFormatDescriptionRequest, opts ...grpc.CallOption) (*SetVideoActiveFormatDescriptionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetVideoActiveFormatDescriptionResponse)
+	err := c.cc.Invoke(ctx, TrackInfoBuilderService_SetVideoActiveFormatDescription_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackInfoBuilderServiceClient) SetVideoFrameRate(ctx context.Context, in *SetVideoFrameRateRequest, opts ...grpc.CallOption) (*SetVideoFrameRateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetVideoFrameRateResponse)
+	err := c.cc.Invoke(ctx, TrackInfoBuilderService_SetVideoFrameRate_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackInfoBuilderServiceClient) SetVideoHeight(ctx context.Context, in *SetVideoHeightRequest, opts ...grpc.CallOption) (*SetVideoHeightResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetVideoHeightResponse)
+	err := c.cc.Invoke(ctx, TrackInfoBuilderService_SetVideoHeight_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackInfoBuilderServiceClient) SetVideoPixelAspectRatio(ctx context.Context, in *SetVideoPixelAspectRatioRequest, opts ...grpc.CallOption) (*SetVideoPixelAspectRatioResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetVideoPixelAspectRatioResponse)
+	err := c.cc.Invoke(ctx, TrackInfoBuilderService_SetVideoPixelAspectRatio_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackInfoBuilderServiceClient) SetVideoWidth(ctx context.Context, in *SetVideoWidthRequest, opts ...grpc.CallOption) (*SetVideoWidthResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetVideoWidthResponse)
+	err := c.cc.Invoke(ctx, TrackInfoBuilderService_SetVideoWidth_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TrackInfoBuilderServiceServer is the server API for TrackInfoBuilderService service.
+// All implementations must embed UnimplementedTrackInfoBuilderServiceServer
+// for forward compatibility.
+type TrackInfoBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetAudioChannelCount(context.Context, *SetAudioChannelCountRequest) (*SetAudioChannelCountResponse, error)
+	SetAudioDescription(context.Context, *SetAudioDescriptionRequest) (*SetAudioDescriptionResponse, error)
+	SetAudioSampleRate(context.Context, *SetAudioSampleRateRequest) (*SetAudioSampleRateResponse, error)
+	SetDescription(context.Context, *TrackInfoBuilderSetDescriptionRequest) (*TrackInfoBuilderSetDescriptionResponse, error)
+	SetEncoding(context.Context, *SetEncodingRequest) (*SetEncodingResponse, error)
+	SetEncrypted(context.Context, *SetEncryptedRequest) (*SetEncryptedResponse, error)
+	SetExtra(context.Context, *SetExtraRequest) (*SetExtraResponse, error)
+	SetHardOfHearing(context.Context, *SetHardOfHearingRequest) (*SetHardOfHearingResponse, error)
+	SetLanguage(context.Context, *SetLanguageRequest) (*SetLanguageResponse, error)
+	SetSpokenSubtitle(context.Context, *SetSpokenSubtitleRequest) (*SetSpokenSubtitleResponse, error)
+	SetVideoActiveFormatDescription(context.Context, *SetVideoActiveFormatDescriptionRequest) (*SetVideoActiveFormatDescriptionResponse, error)
+	SetVideoFrameRate(context.Context, *SetVideoFrameRateRequest) (*SetVideoFrameRateResponse, error)
+	SetVideoHeight(context.Context, *SetVideoHeightRequest) (*SetVideoHeightResponse, error)
+	SetVideoPixelAspectRatio(context.Context, *SetVideoPixelAspectRatioRequest) (*SetVideoPixelAspectRatioResponse, error)
+	SetVideoWidth(context.Context, *SetVideoWidthRequest) (*SetVideoWidthResponse, error)
+	mustEmbedUnimplementedTrackInfoBuilderServiceServer()
+}
+
+// UnimplementedTrackInfoBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTrackInfoBuilderServiceServer struct{}
+
+func (UnimplementedTrackInfoBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedTrackInfoBuilderServiceServer) SetAudioChannelCount(context.Context, *SetAudioChannelCountRequest) (*SetAudioChannelCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetAudioChannelCount not implemented")
+}
+func (UnimplementedTrackInfoBuilderServiceServer) SetAudioDescription(context.Context, *SetAudioDescriptionRequest) (*SetAudioDescriptionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetAudioDescription not implemented")
+}
+func (UnimplementedTrackInfoBuilderServiceServer) SetAudioSampleRate(context.Context, *SetAudioSampleRateRequest) (*SetAudioSampleRateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetAudioSampleRate not implemented")
+}
+func (UnimplementedTrackInfoBuilderServiceServer) SetDescription(context.Context, *TrackInfoBuilderSetDescriptionRequest) (*TrackInfoBuilderSetDescriptionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetDescription not implemented")
+}
+func (UnimplementedTrackInfoBuilderServiceServer) SetEncoding(context.Context, *SetEncodingRequest) (*SetEncodingResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetEncoding not implemented")
+}
+func (UnimplementedTrackInfoBuilderServiceServer) SetEncrypted(context.Context, *SetEncryptedRequest) (*SetEncryptedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetEncrypted not implemented")
+}
+func (UnimplementedTrackInfoBuilderServiceServer) SetExtra(context.Context, *SetExtraRequest) (*SetExtraResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetExtra not implemented")
+}
+func (UnimplementedTrackInfoBuilderServiceServer) SetHardOfHearing(context.Context, *SetHardOfHearingRequest) (*SetHardOfHearingResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetHardOfHearing not implemented")
+}
+func (UnimplementedTrackInfoBuilderServiceServer) SetLanguage(context.Context, *SetLanguageRequest) (*SetLanguageResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetLanguage not implemented")
+}
+func (UnimplementedTrackInfoBuilderServiceServer) SetSpokenSubtitle(context.Context, *SetSpokenSubtitleRequest) (*SetSpokenSubtitleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetSpokenSubtitle not implemented")
+}
+func (UnimplementedTrackInfoBuilderServiceServer) SetVideoActiveFormatDescription(context.Context, *SetVideoActiveFormatDescriptionRequest) (*SetVideoActiveFormatDescriptionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetVideoActiveFormatDescription not implemented")
+}
+func (UnimplementedTrackInfoBuilderServiceServer) SetVideoFrameRate(context.Context, *SetVideoFrameRateRequest) (*SetVideoFrameRateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetVideoFrameRate not implemented")
+}
+func (UnimplementedTrackInfoBuilderServiceServer) SetVideoHeight(context.Context, *SetVideoHeightRequest) (*SetVideoHeightResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetVideoHeight not implemented")
+}
+func (UnimplementedTrackInfoBuilderServiceServer) SetVideoPixelAspectRatio(context.Context, *SetVideoPixelAspectRatioRequest) (*SetVideoPixelAspectRatioResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetVideoPixelAspectRatio not implemented")
+}
+func (UnimplementedTrackInfoBuilderServiceServer) SetVideoWidth(context.Context, *SetVideoWidthRequest) (*SetVideoWidthResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetVideoWidth not implemented")
+}
+func (UnimplementedTrackInfoBuilderServiceServer) mustEmbedUnimplementedTrackInfoBuilderServiceServer() {
+}
+func (UnimplementedTrackInfoBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeTrackInfoBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TrackInfoBuilderServiceServer will
+// result in compilation errors.
+type UnsafeTrackInfoBuilderServiceServer interface {
+	mustEmbedUnimplementedTrackInfoBuilderServiceServer()
+}
+
+func RegisterTrackInfoBuilderServiceServer(s grpc.ServiceRegistrar, srv TrackInfoBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedTrackInfoBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TrackInfoBuilderService_ServiceDesc, srv)
+}
+
+func _TrackInfoBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackInfoBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackInfoBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackInfoBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackInfoBuilderService_SetAudioChannelCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetAudioChannelCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackInfoBuilderServiceServer).SetAudioChannelCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackInfoBuilderService_SetAudioChannelCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackInfoBuilderServiceServer).SetAudioChannelCount(ctx, req.(*SetAudioChannelCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackInfoBuilderService_SetAudioDescription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetAudioDescriptionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackInfoBuilderServiceServer).SetAudioDescription(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackInfoBuilderService_SetAudioDescription_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackInfoBuilderServiceServer).SetAudioDescription(ctx, req.(*SetAudioDescriptionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackInfoBuilderService_SetAudioSampleRate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetAudioSampleRateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackInfoBuilderServiceServer).SetAudioSampleRate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackInfoBuilderService_SetAudioSampleRate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackInfoBuilderServiceServer).SetAudioSampleRate(ctx, req.(*SetAudioSampleRateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackInfoBuilderService_SetDescription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TrackInfoBuilderSetDescriptionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackInfoBuilderServiceServer).SetDescription(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackInfoBuilderService_SetDescription_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackInfoBuilderServiceServer).SetDescription(ctx, req.(*TrackInfoBuilderSetDescriptionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackInfoBuilderService_SetEncoding_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetEncodingRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackInfoBuilderServiceServer).SetEncoding(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackInfoBuilderService_SetEncoding_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackInfoBuilderServiceServer).SetEncoding(ctx, req.(*SetEncodingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackInfoBuilderService_SetEncrypted_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetEncryptedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackInfoBuilderServiceServer).SetEncrypted(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackInfoBuilderService_SetEncrypted_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackInfoBuilderServiceServer).SetEncrypted(ctx, req.(*SetEncryptedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackInfoBuilderService_SetExtra_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetExtraRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackInfoBuilderServiceServer).SetExtra(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackInfoBuilderService_SetExtra_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackInfoBuilderServiceServer).SetExtra(ctx, req.(*SetExtraRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackInfoBuilderService_SetHardOfHearing_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetHardOfHearingRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackInfoBuilderServiceServer).SetHardOfHearing(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackInfoBuilderService_SetHardOfHearing_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackInfoBuilderServiceServer).SetHardOfHearing(ctx, req.(*SetHardOfHearingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackInfoBuilderService_SetLanguage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetLanguageRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackInfoBuilderServiceServer).SetLanguage(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackInfoBuilderService_SetLanguage_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackInfoBuilderServiceServer).SetLanguage(ctx, req.(*SetLanguageRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackInfoBuilderService_SetSpokenSubtitle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetSpokenSubtitleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackInfoBuilderServiceServer).SetSpokenSubtitle(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackInfoBuilderService_SetSpokenSubtitle_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackInfoBuilderServiceServer).SetSpokenSubtitle(ctx, req.(*SetSpokenSubtitleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackInfoBuilderService_SetVideoActiveFormatDescription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetVideoActiveFormatDescriptionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackInfoBuilderServiceServer).SetVideoActiveFormatDescription(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackInfoBuilderService_SetVideoActiveFormatDescription_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackInfoBuilderServiceServer).SetVideoActiveFormatDescription(ctx, req.(*SetVideoActiveFormatDescriptionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackInfoBuilderService_SetVideoFrameRate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetVideoFrameRateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackInfoBuilderServiceServer).SetVideoFrameRate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackInfoBuilderService_SetVideoFrameRate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackInfoBuilderServiceServer).SetVideoFrameRate(ctx, req.(*SetVideoFrameRateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackInfoBuilderService_SetVideoHeight_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetVideoHeightRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackInfoBuilderServiceServer).SetVideoHeight(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackInfoBuilderService_SetVideoHeight_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackInfoBuilderServiceServer).SetVideoHeight(ctx, req.(*SetVideoHeightRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackInfoBuilderService_SetVideoPixelAspectRatio_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetVideoPixelAspectRatioRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackInfoBuilderServiceServer).SetVideoPixelAspectRatio(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackInfoBuilderService_SetVideoPixelAspectRatio_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackInfoBuilderServiceServer).SetVideoPixelAspectRatio(ctx, req.(*SetVideoPixelAspectRatioRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackInfoBuilderService_SetVideoWidth_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetVideoWidthRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackInfoBuilderServiceServer).SetVideoWidth(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackInfoBuilderService_SetVideoWidth_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackInfoBuilderServiceServer).SetVideoWidth(ctx, req.(*SetVideoWidthRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TrackInfoBuilderService_ServiceDesc is the grpc.ServiceDesc for TrackInfoBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TrackInfoBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "tv.TrackInfoBuilderService",
+	HandlerType: (*TrackInfoBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _TrackInfoBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetAudioChannelCount",
+			Handler:    _TrackInfoBuilderService_SetAudioChannelCount_Handler,
+		},
+		{
+			MethodName: "SetAudioDescription",
+			Handler:    _TrackInfoBuilderService_SetAudioDescription_Handler,
+		},
+		{
+			MethodName: "SetAudioSampleRate",
+			Handler:    _TrackInfoBuilderService_SetAudioSampleRate_Handler,
+		},
+		{
+			MethodName: "SetDescription",
+			Handler:    _TrackInfoBuilderService_SetDescription_Handler,
+		},
+		{
+			MethodName: "SetEncoding",
+			Handler:    _TrackInfoBuilderService_SetEncoding_Handler,
+		},
+		{
+			MethodName: "SetEncrypted",
+			Handler:    _TrackInfoBuilderService_SetEncrypted_Handler,
+		},
+		{
+			MethodName: "SetExtra",
+			Handler:    _TrackInfoBuilderService_SetExtra_Handler,
+		},
+		{
+			MethodName: "SetHardOfHearing",
+			Handler:    _TrackInfoBuilderService_SetHardOfHearing_Handler,
+		},
+		{
+			MethodName: "SetLanguage",
+			Handler:    _TrackInfoBuilderService_SetLanguage_Handler,
+		},
+		{
+			MethodName: "SetSpokenSubtitle",
+			Handler:    _TrackInfoBuilderService_SetSpokenSubtitle_Handler,
+		},
+		{
+			MethodName: "SetVideoActiveFormatDescription",
+			Handler:    _TrackInfoBuilderService_SetVideoActiveFormatDescription_Handler,
+		},
+		{
+			MethodName: "SetVideoFrameRate",
+			Handler:    _TrackInfoBuilderService_SetVideoFrameRate_Handler,
+		},
+		{
+			MethodName: "SetVideoHeight",
+			Handler:    _TrackInfoBuilderService_SetVideoHeight_Handler,
+		},
+		{
+			MethodName: "SetVideoPixelAspectRatio",
+			Handler:    _TrackInfoBuilderService_SetVideoPixelAspectRatio_Handler,
+		},
+		{
+			MethodName: "SetVideoWidth",
+			Handler:    _TrackInfoBuilderService_SetVideoWidth_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/tv/tv.proto",
+}
+
+const (
+	CommandRequestService_NewCommandRequest_FullMethodName = "/tv.CommandRequestService/NewCommandRequest"
+	CommandRequestService_DescribeContents_FullMethodName  = "/tv.CommandRequestService/DescribeContents"
+	CommandRequestService_GetArgumentType_FullMethodName   = "/tv.CommandRequestService/GetArgumentType"
+	CommandRequestService_GetArguments_FullMethodName      = "/tv.CommandRequestService/GetArguments"
+	CommandRequestService_GetName_FullMethodName           = "/tv.CommandRequestService/GetName"
+	CommandRequestService_GetNamespace_FullMethodName      = "/tv.CommandRequestService/GetNamespace"
+	CommandRequestService_WriteToParcel_FullMethodName     = "/tv.CommandRequestService/WriteToParcel"
+)
+
+// CommandRequestServiceClient is the client API for CommandRequestService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type CommandRequestServiceClient interface {
+	NewCommandRequest(ctx context.Context, in *NewCommandRequestRequest, opts ...grpc.CallOption) (*NewCommandRequestResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetArgumentType(ctx context.Context, in *GetArgumentTypeRequest, opts ...grpc.CallOption) (*GetArgumentTypeResponse, error)
+	GetArguments(ctx context.Context, in *GetArgumentsRequest, opts ...grpc.CallOption) (*GetArgumentsResponse, error)
+	GetName(ctx context.Context, in *GetNameRequest, opts ...grpc.CallOption) (*GetNameResponse, error)
+	GetNamespace(ctx context.Context, in *GetNamespaceRequest, opts ...grpc.CallOption) (*GetNamespaceResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type commandRequestServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewCommandRequestServiceClient(cc grpc.ClientConnInterface) CommandRequestServiceClient {
+	return &commandRequestServiceClient{cc}
+}
+
+func (c *commandRequestServiceClient) NewCommandRequest(ctx context.Context, in *NewCommandRequestRequest, opts ...grpc.CallOption) (*NewCommandRequestResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewCommandRequestResponse)
+	err := c.cc.Invoke(ctx, CommandRequestService_NewCommandRequest_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *commandRequestServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, CommandRequestService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *commandRequestServiceClient) GetArgumentType(ctx context.Context, in *GetArgumentTypeRequest, opts ...grpc.CallOption) (*GetArgumentTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetArgumentTypeResponse)
+	err := c.cc.Invoke(ctx, CommandRequestService_GetArgumentType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *commandRequestServiceClient) GetArguments(ctx context.Context, in *GetArgumentsRequest, opts ...grpc.CallOption) (*GetArgumentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetArgumentsResponse)
+	err := c.cc.Invoke(ctx, CommandRequestService_GetArguments_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *commandRequestServiceClient) GetName(ctx context.Context, in *GetNameRequest, opts ...grpc.CallOption) (*GetNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetNameResponse)
+	err := c.cc.Invoke(ctx, CommandRequestService_GetName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *commandRequestServiceClient) GetNamespace(ctx context.Context, in *GetNamespaceRequest, opts ...grpc.CallOption) (*GetNamespaceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetNamespaceResponse)
+	err := c.cc.Invoke(ctx, CommandRequestService_GetNamespace_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *commandRequestServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, CommandRequestService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// CommandRequestServiceServer is the server API for CommandRequestService service.
+// All implementations must embed UnimplementedCommandRequestServiceServer
+// for forward compatibility.
+type CommandRequestServiceServer interface {
+	NewCommandRequest(context.Context, *NewCommandRequestRequest) (*NewCommandRequestResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetArgumentType(context.Context, *GetArgumentTypeRequest) (*GetArgumentTypeResponse, error)
+	GetArguments(context.Context, *GetArgumentsRequest) (*GetArgumentsResponse, error)
+	GetName(context.Context, *GetNameRequest) (*GetNameResponse, error)
+	GetNamespace(context.Context, *GetNamespaceRequest) (*GetNamespaceResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedCommandRequestServiceServer()
+}
+
+// UnimplementedCommandRequestServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedCommandRequestServiceServer struct{}
+
+func (UnimplementedCommandRequestServiceServer) NewCommandRequest(context.Context, *NewCommandRequestRequest) (*NewCommandRequestResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewCommandRequest not implemented")
+}
+func (UnimplementedCommandRequestServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedCommandRequestServiceServer) GetArgumentType(context.Context, *GetArgumentTypeRequest) (*GetArgumentTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetArgumentType not implemented")
+}
+func (UnimplementedCommandRequestServiceServer) GetArguments(context.Context, *GetArgumentsRequest) (*GetArgumentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetArguments not implemented")
+}
+func (UnimplementedCommandRequestServiceServer) GetName(context.Context, *GetNameRequest) (*GetNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetName not implemented")
+}
+func (UnimplementedCommandRequestServiceServer) GetNamespace(context.Context, *GetNamespaceRequest) (*GetNamespaceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetNamespace not implemented")
+}
+func (UnimplementedCommandRequestServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedCommandRequestServiceServer) mustEmbedUnimplementedCommandRequestServiceServer() {}
+func (UnimplementedCommandRequestServiceServer) testEmbeddedByValue()                               {}
+
+// UnsafeCommandRequestServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CommandRequestServiceServer will
+// result in compilation errors.
+type UnsafeCommandRequestServiceServer interface {
+	mustEmbedUnimplementedCommandRequestServiceServer()
+}
+
+func RegisterCommandRequestServiceServer(s grpc.ServiceRegistrar, srv CommandRequestServiceServer) {
+	// If the following call panics, it indicates UnimplementedCommandRequestServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&CommandRequestService_ServiceDesc, srv)
+}
+
+func _CommandRequestService_NewCommandRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewCommandRequestRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CommandRequestServiceServer).NewCommandRequest(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CommandRequestService_NewCommandRequest_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CommandRequestServiceServer).NewCommandRequest(ctx, req.(*NewCommandRequestRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CommandRequestService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CommandRequestServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CommandRequestService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CommandRequestServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CommandRequestService_GetArgumentType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetArgumentTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CommandRequestServiceServer).GetArgumentType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CommandRequestService_GetArgumentType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CommandRequestServiceServer).GetArgumentType(ctx, req.(*GetArgumentTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CommandRequestService_GetArguments_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetArgumentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CommandRequestServiceServer).GetArguments(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CommandRequestService_GetArguments_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CommandRequestServiceServer).GetArguments(ctx, req.(*GetArgumentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CommandRequestService_GetName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CommandRequestServiceServer).GetName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CommandRequestService_GetName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CommandRequestServiceServer).GetName(ctx, req.(*GetNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CommandRequestService_GetNamespace_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetNamespaceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CommandRequestServiceServer).GetNamespace(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CommandRequestService_GetNamespace_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CommandRequestServiceServer).GetNamespace(ctx, req.(*GetNamespaceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CommandRequestService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CommandRequestServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CommandRequestService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CommandRequestServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// CommandRequestService_ServiceDesc is the grpc.ServiceDesc for CommandRequestService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var CommandRequestService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "tv.CommandRequestService",
+	HandlerType: (*CommandRequestServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewCommandRequest",
+			Handler:    _CommandRequestService_NewCommandRequest_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _CommandRequestService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetArgumentType",
+			Handler:    _CommandRequestService_GetArgumentType_Handler,
+		},
+		{
+			MethodName: "GetArguments",
+			Handler:    _CommandRequestService_GetArguments_Handler,
+		},
+		{
+			MethodName: "GetName",
+			Handler:    _CommandRequestService_GetName_Handler,
+		},
+		{
+			MethodName: "GetNamespace",
+			Handler:    _CommandRequestService_GetNamespace_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _CommandRequestService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/tv/tv.proto",
+}
+
+const (
+	ContentRatingService_Contains_FullMethodName            = "/tv.ContentRatingService/Contains"
+	ContentRatingService_Equals_FullMethodName              = "/tv.ContentRatingService/Equals"
+	ContentRatingService_FlattenToString_FullMethodName     = "/tv.ContentRatingService/FlattenToString"
+	ContentRatingService_GetDomain_FullMethodName           = "/tv.ContentRatingService/GetDomain"
+	ContentRatingService_GetMainRating_FullMethodName       = "/tv.ContentRatingService/GetMainRating"
+	ContentRatingService_GetRatingSystem_FullMethodName     = "/tv.ContentRatingService/GetRatingSystem"
+	ContentRatingService_HashCode_FullMethodName            = "/tv.ContentRatingService/HashCode"
+	ContentRatingService_CreateRating_FullMethodName        = "/tv.ContentRatingService/CreateRating"
+	ContentRatingService_UnflattenFromString_FullMethodName = "/tv.ContentRatingService/UnflattenFromString"
+)
+
+// ContentRatingServiceClient is the client API for ContentRatingService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ContentRatingServiceClient interface {
+	Contains(ctx context.Context, in *ContainsRequest, opts ...grpc.CallOption) (*ContainsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	FlattenToString(ctx context.Context, in *FlattenToStringRequest, opts ...grpc.CallOption) (*FlattenToStringResponse, error)
+	GetDomain(ctx context.Context, in *GetDomainRequest, opts ...grpc.CallOption) (*GetDomainResponse, error)
+	GetMainRating(ctx context.Context, in *GetMainRatingRequest, opts ...grpc.CallOption) (*GetMainRatingResponse, error)
+	GetRatingSystem(ctx context.Context, in *GetRatingSystemRequest, opts ...grpc.CallOption) (*GetRatingSystemResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	CreateRating(ctx context.Context, in *CreateRatingRequest, opts ...grpc.CallOption) (*CreateRatingResponse, error)
+	UnflattenFromString(ctx context.Context, in *UnflattenFromStringRequest, opts ...grpc.CallOption) (*UnflattenFromStringResponse, error)
+}
+
+type contentRatingServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewContentRatingServiceClient(cc grpc.ClientConnInterface) ContentRatingServiceClient {
+	return &contentRatingServiceClient{cc}
+}
+
+func (c *contentRatingServiceClient) Contains(ctx context.Context, in *ContainsRequest, opts ...grpc.CallOption) (*ContainsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ContainsResponse)
+	err := c.cc.Invoke(ctx, ContentRatingService_Contains_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contentRatingServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, ContentRatingService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contentRatingServiceClient) FlattenToString(ctx context.Context, in *FlattenToStringRequest, opts ...grpc.CallOption) (*FlattenToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(FlattenToStringResponse)
+	err := c.cc.Invoke(ctx, ContentRatingService_FlattenToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contentRatingServiceClient) GetDomain(ctx context.Context, in *GetDomainRequest, opts ...grpc.CallOption) (*GetDomainResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDomainResponse)
+	err := c.cc.Invoke(ctx, ContentRatingService_GetDomain_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contentRatingServiceClient) GetMainRating(ctx context.Context, in *GetMainRatingRequest, opts ...grpc.CallOption) (*GetMainRatingResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMainRatingResponse)
+	err := c.cc.Invoke(ctx, ContentRatingService_GetMainRating_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contentRatingServiceClient) GetRatingSystem(ctx context.Context, in *GetRatingSystemRequest, opts ...grpc.CallOption) (*GetRatingSystemResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRatingSystemResponse)
+	err := c.cc.Invoke(ctx, ContentRatingService_GetRatingSystem_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contentRatingServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, ContentRatingService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contentRatingServiceClient) CreateRating(ctx context.Context, in *CreateRatingRequest, opts ...grpc.CallOption) (*CreateRatingResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateRatingResponse)
+	err := c.cc.Invoke(ctx, ContentRatingService_CreateRating_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contentRatingServiceClient) UnflattenFromString(ctx context.Context, in *UnflattenFromStringRequest, opts ...grpc.CallOption) (*UnflattenFromStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UnflattenFromStringResponse)
+	err := c.cc.Invoke(ctx, ContentRatingService_UnflattenFromString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ContentRatingServiceServer is the server API for ContentRatingService service.
+// All implementations must embed UnimplementedContentRatingServiceServer
+// for forward compatibility.
+type ContentRatingServiceServer interface {
+	Contains(context.Context, *ContainsRequest) (*ContainsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	FlattenToString(context.Context, *FlattenToStringRequest) (*FlattenToStringResponse, error)
+	GetDomain(context.Context, *GetDomainRequest) (*GetDomainResponse, error)
+	GetMainRating(context.Context, *GetMainRatingRequest) (*GetMainRatingResponse, error)
+	GetRatingSystem(context.Context, *GetRatingSystemRequest) (*GetRatingSystemResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	CreateRating(context.Context, *CreateRatingRequest) (*CreateRatingResponse, error)
+	UnflattenFromString(context.Context, *UnflattenFromStringRequest) (*UnflattenFromStringResponse, error)
+	mustEmbedUnimplementedContentRatingServiceServer()
+}
+
+// UnimplementedContentRatingServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedContentRatingServiceServer struct{}
+
+func (UnimplementedContentRatingServiceServer) Contains(context.Context, *ContainsRequest) (*ContainsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Contains not implemented")
+}
+func (UnimplementedContentRatingServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedContentRatingServiceServer) FlattenToString(context.Context, *FlattenToStringRequest) (*FlattenToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method FlattenToString not implemented")
+}
+func (UnimplementedContentRatingServiceServer) GetDomain(context.Context, *GetDomainRequest) (*GetDomainResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDomain not implemented")
+}
+func (UnimplementedContentRatingServiceServer) GetMainRating(context.Context, *GetMainRatingRequest) (*GetMainRatingResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMainRating not implemented")
+}
+func (UnimplementedContentRatingServiceServer) GetRatingSystem(context.Context, *GetRatingSystemRequest) (*GetRatingSystemResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRatingSystem not implemented")
+}
+func (UnimplementedContentRatingServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedContentRatingServiceServer) CreateRating(context.Context, *CreateRatingRequest) (*CreateRatingResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CreateRating not implemented")
+}
+func (UnimplementedContentRatingServiceServer) UnflattenFromString(context.Context, *UnflattenFromStringRequest) (*UnflattenFromStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UnflattenFromString not implemented")
+}
+func (UnimplementedContentRatingServiceServer) mustEmbedUnimplementedContentRatingServiceServer() {}
+func (UnimplementedContentRatingServiceServer) testEmbeddedByValue()                              {}
+
+// UnsafeContentRatingServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ContentRatingServiceServer will
+// result in compilation errors.
+type UnsafeContentRatingServiceServer interface {
+	mustEmbedUnimplementedContentRatingServiceServer()
+}
+
+func RegisterContentRatingServiceServer(s grpc.ServiceRegistrar, srv ContentRatingServiceServer) {
+	// If the following call panics, it indicates UnimplementedContentRatingServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ContentRatingService_ServiceDesc, srv)
+}
+
+func _ContentRatingService_Contains_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ContainsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentRatingServiceServer).Contains(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentRatingService_Contains_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentRatingServiceServer).Contains(ctx, req.(*ContainsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContentRatingService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentRatingServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentRatingService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentRatingServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContentRatingService_FlattenToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FlattenToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentRatingServiceServer).FlattenToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentRatingService_FlattenToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentRatingServiceServer).FlattenToString(ctx, req.(*FlattenToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContentRatingService_GetDomain_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDomainRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentRatingServiceServer).GetDomain(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentRatingService_GetDomain_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentRatingServiceServer).GetDomain(ctx, req.(*GetDomainRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContentRatingService_GetMainRating_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMainRatingRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentRatingServiceServer).GetMainRating(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentRatingService_GetMainRating_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentRatingServiceServer).GetMainRating(ctx, req.(*GetMainRatingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContentRatingService_GetRatingSystem_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRatingSystemRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentRatingServiceServer).GetRatingSystem(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentRatingService_GetRatingSystem_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentRatingServiceServer).GetRatingSystem(ctx, req.(*GetRatingSystemRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContentRatingService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentRatingServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentRatingService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentRatingServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContentRatingService_CreateRating_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateRatingRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentRatingServiceServer).CreateRating(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentRatingService_CreateRating_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentRatingServiceServer).CreateRating(ctx, req.(*CreateRatingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContentRatingService_UnflattenFromString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnflattenFromStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentRatingServiceServer).UnflattenFromString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentRatingService_UnflattenFromString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentRatingServiceServer).UnflattenFromString(ctx, req.(*UnflattenFromStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ContentRatingService_ServiceDesc is the grpc.ServiceDesc for ContentRatingService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ContentRatingService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "tv.ContentRatingService",
+	HandlerType: (*ContentRatingServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Contains",
+			Handler:    _ContentRatingService_Contains_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _ContentRatingService_Equals_Handler,
+		},
+		{
+			MethodName: "FlattenToString",
+			Handler:    _ContentRatingService_FlattenToString_Handler,
+		},
+		{
+			MethodName: "GetDomain",
+			Handler:    _ContentRatingService_GetDomain_Handler,
+		},
+		{
+			MethodName: "GetMainRating",
+			Handler:    _ContentRatingService_GetMainRating_Handler,
+		},
+		{
+			MethodName: "GetRatingSystem",
+			Handler:    _ContentRatingService_GetRatingSystem_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _ContentRatingService_HashCode_Handler,
+		},
+		{
+			MethodName: "CreateRating",
+			Handler:    _ContentRatingService_CreateRating_Handler,
+		},
+		{
+			MethodName: "UnflattenFromString",
+			Handler:    _ContentRatingService_UnflattenFromString_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

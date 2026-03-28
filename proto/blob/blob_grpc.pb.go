@@ -463,3 +463,930 @@ var StoreManagerService_ServiceDesc = grpc.ServiceDesc{
 	Streams:  []grpc.StreamDesc{},
 	Metadata: "proto/blob/blob.proto",
 }
+
+const (
+	StoreManagerSessionService_Abandon_FullMethodName                      = "/blob.StoreManagerSessionService/Abandon"
+	StoreManagerSessionService_AllowPackageAccess_FullMethodName           = "/blob.StoreManagerSessionService/AllowPackageAccess"
+	StoreManagerSessionService_AllowPublicAccess_FullMethodName            = "/blob.StoreManagerSessionService/AllowPublicAccess"
+	StoreManagerSessionService_AllowSameSignatureAccess_FullMethodName     = "/blob.StoreManagerSessionService/AllowSameSignatureAccess"
+	StoreManagerSessionService_Close_FullMethodName                        = "/blob.StoreManagerSessionService/Close"
+	StoreManagerSessionService_GetSize_FullMethodName                      = "/blob.StoreManagerSessionService/GetSize"
+	StoreManagerSessionService_IsPackageAccessAllowed_FullMethodName       = "/blob.StoreManagerSessionService/IsPackageAccessAllowed"
+	StoreManagerSessionService_IsPublicAccessAllowed_FullMethodName        = "/blob.StoreManagerSessionService/IsPublicAccessAllowed"
+	StoreManagerSessionService_IsSameSignatureAccessAllowed_FullMethodName = "/blob.StoreManagerSessionService/IsSameSignatureAccessAllowed"
+	StoreManagerSessionService_OpenRead_FullMethodName                     = "/blob.StoreManagerSessionService/OpenRead"
+	StoreManagerSessionService_OpenWrite_FullMethodName                    = "/blob.StoreManagerSessionService/OpenWrite"
+)
+
+// StoreManagerSessionServiceClient is the client API for StoreManagerSessionService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type StoreManagerSessionServiceClient interface {
+	Abandon(ctx context.Context, in *AbandonRequest, opts ...grpc.CallOption) (*AbandonResponse, error)
+	AllowPackageAccess(ctx context.Context, in *AllowPackageAccessRequest, opts ...grpc.CallOption) (*AllowPackageAccessResponse, error)
+	AllowPublicAccess(ctx context.Context, in *AllowPublicAccessRequest, opts ...grpc.CallOption) (*AllowPublicAccessResponse, error)
+	AllowSameSignatureAccess(ctx context.Context, in *AllowSameSignatureAccessRequest, opts ...grpc.CallOption) (*AllowSameSignatureAccessResponse, error)
+	Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
+	GetSize(ctx context.Context, in *GetSizeRequest, opts ...grpc.CallOption) (*GetSizeResponse, error)
+	IsPackageAccessAllowed(ctx context.Context, in *IsPackageAccessAllowedRequest, opts ...grpc.CallOption) (*IsPackageAccessAllowedResponse, error)
+	IsPublicAccessAllowed(ctx context.Context, in *IsPublicAccessAllowedRequest, opts ...grpc.CallOption) (*IsPublicAccessAllowedResponse, error)
+	IsSameSignatureAccessAllowed(ctx context.Context, in *IsSameSignatureAccessAllowedRequest, opts ...grpc.CallOption) (*IsSameSignatureAccessAllowedResponse, error)
+	OpenRead(ctx context.Context, in *OpenReadRequest, opts ...grpc.CallOption) (*OpenReadResponse, error)
+	OpenWrite(ctx context.Context, in *OpenWriteRequest, opts ...grpc.CallOption) (*OpenWriteResponse, error)
+}
+
+type storeManagerSessionServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewStoreManagerSessionServiceClient(cc grpc.ClientConnInterface) StoreManagerSessionServiceClient {
+	return &storeManagerSessionServiceClient{cc}
+}
+
+func (c *storeManagerSessionServiceClient) Abandon(ctx context.Context, in *AbandonRequest, opts ...grpc.CallOption) (*AbandonResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AbandonResponse)
+	err := c.cc.Invoke(ctx, StoreManagerSessionService_Abandon_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *storeManagerSessionServiceClient) AllowPackageAccess(ctx context.Context, in *AllowPackageAccessRequest, opts ...grpc.CallOption) (*AllowPackageAccessResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AllowPackageAccessResponse)
+	err := c.cc.Invoke(ctx, StoreManagerSessionService_AllowPackageAccess_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *storeManagerSessionServiceClient) AllowPublicAccess(ctx context.Context, in *AllowPublicAccessRequest, opts ...grpc.CallOption) (*AllowPublicAccessResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AllowPublicAccessResponse)
+	err := c.cc.Invoke(ctx, StoreManagerSessionService_AllowPublicAccess_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *storeManagerSessionServiceClient) AllowSameSignatureAccess(ctx context.Context, in *AllowSameSignatureAccessRequest, opts ...grpc.CallOption) (*AllowSameSignatureAccessResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AllowSameSignatureAccessResponse)
+	err := c.cc.Invoke(ctx, StoreManagerSessionService_AllowSameSignatureAccess_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *storeManagerSessionServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CloseResponse)
+	err := c.cc.Invoke(ctx, StoreManagerSessionService_Close_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *storeManagerSessionServiceClient) GetSize(ctx context.Context, in *GetSizeRequest, opts ...grpc.CallOption) (*GetSizeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSizeResponse)
+	err := c.cc.Invoke(ctx, StoreManagerSessionService_GetSize_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *storeManagerSessionServiceClient) IsPackageAccessAllowed(ctx context.Context, in *IsPackageAccessAllowedRequest, opts ...grpc.CallOption) (*IsPackageAccessAllowedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsPackageAccessAllowedResponse)
+	err := c.cc.Invoke(ctx, StoreManagerSessionService_IsPackageAccessAllowed_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *storeManagerSessionServiceClient) IsPublicAccessAllowed(ctx context.Context, in *IsPublicAccessAllowedRequest, opts ...grpc.CallOption) (*IsPublicAccessAllowedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsPublicAccessAllowedResponse)
+	err := c.cc.Invoke(ctx, StoreManagerSessionService_IsPublicAccessAllowed_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *storeManagerSessionServiceClient) IsSameSignatureAccessAllowed(ctx context.Context, in *IsSameSignatureAccessAllowedRequest, opts ...grpc.CallOption) (*IsSameSignatureAccessAllowedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsSameSignatureAccessAllowedResponse)
+	err := c.cc.Invoke(ctx, StoreManagerSessionService_IsSameSignatureAccessAllowed_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *storeManagerSessionServiceClient) OpenRead(ctx context.Context, in *OpenReadRequest, opts ...grpc.CallOption) (*OpenReadResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OpenReadResponse)
+	err := c.cc.Invoke(ctx, StoreManagerSessionService_OpenRead_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *storeManagerSessionServiceClient) OpenWrite(ctx context.Context, in *OpenWriteRequest, opts ...grpc.CallOption) (*OpenWriteResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OpenWriteResponse)
+	err := c.cc.Invoke(ctx, StoreManagerSessionService_OpenWrite_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// StoreManagerSessionServiceServer is the server API for StoreManagerSessionService service.
+// All implementations must embed UnimplementedStoreManagerSessionServiceServer
+// for forward compatibility.
+type StoreManagerSessionServiceServer interface {
+	Abandon(context.Context, *AbandonRequest) (*AbandonResponse, error)
+	AllowPackageAccess(context.Context, *AllowPackageAccessRequest) (*AllowPackageAccessResponse, error)
+	AllowPublicAccess(context.Context, *AllowPublicAccessRequest) (*AllowPublicAccessResponse, error)
+	AllowSameSignatureAccess(context.Context, *AllowSameSignatureAccessRequest) (*AllowSameSignatureAccessResponse, error)
+	Close(context.Context, *CloseRequest) (*CloseResponse, error)
+	GetSize(context.Context, *GetSizeRequest) (*GetSizeResponse, error)
+	IsPackageAccessAllowed(context.Context, *IsPackageAccessAllowedRequest) (*IsPackageAccessAllowedResponse, error)
+	IsPublicAccessAllowed(context.Context, *IsPublicAccessAllowedRequest) (*IsPublicAccessAllowedResponse, error)
+	IsSameSignatureAccessAllowed(context.Context, *IsSameSignatureAccessAllowedRequest) (*IsSameSignatureAccessAllowedResponse, error)
+	OpenRead(context.Context, *OpenReadRequest) (*OpenReadResponse, error)
+	OpenWrite(context.Context, *OpenWriteRequest) (*OpenWriteResponse, error)
+	mustEmbedUnimplementedStoreManagerSessionServiceServer()
+}
+
+// UnimplementedStoreManagerSessionServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedStoreManagerSessionServiceServer struct{}
+
+func (UnimplementedStoreManagerSessionServiceServer) Abandon(context.Context, *AbandonRequest) (*AbandonResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Abandon not implemented")
+}
+func (UnimplementedStoreManagerSessionServiceServer) AllowPackageAccess(context.Context, *AllowPackageAccessRequest) (*AllowPackageAccessResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AllowPackageAccess not implemented")
+}
+func (UnimplementedStoreManagerSessionServiceServer) AllowPublicAccess(context.Context, *AllowPublicAccessRequest) (*AllowPublicAccessResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AllowPublicAccess not implemented")
+}
+func (UnimplementedStoreManagerSessionServiceServer) AllowSameSignatureAccess(context.Context, *AllowSameSignatureAccessRequest) (*AllowSameSignatureAccessResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AllowSameSignatureAccess not implemented")
+}
+func (UnimplementedStoreManagerSessionServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
+}
+func (UnimplementedStoreManagerSessionServiceServer) GetSize(context.Context, *GetSizeRequest) (*GetSizeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSize not implemented")
+}
+func (UnimplementedStoreManagerSessionServiceServer) IsPackageAccessAllowed(context.Context, *IsPackageAccessAllowedRequest) (*IsPackageAccessAllowedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsPackageAccessAllowed not implemented")
+}
+func (UnimplementedStoreManagerSessionServiceServer) IsPublicAccessAllowed(context.Context, *IsPublicAccessAllowedRequest) (*IsPublicAccessAllowedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsPublicAccessAllowed not implemented")
+}
+func (UnimplementedStoreManagerSessionServiceServer) IsSameSignatureAccessAllowed(context.Context, *IsSameSignatureAccessAllowedRequest) (*IsSameSignatureAccessAllowedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsSameSignatureAccessAllowed not implemented")
+}
+func (UnimplementedStoreManagerSessionServiceServer) OpenRead(context.Context, *OpenReadRequest) (*OpenReadResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OpenRead not implemented")
+}
+func (UnimplementedStoreManagerSessionServiceServer) OpenWrite(context.Context, *OpenWriteRequest) (*OpenWriteResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OpenWrite not implemented")
+}
+func (UnimplementedStoreManagerSessionServiceServer) mustEmbedUnimplementedStoreManagerSessionServiceServer() {
+}
+func (UnimplementedStoreManagerSessionServiceServer) testEmbeddedByValue() {}
+
+// UnsafeStoreManagerSessionServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to StoreManagerSessionServiceServer will
+// result in compilation errors.
+type UnsafeStoreManagerSessionServiceServer interface {
+	mustEmbedUnimplementedStoreManagerSessionServiceServer()
+}
+
+func RegisterStoreManagerSessionServiceServer(s grpc.ServiceRegistrar, srv StoreManagerSessionServiceServer) {
+	// If the following call panics, it indicates UnimplementedStoreManagerSessionServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&StoreManagerSessionService_ServiceDesc, srv)
+}
+
+func _StoreManagerSessionService_Abandon_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AbandonRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StoreManagerSessionServiceServer).Abandon(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StoreManagerSessionService_Abandon_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StoreManagerSessionServiceServer).Abandon(ctx, req.(*AbandonRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StoreManagerSessionService_AllowPackageAccess_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AllowPackageAccessRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StoreManagerSessionServiceServer).AllowPackageAccess(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StoreManagerSessionService_AllowPackageAccess_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StoreManagerSessionServiceServer).AllowPackageAccess(ctx, req.(*AllowPackageAccessRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StoreManagerSessionService_AllowPublicAccess_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AllowPublicAccessRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StoreManagerSessionServiceServer).AllowPublicAccess(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StoreManagerSessionService_AllowPublicAccess_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StoreManagerSessionServiceServer).AllowPublicAccess(ctx, req.(*AllowPublicAccessRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StoreManagerSessionService_AllowSameSignatureAccess_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AllowSameSignatureAccessRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StoreManagerSessionServiceServer).AllowSameSignatureAccess(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StoreManagerSessionService_AllowSameSignatureAccess_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StoreManagerSessionServiceServer).AllowSameSignatureAccess(ctx, req.(*AllowSameSignatureAccessRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StoreManagerSessionService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CloseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StoreManagerSessionServiceServer).Close(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StoreManagerSessionService_Close_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StoreManagerSessionServiceServer).Close(ctx, req.(*CloseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StoreManagerSessionService_GetSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSizeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StoreManagerSessionServiceServer).GetSize(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StoreManagerSessionService_GetSize_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StoreManagerSessionServiceServer).GetSize(ctx, req.(*GetSizeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StoreManagerSessionService_IsPackageAccessAllowed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsPackageAccessAllowedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StoreManagerSessionServiceServer).IsPackageAccessAllowed(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StoreManagerSessionService_IsPackageAccessAllowed_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StoreManagerSessionServiceServer).IsPackageAccessAllowed(ctx, req.(*IsPackageAccessAllowedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StoreManagerSessionService_IsPublicAccessAllowed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsPublicAccessAllowedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StoreManagerSessionServiceServer).IsPublicAccessAllowed(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StoreManagerSessionService_IsPublicAccessAllowed_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StoreManagerSessionServiceServer).IsPublicAccessAllowed(ctx, req.(*IsPublicAccessAllowedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StoreManagerSessionService_IsSameSignatureAccessAllowed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsSameSignatureAccessAllowedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StoreManagerSessionServiceServer).IsSameSignatureAccessAllowed(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StoreManagerSessionService_IsSameSignatureAccessAllowed_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StoreManagerSessionServiceServer).IsSameSignatureAccessAllowed(ctx, req.(*IsSameSignatureAccessAllowedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StoreManagerSessionService_OpenRead_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OpenReadRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StoreManagerSessionServiceServer).OpenRead(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StoreManagerSessionService_OpenRead_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StoreManagerSessionServiceServer).OpenRead(ctx, req.(*OpenReadRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StoreManagerSessionService_OpenWrite_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OpenWriteRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StoreManagerSessionServiceServer).OpenWrite(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StoreManagerSessionService_OpenWrite_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StoreManagerSessionServiceServer).OpenWrite(ctx, req.(*OpenWriteRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// StoreManagerSessionService_ServiceDesc is the grpc.ServiceDesc for StoreManagerSessionService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var StoreManagerSessionService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "blob.StoreManagerSessionService",
+	HandlerType: (*StoreManagerSessionServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Abandon",
+			Handler:    _StoreManagerSessionService_Abandon_Handler,
+		},
+		{
+			MethodName: "AllowPackageAccess",
+			Handler:    _StoreManagerSessionService_AllowPackageAccess_Handler,
+		},
+		{
+			MethodName: "AllowPublicAccess",
+			Handler:    _StoreManagerSessionService_AllowPublicAccess_Handler,
+		},
+		{
+			MethodName: "AllowSameSignatureAccess",
+			Handler:    _StoreManagerSessionService_AllowSameSignatureAccess_Handler,
+		},
+		{
+			MethodName: "Close",
+			Handler:    _StoreManagerSessionService_Close_Handler,
+		},
+		{
+			MethodName: "GetSize",
+			Handler:    _StoreManagerSessionService_GetSize_Handler,
+		},
+		{
+			MethodName: "IsPackageAccessAllowed",
+			Handler:    _StoreManagerSessionService_IsPackageAccessAllowed_Handler,
+		},
+		{
+			MethodName: "IsPublicAccessAllowed",
+			Handler:    _StoreManagerSessionService_IsPublicAccessAllowed_Handler,
+		},
+		{
+			MethodName: "IsSameSignatureAccessAllowed",
+			Handler:    _StoreManagerSessionService_IsSameSignatureAccessAllowed_Handler,
+		},
+		{
+			MethodName: "OpenRead",
+			Handler:    _StoreManagerSessionService_OpenRead_Handler,
+		},
+		{
+			MethodName: "OpenWrite",
+			Handler:    _StoreManagerSessionService_OpenWrite_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/blob/blob.proto",
+}
+
+const (
+	HandleService_DescribeContents_FullMethodName    = "/blob.HandleService/DescribeContents"
+	HandleService_Equals_FullMethodName              = "/blob.HandleService/Equals"
+	HandleService_GetExpiryTimeMillis_FullMethodName = "/blob.HandleService/GetExpiryTimeMillis"
+	HandleService_GetLabel_FullMethodName            = "/blob.HandleService/GetLabel"
+	HandleService_GetSha256Digest_FullMethodName     = "/blob.HandleService/GetSha256Digest"
+	HandleService_GetTag_FullMethodName              = "/blob.HandleService/GetTag"
+	HandleService_HashCode_FullMethodName            = "/blob.HandleService/HashCode"
+	HandleService_ToString_FullMethodName            = "/blob.HandleService/ToString"
+	HandleService_WriteToParcel_FullMethodName       = "/blob.HandleService/WriteToParcel"
+	HandleService_CreateWithSha256_FullMethodName    = "/blob.HandleService/CreateWithSha256"
+)
+
+// HandleServiceClient is the client API for HandleService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type HandleServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetExpiryTimeMillis(ctx context.Context, in *GetExpiryTimeMillisRequest, opts ...grpc.CallOption) (*GetExpiryTimeMillisResponse, error)
+	GetLabel(ctx context.Context, in *GetLabelRequest, opts ...grpc.CallOption) (*GetLabelResponse, error)
+	GetSha256Digest(ctx context.Context, in *GetSha256DigestRequest, opts ...grpc.CallOption) (*GetSha256DigestResponse, error)
+	GetTag(ctx context.Context, in *GetTagRequest, opts ...grpc.CallOption) (*GetTagResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+	CreateWithSha256(ctx context.Context, in *CreateWithSha256Request, opts ...grpc.CallOption) (*CreateWithSha256Response, error)
+}
+
+type handleServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewHandleServiceClient(cc grpc.ClientConnInterface) HandleServiceClient {
+	return &handleServiceClient{cc}
+}
+
+func (c *handleServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, HandleService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *handleServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, HandleService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *handleServiceClient) GetExpiryTimeMillis(ctx context.Context, in *GetExpiryTimeMillisRequest, opts ...grpc.CallOption) (*GetExpiryTimeMillisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetExpiryTimeMillisResponse)
+	err := c.cc.Invoke(ctx, HandleService_GetExpiryTimeMillis_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *handleServiceClient) GetLabel(ctx context.Context, in *GetLabelRequest, opts ...grpc.CallOption) (*GetLabelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLabelResponse)
+	err := c.cc.Invoke(ctx, HandleService_GetLabel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *handleServiceClient) GetSha256Digest(ctx context.Context, in *GetSha256DigestRequest, opts ...grpc.CallOption) (*GetSha256DigestResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSha256DigestResponse)
+	err := c.cc.Invoke(ctx, HandleService_GetSha256Digest_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *handleServiceClient) GetTag(ctx context.Context, in *GetTagRequest, opts ...grpc.CallOption) (*GetTagResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTagResponse)
+	err := c.cc.Invoke(ctx, HandleService_GetTag_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *handleServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, HandleService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *handleServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, HandleService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *handleServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, HandleService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *handleServiceClient) CreateWithSha256(ctx context.Context, in *CreateWithSha256Request, opts ...grpc.CallOption) (*CreateWithSha256Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateWithSha256Response)
+	err := c.cc.Invoke(ctx, HandleService_CreateWithSha256_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// HandleServiceServer is the server API for HandleService service.
+// All implementations must embed UnimplementedHandleServiceServer
+// for forward compatibility.
+type HandleServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetExpiryTimeMillis(context.Context, *GetExpiryTimeMillisRequest) (*GetExpiryTimeMillisResponse, error)
+	GetLabel(context.Context, *GetLabelRequest) (*GetLabelResponse, error)
+	GetSha256Digest(context.Context, *GetSha256DigestRequest) (*GetSha256DigestResponse, error)
+	GetTag(context.Context, *GetTagRequest) (*GetTagResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	CreateWithSha256(context.Context, *CreateWithSha256Request) (*CreateWithSha256Response, error)
+	mustEmbedUnimplementedHandleServiceServer()
+}
+
+// UnimplementedHandleServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedHandleServiceServer struct{}
+
+func (UnimplementedHandleServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedHandleServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedHandleServiceServer) GetExpiryTimeMillis(context.Context, *GetExpiryTimeMillisRequest) (*GetExpiryTimeMillisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetExpiryTimeMillis not implemented")
+}
+func (UnimplementedHandleServiceServer) GetLabel(context.Context, *GetLabelRequest) (*GetLabelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLabel not implemented")
+}
+func (UnimplementedHandleServiceServer) GetSha256Digest(context.Context, *GetSha256DigestRequest) (*GetSha256DigestResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSha256Digest not implemented")
+}
+func (UnimplementedHandleServiceServer) GetTag(context.Context, *GetTagRequest) (*GetTagResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTag not implemented")
+}
+func (UnimplementedHandleServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedHandleServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedHandleServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedHandleServiceServer) CreateWithSha256(context.Context, *CreateWithSha256Request) (*CreateWithSha256Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method CreateWithSha256 not implemented")
+}
+func (UnimplementedHandleServiceServer) mustEmbedUnimplementedHandleServiceServer() {}
+func (UnimplementedHandleServiceServer) testEmbeddedByValue()                       {}
+
+// UnsafeHandleServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to HandleServiceServer will
+// result in compilation errors.
+type UnsafeHandleServiceServer interface {
+	mustEmbedUnimplementedHandleServiceServer()
+}
+
+func RegisterHandleServiceServer(s grpc.ServiceRegistrar, srv HandleServiceServer) {
+	// If the following call panics, it indicates UnimplementedHandleServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&HandleService_ServiceDesc, srv)
+}
+
+func _HandleService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HandleServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: HandleService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HandleServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _HandleService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HandleServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: HandleService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HandleServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _HandleService_GetExpiryTimeMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetExpiryTimeMillisRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HandleServiceServer).GetExpiryTimeMillis(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: HandleService_GetExpiryTimeMillis_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HandleServiceServer).GetExpiryTimeMillis(ctx, req.(*GetExpiryTimeMillisRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _HandleService_GetLabel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLabelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HandleServiceServer).GetLabel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: HandleService_GetLabel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HandleServiceServer).GetLabel(ctx, req.(*GetLabelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _HandleService_GetSha256Digest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSha256DigestRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HandleServiceServer).GetSha256Digest(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: HandleService_GetSha256Digest_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HandleServiceServer).GetSha256Digest(ctx, req.(*GetSha256DigestRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _HandleService_GetTag_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTagRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HandleServiceServer).GetTag(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: HandleService_GetTag_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HandleServiceServer).GetTag(ctx, req.(*GetTagRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _HandleService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HandleServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: HandleService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HandleServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _HandleService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HandleServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: HandleService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HandleServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _HandleService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HandleServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: HandleService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HandleServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _HandleService_CreateWithSha256_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateWithSha256Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HandleServiceServer).CreateWithSha256(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: HandleService_CreateWithSha256_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HandleServiceServer).CreateWithSha256(ctx, req.(*CreateWithSha256Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// HandleService_ServiceDesc is the grpc.ServiceDesc for HandleService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var HandleService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "blob.HandleService",
+	HandlerType: (*HandleServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _HandleService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _HandleService_Equals_Handler,
+		},
+		{
+			MethodName: "GetExpiryTimeMillis",
+			Handler:    _HandleService_GetExpiryTimeMillis_Handler,
+		},
+		{
+			MethodName: "GetLabel",
+			Handler:    _HandleService_GetLabel_Handler,
+		},
+		{
+			MethodName: "GetSha256Digest",
+			Handler:    _HandleService_GetSha256Digest_Handler,
+		},
+		{
+			MethodName: "GetTag",
+			Handler:    _HandleService_GetTag_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _HandleService_HashCode_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _HandleService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _HandleService_WriteToParcel_Handler,
+		},
+		{
+			MethodName: "CreateWithSha256",
+			Handler:    _HandleService_CreateWithSha256_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/blob/blob.proto",
+}

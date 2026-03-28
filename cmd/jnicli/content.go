@@ -12,6 +12,1868 @@ var contentCmd = &cobra.Command{
 	Short: "content service operations",
 }
 
+var contentQueryMapCmd = &cobra.Command{
+	Use:   "query-map",
+	Short: "QueryMapService operations",
+}
+
+var contentQueryMapNewQueryMapCmd = &cobra.Command{
+	Use:   "new-query-map",
+	Short: "NewQueryMap RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewQueryMapServiceClient(grpcConn)
+		req := &pb.NewQueryMapRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.NewQueryMap(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentQueryMapRequeryCmd = &cobra.Command{
+	Use:   "requery",
+	Short: "Requery RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewQueryMapServiceClient(grpcConn)
+		req := &pb.RequeryRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Requery(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentQueryMapSetKeepUpdatedCmd = &cobra.Command{
+	Use:   "set-keep-updated",
+	Short: "SetKeepUpdated RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewQueryMapServiceClient(grpcConn)
+		req := &pb.SetKeepUpdatedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetKeepUpdated(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentSyncStatusObserverCmd = &cobra.Command{
+	Use:   "sync-status-observer",
+	Short: "SyncStatusObserverService operations",
+}
+
+var contentSyncStatusObserverOnStatusChangedCmd = &cobra.Command{
+	Use:   "on-status-changed",
+	Short: "OnStatusChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSyncStatusObserverServiceClient(grpcConn)
+		req := &pb.OnStatusChangedRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnStatusChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentAsyncTaskLoaderCmd = &cobra.Command{
+	Use:   "async-task-loader",
+	Short: "AsyncTaskLoaderService operations",
+}
+
+var contentAsyncTaskLoaderCancelLoadInBackgroundCmd = &cobra.Command{
+	Use:   "cancel-load-in-background",
+	Short: "CancelLoadInBackground RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAsyncTaskLoaderServiceClient(grpcConn)
+		req := &pb.CancelLoadInBackgroundRequest{}
+		resp, err := client.CancelLoadInBackground(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentAsyncTaskLoaderDumpCmd = &cobra.Command{
+	Use:   "dump",
+	Short: "Dump RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAsyncTaskLoaderServiceClient(grpcConn)
+		req := &pb.DumpRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.Dump(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentAsyncTaskLoaderIsLoadInBackgroundCanceledCmd = &cobra.Command{
+	Use:   "is-load-in-background-canceled",
+	Short: "IsLoadInBackgroundCanceled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAsyncTaskLoaderServiceClient(grpcConn)
+		req := &pb.IsLoadInBackgroundCanceledRequest{}
+		resp, err := client.IsLoadInBackgroundCanceled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentAsyncTaskLoaderSetUpdateThrottleCmd = &cobra.Command{
+	Use:   "set-update-throttle",
+	Short: "SetUpdateThrottle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAsyncTaskLoaderServiceClient(grpcConn)
+		req := &pb.SetUpdateThrottleRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetUpdateThrottle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentIntentSenderCmd = &cobra.Command{
+	Use:   "intent-sender",
+	Short: "IntentSenderService operations",
+}
+
+var contentIntentSenderDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntentSenderServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentIntentSenderEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntentSenderServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentIntentSenderGetCreatorPackageCmd = &cobra.Command{
+	Use:   "get-creator-package",
+	Short: "GetCreatorPackage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntentSenderServiceClient(grpcConn)
+		req := &pb.GetCreatorPackageRequest{}
+		resp, err := client.GetCreatorPackage(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentIntentSenderGetCreatorUidCmd = &cobra.Command{
+	Use:   "get-creator-uid",
+	Short: "GetCreatorUid RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntentSenderServiceClient(grpcConn)
+		req := &pb.GetCreatorUidRequest{}
+		resp, err := client.GetCreatorUid(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentIntentSenderGetCreatorUserHandleCmd = &cobra.Command{
+	Use:   "get-creator-user-handle",
+	Short: "GetCreatorUserHandle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntentSenderServiceClient(grpcConn)
+		req := &pb.GetCreatorUserHandleRequest{}
+		resp, err := client.GetCreatorUserHandle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentIntentSenderGetTargetPackageCmd = &cobra.Command{
+	Use:   "get-target-package",
+	Short: "GetTargetPackage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntentSenderServiceClient(grpcConn)
+		req := &pb.GetTargetPackageRequest{}
+		resp, err := client.GetTargetPackage(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentIntentSenderHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntentSenderServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentIntentSenderSendIntentCmd = &cobra.Command{
+	Use:   "send-intent",
+	Short: "SendIntent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntentSenderServiceClient(grpcConn)
+		req := &pb.SendIntentRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetString("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg6"); err == nil {
+			req.Arg6 = v
+		}
+		resp, err := client.SendIntent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentIntentSenderToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntentSenderServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentIntentSenderWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntentSenderServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentIntentSenderReadIntentSenderOrNullFromParcelCmd = &cobra.Command{
+	Use:   "read-intent-sender-or-null-from-parcel",
+	Short: "ReadIntentSenderOrNullFromParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntentSenderServiceClient(grpcConn)
+		req := &pb.ReadIntentSenderOrNullFromParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ReadIntentSenderOrNullFromParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentIntentSenderWriteIntentSenderOrNullToParcelCmd = &cobra.Command{
+	Use:   "write-intent-sender-or-null-to-parcel",
+	Short: "WriteIntentSenderOrNullToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntentSenderServiceClient(grpcConn)
+		req := &pb.WriteIntentSenderOrNullToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteIntentSenderOrNullToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentIntentSenderOnFinishedCmd = &cobra.Command{
+	Use:   "intent-sender-on-finished",
+	Short: "IntentSenderOnFinishedService operations",
+}
+
+var contentIntentSenderOnFinishedOnSendFinishedCmd = &cobra.Command{
+	Use:   "on-send-finished",
+	Short: "OnSendFinished RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntentSenderOnFinishedServiceClient(grpcConn)
+		req := &pb.OnSendFinishedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetString("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.OnSendFinished(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentSyncStatsCmd = &cobra.Command{
+	Use:   "sync-stats",
+	Short: "SyncStatsService operations",
+}
+
+var contentSyncStatsNewSyncStatsCmd = &cobra.Command{
+	Use:   "new-sync-stats",
+	Short: "NewSyncStats RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSyncStatsServiceClient(grpcConn)
+		req := &pb.NewSyncStatsRequest{}
+		resp, err := client.NewSyncStats(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentSyncStatsClearCmd = &cobra.Command{
+	Use:   "clear",
+	Short: "Clear RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSyncStatsServiceClient(grpcConn)
+		req := &pb.ClearRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Clear(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentSyncStatsDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSyncStatsServiceClient(grpcConn)
+		req := &pb.SyncStatsDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentSyncStatsToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSyncStatsServiceClient(grpcConn)
+		req := &pb.SyncStatsToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentSyncStatsWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSyncStatsServiceClient(grpcConn)
+		req := &pb.SyncStatsWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentBroadcastReceiverCmd = &cobra.Command{
+	Use:   "broadcast-receiver",
+	Short: "BroadcastReceiverService operations",
+}
+
+var contentBroadcastReceiverAbortBroadcastCmd = &cobra.Command{
+	Use:   "abort-broadcast",
+	Short: "AbortBroadcast RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBroadcastReceiverServiceClient(grpcConn)
+		req := &pb.AbortBroadcastRequest{}
+		resp, err := client.AbortBroadcast(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentBroadcastReceiverClearAbortBroadcastCmd = &cobra.Command{
+	Use:   "clear-abort-broadcast",
+	Short: "ClearAbortBroadcast RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBroadcastReceiverServiceClient(grpcConn)
+		req := &pb.ClearAbortBroadcastRequest{}
+		resp, err := client.ClearAbortBroadcast(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentBroadcastReceiverGetAbortBroadcastCmd = &cobra.Command{
+	Use:   "get-abort-broadcast",
+	Short: "GetAbortBroadcast RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBroadcastReceiverServiceClient(grpcConn)
+		req := &pb.GetAbortBroadcastRequest{}
+		resp, err := client.GetAbortBroadcast(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentBroadcastReceiverGetDebugUnregisterCmd = &cobra.Command{
+	Use:   "get-debug-unregister",
+	Short: "GetDebugUnregister RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBroadcastReceiverServiceClient(grpcConn)
+		req := &pb.GetDebugUnregisterRequest{}
+		resp, err := client.GetDebugUnregister(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentBroadcastReceiverGetResultCodeCmd = &cobra.Command{
+	Use:   "get-result-code",
+	Short: "GetResultCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBroadcastReceiverServiceClient(grpcConn)
+		req := &pb.GetResultCodeRequest{}
+		resp, err := client.GetResultCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentBroadcastReceiverGetResultDataCmd = &cobra.Command{
+	Use:   "get-result-data",
+	Short: "GetResultData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBroadcastReceiverServiceClient(grpcConn)
+		req := &pb.GetResultDataRequest{}
+		resp, err := client.GetResultData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentBroadcastReceiverGetResultExtrasCmd = &cobra.Command{
+	Use:   "get-result-extras",
+	Short: "GetResultExtras RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBroadcastReceiverServiceClient(grpcConn)
+		req := &pb.GetResultExtrasRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetResultExtras(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentBroadcastReceiverGetSentFromPackageCmd = &cobra.Command{
+	Use:   "get-sent-from-package",
+	Short: "GetSentFromPackage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBroadcastReceiverServiceClient(grpcConn)
+		req := &pb.GetSentFromPackageRequest{}
+		resp, err := client.GetSentFromPackage(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentBroadcastReceiverGetSentFromUidCmd = &cobra.Command{
+	Use:   "get-sent-from-uid",
+	Short: "GetSentFromUid RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBroadcastReceiverServiceClient(grpcConn)
+		req := &pb.GetSentFromUidRequest{}
+		resp, err := client.GetSentFromUid(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentBroadcastReceiverGoAsyncCmd = &cobra.Command{
+	Use:   "go-async",
+	Short: "GoAsync RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBroadcastReceiverServiceClient(grpcConn)
+		req := &pb.GoAsyncRequest{}
+		resp, err := client.GoAsync(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentBroadcastReceiverIsInitialStickyBroadcastCmd = &cobra.Command{
+	Use:   "is-initial-sticky-broadcast",
+	Short: "IsInitialStickyBroadcast RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBroadcastReceiverServiceClient(grpcConn)
+		req := &pb.IsInitialStickyBroadcastRequest{}
+		resp, err := client.IsInitialStickyBroadcast(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentBroadcastReceiverIsOrderedBroadcastCmd = &cobra.Command{
+	Use:   "is-ordered-broadcast",
+	Short: "IsOrderedBroadcast RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBroadcastReceiverServiceClient(grpcConn)
+		req := &pb.IsOrderedBroadcastRequest{}
+		resp, err := client.IsOrderedBroadcast(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentBroadcastReceiverOnReceiveCmd = &cobra.Command{
+	Use:   "on-receive",
+	Short: "OnReceive RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBroadcastReceiverServiceClient(grpcConn)
+		req := &pb.OnReceiveRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnReceive(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentBroadcastReceiverPeekServiceCmd = &cobra.Command{
+	Use:   "peek-service",
+	Short: "PeekService RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBroadcastReceiverServiceClient(grpcConn)
+		req := &pb.PeekServiceRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.PeekService(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentBroadcastReceiverSetDebugUnregisterCmd = &cobra.Command{
+	Use:   "set-debug-unregister",
+	Short: "SetDebugUnregister RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBroadcastReceiverServiceClient(grpcConn)
+		req := &pb.SetDebugUnregisterRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDebugUnregister(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentBroadcastReceiverSetOrderedHintCmd = &cobra.Command{
+	Use:   "set-ordered-hint",
+	Short: "SetOrderedHint RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBroadcastReceiverServiceClient(grpcConn)
+		req := &pb.SetOrderedHintRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetOrderedHint(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentBroadcastReceiverSetResultCmd = &cobra.Command{
+	Use:   "set-result",
+	Short: "SetResult RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBroadcastReceiverServiceClient(grpcConn)
+		req := &pb.SetResultRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.SetResult(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentBroadcastReceiverSetResultCodeCmd = &cobra.Command{
+	Use:   "set-result-code",
+	Short: "SetResultCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBroadcastReceiverServiceClient(grpcConn)
+		req := &pb.SetResultCodeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetResultCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentBroadcastReceiverSetResultDataCmd = &cobra.Command{
+	Use:   "set-result-data",
+	Short: "SetResultData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBroadcastReceiverServiceClient(grpcConn)
+		req := &pb.SetResultDataRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetResultData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentBroadcastReceiverSetResultExtrasCmd = &cobra.Command{
+	Use:   "set-result-extras",
+	Short: "SetResultExtras RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBroadcastReceiverServiceClient(grpcConn)
+		req := &pb.SetResultExtrasRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetResultExtras(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentBroadcastReceiverPendingResultCmd = &cobra.Command{
+	Use:   "broadcast-receiver-pending-result",
+	Short: "BroadcastReceiverPendingResultService operations",
+}
+
+var contentBroadcastReceiverPendingResultAbortBroadcastCmd = &cobra.Command{
+	Use:   "abort-broadcast",
+	Short: "AbortBroadcast RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBroadcastReceiverPendingResultServiceClient(grpcConn)
+		req := &pb.AbortBroadcastRequest{}
+		resp, err := client.AbortBroadcast(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentBroadcastReceiverPendingResultClearAbortBroadcastCmd = &cobra.Command{
+	Use:   "clear-abort-broadcast",
+	Short: "ClearAbortBroadcast RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBroadcastReceiverPendingResultServiceClient(grpcConn)
+		req := &pb.ClearAbortBroadcastRequest{}
+		resp, err := client.ClearAbortBroadcast(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentBroadcastReceiverPendingResultFinishCmd = &cobra.Command{
+	Use:   "finish",
+	Short: "Finish RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBroadcastReceiverPendingResultServiceClient(grpcConn)
+		req := &pb.FinishRequest{}
+		resp, err := client.Finish(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentBroadcastReceiverPendingResultGetAbortBroadcastCmd = &cobra.Command{
+	Use:   "get-abort-broadcast",
+	Short: "GetAbortBroadcast RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBroadcastReceiverPendingResultServiceClient(grpcConn)
+		req := &pb.GetAbortBroadcastRequest{}
+		resp, err := client.GetAbortBroadcast(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentBroadcastReceiverPendingResultGetResultCodeCmd = &cobra.Command{
+	Use:   "get-result-code",
+	Short: "GetResultCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBroadcastReceiverPendingResultServiceClient(grpcConn)
+		req := &pb.GetResultCodeRequest{}
+		resp, err := client.GetResultCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentBroadcastReceiverPendingResultGetResultDataCmd = &cobra.Command{
+	Use:   "get-result-data",
+	Short: "GetResultData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBroadcastReceiverPendingResultServiceClient(grpcConn)
+		req := &pb.GetResultDataRequest{}
+		resp, err := client.GetResultData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentBroadcastReceiverPendingResultGetResultExtrasCmd = &cobra.Command{
+	Use:   "get-result-extras",
+	Short: "GetResultExtras RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBroadcastReceiverPendingResultServiceClient(grpcConn)
+		req := &pb.GetResultExtrasRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetResultExtras(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentBroadcastReceiverPendingResultSetResultCmd = &cobra.Command{
+	Use:   "set-result",
+	Short: "SetResult RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBroadcastReceiverPendingResultServiceClient(grpcConn)
+		req := &pb.SetResultRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.SetResult(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentBroadcastReceiverPendingResultSetResultCodeCmd = &cobra.Command{
+	Use:   "set-result-code",
+	Short: "SetResultCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBroadcastReceiverPendingResultServiceClient(grpcConn)
+		req := &pb.SetResultCodeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetResultCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentBroadcastReceiverPendingResultSetResultDataCmd = &cobra.Command{
+	Use:   "set-result-data",
+	Short: "SetResultData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBroadcastReceiverPendingResultServiceClient(grpcConn)
+		req := &pb.SetResultDataRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetResultData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentBroadcastReceiverPendingResultSetResultExtrasCmd = &cobra.Command{
+	Use:   "set-result-extras",
+	Short: "SetResultExtras RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBroadcastReceiverPendingResultServiceClient(grpcConn)
+		req := &pb.SetResultExtrasRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetResultExtras(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentUriPermissionCmd = &cobra.Command{
+	Use:   "uri-permission",
+	Short: "UriPermissionService operations",
+}
+
+var contentUriPermissionDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUriPermissionServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentUriPermissionGetPersistedTimeCmd = &cobra.Command{
+	Use:   "get-persisted-time",
+	Short: "GetPersistedTime RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUriPermissionServiceClient(grpcConn)
+		req := &pb.GetPersistedTimeRequest{}
+		resp, err := client.GetPersistedTime(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentUriPermissionGetUriCmd = &cobra.Command{
+	Use:   "get-uri",
+	Short: "GetUri RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUriPermissionServiceClient(grpcConn)
+		req := &pb.GetUriRequest{}
+		resp, err := client.GetUri(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentUriPermissionIsReadPermissionCmd = &cobra.Command{
+	Use:   "is-read-permission",
+	Short: "IsReadPermission RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUriPermissionServiceClient(grpcConn)
+		req := &pb.IsReadPermissionRequest{}
+		resp, err := client.IsReadPermission(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentUriPermissionIsWritePermissionCmd = &cobra.Command{
+	Use:   "is-write-permission",
+	Short: "IsWritePermission RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUriPermissionServiceClient(grpcConn)
+		req := &pb.IsWritePermissionRequest{}
+		resp, err := client.IsWritePermission(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentUriPermissionToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUriPermissionServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentUriPermissionWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUriPermissionServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentAsyncQueryHandlerCmd = &cobra.Command{
+	Use:   "async-query-handler",
+	Short: "AsyncQueryHandlerService operations",
+}
+
+var contentAsyncQueryHandlerCancelOperationCmd = &cobra.Command{
+	Use:   "cancel-operation",
+	Short: "CancelOperation RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAsyncQueryHandlerServiceClient(grpcConn)
+		req := &pb.CancelOperationRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CancelOperation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentAsyncQueryHandlerHandleMessageCmd = &cobra.Command{
+	Use:   "handle-message",
+	Short: "HandleMessage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAsyncQueryHandlerServiceClient(grpcConn)
+		req := &pb.HandleMessageRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.HandleMessage(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentAsyncQueryHandlerStartDeleteCmd = &cobra.Command{
+	Use:   "start-delete",
+	Short: "StartDelete RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAsyncQueryHandlerServiceClient(grpcConn)
+		req := &pb.StartDeleteRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetString("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.StartDelete(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentAsyncQueryHandlerStartInsertCmd = &cobra.Command{
+	Use:   "start-insert",
+	Short: "StartInsert RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAsyncQueryHandlerServiceClient(grpcConn)
+		req := &pb.StartInsertRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.StartInsert(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentAsyncQueryHandlerStartQueryCmd = &cobra.Command{
+	Use:   "start-query",
+	Short: "StartQuery RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAsyncQueryHandlerServiceClient(grpcConn)
+		req := &pb.StartQueryRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetString("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		if v, err := cmd.Flags().GetString("arg6"); err == nil {
+			req.Arg6 = v
+		}
+		resp, err := client.StartQuery(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentAsyncQueryHandlerStartUpdateCmd = &cobra.Command{
+	Use:   "start-update",
+	Short: "StartUpdate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAsyncQueryHandlerServiceClient(grpcConn)
+		req := &pb.StartUpdateRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetString("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		resp, err := client.StartUpdate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentAsyncQueryHandlerWorkerHandlerCmd = &cobra.Command{
+	Use:   "async-query-handler-worker-handler",
+	Short: "AsyncQueryHandlerWorkerHandlerService operations",
+}
+
+var contentAsyncQueryHandlerWorkerHandlerHandleMessageCmd = &cobra.Command{
+	Use:   "handle-message",
+	Short: "HandleMessage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAsyncQueryHandlerWorkerHandlerServiceClient(grpcConn)
+		req := &pb.HandleMessageRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.HandleMessage(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentMutableContextWrapperCmd = &cobra.Command{
+	Use:   "mutable-context-wrapper",
+	Short: "MutableContextWrapperService operations",
+}
+
+var contentMutableContextWrapperNewMutableContextWrapperCmd = &cobra.Command{
+	Use:   "new-mutable-context-wrapper",
+	Short: "NewMutableContextWrapper RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMutableContextWrapperServiceClient(grpcConn)
+		req := &pb.NewMutableContextWrapperRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewMutableContextWrapper(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentMutableContextWrapperSetBaseContextCmd = &cobra.Command{
+	Use:   "set-base-context",
+	Short: "SetBaseContext RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMutableContextWrapperServiceClient(grpcConn)
+		req := &pb.SetBaseContextRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetBaseContext(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentAttributionSourceCmd = &cobra.Command{
+	Use:   "attribution-source",
+	Short: "AttributionSourceService operations",
+}
+
+var contentAttributionSourceCheckCallingUidCmd = &cobra.Command{
+	Use:   "check-calling-uid",
+	Short: "CheckCallingUid RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAttributionSourceServiceClient(grpcConn)
+		req := &pb.CheckCallingUidRequest{}
+		resp, err := client.CheckCallingUid(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentAttributionSourceDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAttributionSourceServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentAttributionSourceEnforceCallingUidCmd = &cobra.Command{
+	Use:   "enforce-calling-uid",
+	Short: "EnforceCallingUid RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAttributionSourceServiceClient(grpcConn)
+		req := &pb.EnforceCallingUidRequest{}
+		resp, err := client.EnforceCallingUid(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentAttributionSourceEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAttributionSourceServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentAttributionSourceGetAttributionTagCmd = &cobra.Command{
+	Use:   "get-attribution-tag",
+	Short: "GetAttributionTag RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAttributionSourceServiceClient(grpcConn)
+		req := &pb.GetAttributionTagRequest{}
+		resp, err := client.GetAttributionTag(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentAttributionSourceGetDeviceIdCmd = &cobra.Command{
+	Use:   "get-device-id",
+	Short: "GetDeviceId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAttributionSourceServiceClient(grpcConn)
+		req := &pb.GetDeviceIdRequest{}
+		resp, err := client.GetDeviceId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentAttributionSourceGetNextCmd = &cobra.Command{
+	Use:   "get-next",
+	Short: "GetNext RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAttributionSourceServiceClient(grpcConn)
+		req := &pb.GetNextRequest{}
+		resp, err := client.GetNext(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentAttributionSourceGetPackageNameCmd = &cobra.Command{
+	Use:   "get-package-name",
+	Short: "GetPackageName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAttributionSourceServiceClient(grpcConn)
+		req := &pb.GetPackageNameRequest{}
+		resp, err := client.GetPackageName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentAttributionSourceGetPidCmd = &cobra.Command{
+	Use:   "get-pid",
+	Short: "GetPid RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAttributionSourceServiceClient(grpcConn)
+		req := &pb.GetPidRequest{}
+		resp, err := client.GetPid(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentAttributionSourceGetUidCmd = &cobra.Command{
+	Use:   "get-uid",
+	Short: "GetUid RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAttributionSourceServiceClient(grpcConn)
+		req := &pb.GetUidRequest{}
+		resp, err := client.GetUid(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentAttributionSourceHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAttributionSourceServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentAttributionSourceIsTrustedCmd = &cobra.Command{
+	Use:   "is-trusted",
+	Short: "IsTrusted RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAttributionSourceServiceClient(grpcConn)
+		req := &pb.IsTrustedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsTrusted(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentAttributionSourceToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAttributionSourceServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentAttributionSourceWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAttributionSourceServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentAttributionSourceMyAttributionSourceCmd = &cobra.Command{
+	Use:   "my-attribution-source",
+	Short: "MyAttributionSource RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAttributionSourceServiceClient(grpcConn)
+		req := &pb.MyAttributionSourceRequest{}
+		resp, err := client.MyAttributionSource(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentAttributionSourceBuilderCmd = &cobra.Command{
+	Use:   "attribution-source-builder",
+	Short: "AttributionSourceBuilderService operations",
+}
+
+var contentAttributionSourceBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAttributionSourceBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentAttributionSourceBuilderSetAttributionTagCmd = &cobra.Command{
+	Use:   "set-attribution-tag",
+	Short: "SetAttributionTag RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAttributionSourceBuilderServiceClient(grpcConn)
+		req := &pb.SetAttributionTagRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetAttributionTag(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentAttributionSourceBuilderSetDeviceIdCmd = &cobra.Command{
+	Use:   "set-device-id",
+	Short: "SetDeviceId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAttributionSourceBuilderServiceClient(grpcConn)
+		req := &pb.SetDeviceIdRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDeviceId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentAttributionSourceBuilderSetNextCmd = &cobra.Command{
+	Use:   "set-next",
+	Short: "SetNext RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAttributionSourceBuilderServiceClient(grpcConn)
+		req := &pb.SetNextRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetNext(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentAttributionSourceBuilderSetPackageNameCmd = &cobra.Command{
+	Use:   "set-package-name",
+	Short: "SetPackageName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAttributionSourceBuilderServiceClient(grpcConn)
+		req := &pb.SetPackageNameRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetPackageName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentAttributionSourceBuilderSetPidCmd = &cobra.Command{
+	Use:   "set-pid",
+	Short: "SetPid RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAttributionSourceBuilderServiceClient(grpcConn)
+		req := &pb.SetPidRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetPid(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var contentRestrictionsManagerCmd = &cobra.Command{
 	Use:   "restrictions-manager",
 	Short: "RestrictionsManagerService operations",
@@ -112,7 +1974,14274 @@ var contentRestrictionsManagerRequestPermissionCmd = &cobra.Command{
 	},
 }
 
+var contentAbstractThreadedSyncAdapterCmd = &cobra.Command{
+	Use:   "abstract-threaded-sync-adapter",
+	Short: "AbstractThreadedSyncAdapterService operations",
+}
+
+var contentAbstractThreadedSyncAdapterGetContextCmd = &cobra.Command{
+	Use:   "get-context",
+	Short: "GetContext RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAbstractThreadedSyncAdapterServiceClient(grpcConn)
+		req := &pb.GetContextRequest{}
+		resp, err := client.GetContext(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentAbstractThreadedSyncAdapterGetSyncAdapterBinderCmd = &cobra.Command{
+	Use:   "get-sync-adapter-binder",
+	Short: "GetSyncAdapterBinder RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAbstractThreadedSyncAdapterServiceClient(grpcConn)
+		req := &pb.GetSyncAdapterBinderRequest{}
+		resp, err := client.GetSyncAdapterBinder(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentAbstractThreadedSyncAdapterOnPerformSyncCmd = &cobra.Command{
+	Use:   "on-perform-sync",
+	Short: "OnPerformSync RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAbstractThreadedSyncAdapterServiceClient(grpcConn)
+		req := &pb.OnPerformSyncRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.OnPerformSync(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentAbstractThreadedSyncAdapterOnSecurityExceptionCmd = &cobra.Command{
+	Use:   "on-security-exception",
+	Short: "OnSecurityException RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAbstractThreadedSyncAdapterServiceClient(grpcConn)
+		req := &pb.OnSecurityExceptionRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.OnSecurityException(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentAbstractThreadedSyncAdapterOnSyncCanceled0Cmd = &cobra.Command{
+	Use:   "on-sync-canceled0",
+	Short: "OnSyncCanceled0 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAbstractThreadedSyncAdapterServiceClient(grpcConn)
+		req := &pb.OnSyncCanceled0Request{}
+		resp, err := client.OnSyncCanceled0(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentAbstractThreadedSyncAdapterOnSyncCanceled1_1Cmd = &cobra.Command{
+	Use:   "on-sync-canceled1_1",
+	Short: "OnSyncCanceled1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAbstractThreadedSyncAdapterServiceClient(grpcConn)
+		req := &pb.OnSyncCanceled1_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnSyncCanceled1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentAbstractThreadedSyncAdapterOnUnsyncableAccountCmd = &cobra.Command{
+	Use:   "on-unsyncable-account",
+	Short: "OnUnsyncableAccount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAbstractThreadedSyncAdapterServiceClient(grpcConn)
+		req := &pb.OnUnsyncableAccountRequest{}
+		resp, err := client.OnUnsyncableAccount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentSyncResultCmd = &cobra.Command{
+	Use:   "sync-result",
+	Short: "SyncResultService operations",
+}
+
+var contentSyncResultNewSyncResultCmd = &cobra.Command{
+	Use:   "new-sync-result",
+	Short: "NewSyncResult RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSyncResultServiceClient(grpcConn)
+		req := &pb.NewSyncResultRequest{}
+		resp, err := client.NewSyncResult(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentSyncResultClearCmd = &cobra.Command{
+	Use:   "clear",
+	Short: "Clear RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSyncResultServiceClient(grpcConn)
+		req := &pb.ClearRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Clear(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentSyncResultDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSyncResultServiceClient(grpcConn)
+		req := &pb.SyncResultDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentSyncResultHasErrorCmd = &cobra.Command{
+	Use:   "has-error",
+	Short: "HasError RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSyncResultServiceClient(grpcConn)
+		req := &pb.HasErrorRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HasError(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentSyncResultHasHardErrorCmd = &cobra.Command{
+	Use:   "has-hard-error",
+	Short: "HasHardError RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSyncResultServiceClient(grpcConn)
+		req := &pb.HasHardErrorRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HasHardError(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentSyncResultHasSoftErrorCmd = &cobra.Command{
+	Use:   "has-soft-error",
+	Short: "HasSoftError RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSyncResultServiceClient(grpcConn)
+		req := &pb.HasSoftErrorRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HasSoftError(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentSyncResultMadeSomeProgressCmd = &cobra.Command{
+	Use:   "made-some-progress",
+	Short: "MadeSomeProgress RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSyncResultServiceClient(grpcConn)
+		req := &pb.MadeSomeProgressRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.MadeSomeProgress(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentSyncResultToDebugStringCmd = &cobra.Command{
+	Use:   "to-debug-string",
+	Short: "ToDebugString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSyncResultServiceClient(grpcConn)
+		req := &pb.ToDebugStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToDebugString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentSyncResultToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSyncResultServiceClient(grpcConn)
+		req := &pb.SyncResultToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentSyncResultWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSyncResultServiceClient(grpcConn)
+		req := &pb.SyncResultWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentSyncRequestCmd = &cobra.Command{
+	Use:   "sync-request",
+	Short: "SyncRequestService operations",
+}
+
+var contentSyncRequestDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSyncRequestServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentSyncRequestWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSyncRequestServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentSyncRequestBuilderCmd = &cobra.Command{
+	Use:   "sync-request-builder",
+	Short: "SyncRequestBuilderService operations",
+}
+
+var contentSyncRequestBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSyncRequestBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentSyncRequestBuilderSetDisallowMeteredCmd = &cobra.Command{
+	Use:   "set-disallow-metered",
+	Short: "SetDisallowMetered RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSyncRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetDisallowMeteredRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDisallowMetered(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentSyncRequestBuilderSetExpeditedCmd = &cobra.Command{
+	Use:   "set-expedited",
+	Short: "SetExpedited RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSyncRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetExpeditedRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetExpedited(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentSyncRequestBuilderSetExtrasCmd = &cobra.Command{
+	Use:   "set-extras",
+	Short: "SetExtras RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSyncRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetExtrasRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetExtras(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentSyncRequestBuilderSetIgnoreBackoffCmd = &cobra.Command{
+	Use:   "set-ignore-backoff",
+	Short: "SetIgnoreBackoff RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSyncRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetIgnoreBackoffRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetIgnoreBackoff(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentSyncRequestBuilderSetIgnoreSettingsCmd = &cobra.Command{
+	Use:   "set-ignore-settings",
+	Short: "SetIgnoreSettings RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSyncRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetIgnoreSettingsRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetIgnoreSettings(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentSyncRequestBuilderSetManualCmd = &cobra.Command{
+	Use:   "set-manual",
+	Short: "SetManual RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSyncRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetManualRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetManual(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentSyncRequestBuilderSetNoRetryCmd = &cobra.Command{
+	Use:   "set-no-retry",
+	Short: "SetNoRetry RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSyncRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetNoRetryRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetNoRetry(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentSyncRequestBuilderSetRequiresChargingCmd = &cobra.Command{
+	Use:   "set-requires-charging",
+	Short: "SetRequiresCharging RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSyncRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetRequiresChargingRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetRequiresCharging(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentSyncRequestBuilderSetScheduleAsExpeditedJobCmd = &cobra.Command{
+	Use:   "set-schedule-as-expedited-job",
+	Short: "SetScheduleAsExpeditedJob RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSyncRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetScheduleAsExpeditedJobRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetScheduleAsExpeditedJob(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentSyncRequestBuilderSetSyncAdapterCmd = &cobra.Command{
+	Use:   "set-sync-adapter",
+	Short: "SetSyncAdapter RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSyncRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetSyncAdapterRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetSyncAdapter(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentSyncRequestBuilderSyncOnceCmd = &cobra.Command{
+	Use:   "sync-once",
+	Short: "SyncOnce RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSyncRequestBuilderServiceClient(grpcConn)
+		req := &pb.SyncOnceRequest{}
+		resp, err := client.SyncOnce(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentSyncRequestBuilderSyncPeriodicCmd = &cobra.Command{
+	Use:   "sync-periodic",
+	Short: "SyncPeriodic RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSyncRequestBuilderServiceClient(grpcConn)
+		req := &pb.SyncPeriodicRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SyncPeriodic(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesCmd = &cobra.Command{
+	Use:   "resources",
+	Short: "ResourcesService operations",
+}
+
+var contentResourcesNewResourcesCmd = &cobra.Command{
+	Use:   "new-resources",
+	Short: "NewResources RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesServiceClient(grpcConn)
+		req := &pb.NewResourcesRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.NewResources(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesAddLoadersCmd = &cobra.Command{
+	Use:   "add-loaders",
+	Short: "AddLoaders RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesServiceClient(grpcConn)
+		req := &pb.AddLoadersRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddLoaders(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesFinishPreloadingCmd = &cobra.Command{
+	Use:   "finish-preloading",
+	Short: "FinishPreloading RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesServiceClient(grpcConn)
+		req := &pb.FinishPreloadingRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.FinishPreloading(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesFlushLayoutCacheCmd = &cobra.Command{
+	Use:   "flush-layout-cache",
+	Short: "FlushLayoutCache RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesServiceClient(grpcConn)
+		req := &pb.FlushLayoutCacheRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.FlushLayoutCache(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesGetAnimationCmd = &cobra.Command{
+	Use:   "get-animation",
+	Short: "GetAnimation RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesServiceClient(grpcConn)
+		req := &pb.GetAnimationRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetAnimation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesGetAssetsCmd = &cobra.Command{
+	Use:   "get-assets",
+	Short: "GetAssets RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesServiceClient(grpcConn)
+		req := &pb.GetAssetsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetAssets(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesGetBooleanCmd = &cobra.Command{
+	Use:   "get-boolean",
+	Short: "GetBoolean RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesServiceClient(grpcConn)
+		req := &pb.GetBooleanRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetBoolean(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesGetColor1Cmd = &cobra.Command{
+	Use:   "get-color1",
+	Short: "GetColor1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesServiceClient(grpcConn)
+		req := &pb.GetColor1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetColor1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesGetColor2_1Cmd = &cobra.Command{
+	Use:   "get-color2_1",
+	Short: "GetColor2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesServiceClient(grpcConn)
+		req := &pb.GetColor2_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetColor2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesGetColorStateList1Cmd = &cobra.Command{
+	Use:   "get-color-state-list1",
+	Short: "GetColorStateList1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesServiceClient(grpcConn)
+		req := &pb.GetColorStateList1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetColorStateList1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesGetColorStateList2_1Cmd = &cobra.Command{
+	Use:   "get-color-state-list2_1",
+	Short: "GetColorStateList2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesServiceClient(grpcConn)
+		req := &pb.GetColorStateList2_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetColorStateList2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesGetConfigurationCmd = &cobra.Command{
+	Use:   "get-configuration",
+	Short: "GetConfiguration RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesServiceClient(grpcConn)
+		req := &pb.GetConfigurationRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetConfiguration(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesGetDimensionCmd = &cobra.Command{
+	Use:   "get-dimension",
+	Short: "GetDimension RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesServiceClient(grpcConn)
+		req := &pb.GetDimensionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetDimension(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesGetDimensionPixelOffsetCmd = &cobra.Command{
+	Use:   "get-dimension-pixel-offset",
+	Short: "GetDimensionPixelOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesServiceClient(grpcConn)
+		req := &pb.GetDimensionPixelOffsetRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetDimensionPixelOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesGetDimensionPixelSizeCmd = &cobra.Command{
+	Use:   "get-dimension-pixel-size",
+	Short: "GetDimensionPixelSize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesServiceClient(grpcConn)
+		req := &pb.GetDimensionPixelSizeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetDimensionPixelSize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesGetDisplayMetricsCmd = &cobra.Command{
+	Use:   "get-display-metrics",
+	Short: "GetDisplayMetrics RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesServiceClient(grpcConn)
+		req := &pb.GetDisplayMetricsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetDisplayMetrics(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesGetDrawable1Cmd = &cobra.Command{
+	Use:   "get-drawable1",
+	Short: "GetDrawable1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesServiceClient(grpcConn)
+		req := &pb.GetDrawable1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetDrawable1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesGetDrawable2_1Cmd = &cobra.Command{
+	Use:   "get-drawable2_1",
+	Short: "GetDrawable2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesServiceClient(grpcConn)
+		req := &pb.GetDrawable2_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetDrawable2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesGetDrawableForDensity2Cmd = &cobra.Command{
+	Use:   "get-drawable-for-density2",
+	Short: "GetDrawableForDensity2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesServiceClient(grpcConn)
+		req := &pb.GetDrawableForDensity2Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetDrawableForDensity2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesGetDrawableForDensity3_1Cmd = &cobra.Command{
+	Use:   "get-drawable-for-density3_1",
+	Short: "GetDrawableForDensity3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesServiceClient(grpcConn)
+		req := &pb.GetDrawableForDensity3_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.GetDrawableForDensity3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesGetFloatCmd = &cobra.Command{
+	Use:   "get-float",
+	Short: "GetFloat RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesServiceClient(grpcConn)
+		req := &pb.GetFloatRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetFloat(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesGetFontCmd = &cobra.Command{
+	Use:   "get-font",
+	Short: "GetFont RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesServiceClient(grpcConn)
+		req := &pb.GetFontRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetFont(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesGetFractionCmd = &cobra.Command{
+	Use:   "get-fraction",
+	Short: "GetFraction RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesServiceClient(grpcConn)
+		req := &pb.GetFractionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.GetFraction(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesGetIdentifierCmd = &cobra.Command{
+	Use:   "get-identifier",
+	Short: "GetIdentifier RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesServiceClient(grpcConn)
+		req := &pb.GetIdentifierRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.GetIdentifier(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesGetIntArrayCmd = &cobra.Command{
+	Use:   "get-int-array",
+	Short: "GetIntArray RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesServiceClient(grpcConn)
+		req := &pb.GetIntArrayRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetIntArray(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesGetIntegerCmd = &cobra.Command{
+	Use:   "get-integer",
+	Short: "GetInteger RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesServiceClient(grpcConn)
+		req := &pb.GetIntegerRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetInteger(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesGetLayoutCmd = &cobra.Command{
+	Use:   "get-layout",
+	Short: "GetLayout RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesServiceClient(grpcConn)
+		req := &pb.GetLayoutRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetLayout(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesGetMovieCmd = &cobra.Command{
+	Use:   "get-movie",
+	Short: "GetMovie RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesServiceClient(grpcConn)
+		req := &pb.GetMovieRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetMovie(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesGetQuantityString2Cmd = &cobra.Command{
+	Use:   "get-quantity-string2",
+	Short: "GetQuantityString2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesServiceClient(grpcConn)
+		req := &pb.GetQuantityString2Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetQuantityString2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesGetQuantityString3_1Cmd = &cobra.Command{
+	Use:   "get-quantity-string3_1",
+	Short: "GetQuantityString3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesServiceClient(grpcConn)
+		req := &pb.GetQuantityString3_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.GetQuantityString3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesGetQuantityTextCmd = &cobra.Command{
+	Use:   "get-quantity-text",
+	Short: "GetQuantityText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesServiceClient(grpcConn)
+		req := &pb.GetQuantityTextRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetQuantityText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesGetResourceEntryNameCmd = &cobra.Command{
+	Use:   "get-resource-entry-name",
+	Short: "GetResourceEntryName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesServiceClient(grpcConn)
+		req := &pb.GetResourceEntryNameRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetResourceEntryName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesGetResourceNameCmd = &cobra.Command{
+	Use:   "get-resource-name",
+	Short: "GetResourceName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesServiceClient(grpcConn)
+		req := &pb.GetResourceNameRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetResourceName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesGetResourcePackageNameCmd = &cobra.Command{
+	Use:   "get-resource-package-name",
+	Short: "GetResourcePackageName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesServiceClient(grpcConn)
+		req := &pb.GetResourcePackageNameRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetResourcePackageName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesGetResourceTypeNameCmd = &cobra.Command{
+	Use:   "get-resource-type-name",
+	Short: "GetResourceTypeName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesServiceClient(grpcConn)
+		req := &pb.GetResourceTypeNameRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetResourceTypeName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesGetString1Cmd = &cobra.Command{
+	Use:   "get-string1",
+	Short: "GetString1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesServiceClient(grpcConn)
+		req := &pb.GetString1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetString1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesGetString2_1Cmd = &cobra.Command{
+	Use:   "get-string2_1",
+	Short: "GetString2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesServiceClient(grpcConn)
+		req := &pb.GetString2_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetString2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesGetStringArrayCmd = &cobra.Command{
+	Use:   "get-string-array",
+	Short: "GetStringArray RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesServiceClient(grpcConn)
+		req := &pb.GetStringArrayRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetStringArray(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesGetText1Cmd = &cobra.Command{
+	Use:   "get-text1",
+	Short: "GetText1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesServiceClient(grpcConn)
+		req := &pb.GetText1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetText1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesGetText2_1Cmd = &cobra.Command{
+	Use:   "get-text2_1",
+	Short: "GetText2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesServiceClient(grpcConn)
+		req := &pb.GetText2_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetText2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesGetTextArrayCmd = &cobra.Command{
+	Use:   "get-text-array",
+	Short: "GetTextArray RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesServiceClient(grpcConn)
+		req := &pb.GetTextArrayRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetTextArray(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesGetValue3Cmd = &cobra.Command{
+	Use:   "get-value3",
+	Short: "GetValue3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesServiceClient(grpcConn)
+		req := &pb.GetValue3Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.GetValue3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesGetValue3_1Cmd = &cobra.Command{
+	Use:   "get-value3_1",
+	Short: "GetValue3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesServiceClient(grpcConn)
+		req := &pb.GetValue3_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.GetValue3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesGetValueForDensityCmd = &cobra.Command{
+	Use:   "get-value-for-density",
+	Short: "GetValueForDensity RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesServiceClient(grpcConn)
+		req := &pb.GetValueForDensityRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.GetValueForDensity(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesGetXmlCmd = &cobra.Command{
+	Use:   "get-xml",
+	Short: "GetXml RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesServiceClient(grpcConn)
+		req := &pb.GetXmlRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetXml(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesNewThemeCmd = &cobra.Command{
+	Use:   "new-theme",
+	Short: "NewTheme RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesServiceClient(grpcConn)
+		req := &pb.NewThemeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.NewTheme(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesObtainAttributesCmd = &cobra.Command{
+	Use:   "obtain-attributes",
+	Short: "ObtainAttributes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesServiceClient(grpcConn)
+		req := &pb.ObtainAttributesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.ObtainAttributes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesObtainTypedArrayCmd = &cobra.Command{
+	Use:   "obtain-typed-array",
+	Short: "ObtainTypedArray RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesServiceClient(grpcConn)
+		req := &pb.ObtainTypedArrayRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ObtainTypedArray(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesOpenRawResource1Cmd = &cobra.Command{
+	Use:   "open-raw-resource1",
+	Short: "OpenRawResource1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesServiceClient(grpcConn)
+		req := &pb.OpenRawResource1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OpenRawResource1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesOpenRawResource2_1Cmd = &cobra.Command{
+	Use:   "open-raw-resource2_1",
+	Short: "OpenRawResource2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesServiceClient(grpcConn)
+		req := &pb.OpenRawResource2_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OpenRawResource2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesOpenRawResourceFdCmd = &cobra.Command{
+	Use:   "open-raw-resource-fd",
+	Short: "OpenRawResourceFd RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesServiceClient(grpcConn)
+		req := &pb.OpenRawResourceFdRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OpenRawResourceFd(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesParseBundleExtraCmd = &cobra.Command{
+	Use:   "parse-bundle-extra",
+	Short: "ParseBundleExtra RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesServiceClient(grpcConn)
+		req := &pb.ParseBundleExtraRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.ParseBundleExtra(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesParseBundleExtrasCmd = &cobra.Command{
+	Use:   "parse-bundle-extras",
+	Short: "ParseBundleExtras RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesServiceClient(grpcConn)
+		req := &pb.ParseBundleExtrasRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.ParseBundleExtras(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesRemoveLoadersCmd = &cobra.Command{
+	Use:   "remove-loaders",
+	Short: "RemoveLoaders RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesServiceClient(grpcConn)
+		req := &pb.RemoveLoadersRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RemoveLoaders(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesUpdateConfigurationCmd = &cobra.Command{
+	Use:   "update-configuration",
+	Short: "UpdateConfiguration RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesServiceClient(grpcConn)
+		req := &pb.UpdateConfigurationRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.UpdateConfiguration(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesGetAttributeSetSourceResIdCmd = &cobra.Command{
+	Use:   "get-attribute-set-source-res-id",
+	Short: "GetAttributeSetSourceResId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesServiceClient(grpcConn)
+		req := &pb.GetAttributeSetSourceResIdRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetAttributeSetSourceResId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesGetSystemCmd = &cobra.Command{
+	Use:   "get-system",
+	Short: "GetSystem RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesServiceClient(grpcConn)
+		req := &pb.GetSystemRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSystem(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesRegisterResourcePathsCmd = &cobra.Command{
+	Use:   "register-resource-paths",
+	Short: "RegisterResourcePaths RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesServiceClient(grpcConn)
+		req := &pb.RegisterResourcePathsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.RegisterResourcePaths(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesThemeCmd = &cobra.Command{
+	Use:   "resources-theme",
+	Short: "ResourcesThemeService operations",
+}
+
+var contentResourcesThemeApplyStyleCmd = &cobra.Command{
+	Use:   "apply-style",
+	Short: "ApplyStyle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesThemeServiceClient(grpcConn)
+		req := &pb.ApplyStyleRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.ApplyStyle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesThemeDumpCmd = &cobra.Command{
+	Use:   "dump",
+	Short: "Dump RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesThemeServiceClient(grpcConn)
+		req := &pb.ResourcesThemeDumpRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Dump(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesThemeEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesThemeServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesThemeGetAttributeResolutionStackCmd = &cobra.Command{
+	Use:   "get-attribute-resolution-stack",
+	Short: "GetAttributeResolutionStack RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesThemeServiceClient(grpcConn)
+		req := &pb.GetAttributeResolutionStackRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.GetAttributeResolutionStack(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesThemeGetChangingConfigurationsCmd = &cobra.Command{
+	Use:   "get-changing-configurations",
+	Short: "GetChangingConfigurations RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesThemeServiceClient(grpcConn)
+		req := &pb.GetChangingConfigurationsRequest{}
+		resp, err := client.GetChangingConfigurations(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesThemeGetDrawableCmd = &cobra.Command{
+	Use:   "get-drawable",
+	Short: "GetDrawable RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesThemeServiceClient(grpcConn)
+		req := &pb.GetDrawableRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetDrawable(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesThemeGetExplicitStyleCmd = &cobra.Command{
+	Use:   "get-explicit-style",
+	Short: "GetExplicitStyle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesThemeServiceClient(grpcConn)
+		req := &pb.GetExplicitStyleRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetExplicitStyle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesThemeGetResourcesCmd = &cobra.Command{
+	Use:   "get-resources",
+	Short: "GetResources RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesThemeServiceClient(grpcConn)
+		req := &pb.GetResourcesRequest{}
+		resp, err := client.GetResources(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesThemeHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesThemeServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesThemeObtainStyledAttributes4Cmd = &cobra.Command{
+	Use:   "obtain-styled-attributes4",
+	Short: "ObtainStyledAttributes4 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesThemeServiceClient(grpcConn)
+		req := &pb.ObtainStyledAttributes4Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.ObtainStyledAttributes4(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesThemeObtainStyledAttributes2_1Cmd = &cobra.Command{
+	Use:   "obtain-styled-attributes2_1",
+	Short: "ObtainStyledAttributes2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesThemeServiceClient(grpcConn)
+		req := &pb.ObtainStyledAttributes2_1Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.ObtainStyledAttributes2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesThemeObtainStyledAttributes1_2Cmd = &cobra.Command{
+	Use:   "obtain-styled-attributes1_2",
+	Short: "ObtainStyledAttributes1_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesThemeServiceClient(grpcConn)
+		req := &pb.ObtainStyledAttributes1_2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ObtainStyledAttributes1_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesThemeRebaseCmd = &cobra.Command{
+	Use:   "rebase",
+	Short: "Rebase RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesThemeServiceClient(grpcConn)
+		req := &pb.RebaseRequest{}
+		resp, err := client.Rebase(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesThemeResolveAttributeCmd = &cobra.Command{
+	Use:   "resolve-attribute",
+	Short: "ResolveAttribute RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesThemeServiceClient(grpcConn)
+		req := &pb.ResolveAttributeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.ResolveAttribute(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesThemeSetToCmd = &cobra.Command{
+	Use:   "set-to",
+	Short: "SetTo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesThemeServiceClient(grpcConn)
+		req := &pb.SetToRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetTo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentResourcesThemeToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesThemeServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentComponentCallbacks2Cmd = &cobra.Command{
+	Use:   "component-callbacks2",
+	Short: "ComponentCallbacks2Service operations",
+}
+
+var contentComponentCallbacks2OnTrimMemoryCmd = &cobra.Command{
+	Use:   "on-trim-memory",
+	Short: "OnTrimMemory RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewComponentCallbacks2ServiceClient(grpcConn)
+		req := &pb.OnTrimMemoryRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnTrimMemory(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentComponentCallbacksCmd = &cobra.Command{
+	Use:   "component-callbacks",
+	Short: "ComponentCallbacksService operations",
+}
+
+var contentComponentCallbacksOnConfigurationChangedCmd = &cobra.Command{
+	Use:   "on-configuration-changed",
+	Short: "OnConfigurationChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewComponentCallbacksServiceClient(grpcConn)
+		req := &pb.OnConfigurationChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnConfigurationChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentComponentCallbacksOnLowMemoryCmd = &cobra.Command{
+	Use:   "on-low-memory",
+	Short: "OnLowMemory RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewComponentCallbacksServiceClient(grpcConn)
+		req := &pb.OnLowMemoryRequest{}
+		resp, err := client.OnLowMemory(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentLocusIdCmd = &cobra.Command{
+	Use:   "locus-id",
+	Short: "LocusIdService operations",
+}
+
+var contentLocusIdNewLocusIdCmd = &cobra.Command{
+	Use:   "new-locus-id",
+	Short: "NewLocusId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLocusIdServiceClient(grpcConn)
+		req := &pb.NewLocusIdRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewLocusId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentLocusIdDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLocusIdServiceClient(grpcConn)
+		req := &pb.LocusIdDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentLocusIdEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLocusIdServiceClient(grpcConn)
+		req := &pb.LocusIdEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentLocusIdGetIdCmd = &cobra.Command{
+	Use:   "get-id",
+	Short: "GetId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLocusIdServiceClient(grpcConn)
+		req := &pb.GetIdRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentLocusIdHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLocusIdServiceClient(grpcConn)
+		req := &pb.LocusIdHashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentLocusIdToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLocusIdServiceClient(grpcConn)
+		req := &pb.LocusIdToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentLocusIdWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLocusIdServiceClient(grpcConn)
+		req := &pb.LocusIdWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentIntentFilterCmd = &cobra.Command{
+	Use:   "intent-filter",
+	Short: "IntentFilterService operations",
+}
+
+var contentIntentFilterNewIntentFilterCmd = &cobra.Command{
+	Use:   "new-intent-filter",
+	Short: "NewIntentFilter RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntentFilterServiceClient(grpcConn)
+		req := &pb.NewIntentFilterRequest{}
+		resp, err := client.NewIntentFilter(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentIntentFilterAddActionCmd = &cobra.Command{
+	Use:   "add-action",
+	Short: "AddAction RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntentFilterServiceClient(grpcConn)
+		req := &pb.AddActionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddAction(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentIntentFilterAddCategoryCmd = &cobra.Command{
+	Use:   "add-category",
+	Short: "AddCategory RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntentFilterServiceClient(grpcConn)
+		req := &pb.AddCategoryRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddCategory(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentIntentFilterAddDataAuthorityCmd = &cobra.Command{
+	Use:   "add-data-authority",
+	Short: "AddDataAuthority RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntentFilterServiceClient(grpcConn)
+		req := &pb.AddDataAuthorityRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.AddDataAuthority(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentIntentFilterAddDataPathCmd = &cobra.Command{
+	Use:   "add-data-path",
+	Short: "AddDataPath RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntentFilterServiceClient(grpcConn)
+		req := &pb.AddDataPathRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.AddDataPath(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentIntentFilterAddDataSchemeCmd = &cobra.Command{
+	Use:   "add-data-scheme",
+	Short: "AddDataScheme RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntentFilterServiceClient(grpcConn)
+		req := &pb.AddDataSchemeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddDataScheme(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentIntentFilterAddDataSchemeSpecificPartCmd = &cobra.Command{
+	Use:   "add-data-scheme-specific-part",
+	Short: "AddDataSchemeSpecificPart RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntentFilterServiceClient(grpcConn)
+		req := &pb.AddDataSchemeSpecificPartRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.AddDataSchemeSpecificPart(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentIntentFilterAddDataTypeCmd = &cobra.Command{
+	Use:   "add-data-type",
+	Short: "AddDataType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntentFilterServiceClient(grpcConn)
+		req := &pb.AddDataTypeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddDataType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentIntentFilterAddUriRelativeFilterGroupCmd = &cobra.Command{
+	Use:   "add-uri-relative-filter-group",
+	Short: "AddUriRelativeFilterGroup RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntentFilterServiceClient(grpcConn)
+		req := &pb.AddUriRelativeFilterGroupRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddUriRelativeFilterGroup(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentIntentFilterClearUriRelativeFilterGroupsCmd = &cobra.Command{
+	Use:   "clear-uri-relative-filter-groups",
+	Short: "ClearUriRelativeFilterGroups RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntentFilterServiceClient(grpcConn)
+		req := &pb.ClearUriRelativeFilterGroupsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ClearUriRelativeFilterGroups(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentIntentFilterCountActionsCmd = &cobra.Command{
+	Use:   "count-actions",
+	Short: "CountActions RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntentFilterServiceClient(grpcConn)
+		req := &pb.CountActionsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.CountActions(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentIntentFilterCountCategoriesCmd = &cobra.Command{
+	Use:   "count-categories",
+	Short: "CountCategories RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntentFilterServiceClient(grpcConn)
+		req := &pb.CountCategoriesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.CountCategories(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentIntentFilterCountDataAuthoritiesCmd = &cobra.Command{
+	Use:   "count-data-authorities",
+	Short: "CountDataAuthorities RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntentFilterServiceClient(grpcConn)
+		req := &pb.CountDataAuthoritiesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.CountDataAuthorities(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentIntentFilterCountDataPathsCmd = &cobra.Command{
+	Use:   "count-data-paths",
+	Short: "CountDataPaths RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntentFilterServiceClient(grpcConn)
+		req := &pb.CountDataPathsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.CountDataPaths(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentIntentFilterCountDataSchemeSpecificPartsCmd = &cobra.Command{
+	Use:   "count-data-scheme-specific-parts",
+	Short: "CountDataSchemeSpecificParts RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntentFilterServiceClient(grpcConn)
+		req := &pb.CountDataSchemeSpecificPartsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.CountDataSchemeSpecificParts(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentIntentFilterCountDataSchemesCmd = &cobra.Command{
+	Use:   "count-data-schemes",
+	Short: "CountDataSchemes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntentFilterServiceClient(grpcConn)
+		req := &pb.CountDataSchemesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.CountDataSchemes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentIntentFilterCountDataTypesCmd = &cobra.Command{
+	Use:   "count-data-types",
+	Short: "CountDataTypes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntentFilterServiceClient(grpcConn)
+		req := &pb.CountDataTypesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.CountDataTypes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentIntentFilterCountUriRelativeFilterGroupsCmd = &cobra.Command{
+	Use:   "count-uri-relative-filter-groups",
+	Short: "CountUriRelativeFilterGroups RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntentFilterServiceClient(grpcConn)
+		req := &pb.CountUriRelativeFilterGroupsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.CountUriRelativeFilterGroups(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentIntentFilterDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntentFilterServiceClient(grpcConn)
+		req := &pb.IntentFilterDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentIntentFilterDumpCmd = &cobra.Command{
+	Use:   "dump",
+	Short: "Dump RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntentFilterServiceClient(grpcConn)
+		req := &pb.IntentFilterDumpRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Dump(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentIntentFilterGetActionCmd = &cobra.Command{
+	Use:   "get-action",
+	Short: "GetAction RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntentFilterServiceClient(grpcConn)
+		req := &pb.GetActionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetAction(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentIntentFilterGetCategoryCmd = &cobra.Command{
+	Use:   "get-category",
+	Short: "GetCategory RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntentFilterServiceClient(grpcConn)
+		req := &pb.GetCategoryRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetCategory(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentIntentFilterGetDataAuthorityCmd = &cobra.Command{
+	Use:   "get-data-authority",
+	Short: "GetDataAuthority RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntentFilterServiceClient(grpcConn)
+		req := &pb.GetDataAuthorityRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetDataAuthority(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentIntentFilterGetDataPathCmd = &cobra.Command{
+	Use:   "get-data-path",
+	Short: "GetDataPath RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntentFilterServiceClient(grpcConn)
+		req := &pb.GetDataPathRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetDataPath(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentIntentFilterGetDataSchemeCmd = &cobra.Command{
+	Use:   "get-data-scheme",
+	Short: "GetDataScheme RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntentFilterServiceClient(grpcConn)
+		req := &pb.GetDataSchemeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetDataScheme(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentIntentFilterGetDataSchemeSpecificPartCmd = &cobra.Command{
+	Use:   "get-data-scheme-specific-part",
+	Short: "GetDataSchemeSpecificPart RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntentFilterServiceClient(grpcConn)
+		req := &pb.GetDataSchemeSpecificPartRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetDataSchemeSpecificPart(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentIntentFilterGetDataTypeCmd = &cobra.Command{
+	Use:   "get-data-type",
+	Short: "GetDataType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntentFilterServiceClient(grpcConn)
+		req := &pb.GetDataTypeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetDataType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentIntentFilterGetPriorityCmd = &cobra.Command{
+	Use:   "get-priority",
+	Short: "GetPriority RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntentFilterServiceClient(grpcConn)
+		req := &pb.GetPriorityRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetPriority(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentIntentFilterGetUriRelativeFilterGroupCmd = &cobra.Command{
+	Use:   "get-uri-relative-filter-group",
+	Short: "GetUriRelativeFilterGroup RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntentFilterServiceClient(grpcConn)
+		req := &pb.GetUriRelativeFilterGroupRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetUriRelativeFilterGroup(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentIntentFilterHasActionCmd = &cobra.Command{
+	Use:   "has-action",
+	Short: "HasAction RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntentFilterServiceClient(grpcConn)
+		req := &pb.HasActionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.HasAction(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentIntentFilterHasCategoryCmd = &cobra.Command{
+	Use:   "has-category",
+	Short: "HasCategory RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntentFilterServiceClient(grpcConn)
+		req := &pb.HasCategoryRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.HasCategory(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentIntentFilterHasDataAuthorityCmd = &cobra.Command{
+	Use:   "has-data-authority",
+	Short: "HasDataAuthority RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntentFilterServiceClient(grpcConn)
+		req := &pb.HasDataAuthorityRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.HasDataAuthority(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentIntentFilterHasDataPathCmd = &cobra.Command{
+	Use:   "has-data-path",
+	Short: "HasDataPath RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntentFilterServiceClient(grpcConn)
+		req := &pb.HasDataPathRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.HasDataPath(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentIntentFilterHasDataSchemeCmd = &cobra.Command{
+	Use:   "has-data-scheme",
+	Short: "HasDataScheme RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntentFilterServiceClient(grpcConn)
+		req := &pb.HasDataSchemeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.HasDataScheme(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentIntentFilterHasDataSchemeSpecificPartCmd = &cobra.Command{
+	Use:   "has-data-scheme-specific-part",
+	Short: "HasDataSchemeSpecificPart RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntentFilterServiceClient(grpcConn)
+		req := &pb.HasDataSchemeSpecificPartRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.HasDataSchemeSpecificPart(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentIntentFilterHasDataTypeCmd = &cobra.Command{
+	Use:   "has-data-type",
+	Short: "HasDataType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntentFilterServiceClient(grpcConn)
+		req := &pb.HasDataTypeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.HasDataType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentIntentFilterMatchCmd = &cobra.Command{
+	Use:   "match",
+	Short: "Match RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntentFilterServiceClient(grpcConn)
+		req := &pb.MatchRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetString("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.Match(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentIntentFilterMatchActionCmd = &cobra.Command{
+	Use:   "match-action",
+	Short: "MatchAction RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntentFilterServiceClient(grpcConn)
+		req := &pb.MatchActionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.MatchAction(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentIntentFilterMatchDataCmd = &cobra.Command{
+	Use:   "match-data",
+	Short: "MatchData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntentFilterServiceClient(grpcConn)
+		req := &pb.MatchDataRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.MatchData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentIntentFilterMatchDataAuthorityCmd = &cobra.Command{
+	Use:   "match-data-authority",
+	Short: "MatchDataAuthority RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntentFilterServiceClient(grpcConn)
+		req := &pb.MatchDataAuthorityRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.MatchDataAuthority(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentIntentFilterReadFromXmlCmd = &cobra.Command{
+	Use:   "read-from-xml",
+	Short: "ReadFromXml RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntentFilterServiceClient(grpcConn)
+		req := &pb.ReadFromXmlRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ReadFromXml(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentIntentFilterSetPriorityCmd = &cobra.Command{
+	Use:   "set-priority",
+	Short: "SetPriority RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntentFilterServiceClient(grpcConn)
+		req := &pb.SetPriorityRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetPriority(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentIntentFilterWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntentFilterServiceClient(grpcConn)
+		req := &pb.IntentFilterWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentIntentFilterWriteToXmlCmd = &cobra.Command{
+	Use:   "write-to-xml",
+	Short: "WriteToXml RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntentFilterServiceClient(grpcConn)
+		req := &pb.WriteToXmlRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.WriteToXml(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentIntentFilterCreateCmd = &cobra.Command{
+	Use:   "create",
+	Short: "Create RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntentFilterServiceClient(grpcConn)
+		req := &pb.CreateRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Create(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentIntentFilterAuthorityEntryCmd = &cobra.Command{
+	Use:   "intent-filter-authority-entry",
+	Short: "IntentFilterAuthorityEntryService operations",
+}
+
+var contentIntentFilterAuthorityEntryEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntentFilterAuthorityEntryServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentIntentFilterAuthorityEntryGetHostCmd = &cobra.Command{
+	Use:   "get-host",
+	Short: "GetHost RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntentFilterAuthorityEntryServiceClient(grpcConn)
+		req := &pb.GetHostRequest{}
+		resp, err := client.GetHost(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentIntentFilterAuthorityEntryGetPortCmd = &cobra.Command{
+	Use:   "get-port",
+	Short: "GetPort RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntentFilterAuthorityEntryServiceClient(grpcConn)
+		req := &pb.GetPortRequest{}
+		resp, err := client.GetPort(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentIntentFilterAuthorityEntryMatchCmd = &cobra.Command{
+	Use:   "match",
+	Short: "Match RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntentFilterAuthorityEntryServiceClient(grpcConn)
+		req := &pb.IntentFilterAuthorityEntryMatchRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Match(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentOperationApplicationExceptionCmd = &cobra.Command{
+	Use:   "operation-application-exception",
+	Short: "OperationApplicationExceptionService operations",
+}
+
+var contentOperationApplicationExceptionNewOperationApplicationExceptionCmd = &cobra.Command{
+	Use:   "new-operation-application-exception",
+	Short: "NewOperationApplicationException RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOperationApplicationExceptionServiceClient(grpcConn)
+		req := &pb.NewOperationApplicationExceptionRequest{}
+		resp, err := client.NewOperationApplicationException(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentOperationApplicationExceptionGetNumSuccessfulYieldPointsCmd = &cobra.Command{
+	Use:   "get-num-successful-yield-points",
+	Short: "GetNumSuccessfulYieldPoints RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOperationApplicationExceptionServiceClient(grpcConn)
+		req := &pb.GetNumSuccessfulYieldPointsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetNumSuccessfulYieldPoints(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentEntityCmd = &cobra.Command{
+	Use:   "entity",
+	Short: "EntityService operations",
+}
+
+var contentEntityNewEntityCmd = &cobra.Command{
+	Use:   "new-entity",
+	Short: "NewEntity RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEntityServiceClient(grpcConn)
+		req := &pb.NewEntityRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewEntity(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentEntityAddSubValueCmd = &cobra.Command{
+	Use:   "add-sub-value",
+	Short: "AddSubValue RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEntityServiceClient(grpcConn)
+		req := &pb.AddSubValueRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.AddSubValue(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentEntityGetEntityValuesCmd = &cobra.Command{
+	Use:   "get-entity-values",
+	Short: "GetEntityValues RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEntityServiceClient(grpcConn)
+		req := &pb.GetEntityValuesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetEntityValues(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentEntityToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEntityServiceClient(grpcConn)
+		req := &pb.EntityToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentClipDescriptionCmd = &cobra.Command{
+	Use:   "clip-description",
+	Short: "ClipDescriptionService operations",
+}
+
+var contentClipDescriptionNewClipDescriptionCmd = &cobra.Command{
+	Use:   "new-clip-description",
+	Short: "NewClipDescription RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewClipDescriptionServiceClient(grpcConn)
+		req := &pb.NewClipDescriptionRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewClipDescription(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentClipDescriptionDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewClipDescriptionServiceClient(grpcConn)
+		req := &pb.ClipDescriptionDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentClipDescriptionFilterMimeTypesCmd = &cobra.Command{
+	Use:   "filter-mime-types",
+	Short: "FilterMimeTypes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewClipDescriptionServiceClient(grpcConn)
+		req := &pb.FilterMimeTypesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.FilterMimeTypes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentClipDescriptionGetClassificationStatusCmd = &cobra.Command{
+	Use:   "get-classification-status",
+	Short: "GetClassificationStatus RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewClipDescriptionServiceClient(grpcConn)
+		req := &pb.GetClassificationStatusRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetClassificationStatus(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentClipDescriptionGetConfidenceScoreCmd = &cobra.Command{
+	Use:   "get-confidence-score",
+	Short: "GetConfidenceScore RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewClipDescriptionServiceClient(grpcConn)
+		req := &pb.GetConfidenceScoreRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetConfidenceScore(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentClipDescriptionGetExtrasCmd = &cobra.Command{
+	Use:   "get-extras",
+	Short: "GetExtras RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewClipDescriptionServiceClient(grpcConn)
+		req := &pb.GetExtrasRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetExtras(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentClipDescriptionGetLabelCmd = &cobra.Command{
+	Use:   "get-label",
+	Short: "GetLabel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewClipDescriptionServiceClient(grpcConn)
+		req := &pb.GetLabelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetLabel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentClipDescriptionGetMimeTypeCmd = &cobra.Command{
+	Use:   "get-mime-type",
+	Short: "GetMimeType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewClipDescriptionServiceClient(grpcConn)
+		req := &pb.GetMimeTypeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetMimeType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentClipDescriptionGetMimeTypeCountCmd = &cobra.Command{
+	Use:   "get-mime-type-count",
+	Short: "GetMimeTypeCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewClipDescriptionServiceClient(grpcConn)
+		req := &pb.GetMimeTypeCountRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetMimeTypeCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentClipDescriptionGetTimestampCmd = &cobra.Command{
+	Use:   "get-timestamp",
+	Short: "GetTimestamp RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewClipDescriptionServiceClient(grpcConn)
+		req := &pb.GetTimestampRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetTimestamp(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentClipDescriptionHasMimeTypeCmd = &cobra.Command{
+	Use:   "has-mime-type",
+	Short: "HasMimeType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewClipDescriptionServiceClient(grpcConn)
+		req := &pb.HasMimeTypeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.HasMimeType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentClipDescriptionIsStyledTextCmd = &cobra.Command{
+	Use:   "is-styled-text",
+	Short: "IsStyledText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewClipDescriptionServiceClient(grpcConn)
+		req := &pb.IsStyledTextRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsStyledText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentClipDescriptionSetExtrasCmd = &cobra.Command{
+	Use:   "set-extras",
+	Short: "SetExtras RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewClipDescriptionServiceClient(grpcConn)
+		req := &pb.ClipDescriptionSetExtrasRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetExtras(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentClipDescriptionToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewClipDescriptionServiceClient(grpcConn)
+		req := &pb.ClipDescriptionToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentClipDescriptionWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewClipDescriptionServiceClient(grpcConn)
+		req := &pb.ClipDescriptionWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentClipDescriptionCompareMimeTypesCmd = &cobra.Command{
+	Use:   "compare-mime-types",
+	Short: "CompareMimeTypes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewClipDescriptionServiceClient(grpcConn)
+		req := &pb.CompareMimeTypesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.CompareMimeTypes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentEntityIteratorCmd = &cobra.Command{
+	Use:   "entity-iterator",
+	Short: "EntityIteratorService operations",
+}
+
+var contentEntityIteratorCloseCmd = &cobra.Command{
+	Use:   "close",
+	Short: "Close RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEntityIteratorServiceClient(grpcConn)
+		req := &pb.CloseRequest{}
+		resp, err := client.Close(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentEntityIteratorResetCmd = &cobra.Command{
+	Use:   "reset",
+	Short: "Reset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEntityIteratorServiceClient(grpcConn)
+		req := &pb.ResetRequest{}
+		resp, err := client.Reset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentDialogInterfaceCmd = &cobra.Command{
+	Use:   "dialog-interface",
+	Short: "DialogInterfaceService operations",
+}
+
+var contentDialogInterfaceCancelCmd = &cobra.Command{
+	Use:   "cancel",
+	Short: "Cancel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDialogInterfaceServiceClient(grpcConn)
+		req := &pb.CancelRequest{}
+		resp, err := client.Cancel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentDialogInterfaceDismissCmd = &cobra.Command{
+	Use:   "dismiss",
+	Short: "Dismiss RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDialogInterfaceServiceClient(grpcConn)
+		req := &pb.DismissRequest{}
+		resp, err := client.Dismiss(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentDialogInterfaceOnCancelListenerCmd = &cobra.Command{
+	Use:   "dialog-interface-on-cancel-listener",
+	Short: "DialogInterfaceOnCancelListenerService operations",
+}
+
+var contentDialogInterfaceOnCancelListenerOnCancelCmd = &cobra.Command{
+	Use:   "on-cancel",
+	Short: "OnCancel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDialogInterfaceOnCancelListenerServiceClient(grpcConn)
+		req := &pb.OnCancelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnCancel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentDialogInterfaceOnClickListenerCmd = &cobra.Command{
+	Use:   "dialog-interface-on-click-listener",
+	Short: "DialogInterfaceOnClickListenerService operations",
+}
+
+var contentDialogInterfaceOnClickListenerOnClickCmd = &cobra.Command{
+	Use:   "on-click",
+	Short: "OnClick RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDialogInterfaceOnClickListenerServiceClient(grpcConn)
+		req := &pb.OnClickRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnClick(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentDialogInterfaceOnDismissListenerCmd = &cobra.Command{
+	Use:   "dialog-interface-on-dismiss-listener",
+	Short: "DialogInterfaceOnDismissListenerService operations",
+}
+
+var contentDialogInterfaceOnDismissListenerOnDismissCmd = &cobra.Command{
+	Use:   "on-dismiss",
+	Short: "OnDismiss RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDialogInterfaceOnDismissListenerServiceClient(grpcConn)
+		req := &pb.OnDismissRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnDismiss(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentDialogInterfaceOnKeyListenerCmd = &cobra.Command{
+	Use:   "dialog-interface-on-key-listener",
+	Short: "DialogInterfaceOnKeyListenerService operations",
+}
+
+var contentDialogInterfaceOnKeyListenerOnKeyCmd = &cobra.Command{
+	Use:   "on-key",
+	Short: "OnKey RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDialogInterfaceOnKeyListenerServiceClient(grpcConn)
+		req := &pb.OnKeyRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnKey(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentDialogInterfaceOnMultiChoiceClickListenerCmd = &cobra.Command{
+	Use:   "dialog-interface-on-multi-choice-click-listener",
+	Short: "DialogInterfaceOnMultiChoiceClickListenerService operations",
+}
+
+var contentDialogInterfaceOnMultiChoiceClickListenerOnClickCmd = &cobra.Command{
+	Use:   "on-click",
+	Short: "OnClick RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDialogInterfaceOnMultiChoiceClickListenerServiceClient(grpcConn)
+		req := &pb.DialogInterfaceOnMultiChoiceClickListenerOnClickRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnClick(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentDialogInterfaceOnShowListenerCmd = &cobra.Command{
+	Use:   "dialog-interface-on-show-listener",
+	Short: "DialogInterfaceOnShowListenerService operations",
+}
+
+var contentDialogInterfaceOnShowListenerOnShowCmd = &cobra.Command{
+	Use:   "on-show",
+	Short: "OnShow RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDialogInterfaceOnShowListenerServiceClient(grpcConn)
+		req := &pb.OnShowRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnShow(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextParamsCmd = &cobra.Command{
+	Use:   "context-params",
+	Short: "ContextParamsService operations",
+}
+
+var contentContextParamsGetAttributionTagCmd = &cobra.Command{
+	Use:   "get-attribution-tag",
+	Short: "GetAttributionTag RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextParamsServiceClient(grpcConn)
+		req := &pb.GetAttributionTagRequest{}
+		resp, err := client.GetAttributionTag(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextParamsGetNextAttributionSourceCmd = &cobra.Command{
+	Use:   "get-next-attribution-source",
+	Short: "GetNextAttributionSource RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextParamsServiceClient(grpcConn)
+		req := &pb.GetNextAttributionSourceRequest{}
+		resp, err := client.GetNextAttributionSource(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextParamsShouldRegisterAttributionSourceCmd = &cobra.Command{
+	Use:   "should-register-attribution-source",
+	Short: "ShouldRegisterAttributionSource RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextParamsServiceClient(grpcConn)
+		req := &pb.ShouldRegisterAttributionSourceRequest{}
+		resp, err := client.ShouldRegisterAttributionSource(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextParamsBuilderCmd = &cobra.Command{
+	Use:   "context-params-builder",
+	Short: "ContextParamsBuilderService operations",
+}
+
+var contentContextParamsBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextParamsBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextParamsBuilderSetAttributionTagCmd = &cobra.Command{
+	Use:   "set-attribution-tag",
+	Short: "SetAttributionTag RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextParamsBuilderServiceClient(grpcConn)
+		req := &pb.SetAttributionTagRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetAttributionTag(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextParamsBuilderSetNextAttributionSourceCmd = &cobra.Command{
+	Use:   "set-next-attribution-source",
+	Short: "SetNextAttributionSource RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextParamsBuilderServiceClient(grpcConn)
+		req := &pb.SetNextAttributionSourceRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetNextAttributionSource(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextParamsBuilderSetShouldRegisterAttributionSourceCmd = &cobra.Command{
+	Use:   "set-should-register-attribution-source",
+	Short: "SetShouldRegisterAttributionSource RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextParamsBuilderServiceClient(grpcConn)
+		req := &pb.SetShouldRegisterAttributionSourceRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetShouldRegisterAttributionSource(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentSyncContextCmd = &cobra.Command{
+	Use:   "sync-context",
+	Short: "SyncContextService operations",
+}
+
+var contentSyncContextGetSyncContextBinderCmd = &cobra.Command{
+	Use:   "get-sync-context-binder",
+	Short: "GetSyncContextBinder RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSyncContextServiceClient(grpcConn)
+		req := &pb.GetSyncContextBinderRequest{}
+		resp, err := client.GetSyncContextBinder(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentSyncContextOnFinishedCmd = &cobra.Command{
+	Use:   "on-finished",
+	Short: "OnFinished RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSyncContextServiceClient(grpcConn)
+		req := &pb.OnFinishedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnFinished(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentLoaderCmd = &cobra.Command{
+	Use:   "loader",
+	Short: "LoaderService operations",
+}
+
+var contentLoaderNewLoaderCmd = &cobra.Command{
+	Use:   "new-loader",
+	Short: "NewLoader RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLoaderServiceClient(grpcConn)
+		req := &pb.NewLoaderRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewLoader(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentLoaderAbandonCmd = &cobra.Command{
+	Use:   "abandon",
+	Short: "Abandon RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLoaderServiceClient(grpcConn)
+		req := &pb.AbandonRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Abandon(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentLoaderCancelLoadCmd = &cobra.Command{
+	Use:   "cancel-load",
+	Short: "CancelLoad RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLoaderServiceClient(grpcConn)
+		req := &pb.CancelLoadRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.CancelLoad(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentLoaderCommitContentChangedCmd = &cobra.Command{
+	Use:   "commit-content-changed",
+	Short: "CommitContentChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLoaderServiceClient(grpcConn)
+		req := &pb.CommitContentChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.CommitContentChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentLoaderDeliverCancellationCmd = &cobra.Command{
+	Use:   "deliver-cancellation",
+	Short: "DeliverCancellation RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLoaderServiceClient(grpcConn)
+		req := &pb.DeliverCancellationRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DeliverCancellation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentLoaderDumpCmd = &cobra.Command{
+	Use:   "dump",
+	Short: "Dump RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLoaderServiceClient(grpcConn)
+		req := &pb.LoaderDumpRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.Dump(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentLoaderForceLoadCmd = &cobra.Command{
+	Use:   "force-load",
+	Short: "ForceLoad RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLoaderServiceClient(grpcConn)
+		req := &pb.ForceLoadRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ForceLoad(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentLoaderGetContextCmd = &cobra.Command{
+	Use:   "get-context",
+	Short: "GetContext RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLoaderServiceClient(grpcConn)
+		req := &pb.LoaderGetContextRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetContext(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentLoaderGetIdCmd = &cobra.Command{
+	Use:   "get-id",
+	Short: "GetId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLoaderServiceClient(grpcConn)
+		req := &pb.GetIdRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentLoaderIsAbandonedCmd = &cobra.Command{
+	Use:   "is-abandoned",
+	Short: "IsAbandoned RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLoaderServiceClient(grpcConn)
+		req := &pb.IsAbandonedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsAbandoned(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentLoaderIsResetCmd = &cobra.Command{
+	Use:   "is-reset",
+	Short: "IsReset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLoaderServiceClient(grpcConn)
+		req := &pb.IsResetRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsReset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentLoaderIsStartedCmd = &cobra.Command{
+	Use:   "is-started",
+	Short: "IsStarted RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLoaderServiceClient(grpcConn)
+		req := &pb.IsStartedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsStarted(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentLoaderOnContentChangedCmd = &cobra.Command{
+	Use:   "on-content-changed",
+	Short: "OnContentChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLoaderServiceClient(grpcConn)
+		req := &pb.OnContentChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.OnContentChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentLoaderResetCmd = &cobra.Command{
+	Use:   "reset",
+	Short: "Reset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLoaderServiceClient(grpcConn)
+		req := &pb.LoaderResetRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Reset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentLoaderRollbackContentChangedCmd = &cobra.Command{
+	Use:   "rollback-content-changed",
+	Short: "RollbackContentChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLoaderServiceClient(grpcConn)
+		req := &pb.RollbackContentChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.RollbackContentChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentLoaderStartLoadingCmd = &cobra.Command{
+	Use:   "start-loading",
+	Short: "StartLoading RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLoaderServiceClient(grpcConn)
+		req := &pb.StartLoadingRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.StartLoading(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentLoaderStopLoadingCmd = &cobra.Command{
+	Use:   "stop-loading",
+	Short: "StopLoading RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLoaderServiceClient(grpcConn)
+		req := &pb.StopLoadingRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.StopLoading(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentLoaderTakeContentChangedCmd = &cobra.Command{
+	Use:   "take-content-changed",
+	Short: "TakeContentChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLoaderServiceClient(grpcConn)
+		req := &pb.TakeContentChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.TakeContentChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentLoaderToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLoaderServiceClient(grpcConn)
+		req := &pb.LoaderToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentLoaderForceLoadContentObserverCmd = &cobra.Command{
+	Use:   "loader-force-load-content-observer",
+	Short: "LoaderForceLoadContentObserverService operations",
+}
+
+var contentLoaderForceLoadContentObserverDeliverSelfNotificationsCmd = &cobra.Command{
+	Use:   "deliver-self-notifications",
+	Short: "DeliverSelfNotifications RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLoaderForceLoadContentObserverServiceClient(grpcConn)
+		req := &pb.DeliverSelfNotificationsRequest{}
+		resp, err := client.DeliverSelfNotifications(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentLoaderForceLoadContentObserverOnChangeCmd = &cobra.Command{
+	Use:   "on-change",
+	Short: "OnChange RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLoaderForceLoadContentObserverServiceClient(grpcConn)
+		req := &pb.OnChangeRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnChange(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentUriRelativeFilterCmd = &cobra.Command{
+	Use:   "uri-relative-filter",
+	Short: "UriRelativeFilterService operations",
+}
+
+var contentUriRelativeFilterNewUriRelativeFilterCmd = &cobra.Command{
+	Use:   "new-uri-relative-filter",
+	Short: "NewUriRelativeFilter RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUriRelativeFilterServiceClient(grpcConn)
+		req := &pb.NewUriRelativeFilterRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.NewUriRelativeFilter(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentUriRelativeFilterEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUriRelativeFilterServiceClient(grpcConn)
+		req := &pb.UriRelativeFilterEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentUriRelativeFilterGetFilterCmd = &cobra.Command{
+	Use:   "get-filter",
+	Short: "GetFilter RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUriRelativeFilterServiceClient(grpcConn)
+		req := &pb.GetFilterRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetFilter(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentUriRelativeFilterGetPatternTypeCmd = &cobra.Command{
+	Use:   "get-pattern-type",
+	Short: "GetPatternType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUriRelativeFilterServiceClient(grpcConn)
+		req := &pb.GetPatternTypeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetPatternType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentUriRelativeFilterGetUriPartCmd = &cobra.Command{
+	Use:   "get-uri-part",
+	Short: "GetUriPart RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUriRelativeFilterServiceClient(grpcConn)
+		req := &pb.GetUriPartRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetUriPart(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentUriRelativeFilterHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUriRelativeFilterServiceClient(grpcConn)
+		req := &pb.UriRelativeFilterHashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentUriRelativeFilterMatchDataCmd = &cobra.Command{
+	Use:   "match-data",
+	Short: "MatchData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUriRelativeFilterServiceClient(grpcConn)
+		req := &pb.UriRelativeFilterMatchDataRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.MatchData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentUriRelativeFilterToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUriRelativeFilterServiceClient(grpcConn)
+		req := &pb.UriRelativeFilterToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderClientCmd = &cobra.Command{
+	Use:   "provider-client",
+	Short: "ProviderClientService operations",
+}
+
+var contentProviderClientBulkInsertCmd = &cobra.Command{
+	Use:   "bulk-insert",
+	Short: "BulkInsert RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderClientServiceClient(grpcConn)
+		req := &pb.BulkInsertRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.BulkInsert(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderClientCall3Cmd = &cobra.Command{
+	Use:   "call3",
+	Short: "Call3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderClientServiceClient(grpcConn)
+		req := &pb.Call3Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Call3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderClientCall4_1Cmd = &cobra.Command{
+	Use:   "call4_1",
+	Short: "Call4_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderClientServiceClient(grpcConn)
+		req := &pb.Call4_1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.Call4_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderClientCanonicalizeCmd = &cobra.Command{
+	Use:   "canonicalize",
+	Short: "Canonicalize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderClientServiceClient(grpcConn)
+		req := &pb.CanonicalizeRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Canonicalize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderClientCloseCmd = &cobra.Command{
+	Use:   "close",
+	Short: "Close RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderClientServiceClient(grpcConn)
+		req := &pb.CloseRequest{}
+		resp, err := client.Close(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderClientDelete2Cmd = &cobra.Command{
+	Use:   "delete2",
+	Short: "Delete2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderClientServiceClient(grpcConn)
+		req := &pb.Delete2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Delete2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderClientDelete3_1Cmd = &cobra.Command{
+	Use:   "delete3_1",
+	Short: "Delete3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderClientServiceClient(grpcConn)
+		req := &pb.Delete3_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Delete3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderClientGetLocalContentProviderCmd = &cobra.Command{
+	Use:   "get-local-content-provider",
+	Short: "GetLocalContentProvider RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderClientServiceClient(grpcConn)
+		req := &pb.GetLocalContentProviderRequest{}
+		resp, err := client.GetLocalContentProvider(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderClientGetStreamTypesCmd = &cobra.Command{
+	Use:   "get-stream-types",
+	Short: "GetStreamTypes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderClientServiceClient(grpcConn)
+		req := &pb.GetStreamTypesRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetStreamTypes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderClientGetTypeCmd = &cobra.Command{
+	Use:   "get-type",
+	Short: "GetType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderClientServiceClient(grpcConn)
+		req := &pb.GetTypeRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderClientInsert2Cmd = &cobra.Command{
+	Use:   "insert2",
+	Short: "Insert2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderClientServiceClient(grpcConn)
+		req := &pb.Insert2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Insert2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderClientInsert3_1Cmd = &cobra.Command{
+	Use:   "insert3_1",
+	Short: "Insert3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderClientServiceClient(grpcConn)
+		req := &pb.Insert3_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Insert3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderClientOpenAssetFile2Cmd = &cobra.Command{
+	Use:   "open-asset-file2",
+	Short: "OpenAssetFile2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderClientServiceClient(grpcConn)
+		req := &pb.OpenAssetFile2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OpenAssetFile2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderClientOpenAssetFile3_1Cmd = &cobra.Command{
+	Use:   "open-asset-file3_1",
+	Short: "OpenAssetFile3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderClientServiceClient(grpcConn)
+		req := &pb.OpenAssetFile3_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OpenAssetFile3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderClientOpenFile2Cmd = &cobra.Command{
+	Use:   "open-file2",
+	Short: "OpenFile2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderClientServiceClient(grpcConn)
+		req := &pb.OpenFile2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OpenFile2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderClientOpenFile3_1Cmd = &cobra.Command{
+	Use:   "open-file3_1",
+	Short: "OpenFile3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderClientServiceClient(grpcConn)
+		req := &pb.OpenFile3_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OpenFile3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderClientOpenTypedAssetFileCmd = &cobra.Command{
+	Use:   "open-typed-asset-file",
+	Short: "OpenTypedAssetFile RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderClientServiceClient(grpcConn)
+		req := &pb.OpenTypedAssetFileRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.OpenTypedAssetFile(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderClientOpenTypedAssetFileDescriptor3Cmd = &cobra.Command{
+	Use:   "open-typed-asset-file-descriptor3",
+	Short: "OpenTypedAssetFileDescriptor3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderClientServiceClient(grpcConn)
+		req := &pb.OpenTypedAssetFileDescriptor3Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OpenTypedAssetFileDescriptor3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderClientOpenTypedAssetFileDescriptor4_1Cmd = &cobra.Command{
+	Use:   "open-typed-asset-file-descriptor4_1",
+	Short: "OpenTypedAssetFileDescriptor4_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderClientServiceClient(grpcConn)
+		req := &pb.OpenTypedAssetFileDescriptor4_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.OpenTypedAssetFileDescriptor4_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderClientQuery4Cmd = &cobra.Command{
+	Use:   "query4",
+	Short: "Query4 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderClientServiceClient(grpcConn)
+		req := &pb.Query4Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.Query4(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderClientQuery5_1Cmd = &cobra.Command{
+	Use:   "query5_1",
+	Short: "Query5_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderClientServiceClient(grpcConn)
+		req := &pb.Query5_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetString("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.Query5_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderClientQuery6_2Cmd = &cobra.Command{
+	Use:   "query6_2",
+	Short: "Query6_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderClientServiceClient(grpcConn)
+		req := &pb.Query6_2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetString("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		resp, err := client.Query6_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderClientRefreshCmd = &cobra.Command{
+	Use:   "refresh",
+	Short: "Refresh RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderClientServiceClient(grpcConn)
+		req := &pb.RefreshRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Refresh(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderClientReleaseCmd = &cobra.Command{
+	Use:   "release",
+	Short: "Release RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderClientServiceClient(grpcConn)
+		req := &pb.ReleaseRequest{}
+		resp, err := client.Release(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderClientUncanonicalizeCmd = &cobra.Command{
+	Use:   "uncanonicalize",
+	Short: "Uncanonicalize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderClientServiceClient(grpcConn)
+		req := &pb.UncanonicalizeRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Uncanonicalize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderClientUpdate3Cmd = &cobra.Command{
+	Use:   "update3",
+	Short: "Update3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderClientServiceClient(grpcConn)
+		req := &pb.Update3Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Update3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderClientUpdate4_1Cmd = &cobra.Command{
+	Use:   "update4_1",
+	Short: "Update4_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderClientServiceClient(grpcConn)
+		req := &pb.Update4_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.Update4_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentSyncAdapterTypeCmd = &cobra.Command{
+	Use:   "sync-adapter-type",
+	Short: "SyncAdapterTypeService operations",
+}
+
+var contentSyncAdapterTypeNewSyncAdapterTypeCmd = &cobra.Command{
+	Use:   "new-sync-adapter-type",
+	Short: "NewSyncAdapterType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSyncAdapterTypeServiceClient(grpcConn)
+		req := &pb.NewSyncAdapterTypeRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewSyncAdapterType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentSyncAdapterTypeAllowParallelSyncsCmd = &cobra.Command{
+	Use:   "allow-parallel-syncs",
+	Short: "AllowParallelSyncs RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSyncAdapterTypeServiceClient(grpcConn)
+		req := &pb.AllowParallelSyncsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.AllowParallelSyncs(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentSyncAdapterTypeDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSyncAdapterTypeServiceClient(grpcConn)
+		req := &pb.SyncAdapterTypeDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentSyncAdapterTypeEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSyncAdapterTypeServiceClient(grpcConn)
+		req := &pb.SyncAdapterTypeEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentSyncAdapterTypeGetSettingsActivityCmd = &cobra.Command{
+	Use:   "get-settings-activity",
+	Short: "GetSettingsActivity RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSyncAdapterTypeServiceClient(grpcConn)
+		req := &pb.GetSettingsActivityRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSettingsActivity(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentSyncAdapterTypeHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSyncAdapterTypeServiceClient(grpcConn)
+		req := &pb.SyncAdapterTypeHashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentSyncAdapterTypeIsAlwaysSyncableCmd = &cobra.Command{
+	Use:   "is-always-syncable",
+	Short: "IsAlwaysSyncable RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSyncAdapterTypeServiceClient(grpcConn)
+		req := &pb.IsAlwaysSyncableRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsAlwaysSyncable(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentSyncAdapterTypeIsUserVisibleCmd = &cobra.Command{
+	Use:   "is-user-visible",
+	Short: "IsUserVisible RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSyncAdapterTypeServiceClient(grpcConn)
+		req := &pb.IsUserVisibleRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsUserVisible(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentSyncAdapterTypeSupportsUploadingCmd = &cobra.Command{
+	Use:   "supports-uploading",
+	Short: "SupportsUploading RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSyncAdapterTypeServiceClient(grpcConn)
+		req := &pb.SupportsUploadingRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.SupportsUploading(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentSyncAdapterTypeToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSyncAdapterTypeServiceClient(grpcConn)
+		req := &pb.SyncAdapterTypeToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentSyncAdapterTypeWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSyncAdapterTypeServiceClient(grpcConn)
+		req := &pb.SyncAdapterTypeWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentSyncAdapterTypeNewKeyCmd = &cobra.Command{
+	Use:   "new-key",
+	Short: "NewKey RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSyncAdapterTypeServiceClient(grpcConn)
+		req := &pb.NewKeyRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewKey(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentRestrictionEntryCmd = &cobra.Command{
+	Use:   "restriction-entry",
+	Short: "RestrictionEntryService operations",
+}
+
+var contentRestrictionEntryNewRestrictionEntryCmd = &cobra.Command{
+	Use:   "new-restriction-entry",
+	Short: "NewRestrictionEntry RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRestrictionEntryServiceClient(grpcConn)
+		req := &pb.NewRestrictionEntryRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewRestrictionEntry(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentRestrictionEntryDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRestrictionEntryServiceClient(grpcConn)
+		req := &pb.RestrictionEntryDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentRestrictionEntryEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRestrictionEntryServiceClient(grpcConn)
+		req := &pb.RestrictionEntryEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentRestrictionEntryGetAllSelectedStringsCmd = &cobra.Command{
+	Use:   "get-all-selected-strings",
+	Short: "GetAllSelectedStrings RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRestrictionEntryServiceClient(grpcConn)
+		req := &pb.GetAllSelectedStringsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetAllSelectedStrings(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentRestrictionEntryGetChoiceEntriesCmd = &cobra.Command{
+	Use:   "get-choice-entries",
+	Short: "GetChoiceEntries RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRestrictionEntryServiceClient(grpcConn)
+		req := &pb.GetChoiceEntriesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetChoiceEntries(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentRestrictionEntryGetChoiceValuesCmd = &cobra.Command{
+	Use:   "get-choice-values",
+	Short: "GetChoiceValues RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRestrictionEntryServiceClient(grpcConn)
+		req := &pb.GetChoiceValuesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetChoiceValues(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentRestrictionEntryGetDescriptionCmd = &cobra.Command{
+	Use:   "get-description",
+	Short: "GetDescription RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRestrictionEntryServiceClient(grpcConn)
+		req := &pb.GetDescriptionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetDescription(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentRestrictionEntryGetIntValueCmd = &cobra.Command{
+	Use:   "get-int-value",
+	Short: "GetIntValue RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRestrictionEntryServiceClient(grpcConn)
+		req := &pb.GetIntValueRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetIntValue(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentRestrictionEntryGetKeyCmd = &cobra.Command{
+	Use:   "get-key",
+	Short: "GetKey RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRestrictionEntryServiceClient(grpcConn)
+		req := &pb.GetKeyRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetKey(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentRestrictionEntryGetRestrictionsCmd = &cobra.Command{
+	Use:   "get-restrictions",
+	Short: "GetRestrictions RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRestrictionEntryServiceClient(grpcConn)
+		req := &pb.GetRestrictionsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetRestrictions(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentRestrictionEntryGetSelectedStateCmd = &cobra.Command{
+	Use:   "get-selected-state",
+	Short: "GetSelectedState RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRestrictionEntryServiceClient(grpcConn)
+		req := &pb.GetSelectedStateRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSelectedState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentRestrictionEntryGetSelectedStringCmd = &cobra.Command{
+	Use:   "get-selected-string",
+	Short: "GetSelectedString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRestrictionEntryServiceClient(grpcConn)
+		req := &pb.GetSelectedStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSelectedString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentRestrictionEntryGetTitleCmd = &cobra.Command{
+	Use:   "get-title",
+	Short: "GetTitle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRestrictionEntryServiceClient(grpcConn)
+		req := &pb.GetTitleRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetTitle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentRestrictionEntryGetTypeCmd = &cobra.Command{
+	Use:   "get-type",
+	Short: "GetType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRestrictionEntryServiceClient(grpcConn)
+		req := &pb.RestrictionEntryGetTypeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentRestrictionEntryHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRestrictionEntryServiceClient(grpcConn)
+		req := &pb.RestrictionEntryHashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentRestrictionEntrySetAllSelectedStringsCmd = &cobra.Command{
+	Use:   "set-all-selected-strings",
+	Short: "SetAllSelectedStrings RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRestrictionEntryServiceClient(grpcConn)
+		req := &pb.SetAllSelectedStringsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetAllSelectedStrings(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentRestrictionEntrySetChoiceEntries2Cmd = &cobra.Command{
+	Use:   "set-choice-entries2",
+	Short: "SetChoiceEntries2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRestrictionEntryServiceClient(grpcConn)
+		req := &pb.SetChoiceEntries2Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetChoiceEntries2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentRestrictionEntrySetChoiceEntries1_1Cmd = &cobra.Command{
+	Use:   "set-choice-entries1_1",
+	Short: "SetChoiceEntries1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRestrictionEntryServiceClient(grpcConn)
+		req := &pb.SetChoiceEntries1_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetChoiceEntries1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentRestrictionEntrySetChoiceValues2Cmd = &cobra.Command{
+	Use:   "set-choice-values2",
+	Short: "SetChoiceValues2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRestrictionEntryServiceClient(grpcConn)
+		req := &pb.SetChoiceValues2Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetChoiceValues2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentRestrictionEntrySetChoiceValues1_1Cmd = &cobra.Command{
+	Use:   "set-choice-values1_1",
+	Short: "SetChoiceValues1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRestrictionEntryServiceClient(grpcConn)
+		req := &pb.SetChoiceValues1_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetChoiceValues1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentRestrictionEntrySetDescriptionCmd = &cobra.Command{
+	Use:   "set-description",
+	Short: "SetDescription RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRestrictionEntryServiceClient(grpcConn)
+		req := &pb.SetDescriptionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDescription(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentRestrictionEntrySetIntValueCmd = &cobra.Command{
+	Use:   "set-int-value",
+	Short: "SetIntValue RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRestrictionEntryServiceClient(grpcConn)
+		req := &pb.SetIntValueRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetIntValue(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentRestrictionEntrySetRestrictionsCmd = &cobra.Command{
+	Use:   "set-restrictions",
+	Short: "SetRestrictions RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRestrictionEntryServiceClient(grpcConn)
+		req := &pb.SetRestrictionsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetRestrictions(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentRestrictionEntrySetSelectedStateCmd = &cobra.Command{
+	Use:   "set-selected-state",
+	Short: "SetSelectedState RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRestrictionEntryServiceClient(grpcConn)
+		req := &pb.SetSelectedStateRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSelectedState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentRestrictionEntrySetSelectedStringCmd = &cobra.Command{
+	Use:   "set-selected-string",
+	Short: "SetSelectedString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRestrictionEntryServiceClient(grpcConn)
+		req := &pb.SetSelectedStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSelectedString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentRestrictionEntrySetTitleCmd = &cobra.Command{
+	Use:   "set-title",
+	Short: "SetTitle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRestrictionEntryServiceClient(grpcConn)
+		req := &pb.SetTitleRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetTitle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentRestrictionEntrySetTypeCmd = &cobra.Command{
+	Use:   "set-type",
+	Short: "SetType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRestrictionEntryServiceClient(grpcConn)
+		req := &pb.SetTypeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentRestrictionEntryToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRestrictionEntryServiceClient(grpcConn)
+		req := &pb.RestrictionEntryToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentRestrictionEntryWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRestrictionEntryServiceClient(grpcConn)
+		req := &pb.RestrictionEntryWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentRestrictionEntryCreateBundleArrayEntryCmd = &cobra.Command{
+	Use:   "create-bundle-array-entry",
+	Short: "CreateBundleArrayEntry RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRestrictionEntryServiceClient(grpcConn)
+		req := &pb.CreateBundleArrayEntryRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.CreateBundleArrayEntry(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentRestrictionEntryCreateBundleEntryCmd = &cobra.Command{
+	Use:   "create-bundle-entry",
+	Short: "CreateBundleEntry RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRestrictionEntryServiceClient(grpcConn)
+		req := &pb.CreateBundleEntryRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.CreateBundleEntry(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperCmd = &cobra.Command{
+	Use:   "context-wrapper",
+	Short: "ContextWrapperService operations",
+}
+
+var contentContextWrapperNewContextWrapperCmd = &cobra.Command{
+	Use:   "new-context-wrapper",
+	Short: "NewContextWrapper RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.NewContextWrapperRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewContextWrapper(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperBindIsolatedServiceCmd = &cobra.Command{
+	Use:   "bind-isolated-service",
+	Short: "BindIsolatedService RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.BindIsolatedServiceRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.BindIsolatedService(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperBindService4Cmd = &cobra.Command{
+	Use:   "bind-service4",
+	Short: "BindService4 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.BindService4Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.BindService4(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperBindService3_1Cmd = &cobra.Command{
+	Use:   "bind-service3_1",
+	Short: "BindService3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.BindService3_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.BindService3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperBindService3_2Cmd = &cobra.Command{
+	Use:   "bind-service3_2",
+	Short: "BindService3_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.BindService3_2Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.BindService3_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperBindService4_3Cmd = &cobra.Command{
+	Use:   "bind-service4_3",
+	Short: "BindService4_3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.BindService4_3Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.BindService4_3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperBindServiceAsUser4Cmd = &cobra.Command{
+	Use:   "bind-service-as-user4",
+	Short: "BindServiceAsUser4 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.BindServiceAsUser4Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.BindServiceAsUser4(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperBindServiceAsUser4_1Cmd = &cobra.Command{
+	Use:   "bind-service-as-user4_1",
+	Short: "BindServiceAsUser4_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.BindServiceAsUser4_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.BindServiceAsUser4_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperCheckCallingOrSelfPermissionCmd = &cobra.Command{
+	Use:   "check-calling-or-self-permission",
+	Short: "CheckCallingOrSelfPermission RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.CheckCallingOrSelfPermissionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CheckCallingOrSelfPermission(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperCheckCallingOrSelfUriPermissionCmd = &cobra.Command{
+	Use:   "check-calling-or-self-uri-permission",
+	Short: "CheckCallingOrSelfUriPermission RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.CheckCallingOrSelfUriPermissionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.CheckCallingOrSelfUriPermission(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperCheckCallingPermissionCmd = &cobra.Command{
+	Use:   "check-calling-permission",
+	Short: "CheckCallingPermission RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.CheckCallingPermissionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CheckCallingPermission(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperCheckCallingUriPermissionCmd = &cobra.Command{
+	Use:   "check-calling-uri-permission",
+	Short: "CheckCallingUriPermission RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.CheckCallingUriPermissionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.CheckCallingUriPermission(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperCheckContentUriPermissionFullCmd = &cobra.Command{
+	Use:   "check-content-uri-permission-full",
+	Short: "CheckContentUriPermissionFull RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.CheckContentUriPermissionFullRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.CheckContentUriPermissionFull(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperCheckPermissionCmd = &cobra.Command{
+	Use:   "check-permission",
+	Short: "CheckPermission RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.CheckPermissionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.CheckPermission(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperCheckSelfPermissionCmd = &cobra.Command{
+	Use:   "check-self-permission",
+	Short: "CheckSelfPermission RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.CheckSelfPermissionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CheckSelfPermission(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperCheckUriPermission4Cmd = &cobra.Command{
+	Use:   "check-uri-permission4",
+	Short: "CheckUriPermission4 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.CheckUriPermission4Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.CheckUriPermission4(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperCheckUriPermission6_1Cmd = &cobra.Command{
+	Use:   "check-uri-permission6_1",
+	Short: "CheckUriPermission6_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.CheckUriPermission6_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		resp, err := client.CheckUriPermission6_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperClearWallpaperCmd = &cobra.Command{
+	Use:   "clear-wallpaper",
+	Short: "ClearWallpaper RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.ClearWallpaperRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ClearWallpaper(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperCreateAttributionContextCmd = &cobra.Command{
+	Use:   "create-attribution-context",
+	Short: "CreateAttributionContext RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.CreateAttributionContextRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CreateAttributionContext(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperCreateConfigurationContextCmd = &cobra.Command{
+	Use:   "create-configuration-context",
+	Short: "CreateConfigurationContext RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.CreateConfigurationContextRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CreateConfigurationContext(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperCreateContextCmd = &cobra.Command{
+	Use:   "create-context",
+	Short: "CreateContext RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.CreateContextRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CreateContext(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperCreateContextForSplitCmd = &cobra.Command{
+	Use:   "create-context-for-split",
+	Short: "CreateContextForSplit RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.CreateContextForSplitRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CreateContextForSplit(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperCreateDeviceContextCmd = &cobra.Command{
+	Use:   "create-device-context",
+	Short: "CreateDeviceContext RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.CreateDeviceContextRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CreateDeviceContext(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperCreateDeviceProtectedStorageContextCmd = &cobra.Command{
+	Use:   "create-device-protected-storage-context",
+	Short: "CreateDeviceProtectedStorageContext RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.CreateDeviceProtectedStorageContextRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.CreateDeviceProtectedStorageContext(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperCreateDisplayContextCmd = &cobra.Command{
+	Use:   "create-display-context",
+	Short: "CreateDisplayContext RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.CreateDisplayContextRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CreateDisplayContext(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperCreatePackageContextCmd = &cobra.Command{
+	Use:   "create-package-context",
+	Short: "CreatePackageContext RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.CreatePackageContextRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.CreatePackageContext(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperCreateWindowContext3Cmd = &cobra.Command{
+	Use:   "create-window-context3",
+	Short: "CreateWindowContext3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.CreateWindowContext3Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.CreateWindowContext3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperCreateWindowContext2_1Cmd = &cobra.Command{
+	Use:   "create-window-context2_1",
+	Short: "CreateWindowContext2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.CreateWindowContext2_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.CreateWindowContext2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperDatabaseListCmd = &cobra.Command{
+	Use:   "database-list",
+	Short: "DatabaseList RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.DatabaseListRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DatabaseList(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperDeleteDatabaseCmd = &cobra.Command{
+	Use:   "delete-database",
+	Short: "DeleteDatabase RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.DeleteDatabaseRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.DeleteDatabase(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperDeleteFileCmd = &cobra.Command{
+	Use:   "delete-file",
+	Short: "DeleteFile RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.DeleteFileRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.DeleteFile(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperDeleteSharedPreferencesCmd = &cobra.Command{
+	Use:   "delete-shared-preferences",
+	Short: "DeleteSharedPreferences RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.DeleteSharedPreferencesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.DeleteSharedPreferences(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperEnforceCallingOrSelfPermissionCmd = &cobra.Command{
+	Use:   "enforce-calling-or-self-permission",
+	Short: "EnforceCallingOrSelfPermission RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.EnforceCallingOrSelfPermissionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.EnforceCallingOrSelfPermission(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperEnforceCallingOrSelfUriPermissionCmd = &cobra.Command{
+	Use:   "enforce-calling-or-self-uri-permission",
+	Short: "EnforceCallingOrSelfUriPermission RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.EnforceCallingOrSelfUriPermissionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.EnforceCallingOrSelfUriPermission(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperEnforceCallingPermissionCmd = &cobra.Command{
+	Use:   "enforce-calling-permission",
+	Short: "EnforceCallingPermission RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.EnforceCallingPermissionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.EnforceCallingPermission(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperEnforceCallingUriPermissionCmd = &cobra.Command{
+	Use:   "enforce-calling-uri-permission",
+	Short: "EnforceCallingUriPermission RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.EnforceCallingUriPermissionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.EnforceCallingUriPermission(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperEnforcePermissionCmd = &cobra.Command{
+	Use:   "enforce-permission",
+	Short: "EnforcePermission RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.EnforcePermissionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetString("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.EnforcePermission(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperEnforceUriPermission5Cmd = &cobra.Command{
+	Use:   "enforce-uri-permission5",
+	Short: "EnforceUriPermission5 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.EnforceUriPermission5Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetString("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.EnforceUriPermission5(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperEnforceUriPermission7_1Cmd = &cobra.Command{
+	Use:   "enforce-uri-permission7_1",
+	Short: "EnforceUriPermission7_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.EnforceUriPermission7_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		if v, err := cmd.Flags().GetString("arg6"); err == nil {
+			req.Arg6 = v
+		}
+		resp, err := client.EnforceUriPermission7_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperFileListCmd = &cobra.Command{
+	Use:   "file-list",
+	Short: "FileList RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.FileListRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.FileList(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperGetApplicationContextCmd = &cobra.Command{
+	Use:   "get-application-context",
+	Short: "GetApplicationContext RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.GetApplicationContextRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetApplicationContext(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperGetApplicationInfoCmd = &cobra.Command{
+	Use:   "get-application-info",
+	Short: "GetApplicationInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.GetApplicationInfoRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetApplicationInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperGetAssetsCmd = &cobra.Command{
+	Use:   "get-assets",
+	Short: "GetAssets RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.GetAssetsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetAssets(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperGetAttributionSourceCmd = &cobra.Command{
+	Use:   "get-attribution-source",
+	Short: "GetAttributionSource RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.GetAttributionSourceRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetAttributionSource(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperGetAttributionTagCmd = &cobra.Command{
+	Use:   "get-attribution-tag",
+	Short: "GetAttributionTag RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.ContextWrapperGetAttributionTagRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetAttributionTag(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperGetBaseContextCmd = &cobra.Command{
+	Use:   "get-base-context",
+	Short: "GetBaseContext RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.GetBaseContextRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetBaseContext(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperGetCacheDirCmd = &cobra.Command{
+	Use:   "get-cache-dir",
+	Short: "GetCacheDir RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.GetCacheDirRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetCacheDir(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperGetClassLoaderCmd = &cobra.Command{
+	Use:   "get-class-loader",
+	Short: "GetClassLoader RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.GetClassLoaderRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetClassLoader(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperGetCodeCacheDirCmd = &cobra.Command{
+	Use:   "get-code-cache-dir",
+	Short: "GetCodeCacheDir RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.GetCodeCacheDirRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetCodeCacheDir(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperGetContentResolverCmd = &cobra.Command{
+	Use:   "get-content-resolver",
+	Short: "GetContentResolver RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.GetContentResolverRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetContentResolver(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperGetDataDirCmd = &cobra.Command{
+	Use:   "get-data-dir",
+	Short: "GetDataDir RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.GetDataDirRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetDataDir(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperGetDatabasePathCmd = &cobra.Command{
+	Use:   "get-database-path",
+	Short: "GetDatabasePath RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.GetDatabasePathRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetDatabasePath(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperGetDeviceIdCmd = &cobra.Command{
+	Use:   "get-device-id",
+	Short: "GetDeviceId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.ContextWrapperGetDeviceIdRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetDeviceId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperGetDirCmd = &cobra.Command{
+	Use:   "get-dir",
+	Short: "GetDir RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.GetDirRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetDir(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperGetDisplayCmd = &cobra.Command{
+	Use:   "get-display",
+	Short: "GetDisplay RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.GetDisplayRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetDisplay(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperGetExternalCacheDirCmd = &cobra.Command{
+	Use:   "get-external-cache-dir",
+	Short: "GetExternalCacheDir RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.GetExternalCacheDirRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetExternalCacheDir(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperGetExternalCacheDirsCmd = &cobra.Command{
+	Use:   "get-external-cache-dirs",
+	Short: "GetExternalCacheDirs RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.GetExternalCacheDirsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetExternalCacheDirs(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperGetExternalFilesDirCmd = &cobra.Command{
+	Use:   "get-external-files-dir",
+	Short: "GetExternalFilesDir RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.GetExternalFilesDirRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetExternalFilesDir(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperGetExternalFilesDirsCmd = &cobra.Command{
+	Use:   "get-external-files-dirs",
+	Short: "GetExternalFilesDirs RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.GetExternalFilesDirsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetExternalFilesDirs(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperGetExternalMediaDirsCmd = &cobra.Command{
+	Use:   "get-external-media-dirs",
+	Short: "GetExternalMediaDirs RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.GetExternalMediaDirsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetExternalMediaDirs(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperGetFileStreamPathCmd = &cobra.Command{
+	Use:   "get-file-stream-path",
+	Short: "GetFileStreamPath RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.GetFileStreamPathRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetFileStreamPath(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperGetFilesDirCmd = &cobra.Command{
+	Use:   "get-files-dir",
+	Short: "GetFilesDir RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.GetFilesDirRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetFilesDir(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperGetMainExecutorCmd = &cobra.Command{
+	Use:   "get-main-executor",
+	Short: "GetMainExecutor RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.GetMainExecutorRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetMainExecutor(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperGetMainLooperCmd = &cobra.Command{
+	Use:   "get-main-looper",
+	Short: "GetMainLooper RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.GetMainLooperRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetMainLooper(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperGetNoBackupFilesDirCmd = &cobra.Command{
+	Use:   "get-no-backup-files-dir",
+	Short: "GetNoBackupFilesDir RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.GetNoBackupFilesDirRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetNoBackupFilesDir(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperGetObbDirCmd = &cobra.Command{
+	Use:   "get-obb-dir",
+	Short: "GetObbDir RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.GetObbDirRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetObbDir(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperGetObbDirsCmd = &cobra.Command{
+	Use:   "get-obb-dirs",
+	Short: "GetObbDirs RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.GetObbDirsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetObbDirs(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperGetOpPackageNameCmd = &cobra.Command{
+	Use:   "get-op-package-name",
+	Short: "GetOpPackageName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.GetOpPackageNameRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetOpPackageName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperGetPackageCodePathCmd = &cobra.Command{
+	Use:   "get-package-code-path",
+	Short: "GetPackageCodePath RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.GetPackageCodePathRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetPackageCodePath(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperGetPackageManagerCmd = &cobra.Command{
+	Use:   "get-package-manager",
+	Short: "GetPackageManager RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.GetPackageManagerRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetPackageManager(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperGetPackageNameCmd = &cobra.Command{
+	Use:   "get-package-name",
+	Short: "GetPackageName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.ContextWrapperGetPackageNameRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetPackageName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperGetPackageResourcePathCmd = &cobra.Command{
+	Use:   "get-package-resource-path",
+	Short: "GetPackageResourcePath RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.GetPackageResourcePathRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetPackageResourcePath(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperGetParamsCmd = &cobra.Command{
+	Use:   "get-params",
+	Short: "GetParams RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.GetParamsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetParams(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperGetResourcesCmd = &cobra.Command{
+	Use:   "get-resources",
+	Short: "GetResources RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.ContextWrapperGetResourcesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetResources(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperGetSharedPreferencesCmd = &cobra.Command{
+	Use:   "get-shared-preferences",
+	Short: "GetSharedPreferences RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.GetSharedPreferencesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetSharedPreferences(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperGetSystemServiceCmd = &cobra.Command{
+	Use:   "get-system-service",
+	Short: "GetSystemService RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.GetSystemServiceRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetSystemService(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperGetThemeCmd = &cobra.Command{
+	Use:   "get-theme",
+	Short: "GetTheme RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.GetThemeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetTheme(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperGetWallpaperCmd = &cobra.Command{
+	Use:   "get-wallpaper",
+	Short: "GetWallpaper RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.GetWallpaperRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetWallpaper(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperGetWallpaperDesiredMinimumHeightCmd = &cobra.Command{
+	Use:   "get-wallpaper-desired-minimum-height",
+	Short: "GetWallpaperDesiredMinimumHeight RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.GetWallpaperDesiredMinimumHeightRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetWallpaperDesiredMinimumHeight(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperGetWallpaperDesiredMinimumWidthCmd = &cobra.Command{
+	Use:   "get-wallpaper-desired-minimum-width",
+	Short: "GetWallpaperDesiredMinimumWidth RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.GetWallpaperDesiredMinimumWidthRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetWallpaperDesiredMinimumWidth(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperGrantUriPermissionCmd = &cobra.Command{
+	Use:   "grant-uri-permission",
+	Short: "GrantUriPermission RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.GrantUriPermissionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.GrantUriPermission(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperIsDeviceProtectedStorageCmd = &cobra.Command{
+	Use:   "is-device-protected-storage",
+	Short: "IsDeviceProtectedStorage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.IsDeviceProtectedStorageRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsDeviceProtectedStorage(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperIsRestrictedCmd = &cobra.Command{
+	Use:   "is-restricted",
+	Short: "IsRestricted RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.IsRestrictedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsRestricted(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperIsUiContextCmd = &cobra.Command{
+	Use:   "is-ui-context",
+	Short: "IsUiContext RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.IsUiContextRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsUiContext(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperMoveDatabaseFromCmd = &cobra.Command{
+	Use:   "move-database-from",
+	Short: "MoveDatabaseFrom RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.MoveDatabaseFromRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.MoveDatabaseFrom(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperMoveSharedPreferencesFromCmd = &cobra.Command{
+	Use:   "move-shared-preferences-from",
+	Short: "MoveSharedPreferencesFrom RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.MoveSharedPreferencesFromRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.MoveSharedPreferencesFrom(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperOpenFileInputCmd = &cobra.Command{
+	Use:   "open-file-input",
+	Short: "OpenFileInput RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.OpenFileInputRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OpenFileInput(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperOpenFileOutputCmd = &cobra.Command{
+	Use:   "open-file-output",
+	Short: "OpenFileOutput RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.OpenFileOutputRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OpenFileOutput(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperOpenOrCreateDatabaseCmd = &cobra.Command{
+	Use:   "open-or-create-database",
+	Short: "OpenOrCreateDatabase RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.OpenOrCreateDatabaseRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OpenOrCreateDatabase(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperPeekWallpaperCmd = &cobra.Command{
+	Use:   "peek-wallpaper",
+	Short: "PeekWallpaper RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.PeekWallpaperRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.PeekWallpaper(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperRegisterComponentCallbacksCmd = &cobra.Command{
+	Use:   "register-component-callbacks",
+	Short: "RegisterComponentCallbacks RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.RegisterComponentCallbacksRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RegisterComponentCallbacks(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperRegisterDeviceIdChangeListenerCmd = &cobra.Command{
+	Use:   "register-device-id-change-listener",
+	Short: "RegisterDeviceIdChangeListener RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.RegisterDeviceIdChangeListenerRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.RegisterDeviceIdChangeListener(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperRegisterReceiver2Cmd = &cobra.Command{
+	Use:   "register-receiver2",
+	Short: "RegisterReceiver2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.RegisterReceiver2Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.RegisterReceiver2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperRegisterReceiver3_1Cmd = &cobra.Command{
+	Use:   "register-receiver3_1",
+	Short: "RegisterReceiver3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.RegisterReceiver3_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.RegisterReceiver3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperRemoveStickyBroadcastCmd = &cobra.Command{
+	Use:   "remove-sticky-broadcast",
+	Short: "RemoveStickyBroadcast RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.RemoveStickyBroadcastRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RemoveStickyBroadcast(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperRemoveStickyBroadcastAsUserCmd = &cobra.Command{
+	Use:   "remove-sticky-broadcast-as-user",
+	Short: "RemoveStickyBroadcastAsUser RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.RemoveStickyBroadcastAsUserRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.RemoveStickyBroadcastAsUser(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperRevokeUriPermission2Cmd = &cobra.Command{
+	Use:   "revoke-uri-permission2",
+	Short: "RevokeUriPermission2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.RevokeUriPermission2Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.RevokeUriPermission2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperRevokeUriPermission3_1Cmd = &cobra.Command{
+	Use:   "revoke-uri-permission3_1",
+	Short: "RevokeUriPermission3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.RevokeUriPermission3_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.RevokeUriPermission3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperSendBroadcast1Cmd = &cobra.Command{
+	Use:   "send-broadcast1",
+	Short: "SendBroadcast1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.SendBroadcast1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SendBroadcast1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperSendBroadcast2_1Cmd = &cobra.Command{
+	Use:   "send-broadcast2_1",
+	Short: "SendBroadcast2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.SendBroadcast2_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SendBroadcast2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperSendBroadcast3_2Cmd = &cobra.Command{
+	Use:   "send-broadcast3_2",
+	Short: "SendBroadcast3_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.SendBroadcast3_2Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.SendBroadcast3_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperSendBroadcastAsUser2Cmd = &cobra.Command{
+	Use:   "send-broadcast-as-user2",
+	Short: "SendBroadcastAsUser2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.SendBroadcastAsUser2Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SendBroadcastAsUser2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperSendBroadcastAsUser3_1Cmd = &cobra.Command{
+	Use:   "send-broadcast-as-user3_1",
+	Short: "SendBroadcastAsUser3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.SendBroadcastAsUser3_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.SendBroadcastAsUser3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperSendOrderedBroadcast2Cmd = &cobra.Command{
+	Use:   "send-ordered-broadcast2",
+	Short: "SendOrderedBroadcast2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.SendOrderedBroadcast2Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SendOrderedBroadcast2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperSendOrderedBroadcast3_1Cmd = &cobra.Command{
+	Use:   "send-ordered-broadcast3_1",
+	Short: "SendOrderedBroadcast3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.SendOrderedBroadcast3_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.SendOrderedBroadcast3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperSendStickyBroadcast1Cmd = &cobra.Command{
+	Use:   "send-sticky-broadcast1",
+	Short: "SendStickyBroadcast1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.SendStickyBroadcast1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SendStickyBroadcast1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperSendStickyBroadcast2_1Cmd = &cobra.Command{
+	Use:   "send-sticky-broadcast2_1",
+	Short: "SendStickyBroadcast2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.SendStickyBroadcast2_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SendStickyBroadcast2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperSendStickyBroadcastAsUserCmd = &cobra.Command{
+	Use:   "send-sticky-broadcast-as-user",
+	Short: "SendStickyBroadcastAsUser RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.SendStickyBroadcastAsUserRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SendStickyBroadcastAsUser(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperSetThemeCmd = &cobra.Command{
+	Use:   "set-theme",
+	Short: "SetTheme RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.SetThemeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetTheme(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperSetWallpaper1Cmd = &cobra.Command{
+	Use:   "set-wallpaper1",
+	Short: "SetWallpaper1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.SetWallpaper1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetWallpaper1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperSetWallpaper1_1Cmd = &cobra.Command{
+	Use:   "set-wallpaper1_1",
+	Short: "SetWallpaper1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.SetWallpaper1_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetWallpaper1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperStartActivities1Cmd = &cobra.Command{
+	Use:   "start-activities1",
+	Short: "StartActivities1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.StartActivities1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.StartActivities1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperStartActivities2_1Cmd = &cobra.Command{
+	Use:   "start-activities2_1",
+	Short: "StartActivities2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.StartActivities2_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.StartActivities2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperStartActivity1Cmd = &cobra.Command{
+	Use:   "start-activity1",
+	Short: "StartActivity1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.StartActivity1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.StartActivity1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperStartActivity2_1Cmd = &cobra.Command{
+	Use:   "start-activity2_1",
+	Short: "StartActivity2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.StartActivity2_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.StartActivity2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperStartForegroundServiceCmd = &cobra.Command{
+	Use:   "start-foreground-service",
+	Short: "StartForegroundService RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.StartForegroundServiceRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.StartForegroundService(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperStartInstrumentationCmd = &cobra.Command{
+	Use:   "start-instrumentation",
+	Short: "StartInstrumentation RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.StartInstrumentationRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.StartInstrumentation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperStartIntentSender5Cmd = &cobra.Command{
+	Use:   "start-intent-sender5",
+	Short: "StartIntentSender5 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.StartIntentSender5Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.StartIntentSender5(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperStartIntentSender6_1Cmd = &cobra.Command{
+	Use:   "start-intent-sender6_1",
+	Short: "StartIntentSender6_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.StartIntentSender6_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		resp, err := client.StartIntentSender6_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperStartServiceCmd = &cobra.Command{
+	Use:   "start-service",
+	Short: "StartService RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.StartServiceRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.StartService(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperStopServiceCmd = &cobra.Command{
+	Use:   "stop-service",
+	Short: "StopService RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.StopServiceRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.StopService(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperUnbindServiceCmd = &cobra.Command{
+	Use:   "unbind-service",
+	Short: "UnbindService RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.UnbindServiceRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.UnbindService(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperUnregisterComponentCallbacksCmd = &cobra.Command{
+	Use:   "unregister-component-callbacks",
+	Short: "UnregisterComponentCallbacks RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.UnregisterComponentCallbacksRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.UnregisterComponentCallbacks(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperUnregisterDeviceIdChangeListenerCmd = &cobra.Command{
+	Use:   "unregister-device-id-change-listener",
+	Short: "UnregisterDeviceIdChangeListener RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.UnregisterDeviceIdChangeListenerRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.UnregisterDeviceIdChangeListener(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperUnregisterReceiverCmd = &cobra.Command{
+	Use:   "unregister-receiver",
+	Short: "UnregisterReceiver RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.UnregisterReceiverRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.UnregisterReceiver(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentContextWrapperUpdateServiceGroupCmd = &cobra.Command{
+	Use:   "update-service-group",
+	Short: "UpdateServiceGroup RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextWrapperServiceClient(grpcConn)
+		req := &pb.UpdateServiceGroupRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.UpdateServiceGroup(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentValuesCmd = &cobra.Command{
+	Use:   "values",
+	Short: "ValuesService operations",
+}
+
+var contentValuesNewValuesCmd = &cobra.Command{
+	Use:   "new-values",
+	Short: "NewValues RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewValuesServiceClient(grpcConn)
+		req := &pb.NewValuesRequest{}
+		resp, err := client.NewValues(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentValuesClearCmd = &cobra.Command{
+	Use:   "clear",
+	Short: "Clear RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewValuesServiceClient(grpcConn)
+		req := &pb.ClearRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Clear(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentValuesContainsKeyCmd = &cobra.Command{
+	Use:   "contains-key",
+	Short: "ContainsKey RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewValuesServiceClient(grpcConn)
+		req := &pb.ContainsKeyRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ContainsKey(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentValuesDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewValuesServiceClient(grpcConn)
+		req := &pb.ValuesDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentValuesEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewValuesServiceClient(grpcConn)
+		req := &pb.ValuesEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentValuesGetCmd = &cobra.Command{
+	Use:   "get",
+	Short: "Get RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewValuesServiceClient(grpcConn)
+		req := &pb.GetRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Get(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentValuesGetAsBooleanCmd = &cobra.Command{
+	Use:   "get-as-boolean",
+	Short: "GetAsBoolean RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewValuesServiceClient(grpcConn)
+		req := &pb.GetAsBooleanRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetAsBoolean(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentValuesGetAsByteCmd = &cobra.Command{
+	Use:   "get-as-byte",
+	Short: "GetAsByte RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewValuesServiceClient(grpcConn)
+		req := &pb.GetAsByteRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetAsByte(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentValuesGetAsByteArrayCmd = &cobra.Command{
+	Use:   "get-as-byte-array",
+	Short: "GetAsByteArray RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewValuesServiceClient(grpcConn)
+		req := &pb.GetAsByteArrayRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetAsByteArray(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentValuesGetAsDoubleCmd = &cobra.Command{
+	Use:   "get-as-double",
+	Short: "GetAsDouble RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewValuesServiceClient(grpcConn)
+		req := &pb.GetAsDoubleRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetAsDouble(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentValuesGetAsFloatCmd = &cobra.Command{
+	Use:   "get-as-float",
+	Short: "GetAsFloat RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewValuesServiceClient(grpcConn)
+		req := &pb.GetAsFloatRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetAsFloat(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentValuesGetAsIntegerCmd = &cobra.Command{
+	Use:   "get-as-integer",
+	Short: "GetAsInteger RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewValuesServiceClient(grpcConn)
+		req := &pb.GetAsIntegerRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetAsInteger(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentValuesGetAsLongCmd = &cobra.Command{
+	Use:   "get-as-long",
+	Short: "GetAsLong RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewValuesServiceClient(grpcConn)
+		req := &pb.GetAsLongRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetAsLong(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentValuesGetAsShortCmd = &cobra.Command{
+	Use:   "get-as-short",
+	Short: "GetAsShort RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewValuesServiceClient(grpcConn)
+		req := &pb.GetAsShortRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetAsShort(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentValuesGetAsStringCmd = &cobra.Command{
+	Use:   "get-as-string",
+	Short: "GetAsString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewValuesServiceClient(grpcConn)
+		req := &pb.GetAsStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetAsString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentValuesHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewValuesServiceClient(grpcConn)
+		req := &pb.ValuesHashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentValuesIsEmptyCmd = &cobra.Command{
+	Use:   "is-empty",
+	Short: "IsEmpty RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewValuesServiceClient(grpcConn)
+		req := &pb.IsEmptyRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsEmpty(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentValuesPut2Cmd = &cobra.Command{
+	Use:   "put2",
+	Short: "Put2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewValuesServiceClient(grpcConn)
+		req := &pb.Put2Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Put2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentValuesPut2_1Cmd = &cobra.Command{
+	Use:   "put2_1",
+	Short: "Put2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewValuesServiceClient(grpcConn)
+		req := &pb.Put2_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Put2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentValuesPut2_2Cmd = &cobra.Command{
+	Use:   "put2_2",
+	Short: "Put2_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewValuesServiceClient(grpcConn)
+		req := &pb.Put2_2Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Put2_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentValuesPut2_3Cmd = &cobra.Command{
+	Use:   "put2_3",
+	Short: "Put2_3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewValuesServiceClient(grpcConn)
+		req := &pb.Put2_3Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Put2_3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentValuesPut2_4Cmd = &cobra.Command{
+	Use:   "put2_4",
+	Short: "Put2_4 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewValuesServiceClient(grpcConn)
+		req := &pb.Put2_4Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Put2_4(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentValuesPut2_5Cmd = &cobra.Command{
+	Use:   "put2_5",
+	Short: "Put2_5 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewValuesServiceClient(grpcConn)
+		req := &pb.Put2_5Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Put2_5(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentValuesPut2_6Cmd = &cobra.Command{
+	Use:   "put2_6",
+	Short: "Put2_6 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewValuesServiceClient(grpcConn)
+		req := &pb.Put2_6Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Put2_6(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentValuesPut2_7Cmd = &cobra.Command{
+	Use:   "put2_7",
+	Short: "Put2_7 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewValuesServiceClient(grpcConn)
+		req := &pb.Put2_7Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Put2_7(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentValuesPut2_8Cmd = &cobra.Command{
+	Use:   "put2_8",
+	Short: "Put2_8 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewValuesServiceClient(grpcConn)
+		req := &pb.Put2_8Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Put2_8(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentValuesPutAllCmd = &cobra.Command{
+	Use:   "put-all",
+	Short: "PutAll RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewValuesServiceClient(grpcConn)
+		req := &pb.PutAllRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.PutAll(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentValuesPutNullCmd = &cobra.Command{
+	Use:   "put-null",
+	Short: "PutNull RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewValuesServiceClient(grpcConn)
+		req := &pb.PutNullRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.PutNull(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentValuesRemoveCmd = &cobra.Command{
+	Use:   "remove",
+	Short: "Remove RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewValuesServiceClient(grpcConn)
+		req := &pb.RemoveRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Remove(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentValuesSizeCmd = &cobra.Command{
+	Use:   "size",
+	Short: "Size RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewValuesServiceClient(grpcConn)
+		req := &pb.SizeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Size(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentValuesToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewValuesServiceClient(grpcConn)
+		req := &pb.ValuesToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentValuesWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewValuesServiceClient(grpcConn)
+		req := &pb.ValuesWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderOperationCmd = &cobra.Command{
+	Use:   "provider-operation",
+	Short: "ProviderOperationService operations",
+}
+
+var contentProviderOperationApplyCmd = &cobra.Command{
+	Use:   "apply",
+	Short: "Apply RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderOperationServiceClient(grpcConn)
+		req := &pb.ApplyRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Apply(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderOperationDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderOperationServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderOperationGetUriCmd = &cobra.Command{
+	Use:   "get-uri",
+	Short: "GetUri RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderOperationServiceClient(grpcConn)
+		req := &pb.GetUriRequest{}
+		resp, err := client.GetUri(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderOperationIsAssertQueryCmd = &cobra.Command{
+	Use:   "is-assert-query",
+	Short: "IsAssertQuery RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderOperationServiceClient(grpcConn)
+		req := &pb.IsAssertQueryRequest{}
+		resp, err := client.IsAssertQuery(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderOperationIsCallCmd = &cobra.Command{
+	Use:   "is-call",
+	Short: "IsCall RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderOperationServiceClient(grpcConn)
+		req := &pb.IsCallRequest{}
+		resp, err := client.IsCall(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderOperationIsDeleteCmd = &cobra.Command{
+	Use:   "is-delete",
+	Short: "IsDelete RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderOperationServiceClient(grpcConn)
+		req := &pb.IsDeleteRequest{}
+		resp, err := client.IsDelete(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderOperationIsExceptionAllowedCmd = &cobra.Command{
+	Use:   "is-exception-allowed",
+	Short: "IsExceptionAllowed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderOperationServiceClient(grpcConn)
+		req := &pb.IsExceptionAllowedRequest{}
+		resp, err := client.IsExceptionAllowed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderOperationIsInsertCmd = &cobra.Command{
+	Use:   "is-insert",
+	Short: "IsInsert RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderOperationServiceClient(grpcConn)
+		req := &pb.IsInsertRequest{}
+		resp, err := client.IsInsert(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderOperationIsReadOperationCmd = &cobra.Command{
+	Use:   "is-read-operation",
+	Short: "IsReadOperation RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderOperationServiceClient(grpcConn)
+		req := &pb.IsReadOperationRequest{}
+		resp, err := client.IsReadOperation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderOperationIsUpdateCmd = &cobra.Command{
+	Use:   "is-update",
+	Short: "IsUpdate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderOperationServiceClient(grpcConn)
+		req := &pb.IsUpdateRequest{}
+		resp, err := client.IsUpdate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderOperationIsWriteOperationCmd = &cobra.Command{
+	Use:   "is-write-operation",
+	Short: "IsWriteOperation RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderOperationServiceClient(grpcConn)
+		req := &pb.IsWriteOperationRequest{}
+		resp, err := client.IsWriteOperation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderOperationIsYieldAllowedCmd = &cobra.Command{
+	Use:   "is-yield-allowed",
+	Short: "IsYieldAllowed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderOperationServiceClient(grpcConn)
+		req := &pb.IsYieldAllowedRequest{}
+		resp, err := client.IsYieldAllowed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderOperationResolveExtrasBackReferencesCmd = &cobra.Command{
+	Use:   "resolve-extras-back-references",
+	Short: "ResolveExtrasBackReferences RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderOperationServiceClient(grpcConn)
+		req := &pb.ResolveExtrasBackReferencesRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.ResolveExtrasBackReferences(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderOperationResolveSelectionArgsBackReferencesCmd = &cobra.Command{
+	Use:   "resolve-selection-args-back-references",
+	Short: "ResolveSelectionArgsBackReferences RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderOperationServiceClient(grpcConn)
+		req := &pb.ResolveSelectionArgsBackReferencesRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.ResolveSelectionArgsBackReferences(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderOperationResolveValueBackReferencesCmd = &cobra.Command{
+	Use:   "resolve-value-back-references",
+	Short: "ResolveValueBackReferences RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderOperationServiceClient(grpcConn)
+		req := &pb.ResolveValueBackReferencesRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.ResolveValueBackReferences(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderOperationToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderOperationServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderOperationWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderOperationServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderOperationNewAssertQueryCmd = &cobra.Command{
+	Use:   "new-assert-query",
+	Short: "NewAssertQuery RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderOperationServiceClient(grpcConn)
+		req := &pb.NewAssertQueryRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewAssertQuery(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderOperationNewCallCmd = &cobra.Command{
+	Use:   "new-call",
+	Short: "NewCall RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderOperationServiceClient(grpcConn)
+		req := &pb.NewCallRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.NewCall(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderOperationNewDeleteCmd = &cobra.Command{
+	Use:   "new-delete",
+	Short: "NewDelete RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderOperationServiceClient(grpcConn)
+		req := &pb.NewDeleteRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewDelete(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderOperationNewInsertCmd = &cobra.Command{
+	Use:   "new-insert",
+	Short: "NewInsert RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderOperationServiceClient(grpcConn)
+		req := &pb.NewInsertRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewInsert(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderOperationNewUpdateCmd = &cobra.Command{
+	Use:   "new-update",
+	Short: "NewUpdate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderOperationServiceClient(grpcConn)
+		req := &pb.NewUpdateRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewUpdate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderOperationBuilderCmd = &cobra.Command{
+	Use:   "provider-operation-builder",
+	Short: "ProviderOperationBuilderService operations",
+}
+
+var contentProviderOperationBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderOperationBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderOperationBuilderWithExceptionAllowedCmd = &cobra.Command{
+	Use:   "with-exception-allowed",
+	Short: "WithExceptionAllowed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderOperationBuilderServiceClient(grpcConn)
+		req := &pb.WithExceptionAllowedRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.WithExceptionAllowed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderOperationBuilderWithExpectedCountCmd = &cobra.Command{
+	Use:   "with-expected-count",
+	Short: "WithExpectedCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderOperationBuilderServiceClient(grpcConn)
+		req := &pb.WithExpectedCountRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.WithExpectedCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderOperationBuilderWithExtraCmd = &cobra.Command{
+	Use:   "with-extra",
+	Short: "WithExtra RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderOperationBuilderServiceClient(grpcConn)
+		req := &pb.WithExtraRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WithExtra(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderOperationBuilderWithExtraBackReference2Cmd = &cobra.Command{
+	Use:   "with-extra-back-reference2",
+	Short: "WithExtraBackReference2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderOperationBuilderServiceClient(grpcConn)
+		req := &pb.WithExtraBackReference2Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WithExtraBackReference2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderOperationBuilderWithExtraBackReference3_1Cmd = &cobra.Command{
+	Use:   "with-extra-back-reference3_1",
+	Short: "WithExtraBackReference3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderOperationBuilderServiceClient(grpcConn)
+		req := &pb.WithExtraBackReference3_1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.WithExtraBackReference3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderOperationBuilderWithExtrasCmd = &cobra.Command{
+	Use:   "with-extras",
+	Short: "WithExtras RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderOperationBuilderServiceClient(grpcConn)
+		req := &pb.WithExtrasRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.WithExtras(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderOperationBuilderWithSelectionCmd = &cobra.Command{
+	Use:   "with-selection",
+	Short: "WithSelection RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderOperationBuilderServiceClient(grpcConn)
+		req := &pb.WithSelectionRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WithSelection(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderOperationBuilderWithSelectionBackReference2Cmd = &cobra.Command{
+	Use:   "with-selection-back-reference2",
+	Short: "WithSelectionBackReference2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderOperationBuilderServiceClient(grpcConn)
+		req := &pb.WithSelectionBackReference2Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WithSelectionBackReference2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderOperationBuilderWithSelectionBackReference3_1Cmd = &cobra.Command{
+	Use:   "with-selection-back-reference3_1",
+	Short: "WithSelectionBackReference3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderOperationBuilderServiceClient(grpcConn)
+		req := &pb.WithSelectionBackReference3_1Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.WithSelectionBackReference3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderOperationBuilderWithValueCmd = &cobra.Command{
+	Use:   "with-value",
+	Short: "WithValue RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderOperationBuilderServiceClient(grpcConn)
+		req := &pb.WithValueRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WithValue(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderOperationBuilderWithValueBackReference2Cmd = &cobra.Command{
+	Use:   "with-value-back-reference2",
+	Short: "WithValueBackReference2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderOperationBuilderServiceClient(grpcConn)
+		req := &pb.WithValueBackReference2Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WithValueBackReference2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderOperationBuilderWithValueBackReference3_1Cmd = &cobra.Command{
+	Use:   "with-value-back-reference3_1",
+	Short: "WithValueBackReference3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderOperationBuilderServiceClient(grpcConn)
+		req := &pb.WithValueBackReference3_1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.WithValueBackReference3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderOperationBuilderWithValueBackReferencesCmd = &cobra.Command{
+	Use:   "with-value-back-references",
+	Short: "WithValueBackReferences RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderOperationBuilderServiceClient(grpcConn)
+		req := &pb.WithValueBackReferencesRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.WithValueBackReferences(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderOperationBuilderWithValuesCmd = &cobra.Command{
+	Use:   "with-values",
+	Short: "WithValues RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderOperationBuilderServiceClient(grpcConn)
+		req := &pb.WithValuesRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.WithValues(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderOperationBuilderWithYieldAllowedCmd = &cobra.Command{
+	Use:   "with-yield-allowed",
+	Short: "WithYieldAllowed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderOperationBuilderServiceClient(grpcConn)
+		req := &pb.WithYieldAllowedRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.WithYieldAllowed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentUriMatcherCmd = &cobra.Command{
+	Use:   "uri-matcher",
+	Short: "UriMatcherService operations",
+}
+
+var contentUriMatcherNewUriMatcherCmd = &cobra.Command{
+	Use:   "new-uri-matcher",
+	Short: "NewUriMatcher RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUriMatcherServiceClient(grpcConn)
+		req := &pb.NewUriMatcherRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewUriMatcher(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentUriMatcherAddURICmd = &cobra.Command{
+	Use:   "add-uri",
+	Short: "AddURI RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUriMatcherServiceClient(grpcConn)
+		req := &pb.AddURIRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.AddURI(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentUriMatcherMatchCmd = &cobra.Command{
+	Use:   "match",
+	Short: "Match RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUriMatcherServiceClient(grpcConn)
+		req := &pb.UriMatcherMatchRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Match(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentPeriodicSyncCmd = &cobra.Command{
+	Use:   "periodic-sync",
+	Short: "PeriodicSyncService operations",
+}
+
+var contentPeriodicSyncNewPeriodicSyncCmd = &cobra.Command{
+	Use:   "new-periodic-sync",
+	Short: "NewPeriodicSync RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPeriodicSyncServiceClient(grpcConn)
+		req := &pb.NewPeriodicSyncRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.NewPeriodicSync(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentPeriodicSyncDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPeriodicSyncServiceClient(grpcConn)
+		req := &pb.PeriodicSyncDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentPeriodicSyncEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPeriodicSyncServiceClient(grpcConn)
+		req := &pb.PeriodicSyncEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentPeriodicSyncToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPeriodicSyncServiceClient(grpcConn)
+		req := &pb.PeriodicSyncToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentPeriodicSyncWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPeriodicSyncServiceClient(grpcConn)
+		req := &pb.PeriodicSyncWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentUriRelativeFilterGroupCmd = &cobra.Command{
+	Use:   "uri-relative-filter-group",
+	Short: "UriRelativeFilterGroupService operations",
+}
+
+var contentUriRelativeFilterGroupNewUriRelativeFilterGroupCmd = &cobra.Command{
+	Use:   "new-uri-relative-filter-group",
+	Short: "NewUriRelativeFilterGroup RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUriRelativeFilterGroupServiceClient(grpcConn)
+		req := &pb.NewUriRelativeFilterGroupRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewUriRelativeFilterGroup(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentUriRelativeFilterGroupAddUriRelativeFilterCmd = &cobra.Command{
+	Use:   "add-uri-relative-filter",
+	Short: "AddUriRelativeFilter RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUriRelativeFilterGroupServiceClient(grpcConn)
+		req := &pb.AddUriRelativeFilterRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddUriRelativeFilter(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentUriRelativeFilterGroupEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUriRelativeFilterGroupServiceClient(grpcConn)
+		req := &pb.UriRelativeFilterGroupEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentUriRelativeFilterGroupGetActionCmd = &cobra.Command{
+	Use:   "get-action",
+	Short: "GetAction RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUriRelativeFilterGroupServiceClient(grpcConn)
+		req := &pb.UriRelativeFilterGroupGetActionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetAction(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentUriRelativeFilterGroupHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUriRelativeFilterGroupServiceClient(grpcConn)
+		req := &pb.UriRelativeFilterGroupHashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentUriRelativeFilterGroupMatchDataCmd = &cobra.Command{
+	Use:   "match-data",
+	Short: "MatchData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUriRelativeFilterGroupServiceClient(grpcConn)
+		req := &pb.UriRelativeFilterGroupMatchDataRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.MatchData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentUriRelativeFilterGroupToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUriRelativeFilterGroupServiceClient(grpcConn)
+		req := &pb.UriRelativeFilterGroupToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentSyncInfoCmd = &cobra.Command{
+	Use:   "sync-info",
+	Short: "SyncInfoService operations",
+}
+
+var contentSyncInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSyncInfoServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentSyncInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSyncInfoServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentUrisCmd = &cobra.Command{
+	Use:   "uris",
+	Short: "UrisService operations",
+}
+
+var contentUrisNewUrisCmd = &cobra.Command{
+	Use:   "new-uris",
+	Short: "NewUris RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUrisServiceClient(grpcConn)
+		req := &pb.NewUrisRequest{}
+		resp, err := client.NewUris(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentUrisAppendIdCmd = &cobra.Command{
+	Use:   "append-id",
+	Short: "AppendId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUrisServiceClient(grpcConn)
+		req := &pb.AppendIdRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.AppendId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentUrisParseIdCmd = &cobra.Command{
+	Use:   "parse-id",
+	Short: "ParseId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUrisServiceClient(grpcConn)
+		req := &pb.ParseIdRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ParseId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentUrisRemoveIdCmd = &cobra.Command{
+	Use:   "remove-id",
+	Short: "RemoveId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUrisServiceClient(grpcConn)
+		req := &pb.RemoveIdRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RemoveId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentUrisWithAppendedIdCmd = &cobra.Command{
+	Use:   "with-appended-id",
+	Short: "WithAppendedId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUrisServiceClient(grpcConn)
+		req := &pb.WithAppendedIdRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WithAppendedId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentCursorLoaderCmd = &cobra.Command{
+	Use:   "cursor-loader",
+	Short: "CursorLoaderService operations",
+}
+
+var contentCursorLoaderNewCursorLoaderCmd = &cobra.Command{
+	Use:   "new-cursor-loader",
+	Short: "NewCursorLoader RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorLoaderServiceClient(grpcConn)
+		req := &pb.NewCursorLoaderRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewCursorLoader(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentCursorLoaderCancelLoadInBackgroundCmd = &cobra.Command{
+	Use:   "cancel-load-in-background",
+	Short: "CancelLoadInBackground RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorLoaderServiceClient(grpcConn)
+		req := &pb.CursorLoaderCancelLoadInBackgroundRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.CancelLoadInBackground(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentCursorLoaderDeliverResult1Cmd = &cobra.Command{
+	Use:   "deliver-result1",
+	Short: "DeliverResult1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorLoaderServiceClient(grpcConn)
+		req := &pb.DeliverResult1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.DeliverResult1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentCursorLoaderDumpCmd = &cobra.Command{
+	Use:   "dump",
+	Short: "Dump RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorLoaderServiceClient(grpcConn)
+		req := &pb.CursorLoaderDumpRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.Dump(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentCursorLoaderGetProjectionCmd = &cobra.Command{
+	Use:   "get-projection",
+	Short: "GetProjection RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorLoaderServiceClient(grpcConn)
+		req := &pb.GetProjectionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetProjection(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentCursorLoaderGetSelectionCmd = &cobra.Command{
+	Use:   "get-selection",
+	Short: "GetSelection RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorLoaderServiceClient(grpcConn)
+		req := &pb.GetSelectionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSelection(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentCursorLoaderGetSelectionArgsCmd = &cobra.Command{
+	Use:   "get-selection-args",
+	Short: "GetSelectionArgs RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorLoaderServiceClient(grpcConn)
+		req := &pb.GetSelectionArgsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSelectionArgs(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentCursorLoaderGetSortOrderCmd = &cobra.Command{
+	Use:   "get-sort-order",
+	Short: "GetSortOrder RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorLoaderServiceClient(grpcConn)
+		req := &pb.GetSortOrderRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSortOrder(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentCursorLoaderGetUriCmd = &cobra.Command{
+	Use:   "get-uri",
+	Short: "GetUri RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorLoaderServiceClient(grpcConn)
+		req := &pb.CursorLoaderGetUriRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetUri(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentCursorLoaderLoadInBackground0Cmd = &cobra.Command{
+	Use:   "load-in-background0",
+	Short: "LoadInBackground0 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorLoaderServiceClient(grpcConn)
+		req := &pb.LoadInBackground0Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.LoadInBackground0(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentCursorLoaderOnCanceled1Cmd = &cobra.Command{
+	Use:   "on-canceled1",
+	Short: "OnCanceled1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorLoaderServiceClient(grpcConn)
+		req := &pb.OnCanceled1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnCanceled1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentCursorLoaderSetProjectionCmd = &cobra.Command{
+	Use:   "set-projection",
+	Short: "SetProjection RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorLoaderServiceClient(grpcConn)
+		req := &pb.SetProjectionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetProjection(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentCursorLoaderSetSelectionCmd = &cobra.Command{
+	Use:   "set-selection",
+	Short: "SetSelection RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorLoaderServiceClient(grpcConn)
+		req := &pb.SetSelectionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSelection(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentCursorLoaderSetSelectionArgsCmd = &cobra.Command{
+	Use:   "set-selection-args",
+	Short: "SetSelectionArgs RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorLoaderServiceClient(grpcConn)
+		req := &pb.SetSelectionArgsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSelectionArgs(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentCursorLoaderSetSortOrderCmd = &cobra.Command{
+	Use:   "set-sort-order",
+	Short: "SetSortOrder RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorLoaderServiceClient(grpcConn)
+		req := &pb.SetSortOrderRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSortOrder(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentCursorLoaderSetUriCmd = &cobra.Command{
+	Use:   "set-uri",
+	Short: "SetUri RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorLoaderServiceClient(grpcConn)
+		req := &pb.SetUriRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetUri(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentCursorLoaderOnCanceled1_1Cmd = &cobra.Command{
+	Use:   "on-canceled1_1",
+	Short: "OnCanceled1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorLoaderServiceClient(grpcConn)
+		req := &pb.OnCanceled1_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnCanceled1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentCursorLoaderLoadInBackground0_1Cmd = &cobra.Command{
+	Use:   "load-in-background0_1",
+	Short: "LoadInBackground0_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorLoaderServiceClient(grpcConn)
+		req := &pb.LoadInBackground0_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.LoadInBackground0_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentCursorLoaderDeliverResult1_1Cmd = &cobra.Command{
+	Use:   "deliver-result1_1",
+	Short: "DeliverResult1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorLoaderServiceClient(grpcConn)
+		req := &pb.DeliverResult1_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.DeliverResult1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentServiceConnectionCmd = &cobra.Command{
+	Use:   "service-connection",
+	Short: "ServiceConnectionService operations",
+}
+
+var contentServiceConnectionOnServiceConnectedCmd = &cobra.Command{
+	Use:   "on-service-connected",
+	Short: "OnServiceConnected RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceConnectionServiceClient(grpcConn)
+		req := &pb.OnServiceConnectedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnServiceConnected(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentServiceConnectionOnServiceDisconnectedCmd = &cobra.Command{
+	Use:   "on-service-disconnected",
+	Short: "OnServiceDisconnected RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceConnectionServiceClient(grpcConn)
+		req := &pb.OnServiceDisconnectedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnServiceDisconnected(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentSearchRecentSuggestionsProviderCmd = &cobra.Command{
+	Use:   "search-recent-suggestions-provider",
+	Short: "SearchRecentSuggestionsProviderService operations",
+}
+
+var contentSearchRecentSuggestionsProviderNewSearchRecentSuggestionsProviderCmd = &cobra.Command{
+	Use:   "new-search-recent-suggestions-provider",
+	Short: "NewSearchRecentSuggestionsProvider RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchRecentSuggestionsProviderServiceClient(grpcConn)
+		req := &pb.NewSearchRecentSuggestionsProviderRequest{}
+		resp, err := client.NewSearchRecentSuggestionsProvider(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentSearchRecentSuggestionsProviderDeleteCmd = &cobra.Command{
+	Use:   "delete",
+	Short: "Delete RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchRecentSuggestionsProviderServiceClient(grpcConn)
+		req := &pb.DeleteRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Delete(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentSearchRecentSuggestionsProviderGetTypeCmd = &cobra.Command{
+	Use:   "get-type",
+	Short: "GetType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchRecentSuggestionsProviderServiceClient(grpcConn)
+		req := &pb.SearchRecentSuggestionsProviderGetTypeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentSearchRecentSuggestionsProviderInsertCmd = &cobra.Command{
+	Use:   "insert",
+	Short: "Insert RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchRecentSuggestionsProviderServiceClient(grpcConn)
+		req := &pb.InsertRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Insert(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentSearchRecentSuggestionsProviderOnCreateCmd = &cobra.Command{
+	Use:   "on-create",
+	Short: "OnCreate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchRecentSuggestionsProviderServiceClient(grpcConn)
+		req := &pb.OnCreateRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.OnCreate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentSearchRecentSuggestionsProviderQueryCmd = &cobra.Command{
+	Use:   "query",
+	Short: "Query RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchRecentSuggestionsProviderServiceClient(grpcConn)
+		req := &pb.QueryRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetString("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.Query(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentSearchRecentSuggestionsProviderUpdateCmd = &cobra.Command{
+	Use:   "update",
+	Short: "Update RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchRecentSuggestionsProviderServiceClient(grpcConn)
+		req := &pb.UpdateRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.Update(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentComponentNameCmd = &cobra.Command{
+	Use:   "component-name",
+	Short: "ComponentNameService operations",
+}
+
+var contentComponentNameNewComponentNameCmd = &cobra.Command{
+	Use:   "new-component-name",
+	Short: "NewComponentName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewComponentNameServiceClient(grpcConn)
+		req := &pb.NewComponentNameRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewComponentName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentComponentNameClone0Cmd = &cobra.Command{
+	Use:   "clone0",
+	Short: "Clone0 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewComponentNameServiceClient(grpcConn)
+		req := &pb.Clone0Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Clone0(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentComponentNameCompareTo1Cmd = &cobra.Command{
+	Use:   "compare-to1",
+	Short: "CompareTo1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewComponentNameServiceClient(grpcConn)
+		req := &pb.CompareTo1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CompareTo1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentComponentNameDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewComponentNameServiceClient(grpcConn)
+		req := &pb.ComponentNameDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentComponentNameEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewComponentNameServiceClient(grpcConn)
+		req := &pb.ComponentNameEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentComponentNameFlattenToShortStringCmd = &cobra.Command{
+	Use:   "flatten-to-short-string",
+	Short: "FlattenToShortString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewComponentNameServiceClient(grpcConn)
+		req := &pb.FlattenToShortStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.FlattenToShortString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentComponentNameFlattenToStringCmd = &cobra.Command{
+	Use:   "flatten-to-string",
+	Short: "FlattenToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewComponentNameServiceClient(grpcConn)
+		req := &pb.FlattenToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.FlattenToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentComponentNameGetClassNameCmd = &cobra.Command{
+	Use:   "get-class-name",
+	Short: "GetClassName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewComponentNameServiceClient(grpcConn)
+		req := &pb.GetClassNameRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetClassName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentComponentNameGetPackageNameCmd = &cobra.Command{
+	Use:   "get-package-name",
+	Short: "GetPackageName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewComponentNameServiceClient(grpcConn)
+		req := &pb.ComponentNameGetPackageNameRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetPackageName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentComponentNameGetShortClassNameCmd = &cobra.Command{
+	Use:   "get-short-class-name",
+	Short: "GetShortClassName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewComponentNameServiceClient(grpcConn)
+		req := &pb.GetShortClassNameRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetShortClassName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentComponentNameHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewComponentNameServiceClient(grpcConn)
+		req := &pb.ComponentNameHashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentComponentNameToShortStringCmd = &cobra.Command{
+	Use:   "to-short-string",
+	Short: "ToShortString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewComponentNameServiceClient(grpcConn)
+		req := &pb.ToShortStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToShortString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentComponentNameToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewComponentNameServiceClient(grpcConn)
+		req := &pb.ComponentNameToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentComponentNameWriteToParcel2_1Cmd = &cobra.Command{
+	Use:   "write-to-parcel2_1",
+	Short: "WriteToParcel2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewComponentNameServiceClient(grpcConn)
+		req := &pb.WriteToParcel2_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentComponentNameClone0_1Cmd = &cobra.Command{
+	Use:   "clone0_1",
+	Short: "Clone0_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewComponentNameServiceClient(grpcConn)
+		req := &pb.Clone0_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Clone0_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentComponentNameCompareTo1_1Cmd = &cobra.Command{
+	Use:   "compare-to1_1",
+	Short: "CompareTo1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewComponentNameServiceClient(grpcConn)
+		req := &pb.CompareTo1_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CompareTo1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentComponentNameCreateRelative2Cmd = &cobra.Command{
+	Use:   "create-relative2",
+	Short: "CreateRelative2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewComponentNameServiceClient(grpcConn)
+		req := &pb.CreateRelative2Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.CreateRelative2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentComponentNameCreateRelative2_1Cmd = &cobra.Command{
+	Use:   "create-relative2_1",
+	Short: "CreateRelative2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewComponentNameServiceClient(grpcConn)
+		req := &pb.CreateRelative2_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.CreateRelative2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentComponentNameReadFromParcelCmd = &cobra.Command{
+	Use:   "read-from-parcel",
+	Short: "ReadFromParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewComponentNameServiceClient(grpcConn)
+		req := &pb.ReadFromParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ReadFromParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentComponentNameUnflattenFromStringCmd = &cobra.Command{
+	Use:   "unflatten-from-string",
+	Short: "UnflattenFromString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewComponentNameServiceClient(grpcConn)
+		req := &pb.UnflattenFromStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.UnflattenFromString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentComponentNameWriteToParcel2Cmd = &cobra.Command{
+	Use:   "write-to-parcel2",
+	Short: "WriteToParcel2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewComponentNameServiceClient(grpcConn)
+		req := &pb.WriteToParcel2Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderResultCmd = &cobra.Command{
+	Use:   "provider-result",
+	Short: "ProviderResultService operations",
+}
+
+var contentProviderResultNewProviderResultCmd = &cobra.Command{
+	Use:   "new-provider-result",
+	Short: "NewProviderResult RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderResultServiceClient(grpcConn)
+		req := &pb.NewProviderResultRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewProviderResult(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderResultDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderResultServiceClient(grpcConn)
+		req := &pb.ProviderResultDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderResultToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderResultServiceClient(grpcConn)
+		req := &pb.ProviderResultToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderResultWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderResultServiceClient(grpcConn)
+		req := &pb.ProviderResultWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderCmd = &cobra.Command{
+	Use:   "provider",
+	Short: "ProviderService operations",
+}
+
+var contentProviderAttachInfoCmd = &cobra.Command{
+	Use:   "attach-info",
+	Short: "AttachInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderServiceClient(grpcConn)
+		req := &pb.AttachInfoRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.AttachInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderBulkInsertCmd = &cobra.Command{
+	Use:   "bulk-insert",
+	Short: "BulkInsert RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderServiceClient(grpcConn)
+		req := &pb.BulkInsertRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.BulkInsert(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderCall3Cmd = &cobra.Command{
+	Use:   "call3",
+	Short: "Call3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderServiceClient(grpcConn)
+		req := &pb.Call3Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Call3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderCall4_1Cmd = &cobra.Command{
+	Use:   "call4_1",
+	Short: "Call4_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderServiceClient(grpcConn)
+		req := &pb.Call4_1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.Call4_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderCanonicalizeCmd = &cobra.Command{
+	Use:   "canonicalize",
+	Short: "Canonicalize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderServiceClient(grpcConn)
+		req := &pb.CanonicalizeRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Canonicalize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderClearCallingIdentityCmd = &cobra.Command{
+	Use:   "clear-calling-identity",
+	Short: "ClearCallingIdentity RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderServiceClient(grpcConn)
+		req := &pb.ClearCallingIdentityRequest{}
+		resp, err := client.ClearCallingIdentity(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderDelete2Cmd = &cobra.Command{
+	Use:   "delete2",
+	Short: "Delete2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderServiceClient(grpcConn)
+		req := &pb.Delete2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Delete2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderDelete3_1Cmd = &cobra.Command{
+	Use:   "delete3_1",
+	Short: "Delete3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderServiceClient(grpcConn)
+		req := &pb.Delete3_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Delete3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderDumpCmd = &cobra.Command{
+	Use:   "dump",
+	Short: "Dump RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderServiceClient(grpcConn)
+		req := &pb.ProviderDumpRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Dump(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderGetCallingAttributionSourceCmd = &cobra.Command{
+	Use:   "get-calling-attribution-source",
+	Short: "GetCallingAttributionSource RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderServiceClient(grpcConn)
+		req := &pb.GetCallingAttributionSourceRequest{}
+		resp, err := client.GetCallingAttributionSource(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderGetCallingAttributionTagCmd = &cobra.Command{
+	Use:   "get-calling-attribution-tag",
+	Short: "GetCallingAttributionTag RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderServiceClient(grpcConn)
+		req := &pb.GetCallingAttributionTagRequest{}
+		resp, err := client.GetCallingAttributionTag(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderGetCallingPackageCmd = &cobra.Command{
+	Use:   "get-calling-package",
+	Short: "GetCallingPackage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderServiceClient(grpcConn)
+		req := &pb.GetCallingPackageRequest{}
+		resp, err := client.GetCallingPackage(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderGetCallingPackageUncheckedCmd = &cobra.Command{
+	Use:   "get-calling-package-unchecked",
+	Short: "GetCallingPackageUnchecked RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderServiceClient(grpcConn)
+		req := &pb.GetCallingPackageUncheckedRequest{}
+		resp, err := client.GetCallingPackageUnchecked(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderGetContextCmd = &cobra.Command{
+	Use:   "get-context",
+	Short: "GetContext RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderServiceClient(grpcConn)
+		req := &pb.GetContextRequest{}
+		resp, err := client.GetContext(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderGetPathPermissionsCmd = &cobra.Command{
+	Use:   "get-path-permissions",
+	Short: "GetPathPermissions RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderServiceClient(grpcConn)
+		req := &pb.GetPathPermissionsRequest{}
+		resp, err := client.GetPathPermissions(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderGetReadPermissionCmd = &cobra.Command{
+	Use:   "get-read-permission",
+	Short: "GetReadPermission RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderServiceClient(grpcConn)
+		req := &pb.GetReadPermissionRequest{}
+		resp, err := client.GetReadPermission(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderGetStreamTypesCmd = &cobra.Command{
+	Use:   "get-stream-types",
+	Short: "GetStreamTypes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderServiceClient(grpcConn)
+		req := &pb.GetStreamTypesRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetStreamTypes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderGetTypeCmd = &cobra.Command{
+	Use:   "get-type",
+	Short: "GetType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderServiceClient(grpcConn)
+		req := &pb.GetTypeRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderGetTypeAnonymousCmd = &cobra.Command{
+	Use:   "get-type-anonymous",
+	Short: "GetTypeAnonymous RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderServiceClient(grpcConn)
+		req := &pb.GetTypeAnonymousRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetTypeAnonymous(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderGetWritePermissionCmd = &cobra.Command{
+	Use:   "get-write-permission",
+	Short: "GetWritePermission RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderServiceClient(grpcConn)
+		req := &pb.GetWritePermissionRequest{}
+		resp, err := client.GetWritePermission(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderInsert2Cmd = &cobra.Command{
+	Use:   "insert2",
+	Short: "Insert2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderServiceClient(grpcConn)
+		req := &pb.Insert2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Insert2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderInsert3_1Cmd = &cobra.Command{
+	Use:   "insert3_1",
+	Short: "Insert3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderServiceClient(grpcConn)
+		req := &pb.Insert3_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Insert3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderOnCallingPackageChangedCmd = &cobra.Command{
+	Use:   "on-calling-package-changed",
+	Short: "OnCallingPackageChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderServiceClient(grpcConn)
+		req := &pb.OnCallingPackageChangedRequest{}
+		resp, err := client.OnCallingPackageChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderOnConfigurationChangedCmd = &cobra.Command{
+	Use:   "on-configuration-changed",
+	Short: "OnConfigurationChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderServiceClient(grpcConn)
+		req := &pb.OnConfigurationChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnConfigurationChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderOnCreateCmd = &cobra.Command{
+	Use:   "on-create",
+	Short: "OnCreate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderServiceClient(grpcConn)
+		req := &pb.ProviderOnCreateRequest{}
+		resp, err := client.OnCreate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderOnLowMemoryCmd = &cobra.Command{
+	Use:   "on-low-memory",
+	Short: "OnLowMemory RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderServiceClient(grpcConn)
+		req := &pb.OnLowMemoryRequest{}
+		resp, err := client.OnLowMemory(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderOnTrimMemoryCmd = &cobra.Command{
+	Use:   "on-trim-memory",
+	Short: "OnTrimMemory RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderServiceClient(grpcConn)
+		req := &pb.OnTrimMemoryRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnTrimMemory(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderOpenAssetFile2Cmd = &cobra.Command{
+	Use:   "open-asset-file2",
+	Short: "OpenAssetFile2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderServiceClient(grpcConn)
+		req := &pb.OpenAssetFile2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OpenAssetFile2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderOpenAssetFile3_1Cmd = &cobra.Command{
+	Use:   "open-asset-file3_1",
+	Short: "OpenAssetFile3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderServiceClient(grpcConn)
+		req := &pb.OpenAssetFile3_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OpenAssetFile3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderOpenFile2Cmd = &cobra.Command{
+	Use:   "open-file2",
+	Short: "OpenFile2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderServiceClient(grpcConn)
+		req := &pb.OpenFile2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OpenFile2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderOpenFile3_1Cmd = &cobra.Command{
+	Use:   "open-file3_1",
+	Short: "OpenFile3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderServiceClient(grpcConn)
+		req := &pb.OpenFile3_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OpenFile3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderOpenTypedAssetFile3Cmd = &cobra.Command{
+	Use:   "open-typed-asset-file3",
+	Short: "OpenTypedAssetFile3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderServiceClient(grpcConn)
+		req := &pb.OpenTypedAssetFile3Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OpenTypedAssetFile3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderOpenTypedAssetFile4_1Cmd = &cobra.Command{
+	Use:   "open-typed-asset-file4_1",
+	Short: "OpenTypedAssetFile4_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderServiceClient(grpcConn)
+		req := &pb.OpenTypedAssetFile4_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.OpenTypedAssetFile4_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderQuery4Cmd = &cobra.Command{
+	Use:   "query4",
+	Short: "Query4 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderServiceClient(grpcConn)
+		req := &pb.Query4Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.Query4(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderQuery5_1Cmd = &cobra.Command{
+	Use:   "query5_1",
+	Short: "Query5_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderServiceClient(grpcConn)
+		req := &pb.Query5_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetString("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.Query5_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderQuery6_2Cmd = &cobra.Command{
+	Use:   "query6_2",
+	Short: "Query6_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderServiceClient(grpcConn)
+		req := &pb.Query6_2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetString("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		resp, err := client.Query6_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderRefreshCmd = &cobra.Command{
+	Use:   "refresh",
+	Short: "Refresh RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderServiceClient(grpcConn)
+		req := &pb.RefreshRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Refresh(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderRequireContextCmd = &cobra.Command{
+	Use:   "require-context",
+	Short: "RequireContext RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderServiceClient(grpcConn)
+		req := &pb.RequireContextRequest{}
+		resp, err := client.RequireContext(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderRestoreCallingIdentityCmd = &cobra.Command{
+	Use:   "restore-calling-identity",
+	Short: "RestoreCallingIdentity RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderServiceClient(grpcConn)
+		req := &pb.RestoreCallingIdentityRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RestoreCallingIdentity(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderShutdownCmd = &cobra.Command{
+	Use:   "shutdown",
+	Short: "Shutdown RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderServiceClient(grpcConn)
+		req := &pb.ShutdownRequest{}
+		resp, err := client.Shutdown(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderUncanonicalizeCmd = &cobra.Command{
+	Use:   "uncanonicalize",
+	Short: "Uncanonicalize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderServiceClient(grpcConn)
+		req := &pb.UncanonicalizeRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Uncanonicalize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderUpdate3Cmd = &cobra.Command{
+	Use:   "update3",
+	Short: "Update3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderServiceClient(grpcConn)
+		req := &pb.Update3Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Update3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentProviderUpdate4_1Cmd = &cobra.Command{
+	Use:   "update4_1",
+	Short: "Update4_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderServiceClient(grpcConn)
+		req := &pb.Update4_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.Update4_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentPdfPageImageContentCmd = &cobra.Command{
+	Use:   "pdf-page-image-content",
+	Short: "PdfPageImageContentService operations",
+}
+
+var contentPdfPageImageContentNewPdfPageImageContentCmd = &cobra.Command{
+	Use:   "new-pdf-page-image-content",
+	Short: "NewPdfPageImageContent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPdfPageImageContentServiceClient(grpcConn)
+		req := &pb.NewPdfPageImageContentRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewPdfPageImageContent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentPdfPageImageContentDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPdfPageImageContentServiceClient(grpcConn)
+		req := &pb.PdfPageImageContentDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentPdfPageImageContentGetAltTextCmd = &cobra.Command{
+	Use:   "get-alt-text",
+	Short: "GetAltText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPdfPageImageContentServiceClient(grpcConn)
+		req := &pb.GetAltTextRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetAltText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentPdfPageImageContentWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPdfPageImageContentServiceClient(grpcConn)
+		req := &pb.PdfPageImageContentWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentPdfPageLinkContentCmd = &cobra.Command{
+	Use:   "pdf-page-link-content",
+	Short: "PdfPageLinkContentService operations",
+}
+
+var contentPdfPageLinkContentNewPdfPageLinkContentCmd = &cobra.Command{
+	Use:   "new-pdf-page-link-content",
+	Short: "NewPdfPageLinkContent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPdfPageLinkContentServiceClient(grpcConn)
+		req := &pb.NewPdfPageLinkContentRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewPdfPageLinkContent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentPdfPageLinkContentDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPdfPageLinkContentServiceClient(grpcConn)
+		req := &pb.PdfPageImageContentDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentPdfPageLinkContentGetUriCmd = &cobra.Command{
+	Use:   "get-uri",
+	Short: "GetUri RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPdfPageLinkContentServiceClient(grpcConn)
+		req := &pb.PdfPageLinkContentGetUriRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetUri(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentPdfPageLinkContentWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPdfPageLinkContentServiceClient(grpcConn)
+		req := &pb.PdfPageImageContentWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentPdfPageGotoLinkContentCmd = &cobra.Command{
+	Use:   "pdf-page-goto-link-content",
+	Short: "PdfPageGotoLinkContentService operations",
+}
+
+var contentPdfPageGotoLinkContentNewPdfPageGotoLinkContentCmd = &cobra.Command{
+	Use:   "new-pdf-page-goto-link-content",
+	Short: "NewPdfPageGotoLinkContent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPdfPageGotoLinkContentServiceClient(grpcConn)
+		req := &pb.NewPdfPageGotoLinkContentRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewPdfPageGotoLinkContent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentPdfPageGotoLinkContentDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPdfPageGotoLinkContentServiceClient(grpcConn)
+		req := &pb.PdfPageImageContentDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentPdfPageGotoLinkContentGetDestinationCmd = &cobra.Command{
+	Use:   "get-destination",
+	Short: "GetDestination RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPdfPageGotoLinkContentServiceClient(grpcConn)
+		req := &pb.GetDestinationRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetDestination(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentPdfPageGotoLinkContentWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPdfPageGotoLinkContentServiceClient(grpcConn)
+		req := &pb.PdfPageImageContentWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentPdfPageGotoLinkContentDestinationCmd = &cobra.Command{
+	Use:   "pdf-page-goto-link-content-destination",
+	Short: "PdfPageGotoLinkContentDestinationService operations",
+}
+
+var contentPdfPageGotoLinkContentDestinationDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPdfPageGotoLinkContentDestinationServiceClient(grpcConn)
+		req := &pb.PdfPageGotoLinkContentDestinationDescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentPdfPageGotoLinkContentDestinationGetPageNumberCmd = &cobra.Command{
+	Use:   "get-page-number",
+	Short: "GetPageNumber RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPdfPageGotoLinkContentDestinationServiceClient(grpcConn)
+		req := &pb.GetPageNumberRequest{}
+		resp, err := client.GetPageNumber(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentPdfPageGotoLinkContentDestinationGetXCoordinateCmd = &cobra.Command{
+	Use:   "get-x-coordinate",
+	Short: "GetXCoordinate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPdfPageGotoLinkContentDestinationServiceClient(grpcConn)
+		req := &pb.GetXCoordinateRequest{}
+		resp, err := client.GetXCoordinate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentPdfPageGotoLinkContentDestinationGetYCoordinateCmd = &cobra.Command{
+	Use:   "get-y-coordinate",
+	Short: "GetYCoordinate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPdfPageGotoLinkContentDestinationServiceClient(grpcConn)
+		req := &pb.GetYCoordinateRequest{}
+		resp, err := client.GetYCoordinate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentPdfPageGotoLinkContentDestinationGetZoomCmd = &cobra.Command{
+	Use:   "get-zoom",
+	Short: "GetZoom RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPdfPageGotoLinkContentDestinationServiceClient(grpcConn)
+		req := &pb.GetZoomRequest{}
+		resp, err := client.GetZoom(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentPdfPageGotoLinkContentDestinationWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPdfPageGotoLinkContentDestinationServiceClient(grpcConn)
+		req := &pb.PdfPageGotoLinkContentDestinationWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentPdfPageTextContentCmd = &cobra.Command{
+	Use:   "pdf-page-text-content",
+	Short: "PdfPageTextContentService operations",
+}
+
+var contentPdfPageTextContentNewPdfPageTextContentCmd = &cobra.Command{
+	Use:   "new-pdf-page-text-content",
+	Short: "NewPdfPageTextContent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPdfPageTextContentServiceClient(grpcConn)
+		req := &pb.NewPdfPageTextContentRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewPdfPageTextContent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentPdfPageTextContentDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPdfPageTextContentServiceClient(grpcConn)
+		req := &pb.PdfPageImageContentDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentPdfPageTextContentGetTextCmd = &cobra.Command{
+	Use:   "get-text",
+	Short: "GetText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPdfPageTextContentServiceClient(grpcConn)
+		req := &pb.GetTextRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentPdfPageTextContentWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPdfPageTextContentServiceClient(grpcConn)
+		req := &pb.PdfPageImageContentWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 func init() {
+	contentQueryMapNewQueryMapCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentQueryMapNewQueryMapCmd.Flags().String("arg1", "", "arg1 (string)")
+	contentQueryMapNewQueryMapCmd.Flags().Bool("arg2", false, "arg2 (bool)")
+	contentQueryMapNewQueryMapCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	contentQueryMapCmd.AddCommand(contentQueryMapNewQueryMapCmd)
+	contentQueryMapRequeryCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentQueryMapCmd.AddCommand(contentQueryMapRequeryCmd)
+	contentQueryMapSetKeepUpdatedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentQueryMapSetKeepUpdatedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	contentQueryMapCmd.AddCommand(contentQueryMapSetKeepUpdatedCmd)
+	contentCmd.AddCommand(contentQueryMapCmd)
+	contentSyncStatusObserverOnStatusChangedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentSyncStatusObserverCmd.AddCommand(contentSyncStatusObserverOnStatusChangedCmd)
+	contentCmd.AddCommand(contentSyncStatusObserverCmd)
+	contentAsyncTaskLoaderCmd.AddCommand(contentAsyncTaskLoaderCancelLoadInBackgroundCmd)
+	contentAsyncTaskLoaderDumpCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentAsyncTaskLoaderDumpCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentAsyncTaskLoaderDumpCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	contentAsyncTaskLoaderDumpCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	contentAsyncTaskLoaderCmd.AddCommand(contentAsyncTaskLoaderDumpCmd)
+	contentAsyncTaskLoaderCmd.AddCommand(contentAsyncTaskLoaderIsLoadInBackgroundCanceledCmd)
+	contentAsyncTaskLoaderSetUpdateThrottleCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentAsyncTaskLoaderCmd.AddCommand(contentAsyncTaskLoaderSetUpdateThrottleCmd)
+	contentCmd.AddCommand(contentAsyncTaskLoaderCmd)
+	contentIntentSenderCmd.AddCommand(contentIntentSenderDescribeContentsCmd)
+	contentIntentSenderEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentIntentSenderCmd.AddCommand(contentIntentSenderEqualsCmd)
+	contentIntentSenderCmd.AddCommand(contentIntentSenderGetCreatorPackageCmd)
+	contentIntentSenderCmd.AddCommand(contentIntentSenderGetCreatorUidCmd)
+	contentIntentSenderCmd.AddCommand(contentIntentSenderGetCreatorUserHandleCmd)
+	contentIntentSenderCmd.AddCommand(contentIntentSenderGetTargetPackageCmd)
+	contentIntentSenderCmd.AddCommand(contentIntentSenderHashCodeCmd)
+	contentIntentSenderSendIntentCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentIntentSenderSendIntentCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentIntentSenderSendIntentCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	contentIntentSenderSendIntentCmd.Flags().String("arg3", "", "arg3 (string)")
+	contentIntentSenderSendIntentCmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	contentIntentSenderSendIntentCmd.Flags().Int64("arg5", 0, "arg5 (int64)")
+	contentIntentSenderSendIntentCmd.Flags().Int64("arg6", 0, "arg6 (int64)")
+	contentIntentSenderCmd.AddCommand(contentIntentSenderSendIntentCmd)
+	contentIntentSenderCmd.AddCommand(contentIntentSenderToStringCmd)
+	contentIntentSenderWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentIntentSenderWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentIntentSenderCmd.AddCommand(contentIntentSenderWriteToParcelCmd)
+	contentIntentSenderReadIntentSenderOrNullFromParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentIntentSenderCmd.AddCommand(contentIntentSenderReadIntentSenderOrNullFromParcelCmd)
+	contentIntentSenderWriteIntentSenderOrNullToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentIntentSenderWriteIntentSenderOrNullToParcelCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentIntentSenderCmd.AddCommand(contentIntentSenderWriteIntentSenderOrNullToParcelCmd)
+	contentCmd.AddCommand(contentIntentSenderCmd)
+	contentIntentSenderOnFinishedOnSendFinishedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentIntentSenderOnFinishedOnSendFinishedCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentIntentSenderOnFinishedOnSendFinishedCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	contentIntentSenderOnFinishedOnSendFinishedCmd.Flags().String("arg3", "", "arg3 (string)")
+	contentIntentSenderOnFinishedOnSendFinishedCmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	contentIntentSenderOnFinishedCmd.AddCommand(contentIntentSenderOnFinishedOnSendFinishedCmd)
+	contentCmd.AddCommand(contentIntentSenderOnFinishedCmd)
+	contentSyncStatsCmd.AddCommand(contentSyncStatsNewSyncStatsCmd)
+	contentSyncStatsClearCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentSyncStatsCmd.AddCommand(contentSyncStatsClearCmd)
+	contentSyncStatsDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentSyncStatsCmd.AddCommand(contentSyncStatsDescribeContentsCmd)
+	contentSyncStatsToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentSyncStatsCmd.AddCommand(contentSyncStatsToStringCmd)
+	contentSyncStatsWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentSyncStatsWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentSyncStatsWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentSyncStatsCmd.AddCommand(contentSyncStatsWriteToParcelCmd)
+	contentCmd.AddCommand(contentSyncStatsCmd)
+	contentBroadcastReceiverCmd.AddCommand(contentBroadcastReceiverAbortBroadcastCmd)
+	contentBroadcastReceiverCmd.AddCommand(contentBroadcastReceiverClearAbortBroadcastCmd)
+	contentBroadcastReceiverCmd.AddCommand(contentBroadcastReceiverGetAbortBroadcastCmd)
+	contentBroadcastReceiverCmd.AddCommand(contentBroadcastReceiverGetDebugUnregisterCmd)
+	contentBroadcastReceiverCmd.AddCommand(contentBroadcastReceiverGetResultCodeCmd)
+	contentBroadcastReceiverCmd.AddCommand(contentBroadcastReceiverGetResultDataCmd)
+	contentBroadcastReceiverGetResultExtrasCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	contentBroadcastReceiverCmd.AddCommand(contentBroadcastReceiverGetResultExtrasCmd)
+	contentBroadcastReceiverCmd.AddCommand(contentBroadcastReceiverGetSentFromPackageCmd)
+	contentBroadcastReceiverCmd.AddCommand(contentBroadcastReceiverGetSentFromUidCmd)
+	contentBroadcastReceiverCmd.AddCommand(contentBroadcastReceiverGoAsyncCmd)
+	contentBroadcastReceiverCmd.AddCommand(contentBroadcastReceiverIsInitialStickyBroadcastCmd)
+	contentBroadcastReceiverCmd.AddCommand(contentBroadcastReceiverIsOrderedBroadcastCmd)
+	contentBroadcastReceiverOnReceiveCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentBroadcastReceiverOnReceiveCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentBroadcastReceiverCmd.AddCommand(contentBroadcastReceiverOnReceiveCmd)
+	contentBroadcastReceiverPeekServiceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentBroadcastReceiverPeekServiceCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentBroadcastReceiverCmd.AddCommand(contentBroadcastReceiverPeekServiceCmd)
+	contentBroadcastReceiverSetDebugUnregisterCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	contentBroadcastReceiverCmd.AddCommand(contentBroadcastReceiverSetDebugUnregisterCmd)
+	contentBroadcastReceiverSetOrderedHintCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	contentBroadcastReceiverCmd.AddCommand(contentBroadcastReceiverSetOrderedHintCmd)
+	contentBroadcastReceiverSetResultCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentBroadcastReceiverSetResultCmd.Flags().String("arg1", "", "arg1 (string)")
+	contentBroadcastReceiverSetResultCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	contentBroadcastReceiverCmd.AddCommand(contentBroadcastReceiverSetResultCmd)
+	contentBroadcastReceiverSetResultCodeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentBroadcastReceiverCmd.AddCommand(contentBroadcastReceiverSetResultCodeCmd)
+	contentBroadcastReceiverSetResultDataCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentBroadcastReceiverCmd.AddCommand(contentBroadcastReceiverSetResultDataCmd)
+	contentBroadcastReceiverSetResultExtrasCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentBroadcastReceiverCmd.AddCommand(contentBroadcastReceiverSetResultExtrasCmd)
+	contentCmd.AddCommand(contentBroadcastReceiverCmd)
+	contentBroadcastReceiverPendingResultCmd.AddCommand(contentBroadcastReceiverPendingResultAbortBroadcastCmd)
+	contentBroadcastReceiverPendingResultCmd.AddCommand(contentBroadcastReceiverPendingResultClearAbortBroadcastCmd)
+	contentBroadcastReceiverPendingResultCmd.AddCommand(contentBroadcastReceiverPendingResultFinishCmd)
+	contentBroadcastReceiverPendingResultCmd.AddCommand(contentBroadcastReceiverPendingResultGetAbortBroadcastCmd)
+	contentBroadcastReceiverPendingResultCmd.AddCommand(contentBroadcastReceiverPendingResultGetResultCodeCmd)
+	contentBroadcastReceiverPendingResultCmd.AddCommand(contentBroadcastReceiverPendingResultGetResultDataCmd)
+	contentBroadcastReceiverPendingResultGetResultExtrasCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	contentBroadcastReceiverPendingResultCmd.AddCommand(contentBroadcastReceiverPendingResultGetResultExtrasCmd)
+	contentBroadcastReceiverPendingResultSetResultCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentBroadcastReceiverPendingResultSetResultCmd.Flags().String("arg1", "", "arg1 (string)")
+	contentBroadcastReceiverPendingResultSetResultCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	contentBroadcastReceiverPendingResultCmd.AddCommand(contentBroadcastReceiverPendingResultSetResultCmd)
+	contentBroadcastReceiverPendingResultSetResultCodeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentBroadcastReceiverPendingResultCmd.AddCommand(contentBroadcastReceiverPendingResultSetResultCodeCmd)
+	contentBroadcastReceiverPendingResultSetResultDataCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentBroadcastReceiverPendingResultCmd.AddCommand(contentBroadcastReceiverPendingResultSetResultDataCmd)
+	contentBroadcastReceiverPendingResultSetResultExtrasCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentBroadcastReceiverPendingResultCmd.AddCommand(contentBroadcastReceiverPendingResultSetResultExtrasCmd)
+	contentCmd.AddCommand(contentBroadcastReceiverPendingResultCmd)
+	contentUriPermissionCmd.AddCommand(contentUriPermissionDescribeContentsCmd)
+	contentUriPermissionCmd.AddCommand(contentUriPermissionGetPersistedTimeCmd)
+	contentUriPermissionCmd.AddCommand(contentUriPermissionGetUriCmd)
+	contentUriPermissionCmd.AddCommand(contentUriPermissionIsReadPermissionCmd)
+	contentUriPermissionCmd.AddCommand(contentUriPermissionIsWritePermissionCmd)
+	contentUriPermissionCmd.AddCommand(contentUriPermissionToStringCmd)
+	contentUriPermissionWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentUriPermissionWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentUriPermissionCmd.AddCommand(contentUriPermissionWriteToParcelCmd)
+	contentCmd.AddCommand(contentUriPermissionCmd)
+	contentAsyncQueryHandlerCancelOperationCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentAsyncQueryHandlerCmd.AddCommand(contentAsyncQueryHandlerCancelOperationCmd)
+	contentAsyncQueryHandlerHandleMessageCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentAsyncQueryHandlerCmd.AddCommand(contentAsyncQueryHandlerHandleMessageCmd)
+	contentAsyncQueryHandlerStartDeleteCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentAsyncQueryHandlerStartDeleteCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentAsyncQueryHandlerStartDeleteCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	contentAsyncQueryHandlerStartDeleteCmd.Flags().String("arg3", "", "arg3 (string)")
+	contentAsyncQueryHandlerStartDeleteCmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	contentAsyncQueryHandlerCmd.AddCommand(contentAsyncQueryHandlerStartDeleteCmd)
+	contentAsyncQueryHandlerStartInsertCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentAsyncQueryHandlerStartInsertCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentAsyncQueryHandlerStartInsertCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	contentAsyncQueryHandlerStartInsertCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	contentAsyncQueryHandlerCmd.AddCommand(contentAsyncQueryHandlerStartInsertCmd)
+	contentAsyncQueryHandlerStartQueryCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentAsyncQueryHandlerStartQueryCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentAsyncQueryHandlerStartQueryCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	contentAsyncQueryHandlerStartQueryCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	contentAsyncQueryHandlerStartQueryCmd.Flags().String("arg4", "", "arg4 (string)")
+	contentAsyncQueryHandlerStartQueryCmd.Flags().Int64("arg5", 0, "arg5 (int64)")
+	contentAsyncQueryHandlerStartQueryCmd.Flags().String("arg6", "", "arg6 (string)")
+	contentAsyncQueryHandlerCmd.AddCommand(contentAsyncQueryHandlerStartQueryCmd)
+	contentAsyncQueryHandlerStartUpdateCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentAsyncQueryHandlerStartUpdateCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentAsyncQueryHandlerStartUpdateCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	contentAsyncQueryHandlerStartUpdateCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	contentAsyncQueryHandlerStartUpdateCmd.Flags().String("arg4", "", "arg4 (string)")
+	contentAsyncQueryHandlerStartUpdateCmd.Flags().Int64("arg5", 0, "arg5 (int64)")
+	contentAsyncQueryHandlerCmd.AddCommand(contentAsyncQueryHandlerStartUpdateCmd)
+	contentCmd.AddCommand(contentAsyncQueryHandlerCmd)
+	contentAsyncQueryHandlerWorkerHandlerHandleMessageCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentAsyncQueryHandlerWorkerHandlerCmd.AddCommand(contentAsyncQueryHandlerWorkerHandlerHandleMessageCmd)
+	contentCmd.AddCommand(contentAsyncQueryHandlerWorkerHandlerCmd)
+	contentMutableContextWrapperNewMutableContextWrapperCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentMutableContextWrapperCmd.AddCommand(contentMutableContextWrapperNewMutableContextWrapperCmd)
+	contentMutableContextWrapperSetBaseContextCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentMutableContextWrapperSetBaseContextCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentMutableContextWrapperCmd.AddCommand(contentMutableContextWrapperSetBaseContextCmd)
+	contentCmd.AddCommand(contentMutableContextWrapperCmd)
+	contentAttributionSourceCmd.AddCommand(contentAttributionSourceCheckCallingUidCmd)
+	contentAttributionSourceCmd.AddCommand(contentAttributionSourceDescribeContentsCmd)
+	contentAttributionSourceCmd.AddCommand(contentAttributionSourceEnforceCallingUidCmd)
+	contentAttributionSourceEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentAttributionSourceCmd.AddCommand(contentAttributionSourceEqualsCmd)
+	contentAttributionSourceCmd.AddCommand(contentAttributionSourceGetAttributionTagCmd)
+	contentAttributionSourceCmd.AddCommand(contentAttributionSourceGetDeviceIdCmd)
+	contentAttributionSourceCmd.AddCommand(contentAttributionSourceGetNextCmd)
+	contentAttributionSourceCmd.AddCommand(contentAttributionSourceGetPackageNameCmd)
+	contentAttributionSourceCmd.AddCommand(contentAttributionSourceGetPidCmd)
+	contentAttributionSourceCmd.AddCommand(contentAttributionSourceGetUidCmd)
+	contentAttributionSourceCmd.AddCommand(contentAttributionSourceHashCodeCmd)
+	contentAttributionSourceIsTrustedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentAttributionSourceCmd.AddCommand(contentAttributionSourceIsTrustedCmd)
+	contentAttributionSourceCmd.AddCommand(contentAttributionSourceToStringCmd)
+	contentAttributionSourceWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentAttributionSourceWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentAttributionSourceCmd.AddCommand(contentAttributionSourceWriteToParcelCmd)
+	contentAttributionSourceCmd.AddCommand(contentAttributionSourceMyAttributionSourceCmd)
+	contentCmd.AddCommand(contentAttributionSourceCmd)
+	contentAttributionSourceBuilderCmd.AddCommand(contentAttributionSourceBuilderBuildCmd)
+	contentAttributionSourceBuilderSetAttributionTagCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentAttributionSourceBuilderCmd.AddCommand(contentAttributionSourceBuilderSetAttributionTagCmd)
+	contentAttributionSourceBuilderSetDeviceIdCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentAttributionSourceBuilderCmd.AddCommand(contentAttributionSourceBuilderSetDeviceIdCmd)
+	contentAttributionSourceBuilderSetNextCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentAttributionSourceBuilderCmd.AddCommand(contentAttributionSourceBuilderSetNextCmd)
+	contentAttributionSourceBuilderSetPackageNameCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentAttributionSourceBuilderCmd.AddCommand(contentAttributionSourceBuilderSetPackageNameCmd)
+	contentAttributionSourceBuilderSetPidCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentAttributionSourceBuilderCmd.AddCommand(contentAttributionSourceBuilderSetPidCmd)
+	contentCmd.AddCommand(contentAttributionSourceBuilderCmd)
 	contentRestrictionsManagerCmd.AddCommand(contentRestrictionsManagerCreateLocalApprovalIntentCmd)
 	contentRestrictionsManagerCmd.AddCommand(contentRestrictionsManagerGetApplicationRestrictionsCmd)
 	contentRestrictionsManagerCmd.AddCommand(contentRestrictionsManagerHasRestrictionsProviderCmd)
@@ -124,5 +16253,1881 @@ func init() {
 	contentRestrictionsManagerRequestPermissionCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
 	contentRestrictionsManagerCmd.AddCommand(contentRestrictionsManagerRequestPermissionCmd)
 	contentCmd.AddCommand(contentRestrictionsManagerCmd)
+	contentAbstractThreadedSyncAdapterCmd.AddCommand(contentAbstractThreadedSyncAdapterGetContextCmd)
+	contentAbstractThreadedSyncAdapterCmd.AddCommand(contentAbstractThreadedSyncAdapterGetSyncAdapterBinderCmd)
+	contentAbstractThreadedSyncAdapterOnPerformSyncCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentAbstractThreadedSyncAdapterOnPerformSyncCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentAbstractThreadedSyncAdapterOnPerformSyncCmd.Flags().String("arg2", "", "arg2 (string)")
+	contentAbstractThreadedSyncAdapterOnPerformSyncCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	contentAbstractThreadedSyncAdapterOnPerformSyncCmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	contentAbstractThreadedSyncAdapterCmd.AddCommand(contentAbstractThreadedSyncAdapterOnPerformSyncCmd)
+	contentAbstractThreadedSyncAdapterOnSecurityExceptionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentAbstractThreadedSyncAdapterOnSecurityExceptionCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentAbstractThreadedSyncAdapterOnSecurityExceptionCmd.Flags().String("arg2", "", "arg2 (string)")
+	contentAbstractThreadedSyncAdapterOnSecurityExceptionCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	contentAbstractThreadedSyncAdapterCmd.AddCommand(contentAbstractThreadedSyncAdapterOnSecurityExceptionCmd)
+	contentAbstractThreadedSyncAdapterCmd.AddCommand(contentAbstractThreadedSyncAdapterOnSyncCanceled0Cmd)
+	contentAbstractThreadedSyncAdapterOnSyncCanceled1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentAbstractThreadedSyncAdapterCmd.AddCommand(contentAbstractThreadedSyncAdapterOnSyncCanceled1_1Cmd)
+	contentAbstractThreadedSyncAdapterCmd.AddCommand(contentAbstractThreadedSyncAdapterOnUnsyncableAccountCmd)
+	contentCmd.AddCommand(contentAbstractThreadedSyncAdapterCmd)
+	contentSyncResultCmd.AddCommand(contentSyncResultNewSyncResultCmd)
+	contentSyncResultClearCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentSyncResultCmd.AddCommand(contentSyncResultClearCmd)
+	contentSyncResultDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentSyncResultCmd.AddCommand(contentSyncResultDescribeContentsCmd)
+	contentSyncResultHasErrorCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentSyncResultCmd.AddCommand(contentSyncResultHasErrorCmd)
+	contentSyncResultHasHardErrorCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentSyncResultCmd.AddCommand(contentSyncResultHasHardErrorCmd)
+	contentSyncResultHasSoftErrorCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentSyncResultCmd.AddCommand(contentSyncResultHasSoftErrorCmd)
+	contentSyncResultMadeSomeProgressCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentSyncResultCmd.AddCommand(contentSyncResultMadeSomeProgressCmd)
+	contentSyncResultToDebugStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentSyncResultCmd.AddCommand(contentSyncResultToDebugStringCmd)
+	contentSyncResultToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentSyncResultCmd.AddCommand(contentSyncResultToStringCmd)
+	contentSyncResultWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentSyncResultWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentSyncResultWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentSyncResultCmd.AddCommand(contentSyncResultWriteToParcelCmd)
+	contentCmd.AddCommand(contentSyncResultCmd)
+	contentSyncRequestCmd.AddCommand(contentSyncRequestDescribeContentsCmd)
+	contentSyncRequestWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentSyncRequestWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentSyncRequestCmd.AddCommand(contentSyncRequestWriteToParcelCmd)
+	contentCmd.AddCommand(contentSyncRequestCmd)
+	contentSyncRequestBuilderCmd.AddCommand(contentSyncRequestBuilderBuildCmd)
+	contentSyncRequestBuilderSetDisallowMeteredCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	contentSyncRequestBuilderCmd.AddCommand(contentSyncRequestBuilderSetDisallowMeteredCmd)
+	contentSyncRequestBuilderSetExpeditedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	contentSyncRequestBuilderCmd.AddCommand(contentSyncRequestBuilderSetExpeditedCmd)
+	contentSyncRequestBuilderSetExtrasCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentSyncRequestBuilderCmd.AddCommand(contentSyncRequestBuilderSetExtrasCmd)
+	contentSyncRequestBuilderSetIgnoreBackoffCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	contentSyncRequestBuilderCmd.AddCommand(contentSyncRequestBuilderSetIgnoreBackoffCmd)
+	contentSyncRequestBuilderSetIgnoreSettingsCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	contentSyncRequestBuilderCmd.AddCommand(contentSyncRequestBuilderSetIgnoreSettingsCmd)
+	contentSyncRequestBuilderSetManualCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	contentSyncRequestBuilderCmd.AddCommand(contentSyncRequestBuilderSetManualCmd)
+	contentSyncRequestBuilderSetNoRetryCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	contentSyncRequestBuilderCmd.AddCommand(contentSyncRequestBuilderSetNoRetryCmd)
+	contentSyncRequestBuilderSetRequiresChargingCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	contentSyncRequestBuilderCmd.AddCommand(contentSyncRequestBuilderSetRequiresChargingCmd)
+	contentSyncRequestBuilderSetScheduleAsExpeditedJobCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	contentSyncRequestBuilderCmd.AddCommand(contentSyncRequestBuilderSetScheduleAsExpeditedJobCmd)
+	contentSyncRequestBuilderSetSyncAdapterCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentSyncRequestBuilderSetSyncAdapterCmd.Flags().String("arg1", "", "arg1 (string)")
+	contentSyncRequestBuilderCmd.AddCommand(contentSyncRequestBuilderSetSyncAdapterCmd)
+	contentSyncRequestBuilderCmd.AddCommand(contentSyncRequestBuilderSyncOnceCmd)
+	contentSyncRequestBuilderSyncPeriodicCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentSyncRequestBuilderSyncPeriodicCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentSyncRequestBuilderCmd.AddCommand(contentSyncRequestBuilderSyncPeriodicCmd)
+	contentCmd.AddCommand(contentSyncRequestBuilderCmd)
+	contentResourcesNewResourcesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentResourcesNewResourcesCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentResourcesNewResourcesCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	contentResourcesCmd.AddCommand(contentResourcesNewResourcesCmd)
+	contentResourcesAddLoadersCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentResourcesAddLoadersCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentResourcesCmd.AddCommand(contentResourcesAddLoadersCmd)
+	contentResourcesFinishPreloadingCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentResourcesCmd.AddCommand(contentResourcesFinishPreloadingCmd)
+	contentResourcesFlushLayoutCacheCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentResourcesCmd.AddCommand(contentResourcesFlushLayoutCacheCmd)
+	contentResourcesGetAnimationCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentResourcesGetAnimationCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentResourcesCmd.AddCommand(contentResourcesGetAnimationCmd)
+	contentResourcesGetAssetsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentResourcesCmd.AddCommand(contentResourcesGetAssetsCmd)
+	contentResourcesGetBooleanCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentResourcesGetBooleanCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentResourcesCmd.AddCommand(contentResourcesGetBooleanCmd)
+	contentResourcesGetColor1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentResourcesGetColor1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentResourcesCmd.AddCommand(contentResourcesGetColor1Cmd)
+	contentResourcesGetColor2_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentResourcesGetColor2_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentResourcesGetColor2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentResourcesCmd.AddCommand(contentResourcesGetColor2_1Cmd)
+	contentResourcesGetColorStateList1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentResourcesGetColorStateList1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentResourcesCmd.AddCommand(contentResourcesGetColorStateList1Cmd)
+	contentResourcesGetColorStateList2_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentResourcesGetColorStateList2_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentResourcesGetColorStateList2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentResourcesCmd.AddCommand(contentResourcesGetColorStateList2_1Cmd)
+	contentResourcesGetConfigurationCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentResourcesCmd.AddCommand(contentResourcesGetConfigurationCmd)
+	contentResourcesGetDimensionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentResourcesGetDimensionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentResourcesCmd.AddCommand(contentResourcesGetDimensionCmd)
+	contentResourcesGetDimensionPixelOffsetCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentResourcesGetDimensionPixelOffsetCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentResourcesCmd.AddCommand(contentResourcesGetDimensionPixelOffsetCmd)
+	contentResourcesGetDimensionPixelSizeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentResourcesGetDimensionPixelSizeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentResourcesCmd.AddCommand(contentResourcesGetDimensionPixelSizeCmd)
+	contentResourcesGetDisplayMetricsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentResourcesCmd.AddCommand(contentResourcesGetDisplayMetricsCmd)
+	contentResourcesGetDrawable1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentResourcesGetDrawable1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentResourcesCmd.AddCommand(contentResourcesGetDrawable1Cmd)
+	contentResourcesGetDrawable2_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentResourcesGetDrawable2_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentResourcesGetDrawable2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentResourcesCmd.AddCommand(contentResourcesGetDrawable2_1Cmd)
+	contentResourcesGetDrawableForDensity2Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentResourcesGetDrawableForDensity2Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentResourcesGetDrawableForDensity2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentResourcesCmd.AddCommand(contentResourcesGetDrawableForDensity2Cmd)
+	contentResourcesGetDrawableForDensity3_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentResourcesGetDrawableForDensity3_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentResourcesGetDrawableForDensity3_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentResourcesGetDrawableForDensity3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	contentResourcesCmd.AddCommand(contentResourcesGetDrawableForDensity3_1Cmd)
+	contentResourcesGetFloatCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentResourcesGetFloatCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentResourcesCmd.AddCommand(contentResourcesGetFloatCmd)
+	contentResourcesGetFontCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentResourcesGetFontCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentResourcesCmd.AddCommand(contentResourcesGetFontCmd)
+	contentResourcesGetFractionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentResourcesGetFractionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentResourcesGetFractionCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentResourcesGetFractionCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	contentResourcesCmd.AddCommand(contentResourcesGetFractionCmd)
+	contentResourcesGetIdentifierCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentResourcesGetIdentifierCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentResourcesGetIdentifierCmd.Flags().String("arg1", "", "arg1 (string)")
+	contentResourcesGetIdentifierCmd.Flags().String("arg2", "", "arg2 (string)")
+	contentResourcesCmd.AddCommand(contentResourcesGetIdentifierCmd)
+	contentResourcesGetIntArrayCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentResourcesGetIntArrayCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentResourcesCmd.AddCommand(contentResourcesGetIntArrayCmd)
+	contentResourcesGetIntegerCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentResourcesGetIntegerCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentResourcesCmd.AddCommand(contentResourcesGetIntegerCmd)
+	contentResourcesGetLayoutCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentResourcesGetLayoutCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentResourcesCmd.AddCommand(contentResourcesGetLayoutCmd)
+	contentResourcesGetMovieCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentResourcesGetMovieCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentResourcesCmd.AddCommand(contentResourcesGetMovieCmd)
+	contentResourcesGetQuantityString2Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentResourcesGetQuantityString2Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentResourcesGetQuantityString2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentResourcesCmd.AddCommand(contentResourcesGetQuantityString2Cmd)
+	contentResourcesGetQuantityString3_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentResourcesGetQuantityString3_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentResourcesGetQuantityString3_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentResourcesGetQuantityString3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	contentResourcesCmd.AddCommand(contentResourcesGetQuantityString3_1Cmd)
+	contentResourcesGetQuantityTextCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentResourcesGetQuantityTextCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentResourcesGetQuantityTextCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentResourcesCmd.AddCommand(contentResourcesGetQuantityTextCmd)
+	contentResourcesGetResourceEntryNameCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentResourcesGetResourceEntryNameCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentResourcesCmd.AddCommand(contentResourcesGetResourceEntryNameCmd)
+	contentResourcesGetResourceNameCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentResourcesGetResourceNameCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentResourcesCmd.AddCommand(contentResourcesGetResourceNameCmd)
+	contentResourcesGetResourcePackageNameCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentResourcesGetResourcePackageNameCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentResourcesCmd.AddCommand(contentResourcesGetResourcePackageNameCmd)
+	contentResourcesGetResourceTypeNameCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentResourcesGetResourceTypeNameCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentResourcesCmd.AddCommand(contentResourcesGetResourceTypeNameCmd)
+	contentResourcesGetString1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentResourcesGetString1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentResourcesCmd.AddCommand(contentResourcesGetString1Cmd)
+	contentResourcesGetString2_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentResourcesGetString2_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentResourcesGetString2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentResourcesCmd.AddCommand(contentResourcesGetString2_1Cmd)
+	contentResourcesGetStringArrayCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentResourcesGetStringArrayCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentResourcesCmd.AddCommand(contentResourcesGetStringArrayCmd)
+	contentResourcesGetText1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentResourcesGetText1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentResourcesCmd.AddCommand(contentResourcesGetText1Cmd)
+	contentResourcesGetText2_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentResourcesGetText2_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentResourcesGetText2_1Cmd.Flags().String("arg1", "", "arg1 (string)")
+	contentResourcesCmd.AddCommand(contentResourcesGetText2_1Cmd)
+	contentResourcesGetTextArrayCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentResourcesGetTextArrayCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentResourcesCmd.AddCommand(contentResourcesGetTextArrayCmd)
+	contentResourcesGetValue3Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentResourcesGetValue3Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentResourcesGetValue3Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentResourcesGetValue3Cmd.Flags().Bool("arg2", false, "arg2 (bool)")
+	contentResourcesCmd.AddCommand(contentResourcesGetValue3Cmd)
+	contentResourcesGetValue3_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentResourcesGetValue3_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	contentResourcesGetValue3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentResourcesGetValue3_1Cmd.Flags().Bool("arg2", false, "arg2 (bool)")
+	contentResourcesCmd.AddCommand(contentResourcesGetValue3_1Cmd)
+	contentResourcesGetValueForDensityCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentResourcesGetValueForDensityCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentResourcesGetValueForDensityCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentResourcesGetValueForDensityCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	contentResourcesGetValueForDensityCmd.Flags().Bool("arg3", false, "arg3 (bool)")
+	contentResourcesCmd.AddCommand(contentResourcesGetValueForDensityCmd)
+	contentResourcesGetXmlCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentResourcesGetXmlCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentResourcesCmd.AddCommand(contentResourcesGetXmlCmd)
+	contentResourcesNewThemeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentResourcesCmd.AddCommand(contentResourcesNewThemeCmd)
+	contentResourcesObtainAttributesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentResourcesObtainAttributesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentResourcesObtainAttributesCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentResourcesCmd.AddCommand(contentResourcesObtainAttributesCmd)
+	contentResourcesObtainTypedArrayCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentResourcesObtainTypedArrayCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentResourcesCmd.AddCommand(contentResourcesObtainTypedArrayCmd)
+	contentResourcesOpenRawResource1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentResourcesOpenRawResource1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentResourcesCmd.AddCommand(contentResourcesOpenRawResource1Cmd)
+	contentResourcesOpenRawResource2_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentResourcesOpenRawResource2_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentResourcesOpenRawResource2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentResourcesCmd.AddCommand(contentResourcesOpenRawResource2_1Cmd)
+	contentResourcesOpenRawResourceFdCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentResourcesOpenRawResourceFdCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentResourcesCmd.AddCommand(contentResourcesOpenRawResourceFdCmd)
+	contentResourcesParseBundleExtraCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentResourcesParseBundleExtraCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentResourcesParseBundleExtraCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentResourcesParseBundleExtraCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	contentResourcesCmd.AddCommand(contentResourcesParseBundleExtraCmd)
+	contentResourcesParseBundleExtrasCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentResourcesParseBundleExtrasCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentResourcesParseBundleExtrasCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentResourcesCmd.AddCommand(contentResourcesParseBundleExtrasCmd)
+	contentResourcesRemoveLoadersCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentResourcesRemoveLoadersCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentResourcesCmd.AddCommand(contentResourcesRemoveLoadersCmd)
+	contentResourcesUpdateConfigurationCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentResourcesUpdateConfigurationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentResourcesUpdateConfigurationCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentResourcesCmd.AddCommand(contentResourcesUpdateConfigurationCmd)
+	contentResourcesGetAttributeSetSourceResIdCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentResourcesGetAttributeSetSourceResIdCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentResourcesCmd.AddCommand(contentResourcesGetAttributeSetSourceResIdCmd)
+	contentResourcesGetSystemCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentResourcesCmd.AddCommand(contentResourcesGetSystemCmd)
+	contentResourcesRegisterResourcePathsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentResourcesRegisterResourcePathsCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentResourcesRegisterResourcePathsCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentResourcesCmd.AddCommand(contentResourcesRegisterResourcePathsCmd)
+	contentCmd.AddCommand(contentResourcesCmd)
+	contentResourcesThemeApplyStyleCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentResourcesThemeApplyStyleCmd.Flags().Bool("arg1", false, "arg1 (bool)")
+	contentResourcesThemeCmd.AddCommand(contentResourcesThemeApplyStyleCmd)
+	contentResourcesThemeDumpCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentResourcesThemeDumpCmd.Flags().String("arg1", "", "arg1 (string)")
+	contentResourcesThemeDumpCmd.Flags().String("arg2", "", "arg2 (string)")
+	contentResourcesThemeCmd.AddCommand(contentResourcesThemeDumpCmd)
+	contentResourcesThemeEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentResourcesThemeCmd.AddCommand(contentResourcesThemeEqualsCmd)
+	contentResourcesThemeGetAttributeResolutionStackCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentResourcesThemeGetAttributeResolutionStackCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentResourcesThemeGetAttributeResolutionStackCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	contentResourcesThemeCmd.AddCommand(contentResourcesThemeGetAttributeResolutionStackCmd)
+	contentResourcesThemeCmd.AddCommand(contentResourcesThemeGetChangingConfigurationsCmd)
+	contentResourcesThemeGetDrawableCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentResourcesThemeCmd.AddCommand(contentResourcesThemeGetDrawableCmd)
+	contentResourcesThemeGetExplicitStyleCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentResourcesThemeCmd.AddCommand(contentResourcesThemeGetExplicitStyleCmd)
+	contentResourcesThemeCmd.AddCommand(contentResourcesThemeGetResourcesCmd)
+	contentResourcesThemeCmd.AddCommand(contentResourcesThemeHashCodeCmd)
+	contentResourcesThemeObtainStyledAttributes4Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentResourcesThemeObtainStyledAttributes4Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentResourcesThemeObtainStyledAttributes4Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	contentResourcesThemeObtainStyledAttributes4Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	contentResourcesThemeCmd.AddCommand(contentResourcesThemeObtainStyledAttributes4Cmd)
+	contentResourcesThemeObtainStyledAttributes2_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentResourcesThemeObtainStyledAttributes2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentResourcesThemeCmd.AddCommand(contentResourcesThemeObtainStyledAttributes2_1Cmd)
+	contentResourcesThemeObtainStyledAttributes1_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentResourcesThemeCmd.AddCommand(contentResourcesThemeObtainStyledAttributes1_2Cmd)
+	contentResourcesThemeCmd.AddCommand(contentResourcesThemeRebaseCmd)
+	contentResourcesThemeResolveAttributeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentResourcesThemeResolveAttributeCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentResourcesThemeResolveAttributeCmd.Flags().Bool("arg2", false, "arg2 (bool)")
+	contentResourcesThemeCmd.AddCommand(contentResourcesThemeResolveAttributeCmd)
+	contentResourcesThemeSetToCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentResourcesThemeCmd.AddCommand(contentResourcesThemeSetToCmd)
+	contentResourcesThemeCmd.AddCommand(contentResourcesThemeToStringCmd)
+	contentCmd.AddCommand(contentResourcesThemeCmd)
+	contentComponentCallbacks2OnTrimMemoryCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentComponentCallbacks2Cmd.AddCommand(contentComponentCallbacks2OnTrimMemoryCmd)
+	contentCmd.AddCommand(contentComponentCallbacks2Cmd)
+	contentComponentCallbacksOnConfigurationChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentComponentCallbacksCmd.AddCommand(contentComponentCallbacksOnConfigurationChangedCmd)
+	contentComponentCallbacksCmd.AddCommand(contentComponentCallbacksOnLowMemoryCmd)
+	contentCmd.AddCommand(contentComponentCallbacksCmd)
+	contentLocusIdNewLocusIdCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentLocusIdCmd.AddCommand(contentLocusIdNewLocusIdCmd)
+	contentLocusIdDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentLocusIdCmd.AddCommand(contentLocusIdDescribeContentsCmd)
+	contentLocusIdEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentLocusIdEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentLocusIdCmd.AddCommand(contentLocusIdEqualsCmd)
+	contentLocusIdGetIdCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentLocusIdCmd.AddCommand(contentLocusIdGetIdCmd)
+	contentLocusIdHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentLocusIdCmd.AddCommand(contentLocusIdHashCodeCmd)
+	contentLocusIdToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentLocusIdCmd.AddCommand(contentLocusIdToStringCmd)
+	contentLocusIdWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentLocusIdWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentLocusIdWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentLocusIdCmd.AddCommand(contentLocusIdWriteToParcelCmd)
+	contentCmd.AddCommand(contentLocusIdCmd)
+	contentIntentFilterCmd.AddCommand(contentIntentFilterNewIntentFilterCmd)
+	contentIntentFilterAddActionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentIntentFilterAddActionCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentIntentFilterCmd.AddCommand(contentIntentFilterAddActionCmd)
+	contentIntentFilterAddCategoryCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentIntentFilterAddCategoryCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentIntentFilterCmd.AddCommand(contentIntentFilterAddCategoryCmd)
+	contentIntentFilterAddDataAuthorityCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentIntentFilterAddDataAuthorityCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentIntentFilterAddDataAuthorityCmd.Flags().String("arg1", "", "arg1 (string)")
+	contentIntentFilterCmd.AddCommand(contentIntentFilterAddDataAuthorityCmd)
+	contentIntentFilterAddDataPathCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentIntentFilterAddDataPathCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentIntentFilterAddDataPathCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentIntentFilterCmd.AddCommand(contentIntentFilterAddDataPathCmd)
+	contentIntentFilterAddDataSchemeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentIntentFilterAddDataSchemeCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentIntentFilterCmd.AddCommand(contentIntentFilterAddDataSchemeCmd)
+	contentIntentFilterAddDataSchemeSpecificPartCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentIntentFilterAddDataSchemeSpecificPartCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentIntentFilterAddDataSchemeSpecificPartCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentIntentFilterCmd.AddCommand(contentIntentFilterAddDataSchemeSpecificPartCmd)
+	contentIntentFilterAddDataTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentIntentFilterAddDataTypeCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentIntentFilterCmd.AddCommand(contentIntentFilterAddDataTypeCmd)
+	contentIntentFilterAddUriRelativeFilterGroupCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentIntentFilterAddUriRelativeFilterGroupCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentIntentFilterCmd.AddCommand(contentIntentFilterAddUriRelativeFilterGroupCmd)
+	contentIntentFilterClearUriRelativeFilterGroupsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentIntentFilterCmd.AddCommand(contentIntentFilterClearUriRelativeFilterGroupsCmd)
+	contentIntentFilterCountActionsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentIntentFilterCmd.AddCommand(contentIntentFilterCountActionsCmd)
+	contentIntentFilterCountCategoriesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentIntentFilterCmd.AddCommand(contentIntentFilterCountCategoriesCmd)
+	contentIntentFilterCountDataAuthoritiesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentIntentFilterCmd.AddCommand(contentIntentFilterCountDataAuthoritiesCmd)
+	contentIntentFilterCountDataPathsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentIntentFilterCmd.AddCommand(contentIntentFilterCountDataPathsCmd)
+	contentIntentFilterCountDataSchemeSpecificPartsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentIntentFilterCmd.AddCommand(contentIntentFilterCountDataSchemeSpecificPartsCmd)
+	contentIntentFilterCountDataSchemesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentIntentFilterCmd.AddCommand(contentIntentFilterCountDataSchemesCmd)
+	contentIntentFilterCountDataTypesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentIntentFilterCmd.AddCommand(contentIntentFilterCountDataTypesCmd)
+	contentIntentFilterCountUriRelativeFilterGroupsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentIntentFilterCmd.AddCommand(contentIntentFilterCountUriRelativeFilterGroupsCmd)
+	contentIntentFilterDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentIntentFilterCmd.AddCommand(contentIntentFilterDescribeContentsCmd)
+	contentIntentFilterDumpCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentIntentFilterDumpCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentIntentFilterDumpCmd.Flags().String("arg1", "", "arg1 (string)")
+	contentIntentFilterCmd.AddCommand(contentIntentFilterDumpCmd)
+	contentIntentFilterGetActionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentIntentFilterGetActionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentIntentFilterCmd.AddCommand(contentIntentFilterGetActionCmd)
+	contentIntentFilterGetCategoryCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentIntentFilterGetCategoryCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentIntentFilterCmd.AddCommand(contentIntentFilterGetCategoryCmd)
+	contentIntentFilterGetDataAuthorityCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentIntentFilterGetDataAuthorityCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentIntentFilterCmd.AddCommand(contentIntentFilterGetDataAuthorityCmd)
+	contentIntentFilterGetDataPathCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentIntentFilterGetDataPathCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentIntentFilterCmd.AddCommand(contentIntentFilterGetDataPathCmd)
+	contentIntentFilterGetDataSchemeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentIntentFilterGetDataSchemeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentIntentFilterCmd.AddCommand(contentIntentFilterGetDataSchemeCmd)
+	contentIntentFilterGetDataSchemeSpecificPartCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentIntentFilterGetDataSchemeSpecificPartCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentIntentFilterCmd.AddCommand(contentIntentFilterGetDataSchemeSpecificPartCmd)
+	contentIntentFilterGetDataTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentIntentFilterGetDataTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentIntentFilterCmd.AddCommand(contentIntentFilterGetDataTypeCmd)
+	contentIntentFilterGetPriorityCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentIntentFilterCmd.AddCommand(contentIntentFilterGetPriorityCmd)
+	contentIntentFilterGetUriRelativeFilterGroupCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentIntentFilterGetUriRelativeFilterGroupCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentIntentFilterCmd.AddCommand(contentIntentFilterGetUriRelativeFilterGroupCmd)
+	contentIntentFilterHasActionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentIntentFilterHasActionCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentIntentFilterCmd.AddCommand(contentIntentFilterHasActionCmd)
+	contentIntentFilterHasCategoryCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentIntentFilterHasCategoryCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentIntentFilterCmd.AddCommand(contentIntentFilterHasCategoryCmd)
+	contentIntentFilterHasDataAuthorityCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentIntentFilterHasDataAuthorityCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentIntentFilterCmd.AddCommand(contentIntentFilterHasDataAuthorityCmd)
+	contentIntentFilterHasDataPathCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentIntentFilterHasDataPathCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentIntentFilterCmd.AddCommand(contentIntentFilterHasDataPathCmd)
+	contentIntentFilterHasDataSchemeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentIntentFilterHasDataSchemeCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentIntentFilterCmd.AddCommand(contentIntentFilterHasDataSchemeCmd)
+	contentIntentFilterHasDataSchemeSpecificPartCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentIntentFilterHasDataSchemeSpecificPartCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentIntentFilterCmd.AddCommand(contentIntentFilterHasDataSchemeSpecificPartCmd)
+	contentIntentFilterHasDataTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentIntentFilterHasDataTypeCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentIntentFilterCmd.AddCommand(contentIntentFilterHasDataTypeCmd)
+	contentIntentFilterMatchCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentIntentFilterMatchCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentIntentFilterMatchCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentIntentFilterMatchCmd.Flags().Bool("arg2", false, "arg2 (bool)")
+	contentIntentFilterMatchCmd.Flags().String("arg3", "", "arg3 (string)")
+	contentIntentFilterCmd.AddCommand(contentIntentFilterMatchCmd)
+	contentIntentFilterMatchActionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentIntentFilterMatchActionCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentIntentFilterCmd.AddCommand(contentIntentFilterMatchActionCmd)
+	contentIntentFilterMatchDataCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentIntentFilterMatchDataCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentIntentFilterMatchDataCmd.Flags().String("arg1", "", "arg1 (string)")
+	contentIntentFilterMatchDataCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	contentIntentFilterCmd.AddCommand(contentIntentFilterMatchDataCmd)
+	contentIntentFilterMatchDataAuthorityCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentIntentFilterMatchDataAuthorityCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentIntentFilterCmd.AddCommand(contentIntentFilterMatchDataAuthorityCmd)
+	contentIntentFilterReadFromXmlCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentIntentFilterReadFromXmlCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentIntentFilterCmd.AddCommand(contentIntentFilterReadFromXmlCmd)
+	contentIntentFilterSetPriorityCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentIntentFilterSetPriorityCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentIntentFilterCmd.AddCommand(contentIntentFilterSetPriorityCmd)
+	contentIntentFilterWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentIntentFilterWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentIntentFilterWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentIntentFilterCmd.AddCommand(contentIntentFilterWriteToParcelCmd)
+	contentIntentFilterWriteToXmlCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentIntentFilterWriteToXmlCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentIntentFilterCmd.AddCommand(contentIntentFilterWriteToXmlCmd)
+	contentIntentFilterCreateCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentIntentFilterCreateCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentIntentFilterCreateCmd.Flags().String("arg1", "", "arg1 (string)")
+	contentIntentFilterCmd.AddCommand(contentIntentFilterCreateCmd)
+	contentCmd.AddCommand(contentIntentFilterCmd)
+	contentIntentFilterAuthorityEntryEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentIntentFilterAuthorityEntryCmd.AddCommand(contentIntentFilterAuthorityEntryEqualsCmd)
+	contentIntentFilterAuthorityEntryCmd.AddCommand(contentIntentFilterAuthorityEntryGetHostCmd)
+	contentIntentFilterAuthorityEntryCmd.AddCommand(contentIntentFilterAuthorityEntryGetPortCmd)
+	contentIntentFilterAuthorityEntryMatchCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentIntentFilterAuthorityEntryCmd.AddCommand(contentIntentFilterAuthorityEntryMatchCmd)
+	contentCmd.AddCommand(contentIntentFilterAuthorityEntryCmd)
+	contentOperationApplicationExceptionCmd.AddCommand(contentOperationApplicationExceptionNewOperationApplicationExceptionCmd)
+	contentOperationApplicationExceptionGetNumSuccessfulYieldPointsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentOperationApplicationExceptionCmd.AddCommand(contentOperationApplicationExceptionGetNumSuccessfulYieldPointsCmd)
+	contentCmd.AddCommand(contentOperationApplicationExceptionCmd)
+	contentEntityNewEntityCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentEntityCmd.AddCommand(contentEntityNewEntityCmd)
+	contentEntityAddSubValueCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentEntityAddSubValueCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentEntityAddSubValueCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentEntityCmd.AddCommand(contentEntityAddSubValueCmd)
+	contentEntityGetEntityValuesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentEntityCmd.AddCommand(contentEntityGetEntityValuesCmd)
+	contentEntityToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentEntityCmd.AddCommand(contentEntityToStringCmd)
+	contentCmd.AddCommand(contentEntityCmd)
+	contentClipDescriptionNewClipDescriptionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentClipDescriptionCmd.AddCommand(contentClipDescriptionNewClipDescriptionCmd)
+	contentClipDescriptionDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentClipDescriptionCmd.AddCommand(contentClipDescriptionDescribeContentsCmd)
+	contentClipDescriptionFilterMimeTypesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentClipDescriptionFilterMimeTypesCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentClipDescriptionCmd.AddCommand(contentClipDescriptionFilterMimeTypesCmd)
+	contentClipDescriptionGetClassificationStatusCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentClipDescriptionCmd.AddCommand(contentClipDescriptionGetClassificationStatusCmd)
+	contentClipDescriptionGetConfidenceScoreCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentClipDescriptionGetConfidenceScoreCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentClipDescriptionCmd.AddCommand(contentClipDescriptionGetConfidenceScoreCmd)
+	contentClipDescriptionGetExtrasCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentClipDescriptionCmd.AddCommand(contentClipDescriptionGetExtrasCmd)
+	contentClipDescriptionGetLabelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentClipDescriptionCmd.AddCommand(contentClipDescriptionGetLabelCmd)
+	contentClipDescriptionGetMimeTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentClipDescriptionGetMimeTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentClipDescriptionCmd.AddCommand(contentClipDescriptionGetMimeTypeCmd)
+	contentClipDescriptionGetMimeTypeCountCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentClipDescriptionCmd.AddCommand(contentClipDescriptionGetMimeTypeCountCmd)
+	contentClipDescriptionGetTimestampCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentClipDescriptionCmd.AddCommand(contentClipDescriptionGetTimestampCmd)
+	contentClipDescriptionHasMimeTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentClipDescriptionHasMimeTypeCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentClipDescriptionCmd.AddCommand(contentClipDescriptionHasMimeTypeCmd)
+	contentClipDescriptionIsStyledTextCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentClipDescriptionCmd.AddCommand(contentClipDescriptionIsStyledTextCmd)
+	contentClipDescriptionSetExtrasCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentClipDescriptionSetExtrasCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentClipDescriptionCmd.AddCommand(contentClipDescriptionSetExtrasCmd)
+	contentClipDescriptionToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentClipDescriptionCmd.AddCommand(contentClipDescriptionToStringCmd)
+	contentClipDescriptionWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentClipDescriptionWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentClipDescriptionWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentClipDescriptionCmd.AddCommand(contentClipDescriptionWriteToParcelCmd)
+	contentClipDescriptionCompareMimeTypesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentClipDescriptionCompareMimeTypesCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentClipDescriptionCompareMimeTypesCmd.Flags().String("arg1", "", "arg1 (string)")
+	contentClipDescriptionCmd.AddCommand(contentClipDescriptionCompareMimeTypesCmd)
+	contentCmd.AddCommand(contentClipDescriptionCmd)
+	contentEntityIteratorCmd.AddCommand(contentEntityIteratorCloseCmd)
+	contentEntityIteratorCmd.AddCommand(contentEntityIteratorResetCmd)
+	contentCmd.AddCommand(contentEntityIteratorCmd)
+	contentDialogInterfaceCmd.AddCommand(contentDialogInterfaceCancelCmd)
+	contentDialogInterfaceCmd.AddCommand(contentDialogInterfaceDismissCmd)
+	contentCmd.AddCommand(contentDialogInterfaceCmd)
+	contentDialogInterfaceOnCancelListenerOnCancelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentDialogInterfaceOnCancelListenerCmd.AddCommand(contentDialogInterfaceOnCancelListenerOnCancelCmd)
+	contentCmd.AddCommand(contentDialogInterfaceOnCancelListenerCmd)
+	contentDialogInterfaceOnClickListenerOnClickCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentDialogInterfaceOnClickListenerOnClickCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentDialogInterfaceOnClickListenerCmd.AddCommand(contentDialogInterfaceOnClickListenerOnClickCmd)
+	contentCmd.AddCommand(contentDialogInterfaceOnClickListenerCmd)
+	contentDialogInterfaceOnDismissListenerOnDismissCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentDialogInterfaceOnDismissListenerCmd.AddCommand(contentDialogInterfaceOnDismissListenerOnDismissCmd)
+	contentCmd.AddCommand(contentDialogInterfaceOnDismissListenerCmd)
+	contentDialogInterfaceOnKeyListenerOnKeyCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentDialogInterfaceOnKeyListenerOnKeyCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentDialogInterfaceOnKeyListenerOnKeyCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	contentDialogInterfaceOnKeyListenerCmd.AddCommand(contentDialogInterfaceOnKeyListenerOnKeyCmd)
+	contentCmd.AddCommand(contentDialogInterfaceOnKeyListenerCmd)
+	contentDialogInterfaceOnMultiChoiceClickListenerOnClickCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentDialogInterfaceOnMultiChoiceClickListenerOnClickCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentDialogInterfaceOnMultiChoiceClickListenerOnClickCmd.Flags().Bool("arg2", false, "arg2 (bool)")
+	contentDialogInterfaceOnMultiChoiceClickListenerCmd.AddCommand(contentDialogInterfaceOnMultiChoiceClickListenerOnClickCmd)
+	contentCmd.AddCommand(contentDialogInterfaceOnMultiChoiceClickListenerCmd)
+	contentDialogInterfaceOnShowListenerOnShowCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentDialogInterfaceOnShowListenerCmd.AddCommand(contentDialogInterfaceOnShowListenerOnShowCmd)
+	contentCmd.AddCommand(contentDialogInterfaceOnShowListenerCmd)
+	contentContextParamsCmd.AddCommand(contentContextParamsGetAttributionTagCmd)
+	contentContextParamsCmd.AddCommand(contentContextParamsGetNextAttributionSourceCmd)
+	contentContextParamsCmd.AddCommand(contentContextParamsShouldRegisterAttributionSourceCmd)
+	contentCmd.AddCommand(contentContextParamsCmd)
+	contentContextParamsBuilderCmd.AddCommand(contentContextParamsBuilderBuildCmd)
+	contentContextParamsBuilderSetAttributionTagCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentContextParamsBuilderCmd.AddCommand(contentContextParamsBuilderSetAttributionTagCmd)
+	contentContextParamsBuilderSetNextAttributionSourceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentContextParamsBuilderCmd.AddCommand(contentContextParamsBuilderSetNextAttributionSourceCmd)
+	contentContextParamsBuilderSetShouldRegisterAttributionSourceCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	contentContextParamsBuilderCmd.AddCommand(contentContextParamsBuilderSetShouldRegisterAttributionSourceCmd)
+	contentCmd.AddCommand(contentContextParamsBuilderCmd)
+	contentSyncContextCmd.AddCommand(contentSyncContextGetSyncContextBinderCmd)
+	contentSyncContextOnFinishedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentSyncContextCmd.AddCommand(contentSyncContextOnFinishedCmd)
+	contentCmd.AddCommand(contentSyncContextCmd)
+	contentLoaderNewLoaderCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentLoaderCmd.AddCommand(contentLoaderNewLoaderCmd)
+	contentLoaderAbandonCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentLoaderCmd.AddCommand(contentLoaderAbandonCmd)
+	contentLoaderCancelLoadCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentLoaderCmd.AddCommand(contentLoaderCancelLoadCmd)
+	contentLoaderCommitContentChangedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentLoaderCmd.AddCommand(contentLoaderCommitContentChangedCmd)
+	contentLoaderDeliverCancellationCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentLoaderCmd.AddCommand(contentLoaderDeliverCancellationCmd)
+	contentLoaderDumpCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentLoaderDumpCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentLoaderDumpCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentLoaderDumpCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	contentLoaderDumpCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	contentLoaderCmd.AddCommand(contentLoaderDumpCmd)
+	contentLoaderForceLoadCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentLoaderCmd.AddCommand(contentLoaderForceLoadCmd)
+	contentLoaderGetContextCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentLoaderCmd.AddCommand(contentLoaderGetContextCmd)
+	contentLoaderGetIdCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentLoaderCmd.AddCommand(contentLoaderGetIdCmd)
+	contentLoaderIsAbandonedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentLoaderCmd.AddCommand(contentLoaderIsAbandonedCmd)
+	contentLoaderIsResetCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentLoaderCmd.AddCommand(contentLoaderIsResetCmd)
+	contentLoaderIsStartedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentLoaderCmd.AddCommand(contentLoaderIsStartedCmd)
+	contentLoaderOnContentChangedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentLoaderCmd.AddCommand(contentLoaderOnContentChangedCmd)
+	contentLoaderResetCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentLoaderCmd.AddCommand(contentLoaderResetCmd)
+	contentLoaderRollbackContentChangedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentLoaderCmd.AddCommand(contentLoaderRollbackContentChangedCmd)
+	contentLoaderStartLoadingCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentLoaderCmd.AddCommand(contentLoaderStartLoadingCmd)
+	contentLoaderStopLoadingCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentLoaderCmd.AddCommand(contentLoaderStopLoadingCmd)
+	contentLoaderTakeContentChangedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentLoaderCmd.AddCommand(contentLoaderTakeContentChangedCmd)
+	contentLoaderToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentLoaderCmd.AddCommand(contentLoaderToStringCmd)
+	contentCmd.AddCommand(contentLoaderCmd)
+	contentLoaderForceLoadContentObserverCmd.AddCommand(contentLoaderForceLoadContentObserverDeliverSelfNotificationsCmd)
+	contentLoaderForceLoadContentObserverOnChangeCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	contentLoaderForceLoadContentObserverCmd.AddCommand(contentLoaderForceLoadContentObserverOnChangeCmd)
+	contentCmd.AddCommand(contentLoaderForceLoadContentObserverCmd)
+	contentUriRelativeFilterNewUriRelativeFilterCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentUriRelativeFilterNewUriRelativeFilterCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentUriRelativeFilterNewUriRelativeFilterCmd.Flags().String("arg2", "", "arg2 (string)")
+	contentUriRelativeFilterCmd.AddCommand(contentUriRelativeFilterNewUriRelativeFilterCmd)
+	contentUriRelativeFilterEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentUriRelativeFilterEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentUriRelativeFilterCmd.AddCommand(contentUriRelativeFilterEqualsCmd)
+	contentUriRelativeFilterGetFilterCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentUriRelativeFilterCmd.AddCommand(contentUriRelativeFilterGetFilterCmd)
+	contentUriRelativeFilterGetPatternTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentUriRelativeFilterCmd.AddCommand(contentUriRelativeFilterGetPatternTypeCmd)
+	contentUriRelativeFilterGetUriPartCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentUriRelativeFilterCmd.AddCommand(contentUriRelativeFilterGetUriPartCmd)
+	contentUriRelativeFilterHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentUriRelativeFilterCmd.AddCommand(contentUriRelativeFilterHashCodeCmd)
+	contentUriRelativeFilterMatchDataCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentUriRelativeFilterMatchDataCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentUriRelativeFilterCmd.AddCommand(contentUriRelativeFilterMatchDataCmd)
+	contentUriRelativeFilterToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentUriRelativeFilterCmd.AddCommand(contentUriRelativeFilterToStringCmd)
+	contentCmd.AddCommand(contentUriRelativeFilterCmd)
+	contentProviderClientBulkInsertCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentProviderClientBulkInsertCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentProviderClientCmd.AddCommand(contentProviderClientBulkInsertCmd)
+	contentProviderClientCall3Cmd.Flags().String("arg0", "", "arg0 (string)")
+	contentProviderClientCall3Cmd.Flags().String("arg1", "", "arg1 (string)")
+	contentProviderClientCall3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	contentProviderClientCmd.AddCommand(contentProviderClientCall3Cmd)
+	contentProviderClientCall4_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	contentProviderClientCall4_1Cmd.Flags().String("arg1", "", "arg1 (string)")
+	contentProviderClientCall4_1Cmd.Flags().String("arg2", "", "arg2 (string)")
+	contentProviderClientCall4_1Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	contentProviderClientCmd.AddCommand(contentProviderClientCall4_1Cmd)
+	contentProviderClientCanonicalizeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentProviderClientCmd.AddCommand(contentProviderClientCanonicalizeCmd)
+	contentProviderClientCmd.AddCommand(contentProviderClientCloseCmd)
+	contentProviderClientDelete2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentProviderClientDelete2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentProviderClientCmd.AddCommand(contentProviderClientDelete2Cmd)
+	contentProviderClientDelete3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentProviderClientDelete3_1Cmd.Flags().String("arg1", "", "arg1 (string)")
+	contentProviderClientDelete3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	contentProviderClientCmd.AddCommand(contentProviderClientDelete3_1Cmd)
+	contentProviderClientCmd.AddCommand(contentProviderClientGetLocalContentProviderCmd)
+	contentProviderClientGetStreamTypesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentProviderClientGetStreamTypesCmd.Flags().String("arg1", "", "arg1 (string)")
+	contentProviderClientCmd.AddCommand(contentProviderClientGetStreamTypesCmd)
+	contentProviderClientGetTypeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentProviderClientCmd.AddCommand(contentProviderClientGetTypeCmd)
+	contentProviderClientInsert2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentProviderClientInsert2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentProviderClientCmd.AddCommand(contentProviderClientInsert2Cmd)
+	contentProviderClientInsert3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentProviderClientInsert3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentProviderClientInsert3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	contentProviderClientCmd.AddCommand(contentProviderClientInsert3_1Cmd)
+	contentProviderClientOpenAssetFile2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentProviderClientOpenAssetFile2Cmd.Flags().String("arg1", "", "arg1 (string)")
+	contentProviderClientCmd.AddCommand(contentProviderClientOpenAssetFile2Cmd)
+	contentProviderClientOpenAssetFile3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentProviderClientOpenAssetFile3_1Cmd.Flags().String("arg1", "", "arg1 (string)")
+	contentProviderClientOpenAssetFile3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	contentProviderClientCmd.AddCommand(contentProviderClientOpenAssetFile3_1Cmd)
+	contentProviderClientOpenFile2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentProviderClientOpenFile2Cmd.Flags().String("arg1", "", "arg1 (string)")
+	contentProviderClientCmd.AddCommand(contentProviderClientOpenFile2Cmd)
+	contentProviderClientOpenFile3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentProviderClientOpenFile3_1Cmd.Flags().String("arg1", "", "arg1 (string)")
+	contentProviderClientOpenFile3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	contentProviderClientCmd.AddCommand(contentProviderClientOpenFile3_1Cmd)
+	contentProviderClientOpenTypedAssetFileCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentProviderClientOpenTypedAssetFileCmd.Flags().String("arg1", "", "arg1 (string)")
+	contentProviderClientOpenTypedAssetFileCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	contentProviderClientOpenTypedAssetFileCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	contentProviderClientCmd.AddCommand(contentProviderClientOpenTypedAssetFileCmd)
+	contentProviderClientOpenTypedAssetFileDescriptor3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentProviderClientOpenTypedAssetFileDescriptor3Cmd.Flags().String("arg1", "", "arg1 (string)")
+	contentProviderClientOpenTypedAssetFileDescriptor3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	contentProviderClientCmd.AddCommand(contentProviderClientOpenTypedAssetFileDescriptor3Cmd)
+	contentProviderClientOpenTypedAssetFileDescriptor4_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentProviderClientOpenTypedAssetFileDescriptor4_1Cmd.Flags().String("arg1", "", "arg1 (string)")
+	contentProviderClientOpenTypedAssetFileDescriptor4_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	contentProviderClientOpenTypedAssetFileDescriptor4_1Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	contentProviderClientCmd.AddCommand(contentProviderClientOpenTypedAssetFileDescriptor4_1Cmd)
+	contentProviderClientQuery4Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentProviderClientQuery4Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentProviderClientQuery4Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	contentProviderClientQuery4Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	contentProviderClientCmd.AddCommand(contentProviderClientQuery4Cmd)
+	contentProviderClientQuery5_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentProviderClientQuery5_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentProviderClientQuery5_1Cmd.Flags().String("arg2", "", "arg2 (string)")
+	contentProviderClientQuery5_1Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	contentProviderClientQuery5_1Cmd.Flags().String("arg4", "", "arg4 (string)")
+	contentProviderClientCmd.AddCommand(contentProviderClientQuery5_1Cmd)
+	contentProviderClientQuery6_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentProviderClientQuery6_2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentProviderClientQuery6_2Cmd.Flags().String("arg2", "", "arg2 (string)")
+	contentProviderClientQuery6_2Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	contentProviderClientQuery6_2Cmd.Flags().String("arg4", "", "arg4 (string)")
+	contentProviderClientQuery6_2Cmd.Flags().Int64("arg5", 0, "arg5 (int64)")
+	contentProviderClientCmd.AddCommand(contentProviderClientQuery6_2Cmd)
+	contentProviderClientRefreshCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentProviderClientRefreshCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentProviderClientRefreshCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	contentProviderClientCmd.AddCommand(contentProviderClientRefreshCmd)
+	contentProviderClientCmd.AddCommand(contentProviderClientReleaseCmd)
+	contentProviderClientUncanonicalizeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentProviderClientCmd.AddCommand(contentProviderClientUncanonicalizeCmd)
+	contentProviderClientUpdate3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentProviderClientUpdate3Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentProviderClientUpdate3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	contentProviderClientCmd.AddCommand(contentProviderClientUpdate3Cmd)
+	contentProviderClientUpdate4_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentProviderClientUpdate4_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentProviderClientUpdate4_1Cmd.Flags().String("arg2", "", "arg2 (string)")
+	contentProviderClientUpdate4_1Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	contentProviderClientCmd.AddCommand(contentProviderClientUpdate4_1Cmd)
+	contentCmd.AddCommand(contentProviderClientCmd)
+	contentSyncAdapterTypeNewSyncAdapterTypeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentSyncAdapterTypeCmd.AddCommand(contentSyncAdapterTypeNewSyncAdapterTypeCmd)
+	contentSyncAdapterTypeAllowParallelSyncsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentSyncAdapterTypeCmd.AddCommand(contentSyncAdapterTypeAllowParallelSyncsCmd)
+	contentSyncAdapterTypeDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentSyncAdapterTypeCmd.AddCommand(contentSyncAdapterTypeDescribeContentsCmd)
+	contentSyncAdapterTypeEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentSyncAdapterTypeEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentSyncAdapterTypeCmd.AddCommand(contentSyncAdapterTypeEqualsCmd)
+	contentSyncAdapterTypeGetSettingsActivityCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentSyncAdapterTypeCmd.AddCommand(contentSyncAdapterTypeGetSettingsActivityCmd)
+	contentSyncAdapterTypeHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentSyncAdapterTypeCmd.AddCommand(contentSyncAdapterTypeHashCodeCmd)
+	contentSyncAdapterTypeIsAlwaysSyncableCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentSyncAdapterTypeCmd.AddCommand(contentSyncAdapterTypeIsAlwaysSyncableCmd)
+	contentSyncAdapterTypeIsUserVisibleCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentSyncAdapterTypeCmd.AddCommand(contentSyncAdapterTypeIsUserVisibleCmd)
+	contentSyncAdapterTypeSupportsUploadingCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentSyncAdapterTypeCmd.AddCommand(contentSyncAdapterTypeSupportsUploadingCmd)
+	contentSyncAdapterTypeToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentSyncAdapterTypeCmd.AddCommand(contentSyncAdapterTypeToStringCmd)
+	contentSyncAdapterTypeWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentSyncAdapterTypeWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentSyncAdapterTypeWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentSyncAdapterTypeCmd.AddCommand(contentSyncAdapterTypeWriteToParcelCmd)
+	contentSyncAdapterTypeNewKeyCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentSyncAdapterTypeNewKeyCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentSyncAdapterTypeNewKeyCmd.Flags().String("arg1", "", "arg1 (string)")
+	contentSyncAdapterTypeCmd.AddCommand(contentSyncAdapterTypeNewKeyCmd)
+	contentCmd.AddCommand(contentSyncAdapterTypeCmd)
+	contentRestrictionEntryNewRestrictionEntryCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentRestrictionEntryCmd.AddCommand(contentRestrictionEntryNewRestrictionEntryCmd)
+	contentRestrictionEntryDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentRestrictionEntryCmd.AddCommand(contentRestrictionEntryDescribeContentsCmd)
+	contentRestrictionEntryEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentRestrictionEntryEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentRestrictionEntryCmd.AddCommand(contentRestrictionEntryEqualsCmd)
+	contentRestrictionEntryGetAllSelectedStringsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentRestrictionEntryCmd.AddCommand(contentRestrictionEntryGetAllSelectedStringsCmd)
+	contentRestrictionEntryGetChoiceEntriesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentRestrictionEntryCmd.AddCommand(contentRestrictionEntryGetChoiceEntriesCmd)
+	contentRestrictionEntryGetChoiceValuesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentRestrictionEntryCmd.AddCommand(contentRestrictionEntryGetChoiceValuesCmd)
+	contentRestrictionEntryGetDescriptionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentRestrictionEntryCmd.AddCommand(contentRestrictionEntryGetDescriptionCmd)
+	contentRestrictionEntryGetIntValueCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentRestrictionEntryCmd.AddCommand(contentRestrictionEntryGetIntValueCmd)
+	contentRestrictionEntryGetKeyCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentRestrictionEntryCmd.AddCommand(contentRestrictionEntryGetKeyCmd)
+	contentRestrictionEntryGetRestrictionsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentRestrictionEntryCmd.AddCommand(contentRestrictionEntryGetRestrictionsCmd)
+	contentRestrictionEntryGetSelectedStateCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentRestrictionEntryCmd.AddCommand(contentRestrictionEntryGetSelectedStateCmd)
+	contentRestrictionEntryGetSelectedStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentRestrictionEntryCmd.AddCommand(contentRestrictionEntryGetSelectedStringCmd)
+	contentRestrictionEntryGetTitleCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentRestrictionEntryCmd.AddCommand(contentRestrictionEntryGetTitleCmd)
+	contentRestrictionEntryGetTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentRestrictionEntryCmd.AddCommand(contentRestrictionEntryGetTypeCmd)
+	contentRestrictionEntryHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentRestrictionEntryCmd.AddCommand(contentRestrictionEntryHashCodeCmd)
+	contentRestrictionEntrySetAllSelectedStringsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentRestrictionEntrySetAllSelectedStringsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentRestrictionEntryCmd.AddCommand(contentRestrictionEntrySetAllSelectedStringsCmd)
+	contentRestrictionEntrySetChoiceEntries2Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentRestrictionEntrySetChoiceEntries2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentRestrictionEntrySetChoiceEntries2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentRestrictionEntryCmd.AddCommand(contentRestrictionEntrySetChoiceEntries2Cmd)
+	contentRestrictionEntrySetChoiceEntries1_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentRestrictionEntrySetChoiceEntries1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentRestrictionEntryCmd.AddCommand(contentRestrictionEntrySetChoiceEntries1_1Cmd)
+	contentRestrictionEntrySetChoiceValues2Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentRestrictionEntrySetChoiceValues2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentRestrictionEntrySetChoiceValues2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentRestrictionEntryCmd.AddCommand(contentRestrictionEntrySetChoiceValues2Cmd)
+	contentRestrictionEntrySetChoiceValues1_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentRestrictionEntrySetChoiceValues1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentRestrictionEntryCmd.AddCommand(contentRestrictionEntrySetChoiceValues1_1Cmd)
+	contentRestrictionEntrySetDescriptionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentRestrictionEntrySetDescriptionCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentRestrictionEntryCmd.AddCommand(contentRestrictionEntrySetDescriptionCmd)
+	contentRestrictionEntrySetIntValueCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentRestrictionEntrySetIntValueCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentRestrictionEntryCmd.AddCommand(contentRestrictionEntrySetIntValueCmd)
+	contentRestrictionEntrySetRestrictionsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentRestrictionEntrySetRestrictionsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentRestrictionEntryCmd.AddCommand(contentRestrictionEntrySetRestrictionsCmd)
+	contentRestrictionEntrySetSelectedStateCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentRestrictionEntrySetSelectedStateCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	contentRestrictionEntryCmd.AddCommand(contentRestrictionEntrySetSelectedStateCmd)
+	contentRestrictionEntrySetSelectedStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentRestrictionEntrySetSelectedStringCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentRestrictionEntryCmd.AddCommand(contentRestrictionEntrySetSelectedStringCmd)
+	contentRestrictionEntrySetTitleCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentRestrictionEntrySetTitleCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentRestrictionEntryCmd.AddCommand(contentRestrictionEntrySetTitleCmd)
+	contentRestrictionEntrySetTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentRestrictionEntrySetTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentRestrictionEntryCmd.AddCommand(contentRestrictionEntrySetTypeCmd)
+	contentRestrictionEntryToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentRestrictionEntryCmd.AddCommand(contentRestrictionEntryToStringCmd)
+	contentRestrictionEntryWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentRestrictionEntryWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentRestrictionEntryWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentRestrictionEntryCmd.AddCommand(contentRestrictionEntryWriteToParcelCmd)
+	contentRestrictionEntryCreateBundleArrayEntryCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentRestrictionEntryCreateBundleArrayEntryCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentRestrictionEntryCreateBundleArrayEntryCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentRestrictionEntryCmd.AddCommand(contentRestrictionEntryCreateBundleArrayEntryCmd)
+	contentRestrictionEntryCreateBundleEntryCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentRestrictionEntryCreateBundleEntryCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentRestrictionEntryCreateBundleEntryCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentRestrictionEntryCmd.AddCommand(contentRestrictionEntryCreateBundleEntryCmd)
+	contentCmd.AddCommand(contentRestrictionEntryCmd)
+	contentContextWrapperNewContextWrapperCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperNewContextWrapperCmd)
+	contentContextWrapperBindIsolatedServiceCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperBindIsolatedServiceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentContextWrapperBindIsolatedServiceCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentContextWrapperBindIsolatedServiceCmd.Flags().String("arg2", "", "arg2 (string)")
+	contentContextWrapperBindIsolatedServiceCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	contentContextWrapperBindIsolatedServiceCmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperBindIsolatedServiceCmd)
+	contentContextWrapperBindService4Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperBindService4Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentContextWrapperBindService4Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentContextWrapperBindService4Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	contentContextWrapperBindService4Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperBindService4Cmd)
+	contentContextWrapperBindService3_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperBindService3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentContextWrapperBindService3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentContextWrapperBindService3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperBindService3_1Cmd)
+	contentContextWrapperBindService3_2Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperBindService3_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentContextWrapperBindService3_2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentContextWrapperBindService3_2Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperBindService3_2Cmd)
+	contentContextWrapperBindService4_3Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperBindService4_3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentContextWrapperBindService4_3Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentContextWrapperBindService4_3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	contentContextWrapperBindService4_3Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperBindService4_3Cmd)
+	contentContextWrapperBindServiceAsUser4Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperBindServiceAsUser4Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentContextWrapperBindServiceAsUser4Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentContextWrapperBindServiceAsUser4Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	contentContextWrapperBindServiceAsUser4Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperBindServiceAsUser4Cmd)
+	contentContextWrapperBindServiceAsUser4_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperBindServiceAsUser4_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentContextWrapperBindServiceAsUser4_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentContextWrapperBindServiceAsUser4_1Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	contentContextWrapperBindServiceAsUser4_1Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperBindServiceAsUser4_1Cmd)
+	contentContextWrapperCheckCallingOrSelfPermissionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperCheckCallingOrSelfPermissionCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperCheckCallingOrSelfPermissionCmd)
+	contentContextWrapperCheckCallingOrSelfUriPermissionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperCheckCallingOrSelfUriPermissionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentContextWrapperCheckCallingOrSelfUriPermissionCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperCheckCallingOrSelfUriPermissionCmd)
+	contentContextWrapperCheckCallingPermissionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperCheckCallingPermissionCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperCheckCallingPermissionCmd)
+	contentContextWrapperCheckCallingUriPermissionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperCheckCallingUriPermissionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentContextWrapperCheckCallingUriPermissionCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperCheckCallingUriPermissionCmd)
+	contentContextWrapperCheckContentUriPermissionFullCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperCheckContentUriPermissionFullCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentContextWrapperCheckContentUriPermissionFullCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentContextWrapperCheckContentUriPermissionFullCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	contentContextWrapperCheckContentUriPermissionFullCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperCheckContentUriPermissionFullCmd)
+	contentContextWrapperCheckPermissionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperCheckPermissionCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentContextWrapperCheckPermissionCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentContextWrapperCheckPermissionCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperCheckPermissionCmd)
+	contentContextWrapperCheckSelfPermissionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperCheckSelfPermissionCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperCheckSelfPermissionCmd)
+	contentContextWrapperCheckUriPermission4Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperCheckUriPermission4Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentContextWrapperCheckUriPermission4Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentContextWrapperCheckUriPermission4Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	contentContextWrapperCheckUriPermission4Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperCheckUriPermission4Cmd)
+	contentContextWrapperCheckUriPermission6_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperCheckUriPermission6_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentContextWrapperCheckUriPermission6_1Cmd.Flags().String("arg1", "", "arg1 (string)")
+	contentContextWrapperCheckUriPermission6_1Cmd.Flags().String("arg2", "", "arg2 (string)")
+	contentContextWrapperCheckUriPermission6_1Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	contentContextWrapperCheckUriPermission6_1Cmd.Flags().Int32("arg4", 0, "arg4 (int32)")
+	contentContextWrapperCheckUriPermission6_1Cmd.Flags().Int32("arg5", 0, "arg5 (int32)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperCheckUriPermission6_1Cmd)
+	contentContextWrapperClearWallpaperCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperClearWallpaperCmd)
+	contentContextWrapperCreateAttributionContextCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperCreateAttributionContextCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperCreateAttributionContextCmd)
+	contentContextWrapperCreateConfigurationContextCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperCreateConfigurationContextCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperCreateConfigurationContextCmd)
+	contentContextWrapperCreateContextCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperCreateContextCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperCreateContextCmd)
+	contentContextWrapperCreateContextForSplitCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperCreateContextForSplitCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperCreateContextForSplitCmd)
+	contentContextWrapperCreateDeviceContextCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperCreateDeviceContextCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperCreateDeviceContextCmd)
+	contentContextWrapperCreateDeviceProtectedStorageContextCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperCreateDeviceProtectedStorageContextCmd)
+	contentContextWrapperCreateDisplayContextCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperCreateDisplayContextCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperCreateDisplayContextCmd)
+	contentContextWrapperCreatePackageContextCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperCreatePackageContextCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentContextWrapperCreatePackageContextCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperCreatePackageContextCmd)
+	contentContextWrapperCreateWindowContext3Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperCreateWindowContext3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentContextWrapperCreateWindowContext3Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentContextWrapperCreateWindowContext3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperCreateWindowContext3Cmd)
+	contentContextWrapperCreateWindowContext2_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperCreateWindowContext2_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentContextWrapperCreateWindowContext2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperCreateWindowContext2_1Cmd)
+	contentContextWrapperDatabaseListCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperDatabaseListCmd)
+	contentContextWrapperDeleteDatabaseCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperDeleteDatabaseCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperDeleteDatabaseCmd)
+	contentContextWrapperDeleteFileCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperDeleteFileCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperDeleteFileCmd)
+	contentContextWrapperDeleteSharedPreferencesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperDeleteSharedPreferencesCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperDeleteSharedPreferencesCmd)
+	contentContextWrapperEnforceCallingOrSelfPermissionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperEnforceCallingOrSelfPermissionCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentContextWrapperEnforceCallingOrSelfPermissionCmd.Flags().String("arg1", "", "arg1 (string)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperEnforceCallingOrSelfPermissionCmd)
+	contentContextWrapperEnforceCallingOrSelfUriPermissionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperEnforceCallingOrSelfUriPermissionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentContextWrapperEnforceCallingOrSelfUriPermissionCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentContextWrapperEnforceCallingOrSelfUriPermissionCmd.Flags().String("arg2", "", "arg2 (string)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperEnforceCallingOrSelfUriPermissionCmd)
+	contentContextWrapperEnforceCallingPermissionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperEnforceCallingPermissionCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentContextWrapperEnforceCallingPermissionCmd.Flags().String("arg1", "", "arg1 (string)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperEnforceCallingPermissionCmd)
+	contentContextWrapperEnforceCallingUriPermissionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperEnforceCallingUriPermissionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentContextWrapperEnforceCallingUriPermissionCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentContextWrapperEnforceCallingUriPermissionCmd.Flags().String("arg2", "", "arg2 (string)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperEnforceCallingUriPermissionCmd)
+	contentContextWrapperEnforcePermissionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperEnforcePermissionCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentContextWrapperEnforcePermissionCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentContextWrapperEnforcePermissionCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	contentContextWrapperEnforcePermissionCmd.Flags().String("arg3", "", "arg3 (string)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperEnforcePermissionCmd)
+	contentContextWrapperEnforceUriPermission5Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperEnforceUriPermission5Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentContextWrapperEnforceUriPermission5Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentContextWrapperEnforceUriPermission5Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	contentContextWrapperEnforceUriPermission5Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	contentContextWrapperEnforceUriPermission5Cmd.Flags().String("arg4", "", "arg4 (string)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperEnforceUriPermission5Cmd)
+	contentContextWrapperEnforceUriPermission7_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperEnforceUriPermission7_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentContextWrapperEnforceUriPermission7_1Cmd.Flags().String("arg1", "", "arg1 (string)")
+	contentContextWrapperEnforceUriPermission7_1Cmd.Flags().String("arg2", "", "arg2 (string)")
+	contentContextWrapperEnforceUriPermission7_1Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	contentContextWrapperEnforceUriPermission7_1Cmd.Flags().Int32("arg4", 0, "arg4 (int32)")
+	contentContextWrapperEnforceUriPermission7_1Cmd.Flags().Int32("arg5", 0, "arg5 (int32)")
+	contentContextWrapperEnforceUriPermission7_1Cmd.Flags().String("arg6", "", "arg6 (string)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperEnforceUriPermission7_1Cmd)
+	contentContextWrapperFileListCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperFileListCmd)
+	contentContextWrapperGetApplicationContextCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperGetApplicationContextCmd)
+	contentContextWrapperGetApplicationInfoCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperGetApplicationInfoCmd)
+	contentContextWrapperGetAssetsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperGetAssetsCmd)
+	contentContextWrapperGetAttributionSourceCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperGetAttributionSourceCmd)
+	contentContextWrapperGetAttributionTagCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperGetAttributionTagCmd)
+	contentContextWrapperGetBaseContextCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperGetBaseContextCmd)
+	contentContextWrapperGetCacheDirCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperGetCacheDirCmd)
+	contentContextWrapperGetClassLoaderCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperGetClassLoaderCmd)
+	contentContextWrapperGetCodeCacheDirCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperGetCodeCacheDirCmd)
+	contentContextWrapperGetContentResolverCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperGetContentResolverCmd)
+	contentContextWrapperGetDataDirCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperGetDataDirCmd)
+	contentContextWrapperGetDatabasePathCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperGetDatabasePathCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperGetDatabasePathCmd)
+	contentContextWrapperGetDeviceIdCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperGetDeviceIdCmd)
+	contentContextWrapperGetDirCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperGetDirCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentContextWrapperGetDirCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperGetDirCmd)
+	contentContextWrapperGetDisplayCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperGetDisplayCmd)
+	contentContextWrapperGetExternalCacheDirCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperGetExternalCacheDirCmd)
+	contentContextWrapperGetExternalCacheDirsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperGetExternalCacheDirsCmd)
+	contentContextWrapperGetExternalFilesDirCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperGetExternalFilesDirCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperGetExternalFilesDirCmd)
+	contentContextWrapperGetExternalFilesDirsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperGetExternalFilesDirsCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperGetExternalFilesDirsCmd)
+	contentContextWrapperGetExternalMediaDirsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperGetExternalMediaDirsCmd)
+	contentContextWrapperGetFileStreamPathCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperGetFileStreamPathCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperGetFileStreamPathCmd)
+	contentContextWrapperGetFilesDirCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperGetFilesDirCmd)
+	contentContextWrapperGetMainExecutorCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperGetMainExecutorCmd)
+	contentContextWrapperGetMainLooperCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperGetMainLooperCmd)
+	contentContextWrapperGetNoBackupFilesDirCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperGetNoBackupFilesDirCmd)
+	contentContextWrapperGetObbDirCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperGetObbDirCmd)
+	contentContextWrapperGetObbDirsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperGetObbDirsCmd)
+	contentContextWrapperGetOpPackageNameCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperGetOpPackageNameCmd)
+	contentContextWrapperGetPackageCodePathCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperGetPackageCodePathCmd)
+	contentContextWrapperGetPackageManagerCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperGetPackageManagerCmd)
+	contentContextWrapperGetPackageNameCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperGetPackageNameCmd)
+	contentContextWrapperGetPackageResourcePathCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperGetPackageResourcePathCmd)
+	contentContextWrapperGetParamsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperGetParamsCmd)
+	contentContextWrapperGetResourcesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperGetResourcesCmd)
+	contentContextWrapperGetSharedPreferencesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperGetSharedPreferencesCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentContextWrapperGetSharedPreferencesCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperGetSharedPreferencesCmd)
+	contentContextWrapperGetSystemServiceCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperGetSystemServiceCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperGetSystemServiceCmd)
+	contentContextWrapperGetThemeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperGetThemeCmd)
+	contentContextWrapperGetWallpaperCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperGetWallpaperCmd)
+	contentContextWrapperGetWallpaperDesiredMinimumHeightCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperGetWallpaperDesiredMinimumHeightCmd)
+	contentContextWrapperGetWallpaperDesiredMinimumWidthCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperGetWallpaperDesiredMinimumWidthCmd)
+	contentContextWrapperGrantUriPermissionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperGrantUriPermissionCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentContextWrapperGrantUriPermissionCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentContextWrapperGrantUriPermissionCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperGrantUriPermissionCmd)
+	contentContextWrapperIsDeviceProtectedStorageCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperIsDeviceProtectedStorageCmd)
+	contentContextWrapperIsRestrictedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperIsRestrictedCmd)
+	contentContextWrapperIsUiContextCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperIsUiContextCmd)
+	contentContextWrapperMoveDatabaseFromCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperMoveDatabaseFromCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentContextWrapperMoveDatabaseFromCmd.Flags().String("arg1", "", "arg1 (string)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperMoveDatabaseFromCmd)
+	contentContextWrapperMoveSharedPreferencesFromCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperMoveSharedPreferencesFromCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentContextWrapperMoveSharedPreferencesFromCmd.Flags().String("arg1", "", "arg1 (string)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperMoveSharedPreferencesFromCmd)
+	contentContextWrapperOpenFileInputCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperOpenFileInputCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperOpenFileInputCmd)
+	contentContextWrapperOpenFileOutputCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperOpenFileOutputCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentContextWrapperOpenFileOutputCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperOpenFileOutputCmd)
+	contentContextWrapperOpenOrCreateDatabaseCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperOpenOrCreateDatabaseCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentContextWrapperOpenOrCreateDatabaseCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentContextWrapperOpenOrCreateDatabaseCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperOpenOrCreateDatabaseCmd)
+	contentContextWrapperPeekWallpaperCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperPeekWallpaperCmd)
+	contentContextWrapperRegisterComponentCallbacksCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperRegisterComponentCallbacksCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperRegisterComponentCallbacksCmd)
+	contentContextWrapperRegisterDeviceIdChangeListenerCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperRegisterDeviceIdChangeListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentContextWrapperRegisterDeviceIdChangeListenerCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperRegisterDeviceIdChangeListenerCmd)
+	contentContextWrapperRegisterReceiver2Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperRegisterReceiver2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentContextWrapperRegisterReceiver2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperRegisterReceiver2Cmd)
+	contentContextWrapperRegisterReceiver3_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperRegisterReceiver3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentContextWrapperRegisterReceiver3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentContextWrapperRegisterReceiver3_1Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperRegisterReceiver3_1Cmd)
+	contentContextWrapperRemoveStickyBroadcastCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperRemoveStickyBroadcastCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperRemoveStickyBroadcastCmd)
+	contentContextWrapperRemoveStickyBroadcastAsUserCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperRemoveStickyBroadcastAsUserCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentContextWrapperRemoveStickyBroadcastAsUserCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperRemoveStickyBroadcastAsUserCmd)
+	contentContextWrapperRevokeUriPermission2Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperRevokeUriPermission2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentContextWrapperRevokeUriPermission2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperRevokeUriPermission2Cmd)
+	contentContextWrapperRevokeUriPermission3_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperRevokeUriPermission3_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	contentContextWrapperRevokeUriPermission3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentContextWrapperRevokeUriPermission3_1Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperRevokeUriPermission3_1Cmd)
+	contentContextWrapperSendBroadcast1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperSendBroadcast1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperSendBroadcast1Cmd)
+	contentContextWrapperSendBroadcast2_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperSendBroadcast2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentContextWrapperSendBroadcast2_1Cmd.Flags().String("arg1", "", "arg1 (string)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperSendBroadcast2_1Cmd)
+	contentContextWrapperSendBroadcast3_2Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperSendBroadcast3_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentContextWrapperSendBroadcast3_2Cmd.Flags().String("arg1", "", "arg1 (string)")
+	contentContextWrapperSendBroadcast3_2Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperSendBroadcast3_2Cmd)
+	contentContextWrapperSendBroadcastAsUser2Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperSendBroadcastAsUser2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentContextWrapperSendBroadcastAsUser2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperSendBroadcastAsUser2Cmd)
+	contentContextWrapperSendBroadcastAsUser3_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperSendBroadcastAsUser3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentContextWrapperSendBroadcastAsUser3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentContextWrapperSendBroadcastAsUser3_1Cmd.Flags().String("arg2", "", "arg2 (string)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperSendBroadcastAsUser3_1Cmd)
+	contentContextWrapperSendOrderedBroadcast2Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperSendOrderedBroadcast2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentContextWrapperSendOrderedBroadcast2Cmd.Flags().String("arg1", "", "arg1 (string)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperSendOrderedBroadcast2Cmd)
+	contentContextWrapperSendOrderedBroadcast3_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperSendOrderedBroadcast3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentContextWrapperSendOrderedBroadcast3_1Cmd.Flags().String("arg1", "", "arg1 (string)")
+	contentContextWrapperSendOrderedBroadcast3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperSendOrderedBroadcast3_1Cmd)
+	contentContextWrapperSendStickyBroadcast1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperSendStickyBroadcast1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperSendStickyBroadcast1Cmd)
+	contentContextWrapperSendStickyBroadcast2_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperSendStickyBroadcast2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentContextWrapperSendStickyBroadcast2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperSendStickyBroadcast2_1Cmd)
+	contentContextWrapperSendStickyBroadcastAsUserCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperSendStickyBroadcastAsUserCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentContextWrapperSendStickyBroadcastAsUserCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperSendStickyBroadcastAsUserCmd)
+	contentContextWrapperSetThemeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperSetThemeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperSetThemeCmd)
+	contentContextWrapperSetWallpaper1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperSetWallpaper1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperSetWallpaper1Cmd)
+	contentContextWrapperSetWallpaper1_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperSetWallpaper1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperSetWallpaper1_1Cmd)
+	contentContextWrapperStartActivities1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperStartActivities1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperStartActivities1Cmd)
+	contentContextWrapperStartActivities2_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperStartActivities2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentContextWrapperStartActivities2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperStartActivities2_1Cmd)
+	contentContextWrapperStartActivity1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperStartActivity1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperStartActivity1Cmd)
+	contentContextWrapperStartActivity2_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperStartActivity2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentContextWrapperStartActivity2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperStartActivity2_1Cmd)
+	contentContextWrapperStartForegroundServiceCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperStartForegroundServiceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperStartForegroundServiceCmd)
+	contentContextWrapperStartInstrumentationCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperStartInstrumentationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentContextWrapperStartInstrumentationCmd.Flags().String("arg1", "", "arg1 (string)")
+	contentContextWrapperStartInstrumentationCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperStartInstrumentationCmd)
+	contentContextWrapperStartIntentSender5Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperStartIntentSender5Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentContextWrapperStartIntentSender5Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentContextWrapperStartIntentSender5Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	contentContextWrapperStartIntentSender5Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	contentContextWrapperStartIntentSender5Cmd.Flags().Int32("arg4", 0, "arg4 (int32)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperStartIntentSender5Cmd)
+	contentContextWrapperStartIntentSender6_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperStartIntentSender6_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentContextWrapperStartIntentSender6_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentContextWrapperStartIntentSender6_1Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	contentContextWrapperStartIntentSender6_1Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	contentContextWrapperStartIntentSender6_1Cmd.Flags().Int32("arg4", 0, "arg4 (int32)")
+	contentContextWrapperStartIntentSender6_1Cmd.Flags().Int64("arg5", 0, "arg5 (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperStartIntentSender6_1Cmd)
+	contentContextWrapperStartServiceCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperStartServiceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperStartServiceCmd)
+	contentContextWrapperStopServiceCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperStopServiceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperStopServiceCmd)
+	contentContextWrapperUnbindServiceCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperUnbindServiceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperUnbindServiceCmd)
+	contentContextWrapperUnregisterComponentCallbacksCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperUnregisterComponentCallbacksCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperUnregisterComponentCallbacksCmd)
+	contentContextWrapperUnregisterDeviceIdChangeListenerCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperUnregisterDeviceIdChangeListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperUnregisterDeviceIdChangeListenerCmd)
+	contentContextWrapperUnregisterReceiverCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperUnregisterReceiverCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperUnregisterReceiverCmd)
+	contentContextWrapperUpdateServiceGroupCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentContextWrapperUpdateServiceGroupCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentContextWrapperUpdateServiceGroupCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentContextWrapperUpdateServiceGroupCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	contentContextWrapperCmd.AddCommand(contentContextWrapperUpdateServiceGroupCmd)
+	contentCmd.AddCommand(contentContextWrapperCmd)
+	contentValuesCmd.AddCommand(contentValuesNewValuesCmd)
+	contentValuesClearCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentValuesCmd.AddCommand(contentValuesClearCmd)
+	contentValuesContainsKeyCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentValuesContainsKeyCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentValuesCmd.AddCommand(contentValuesContainsKeyCmd)
+	contentValuesDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentValuesCmd.AddCommand(contentValuesDescribeContentsCmd)
+	contentValuesEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentValuesEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentValuesCmd.AddCommand(contentValuesEqualsCmd)
+	contentValuesGetCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentValuesGetCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentValuesCmd.AddCommand(contentValuesGetCmd)
+	contentValuesGetAsBooleanCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentValuesGetAsBooleanCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentValuesCmd.AddCommand(contentValuesGetAsBooleanCmd)
+	contentValuesGetAsByteCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentValuesGetAsByteCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentValuesCmd.AddCommand(contentValuesGetAsByteCmd)
+	contentValuesGetAsByteArrayCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentValuesGetAsByteArrayCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentValuesCmd.AddCommand(contentValuesGetAsByteArrayCmd)
+	contentValuesGetAsDoubleCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentValuesGetAsDoubleCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentValuesCmd.AddCommand(contentValuesGetAsDoubleCmd)
+	contentValuesGetAsFloatCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentValuesGetAsFloatCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentValuesCmd.AddCommand(contentValuesGetAsFloatCmd)
+	contentValuesGetAsIntegerCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentValuesGetAsIntegerCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentValuesCmd.AddCommand(contentValuesGetAsIntegerCmd)
+	contentValuesGetAsLongCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentValuesGetAsLongCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentValuesCmd.AddCommand(contentValuesGetAsLongCmd)
+	contentValuesGetAsShortCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentValuesGetAsShortCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentValuesCmd.AddCommand(contentValuesGetAsShortCmd)
+	contentValuesGetAsStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentValuesGetAsStringCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentValuesCmd.AddCommand(contentValuesGetAsStringCmd)
+	contentValuesHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentValuesCmd.AddCommand(contentValuesHashCodeCmd)
+	contentValuesIsEmptyCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentValuesCmd.AddCommand(contentValuesIsEmptyCmd)
+	contentValuesPut2Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentValuesPut2Cmd.Flags().String("arg0", "", "arg0 (string)")
+	contentValuesPut2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentValuesCmd.AddCommand(contentValuesPut2Cmd)
+	contentValuesPut2_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentValuesPut2_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	contentValuesPut2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentValuesCmd.AddCommand(contentValuesPut2_1Cmd)
+	contentValuesPut2_2Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentValuesPut2_2Cmd.Flags().String("arg0", "", "arg0 (string)")
+	contentValuesPut2_2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentValuesCmd.AddCommand(contentValuesPut2_2Cmd)
+	contentValuesPut2_3Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentValuesPut2_3Cmd.Flags().String("arg0", "", "arg0 (string)")
+	contentValuesPut2_3Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentValuesCmd.AddCommand(contentValuesPut2_3Cmd)
+	contentValuesPut2_4Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentValuesPut2_4Cmd.Flags().String("arg0", "", "arg0 (string)")
+	contentValuesPut2_4Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentValuesCmd.AddCommand(contentValuesPut2_4Cmd)
+	contentValuesPut2_5Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentValuesPut2_5Cmd.Flags().String("arg0", "", "arg0 (string)")
+	contentValuesPut2_5Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentValuesCmd.AddCommand(contentValuesPut2_5Cmd)
+	contentValuesPut2_6Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentValuesPut2_6Cmd.Flags().String("arg0", "", "arg0 (string)")
+	contentValuesPut2_6Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentValuesCmd.AddCommand(contentValuesPut2_6Cmd)
+	contentValuesPut2_7Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentValuesPut2_7Cmd.Flags().String("arg0", "", "arg0 (string)")
+	contentValuesPut2_7Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentValuesCmd.AddCommand(contentValuesPut2_7Cmd)
+	contentValuesPut2_8Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentValuesPut2_8Cmd.Flags().String("arg0", "", "arg0 (string)")
+	contentValuesPut2_8Cmd.Flags().String("arg1", "", "arg1 (string)")
+	contentValuesCmd.AddCommand(contentValuesPut2_8Cmd)
+	contentValuesPutAllCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentValuesPutAllCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentValuesCmd.AddCommand(contentValuesPutAllCmd)
+	contentValuesPutNullCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentValuesPutNullCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentValuesCmd.AddCommand(contentValuesPutNullCmd)
+	contentValuesRemoveCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentValuesRemoveCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentValuesCmd.AddCommand(contentValuesRemoveCmd)
+	contentValuesSizeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentValuesCmd.AddCommand(contentValuesSizeCmd)
+	contentValuesToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentValuesCmd.AddCommand(contentValuesToStringCmd)
+	contentValuesWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentValuesWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentValuesWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentValuesCmd.AddCommand(contentValuesWriteToParcelCmd)
+	contentCmd.AddCommand(contentValuesCmd)
+	contentProviderOperationApplyCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentProviderOperationApplyCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentProviderOperationApplyCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	contentProviderOperationCmd.AddCommand(contentProviderOperationApplyCmd)
+	contentProviderOperationCmd.AddCommand(contentProviderOperationDescribeContentsCmd)
+	contentProviderOperationCmd.AddCommand(contentProviderOperationGetUriCmd)
+	contentProviderOperationCmd.AddCommand(contentProviderOperationIsAssertQueryCmd)
+	contentProviderOperationCmd.AddCommand(contentProviderOperationIsCallCmd)
+	contentProviderOperationCmd.AddCommand(contentProviderOperationIsDeleteCmd)
+	contentProviderOperationCmd.AddCommand(contentProviderOperationIsExceptionAllowedCmd)
+	contentProviderOperationCmd.AddCommand(contentProviderOperationIsInsertCmd)
+	contentProviderOperationCmd.AddCommand(contentProviderOperationIsReadOperationCmd)
+	contentProviderOperationCmd.AddCommand(contentProviderOperationIsUpdateCmd)
+	contentProviderOperationCmd.AddCommand(contentProviderOperationIsWriteOperationCmd)
+	contentProviderOperationCmd.AddCommand(contentProviderOperationIsYieldAllowedCmd)
+	contentProviderOperationResolveExtrasBackReferencesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentProviderOperationResolveExtrasBackReferencesCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentProviderOperationCmd.AddCommand(contentProviderOperationResolveExtrasBackReferencesCmd)
+	contentProviderOperationResolveSelectionArgsBackReferencesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentProviderOperationResolveSelectionArgsBackReferencesCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentProviderOperationCmd.AddCommand(contentProviderOperationResolveSelectionArgsBackReferencesCmd)
+	contentProviderOperationResolveValueBackReferencesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentProviderOperationResolveValueBackReferencesCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentProviderOperationCmd.AddCommand(contentProviderOperationResolveValueBackReferencesCmd)
+	contentProviderOperationCmd.AddCommand(contentProviderOperationToStringCmd)
+	contentProviderOperationWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentProviderOperationWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentProviderOperationCmd.AddCommand(contentProviderOperationWriteToParcelCmd)
+	contentProviderOperationNewAssertQueryCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentProviderOperationCmd.AddCommand(contentProviderOperationNewAssertQueryCmd)
+	contentProviderOperationNewCallCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentProviderOperationNewCallCmd.Flags().String("arg1", "", "arg1 (string)")
+	contentProviderOperationNewCallCmd.Flags().String("arg2", "", "arg2 (string)")
+	contentProviderOperationCmd.AddCommand(contentProviderOperationNewCallCmd)
+	contentProviderOperationNewDeleteCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentProviderOperationCmd.AddCommand(contentProviderOperationNewDeleteCmd)
+	contentProviderOperationNewInsertCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentProviderOperationCmd.AddCommand(contentProviderOperationNewInsertCmd)
+	contentProviderOperationNewUpdateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentProviderOperationCmd.AddCommand(contentProviderOperationNewUpdateCmd)
+	contentCmd.AddCommand(contentProviderOperationCmd)
+	contentProviderOperationBuilderCmd.AddCommand(contentProviderOperationBuilderBuildCmd)
+	contentProviderOperationBuilderWithExceptionAllowedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	contentProviderOperationBuilderCmd.AddCommand(contentProviderOperationBuilderWithExceptionAllowedCmd)
+	contentProviderOperationBuilderWithExpectedCountCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentProviderOperationBuilderCmd.AddCommand(contentProviderOperationBuilderWithExpectedCountCmd)
+	contentProviderOperationBuilderWithExtraCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentProviderOperationBuilderWithExtraCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentProviderOperationBuilderCmd.AddCommand(contentProviderOperationBuilderWithExtraCmd)
+	contentProviderOperationBuilderWithExtraBackReference2Cmd.Flags().String("arg0", "", "arg0 (string)")
+	contentProviderOperationBuilderWithExtraBackReference2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentProviderOperationBuilderCmd.AddCommand(contentProviderOperationBuilderWithExtraBackReference2Cmd)
+	contentProviderOperationBuilderWithExtraBackReference3_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	contentProviderOperationBuilderWithExtraBackReference3_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentProviderOperationBuilderWithExtraBackReference3_1Cmd.Flags().String("arg2", "", "arg2 (string)")
+	contentProviderOperationBuilderCmd.AddCommand(contentProviderOperationBuilderWithExtraBackReference3_1Cmd)
+	contentProviderOperationBuilderWithExtrasCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentProviderOperationBuilderCmd.AddCommand(contentProviderOperationBuilderWithExtrasCmd)
+	contentProviderOperationBuilderWithSelectionCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentProviderOperationBuilderWithSelectionCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentProviderOperationBuilderCmd.AddCommand(contentProviderOperationBuilderWithSelectionCmd)
+	contentProviderOperationBuilderWithSelectionBackReference2Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentProviderOperationBuilderWithSelectionBackReference2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentProviderOperationBuilderCmd.AddCommand(contentProviderOperationBuilderWithSelectionBackReference2Cmd)
+	contentProviderOperationBuilderWithSelectionBackReference3_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentProviderOperationBuilderWithSelectionBackReference3_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentProviderOperationBuilderWithSelectionBackReference3_1Cmd.Flags().String("arg2", "", "arg2 (string)")
+	contentProviderOperationBuilderCmd.AddCommand(contentProviderOperationBuilderWithSelectionBackReference3_1Cmd)
+	contentProviderOperationBuilderWithValueCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentProviderOperationBuilderWithValueCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentProviderOperationBuilderCmd.AddCommand(contentProviderOperationBuilderWithValueCmd)
+	contentProviderOperationBuilderWithValueBackReference2Cmd.Flags().String("arg0", "", "arg0 (string)")
+	contentProviderOperationBuilderWithValueBackReference2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentProviderOperationBuilderCmd.AddCommand(contentProviderOperationBuilderWithValueBackReference2Cmd)
+	contentProviderOperationBuilderWithValueBackReference3_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	contentProviderOperationBuilderWithValueBackReference3_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentProviderOperationBuilderWithValueBackReference3_1Cmd.Flags().String("arg2", "", "arg2 (string)")
+	contentProviderOperationBuilderCmd.AddCommand(contentProviderOperationBuilderWithValueBackReference3_1Cmd)
+	contentProviderOperationBuilderWithValueBackReferencesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentProviderOperationBuilderCmd.AddCommand(contentProviderOperationBuilderWithValueBackReferencesCmd)
+	contentProviderOperationBuilderWithValuesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentProviderOperationBuilderCmd.AddCommand(contentProviderOperationBuilderWithValuesCmd)
+	contentProviderOperationBuilderWithYieldAllowedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	contentProviderOperationBuilderCmd.AddCommand(contentProviderOperationBuilderWithYieldAllowedCmd)
+	contentCmd.AddCommand(contentProviderOperationBuilderCmd)
+	contentUriMatcherNewUriMatcherCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentUriMatcherCmd.AddCommand(contentUriMatcherNewUriMatcherCmd)
+	contentUriMatcherAddURICmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentUriMatcherAddURICmd.Flags().String("arg0", "", "arg0 (string)")
+	contentUriMatcherAddURICmd.Flags().String("arg1", "", "arg1 (string)")
+	contentUriMatcherAddURICmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	contentUriMatcherCmd.AddCommand(contentUriMatcherAddURICmd)
+	contentUriMatcherMatchCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentUriMatcherMatchCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentUriMatcherCmd.AddCommand(contentUriMatcherMatchCmd)
+	contentCmd.AddCommand(contentUriMatcherCmd)
+	contentPeriodicSyncNewPeriodicSyncCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentPeriodicSyncNewPeriodicSyncCmd.Flags().String("arg1", "", "arg1 (string)")
+	contentPeriodicSyncNewPeriodicSyncCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	contentPeriodicSyncNewPeriodicSyncCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	contentPeriodicSyncCmd.AddCommand(contentPeriodicSyncNewPeriodicSyncCmd)
+	contentPeriodicSyncDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentPeriodicSyncCmd.AddCommand(contentPeriodicSyncDescribeContentsCmd)
+	contentPeriodicSyncEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentPeriodicSyncEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentPeriodicSyncCmd.AddCommand(contentPeriodicSyncEqualsCmd)
+	contentPeriodicSyncToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentPeriodicSyncCmd.AddCommand(contentPeriodicSyncToStringCmd)
+	contentPeriodicSyncWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentPeriodicSyncWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentPeriodicSyncWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentPeriodicSyncCmd.AddCommand(contentPeriodicSyncWriteToParcelCmd)
+	contentCmd.AddCommand(contentPeriodicSyncCmd)
+	contentUriRelativeFilterGroupNewUriRelativeFilterGroupCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentUriRelativeFilterGroupCmd.AddCommand(contentUriRelativeFilterGroupNewUriRelativeFilterGroupCmd)
+	contentUriRelativeFilterGroupAddUriRelativeFilterCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentUriRelativeFilterGroupAddUriRelativeFilterCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentUriRelativeFilterGroupCmd.AddCommand(contentUriRelativeFilterGroupAddUriRelativeFilterCmd)
+	contentUriRelativeFilterGroupEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentUriRelativeFilterGroupEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentUriRelativeFilterGroupCmd.AddCommand(contentUriRelativeFilterGroupEqualsCmd)
+	contentUriRelativeFilterGroupGetActionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentUriRelativeFilterGroupCmd.AddCommand(contentUriRelativeFilterGroupGetActionCmd)
+	contentUriRelativeFilterGroupHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentUriRelativeFilterGroupCmd.AddCommand(contentUriRelativeFilterGroupHashCodeCmd)
+	contentUriRelativeFilterGroupMatchDataCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentUriRelativeFilterGroupMatchDataCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentUriRelativeFilterGroupCmd.AddCommand(contentUriRelativeFilterGroupMatchDataCmd)
+	contentUriRelativeFilterGroupToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentUriRelativeFilterGroupCmd.AddCommand(contentUriRelativeFilterGroupToStringCmd)
+	contentCmd.AddCommand(contentUriRelativeFilterGroupCmd)
+	contentSyncInfoCmd.AddCommand(contentSyncInfoDescribeContentsCmd)
+	contentSyncInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentSyncInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentSyncInfoCmd.AddCommand(contentSyncInfoWriteToParcelCmd)
+	contentCmd.AddCommand(contentSyncInfoCmd)
+	contentUrisCmd.AddCommand(contentUrisNewUrisCmd)
+	contentUrisAppendIdCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentUrisAppendIdCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentUrisAppendIdCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentUrisCmd.AddCommand(contentUrisAppendIdCmd)
+	contentUrisParseIdCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentUrisParseIdCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentUrisCmd.AddCommand(contentUrisParseIdCmd)
+	contentUrisRemoveIdCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentUrisRemoveIdCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentUrisCmd.AddCommand(contentUrisRemoveIdCmd)
+	contentUrisWithAppendedIdCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentUrisWithAppendedIdCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentUrisWithAppendedIdCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentUrisCmd.AddCommand(contentUrisWithAppendedIdCmd)
+	contentCmd.AddCommand(contentUrisCmd)
+	contentCursorLoaderNewCursorLoaderCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentCursorLoaderCmd.AddCommand(contentCursorLoaderNewCursorLoaderCmd)
+	contentCursorLoaderCancelLoadInBackgroundCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentCursorLoaderCmd.AddCommand(contentCursorLoaderCancelLoadInBackgroundCmd)
+	contentCursorLoaderDeliverResult1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentCursorLoaderDeliverResult1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentCursorLoaderCmd.AddCommand(contentCursorLoaderDeliverResult1Cmd)
+	contentCursorLoaderDumpCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentCursorLoaderDumpCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentCursorLoaderDumpCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentCursorLoaderDumpCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	contentCursorLoaderDumpCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	contentCursorLoaderCmd.AddCommand(contentCursorLoaderDumpCmd)
+	contentCursorLoaderGetProjectionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentCursorLoaderCmd.AddCommand(contentCursorLoaderGetProjectionCmd)
+	contentCursorLoaderGetSelectionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentCursorLoaderCmd.AddCommand(contentCursorLoaderGetSelectionCmd)
+	contentCursorLoaderGetSelectionArgsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentCursorLoaderCmd.AddCommand(contentCursorLoaderGetSelectionArgsCmd)
+	contentCursorLoaderGetSortOrderCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentCursorLoaderCmd.AddCommand(contentCursorLoaderGetSortOrderCmd)
+	contentCursorLoaderGetUriCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentCursorLoaderCmd.AddCommand(contentCursorLoaderGetUriCmd)
+	contentCursorLoaderLoadInBackground0Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentCursorLoaderCmd.AddCommand(contentCursorLoaderLoadInBackground0Cmd)
+	contentCursorLoaderOnCanceled1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentCursorLoaderOnCanceled1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentCursorLoaderCmd.AddCommand(contentCursorLoaderOnCanceled1Cmd)
+	contentCursorLoaderSetProjectionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentCursorLoaderSetProjectionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentCursorLoaderCmd.AddCommand(contentCursorLoaderSetProjectionCmd)
+	contentCursorLoaderSetSelectionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentCursorLoaderSetSelectionCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentCursorLoaderCmd.AddCommand(contentCursorLoaderSetSelectionCmd)
+	contentCursorLoaderSetSelectionArgsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentCursorLoaderSetSelectionArgsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentCursorLoaderCmd.AddCommand(contentCursorLoaderSetSelectionArgsCmd)
+	contentCursorLoaderSetSortOrderCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentCursorLoaderSetSortOrderCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentCursorLoaderCmd.AddCommand(contentCursorLoaderSetSortOrderCmd)
+	contentCursorLoaderSetUriCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentCursorLoaderSetUriCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentCursorLoaderCmd.AddCommand(contentCursorLoaderSetUriCmd)
+	contentCursorLoaderOnCanceled1_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentCursorLoaderOnCanceled1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentCursorLoaderCmd.AddCommand(contentCursorLoaderOnCanceled1_1Cmd)
+	contentCursorLoaderLoadInBackground0_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentCursorLoaderCmd.AddCommand(contentCursorLoaderLoadInBackground0_1Cmd)
+	contentCursorLoaderDeliverResult1_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentCursorLoaderDeliverResult1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentCursorLoaderCmd.AddCommand(contentCursorLoaderDeliverResult1_1Cmd)
+	contentCmd.AddCommand(contentCursorLoaderCmd)
+	contentServiceConnectionOnServiceConnectedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentServiceConnectionOnServiceConnectedCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentServiceConnectionCmd.AddCommand(contentServiceConnectionOnServiceConnectedCmd)
+	contentServiceConnectionOnServiceDisconnectedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentServiceConnectionCmd.AddCommand(contentServiceConnectionOnServiceDisconnectedCmd)
+	contentCmd.AddCommand(contentServiceConnectionCmd)
+	contentSearchRecentSuggestionsProviderCmd.AddCommand(contentSearchRecentSuggestionsProviderNewSearchRecentSuggestionsProviderCmd)
+	contentSearchRecentSuggestionsProviderDeleteCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentSearchRecentSuggestionsProviderDeleteCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentSearchRecentSuggestionsProviderDeleteCmd.Flags().String("arg1", "", "arg1 (string)")
+	contentSearchRecentSuggestionsProviderDeleteCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	contentSearchRecentSuggestionsProviderCmd.AddCommand(contentSearchRecentSuggestionsProviderDeleteCmd)
+	contentSearchRecentSuggestionsProviderGetTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentSearchRecentSuggestionsProviderGetTypeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentSearchRecentSuggestionsProviderCmd.AddCommand(contentSearchRecentSuggestionsProviderGetTypeCmd)
+	contentSearchRecentSuggestionsProviderInsertCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentSearchRecentSuggestionsProviderInsertCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentSearchRecentSuggestionsProviderInsertCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentSearchRecentSuggestionsProviderCmd.AddCommand(contentSearchRecentSuggestionsProviderInsertCmd)
+	contentSearchRecentSuggestionsProviderOnCreateCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentSearchRecentSuggestionsProviderCmd.AddCommand(contentSearchRecentSuggestionsProviderOnCreateCmd)
+	contentSearchRecentSuggestionsProviderQueryCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentSearchRecentSuggestionsProviderQueryCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentSearchRecentSuggestionsProviderQueryCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentSearchRecentSuggestionsProviderQueryCmd.Flags().String("arg2", "", "arg2 (string)")
+	contentSearchRecentSuggestionsProviderQueryCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	contentSearchRecentSuggestionsProviderQueryCmd.Flags().String("arg4", "", "arg4 (string)")
+	contentSearchRecentSuggestionsProviderCmd.AddCommand(contentSearchRecentSuggestionsProviderQueryCmd)
+	contentSearchRecentSuggestionsProviderUpdateCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentSearchRecentSuggestionsProviderUpdateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentSearchRecentSuggestionsProviderUpdateCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentSearchRecentSuggestionsProviderUpdateCmd.Flags().String("arg2", "", "arg2 (string)")
+	contentSearchRecentSuggestionsProviderUpdateCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	contentSearchRecentSuggestionsProviderCmd.AddCommand(contentSearchRecentSuggestionsProviderUpdateCmd)
+	contentCmd.AddCommand(contentSearchRecentSuggestionsProviderCmd)
+	contentComponentNameNewComponentNameCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentComponentNameNewComponentNameCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentComponentNameCmd.AddCommand(contentComponentNameNewComponentNameCmd)
+	contentComponentNameClone0Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentComponentNameCmd.AddCommand(contentComponentNameClone0Cmd)
+	contentComponentNameCompareTo1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentComponentNameCompareTo1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentComponentNameCmd.AddCommand(contentComponentNameCompareTo1Cmd)
+	contentComponentNameDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentComponentNameCmd.AddCommand(contentComponentNameDescribeContentsCmd)
+	contentComponentNameEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentComponentNameEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentComponentNameCmd.AddCommand(contentComponentNameEqualsCmd)
+	contentComponentNameFlattenToShortStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentComponentNameCmd.AddCommand(contentComponentNameFlattenToShortStringCmd)
+	contentComponentNameFlattenToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentComponentNameCmd.AddCommand(contentComponentNameFlattenToStringCmd)
+	contentComponentNameGetClassNameCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentComponentNameCmd.AddCommand(contentComponentNameGetClassNameCmd)
+	contentComponentNameGetPackageNameCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentComponentNameCmd.AddCommand(contentComponentNameGetPackageNameCmd)
+	contentComponentNameGetShortClassNameCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentComponentNameCmd.AddCommand(contentComponentNameGetShortClassNameCmd)
+	contentComponentNameHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentComponentNameCmd.AddCommand(contentComponentNameHashCodeCmd)
+	contentComponentNameToShortStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentComponentNameCmd.AddCommand(contentComponentNameToShortStringCmd)
+	contentComponentNameToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentComponentNameCmd.AddCommand(contentComponentNameToStringCmd)
+	contentComponentNameWriteToParcel2_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentComponentNameWriteToParcel2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentComponentNameWriteToParcel2_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentComponentNameCmd.AddCommand(contentComponentNameWriteToParcel2_1Cmd)
+	contentComponentNameClone0_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentComponentNameCmd.AddCommand(contentComponentNameClone0_1Cmd)
+	contentComponentNameCompareTo1_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentComponentNameCompareTo1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentComponentNameCmd.AddCommand(contentComponentNameCompareTo1_1Cmd)
+	contentComponentNameCreateRelative2Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentComponentNameCreateRelative2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentComponentNameCreateRelative2Cmd.Flags().String("arg1", "", "arg1 (string)")
+	contentComponentNameCmd.AddCommand(contentComponentNameCreateRelative2Cmd)
+	contentComponentNameCreateRelative2_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentComponentNameCreateRelative2_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	contentComponentNameCreateRelative2_1Cmd.Flags().String("arg1", "", "arg1 (string)")
+	contentComponentNameCmd.AddCommand(contentComponentNameCreateRelative2_1Cmd)
+	contentComponentNameReadFromParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentComponentNameReadFromParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentComponentNameCmd.AddCommand(contentComponentNameReadFromParcelCmd)
+	contentComponentNameUnflattenFromStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentComponentNameUnflattenFromStringCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentComponentNameCmd.AddCommand(contentComponentNameUnflattenFromStringCmd)
+	contentComponentNameWriteToParcel2Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentComponentNameWriteToParcel2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentComponentNameWriteToParcel2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentComponentNameCmd.AddCommand(contentComponentNameWriteToParcel2Cmd)
+	contentCmd.AddCommand(contentComponentNameCmd)
+	contentProviderResultNewProviderResultCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentProviderResultCmd.AddCommand(contentProviderResultNewProviderResultCmd)
+	contentProviderResultDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentProviderResultCmd.AddCommand(contentProviderResultDescribeContentsCmd)
+	contentProviderResultToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentProviderResultCmd.AddCommand(contentProviderResultToStringCmd)
+	contentProviderResultWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentProviderResultWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentProviderResultWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentProviderResultCmd.AddCommand(contentProviderResultWriteToParcelCmd)
+	contentCmd.AddCommand(contentProviderResultCmd)
+	contentProviderAttachInfoCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentProviderAttachInfoCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentProviderCmd.AddCommand(contentProviderAttachInfoCmd)
+	contentProviderBulkInsertCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentProviderBulkInsertCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentProviderCmd.AddCommand(contentProviderBulkInsertCmd)
+	contentProviderCall3Cmd.Flags().String("arg0", "", "arg0 (string)")
+	contentProviderCall3Cmd.Flags().String("arg1", "", "arg1 (string)")
+	contentProviderCall3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	contentProviderCmd.AddCommand(contentProviderCall3Cmd)
+	contentProviderCall4_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	contentProviderCall4_1Cmd.Flags().String("arg1", "", "arg1 (string)")
+	contentProviderCall4_1Cmd.Flags().String("arg2", "", "arg2 (string)")
+	contentProviderCall4_1Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	contentProviderCmd.AddCommand(contentProviderCall4_1Cmd)
+	contentProviderCanonicalizeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentProviderCmd.AddCommand(contentProviderCanonicalizeCmd)
+	contentProviderCmd.AddCommand(contentProviderClearCallingIdentityCmd)
+	contentProviderDelete2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentProviderDelete2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentProviderCmd.AddCommand(contentProviderDelete2Cmd)
+	contentProviderDelete3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentProviderDelete3_1Cmd.Flags().String("arg1", "", "arg1 (string)")
+	contentProviderDelete3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	contentProviderCmd.AddCommand(contentProviderDelete3_1Cmd)
+	contentProviderDumpCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentProviderDumpCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentProviderDumpCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	contentProviderCmd.AddCommand(contentProviderDumpCmd)
+	contentProviderCmd.AddCommand(contentProviderGetCallingAttributionSourceCmd)
+	contentProviderCmd.AddCommand(contentProviderGetCallingAttributionTagCmd)
+	contentProviderCmd.AddCommand(contentProviderGetCallingPackageCmd)
+	contentProviderCmd.AddCommand(contentProviderGetCallingPackageUncheckedCmd)
+	contentProviderCmd.AddCommand(contentProviderGetContextCmd)
+	contentProviderCmd.AddCommand(contentProviderGetPathPermissionsCmd)
+	contentProviderCmd.AddCommand(contentProviderGetReadPermissionCmd)
+	contentProviderGetStreamTypesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentProviderGetStreamTypesCmd.Flags().String("arg1", "", "arg1 (string)")
+	contentProviderCmd.AddCommand(contentProviderGetStreamTypesCmd)
+	contentProviderGetTypeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentProviderCmd.AddCommand(contentProviderGetTypeCmd)
+	contentProviderGetTypeAnonymousCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentProviderCmd.AddCommand(contentProviderGetTypeAnonymousCmd)
+	contentProviderCmd.AddCommand(contentProviderGetWritePermissionCmd)
+	contentProviderInsert2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentProviderInsert2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentProviderCmd.AddCommand(contentProviderInsert2Cmd)
+	contentProviderInsert3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentProviderInsert3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentProviderInsert3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	contentProviderCmd.AddCommand(contentProviderInsert3_1Cmd)
+	contentProviderCmd.AddCommand(contentProviderOnCallingPackageChangedCmd)
+	contentProviderOnConfigurationChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentProviderCmd.AddCommand(contentProviderOnConfigurationChangedCmd)
+	contentProviderCmd.AddCommand(contentProviderOnCreateCmd)
+	contentProviderCmd.AddCommand(contentProviderOnLowMemoryCmd)
+	contentProviderOnTrimMemoryCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentProviderCmd.AddCommand(contentProviderOnTrimMemoryCmd)
+	contentProviderOpenAssetFile2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentProviderOpenAssetFile2Cmd.Flags().String("arg1", "", "arg1 (string)")
+	contentProviderCmd.AddCommand(contentProviderOpenAssetFile2Cmd)
+	contentProviderOpenAssetFile3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentProviderOpenAssetFile3_1Cmd.Flags().String("arg1", "", "arg1 (string)")
+	contentProviderOpenAssetFile3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	contentProviderCmd.AddCommand(contentProviderOpenAssetFile3_1Cmd)
+	contentProviderOpenFile2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentProviderOpenFile2Cmd.Flags().String("arg1", "", "arg1 (string)")
+	contentProviderCmd.AddCommand(contentProviderOpenFile2Cmd)
+	contentProviderOpenFile3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentProviderOpenFile3_1Cmd.Flags().String("arg1", "", "arg1 (string)")
+	contentProviderOpenFile3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	contentProviderCmd.AddCommand(contentProviderOpenFile3_1Cmd)
+	contentProviderOpenTypedAssetFile3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentProviderOpenTypedAssetFile3Cmd.Flags().String("arg1", "", "arg1 (string)")
+	contentProviderOpenTypedAssetFile3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	contentProviderCmd.AddCommand(contentProviderOpenTypedAssetFile3Cmd)
+	contentProviderOpenTypedAssetFile4_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentProviderOpenTypedAssetFile4_1Cmd.Flags().String("arg1", "", "arg1 (string)")
+	contentProviderOpenTypedAssetFile4_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	contentProviderOpenTypedAssetFile4_1Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	contentProviderCmd.AddCommand(contentProviderOpenTypedAssetFile4_1Cmd)
+	contentProviderQuery4Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentProviderQuery4Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentProviderQuery4Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	contentProviderQuery4Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	contentProviderCmd.AddCommand(contentProviderQuery4Cmd)
+	contentProviderQuery5_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentProviderQuery5_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentProviderQuery5_1Cmd.Flags().String("arg2", "", "arg2 (string)")
+	contentProviderQuery5_1Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	contentProviderQuery5_1Cmd.Flags().String("arg4", "", "arg4 (string)")
+	contentProviderCmd.AddCommand(contentProviderQuery5_1Cmd)
+	contentProviderQuery6_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentProviderQuery6_2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentProviderQuery6_2Cmd.Flags().String("arg2", "", "arg2 (string)")
+	contentProviderQuery6_2Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	contentProviderQuery6_2Cmd.Flags().String("arg4", "", "arg4 (string)")
+	contentProviderQuery6_2Cmd.Flags().Int64("arg5", 0, "arg5 (int64)")
+	contentProviderCmd.AddCommand(contentProviderQuery6_2Cmd)
+	contentProviderRefreshCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentProviderRefreshCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentProviderRefreshCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	contentProviderCmd.AddCommand(contentProviderRefreshCmd)
+	contentProviderCmd.AddCommand(contentProviderRequireContextCmd)
+	contentProviderRestoreCallingIdentityCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentProviderCmd.AddCommand(contentProviderRestoreCallingIdentityCmd)
+	contentProviderCmd.AddCommand(contentProviderShutdownCmd)
+	contentProviderUncanonicalizeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentProviderCmd.AddCommand(contentProviderUncanonicalizeCmd)
+	contentProviderUpdate3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentProviderUpdate3Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentProviderUpdate3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	contentProviderCmd.AddCommand(contentProviderUpdate3Cmd)
+	contentProviderUpdate4_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentProviderUpdate4_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentProviderUpdate4_1Cmd.Flags().String("arg2", "", "arg2 (string)")
+	contentProviderUpdate4_1Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	contentProviderCmd.AddCommand(contentProviderUpdate4_1Cmd)
+	contentCmd.AddCommand(contentProviderCmd)
+	contentPdfPageImageContentNewPdfPageImageContentCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentPdfPageImageContentCmd.AddCommand(contentPdfPageImageContentNewPdfPageImageContentCmd)
+	contentPdfPageImageContentDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentPdfPageImageContentCmd.AddCommand(contentPdfPageImageContentDescribeContentsCmd)
+	contentPdfPageImageContentGetAltTextCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentPdfPageImageContentCmd.AddCommand(contentPdfPageImageContentGetAltTextCmd)
+	contentPdfPageImageContentWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentPdfPageImageContentWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentPdfPageImageContentWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentPdfPageImageContentCmd.AddCommand(contentPdfPageImageContentWriteToParcelCmd)
+	contentCmd.AddCommand(contentPdfPageImageContentCmd)
+	contentPdfPageLinkContentNewPdfPageLinkContentCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentPdfPageLinkContentNewPdfPageLinkContentCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentPdfPageLinkContentCmd.AddCommand(contentPdfPageLinkContentNewPdfPageLinkContentCmd)
+	contentPdfPageLinkContentDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentPdfPageLinkContentCmd.AddCommand(contentPdfPageLinkContentDescribeContentsCmd)
+	contentPdfPageLinkContentGetUriCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentPdfPageLinkContentCmd.AddCommand(contentPdfPageLinkContentGetUriCmd)
+	contentPdfPageLinkContentWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentPdfPageLinkContentWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentPdfPageLinkContentWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentPdfPageLinkContentCmd.AddCommand(contentPdfPageLinkContentWriteToParcelCmd)
+	contentCmd.AddCommand(contentPdfPageLinkContentCmd)
+	contentPdfPageGotoLinkContentNewPdfPageGotoLinkContentCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentPdfPageGotoLinkContentNewPdfPageGotoLinkContentCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentPdfPageGotoLinkContentCmd.AddCommand(contentPdfPageGotoLinkContentNewPdfPageGotoLinkContentCmd)
+	contentPdfPageGotoLinkContentDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentPdfPageGotoLinkContentCmd.AddCommand(contentPdfPageGotoLinkContentDescribeContentsCmd)
+	contentPdfPageGotoLinkContentGetDestinationCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentPdfPageGotoLinkContentCmd.AddCommand(contentPdfPageGotoLinkContentGetDestinationCmd)
+	contentPdfPageGotoLinkContentWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentPdfPageGotoLinkContentWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentPdfPageGotoLinkContentWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentPdfPageGotoLinkContentCmd.AddCommand(contentPdfPageGotoLinkContentWriteToParcelCmd)
+	contentCmd.AddCommand(contentPdfPageGotoLinkContentCmd)
+	contentPdfPageGotoLinkContentDestinationCmd.AddCommand(contentPdfPageGotoLinkContentDestinationDescribeContentsCmd)
+	contentPdfPageGotoLinkContentDestinationCmd.AddCommand(contentPdfPageGotoLinkContentDestinationGetPageNumberCmd)
+	contentPdfPageGotoLinkContentDestinationCmd.AddCommand(contentPdfPageGotoLinkContentDestinationGetXCoordinateCmd)
+	contentPdfPageGotoLinkContentDestinationCmd.AddCommand(contentPdfPageGotoLinkContentDestinationGetYCoordinateCmd)
+	contentPdfPageGotoLinkContentDestinationCmd.AddCommand(contentPdfPageGotoLinkContentDestinationGetZoomCmd)
+	contentPdfPageGotoLinkContentDestinationWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentPdfPageGotoLinkContentDestinationWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentPdfPageGotoLinkContentDestinationCmd.AddCommand(contentPdfPageGotoLinkContentDestinationWriteToParcelCmd)
+	contentCmd.AddCommand(contentPdfPageGotoLinkContentDestinationCmd)
+	contentPdfPageTextContentNewPdfPageTextContentCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentPdfPageTextContentCmd.AddCommand(contentPdfPageTextContentNewPdfPageTextContentCmd)
+	contentPdfPageTextContentDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentPdfPageTextContentCmd.AddCommand(contentPdfPageTextContentDescribeContentsCmd)
+	contentPdfPageTextContentGetTextCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentPdfPageTextContentCmd.AddCommand(contentPdfPageTextContentGetTextCmd)
+	contentPdfPageTextContentWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	contentPdfPageTextContentWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentPdfPageTextContentWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	contentPdfPageTextContentCmd.AddCommand(contentPdfPageTextContentWriteToParcelCmd)
+	contentCmd.AddCommand(contentPdfPageTextContentCmd)
 	rootCmd.AddCommand(contentCmd)
 }

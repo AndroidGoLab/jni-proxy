@@ -9,6 +9,1013 @@ import (
 	"google.golang.org/grpc"
 )
 
+// QueryMapClient wraps the gRPC QueryMapService client.
+type QueryMapClient struct {
+	svc pb.QueryMapServiceClient
+}
+
+// NewQueryMapClient creates a new QueryMap client.
+func NewQueryMapClient(cc grpc.ClientConnInterface) *QueryMapClient {
+	return &QueryMapClient{
+		svc: pb.NewQueryMapServiceClient(cc),
+	}
+}
+
+// Requery calls the Requery RPC.
+func (c *QueryMapClient) Requery(ctx context.Context, handle int64) error {
+	_, err := c.svc.Requery(ctx, &pb.RequeryRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// SetKeepUpdated calls the SetKeepUpdated RPC.
+func (c *QueryMapClient) SetKeepUpdated(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetKeepUpdated(ctx, &pb.SetKeepUpdatedRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SyncStatusObserverClient wraps the gRPC SyncStatusObserverService client.
+type SyncStatusObserverClient struct {
+	svc pb.SyncStatusObserverServiceClient
+}
+
+// NewSyncStatusObserverClient creates a new SyncStatusObserver client.
+func NewSyncStatusObserverClient(cc grpc.ClientConnInterface) *SyncStatusObserverClient {
+	return &SyncStatusObserverClient{
+		svc: pb.NewSyncStatusObserverServiceClient(cc),
+	}
+}
+
+// OnStatusChanged calls the OnStatusChanged RPC.
+func (c *SyncStatusObserverClient) OnStatusChanged(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.OnStatusChanged(ctx, &pb.OnStatusChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// AsyncTaskLoaderClient wraps the gRPC AsyncTaskLoaderService client.
+type AsyncTaskLoaderClient struct {
+	svc pb.AsyncTaskLoaderServiceClient
+}
+
+// NewAsyncTaskLoaderClient creates a new AsyncTaskLoader client.
+func NewAsyncTaskLoaderClient(cc grpc.ClientConnInterface) *AsyncTaskLoaderClient {
+	return &AsyncTaskLoaderClient{
+		svc: pb.NewAsyncTaskLoaderServiceClient(cc),
+	}
+}
+
+// CancelLoadInBackground calls the CancelLoadInBackground RPC.
+func (c *AsyncTaskLoaderClient) CancelLoadInBackground(ctx context.Context) error {
+	_, err := c.svc.CancelLoadInBackground(ctx, &pb.CancelLoadInBackgroundRequest{})
+	return err
+}
+
+// Dump calls the Dump RPC.
+func (c *AsyncTaskLoaderClient) Dump(ctx context.Context, arg0 string, arg1 int64, arg2 int64, arg3 int64) error {
+	_, err := c.svc.Dump(ctx, &pb.DumpRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// IsLoadInBackgroundCanceled calls the IsLoadInBackgroundCanceled RPC.
+func (c *AsyncTaskLoaderClient) IsLoadInBackgroundCanceled(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsLoadInBackgroundCanceled(ctx, &pb.IsLoadInBackgroundCanceledRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetUpdateThrottle calls the SetUpdateThrottle RPC.
+func (c *AsyncTaskLoaderClient) SetUpdateThrottle(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetUpdateThrottle(ctx, &pb.SetUpdateThrottleRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// IntentSenderClient wraps the gRPC IntentSenderService client.
+type IntentSenderClient struct {
+	svc pb.IntentSenderServiceClient
+}
+
+// NewIntentSenderClient creates a new IntentSender client.
+func NewIntentSenderClient(cc grpc.ClientConnInterface) *IntentSenderClient {
+	return &IntentSenderClient{
+		svc: pb.NewIntentSenderServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *IntentSenderClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *IntentSenderClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCreatorPackage calls the GetCreatorPackage RPC.
+func (c *IntentSenderClient) GetCreatorPackage(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetCreatorPackage(ctx, &pb.GetCreatorPackageRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCreatorUid calls the GetCreatorUid RPC.
+func (c *IntentSenderClient) GetCreatorUid(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetCreatorUid(ctx, &pb.GetCreatorUidRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCreatorUserHandle calls the GetCreatorUserHandle RPC.
+func (c *IntentSenderClient) GetCreatorUserHandle(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetCreatorUserHandle(ctx, &pb.GetCreatorUserHandleRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTargetPackage calls the GetTargetPackage RPC.
+func (c *IntentSenderClient) GetTargetPackage(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetTargetPackage(ctx, &pb.GetTargetPackageRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *IntentSenderClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SendIntent calls the SendIntent RPC.
+func (c *IntentSenderClient) SendIntent(ctx context.Context, arg0 int64, arg1 int32, arg2 int64, arg3 string, arg4 int64, arg5 int64, arg6 int64) error {
+	_, err := c.svc.SendIntent(ctx, &pb.SendIntentRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+		Arg6: arg6,
+	})
+	return err
+}
+
+// ToString calls the ToString RPC.
+func (c *IntentSenderClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *IntentSenderClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ReadIntentSenderOrNullFromParcel calls the ReadIntentSenderOrNullFromParcel RPC.
+func (c *IntentSenderClient) ReadIntentSenderOrNullFromParcel(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.ReadIntentSenderOrNullFromParcel(ctx, &pb.ReadIntentSenderOrNullFromParcelRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteIntentSenderOrNullToParcel calls the WriteIntentSenderOrNullToParcel RPC.
+func (c *IntentSenderClient) WriteIntentSenderOrNullToParcel(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.WriteIntentSenderOrNullToParcel(ctx, &pb.WriteIntentSenderOrNullToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// IntentSenderOnFinishedClient wraps the gRPC IntentSenderOnFinishedService client.
+type IntentSenderOnFinishedClient struct {
+	svc pb.IntentSenderOnFinishedServiceClient
+}
+
+// NewIntentSenderOnFinishedClient creates a new IntentSenderOnFinished client.
+func NewIntentSenderOnFinishedClient(cc grpc.ClientConnInterface) *IntentSenderOnFinishedClient {
+	return &IntentSenderOnFinishedClient{
+		svc: pb.NewIntentSenderOnFinishedServiceClient(cc),
+	}
+}
+
+// OnSendFinished calls the OnSendFinished RPC.
+func (c *IntentSenderOnFinishedClient) OnSendFinished(ctx context.Context, arg0 int64, arg1 int64, arg2 int32, arg3 string, arg4 int64) error {
+	_, err := c.svc.OnSendFinished(ctx, &pb.OnSendFinishedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// SyncStatsClient wraps the gRPC SyncStatsService client.
+type SyncStatsClient struct {
+	svc pb.SyncStatsServiceClient
+}
+
+// NewSyncStatsClient creates a new SyncStats client.
+func NewSyncStatsClient(cc grpc.ClientConnInterface) *SyncStatsClient {
+	return &SyncStatsClient{
+		svc: pb.NewSyncStatsServiceClient(cc),
+	}
+}
+
+// Clear calls the Clear RPC.
+func (c *SyncStatsClient) Clear(ctx context.Context, handle int64) error {
+	_, err := c.svc.Clear(ctx, &pb.ClearRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *SyncStatsClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.SyncStatsDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *SyncStatsClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.SyncStatsToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *SyncStatsClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.SyncStatsWriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// BroadcastReceiverClient wraps the gRPC BroadcastReceiverService client.
+type BroadcastReceiverClient struct {
+	svc pb.BroadcastReceiverServiceClient
+}
+
+// NewBroadcastReceiverClient creates a new BroadcastReceiver client.
+func NewBroadcastReceiverClient(cc grpc.ClientConnInterface) *BroadcastReceiverClient {
+	return &BroadcastReceiverClient{
+		svc: pb.NewBroadcastReceiverServiceClient(cc),
+	}
+}
+
+// AbortBroadcast calls the AbortBroadcast RPC.
+func (c *BroadcastReceiverClient) AbortBroadcast(ctx context.Context) error {
+	_, err := c.svc.AbortBroadcast(ctx, &pb.AbortBroadcastRequest{})
+	return err
+}
+
+// ClearAbortBroadcast calls the ClearAbortBroadcast RPC.
+func (c *BroadcastReceiverClient) ClearAbortBroadcast(ctx context.Context) error {
+	_, err := c.svc.ClearAbortBroadcast(ctx, &pb.ClearAbortBroadcastRequest{})
+	return err
+}
+
+// GetAbortBroadcast calls the GetAbortBroadcast RPC.
+func (c *BroadcastReceiverClient) GetAbortBroadcast(ctx context.Context) (bool, error) {
+	resp, err := c.svc.GetAbortBroadcast(ctx, &pb.GetAbortBroadcastRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDebugUnregister calls the GetDebugUnregister RPC.
+func (c *BroadcastReceiverClient) GetDebugUnregister(ctx context.Context) (bool, error) {
+	resp, err := c.svc.GetDebugUnregister(ctx, &pb.GetDebugUnregisterRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetResultCode calls the GetResultCode RPC.
+func (c *BroadcastReceiverClient) GetResultCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetResultCode(ctx, &pb.GetResultCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetResultData calls the GetResultData RPC.
+func (c *BroadcastReceiverClient) GetResultData(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetResultData(ctx, &pb.GetResultDataRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetResultExtras calls the GetResultExtras RPC.
+func (c *BroadcastReceiverClient) GetResultExtras(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.GetResultExtras(ctx, &pb.GetResultExtrasRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSentFromPackage calls the GetSentFromPackage RPC.
+func (c *BroadcastReceiverClient) GetSentFromPackage(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetSentFromPackage(ctx, &pb.GetSentFromPackageRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSentFromUid calls the GetSentFromUid RPC.
+func (c *BroadcastReceiverClient) GetSentFromUid(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetSentFromUid(ctx, &pb.GetSentFromUidRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GoAsync calls the GoAsync RPC.
+func (c *BroadcastReceiverClient) GoAsync(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GoAsync(ctx, &pb.GoAsyncRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsInitialStickyBroadcast calls the IsInitialStickyBroadcast RPC.
+func (c *BroadcastReceiverClient) IsInitialStickyBroadcast(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsInitialStickyBroadcast(ctx, &pb.IsInitialStickyBroadcastRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsOrderedBroadcast calls the IsOrderedBroadcast RPC.
+func (c *BroadcastReceiverClient) IsOrderedBroadcast(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsOrderedBroadcast(ctx, &pb.IsOrderedBroadcastRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnReceive calls the OnReceive RPC.
+func (c *BroadcastReceiverClient) OnReceive(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.OnReceive(ctx, &pb.OnReceiveRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// PeekService calls the PeekService RPC.
+func (c *BroadcastReceiverClient) PeekService(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.PeekService(ctx, &pb.PeekServiceRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetDebugUnregister calls the SetDebugUnregister RPC.
+func (c *BroadcastReceiverClient) SetDebugUnregister(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetDebugUnregister(ctx, &pb.SetDebugUnregisterRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetOrderedHint calls the SetOrderedHint RPC.
+func (c *BroadcastReceiverClient) SetOrderedHint(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetOrderedHint(ctx, &pb.SetOrderedHintRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetResult calls the SetResult RPC.
+func (c *BroadcastReceiverClient) SetResult(ctx context.Context, arg0 int32, arg1 string, arg2 int64) error {
+	_, err := c.svc.SetResult(ctx, &pb.SetResultRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// SetResultCode calls the SetResultCode RPC.
+func (c *BroadcastReceiverClient) SetResultCode(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetResultCode(ctx, &pb.SetResultCodeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetResultData calls the SetResultData RPC.
+func (c *BroadcastReceiverClient) SetResultData(ctx context.Context, arg0 string) error {
+	_, err := c.svc.SetResultData(ctx, &pb.SetResultDataRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetResultExtras calls the SetResultExtras RPC.
+func (c *BroadcastReceiverClient) SetResultExtras(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetResultExtras(ctx, &pb.SetResultExtrasRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// BroadcastReceiverPendingResultClient wraps the gRPC BroadcastReceiverPendingResultService client.
+type BroadcastReceiverPendingResultClient struct {
+	svc pb.BroadcastReceiverPendingResultServiceClient
+}
+
+// NewBroadcastReceiverPendingResultClient creates a new BroadcastReceiverPendingResult client.
+func NewBroadcastReceiverPendingResultClient(cc grpc.ClientConnInterface) *BroadcastReceiverPendingResultClient {
+	return &BroadcastReceiverPendingResultClient{
+		svc: pb.NewBroadcastReceiverPendingResultServiceClient(cc),
+	}
+}
+
+// AbortBroadcast calls the AbortBroadcast RPC.
+func (c *BroadcastReceiverPendingResultClient) AbortBroadcast(ctx context.Context) error {
+	_, err := c.svc.AbortBroadcast(ctx, &pb.AbortBroadcastRequest{})
+	return err
+}
+
+// ClearAbortBroadcast calls the ClearAbortBroadcast RPC.
+func (c *BroadcastReceiverPendingResultClient) ClearAbortBroadcast(ctx context.Context) error {
+	_, err := c.svc.ClearAbortBroadcast(ctx, &pb.ClearAbortBroadcastRequest{})
+	return err
+}
+
+// Finish calls the Finish RPC.
+func (c *BroadcastReceiverPendingResultClient) Finish(ctx context.Context) error {
+	_, err := c.svc.Finish(ctx, &pb.FinishRequest{})
+	return err
+}
+
+// GetAbortBroadcast calls the GetAbortBroadcast RPC.
+func (c *BroadcastReceiverPendingResultClient) GetAbortBroadcast(ctx context.Context) (bool, error) {
+	resp, err := c.svc.GetAbortBroadcast(ctx, &pb.GetAbortBroadcastRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetResultCode calls the GetResultCode RPC.
+func (c *BroadcastReceiverPendingResultClient) GetResultCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetResultCode(ctx, &pb.GetResultCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetResultData calls the GetResultData RPC.
+func (c *BroadcastReceiverPendingResultClient) GetResultData(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetResultData(ctx, &pb.GetResultDataRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetResultExtras calls the GetResultExtras RPC.
+func (c *BroadcastReceiverPendingResultClient) GetResultExtras(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.GetResultExtras(ctx, &pb.GetResultExtrasRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetResult calls the SetResult RPC.
+func (c *BroadcastReceiverPendingResultClient) SetResult(ctx context.Context, arg0 int32, arg1 string, arg2 int64) error {
+	_, err := c.svc.SetResult(ctx, &pb.SetResultRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// SetResultCode calls the SetResultCode RPC.
+func (c *BroadcastReceiverPendingResultClient) SetResultCode(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetResultCode(ctx, &pb.SetResultCodeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetResultData calls the SetResultData RPC.
+func (c *BroadcastReceiverPendingResultClient) SetResultData(ctx context.Context, arg0 string) error {
+	_, err := c.svc.SetResultData(ctx, &pb.SetResultDataRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetResultExtras calls the SetResultExtras RPC.
+func (c *BroadcastReceiverPendingResultClient) SetResultExtras(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetResultExtras(ctx, &pb.SetResultExtrasRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// UriPermissionClient wraps the gRPC UriPermissionService client.
+type UriPermissionClient struct {
+	svc pb.UriPermissionServiceClient
+}
+
+// NewUriPermissionClient creates a new UriPermission client.
+func NewUriPermissionClient(cc grpc.ClientConnInterface) *UriPermissionClient {
+	return &UriPermissionClient{
+		svc: pb.NewUriPermissionServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *UriPermissionClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPersistedTime calls the GetPersistedTime RPC.
+func (c *UriPermissionClient) GetPersistedTime(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPersistedTime(ctx, &pb.GetPersistedTimeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUri calls the GetUri RPC.
+func (c *UriPermissionClient) GetUri(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetUri(ctx, &pb.GetUriRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsReadPermission calls the IsReadPermission RPC.
+func (c *UriPermissionClient) IsReadPermission(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsReadPermission(ctx, &pb.IsReadPermissionRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsWritePermission calls the IsWritePermission RPC.
+func (c *UriPermissionClient) IsWritePermission(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsWritePermission(ctx, &pb.IsWritePermissionRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *UriPermissionClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *UriPermissionClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// AsyncQueryHandlerClient wraps the gRPC AsyncQueryHandlerService client.
+type AsyncQueryHandlerClient struct {
+	svc pb.AsyncQueryHandlerServiceClient
+}
+
+// NewAsyncQueryHandlerClient creates a new AsyncQueryHandler client.
+func NewAsyncQueryHandlerClient(cc grpc.ClientConnInterface) *AsyncQueryHandlerClient {
+	return &AsyncQueryHandlerClient{
+		svc: pb.NewAsyncQueryHandlerServiceClient(cc),
+	}
+}
+
+// CancelOperation calls the CancelOperation RPC.
+func (c *AsyncQueryHandlerClient) CancelOperation(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.CancelOperation(ctx, &pb.CancelOperationRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// HandleMessage calls the HandleMessage RPC.
+func (c *AsyncQueryHandlerClient) HandleMessage(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.HandleMessage(ctx, &pb.HandleMessageRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// StartDelete calls the StartDelete RPC.
+func (c *AsyncQueryHandlerClient) StartDelete(ctx context.Context, arg0 int32, arg1 int64, arg2 int64, arg3 string, arg4 int64) error {
+	_, err := c.svc.StartDelete(ctx, &pb.StartDeleteRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// StartInsert calls the StartInsert RPC.
+func (c *AsyncQueryHandlerClient) StartInsert(ctx context.Context, arg0 int32, arg1 int64, arg2 int64, arg3 int64) error {
+	_, err := c.svc.StartInsert(ctx, &pb.StartInsertRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// StartQuery calls the StartQuery RPC.
+func (c *AsyncQueryHandlerClient) StartQuery(ctx context.Context, arg0 int32, arg1 int64, arg2 int64, arg3 int64, arg4 string, arg5 int64, arg6 string) error {
+	_, err := c.svc.StartQuery(ctx, &pb.StartQueryRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+		Arg6: arg6,
+	})
+	return err
+}
+
+// StartUpdate calls the StartUpdate RPC.
+func (c *AsyncQueryHandlerClient) StartUpdate(ctx context.Context, arg0 int32, arg1 int64, arg2 int64, arg3 int64, arg4 string, arg5 int64) error {
+	_, err := c.svc.StartUpdate(ctx, &pb.StartUpdateRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+	})
+	return err
+}
+
+// AsyncQueryHandlerWorkerHandlerClient wraps the gRPC AsyncQueryHandlerWorkerHandlerService client.
+type AsyncQueryHandlerWorkerHandlerClient struct {
+	svc pb.AsyncQueryHandlerWorkerHandlerServiceClient
+}
+
+// NewAsyncQueryHandlerWorkerHandlerClient creates a new AsyncQueryHandlerWorkerHandler client.
+func NewAsyncQueryHandlerWorkerHandlerClient(cc grpc.ClientConnInterface) *AsyncQueryHandlerWorkerHandlerClient {
+	return &AsyncQueryHandlerWorkerHandlerClient{
+		svc: pb.NewAsyncQueryHandlerWorkerHandlerServiceClient(cc),
+	}
+}
+
+// HandleMessage calls the HandleMessage RPC.
+func (c *AsyncQueryHandlerWorkerHandlerClient) HandleMessage(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.HandleMessage(ctx, &pb.HandleMessageRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// MutableContextWrapperClient wraps the gRPC MutableContextWrapperService client.
+type MutableContextWrapperClient struct {
+	svc pb.MutableContextWrapperServiceClient
+}
+
+// NewMutableContextWrapperClient creates a new MutableContextWrapper client.
+func NewMutableContextWrapperClient(cc grpc.ClientConnInterface) *MutableContextWrapperClient {
+	return &MutableContextWrapperClient{
+		svc: pb.NewMutableContextWrapperServiceClient(cc),
+	}
+}
+
+// SetBaseContext calls the SetBaseContext RPC.
+func (c *MutableContextWrapperClient) SetBaseContext(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetBaseContext(ctx, &pb.SetBaseContextRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// AttributionSourceClient wraps the gRPC AttributionSourceService client.
+type AttributionSourceClient struct {
+	svc pb.AttributionSourceServiceClient
+}
+
+// NewAttributionSourceClient creates a new AttributionSource client.
+func NewAttributionSourceClient(cc grpc.ClientConnInterface) *AttributionSourceClient {
+	return &AttributionSourceClient{
+		svc: pb.NewAttributionSourceServiceClient(cc),
+	}
+}
+
+// CheckCallingUid calls the CheckCallingUid RPC.
+func (c *AttributionSourceClient) CheckCallingUid(ctx context.Context) (bool, error) {
+	resp, err := c.svc.CheckCallingUid(ctx, &pb.CheckCallingUidRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *AttributionSourceClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// EnforceCallingUid calls the EnforceCallingUid RPC.
+func (c *AttributionSourceClient) EnforceCallingUid(ctx context.Context) error {
+	_, err := c.svc.EnforceCallingUid(ctx, &pb.EnforceCallingUidRequest{})
+	return err
+}
+
+// Equals calls the Equals RPC.
+func (c *AttributionSourceClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAttributionTag calls the GetAttributionTag RPC.
+func (c *AttributionSourceClient) GetAttributionTag(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetAttributionTag(ctx, &pb.GetAttributionTagRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDeviceId calls the GetDeviceId RPC.
+func (c *AttributionSourceClient) GetDeviceId(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetDeviceId(ctx, &pb.GetDeviceIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNext calls the GetNext RPC.
+func (c *AttributionSourceClient) GetNext(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetNext(ctx, &pb.GetNextRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPackageName calls the GetPackageName RPC.
+func (c *AttributionSourceClient) GetPackageName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetPackageName(ctx, &pb.GetPackageNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPid calls the GetPid RPC.
+func (c *AttributionSourceClient) GetPid(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetPid(ctx, &pb.GetPidRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUid calls the GetUid RPC.
+func (c *AttributionSourceClient) GetUid(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetUid(ctx, &pb.GetUidRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *AttributionSourceClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsTrusted calls the IsTrusted RPC.
+func (c *AttributionSourceClient) IsTrusted(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.IsTrusted(ctx, &pb.IsTrustedRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *AttributionSourceClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *AttributionSourceClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// MyAttributionSource calls the MyAttributionSource RPC.
+func (c *AttributionSourceClient) MyAttributionSource(ctx context.Context) (int64, error) {
+	resp, err := c.svc.MyAttributionSource(ctx, &pb.MyAttributionSourceRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AttributionSourceBuilderClient wraps the gRPC AttributionSourceBuilderService client.
+type AttributionSourceBuilderClient struct {
+	svc pb.AttributionSourceBuilderServiceClient
+}
+
+// NewAttributionSourceBuilderClient creates a new AttributionSourceBuilder client.
+func NewAttributionSourceBuilderClient(cc grpc.ClientConnInterface) *AttributionSourceBuilderClient {
+	return &AttributionSourceBuilderClient{
+		svc: pb.NewAttributionSourceBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *AttributionSourceBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetAttributionTag calls the SetAttributionTag RPC.
+func (c *AttributionSourceBuilderClient) SetAttributionTag(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetAttributionTag(ctx, &pb.SetAttributionTagRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetDeviceId calls the SetDeviceId RPC.
+func (c *AttributionSourceBuilderClient) SetDeviceId(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetDeviceId(ctx, &pb.SetDeviceIdRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetNext calls the SetNext RPC.
+func (c *AttributionSourceBuilderClient) SetNext(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetNext(ctx, &pb.SetNextRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPackageName calls the SetPackageName RPC.
+func (c *AttributionSourceBuilderClient) SetPackageName(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetPackageName(ctx, &pb.SetPackageNameRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPid calls the SetPid RPC.
+func (c *AttributionSourceBuilderClient) SetPid(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetPid(ctx, &pb.SetPidRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // RestrictionsManagerClient wraps the gRPC RestrictionsManagerService client.
 type RestrictionsManagerClient struct {
 	svc pb.RestrictionsManagerServiceClient
@@ -63,6 +1070,7374 @@ func (c *RestrictionsManagerClient) RequestPermission(ctx context.Context, arg0 
 		Arg0: arg0,
 		Arg1: arg1,
 		Arg2: arg2,
+	})
+	return err
+}
+
+// AbstractThreadedSyncAdapterClient wraps the gRPC AbstractThreadedSyncAdapterService client.
+type AbstractThreadedSyncAdapterClient struct {
+	svc pb.AbstractThreadedSyncAdapterServiceClient
+}
+
+// NewAbstractThreadedSyncAdapterClient creates a new AbstractThreadedSyncAdapter client.
+func NewAbstractThreadedSyncAdapterClient(cc grpc.ClientConnInterface) *AbstractThreadedSyncAdapterClient {
+	return &AbstractThreadedSyncAdapterClient{
+		svc: pb.NewAbstractThreadedSyncAdapterServiceClient(cc),
+	}
+}
+
+// GetContext calls the GetContext RPC.
+func (c *AbstractThreadedSyncAdapterClient) GetContext(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetContext(ctx, &pb.GetContextRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSyncAdapterBinder calls the GetSyncAdapterBinder RPC.
+func (c *AbstractThreadedSyncAdapterClient) GetSyncAdapterBinder(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSyncAdapterBinder(ctx, &pb.GetSyncAdapterBinderRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnPerformSync calls the OnPerformSync RPC.
+func (c *AbstractThreadedSyncAdapterClient) OnPerformSync(ctx context.Context, arg0 int64, arg1 int64, arg2 string, arg3 int64, arg4 int64) error {
+	_, err := c.svc.OnPerformSync(ctx, &pb.OnPerformSyncRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// OnSecurityException calls the OnSecurityException RPC.
+func (c *AbstractThreadedSyncAdapterClient) OnSecurityException(ctx context.Context, arg0 int64, arg1 int64, arg2 string, arg3 int64) error {
+	_, err := c.svc.OnSecurityException(ctx, &pb.OnSecurityExceptionRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// OnSyncCanceled0 calls the OnSyncCanceled0 RPC.
+func (c *AbstractThreadedSyncAdapterClient) OnSyncCanceled0(ctx context.Context) error {
+	_, err := c.svc.OnSyncCanceled0(ctx, &pb.OnSyncCanceled0Request{})
+	return err
+}
+
+// OnSyncCanceled1_1 calls the OnSyncCanceled1_1 RPC.
+func (c *AbstractThreadedSyncAdapterClient) OnSyncCanceled1_1(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnSyncCanceled1_1(ctx, &pb.OnSyncCanceled1_1Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnUnsyncableAccount calls the OnUnsyncableAccount RPC.
+func (c *AbstractThreadedSyncAdapterClient) OnUnsyncableAccount(ctx context.Context) (bool, error) {
+	resp, err := c.svc.OnUnsyncableAccount(ctx, &pb.OnUnsyncableAccountRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SyncResultClient wraps the gRPC SyncResultService client.
+type SyncResultClient struct {
+	svc pb.SyncResultServiceClient
+}
+
+// NewSyncResultClient creates a new SyncResult client.
+func NewSyncResultClient(cc grpc.ClientConnInterface) *SyncResultClient {
+	return &SyncResultClient{
+		svc: pb.NewSyncResultServiceClient(cc),
+	}
+}
+
+// Clear calls the Clear RPC.
+func (c *SyncResultClient) Clear(ctx context.Context, handle int64) error {
+	_, err := c.svc.Clear(ctx, &pb.ClearRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *SyncResultClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.SyncResultDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasError calls the HasError RPC.
+func (c *SyncResultClient) HasError(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.HasError(ctx, &pb.HasErrorRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasHardError calls the HasHardError RPC.
+func (c *SyncResultClient) HasHardError(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.HasHardError(ctx, &pb.HasHardErrorRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasSoftError calls the HasSoftError RPC.
+func (c *SyncResultClient) HasSoftError(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.HasSoftError(ctx, &pb.HasSoftErrorRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MadeSomeProgress calls the MadeSomeProgress RPC.
+func (c *SyncResultClient) MadeSomeProgress(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.MadeSomeProgress(ctx, &pb.MadeSomeProgressRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToDebugString calls the ToDebugString RPC.
+func (c *SyncResultClient) ToDebugString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToDebugString(ctx, &pb.ToDebugStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *SyncResultClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.SyncResultToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *SyncResultClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.SyncResultWriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SyncRequestClient wraps the gRPC SyncRequestService client.
+type SyncRequestClient struct {
+	svc pb.SyncRequestServiceClient
+}
+
+// NewSyncRequestClient creates a new SyncRequest client.
+func NewSyncRequestClient(cc grpc.ClientConnInterface) *SyncRequestClient {
+	return &SyncRequestClient{
+		svc: pb.NewSyncRequestServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *SyncRequestClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *SyncRequestClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// SyncRequestBuilderClient wraps the gRPC SyncRequestBuilderService client.
+type SyncRequestBuilderClient struct {
+	svc pb.SyncRequestBuilderServiceClient
+}
+
+// NewSyncRequestBuilderClient creates a new SyncRequestBuilder client.
+func NewSyncRequestBuilderClient(cc grpc.ClientConnInterface) *SyncRequestBuilderClient {
+	return &SyncRequestBuilderClient{
+		svc: pb.NewSyncRequestBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *SyncRequestBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetDisallowMetered calls the SetDisallowMetered RPC.
+func (c *SyncRequestBuilderClient) SetDisallowMetered(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetDisallowMetered(ctx, &pb.SetDisallowMeteredRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetExpedited calls the SetExpedited RPC.
+func (c *SyncRequestBuilderClient) SetExpedited(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetExpedited(ctx, &pb.SetExpeditedRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetExtras calls the SetExtras RPC.
+func (c *SyncRequestBuilderClient) SetExtras(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetExtras(ctx, &pb.SetExtrasRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetIgnoreBackoff calls the SetIgnoreBackoff RPC.
+func (c *SyncRequestBuilderClient) SetIgnoreBackoff(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetIgnoreBackoff(ctx, &pb.SetIgnoreBackoffRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetIgnoreSettings calls the SetIgnoreSettings RPC.
+func (c *SyncRequestBuilderClient) SetIgnoreSettings(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetIgnoreSettings(ctx, &pb.SetIgnoreSettingsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetManual calls the SetManual RPC.
+func (c *SyncRequestBuilderClient) SetManual(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetManual(ctx, &pb.SetManualRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetNoRetry calls the SetNoRetry RPC.
+func (c *SyncRequestBuilderClient) SetNoRetry(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetNoRetry(ctx, &pb.SetNoRetryRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetRequiresCharging calls the SetRequiresCharging RPC.
+func (c *SyncRequestBuilderClient) SetRequiresCharging(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetRequiresCharging(ctx, &pb.SetRequiresChargingRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetScheduleAsExpeditedJob calls the SetScheduleAsExpeditedJob RPC.
+func (c *SyncRequestBuilderClient) SetScheduleAsExpeditedJob(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetScheduleAsExpeditedJob(ctx, &pb.SetScheduleAsExpeditedJobRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSyncAdapter calls the SetSyncAdapter RPC.
+func (c *SyncRequestBuilderClient) SetSyncAdapter(ctx context.Context, arg0 int64, arg1 string) (int64, error) {
+	resp, err := c.svc.SetSyncAdapter(ctx, &pb.SetSyncAdapterRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SyncOnce calls the SyncOnce RPC.
+func (c *SyncRequestBuilderClient) SyncOnce(ctx context.Context) (int64, error) {
+	resp, err := c.svc.SyncOnce(ctx, &pb.SyncOnceRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SyncPeriodic calls the SyncPeriodic RPC.
+func (c *SyncRequestBuilderClient) SyncPeriodic(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.SyncPeriodic(ctx, &pb.SyncPeriodicRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ResourcesClient wraps the gRPC ResourcesService client.
+type ResourcesClient struct {
+	svc pb.ResourcesServiceClient
+}
+
+// NewResourcesClient creates a new Resources client.
+func NewResourcesClient(cc grpc.ClientConnInterface) *ResourcesClient {
+	return &ResourcesClient{
+		svc: pb.NewResourcesServiceClient(cc),
+	}
+}
+
+// AddLoaders calls the AddLoaders RPC.
+func (c *ResourcesClient) AddLoaders(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.AddLoaders(ctx, &pb.AddLoadersRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// FinishPreloading calls the FinishPreloading RPC.
+func (c *ResourcesClient) FinishPreloading(ctx context.Context, handle int64) error {
+	_, err := c.svc.FinishPreloading(ctx, &pb.FinishPreloadingRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// FlushLayoutCache calls the FlushLayoutCache RPC.
+func (c *ResourcesClient) FlushLayoutCache(ctx context.Context, handle int64) error {
+	_, err := c.svc.FlushLayoutCache(ctx, &pb.FlushLayoutCacheRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// GetAnimation calls the GetAnimation RPC.
+func (c *ResourcesClient) GetAnimation(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetAnimation(ctx, &pb.GetAnimationRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAssets calls the GetAssets RPC.
+func (c *ResourcesClient) GetAssets(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetAssets(ctx, &pb.GetAssetsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBoolean calls the GetBoolean RPC.
+func (c *ResourcesClient) GetBoolean(ctx context.Context, handle int64, arg0 int32) (bool, error) {
+	resp, err := c.svc.GetBoolean(ctx, &pb.GetBooleanRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetColor1 calls the GetColor1 RPC.
+func (c *ResourcesClient) GetColor1(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetColor1(ctx, &pb.GetColor1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetColor2_1 calls the GetColor2_1 RPC.
+func (c *ResourcesClient) GetColor2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) (int32, error) {
+	resp, err := c.svc.GetColor2_1(ctx, &pb.GetColor2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetColorStateList1 calls the GetColorStateList1 RPC.
+func (c *ResourcesClient) GetColorStateList1(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetColorStateList1(ctx, &pb.GetColorStateList1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetColorStateList2_1 calls the GetColorStateList2_1 RPC.
+func (c *ResourcesClient) GetColorStateList2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) (int64, error) {
+	resp, err := c.svc.GetColorStateList2_1(ctx, &pb.GetColorStateList2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetConfiguration calls the GetConfiguration RPC.
+func (c *ResourcesClient) GetConfiguration(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetConfiguration(ctx, &pb.GetConfigurationRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDimension calls the GetDimension RPC.
+func (c *ResourcesClient) GetDimension(ctx context.Context, handle int64, arg0 int32) (float32, error) {
+	resp, err := c.svc.GetDimension(ctx, &pb.GetDimensionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDimensionPixelOffset calls the GetDimensionPixelOffset RPC.
+func (c *ResourcesClient) GetDimensionPixelOffset(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetDimensionPixelOffset(ctx, &pb.GetDimensionPixelOffsetRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDimensionPixelSize calls the GetDimensionPixelSize RPC.
+func (c *ResourcesClient) GetDimensionPixelSize(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetDimensionPixelSize(ctx, &pb.GetDimensionPixelSizeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDisplayMetrics calls the GetDisplayMetrics RPC.
+func (c *ResourcesClient) GetDisplayMetrics(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetDisplayMetrics(ctx, &pb.GetDisplayMetricsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDrawable1 calls the GetDrawable1 RPC.
+func (c *ResourcesClient) GetDrawable1(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetDrawable1(ctx, &pb.GetDrawable1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDrawable2_1 calls the GetDrawable2_1 RPC.
+func (c *ResourcesClient) GetDrawable2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) (int64, error) {
+	resp, err := c.svc.GetDrawable2_1(ctx, &pb.GetDrawable2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDrawableForDensity2 calls the GetDrawableForDensity2 RPC.
+func (c *ResourcesClient) GetDrawableForDensity2(ctx context.Context, handle int64, arg0 int32, arg1 int32) (int64, error) {
+	resp, err := c.svc.GetDrawableForDensity2(ctx, &pb.GetDrawableForDensity2Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDrawableForDensity3_1 calls the GetDrawableForDensity3_1 RPC.
+func (c *ResourcesClient) GetDrawableForDensity3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) (int64, error) {
+	resp, err := c.svc.GetDrawableForDensity3_1(ctx, &pb.GetDrawableForDensity3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFloat calls the GetFloat RPC.
+func (c *ResourcesClient) GetFloat(ctx context.Context, handle int64, arg0 int32) (float32, error) {
+	resp, err := c.svc.GetFloat(ctx, &pb.GetFloatRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFont calls the GetFont RPC.
+func (c *ResourcesClient) GetFont(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetFont(ctx, &pb.GetFontRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFraction calls the GetFraction RPC.
+func (c *ResourcesClient) GetFraction(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32) (float32, error) {
+	resp, err := c.svc.GetFraction(ctx, &pb.GetFractionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIdentifier calls the GetIdentifier RPC.
+func (c *ResourcesClient) GetIdentifier(ctx context.Context, handle int64, arg0 string, arg1 string, arg2 string) (int32, error) {
+	resp, err := c.svc.GetIdentifier(ctx, &pb.GetIdentifierRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIntArray calls the GetIntArray RPC.
+func (c *ResourcesClient) GetIntArray(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetIntArray(ctx, &pb.GetIntArrayRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInteger calls the GetInteger RPC.
+func (c *ResourcesClient) GetInteger(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetInteger(ctx, &pb.GetIntegerRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLayout calls the GetLayout RPC.
+func (c *ResourcesClient) GetLayout(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetLayout(ctx, &pb.GetLayoutRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMovie calls the GetMovie RPC.
+func (c *ResourcesClient) GetMovie(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetMovie(ctx, &pb.GetMovieRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetQuantityString2 calls the GetQuantityString2 RPC.
+func (c *ResourcesClient) GetQuantityString2(ctx context.Context, handle int64, arg0 int32, arg1 int32) (string, error) {
+	resp, err := c.svc.GetQuantityString2(ctx, &pb.GetQuantityString2Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetQuantityString3_1 calls the GetQuantityString3_1 RPC.
+func (c *ResourcesClient) GetQuantityString3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) (string, error) {
+	resp, err := c.svc.GetQuantityString3_1(ctx, &pb.GetQuantityString3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetQuantityText calls the GetQuantityText RPC.
+func (c *ResourcesClient) GetQuantityText(ctx context.Context, handle int64, arg0 int32, arg1 int32) (int64, error) {
+	resp, err := c.svc.GetQuantityText(ctx, &pb.GetQuantityTextRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetResourceEntryName calls the GetResourceEntryName RPC.
+func (c *ResourcesClient) GetResourceEntryName(ctx context.Context, handle int64, arg0 int32) (string, error) {
+	resp, err := c.svc.GetResourceEntryName(ctx, &pb.GetResourceEntryNameRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetResourceName calls the GetResourceName RPC.
+func (c *ResourcesClient) GetResourceName(ctx context.Context, handle int64, arg0 int32) (string, error) {
+	resp, err := c.svc.GetResourceName(ctx, &pb.GetResourceNameRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetResourcePackageName calls the GetResourcePackageName RPC.
+func (c *ResourcesClient) GetResourcePackageName(ctx context.Context, handle int64, arg0 int32) (string, error) {
+	resp, err := c.svc.GetResourcePackageName(ctx, &pb.GetResourcePackageNameRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetResourceTypeName calls the GetResourceTypeName RPC.
+func (c *ResourcesClient) GetResourceTypeName(ctx context.Context, handle int64, arg0 int32) (string, error) {
+	resp, err := c.svc.GetResourceTypeName(ctx, &pb.GetResourceTypeNameRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetString1 calls the GetString1 RPC.
+func (c *ResourcesClient) GetString1(ctx context.Context, handle int64, arg0 int32) (string, error) {
+	resp, err := c.svc.GetString1(ctx, &pb.GetString1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetString2_1 calls the GetString2_1 RPC.
+func (c *ResourcesClient) GetString2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) (string, error) {
+	resp, err := c.svc.GetString2_1(ctx, &pb.GetString2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStringArray calls the GetStringArray RPC.
+func (c *ResourcesClient) GetStringArray(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetStringArray(ctx, &pb.GetStringArrayRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetText1 calls the GetText1 RPC.
+func (c *ResourcesClient) GetText1(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetText1(ctx, &pb.GetText1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetText2_1 calls the GetText2_1 RPC.
+func (c *ResourcesClient) GetText2_1(ctx context.Context, handle int64, arg0 int32, arg1 string) (int64, error) {
+	resp, err := c.svc.GetText2_1(ctx, &pb.GetText2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTextArray calls the GetTextArray RPC.
+func (c *ResourcesClient) GetTextArray(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetTextArray(ctx, &pb.GetTextArrayRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetValue3 calls the GetValue3 RPC.
+func (c *ResourcesClient) GetValue3(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 bool) error {
+	_, err := c.svc.GetValue3(ctx, &pb.GetValue3Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GetValue3_1 calls the GetValue3_1 RPC.
+func (c *ResourcesClient) GetValue3_1(ctx context.Context, handle int64, arg0 string, arg1 int64, arg2 bool) error {
+	_, err := c.svc.GetValue3_1(ctx, &pb.GetValue3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GetValueForDensity calls the GetValueForDensity RPC.
+func (c *ResourcesClient) GetValueForDensity(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 bool) error {
+	_, err := c.svc.GetValueForDensity(ctx, &pb.GetValueForDensityRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// GetXml calls the GetXml RPC.
+func (c *ResourcesClient) GetXml(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetXml(ctx, &pb.GetXmlRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// NewTheme calls the NewTheme RPC.
+func (c *ResourcesClient) NewTheme(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.NewTheme(ctx, &pb.NewThemeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ObtainAttributes calls the ObtainAttributes RPC.
+func (c *ResourcesClient) ObtainAttributes(ctx context.Context, handle int64, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.ObtainAttributes(ctx, &pb.ObtainAttributesRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ObtainTypedArray calls the ObtainTypedArray RPC.
+func (c *ResourcesClient) ObtainTypedArray(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.ObtainTypedArray(ctx, &pb.ObtainTypedArrayRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OpenRawResource1 calls the OpenRawResource1 RPC.
+func (c *ResourcesClient) OpenRawResource1(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.OpenRawResource1(ctx, &pb.OpenRawResource1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OpenRawResource2_1 calls the OpenRawResource2_1 RPC.
+func (c *ResourcesClient) OpenRawResource2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) (int64, error) {
+	resp, err := c.svc.OpenRawResource2_1(ctx, &pb.OpenRawResource2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OpenRawResourceFd calls the OpenRawResourceFd RPC.
+func (c *ResourcesClient) OpenRawResourceFd(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.OpenRawResourceFd(ctx, &pb.OpenRawResourceFdRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ParseBundleExtra calls the ParseBundleExtra RPC.
+func (c *ResourcesClient) ParseBundleExtra(ctx context.Context, handle int64, arg0 string, arg1 int64, arg2 int64) error {
+	_, err := c.svc.ParseBundleExtra(ctx, &pb.ParseBundleExtraRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// ParseBundleExtras calls the ParseBundleExtras RPC.
+func (c *ResourcesClient) ParseBundleExtras(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
+	_, err := c.svc.ParseBundleExtras(ctx, &pb.ParseBundleExtrasRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// RemoveLoaders calls the RemoveLoaders RPC.
+func (c *ResourcesClient) RemoveLoaders(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.RemoveLoaders(ctx, &pb.RemoveLoadersRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// UpdateConfiguration calls the UpdateConfiguration RPC.
+func (c *ResourcesClient) UpdateConfiguration(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
+	_, err := c.svc.UpdateConfiguration(ctx, &pb.UpdateConfigurationRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GetAttributeSetSourceResId calls the GetAttributeSetSourceResId RPC.
+func (c *ResourcesClient) GetAttributeSetSourceResId(ctx context.Context, handle int64, arg0 int64) (int32, error) {
+	resp, err := c.svc.GetAttributeSetSourceResId(ctx, &pb.GetAttributeSetSourceResIdRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSystem calls the GetSystem RPC.
+func (c *ResourcesClient) GetSystem(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetSystem(ctx, &pb.GetSystemRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RegisterResourcePaths calls the RegisterResourcePaths RPC.
+func (c *ResourcesClient) RegisterResourcePaths(ctx context.Context, handle int64, arg0 string, arg1 int64) error {
+	_, err := c.svc.RegisterResourcePaths(ctx, &pb.RegisterResourcePathsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// ResourcesThemeClient wraps the gRPC ResourcesThemeService client.
+type ResourcesThemeClient struct {
+	svc pb.ResourcesThemeServiceClient
+}
+
+// NewResourcesThemeClient creates a new ResourcesTheme client.
+func NewResourcesThemeClient(cc grpc.ClientConnInterface) *ResourcesThemeClient {
+	return &ResourcesThemeClient{
+		svc: pb.NewResourcesThemeServiceClient(cc),
+	}
+}
+
+// ApplyStyle calls the ApplyStyle RPC.
+func (c *ResourcesThemeClient) ApplyStyle(ctx context.Context, arg0 int32, arg1 bool) error {
+	_, err := c.svc.ApplyStyle(ctx, &pb.ApplyStyleRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// Dump calls the Dump RPC.
+func (c *ResourcesThemeClient) Dump(ctx context.Context, arg0 int32, arg1 string, arg2 string) error {
+	_, err := c.svc.Dump(ctx, &pb.ResourcesThemeDumpRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// Equals calls the Equals RPC.
+func (c *ResourcesThemeClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAttributeResolutionStack calls the GetAttributeResolutionStack RPC.
+func (c *ResourcesThemeClient) GetAttributeResolutionStack(ctx context.Context, arg0 int32, arg1 int32, arg2 int32) (int64, error) {
+	resp, err := c.svc.GetAttributeResolutionStack(ctx, &pb.GetAttributeResolutionStackRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetChangingConfigurations calls the GetChangingConfigurations RPC.
+func (c *ResourcesThemeClient) GetChangingConfigurations(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetChangingConfigurations(ctx, &pb.GetChangingConfigurationsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDrawable calls the GetDrawable RPC.
+func (c *ResourcesThemeClient) GetDrawable(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetDrawable(ctx, &pb.GetDrawableRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExplicitStyle calls the GetExplicitStyle RPC.
+func (c *ResourcesThemeClient) GetExplicitStyle(ctx context.Context, arg0 int64) (int32, error) {
+	resp, err := c.svc.GetExplicitStyle(ctx, &pb.GetExplicitStyleRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetResources calls the GetResources RPC.
+func (c *ResourcesThemeClient) GetResources(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetResources(ctx, &pb.GetResourcesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *ResourcesThemeClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ObtainStyledAttributes4 calls the ObtainStyledAttributes4 RPC.
+func (c *ResourcesThemeClient) ObtainStyledAttributes4(ctx context.Context, arg0 int64, arg1 int64, arg2 int32, arg3 int32) (int64, error) {
+	resp, err := c.svc.ObtainStyledAttributes4(ctx, &pb.ObtainStyledAttributes4Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ObtainStyledAttributes2_1 calls the ObtainStyledAttributes2_1 RPC.
+func (c *ResourcesThemeClient) ObtainStyledAttributes2_1(ctx context.Context, arg0 int32, arg1 int64) (int64, error) {
+	resp, err := c.svc.ObtainStyledAttributes2_1(ctx, &pb.ObtainStyledAttributes2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ObtainStyledAttributes1_2 calls the ObtainStyledAttributes1_2 RPC.
+func (c *ResourcesThemeClient) ObtainStyledAttributes1_2(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.ObtainStyledAttributes1_2(ctx, &pb.ObtainStyledAttributes1_2Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Rebase calls the Rebase RPC.
+func (c *ResourcesThemeClient) Rebase(ctx context.Context) error {
+	_, err := c.svc.Rebase(ctx, &pb.RebaseRequest{})
+	return err
+}
+
+// ResolveAttribute calls the ResolveAttribute RPC.
+func (c *ResourcesThemeClient) ResolveAttribute(ctx context.Context, arg0 int32, arg1 int64, arg2 bool) (bool, error) {
+	resp, err := c.svc.ResolveAttribute(ctx, &pb.ResolveAttributeRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetTo calls the SetTo RPC.
+func (c *ResourcesThemeClient) SetTo(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetTo(ctx, &pb.SetToRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ToString calls the ToString RPC.
+func (c *ResourcesThemeClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// ComponentCallbacks2Client wraps the gRPC ComponentCallbacks2Service client.
+type ComponentCallbacks2Client struct {
+	svc pb.ComponentCallbacks2ServiceClient
+}
+
+// NewComponentCallbacks2Client creates a new ComponentCallbacks2 client.
+func NewComponentCallbacks2Client(cc grpc.ClientConnInterface) *ComponentCallbacks2Client {
+	return &ComponentCallbacks2Client{
+		svc: pb.NewComponentCallbacks2ServiceClient(cc),
+	}
+}
+
+// OnTrimMemory calls the OnTrimMemory RPC.
+func (c *ComponentCallbacks2Client) OnTrimMemory(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.OnTrimMemory(ctx, &pb.OnTrimMemoryRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ComponentCallbacksClient wraps the gRPC ComponentCallbacksService client.
+type ComponentCallbacksClient struct {
+	svc pb.ComponentCallbacksServiceClient
+}
+
+// NewComponentCallbacksClient creates a new ComponentCallbacks client.
+func NewComponentCallbacksClient(cc grpc.ClientConnInterface) *ComponentCallbacksClient {
+	return &ComponentCallbacksClient{
+		svc: pb.NewComponentCallbacksServiceClient(cc),
+	}
+}
+
+// OnConfigurationChanged calls the OnConfigurationChanged RPC.
+func (c *ComponentCallbacksClient) OnConfigurationChanged(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnConfigurationChanged(ctx, &pb.OnConfigurationChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnLowMemory calls the OnLowMemory RPC.
+func (c *ComponentCallbacksClient) OnLowMemory(ctx context.Context) error {
+	_, err := c.svc.OnLowMemory(ctx, &pb.OnLowMemoryRequest{})
+	return err
+}
+
+// LocusIdClient wraps the gRPC LocusIdService client.
+type LocusIdClient struct {
+	svc pb.LocusIdServiceClient
+}
+
+// NewLocusIdClient creates a new LocusId client.
+func NewLocusIdClient(cc grpc.ClientConnInterface) *LocusIdClient {
+	return &LocusIdClient{
+		svc: pb.NewLocusIdServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *LocusIdClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.LocusIdDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *LocusIdClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.LocusIdEqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetId calls the GetId RPC.
+func (c *LocusIdClient) GetId(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *LocusIdClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.LocusIdHashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *LocusIdClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.LocusIdToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *LocusIdClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.LocusIdWriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// IntentFilterClient wraps the gRPC IntentFilterService client.
+type IntentFilterClient struct {
+	svc pb.IntentFilterServiceClient
+}
+
+// NewIntentFilterClient creates a new IntentFilter client.
+func NewIntentFilterClient(cc grpc.ClientConnInterface) *IntentFilterClient {
+	return &IntentFilterClient{
+		svc: pb.NewIntentFilterServiceClient(cc),
+	}
+}
+
+// AddAction calls the AddAction RPC.
+func (c *IntentFilterClient) AddAction(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.AddAction(ctx, &pb.AddActionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// AddCategory calls the AddCategory RPC.
+func (c *IntentFilterClient) AddCategory(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.AddCategory(ctx, &pb.AddCategoryRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// AddDataAuthority calls the AddDataAuthority RPC.
+func (c *IntentFilterClient) AddDataAuthority(ctx context.Context, handle int64, arg0 string, arg1 string) error {
+	_, err := c.svc.AddDataAuthority(ctx, &pb.AddDataAuthorityRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// AddDataPath calls the AddDataPath RPC.
+func (c *IntentFilterClient) AddDataPath(ctx context.Context, handle int64, arg0 string, arg1 int32) error {
+	_, err := c.svc.AddDataPath(ctx, &pb.AddDataPathRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// AddDataScheme calls the AddDataScheme RPC.
+func (c *IntentFilterClient) AddDataScheme(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.AddDataScheme(ctx, &pb.AddDataSchemeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// AddDataSchemeSpecificPart calls the AddDataSchemeSpecificPart RPC.
+func (c *IntentFilterClient) AddDataSchemeSpecificPart(ctx context.Context, handle int64, arg0 string, arg1 int32) error {
+	_, err := c.svc.AddDataSchemeSpecificPart(ctx, &pb.AddDataSchemeSpecificPartRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// AddDataType calls the AddDataType RPC.
+func (c *IntentFilterClient) AddDataType(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.AddDataType(ctx, &pb.AddDataTypeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// AddUriRelativeFilterGroup calls the AddUriRelativeFilterGroup RPC.
+func (c *IntentFilterClient) AddUriRelativeFilterGroup(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.AddUriRelativeFilterGroup(ctx, &pb.AddUriRelativeFilterGroupRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// ClearUriRelativeFilterGroups calls the ClearUriRelativeFilterGroups RPC.
+func (c *IntentFilterClient) ClearUriRelativeFilterGroups(ctx context.Context, handle int64) error {
+	_, err := c.svc.ClearUriRelativeFilterGroups(ctx, &pb.ClearUriRelativeFilterGroupsRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// CountActions calls the CountActions RPC.
+func (c *IntentFilterClient) CountActions(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.CountActions(ctx, &pb.CountActionsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CountCategories calls the CountCategories RPC.
+func (c *IntentFilterClient) CountCategories(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.CountCategories(ctx, &pb.CountCategoriesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CountDataAuthorities calls the CountDataAuthorities RPC.
+func (c *IntentFilterClient) CountDataAuthorities(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.CountDataAuthorities(ctx, &pb.CountDataAuthoritiesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CountDataPaths calls the CountDataPaths RPC.
+func (c *IntentFilterClient) CountDataPaths(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.CountDataPaths(ctx, &pb.CountDataPathsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CountDataSchemeSpecificParts calls the CountDataSchemeSpecificParts RPC.
+func (c *IntentFilterClient) CountDataSchemeSpecificParts(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.CountDataSchemeSpecificParts(ctx, &pb.CountDataSchemeSpecificPartsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CountDataSchemes calls the CountDataSchemes RPC.
+func (c *IntentFilterClient) CountDataSchemes(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.CountDataSchemes(ctx, &pb.CountDataSchemesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CountDataTypes calls the CountDataTypes RPC.
+func (c *IntentFilterClient) CountDataTypes(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.CountDataTypes(ctx, &pb.CountDataTypesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CountUriRelativeFilterGroups calls the CountUriRelativeFilterGroups RPC.
+func (c *IntentFilterClient) CountUriRelativeFilterGroups(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.CountUriRelativeFilterGroups(ctx, &pb.CountUriRelativeFilterGroupsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *IntentFilterClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.IntentFilterDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Dump calls the Dump RPC.
+func (c *IntentFilterClient) Dump(ctx context.Context, handle int64, arg0 int64, arg1 string) error {
+	_, err := c.svc.Dump(ctx, &pb.IntentFilterDumpRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GetAction calls the GetAction RPC.
+func (c *IntentFilterClient) GetAction(ctx context.Context, handle int64, arg0 int32) (string, error) {
+	resp, err := c.svc.GetAction(ctx, &pb.GetActionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCategory calls the GetCategory RPC.
+func (c *IntentFilterClient) GetCategory(ctx context.Context, handle int64, arg0 int32) (string, error) {
+	resp, err := c.svc.GetCategory(ctx, &pb.GetCategoryRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDataAuthority calls the GetDataAuthority RPC.
+func (c *IntentFilterClient) GetDataAuthority(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetDataAuthority(ctx, &pb.GetDataAuthorityRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDataPath calls the GetDataPath RPC.
+func (c *IntentFilterClient) GetDataPath(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetDataPath(ctx, &pb.GetDataPathRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDataScheme calls the GetDataScheme RPC.
+func (c *IntentFilterClient) GetDataScheme(ctx context.Context, handle int64, arg0 int32) (string, error) {
+	resp, err := c.svc.GetDataScheme(ctx, &pb.GetDataSchemeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDataSchemeSpecificPart calls the GetDataSchemeSpecificPart RPC.
+func (c *IntentFilterClient) GetDataSchemeSpecificPart(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetDataSchemeSpecificPart(ctx, &pb.GetDataSchemeSpecificPartRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDataType calls the GetDataType RPC.
+func (c *IntentFilterClient) GetDataType(ctx context.Context, handle int64, arg0 int32) (string, error) {
+	resp, err := c.svc.GetDataType(ctx, &pb.GetDataTypeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPriority calls the GetPriority RPC.
+func (c *IntentFilterClient) GetPriority(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetPriority(ctx, &pb.GetPriorityRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUriRelativeFilterGroup calls the GetUriRelativeFilterGroup RPC.
+func (c *IntentFilterClient) GetUriRelativeFilterGroup(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetUriRelativeFilterGroup(ctx, &pb.GetUriRelativeFilterGroupRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasAction calls the HasAction RPC.
+func (c *IntentFilterClient) HasAction(ctx context.Context, handle int64, arg0 string) (bool, error) {
+	resp, err := c.svc.HasAction(ctx, &pb.HasActionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasCategory calls the HasCategory RPC.
+func (c *IntentFilterClient) HasCategory(ctx context.Context, handle int64, arg0 string) (bool, error) {
+	resp, err := c.svc.HasCategory(ctx, &pb.HasCategoryRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasDataAuthority calls the HasDataAuthority RPC.
+func (c *IntentFilterClient) HasDataAuthority(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.HasDataAuthority(ctx, &pb.HasDataAuthorityRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasDataPath calls the HasDataPath RPC.
+func (c *IntentFilterClient) HasDataPath(ctx context.Context, handle int64, arg0 string) (bool, error) {
+	resp, err := c.svc.HasDataPath(ctx, &pb.HasDataPathRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasDataScheme calls the HasDataScheme RPC.
+func (c *IntentFilterClient) HasDataScheme(ctx context.Context, handle int64, arg0 string) (bool, error) {
+	resp, err := c.svc.HasDataScheme(ctx, &pb.HasDataSchemeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasDataSchemeSpecificPart calls the HasDataSchemeSpecificPart RPC.
+func (c *IntentFilterClient) HasDataSchemeSpecificPart(ctx context.Context, handle int64, arg0 string) (bool, error) {
+	resp, err := c.svc.HasDataSchemeSpecificPart(ctx, &pb.HasDataSchemeSpecificPartRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasDataType calls the HasDataType RPC.
+func (c *IntentFilterClient) HasDataType(ctx context.Context, handle int64, arg0 string) (bool, error) {
+	resp, err := c.svc.HasDataType(ctx, &pb.HasDataTypeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Match calls the Match RPC.
+func (c *IntentFilterClient) Match(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 bool, arg3 string) (int32, error) {
+	resp, err := c.svc.Match(ctx, &pb.MatchRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MatchAction calls the MatchAction RPC.
+func (c *IntentFilterClient) MatchAction(ctx context.Context, handle int64, arg0 string) (bool, error) {
+	resp, err := c.svc.MatchAction(ctx, &pb.MatchActionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MatchData calls the MatchData RPC.
+func (c *IntentFilterClient) MatchData(ctx context.Context, handle int64, arg0 string, arg1 string, arg2 int64) (int32, error) {
+	resp, err := c.svc.MatchData(ctx, &pb.MatchDataRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MatchDataAuthority calls the MatchDataAuthority RPC.
+func (c *IntentFilterClient) MatchDataAuthority(ctx context.Context, handle int64, arg0 int64) (int32, error) {
+	resp, err := c.svc.MatchDataAuthority(ctx, &pb.MatchDataAuthorityRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ReadFromXml calls the ReadFromXml RPC.
+func (c *IntentFilterClient) ReadFromXml(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.ReadFromXml(ctx, &pb.ReadFromXmlRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetPriority calls the SetPriority RPC.
+func (c *IntentFilterClient) SetPriority(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetPriority(ctx, &pb.SetPriorityRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *IntentFilterClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.IntentFilterWriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// WriteToXml calls the WriteToXml RPC.
+func (c *IntentFilterClient) WriteToXml(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.WriteToXml(ctx, &pb.WriteToXmlRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// Create calls the Create RPC.
+func (c *IntentFilterClient) Create(ctx context.Context, handle int64, arg0 string, arg1 string) (int64, error) {
+	resp, err := c.svc.Create(ctx, &pb.CreateRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IntentFilterAuthorityEntryClient wraps the gRPC IntentFilterAuthorityEntryService client.
+type IntentFilterAuthorityEntryClient struct {
+	svc pb.IntentFilterAuthorityEntryServiceClient
+}
+
+// NewIntentFilterAuthorityEntryClient creates a new IntentFilterAuthorityEntry client.
+func NewIntentFilterAuthorityEntryClient(cc grpc.ClientConnInterface) *IntentFilterAuthorityEntryClient {
+	return &IntentFilterAuthorityEntryClient{
+		svc: pb.NewIntentFilterAuthorityEntryServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *IntentFilterAuthorityEntryClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHost calls the GetHost RPC.
+func (c *IntentFilterAuthorityEntryClient) GetHost(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetHost(ctx, &pb.GetHostRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPort calls the GetPort RPC.
+func (c *IntentFilterAuthorityEntryClient) GetPort(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetPort(ctx, &pb.GetPortRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Match calls the Match RPC.
+func (c *IntentFilterAuthorityEntryClient) Match(ctx context.Context, arg0 int64) (int32, error) {
+	resp, err := c.svc.Match(ctx, &pb.IntentFilterAuthorityEntryMatchRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OperationApplicationExceptionClient wraps the gRPC OperationApplicationExceptionService client.
+type OperationApplicationExceptionClient struct {
+	svc pb.OperationApplicationExceptionServiceClient
+}
+
+// NewOperationApplicationExceptionClient creates a new OperationApplicationException client.
+func NewOperationApplicationExceptionClient(cc grpc.ClientConnInterface) *OperationApplicationExceptionClient {
+	return &OperationApplicationExceptionClient{
+		svc: pb.NewOperationApplicationExceptionServiceClient(cc),
+	}
+}
+
+// GetNumSuccessfulYieldPoints calls the GetNumSuccessfulYieldPoints RPC.
+func (c *OperationApplicationExceptionClient) GetNumSuccessfulYieldPoints(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetNumSuccessfulYieldPoints(ctx, &pb.GetNumSuccessfulYieldPointsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// EntityClient wraps the gRPC EntityService client.
+type EntityClient struct {
+	svc pb.EntityServiceClient
+}
+
+// NewEntityClient creates a new Entity client.
+func NewEntityClient(cc grpc.ClientConnInterface) *EntityClient {
+	return &EntityClient{
+		svc: pb.NewEntityServiceClient(cc),
+	}
+}
+
+// AddSubValue calls the AddSubValue RPC.
+func (c *EntityClient) AddSubValue(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
+	_, err := c.svc.AddSubValue(ctx, &pb.AddSubValueRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GetEntityValues calls the GetEntityValues RPC.
+func (c *EntityClient) GetEntityValues(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetEntityValues(ctx, &pb.GetEntityValuesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *EntityClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.EntityToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClipDescriptionClient wraps the gRPC ClipDescriptionService client.
+type ClipDescriptionClient struct {
+	svc pb.ClipDescriptionServiceClient
+}
+
+// NewClipDescriptionClient creates a new ClipDescription client.
+func NewClipDescriptionClient(cc grpc.ClientConnInterface) *ClipDescriptionClient {
+	return &ClipDescriptionClient{
+		svc: pb.NewClipDescriptionServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ClipDescriptionClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.ClipDescriptionDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// FilterMimeTypes calls the FilterMimeTypes RPC.
+func (c *ClipDescriptionClient) FilterMimeTypes(ctx context.Context, handle int64, arg0 string) (int64, error) {
+	resp, err := c.svc.FilterMimeTypes(ctx, &pb.FilterMimeTypesRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetClassificationStatus calls the GetClassificationStatus RPC.
+func (c *ClipDescriptionClient) GetClassificationStatus(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetClassificationStatus(ctx, &pb.GetClassificationStatusRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetConfidenceScore calls the GetConfidenceScore RPC.
+func (c *ClipDescriptionClient) GetConfidenceScore(ctx context.Context, handle int64, arg0 string) (float32, error) {
+	resp, err := c.svc.GetConfidenceScore(ctx, &pb.GetConfidenceScoreRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExtras calls the GetExtras RPC.
+func (c *ClipDescriptionClient) GetExtras(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetExtras(ctx, &pb.GetExtrasRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLabel calls the GetLabel RPC.
+func (c *ClipDescriptionClient) GetLabel(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetLabel(ctx, &pb.GetLabelRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMimeType calls the GetMimeType RPC.
+func (c *ClipDescriptionClient) GetMimeType(ctx context.Context, handle int64, arg0 int32) (string, error) {
+	resp, err := c.svc.GetMimeType(ctx, &pb.GetMimeTypeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMimeTypeCount calls the GetMimeTypeCount RPC.
+func (c *ClipDescriptionClient) GetMimeTypeCount(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetMimeTypeCount(ctx, &pb.GetMimeTypeCountRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTimestamp calls the GetTimestamp RPC.
+func (c *ClipDescriptionClient) GetTimestamp(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetTimestamp(ctx, &pb.GetTimestampRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasMimeType calls the HasMimeType RPC.
+func (c *ClipDescriptionClient) HasMimeType(ctx context.Context, handle int64, arg0 string) (bool, error) {
+	resp, err := c.svc.HasMimeType(ctx, &pb.HasMimeTypeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsStyledText calls the IsStyledText RPC.
+func (c *ClipDescriptionClient) IsStyledText(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsStyledText(ctx, &pb.IsStyledTextRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetExtras calls the SetExtras RPC.
+func (c *ClipDescriptionClient) SetExtras(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetExtras(ctx, &pb.ClipDescriptionSetExtrasRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// ToString calls the ToString RPC.
+func (c *ClipDescriptionClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ClipDescriptionToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ClipDescriptionClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.ClipDescriptionWriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// CompareMimeTypes calls the CompareMimeTypes RPC.
+func (c *ClipDescriptionClient) CompareMimeTypes(ctx context.Context, handle int64, arg0 string, arg1 string) (bool, error) {
+	resp, err := c.svc.CompareMimeTypes(ctx, &pb.CompareMimeTypesRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// EntityIteratorClient wraps the gRPC EntityIteratorService client.
+type EntityIteratorClient struct {
+	svc pb.EntityIteratorServiceClient
+}
+
+// NewEntityIteratorClient creates a new EntityIterator client.
+func NewEntityIteratorClient(cc grpc.ClientConnInterface) *EntityIteratorClient {
+	return &EntityIteratorClient{
+		svc: pb.NewEntityIteratorServiceClient(cc),
+	}
+}
+
+// Close calls the Close RPC.
+func (c *EntityIteratorClient) Close(ctx context.Context) error {
+	_, err := c.svc.Close(ctx, &pb.CloseRequest{})
+	return err
+}
+
+// Reset calls the Reset RPC.
+func (c *EntityIteratorClient) Reset(ctx context.Context) error {
+	_, err := c.svc.Reset(ctx, &pb.ResetRequest{})
+	return err
+}
+
+// DialogInterfaceClient wraps the gRPC DialogInterfaceService client.
+type DialogInterfaceClient struct {
+	svc pb.DialogInterfaceServiceClient
+}
+
+// NewDialogInterfaceClient creates a new DialogInterface client.
+func NewDialogInterfaceClient(cc grpc.ClientConnInterface) *DialogInterfaceClient {
+	return &DialogInterfaceClient{
+		svc: pb.NewDialogInterfaceServiceClient(cc),
+	}
+}
+
+// Cancel calls the Cancel RPC.
+func (c *DialogInterfaceClient) Cancel(ctx context.Context) error {
+	_, err := c.svc.Cancel(ctx, &pb.CancelRequest{})
+	return err
+}
+
+// Dismiss calls the Dismiss RPC.
+func (c *DialogInterfaceClient) Dismiss(ctx context.Context) error {
+	_, err := c.svc.Dismiss(ctx, &pb.DismissRequest{})
+	return err
+}
+
+// DialogInterfaceOnCancelListenerClient wraps the gRPC DialogInterfaceOnCancelListenerService client.
+type DialogInterfaceOnCancelListenerClient struct {
+	svc pb.DialogInterfaceOnCancelListenerServiceClient
+}
+
+// NewDialogInterfaceOnCancelListenerClient creates a new DialogInterfaceOnCancelListener client.
+func NewDialogInterfaceOnCancelListenerClient(cc grpc.ClientConnInterface) *DialogInterfaceOnCancelListenerClient {
+	return &DialogInterfaceOnCancelListenerClient{
+		svc: pb.NewDialogInterfaceOnCancelListenerServiceClient(cc),
+	}
+}
+
+// OnCancel calls the OnCancel RPC.
+func (c *DialogInterfaceOnCancelListenerClient) OnCancel(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnCancel(ctx, &pb.OnCancelRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// DialogInterfaceOnClickListenerClient wraps the gRPC DialogInterfaceOnClickListenerService client.
+type DialogInterfaceOnClickListenerClient struct {
+	svc pb.DialogInterfaceOnClickListenerServiceClient
+}
+
+// NewDialogInterfaceOnClickListenerClient creates a new DialogInterfaceOnClickListener client.
+func NewDialogInterfaceOnClickListenerClient(cc grpc.ClientConnInterface) *DialogInterfaceOnClickListenerClient {
+	return &DialogInterfaceOnClickListenerClient{
+		svc: pb.NewDialogInterfaceOnClickListenerServiceClient(cc),
+	}
+}
+
+// OnClick calls the OnClick RPC.
+func (c *DialogInterfaceOnClickListenerClient) OnClick(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.OnClick(ctx, &pb.OnClickRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// DialogInterfaceOnDismissListenerClient wraps the gRPC DialogInterfaceOnDismissListenerService client.
+type DialogInterfaceOnDismissListenerClient struct {
+	svc pb.DialogInterfaceOnDismissListenerServiceClient
+}
+
+// NewDialogInterfaceOnDismissListenerClient creates a new DialogInterfaceOnDismissListener client.
+func NewDialogInterfaceOnDismissListenerClient(cc grpc.ClientConnInterface) *DialogInterfaceOnDismissListenerClient {
+	return &DialogInterfaceOnDismissListenerClient{
+		svc: pb.NewDialogInterfaceOnDismissListenerServiceClient(cc),
+	}
+}
+
+// OnDismiss calls the OnDismiss RPC.
+func (c *DialogInterfaceOnDismissListenerClient) OnDismiss(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnDismiss(ctx, &pb.OnDismissRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// DialogInterfaceOnKeyListenerClient wraps the gRPC DialogInterfaceOnKeyListenerService client.
+type DialogInterfaceOnKeyListenerClient struct {
+	svc pb.DialogInterfaceOnKeyListenerServiceClient
+}
+
+// NewDialogInterfaceOnKeyListenerClient creates a new DialogInterfaceOnKeyListener client.
+func NewDialogInterfaceOnKeyListenerClient(cc grpc.ClientConnInterface) *DialogInterfaceOnKeyListenerClient {
+	return &DialogInterfaceOnKeyListenerClient{
+		svc: pb.NewDialogInterfaceOnKeyListenerServiceClient(cc),
+	}
+}
+
+// OnKey calls the OnKey RPC.
+func (c *DialogInterfaceOnKeyListenerClient) OnKey(ctx context.Context, arg0 int64, arg1 int32, arg2 int64) (bool, error) {
+	resp, err := c.svc.OnKey(ctx, &pb.OnKeyRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DialogInterfaceOnMultiChoiceClickListenerClient wraps the gRPC DialogInterfaceOnMultiChoiceClickListenerService client.
+type DialogInterfaceOnMultiChoiceClickListenerClient struct {
+	svc pb.DialogInterfaceOnMultiChoiceClickListenerServiceClient
+}
+
+// NewDialogInterfaceOnMultiChoiceClickListenerClient creates a new DialogInterfaceOnMultiChoiceClickListener client.
+func NewDialogInterfaceOnMultiChoiceClickListenerClient(cc grpc.ClientConnInterface) *DialogInterfaceOnMultiChoiceClickListenerClient {
+	return &DialogInterfaceOnMultiChoiceClickListenerClient{
+		svc: pb.NewDialogInterfaceOnMultiChoiceClickListenerServiceClient(cc),
+	}
+}
+
+// OnClick calls the OnClick RPC.
+func (c *DialogInterfaceOnMultiChoiceClickListenerClient) OnClick(ctx context.Context, arg0 int64, arg1 int32, arg2 bool) error {
+	_, err := c.svc.OnClick(ctx, &pb.DialogInterfaceOnMultiChoiceClickListenerOnClickRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// DialogInterfaceOnShowListenerClient wraps the gRPC DialogInterfaceOnShowListenerService client.
+type DialogInterfaceOnShowListenerClient struct {
+	svc pb.DialogInterfaceOnShowListenerServiceClient
+}
+
+// NewDialogInterfaceOnShowListenerClient creates a new DialogInterfaceOnShowListener client.
+func NewDialogInterfaceOnShowListenerClient(cc grpc.ClientConnInterface) *DialogInterfaceOnShowListenerClient {
+	return &DialogInterfaceOnShowListenerClient{
+		svc: pb.NewDialogInterfaceOnShowListenerServiceClient(cc),
+	}
+}
+
+// OnShow calls the OnShow RPC.
+func (c *DialogInterfaceOnShowListenerClient) OnShow(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnShow(ctx, &pb.OnShowRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ContextParamsClient wraps the gRPC ContextParamsService client.
+type ContextParamsClient struct {
+	svc pb.ContextParamsServiceClient
+}
+
+// NewContextParamsClient creates a new ContextParams client.
+func NewContextParamsClient(cc grpc.ClientConnInterface) *ContextParamsClient {
+	return &ContextParamsClient{
+		svc: pb.NewContextParamsServiceClient(cc),
+	}
+}
+
+// GetAttributionTag calls the GetAttributionTag RPC.
+func (c *ContextParamsClient) GetAttributionTag(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetAttributionTag(ctx, &pb.GetAttributionTagRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNextAttributionSource calls the GetNextAttributionSource RPC.
+func (c *ContextParamsClient) GetNextAttributionSource(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetNextAttributionSource(ctx, &pb.GetNextAttributionSourceRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ShouldRegisterAttributionSource calls the ShouldRegisterAttributionSource RPC.
+func (c *ContextParamsClient) ShouldRegisterAttributionSource(ctx context.Context) (bool, error) {
+	resp, err := c.svc.ShouldRegisterAttributionSource(ctx, &pb.ShouldRegisterAttributionSourceRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ContextParamsBuilderClient wraps the gRPC ContextParamsBuilderService client.
+type ContextParamsBuilderClient struct {
+	svc pb.ContextParamsBuilderServiceClient
+}
+
+// NewContextParamsBuilderClient creates a new ContextParamsBuilder client.
+func NewContextParamsBuilderClient(cc grpc.ClientConnInterface) *ContextParamsBuilderClient {
+	return &ContextParamsBuilderClient{
+		svc: pb.NewContextParamsBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *ContextParamsBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetAttributionTag calls the SetAttributionTag RPC.
+func (c *ContextParamsBuilderClient) SetAttributionTag(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetAttributionTag(ctx, &pb.SetAttributionTagRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetNextAttributionSource calls the SetNextAttributionSource RPC.
+func (c *ContextParamsBuilderClient) SetNextAttributionSource(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetNextAttributionSource(ctx, &pb.SetNextAttributionSourceRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetShouldRegisterAttributionSource calls the SetShouldRegisterAttributionSource RPC.
+func (c *ContextParamsBuilderClient) SetShouldRegisterAttributionSource(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetShouldRegisterAttributionSource(ctx, &pb.SetShouldRegisterAttributionSourceRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SyncContextClient wraps the gRPC SyncContextService client.
+type SyncContextClient struct {
+	svc pb.SyncContextServiceClient
+}
+
+// NewSyncContextClient creates a new SyncContext client.
+func NewSyncContextClient(cc grpc.ClientConnInterface) *SyncContextClient {
+	return &SyncContextClient{
+		svc: pb.NewSyncContextServiceClient(cc),
+	}
+}
+
+// GetSyncContextBinder calls the GetSyncContextBinder RPC.
+func (c *SyncContextClient) GetSyncContextBinder(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSyncContextBinder(ctx, &pb.GetSyncContextBinderRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnFinished calls the OnFinished RPC.
+func (c *SyncContextClient) OnFinished(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnFinished(ctx, &pb.OnFinishedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// LoaderClient wraps the gRPC LoaderService client.
+type LoaderClient struct {
+	svc pb.LoaderServiceClient
+}
+
+// NewLoaderClient creates a new Loader client.
+func NewLoaderClient(cc grpc.ClientConnInterface) *LoaderClient {
+	return &LoaderClient{
+		svc: pb.NewLoaderServiceClient(cc),
+	}
+}
+
+// Abandon calls the Abandon RPC.
+func (c *LoaderClient) Abandon(ctx context.Context, handle int64) error {
+	_, err := c.svc.Abandon(ctx, &pb.AbandonRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// CancelLoad calls the CancelLoad RPC.
+func (c *LoaderClient) CancelLoad(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.CancelLoad(ctx, &pb.CancelLoadRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CommitContentChanged calls the CommitContentChanged RPC.
+func (c *LoaderClient) CommitContentChanged(ctx context.Context, handle int64) error {
+	_, err := c.svc.CommitContentChanged(ctx, &pb.CommitContentChangedRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// DeliverCancellation calls the DeliverCancellation RPC.
+func (c *LoaderClient) DeliverCancellation(ctx context.Context, handle int64) error {
+	_, err := c.svc.DeliverCancellation(ctx, &pb.DeliverCancellationRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// Dump calls the Dump RPC.
+func (c *LoaderClient) Dump(ctx context.Context, handle int64, arg0 string, arg1 int64, arg2 int64, arg3 int64) error {
+	_, err := c.svc.Dump(ctx, &pb.LoaderDumpRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// ForceLoad calls the ForceLoad RPC.
+func (c *LoaderClient) ForceLoad(ctx context.Context, handle int64) error {
+	_, err := c.svc.ForceLoad(ctx, &pb.ForceLoadRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// GetContext calls the GetContext RPC.
+func (c *LoaderClient) GetContext(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetContext(ctx, &pb.LoaderGetContextRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetId calls the GetId RPC.
+func (c *LoaderClient) GetId(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsAbandoned calls the IsAbandoned RPC.
+func (c *LoaderClient) IsAbandoned(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsAbandoned(ctx, &pb.IsAbandonedRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsReset calls the IsReset RPC.
+func (c *LoaderClient) IsReset(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsReset(ctx, &pb.IsResetRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsStarted calls the IsStarted RPC.
+func (c *LoaderClient) IsStarted(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsStarted(ctx, &pb.IsStartedRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnContentChanged calls the OnContentChanged RPC.
+func (c *LoaderClient) OnContentChanged(ctx context.Context, handle int64) error {
+	_, err := c.svc.OnContentChanged(ctx, &pb.OnContentChangedRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// Reset calls the Reset RPC.
+func (c *LoaderClient) Reset(ctx context.Context, handle int64) error {
+	_, err := c.svc.Reset(ctx, &pb.LoaderResetRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// RollbackContentChanged calls the RollbackContentChanged RPC.
+func (c *LoaderClient) RollbackContentChanged(ctx context.Context, handle int64) error {
+	_, err := c.svc.RollbackContentChanged(ctx, &pb.RollbackContentChangedRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// StartLoading calls the StartLoading RPC.
+func (c *LoaderClient) StartLoading(ctx context.Context, handle int64) error {
+	_, err := c.svc.StartLoading(ctx, &pb.StartLoadingRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// StopLoading calls the StopLoading RPC.
+func (c *LoaderClient) StopLoading(ctx context.Context, handle int64) error {
+	_, err := c.svc.StopLoading(ctx, &pb.StopLoadingRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// TakeContentChanged calls the TakeContentChanged RPC.
+func (c *LoaderClient) TakeContentChanged(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.TakeContentChanged(ctx, &pb.TakeContentChangedRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *LoaderClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.LoaderToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// LoaderForceLoadContentObserverClient wraps the gRPC LoaderForceLoadContentObserverService client.
+type LoaderForceLoadContentObserverClient struct {
+	svc pb.LoaderForceLoadContentObserverServiceClient
+}
+
+// NewLoaderForceLoadContentObserverClient creates a new LoaderForceLoadContentObserver client.
+func NewLoaderForceLoadContentObserverClient(cc grpc.ClientConnInterface) *LoaderForceLoadContentObserverClient {
+	return &LoaderForceLoadContentObserverClient{
+		svc: pb.NewLoaderForceLoadContentObserverServiceClient(cc),
+	}
+}
+
+// DeliverSelfNotifications calls the DeliverSelfNotifications RPC.
+func (c *LoaderForceLoadContentObserverClient) DeliverSelfNotifications(ctx context.Context) (bool, error) {
+	resp, err := c.svc.DeliverSelfNotifications(ctx, &pb.DeliverSelfNotificationsRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnChange calls the OnChange RPC.
+func (c *LoaderForceLoadContentObserverClient) OnChange(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.OnChange(ctx, &pb.OnChangeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// UriRelativeFilterClient wraps the gRPC UriRelativeFilterService client.
+type UriRelativeFilterClient struct {
+	svc pb.UriRelativeFilterServiceClient
+}
+
+// NewUriRelativeFilterClient creates a new UriRelativeFilter client.
+func NewUriRelativeFilterClient(cc grpc.ClientConnInterface) *UriRelativeFilterClient {
+	return &UriRelativeFilterClient{
+		svc: pb.NewUriRelativeFilterServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *UriRelativeFilterClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.UriRelativeFilterEqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFilter calls the GetFilter RPC.
+func (c *UriRelativeFilterClient) GetFilter(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetFilter(ctx, &pb.GetFilterRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPatternType calls the GetPatternType RPC.
+func (c *UriRelativeFilterClient) GetPatternType(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetPatternType(ctx, &pb.GetPatternTypeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUriPart calls the GetUriPart RPC.
+func (c *UriRelativeFilterClient) GetUriPart(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetUriPart(ctx, &pb.GetUriPartRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *UriRelativeFilterClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.UriRelativeFilterHashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MatchData calls the MatchData RPC.
+func (c *UriRelativeFilterClient) MatchData(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.MatchData(ctx, &pb.UriRelativeFilterMatchDataRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *UriRelativeFilterClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.UriRelativeFilterToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// ProviderClientClient wraps the gRPC ProviderClientService client.
+type ProviderClientClient struct {
+	svc pb.ProviderClientServiceClient
+}
+
+// NewProviderClientClient creates a new ProviderClient client.
+func NewProviderClientClient(cc grpc.ClientConnInterface) *ProviderClientClient {
+	return &ProviderClientClient{
+		svc: pb.NewProviderClientServiceClient(cc),
+	}
+}
+
+// BulkInsert calls the BulkInsert RPC.
+func (c *ProviderClientClient) BulkInsert(ctx context.Context, arg0 int64, arg1 int64) (int32, error) {
+	resp, err := c.svc.BulkInsert(ctx, &pb.BulkInsertRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Call3 calls the Call3 RPC.
+func (c *ProviderClientClient) Call3(ctx context.Context, arg0 string, arg1 string, arg2 int64) (int64, error) {
+	resp, err := c.svc.Call3(ctx, &pb.Call3Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Call4_1 calls the Call4_1 RPC.
+func (c *ProviderClientClient) Call4_1(ctx context.Context, arg0 string, arg1 string, arg2 string, arg3 int64) (int64, error) {
+	resp, err := c.svc.Call4_1(ctx, &pb.Call4_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Canonicalize calls the Canonicalize RPC.
+func (c *ProviderClientClient) Canonicalize(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.Canonicalize(ctx, &pb.CanonicalizeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Close calls the Close RPC.
+func (c *ProviderClientClient) Close(ctx context.Context) error {
+	_, err := c.svc.Close(ctx, &pb.CloseRequest{})
+	return err
+}
+
+// Delete2 calls the Delete2 RPC.
+func (c *ProviderClientClient) Delete2(ctx context.Context, arg0 int64, arg1 int64) (int32, error) {
+	resp, err := c.svc.Delete2(ctx, &pb.Delete2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Delete3_1 calls the Delete3_1 RPC.
+func (c *ProviderClientClient) Delete3_1(ctx context.Context, arg0 int64, arg1 string, arg2 int64) (int32, error) {
+	resp, err := c.svc.Delete3_1(ctx, &pb.Delete3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLocalContentProvider calls the GetLocalContentProvider RPC.
+func (c *ProviderClientClient) GetLocalContentProvider(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetLocalContentProvider(ctx, &pb.GetLocalContentProviderRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStreamTypes calls the GetStreamTypes RPC.
+func (c *ProviderClientClient) GetStreamTypes(ctx context.Context, arg0 int64, arg1 string) (int64, error) {
+	resp, err := c.svc.GetStreamTypes(ctx, &pb.GetStreamTypesRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetType calls the GetType RPC.
+func (c *ProviderClientClient) GetType(ctx context.Context, arg0 int64) (string, error) {
+	resp, err := c.svc.GetType(ctx, &pb.GetTypeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// Insert2 calls the Insert2 RPC.
+func (c *ProviderClientClient) Insert2(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.Insert2(ctx, &pb.Insert2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Insert3_1 calls the Insert3_1 RPC.
+func (c *ProviderClientClient) Insert3_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.Insert3_1(ctx, &pb.Insert3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OpenAssetFile2 calls the OpenAssetFile2 RPC.
+func (c *ProviderClientClient) OpenAssetFile2(ctx context.Context, arg0 int64, arg1 string) (int64, error) {
+	resp, err := c.svc.OpenAssetFile2(ctx, &pb.OpenAssetFile2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OpenAssetFile3_1 calls the OpenAssetFile3_1 RPC.
+func (c *ProviderClientClient) OpenAssetFile3_1(ctx context.Context, arg0 int64, arg1 string, arg2 int64) (int64, error) {
+	resp, err := c.svc.OpenAssetFile3_1(ctx, &pb.OpenAssetFile3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OpenFile2 calls the OpenFile2 RPC.
+func (c *ProviderClientClient) OpenFile2(ctx context.Context, arg0 int64, arg1 string) (int64, error) {
+	resp, err := c.svc.OpenFile2(ctx, &pb.OpenFile2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OpenFile3_1 calls the OpenFile3_1 RPC.
+func (c *ProviderClientClient) OpenFile3_1(ctx context.Context, arg0 int64, arg1 string, arg2 int64) (int64, error) {
+	resp, err := c.svc.OpenFile3_1(ctx, &pb.OpenFile3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OpenTypedAssetFile calls the OpenTypedAssetFile RPC.
+func (c *ProviderClientClient) OpenTypedAssetFile(ctx context.Context, arg0 int64, arg1 string, arg2 int64, arg3 int64) (int64, error) {
+	resp, err := c.svc.OpenTypedAssetFile(ctx, &pb.OpenTypedAssetFileRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OpenTypedAssetFileDescriptor3 calls the OpenTypedAssetFileDescriptor3 RPC.
+func (c *ProviderClientClient) OpenTypedAssetFileDescriptor3(ctx context.Context, arg0 int64, arg1 string, arg2 int64) (int64, error) {
+	resp, err := c.svc.OpenTypedAssetFileDescriptor3(ctx, &pb.OpenTypedAssetFileDescriptor3Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OpenTypedAssetFileDescriptor4_1 calls the OpenTypedAssetFileDescriptor4_1 RPC.
+func (c *ProviderClientClient) OpenTypedAssetFileDescriptor4_1(ctx context.Context, arg0 int64, arg1 string, arg2 int64, arg3 int64) (int64, error) {
+	resp, err := c.svc.OpenTypedAssetFileDescriptor4_1(ctx, &pb.OpenTypedAssetFileDescriptor4_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Query4 calls the Query4 RPC.
+func (c *ProviderClientClient) Query4(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64) (int64, error) {
+	resp, err := c.svc.Query4(ctx, &pb.Query4Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Query5_1 calls the Query5_1 RPC.
+func (c *ProviderClientClient) Query5_1(ctx context.Context, arg0 int64, arg1 int64, arg2 string, arg3 int64, arg4 string) (int64, error) {
+	resp, err := c.svc.Query5_1(ctx, &pb.Query5_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Query6_2 calls the Query6_2 RPC.
+func (c *ProviderClientClient) Query6_2(ctx context.Context, arg0 int64, arg1 int64, arg2 string, arg3 int64, arg4 string, arg5 int64) (int64, error) {
+	resp, err := c.svc.Query6_2(ctx, &pb.Query6_2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Refresh calls the Refresh RPC.
+func (c *ProviderClientClient) Refresh(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (bool, error) {
+	resp, err := c.svc.Refresh(ctx, &pb.RefreshRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Release calls the Release RPC.
+func (c *ProviderClientClient) Release(ctx context.Context) (bool, error) {
+	resp, err := c.svc.Release(ctx, &pb.ReleaseRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Uncanonicalize calls the Uncanonicalize RPC.
+func (c *ProviderClientClient) Uncanonicalize(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.Uncanonicalize(ctx, &pb.UncanonicalizeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Update3 calls the Update3 RPC.
+func (c *ProviderClientClient) Update3(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int32, error) {
+	resp, err := c.svc.Update3(ctx, &pb.Update3Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Update4_1 calls the Update4_1 RPC.
+func (c *ProviderClientClient) Update4_1(ctx context.Context, arg0 int64, arg1 int64, arg2 string, arg3 int64) (int32, error) {
+	resp, err := c.svc.Update4_1(ctx, &pb.Update4_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SyncAdapterTypeClient wraps the gRPC SyncAdapterTypeService client.
+type SyncAdapterTypeClient struct {
+	svc pb.SyncAdapterTypeServiceClient
+}
+
+// NewSyncAdapterTypeClient creates a new SyncAdapterType client.
+func NewSyncAdapterTypeClient(cc grpc.ClientConnInterface) *SyncAdapterTypeClient {
+	return &SyncAdapterTypeClient{
+		svc: pb.NewSyncAdapterTypeServiceClient(cc),
+	}
+}
+
+// AllowParallelSyncs calls the AllowParallelSyncs RPC.
+func (c *SyncAdapterTypeClient) AllowParallelSyncs(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.AllowParallelSyncs(ctx, &pb.AllowParallelSyncsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *SyncAdapterTypeClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.SyncAdapterTypeDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *SyncAdapterTypeClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.SyncAdapterTypeEqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSettingsActivity calls the GetSettingsActivity RPC.
+func (c *SyncAdapterTypeClient) GetSettingsActivity(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetSettingsActivity(ctx, &pb.GetSettingsActivityRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *SyncAdapterTypeClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.SyncAdapterTypeHashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsAlwaysSyncable calls the IsAlwaysSyncable RPC.
+func (c *SyncAdapterTypeClient) IsAlwaysSyncable(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsAlwaysSyncable(ctx, &pb.IsAlwaysSyncableRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsUserVisible calls the IsUserVisible RPC.
+func (c *SyncAdapterTypeClient) IsUserVisible(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsUserVisible(ctx, &pb.IsUserVisibleRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SupportsUploading calls the SupportsUploading RPC.
+func (c *SyncAdapterTypeClient) SupportsUploading(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.SupportsUploading(ctx, &pb.SupportsUploadingRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *SyncAdapterTypeClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.SyncAdapterTypeToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *SyncAdapterTypeClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.SyncAdapterTypeWriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// NewKey calls the NewKey RPC.
+func (c *SyncAdapterTypeClient) NewKey(ctx context.Context, handle int64, arg0 string, arg1 string) (int64, error) {
+	resp, err := c.svc.NewKey(ctx, &pb.NewKeyRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RestrictionEntryClient wraps the gRPC RestrictionEntryService client.
+type RestrictionEntryClient struct {
+	svc pb.RestrictionEntryServiceClient
+}
+
+// NewRestrictionEntryClient creates a new RestrictionEntry client.
+func NewRestrictionEntryClient(cc grpc.ClientConnInterface) *RestrictionEntryClient {
+	return &RestrictionEntryClient{
+		svc: pb.NewRestrictionEntryServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *RestrictionEntryClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.RestrictionEntryDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *RestrictionEntryClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.RestrictionEntryEqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAllSelectedStrings calls the GetAllSelectedStrings RPC.
+func (c *RestrictionEntryClient) GetAllSelectedStrings(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetAllSelectedStrings(ctx, &pb.GetAllSelectedStringsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetChoiceEntries calls the GetChoiceEntries RPC.
+func (c *RestrictionEntryClient) GetChoiceEntries(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetChoiceEntries(ctx, &pb.GetChoiceEntriesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetChoiceValues calls the GetChoiceValues RPC.
+func (c *RestrictionEntryClient) GetChoiceValues(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetChoiceValues(ctx, &pb.GetChoiceValuesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDescription calls the GetDescription RPC.
+func (c *RestrictionEntryClient) GetDescription(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetDescription(ctx, &pb.GetDescriptionRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIntValue calls the GetIntValue RPC.
+func (c *RestrictionEntryClient) GetIntValue(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetIntValue(ctx, &pb.GetIntValueRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetKey calls the GetKey RPC.
+func (c *RestrictionEntryClient) GetKey(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetKey(ctx, &pb.GetKeyRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRestrictions calls the GetRestrictions RPC.
+func (c *RestrictionEntryClient) GetRestrictions(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetRestrictions(ctx, &pb.GetRestrictionsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSelectedState calls the GetSelectedState RPC.
+func (c *RestrictionEntryClient) GetSelectedState(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.GetSelectedState(ctx, &pb.GetSelectedStateRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSelectedString calls the GetSelectedString RPC.
+func (c *RestrictionEntryClient) GetSelectedString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetSelectedString(ctx, &pb.GetSelectedStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTitle calls the GetTitle RPC.
+func (c *RestrictionEntryClient) GetTitle(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetTitle(ctx, &pb.GetTitleRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetType calls the GetType RPC.
+func (c *RestrictionEntryClient) GetType(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetType(ctx, &pb.RestrictionEntryGetTypeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *RestrictionEntryClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.RestrictionEntryHashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetAllSelectedStrings calls the SetAllSelectedStrings RPC.
+func (c *RestrictionEntryClient) SetAllSelectedStrings(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetAllSelectedStrings(ctx, &pb.SetAllSelectedStringsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetChoiceEntries2 calls the SetChoiceEntries2 RPC.
+func (c *RestrictionEntryClient) SetChoiceEntries2(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.SetChoiceEntries2(ctx, &pb.SetChoiceEntries2Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SetChoiceEntries1_1 calls the SetChoiceEntries1_1 RPC.
+func (c *RestrictionEntryClient) SetChoiceEntries1_1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetChoiceEntries1_1(ctx, &pb.SetChoiceEntries1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetChoiceValues2 calls the SetChoiceValues2 RPC.
+func (c *RestrictionEntryClient) SetChoiceValues2(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.SetChoiceValues2(ctx, &pb.SetChoiceValues2Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SetChoiceValues1_1 calls the SetChoiceValues1_1 RPC.
+func (c *RestrictionEntryClient) SetChoiceValues1_1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetChoiceValues1_1(ctx, &pb.SetChoiceValues1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetDescription calls the SetDescription RPC.
+func (c *RestrictionEntryClient) SetDescription(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.SetDescription(ctx, &pb.SetDescriptionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetIntValue calls the SetIntValue RPC.
+func (c *RestrictionEntryClient) SetIntValue(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetIntValue(ctx, &pb.SetIntValueRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetRestrictions calls the SetRestrictions RPC.
+func (c *RestrictionEntryClient) SetRestrictions(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetRestrictions(ctx, &pb.SetRestrictionsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetSelectedState calls the SetSelectedState RPC.
+func (c *RestrictionEntryClient) SetSelectedState(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetSelectedState(ctx, &pb.SetSelectedStateRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetSelectedString calls the SetSelectedString RPC.
+func (c *RestrictionEntryClient) SetSelectedString(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.SetSelectedString(ctx, &pb.SetSelectedStringRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetTitle calls the SetTitle RPC.
+func (c *RestrictionEntryClient) SetTitle(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.SetTitle(ctx, &pb.SetTitleRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetType calls the SetType RPC.
+func (c *RestrictionEntryClient) SetType(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetType(ctx, &pb.SetTypeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// ToString calls the ToString RPC.
+func (c *RestrictionEntryClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.RestrictionEntryToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *RestrictionEntryClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.RestrictionEntryWriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// CreateBundleArrayEntry calls the CreateBundleArrayEntry RPC.
+func (c *RestrictionEntryClient) CreateBundleArrayEntry(ctx context.Context, handle int64, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.CreateBundleArrayEntry(ctx, &pb.CreateBundleArrayEntryRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateBundleEntry calls the CreateBundleEntry RPC.
+func (c *RestrictionEntryClient) CreateBundleEntry(ctx context.Context, handle int64, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.CreateBundleEntry(ctx, &pb.CreateBundleEntryRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ContextWrapperClient wraps the gRPC ContextWrapperService client.
+type ContextWrapperClient struct {
+	svc pb.ContextWrapperServiceClient
+}
+
+// NewContextWrapperClient creates a new ContextWrapper client.
+func NewContextWrapperClient(cc grpc.ClientConnInterface) *ContextWrapperClient {
+	return &ContextWrapperClient{
+		svc: pb.NewContextWrapperServiceClient(cc),
+	}
+}
+
+// BindIsolatedService calls the BindIsolatedService RPC.
+func (c *ContextWrapperClient) BindIsolatedService(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 string, arg3 int64, arg4 int64) (bool, error) {
+	resp, err := c.svc.BindIsolatedService(ctx, &pb.BindIsolatedServiceRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// BindService4 calls the BindService4 RPC.
+func (c *ContextWrapperClient) BindService4(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64, arg3 int64) (bool, error) {
+	resp, err := c.svc.BindService4(ctx, &pb.BindService4Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// BindService3_1 calls the BindService3_1 RPC.
+func (c *ContextWrapperClient) BindService3_1(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) (bool, error) {
+	resp, err := c.svc.BindService3_1(ctx, &pb.BindService3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// BindService3_2 calls the BindService3_2 RPC.
+func (c *ContextWrapperClient) BindService3_2(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32) (bool, error) {
+	resp, err := c.svc.BindService3_2(ctx, &pb.BindService3_2Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// BindService4_3 calls the BindService4_3 RPC.
+func (c *ContextWrapperClient) BindService4_3(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int64, arg3 int64) (bool, error) {
+	resp, err := c.svc.BindService4_3(ctx, &pb.BindService4_3Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// BindServiceAsUser4 calls the BindServiceAsUser4 RPC.
+func (c *ContextWrapperClient) BindServiceAsUser4(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64, arg3 int64) (bool, error) {
+	resp, err := c.svc.BindServiceAsUser4(ctx, &pb.BindServiceAsUser4Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// BindServiceAsUser4_1 calls the BindServiceAsUser4_1 RPC.
+func (c *ContextWrapperClient) BindServiceAsUser4_1(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32, arg3 int64) (bool, error) {
+	resp, err := c.svc.BindServiceAsUser4_1(ctx, &pb.BindServiceAsUser4_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CheckCallingOrSelfPermission calls the CheckCallingOrSelfPermission RPC.
+func (c *ContextWrapperClient) CheckCallingOrSelfPermission(ctx context.Context, handle int64, arg0 string) (int32, error) {
+	resp, err := c.svc.CheckCallingOrSelfPermission(ctx, &pb.CheckCallingOrSelfPermissionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CheckCallingOrSelfUriPermission calls the CheckCallingOrSelfUriPermission RPC.
+func (c *ContextWrapperClient) CheckCallingOrSelfUriPermission(ctx context.Context, handle int64, arg0 int64, arg1 int32) (int32, error) {
+	resp, err := c.svc.CheckCallingOrSelfUriPermission(ctx, &pb.CheckCallingOrSelfUriPermissionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CheckCallingPermission calls the CheckCallingPermission RPC.
+func (c *ContextWrapperClient) CheckCallingPermission(ctx context.Context, handle int64, arg0 string) (int32, error) {
+	resp, err := c.svc.CheckCallingPermission(ctx, &pb.CheckCallingPermissionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CheckCallingUriPermission calls the CheckCallingUriPermission RPC.
+func (c *ContextWrapperClient) CheckCallingUriPermission(ctx context.Context, handle int64, arg0 int64, arg1 int32) (int32, error) {
+	resp, err := c.svc.CheckCallingUriPermission(ctx, &pb.CheckCallingUriPermissionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CheckContentUriPermissionFull calls the CheckContentUriPermissionFull RPC.
+func (c *ContextWrapperClient) CheckContentUriPermissionFull(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int32, arg3 int32) (int32, error) {
+	resp, err := c.svc.CheckContentUriPermissionFull(ctx, &pb.CheckContentUriPermissionFullRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CheckPermission calls the CheckPermission RPC.
+func (c *ContextWrapperClient) CheckPermission(ctx context.Context, handle int64, arg0 string, arg1 int32, arg2 int32) (int32, error) {
+	resp, err := c.svc.CheckPermission(ctx, &pb.CheckPermissionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CheckSelfPermission calls the CheckSelfPermission RPC.
+func (c *ContextWrapperClient) CheckSelfPermission(ctx context.Context, handle int64, arg0 string) (int32, error) {
+	resp, err := c.svc.CheckSelfPermission(ctx, &pb.CheckSelfPermissionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CheckUriPermission4 calls the CheckUriPermission4 RPC.
+func (c *ContextWrapperClient) CheckUriPermission4(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int32, arg3 int32) (int32, error) {
+	resp, err := c.svc.CheckUriPermission4(ctx, &pb.CheckUriPermission4Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CheckUriPermission6_1 calls the CheckUriPermission6_1 RPC.
+func (c *ContextWrapperClient) CheckUriPermission6_1(ctx context.Context, handle int64, arg0 int64, arg1 string, arg2 string, arg3 int32, arg4 int32, arg5 int32) (int32, error) {
+	resp, err := c.svc.CheckUriPermission6_1(ctx, &pb.CheckUriPermission6_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+		Arg5:   arg5,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearWallpaper calls the ClearWallpaper RPC.
+func (c *ContextWrapperClient) ClearWallpaper(ctx context.Context, handle int64) error {
+	_, err := c.svc.ClearWallpaper(ctx, &pb.ClearWallpaperRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// CreateAttributionContext calls the CreateAttributionContext RPC.
+func (c *ContextWrapperClient) CreateAttributionContext(ctx context.Context, handle int64, arg0 string) (int64, error) {
+	resp, err := c.svc.CreateAttributionContext(ctx, &pb.CreateAttributionContextRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateConfigurationContext calls the CreateConfigurationContext RPC.
+func (c *ContextWrapperClient) CreateConfigurationContext(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.CreateConfigurationContext(ctx, &pb.CreateConfigurationContextRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateContext calls the CreateContext RPC.
+func (c *ContextWrapperClient) CreateContext(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.CreateContext(ctx, &pb.CreateContextRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateContextForSplit calls the CreateContextForSplit RPC.
+func (c *ContextWrapperClient) CreateContextForSplit(ctx context.Context, handle int64, arg0 string) (int64, error) {
+	resp, err := c.svc.CreateContextForSplit(ctx, &pb.CreateContextForSplitRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateDeviceContext calls the CreateDeviceContext RPC.
+func (c *ContextWrapperClient) CreateDeviceContext(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.CreateDeviceContext(ctx, &pb.CreateDeviceContextRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateDeviceProtectedStorageContext calls the CreateDeviceProtectedStorageContext RPC.
+func (c *ContextWrapperClient) CreateDeviceProtectedStorageContext(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.CreateDeviceProtectedStorageContext(ctx, &pb.CreateDeviceProtectedStorageContextRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateDisplayContext calls the CreateDisplayContext RPC.
+func (c *ContextWrapperClient) CreateDisplayContext(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.CreateDisplayContext(ctx, &pb.CreateDisplayContextRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreatePackageContext calls the CreatePackageContext RPC.
+func (c *ContextWrapperClient) CreatePackageContext(ctx context.Context, handle int64, arg0 string, arg1 int32) (int64, error) {
+	resp, err := c.svc.CreatePackageContext(ctx, &pb.CreatePackageContextRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateWindowContext3 calls the CreateWindowContext3 RPC.
+func (c *ContextWrapperClient) CreateWindowContext3(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int64) (int64, error) {
+	resp, err := c.svc.CreateWindowContext3(ctx, &pb.CreateWindowContext3Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateWindowContext2_1 calls the CreateWindowContext2_1 RPC.
+func (c *ContextWrapperClient) CreateWindowContext2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) (int64, error) {
+	resp, err := c.svc.CreateWindowContext2_1(ctx, &pb.CreateWindowContext2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DatabaseList calls the DatabaseList RPC.
+func (c *ContextWrapperClient) DatabaseList(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.DatabaseList(ctx, &pb.DatabaseListRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DeleteDatabase calls the DeleteDatabase RPC.
+func (c *ContextWrapperClient) DeleteDatabase(ctx context.Context, handle int64, arg0 string) (bool, error) {
+	resp, err := c.svc.DeleteDatabase(ctx, &pb.DeleteDatabaseRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DeleteFile calls the DeleteFile RPC.
+func (c *ContextWrapperClient) DeleteFile(ctx context.Context, handle int64, arg0 string) (bool, error) {
+	resp, err := c.svc.DeleteFile(ctx, &pb.DeleteFileRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DeleteSharedPreferences calls the DeleteSharedPreferences RPC.
+func (c *ContextWrapperClient) DeleteSharedPreferences(ctx context.Context, handle int64, arg0 string) (bool, error) {
+	resp, err := c.svc.DeleteSharedPreferences(ctx, &pb.DeleteSharedPreferencesRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// EnforceCallingOrSelfPermission calls the EnforceCallingOrSelfPermission RPC.
+func (c *ContextWrapperClient) EnforceCallingOrSelfPermission(ctx context.Context, handle int64, arg0 string, arg1 string) error {
+	_, err := c.svc.EnforceCallingOrSelfPermission(ctx, &pb.EnforceCallingOrSelfPermissionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// EnforceCallingOrSelfUriPermission calls the EnforceCallingOrSelfUriPermission RPC.
+func (c *ContextWrapperClient) EnforceCallingOrSelfUriPermission(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 string) error {
+	_, err := c.svc.EnforceCallingOrSelfUriPermission(ctx, &pb.EnforceCallingOrSelfUriPermissionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// EnforceCallingPermission calls the EnforceCallingPermission RPC.
+func (c *ContextWrapperClient) EnforceCallingPermission(ctx context.Context, handle int64, arg0 string, arg1 string) error {
+	_, err := c.svc.EnforceCallingPermission(ctx, &pb.EnforceCallingPermissionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// EnforceCallingUriPermission calls the EnforceCallingUriPermission RPC.
+func (c *ContextWrapperClient) EnforceCallingUriPermission(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 string) error {
+	_, err := c.svc.EnforceCallingUriPermission(ctx, &pb.EnforceCallingUriPermissionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// EnforcePermission calls the EnforcePermission RPC.
+func (c *ContextWrapperClient) EnforcePermission(ctx context.Context, handle int64, arg0 string, arg1 int32, arg2 int32, arg3 string) error {
+	_, err := c.svc.EnforcePermission(ctx, &pb.EnforcePermissionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// EnforceUriPermission5 calls the EnforceUriPermission5 RPC.
+func (c *ContextWrapperClient) EnforceUriPermission5(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int32, arg3 int32, arg4 string) error {
+	_, err := c.svc.EnforceUriPermission5(ctx, &pb.EnforceUriPermission5Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+	})
+	return err
+}
+
+// EnforceUriPermission7_1 calls the EnforceUriPermission7_1 RPC.
+func (c *ContextWrapperClient) EnforceUriPermission7_1(ctx context.Context, handle int64, arg0 int64, arg1 string, arg2 string, arg3 int32, arg4 int32, arg5 int32, arg6 string) error {
+	_, err := c.svc.EnforceUriPermission7_1(ctx, &pb.EnforceUriPermission7_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+		Arg5:   arg5,
+		Arg6:   arg6,
+	})
+	return err
+}
+
+// FileList calls the FileList RPC.
+func (c *ContextWrapperClient) FileList(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.FileList(ctx, &pb.FileListRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetApplicationContext calls the GetApplicationContext RPC.
+func (c *ContextWrapperClient) GetApplicationContext(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetApplicationContext(ctx, &pb.GetApplicationContextRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetApplicationInfo calls the GetApplicationInfo RPC.
+func (c *ContextWrapperClient) GetApplicationInfo(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetApplicationInfo(ctx, &pb.GetApplicationInfoRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAssets calls the GetAssets RPC.
+func (c *ContextWrapperClient) GetAssets(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetAssets(ctx, &pb.GetAssetsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAttributionSource calls the GetAttributionSource RPC.
+func (c *ContextWrapperClient) GetAttributionSource(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetAttributionSource(ctx, &pb.GetAttributionSourceRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAttributionTag calls the GetAttributionTag RPC.
+func (c *ContextWrapperClient) GetAttributionTag(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetAttributionTag(ctx, &pb.ContextWrapperGetAttributionTagRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBaseContext calls the GetBaseContext RPC.
+func (c *ContextWrapperClient) GetBaseContext(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetBaseContext(ctx, &pb.GetBaseContextRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCacheDir calls the GetCacheDir RPC.
+func (c *ContextWrapperClient) GetCacheDir(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetCacheDir(ctx, &pb.GetCacheDirRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetClassLoader calls the GetClassLoader RPC.
+func (c *ContextWrapperClient) GetClassLoader(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetClassLoader(ctx, &pb.GetClassLoaderRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCodeCacheDir calls the GetCodeCacheDir RPC.
+func (c *ContextWrapperClient) GetCodeCacheDir(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetCodeCacheDir(ctx, &pb.GetCodeCacheDirRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetContentResolver calls the GetContentResolver RPC.
+func (c *ContextWrapperClient) GetContentResolver(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetContentResolver(ctx, &pb.GetContentResolverRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDataDir calls the GetDataDir RPC.
+func (c *ContextWrapperClient) GetDataDir(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetDataDir(ctx, &pb.GetDataDirRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDatabasePath calls the GetDatabasePath RPC.
+func (c *ContextWrapperClient) GetDatabasePath(ctx context.Context, handle int64, arg0 string) (int64, error) {
+	resp, err := c.svc.GetDatabasePath(ctx, &pb.GetDatabasePathRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDeviceId calls the GetDeviceId RPC.
+func (c *ContextWrapperClient) GetDeviceId(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetDeviceId(ctx, &pb.ContextWrapperGetDeviceIdRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDir calls the GetDir RPC.
+func (c *ContextWrapperClient) GetDir(ctx context.Context, handle int64, arg0 string, arg1 int32) (int64, error) {
+	resp, err := c.svc.GetDir(ctx, &pb.GetDirRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDisplay calls the GetDisplay RPC.
+func (c *ContextWrapperClient) GetDisplay(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetDisplay(ctx, &pb.GetDisplayRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExternalCacheDir calls the GetExternalCacheDir RPC.
+func (c *ContextWrapperClient) GetExternalCacheDir(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetExternalCacheDir(ctx, &pb.GetExternalCacheDirRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExternalCacheDirs calls the GetExternalCacheDirs RPC.
+func (c *ContextWrapperClient) GetExternalCacheDirs(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetExternalCacheDirs(ctx, &pb.GetExternalCacheDirsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExternalFilesDir calls the GetExternalFilesDir RPC.
+func (c *ContextWrapperClient) GetExternalFilesDir(ctx context.Context, handle int64, arg0 string) (int64, error) {
+	resp, err := c.svc.GetExternalFilesDir(ctx, &pb.GetExternalFilesDirRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExternalFilesDirs calls the GetExternalFilesDirs RPC.
+func (c *ContextWrapperClient) GetExternalFilesDirs(ctx context.Context, handle int64, arg0 string) (int64, error) {
+	resp, err := c.svc.GetExternalFilesDirs(ctx, &pb.GetExternalFilesDirsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExternalMediaDirs calls the GetExternalMediaDirs RPC.
+func (c *ContextWrapperClient) GetExternalMediaDirs(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetExternalMediaDirs(ctx, &pb.GetExternalMediaDirsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFileStreamPath calls the GetFileStreamPath RPC.
+func (c *ContextWrapperClient) GetFileStreamPath(ctx context.Context, handle int64, arg0 string) (int64, error) {
+	resp, err := c.svc.GetFileStreamPath(ctx, &pb.GetFileStreamPathRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFilesDir calls the GetFilesDir RPC.
+func (c *ContextWrapperClient) GetFilesDir(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetFilesDir(ctx, &pb.GetFilesDirRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMainExecutor calls the GetMainExecutor RPC.
+func (c *ContextWrapperClient) GetMainExecutor(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetMainExecutor(ctx, &pb.GetMainExecutorRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMainLooper calls the GetMainLooper RPC.
+func (c *ContextWrapperClient) GetMainLooper(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetMainLooper(ctx, &pb.GetMainLooperRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNoBackupFilesDir calls the GetNoBackupFilesDir RPC.
+func (c *ContextWrapperClient) GetNoBackupFilesDir(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetNoBackupFilesDir(ctx, &pb.GetNoBackupFilesDirRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetObbDir calls the GetObbDir RPC.
+func (c *ContextWrapperClient) GetObbDir(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetObbDir(ctx, &pb.GetObbDirRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetObbDirs calls the GetObbDirs RPC.
+func (c *ContextWrapperClient) GetObbDirs(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetObbDirs(ctx, &pb.GetObbDirsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOpPackageName calls the GetOpPackageName RPC.
+func (c *ContextWrapperClient) GetOpPackageName(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetOpPackageName(ctx, &pb.GetOpPackageNameRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPackageCodePath calls the GetPackageCodePath RPC.
+func (c *ContextWrapperClient) GetPackageCodePath(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetPackageCodePath(ctx, &pb.GetPackageCodePathRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPackageManager calls the GetPackageManager RPC.
+func (c *ContextWrapperClient) GetPackageManager(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetPackageManager(ctx, &pb.GetPackageManagerRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPackageName calls the GetPackageName RPC.
+func (c *ContextWrapperClient) GetPackageName(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetPackageName(ctx, &pb.ContextWrapperGetPackageNameRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPackageResourcePath calls the GetPackageResourcePath RPC.
+func (c *ContextWrapperClient) GetPackageResourcePath(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetPackageResourcePath(ctx, &pb.GetPackageResourcePathRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetParams calls the GetParams RPC.
+func (c *ContextWrapperClient) GetParams(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetParams(ctx, &pb.GetParamsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetResources calls the GetResources RPC.
+func (c *ContextWrapperClient) GetResources(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetResources(ctx, &pb.ContextWrapperGetResourcesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSharedPreferences calls the GetSharedPreferences RPC.
+func (c *ContextWrapperClient) GetSharedPreferences(ctx context.Context, handle int64, arg0 string, arg1 int32) (int64, error) {
+	resp, err := c.svc.GetSharedPreferences(ctx, &pb.GetSharedPreferencesRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSystemService calls the GetSystemService RPC.
+func (c *ContextWrapperClient) GetSystemService(ctx context.Context, handle int64, arg0 string) (int64, error) {
+	resp, err := c.svc.GetSystemService(ctx, &pb.GetSystemServiceRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTheme calls the GetTheme RPC.
+func (c *ContextWrapperClient) GetTheme(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetTheme(ctx, &pb.GetThemeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWallpaper calls the GetWallpaper RPC.
+func (c *ContextWrapperClient) GetWallpaper(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetWallpaper(ctx, &pb.GetWallpaperRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWallpaperDesiredMinimumHeight calls the GetWallpaperDesiredMinimumHeight RPC.
+func (c *ContextWrapperClient) GetWallpaperDesiredMinimumHeight(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetWallpaperDesiredMinimumHeight(ctx, &pb.GetWallpaperDesiredMinimumHeightRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWallpaperDesiredMinimumWidth calls the GetWallpaperDesiredMinimumWidth RPC.
+func (c *ContextWrapperClient) GetWallpaperDesiredMinimumWidth(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetWallpaperDesiredMinimumWidth(ctx, &pb.GetWallpaperDesiredMinimumWidthRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GrantUriPermission calls the GrantUriPermission RPC.
+func (c *ContextWrapperClient) GrantUriPermission(ctx context.Context, handle int64, arg0 string, arg1 int64, arg2 int32) error {
+	_, err := c.svc.GrantUriPermission(ctx, &pb.GrantUriPermissionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// IsDeviceProtectedStorage calls the IsDeviceProtectedStorage RPC.
+func (c *ContextWrapperClient) IsDeviceProtectedStorage(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsDeviceProtectedStorage(ctx, &pb.IsDeviceProtectedStorageRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsRestricted calls the IsRestricted RPC.
+func (c *ContextWrapperClient) IsRestricted(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsRestricted(ctx, &pb.IsRestrictedRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsUiContext calls the IsUiContext RPC.
+func (c *ContextWrapperClient) IsUiContext(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsUiContext(ctx, &pb.IsUiContextRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MoveDatabaseFrom calls the MoveDatabaseFrom RPC.
+func (c *ContextWrapperClient) MoveDatabaseFrom(ctx context.Context, handle int64, arg0 int64, arg1 string) (bool, error) {
+	resp, err := c.svc.MoveDatabaseFrom(ctx, &pb.MoveDatabaseFromRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MoveSharedPreferencesFrom calls the MoveSharedPreferencesFrom RPC.
+func (c *ContextWrapperClient) MoveSharedPreferencesFrom(ctx context.Context, handle int64, arg0 int64, arg1 string) (bool, error) {
+	resp, err := c.svc.MoveSharedPreferencesFrom(ctx, &pb.MoveSharedPreferencesFromRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OpenFileInput calls the OpenFileInput RPC.
+func (c *ContextWrapperClient) OpenFileInput(ctx context.Context, handle int64, arg0 string) (int64, error) {
+	resp, err := c.svc.OpenFileInput(ctx, &pb.OpenFileInputRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OpenFileOutput calls the OpenFileOutput RPC.
+func (c *ContextWrapperClient) OpenFileOutput(ctx context.Context, handle int64, arg0 string, arg1 int32) (int64, error) {
+	resp, err := c.svc.OpenFileOutput(ctx, &pb.OpenFileOutputRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OpenOrCreateDatabase calls the OpenOrCreateDatabase RPC.
+func (c *ContextWrapperClient) OpenOrCreateDatabase(ctx context.Context, handle int64, arg0 string, arg1 int32, arg2 int64) (int64, error) {
+	resp, err := c.svc.OpenOrCreateDatabase(ctx, &pb.OpenOrCreateDatabaseRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PeekWallpaper calls the PeekWallpaper RPC.
+func (c *ContextWrapperClient) PeekWallpaper(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.PeekWallpaper(ctx, &pb.PeekWallpaperRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RegisterComponentCallbacks calls the RegisterComponentCallbacks RPC.
+func (c *ContextWrapperClient) RegisterComponentCallbacks(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.RegisterComponentCallbacks(ctx, &pb.RegisterComponentCallbacksRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// RegisterDeviceIdChangeListener calls the RegisterDeviceIdChangeListener RPC.
+func (c *ContextWrapperClient) RegisterDeviceIdChangeListener(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
+	_, err := c.svc.RegisterDeviceIdChangeListener(ctx, &pb.RegisterDeviceIdChangeListenerRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// RegisterReceiver2 calls the RegisterReceiver2 RPC.
+func (c *ContextWrapperClient) RegisterReceiver2(ctx context.Context, handle int64, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.RegisterReceiver2(ctx, &pb.RegisterReceiver2Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RegisterReceiver3_1 calls the RegisterReceiver3_1 RPC.
+func (c *ContextWrapperClient) RegisterReceiver3_1(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32) (int64, error) {
+	resp, err := c.svc.RegisterReceiver3_1(ctx, &pb.RegisterReceiver3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RemoveStickyBroadcast calls the RemoveStickyBroadcast RPC.
+func (c *ContextWrapperClient) RemoveStickyBroadcast(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.RemoveStickyBroadcast(ctx, &pb.RemoveStickyBroadcastRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// RemoveStickyBroadcastAsUser calls the RemoveStickyBroadcastAsUser RPC.
+func (c *ContextWrapperClient) RemoveStickyBroadcastAsUser(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
+	_, err := c.svc.RemoveStickyBroadcastAsUser(ctx, &pb.RemoveStickyBroadcastAsUserRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// RevokeUriPermission2 calls the RevokeUriPermission2 RPC.
+func (c *ContextWrapperClient) RevokeUriPermission2(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.RevokeUriPermission2(ctx, &pb.RevokeUriPermission2Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// RevokeUriPermission3_1 calls the RevokeUriPermission3_1 RPC.
+func (c *ContextWrapperClient) RevokeUriPermission3_1(ctx context.Context, handle int64, arg0 string, arg1 int64, arg2 int32) error {
+	_, err := c.svc.RevokeUriPermission3_1(ctx, &pb.RevokeUriPermission3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// SendBroadcast1 calls the SendBroadcast1 RPC.
+func (c *ContextWrapperClient) SendBroadcast1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SendBroadcast1(ctx, &pb.SendBroadcast1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SendBroadcast2_1 calls the SendBroadcast2_1 RPC.
+func (c *ContextWrapperClient) SendBroadcast2_1(ctx context.Context, handle int64, arg0 int64, arg1 string) error {
+	_, err := c.svc.SendBroadcast2_1(ctx, &pb.SendBroadcast2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SendBroadcast3_2 calls the SendBroadcast3_2 RPC.
+func (c *ContextWrapperClient) SendBroadcast3_2(ctx context.Context, handle int64, arg0 int64, arg1 string, arg2 int64) error {
+	_, err := c.svc.SendBroadcast3_2(ctx, &pb.SendBroadcast3_2Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// SendBroadcastAsUser2 calls the SendBroadcastAsUser2 RPC.
+func (c *ContextWrapperClient) SendBroadcastAsUser2(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
+	_, err := c.svc.SendBroadcastAsUser2(ctx, &pb.SendBroadcastAsUser2Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SendBroadcastAsUser3_1 calls the SendBroadcastAsUser3_1 RPC.
+func (c *ContextWrapperClient) SendBroadcastAsUser3_1(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 string) error {
+	_, err := c.svc.SendBroadcastAsUser3_1(ctx, &pb.SendBroadcastAsUser3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// SendOrderedBroadcast2 calls the SendOrderedBroadcast2 RPC.
+func (c *ContextWrapperClient) SendOrderedBroadcast2(ctx context.Context, handle int64, arg0 int64, arg1 string) error {
+	_, err := c.svc.SendOrderedBroadcast2(ctx, &pb.SendOrderedBroadcast2Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SendOrderedBroadcast3_1 calls the SendOrderedBroadcast3_1 RPC.
+func (c *ContextWrapperClient) SendOrderedBroadcast3_1(ctx context.Context, handle int64, arg0 int64, arg1 string, arg2 int64) error {
+	_, err := c.svc.SendOrderedBroadcast3_1(ctx, &pb.SendOrderedBroadcast3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// SendStickyBroadcast1 calls the SendStickyBroadcast1 RPC.
+func (c *ContextWrapperClient) SendStickyBroadcast1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SendStickyBroadcast1(ctx, &pb.SendStickyBroadcast1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SendStickyBroadcast2_1 calls the SendStickyBroadcast2_1 RPC.
+func (c *ContextWrapperClient) SendStickyBroadcast2_1(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
+	_, err := c.svc.SendStickyBroadcast2_1(ctx, &pb.SendStickyBroadcast2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SendStickyBroadcastAsUser calls the SendStickyBroadcastAsUser RPC.
+func (c *ContextWrapperClient) SendStickyBroadcastAsUser(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
+	_, err := c.svc.SendStickyBroadcastAsUser(ctx, &pb.SendStickyBroadcastAsUserRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SetTheme calls the SetTheme RPC.
+func (c *ContextWrapperClient) SetTheme(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetTheme(ctx, &pb.SetThemeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetWallpaper1 calls the SetWallpaper1 RPC.
+func (c *ContextWrapperClient) SetWallpaper1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetWallpaper1(ctx, &pb.SetWallpaper1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetWallpaper1_1 calls the SetWallpaper1_1 RPC.
+func (c *ContextWrapperClient) SetWallpaper1_1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetWallpaper1_1(ctx, &pb.SetWallpaper1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// StartActivities1 calls the StartActivities1 RPC.
+func (c *ContextWrapperClient) StartActivities1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.StartActivities1(ctx, &pb.StartActivities1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// StartActivities2_1 calls the StartActivities2_1 RPC.
+func (c *ContextWrapperClient) StartActivities2_1(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
+	_, err := c.svc.StartActivities2_1(ctx, &pb.StartActivities2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// StartActivity1 calls the StartActivity1 RPC.
+func (c *ContextWrapperClient) StartActivity1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.StartActivity1(ctx, &pb.StartActivity1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// StartActivity2_1 calls the StartActivity2_1 RPC.
+func (c *ContextWrapperClient) StartActivity2_1(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
+	_, err := c.svc.StartActivity2_1(ctx, &pb.StartActivity2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// StartForegroundService calls the StartForegroundService RPC.
+func (c *ContextWrapperClient) StartForegroundService(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.StartForegroundService(ctx, &pb.StartForegroundServiceRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// StartInstrumentation calls the StartInstrumentation RPC.
+func (c *ContextWrapperClient) StartInstrumentation(ctx context.Context, handle int64, arg0 int64, arg1 string, arg2 int64) (bool, error) {
+	resp, err := c.svc.StartInstrumentation(ctx, &pb.StartInstrumentationRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// StartIntentSender5 calls the StartIntentSender5 RPC.
+func (c *ContextWrapperClient) StartIntentSender5(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32, arg3 int32, arg4 int32) error {
+	_, err := c.svc.StartIntentSender5(ctx, &pb.StartIntentSender5Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+	})
+	return err
+}
+
+// StartIntentSender6_1 calls the StartIntentSender6_1 RPC.
+func (c *ContextWrapperClient) StartIntentSender6_1(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32, arg3 int32, arg4 int32, arg5 int64) error {
+	_, err := c.svc.StartIntentSender6_1(ctx, &pb.StartIntentSender6_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+		Arg5:   arg5,
+	})
+	return err
+}
+
+// StartService calls the StartService RPC.
+func (c *ContextWrapperClient) StartService(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.StartService(ctx, &pb.StartServiceRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// StopService calls the StopService RPC.
+func (c *ContextWrapperClient) StopService(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.StopService(ctx, &pb.StopServiceRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// UnbindService calls the UnbindService RPC.
+func (c *ContextWrapperClient) UnbindService(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.UnbindService(ctx, &pb.UnbindServiceRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// UnregisterComponentCallbacks calls the UnregisterComponentCallbacks RPC.
+func (c *ContextWrapperClient) UnregisterComponentCallbacks(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.UnregisterComponentCallbacks(ctx, &pb.UnregisterComponentCallbacksRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// UnregisterDeviceIdChangeListener calls the UnregisterDeviceIdChangeListener RPC.
+func (c *ContextWrapperClient) UnregisterDeviceIdChangeListener(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.UnregisterDeviceIdChangeListener(ctx, &pb.UnregisterDeviceIdChangeListenerRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// UnregisterReceiver calls the UnregisterReceiver RPC.
+func (c *ContextWrapperClient) UnregisterReceiver(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.UnregisterReceiver(ctx, &pb.UnregisterReceiverRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// UpdateServiceGroup calls the UpdateServiceGroup RPC.
+func (c *ContextWrapperClient) UpdateServiceGroup(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int32) error {
+	_, err := c.svc.UpdateServiceGroup(ctx, &pb.UpdateServiceGroupRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// ValuesClient wraps the gRPC ValuesService client.
+type ValuesClient struct {
+	svc pb.ValuesServiceClient
+}
+
+// NewValuesClient creates a new Values client.
+func NewValuesClient(cc grpc.ClientConnInterface) *ValuesClient {
+	return &ValuesClient{
+		svc: pb.NewValuesServiceClient(cc),
+	}
+}
+
+// Clear calls the Clear RPC.
+func (c *ValuesClient) Clear(ctx context.Context, handle int64) error {
+	_, err := c.svc.Clear(ctx, &pb.ClearRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// ContainsKey calls the ContainsKey RPC.
+func (c *ValuesClient) ContainsKey(ctx context.Context, handle int64, arg0 string) (bool, error) {
+	resp, err := c.svc.ContainsKey(ctx, &pb.ContainsKeyRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ValuesClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.ValuesDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *ValuesClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.ValuesEqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Get calls the Get RPC.
+func (c *ValuesClient) Get(ctx context.Context, handle int64, arg0 string) (int64, error) {
+	resp, err := c.svc.Get(ctx, &pb.GetRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAsBoolean calls the GetAsBoolean RPC.
+func (c *ValuesClient) GetAsBoolean(ctx context.Context, handle int64, arg0 string) (int64, error) {
+	resp, err := c.svc.GetAsBoolean(ctx, &pb.GetAsBooleanRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAsByte calls the GetAsByte RPC.
+func (c *ValuesClient) GetAsByte(ctx context.Context, handle int64, arg0 string) (int64, error) {
+	resp, err := c.svc.GetAsByte(ctx, &pb.GetAsByteRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAsByteArray calls the GetAsByteArray RPC.
+func (c *ValuesClient) GetAsByteArray(ctx context.Context, handle int64, arg0 string) (int64, error) {
+	resp, err := c.svc.GetAsByteArray(ctx, &pb.GetAsByteArrayRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAsDouble calls the GetAsDouble RPC.
+func (c *ValuesClient) GetAsDouble(ctx context.Context, handle int64, arg0 string) (int64, error) {
+	resp, err := c.svc.GetAsDouble(ctx, &pb.GetAsDoubleRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAsFloat calls the GetAsFloat RPC.
+func (c *ValuesClient) GetAsFloat(ctx context.Context, handle int64, arg0 string) (int64, error) {
+	resp, err := c.svc.GetAsFloat(ctx, &pb.GetAsFloatRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAsInteger calls the GetAsInteger RPC.
+func (c *ValuesClient) GetAsInteger(ctx context.Context, handle int64, arg0 string) (int64, error) {
+	resp, err := c.svc.GetAsInteger(ctx, &pb.GetAsIntegerRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAsLong calls the GetAsLong RPC.
+func (c *ValuesClient) GetAsLong(ctx context.Context, handle int64, arg0 string) (int64, error) {
+	resp, err := c.svc.GetAsLong(ctx, &pb.GetAsLongRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAsShort calls the GetAsShort RPC.
+func (c *ValuesClient) GetAsShort(ctx context.Context, handle int64, arg0 string) (int64, error) {
+	resp, err := c.svc.GetAsShort(ctx, &pb.GetAsShortRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAsString calls the GetAsString RPC.
+func (c *ValuesClient) GetAsString(ctx context.Context, handle int64, arg0 string) (string, error) {
+	resp, err := c.svc.GetAsString(ctx, &pb.GetAsStringRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *ValuesClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.ValuesHashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsEmpty calls the IsEmpty RPC.
+func (c *ValuesClient) IsEmpty(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsEmpty(ctx, &pb.IsEmptyRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Put2 calls the Put2 RPC.
+func (c *ValuesClient) Put2(ctx context.Context, handle int64, arg0 string, arg1 int64) error {
+	_, err := c.svc.Put2(ctx, &pb.Put2Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// Put2_1 calls the Put2_1 RPC.
+func (c *ValuesClient) Put2_1(ctx context.Context, handle int64, arg0 string, arg1 int64) error {
+	_, err := c.svc.Put2_1(ctx, &pb.Put2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// Put2_2 calls the Put2_2 RPC.
+func (c *ValuesClient) Put2_2(ctx context.Context, handle int64, arg0 string, arg1 int64) error {
+	_, err := c.svc.Put2_2(ctx, &pb.Put2_2Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// Put2_3 calls the Put2_3 RPC.
+func (c *ValuesClient) Put2_3(ctx context.Context, handle int64, arg0 string, arg1 int64) error {
+	_, err := c.svc.Put2_3(ctx, &pb.Put2_3Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// Put2_4 calls the Put2_4 RPC.
+func (c *ValuesClient) Put2_4(ctx context.Context, handle int64, arg0 string, arg1 int64) error {
+	_, err := c.svc.Put2_4(ctx, &pb.Put2_4Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// Put2_5 calls the Put2_5 RPC.
+func (c *ValuesClient) Put2_5(ctx context.Context, handle int64, arg0 string, arg1 int64) error {
+	_, err := c.svc.Put2_5(ctx, &pb.Put2_5Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// Put2_6 calls the Put2_6 RPC.
+func (c *ValuesClient) Put2_6(ctx context.Context, handle int64, arg0 string, arg1 int64) error {
+	_, err := c.svc.Put2_6(ctx, &pb.Put2_6Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// Put2_7 calls the Put2_7 RPC.
+func (c *ValuesClient) Put2_7(ctx context.Context, handle int64, arg0 string, arg1 int64) error {
+	_, err := c.svc.Put2_7(ctx, &pb.Put2_7Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// Put2_8 calls the Put2_8 RPC.
+func (c *ValuesClient) Put2_8(ctx context.Context, handle int64, arg0 string, arg1 string) error {
+	_, err := c.svc.Put2_8(ctx, &pb.Put2_8Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// PutAll calls the PutAll RPC.
+func (c *ValuesClient) PutAll(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.PutAll(ctx, &pb.PutAllRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// PutNull calls the PutNull RPC.
+func (c *ValuesClient) PutNull(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.PutNull(ctx, &pb.PutNullRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// Remove calls the Remove RPC.
+func (c *ValuesClient) Remove(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.Remove(ctx, &pb.RemoveRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// Size calls the Size RPC.
+func (c *ValuesClient) Size(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.Size(ctx, &pb.SizeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *ValuesClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ValuesToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ValuesClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.ValuesWriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// ProviderOperationClient wraps the gRPC ProviderOperationService client.
+type ProviderOperationClient struct {
+	svc pb.ProviderOperationServiceClient
+}
+
+// NewProviderOperationClient creates a new ProviderOperation client.
+func NewProviderOperationClient(cc grpc.ClientConnInterface) *ProviderOperationClient {
+	return &ProviderOperationClient{
+		svc: pb.NewProviderOperationServiceClient(cc),
+	}
+}
+
+// Apply calls the Apply RPC.
+func (c *ProviderOperationClient) Apply(ctx context.Context, arg0 int64, arg1 int64, arg2 int32) (int64, error) {
+	resp, err := c.svc.Apply(ctx, &pb.ApplyRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ProviderOperationClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUri calls the GetUri RPC.
+func (c *ProviderOperationClient) GetUri(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetUri(ctx, &pb.GetUriRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsAssertQuery calls the IsAssertQuery RPC.
+func (c *ProviderOperationClient) IsAssertQuery(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsAssertQuery(ctx, &pb.IsAssertQueryRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsCall calls the IsCall RPC.
+func (c *ProviderOperationClient) IsCall(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsCall(ctx, &pb.IsCallRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsDelete calls the IsDelete RPC.
+func (c *ProviderOperationClient) IsDelete(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsDelete(ctx, &pb.IsDeleteRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsExceptionAllowed calls the IsExceptionAllowed RPC.
+func (c *ProviderOperationClient) IsExceptionAllowed(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsExceptionAllowed(ctx, &pb.IsExceptionAllowedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsInsert calls the IsInsert RPC.
+func (c *ProviderOperationClient) IsInsert(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsInsert(ctx, &pb.IsInsertRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsReadOperation calls the IsReadOperation RPC.
+func (c *ProviderOperationClient) IsReadOperation(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsReadOperation(ctx, &pb.IsReadOperationRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsUpdate calls the IsUpdate RPC.
+func (c *ProviderOperationClient) IsUpdate(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsUpdate(ctx, &pb.IsUpdateRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsWriteOperation calls the IsWriteOperation RPC.
+func (c *ProviderOperationClient) IsWriteOperation(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsWriteOperation(ctx, &pb.IsWriteOperationRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsYieldAllowed calls the IsYieldAllowed RPC.
+func (c *ProviderOperationClient) IsYieldAllowed(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsYieldAllowed(ctx, &pb.IsYieldAllowedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ResolveExtrasBackReferences calls the ResolveExtrasBackReferences RPC.
+func (c *ProviderOperationClient) ResolveExtrasBackReferences(ctx context.Context, arg0 int64, arg1 int32) (int64, error) {
+	resp, err := c.svc.ResolveExtrasBackReferences(ctx, &pb.ResolveExtrasBackReferencesRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ResolveSelectionArgsBackReferences calls the ResolveSelectionArgsBackReferences RPC.
+func (c *ProviderOperationClient) ResolveSelectionArgsBackReferences(ctx context.Context, arg0 int64, arg1 int32) (int64, error) {
+	resp, err := c.svc.ResolveSelectionArgsBackReferences(ctx, &pb.ResolveSelectionArgsBackReferencesRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ResolveValueBackReferences calls the ResolveValueBackReferences RPC.
+func (c *ProviderOperationClient) ResolveValueBackReferences(ctx context.Context, arg0 int64, arg1 int32) (int64, error) {
+	resp, err := c.svc.ResolveValueBackReferences(ctx, &pb.ResolveValueBackReferencesRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *ProviderOperationClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ProviderOperationClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// NewAssertQuery calls the NewAssertQuery RPC.
+func (c *ProviderOperationClient) NewAssertQuery(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.NewAssertQuery(ctx, &pb.NewAssertQueryRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// NewCall calls the NewCall RPC.
+func (c *ProviderOperationClient) NewCall(ctx context.Context, arg0 int64, arg1 string, arg2 string) (int64, error) {
+	resp, err := c.svc.NewCall(ctx, &pb.NewCallRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// NewDelete calls the NewDelete RPC.
+func (c *ProviderOperationClient) NewDelete(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.NewDelete(ctx, &pb.NewDeleteRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// NewInsert calls the NewInsert RPC.
+func (c *ProviderOperationClient) NewInsert(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.NewInsert(ctx, &pb.NewInsertRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// NewUpdate calls the NewUpdate RPC.
+func (c *ProviderOperationClient) NewUpdate(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.NewUpdate(ctx, &pb.NewUpdateRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ProviderOperationBuilderClient wraps the gRPC ProviderOperationBuilderService client.
+type ProviderOperationBuilderClient struct {
+	svc pb.ProviderOperationBuilderServiceClient
+}
+
+// NewProviderOperationBuilderClient creates a new ProviderOperationBuilder client.
+func NewProviderOperationBuilderClient(cc grpc.ClientConnInterface) *ProviderOperationBuilderClient {
+	return &ProviderOperationBuilderClient{
+		svc: pb.NewProviderOperationBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *ProviderOperationBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WithExceptionAllowed calls the WithExceptionAllowed RPC.
+func (c *ProviderOperationBuilderClient) WithExceptionAllowed(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.WithExceptionAllowed(ctx, &pb.WithExceptionAllowedRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WithExpectedCount calls the WithExpectedCount RPC.
+func (c *ProviderOperationBuilderClient) WithExpectedCount(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.WithExpectedCount(ctx, &pb.WithExpectedCountRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WithExtra calls the WithExtra RPC.
+func (c *ProviderOperationBuilderClient) WithExtra(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.WithExtra(ctx, &pb.WithExtraRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WithExtraBackReference2 calls the WithExtraBackReference2 RPC.
+func (c *ProviderOperationBuilderClient) WithExtraBackReference2(ctx context.Context, arg0 string, arg1 int32) (int64, error) {
+	resp, err := c.svc.WithExtraBackReference2(ctx, &pb.WithExtraBackReference2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WithExtraBackReference3_1 calls the WithExtraBackReference3_1 RPC.
+func (c *ProviderOperationBuilderClient) WithExtraBackReference3_1(ctx context.Context, arg0 string, arg1 int32, arg2 string) (int64, error) {
+	resp, err := c.svc.WithExtraBackReference3_1(ctx, &pb.WithExtraBackReference3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WithExtras calls the WithExtras RPC.
+func (c *ProviderOperationBuilderClient) WithExtras(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.WithExtras(ctx, &pb.WithExtrasRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WithSelection calls the WithSelection RPC.
+func (c *ProviderOperationBuilderClient) WithSelection(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.WithSelection(ctx, &pb.WithSelectionRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WithSelectionBackReference2 calls the WithSelectionBackReference2 RPC.
+func (c *ProviderOperationBuilderClient) WithSelectionBackReference2(ctx context.Context, arg0 int32, arg1 int32) (int64, error) {
+	resp, err := c.svc.WithSelectionBackReference2(ctx, &pb.WithSelectionBackReference2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WithSelectionBackReference3_1 calls the WithSelectionBackReference3_1 RPC.
+func (c *ProviderOperationBuilderClient) WithSelectionBackReference3_1(ctx context.Context, arg0 int32, arg1 int32, arg2 string) (int64, error) {
+	resp, err := c.svc.WithSelectionBackReference3_1(ctx, &pb.WithSelectionBackReference3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WithValue calls the WithValue RPC.
+func (c *ProviderOperationBuilderClient) WithValue(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.WithValue(ctx, &pb.WithValueRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WithValueBackReference2 calls the WithValueBackReference2 RPC.
+func (c *ProviderOperationBuilderClient) WithValueBackReference2(ctx context.Context, arg0 string, arg1 int32) (int64, error) {
+	resp, err := c.svc.WithValueBackReference2(ctx, &pb.WithValueBackReference2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WithValueBackReference3_1 calls the WithValueBackReference3_1 RPC.
+func (c *ProviderOperationBuilderClient) WithValueBackReference3_1(ctx context.Context, arg0 string, arg1 int32, arg2 string) (int64, error) {
+	resp, err := c.svc.WithValueBackReference3_1(ctx, &pb.WithValueBackReference3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WithValueBackReferences calls the WithValueBackReferences RPC.
+func (c *ProviderOperationBuilderClient) WithValueBackReferences(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.WithValueBackReferences(ctx, &pb.WithValueBackReferencesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WithValues calls the WithValues RPC.
+func (c *ProviderOperationBuilderClient) WithValues(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.WithValues(ctx, &pb.WithValuesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WithYieldAllowed calls the WithYieldAllowed RPC.
+func (c *ProviderOperationBuilderClient) WithYieldAllowed(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.WithYieldAllowed(ctx, &pb.WithYieldAllowedRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// UriMatcherClient wraps the gRPC UriMatcherService client.
+type UriMatcherClient struct {
+	svc pb.UriMatcherServiceClient
+}
+
+// NewUriMatcherClient creates a new UriMatcher client.
+func NewUriMatcherClient(cc grpc.ClientConnInterface) *UriMatcherClient {
+	return &UriMatcherClient{
+		svc: pb.NewUriMatcherServiceClient(cc),
+	}
+}
+
+// AddURI calls the AddURI RPC.
+func (c *UriMatcherClient) AddURI(ctx context.Context, handle int64, arg0 string, arg1 string, arg2 int32) error {
+	_, err := c.svc.AddURI(ctx, &pb.AddURIRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// Match calls the Match RPC.
+func (c *UriMatcherClient) Match(ctx context.Context, handle int64, arg0 int64) (int32, error) {
+	resp, err := c.svc.Match(ctx, &pb.UriMatcherMatchRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PeriodicSyncClient wraps the gRPC PeriodicSyncService client.
+type PeriodicSyncClient struct {
+	svc pb.PeriodicSyncServiceClient
+}
+
+// NewPeriodicSyncClient creates a new PeriodicSync client.
+func NewPeriodicSyncClient(cc grpc.ClientConnInterface) *PeriodicSyncClient {
+	return &PeriodicSyncClient{
+		svc: pb.NewPeriodicSyncServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *PeriodicSyncClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.PeriodicSyncDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *PeriodicSyncClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.PeriodicSyncEqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *PeriodicSyncClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.PeriodicSyncToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *PeriodicSyncClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.PeriodicSyncWriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// UriRelativeFilterGroupClient wraps the gRPC UriRelativeFilterGroupService client.
+type UriRelativeFilterGroupClient struct {
+	svc pb.UriRelativeFilterGroupServiceClient
+}
+
+// NewUriRelativeFilterGroupClient creates a new UriRelativeFilterGroup client.
+func NewUriRelativeFilterGroupClient(cc grpc.ClientConnInterface) *UriRelativeFilterGroupClient {
+	return &UriRelativeFilterGroupClient{
+		svc: pb.NewUriRelativeFilterGroupServiceClient(cc),
+	}
+}
+
+// AddUriRelativeFilter calls the AddUriRelativeFilter RPC.
+func (c *UriRelativeFilterGroupClient) AddUriRelativeFilter(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.AddUriRelativeFilter(ctx, &pb.AddUriRelativeFilterRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// Equals calls the Equals RPC.
+func (c *UriRelativeFilterGroupClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.UriRelativeFilterGroupEqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAction calls the GetAction RPC.
+func (c *UriRelativeFilterGroupClient) GetAction(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetAction(ctx, &pb.UriRelativeFilterGroupGetActionRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *UriRelativeFilterGroupClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.UriRelativeFilterGroupHashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MatchData calls the MatchData RPC.
+func (c *UriRelativeFilterGroupClient) MatchData(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.MatchData(ctx, &pb.UriRelativeFilterGroupMatchDataRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *UriRelativeFilterGroupClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.UriRelativeFilterGroupToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// SyncInfoClient wraps the gRPC SyncInfoService client.
+type SyncInfoClient struct {
+	svc pb.SyncInfoServiceClient
+}
+
+// NewSyncInfoClient creates a new SyncInfo client.
+func NewSyncInfoClient(cc grpc.ClientConnInterface) *SyncInfoClient {
+	return &SyncInfoClient{
+		svc: pb.NewSyncInfoServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *SyncInfoClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *SyncInfoClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// UrisClient wraps the gRPC UrisService client.
+type UrisClient struct {
+	svc pb.UrisServiceClient
+}
+
+// NewUrisClient creates a new Uris client.
+func NewUrisClient(cc grpc.ClientConnInterface) *UrisClient {
+	return &UrisClient{
+		svc: pb.NewUrisServiceClient(cc),
+	}
+}
+
+// AppendId calls the AppendId RPC.
+func (c *UrisClient) AppendId(ctx context.Context, handle int64, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.AppendId(ctx, &pb.AppendIdRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ParseId calls the ParseId RPC.
+func (c *UrisClient) ParseId(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.ParseId(ctx, &pb.ParseIdRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RemoveId calls the RemoveId RPC.
+func (c *UrisClient) RemoveId(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.RemoveId(ctx, &pb.RemoveIdRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WithAppendedId calls the WithAppendedId RPC.
+func (c *UrisClient) WithAppendedId(ctx context.Context, handle int64, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.WithAppendedId(ctx, &pb.WithAppendedIdRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CursorLoaderClient wraps the gRPC CursorLoaderService client.
+type CursorLoaderClient struct {
+	svc pb.CursorLoaderServiceClient
+}
+
+// NewCursorLoaderClient creates a new CursorLoader client.
+func NewCursorLoaderClient(cc grpc.ClientConnInterface) *CursorLoaderClient {
+	return &CursorLoaderClient{
+		svc: pb.NewCursorLoaderServiceClient(cc),
+	}
+}
+
+// CancelLoadInBackground calls the CancelLoadInBackground RPC.
+func (c *CursorLoaderClient) CancelLoadInBackground(ctx context.Context, handle int64) error {
+	_, err := c.svc.CancelLoadInBackground(ctx, &pb.CursorLoaderCancelLoadInBackgroundRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// DeliverResult1 calls the DeliverResult1 RPC.
+func (c *CursorLoaderClient) DeliverResult1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.DeliverResult1(ctx, &pb.DeliverResult1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// Dump calls the Dump RPC.
+func (c *CursorLoaderClient) Dump(ctx context.Context, handle int64, arg0 string, arg1 int64, arg2 int64, arg3 int64) error {
+	_, err := c.svc.Dump(ctx, &pb.CursorLoaderDumpRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// GetProjection calls the GetProjection RPC.
+func (c *CursorLoaderClient) GetProjection(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetProjection(ctx, &pb.GetProjectionRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSelection calls the GetSelection RPC.
+func (c *CursorLoaderClient) GetSelection(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetSelection(ctx, &pb.GetSelectionRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSelectionArgs calls the GetSelectionArgs RPC.
+func (c *CursorLoaderClient) GetSelectionArgs(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetSelectionArgs(ctx, &pb.GetSelectionArgsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSortOrder calls the GetSortOrder RPC.
+func (c *CursorLoaderClient) GetSortOrder(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetSortOrder(ctx, &pb.GetSortOrderRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUri calls the GetUri RPC.
+func (c *CursorLoaderClient) GetUri(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetUri(ctx, &pb.CursorLoaderGetUriRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// LoadInBackground0 calls the LoadInBackground0 RPC.
+func (c *CursorLoaderClient) LoadInBackground0(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.LoadInBackground0(ctx, &pb.LoadInBackground0Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnCanceled1 calls the OnCanceled1 RPC.
+func (c *CursorLoaderClient) OnCanceled1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.OnCanceled1(ctx, &pb.OnCanceled1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetProjection calls the SetProjection RPC.
+func (c *CursorLoaderClient) SetProjection(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetProjection(ctx, &pb.SetProjectionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetSelection calls the SetSelection RPC.
+func (c *CursorLoaderClient) SetSelection(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.SetSelection(ctx, &pb.SetSelectionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetSelectionArgs calls the SetSelectionArgs RPC.
+func (c *CursorLoaderClient) SetSelectionArgs(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetSelectionArgs(ctx, &pb.SetSelectionArgsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetSortOrder calls the SetSortOrder RPC.
+func (c *CursorLoaderClient) SetSortOrder(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.SetSortOrder(ctx, &pb.SetSortOrderRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetUri calls the SetUri RPC.
+func (c *CursorLoaderClient) SetUri(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetUri(ctx, &pb.SetUriRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// OnCanceled1_1 calls the OnCanceled1_1 RPC.
+func (c *CursorLoaderClient) OnCanceled1_1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.OnCanceled1_1(ctx, &pb.OnCanceled1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// LoadInBackground0_1 calls the LoadInBackground0_1 RPC.
+func (c *CursorLoaderClient) LoadInBackground0_1(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.LoadInBackground0_1(ctx, &pb.LoadInBackground0_1Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DeliverResult1_1 calls the DeliverResult1_1 RPC.
+func (c *CursorLoaderClient) DeliverResult1_1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.DeliverResult1_1(ctx, &pb.DeliverResult1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// ServiceConnectionClient wraps the gRPC ServiceConnectionService client.
+type ServiceConnectionClient struct {
+	svc pb.ServiceConnectionServiceClient
+}
+
+// NewServiceConnectionClient creates a new ServiceConnection client.
+func NewServiceConnectionClient(cc grpc.ClientConnInterface) *ServiceConnectionClient {
+	return &ServiceConnectionClient{
+		svc: pb.NewServiceConnectionServiceClient(cc),
+	}
+}
+
+// OnServiceConnected calls the OnServiceConnected RPC.
+func (c *ServiceConnectionClient) OnServiceConnected(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.OnServiceConnected(ctx, &pb.OnServiceConnectedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnServiceDisconnected calls the OnServiceDisconnected RPC.
+func (c *ServiceConnectionClient) OnServiceDisconnected(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnServiceDisconnected(ctx, &pb.OnServiceDisconnectedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SearchRecentSuggestionsProviderClient wraps the gRPC SearchRecentSuggestionsProviderService client.
+type SearchRecentSuggestionsProviderClient struct {
+	svc pb.SearchRecentSuggestionsProviderServiceClient
+}
+
+// NewSearchRecentSuggestionsProviderClient creates a new SearchRecentSuggestionsProvider client.
+func NewSearchRecentSuggestionsProviderClient(cc grpc.ClientConnInterface) *SearchRecentSuggestionsProviderClient {
+	return &SearchRecentSuggestionsProviderClient{
+		svc: pb.NewSearchRecentSuggestionsProviderServiceClient(cc),
+	}
+}
+
+// Delete calls the Delete RPC.
+func (c *SearchRecentSuggestionsProviderClient) Delete(ctx context.Context, handle int64, arg0 int64, arg1 string, arg2 int64) (int32, error) {
+	resp, err := c.svc.Delete(ctx, &pb.DeleteRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetType calls the GetType RPC.
+func (c *SearchRecentSuggestionsProviderClient) GetType(ctx context.Context, handle int64, arg0 int64) (string, error) {
+	resp, err := c.svc.GetType(ctx, &pb.SearchRecentSuggestionsProviderGetTypeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// Insert calls the Insert RPC.
+func (c *SearchRecentSuggestionsProviderClient) Insert(ctx context.Context, handle int64, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.Insert(ctx, &pb.InsertRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnCreate calls the OnCreate RPC.
+func (c *SearchRecentSuggestionsProviderClient) OnCreate(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.OnCreate(ctx, &pb.OnCreateRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Query calls the Query RPC.
+func (c *SearchRecentSuggestionsProviderClient) Query(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 string, arg3 int64, arg4 string) (int64, error) {
+	resp, err := c.svc.Query(ctx, &pb.QueryRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Update calls the Update RPC.
+func (c *SearchRecentSuggestionsProviderClient) Update(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 string, arg3 int64) (int32, error) {
+	resp, err := c.svc.Update(ctx, &pb.UpdateRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ComponentNameClient wraps the gRPC ComponentNameService client.
+type ComponentNameClient struct {
+	svc pb.ComponentNameServiceClient
+}
+
+// NewComponentNameClient creates a new ComponentName client.
+func NewComponentNameClient(cc grpc.ClientConnInterface) *ComponentNameClient {
+	return &ComponentNameClient{
+		svc: pb.NewComponentNameServiceClient(cc),
+	}
+}
+
+// Clone0 calls the Clone0 RPC.
+func (c *ComponentNameClient) Clone0(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.Clone0(ctx, &pb.Clone0Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CompareTo1 calls the CompareTo1 RPC.
+func (c *ComponentNameClient) CompareTo1(ctx context.Context, handle int64, arg0 int64) (int32, error) {
+	resp, err := c.svc.CompareTo1(ctx, &pb.CompareTo1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ComponentNameClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.ComponentNameDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *ComponentNameClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.ComponentNameEqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// FlattenToShortString calls the FlattenToShortString RPC.
+func (c *ComponentNameClient) FlattenToShortString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.FlattenToShortString(ctx, &pb.FlattenToShortStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// FlattenToString calls the FlattenToString RPC.
+func (c *ComponentNameClient) FlattenToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.FlattenToString(ctx, &pb.FlattenToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetClassName calls the GetClassName RPC.
+func (c *ComponentNameClient) GetClassName(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetClassName(ctx, &pb.GetClassNameRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPackageName calls the GetPackageName RPC.
+func (c *ComponentNameClient) GetPackageName(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetPackageName(ctx, &pb.ComponentNameGetPackageNameRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetShortClassName calls the GetShortClassName RPC.
+func (c *ComponentNameClient) GetShortClassName(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetShortClassName(ctx, &pb.GetShortClassNameRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *ComponentNameClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.ComponentNameHashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToShortString calls the ToShortString RPC.
+func (c *ComponentNameClient) ToShortString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToShortString(ctx, &pb.ToShortStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *ComponentNameClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ComponentNameToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel2_1 calls the WriteToParcel2_1 RPC.
+func (c *ComponentNameClient) WriteToParcel2_1(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel2_1(ctx, &pb.WriteToParcel2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// Clone0_1 calls the Clone0_1 RPC.
+func (c *ComponentNameClient) Clone0_1(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.Clone0_1(ctx, &pb.Clone0_1Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CompareTo1_1 calls the CompareTo1_1 RPC.
+func (c *ComponentNameClient) CompareTo1_1(ctx context.Context, handle int64, arg0 int64) (int32, error) {
+	resp, err := c.svc.CompareTo1_1(ctx, &pb.CompareTo1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateRelative2 calls the CreateRelative2 RPC.
+func (c *ComponentNameClient) CreateRelative2(ctx context.Context, handle int64, arg0 int64, arg1 string) (int64, error) {
+	resp, err := c.svc.CreateRelative2(ctx, &pb.CreateRelative2Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateRelative2_1 calls the CreateRelative2_1 RPC.
+func (c *ComponentNameClient) CreateRelative2_1(ctx context.Context, handle int64, arg0 string, arg1 string) (int64, error) {
+	resp, err := c.svc.CreateRelative2_1(ctx, &pb.CreateRelative2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ReadFromParcel calls the ReadFromParcel RPC.
+func (c *ComponentNameClient) ReadFromParcel(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.ReadFromParcel(ctx, &pb.ReadFromParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// UnflattenFromString calls the UnflattenFromString RPC.
+func (c *ComponentNameClient) UnflattenFromString(ctx context.Context, handle int64, arg0 string) (int64, error) {
+	resp, err := c.svc.UnflattenFromString(ctx, &pb.UnflattenFromStringRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel2 calls the WriteToParcel2 RPC.
+func (c *ComponentNameClient) WriteToParcel2(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
+	_, err := c.svc.WriteToParcel2(ctx, &pb.WriteToParcel2Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// ProviderResultClient wraps the gRPC ProviderResultService client.
+type ProviderResultClient struct {
+	svc pb.ProviderResultServiceClient
+}
+
+// NewProviderResultClient creates a new ProviderResult client.
+func NewProviderResultClient(cc grpc.ClientConnInterface) *ProviderResultClient {
+	return &ProviderResultClient{
+		svc: pb.NewProviderResultServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ProviderResultClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.ProviderResultDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *ProviderResultClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ProviderResultToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ProviderResultClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.ProviderResultWriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// ProviderClient wraps the gRPC ProviderService client.
+type ProviderClient struct {
+	svc pb.ProviderServiceClient
+}
+
+// NewProviderClient creates a new Provider client.
+func NewProviderClient(cc grpc.ClientConnInterface) *ProviderClient {
+	return &ProviderClient{
+		svc: pb.NewProviderServiceClient(cc),
+	}
+}
+
+// AttachInfo calls the AttachInfo RPC.
+func (c *ProviderClient) AttachInfo(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.AttachInfo(ctx, &pb.AttachInfoRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// BulkInsert calls the BulkInsert RPC.
+func (c *ProviderClient) BulkInsert(ctx context.Context, arg0 int64, arg1 int64) (int32, error) {
+	resp, err := c.svc.BulkInsert(ctx, &pb.BulkInsertRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Call3 calls the Call3 RPC.
+func (c *ProviderClient) Call3(ctx context.Context, arg0 string, arg1 string, arg2 int64) (int64, error) {
+	resp, err := c.svc.Call3(ctx, &pb.Call3Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Call4_1 calls the Call4_1 RPC.
+func (c *ProviderClient) Call4_1(ctx context.Context, arg0 string, arg1 string, arg2 string, arg3 int64) (int64, error) {
+	resp, err := c.svc.Call4_1(ctx, &pb.Call4_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Canonicalize calls the Canonicalize RPC.
+func (c *ProviderClient) Canonicalize(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.Canonicalize(ctx, &pb.CanonicalizeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearCallingIdentity calls the ClearCallingIdentity RPC.
+func (c *ProviderClient) ClearCallingIdentity(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearCallingIdentity(ctx, &pb.ClearCallingIdentityRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Delete2 calls the Delete2 RPC.
+func (c *ProviderClient) Delete2(ctx context.Context, arg0 int64, arg1 int64) (int32, error) {
+	resp, err := c.svc.Delete2(ctx, &pb.Delete2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Delete3_1 calls the Delete3_1 RPC.
+func (c *ProviderClient) Delete3_1(ctx context.Context, arg0 int64, arg1 string, arg2 int64) (int32, error) {
+	resp, err := c.svc.Delete3_1(ctx, &pb.Delete3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Dump calls the Dump RPC.
+func (c *ProviderClient) Dump(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.Dump(ctx, &pb.ProviderDumpRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// GetCallingAttributionSource calls the GetCallingAttributionSource RPC.
+func (c *ProviderClient) GetCallingAttributionSource(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetCallingAttributionSource(ctx, &pb.GetCallingAttributionSourceRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCallingAttributionTag calls the GetCallingAttributionTag RPC.
+func (c *ProviderClient) GetCallingAttributionTag(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetCallingAttributionTag(ctx, &pb.GetCallingAttributionTagRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCallingPackage calls the GetCallingPackage RPC.
+func (c *ProviderClient) GetCallingPackage(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetCallingPackage(ctx, &pb.GetCallingPackageRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCallingPackageUnchecked calls the GetCallingPackageUnchecked RPC.
+func (c *ProviderClient) GetCallingPackageUnchecked(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetCallingPackageUnchecked(ctx, &pb.GetCallingPackageUncheckedRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetContext calls the GetContext RPC.
+func (c *ProviderClient) GetContext(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetContext(ctx, &pb.GetContextRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPathPermissions calls the GetPathPermissions RPC.
+func (c *ProviderClient) GetPathPermissions(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPathPermissions(ctx, &pb.GetPathPermissionsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetReadPermission calls the GetReadPermission RPC.
+func (c *ProviderClient) GetReadPermission(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetReadPermission(ctx, &pb.GetReadPermissionRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStreamTypes calls the GetStreamTypes RPC.
+func (c *ProviderClient) GetStreamTypes(ctx context.Context, arg0 int64, arg1 string) (int64, error) {
+	resp, err := c.svc.GetStreamTypes(ctx, &pb.GetStreamTypesRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetType calls the GetType RPC.
+func (c *ProviderClient) GetType(ctx context.Context, arg0 int64) (string, error) {
+	resp, err := c.svc.GetType(ctx, &pb.GetTypeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTypeAnonymous calls the GetTypeAnonymous RPC.
+func (c *ProviderClient) GetTypeAnonymous(ctx context.Context, arg0 int64) (string, error) {
+	resp, err := c.svc.GetTypeAnonymous(ctx, &pb.GetTypeAnonymousRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWritePermission calls the GetWritePermission RPC.
+func (c *ProviderClient) GetWritePermission(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetWritePermission(ctx, &pb.GetWritePermissionRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// Insert2 calls the Insert2 RPC.
+func (c *ProviderClient) Insert2(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.Insert2(ctx, &pb.Insert2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Insert3_1 calls the Insert3_1 RPC.
+func (c *ProviderClient) Insert3_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.Insert3_1(ctx, &pb.Insert3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnCallingPackageChanged calls the OnCallingPackageChanged RPC.
+func (c *ProviderClient) OnCallingPackageChanged(ctx context.Context) error {
+	_, err := c.svc.OnCallingPackageChanged(ctx, &pb.OnCallingPackageChangedRequest{})
+	return err
+}
+
+// OnConfigurationChanged calls the OnConfigurationChanged RPC.
+func (c *ProviderClient) OnConfigurationChanged(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnConfigurationChanged(ctx, &pb.OnConfigurationChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnCreate calls the OnCreate RPC.
+func (c *ProviderClient) OnCreate(ctx context.Context) (bool, error) {
+	resp, err := c.svc.OnCreate(ctx, &pb.ProviderOnCreateRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnLowMemory calls the OnLowMemory RPC.
+func (c *ProviderClient) OnLowMemory(ctx context.Context) error {
+	_, err := c.svc.OnLowMemory(ctx, &pb.OnLowMemoryRequest{})
+	return err
+}
+
+// OnTrimMemory calls the OnTrimMemory RPC.
+func (c *ProviderClient) OnTrimMemory(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.OnTrimMemory(ctx, &pb.OnTrimMemoryRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OpenAssetFile2 calls the OpenAssetFile2 RPC.
+func (c *ProviderClient) OpenAssetFile2(ctx context.Context, arg0 int64, arg1 string) (int64, error) {
+	resp, err := c.svc.OpenAssetFile2(ctx, &pb.OpenAssetFile2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OpenAssetFile3_1 calls the OpenAssetFile3_1 RPC.
+func (c *ProviderClient) OpenAssetFile3_1(ctx context.Context, arg0 int64, arg1 string, arg2 int64) (int64, error) {
+	resp, err := c.svc.OpenAssetFile3_1(ctx, &pb.OpenAssetFile3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OpenFile2 calls the OpenFile2 RPC.
+func (c *ProviderClient) OpenFile2(ctx context.Context, arg0 int64, arg1 string) (int64, error) {
+	resp, err := c.svc.OpenFile2(ctx, &pb.OpenFile2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OpenFile3_1 calls the OpenFile3_1 RPC.
+func (c *ProviderClient) OpenFile3_1(ctx context.Context, arg0 int64, arg1 string, arg2 int64) (int64, error) {
+	resp, err := c.svc.OpenFile3_1(ctx, &pb.OpenFile3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OpenTypedAssetFile3 calls the OpenTypedAssetFile3 RPC.
+func (c *ProviderClient) OpenTypedAssetFile3(ctx context.Context, arg0 int64, arg1 string, arg2 int64) (int64, error) {
+	resp, err := c.svc.OpenTypedAssetFile3(ctx, &pb.OpenTypedAssetFile3Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OpenTypedAssetFile4_1 calls the OpenTypedAssetFile4_1 RPC.
+func (c *ProviderClient) OpenTypedAssetFile4_1(ctx context.Context, arg0 int64, arg1 string, arg2 int64, arg3 int64) (int64, error) {
+	resp, err := c.svc.OpenTypedAssetFile4_1(ctx, &pb.OpenTypedAssetFile4_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Query4 calls the Query4 RPC.
+func (c *ProviderClient) Query4(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64) (int64, error) {
+	resp, err := c.svc.Query4(ctx, &pb.Query4Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Query5_1 calls the Query5_1 RPC.
+func (c *ProviderClient) Query5_1(ctx context.Context, arg0 int64, arg1 int64, arg2 string, arg3 int64, arg4 string) (int64, error) {
+	resp, err := c.svc.Query5_1(ctx, &pb.Query5_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Query6_2 calls the Query6_2 RPC.
+func (c *ProviderClient) Query6_2(ctx context.Context, arg0 int64, arg1 int64, arg2 string, arg3 int64, arg4 string, arg5 int64) (int64, error) {
+	resp, err := c.svc.Query6_2(ctx, &pb.Query6_2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Refresh calls the Refresh RPC.
+func (c *ProviderClient) Refresh(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (bool, error) {
+	resp, err := c.svc.Refresh(ctx, &pb.RefreshRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RequireContext calls the RequireContext RPC.
+func (c *ProviderClient) RequireContext(ctx context.Context) (int64, error) {
+	resp, err := c.svc.RequireContext(ctx, &pb.RequireContextRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RestoreCallingIdentity calls the RestoreCallingIdentity RPC.
+func (c *ProviderClient) RestoreCallingIdentity(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.RestoreCallingIdentity(ctx, &pb.RestoreCallingIdentityRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// Shutdown calls the Shutdown RPC.
+func (c *ProviderClient) Shutdown(ctx context.Context) error {
+	_, err := c.svc.Shutdown(ctx, &pb.ShutdownRequest{})
+	return err
+}
+
+// Uncanonicalize calls the Uncanonicalize RPC.
+func (c *ProviderClient) Uncanonicalize(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.Uncanonicalize(ctx, &pb.UncanonicalizeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Update3 calls the Update3 RPC.
+func (c *ProviderClient) Update3(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int32, error) {
+	resp, err := c.svc.Update3(ctx, &pb.Update3Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Update4_1 calls the Update4_1 RPC.
+func (c *ProviderClient) Update4_1(ctx context.Context, arg0 int64, arg1 int64, arg2 string, arg3 int64) (int32, error) {
+	resp, err := c.svc.Update4_1(ctx, &pb.Update4_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PdfPageImageContentClient wraps the gRPC PdfPageImageContentService client.
+type PdfPageImageContentClient struct {
+	svc pb.PdfPageImageContentServiceClient
+}
+
+// NewPdfPageImageContentClient creates a new PdfPageImageContent client.
+func NewPdfPageImageContentClient(cc grpc.ClientConnInterface) *PdfPageImageContentClient {
+	return &PdfPageImageContentClient{
+		svc: pb.NewPdfPageImageContentServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *PdfPageImageContentClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.PdfPageImageContentDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAltText calls the GetAltText RPC.
+func (c *PdfPageImageContentClient) GetAltText(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetAltText(ctx, &pb.GetAltTextRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *PdfPageImageContentClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.PdfPageImageContentWriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// PdfPageLinkContentClient wraps the gRPC PdfPageLinkContentService client.
+type PdfPageLinkContentClient struct {
+	svc pb.PdfPageLinkContentServiceClient
+}
+
+// NewPdfPageLinkContentClient creates a new PdfPageLinkContent client.
+func NewPdfPageLinkContentClient(cc grpc.ClientConnInterface) *PdfPageLinkContentClient {
+	return &PdfPageLinkContentClient{
+		svc: pb.NewPdfPageLinkContentServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *PdfPageLinkContentClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.PdfPageImageContentDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUri calls the GetUri RPC.
+func (c *PdfPageLinkContentClient) GetUri(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetUri(ctx, &pb.PdfPageLinkContentGetUriRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *PdfPageLinkContentClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.PdfPageImageContentWriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// PdfPageGotoLinkContentClient wraps the gRPC PdfPageGotoLinkContentService client.
+type PdfPageGotoLinkContentClient struct {
+	svc pb.PdfPageGotoLinkContentServiceClient
+}
+
+// NewPdfPageGotoLinkContentClient creates a new PdfPageGotoLinkContent client.
+func NewPdfPageGotoLinkContentClient(cc grpc.ClientConnInterface) *PdfPageGotoLinkContentClient {
+	return &PdfPageGotoLinkContentClient{
+		svc: pb.NewPdfPageGotoLinkContentServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *PdfPageGotoLinkContentClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.PdfPageImageContentDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDestination calls the GetDestination RPC.
+func (c *PdfPageGotoLinkContentClient) GetDestination(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetDestination(ctx, &pb.GetDestinationRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *PdfPageGotoLinkContentClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.PdfPageImageContentWriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// PdfPageGotoLinkContentDestinationClient wraps the gRPC PdfPageGotoLinkContentDestinationService client.
+type PdfPageGotoLinkContentDestinationClient struct {
+	svc pb.PdfPageGotoLinkContentDestinationServiceClient
+}
+
+// NewPdfPageGotoLinkContentDestinationClient creates a new PdfPageGotoLinkContentDestination client.
+func NewPdfPageGotoLinkContentDestinationClient(cc grpc.ClientConnInterface) *PdfPageGotoLinkContentDestinationClient {
+	return &PdfPageGotoLinkContentDestinationClient{
+		svc: pb.NewPdfPageGotoLinkContentDestinationServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *PdfPageGotoLinkContentDestinationClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.PdfPageGotoLinkContentDestinationDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPageNumber calls the GetPageNumber RPC.
+func (c *PdfPageGotoLinkContentDestinationClient) GetPageNumber(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetPageNumber(ctx, &pb.GetPageNumberRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetXCoordinate calls the GetXCoordinate RPC.
+func (c *PdfPageGotoLinkContentDestinationClient) GetXCoordinate(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetXCoordinate(ctx, &pb.GetXCoordinateRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetYCoordinate calls the GetYCoordinate RPC.
+func (c *PdfPageGotoLinkContentDestinationClient) GetYCoordinate(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetYCoordinate(ctx, &pb.GetYCoordinateRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetZoom calls the GetZoom RPC.
+func (c *PdfPageGotoLinkContentDestinationClient) GetZoom(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetZoom(ctx, &pb.GetZoomRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *PdfPageGotoLinkContentDestinationClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.PdfPageGotoLinkContentDestinationWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// PdfPageTextContentClient wraps the gRPC PdfPageTextContentService client.
+type PdfPageTextContentClient struct {
+	svc pb.PdfPageTextContentServiceClient
+}
+
+// NewPdfPageTextContentClient creates a new PdfPageTextContent client.
+func NewPdfPageTextContentClient(cc grpc.ClientConnInterface) *PdfPageTextContentClient {
+	return &PdfPageTextContentClient{
+		svc: pb.NewPdfPageTextContentServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *PdfPageTextContentClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.PdfPageImageContentDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetText calls the GetText RPC.
+func (c *PdfPageTextContentClient) GetText(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetText(ctx, &pb.GetTextRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *PdfPageTextContentClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.PdfPageImageContentWriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
 	})
 	return err
 }

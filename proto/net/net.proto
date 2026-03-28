@@ -6,6 +6,1289 @@ package net;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/net";
 
+message RegisterConnectivityDiagnosticsCallbackRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message RegisterConnectivityDiagnosticsCallbackResponse {
+}
+
+message UnregisterConnectivityDiagnosticsCallbackRequest {
+  int64 arg0 = 1;
+}
+
+message UnregisterConnectivityDiagnosticsCallbackResponse {
+}
+
+message OnConnectivityReportAvailableRequest {
+  int64 arg0 = 1;
+}
+
+message OnConnectivityReportAvailableResponse {
+}
+
+message OnDataStallSuspectedRequest {
+  int64 arg0 = 1;
+}
+
+message OnDataStallSuspectedResponse {
+}
+
+message OnNetworkConnectivityReportedRequest {
+  int64 arg0 = 1;
+  bool arg1 = 2;
+}
+
+message OnNetworkConnectivityReportedResponse {
+}
+
+message DescribeContentsRequest {
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message EqualsRequest {
+  int64 arg0 = 1;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message GetAdditionalInfoRequest {
+}
+
+message GetAdditionalInfoResponse {
+  int64 result = 1;
+}
+
+message GetLinkPropertiesRequest {
+}
+
+message GetLinkPropertiesResponse {
+  int64 result = 1;
+}
+
+message GetNetworkRequest {
+}
+
+message GetNetworkResponse {
+  int64 result = 1;
+}
+
+message GetNetworkCapabilitiesRequest {
+}
+
+message GetNetworkCapabilitiesResponse {
+  int64 result = 1;
+}
+
+message GetReportTimestampRequest {
+}
+
+message GetReportTimestampResponse {
+  int64 result = 1;
+}
+
+message HashCodeRequest {
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteToParcelResponse {
+}
+
+message GetDetectionMethodRequest {
+}
+
+message GetDetectionMethodResponse {
+  int32 result = 1;
+}
+
+message GetStallDetailsRequest {
+}
+
+message GetStallDetailsResponse {
+  int64 result = 1;
+}
+
+message GetIkeTunnelConnectionParamsRequest {
+}
+
+message GetIkeTunnelConnectionParamsResponse {
+  int64 result = 1;
+}
+
+message GetMaxMtuRequest {
+}
+
+message GetMaxMtuResponse {
+  int32 result = 1;
+}
+
+message GetPasswordRequest {
+}
+
+message GetPasswordResponse {
+  string result = 1;
+}
+
+message GetPresharedKeyRequest {
+}
+
+message GetPresharedKeyResponse {
+  int64 result = 1;
+}
+
+message GetProxyInfoRequest {
+}
+
+message GetProxyInfoResponse {
+  int64 result = 1;
+}
+
+message GetRsaPrivateKeyRequest {
+}
+
+message GetRsaPrivateKeyResponse {
+  int64 result = 1;
+}
+
+message GetServerAddrRequest {
+}
+
+message GetServerAddrResponse {
+  string result = 1;
+}
+
+message GetServerRootCaCertRequest {
+}
+
+message GetServerRootCaCertResponse {
+  int64 result = 1;
+}
+
+message GetUserCertRequest {
+}
+
+message GetUserCertResponse {
+  int64 result = 1;
+}
+
+message GetUserIdentityRequest {
+}
+
+message GetUserIdentityResponse {
+  string result = 1;
+}
+
+message GetUsernameRequest {
+}
+
+message GetUsernameResponse {
+  string result = 1;
+}
+
+message IsAutomaticIpVersionSelectionEnabledRequest {
+}
+
+message IsAutomaticIpVersionSelectionEnabledResponse {
+  bool result = 1;
+}
+
+message IsAutomaticNattKeepaliveTimerEnabledRequest {
+}
+
+message IsAutomaticNattKeepaliveTimerEnabledResponse {
+  bool result = 1;
+}
+
+message IsBypassableRequest {
+}
+
+message IsBypassableResponse {
+  bool result = 1;
+}
+
+message IsMeteredRequest {
+}
+
+message IsMeteredResponse {
+  bool result = 1;
+}
+
+message ToStringRequest {
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message BuildRequest {
+}
+
+message BuildResponse {
+  int64 result = 1;
+}
+
+message SetAuthDigitalSignatureRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message SetAuthDigitalSignatureResponse {
+  int64 result = 1;
+}
+
+message SetAuthPskRequest {
+  int64 arg0 = 1;
+}
+
+message SetAuthPskResponse {
+  int64 result = 1;
+}
+
+message SetAuthUsernamePasswordRequest {
+  string arg0 = 1;
+  string arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message SetAuthUsernamePasswordResponse {
+  int64 result = 1;
+}
+
+message SetAutomaticIpVersionSelectionEnabledRequest {
+  bool arg0 = 1;
+}
+
+message SetAutomaticIpVersionSelectionEnabledResponse {
+  int64 result = 1;
+}
+
+message SetAutomaticNattKeepaliveTimerEnabledRequest {
+  bool arg0 = 1;
+}
+
+message SetAutomaticNattKeepaliveTimerEnabledResponse {
+  int64 result = 1;
+}
+
+message SetBypassableRequest {
+  bool arg0 = 1;
+}
+
+message SetBypassableResponse {
+  int64 result = 1;
+}
+
+message SetLocalRoutesExcludedRequest {
+  bool arg0 = 1;
+}
+
+message SetLocalRoutesExcludedResponse {
+  int64 result = 1;
+}
+
+message SetMaxMtuRequest {
+  int32 arg0 = 1;
+}
+
+message SetMaxMtuResponse {
+  int64 result = 1;
+}
+
+message SetMeteredRequest {
+  bool arg0 = 1;
+}
+
+message SetMeteredResponse {
+  int64 result = 1;
+}
+
+message SetProxyRequest {
+  int64 arg0 = 1;
+}
+
+message SetProxyResponse {
+  int64 result = 1;
+}
+
+message SetRequiresInternetValidationRequest {
+  bool arg0 = 1;
+}
+
+message SetRequiresInternetValidationResponse {
+  int64 result = 1;
+}
+
+message GetDestinationRequest {
+}
+
+message GetDestinationResponse {
+  int64 result = 1;
+}
+
+message GetGatewayRequest {
+}
+
+message GetGatewayResponse {
+  int64 result = 1;
+}
+
+message GetInterfaceRequest {
+}
+
+message GetInterfaceResponse {
+  string result = 1;
+}
+
+message GetTypeRequest {
+}
+
+message GetTypeResponse {
+  int32 result = 1;
+}
+
+message HasGatewayRequest {
+}
+
+message HasGatewayResponse {
+  bool result = 1;
+}
+
+message IsDefaultRouteRequest {
+}
+
+message IsDefaultRouteResponse {
+  bool result = 1;
+}
+
+message MatchesRequest {
+  int64 arg0 = 1;
+}
+
+message MatchesResponse {
+  bool result = 1;
+}
+
+message NewProxyInfoRequest {
+  int64 arg0 = 1;
+}
+
+message NewProxyInfoResponse {
+  int64 result = 1;
+}
+
+message ProxyInfoDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message ProxyInfoEqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetExclusionListRequest {
+  int64 handle = 1;
+}
+
+message GetExclusionListResponse {
+  int64 result = 1;
+}
+
+message GetHostRequest {
+  int64 handle = 1;
+}
+
+message GetHostResponse {
+  string result = 1;
+}
+
+message GetPacFileUrlRequest {
+  int64 handle = 1;
+}
+
+message GetPacFileUrlResponse {
+  int64 result = 1;
+}
+
+message GetPortRequest {
+  int64 handle = 1;
+}
+
+message GetPortResponse {
+  int32 result = 1;
+}
+
+message ProxyInfoHashCodeRequest {
+  int64 handle = 1;
+}
+
+message IsValidRequest {
+  int64 handle = 1;
+}
+
+message IsValidResponse {
+  bool result = 1;
+}
+
+message ProxyInfoToStringRequest {
+  int64 handle = 1;
+}
+
+message ProxyInfoWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message BuildDirectProxyRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message BuildDirectProxyResponse {
+  int64 result = 1;
+}
+
+message BuildPacProxy1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message BuildPacProxy1Response {
+  int64 result = 1;
+}
+
+message BuildPacProxy2_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message BuildPacProxy2_1Response {
+  int64 result = 1;
+}
+
+message NewLocalServerSocketRequest {
+  int64 arg0 = 1;
+}
+
+message NewLocalServerSocketResponse {
+  int64 result = 1;
+}
+
+message AcceptRequest {
+  int64 handle = 1;
+}
+
+message AcceptResponse {
+  int64 result = 1;
+}
+
+message CloseRequest {
+  int64 handle = 1;
+}
+
+message CloseResponse {
+}
+
+message GetFileDescriptorRequest {
+  int64 handle = 1;
+}
+
+message GetFileDescriptorResponse {
+  int64 result = 1;
+}
+
+message GetLocalSocketAddressRequest {
+  int64 handle = 1;
+}
+
+message GetLocalSocketAddressResponse {
+  int64 result = 1;
+}
+
+message GetDomainsRequest {
+}
+
+message GetDomainsResponse {
+  string result = 1;
+}
+
+message GetIpAddressRequest {
+}
+
+message GetIpAddressResponse {
+  int64 result = 1;
+}
+
+message SetDomainsRequest {
+  string arg0 = 1;
+}
+
+message SetDomainsResponse {
+  int64 result = 1;
+}
+
+message SetGatewayRequest {
+  int64 arg0 = 1;
+}
+
+message SetGatewayResponse {
+  int64 result = 1;
+}
+
+message SetIpAddressRequest {
+  int64 arg0 = 1;
+}
+
+message SetIpAddressResponse {
+  int64 result = 1;
+}
+
+message GetAddressTypeRequest {
+}
+
+message GetAddressTypeResponse {
+  int32 result = 1;
+}
+
+message GetLinkLocalIpv6FromEui48MacRequest {
+}
+
+message GetLinkLocalIpv6FromEui48MacResponse {
+  int64 result = 1;
+}
+
+message IsLocallyAssignedRequest {
+}
+
+message IsLocallyAssignedResponse {
+  bool result = 1;
+}
+
+message MacAddressMatchesRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message ToByteArrayRequest {
+}
+
+message ToByteArrayResponse {
+  int64 result = 1;
+}
+
+message ToOuiStringRequest {
+}
+
+message ToOuiStringResponse {
+  string result = 1;
+}
+
+message FromBytesRequest {
+  int64 arg0 = 1;
+}
+
+message FromBytesResponse {
+  int64 result = 1;
+}
+
+message FromStringRequest {
+  string arg0 = 1;
+}
+
+message FromStringResponse {
+  int64 result = 1;
+}
+
+message GetBodyRequest {
+}
+
+message GetBodyResponse {
+  string result = 1;
+}
+
+message GetCcRequest {
+}
+
+message GetCcResponse {
+  string result = 1;
+}
+
+message GetSubjectRequest {
+}
+
+message GetSubjectResponse {
+  string result = 1;
+}
+
+message GetToRequest {
+}
+
+message GetToResponse {
+  string result = 1;
+}
+
+message IsMailToRequest {
+  string arg0 = 1;
+}
+
+message IsMailToResponse {
+  bool result = 1;
+}
+
+message ParseRequest {
+  string arg0 = 1;
+}
+
+message ParseResponse {
+  int64 result = 1;
+}
+
+message NewEthernetNetworkSpecifierRequest {
+  string arg0 = 1;
+}
+
+message NewEthernetNetworkSpecifierResponse {
+  int64 result = 1;
+}
+
+message CanBeSatisfiedByRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message CanBeSatisfiedByResponse {
+  bool result = 1;
+}
+
+message EthernetNetworkSpecifierDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message EthernetNetworkSpecifierEqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetInterfaceNameRequest {
+  int64 handle = 1;
+}
+
+message GetInterfaceNameResponse {
+  string result = 1;
+}
+
+message EthernetNetworkSpecifierHashCodeRequest {
+  int64 handle = 1;
+}
+
+message EthernetNetworkSpecifierToStringRequest {
+  int64 handle = 1;
+}
+
+message EthernetNetworkSpecifierWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message L2capNetworkSpecifierCanBeSatisfiedByRequest {
+  int64 arg0 = 1;
+}
+
+message GetHeaderCompressionRequest {
+}
+
+message GetHeaderCompressionResponse {
+  int32 result = 1;
+}
+
+message GetPsmRequest {
+}
+
+message GetPsmResponse {
+  int32 result = 1;
+}
+
+message GetRemoteAddressRequest {
+}
+
+message GetRemoteAddressResponse {
+  int64 result = 1;
+}
+
+message GetRoleRequest {
+}
+
+message GetRoleResponse {
+  int32 result = 1;
+}
+
+message RedactRequest {
+}
+
+message RedactResponse {
+  int64 result = 1;
+}
+
+message SetHeaderCompressionRequest {
+  int32 arg0 = 1;
+}
+
+message SetHeaderCompressionResponse {
+  int64 result = 1;
+}
+
+message SetPsmRequest {
+  int32 arg0 = 1;
+}
+
+message SetPsmResponse {
+  int64 result = 1;
+}
+
+message SetRemoteAddressRequest {
+  int64 arg0 = 1;
+}
+
+message SetRemoteAddressResponse {
+  int64 result = 1;
+}
+
+message SetRoleRequest {
+  int32 arg0 = 1;
+}
+
+message SetRoleResponse {
+  int64 result = 1;
+}
+
+message DeleteProvisionedVpnProfileRequest {
+}
+
+message DeleteProvisionedVpnProfileResponse {
+}
+
+message GetProvisionedVpnProfileStateRequest {
+}
+
+message GetProvisionedVpnProfileStateResponse {
+  int64 result = 1;
+}
+
+message ProvisionVpnProfileRequest {
+  int64 arg0 = 1;
+}
+
+message ProvisionVpnProfileResponse {
+  int64 result = 1;
+}
+
+message StartProvisionedVpnProfileRequest {
+}
+
+message StartProvisionedVpnProfileResponse {
+}
+
+message StartProvisionedVpnProfileSessionRequest {
+}
+
+message StartProvisionedVpnProfileSessionResponse {
+  string result = 1;
+}
+
+message StopProvisionedVpnProfileRequest {
+}
+
+message StopProvisionedVpnProfileResponse {
+}
+
+message GetHttpProxyRequest {
+}
+
+message GetHttpProxyResponse {
+  int64 result = 1;
+}
+
+message GetStaticIpConfigurationRequest {
+}
+
+message GetStaticIpConfigurationResponse {
+  int64 result = 1;
+}
+
+message SetHttpProxyRequest {
+  int64 arg0 = 1;
+}
+
+message SetHttpProxyResponse {
+  int64 result = 1;
+}
+
+message SetStaticIpConfigurationRequest {
+  int64 arg0 = 1;
+}
+
+message SetStaticIpConfigurationResponse {
+  int64 result = 1;
+}
+
+message GetAddressRequest {
+}
+
+message GetAddressResponse {
+  int64 result = 1;
+}
+
+message GetFlagsRequest {
+}
+
+message GetFlagsResponse {
+  int32 result = 1;
+}
+
+message GetPrefixLengthRequest {
+}
+
+message GetPrefixLengthResponse {
+  int32 result = 1;
+}
+
+message GetScopeRequest {
+}
+
+message GetScopeResponse {
+  int32 result = 1;
+}
+
+message NewWorkCapabilitiesRequest {
+}
+
+message NewWorkCapabilitiesResponse {
+  int64 result = 1;
+}
+
+message WorkCapabilitiesDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message WorkCapabilitiesEqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetCapabilitiesRequest {
+  int64 handle = 1;
+}
+
+message GetCapabilitiesResponse {
+  int64 result = 1;
+}
+
+message GetEnterpriseIdsRequest {
+  int64 handle = 1;
+}
+
+message GetEnterpriseIdsResponse {
+  int64 result = 1;
+}
+
+message GetLinkDownstreamBandwidthKbpsRequest {
+  int64 handle = 1;
+}
+
+message GetLinkDownstreamBandwidthKbpsResponse {
+  int32 result = 1;
+}
+
+message GetLinkUpstreamBandwidthKbpsRequest {
+  int64 handle = 1;
+}
+
+message GetLinkUpstreamBandwidthKbpsResponse {
+  int32 result = 1;
+}
+
+message GetNetworkSpecifierRequest {
+  int64 handle = 1;
+}
+
+message GetNetworkSpecifierResponse {
+  int64 result = 1;
+}
+
+message GetOwnerUidRequest {
+  int64 handle = 1;
+}
+
+message GetOwnerUidResponse {
+  int32 result = 1;
+}
+
+message GetSignalStrengthRequest {
+  int64 handle = 1;
+}
+
+message GetSignalStrengthResponse {
+  int32 result = 1;
+}
+
+message GetTransportInfoRequest {
+  int64 handle = 1;
+}
+
+message GetTransportInfoResponse {
+  int64 result = 1;
+}
+
+message HasCapabilityRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message HasCapabilityResponse {
+  bool result = 1;
+}
+
+message HasEnterpriseIdRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message HasEnterpriseIdResponse {
+  bool result = 1;
+}
+
+message HasTransportRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message HasTransportResponse {
+  bool result = 1;
+}
+
+message WorkCapabilitiesHashCodeRequest {
+  int64 handle = 1;
+}
+
+message WorkCapabilitiesToStringRequest {
+  int64 handle = 1;
+}
+
+message WorkCapabilitiesWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message IpSecTransformCloseRequest {
+}
+
+message BuildTransportModeTransformRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message BuildTransportModeTransformResponse {
+  int64 result = 1;
+}
+
+message SetAuthenticatedEncryptionRequest {
+  int64 arg0 = 1;
+}
+
+message SetAuthenticatedEncryptionResponse {
+  int64 result = 1;
+}
+
+message SetAuthenticationRequest {
+  int64 arg0 = 1;
+}
+
+message SetAuthenticationResponse {
+  int64 result = 1;
+}
+
+message SetEncryptionRequest {
+  int64 arg0 = 1;
+}
+
+message SetEncryptionResponse {
+  int64 result = 1;
+}
+
+message SetIpv4EncapsulationRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message SetIpv4EncapsulationResponse {
+  int64 result = 1;
+}
+
+message NewCredentialsRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message NewCredentialsResponse {
+  int64 result = 1;
+}
+
+message GetGidRequest {
+  int64 handle = 1;
+}
+
+message GetGidResponse {
+  int32 result = 1;
+}
+
+message GetPidRequest {
+  int64 handle = 1;
+}
+
+message GetPidResponse {
+  int32 result = 1;
+}
+
+message GetUidRequest {
+  int64 handle = 1;
+}
+
+message GetUidResponse {
+  int32 result = 1;
+}
+
+message NewLocalSocketRequest {
+}
+
+message NewLocalSocketResponse {
+  int64 result = 1;
+}
+
+message BindRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message BindResponse {
+}
+
+message Connect1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message Connect1Response {
+}
+
+message Connect2_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message Connect2_1Response {
+}
+
+message GetAncillaryFileDescriptorsRequest {
+  int64 handle = 1;
+}
+
+message GetAncillaryFileDescriptorsResponse {
+  int64 result = 1;
+}
+
+message GetInputStreamRequest {
+  int64 handle = 1;
+}
+
+message GetInputStreamResponse {
+  int64 result = 1;
+}
+
+message GetOutputStreamRequest {
+  int64 handle = 1;
+}
+
+message GetOutputStreamResponse {
+  int64 result = 1;
+}
+
+message GetPeerCredentialsRequest {
+  int64 handle = 1;
+}
+
+message GetPeerCredentialsResponse {
+  int64 result = 1;
+}
+
+message GetReceiveBufferSizeRequest {
+  int64 handle = 1;
+}
+
+message GetReceiveBufferSizeResponse {
+  int32 result = 1;
+}
+
+message GetRemoteSocketAddressRequest {
+  int64 handle = 1;
+}
+
+message GetRemoteSocketAddressResponse {
+  int64 result = 1;
+}
+
+message GetSendBufferSizeRequest {
+  int64 handle = 1;
+}
+
+message GetSendBufferSizeResponse {
+  int32 result = 1;
+}
+
+message GetSoTimeoutRequest {
+  int64 handle = 1;
+}
+
+message GetSoTimeoutResponse {
+  int32 result = 1;
+}
+
+message IsClosedRequest {
+  int64 handle = 1;
+}
+
+message IsClosedResponse {
+  bool result = 1;
+}
+
+message IsInputShutdownRequest {
+  int64 handle = 1;
+}
+
+message IsInputShutdownResponse {
+  bool result = 1;
+}
+
+message IsOutputShutdownRequest {
+  int64 handle = 1;
+}
+
+message IsOutputShutdownResponse {
+  bool result = 1;
+}
+
+message SetFileDescriptorsForSendRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetFileDescriptorsForSendResponse {
+}
+
+message SetReceiveBufferSizeRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetReceiveBufferSizeResponse {
+}
+
+message SetSendBufferSizeRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetSendBufferSizeResponse {
+}
+
+message SetSoTimeoutRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetSoTimeoutResponse {
+}
+
+message ShutdownInputRequest {
+  int64 handle = 1;
+}
+
+message ShutdownInputResponse {
+}
+
+message ShutdownOutputRequest {
+  int64 handle = 1;
+}
+
+message ShutdownOutputResponse {
+}
+
+message LocalSocketToStringRequest {
+  int64 handle = 1;
+}
+
+message SocketKeepaliveCloseRequest {
+}
+
+message StartRequest {
+  int32 arg0 = 1;
+}
+
+message StartResponse {
+}
+
+message StopRequest {
+}
+
+message StopResponse {
+}
+
+message OnDataReceivedRequest {
+}
+
+message OnDataReceivedResponse {
+}
+
+message OnErrorRequest {
+  int32 arg0 = 1;
+}
+
+message OnErrorResponse {
+}
+
+message OnStartedRequest {
+}
+
+message OnStartedResponse {
+}
+
+message OnStoppedRequest {
+}
+
+message OnStoppedResponse {
+}
+
 message AllocateSecurityParameterIndex1Request {
   int64 arg0 = 1;
 }
@@ -84,6 +1367,919 @@ message RemoveTransportModeTransforms1_2Request {
 }
 
 message RemoveTransportModeTransforms1_2Response {
+}
+
+message IpSecManagerSecurityParameterIndexCloseRequest {
+}
+
+message GetSpiRequest {
+}
+
+message GetSpiResponse {
+  int32 result = 1;
+}
+
+message IpSecManagerUdpEncapsulationSocketCloseRequest {
+}
+
+message IpSecManagerUdpEncapsulationSocketGetFileDescriptorRequest {
+}
+
+message IpSecManagerUdpEncapsulationSocketGetPortRequest {
+}
+
+message GetSubscriptionIdRequest {
+}
+
+message GetSubscriptionIdResponse {
+  int32 result = 1;
+}
+
+message SetSubscriptionIdRequest {
+  int32 arg0 = 1;
+}
+
+message SetSubscriptionIdResponse {
+  int64 result = 1;
+}
+
+message NewTetheringInterfaceRequest {
+  int32 arg0 = 1;
+  string arg1 = 2;
+}
+
+message NewTetheringInterfaceResponse {
+  int64 result = 1;
+}
+
+message TetheringInterfaceDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message TetheringInterfaceEqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message TetheringInterfaceGetInterfaceRequest {
+  int64 handle = 1;
+}
+
+message GetSoftApConfigurationRequest {
+  int64 handle = 1;
+}
+
+message GetSoftApConfigurationResponse {
+  int64 result = 1;
+}
+
+message TetheringInterfaceGetTypeRequest {
+  int64 handle = 1;
+}
+
+message TetheringInterfaceHashCodeRequest {
+  int64 handle = 1;
+}
+
+message TetheringInterfaceToStringRequest {
+  int64 handle = 1;
+}
+
+message TetheringInterfaceWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message GetInstanceRequest {
+}
+
+message GetInstanceResponse {
+  int64 result = 1;
+}
+
+message DnsResolverCallbackOnErrorRequest {
+  int64 arg0 = 1;
+}
+
+message NewTrafficStatsRequest {
+}
+
+message NewTrafficStatsResponse {
+  int64 result = 1;
+}
+
+message ClearThreadStatsTagRequest {
+  int64 handle = 1;
+}
+
+message ClearThreadStatsTagResponse {
+}
+
+message ClearThreadStatsUidRequest {
+  int64 handle = 1;
+}
+
+message ClearThreadStatsUidResponse {
+}
+
+message GetAndSetThreadStatsTagRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetAndSetThreadStatsTagResponse {
+  int32 result = 1;
+}
+
+message GetMobileRxBytesRequest {
+  int64 handle = 1;
+}
+
+message GetMobileRxBytesResponse {
+  int64 result = 1;
+}
+
+message GetMobileRxPacketsRequest {
+  int64 handle = 1;
+}
+
+message GetMobileRxPacketsResponse {
+  int64 result = 1;
+}
+
+message GetMobileTxBytesRequest {
+  int64 handle = 1;
+}
+
+message GetMobileTxBytesResponse {
+  int64 result = 1;
+}
+
+message GetMobileTxPacketsRequest {
+  int64 handle = 1;
+}
+
+message GetMobileTxPacketsResponse {
+  int64 result = 1;
+}
+
+message GetRxBytesRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message GetRxBytesResponse {
+  int64 result = 1;
+}
+
+message GetRxPacketsRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message GetRxPacketsResponse {
+  int64 result = 1;
+}
+
+message GetThreadStatsTagRequest {
+  int64 handle = 1;
+}
+
+message GetThreadStatsTagResponse {
+  int32 result = 1;
+}
+
+message GetThreadStatsUidRequest {
+  int64 handle = 1;
+}
+
+message GetThreadStatsUidResponse {
+  int32 result = 1;
+}
+
+message GetTotalRxBytesRequest {
+  int64 handle = 1;
+}
+
+message GetTotalRxBytesResponse {
+  int64 result = 1;
+}
+
+message GetTotalRxPacketsRequest {
+  int64 handle = 1;
+}
+
+message GetTotalRxPacketsResponse {
+  int64 result = 1;
+}
+
+message GetTotalTxBytesRequest {
+  int64 handle = 1;
+}
+
+message GetTotalTxBytesResponse {
+  int64 result = 1;
+}
+
+message GetTotalTxPacketsRequest {
+  int64 handle = 1;
+}
+
+message GetTotalTxPacketsResponse {
+  int64 result = 1;
+}
+
+message GetTxBytesRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message GetTxBytesResponse {
+  int64 result = 1;
+}
+
+message GetTxPacketsRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message GetTxPacketsResponse {
+  int64 result = 1;
+}
+
+message GetUidRxBytesRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetUidRxBytesResponse {
+  int64 result = 1;
+}
+
+message GetUidRxPacketsRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetUidRxPacketsResponse {
+  int64 result = 1;
+}
+
+message GetUidTcpRxBytesRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetUidTcpRxBytesResponse {
+  int64 result = 1;
+}
+
+message GetUidTcpRxSegmentsRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetUidTcpRxSegmentsResponse {
+  int64 result = 1;
+}
+
+message GetUidTcpTxBytesRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetUidTcpTxBytesResponse {
+  int64 result = 1;
+}
+
+message GetUidTcpTxSegmentsRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetUidTcpTxSegmentsResponse {
+  int64 result = 1;
+}
+
+message GetUidTxBytesRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetUidTxBytesResponse {
+  int64 result = 1;
+}
+
+message GetUidTxPacketsRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetUidTxPacketsResponse {
+  int64 result = 1;
+}
+
+message GetUidUdpRxBytesRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetUidUdpRxBytesResponse {
+  int64 result = 1;
+}
+
+message GetUidUdpRxPacketsRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetUidUdpRxPacketsResponse {
+  int64 result = 1;
+}
+
+message GetUidUdpTxBytesRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetUidUdpTxBytesResponse {
+  int64 result = 1;
+}
+
+message GetUidUdpTxPacketsRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetUidUdpTxPacketsResponse {
+  int64 result = 1;
+}
+
+message IncrementOperationCount1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message IncrementOperationCount1Response {
+}
+
+message IncrementOperationCount2_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message IncrementOperationCount2_1Response {
+}
+
+message SetThreadStatsTagRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetThreadStatsTagResponse {
+}
+
+message SetThreadStatsUidRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetThreadStatsUidResponse {
+}
+
+message TagDatagramSocketRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message TagDatagramSocketResponse {
+}
+
+message TagFileDescriptorRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message TagFileDescriptorResponse {
+}
+
+message TagSocketRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message TagSocketResponse {
+}
+
+message UntagDatagramSocketRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message UntagDatagramSocketResponse {
+}
+
+message UntagFileDescriptorRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message UntagFileDescriptorResponse {
+}
+
+message UntagSocketRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message UntagSocketResponse {
+}
+
+message NewLocalSocketAddressRequest {
+  string arg0 = 1;
+}
+
+message NewLocalSocketAddressResponse {
+  int64 result = 1;
+}
+
+message GetNameRequest {
+  int64 handle = 1;
+}
+
+message GetNameResponse {
+  string result = 1;
+}
+
+message GetNamespaceRequest {
+  int64 handle = 1;
+}
+
+message GetNamespaceResponse {
+  int64 result = 1;
+}
+
+message ValuesRequest {
+}
+
+message ValuesResponse {
+  int64 result = 1;
+}
+
+message ValueOfRequest {
+  string arg0 = 1;
+}
+
+message ValueOfResponse {
+  int64 result = 1;
+}
+
+message BindSocket1Request {
+  int64 arg0 = 1;
+}
+
+message BindSocket1Response {
+}
+
+message BindSocket1_1Request {
+  int64 arg0 = 1;
+}
+
+message BindSocket1_1Response {
+}
+
+message BindSocket1_2Request {
+  int64 arg0 = 1;
+}
+
+message BindSocket1_2Response {
+}
+
+message GetAllByNameRequest {
+  string arg0 = 1;
+}
+
+message GetAllByNameResponse {
+  int64 result = 1;
+}
+
+message GetByNameRequest {
+  string arg0 = 1;
+}
+
+message GetByNameResponse {
+  int64 result = 1;
+}
+
+message GetNetworkHandleRequest {
+}
+
+message GetNetworkHandleResponse {
+  int64 result = 1;
+}
+
+message GetSocketFactoryRequest {
+}
+
+message GetSocketFactoryResponse {
+  int64 result = 1;
+}
+
+message OpenConnection1Request {
+  int64 arg0 = 1;
+}
+
+message OpenConnection1Response {
+  int64 result = 1;
+}
+
+message OpenConnection2_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OpenConnection2_1Response {
+  int64 result = 1;
+}
+
+message FromNetworkHandleRequest {
+  int64 arg0 = 1;
+}
+
+message FromNetworkHandleResponse {
+  int64 result = 1;
+}
+
+message NewIpPrefixRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message NewIpPrefixResponse {
+  int64 result = 1;
+}
+
+message ContainsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message ContainsResponse {
+  bool result = 1;
+}
+
+message IpPrefixDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message IpPrefixEqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message IpPrefixGetAddressRequest {
+  int64 handle = 1;
+}
+
+message IpPrefixGetPrefixLengthRequest {
+  int64 handle = 1;
+}
+
+message GetRawAddressRequest {
+  int64 handle = 1;
+}
+
+message GetRawAddressResponse {
+  int64 result = 1;
+}
+
+message IpPrefixHashCodeRequest {
+  int64 handle = 1;
+}
+
+message IpPrefixToStringRequest {
+  int64 handle = 1;
+}
+
+message IpPrefixWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message WorkRequestCanBeSatisfiedByRequest {
+  int64 arg0 = 1;
+}
+
+message WorkRequestGetCapabilitiesRequest {
+}
+
+message WorkRequestGetNetworkSpecifierRequest {
+}
+
+message GetTransportTypesRequest {
+}
+
+message GetTransportTypesResponse {
+  int64 result = 1;
+}
+
+message WorkRequestHasCapabilityRequest {
+  int32 arg0 = 1;
+}
+
+message WorkRequestHasTransportRequest {
+  int32 arg0 = 1;
+}
+
+message AddCapabilityRequest {
+  int32 arg0 = 1;
+}
+
+message AddCapabilityResponse {
+  int64 result = 1;
+}
+
+message AddTransportTypeRequest {
+  int32 arg0 = 1;
+}
+
+message AddTransportTypeResponse {
+  int64 result = 1;
+}
+
+message ClearCapabilitiesRequest {
+}
+
+message ClearCapabilitiesResponse {
+  int64 result = 1;
+}
+
+message RemoveCapabilityRequest {
+  int32 arg0 = 1;
+}
+
+message RemoveCapabilityResponse {
+  int64 result = 1;
+}
+
+message RemoveTransportTypeRequest {
+  int32 arg0 = 1;
+}
+
+message RemoveTransportTypeResponse {
+  int64 result = 1;
+}
+
+message SetIncludeOtherUidNetworksRequest {
+  bool arg0 = 1;
+}
+
+message SetIncludeOtherUidNetworksResponse {
+  int64 result = 1;
+}
+
+message SetNetworkSpecifier1Request {
+  int64 arg0 = 1;
+}
+
+message SetNetworkSpecifier1Response {
+  int64 result = 1;
+}
+
+message SetNetworkSpecifier1_1Request {
+  string arg0 = 1;
+}
+
+message SetNetworkSpecifier1_1Response {
+  int64 result = 1;
+}
+
+message AreLocalRoutesExcludedRequest {
+}
+
+message AreLocalRoutesExcludedResponse {
+  bool result = 1;
+}
+
+message GetTypeStringRequest {
+}
+
+message GetTypeStringResponse {
+  string result = 1;
+}
+
+message IsInternetValidationRequiredRequest {
+}
+
+message IsInternetValidationRequiredResponse {
+  bool result = 1;
+}
+
+message RegisterTetheringEventCallbackRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message RegisterTetheringEventCallbackResponse {
+}
+
+message StartTetheringRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message StartTetheringResponse {
+}
+
+message StopTetheringRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message StopTetheringResponse {
+}
+
+message UnregisterTetheringEventCallbackRequest {
+  int64 arg0 = 1;
+}
+
+message UnregisterTetheringEventCallbackResponse {
+}
+
+message TetheringManagerTetheringRequestGetSoftApConfigurationRequest {
+}
+
+message NewSSLCertificateSocketFactoryRequest {
+  int32 arg0 = 1;
+}
+
+message NewSSLCertificateSocketFactoryResponse {
+  int64 result = 1;
+}
+
+message CreateSocket0Request {
+  int64 handle = 1;
+}
+
+message CreateSocket0Response {
+  int64 result = 1;
+}
+
+message CreateSocket2_1Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message CreateSocket2_1Response {
+  int64 result = 1;
+}
+
+message CreateSocket4_2Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  int32 arg1 = 3;
+  int64 arg2 = 4;
+  int32 arg3 = 5;
+}
+
+message CreateSocket4_2Response {
+  int64 result = 1;
+}
+
+message CreateSocket2_3Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message CreateSocket2_3Response {
+  int64 result = 1;
+}
+
+message CreateSocket4_4Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+  int64 arg2 = 4;
+  int32 arg3 = 5;
+}
+
+message CreateSocket4_4Response {
+  int64 result = 1;
+}
+
+message CreateSocket4_5Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+  int32 arg2 = 4;
+  bool arg3 = 5;
+}
+
+message CreateSocket4_5Response {
+  int64 result = 1;
+}
+
+message GetDefaultCipherSuitesRequest {
+  int64 handle = 1;
+}
+
+message GetDefaultCipherSuitesResponse {
+  int64 result = 1;
+}
+
+message GetNpnSelectedProtocolRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetNpnSelectedProtocolResponse {
+  int64 result = 1;
+}
+
+message GetSupportedCipherSuitesRequest {
+  int64 handle = 1;
+}
+
+message GetSupportedCipherSuitesResponse {
+  int64 result = 1;
+}
+
+message SetHostnameRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+}
+
+message SetHostnameResponse {
+}
+
+message SetKeyManagersRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetKeyManagersResponse {
+}
+
+message SetNpnProtocolsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetNpnProtocolsResponse {
+}
+
+message SetTrustManagersRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetTrustManagersResponse {
+}
+
+message SetUseSessionTicketsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  bool arg1 = 3;
+}
+
+message SetUseSessionTicketsResponse {
+}
+
+message GetDefault1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetDefault1Response {
+  int64 result = 1;
+}
+
+message GetDefault2_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message GetDefault2_1Response {
+  int64 result = 1;
+}
+
+message GetInsecureRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message GetInsecureResponse {
+  int64 result = 1;
 }
 
 message AddDefaultNetworkActiveListenerRequest {
@@ -173,12 +2369,8 @@ message GetDefaultProxyResponse {
   int64 result = 1;
 }
 
-message GetLinkPropertiesRequest {
+message ConnectivityManagerGetLinkPropertiesRequest {
   int64 arg0 = 1;
-}
-
-message GetLinkPropertiesResponse {
-  int64 result = 1;
 }
 
 message GetMultipathPreferenceRequest {
@@ -189,12 +2381,8 @@ message GetMultipathPreferenceResponse {
   int32 result = 1;
 }
 
-message GetNetworkCapabilitiesRequest {
+message ConnectivityManagerGetNetworkCapabilitiesRequest {
   int64 arg0 = 1;
-}
-
-message GetNetworkCapabilitiesResponse {
-  int64 result = 1;
 }
 
 message GetNetworkInfo1Request {
@@ -377,53 +2565,1149 @@ message SetProcessDefaultNetworkResponse {
   bool result = 1;
 }
 
-message RegisterConnectivityDiagnosticsCallbackRequest {
+message OnAvailableRequest {
+  int64 arg0 = 1;
+}
+
+message OnAvailableResponse {
+}
+
+message OnBlockedStatusChangedRequest {
+  int64 arg0 = 1;
+  bool arg1 = 2;
+}
+
+message OnBlockedStatusChangedResponse {
+}
+
+message OnCapabilitiesChangedRequest {
   int64 arg0 = 1;
   int64 arg1 = 2;
-  int64 arg2 = 3;
 }
 
-message RegisterConnectivityDiagnosticsCallbackResponse {
+message OnCapabilitiesChangedResponse {
 }
 
-message UnregisterConnectivityDiagnosticsCallbackRequest {
-  int64 arg0 = 1;
-}
-
-message UnregisterConnectivityDiagnosticsCallbackResponse {
-}
-
-message RegisterTetheringEventCallbackRequest {
+message OnLinkPropertiesChangedRequest {
   int64 arg0 = 1;
   int64 arg1 = 2;
 }
 
-message RegisterTetheringEventCallbackResponse {
+message OnLinkPropertiesChangedResponse {
 }
 
-message StartTetheringRequest {
+message OnLosingRequest {
   int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message OnLosingResponse {
+}
+
+message OnLostRequest {
+  int64 arg0 = 1;
+}
+
+message OnLostResponse {
+}
+
+message OnReservedRequest {
+  int64 arg0 = 1;
+}
+
+message OnReservedResponse {
+}
+
+message OnUnavailableRequest {
+}
+
+message OnUnavailableResponse {
+}
+
+message OnNetworkActiveRequest {
+}
+
+message OnNetworkActiveResponse {
+}
+
+message NewLinkPropertiesRequest {
+}
+
+message NewLinkPropertiesResponse {
+  int64 result = 1;
+}
+
+message AddRouteRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AddRouteResponse {
+  bool result = 1;
+}
+
+message ClearRequest {
+  int64 handle = 1;
+}
+
+message ClearResponse {
+}
+
+message LinkPropertiesDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message LinkPropertiesEqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetDhcpServerAddressRequest {
+  int64 handle = 1;
+}
+
+message GetDhcpServerAddressResponse {
+  int64 result = 1;
+}
+
+message LinkPropertiesGetDomainsRequest {
+  int64 handle = 1;
+}
+
+message LinkPropertiesGetHttpProxyRequest {
+  int64 handle = 1;
+}
+
+message GetMtuRequest {
+  int64 handle = 1;
+}
+
+message GetMtuResponse {
+  int32 result = 1;
+}
+
+message GetNat64PrefixRequest {
+  int64 handle = 1;
+}
+
+message GetNat64PrefixResponse {
+  int64 result = 1;
+}
+
+message GetPrivateDnsServerNameRequest {
+  int64 handle = 1;
+}
+
+message GetPrivateDnsServerNameResponse {
+  string result = 1;
+}
+
+message LinkPropertiesHashCodeRequest {
+  int64 handle = 1;
+}
+
+message IsPrivateDnsActiveRequest {
+  int64 handle = 1;
+}
+
+message IsPrivateDnsActiveResponse {
+  bool result = 1;
+}
+
+message IsWakeOnLanSupportedRequest {
+  int64 handle = 1;
+}
+
+message IsWakeOnLanSupportedResponse {
+  bool result = 1;
+}
+
+message SetDhcpServerAddressRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetDhcpServerAddressResponse {
+}
+
+message LinkPropertiesSetDomainsRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message LinkPropertiesSetDomainsResponse {
+}
+
+message LinkPropertiesSetHttpProxyRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message LinkPropertiesSetHttpProxyResponse {
+}
+
+message SetInterfaceNameRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetInterfaceNameResponse {
+}
+
+message SetMtuRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetMtuResponse {
+}
+
+message SetNat64PrefixRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetNat64PrefixResponse {
+}
+
+message LinkPropertiesToStringRequest {
+  int64 handle = 1;
+}
+
+message LinkPropertiesWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message IgnoreNetworkRequest {
+}
+
+message IgnoreNetworkResponse {
+}
+
+message ReportCaptivePortalDismissedRequest {
+}
+
+message ReportCaptivePortalDismissedResponse {
+}
+
+message NewWorkInfoRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  string arg2 = 3;
+  string arg3 = 4;
+}
+
+message NewWorkInfoResponse {
+  int64 result = 1;
+}
+
+message WorkInfoDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message GetDetailedStateRequest {
+  int64 handle = 1;
+}
+
+message GetDetailedStateResponse {
+  int64 result = 1;
+}
+
+message GetExtraInfoRequest {
+  int64 handle = 1;
+}
+
+message GetExtraInfoResponse {
+  string result = 1;
+}
+
+message GetReasonRequest {
+  int64 handle = 1;
+}
+
+message GetReasonResponse {
+  string result = 1;
+}
+
+message GetStateRequest {
+  int64 handle = 1;
+}
+
+message GetStateResponse {
+  int64 result = 1;
+}
+
+message GetSubtypeRequest {
+  int64 handle = 1;
+}
+
+message GetSubtypeResponse {
+  int32 result = 1;
+}
+
+message GetSubtypeNameRequest {
+  int64 handle = 1;
+}
+
+message GetSubtypeNameResponse {
+  string result = 1;
+}
+
+message WorkInfoGetTypeRequest {
+  int64 handle = 1;
+}
+
+message GetTypeNameRequest {
+  int64 handle = 1;
+}
+
+message GetTypeNameResponse {
+  string result = 1;
+}
+
+message IsAvailableRequest {
+  int64 handle = 1;
+}
+
+message IsAvailableResponse {
+  bool result = 1;
+}
+
+message IsConnectedRequest {
+  int64 handle = 1;
+}
+
+message IsConnectedResponse {
+  bool result = 1;
+}
+
+message IsConnectedOrConnectingRequest {
+  int64 handle = 1;
+}
+
+message IsConnectedOrConnectingResponse {
+  bool result = 1;
+}
+
+message IsFailoverRequest {
+  int64 handle = 1;
+}
+
+message IsFailoverResponse {
+  bool result = 1;
+}
+
+message IsRoamingRequest {
+  int64 handle = 1;
+}
+
+message IsRoamingResponse {
+  bool result = 1;
+}
+
+message SetDetailedStateRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+  string arg2 = 4;
+}
+
+message SetDetailedStateResponse {
+}
+
+message WorkInfoToStringRequest {
+  int64 handle = 1;
+}
+
+message WorkInfoWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message NewUrlQuerySanitizerRequest {
+}
+
+message NewUrlQuerySanitizerResponse {
+  int64 result = 1;
+}
+
+message GetAllowUnregisteredParamatersRequest {
+  int64 handle = 1;
+}
+
+message GetAllowUnregisteredParamatersResponse {
+  bool result = 1;
+}
+
+message GetEffectiveValueSanitizerRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message GetEffectiveValueSanitizerResponse {
+  int64 result = 1;
+}
+
+message GetPreferFirstRepeatedParameterRequest {
+  int64 handle = 1;
+}
+
+message GetPreferFirstRepeatedParameterResponse {
+  bool result = 1;
+}
+
+message GetUnregisteredParameterValueSanitizerRequest {
+  int64 handle = 1;
+}
+
+message GetUnregisteredParameterValueSanitizerResponse {
+  int64 result = 1;
+}
+
+message GetValueRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message GetValueResponse {
+  string result = 1;
+}
+
+message GetValueSanitizerRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message GetValueSanitizerResponse {
+  int64 result = 1;
+}
+
+message HasParameterRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message HasParameterResponse {
+  bool result = 1;
+}
+
+message ParseQueryRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message ParseQueryResponse {
+}
+
+message ParseUrlRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message ParseUrlResponse {
+}
+
+message RegisterParameterRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message RegisterParameterResponse {
+}
+
+message RegisterParametersRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message RegisterParametersResponse {
+}
+
+message SetAllowUnregisteredParamatersRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetAllowUnregisteredParamatersResponse {
+}
+
+message SetPreferFirstRepeatedParameterRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetPreferFirstRepeatedParameterResponse {
+}
+
+message SetUnregisteredParameterValueSanitizerRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetUnregisteredParameterValueSanitizerResponse {
+}
+
+message UnescapeRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message UnescapeResponse {
+  string result = 1;
+}
+
+message GetAllButNulAndAngleBracketsLegalRequest {
+  int64 handle = 1;
+}
+
+message GetAllButNulAndAngleBracketsLegalResponse {
+  int64 result = 1;
+}
+
+message GetAllButNulLegalRequest {
+  int64 handle = 1;
+}
+
+message GetAllButNulLegalResponse {
+  int64 result = 1;
+}
+
+message GetAllButWhitespaceLegalRequest {
+  int64 handle = 1;
+}
+
+message GetAllButWhitespaceLegalResponse {
+  int64 result = 1;
+}
+
+message GetAllIllegalRequest {
+  int64 handle = 1;
+}
+
+message GetAllIllegalResponse {
+  int64 result = 1;
+}
+
+message GetAmpAndSpaceLegalRequest {
+  int64 handle = 1;
+}
+
+message GetAmpAndSpaceLegalResponse {
+  int64 result = 1;
+}
+
+message GetAmpLegalRequest {
+  int64 handle = 1;
+}
+
+message GetAmpLegalResponse {
+  int64 result = 1;
+}
+
+message GetSpaceLegalRequest {
+  int64 handle = 1;
+}
+
+message GetSpaceLegalResponse {
+  int64 result = 1;
+}
+
+message GetUrlAndSpaceLegalRequest {
+  int64 handle = 1;
+}
+
+message GetUrlAndSpaceLegalResponse {
+  int64 result = 1;
+}
+
+message GetUrlLegalRequest {
+  int64 handle = 1;
+}
+
+message GetUrlLegalResponse {
+  int64 result = 1;
+}
+
+message SanitizeRequest {
+  string arg0 = 1;
+}
+
+message SanitizeResponse {
+  string result = 1;
+}
+
+message GetByteCountRequest {
+}
+
+message GetByteCountResponse {
+  int64 result = 1;
+}
+
+message GetPacketCountRequest {
+}
+
+message GetPacketCountResponse {
+  int64 result = 1;
+}
+
+message GetReplayBitmapRequest {
+}
+
+message GetReplayBitmapResponse {
+  int64 result = 1;
+}
+
+message GetRxHighestSequenceNumberRequest {
+}
+
+message GetRxHighestSequenceNumberResponse {
+  int64 result = 1;
+}
+
+message GetTimestampMillisRequest {
+}
+
+message GetTimestampMillisResponse {
+  int64 result = 1;
+}
+
+message GetTxHighestSequenceNumberRequest {
+}
+
+message GetTxHighestSequenceNumberResponse {
+  int64 result = 1;
+}
+
+message SetByteCountRequest {
+  int64 arg0 = 1;
+}
+
+message SetByteCountResponse {
+  int64 result = 1;
+}
+
+message SetPacketCountRequest {
+  int64 arg0 = 1;
+}
+
+message SetPacketCountResponse {
+  int64 result = 1;
+}
+
+message SetReplayBitmapRequest {
+  int64 arg0 = 1;
+}
+
+message SetReplayBitmapResponse {
+  int64 result = 1;
+}
+
+message SetRxHighestSequenceNumberRequest {
+  int64 arg0 = 1;
+}
+
+message SetRxHighestSequenceNumberResponse {
+  int64 result = 1;
+}
+
+message SetTimestampMillisRequest {
+  int64 arg0 = 1;
+}
+
+message SetTimestampMillisResponse {
+  int64 result = 1;
+}
+
+message SetTxHighestSequenceNumberRequest {
+  int64 arg0 = 1;
+}
+
+message SetTxHighestSequenceNumberResponse {
+  int64 result = 1;
+}
+
+message NewDhcpInfoRequest {
+}
+
+message NewDhcpInfoResponse {
+  int64 result = 1;
+}
+
+message DhcpInfoDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message DhcpInfoToStringRequest {
+  int64 handle = 1;
+}
+
+message DhcpInfoWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message NewVpnProfileStateRequest {
+  int32 arg0 = 1;
+  string arg1 = 2;
+  bool arg2 = 3;
+  bool arg3 = 4;
+}
+
+message NewVpnProfileStateResponse {
+  int64 result = 1;
+}
+
+message VpnProfileStateDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message VpnProfileStateEqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetSessionIdRequest {
+  int64 handle = 1;
+}
+
+message GetSessionIdResponse {
+  string result = 1;
+}
+
+message VpnProfileStateGetStateResponse {
+  int32 result = 1;
+}
+
+message VpnProfileStateHashCodeRequest {
+  int64 handle = 1;
+}
+
+message IsAlwaysOnRequest {
+  int64 handle = 1;
+}
+
+message IsAlwaysOnResponse {
+  bool result = 1;
+}
+
+message IsLockdownEnabledRequest {
+  int64 handle = 1;
+}
+
+message IsLockdownEnabledResponse {
+  bool result = 1;
+}
+
+message VpnProfileStateToStringRequest {
+  int64 handle = 1;
+}
+
+message VpnProfileStateWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message NewIpSecAlgorithmRequest {
+  string arg0 = 1;
   int64 arg1 = 2;
-  int64 arg2 = 3;
 }
 
-message StartTetheringResponse {
+message NewIpSecAlgorithmResponse {
+  int64 result = 1;
 }
 
-message StopTetheringRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  int64 arg2 = 3;
+message IpSecAlgorithmDescribeContentsRequest {
+  int64 handle = 1;
 }
 
-message StopTetheringResponse {
+message GetKeyRequest {
+  int64 handle = 1;
 }
 
-message UnregisterTetheringEventCallbackRequest {
-  int64 arg0 = 1;
+message GetKeyResponse {
+  int64 result = 1;
 }
 
-message UnregisterTetheringEventCallbackResponse {
+message GetTruncationLengthBitsRequest {
+  int64 handle = 1;
+}
+
+message GetTruncationLengthBitsResponse {
+  int32 result = 1;
+}
+
+message IpSecAlgorithmToStringRequest {
+  int64 handle = 1;
+}
+
+message IpSecAlgorithmWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message IsNumericAddressRequest {
+  string arg0 = 1;
+}
+
+message IsNumericAddressResponse {
+  bool result = 1;
+}
+
+message ParseNumericAddressRequest {
+  string arg0 = 1;
+}
+
+message ParseNumericAddressResponse {
+  int64 result = 1;
+}
+
+message NewProxyRequest {
+}
+
+message NewProxyResponse {
+  int64 result = 1;
+}
+
+message GetDefaultHostRequest {
+  int64 handle = 1;
+}
+
+message GetDefaultHostResponse {
+  string result = 1;
+}
+
+message GetDefaultPortRequest {
+  int64 handle = 1;
+}
+
+message GetDefaultPortResponse {
+  int32 result = 1;
+}
+
+message ProxyGetHostRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message ProxyGetPortRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+service ConnectivityDiagnosticsManagerService {
+  rpc RegisterConnectivityDiagnosticsCallback (RegisterConnectivityDiagnosticsCallbackRequest) returns (RegisterConnectivityDiagnosticsCallbackResponse);
+  rpc UnregisterConnectivityDiagnosticsCallback (UnregisterConnectivityDiagnosticsCallbackRequest) returns (UnregisterConnectivityDiagnosticsCallbackResponse);
+}
+
+service ConnectivityDiagnosticsManagerConnectivityDiagnosticsCallbackService {
+  rpc OnConnectivityReportAvailable (OnConnectivityReportAvailableRequest) returns (OnConnectivityReportAvailableResponse);
+  rpc OnDataStallSuspected (OnDataStallSuspectedRequest) returns (OnDataStallSuspectedResponse);
+  rpc OnNetworkConnectivityReported (OnNetworkConnectivityReportedRequest) returns (OnNetworkConnectivityReportedResponse);
+}
+
+service ConnectivityDiagnosticsManagerConnectivityReportService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetAdditionalInfo (GetAdditionalInfoRequest) returns (GetAdditionalInfoResponse);
+  rpc GetLinkProperties (GetLinkPropertiesRequest) returns (GetLinkPropertiesResponse);
+  rpc GetNetwork (GetNetworkRequest) returns (GetNetworkResponse);
+  rpc GetNetworkCapabilities (GetNetworkCapabilitiesRequest) returns (GetNetworkCapabilitiesResponse);
+  rpc GetReportTimestamp (GetReportTimestampRequest) returns (GetReportTimestampResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ConnectivityDiagnosticsManagerDataStallReportService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetDetectionMethod (GetDetectionMethodRequest) returns (GetDetectionMethodResponse);
+  rpc GetLinkProperties (GetLinkPropertiesRequest) returns (GetLinkPropertiesResponse);
+  rpc GetNetwork (GetNetworkRequest) returns (GetNetworkResponse);
+  rpc GetNetworkCapabilities (GetNetworkCapabilitiesRequest) returns (GetNetworkCapabilitiesResponse);
+  rpc GetReportTimestamp (GetReportTimestampRequest) returns (GetReportTimestampResponse);
+  rpc GetStallDetails (GetStallDetailsRequest) returns (GetStallDetailsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service Ikev2VpnProfileService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetIkeTunnelConnectionParams (GetIkeTunnelConnectionParamsRequest) returns (GetIkeTunnelConnectionParamsResponse);
+  rpc GetMaxMtu (GetMaxMtuRequest) returns (GetMaxMtuResponse);
+  rpc GetPassword (GetPasswordRequest) returns (GetPasswordResponse);
+  rpc GetPresharedKey (GetPresharedKeyRequest) returns (GetPresharedKeyResponse);
+  rpc GetProxyInfo (GetProxyInfoRequest) returns (GetProxyInfoResponse);
+  rpc GetRsaPrivateKey (GetRsaPrivateKeyRequest) returns (GetRsaPrivateKeyResponse);
+  rpc GetServerAddr (GetServerAddrRequest) returns (GetServerAddrResponse);
+  rpc GetServerRootCaCert (GetServerRootCaCertRequest) returns (GetServerRootCaCertResponse);
+  rpc GetUserCert (GetUserCertRequest) returns (GetUserCertResponse);
+  rpc GetUserIdentity (GetUserIdentityRequest) returns (GetUserIdentityResponse);
+  rpc GetUsername (GetUsernameRequest) returns (GetUsernameResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc IsAutomaticIpVersionSelectionEnabled (IsAutomaticIpVersionSelectionEnabledRequest) returns (IsAutomaticIpVersionSelectionEnabledResponse);
+  rpc IsAutomaticNattKeepaliveTimerEnabled (IsAutomaticNattKeepaliveTimerEnabledRequest) returns (IsAutomaticNattKeepaliveTimerEnabledResponse);
+  rpc IsBypassable (IsBypassableRequest) returns (IsBypassableResponse);
+  rpc IsMetered (IsMeteredRequest) returns (IsMeteredResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service Ikev2VpnProfileBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetAuthDigitalSignature (SetAuthDigitalSignatureRequest) returns (SetAuthDigitalSignatureResponse);
+  rpc SetAuthPsk (SetAuthPskRequest) returns (SetAuthPskResponse);
+  rpc SetAuthUsernamePassword (SetAuthUsernamePasswordRequest) returns (SetAuthUsernamePasswordResponse);
+  rpc SetAutomaticIpVersionSelectionEnabled (SetAutomaticIpVersionSelectionEnabledRequest) returns (SetAutomaticIpVersionSelectionEnabledResponse);
+  rpc SetAutomaticNattKeepaliveTimerEnabled (SetAutomaticNattKeepaliveTimerEnabledRequest) returns (SetAutomaticNattKeepaliveTimerEnabledResponse);
+  rpc SetBypassable (SetBypassableRequest) returns (SetBypassableResponse);
+  rpc SetLocalRoutesExcluded (SetLocalRoutesExcludedRequest) returns (SetLocalRoutesExcludedResponse);
+  rpc SetMaxMtu (SetMaxMtuRequest) returns (SetMaxMtuResponse);
+  rpc SetMetered (SetMeteredRequest) returns (SetMeteredResponse);
+  rpc SetProxy (SetProxyRequest) returns (SetProxyResponse);
+  rpc SetRequiresInternetValidation (SetRequiresInternetValidationRequest) returns (SetRequiresInternetValidationResponse);
+}
+
+service RouteInfoService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetDestination (GetDestinationRequest) returns (GetDestinationResponse);
+  rpc GetGateway (GetGatewayRequest) returns (GetGatewayResponse);
+  rpc GetInterface (GetInterfaceRequest) returns (GetInterfaceResponse);
+  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
+  rpc HasGateway (HasGatewayRequest) returns (HasGatewayResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc IsDefaultRoute (IsDefaultRouteRequest) returns (IsDefaultRouteResponse);
+  rpc Matches (MatchesRequest) returns (MatchesResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ProxyInfoService {
+  rpc NewProxyInfo (NewProxyInfoRequest) returns (NewProxyInfoResponse);
+  rpc DescribeContents (ProxyInfoDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (ProxyInfoEqualsRequest) returns (EqualsResponse);
+  rpc GetExclusionList (GetExclusionListRequest) returns (GetExclusionListResponse);
+  rpc GetHost (GetHostRequest) returns (GetHostResponse);
+  rpc GetPacFileUrl (GetPacFileUrlRequest) returns (GetPacFileUrlResponse);
+  rpc GetPort (GetPortRequest) returns (GetPortResponse);
+  rpc HashCode (ProxyInfoHashCodeRequest) returns (HashCodeResponse);
+  rpc IsValid (IsValidRequest) returns (IsValidResponse);
+  rpc ToString (ProxyInfoToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (ProxyInfoWriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc BuildDirectProxy (BuildDirectProxyRequest) returns (BuildDirectProxyResponse);
+  rpc BuildPacProxy1 (BuildPacProxy1Request) returns (BuildPacProxy1Response);
+  rpc BuildPacProxy2_1 (BuildPacProxy2_1Request) returns (BuildPacProxy2_1Response);
+}
+
+service LocalServerSocketService {
+  rpc NewLocalServerSocket (NewLocalServerSocketRequest) returns (NewLocalServerSocketResponse);
+  rpc Accept (AcceptRequest) returns (AcceptResponse);
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc GetFileDescriptor (GetFileDescriptorRequest) returns (GetFileDescriptorResponse);
+  rpc GetLocalSocketAddress (GetLocalSocketAddressRequest) returns (GetLocalSocketAddressResponse);
+}
+
+service StaticIpConfigurationService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetDomains (GetDomainsRequest) returns (GetDomainsResponse);
+  rpc GetGateway (GetGatewayRequest) returns (GetGatewayResponse);
+  rpc GetIpAddress (GetIpAddressRequest) returns (GetIpAddressResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service StaticIpConfigurationBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetDomains (SetDomainsRequest) returns (SetDomainsResponse);
+  rpc SetGateway (SetGatewayRequest) returns (SetGatewayResponse);
+  rpc SetIpAddress (SetIpAddressRequest) returns (SetIpAddressResponse);
+}
+
+service MacAddressService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetAddressType (GetAddressTypeRequest) returns (GetAddressTypeResponse);
+  rpc GetLinkLocalIpv6FromEui48Mac (GetLinkLocalIpv6FromEui48MacRequest) returns (GetLinkLocalIpv6FromEui48MacResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc IsLocallyAssigned (IsLocallyAssignedRequest) returns (IsLocallyAssignedResponse);
+  rpc Matches (MacAddressMatchesRequest) returns (MatchesResponse);
+  rpc ToByteArray (ToByteArrayRequest) returns (ToByteArrayResponse);
+  rpc ToOuiString (ToOuiStringRequest) returns (ToOuiStringResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc FromBytes (FromBytesRequest) returns (FromBytesResponse);
+  rpc FromString (FromStringRequest) returns (FromStringResponse);
+}
+
+service MailToService {
+  rpc GetBody (GetBodyRequest) returns (GetBodyResponse);
+  rpc GetCc (GetCcRequest) returns (GetCcResponse);
+  rpc GetSubject (GetSubjectRequest) returns (GetSubjectResponse);
+  rpc GetTo (GetToRequest) returns (GetToResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc IsMailTo (IsMailToRequest) returns (IsMailToResponse);
+  rpc Parse (ParseRequest) returns (ParseResponse);
+}
+
+service EthernetNetworkSpecifierService {
+  rpc NewEthernetNetworkSpecifier (NewEthernetNetworkSpecifierRequest) returns (NewEthernetNetworkSpecifierResponse);
+  rpc CanBeSatisfiedBy (CanBeSatisfiedByRequest) returns (CanBeSatisfiedByResponse);
+  rpc DescribeContents (EthernetNetworkSpecifierDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EthernetNetworkSpecifierEqualsRequest) returns (EqualsResponse);
+  rpc GetInterfaceName (GetInterfaceNameRequest) returns (GetInterfaceNameResponse);
+  rpc HashCode (EthernetNetworkSpecifierHashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (EthernetNetworkSpecifierToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (EthernetNetworkSpecifierWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service L2capNetworkSpecifierService {
+  rpc CanBeSatisfiedBy (L2capNetworkSpecifierCanBeSatisfiedByRequest) returns (CanBeSatisfiedByResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetHeaderCompression (GetHeaderCompressionRequest) returns (GetHeaderCompressionResponse);
+  rpc GetPsm (GetPsmRequest) returns (GetPsmResponse);
+  rpc GetRemoteAddress (GetRemoteAddressRequest) returns (GetRemoteAddressResponse);
+  rpc GetRole (GetRoleRequest) returns (GetRoleResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc Redact (RedactRequest) returns (RedactResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service L2capNetworkSpecifierBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetHeaderCompression (SetHeaderCompressionRequest) returns (SetHeaderCompressionResponse);
+  rpc SetPsm (SetPsmRequest) returns (SetPsmResponse);
+  rpc SetRemoteAddress (SetRemoteAddressRequest) returns (SetRemoteAddressResponse);
+  rpc SetRole (SetRoleRequest) returns (SetRoleResponse);
+}
+
+service VpnManagerService {
+  rpc DeleteProvisionedVpnProfile (DeleteProvisionedVpnProfileRequest) returns (DeleteProvisionedVpnProfileResponse);
+  rpc GetProvisionedVpnProfileState (GetProvisionedVpnProfileStateRequest) returns (GetProvisionedVpnProfileStateResponse);
+  rpc ProvisionVpnProfile (ProvisionVpnProfileRequest) returns (ProvisionVpnProfileResponse);
+  rpc StartProvisionedVpnProfile (StartProvisionedVpnProfileRequest) returns (StartProvisionedVpnProfileResponse);
+  rpc StartProvisionedVpnProfileSession (StartProvisionedVpnProfileSessionRequest) returns (StartProvisionedVpnProfileSessionResponse);
+  rpc StopProvisionedVpnProfile (StopProvisionedVpnProfileRequest) returns (StopProvisionedVpnProfileResponse);
+}
+
+service IpConfigurationService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetHttpProxy (GetHttpProxyRequest) returns (GetHttpProxyResponse);
+  rpc GetStaticIpConfiguration (GetStaticIpConfigurationRequest) returns (GetStaticIpConfigurationResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service IpConfigurationBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetHttpProxy (SetHttpProxyRequest) returns (SetHttpProxyResponse);
+  rpc SetStaticIpConfiguration (SetStaticIpConfigurationRequest) returns (SetStaticIpConfigurationResponse);
+}
+
+service LinkAddressService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetAddress (GetAddressRequest) returns (GetAddressResponse);
+  rpc GetFlags (GetFlagsRequest) returns (GetFlagsResponse);
+  rpc GetPrefixLength (GetPrefixLengthRequest) returns (GetPrefixLengthResponse);
+  rpc GetScope (GetScopeRequest) returns (GetScopeResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service WorkCapabilitiesService {
+  rpc NewWorkCapabilities (NewWorkCapabilitiesRequest) returns (NewWorkCapabilitiesResponse);
+  rpc DescribeContents (WorkCapabilitiesDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (WorkCapabilitiesEqualsRequest) returns (EqualsResponse);
+  rpc GetCapabilities (GetCapabilitiesRequest) returns (GetCapabilitiesResponse);
+  rpc GetEnterpriseIds (GetEnterpriseIdsRequest) returns (GetEnterpriseIdsResponse);
+  rpc GetLinkDownstreamBandwidthKbps (GetLinkDownstreamBandwidthKbpsRequest) returns (GetLinkDownstreamBandwidthKbpsResponse);
+  rpc GetLinkUpstreamBandwidthKbps (GetLinkUpstreamBandwidthKbpsRequest) returns (GetLinkUpstreamBandwidthKbpsResponse);
+  rpc GetNetworkSpecifier (GetNetworkSpecifierRequest) returns (GetNetworkSpecifierResponse);
+  rpc GetOwnerUid (GetOwnerUidRequest) returns (GetOwnerUidResponse);
+  rpc GetSignalStrength (GetSignalStrengthRequest) returns (GetSignalStrengthResponse);
+  rpc GetTransportInfo (GetTransportInfoRequest) returns (GetTransportInfoResponse);
+  rpc HasCapability (HasCapabilityRequest) returns (HasCapabilityResponse);
+  rpc HasEnterpriseId (HasEnterpriseIdRequest) returns (HasEnterpriseIdResponse);
+  rpc HasTransport (HasTransportRequest) returns (HasTransportResponse);
+  rpc HashCode (WorkCapabilitiesHashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (WorkCapabilitiesToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WorkCapabilitiesWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service IpSecTransformService {
+  rpc Close (IpSecTransformCloseRequest) returns (CloseResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service IpSecTransformBuilderService {
+  rpc BuildTransportModeTransform (BuildTransportModeTransformRequest) returns (BuildTransportModeTransformResponse);
+  rpc SetAuthenticatedEncryption (SetAuthenticatedEncryptionRequest) returns (SetAuthenticatedEncryptionResponse);
+  rpc SetAuthentication (SetAuthenticationRequest) returns (SetAuthenticationResponse);
+  rpc SetEncryption (SetEncryptionRequest) returns (SetEncryptionResponse);
+  rpc SetIpv4Encapsulation (SetIpv4EncapsulationRequest) returns (SetIpv4EncapsulationResponse);
+}
+
+service CredentialsService {
+  rpc NewCredentials (NewCredentialsRequest) returns (NewCredentialsResponse);
+  rpc GetGid (GetGidRequest) returns (GetGidResponse);
+  rpc GetPid (GetPidRequest) returns (GetPidResponse);
+  rpc GetUid (GetUidRequest) returns (GetUidResponse);
+}
+
+service LocalSocketService {
+  rpc NewLocalSocket (NewLocalSocketRequest) returns (NewLocalSocketResponse);
+  rpc Bind (BindRequest) returns (BindResponse);
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc Connect1 (Connect1Request) returns (Connect1Response);
+  rpc Connect2_1 (Connect2_1Request) returns (Connect2_1Response);
+  rpc GetAncillaryFileDescriptors (GetAncillaryFileDescriptorsRequest) returns (GetAncillaryFileDescriptorsResponse);
+  rpc GetFileDescriptor (GetFileDescriptorRequest) returns (GetFileDescriptorResponse);
+  rpc GetInputStream (GetInputStreamRequest) returns (GetInputStreamResponse);
+  rpc GetLocalSocketAddress (GetLocalSocketAddressRequest) returns (GetLocalSocketAddressResponse);
+  rpc GetOutputStream (GetOutputStreamRequest) returns (GetOutputStreamResponse);
+  rpc GetPeerCredentials (GetPeerCredentialsRequest) returns (GetPeerCredentialsResponse);
+  rpc GetReceiveBufferSize (GetReceiveBufferSizeRequest) returns (GetReceiveBufferSizeResponse);
+  rpc GetRemoteSocketAddress (GetRemoteSocketAddressRequest) returns (GetRemoteSocketAddressResponse);
+  rpc GetSendBufferSize (GetSendBufferSizeRequest) returns (GetSendBufferSizeResponse);
+  rpc GetSoTimeout (GetSoTimeoutRequest) returns (GetSoTimeoutResponse);
+  rpc IsClosed (IsClosedRequest) returns (IsClosedResponse);
+  rpc IsInputShutdown (IsInputShutdownRequest) returns (IsInputShutdownResponse);
+  rpc IsOutputShutdown (IsOutputShutdownRequest) returns (IsOutputShutdownResponse);
+  rpc SetFileDescriptorsForSend (SetFileDescriptorsForSendRequest) returns (SetFileDescriptorsForSendResponse);
+  rpc SetReceiveBufferSize (SetReceiveBufferSizeRequest) returns (SetReceiveBufferSizeResponse);
+  rpc SetSendBufferSize (SetSendBufferSizeRequest) returns (SetSendBufferSizeResponse);
+  rpc SetSoTimeout (SetSoTimeoutRequest) returns (SetSoTimeoutResponse);
+  rpc ShutdownInput (ShutdownInputRequest) returns (ShutdownInputResponse);
+  rpc ShutdownOutput (ShutdownOutputRequest) returns (ShutdownOutputResponse);
+  rpc ToString (LocalSocketToStringRequest) returns (ToStringResponse);
+}
+
+service SocketKeepaliveService {
+  rpc Close (SocketKeepaliveCloseRequest) returns (CloseResponse);
+  rpc Start (StartRequest) returns (StartResponse);
+  rpc Stop (StopRequest) returns (StopResponse);
+}
+
+service SocketKeepaliveCallbackService {
+  rpc OnDataReceived (OnDataReceivedRequest) returns (OnDataReceivedResponse);
+  rpc OnError (OnErrorRequest) returns (OnErrorResponse);
+  rpc OnStarted (OnStartedRequest) returns (OnStartedResponse);
+  rpc OnStopped (OnStoppedRequest) returns (OnStoppedResponse);
 }
 
 service IpSecManagerService {
@@ -439,6 +3723,212 @@ service IpSecManagerService {
   rpc RemoveTransportModeTransforms1_2 (RemoveTransportModeTransforms1_2Request) returns (RemoveTransportModeTransforms1_2Response);
 }
 
+service IpSecManagerSecurityParameterIndexService {
+  rpc Close (IpSecManagerSecurityParameterIndexCloseRequest) returns (CloseResponse);
+  rpc GetSpi (GetSpiRequest) returns (GetSpiResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service IpSecManagerSpiUnavailableExceptionService {
+  rpc GetSpi (GetSpiRequest) returns (GetSpiResponse);
+}
+
+service IpSecManagerUdpEncapsulationSocketService {
+  rpc Close (IpSecManagerUdpEncapsulationSocketCloseRequest) returns (CloseResponse);
+  rpc GetFileDescriptor (IpSecManagerUdpEncapsulationSocketGetFileDescriptorRequest) returns (GetFileDescriptorResponse);
+  rpc GetPort (IpSecManagerUdpEncapsulationSocketGetPortRequest) returns (GetPortResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service TelephonyNetworkSpecifierService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetSubscriptionId (GetSubscriptionIdRequest) returns (GetSubscriptionIdResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service TelephonyNetworkSpecifierBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetSubscriptionId (SetSubscriptionIdRequest) returns (SetSubscriptionIdResponse);
+}
+
+service TetheringInterfaceService {
+  rpc NewTetheringInterface (NewTetheringInterfaceRequest) returns (NewTetheringInterfaceResponse);
+  rpc DescribeContents (TetheringInterfaceDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (TetheringInterfaceEqualsRequest) returns (EqualsResponse);
+  rpc GetInterface (TetheringInterfaceGetInterfaceRequest) returns (GetInterfaceResponse);
+  rpc GetSoftApConfiguration (GetSoftApConfigurationRequest) returns (GetSoftApConfigurationResponse);
+  rpc GetType (TetheringInterfaceGetTypeRequest) returns (GetTypeResponse);
+  rpc HashCode (TetheringInterfaceHashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (TetheringInterfaceToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (TetheringInterfaceWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service DnsResolverService {
+  rpc GetInstance (GetInstanceRequest) returns (GetInstanceResponse);
+}
+
+service DnsResolverCallbackService {
+  rpc OnError (DnsResolverCallbackOnErrorRequest) returns (OnErrorResponse);
+}
+
+service TrafficStatsService {
+  rpc NewTrafficStats (NewTrafficStatsRequest) returns (NewTrafficStatsResponse);
+  rpc ClearThreadStatsTag (ClearThreadStatsTagRequest) returns (ClearThreadStatsTagResponse);
+  rpc ClearThreadStatsUid (ClearThreadStatsUidRequest) returns (ClearThreadStatsUidResponse);
+  rpc GetAndSetThreadStatsTag (GetAndSetThreadStatsTagRequest) returns (GetAndSetThreadStatsTagResponse);
+  rpc GetMobileRxBytes (GetMobileRxBytesRequest) returns (GetMobileRxBytesResponse);
+  rpc GetMobileRxPackets (GetMobileRxPacketsRequest) returns (GetMobileRxPacketsResponse);
+  rpc GetMobileTxBytes (GetMobileTxBytesRequest) returns (GetMobileTxBytesResponse);
+  rpc GetMobileTxPackets (GetMobileTxPacketsRequest) returns (GetMobileTxPacketsResponse);
+  rpc GetRxBytes (GetRxBytesRequest) returns (GetRxBytesResponse);
+  rpc GetRxPackets (GetRxPacketsRequest) returns (GetRxPacketsResponse);
+  rpc GetThreadStatsTag (GetThreadStatsTagRequest) returns (GetThreadStatsTagResponse);
+  rpc GetThreadStatsUid (GetThreadStatsUidRequest) returns (GetThreadStatsUidResponse);
+  rpc GetTotalRxBytes (GetTotalRxBytesRequest) returns (GetTotalRxBytesResponse);
+  rpc GetTotalRxPackets (GetTotalRxPacketsRequest) returns (GetTotalRxPacketsResponse);
+  rpc GetTotalTxBytes (GetTotalTxBytesRequest) returns (GetTotalTxBytesResponse);
+  rpc GetTotalTxPackets (GetTotalTxPacketsRequest) returns (GetTotalTxPacketsResponse);
+  rpc GetTxBytes (GetTxBytesRequest) returns (GetTxBytesResponse);
+  rpc GetTxPackets (GetTxPacketsRequest) returns (GetTxPacketsResponse);
+  rpc GetUidRxBytes (GetUidRxBytesRequest) returns (GetUidRxBytesResponse);
+  rpc GetUidRxPackets (GetUidRxPacketsRequest) returns (GetUidRxPacketsResponse);
+  rpc GetUidTcpRxBytes (GetUidTcpRxBytesRequest) returns (GetUidTcpRxBytesResponse);
+  rpc GetUidTcpRxSegments (GetUidTcpRxSegmentsRequest) returns (GetUidTcpRxSegmentsResponse);
+  rpc GetUidTcpTxBytes (GetUidTcpTxBytesRequest) returns (GetUidTcpTxBytesResponse);
+  rpc GetUidTcpTxSegments (GetUidTcpTxSegmentsRequest) returns (GetUidTcpTxSegmentsResponse);
+  rpc GetUidTxBytes (GetUidTxBytesRequest) returns (GetUidTxBytesResponse);
+  rpc GetUidTxPackets (GetUidTxPacketsRequest) returns (GetUidTxPacketsResponse);
+  rpc GetUidUdpRxBytes (GetUidUdpRxBytesRequest) returns (GetUidUdpRxBytesResponse);
+  rpc GetUidUdpRxPackets (GetUidUdpRxPacketsRequest) returns (GetUidUdpRxPacketsResponse);
+  rpc GetUidUdpTxBytes (GetUidUdpTxBytesRequest) returns (GetUidUdpTxBytesResponse);
+  rpc GetUidUdpTxPackets (GetUidUdpTxPacketsRequest) returns (GetUidUdpTxPacketsResponse);
+  rpc IncrementOperationCount1 (IncrementOperationCount1Request) returns (IncrementOperationCount1Response);
+  rpc IncrementOperationCount2_1 (IncrementOperationCount2_1Request) returns (IncrementOperationCount2_1Response);
+  rpc SetThreadStatsTag (SetThreadStatsTagRequest) returns (SetThreadStatsTagResponse);
+  rpc SetThreadStatsUid (SetThreadStatsUidRequest) returns (SetThreadStatsUidResponse);
+  rpc TagDatagramSocket (TagDatagramSocketRequest) returns (TagDatagramSocketResponse);
+  rpc TagFileDescriptor (TagFileDescriptorRequest) returns (TagFileDescriptorResponse);
+  rpc TagSocket (TagSocketRequest) returns (TagSocketResponse);
+  rpc UntagDatagramSocket (UntagDatagramSocketRequest) returns (UntagDatagramSocketResponse);
+  rpc UntagFileDescriptor (UntagFileDescriptorRequest) returns (UntagFileDescriptorResponse);
+  rpc UntagSocket (UntagSocketRequest) returns (UntagSocketResponse);
+}
+
+service LocalSocketAddressService {
+  rpc NewLocalSocketAddress (NewLocalSocketAddressRequest) returns (NewLocalSocketAddressResponse);
+  rpc GetName (GetNameRequest) returns (GetNameResponse);
+  rpc GetNamespace (GetNamespaceRequest) returns (GetNamespaceResponse);
+}
+
+service LocalSocketAddressNamespaceService {
+  rpc Values (ValuesRequest) returns (ValuesResponse);
+  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
+}
+
+service WorkService {
+  rpc BindSocket1 (BindSocket1Request) returns (BindSocket1Response);
+  rpc BindSocket1_1 (BindSocket1_1Request) returns (BindSocket1_1Response);
+  rpc BindSocket1_2 (BindSocket1_2Request) returns (BindSocket1_2Response);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetAllByName (GetAllByNameRequest) returns (GetAllByNameResponse);
+  rpc GetByName (GetByNameRequest) returns (GetByNameResponse);
+  rpc GetNetworkHandle (GetNetworkHandleRequest) returns (GetNetworkHandleResponse);
+  rpc GetSocketFactory (GetSocketFactoryRequest) returns (GetSocketFactoryResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc OpenConnection1 (OpenConnection1Request) returns (OpenConnection1Response);
+  rpc OpenConnection2_1 (OpenConnection2_1Request) returns (OpenConnection2_1Response);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc FromNetworkHandle (FromNetworkHandleRequest) returns (FromNetworkHandleResponse);
+}
+
+service IpPrefixService {
+  rpc NewIpPrefix (NewIpPrefixRequest) returns (NewIpPrefixResponse);
+  rpc Contains (ContainsRequest) returns (ContainsResponse);
+  rpc DescribeContents (IpPrefixDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (IpPrefixEqualsRequest) returns (EqualsResponse);
+  rpc GetAddress (IpPrefixGetAddressRequest) returns (GetAddressResponse);
+  rpc GetPrefixLength (IpPrefixGetPrefixLengthRequest) returns (GetPrefixLengthResponse);
+  rpc GetRawAddress (GetRawAddressRequest) returns (GetRawAddressResponse);
+  rpc HashCode (IpPrefixHashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (IpPrefixToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (IpPrefixWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service WorkRequestService {
+  rpc CanBeSatisfiedBy (WorkRequestCanBeSatisfiedByRequest) returns (CanBeSatisfiedByResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetCapabilities (WorkRequestGetCapabilitiesRequest) returns (GetCapabilitiesResponse);
+  rpc GetNetworkSpecifier (WorkRequestGetNetworkSpecifierRequest) returns (GetNetworkSpecifierResponse);
+  rpc GetTransportTypes (GetTransportTypesRequest) returns (GetTransportTypesResponse);
+  rpc HasCapability (WorkRequestHasCapabilityRequest) returns (HasCapabilityResponse);
+  rpc HasTransport (WorkRequestHasTransportRequest) returns (HasTransportResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service WorkRequestBuilderService {
+  rpc AddCapability (AddCapabilityRequest) returns (AddCapabilityResponse);
+  rpc AddTransportType (AddTransportTypeRequest) returns (AddTransportTypeResponse);
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc ClearCapabilities (ClearCapabilitiesRequest) returns (ClearCapabilitiesResponse);
+  rpc RemoveCapability (RemoveCapabilityRequest) returns (RemoveCapabilityResponse);
+  rpc RemoveTransportType (RemoveTransportTypeRequest) returns (RemoveTransportTypeResponse);
+  rpc SetIncludeOtherUidNetworks (SetIncludeOtherUidNetworksRequest) returns (SetIncludeOtherUidNetworksResponse);
+  rpc SetNetworkSpecifier1 (SetNetworkSpecifier1Request) returns (SetNetworkSpecifier1Response);
+  rpc SetNetworkSpecifier1_1 (SetNetworkSpecifier1_1Request) returns (SetNetworkSpecifier1_1Response);
+}
+
+service PlatformVpnProfileService {
+  rpc AreLocalRoutesExcluded (AreLocalRoutesExcludedRequest) returns (AreLocalRoutesExcludedResponse);
+  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
+  rpc GetTypeString (GetTypeStringRequest) returns (GetTypeStringResponse);
+  rpc IsInternetValidationRequired (IsInternetValidationRequiredRequest) returns (IsInternetValidationRequiredResponse);
+}
+
+service TetheringManagerService {
+  rpc RegisterTetheringEventCallback (RegisterTetheringEventCallbackRequest) returns (RegisterTetheringEventCallbackResponse);
+  rpc StartTethering (StartTetheringRequest) returns (StartTetheringResponse);
+  rpc StopTethering (StopTetheringRequest) returns (StopTetheringResponse);
+  rpc UnregisterTetheringEventCallback (UnregisterTetheringEventCallbackRequest) returns (UnregisterTetheringEventCallbackResponse);
+}
+
+service TetheringManagerTetheringRequestService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetSoftApConfiguration (TetheringManagerTetheringRequestGetSoftApConfigurationRequest) returns (GetSoftApConfigurationResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service SSLCertificateSocketFactoryService {
+  rpc NewSSLCertificateSocketFactory (NewSSLCertificateSocketFactoryRequest) returns (NewSSLCertificateSocketFactoryResponse);
+  rpc CreateSocket0 (CreateSocket0Request) returns (CreateSocket0Response);
+  rpc CreateSocket2_1 (CreateSocket2_1Request) returns (CreateSocket2_1Response);
+  rpc CreateSocket4_2 (CreateSocket4_2Request) returns (CreateSocket4_2Response);
+  rpc CreateSocket2_3 (CreateSocket2_3Request) returns (CreateSocket2_3Response);
+  rpc CreateSocket4_4 (CreateSocket4_4Request) returns (CreateSocket4_4Response);
+  rpc CreateSocket4_5 (CreateSocket4_5Request) returns (CreateSocket4_5Response);
+  rpc GetDefaultCipherSuites (GetDefaultCipherSuitesRequest) returns (GetDefaultCipherSuitesResponse);
+  rpc GetNpnSelectedProtocol (GetNpnSelectedProtocolRequest) returns (GetNpnSelectedProtocolResponse);
+  rpc GetSupportedCipherSuites (GetSupportedCipherSuitesRequest) returns (GetSupportedCipherSuitesResponse);
+  rpc SetHostname (SetHostnameRequest) returns (SetHostnameResponse);
+  rpc SetKeyManagers (SetKeyManagersRequest) returns (SetKeyManagersResponse);
+  rpc SetNpnProtocols (SetNpnProtocolsRequest) returns (SetNpnProtocolsResponse);
+  rpc SetTrustManagers (SetTrustManagersRequest) returns (SetTrustManagersResponse);
+  rpc SetUseSessionTickets (SetUseSessionTicketsRequest) returns (SetUseSessionTicketsResponse);
+  rpc GetDefault1 (GetDefault1Request) returns (GetDefault1Response);
+  rpc GetDefault2_1 (GetDefault2_1Request) returns (GetDefault2_1Response);
+  rpc GetInsecure (GetInsecureRequest) returns (GetInsecureResponse);
+}
+
 service ConnectivityManagerService {
   rpc AddDefaultNetworkActiveListener (AddDefaultNetworkActiveListenerRequest) returns (AddDefaultNetworkActiveListenerResponse);
   rpc BindProcessToNetwork (BindProcessToNetworkRequest) returns (BindProcessToNetworkResponse);
@@ -451,9 +3941,9 @@ service ConnectivityManagerService {
   rpc GetBoundNetworkForProcess (GetBoundNetworkForProcessRequest) returns (GetBoundNetworkForProcessResponse);
   rpc GetConnectionOwnerUid (GetConnectionOwnerUidRequest) returns (GetConnectionOwnerUidResponse);
   rpc GetDefaultProxy (GetDefaultProxyRequest) returns (GetDefaultProxyResponse);
-  rpc GetLinkProperties (GetLinkPropertiesRequest) returns (GetLinkPropertiesResponse);
+  rpc GetLinkProperties (ConnectivityManagerGetLinkPropertiesRequest) returns (GetLinkPropertiesResponse);
   rpc GetMultipathPreference (GetMultipathPreferenceRequest) returns (GetMultipathPreferenceResponse);
-  rpc GetNetworkCapabilities (GetNetworkCapabilitiesRequest) returns (GetNetworkCapabilitiesResponse);
+  rpc GetNetworkCapabilities (ConnectivityManagerGetNetworkCapabilitiesRequest) returns (GetNetworkCapabilitiesResponse);
   rpc GetNetworkInfo1 (GetNetworkInfo1Request) returns (GetNetworkInfo1Response);
   rpc GetNetworkInfo1_1 (GetNetworkInfo1_1Request) returns (GetNetworkInfo1_1Response);
   rpc GetNetworkPreference (GetNetworkPreferenceRequest) returns (GetNetworkPreferenceResponse);
@@ -480,14 +3970,181 @@ service ConnectivityManagerService {
   rpc SetProcessDefaultNetwork (SetProcessDefaultNetworkRequest) returns (SetProcessDefaultNetworkResponse);
 }
 
-service ConnectivityDiagnosticsManagerService {
-  rpc RegisterConnectivityDiagnosticsCallback (RegisterConnectivityDiagnosticsCallbackRequest) returns (RegisterConnectivityDiagnosticsCallbackResponse);
-  rpc UnregisterConnectivityDiagnosticsCallback (UnregisterConnectivityDiagnosticsCallbackRequest) returns (UnregisterConnectivityDiagnosticsCallbackResponse);
+service ConnectivityManagerNetworkCallbackService {
+  rpc OnAvailable (OnAvailableRequest) returns (OnAvailableResponse);
+  rpc OnBlockedStatusChanged (OnBlockedStatusChangedRequest) returns (OnBlockedStatusChangedResponse);
+  rpc OnCapabilitiesChanged (OnCapabilitiesChangedRequest) returns (OnCapabilitiesChangedResponse);
+  rpc OnLinkPropertiesChanged (OnLinkPropertiesChangedRequest) returns (OnLinkPropertiesChangedResponse);
+  rpc OnLosing (OnLosingRequest) returns (OnLosingResponse);
+  rpc OnLost (OnLostRequest) returns (OnLostResponse);
+  rpc OnReserved (OnReservedRequest) returns (OnReservedResponse);
+  rpc OnUnavailable (OnUnavailableRequest) returns (OnUnavailableResponse);
 }
 
-service TetheringManagerService {
-  rpc RegisterTetheringEventCallback (RegisterTetheringEventCallbackRequest) returns (RegisterTetheringEventCallbackResponse);
-  rpc StartTethering (StartTetheringRequest) returns (StartTetheringResponse);
-  rpc StopTethering (StopTetheringRequest) returns (StopTetheringResponse);
-  rpc UnregisterTetheringEventCallback (UnregisterTetheringEventCallbackRequest) returns (UnregisterTetheringEventCallbackResponse);
+service ConnectivityManagerOnNetworkActiveListenerService {
+  rpc OnNetworkActive (OnNetworkActiveRequest) returns (OnNetworkActiveResponse);
+}
+
+service LinkPropertiesService {
+  rpc NewLinkProperties (NewLinkPropertiesRequest) returns (NewLinkPropertiesResponse);
+  rpc AddRoute (AddRouteRequest) returns (AddRouteResponse);
+  rpc Clear (ClearRequest) returns (ClearResponse);
+  rpc DescribeContents (LinkPropertiesDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (LinkPropertiesEqualsRequest) returns (EqualsResponse);
+  rpc GetDhcpServerAddress (GetDhcpServerAddressRequest) returns (GetDhcpServerAddressResponse);
+  rpc GetDomains (LinkPropertiesGetDomainsRequest) returns (GetDomainsResponse);
+  rpc GetHttpProxy (LinkPropertiesGetHttpProxyRequest) returns (GetHttpProxyResponse);
+  rpc GetInterfaceName (GetInterfaceNameRequest) returns (GetInterfaceNameResponse);
+  rpc GetMtu (GetMtuRequest) returns (GetMtuResponse);
+  rpc GetNat64Prefix (GetNat64PrefixRequest) returns (GetNat64PrefixResponse);
+  rpc GetPrivateDnsServerName (GetPrivateDnsServerNameRequest) returns (GetPrivateDnsServerNameResponse);
+  rpc HashCode (LinkPropertiesHashCodeRequest) returns (HashCodeResponse);
+  rpc IsPrivateDnsActive (IsPrivateDnsActiveRequest) returns (IsPrivateDnsActiveResponse);
+  rpc IsWakeOnLanSupported (IsWakeOnLanSupportedRequest) returns (IsWakeOnLanSupportedResponse);
+  rpc SetDhcpServerAddress (SetDhcpServerAddressRequest) returns (SetDhcpServerAddressResponse);
+  rpc SetDomains (LinkPropertiesSetDomainsRequest) returns (LinkPropertiesSetDomainsResponse);
+  rpc SetHttpProxy (LinkPropertiesSetHttpProxyRequest) returns (LinkPropertiesSetHttpProxyResponse);
+  rpc SetInterfaceName (SetInterfaceNameRequest) returns (SetInterfaceNameResponse);
+  rpc SetMtu (SetMtuRequest) returns (SetMtuResponse);
+  rpc SetNat64Prefix (SetNat64PrefixRequest) returns (SetNat64PrefixResponse);
+  rpc ToString (LinkPropertiesToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (LinkPropertiesWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service CaptivePortalService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc IgnoreNetwork (IgnoreNetworkRequest) returns (IgnoreNetworkResponse);
+  rpc ReportCaptivePortalDismissed (ReportCaptivePortalDismissedRequest) returns (ReportCaptivePortalDismissedResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service WorkInfoService {
+  rpc NewWorkInfo (NewWorkInfoRequest) returns (NewWorkInfoResponse);
+  rpc DescribeContents (WorkInfoDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetDetailedState (GetDetailedStateRequest) returns (GetDetailedStateResponse);
+  rpc GetExtraInfo (GetExtraInfoRequest) returns (GetExtraInfoResponse);
+  rpc GetReason (GetReasonRequest) returns (GetReasonResponse);
+  rpc GetState (GetStateRequest) returns (GetStateResponse);
+  rpc GetSubtype (GetSubtypeRequest) returns (GetSubtypeResponse);
+  rpc GetSubtypeName (GetSubtypeNameRequest) returns (GetSubtypeNameResponse);
+  rpc GetType (WorkInfoGetTypeRequest) returns (GetTypeResponse);
+  rpc GetTypeName (GetTypeNameRequest) returns (GetTypeNameResponse);
+  rpc IsAvailable (IsAvailableRequest) returns (IsAvailableResponse);
+  rpc IsConnected (IsConnectedRequest) returns (IsConnectedResponse);
+  rpc IsConnectedOrConnecting (IsConnectedOrConnectingRequest) returns (IsConnectedOrConnectingResponse);
+  rpc IsFailover (IsFailoverRequest) returns (IsFailoverResponse);
+  rpc IsRoaming (IsRoamingRequest) returns (IsRoamingResponse);
+  rpc SetDetailedState (SetDetailedStateRequest) returns (SetDetailedStateResponse);
+  rpc ToString (WorkInfoToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WorkInfoWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service WorkInfoDetailedStateService {
+  rpc Values (ValuesRequest) returns (ValuesResponse);
+  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
+}
+
+service WorkInfoStateService {
+  rpc Values (ValuesRequest) returns (ValuesResponse);
+  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
+}
+
+service UrlQuerySanitizerService {
+  rpc NewUrlQuerySanitizer (NewUrlQuerySanitizerRequest) returns (NewUrlQuerySanitizerResponse);
+  rpc GetAllowUnregisteredParamaters (GetAllowUnregisteredParamatersRequest) returns (GetAllowUnregisteredParamatersResponse);
+  rpc GetEffectiveValueSanitizer (GetEffectiveValueSanitizerRequest) returns (GetEffectiveValueSanitizerResponse);
+  rpc GetPreferFirstRepeatedParameter (GetPreferFirstRepeatedParameterRequest) returns (GetPreferFirstRepeatedParameterResponse);
+  rpc GetUnregisteredParameterValueSanitizer (GetUnregisteredParameterValueSanitizerRequest) returns (GetUnregisteredParameterValueSanitizerResponse);
+  rpc GetValue (GetValueRequest) returns (GetValueResponse);
+  rpc GetValueSanitizer (GetValueSanitizerRequest) returns (GetValueSanitizerResponse);
+  rpc HasParameter (HasParameterRequest) returns (HasParameterResponse);
+  rpc ParseQuery (ParseQueryRequest) returns (ParseQueryResponse);
+  rpc ParseUrl (ParseUrlRequest) returns (ParseUrlResponse);
+  rpc RegisterParameter (RegisterParameterRequest) returns (RegisterParameterResponse);
+  rpc RegisterParameters (RegisterParametersRequest) returns (RegisterParametersResponse);
+  rpc SetAllowUnregisteredParamaters (SetAllowUnregisteredParamatersRequest) returns (SetAllowUnregisteredParamatersResponse);
+  rpc SetPreferFirstRepeatedParameter (SetPreferFirstRepeatedParameterRequest) returns (SetPreferFirstRepeatedParameterResponse);
+  rpc SetUnregisteredParameterValueSanitizer (SetUnregisteredParameterValueSanitizerRequest) returns (SetUnregisteredParameterValueSanitizerResponse);
+  rpc Unescape (UnescapeRequest) returns (UnescapeResponse);
+  rpc GetAllButNulAndAngleBracketsLegal (GetAllButNulAndAngleBracketsLegalRequest) returns (GetAllButNulAndAngleBracketsLegalResponse);
+  rpc GetAllButNulLegal (GetAllButNulLegalRequest) returns (GetAllButNulLegalResponse);
+  rpc GetAllButWhitespaceLegal (GetAllButWhitespaceLegalRequest) returns (GetAllButWhitespaceLegalResponse);
+  rpc GetAllIllegal (GetAllIllegalRequest) returns (GetAllIllegalResponse);
+  rpc GetAmpAndSpaceLegal (GetAmpAndSpaceLegalRequest) returns (GetAmpAndSpaceLegalResponse);
+  rpc GetAmpLegal (GetAmpLegalRequest) returns (GetAmpLegalResponse);
+  rpc GetSpaceLegal (GetSpaceLegalRequest) returns (GetSpaceLegalResponse);
+  rpc GetUrlAndSpaceLegal (GetUrlAndSpaceLegalRequest) returns (GetUrlAndSpaceLegalResponse);
+  rpc GetUrlLegal (GetUrlLegalRequest) returns (GetUrlLegalResponse);
+}
+
+service UrlQuerySanitizerIllegalCharacterValueSanitizerService {
+  rpc Sanitize (SanitizeRequest) returns (SanitizeResponse);
+}
+
+service UrlQuerySanitizerValueSanitizerService {
+  rpc Sanitize (SanitizeRequest) returns (SanitizeResponse);
+}
+
+service IpSecTransformStateService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetByteCount (GetByteCountRequest) returns (GetByteCountResponse);
+  rpc GetPacketCount (GetPacketCountRequest) returns (GetPacketCountResponse);
+  rpc GetReplayBitmap (GetReplayBitmapRequest) returns (GetReplayBitmapResponse);
+  rpc GetRxHighestSequenceNumber (GetRxHighestSequenceNumberRequest) returns (GetRxHighestSequenceNumberResponse);
+  rpc GetTimestampMillis (GetTimestampMillisRequest) returns (GetTimestampMillisResponse);
+  rpc GetTxHighestSequenceNumber (GetTxHighestSequenceNumberRequest) returns (GetTxHighestSequenceNumberResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service IpSecTransformStateBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetByteCount (SetByteCountRequest) returns (SetByteCountResponse);
+  rpc SetPacketCount (SetPacketCountRequest) returns (SetPacketCountResponse);
+  rpc SetReplayBitmap (SetReplayBitmapRequest) returns (SetReplayBitmapResponse);
+  rpc SetRxHighestSequenceNumber (SetRxHighestSequenceNumberRequest) returns (SetRxHighestSequenceNumberResponse);
+  rpc SetTimestampMillis (SetTimestampMillisRequest) returns (SetTimestampMillisResponse);
+  rpc SetTxHighestSequenceNumber (SetTxHighestSequenceNumberRequest) returns (SetTxHighestSequenceNumberResponse);
+}
+
+service DhcpInfoService {
+  rpc NewDhcpInfo (NewDhcpInfoRequest) returns (NewDhcpInfoResponse);
+  rpc DescribeContents (DhcpInfoDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc ToString (DhcpInfoToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (DhcpInfoWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service VpnProfileStateService {
+  rpc NewVpnProfileState (NewVpnProfileStateRequest) returns (NewVpnProfileStateResponse);
+  rpc DescribeContents (VpnProfileStateDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (VpnProfileStateEqualsRequest) returns (EqualsResponse);
+  rpc GetSessionId (GetSessionIdRequest) returns (GetSessionIdResponse);
+  rpc GetState (GetStateRequest) returns (VpnProfileStateGetStateResponse);
+  rpc HashCode (VpnProfileStateHashCodeRequest) returns (HashCodeResponse);
+  rpc IsAlwaysOn (IsAlwaysOnRequest) returns (IsAlwaysOnResponse);
+  rpc IsLockdownEnabled (IsLockdownEnabledRequest) returns (IsLockdownEnabledResponse);
+  rpc ToString (VpnProfileStateToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (VpnProfileStateWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service IpSecAlgorithmService {
+  rpc NewIpSecAlgorithm (NewIpSecAlgorithmRequest) returns (NewIpSecAlgorithmResponse);
+  rpc DescribeContents (IpSecAlgorithmDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetKey (GetKeyRequest) returns (GetKeyResponse);
+  rpc GetName (GetNameRequest) returns (GetNameResponse);
+  rpc GetTruncationLengthBits (GetTruncationLengthBitsRequest) returns (GetTruncationLengthBitsResponse);
+  rpc ToString (IpSecAlgorithmToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (IpSecAlgorithmWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service InetAddressesService {
+  rpc IsNumericAddress (IsNumericAddressRequest) returns (IsNumericAddressResponse);
+  rpc ParseNumericAddress (ParseNumericAddressRequest) returns (ParseNumericAddressResponse);
+}
+
+service ProxyService {
+  rpc NewProxy (NewProxyRequest) returns (NewProxyResponse);
+  rpc GetDefaultHost (GetDefaultHostRequest) returns (GetDefaultHostResponse);
+  rpc GetDefaultPort (GetDefaultPortRequest) returns (GetDefaultPortResponse);
+  rpc GetHost (ProxyGetHostRequest) returns (GetHostResponse);
+  rpc GetPort (ProxyGetPortRequest) returns (GetPortResponse);
 }

@@ -190,6 +190,1082 @@ func (s *CarrierConfigManagerServer) IsConfigForIdentifiedCarrier(_ context.Cont
 	return &pb.IsConfigForIdentifiedCarrierResponse{Result: result}, nil
 }
 
+// PhoneNumberUtilsServer implements pb.PhoneNumberUtilsServiceServer.
+type PhoneNumberUtilsServer struct {
+	pb.UnimplementedPhoneNumberUtilsServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *PhoneNumberUtilsServer) NewPhoneNumberUtils(_ context.Context, req *pb.NewPhoneNumberUtilsRequest) (*pb.NewPhoneNumberUtilsResponse, error) {
+	obj, err := jnipkg.NewPhoneNumberUtils(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewPhoneNumberUtilsResponse{Result: handle}, nil
+}
+
+func (s *PhoneNumberUtilsServer) AddTtsSpan(_ context.Context, req *pb.AddTtsSpanRequest) (*pb.AddTtsSpanResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PhoneNumberUtils{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.AddTtsSpan(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.AddTtsSpanResponse{}, nil
+}
+
+func (s *PhoneNumberUtilsServer) AreSamePhoneNumber(_ context.Context, req *pb.AreSamePhoneNumberRequest) (*pb.AreSamePhoneNumberResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PhoneNumberUtils{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.AreSamePhoneNumber(req.GetArg0(), req.GetArg1(), req.GetArg2())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.AreSamePhoneNumberResponse{Result: result}, nil
+}
+
+func (s *PhoneNumberUtilsServer) CalledPartyBCDFragmentToString3(_ context.Context, req *pb.CalledPartyBCDFragmentToString3Request) (*pb.CalledPartyBCDFragmentToString3Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PhoneNumberUtils{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.CalledPartyBCDFragmentToString3(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.CalledPartyBCDFragmentToString3Response{Result: result}, nil
+}
+
+func (s *PhoneNumberUtilsServer) CalledPartyBCDFragmentToString4_1(_ context.Context, req *pb.CalledPartyBCDFragmentToString4_1Request) (*pb.CalledPartyBCDFragmentToString4_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PhoneNumberUtils{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.CalledPartyBCDFragmentToString4_1(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2(), req.GetArg3())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.CalledPartyBCDFragmentToString4_1Response{Result: result}, nil
+}
+
+func (s *PhoneNumberUtilsServer) CalledPartyBCDToString3(_ context.Context, req *pb.CalledPartyBCDToString3Request) (*pb.CalledPartyBCDToString3Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PhoneNumberUtils{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.CalledPartyBCDToString3(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.CalledPartyBCDToString3Response{Result: result}, nil
+}
+
+func (s *PhoneNumberUtilsServer) CalledPartyBCDToString4_1(_ context.Context, req *pb.CalledPartyBCDToString4_1Request) (*pb.CalledPartyBCDToString4_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PhoneNumberUtils{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.CalledPartyBCDToString4_1(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2(), req.GetArg3())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.CalledPartyBCDToString4_1Response{Result: result}, nil
+}
+
+func (s *PhoneNumberUtilsServer) Compare3(_ context.Context, req *pb.Compare3Request) (*pb.Compare3Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PhoneNumberUtils{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Compare3(s.Ctx.Obj, req.GetArg1(), req.GetArg2())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.Compare3Response{Result: result}, nil
+}
+
+func (s *PhoneNumberUtilsServer) Compare2_1(_ context.Context, req *pb.Compare2_1Request) (*pb.Compare2_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PhoneNumberUtils{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Compare2_1(req.GetArg0(), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.Compare2_1Response{Result: result}, nil
+}
+
+func (s *PhoneNumberUtilsServer) ConvertKeypadLettersToDigits(_ context.Context, req *pb.ConvertKeypadLettersToDigitsRequest) (*pb.ConvertKeypadLettersToDigitsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PhoneNumberUtils{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ConvertKeypadLettersToDigits(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ConvertKeypadLettersToDigitsResponse{Result: result}, nil
+}
+
+func (s *PhoneNumberUtilsServer) CreateTtsSpan(_ context.Context, req *pb.CreateTtsSpanRequest) (*pb.CreateTtsSpanResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PhoneNumberUtils{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.CreateTtsSpan(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.CreateTtsSpanResponse{Result: handle}, nil
+}
+
+func (s *PhoneNumberUtilsServer) CreateTtsSpannable(_ context.Context, req *pb.CreateTtsSpannableRequest) (*pb.CreateTtsSpannableResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PhoneNumberUtils{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.CreateTtsSpannable(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.CreateTtsSpannableResponse{Result: handle}, nil
+}
+
+func (s *PhoneNumberUtilsServer) ExtractNetworkPortion(_ context.Context, req *pb.ExtractNetworkPortionRequest) (*pb.ExtractNetworkPortionResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PhoneNumberUtils{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ExtractNetworkPortion(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ExtractNetworkPortionResponse{Result: result}, nil
+}
+
+func (s *PhoneNumberUtilsServer) ExtractPostDialPortion(_ context.Context, req *pb.ExtractPostDialPortionRequest) (*pb.ExtractPostDialPortionResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PhoneNumberUtils{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ExtractPostDialPortion(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ExtractPostDialPortionResponse{Result: result}, nil
+}
+
+func (s *PhoneNumberUtilsServer) FormatJapaneseNumber(_ context.Context, req *pb.FormatJapaneseNumberRequest) (*pb.FormatJapaneseNumberResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PhoneNumberUtils{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.FormatJapaneseNumber(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.FormatJapaneseNumberResponse{}, nil
+}
+
+func (s *PhoneNumberUtilsServer) FormatNanpNumber(_ context.Context, req *pb.FormatNanpNumberRequest) (*pb.FormatNanpNumberResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PhoneNumberUtils{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.FormatNanpNumber(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.FormatNanpNumberResponse{}, nil
+}
+
+func (s *PhoneNumberUtilsServer) FormatNumber2(_ context.Context, req *pb.FormatNumber2Request) (*pb.FormatNumber2Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PhoneNumberUtils{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.FormatNumber2(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.FormatNumber2Response{}, nil
+}
+
+func (s *PhoneNumberUtilsServer) FormatNumber1_1(_ context.Context, req *pb.FormatNumber1_1Request) (*pb.FormatNumber1_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PhoneNumberUtils{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.FormatNumber1_1(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.FormatNumber1_1Response{Result: result}, nil
+}
+
+func (s *PhoneNumberUtilsServer) FormatNumber2_2(_ context.Context, req *pb.FormatNumber2_2Request) (*pb.FormatNumber2_2Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PhoneNumberUtils{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.FormatNumber2_2(req.GetArg0(), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.FormatNumber2_2Response{Result: result}, nil
+}
+
+func (s *PhoneNumberUtilsServer) FormatNumber3_3(_ context.Context, req *pb.FormatNumber3_3Request) (*pb.FormatNumber3_3Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PhoneNumberUtils{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.FormatNumber3_3(req.GetArg0(), req.GetArg1(), req.GetArg2())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.FormatNumber3_3Response{Result: result}, nil
+}
+
+func (s *PhoneNumberUtilsServer) FormatNumberToE164(_ context.Context, req *pb.FormatNumberToE164Request) (*pb.FormatNumberToE164Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PhoneNumberUtils{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.FormatNumberToE164(req.GetArg0(), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.FormatNumberToE164Response{Result: result}, nil
+}
+
+func (s *PhoneNumberUtilsServer) FormatNumberToRFC3966(_ context.Context, req *pb.FormatNumberToRFC3966Request) (*pb.FormatNumberToRFC3966Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PhoneNumberUtils{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.FormatNumberToRFC3966(req.GetArg0(), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.FormatNumberToRFC3966Response{Result: result}, nil
+}
+
+func (s *PhoneNumberUtilsServer) GetFormatTypeForLocale(_ context.Context, req *pb.GetFormatTypeForLocaleRequest) (*pb.GetFormatTypeForLocaleResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PhoneNumberUtils{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetFormatTypeForLocale(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetFormatTypeForLocaleResponse{Result: result}, nil
+}
+
+func (s *PhoneNumberUtilsServer) GetNumberFromIntent(_ context.Context, req *pb.GetNumberFromIntentRequest) (*pb.GetNumberFromIntentResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PhoneNumberUtils{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetNumberFromIntent(s.Handles.Get(req.GetArg0()), s.Ctx.Obj)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetNumberFromIntentResponse{Result: result}, nil
+}
+
+func (s *PhoneNumberUtilsServer) GetStrippedReversed(_ context.Context, req *pb.GetStrippedReversedRequest) (*pb.GetStrippedReversedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PhoneNumberUtils{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetStrippedReversed(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetStrippedReversedResponse{Result: result}, nil
+}
+
+func (s *PhoneNumberUtilsServer) Is12Key(_ context.Context, req *pb.Is12KeyRequest) (*pb.Is12KeyResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PhoneNumberUtils{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Is12Key(uint16(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.Is12KeyResponse{Result: result}, nil
+}
+
+func (s *PhoneNumberUtilsServer) IsDialable(_ context.Context, req *pb.IsDialableRequest) (*pb.IsDialableResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PhoneNumberUtils{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsDialable(uint16(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsDialableResponse{Result: result}, nil
+}
+
+func (s *PhoneNumberUtilsServer) IsEmergencyNumber(_ context.Context, req *pb.IsEmergencyNumberRequest) (*pb.IsEmergencyNumberResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PhoneNumberUtils{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsEmergencyNumber(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsEmergencyNumberResponse{Result: result}, nil
+}
+
+func (s *PhoneNumberUtilsServer) IsGlobalPhoneNumber(_ context.Context, req *pb.IsGlobalPhoneNumberRequest) (*pb.IsGlobalPhoneNumberResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PhoneNumberUtils{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsGlobalPhoneNumber(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsGlobalPhoneNumberResponse{Result: result}, nil
+}
+
+func (s *PhoneNumberUtilsServer) IsISODigit(_ context.Context, req *pb.IsISODigitRequest) (*pb.IsISODigitResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PhoneNumberUtils{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsISODigit(uint16(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsISODigitResponse{Result: result}, nil
+}
+
+func (s *PhoneNumberUtilsServer) IsLocalEmergencyNumber(_ context.Context, req *pb.IsLocalEmergencyNumberRequest) (*pb.IsLocalEmergencyNumberResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PhoneNumberUtils{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsLocalEmergencyNumber(s.Ctx.Obj, req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsLocalEmergencyNumberResponse{Result: result}, nil
+}
+
+func (s *PhoneNumberUtilsServer) IsNonSeparator(_ context.Context, req *pb.IsNonSeparatorRequest) (*pb.IsNonSeparatorResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PhoneNumberUtils{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsNonSeparator(uint16(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsNonSeparatorResponse{Result: result}, nil
+}
+
+func (s *PhoneNumberUtilsServer) IsReallyDialable(_ context.Context, req *pb.IsReallyDialableRequest) (*pb.IsReallyDialableResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PhoneNumberUtils{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsReallyDialable(uint16(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsReallyDialableResponse{Result: result}, nil
+}
+
+func (s *PhoneNumberUtilsServer) IsStartsPostDial(_ context.Context, req *pb.IsStartsPostDialRequest) (*pb.IsStartsPostDialResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PhoneNumberUtils{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsStartsPostDial(uint16(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsStartsPostDialResponse{Result: result}, nil
+}
+
+func (s *PhoneNumberUtilsServer) IsVoiceMailNumber(_ context.Context, req *pb.IsVoiceMailNumberRequest) (*pb.IsVoiceMailNumberResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PhoneNumberUtils{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsVoiceMailNumber(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsVoiceMailNumberResponse{Result: result}, nil
+}
+
+func (s *PhoneNumberUtilsServer) IsWellFormedSmsAddress(_ context.Context, req *pb.IsWellFormedSmsAddressRequest) (*pb.IsWellFormedSmsAddressResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PhoneNumberUtils{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsWellFormedSmsAddress(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsWellFormedSmsAddressResponse{Result: result}, nil
+}
+
+func (s *PhoneNumberUtilsServer) IsWpsCallNumber(_ context.Context, req *pb.IsWpsCallNumberRequest) (*pb.IsWpsCallNumberResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PhoneNumberUtils{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsWpsCallNumber(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsWpsCallNumberResponse{Result: result}, nil
+}
+
+func (s *PhoneNumberUtilsServer) NetworkPortionToCalledPartyBCD(_ context.Context, req *pb.NetworkPortionToCalledPartyBCDRequest) (*pb.NetworkPortionToCalledPartyBCDResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PhoneNumberUtils{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.NetworkPortionToCalledPartyBCD(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.NetworkPortionToCalledPartyBCDResponse{Result: handle}, nil
+}
+
+func (s *PhoneNumberUtilsServer) NetworkPortionToCalledPartyBCDWithLength(_ context.Context, req *pb.NetworkPortionToCalledPartyBCDWithLengthRequest) (*pb.NetworkPortionToCalledPartyBCDWithLengthResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PhoneNumberUtils{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.NetworkPortionToCalledPartyBCDWithLength(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.NetworkPortionToCalledPartyBCDWithLengthResponse{Result: handle}, nil
+}
+
+func (s *PhoneNumberUtilsServer) NormalizeNumber(_ context.Context, req *pb.NormalizeNumberRequest) (*pb.NormalizeNumberResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PhoneNumberUtils{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.NormalizeNumber(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.NormalizeNumberResponse{Result: result}, nil
+}
+
+func (s *PhoneNumberUtilsServer) NumberToCalledPartyBCD1(_ context.Context, req *pb.NumberToCalledPartyBCD1Request) (*pb.NumberToCalledPartyBCD1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PhoneNumberUtils{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.NumberToCalledPartyBCD1(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.NumberToCalledPartyBCD1Response{Result: handle}, nil
+}
+
+func (s *PhoneNumberUtilsServer) NumberToCalledPartyBCD2_1(_ context.Context, req *pb.NumberToCalledPartyBCD2_1Request) (*pb.NumberToCalledPartyBCD2_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PhoneNumberUtils{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.NumberToCalledPartyBCD2_1(req.GetArg0(), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.NumberToCalledPartyBCD2_1Response{Result: handle}, nil
+}
+
+func (s *PhoneNumberUtilsServer) ReplaceUnicodeDigits(_ context.Context, req *pb.ReplaceUnicodeDigitsRequest) (*pb.ReplaceUnicodeDigitsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PhoneNumberUtils{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ReplaceUnicodeDigits(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ReplaceUnicodeDigitsResponse{Result: result}, nil
+}
+
+func (s *PhoneNumberUtilsServer) StringFromStringAndTOA(_ context.Context, req *pb.StringFromStringAndTOARequest) (*pb.StringFromStringAndTOAResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PhoneNumberUtils{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.StringFromStringAndTOA(req.GetArg0(), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.StringFromStringAndTOAResponse{Result: result}, nil
+}
+
+func (s *PhoneNumberUtilsServer) StripSeparators(_ context.Context, req *pb.StripSeparatorsRequest) (*pb.StripSeparatorsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PhoneNumberUtils{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.StripSeparators(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.StripSeparatorsResponse{Result: result}, nil
+}
+
+func (s *PhoneNumberUtilsServer) ToCallerIDMinMatch(_ context.Context, req *pb.ToCallerIDMinMatchRequest) (*pb.ToCallerIDMinMatchResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PhoneNumberUtils{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToCallerIDMinMatch(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToCallerIDMinMatchResponse{Result: result}, nil
+}
+
+func (s *PhoneNumberUtilsServer) ToaFromString(_ context.Context, req *pb.ToaFromStringRequest) (*pb.ToaFromStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PhoneNumberUtils{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToaFromString(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToaFromStringResponse{Result: result}, nil
+}
+
+// ServiceStateServer implements pb.ServiceStateServiceServer.
+type ServiceStateServer struct {
+	pb.UnimplementedServiceStateServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *ServiceStateServer) NewServiceState(_ context.Context, req *pb.NewServiceStateRequest) (*pb.NewServiceStateResponse, error) {
+	obj, err := jnipkg.NewServiceState(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewServiceStateResponse{Result: handle}, nil
+}
+
+func (s *ServiceStateServer) DescribeContents(_ context.Context, req *pb.ServiceStateDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ServiceState{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *ServiceStateServer) Equals(_ context.Context, req *pb.ServiceStateEqualsRequest) (*pb.EqualsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ServiceState{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Equals(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EqualsResponse{Result: result}, nil
+}
+
+func (s *ServiceStateServer) GetCdmaNetworkId(_ context.Context, req *pb.GetCdmaNetworkIdRequest) (*pb.GetCdmaNetworkIdResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ServiceState{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetCdmaNetworkId()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetCdmaNetworkIdResponse{Result: result}, nil
+}
+
+func (s *ServiceStateServer) GetCdmaSystemId(_ context.Context, req *pb.GetCdmaSystemIdRequest) (*pb.GetCdmaSystemIdResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ServiceState{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetCdmaSystemId()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetCdmaSystemIdResponse{Result: result}, nil
+}
+
+func (s *ServiceStateServer) GetCellBandwidths(_ context.Context, req *pb.GetCellBandwidthsRequest) (*pb.GetCellBandwidthsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ServiceState{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetCellBandwidths()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetCellBandwidthsResponse{Result: handle}, nil
+}
+
+func (s *ServiceStateServer) GetChannelNumber(_ context.Context, req *pb.GetChannelNumberRequest) (*pb.GetChannelNumberResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ServiceState{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetChannelNumber()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetChannelNumberResponse{Result: result}, nil
+}
+
+func (s *ServiceStateServer) GetDuplexMode(_ context.Context, req *pb.GetDuplexModeRequest) (*pb.GetDuplexModeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ServiceState{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetDuplexMode()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetDuplexModeResponse{Result: result}, nil
+}
+
+func (s *ServiceStateServer) GetIsManualSelection(_ context.Context, req *pb.GetIsManualSelectionRequest) (*pb.GetIsManualSelectionResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ServiceState{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetIsManualSelection()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetIsManualSelectionResponse{Result: result}, nil
+}
+
+func (s *ServiceStateServer) GetOperatorAlphaLong(_ context.Context, req *pb.GetOperatorAlphaLongRequest) (*pb.GetOperatorAlphaLongResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ServiceState{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetOperatorAlphaLong()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetOperatorAlphaLongResponse{Result: result}, nil
+}
+
+func (s *ServiceStateServer) GetOperatorAlphaShort(_ context.Context, req *pb.GetOperatorAlphaShortRequest) (*pb.GetOperatorAlphaShortResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ServiceState{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetOperatorAlphaShort()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetOperatorAlphaShortResponse{Result: result}, nil
+}
+
+func (s *ServiceStateServer) GetOperatorNumeric(_ context.Context, req *pb.GetOperatorNumericRequest) (*pb.GetOperatorNumericResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ServiceState{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetOperatorNumeric()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetOperatorNumericResponse{Result: result}, nil
+}
+
+func (s *ServiceStateServer) GetRoaming(_ context.Context, req *pb.GetRoamingRequest) (*pb.GetRoamingResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ServiceState{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetRoaming()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetRoamingResponse{Result: result}, nil
+}
+
+func (s *ServiceStateServer) GetState(_ context.Context, req *pb.GetStateRequest) (*pb.GetStateResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ServiceState{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetState()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetStateResponse{Result: result}, nil
+}
+
+func (s *ServiceStateServer) HashCode(_ context.Context, req *pb.ServiceStateHashCodeRequest) (*pb.HashCodeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ServiceState{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.HashCode()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.HashCodeResponse{Result: result}, nil
+}
+
+func (s *ServiceStateServer) IsSearching(_ context.Context, req *pb.IsSearchingRequest) (*pb.IsSearchingResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ServiceState{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsSearching()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsSearchingResponse{Result: result}, nil
+}
+
+func (s *ServiceStateServer) IsUsingNonTerrestrialNetwork(_ context.Context, req *pb.IsUsingNonTerrestrialNetworkRequest) (*pb.IsUsingNonTerrestrialNetworkResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ServiceState{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsUsingNonTerrestrialNetwork()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsUsingNonTerrestrialNetworkResponse{Result: result}, nil
+}
+
+func (s *ServiceStateServer) SetIsManualSelection(_ context.Context, req *pb.SetIsManualSelectionRequest) (*pb.SetIsManualSelectionResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ServiceState{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetIsManualSelection(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetIsManualSelectionResponse{}, nil
+}
+
+func (s *ServiceStateServer) SetOperatorName(_ context.Context, req *pb.SetOperatorNameRequest) (*pb.SetOperatorNameResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ServiceState{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetOperatorName(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetOperatorNameResponse{}, nil
+}
+
+func (s *ServiceStateServer) SetRoaming(_ context.Context, req *pb.SetRoamingRequest) (*pb.SetRoamingResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ServiceState{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetRoaming(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetRoamingResponse{}, nil
+}
+
+func (s *ServiceStateServer) SetState(_ context.Context, req *pb.SetStateRequest) (*pb.SetStateResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ServiceState{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetState(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetStateResponse{}, nil
+}
+
+func (s *ServiceStateServer) SetStateOff(_ context.Context, req *pb.SetStateOffRequest) (*pb.SetStateOffResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ServiceState{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetStateOff(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetStateOffResponse{}, nil
+}
+
+func (s *ServiceStateServer) SetStateOutOfService(_ context.Context, req *pb.SetStateOutOfServiceRequest) (*pb.SetStateOutOfServiceResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ServiceState{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetStateOutOfService(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetStateOutOfServiceResponse{}, nil
+}
+
+func (s *ServiceStateServer) ToString(_ context.Context, req *pb.ServiceStateToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ServiceState{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *ServiceStateServer) WriteToParcel(_ context.Context, req *pb.ServiceStateWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ServiceState{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
 // ManagerServer implements pb.ManagerServiceServer.
 type ManagerServer struct {
 	pb.UnimplementedManagerServiceServer
@@ -1549,7 +2625,7 @@ func (s *ManagerServer) IsDeviceVoiceCapable(_ context.Context, req *pb.IsDevice
 	return &pb.IsDeviceVoiceCapableResponse{Result: result}, nil
 }
 
-func (s *ManagerServer) IsEmergencyNumber(_ context.Context, req *pb.IsEmergencyNumberRequest) (*pb.IsEmergencyNumberResponse, error) {
+func (s *ManagerServer) IsEmergencyNumber(_ context.Context, req *pb.ManagerIsEmergencyNumberRequest) (*pb.IsEmergencyNumberResponse, error) {
 	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
@@ -1619,7 +2695,7 @@ func (s *ManagerServer) IsMultiSimSupported(_ context.Context, req *pb.IsMultiSi
 	return &pb.IsMultiSimSupportedResponse{Result: result}, nil
 }
 
-func (s *ManagerServer) IsNetworkRoaming(_ context.Context, req *pb.IsNetworkRoamingRequest) (*pb.IsNetworkRoamingResponse, error) {
+func (s *ManagerServer) IsNetworkRoaming(_ context.Context, req *pb.ManagerIsNetworkRoamingRequest) (*pb.IsNetworkRoamingResponse, error) {
 	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
@@ -2135,4 +3211,1138 @@ func (s *ManagerServer) GetMaximumCallComposerPictureSize(_ context.Context, req
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.GetMaximumCallComposerPictureSizeResponse{Result: result}, nil
+}
+
+// NeighboringCellInfoServer implements pb.NeighboringCellInfoServiceServer.
+type NeighboringCellInfoServer struct {
+	pb.UnimplementedNeighboringCellInfoServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *NeighboringCellInfoServer) NewNeighboringCellInfo(_ context.Context, req *pb.NewNeighboringCellInfoRequest) (*pb.NewNeighboringCellInfoResponse, error) {
+	obj, err := jnipkg.NewNeighboringCellInfo(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewNeighboringCellInfoResponse{Result: handle}, nil
+}
+
+func (s *NeighboringCellInfoServer) DescribeContents(_ context.Context, req *pb.NeighboringCellInfoDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.NeighboringCellInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *NeighboringCellInfoServer) GetCid(_ context.Context, req *pb.NeighboringCellInfoGetCidRequest) (*pb.GetCidResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.NeighboringCellInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetCid()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetCidResponse{Result: result}, nil
+}
+
+func (s *NeighboringCellInfoServer) GetLac(_ context.Context, req *pb.NeighboringCellInfoGetLacRequest) (*pb.GetLacResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.NeighboringCellInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetLac()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetLacResponse{Result: result}, nil
+}
+
+func (s *NeighboringCellInfoServer) GetNetworkType(_ context.Context, req *pb.NeighboringCellInfoGetNetworkTypeRequest) (*pb.GetNetworkTypeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.NeighboringCellInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetNetworkType()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetNetworkTypeResponse{Result: result}, nil
+}
+
+func (s *NeighboringCellInfoServer) GetPsc(_ context.Context, req *pb.NeighboringCellInfoGetPscRequest) (*pb.GetPscResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.NeighboringCellInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetPsc()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetPscResponse{Result: result}, nil
+}
+
+func (s *NeighboringCellInfoServer) GetRssi(_ context.Context, req *pb.NeighboringCellInfoGetRssiRequest) (*pb.GetRssiResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.NeighboringCellInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetRssi()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetRssiResponse{Result: result}, nil
+}
+
+func (s *NeighboringCellInfoServer) SetCid(_ context.Context, req *pb.SetCidRequest) (*pb.SetCidResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.NeighboringCellInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetCid(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetCidResponse{}, nil
+}
+
+func (s *NeighboringCellInfoServer) SetRssi(_ context.Context, req *pb.SetRssiRequest) (*pb.SetRssiResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.NeighboringCellInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetRssi(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetRssiResponse{}, nil
+}
+
+func (s *NeighboringCellInfoServer) ToString(_ context.Context, req *pb.NeighboringCellInfoToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.NeighboringCellInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *NeighboringCellInfoServer) WriteToParcel(_ context.Context, req *pb.NeighboringCellInfoWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.NeighboringCellInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
+// PhoneNumberFormattingTextWatcherServer implements pb.PhoneNumberFormattingTextWatcherServiceServer.
+type PhoneNumberFormattingTextWatcherServer struct {
+	pb.UnimplementedPhoneNumberFormattingTextWatcherServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *PhoneNumberFormattingTextWatcherServer) NewPhoneNumberFormattingTextWatcher(_ context.Context, req *pb.NewPhoneNumberFormattingTextWatcherRequest) (*pb.NewPhoneNumberFormattingTextWatcherResponse, error) {
+	obj, err := jnipkg.NewPhoneNumberFormattingTextWatcher(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewPhoneNumberFormattingTextWatcherResponse{Result: handle}, nil
+}
+
+func (s *PhoneNumberFormattingTextWatcherServer) BeforeTextChanged(_ context.Context, req *pb.BeforeTextChangedRequest) (*pb.BeforeTextChangedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PhoneNumberFormattingTextWatcher{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.BeforeTextChanged(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.BeforeTextChangedResponse{}, nil
+}
+
+func (s *PhoneNumberFormattingTextWatcherServer) OnTextChanged(_ context.Context, req *pb.OnTextChangedRequest) (*pb.OnTextChangedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PhoneNumberFormattingTextWatcher{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnTextChanged(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnTextChangedResponse{}, nil
+}
+
+// RadioAccessSpecifierServer implements pb.RadioAccessSpecifierServiceServer.
+type RadioAccessSpecifierServer struct {
+	pb.UnimplementedRadioAccessSpecifierServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *RadioAccessSpecifierServer) NewRadioAccessSpecifier(_ context.Context, req *pb.NewRadioAccessSpecifierRequest) (*pb.NewRadioAccessSpecifierResponse, error) {
+	obj, err := jnipkg.NewRadioAccessSpecifier(s.Ctx.VM, req.GetArg0(), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewRadioAccessSpecifierResponse{Result: handle}, nil
+}
+
+func (s *RadioAccessSpecifierServer) DescribeContents(_ context.Context, req *pb.RadioAccessSpecifierDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.RadioAccessSpecifier{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *RadioAccessSpecifierServer) Equals(_ context.Context, req *pb.RadioAccessSpecifierEqualsRequest) (*pb.EqualsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.RadioAccessSpecifier{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Equals(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EqualsResponse{Result: result}, nil
+}
+
+func (s *RadioAccessSpecifierServer) GetBands(_ context.Context, req *pb.RadioAccessSpecifierGetBandsRequest) (*pb.GetBandsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.RadioAccessSpecifier{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetBands()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetBandsResponse{Result: handle}, nil
+}
+
+func (s *RadioAccessSpecifierServer) GetChannels(_ context.Context, req *pb.GetChannelsRequest) (*pb.GetChannelsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.RadioAccessSpecifier{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetChannels()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetChannelsResponse{Result: handle}, nil
+}
+
+func (s *RadioAccessSpecifierServer) GetRadioAccessNetwork(_ context.Context, req *pb.GetRadioAccessNetworkRequest) (*pb.GetRadioAccessNetworkResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.RadioAccessSpecifier{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetRadioAccessNetwork()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetRadioAccessNetworkResponse{Result: result}, nil
+}
+
+func (s *RadioAccessSpecifierServer) HashCode(_ context.Context, req *pb.RadioAccessSpecifierHashCodeRequest) (*pb.HashCodeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.RadioAccessSpecifier{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.HashCode()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.HashCodeResponse{Result: result}, nil
+}
+
+func (s *RadioAccessSpecifierServer) ToString(_ context.Context, req *pb.RadioAccessSpecifierToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.RadioAccessSpecifier{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *RadioAccessSpecifierServer) WriteToParcel(_ context.Context, req *pb.RadioAccessSpecifierWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.RadioAccessSpecifier{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
+// SignalStrengthServer implements pb.SignalStrengthServiceServer.
+type SignalStrengthServer struct {
+	pb.UnimplementedSignalStrengthServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *SignalStrengthServer) NewSignalStrength(_ context.Context, req *pb.NewSignalStrengthRequest) (*pb.NewSignalStrengthResponse, error) {
+	obj, err := jnipkg.NewSignalStrength(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewSignalStrengthResponse{Result: handle}, nil
+}
+
+func (s *SignalStrengthServer) DescribeContents(_ context.Context, req *pb.SignalStrengthDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SignalStrength{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *SignalStrengthServer) Equals(_ context.Context, req *pb.SignalStrengthEqualsRequest) (*pb.EqualsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SignalStrength{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Equals(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EqualsResponse{Result: result}, nil
+}
+
+func (s *SignalStrengthServer) GetCdmaDbm(_ context.Context, req *pb.SignalStrengthGetCdmaDbmRequest) (*pb.GetCdmaDbmResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SignalStrength{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetCdmaDbm()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetCdmaDbmResponse{Result: result}, nil
+}
+
+func (s *SignalStrengthServer) GetCdmaEcio(_ context.Context, req *pb.SignalStrengthGetCdmaEcioRequest) (*pb.GetCdmaEcioResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SignalStrength{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetCdmaEcio()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetCdmaEcioResponse{Result: result}, nil
+}
+
+func (s *SignalStrengthServer) GetEvdoDbm(_ context.Context, req *pb.SignalStrengthGetEvdoDbmRequest) (*pb.GetEvdoDbmResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SignalStrength{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetEvdoDbm()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetEvdoDbmResponse{Result: result}, nil
+}
+
+func (s *SignalStrengthServer) GetEvdoEcio(_ context.Context, req *pb.SignalStrengthGetEvdoEcioRequest) (*pb.GetEvdoEcioResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SignalStrength{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetEvdoEcio()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetEvdoEcioResponse{Result: result}, nil
+}
+
+func (s *SignalStrengthServer) GetEvdoSnr(_ context.Context, req *pb.SignalStrengthGetEvdoSnrRequest) (*pb.GetEvdoSnrResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SignalStrength{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetEvdoSnr()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetEvdoSnrResponse{Result: result}, nil
+}
+
+func (s *SignalStrengthServer) GetGsmBitErrorRate(_ context.Context, req *pb.GetGsmBitErrorRateRequest) (*pb.GetGsmBitErrorRateResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SignalStrength{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetGsmBitErrorRate()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetGsmBitErrorRateResponse{Result: result}, nil
+}
+
+func (s *SignalStrengthServer) GetGsmSignalStrength(_ context.Context, req *pb.GetGsmSignalStrengthRequest) (*pb.GetGsmSignalStrengthResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SignalStrength{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetGsmSignalStrength()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetGsmSignalStrengthResponse{Result: result}, nil
+}
+
+func (s *SignalStrengthServer) GetLevel(_ context.Context, req *pb.SignalStrengthGetLevelRequest) (*pb.GetLevelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SignalStrength{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetLevel()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetLevelResponse{Result: result}, nil
+}
+
+func (s *SignalStrengthServer) GetTimestampMillis(_ context.Context, req *pb.SignalStrengthGetTimestampMillisRequest) (*pb.GetTimestampMillisResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SignalStrength{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetTimestampMillis()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetTimestampMillisResponse{Result: result}, nil
+}
+
+func (s *SignalStrengthServer) HashCode(_ context.Context, req *pb.SignalStrengthHashCodeRequest) (*pb.HashCodeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SignalStrength{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.HashCode()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.HashCodeResponse{Result: result}, nil
+}
+
+func (s *SignalStrengthServer) IsGsm(_ context.Context, req *pb.IsGsmRequest) (*pb.IsGsmResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SignalStrength{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsGsm()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsGsmResponse{Result: result}, nil
+}
+
+func (s *SignalStrengthServer) ToString(_ context.Context, req *pb.SignalStrengthToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SignalStrength{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *SignalStrengthServer) WriteToParcel(_ context.Context, req *pb.SignalStrengthWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SignalStrength{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
+// AvailableNetworkInfoServer implements pb.AvailableNetworkInfoServiceServer.
+type AvailableNetworkInfoServer struct {
+	pb.UnimplementedAvailableNetworkInfoServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *AvailableNetworkInfoServer) NewAvailableNetworkInfo(_ context.Context, req *pb.NewAvailableNetworkInfoRequest) (*pb.NewAvailableNetworkInfoResponse, error) {
+	obj, err := jnipkg.NewAvailableNetworkInfo(s.Ctx.VM, req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), s.Handles.Get(req.GetArg3()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewAvailableNetworkInfoResponse{Result: handle}, nil
+}
+
+func (s *AvailableNetworkInfoServer) DescribeContents(_ context.Context, req *pb.AvailableNetworkInfoDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AvailableNetworkInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *AvailableNetworkInfoServer) Equals(_ context.Context, req *pb.AvailableNetworkInfoEqualsRequest) (*pb.EqualsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AvailableNetworkInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Equals(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EqualsResponse{Result: result}, nil
+}
+
+func (s *AvailableNetworkInfoServer) GetPriority(_ context.Context, req *pb.GetPriorityRequest) (*pb.GetPriorityResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AvailableNetworkInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetPriority()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetPriorityResponse{Result: result}, nil
+}
+
+func (s *AvailableNetworkInfoServer) GetSubId(_ context.Context, req *pb.GetSubIdRequest) (*pb.GetSubIdResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AvailableNetworkInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetSubId()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetSubIdResponse{Result: result}, nil
+}
+
+func (s *AvailableNetworkInfoServer) HashCode(_ context.Context, req *pb.AvailableNetworkInfoHashCodeRequest) (*pb.HashCodeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AvailableNetworkInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.HashCode()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.HashCodeResponse{Result: result}, nil
+}
+
+func (s *AvailableNetworkInfoServer) ToString(_ context.Context, req *pb.AvailableNetworkInfoToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AvailableNetworkInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *AvailableNetworkInfoServer) WriteToParcel(_ context.Context, req *pb.AvailableNetworkInfoWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AvailableNetworkInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
+// NetworkScanRequestServer implements pb.NetworkScanRequestServiceServer.
+type NetworkScanRequestServer struct {
+	pb.UnimplementedNetworkScanRequestServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *NetworkScanRequestServer) NewNetworkScanRequest(_ context.Context, req *pb.NewNetworkScanRequestRequest) (*pb.NewNetworkScanRequestResponse, error) {
+	obj, err := jnipkg.NewNetworkScanRequest(s.Ctx.VM, req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5(), s.Handles.Get(req.GetArg6()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewNetworkScanRequestResponse{Result: handle}, nil
+}
+
+func (s *NetworkScanRequestServer) DescribeContents(_ context.Context, req *pb.NetworkScanRequestDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.NetworkScanRequest{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *NetworkScanRequestServer) Equals(_ context.Context, req *pb.NetworkScanRequestEqualsRequest) (*pb.EqualsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.NetworkScanRequest{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Equals(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EqualsResponse{Result: result}, nil
+}
+
+func (s *NetworkScanRequestServer) GetIncrementalResults(_ context.Context, req *pb.GetIncrementalResultsRequest) (*pb.GetIncrementalResultsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.NetworkScanRequest{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetIncrementalResults()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetIncrementalResultsResponse{Result: result}, nil
+}
+
+func (s *NetworkScanRequestServer) GetIncrementalResultsPeriodicity(_ context.Context, req *pb.GetIncrementalResultsPeriodicityRequest) (*pb.GetIncrementalResultsPeriodicityResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.NetworkScanRequest{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetIncrementalResultsPeriodicity()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetIncrementalResultsPeriodicityResponse{Result: result}, nil
+}
+
+func (s *NetworkScanRequestServer) GetMaxSearchTime(_ context.Context, req *pb.GetMaxSearchTimeRequest) (*pb.GetMaxSearchTimeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.NetworkScanRequest{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetMaxSearchTime()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetMaxSearchTimeResponse{Result: result}, nil
+}
+
+func (s *NetworkScanRequestServer) GetScanType(_ context.Context, req *pb.GetScanTypeRequest) (*pb.GetScanTypeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.NetworkScanRequest{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetScanType()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetScanTypeResponse{Result: result}, nil
+}
+
+func (s *NetworkScanRequestServer) GetSearchPeriodicity(_ context.Context, req *pb.GetSearchPeriodicityRequest) (*pb.GetSearchPeriodicityResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.NetworkScanRequest{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetSearchPeriodicity()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetSearchPeriodicityResponse{Result: result}, nil
+}
+
+func (s *NetworkScanRequestServer) GetSpecifiers(_ context.Context, req *pb.GetSpecifiersRequest) (*pb.GetSpecifiersResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.NetworkScanRequest{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetSpecifiers()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetSpecifiersResponse{Result: handle}, nil
+}
+
+func (s *NetworkScanRequestServer) HashCode(_ context.Context, req *pb.NetworkScanRequestHashCodeRequest) (*pb.HashCodeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.NetworkScanRequest{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.HashCode()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.HashCodeResponse{Result: result}, nil
+}
+
+func (s *NetworkScanRequestServer) WriteToParcel(_ context.Context, req *pb.NetworkScanRequestWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.NetworkScanRequest{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
+// PhoneStateListenerServer implements pb.PhoneStateListenerServiceServer.
+type PhoneStateListenerServer struct {
+	pb.UnimplementedPhoneStateListenerServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *PhoneStateListenerServer) NewPhoneStateListener(_ context.Context, req *pb.NewPhoneStateListenerRequest) (*pb.NewPhoneStateListenerResponse, error) {
+	obj, err := jnipkg.NewPhoneStateListener(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewPhoneStateListenerResponse{Result: handle}, nil
+}
+
+func (s *PhoneStateListenerServer) OnActiveDataSubscriptionIdChanged(_ context.Context, req *pb.PhoneStateListenerOnActiveDataSubscriptionIdChangedRequest) (*pb.OnActiveDataSubscriptionIdChangedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PhoneStateListener{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnActiveDataSubscriptionIdChanged(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnActiveDataSubscriptionIdChangedResponse{}, nil
+}
+
+func (s *PhoneStateListenerServer) OnBarringInfoChanged(_ context.Context, req *pb.PhoneStateListenerOnBarringInfoChangedRequest) (*pb.OnBarringInfoChangedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PhoneStateListener{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnBarringInfoChanged(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnBarringInfoChangedResponse{}, nil
+}
+
+func (s *PhoneStateListenerServer) OnCallDisconnectCauseChanged(_ context.Context, req *pb.PhoneStateListenerOnCallDisconnectCauseChangedRequest) (*pb.OnCallDisconnectCauseChangedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PhoneStateListener{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnCallDisconnectCauseChanged(req.GetArg0(), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnCallDisconnectCauseChangedResponse{}, nil
+}
+
+func (s *PhoneStateListenerServer) OnCallForwardingIndicatorChanged(_ context.Context, req *pb.PhoneStateListenerOnCallForwardingIndicatorChangedRequest) (*pb.OnCallForwardingIndicatorChangedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PhoneStateListener{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnCallForwardingIndicatorChanged(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnCallForwardingIndicatorChangedResponse{}, nil
+}
+
+func (s *PhoneStateListenerServer) OnCallStateChanged(_ context.Context, req *pb.PhoneStateListenerOnCallStateChangedRequest) (*pb.OnCallStateChangedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PhoneStateListener{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnCallStateChanged(req.GetArg0(), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnCallStateChangedResponse{}, nil
+}
+
+func (s *PhoneStateListenerServer) OnCellLocationChanged(_ context.Context, req *pb.PhoneStateListenerOnCellLocationChangedRequest) (*pb.OnCellLocationChangedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PhoneStateListener{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnCellLocationChanged(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnCellLocationChangedResponse{}, nil
+}
+
+func (s *PhoneStateListenerServer) OnDataActivity(_ context.Context, req *pb.PhoneStateListenerOnDataActivityRequest) (*pb.OnDataActivityResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PhoneStateListener{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnDataActivity(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnDataActivityResponse{}, nil
+}
+
+func (s *PhoneStateListenerServer) OnDataConnectionStateChanged1(_ context.Context, req *pb.OnDataConnectionStateChanged1Request) (*pb.OnDataConnectionStateChanged1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PhoneStateListener{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnDataConnectionStateChanged1(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnDataConnectionStateChanged1Response{}, nil
+}
+
+func (s *PhoneStateListenerServer) OnDataConnectionStateChanged2_1(_ context.Context, req *pb.OnDataConnectionStateChanged2_1Request) (*pb.OnDataConnectionStateChanged2_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PhoneStateListener{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnDataConnectionStateChanged2_1(req.GetArg0(), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnDataConnectionStateChanged2_1Response{}, nil
+}
+
+func (s *PhoneStateListenerServer) OnDisplayInfoChanged(_ context.Context, req *pb.PhoneStateListenerOnDisplayInfoChangedRequest) (*pb.OnDisplayInfoChangedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PhoneStateListener{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnDisplayInfoChanged(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnDisplayInfoChangedResponse{}, nil
+}
+
+func (s *PhoneStateListenerServer) OnImsCallDisconnectCauseChanged(_ context.Context, req *pb.PhoneStateListenerOnImsCallDisconnectCauseChangedRequest) (*pb.OnImsCallDisconnectCauseChangedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PhoneStateListener{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnImsCallDisconnectCauseChanged(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnImsCallDisconnectCauseChangedResponse{}, nil
+}
+
+func (s *PhoneStateListenerServer) OnMessageWaitingIndicatorChanged(_ context.Context, req *pb.PhoneStateListenerOnMessageWaitingIndicatorChangedRequest) (*pb.OnMessageWaitingIndicatorChangedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PhoneStateListener{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnMessageWaitingIndicatorChanged(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnMessageWaitingIndicatorChangedResponse{}, nil
+}
+
+func (s *PhoneStateListenerServer) OnPreciseDataConnectionStateChanged(_ context.Context, req *pb.PhoneStateListenerOnPreciseDataConnectionStateChangedRequest) (*pb.OnPreciseDataConnectionStateChangedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PhoneStateListener{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnPreciseDataConnectionStateChanged(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnPreciseDataConnectionStateChangedResponse{}, nil
+}
+
+func (s *PhoneStateListenerServer) OnRegistrationFailed(_ context.Context, req *pb.PhoneStateListenerOnRegistrationFailedRequest) (*pb.OnRegistrationFailedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PhoneStateListener{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnRegistrationFailed(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnRegistrationFailedResponse{}, nil
+}
+
+func (s *PhoneStateListenerServer) OnServiceStateChanged(_ context.Context, req *pb.PhoneStateListenerOnServiceStateChangedRequest) (*pb.OnServiceStateChangedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PhoneStateListener{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnServiceStateChanged(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnServiceStateChangedResponse{}, nil
+}
+
+func (s *PhoneStateListenerServer) OnSignalStrengthChanged(_ context.Context, req *pb.OnSignalStrengthChangedRequest) (*pb.OnSignalStrengthChangedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PhoneStateListener{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnSignalStrengthChanged(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnSignalStrengthChangedResponse{}, nil
+}
+
+func (s *PhoneStateListenerServer) OnSignalStrengthsChanged(_ context.Context, req *pb.PhoneStateListenerOnSignalStrengthsChangedRequest) (*pb.OnSignalStrengthsChangedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PhoneStateListener{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnSignalStrengthsChanged(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnSignalStrengthsChangedResponse{}, nil
+}
+
+func (s *PhoneStateListenerServer) OnUserMobileDataStateChanged(_ context.Context, req *pb.PhoneStateListenerOnUserMobileDataStateChangedRequest) (*pb.OnUserMobileDataStateChangedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PhoneStateListener{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnUserMobileDataStateChanged(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnUserMobileDataStateChangedResponse{}, nil
 }

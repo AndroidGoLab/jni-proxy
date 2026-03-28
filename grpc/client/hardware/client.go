@@ -311,3 +311,2160 @@ func (c *SensorManagerClient) RemapCoordinateSystem(ctx context.Context, arg0 in
 	}
 	return resp.GetResult(), nil
 }
+
+// SensorManagerDynamicSensorCallbackClient wraps the gRPC SensorManagerDynamicSensorCallbackService client.
+type SensorManagerDynamicSensorCallbackClient struct {
+	svc pb.SensorManagerDynamicSensorCallbackServiceClient
+}
+
+// NewSensorManagerDynamicSensorCallbackClient creates a new SensorManagerDynamicSensorCallback client.
+func NewSensorManagerDynamicSensorCallbackClient(cc grpc.ClientConnInterface) *SensorManagerDynamicSensorCallbackClient {
+	return &SensorManagerDynamicSensorCallbackClient{
+		svc: pb.NewSensorManagerDynamicSensorCallbackServiceClient(cc),
+	}
+}
+
+// OnDynamicSensorConnected calls the OnDynamicSensorConnected RPC.
+func (c *SensorManagerDynamicSensorCallbackClient) OnDynamicSensorConnected(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnDynamicSensorConnected(ctx, &pb.OnDynamicSensorConnectedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnDynamicSensorDisconnected calls the OnDynamicSensorDisconnected RPC.
+func (c *SensorManagerDynamicSensorCallbackClient) OnDynamicSensorDisconnected(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnDynamicSensorDisconnected(ctx, &pb.OnDynamicSensorDisconnectedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SyncFenceClient wraps the gRPC SyncFenceService client.
+type SyncFenceClient struct {
+	svc pb.SyncFenceServiceClient
+}
+
+// NewSyncFenceClient creates a new SyncFence client.
+func NewSyncFenceClient(cc grpc.ClientConnInterface) *SyncFenceClient {
+	return &SyncFenceClient{
+		svc: pb.NewSyncFenceServiceClient(cc),
+	}
+}
+
+// Await calls the Await RPC.
+func (c *SyncFenceClient) Await(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Await(ctx, &pb.AwaitRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AwaitForever calls the AwaitForever RPC.
+func (c *SyncFenceClient) AwaitForever(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.AwaitForever(ctx, &pb.AwaitForeverRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Close calls the Close RPC.
+func (c *SyncFenceClient) Close(ctx context.Context, handle int64) error {
+	_, err := c.svc.Close(ctx, &pb.CloseRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *SyncFenceClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSignalTime calls the GetSignalTime RPC.
+func (c *SyncFenceClient) GetSignalTime(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetSignalTime(ctx, &pb.GetSignalTimeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsValid calls the IsValid RPC.
+func (c *SyncFenceClient) IsValid(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsValid(ctx, &pb.IsValidRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *SyncFenceClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SensorListenerClient wraps the gRPC SensorListenerService client.
+type SensorListenerClient struct {
+	svc pb.SensorListenerServiceClient
+}
+
+// NewSensorListenerClient creates a new SensorListener client.
+func NewSensorListenerClient(cc grpc.ClientConnInterface) *SensorListenerClient {
+	return &SensorListenerClient{
+		svc: pb.NewSensorListenerServiceClient(cc),
+	}
+}
+
+// OnAccuracyChanged calls the OnAccuracyChanged RPC.
+func (c *SensorListenerClient) OnAccuracyChanged(ctx context.Context, arg0 int32, arg1 int32) error {
+	_, err := c.svc.OnAccuracyChanged(ctx, &pb.OnAccuracyChangedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnSensorChanged calls the OnSensorChanged RPC.
+func (c *SensorListenerClient) OnSensorChanged(ctx context.Context, arg0 int32, arg1 int64) error {
+	_, err := c.svc.OnSensorChanged(ctx, &pb.OnSensorChangedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// DisplayLutsClient wraps the gRPC DisplayLutsService client.
+type DisplayLutsClient struct {
+	svc pb.DisplayLutsServiceClient
+}
+
+// NewDisplayLutsClient creates a new DisplayLuts client.
+func NewDisplayLutsClient(cc grpc.ClientConnInterface) *DisplayLutsClient {
+	return &DisplayLutsClient{
+		svc: pb.NewDisplayLutsServiceClient(cc),
+	}
+}
+
+// Set1 calls the Set1 RPC.
+func (c *DisplayLutsClient) Set1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.Set1(ctx, &pb.Set1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// Set2_1 calls the Set2_1 RPC.
+func (c *DisplayLutsClient) Set2_1(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
+	_, err := c.svc.Set2_1(ctx, &pb.Set2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// ToString calls the ToString RPC.
+func (c *DisplayLutsClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// DisplayLutsEntryClient wraps the gRPC DisplayLutsEntryService client.
+type DisplayLutsEntryClient struct {
+	svc pb.DisplayLutsEntryServiceClient
+}
+
+// NewDisplayLutsEntryClient creates a new DisplayLutsEntry client.
+func NewDisplayLutsEntryClient(cc grpc.ClientConnInterface) *DisplayLutsEntryClient {
+	return &DisplayLutsEntryClient{
+		svc: pb.NewDisplayLutsEntryServiceClient(cc),
+	}
+}
+
+// GetBuffer calls the GetBuffer RPC.
+func (c *DisplayLutsEntryClient) GetBuffer(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetBuffer(ctx, &pb.GetBufferRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDimension calls the GetDimension RPC.
+func (c *DisplayLutsEntryClient) GetDimension(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetDimension(ctx, &pb.GetDimensionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSamplingKey calls the GetSamplingKey RPC.
+func (c *DisplayLutsEntryClient) GetSamplingKey(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetSamplingKey(ctx, &pb.GetSamplingKeyRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *DisplayLutsEntryClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.DisplayLutsEntryToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// SensorClient wraps the gRPC SensorService client.
+type SensorClient struct {
+	svc pb.SensorServiceClient
+}
+
+// NewSensorClient creates a new Sensor client.
+func NewSensorClient(cc grpc.ClientConnInterface) *SensorClient {
+	return &SensorClient{
+		svc: pb.NewSensorServiceClient(cc),
+	}
+}
+
+// GetFifoMaxEventCount calls the GetFifoMaxEventCount RPC.
+func (c *SensorClient) GetFifoMaxEventCount(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetFifoMaxEventCount(ctx, &pb.GetFifoMaxEventCountRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFifoReservedEventCount calls the GetFifoReservedEventCount RPC.
+func (c *SensorClient) GetFifoReservedEventCount(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetFifoReservedEventCount(ctx, &pb.GetFifoReservedEventCountRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHighestDirectReportRateLevel calls the GetHighestDirectReportRateLevel RPC.
+func (c *SensorClient) GetHighestDirectReportRateLevel(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetHighestDirectReportRateLevel(ctx, &pb.GetHighestDirectReportRateLevelRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetId calls the GetId RPC.
+func (c *SensorClient) GetId(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMaxDelay calls the GetMaxDelay RPC.
+func (c *SensorClient) GetMaxDelay(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMaxDelay(ctx, &pb.GetMaxDelayRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMaximumRange calls the GetMaximumRange RPC.
+func (c *SensorClient) GetMaximumRange(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetMaximumRange(ctx, &pb.GetMaximumRangeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMinDelay calls the GetMinDelay RPC.
+func (c *SensorClient) GetMinDelay(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMinDelay(ctx, &pb.GetMinDelayRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetName calls the GetName RPC.
+func (c *SensorClient) GetName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetName(ctx, &pb.GetNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPower calls the GetPower RPC.
+func (c *SensorClient) GetPower(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetPower(ctx, &pb.GetPowerRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetReportingMode calls the GetReportingMode RPC.
+func (c *SensorClient) GetReportingMode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetReportingMode(ctx, &pb.GetReportingModeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetResolution calls the GetResolution RPC.
+func (c *SensorClient) GetResolution(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetResolution(ctx, &pb.GetResolutionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStringType calls the GetStringType RPC.
+func (c *SensorClient) GetStringType(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetStringType(ctx, &pb.GetStringTypeRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetType calls the GetType RPC.
+func (c *SensorClient) GetType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetType(ctx, &pb.GetTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVendor calls the GetVendor RPC.
+func (c *SensorClient) GetVendor(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetVendor(ctx, &pb.GetVendorRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVersion calls the GetVersion RPC.
+func (c *SensorClient) GetVersion(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetVersion(ctx, &pb.GetVersionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsAdditionalInfoSupported calls the IsAdditionalInfoSupported RPC.
+func (c *SensorClient) IsAdditionalInfoSupported(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsAdditionalInfoSupported(ctx, &pb.IsAdditionalInfoSupportedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsDirectChannelTypeSupported calls the IsDirectChannelTypeSupported RPC.
+func (c *SensorClient) IsDirectChannelTypeSupported(ctx context.Context, arg0 int32) (bool, error) {
+	resp, err := c.svc.IsDirectChannelTypeSupported(ctx, &pb.IsDirectChannelTypeSupportedRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsDynamicSensor calls the IsDynamicSensor RPC.
+func (c *SensorClient) IsDynamicSensor(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsDynamicSensor(ctx, &pb.IsDynamicSensorRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsWakeUpSensor calls the IsWakeUpSensor RPC.
+func (c *SensorClient) IsWakeUpSensor(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsWakeUpSensor(ctx, &pb.IsWakeUpSensorRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *SensorClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.SensorToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// TriggerEventListenerClient wraps the gRPC TriggerEventListenerService client.
+type TriggerEventListenerClient struct {
+	svc pb.TriggerEventListenerServiceClient
+}
+
+// NewTriggerEventListenerClient creates a new TriggerEventListener client.
+func NewTriggerEventListenerClient(cc grpc.ClientConnInterface) *TriggerEventListenerClient {
+	return &TriggerEventListenerClient{
+		svc: pb.NewTriggerEventListenerServiceClient(cc),
+	}
+}
+
+// OnTrigger calls the OnTrigger RPC.
+func (c *TriggerEventListenerClient) OnTrigger(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnTrigger(ctx, &pb.OnTriggerRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// GeomagneticFieldClient wraps the gRPC GeomagneticFieldService client.
+type GeomagneticFieldClient struct {
+	svc pb.GeomagneticFieldServiceClient
+}
+
+// NewGeomagneticFieldClient creates a new GeomagneticField client.
+func NewGeomagneticFieldClient(cc grpc.ClientConnInterface) *GeomagneticFieldClient {
+	return &GeomagneticFieldClient{
+		svc: pb.NewGeomagneticFieldServiceClient(cc),
+	}
+}
+
+// GetDeclination calls the GetDeclination RPC.
+func (c *GeomagneticFieldClient) GetDeclination(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetDeclination(ctx, &pb.GetDeclinationRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFieldStrength calls the GetFieldStrength RPC.
+func (c *GeomagneticFieldClient) GetFieldStrength(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetFieldStrength(ctx, &pb.GetFieldStrengthRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHorizontalStrength calls the GetHorizontalStrength RPC.
+func (c *GeomagneticFieldClient) GetHorizontalStrength(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetHorizontalStrength(ctx, &pb.GetHorizontalStrengthRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInclination calls the GetInclination RPC.
+func (c *GeomagneticFieldClient) GetInclination(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetInclination(ctx, &pb.GeomagneticFieldGetInclinationRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetX calls the GetX RPC.
+func (c *GeomagneticFieldClient) GetX(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetX(ctx, &pb.GetXRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetY calls the GetY RPC.
+func (c *GeomagneticFieldClient) GetY(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetY(ctx, &pb.GetYRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetZ calls the GetZ RPC.
+func (c *GeomagneticFieldClient) GetZ(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetZ(ctx, &pb.GetZRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// BufferClient wraps the gRPC BufferService client.
+type BufferClient struct {
+	svc pb.BufferServiceClient
+}
+
+// NewBufferClient creates a new Buffer client.
+func NewBufferClient(cc grpc.ClientConnInterface) *BufferClient {
+	return &BufferClient{
+		svc: pb.NewBufferServiceClient(cc),
+	}
+}
+
+// Close calls the Close RPC.
+func (c *BufferClient) Close(ctx context.Context) error {
+	_, err := c.svc.Close(ctx, &pb.BufferCloseRequest{})
+	return err
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *BufferClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.BufferDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFormat calls the GetFormat RPC.
+func (c *BufferClient) GetFormat(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetFormat(ctx, &pb.GetFormatRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHeight calls the GetHeight RPC.
+func (c *BufferClient) GetHeight(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetHeight(ctx, &pb.GetHeightRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetId calls the GetId RPC.
+func (c *BufferClient) GetId(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLayers calls the GetLayers RPC.
+func (c *BufferClient) GetLayers(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetLayers(ctx, &pb.GetLayersRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUsage calls the GetUsage RPC.
+func (c *BufferClient) GetUsage(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetUsage(ctx, &pb.GetUsageRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWidth calls the GetWidth RPC.
+func (c *BufferClient) GetWidth(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetWidth(ctx, &pb.GetWidthRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsClosed calls the IsClosed RPC.
+func (c *BufferClient) IsClosed(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsClosed(ctx, &pb.IsClosedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *BufferClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.BufferWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// Create calls the Create RPC.
+func (c *BufferClient) Create(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int64) (int64, error) {
+	resp, err := c.svc.Create(ctx, &pb.CreateRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsSupported calls the IsSupported RPC.
+func (c *BufferClient) IsSupported(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int64) (bool, error) {
+	resp, err := c.svc.IsSupported(ctx, &pb.IsSupportedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SensorEventListenerClient wraps the gRPC SensorEventListenerService client.
+type SensorEventListenerClient struct {
+	svc pb.SensorEventListenerServiceClient
+}
+
+// NewSensorEventListenerClient creates a new SensorEventListener client.
+func NewSensorEventListenerClient(cc grpc.ClientConnInterface) *SensorEventListenerClient {
+	return &SensorEventListenerClient{
+		svc: pb.NewSensorEventListenerServiceClient(cc),
+	}
+}
+
+// OnAccuracyChanged calls the OnAccuracyChanged RPC.
+func (c *SensorEventListenerClient) OnAccuracyChanged(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.OnAccuracyChanged(ctx, &pb.SensorEventListenerOnAccuracyChangedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnSensorChanged calls the OnSensorChanged RPC.
+func (c *SensorEventListenerClient) OnSensorChanged(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnSensorChanged(ctx, &pb.SensorEventListenerOnSensorChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SensorDirectChannelClient wraps the gRPC SensorDirectChannelService client.
+type SensorDirectChannelClient struct {
+	svc pb.SensorDirectChannelServiceClient
+}
+
+// NewSensorDirectChannelClient creates a new SensorDirectChannel client.
+func NewSensorDirectChannelClient(cc grpc.ClientConnInterface) *SensorDirectChannelClient {
+	return &SensorDirectChannelClient{
+		svc: pb.NewSensorDirectChannelServiceClient(cc),
+	}
+}
+
+// Close calls the Close RPC.
+func (c *SensorDirectChannelClient) Close(ctx context.Context) error {
+	_, err := c.svc.Close(ctx, &pb.SensorDirectChannelCloseRequest{})
+	return err
+}
+
+// Configure calls the Configure RPC.
+func (c *SensorDirectChannelClient) Configure(ctx context.Context, arg0 int64, arg1 int32) (int32, error) {
+	resp, err := c.svc.Configure(ctx, &pb.ConfigureRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsOpen calls the IsOpen RPC.
+func (c *SensorDirectChannelClient) IsOpen(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsOpen(ctx, &pb.IsOpenRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// LutPropertiesClient wraps the gRPC LutPropertiesService client.
+type LutPropertiesClient struct {
+	svc pb.LutPropertiesServiceClient
+}
+
+// NewLutPropertiesClient creates a new LutProperties client.
+func NewLutPropertiesClient(cc grpc.ClientConnInterface) *LutPropertiesClient {
+	return &LutPropertiesClient{
+		svc: pb.NewLutPropertiesServiceClient(cc),
+	}
+}
+
+// GetDimension calls the GetDimension RPC.
+func (c *LutPropertiesClient) GetDimension(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetDimension(ctx, &pb.GetDimensionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSamplingKeys calls the GetSamplingKeys RPC.
+func (c *LutPropertiesClient) GetSamplingKeys(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSamplingKeys(ctx, &pb.GetSamplingKeysRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSize calls the GetSize RPC.
+func (c *LutPropertiesClient) GetSize(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetSize(ctx, &pb.GetSizeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DataSpaceClient wraps the gRPC DataSpaceService client.
+type DataSpaceClient struct {
+	svc pb.DataSpaceServiceClient
+}
+
+// NewDataSpaceClient creates a new DataSpace client.
+func NewDataSpaceClient(cc grpc.ClientConnInterface) *DataSpaceClient {
+	return &DataSpaceClient{
+		svc: pb.NewDataSpaceServiceClient(cc),
+	}
+}
+
+// GetRange calls the GetRange RPC.
+func (c *DataSpaceClient) GetRange(ctx context.Context, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetRange(ctx, &pb.GetRangeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStandard calls the GetStandard RPC.
+func (c *DataSpaceClient) GetStandard(ctx context.Context, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetStandard(ctx, &pb.GetStandardRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTransfer calls the GetTransfer RPC.
+func (c *DataSpaceClient) GetTransfer(ctx context.Context, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetTransfer(ctx, &pb.GetTransferRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Pack calls the Pack RPC.
+func (c *DataSpaceClient) Pack(ctx context.Context, arg0 int32, arg1 int32, arg2 int32) (int32, error) {
+	resp, err := c.svc.Pack(ctx, &pb.PackRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CameraClient wraps the gRPC CameraService client.
+type CameraClient struct {
+	svc pb.CameraServiceClient
+}
+
+// NewCameraClient creates a new Camera client.
+func NewCameraClient(cc grpc.ClientConnInterface) *CameraClient {
+	return &CameraClient{
+		svc: pb.NewCameraServiceClient(cc),
+	}
+}
+
+// AddCallbackBuffer calls the AddCallbackBuffer RPC.
+func (c *CameraClient) AddCallbackBuffer(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.AddCallbackBuffer(ctx, &pb.AddCallbackBufferRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// AutoFocus calls the AutoFocus RPC.
+func (c *CameraClient) AutoFocus(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.AutoFocus(ctx, &pb.AutoFocusRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// CancelAutoFocus calls the CancelAutoFocus RPC.
+func (c *CameraClient) CancelAutoFocus(ctx context.Context) error {
+	_, err := c.svc.CancelAutoFocus(ctx, &pb.CancelAutoFocusRequest{})
+	return err
+}
+
+// EnableShutterSound calls the EnableShutterSound RPC.
+func (c *CameraClient) EnableShutterSound(ctx context.Context, arg0 bool) (bool, error) {
+	resp, err := c.svc.EnableShutterSound(ctx, &pb.EnableShutterSoundRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetParameters calls the GetParameters RPC.
+func (c *CameraClient) GetParameters(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetParameters(ctx, &pb.GetParametersRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Lock calls the Lock RPC.
+func (c *CameraClient) Lock(ctx context.Context) error {
+	_, err := c.svc.Lock(ctx, &pb.LockRequest{})
+	return err
+}
+
+// Reconnect calls the Reconnect RPC.
+func (c *CameraClient) Reconnect(ctx context.Context) error {
+	_, err := c.svc.Reconnect(ctx, &pb.ReconnectRequest{})
+	return err
+}
+
+// Release calls the Release RPC.
+func (c *CameraClient) Release(ctx context.Context) error {
+	_, err := c.svc.Release(ctx, &pb.ReleaseRequest{})
+	return err
+}
+
+// SetAutoFocusMoveCallback calls the SetAutoFocusMoveCallback RPC.
+func (c *CameraClient) SetAutoFocusMoveCallback(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetAutoFocusMoveCallback(ctx, &pb.SetAutoFocusMoveCallbackRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetDisplayOrientation calls the SetDisplayOrientation RPC.
+func (c *CameraClient) SetDisplayOrientation(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetDisplayOrientation(ctx, &pb.SetDisplayOrientationRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetErrorCallback calls the SetErrorCallback RPC.
+func (c *CameraClient) SetErrorCallback(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetErrorCallback(ctx, &pb.SetErrorCallbackRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetFaceDetectionListener calls the SetFaceDetectionListener RPC.
+func (c *CameraClient) SetFaceDetectionListener(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetFaceDetectionListener(ctx, &pb.SetFaceDetectionListenerRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetOneShotPreviewCallback calls the SetOneShotPreviewCallback RPC.
+func (c *CameraClient) SetOneShotPreviewCallback(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetOneShotPreviewCallback(ctx, &pb.SetOneShotPreviewCallbackRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetParameters calls the SetParameters RPC.
+func (c *CameraClient) SetParameters(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetParameters(ctx, &pb.SetParametersRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetPreviewCallback calls the SetPreviewCallback RPC.
+func (c *CameraClient) SetPreviewCallback(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetPreviewCallback(ctx, &pb.SetPreviewCallbackRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetPreviewCallbackWithBuffer calls the SetPreviewCallbackWithBuffer RPC.
+func (c *CameraClient) SetPreviewCallbackWithBuffer(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetPreviewCallbackWithBuffer(ctx, &pb.SetPreviewCallbackWithBufferRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetPreviewDisplay calls the SetPreviewDisplay RPC.
+func (c *CameraClient) SetPreviewDisplay(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetPreviewDisplay(ctx, &pb.SetPreviewDisplayRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetPreviewTexture calls the SetPreviewTexture RPC.
+func (c *CameraClient) SetPreviewTexture(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetPreviewTexture(ctx, &pb.SetPreviewTextureRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetZoomChangeListener calls the SetZoomChangeListener RPC.
+func (c *CameraClient) SetZoomChangeListener(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetZoomChangeListener(ctx, &pb.SetZoomChangeListenerRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// StartFaceDetection calls the StartFaceDetection RPC.
+func (c *CameraClient) StartFaceDetection(ctx context.Context) error {
+	_, err := c.svc.StartFaceDetection(ctx, &pb.StartFaceDetectionRequest{})
+	return err
+}
+
+// StartPreview calls the StartPreview RPC.
+func (c *CameraClient) StartPreview(ctx context.Context) error {
+	_, err := c.svc.StartPreview(ctx, &pb.StartPreviewRequest{})
+	return err
+}
+
+// StartSmoothZoom calls the StartSmoothZoom RPC.
+func (c *CameraClient) StartSmoothZoom(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.StartSmoothZoom(ctx, &pb.StartSmoothZoomRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// StopFaceDetection calls the StopFaceDetection RPC.
+func (c *CameraClient) StopFaceDetection(ctx context.Context) error {
+	_, err := c.svc.StopFaceDetection(ctx, &pb.StopFaceDetectionRequest{})
+	return err
+}
+
+// StopPreview calls the StopPreview RPC.
+func (c *CameraClient) StopPreview(ctx context.Context) error {
+	_, err := c.svc.StopPreview(ctx, &pb.StopPreviewRequest{})
+	return err
+}
+
+// StopSmoothZoom calls the StopSmoothZoom RPC.
+func (c *CameraClient) StopSmoothZoom(ctx context.Context) error {
+	_, err := c.svc.StopSmoothZoom(ctx, &pb.StopSmoothZoomRequest{})
+	return err
+}
+
+// TakePicture3 calls the TakePicture3 RPC.
+func (c *CameraClient) TakePicture3(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.TakePicture3(ctx, &pb.TakePicture3Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// TakePicture4_1 calls the TakePicture4_1 RPC.
+func (c *CameraClient) TakePicture4_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
+	_, err := c.svc.TakePicture4_1(ctx, &pb.TakePicture4_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// Unlock calls the Unlock RPC.
+func (c *CameraClient) Unlock(ctx context.Context) error {
+	_, err := c.svc.Unlock(ctx, &pb.UnlockRequest{})
+	return err
+}
+
+// GetCameraInfo calls the GetCameraInfo RPC.
+func (c *CameraClient) GetCameraInfo(ctx context.Context, arg0 int32, arg1 int64) error {
+	_, err := c.svc.GetCameraInfo(ctx, &pb.GetCameraInfoRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// GetNumberOfCameras calls the GetNumberOfCameras RPC.
+func (c *CameraClient) GetNumberOfCameras(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetNumberOfCameras(ctx, &pb.GetNumberOfCamerasRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Open0 calls the Open0 RPC.
+func (c *CameraClient) Open0(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Open0(ctx, &pb.Open0Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Open1_1 calls the Open1_1 RPC.
+func (c *CameraClient) Open1_1(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.Open1_1(ctx, &pb.Open1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CameraAreaClient wraps the gRPC CameraAreaService client.
+type CameraAreaClient struct {
+	svc pb.CameraAreaServiceClient
+}
+
+// NewCameraAreaClient creates a new CameraArea client.
+func NewCameraAreaClient(cc grpc.ClientConnInterface) *CameraAreaClient {
+	return &CameraAreaClient{
+		svc: pb.NewCameraAreaServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *CameraAreaClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CameraAutoFocusCallbackClient wraps the gRPC CameraAutoFocusCallbackService client.
+type CameraAutoFocusCallbackClient struct {
+	svc pb.CameraAutoFocusCallbackServiceClient
+}
+
+// NewCameraAutoFocusCallbackClient creates a new CameraAutoFocusCallback client.
+func NewCameraAutoFocusCallbackClient(cc grpc.ClientConnInterface) *CameraAutoFocusCallbackClient {
+	return &CameraAutoFocusCallbackClient{
+		svc: pb.NewCameraAutoFocusCallbackServiceClient(cc),
+	}
+}
+
+// OnAutoFocus calls the OnAutoFocus RPC.
+func (c *CameraAutoFocusCallbackClient) OnAutoFocus(ctx context.Context, arg0 bool, arg1 int64) error {
+	_, err := c.svc.OnAutoFocus(ctx, &pb.OnAutoFocusRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// CameraAutoFocusMoveCallbackClient wraps the gRPC CameraAutoFocusMoveCallbackService client.
+type CameraAutoFocusMoveCallbackClient struct {
+	svc pb.CameraAutoFocusMoveCallbackServiceClient
+}
+
+// NewCameraAutoFocusMoveCallbackClient creates a new CameraAutoFocusMoveCallback client.
+func NewCameraAutoFocusMoveCallbackClient(cc grpc.ClientConnInterface) *CameraAutoFocusMoveCallbackClient {
+	return &CameraAutoFocusMoveCallbackClient{
+		svc: pb.NewCameraAutoFocusMoveCallbackServiceClient(cc),
+	}
+}
+
+// OnAutoFocusMoving calls the OnAutoFocusMoving RPC.
+func (c *CameraAutoFocusMoveCallbackClient) OnAutoFocusMoving(ctx context.Context, arg0 bool, arg1 int64) error {
+	_, err := c.svc.OnAutoFocusMoving(ctx, &pb.OnAutoFocusMovingRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// CameraErrorCallbackClient wraps the gRPC CameraErrorCallbackService client.
+type CameraErrorCallbackClient struct {
+	svc pb.CameraErrorCallbackServiceClient
+}
+
+// NewCameraErrorCallbackClient creates a new CameraErrorCallback client.
+func NewCameraErrorCallbackClient(cc grpc.ClientConnInterface) *CameraErrorCallbackClient {
+	return &CameraErrorCallbackClient{
+		svc: pb.NewCameraErrorCallbackServiceClient(cc),
+	}
+}
+
+// OnError calls the OnError RPC.
+func (c *CameraErrorCallbackClient) OnError(ctx context.Context, arg0 int32, arg1 int64) error {
+	_, err := c.svc.OnError(ctx, &pb.OnErrorRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// CameraFaceDetectionListenerClient wraps the gRPC CameraFaceDetectionListenerService client.
+type CameraFaceDetectionListenerClient struct {
+	svc pb.CameraFaceDetectionListenerServiceClient
+}
+
+// NewCameraFaceDetectionListenerClient creates a new CameraFaceDetectionListener client.
+func NewCameraFaceDetectionListenerClient(cc grpc.ClientConnInterface) *CameraFaceDetectionListenerClient {
+	return &CameraFaceDetectionListenerClient{
+		svc: pb.NewCameraFaceDetectionListenerServiceClient(cc),
+	}
+}
+
+// OnFaceDetection calls the OnFaceDetection RPC.
+func (c *CameraFaceDetectionListenerClient) OnFaceDetection(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.OnFaceDetection(ctx, &pb.OnFaceDetectionRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// CameraOnZoomChangeListenerClient wraps the gRPC CameraOnZoomChangeListenerService client.
+type CameraOnZoomChangeListenerClient struct {
+	svc pb.CameraOnZoomChangeListenerServiceClient
+}
+
+// NewCameraOnZoomChangeListenerClient creates a new CameraOnZoomChangeListener client.
+func NewCameraOnZoomChangeListenerClient(cc grpc.ClientConnInterface) *CameraOnZoomChangeListenerClient {
+	return &CameraOnZoomChangeListenerClient{
+		svc: pb.NewCameraOnZoomChangeListenerServiceClient(cc),
+	}
+}
+
+// OnZoomChange calls the OnZoomChange RPC.
+func (c *CameraOnZoomChangeListenerClient) OnZoomChange(ctx context.Context, arg0 int32, arg1 bool, arg2 int64) error {
+	_, err := c.svc.OnZoomChange(ctx, &pb.OnZoomChangeRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// CameraParametersClient wraps the gRPC CameraParametersService client.
+type CameraParametersClient struct {
+	svc pb.CameraParametersServiceClient
+}
+
+// NewCameraParametersClient creates a new CameraParameters client.
+func NewCameraParametersClient(cc grpc.ClientConnInterface) *CameraParametersClient {
+	return &CameraParametersClient{
+		svc: pb.NewCameraParametersServiceClient(cc),
+	}
+}
+
+// Flatten calls the Flatten RPC.
+func (c *CameraParametersClient) Flatten(ctx context.Context) (string, error) {
+	resp, err := c.svc.Flatten(ctx, &pb.FlattenRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// Get calls the Get RPC.
+func (c *CameraParametersClient) Get(ctx context.Context, arg0 string) (string, error) {
+	resp, err := c.svc.Get(ctx, &pb.GetRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAntibanding calls the GetAntibanding RPC.
+func (c *CameraParametersClient) GetAntibanding(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetAntibanding(ctx, &pb.GetAntibandingRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAutoExposureLock calls the GetAutoExposureLock RPC.
+func (c *CameraParametersClient) GetAutoExposureLock(ctx context.Context) (bool, error) {
+	resp, err := c.svc.GetAutoExposureLock(ctx, &pb.GetAutoExposureLockRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAutoWhiteBalanceLock calls the GetAutoWhiteBalanceLock RPC.
+func (c *CameraParametersClient) GetAutoWhiteBalanceLock(ctx context.Context) (bool, error) {
+	resp, err := c.svc.GetAutoWhiteBalanceLock(ctx, &pb.GetAutoWhiteBalanceLockRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetColorEffect calls the GetColorEffect RPC.
+func (c *CameraParametersClient) GetColorEffect(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetColorEffect(ctx, &pb.GetColorEffectRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExposureCompensation calls the GetExposureCompensation RPC.
+func (c *CameraParametersClient) GetExposureCompensation(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetExposureCompensation(ctx, &pb.GetExposureCompensationRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExposureCompensationStep calls the GetExposureCompensationStep RPC.
+func (c *CameraParametersClient) GetExposureCompensationStep(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetExposureCompensationStep(ctx, &pb.GetExposureCompensationStepRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFlashMode calls the GetFlashMode RPC.
+func (c *CameraParametersClient) GetFlashMode(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetFlashMode(ctx, &pb.GetFlashModeRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFocalLength calls the GetFocalLength RPC.
+func (c *CameraParametersClient) GetFocalLength(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetFocalLength(ctx, &pb.GetFocalLengthRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFocusDistances calls the GetFocusDistances RPC.
+func (c *CameraParametersClient) GetFocusDistances(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.GetFocusDistances(ctx, &pb.GetFocusDistancesRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// GetFocusMode calls the GetFocusMode RPC.
+func (c *CameraParametersClient) GetFocusMode(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetFocusMode(ctx, &pb.GetFocusModeRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHorizontalViewAngle calls the GetHorizontalViewAngle RPC.
+func (c *CameraParametersClient) GetHorizontalViewAngle(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetHorizontalViewAngle(ctx, &pb.GetHorizontalViewAngleRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInt calls the GetInt RPC.
+func (c *CameraParametersClient) GetInt(ctx context.Context, arg0 string) (int32, error) {
+	resp, err := c.svc.GetInt(ctx, &pb.GetIntRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetJpegQuality calls the GetJpegQuality RPC.
+func (c *CameraParametersClient) GetJpegQuality(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetJpegQuality(ctx, &pb.GetJpegQualityRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetJpegThumbnailQuality calls the GetJpegThumbnailQuality RPC.
+func (c *CameraParametersClient) GetJpegThumbnailQuality(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetJpegThumbnailQuality(ctx, &pb.GetJpegThumbnailQualityRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetJpegThumbnailSize calls the GetJpegThumbnailSize RPC.
+func (c *CameraParametersClient) GetJpegThumbnailSize(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetJpegThumbnailSize(ctx, &pb.GetJpegThumbnailSizeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMaxExposureCompensation calls the GetMaxExposureCompensation RPC.
+func (c *CameraParametersClient) GetMaxExposureCompensation(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMaxExposureCompensation(ctx, &pb.GetMaxExposureCompensationRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMaxNumDetectedFaces calls the GetMaxNumDetectedFaces RPC.
+func (c *CameraParametersClient) GetMaxNumDetectedFaces(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMaxNumDetectedFaces(ctx, &pb.GetMaxNumDetectedFacesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMaxNumFocusAreas calls the GetMaxNumFocusAreas RPC.
+func (c *CameraParametersClient) GetMaxNumFocusAreas(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMaxNumFocusAreas(ctx, &pb.GetMaxNumFocusAreasRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMaxNumMeteringAreas calls the GetMaxNumMeteringAreas RPC.
+func (c *CameraParametersClient) GetMaxNumMeteringAreas(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMaxNumMeteringAreas(ctx, &pb.GetMaxNumMeteringAreasRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMaxZoom calls the GetMaxZoom RPC.
+func (c *CameraParametersClient) GetMaxZoom(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMaxZoom(ctx, &pb.GetMaxZoomRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMinExposureCompensation calls the GetMinExposureCompensation RPC.
+func (c *CameraParametersClient) GetMinExposureCompensation(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMinExposureCompensation(ctx, &pb.GetMinExposureCompensationRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPictureFormat calls the GetPictureFormat RPC.
+func (c *CameraParametersClient) GetPictureFormat(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetPictureFormat(ctx, &pb.GetPictureFormatRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPictureSize calls the GetPictureSize RPC.
+func (c *CameraParametersClient) GetPictureSize(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPictureSize(ctx, &pb.GetPictureSizeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPreferredPreviewSizeForVideo calls the GetPreferredPreviewSizeForVideo RPC.
+func (c *CameraParametersClient) GetPreferredPreviewSizeForVideo(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPreferredPreviewSizeForVideo(ctx, &pb.GetPreferredPreviewSizeForVideoRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPreviewFormat calls the GetPreviewFormat RPC.
+func (c *CameraParametersClient) GetPreviewFormat(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetPreviewFormat(ctx, &pb.GetPreviewFormatRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPreviewFpsRange calls the GetPreviewFpsRange RPC.
+func (c *CameraParametersClient) GetPreviewFpsRange(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.GetPreviewFpsRange(ctx, &pb.GetPreviewFpsRangeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// GetPreviewFrameRate calls the GetPreviewFrameRate RPC.
+func (c *CameraParametersClient) GetPreviewFrameRate(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetPreviewFrameRate(ctx, &pb.GetPreviewFrameRateRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPreviewSize calls the GetPreviewSize RPC.
+func (c *CameraParametersClient) GetPreviewSize(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPreviewSize(ctx, &pb.GetPreviewSizeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSceneMode calls the GetSceneMode RPC.
+func (c *CameraParametersClient) GetSceneMode(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetSceneMode(ctx, &pb.GetSceneModeRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVerticalViewAngle calls the GetVerticalViewAngle RPC.
+func (c *CameraParametersClient) GetVerticalViewAngle(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetVerticalViewAngle(ctx, &pb.GetVerticalViewAngleRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVideoStabilization calls the GetVideoStabilization RPC.
+func (c *CameraParametersClient) GetVideoStabilization(ctx context.Context) (bool, error) {
+	resp, err := c.svc.GetVideoStabilization(ctx, &pb.GetVideoStabilizationRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWhiteBalance calls the GetWhiteBalance RPC.
+func (c *CameraParametersClient) GetWhiteBalance(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetWhiteBalance(ctx, &pb.GetWhiteBalanceRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetZoom calls the GetZoom RPC.
+func (c *CameraParametersClient) GetZoom(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetZoom(ctx, &pb.GetZoomRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsAutoExposureLockSupported calls the IsAutoExposureLockSupported RPC.
+func (c *CameraParametersClient) IsAutoExposureLockSupported(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsAutoExposureLockSupported(ctx, &pb.IsAutoExposureLockSupportedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsAutoWhiteBalanceLockSupported calls the IsAutoWhiteBalanceLockSupported RPC.
+func (c *CameraParametersClient) IsAutoWhiteBalanceLockSupported(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsAutoWhiteBalanceLockSupported(ctx, &pb.IsAutoWhiteBalanceLockSupportedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsSmoothZoomSupported calls the IsSmoothZoomSupported RPC.
+func (c *CameraParametersClient) IsSmoothZoomSupported(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsSmoothZoomSupported(ctx, &pb.IsSmoothZoomSupportedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsVideoSnapshotSupported calls the IsVideoSnapshotSupported RPC.
+func (c *CameraParametersClient) IsVideoSnapshotSupported(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsVideoSnapshotSupported(ctx, &pb.IsVideoSnapshotSupportedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsVideoStabilizationSupported calls the IsVideoStabilizationSupported RPC.
+func (c *CameraParametersClient) IsVideoStabilizationSupported(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsVideoStabilizationSupported(ctx, &pb.IsVideoStabilizationSupportedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsZoomSupported calls the IsZoomSupported RPC.
+func (c *CameraParametersClient) IsZoomSupported(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsZoomSupported(ctx, &pb.IsZoomSupportedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Remove calls the Remove RPC.
+func (c *CameraParametersClient) Remove(ctx context.Context, arg0 string) error {
+	_, err := c.svc.Remove(ctx, &pb.RemoveRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// RemoveGpsData calls the RemoveGpsData RPC.
+func (c *CameraParametersClient) RemoveGpsData(ctx context.Context) error {
+	_, err := c.svc.RemoveGpsData(ctx, &pb.RemoveGpsDataRequest{})
+	return err
+}
+
+// Set2 calls the Set2 RPC.
+func (c *CameraParametersClient) Set2(ctx context.Context, arg0 string, arg1 int32) error {
+	_, err := c.svc.Set2(ctx, &pb.Set2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// Set2_1 calls the Set2_1 RPC.
+func (c *CameraParametersClient) Set2_1(ctx context.Context, arg0 string, arg1 string) error {
+	_, err := c.svc.Set2_1(ctx, &pb.CameraParametersSet2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// SetAntibanding calls the SetAntibanding RPC.
+func (c *CameraParametersClient) SetAntibanding(ctx context.Context, arg0 string) error {
+	_, err := c.svc.SetAntibanding(ctx, &pb.SetAntibandingRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetAutoExposureLock calls the SetAutoExposureLock RPC.
+func (c *CameraParametersClient) SetAutoExposureLock(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetAutoExposureLock(ctx, &pb.SetAutoExposureLockRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetAutoWhiteBalanceLock calls the SetAutoWhiteBalanceLock RPC.
+func (c *CameraParametersClient) SetAutoWhiteBalanceLock(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetAutoWhiteBalanceLock(ctx, &pb.SetAutoWhiteBalanceLockRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetColorEffect calls the SetColorEffect RPC.
+func (c *CameraParametersClient) SetColorEffect(ctx context.Context, arg0 string) error {
+	_, err := c.svc.SetColorEffect(ctx, &pb.SetColorEffectRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetExposureCompensation calls the SetExposureCompensation RPC.
+func (c *CameraParametersClient) SetExposureCompensation(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetExposureCompensation(ctx, &pb.SetExposureCompensationRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetFlashMode calls the SetFlashMode RPC.
+func (c *CameraParametersClient) SetFlashMode(ctx context.Context, arg0 string) error {
+	_, err := c.svc.SetFlashMode(ctx, &pb.SetFlashModeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetFocusMode calls the SetFocusMode RPC.
+func (c *CameraParametersClient) SetFocusMode(ctx context.Context, arg0 string) error {
+	_, err := c.svc.SetFocusMode(ctx, &pb.SetFocusModeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetGpsAltitude calls the SetGpsAltitude RPC.
+func (c *CameraParametersClient) SetGpsAltitude(ctx context.Context, arg0 float64) error {
+	_, err := c.svc.SetGpsAltitude(ctx, &pb.SetGpsAltitudeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetGpsLatitude calls the SetGpsLatitude RPC.
+func (c *CameraParametersClient) SetGpsLatitude(ctx context.Context, arg0 float64) error {
+	_, err := c.svc.SetGpsLatitude(ctx, &pb.SetGpsLatitudeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetGpsLongitude calls the SetGpsLongitude RPC.
+func (c *CameraParametersClient) SetGpsLongitude(ctx context.Context, arg0 float64) error {
+	_, err := c.svc.SetGpsLongitude(ctx, &pb.SetGpsLongitudeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetGpsProcessingMethod calls the SetGpsProcessingMethod RPC.
+func (c *CameraParametersClient) SetGpsProcessingMethod(ctx context.Context, arg0 string) error {
+	_, err := c.svc.SetGpsProcessingMethod(ctx, &pb.SetGpsProcessingMethodRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetGpsTimestamp calls the SetGpsTimestamp RPC.
+func (c *CameraParametersClient) SetGpsTimestamp(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetGpsTimestamp(ctx, &pb.SetGpsTimestampRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetJpegQuality calls the SetJpegQuality RPC.
+func (c *CameraParametersClient) SetJpegQuality(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetJpegQuality(ctx, &pb.SetJpegQualityRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetJpegThumbnailQuality calls the SetJpegThumbnailQuality RPC.
+func (c *CameraParametersClient) SetJpegThumbnailQuality(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetJpegThumbnailQuality(ctx, &pb.SetJpegThumbnailQualityRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetJpegThumbnailSize calls the SetJpegThumbnailSize RPC.
+func (c *CameraParametersClient) SetJpegThumbnailSize(ctx context.Context, arg0 int32, arg1 int32) error {
+	_, err := c.svc.SetJpegThumbnailSize(ctx, &pb.SetJpegThumbnailSizeRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// SetPictureFormat calls the SetPictureFormat RPC.
+func (c *CameraParametersClient) SetPictureFormat(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetPictureFormat(ctx, &pb.SetPictureFormatRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetPictureSize calls the SetPictureSize RPC.
+func (c *CameraParametersClient) SetPictureSize(ctx context.Context, arg0 int32, arg1 int32) error {
+	_, err := c.svc.SetPictureSize(ctx, &pb.SetPictureSizeRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// SetPreviewFormat calls the SetPreviewFormat RPC.
+func (c *CameraParametersClient) SetPreviewFormat(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetPreviewFormat(ctx, &pb.SetPreviewFormatRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetPreviewFpsRange calls the SetPreviewFpsRange RPC.
+func (c *CameraParametersClient) SetPreviewFpsRange(ctx context.Context, arg0 int32, arg1 int32) error {
+	_, err := c.svc.SetPreviewFpsRange(ctx, &pb.SetPreviewFpsRangeRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// SetPreviewFrameRate calls the SetPreviewFrameRate RPC.
+func (c *CameraParametersClient) SetPreviewFrameRate(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetPreviewFrameRate(ctx, &pb.SetPreviewFrameRateRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetPreviewSize calls the SetPreviewSize RPC.
+func (c *CameraParametersClient) SetPreviewSize(ctx context.Context, arg0 int32, arg1 int32) error {
+	_, err := c.svc.SetPreviewSize(ctx, &pb.SetPreviewSizeRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// SetRecordingHint calls the SetRecordingHint RPC.
+func (c *CameraParametersClient) SetRecordingHint(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetRecordingHint(ctx, &pb.SetRecordingHintRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetRotation calls the SetRotation RPC.
+func (c *CameraParametersClient) SetRotation(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetRotation(ctx, &pb.SetRotationRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetSceneMode calls the SetSceneMode RPC.
+func (c *CameraParametersClient) SetSceneMode(ctx context.Context, arg0 string) error {
+	_, err := c.svc.SetSceneMode(ctx, &pb.SetSceneModeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetVideoStabilization calls the SetVideoStabilization RPC.
+func (c *CameraParametersClient) SetVideoStabilization(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetVideoStabilization(ctx, &pb.SetVideoStabilizationRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetWhiteBalance calls the SetWhiteBalance RPC.
+func (c *CameraParametersClient) SetWhiteBalance(ctx context.Context, arg0 string) error {
+	_, err := c.svc.SetWhiteBalance(ctx, &pb.SetWhiteBalanceRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetZoom calls the SetZoom RPC.
+func (c *CameraParametersClient) SetZoom(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetZoom(ctx, &pb.SetZoomRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// Unflatten calls the Unflatten RPC.
+func (c *CameraParametersClient) Unflatten(ctx context.Context, arg0 string) error {
+	_, err := c.svc.Unflatten(ctx, &pb.UnflattenRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// CameraPictureCallbackClient wraps the gRPC CameraPictureCallbackService client.
+type CameraPictureCallbackClient struct {
+	svc pb.CameraPictureCallbackServiceClient
+}
+
+// NewCameraPictureCallbackClient creates a new CameraPictureCallback client.
+func NewCameraPictureCallbackClient(cc grpc.ClientConnInterface) *CameraPictureCallbackClient {
+	return &CameraPictureCallbackClient{
+		svc: pb.NewCameraPictureCallbackServiceClient(cc),
+	}
+}
+
+// OnPictureTaken calls the OnPictureTaken RPC.
+func (c *CameraPictureCallbackClient) OnPictureTaken(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.OnPictureTaken(ctx, &pb.OnPictureTakenRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// CameraPreviewCallbackClient wraps the gRPC CameraPreviewCallbackService client.
+type CameraPreviewCallbackClient struct {
+	svc pb.CameraPreviewCallbackServiceClient
+}
+
+// NewCameraPreviewCallbackClient creates a new CameraPreviewCallback client.
+func NewCameraPreviewCallbackClient(cc grpc.ClientConnInterface) *CameraPreviewCallbackClient {
+	return &CameraPreviewCallbackClient{
+		svc: pb.NewCameraPreviewCallbackServiceClient(cc),
+	}
+}
+
+// OnPreviewFrame calls the OnPreviewFrame RPC.
+func (c *CameraPreviewCallbackClient) OnPreviewFrame(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.OnPreviewFrame(ctx, &pb.OnPreviewFrameRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// CameraShutterCallbackClient wraps the gRPC CameraShutterCallbackService client.
+type CameraShutterCallbackClient struct {
+	svc pb.CameraShutterCallbackServiceClient
+}
+
+// NewCameraShutterCallbackClient creates a new CameraShutterCallback client.
+func NewCameraShutterCallbackClient(cc grpc.ClientConnInterface) *CameraShutterCallbackClient {
+	return &CameraShutterCallbackClient{
+		svc: pb.NewCameraShutterCallbackServiceClient(cc),
+	}
+}
+
+// OnShutter calls the OnShutter RPC.
+func (c *CameraShutterCallbackClient) OnShutter(ctx context.Context) error {
+	_, err := c.svc.OnShutter(ctx, &pb.OnShutterRequest{})
+	return err
+}
+
+// CameraSizeClient wraps the gRPC CameraSizeService client.
+type CameraSizeClient struct {
+	svc pb.CameraSizeServiceClient
+}
+
+// NewCameraSizeClient creates a new CameraSize client.
+func NewCameraSizeClient(cc grpc.ClientConnInterface) *CameraSizeClient {
+	return &CameraSizeClient{
+		svc: pb.NewCameraSizeServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *CameraSizeClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *CameraSizeClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// BatteryStateClient wraps the gRPC BatteryStateService client.
+type BatteryStateClient struct {
+	svc pb.BatteryStateServiceClient
+}
+
+// NewBatteryStateClient creates a new BatteryState client.
+func NewBatteryStateClient(cc grpc.ClientConnInterface) *BatteryStateClient {
+	return &BatteryStateClient{
+		svc: pb.NewBatteryStateServiceClient(cc),
+	}
+}
+
+// GetCapacity calls the GetCapacity RPC.
+func (c *BatteryStateClient) GetCapacity(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetCapacity(ctx, &pb.GetCapacityRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStatus calls the GetStatus RPC.
+func (c *BatteryStateClient) GetStatus(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetStatus(ctx, &pb.GetStatusRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsPresent calls the IsPresent RPC.
+func (c *BatteryStateClient) IsPresent(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsPresent(ctx, &pb.IsPresentRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OverlayPropertiesClient wraps the gRPC OverlayPropertiesService client.
+type OverlayPropertiesClient struct {
+	svc pb.OverlayPropertiesServiceClient
+}
+
+// NewOverlayPropertiesClient creates a new OverlayProperties client.
+func NewOverlayPropertiesClient(cc grpc.ClientConnInterface) *OverlayPropertiesClient {
+	return &OverlayPropertiesClient{
+		svc: pb.NewOverlayPropertiesServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *OverlayPropertiesClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.OverlayPropertiesDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLutProperties calls the GetLutProperties RPC.
+func (c *OverlayPropertiesClient) GetLutProperties(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetLutProperties(ctx, &pb.GetLutPropertiesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsCombinationSupported calls the IsCombinationSupported RPC.
+func (c *OverlayPropertiesClient) IsCombinationSupported(ctx context.Context, arg0 int32, arg1 int32) (bool, error) {
+	resp, err := c.svc.IsCombinationSupported(ctx, &pb.IsCombinationSupportedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsMixedColorSpacesSupported calls the IsMixedColorSpacesSupported RPC.
+func (c *OverlayPropertiesClient) IsMixedColorSpacesSupported(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsMixedColorSpacesSupported(ctx, &pb.IsMixedColorSpacesSupportedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *OverlayPropertiesClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.OverlayPropertiesWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// SensorEventCallbackClient wraps the gRPC SensorEventCallbackService client.
+type SensorEventCallbackClient struct {
+	svc pb.SensorEventCallbackServiceClient
+}
+
+// NewSensorEventCallbackClient creates a new SensorEventCallback client.
+func NewSensorEventCallbackClient(cc grpc.ClientConnInterface) *SensorEventCallbackClient {
+	return &SensorEventCallbackClient{
+		svc: pb.NewSensorEventCallbackServiceClient(cc),
+	}
+}
+
+// OnAccuracyChanged calls the OnAccuracyChanged RPC.
+func (c *SensorEventCallbackClient) OnAccuracyChanged(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.OnAccuracyChanged(ctx, &pb.SensorEventCallbackOnAccuracyChangedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnFlushCompleted calls the OnFlushCompleted RPC.
+func (c *SensorEventCallbackClient) OnFlushCompleted(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnFlushCompleted(ctx, &pb.OnFlushCompletedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnSensorAdditionalInfo calls the OnSensorAdditionalInfo RPC.
+func (c *SensorEventCallbackClient) OnSensorAdditionalInfo(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnSensorAdditionalInfo(ctx, &pb.OnSensorAdditionalInfoRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnSensorChanged calls the OnSensorChanged RPC.
+func (c *SensorEventCallbackClient) OnSensorChanged(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnSensorChanged(ctx, &pb.SensorEventCallbackOnSensorChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SensorPrivacyManagerClient wraps the gRPC SensorPrivacyManagerService client.
+type SensorPrivacyManagerClient struct {
+	svc pb.SensorPrivacyManagerServiceClient
+}
+
+// NewSensorPrivacyManagerClient creates a new SensorPrivacyManager client.
+func NewSensorPrivacyManagerClient(cc grpc.ClientConnInterface) *SensorPrivacyManagerClient {
+	return &SensorPrivacyManagerClient{
+		svc: pb.NewSensorPrivacyManagerServiceClient(cc),
+	}
+}
+
+// SupportsSensorToggle1 calls the SupportsSensorToggle1 RPC.
+func (c *SensorPrivacyManagerClient) SupportsSensorToggle1(ctx context.Context, arg0 int32) (bool, error) {
+	resp, err := c.svc.SupportsSensorToggle1(ctx, &pb.SupportsSensorToggle1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SupportsSensorToggle2_1 calls the SupportsSensorToggle2_1 RPC.
+func (c *SensorPrivacyManagerClient) SupportsSensorToggle2_1(ctx context.Context, arg0 int32, arg1 int32) (bool, error) {
+	resp, err := c.svc.SupportsSensorToggle2_1(ctx, &pb.SupportsSensorToggle2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SensorEventListener2Client wraps the gRPC SensorEventListener2Service client.
+type SensorEventListener2Client struct {
+	svc pb.SensorEventListener2ServiceClient
+}
+
+// NewSensorEventListener2Client creates a new SensorEventListener2 client.
+func NewSensorEventListener2Client(cc grpc.ClientConnInterface) *SensorEventListener2Client {
+	return &SensorEventListener2Client{
+		svc: pb.NewSensorEventListener2ServiceClient(cc),
+	}
+}
+
+// OnFlushCompleted calls the OnFlushCompleted RPC.
+func (c *SensorEventListener2Client) OnFlushCompleted(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnFlushCompleted(ctx, &pb.OnFlushCompletedRequest{
+		Arg0: arg0,
+	})
+	return err
+}

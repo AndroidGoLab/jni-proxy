@@ -6,6 +6,2158 @@ package tv;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/tv";
 
+message NewAdRequestRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+  int64 arg5 = 6;
+  int64 arg6 = 7;
+}
+
+message NewAdRequestResponse {
+  int64 result = 1;
+}
+
+message DescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message GetEchoIntervalMillisRequest {
+  int64 handle = 1;
+}
+
+message GetEchoIntervalMillisResponse {
+  int64 result = 1;
+}
+
+message GetFileDescriptorRequest {
+  int64 handle = 1;
+}
+
+message GetFileDescriptorResponse {
+  int64 result = 1;
+}
+
+message GetIdRequest {
+  int64 handle = 1;
+}
+
+message GetIdResponse {
+  int32 result = 1;
+}
+
+message GetMediaFileTypeRequest {
+  int64 handle = 1;
+}
+
+message GetMediaFileTypeResponse {
+  string result = 1;
+}
+
+message GetMetadataRequest {
+  int64 handle = 1;
+}
+
+message GetMetadataResponse {
+  int64 result = 1;
+}
+
+message GetRequestTypeRequest {
+  int64 handle = 1;
+}
+
+message GetRequestTypeResponse {
+  int32 result = 1;
+}
+
+message GetStartTimeMillisRequest {
+  int64 handle = 1;
+}
+
+message GetStartTimeMillisResponse {
+  int64 result = 1;
+}
+
+message GetStopTimeMillisRequest {
+  int64 handle = 1;
+}
+
+message GetStopTimeMillisResponse {
+  int64 result = 1;
+}
+
+message GetUriRequest {
+  int64 handle = 1;
+}
+
+message GetUriResponse {
+  int64 result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message WriteToParcelResponse {
+}
+
+message NewPesRequestRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message NewPesRequestResponse {
+  int64 result = 1;
+}
+
+message GetStreamIdRequest {
+  int64 handle = 1;
+}
+
+message GetStreamIdResponse {
+  int32 result = 1;
+}
+
+message GetTsPidRequest {
+  int64 handle = 1;
+}
+
+message GetTsPidResponse {
+  int32 result = 1;
+}
+
+message NewStreamEventResponseRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int64 arg4 = 5;
+  int64 arg5 = 6;
+}
+
+message NewStreamEventResponseResponse {
+  int64 result = 1;
+}
+
+message GetDataRequest {
+  int64 handle = 1;
+}
+
+message GetDataResponse {
+  int64 result = 1;
+}
+
+message GetEventIdRequest {
+  int64 handle = 1;
+}
+
+message GetEventIdResponse {
+  int32 result = 1;
+}
+
+message GetNptMillisRequest {
+  int64 handle = 1;
+}
+
+message GetNptMillisResponse {
+  int64 result = 1;
+}
+
+message OnBindRequest {
+  int64 arg0 = 1;
+}
+
+message OnBindResponse {
+  int64 result = 1;
+}
+
+message OnCreateRecordingSession1Request {
+  string arg0 = 1;
+}
+
+message OnCreateRecordingSession1Response {
+  int64 result = 1;
+}
+
+message OnCreateRecordingSession2_1Request {
+  string arg0 = 1;
+  string arg1 = 2;
+}
+
+message OnCreateRecordingSession2_1Response {
+  int64 result = 1;
+}
+
+message OnCreateSession1Request {
+  string arg0 = 1;
+}
+
+message OnCreateSession1Response {
+  int64 result = 1;
+}
+
+message OnCreateSession2_1Request {
+  string arg0 = 1;
+  string arg1 = 2;
+}
+
+message OnCreateSession2_1Response {
+  int64 result = 1;
+}
+
+message OnCreateSession3_2Request {
+  string arg0 = 1;
+  string arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message OnCreateSession3_2Response {
+  int64 result = 1;
+}
+
+message GetHardwareInputIdRequest {
+}
+
+message GetHardwareInputIdResponse {
+  string result = 1;
+}
+
+message OnHardwareVideoAvailableRequest {
+}
+
+message OnHardwareVideoAvailableResponse {
+}
+
+message OnHardwareVideoUnavailableRequest {
+  int32 arg0 = 1;
+}
+
+message OnHardwareVideoUnavailableResponse {
+}
+
+message OnSetSurfaceRequest {
+  int64 arg0 = 1;
+}
+
+message OnSetSurfaceResponse {
+  bool result = 1;
+}
+
+message NotifyErrorRequest {
+  int32 arg0 = 1;
+}
+
+message NotifyErrorResponse {
+}
+
+message NotifyRecordingStoppedRequest {
+  int64 arg0 = 1;
+}
+
+message NotifyRecordingStoppedResponse {
+}
+
+message NotifyTunedRequest {
+  int64 arg0 = 1;
+}
+
+message NotifyTunedResponse {
+}
+
+message OnAppPrivateCommandRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnAppPrivateCommandResponse {
+}
+
+message OnPauseRecordingRequest {
+  int64 arg0 = 1;
+}
+
+message OnPauseRecordingResponse {
+}
+
+message OnReleaseRequest {
+}
+
+message OnReleaseResponse {
+}
+
+message OnResumeRecordingRequest {
+  int64 arg0 = 1;
+}
+
+message OnResumeRecordingResponse {
+}
+
+message OnStartRecording1Request {
+  int64 arg0 = 1;
+}
+
+message OnStartRecording1Response {
+}
+
+message OnStartRecording2_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnStartRecording2_1Response {
+}
+
+message OnStopRecordingRequest {
+}
+
+message OnStopRecordingResponse {
+}
+
+message OnTune1Request {
+  int64 arg0 = 1;
+}
+
+message OnTune1Response {
+}
+
+message OnTune2_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnTune2_1Response {
+}
+
+message LayoutSurfaceRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message LayoutSurfaceResponse {
+}
+
+message NotifyAdBufferConsumedRequest {
+  int64 arg0 = 1;
+}
+
+message NotifyAdBufferConsumedResponse {
+}
+
+message NotifyAdResponseRequest {
+  int64 arg0 = 1;
+}
+
+message NotifyAdResponseResponse {
+}
+
+message NotifyAitInfoUpdatedRequest {
+  int64 arg0 = 1;
+}
+
+message NotifyAitInfoUpdatedResponse {
+}
+
+message NotifyAudioPresentationSelectedRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message NotifyAudioPresentationSelectedResponse {
+}
+
+message NotifyAvailableSpeedsRequest {
+  int64 arg0 = 1;
+}
+
+message NotifyAvailableSpeedsResponse {
+}
+
+message NotifyBroadcastInfoResponseRequest {
+  int64 arg0 = 1;
+}
+
+message NotifyBroadcastInfoResponseResponse {
+}
+
+message NotifyChannelRetunedRequest {
+  int64 arg0 = 1;
+}
+
+message NotifyChannelRetunedResponse {
+}
+
+message NotifyContentAllowedRequest {
+}
+
+message NotifyContentAllowedResponse {
+}
+
+message NotifyContentBlockedRequest {
+  int64 arg0 = 1;
+}
+
+message NotifyContentBlockedResponse {
+}
+
+message NotifyCueingMessageAvailabilityRequest {
+  bool arg0 = 1;
+}
+
+message NotifyCueingMessageAvailabilityResponse {
+}
+
+message NotifySignalStrengthRequest {
+  int32 arg0 = 1;
+}
+
+message NotifySignalStrengthResponse {
+}
+
+message NotifyTimeShiftModeRequest {
+  int32 arg0 = 1;
+}
+
+message NotifyTimeShiftModeResponse {
+}
+
+message NotifyTimeShiftStatusChangedRequest {
+  int32 arg0 = 1;
+}
+
+message NotifyTimeShiftStatusChangedResponse {
+}
+
+message NotifyTrackSelectedRequest {
+  int32 arg0 = 1;
+  string arg1 = 2;
+}
+
+message NotifyTrackSelectedResponse {
+}
+
+message NotifyTvMessageRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NotifyTvMessageResponse {
+}
+
+message NotifyVideoAvailableRequest {
+}
+
+message NotifyVideoAvailableResponse {
+}
+
+message NotifyVideoFreezeUpdatedRequest {
+  bool arg0 = 1;
+}
+
+message NotifyVideoFreezeUpdatedResponse {
+}
+
+message NotifyVideoUnavailableRequest {
+  int32 arg0 = 1;
+}
+
+message NotifyVideoUnavailableResponse {
+}
+
+message OnAdBufferReadyRequest {
+  int64 arg0 = 1;
+}
+
+message OnAdBufferReadyResponse {
+}
+
+message OnCreateOverlayViewRequest {
+}
+
+message OnCreateOverlayViewResponse {
+  int64 result = 1;
+}
+
+message OnGenericMotionEventRequest {
+  int64 arg0 = 1;
+}
+
+message OnGenericMotionEventResponse {
+  bool result = 1;
+}
+
+message OnKeyDownRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnKeyDownResponse {
+  bool result = 1;
+}
+
+message OnKeyLongPressRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnKeyLongPressResponse {
+  bool result = 1;
+}
+
+message OnKeyMultipleRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message OnKeyMultipleResponse {
+  bool result = 1;
+}
+
+message OnKeyUpRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnKeyUpResponse {
+  bool result = 1;
+}
+
+message OnOverlayViewSizeChangedRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message OnOverlayViewSizeChangedResponse {
+}
+
+message OnRemoveBroadcastInfoRequest {
+  int32 arg0 = 1;
+}
+
+message OnRemoveBroadcastInfoResponse {
+}
+
+message OnRequestAdRequest {
+  int64 arg0 = 1;
+}
+
+message OnRequestAdResponse {
+}
+
+message OnRequestBroadcastInfoRequest {
+  int64 arg0 = 1;
+}
+
+message OnRequestBroadcastInfoResponse {
+}
+
+message OnResumePlaybackRequest {
+}
+
+message OnResumePlaybackResponse {
+}
+
+message OnSelectAudioPresentationRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message OnSelectAudioPresentationResponse {
+  bool result = 1;
+}
+
+message OnSelectTrackRequest {
+  int32 arg0 = 1;
+  string arg1 = 2;
+}
+
+message OnSelectTrackResponse {
+  bool result = 1;
+}
+
+message OnSetCaptionEnabledRequest {
+  bool arg0 = 1;
+}
+
+message OnSetCaptionEnabledResponse {
+}
+
+message OnSetInteractiveAppNotificationEnabledRequest {
+  bool arg0 = 1;
+}
+
+message OnSetInteractiveAppNotificationEnabledResponse {
+}
+
+message OnSetStreamVolumeRequest {
+  float arg0 = 1;
+}
+
+message OnSetStreamVolumeResponse {
+}
+
+message OnSetTvMessageEnabledRequest {
+  int32 arg0 = 1;
+  bool arg1 = 2;
+}
+
+message OnSetTvMessageEnabledResponse {
+}
+
+message OnStopPlaybackRequest {
+  int32 arg0 = 1;
+}
+
+message OnStopPlaybackResponse {
+}
+
+message OnSurfaceChangedRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message OnSurfaceChangedResponse {
+}
+
+message OnTimeShiftGetCurrentPositionRequest {
+}
+
+message OnTimeShiftGetCurrentPositionResponse {
+  int64 result = 1;
+}
+
+message OnTimeShiftGetStartPositionRequest {
+}
+
+message OnTimeShiftGetStartPositionResponse {
+  int64 result = 1;
+}
+
+message OnTimeShiftPauseRequest {
+}
+
+message OnTimeShiftPauseResponse {
+}
+
+message OnTimeShiftPlayRequest {
+  int64 arg0 = 1;
+}
+
+message OnTimeShiftPlayResponse {
+}
+
+message OnTimeShiftResumeRequest {
+}
+
+message OnTimeShiftResumeResponse {
+}
+
+message OnTimeShiftSeekToRequest {
+  int64 arg0 = 1;
+}
+
+message OnTimeShiftSeekToResponse {
+}
+
+message OnTimeShiftSetModeRequest {
+  int32 arg0 = 1;
+}
+
+message OnTimeShiftSetModeResponse {
+}
+
+message OnTimeShiftSetPlaybackParamsRequest {
+  int64 arg0 = 1;
+}
+
+message OnTimeShiftSetPlaybackParamsResponse {
+}
+
+message OnTouchEventRequest {
+  int64 arg0 = 1;
+}
+
+message OnTouchEventResponse {
+  bool result = 1;
+}
+
+message OnTrackballEventRequest {
+  int64 arg0 = 1;
+}
+
+message OnTrackballEventResponse {
+  bool result = 1;
+}
+
+message InputServiceSessionOnTune1Response {
+  bool result = 1;
+}
+
+message InputServiceSessionOnTune2_1Response {
+  bool result = 1;
+}
+
+message OnTvAdSessionDataRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnTvAdSessionDataResponse {
+}
+
+message OnTvMessageRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnTvMessageResponse {
+}
+
+message OnUnblockContentRequest {
+  int64 arg0 = 1;
+}
+
+message OnUnblockContentResponse {
+}
+
+message SendTvInputSessionDataRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SendTvInputSessionDataResponse {
+}
+
+message SetOverlayViewEnabledRequest {
+  bool arg0 = 1;
+}
+
+message SetOverlayViewEnabledResponse {
+}
+
+message BroadcastInfoRequestDescribeContentsRequest {
+}
+
+message GetOptionRequest {
+}
+
+message GetOptionResponse {
+  int32 result = 1;
+}
+
+message GetRequestIdRequest {
+}
+
+message GetRequestIdResponse {
+  int32 result = 1;
+}
+
+message GetTypeRequest {
+}
+
+message GetTypeResponse {
+  int32 result = 1;
+}
+
+message BroadcastInfoRequestWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message NewDsmccResponseRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message NewDsmccResponseResponse {
+  int64 result = 1;
+}
+
+message GetBiopMessageTypeRequest {
+  int64 handle = 1;
+}
+
+message GetBiopMessageTypeResponse {
+  string result = 1;
+}
+
+message GetFileRequest {
+  int64 handle = 1;
+}
+
+message GetFileResponse {
+  int64 result = 1;
+}
+
+message GetStreamEventIdsRequest {
+  int64 handle = 1;
+}
+
+message GetStreamEventIdsResponse {
+  int64 result = 1;
+}
+
+message GetStreamEventNamesRequest {
+  int64 handle = 1;
+}
+
+message GetStreamEventNamesResponse {
+  int64 result = 1;
+}
+
+message NewPesResponseRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  string arg3 = 4;
+}
+
+message NewPesResponseResponse {
+  int64 result = 1;
+}
+
+message GetSharedFilterTokenRequest {
+  int64 handle = 1;
+}
+
+message GetSharedFilterTokenResponse {
+  string result = 1;
+}
+
+message NewRecordingInfoRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int32 arg3 = 4;
+  string arg4 = 5;
+  string arg5 = 6;
+  int64 arg6 = 7;
+  int64 arg7 = 8;
+  int64 arg8 = 9;
+  int64 arg9 = 10;
+  int64 arg10 = 11;
+  int64 arg11 = 12;
+  int64 arg12 = 13;
+  int64 arg13 = 14;
+}
+
+message NewRecordingInfoResponse {
+  int64 result = 1;
+}
+
+message GetChannelUriRequest {
+  int64 handle = 1;
+}
+
+message GetChannelUriResponse {
+  int64 result = 1;
+}
+
+message GetDescriptionRequest {
+  int64 handle = 1;
+}
+
+message GetDescriptionResponse {
+  string result = 1;
+}
+
+message GetEndPaddingMillisRequest {
+  int64 handle = 1;
+}
+
+message GetEndPaddingMillisResponse {
+  int64 result = 1;
+}
+
+message GetNameRequest {
+  int64 handle = 1;
+}
+
+message GetNameResponse {
+  string result = 1;
+}
+
+message GetProgramUriRequest {
+  int64 handle = 1;
+}
+
+message GetProgramUriResponse {
+  int64 result = 1;
+}
+
+message GetRecordingDurationMillisRequest {
+  int64 handle = 1;
+}
+
+message GetRecordingDurationMillisResponse {
+  int64 result = 1;
+}
+
+message GetRecordingIdRequest {
+  int64 handle = 1;
+}
+
+message GetRecordingIdResponse {
+  string result = 1;
+}
+
+message GetRecordingStartTimeMillisRequest {
+  int64 handle = 1;
+}
+
+message GetRecordingStartTimeMillisResponse {
+  int64 result = 1;
+}
+
+message GetRecordingUriRequest {
+  int64 handle = 1;
+}
+
+message GetRecordingUriResponse {
+  int64 result = 1;
+}
+
+message GetRepeatDaysRequest {
+  int64 handle = 1;
+}
+
+message GetRepeatDaysResponse {
+  int32 result = 1;
+}
+
+message GetScheduledDurationMillisRequest {
+  int64 handle = 1;
+}
+
+message GetScheduledDurationMillisResponse {
+  int64 result = 1;
+}
+
+message GetScheduledStartTimeMillisRequest {
+  int64 handle = 1;
+}
+
+message GetScheduledStartTimeMillisResponse {
+  int64 result = 1;
+}
+
+message GetStartPaddingMillisRequest {
+  int64 handle = 1;
+}
+
+message GetStartPaddingMillisResponse {
+  int64 result = 1;
+}
+
+message SetDescriptionRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetDescriptionResponse {
+}
+
+message SetNameRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetNameResponse {
+}
+
+message NewSignalingDataResponseRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+}
+
+message NewSignalingDataResponseResponse {
+  int64 result = 1;
+}
+
+message BroadcastInfoResponseDescribeContentsRequest {
+}
+
+message GetResponseResultRequest {
+}
+
+message GetResponseResultResponse {
+  int32 result = 1;
+}
+
+message GetSequenceRequest {
+}
+
+message GetSequenceResponse {
+  int32 result = 1;
+}
+
+message BroadcastInfoResponseWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message BuildChannelLogoUri1Request {
+  int64 arg0 = 1;
+}
+
+message BuildChannelLogoUri1Response {
+  int64 result = 1;
+}
+
+message BuildChannelLogoUri1_1Request {
+  int64 arg0 = 1;
+}
+
+message BuildChannelLogoUri1_1Response {
+  int64 result = 1;
+}
+
+message BuildChannelUriRequest {
+  int64 arg0 = 1;
+}
+
+message BuildChannelUriResponse {
+  int64 result = 1;
+}
+
+message BuildChannelUriForPassthroughInputRequest {
+  string arg0 = 1;
+}
+
+message BuildChannelUriForPassthroughInputResponse {
+  int64 result = 1;
+}
+
+message BuildChannelsUriForInputRequest {
+  string arg0 = 1;
+}
+
+message BuildChannelsUriForInputResponse {
+  int64 result = 1;
+}
+
+message BuildInputIdRequest {
+  int64 arg0 = 1;
+}
+
+message BuildInputIdResponse {
+  string result = 1;
+}
+
+message BuildPreviewProgramUriRequest {
+  int64 arg0 = 1;
+}
+
+message BuildPreviewProgramUriResponse {
+  int64 result = 1;
+}
+
+message BuildPreviewProgramsUriForChannel1Request {
+  int64 arg0 = 1;
+}
+
+message BuildPreviewProgramsUriForChannel1Response {
+  int64 result = 1;
+}
+
+message BuildPreviewProgramsUriForChannel1_1Request {
+  int64 arg0 = 1;
+}
+
+message BuildPreviewProgramsUriForChannel1_1Response {
+  int64 result = 1;
+}
+
+message BuildProgramUriRequest {
+  int64 arg0 = 1;
+}
+
+message BuildProgramUriResponse {
+  int64 result = 1;
+}
+
+message BuildProgramsUriForChannel1Request {
+  int64 arg0 = 1;
+}
+
+message BuildProgramsUriForChannel1Response {
+  int64 result = 1;
+}
+
+message BuildProgramsUriForChannel3_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message BuildProgramsUriForChannel3_1Response {
+  int64 result = 1;
+}
+
+message BuildProgramsUriForChannel1_2Request {
+  int64 arg0 = 1;
+}
+
+message BuildProgramsUriForChannel1_2Response {
+  int64 result = 1;
+}
+
+message BuildProgramsUriForChannel3_3Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message BuildProgramsUriForChannel3_3Response {
+  int64 result = 1;
+}
+
+message BuildRecordedProgramUriRequest {
+  int64 arg0 = 1;
+}
+
+message BuildRecordedProgramUriResponse {
+  int64 result = 1;
+}
+
+message BuildWatchNextProgramUriRequest {
+  int64 arg0 = 1;
+}
+
+message BuildWatchNextProgramUriResponse {
+  int64 result = 1;
+}
+
+message IsChannelUriRequest {
+  int64 arg0 = 1;
+}
+
+message IsChannelUriResponse {
+  bool result = 1;
+}
+
+message IsChannelUriForPassthroughInputRequest {
+  int64 arg0 = 1;
+}
+
+message IsChannelUriForPassthroughInputResponse {
+  bool result = 1;
+}
+
+message IsChannelUriForTunerInputRequest {
+  int64 arg0 = 1;
+}
+
+message IsChannelUriForTunerInputResponse {
+  bool result = 1;
+}
+
+message IsProgramUriRequest {
+  int64 arg0 = 1;
+}
+
+message IsProgramUriResponse {
+  bool result = 1;
+}
+
+message IsRecordedProgramUriRequest {
+  int64 arg0 = 1;
+}
+
+message IsRecordedProgramUriResponse {
+  bool result = 1;
+}
+
+message RequestChannelBrowsableRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message RequestChannelBrowsableResponse {
+}
+
+message GetVideoResolutionRequest {
+  string arg0 = 1;
+}
+
+message GetVideoResolutionResponse {
+  string result = 1;
+}
+
+message NewTsRequestRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message NewTsRequestResponse {
+  int64 result = 1;
+}
+
+message NewTimelineRequestRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message NewTimelineRequestResponse {
+  int64 result = 1;
+}
+
+message GetIntervalMillisRequest {
+  int64 handle = 1;
+}
+
+message GetIntervalMillisResponse {
+  int32 result = 1;
+}
+
+message GetSelectorRequest {
+  int64 handle = 1;
+}
+
+message GetSelectorResponse {
+  string result = 1;
+}
+
+message NewTableResponseRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int64 arg3 = 4;
+  int32 arg4 = 5;
+  int32 arg5 = 6;
+}
+
+message NewTableResponseResponse {
+  int64 result = 1;
+}
+
+message GetSizeRequest {
+  int64 handle = 1;
+}
+
+message GetSizeResponse {
+  int32 result = 1;
+}
+
+message GetTableByteArrayRequest {
+  int64 handle = 1;
+}
+
+message GetTableByteArrayResponse {
+  int64 result = 1;
+}
+
+message GetTableSharedMemoryRequest {
+  int64 handle = 1;
+}
+
+message GetTableSharedMemoryResponse {
+  int64 result = 1;
+}
+
+message GetTableUriRequest {
+  int64 handle = 1;
+}
+
+message GetTableUriResponse {
+  int64 result = 1;
+}
+
+message GetVersionRequest {
+  int64 handle = 1;
+}
+
+message GetVersionResponse {
+  int32 result = 1;
+}
+
+message BuildRequest {
+}
+
+message BuildResponse {
+  int64 result = 1;
+}
+
+message SetTableByteArrayRequest {
+  int64 arg0 = 1;
+}
+
+message SetTableByteArrayResponse {
+  int64 result = 1;
+}
+
+message SetTableSharedMemoryRequest {
+  int64 arg0 = 1;
+}
+
+message SetTableSharedMemoryResponse {
+  int64 result = 1;
+}
+
+message SetTableUriRequest {
+  int64 arg0 = 1;
+}
+
+message SetTableUriResponse {
+  int64 result = 1;
+}
+
+message NewDsmccRequestRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message NewDsmccRequestResponse {
+  int64 result = 1;
+}
+
+message NewAitInfoRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message NewAitInfoResponse {
+  int64 result = 1;
+}
+
+message AitInfoGetTypeRequest {
+  int64 handle = 1;
+}
+
+message ToStringRequest {
+  int64 handle = 1;
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message CanPauseRecordingRequest {
+}
+
+message CanPauseRecordingResponse {
+  bool result = 1;
+}
+
+message CanRecordRequest {
+}
+
+message CanRecordResponse {
+  bool result = 1;
+}
+
+message CreateSettingsIntentRequest {
+}
+
+message CreateSettingsIntentResponse {
+  int64 result = 1;
+}
+
+message CreateSetupIntentRequest {
+}
+
+message CreateSetupIntentResponse {
+  int64 result = 1;
+}
+
+message InputInfoDescribeContentsRequest {
+}
+
+message EqualsRequest {
+  int64 arg0 = 1;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message GetExtrasRequest {
+}
+
+message GetExtrasResponse {
+  int64 result = 1;
+}
+
+message InputInfoGetIdRequest {
+}
+
+message InputInfoGetIdResponse {
+  string result = 1;
+}
+
+message GetParentIdRequest {
+}
+
+message GetParentIdResponse {
+  string result = 1;
+}
+
+message GetServiceInfoRequest {
+}
+
+message GetServiceInfoResponse {
+  int64 result = 1;
+}
+
+message GetTunerCountRequest {
+}
+
+message GetTunerCountResponse {
+  int32 result = 1;
+}
+
+message HashCodeRequest {
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message IsHiddenRequest {
+  int64 arg0 = 1;
+}
+
+message IsHiddenResponse {
+  bool result = 1;
+}
+
+message IsPassthroughInputRequest {
+}
+
+message IsPassthroughInputResponse {
+  bool result = 1;
+}
+
+message LoadCustomLabelRequest {
+  int64 arg0 = 1;
+}
+
+message LoadCustomLabelResponse {
+  int64 result = 1;
+}
+
+message LoadIconRequest {
+  int64 arg0 = 1;
+}
+
+message LoadIconResponse {
+  int64 result = 1;
+}
+
+message LoadLabelRequest {
+  int64 arg0 = 1;
+}
+
+message LoadLabelResponse {
+  int64 result = 1;
+}
+
+message InputInfoToStringRequest {
+}
+
+message InputInfoWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message SetCanPauseRecordingRequest {
+  bool arg0 = 1;
+}
+
+message SetCanPauseRecordingResponse {
+  int64 result = 1;
+}
+
+message SetCanRecordRequest {
+  bool arg0 = 1;
+}
+
+message SetCanRecordResponse {
+  int64 result = 1;
+}
+
+message SetExtrasRequest {
+  int64 arg0 = 1;
+}
+
+message SetExtrasResponse {
+  int64 result = 1;
+}
+
+message SetTunerCountRequest {
+  int32 arg0 = 1;
+}
+
+message SetTunerCountResponse {
+  int64 result = 1;
+}
+
+message NewAdBufferRequest {
+  int32 arg0 = 1;
+  string arg1 = 2;
+  int64 arg2 = 3;
+  int32 arg3 = 4;
+  int32 arg4 = 5;
+  int64 arg5 = 6;
+  int32 arg6 = 7;
+}
+
+message NewAdBufferResponse {
+  int64 result = 1;
+}
+
+message GetFlagsRequest {
+  int64 handle = 1;
+}
+
+message GetFlagsResponse {
+  int32 result = 1;
+}
+
+message GetLengthRequest {
+  int64 handle = 1;
+}
+
+message GetLengthResponse {
+  int32 result = 1;
+}
+
+message GetMimeTypeRequest {
+  int64 handle = 1;
+}
+
+message GetMimeTypeResponse {
+  string result = 1;
+}
+
+message GetOffsetRequest {
+  int64 handle = 1;
+}
+
+message GetOffsetResponse {
+  int32 result = 1;
+}
+
+message GetPresentationTimeUsRequest {
+  int64 handle = 1;
+}
+
+message GetPresentationTimeUsResponse {
+  int64 result = 1;
+}
+
+message GetSharedMemoryRequest {
+  int64 handle = 1;
+}
+
+message GetSharedMemoryResponse {
+  int64 result = 1;
+}
+
+message NewViewRequest {
+  int64 arg0 = 1;
+}
+
+message NewViewResponse {
+  int64 result = 1;
+}
+
+message DispatchGenericMotionEventRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message DispatchGenericMotionEventResponse {
+  bool result = 1;
+}
+
+message DispatchKeyEventRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message DispatchKeyEventResponse {
+  bool result = 1;
+}
+
+message DispatchTouchEventRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message DispatchTouchEventResponse {
+  bool result = 1;
+}
+
+message DispatchTrackballEventRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message DispatchTrackballEventResponse {
+  bool result = 1;
+}
+
+message DispatchUnhandledInputEventRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message DispatchUnhandledInputEventResponse {
+  bool result = 1;
+}
+
+message DispatchWindowFocusChangedRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message DispatchWindowFocusChangedResponse {
+}
+
+message DrawRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message DrawResponse {
+}
+
+message GatherTransparentRegionRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GatherTransparentRegionResponse {
+  bool result = 1;
+}
+
+message GetSelectedTrackRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetSelectedTrackResponse {
+  string result = 1;
+}
+
+message OnUnhandledInputEventRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OnUnhandledInputEventResponse {
+  bool result = 1;
+}
+
+message OverrideTvAppAttributionSourceRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OverrideTvAppAttributionSourceResponse {
+}
+
+message ResetRequest {
+  int64 handle = 1;
+}
+
+message ResetResponse {
+}
+
+message ResumePlaybackRequest {
+  int64 handle = 1;
+}
+
+message ResumePlaybackResponse {
+}
+
+message SelectAudioPresentationRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message SelectAudioPresentationResponse {
+}
+
+message SelectTrackRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  string arg1 = 3;
+}
+
+message SelectTrackResponse {
+}
+
+message SendAppPrivateCommandRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message SendAppPrivateCommandResponse {
+}
+
+message SetCallbackRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetCallbackResponse {
+}
+
+message SetCaptionEnabledRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetCaptionEnabledResponse {
+}
+
+message SetInteractiveAppNotificationEnabledRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetInteractiveAppNotificationEnabledResponse {
+}
+
+message SetOnUnhandledInputEventListenerRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetOnUnhandledInputEventListenerResponse {
+}
+
+message SetStreamVolumeRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+}
+
+message SetStreamVolumeResponse {
+}
+
+message SetTimeShiftPositionCallbackRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetTimeShiftPositionCallbackResponse {
+}
+
+message SetTvMessageEnabledRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  bool arg1 = 3;
+}
+
+message SetTvMessageEnabledResponse {
+}
+
+message SetVideoFrozenRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetVideoFrozenResponse {
+}
+
+message SetZOrderMediaOverlayRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetZOrderMediaOverlayResponse {
+}
+
+message SetZOrderOnTopRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetZOrderOnTopResponse {
+}
+
+message StopPlaybackRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message StopPlaybackResponse {
+}
+
+message TimeShiftPauseRequest {
+  int64 handle = 1;
+}
+
+message TimeShiftPauseResponse {
+}
+
+message TimeShiftPlayRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message TimeShiftPlayResponse {
+}
+
+message TimeShiftResumeRequest {
+  int64 handle = 1;
+}
+
+message TimeShiftResumeResponse {
+}
+
+message TimeShiftSeekToRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message TimeShiftSeekToResponse {
+}
+
+message TimeShiftSetModeRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message TimeShiftSetModeResponse {
+}
+
+message TimeShiftSetPlaybackParamsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message TimeShiftSetPlaybackParamsResponse {
+}
+
+message Tune2Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message Tune2Response {
+}
+
+message Tune3_1Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  int64 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message Tune3_1Response {
+}
+
+message ViewOnUnhandledInputEventListenerOnUnhandledInputEventRequest {
+  int64 arg0 = 1;
+}
+
+message OnTimeShiftCurrentPositionChangedRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnTimeShiftCurrentPositionChangedResponse {
+}
+
+message OnTimeShiftStartPositionChangedRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnTimeShiftStartPositionChangedResponse {
+}
+
+message OnAitInfoUpdatedRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnAitInfoUpdatedResponse {
+}
+
+message OnAudioPresentationSelectedRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message OnAudioPresentationSelectedResponse {
+}
+
+message OnAvailableSpeedsRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnAvailableSpeedsResponse {
+}
+
+message OnChannelRetunedRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnChannelRetunedResponse {
+}
+
+message OnConnectionFailedRequest {
+  string arg0 = 1;
+}
+
+message OnConnectionFailedResponse {
+}
+
+message OnContentAllowedRequest {
+  string arg0 = 1;
+}
+
+message OnContentAllowedResponse {
+}
+
+message OnContentBlockedRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnContentBlockedResponse {
+}
+
+message OnCueingMessageAvailabilityRequest {
+  string arg0 = 1;
+  bool arg1 = 2;
+}
+
+message OnCueingMessageAvailabilityResponse {
+}
+
+message OnDisconnectedRequest {
+  string arg0 = 1;
+}
+
+message OnDisconnectedResponse {
+}
+
+message OnSignalStrengthUpdatedRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message OnSignalStrengthUpdatedResponse {
+}
+
+message OnTimeShiftModeRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message OnTimeShiftModeResponse {
+}
+
+message OnTimeShiftStatusChangedRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message OnTimeShiftStatusChangedResponse {
+}
+
+message OnTrackSelectedRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+  string arg2 = 3;
+}
+
+message OnTrackSelectedResponse {
+}
+
+message OnTunedRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnTunedResponse {
+}
+
+message ViewTvInputCallbackOnTvMessageRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message OnVideoAvailableRequest {
+  string arg0 = 1;
+}
+
+message OnVideoAvailableResponse {
+}
+
+message OnVideoFreezeUpdatedRequest {
+  string arg0 = 1;
+  bool arg1 = 2;
+}
+
+message OnVideoFreezeUpdatedResponse {
+}
+
+message OnVideoSizeChangedRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message OnVideoSizeChangedResponse {
+}
+
+message OnVideoUnavailableRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message OnVideoUnavailableResponse {
+}
+
+message NewSectionResponseRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int32 arg4 = 5;
+  int64 arg5 = 6;
+}
+
+message NewSectionResponseResponse {
+  int64 result = 1;
+}
+
+message GetSessionDataRequest {
+  int64 handle = 1;
+}
+
+message GetSessionDataResponse {
+  int64 result = 1;
+}
+
+message GetSessionIdRequest {
+  int64 handle = 1;
+}
+
+message GetSessionIdResponse {
+  int32 result = 1;
+}
+
+message NewAdResponseRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message NewAdResponseResponse {
+  int64 result = 1;
+}
+
+message GetElapsedTimeMillisRequest {
+  int64 handle = 1;
+}
+
+message GetElapsedTimeMillisResponse {
+  int64 result = 1;
+}
+
+message GetResponseTypeRequest {
+  int64 handle = 1;
+}
+
+message GetResponseTypeResponse {
+  int32 result = 1;
+}
+
+message NewSectionRequestRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int32 arg4 = 5;
+}
+
+message NewSectionRequestResponse {
+  int64 result = 1;
+}
+
+message GetTableIdRequest {
+  int64 handle = 1;
+}
+
+message GetTableIdResponse {
+  int32 result = 1;
+}
+
+message NewTableRequestRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int32 arg4 = 5;
+}
+
+message NewTableRequestResponse {
+  int64 result = 1;
+}
+
+message GetTableNameRequest {
+  int64 handle = 1;
+}
+
+message GetTableNameResponse {
+  int32 result = 1;
+}
+
+message NewSignalingDataRequestRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message NewSignalingDataRequestResponse {
+  int64 result = 1;
+}
+
+message GetGroupRequest {
+  int64 handle = 1;
+}
+
+message GetGroupResponse {
+  int32 result = 1;
+}
+
 message GetInputStateRequest {
   string arg0 = 1;
 }
@@ -51,6 +2203,1039 @@ message UpdateTvInputInfoRequest {
 message UpdateTvInputInfoResponse {
 }
 
+message OnInputAddedRequest {
+  string arg0 = 1;
+}
+
+message OnInputAddedResponse {
+}
+
+message OnInputRemovedRequest {
+  string arg0 = 1;
+}
+
+message OnInputRemovedResponse {
+}
+
+message OnInputStateChangedRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message OnInputStateChangedResponse {
+}
+
+message OnInputUpdatedRequest {
+  string arg0 = 1;
+}
+
+message OnInputUpdatedResponse {
+}
+
+message OnTvInputInfoUpdatedRequest {
+  int64 arg0 = 1;
+}
+
+message OnTvInputInfoUpdatedResponse {
+}
+
+message NewCommandResponseRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  string arg3 = 4;
+  string arg4 = 5;
+}
+
+message NewCommandResponseResponse {
+  int64 result = 1;
+}
+
+message GetResponseRequest {
+  int64 handle = 1;
+}
+
+message GetResponseResponse {
+  string result = 1;
+}
+
+message CommandResponseGetResponseTypeResponse {
+  string result = 1;
+}
+
+message NewTsResponseRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  string arg3 = 4;
+}
+
+message NewTsResponseResponse {
+  int64 result = 1;
+}
+
+message NewStreamEventRequestRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+  string arg3 = 4;
+}
+
+message NewStreamEventRequestResponse {
+  int64 result = 1;
+}
+
+message GetEventNameRequest {
+  int64 handle = 1;
+}
+
+message GetEventNameResponse {
+  string result = 1;
+}
+
+message GetTargetUriRequest {
+  int64 handle = 1;
+}
+
+message GetTargetUriResponse {
+  int64 result = 1;
+}
+
+message NewSignalingDataInfoRequest {
+  string arg0 = 1;
+  string arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message NewSignalingDataInfoResponse {
+  int64 result = 1;
+}
+
+message GetEncodingRequest {
+  int64 handle = 1;
+}
+
+message GetEncodingResponse {
+  string result = 1;
+}
+
+message GetSignalingDataTypeRequest {
+  int64 handle = 1;
+}
+
+message GetSignalingDataTypeResponse {
+  string result = 1;
+}
+
+message GetTableRequest {
+  int64 handle = 1;
+}
+
+message GetTableResponse {
+  string result = 1;
+}
+
+message NewTimelineResponseRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  string arg3 = 4;
+  int32 arg4 = 5;
+  int32 arg5 = 6;
+  int64 arg6 = 7;
+  int64 arg7 = 8;
+}
+
+message NewTimelineResponseResponse {
+  int64 result = 1;
+}
+
+message TimelineResponseGetSelectorResponse {
+  int64 result = 1;
+}
+
+message GetTicksRequest {
+  int64 handle = 1;
+}
+
+message GetTicksResponse {
+  int64 result = 1;
+}
+
+message GetUnitsPerSecondRequest {
+  int64 handle = 1;
+}
+
+message GetUnitsPerSecondResponse {
+  int32 result = 1;
+}
+
+message GetUnitsPerTickRequest {
+  int64 handle = 1;
+}
+
+message GetUnitsPerTickResponse {
+  int32 result = 1;
+}
+
+message GetWallClockRequest {
+  int64 handle = 1;
+}
+
+message GetWallClockResponse {
+  int64 result = 1;
+}
+
+message NewRecordingClientRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message NewRecordingClientResponse {
+  int64 result = 1;
+}
+
+message PauseRecording0Request {
+  int64 handle = 1;
+}
+
+message PauseRecording0Response {
+}
+
+message PauseRecording1_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message PauseRecording1_1Response {
+}
+
+message ReleaseRequest {
+  int64 handle = 1;
+}
+
+message ReleaseResponse {
+}
+
+message ResumeRecording0Request {
+  int64 handle = 1;
+}
+
+message ResumeRecording0Response {
+}
+
+message ResumeRecording1_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message ResumeRecording1_1Response {
+}
+
+message SetTvInteractiveAppViewRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+}
+
+message SetTvInteractiveAppViewResponse {
+}
+
+message StartRecording1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message StartRecording1Response {
+}
+
+message StartRecording2_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message StartRecording2_1Response {
+}
+
+message StopRecordingRequest {
+  int64 handle = 1;
+}
+
+message StopRecordingResponse {
+}
+
+message OnErrorRequest {
+  int32 arg0 = 1;
+}
+
+message OnErrorResponse {
+}
+
+message OnRecordingStoppedRequest {
+  int64 arg0 = 1;
+}
+
+message OnRecordingStoppedResponse {
+}
+
+message RecordingClientRecordingCallbackOnTunedRequest {
+  int64 arg0 = 1;
+}
+
+message TrackInfoDescribeContentsRequest {
+}
+
+message GetAudioChannelCountRequest {
+}
+
+message GetAudioChannelCountResponse {
+  int32 result = 1;
+}
+
+message GetAudioSampleRateRequest {
+}
+
+message GetAudioSampleRateResponse {
+  int32 result = 1;
+}
+
+message TrackInfoGetDescriptionRequest {
+}
+
+message TrackInfoGetDescriptionResponse {
+  int64 result = 1;
+}
+
+message TrackInfoGetEncodingRequest {
+}
+
+message GetExtraRequest {
+}
+
+message GetExtraResponse {
+  int64 result = 1;
+}
+
+message TrackInfoGetIdRequest {
+}
+
+message TrackInfoGetIdResponse {
+  string result = 1;
+}
+
+message GetLanguageRequest {
+}
+
+message GetLanguageResponse {
+  string result = 1;
+}
+
+message GetVideoActiveFormatDescriptionRequest {
+}
+
+message GetVideoActiveFormatDescriptionResponse {
+  uint32 result = 1;
+}
+
+message GetVideoFrameRateRequest {
+}
+
+message GetVideoFrameRateResponse {
+  float result = 1;
+}
+
+message GetVideoHeightRequest {
+}
+
+message GetVideoHeightResponse {
+  int32 result = 1;
+}
+
+message GetVideoPixelAspectRatioRequest {
+}
+
+message GetVideoPixelAspectRatioResponse {
+  float result = 1;
+}
+
+message GetVideoWidthRequest {
+}
+
+message GetVideoWidthResponse {
+  int32 result = 1;
+}
+
+message IsAudioDescriptionRequest {
+}
+
+message IsAudioDescriptionResponse {
+  bool result = 1;
+}
+
+message IsEncryptedRequest {
+}
+
+message IsEncryptedResponse {
+  bool result = 1;
+}
+
+message IsHardOfHearingRequest {
+}
+
+message IsHardOfHearingResponse {
+  bool result = 1;
+}
+
+message IsSpokenSubtitleRequest {
+}
+
+message IsSpokenSubtitleResponse {
+  bool result = 1;
+}
+
+message TrackInfoWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message SetAudioChannelCountRequest {
+  int32 arg0 = 1;
+}
+
+message SetAudioChannelCountResponse {
+  int64 result = 1;
+}
+
+message SetAudioDescriptionRequest {
+  bool arg0 = 1;
+}
+
+message SetAudioDescriptionResponse {
+  int64 result = 1;
+}
+
+message SetAudioSampleRateRequest {
+  int32 arg0 = 1;
+}
+
+message SetAudioSampleRateResponse {
+  int64 result = 1;
+}
+
+message TrackInfoBuilderSetDescriptionRequest {
+  string arg0 = 1;
+}
+
+message TrackInfoBuilderSetDescriptionResponse {
+  int64 result = 1;
+}
+
+message SetEncodingRequest {
+  string arg0 = 1;
+}
+
+message SetEncodingResponse {
+  int64 result = 1;
+}
+
+message SetEncryptedRequest {
+  bool arg0 = 1;
+}
+
+message SetEncryptedResponse {
+  int64 result = 1;
+}
+
+message SetExtraRequest {
+  int64 arg0 = 1;
+}
+
+message SetExtraResponse {
+  int64 result = 1;
+}
+
+message SetHardOfHearingRequest {
+  bool arg0 = 1;
+}
+
+message SetHardOfHearingResponse {
+  int64 result = 1;
+}
+
+message SetLanguageRequest {
+  string arg0 = 1;
+}
+
+message SetLanguageResponse {
+  int64 result = 1;
+}
+
+message SetSpokenSubtitleRequest {
+  bool arg0 = 1;
+}
+
+message SetSpokenSubtitleResponse {
+  int64 result = 1;
+}
+
+message SetVideoActiveFormatDescriptionRequest {
+  int64 arg0 = 1;
+}
+
+message SetVideoActiveFormatDescriptionResponse {
+  int64 result = 1;
+}
+
+message SetVideoFrameRateRequest {
+  float arg0 = 1;
+}
+
+message SetVideoFrameRateResponse {
+  int64 result = 1;
+}
+
+message SetVideoHeightRequest {
+  int32 arg0 = 1;
+}
+
+message SetVideoHeightResponse {
+  int64 result = 1;
+}
+
+message SetVideoPixelAspectRatioRequest {
+  float arg0 = 1;
+}
+
+message SetVideoPixelAspectRatioResponse {
+  int64 result = 1;
+}
+
+message SetVideoWidthRequest {
+  int32 arg0 = 1;
+}
+
+message SetVideoWidthResponse {
+  int64 result = 1;
+}
+
+message NewCommandRequestRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  string arg2 = 3;
+  string arg3 = 4;
+  string arg4 = 5;
+  string arg5 = 6;
+}
+
+message NewCommandRequestResponse {
+  int64 result = 1;
+}
+
+message GetArgumentTypeRequest {
+  int64 handle = 1;
+}
+
+message GetArgumentTypeResponse {
+  string result = 1;
+}
+
+message GetArgumentsRequest {
+  int64 handle = 1;
+}
+
+message GetArgumentsResponse {
+  string result = 1;
+}
+
+message GetNamespaceRequest {
+  int64 handle = 1;
+}
+
+message GetNamespaceResponse {
+  string result = 1;
+}
+
+message ContainsRequest {
+  int64 arg0 = 1;
+}
+
+message ContainsResponse {
+  bool result = 1;
+}
+
+message FlattenToStringRequest {
+}
+
+message FlattenToStringResponse {
+  string result = 1;
+}
+
+message GetDomainRequest {
+}
+
+message GetDomainResponse {
+  string result = 1;
+}
+
+message GetMainRatingRequest {
+}
+
+message GetMainRatingResponse {
+  string result = 1;
+}
+
+message GetRatingSystemRequest {
+}
+
+message GetRatingSystemResponse {
+  string result = 1;
+}
+
+message CreateRatingRequest {
+  string arg0 = 1;
+  string arg1 = 2;
+  string arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message CreateRatingResponse {
+  int64 result = 1;
+}
+
+message UnflattenFromStringRequest {
+  string arg0 = 1;
+}
+
+message UnflattenFromStringResponse {
+  int64 result = 1;
+}
+
+service AdRequestService {
+  rpc NewAdRequest (NewAdRequestRequest) returns (NewAdRequestResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetEchoIntervalMillis (GetEchoIntervalMillisRequest) returns (GetEchoIntervalMillisResponse);
+  rpc GetFileDescriptor (GetFileDescriptorRequest) returns (GetFileDescriptorResponse);
+  rpc GetId (GetIdRequest) returns (GetIdResponse);
+  rpc GetMediaFileType (GetMediaFileTypeRequest) returns (GetMediaFileTypeResponse);
+  rpc GetMetadata (GetMetadataRequest) returns (GetMetadataResponse);
+  rpc GetRequestType (GetRequestTypeRequest) returns (GetRequestTypeResponse);
+  rpc GetStartTimeMillis (GetStartTimeMillisRequest) returns (GetStartTimeMillisResponse);
+  rpc GetStopTimeMillis (GetStopTimeMillisRequest) returns (GetStopTimeMillisResponse);
+  rpc GetUri (GetUriRequest) returns (GetUriResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service PesRequestService {
+  rpc NewPesRequest (NewPesRequestRequest) returns (NewPesRequestResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetStreamId (GetStreamIdRequest) returns (GetStreamIdResponse);
+  rpc GetTsPid (GetTsPidRequest) returns (GetTsPidResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service StreamEventResponseService {
+  rpc NewStreamEventResponse (NewStreamEventResponseRequest) returns (NewStreamEventResponseResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetData (GetDataRequest) returns (GetDataResponse);
+  rpc GetEventId (GetEventIdRequest) returns (GetEventIdResponse);
+  rpc GetNptMillis (GetNptMillisRequest) returns (GetNptMillisResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service InputServiceService {
+  rpc OnBind (OnBindRequest) returns (OnBindResponse);
+  rpc OnCreateRecordingSession1 (OnCreateRecordingSession1Request) returns (OnCreateRecordingSession1Response);
+  rpc OnCreateRecordingSession2_1 (OnCreateRecordingSession2_1Request) returns (OnCreateRecordingSession2_1Response);
+  rpc OnCreateSession1 (OnCreateSession1Request) returns (OnCreateSession1Response);
+  rpc OnCreateSession2_1 (OnCreateSession2_1Request) returns (OnCreateSession2_1Response);
+  rpc OnCreateSession3_2 (OnCreateSession3_2Request) returns (OnCreateSession3_2Response);
+}
+
+service InputServiceHardwareSessionService {
+  rpc GetHardwareInputId (GetHardwareInputIdRequest) returns (GetHardwareInputIdResponse);
+  rpc OnHardwareVideoAvailable (OnHardwareVideoAvailableRequest) returns (OnHardwareVideoAvailableResponse);
+  rpc OnHardwareVideoUnavailable (OnHardwareVideoUnavailableRequest) returns (OnHardwareVideoUnavailableResponse);
+  rpc OnSetSurface (OnSetSurfaceRequest) returns (OnSetSurfaceResponse);
+}
+
+service InputServiceRecordingSessionService {
+  rpc NotifyError (NotifyErrorRequest) returns (NotifyErrorResponse);
+  rpc NotifyRecordingStopped (NotifyRecordingStoppedRequest) returns (NotifyRecordingStoppedResponse);
+  rpc NotifyTuned (NotifyTunedRequest) returns (NotifyTunedResponse);
+  rpc OnAppPrivateCommand (OnAppPrivateCommandRequest) returns (OnAppPrivateCommandResponse);
+  rpc OnPauseRecording (OnPauseRecordingRequest) returns (OnPauseRecordingResponse);
+  rpc OnRelease (OnReleaseRequest) returns (OnReleaseResponse);
+  rpc OnResumeRecording (OnResumeRecordingRequest) returns (OnResumeRecordingResponse);
+  rpc OnStartRecording1 (OnStartRecording1Request) returns (OnStartRecording1Response);
+  rpc OnStartRecording2_1 (OnStartRecording2_1Request) returns (OnStartRecording2_1Response);
+  rpc OnStopRecording (OnStopRecordingRequest) returns (OnStopRecordingResponse);
+  rpc OnTune1 (OnTune1Request) returns (OnTune1Response);
+  rpc OnTune2_1 (OnTune2_1Request) returns (OnTune2_1Response);
+}
+
+service InputServiceSessionService {
+  rpc LayoutSurface (LayoutSurfaceRequest) returns (LayoutSurfaceResponse);
+  rpc NotifyAdBufferConsumed (NotifyAdBufferConsumedRequest) returns (NotifyAdBufferConsumedResponse);
+  rpc NotifyAdResponse (NotifyAdResponseRequest) returns (NotifyAdResponseResponse);
+  rpc NotifyAitInfoUpdated (NotifyAitInfoUpdatedRequest) returns (NotifyAitInfoUpdatedResponse);
+  rpc NotifyAudioPresentationSelected (NotifyAudioPresentationSelectedRequest) returns (NotifyAudioPresentationSelectedResponse);
+  rpc NotifyAvailableSpeeds (NotifyAvailableSpeedsRequest) returns (NotifyAvailableSpeedsResponse);
+  rpc NotifyBroadcastInfoResponse (NotifyBroadcastInfoResponseRequest) returns (NotifyBroadcastInfoResponseResponse);
+  rpc NotifyChannelRetuned (NotifyChannelRetunedRequest) returns (NotifyChannelRetunedResponse);
+  rpc NotifyContentAllowed (NotifyContentAllowedRequest) returns (NotifyContentAllowedResponse);
+  rpc NotifyContentBlocked (NotifyContentBlockedRequest) returns (NotifyContentBlockedResponse);
+  rpc NotifyCueingMessageAvailability (NotifyCueingMessageAvailabilityRequest) returns (NotifyCueingMessageAvailabilityResponse);
+  rpc NotifySignalStrength (NotifySignalStrengthRequest) returns (NotifySignalStrengthResponse);
+  rpc NotifyTimeShiftMode (NotifyTimeShiftModeRequest) returns (NotifyTimeShiftModeResponse);
+  rpc NotifyTimeShiftStatusChanged (NotifyTimeShiftStatusChangedRequest) returns (NotifyTimeShiftStatusChangedResponse);
+  rpc NotifyTrackSelected (NotifyTrackSelectedRequest) returns (NotifyTrackSelectedResponse);
+  rpc NotifyTuned (NotifyTunedRequest) returns (NotifyTunedResponse);
+  rpc NotifyTvMessage (NotifyTvMessageRequest) returns (NotifyTvMessageResponse);
+  rpc NotifyVideoAvailable (NotifyVideoAvailableRequest) returns (NotifyVideoAvailableResponse);
+  rpc NotifyVideoFreezeUpdated (NotifyVideoFreezeUpdatedRequest) returns (NotifyVideoFreezeUpdatedResponse);
+  rpc NotifyVideoUnavailable (NotifyVideoUnavailableRequest) returns (NotifyVideoUnavailableResponse);
+  rpc OnAdBufferReady (OnAdBufferReadyRequest) returns (OnAdBufferReadyResponse);
+  rpc OnAppPrivateCommand (OnAppPrivateCommandRequest) returns (OnAppPrivateCommandResponse);
+  rpc OnCreateOverlayView (OnCreateOverlayViewRequest) returns (OnCreateOverlayViewResponse);
+  rpc OnGenericMotionEvent (OnGenericMotionEventRequest) returns (OnGenericMotionEventResponse);
+  rpc OnKeyDown (OnKeyDownRequest) returns (OnKeyDownResponse);
+  rpc OnKeyLongPress (OnKeyLongPressRequest) returns (OnKeyLongPressResponse);
+  rpc OnKeyMultiple (OnKeyMultipleRequest) returns (OnKeyMultipleResponse);
+  rpc OnKeyUp (OnKeyUpRequest) returns (OnKeyUpResponse);
+  rpc OnOverlayViewSizeChanged (OnOverlayViewSizeChangedRequest) returns (OnOverlayViewSizeChangedResponse);
+  rpc OnRelease (OnReleaseRequest) returns (OnReleaseResponse);
+  rpc OnRemoveBroadcastInfo (OnRemoveBroadcastInfoRequest) returns (OnRemoveBroadcastInfoResponse);
+  rpc OnRequestAd (OnRequestAdRequest) returns (OnRequestAdResponse);
+  rpc OnRequestBroadcastInfo (OnRequestBroadcastInfoRequest) returns (OnRequestBroadcastInfoResponse);
+  rpc OnResumePlayback (OnResumePlaybackRequest) returns (OnResumePlaybackResponse);
+  rpc OnSelectAudioPresentation (OnSelectAudioPresentationRequest) returns (OnSelectAudioPresentationResponse);
+  rpc OnSelectTrack (OnSelectTrackRequest) returns (OnSelectTrackResponse);
+  rpc OnSetCaptionEnabled (OnSetCaptionEnabledRequest) returns (OnSetCaptionEnabledResponse);
+  rpc OnSetInteractiveAppNotificationEnabled (OnSetInteractiveAppNotificationEnabledRequest) returns (OnSetInteractiveAppNotificationEnabledResponse);
+  rpc OnSetStreamVolume (OnSetStreamVolumeRequest) returns (OnSetStreamVolumeResponse);
+  rpc OnSetSurface (OnSetSurfaceRequest) returns (OnSetSurfaceResponse);
+  rpc OnSetTvMessageEnabled (OnSetTvMessageEnabledRequest) returns (OnSetTvMessageEnabledResponse);
+  rpc OnStopPlayback (OnStopPlaybackRequest) returns (OnStopPlaybackResponse);
+  rpc OnSurfaceChanged (OnSurfaceChangedRequest) returns (OnSurfaceChangedResponse);
+  rpc OnTimeShiftGetCurrentPosition (OnTimeShiftGetCurrentPositionRequest) returns (OnTimeShiftGetCurrentPositionResponse);
+  rpc OnTimeShiftGetStartPosition (OnTimeShiftGetStartPositionRequest) returns (OnTimeShiftGetStartPositionResponse);
+  rpc OnTimeShiftPause (OnTimeShiftPauseRequest) returns (OnTimeShiftPauseResponse);
+  rpc OnTimeShiftPlay (OnTimeShiftPlayRequest) returns (OnTimeShiftPlayResponse);
+  rpc OnTimeShiftResume (OnTimeShiftResumeRequest) returns (OnTimeShiftResumeResponse);
+  rpc OnTimeShiftSeekTo (OnTimeShiftSeekToRequest) returns (OnTimeShiftSeekToResponse);
+  rpc OnTimeShiftSetMode (OnTimeShiftSetModeRequest) returns (OnTimeShiftSetModeResponse);
+  rpc OnTimeShiftSetPlaybackParams (OnTimeShiftSetPlaybackParamsRequest) returns (OnTimeShiftSetPlaybackParamsResponse);
+  rpc OnTouchEvent (OnTouchEventRequest) returns (OnTouchEventResponse);
+  rpc OnTrackballEvent (OnTrackballEventRequest) returns (OnTrackballEventResponse);
+  rpc OnTune1 (OnTune1Request) returns (InputServiceSessionOnTune1Response);
+  rpc OnTune2_1 (OnTune2_1Request) returns (InputServiceSessionOnTune2_1Response);
+  rpc OnTvAdSessionData (OnTvAdSessionDataRequest) returns (OnTvAdSessionDataResponse);
+  rpc OnTvMessage (OnTvMessageRequest) returns (OnTvMessageResponse);
+  rpc OnUnblockContent (OnUnblockContentRequest) returns (OnUnblockContentResponse);
+  rpc SendTvInputSessionData (SendTvInputSessionDataRequest) returns (SendTvInputSessionDataResponse);
+  rpc SetOverlayViewEnabled (SetOverlayViewEnabledRequest) returns (SetOverlayViewEnabledResponse);
+}
+
+service BroadcastInfoRequestService {
+  rpc DescribeContents (BroadcastInfoRequestDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetOption (GetOptionRequest) returns (GetOptionResponse);
+  rpc GetRequestId (GetRequestIdRequest) returns (GetRequestIdResponse);
+  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
+  rpc WriteToParcel (BroadcastInfoRequestWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service DsmccResponseService {
+  rpc NewDsmccResponse (NewDsmccResponseRequest) returns (NewDsmccResponseResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetBiopMessageType (GetBiopMessageTypeRequest) returns (GetBiopMessageTypeResponse);
+  rpc GetFile (GetFileRequest) returns (GetFileResponse);
+  rpc GetStreamEventIds (GetStreamEventIdsRequest) returns (GetStreamEventIdsResponse);
+  rpc GetStreamEventNames (GetStreamEventNamesRequest) returns (GetStreamEventNamesResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service PesResponseService {
+  rpc NewPesResponse (NewPesResponseRequest) returns (NewPesResponseResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetSharedFilterToken (GetSharedFilterTokenRequest) returns (GetSharedFilterTokenResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service RecordingInfoService {
+  rpc NewRecordingInfo (NewRecordingInfoRequest) returns (NewRecordingInfoResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetChannelUri (GetChannelUriRequest) returns (GetChannelUriResponse);
+  rpc GetDescription (GetDescriptionRequest) returns (GetDescriptionResponse);
+  rpc GetEndPaddingMillis (GetEndPaddingMillisRequest) returns (GetEndPaddingMillisResponse);
+  rpc GetName (GetNameRequest) returns (GetNameResponse);
+  rpc GetProgramUri (GetProgramUriRequest) returns (GetProgramUriResponse);
+  rpc GetRecordingDurationMillis (GetRecordingDurationMillisRequest) returns (GetRecordingDurationMillisResponse);
+  rpc GetRecordingId (GetRecordingIdRequest) returns (GetRecordingIdResponse);
+  rpc GetRecordingStartTimeMillis (GetRecordingStartTimeMillisRequest) returns (GetRecordingStartTimeMillisResponse);
+  rpc GetRecordingUri (GetRecordingUriRequest) returns (GetRecordingUriResponse);
+  rpc GetRepeatDays (GetRepeatDaysRequest) returns (GetRepeatDaysResponse);
+  rpc GetScheduledDurationMillis (GetScheduledDurationMillisRequest) returns (GetScheduledDurationMillisResponse);
+  rpc GetScheduledStartTimeMillis (GetScheduledStartTimeMillisRequest) returns (GetScheduledStartTimeMillisResponse);
+  rpc GetStartPaddingMillis (GetStartPaddingMillisRequest) returns (GetStartPaddingMillisResponse);
+  rpc SetDescription (SetDescriptionRequest) returns (SetDescriptionResponse);
+  rpc SetName (SetNameRequest) returns (SetNameResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service SignalingDataResponseService {
+  rpc NewSignalingDataResponse (NewSignalingDataResponseRequest) returns (NewSignalingDataResponseResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service BroadcastInfoResponseService {
+  rpc DescribeContents (BroadcastInfoResponseDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetRequestId (GetRequestIdRequest) returns (GetRequestIdResponse);
+  rpc GetResponseResult (GetResponseResultRequest) returns (GetResponseResultResponse);
+  rpc GetSequence (GetSequenceRequest) returns (GetSequenceResponse);
+  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
+  rpc WriteToParcel (BroadcastInfoResponseWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ContractService {
+  rpc BuildChannelLogoUri1 (BuildChannelLogoUri1Request) returns (BuildChannelLogoUri1Response);
+  rpc BuildChannelLogoUri1_1 (BuildChannelLogoUri1_1Request) returns (BuildChannelLogoUri1_1Response);
+  rpc BuildChannelUri (BuildChannelUriRequest) returns (BuildChannelUriResponse);
+  rpc BuildChannelUriForPassthroughInput (BuildChannelUriForPassthroughInputRequest) returns (BuildChannelUriForPassthroughInputResponse);
+  rpc BuildChannelsUriForInput (BuildChannelsUriForInputRequest) returns (BuildChannelsUriForInputResponse);
+  rpc BuildInputId (BuildInputIdRequest) returns (BuildInputIdResponse);
+  rpc BuildPreviewProgramUri (BuildPreviewProgramUriRequest) returns (BuildPreviewProgramUriResponse);
+  rpc BuildPreviewProgramsUriForChannel1 (BuildPreviewProgramsUriForChannel1Request) returns (BuildPreviewProgramsUriForChannel1Response);
+  rpc BuildPreviewProgramsUriForChannel1_1 (BuildPreviewProgramsUriForChannel1_1Request) returns (BuildPreviewProgramsUriForChannel1_1Response);
+  rpc BuildProgramUri (BuildProgramUriRequest) returns (BuildProgramUriResponse);
+  rpc BuildProgramsUriForChannel1 (BuildProgramsUriForChannel1Request) returns (BuildProgramsUriForChannel1Response);
+  rpc BuildProgramsUriForChannel3_1 (BuildProgramsUriForChannel3_1Request) returns (BuildProgramsUriForChannel3_1Response);
+  rpc BuildProgramsUriForChannel1_2 (BuildProgramsUriForChannel1_2Request) returns (BuildProgramsUriForChannel1_2Response);
+  rpc BuildProgramsUriForChannel3_3 (BuildProgramsUriForChannel3_3Request) returns (BuildProgramsUriForChannel3_3Response);
+  rpc BuildRecordedProgramUri (BuildRecordedProgramUriRequest) returns (BuildRecordedProgramUriResponse);
+  rpc BuildWatchNextProgramUri (BuildWatchNextProgramUriRequest) returns (BuildWatchNextProgramUriResponse);
+  rpc IsChannelUri (IsChannelUriRequest) returns (IsChannelUriResponse);
+  rpc IsChannelUriForPassthroughInput (IsChannelUriForPassthroughInputRequest) returns (IsChannelUriForPassthroughInputResponse);
+  rpc IsChannelUriForTunerInput (IsChannelUriForTunerInputRequest) returns (IsChannelUriForTunerInputResponse);
+  rpc IsProgramUri (IsProgramUriRequest) returns (IsProgramUriResponse);
+  rpc IsRecordedProgramUri (IsRecordedProgramUriRequest) returns (IsRecordedProgramUriResponse);
+  rpc RequestChannelBrowsable (RequestChannelBrowsableRequest) returns (RequestChannelBrowsableResponse);
+}
+
+service ContractChannelsService {
+  rpc GetVideoResolution (GetVideoResolutionRequest) returns (GetVideoResolutionResponse);
+}
+
+service TsRequestService {
+  rpc NewTsRequest (NewTsRequestRequest) returns (NewTsRequestResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetTsPid (GetTsPidRequest) returns (GetTsPidResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service TimelineRequestService {
+  rpc NewTimelineRequest (NewTimelineRequestRequest) returns (NewTimelineRequestResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetIntervalMillis (GetIntervalMillisRequest) returns (GetIntervalMillisResponse);
+  rpc GetSelector (GetSelectorRequest) returns (GetSelectorResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service TableResponseService {
+  rpc NewTableResponse (NewTableResponseRequest) returns (NewTableResponseResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetSize (GetSizeRequest) returns (GetSizeResponse);
+  rpc GetTableByteArray (GetTableByteArrayRequest) returns (GetTableByteArrayResponse);
+  rpc GetTableSharedMemory (GetTableSharedMemoryRequest) returns (GetTableSharedMemoryResponse);
+  rpc GetTableUri (GetTableUriRequest) returns (GetTableUriResponse);
+  rpc GetVersion (GetVersionRequest) returns (GetVersionResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service TableResponseBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetTableByteArray (SetTableByteArrayRequest) returns (SetTableByteArrayResponse);
+  rpc SetTableSharedMemory (SetTableSharedMemoryRequest) returns (SetTableSharedMemoryResponse);
+  rpc SetTableUri (SetTableUriRequest) returns (SetTableUriResponse);
+}
+
+service DsmccRequestService {
+  rpc NewDsmccRequest (NewDsmccRequestRequest) returns (NewDsmccRequestResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetUri (GetUriRequest) returns (GetUriResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service AitInfoService {
+  rpc NewAitInfo (NewAitInfoRequest) returns (NewAitInfoResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetType (AitInfoGetTypeRequest) returns (GetTypeResponse);
+  rpc GetVersion (GetVersionRequest) returns (GetVersionResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service InputInfoService {
+  rpc CanPauseRecording (CanPauseRecordingRequest) returns (CanPauseRecordingResponse);
+  rpc CanRecord (CanRecordRequest) returns (CanRecordResponse);
+  rpc CreateSettingsIntent (CreateSettingsIntentRequest) returns (CreateSettingsIntentResponse);
+  rpc CreateSetupIntent (CreateSetupIntentRequest) returns (CreateSetupIntentResponse);
+  rpc DescribeContents (InputInfoDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetExtras (GetExtrasRequest) returns (GetExtrasResponse);
+  rpc GetId (InputInfoGetIdRequest) returns (InputInfoGetIdResponse);
+  rpc GetParentId (GetParentIdRequest) returns (GetParentIdResponse);
+  rpc GetServiceInfo (GetServiceInfoRequest) returns (GetServiceInfoResponse);
+  rpc GetTunerCount (GetTunerCountRequest) returns (GetTunerCountResponse);
+  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc IsHidden (IsHiddenRequest) returns (IsHiddenResponse);
+  rpc IsPassthroughInput (IsPassthroughInputRequest) returns (IsPassthroughInputResponse);
+  rpc LoadCustomLabel (LoadCustomLabelRequest) returns (LoadCustomLabelResponse);
+  rpc LoadIcon (LoadIconRequest) returns (LoadIconResponse);
+  rpc LoadLabel (LoadLabelRequest) returns (LoadLabelResponse);
+  rpc ToString (InputInfoToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (InputInfoWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service InputInfoBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetCanPauseRecording (SetCanPauseRecordingRequest) returns (SetCanPauseRecordingResponse);
+  rpc SetCanRecord (SetCanRecordRequest) returns (SetCanRecordResponse);
+  rpc SetExtras (SetExtrasRequest) returns (SetExtrasResponse);
+  rpc SetTunerCount (SetTunerCountRequest) returns (SetTunerCountResponse);
+}
+
+service AdBufferService {
+  rpc NewAdBuffer (NewAdBufferRequest) returns (NewAdBufferResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetFlags (GetFlagsRequest) returns (GetFlagsResponse);
+  rpc GetId (GetIdRequest) returns (GetIdResponse);
+  rpc GetLength (GetLengthRequest) returns (GetLengthResponse);
+  rpc GetMimeType (GetMimeTypeRequest) returns (GetMimeTypeResponse);
+  rpc GetOffset (GetOffsetRequest) returns (GetOffsetResponse);
+  rpc GetPresentationTimeUs (GetPresentationTimeUsRequest) returns (GetPresentationTimeUsResponse);
+  rpc GetSharedMemory (GetSharedMemoryRequest) returns (GetSharedMemoryResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ViewService {
+  rpc NewView (NewViewRequest) returns (NewViewResponse);
+  rpc DispatchGenericMotionEvent (DispatchGenericMotionEventRequest) returns (DispatchGenericMotionEventResponse);
+  rpc DispatchKeyEvent (DispatchKeyEventRequest) returns (DispatchKeyEventResponse);
+  rpc DispatchTouchEvent (DispatchTouchEventRequest) returns (DispatchTouchEventResponse);
+  rpc DispatchTrackballEvent (DispatchTrackballEventRequest) returns (DispatchTrackballEventResponse);
+  rpc DispatchUnhandledInputEvent (DispatchUnhandledInputEventRequest) returns (DispatchUnhandledInputEventResponse);
+  rpc DispatchWindowFocusChanged (DispatchWindowFocusChangedRequest) returns (DispatchWindowFocusChangedResponse);
+  rpc Draw (DrawRequest) returns (DrawResponse);
+  rpc GatherTransparentRegion (GatherTransparentRegionRequest) returns (GatherTransparentRegionResponse);
+  rpc GetSelectedTrack (GetSelectedTrackRequest) returns (GetSelectedTrackResponse);
+  rpc OnUnhandledInputEvent (OnUnhandledInputEventRequest) returns (OnUnhandledInputEventResponse);
+  rpc OverrideTvAppAttributionSource (OverrideTvAppAttributionSourceRequest) returns (OverrideTvAppAttributionSourceResponse);
+  rpc Reset (ResetRequest) returns (ResetResponse);
+  rpc ResumePlayback (ResumePlaybackRequest) returns (ResumePlaybackResponse);
+  rpc SelectAudioPresentation (SelectAudioPresentationRequest) returns (SelectAudioPresentationResponse);
+  rpc SelectTrack (SelectTrackRequest) returns (SelectTrackResponse);
+  rpc SendAppPrivateCommand (SendAppPrivateCommandRequest) returns (SendAppPrivateCommandResponse);
+  rpc SetCallback (SetCallbackRequest) returns (SetCallbackResponse);
+  rpc SetCaptionEnabled (SetCaptionEnabledRequest) returns (SetCaptionEnabledResponse);
+  rpc SetInteractiveAppNotificationEnabled (SetInteractiveAppNotificationEnabledRequest) returns (SetInteractiveAppNotificationEnabledResponse);
+  rpc SetOnUnhandledInputEventListener (SetOnUnhandledInputEventListenerRequest) returns (SetOnUnhandledInputEventListenerResponse);
+  rpc SetStreamVolume (SetStreamVolumeRequest) returns (SetStreamVolumeResponse);
+  rpc SetTimeShiftPositionCallback (SetTimeShiftPositionCallbackRequest) returns (SetTimeShiftPositionCallbackResponse);
+  rpc SetTvMessageEnabled (SetTvMessageEnabledRequest) returns (SetTvMessageEnabledResponse);
+  rpc SetVideoFrozen (SetVideoFrozenRequest) returns (SetVideoFrozenResponse);
+  rpc SetZOrderMediaOverlay (SetZOrderMediaOverlayRequest) returns (SetZOrderMediaOverlayResponse);
+  rpc SetZOrderOnTop (SetZOrderOnTopRequest) returns (SetZOrderOnTopResponse);
+  rpc StopPlayback (StopPlaybackRequest) returns (StopPlaybackResponse);
+  rpc TimeShiftPause (TimeShiftPauseRequest) returns (TimeShiftPauseResponse);
+  rpc TimeShiftPlay (TimeShiftPlayRequest) returns (TimeShiftPlayResponse);
+  rpc TimeShiftResume (TimeShiftResumeRequest) returns (TimeShiftResumeResponse);
+  rpc TimeShiftSeekTo (TimeShiftSeekToRequest) returns (TimeShiftSeekToResponse);
+  rpc TimeShiftSetMode (TimeShiftSetModeRequest) returns (TimeShiftSetModeResponse);
+  rpc TimeShiftSetPlaybackParams (TimeShiftSetPlaybackParamsRequest) returns (TimeShiftSetPlaybackParamsResponse);
+  rpc Tune2 (Tune2Request) returns (Tune2Response);
+  rpc Tune3_1 (Tune3_1Request) returns (Tune3_1Response);
+}
+
+service ViewOnUnhandledInputEventListenerService {
+  rpc OnUnhandledInputEvent (ViewOnUnhandledInputEventListenerOnUnhandledInputEventRequest) returns (OnUnhandledInputEventResponse);
+}
+
+service ViewTimeShiftPositionCallbackService {
+  rpc OnTimeShiftCurrentPositionChanged (OnTimeShiftCurrentPositionChangedRequest) returns (OnTimeShiftCurrentPositionChangedResponse);
+  rpc OnTimeShiftStartPositionChanged (OnTimeShiftStartPositionChangedRequest) returns (OnTimeShiftStartPositionChangedResponse);
+}
+
+service ViewTvInputCallbackService {
+  rpc OnAitInfoUpdated (OnAitInfoUpdatedRequest) returns (OnAitInfoUpdatedResponse);
+  rpc OnAudioPresentationSelected (OnAudioPresentationSelectedRequest) returns (OnAudioPresentationSelectedResponse);
+  rpc OnAvailableSpeeds (OnAvailableSpeedsRequest) returns (OnAvailableSpeedsResponse);
+  rpc OnChannelRetuned (OnChannelRetunedRequest) returns (OnChannelRetunedResponse);
+  rpc OnConnectionFailed (OnConnectionFailedRequest) returns (OnConnectionFailedResponse);
+  rpc OnContentAllowed (OnContentAllowedRequest) returns (OnContentAllowedResponse);
+  rpc OnContentBlocked (OnContentBlockedRequest) returns (OnContentBlockedResponse);
+  rpc OnCueingMessageAvailability (OnCueingMessageAvailabilityRequest) returns (OnCueingMessageAvailabilityResponse);
+  rpc OnDisconnected (OnDisconnectedRequest) returns (OnDisconnectedResponse);
+  rpc OnSignalStrengthUpdated (OnSignalStrengthUpdatedRequest) returns (OnSignalStrengthUpdatedResponse);
+  rpc OnTimeShiftMode (OnTimeShiftModeRequest) returns (OnTimeShiftModeResponse);
+  rpc OnTimeShiftStatusChanged (OnTimeShiftStatusChangedRequest) returns (OnTimeShiftStatusChangedResponse);
+  rpc OnTrackSelected (OnTrackSelectedRequest) returns (OnTrackSelectedResponse);
+  rpc OnTuned (OnTunedRequest) returns (OnTunedResponse);
+  rpc OnTvMessage (ViewTvInputCallbackOnTvMessageRequest) returns (OnTvMessageResponse);
+  rpc OnVideoAvailable (OnVideoAvailableRequest) returns (OnVideoAvailableResponse);
+  rpc OnVideoFreezeUpdated (OnVideoFreezeUpdatedRequest) returns (OnVideoFreezeUpdatedResponse);
+  rpc OnVideoSizeChanged (OnVideoSizeChangedRequest) returns (OnVideoSizeChangedResponse);
+  rpc OnVideoUnavailable (OnVideoUnavailableRequest) returns (OnVideoUnavailableResponse);
+}
+
+service SectionResponseService {
+  rpc NewSectionResponse (NewSectionResponseRequest) returns (NewSectionResponseResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetSessionData (GetSessionDataRequest) returns (GetSessionDataResponse);
+  rpc GetSessionId (GetSessionIdRequest) returns (GetSessionIdResponse);
+  rpc GetVersion (GetVersionRequest) returns (GetVersionResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service AdResponseService {
+  rpc NewAdResponse (NewAdResponseRequest) returns (NewAdResponseResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetElapsedTimeMillis (GetElapsedTimeMillisRequest) returns (GetElapsedTimeMillisResponse);
+  rpc GetId (GetIdRequest) returns (GetIdResponse);
+  rpc GetResponseType (GetResponseTypeRequest) returns (GetResponseTypeResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service SectionRequestService {
+  rpc NewSectionRequest (NewSectionRequestRequest) returns (NewSectionRequestResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetTableId (GetTableIdRequest) returns (GetTableIdResponse);
+  rpc GetTsPid (GetTsPidRequest) returns (GetTsPidResponse);
+  rpc GetVersion (GetVersionRequest) returns (GetVersionResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service TableRequestService {
+  rpc NewTableRequest (NewTableRequestRequest) returns (NewTableRequestResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetTableId (GetTableIdRequest) returns (GetTableIdResponse);
+  rpc GetTableName (GetTableNameRequest) returns (GetTableNameResponse);
+  rpc GetVersion (GetVersionRequest) returns (GetVersionResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service SignalingDataRequestService {
+  rpc NewSignalingDataRequest (NewSignalingDataRequestRequest) returns (NewSignalingDataRequestResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetGroup (GetGroupRequest) returns (GetGroupResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
 service InputManagerService {
   rpc GetInputState (GetInputStateRequest) returns (GetInputStateResponse);
   rpc GetTvInputInfo (GetTvInputInfoRequest) returns (GetTvInputInfoResponse);
@@ -58,4 +3243,146 @@ service InputManagerService {
   rpc IsRatingBlocked (IsRatingBlockedRequest) returns (IsRatingBlockedResponse);
   rpc UnregisterCallback (UnregisterCallbackRequest) returns (UnregisterCallbackResponse);
   rpc UpdateTvInputInfo (UpdateTvInputInfoRequest) returns (UpdateTvInputInfoResponse);
+}
+
+service InputManagerTvInputCallbackService {
+  rpc OnInputAdded (OnInputAddedRequest) returns (OnInputAddedResponse);
+  rpc OnInputRemoved (OnInputRemovedRequest) returns (OnInputRemovedResponse);
+  rpc OnInputStateChanged (OnInputStateChangedRequest) returns (OnInputStateChangedResponse);
+  rpc OnInputUpdated (OnInputUpdatedRequest) returns (OnInputUpdatedResponse);
+  rpc OnTvInputInfoUpdated (OnTvInputInfoUpdatedRequest) returns (OnTvInputInfoUpdatedResponse);
+}
+
+service CommandResponseService {
+  rpc NewCommandResponse (NewCommandResponseRequest) returns (NewCommandResponseResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetResponse (GetResponseRequest) returns (GetResponseResponse);
+  rpc GetResponseType (GetResponseTypeRequest) returns (CommandResponseGetResponseTypeResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service TsResponseService {
+  rpc NewTsResponse (NewTsResponseRequest) returns (NewTsResponseResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetSharedFilterToken (GetSharedFilterTokenRequest) returns (GetSharedFilterTokenResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service StreamEventRequestService {
+  rpc NewStreamEventRequest (NewStreamEventRequestRequest) returns (NewStreamEventRequestResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetEventName (GetEventNameRequest) returns (GetEventNameResponse);
+  rpc GetTargetUri (GetTargetUriRequest) returns (GetTargetUriResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service SignalingDataInfoService {
+  rpc NewSignalingDataInfo (NewSignalingDataInfoRequest) returns (NewSignalingDataInfoResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetEncoding (GetEncodingRequest) returns (GetEncodingResponse);
+  rpc GetGroup (GetGroupRequest) returns (GetGroupResponse);
+  rpc GetSignalingDataType (GetSignalingDataTypeRequest) returns (GetSignalingDataTypeResponse);
+  rpc GetTable (GetTableRequest) returns (GetTableResponse);
+  rpc GetVersion (GetVersionRequest) returns (GetVersionResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service TimelineResponseService {
+  rpc NewTimelineResponse (NewTimelineResponseRequest) returns (NewTimelineResponseResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetSelector (GetSelectorRequest) returns (TimelineResponseGetSelectorResponse);
+  rpc GetTicks (GetTicksRequest) returns (GetTicksResponse);
+  rpc GetUnitsPerSecond (GetUnitsPerSecondRequest) returns (GetUnitsPerSecondResponse);
+  rpc GetUnitsPerTick (GetUnitsPerTickRequest) returns (GetUnitsPerTickResponse);
+  rpc GetWallClock (GetWallClockRequest) returns (GetWallClockResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service RecordingClientService {
+  rpc NewRecordingClient (NewRecordingClientRequest) returns (NewRecordingClientResponse);
+  rpc PauseRecording0 (PauseRecording0Request) returns (PauseRecording0Response);
+  rpc PauseRecording1_1 (PauseRecording1_1Request) returns (PauseRecording1_1Response);
+  rpc Release (ReleaseRequest) returns (ReleaseResponse);
+  rpc ResumeRecording0 (ResumeRecording0Request) returns (ResumeRecording0Response);
+  rpc ResumeRecording1_1 (ResumeRecording1_1Request) returns (ResumeRecording1_1Response);
+  rpc SendAppPrivateCommand (SendAppPrivateCommandRequest) returns (SendAppPrivateCommandResponse);
+  rpc SetTvInteractiveAppView (SetTvInteractiveAppViewRequest) returns (SetTvInteractiveAppViewResponse);
+  rpc StartRecording1 (StartRecording1Request) returns (StartRecording1Response);
+  rpc StartRecording2_1 (StartRecording2_1Request) returns (StartRecording2_1Response);
+  rpc StopRecording (StopRecordingRequest) returns (StopRecordingResponse);
+  rpc Tune2 (Tune2Request) returns (Tune2Response);
+  rpc Tune3_1 (Tune3_1Request) returns (Tune3_1Response);
+}
+
+service RecordingClientRecordingCallbackService {
+  rpc OnConnectionFailed (OnConnectionFailedRequest) returns (OnConnectionFailedResponse);
+  rpc OnDisconnected (OnDisconnectedRequest) returns (OnDisconnectedResponse);
+  rpc OnError (OnErrorRequest) returns (OnErrorResponse);
+  rpc OnRecordingStopped (OnRecordingStoppedRequest) returns (OnRecordingStoppedResponse);
+  rpc OnTuned (RecordingClientRecordingCallbackOnTunedRequest) returns (OnTunedResponse);
+}
+
+service TrackInfoService {
+  rpc DescribeContents (TrackInfoDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetAudioChannelCount (GetAudioChannelCountRequest) returns (GetAudioChannelCountResponse);
+  rpc GetAudioSampleRate (GetAudioSampleRateRequest) returns (GetAudioSampleRateResponse);
+  rpc GetDescription (TrackInfoGetDescriptionRequest) returns (TrackInfoGetDescriptionResponse);
+  rpc GetEncoding (TrackInfoGetEncodingRequest) returns (GetEncodingResponse);
+  rpc GetExtra (GetExtraRequest) returns (GetExtraResponse);
+  rpc GetId (TrackInfoGetIdRequest) returns (TrackInfoGetIdResponse);
+  rpc GetLanguage (GetLanguageRequest) returns (GetLanguageResponse);
+  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
+  rpc GetVideoActiveFormatDescription (GetVideoActiveFormatDescriptionRequest) returns (GetVideoActiveFormatDescriptionResponse);
+  rpc GetVideoFrameRate (GetVideoFrameRateRequest) returns (GetVideoFrameRateResponse);
+  rpc GetVideoHeight (GetVideoHeightRequest) returns (GetVideoHeightResponse);
+  rpc GetVideoPixelAspectRatio (GetVideoPixelAspectRatioRequest) returns (GetVideoPixelAspectRatioResponse);
+  rpc GetVideoWidth (GetVideoWidthRequest) returns (GetVideoWidthResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc IsAudioDescription (IsAudioDescriptionRequest) returns (IsAudioDescriptionResponse);
+  rpc IsEncrypted (IsEncryptedRequest) returns (IsEncryptedResponse);
+  rpc IsHardOfHearing (IsHardOfHearingRequest) returns (IsHardOfHearingResponse);
+  rpc IsSpokenSubtitle (IsSpokenSubtitleRequest) returns (IsSpokenSubtitleResponse);
+  rpc WriteToParcel (TrackInfoWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service TrackInfoBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetAudioChannelCount (SetAudioChannelCountRequest) returns (SetAudioChannelCountResponse);
+  rpc SetAudioDescription (SetAudioDescriptionRequest) returns (SetAudioDescriptionResponse);
+  rpc SetAudioSampleRate (SetAudioSampleRateRequest) returns (SetAudioSampleRateResponse);
+  rpc SetDescription (TrackInfoBuilderSetDescriptionRequest) returns (TrackInfoBuilderSetDescriptionResponse);
+  rpc SetEncoding (SetEncodingRequest) returns (SetEncodingResponse);
+  rpc SetEncrypted (SetEncryptedRequest) returns (SetEncryptedResponse);
+  rpc SetExtra (SetExtraRequest) returns (SetExtraResponse);
+  rpc SetHardOfHearing (SetHardOfHearingRequest) returns (SetHardOfHearingResponse);
+  rpc SetLanguage (SetLanguageRequest) returns (SetLanguageResponse);
+  rpc SetSpokenSubtitle (SetSpokenSubtitleRequest) returns (SetSpokenSubtitleResponse);
+  rpc SetVideoActiveFormatDescription (SetVideoActiveFormatDescriptionRequest) returns (SetVideoActiveFormatDescriptionResponse);
+  rpc SetVideoFrameRate (SetVideoFrameRateRequest) returns (SetVideoFrameRateResponse);
+  rpc SetVideoHeight (SetVideoHeightRequest) returns (SetVideoHeightResponse);
+  rpc SetVideoPixelAspectRatio (SetVideoPixelAspectRatioRequest) returns (SetVideoPixelAspectRatioResponse);
+  rpc SetVideoWidth (SetVideoWidthRequest) returns (SetVideoWidthResponse);
+}
+
+service CommandRequestService {
+  rpc NewCommandRequest (NewCommandRequestRequest) returns (NewCommandRequestResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetArgumentType (GetArgumentTypeRequest) returns (GetArgumentTypeResponse);
+  rpc GetArguments (GetArgumentsRequest) returns (GetArgumentsResponse);
+  rpc GetName (GetNameRequest) returns (GetNameResponse);
+  rpc GetNamespace (GetNamespaceRequest) returns (GetNamespaceResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ContentRatingService {
+  rpc Contains (ContainsRequest) returns (ContainsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc FlattenToString (FlattenToStringRequest) returns (FlattenToStringResponse);
+  rpc GetDomain (GetDomainRequest) returns (GetDomainResponse);
+  rpc GetMainRating (GetMainRatingRequest) returns (GetMainRatingResponse);
+  rpc GetRatingSystem (GetRatingSystemRequest) returns (GetRatingSystemResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc CreateRating (CreateRatingRequest) returns (CreateRatingResponse);
+  rpc UnflattenFromString (UnflattenFromStringRequest) returns (UnflattenFromStringResponse);
 }

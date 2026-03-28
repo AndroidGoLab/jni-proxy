@@ -5,3 +5,116 @@ syntax = "proto3";
 package emergency;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/emergency";
+
+message CompareTo1Request {
+  int64 arg0 = 1;
+}
+
+message CompareTo1Response {
+  int32 result = 1;
+}
+
+message DescribeContentsRequest {
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message EqualsRequest {
+  int64 arg0 = 1;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message GetCountryIsoRequest {
+}
+
+message GetCountryIsoResponse {
+  string result = 1;
+}
+
+message GetEmergencyCallRoutingRequest {
+}
+
+message GetEmergencyCallRoutingResponse {
+  int32 result = 1;
+}
+
+message GetMncRequest {
+}
+
+message GetMncResponse {
+  string result = 1;
+}
+
+message GetNumberRequest {
+}
+
+message GetNumberResponse {
+  string result = 1;
+}
+
+message HashCodeRequest {
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message IsFromSourcesRequest {
+  int32 arg0 = 1;
+}
+
+message IsFromSourcesResponse {
+  bool result = 1;
+}
+
+message IsInEmergencyServiceCategoriesRequest {
+  int32 arg0 = 1;
+}
+
+message IsInEmergencyServiceCategoriesResponse {
+  bool result = 1;
+}
+
+message ToStringRequest {
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteToParcelResponse {
+}
+
+message CompareTo1_1Request {
+  int64 arg0 = 1;
+}
+
+message CompareTo1_1Response {
+  int32 result = 1;
+}
+
+service NumberService {
+  rpc CompareTo1 (CompareTo1Request) returns (CompareTo1Response);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetCountryIso (GetCountryIsoRequest) returns (GetCountryIsoResponse);
+  rpc GetEmergencyCallRouting (GetEmergencyCallRoutingRequest) returns (GetEmergencyCallRoutingResponse);
+  rpc GetMnc (GetMncRequest) returns (GetMncResponse);
+  rpc GetNumber (GetNumberRequest) returns (GetNumberResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc IsFromSources (IsFromSourcesRequest) returns (IsFromSourcesResponse);
+  rpc IsInEmergencyServiceCategories (IsInEmergencyServiceCategoriesRequest) returns (IsInEmergencyServiceCategoriesResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc CompareTo1_1 (CompareTo1_1Request) returns (CompareTo1_1Response);
+}

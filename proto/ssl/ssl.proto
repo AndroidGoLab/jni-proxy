@@ -5,3 +5,50 @@ syntax = "proto3";
 package ssl;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/ssl";
+
+message ExportKeyingMaterialRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  int64 arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message ExportKeyingMaterialResponse {
+  int64 result = 1;
+}
+
+message IsSupportedSocketRequest {
+  int64 arg0 = 1;
+}
+
+message IsSupportedSocketResponse {
+  bool result = 1;
+}
+
+message SetUseSessionTicketsRequest {
+  int64 arg0 = 1;
+  bool arg1 = 2;
+}
+
+message SetUseSessionTicketsResponse {
+}
+
+message IsSupportedEngineRequest {
+  int64 arg0 = 1;
+}
+
+message IsSupportedEngineResponse {
+  bool result = 1;
+}
+
+service SSLSocketsService {
+  rpc ExportKeyingMaterial (ExportKeyingMaterialRequest) returns (ExportKeyingMaterialResponse);
+  rpc IsSupportedSocket (IsSupportedSocketRequest) returns (IsSupportedSocketResponse);
+  rpc SetUseSessionTickets (SetUseSessionTicketsRequest) returns (SetUseSessionTicketsResponse);
+}
+
+service SSLEnginesService {
+  rpc ExportKeyingMaterial (ExportKeyingMaterialRequest) returns (ExportKeyingMaterialResponse);
+  rpc IsSupportedEngine (IsSupportedEngineRequest) returns (IsSupportedEngineResponse);
+  rpc SetUseSessionTickets (SetUseSessionTicketsRequest) returns (SetUseSessionTicketsResponse);
+}

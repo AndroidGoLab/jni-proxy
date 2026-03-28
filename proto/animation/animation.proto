@@ -5,3 +5,2900 @@ syntax = "proto3";
 package animation;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/animation";
+
+message NewTimeAnimatorRequest {
+}
+
+message NewTimeAnimatorResponse {
+  int64 result = 1;
+}
+
+message SetCurrentPlayTimeRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetCurrentPlayTimeResponse {
+}
+
+message SetTimeListenerRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetTimeListenerResponse {
+}
+
+message StartRequest {
+  int64 handle = 1;
+}
+
+message StartResponse {
+}
+
+message OnTimeUpdateRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message OnTimeUpdateResponse {
+}
+
+message GetInterpolationRequest {
+  float arg0 = 1;
+}
+
+message GetInterpolationResponse {
+  float result = 1;
+}
+
+message NewRectEvaluatorRequest {
+}
+
+message NewRectEvaluatorResponse {
+  int64 result = 1;
+}
+
+message Evaluate3Request {
+  int64 handle = 1;
+  float arg0 = 2;
+  int64 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message Evaluate3Response {
+  int64 result = 1;
+}
+
+message Evaluate3_1Request {
+  int64 handle = 1;
+  float arg0 = 2;
+  int64 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message Evaluate3_1Response {
+  int64 result = 1;
+}
+
+message AddListenerRequest {
+  int64 arg0 = 1;
+}
+
+message AddListenerResponse {
+}
+
+message AddPauseListenerRequest {
+  int64 arg0 = 1;
+}
+
+message AddPauseListenerResponse {
+}
+
+message CancelRequest {
+}
+
+message CancelResponse {
+}
+
+message Clone0Request {
+}
+
+message Clone0Response {
+  int64 result = 1;
+}
+
+message EndRequest {
+}
+
+message EndResponse {
+}
+
+message GetDurationRequest {
+}
+
+message GetDurationResponse {
+  int64 result = 1;
+}
+
+message GetInterpolatorRequest {
+}
+
+message GetInterpolatorResponse {
+  int64 result = 1;
+}
+
+message GetStartDelayRequest {
+}
+
+message GetStartDelayResponse {
+  int64 result = 1;
+}
+
+message GetTotalDurationRequest {
+}
+
+message GetTotalDurationResponse {
+  int64 result = 1;
+}
+
+message IsPausedRequest {
+}
+
+message IsPausedResponse {
+  bool result = 1;
+}
+
+message IsRunningRequest {
+}
+
+message IsRunningResponse {
+  bool result = 1;
+}
+
+message IsStartedRequest {
+}
+
+message IsStartedResponse {
+  bool result = 1;
+}
+
+message PauseRequest {
+}
+
+message PauseResponse {
+}
+
+message RemoveAllListenersRequest {
+}
+
+message RemoveAllListenersResponse {
+}
+
+message RemoveListenerRequest {
+  int64 arg0 = 1;
+}
+
+message RemoveListenerResponse {
+}
+
+message RemovePauseListenerRequest {
+  int64 arg0 = 1;
+}
+
+message RemovePauseListenerResponse {
+}
+
+message ResumeRequest {
+}
+
+message ResumeResponse {
+}
+
+message SetDurationRequest {
+  int64 arg0 = 1;
+}
+
+message SetDurationResponse {
+  int64 result = 1;
+}
+
+message SetInterpolatorRequest {
+  int64 arg0 = 1;
+}
+
+message SetInterpolatorResponse {
+}
+
+message SetStartDelayRequest {
+  int64 arg0 = 1;
+}
+
+message SetStartDelayResponse {
+}
+
+message SetTargetRequest {
+  int64 arg0 = 1;
+}
+
+message SetTargetResponse {
+}
+
+message SetupEndValuesRequest {
+}
+
+message SetupEndValuesResponse {
+}
+
+message SetupStartValuesRequest {
+}
+
+message SetupStartValuesResponse {
+}
+
+message AnimatorStartRequest {
+}
+
+message Clone0_1Request {
+}
+
+message Clone0_1Response {
+  int64 result = 1;
+}
+
+message OnAnimationCancelRequest {
+  int64 arg0 = 1;
+}
+
+message OnAnimationCancelResponse {
+}
+
+message OnAnimationEndRequest {
+  int64 arg0 = 1;
+}
+
+message OnAnimationEndResponse {
+}
+
+message OnAnimationRepeatRequest {
+  int64 arg0 = 1;
+}
+
+message OnAnimationRepeatResponse {
+}
+
+message OnAnimationStartRequest {
+  int64 arg0 = 1;
+}
+
+message OnAnimationStartResponse {
+}
+
+message OnAnimationPauseRequest {
+  int64 arg0 = 1;
+}
+
+message OnAnimationPauseResponse {
+}
+
+message OnAnimationResumeRequest {
+  int64 arg0 = 1;
+}
+
+message OnAnimationResumeResponse {
+}
+
+message NewFloatArrayEvaluatorRequest {
+}
+
+message NewFloatArrayEvaluatorResponse {
+  int64 result = 1;
+}
+
+message NewStateListAnimatorRequest {
+}
+
+message NewStateListAnimatorResponse {
+  int64 result = 1;
+}
+
+message AddStateRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message AddStateResponse {
+}
+
+message StateListAnimatorClone0Request {
+  int64 handle = 1;
+}
+
+message JumpToCurrentStateRequest {
+  int64 handle = 1;
+}
+
+message JumpToCurrentStateResponse {
+}
+
+message StateListAnimatorClone0_1Request {
+  int64 handle = 1;
+}
+
+message NewIntEvaluatorRequest {
+}
+
+message NewIntEvaluatorResponse {
+  int64 result = 1;
+}
+
+message NewAnimatorInflaterRequest {
+}
+
+message NewAnimatorInflaterResponse {
+  int64 result = 1;
+}
+
+message LoadAnimatorRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message LoadAnimatorResponse {
+  int64 result = 1;
+}
+
+message LoadStateListAnimatorRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message LoadStateListAnimatorResponse {
+  int64 result = 1;
+}
+
+message NewPointFEvaluatorRequest {
+}
+
+message NewPointFEvaluatorResponse {
+  int64 result = 1;
+}
+
+message NewFloatEvaluatorRequest {
+}
+
+message NewFloatEvaluatorResponse {
+  int64 result = 1;
+}
+
+message NewValueAnimatorRequest {
+}
+
+message NewValueAnimatorResponse {
+  int64 result = 1;
+}
+
+message AddUpdateListenerRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AddUpdateListenerResponse {
+}
+
+message ValueAnimatorCancelRequest {
+  int64 handle = 1;
+}
+
+message ValueAnimatorClone0Request {
+  int64 handle = 1;
+}
+
+message ValueAnimatorEndRequest {
+  int64 handle = 1;
+}
+
+message GetAnimatedFractionRequest {
+  int64 handle = 1;
+}
+
+message GetAnimatedFractionResponse {
+  float result = 1;
+}
+
+message GetAnimatedValue0Request {
+  int64 handle = 1;
+}
+
+message GetAnimatedValue0Response {
+  int64 result = 1;
+}
+
+message GetAnimatedValue1_1Request {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message GetAnimatedValue1_1Response {
+  int64 result = 1;
+}
+
+message GetCurrentPlayTimeRequest {
+  int64 handle = 1;
+}
+
+message GetCurrentPlayTimeResponse {
+  int64 result = 1;
+}
+
+message ValueAnimatorGetDurationRequest {
+  int64 handle = 1;
+}
+
+message ValueAnimatorGetInterpolatorRequest {
+  int64 handle = 1;
+}
+
+message GetRepeatCountRequest {
+  int64 handle = 1;
+}
+
+message GetRepeatCountResponse {
+  int32 result = 1;
+}
+
+message GetRepeatModeRequest {
+  int64 handle = 1;
+}
+
+message GetRepeatModeResponse {
+  int32 result = 1;
+}
+
+message ValueAnimatorGetStartDelayRequest {
+  int64 handle = 1;
+}
+
+message ValueAnimatorGetTotalDurationRequest {
+  int64 handle = 1;
+}
+
+message GetValuesRequest {
+  int64 handle = 1;
+}
+
+message GetValuesResponse {
+  int64 result = 1;
+}
+
+message ValueAnimatorIsRunningRequest {
+  int64 handle = 1;
+}
+
+message ValueAnimatorIsStartedRequest {
+  int64 handle = 1;
+}
+
+message ValueAnimatorPauseRequest {
+  int64 handle = 1;
+}
+
+message RemoveAllUpdateListenersRequest {
+  int64 handle = 1;
+}
+
+message RemoveAllUpdateListenersResponse {
+}
+
+message RemoveUpdateListenerRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message RemoveUpdateListenerResponse {
+}
+
+message ValueAnimatorResumeRequest {
+  int64 handle = 1;
+}
+
+message ReverseRequest {
+  int64 handle = 1;
+}
+
+message ReverseResponse {
+}
+
+message SetCurrentFractionRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+}
+
+message SetCurrentFractionResponse {
+}
+
+message SetDuration1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetDuration1Response {
+  int64 result = 1;
+}
+
+message SetEvaluatorRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetEvaluatorResponse {
+}
+
+message SetFloatValuesRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetFloatValuesResponse {
+}
+
+message SetIntValuesRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetIntValuesResponse {
+}
+
+message ValueAnimatorSetInterpolatorRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetObjectValuesRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetObjectValuesResponse {
+}
+
+message SetRepeatCountRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetRepeatCountResponse {
+}
+
+message SetRepeatModeRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetRepeatModeResponse {
+}
+
+message ValueAnimatorSetStartDelayRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetValuesRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetValuesResponse {
+}
+
+message ToStringRequest {
+  int64 handle = 1;
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message SetDuration1_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetDuration1_1Response {
+  int64 result = 1;
+}
+
+message ValueAnimatorClone0_1Request {
+  int64 handle = 1;
+}
+
+message Clone0_2Request {
+  int64 handle = 1;
+}
+
+message Clone0_2Response {
+  int64 result = 1;
+}
+
+message AreAnimatorsEnabledRequest {
+  int64 handle = 1;
+}
+
+message AreAnimatorsEnabledResponse {
+  bool result = 1;
+}
+
+message GetDurationScaleRequest {
+  int64 handle = 1;
+}
+
+message GetDurationScaleResponse {
+  float result = 1;
+}
+
+message GetFrameDelayRequest {
+  int64 handle = 1;
+}
+
+message GetFrameDelayResponse {
+  int64 result = 1;
+}
+
+message OfArgbRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OfArgbResponse {
+  int64 result = 1;
+}
+
+message OfFloatRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OfFloatResponse {
+  int64 result = 1;
+}
+
+message OfIntRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OfIntResponse {
+  int64 result = 1;
+}
+
+message OfObjectRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message OfObjectResponse {
+  int64 result = 1;
+}
+
+message OfPropertyValuesHolderRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OfPropertyValuesHolderResponse {
+  int64 result = 1;
+}
+
+message RegisterDurationScaleChangeListenerRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message RegisterDurationScaleChangeListenerResponse {
+  bool result = 1;
+}
+
+message SetFrameDelayRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetFrameDelayResponse {
+}
+
+message UnregisterDurationScaleChangeListenerRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message UnregisterDurationScaleChangeListenerResponse {
+  bool result = 1;
+}
+
+message OnAnimationUpdateRequest {
+  int64 arg0 = 1;
+}
+
+message OnAnimationUpdateResponse {
+}
+
+message OnChangedRequest {
+  float arg0 = 1;
+}
+
+message OnChangedResponse {
+}
+
+message NewIntArrayEvaluatorRequest {
+}
+
+message NewIntArrayEvaluatorResponse {
+  int64 result = 1;
+}
+
+message NewArgbEvaluatorRequest {
+}
+
+message NewArgbEvaluatorResponse {
+  int64 result = 1;
+}
+
+message EvaluateRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+  int64 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message EvaluateResponse {
+  int64 result = 1;
+}
+
+message GetPropertyNameRequest {
+}
+
+message GetPropertyNameResponse {
+  string result = 1;
+}
+
+message SetConverterRequest {
+  int64 arg0 = 1;
+}
+
+message SetConverterResponse {
+}
+
+message PropertyValuesHolderSetEvaluatorRequest {
+  int64 arg0 = 1;
+}
+
+message PropertyValuesHolderSetFloatValuesRequest {
+  int64 arg0 = 1;
+}
+
+message PropertyValuesHolderSetIntValuesRequest {
+  int64 arg0 = 1;
+}
+
+message SetKeyframesRequest {
+  int64 arg0 = 1;
+}
+
+message SetKeyframesResponse {
+}
+
+message PropertyValuesHolderSetObjectValuesRequest {
+  int64 arg0 = 1;
+}
+
+message SetPropertyRequest {
+  int64 arg0 = 1;
+}
+
+message SetPropertyResponse {
+}
+
+message SetPropertyNameRequest {
+  string arg0 = 1;
+}
+
+message SetPropertyNameResponse {
+}
+
+message PropertyValuesHolderToStringRequest {
+}
+
+message PropertyValuesHolderOfFloatRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message PropertyValuesHolderOfIntRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OfKeyframe2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OfKeyframe2Response {
+  int64 result = 1;
+}
+
+message OfKeyframe2_1Request {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OfKeyframe2_1Response {
+  int64 result = 1;
+}
+
+message OfMultiFloat2Request {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OfMultiFloat2Response {
+  int64 result = 1;
+}
+
+message OfMultiFloat2_1Request {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OfMultiFloat2_1Response {
+  int64 result = 1;
+}
+
+message OfMultiInt2Request {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OfMultiInt2Response {
+  int64 result = 1;
+}
+
+message OfMultiInt2_1Request {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OfMultiInt2_1Response {
+  int64 result = 1;
+}
+
+message PropertyValuesHolderOfObjectRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message NewLayoutTransitionRequest {
+}
+
+message NewLayoutTransitionResponse {
+  int64 result = 1;
+}
+
+message AddChildRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message AddChildResponse {
+}
+
+message AddTransitionListenerRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AddTransitionListenerResponse {
+}
+
+message DisableTransitionTypeRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message DisableTransitionTypeResponse {
+}
+
+message EnableTransitionTypeRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message EnableTransitionTypeResponse {
+}
+
+message GetAnimatorRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetAnimatorResponse {
+  int64 result = 1;
+}
+
+message LayoutTransitionGetDurationRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message LayoutTransitionGetInterpolatorRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetStaggerRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetStaggerResponse {
+  int64 result = 1;
+}
+
+message LayoutTransitionGetStartDelayRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message HideChild2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message HideChild2Response {
+}
+
+message HideChild3_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int32 arg2 = 4;
+}
+
+message HideChild3_1Response {
+}
+
+message IsChangingLayoutRequest {
+  int64 handle = 1;
+}
+
+message IsChangingLayoutResponse {
+  bool result = 1;
+}
+
+message LayoutTransitionIsRunningRequest {
+  int64 handle = 1;
+}
+
+message IsTransitionTypeEnabledRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message IsTransitionTypeEnabledResponse {
+  bool result = 1;
+}
+
+message RemoveChildRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message RemoveChildResponse {
+}
+
+message RemoveTransitionListenerRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message RemoveTransitionListenerResponse {
+}
+
+message SetAnimateParentHierarchyRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetAnimateParentHierarchyResponse {
+}
+
+message SetAnimatorRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message SetAnimatorResponse {
+}
+
+message SetDuration2Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message SetDuration2Response {
+}
+
+message LayoutTransitionSetDuration1_1Response {
+}
+
+message LayoutTransitionSetInterpolatorRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message SetStaggerRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message SetStaggerResponse {
+}
+
+message LayoutTransitionSetStartDelayRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message ShowChild2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message ShowChild2Response {
+}
+
+message ShowChild3_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int32 arg2 = 4;
+}
+
+message ShowChild3_1Response {
+}
+
+message EndTransitionRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message EndTransitionResponse {
+}
+
+message StartTransitionRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message StartTransitionResponse {
+}
+
+message NewObjectAnimatorRequest {
+}
+
+message NewObjectAnimatorResponse {
+  int64 result = 1;
+}
+
+message ObjectAnimatorClone0Request {
+  int64 handle = 1;
+}
+
+message ObjectAnimatorGetPropertyNameRequest {
+  int64 handle = 1;
+}
+
+message GetTargetRequest {
+  int64 handle = 1;
+}
+
+message GetTargetResponse {
+  int64 result = 1;
+}
+
+message SetAutoCancelRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetAutoCancelResponse {
+}
+
+message ObjectAnimatorSetPropertyRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message ObjectAnimatorSetPropertyNameRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message ObjectAnimatorSetTargetRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message ObjectAnimatorSetupEndValuesRequest {
+  int64 handle = 1;
+}
+
+message ObjectAnimatorSetupStartValuesRequest {
+  int64 handle = 1;
+}
+
+message ObjectAnimatorClone0_1Request {
+  int64 handle = 1;
+}
+
+message SetDuration1_2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetDuration1_2Response {
+  int64 result = 1;
+}
+
+message Clone0_3Request {
+  int64 handle = 1;
+}
+
+message Clone0_3Response {
+  int64 result = 1;
+}
+
+message ObjectAnimatorOfArgbRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message OfFloat3Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message OfFloat3Response {
+  int64 result = 1;
+}
+
+message OfFloat4_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+  string arg2 = 4;
+  int64 arg3 = 5;
+}
+
+message OfFloat4_1Response {
+  int64 result = 1;
+}
+
+message OfInt3Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message OfInt3Response {
+  int64 result = 1;
+}
+
+message OfInt4_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+  string arg2 = 4;
+  int64 arg3 = 5;
+}
+
+message OfInt4_1Response {
+  int64 result = 1;
+}
+
+message OfMultiFloat3Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message OfMultiFloat3Response {
+  int64 result = 1;
+}
+
+message OfMultiFloat3_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message OfMultiFloat3_1Response {
+  int64 result = 1;
+}
+
+message OfMultiInt3Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message OfMultiInt3Response {
+  int64 result = 1;
+}
+
+message OfMultiInt3_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message OfMultiInt3_1Response {
+  int64 result = 1;
+}
+
+message ObjectAnimatorOfObjectRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+  int64 arg2 = 4;
+  int64 arg3 = 5;
+}
+
+message ObjectAnimatorOfPropertyValuesHolderRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message NewAnimatorSetRequest {
+}
+
+message NewAnimatorSetResponse {
+  int64 result = 1;
+}
+
+message AnimatorSetCancelRequest {
+  int64 handle = 1;
+}
+
+message AnimatorSetClone0Request {
+  int64 handle = 1;
+}
+
+message AnimatorSetEndRequest {
+  int64 handle = 1;
+}
+
+message AnimatorSetGetDurationRequest {
+  int64 handle = 1;
+}
+
+message AnimatorSetGetInterpolatorRequest {
+  int64 handle = 1;
+}
+
+message AnimatorSetGetStartDelayRequest {
+  int64 handle = 1;
+}
+
+message AnimatorSetGetTotalDurationRequest {
+  int64 handle = 1;
+}
+
+message AnimatorSetIsRunningRequest {
+  int64 handle = 1;
+}
+
+message AnimatorSetIsStartedRequest {
+  int64 handle = 1;
+}
+
+message AnimatorSetPauseRequest {
+  int64 handle = 1;
+}
+
+message PlayRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message PlayResponse {
+  int64 result = 1;
+}
+
+message PlaySequentiallyRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message PlaySequentiallyResponse {
+}
+
+message PlayTogetherRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message PlayTogetherResponse {
+}
+
+message AnimatorSetResumeRequest {
+  int64 handle = 1;
+}
+
+message AnimatorSetSetInterpolatorRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AnimatorSetSetStartDelayRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AnimatorSetSetTargetRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AnimatorSetSetupEndValuesRequest {
+  int64 handle = 1;
+}
+
+message AnimatorSetSetupStartValuesRequest {
+  int64 handle = 1;
+}
+
+message AnimatorSetClone0_1Request {
+  int64 handle = 1;
+}
+
+message After1Request {
+  int64 arg0 = 1;
+}
+
+message After1Response {
+  int64 result = 1;
+}
+
+message After1_1Request {
+  int64 arg0 = 1;
+}
+
+message After1_1Response {
+  int64 result = 1;
+}
+
+message BeforeRequest {
+  int64 arg0 = 1;
+}
+
+message BeforeResponse {
+  int64 result = 1;
+}
+
+message WithRequest {
+  int64 arg0 = 1;
+}
+
+message WithResponse {
+  int64 result = 1;
+}
+
+message GetFractionRequest {
+}
+
+message GetFractionResponse {
+  float result = 1;
+}
+
+message GetTypeRequest {
+}
+
+message GetTypeResponse {
+  int64 result = 1;
+}
+
+message GetValueRequest {
+}
+
+message GetValueResponse {
+  int64 result = 1;
+}
+
+message HasValueRequest {
+}
+
+message HasValueResponse {
+  bool result = 1;
+}
+
+message SetFractionRequest {
+  float arg0 = 1;
+}
+
+message SetFractionResponse {
+}
+
+message SetValueRequest {
+  int64 arg0 = 1;
+}
+
+message SetValueResponse {
+}
+
+message OfFloat1Request {
+  float arg0 = 1;
+}
+
+message OfFloat1Response {
+  int64 result = 1;
+}
+
+message OfFloat2_1Request {
+  float arg0 = 1;
+  float arg1 = 2;
+}
+
+message OfFloat2_1Response {
+  int64 result = 1;
+}
+
+message OfInt1Request {
+  float arg0 = 1;
+}
+
+message OfInt1Response {
+  int64 result = 1;
+}
+
+message OfInt2_1Request {
+  float arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message OfInt2_1Response {
+  int64 result = 1;
+}
+
+message OfObject1Request {
+  float arg0 = 1;
+}
+
+message OfObject1Response {
+  int64 result = 1;
+}
+
+message OfObject2_1Request {
+  float arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OfObject2_1Response {
+  int64 result = 1;
+}
+
+message NewAccelerateDecelerateInterpolatorRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewAccelerateDecelerateInterpolatorResponse {
+  int64 result = 1;
+}
+
+message AccelerateDecelerateInterpolatorGetInterpolationRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+}
+
+message NewDecelerateInterpolatorRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewDecelerateInterpolatorResponse {
+  int64 result = 1;
+}
+
+message NewAccelerateInterpolatorRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewAccelerateInterpolatorResponse {
+  int64 result = 1;
+}
+
+message NewPathInterpolatorRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewPathInterpolatorResponse {
+  int64 result = 1;
+}
+
+message NewLinearInterpolatorRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewLinearInterpolatorResponse {
+  int64 result = 1;
+}
+
+message NewScaleAnimationRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewScaleAnimationResponse {
+  int64 result = 1;
+}
+
+message InitializeRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
+}
+
+message InitializeResponse {
+}
+
+message NewGridLayoutAnimationControllerRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewGridLayoutAnimationControllerResponse {
+  int64 result = 1;
+}
+
+message GetColumnDelayRequest {
+  int64 handle = 1;
+}
+
+message GetColumnDelayResponse {
+  float result = 1;
+}
+
+message GetDirectionRequest {
+  int64 handle = 1;
+}
+
+message GetDirectionResponse {
+  int32 result = 1;
+}
+
+message GetDirectionPriorityRequest {
+  int64 handle = 1;
+}
+
+message GetDirectionPriorityResponse {
+  int32 result = 1;
+}
+
+message GetRowDelayRequest {
+  int64 handle = 1;
+}
+
+message GetRowDelayResponse {
+  float result = 1;
+}
+
+message SetColumnDelayRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+}
+
+message SetColumnDelayResponse {
+}
+
+message SetDirectionRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetDirectionResponse {
+}
+
+message SetDirectionPriorityRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetDirectionPriorityResponse {
+}
+
+message SetRowDelayRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+}
+
+message SetRowDelayResponse {
+}
+
+message WillOverlapRequest {
+  int64 handle = 1;
+}
+
+message WillOverlapResponse {
+  bool result = 1;
+}
+
+message ComputeDurationHintRequest {
+}
+
+message ComputeDurationHintResponse {
+  int64 result = 1;
+}
+
+message GetBackdropColorRequest {
+}
+
+message GetBackdropColorResponse {
+  int32 result = 1;
+}
+
+message GetBackgroundColorRequest {
+}
+
+message GetBackgroundColorResponse {
+  int32 result = 1;
+}
+
+message GetDetachWallpaperRequest {
+}
+
+message GetDetachWallpaperResponse {
+  bool result = 1;
+}
+
+message GetFillAfterRequest {
+}
+
+message GetFillAfterResponse {
+  bool result = 1;
+}
+
+message GetFillBeforeRequest {
+}
+
+message GetFillBeforeResponse {
+  bool result = 1;
+}
+
+message AnimationGetRepeatCountRequest {
+}
+
+message AnimationGetRepeatModeRequest {
+}
+
+message GetShowBackdropRequest {
+}
+
+message GetShowBackdropResponse {
+  bool result = 1;
+}
+
+message GetStartOffsetRequest {
+}
+
+message GetStartOffsetResponse {
+  int64 result = 1;
+}
+
+message GetStartTimeRequest {
+}
+
+message GetStartTimeResponse {
+  int64 result = 1;
+}
+
+message GetTransformation2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message GetTransformation2Response {
+  bool result = 1;
+}
+
+message GetTransformation3_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  float arg2 = 3;
+}
+
+message GetTransformation3_1Response {
+  bool result = 1;
+}
+
+message GetZAdjustmentRequest {
+}
+
+message GetZAdjustmentResponse {
+  int32 result = 1;
+}
+
+message HasEndedRequest {
+}
+
+message HasEndedResponse {
+  bool result = 1;
+}
+
+message HasStartedRequest {
+}
+
+message HasStartedResponse {
+  bool result = 1;
+}
+
+message AnimationInitializeRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message IsFillEnabledRequest {
+}
+
+message IsFillEnabledResponse {
+  bool result = 1;
+}
+
+message IsInitializedRequest {
+}
+
+message IsInitializedResponse {
+  bool result = 1;
+}
+
+message ResetRequest {
+}
+
+message ResetResponse {
+}
+
+message RestrictDurationRequest {
+  int64 arg0 = 1;
+}
+
+message RestrictDurationResponse {
+}
+
+message ScaleCurrentDurationRequest {
+  float arg0 = 1;
+}
+
+message ScaleCurrentDurationResponse {
+}
+
+message SetAnimationListenerRequest {
+  int64 arg0 = 1;
+}
+
+message SetAnimationListenerResponse {
+}
+
+message SetBackdropColorRequest {
+  int32 arg0 = 1;
+}
+
+message SetBackdropColorResponse {
+}
+
+message SetBackgroundColorRequest {
+  int32 arg0 = 1;
+}
+
+message SetBackgroundColorResponse {
+}
+
+message SetDetachWallpaperRequest {
+  bool arg0 = 1;
+}
+
+message SetDetachWallpaperResponse {
+}
+
+message AnimationSetDurationResponse {
+}
+
+message SetFillAfterRequest {
+  bool arg0 = 1;
+}
+
+message SetFillAfterResponse {
+}
+
+message SetFillBeforeRequest {
+  bool arg0 = 1;
+}
+
+message SetFillBeforeResponse {
+}
+
+message SetFillEnabledRequest {
+  bool arg0 = 1;
+}
+
+message SetFillEnabledResponse {
+}
+
+message SetInterpolator2Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message SetInterpolator2Response {
+}
+
+message SetInterpolator1_1Request {
+  int64 arg0 = 1;
+}
+
+message SetInterpolator1_1Response {
+}
+
+message AnimationSetRepeatCountRequest {
+  int32 arg0 = 1;
+}
+
+message AnimationSetRepeatModeRequest {
+  int32 arg0 = 1;
+}
+
+message SetShowBackdropRequest {
+  bool arg0 = 1;
+}
+
+message SetShowBackdropResponse {
+}
+
+message SetStartOffsetRequest {
+  int64 arg0 = 1;
+}
+
+message SetStartOffsetResponse {
+}
+
+message SetStartTimeRequest {
+  int64 arg0 = 1;
+}
+
+message SetStartTimeResponse {
+}
+
+message SetZAdjustmentRequest {
+  int32 arg0 = 1;
+}
+
+message SetZAdjustmentResponse {
+}
+
+message AnimationStartRequest {
+}
+
+message StartNowRequest {
+}
+
+message StartNowResponse {
+}
+
+message WillChangeBoundsRequest {
+}
+
+message WillChangeBoundsResponse {
+  bool result = 1;
+}
+
+message WillChangeTransformationMatrixRequest {
+}
+
+message WillChangeTransformationMatrixResponse {
+  bool result = 1;
+}
+
+message NewLayoutAnimationControllerRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewLayoutAnimationControllerResponse {
+  int64 result = 1;
+}
+
+message GetAnimationRequest {
+  int64 handle = 1;
+}
+
+message GetAnimationResponse {
+  int64 result = 1;
+}
+
+message GetAnimationForViewRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetAnimationForViewResponse {
+  int64 result = 1;
+}
+
+message GetDelayRequest {
+  int64 handle = 1;
+}
+
+message GetDelayResponse {
+  float result = 1;
+}
+
+message LayoutAnimationControllerGetInterpolatorRequest {
+  int64 handle = 1;
+}
+
+message GetOrderRequest {
+  int64 handle = 1;
+}
+
+message GetOrderResponse {
+  int32 result = 1;
+}
+
+message IsDoneRequest {
+  int64 handle = 1;
+}
+
+message IsDoneResponse {
+  bool result = 1;
+}
+
+message SetAnimation2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message SetAnimation2Response {
+}
+
+message SetAnimation1_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetAnimation1_1Response {
+}
+
+message SetDelayRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+}
+
+message SetDelayResponse {
+}
+
+message LayoutAnimationControllerSetInterpolator2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message LayoutAnimationControllerSetInterpolator1_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetOrderRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetOrderResponse {
+}
+
+message LayoutAnimationControllerStartRequest {
+  int64 handle = 1;
+}
+
+message NewAnticipateOvershootInterpolatorRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewAnticipateOvershootInterpolatorResponse {
+  int64 result = 1;
+}
+
+message NewCycleInterpolatorRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewCycleInterpolatorResponse {
+  int64 result = 1;
+}
+
+message NewRotateAnimationRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewRotateAnimationResponse {
+  int64 result = 1;
+}
+
+message NewAlphaAnimationRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewAlphaAnimationResponse {
+  int64 result = 1;
+}
+
+message AlphaAnimationWillChangeBoundsRequest {
+  int64 handle = 1;
+}
+
+message AlphaAnimationWillChangeTransformationMatrixRequest {
+  int64 handle = 1;
+}
+
+message NewUtilsRequest {
+}
+
+message NewUtilsResponse {
+  int64 result = 1;
+}
+
+message CurrentAnimationTimeMillisRequest {
+  int64 handle = 1;
+}
+
+message CurrentAnimationTimeMillisResponse {
+  int64 result = 1;
+}
+
+message LoadAnimationRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message LoadAnimationResponse {
+  int64 result = 1;
+}
+
+message LoadInterpolatorRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message LoadInterpolatorResponse {
+  int64 result = 1;
+}
+
+message LoadLayoutAnimationRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message LoadLayoutAnimationResponse {
+  int64 result = 1;
+}
+
+message MakeInAnimationRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  bool arg1 = 3;
+}
+
+message MakeInAnimationResponse {
+  int64 result = 1;
+}
+
+message MakeInChildBottomAnimationRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message MakeInChildBottomAnimationResponse {
+  int64 result = 1;
+}
+
+message MakeOutAnimationRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  bool arg1 = 3;
+}
+
+message MakeOutAnimationResponse {
+  int64 result = 1;
+}
+
+message NewTransformationRequest {
+}
+
+message NewTransformationResponse {
+  int64 result = 1;
+}
+
+message ClearRequest {
+  int64 handle = 1;
+}
+
+message ClearResponse {
+}
+
+message ComposeRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message ComposeResponse {
+}
+
+message GetAlphaRequest {
+  int64 handle = 1;
+}
+
+message GetAlphaResponse {
+  float result = 1;
+}
+
+message GetMatrixRequest {
+  int64 handle = 1;
+}
+
+message GetMatrixResponse {
+  int64 result = 1;
+}
+
+message GetTransformationTypeRequest {
+  int64 handle = 1;
+}
+
+message GetTransformationTypeResponse {
+  int32 result = 1;
+}
+
+message SetRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetResponse {
+}
+
+message SetAlphaRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+}
+
+message SetAlphaResponse {
+}
+
+message SetTransformationTypeRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetTransformationTypeResponse {
+}
+
+message ToShortStringRequest {
+  int64 handle = 1;
+}
+
+message ToShortStringResponse {
+  string result = 1;
+}
+
+message NewBounceInterpolatorRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewBounceInterpolatorResponse {
+  int64 result = 1;
+}
+
+message NewOvershootInterpolatorRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewOvershootInterpolatorResponse {
+  int64 result = 1;
+}
+
+message NewTranslateAnimationRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewTranslateAnimationResponse {
+  int64 result = 1;
+}
+
+message NewSetRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewSetResponse {
+  int64 result = 1;
+}
+
+message AddAnimationRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AddAnimationResponse {
+}
+
+message SetComputeDurationHintRequest {
+  int64 handle = 1;
+}
+
+message SetGetDurationRequest {
+  int64 handle = 1;
+}
+
+message SetGetStartTimeRequest {
+  int64 handle = 1;
+}
+
+message GetTransformationRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message GetTransformationResponse {
+  bool result = 1;
+}
+
+message SetResetRequest {
+  int64 handle = 1;
+}
+
+message SetRestrictDurationRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetScaleCurrentDurationRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+}
+
+message SetSetDurationRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetSetFillAfterRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetSetFillBeforeRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetSetRepeatModeRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetSetStartOffsetRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetSetStartTimeRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetWillChangeBoundsRequest {
+  int64 handle = 1;
+}
+
+message SetWillChangeTransformationMatrixRequest {
+  int64 handle = 1;
+}
+
+message NewAnticipateInterpolatorRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewAnticipateInterpolatorResponse {
+  int64 result = 1;
+}
+
+service TimeAnimatorService {
+  rpc NewTimeAnimator (NewTimeAnimatorRequest) returns (NewTimeAnimatorResponse);
+  rpc SetCurrentPlayTime (SetCurrentPlayTimeRequest) returns (SetCurrentPlayTimeResponse);
+  rpc SetTimeListener (SetTimeListenerRequest) returns (SetTimeListenerResponse);
+  rpc Start (StartRequest) returns (StartResponse);
+}
+
+service TimeAnimatorTimeListenerService {
+  rpc OnTimeUpdate (OnTimeUpdateRequest) returns (OnTimeUpdateResponse);
+}
+
+service TimeInterpolatorService {
+  rpc GetInterpolation (GetInterpolationRequest) returns (GetInterpolationResponse);
+}
+
+service RectEvaluatorService {
+  rpc NewRectEvaluator (NewRectEvaluatorRequest) returns (NewRectEvaluatorResponse);
+  rpc Evaluate3 (Evaluate3Request) returns (Evaluate3Response);
+  rpc Evaluate3_1 (Evaluate3_1Request) returns (Evaluate3_1Response);
+}
+
+service AnimatorService {
+  rpc AddListener (AddListenerRequest) returns (AddListenerResponse);
+  rpc AddPauseListener (AddPauseListenerRequest) returns (AddPauseListenerResponse);
+  rpc Cancel (CancelRequest) returns (CancelResponse);
+  rpc Clone0 (Clone0Request) returns (Clone0Response);
+  rpc End (EndRequest) returns (EndResponse);
+  rpc GetDuration (GetDurationRequest) returns (GetDurationResponse);
+  rpc GetInterpolator (GetInterpolatorRequest) returns (GetInterpolatorResponse);
+  rpc GetStartDelay (GetStartDelayRequest) returns (GetStartDelayResponse);
+  rpc GetTotalDuration (GetTotalDurationRequest) returns (GetTotalDurationResponse);
+  rpc IsPaused (IsPausedRequest) returns (IsPausedResponse);
+  rpc IsRunning (IsRunningRequest) returns (IsRunningResponse);
+  rpc IsStarted (IsStartedRequest) returns (IsStartedResponse);
+  rpc Pause (PauseRequest) returns (PauseResponse);
+  rpc RemoveAllListeners (RemoveAllListenersRequest) returns (RemoveAllListenersResponse);
+  rpc RemoveListener (RemoveListenerRequest) returns (RemoveListenerResponse);
+  rpc RemovePauseListener (RemovePauseListenerRequest) returns (RemovePauseListenerResponse);
+  rpc Resume (ResumeRequest) returns (ResumeResponse);
+  rpc SetDuration (SetDurationRequest) returns (SetDurationResponse);
+  rpc SetInterpolator (SetInterpolatorRequest) returns (SetInterpolatorResponse);
+  rpc SetStartDelay (SetStartDelayRequest) returns (SetStartDelayResponse);
+  rpc SetTarget (SetTargetRequest) returns (SetTargetResponse);
+  rpc SetupEndValues (SetupEndValuesRequest) returns (SetupEndValuesResponse);
+  rpc SetupStartValues (SetupStartValuesRequest) returns (SetupStartValuesResponse);
+  rpc Start (AnimatorStartRequest) returns (StartResponse);
+  rpc Clone0_1 (Clone0_1Request) returns (Clone0_1Response);
+}
+
+service AnimatorAnimatorListenerService {
+  rpc OnAnimationCancel (OnAnimationCancelRequest) returns (OnAnimationCancelResponse);
+  rpc OnAnimationEnd (OnAnimationEndRequest) returns (OnAnimationEndResponse);
+  rpc OnAnimationRepeat (OnAnimationRepeatRequest) returns (OnAnimationRepeatResponse);
+  rpc OnAnimationStart (OnAnimationStartRequest) returns (OnAnimationStartResponse);
+}
+
+service AnimatorAnimatorPauseListenerService {
+  rpc OnAnimationPause (OnAnimationPauseRequest) returns (OnAnimationPauseResponse);
+  rpc OnAnimationResume (OnAnimationResumeRequest) returns (OnAnimationResumeResponse);
+}
+
+service FloatArrayEvaluatorService {
+  rpc NewFloatArrayEvaluator (NewFloatArrayEvaluatorRequest) returns (NewFloatArrayEvaluatorResponse);
+  rpc Evaluate3 (Evaluate3Request) returns (Evaluate3Response);
+  rpc Evaluate3_1 (Evaluate3_1Request) returns (Evaluate3_1Response);
+}
+
+service StateListAnimatorService {
+  rpc NewStateListAnimator (NewStateListAnimatorRequest) returns (NewStateListAnimatorResponse);
+  rpc AddState (AddStateRequest) returns (AddStateResponse);
+  rpc Clone0 (StateListAnimatorClone0Request) returns (Clone0Response);
+  rpc JumpToCurrentState (JumpToCurrentStateRequest) returns (JumpToCurrentStateResponse);
+  rpc Clone0_1 (StateListAnimatorClone0_1Request) returns (Clone0_1Response);
+}
+
+service IntEvaluatorService {
+  rpc NewIntEvaluator (NewIntEvaluatorRequest) returns (NewIntEvaluatorResponse);
+  rpc Evaluate3 (Evaluate3Request) returns (Evaluate3Response);
+  rpc Evaluate3_1 (Evaluate3_1Request) returns (Evaluate3_1Response);
+}
+
+service AnimatorInflaterService {
+  rpc NewAnimatorInflater (NewAnimatorInflaterRequest) returns (NewAnimatorInflaterResponse);
+  rpc LoadAnimator (LoadAnimatorRequest) returns (LoadAnimatorResponse);
+  rpc LoadStateListAnimator (LoadStateListAnimatorRequest) returns (LoadStateListAnimatorResponse);
+}
+
+service PointFEvaluatorService {
+  rpc NewPointFEvaluator (NewPointFEvaluatorRequest) returns (NewPointFEvaluatorResponse);
+  rpc Evaluate3 (Evaluate3Request) returns (Evaluate3Response);
+  rpc Evaluate3_1 (Evaluate3_1Request) returns (Evaluate3_1Response);
+}
+
+service FloatEvaluatorService {
+  rpc NewFloatEvaluator (NewFloatEvaluatorRequest) returns (NewFloatEvaluatorResponse);
+  rpc Evaluate3 (Evaluate3Request) returns (Evaluate3Response);
+  rpc Evaluate3_1 (Evaluate3_1Request) returns (Evaluate3_1Response);
+}
+
+service ValueAnimatorService {
+  rpc NewValueAnimator (NewValueAnimatorRequest) returns (NewValueAnimatorResponse);
+  rpc AddUpdateListener (AddUpdateListenerRequest) returns (AddUpdateListenerResponse);
+  rpc Cancel (ValueAnimatorCancelRequest) returns (CancelResponse);
+  rpc Clone0 (ValueAnimatorClone0Request) returns (Clone0Response);
+  rpc End (ValueAnimatorEndRequest) returns (EndResponse);
+  rpc GetAnimatedFraction (GetAnimatedFractionRequest) returns (GetAnimatedFractionResponse);
+  rpc GetAnimatedValue0 (GetAnimatedValue0Request) returns (GetAnimatedValue0Response);
+  rpc GetAnimatedValue1_1 (GetAnimatedValue1_1Request) returns (GetAnimatedValue1_1Response);
+  rpc GetCurrentPlayTime (GetCurrentPlayTimeRequest) returns (GetCurrentPlayTimeResponse);
+  rpc GetDuration (ValueAnimatorGetDurationRequest) returns (GetDurationResponse);
+  rpc GetInterpolator (ValueAnimatorGetInterpolatorRequest) returns (GetInterpolatorResponse);
+  rpc GetRepeatCount (GetRepeatCountRequest) returns (GetRepeatCountResponse);
+  rpc GetRepeatMode (GetRepeatModeRequest) returns (GetRepeatModeResponse);
+  rpc GetStartDelay (ValueAnimatorGetStartDelayRequest) returns (GetStartDelayResponse);
+  rpc GetTotalDuration (ValueAnimatorGetTotalDurationRequest) returns (GetTotalDurationResponse);
+  rpc GetValues (GetValuesRequest) returns (GetValuesResponse);
+  rpc IsRunning (ValueAnimatorIsRunningRequest) returns (IsRunningResponse);
+  rpc IsStarted (ValueAnimatorIsStartedRequest) returns (IsStartedResponse);
+  rpc Pause (ValueAnimatorPauseRequest) returns (PauseResponse);
+  rpc RemoveAllUpdateListeners (RemoveAllUpdateListenersRequest) returns (RemoveAllUpdateListenersResponse);
+  rpc RemoveUpdateListener (RemoveUpdateListenerRequest) returns (RemoveUpdateListenerResponse);
+  rpc Resume (ValueAnimatorResumeRequest) returns (ResumeResponse);
+  rpc Reverse (ReverseRequest) returns (ReverseResponse);
+  rpc SetCurrentFraction (SetCurrentFractionRequest) returns (SetCurrentFractionResponse);
+  rpc SetCurrentPlayTime (SetCurrentPlayTimeRequest) returns (SetCurrentPlayTimeResponse);
+  rpc SetDuration1 (SetDuration1Request) returns (SetDuration1Response);
+  rpc SetEvaluator (SetEvaluatorRequest) returns (SetEvaluatorResponse);
+  rpc SetFloatValues (SetFloatValuesRequest) returns (SetFloatValuesResponse);
+  rpc SetIntValues (SetIntValuesRequest) returns (SetIntValuesResponse);
+  rpc SetInterpolator (ValueAnimatorSetInterpolatorRequest) returns (SetInterpolatorResponse);
+  rpc SetObjectValues (SetObjectValuesRequest) returns (SetObjectValuesResponse);
+  rpc SetRepeatCount (SetRepeatCountRequest) returns (SetRepeatCountResponse);
+  rpc SetRepeatMode (SetRepeatModeRequest) returns (SetRepeatModeResponse);
+  rpc SetStartDelay (ValueAnimatorSetStartDelayRequest) returns (SetStartDelayResponse);
+  rpc SetValues (SetValuesRequest) returns (SetValuesResponse);
+  rpc Start (StartRequest) returns (StartResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc SetDuration1_1 (SetDuration1_1Request) returns (SetDuration1_1Response);
+  rpc Clone0_1 (ValueAnimatorClone0_1Request) returns (Clone0_1Response);
+  rpc Clone0_2 (Clone0_2Request) returns (Clone0_2Response);
+  rpc AreAnimatorsEnabled (AreAnimatorsEnabledRequest) returns (AreAnimatorsEnabledResponse);
+  rpc GetDurationScale (GetDurationScaleRequest) returns (GetDurationScaleResponse);
+  rpc GetFrameDelay (GetFrameDelayRequest) returns (GetFrameDelayResponse);
+  rpc OfArgb (OfArgbRequest) returns (OfArgbResponse);
+  rpc OfFloat (OfFloatRequest) returns (OfFloatResponse);
+  rpc OfInt (OfIntRequest) returns (OfIntResponse);
+  rpc OfObject (OfObjectRequest) returns (OfObjectResponse);
+  rpc OfPropertyValuesHolder (OfPropertyValuesHolderRequest) returns (OfPropertyValuesHolderResponse);
+  rpc RegisterDurationScaleChangeListener (RegisterDurationScaleChangeListenerRequest) returns (RegisterDurationScaleChangeListenerResponse);
+  rpc SetFrameDelay (SetFrameDelayRequest) returns (SetFrameDelayResponse);
+  rpc UnregisterDurationScaleChangeListener (UnregisterDurationScaleChangeListenerRequest) returns (UnregisterDurationScaleChangeListenerResponse);
+}
+
+service ValueAnimatorAnimatorUpdateListenerService {
+  rpc OnAnimationUpdate (OnAnimationUpdateRequest) returns (OnAnimationUpdateResponse);
+}
+
+service ValueAnimatorDurationScaleChangeListenerService {
+  rpc OnChanged (OnChangedRequest) returns (OnChangedResponse);
+}
+
+service IntArrayEvaluatorService {
+  rpc NewIntArrayEvaluator (NewIntArrayEvaluatorRequest) returns (NewIntArrayEvaluatorResponse);
+  rpc Evaluate3 (Evaluate3Request) returns (Evaluate3Response);
+  rpc Evaluate3_1 (Evaluate3_1Request) returns (Evaluate3_1Response);
+}
+
+service ArgbEvaluatorService {
+  rpc NewArgbEvaluator (NewArgbEvaluatorRequest) returns (NewArgbEvaluatorResponse);
+  rpc Evaluate (EvaluateRequest) returns (EvaluateResponse);
+}
+
+service AnimatorListenerAdapterService {
+  rpc OnAnimationCancel (OnAnimationCancelRequest) returns (OnAnimationCancelResponse);
+  rpc OnAnimationEnd (OnAnimationEndRequest) returns (OnAnimationEndResponse);
+  rpc OnAnimationPause (OnAnimationPauseRequest) returns (OnAnimationPauseResponse);
+  rpc OnAnimationRepeat (OnAnimationRepeatRequest) returns (OnAnimationRepeatResponse);
+  rpc OnAnimationResume (OnAnimationResumeRequest) returns (OnAnimationResumeResponse);
+  rpc OnAnimationStart (OnAnimationStartRequest) returns (OnAnimationStartResponse);
+}
+
+service PropertyValuesHolderService {
+  rpc Clone0 (Clone0Request) returns (Clone0Response);
+  rpc GetPropertyName (GetPropertyNameRequest) returns (GetPropertyNameResponse);
+  rpc SetConverter (SetConverterRequest) returns (SetConverterResponse);
+  rpc SetEvaluator (PropertyValuesHolderSetEvaluatorRequest) returns (SetEvaluatorResponse);
+  rpc SetFloatValues (PropertyValuesHolderSetFloatValuesRequest) returns (SetFloatValuesResponse);
+  rpc SetIntValues (PropertyValuesHolderSetIntValuesRequest) returns (SetIntValuesResponse);
+  rpc SetKeyframes (SetKeyframesRequest) returns (SetKeyframesResponse);
+  rpc SetObjectValues (PropertyValuesHolderSetObjectValuesRequest) returns (SetObjectValuesResponse);
+  rpc SetProperty (SetPropertyRequest) returns (SetPropertyResponse);
+  rpc SetPropertyName (SetPropertyNameRequest) returns (SetPropertyNameResponse);
+  rpc ToString (PropertyValuesHolderToStringRequest) returns (ToStringResponse);
+  rpc Clone0_1 (Clone0_1Request) returns (Clone0_1Response);
+  rpc OfFloat (PropertyValuesHolderOfFloatRequest) returns (OfFloatResponse);
+  rpc OfInt (PropertyValuesHolderOfIntRequest) returns (OfIntResponse);
+  rpc OfKeyframe2 (OfKeyframe2Request) returns (OfKeyframe2Response);
+  rpc OfKeyframe2_1 (OfKeyframe2_1Request) returns (OfKeyframe2_1Response);
+  rpc OfMultiFloat2 (OfMultiFloat2Request) returns (OfMultiFloat2Response);
+  rpc OfMultiFloat2_1 (OfMultiFloat2_1Request) returns (OfMultiFloat2_1Response);
+  rpc OfMultiInt2 (OfMultiInt2Request) returns (OfMultiInt2Response);
+  rpc OfMultiInt2_1 (OfMultiInt2_1Request) returns (OfMultiInt2_1Response);
+  rpc OfObject (PropertyValuesHolderOfObjectRequest) returns (OfObjectResponse);
+}
+
+service LayoutTransitionService {
+  rpc NewLayoutTransition (NewLayoutTransitionRequest) returns (NewLayoutTransitionResponse);
+  rpc AddChild (AddChildRequest) returns (AddChildResponse);
+  rpc AddTransitionListener (AddTransitionListenerRequest) returns (AddTransitionListenerResponse);
+  rpc DisableTransitionType (DisableTransitionTypeRequest) returns (DisableTransitionTypeResponse);
+  rpc EnableTransitionType (EnableTransitionTypeRequest) returns (EnableTransitionTypeResponse);
+  rpc GetAnimator (GetAnimatorRequest) returns (GetAnimatorResponse);
+  rpc GetDuration (LayoutTransitionGetDurationRequest) returns (GetDurationResponse);
+  rpc GetInterpolator (LayoutTransitionGetInterpolatorRequest) returns (GetInterpolatorResponse);
+  rpc GetStagger (GetStaggerRequest) returns (GetStaggerResponse);
+  rpc GetStartDelay (LayoutTransitionGetStartDelayRequest) returns (GetStartDelayResponse);
+  rpc HideChild2 (HideChild2Request) returns (HideChild2Response);
+  rpc HideChild3_1 (HideChild3_1Request) returns (HideChild3_1Response);
+  rpc IsChangingLayout (IsChangingLayoutRequest) returns (IsChangingLayoutResponse);
+  rpc IsRunning (LayoutTransitionIsRunningRequest) returns (IsRunningResponse);
+  rpc IsTransitionTypeEnabled (IsTransitionTypeEnabledRequest) returns (IsTransitionTypeEnabledResponse);
+  rpc RemoveChild (RemoveChildRequest) returns (RemoveChildResponse);
+  rpc RemoveTransitionListener (RemoveTransitionListenerRequest) returns (RemoveTransitionListenerResponse);
+  rpc SetAnimateParentHierarchy (SetAnimateParentHierarchyRequest) returns (SetAnimateParentHierarchyResponse);
+  rpc SetAnimator (SetAnimatorRequest) returns (SetAnimatorResponse);
+  rpc SetDuration2 (SetDuration2Request) returns (SetDuration2Response);
+  rpc SetDuration1_1 (SetDuration1_1Request) returns (LayoutTransitionSetDuration1_1Response);
+  rpc SetInterpolator (LayoutTransitionSetInterpolatorRequest) returns (SetInterpolatorResponse);
+  rpc SetStagger (SetStaggerRequest) returns (SetStaggerResponse);
+  rpc SetStartDelay (LayoutTransitionSetStartDelayRequest) returns (SetStartDelayResponse);
+  rpc ShowChild2 (ShowChild2Request) returns (ShowChild2Response);
+  rpc ShowChild3_1 (ShowChild3_1Request) returns (ShowChild3_1Response);
+}
+
+service LayoutTransitionTransitionListenerService {
+  rpc EndTransition (EndTransitionRequest) returns (EndTransitionResponse);
+  rpc StartTransition (StartTransitionRequest) returns (StartTransitionResponse);
+}
+
+service ObjectAnimatorService {
+  rpc NewObjectAnimator (NewObjectAnimatorRequest) returns (NewObjectAnimatorResponse);
+  rpc Clone0 (ObjectAnimatorClone0Request) returns (Clone0Response);
+  rpc GetPropertyName (ObjectAnimatorGetPropertyNameRequest) returns (GetPropertyNameResponse);
+  rpc GetTarget (GetTargetRequest) returns (GetTargetResponse);
+  rpc SetAutoCancel (SetAutoCancelRequest) returns (SetAutoCancelResponse);
+  rpc SetDuration1 (SetDuration1Request) returns (SetDuration1Response);
+  rpc SetFloatValues (SetFloatValuesRequest) returns (SetFloatValuesResponse);
+  rpc SetIntValues (SetIntValuesRequest) returns (SetIntValuesResponse);
+  rpc SetObjectValues (SetObjectValuesRequest) returns (SetObjectValuesResponse);
+  rpc SetProperty (ObjectAnimatorSetPropertyRequest) returns (SetPropertyResponse);
+  rpc SetPropertyName (ObjectAnimatorSetPropertyNameRequest) returns (SetPropertyNameResponse);
+  rpc SetTarget (ObjectAnimatorSetTargetRequest) returns (SetTargetResponse);
+  rpc SetupEndValues (ObjectAnimatorSetupEndValuesRequest) returns (SetupEndValuesResponse);
+  rpc SetupStartValues (ObjectAnimatorSetupStartValuesRequest) returns (SetupStartValuesResponse);
+  rpc Start (StartRequest) returns (StartResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc SetDuration1_1 (SetDuration1_1Request) returns (SetDuration1_1Response);
+  rpc Clone0_1 (ObjectAnimatorClone0_1Request) returns (Clone0_1Response);
+  rpc SetDuration1_2 (SetDuration1_2Request) returns (SetDuration1_2Response);
+  rpc Clone0_2 (Clone0_2Request) returns (Clone0_2Response);
+  rpc Clone0_3 (Clone0_3Request) returns (Clone0_3Response);
+  rpc OfArgb (ObjectAnimatorOfArgbRequest) returns (OfArgbResponse);
+  rpc OfFloat3 (OfFloat3Request) returns (OfFloat3Response);
+  rpc OfFloat4_1 (OfFloat4_1Request) returns (OfFloat4_1Response);
+  rpc OfInt3 (OfInt3Request) returns (OfInt3Response);
+  rpc OfInt4_1 (OfInt4_1Request) returns (OfInt4_1Response);
+  rpc OfMultiFloat3 (OfMultiFloat3Request) returns (OfMultiFloat3Response);
+  rpc OfMultiFloat3_1 (OfMultiFloat3_1Request) returns (OfMultiFloat3_1Response);
+  rpc OfMultiInt3 (OfMultiInt3Request) returns (OfMultiInt3Response);
+  rpc OfMultiInt3_1 (OfMultiInt3_1Request) returns (OfMultiInt3_1Response);
+  rpc OfObject (ObjectAnimatorOfObjectRequest) returns (OfObjectResponse);
+  rpc OfPropertyValuesHolder (ObjectAnimatorOfPropertyValuesHolderRequest) returns (OfPropertyValuesHolderResponse);
+}
+
+service AnimatorSetService {
+  rpc NewAnimatorSet (NewAnimatorSetRequest) returns (NewAnimatorSetResponse);
+  rpc Cancel (AnimatorSetCancelRequest) returns (CancelResponse);
+  rpc Clone0 (AnimatorSetClone0Request) returns (Clone0Response);
+  rpc End (AnimatorSetEndRequest) returns (EndResponse);
+  rpc GetCurrentPlayTime (GetCurrentPlayTimeRequest) returns (GetCurrentPlayTimeResponse);
+  rpc GetDuration (AnimatorSetGetDurationRequest) returns (GetDurationResponse);
+  rpc GetInterpolator (AnimatorSetGetInterpolatorRequest) returns (GetInterpolatorResponse);
+  rpc GetStartDelay (AnimatorSetGetStartDelayRequest) returns (GetStartDelayResponse);
+  rpc GetTotalDuration (AnimatorSetGetTotalDurationRequest) returns (GetTotalDurationResponse);
+  rpc IsRunning (AnimatorSetIsRunningRequest) returns (IsRunningResponse);
+  rpc IsStarted (AnimatorSetIsStartedRequest) returns (IsStartedResponse);
+  rpc Pause (AnimatorSetPauseRequest) returns (PauseResponse);
+  rpc Play (PlayRequest) returns (PlayResponse);
+  rpc PlaySequentially (PlaySequentiallyRequest) returns (PlaySequentiallyResponse);
+  rpc PlayTogether (PlayTogetherRequest) returns (PlayTogetherResponse);
+  rpc Resume (AnimatorSetResumeRequest) returns (ResumeResponse);
+  rpc Reverse (ReverseRequest) returns (ReverseResponse);
+  rpc SetCurrentPlayTime (SetCurrentPlayTimeRequest) returns (SetCurrentPlayTimeResponse);
+  rpc SetDuration1 (SetDuration1Request) returns (SetDuration1Response);
+  rpc SetInterpolator (AnimatorSetSetInterpolatorRequest) returns (SetInterpolatorResponse);
+  rpc SetStartDelay (AnimatorSetSetStartDelayRequest) returns (SetStartDelayResponse);
+  rpc SetTarget (AnimatorSetSetTargetRequest) returns (SetTargetResponse);
+  rpc SetupEndValues (AnimatorSetSetupEndValuesRequest) returns (SetupEndValuesResponse);
+  rpc SetupStartValues (AnimatorSetSetupStartValuesRequest) returns (SetupStartValuesResponse);
+  rpc Start (StartRequest) returns (StartResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc SetDuration1_1 (SetDuration1_1Request) returns (SetDuration1_1Response);
+  rpc Clone0_1 (AnimatorSetClone0_1Request) returns (Clone0_1Response);
+  rpc Clone0_2 (Clone0_2Request) returns (Clone0_2Response);
+}
+
+service AnimatorSetBuilderService {
+  rpc After1 (After1Request) returns (After1Response);
+  rpc After1_1 (After1_1Request) returns (After1_1Response);
+  rpc Before (BeforeRequest) returns (BeforeResponse);
+  rpc With (WithRequest) returns (WithResponse);
+}
+
+service KeyframeService {
+  rpc Clone0 (Clone0Request) returns (Clone0Response);
+  rpc GetFraction (GetFractionRequest) returns (GetFractionResponse);
+  rpc GetInterpolator (GetInterpolatorRequest) returns (GetInterpolatorResponse);
+  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
+  rpc GetValue (GetValueRequest) returns (GetValueResponse);
+  rpc HasValue (HasValueRequest) returns (HasValueResponse);
+  rpc SetFraction (SetFractionRequest) returns (SetFractionResponse);
+  rpc SetInterpolator (SetInterpolatorRequest) returns (SetInterpolatorResponse);
+  rpc SetValue (SetValueRequest) returns (SetValueResponse);
+  rpc Clone0_1 (Clone0_1Request) returns (Clone0_1Response);
+  rpc OfFloat1 (OfFloat1Request) returns (OfFloat1Response);
+  rpc OfFloat2_1 (OfFloat2_1Request) returns (OfFloat2_1Response);
+  rpc OfInt1 (OfInt1Request) returns (OfInt1Response);
+  rpc OfInt2_1 (OfInt2_1Request) returns (OfInt2_1Response);
+  rpc OfObject1 (OfObject1Request) returns (OfObject1Response);
+  rpc OfObject2_1 (OfObject2_1Request) returns (OfObject2_1Response);
+}
+
+service AccelerateDecelerateInterpolatorService {
+  rpc NewAccelerateDecelerateInterpolator (NewAccelerateDecelerateInterpolatorRequest) returns (NewAccelerateDecelerateInterpolatorResponse);
+  rpc GetInterpolation (AccelerateDecelerateInterpolatorGetInterpolationRequest) returns (GetInterpolationResponse);
+}
+
+service DecelerateInterpolatorService {
+  rpc NewDecelerateInterpolator (NewDecelerateInterpolatorRequest) returns (NewDecelerateInterpolatorResponse);
+  rpc GetInterpolation (AccelerateDecelerateInterpolatorGetInterpolationRequest) returns (GetInterpolationResponse);
+}
+
+service AccelerateInterpolatorService {
+  rpc NewAccelerateInterpolator (NewAccelerateInterpolatorRequest) returns (NewAccelerateInterpolatorResponse);
+  rpc GetInterpolation (AccelerateDecelerateInterpolatorGetInterpolationRequest) returns (GetInterpolationResponse);
+}
+
+service PathInterpolatorService {
+  rpc NewPathInterpolator (NewPathInterpolatorRequest) returns (NewPathInterpolatorResponse);
+  rpc GetInterpolation (AccelerateDecelerateInterpolatorGetInterpolationRequest) returns (GetInterpolationResponse);
+}
+
+service LinearInterpolatorService {
+  rpc NewLinearInterpolator (NewLinearInterpolatorRequest) returns (NewLinearInterpolatorResponse);
+  rpc GetInterpolation (AccelerateDecelerateInterpolatorGetInterpolationRequest) returns (GetInterpolationResponse);
+}
+
+service ScaleAnimationService {
+  rpc NewScaleAnimation (NewScaleAnimationRequest) returns (NewScaleAnimationResponse);
+  rpc Initialize (InitializeRequest) returns (InitializeResponse);
+}
+
+service GridLayoutAnimationControllerService {
+  rpc NewGridLayoutAnimationController (NewGridLayoutAnimationControllerRequest) returns (NewGridLayoutAnimationControllerResponse);
+  rpc GetColumnDelay (GetColumnDelayRequest) returns (GetColumnDelayResponse);
+  rpc GetDirection (GetDirectionRequest) returns (GetDirectionResponse);
+  rpc GetDirectionPriority (GetDirectionPriorityRequest) returns (GetDirectionPriorityResponse);
+  rpc GetRowDelay (GetRowDelayRequest) returns (GetRowDelayResponse);
+  rpc SetColumnDelay (SetColumnDelayRequest) returns (SetColumnDelayResponse);
+  rpc SetDirection (SetDirectionRequest) returns (SetDirectionResponse);
+  rpc SetDirectionPriority (SetDirectionPriorityRequest) returns (SetDirectionPriorityResponse);
+  rpc SetRowDelay (SetRowDelayRequest) returns (SetRowDelayResponse);
+  rpc WillOverlap (WillOverlapRequest) returns (WillOverlapResponse);
+}
+
+service AnimationService {
+  rpc Cancel (CancelRequest) returns (CancelResponse);
+  rpc ComputeDurationHint (ComputeDurationHintRequest) returns (ComputeDurationHintResponse);
+  rpc GetBackdropColor (GetBackdropColorRequest) returns (GetBackdropColorResponse);
+  rpc GetBackgroundColor (GetBackgroundColorRequest) returns (GetBackgroundColorResponse);
+  rpc GetDetachWallpaper (GetDetachWallpaperRequest) returns (GetDetachWallpaperResponse);
+  rpc GetDuration (GetDurationRequest) returns (GetDurationResponse);
+  rpc GetFillAfter (GetFillAfterRequest) returns (GetFillAfterResponse);
+  rpc GetFillBefore (GetFillBeforeRequest) returns (GetFillBeforeResponse);
+  rpc GetInterpolator (GetInterpolatorRequest) returns (GetInterpolatorResponse);
+  rpc GetRepeatCount (AnimationGetRepeatCountRequest) returns (GetRepeatCountResponse);
+  rpc GetRepeatMode (AnimationGetRepeatModeRequest) returns (GetRepeatModeResponse);
+  rpc GetShowBackdrop (GetShowBackdropRequest) returns (GetShowBackdropResponse);
+  rpc GetStartOffset (GetStartOffsetRequest) returns (GetStartOffsetResponse);
+  rpc GetStartTime (GetStartTimeRequest) returns (GetStartTimeResponse);
+  rpc GetTransformation2 (GetTransformation2Request) returns (GetTransformation2Response);
+  rpc GetTransformation3_1 (GetTransformation3_1Request) returns (GetTransformation3_1Response);
+  rpc GetZAdjustment (GetZAdjustmentRequest) returns (GetZAdjustmentResponse);
+  rpc HasEnded (HasEndedRequest) returns (HasEndedResponse);
+  rpc HasStarted (HasStartedRequest) returns (HasStartedResponse);
+  rpc Initialize (AnimationInitializeRequest) returns (InitializeResponse);
+  rpc IsFillEnabled (IsFillEnabledRequest) returns (IsFillEnabledResponse);
+  rpc IsInitialized (IsInitializedRequest) returns (IsInitializedResponse);
+  rpc Reset (ResetRequest) returns (ResetResponse);
+  rpc RestrictDuration (RestrictDurationRequest) returns (RestrictDurationResponse);
+  rpc ScaleCurrentDuration (ScaleCurrentDurationRequest) returns (ScaleCurrentDurationResponse);
+  rpc SetAnimationListener (SetAnimationListenerRequest) returns (SetAnimationListenerResponse);
+  rpc SetBackdropColor (SetBackdropColorRequest) returns (SetBackdropColorResponse);
+  rpc SetBackgroundColor (SetBackgroundColorRequest) returns (SetBackgroundColorResponse);
+  rpc SetDetachWallpaper (SetDetachWallpaperRequest) returns (SetDetachWallpaperResponse);
+  rpc SetDuration (SetDurationRequest) returns (AnimationSetDurationResponse);
+  rpc SetFillAfter (SetFillAfterRequest) returns (SetFillAfterResponse);
+  rpc SetFillBefore (SetFillBeforeRequest) returns (SetFillBeforeResponse);
+  rpc SetFillEnabled (SetFillEnabledRequest) returns (SetFillEnabledResponse);
+  rpc SetInterpolator2 (SetInterpolator2Request) returns (SetInterpolator2Response);
+  rpc SetInterpolator1_1 (SetInterpolator1_1Request) returns (SetInterpolator1_1Response);
+  rpc SetRepeatCount (AnimationSetRepeatCountRequest) returns (SetRepeatCountResponse);
+  rpc SetRepeatMode (AnimationSetRepeatModeRequest) returns (SetRepeatModeResponse);
+  rpc SetShowBackdrop (SetShowBackdropRequest) returns (SetShowBackdropResponse);
+  rpc SetStartOffset (SetStartOffsetRequest) returns (SetStartOffsetResponse);
+  rpc SetStartTime (SetStartTimeRequest) returns (SetStartTimeResponse);
+  rpc SetZAdjustment (SetZAdjustmentRequest) returns (SetZAdjustmentResponse);
+  rpc Start (AnimationStartRequest) returns (StartResponse);
+  rpc StartNow (StartNowRequest) returns (StartNowResponse);
+  rpc WillChangeBounds (WillChangeBoundsRequest) returns (WillChangeBoundsResponse);
+  rpc WillChangeTransformationMatrix (WillChangeTransformationMatrixRequest) returns (WillChangeTransformationMatrixResponse);
+}
+
+service AnimationListenerService {
+  rpc OnAnimationEnd (OnAnimationEndRequest) returns (OnAnimationEndResponse);
+  rpc OnAnimationRepeat (OnAnimationRepeatRequest) returns (OnAnimationRepeatResponse);
+  rpc OnAnimationStart (OnAnimationStartRequest) returns (OnAnimationStartResponse);
+}
+
+service LayoutAnimationControllerService {
+  rpc NewLayoutAnimationController (NewLayoutAnimationControllerRequest) returns (NewLayoutAnimationControllerResponse);
+  rpc GetAnimation (GetAnimationRequest) returns (GetAnimationResponse);
+  rpc GetAnimationForView (GetAnimationForViewRequest) returns (GetAnimationForViewResponse);
+  rpc GetDelay (GetDelayRequest) returns (GetDelayResponse);
+  rpc GetInterpolator (LayoutAnimationControllerGetInterpolatorRequest) returns (GetInterpolatorResponse);
+  rpc GetOrder (GetOrderRequest) returns (GetOrderResponse);
+  rpc IsDone (IsDoneRequest) returns (IsDoneResponse);
+  rpc SetAnimation2 (SetAnimation2Request) returns (SetAnimation2Response);
+  rpc SetAnimation1_1 (SetAnimation1_1Request) returns (SetAnimation1_1Response);
+  rpc SetDelay (SetDelayRequest) returns (SetDelayResponse);
+  rpc SetInterpolator2 (LayoutAnimationControllerSetInterpolator2Request) returns (SetInterpolator2Response);
+  rpc SetInterpolator1_1 (LayoutAnimationControllerSetInterpolator1_1Request) returns (SetInterpolator1_1Response);
+  rpc SetOrder (SetOrderRequest) returns (SetOrderResponse);
+  rpc Start (LayoutAnimationControllerStartRequest) returns (StartResponse);
+  rpc WillOverlap (WillOverlapRequest) returns (WillOverlapResponse);
+}
+
+service AnticipateOvershootInterpolatorService {
+  rpc NewAnticipateOvershootInterpolator (NewAnticipateOvershootInterpolatorRequest) returns (NewAnticipateOvershootInterpolatorResponse);
+  rpc GetInterpolation (AccelerateDecelerateInterpolatorGetInterpolationRequest) returns (GetInterpolationResponse);
+}
+
+service CycleInterpolatorService {
+  rpc NewCycleInterpolator (NewCycleInterpolatorRequest) returns (NewCycleInterpolatorResponse);
+  rpc GetInterpolation (AccelerateDecelerateInterpolatorGetInterpolationRequest) returns (GetInterpolationResponse);
+}
+
+service RotateAnimationService {
+  rpc NewRotateAnimation (NewRotateAnimationRequest) returns (NewRotateAnimationResponse);
+  rpc Initialize (InitializeRequest) returns (InitializeResponse);
+}
+
+service AlphaAnimationService {
+  rpc NewAlphaAnimation (NewAlphaAnimationRequest) returns (NewAlphaAnimationResponse);
+  rpc WillChangeBounds (AlphaAnimationWillChangeBoundsRequest) returns (WillChangeBoundsResponse);
+  rpc WillChangeTransformationMatrix (AlphaAnimationWillChangeTransformationMatrixRequest) returns (WillChangeTransformationMatrixResponse);
+}
+
+service UtilsService {
+  rpc NewUtils (NewUtilsRequest) returns (NewUtilsResponse);
+  rpc CurrentAnimationTimeMillis (CurrentAnimationTimeMillisRequest) returns (CurrentAnimationTimeMillisResponse);
+  rpc LoadAnimation (LoadAnimationRequest) returns (LoadAnimationResponse);
+  rpc LoadInterpolator (LoadInterpolatorRequest) returns (LoadInterpolatorResponse);
+  rpc LoadLayoutAnimation (LoadLayoutAnimationRequest) returns (LoadLayoutAnimationResponse);
+  rpc MakeInAnimation (MakeInAnimationRequest) returns (MakeInAnimationResponse);
+  rpc MakeInChildBottomAnimation (MakeInChildBottomAnimationRequest) returns (MakeInChildBottomAnimationResponse);
+  rpc MakeOutAnimation (MakeOutAnimationRequest) returns (MakeOutAnimationResponse);
+}
+
+service TransformationService {
+  rpc NewTransformation (NewTransformationRequest) returns (NewTransformationResponse);
+  rpc Clear (ClearRequest) returns (ClearResponse);
+  rpc Compose (ComposeRequest) returns (ComposeResponse);
+  rpc GetAlpha (GetAlphaRequest) returns (GetAlphaResponse);
+  rpc GetMatrix (GetMatrixRequest) returns (GetMatrixResponse);
+  rpc GetTransformationType (GetTransformationTypeRequest) returns (GetTransformationTypeResponse);
+  rpc Set (SetRequest) returns (SetResponse);
+  rpc SetAlpha (SetAlphaRequest) returns (SetAlphaResponse);
+  rpc SetTransformationType (SetTransformationTypeRequest) returns (SetTransformationTypeResponse);
+  rpc ToShortString (ToShortStringRequest) returns (ToShortStringResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service BounceInterpolatorService {
+  rpc NewBounceInterpolator (NewBounceInterpolatorRequest) returns (NewBounceInterpolatorResponse);
+  rpc GetInterpolation (AccelerateDecelerateInterpolatorGetInterpolationRequest) returns (GetInterpolationResponse);
+}
+
+service OvershootInterpolatorService {
+  rpc NewOvershootInterpolator (NewOvershootInterpolatorRequest) returns (NewOvershootInterpolatorResponse);
+  rpc GetInterpolation (AccelerateDecelerateInterpolatorGetInterpolationRequest) returns (GetInterpolationResponse);
+}
+
+service TranslateAnimationService {
+  rpc NewTranslateAnimation (NewTranslateAnimationRequest) returns (NewTranslateAnimationResponse);
+  rpc Initialize (InitializeRequest) returns (InitializeResponse);
+}
+
+service SetService {
+  rpc NewSet (NewSetRequest) returns (NewSetResponse);
+  rpc AddAnimation (AddAnimationRequest) returns (AddAnimationResponse);
+  rpc ComputeDurationHint (SetComputeDurationHintRequest) returns (ComputeDurationHintResponse);
+  rpc GetDuration (SetGetDurationRequest) returns (GetDurationResponse);
+  rpc GetStartTime (SetGetStartTimeRequest) returns (GetStartTimeResponse);
+  rpc GetTransformation (GetTransformationRequest) returns (GetTransformationResponse);
+  rpc Initialize (InitializeRequest) returns (InitializeResponse);
+  rpc Reset (SetResetRequest) returns (ResetResponse);
+  rpc RestrictDuration (SetRestrictDurationRequest) returns (RestrictDurationResponse);
+  rpc ScaleCurrentDuration (SetScaleCurrentDurationRequest) returns (ScaleCurrentDurationResponse);
+  rpc SetDuration (SetSetDurationRequest) returns (AnimationSetDurationResponse);
+  rpc SetFillAfter (SetSetFillAfterRequest) returns (SetFillAfterResponse);
+  rpc SetFillBefore (SetSetFillBeforeRequest) returns (SetFillBeforeResponse);
+  rpc SetRepeatMode (SetSetRepeatModeRequest) returns (SetRepeatModeResponse);
+  rpc SetStartOffset (SetSetStartOffsetRequest) returns (SetStartOffsetResponse);
+  rpc SetStartTime (SetSetStartTimeRequest) returns (SetStartTimeResponse);
+  rpc WillChangeBounds (SetWillChangeBoundsRequest) returns (WillChangeBoundsResponse);
+  rpc WillChangeTransformationMatrix (SetWillChangeTransformationMatrixRequest) returns (WillChangeTransformationMatrixResponse);
+}
+
+service AnticipateInterpolatorService {
+  rpc NewAnticipateInterpolator (NewAnticipateInterpolatorRequest) returns (NewAnticipateInterpolatorResponse);
+  rpc GetInterpolation (AccelerateDecelerateInterpolatorGetInterpolationRequest) returns (GetInterpolationResponse);
+}

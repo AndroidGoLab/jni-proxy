@@ -12,6 +12,148 @@ var domainCmd = &cobra.Command{
 	Short: "domain service operations",
 }
 
+var domainVerificationUserStateCmd = &cobra.Command{
+	Use:   "verification-user-state",
+	Short: "VerificationUserStateService operations",
+}
+
+var domainVerificationUserStateDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVerificationUserStateServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var domainVerificationUserStateEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVerificationUserStateServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var domainVerificationUserStateGetPackageNameCmd = &cobra.Command{
+	Use:   "get-package-name",
+	Short: "GetPackageName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVerificationUserStateServiceClient(grpcConn)
+		req := &pb.GetPackageNameRequest{}
+		resp, err := client.GetPackageName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var domainVerificationUserStateGetUserCmd = &cobra.Command{
+	Use:   "get-user",
+	Short: "GetUser RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVerificationUserStateServiceClient(grpcConn)
+		req := &pb.GetUserRequest{}
+		resp, err := client.GetUser(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var domainVerificationUserStateHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVerificationUserStateServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var domainVerificationUserStateIsLinkHandlingAllowedCmd = &cobra.Command{
+	Use:   "is-link-handling-allowed",
+	Short: "IsLinkHandlingAllowed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVerificationUserStateServiceClient(grpcConn)
+		req := &pb.IsLinkHandlingAllowedRequest{}
+		resp, err := client.IsLinkHandlingAllowed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var domainVerificationUserStateToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVerificationUserStateServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var domainVerificationUserStateWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVerificationUserStateServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var domainVerificationManagerCmd = &cobra.Command{
 	Use:   "verification-manager",
 	Short: "VerificationManagerService operations",
@@ -37,6 +179,18 @@ var domainVerificationManagerGetDomainVerificationUserStateCmd = &cobra.Command{
 }
 
 func init() {
+	domainVerificationUserStateCmd.AddCommand(domainVerificationUserStateDescribeContentsCmd)
+	domainVerificationUserStateEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	domainVerificationUserStateCmd.AddCommand(domainVerificationUserStateEqualsCmd)
+	domainVerificationUserStateCmd.AddCommand(domainVerificationUserStateGetPackageNameCmd)
+	domainVerificationUserStateCmd.AddCommand(domainVerificationUserStateGetUserCmd)
+	domainVerificationUserStateCmd.AddCommand(domainVerificationUserStateHashCodeCmd)
+	domainVerificationUserStateCmd.AddCommand(domainVerificationUserStateIsLinkHandlingAllowedCmd)
+	domainVerificationUserStateCmd.AddCommand(domainVerificationUserStateToStringCmd)
+	domainVerificationUserStateWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	domainVerificationUserStateWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	domainVerificationUserStateCmd.AddCommand(domainVerificationUserStateWriteToParcelCmd)
+	domainCmd.AddCommand(domainVerificationUserStateCmd)
 	domainVerificationManagerGetDomainVerificationUserStateCmd.Flags().String("arg0", "", "arg0 (string)")
 	domainVerificationManagerCmd.AddCommand(domainVerificationManagerGetDomainVerificationUserStateCmd)
 	domainCmd.AddCommand(domainVerificationManagerCmd)

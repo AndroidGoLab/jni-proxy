@@ -9,6 +9,519 @@ import (
 	"google.golang.org/grpc"
 )
 
+// AmbientBacklightSettingsClient wraps the gRPC AmbientBacklightSettingsService client.
+type AmbientBacklightSettingsClient struct {
+	svc pb.AmbientBacklightSettingsServiceClient
+}
+
+// NewAmbientBacklightSettingsClient creates a new AmbientBacklightSettings client.
+func NewAmbientBacklightSettingsClient(cc grpc.ClientConnInterface) *AmbientBacklightSettingsClient {
+	return &AmbientBacklightSettingsClient{
+		svc: pb.NewAmbientBacklightSettingsServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *AmbientBacklightSettingsClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetColorFormat calls the GetColorFormat RPC.
+func (c *AmbientBacklightSettingsClient) GetColorFormat(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetColorFormat(ctx, &pb.GetColorFormatRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHorizontalZonesCount calls the GetHorizontalZonesCount RPC.
+func (c *AmbientBacklightSettingsClient) GetHorizontalZonesCount(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetHorizontalZonesCount(ctx, &pb.GetHorizontalZonesCountRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMaxFps calls the GetMaxFps RPC.
+func (c *AmbientBacklightSettingsClient) GetMaxFps(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetMaxFps(ctx, &pb.GetMaxFpsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSource calls the GetSource RPC.
+func (c *AmbientBacklightSettingsClient) GetSource(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetSource(ctx, &pb.GetSourceRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetThreshold calls the GetThreshold RPC.
+func (c *AmbientBacklightSettingsClient) GetThreshold(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetThreshold(ctx, &pb.GetThresholdRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVerticalZonesCount calls the GetVerticalZonesCount RPC.
+func (c *AmbientBacklightSettingsClient) GetVerticalZonesCount(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetVerticalZonesCount(ctx, &pb.GetVerticalZonesCountRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsLetterboxOmitted calls the IsLetterboxOmitted RPC.
+func (c *AmbientBacklightSettingsClient) IsLetterboxOmitted(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsLetterboxOmitted(ctx, &pb.IsLetterboxOmittedRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *AmbientBacklightSettingsClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *AmbientBacklightSettingsClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// AmbientBacklightEventClient wraps the gRPC AmbientBacklightEventService client.
+type AmbientBacklightEventClient struct {
+	svc pb.AmbientBacklightEventServiceClient
+}
+
+// NewAmbientBacklightEventClient creates a new AmbientBacklightEvent client.
+func NewAmbientBacklightEventClient(cc grpc.ClientConnInterface) *AmbientBacklightEventClient {
+	return &AmbientBacklightEventClient{
+		svc: pb.NewAmbientBacklightEventServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *AmbientBacklightEventClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *AmbientBacklightEventClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEventType calls the GetEventType RPC.
+func (c *AmbientBacklightEventClient) GetEventType(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetEventType(ctx, &pb.GetEventTypeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMetadata calls the GetMetadata RPC.
+func (c *AmbientBacklightEventClient) GetMetadata(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetMetadata(ctx, &pb.GetMetadataRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *AmbientBacklightEventClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *AmbientBacklightEventClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *AmbientBacklightEventClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// PictureProfileClient wraps the gRPC PictureProfileService client.
+type PictureProfileClient struct {
+	svc pb.PictureProfileServiceClient
+}
+
+// NewPictureProfileClient creates a new PictureProfile client.
+func NewPictureProfileClient(cc grpc.ClientConnInterface) *PictureProfileClient {
+	return &PictureProfileClient{
+		svc: pb.NewPictureProfileServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *PictureProfileClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.PictureProfileDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInputId calls the GetInputId RPC.
+func (c *PictureProfileClient) GetInputId(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetInputId(ctx, &pb.GetInputIdRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetName calls the GetName RPC.
+func (c *PictureProfileClient) GetName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetName(ctx, &pb.GetNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPackageName calls the GetPackageName RPC.
+func (c *PictureProfileClient) GetPackageName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetPackageName(ctx, &pb.GetPackageNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetParameters calls the GetParameters RPC.
+func (c *PictureProfileClient) GetParameters(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetParameters(ctx, &pb.GetParametersRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetProfileId calls the GetProfileId RPC.
+func (c *PictureProfileClient) GetProfileId(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetProfileId(ctx, &pb.GetProfileIdRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetProfileType calls the GetProfileType RPC.
+func (c *PictureProfileClient) GetProfileType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetProfileType(ctx, &pb.GetProfileTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *PictureProfileClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.PictureProfileWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// PictureProfileBuilderClient wraps the gRPC PictureProfileBuilderService client.
+type PictureProfileBuilderClient struct {
+	svc pb.PictureProfileBuilderServiceClient
+}
+
+// NewPictureProfileBuilderClient creates a new PictureProfileBuilder client.
+func NewPictureProfileBuilderClient(cc grpc.ClientConnInterface) *PictureProfileBuilderClient {
+	return &PictureProfileBuilderClient{
+		svc: pb.NewPictureProfileBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *PictureProfileBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetParameters calls the SetParameters RPC.
+func (c *PictureProfileBuilderClient) SetParameters(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetParameters(ctx, &pb.SetParametersRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ParameterCapabilityClient wraps the gRPC ParameterCapabilityService client.
+type ParameterCapabilityClient struct {
+	svc pb.ParameterCapabilityServiceClient
+}
+
+// NewParameterCapabilityClient creates a new ParameterCapability client.
+func NewParameterCapabilityClient(cc grpc.ClientConnInterface) *ParameterCapabilityClient {
+	return &ParameterCapabilityClient{
+		svc: pb.NewParameterCapabilityServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ParameterCapabilityClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.ParameterCapabilityDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCapabilities calls the GetCapabilities RPC.
+func (c *ParameterCapabilityClient) GetCapabilities(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetCapabilities(ctx, &pb.GetCapabilitiesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetParameterName calls the GetParameterName RPC.
+func (c *ParameterCapabilityClient) GetParameterName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetParameterName(ctx, &pb.GetParameterNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetParameterType calls the GetParameterType RPC.
+func (c *ParameterCapabilityClient) GetParameterType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetParameterType(ctx, &pb.GetParameterTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsSupported calls the IsSupported RPC.
+func (c *ParameterCapabilityClient) IsSupported(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsSupported(ctx, &pb.IsSupportedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ParameterCapabilityClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.ParameterCapabilityWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// AmbientBacklightMetadataClient wraps the gRPC AmbientBacklightMetadataService client.
+type AmbientBacklightMetadataClient struct {
+	svc pb.AmbientBacklightMetadataServiceClient
+}
+
+// NewAmbientBacklightMetadataClient creates a new AmbientBacklightMetadata client.
+func NewAmbientBacklightMetadataClient(cc grpc.ClientConnInterface) *AmbientBacklightMetadataClient {
+	return &AmbientBacklightMetadataClient{
+		svc: pb.NewAmbientBacklightMetadataServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *AmbientBacklightMetadataClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetColorFormat calls the GetColorFormat RPC.
+func (c *AmbientBacklightMetadataClient) GetColorFormat(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetColorFormat(ctx, &pb.GetColorFormatRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCompressionAlgorithm calls the GetCompressionAlgorithm RPC.
+func (c *AmbientBacklightMetadataClient) GetCompressionAlgorithm(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetCompressionAlgorithm(ctx, &pb.GetCompressionAlgorithmRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHorizontalZonesCount calls the GetHorizontalZonesCount RPC.
+func (c *AmbientBacklightMetadataClient) GetHorizontalZonesCount(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetHorizontalZonesCount(ctx, &pb.GetHorizontalZonesCountRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPackageName calls the GetPackageName RPC.
+func (c *AmbientBacklightMetadataClient) GetPackageName(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetPackageName(ctx, &pb.AmbientBacklightMetadataGetPackageNameRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSource calls the GetSource RPC.
+func (c *AmbientBacklightMetadataClient) GetSource(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetSource(ctx, &pb.GetSourceRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVerticalZonesCount calls the GetVerticalZonesCount RPC.
+func (c *AmbientBacklightMetadataClient) GetVerticalZonesCount(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetVerticalZonesCount(ctx, &pb.GetVerticalZonesCountRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetZoneColors calls the GetZoneColors RPC.
+func (c *AmbientBacklightMetadataClient) GetZoneColors(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetZoneColors(ctx, &pb.GetZoneColorsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *AmbientBacklightMetadataClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *AmbientBacklightMetadataClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
 // MediaQualityManagerClient wraps the gRPC MediaQualityManagerService client.
 type MediaQualityManagerClient struct {
 	svc pb.MediaQualityManagerServiceClient
@@ -198,4 +711,330 @@ func (c *MediaQualityManagerClient) UpdateSoundProfile(ctx context.Context, arg0
 		Arg1: arg1,
 	})
 	return err
+}
+
+// MediaQualityManagerAmbientBacklightCallbackClient wraps the gRPC MediaQualityManagerAmbientBacklightCallbackService client.
+type MediaQualityManagerAmbientBacklightCallbackClient struct {
+	svc pb.MediaQualityManagerAmbientBacklightCallbackServiceClient
+}
+
+// NewMediaQualityManagerAmbientBacklightCallbackClient creates a new MediaQualityManagerAmbientBacklightCallback client.
+func NewMediaQualityManagerAmbientBacklightCallbackClient(cc grpc.ClientConnInterface) *MediaQualityManagerAmbientBacklightCallbackClient {
+	return &MediaQualityManagerAmbientBacklightCallbackClient{
+		svc: pb.NewMediaQualityManagerAmbientBacklightCallbackServiceClient(cc),
+	}
+}
+
+// OnAmbientBacklightEvent calls the OnAmbientBacklightEvent RPC.
+func (c *MediaQualityManagerAmbientBacklightCallbackClient) OnAmbientBacklightEvent(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnAmbientBacklightEvent(ctx, &pb.OnAmbientBacklightEventRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// MediaQualityManagerPictureProfileCallbackClient wraps the gRPC MediaQualityManagerPictureProfileCallbackService client.
+type MediaQualityManagerPictureProfileCallbackClient struct {
+	svc pb.MediaQualityManagerPictureProfileCallbackServiceClient
+}
+
+// NewMediaQualityManagerPictureProfileCallbackClient creates a new MediaQualityManagerPictureProfileCallback client.
+func NewMediaQualityManagerPictureProfileCallbackClient(cc grpc.ClientConnInterface) *MediaQualityManagerPictureProfileCallbackClient {
+	return &MediaQualityManagerPictureProfileCallbackClient{
+		svc: pb.NewMediaQualityManagerPictureProfileCallbackServiceClient(cc),
+	}
+}
+
+// OnError calls the OnError RPC.
+func (c *MediaQualityManagerPictureProfileCallbackClient) OnError(ctx context.Context, arg0 string, arg1 int32) error {
+	_, err := c.svc.OnError(ctx, &pb.OnErrorRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnPictureProfileAdded calls the OnPictureProfileAdded RPC.
+func (c *MediaQualityManagerPictureProfileCallbackClient) OnPictureProfileAdded(ctx context.Context, arg0 string, arg1 int64) error {
+	_, err := c.svc.OnPictureProfileAdded(ctx, &pb.OnPictureProfileAddedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnPictureProfileRemoved calls the OnPictureProfileRemoved RPC.
+func (c *MediaQualityManagerPictureProfileCallbackClient) OnPictureProfileRemoved(ctx context.Context, arg0 string, arg1 int64) error {
+	_, err := c.svc.OnPictureProfileRemoved(ctx, &pb.OnPictureProfileRemovedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnPictureProfileUpdated calls the OnPictureProfileUpdated RPC.
+func (c *MediaQualityManagerPictureProfileCallbackClient) OnPictureProfileUpdated(ctx context.Context, arg0 string, arg1 int64) error {
+	_, err := c.svc.OnPictureProfileUpdated(ctx, &pb.OnPictureProfileUpdatedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// MediaQualityManagerProfileQueryParamsClient wraps the gRPC MediaQualityManagerProfileQueryParamsService client.
+type MediaQualityManagerProfileQueryParamsClient struct {
+	svc pb.MediaQualityManagerProfileQueryParamsServiceClient
+}
+
+// NewMediaQualityManagerProfileQueryParamsClient creates a new MediaQualityManagerProfileQueryParams client.
+func NewMediaQualityManagerProfileQueryParamsClient(cc grpc.ClientConnInterface) *MediaQualityManagerProfileQueryParamsClient {
+	return &MediaQualityManagerProfileQueryParamsClient{
+		svc: pb.NewMediaQualityManagerProfileQueryParamsServiceClient(cc),
+	}
+}
+
+// AreParametersIncluded calls the AreParametersIncluded RPC.
+func (c *MediaQualityManagerProfileQueryParamsClient) AreParametersIncluded(ctx context.Context) (bool, error) {
+	resp, err := c.svc.AreParametersIncluded(ctx, &pb.AreParametersIncludedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *MediaQualityManagerProfileQueryParamsClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.MediaQualityManagerProfileQueryParamsDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *MediaQualityManagerProfileQueryParamsClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.MediaQualityManagerProfileQueryParamsWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// MediaQualityManagerSoundProfileCallbackClient wraps the gRPC MediaQualityManagerSoundProfileCallbackService client.
+type MediaQualityManagerSoundProfileCallbackClient struct {
+	svc pb.MediaQualityManagerSoundProfileCallbackServiceClient
+}
+
+// NewMediaQualityManagerSoundProfileCallbackClient creates a new MediaQualityManagerSoundProfileCallback client.
+func NewMediaQualityManagerSoundProfileCallbackClient(cc grpc.ClientConnInterface) *MediaQualityManagerSoundProfileCallbackClient {
+	return &MediaQualityManagerSoundProfileCallbackClient{
+		svc: pb.NewMediaQualityManagerSoundProfileCallbackServiceClient(cc),
+	}
+}
+
+// OnError calls the OnError RPC.
+func (c *MediaQualityManagerSoundProfileCallbackClient) OnError(ctx context.Context, arg0 string, arg1 int32) error {
+	_, err := c.svc.OnError(ctx, &pb.OnErrorRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnSoundProfileAdded calls the OnSoundProfileAdded RPC.
+func (c *MediaQualityManagerSoundProfileCallbackClient) OnSoundProfileAdded(ctx context.Context, arg0 string, arg1 int64) error {
+	_, err := c.svc.OnSoundProfileAdded(ctx, &pb.OnSoundProfileAddedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnSoundProfileRemoved calls the OnSoundProfileRemoved RPC.
+func (c *MediaQualityManagerSoundProfileCallbackClient) OnSoundProfileRemoved(ctx context.Context, arg0 string, arg1 int64) error {
+	_, err := c.svc.OnSoundProfileRemoved(ctx, &pb.OnSoundProfileRemovedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnSoundProfileUpdated calls the OnSoundProfileUpdated RPC.
+func (c *MediaQualityManagerSoundProfileCallbackClient) OnSoundProfileUpdated(ctx context.Context, arg0 string, arg1 int64) error {
+	_, err := c.svc.OnSoundProfileUpdated(ctx, &pb.OnSoundProfileUpdatedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ActiveProcessingPictureClient wraps the gRPC ActiveProcessingPictureService client.
+type ActiveProcessingPictureClient struct {
+	svc pb.ActiveProcessingPictureServiceClient
+}
+
+// NewActiveProcessingPictureClient creates a new ActiveProcessingPicture client.
+func NewActiveProcessingPictureClient(cc grpc.ClientConnInterface) *ActiveProcessingPictureClient {
+	return &ActiveProcessingPictureClient{
+		svc: pb.NewActiveProcessingPictureServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ActiveProcessingPictureClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetId calls the GetId RPC.
+func (c *ActiveProcessingPictureClient) GetId(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetProfileId calls the GetProfileId RPC.
+func (c *ActiveProcessingPictureClient) GetProfileId(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetProfileId(ctx, &pb.ActiveProcessingPictureGetProfileIdRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ActiveProcessingPictureClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SoundProfileClient wraps the gRPC SoundProfileService client.
+type SoundProfileClient struct {
+	svc pb.SoundProfileServiceClient
+}
+
+// NewSoundProfileClient creates a new SoundProfile client.
+func NewSoundProfileClient(cc grpc.ClientConnInterface) *SoundProfileClient {
+	return &SoundProfileClient{
+		svc: pb.NewSoundProfileServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *SoundProfileClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.SoundProfileDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInputId calls the GetInputId RPC.
+func (c *SoundProfileClient) GetInputId(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetInputId(ctx, &pb.GetInputIdRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetName calls the GetName RPC.
+func (c *SoundProfileClient) GetName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetName(ctx, &pb.GetNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPackageName calls the GetPackageName RPC.
+func (c *SoundProfileClient) GetPackageName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetPackageName(ctx, &pb.GetPackageNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetParameters calls the GetParameters RPC.
+func (c *SoundProfileClient) GetParameters(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetParameters(ctx, &pb.GetParametersRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetProfileId calls the GetProfileId RPC.
+func (c *SoundProfileClient) GetProfileId(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetProfileId(ctx, &pb.GetProfileIdRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetProfileType calls the GetProfileType RPC.
+func (c *SoundProfileClient) GetProfileType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetProfileType(ctx, &pb.GetProfileTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *SoundProfileClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.SoundProfileWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// SoundProfileBuilderClient wraps the gRPC SoundProfileBuilderService client.
+type SoundProfileBuilderClient struct {
+	svc pb.SoundProfileBuilderServiceClient
+}
+
+// NewSoundProfileBuilderClient creates a new SoundProfileBuilder client.
+func NewSoundProfileBuilderClient(cc grpc.ClientConnInterface) *SoundProfileBuilderClient {
+	return &SoundProfileBuilderClient{
+		svc: pb.NewSoundProfileBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *SoundProfileBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetParameters calls the SetParameters RPC.
+func (c *SoundProfileBuilderClient) SetParameters(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetParameters(ctx, &pb.SetParametersRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
 }

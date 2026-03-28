@@ -197,6 +197,82 @@ message RemoveThermalStatusListenerRequest {
 message RemoveThermalStatusListenerResponse {
 }
 
+message OnThermalStatusChangedRequest {
+  int32 arg0 = 1;
+}
+
+message OnThermalStatusChangedResponse {
+}
+
+message Acquire0Request {
+}
+
+message Acquire0Response {
+}
+
+message Acquire1_1Request {
+  int64 arg0 = 1;
+}
+
+message Acquire1_1Response {
+}
+
+message IsHeldRequest {
+}
+
+message IsHeldResponse {
+  bool result = 1;
+}
+
+message Release0Request {
+}
+
+message Release0Response {
+}
+
+message Release1_1Request {
+  int32 arg0 = 1;
+}
+
+message Release1_1Response {
+}
+
+message SetReferenceCountedRequest {
+  bool arg0 = 1;
+}
+
+message SetReferenceCountedResponse {
+}
+
+message SetStateListenerRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SetStateListenerResponse {
+}
+
+message SetWorkSourceRequest {
+  int64 arg0 = 1;
+}
+
+message SetWorkSourceResponse {
+}
+
+message ToStringRequest {
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message OnStateChangedRequest {
+  bool arg0 = 1;
+}
+
+message OnStateChangedResponse {
+}
+
 service ManagerService {
   rpc AddThermalHeadroomListener1 (AddThermalHeadroomListener1Request) returns (AddThermalHeadroomListener1Response);
   rpc AddThermalHeadroomListener2_1 (AddThermalHeadroomListener2_1Request) returns (AddThermalHeadroomListener2_1Response);
@@ -224,4 +300,24 @@ service ManagerService {
   rpc Reboot (RebootRequest) returns (RebootResponse);
   rpc RemoveThermalHeadroomListener (RemoveThermalHeadroomListenerRequest) returns (RemoveThermalHeadroomListenerResponse);
   rpc RemoveThermalStatusListener (RemoveThermalStatusListenerRequest) returns (RemoveThermalStatusListenerResponse);
+}
+
+service ManagerOnThermalStatusChangedListenerService {
+  rpc OnThermalStatusChanged (OnThermalStatusChangedRequest) returns (OnThermalStatusChangedResponse);
+}
+
+service ManagerWakeLockService {
+  rpc Acquire0 (Acquire0Request) returns (Acquire0Response);
+  rpc Acquire1_1 (Acquire1_1Request) returns (Acquire1_1Response);
+  rpc IsHeld (IsHeldRequest) returns (IsHeldResponse);
+  rpc Release0 (Release0Request) returns (Release0Response);
+  rpc Release1_1 (Release1_1Request) returns (Release1_1Response);
+  rpc SetReferenceCounted (SetReferenceCountedRequest) returns (SetReferenceCountedResponse);
+  rpc SetStateListener (SetStateListenerRequest) returns (SetStateListenerResponse);
+  rpc SetWorkSource (SetWorkSourceRequest) returns (SetWorkSourceResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service ManagerWakeLockStateListenerService {
+  rpc OnStateChanged (OnStateChangedRequest) returns (OnStateChangedResponse);
 }

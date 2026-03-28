@@ -15,6 +15,465 @@ import (
 	"google.golang.org/grpc/status"
 )
 
+// AmbientBacklightSettingsServer implements pb.AmbientBacklightSettingsServiceServer.
+type AmbientBacklightSettingsServer struct {
+	pb.UnimplementedAmbientBacklightSettingsServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *AmbientBacklightSettingsServer) NewAmbientBacklightSettings(_ context.Context, req *pb.NewAmbientBacklightSettingsRequest) (*pb.NewAmbientBacklightSettingsResponse, error) {
+	obj, err := jnipkg.NewAmbientBacklightSettings(s.Ctx.VM, req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5(), req.GetArg6())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewAmbientBacklightSettingsResponse{Result: handle}, nil
+}
+
+func (s *AmbientBacklightSettingsServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AmbientBacklightSettings{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *AmbientBacklightSettingsServer) GetColorFormat(_ context.Context, req *pb.GetColorFormatRequest) (*pb.GetColorFormatResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AmbientBacklightSettings{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetColorFormat()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetColorFormatResponse{Result: result}, nil
+}
+
+func (s *AmbientBacklightSettingsServer) GetHorizontalZonesCount(_ context.Context, req *pb.GetHorizontalZonesCountRequest) (*pb.GetHorizontalZonesCountResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AmbientBacklightSettings{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetHorizontalZonesCount()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetHorizontalZonesCountResponse{Result: result}, nil
+}
+
+func (s *AmbientBacklightSettingsServer) GetMaxFps(_ context.Context, req *pb.GetMaxFpsRequest) (*pb.GetMaxFpsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AmbientBacklightSettings{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetMaxFps()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetMaxFpsResponse{Result: result}, nil
+}
+
+func (s *AmbientBacklightSettingsServer) GetSource(_ context.Context, req *pb.GetSourceRequest) (*pb.GetSourceResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AmbientBacklightSettings{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetSource()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetSourceResponse{Result: result}, nil
+}
+
+func (s *AmbientBacklightSettingsServer) GetThreshold(_ context.Context, req *pb.GetThresholdRequest) (*pb.GetThresholdResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AmbientBacklightSettings{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetThreshold()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetThresholdResponse{Result: result}, nil
+}
+
+func (s *AmbientBacklightSettingsServer) GetVerticalZonesCount(_ context.Context, req *pb.GetVerticalZonesCountRequest) (*pb.GetVerticalZonesCountResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AmbientBacklightSettings{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetVerticalZonesCount()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetVerticalZonesCountResponse{Result: result}, nil
+}
+
+func (s *AmbientBacklightSettingsServer) IsLetterboxOmitted(_ context.Context, req *pb.IsLetterboxOmittedRequest) (*pb.IsLetterboxOmittedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AmbientBacklightSettings{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsLetterboxOmitted()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsLetterboxOmittedResponse{Result: result}, nil
+}
+
+func (s *AmbientBacklightSettingsServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AmbientBacklightSettings{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *AmbientBacklightSettingsServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AmbientBacklightSettings{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
+// AmbientBacklightEventServer implements pb.AmbientBacklightEventServiceServer.
+type AmbientBacklightEventServer struct {
+	pb.UnimplementedAmbientBacklightEventServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *AmbientBacklightEventServer) NewAmbientBacklightEvent(_ context.Context, req *pb.NewAmbientBacklightEventRequest) (*pb.NewAmbientBacklightEventResponse, error) {
+	obj, err := jnipkg.NewAmbientBacklightEvent(s.Ctx.VM, req.GetArg0(), s.Handles.Get(req.GetArg1()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewAmbientBacklightEventResponse{Result: handle}, nil
+}
+
+func (s *AmbientBacklightEventServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AmbientBacklightEvent{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *AmbientBacklightEventServer) Equals(_ context.Context, req *pb.EqualsRequest) (*pb.EqualsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AmbientBacklightEvent{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Equals(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EqualsResponse{Result: result}, nil
+}
+
+func (s *AmbientBacklightEventServer) GetEventType(_ context.Context, req *pb.GetEventTypeRequest) (*pb.GetEventTypeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AmbientBacklightEvent{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetEventType()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetEventTypeResponse{Result: result}, nil
+}
+
+func (s *AmbientBacklightEventServer) GetMetadata(_ context.Context, req *pb.GetMetadataRequest) (*pb.GetMetadataResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AmbientBacklightEvent{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetMetadata()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetMetadataResponse{Result: handle}, nil
+}
+
+func (s *AmbientBacklightEventServer) HashCode(_ context.Context, req *pb.HashCodeRequest) (*pb.HashCodeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AmbientBacklightEvent{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.HashCode()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.HashCodeResponse{Result: result}, nil
+}
+
+func (s *AmbientBacklightEventServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AmbientBacklightEvent{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *AmbientBacklightEventServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AmbientBacklightEvent{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
+// AmbientBacklightMetadataServer implements pb.AmbientBacklightMetadataServiceServer.
+type AmbientBacklightMetadataServer struct {
+	pb.UnimplementedAmbientBacklightMetadataServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *AmbientBacklightMetadataServer) NewAmbientBacklightMetadata(_ context.Context, req *pb.NewAmbientBacklightMetadataRequest) (*pb.NewAmbientBacklightMetadataResponse, error) {
+	obj, err := jnipkg.NewAmbientBacklightMetadata(s.Ctx.VM, req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5(), s.Handles.Get(req.GetArg6()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewAmbientBacklightMetadataResponse{Result: handle}, nil
+}
+
+func (s *AmbientBacklightMetadataServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AmbientBacklightMetadata{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *AmbientBacklightMetadataServer) GetColorFormat(_ context.Context, req *pb.GetColorFormatRequest) (*pb.GetColorFormatResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AmbientBacklightMetadata{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetColorFormat()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetColorFormatResponse{Result: result}, nil
+}
+
+func (s *AmbientBacklightMetadataServer) GetCompressionAlgorithm(_ context.Context, req *pb.GetCompressionAlgorithmRequest) (*pb.GetCompressionAlgorithmResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AmbientBacklightMetadata{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetCompressionAlgorithm()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetCompressionAlgorithmResponse{Result: result}, nil
+}
+
+func (s *AmbientBacklightMetadataServer) GetHorizontalZonesCount(_ context.Context, req *pb.GetHorizontalZonesCountRequest) (*pb.GetHorizontalZonesCountResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AmbientBacklightMetadata{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetHorizontalZonesCount()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetHorizontalZonesCountResponse{Result: result}, nil
+}
+
+func (s *AmbientBacklightMetadataServer) GetPackageName(_ context.Context, req *pb.AmbientBacklightMetadataGetPackageNameRequest) (*pb.GetPackageNameResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AmbientBacklightMetadata{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetPackageName()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetPackageNameResponse{Result: result}, nil
+}
+
+func (s *AmbientBacklightMetadataServer) GetSource(_ context.Context, req *pb.GetSourceRequest) (*pb.GetSourceResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AmbientBacklightMetadata{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetSource()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetSourceResponse{Result: result}, nil
+}
+
+func (s *AmbientBacklightMetadataServer) GetVerticalZonesCount(_ context.Context, req *pb.GetVerticalZonesCountRequest) (*pb.GetVerticalZonesCountResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AmbientBacklightMetadata{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetVerticalZonesCount()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetVerticalZonesCountResponse{Result: result}, nil
+}
+
+func (s *AmbientBacklightMetadataServer) GetZoneColors(_ context.Context, req *pb.GetZoneColorsRequest) (*pb.GetZoneColorsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AmbientBacklightMetadata{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetZoneColors()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetZoneColorsResponse{Result: handle}, nil
+}
+
+func (s *AmbientBacklightMetadataServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AmbientBacklightMetadata{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *AmbientBacklightMetadataServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AmbientBacklightMetadata{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
 // MediaQualityManagerServer implements pb.MediaQualityManagerServiceServer.
 type MediaQualityManagerServer struct {
 	pb.UnimplementedMediaQualityManagerServiceServer
@@ -304,4 +763,81 @@ func (s *MediaQualityManagerServer) UpdateSoundProfile(_ context.Context, req *p
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.UpdateSoundProfileResponse{}, nil
+}
+
+// ActiveProcessingPictureServer implements pb.ActiveProcessingPictureServiceServer.
+type ActiveProcessingPictureServer struct {
+	pb.UnimplementedActiveProcessingPictureServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *ActiveProcessingPictureServer) NewActiveProcessingPicture(_ context.Context, req *pb.NewActiveProcessingPictureRequest) (*pb.NewActiveProcessingPictureResponse, error) {
+	obj, err := jnipkg.NewActiveProcessingPicture(s.Ctx.VM, req.GetArg0(), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewActiveProcessingPictureResponse{Result: handle}, nil
+}
+
+func (s *ActiveProcessingPictureServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ActiveProcessingPicture{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *ActiveProcessingPictureServer) GetId(_ context.Context, req *pb.GetIdRequest) (*pb.GetIdResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ActiveProcessingPicture{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetId()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetIdResponse{Result: result}, nil
+}
+
+func (s *ActiveProcessingPictureServer) GetProfileId(_ context.Context, req *pb.ActiveProcessingPictureGetProfileIdRequest) (*pb.GetProfileIdResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ActiveProcessingPicture{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetProfileId()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetProfileIdResponse{Result: result}, nil
+}
+
+func (s *ActiveProcessingPictureServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ActiveProcessingPicture{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
 }

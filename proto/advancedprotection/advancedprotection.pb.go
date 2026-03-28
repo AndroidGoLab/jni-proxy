@@ -271,6 +271,86 @@ func (*UnregisterAdvancedProtectionCallbackResponse) Descriptor() ([]byte, []int
 	return file_proto_advancedprotection_advancedprotection_proto_rawDescGZIP(), []int{5}
 }
 
+type OnAdvancedProtectionChangedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnAdvancedProtectionChangedRequest) Reset() {
+	*x = OnAdvancedProtectionChangedRequest{}
+	mi := &file_proto_advancedprotection_advancedprotection_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnAdvancedProtectionChangedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnAdvancedProtectionChangedRequest) ProtoMessage() {}
+
+func (x *OnAdvancedProtectionChangedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_advancedprotection_advancedprotection_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnAdvancedProtectionChangedRequest.ProtoReflect.Descriptor instead.
+func (*OnAdvancedProtectionChangedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_advancedprotection_advancedprotection_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *OnAdvancedProtectionChangedRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type OnAdvancedProtectionChangedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnAdvancedProtectionChangedResponse) Reset() {
+	*x = OnAdvancedProtectionChangedResponse{}
+	mi := &file_proto_advancedprotection_advancedprotection_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnAdvancedProtectionChangedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnAdvancedProtectionChangedResponse) ProtoMessage() {}
+
+func (x *OnAdvancedProtectionChangedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_advancedprotection_advancedprotection_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnAdvancedProtectionChangedResponse.ProtoReflect.Descriptor instead.
+func (*OnAdvancedProtectionChangedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_advancedprotection_advancedprotection_proto_rawDescGZIP(), []int{7}
+}
+
 var File_proto_advancedprotection_advancedprotection_proto protoreflect.FileDescriptor
 
 const file_proto_advancedprotection_advancedprotection_proto_rawDesc = "" +
@@ -285,11 +365,16 @@ const file_proto_advancedprotection_advancedprotection_proto_rawDesc = "" +
 	"*RegisterAdvancedProtectionCallbackResponse\"A\n" +
 	"+UnregisterAdvancedProtectionCallbackRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\".\n" +
-	",UnregisterAdvancedProtectionCallbackResponse2\x85\x04\n" +
+	",UnregisterAdvancedProtectionCallbackResponse\"8\n" +
+	"\"OnAdvancedProtectionChangedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"%\n" +
+	"#OnAdvancedProtectionChangedResponse2\x85\x04\n" +
 	" AdvancedProtectionManagerService\x12\x8e\x01\n" +
 	"\x1bIsAdvancedProtectionEnabled\x126.advancedprotection.IsAdvancedProtectionEnabledRequest\x1a7.advancedprotection.IsAdvancedProtectionEnabledResponse\x12\xa3\x01\n" +
 	"\"RegisterAdvancedProtectionCallback\x12=.advancedprotection.RegisterAdvancedProtectionCallbackRequest\x1a>.advancedprotection.RegisterAdvancedProtectionCallbackResponse\x12\xa9\x01\n" +
-	"$UnregisterAdvancedProtectionCallback\x12?.advancedprotection.UnregisterAdvancedProtectionCallbackRequest\x1a@.advancedprotection.UnregisterAdvancedProtectionCallbackResponseB<Z:github.com/AndroidGoLab/jni-proxy/proto/advancedprotectionb\x06proto3"
+	"$UnregisterAdvancedProtectionCallback\x12?.advancedprotection.UnregisterAdvancedProtectionCallbackRequest\x1a@.advancedprotection.UnregisterAdvancedProtectionCallbackResponse2\xbb\x01\n" +
+	"(AdvancedProtectionManagerCallbackService\x12\x8e\x01\n" +
+	"\x1bOnAdvancedProtectionChanged\x126.advancedprotection.OnAdvancedProtectionChangedRequest\x1a7.advancedprotection.OnAdvancedProtectionChangedResponseB<Z:github.com/AndroidGoLab/jni-proxy/proto/advancedprotectionb\x06proto3"
 
 var (
 	file_proto_advancedprotection_advancedprotection_proto_rawDescOnce sync.Once
@@ -303,7 +388,7 @@ func file_proto_advancedprotection_advancedprotection_proto_rawDescGZIP() []byte
 	return file_proto_advancedprotection_advancedprotection_proto_rawDescData
 }
 
-var file_proto_advancedprotection_advancedprotection_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
+var file_proto_advancedprotection_advancedprotection_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
 var file_proto_advancedprotection_advancedprotection_proto_goTypes = []any{
 	(*IsAdvancedProtectionEnabledRequest)(nil),           // 0: advancedprotection.IsAdvancedProtectionEnabledRequest
 	(*IsAdvancedProtectionEnabledResponse)(nil),          // 1: advancedprotection.IsAdvancedProtectionEnabledResponse
@@ -311,16 +396,20 @@ var file_proto_advancedprotection_advancedprotection_proto_goTypes = []any{
 	(*RegisterAdvancedProtectionCallbackResponse)(nil),   // 3: advancedprotection.RegisterAdvancedProtectionCallbackResponse
 	(*UnregisterAdvancedProtectionCallbackRequest)(nil),  // 4: advancedprotection.UnregisterAdvancedProtectionCallbackRequest
 	(*UnregisterAdvancedProtectionCallbackResponse)(nil), // 5: advancedprotection.UnregisterAdvancedProtectionCallbackResponse
+	(*OnAdvancedProtectionChangedRequest)(nil),           // 6: advancedprotection.OnAdvancedProtectionChangedRequest
+	(*OnAdvancedProtectionChangedResponse)(nil),          // 7: advancedprotection.OnAdvancedProtectionChangedResponse
 }
 var file_proto_advancedprotection_advancedprotection_proto_depIdxs = []int32{
 	0, // 0: advancedprotection.AdvancedProtectionManagerService.IsAdvancedProtectionEnabled:input_type -> advancedprotection.IsAdvancedProtectionEnabledRequest
 	2, // 1: advancedprotection.AdvancedProtectionManagerService.RegisterAdvancedProtectionCallback:input_type -> advancedprotection.RegisterAdvancedProtectionCallbackRequest
 	4, // 2: advancedprotection.AdvancedProtectionManagerService.UnregisterAdvancedProtectionCallback:input_type -> advancedprotection.UnregisterAdvancedProtectionCallbackRequest
-	1, // 3: advancedprotection.AdvancedProtectionManagerService.IsAdvancedProtectionEnabled:output_type -> advancedprotection.IsAdvancedProtectionEnabledResponse
-	3, // 4: advancedprotection.AdvancedProtectionManagerService.RegisterAdvancedProtectionCallback:output_type -> advancedprotection.RegisterAdvancedProtectionCallbackResponse
-	5, // 5: advancedprotection.AdvancedProtectionManagerService.UnregisterAdvancedProtectionCallback:output_type -> advancedprotection.UnregisterAdvancedProtectionCallbackResponse
-	3, // [3:6] is the sub-list for method output_type
-	0, // [0:3] is the sub-list for method input_type
+	6, // 3: advancedprotection.AdvancedProtectionManagerCallbackService.OnAdvancedProtectionChanged:input_type -> advancedprotection.OnAdvancedProtectionChangedRequest
+	1, // 4: advancedprotection.AdvancedProtectionManagerService.IsAdvancedProtectionEnabled:output_type -> advancedprotection.IsAdvancedProtectionEnabledResponse
+	3, // 5: advancedprotection.AdvancedProtectionManagerService.RegisterAdvancedProtectionCallback:output_type -> advancedprotection.RegisterAdvancedProtectionCallbackResponse
+	5, // 6: advancedprotection.AdvancedProtectionManagerService.UnregisterAdvancedProtectionCallback:output_type -> advancedprotection.UnregisterAdvancedProtectionCallbackResponse
+	7, // 7: advancedprotection.AdvancedProtectionManagerCallbackService.OnAdvancedProtectionChanged:output_type -> advancedprotection.OnAdvancedProtectionChangedResponse
+	4, // [4:8] is the sub-list for method output_type
+	0, // [0:4] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
 	0, // [0:0] is the sub-list for extension extendee
 	0, // [0:0] is the sub-list for field type_name
@@ -337,9 +426,9 @@ func file_proto_advancedprotection_advancedprotection_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_advancedprotection_advancedprotection_proto_rawDesc), len(file_proto_advancedprotection_advancedprotection_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   6,
+			NumMessages:   8,
 			NumExtensions: 0,
-			NumServices:   1,
+			NumServices:   2,
 		},
 		GoTypes:           file_proto_advancedprotection_advancedprotection_proto_goTypes,
 		DependencyIndexes: file_proto_advancedprotection_advancedprotection_proto_depIdxs,

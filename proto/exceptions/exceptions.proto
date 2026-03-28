@@ -5,3 +5,159 @@ syntax = "proto3";
 package exceptions;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/exceptions";
+
+message NewAppSearchExceptionRequest {
+  int32 arg0 = 1;
+}
+
+message NewAppSearchExceptionResponse {
+  int64 result = 1;
+}
+
+message GetResultCodeRequest {
+  int64 handle = 1;
+}
+
+message GetResultCodeResponse {
+  int32 result = 1;
+}
+
+message NewIkeNetworkLostExceptionRequest {
+  int64 arg0 = 1;
+}
+
+message NewIkeNetworkLostExceptionResponse {
+  int64 result = 1;
+}
+
+message GetNetworkRequest {
+  int64 handle = 1;
+}
+
+message GetNetworkResponse {
+  int64 result = 1;
+}
+
+message GetErrorTypeRequest {
+}
+
+message GetErrorTypeResponse {
+  int32 result = 1;
+}
+
+message NewInvalidKeExceptionRequest {
+  int32 arg0 = 1;
+}
+
+message NewInvalidKeExceptionResponse {
+  int64 result = 1;
+}
+
+message GetDhGroupRequest {
+  int64 handle = 1;
+}
+
+message GetDhGroupResponse {
+  int32 result = 1;
+}
+
+message NewInvalidMajorVersionExceptionRequest {
+  int64 arg0 = 1;
+}
+
+message NewInvalidMajorVersionExceptionResponse {
+  int64 result = 1;
+}
+
+message GetMajorVersionRequest {
+  int64 handle = 1;
+}
+
+message GetMajorVersionResponse {
+  uint32 result = 1;
+}
+
+message NewInvalidSelectorsExceptionRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewInvalidSelectorsExceptionResponse {
+  int64 result = 1;
+}
+
+message GetIpSecPacketInfoRequest {
+  int64 handle = 1;
+}
+
+message GetIpSecPacketInfoResponse {
+  int64 result = 1;
+}
+
+message GetIpSecSpiRequest {
+  int64 handle = 1;
+}
+
+message GetIpSecSpiResponse {
+  int32 result = 1;
+}
+
+message NewIkeIOExceptionRequest {
+  int64 arg0 = 1;
+}
+
+message NewIkeIOExceptionResponse {
+  int64 result = 1;
+}
+
+message GetCause0Request {
+  int64 handle = 1;
+}
+
+message GetCause0Response {
+  int64 result = 1;
+}
+
+message GetCause0_1Request {
+  int64 handle = 1;
+}
+
+message GetCause0_1Response {
+  int64 result = 1;
+}
+
+service AppSearchExceptionService {
+  rpc NewAppSearchException (NewAppSearchExceptionRequest) returns (NewAppSearchExceptionResponse);
+  rpc GetResultCode (GetResultCodeRequest) returns (GetResultCodeResponse);
+}
+
+service IkeNetworkLostExceptionService {
+  rpc NewIkeNetworkLostException (NewIkeNetworkLostExceptionRequest) returns (NewIkeNetworkLostExceptionResponse);
+  rpc GetNetwork (GetNetworkRequest) returns (GetNetworkResponse);
+}
+
+service IkeProtocolExceptionService {
+  rpc GetErrorType (GetErrorTypeRequest) returns (GetErrorTypeResponse);
+}
+
+service InvalidKeExceptionService {
+  rpc NewInvalidKeException (NewInvalidKeExceptionRequest) returns (NewInvalidKeExceptionResponse);
+  rpc GetDhGroup (GetDhGroupRequest) returns (GetDhGroupResponse);
+}
+
+service InvalidMajorVersionExceptionService {
+  rpc NewInvalidMajorVersionException (NewInvalidMajorVersionExceptionRequest) returns (NewInvalidMajorVersionExceptionResponse);
+  rpc GetMajorVersion (GetMajorVersionRequest) returns (GetMajorVersionResponse);
+}
+
+service InvalidSelectorsExceptionService {
+  rpc NewInvalidSelectorsException (NewInvalidSelectorsExceptionRequest) returns (NewInvalidSelectorsExceptionResponse);
+  rpc GetIpSecPacketInfo (GetIpSecPacketInfoRequest) returns (GetIpSecPacketInfoResponse);
+  rpc GetIpSecSpi (GetIpSecSpiRequest) returns (GetIpSecSpiResponse);
+}
+
+service IkeIOExceptionService {
+  rpc NewIkeIOException (NewIkeIOExceptionRequest) returns (NewIkeIOExceptionResponse);
+  rpc GetCause0 (GetCause0Request) returns (GetCause0Response);
+  rpc GetCause0_1 (GetCause0_1Request) returns (GetCause0_1Response);
+}

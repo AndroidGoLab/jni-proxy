@@ -58,13 +58,19 @@ func TestBuildServerData_Location(t *testing.T) {
 	if data.GoModule != "github.com/AndroidGoLab/jni" {
 		t.Errorf("GoModule = %q, want %q", data.GoModule, "github.com/AndroidGoLab/jni")
 	}
-	if len(data.Services) != 1 {
-		t.Fatalf("Services count = %d, want 1", len(data.Services))
+	if len(data.Services) == 0 {
+		t.Fatal("Services count = 0, want at least 1")
 	}
 
-	svc := data.Services[0]
-	if svc.GoType != "Manager" {
-		t.Errorf("Service GoType = %q, want %q", svc.GoType, "Manager")
+	var svc *ServerService
+	for i := range data.Services {
+		if data.Services[i].GoType == "Manager" {
+			svc = &data.Services[i]
+			break
+		}
+	}
+	if svc == nil {
+		t.Fatal("Manager service not found among services")
 	}
 	if svc.ServiceName != "ManagerService" {
 		t.Errorf("Service ServiceName = %q, want %q", svc.ServiceName, "ManagerService")
@@ -104,11 +110,23 @@ func TestBuildServerData_LocationMethod_Object(t *testing.T) {
 	protoData := protogen.BuildProtoData(merged, goModule)
 	data := buildServerData(merged, goModule, goModule, protoData, emptyGoNames())
 
+	// Find the Manager service.
+	var managerSvc *ServerService
+	for i := range data.Services {
+		if data.Services[i].GoType == "Manager" {
+			managerSvc = &data.Services[i]
+			break
+		}
+	}
+	if managerSvc == nil {
+		t.Fatal("Manager service not found among services")
+	}
+
 	// Find GetLastKnownLocation method.
 	var m *ServerMethod
-	for i := range data.Services[0].Methods {
-		if data.Services[0].Methods[i].GoName == "GetLastKnownLocation" {
-			m = &data.Services[0].Methods[i]
+	for i := range managerSvc.Methods {
+		if managerSvc.Methods[i].GoName == "GetLastKnownLocation" {
+			m = &managerSvc.Methods[i]
 			break
 		}
 	}
@@ -332,51 +350,69 @@ func TestExportName(t *testing.T) {
 func TestIsServiceEligible(t *testing.T) {
 	oneMethod := []javagen.MergedMethod{{GoName: "Foo"}}
 	tests := []struct {
-		name   string
-		cls    javagen.MergedClass
-		expect bool
+		name          string
+		cls           javagen.MergedClass
+		expectService bool // IsServiceEligible (proto + client)
+		expectServer  bool // IsServerEligible (server impl)
 	}{
 		{
-			name:   "system_service with methods",
-			cls:    javagen.MergedClass{Obtain: "system_service", Methods: oneMethod},
-			expect: true,
+			name:          "system_service with methods",
+			cls:           javagen.MergedClass{Obtain: "system_service", Methods: oneMethod},
+			expectService: true,
+			expectServer:  true,
 		},
 		{
-			name:   "system_service without methods",
-			cls:    javagen.MergedClass{Obtain: "system_service"},
-			expect: false,
+			name:          "system_service without methods",
+			cls:           javagen.MergedClass{Obtain: "system_service"},
+			expectService: false,
+			expectServer:  false,
 		},
 		{
-			name:   "context_method",
-			cls:    javagen.MergedClass{Obtain: "context_method", Methods: oneMethod},
-			expect: false,
+			name:          "context_method with methods",
+			cls:           javagen.MergedClass{Obtain: "context_method", Methods: oneMethod},
+			expectService: true,
+			expectServer:  false,
 		},
 		{
-			name:   "constructor",
-			cls:    javagen.MergedClass{Obtain: "constructor", Methods: oneMethod},
-			expect: false,
+			name:          "constructor with methods",
+			cls:           javagen.MergedClass{Obtain: "constructor", Methods: oneMethod},
+			expectService: true,
+			expectServer:  true,
 		},
 		{
-			name:   "no obtain",
-			cls:    javagen.MergedClass{Obtain: "", Methods: oneMethod},
-			expect: false,
+			name:          "static with methods",
+			cls:           javagen.MergedClass{Obtain: "static", Methods: oneMethod},
+			expectService: true,
+			expectServer:  false,
 		},
 		{
-			name:   "data_class",
-			cls:    javagen.MergedClass{Kind: "data_class", Obtain: "system_service", Methods: oneMethod},
-			expect: false,
+			name:          "no obtain with methods",
+			cls:           javagen.MergedClass{Obtain: "", Methods: oneMethod},
+			expectService: true,
+			expectServer:  false,
 		},
 		{
-			name:   "builder",
-			cls:    javagen.MergedClass{Kind: "builder", Methods: oneMethod},
-			expect: false,
+			name:          "data_class",
+			cls:           javagen.MergedClass{Kind: "data_class", Obtain: "system_service", Methods: oneMethod},
+			expectService: false,
+			expectServer:  false,
+		},
+		{
+			name:          "builder",
+			cls:           javagen.MergedClass{Kind: "builder", Methods: oneMethod},
+			expectService: false,
+			expectServer:  false,
 		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			got := protogen.IsServiceEligible(tt.cls)
-			if got != tt.expect {
-				t.Errorf("IsServiceEligible() = %v, want %v", got, tt.expect)
+			if got != tt.expectService {
+				t.Errorf("IsServiceEligible() = %v, want %v", got, tt.expectService)
+			}
+			got = protogen.IsServerEligible(tt.cls)
+			if got != tt.expectServer {
+				t.Errorf("IsServerEligible() = %v, want %v", got, tt.expectServer)
 			}
 		})
 	}

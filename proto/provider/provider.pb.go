@@ -12,6 +12,7 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -22,19 +23,18401 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type DescribeContentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DescribeContentsRequest) Reset() {
+	*x = DescribeContentsRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DescribeContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DescribeContentsRequest) ProtoMessage() {}
+
+func (x *DescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*DescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{0}
+}
+
+type DescribeContentsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DescribeContentsResponse) Reset() {
+	*x = DescribeContentsResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DescribeContentsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DescribeContentsResponse) ProtoMessage() {}
+
+func (x *DescribeContentsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DescribeContentsResponse.ProtoReflect.Descriptor instead.
+func (*DescribeContentsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *DescribeContentsResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type EqualsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EqualsRequest) Reset() {
+	*x = EqualsRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EqualsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EqualsRequest) ProtoMessage() {}
+
+func (x *EqualsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EqualsRequest.ProtoReflect.Descriptor instead.
+func (*EqualsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *EqualsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type EqualsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EqualsResponse) Reset() {
+	*x = EqualsResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EqualsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EqualsResponse) ProtoMessage() {}
+
+func (x *EqualsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EqualsResponse.ProtoReflect.Descriptor instead.
+func (*EqualsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *EqualsResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type GetAccuracyRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAccuracyRequest) Reset() {
+	*x = GetAccuracyRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAccuracyRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAccuracyRequest) ProtoMessage() {}
+
+func (x *GetAccuracyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAccuracyRequest.ProtoReflect.Descriptor instead.
+func (*GetAccuracyRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{4}
+}
+
+type GetAccuracyResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAccuracyResponse) Reset() {
+	*x = GetAccuracyResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAccuracyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAccuracyResponse) ProtoMessage() {}
+
+func (x *GetAccuracyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAccuracyResponse.ProtoReflect.Descriptor instead.
+func (*GetAccuracyResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *GetAccuracyResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPowerUsageRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPowerUsageRequest) Reset() {
+	*x = GetPowerUsageRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPowerUsageRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPowerUsageRequest) ProtoMessage() {}
+
+func (x *GetPowerUsageRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPowerUsageRequest.ProtoReflect.Descriptor instead.
+func (*GetPowerUsageRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{6}
+}
+
+type GetPowerUsageResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPowerUsageResponse) Reset() {
+	*x = GetPowerUsageResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPowerUsageResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPowerUsageResponse) ProtoMessage() {}
+
+func (x *GetPowerUsageResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPowerUsageResponse.ProtoReflect.Descriptor instead.
+func (*GetPowerUsageResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *GetPowerUsageResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type HasAltitudeSupportRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HasAltitudeSupportRequest) Reset() {
+	*x = HasAltitudeSupportRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HasAltitudeSupportRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HasAltitudeSupportRequest) ProtoMessage() {}
+
+func (x *HasAltitudeSupportRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HasAltitudeSupportRequest.ProtoReflect.Descriptor instead.
+func (*HasAltitudeSupportRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{8}
+}
+
+type HasAltitudeSupportResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HasAltitudeSupportResponse) Reset() {
+	*x = HasAltitudeSupportResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HasAltitudeSupportResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HasAltitudeSupportResponse) ProtoMessage() {}
+
+func (x *HasAltitudeSupportResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HasAltitudeSupportResponse.ProtoReflect.Descriptor instead.
+func (*HasAltitudeSupportResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *HasAltitudeSupportResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type HasBearingSupportRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HasBearingSupportRequest) Reset() {
+	*x = HasBearingSupportRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HasBearingSupportRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HasBearingSupportRequest) ProtoMessage() {}
+
+func (x *HasBearingSupportRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HasBearingSupportRequest.ProtoReflect.Descriptor instead.
+func (*HasBearingSupportRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{10}
+}
+
+type HasBearingSupportResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HasBearingSupportResponse) Reset() {
+	*x = HasBearingSupportResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HasBearingSupportResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HasBearingSupportResponse) ProtoMessage() {}
+
+func (x *HasBearingSupportResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HasBearingSupportResponse.ProtoReflect.Descriptor instead.
+func (*HasBearingSupportResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *HasBearingSupportResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type HasCellRequirementRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HasCellRequirementRequest) Reset() {
+	*x = HasCellRequirementRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HasCellRequirementRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HasCellRequirementRequest) ProtoMessage() {}
+
+func (x *HasCellRequirementRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HasCellRequirementRequest.ProtoReflect.Descriptor instead.
+func (*HasCellRequirementRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{12}
+}
+
+type HasCellRequirementResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HasCellRequirementResponse) Reset() {
+	*x = HasCellRequirementResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HasCellRequirementResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HasCellRequirementResponse) ProtoMessage() {}
+
+func (x *HasCellRequirementResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HasCellRequirementResponse.ProtoReflect.Descriptor instead.
+func (*HasCellRequirementResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *HasCellRequirementResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type HasMonetaryCostRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HasMonetaryCostRequest) Reset() {
+	*x = HasMonetaryCostRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HasMonetaryCostRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HasMonetaryCostRequest) ProtoMessage() {}
+
+func (x *HasMonetaryCostRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HasMonetaryCostRequest.ProtoReflect.Descriptor instead.
+func (*HasMonetaryCostRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{14}
+}
+
+type HasMonetaryCostResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HasMonetaryCostResponse) Reset() {
+	*x = HasMonetaryCostResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HasMonetaryCostResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HasMonetaryCostResponse) ProtoMessage() {}
+
+func (x *HasMonetaryCostResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HasMonetaryCostResponse.ProtoReflect.Descriptor instead.
+func (*HasMonetaryCostResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *HasMonetaryCostResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type HasNetworkRequirementRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HasNetworkRequirementRequest) Reset() {
+	*x = HasNetworkRequirementRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HasNetworkRequirementRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HasNetworkRequirementRequest) ProtoMessage() {}
+
+func (x *HasNetworkRequirementRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HasNetworkRequirementRequest.ProtoReflect.Descriptor instead.
+func (*HasNetworkRequirementRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{16}
+}
+
+type HasNetworkRequirementResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HasNetworkRequirementResponse) Reset() {
+	*x = HasNetworkRequirementResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HasNetworkRequirementResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HasNetworkRequirementResponse) ProtoMessage() {}
+
+func (x *HasNetworkRequirementResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HasNetworkRequirementResponse.ProtoReflect.Descriptor instead.
+func (*HasNetworkRequirementResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *HasNetworkRequirementResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type HasSatelliteRequirementRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HasSatelliteRequirementRequest) Reset() {
+	*x = HasSatelliteRequirementRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HasSatelliteRequirementRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HasSatelliteRequirementRequest) ProtoMessage() {}
+
+func (x *HasSatelliteRequirementRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HasSatelliteRequirementRequest.ProtoReflect.Descriptor instead.
+func (*HasSatelliteRequirementRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{18}
+}
+
+type HasSatelliteRequirementResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HasSatelliteRequirementResponse) Reset() {
+	*x = HasSatelliteRequirementResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HasSatelliteRequirementResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HasSatelliteRequirementResponse) ProtoMessage() {}
+
+func (x *HasSatelliteRequirementResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HasSatelliteRequirementResponse.ProtoReflect.Descriptor instead.
+func (*HasSatelliteRequirementResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *HasSatelliteRequirementResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type HasSpeedSupportRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HasSpeedSupportRequest) Reset() {
+	*x = HasSpeedSupportRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HasSpeedSupportRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HasSpeedSupportRequest) ProtoMessage() {}
+
+func (x *HasSpeedSupportRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HasSpeedSupportRequest.ProtoReflect.Descriptor instead.
+func (*HasSpeedSupportRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{20}
+}
+
+type HasSpeedSupportResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HasSpeedSupportResponse) Reset() {
+	*x = HasSpeedSupportResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HasSpeedSupportResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HasSpeedSupportResponse) ProtoMessage() {}
+
+func (x *HasSpeedSupportResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HasSpeedSupportResponse.ProtoReflect.Descriptor instead.
+func (*HasSpeedSupportResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{21}
+}
+
+func (x *HasSpeedSupportResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type HashCodeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HashCodeRequest) Reset() {
+	*x = HashCodeRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HashCodeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HashCodeRequest) ProtoMessage() {}
+
+func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HashCodeRequest.ProtoReflect.Descriptor instead.
+func (*HashCodeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{22}
+}
+
+type HashCodeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HashCodeResponse) Reset() {
+	*x = HashCodeResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HashCodeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HashCodeResponse) ProtoMessage() {}
+
+func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HashCodeResponse.ProtoReflect.Descriptor instead.
+func (*HashCodeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{23}
+}
+
+func (x *HashCodeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ToStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringRequest) Reset() {
+	*x = ToStringRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringRequest) ProtoMessage() {}
+
+func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringRequest.ProtoReflect.Descriptor instead.
+func (*ToStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{24}
+}
+
+type ToStringResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringResponse) Reset() {
+	*x = ToStringResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringResponse) ProtoMessage() {}
+
+func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringResponse.ProtoReflect.Descriptor instead.
+func (*ToStringResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{25}
+}
+
+func (x *ToStringResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type WriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WriteToParcelRequest) Reset() {
+	*x = WriteToParcelRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[26]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WriteToParcelRequest) ProtoMessage() {}
+
+func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[26]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*WriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{26}
+}
+
+func (x *WriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *WriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type WriteToParcelResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WriteToParcelResponse) Reset() {
+	*x = WriteToParcelResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[27]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WriteToParcelResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WriteToParcelResponse) ProtoMessage() {}
+
+func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[27]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WriteToParcelResponse.ProtoReflect.Descriptor instead.
+func (*WriteToParcelResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{27}
+}
+
+type BuildRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BuildRequest) Reset() {
+	*x = BuildRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[28]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BuildRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BuildRequest) ProtoMessage() {}
+
+func (x *BuildRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[28]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BuildRequest.ProtoReflect.Descriptor instead.
+func (*BuildRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{28}
+}
+
+type BuildResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BuildResponse) Reset() {
+	*x = BuildResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[29]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BuildResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BuildResponse) ProtoMessage() {}
+
+func (x *BuildResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[29]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BuildResponse.ProtoReflect.Descriptor instead.
+func (*BuildResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{29}
+}
+
+func (x *BuildResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetAccuracyRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetAccuracyRequest) Reset() {
+	*x = SetAccuracyRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[30]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetAccuracyRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetAccuracyRequest) ProtoMessage() {}
+
+func (x *SetAccuracyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[30]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetAccuracyRequest.ProtoReflect.Descriptor instead.
+func (*SetAccuracyRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{30}
+}
+
+func (x *SetAccuracyRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetAccuracyResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetAccuracyResponse) Reset() {
+	*x = SetAccuracyResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[31]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetAccuracyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetAccuracyResponse) ProtoMessage() {}
+
+func (x *SetAccuracyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[31]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetAccuracyResponse.ProtoReflect.Descriptor instead.
+func (*SetAccuracyResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{31}
+}
+
+func (x *SetAccuracyResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetHasAltitudeSupportRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetHasAltitudeSupportRequest) Reset() {
+	*x = SetHasAltitudeSupportRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[32]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetHasAltitudeSupportRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetHasAltitudeSupportRequest) ProtoMessage() {}
+
+func (x *SetHasAltitudeSupportRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[32]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetHasAltitudeSupportRequest.ProtoReflect.Descriptor instead.
+func (*SetHasAltitudeSupportRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{32}
+}
+
+func (x *SetHasAltitudeSupportRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetHasAltitudeSupportResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetHasAltitudeSupportResponse) Reset() {
+	*x = SetHasAltitudeSupportResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[33]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetHasAltitudeSupportResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetHasAltitudeSupportResponse) ProtoMessage() {}
+
+func (x *SetHasAltitudeSupportResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[33]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetHasAltitudeSupportResponse.ProtoReflect.Descriptor instead.
+func (*SetHasAltitudeSupportResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{33}
+}
+
+func (x *SetHasAltitudeSupportResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetHasBearingSupportRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetHasBearingSupportRequest) Reset() {
+	*x = SetHasBearingSupportRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[34]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetHasBearingSupportRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetHasBearingSupportRequest) ProtoMessage() {}
+
+func (x *SetHasBearingSupportRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[34]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetHasBearingSupportRequest.ProtoReflect.Descriptor instead.
+func (*SetHasBearingSupportRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{34}
+}
+
+func (x *SetHasBearingSupportRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetHasBearingSupportResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetHasBearingSupportResponse) Reset() {
+	*x = SetHasBearingSupportResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[35]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetHasBearingSupportResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetHasBearingSupportResponse) ProtoMessage() {}
+
+func (x *SetHasBearingSupportResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[35]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetHasBearingSupportResponse.ProtoReflect.Descriptor instead.
+func (*SetHasBearingSupportResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{35}
+}
+
+func (x *SetHasBearingSupportResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetHasCellRequirementRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetHasCellRequirementRequest) Reset() {
+	*x = SetHasCellRequirementRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[36]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetHasCellRequirementRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetHasCellRequirementRequest) ProtoMessage() {}
+
+func (x *SetHasCellRequirementRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[36]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetHasCellRequirementRequest.ProtoReflect.Descriptor instead.
+func (*SetHasCellRequirementRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{36}
+}
+
+func (x *SetHasCellRequirementRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetHasCellRequirementResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetHasCellRequirementResponse) Reset() {
+	*x = SetHasCellRequirementResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[37]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetHasCellRequirementResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetHasCellRequirementResponse) ProtoMessage() {}
+
+func (x *SetHasCellRequirementResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[37]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetHasCellRequirementResponse.ProtoReflect.Descriptor instead.
+func (*SetHasCellRequirementResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{37}
+}
+
+func (x *SetHasCellRequirementResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetHasMonetaryCostRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetHasMonetaryCostRequest) Reset() {
+	*x = SetHasMonetaryCostRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[38]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetHasMonetaryCostRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetHasMonetaryCostRequest) ProtoMessage() {}
+
+func (x *SetHasMonetaryCostRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[38]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetHasMonetaryCostRequest.ProtoReflect.Descriptor instead.
+func (*SetHasMonetaryCostRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{38}
+}
+
+func (x *SetHasMonetaryCostRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetHasMonetaryCostResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetHasMonetaryCostResponse) Reset() {
+	*x = SetHasMonetaryCostResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[39]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetHasMonetaryCostResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetHasMonetaryCostResponse) ProtoMessage() {}
+
+func (x *SetHasMonetaryCostResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[39]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetHasMonetaryCostResponse.ProtoReflect.Descriptor instead.
+func (*SetHasMonetaryCostResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{39}
+}
+
+func (x *SetHasMonetaryCostResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetHasNetworkRequirementRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetHasNetworkRequirementRequest) Reset() {
+	*x = SetHasNetworkRequirementRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[40]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetHasNetworkRequirementRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetHasNetworkRequirementRequest) ProtoMessage() {}
+
+func (x *SetHasNetworkRequirementRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[40]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetHasNetworkRequirementRequest.ProtoReflect.Descriptor instead.
+func (*SetHasNetworkRequirementRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{40}
+}
+
+func (x *SetHasNetworkRequirementRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetHasNetworkRequirementResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetHasNetworkRequirementResponse) Reset() {
+	*x = SetHasNetworkRequirementResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[41]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetHasNetworkRequirementResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetHasNetworkRequirementResponse) ProtoMessage() {}
+
+func (x *SetHasNetworkRequirementResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[41]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetHasNetworkRequirementResponse.ProtoReflect.Descriptor instead.
+func (*SetHasNetworkRequirementResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{41}
+}
+
+func (x *SetHasNetworkRequirementResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetHasSatelliteRequirementRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetHasSatelliteRequirementRequest) Reset() {
+	*x = SetHasSatelliteRequirementRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[42]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetHasSatelliteRequirementRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetHasSatelliteRequirementRequest) ProtoMessage() {}
+
+func (x *SetHasSatelliteRequirementRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[42]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetHasSatelliteRequirementRequest.ProtoReflect.Descriptor instead.
+func (*SetHasSatelliteRequirementRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{42}
+}
+
+func (x *SetHasSatelliteRequirementRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetHasSatelliteRequirementResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetHasSatelliteRequirementResponse) Reset() {
+	*x = SetHasSatelliteRequirementResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[43]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetHasSatelliteRequirementResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetHasSatelliteRequirementResponse) ProtoMessage() {}
+
+func (x *SetHasSatelliteRequirementResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[43]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetHasSatelliteRequirementResponse.ProtoReflect.Descriptor instead.
+func (*SetHasSatelliteRequirementResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{43}
+}
+
+func (x *SetHasSatelliteRequirementResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetHasSpeedSupportRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetHasSpeedSupportRequest) Reset() {
+	*x = SetHasSpeedSupportRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[44]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetHasSpeedSupportRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetHasSpeedSupportRequest) ProtoMessage() {}
+
+func (x *SetHasSpeedSupportRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[44]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetHasSpeedSupportRequest.ProtoReflect.Descriptor instead.
+func (*SetHasSpeedSupportRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{44}
+}
+
+func (x *SetHasSpeedSupportRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetHasSpeedSupportResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetHasSpeedSupportResponse) Reset() {
+	*x = SetHasSpeedSupportResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[45]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetHasSpeedSupportResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetHasSpeedSupportResponse) ProtoMessage() {}
+
+func (x *SetHasSpeedSupportResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[45]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetHasSpeedSupportResponse.ProtoReflect.Descriptor instead.
+func (*SetHasSpeedSupportResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{45}
+}
+
+func (x *SetHasSpeedSupportResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetPowerUsageRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPowerUsageRequest) Reset() {
+	*x = SetPowerUsageRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[46]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPowerUsageRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPowerUsageRequest) ProtoMessage() {}
+
+func (x *SetPowerUsageRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[46]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPowerUsageRequest.ProtoReflect.Descriptor instead.
+func (*SetPowerUsageRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{46}
+}
+
+func (x *SetPowerUsageRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetPowerUsageResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPowerUsageResponse) Reset() {
+	*x = SetPowerUsageResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[47]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPowerUsageResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPowerUsageResponse) ProtoMessage() {}
+
+func (x *SetPowerUsageResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[47]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPowerUsageResponse.ProtoReflect.Descriptor instead.
+func (*SetPowerUsageResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{47}
+}
+
+func (x *SetPowerUsageResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRequest) Reset() {
+	*x = GetRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[48]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRequest) ProtoMessage() {}
+
+func (x *GetRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[48]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRequest.ProtoReflect.Descriptor instead.
+func (*GetRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{48}
+}
+
+func (x *GetRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *GetRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *GetRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type GetResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetResponse) Reset() {
+	*x = GetResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[49]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetResponse) ProtoMessage() {}
+
+func (x *GetResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[49]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetResponse.ProtoReflect.Descriptor instead.
+func (*GetResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{49}
+}
+
+func (x *GetResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type InsertRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int64                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *InsertRequest) Reset() {
+	*x = InsertRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[50]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *InsertRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*InsertRequest) ProtoMessage() {}
+
+func (x *InsertRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[50]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use InsertRequest.ProtoReflect.Descriptor instead.
+func (*InsertRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{50}
+}
+
+func (x *InsertRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *InsertRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *InsertRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *InsertRequest) GetArg3() int64 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+type InsertResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *InsertResponse) Reset() {
+	*x = InsertResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[51]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *InsertResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*InsertResponse) ProtoMessage() {}
+
+func (x *InsertResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[51]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use InsertResponse.ProtoReflect.Descriptor instead.
+func (*InsertResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{51}
+}
+
+func (x *InsertResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type NewSetOperationRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewSetOperationRequest) Reset() {
+	*x = NewSetOperationRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[52]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewSetOperationRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewSetOperationRequest) ProtoMessage() {}
+
+func (x *NewSetOperationRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[52]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewSetOperationRequest.ProtoReflect.Descriptor instead.
+func (*NewSetOperationRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{52}
+}
+
+func (x *NewSetOperationRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *NewSetOperationRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *NewSetOperationRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type NewSetOperationResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewSetOperationResponse) Reset() {
+	*x = NewSetOperationResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[53]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewSetOperationResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewSetOperationResponse) ProtoMessage() {}
+
+func (x *NewSetOperationResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[53]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewSetOperationResponse.ProtoReflect.Descriptor instead.
+func (*NewSetOperationResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{53}
+}
+
+func (x *NewSetOperationResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type NewUpdateOperationRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewUpdateOperationRequest) Reset() {
+	*x = NewUpdateOperationRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[54]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewUpdateOperationRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewUpdateOperationRequest) ProtoMessage() {}
+
+func (x *NewUpdateOperationRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[54]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewUpdateOperationRequest.ProtoReflect.Descriptor instead.
+func (*NewUpdateOperationRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{54}
+}
+
+func (x *NewUpdateOperationRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *NewUpdateOperationRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type NewUpdateOperationResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewUpdateOperationResponse) Reset() {
+	*x = NewUpdateOperationResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[55]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewUpdateOperationResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewUpdateOperationResponse) ProtoMessage() {}
+
+func (x *NewUpdateOperationResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[55]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewUpdateOperationResponse.ProtoReflect.Descriptor instead.
+func (*NewUpdateOperationResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{55}
+}
+
+func (x *NewUpdateOperationResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int64                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetRequest) Reset() {
+	*x = SetRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[56]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetRequest) ProtoMessage() {}
+
+func (x *SetRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[56]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetRequest.ProtoReflect.Descriptor instead.
+func (*SetRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{56}
+}
+
+func (x *SetRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SetRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *SetRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *SetRequest) GetArg3() int64 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+type SetResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetResponse) Reset() {
+	*x = SetResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[57]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetResponse) ProtoMessage() {}
+
+func (x *SetResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[57]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetResponse.ProtoReflect.Descriptor instead.
+func (*SetResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{57}
+}
+
+type UpdateRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UpdateRequest) Reset() {
+	*x = UpdateRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[58]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdateRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateRequest) ProtoMessage() {}
+
+func (x *UpdateRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[58]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateRequest.ProtoReflect.Descriptor instead.
+func (*UpdateRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{58}
+}
+
+func (x *UpdateRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *UpdateRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *UpdateRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type UpdateResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UpdateResponse) Reset() {
+	*x = UpdateResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[59]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdateResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateResponse) ProtoMessage() {}
+
+func (x *UpdateResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[59]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateResponse.ProtoReflect.Descriptor instead.
+func (*UpdateResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{59}
+}
+
+type NewFontRequestRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          string                 `protobuf:"bytes,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewFontRequestRequest) Reset() {
+	*x = NewFontRequestRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[60]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewFontRequestRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewFontRequestRequest) ProtoMessage() {}
+
+func (x *NewFontRequestRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[60]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewFontRequestRequest.ProtoReflect.Descriptor instead.
+func (*NewFontRequestRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{60}
+}
+
+func (x *NewFontRequestRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *NewFontRequestRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *NewFontRequestRequest) GetArg2() string {
+	if x != nil {
+		return x.Arg2
+	}
+	return ""
+}
+
+type NewFontRequestResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewFontRequestResponse) Reset() {
+	*x = NewFontRequestResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[61]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewFontRequestResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewFontRequestResponse) ProtoMessage() {}
+
+func (x *NewFontRequestResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[61]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewFontRequestResponse.ProtoReflect.Descriptor instead.
+func (*NewFontRequestResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{61}
+}
+
+func (x *NewFontRequestResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetProviderAuthorityRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetProviderAuthorityRequest) Reset() {
+	*x = GetProviderAuthorityRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[62]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetProviderAuthorityRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetProviderAuthorityRequest) ProtoMessage() {}
+
+func (x *GetProviderAuthorityRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[62]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetProviderAuthorityRequest.ProtoReflect.Descriptor instead.
+func (*GetProviderAuthorityRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{62}
+}
+
+func (x *GetProviderAuthorityRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetProviderAuthorityResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetProviderAuthorityResponse) Reset() {
+	*x = GetProviderAuthorityResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[63]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetProviderAuthorityResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetProviderAuthorityResponse) ProtoMessage() {}
+
+func (x *GetProviderAuthorityResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[63]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetProviderAuthorityResponse.ProtoReflect.Descriptor instead.
+func (*GetProviderAuthorityResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{63}
+}
+
+func (x *GetProviderAuthorityResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetProviderPackageRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetProviderPackageRequest) Reset() {
+	*x = GetProviderPackageRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[64]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetProviderPackageRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetProviderPackageRequest) ProtoMessage() {}
+
+func (x *GetProviderPackageRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[64]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetProviderPackageRequest.ProtoReflect.Descriptor instead.
+func (*GetProviderPackageRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{64}
+}
+
+func (x *GetProviderPackageRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetProviderPackageResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetProviderPackageResponse) Reset() {
+	*x = GetProviderPackageResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[65]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetProviderPackageResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetProviderPackageResponse) ProtoMessage() {}
+
+func (x *GetProviderPackageResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[65]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetProviderPackageResponse.ProtoReflect.Descriptor instead.
+func (*GetProviderPackageResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{65}
+}
+
+func (x *GetProviderPackageResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetQueryRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetQueryRequest) Reset() {
+	*x = GetQueryRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[66]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetQueryRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetQueryRequest) ProtoMessage() {}
+
+func (x *GetQueryRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[66]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetQueryRequest.ProtoReflect.Descriptor instead.
+func (*GetQueryRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{66}
+}
+
+func (x *GetQueryRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetQueryResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetQueryResponse) Reset() {
+	*x = GetQueryResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[67]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetQueryResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetQueryResponse) ProtoMessage() {}
+
+func (x *GetQueryResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[67]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetQueryResponse.ProtoReflect.Descriptor instead.
+func (*GetQueryResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{67}
+}
+
+func (x *GetQueryResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type FontRequestToStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FontRequestToStringRequest) Reset() {
+	*x = FontRequestToStringRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[68]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FontRequestToStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FontRequestToStringRequest) ProtoMessage() {}
+
+func (x *FontRequestToStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[68]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FontRequestToStringRequest.ProtoReflect.Descriptor instead.
+func (*FontRequestToStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{68}
+}
+
+func (x *FontRequestToStringRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type NewSearchRecentSuggestionsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewSearchRecentSuggestionsRequest) Reset() {
+	*x = NewSearchRecentSuggestionsRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[69]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewSearchRecentSuggestionsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewSearchRecentSuggestionsRequest) ProtoMessage() {}
+
+func (x *NewSearchRecentSuggestionsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[69]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewSearchRecentSuggestionsRequest.ProtoReflect.Descriptor instead.
+func (*NewSearchRecentSuggestionsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{69}
+}
+
+func (x *NewSearchRecentSuggestionsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *NewSearchRecentSuggestionsRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *NewSearchRecentSuggestionsRequest) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type NewSearchRecentSuggestionsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewSearchRecentSuggestionsResponse) Reset() {
+	*x = NewSearchRecentSuggestionsResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[70]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewSearchRecentSuggestionsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewSearchRecentSuggestionsResponse) ProtoMessage() {}
+
+func (x *NewSearchRecentSuggestionsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[70]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewSearchRecentSuggestionsResponse.ProtoReflect.Descriptor instead.
+func (*NewSearchRecentSuggestionsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{70}
+}
+
+func (x *NewSearchRecentSuggestionsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ClearHistoryRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearHistoryRequest) Reset() {
+	*x = ClearHistoryRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[71]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearHistoryRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearHistoryRequest) ProtoMessage() {}
+
+func (x *ClearHistoryRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[71]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearHistoryRequest.ProtoReflect.Descriptor instead.
+func (*ClearHistoryRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{71}
+}
+
+func (x *ClearHistoryRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type ClearHistoryResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearHistoryResponse) Reset() {
+	*x = ClearHistoryResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[72]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearHistoryResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearHistoryResponse) ProtoMessage() {}
+
+func (x *ClearHistoryResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[72]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearHistoryResponse.ProtoReflect.Descriptor instead.
+func (*ClearHistoryResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{72}
+}
+
+type SaveRecentQueryRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          string                 `protobuf:"bytes,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SaveRecentQueryRequest) Reset() {
+	*x = SaveRecentQueryRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[73]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SaveRecentQueryRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SaveRecentQueryRequest) ProtoMessage() {}
+
+func (x *SaveRecentQueryRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[73]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SaveRecentQueryRequest.ProtoReflect.Descriptor instead.
+func (*SaveRecentQueryRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{73}
+}
+
+func (x *SaveRecentQueryRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SaveRecentQueryRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *SaveRecentQueryRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+type SaveRecentQueryResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SaveRecentQueryResponse) Reset() {
+	*x = SaveRecentQueryResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[74]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SaveRecentQueryResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SaveRecentQueryResponse) ProtoMessage() {}
+
+func (x *SaveRecentQueryResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[74]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SaveRecentQueryResponse.ProtoReflect.Descriptor instead.
+func (*SaveRecentQueryResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{74}
+}
+
+type AttachInfoRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AttachInfoRequest) Reset() {
+	*x = AttachInfoRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[75]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AttachInfoRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AttachInfoRequest) ProtoMessage() {}
+
+func (x *AttachInfoRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[75]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AttachInfoRequest.ProtoReflect.Descriptor instead.
+func (*AttachInfoRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{75}
+}
+
+func (x *AttachInfoRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *AttachInfoRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type AttachInfoResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AttachInfoResponse) Reset() {
+	*x = AttachInfoResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[76]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AttachInfoResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AttachInfoResponse) ProtoMessage() {}
+
+func (x *AttachInfoResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[76]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AttachInfoResponse.ProtoReflect.Descriptor instead.
+func (*AttachInfoResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{76}
+}
+
+type CallRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CallRequest) Reset() {
+	*x = CallRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[77]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CallRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CallRequest) ProtoMessage() {}
+
+func (x *CallRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[77]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CallRequest.ProtoReflect.Descriptor instead.
+func (*CallRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{77}
+}
+
+func (x *CallRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *CallRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *CallRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type CallResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CallResponse) Reset() {
+	*x = CallResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[78]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CallResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CallResponse) ProtoMessage() {}
+
+func (x *CallResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[78]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CallResponse.ProtoReflect.Descriptor instead.
+func (*CallResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{78}
+}
+
+func (x *CallResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type CanonicalizeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CanonicalizeRequest) Reset() {
+	*x = CanonicalizeRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[79]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CanonicalizeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CanonicalizeRequest) ProtoMessage() {}
+
+func (x *CanonicalizeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[79]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CanonicalizeRequest.ProtoReflect.Descriptor instead.
+func (*CanonicalizeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{79}
+}
+
+func (x *CanonicalizeRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type CanonicalizeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CanonicalizeResponse) Reset() {
+	*x = CanonicalizeResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[80]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CanonicalizeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CanonicalizeResponse) ProtoMessage() {}
+
+func (x *CanonicalizeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[80]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CanonicalizeResponse.ProtoReflect.Descriptor instead.
+func (*CanonicalizeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{80}
+}
+
+func (x *CanonicalizeResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type CopyDocumentRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CopyDocumentRequest) Reset() {
+	*x = CopyDocumentRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[81]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CopyDocumentRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CopyDocumentRequest) ProtoMessage() {}
+
+func (x *CopyDocumentRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[81]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CopyDocumentRequest.ProtoReflect.Descriptor instead.
+func (*CopyDocumentRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{81}
+}
+
+func (x *CopyDocumentRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *CopyDocumentRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+type CopyDocumentResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CopyDocumentResponse) Reset() {
+	*x = CopyDocumentResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[82]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CopyDocumentResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CopyDocumentResponse) ProtoMessage() {}
+
+func (x *CopyDocumentResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[82]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CopyDocumentResponse.ProtoReflect.Descriptor instead.
+func (*CopyDocumentResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{82}
+}
+
+func (x *CopyDocumentResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type CreateDocumentRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          string                 `protobuf:"bytes,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateDocumentRequest) Reset() {
+	*x = CreateDocumentRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[83]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateDocumentRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateDocumentRequest) ProtoMessage() {}
+
+func (x *CreateDocumentRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[83]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateDocumentRequest.ProtoReflect.Descriptor instead.
+func (*CreateDocumentRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{83}
+}
+
+func (x *CreateDocumentRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *CreateDocumentRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *CreateDocumentRequest) GetArg2() string {
+	if x != nil {
+		return x.Arg2
+	}
+	return ""
+}
+
+type CreateDocumentResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateDocumentResponse) Reset() {
+	*x = CreateDocumentResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[84]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateDocumentResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateDocumentResponse) ProtoMessage() {}
+
+func (x *CreateDocumentResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[84]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateDocumentResponse.ProtoReflect.Descriptor instead.
+func (*CreateDocumentResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{84}
+}
+
+func (x *CreateDocumentResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type CreateWebLinkIntentRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateWebLinkIntentRequest) Reset() {
+	*x = CreateWebLinkIntentRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[85]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateWebLinkIntentRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateWebLinkIntentRequest) ProtoMessage() {}
+
+func (x *CreateWebLinkIntentRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[85]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateWebLinkIntentRequest.ProtoReflect.Descriptor instead.
+func (*CreateWebLinkIntentRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{85}
+}
+
+func (x *CreateWebLinkIntentRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *CreateWebLinkIntentRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type CreateWebLinkIntentResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateWebLinkIntentResponse) Reset() {
+	*x = CreateWebLinkIntentResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[86]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateWebLinkIntentResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateWebLinkIntentResponse) ProtoMessage() {}
+
+func (x *CreateWebLinkIntentResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[86]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateWebLinkIntentResponse.ProtoReflect.Descriptor instead.
+func (*CreateWebLinkIntentResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{86}
+}
+
+func (x *CreateWebLinkIntentResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type DeleteRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DeleteRequest) Reset() {
+	*x = DeleteRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[87]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DeleteRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeleteRequest) ProtoMessage() {}
+
+func (x *DeleteRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[87]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeleteRequest.ProtoReflect.Descriptor instead.
+func (*DeleteRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{87}
+}
+
+func (x *DeleteRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *DeleteRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *DeleteRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type DeleteResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DeleteResponse) Reset() {
+	*x = DeleteResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[88]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DeleteResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeleteResponse) ProtoMessage() {}
+
+func (x *DeleteResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[88]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeleteResponse.ProtoReflect.Descriptor instead.
+func (*DeleteResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{88}
+}
+
+func (x *DeleteResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type DeleteDocumentRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DeleteDocumentRequest) Reset() {
+	*x = DeleteDocumentRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[89]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DeleteDocumentRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeleteDocumentRequest) ProtoMessage() {}
+
+func (x *DeleteDocumentRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[89]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeleteDocumentRequest.ProtoReflect.Descriptor instead.
+func (*DeleteDocumentRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{89}
+}
+
+func (x *DeleteDocumentRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type DeleteDocumentResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DeleteDocumentResponse) Reset() {
+	*x = DeleteDocumentResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[90]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DeleteDocumentResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeleteDocumentResponse) ProtoMessage() {}
+
+func (x *DeleteDocumentResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[90]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeleteDocumentResponse.ProtoReflect.Descriptor instead.
+func (*DeleteDocumentResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{90}
+}
+
+type EjectRootRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EjectRootRequest) Reset() {
+	*x = EjectRootRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[91]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EjectRootRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EjectRootRequest) ProtoMessage() {}
+
+func (x *EjectRootRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[91]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EjectRootRequest.ProtoReflect.Descriptor instead.
+func (*EjectRootRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{91}
+}
+
+func (x *EjectRootRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type EjectRootResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EjectRootResponse) Reset() {
+	*x = EjectRootResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[92]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EjectRootResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EjectRootResponse) ProtoMessage() {}
+
+func (x *EjectRootResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[92]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EjectRootResponse.ProtoReflect.Descriptor instead.
+func (*EjectRootResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{92}
+}
+
+type FindDocumentPathRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FindDocumentPathRequest) Reset() {
+	*x = FindDocumentPathRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[93]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FindDocumentPathRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FindDocumentPathRequest) ProtoMessage() {}
+
+func (x *FindDocumentPathRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[93]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FindDocumentPathRequest.ProtoReflect.Descriptor instead.
+func (*FindDocumentPathRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{93}
+}
+
+func (x *FindDocumentPathRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *FindDocumentPathRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+type FindDocumentPathResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FindDocumentPathResponse) Reset() {
+	*x = FindDocumentPathResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[94]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FindDocumentPathResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FindDocumentPathResponse) ProtoMessage() {}
+
+func (x *FindDocumentPathResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[94]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FindDocumentPathResponse.ProtoReflect.Descriptor instead.
+func (*FindDocumentPathResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{94}
+}
+
+func (x *FindDocumentPathResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetDocumentMetadataRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDocumentMetadataRequest) Reset() {
+	*x = GetDocumentMetadataRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[95]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDocumentMetadataRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDocumentMetadataRequest) ProtoMessage() {}
+
+func (x *GetDocumentMetadataRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[95]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDocumentMetadataRequest.ProtoReflect.Descriptor instead.
+func (*GetDocumentMetadataRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{95}
+}
+
+func (x *GetDocumentMetadataRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type GetDocumentMetadataResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDocumentMetadataResponse) Reset() {
+	*x = GetDocumentMetadataResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[96]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDocumentMetadataResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDocumentMetadataResponse) ProtoMessage() {}
+
+func (x *GetDocumentMetadataResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[96]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDocumentMetadataResponse.ProtoReflect.Descriptor instead.
+func (*GetDocumentMetadataResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{96}
+}
+
+func (x *GetDocumentMetadataResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetDocumentStreamTypesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDocumentStreamTypesRequest) Reset() {
+	*x = GetDocumentStreamTypesRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[97]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDocumentStreamTypesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDocumentStreamTypesRequest) ProtoMessage() {}
+
+func (x *GetDocumentStreamTypesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[97]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDocumentStreamTypesRequest.ProtoReflect.Descriptor instead.
+func (*GetDocumentStreamTypesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{97}
+}
+
+func (x *GetDocumentStreamTypesRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *GetDocumentStreamTypesRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+type GetDocumentStreamTypesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDocumentStreamTypesResponse) Reset() {
+	*x = GetDocumentStreamTypesResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[98]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDocumentStreamTypesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDocumentStreamTypesResponse) ProtoMessage() {}
+
+func (x *GetDocumentStreamTypesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[98]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDocumentStreamTypesResponse.ProtoReflect.Descriptor instead.
+func (*GetDocumentStreamTypesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{98}
+}
+
+func (x *GetDocumentStreamTypesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetDocumentTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDocumentTypeRequest) Reset() {
+	*x = GetDocumentTypeRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[99]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDocumentTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDocumentTypeRequest) ProtoMessage() {}
+
+func (x *GetDocumentTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[99]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDocumentTypeRequest.ProtoReflect.Descriptor instead.
+func (*GetDocumentTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{99}
+}
+
+func (x *GetDocumentTypeRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type GetDocumentTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDocumentTypeResponse) Reset() {
+	*x = GetDocumentTypeResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[100]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDocumentTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDocumentTypeResponse) ProtoMessage() {}
+
+func (x *GetDocumentTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[100]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDocumentTypeResponse.ProtoReflect.Descriptor instead.
+func (*GetDocumentTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{100}
+}
+
+func (x *GetDocumentTypeResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetStreamTypesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetStreamTypesRequest) Reset() {
+	*x = GetStreamTypesRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[101]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetStreamTypesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetStreamTypesRequest) ProtoMessage() {}
+
+func (x *GetStreamTypesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[101]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetStreamTypesRequest.ProtoReflect.Descriptor instead.
+func (*GetStreamTypesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{101}
+}
+
+func (x *GetStreamTypesRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *GetStreamTypesRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+type GetStreamTypesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetStreamTypesResponse) Reset() {
+	*x = GetStreamTypesResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[102]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetStreamTypesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetStreamTypesResponse) ProtoMessage() {}
+
+func (x *GetStreamTypesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[102]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetStreamTypesResponse.ProtoReflect.Descriptor instead.
+func (*GetStreamTypesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{102}
+}
+
+func (x *GetStreamTypesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTypeRequest) Reset() {
+	*x = GetTypeRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[103]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTypeRequest) ProtoMessage() {}
+
+func (x *GetTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[103]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTypeRequest.ProtoReflect.Descriptor instead.
+func (*GetTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{103}
+}
+
+func (x *GetTypeRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTypeResponse) Reset() {
+	*x = GetTypeResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[104]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTypeResponse) ProtoMessage() {}
+
+func (x *GetTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[104]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTypeResponse.ProtoReflect.Descriptor instead.
+func (*GetTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{104}
+}
+
+func (x *GetTypeResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetTypeAnonymousRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTypeAnonymousRequest) Reset() {
+	*x = GetTypeAnonymousRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[105]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTypeAnonymousRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTypeAnonymousRequest) ProtoMessage() {}
+
+func (x *GetTypeAnonymousRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[105]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTypeAnonymousRequest.ProtoReflect.Descriptor instead.
+func (*GetTypeAnonymousRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{105}
+}
+
+func (x *GetTypeAnonymousRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetTypeAnonymousResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTypeAnonymousResponse) Reset() {
+	*x = GetTypeAnonymousResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[106]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTypeAnonymousResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTypeAnonymousResponse) ProtoMessage() {}
+
+func (x *GetTypeAnonymousResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[106]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTypeAnonymousResponse.ProtoReflect.Descriptor instead.
+func (*GetTypeAnonymousResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{106}
+}
+
+func (x *GetTypeAnonymousResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type DocumentsProviderInsertRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DocumentsProviderInsertRequest) Reset() {
+	*x = DocumentsProviderInsertRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[107]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DocumentsProviderInsertRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DocumentsProviderInsertRequest) ProtoMessage() {}
+
+func (x *DocumentsProviderInsertRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[107]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DocumentsProviderInsertRequest.ProtoReflect.Descriptor instead.
+func (*DocumentsProviderInsertRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{107}
+}
+
+func (x *DocumentsProviderInsertRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *DocumentsProviderInsertRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type IsChildDocumentRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsChildDocumentRequest) Reset() {
+	*x = IsChildDocumentRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[108]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsChildDocumentRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsChildDocumentRequest) ProtoMessage() {}
+
+func (x *IsChildDocumentRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[108]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsChildDocumentRequest.ProtoReflect.Descriptor instead.
+func (*IsChildDocumentRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{108}
+}
+
+func (x *IsChildDocumentRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *IsChildDocumentRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+type IsChildDocumentResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsChildDocumentResponse) Reset() {
+	*x = IsChildDocumentResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[109]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsChildDocumentResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsChildDocumentResponse) ProtoMessage() {}
+
+func (x *IsChildDocumentResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[109]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsChildDocumentResponse.ProtoReflect.Descriptor instead.
+func (*IsChildDocumentResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{109}
+}
+
+func (x *IsChildDocumentResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type MoveDocumentRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          string                 `protobuf:"bytes,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *MoveDocumentRequest) Reset() {
+	*x = MoveDocumentRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[110]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *MoveDocumentRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MoveDocumentRequest) ProtoMessage() {}
+
+func (x *MoveDocumentRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[110]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MoveDocumentRequest.ProtoReflect.Descriptor instead.
+func (*MoveDocumentRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{110}
+}
+
+func (x *MoveDocumentRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *MoveDocumentRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *MoveDocumentRequest) GetArg2() string {
+	if x != nil {
+		return x.Arg2
+	}
+	return ""
+}
+
+type MoveDocumentResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *MoveDocumentResponse) Reset() {
+	*x = MoveDocumentResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[111]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *MoveDocumentResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MoveDocumentResponse) ProtoMessage() {}
+
+func (x *MoveDocumentResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[111]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MoveDocumentResponse.ProtoReflect.Descriptor instead.
+func (*MoveDocumentResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{111}
+}
+
+func (x *MoveDocumentResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type OpenAssetFile2Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OpenAssetFile2Request) Reset() {
+	*x = OpenAssetFile2Request{}
+	mi := &file_proto_provider_provider_proto_msgTypes[112]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OpenAssetFile2Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OpenAssetFile2Request) ProtoMessage() {}
+
+func (x *OpenAssetFile2Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[112]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OpenAssetFile2Request.ProtoReflect.Descriptor instead.
+func (*OpenAssetFile2Request) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{112}
+}
+
+func (x *OpenAssetFile2Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OpenAssetFile2Request) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+type OpenAssetFile2Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OpenAssetFile2Response) Reset() {
+	*x = OpenAssetFile2Response{}
+	mi := &file_proto_provider_provider_proto_msgTypes[113]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OpenAssetFile2Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OpenAssetFile2Response) ProtoMessage() {}
+
+func (x *OpenAssetFile2Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[113]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OpenAssetFile2Response.ProtoReflect.Descriptor instead.
+func (*OpenAssetFile2Response) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{113}
+}
+
+func (x *OpenAssetFile2Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OpenAssetFile3_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OpenAssetFile3_1Request) Reset() {
+	*x = OpenAssetFile3_1Request{}
+	mi := &file_proto_provider_provider_proto_msgTypes[114]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OpenAssetFile3_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OpenAssetFile3_1Request) ProtoMessage() {}
+
+func (x *OpenAssetFile3_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[114]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OpenAssetFile3_1Request.ProtoReflect.Descriptor instead.
+func (*OpenAssetFile3_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{114}
+}
+
+func (x *OpenAssetFile3_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OpenAssetFile3_1Request) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *OpenAssetFile3_1Request) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type OpenAssetFile3_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OpenAssetFile3_1Response) Reset() {
+	*x = OpenAssetFile3_1Response{}
+	mi := &file_proto_provider_provider_proto_msgTypes[115]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OpenAssetFile3_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OpenAssetFile3_1Response) ProtoMessage() {}
+
+func (x *OpenAssetFile3_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[115]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OpenAssetFile3_1Response.ProtoReflect.Descriptor instead.
+func (*OpenAssetFile3_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{115}
+}
+
+func (x *OpenAssetFile3_1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OpenDocumentRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OpenDocumentRequest) Reset() {
+	*x = OpenDocumentRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[116]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OpenDocumentRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OpenDocumentRequest) ProtoMessage() {}
+
+func (x *OpenDocumentRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[116]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OpenDocumentRequest.ProtoReflect.Descriptor instead.
+func (*OpenDocumentRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{116}
+}
+
+func (x *OpenDocumentRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *OpenDocumentRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *OpenDocumentRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type OpenDocumentResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OpenDocumentResponse) Reset() {
+	*x = OpenDocumentResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[117]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OpenDocumentResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OpenDocumentResponse) ProtoMessage() {}
+
+func (x *OpenDocumentResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[117]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OpenDocumentResponse.ProtoReflect.Descriptor instead.
+func (*OpenDocumentResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{117}
+}
+
+func (x *OpenDocumentResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OpenDocumentThumbnailRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OpenDocumentThumbnailRequest) Reset() {
+	*x = OpenDocumentThumbnailRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[118]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OpenDocumentThumbnailRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OpenDocumentThumbnailRequest) ProtoMessage() {}
+
+func (x *OpenDocumentThumbnailRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[118]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OpenDocumentThumbnailRequest.ProtoReflect.Descriptor instead.
+func (*OpenDocumentThumbnailRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{118}
+}
+
+func (x *OpenDocumentThumbnailRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *OpenDocumentThumbnailRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *OpenDocumentThumbnailRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type OpenDocumentThumbnailResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OpenDocumentThumbnailResponse) Reset() {
+	*x = OpenDocumentThumbnailResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[119]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OpenDocumentThumbnailResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OpenDocumentThumbnailResponse) ProtoMessage() {}
+
+func (x *OpenDocumentThumbnailResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[119]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OpenDocumentThumbnailResponse.ProtoReflect.Descriptor instead.
+func (*OpenDocumentThumbnailResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{119}
+}
+
+func (x *OpenDocumentThumbnailResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OpenFile2Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OpenFile2Request) Reset() {
+	*x = OpenFile2Request{}
+	mi := &file_proto_provider_provider_proto_msgTypes[120]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OpenFile2Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OpenFile2Request) ProtoMessage() {}
+
+func (x *OpenFile2Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[120]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OpenFile2Request.ProtoReflect.Descriptor instead.
+func (*OpenFile2Request) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{120}
+}
+
+func (x *OpenFile2Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OpenFile2Request) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+type OpenFile2Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OpenFile2Response) Reset() {
+	*x = OpenFile2Response{}
+	mi := &file_proto_provider_provider_proto_msgTypes[121]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OpenFile2Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OpenFile2Response) ProtoMessage() {}
+
+func (x *OpenFile2Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[121]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OpenFile2Response.ProtoReflect.Descriptor instead.
+func (*OpenFile2Response) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{121}
+}
+
+func (x *OpenFile2Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OpenFile3_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OpenFile3_1Request) Reset() {
+	*x = OpenFile3_1Request{}
+	mi := &file_proto_provider_provider_proto_msgTypes[122]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OpenFile3_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OpenFile3_1Request) ProtoMessage() {}
+
+func (x *OpenFile3_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[122]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OpenFile3_1Request.ProtoReflect.Descriptor instead.
+func (*OpenFile3_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{122}
+}
+
+func (x *OpenFile3_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OpenFile3_1Request) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *OpenFile3_1Request) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type OpenFile3_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OpenFile3_1Response) Reset() {
+	*x = OpenFile3_1Response{}
+	mi := &file_proto_provider_provider_proto_msgTypes[123]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OpenFile3_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OpenFile3_1Response) ProtoMessage() {}
+
+func (x *OpenFile3_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[123]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OpenFile3_1Response.ProtoReflect.Descriptor instead.
+func (*OpenFile3_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{123}
+}
+
+func (x *OpenFile3_1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OpenTypedAssetFile3Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OpenTypedAssetFile3Request) Reset() {
+	*x = OpenTypedAssetFile3Request{}
+	mi := &file_proto_provider_provider_proto_msgTypes[124]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OpenTypedAssetFile3Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OpenTypedAssetFile3Request) ProtoMessage() {}
+
+func (x *OpenTypedAssetFile3Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[124]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OpenTypedAssetFile3Request.ProtoReflect.Descriptor instead.
+func (*OpenTypedAssetFile3Request) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{124}
+}
+
+func (x *OpenTypedAssetFile3Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OpenTypedAssetFile3Request) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *OpenTypedAssetFile3Request) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type OpenTypedAssetFile3Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OpenTypedAssetFile3Response) Reset() {
+	*x = OpenTypedAssetFile3Response{}
+	mi := &file_proto_provider_provider_proto_msgTypes[125]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OpenTypedAssetFile3Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OpenTypedAssetFile3Response) ProtoMessage() {}
+
+func (x *OpenTypedAssetFile3Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[125]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OpenTypedAssetFile3Response.ProtoReflect.Descriptor instead.
+func (*OpenTypedAssetFile3Response) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{125}
+}
+
+func (x *OpenTypedAssetFile3Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OpenTypedAssetFile4_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int64                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OpenTypedAssetFile4_1Request) Reset() {
+	*x = OpenTypedAssetFile4_1Request{}
+	mi := &file_proto_provider_provider_proto_msgTypes[126]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OpenTypedAssetFile4_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OpenTypedAssetFile4_1Request) ProtoMessage() {}
+
+func (x *OpenTypedAssetFile4_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[126]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OpenTypedAssetFile4_1Request.ProtoReflect.Descriptor instead.
+func (*OpenTypedAssetFile4_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{126}
+}
+
+func (x *OpenTypedAssetFile4_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OpenTypedAssetFile4_1Request) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *OpenTypedAssetFile4_1Request) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *OpenTypedAssetFile4_1Request) GetArg3() int64 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+type OpenTypedAssetFile4_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OpenTypedAssetFile4_1Response) Reset() {
+	*x = OpenTypedAssetFile4_1Response{}
+	mi := &file_proto_provider_provider_proto_msgTypes[127]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OpenTypedAssetFile4_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OpenTypedAssetFile4_1Response) ProtoMessage() {}
+
+func (x *OpenTypedAssetFile4_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[127]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OpenTypedAssetFile4_1Response.ProtoReflect.Descriptor instead.
+func (*OpenTypedAssetFile4_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{127}
+}
+
+func (x *OpenTypedAssetFile4_1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OpenTypedDocumentRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int64                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OpenTypedDocumentRequest) Reset() {
+	*x = OpenTypedDocumentRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[128]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OpenTypedDocumentRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OpenTypedDocumentRequest) ProtoMessage() {}
+
+func (x *OpenTypedDocumentRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[128]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OpenTypedDocumentRequest.ProtoReflect.Descriptor instead.
+func (*OpenTypedDocumentRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{128}
+}
+
+func (x *OpenTypedDocumentRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *OpenTypedDocumentRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *OpenTypedDocumentRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *OpenTypedDocumentRequest) GetArg3() int64 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+type OpenTypedDocumentResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OpenTypedDocumentResponse) Reset() {
+	*x = OpenTypedDocumentResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[129]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OpenTypedDocumentResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OpenTypedDocumentResponse) ProtoMessage() {}
+
+func (x *OpenTypedDocumentResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[129]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OpenTypedDocumentResponse.ProtoReflect.Descriptor instead.
+func (*OpenTypedDocumentResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{129}
+}
+
+func (x *OpenTypedDocumentResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type Query4Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int64                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Query4Request) Reset() {
+	*x = Query4Request{}
+	mi := &file_proto_provider_provider_proto_msgTypes[130]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Query4Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Query4Request) ProtoMessage() {}
+
+func (x *Query4Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[130]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Query4Request.ProtoReflect.Descriptor instead.
+func (*Query4Request) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{130}
+}
+
+func (x *Query4Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *Query4Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *Query4Request) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *Query4Request) GetArg3() int64 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+type Query4Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Query4Response) Reset() {
+	*x = Query4Response{}
+	mi := &file_proto_provider_provider_proto_msgTypes[131]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Query4Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Query4Response) ProtoMessage() {}
+
+func (x *Query4Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[131]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Query4Response.ProtoReflect.Descriptor instead.
+func (*Query4Response) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{131}
+}
+
+func (x *Query4Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type Query5_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          string                 `protobuf:"bytes,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int64                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	Arg4          string                 `protobuf:"bytes,5,opt,name=arg4,proto3" json:"arg4,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Query5_1Request) Reset() {
+	*x = Query5_1Request{}
+	mi := &file_proto_provider_provider_proto_msgTypes[132]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Query5_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Query5_1Request) ProtoMessage() {}
+
+func (x *Query5_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[132]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Query5_1Request.ProtoReflect.Descriptor instead.
+func (*Query5_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{132}
+}
+
+func (x *Query5_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *Query5_1Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *Query5_1Request) GetArg2() string {
+	if x != nil {
+		return x.Arg2
+	}
+	return ""
+}
+
+func (x *Query5_1Request) GetArg3() int64 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+func (x *Query5_1Request) GetArg4() string {
+	if x != nil {
+		return x.Arg4
+	}
+	return ""
+}
+
+type Query5_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Query5_1Response) Reset() {
+	*x = Query5_1Response{}
+	mi := &file_proto_provider_provider_proto_msgTypes[133]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Query5_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Query5_1Response) ProtoMessage() {}
+
+func (x *Query5_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[133]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Query5_1Response.ProtoReflect.Descriptor instead.
+func (*Query5_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{133}
+}
+
+func (x *Query5_1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type Query6_2Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          string                 `protobuf:"bytes,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int64                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	Arg4          string                 `protobuf:"bytes,5,opt,name=arg4,proto3" json:"arg4,omitempty"`
+	Arg5          int64                  `protobuf:"varint,6,opt,name=arg5,proto3" json:"arg5,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Query6_2Request) Reset() {
+	*x = Query6_2Request{}
+	mi := &file_proto_provider_provider_proto_msgTypes[134]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Query6_2Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Query6_2Request) ProtoMessage() {}
+
+func (x *Query6_2Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[134]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Query6_2Request.ProtoReflect.Descriptor instead.
+func (*Query6_2Request) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{134}
+}
+
+func (x *Query6_2Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *Query6_2Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *Query6_2Request) GetArg2() string {
+	if x != nil {
+		return x.Arg2
+	}
+	return ""
+}
+
+func (x *Query6_2Request) GetArg3() int64 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+func (x *Query6_2Request) GetArg4() string {
+	if x != nil {
+		return x.Arg4
+	}
+	return ""
+}
+
+func (x *Query6_2Request) GetArg5() int64 {
+	if x != nil {
+		return x.Arg5
+	}
+	return 0
+}
+
+type Query6_2Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Query6_2Response) Reset() {
+	*x = Query6_2Response{}
+	mi := &file_proto_provider_provider_proto_msgTypes[135]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Query6_2Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Query6_2Response) ProtoMessage() {}
+
+func (x *Query6_2Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[135]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Query6_2Response.ProtoReflect.Descriptor instead.
+func (*Query6_2Response) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{135}
+}
+
+func (x *Query6_2Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type QueryChildDocuments3Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *QueryChildDocuments3Request) Reset() {
+	*x = QueryChildDocuments3Request{}
+	mi := &file_proto_provider_provider_proto_msgTypes[136]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *QueryChildDocuments3Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryChildDocuments3Request) ProtoMessage() {}
+
+func (x *QueryChildDocuments3Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[136]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use QueryChildDocuments3Request.ProtoReflect.Descriptor instead.
+func (*QueryChildDocuments3Request) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{136}
+}
+
+func (x *QueryChildDocuments3Request) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *QueryChildDocuments3Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *QueryChildDocuments3Request) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type QueryChildDocuments3Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *QueryChildDocuments3Response) Reset() {
+	*x = QueryChildDocuments3Response{}
+	mi := &file_proto_provider_provider_proto_msgTypes[137]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *QueryChildDocuments3Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryChildDocuments3Response) ProtoMessage() {}
+
+func (x *QueryChildDocuments3Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[137]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use QueryChildDocuments3Response.ProtoReflect.Descriptor instead.
+func (*QueryChildDocuments3Response) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{137}
+}
+
+func (x *QueryChildDocuments3Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type QueryChildDocuments3_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          string                 `protobuf:"bytes,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *QueryChildDocuments3_1Request) Reset() {
+	*x = QueryChildDocuments3_1Request{}
+	mi := &file_proto_provider_provider_proto_msgTypes[138]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *QueryChildDocuments3_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryChildDocuments3_1Request) ProtoMessage() {}
+
+func (x *QueryChildDocuments3_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[138]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use QueryChildDocuments3_1Request.ProtoReflect.Descriptor instead.
+func (*QueryChildDocuments3_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{138}
+}
+
+func (x *QueryChildDocuments3_1Request) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *QueryChildDocuments3_1Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *QueryChildDocuments3_1Request) GetArg2() string {
+	if x != nil {
+		return x.Arg2
+	}
+	return ""
+}
+
+type QueryChildDocuments3_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *QueryChildDocuments3_1Response) Reset() {
+	*x = QueryChildDocuments3_1Response{}
+	mi := &file_proto_provider_provider_proto_msgTypes[139]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *QueryChildDocuments3_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryChildDocuments3_1Response) ProtoMessage() {}
+
+func (x *QueryChildDocuments3_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[139]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use QueryChildDocuments3_1Response.ProtoReflect.Descriptor instead.
+func (*QueryChildDocuments3_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{139}
+}
+
+func (x *QueryChildDocuments3_1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type QueryDocumentRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *QueryDocumentRequest) Reset() {
+	*x = QueryDocumentRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[140]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *QueryDocumentRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryDocumentRequest) ProtoMessage() {}
+
+func (x *QueryDocumentRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[140]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use QueryDocumentRequest.ProtoReflect.Descriptor instead.
+func (*QueryDocumentRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{140}
+}
+
+func (x *QueryDocumentRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *QueryDocumentRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type QueryDocumentResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *QueryDocumentResponse) Reset() {
+	*x = QueryDocumentResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[141]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *QueryDocumentResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryDocumentResponse) ProtoMessage() {}
+
+func (x *QueryDocumentResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[141]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use QueryDocumentResponse.ProtoReflect.Descriptor instead.
+func (*QueryDocumentResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{141}
+}
+
+func (x *QueryDocumentResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type QueryRecentDocuments2Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *QueryRecentDocuments2Request) Reset() {
+	*x = QueryRecentDocuments2Request{}
+	mi := &file_proto_provider_provider_proto_msgTypes[142]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *QueryRecentDocuments2Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryRecentDocuments2Request) ProtoMessage() {}
+
+func (x *QueryRecentDocuments2Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[142]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use QueryRecentDocuments2Request.ProtoReflect.Descriptor instead.
+func (*QueryRecentDocuments2Request) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{142}
+}
+
+func (x *QueryRecentDocuments2Request) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *QueryRecentDocuments2Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type QueryRecentDocuments2Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *QueryRecentDocuments2Response) Reset() {
+	*x = QueryRecentDocuments2Response{}
+	mi := &file_proto_provider_provider_proto_msgTypes[143]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *QueryRecentDocuments2Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryRecentDocuments2Response) ProtoMessage() {}
+
+func (x *QueryRecentDocuments2Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[143]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use QueryRecentDocuments2Response.ProtoReflect.Descriptor instead.
+func (*QueryRecentDocuments2Response) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{143}
+}
+
+func (x *QueryRecentDocuments2Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type QueryRecentDocuments4_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int64                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *QueryRecentDocuments4_1Request) Reset() {
+	*x = QueryRecentDocuments4_1Request{}
+	mi := &file_proto_provider_provider_proto_msgTypes[144]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *QueryRecentDocuments4_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryRecentDocuments4_1Request) ProtoMessage() {}
+
+func (x *QueryRecentDocuments4_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[144]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use QueryRecentDocuments4_1Request.ProtoReflect.Descriptor instead.
+func (*QueryRecentDocuments4_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{144}
+}
+
+func (x *QueryRecentDocuments4_1Request) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *QueryRecentDocuments4_1Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *QueryRecentDocuments4_1Request) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *QueryRecentDocuments4_1Request) GetArg3() int64 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+type QueryRecentDocuments4_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *QueryRecentDocuments4_1Response) Reset() {
+	*x = QueryRecentDocuments4_1Response{}
+	mi := &file_proto_provider_provider_proto_msgTypes[145]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *QueryRecentDocuments4_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryRecentDocuments4_1Response) ProtoMessage() {}
+
+func (x *QueryRecentDocuments4_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[145]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use QueryRecentDocuments4_1Response.ProtoReflect.Descriptor instead.
+func (*QueryRecentDocuments4_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{145}
+}
+
+func (x *QueryRecentDocuments4_1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type QueryRootsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *QueryRootsRequest) Reset() {
+	*x = QueryRootsRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[146]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *QueryRootsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryRootsRequest) ProtoMessage() {}
+
+func (x *QueryRootsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[146]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use QueryRootsRequest.ProtoReflect.Descriptor instead.
+func (*QueryRootsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{146}
+}
+
+func (x *QueryRootsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type QueryRootsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *QueryRootsResponse) Reset() {
+	*x = QueryRootsResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[147]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *QueryRootsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryRootsResponse) ProtoMessage() {}
+
+func (x *QueryRootsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[147]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use QueryRootsResponse.ProtoReflect.Descriptor instead.
+func (*QueryRootsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{147}
+}
+
+func (x *QueryRootsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type QuerySearchDocuments3Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *QuerySearchDocuments3Request) Reset() {
+	*x = QuerySearchDocuments3Request{}
+	mi := &file_proto_provider_provider_proto_msgTypes[148]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *QuerySearchDocuments3Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QuerySearchDocuments3Request) ProtoMessage() {}
+
+func (x *QuerySearchDocuments3Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[148]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use QuerySearchDocuments3Request.ProtoReflect.Descriptor instead.
+func (*QuerySearchDocuments3Request) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{148}
+}
+
+func (x *QuerySearchDocuments3Request) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *QuerySearchDocuments3Request) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *QuerySearchDocuments3Request) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type QuerySearchDocuments3Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *QuerySearchDocuments3Response) Reset() {
+	*x = QuerySearchDocuments3Response{}
+	mi := &file_proto_provider_provider_proto_msgTypes[149]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *QuerySearchDocuments3Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QuerySearchDocuments3Response) ProtoMessage() {}
+
+func (x *QuerySearchDocuments3Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[149]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use QuerySearchDocuments3Response.ProtoReflect.Descriptor instead.
+func (*QuerySearchDocuments3Response) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{149}
+}
+
+func (x *QuerySearchDocuments3Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type QuerySearchDocuments3_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *QuerySearchDocuments3_1Request) Reset() {
+	*x = QuerySearchDocuments3_1Request{}
+	mi := &file_proto_provider_provider_proto_msgTypes[150]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *QuerySearchDocuments3_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QuerySearchDocuments3_1Request) ProtoMessage() {}
+
+func (x *QuerySearchDocuments3_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[150]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use QuerySearchDocuments3_1Request.ProtoReflect.Descriptor instead.
+func (*QuerySearchDocuments3_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{150}
+}
+
+func (x *QuerySearchDocuments3_1Request) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *QuerySearchDocuments3_1Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *QuerySearchDocuments3_1Request) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type QuerySearchDocuments3_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *QuerySearchDocuments3_1Response) Reset() {
+	*x = QuerySearchDocuments3_1Response{}
+	mi := &file_proto_provider_provider_proto_msgTypes[151]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *QuerySearchDocuments3_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QuerySearchDocuments3_1Response) ProtoMessage() {}
+
+func (x *QuerySearchDocuments3_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[151]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use QuerySearchDocuments3_1Response.ProtoReflect.Descriptor instead.
+func (*QuerySearchDocuments3_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{151}
+}
+
+func (x *QuerySearchDocuments3_1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type RemoveDocumentRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RemoveDocumentRequest) Reset() {
+	*x = RemoveDocumentRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[152]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RemoveDocumentRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemoveDocumentRequest) ProtoMessage() {}
+
+func (x *RemoveDocumentRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[152]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemoveDocumentRequest.ProtoReflect.Descriptor instead.
+func (*RemoveDocumentRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{152}
+}
+
+func (x *RemoveDocumentRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *RemoveDocumentRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+type RemoveDocumentResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RemoveDocumentResponse) Reset() {
+	*x = RemoveDocumentResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[153]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RemoveDocumentResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemoveDocumentResponse) ProtoMessage() {}
+
+func (x *RemoveDocumentResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[153]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemoveDocumentResponse.ProtoReflect.Descriptor instead.
+func (*RemoveDocumentResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{153}
+}
+
+type RenameDocumentRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RenameDocumentRequest) Reset() {
+	*x = RenameDocumentRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[154]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RenameDocumentRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RenameDocumentRequest) ProtoMessage() {}
+
+func (x *RenameDocumentRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[154]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RenameDocumentRequest.ProtoReflect.Descriptor instead.
+func (*RenameDocumentRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{154}
+}
+
+func (x *RenameDocumentRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *RenameDocumentRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+type RenameDocumentResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RenameDocumentResponse) Reset() {
+	*x = RenameDocumentResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[155]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RenameDocumentResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RenameDocumentResponse) ProtoMessage() {}
+
+func (x *RenameDocumentResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[155]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RenameDocumentResponse.ProtoReflect.Descriptor instead.
+func (*RenameDocumentResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{155}
+}
+
+func (x *RenameDocumentResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type RevokeDocumentPermissionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RevokeDocumentPermissionRequest) Reset() {
+	*x = RevokeDocumentPermissionRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[156]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RevokeDocumentPermissionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RevokeDocumentPermissionRequest) ProtoMessage() {}
+
+func (x *RevokeDocumentPermissionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[156]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RevokeDocumentPermissionRequest.ProtoReflect.Descriptor instead.
+func (*RevokeDocumentPermissionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{156}
+}
+
+func (x *RevokeDocumentPermissionRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type RevokeDocumentPermissionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RevokeDocumentPermissionResponse) Reset() {
+	*x = RevokeDocumentPermissionResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[157]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RevokeDocumentPermissionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RevokeDocumentPermissionResponse) ProtoMessage() {}
+
+func (x *RevokeDocumentPermissionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[157]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RevokeDocumentPermissionResponse.ProtoReflect.Descriptor instead.
+func (*RevokeDocumentPermissionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{157}
+}
+
+type DocumentsProviderUpdateRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          string                 `protobuf:"bytes,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int64                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DocumentsProviderUpdateRequest) Reset() {
+	*x = DocumentsProviderUpdateRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[158]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DocumentsProviderUpdateRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DocumentsProviderUpdateRequest) ProtoMessage() {}
+
+func (x *DocumentsProviderUpdateRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[158]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DocumentsProviderUpdateRequest.ProtoReflect.Descriptor instead.
+func (*DocumentsProviderUpdateRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{158}
+}
+
+func (x *DocumentsProviderUpdateRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *DocumentsProviderUpdateRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *DocumentsProviderUpdateRequest) GetArg2() string {
+	if x != nil {
+		return x.Arg2
+	}
+	return ""
+}
+
+func (x *DocumentsProviderUpdateRequest) GetArg3() int64 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+type DocumentsProviderUpdateResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DocumentsProviderUpdateResponse) Reset() {
+	*x = DocumentsProviderUpdateResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[159]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DocumentsProviderUpdateResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DocumentsProviderUpdateResponse) ProtoMessage() {}
+
+func (x *DocumentsProviderUpdateResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[159]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DocumentsProviderUpdateResponse.ProtoReflect.Descriptor instead.
+func (*DocumentsProviderUpdateResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{159}
+}
+
+func (x *DocumentsProviderUpdateResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddPostalLocationRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          float64                `protobuf:"fixed64,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          float64                `protobuf:"fixed64,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddPostalLocationRequest) Reset() {
+	*x = AddPostalLocationRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[160]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddPostalLocationRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddPostalLocationRequest) ProtoMessage() {}
+
+func (x *AddPostalLocationRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[160]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddPostalLocationRequest.ProtoReflect.Descriptor instead.
+func (*AddPostalLocationRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{160}
+}
+
+func (x *AddPostalLocationRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *AddPostalLocationRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *AddPostalLocationRequest) GetArg2() float64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *AddPostalLocationRequest) GetArg3() float64 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+type AddPostalLocationResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddPostalLocationResponse) Reset() {
+	*x = AddPostalLocationResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[161]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddPostalLocationResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddPostalLocationResponse) ProtoMessage() {}
+
+func (x *AddPostalLocationResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[161]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddPostalLocationResponse.ProtoReflect.Descriptor instead.
+func (*AddPostalLocationResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{161}
+}
+
+type DecodeImProtocolRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DecodeImProtocolRequest) Reset() {
+	*x = DecodeImProtocolRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[162]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DecodeImProtocolRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DecodeImProtocolRequest) ProtoMessage() {}
+
+func (x *DecodeImProtocolRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[162]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DecodeImProtocolRequest.ProtoReflect.Descriptor instead.
+func (*DecodeImProtocolRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{162}
+}
+
+func (x *DecodeImProtocolRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type DecodeImProtocolResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DecodeImProtocolResponse) Reset() {
+	*x = DecodeImProtocolResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[163]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DecodeImProtocolResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DecodeImProtocolResponse) ProtoMessage() {}
+
+func (x *DecodeImProtocolResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[163]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DecodeImProtocolResponse.ProtoReflect.Descriptor instead.
+func (*DecodeImProtocolResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{163}
+}
+
+func (x *DecodeImProtocolResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type EncodeCustomImProtocolRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EncodeCustomImProtocolRequest) Reset() {
+	*x = EncodeCustomImProtocolRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[164]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EncodeCustomImProtocolRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EncodeCustomImProtocolRequest) ProtoMessage() {}
+
+func (x *EncodeCustomImProtocolRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[164]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EncodeCustomImProtocolRequest.ProtoReflect.Descriptor instead.
+func (*EncodeCustomImProtocolRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{164}
+}
+
+func (x *EncodeCustomImProtocolRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type EncodeCustomImProtocolResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EncodeCustomImProtocolResponse) Reset() {
+	*x = EncodeCustomImProtocolResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[165]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EncodeCustomImProtocolResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EncodeCustomImProtocolResponse) ProtoMessage() {}
+
+func (x *EncodeCustomImProtocolResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[165]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EncodeCustomImProtocolResponse.ProtoReflect.Descriptor instead.
+func (*EncodeCustomImProtocolResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{165}
+}
+
+func (x *EncodeCustomImProtocolResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type EncodePredefinedImProtocolRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EncodePredefinedImProtocolRequest) Reset() {
+	*x = EncodePredefinedImProtocolRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[166]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EncodePredefinedImProtocolRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EncodePredefinedImProtocolRequest) ProtoMessage() {}
+
+func (x *EncodePredefinedImProtocolRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[166]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EncodePredefinedImProtocolRequest.ProtoReflect.Descriptor instead.
+func (*EncodePredefinedImProtocolRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{166}
+}
+
+func (x *EncodePredefinedImProtocolRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type EncodePredefinedImProtocolResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EncodePredefinedImProtocolResponse) Reset() {
+	*x = EncodePredefinedImProtocolResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[167]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EncodePredefinedImProtocolResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EncodePredefinedImProtocolResponse) ProtoMessage() {}
+
+func (x *EncodePredefinedImProtocolResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[167]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EncodePredefinedImProtocolResponse.ProtoReflect.Descriptor instead.
+func (*EncodePredefinedImProtocolResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{167}
+}
+
+func (x *EncodePredefinedImProtocolResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetDisplayLabelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          string                 `protobuf:"bytes,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDisplayLabelRequest) Reset() {
+	*x = GetDisplayLabelRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[168]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDisplayLabelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDisplayLabelRequest) ProtoMessage() {}
+
+func (x *GetDisplayLabelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[168]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDisplayLabelRequest.ProtoReflect.Descriptor instead.
+func (*GetDisplayLabelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{168}
+}
+
+func (x *GetDisplayLabelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *GetDisplayLabelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *GetDisplayLabelRequest) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *GetDisplayLabelRequest) GetArg3() string {
+	if x != nil {
+		return x.Arg3
+	}
+	return ""
+}
+
+type GetDisplayLabelResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDisplayLabelResponse) Reset() {
+	*x = GetDisplayLabelResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[169]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDisplayLabelResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDisplayLabelResponse) ProtoMessage() {}
+
+func (x *GetDisplayLabelResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[169]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDisplayLabelResponse.ProtoReflect.Descriptor instead.
+func (*GetDisplayLabelResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{169}
+}
+
+func (x *GetDisplayLabelResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ContactsOrganizationsGetDisplayLabelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          string                 `protobuf:"bytes,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ContactsOrganizationsGetDisplayLabelRequest) Reset() {
+	*x = ContactsOrganizationsGetDisplayLabelRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[170]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ContactsOrganizationsGetDisplayLabelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ContactsOrganizationsGetDisplayLabelRequest) ProtoMessage() {}
+
+func (x *ContactsOrganizationsGetDisplayLabelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[170]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ContactsOrganizationsGetDisplayLabelRequest.ProtoReflect.Descriptor instead.
+func (*ContactsOrganizationsGetDisplayLabelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{170}
+}
+
+func (x *ContactsOrganizationsGetDisplayLabelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *ContactsOrganizationsGetDisplayLabelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *ContactsOrganizationsGetDisplayLabelRequest) GetArg2() string {
+	if x != nil {
+		return x.Arg2
+	}
+	return ""
+}
+
+type AddToGroup3Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          string                 `protobuf:"bytes,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddToGroup3Request) Reset() {
+	*x = AddToGroup3Request{}
+	mi := &file_proto_provider_provider_proto_msgTypes[171]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddToGroup3Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddToGroup3Request) ProtoMessage() {}
+
+func (x *AddToGroup3Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[171]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddToGroup3Request.ProtoReflect.Descriptor instead.
+func (*AddToGroup3Request) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{171}
+}
+
+func (x *AddToGroup3Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *AddToGroup3Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *AddToGroup3Request) GetArg2() string {
+	if x != nil {
+		return x.Arg2
+	}
+	return ""
+}
+
+type AddToGroup3Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddToGroup3Response) Reset() {
+	*x = AddToGroup3Response{}
+	mi := &file_proto_provider_provider_proto_msgTypes[172]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddToGroup3Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddToGroup3Response) ProtoMessage() {}
+
+func (x *AddToGroup3Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[172]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddToGroup3Response.ProtoReflect.Descriptor instead.
+func (*AddToGroup3Response) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{172}
+}
+
+func (x *AddToGroup3Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddToGroup3_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddToGroup3_1Request) Reset() {
+	*x = AddToGroup3_1Request{}
+	mi := &file_proto_provider_provider_proto_msgTypes[173]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddToGroup3_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddToGroup3_1Request) ProtoMessage() {}
+
+func (x *AddToGroup3_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[173]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddToGroup3_1Request.ProtoReflect.Descriptor instead.
+func (*AddToGroup3_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{173}
+}
+
+func (x *AddToGroup3_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *AddToGroup3_1Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *AddToGroup3_1Request) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type AddToGroup3_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddToGroup3_1Response) Reset() {
+	*x = AddToGroup3_1Response{}
+	mi := &file_proto_provider_provider_proto_msgTypes[174]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddToGroup3_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddToGroup3_1Response) ProtoMessage() {}
+
+func (x *AddToGroup3_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[174]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddToGroup3_1Response.ProtoReflect.Descriptor instead.
+func (*AddToGroup3_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{174}
+}
+
+func (x *AddToGroup3_1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddToMyContactsGroupRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddToMyContactsGroupRequest) Reset() {
+	*x = AddToMyContactsGroupRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[175]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddToMyContactsGroupRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddToMyContactsGroupRequest) ProtoMessage() {}
+
+func (x *AddToMyContactsGroupRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[175]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddToMyContactsGroupRequest.ProtoReflect.Descriptor instead.
+func (*AddToMyContactsGroupRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{175}
+}
+
+func (x *AddToMyContactsGroupRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *AddToMyContactsGroupRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type AddToMyContactsGroupResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddToMyContactsGroupResponse) Reset() {
+	*x = AddToMyContactsGroupResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[176]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddToMyContactsGroupResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddToMyContactsGroupResponse) ProtoMessage() {}
+
+func (x *AddToMyContactsGroupResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[176]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddToMyContactsGroupResponse.ProtoReflect.Descriptor instead.
+func (*AddToMyContactsGroupResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{176}
+}
+
+func (x *AddToMyContactsGroupResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type CreatePersonInMyContactsGroupRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreatePersonInMyContactsGroupRequest) Reset() {
+	*x = CreatePersonInMyContactsGroupRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[177]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreatePersonInMyContactsGroupRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreatePersonInMyContactsGroupRequest) ProtoMessage() {}
+
+func (x *CreatePersonInMyContactsGroupRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[177]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreatePersonInMyContactsGroupRequest.ProtoReflect.Descriptor instead.
+func (*CreatePersonInMyContactsGroupRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{177}
+}
+
+func (x *CreatePersonInMyContactsGroupRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *CreatePersonInMyContactsGroupRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type CreatePersonInMyContactsGroupResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreatePersonInMyContactsGroupResponse) Reset() {
+	*x = CreatePersonInMyContactsGroupResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[178]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreatePersonInMyContactsGroupResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreatePersonInMyContactsGroupResponse) ProtoMessage() {}
+
+func (x *CreatePersonInMyContactsGroupResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[178]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreatePersonInMyContactsGroupResponse.ProtoReflect.Descriptor instead.
+func (*CreatePersonInMyContactsGroupResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{178}
+}
+
+func (x *CreatePersonInMyContactsGroupResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type LoadContactPhotoRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int64                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *LoadContactPhotoRequest) Reset() {
+	*x = LoadContactPhotoRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[179]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *LoadContactPhotoRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*LoadContactPhotoRequest) ProtoMessage() {}
+
+func (x *LoadContactPhotoRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[179]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use LoadContactPhotoRequest.ProtoReflect.Descriptor instead.
+func (*LoadContactPhotoRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{179}
+}
+
+func (x *LoadContactPhotoRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *LoadContactPhotoRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *LoadContactPhotoRequest) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *LoadContactPhotoRequest) GetArg3() int64 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+type LoadContactPhotoResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *LoadContactPhotoResponse) Reset() {
+	*x = LoadContactPhotoResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[180]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *LoadContactPhotoResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*LoadContactPhotoResponse) ProtoMessage() {}
+
+func (x *LoadContactPhotoResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[180]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use LoadContactPhotoResponse.ProtoReflect.Descriptor instead.
+func (*LoadContactPhotoResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{180}
+}
+
+func (x *LoadContactPhotoResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type MarkAsContactedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *MarkAsContactedRequest) Reset() {
+	*x = MarkAsContactedRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[181]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *MarkAsContactedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MarkAsContactedRequest) ProtoMessage() {}
+
+func (x *MarkAsContactedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[181]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MarkAsContactedRequest.ProtoReflect.Descriptor instead.
+func (*MarkAsContactedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{181}
+}
+
+func (x *MarkAsContactedRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *MarkAsContactedRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type MarkAsContactedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *MarkAsContactedResponse) Reset() {
+	*x = MarkAsContactedResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[182]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *MarkAsContactedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MarkAsContactedResponse) ProtoMessage() {}
+
+func (x *MarkAsContactedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[182]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MarkAsContactedResponse.ProtoReflect.Descriptor instead.
+func (*MarkAsContactedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{182}
+}
+
+type OpenContactPhotoInputStreamRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OpenContactPhotoInputStreamRequest) Reset() {
+	*x = OpenContactPhotoInputStreamRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[183]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OpenContactPhotoInputStreamRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OpenContactPhotoInputStreamRequest) ProtoMessage() {}
+
+func (x *OpenContactPhotoInputStreamRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[183]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OpenContactPhotoInputStreamRequest.ProtoReflect.Descriptor instead.
+func (*OpenContactPhotoInputStreamRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{183}
+}
+
+func (x *OpenContactPhotoInputStreamRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OpenContactPhotoInputStreamRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type OpenContactPhotoInputStreamResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OpenContactPhotoInputStreamResponse) Reset() {
+	*x = OpenContactPhotoInputStreamResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[184]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OpenContactPhotoInputStreamResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OpenContactPhotoInputStreamResponse) ProtoMessage() {}
+
+func (x *OpenContactPhotoInputStreamResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[184]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OpenContactPhotoInputStreamResponse.ProtoReflect.Descriptor instead.
+func (*OpenContactPhotoInputStreamResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{184}
+}
+
+func (x *OpenContactPhotoInputStreamResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type QueryGroupsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *QueryGroupsRequest) Reset() {
+	*x = QueryGroupsRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[185]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *QueryGroupsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryGroupsRequest) ProtoMessage() {}
+
+func (x *QueryGroupsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[185]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use QueryGroupsRequest.ProtoReflect.Descriptor instead.
+func (*QueryGroupsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{185}
+}
+
+func (x *QueryGroupsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *QueryGroupsRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type QueryGroupsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *QueryGroupsResponse) Reset() {
+	*x = QueryGroupsResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[186]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *QueryGroupsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryGroupsResponse) ProtoMessage() {}
+
+func (x *QueryGroupsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[186]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use QueryGroupsResponse.ProtoReflect.Descriptor instead.
+func (*QueryGroupsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{186}
+}
+
+func (x *QueryGroupsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetPhotoDataRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPhotoDataRequest) Reset() {
+	*x = SetPhotoDataRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[187]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPhotoDataRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPhotoDataRequest) ProtoMessage() {}
+
+func (x *SetPhotoDataRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[187]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPhotoDataRequest.ProtoReflect.Descriptor instead.
+func (*SetPhotoDataRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{187}
+}
+
+func (x *SetPhotoDataRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SetPhotoDataRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *SetPhotoDataRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type SetPhotoDataResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPhotoDataResponse) Reset() {
+	*x = SetPhotoDataResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[188]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPhotoDataResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPhotoDataResponse) ProtoMessage() {}
+
+func (x *SetPhotoDataResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[188]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPhotoDataResponse.ProtoReflect.Descriptor instead.
+func (*SetPhotoDataResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{188}
+}
+
+type GetDisplayLabel3Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          string                 `protobuf:"bytes,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDisplayLabel3Request) Reset() {
+	*x = GetDisplayLabel3Request{}
+	mi := &file_proto_provider_provider_proto_msgTypes[189]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDisplayLabel3Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDisplayLabel3Request) ProtoMessage() {}
+
+func (x *GetDisplayLabel3Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[189]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDisplayLabel3Request.ProtoReflect.Descriptor instead.
+func (*GetDisplayLabel3Request) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{189}
+}
+
+func (x *GetDisplayLabel3Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *GetDisplayLabel3Request) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *GetDisplayLabel3Request) GetArg2() string {
+	if x != nil {
+		return x.Arg2
+	}
+	return ""
+}
+
+type GetDisplayLabel3Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDisplayLabel3Response) Reset() {
+	*x = GetDisplayLabel3Response{}
+	mi := &file_proto_provider_provider_proto_msgTypes[190]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDisplayLabel3Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDisplayLabel3Response) ProtoMessage() {}
+
+func (x *GetDisplayLabel3Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[190]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDisplayLabel3Response.ProtoReflect.Descriptor instead.
+func (*GetDisplayLabel3Response) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{190}
+}
+
+func (x *GetDisplayLabel3Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetDisplayLabel4_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          string                 `protobuf:"bytes,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int64                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDisplayLabel4_1Request) Reset() {
+	*x = GetDisplayLabel4_1Request{}
+	mi := &file_proto_provider_provider_proto_msgTypes[191]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDisplayLabel4_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDisplayLabel4_1Request) ProtoMessage() {}
+
+func (x *GetDisplayLabel4_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[191]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDisplayLabel4_1Request.ProtoReflect.Descriptor instead.
+func (*GetDisplayLabel4_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{191}
+}
+
+func (x *GetDisplayLabel4_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *GetDisplayLabel4_1Request) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *GetDisplayLabel4_1Request) GetArg2() string {
+	if x != nil {
+		return x.Arg2
+	}
+	return ""
+}
+
+func (x *GetDisplayLabel4_1Request) GetArg3() int64 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+type GetDisplayLabel4_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDisplayLabel4_1Response) Reset() {
+	*x = GetDisplayLabel4_1Response{}
+	mi := &file_proto_provider_provider_proto_msgTypes[192]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDisplayLabel4_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDisplayLabel4_1Response) ProtoMessage() {}
+
+func (x *GetDisplayLabel4_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[192]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDisplayLabel4_1Response.ProtoReflect.Descriptor instead.
+func (*GetDisplayLabel4_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{192}
+}
+
+func (x *GetDisplayLabel4_1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSettingRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          string                 `protobuf:"bytes,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSettingRequest) Reset() {
+	*x = GetSettingRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[193]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSettingRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSettingRequest) ProtoMessage() {}
+
+func (x *GetSettingRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[193]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSettingRequest.ProtoReflect.Descriptor instead.
+func (*GetSettingRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{193}
+}
+
+func (x *GetSettingRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *GetSettingRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *GetSettingRequest) GetArg2() string {
+	if x != nil {
+		return x.Arg2
+	}
+	return ""
+}
+
+type GetSettingResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSettingResponse) Reset() {
+	*x = GetSettingResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[194]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSettingResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSettingResponse) ProtoMessage() {}
+
+func (x *GetSettingResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[194]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSettingResponse.ProtoReflect.Descriptor instead.
+func (*GetSettingResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{194}
+}
+
+func (x *GetSettingResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type SetSettingRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          string                 `protobuf:"bytes,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          string                 `protobuf:"bytes,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetSettingRequest) Reset() {
+	*x = SetSettingRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[195]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetSettingRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetSettingRequest) ProtoMessage() {}
+
+func (x *SetSettingRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[195]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetSettingRequest.ProtoReflect.Descriptor instead.
+func (*SetSettingRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{195}
+}
+
+func (x *SetSettingRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SetSettingRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *SetSettingRequest) GetArg2() string {
+	if x != nil {
+		return x.Arg2
+	}
+	return ""
+}
+
+func (x *SetSettingRequest) GetArg3() string {
+	if x != nil {
+		return x.Arg3
+	}
+	return ""
+}
+
+type SetSettingResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetSettingResponse) Reset() {
+	*x = SetSettingResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[196]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetSettingResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetSettingResponse) ProtoMessage() {}
+
+func (x *SetSettingResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[196]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetSettingResponse.ProtoReflect.Descriptor instead.
+func (*SetSettingResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{196}
+}
+
+type AddWord4Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int32                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddWord4Request) Reset() {
+	*x = AddWord4Request{}
+	mi := &file_proto_provider_provider_proto_msgTypes[197]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddWord4Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddWord4Request) ProtoMessage() {}
+
+func (x *AddWord4Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[197]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddWord4Request.ProtoReflect.Descriptor instead.
+func (*AddWord4Request) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{197}
+}
+
+func (x *AddWord4Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *AddWord4Request) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *AddWord4Request) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *AddWord4Request) GetArg3() int32 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+type AddWord4Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddWord4Response) Reset() {
+	*x = AddWord4Response{}
+	mi := &file_proto_provider_provider_proto_msgTypes[198]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddWord4Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddWord4Response) ProtoMessage() {}
+
+func (x *AddWord4Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[198]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddWord4Response.ProtoReflect.Descriptor instead.
+func (*AddWord4Response) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{198}
+}
+
+type AddWord5_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          string                 `protobuf:"bytes,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	Arg4          int64                  `protobuf:"varint,5,opt,name=arg4,proto3" json:"arg4,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddWord5_1Request) Reset() {
+	*x = AddWord5_1Request{}
+	mi := &file_proto_provider_provider_proto_msgTypes[199]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddWord5_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddWord5_1Request) ProtoMessage() {}
+
+func (x *AddWord5_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[199]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddWord5_1Request.ProtoReflect.Descriptor instead.
+func (*AddWord5_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{199}
+}
+
+func (x *AddWord5_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *AddWord5_1Request) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *AddWord5_1Request) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *AddWord5_1Request) GetArg3() string {
+	if x != nil {
+		return x.Arg3
+	}
+	return ""
+}
+
+func (x *AddWord5_1Request) GetArg4() int64 {
+	if x != nil {
+		return x.Arg4
+	}
+	return 0
+}
+
+type AddWord5_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddWord5_1Response) Reset() {
+	*x = AddWord5_1Response{}
+	mi := &file_proto_provider_provider_proto_msgTypes[200]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddWord5_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddWord5_1Response) ProtoMessage() {}
+
+func (x *AddWord5_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[200]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddWord5_1Response.ProtoReflect.Descriptor instead.
+func (*AddWord5_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{200}
+}
+
+type CanCurrentUserBlockNumbersRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CanCurrentUserBlockNumbersRequest) Reset() {
+	*x = CanCurrentUserBlockNumbersRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[201]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CanCurrentUserBlockNumbersRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CanCurrentUserBlockNumbersRequest) ProtoMessage() {}
+
+func (x *CanCurrentUserBlockNumbersRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[201]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CanCurrentUserBlockNumbersRequest.ProtoReflect.Descriptor instead.
+func (*CanCurrentUserBlockNumbersRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{201}
+}
+
+func (x *CanCurrentUserBlockNumbersRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type CanCurrentUserBlockNumbersResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CanCurrentUserBlockNumbersResponse) Reset() {
+	*x = CanCurrentUserBlockNumbersResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[202]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CanCurrentUserBlockNumbersResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CanCurrentUserBlockNumbersResponse) ProtoMessage() {}
+
+func (x *CanCurrentUserBlockNumbersResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[202]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CanCurrentUserBlockNumbersResponse.ProtoReflect.Descriptor instead.
+func (*CanCurrentUserBlockNumbersResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{202}
+}
+
+func (x *CanCurrentUserBlockNumbersResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsBlockedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsBlockedRequest) Reset() {
+	*x = IsBlockedRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[203]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsBlockedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsBlockedRequest) ProtoMessage() {}
+
+func (x *IsBlockedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[203]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsBlockedRequest.ProtoReflect.Descriptor instead.
+func (*IsBlockedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{203}
+}
+
+func (x *IsBlockedRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *IsBlockedRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+type IsBlockedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsBlockedResponse) Reset() {
+	*x = IsBlockedResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[204]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsBlockedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsBlockedResponse) ProtoMessage() {}
+
+func (x *IsBlockedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[204]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsBlockedResponse.ProtoReflect.Descriptor instead.
+func (*IsBlockedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{204}
+}
+
+func (x *IsBlockedResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type UnblockRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UnblockRequest) Reset() {
+	*x = UnblockRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[205]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UnblockRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UnblockRequest) ProtoMessage() {}
+
+func (x *UnblockRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[205]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UnblockRequest.ProtoReflect.Descriptor instead.
+func (*UnblockRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{205}
+}
+
+func (x *UnblockRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *UnblockRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+type UnblockResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UnblockResponse) Reset() {
+	*x = UnblockResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[206]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UnblockResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UnblockResponse) ProtoMessage() {}
+
+func (x *UnblockResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[206]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UnblockResponse.ProtoReflect.Descriptor instead.
+func (*UnblockResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{206}
+}
+
+func (x *UnblockResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type IsMediaCategoriesEnabledRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsMediaCategoriesEnabledRequest) Reset() {
+	*x = IsMediaCategoriesEnabledRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[207]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsMediaCategoriesEnabledRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsMediaCategoriesEnabledRequest) ProtoMessage() {}
+
+func (x *IsMediaCategoriesEnabledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[207]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsMediaCategoriesEnabledRequest.ProtoReflect.Descriptor instead.
+func (*IsMediaCategoriesEnabledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{207}
+}
+
+type IsMediaCategoriesEnabledResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsMediaCategoriesEnabledResponse) Reset() {
+	*x = IsMediaCategoriesEnabledResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[208]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsMediaCategoriesEnabledResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsMediaCategoriesEnabledResponse) ProtoMessage() {}
+
+func (x *IsMediaCategoriesEnabledResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[208]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsMediaCategoriesEnabledResponse.ProtoReflect.Descriptor instead.
+func (*IsMediaCategoriesEnabledResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{208}
+}
+
+func (x *IsMediaCategoriesEnabledResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsSearchEnabledRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsSearchEnabledRequest) Reset() {
+	*x = IsSearchEnabledRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[209]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsSearchEnabledRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsSearchEnabledRequest) ProtoMessage() {}
+
+func (x *IsSearchEnabledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[209]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsSearchEnabledRequest.ProtoReflect.Descriptor instead.
+func (*IsSearchEnabledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{209}
+}
+
+type IsSearchEnabledResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsSearchEnabledResponse) Reset() {
+	*x = IsSearchEnabledResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[210]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsSearchEnabledResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsSearchEnabledResponse) ProtoMessage() {}
+
+func (x *IsSearchEnabledResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[210]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsSearchEnabledResponse.ProtoReflect.Descriptor instead.
+func (*IsSearchEnabledResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{210}
+}
+
+func (x *IsSearchEnabledResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type CloudMediaProviderContractCapabilitiesToStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CloudMediaProviderContractCapabilitiesToStringRequest) Reset() {
+	*x = CloudMediaProviderContractCapabilitiesToStringRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[211]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CloudMediaProviderContractCapabilitiesToStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CloudMediaProviderContractCapabilitiesToStringRequest) ProtoMessage() {}
+
+func (x *CloudMediaProviderContractCapabilitiesToStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[211]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CloudMediaProviderContractCapabilitiesToStringRequest.ProtoReflect.Descriptor instead.
+func (*CloudMediaProviderContractCapabilitiesToStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{211}
+}
+
+type GetE2EeContactKeyRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          string                 `protobuf:"bytes,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetE2EeContactKeyRequest) Reset() {
+	*x = GetE2EeContactKeyRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[212]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetE2EeContactKeyRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetE2EeContactKeyRequest) ProtoMessage() {}
+
+func (x *GetE2EeContactKeyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[212]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetE2EeContactKeyRequest.ProtoReflect.Descriptor instead.
+func (*GetE2EeContactKeyRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{212}
+}
+
+func (x *GetE2EeContactKeyRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *GetE2EeContactKeyRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *GetE2EeContactKeyRequest) GetArg2() string {
+	if x != nil {
+		return x.Arg2
+	}
+	return ""
+}
+
+type GetE2EeContactKeyResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetE2EeContactKeyResponse) Reset() {
+	*x = GetE2EeContactKeyResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[213]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetE2EeContactKeyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetE2EeContactKeyResponse) ProtoMessage() {}
+
+func (x *GetE2EeContactKeyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[213]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetE2EeContactKeyResponse.ProtoReflect.Descriptor instead.
+func (*GetE2EeContactKeyResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{213}
+}
+
+func (x *GetE2EeContactKeyResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetE2EeSelfKeyRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetE2EeSelfKeyRequest) Reset() {
+	*x = GetE2EeSelfKeyRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[214]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetE2EeSelfKeyRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetE2EeSelfKeyRequest) ProtoMessage() {}
+
+func (x *GetE2EeSelfKeyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[214]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetE2EeSelfKeyRequest.ProtoReflect.Descriptor instead.
+func (*GetE2EeSelfKeyRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{214}
+}
+
+func (x *GetE2EeSelfKeyRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *GetE2EeSelfKeyRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+type GetE2EeSelfKeyResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetE2EeSelfKeyResponse) Reset() {
+	*x = GetE2EeSelfKeyResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[215]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetE2EeSelfKeyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetE2EeSelfKeyResponse) ProtoMessage() {}
+
+func (x *GetE2EeSelfKeyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[215]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetE2EeSelfKeyResponse.ProtoReflect.Descriptor instead.
+func (*GetE2EeSelfKeyResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{215}
+}
+
+func (x *GetE2EeSelfKeyResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type RemoveE2EeContactKeyRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          string                 `protobuf:"bytes,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RemoveE2EeContactKeyRequest) Reset() {
+	*x = RemoveE2EeContactKeyRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[216]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RemoveE2EeContactKeyRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemoveE2EeContactKeyRequest) ProtoMessage() {}
+
+func (x *RemoveE2EeContactKeyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[216]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemoveE2EeContactKeyRequest.ProtoReflect.Descriptor instead.
+func (*RemoveE2EeContactKeyRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{216}
+}
+
+func (x *RemoveE2EeContactKeyRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *RemoveE2EeContactKeyRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *RemoveE2EeContactKeyRequest) GetArg2() string {
+	if x != nil {
+		return x.Arg2
+	}
+	return ""
+}
+
+type RemoveE2EeContactKeyResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RemoveE2EeContactKeyResponse) Reset() {
+	*x = RemoveE2EeContactKeyResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[217]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RemoveE2EeContactKeyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemoveE2EeContactKeyResponse) ProtoMessage() {}
+
+func (x *RemoveE2EeContactKeyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[217]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemoveE2EeContactKeyResponse.ProtoReflect.Descriptor instead.
+func (*RemoveE2EeContactKeyResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{217}
+}
+
+func (x *RemoveE2EeContactKeyResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type RemoveE2EeSelfKeyRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RemoveE2EeSelfKeyRequest) Reset() {
+	*x = RemoveE2EeSelfKeyRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[218]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RemoveE2EeSelfKeyRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemoveE2EeSelfKeyRequest) ProtoMessage() {}
+
+func (x *RemoveE2EeSelfKeyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[218]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemoveE2EeSelfKeyRequest.ProtoReflect.Descriptor instead.
+func (*RemoveE2EeSelfKeyRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{218}
+}
+
+func (x *RemoveE2EeSelfKeyRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *RemoveE2EeSelfKeyRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+type RemoveE2EeSelfKeyResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RemoveE2EeSelfKeyResponse) Reset() {
+	*x = RemoveE2EeSelfKeyResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[219]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RemoveE2EeSelfKeyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemoveE2EeSelfKeyResponse) ProtoMessage() {}
+
+func (x *RemoveE2EeSelfKeyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[219]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemoveE2EeSelfKeyResponse.ProtoReflect.Descriptor instead.
+func (*RemoveE2EeSelfKeyResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{219}
+}
+
+func (x *RemoveE2EeSelfKeyResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type UpdateE2EeContactKeyLocalVerificationStateRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          string                 `protobuf:"bytes,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int32                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UpdateE2EeContactKeyLocalVerificationStateRequest) Reset() {
+	*x = UpdateE2EeContactKeyLocalVerificationStateRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[220]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdateE2EeContactKeyLocalVerificationStateRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateE2EeContactKeyLocalVerificationStateRequest) ProtoMessage() {}
+
+func (x *UpdateE2EeContactKeyLocalVerificationStateRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[220]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateE2EeContactKeyLocalVerificationStateRequest.ProtoReflect.Descriptor instead.
+func (*UpdateE2EeContactKeyLocalVerificationStateRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{220}
+}
+
+func (x *UpdateE2EeContactKeyLocalVerificationStateRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *UpdateE2EeContactKeyLocalVerificationStateRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *UpdateE2EeContactKeyLocalVerificationStateRequest) GetArg2() string {
+	if x != nil {
+		return x.Arg2
+	}
+	return ""
+}
+
+func (x *UpdateE2EeContactKeyLocalVerificationStateRequest) GetArg3() int32 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+type UpdateE2EeContactKeyLocalVerificationStateResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UpdateE2EeContactKeyLocalVerificationStateResponse) Reset() {
+	*x = UpdateE2EeContactKeyLocalVerificationStateResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[221]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdateE2EeContactKeyLocalVerificationStateResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateE2EeContactKeyLocalVerificationStateResponse) ProtoMessage() {}
+
+func (x *UpdateE2EeContactKeyLocalVerificationStateResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[221]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateE2EeContactKeyLocalVerificationStateResponse.ProtoReflect.Descriptor instead.
+func (*UpdateE2EeContactKeyLocalVerificationStateResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{221}
+}
+
+func (x *UpdateE2EeContactKeyLocalVerificationStateResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type UpdateE2EeContactKeyRemoteVerificationStateRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          string                 `protobuf:"bytes,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int32                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UpdateE2EeContactKeyRemoteVerificationStateRequest) Reset() {
+	*x = UpdateE2EeContactKeyRemoteVerificationStateRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[222]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdateE2EeContactKeyRemoteVerificationStateRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateE2EeContactKeyRemoteVerificationStateRequest) ProtoMessage() {}
+
+func (x *UpdateE2EeContactKeyRemoteVerificationStateRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[222]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateE2EeContactKeyRemoteVerificationStateRequest.ProtoReflect.Descriptor instead.
+func (*UpdateE2EeContactKeyRemoteVerificationStateRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{222}
+}
+
+func (x *UpdateE2EeContactKeyRemoteVerificationStateRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *UpdateE2EeContactKeyRemoteVerificationStateRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *UpdateE2EeContactKeyRemoteVerificationStateRequest) GetArg2() string {
+	if x != nil {
+		return x.Arg2
+	}
+	return ""
+}
+
+func (x *UpdateE2EeContactKeyRemoteVerificationStateRequest) GetArg3() int32 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+type UpdateE2EeContactKeyRemoteVerificationStateResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UpdateE2EeContactKeyRemoteVerificationStateResponse) Reset() {
+	*x = UpdateE2EeContactKeyRemoteVerificationStateResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[223]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdateE2EeContactKeyRemoteVerificationStateResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateE2EeContactKeyRemoteVerificationStateResponse) ProtoMessage() {}
+
+func (x *UpdateE2EeContactKeyRemoteVerificationStateResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[223]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateE2EeContactKeyRemoteVerificationStateResponse.ProtoReflect.Descriptor instead.
+func (*UpdateE2EeContactKeyRemoteVerificationStateResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{223}
+}
+
+func (x *UpdateE2EeContactKeyRemoteVerificationStateResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type UpdateE2EeSelfKeyRemoteVerificationStateRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UpdateE2EeSelfKeyRemoteVerificationStateRequest) Reset() {
+	*x = UpdateE2EeSelfKeyRemoteVerificationStateRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[224]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdateE2EeSelfKeyRemoteVerificationStateRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateE2EeSelfKeyRemoteVerificationStateRequest) ProtoMessage() {}
+
+func (x *UpdateE2EeSelfKeyRemoteVerificationStateRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[224]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateE2EeSelfKeyRemoteVerificationStateRequest.ProtoReflect.Descriptor instead.
+func (*UpdateE2EeSelfKeyRemoteVerificationStateRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{224}
+}
+
+func (x *UpdateE2EeSelfKeyRemoteVerificationStateRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *UpdateE2EeSelfKeyRemoteVerificationStateRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *UpdateE2EeSelfKeyRemoteVerificationStateRequest) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type UpdateE2EeSelfKeyRemoteVerificationStateResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UpdateE2EeSelfKeyRemoteVerificationStateResponse) Reset() {
+	*x = UpdateE2EeSelfKeyRemoteVerificationStateResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[225]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdateE2EeSelfKeyRemoteVerificationStateResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateE2EeSelfKeyRemoteVerificationStateResponse) ProtoMessage() {}
+
+func (x *UpdateE2EeSelfKeyRemoteVerificationStateResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[225]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateE2EeSelfKeyRemoteVerificationStateResponse.ProtoReflect.Descriptor instead.
+func (*UpdateE2EeSelfKeyRemoteVerificationStateResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{225}
+}
+
+func (x *UpdateE2EeSelfKeyRemoteVerificationStateResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type UpdateOrInsertE2EeContactKeyRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          string                 `protobuf:"bytes,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int64                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UpdateOrInsertE2EeContactKeyRequest) Reset() {
+	*x = UpdateOrInsertE2EeContactKeyRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[226]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdateOrInsertE2EeContactKeyRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateOrInsertE2EeContactKeyRequest) ProtoMessage() {}
+
+func (x *UpdateOrInsertE2EeContactKeyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[226]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateOrInsertE2EeContactKeyRequest.ProtoReflect.Descriptor instead.
+func (*UpdateOrInsertE2EeContactKeyRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{226}
+}
+
+func (x *UpdateOrInsertE2EeContactKeyRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *UpdateOrInsertE2EeContactKeyRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *UpdateOrInsertE2EeContactKeyRequest) GetArg2() string {
+	if x != nil {
+		return x.Arg2
+	}
+	return ""
+}
+
+func (x *UpdateOrInsertE2EeContactKeyRequest) GetArg3() int64 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+type UpdateOrInsertE2EeContactKeyResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UpdateOrInsertE2EeContactKeyResponse) Reset() {
+	*x = UpdateOrInsertE2EeContactKeyResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[227]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdateOrInsertE2EeContactKeyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateOrInsertE2EeContactKeyResponse) ProtoMessage() {}
+
+func (x *UpdateOrInsertE2EeContactKeyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[227]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateOrInsertE2EeContactKeyResponse.ProtoReflect.Descriptor instead.
+func (*UpdateOrInsertE2EeContactKeyResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{227}
+}
+
+type UpdateOrInsertE2EeSelfKeyRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UpdateOrInsertE2EeSelfKeyRequest) Reset() {
+	*x = UpdateOrInsertE2EeSelfKeyRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[228]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdateOrInsertE2EeSelfKeyRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateOrInsertE2EeSelfKeyRequest) ProtoMessage() {}
+
+func (x *UpdateOrInsertE2EeSelfKeyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[228]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateOrInsertE2EeSelfKeyRequest.ProtoReflect.Descriptor instead.
+func (*UpdateOrInsertE2EeSelfKeyRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{228}
+}
+
+func (x *UpdateOrInsertE2EeSelfKeyRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *UpdateOrInsertE2EeSelfKeyRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *UpdateOrInsertE2EeSelfKeyRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type UpdateOrInsertE2EeSelfKeyResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UpdateOrInsertE2EeSelfKeyResponse) Reset() {
+	*x = UpdateOrInsertE2EeSelfKeyResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[229]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdateOrInsertE2EeSelfKeyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateOrInsertE2EeSelfKeyResponse) ProtoMessage() {}
+
+func (x *UpdateOrInsertE2EeSelfKeyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[229]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateOrInsertE2EeSelfKeyResponse.ProtoReflect.Descriptor instead.
+func (*UpdateOrInsertE2EeSelfKeyResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{229}
+}
+
+func (x *UpdateOrInsertE2EeSelfKeyResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type GetMaxKeySizeBytesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMaxKeySizeBytesRequest) Reset() {
+	*x = GetMaxKeySizeBytesRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[230]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMaxKeySizeBytesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMaxKeySizeBytesRequest) ProtoMessage() {}
+
+func (x *GetMaxKeySizeBytesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[230]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMaxKeySizeBytesRequest.ProtoReflect.Descriptor instead.
+func (*GetMaxKeySizeBytesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{230}
+}
+
+type GetMaxKeySizeBytesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMaxKeySizeBytesResponse) Reset() {
+	*x = GetMaxKeySizeBytesResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[231]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMaxKeySizeBytesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMaxKeySizeBytesResponse) ProtoMessage() {}
+
+func (x *GetMaxKeySizeBytesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[231]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMaxKeySizeBytesResponse.ProtoReflect.Descriptor instead.
+func (*GetMaxKeySizeBytesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{231}
+}
+
+func (x *GetMaxKeySizeBytesResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetAccountIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAccountIdRequest) Reset() {
+	*x = GetAccountIdRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[232]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAccountIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAccountIdRequest) ProtoMessage() {}
+
+func (x *GetAccountIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[232]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAccountIdRequest.ProtoReflect.Descriptor instead.
+func (*GetAccountIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{232}
+}
+
+type GetAccountIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAccountIdResponse) Reset() {
+	*x = GetAccountIdResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[233]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAccountIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAccountIdResponse) ProtoMessage() {}
+
+func (x *GetAccountIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[233]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAccountIdResponse.ProtoReflect.Descriptor instead.
+func (*GetAccountIdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{233}
+}
+
+func (x *GetAccountIdResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetDeviceIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDeviceIdRequest) Reset() {
+	*x = GetDeviceIdRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[234]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDeviceIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDeviceIdRequest) ProtoMessage() {}
+
+func (x *GetDeviceIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[234]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDeviceIdRequest.ProtoReflect.Descriptor instead.
+func (*GetDeviceIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{234}
+}
+
+type GetDeviceIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDeviceIdResponse) Reset() {
+	*x = GetDeviceIdResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[235]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDeviceIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDeviceIdResponse) ProtoMessage() {}
+
+func (x *GetDeviceIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[235]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDeviceIdResponse.ProtoReflect.Descriptor instead.
+func (*GetDeviceIdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{235}
+}
+
+func (x *GetDeviceIdResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetDisplayNameRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDisplayNameRequest) Reset() {
+	*x = GetDisplayNameRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[236]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDisplayNameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDisplayNameRequest) ProtoMessage() {}
+
+func (x *GetDisplayNameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[236]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDisplayNameRequest.ProtoReflect.Descriptor instead.
+func (*GetDisplayNameRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{236}
+}
+
+type GetDisplayNameResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDisplayNameResponse) Reset() {
+	*x = GetDisplayNameResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[237]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDisplayNameResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDisplayNameResponse) ProtoMessage() {}
+
+func (x *GetDisplayNameResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[237]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDisplayNameResponse.ProtoReflect.Descriptor instead.
+func (*GetDisplayNameResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{237}
+}
+
+func (x *GetDisplayNameResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetEmailAddressRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEmailAddressRequest) Reset() {
+	*x = GetEmailAddressRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[238]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEmailAddressRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEmailAddressRequest) ProtoMessage() {}
+
+func (x *GetEmailAddressRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[238]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEmailAddressRequest.ProtoReflect.Descriptor instead.
+func (*GetEmailAddressRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{238}
+}
+
+type GetEmailAddressResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEmailAddressResponse) Reset() {
+	*x = GetEmailAddressResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[239]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEmailAddressResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEmailAddressResponse) ProtoMessage() {}
+
+func (x *GetEmailAddressResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[239]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEmailAddressResponse.ProtoReflect.Descriptor instead.
+func (*GetEmailAddressResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{239}
+}
+
+func (x *GetEmailAddressResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetKeyValueRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetKeyValueRequest) Reset() {
+	*x = GetKeyValueRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[240]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetKeyValueRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetKeyValueRequest) ProtoMessage() {}
+
+func (x *GetKeyValueRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[240]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetKeyValueRequest.ProtoReflect.Descriptor instead.
+func (*GetKeyValueRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{240}
+}
+
+type GetKeyValueResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetKeyValueResponse) Reset() {
+	*x = GetKeyValueResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[241]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetKeyValueResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetKeyValueResponse) ProtoMessage() {}
+
+func (x *GetKeyValueResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[241]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetKeyValueResponse.ProtoReflect.Descriptor instead.
+func (*GetKeyValueResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{241}
+}
+
+func (x *GetKeyValueResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetLocalVerificationStateRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLocalVerificationStateRequest) Reset() {
+	*x = GetLocalVerificationStateRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[242]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLocalVerificationStateRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLocalVerificationStateRequest) ProtoMessage() {}
+
+func (x *GetLocalVerificationStateRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[242]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLocalVerificationStateRequest.ProtoReflect.Descriptor instead.
+func (*GetLocalVerificationStateRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{242}
+}
+
+type GetLocalVerificationStateResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLocalVerificationStateResponse) Reset() {
+	*x = GetLocalVerificationStateResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[243]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLocalVerificationStateResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLocalVerificationStateResponse) ProtoMessage() {}
+
+func (x *GetLocalVerificationStateResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[243]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLocalVerificationStateResponse.ProtoReflect.Descriptor instead.
+func (*GetLocalVerificationStateResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{243}
+}
+
+func (x *GetLocalVerificationStateResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetOwnerPackageNameRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetOwnerPackageNameRequest) Reset() {
+	*x = GetOwnerPackageNameRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[244]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetOwnerPackageNameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetOwnerPackageNameRequest) ProtoMessage() {}
+
+func (x *GetOwnerPackageNameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[244]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetOwnerPackageNameRequest.ProtoReflect.Descriptor instead.
+func (*GetOwnerPackageNameRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{244}
+}
+
+type GetOwnerPackageNameResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetOwnerPackageNameResponse) Reset() {
+	*x = GetOwnerPackageNameResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[245]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetOwnerPackageNameResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetOwnerPackageNameResponse) ProtoMessage() {}
+
+func (x *GetOwnerPackageNameResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[245]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetOwnerPackageNameResponse.ProtoReflect.Descriptor instead.
+func (*GetOwnerPackageNameResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{245}
+}
+
+func (x *GetOwnerPackageNameResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetPhoneNumberRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPhoneNumberRequest) Reset() {
+	*x = GetPhoneNumberRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[246]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPhoneNumberRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPhoneNumberRequest) ProtoMessage() {}
+
+func (x *GetPhoneNumberRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[246]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPhoneNumberRequest.ProtoReflect.Descriptor instead.
+func (*GetPhoneNumberRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{246}
+}
+
+type GetPhoneNumberResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPhoneNumberResponse) Reset() {
+	*x = GetPhoneNumberResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[247]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPhoneNumberResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPhoneNumberResponse) ProtoMessage() {}
+
+func (x *GetPhoneNumberResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[247]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPhoneNumberResponse.ProtoReflect.Descriptor instead.
+func (*GetPhoneNumberResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{247}
+}
+
+func (x *GetPhoneNumberResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetRemoteVerificationStateRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRemoteVerificationStateRequest) Reset() {
+	*x = GetRemoteVerificationStateRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[248]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRemoteVerificationStateRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRemoteVerificationStateRequest) ProtoMessage() {}
+
+func (x *GetRemoteVerificationStateRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[248]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRemoteVerificationStateRequest.ProtoReflect.Descriptor instead.
+func (*GetRemoteVerificationStateRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{248}
+}
+
+type GetRemoteVerificationStateResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRemoteVerificationStateResponse) Reset() {
+	*x = GetRemoteVerificationStateResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[249]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRemoteVerificationStateResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRemoteVerificationStateResponse) ProtoMessage() {}
+
+func (x *GetRemoteVerificationStateResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[249]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRemoteVerificationStateResponse.ProtoReflect.Descriptor instead.
+func (*GetRemoteVerificationStateResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{249}
+}
+
+func (x *GetRemoteVerificationStateResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetTimeUpdatedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTimeUpdatedRequest) Reset() {
+	*x = GetTimeUpdatedRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[250]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTimeUpdatedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTimeUpdatedRequest) ProtoMessage() {}
+
+func (x *GetTimeUpdatedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[250]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTimeUpdatedRequest.ProtoReflect.Descriptor instead.
+func (*GetTimeUpdatedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{250}
+}
+
+type GetTimeUpdatedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTimeUpdatedResponse) Reset() {
+	*x = GetTimeUpdatedResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[251]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTimeUpdatedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTimeUpdatedResponse) ProtoMessage() {}
+
+func (x *GetTimeUpdatedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[251]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTimeUpdatedResponse.ProtoReflect.Descriptor instead.
+func (*GetTimeUpdatedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{251}
+}
+
+func (x *GetTimeUpdatedResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type BuildSourceUriRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BuildSourceUriRequest) Reset() {
+	*x = BuildSourceUriRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[252]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BuildSourceUriRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BuildSourceUriRequest) ProtoMessage() {}
+
+func (x *BuildSourceUriRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[252]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BuildSourceUriRequest.ProtoReflect.Descriptor instead.
+func (*BuildSourceUriRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{252}
+}
+
+func (x *BuildSourceUriRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type BuildSourceUriResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BuildSourceUriResponse) Reset() {
+	*x = BuildSourceUriResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[253]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BuildSourceUriResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BuildSourceUriResponse) ProtoMessage() {}
+
+func (x *BuildSourceUriResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[253]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BuildSourceUriResponse.ProtoReflect.Descriptor instead.
+func (*BuildSourceUriResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{253}
+}
+
+func (x *BuildSourceUriResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSpecificCarrierIdUriForSubscriptionIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSpecificCarrierIdUriForSubscriptionIdRequest) Reset() {
+	*x = GetSpecificCarrierIdUriForSubscriptionIdRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[254]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSpecificCarrierIdUriForSubscriptionIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSpecificCarrierIdUriForSubscriptionIdRequest) ProtoMessage() {}
+
+func (x *GetSpecificCarrierIdUriForSubscriptionIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[254]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSpecificCarrierIdUriForSubscriptionIdRequest.ProtoReflect.Descriptor instead.
+func (*GetSpecificCarrierIdUriForSubscriptionIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{254}
+}
+
+func (x *GetSpecificCarrierIdUriForSubscriptionIdRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetSpecificCarrierIdUriForSubscriptionIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSpecificCarrierIdUriForSubscriptionIdResponse) Reset() {
+	*x = GetSpecificCarrierIdUriForSubscriptionIdResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[255]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSpecificCarrierIdUriForSubscriptionIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSpecificCarrierIdUriForSubscriptionIdResponse) ProtoMessage() {}
+
+func (x *GetSpecificCarrierIdUriForSubscriptionIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[255]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSpecificCarrierIdUriForSubscriptionIdResponse.ProtoReflect.Descriptor instead.
+func (*GetSpecificCarrierIdUriForSubscriptionIdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{255}
+}
+
+func (x *GetSpecificCarrierIdUriForSubscriptionIdResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetUriForSubscriptionIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetUriForSubscriptionIdRequest) Reset() {
+	*x = GetUriForSubscriptionIdRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[256]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetUriForSubscriptionIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetUriForSubscriptionIdRequest) ProtoMessage() {}
+
+func (x *GetUriForSubscriptionIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[256]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetUriForSubscriptionIdRequest.ProtoReflect.Descriptor instead.
+func (*GetUriForSubscriptionIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{256}
+}
+
+func (x *GetUriForSubscriptionIdRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetUriForSubscriptionIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetUriForSubscriptionIdResponse) Reset() {
+	*x = GetUriForSubscriptionIdResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[257]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetUriForSubscriptionIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetUriForSubscriptionIdResponse) ProtoMessage() {}
+
+func (x *GetUriForSubscriptionIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[257]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetUriForSubscriptionIdResponse.ProtoReflect.Descriptor instead.
+func (*GetUriForSubscriptionIdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{257}
+}
+
+func (x *GetUriForSubscriptionIdResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetUriForSubscriptionIdAndFieldRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetUriForSubscriptionIdAndFieldRequest) Reset() {
+	*x = GetUriForSubscriptionIdAndFieldRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[258]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetUriForSubscriptionIdAndFieldRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetUriForSubscriptionIdAndFieldRequest) ProtoMessage() {}
+
+func (x *GetUriForSubscriptionIdAndFieldRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[258]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetUriForSubscriptionIdAndFieldRequest.ProtoReflect.Descriptor instead.
+func (*GetUriForSubscriptionIdAndFieldRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{258}
+}
+
+func (x *GetUriForSubscriptionIdAndFieldRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *GetUriForSubscriptionIdAndFieldRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+type GetUriForSubscriptionIdAndFieldResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetUriForSubscriptionIdAndFieldResponse) Reset() {
+	*x = GetUriForSubscriptionIdAndFieldResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[259]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetUriForSubscriptionIdAndFieldResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetUriForSubscriptionIdAndFieldResponse) ProtoMessage() {}
+
+func (x *GetUriForSubscriptionIdAndFieldResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[259]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetUriForSubscriptionIdAndFieldResponse.ProtoReflect.Descriptor instead.
+func (*GetUriForSubscriptionIdAndFieldResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{259}
+}
+
+func (x *GetUriForSubscriptionIdAndFieldResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetDefaultSmsPackageRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDefaultSmsPackageRequest) Reset() {
+	*x = GetDefaultSmsPackageRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[260]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDefaultSmsPackageRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDefaultSmsPackageRequest) ProtoMessage() {}
+
+func (x *GetDefaultSmsPackageRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[260]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDefaultSmsPackageRequest.ProtoReflect.Descriptor instead.
+func (*GetDefaultSmsPackageRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{260}
+}
+
+func (x *GetDefaultSmsPackageRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetDefaultSmsPackageResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDefaultSmsPackageResponse) Reset() {
+	*x = GetDefaultSmsPackageResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[261]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDefaultSmsPackageResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDefaultSmsPackageResponse) ProtoMessage() {}
+
+func (x *GetDefaultSmsPackageResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[261]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDefaultSmsPackageResponse.ProtoReflect.Descriptor instead.
+func (*GetDefaultSmsPackageResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{261}
+}
+
+func (x *GetDefaultSmsPackageResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetOrCreateThreadIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetOrCreateThreadIdRequest) Reset() {
+	*x = GetOrCreateThreadIdRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[262]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetOrCreateThreadIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetOrCreateThreadIdRequest) ProtoMessage() {}
+
+func (x *GetOrCreateThreadIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[262]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetOrCreateThreadIdRequest.ProtoReflect.Descriptor instead.
+func (*GetOrCreateThreadIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{262}
+}
+
+func (x *GetOrCreateThreadIdRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *GetOrCreateThreadIdRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+type GetOrCreateThreadIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetOrCreateThreadIdResponse) Reset() {
+	*x = GetOrCreateThreadIdResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[263]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetOrCreateThreadIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetOrCreateThreadIdResponse) ProtoMessage() {}
+
+func (x *GetOrCreateThreadIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[263]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetOrCreateThreadIdResponse.ProtoReflect.Descriptor instead.
+func (*GetOrCreateThreadIdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{263}
+}
+
+func (x *GetOrCreateThreadIdResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetItemUriRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetItemUriRequest) Reset() {
+	*x = GetItemUriRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[264]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetItemUriRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetItemUriRequest) ProtoMessage() {}
+
+func (x *GetItemUriRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[264]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetItemUriRequest.ProtoReflect.Descriptor instead.
+func (*GetItemUriRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{264}
+}
+
+func (x *GetItemUriRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *GetItemUriRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type GetItemUriResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetItemUriResponse) Reset() {
+	*x = GetItemUriResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[265]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetItemUriResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetItemUriResponse) ProtoMessage() {}
+
+func (x *GetItemUriResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[265]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetItemUriResponse.ProtoReflect.Descriptor instead.
+func (*GetItemUriResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{265}
+}
+
+func (x *GetItemUriResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetContentUriRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetContentUriRequest) Reset() {
+	*x = GetContentUriRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[266]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetContentUriRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetContentUriRequest) ProtoMessage() {}
+
+func (x *GetContentUriRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[266]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetContentUriRequest.ProtoReflect.Descriptor instead.
+func (*GetContentUriRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{266}
+}
+
+func (x *GetContentUriRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *GetContentUriRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type GetContentUriResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetContentUriResponse) Reset() {
+	*x = GetContentUriResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[267]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetContentUriResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetContentUriResponse) ProtoMessage() {}
+
+func (x *GetContentUriResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[267]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetContentUriResponse.ProtoReflect.Descriptor instead.
+func (*GetContentUriResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{267}
+}
+
+func (x *GetContentUriResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetEncodedNameLengthRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEncodedNameLengthRequest) Reset() {
+	*x = GetEncodedNameLengthRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[268]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEncodedNameLengthRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEncodedNameLengthRequest) ProtoMessage() {}
+
+func (x *GetEncodedNameLengthRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[268]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEncodedNameLengthRequest.ProtoReflect.Descriptor instead.
+func (*GetEncodedNameLengthRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{268}
+}
+
+func (x *GetEncodedNameLengthRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *GetEncodedNameLengthRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+type GetEncodedNameLengthResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEncodedNameLengthResponse) Reset() {
+	*x = GetEncodedNameLengthResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[269]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEncodedNameLengthResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEncodedNameLengthResponse) ProtoMessage() {}
+
+func (x *GetEncodedNameLengthResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[269]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEncodedNameLengthResponse.ProtoReflect.Descriptor instead.
+func (*GetEncodedNameLengthResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{269}
+}
+
+func (x *GetEncodedNameLengthResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SimPhonebookContractSimRecordsGetItemUriRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SimPhonebookContractSimRecordsGetItemUriRequest) Reset() {
+	*x = SimPhonebookContractSimRecordsGetItemUriRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[270]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SimPhonebookContractSimRecordsGetItemUriRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SimPhonebookContractSimRecordsGetItemUriRequest) ProtoMessage() {}
+
+func (x *SimPhonebookContractSimRecordsGetItemUriRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[270]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SimPhonebookContractSimRecordsGetItemUriRequest.ProtoReflect.Descriptor instead.
+func (*SimPhonebookContractSimRecordsGetItemUriRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{270}
+}
+
+func (x *SimPhonebookContractSimRecordsGetItemUriRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SimPhonebookContractSimRecordsGetItemUriRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *SimPhonebookContractSimRecordsGetItemUriRequest) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type BuildTypefaceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BuildTypefaceRequest) Reset() {
+	*x = BuildTypefaceRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[271]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BuildTypefaceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BuildTypefaceRequest) ProtoMessage() {}
+
+func (x *BuildTypefaceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[271]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BuildTypefaceRequest.ProtoReflect.Descriptor instead.
+func (*BuildTypefaceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{271}
+}
+
+func (x *BuildTypefaceRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *BuildTypefaceRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *BuildTypefaceRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type BuildTypefaceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BuildTypefaceResponse) Reset() {
+	*x = BuildTypefaceResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[272]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BuildTypefaceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BuildTypefaceResponse) ProtoMessage() {}
+
+func (x *BuildTypefaceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[272]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BuildTypefaceResponse.ProtoReflect.Descriptor instead.
+func (*BuildTypefaceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{272}
+}
+
+func (x *BuildTypefaceResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type FetchFontsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FetchFontsRequest) Reset() {
+	*x = FetchFontsRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[273]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FetchFontsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FetchFontsRequest) ProtoMessage() {}
+
+func (x *FetchFontsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[273]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FetchFontsRequest.ProtoReflect.Descriptor instead.
+func (*FetchFontsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{273}
+}
+
+func (x *FetchFontsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *FetchFontsRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *FetchFontsRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type FetchFontsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FetchFontsResponse) Reset() {
+	*x = FetchFontsResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[274]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FetchFontsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FetchFontsResponse) ProtoMessage() {}
+
+func (x *FetchFontsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[274]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FetchFontsResponse.ProtoReflect.Descriptor instead.
+func (*FetchFontsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{274}
+}
+
+func (x *FetchFontsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetFontsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetFontsRequest) Reset() {
+	*x = GetFontsRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[275]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetFontsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetFontsRequest) ProtoMessage() {}
+
+func (x *GetFontsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[275]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetFontsRequest.ProtoReflect.Descriptor instead.
+func (*GetFontsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{275}
+}
+
+type GetFontsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetFontsResponse) Reset() {
+	*x = GetFontsResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[276]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetFontsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetFontsResponse) ProtoMessage() {}
+
+func (x *GetFontsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[276]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetFontsResponse.ProtoReflect.Descriptor instead.
+func (*GetFontsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{276}
+}
+
+func (x *GetFontsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetStatusCodeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetStatusCodeRequest) Reset() {
+	*x = GetStatusCodeRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[277]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetStatusCodeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetStatusCodeRequest) ProtoMessage() {}
+
+func (x *GetStatusCodeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[277]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetStatusCodeRequest.ProtoReflect.Descriptor instead.
+func (*GetStatusCodeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{277}
+}
+
+type GetStatusCodeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetStatusCodeResponse) Reset() {
+	*x = GetStatusCodeResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[278]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetStatusCodeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetStatusCodeResponse) ProtoMessage() {}
+
+func (x *GetStatusCodeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[278]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetStatusCodeResponse.ProtoReflect.Descriptor instead.
+func (*GetStatusCodeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{278}
+}
+
+func (x *GetStatusCodeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetAxesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAxesRequest) Reset() {
+	*x = GetAxesRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[279]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAxesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAxesRequest) ProtoMessage() {}
+
+func (x *GetAxesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[279]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAxesRequest.ProtoReflect.Descriptor instead.
+func (*GetAxesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{279}
+}
+
+type GetAxesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAxesResponse) Reset() {
+	*x = GetAxesResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[280]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAxesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAxesResponse) ProtoMessage() {}
+
+func (x *GetAxesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[280]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAxesResponse.ProtoReflect.Descriptor instead.
+func (*GetAxesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{280}
+}
+
+func (x *GetAxesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetResultCodeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetResultCodeRequest) Reset() {
+	*x = GetResultCodeRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[281]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetResultCodeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetResultCodeRequest) ProtoMessage() {}
+
+func (x *GetResultCodeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[281]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetResultCodeRequest.ProtoReflect.Descriptor instead.
+func (*GetResultCodeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{281}
+}
+
+type GetResultCodeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetResultCodeResponse) Reset() {
+	*x = GetResultCodeResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[282]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetResultCodeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetResultCodeResponse) ProtoMessage() {}
+
+func (x *GetResultCodeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[282]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetResultCodeResponse.ProtoReflect.Descriptor instead.
+func (*GetResultCodeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{282}
+}
+
+func (x *GetResultCodeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetTtcIndexRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTtcIndexRequest) Reset() {
+	*x = GetTtcIndexRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[283]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTtcIndexRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTtcIndexRequest) ProtoMessage() {}
+
+func (x *GetTtcIndexRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[283]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTtcIndexRequest.ProtoReflect.Descriptor instead.
+func (*GetTtcIndexRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{283}
+}
+
+type GetTtcIndexResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTtcIndexResponse) Reset() {
+	*x = GetTtcIndexResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[284]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTtcIndexResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTtcIndexResponse) ProtoMessage() {}
+
+func (x *GetTtcIndexResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[284]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTtcIndexResponse.ProtoReflect.Descriptor instead.
+func (*GetTtcIndexResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{284}
+}
+
+func (x *GetTtcIndexResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetUriRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetUriRequest) Reset() {
+	*x = GetUriRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[285]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetUriRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetUriRequest) ProtoMessage() {}
+
+func (x *GetUriRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[285]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetUriRequest.ProtoReflect.Descriptor instead.
+func (*GetUriRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{285}
+}
+
+type GetUriResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetUriResponse) Reset() {
+	*x = GetUriResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[286]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetUriResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetUriResponse) ProtoMessage() {}
+
+func (x *GetUriResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[286]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetUriResponse.ProtoReflect.Descriptor instead.
+func (*GetUriResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{286}
+}
+
+func (x *GetUriResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetWeightRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetWeightRequest) Reset() {
+	*x = GetWeightRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[287]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetWeightRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetWeightRequest) ProtoMessage() {}
+
+func (x *GetWeightRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[287]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetWeightRequest.ProtoReflect.Descriptor instead.
+func (*GetWeightRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{287}
+}
+
+type GetWeightResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetWeightResponse) Reset() {
+	*x = GetWeightResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[288]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetWeightResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetWeightResponse) ProtoMessage() {}
+
+func (x *GetWeightResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[288]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetWeightResponse.ProtoReflect.Descriptor instead.
+func (*GetWeightResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{288}
+}
+
+func (x *GetWeightResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type IsItalicRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsItalicRequest) Reset() {
+	*x = IsItalicRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[289]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsItalicRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsItalicRequest) ProtoMessage() {}
+
+func (x *IsItalicRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[289]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsItalicRequest.ProtoReflect.Descriptor instead.
+func (*IsItalicRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{289}
+}
+
+type IsItalicResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsItalicResponse) Reset() {
+	*x = IsItalicResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[290]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsItalicResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsItalicResponse) ProtoMessage() {}
+
+func (x *IsItalicResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[290]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsItalicResponse.ProtoReflect.Descriptor instead.
+func (*IsItalicResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{290}
+}
+
+func (x *IsItalicResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type OnTypefaceRequestFailedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnTypefaceRequestFailedRequest) Reset() {
+	*x = OnTypefaceRequestFailedRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[291]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnTypefaceRequestFailedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnTypefaceRequestFailedRequest) ProtoMessage() {}
+
+func (x *OnTypefaceRequestFailedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[291]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnTypefaceRequestFailedRequest.ProtoReflect.Descriptor instead.
+func (*OnTypefaceRequestFailedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{291}
+}
+
+func (x *OnTypefaceRequestFailedRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnTypefaceRequestFailedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnTypefaceRequestFailedResponse) Reset() {
+	*x = OnTypefaceRequestFailedResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[292]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnTypefaceRequestFailedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnTypefaceRequestFailedResponse) ProtoMessage() {}
+
+func (x *OnTypefaceRequestFailedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[292]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnTypefaceRequestFailedResponse.ProtoReflect.Descriptor instead.
+func (*OnTypefaceRequestFailedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{292}
+}
+
+type OnTypefaceRetrievedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnTypefaceRetrievedRequest) Reset() {
+	*x = OnTypefaceRetrievedRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[293]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnTypefaceRetrievedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnTypefaceRetrievedRequest) ProtoMessage() {}
+
+func (x *OnTypefaceRetrievedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[293]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnTypefaceRetrievedRequest.ProtoReflect.Descriptor instead.
+func (*OnTypefaceRetrievedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{293}
+}
+
+func (x *OnTypefaceRetrievedRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnTypefaceRetrievedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnTypefaceRetrievedResponse) Reset() {
+	*x = OnTypefaceRetrievedResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[294]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnTypefaceRetrievedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnTypefaceRetrievedResponse) ProtoMessage() {}
+
+func (x *OnTypefaceRetrievedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[294]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnTypefaceRetrievedResponse.ProtoReflect.Descriptor instead.
+func (*OnTypefaceRetrievedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{294}
+}
+
+type GetLastOutgoingCallRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLastOutgoingCallRequest) Reset() {
+	*x = GetLastOutgoingCallRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[295]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLastOutgoingCallRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLastOutgoingCallRequest) ProtoMessage() {}
+
+func (x *GetLastOutgoingCallRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[295]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLastOutgoingCallRequest.ProtoReflect.Descriptor instead.
+func (*GetLastOutgoingCallRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{295}
+}
+
+func (x *GetLastOutgoingCallRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetLastOutgoingCallResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLastOutgoingCallResponse) Reset() {
+	*x = GetLastOutgoingCallResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[296]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLastOutgoingCallResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLastOutgoingCallResponse) ProtoMessage() {}
+
+func (x *GetLastOutgoingCallResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[296]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLastOutgoingCallResponse.ProtoReflect.Descriptor instead.
+func (*GetLastOutgoingCallResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{296}
+}
+
+func (x *GetLastOutgoingCallResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type NewBrowserRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewBrowserRequest) Reset() {
+	*x = NewBrowserRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[297]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewBrowserRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewBrowserRequest) ProtoMessage() {}
+
+func (x *NewBrowserRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[297]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewBrowserRequest.ProtoReflect.Descriptor instead.
+func (*NewBrowserRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{297}
+}
+
+type NewBrowserResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewBrowserResponse) Reset() {
+	*x = NewBrowserResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[298]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewBrowserResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewBrowserResponse) ProtoMessage() {}
+
+func (x *NewBrowserResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[298]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewBrowserResponse.ProtoReflect.Descriptor instead.
+func (*NewBrowserResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{298}
+}
+
+func (x *NewBrowserResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SendStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SendStringRequest) Reset() {
+	*x = SendStringRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[299]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SendStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SendStringRequest) ProtoMessage() {}
+
+func (x *SendStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[299]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SendStringRequest.ProtoReflect.Descriptor instead.
+func (*SendStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{299}
+}
+
+func (x *SendStringRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SendStringRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SendStringRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+type SendStringResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SendStringResponse) Reset() {
+	*x = SendStringResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[300]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SendStringResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SendStringResponse) ProtoMessage() {}
+
+func (x *SendStringResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[300]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SendStringResponse.ProtoReflect.Descriptor instead.
+func (*SendStringResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{300}
+}
+
+type CloudMediaProviderInsertRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CloudMediaProviderInsertRequest) Reset() {
+	*x = CloudMediaProviderInsertRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[301]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CloudMediaProviderInsertRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CloudMediaProviderInsertRequest) ProtoMessage() {}
+
+func (x *CloudMediaProviderInsertRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[301]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CloudMediaProviderInsertRequest.ProtoReflect.Descriptor instead.
+func (*CloudMediaProviderInsertRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{301}
+}
+
+func (x *CloudMediaProviderInsertRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *CloudMediaProviderInsertRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type OnCreateCloudMediaSurfaceControllerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnCreateCloudMediaSurfaceControllerRequest) Reset() {
+	*x = OnCreateCloudMediaSurfaceControllerRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[302]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnCreateCloudMediaSurfaceControllerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnCreateCloudMediaSurfaceControllerRequest) ProtoMessage() {}
+
+func (x *OnCreateCloudMediaSurfaceControllerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[302]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnCreateCloudMediaSurfaceControllerRequest.ProtoReflect.Descriptor instead.
+func (*OnCreateCloudMediaSurfaceControllerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{302}
+}
+
+func (x *OnCreateCloudMediaSurfaceControllerRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnCreateCloudMediaSurfaceControllerRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type OnCreateCloudMediaSurfaceControllerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnCreateCloudMediaSurfaceControllerResponse) Reset() {
+	*x = OnCreateCloudMediaSurfaceControllerResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[303]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnCreateCloudMediaSurfaceControllerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnCreateCloudMediaSurfaceControllerResponse) ProtoMessage() {}
+
+func (x *OnCreateCloudMediaSurfaceControllerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[303]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnCreateCloudMediaSurfaceControllerResponse.ProtoReflect.Descriptor instead.
+func (*OnCreateCloudMediaSurfaceControllerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{303}
+}
+
+func (x *OnCreateCloudMediaSurfaceControllerResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OnGetCapabilitiesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnGetCapabilitiesRequest) Reset() {
+	*x = OnGetCapabilitiesRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[304]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnGetCapabilitiesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnGetCapabilitiesRequest) ProtoMessage() {}
+
+func (x *OnGetCapabilitiesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[304]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnGetCapabilitiesRequest.ProtoReflect.Descriptor instead.
+func (*OnGetCapabilitiesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{304}
+}
+
+type OnGetCapabilitiesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnGetCapabilitiesResponse) Reset() {
+	*x = OnGetCapabilitiesResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[305]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnGetCapabilitiesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnGetCapabilitiesResponse) ProtoMessage() {}
+
+func (x *OnGetCapabilitiesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[305]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnGetCapabilitiesResponse.ProtoReflect.Descriptor instead.
+func (*OnGetCapabilitiesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{305}
+}
+
+func (x *OnGetCapabilitiesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OnGetMediaCollectionInfoRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnGetMediaCollectionInfoRequest) Reset() {
+	*x = OnGetMediaCollectionInfoRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[306]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnGetMediaCollectionInfoRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnGetMediaCollectionInfoRequest) ProtoMessage() {}
+
+func (x *OnGetMediaCollectionInfoRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[306]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnGetMediaCollectionInfoRequest.ProtoReflect.Descriptor instead.
+func (*OnGetMediaCollectionInfoRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{306}
+}
+
+func (x *OnGetMediaCollectionInfoRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnGetMediaCollectionInfoResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnGetMediaCollectionInfoResponse) Reset() {
+	*x = OnGetMediaCollectionInfoResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[307]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnGetMediaCollectionInfoResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnGetMediaCollectionInfoResponse) ProtoMessage() {}
+
+func (x *OnGetMediaCollectionInfoResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[307]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnGetMediaCollectionInfoResponse.ProtoReflect.Descriptor instead.
+func (*OnGetMediaCollectionInfoResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{307}
+}
+
+func (x *OnGetMediaCollectionInfoResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OnOpenMediaRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnOpenMediaRequest) Reset() {
+	*x = OnOpenMediaRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[308]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnOpenMediaRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnOpenMediaRequest) ProtoMessage() {}
+
+func (x *OnOpenMediaRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[308]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnOpenMediaRequest.ProtoReflect.Descriptor instead.
+func (*OnOpenMediaRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{308}
+}
+
+func (x *OnOpenMediaRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *OnOpenMediaRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *OnOpenMediaRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type OnOpenMediaResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnOpenMediaResponse) Reset() {
+	*x = OnOpenMediaResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[309]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnOpenMediaResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnOpenMediaResponse) ProtoMessage() {}
+
+func (x *OnOpenMediaResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[309]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnOpenMediaResponse.ProtoReflect.Descriptor instead.
+func (*OnOpenMediaResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{309}
+}
+
+func (x *OnOpenMediaResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OnOpenPreviewRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int64                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnOpenPreviewRequest) Reset() {
+	*x = OnOpenPreviewRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[310]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnOpenPreviewRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnOpenPreviewRequest) ProtoMessage() {}
+
+func (x *OnOpenPreviewRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[310]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnOpenPreviewRequest.ProtoReflect.Descriptor instead.
+func (*OnOpenPreviewRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{310}
+}
+
+func (x *OnOpenPreviewRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *OnOpenPreviewRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *OnOpenPreviewRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *OnOpenPreviewRequest) GetArg3() int64 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+type OnOpenPreviewResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnOpenPreviewResponse) Reset() {
+	*x = OnOpenPreviewResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[311]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnOpenPreviewResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnOpenPreviewResponse) ProtoMessage() {}
+
+func (x *OnOpenPreviewResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[311]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnOpenPreviewResponse.ProtoReflect.Descriptor instead.
+func (*OnOpenPreviewResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{311}
+}
+
+func (x *OnOpenPreviewResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OnQueryAlbumsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnQueryAlbumsRequest) Reset() {
+	*x = OnQueryAlbumsRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[312]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnQueryAlbumsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnQueryAlbumsRequest) ProtoMessage() {}
+
+func (x *OnQueryAlbumsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[312]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnQueryAlbumsRequest.ProtoReflect.Descriptor instead.
+func (*OnQueryAlbumsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{312}
+}
+
+func (x *OnQueryAlbumsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnQueryAlbumsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnQueryAlbumsResponse) Reset() {
+	*x = OnQueryAlbumsResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[313]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnQueryAlbumsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnQueryAlbumsResponse) ProtoMessage() {}
+
+func (x *OnQueryAlbumsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[313]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnQueryAlbumsResponse.ProtoReflect.Descriptor instead.
+func (*OnQueryAlbumsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{313}
+}
+
+func (x *OnQueryAlbumsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OnQueryDeletedMediaRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnQueryDeletedMediaRequest) Reset() {
+	*x = OnQueryDeletedMediaRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[314]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnQueryDeletedMediaRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnQueryDeletedMediaRequest) ProtoMessage() {}
+
+func (x *OnQueryDeletedMediaRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[314]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnQueryDeletedMediaRequest.ProtoReflect.Descriptor instead.
+func (*OnQueryDeletedMediaRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{314}
+}
+
+func (x *OnQueryDeletedMediaRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnQueryDeletedMediaResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnQueryDeletedMediaResponse) Reset() {
+	*x = OnQueryDeletedMediaResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[315]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnQueryDeletedMediaResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnQueryDeletedMediaResponse) ProtoMessage() {}
+
+func (x *OnQueryDeletedMediaResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[315]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnQueryDeletedMediaResponse.ProtoReflect.Descriptor instead.
+func (*OnQueryDeletedMediaResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{315}
+}
+
+func (x *OnQueryDeletedMediaResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OnQueryMediaRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnQueryMediaRequest) Reset() {
+	*x = OnQueryMediaRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[316]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnQueryMediaRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnQueryMediaRequest) ProtoMessage() {}
+
+func (x *OnQueryMediaRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[316]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnQueryMediaRequest.ProtoReflect.Descriptor instead.
+func (*OnQueryMediaRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{316}
+}
+
+func (x *OnQueryMediaRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnQueryMediaResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnQueryMediaResponse) Reset() {
+	*x = OnQueryMediaResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[317]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnQueryMediaResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnQueryMediaResponse) ProtoMessage() {}
+
+func (x *OnQueryMediaResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[317]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnQueryMediaResponse.ProtoReflect.Descriptor instead.
+func (*OnQueryMediaResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{317}
+}
+
+func (x *OnQueryMediaResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OnQueryMediaCategoriesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnQueryMediaCategoriesRequest) Reset() {
+	*x = OnQueryMediaCategoriesRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[318]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnQueryMediaCategoriesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnQueryMediaCategoriesRequest) ProtoMessage() {}
+
+func (x *OnQueryMediaCategoriesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[318]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnQueryMediaCategoriesRequest.ProtoReflect.Descriptor instead.
+func (*OnQueryMediaCategoriesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{318}
+}
+
+func (x *OnQueryMediaCategoriesRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *OnQueryMediaCategoriesRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *OnQueryMediaCategoriesRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type OnQueryMediaCategoriesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnQueryMediaCategoriesResponse) Reset() {
+	*x = OnQueryMediaCategoriesResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[319]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnQueryMediaCategoriesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnQueryMediaCategoriesResponse) ProtoMessage() {}
+
+func (x *OnQueryMediaCategoriesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[319]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnQueryMediaCategoriesResponse.ProtoReflect.Descriptor instead.
+func (*OnQueryMediaCategoriesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{319}
+}
+
+func (x *OnQueryMediaCategoriesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OnQueryMediaInMediaSetRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnQueryMediaInMediaSetRequest) Reset() {
+	*x = OnQueryMediaInMediaSetRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[320]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnQueryMediaInMediaSetRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnQueryMediaInMediaSetRequest) ProtoMessage() {}
+
+func (x *OnQueryMediaInMediaSetRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[320]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnQueryMediaInMediaSetRequest.ProtoReflect.Descriptor instead.
+func (*OnQueryMediaInMediaSetRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{320}
+}
+
+func (x *OnQueryMediaInMediaSetRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *OnQueryMediaInMediaSetRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *OnQueryMediaInMediaSetRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type OnQueryMediaInMediaSetResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnQueryMediaInMediaSetResponse) Reset() {
+	*x = OnQueryMediaInMediaSetResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[321]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnQueryMediaInMediaSetResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnQueryMediaInMediaSetResponse) ProtoMessage() {}
+
+func (x *OnQueryMediaInMediaSetResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[321]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnQueryMediaInMediaSetResponse.ProtoReflect.Descriptor instead.
+func (*OnQueryMediaInMediaSetResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{321}
+}
+
+func (x *OnQueryMediaInMediaSetResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OnQueryMediaSetsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnQueryMediaSetsRequest) Reset() {
+	*x = OnQueryMediaSetsRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[322]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnQueryMediaSetsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnQueryMediaSetsRequest) ProtoMessage() {}
+
+func (x *OnQueryMediaSetsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[322]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnQueryMediaSetsRequest.ProtoReflect.Descriptor instead.
+func (*OnQueryMediaSetsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{322}
+}
+
+func (x *OnQueryMediaSetsRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *OnQueryMediaSetsRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *OnQueryMediaSetsRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type OnQueryMediaSetsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnQueryMediaSetsResponse) Reset() {
+	*x = OnQueryMediaSetsResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[323]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnQueryMediaSetsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnQueryMediaSetsResponse) ProtoMessage() {}
+
+func (x *OnQueryMediaSetsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[323]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnQueryMediaSetsResponse.ProtoReflect.Descriptor instead.
+func (*OnQueryMediaSetsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{323}
+}
+
+func (x *OnQueryMediaSetsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OnQuerySearchSuggestionsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnQuerySearchSuggestionsRequest) Reset() {
+	*x = OnQuerySearchSuggestionsRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[324]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnQuerySearchSuggestionsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnQuerySearchSuggestionsRequest) ProtoMessage() {}
+
+func (x *OnQuerySearchSuggestionsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[324]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnQuerySearchSuggestionsRequest.ProtoReflect.Descriptor instead.
+func (*OnQuerySearchSuggestionsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{324}
+}
+
+func (x *OnQuerySearchSuggestionsRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *OnQuerySearchSuggestionsRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *OnQuerySearchSuggestionsRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type OnQuerySearchSuggestionsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnQuerySearchSuggestionsResponse) Reset() {
+	*x = OnQuerySearchSuggestionsResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[325]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnQuerySearchSuggestionsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnQuerySearchSuggestionsResponse) ProtoMessage() {}
+
+func (x *OnQuerySearchSuggestionsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[325]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnQuerySearchSuggestionsResponse.ProtoReflect.Descriptor instead.
+func (*OnQuerySearchSuggestionsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{325}
+}
+
+func (x *OnQuerySearchSuggestionsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OnSearchMedia3Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnSearchMedia3Request) Reset() {
+	*x = OnSearchMedia3Request{}
+	mi := &file_proto_provider_provider_proto_msgTypes[326]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnSearchMedia3Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnSearchMedia3Request) ProtoMessage() {}
+
+func (x *OnSearchMedia3Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[326]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnSearchMedia3Request.ProtoReflect.Descriptor instead.
+func (*OnSearchMedia3Request) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{326}
+}
+
+func (x *OnSearchMedia3Request) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *OnSearchMedia3Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *OnSearchMedia3Request) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type OnSearchMedia3Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnSearchMedia3Response) Reset() {
+	*x = OnSearchMedia3Response{}
+	mi := &file_proto_provider_provider_proto_msgTypes[327]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnSearchMedia3Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnSearchMedia3Response) ProtoMessage() {}
+
+func (x *OnSearchMedia3Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[327]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnSearchMedia3Response.ProtoReflect.Descriptor instead.
+func (*OnSearchMedia3Response) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{327}
+}
+
+func (x *OnSearchMedia3Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OnSearchMedia4_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int64                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnSearchMedia4_1Request) Reset() {
+	*x = OnSearchMedia4_1Request{}
+	mi := &file_proto_provider_provider_proto_msgTypes[328]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnSearchMedia4_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnSearchMedia4_1Request) ProtoMessage() {}
+
+func (x *OnSearchMedia4_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[328]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnSearchMedia4_1Request.ProtoReflect.Descriptor instead.
+func (*OnSearchMedia4_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{328}
+}
+
+func (x *OnSearchMedia4_1Request) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *OnSearchMedia4_1Request) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *OnSearchMedia4_1Request) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *OnSearchMedia4_1Request) GetArg3() int64 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+type OnSearchMedia4_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnSearchMedia4_1Response) Reset() {
+	*x = OnSearchMedia4_1Response{}
+	mi := &file_proto_provider_provider_proto_msgTypes[329]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnSearchMedia4_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnSearchMedia4_1Response) ProtoMessage() {}
+
+func (x *OnSearchMedia4_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[329]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnSearchMedia4_1Response.ProtoReflect.Descriptor instead.
+func (*OnSearchMedia4_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{329}
+}
+
+func (x *OnSearchMedia4_1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type CloudMediaProviderUpdateRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          string                 `protobuf:"bytes,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int64                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CloudMediaProviderUpdateRequest) Reset() {
+	*x = CloudMediaProviderUpdateRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[330]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CloudMediaProviderUpdateRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CloudMediaProviderUpdateRequest) ProtoMessage() {}
+
+func (x *CloudMediaProviderUpdateRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[330]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CloudMediaProviderUpdateRequest.ProtoReflect.Descriptor instead.
+func (*CloudMediaProviderUpdateRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{330}
+}
+
+func (x *CloudMediaProviderUpdateRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *CloudMediaProviderUpdateRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *CloudMediaProviderUpdateRequest) GetArg2() string {
+	if x != nil {
+		return x.Arg2
+	}
+	return ""
+}
+
+func (x *CloudMediaProviderUpdateRequest) GetArg3() int64 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+type CloudMediaProviderUpdateResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CloudMediaProviderUpdateResponse) Reset() {
+	*x = CloudMediaProviderUpdateResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[331]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CloudMediaProviderUpdateResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CloudMediaProviderUpdateResponse) ProtoMessage() {}
+
+func (x *CloudMediaProviderUpdateResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[331]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CloudMediaProviderUpdateResponse.ProtoReflect.Descriptor instead.
+func (*CloudMediaProviderUpdateResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{331}
+}
+
+func (x *CloudMediaProviderUpdateResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OnConfigChangeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnConfigChangeRequest) Reset() {
+	*x = OnConfigChangeRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[332]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnConfigChangeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnConfigChangeRequest) ProtoMessage() {}
+
+func (x *OnConfigChangeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[332]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnConfigChangeRequest.ProtoReflect.Descriptor instead.
+func (*OnConfigChangeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{332}
+}
+
+func (x *OnConfigChangeRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnConfigChangeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnConfigChangeResponse) Reset() {
+	*x = OnConfigChangeResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[333]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnConfigChangeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnConfigChangeResponse) ProtoMessage() {}
+
+func (x *OnConfigChangeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[333]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnConfigChangeResponse.ProtoReflect.Descriptor instead.
+func (*OnConfigChangeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{333}
+}
+
+type OnDestroyRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnDestroyRequest) Reset() {
+	*x = OnDestroyRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[334]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnDestroyRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnDestroyRequest) ProtoMessage() {}
+
+func (x *OnDestroyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[334]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnDestroyRequest.ProtoReflect.Descriptor instead.
+func (*OnDestroyRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{334}
+}
+
+type OnDestroyResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnDestroyResponse) Reset() {
+	*x = OnDestroyResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[335]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnDestroyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnDestroyResponse) ProtoMessage() {}
+
+func (x *OnDestroyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[335]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnDestroyResponse.ProtoReflect.Descriptor instead.
+func (*OnDestroyResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{335}
+}
+
+type OnMediaPauseRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnMediaPauseRequest) Reset() {
+	*x = OnMediaPauseRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[336]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnMediaPauseRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnMediaPauseRequest) ProtoMessage() {}
+
+func (x *OnMediaPauseRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[336]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnMediaPauseRequest.ProtoReflect.Descriptor instead.
+func (*OnMediaPauseRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{336}
+}
+
+func (x *OnMediaPauseRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnMediaPauseResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnMediaPauseResponse) Reset() {
+	*x = OnMediaPauseResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[337]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnMediaPauseResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnMediaPauseResponse) ProtoMessage() {}
+
+func (x *OnMediaPauseResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[337]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnMediaPauseResponse.ProtoReflect.Descriptor instead.
+func (*OnMediaPauseResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{337}
+}
+
+type OnMediaPlayRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnMediaPlayRequest) Reset() {
+	*x = OnMediaPlayRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[338]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnMediaPlayRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnMediaPlayRequest) ProtoMessage() {}
+
+func (x *OnMediaPlayRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[338]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnMediaPlayRequest.ProtoReflect.Descriptor instead.
+func (*OnMediaPlayRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{338}
+}
+
+func (x *OnMediaPlayRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnMediaPlayResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnMediaPlayResponse) Reset() {
+	*x = OnMediaPlayResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[339]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnMediaPlayResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnMediaPlayResponse) ProtoMessage() {}
+
+func (x *OnMediaPlayResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[339]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnMediaPlayResponse.ProtoReflect.Descriptor instead.
+func (*OnMediaPlayResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{339}
+}
+
+type OnMediaSeekToRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnMediaSeekToRequest) Reset() {
+	*x = OnMediaSeekToRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[340]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnMediaSeekToRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnMediaSeekToRequest) ProtoMessage() {}
+
+func (x *OnMediaSeekToRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[340]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnMediaSeekToRequest.ProtoReflect.Descriptor instead.
+func (*OnMediaSeekToRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{340}
+}
+
+func (x *OnMediaSeekToRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnMediaSeekToRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type OnMediaSeekToResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnMediaSeekToResponse) Reset() {
+	*x = OnMediaSeekToResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[341]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnMediaSeekToResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnMediaSeekToResponse) ProtoMessage() {}
+
+func (x *OnMediaSeekToResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[341]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnMediaSeekToResponse.ProtoReflect.Descriptor instead.
+func (*OnMediaSeekToResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{341}
+}
+
+type OnPlayerCreateRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnPlayerCreateRequest) Reset() {
+	*x = OnPlayerCreateRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[342]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnPlayerCreateRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnPlayerCreateRequest) ProtoMessage() {}
+
+func (x *OnPlayerCreateRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[342]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnPlayerCreateRequest.ProtoReflect.Descriptor instead.
+func (*OnPlayerCreateRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{342}
+}
+
+type OnPlayerCreateResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnPlayerCreateResponse) Reset() {
+	*x = OnPlayerCreateResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[343]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnPlayerCreateResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnPlayerCreateResponse) ProtoMessage() {}
+
+func (x *OnPlayerCreateResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[343]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnPlayerCreateResponse.ProtoReflect.Descriptor instead.
+func (*OnPlayerCreateResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{343}
+}
+
+type OnPlayerReleaseRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnPlayerReleaseRequest) Reset() {
+	*x = OnPlayerReleaseRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[344]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnPlayerReleaseRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnPlayerReleaseRequest) ProtoMessage() {}
+
+func (x *OnPlayerReleaseRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[344]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnPlayerReleaseRequest.ProtoReflect.Descriptor instead.
+func (*OnPlayerReleaseRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{344}
+}
+
+type OnPlayerReleaseResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnPlayerReleaseResponse) Reset() {
+	*x = OnPlayerReleaseResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[345]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnPlayerReleaseResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnPlayerReleaseResponse) ProtoMessage() {}
+
+func (x *OnPlayerReleaseResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[345]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnPlayerReleaseResponse.ProtoReflect.Descriptor instead.
+func (*OnPlayerReleaseResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{345}
+}
+
+type OnSurfaceChangedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int32                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnSurfaceChangedRequest) Reset() {
+	*x = OnSurfaceChangedRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[346]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnSurfaceChangedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnSurfaceChangedRequest) ProtoMessage() {}
+
+func (x *OnSurfaceChangedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[346]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnSurfaceChangedRequest.ProtoReflect.Descriptor instead.
+func (*OnSurfaceChangedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{346}
+}
+
+func (x *OnSurfaceChangedRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnSurfaceChangedRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *OnSurfaceChangedRequest) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *OnSurfaceChangedRequest) GetArg3() int32 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+type OnSurfaceChangedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnSurfaceChangedResponse) Reset() {
+	*x = OnSurfaceChangedResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[347]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnSurfaceChangedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnSurfaceChangedResponse) ProtoMessage() {}
+
+func (x *OnSurfaceChangedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[347]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnSurfaceChangedResponse.ProtoReflect.Descriptor instead.
+func (*OnSurfaceChangedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{347}
+}
+
+type OnSurfaceCreatedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          string                 `protobuf:"bytes,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnSurfaceCreatedRequest) Reset() {
+	*x = OnSurfaceCreatedRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[348]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnSurfaceCreatedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnSurfaceCreatedRequest) ProtoMessage() {}
+
+func (x *OnSurfaceCreatedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[348]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnSurfaceCreatedRequest.ProtoReflect.Descriptor instead.
+func (*OnSurfaceCreatedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{348}
+}
+
+func (x *OnSurfaceCreatedRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnSurfaceCreatedRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *OnSurfaceCreatedRequest) GetArg2() string {
+	if x != nil {
+		return x.Arg2
+	}
+	return ""
+}
+
+type OnSurfaceCreatedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnSurfaceCreatedResponse) Reset() {
+	*x = OnSurfaceCreatedResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[349]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnSurfaceCreatedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnSurfaceCreatedResponse) ProtoMessage() {}
+
+func (x *OnSurfaceCreatedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[349]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnSurfaceCreatedResponse.ProtoReflect.Descriptor instead.
+func (*OnSurfaceCreatedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{349}
+}
+
+type OnSurfaceDestroyedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnSurfaceDestroyedRequest) Reset() {
+	*x = OnSurfaceDestroyedRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[350]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnSurfaceDestroyedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnSurfaceDestroyedRequest) ProtoMessage() {}
+
+func (x *OnSurfaceDestroyedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[350]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnSurfaceDestroyedRequest.ProtoReflect.Descriptor instead.
+func (*OnSurfaceDestroyedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{350}
+}
+
+func (x *OnSurfaceDestroyedRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnSurfaceDestroyedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnSurfaceDestroyedResponse) Reset() {
+	*x = OnSurfaceDestroyedResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[351]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnSurfaceDestroyedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnSurfaceDestroyedResponse) ProtoMessage() {}
+
+func (x *OnSurfaceDestroyedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[351]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnSurfaceDestroyedResponse.ProtoReflect.Descriptor instead.
+func (*OnSurfaceDestroyedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{351}
+}
+
+type SetPlaybackStateRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPlaybackStateRequest) Reset() {
+	*x = SetPlaybackStateRequest{}
+	mi := &file_proto_provider_provider_proto_msgTypes[352]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPlaybackStateRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPlaybackStateRequest) ProtoMessage() {}
+
+func (x *SetPlaybackStateRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[352]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPlaybackStateRequest.ProtoReflect.Descriptor instead.
+func (*SetPlaybackStateRequest) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{352}
+}
+
+func (x *SetPlaybackStateRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SetPlaybackStateRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *SetPlaybackStateRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type SetPlaybackStateResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPlaybackStateResponse) Reset() {
+	*x = SetPlaybackStateResponse{}
+	mi := &file_proto_provider_provider_proto_msgTypes[353]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPlaybackStateResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPlaybackStateResponse) ProtoMessage() {}
+
+func (x *SetPlaybackStateResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_provider_provider_proto_msgTypes[353]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPlaybackStateResponse.ProtoReflect.Descriptor instead.
+func (*SetPlaybackStateResponse) Descriptor() ([]byte, []int) {
+	return file_proto_provider_provider_proto_rawDescGZIP(), []int{353}
+}
+
 var File_proto_provider_provider_proto protoreflect.FileDescriptor
 
 const file_proto_provider_provider_proto_rawDesc = "" +
 	"\n" +
-	"\x1dproto/provider/provider.proto\x12\bproviderB2Z0github.com/AndroidGoLab/jni-proxy/proto/providerb\x06proto3"
+	"\x1dproto/provider/provider.proto\x12\bprovider\"\x19\n" +
+	"\x17DescribeContentsRequest\"2\n" +
+	"\x18DescribeContentsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"#\n" +
+	"\rEqualsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"(\n" +
+	"\x0eEqualsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x14\n" +
+	"\x12GetAccuracyRequest\"-\n" +
+	"\x13GetAccuracyResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x16\n" +
+	"\x14GetPowerUsageRequest\"/\n" +
+	"\x15GetPowerUsageResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1b\n" +
+	"\x19HasAltitudeSupportRequest\"4\n" +
+	"\x1aHasAltitudeSupportResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x1a\n" +
+	"\x18HasBearingSupportRequest\"3\n" +
+	"\x19HasBearingSupportResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x1b\n" +
+	"\x19HasCellRequirementRequest\"4\n" +
+	"\x1aHasCellRequirementResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x18\n" +
+	"\x16HasMonetaryCostRequest\"1\n" +
+	"\x17HasMonetaryCostResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x1e\n" +
+	"\x1cHasNetworkRequirementRequest\"7\n" +
+	"\x1dHasNetworkRequirementResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\" \n" +
+	"\x1eHasSatelliteRequirementRequest\"9\n" +
+	"\x1fHasSatelliteRequirementResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x18\n" +
+	"\x16HasSpeedSupportRequest\"1\n" +
+	"\x17HasSpeedSupportResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x11\n" +
+	"\x0fHashCodeRequest\"*\n" +
+	"\x10HashCodeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x11\n" +
+	"\x0fToStringRequest\"*\n" +
+	"\x10ToStringResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\">\n" +
+	"\x14WriteToParcelRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x17\n" +
+	"\x15WriteToParcelResponse\"\x0e\n" +
+	"\fBuildRequest\"'\n" +
+	"\rBuildResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"(\n" +
+	"\x12SetAccuracyRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"-\n" +
+	"\x13SetAccuracyResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"2\n" +
+	"\x1cSetHasAltitudeSupportRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"7\n" +
+	"\x1dSetHasAltitudeSupportResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"1\n" +
+	"\x1bSetHasBearingSupportRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"6\n" +
+	"\x1cSetHasBearingSupportResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"2\n" +
+	"\x1cSetHasCellRequirementRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"7\n" +
+	"\x1dSetHasCellRequirementResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"/\n" +
+	"\x19SetHasMonetaryCostRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"4\n" +
+	"\x1aSetHasMonetaryCostResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"5\n" +
+	"\x1fSetHasNetworkRequirementRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\":\n" +
+	" SetHasNetworkRequirementResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"7\n" +
+	"!SetHasSatelliteRequirementRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"<\n" +
+	"\"SetHasSatelliteRequirementResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"/\n" +
+	"\x19SetHasSpeedSupportRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"4\n" +
+	"\x1aSetHasSpeedSupportResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"*\n" +
+	"\x14SetPowerUsageRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"/\n" +
+	"\x15SetPowerUsageResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"H\n" +
+	"\n" +
+	"GetRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"%\n" +
+	"\vGetResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"_\n" +
+	"\rInsertRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\"(\n" +
+	"\x0eInsertResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"T\n" +
+	"\x16NewSetOperationRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"1\n" +
+	"\x17NewSetOperationResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"C\n" +
+	"\x19NewUpdateOperationRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"4\n" +
+	"\x1aNewUpdateOperationResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\\\n" +
+	"\n" +
+	"SetRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\"\r\n" +
+	"\vSetResponse\"K\n" +
+	"\rUpdateRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"\x10\n" +
+	"\x0eUpdateResponse\"S\n" +
+	"\x15NewFontRequestRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\tR\x04arg2\"0\n" +
+	"\x16NewFontRequestResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"5\n" +
+	"\x1bGetProviderAuthorityRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"6\n" +
+	"\x1cGetProviderAuthorityResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"3\n" +
+	"\x19GetProviderPackageRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"4\n" +
+	"\x1aGetProviderPackageResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\")\n" +
+	"\x0fGetQueryRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
+	"\x10GetQueryResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"4\n" +
+	"\x1aFontRequestToStringRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"_\n" +
+	"!NewSearchRecentSuggestionsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\"<\n" +
+	"\"NewSearchRecentSuggestionsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"-\n" +
+	"\x13ClearHistoryRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x16\n" +
+	"\x14ClearHistoryResponse\"X\n" +
+	"\x16SaveRecentQueryRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\tR\x04arg1\"\x19\n" +
+	"\x17SaveRecentQueryResponse\";\n" +
+	"\x11AttachInfoRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x14\n" +
+	"\x12AttachInfoResponse\"I\n" +
+	"\vCallRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"&\n" +
+	"\fCallResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\")\n" +
+	"\x13CanonicalizeRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\".\n" +
+	"\x14CanonicalizeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"=\n" +
+	"\x13CopyDocumentRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\".\n" +
+	"\x14CopyDocumentResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"S\n" +
+	"\x15CreateDocumentRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\tR\x04arg2\"0\n" +
+	"\x16CreateDocumentResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"D\n" +
+	"\x1aCreateWebLinkIntentRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"5\n" +
+	"\x1bCreateWebLinkIntentResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"K\n" +
+	"\rDeleteRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"(\n" +
+	"\x0eDeleteResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"+\n" +
+	"\x15DeleteDocumentRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"\x18\n" +
+	"\x16DeleteDocumentResponse\"&\n" +
+	"\x10EjectRootRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"\x13\n" +
+	"\x11EjectRootResponse\"A\n" +
+	"\x17FindDocumentPathRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\"2\n" +
+	"\x18FindDocumentPathResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"0\n" +
+	"\x1aGetDocumentMetadataRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"5\n" +
+	"\x1bGetDocumentMetadataResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"G\n" +
+	"\x1dGetDocumentStreamTypesRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\"8\n" +
+	"\x1eGetDocumentStreamTypesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\",\n" +
+	"\x16GetDocumentTypeRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"1\n" +
+	"\x17GetDocumentTypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"?\n" +
+	"\x15GetStreamTypesRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\"0\n" +
+	"\x16GetStreamTypesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"$\n" +
+	"\x0eGetTypeRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\")\n" +
+	"\x0fGetTypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"-\n" +
+	"\x17GetTypeAnonymousRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"2\n" +
+	"\x18GetTypeAnonymousResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"H\n" +
+	"\x1eDocumentsProviderInsertRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"@\n" +
+	"\x16IsChildDocumentRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\"1\n" +
+	"\x17IsChildDocumentResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"Q\n" +
+	"\x13MoveDocumentRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\tR\x04arg2\".\n" +
+	"\x14MoveDocumentResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"?\n" +
+	"\x15OpenAssetFile2Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\"0\n" +
+	"\x16OpenAssetFile2Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"U\n" +
+	"\x17OpenAssetFile3_1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"2\n" +
+	"\x18OpenAssetFile3_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"Q\n" +
+	"\x13OpenDocumentRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\".\n" +
+	"\x14OpenDocumentResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"Z\n" +
+	"\x1cOpenDocumentThumbnailRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"7\n" +
+	"\x1dOpenDocumentThumbnailResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\":\n" +
+	"\x10OpenFile2Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\"+\n" +
+	"\x11OpenFile2Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"P\n" +
+	"\x12OpenFile3_1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"-\n" +
+	"\x13OpenFile3_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"X\n" +
+	"\x1aOpenTypedAssetFile3Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"5\n" +
+	"\x1bOpenTypedAssetFile3Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"n\n" +
+	"\x1cOpenTypedAssetFile4_1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\"7\n" +
+	"\x1dOpenTypedAssetFile4_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"j\n" +
+	"\x18OpenTypedDocumentRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\"3\n" +
+	"\x19OpenTypedDocumentResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"_\n" +
+	"\rQuery4Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\"(\n" +
+	"\x0eQuery4Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"u\n" +
+	"\x0fQuery5_1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\tR\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\x12\x12\n" +
+	"\x04arg4\x18\x05 \x01(\tR\x04arg4\"*\n" +
+	"\x10Query5_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x89\x01\n" +
+	"\x0fQuery6_2Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\tR\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\x12\x12\n" +
+	"\x04arg4\x18\x05 \x01(\tR\x04arg4\x12\x12\n" +
+	"\x04arg5\x18\x06 \x01(\x03R\x04arg5\"*\n" +
+	"\x10Query6_2Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"Y\n" +
+	"\x1bQueryChildDocuments3Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"6\n" +
+	"\x1cQueryChildDocuments3Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"[\n" +
+	"\x1dQueryChildDocuments3_1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\tR\x04arg2\"8\n" +
+	"\x1eQueryChildDocuments3_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\">\n" +
+	"\x14QueryDocumentRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"/\n" +
+	"\x15QueryDocumentResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"F\n" +
+	"\x1cQueryRecentDocuments2Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"7\n" +
+	"\x1dQueryRecentDocuments2Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"p\n" +
+	"\x1eQueryRecentDocuments4_1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\"9\n" +
+	"\x1fQueryRecentDocuments4_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"'\n" +
+	"\x11QueryRootsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\",\n" +
+	"\x12QueryRootsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"Z\n" +
+	"\x1cQuerySearchDocuments3Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"7\n" +
+	"\x1dQuerySearchDocuments3Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\\\n" +
+	"\x1eQuerySearchDocuments3_1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"9\n" +
+	"\x1fQuerySearchDocuments3_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"?\n" +
+	"\x15RemoveDocumentRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\"\x18\n" +
+	"\x16RemoveDocumentResponse\"?\n" +
+	"\x15RenameDocumentRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\"0\n" +
+	"\x16RenameDocumentResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"5\n" +
+	"\x1fRevokeDocumentPermissionRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"\"\n" +
+	" RevokeDocumentPermissionResponse\"p\n" +
+	"\x1eDocumentsProviderUpdateRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\tR\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\"9\n" +
+	"\x1fDocumentsProviderUpdateResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"j\n" +
+	"\x18AddPostalLocationRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x01R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x01R\x04arg3\"\x1b\n" +
+	"\x19AddPostalLocationResponse\"-\n" +
+	"\x17DecodeImProtocolRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"2\n" +
+	"\x18DecodeImProtocolResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"3\n" +
+	"\x1dEncodeCustomImProtocolRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"8\n" +
+	"\x1eEncodeCustomImProtocolResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"7\n" +
+	"!EncodePredefinedImProtocolRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"<\n" +
+	"\"EncodePredefinedImProtocolResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"h\n" +
+	"\x16GetDisplayLabelRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\tR\x04arg3\"1\n" +
+	"\x17GetDisplayLabelResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"i\n" +
+	"+ContactsOrganizationsGetDisplayLabelRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\tR\x04arg2\"P\n" +
+	"\x12AddToGroup3Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\tR\x04arg2\"-\n" +
+	"\x13AddToGroup3Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"R\n" +
+	"\x14AddToGroup3_1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"/\n" +
+	"\x15AddToGroup3_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"E\n" +
+	"\x1bAddToMyContactsGroupRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"6\n" +
+	"\x1cAddToMyContactsGroupResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"N\n" +
+	"$CreatePersonInMyContactsGroupRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"?\n" +
+	"%CreatePersonInMyContactsGroupResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"i\n" +
+	"\x17LoadContactPhotoRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\"2\n" +
+	"\x18LoadContactPhotoResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"@\n" +
+	"\x16MarkAsContactedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x19\n" +
+	"\x17MarkAsContactedResponse\"L\n" +
+	"\"OpenContactPhotoInputStreamRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"=\n" +
+	"#OpenContactPhotoInputStreamResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"<\n" +
+	"\x12QueryGroupsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"-\n" +
+	"\x13QueryGroupsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"Q\n" +
+	"\x13SetPhotoDataRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"\x16\n" +
+	"\x14SetPhotoDataResponse\"U\n" +
+	"\x17GetDisplayLabel3Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\tR\x04arg2\"2\n" +
+	"\x18GetDisplayLabel3Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"k\n" +
+	"\x19GetDisplayLabel4_1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\tR\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\"4\n" +
+	"\x1aGetDisplayLabel4_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"O\n" +
+	"\x11GetSettingRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\tR\x04arg2\",\n" +
+	"\x12GetSettingResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"c\n" +
+	"\x11SetSettingRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\tR\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\tR\x04arg3\"\x14\n" +
+	"\x12SetSettingResponse\"a\n" +
+	"\x0fAddWord4Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x05R\x04arg3\"\x12\n" +
+	"\x10AddWord4Response\"w\n" +
+	"\x11AddWord5_1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\tR\x04arg3\x12\x12\n" +
+	"\x04arg4\x18\x05 \x01(\x03R\x04arg4\"\x14\n" +
+	"\x12AddWord5_1Response\"7\n" +
+	"!CanCurrentUserBlockNumbersRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"<\n" +
+	"\"CanCurrentUserBlockNumbersResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\":\n" +
+	"\x10IsBlockedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\"+\n" +
+	"\x11IsBlockedResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"8\n" +
+	"\x0eUnblockRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\")\n" +
+	"\x0fUnblockResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"!\n" +
+	"\x1fIsMediaCategoriesEnabledRequest\":\n" +
+	" IsMediaCategoriesEnabledResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x18\n" +
+	"\x16IsSearchEnabledRequest\"1\n" +
+	"\x17IsSearchEnabledResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"7\n" +
+	"5CloudMediaProviderContractCapabilitiesToStringRequest\"V\n" +
+	"\x18GetE2eeContactKeyRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\tR\x04arg2\"3\n" +
+	"\x19GetE2eeContactKeyResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"?\n" +
+	"\x15GetE2eeSelfKeyRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\"0\n" +
+	"\x16GetE2eeSelfKeyResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"Y\n" +
+	"\x1bRemoveE2eeContactKeyRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\tR\x04arg2\"6\n" +
+	"\x1cRemoveE2eeContactKeyResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"B\n" +
+	"\x18RemoveE2eeSelfKeyRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\"3\n" +
+	"\x19RemoveE2eeSelfKeyResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x83\x01\n" +
+	"1UpdateE2eeContactKeyLocalVerificationStateRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\tR\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x05R\x04arg3\"L\n" +
+	"2UpdateE2eeContactKeyLocalVerificationStateResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x84\x01\n" +
+	"2UpdateE2eeContactKeyRemoteVerificationStateRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\tR\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x05R\x04arg3\"M\n" +
+	"3UpdateE2eeContactKeyRemoteVerificationStateResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"m\n" +
+	"/UpdateE2eeSelfKeyRemoteVerificationStateRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\"J\n" +
+	"0UpdateE2eeSelfKeyRemoteVerificationStateResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"u\n" +
+	"#UpdateOrInsertE2eeContactKeyRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\tR\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\"&\n" +
+	"$UpdateOrInsertE2eeContactKeyResponse\"^\n" +
+	" UpdateOrInsertE2eeSelfKeyRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\";\n" +
+	"!UpdateOrInsertE2eeSelfKeyResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x1b\n" +
+	"\x19GetMaxKeySizeBytesRequest\"4\n" +
+	"\x1aGetMaxKeySizeBytesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x15\n" +
+	"\x13GetAccountIdRequest\".\n" +
+	"\x14GetAccountIdResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x14\n" +
+	"\x12GetDeviceIdRequest\"-\n" +
+	"\x13GetDeviceIdResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x17\n" +
+	"\x15GetDisplayNameRequest\"0\n" +
+	"\x16GetDisplayNameResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x18\n" +
+	"\x16GetEmailAddressRequest\"1\n" +
+	"\x17GetEmailAddressResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x14\n" +
+	"\x12GetKeyValueRequest\"-\n" +
+	"\x13GetKeyValueResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\"\n" +
+	" GetLocalVerificationStateRequest\";\n" +
+	"!GetLocalVerificationStateResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1c\n" +
+	"\x1aGetOwnerPackageNameRequest\"5\n" +
+	"\x1bGetOwnerPackageNameResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x17\n" +
+	"\x15GetPhoneNumberRequest\"0\n" +
+	"\x16GetPhoneNumberResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"#\n" +
+	"!GetRemoteVerificationStateRequest\"<\n" +
+	"\"GetRemoteVerificationStateResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x17\n" +
+	"\x15GetTimeUpdatedRequest\"0\n" +
+	"\x16GetTimeUpdatedResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"+\n" +
+	"\x15BuildSourceUriRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"0\n" +
+	"\x16BuildSourceUriResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"E\n" +
+	"/GetSpecificCarrierIdUriForSubscriptionIdRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"J\n" +
+	"0GetSpecificCarrierIdUriForSubscriptionIdResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"4\n" +
+	"\x1eGetUriForSubscriptionIdRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"9\n" +
+	"\x1fGetUriForSubscriptionIdResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"P\n" +
+	"&GetUriForSubscriptionIdAndFieldRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\"A\n" +
+	"'GetUriForSubscriptionIdAndFieldResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"1\n" +
+	"\x1bGetDefaultSmsPackageRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"6\n" +
+	"\x1cGetDefaultSmsPackageResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"D\n" +
+	"\x1aGetOrCreateThreadIdRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\"5\n" +
+	"\x1bGetOrCreateThreadIdResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\";\n" +
+	"\x11GetItemUriRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\",\n" +
+	"\x12GetItemUriResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\">\n" +
+	"\x14GetContentUriRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"/\n" +
+	"\x15GetContentUriResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"E\n" +
+	"\x1bGetEncodedNameLengthRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\"6\n" +
+	"\x1cGetEncodedNameLengthResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"m\n" +
+	"/SimPhonebookContractSimRecordsGetItemUriRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\"R\n" +
+	"\x14BuildTypefaceRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"/\n" +
+	"\x15BuildTypefaceResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"O\n" +
+	"\x11FetchFontsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\",\n" +
+	"\x12FetchFontsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x11\n" +
+	"\x0fGetFontsRequest\"*\n" +
+	"\x10GetFontsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x16\n" +
+	"\x14GetStatusCodeRequest\"/\n" +
+	"\x15GetStatusCodeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x10\n" +
+	"\x0eGetAxesRequest\")\n" +
+	"\x0fGetAxesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x16\n" +
+	"\x14GetResultCodeRequest\"/\n" +
+	"\x15GetResultCodeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x14\n" +
+	"\x12GetTtcIndexRequest\"-\n" +
+	"\x13GetTtcIndexResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x0f\n" +
+	"\rGetUriRequest\"(\n" +
+	"\x0eGetUriResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x12\n" +
+	"\x10GetWeightRequest\"+\n" +
+	"\x11GetWeightResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x11\n" +
+	"\x0fIsItalicRequest\"*\n" +
+	"\x10IsItalicResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"4\n" +
+	"\x1eOnTypefaceRequestFailedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"!\n" +
+	"\x1fOnTypefaceRequestFailedResponse\"0\n" +
+	"\x1aOnTypefaceRetrievedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x1d\n" +
+	"\x1bOnTypefaceRetrievedResponse\"0\n" +
+	"\x1aGetLastOutgoingCallRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"5\n" +
+	"\x1bGetLastOutgoingCallResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x13\n" +
+	"\x11NewBrowserRequest\",\n" +
+	"\x12NewBrowserResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"S\n" +
+	"\x11SendStringRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\tR\x04arg1\"\x14\n" +
+	"\x12SendStringResponse\"I\n" +
+	"\x1fCloudMediaProviderInsertRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"T\n" +
+	"*OnCreateCloudMediaSurfaceControllerRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"E\n" +
+	"+OnCreateCloudMediaSurfaceControllerResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1a\n" +
+	"\x18OnGetCapabilitiesRequest\"3\n" +
+	"\x19OnGetCapabilitiesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"5\n" +
+	"\x1fOnGetMediaCollectionInfoRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\":\n" +
+	" OnGetMediaCollectionInfoResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"P\n" +
+	"\x12OnOpenMediaRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"-\n" +
+	"\x13OnOpenMediaResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"f\n" +
+	"\x14OnOpenPreviewRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\"/\n" +
+	"\x15OnOpenPreviewResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"*\n" +
+	"\x14OnQueryAlbumsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"/\n" +
+	"\x15OnQueryAlbumsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"0\n" +
+	"\x1aOnQueryDeletedMediaRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"5\n" +
+	"\x1bOnQueryDeletedMediaResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\")\n" +
+	"\x13OnQueryMediaRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\".\n" +
+	"\x14OnQueryMediaResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"[\n" +
+	"\x1dOnQueryMediaCategoriesRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"8\n" +
+	"\x1eOnQueryMediaCategoriesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"[\n" +
+	"\x1dOnQueryMediaInMediaSetRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"8\n" +
+	"\x1eOnQueryMediaInMediaSetResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"U\n" +
+	"\x17OnQueryMediaSetsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"2\n" +
+	"\x18OnQueryMediaSetsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"]\n" +
+	"\x1fOnQuerySearchSuggestionsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\":\n" +
+	" OnQuerySearchSuggestionsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"S\n" +
+	"\x15OnSearchMedia3Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"0\n" +
+	"\x16OnSearchMedia3Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"i\n" +
+	"\x17OnSearchMedia4_1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\"2\n" +
+	"\x18OnSearchMedia4_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"q\n" +
+	"\x1fCloudMediaProviderUpdateRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\tR\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\":\n" +
+	" CloudMediaProviderUpdateResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"+\n" +
+	"\x15OnConfigChangeRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x18\n" +
+	"\x16OnConfigChangeResponse\"\x12\n" +
+	"\x10OnDestroyRequest\"\x13\n" +
+	"\x11OnDestroyResponse\")\n" +
+	"\x13OnMediaPauseRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"\x16\n" +
+	"\x14OnMediaPauseResponse\"(\n" +
+	"\x12OnMediaPlayRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"\x15\n" +
+	"\x13OnMediaPlayResponse\">\n" +
+	"\x14OnMediaSeekToRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x17\n" +
+	"\x15OnMediaSeekToResponse\"\x17\n" +
+	"\x15OnPlayerCreateRequest\"\x18\n" +
+	"\x16OnPlayerCreateResponse\"\x18\n" +
+	"\x16OnPlayerReleaseRequest\"\x19\n" +
+	"\x17OnPlayerReleaseResponse\"i\n" +
+	"\x17OnSurfaceChangedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x05R\x04arg3\"\x1a\n" +
+	"\x18OnSurfaceChangedResponse\"U\n" +
+	"\x17OnSurfaceCreatedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\tR\x04arg2\"\x1a\n" +
+	"\x18OnSurfaceCreatedResponse\"/\n" +
+	"\x19OnSurfaceDestroyedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"\x1c\n" +
+	"\x1aOnSurfaceDestroyedResponse\"U\n" +
+	"\x17SetPlaybackStateRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"\x1a\n" +
+	"\x18SetPlaybackStateResponse2\xcb\t\n" +
+	"\x11PropertiesService\x12Y\n" +
+	"\x10DescribeContents\x12!.provider.DescribeContentsRequest\x1a\".provider.DescribeContentsResponse\x12;\n" +
+	"\x06Equals\x12\x17.provider.EqualsRequest\x1a\x18.provider.EqualsResponse\x12J\n" +
+	"\vGetAccuracy\x12\x1c.provider.GetAccuracyRequest\x1a\x1d.provider.GetAccuracyResponse\x12P\n" +
+	"\rGetPowerUsage\x12\x1e.provider.GetPowerUsageRequest\x1a\x1f.provider.GetPowerUsageResponse\x12_\n" +
+	"\x12HasAltitudeSupport\x12#.provider.HasAltitudeSupportRequest\x1a$.provider.HasAltitudeSupportResponse\x12\\\n" +
+	"\x11HasBearingSupport\x12\".provider.HasBearingSupportRequest\x1a#.provider.HasBearingSupportResponse\x12_\n" +
+	"\x12HasCellRequirement\x12#.provider.HasCellRequirementRequest\x1a$.provider.HasCellRequirementResponse\x12V\n" +
+	"\x0fHasMonetaryCost\x12 .provider.HasMonetaryCostRequest\x1a!.provider.HasMonetaryCostResponse\x12h\n" +
+	"\x15HasNetworkRequirement\x12&.provider.HasNetworkRequirementRequest\x1a'.provider.HasNetworkRequirementResponse\x12n\n" +
+	"\x17HasSatelliteRequirement\x12(.provider.HasSatelliteRequirementRequest\x1a).provider.HasSatelliteRequirementResponse\x12V\n" +
+	"\x0fHasSpeedSupport\x12 .provider.HasSpeedSupportRequest\x1a!.provider.HasSpeedSupportResponse\x12A\n" +
+	"\bHashCode\x12\x19.provider.HashCodeRequest\x1a\x1a.provider.HashCodeResponse\x12A\n" +
+	"\bToString\x12\x19.provider.ToStringRequest\x1a\x1a.provider.ToStringResponse\x12P\n" +
+	"\rWriteToParcel\x12\x1e.provider.WriteToParcelRequest\x1a\x1f.provider.WriteToParcelResponse2\xdb\a\n" +
+	"\x18PropertiesBuilderService\x128\n" +
+	"\x05Build\x12\x16.provider.BuildRequest\x1a\x17.provider.BuildResponse\x12J\n" +
+	"\vSetAccuracy\x12\x1c.provider.SetAccuracyRequest\x1a\x1d.provider.SetAccuracyResponse\x12h\n" +
+	"\x15SetHasAltitudeSupport\x12&.provider.SetHasAltitudeSupportRequest\x1a'.provider.SetHasAltitudeSupportResponse\x12e\n" +
+	"\x14SetHasBearingSupport\x12%.provider.SetHasBearingSupportRequest\x1a&.provider.SetHasBearingSupportResponse\x12h\n" +
+	"\x15SetHasCellRequirement\x12&.provider.SetHasCellRequirementRequest\x1a'.provider.SetHasCellRequirementResponse\x12_\n" +
+	"\x12SetHasMonetaryCost\x12#.provider.SetHasMonetaryCostRequest\x1a$.provider.SetHasMonetaryCostResponse\x12q\n" +
+	"\x18SetHasNetworkRequirement\x12).provider.SetHasNetworkRequirementRequest\x1a*.provider.SetHasNetworkRequirementResponse\x12w\n" +
+	"\x1aSetHasSatelliteRequirement\x12+.provider.SetHasSatelliteRequirementRequest\x1a,.provider.SetHasSatelliteRequirementResponse\x12_\n" +
+	"\x12SetHasSpeedSupport\x12#.provider.SetHasSpeedSupportRequest\x1a$.provider.SetHasSpeedSupportResponse\x12P\n" +
+	"\rSetPowerUsage\x12\x1e.provider.SetPowerUsageRequest\x1a\x1f.provider.SetPowerUsageResponse2\xbc\x03\n" +
+	"\x1fSyncStateContractHelpersService\x122\n" +
+	"\x03Get\x12\x14.provider.GetRequest\x1a\x15.provider.GetResponse\x12;\n" +
+	"\x06Insert\x12\x17.provider.InsertRequest\x1a\x18.provider.InsertResponse\x12V\n" +
+	"\x0fNewSetOperation\x12 .provider.NewSetOperationRequest\x1a!.provider.NewSetOperationResponse\x12_\n" +
+	"\x12NewUpdateOperation\x12#.provider.NewUpdateOperationRequest\x1a$.provider.NewUpdateOperationResponse\x122\n" +
+	"\x03Set\x12\x14.provider.SetRequest\x1a\x15.provider.SetResponse\x12;\n" +
+	"\x06Update\x12\x17.provider.UpdateRequest\x1a\x18.provider.UpdateResponse2\xc2\x03\n" +
+	"\x12FontRequestService\x12S\n" +
+	"\x0eNewFontRequest\x12\x1f.provider.NewFontRequestRequest\x1a .provider.NewFontRequestResponse\x12e\n" +
+	"\x14GetProviderAuthority\x12%.provider.GetProviderAuthorityRequest\x1a&.provider.GetProviderAuthorityResponse\x12_\n" +
+	"\x12GetProviderPackage\x12#.provider.GetProviderPackageRequest\x1a$.provider.GetProviderPackageResponse\x12A\n" +
+	"\bGetQuery\x12\x19.provider.GetQueryRequest\x1a\x1a.provider.GetQueryResponse\x12L\n" +
+	"\bToString\x12$.provider.FontRequestToStringRequest\x1a\x1a.provider.ToStringResponse2\xc0\x02\n" +
+	"\x1eSearchRecentSuggestionsService\x12w\n" +
+	"\x1aNewSearchRecentSuggestions\x12+.provider.NewSearchRecentSuggestionsRequest\x1a,.provider.NewSearchRecentSuggestionsResponse\x12M\n" +
+	"\fClearHistory\x12\x1d.provider.ClearHistoryRequest\x1a\x1e.provider.ClearHistoryResponse\x12V\n" +
+	"\x0fSaveRecentQuery\x12 .provider.SaveRecentQueryRequest\x1a!.provider.SaveRecentQueryResponse2\xbb\x1d\n" +
+	"\x18DocumentsProviderService\x12G\n" +
+	"\n" +
+	"AttachInfo\x12\x1b.provider.AttachInfoRequest\x1a\x1c.provider.AttachInfoResponse\x125\n" +
+	"\x04Call\x12\x15.provider.CallRequest\x1a\x16.provider.CallResponse\x12M\n" +
+	"\fCanonicalize\x12\x1d.provider.CanonicalizeRequest\x1a\x1e.provider.CanonicalizeResponse\x12M\n" +
+	"\fCopyDocument\x12\x1d.provider.CopyDocumentRequest\x1a\x1e.provider.CopyDocumentResponse\x12S\n" +
+	"\x0eCreateDocument\x12\x1f.provider.CreateDocumentRequest\x1a .provider.CreateDocumentResponse\x12b\n" +
+	"\x13CreateWebLinkIntent\x12$.provider.CreateWebLinkIntentRequest\x1a%.provider.CreateWebLinkIntentResponse\x12;\n" +
+	"\x06Delete\x12\x17.provider.DeleteRequest\x1a\x18.provider.DeleteResponse\x12S\n" +
+	"\x0eDeleteDocument\x12\x1f.provider.DeleteDocumentRequest\x1a .provider.DeleteDocumentResponse\x12D\n" +
+	"\tEjectRoot\x12\x1a.provider.EjectRootRequest\x1a\x1b.provider.EjectRootResponse\x12Y\n" +
+	"\x10FindDocumentPath\x12!.provider.FindDocumentPathRequest\x1a\".provider.FindDocumentPathResponse\x12b\n" +
+	"\x13GetDocumentMetadata\x12$.provider.GetDocumentMetadataRequest\x1a%.provider.GetDocumentMetadataResponse\x12k\n" +
+	"\x16GetDocumentStreamTypes\x12'.provider.GetDocumentStreamTypesRequest\x1a(.provider.GetDocumentStreamTypesResponse\x12V\n" +
+	"\x0fGetDocumentType\x12 .provider.GetDocumentTypeRequest\x1a!.provider.GetDocumentTypeResponse\x12S\n" +
+	"\x0eGetStreamTypes\x12\x1f.provider.GetStreamTypesRequest\x1a .provider.GetStreamTypesResponse\x12>\n" +
+	"\aGetType\x12\x18.provider.GetTypeRequest\x1a\x19.provider.GetTypeResponse\x12Y\n" +
+	"\x10GetTypeAnonymous\x12!.provider.GetTypeAnonymousRequest\x1a\".provider.GetTypeAnonymousResponse\x12L\n" +
+	"\x06Insert\x12(.provider.DocumentsProviderInsertRequest\x1a\x18.provider.InsertResponse\x12V\n" +
+	"\x0fIsChildDocument\x12 .provider.IsChildDocumentRequest\x1a!.provider.IsChildDocumentResponse\x12M\n" +
+	"\fMoveDocument\x12\x1d.provider.MoveDocumentRequest\x1a\x1e.provider.MoveDocumentResponse\x12S\n" +
+	"\x0eOpenAssetFile2\x12\x1f.provider.OpenAssetFile2Request\x1a .provider.OpenAssetFile2Response\x12Y\n" +
+	"\x10OpenAssetFile3_1\x12!.provider.OpenAssetFile3_1Request\x1a\".provider.OpenAssetFile3_1Response\x12M\n" +
+	"\fOpenDocument\x12\x1d.provider.OpenDocumentRequest\x1a\x1e.provider.OpenDocumentResponse\x12h\n" +
+	"\x15OpenDocumentThumbnail\x12&.provider.OpenDocumentThumbnailRequest\x1a'.provider.OpenDocumentThumbnailResponse\x12D\n" +
+	"\tOpenFile2\x12\x1a.provider.OpenFile2Request\x1a\x1b.provider.OpenFile2Response\x12J\n" +
+	"\vOpenFile3_1\x12\x1c.provider.OpenFile3_1Request\x1a\x1d.provider.OpenFile3_1Response\x12b\n" +
+	"\x13OpenTypedAssetFile3\x12$.provider.OpenTypedAssetFile3Request\x1a%.provider.OpenTypedAssetFile3Response\x12h\n" +
+	"\x15OpenTypedAssetFile4_1\x12&.provider.OpenTypedAssetFile4_1Request\x1a'.provider.OpenTypedAssetFile4_1Response\x12\\\n" +
+	"\x11OpenTypedDocument\x12\".provider.OpenTypedDocumentRequest\x1a#.provider.OpenTypedDocumentResponse\x12;\n" +
+	"\x06Query4\x12\x17.provider.Query4Request\x1a\x18.provider.Query4Response\x12A\n" +
+	"\bQuery5_1\x12\x19.provider.Query5_1Request\x1a\x1a.provider.Query5_1Response\x12A\n" +
+	"\bQuery6_2\x12\x19.provider.Query6_2Request\x1a\x1a.provider.Query6_2Response\x12e\n" +
+	"\x14QueryChildDocuments3\x12%.provider.QueryChildDocuments3Request\x1a&.provider.QueryChildDocuments3Response\x12k\n" +
+	"\x16QueryChildDocuments3_1\x12'.provider.QueryChildDocuments3_1Request\x1a(.provider.QueryChildDocuments3_1Response\x12P\n" +
+	"\rQueryDocument\x12\x1e.provider.QueryDocumentRequest\x1a\x1f.provider.QueryDocumentResponse\x12h\n" +
+	"\x15QueryRecentDocuments2\x12&.provider.QueryRecentDocuments2Request\x1a'.provider.QueryRecentDocuments2Response\x12n\n" +
+	"\x17QueryRecentDocuments4_1\x12(.provider.QueryRecentDocuments4_1Request\x1a).provider.QueryRecentDocuments4_1Response\x12G\n" +
+	"\n" +
+	"QueryRoots\x12\x1b.provider.QueryRootsRequest\x1a\x1c.provider.QueryRootsResponse\x12h\n" +
+	"\x15QuerySearchDocuments3\x12&.provider.QuerySearchDocuments3Request\x1a'.provider.QuerySearchDocuments3Response\x12n\n" +
+	"\x17QuerySearchDocuments3_1\x12(.provider.QuerySearchDocuments3_1Request\x1a).provider.QuerySearchDocuments3_1Response\x12S\n" +
+	"\x0eRemoveDocument\x12\x1f.provider.RemoveDocumentRequest\x1a .provider.RemoveDocumentResponse\x12S\n" +
+	"\x0eRenameDocument\x12\x1f.provider.RenameDocumentRequest\x1a .provider.RenameDocumentResponse\x12q\n" +
+	"\x18RevokeDocumentPermission\x12).provider.RevokeDocumentPermissionRequest\x1a*.provider.RevokeDocumentPermissionResponse\x12]\n" +
+	"\x06Update\x12(.provider.DocumentsProviderUpdateRequest\x1a).provider.DocumentsProviderUpdateResponse2\x96\x04\n" +
+	"\x1dContactsContactMethodsService\x12\\\n" +
+	"\x11AddPostalLocation\x12\".provider.AddPostalLocationRequest\x1a#.provider.AddPostalLocationResponse\x12Y\n" +
+	"\x10DecodeImProtocol\x12!.provider.DecodeImProtocolRequest\x1a\".provider.DecodeImProtocolResponse\x12k\n" +
+	"\x16EncodeCustomImProtocol\x12'.provider.EncodeCustomImProtocolRequest\x1a(.provider.EncodeCustomImProtocolResponse\x12w\n" +
+	"\x1aEncodePredefinedImProtocol\x12+.provider.EncodePredefinedImProtocolRequest\x1a,.provider.EncodePredefinedImProtocolResponse\x12V\n" +
+	"\x0fGetDisplayLabel\x12 .provider.GetDisplayLabelRequest\x1a!.provider.GetDisplayLabelResponse2\x8b\x01\n" +
+	"\x1cContactsOrganizationsService\x12k\n" +
+	"\x0fGetDisplayLabel\x125.provider.ContactsOrganizationsGetDisplayLabelRequest\x1a!.provider.GetDisplayLabelResponse2\xe9\x06\n" +
+	"\x15ContactsPeopleService\x12J\n" +
+	"\vAddToGroup3\x12\x1c.provider.AddToGroup3Request\x1a\x1d.provider.AddToGroup3Response\x12P\n" +
+	"\rAddToGroup3_1\x12\x1e.provider.AddToGroup3_1Request\x1a\x1f.provider.AddToGroup3_1Response\x12e\n" +
+	"\x14AddToMyContactsGroup\x12%.provider.AddToMyContactsGroupRequest\x1a&.provider.AddToMyContactsGroupResponse\x12\x80\x01\n" +
+	"\x1dCreatePersonInMyContactsGroup\x12..provider.CreatePersonInMyContactsGroupRequest\x1a/.provider.CreatePersonInMyContactsGroupResponse\x12Y\n" +
+	"\x10LoadContactPhoto\x12!.provider.LoadContactPhotoRequest\x1a\".provider.LoadContactPhotoResponse\x12V\n" +
+	"\x0fMarkAsContacted\x12 .provider.MarkAsContactedRequest\x1a!.provider.MarkAsContactedResponse\x12z\n" +
+	"\x1bOpenContactPhotoInputStream\x12,.provider.OpenContactPhotoInputStreamRequest\x1a-.provider.OpenContactPhotoInputStreamResponse\x12J\n" +
+	"\vQueryGroups\x12\x1c.provider.QueryGroupsRequest\x1a\x1d.provider.QueryGroupsResponse\x12M\n" +
+	"\fSetPhotoData\x12\x1d.provider.SetPhotoDataRequest\x1a\x1e.provider.SetPhotoDataResponse2\xd3\x01\n" +
+	"\x15ContactsPhonesService\x12Y\n" +
+	"\x10GetDisplayLabel3\x12!.provider.GetDisplayLabel3Request\x1a\".provider.GetDisplayLabel3Response\x12_\n" +
+	"\x12GetDisplayLabel4_1\x12#.provider.GetDisplayLabel4_1Request\x1a$.provider.GetDisplayLabel4_1Response2\xab\x01\n" +
+	"\x17ContactsSettingsService\x12G\n" +
+	"\n" +
+	"GetSetting\x12\x1b.provider.GetSettingRequest\x1a\x1c.provider.GetSettingResponse\x12G\n" +
+	"\n" +
+	"SetSetting\x12\x1b.provider.SetSettingRequest\x1a\x1c.provider.SetSettingResponse2\xa8\x01\n" +
+	"\x1aUserDictionaryWordsService\x12A\n" +
+	"\bAddWord4\x12\x19.provider.AddWord4Request\x1a\x1a.provider.AddWord4Response\x12G\n" +
+	"\n" +
+	"AddWord5_1\x12\x1b.provider.AddWord5_1Request\x1a\x1c.provider.AddWord5_1Response2\x9d\x02\n" +
+	"\x1cBlockedNumberContractService\x12w\n" +
+	"\x1aCanCurrentUserBlockNumbers\x12+.provider.CanCurrentUserBlockNumbersRequest\x1a,.provider.CanCurrentUserBlockNumbersResponse\x12D\n" +
+	"\tIsBlocked\x12\x1a.provider.IsBlockedRequest\x1a\x1b.provider.IsBlockedResponse\x12>\n" +
+	"\aUnblock\x12\x18.provider.UnblockRequest\x1a\x19.provider.UnblockResponse2\x90\x04\n" +
+	"-CloudMediaProviderContractCapabilitiesService\x12Y\n" +
+	"\x10DescribeContents\x12!.provider.DescribeContentsRequest\x1a\".provider.DescribeContentsResponse\x12q\n" +
+	"\x18IsMediaCategoriesEnabled\x12).provider.IsMediaCategoriesEnabledRequest\x1a*.provider.IsMediaCategoriesEnabledResponse\x12V\n" +
+	"\x0fIsSearchEnabled\x12 .provider.IsSearchEnabledRequest\x1a!.provider.IsSearchEnabledResponse\x12g\n" +
+	"\bToString\x12?.provider.CloudMediaProviderContractCapabilitiesToStringRequest\x1a\x1a.provider.ToStringResponse\x12P\n" +
+	"\rWriteToParcel\x12\x1e.provider.WriteToParcelRequest\x1a\x1f.provider.WriteToParcelResponse2\xe8\t\n" +
+	"\x1dE2eeContactKeysManagerService\x12\\\n" +
+	"\x11GetE2eeContactKey\x12\".provider.GetE2eeContactKeyRequest\x1a#.provider.GetE2eeContactKeyResponse\x12S\n" +
+	"\x0eGetE2eeSelfKey\x12\x1f.provider.GetE2eeSelfKeyRequest\x1a .provider.GetE2eeSelfKeyResponse\x12e\n" +
+	"\x14RemoveE2eeContactKey\x12%.provider.RemoveE2eeContactKeyRequest\x1a&.provider.RemoveE2eeContactKeyResponse\x12\\\n" +
+	"\x11RemoveE2eeSelfKey\x12\".provider.RemoveE2eeSelfKeyRequest\x1a#.provider.RemoveE2eeSelfKeyResponse\x12\xa7\x01\n" +
+	"*UpdateE2eeContactKeyLocalVerificationState\x12;.provider.UpdateE2eeContactKeyLocalVerificationStateRequest\x1a<.provider.UpdateE2eeContactKeyLocalVerificationStateResponse\x12\xaa\x01\n" +
+	"+UpdateE2eeContactKeyRemoteVerificationState\x12<.provider.UpdateE2eeContactKeyRemoteVerificationStateRequest\x1a=.provider.UpdateE2eeContactKeyRemoteVerificationStateResponse\x12\xa1\x01\n" +
+	"(UpdateE2eeSelfKeyRemoteVerificationState\x129.provider.UpdateE2eeSelfKeyRemoteVerificationStateRequest\x1a:.provider.UpdateE2eeSelfKeyRemoteVerificationStateResponse\x12}\n" +
+	"\x1cUpdateOrInsertE2eeContactKey\x12-.provider.UpdateOrInsertE2eeContactKeyRequest\x1a..provider.UpdateOrInsertE2eeContactKeyResponse\x12t\n" +
+	"\x19UpdateOrInsertE2eeSelfKey\x12*.provider.UpdateOrInsertE2eeSelfKeyRequest\x1a+.provider.UpdateOrInsertE2eeSelfKeyResponse\x12_\n" +
+	"\x12GetMaxKeySizeBytes\x12#.provider.GetMaxKeySizeBytesRequest\x1a$.provider.GetMaxKeySizeBytesResponse2\xeb\t\n" +
+	"+E2eeContactKeysManagerE2eeContactKeyService\x12Y\n" +
+	"\x10DescribeContents\x12!.provider.DescribeContentsRequest\x1a\".provider.DescribeContentsResponse\x12;\n" +
+	"\x06Equals\x12\x17.provider.EqualsRequest\x1a\x18.provider.EqualsResponse\x12M\n" +
+	"\fGetAccountId\x12\x1d.provider.GetAccountIdRequest\x1a\x1e.provider.GetAccountIdResponse\x12J\n" +
+	"\vGetDeviceId\x12\x1c.provider.GetDeviceIdRequest\x1a\x1d.provider.GetDeviceIdResponse\x12S\n" +
+	"\x0eGetDisplayName\x12\x1f.provider.GetDisplayNameRequest\x1a .provider.GetDisplayNameResponse\x12V\n" +
+	"\x0fGetEmailAddress\x12 .provider.GetEmailAddressRequest\x1a!.provider.GetEmailAddressResponse\x12J\n" +
+	"\vGetKeyValue\x12\x1c.provider.GetKeyValueRequest\x1a\x1d.provider.GetKeyValueResponse\x12t\n" +
+	"\x19GetLocalVerificationState\x12*.provider.GetLocalVerificationStateRequest\x1a+.provider.GetLocalVerificationStateResponse\x12b\n" +
+	"\x13GetOwnerPackageName\x12$.provider.GetOwnerPackageNameRequest\x1a%.provider.GetOwnerPackageNameResponse\x12S\n" +
+	"\x0eGetPhoneNumber\x12\x1f.provider.GetPhoneNumberRequest\x1a .provider.GetPhoneNumberResponse\x12w\n" +
+	"\x1aGetRemoteVerificationState\x12+.provider.GetRemoteVerificationStateRequest\x1a,.provider.GetRemoteVerificationStateResponse\x12S\n" +
+	"\x0eGetTimeUpdated\x12\x1f.provider.GetTimeUpdatedRequest\x1a .provider.GetTimeUpdatedResponse\x12A\n" +
+	"\bHashCode\x12\x19.provider.HashCodeRequest\x1a\x1a.provider.HashCodeResponse\x12P\n" +
+	"\rWriteToParcel\x12\x1e.provider.WriteToParcelRequest\x1a\x1f.provider.WriteToParcelResponse2\xf0\x06\n" +
+	"(E2eeContactKeysManagerE2eeSelfKeyService\x12Y\n" +
+	"\x10DescribeContents\x12!.provider.DescribeContentsRequest\x1a\".provider.DescribeContentsResponse\x12;\n" +
+	"\x06Equals\x12\x17.provider.EqualsRequest\x1a\x18.provider.EqualsResponse\x12M\n" +
+	"\fGetAccountId\x12\x1d.provider.GetAccountIdRequest\x1a\x1e.provider.GetAccountIdResponse\x12J\n" +
+	"\vGetDeviceId\x12\x1c.provider.GetDeviceIdRequest\x1a\x1d.provider.GetDeviceIdResponse\x12J\n" +
+	"\vGetKeyValue\x12\x1c.provider.GetKeyValueRequest\x1a\x1d.provider.GetKeyValueResponse\x12b\n" +
+	"\x13GetOwnerPackageName\x12$.provider.GetOwnerPackageNameRequest\x1a%.provider.GetOwnerPackageNameResponse\x12w\n" +
+	"\x1aGetRemoteVerificationState\x12+.provider.GetRemoteVerificationStateRequest\x1a,.provider.GetRemoteVerificationStateResponse\x12S\n" +
+	"\x0eGetTimeUpdated\x12\x1f.provider.GetTimeUpdatedRequest\x1a .provider.GetTimeUpdatedResponse\x12A\n" +
+	"\bHashCode\x12\x19.provider.HashCodeRequest\x1a\x1a.provider.HashCodeResponse\x12P\n" +
+	"\rWriteToParcel\x12\x1e.provider.WriteToParcelRequest\x1a\x1f.provider.WriteToParcelResponse2u\n" +
+	"\x1eVoicemailContractStatusService\x12S\n" +
+	"\x0eBuildSourceUri\x12\x1f.provider.BuildSourceUriRequest\x1a .provider.BuildSourceUriResponse2y\n" +
+	"\"VoicemailContractVoicemailsService\x12S\n" +
+	"\x0eBuildSourceUri\x12\x1f.provider.BuildSourceUriRequest\x1a .provider.BuildSourceUriResponse2\xaf\x02\n" +
+	"\x19TelephonyCarrierIdService\x12\xa1\x01\n" +
+	"(GetSpecificCarrierIdUriForSubscriptionId\x129.provider.GetSpecificCarrierIdUriForSubscriptionIdRequest\x1a:.provider.GetSpecificCarrierIdUriForSubscriptionIdResponse\x12n\n" +
+	"\x17GetUriForSubscriptionId\x12(.provider.GetUriForSubscriptionIdRequest\x1a).provider.GetUriForSubscriptionIdResponse2\x9c\x02\n" +
+	"!TelephonyServiceStateTableService\x12n\n" +
+	"\x17GetUriForSubscriptionId\x12(.provider.GetUriForSubscriptionIdRequest\x1a).provider.GetUriForSubscriptionIdResponse\x12\x86\x01\n" +
+	"\x1fGetUriForSubscriptionIdAndField\x120.provider.GetUriForSubscriptionIdAndFieldRequest\x1a1.provider.GetUriForSubscriptionIdAndFieldResponse2|\n" +
+	"\x13TelephonySmsService\x12e\n" +
+	"\x14GetDefaultSmsPackage\x12%.provider.GetDefaultSmsPackageRequest\x1a&.provider.GetDefaultSmsPackageResponse2}\n" +
+	"\x17TelephonyThreadsService\x12b\n" +
+	"\x13GetOrCreateThreadId\x12$.provider.GetOrCreateThreadIdRequest\x1a%.provider.GetOrCreateThreadIdResponse2u\n" +
+	"*SimPhonebookContractElementaryFilesService\x12G\n" +
+	"\n" +
+	"GetItemUri\x12\x1b.provider.GetItemUriRequest\x1a\x1c.provider.GetItemUriResponse2\xc7\x02\n" +
+	"%SimPhonebookContractSimRecordsService\x12P\n" +
+	"\rGetContentUri\x12\x1e.provider.GetContentUriRequest\x1a\x1f.provider.GetContentUriResponse\x12e\n" +
+	"\x14GetEncodedNameLength\x12%.provider.GetEncodedNameLengthRequest\x1a&.provider.GetEncodedNameLengthResponse\x12e\n" +
+	"\n" +
+	"GetItemUri\x129.provider.SimPhonebookContractSimRecordsGetItemUriRequest\x1a\x1c.provider.GetItemUriResponse2\xb1\x01\n" +
+	"\x14FontsContractService\x12P\n" +
+	"\rBuildTypeface\x12\x1e.provider.BuildTypefaceRequest\x1a\x1f.provider.BuildTypefaceResponse\x12G\n" +
+	"\n" +
+	"FetchFonts\x12\x1b.provider.FetchFontsRequest\x1a\x1c.provider.FetchFontsResponse2\xbb\x01\n" +
+	"$FontsContractFontFamilyResultService\x12A\n" +
+	"\bGetFonts\x12\x19.provider.GetFontsRequest\x1a\x1a.provider.GetFontsResponse\x12P\n" +
+	"\rGetStatusCode\x12\x1e.provider.GetStatusCodeRequest\x1a\x1f.provider.GetStatusCodeResponse2\xc2\x03\n" +
+	"\x1cFontsContractFontInfoService\x12>\n" +
+	"\aGetAxes\x12\x18.provider.GetAxesRequest\x1a\x19.provider.GetAxesResponse\x12P\n" +
+	"\rGetResultCode\x12\x1e.provider.GetResultCodeRequest\x1a\x1f.provider.GetResultCodeResponse\x12J\n" +
+	"\vGetTtcIndex\x12\x1c.provider.GetTtcIndexRequest\x1a\x1d.provider.GetTtcIndexResponse\x12;\n" +
+	"\x06GetUri\x12\x17.provider.GetUriRequest\x1a\x18.provider.GetUriResponse\x12D\n" +
+	"\tGetWeight\x12\x1a.provider.GetWeightRequest\x1a\x1b.provider.GetWeightResponse\x12A\n" +
+	"\bIsItalic\x12\x19.provider.IsItalicRequest\x1a\x1a.provider.IsItalicResponse2\xfd\x01\n" +
+	"'FontsContractFontRequestCallbackService\x12n\n" +
+	"\x17OnTypefaceRequestFailed\x12(.provider.OnTypefaceRequestFailedRequest\x1a).provider.OnTypefaceRequestFailedResponse\x12b\n" +
+	"\x13OnTypefaceRetrieved\x12$.provider.OnTypefaceRetrievedRequest\x1a%.provider.OnTypefaceRetrievedResponse2y\n" +
+	"\x13CallLogCallsService\x12b\n" +
+	"\x13GetLastOutgoingCall\x12$.provider.GetLastOutgoingCallRequest\x1a%.provider.GetLastOutgoingCallResponse2\xa2\x01\n" +
+	"\x0eBrowserService\x12G\n" +
+	"\n" +
+	"NewBrowser\x12\x1b.provider.NewBrowserRequest\x1a\x1c.provider.NewBrowserResponse\x12G\n" +
+	"\n" +
+	"SendString\x12\x1b.provider.SendStringRequest\x1a\x1c.provider.SendStringResponse2\x9b\x13\n" +
+	"\x19CloudMediaProviderService\x12G\n" +
+	"\n" +
+	"AttachInfo\x12\x1b.provider.AttachInfoRequest\x1a\x1c.provider.AttachInfoResponse\x125\n" +
+	"\x04Call\x12\x15.provider.CallRequest\x1a\x16.provider.CallResponse\x12M\n" +
+	"\fCanonicalize\x12\x1d.provider.CanonicalizeRequest\x1a\x1e.provider.CanonicalizeResponse\x12;\n" +
+	"\x06Delete\x12\x17.provider.DeleteRequest\x1a\x18.provider.DeleteResponse\x12>\n" +
+	"\aGetType\x12\x18.provider.GetTypeRequest\x1a\x19.provider.GetTypeResponse\x12M\n" +
+	"\x06Insert\x12).provider.CloudMediaProviderInsertRequest\x1a\x18.provider.InsertResponse\x12\x92\x01\n" +
+	"#OnCreateCloudMediaSurfaceController\x124.provider.OnCreateCloudMediaSurfaceControllerRequest\x1a5.provider.OnCreateCloudMediaSurfaceControllerResponse\x12\\\n" +
+	"\x11OnGetCapabilities\x12\".provider.OnGetCapabilitiesRequest\x1a#.provider.OnGetCapabilitiesResponse\x12q\n" +
+	"\x18OnGetMediaCollectionInfo\x12).provider.OnGetMediaCollectionInfoRequest\x1a*.provider.OnGetMediaCollectionInfoResponse\x12J\n" +
+	"\vOnOpenMedia\x12\x1c.provider.OnOpenMediaRequest\x1a\x1d.provider.OnOpenMediaResponse\x12P\n" +
+	"\rOnOpenPreview\x12\x1e.provider.OnOpenPreviewRequest\x1a\x1f.provider.OnOpenPreviewResponse\x12P\n" +
+	"\rOnQueryAlbums\x12\x1e.provider.OnQueryAlbumsRequest\x1a\x1f.provider.OnQueryAlbumsResponse\x12b\n" +
+	"\x13OnQueryDeletedMedia\x12$.provider.OnQueryDeletedMediaRequest\x1a%.provider.OnQueryDeletedMediaResponse\x12M\n" +
+	"\fOnQueryMedia\x12\x1d.provider.OnQueryMediaRequest\x1a\x1e.provider.OnQueryMediaResponse\x12k\n" +
+	"\x16OnQueryMediaCategories\x12'.provider.OnQueryMediaCategoriesRequest\x1a(.provider.OnQueryMediaCategoriesResponse\x12k\n" +
+	"\x16OnQueryMediaInMediaSet\x12'.provider.OnQueryMediaInMediaSetRequest\x1a(.provider.OnQueryMediaInMediaSetResponse\x12Y\n" +
+	"\x10OnQueryMediaSets\x12!.provider.OnQueryMediaSetsRequest\x1a\".provider.OnQueryMediaSetsResponse\x12q\n" +
+	"\x18OnQuerySearchSuggestions\x12).provider.OnQuerySearchSuggestionsRequest\x1a*.provider.OnQuerySearchSuggestionsResponse\x12S\n" +
+	"\x0eOnSearchMedia3\x12\x1f.provider.OnSearchMedia3Request\x1a .provider.OnSearchMedia3Response\x12Y\n" +
+	"\x10OnSearchMedia4_1\x12!.provider.OnSearchMedia4_1Request\x1a\".provider.OnSearchMedia4_1Response\x12D\n" +
+	"\tOpenFile2\x12\x1a.provider.OpenFile2Request\x1a\x1b.provider.OpenFile2Response\x12J\n" +
+	"\vOpenFile3_1\x12\x1c.provider.OpenFile3_1Request\x1a\x1d.provider.OpenFile3_1Response\x12b\n" +
+	"\x13OpenTypedAssetFile3\x12$.provider.OpenTypedAssetFile3Request\x1a%.provider.OpenTypedAssetFile3Response\x12h\n" +
+	"\x15OpenTypedAssetFile4_1\x12&.provider.OpenTypedAssetFile4_1Request\x1a'.provider.OpenTypedAssetFile4_1Response\x12;\n" +
+	"\x06Query4\x12\x17.provider.Query4Request\x1a\x18.provider.Query4Response\x12A\n" +
+	"\bQuery5_1\x12\x19.provider.Query5_1Request\x1a\x1a.provider.Query5_1Response\x12A\n" +
+	"\bQuery6_2\x12\x19.provider.Query6_2Request\x1a\x1a.provider.Query6_2Response\x12_\n" +
+	"\x06Update\x12).provider.CloudMediaProviderUpdateRequest\x1a*.provider.CloudMediaProviderUpdateResponse2\x82\a\n" +
+	"4CloudMediaProviderCloudMediaSurfaceControllerService\x12S\n" +
+	"\x0eOnConfigChange\x12\x1f.provider.OnConfigChangeRequest\x1a .provider.OnConfigChangeResponse\x12D\n" +
+	"\tOnDestroy\x12\x1a.provider.OnDestroyRequest\x1a\x1b.provider.OnDestroyResponse\x12M\n" +
+	"\fOnMediaPause\x12\x1d.provider.OnMediaPauseRequest\x1a\x1e.provider.OnMediaPauseResponse\x12J\n" +
+	"\vOnMediaPlay\x12\x1c.provider.OnMediaPlayRequest\x1a\x1d.provider.OnMediaPlayResponse\x12P\n" +
+	"\rOnMediaSeekTo\x12\x1e.provider.OnMediaSeekToRequest\x1a\x1f.provider.OnMediaSeekToResponse\x12S\n" +
+	"\x0eOnPlayerCreate\x12\x1f.provider.OnPlayerCreateRequest\x1a .provider.OnPlayerCreateResponse\x12V\n" +
+	"\x0fOnPlayerRelease\x12 .provider.OnPlayerReleaseRequest\x1a!.provider.OnPlayerReleaseResponse\x12Y\n" +
+	"\x10OnSurfaceChanged\x12!.provider.OnSurfaceChangedRequest\x1a\".provider.OnSurfaceChangedResponse\x12Y\n" +
+	"\x10OnSurfaceCreated\x12!.provider.OnSurfaceCreatedRequest\x1a\".provider.OnSurfaceCreatedResponse\x12_\n" +
+	"\x12OnSurfaceDestroyed\x12#.provider.OnSurfaceDestroyedRequest\x1a$.provider.OnSurfaceDestroyedResponse2\x9b\x01\n" +
+	">CloudMediaProviderCloudMediaSurfaceStateChangedCallbackService\x12Y\n" +
+	"\x10SetPlaybackState\x12!.provider.SetPlaybackStateRequest\x1a\".provider.SetPlaybackStateResponseB2Z0github.com/AndroidGoLab/jni-proxy/proto/providerb\x06proto3"
 
-var file_proto_provider_provider_proto_goTypes = []any{}
+var (
+	file_proto_provider_provider_proto_rawDescOnce sync.Once
+	file_proto_provider_provider_proto_rawDescData []byte
+)
+
+func file_proto_provider_provider_proto_rawDescGZIP() []byte {
+	file_proto_provider_provider_proto_rawDescOnce.Do(func() {
+		file_proto_provider_provider_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_proto_provider_provider_proto_rawDesc), len(file_proto_provider_provider_proto_rawDesc)))
+	})
+	return file_proto_provider_provider_proto_rawDescData
+}
+
+var file_proto_provider_provider_proto_msgTypes = make([]protoimpl.MessageInfo, 354)
+var file_proto_provider_provider_proto_goTypes = []any{
+	(*DescribeContentsRequest)(nil),                               // 0: provider.DescribeContentsRequest
+	(*DescribeContentsResponse)(nil),                              // 1: provider.DescribeContentsResponse
+	(*EqualsRequest)(nil),                                         // 2: provider.EqualsRequest
+	(*EqualsResponse)(nil),                                        // 3: provider.EqualsResponse
+	(*GetAccuracyRequest)(nil),                                    // 4: provider.GetAccuracyRequest
+	(*GetAccuracyResponse)(nil),                                   // 5: provider.GetAccuracyResponse
+	(*GetPowerUsageRequest)(nil),                                  // 6: provider.GetPowerUsageRequest
+	(*GetPowerUsageResponse)(nil),                                 // 7: provider.GetPowerUsageResponse
+	(*HasAltitudeSupportRequest)(nil),                             // 8: provider.HasAltitudeSupportRequest
+	(*HasAltitudeSupportResponse)(nil),                            // 9: provider.HasAltitudeSupportResponse
+	(*HasBearingSupportRequest)(nil),                              // 10: provider.HasBearingSupportRequest
+	(*HasBearingSupportResponse)(nil),                             // 11: provider.HasBearingSupportResponse
+	(*HasCellRequirementRequest)(nil),                             // 12: provider.HasCellRequirementRequest
+	(*HasCellRequirementResponse)(nil),                            // 13: provider.HasCellRequirementResponse
+	(*HasMonetaryCostRequest)(nil),                                // 14: provider.HasMonetaryCostRequest
+	(*HasMonetaryCostResponse)(nil),                               // 15: provider.HasMonetaryCostResponse
+	(*HasNetworkRequirementRequest)(nil),                          // 16: provider.HasNetworkRequirementRequest
+	(*HasNetworkRequirementResponse)(nil),                         // 17: provider.HasNetworkRequirementResponse
+	(*HasSatelliteRequirementRequest)(nil),                        // 18: provider.HasSatelliteRequirementRequest
+	(*HasSatelliteRequirementResponse)(nil),                       // 19: provider.HasSatelliteRequirementResponse
+	(*HasSpeedSupportRequest)(nil),                                // 20: provider.HasSpeedSupportRequest
+	(*HasSpeedSupportResponse)(nil),                               // 21: provider.HasSpeedSupportResponse
+	(*HashCodeRequest)(nil),                                       // 22: provider.HashCodeRequest
+	(*HashCodeResponse)(nil),                                      // 23: provider.HashCodeResponse
+	(*ToStringRequest)(nil),                                       // 24: provider.ToStringRequest
+	(*ToStringResponse)(nil),                                      // 25: provider.ToStringResponse
+	(*WriteToParcelRequest)(nil),                                  // 26: provider.WriteToParcelRequest
+	(*WriteToParcelResponse)(nil),                                 // 27: provider.WriteToParcelResponse
+	(*BuildRequest)(nil),                                          // 28: provider.BuildRequest
+	(*BuildResponse)(nil),                                         // 29: provider.BuildResponse
+	(*SetAccuracyRequest)(nil),                                    // 30: provider.SetAccuracyRequest
+	(*SetAccuracyResponse)(nil),                                   // 31: provider.SetAccuracyResponse
+	(*SetHasAltitudeSupportRequest)(nil),                          // 32: provider.SetHasAltitudeSupportRequest
+	(*SetHasAltitudeSupportResponse)(nil),                         // 33: provider.SetHasAltitudeSupportResponse
+	(*SetHasBearingSupportRequest)(nil),                           // 34: provider.SetHasBearingSupportRequest
+	(*SetHasBearingSupportResponse)(nil),                          // 35: provider.SetHasBearingSupportResponse
+	(*SetHasCellRequirementRequest)(nil),                          // 36: provider.SetHasCellRequirementRequest
+	(*SetHasCellRequirementResponse)(nil),                         // 37: provider.SetHasCellRequirementResponse
+	(*SetHasMonetaryCostRequest)(nil),                             // 38: provider.SetHasMonetaryCostRequest
+	(*SetHasMonetaryCostResponse)(nil),                            // 39: provider.SetHasMonetaryCostResponse
+	(*SetHasNetworkRequirementRequest)(nil),                       // 40: provider.SetHasNetworkRequirementRequest
+	(*SetHasNetworkRequirementResponse)(nil),                      // 41: provider.SetHasNetworkRequirementResponse
+	(*SetHasSatelliteRequirementRequest)(nil),                     // 42: provider.SetHasSatelliteRequirementRequest
+	(*SetHasSatelliteRequirementResponse)(nil),                    // 43: provider.SetHasSatelliteRequirementResponse
+	(*SetHasSpeedSupportRequest)(nil),                             // 44: provider.SetHasSpeedSupportRequest
+	(*SetHasSpeedSupportResponse)(nil),                            // 45: provider.SetHasSpeedSupportResponse
+	(*SetPowerUsageRequest)(nil),                                  // 46: provider.SetPowerUsageRequest
+	(*SetPowerUsageResponse)(nil),                                 // 47: provider.SetPowerUsageResponse
+	(*GetRequest)(nil),                                            // 48: provider.GetRequest
+	(*GetResponse)(nil),                                           // 49: provider.GetResponse
+	(*InsertRequest)(nil),                                         // 50: provider.InsertRequest
+	(*InsertResponse)(nil),                                        // 51: provider.InsertResponse
+	(*NewSetOperationRequest)(nil),                                // 52: provider.NewSetOperationRequest
+	(*NewSetOperationResponse)(nil),                               // 53: provider.NewSetOperationResponse
+	(*NewUpdateOperationRequest)(nil),                             // 54: provider.NewUpdateOperationRequest
+	(*NewUpdateOperationResponse)(nil),                            // 55: provider.NewUpdateOperationResponse
+	(*SetRequest)(nil),                                            // 56: provider.SetRequest
+	(*SetResponse)(nil),                                           // 57: provider.SetResponse
+	(*UpdateRequest)(nil),                                         // 58: provider.UpdateRequest
+	(*UpdateResponse)(nil),                                        // 59: provider.UpdateResponse
+	(*NewFontRequestRequest)(nil),                                 // 60: provider.NewFontRequestRequest
+	(*NewFontRequestResponse)(nil),                                // 61: provider.NewFontRequestResponse
+	(*GetProviderAuthorityRequest)(nil),                           // 62: provider.GetProviderAuthorityRequest
+	(*GetProviderAuthorityResponse)(nil),                          // 63: provider.GetProviderAuthorityResponse
+	(*GetProviderPackageRequest)(nil),                             // 64: provider.GetProviderPackageRequest
+	(*GetProviderPackageResponse)(nil),                            // 65: provider.GetProviderPackageResponse
+	(*GetQueryRequest)(nil),                                       // 66: provider.GetQueryRequest
+	(*GetQueryResponse)(nil),                                      // 67: provider.GetQueryResponse
+	(*FontRequestToStringRequest)(nil),                            // 68: provider.FontRequestToStringRequest
+	(*NewSearchRecentSuggestionsRequest)(nil),                     // 69: provider.NewSearchRecentSuggestionsRequest
+	(*NewSearchRecentSuggestionsResponse)(nil),                    // 70: provider.NewSearchRecentSuggestionsResponse
+	(*ClearHistoryRequest)(nil),                                   // 71: provider.ClearHistoryRequest
+	(*ClearHistoryResponse)(nil),                                  // 72: provider.ClearHistoryResponse
+	(*SaveRecentQueryRequest)(nil),                                // 73: provider.SaveRecentQueryRequest
+	(*SaveRecentQueryResponse)(nil),                               // 74: provider.SaveRecentQueryResponse
+	(*AttachInfoRequest)(nil),                                     // 75: provider.AttachInfoRequest
+	(*AttachInfoResponse)(nil),                                    // 76: provider.AttachInfoResponse
+	(*CallRequest)(nil),                                           // 77: provider.CallRequest
+	(*CallResponse)(nil),                                          // 78: provider.CallResponse
+	(*CanonicalizeRequest)(nil),                                   // 79: provider.CanonicalizeRequest
+	(*CanonicalizeResponse)(nil),                                  // 80: provider.CanonicalizeResponse
+	(*CopyDocumentRequest)(nil),                                   // 81: provider.CopyDocumentRequest
+	(*CopyDocumentResponse)(nil),                                  // 82: provider.CopyDocumentResponse
+	(*CreateDocumentRequest)(nil),                                 // 83: provider.CreateDocumentRequest
+	(*CreateDocumentResponse)(nil),                                // 84: provider.CreateDocumentResponse
+	(*CreateWebLinkIntentRequest)(nil),                            // 85: provider.CreateWebLinkIntentRequest
+	(*CreateWebLinkIntentResponse)(nil),                           // 86: provider.CreateWebLinkIntentResponse
+	(*DeleteRequest)(nil),                                         // 87: provider.DeleteRequest
+	(*DeleteResponse)(nil),                                        // 88: provider.DeleteResponse
+	(*DeleteDocumentRequest)(nil),                                 // 89: provider.DeleteDocumentRequest
+	(*DeleteDocumentResponse)(nil),                                // 90: provider.DeleteDocumentResponse
+	(*EjectRootRequest)(nil),                                      // 91: provider.EjectRootRequest
+	(*EjectRootResponse)(nil),                                     // 92: provider.EjectRootResponse
+	(*FindDocumentPathRequest)(nil),                               // 93: provider.FindDocumentPathRequest
+	(*FindDocumentPathResponse)(nil),                              // 94: provider.FindDocumentPathResponse
+	(*GetDocumentMetadataRequest)(nil),                            // 95: provider.GetDocumentMetadataRequest
+	(*GetDocumentMetadataResponse)(nil),                           // 96: provider.GetDocumentMetadataResponse
+	(*GetDocumentStreamTypesRequest)(nil),                         // 97: provider.GetDocumentStreamTypesRequest
+	(*GetDocumentStreamTypesResponse)(nil),                        // 98: provider.GetDocumentStreamTypesResponse
+	(*GetDocumentTypeRequest)(nil),                                // 99: provider.GetDocumentTypeRequest
+	(*GetDocumentTypeResponse)(nil),                               // 100: provider.GetDocumentTypeResponse
+	(*GetStreamTypesRequest)(nil),                                 // 101: provider.GetStreamTypesRequest
+	(*GetStreamTypesResponse)(nil),                                // 102: provider.GetStreamTypesResponse
+	(*GetTypeRequest)(nil),                                        // 103: provider.GetTypeRequest
+	(*GetTypeResponse)(nil),                                       // 104: provider.GetTypeResponse
+	(*GetTypeAnonymousRequest)(nil),                               // 105: provider.GetTypeAnonymousRequest
+	(*GetTypeAnonymousResponse)(nil),                              // 106: provider.GetTypeAnonymousResponse
+	(*DocumentsProviderInsertRequest)(nil),                        // 107: provider.DocumentsProviderInsertRequest
+	(*IsChildDocumentRequest)(nil),                                // 108: provider.IsChildDocumentRequest
+	(*IsChildDocumentResponse)(nil),                               // 109: provider.IsChildDocumentResponse
+	(*MoveDocumentRequest)(nil),                                   // 110: provider.MoveDocumentRequest
+	(*MoveDocumentResponse)(nil),                                  // 111: provider.MoveDocumentResponse
+	(*OpenAssetFile2Request)(nil),                                 // 112: provider.OpenAssetFile2Request
+	(*OpenAssetFile2Response)(nil),                                // 113: provider.OpenAssetFile2Response
+	(*OpenAssetFile3_1Request)(nil),                               // 114: provider.OpenAssetFile3_1Request
+	(*OpenAssetFile3_1Response)(nil),                              // 115: provider.OpenAssetFile3_1Response
+	(*OpenDocumentRequest)(nil),                                   // 116: provider.OpenDocumentRequest
+	(*OpenDocumentResponse)(nil),                                  // 117: provider.OpenDocumentResponse
+	(*OpenDocumentThumbnailRequest)(nil),                          // 118: provider.OpenDocumentThumbnailRequest
+	(*OpenDocumentThumbnailResponse)(nil),                         // 119: provider.OpenDocumentThumbnailResponse
+	(*OpenFile2Request)(nil),                                      // 120: provider.OpenFile2Request
+	(*OpenFile2Response)(nil),                                     // 121: provider.OpenFile2Response
+	(*OpenFile3_1Request)(nil),                                    // 122: provider.OpenFile3_1Request
+	(*OpenFile3_1Response)(nil),                                   // 123: provider.OpenFile3_1Response
+	(*OpenTypedAssetFile3Request)(nil),                            // 124: provider.OpenTypedAssetFile3Request
+	(*OpenTypedAssetFile3Response)(nil),                           // 125: provider.OpenTypedAssetFile3Response
+	(*OpenTypedAssetFile4_1Request)(nil),                          // 126: provider.OpenTypedAssetFile4_1Request
+	(*OpenTypedAssetFile4_1Response)(nil),                         // 127: provider.OpenTypedAssetFile4_1Response
+	(*OpenTypedDocumentRequest)(nil),                              // 128: provider.OpenTypedDocumentRequest
+	(*OpenTypedDocumentResponse)(nil),                             // 129: provider.OpenTypedDocumentResponse
+	(*Query4Request)(nil),                                         // 130: provider.Query4Request
+	(*Query4Response)(nil),                                        // 131: provider.Query4Response
+	(*Query5_1Request)(nil),                                       // 132: provider.Query5_1Request
+	(*Query5_1Response)(nil),                                      // 133: provider.Query5_1Response
+	(*Query6_2Request)(nil),                                       // 134: provider.Query6_2Request
+	(*Query6_2Response)(nil),                                      // 135: provider.Query6_2Response
+	(*QueryChildDocuments3Request)(nil),                           // 136: provider.QueryChildDocuments3Request
+	(*QueryChildDocuments3Response)(nil),                          // 137: provider.QueryChildDocuments3Response
+	(*QueryChildDocuments3_1Request)(nil),                         // 138: provider.QueryChildDocuments3_1Request
+	(*QueryChildDocuments3_1Response)(nil),                        // 139: provider.QueryChildDocuments3_1Response
+	(*QueryDocumentRequest)(nil),                                  // 140: provider.QueryDocumentRequest
+	(*QueryDocumentResponse)(nil),                                 // 141: provider.QueryDocumentResponse
+	(*QueryRecentDocuments2Request)(nil),                          // 142: provider.QueryRecentDocuments2Request
+	(*QueryRecentDocuments2Response)(nil),                         // 143: provider.QueryRecentDocuments2Response
+	(*QueryRecentDocuments4_1Request)(nil),                        // 144: provider.QueryRecentDocuments4_1Request
+	(*QueryRecentDocuments4_1Response)(nil),                       // 145: provider.QueryRecentDocuments4_1Response
+	(*QueryRootsRequest)(nil),                                     // 146: provider.QueryRootsRequest
+	(*QueryRootsResponse)(nil),                                    // 147: provider.QueryRootsResponse
+	(*QuerySearchDocuments3Request)(nil),                          // 148: provider.QuerySearchDocuments3Request
+	(*QuerySearchDocuments3Response)(nil),                         // 149: provider.QuerySearchDocuments3Response
+	(*QuerySearchDocuments3_1Request)(nil),                        // 150: provider.QuerySearchDocuments3_1Request
+	(*QuerySearchDocuments3_1Response)(nil),                       // 151: provider.QuerySearchDocuments3_1Response
+	(*RemoveDocumentRequest)(nil),                                 // 152: provider.RemoveDocumentRequest
+	(*RemoveDocumentResponse)(nil),                                // 153: provider.RemoveDocumentResponse
+	(*RenameDocumentRequest)(nil),                                 // 154: provider.RenameDocumentRequest
+	(*RenameDocumentResponse)(nil),                                // 155: provider.RenameDocumentResponse
+	(*RevokeDocumentPermissionRequest)(nil),                       // 156: provider.RevokeDocumentPermissionRequest
+	(*RevokeDocumentPermissionResponse)(nil),                      // 157: provider.RevokeDocumentPermissionResponse
+	(*DocumentsProviderUpdateRequest)(nil),                        // 158: provider.DocumentsProviderUpdateRequest
+	(*DocumentsProviderUpdateResponse)(nil),                       // 159: provider.DocumentsProviderUpdateResponse
+	(*AddPostalLocationRequest)(nil),                              // 160: provider.AddPostalLocationRequest
+	(*AddPostalLocationResponse)(nil),                             // 161: provider.AddPostalLocationResponse
+	(*DecodeImProtocolRequest)(nil),                               // 162: provider.DecodeImProtocolRequest
+	(*DecodeImProtocolResponse)(nil),                              // 163: provider.DecodeImProtocolResponse
+	(*EncodeCustomImProtocolRequest)(nil),                         // 164: provider.EncodeCustomImProtocolRequest
+	(*EncodeCustomImProtocolResponse)(nil),                        // 165: provider.EncodeCustomImProtocolResponse
+	(*EncodePredefinedImProtocolRequest)(nil),                     // 166: provider.EncodePredefinedImProtocolRequest
+	(*EncodePredefinedImProtocolResponse)(nil),                    // 167: provider.EncodePredefinedImProtocolResponse
+	(*GetDisplayLabelRequest)(nil),                                // 168: provider.GetDisplayLabelRequest
+	(*GetDisplayLabelResponse)(nil),                               // 169: provider.GetDisplayLabelResponse
+	(*ContactsOrganizationsGetDisplayLabelRequest)(nil),           // 170: provider.ContactsOrganizationsGetDisplayLabelRequest
+	(*AddToGroup3Request)(nil),                                    // 171: provider.AddToGroup3Request
+	(*AddToGroup3Response)(nil),                                   // 172: provider.AddToGroup3Response
+	(*AddToGroup3_1Request)(nil),                                  // 173: provider.AddToGroup3_1Request
+	(*AddToGroup3_1Response)(nil),                                 // 174: provider.AddToGroup3_1Response
+	(*AddToMyContactsGroupRequest)(nil),                           // 175: provider.AddToMyContactsGroupRequest
+	(*AddToMyContactsGroupResponse)(nil),                          // 176: provider.AddToMyContactsGroupResponse
+	(*CreatePersonInMyContactsGroupRequest)(nil),                  // 177: provider.CreatePersonInMyContactsGroupRequest
+	(*CreatePersonInMyContactsGroupResponse)(nil),                 // 178: provider.CreatePersonInMyContactsGroupResponse
+	(*LoadContactPhotoRequest)(nil),                               // 179: provider.LoadContactPhotoRequest
+	(*LoadContactPhotoResponse)(nil),                              // 180: provider.LoadContactPhotoResponse
+	(*MarkAsContactedRequest)(nil),                                // 181: provider.MarkAsContactedRequest
+	(*MarkAsContactedResponse)(nil),                               // 182: provider.MarkAsContactedResponse
+	(*OpenContactPhotoInputStreamRequest)(nil),                    // 183: provider.OpenContactPhotoInputStreamRequest
+	(*OpenContactPhotoInputStreamResponse)(nil),                   // 184: provider.OpenContactPhotoInputStreamResponse
+	(*QueryGroupsRequest)(nil),                                    // 185: provider.QueryGroupsRequest
+	(*QueryGroupsResponse)(nil),                                   // 186: provider.QueryGroupsResponse
+	(*SetPhotoDataRequest)(nil),                                   // 187: provider.SetPhotoDataRequest
+	(*SetPhotoDataResponse)(nil),                                  // 188: provider.SetPhotoDataResponse
+	(*GetDisplayLabel3Request)(nil),                               // 189: provider.GetDisplayLabel3Request
+	(*GetDisplayLabel3Response)(nil),                              // 190: provider.GetDisplayLabel3Response
+	(*GetDisplayLabel4_1Request)(nil),                             // 191: provider.GetDisplayLabel4_1Request
+	(*GetDisplayLabel4_1Response)(nil),                            // 192: provider.GetDisplayLabel4_1Response
+	(*GetSettingRequest)(nil),                                     // 193: provider.GetSettingRequest
+	(*GetSettingResponse)(nil),                                    // 194: provider.GetSettingResponse
+	(*SetSettingRequest)(nil),                                     // 195: provider.SetSettingRequest
+	(*SetSettingResponse)(nil),                                    // 196: provider.SetSettingResponse
+	(*AddWord4Request)(nil),                                       // 197: provider.AddWord4Request
+	(*AddWord4Response)(nil),                                      // 198: provider.AddWord4Response
+	(*AddWord5_1Request)(nil),                                     // 199: provider.AddWord5_1Request
+	(*AddWord5_1Response)(nil),                                    // 200: provider.AddWord5_1Response
+	(*CanCurrentUserBlockNumbersRequest)(nil),                     // 201: provider.CanCurrentUserBlockNumbersRequest
+	(*CanCurrentUserBlockNumbersResponse)(nil),                    // 202: provider.CanCurrentUserBlockNumbersResponse
+	(*IsBlockedRequest)(nil),                                      // 203: provider.IsBlockedRequest
+	(*IsBlockedResponse)(nil),                                     // 204: provider.IsBlockedResponse
+	(*UnblockRequest)(nil),                                        // 205: provider.UnblockRequest
+	(*UnblockResponse)(nil),                                       // 206: provider.UnblockResponse
+	(*IsMediaCategoriesEnabledRequest)(nil),                       // 207: provider.IsMediaCategoriesEnabledRequest
+	(*IsMediaCategoriesEnabledResponse)(nil),                      // 208: provider.IsMediaCategoriesEnabledResponse
+	(*IsSearchEnabledRequest)(nil),                                // 209: provider.IsSearchEnabledRequest
+	(*IsSearchEnabledResponse)(nil),                               // 210: provider.IsSearchEnabledResponse
+	(*CloudMediaProviderContractCapabilitiesToStringRequest)(nil), // 211: provider.CloudMediaProviderContractCapabilitiesToStringRequest
+	(*GetE2EeContactKeyRequest)(nil),                              // 212: provider.GetE2eeContactKeyRequest
+	(*GetE2EeContactKeyResponse)(nil),                             // 213: provider.GetE2eeContactKeyResponse
+	(*GetE2EeSelfKeyRequest)(nil),                                 // 214: provider.GetE2eeSelfKeyRequest
+	(*GetE2EeSelfKeyResponse)(nil),                                // 215: provider.GetE2eeSelfKeyResponse
+	(*RemoveE2EeContactKeyRequest)(nil),                           // 216: provider.RemoveE2eeContactKeyRequest
+	(*RemoveE2EeContactKeyResponse)(nil),                          // 217: provider.RemoveE2eeContactKeyResponse
+	(*RemoveE2EeSelfKeyRequest)(nil),                              // 218: provider.RemoveE2eeSelfKeyRequest
+	(*RemoveE2EeSelfKeyResponse)(nil),                             // 219: provider.RemoveE2eeSelfKeyResponse
+	(*UpdateE2EeContactKeyLocalVerificationStateRequest)(nil),     // 220: provider.UpdateE2eeContactKeyLocalVerificationStateRequest
+	(*UpdateE2EeContactKeyLocalVerificationStateResponse)(nil),    // 221: provider.UpdateE2eeContactKeyLocalVerificationStateResponse
+	(*UpdateE2EeContactKeyRemoteVerificationStateRequest)(nil),    // 222: provider.UpdateE2eeContactKeyRemoteVerificationStateRequest
+	(*UpdateE2EeContactKeyRemoteVerificationStateResponse)(nil),   // 223: provider.UpdateE2eeContactKeyRemoteVerificationStateResponse
+	(*UpdateE2EeSelfKeyRemoteVerificationStateRequest)(nil),       // 224: provider.UpdateE2eeSelfKeyRemoteVerificationStateRequest
+	(*UpdateE2EeSelfKeyRemoteVerificationStateResponse)(nil),      // 225: provider.UpdateE2eeSelfKeyRemoteVerificationStateResponse
+	(*UpdateOrInsertE2EeContactKeyRequest)(nil),                   // 226: provider.UpdateOrInsertE2eeContactKeyRequest
+	(*UpdateOrInsertE2EeContactKeyResponse)(nil),                  // 227: provider.UpdateOrInsertE2eeContactKeyResponse
+	(*UpdateOrInsertE2EeSelfKeyRequest)(nil),                      // 228: provider.UpdateOrInsertE2eeSelfKeyRequest
+	(*UpdateOrInsertE2EeSelfKeyResponse)(nil),                     // 229: provider.UpdateOrInsertE2eeSelfKeyResponse
+	(*GetMaxKeySizeBytesRequest)(nil),                             // 230: provider.GetMaxKeySizeBytesRequest
+	(*GetMaxKeySizeBytesResponse)(nil),                            // 231: provider.GetMaxKeySizeBytesResponse
+	(*GetAccountIdRequest)(nil),                                   // 232: provider.GetAccountIdRequest
+	(*GetAccountIdResponse)(nil),                                  // 233: provider.GetAccountIdResponse
+	(*GetDeviceIdRequest)(nil),                                    // 234: provider.GetDeviceIdRequest
+	(*GetDeviceIdResponse)(nil),                                   // 235: provider.GetDeviceIdResponse
+	(*GetDisplayNameRequest)(nil),                                 // 236: provider.GetDisplayNameRequest
+	(*GetDisplayNameResponse)(nil),                                // 237: provider.GetDisplayNameResponse
+	(*GetEmailAddressRequest)(nil),                                // 238: provider.GetEmailAddressRequest
+	(*GetEmailAddressResponse)(nil),                               // 239: provider.GetEmailAddressResponse
+	(*GetKeyValueRequest)(nil),                                    // 240: provider.GetKeyValueRequest
+	(*GetKeyValueResponse)(nil),                                   // 241: provider.GetKeyValueResponse
+	(*GetLocalVerificationStateRequest)(nil),                      // 242: provider.GetLocalVerificationStateRequest
+	(*GetLocalVerificationStateResponse)(nil),                     // 243: provider.GetLocalVerificationStateResponse
+	(*GetOwnerPackageNameRequest)(nil),                            // 244: provider.GetOwnerPackageNameRequest
+	(*GetOwnerPackageNameResponse)(nil),                           // 245: provider.GetOwnerPackageNameResponse
+	(*GetPhoneNumberRequest)(nil),                                 // 246: provider.GetPhoneNumberRequest
+	(*GetPhoneNumberResponse)(nil),                                // 247: provider.GetPhoneNumberResponse
+	(*GetRemoteVerificationStateRequest)(nil),                     // 248: provider.GetRemoteVerificationStateRequest
+	(*GetRemoteVerificationStateResponse)(nil),                    // 249: provider.GetRemoteVerificationStateResponse
+	(*GetTimeUpdatedRequest)(nil),                                 // 250: provider.GetTimeUpdatedRequest
+	(*GetTimeUpdatedResponse)(nil),                                // 251: provider.GetTimeUpdatedResponse
+	(*BuildSourceUriRequest)(nil),                                 // 252: provider.BuildSourceUriRequest
+	(*BuildSourceUriResponse)(nil),                                // 253: provider.BuildSourceUriResponse
+	(*GetSpecificCarrierIdUriForSubscriptionIdRequest)(nil),       // 254: provider.GetSpecificCarrierIdUriForSubscriptionIdRequest
+	(*GetSpecificCarrierIdUriForSubscriptionIdResponse)(nil),      // 255: provider.GetSpecificCarrierIdUriForSubscriptionIdResponse
+	(*GetUriForSubscriptionIdRequest)(nil),                        // 256: provider.GetUriForSubscriptionIdRequest
+	(*GetUriForSubscriptionIdResponse)(nil),                       // 257: provider.GetUriForSubscriptionIdResponse
+	(*GetUriForSubscriptionIdAndFieldRequest)(nil),                // 258: provider.GetUriForSubscriptionIdAndFieldRequest
+	(*GetUriForSubscriptionIdAndFieldResponse)(nil),               // 259: provider.GetUriForSubscriptionIdAndFieldResponse
+	(*GetDefaultSmsPackageRequest)(nil),                           // 260: provider.GetDefaultSmsPackageRequest
+	(*GetDefaultSmsPackageResponse)(nil),                          // 261: provider.GetDefaultSmsPackageResponse
+	(*GetOrCreateThreadIdRequest)(nil),                            // 262: provider.GetOrCreateThreadIdRequest
+	(*GetOrCreateThreadIdResponse)(nil),                           // 263: provider.GetOrCreateThreadIdResponse
+	(*GetItemUriRequest)(nil),                                     // 264: provider.GetItemUriRequest
+	(*GetItemUriResponse)(nil),                                    // 265: provider.GetItemUriResponse
+	(*GetContentUriRequest)(nil),                                  // 266: provider.GetContentUriRequest
+	(*GetContentUriResponse)(nil),                                 // 267: provider.GetContentUriResponse
+	(*GetEncodedNameLengthRequest)(nil),                           // 268: provider.GetEncodedNameLengthRequest
+	(*GetEncodedNameLengthResponse)(nil),                          // 269: provider.GetEncodedNameLengthResponse
+	(*SimPhonebookContractSimRecordsGetItemUriRequest)(nil),       // 270: provider.SimPhonebookContractSimRecordsGetItemUriRequest
+	(*BuildTypefaceRequest)(nil),                                  // 271: provider.BuildTypefaceRequest
+	(*BuildTypefaceResponse)(nil),                                 // 272: provider.BuildTypefaceResponse
+	(*FetchFontsRequest)(nil),                                     // 273: provider.FetchFontsRequest
+	(*FetchFontsResponse)(nil),                                    // 274: provider.FetchFontsResponse
+	(*GetFontsRequest)(nil),                                       // 275: provider.GetFontsRequest
+	(*GetFontsResponse)(nil),                                      // 276: provider.GetFontsResponse
+	(*GetStatusCodeRequest)(nil),                                  // 277: provider.GetStatusCodeRequest
+	(*GetStatusCodeResponse)(nil),                                 // 278: provider.GetStatusCodeResponse
+	(*GetAxesRequest)(nil),                                        // 279: provider.GetAxesRequest
+	(*GetAxesResponse)(nil),                                       // 280: provider.GetAxesResponse
+	(*GetResultCodeRequest)(nil),                                  // 281: provider.GetResultCodeRequest
+	(*GetResultCodeResponse)(nil),                                 // 282: provider.GetResultCodeResponse
+	(*GetTtcIndexRequest)(nil),                                    // 283: provider.GetTtcIndexRequest
+	(*GetTtcIndexResponse)(nil),                                   // 284: provider.GetTtcIndexResponse
+	(*GetUriRequest)(nil),                                         // 285: provider.GetUriRequest
+	(*GetUriResponse)(nil),                                        // 286: provider.GetUriResponse
+	(*GetWeightRequest)(nil),                                      // 287: provider.GetWeightRequest
+	(*GetWeightResponse)(nil),                                     // 288: provider.GetWeightResponse
+	(*IsItalicRequest)(nil),                                       // 289: provider.IsItalicRequest
+	(*IsItalicResponse)(nil),                                      // 290: provider.IsItalicResponse
+	(*OnTypefaceRequestFailedRequest)(nil),                        // 291: provider.OnTypefaceRequestFailedRequest
+	(*OnTypefaceRequestFailedResponse)(nil),                       // 292: provider.OnTypefaceRequestFailedResponse
+	(*OnTypefaceRetrievedRequest)(nil),                            // 293: provider.OnTypefaceRetrievedRequest
+	(*OnTypefaceRetrievedResponse)(nil),                           // 294: provider.OnTypefaceRetrievedResponse
+	(*GetLastOutgoingCallRequest)(nil),                            // 295: provider.GetLastOutgoingCallRequest
+	(*GetLastOutgoingCallResponse)(nil),                           // 296: provider.GetLastOutgoingCallResponse
+	(*NewBrowserRequest)(nil),                                     // 297: provider.NewBrowserRequest
+	(*NewBrowserResponse)(nil),                                    // 298: provider.NewBrowserResponse
+	(*SendStringRequest)(nil),                                     // 299: provider.SendStringRequest
+	(*SendStringResponse)(nil),                                    // 300: provider.SendStringResponse
+	(*CloudMediaProviderInsertRequest)(nil),                       // 301: provider.CloudMediaProviderInsertRequest
+	(*OnCreateCloudMediaSurfaceControllerRequest)(nil),            // 302: provider.OnCreateCloudMediaSurfaceControllerRequest
+	(*OnCreateCloudMediaSurfaceControllerResponse)(nil),           // 303: provider.OnCreateCloudMediaSurfaceControllerResponse
+	(*OnGetCapabilitiesRequest)(nil),                              // 304: provider.OnGetCapabilitiesRequest
+	(*OnGetCapabilitiesResponse)(nil),                             // 305: provider.OnGetCapabilitiesResponse
+	(*OnGetMediaCollectionInfoRequest)(nil),                       // 306: provider.OnGetMediaCollectionInfoRequest
+	(*OnGetMediaCollectionInfoResponse)(nil),                      // 307: provider.OnGetMediaCollectionInfoResponse
+	(*OnOpenMediaRequest)(nil),                                    // 308: provider.OnOpenMediaRequest
+	(*OnOpenMediaResponse)(nil),                                   // 309: provider.OnOpenMediaResponse
+	(*OnOpenPreviewRequest)(nil),                                  // 310: provider.OnOpenPreviewRequest
+	(*OnOpenPreviewResponse)(nil),                                 // 311: provider.OnOpenPreviewResponse
+	(*OnQueryAlbumsRequest)(nil),                                  // 312: provider.OnQueryAlbumsRequest
+	(*OnQueryAlbumsResponse)(nil),                                 // 313: provider.OnQueryAlbumsResponse
+	(*OnQueryDeletedMediaRequest)(nil),                            // 314: provider.OnQueryDeletedMediaRequest
+	(*OnQueryDeletedMediaResponse)(nil),                           // 315: provider.OnQueryDeletedMediaResponse
+	(*OnQueryMediaRequest)(nil),                                   // 316: provider.OnQueryMediaRequest
+	(*OnQueryMediaResponse)(nil),                                  // 317: provider.OnQueryMediaResponse
+	(*OnQueryMediaCategoriesRequest)(nil),                         // 318: provider.OnQueryMediaCategoriesRequest
+	(*OnQueryMediaCategoriesResponse)(nil),                        // 319: provider.OnQueryMediaCategoriesResponse
+	(*OnQueryMediaInMediaSetRequest)(nil),                         // 320: provider.OnQueryMediaInMediaSetRequest
+	(*OnQueryMediaInMediaSetResponse)(nil),                        // 321: provider.OnQueryMediaInMediaSetResponse
+	(*OnQueryMediaSetsRequest)(nil),                               // 322: provider.OnQueryMediaSetsRequest
+	(*OnQueryMediaSetsResponse)(nil),                              // 323: provider.OnQueryMediaSetsResponse
+	(*OnQuerySearchSuggestionsRequest)(nil),                       // 324: provider.OnQuerySearchSuggestionsRequest
+	(*OnQuerySearchSuggestionsResponse)(nil),                      // 325: provider.OnQuerySearchSuggestionsResponse
+	(*OnSearchMedia3Request)(nil),                                 // 326: provider.OnSearchMedia3Request
+	(*OnSearchMedia3Response)(nil),                                // 327: provider.OnSearchMedia3Response
+	(*OnSearchMedia4_1Request)(nil),                               // 328: provider.OnSearchMedia4_1Request
+	(*OnSearchMedia4_1Response)(nil),                              // 329: provider.OnSearchMedia4_1Response
+	(*CloudMediaProviderUpdateRequest)(nil),                       // 330: provider.CloudMediaProviderUpdateRequest
+	(*CloudMediaProviderUpdateResponse)(nil),                      // 331: provider.CloudMediaProviderUpdateResponse
+	(*OnConfigChangeRequest)(nil),                                 // 332: provider.OnConfigChangeRequest
+	(*OnConfigChangeResponse)(nil),                                // 333: provider.OnConfigChangeResponse
+	(*OnDestroyRequest)(nil),                                      // 334: provider.OnDestroyRequest
+	(*OnDestroyResponse)(nil),                                     // 335: provider.OnDestroyResponse
+	(*OnMediaPauseRequest)(nil),                                   // 336: provider.OnMediaPauseRequest
+	(*OnMediaPauseResponse)(nil),                                  // 337: provider.OnMediaPauseResponse
+	(*OnMediaPlayRequest)(nil),                                    // 338: provider.OnMediaPlayRequest
+	(*OnMediaPlayResponse)(nil),                                   // 339: provider.OnMediaPlayResponse
+	(*OnMediaSeekToRequest)(nil),                                  // 340: provider.OnMediaSeekToRequest
+	(*OnMediaSeekToResponse)(nil),                                 // 341: provider.OnMediaSeekToResponse
+	(*OnPlayerCreateRequest)(nil),                                 // 342: provider.OnPlayerCreateRequest
+	(*OnPlayerCreateResponse)(nil),                                // 343: provider.OnPlayerCreateResponse
+	(*OnPlayerReleaseRequest)(nil),                                // 344: provider.OnPlayerReleaseRequest
+	(*OnPlayerReleaseResponse)(nil),                               // 345: provider.OnPlayerReleaseResponse
+	(*OnSurfaceChangedRequest)(nil),                               // 346: provider.OnSurfaceChangedRequest
+	(*OnSurfaceChangedResponse)(nil),                              // 347: provider.OnSurfaceChangedResponse
+	(*OnSurfaceCreatedRequest)(nil),                               // 348: provider.OnSurfaceCreatedRequest
+	(*OnSurfaceCreatedResponse)(nil),                              // 349: provider.OnSurfaceCreatedResponse
+	(*OnSurfaceDestroyedRequest)(nil),                             // 350: provider.OnSurfaceDestroyedRequest
+	(*OnSurfaceDestroyedResponse)(nil),                            // 351: provider.OnSurfaceDestroyedResponse
+	(*SetPlaybackStateRequest)(nil),                               // 352: provider.SetPlaybackStateRequest
+	(*SetPlaybackStateResponse)(nil),                              // 353: provider.SetPlaybackStateResponse
+}
 var file_proto_provider_provider_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	0,   // 0: provider.PropertiesService.DescribeContents:input_type -> provider.DescribeContentsRequest
+	2,   // 1: provider.PropertiesService.Equals:input_type -> provider.EqualsRequest
+	4,   // 2: provider.PropertiesService.GetAccuracy:input_type -> provider.GetAccuracyRequest
+	6,   // 3: provider.PropertiesService.GetPowerUsage:input_type -> provider.GetPowerUsageRequest
+	8,   // 4: provider.PropertiesService.HasAltitudeSupport:input_type -> provider.HasAltitudeSupportRequest
+	10,  // 5: provider.PropertiesService.HasBearingSupport:input_type -> provider.HasBearingSupportRequest
+	12,  // 6: provider.PropertiesService.HasCellRequirement:input_type -> provider.HasCellRequirementRequest
+	14,  // 7: provider.PropertiesService.HasMonetaryCost:input_type -> provider.HasMonetaryCostRequest
+	16,  // 8: provider.PropertiesService.HasNetworkRequirement:input_type -> provider.HasNetworkRequirementRequest
+	18,  // 9: provider.PropertiesService.HasSatelliteRequirement:input_type -> provider.HasSatelliteRequirementRequest
+	20,  // 10: provider.PropertiesService.HasSpeedSupport:input_type -> provider.HasSpeedSupportRequest
+	22,  // 11: provider.PropertiesService.HashCode:input_type -> provider.HashCodeRequest
+	24,  // 12: provider.PropertiesService.ToString:input_type -> provider.ToStringRequest
+	26,  // 13: provider.PropertiesService.WriteToParcel:input_type -> provider.WriteToParcelRequest
+	28,  // 14: provider.PropertiesBuilderService.Build:input_type -> provider.BuildRequest
+	30,  // 15: provider.PropertiesBuilderService.SetAccuracy:input_type -> provider.SetAccuracyRequest
+	32,  // 16: provider.PropertiesBuilderService.SetHasAltitudeSupport:input_type -> provider.SetHasAltitudeSupportRequest
+	34,  // 17: provider.PropertiesBuilderService.SetHasBearingSupport:input_type -> provider.SetHasBearingSupportRequest
+	36,  // 18: provider.PropertiesBuilderService.SetHasCellRequirement:input_type -> provider.SetHasCellRequirementRequest
+	38,  // 19: provider.PropertiesBuilderService.SetHasMonetaryCost:input_type -> provider.SetHasMonetaryCostRequest
+	40,  // 20: provider.PropertiesBuilderService.SetHasNetworkRequirement:input_type -> provider.SetHasNetworkRequirementRequest
+	42,  // 21: provider.PropertiesBuilderService.SetHasSatelliteRequirement:input_type -> provider.SetHasSatelliteRequirementRequest
+	44,  // 22: provider.PropertiesBuilderService.SetHasSpeedSupport:input_type -> provider.SetHasSpeedSupportRequest
+	46,  // 23: provider.PropertiesBuilderService.SetPowerUsage:input_type -> provider.SetPowerUsageRequest
+	48,  // 24: provider.SyncStateContractHelpersService.Get:input_type -> provider.GetRequest
+	50,  // 25: provider.SyncStateContractHelpersService.Insert:input_type -> provider.InsertRequest
+	52,  // 26: provider.SyncStateContractHelpersService.NewSetOperation:input_type -> provider.NewSetOperationRequest
+	54,  // 27: provider.SyncStateContractHelpersService.NewUpdateOperation:input_type -> provider.NewUpdateOperationRequest
+	56,  // 28: provider.SyncStateContractHelpersService.Set:input_type -> provider.SetRequest
+	58,  // 29: provider.SyncStateContractHelpersService.Update:input_type -> provider.UpdateRequest
+	60,  // 30: provider.FontRequestService.NewFontRequest:input_type -> provider.NewFontRequestRequest
+	62,  // 31: provider.FontRequestService.GetProviderAuthority:input_type -> provider.GetProviderAuthorityRequest
+	64,  // 32: provider.FontRequestService.GetProviderPackage:input_type -> provider.GetProviderPackageRequest
+	66,  // 33: provider.FontRequestService.GetQuery:input_type -> provider.GetQueryRequest
+	68,  // 34: provider.FontRequestService.ToString:input_type -> provider.FontRequestToStringRequest
+	69,  // 35: provider.SearchRecentSuggestionsService.NewSearchRecentSuggestions:input_type -> provider.NewSearchRecentSuggestionsRequest
+	71,  // 36: provider.SearchRecentSuggestionsService.ClearHistory:input_type -> provider.ClearHistoryRequest
+	73,  // 37: provider.SearchRecentSuggestionsService.SaveRecentQuery:input_type -> provider.SaveRecentQueryRequest
+	75,  // 38: provider.DocumentsProviderService.AttachInfo:input_type -> provider.AttachInfoRequest
+	77,  // 39: provider.DocumentsProviderService.Call:input_type -> provider.CallRequest
+	79,  // 40: provider.DocumentsProviderService.Canonicalize:input_type -> provider.CanonicalizeRequest
+	81,  // 41: provider.DocumentsProviderService.CopyDocument:input_type -> provider.CopyDocumentRequest
+	83,  // 42: provider.DocumentsProviderService.CreateDocument:input_type -> provider.CreateDocumentRequest
+	85,  // 43: provider.DocumentsProviderService.CreateWebLinkIntent:input_type -> provider.CreateWebLinkIntentRequest
+	87,  // 44: provider.DocumentsProviderService.Delete:input_type -> provider.DeleteRequest
+	89,  // 45: provider.DocumentsProviderService.DeleteDocument:input_type -> provider.DeleteDocumentRequest
+	91,  // 46: provider.DocumentsProviderService.EjectRoot:input_type -> provider.EjectRootRequest
+	93,  // 47: provider.DocumentsProviderService.FindDocumentPath:input_type -> provider.FindDocumentPathRequest
+	95,  // 48: provider.DocumentsProviderService.GetDocumentMetadata:input_type -> provider.GetDocumentMetadataRequest
+	97,  // 49: provider.DocumentsProviderService.GetDocumentStreamTypes:input_type -> provider.GetDocumentStreamTypesRequest
+	99,  // 50: provider.DocumentsProviderService.GetDocumentType:input_type -> provider.GetDocumentTypeRequest
+	101, // 51: provider.DocumentsProviderService.GetStreamTypes:input_type -> provider.GetStreamTypesRequest
+	103, // 52: provider.DocumentsProviderService.GetType:input_type -> provider.GetTypeRequest
+	105, // 53: provider.DocumentsProviderService.GetTypeAnonymous:input_type -> provider.GetTypeAnonymousRequest
+	107, // 54: provider.DocumentsProviderService.Insert:input_type -> provider.DocumentsProviderInsertRequest
+	108, // 55: provider.DocumentsProviderService.IsChildDocument:input_type -> provider.IsChildDocumentRequest
+	110, // 56: provider.DocumentsProviderService.MoveDocument:input_type -> provider.MoveDocumentRequest
+	112, // 57: provider.DocumentsProviderService.OpenAssetFile2:input_type -> provider.OpenAssetFile2Request
+	114, // 58: provider.DocumentsProviderService.OpenAssetFile3_1:input_type -> provider.OpenAssetFile3_1Request
+	116, // 59: provider.DocumentsProviderService.OpenDocument:input_type -> provider.OpenDocumentRequest
+	118, // 60: provider.DocumentsProviderService.OpenDocumentThumbnail:input_type -> provider.OpenDocumentThumbnailRequest
+	120, // 61: provider.DocumentsProviderService.OpenFile2:input_type -> provider.OpenFile2Request
+	122, // 62: provider.DocumentsProviderService.OpenFile3_1:input_type -> provider.OpenFile3_1Request
+	124, // 63: provider.DocumentsProviderService.OpenTypedAssetFile3:input_type -> provider.OpenTypedAssetFile3Request
+	126, // 64: provider.DocumentsProviderService.OpenTypedAssetFile4_1:input_type -> provider.OpenTypedAssetFile4_1Request
+	128, // 65: provider.DocumentsProviderService.OpenTypedDocument:input_type -> provider.OpenTypedDocumentRequest
+	130, // 66: provider.DocumentsProviderService.Query4:input_type -> provider.Query4Request
+	132, // 67: provider.DocumentsProviderService.Query5_1:input_type -> provider.Query5_1Request
+	134, // 68: provider.DocumentsProviderService.Query6_2:input_type -> provider.Query6_2Request
+	136, // 69: provider.DocumentsProviderService.QueryChildDocuments3:input_type -> provider.QueryChildDocuments3Request
+	138, // 70: provider.DocumentsProviderService.QueryChildDocuments3_1:input_type -> provider.QueryChildDocuments3_1Request
+	140, // 71: provider.DocumentsProviderService.QueryDocument:input_type -> provider.QueryDocumentRequest
+	142, // 72: provider.DocumentsProviderService.QueryRecentDocuments2:input_type -> provider.QueryRecentDocuments2Request
+	144, // 73: provider.DocumentsProviderService.QueryRecentDocuments4_1:input_type -> provider.QueryRecentDocuments4_1Request
+	146, // 74: provider.DocumentsProviderService.QueryRoots:input_type -> provider.QueryRootsRequest
+	148, // 75: provider.DocumentsProviderService.QuerySearchDocuments3:input_type -> provider.QuerySearchDocuments3Request
+	150, // 76: provider.DocumentsProviderService.QuerySearchDocuments3_1:input_type -> provider.QuerySearchDocuments3_1Request
+	152, // 77: provider.DocumentsProviderService.RemoveDocument:input_type -> provider.RemoveDocumentRequest
+	154, // 78: provider.DocumentsProviderService.RenameDocument:input_type -> provider.RenameDocumentRequest
+	156, // 79: provider.DocumentsProviderService.RevokeDocumentPermission:input_type -> provider.RevokeDocumentPermissionRequest
+	158, // 80: provider.DocumentsProviderService.Update:input_type -> provider.DocumentsProviderUpdateRequest
+	160, // 81: provider.ContactsContactMethodsService.AddPostalLocation:input_type -> provider.AddPostalLocationRequest
+	162, // 82: provider.ContactsContactMethodsService.DecodeImProtocol:input_type -> provider.DecodeImProtocolRequest
+	164, // 83: provider.ContactsContactMethodsService.EncodeCustomImProtocol:input_type -> provider.EncodeCustomImProtocolRequest
+	166, // 84: provider.ContactsContactMethodsService.EncodePredefinedImProtocol:input_type -> provider.EncodePredefinedImProtocolRequest
+	168, // 85: provider.ContactsContactMethodsService.GetDisplayLabel:input_type -> provider.GetDisplayLabelRequest
+	170, // 86: provider.ContactsOrganizationsService.GetDisplayLabel:input_type -> provider.ContactsOrganizationsGetDisplayLabelRequest
+	171, // 87: provider.ContactsPeopleService.AddToGroup3:input_type -> provider.AddToGroup3Request
+	173, // 88: provider.ContactsPeopleService.AddToGroup3_1:input_type -> provider.AddToGroup3_1Request
+	175, // 89: provider.ContactsPeopleService.AddToMyContactsGroup:input_type -> provider.AddToMyContactsGroupRequest
+	177, // 90: provider.ContactsPeopleService.CreatePersonInMyContactsGroup:input_type -> provider.CreatePersonInMyContactsGroupRequest
+	179, // 91: provider.ContactsPeopleService.LoadContactPhoto:input_type -> provider.LoadContactPhotoRequest
+	181, // 92: provider.ContactsPeopleService.MarkAsContacted:input_type -> provider.MarkAsContactedRequest
+	183, // 93: provider.ContactsPeopleService.OpenContactPhotoInputStream:input_type -> provider.OpenContactPhotoInputStreamRequest
+	185, // 94: provider.ContactsPeopleService.QueryGroups:input_type -> provider.QueryGroupsRequest
+	187, // 95: provider.ContactsPeopleService.SetPhotoData:input_type -> provider.SetPhotoDataRequest
+	189, // 96: provider.ContactsPhonesService.GetDisplayLabel3:input_type -> provider.GetDisplayLabel3Request
+	191, // 97: provider.ContactsPhonesService.GetDisplayLabel4_1:input_type -> provider.GetDisplayLabel4_1Request
+	193, // 98: provider.ContactsSettingsService.GetSetting:input_type -> provider.GetSettingRequest
+	195, // 99: provider.ContactsSettingsService.SetSetting:input_type -> provider.SetSettingRequest
+	197, // 100: provider.UserDictionaryWordsService.AddWord4:input_type -> provider.AddWord4Request
+	199, // 101: provider.UserDictionaryWordsService.AddWord5_1:input_type -> provider.AddWord5_1Request
+	201, // 102: provider.BlockedNumberContractService.CanCurrentUserBlockNumbers:input_type -> provider.CanCurrentUserBlockNumbersRequest
+	203, // 103: provider.BlockedNumberContractService.IsBlocked:input_type -> provider.IsBlockedRequest
+	205, // 104: provider.BlockedNumberContractService.Unblock:input_type -> provider.UnblockRequest
+	0,   // 105: provider.CloudMediaProviderContractCapabilitiesService.DescribeContents:input_type -> provider.DescribeContentsRequest
+	207, // 106: provider.CloudMediaProviderContractCapabilitiesService.IsMediaCategoriesEnabled:input_type -> provider.IsMediaCategoriesEnabledRequest
+	209, // 107: provider.CloudMediaProviderContractCapabilitiesService.IsSearchEnabled:input_type -> provider.IsSearchEnabledRequest
+	211, // 108: provider.CloudMediaProviderContractCapabilitiesService.ToString:input_type -> provider.CloudMediaProviderContractCapabilitiesToStringRequest
+	26,  // 109: provider.CloudMediaProviderContractCapabilitiesService.WriteToParcel:input_type -> provider.WriteToParcelRequest
+	212, // 110: provider.E2eeContactKeysManagerService.GetE2eeContactKey:input_type -> provider.GetE2eeContactKeyRequest
+	214, // 111: provider.E2eeContactKeysManagerService.GetE2eeSelfKey:input_type -> provider.GetE2eeSelfKeyRequest
+	216, // 112: provider.E2eeContactKeysManagerService.RemoveE2eeContactKey:input_type -> provider.RemoveE2eeContactKeyRequest
+	218, // 113: provider.E2eeContactKeysManagerService.RemoveE2eeSelfKey:input_type -> provider.RemoveE2eeSelfKeyRequest
+	220, // 114: provider.E2eeContactKeysManagerService.UpdateE2eeContactKeyLocalVerificationState:input_type -> provider.UpdateE2eeContactKeyLocalVerificationStateRequest
+	222, // 115: provider.E2eeContactKeysManagerService.UpdateE2eeContactKeyRemoteVerificationState:input_type -> provider.UpdateE2eeContactKeyRemoteVerificationStateRequest
+	224, // 116: provider.E2eeContactKeysManagerService.UpdateE2eeSelfKeyRemoteVerificationState:input_type -> provider.UpdateE2eeSelfKeyRemoteVerificationStateRequest
+	226, // 117: provider.E2eeContactKeysManagerService.UpdateOrInsertE2eeContactKey:input_type -> provider.UpdateOrInsertE2eeContactKeyRequest
+	228, // 118: provider.E2eeContactKeysManagerService.UpdateOrInsertE2eeSelfKey:input_type -> provider.UpdateOrInsertE2eeSelfKeyRequest
+	230, // 119: provider.E2eeContactKeysManagerService.GetMaxKeySizeBytes:input_type -> provider.GetMaxKeySizeBytesRequest
+	0,   // 120: provider.E2eeContactKeysManagerE2eeContactKeyService.DescribeContents:input_type -> provider.DescribeContentsRequest
+	2,   // 121: provider.E2eeContactKeysManagerE2eeContactKeyService.Equals:input_type -> provider.EqualsRequest
+	232, // 122: provider.E2eeContactKeysManagerE2eeContactKeyService.GetAccountId:input_type -> provider.GetAccountIdRequest
+	234, // 123: provider.E2eeContactKeysManagerE2eeContactKeyService.GetDeviceId:input_type -> provider.GetDeviceIdRequest
+	236, // 124: provider.E2eeContactKeysManagerE2eeContactKeyService.GetDisplayName:input_type -> provider.GetDisplayNameRequest
+	238, // 125: provider.E2eeContactKeysManagerE2eeContactKeyService.GetEmailAddress:input_type -> provider.GetEmailAddressRequest
+	240, // 126: provider.E2eeContactKeysManagerE2eeContactKeyService.GetKeyValue:input_type -> provider.GetKeyValueRequest
+	242, // 127: provider.E2eeContactKeysManagerE2eeContactKeyService.GetLocalVerificationState:input_type -> provider.GetLocalVerificationStateRequest
+	244, // 128: provider.E2eeContactKeysManagerE2eeContactKeyService.GetOwnerPackageName:input_type -> provider.GetOwnerPackageNameRequest
+	246, // 129: provider.E2eeContactKeysManagerE2eeContactKeyService.GetPhoneNumber:input_type -> provider.GetPhoneNumberRequest
+	248, // 130: provider.E2eeContactKeysManagerE2eeContactKeyService.GetRemoteVerificationState:input_type -> provider.GetRemoteVerificationStateRequest
+	250, // 131: provider.E2eeContactKeysManagerE2eeContactKeyService.GetTimeUpdated:input_type -> provider.GetTimeUpdatedRequest
+	22,  // 132: provider.E2eeContactKeysManagerE2eeContactKeyService.HashCode:input_type -> provider.HashCodeRequest
+	26,  // 133: provider.E2eeContactKeysManagerE2eeContactKeyService.WriteToParcel:input_type -> provider.WriteToParcelRequest
+	0,   // 134: provider.E2eeContactKeysManagerE2eeSelfKeyService.DescribeContents:input_type -> provider.DescribeContentsRequest
+	2,   // 135: provider.E2eeContactKeysManagerE2eeSelfKeyService.Equals:input_type -> provider.EqualsRequest
+	232, // 136: provider.E2eeContactKeysManagerE2eeSelfKeyService.GetAccountId:input_type -> provider.GetAccountIdRequest
+	234, // 137: provider.E2eeContactKeysManagerE2eeSelfKeyService.GetDeviceId:input_type -> provider.GetDeviceIdRequest
+	240, // 138: provider.E2eeContactKeysManagerE2eeSelfKeyService.GetKeyValue:input_type -> provider.GetKeyValueRequest
+	244, // 139: provider.E2eeContactKeysManagerE2eeSelfKeyService.GetOwnerPackageName:input_type -> provider.GetOwnerPackageNameRequest
+	248, // 140: provider.E2eeContactKeysManagerE2eeSelfKeyService.GetRemoteVerificationState:input_type -> provider.GetRemoteVerificationStateRequest
+	250, // 141: provider.E2eeContactKeysManagerE2eeSelfKeyService.GetTimeUpdated:input_type -> provider.GetTimeUpdatedRequest
+	22,  // 142: provider.E2eeContactKeysManagerE2eeSelfKeyService.HashCode:input_type -> provider.HashCodeRequest
+	26,  // 143: provider.E2eeContactKeysManagerE2eeSelfKeyService.WriteToParcel:input_type -> provider.WriteToParcelRequest
+	252, // 144: provider.VoicemailContractStatusService.BuildSourceUri:input_type -> provider.BuildSourceUriRequest
+	252, // 145: provider.VoicemailContractVoicemailsService.BuildSourceUri:input_type -> provider.BuildSourceUriRequest
+	254, // 146: provider.TelephonyCarrierIdService.GetSpecificCarrierIdUriForSubscriptionId:input_type -> provider.GetSpecificCarrierIdUriForSubscriptionIdRequest
+	256, // 147: provider.TelephonyCarrierIdService.GetUriForSubscriptionId:input_type -> provider.GetUriForSubscriptionIdRequest
+	256, // 148: provider.TelephonyServiceStateTableService.GetUriForSubscriptionId:input_type -> provider.GetUriForSubscriptionIdRequest
+	258, // 149: provider.TelephonyServiceStateTableService.GetUriForSubscriptionIdAndField:input_type -> provider.GetUriForSubscriptionIdAndFieldRequest
+	260, // 150: provider.TelephonySmsService.GetDefaultSmsPackage:input_type -> provider.GetDefaultSmsPackageRequest
+	262, // 151: provider.TelephonyThreadsService.GetOrCreateThreadId:input_type -> provider.GetOrCreateThreadIdRequest
+	264, // 152: provider.SimPhonebookContractElementaryFilesService.GetItemUri:input_type -> provider.GetItemUriRequest
+	266, // 153: provider.SimPhonebookContractSimRecordsService.GetContentUri:input_type -> provider.GetContentUriRequest
+	268, // 154: provider.SimPhonebookContractSimRecordsService.GetEncodedNameLength:input_type -> provider.GetEncodedNameLengthRequest
+	270, // 155: provider.SimPhonebookContractSimRecordsService.GetItemUri:input_type -> provider.SimPhonebookContractSimRecordsGetItemUriRequest
+	271, // 156: provider.FontsContractService.BuildTypeface:input_type -> provider.BuildTypefaceRequest
+	273, // 157: provider.FontsContractService.FetchFonts:input_type -> provider.FetchFontsRequest
+	275, // 158: provider.FontsContractFontFamilyResultService.GetFonts:input_type -> provider.GetFontsRequest
+	277, // 159: provider.FontsContractFontFamilyResultService.GetStatusCode:input_type -> provider.GetStatusCodeRequest
+	279, // 160: provider.FontsContractFontInfoService.GetAxes:input_type -> provider.GetAxesRequest
+	281, // 161: provider.FontsContractFontInfoService.GetResultCode:input_type -> provider.GetResultCodeRequest
+	283, // 162: provider.FontsContractFontInfoService.GetTtcIndex:input_type -> provider.GetTtcIndexRequest
+	285, // 163: provider.FontsContractFontInfoService.GetUri:input_type -> provider.GetUriRequest
+	287, // 164: provider.FontsContractFontInfoService.GetWeight:input_type -> provider.GetWeightRequest
+	289, // 165: provider.FontsContractFontInfoService.IsItalic:input_type -> provider.IsItalicRequest
+	291, // 166: provider.FontsContractFontRequestCallbackService.OnTypefaceRequestFailed:input_type -> provider.OnTypefaceRequestFailedRequest
+	293, // 167: provider.FontsContractFontRequestCallbackService.OnTypefaceRetrieved:input_type -> provider.OnTypefaceRetrievedRequest
+	295, // 168: provider.CallLogCallsService.GetLastOutgoingCall:input_type -> provider.GetLastOutgoingCallRequest
+	297, // 169: provider.BrowserService.NewBrowser:input_type -> provider.NewBrowserRequest
+	299, // 170: provider.BrowserService.SendString:input_type -> provider.SendStringRequest
+	75,  // 171: provider.CloudMediaProviderService.AttachInfo:input_type -> provider.AttachInfoRequest
+	77,  // 172: provider.CloudMediaProviderService.Call:input_type -> provider.CallRequest
+	79,  // 173: provider.CloudMediaProviderService.Canonicalize:input_type -> provider.CanonicalizeRequest
+	87,  // 174: provider.CloudMediaProviderService.Delete:input_type -> provider.DeleteRequest
+	103, // 175: provider.CloudMediaProviderService.GetType:input_type -> provider.GetTypeRequest
+	301, // 176: provider.CloudMediaProviderService.Insert:input_type -> provider.CloudMediaProviderInsertRequest
+	302, // 177: provider.CloudMediaProviderService.OnCreateCloudMediaSurfaceController:input_type -> provider.OnCreateCloudMediaSurfaceControllerRequest
+	304, // 178: provider.CloudMediaProviderService.OnGetCapabilities:input_type -> provider.OnGetCapabilitiesRequest
+	306, // 179: provider.CloudMediaProviderService.OnGetMediaCollectionInfo:input_type -> provider.OnGetMediaCollectionInfoRequest
+	308, // 180: provider.CloudMediaProviderService.OnOpenMedia:input_type -> provider.OnOpenMediaRequest
+	310, // 181: provider.CloudMediaProviderService.OnOpenPreview:input_type -> provider.OnOpenPreviewRequest
+	312, // 182: provider.CloudMediaProviderService.OnQueryAlbums:input_type -> provider.OnQueryAlbumsRequest
+	314, // 183: provider.CloudMediaProviderService.OnQueryDeletedMedia:input_type -> provider.OnQueryDeletedMediaRequest
+	316, // 184: provider.CloudMediaProviderService.OnQueryMedia:input_type -> provider.OnQueryMediaRequest
+	318, // 185: provider.CloudMediaProviderService.OnQueryMediaCategories:input_type -> provider.OnQueryMediaCategoriesRequest
+	320, // 186: provider.CloudMediaProviderService.OnQueryMediaInMediaSet:input_type -> provider.OnQueryMediaInMediaSetRequest
+	322, // 187: provider.CloudMediaProviderService.OnQueryMediaSets:input_type -> provider.OnQueryMediaSetsRequest
+	324, // 188: provider.CloudMediaProviderService.OnQuerySearchSuggestions:input_type -> provider.OnQuerySearchSuggestionsRequest
+	326, // 189: provider.CloudMediaProviderService.OnSearchMedia3:input_type -> provider.OnSearchMedia3Request
+	328, // 190: provider.CloudMediaProviderService.OnSearchMedia4_1:input_type -> provider.OnSearchMedia4_1Request
+	120, // 191: provider.CloudMediaProviderService.OpenFile2:input_type -> provider.OpenFile2Request
+	122, // 192: provider.CloudMediaProviderService.OpenFile3_1:input_type -> provider.OpenFile3_1Request
+	124, // 193: provider.CloudMediaProviderService.OpenTypedAssetFile3:input_type -> provider.OpenTypedAssetFile3Request
+	126, // 194: provider.CloudMediaProviderService.OpenTypedAssetFile4_1:input_type -> provider.OpenTypedAssetFile4_1Request
+	130, // 195: provider.CloudMediaProviderService.Query4:input_type -> provider.Query4Request
+	132, // 196: provider.CloudMediaProviderService.Query5_1:input_type -> provider.Query5_1Request
+	134, // 197: provider.CloudMediaProviderService.Query6_2:input_type -> provider.Query6_2Request
+	330, // 198: provider.CloudMediaProviderService.Update:input_type -> provider.CloudMediaProviderUpdateRequest
+	332, // 199: provider.CloudMediaProviderCloudMediaSurfaceControllerService.OnConfigChange:input_type -> provider.OnConfigChangeRequest
+	334, // 200: provider.CloudMediaProviderCloudMediaSurfaceControllerService.OnDestroy:input_type -> provider.OnDestroyRequest
+	336, // 201: provider.CloudMediaProviderCloudMediaSurfaceControllerService.OnMediaPause:input_type -> provider.OnMediaPauseRequest
+	338, // 202: provider.CloudMediaProviderCloudMediaSurfaceControllerService.OnMediaPlay:input_type -> provider.OnMediaPlayRequest
+	340, // 203: provider.CloudMediaProviderCloudMediaSurfaceControllerService.OnMediaSeekTo:input_type -> provider.OnMediaSeekToRequest
+	342, // 204: provider.CloudMediaProviderCloudMediaSurfaceControllerService.OnPlayerCreate:input_type -> provider.OnPlayerCreateRequest
+	344, // 205: provider.CloudMediaProviderCloudMediaSurfaceControllerService.OnPlayerRelease:input_type -> provider.OnPlayerReleaseRequest
+	346, // 206: provider.CloudMediaProviderCloudMediaSurfaceControllerService.OnSurfaceChanged:input_type -> provider.OnSurfaceChangedRequest
+	348, // 207: provider.CloudMediaProviderCloudMediaSurfaceControllerService.OnSurfaceCreated:input_type -> provider.OnSurfaceCreatedRequest
+	350, // 208: provider.CloudMediaProviderCloudMediaSurfaceControllerService.OnSurfaceDestroyed:input_type -> provider.OnSurfaceDestroyedRequest
+	352, // 209: provider.CloudMediaProviderCloudMediaSurfaceStateChangedCallbackService.SetPlaybackState:input_type -> provider.SetPlaybackStateRequest
+	1,   // 210: provider.PropertiesService.DescribeContents:output_type -> provider.DescribeContentsResponse
+	3,   // 211: provider.PropertiesService.Equals:output_type -> provider.EqualsResponse
+	5,   // 212: provider.PropertiesService.GetAccuracy:output_type -> provider.GetAccuracyResponse
+	7,   // 213: provider.PropertiesService.GetPowerUsage:output_type -> provider.GetPowerUsageResponse
+	9,   // 214: provider.PropertiesService.HasAltitudeSupport:output_type -> provider.HasAltitudeSupportResponse
+	11,  // 215: provider.PropertiesService.HasBearingSupport:output_type -> provider.HasBearingSupportResponse
+	13,  // 216: provider.PropertiesService.HasCellRequirement:output_type -> provider.HasCellRequirementResponse
+	15,  // 217: provider.PropertiesService.HasMonetaryCost:output_type -> provider.HasMonetaryCostResponse
+	17,  // 218: provider.PropertiesService.HasNetworkRequirement:output_type -> provider.HasNetworkRequirementResponse
+	19,  // 219: provider.PropertiesService.HasSatelliteRequirement:output_type -> provider.HasSatelliteRequirementResponse
+	21,  // 220: provider.PropertiesService.HasSpeedSupport:output_type -> provider.HasSpeedSupportResponse
+	23,  // 221: provider.PropertiesService.HashCode:output_type -> provider.HashCodeResponse
+	25,  // 222: provider.PropertiesService.ToString:output_type -> provider.ToStringResponse
+	27,  // 223: provider.PropertiesService.WriteToParcel:output_type -> provider.WriteToParcelResponse
+	29,  // 224: provider.PropertiesBuilderService.Build:output_type -> provider.BuildResponse
+	31,  // 225: provider.PropertiesBuilderService.SetAccuracy:output_type -> provider.SetAccuracyResponse
+	33,  // 226: provider.PropertiesBuilderService.SetHasAltitudeSupport:output_type -> provider.SetHasAltitudeSupportResponse
+	35,  // 227: provider.PropertiesBuilderService.SetHasBearingSupport:output_type -> provider.SetHasBearingSupportResponse
+	37,  // 228: provider.PropertiesBuilderService.SetHasCellRequirement:output_type -> provider.SetHasCellRequirementResponse
+	39,  // 229: provider.PropertiesBuilderService.SetHasMonetaryCost:output_type -> provider.SetHasMonetaryCostResponse
+	41,  // 230: provider.PropertiesBuilderService.SetHasNetworkRequirement:output_type -> provider.SetHasNetworkRequirementResponse
+	43,  // 231: provider.PropertiesBuilderService.SetHasSatelliteRequirement:output_type -> provider.SetHasSatelliteRequirementResponse
+	45,  // 232: provider.PropertiesBuilderService.SetHasSpeedSupport:output_type -> provider.SetHasSpeedSupportResponse
+	47,  // 233: provider.PropertiesBuilderService.SetPowerUsage:output_type -> provider.SetPowerUsageResponse
+	49,  // 234: provider.SyncStateContractHelpersService.Get:output_type -> provider.GetResponse
+	51,  // 235: provider.SyncStateContractHelpersService.Insert:output_type -> provider.InsertResponse
+	53,  // 236: provider.SyncStateContractHelpersService.NewSetOperation:output_type -> provider.NewSetOperationResponse
+	55,  // 237: provider.SyncStateContractHelpersService.NewUpdateOperation:output_type -> provider.NewUpdateOperationResponse
+	57,  // 238: provider.SyncStateContractHelpersService.Set:output_type -> provider.SetResponse
+	59,  // 239: provider.SyncStateContractHelpersService.Update:output_type -> provider.UpdateResponse
+	61,  // 240: provider.FontRequestService.NewFontRequest:output_type -> provider.NewFontRequestResponse
+	63,  // 241: provider.FontRequestService.GetProviderAuthority:output_type -> provider.GetProviderAuthorityResponse
+	65,  // 242: provider.FontRequestService.GetProviderPackage:output_type -> provider.GetProviderPackageResponse
+	67,  // 243: provider.FontRequestService.GetQuery:output_type -> provider.GetQueryResponse
+	25,  // 244: provider.FontRequestService.ToString:output_type -> provider.ToStringResponse
+	70,  // 245: provider.SearchRecentSuggestionsService.NewSearchRecentSuggestions:output_type -> provider.NewSearchRecentSuggestionsResponse
+	72,  // 246: provider.SearchRecentSuggestionsService.ClearHistory:output_type -> provider.ClearHistoryResponse
+	74,  // 247: provider.SearchRecentSuggestionsService.SaveRecentQuery:output_type -> provider.SaveRecentQueryResponse
+	76,  // 248: provider.DocumentsProviderService.AttachInfo:output_type -> provider.AttachInfoResponse
+	78,  // 249: provider.DocumentsProviderService.Call:output_type -> provider.CallResponse
+	80,  // 250: provider.DocumentsProviderService.Canonicalize:output_type -> provider.CanonicalizeResponse
+	82,  // 251: provider.DocumentsProviderService.CopyDocument:output_type -> provider.CopyDocumentResponse
+	84,  // 252: provider.DocumentsProviderService.CreateDocument:output_type -> provider.CreateDocumentResponse
+	86,  // 253: provider.DocumentsProviderService.CreateWebLinkIntent:output_type -> provider.CreateWebLinkIntentResponse
+	88,  // 254: provider.DocumentsProviderService.Delete:output_type -> provider.DeleteResponse
+	90,  // 255: provider.DocumentsProviderService.DeleteDocument:output_type -> provider.DeleteDocumentResponse
+	92,  // 256: provider.DocumentsProviderService.EjectRoot:output_type -> provider.EjectRootResponse
+	94,  // 257: provider.DocumentsProviderService.FindDocumentPath:output_type -> provider.FindDocumentPathResponse
+	96,  // 258: provider.DocumentsProviderService.GetDocumentMetadata:output_type -> provider.GetDocumentMetadataResponse
+	98,  // 259: provider.DocumentsProviderService.GetDocumentStreamTypes:output_type -> provider.GetDocumentStreamTypesResponse
+	100, // 260: provider.DocumentsProviderService.GetDocumentType:output_type -> provider.GetDocumentTypeResponse
+	102, // 261: provider.DocumentsProviderService.GetStreamTypes:output_type -> provider.GetStreamTypesResponse
+	104, // 262: provider.DocumentsProviderService.GetType:output_type -> provider.GetTypeResponse
+	106, // 263: provider.DocumentsProviderService.GetTypeAnonymous:output_type -> provider.GetTypeAnonymousResponse
+	51,  // 264: provider.DocumentsProviderService.Insert:output_type -> provider.InsertResponse
+	109, // 265: provider.DocumentsProviderService.IsChildDocument:output_type -> provider.IsChildDocumentResponse
+	111, // 266: provider.DocumentsProviderService.MoveDocument:output_type -> provider.MoveDocumentResponse
+	113, // 267: provider.DocumentsProviderService.OpenAssetFile2:output_type -> provider.OpenAssetFile2Response
+	115, // 268: provider.DocumentsProviderService.OpenAssetFile3_1:output_type -> provider.OpenAssetFile3_1Response
+	117, // 269: provider.DocumentsProviderService.OpenDocument:output_type -> provider.OpenDocumentResponse
+	119, // 270: provider.DocumentsProviderService.OpenDocumentThumbnail:output_type -> provider.OpenDocumentThumbnailResponse
+	121, // 271: provider.DocumentsProviderService.OpenFile2:output_type -> provider.OpenFile2Response
+	123, // 272: provider.DocumentsProviderService.OpenFile3_1:output_type -> provider.OpenFile3_1Response
+	125, // 273: provider.DocumentsProviderService.OpenTypedAssetFile3:output_type -> provider.OpenTypedAssetFile3Response
+	127, // 274: provider.DocumentsProviderService.OpenTypedAssetFile4_1:output_type -> provider.OpenTypedAssetFile4_1Response
+	129, // 275: provider.DocumentsProviderService.OpenTypedDocument:output_type -> provider.OpenTypedDocumentResponse
+	131, // 276: provider.DocumentsProviderService.Query4:output_type -> provider.Query4Response
+	133, // 277: provider.DocumentsProviderService.Query5_1:output_type -> provider.Query5_1Response
+	135, // 278: provider.DocumentsProviderService.Query6_2:output_type -> provider.Query6_2Response
+	137, // 279: provider.DocumentsProviderService.QueryChildDocuments3:output_type -> provider.QueryChildDocuments3Response
+	139, // 280: provider.DocumentsProviderService.QueryChildDocuments3_1:output_type -> provider.QueryChildDocuments3_1Response
+	141, // 281: provider.DocumentsProviderService.QueryDocument:output_type -> provider.QueryDocumentResponse
+	143, // 282: provider.DocumentsProviderService.QueryRecentDocuments2:output_type -> provider.QueryRecentDocuments2Response
+	145, // 283: provider.DocumentsProviderService.QueryRecentDocuments4_1:output_type -> provider.QueryRecentDocuments4_1Response
+	147, // 284: provider.DocumentsProviderService.QueryRoots:output_type -> provider.QueryRootsResponse
+	149, // 285: provider.DocumentsProviderService.QuerySearchDocuments3:output_type -> provider.QuerySearchDocuments3Response
+	151, // 286: provider.DocumentsProviderService.QuerySearchDocuments3_1:output_type -> provider.QuerySearchDocuments3_1Response
+	153, // 287: provider.DocumentsProviderService.RemoveDocument:output_type -> provider.RemoveDocumentResponse
+	155, // 288: provider.DocumentsProviderService.RenameDocument:output_type -> provider.RenameDocumentResponse
+	157, // 289: provider.DocumentsProviderService.RevokeDocumentPermission:output_type -> provider.RevokeDocumentPermissionResponse
+	159, // 290: provider.DocumentsProviderService.Update:output_type -> provider.DocumentsProviderUpdateResponse
+	161, // 291: provider.ContactsContactMethodsService.AddPostalLocation:output_type -> provider.AddPostalLocationResponse
+	163, // 292: provider.ContactsContactMethodsService.DecodeImProtocol:output_type -> provider.DecodeImProtocolResponse
+	165, // 293: provider.ContactsContactMethodsService.EncodeCustomImProtocol:output_type -> provider.EncodeCustomImProtocolResponse
+	167, // 294: provider.ContactsContactMethodsService.EncodePredefinedImProtocol:output_type -> provider.EncodePredefinedImProtocolResponse
+	169, // 295: provider.ContactsContactMethodsService.GetDisplayLabel:output_type -> provider.GetDisplayLabelResponse
+	169, // 296: provider.ContactsOrganizationsService.GetDisplayLabel:output_type -> provider.GetDisplayLabelResponse
+	172, // 297: provider.ContactsPeopleService.AddToGroup3:output_type -> provider.AddToGroup3Response
+	174, // 298: provider.ContactsPeopleService.AddToGroup3_1:output_type -> provider.AddToGroup3_1Response
+	176, // 299: provider.ContactsPeopleService.AddToMyContactsGroup:output_type -> provider.AddToMyContactsGroupResponse
+	178, // 300: provider.ContactsPeopleService.CreatePersonInMyContactsGroup:output_type -> provider.CreatePersonInMyContactsGroupResponse
+	180, // 301: provider.ContactsPeopleService.LoadContactPhoto:output_type -> provider.LoadContactPhotoResponse
+	182, // 302: provider.ContactsPeopleService.MarkAsContacted:output_type -> provider.MarkAsContactedResponse
+	184, // 303: provider.ContactsPeopleService.OpenContactPhotoInputStream:output_type -> provider.OpenContactPhotoInputStreamResponse
+	186, // 304: provider.ContactsPeopleService.QueryGroups:output_type -> provider.QueryGroupsResponse
+	188, // 305: provider.ContactsPeopleService.SetPhotoData:output_type -> provider.SetPhotoDataResponse
+	190, // 306: provider.ContactsPhonesService.GetDisplayLabel3:output_type -> provider.GetDisplayLabel3Response
+	192, // 307: provider.ContactsPhonesService.GetDisplayLabel4_1:output_type -> provider.GetDisplayLabel4_1Response
+	194, // 308: provider.ContactsSettingsService.GetSetting:output_type -> provider.GetSettingResponse
+	196, // 309: provider.ContactsSettingsService.SetSetting:output_type -> provider.SetSettingResponse
+	198, // 310: provider.UserDictionaryWordsService.AddWord4:output_type -> provider.AddWord4Response
+	200, // 311: provider.UserDictionaryWordsService.AddWord5_1:output_type -> provider.AddWord5_1Response
+	202, // 312: provider.BlockedNumberContractService.CanCurrentUserBlockNumbers:output_type -> provider.CanCurrentUserBlockNumbersResponse
+	204, // 313: provider.BlockedNumberContractService.IsBlocked:output_type -> provider.IsBlockedResponse
+	206, // 314: provider.BlockedNumberContractService.Unblock:output_type -> provider.UnblockResponse
+	1,   // 315: provider.CloudMediaProviderContractCapabilitiesService.DescribeContents:output_type -> provider.DescribeContentsResponse
+	208, // 316: provider.CloudMediaProviderContractCapabilitiesService.IsMediaCategoriesEnabled:output_type -> provider.IsMediaCategoriesEnabledResponse
+	210, // 317: provider.CloudMediaProviderContractCapabilitiesService.IsSearchEnabled:output_type -> provider.IsSearchEnabledResponse
+	25,  // 318: provider.CloudMediaProviderContractCapabilitiesService.ToString:output_type -> provider.ToStringResponse
+	27,  // 319: provider.CloudMediaProviderContractCapabilitiesService.WriteToParcel:output_type -> provider.WriteToParcelResponse
+	213, // 320: provider.E2eeContactKeysManagerService.GetE2eeContactKey:output_type -> provider.GetE2eeContactKeyResponse
+	215, // 321: provider.E2eeContactKeysManagerService.GetE2eeSelfKey:output_type -> provider.GetE2eeSelfKeyResponse
+	217, // 322: provider.E2eeContactKeysManagerService.RemoveE2eeContactKey:output_type -> provider.RemoveE2eeContactKeyResponse
+	219, // 323: provider.E2eeContactKeysManagerService.RemoveE2eeSelfKey:output_type -> provider.RemoveE2eeSelfKeyResponse
+	221, // 324: provider.E2eeContactKeysManagerService.UpdateE2eeContactKeyLocalVerificationState:output_type -> provider.UpdateE2eeContactKeyLocalVerificationStateResponse
+	223, // 325: provider.E2eeContactKeysManagerService.UpdateE2eeContactKeyRemoteVerificationState:output_type -> provider.UpdateE2eeContactKeyRemoteVerificationStateResponse
+	225, // 326: provider.E2eeContactKeysManagerService.UpdateE2eeSelfKeyRemoteVerificationState:output_type -> provider.UpdateE2eeSelfKeyRemoteVerificationStateResponse
+	227, // 327: provider.E2eeContactKeysManagerService.UpdateOrInsertE2eeContactKey:output_type -> provider.UpdateOrInsertE2eeContactKeyResponse
+	229, // 328: provider.E2eeContactKeysManagerService.UpdateOrInsertE2eeSelfKey:output_type -> provider.UpdateOrInsertE2eeSelfKeyResponse
+	231, // 329: provider.E2eeContactKeysManagerService.GetMaxKeySizeBytes:output_type -> provider.GetMaxKeySizeBytesResponse
+	1,   // 330: provider.E2eeContactKeysManagerE2eeContactKeyService.DescribeContents:output_type -> provider.DescribeContentsResponse
+	3,   // 331: provider.E2eeContactKeysManagerE2eeContactKeyService.Equals:output_type -> provider.EqualsResponse
+	233, // 332: provider.E2eeContactKeysManagerE2eeContactKeyService.GetAccountId:output_type -> provider.GetAccountIdResponse
+	235, // 333: provider.E2eeContactKeysManagerE2eeContactKeyService.GetDeviceId:output_type -> provider.GetDeviceIdResponse
+	237, // 334: provider.E2eeContactKeysManagerE2eeContactKeyService.GetDisplayName:output_type -> provider.GetDisplayNameResponse
+	239, // 335: provider.E2eeContactKeysManagerE2eeContactKeyService.GetEmailAddress:output_type -> provider.GetEmailAddressResponse
+	241, // 336: provider.E2eeContactKeysManagerE2eeContactKeyService.GetKeyValue:output_type -> provider.GetKeyValueResponse
+	243, // 337: provider.E2eeContactKeysManagerE2eeContactKeyService.GetLocalVerificationState:output_type -> provider.GetLocalVerificationStateResponse
+	245, // 338: provider.E2eeContactKeysManagerE2eeContactKeyService.GetOwnerPackageName:output_type -> provider.GetOwnerPackageNameResponse
+	247, // 339: provider.E2eeContactKeysManagerE2eeContactKeyService.GetPhoneNumber:output_type -> provider.GetPhoneNumberResponse
+	249, // 340: provider.E2eeContactKeysManagerE2eeContactKeyService.GetRemoteVerificationState:output_type -> provider.GetRemoteVerificationStateResponse
+	251, // 341: provider.E2eeContactKeysManagerE2eeContactKeyService.GetTimeUpdated:output_type -> provider.GetTimeUpdatedResponse
+	23,  // 342: provider.E2eeContactKeysManagerE2eeContactKeyService.HashCode:output_type -> provider.HashCodeResponse
+	27,  // 343: provider.E2eeContactKeysManagerE2eeContactKeyService.WriteToParcel:output_type -> provider.WriteToParcelResponse
+	1,   // 344: provider.E2eeContactKeysManagerE2eeSelfKeyService.DescribeContents:output_type -> provider.DescribeContentsResponse
+	3,   // 345: provider.E2eeContactKeysManagerE2eeSelfKeyService.Equals:output_type -> provider.EqualsResponse
+	233, // 346: provider.E2eeContactKeysManagerE2eeSelfKeyService.GetAccountId:output_type -> provider.GetAccountIdResponse
+	235, // 347: provider.E2eeContactKeysManagerE2eeSelfKeyService.GetDeviceId:output_type -> provider.GetDeviceIdResponse
+	241, // 348: provider.E2eeContactKeysManagerE2eeSelfKeyService.GetKeyValue:output_type -> provider.GetKeyValueResponse
+	245, // 349: provider.E2eeContactKeysManagerE2eeSelfKeyService.GetOwnerPackageName:output_type -> provider.GetOwnerPackageNameResponse
+	249, // 350: provider.E2eeContactKeysManagerE2eeSelfKeyService.GetRemoteVerificationState:output_type -> provider.GetRemoteVerificationStateResponse
+	251, // 351: provider.E2eeContactKeysManagerE2eeSelfKeyService.GetTimeUpdated:output_type -> provider.GetTimeUpdatedResponse
+	23,  // 352: provider.E2eeContactKeysManagerE2eeSelfKeyService.HashCode:output_type -> provider.HashCodeResponse
+	27,  // 353: provider.E2eeContactKeysManagerE2eeSelfKeyService.WriteToParcel:output_type -> provider.WriteToParcelResponse
+	253, // 354: provider.VoicemailContractStatusService.BuildSourceUri:output_type -> provider.BuildSourceUriResponse
+	253, // 355: provider.VoicemailContractVoicemailsService.BuildSourceUri:output_type -> provider.BuildSourceUriResponse
+	255, // 356: provider.TelephonyCarrierIdService.GetSpecificCarrierIdUriForSubscriptionId:output_type -> provider.GetSpecificCarrierIdUriForSubscriptionIdResponse
+	257, // 357: provider.TelephonyCarrierIdService.GetUriForSubscriptionId:output_type -> provider.GetUriForSubscriptionIdResponse
+	257, // 358: provider.TelephonyServiceStateTableService.GetUriForSubscriptionId:output_type -> provider.GetUriForSubscriptionIdResponse
+	259, // 359: provider.TelephonyServiceStateTableService.GetUriForSubscriptionIdAndField:output_type -> provider.GetUriForSubscriptionIdAndFieldResponse
+	261, // 360: provider.TelephonySmsService.GetDefaultSmsPackage:output_type -> provider.GetDefaultSmsPackageResponse
+	263, // 361: provider.TelephonyThreadsService.GetOrCreateThreadId:output_type -> provider.GetOrCreateThreadIdResponse
+	265, // 362: provider.SimPhonebookContractElementaryFilesService.GetItemUri:output_type -> provider.GetItemUriResponse
+	267, // 363: provider.SimPhonebookContractSimRecordsService.GetContentUri:output_type -> provider.GetContentUriResponse
+	269, // 364: provider.SimPhonebookContractSimRecordsService.GetEncodedNameLength:output_type -> provider.GetEncodedNameLengthResponse
+	265, // 365: provider.SimPhonebookContractSimRecordsService.GetItemUri:output_type -> provider.GetItemUriResponse
+	272, // 366: provider.FontsContractService.BuildTypeface:output_type -> provider.BuildTypefaceResponse
+	274, // 367: provider.FontsContractService.FetchFonts:output_type -> provider.FetchFontsResponse
+	276, // 368: provider.FontsContractFontFamilyResultService.GetFonts:output_type -> provider.GetFontsResponse
+	278, // 369: provider.FontsContractFontFamilyResultService.GetStatusCode:output_type -> provider.GetStatusCodeResponse
+	280, // 370: provider.FontsContractFontInfoService.GetAxes:output_type -> provider.GetAxesResponse
+	282, // 371: provider.FontsContractFontInfoService.GetResultCode:output_type -> provider.GetResultCodeResponse
+	284, // 372: provider.FontsContractFontInfoService.GetTtcIndex:output_type -> provider.GetTtcIndexResponse
+	286, // 373: provider.FontsContractFontInfoService.GetUri:output_type -> provider.GetUriResponse
+	288, // 374: provider.FontsContractFontInfoService.GetWeight:output_type -> provider.GetWeightResponse
+	290, // 375: provider.FontsContractFontInfoService.IsItalic:output_type -> provider.IsItalicResponse
+	292, // 376: provider.FontsContractFontRequestCallbackService.OnTypefaceRequestFailed:output_type -> provider.OnTypefaceRequestFailedResponse
+	294, // 377: provider.FontsContractFontRequestCallbackService.OnTypefaceRetrieved:output_type -> provider.OnTypefaceRetrievedResponse
+	296, // 378: provider.CallLogCallsService.GetLastOutgoingCall:output_type -> provider.GetLastOutgoingCallResponse
+	298, // 379: provider.BrowserService.NewBrowser:output_type -> provider.NewBrowserResponse
+	300, // 380: provider.BrowserService.SendString:output_type -> provider.SendStringResponse
+	76,  // 381: provider.CloudMediaProviderService.AttachInfo:output_type -> provider.AttachInfoResponse
+	78,  // 382: provider.CloudMediaProviderService.Call:output_type -> provider.CallResponse
+	80,  // 383: provider.CloudMediaProviderService.Canonicalize:output_type -> provider.CanonicalizeResponse
+	88,  // 384: provider.CloudMediaProviderService.Delete:output_type -> provider.DeleteResponse
+	104, // 385: provider.CloudMediaProviderService.GetType:output_type -> provider.GetTypeResponse
+	51,  // 386: provider.CloudMediaProviderService.Insert:output_type -> provider.InsertResponse
+	303, // 387: provider.CloudMediaProviderService.OnCreateCloudMediaSurfaceController:output_type -> provider.OnCreateCloudMediaSurfaceControllerResponse
+	305, // 388: provider.CloudMediaProviderService.OnGetCapabilities:output_type -> provider.OnGetCapabilitiesResponse
+	307, // 389: provider.CloudMediaProviderService.OnGetMediaCollectionInfo:output_type -> provider.OnGetMediaCollectionInfoResponse
+	309, // 390: provider.CloudMediaProviderService.OnOpenMedia:output_type -> provider.OnOpenMediaResponse
+	311, // 391: provider.CloudMediaProviderService.OnOpenPreview:output_type -> provider.OnOpenPreviewResponse
+	313, // 392: provider.CloudMediaProviderService.OnQueryAlbums:output_type -> provider.OnQueryAlbumsResponse
+	315, // 393: provider.CloudMediaProviderService.OnQueryDeletedMedia:output_type -> provider.OnQueryDeletedMediaResponse
+	317, // 394: provider.CloudMediaProviderService.OnQueryMedia:output_type -> provider.OnQueryMediaResponse
+	319, // 395: provider.CloudMediaProviderService.OnQueryMediaCategories:output_type -> provider.OnQueryMediaCategoriesResponse
+	321, // 396: provider.CloudMediaProviderService.OnQueryMediaInMediaSet:output_type -> provider.OnQueryMediaInMediaSetResponse
+	323, // 397: provider.CloudMediaProviderService.OnQueryMediaSets:output_type -> provider.OnQueryMediaSetsResponse
+	325, // 398: provider.CloudMediaProviderService.OnQuerySearchSuggestions:output_type -> provider.OnQuerySearchSuggestionsResponse
+	327, // 399: provider.CloudMediaProviderService.OnSearchMedia3:output_type -> provider.OnSearchMedia3Response
+	329, // 400: provider.CloudMediaProviderService.OnSearchMedia4_1:output_type -> provider.OnSearchMedia4_1Response
+	121, // 401: provider.CloudMediaProviderService.OpenFile2:output_type -> provider.OpenFile2Response
+	123, // 402: provider.CloudMediaProviderService.OpenFile3_1:output_type -> provider.OpenFile3_1Response
+	125, // 403: provider.CloudMediaProviderService.OpenTypedAssetFile3:output_type -> provider.OpenTypedAssetFile3Response
+	127, // 404: provider.CloudMediaProviderService.OpenTypedAssetFile4_1:output_type -> provider.OpenTypedAssetFile4_1Response
+	131, // 405: provider.CloudMediaProviderService.Query4:output_type -> provider.Query4Response
+	133, // 406: provider.CloudMediaProviderService.Query5_1:output_type -> provider.Query5_1Response
+	135, // 407: provider.CloudMediaProviderService.Query6_2:output_type -> provider.Query6_2Response
+	331, // 408: provider.CloudMediaProviderService.Update:output_type -> provider.CloudMediaProviderUpdateResponse
+	333, // 409: provider.CloudMediaProviderCloudMediaSurfaceControllerService.OnConfigChange:output_type -> provider.OnConfigChangeResponse
+	335, // 410: provider.CloudMediaProviderCloudMediaSurfaceControllerService.OnDestroy:output_type -> provider.OnDestroyResponse
+	337, // 411: provider.CloudMediaProviderCloudMediaSurfaceControllerService.OnMediaPause:output_type -> provider.OnMediaPauseResponse
+	339, // 412: provider.CloudMediaProviderCloudMediaSurfaceControllerService.OnMediaPlay:output_type -> provider.OnMediaPlayResponse
+	341, // 413: provider.CloudMediaProviderCloudMediaSurfaceControllerService.OnMediaSeekTo:output_type -> provider.OnMediaSeekToResponse
+	343, // 414: provider.CloudMediaProviderCloudMediaSurfaceControllerService.OnPlayerCreate:output_type -> provider.OnPlayerCreateResponse
+	345, // 415: provider.CloudMediaProviderCloudMediaSurfaceControllerService.OnPlayerRelease:output_type -> provider.OnPlayerReleaseResponse
+	347, // 416: provider.CloudMediaProviderCloudMediaSurfaceControllerService.OnSurfaceChanged:output_type -> provider.OnSurfaceChangedResponse
+	349, // 417: provider.CloudMediaProviderCloudMediaSurfaceControllerService.OnSurfaceCreated:output_type -> provider.OnSurfaceCreatedResponse
+	351, // 418: provider.CloudMediaProviderCloudMediaSurfaceControllerService.OnSurfaceDestroyed:output_type -> provider.OnSurfaceDestroyedResponse
+	353, // 419: provider.CloudMediaProviderCloudMediaSurfaceStateChangedCallbackService.SetPlaybackState:output_type -> provider.SetPlaybackStateResponse
+	210, // [210:420] is the sub-list for method output_type
+	0,   // [0:210] is the sub-list for method input_type
+	0,   // [0:0] is the sub-list for extension type_name
+	0,   // [0:0] is the sub-list for extension extendee
+	0,   // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_proto_provider_provider_proto_init() }
@@ -48,12 +18431,13 @@ func file_proto_provider_provider_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_provider_provider_proto_rawDesc), len(file_proto_provider_provider_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   354,
 			NumExtensions: 0,
-			NumServices:   0,
+			NumServices:   34,
 		},
 		GoTypes:           file_proto_provider_provider_proto_goTypes,
 		DependencyIndexes: file_proto_provider_provider_proto_depIdxs,
+		MessageInfos:      file_proto_provider_provider_proto_msgTypes,
 	}.Build()
 	File_proto_provider_provider_proto = out.File
 	file_proto_provider_provider_proto_goTypes = nil

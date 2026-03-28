@@ -6,6 +6,777 @@ package bluetooth;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/bluetooth";
 
+message OnCharacteristicChanged2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnCharacteristicChanged2Response {
+}
+
+message OnCharacteristicChanged3_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message OnCharacteristicChanged3_1Response {
+}
+
+message OnCharacteristicRead4Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message OnCharacteristicRead4Response {
+}
+
+message OnCharacteristicRead3_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message OnCharacteristicRead3_1Response {
+}
+
+message OnCharacteristicWriteRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message OnCharacteristicWriteResponse {
+}
+
+message OnConnectionStateChangeRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message OnConnectionStateChangeResponse {
+}
+
+message OnDescriptorRead3Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message OnDescriptorRead3Response {
+}
+
+message OnDescriptorRead4_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message OnDescriptorRead4_1Response {
+}
+
+message OnDescriptorWriteRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message OnDescriptorWriteResponse {
+}
+
+message OnMtuChangedRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message OnMtuChangedResponse {
+}
+
+message OnPhyReadRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message OnPhyReadResponse {
+}
+
+message OnPhyUpdateRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message OnPhyUpdateResponse {
+}
+
+message OnReadRemoteRssiRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message OnReadRemoteRssiResponse {
+}
+
+message OnReliableWriteCompletedRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message OnReliableWriteCompletedResponse {
+}
+
+message OnServiceChangedRequest {
+  int64 arg0 = 1;
+}
+
+message OnServiceChangedResponse {
+}
+
+message OnServicesDiscoveredRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message OnServicesDiscoveredResponse {
+}
+
+message ConnectChannelToSourceRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message ConnectChannelToSourceResponse {
+  bool result = 1;
+}
+
+message DisconnectChannelRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message DisconnectChannelResponse {
+  bool result = 1;
+}
+
+message GetConnectionStateRequest {
+  int64 arg0 = 1;
+}
+
+message GetConnectionStateResponse {
+  int32 result = 1;
+}
+
+message GetMainChannelFdRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message GetMainChannelFdResponse {
+  int64 result = 1;
+}
+
+message RegisterSinkAppConfigurationRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message RegisterSinkAppConfigurationResponse {
+  bool result = 1;
+}
+
+message UnregisterAppConfigurationRequest {
+  int64 arg0 = 1;
+}
+
+message UnregisterAppConfigurationResponse {
+  bool result = 1;
+}
+
+message DescribeContentsRequest {
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message EqualsRequest {
+  int64 arg0 = 1;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message GetCodecConfigRequest {
+}
+
+message GetCodecConfigResponse {
+  int64 result = 1;
+}
+
+message HashCodeRequest {
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message IsCodecConfigSelectableRequest {
+  int64 arg0 = 1;
+}
+
+message IsCodecConfigSelectableResponse {
+  bool result = 1;
+}
+
+message ToStringRequest {
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteToParcelResponse {
+}
+
+message BuildRequest {
+}
+
+message BuildResponse {
+  int64 result = 1;
+}
+
+message SetCodecConfigRequest {
+  int64 arg0 = 1;
+}
+
+message SetCodecConfigResponse {
+  int64 result = 1;
+}
+
+message NewHidDeviceAppQosSettingsRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int32 arg4 = 5;
+  int32 arg5 = 6;
+}
+
+message NewHidDeviceAppQosSettingsResponse {
+  int64 result = 1;
+}
+
+message HidDeviceAppQosSettingsDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message GetDelayVariationRequest {
+  int64 handle = 1;
+}
+
+message GetDelayVariationResponse {
+  int32 result = 1;
+}
+
+message GetLatencyRequest {
+  int64 handle = 1;
+}
+
+message GetLatencyResponse {
+  int32 result = 1;
+}
+
+message GetPeakBandwidthRequest {
+  int64 handle = 1;
+}
+
+message GetPeakBandwidthResponse {
+  int32 result = 1;
+}
+
+message GetServiceTypeRequest {
+  int64 handle = 1;
+}
+
+message GetServiceTypeResponse {
+  int32 result = 1;
+}
+
+message GetTokenBucketSizeRequest {
+  int64 handle = 1;
+}
+
+message GetTokenBucketSizeResponse {
+  int32 result = 1;
+}
+
+message GetTokenRateRequest {
+  int64 handle = 1;
+}
+
+message GetTokenRateResponse {
+  int32 result = 1;
+}
+
+message HidDeviceAppQosSettingsWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message FinalizeRequest {
+}
+
+message FinalizeResponse {
+}
+
+message IsA2dpPlayingRequest {
+  int64 arg0 = 1;
+}
+
+message IsA2dpPlayingResponse {
+  bool result = 1;
+}
+
+message OnCharacteristicReadRequestRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message OnCharacteristicReadRequestResponse {
+}
+
+message OnCharacteristicWriteRequestRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+  bool arg3 = 4;
+  bool arg4 = 5;
+  int32 arg5 = 6;
+  int64 arg6 = 7;
+}
+
+message OnCharacteristicWriteRequestResponse {
+}
+
+message OnDescriptorReadRequestRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message OnDescriptorReadRequestResponse {
+}
+
+message OnDescriptorWriteRequestRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+  bool arg3 = 4;
+  bool arg4 = 5;
+  int32 arg5 = 6;
+  int64 arg6 = 7;
+}
+
+message OnDescriptorWriteRequestResponse {
+}
+
+message OnExecuteWriteRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  bool arg2 = 3;
+}
+
+message OnExecuteWriteResponse {
+}
+
+message GattServerCallbackOnMtuChangedRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message OnNotificationSentRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message OnNotificationSentResponse {
+}
+
+message OnServiceAddedRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnServiceAddedResponse {
+}
+
+message ConnectGatt3Request {
+  int64 arg0 = 1;
+  bool arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message ConnectGatt3Response {
+  int64 result = 1;
+}
+
+message ConnectGatt4_1Request {
+  int64 arg0 = 1;
+  bool arg1 = 2;
+  int64 arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message ConnectGatt4_1Response {
+  int64 result = 1;
+}
+
+message ConnectGatt5_2Request {
+  int64 arg0 = 1;
+  bool arg1 = 2;
+  int64 arg2 = 3;
+  int32 arg3 = 4;
+  int32 arg4 = 5;
+}
+
+message ConnectGatt5_2Response {
+  int64 result = 1;
+}
+
+message CreateBondRequest {
+}
+
+message CreateBondResponse {
+  bool result = 1;
+}
+
+message CreateInsecureL2capChannelRequest {
+  int32 arg0 = 1;
+}
+
+message CreateInsecureL2capChannelResponse {
+  int64 result = 1;
+}
+
+message CreateInsecureRfcommSocketToServiceRecordRequest {
+  int64 arg0 = 1;
+}
+
+message CreateInsecureRfcommSocketToServiceRecordResponse {
+  int64 result = 1;
+}
+
+message CreateL2capChannelRequest {
+  int32 arg0 = 1;
+}
+
+message CreateL2capChannelResponse {
+  int64 result = 1;
+}
+
+message CreateRfcommSocketToServiceRecordRequest {
+  int64 arg0 = 1;
+}
+
+message CreateRfcommSocketToServiceRecordResponse {
+  int64 result = 1;
+}
+
+message CreateUsingSocketSettingsRequest {
+  int64 arg0 = 1;
+}
+
+message CreateUsingSocketSettingsResponse {
+  int64 result = 1;
+}
+
+message FetchUuidsWithSdpRequest {
+}
+
+message FetchUuidsWithSdpResponse {
+  bool result = 1;
+}
+
+message GetAddressRequest {
+}
+
+message GetAddressResponse {
+  string result = 1;
+}
+
+message GetAddressTypeRequest {
+}
+
+message GetAddressTypeResponse {
+  int32 result = 1;
+}
+
+message GetAliasRequest {
+}
+
+message GetAliasResponse {
+  string result = 1;
+}
+
+message GetBluetoothClassRequest {
+}
+
+message GetBluetoothClassResponse {
+  int64 result = 1;
+}
+
+message GetBondStateRequest {
+}
+
+message GetBondStateResponse {
+  int32 result = 1;
+}
+
+message GetIdentityAddressWithTypeRequest {
+}
+
+message GetIdentityAddressWithTypeResponse {
+  int64 result = 1;
+}
+
+message GetNameRequest {
+}
+
+message GetNameResponse {
+  string result = 1;
+}
+
+message GetTypeRequest {
+}
+
+message GetTypeResponse {
+  int32 result = 1;
+}
+
+message GetUuidsRequest {
+}
+
+message GetUuidsResponse {
+  int64 result = 1;
+}
+
+message SetAliasRequest {
+  string arg0 = 1;
+}
+
+message SetAliasResponse {
+  int32 result = 1;
+}
+
+message SetPairingConfirmationRequest {
+  bool arg0 = 1;
+}
+
+message SetPairingConfirmationResponse {
+  bool result = 1;
+}
+
+message SetPinRequest {
+  int64 arg0 = 1;
+}
+
+message SetPinResponse {
+  bool result = 1;
+}
+
+message NewGattCharacteristicRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message NewGattCharacteristicResponse {
+  int64 result = 1;
+}
+
+message AddDescriptorRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AddDescriptorResponse {
+  bool result = 1;
+}
+
+message GattCharacteristicDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message GetDescriptorRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetDescriptorResponse {
+  int64 result = 1;
+}
+
+message GetFloatValueRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message GetFloatValueResponse {
+  int64 result = 1;
+}
+
+message GetInstanceIdRequest {
+  int64 handle = 1;
+}
+
+message GetInstanceIdResponse {
+  int32 result = 1;
+}
+
+message GetIntValueRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message GetIntValueResponse {
+  int64 result = 1;
+}
+
+message GetPermissionsRequest {
+  int64 handle = 1;
+}
+
+message GetPermissionsResponse {
+  int32 result = 1;
+}
+
+message GetPropertiesRequest {
+  int64 handle = 1;
+}
+
+message GetPropertiesResponse {
+  int32 result = 1;
+}
+
+message GetServiceRequest {
+  int64 handle = 1;
+}
+
+message GetServiceResponse {
+  int64 result = 1;
+}
+
+message GetStringValueRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetStringValueResponse {
+  string result = 1;
+}
+
+message GetUuidRequest {
+  int64 handle = 1;
+}
+
+message GetUuidResponse {
+  int64 result = 1;
+}
+
+message GetValueRequest {
+  int64 handle = 1;
+}
+
+message GetValueResponse {
+  int64 result = 1;
+}
+
+message GetWriteTypeRequest {
+  int64 handle = 1;
+}
+
+message GetWriteTypeResponse {
+  int32 result = 1;
+}
+
+message SetValue1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetValue1Response {
+  bool result = 1;
+}
+
+message SetValue3_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+}
+
+message SetValue3_1Response {
+  bool result = 1;
+}
+
+message SetValue4_2Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
+}
+
+message SetValue4_2Response {
+  bool result = 1;
+}
+
+message SetValue1_3Request {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetValue1_3Response {
+  bool result = 1;
+}
+
+message SetWriteTypeRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetWriteTypeResponse {
+}
+
+message GattCharacteristicWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
 message GetAdapterRequest {
 }
 
@@ -13,13 +784,9 @@ message GetAdapterResponse {
   int64 result = 1;
 }
 
-message GetConnectionStateRequest {
+message ManagerGetConnectionStateRequest {
   int64 arg0 = 1;
   int32 arg1 = 2;
-}
-
-message GetConnectionStateResponse {
-  int32 result = 1;
 }
 
 message OpenGattServerRequest {
@@ -31,8 +798,1954 @@ message OpenGattServerResponse {
   int64 result = 1;
 }
 
+message CancelDiscoveryRequest {
+}
+
+message CancelDiscoveryResponse {
+  bool result = 1;
+}
+
+message CloseProfileProxyRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message CloseProfileProxyResponse {
+}
+
+message DisableRequest {
+}
+
+message DisableResponse {
+  bool result = 1;
+}
+
+message EnableRequest {
+}
+
+message EnableResponse {
+  bool result = 1;
+}
+
+message GetBluetoothLeAdvertiserRequest {
+}
+
+message GetBluetoothLeAdvertiserResponse {
+  int64 result = 1;
+}
+
+message GetBluetoothLeScannerRequest {
+}
+
+message GetBluetoothLeScannerResponse {
+  int64 result = 1;
+}
+
+message GetDiscoverableTimeoutRequest {
+}
+
+message GetDiscoverableTimeoutResponse {
+  int64 result = 1;
+}
+
+message GetLeMaximumAdvertisingDataLengthRequest {
+}
+
+message GetLeMaximumAdvertisingDataLengthResponse {
+  int32 result = 1;
+}
+
+message GetMaxConnectedAudioDevicesRequest {
+}
+
+message GetMaxConnectedAudioDevicesResponse {
+  int32 result = 1;
+}
+
+message GetProfileConnectionStateRequest {
+  int32 arg0 = 1;
+}
+
+message GetProfileConnectionStateResponse {
+  int32 result = 1;
+}
+
+message GetProfileProxyRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message GetProfileProxyResponse {
+  bool result = 1;
+}
+
+message GetRemoteDevice1Request {
+  int64 arg0 = 1;
+}
+
+message GetRemoteDevice1Response {
+  int64 result = 1;
+}
+
+message GetRemoteDevice1_1Request {
+  string arg0 = 1;
+}
+
+message GetRemoteDevice1_1Response {
+  int64 result = 1;
+}
+
+message GetRemoteLeDeviceRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message GetRemoteLeDeviceResponse {
+  int64 result = 1;
+}
+
+message GetScanModeRequest {
+}
+
+message GetScanModeResponse {
+  int32 result = 1;
+}
+
+message GetStateRequest {
+}
+
+message GetStateResponse {
+  int32 result = 1;
+}
+
+message IsDiscoveringRequest {
+}
+
+message IsDiscoveringResponse {
+  bool result = 1;
+}
+
+message IsEnabledRequest {
+}
+
+message IsEnabledResponse {
+  bool result = 1;
+}
+
+message IsLe2MPhySupportedRequest {
+}
+
+message IsLe2MPhySupportedResponse {
+  bool result = 1;
+}
+
+message IsLeAudioBroadcastAssistantSupportedRequest {
+}
+
+message IsLeAudioBroadcastAssistantSupportedResponse {
+  int32 result = 1;
+}
+
+message IsLeAudioBroadcastSourceSupportedRequest {
+}
+
+message IsLeAudioBroadcastSourceSupportedResponse {
+  int32 result = 1;
+}
+
+message IsLeAudioSupportedRequest {
+}
+
+message IsLeAudioSupportedResponse {
+  int32 result = 1;
+}
+
+message IsLeCodedPhySupportedRequest {
+}
+
+message IsLeCodedPhySupportedResponse {
+  bool result = 1;
+}
+
+message IsLeExtendedAdvertisingSupportedRequest {
+}
+
+message IsLeExtendedAdvertisingSupportedResponse {
+  bool result = 1;
+}
+
+message IsLePeriodicAdvertisingSupportedRequest {
+}
+
+message IsLePeriodicAdvertisingSupportedResponse {
+  bool result = 1;
+}
+
+message IsMultipleAdvertisementSupportedRequest {
+}
+
+message IsMultipleAdvertisementSupportedResponse {
+  bool result = 1;
+}
+
+message IsOffloadedFilteringSupportedRequest {
+}
+
+message IsOffloadedFilteringSupportedResponse {
+  bool result = 1;
+}
+
+message IsOffloadedScanBatchingSupportedRequest {
+}
+
+message IsOffloadedScanBatchingSupportedResponse {
+  bool result = 1;
+}
+
+message ListenUsingInsecureL2capChannelRequest {
+}
+
+message ListenUsingInsecureL2capChannelResponse {
+  int64 result = 1;
+}
+
+message ListenUsingInsecureRfcommWithServiceRecordRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message ListenUsingInsecureRfcommWithServiceRecordResponse {
+  int64 result = 1;
+}
+
+message ListenUsingL2capChannelRequest {
+}
+
+message ListenUsingL2capChannelResponse {
+  int64 result = 1;
+}
+
+message ListenUsingRfcommWithServiceRecordRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message ListenUsingRfcommWithServiceRecordResponse {
+  int64 result = 1;
+}
+
+message ListenUsingSocketSettingsRequest {
+  int64 arg0 = 1;
+}
+
+message ListenUsingSocketSettingsResponse {
+  int64 result = 1;
+}
+
+message SetNameRequest {
+  string arg0 = 1;
+}
+
+message SetNameResponse {
+  bool result = 1;
+}
+
+message StartDiscoveryRequest {
+}
+
+message StartDiscoveryResponse {
+  bool result = 1;
+}
+
+message StartLeScan1Request {
+  int64 arg0 = 1;
+}
+
+message StartLeScan1Response {
+  bool result = 1;
+}
+
+message StartLeScan2_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message StartLeScan2_1Response {
+  bool result = 1;
+}
+
+message StopLeScanRequest {
+  int64 arg0 = 1;
+}
+
+message StopLeScanResponse {
+}
+
+message CheckBluetoothAddressRequest {
+  string arg0 = 1;
+}
+
+message CheckBluetoothAddressResponse {
+  bool result = 1;
+}
+
+message OnLeScanRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message OnLeScanResponse {
+}
+
+message DoesClassMatchRequest {
+  int32 arg0 = 1;
+}
+
+message DoesClassMatchResponse {
+  bool result = 1;
+}
+
+message GetDeviceClassRequest {
+}
+
+message GetDeviceClassResponse {
+  int32 result = 1;
+}
+
+message GetMajorDeviceClassRequest {
+}
+
+message GetMajorDeviceClassResponse {
+  int32 result = 1;
+}
+
+message HasServiceRequest {
+  int32 arg0 = 1;
+}
+
+message HasServiceResponse {
+  bool result = 1;
+}
+
+message AddServiceRequest {
+  int64 arg0 = 1;
+}
+
+message AddServiceResponse {
+  bool result = 1;
+}
+
+message CancelConnectionRequest {
+  int64 arg0 = 1;
+}
+
+message CancelConnectionResponse {
+}
+
+message ClearServicesRequest {
+}
+
+message ClearServicesResponse {
+}
+
+message CloseRequest {
+}
+
+message CloseResponse {
+}
+
+message ConnectRequest {
+  int64 arg0 = 1;
+  bool arg1 = 2;
+}
+
+message ConnectResponse {
+  bool result = 1;
+}
+
+message GattServerGetServiceRequest {
+  int64 arg0 = 1;
+}
+
+message NotifyCharacteristicChanged3Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  bool arg2 = 3;
+}
+
+message NotifyCharacteristicChanged3Response {
+  bool result = 1;
+}
+
+message NotifyCharacteristicChanged4_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  bool arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message NotifyCharacteristicChanged4_1Response {
+  int32 result = 1;
+}
+
+message ReadPhyRequest {
+  int64 arg0 = 1;
+}
+
+message ReadPhyResponse {
+}
+
+message RemoveServiceRequest {
+  int64 arg0 = 1;
+}
+
+message RemoveServiceResponse {
+  bool result = 1;
+}
+
+message SendResponseRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int64 arg4 = 5;
+}
+
+message SendResponseResponse {
+  bool result = 1;
+}
+
+message SetPreferredPhyRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message SetPreferredPhyResponse {
+}
+
+message Accept0Request {
+}
+
+message Accept0Response {
+  int64 result = 1;
+}
+
+message Accept1_1Request {
+  int32 arg0 = 1;
+}
+
+message Accept1_1Response {
+  int64 result = 1;
+}
+
+message GetPsmRequest {
+}
+
+message GetPsmResponse {
+  int32 result = 1;
+}
+
+message GetBitsPerSampleRequest {
+}
+
+message GetBitsPerSampleResponse {
+  int32 result = 1;
+}
+
+message GetChannelModeRequest {
+}
+
+message GetChannelModeResponse {
+  int32 result = 1;
+}
+
+message GetCodecPriorityRequest {
+}
+
+message GetCodecPriorityResponse {
+  int32 result = 1;
+}
+
+message GetCodecSpecific1Request {
+}
+
+message GetCodecSpecific1Response {
+  int64 result = 1;
+}
+
+message GetCodecSpecific2Request {
+}
+
+message GetCodecSpecific2Response {
+  int64 result = 1;
+}
+
+message GetCodecSpecific3Request {
+}
+
+message GetCodecSpecific3Response {
+  int64 result = 1;
+}
+
+message GetCodecSpecific4Request {
+}
+
+message GetCodecSpecific4Response {
+  int64 result = 1;
+}
+
+message GetCodecTypeRequest {
+}
+
+message GetCodecTypeResponse {
+  int32 result = 1;
+}
+
+message GetExtendedCodecTypeRequest {
+}
+
+message GetExtendedCodecTypeResponse {
+  int64 result = 1;
+}
+
+message GetSampleRateRequest {
+}
+
+message GetSampleRateResponse {
+  int32 result = 1;
+}
+
+message IsMandatoryCodecRequest {
+}
+
+message IsMandatoryCodecResponse {
+  bool result = 1;
+}
+
+message SetBitsPerSampleRequest {
+  int32 arg0 = 1;
+}
+
+message SetBitsPerSampleResponse {
+  int64 result = 1;
+}
+
+message SetChannelModeRequest {
+  int32 arg0 = 1;
+}
+
+message SetChannelModeResponse {
+  int64 result = 1;
+}
+
+message SetCodecPriorityRequest {
+  int32 arg0 = 1;
+}
+
+message SetCodecPriorityResponse {
+  int64 result = 1;
+}
+
+message SetCodecSpecific1Request {
+  int64 arg0 = 1;
+}
+
+message SetCodecSpecific1Response {
+  int64 result = 1;
+}
+
+message SetCodecSpecific2Request {
+  int64 arg0 = 1;
+}
+
+message SetCodecSpecific2Response {
+  int64 result = 1;
+}
+
+message SetCodecSpecific3Request {
+  int64 arg0 = 1;
+}
+
+message SetCodecSpecific3Response {
+  int64 result = 1;
+}
+
+message SetCodecSpecific4Request {
+  int64 arg0 = 1;
+}
+
+message SetCodecSpecific4Response {
+  int64 result = 1;
+}
+
+message SetCodecTypeRequest {
+  int32 arg0 = 1;
+}
+
+message SetCodecTypeResponse {
+  int64 result = 1;
+}
+
+message SetExtendedCodecTypeRequest {
+  int64 arg0 = 1;
+}
+
+message SetExtendedCodecTypeResponse {
+  int64 result = 1;
+}
+
+message SetSampleRateRequest {
+  int32 arg0 = 1;
+}
+
+message SetSampleRateResponse {
+  int64 result = 1;
+}
+
+message NewSocketExceptionRequest {
+  int32 arg0 = 1;
+}
+
+message NewSocketExceptionResponse {
+  int64 result = 1;
+}
+
+message GetErrorCodeRequest {
+  int64 handle = 1;
+}
+
+message GetErrorCodeResponse {
+  int32 result = 1;
+}
+
+message GetChannelCountRequest {
+}
+
+message GetChannelCountResponse {
+  int32 result = 1;
+}
+
+message GetCodecNameRequest {
+}
+
+message GetCodecNameResponse {
+  string result = 1;
+}
+
+message GetFrameDurationRequest {
+}
+
+message GetFrameDurationResponse {
+  int32 result = 1;
+}
+
+message GetMaxOctetsPerFrameRequest {
+}
+
+message GetMaxOctetsPerFrameResponse {
+  int32 result = 1;
+}
+
+message GetMinOctetsPerFrameRequest {
+}
+
+message GetMinOctetsPerFrameResponse {
+  int32 result = 1;
+}
+
+message GetOctetsPerFrameRequest {
+}
+
+message GetOctetsPerFrameResponse {
+  int32 result = 1;
+}
+
+message SetChannelCountRequest {
+  int32 arg0 = 1;
+}
+
+message SetChannelCountResponse {
+  int64 result = 1;
+}
+
+message SetFrameDurationRequest {
+  int32 arg0 = 1;
+}
+
+message SetFrameDurationResponse {
+  int64 result = 1;
+}
+
+message SetMaxOctetsPerFrameRequest {
+  int32 arg0 = 1;
+}
+
+message SetMaxOctetsPerFrameResponse {
+  int64 result = 1;
+}
+
+message SetMinOctetsPerFrameRequest {
+  int32 arg0 = 1;
+}
+
+message SetMinOctetsPerFrameResponse {
+  int64 result = 1;
+}
+
+message SetOctetsPerFrameRequest {
+  int32 arg0 = 1;
+}
+
+message SetOctetsPerFrameResponse {
+  int64 result = 1;
+}
+
+message NewHidDeviceAppSdpSettingsRequest {
+  string arg0 = 1;
+  string arg1 = 2;
+  string arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+}
+
+message NewHidDeviceAppSdpSettingsResponse {
+  int64 result = 1;
+}
+
+message HidDeviceAppSdpSettingsDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message GetDescriptionRequest {
+  int64 handle = 1;
+}
+
+message GetDescriptionResponse {
+  string result = 1;
+}
+
+message GetDescriptorsRequest {
+  int64 handle = 1;
+}
+
+message GetDescriptorsResponse {
+  int64 result = 1;
+}
+
+message HidDeviceAppSdpSettingsGetNameRequest {
+  int64 handle = 1;
+}
+
+message GetProviderRequest {
+  int64 handle = 1;
+}
+
+message GetProviderResponse {
+  string result = 1;
+}
+
+message GetSubclassRequest {
+  int64 handle = 1;
+}
+
+message GetSubclassResponse {
+  uint32 result = 1;
+}
+
+message HidDeviceAppSdpSettingsWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message OnHealthAppConfigurationStatusChangeRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message OnHealthAppConfigurationStatusChangeResponse {
+}
+
+message OnHealthChannelStateChangeRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int64 arg4 = 5;
+  int32 arg5 = 6;
+}
+
+message OnHealthChannelStateChangeResponse {
+}
+
+message NewGattDescriptorRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message NewGattDescriptorResponse {
+  int64 result = 1;
+}
+
+message GattDescriptorDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message GetCharacteristicRequest {
+  int64 handle = 1;
+}
+
+message GetCharacteristicResponse {
+  int64 result = 1;
+}
+
+message SetValueRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetValueResponse {
+  bool result = 1;
+}
+
+message GattDescriptorWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message GetDataTypeRequest {
+}
+
+message GetDataTypeResponse {
+  int32 result = 1;
+}
+
+message GetRoleRequest {
+}
+
+message GetRoleResponse {
+  int32 result = 1;
+}
+
+message NewGattServiceRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message NewGattServiceResponse {
+  int64 result = 1;
+}
+
+message AddCharacteristicRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AddCharacteristicResponse {
+  bool result = 1;
+}
+
+message GattServiceAddServiceRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GattServiceDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message GattServiceGetCharacteristicRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GattServiceGetTypeRequest {
+  int64 handle = 1;
+}
+
+message GattServiceWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message GetConnectedGroupLeadDeviceRequest {
+  int32 arg0 = 1;
+}
+
+message GetConnectedGroupLeadDeviceResponse {
+  int64 result = 1;
+}
+
+message GetGroupIdRequest {
+  int64 arg0 = 1;
+}
+
+message GetGroupIdResponse {
+  int32 result = 1;
+}
+
+message OnServiceConnectedRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnServiceConnectedResponse {
+}
+
+message OnServiceDisconnectedRequest {
+  int32 arg0 = 1;
+}
+
+message OnServiceDisconnectedResponse {
+}
+
+message HidDeviceConnectRequest {
+  int64 arg0 = 1;
+}
+
+message DisconnectRequest {
+  int64 arg0 = 1;
+}
+
+message DisconnectResponse {
+  bool result = 1;
+}
+
+message RegisterAppRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+}
+
+message RegisterAppResponse {
+  bool result = 1;
+}
+
+message ReplyReportRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message ReplyReportResponse {
+  bool result = 1;
+}
+
+message ReportErrorRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message ReportErrorResponse {
+  bool result = 1;
+}
+
+message SendReportRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message SendReportResponse {
+  bool result = 1;
+}
+
+message UnregisterAppRequest {
+}
+
+message UnregisterAppResponse {
+  bool result = 1;
+}
+
+message OnAppStatusChangedRequest {
+  int64 arg0 = 1;
+  bool arg1 = 2;
+}
+
+message OnAppStatusChangedResponse {
+}
+
+message OnConnectionStateChangedRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message OnConnectionStateChangedResponse {
+}
+
+message OnGetReportRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message OnGetReportResponse {
+}
+
+message OnInterruptDataRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message OnInterruptDataResponse {
+}
+
+message OnSetProtocolRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnSetProtocolResponse {
+}
+
+message OnSetReportRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message OnSetReportResponse {
+}
+
+message OnVirtualCableUnplugRequest {
+  int64 arg0 = 1;
+}
+
+message OnVirtualCableUnplugResponse {
+}
+
+message NewLeAudioCodecStatusRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+  int64 arg5 = 6;
+}
+
+message NewLeAudioCodecStatusResponse {
+  int64 result = 1;
+}
+
+message LeAudioCodecStatusDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message LeAudioCodecStatusEqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetInputCodecConfigRequest {
+  int64 handle = 1;
+}
+
+message GetInputCodecConfigResponse {
+  int64 result = 1;
+}
+
+message GetOutputCodecConfigRequest {
+  int64 handle = 1;
+}
+
+message GetOutputCodecConfigResponse {
+  int64 result = 1;
+}
+
+message LeAudioCodecStatusHashCodeRequest {
+  int64 handle = 1;
+}
+
+message IsInputCodecConfigSelectableRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message IsInputCodecConfigSelectableResponse {
+  bool result = 1;
+}
+
+message IsOutputCodecConfigSelectableRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message IsOutputCodecConfigSelectableResponse {
+  bool result = 1;
+}
+
+message LeAudioCodecStatusToStringRequest {
+  int64 handle = 1;
+}
+
+message LeAudioCodecStatusWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message IsAudioConnectedRequest {
+  int64 arg0 = 1;
+}
+
+message IsAudioConnectedResponse {
+  bool result = 1;
+}
+
+message IsNoiseReductionSupportedRequest {
+  int64 arg0 = 1;
+}
+
+message IsNoiseReductionSupportedResponse {
+  bool result = 1;
+}
+
+message IsVoiceRecognitionSupportedRequest {
+  int64 arg0 = 1;
+}
+
+message IsVoiceRecognitionSupportedResponse {
+  bool result = 1;
+}
+
+message SendVendorSpecificResultCodeRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  string arg2 = 3;
+}
+
+message SendVendorSpecificResultCodeResponse {
+  bool result = 1;
+}
+
+message StartVoiceRecognitionRequest {
+  int64 arg0 = 1;
+}
+
+message StartVoiceRecognitionResponse {
+  bool result = 1;
+}
+
+message StopVoiceRecognitionRequest {
+  int64 arg0 = 1;
+}
+
+message StopVoiceRecognitionResponse {
+  bool result = 1;
+}
+
+message GetL2capPsmRequest {
+}
+
+message GetL2capPsmResponse {
+  int32 result = 1;
+}
+
+message GetRfcommServiceNameRequest {
+}
+
+message GetRfcommServiceNameResponse {
+  string result = 1;
+}
+
+message GetRfcommUuidRequest {
+}
+
+message GetRfcommUuidResponse {
+  int64 result = 1;
+}
+
+message GetSocketTypeRequest {
+}
+
+message GetSocketTypeResponse {
+  int32 result = 1;
+}
+
+message IsAuthenticationRequiredRequest {
+}
+
+message IsAuthenticationRequiredResponse {
+  bool result = 1;
+}
+
+message IsEncryptionRequiredRequest {
+}
+
+message IsEncryptionRequiredResponse {
+  bool result = 1;
+}
+
+message SetAuthenticationRequiredRequest {
+  bool arg0 = 1;
+}
+
+message SetAuthenticationRequiredResponse {
+  int64 result = 1;
+}
+
+message SetEncryptionRequiredRequest {
+  bool arg0 = 1;
+}
+
+message SetEncryptionRequiredResponse {
+  int64 result = 1;
+}
+
+message SetL2capPsmRequest {
+  int32 arg0 = 1;
+}
+
+message SetL2capPsmResponse {
+  int64 result = 1;
+}
+
+message SetRfcommServiceNameRequest {
+  string arg0 = 1;
+}
+
+message SetRfcommServiceNameResponse {
+  int64 result = 1;
+}
+
+message SetRfcommUuidRequest {
+  int64 arg0 = 1;
+}
+
+message SetRfcommUuidResponse {
+  int64 result = 1;
+}
+
+message SetSocketTypeRequest {
+  int32 arg0 = 1;
+}
+
+message SetSocketTypeResponse {
+  int64 result = 1;
+}
+
+message GetCodecIdRequest {
+}
+
+message GetCodecIdResponse {
+  int64 result = 1;
+}
+
+message AbortReliableWrite0Request {
+}
+
+message AbortReliableWrite0Response {
+}
+
+message AbortReliableWrite1_1Request {
+  int64 arg0 = 1;
+}
+
+message AbortReliableWrite1_1Response {
+}
+
+message BeginReliableWriteRequest {
+}
+
+message BeginReliableWriteResponse {
+  bool result = 1;
+}
+
+message GattConnectRequest {
+}
+
+message GattDisconnectRequest {
+}
+
+message GattDisconnectResponse {
+}
+
+message DiscoverServicesRequest {
+}
+
+message DiscoverServicesResponse {
+  bool result = 1;
+}
+
+message ExecuteReliableWriteRequest {
+}
+
+message ExecuteReliableWriteResponse {
+  bool result = 1;
+}
+
+message GetDeviceRequest {
+}
+
+message GetDeviceResponse {
+  int64 result = 1;
+}
+
+message GattGetServiceRequest {
+  int64 arg0 = 1;
+}
+
+message ReadCharacteristicRequest {
+  int64 arg0 = 1;
+}
+
+message ReadCharacteristicResponse {
+  bool result = 1;
+}
+
+message ReadDescriptorRequest {
+  int64 arg0 = 1;
+}
+
+message ReadDescriptorResponse {
+  bool result = 1;
+}
+
+message GattReadPhyRequest {
+}
+
+message ReadRemoteRssiRequest {
+}
+
+message ReadRemoteRssiResponse {
+  bool result = 1;
+}
+
+message RequestConnectionPriorityRequest {
+  int32 arg0 = 1;
+}
+
+message RequestConnectionPriorityResponse {
+  bool result = 1;
+}
+
+message RequestMtuRequest {
+  int32 arg0 = 1;
+}
+
+message RequestMtuResponse {
+  bool result = 1;
+}
+
+message SetCharacteristicNotificationRequest {
+  int64 arg0 = 1;
+  bool arg1 = 2;
+}
+
+message SetCharacteristicNotificationResponse {
+  bool result = 1;
+}
+
+message GattSetPreferredPhyRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message WriteCharacteristic1Request {
+  int64 arg0 = 1;
+}
+
+message WriteCharacteristic1Response {
+  bool result = 1;
+}
+
+message WriteCharacteristic3_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message WriteCharacteristic3_1Response {
+  int32 result = 1;
+}
+
+message WriteDescriptor1Request {
+  int64 arg0 = 1;
+}
+
+message WriteDescriptor1Response {
+  bool result = 1;
+}
+
+message WriteDescriptor2_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message WriteDescriptor2_1Response {
+  int32 result = 1;
+}
+
+message SocketConnectRequest {
+}
+
+message SocketConnectResponse {
+}
+
+message GetConnectionTypeRequest {
+}
+
+message GetConnectionTypeResponse {
+  int32 result = 1;
+}
+
+message GetInputStreamRequest {
+}
+
+message GetInputStreamResponse {
+  int64 result = 1;
+}
+
+message GetMaxReceivePacketSizeRequest {
+}
+
+message GetMaxReceivePacketSizeResponse {
+  int32 result = 1;
+}
+
+message GetMaxTransmitPacketSizeRequest {
+}
+
+message GetMaxTransmitPacketSizeResponse {
+  int32 result = 1;
+}
+
+message GetOutputStreamRequest {
+}
+
+message GetOutputStreamResponse {
+  int64 result = 1;
+}
+
+message GetRemoteDeviceRequest {
+}
+
+message GetRemoteDeviceResponse {
+  int64 result = 1;
+}
+
+message IsConnectedRequest {
+}
+
+message IsConnectedResponse {
+  bool result = 1;
+}
+
+message OnCharacteristicWriteRequestOpRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+  bool arg3 = 4;
+  bool arg4 = 5;
+  int32 arg5 = 6;
+  int64 arg6 = 7;
+}
+
+message OnCharacteristicWriteRequestOpResponse {
+}
+
+message OnDescriptorWriteRequestOpRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+  bool arg3 = 4;
+  bool arg4 = 5;
+  int32 arg5 = 6;
+  int64 arg6 = 7;
+}
+
+message OnDescriptorWriteRequestOpResponse {
+}
+
+service GattCallbackService {
+  rpc OnCharacteristicChanged2 (OnCharacteristicChanged2Request) returns (OnCharacteristicChanged2Response);
+  rpc OnCharacteristicChanged3_1 (OnCharacteristicChanged3_1Request) returns (OnCharacteristicChanged3_1Response);
+  rpc OnCharacteristicRead4 (OnCharacteristicRead4Request) returns (OnCharacteristicRead4Response);
+  rpc OnCharacteristicRead3_1 (OnCharacteristicRead3_1Request) returns (OnCharacteristicRead3_1Response);
+  rpc OnCharacteristicWrite (OnCharacteristicWriteRequest) returns (OnCharacteristicWriteResponse);
+  rpc OnConnectionStateChange (OnConnectionStateChangeRequest) returns (OnConnectionStateChangeResponse);
+  rpc OnDescriptorRead3 (OnDescriptorRead3Request) returns (OnDescriptorRead3Response);
+  rpc OnDescriptorRead4_1 (OnDescriptorRead4_1Request) returns (OnDescriptorRead4_1Response);
+  rpc OnDescriptorWrite (OnDescriptorWriteRequest) returns (OnDescriptorWriteResponse);
+  rpc OnMtuChanged (OnMtuChangedRequest) returns (OnMtuChangedResponse);
+  rpc OnPhyRead (OnPhyReadRequest) returns (OnPhyReadResponse);
+  rpc OnPhyUpdate (OnPhyUpdateRequest) returns (OnPhyUpdateResponse);
+  rpc OnReadRemoteRssi (OnReadRemoteRssiRequest) returns (OnReadRemoteRssiResponse);
+  rpc OnReliableWriteCompleted (OnReliableWriteCompletedRequest) returns (OnReliableWriteCompletedResponse);
+  rpc OnServiceChanged (OnServiceChangedRequest) returns (OnServiceChangedResponse);
+  rpc OnServicesDiscovered (OnServicesDiscoveredRequest) returns (OnServicesDiscoveredResponse);
+}
+
+service HealthService {
+  rpc ConnectChannelToSource (ConnectChannelToSourceRequest) returns (ConnectChannelToSourceResponse);
+  rpc DisconnectChannel (DisconnectChannelRequest) returns (DisconnectChannelResponse);
+  rpc GetConnectionState (GetConnectionStateRequest) returns (GetConnectionStateResponse);
+  rpc GetMainChannelFd (GetMainChannelFdRequest) returns (GetMainChannelFdResponse);
+  rpc RegisterSinkAppConfiguration (RegisterSinkAppConfigurationRequest) returns (RegisterSinkAppConfigurationResponse);
+  rpc UnregisterAppConfiguration (UnregisterAppConfigurationRequest) returns (UnregisterAppConfigurationResponse);
+}
+
+service CodecStatusService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetCodecConfig (GetCodecConfigRequest) returns (GetCodecConfigResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc IsCodecConfigSelectable (IsCodecConfigSelectableRequest) returns (IsCodecConfigSelectableResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service CodecStatusBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetCodecConfig (SetCodecConfigRequest) returns (SetCodecConfigResponse);
+}
+
+service HidDeviceAppQosSettingsService {
+  rpc NewHidDeviceAppQosSettings (NewHidDeviceAppQosSettingsRequest) returns (NewHidDeviceAppQosSettingsResponse);
+  rpc DescribeContents (HidDeviceAppQosSettingsDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetDelayVariation (GetDelayVariationRequest) returns (GetDelayVariationResponse);
+  rpc GetLatency (GetLatencyRequest) returns (GetLatencyResponse);
+  rpc GetPeakBandwidth (GetPeakBandwidthRequest) returns (GetPeakBandwidthResponse);
+  rpc GetServiceType (GetServiceTypeRequest) returns (GetServiceTypeResponse);
+  rpc GetTokenBucketSize (GetTokenBucketSizeRequest) returns (GetTokenBucketSizeResponse);
+  rpc GetTokenRate (GetTokenRateRequest) returns (GetTokenRateResponse);
+  rpc WriteToParcel (HidDeviceAppQosSettingsWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service A2dpService {
+  rpc Finalize (FinalizeRequest) returns (FinalizeResponse);
+  rpc GetConnectionState (GetConnectionStateRequest) returns (GetConnectionStateResponse);
+  rpc IsA2dpPlaying (IsA2dpPlayingRequest) returns (IsA2dpPlayingResponse);
+}
+
+service GattServerCallbackService {
+  rpc OnCharacteristicReadRequest (OnCharacteristicReadRequestRequest) returns (OnCharacteristicReadRequestResponse);
+  rpc OnCharacteristicWriteRequestOp (OnCharacteristicWriteRequestOpRequest) returns (OnCharacteristicWriteRequestOpResponse);
+  rpc OnConnectionStateChange (OnConnectionStateChangeRequest) returns (OnConnectionStateChangeResponse);
+  rpc OnDescriptorReadRequest (OnDescriptorReadRequestRequest) returns (OnDescriptorReadRequestResponse);
+  rpc OnDescriptorWriteRequestOp (OnDescriptorWriteRequestOpRequest) returns (OnDescriptorWriteRequestOpResponse);
+  rpc OnExecuteWrite (OnExecuteWriteRequest) returns (OnExecuteWriteResponse);
+  rpc OnMtuChanged (GattServerCallbackOnMtuChangedRequest) returns (OnMtuChangedResponse);
+  rpc OnNotificationSent (OnNotificationSentRequest) returns (OnNotificationSentResponse);
+  rpc OnPhyRead (OnPhyReadRequest) returns (OnPhyReadResponse);
+  rpc OnPhyUpdate (OnPhyUpdateRequest) returns (OnPhyUpdateResponse);
+  rpc OnServiceAdded (OnServiceAddedRequest) returns (OnServiceAddedResponse);
+}
+
+service DeviceService {
+  rpc ConnectGatt3 (ConnectGatt3Request) returns (ConnectGatt3Response);
+  rpc ConnectGatt4_1 (ConnectGatt4_1Request) returns (ConnectGatt4_1Response);
+  rpc ConnectGatt5_2 (ConnectGatt5_2Request) returns (ConnectGatt5_2Response);
+  rpc CreateBond (CreateBondRequest) returns (CreateBondResponse);
+  rpc CreateInsecureL2capChannel (CreateInsecureL2capChannelRequest) returns (CreateInsecureL2capChannelResponse);
+  rpc CreateInsecureRfcommSocketToServiceRecord (CreateInsecureRfcommSocketToServiceRecordRequest) returns (CreateInsecureRfcommSocketToServiceRecordResponse);
+  rpc CreateL2capChannel (CreateL2capChannelRequest) returns (CreateL2capChannelResponse);
+  rpc CreateRfcommSocketToServiceRecord (CreateRfcommSocketToServiceRecordRequest) returns (CreateRfcommSocketToServiceRecordResponse);
+  rpc CreateUsingSocketSettings (CreateUsingSocketSettingsRequest) returns (CreateUsingSocketSettingsResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc FetchUuidsWithSdp (FetchUuidsWithSdpRequest) returns (FetchUuidsWithSdpResponse);
+  rpc GetAddress (GetAddressRequest) returns (GetAddressResponse);
+  rpc GetAddressType (GetAddressTypeRequest) returns (GetAddressTypeResponse);
+  rpc GetAlias (GetAliasRequest) returns (GetAliasResponse);
+  rpc GetBluetoothClass (GetBluetoothClassRequest) returns (GetBluetoothClassResponse);
+  rpc GetBondState (GetBondStateRequest) returns (GetBondStateResponse);
+  rpc GetIdentityAddressWithType (GetIdentityAddressWithTypeRequest) returns (GetIdentityAddressWithTypeResponse);
+  rpc GetName (GetNameRequest) returns (GetNameResponse);
+  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
+  rpc GetUuids (GetUuidsRequest) returns (GetUuidsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc SetAlias (SetAliasRequest) returns (SetAliasResponse);
+  rpc SetPairingConfirmation (SetPairingConfirmationRequest) returns (SetPairingConfirmationResponse);
+  rpc SetPin (SetPinRequest) returns (SetPinResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service DeviceBluetoothAddressService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetAddress (GetAddressRequest) returns (GetAddressResponse);
+  rpc GetAddressType (GetAddressTypeRequest) returns (GetAddressTypeResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service GattCharacteristicService {
+  rpc NewGattCharacteristic (NewGattCharacteristicRequest) returns (NewGattCharacteristicResponse);
+  rpc AddDescriptor (AddDescriptorRequest) returns (AddDescriptorResponse);
+  rpc DescribeContents (GattCharacteristicDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetDescriptor (GetDescriptorRequest) returns (GetDescriptorResponse);
+  rpc GetFloatValue (GetFloatValueRequest) returns (GetFloatValueResponse);
+  rpc GetInstanceId (GetInstanceIdRequest) returns (GetInstanceIdResponse);
+  rpc GetIntValue (GetIntValueRequest) returns (GetIntValueResponse);
+  rpc GetPermissions (GetPermissionsRequest) returns (GetPermissionsResponse);
+  rpc GetProperties (GetPropertiesRequest) returns (GetPropertiesResponse);
+  rpc GetService (GetServiceRequest) returns (GetServiceResponse);
+  rpc GetStringValue (GetStringValueRequest) returns (GetStringValueResponse);
+  rpc GetUuid (GetUuidRequest) returns (GetUuidResponse);
+  rpc GetValue (GetValueRequest) returns (GetValueResponse);
+  rpc GetWriteType (GetWriteTypeRequest) returns (GetWriteTypeResponse);
+  rpc SetValue1 (SetValue1Request) returns (SetValue1Response);
+  rpc SetValue3_1 (SetValue3_1Request) returns (SetValue3_1Response);
+  rpc SetValue4_2 (SetValue4_2Request) returns (SetValue4_2Response);
+  rpc SetValue1_3 (SetValue1_3Request) returns (SetValue1_3Response);
+  rpc SetWriteType (SetWriteTypeRequest) returns (SetWriteTypeResponse);
+  rpc WriteToParcel (GattCharacteristicWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
 service ManagerService {
   rpc GetAdapter (GetAdapterRequest) returns (GetAdapterResponse);
-  rpc GetConnectionState (GetConnectionStateRequest) returns (GetConnectionStateResponse);
+  rpc GetConnectionState (ManagerGetConnectionStateRequest) returns (GetConnectionStateResponse);
   rpc OpenGattServer (OpenGattServerRequest) returns (OpenGattServerResponse);
+}
+
+service AdapterService {
+  rpc CancelDiscovery (CancelDiscoveryRequest) returns (CancelDiscoveryResponse);
+  rpc CloseProfileProxy (CloseProfileProxyRequest) returns (CloseProfileProxyResponse);
+  rpc Disable (DisableRequest) returns (DisableResponse);
+  rpc Enable (EnableRequest) returns (EnableResponse);
+  rpc GetAddress (GetAddressRequest) returns (GetAddressResponse);
+  rpc GetBluetoothLeAdvertiser (GetBluetoothLeAdvertiserRequest) returns (GetBluetoothLeAdvertiserResponse);
+  rpc GetBluetoothLeScanner (GetBluetoothLeScannerRequest) returns (GetBluetoothLeScannerResponse);
+  rpc GetDiscoverableTimeout (GetDiscoverableTimeoutRequest) returns (GetDiscoverableTimeoutResponse);
+  rpc GetLeMaximumAdvertisingDataLength (GetLeMaximumAdvertisingDataLengthRequest) returns (GetLeMaximumAdvertisingDataLengthResponse);
+  rpc GetMaxConnectedAudioDevices (GetMaxConnectedAudioDevicesRequest) returns (GetMaxConnectedAudioDevicesResponse);
+  rpc GetName (GetNameRequest) returns (GetNameResponse);
+  rpc GetProfileConnectionState (GetProfileConnectionStateRequest) returns (GetProfileConnectionStateResponse);
+  rpc GetProfileProxy (GetProfileProxyRequest) returns (GetProfileProxyResponse);
+  rpc GetRemoteDevice1 (GetRemoteDevice1Request) returns (GetRemoteDevice1Response);
+  rpc GetRemoteDevice1_1 (GetRemoteDevice1_1Request) returns (GetRemoteDevice1_1Response);
+  rpc GetRemoteLeDevice (GetRemoteLeDeviceRequest) returns (GetRemoteLeDeviceResponse);
+  rpc GetScanMode (GetScanModeRequest) returns (GetScanModeResponse);
+  rpc GetState (GetStateRequest) returns (GetStateResponse);
+  rpc IsDiscovering (IsDiscoveringRequest) returns (IsDiscoveringResponse);
+  rpc IsEnabled (IsEnabledRequest) returns (IsEnabledResponse);
+  rpc IsLe2MPhySupported (IsLe2MPhySupportedRequest) returns (IsLe2MPhySupportedResponse);
+  rpc IsLeAudioBroadcastAssistantSupported (IsLeAudioBroadcastAssistantSupportedRequest) returns (IsLeAudioBroadcastAssistantSupportedResponse);
+  rpc IsLeAudioBroadcastSourceSupported (IsLeAudioBroadcastSourceSupportedRequest) returns (IsLeAudioBroadcastSourceSupportedResponse);
+  rpc IsLeAudioSupported (IsLeAudioSupportedRequest) returns (IsLeAudioSupportedResponse);
+  rpc IsLeCodedPhySupported (IsLeCodedPhySupportedRequest) returns (IsLeCodedPhySupportedResponse);
+  rpc IsLeExtendedAdvertisingSupported (IsLeExtendedAdvertisingSupportedRequest) returns (IsLeExtendedAdvertisingSupportedResponse);
+  rpc IsLePeriodicAdvertisingSupported (IsLePeriodicAdvertisingSupportedRequest) returns (IsLePeriodicAdvertisingSupportedResponse);
+  rpc IsMultipleAdvertisementSupported (IsMultipleAdvertisementSupportedRequest) returns (IsMultipleAdvertisementSupportedResponse);
+  rpc IsOffloadedFilteringSupported (IsOffloadedFilteringSupportedRequest) returns (IsOffloadedFilteringSupportedResponse);
+  rpc IsOffloadedScanBatchingSupported (IsOffloadedScanBatchingSupportedRequest) returns (IsOffloadedScanBatchingSupportedResponse);
+  rpc ListenUsingInsecureL2capChannel (ListenUsingInsecureL2capChannelRequest) returns (ListenUsingInsecureL2capChannelResponse);
+  rpc ListenUsingInsecureRfcommWithServiceRecord (ListenUsingInsecureRfcommWithServiceRecordRequest) returns (ListenUsingInsecureRfcommWithServiceRecordResponse);
+  rpc ListenUsingL2capChannel (ListenUsingL2capChannelRequest) returns (ListenUsingL2capChannelResponse);
+  rpc ListenUsingRfcommWithServiceRecord (ListenUsingRfcommWithServiceRecordRequest) returns (ListenUsingRfcommWithServiceRecordResponse);
+  rpc ListenUsingSocketSettings (ListenUsingSocketSettingsRequest) returns (ListenUsingSocketSettingsResponse);
+  rpc SetName (SetNameRequest) returns (SetNameResponse);
+  rpc StartDiscovery (StartDiscoveryRequest) returns (StartDiscoveryResponse);
+  rpc StartLeScan1 (StartLeScan1Request) returns (StartLeScan1Response);
+  rpc StartLeScan2_1 (StartLeScan2_1Request) returns (StartLeScan2_1Response);
+  rpc StopLeScan (StopLeScanRequest) returns (StopLeScanResponse);
+  rpc CheckBluetoothAddress (CheckBluetoothAddressRequest) returns (CheckBluetoothAddressResponse);
+}
+
+service AdapterLeScanCallbackService {
+  rpc OnLeScan (OnLeScanRequest) returns (OnLeScanResponse);
+}
+
+service ClassService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc DoesClassMatch (DoesClassMatchRequest) returns (DoesClassMatchResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetDeviceClass (GetDeviceClassRequest) returns (GetDeviceClassResponse);
+  rpc GetMajorDeviceClass (GetMajorDeviceClassRequest) returns (GetMajorDeviceClassResponse);
+  rpc HasService (HasServiceRequest) returns (HasServiceResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service GattServerService {
+  rpc AddService (AddServiceRequest) returns (AddServiceResponse);
+  rpc CancelConnection (CancelConnectionRequest) returns (CancelConnectionResponse);
+  rpc ClearServices (ClearServicesRequest) returns (ClearServicesResponse);
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc Connect (ConnectRequest) returns (ConnectResponse);
+  rpc GetConnectionState (GetConnectionStateRequest) returns (GetConnectionStateResponse);
+  rpc GetService (GattServerGetServiceRequest) returns (GetServiceResponse);
+  rpc NotifyCharacteristicChanged3 (NotifyCharacteristicChanged3Request) returns (NotifyCharacteristicChanged3Response);
+  rpc NotifyCharacteristicChanged4_1 (NotifyCharacteristicChanged4_1Request) returns (NotifyCharacteristicChanged4_1Response);
+  rpc ReadPhy (ReadPhyRequest) returns (ReadPhyResponse);
+  rpc RemoveService (RemoveServiceRequest) returns (RemoveServiceResponse);
+  rpc SendResponse (SendResponseRequest) returns (SendResponseResponse);
+  rpc SetPreferredPhy (SetPreferredPhyRequest) returns (SetPreferredPhyResponse);
+}
+
+service ServerSocketService {
+  rpc Accept0 (Accept0Request) returns (Accept0Response);
+  rpc Accept1_1 (Accept1_1Request) returns (Accept1_1Response);
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc GetPsm (GetPsmRequest) returns (GetPsmResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service CodecConfigService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetBitsPerSample (GetBitsPerSampleRequest) returns (GetBitsPerSampleResponse);
+  rpc GetChannelMode (GetChannelModeRequest) returns (GetChannelModeResponse);
+  rpc GetCodecPriority (GetCodecPriorityRequest) returns (GetCodecPriorityResponse);
+  rpc GetCodecSpecific1 (GetCodecSpecific1Request) returns (GetCodecSpecific1Response);
+  rpc GetCodecSpecific2 (GetCodecSpecific2Request) returns (GetCodecSpecific2Response);
+  rpc GetCodecSpecific3 (GetCodecSpecific3Request) returns (GetCodecSpecific3Response);
+  rpc GetCodecSpecific4 (GetCodecSpecific4Request) returns (GetCodecSpecific4Response);
+  rpc GetCodecType (GetCodecTypeRequest) returns (GetCodecTypeResponse);
+  rpc GetExtendedCodecType (GetExtendedCodecTypeRequest) returns (GetExtendedCodecTypeResponse);
+  rpc GetSampleRate (GetSampleRateRequest) returns (GetSampleRateResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc IsMandatoryCodec (IsMandatoryCodecRequest) returns (IsMandatoryCodecResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service CodecConfigBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetBitsPerSample (SetBitsPerSampleRequest) returns (SetBitsPerSampleResponse);
+  rpc SetChannelMode (SetChannelModeRequest) returns (SetChannelModeResponse);
+  rpc SetCodecPriority (SetCodecPriorityRequest) returns (SetCodecPriorityResponse);
+  rpc SetCodecSpecific1 (SetCodecSpecific1Request) returns (SetCodecSpecific1Response);
+  rpc SetCodecSpecific2 (SetCodecSpecific2Request) returns (SetCodecSpecific2Response);
+  rpc SetCodecSpecific3 (SetCodecSpecific3Request) returns (SetCodecSpecific3Response);
+  rpc SetCodecSpecific4 (SetCodecSpecific4Request) returns (SetCodecSpecific4Response);
+  rpc SetCodecType (SetCodecTypeRequest) returns (SetCodecTypeResponse);
+  rpc SetExtendedCodecType (SetExtendedCodecTypeRequest) returns (SetExtendedCodecTypeResponse);
+  rpc SetSampleRate (SetSampleRateRequest) returns (SetSampleRateResponse);
+}
+
+service SocketExceptionService {
+  rpc NewSocketException (NewSocketExceptionRequest) returns (NewSocketExceptionResponse);
+  rpc GetErrorCode (GetErrorCodeRequest) returns (GetErrorCodeResponse);
+}
+
+service LeAudioCodecConfigService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetBitsPerSample (GetBitsPerSampleRequest) returns (GetBitsPerSampleResponse);
+  rpc GetChannelCount (GetChannelCountRequest) returns (GetChannelCountResponse);
+  rpc GetCodecName (GetCodecNameRequest) returns (GetCodecNameResponse);
+  rpc GetCodecPriority (GetCodecPriorityRequest) returns (GetCodecPriorityResponse);
+  rpc GetCodecType (GetCodecTypeRequest) returns (GetCodecTypeResponse);
+  rpc GetFrameDuration (GetFrameDurationRequest) returns (GetFrameDurationResponse);
+  rpc GetMaxOctetsPerFrame (GetMaxOctetsPerFrameRequest) returns (GetMaxOctetsPerFrameResponse);
+  rpc GetMinOctetsPerFrame (GetMinOctetsPerFrameRequest) returns (GetMinOctetsPerFrameResponse);
+  rpc GetOctetsPerFrame (GetOctetsPerFrameRequest) returns (GetOctetsPerFrameResponse);
+  rpc GetSampleRate (GetSampleRateRequest) returns (GetSampleRateResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service LeAudioCodecConfigBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetBitsPerSample (SetBitsPerSampleRequest) returns (SetBitsPerSampleResponse);
+  rpc SetChannelCount (SetChannelCountRequest) returns (SetChannelCountResponse);
+  rpc SetCodecPriority (SetCodecPriorityRequest) returns (SetCodecPriorityResponse);
+  rpc SetCodecType (SetCodecTypeRequest) returns (SetCodecTypeResponse);
+  rpc SetFrameDuration (SetFrameDurationRequest) returns (SetFrameDurationResponse);
+  rpc SetMaxOctetsPerFrame (SetMaxOctetsPerFrameRequest) returns (SetMaxOctetsPerFrameResponse);
+  rpc SetMinOctetsPerFrame (SetMinOctetsPerFrameRequest) returns (SetMinOctetsPerFrameResponse);
+  rpc SetOctetsPerFrame (SetOctetsPerFrameRequest) returns (SetOctetsPerFrameResponse);
+  rpc SetSampleRate (SetSampleRateRequest) returns (SetSampleRateResponse);
+}
+
+service HearingAidService {
+  rpc GetConnectionState (GetConnectionStateRequest) returns (GetConnectionStateResponse);
+}
+
+service HidDeviceAppSdpSettingsService {
+  rpc NewHidDeviceAppSdpSettings (NewHidDeviceAppSdpSettingsRequest) returns (NewHidDeviceAppSdpSettingsResponse);
+  rpc DescribeContents (HidDeviceAppSdpSettingsDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetDescription (GetDescriptionRequest) returns (GetDescriptionResponse);
+  rpc GetDescriptors (GetDescriptorsRequest) returns (GetDescriptorsResponse);
+  rpc GetName (HidDeviceAppSdpSettingsGetNameRequest) returns (GetNameResponse);
+  rpc GetProvider (GetProviderRequest) returns (GetProviderResponse);
+  rpc GetSubclass (GetSubclassRequest) returns (GetSubclassResponse);
+  rpc WriteToParcel (HidDeviceAppSdpSettingsWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service HealthCallbackService {
+  rpc OnHealthAppConfigurationStatusChange (OnHealthAppConfigurationStatusChangeRequest) returns (OnHealthAppConfigurationStatusChangeResponse);
+  rpc OnHealthChannelStateChange (OnHealthChannelStateChangeRequest) returns (OnHealthChannelStateChangeResponse);
+}
+
+service GattDescriptorService {
+  rpc NewGattDescriptor (NewGattDescriptorRequest) returns (NewGattDescriptorResponse);
+  rpc DescribeContents (GattDescriptorDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetCharacteristic (GetCharacteristicRequest) returns (GetCharacteristicResponse);
+  rpc GetPermissions (GetPermissionsRequest) returns (GetPermissionsResponse);
+  rpc GetUuid (GetUuidRequest) returns (GetUuidResponse);
+  rpc GetValue (GetValueRequest) returns (GetValueResponse);
+  rpc SetValue (SetValueRequest) returns (SetValueResponse);
+  rpc WriteToParcel (GattDescriptorWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service HealthAppConfigurationService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetDataType (GetDataTypeRequest) returns (GetDataTypeResponse);
+  rpc GetName (GetNameRequest) returns (GetNameResponse);
+  rpc GetRole (GetRoleRequest) returns (GetRoleResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service GattServiceService {
+  rpc NewGattService (NewGattServiceRequest) returns (NewGattServiceResponse);
+  rpc AddCharacteristic (AddCharacteristicRequest) returns (AddCharacteristicResponse);
+  rpc AddService (GattServiceAddServiceRequest) returns (AddServiceResponse);
+  rpc DescribeContents (GattServiceDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetCharacteristic (GattServiceGetCharacteristicRequest) returns (GetCharacteristicResponse);
+  rpc GetInstanceId (GetInstanceIdRequest) returns (GetInstanceIdResponse);
+  rpc GetType (GattServiceGetTypeRequest) returns (GetTypeResponse);
+  rpc GetUuid (GetUuidRequest) returns (GetUuidResponse);
+  rpc WriteToParcel (GattServiceWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service LeAudioService {
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc GetConnectedGroupLeadDevice (GetConnectedGroupLeadDeviceRequest) returns (GetConnectedGroupLeadDeviceResponse);
+  rpc GetConnectionState (GetConnectionStateRequest) returns (GetConnectionStateResponse);
+  rpc GetGroupId (GetGroupIdRequest) returns (GetGroupIdResponse);
+}
+
+service ProfileService {
+  rpc GetConnectionState (GetConnectionStateRequest) returns (GetConnectionStateResponse);
+}
+
+service ProfileServiceListenerService {
+  rpc OnServiceConnected (OnServiceConnectedRequest) returns (OnServiceConnectedResponse);
+  rpc OnServiceDisconnected (OnServiceDisconnectedRequest) returns (OnServiceDisconnectedResponse);
+}
+
+service CsipSetCoordinatorService {
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc GetConnectionState (GetConnectionStateRequest) returns (GetConnectionStateResponse);
+}
+
+service HidDeviceService {
+  rpc Connect (HidDeviceConnectRequest) returns (ConnectResponse);
+  rpc Disconnect (DisconnectRequest) returns (DisconnectResponse);
+  rpc GetConnectionState (GetConnectionStateRequest) returns (GetConnectionStateResponse);
+  rpc RegisterApp (RegisterAppRequest) returns (RegisterAppResponse);
+  rpc ReplyReport (ReplyReportRequest) returns (ReplyReportResponse);
+  rpc ReportError (ReportErrorRequest) returns (ReportErrorResponse);
+  rpc SendReport (SendReportRequest) returns (SendReportResponse);
+  rpc UnregisterApp (UnregisterAppRequest) returns (UnregisterAppResponse);
+}
+
+service HidDeviceCallbackService {
+  rpc OnAppStatusChanged (OnAppStatusChangedRequest) returns (OnAppStatusChangedResponse);
+  rpc OnConnectionStateChanged (OnConnectionStateChangedRequest) returns (OnConnectionStateChangedResponse);
+  rpc OnGetReport (OnGetReportRequest) returns (OnGetReportResponse);
+  rpc OnInterruptData (OnInterruptDataRequest) returns (OnInterruptDataResponse);
+  rpc OnSetProtocol (OnSetProtocolRequest) returns (OnSetProtocolResponse);
+  rpc OnSetReport (OnSetReportRequest) returns (OnSetReportResponse);
+  rpc OnVirtualCableUnplug (OnVirtualCableUnplugRequest) returns (OnVirtualCableUnplugResponse);
+}
+
+service LeAudioCodecStatusService {
+  rpc NewLeAudioCodecStatus (NewLeAudioCodecStatusRequest) returns (NewLeAudioCodecStatusResponse);
+  rpc DescribeContents (LeAudioCodecStatusDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (LeAudioCodecStatusEqualsRequest) returns (EqualsResponse);
+  rpc GetInputCodecConfig (GetInputCodecConfigRequest) returns (GetInputCodecConfigResponse);
+  rpc GetOutputCodecConfig (GetOutputCodecConfigRequest) returns (GetOutputCodecConfigResponse);
+  rpc HashCode (LeAudioCodecStatusHashCodeRequest) returns (HashCodeResponse);
+  rpc IsInputCodecConfigSelectable (IsInputCodecConfigSelectableRequest) returns (IsInputCodecConfigSelectableResponse);
+  rpc IsOutputCodecConfigSelectable (IsOutputCodecConfigSelectableRequest) returns (IsOutputCodecConfigSelectableResponse);
+  rpc ToString (LeAudioCodecStatusToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (LeAudioCodecStatusWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service HeadsetService {
+  rpc GetConnectionState (GetConnectionStateRequest) returns (GetConnectionStateResponse);
+  rpc IsAudioConnected (IsAudioConnectedRequest) returns (IsAudioConnectedResponse);
+  rpc IsNoiseReductionSupported (IsNoiseReductionSupportedRequest) returns (IsNoiseReductionSupportedResponse);
+  rpc IsVoiceRecognitionSupported (IsVoiceRecognitionSupportedRequest) returns (IsVoiceRecognitionSupportedResponse);
+  rpc SendVendorSpecificResultCode (SendVendorSpecificResultCodeRequest) returns (SendVendorSpecificResultCodeResponse);
+  rpc StartVoiceRecognition (StartVoiceRecognitionRequest) returns (StartVoiceRecognitionResponse);
+  rpc StopVoiceRecognition (StopVoiceRecognitionRequest) returns (StopVoiceRecognitionResponse);
+}
+
+service SocketSettingsService {
+  rpc GetL2capPsm (GetL2capPsmRequest) returns (GetL2capPsmResponse);
+  rpc GetRfcommServiceName (GetRfcommServiceNameRequest) returns (GetRfcommServiceNameResponse);
+  rpc GetRfcommUuid (GetRfcommUuidRequest) returns (GetRfcommUuidResponse);
+  rpc GetSocketType (GetSocketTypeRequest) returns (GetSocketTypeResponse);
+  rpc IsAuthenticationRequired (IsAuthenticationRequiredRequest) returns (IsAuthenticationRequiredResponse);
+  rpc IsEncryptionRequired (IsEncryptionRequiredRequest) returns (IsEncryptionRequiredResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service SocketSettingsBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetAuthenticationRequired (SetAuthenticationRequiredRequest) returns (SetAuthenticationRequiredResponse);
+  rpc SetEncryptionRequired (SetEncryptionRequiredRequest) returns (SetEncryptionRequiredResponse);
+  rpc SetL2capPsm (SetL2capPsmRequest) returns (SetL2capPsmResponse);
+  rpc SetRfcommServiceName (SetRfcommServiceNameRequest) returns (SetRfcommServiceNameResponse);
+  rpc SetRfcommUuid (SetRfcommUuidRequest) returns (SetRfcommUuidResponse);
+  rpc SetSocketType (SetSocketTypeRequest) returns (SetSocketTypeResponse);
+}
+
+service CodecTypeService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetCodecId (GetCodecIdRequest) returns (GetCodecIdResponse);
+  rpc GetCodecName (GetCodecNameRequest) returns (GetCodecNameResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc IsMandatoryCodec (IsMandatoryCodecRequest) returns (IsMandatoryCodecResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service GattService {
+  rpc AbortReliableWrite0 (AbortReliableWrite0Request) returns (AbortReliableWrite0Response);
+  rpc AbortReliableWrite1_1 (AbortReliableWrite1_1Request) returns (AbortReliableWrite1_1Response);
+  rpc BeginReliableWrite (BeginReliableWriteRequest) returns (BeginReliableWriteResponse);
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc Connect (GattConnectRequest) returns (ConnectResponse);
+  rpc Disconnect (GattDisconnectRequest) returns (GattDisconnectResponse);
+  rpc DiscoverServices (DiscoverServicesRequest) returns (DiscoverServicesResponse);
+  rpc ExecuteReliableWrite (ExecuteReliableWriteRequest) returns (ExecuteReliableWriteResponse);
+  rpc GetConnectionState (GetConnectionStateRequest) returns (GetConnectionStateResponse);
+  rpc GetDevice (GetDeviceRequest) returns (GetDeviceResponse);
+  rpc GetService (GattGetServiceRequest) returns (GetServiceResponse);
+  rpc ReadCharacteristic (ReadCharacteristicRequest) returns (ReadCharacteristicResponse);
+  rpc ReadDescriptor (ReadDescriptorRequest) returns (ReadDescriptorResponse);
+  rpc ReadPhy (GattReadPhyRequest) returns (ReadPhyResponse);
+  rpc ReadRemoteRssi (ReadRemoteRssiRequest) returns (ReadRemoteRssiResponse);
+  rpc RequestConnectionPriority (RequestConnectionPriorityRequest) returns (RequestConnectionPriorityResponse);
+  rpc RequestMtu (RequestMtuRequest) returns (RequestMtuResponse);
+  rpc SetCharacteristicNotification (SetCharacteristicNotificationRequest) returns (SetCharacteristicNotificationResponse);
+  rpc SetPreferredPhy (GattSetPreferredPhyRequest) returns (SetPreferredPhyResponse);
+  rpc WriteCharacteristic1 (WriteCharacteristic1Request) returns (WriteCharacteristic1Response);
+  rpc WriteCharacteristic3_1 (WriteCharacteristic3_1Request) returns (WriteCharacteristic3_1Response);
+  rpc WriteDescriptor1 (WriteDescriptor1Request) returns (WriteDescriptor1Response);
+  rpc WriteDescriptor2_1 (WriteDescriptor2_1Request) returns (WriteDescriptor2_1Response);
+}
+
+service SocketService {
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc Connect (SocketConnectRequest) returns (SocketConnectResponse);
+  rpc GetConnectionType (GetConnectionTypeRequest) returns (GetConnectionTypeResponse);
+  rpc GetInputStream (GetInputStreamRequest) returns (GetInputStreamResponse);
+  rpc GetMaxReceivePacketSize (GetMaxReceivePacketSizeRequest) returns (GetMaxReceivePacketSizeResponse);
+  rpc GetMaxTransmitPacketSize (GetMaxTransmitPacketSizeRequest) returns (GetMaxTransmitPacketSizeResponse);
+  rpc GetOutputStream (GetOutputStreamRequest) returns (GetOutputStreamResponse);
+  rpc GetRemoteDevice (GetRemoteDeviceRequest) returns (GetRemoteDeviceResponse);
+  rpc IsConnected (IsConnectedRequest) returns (IsConnectedResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
 }

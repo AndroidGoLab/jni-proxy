@@ -12,6 +12,7 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -22,19 +23,3662 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type NewManagerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewManagerRequest) Reset() {
+	*x = NewManagerRequest{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewManagerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewManagerRequest) ProtoMessage() {}
+
+func (x *NewManagerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewManagerRequest.ProtoReflect.Descriptor instead.
+func (*NewManagerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *NewManagerRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type NewManagerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewManagerResponse) Reset() {
+	*x = NewManagerResponse{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewManagerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewManagerResponse) ProtoMessage() {}
+
+func (x *NewManagerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewManagerResponse.ProtoReflect.Descriptor instead.
+func (*NewManagerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *NewManagerResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetCursorRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCursorRequest) Reset() {
+	*x = GetCursorRequest{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCursorRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCursorRequest) ProtoMessage() {}
+
+func (x *GetCursorRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCursorRequest.ProtoReflect.Descriptor instead.
+func (*GetCursorRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *GetCursorRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetCursorResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCursorResponse) Reset() {
+	*x = GetCursorResponse{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCursorResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCursorResponse) ProtoMessage() {}
+
+func (x *GetCursorResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCursorResponse.ProtoReflect.Descriptor instead.
+func (*GetCursorResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *GetCursorResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetIncludeDrmRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetIncludeDrmRequest) Reset() {
+	*x = GetIncludeDrmRequest{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetIncludeDrmRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetIncludeDrmRequest) ProtoMessage() {}
+
+func (x *GetIncludeDrmRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetIncludeDrmRequest.ProtoReflect.Descriptor instead.
+func (*GetIncludeDrmRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *GetIncludeDrmRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetIncludeDrmResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetIncludeDrmResponse) Reset() {
+	*x = GetIncludeDrmResponse{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetIncludeDrmResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetIncludeDrmResponse) ProtoMessage() {}
+
+func (x *GetIncludeDrmResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetIncludeDrmResponse.ProtoReflect.Descriptor instead.
+func (*GetIncludeDrmResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *GetIncludeDrmResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type GetRingtone1_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRingtone1_1Request) Reset() {
+	*x = GetRingtone1_1Request{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRingtone1_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRingtone1_1Request) ProtoMessage() {}
+
+func (x *GetRingtone1_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRingtone1_1Request.ProtoReflect.Descriptor instead.
+func (*GetRingtone1_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *GetRingtone1_1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetRingtone1_1Request) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetRingtone1_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRingtone1_1Response) Reset() {
+	*x = GetRingtone1_1Response{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRingtone1_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRingtone1_1Response) ProtoMessage() {}
+
+func (x *GetRingtone1_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRingtone1_1Response.ProtoReflect.Descriptor instead.
+func (*GetRingtone1_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *GetRingtone1_1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetRingtonePositionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRingtonePositionRequest) Reset() {
+	*x = GetRingtonePositionRequest{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRingtonePositionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRingtonePositionRequest) ProtoMessage() {}
+
+func (x *GetRingtonePositionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRingtonePositionRequest.ProtoReflect.Descriptor instead.
+func (*GetRingtonePositionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *GetRingtonePositionRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetRingtonePositionRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetRingtonePositionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRingtonePositionResponse) Reset() {
+	*x = GetRingtonePositionResponse{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRingtonePositionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRingtonePositionResponse) ProtoMessage() {}
+
+func (x *GetRingtonePositionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRingtonePositionResponse.ProtoReflect.Descriptor instead.
+func (*GetRingtonePositionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *GetRingtonePositionResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetRingtoneUriRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRingtoneUriRequest) Reset() {
+	*x = GetRingtoneUriRequest{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRingtoneUriRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRingtoneUriRequest) ProtoMessage() {}
+
+func (x *GetRingtoneUriRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRingtoneUriRequest.ProtoReflect.Descriptor instead.
+func (*GetRingtoneUriRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *GetRingtoneUriRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetRingtoneUriRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetRingtoneUriResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRingtoneUriResponse) Reset() {
+	*x = GetRingtoneUriResponse{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRingtoneUriResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRingtoneUriResponse) ProtoMessage() {}
+
+func (x *GetRingtoneUriResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRingtoneUriResponse.ProtoReflect.Descriptor instead.
+func (*GetRingtoneUriResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *GetRingtoneUriResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetStopPreviousRingtoneRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetStopPreviousRingtoneRequest) Reset() {
+	*x = GetStopPreviousRingtoneRequest{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetStopPreviousRingtoneRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetStopPreviousRingtoneRequest) ProtoMessage() {}
+
+func (x *GetStopPreviousRingtoneRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetStopPreviousRingtoneRequest.ProtoReflect.Descriptor instead.
+func (*GetStopPreviousRingtoneRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *GetStopPreviousRingtoneRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetStopPreviousRingtoneResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetStopPreviousRingtoneResponse) Reset() {
+	*x = GetStopPreviousRingtoneResponse{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetStopPreviousRingtoneResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetStopPreviousRingtoneResponse) ProtoMessage() {}
+
+func (x *GetStopPreviousRingtoneResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetStopPreviousRingtoneResponse.ProtoReflect.Descriptor instead.
+func (*GetStopPreviousRingtoneResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *GetStopPreviousRingtoneResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type HasHapticChannels1_2Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HasHapticChannels1_2Request) Reset() {
+	*x = HasHapticChannels1_2Request{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HasHapticChannels1_2Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HasHapticChannels1_2Request) ProtoMessage() {}
+
+func (x *HasHapticChannels1_2Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HasHapticChannels1_2Request.ProtoReflect.Descriptor instead.
+func (*HasHapticChannels1_2Request) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{14}
+}
+
+func (x *HasHapticChannels1_2Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *HasHapticChannels1_2Request) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type HasHapticChannels1_2Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HasHapticChannels1_2Response) Reset() {
+	*x = HasHapticChannels1_2Response{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HasHapticChannels1_2Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HasHapticChannels1_2Response) ProtoMessage() {}
+
+func (x *HasHapticChannels1_2Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HasHapticChannels1_2Response.ProtoReflect.Descriptor instead.
+func (*HasHapticChannels1_2Response) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *HasHapticChannels1_2Response) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type InferStreamTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *InferStreamTypeRequest) Reset() {
+	*x = InferStreamTypeRequest{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *InferStreamTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*InferStreamTypeRequest) ProtoMessage() {}
+
+func (x *InferStreamTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use InferStreamTypeRequest.ProtoReflect.Descriptor instead.
+func (*InferStreamTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{16}
+}
+
+func (x *InferStreamTypeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type InferStreamTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *InferStreamTypeResponse) Reset() {
+	*x = InferStreamTypeResponse{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *InferStreamTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*InferStreamTypeResponse) ProtoMessage() {}
+
+func (x *InferStreamTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use InferStreamTypeResponse.ProtoReflect.Descriptor instead.
+func (*InferStreamTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *InferStreamTypeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetIncludeDrmRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          bool                   `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetIncludeDrmRequest) Reset() {
+	*x = SetIncludeDrmRequest{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetIncludeDrmRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetIncludeDrmRequest) ProtoMessage() {}
+
+func (x *SetIncludeDrmRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetIncludeDrmRequest.ProtoReflect.Descriptor instead.
+func (*SetIncludeDrmRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{18}
+}
+
+func (x *SetIncludeDrmRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetIncludeDrmRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetIncludeDrmResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetIncludeDrmResponse) Reset() {
+	*x = SetIncludeDrmResponse{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetIncludeDrmResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetIncludeDrmResponse) ProtoMessage() {}
+
+func (x *SetIncludeDrmResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetIncludeDrmResponse.ProtoReflect.Descriptor instead.
+func (*SetIncludeDrmResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{19}
+}
+
+type SetStopPreviousRingtoneRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          bool                   `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetStopPreviousRingtoneRequest) Reset() {
+	*x = SetStopPreviousRingtoneRequest{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetStopPreviousRingtoneRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetStopPreviousRingtoneRequest) ProtoMessage() {}
+
+func (x *SetStopPreviousRingtoneRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetStopPreviousRingtoneRequest.ProtoReflect.Descriptor instead.
+func (*SetStopPreviousRingtoneRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{20}
+}
+
+func (x *SetStopPreviousRingtoneRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetStopPreviousRingtoneRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetStopPreviousRingtoneResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetStopPreviousRingtoneResponse) Reset() {
+	*x = SetStopPreviousRingtoneResponse{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetStopPreviousRingtoneResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetStopPreviousRingtoneResponse) ProtoMessage() {}
+
+func (x *SetStopPreviousRingtoneResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetStopPreviousRingtoneResponse.ProtoReflect.Descriptor instead.
+func (*SetStopPreviousRingtoneResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{21}
+}
+
+type SetTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetTypeRequest) Reset() {
+	*x = SetTypeRequest{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetTypeRequest) ProtoMessage() {}
+
+func (x *SetTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetTypeRequest.ProtoReflect.Descriptor instead.
+func (*SetTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{22}
+}
+
+func (x *SetTypeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetTypeRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetTypeResponse) Reset() {
+	*x = SetTypeResponse{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetTypeResponse) ProtoMessage() {}
+
+func (x *SetTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetTypeResponse.ProtoReflect.Descriptor instead.
+func (*SetTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{23}
+}
+
+type StopPreviousRingtoneRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *StopPreviousRingtoneRequest) Reset() {
+	*x = StopPreviousRingtoneRequest{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *StopPreviousRingtoneRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StopPreviousRingtoneRequest) ProtoMessage() {}
+
+func (x *StopPreviousRingtoneRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StopPreviousRingtoneRequest.ProtoReflect.Descriptor instead.
+func (*StopPreviousRingtoneRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{24}
+}
+
+func (x *StopPreviousRingtoneRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type StopPreviousRingtoneResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *StopPreviousRingtoneResponse) Reset() {
+	*x = StopPreviousRingtoneResponse{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *StopPreviousRingtoneResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StopPreviousRingtoneResponse) ProtoMessage() {}
+
+func (x *StopPreviousRingtoneResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StopPreviousRingtoneResponse.ProtoReflect.Descriptor instead.
+func (*StopPreviousRingtoneResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{25}
+}
+
+type GetActualDefaultRingtoneUriRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetActualDefaultRingtoneUriRequest) Reset() {
+	*x = GetActualDefaultRingtoneUriRequest{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[26]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetActualDefaultRingtoneUriRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetActualDefaultRingtoneUriRequest) ProtoMessage() {}
+
+func (x *GetActualDefaultRingtoneUriRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[26]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetActualDefaultRingtoneUriRequest.ProtoReflect.Descriptor instead.
+func (*GetActualDefaultRingtoneUriRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{26}
+}
+
+func (x *GetActualDefaultRingtoneUriRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetActualDefaultRingtoneUriRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *GetActualDefaultRingtoneUriRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type GetActualDefaultRingtoneUriResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetActualDefaultRingtoneUriResponse) Reset() {
+	*x = GetActualDefaultRingtoneUriResponse{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[27]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetActualDefaultRingtoneUriResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetActualDefaultRingtoneUriResponse) ProtoMessage() {}
+
+func (x *GetActualDefaultRingtoneUriResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[27]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetActualDefaultRingtoneUriResponse.ProtoReflect.Descriptor instead.
+func (*GetActualDefaultRingtoneUriResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{27}
+}
+
+func (x *GetActualDefaultRingtoneUriResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetDefaultTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDefaultTypeRequest) Reset() {
+	*x = GetDefaultTypeRequest{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[28]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDefaultTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDefaultTypeRequest) ProtoMessage() {}
+
+func (x *GetDefaultTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[28]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDefaultTypeRequest.ProtoReflect.Descriptor instead.
+func (*GetDefaultTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{28}
+}
+
+func (x *GetDefaultTypeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetDefaultTypeRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetDefaultTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDefaultTypeResponse) Reset() {
+	*x = GetDefaultTypeResponse{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[29]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDefaultTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDefaultTypeResponse) ProtoMessage() {}
+
+func (x *GetDefaultTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[29]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDefaultTypeResponse.ProtoReflect.Descriptor instead.
+func (*GetDefaultTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{29}
+}
+
+func (x *GetDefaultTypeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetDefaultUriRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDefaultUriRequest) Reset() {
+	*x = GetDefaultUriRequest{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[30]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDefaultUriRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDefaultUriRequest) ProtoMessage() {}
+
+func (x *GetDefaultUriRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[30]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDefaultUriRequest.ProtoReflect.Descriptor instead.
+func (*GetDefaultUriRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{30}
+}
+
+func (x *GetDefaultUriRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetDefaultUriRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetDefaultUriResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDefaultUriResponse) Reset() {
+	*x = GetDefaultUriResponse{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[31]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDefaultUriResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDefaultUriResponse) ProtoMessage() {}
+
+func (x *GetDefaultUriResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[31]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDefaultUriResponse.ProtoReflect.Descriptor instead.
+func (*GetDefaultUriResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{31}
+}
+
+func (x *GetDefaultUriResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetRingtone2Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRingtone2Request) Reset() {
+	*x = GetRingtone2Request{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[32]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRingtone2Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRingtone2Request) ProtoMessage() {}
+
+func (x *GetRingtone2Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[32]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRingtone2Request.ProtoReflect.Descriptor instead.
+func (*GetRingtone2Request) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{32}
+}
+
+func (x *GetRingtone2Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetRingtone2Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *GetRingtone2Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type GetRingtone2Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRingtone2Response) Reset() {
+	*x = GetRingtone2Response{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[33]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRingtone2Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRingtone2Response) ProtoMessage() {}
+
+func (x *GetRingtone2Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[33]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRingtone2Response.ProtoReflect.Descriptor instead.
+func (*GetRingtone2Response) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{33}
+}
+
+func (x *GetRingtone2Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetValidRingtoneUriRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetValidRingtoneUriRequest) Reset() {
+	*x = GetValidRingtoneUriRequest{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[34]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetValidRingtoneUriRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetValidRingtoneUriRequest) ProtoMessage() {}
+
+func (x *GetValidRingtoneUriRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[34]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetValidRingtoneUriRequest.ProtoReflect.Descriptor instead.
+func (*GetValidRingtoneUriRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{34}
+}
+
+func (x *GetValidRingtoneUriRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetValidRingtoneUriRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetValidRingtoneUriResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetValidRingtoneUriResponse) Reset() {
+	*x = GetValidRingtoneUriResponse{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[35]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetValidRingtoneUriResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetValidRingtoneUriResponse) ProtoMessage() {}
+
+func (x *GetValidRingtoneUriResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[35]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetValidRingtoneUriResponse.ProtoReflect.Descriptor instead.
+func (*GetValidRingtoneUriResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{35}
+}
+
+func (x *GetValidRingtoneUriResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type HasHapticChannels2Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HasHapticChannels2Request) Reset() {
+	*x = HasHapticChannels2Request{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[36]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HasHapticChannels2Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HasHapticChannels2Request) ProtoMessage() {}
+
+func (x *HasHapticChannels2Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[36]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HasHapticChannels2Request.ProtoReflect.Descriptor instead.
+func (*HasHapticChannels2Request) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{36}
+}
+
+func (x *HasHapticChannels2Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *HasHapticChannels2Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *HasHapticChannels2Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type HasHapticChannels2Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HasHapticChannels2Response) Reset() {
+	*x = HasHapticChannels2Response{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[37]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HasHapticChannels2Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HasHapticChannels2Response) ProtoMessage() {}
+
+func (x *HasHapticChannels2Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[37]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HasHapticChannels2Response.ProtoReflect.Descriptor instead.
+func (*HasHapticChannels2Response) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{37}
+}
+
+func (x *HasHapticChannels2Response) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type HasHapticChannels1_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HasHapticChannels1_1Request) Reset() {
+	*x = HasHapticChannels1_1Request{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[38]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HasHapticChannels1_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HasHapticChannels1_1Request) ProtoMessage() {}
+
+func (x *HasHapticChannels1_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[38]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HasHapticChannels1_1Request.ProtoReflect.Descriptor instead.
+func (*HasHapticChannels1_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{38}
+}
+
+func (x *HasHapticChannels1_1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *HasHapticChannels1_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type HasHapticChannels1_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HasHapticChannels1_1Response) Reset() {
+	*x = HasHapticChannels1_1Response{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[39]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HasHapticChannels1_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HasHapticChannels1_1Response) ProtoMessage() {}
+
+func (x *HasHapticChannels1_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[39]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HasHapticChannels1_1Response.ProtoReflect.Descriptor instead.
+func (*HasHapticChannels1_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{39}
+}
+
+func (x *HasHapticChannels1_1Response) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsDefaultRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsDefaultRequest) Reset() {
+	*x = IsDefaultRequest{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[40]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsDefaultRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsDefaultRequest) ProtoMessage() {}
+
+func (x *IsDefaultRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[40]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsDefaultRequest.ProtoReflect.Descriptor instead.
+func (*IsDefaultRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{40}
+}
+
+func (x *IsDefaultRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *IsDefaultRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type IsDefaultResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsDefaultResponse) Reset() {
+	*x = IsDefaultResponse{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[41]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsDefaultResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsDefaultResponse) ProtoMessage() {}
+
+func (x *IsDefaultResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[41]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsDefaultResponse.ProtoReflect.Descriptor instead.
+func (*IsDefaultResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{41}
+}
+
+func (x *IsDefaultResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type OpenDefaultRingtoneUriRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OpenDefaultRingtoneUriRequest) Reset() {
+	*x = OpenDefaultRingtoneUriRequest{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[42]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OpenDefaultRingtoneUriRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OpenDefaultRingtoneUriRequest) ProtoMessage() {}
+
+func (x *OpenDefaultRingtoneUriRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[42]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OpenDefaultRingtoneUriRequest.ProtoReflect.Descriptor instead.
+func (*OpenDefaultRingtoneUriRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{42}
+}
+
+func (x *OpenDefaultRingtoneUriRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *OpenDefaultRingtoneUriRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OpenDefaultRingtoneUriRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type OpenDefaultRingtoneUriResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OpenDefaultRingtoneUriResponse) Reset() {
+	*x = OpenDefaultRingtoneUriResponse{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[43]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OpenDefaultRingtoneUriResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OpenDefaultRingtoneUriResponse) ProtoMessage() {}
+
+func (x *OpenDefaultRingtoneUriResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[43]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OpenDefaultRingtoneUriResponse.ProtoReflect.Descriptor instead.
+func (*OpenDefaultRingtoneUriResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{43}
+}
+
+func (x *OpenDefaultRingtoneUriResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetActualDefaultRingtoneUriRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetActualDefaultRingtoneUriRequest) Reset() {
+	*x = SetActualDefaultRingtoneUriRequest{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[44]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetActualDefaultRingtoneUriRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetActualDefaultRingtoneUriRequest) ProtoMessage() {}
+
+func (x *SetActualDefaultRingtoneUriRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[44]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetActualDefaultRingtoneUriRequest.ProtoReflect.Descriptor instead.
+func (*SetActualDefaultRingtoneUriRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{44}
+}
+
+func (x *SetActualDefaultRingtoneUriRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetActualDefaultRingtoneUriRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SetActualDefaultRingtoneUriRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *SetActualDefaultRingtoneUriRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type SetActualDefaultRingtoneUriResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetActualDefaultRingtoneUriResponse) Reset() {
+	*x = SetActualDefaultRingtoneUriResponse{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[45]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetActualDefaultRingtoneUriResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetActualDefaultRingtoneUriResponse) ProtoMessage() {}
+
+func (x *SetActualDefaultRingtoneUriResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[45]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetActualDefaultRingtoneUriResponse.ProtoReflect.Descriptor instead.
+func (*SetActualDefaultRingtoneUriResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{45}
+}
+
+type GetAudioAttributesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAudioAttributesRequest) Reset() {
+	*x = GetAudioAttributesRequest{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[46]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAudioAttributesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAudioAttributesRequest) ProtoMessage() {}
+
+func (x *GetAudioAttributesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[46]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAudioAttributesRequest.ProtoReflect.Descriptor instead.
+func (*GetAudioAttributesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{46}
+}
+
+type GetAudioAttributesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAudioAttributesResponse) Reset() {
+	*x = GetAudioAttributesResponse{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[47]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAudioAttributesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAudioAttributesResponse) ProtoMessage() {}
+
+func (x *GetAudioAttributesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[47]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAudioAttributesResponse.ProtoReflect.Descriptor instead.
+func (*GetAudioAttributesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{47}
+}
+
+func (x *GetAudioAttributesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetStreamTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetStreamTypeRequest) Reset() {
+	*x = GetStreamTypeRequest{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[48]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetStreamTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetStreamTypeRequest) ProtoMessage() {}
+
+func (x *GetStreamTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[48]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetStreamTypeRequest.ProtoReflect.Descriptor instead.
+func (*GetStreamTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{48}
+}
+
+type GetStreamTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetStreamTypeResponse) Reset() {
+	*x = GetStreamTypeResponse{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[49]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetStreamTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetStreamTypeResponse) ProtoMessage() {}
+
+func (x *GetStreamTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[49]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetStreamTypeResponse.ProtoReflect.Descriptor instead.
+func (*GetStreamTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{49}
+}
+
+func (x *GetStreamTypeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetTitleRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTitleRequest) Reset() {
+	*x = GetTitleRequest{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[50]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTitleRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTitleRequest) ProtoMessage() {}
+
+func (x *GetTitleRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[50]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTitleRequest.ProtoReflect.Descriptor instead.
+func (*GetTitleRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{50}
+}
+
+func (x *GetTitleRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetTitleResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTitleResponse) Reset() {
+	*x = GetTitleResponse{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[51]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTitleResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTitleResponse) ProtoMessage() {}
+
+func (x *GetTitleResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[51]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTitleResponse.ProtoReflect.Descriptor instead.
+func (*GetTitleResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{51}
+}
+
+func (x *GetTitleResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetVolumeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetVolumeRequest) Reset() {
+	*x = GetVolumeRequest{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[52]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetVolumeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetVolumeRequest) ProtoMessage() {}
+
+func (x *GetVolumeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[52]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetVolumeRequest.ProtoReflect.Descriptor instead.
+func (*GetVolumeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{52}
+}
+
+type GetVolumeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        float32                `protobuf:"fixed32,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetVolumeResponse) Reset() {
+	*x = GetVolumeResponse{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[53]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetVolumeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetVolumeResponse) ProtoMessage() {}
+
+func (x *GetVolumeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[53]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetVolumeResponse.ProtoReflect.Descriptor instead.
+func (*GetVolumeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{53}
+}
+
+func (x *GetVolumeResponse) GetResult() float32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type IsHapticGeneratorEnabledRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsHapticGeneratorEnabledRequest) Reset() {
+	*x = IsHapticGeneratorEnabledRequest{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[54]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsHapticGeneratorEnabledRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsHapticGeneratorEnabledRequest) ProtoMessage() {}
+
+func (x *IsHapticGeneratorEnabledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[54]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsHapticGeneratorEnabledRequest.ProtoReflect.Descriptor instead.
+func (*IsHapticGeneratorEnabledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{54}
+}
+
+type IsHapticGeneratorEnabledResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsHapticGeneratorEnabledResponse) Reset() {
+	*x = IsHapticGeneratorEnabledResponse{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[55]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsHapticGeneratorEnabledResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsHapticGeneratorEnabledResponse) ProtoMessage() {}
+
+func (x *IsHapticGeneratorEnabledResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[55]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsHapticGeneratorEnabledResponse.ProtoReflect.Descriptor instead.
+func (*IsHapticGeneratorEnabledResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{55}
+}
+
+func (x *IsHapticGeneratorEnabledResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsLoopingRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsLoopingRequest) Reset() {
+	*x = IsLoopingRequest{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[56]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsLoopingRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsLoopingRequest) ProtoMessage() {}
+
+func (x *IsLoopingRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[56]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsLoopingRequest.ProtoReflect.Descriptor instead.
+func (*IsLoopingRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{56}
+}
+
+type IsLoopingResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsLoopingResponse) Reset() {
+	*x = IsLoopingResponse{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[57]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsLoopingResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsLoopingResponse) ProtoMessage() {}
+
+func (x *IsLoopingResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[57]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsLoopingResponse.ProtoReflect.Descriptor instead.
+func (*IsLoopingResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{57}
+}
+
+func (x *IsLoopingResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsPlayingRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsPlayingRequest) Reset() {
+	*x = IsPlayingRequest{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[58]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsPlayingRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsPlayingRequest) ProtoMessage() {}
+
+func (x *IsPlayingRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[58]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsPlayingRequest.ProtoReflect.Descriptor instead.
+func (*IsPlayingRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{58}
+}
+
+type IsPlayingResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsPlayingResponse) Reset() {
+	*x = IsPlayingResponse{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[59]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsPlayingResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsPlayingResponse) ProtoMessage() {}
+
+func (x *IsPlayingResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[59]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsPlayingResponse.ProtoReflect.Descriptor instead.
+func (*IsPlayingResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{59}
+}
+
+func (x *IsPlayingResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type PlayRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PlayRequest) Reset() {
+	*x = PlayRequest{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[60]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PlayRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PlayRequest) ProtoMessage() {}
+
+func (x *PlayRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[60]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PlayRequest.ProtoReflect.Descriptor instead.
+func (*PlayRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{60}
+}
+
+type PlayResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PlayResponse) Reset() {
+	*x = PlayResponse{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[61]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PlayResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PlayResponse) ProtoMessage() {}
+
+func (x *PlayResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[61]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PlayResponse.ProtoReflect.Descriptor instead.
+func (*PlayResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{61}
+}
+
+type SetAudioAttributesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetAudioAttributesRequest) Reset() {
+	*x = SetAudioAttributesRequest{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[62]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetAudioAttributesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetAudioAttributesRequest) ProtoMessage() {}
+
+func (x *SetAudioAttributesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[62]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetAudioAttributesRequest.ProtoReflect.Descriptor instead.
+func (*SetAudioAttributesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{62}
+}
+
+func (x *SetAudioAttributesRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetAudioAttributesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetAudioAttributesResponse) Reset() {
+	*x = SetAudioAttributesResponse{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[63]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetAudioAttributesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetAudioAttributesResponse) ProtoMessage() {}
+
+func (x *SetAudioAttributesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[63]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetAudioAttributesResponse.ProtoReflect.Descriptor instead.
+func (*SetAudioAttributesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{63}
+}
+
+type SetHapticGeneratorEnabledRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetHapticGeneratorEnabledRequest) Reset() {
+	*x = SetHapticGeneratorEnabledRequest{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[64]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetHapticGeneratorEnabledRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetHapticGeneratorEnabledRequest) ProtoMessage() {}
+
+func (x *SetHapticGeneratorEnabledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[64]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetHapticGeneratorEnabledRequest.ProtoReflect.Descriptor instead.
+func (*SetHapticGeneratorEnabledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{64}
+}
+
+func (x *SetHapticGeneratorEnabledRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetHapticGeneratorEnabledResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetHapticGeneratorEnabledResponse) Reset() {
+	*x = SetHapticGeneratorEnabledResponse{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[65]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetHapticGeneratorEnabledResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetHapticGeneratorEnabledResponse) ProtoMessage() {}
+
+func (x *SetHapticGeneratorEnabledResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[65]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetHapticGeneratorEnabledResponse.ProtoReflect.Descriptor instead.
+func (*SetHapticGeneratorEnabledResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{65}
+}
+
+func (x *SetHapticGeneratorEnabledResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type SetLoopingRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetLoopingRequest) Reset() {
+	*x = SetLoopingRequest{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[66]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetLoopingRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetLoopingRequest) ProtoMessage() {}
+
+func (x *SetLoopingRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[66]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetLoopingRequest.ProtoReflect.Descriptor instead.
+func (*SetLoopingRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{66}
+}
+
+func (x *SetLoopingRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetLoopingResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetLoopingResponse) Reset() {
+	*x = SetLoopingResponse{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[67]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetLoopingResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetLoopingResponse) ProtoMessage() {}
+
+func (x *SetLoopingResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[67]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetLoopingResponse.ProtoReflect.Descriptor instead.
+func (*SetLoopingResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{67}
+}
+
+type SetStreamTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetStreamTypeRequest) Reset() {
+	*x = SetStreamTypeRequest{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[68]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetStreamTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetStreamTypeRequest) ProtoMessage() {}
+
+func (x *SetStreamTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[68]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetStreamTypeRequest.ProtoReflect.Descriptor instead.
+func (*SetStreamTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{68}
+}
+
+func (x *SetStreamTypeRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetStreamTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetStreamTypeResponse) Reset() {
+	*x = SetStreamTypeResponse{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[69]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetStreamTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetStreamTypeResponse) ProtoMessage() {}
+
+func (x *SetStreamTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[69]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetStreamTypeResponse.ProtoReflect.Descriptor instead.
+func (*SetStreamTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{69}
+}
+
+type SetVolumeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          float32                `protobuf:"fixed32,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetVolumeRequest) Reset() {
+	*x = SetVolumeRequest{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[70]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetVolumeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetVolumeRequest) ProtoMessage() {}
+
+func (x *SetVolumeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[70]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetVolumeRequest.ProtoReflect.Descriptor instead.
+func (*SetVolumeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{70}
+}
+
+func (x *SetVolumeRequest) GetArg0() float32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetVolumeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetVolumeResponse) Reset() {
+	*x = SetVolumeResponse{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[71]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetVolumeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetVolumeResponse) ProtoMessage() {}
+
+func (x *SetVolumeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[71]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetVolumeResponse.ProtoReflect.Descriptor instead.
+func (*SetVolumeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{71}
+}
+
+type StopRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *StopRequest) Reset() {
+	*x = StopRequest{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[72]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *StopRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StopRequest) ProtoMessage() {}
+
+func (x *StopRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[72]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StopRequest.ProtoReflect.Descriptor instead.
+func (*StopRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{72}
+}
+
+type StopResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *StopResponse) Reset() {
+	*x = StopResponse{}
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[73]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *StopResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StopResponse) ProtoMessage() {}
+
+func (x *StopResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ringtone_ringtone_proto_msgTypes[73]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StopResponse.ProtoReflect.Descriptor instead.
+func (*StopResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ringtone_ringtone_proto_rawDescGZIP(), []int{73}
+}
+
 var File_proto_ringtone_ringtone_proto protoreflect.FileDescriptor
 
 const file_proto_ringtone_ringtone_proto_rawDesc = "" +
 	"\n" +
-	"\x1dproto/ringtone/ringtone.proto\x12\bringtoneB2Z0github.com/AndroidGoLab/jni-proxy/proto/ringtoneb\x06proto3"
+	"\x1dproto/ringtone/ringtone.proto\x12\bringtone\"'\n" +
+	"\x11NewManagerRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\",\n" +
+	"\x12NewManagerResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"*\n" +
+	"\x10GetCursorRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"+\n" +
+	"\x11GetCursorResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\".\n" +
+	"\x14GetIncludeDrmRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"/\n" +
+	"\x15GetIncludeDrmResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"C\n" +
+	"\x15GetRingtone1_1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"0\n" +
+	"\x16GetRingtone1_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"H\n" +
+	"\x1aGetRingtonePositionRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"5\n" +
+	"\x1bGetRingtonePositionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"C\n" +
+	"\x15GetRingtoneUriRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"0\n" +
+	"\x16GetRingtoneUriResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"8\n" +
+	"\x1eGetStopPreviousRingtoneRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"9\n" +
+	"\x1fGetStopPreviousRingtoneResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"I\n" +
+	"\x1bHasHapticChannels1_2Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"6\n" +
+	"\x1cHasHapticChannels1_2Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"0\n" +
+	"\x16InferStreamTypeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"1\n" +
+	"\x17InferStreamTypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"B\n" +
+	"\x14SetIncludeDrmRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\bR\x04arg0\"\x17\n" +
+	"\x15SetIncludeDrmResponse\"L\n" +
+	"\x1eSetStopPreviousRingtoneRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\bR\x04arg0\"!\n" +
+	"\x1fSetStopPreviousRingtoneResponse\"<\n" +
+	"\x0eSetTypeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"\x11\n" +
+	"\x0fSetTypeResponse\"5\n" +
+	"\x1bStopPreviousRingtoneRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x1e\n" +
+	"\x1cStopPreviousRingtoneResponse\"d\n" +
+	"\"GetActualDefaultRingtoneUriRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"=\n" +
+	"#GetActualDefaultRingtoneUriResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"C\n" +
+	"\x15GetDefaultTypeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"0\n" +
+	"\x16GetDefaultTypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"B\n" +
+	"\x14GetDefaultUriRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"/\n" +
+	"\x15GetDefaultUriResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"U\n" +
+	"\x13GetRingtone2Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\".\n" +
+	"\x14GetRingtone2Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"H\n" +
+	"\x1aGetValidRingtoneUriRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"5\n" +
+	"\x1bGetValidRingtoneUriResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"[\n" +
+	"\x19HasHapticChannels2Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"4\n" +
+	"\x1aHasHapticChannels2Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"I\n" +
+	"\x1bHasHapticChannels1_1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"6\n" +
+	"\x1cHasHapticChannels1_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\">\n" +
+	"\x10IsDefaultRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"+\n" +
+	"\x11IsDefaultResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"_\n" +
+	"\x1dOpenDefaultRingtoneUriRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"8\n" +
+	"\x1eOpenDefaultRingtoneUriResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"x\n" +
+	"\"SetActualDefaultRingtoneUriRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x03R\x04arg2\"%\n" +
+	"#SetActualDefaultRingtoneUriResponse\"\x1b\n" +
+	"\x19GetAudioAttributesRequest\"4\n" +
+	"\x1aGetAudioAttributesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x16\n" +
+	"\x14GetStreamTypeRequest\"/\n" +
+	"\x15GetStreamTypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"%\n" +
+	"\x0fGetTitleRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"*\n" +
+	"\x10GetTitleResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x12\n" +
+	"\x10GetVolumeRequest\"+\n" +
+	"\x11GetVolumeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x02R\x06result\"!\n" +
+	"\x1fIsHapticGeneratorEnabledRequest\":\n" +
+	" IsHapticGeneratorEnabledResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x12\n" +
+	"\x10IsLoopingRequest\"+\n" +
+	"\x11IsLoopingResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x12\n" +
+	"\x10IsPlayingRequest\"+\n" +
+	"\x11IsPlayingResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\r\n" +
+	"\vPlayRequest\"\x0e\n" +
+	"\fPlayResponse\"/\n" +
+	"\x19SetAudioAttributesRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x1c\n" +
+	"\x1aSetAudioAttributesResponse\"6\n" +
+	" SetHapticGeneratorEnabledRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\";\n" +
+	"!SetHapticGeneratorEnabledResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"'\n" +
+	"\x11SetLoopingRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"\x14\n" +
+	"\x12SetLoopingResponse\"*\n" +
+	"\x14SetStreamTypeRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"\x17\n" +
+	"\x15SetStreamTypeResponse\"&\n" +
+	"\x10SetVolumeRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x02R\x04arg0\"\x13\n" +
+	"\x11SetVolumeResponse\"\r\n" +
+	"\vStopRequest\"\x0e\n" +
+	"\fStopResponse2\xe4\x10\n" +
+	"\x0eManagerService\x12G\n" +
+	"\n" +
+	"NewManager\x12\x1b.ringtone.NewManagerRequest\x1a\x1c.ringtone.NewManagerResponse\x12D\n" +
+	"\tGetCursor\x12\x1a.ringtone.GetCursorRequest\x1a\x1b.ringtone.GetCursorResponse\x12P\n" +
+	"\rGetIncludeDrm\x12\x1e.ringtone.GetIncludeDrmRequest\x1a\x1f.ringtone.GetIncludeDrmResponse\x12S\n" +
+	"\x0eGetRingtone1_1\x12\x1f.ringtone.GetRingtone1_1Request\x1a .ringtone.GetRingtone1_1Response\x12b\n" +
+	"\x13GetRingtonePosition\x12$.ringtone.GetRingtonePositionRequest\x1a%.ringtone.GetRingtonePositionResponse\x12S\n" +
+	"\x0eGetRingtoneUri\x12\x1f.ringtone.GetRingtoneUriRequest\x1a .ringtone.GetRingtoneUriResponse\x12n\n" +
+	"\x17GetStopPreviousRingtone\x12(.ringtone.GetStopPreviousRingtoneRequest\x1a).ringtone.GetStopPreviousRingtoneResponse\x12e\n" +
+	"\x14HasHapticChannels1_2\x12%.ringtone.HasHapticChannels1_2Request\x1a&.ringtone.HasHapticChannels1_2Response\x12V\n" +
+	"\x0fInferStreamType\x12 .ringtone.InferStreamTypeRequest\x1a!.ringtone.InferStreamTypeResponse\x12P\n" +
+	"\rSetIncludeDrm\x12\x1e.ringtone.SetIncludeDrmRequest\x1a\x1f.ringtone.SetIncludeDrmResponse\x12n\n" +
+	"\x17SetStopPreviousRingtone\x12(.ringtone.SetStopPreviousRingtoneRequest\x1a).ringtone.SetStopPreviousRingtoneResponse\x12>\n" +
+	"\aSetType\x12\x18.ringtone.SetTypeRequest\x1a\x19.ringtone.SetTypeResponse\x12e\n" +
+	"\x14StopPreviousRingtone\x12%.ringtone.StopPreviousRingtoneRequest\x1a&.ringtone.StopPreviousRingtoneResponse\x12z\n" +
+	"\x1bGetActualDefaultRingtoneUri\x12,.ringtone.GetActualDefaultRingtoneUriRequest\x1a-.ringtone.GetActualDefaultRingtoneUriResponse\x12S\n" +
+	"\x0eGetDefaultType\x12\x1f.ringtone.GetDefaultTypeRequest\x1a .ringtone.GetDefaultTypeResponse\x12P\n" +
+	"\rGetDefaultUri\x12\x1e.ringtone.GetDefaultUriRequest\x1a\x1f.ringtone.GetDefaultUriResponse\x12M\n" +
+	"\fGetRingtone2\x12\x1d.ringtone.GetRingtone2Request\x1a\x1e.ringtone.GetRingtone2Response\x12b\n" +
+	"\x13GetValidRingtoneUri\x12$.ringtone.GetValidRingtoneUriRequest\x1a%.ringtone.GetValidRingtoneUriResponse\x12_\n" +
+	"\x12HasHapticChannels2\x12#.ringtone.HasHapticChannels2Request\x1a$.ringtone.HasHapticChannels2Response\x12e\n" +
+	"\x14HasHapticChannels1_1\x12%.ringtone.HasHapticChannels1_1Request\x1a&.ringtone.HasHapticChannels1_1Response\x12D\n" +
+	"\tIsDefault\x12\x1a.ringtone.IsDefaultRequest\x1a\x1b.ringtone.IsDefaultResponse\x12k\n" +
+	"\x16OpenDefaultRingtoneUri\x12'.ringtone.OpenDefaultRingtoneUriRequest\x1a(.ringtone.OpenDefaultRingtoneUriResponse\x12z\n" +
+	"\x1bSetActualDefaultRingtoneUri\x12,.ringtone.SetActualDefaultRingtoneUriRequest\x1a-.ringtone.SetActualDefaultRingtoneUriResponse2\xf2\b\n" +
+	"\x0fRingtoneService\x12_\n" +
+	"\x12GetAudioAttributes\x12#.ringtone.GetAudioAttributesRequest\x1a$.ringtone.GetAudioAttributesResponse\x12P\n" +
+	"\rGetStreamType\x12\x1e.ringtone.GetStreamTypeRequest\x1a\x1f.ringtone.GetStreamTypeResponse\x12A\n" +
+	"\bGetTitle\x12\x19.ringtone.GetTitleRequest\x1a\x1a.ringtone.GetTitleResponse\x12D\n" +
+	"\tGetVolume\x12\x1a.ringtone.GetVolumeRequest\x1a\x1b.ringtone.GetVolumeResponse\x12q\n" +
+	"\x18IsHapticGeneratorEnabled\x12).ringtone.IsHapticGeneratorEnabledRequest\x1a*.ringtone.IsHapticGeneratorEnabledResponse\x12D\n" +
+	"\tIsLooping\x12\x1a.ringtone.IsLoopingRequest\x1a\x1b.ringtone.IsLoopingResponse\x12D\n" +
+	"\tIsPlaying\x12\x1a.ringtone.IsPlayingRequest\x1a\x1b.ringtone.IsPlayingResponse\x125\n" +
+	"\x04Play\x12\x15.ringtone.PlayRequest\x1a\x16.ringtone.PlayResponse\x12_\n" +
+	"\x12SetAudioAttributes\x12#.ringtone.SetAudioAttributesRequest\x1a$.ringtone.SetAudioAttributesResponse\x12t\n" +
+	"\x19SetHapticGeneratorEnabled\x12*.ringtone.SetHapticGeneratorEnabledRequest\x1a+.ringtone.SetHapticGeneratorEnabledResponse\x12G\n" +
+	"\n" +
+	"SetLooping\x12\x1b.ringtone.SetLoopingRequest\x1a\x1c.ringtone.SetLoopingResponse\x12P\n" +
+	"\rSetStreamType\x12\x1e.ringtone.SetStreamTypeRequest\x1a\x1f.ringtone.SetStreamTypeResponse\x12D\n" +
+	"\tSetVolume\x12\x1a.ringtone.SetVolumeRequest\x1a\x1b.ringtone.SetVolumeResponse\x125\n" +
+	"\x04Stop\x12\x15.ringtone.StopRequest\x1a\x16.ringtone.StopResponseB2Z0github.com/AndroidGoLab/jni-proxy/proto/ringtoneb\x06proto3"
 
-var file_proto_ringtone_ringtone_proto_goTypes = []any{}
+var (
+	file_proto_ringtone_ringtone_proto_rawDescOnce sync.Once
+	file_proto_ringtone_ringtone_proto_rawDescData []byte
+)
+
+func file_proto_ringtone_ringtone_proto_rawDescGZIP() []byte {
+	file_proto_ringtone_ringtone_proto_rawDescOnce.Do(func() {
+		file_proto_ringtone_ringtone_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_proto_ringtone_ringtone_proto_rawDesc), len(file_proto_ringtone_ringtone_proto_rawDesc)))
+	})
+	return file_proto_ringtone_ringtone_proto_rawDescData
+}
+
+var file_proto_ringtone_ringtone_proto_msgTypes = make([]protoimpl.MessageInfo, 74)
+var file_proto_ringtone_ringtone_proto_goTypes = []any{
+	(*NewManagerRequest)(nil),                   // 0: ringtone.NewManagerRequest
+	(*NewManagerResponse)(nil),                  // 1: ringtone.NewManagerResponse
+	(*GetCursorRequest)(nil),                    // 2: ringtone.GetCursorRequest
+	(*GetCursorResponse)(nil),                   // 3: ringtone.GetCursorResponse
+	(*GetIncludeDrmRequest)(nil),                // 4: ringtone.GetIncludeDrmRequest
+	(*GetIncludeDrmResponse)(nil),               // 5: ringtone.GetIncludeDrmResponse
+	(*GetRingtone1_1Request)(nil),               // 6: ringtone.GetRingtone1_1Request
+	(*GetRingtone1_1Response)(nil),              // 7: ringtone.GetRingtone1_1Response
+	(*GetRingtonePositionRequest)(nil),          // 8: ringtone.GetRingtonePositionRequest
+	(*GetRingtonePositionResponse)(nil),         // 9: ringtone.GetRingtonePositionResponse
+	(*GetRingtoneUriRequest)(nil),               // 10: ringtone.GetRingtoneUriRequest
+	(*GetRingtoneUriResponse)(nil),              // 11: ringtone.GetRingtoneUriResponse
+	(*GetStopPreviousRingtoneRequest)(nil),      // 12: ringtone.GetStopPreviousRingtoneRequest
+	(*GetStopPreviousRingtoneResponse)(nil),     // 13: ringtone.GetStopPreviousRingtoneResponse
+	(*HasHapticChannels1_2Request)(nil),         // 14: ringtone.HasHapticChannels1_2Request
+	(*HasHapticChannels1_2Response)(nil),        // 15: ringtone.HasHapticChannels1_2Response
+	(*InferStreamTypeRequest)(nil),              // 16: ringtone.InferStreamTypeRequest
+	(*InferStreamTypeResponse)(nil),             // 17: ringtone.InferStreamTypeResponse
+	(*SetIncludeDrmRequest)(nil),                // 18: ringtone.SetIncludeDrmRequest
+	(*SetIncludeDrmResponse)(nil),               // 19: ringtone.SetIncludeDrmResponse
+	(*SetStopPreviousRingtoneRequest)(nil),      // 20: ringtone.SetStopPreviousRingtoneRequest
+	(*SetStopPreviousRingtoneResponse)(nil),     // 21: ringtone.SetStopPreviousRingtoneResponse
+	(*SetTypeRequest)(nil),                      // 22: ringtone.SetTypeRequest
+	(*SetTypeResponse)(nil),                     // 23: ringtone.SetTypeResponse
+	(*StopPreviousRingtoneRequest)(nil),         // 24: ringtone.StopPreviousRingtoneRequest
+	(*StopPreviousRingtoneResponse)(nil),        // 25: ringtone.StopPreviousRingtoneResponse
+	(*GetActualDefaultRingtoneUriRequest)(nil),  // 26: ringtone.GetActualDefaultRingtoneUriRequest
+	(*GetActualDefaultRingtoneUriResponse)(nil), // 27: ringtone.GetActualDefaultRingtoneUriResponse
+	(*GetDefaultTypeRequest)(nil),               // 28: ringtone.GetDefaultTypeRequest
+	(*GetDefaultTypeResponse)(nil),              // 29: ringtone.GetDefaultTypeResponse
+	(*GetDefaultUriRequest)(nil),                // 30: ringtone.GetDefaultUriRequest
+	(*GetDefaultUriResponse)(nil),               // 31: ringtone.GetDefaultUriResponse
+	(*GetRingtone2Request)(nil),                 // 32: ringtone.GetRingtone2Request
+	(*GetRingtone2Response)(nil),                // 33: ringtone.GetRingtone2Response
+	(*GetValidRingtoneUriRequest)(nil),          // 34: ringtone.GetValidRingtoneUriRequest
+	(*GetValidRingtoneUriResponse)(nil),         // 35: ringtone.GetValidRingtoneUriResponse
+	(*HasHapticChannels2Request)(nil),           // 36: ringtone.HasHapticChannels2Request
+	(*HasHapticChannels2Response)(nil),          // 37: ringtone.HasHapticChannels2Response
+	(*HasHapticChannels1_1Request)(nil),         // 38: ringtone.HasHapticChannels1_1Request
+	(*HasHapticChannels1_1Response)(nil),        // 39: ringtone.HasHapticChannels1_1Response
+	(*IsDefaultRequest)(nil),                    // 40: ringtone.IsDefaultRequest
+	(*IsDefaultResponse)(nil),                   // 41: ringtone.IsDefaultResponse
+	(*OpenDefaultRingtoneUriRequest)(nil),       // 42: ringtone.OpenDefaultRingtoneUriRequest
+	(*OpenDefaultRingtoneUriResponse)(nil),      // 43: ringtone.OpenDefaultRingtoneUriResponse
+	(*SetActualDefaultRingtoneUriRequest)(nil),  // 44: ringtone.SetActualDefaultRingtoneUriRequest
+	(*SetActualDefaultRingtoneUriResponse)(nil), // 45: ringtone.SetActualDefaultRingtoneUriResponse
+	(*GetAudioAttributesRequest)(nil),           // 46: ringtone.GetAudioAttributesRequest
+	(*GetAudioAttributesResponse)(nil),          // 47: ringtone.GetAudioAttributesResponse
+	(*GetStreamTypeRequest)(nil),                // 48: ringtone.GetStreamTypeRequest
+	(*GetStreamTypeResponse)(nil),               // 49: ringtone.GetStreamTypeResponse
+	(*GetTitleRequest)(nil),                     // 50: ringtone.GetTitleRequest
+	(*GetTitleResponse)(nil),                    // 51: ringtone.GetTitleResponse
+	(*GetVolumeRequest)(nil),                    // 52: ringtone.GetVolumeRequest
+	(*GetVolumeResponse)(nil),                   // 53: ringtone.GetVolumeResponse
+	(*IsHapticGeneratorEnabledRequest)(nil),     // 54: ringtone.IsHapticGeneratorEnabledRequest
+	(*IsHapticGeneratorEnabledResponse)(nil),    // 55: ringtone.IsHapticGeneratorEnabledResponse
+	(*IsLoopingRequest)(nil),                    // 56: ringtone.IsLoopingRequest
+	(*IsLoopingResponse)(nil),                   // 57: ringtone.IsLoopingResponse
+	(*IsPlayingRequest)(nil),                    // 58: ringtone.IsPlayingRequest
+	(*IsPlayingResponse)(nil),                   // 59: ringtone.IsPlayingResponse
+	(*PlayRequest)(nil),                         // 60: ringtone.PlayRequest
+	(*PlayResponse)(nil),                        // 61: ringtone.PlayResponse
+	(*SetAudioAttributesRequest)(nil),           // 62: ringtone.SetAudioAttributesRequest
+	(*SetAudioAttributesResponse)(nil),          // 63: ringtone.SetAudioAttributesResponse
+	(*SetHapticGeneratorEnabledRequest)(nil),    // 64: ringtone.SetHapticGeneratorEnabledRequest
+	(*SetHapticGeneratorEnabledResponse)(nil),   // 65: ringtone.SetHapticGeneratorEnabledResponse
+	(*SetLoopingRequest)(nil),                   // 66: ringtone.SetLoopingRequest
+	(*SetLoopingResponse)(nil),                  // 67: ringtone.SetLoopingResponse
+	(*SetStreamTypeRequest)(nil),                // 68: ringtone.SetStreamTypeRequest
+	(*SetStreamTypeResponse)(nil),               // 69: ringtone.SetStreamTypeResponse
+	(*SetVolumeRequest)(nil),                    // 70: ringtone.SetVolumeRequest
+	(*SetVolumeResponse)(nil),                   // 71: ringtone.SetVolumeResponse
+	(*StopRequest)(nil),                         // 72: ringtone.StopRequest
+	(*StopResponse)(nil),                        // 73: ringtone.StopResponse
+}
 var file_proto_ringtone_ringtone_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	0,  // 0: ringtone.ManagerService.NewManager:input_type -> ringtone.NewManagerRequest
+	2,  // 1: ringtone.ManagerService.GetCursor:input_type -> ringtone.GetCursorRequest
+	4,  // 2: ringtone.ManagerService.GetIncludeDrm:input_type -> ringtone.GetIncludeDrmRequest
+	6,  // 3: ringtone.ManagerService.GetRingtone1_1:input_type -> ringtone.GetRingtone1_1Request
+	8,  // 4: ringtone.ManagerService.GetRingtonePosition:input_type -> ringtone.GetRingtonePositionRequest
+	10, // 5: ringtone.ManagerService.GetRingtoneUri:input_type -> ringtone.GetRingtoneUriRequest
+	12, // 6: ringtone.ManagerService.GetStopPreviousRingtone:input_type -> ringtone.GetStopPreviousRingtoneRequest
+	14, // 7: ringtone.ManagerService.HasHapticChannels1_2:input_type -> ringtone.HasHapticChannels1_2Request
+	16, // 8: ringtone.ManagerService.InferStreamType:input_type -> ringtone.InferStreamTypeRequest
+	18, // 9: ringtone.ManagerService.SetIncludeDrm:input_type -> ringtone.SetIncludeDrmRequest
+	20, // 10: ringtone.ManagerService.SetStopPreviousRingtone:input_type -> ringtone.SetStopPreviousRingtoneRequest
+	22, // 11: ringtone.ManagerService.SetType:input_type -> ringtone.SetTypeRequest
+	24, // 12: ringtone.ManagerService.StopPreviousRingtone:input_type -> ringtone.StopPreviousRingtoneRequest
+	26, // 13: ringtone.ManagerService.GetActualDefaultRingtoneUri:input_type -> ringtone.GetActualDefaultRingtoneUriRequest
+	28, // 14: ringtone.ManagerService.GetDefaultType:input_type -> ringtone.GetDefaultTypeRequest
+	30, // 15: ringtone.ManagerService.GetDefaultUri:input_type -> ringtone.GetDefaultUriRequest
+	32, // 16: ringtone.ManagerService.GetRingtone2:input_type -> ringtone.GetRingtone2Request
+	34, // 17: ringtone.ManagerService.GetValidRingtoneUri:input_type -> ringtone.GetValidRingtoneUriRequest
+	36, // 18: ringtone.ManagerService.HasHapticChannels2:input_type -> ringtone.HasHapticChannels2Request
+	38, // 19: ringtone.ManagerService.HasHapticChannels1_1:input_type -> ringtone.HasHapticChannels1_1Request
+	40, // 20: ringtone.ManagerService.IsDefault:input_type -> ringtone.IsDefaultRequest
+	42, // 21: ringtone.ManagerService.OpenDefaultRingtoneUri:input_type -> ringtone.OpenDefaultRingtoneUriRequest
+	44, // 22: ringtone.ManagerService.SetActualDefaultRingtoneUri:input_type -> ringtone.SetActualDefaultRingtoneUriRequest
+	46, // 23: ringtone.RingtoneService.GetAudioAttributes:input_type -> ringtone.GetAudioAttributesRequest
+	48, // 24: ringtone.RingtoneService.GetStreamType:input_type -> ringtone.GetStreamTypeRequest
+	50, // 25: ringtone.RingtoneService.GetTitle:input_type -> ringtone.GetTitleRequest
+	52, // 26: ringtone.RingtoneService.GetVolume:input_type -> ringtone.GetVolumeRequest
+	54, // 27: ringtone.RingtoneService.IsHapticGeneratorEnabled:input_type -> ringtone.IsHapticGeneratorEnabledRequest
+	56, // 28: ringtone.RingtoneService.IsLooping:input_type -> ringtone.IsLoopingRequest
+	58, // 29: ringtone.RingtoneService.IsPlaying:input_type -> ringtone.IsPlayingRequest
+	60, // 30: ringtone.RingtoneService.Play:input_type -> ringtone.PlayRequest
+	62, // 31: ringtone.RingtoneService.SetAudioAttributes:input_type -> ringtone.SetAudioAttributesRequest
+	64, // 32: ringtone.RingtoneService.SetHapticGeneratorEnabled:input_type -> ringtone.SetHapticGeneratorEnabledRequest
+	66, // 33: ringtone.RingtoneService.SetLooping:input_type -> ringtone.SetLoopingRequest
+	68, // 34: ringtone.RingtoneService.SetStreamType:input_type -> ringtone.SetStreamTypeRequest
+	70, // 35: ringtone.RingtoneService.SetVolume:input_type -> ringtone.SetVolumeRequest
+	72, // 36: ringtone.RingtoneService.Stop:input_type -> ringtone.StopRequest
+	1,  // 37: ringtone.ManagerService.NewManager:output_type -> ringtone.NewManagerResponse
+	3,  // 38: ringtone.ManagerService.GetCursor:output_type -> ringtone.GetCursorResponse
+	5,  // 39: ringtone.ManagerService.GetIncludeDrm:output_type -> ringtone.GetIncludeDrmResponse
+	7,  // 40: ringtone.ManagerService.GetRingtone1_1:output_type -> ringtone.GetRingtone1_1Response
+	9,  // 41: ringtone.ManagerService.GetRingtonePosition:output_type -> ringtone.GetRingtonePositionResponse
+	11, // 42: ringtone.ManagerService.GetRingtoneUri:output_type -> ringtone.GetRingtoneUriResponse
+	13, // 43: ringtone.ManagerService.GetStopPreviousRingtone:output_type -> ringtone.GetStopPreviousRingtoneResponse
+	15, // 44: ringtone.ManagerService.HasHapticChannels1_2:output_type -> ringtone.HasHapticChannels1_2Response
+	17, // 45: ringtone.ManagerService.InferStreamType:output_type -> ringtone.InferStreamTypeResponse
+	19, // 46: ringtone.ManagerService.SetIncludeDrm:output_type -> ringtone.SetIncludeDrmResponse
+	21, // 47: ringtone.ManagerService.SetStopPreviousRingtone:output_type -> ringtone.SetStopPreviousRingtoneResponse
+	23, // 48: ringtone.ManagerService.SetType:output_type -> ringtone.SetTypeResponse
+	25, // 49: ringtone.ManagerService.StopPreviousRingtone:output_type -> ringtone.StopPreviousRingtoneResponse
+	27, // 50: ringtone.ManagerService.GetActualDefaultRingtoneUri:output_type -> ringtone.GetActualDefaultRingtoneUriResponse
+	29, // 51: ringtone.ManagerService.GetDefaultType:output_type -> ringtone.GetDefaultTypeResponse
+	31, // 52: ringtone.ManagerService.GetDefaultUri:output_type -> ringtone.GetDefaultUriResponse
+	33, // 53: ringtone.ManagerService.GetRingtone2:output_type -> ringtone.GetRingtone2Response
+	35, // 54: ringtone.ManagerService.GetValidRingtoneUri:output_type -> ringtone.GetValidRingtoneUriResponse
+	37, // 55: ringtone.ManagerService.HasHapticChannels2:output_type -> ringtone.HasHapticChannels2Response
+	39, // 56: ringtone.ManagerService.HasHapticChannels1_1:output_type -> ringtone.HasHapticChannels1_1Response
+	41, // 57: ringtone.ManagerService.IsDefault:output_type -> ringtone.IsDefaultResponse
+	43, // 58: ringtone.ManagerService.OpenDefaultRingtoneUri:output_type -> ringtone.OpenDefaultRingtoneUriResponse
+	45, // 59: ringtone.ManagerService.SetActualDefaultRingtoneUri:output_type -> ringtone.SetActualDefaultRingtoneUriResponse
+	47, // 60: ringtone.RingtoneService.GetAudioAttributes:output_type -> ringtone.GetAudioAttributesResponse
+	49, // 61: ringtone.RingtoneService.GetStreamType:output_type -> ringtone.GetStreamTypeResponse
+	51, // 62: ringtone.RingtoneService.GetTitle:output_type -> ringtone.GetTitleResponse
+	53, // 63: ringtone.RingtoneService.GetVolume:output_type -> ringtone.GetVolumeResponse
+	55, // 64: ringtone.RingtoneService.IsHapticGeneratorEnabled:output_type -> ringtone.IsHapticGeneratorEnabledResponse
+	57, // 65: ringtone.RingtoneService.IsLooping:output_type -> ringtone.IsLoopingResponse
+	59, // 66: ringtone.RingtoneService.IsPlaying:output_type -> ringtone.IsPlayingResponse
+	61, // 67: ringtone.RingtoneService.Play:output_type -> ringtone.PlayResponse
+	63, // 68: ringtone.RingtoneService.SetAudioAttributes:output_type -> ringtone.SetAudioAttributesResponse
+	65, // 69: ringtone.RingtoneService.SetHapticGeneratorEnabled:output_type -> ringtone.SetHapticGeneratorEnabledResponse
+	67, // 70: ringtone.RingtoneService.SetLooping:output_type -> ringtone.SetLoopingResponse
+	69, // 71: ringtone.RingtoneService.SetStreamType:output_type -> ringtone.SetStreamTypeResponse
+	71, // 72: ringtone.RingtoneService.SetVolume:output_type -> ringtone.SetVolumeResponse
+	73, // 73: ringtone.RingtoneService.Stop:output_type -> ringtone.StopResponse
+	37, // [37:74] is the sub-list for method output_type
+	0,  // [0:37] is the sub-list for method input_type
+	0,  // [0:0] is the sub-list for extension type_name
+	0,  // [0:0] is the sub-list for extension extendee
+	0,  // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_proto_ringtone_ringtone_proto_init() }
@@ -48,12 +3692,13 @@ func file_proto_ringtone_ringtone_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_ringtone_ringtone_proto_rawDesc), len(file_proto_ringtone_ringtone_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   74,
 			NumExtensions: 0,
-			NumServices:   0,
+			NumServices:   2,
 		},
 		GoTypes:           file_proto_ringtone_ringtone_proto_goTypes,
 		DependencyIndexes: file_proto_ringtone_ringtone_proto_depIdxs,
+		MessageInfos:      file_proto_ringtone_ringtone_proto_msgTypes,
 	}.Build()
 	File_proto_ringtone_ringtone_proto = out.File
 	file_proto_ringtone_ringtone_proto_goTypes = nil

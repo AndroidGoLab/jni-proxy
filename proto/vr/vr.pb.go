@@ -12,6 +12,7 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -22,16 +23,322 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type OnBindRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnBindRequest) Reset() {
+	*x = OnBindRequest{}
+	mi := &file_proto_vr_vr_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnBindRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnBindRequest) ProtoMessage() {}
+
+func (x *OnBindRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vr_vr_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnBindRequest.ProtoReflect.Descriptor instead.
+func (*OnBindRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vr_vr_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *OnBindRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnBindResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnBindResponse) Reset() {
+	*x = OnBindResponse{}
+	mi := &file_proto_vr_vr_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnBindResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnBindResponse) ProtoMessage() {}
+
+func (x *OnBindResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vr_vr_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnBindResponse.ProtoReflect.Descriptor instead.
+func (*OnBindResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vr_vr_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *OnBindResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OnCurrentVrActivityChangedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnCurrentVrActivityChangedRequest) Reset() {
+	*x = OnCurrentVrActivityChangedRequest{}
+	mi := &file_proto_vr_vr_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnCurrentVrActivityChangedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnCurrentVrActivityChangedRequest) ProtoMessage() {}
+
+func (x *OnCurrentVrActivityChangedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vr_vr_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnCurrentVrActivityChangedRequest.ProtoReflect.Descriptor instead.
+func (*OnCurrentVrActivityChangedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vr_vr_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *OnCurrentVrActivityChangedRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnCurrentVrActivityChangedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnCurrentVrActivityChangedResponse) Reset() {
+	*x = OnCurrentVrActivityChangedResponse{}
+	mi := &file_proto_vr_vr_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnCurrentVrActivityChangedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnCurrentVrActivityChangedResponse) ProtoMessage() {}
+
+func (x *OnCurrentVrActivityChangedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vr_vr_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnCurrentVrActivityChangedResponse.ProtoReflect.Descriptor instead.
+func (*OnCurrentVrActivityChangedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vr_vr_proto_rawDescGZIP(), []int{3}
+}
+
+type IsVrModePackageEnabledRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsVrModePackageEnabledRequest) Reset() {
+	*x = IsVrModePackageEnabledRequest{}
+	mi := &file_proto_vr_vr_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsVrModePackageEnabledRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsVrModePackageEnabledRequest) ProtoMessage() {}
+
+func (x *IsVrModePackageEnabledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vr_vr_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsVrModePackageEnabledRequest.ProtoReflect.Descriptor instead.
+func (*IsVrModePackageEnabledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vr_vr_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *IsVrModePackageEnabledRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *IsVrModePackageEnabledRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type IsVrModePackageEnabledResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsVrModePackageEnabledResponse) Reset() {
+	*x = IsVrModePackageEnabledResponse{}
+	mi := &file_proto_vr_vr_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsVrModePackageEnabledResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsVrModePackageEnabledResponse) ProtoMessage() {}
+
+func (x *IsVrModePackageEnabledResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vr_vr_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsVrModePackageEnabledResponse.ProtoReflect.Descriptor instead.
+func (*IsVrModePackageEnabledResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vr_vr_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *IsVrModePackageEnabledResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
 var File_proto_vr_vr_proto protoreflect.FileDescriptor
 
 const file_proto_vr_vr_proto_rawDesc = "" +
 	"\n" +
-	"\x11proto/vr/vr.proto\x12\x02vrB,Z*github.com/AndroidGoLab/jni-proxy/proto/vrb\x06proto3"
+	"\x11proto/vr/vr.proto\x12\x02vr\"#\n" +
+	"\rOnBindRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"(\n" +
+	"\x0eOnBindResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"7\n" +
+	"!OnCurrentVrActivityChangedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"$\n" +
+	"\"OnCurrentVrActivityChangedResponse\"G\n" +
+	"\x1dIsVrModePackageEnabledRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"8\n" +
+	"\x1eIsVrModePackageEnabledResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result2\x97\x02\n" +
+	"\x16ListenerServiceService\x12/\n" +
+	"\x06OnBind\x12\x11.vr.OnBindRequest\x1a\x12.vr.OnBindResponse\x12k\n" +
+	"\x1aOnCurrentVrActivityChanged\x12%.vr.OnCurrentVrActivityChangedRequest\x1a&.vr.OnCurrentVrActivityChangedResponse\x12_\n" +
+	"\x16IsVrModePackageEnabled\x12!.vr.IsVrModePackageEnabledRequest\x1a\".vr.IsVrModePackageEnabledResponseB,Z*github.com/AndroidGoLab/jni-proxy/proto/vrb\x06proto3"
 
-var file_proto_vr_vr_proto_goTypes = []any{}
+var (
+	file_proto_vr_vr_proto_rawDescOnce sync.Once
+	file_proto_vr_vr_proto_rawDescData []byte
+)
+
+func file_proto_vr_vr_proto_rawDescGZIP() []byte {
+	file_proto_vr_vr_proto_rawDescOnce.Do(func() {
+		file_proto_vr_vr_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_proto_vr_vr_proto_rawDesc), len(file_proto_vr_vr_proto_rawDesc)))
+	})
+	return file_proto_vr_vr_proto_rawDescData
+}
+
+var file_proto_vr_vr_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
+var file_proto_vr_vr_proto_goTypes = []any{
+	(*OnBindRequest)(nil),                      // 0: vr.OnBindRequest
+	(*OnBindResponse)(nil),                     // 1: vr.OnBindResponse
+	(*OnCurrentVrActivityChangedRequest)(nil),  // 2: vr.OnCurrentVrActivityChangedRequest
+	(*OnCurrentVrActivityChangedResponse)(nil), // 3: vr.OnCurrentVrActivityChangedResponse
+	(*IsVrModePackageEnabledRequest)(nil),      // 4: vr.IsVrModePackageEnabledRequest
+	(*IsVrModePackageEnabledResponse)(nil),     // 5: vr.IsVrModePackageEnabledResponse
+}
 var file_proto_vr_vr_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
+	0, // 0: vr.ListenerServiceService.OnBind:input_type -> vr.OnBindRequest
+	2, // 1: vr.ListenerServiceService.OnCurrentVrActivityChanged:input_type -> vr.OnCurrentVrActivityChangedRequest
+	4, // 2: vr.ListenerServiceService.IsVrModePackageEnabled:input_type -> vr.IsVrModePackageEnabledRequest
+	1, // 3: vr.ListenerServiceService.OnBind:output_type -> vr.OnBindResponse
+	3, // 4: vr.ListenerServiceService.OnCurrentVrActivityChanged:output_type -> vr.OnCurrentVrActivityChangedResponse
+	5, // 5: vr.ListenerServiceService.IsVrModePackageEnabled:output_type -> vr.IsVrModePackageEnabledResponse
+	3, // [3:6] is the sub-list for method output_type
+	0, // [0:3] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
 	0, // [0:0] is the sub-list for extension extendee
 	0, // [0:0] is the sub-list for field type_name
@@ -48,12 +355,13 @@ func file_proto_vr_vr_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_vr_vr_proto_rawDesc), len(file_proto_vr_vr_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   6,
 			NumExtensions: 0,
-			NumServices:   0,
+			NumServices:   1,
 		},
 		GoTypes:           file_proto_vr_vr_proto_goTypes,
 		DependencyIndexes: file_proto_vr_vr_proto_depIdxs,
+		MessageInfos:      file_proto_vr_vr_proto_msgTypes,
 	}.Build()
 	File_proto_vr_vr_proto = out.File
 	file_proto_vr_vr_proto_goTypes = nil

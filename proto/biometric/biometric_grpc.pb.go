@@ -235,3 +235,1872 @@ var ManagerService_ServiceDesc = grpc.ServiceDesc{
 	Streams:  []grpc.StreamDesc{},
 	Metadata: "proto/biometric/biometric.proto",
 }
+
+const (
+	ManagerStringsService_GetButtonLabel_FullMethodName   = "/biometric.ManagerStringsService/GetButtonLabel"
+	ManagerStringsService_GetPromptMessage_FullMethodName = "/biometric.ManagerStringsService/GetPromptMessage"
+	ManagerStringsService_GetSettingName_FullMethodName   = "/biometric.ManagerStringsService/GetSettingName"
+)
+
+// ManagerStringsServiceClient is the client API for ManagerStringsService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ManagerStringsServiceClient interface {
+	GetButtonLabel(ctx context.Context, in *GetButtonLabelRequest, opts ...grpc.CallOption) (*GetButtonLabelResponse, error)
+	GetPromptMessage(ctx context.Context, in *GetPromptMessageRequest, opts ...grpc.CallOption) (*GetPromptMessageResponse, error)
+	GetSettingName(ctx context.Context, in *GetSettingNameRequest, opts ...grpc.CallOption) (*GetSettingNameResponse, error)
+}
+
+type managerStringsServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewManagerStringsServiceClient(cc grpc.ClientConnInterface) ManagerStringsServiceClient {
+	return &managerStringsServiceClient{cc}
+}
+
+func (c *managerStringsServiceClient) GetButtonLabel(ctx context.Context, in *GetButtonLabelRequest, opts ...grpc.CallOption) (*GetButtonLabelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetButtonLabelResponse)
+	err := c.cc.Invoke(ctx, ManagerStringsService_GetButtonLabel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerStringsServiceClient) GetPromptMessage(ctx context.Context, in *GetPromptMessageRequest, opts ...grpc.CallOption) (*GetPromptMessageResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPromptMessageResponse)
+	err := c.cc.Invoke(ctx, ManagerStringsService_GetPromptMessage_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerStringsServiceClient) GetSettingName(ctx context.Context, in *GetSettingNameRequest, opts ...grpc.CallOption) (*GetSettingNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSettingNameResponse)
+	err := c.cc.Invoke(ctx, ManagerStringsService_GetSettingName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ManagerStringsServiceServer is the server API for ManagerStringsService service.
+// All implementations must embed UnimplementedManagerStringsServiceServer
+// for forward compatibility.
+type ManagerStringsServiceServer interface {
+	GetButtonLabel(context.Context, *GetButtonLabelRequest) (*GetButtonLabelResponse, error)
+	GetPromptMessage(context.Context, *GetPromptMessageRequest) (*GetPromptMessageResponse, error)
+	GetSettingName(context.Context, *GetSettingNameRequest) (*GetSettingNameResponse, error)
+	mustEmbedUnimplementedManagerStringsServiceServer()
+}
+
+// UnimplementedManagerStringsServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedManagerStringsServiceServer struct{}
+
+func (UnimplementedManagerStringsServiceServer) GetButtonLabel(context.Context, *GetButtonLabelRequest) (*GetButtonLabelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetButtonLabel not implemented")
+}
+func (UnimplementedManagerStringsServiceServer) GetPromptMessage(context.Context, *GetPromptMessageRequest) (*GetPromptMessageResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPromptMessage not implemented")
+}
+func (UnimplementedManagerStringsServiceServer) GetSettingName(context.Context, *GetSettingNameRequest) (*GetSettingNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSettingName not implemented")
+}
+func (UnimplementedManagerStringsServiceServer) mustEmbedUnimplementedManagerStringsServiceServer() {}
+func (UnimplementedManagerStringsServiceServer) testEmbeddedByValue()                               {}
+
+// UnsafeManagerStringsServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ManagerStringsServiceServer will
+// result in compilation errors.
+type UnsafeManagerStringsServiceServer interface {
+	mustEmbedUnimplementedManagerStringsServiceServer()
+}
+
+func RegisterManagerStringsServiceServer(s grpc.ServiceRegistrar, srv ManagerStringsServiceServer) {
+	// If the following call panics, it indicates UnimplementedManagerStringsServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ManagerStringsService_ServiceDesc, srv)
+}
+
+func _ManagerStringsService_GetButtonLabel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetButtonLabelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerStringsServiceServer).GetButtonLabel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerStringsService_GetButtonLabel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerStringsServiceServer).GetButtonLabel(ctx, req.(*GetButtonLabelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerStringsService_GetPromptMessage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPromptMessageRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerStringsServiceServer).GetPromptMessage(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerStringsService_GetPromptMessage_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerStringsServiceServer).GetPromptMessage(ctx, req.(*GetPromptMessageRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerStringsService_GetSettingName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSettingNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerStringsServiceServer).GetSettingName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerStringsService_GetSettingName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerStringsServiceServer).GetSettingName(ctx, req.(*GetSettingNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ManagerStringsService_ServiceDesc is the grpc.ServiceDesc for ManagerStringsService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ManagerStringsService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "biometric.ManagerStringsService",
+	HandlerType: (*ManagerStringsServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetButtonLabel",
+			Handler:    _ManagerStringsService_GetButtonLabel_Handler,
+		},
+		{
+			MethodName: "GetPromptMessage",
+			Handler:    _ManagerStringsService_GetPromptMessage_Handler,
+		},
+		{
+			MethodName: "GetSettingName",
+			Handler:    _ManagerStringsService_GetSettingName_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/biometric/biometric.proto",
+}
+
+const (
+	PromptService_Authenticate4_FullMethodName            = "/biometric.PromptService/Authenticate4"
+	PromptService_Authenticate3_1_FullMethodName          = "/biometric.PromptService/Authenticate3_1"
+	PromptService_GetAllowedAuthenticators_FullMethodName = "/biometric.PromptService/GetAllowedAuthenticators"
+	PromptService_GetContentView_FullMethodName           = "/biometric.PromptService/GetContentView"
+	PromptService_GetDescription_FullMethodName           = "/biometric.PromptService/GetDescription"
+	PromptService_GetLogoBitmap_FullMethodName            = "/biometric.PromptService/GetLogoBitmap"
+	PromptService_GetLogoDescription_FullMethodName       = "/biometric.PromptService/GetLogoDescription"
+	PromptService_GetLogoRes_FullMethodName               = "/biometric.PromptService/GetLogoRes"
+	PromptService_GetNegativeButtonText_FullMethodName    = "/biometric.PromptService/GetNegativeButtonText"
+	PromptService_GetSubtitle_FullMethodName              = "/biometric.PromptService/GetSubtitle"
+	PromptService_GetTitle_FullMethodName                 = "/biometric.PromptService/GetTitle"
+	PromptService_IsConfirmationRequired_FullMethodName   = "/biometric.PromptService/IsConfirmationRequired"
+)
+
+// PromptServiceClient is the client API for PromptService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type PromptServiceClient interface {
+	Authenticate4(ctx context.Context, in *Authenticate4Request, opts ...grpc.CallOption) (*Authenticate4Response, error)
+	Authenticate3_1(ctx context.Context, in *Authenticate3_1Request, opts ...grpc.CallOption) (*Authenticate3_1Response, error)
+	GetAllowedAuthenticators(ctx context.Context, in *GetAllowedAuthenticatorsRequest, opts ...grpc.CallOption) (*GetAllowedAuthenticatorsResponse, error)
+	GetContentView(ctx context.Context, in *GetContentViewRequest, opts ...grpc.CallOption) (*GetContentViewResponse, error)
+	GetDescription(ctx context.Context, in *GetDescriptionRequest, opts ...grpc.CallOption) (*GetDescriptionResponse, error)
+	GetLogoBitmap(ctx context.Context, in *GetLogoBitmapRequest, opts ...grpc.CallOption) (*GetLogoBitmapResponse, error)
+	GetLogoDescription(ctx context.Context, in *GetLogoDescriptionRequest, opts ...grpc.CallOption) (*GetLogoDescriptionResponse, error)
+	GetLogoRes(ctx context.Context, in *GetLogoResRequest, opts ...grpc.CallOption) (*GetLogoResResponse, error)
+	GetNegativeButtonText(ctx context.Context, in *GetNegativeButtonTextRequest, opts ...grpc.CallOption) (*GetNegativeButtonTextResponse, error)
+	GetSubtitle(ctx context.Context, in *GetSubtitleRequest, opts ...grpc.CallOption) (*GetSubtitleResponse, error)
+	GetTitle(ctx context.Context, in *GetTitleRequest, opts ...grpc.CallOption) (*GetTitleResponse, error)
+	IsConfirmationRequired(ctx context.Context, in *IsConfirmationRequiredRequest, opts ...grpc.CallOption) (*IsConfirmationRequiredResponse, error)
+}
+
+type promptServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewPromptServiceClient(cc grpc.ClientConnInterface) PromptServiceClient {
+	return &promptServiceClient{cc}
+}
+
+func (c *promptServiceClient) Authenticate4(ctx context.Context, in *Authenticate4Request, opts ...grpc.CallOption) (*Authenticate4Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Authenticate4Response)
+	err := c.cc.Invoke(ctx, PromptService_Authenticate4_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *promptServiceClient) Authenticate3_1(ctx context.Context, in *Authenticate3_1Request, opts ...grpc.CallOption) (*Authenticate3_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Authenticate3_1Response)
+	err := c.cc.Invoke(ctx, PromptService_Authenticate3_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *promptServiceClient) GetAllowedAuthenticators(ctx context.Context, in *GetAllowedAuthenticatorsRequest, opts ...grpc.CallOption) (*GetAllowedAuthenticatorsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAllowedAuthenticatorsResponse)
+	err := c.cc.Invoke(ctx, PromptService_GetAllowedAuthenticators_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *promptServiceClient) GetContentView(ctx context.Context, in *GetContentViewRequest, opts ...grpc.CallOption) (*GetContentViewResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetContentViewResponse)
+	err := c.cc.Invoke(ctx, PromptService_GetContentView_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *promptServiceClient) GetDescription(ctx context.Context, in *GetDescriptionRequest, opts ...grpc.CallOption) (*GetDescriptionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDescriptionResponse)
+	err := c.cc.Invoke(ctx, PromptService_GetDescription_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *promptServiceClient) GetLogoBitmap(ctx context.Context, in *GetLogoBitmapRequest, opts ...grpc.CallOption) (*GetLogoBitmapResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLogoBitmapResponse)
+	err := c.cc.Invoke(ctx, PromptService_GetLogoBitmap_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *promptServiceClient) GetLogoDescription(ctx context.Context, in *GetLogoDescriptionRequest, opts ...grpc.CallOption) (*GetLogoDescriptionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLogoDescriptionResponse)
+	err := c.cc.Invoke(ctx, PromptService_GetLogoDescription_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *promptServiceClient) GetLogoRes(ctx context.Context, in *GetLogoResRequest, opts ...grpc.CallOption) (*GetLogoResResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLogoResResponse)
+	err := c.cc.Invoke(ctx, PromptService_GetLogoRes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *promptServiceClient) GetNegativeButtonText(ctx context.Context, in *GetNegativeButtonTextRequest, opts ...grpc.CallOption) (*GetNegativeButtonTextResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetNegativeButtonTextResponse)
+	err := c.cc.Invoke(ctx, PromptService_GetNegativeButtonText_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *promptServiceClient) GetSubtitle(ctx context.Context, in *GetSubtitleRequest, opts ...grpc.CallOption) (*GetSubtitleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSubtitleResponse)
+	err := c.cc.Invoke(ctx, PromptService_GetSubtitle_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *promptServiceClient) GetTitle(ctx context.Context, in *GetTitleRequest, opts ...grpc.CallOption) (*GetTitleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTitleResponse)
+	err := c.cc.Invoke(ctx, PromptService_GetTitle_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *promptServiceClient) IsConfirmationRequired(ctx context.Context, in *IsConfirmationRequiredRequest, opts ...grpc.CallOption) (*IsConfirmationRequiredResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsConfirmationRequiredResponse)
+	err := c.cc.Invoke(ctx, PromptService_IsConfirmationRequired_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// PromptServiceServer is the server API for PromptService service.
+// All implementations must embed UnimplementedPromptServiceServer
+// for forward compatibility.
+type PromptServiceServer interface {
+	Authenticate4(context.Context, *Authenticate4Request) (*Authenticate4Response, error)
+	Authenticate3_1(context.Context, *Authenticate3_1Request) (*Authenticate3_1Response, error)
+	GetAllowedAuthenticators(context.Context, *GetAllowedAuthenticatorsRequest) (*GetAllowedAuthenticatorsResponse, error)
+	GetContentView(context.Context, *GetContentViewRequest) (*GetContentViewResponse, error)
+	GetDescription(context.Context, *GetDescriptionRequest) (*GetDescriptionResponse, error)
+	GetLogoBitmap(context.Context, *GetLogoBitmapRequest) (*GetLogoBitmapResponse, error)
+	GetLogoDescription(context.Context, *GetLogoDescriptionRequest) (*GetLogoDescriptionResponse, error)
+	GetLogoRes(context.Context, *GetLogoResRequest) (*GetLogoResResponse, error)
+	GetNegativeButtonText(context.Context, *GetNegativeButtonTextRequest) (*GetNegativeButtonTextResponse, error)
+	GetSubtitle(context.Context, *GetSubtitleRequest) (*GetSubtitleResponse, error)
+	GetTitle(context.Context, *GetTitleRequest) (*GetTitleResponse, error)
+	IsConfirmationRequired(context.Context, *IsConfirmationRequiredRequest) (*IsConfirmationRequiredResponse, error)
+	mustEmbedUnimplementedPromptServiceServer()
+}
+
+// UnimplementedPromptServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedPromptServiceServer struct{}
+
+func (UnimplementedPromptServiceServer) Authenticate4(context.Context, *Authenticate4Request) (*Authenticate4Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Authenticate4 not implemented")
+}
+func (UnimplementedPromptServiceServer) Authenticate3_1(context.Context, *Authenticate3_1Request) (*Authenticate3_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Authenticate3_1 not implemented")
+}
+func (UnimplementedPromptServiceServer) GetAllowedAuthenticators(context.Context, *GetAllowedAuthenticatorsRequest) (*GetAllowedAuthenticatorsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAllowedAuthenticators not implemented")
+}
+func (UnimplementedPromptServiceServer) GetContentView(context.Context, *GetContentViewRequest) (*GetContentViewResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetContentView not implemented")
+}
+func (UnimplementedPromptServiceServer) GetDescription(context.Context, *GetDescriptionRequest) (*GetDescriptionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDescription not implemented")
+}
+func (UnimplementedPromptServiceServer) GetLogoBitmap(context.Context, *GetLogoBitmapRequest) (*GetLogoBitmapResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLogoBitmap not implemented")
+}
+func (UnimplementedPromptServiceServer) GetLogoDescription(context.Context, *GetLogoDescriptionRequest) (*GetLogoDescriptionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLogoDescription not implemented")
+}
+func (UnimplementedPromptServiceServer) GetLogoRes(context.Context, *GetLogoResRequest) (*GetLogoResResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLogoRes not implemented")
+}
+func (UnimplementedPromptServiceServer) GetNegativeButtonText(context.Context, *GetNegativeButtonTextRequest) (*GetNegativeButtonTextResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetNegativeButtonText not implemented")
+}
+func (UnimplementedPromptServiceServer) GetSubtitle(context.Context, *GetSubtitleRequest) (*GetSubtitleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSubtitle not implemented")
+}
+func (UnimplementedPromptServiceServer) GetTitle(context.Context, *GetTitleRequest) (*GetTitleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTitle not implemented")
+}
+func (UnimplementedPromptServiceServer) IsConfirmationRequired(context.Context, *IsConfirmationRequiredRequest) (*IsConfirmationRequiredResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsConfirmationRequired not implemented")
+}
+func (UnimplementedPromptServiceServer) mustEmbedUnimplementedPromptServiceServer() {}
+func (UnimplementedPromptServiceServer) testEmbeddedByValue()                       {}
+
+// UnsafePromptServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to PromptServiceServer will
+// result in compilation errors.
+type UnsafePromptServiceServer interface {
+	mustEmbedUnimplementedPromptServiceServer()
+}
+
+func RegisterPromptServiceServer(s grpc.ServiceRegistrar, srv PromptServiceServer) {
+	// If the following call panics, it indicates UnimplementedPromptServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&PromptService_ServiceDesc, srv)
+}
+
+func _PromptService_Authenticate4_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Authenticate4Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PromptServiceServer).Authenticate4(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PromptService_Authenticate4_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PromptServiceServer).Authenticate4(ctx, req.(*Authenticate4Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PromptService_Authenticate3_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Authenticate3_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PromptServiceServer).Authenticate3_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PromptService_Authenticate3_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PromptServiceServer).Authenticate3_1(ctx, req.(*Authenticate3_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PromptService_GetAllowedAuthenticators_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAllowedAuthenticatorsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PromptServiceServer).GetAllowedAuthenticators(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PromptService_GetAllowedAuthenticators_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PromptServiceServer).GetAllowedAuthenticators(ctx, req.(*GetAllowedAuthenticatorsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PromptService_GetContentView_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetContentViewRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PromptServiceServer).GetContentView(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PromptService_GetContentView_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PromptServiceServer).GetContentView(ctx, req.(*GetContentViewRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PromptService_GetDescription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDescriptionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PromptServiceServer).GetDescription(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PromptService_GetDescription_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PromptServiceServer).GetDescription(ctx, req.(*GetDescriptionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PromptService_GetLogoBitmap_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLogoBitmapRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PromptServiceServer).GetLogoBitmap(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PromptService_GetLogoBitmap_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PromptServiceServer).GetLogoBitmap(ctx, req.(*GetLogoBitmapRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PromptService_GetLogoDescription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLogoDescriptionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PromptServiceServer).GetLogoDescription(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PromptService_GetLogoDescription_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PromptServiceServer).GetLogoDescription(ctx, req.(*GetLogoDescriptionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PromptService_GetLogoRes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLogoResRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PromptServiceServer).GetLogoRes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PromptService_GetLogoRes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PromptServiceServer).GetLogoRes(ctx, req.(*GetLogoResRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PromptService_GetNegativeButtonText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetNegativeButtonTextRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PromptServiceServer).GetNegativeButtonText(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PromptService_GetNegativeButtonText_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PromptServiceServer).GetNegativeButtonText(ctx, req.(*GetNegativeButtonTextRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PromptService_GetSubtitle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSubtitleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PromptServiceServer).GetSubtitle(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PromptService_GetSubtitle_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PromptServiceServer).GetSubtitle(ctx, req.(*GetSubtitleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PromptService_GetTitle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTitleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PromptServiceServer).GetTitle(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PromptService_GetTitle_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PromptServiceServer).GetTitle(ctx, req.(*GetTitleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PromptService_IsConfirmationRequired_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsConfirmationRequiredRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PromptServiceServer).IsConfirmationRequired(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PromptService_IsConfirmationRequired_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PromptServiceServer).IsConfirmationRequired(ctx, req.(*IsConfirmationRequiredRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// PromptService_ServiceDesc is the grpc.ServiceDesc for PromptService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var PromptService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "biometric.PromptService",
+	HandlerType: (*PromptServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Authenticate4",
+			Handler:    _PromptService_Authenticate4_Handler,
+		},
+		{
+			MethodName: "Authenticate3_1",
+			Handler:    _PromptService_Authenticate3_1_Handler,
+		},
+		{
+			MethodName: "GetAllowedAuthenticators",
+			Handler:    _PromptService_GetAllowedAuthenticators_Handler,
+		},
+		{
+			MethodName: "GetContentView",
+			Handler:    _PromptService_GetContentView_Handler,
+		},
+		{
+			MethodName: "GetDescription",
+			Handler:    _PromptService_GetDescription_Handler,
+		},
+		{
+			MethodName: "GetLogoBitmap",
+			Handler:    _PromptService_GetLogoBitmap_Handler,
+		},
+		{
+			MethodName: "GetLogoDescription",
+			Handler:    _PromptService_GetLogoDescription_Handler,
+		},
+		{
+			MethodName: "GetLogoRes",
+			Handler:    _PromptService_GetLogoRes_Handler,
+		},
+		{
+			MethodName: "GetNegativeButtonText",
+			Handler:    _PromptService_GetNegativeButtonText_Handler,
+		},
+		{
+			MethodName: "GetSubtitle",
+			Handler:    _PromptService_GetSubtitle_Handler,
+		},
+		{
+			MethodName: "GetTitle",
+			Handler:    _PromptService_GetTitle_Handler,
+		},
+		{
+			MethodName: "IsConfirmationRequired",
+			Handler:    _PromptService_IsConfirmationRequired_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/biometric/biometric.proto",
+}
+
+const (
+	PromptAuthenticationCallbackService_OnAuthenticationError_FullMethodName     = "/biometric.PromptAuthenticationCallbackService/OnAuthenticationError"
+	PromptAuthenticationCallbackService_OnAuthenticationFailed_FullMethodName    = "/biometric.PromptAuthenticationCallbackService/OnAuthenticationFailed"
+	PromptAuthenticationCallbackService_OnAuthenticationHelp_FullMethodName      = "/biometric.PromptAuthenticationCallbackService/OnAuthenticationHelp"
+	PromptAuthenticationCallbackService_OnAuthenticationSucceeded_FullMethodName = "/biometric.PromptAuthenticationCallbackService/OnAuthenticationSucceeded"
+)
+
+// PromptAuthenticationCallbackServiceClient is the client API for PromptAuthenticationCallbackService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type PromptAuthenticationCallbackServiceClient interface {
+	OnAuthenticationError(ctx context.Context, in *OnAuthenticationErrorRequest, opts ...grpc.CallOption) (*OnAuthenticationErrorResponse, error)
+	OnAuthenticationFailed(ctx context.Context, in *OnAuthenticationFailedRequest, opts ...grpc.CallOption) (*OnAuthenticationFailedResponse, error)
+	OnAuthenticationHelp(ctx context.Context, in *OnAuthenticationHelpRequest, opts ...grpc.CallOption) (*OnAuthenticationHelpResponse, error)
+	OnAuthenticationSucceeded(ctx context.Context, in *OnAuthenticationSucceededRequest, opts ...grpc.CallOption) (*OnAuthenticationSucceededResponse, error)
+}
+
+type promptAuthenticationCallbackServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewPromptAuthenticationCallbackServiceClient(cc grpc.ClientConnInterface) PromptAuthenticationCallbackServiceClient {
+	return &promptAuthenticationCallbackServiceClient{cc}
+}
+
+func (c *promptAuthenticationCallbackServiceClient) OnAuthenticationError(ctx context.Context, in *OnAuthenticationErrorRequest, opts ...grpc.CallOption) (*OnAuthenticationErrorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnAuthenticationErrorResponse)
+	err := c.cc.Invoke(ctx, PromptAuthenticationCallbackService_OnAuthenticationError_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *promptAuthenticationCallbackServiceClient) OnAuthenticationFailed(ctx context.Context, in *OnAuthenticationFailedRequest, opts ...grpc.CallOption) (*OnAuthenticationFailedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnAuthenticationFailedResponse)
+	err := c.cc.Invoke(ctx, PromptAuthenticationCallbackService_OnAuthenticationFailed_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *promptAuthenticationCallbackServiceClient) OnAuthenticationHelp(ctx context.Context, in *OnAuthenticationHelpRequest, opts ...grpc.CallOption) (*OnAuthenticationHelpResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnAuthenticationHelpResponse)
+	err := c.cc.Invoke(ctx, PromptAuthenticationCallbackService_OnAuthenticationHelp_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *promptAuthenticationCallbackServiceClient) OnAuthenticationSucceeded(ctx context.Context, in *OnAuthenticationSucceededRequest, opts ...grpc.CallOption) (*OnAuthenticationSucceededResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnAuthenticationSucceededResponse)
+	err := c.cc.Invoke(ctx, PromptAuthenticationCallbackService_OnAuthenticationSucceeded_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// PromptAuthenticationCallbackServiceServer is the server API for PromptAuthenticationCallbackService service.
+// All implementations must embed UnimplementedPromptAuthenticationCallbackServiceServer
+// for forward compatibility.
+type PromptAuthenticationCallbackServiceServer interface {
+	OnAuthenticationError(context.Context, *OnAuthenticationErrorRequest) (*OnAuthenticationErrorResponse, error)
+	OnAuthenticationFailed(context.Context, *OnAuthenticationFailedRequest) (*OnAuthenticationFailedResponse, error)
+	OnAuthenticationHelp(context.Context, *OnAuthenticationHelpRequest) (*OnAuthenticationHelpResponse, error)
+	OnAuthenticationSucceeded(context.Context, *OnAuthenticationSucceededRequest) (*OnAuthenticationSucceededResponse, error)
+	mustEmbedUnimplementedPromptAuthenticationCallbackServiceServer()
+}
+
+// UnimplementedPromptAuthenticationCallbackServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedPromptAuthenticationCallbackServiceServer struct{}
+
+func (UnimplementedPromptAuthenticationCallbackServiceServer) OnAuthenticationError(context.Context, *OnAuthenticationErrorRequest) (*OnAuthenticationErrorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnAuthenticationError not implemented")
+}
+func (UnimplementedPromptAuthenticationCallbackServiceServer) OnAuthenticationFailed(context.Context, *OnAuthenticationFailedRequest) (*OnAuthenticationFailedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnAuthenticationFailed not implemented")
+}
+func (UnimplementedPromptAuthenticationCallbackServiceServer) OnAuthenticationHelp(context.Context, *OnAuthenticationHelpRequest) (*OnAuthenticationHelpResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnAuthenticationHelp not implemented")
+}
+func (UnimplementedPromptAuthenticationCallbackServiceServer) OnAuthenticationSucceeded(context.Context, *OnAuthenticationSucceededRequest) (*OnAuthenticationSucceededResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnAuthenticationSucceeded not implemented")
+}
+func (UnimplementedPromptAuthenticationCallbackServiceServer) mustEmbedUnimplementedPromptAuthenticationCallbackServiceServer() {
+}
+func (UnimplementedPromptAuthenticationCallbackServiceServer) testEmbeddedByValue() {}
+
+// UnsafePromptAuthenticationCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to PromptAuthenticationCallbackServiceServer will
+// result in compilation errors.
+type UnsafePromptAuthenticationCallbackServiceServer interface {
+	mustEmbedUnimplementedPromptAuthenticationCallbackServiceServer()
+}
+
+func RegisterPromptAuthenticationCallbackServiceServer(s grpc.ServiceRegistrar, srv PromptAuthenticationCallbackServiceServer) {
+	// If the following call panics, it indicates UnimplementedPromptAuthenticationCallbackServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&PromptAuthenticationCallbackService_ServiceDesc, srv)
+}
+
+func _PromptAuthenticationCallbackService_OnAuthenticationError_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnAuthenticationErrorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PromptAuthenticationCallbackServiceServer).OnAuthenticationError(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PromptAuthenticationCallbackService_OnAuthenticationError_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PromptAuthenticationCallbackServiceServer).OnAuthenticationError(ctx, req.(*OnAuthenticationErrorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PromptAuthenticationCallbackService_OnAuthenticationFailed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnAuthenticationFailedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PromptAuthenticationCallbackServiceServer).OnAuthenticationFailed(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PromptAuthenticationCallbackService_OnAuthenticationFailed_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PromptAuthenticationCallbackServiceServer).OnAuthenticationFailed(ctx, req.(*OnAuthenticationFailedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PromptAuthenticationCallbackService_OnAuthenticationHelp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnAuthenticationHelpRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PromptAuthenticationCallbackServiceServer).OnAuthenticationHelp(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PromptAuthenticationCallbackService_OnAuthenticationHelp_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PromptAuthenticationCallbackServiceServer).OnAuthenticationHelp(ctx, req.(*OnAuthenticationHelpRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PromptAuthenticationCallbackService_OnAuthenticationSucceeded_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnAuthenticationSucceededRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PromptAuthenticationCallbackServiceServer).OnAuthenticationSucceeded(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PromptAuthenticationCallbackService_OnAuthenticationSucceeded_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PromptAuthenticationCallbackServiceServer).OnAuthenticationSucceeded(ctx, req.(*OnAuthenticationSucceededRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// PromptAuthenticationCallbackService_ServiceDesc is the grpc.ServiceDesc for PromptAuthenticationCallbackService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var PromptAuthenticationCallbackService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "biometric.PromptAuthenticationCallbackService",
+	HandlerType: (*PromptAuthenticationCallbackServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnAuthenticationError",
+			Handler:    _PromptAuthenticationCallbackService_OnAuthenticationError_Handler,
+		},
+		{
+			MethodName: "OnAuthenticationFailed",
+			Handler:    _PromptAuthenticationCallbackService_OnAuthenticationFailed_Handler,
+		},
+		{
+			MethodName: "OnAuthenticationHelp",
+			Handler:    _PromptAuthenticationCallbackService_OnAuthenticationHelp_Handler,
+		},
+		{
+			MethodName: "OnAuthenticationSucceeded",
+			Handler:    _PromptAuthenticationCallbackService_OnAuthenticationSucceeded_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/biometric/biometric.proto",
+}
+
+const (
+	PromptAuthenticationResultService_GetAuthenticationType_FullMethodName = "/biometric.PromptAuthenticationResultService/GetAuthenticationType"
+	PromptAuthenticationResultService_GetCryptoObject_FullMethodName       = "/biometric.PromptAuthenticationResultService/GetCryptoObject"
+)
+
+// PromptAuthenticationResultServiceClient is the client API for PromptAuthenticationResultService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type PromptAuthenticationResultServiceClient interface {
+	GetAuthenticationType(ctx context.Context, in *GetAuthenticationTypeRequest, opts ...grpc.CallOption) (*GetAuthenticationTypeResponse, error)
+	GetCryptoObject(ctx context.Context, in *GetCryptoObjectRequest, opts ...grpc.CallOption) (*GetCryptoObjectResponse, error)
+}
+
+type promptAuthenticationResultServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewPromptAuthenticationResultServiceClient(cc grpc.ClientConnInterface) PromptAuthenticationResultServiceClient {
+	return &promptAuthenticationResultServiceClient{cc}
+}
+
+func (c *promptAuthenticationResultServiceClient) GetAuthenticationType(ctx context.Context, in *GetAuthenticationTypeRequest, opts ...grpc.CallOption) (*GetAuthenticationTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAuthenticationTypeResponse)
+	err := c.cc.Invoke(ctx, PromptAuthenticationResultService_GetAuthenticationType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *promptAuthenticationResultServiceClient) GetCryptoObject(ctx context.Context, in *GetCryptoObjectRequest, opts ...grpc.CallOption) (*GetCryptoObjectResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCryptoObjectResponse)
+	err := c.cc.Invoke(ctx, PromptAuthenticationResultService_GetCryptoObject_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// PromptAuthenticationResultServiceServer is the server API for PromptAuthenticationResultService service.
+// All implementations must embed UnimplementedPromptAuthenticationResultServiceServer
+// for forward compatibility.
+type PromptAuthenticationResultServiceServer interface {
+	GetAuthenticationType(context.Context, *GetAuthenticationTypeRequest) (*GetAuthenticationTypeResponse, error)
+	GetCryptoObject(context.Context, *GetCryptoObjectRequest) (*GetCryptoObjectResponse, error)
+	mustEmbedUnimplementedPromptAuthenticationResultServiceServer()
+}
+
+// UnimplementedPromptAuthenticationResultServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedPromptAuthenticationResultServiceServer struct{}
+
+func (UnimplementedPromptAuthenticationResultServiceServer) GetAuthenticationType(context.Context, *GetAuthenticationTypeRequest) (*GetAuthenticationTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAuthenticationType not implemented")
+}
+func (UnimplementedPromptAuthenticationResultServiceServer) GetCryptoObject(context.Context, *GetCryptoObjectRequest) (*GetCryptoObjectResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCryptoObject not implemented")
+}
+func (UnimplementedPromptAuthenticationResultServiceServer) mustEmbedUnimplementedPromptAuthenticationResultServiceServer() {
+}
+func (UnimplementedPromptAuthenticationResultServiceServer) testEmbeddedByValue() {}
+
+// UnsafePromptAuthenticationResultServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to PromptAuthenticationResultServiceServer will
+// result in compilation errors.
+type UnsafePromptAuthenticationResultServiceServer interface {
+	mustEmbedUnimplementedPromptAuthenticationResultServiceServer()
+}
+
+func RegisterPromptAuthenticationResultServiceServer(s grpc.ServiceRegistrar, srv PromptAuthenticationResultServiceServer) {
+	// If the following call panics, it indicates UnimplementedPromptAuthenticationResultServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&PromptAuthenticationResultService_ServiceDesc, srv)
+}
+
+func _PromptAuthenticationResultService_GetAuthenticationType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAuthenticationTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PromptAuthenticationResultServiceServer).GetAuthenticationType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PromptAuthenticationResultService_GetAuthenticationType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PromptAuthenticationResultServiceServer).GetAuthenticationType(ctx, req.(*GetAuthenticationTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PromptAuthenticationResultService_GetCryptoObject_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCryptoObjectRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PromptAuthenticationResultServiceServer).GetCryptoObject(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PromptAuthenticationResultService_GetCryptoObject_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PromptAuthenticationResultServiceServer).GetCryptoObject(ctx, req.(*GetCryptoObjectRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// PromptAuthenticationResultService_ServiceDesc is the grpc.ServiceDesc for PromptAuthenticationResultService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var PromptAuthenticationResultService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "biometric.PromptAuthenticationResultService",
+	HandlerType: (*PromptAuthenticationResultServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetAuthenticationType",
+			Handler:    _PromptAuthenticationResultService_GetAuthenticationType_Handler,
+		},
+		{
+			MethodName: "GetCryptoObject",
+			Handler:    _PromptAuthenticationResultService_GetCryptoObject_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/biometric/biometric.proto",
+}
+
+const (
+	PromptBuilderService_Build_FullMethodName                      = "/biometric.PromptBuilderService/Build"
+	PromptBuilderService_SetAllowedAuthenticators_FullMethodName   = "/biometric.PromptBuilderService/SetAllowedAuthenticators"
+	PromptBuilderService_SetConfirmationRequired_FullMethodName    = "/biometric.PromptBuilderService/SetConfirmationRequired"
+	PromptBuilderService_SetContentView_FullMethodName             = "/biometric.PromptBuilderService/SetContentView"
+	PromptBuilderService_SetDescription_FullMethodName             = "/biometric.PromptBuilderService/SetDescription"
+	PromptBuilderService_SetDeviceCredentialAllowed_FullMethodName = "/biometric.PromptBuilderService/SetDeviceCredentialAllowed"
+	PromptBuilderService_SetLogoBitmap_FullMethodName              = "/biometric.PromptBuilderService/SetLogoBitmap"
+	PromptBuilderService_SetLogoDescription_FullMethodName         = "/biometric.PromptBuilderService/SetLogoDescription"
+	PromptBuilderService_SetLogoRes_FullMethodName                 = "/biometric.PromptBuilderService/SetLogoRes"
+	PromptBuilderService_SetNegativeButton_FullMethodName          = "/biometric.PromptBuilderService/SetNegativeButton"
+	PromptBuilderService_SetSubtitle_FullMethodName                = "/biometric.PromptBuilderService/SetSubtitle"
+	PromptBuilderService_SetTitle_FullMethodName                   = "/biometric.PromptBuilderService/SetTitle"
+)
+
+// PromptBuilderServiceClient is the client API for PromptBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type PromptBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetAllowedAuthenticators(ctx context.Context, in *SetAllowedAuthenticatorsRequest, opts ...grpc.CallOption) (*SetAllowedAuthenticatorsResponse, error)
+	SetConfirmationRequired(ctx context.Context, in *SetConfirmationRequiredRequest, opts ...grpc.CallOption) (*SetConfirmationRequiredResponse, error)
+	SetContentView(ctx context.Context, in *SetContentViewRequest, opts ...grpc.CallOption) (*SetContentViewResponse, error)
+	SetDescription(ctx context.Context, in *SetDescriptionRequest, opts ...grpc.CallOption) (*SetDescriptionResponse, error)
+	SetDeviceCredentialAllowed(ctx context.Context, in *SetDeviceCredentialAllowedRequest, opts ...grpc.CallOption) (*SetDeviceCredentialAllowedResponse, error)
+	SetLogoBitmap(ctx context.Context, in *SetLogoBitmapRequest, opts ...grpc.CallOption) (*SetLogoBitmapResponse, error)
+	SetLogoDescription(ctx context.Context, in *SetLogoDescriptionRequest, opts ...grpc.CallOption) (*SetLogoDescriptionResponse, error)
+	SetLogoRes(ctx context.Context, in *SetLogoResRequest, opts ...grpc.CallOption) (*SetLogoResResponse, error)
+	SetNegativeButton(ctx context.Context, in *SetNegativeButtonRequest, opts ...grpc.CallOption) (*SetNegativeButtonResponse, error)
+	SetSubtitle(ctx context.Context, in *SetSubtitleRequest, opts ...grpc.CallOption) (*SetSubtitleResponse, error)
+	SetTitle(ctx context.Context, in *SetTitleRequest, opts ...grpc.CallOption) (*SetTitleResponse, error)
+}
+
+type promptBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewPromptBuilderServiceClient(cc grpc.ClientConnInterface) PromptBuilderServiceClient {
+	return &promptBuilderServiceClient{cc}
+}
+
+func (c *promptBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, PromptBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *promptBuilderServiceClient) SetAllowedAuthenticators(ctx context.Context, in *SetAllowedAuthenticatorsRequest, opts ...grpc.CallOption) (*SetAllowedAuthenticatorsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetAllowedAuthenticatorsResponse)
+	err := c.cc.Invoke(ctx, PromptBuilderService_SetAllowedAuthenticators_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *promptBuilderServiceClient) SetConfirmationRequired(ctx context.Context, in *SetConfirmationRequiredRequest, opts ...grpc.CallOption) (*SetConfirmationRequiredResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetConfirmationRequiredResponse)
+	err := c.cc.Invoke(ctx, PromptBuilderService_SetConfirmationRequired_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *promptBuilderServiceClient) SetContentView(ctx context.Context, in *SetContentViewRequest, opts ...grpc.CallOption) (*SetContentViewResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetContentViewResponse)
+	err := c.cc.Invoke(ctx, PromptBuilderService_SetContentView_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *promptBuilderServiceClient) SetDescription(ctx context.Context, in *SetDescriptionRequest, opts ...grpc.CallOption) (*SetDescriptionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetDescriptionResponse)
+	err := c.cc.Invoke(ctx, PromptBuilderService_SetDescription_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *promptBuilderServiceClient) SetDeviceCredentialAllowed(ctx context.Context, in *SetDeviceCredentialAllowedRequest, opts ...grpc.CallOption) (*SetDeviceCredentialAllowedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetDeviceCredentialAllowedResponse)
+	err := c.cc.Invoke(ctx, PromptBuilderService_SetDeviceCredentialAllowed_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *promptBuilderServiceClient) SetLogoBitmap(ctx context.Context, in *SetLogoBitmapRequest, opts ...grpc.CallOption) (*SetLogoBitmapResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetLogoBitmapResponse)
+	err := c.cc.Invoke(ctx, PromptBuilderService_SetLogoBitmap_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *promptBuilderServiceClient) SetLogoDescription(ctx context.Context, in *SetLogoDescriptionRequest, opts ...grpc.CallOption) (*SetLogoDescriptionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetLogoDescriptionResponse)
+	err := c.cc.Invoke(ctx, PromptBuilderService_SetLogoDescription_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *promptBuilderServiceClient) SetLogoRes(ctx context.Context, in *SetLogoResRequest, opts ...grpc.CallOption) (*SetLogoResResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetLogoResResponse)
+	err := c.cc.Invoke(ctx, PromptBuilderService_SetLogoRes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *promptBuilderServiceClient) SetNegativeButton(ctx context.Context, in *SetNegativeButtonRequest, opts ...grpc.CallOption) (*SetNegativeButtonResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetNegativeButtonResponse)
+	err := c.cc.Invoke(ctx, PromptBuilderService_SetNegativeButton_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *promptBuilderServiceClient) SetSubtitle(ctx context.Context, in *SetSubtitleRequest, opts ...grpc.CallOption) (*SetSubtitleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetSubtitleResponse)
+	err := c.cc.Invoke(ctx, PromptBuilderService_SetSubtitle_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *promptBuilderServiceClient) SetTitle(ctx context.Context, in *SetTitleRequest, opts ...grpc.CallOption) (*SetTitleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetTitleResponse)
+	err := c.cc.Invoke(ctx, PromptBuilderService_SetTitle_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// PromptBuilderServiceServer is the server API for PromptBuilderService service.
+// All implementations must embed UnimplementedPromptBuilderServiceServer
+// for forward compatibility.
+type PromptBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetAllowedAuthenticators(context.Context, *SetAllowedAuthenticatorsRequest) (*SetAllowedAuthenticatorsResponse, error)
+	SetConfirmationRequired(context.Context, *SetConfirmationRequiredRequest) (*SetConfirmationRequiredResponse, error)
+	SetContentView(context.Context, *SetContentViewRequest) (*SetContentViewResponse, error)
+	SetDescription(context.Context, *SetDescriptionRequest) (*SetDescriptionResponse, error)
+	SetDeviceCredentialAllowed(context.Context, *SetDeviceCredentialAllowedRequest) (*SetDeviceCredentialAllowedResponse, error)
+	SetLogoBitmap(context.Context, *SetLogoBitmapRequest) (*SetLogoBitmapResponse, error)
+	SetLogoDescription(context.Context, *SetLogoDescriptionRequest) (*SetLogoDescriptionResponse, error)
+	SetLogoRes(context.Context, *SetLogoResRequest) (*SetLogoResResponse, error)
+	SetNegativeButton(context.Context, *SetNegativeButtonRequest) (*SetNegativeButtonResponse, error)
+	SetSubtitle(context.Context, *SetSubtitleRequest) (*SetSubtitleResponse, error)
+	SetTitle(context.Context, *SetTitleRequest) (*SetTitleResponse, error)
+	mustEmbedUnimplementedPromptBuilderServiceServer()
+}
+
+// UnimplementedPromptBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedPromptBuilderServiceServer struct{}
+
+func (UnimplementedPromptBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedPromptBuilderServiceServer) SetAllowedAuthenticators(context.Context, *SetAllowedAuthenticatorsRequest) (*SetAllowedAuthenticatorsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetAllowedAuthenticators not implemented")
+}
+func (UnimplementedPromptBuilderServiceServer) SetConfirmationRequired(context.Context, *SetConfirmationRequiredRequest) (*SetConfirmationRequiredResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetConfirmationRequired not implemented")
+}
+func (UnimplementedPromptBuilderServiceServer) SetContentView(context.Context, *SetContentViewRequest) (*SetContentViewResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetContentView not implemented")
+}
+func (UnimplementedPromptBuilderServiceServer) SetDescription(context.Context, *SetDescriptionRequest) (*SetDescriptionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetDescription not implemented")
+}
+func (UnimplementedPromptBuilderServiceServer) SetDeviceCredentialAllowed(context.Context, *SetDeviceCredentialAllowedRequest) (*SetDeviceCredentialAllowedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetDeviceCredentialAllowed not implemented")
+}
+func (UnimplementedPromptBuilderServiceServer) SetLogoBitmap(context.Context, *SetLogoBitmapRequest) (*SetLogoBitmapResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetLogoBitmap not implemented")
+}
+func (UnimplementedPromptBuilderServiceServer) SetLogoDescription(context.Context, *SetLogoDescriptionRequest) (*SetLogoDescriptionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetLogoDescription not implemented")
+}
+func (UnimplementedPromptBuilderServiceServer) SetLogoRes(context.Context, *SetLogoResRequest) (*SetLogoResResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetLogoRes not implemented")
+}
+func (UnimplementedPromptBuilderServiceServer) SetNegativeButton(context.Context, *SetNegativeButtonRequest) (*SetNegativeButtonResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetNegativeButton not implemented")
+}
+func (UnimplementedPromptBuilderServiceServer) SetSubtitle(context.Context, *SetSubtitleRequest) (*SetSubtitleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetSubtitle not implemented")
+}
+func (UnimplementedPromptBuilderServiceServer) SetTitle(context.Context, *SetTitleRequest) (*SetTitleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetTitle not implemented")
+}
+func (UnimplementedPromptBuilderServiceServer) mustEmbedUnimplementedPromptBuilderServiceServer() {}
+func (UnimplementedPromptBuilderServiceServer) testEmbeddedByValue()                              {}
+
+// UnsafePromptBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to PromptBuilderServiceServer will
+// result in compilation errors.
+type UnsafePromptBuilderServiceServer interface {
+	mustEmbedUnimplementedPromptBuilderServiceServer()
+}
+
+func RegisterPromptBuilderServiceServer(s grpc.ServiceRegistrar, srv PromptBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedPromptBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&PromptBuilderService_ServiceDesc, srv)
+}
+
+func _PromptBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PromptBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PromptBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PromptBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PromptBuilderService_SetAllowedAuthenticators_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetAllowedAuthenticatorsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PromptBuilderServiceServer).SetAllowedAuthenticators(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PromptBuilderService_SetAllowedAuthenticators_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PromptBuilderServiceServer).SetAllowedAuthenticators(ctx, req.(*SetAllowedAuthenticatorsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PromptBuilderService_SetConfirmationRequired_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetConfirmationRequiredRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PromptBuilderServiceServer).SetConfirmationRequired(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PromptBuilderService_SetConfirmationRequired_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PromptBuilderServiceServer).SetConfirmationRequired(ctx, req.(*SetConfirmationRequiredRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PromptBuilderService_SetContentView_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetContentViewRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PromptBuilderServiceServer).SetContentView(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PromptBuilderService_SetContentView_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PromptBuilderServiceServer).SetContentView(ctx, req.(*SetContentViewRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PromptBuilderService_SetDescription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetDescriptionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PromptBuilderServiceServer).SetDescription(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PromptBuilderService_SetDescription_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PromptBuilderServiceServer).SetDescription(ctx, req.(*SetDescriptionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PromptBuilderService_SetDeviceCredentialAllowed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetDeviceCredentialAllowedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PromptBuilderServiceServer).SetDeviceCredentialAllowed(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PromptBuilderService_SetDeviceCredentialAllowed_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PromptBuilderServiceServer).SetDeviceCredentialAllowed(ctx, req.(*SetDeviceCredentialAllowedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PromptBuilderService_SetLogoBitmap_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetLogoBitmapRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PromptBuilderServiceServer).SetLogoBitmap(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PromptBuilderService_SetLogoBitmap_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PromptBuilderServiceServer).SetLogoBitmap(ctx, req.(*SetLogoBitmapRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PromptBuilderService_SetLogoDescription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetLogoDescriptionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PromptBuilderServiceServer).SetLogoDescription(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PromptBuilderService_SetLogoDescription_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PromptBuilderServiceServer).SetLogoDescription(ctx, req.(*SetLogoDescriptionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PromptBuilderService_SetLogoRes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetLogoResRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PromptBuilderServiceServer).SetLogoRes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PromptBuilderService_SetLogoRes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PromptBuilderServiceServer).SetLogoRes(ctx, req.(*SetLogoResRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PromptBuilderService_SetNegativeButton_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetNegativeButtonRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PromptBuilderServiceServer).SetNegativeButton(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PromptBuilderService_SetNegativeButton_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PromptBuilderServiceServer).SetNegativeButton(ctx, req.(*SetNegativeButtonRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PromptBuilderService_SetSubtitle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetSubtitleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PromptBuilderServiceServer).SetSubtitle(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PromptBuilderService_SetSubtitle_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PromptBuilderServiceServer).SetSubtitle(ctx, req.(*SetSubtitleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PromptBuilderService_SetTitle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetTitleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PromptBuilderServiceServer).SetTitle(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PromptBuilderService_SetTitle_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PromptBuilderServiceServer).SetTitle(ctx, req.(*SetTitleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// PromptBuilderService_ServiceDesc is the grpc.ServiceDesc for PromptBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var PromptBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "biometric.PromptBuilderService",
+	HandlerType: (*PromptBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _PromptBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetAllowedAuthenticators",
+			Handler:    _PromptBuilderService_SetAllowedAuthenticators_Handler,
+		},
+		{
+			MethodName: "SetConfirmationRequired",
+			Handler:    _PromptBuilderService_SetConfirmationRequired_Handler,
+		},
+		{
+			MethodName: "SetContentView",
+			Handler:    _PromptBuilderService_SetContentView_Handler,
+		},
+		{
+			MethodName: "SetDescription",
+			Handler:    _PromptBuilderService_SetDescription_Handler,
+		},
+		{
+			MethodName: "SetDeviceCredentialAllowed",
+			Handler:    _PromptBuilderService_SetDeviceCredentialAllowed_Handler,
+		},
+		{
+			MethodName: "SetLogoBitmap",
+			Handler:    _PromptBuilderService_SetLogoBitmap_Handler,
+		},
+		{
+			MethodName: "SetLogoDescription",
+			Handler:    _PromptBuilderService_SetLogoDescription_Handler,
+		},
+		{
+			MethodName: "SetLogoRes",
+			Handler:    _PromptBuilderService_SetLogoRes_Handler,
+		},
+		{
+			MethodName: "SetNegativeButton",
+			Handler:    _PromptBuilderService_SetNegativeButton_Handler,
+		},
+		{
+			MethodName: "SetSubtitle",
+			Handler:    _PromptBuilderService_SetSubtitle_Handler,
+		},
+		{
+			MethodName: "SetTitle",
+			Handler:    _PromptBuilderService_SetTitle_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/biometric/biometric.proto",
+}
+
+const (
+	PromptCryptoObjectService_GetCipher_FullMethodName              = "/biometric.PromptCryptoObjectService/GetCipher"
+	PromptCryptoObjectService_GetIdentityCredential_FullMethodName  = "/biometric.PromptCryptoObjectService/GetIdentityCredential"
+	PromptCryptoObjectService_GetMac_FullMethodName                 = "/biometric.PromptCryptoObjectService/GetMac"
+	PromptCryptoObjectService_GetOperationHandle_FullMethodName     = "/biometric.PromptCryptoObjectService/GetOperationHandle"
+	PromptCryptoObjectService_GetPresentationSession_FullMethodName = "/biometric.PromptCryptoObjectService/GetPresentationSession"
+	PromptCryptoObjectService_GetSignature_FullMethodName           = "/biometric.PromptCryptoObjectService/GetSignature"
+)
+
+// PromptCryptoObjectServiceClient is the client API for PromptCryptoObjectService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type PromptCryptoObjectServiceClient interface {
+	GetCipher(ctx context.Context, in *GetCipherRequest, opts ...grpc.CallOption) (*GetCipherResponse, error)
+	GetIdentityCredential(ctx context.Context, in *GetIdentityCredentialRequest, opts ...grpc.CallOption) (*GetIdentityCredentialResponse, error)
+	GetMac(ctx context.Context, in *GetMacRequest, opts ...grpc.CallOption) (*GetMacResponse, error)
+	GetOperationHandle(ctx context.Context, in *GetOperationHandleRequest, opts ...grpc.CallOption) (*GetOperationHandleResponse, error)
+	GetPresentationSession(ctx context.Context, in *GetPresentationSessionRequest, opts ...grpc.CallOption) (*GetPresentationSessionResponse, error)
+	GetSignature(ctx context.Context, in *GetSignatureRequest, opts ...grpc.CallOption) (*GetSignatureResponse, error)
+}
+
+type promptCryptoObjectServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewPromptCryptoObjectServiceClient(cc grpc.ClientConnInterface) PromptCryptoObjectServiceClient {
+	return &promptCryptoObjectServiceClient{cc}
+}
+
+func (c *promptCryptoObjectServiceClient) GetCipher(ctx context.Context, in *GetCipherRequest, opts ...grpc.CallOption) (*GetCipherResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCipherResponse)
+	err := c.cc.Invoke(ctx, PromptCryptoObjectService_GetCipher_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *promptCryptoObjectServiceClient) GetIdentityCredential(ctx context.Context, in *GetIdentityCredentialRequest, opts ...grpc.CallOption) (*GetIdentityCredentialResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetIdentityCredentialResponse)
+	err := c.cc.Invoke(ctx, PromptCryptoObjectService_GetIdentityCredential_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *promptCryptoObjectServiceClient) GetMac(ctx context.Context, in *GetMacRequest, opts ...grpc.CallOption) (*GetMacResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMacResponse)
+	err := c.cc.Invoke(ctx, PromptCryptoObjectService_GetMac_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *promptCryptoObjectServiceClient) GetOperationHandle(ctx context.Context, in *GetOperationHandleRequest, opts ...grpc.CallOption) (*GetOperationHandleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetOperationHandleResponse)
+	err := c.cc.Invoke(ctx, PromptCryptoObjectService_GetOperationHandle_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *promptCryptoObjectServiceClient) GetPresentationSession(ctx context.Context, in *GetPresentationSessionRequest, opts ...grpc.CallOption) (*GetPresentationSessionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPresentationSessionResponse)
+	err := c.cc.Invoke(ctx, PromptCryptoObjectService_GetPresentationSession_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *promptCryptoObjectServiceClient) GetSignature(ctx context.Context, in *GetSignatureRequest, opts ...grpc.CallOption) (*GetSignatureResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSignatureResponse)
+	err := c.cc.Invoke(ctx, PromptCryptoObjectService_GetSignature_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// PromptCryptoObjectServiceServer is the server API for PromptCryptoObjectService service.
+// All implementations must embed UnimplementedPromptCryptoObjectServiceServer
+// for forward compatibility.
+type PromptCryptoObjectServiceServer interface {
+	GetCipher(context.Context, *GetCipherRequest) (*GetCipherResponse, error)
+	GetIdentityCredential(context.Context, *GetIdentityCredentialRequest) (*GetIdentityCredentialResponse, error)
+	GetMac(context.Context, *GetMacRequest) (*GetMacResponse, error)
+	GetOperationHandle(context.Context, *GetOperationHandleRequest) (*GetOperationHandleResponse, error)
+	GetPresentationSession(context.Context, *GetPresentationSessionRequest) (*GetPresentationSessionResponse, error)
+	GetSignature(context.Context, *GetSignatureRequest) (*GetSignatureResponse, error)
+	mustEmbedUnimplementedPromptCryptoObjectServiceServer()
+}
+
+// UnimplementedPromptCryptoObjectServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedPromptCryptoObjectServiceServer struct{}
+
+func (UnimplementedPromptCryptoObjectServiceServer) GetCipher(context.Context, *GetCipherRequest) (*GetCipherResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCipher not implemented")
+}
+func (UnimplementedPromptCryptoObjectServiceServer) GetIdentityCredential(context.Context, *GetIdentityCredentialRequest) (*GetIdentityCredentialResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetIdentityCredential not implemented")
+}
+func (UnimplementedPromptCryptoObjectServiceServer) GetMac(context.Context, *GetMacRequest) (*GetMacResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMac not implemented")
+}
+func (UnimplementedPromptCryptoObjectServiceServer) GetOperationHandle(context.Context, *GetOperationHandleRequest) (*GetOperationHandleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetOperationHandle not implemented")
+}
+func (UnimplementedPromptCryptoObjectServiceServer) GetPresentationSession(context.Context, *GetPresentationSessionRequest) (*GetPresentationSessionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPresentationSession not implemented")
+}
+func (UnimplementedPromptCryptoObjectServiceServer) GetSignature(context.Context, *GetSignatureRequest) (*GetSignatureResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSignature not implemented")
+}
+func (UnimplementedPromptCryptoObjectServiceServer) mustEmbedUnimplementedPromptCryptoObjectServiceServer() {
+}
+func (UnimplementedPromptCryptoObjectServiceServer) testEmbeddedByValue() {}
+
+// UnsafePromptCryptoObjectServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to PromptCryptoObjectServiceServer will
+// result in compilation errors.
+type UnsafePromptCryptoObjectServiceServer interface {
+	mustEmbedUnimplementedPromptCryptoObjectServiceServer()
+}
+
+func RegisterPromptCryptoObjectServiceServer(s grpc.ServiceRegistrar, srv PromptCryptoObjectServiceServer) {
+	// If the following call panics, it indicates UnimplementedPromptCryptoObjectServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&PromptCryptoObjectService_ServiceDesc, srv)
+}
+
+func _PromptCryptoObjectService_GetCipher_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCipherRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PromptCryptoObjectServiceServer).GetCipher(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PromptCryptoObjectService_GetCipher_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PromptCryptoObjectServiceServer).GetCipher(ctx, req.(*GetCipherRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PromptCryptoObjectService_GetIdentityCredential_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIdentityCredentialRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PromptCryptoObjectServiceServer).GetIdentityCredential(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PromptCryptoObjectService_GetIdentityCredential_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PromptCryptoObjectServiceServer).GetIdentityCredential(ctx, req.(*GetIdentityCredentialRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PromptCryptoObjectService_GetMac_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMacRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PromptCryptoObjectServiceServer).GetMac(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PromptCryptoObjectService_GetMac_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PromptCryptoObjectServiceServer).GetMac(ctx, req.(*GetMacRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PromptCryptoObjectService_GetOperationHandle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetOperationHandleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PromptCryptoObjectServiceServer).GetOperationHandle(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PromptCryptoObjectService_GetOperationHandle_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PromptCryptoObjectServiceServer).GetOperationHandle(ctx, req.(*GetOperationHandleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PromptCryptoObjectService_GetPresentationSession_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPresentationSessionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PromptCryptoObjectServiceServer).GetPresentationSession(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PromptCryptoObjectService_GetPresentationSession_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PromptCryptoObjectServiceServer).GetPresentationSession(ctx, req.(*GetPresentationSessionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PromptCryptoObjectService_GetSignature_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSignatureRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PromptCryptoObjectServiceServer).GetSignature(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PromptCryptoObjectService_GetSignature_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PromptCryptoObjectServiceServer).GetSignature(ctx, req.(*GetSignatureRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// PromptCryptoObjectService_ServiceDesc is the grpc.ServiceDesc for PromptCryptoObjectService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var PromptCryptoObjectService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "biometric.PromptCryptoObjectService",
+	HandlerType: (*PromptCryptoObjectServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetCipher",
+			Handler:    _PromptCryptoObjectService_GetCipher_Handler,
+		},
+		{
+			MethodName: "GetIdentityCredential",
+			Handler:    _PromptCryptoObjectService_GetIdentityCredential_Handler,
+		},
+		{
+			MethodName: "GetMac",
+			Handler:    _PromptCryptoObjectService_GetMac_Handler,
+		},
+		{
+			MethodName: "GetOperationHandle",
+			Handler:    _PromptCryptoObjectService_GetOperationHandle_Handler,
+		},
+		{
+			MethodName: "GetPresentationSession",
+			Handler:    _PromptCryptoObjectService_GetPresentationSession_Handler,
+		},
+		{
+			MethodName: "GetSignature",
+			Handler:    _PromptCryptoObjectService_GetSignature_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/biometric/biometric.proto",
+}

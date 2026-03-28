@@ -5,3 +5,876 @@ syntax = "proto3";
 package adselection;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/adselection";
+
+message GetAdSelectionDataIdRequest {
+}
+
+message GetAdSelectionDataIdResponse {
+  int64 result = 1;
+}
+
+message GetAdSelectionIdRequest {
+}
+
+message GetAdSelectionIdResponse {
+  int64 result = 1;
+}
+
+message GetAdSelectionResultRequest {
+}
+
+message GetAdSelectionResultResponse {
+  int64 result = 1;
+}
+
+message GetSellerRequest {
+}
+
+message GetSellerResponse {
+  int64 result = 1;
+}
+
+message BuildRequest {
+}
+
+message BuildResponse {
+  int64 result = 1;
+}
+
+message SetAdSelectionDataIdRequest {
+  int64 arg0 = 1;
+}
+
+message SetAdSelectionDataIdResponse {
+  int64 result = 1;
+}
+
+message SetAdSelectionIdRequest {
+  int64 arg0 = 1;
+}
+
+message SetAdSelectionIdResponse {
+  int64 result = 1;
+}
+
+message SetAdSelectionResultRequest {
+  int64 arg0 = 1;
+}
+
+message SetAdSelectionResultResponse {
+  int64 result = 1;
+}
+
+message SetSellerRequest {
+  int64 arg0 = 1;
+}
+
+message SetSellerResponse {
+  int64 result = 1;
+}
+
+message DescribeContentsRequest {
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message EqualsRequest {
+  int64 arg0 = 1;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message GetMaximumPayloadSizeBytesRequest {
+}
+
+message GetMaximumPayloadSizeBytesResponse {
+  int32 result = 1;
+}
+
+message HashCodeRequest {
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteToParcelResponse {
+}
+
+message SetMaximumPayloadSizeBytesRequest {
+  int32 arg0 = 1;
+}
+
+message SetMaximumPayloadSizeBytesResponse {
+  int64 result = 1;
+}
+
+message NewRemoveAdSelectionFromOutcomesOverrideRequestRequest {
+  int64 arg0 = 1;
+}
+
+message NewRemoveAdSelectionFromOutcomesOverrideRequestResponse {
+  int64 result = 1;
+}
+
+message GetAdSelectionFromOutcomesConfigRequest {
+  int64 handle = 1;
+}
+
+message GetAdSelectionFromOutcomesConfigResponse {
+  int64 result = 1;
+}
+
+message GetAdEventTypeRequest {
+}
+
+message GetAdEventTypeResponse {
+  int32 result = 1;
+}
+
+message GetCallerAdTechRequest {
+}
+
+message GetCallerAdTechResponse {
+  int64 result = 1;
+}
+
+message ToStringRequest {
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message SetAdEventTypeRequest {
+  int32 arg0 = 1;
+}
+
+message SetAdEventTypeResponse {
+  int64 result = 1;
+}
+
+message SetCallerAdTechRequest {
+  int64 arg0 = 1;
+}
+
+message SetCallerAdTechResponse {
+  int64 result = 1;
+}
+
+message GetBuyerRequest {
+}
+
+message GetBuyerResponse {
+  int64 result = 1;
+}
+
+message GetTargetInputSizeBytesRequest {
+}
+
+message GetTargetInputSizeBytesResponse {
+  int32 result = 1;
+}
+
+message SetBuyerRequest {
+  int64 arg0 = 1;
+}
+
+message SetBuyerResponse {
+  int64 result = 1;
+}
+
+message SetTargetInputSizeBytesRequest {
+  int32 arg0 = 1;
+}
+
+message SetTargetInputSizeBytesResponse {
+  int64 result = 1;
+}
+
+message GetTestAdSelectionManagerRequest {
+}
+
+message GetTestAdSelectionManagerResponse {
+  int64 result = 1;
+}
+
+message GetRequest {
+  int64 arg0 = 1;
+}
+
+message GetResponse {
+  int64 result = 1;
+}
+
+message GetDataRequest {
+}
+
+message GetDataResponse {
+  string result = 1;
+}
+
+message GetInputEventRequest {
+}
+
+message GetInputEventResponse {
+  int64 result = 1;
+}
+
+message GetKeyRequest {
+}
+
+message GetKeyResponse {
+  string result = 1;
+}
+
+message GetReportingDestinationsRequest {
+}
+
+message GetReportingDestinationsResponse {
+  int32 result = 1;
+}
+
+message SetDataRequest {
+  string arg0 = 1;
+}
+
+message SetDataResponse {
+  int64 result = 1;
+}
+
+message SetInputEventRequest {
+  int64 arg0 = 1;
+}
+
+message SetInputEventResponse {
+  int64 result = 1;
+}
+
+message SetKeyRequest {
+  string arg0 = 1;
+}
+
+message SetKeyResponse {
+  int64 result = 1;
+}
+
+message SetReportingDestinationsRequest {
+  int32 arg0 = 1;
+}
+
+message SetReportingDestinationsResponse {
+  int64 result = 1;
+}
+
+message GetDecisionLogicUriRequest {
+}
+
+message GetDecisionLogicUriResponse {
+  int64 result = 1;
+}
+
+message GetSignatureRequest {
+}
+
+message GetSignatureResponse {
+  int64 result = 1;
+}
+
+message SetDecisionLogicUriRequest {
+  int64 arg0 = 1;
+}
+
+message SetDecisionLogicUriResponse {
+  int64 result = 1;
+}
+
+message SetSignatureRequest {
+  int64 arg0 = 1;
+}
+
+message SetSignatureResponse {
+  int64 result = 1;
+}
+
+message GetSelectionLogicUriRequest {
+}
+
+message GetSelectionLogicUriResponse {
+  int64 result = 1;
+}
+
+message GetSelectionSignalsRequest {
+}
+
+message GetSelectionSignalsResponse {
+  int64 result = 1;
+}
+
+message SetSelectionLogicUriRequest {
+  int64 arg0 = 1;
+}
+
+message SetSelectionLogicUriResponse {
+  int64 result = 1;
+}
+
+message SetSelectionSignalsRequest {
+  int64 arg0 = 1;
+}
+
+message SetSelectionSignalsResponse {
+  int64 result = 1;
+}
+
+message NewAddAdSelectionFromOutcomesOverrideRequestRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message NewAddAdSelectionFromOutcomesOverrideRequestResponse {
+  int64 result = 1;
+}
+
+message GetOutcomeSelectionLogicJsRequest {
+  int64 handle = 1;
+}
+
+message GetOutcomeSelectionLogicJsResponse {
+  string result = 1;
+}
+
+message GetOutcomeSelectionTrustedSignalsRequest {
+  int64 handle = 1;
+}
+
+message GetOutcomeSelectionTrustedSignalsResponse {
+  int64 result = 1;
+}
+
+message NewPerBuyerDecisionLogicRequest {
+  int64 arg0 = 1;
+}
+
+message NewPerBuyerDecisionLogicResponse {
+  int64 result = 1;
+}
+
+message PerBuyerDecisionLogicDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message PerBuyerDecisionLogicEqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message PerBuyerDecisionLogicHashCodeRequest {
+  int64 handle = 1;
+}
+
+message PerBuyerDecisionLogicWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message GetAdSelectionSignalsRequest {
+}
+
+message GetAdSelectionSignalsResponse {
+  int64 result = 1;
+}
+
+message GetSellerSignalsRequest {
+}
+
+message GetSellerSignalsResponse {
+  int64 result = 1;
+}
+
+message GetTrustedScoringSignalsUriRequest {
+}
+
+message GetTrustedScoringSignalsUriResponse {
+  int64 result = 1;
+}
+
+message SetAdSelectionSignalsRequest {
+  int64 arg0 = 1;
+}
+
+message SetAdSelectionSignalsResponse {
+  int64 result = 1;
+}
+
+message SetSellerSignalsRequest {
+  int64 arg0 = 1;
+}
+
+message SetSellerSignalsResponse {
+  int64 result = 1;
+}
+
+message SetTrustedScoringSignalsUriRequest {
+  int64 arg0 = 1;
+}
+
+message SetTrustedScoringSignalsUriResponse {
+  int64 result = 1;
+}
+
+message NewAddAdSelectionOverrideRequestRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message NewAddAdSelectionOverrideRequestResponse {
+  int64 result = 1;
+}
+
+message GetAdSelectionConfigRequest {
+  int64 handle = 1;
+}
+
+message GetAdSelectionConfigResponse {
+  int64 result = 1;
+}
+
+message GetDecisionLogicJsRequest {
+  int64 handle = 1;
+}
+
+message GetDecisionLogicJsResponse {
+  string result = 1;
+}
+
+message GetPerBuyerDecisionLogicRequest {
+  int64 handle = 1;
+}
+
+message GetPerBuyerDecisionLogicResponse {
+  int64 result = 1;
+}
+
+message GetTrustedScoringSignalsRequest {
+  int64 handle = 1;
+}
+
+message GetTrustedScoringSignalsResponse {
+  int64 result = 1;
+}
+
+message NewAdWithBidRequest {
+  int64 arg0 = 1;
+  double arg1 = 2;
+}
+
+message NewAdWithBidResponse {
+  int64 result = 1;
+}
+
+message AdWithBidDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message AdWithBidEqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetAdDataRequest {
+  int64 handle = 1;
+}
+
+message GetAdDataResponse {
+  int64 result = 1;
+}
+
+message GetBidRequest {
+  int64 handle = 1;
+}
+
+message GetBidResponse {
+  double result = 1;
+}
+
+message AdWithBidHashCodeRequest {
+  int64 handle = 1;
+}
+
+message AdWithBidWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message NewRemoveAdSelectionOverrideRequestRequest {
+  int64 arg0 = 1;
+}
+
+message NewRemoveAdSelectionOverrideRequestResponse {
+  int64 result = 1;
+}
+
+message GetAdSelectionDataRequest {
+}
+
+message GetAdSelectionDataResponse {
+  int64 result = 1;
+}
+
+message NewDecisionLogicRequest {
+  string arg0 = 1;
+}
+
+message NewDecisionLogicResponse {
+  int64 result = 1;
+}
+
+message DecisionLogicDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message DecisionLogicEqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetLogicRequest {
+  int64 handle = 1;
+}
+
+message GetLogicResponse {
+  string result = 1;
+}
+
+message DecisionLogicHashCodeRequest {
+  int64 handle = 1;
+}
+
+message DecisionLogicToStringRequest {
+  int64 handle = 1;
+}
+
+message DecisionLogicWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message GetCoordinatorOriginUriRequest {
+}
+
+message GetCoordinatorOriginUriResponse {
+  int64 result = 1;
+}
+
+message GetSellerConfigurationRequest {
+}
+
+message GetSellerConfigurationResponse {
+  int64 result = 1;
+}
+
+message SetCoordinatorOriginUriRequest {
+  int64 arg0 = 1;
+}
+
+message SetCoordinatorOriginUriResponse {
+  int64 result = 1;
+}
+
+message SetSellerConfigurationRequest {
+  int64 arg0 = 1;
+}
+
+message SetSellerConfigurationResponse {
+  int64 result = 1;
+}
+
+message GetRenderUriRequest {
+}
+
+message GetRenderUriResponse {
+  int64 result = 1;
+}
+
+message GetWinningSellerRequest {
+}
+
+message GetWinningSellerResponse {
+  int64 result = 1;
+}
+
+message HasOutcomeRequest {
+}
+
+message HasOutcomeResponse {
+  bool result = 1;
+}
+
+message SetRenderUriRequest {
+  int64 arg0 = 1;
+}
+
+message SetRenderUriResponse {
+  int64 result = 1;
+}
+
+message NewReportImpressionRequestRequest {
+  int64 arg0 = 1;
+}
+
+message NewReportImpressionRequestResponse {
+  int64 result = 1;
+}
+
+message ReportImpressionRequestGetAdSelectionIdRequest {
+  int64 handle = 1;
+}
+
+service PersistAdSelectionResultRequestService {
+  rpc GetAdSelectionDataId (GetAdSelectionDataIdRequest) returns (GetAdSelectionDataIdResponse);
+  rpc GetAdSelectionId (GetAdSelectionIdRequest) returns (GetAdSelectionIdResponse);
+  rpc GetAdSelectionResult (GetAdSelectionResultRequest) returns (GetAdSelectionResultResponse);
+  rpc GetSeller (GetSellerRequest) returns (GetSellerResponse);
+}
+
+service PersistAdSelectionResultRequestBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetAdSelectionDataId (SetAdSelectionDataIdRequest) returns (SetAdSelectionDataIdResponse);
+  rpc SetAdSelectionId (SetAdSelectionIdRequest) returns (SetAdSelectionIdResponse);
+  rpc SetAdSelectionResult (SetAdSelectionResultRequest) returns (SetAdSelectionResultResponse);
+  rpc SetSeller (SetSellerRequest) returns (SetSellerResponse);
+}
+
+service SellerConfigurationService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetMaximumPayloadSizeBytes (GetMaximumPayloadSizeBytesRequest) returns (GetMaximumPayloadSizeBytesResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service SellerConfigurationBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetMaximumPayloadSizeBytes (SetMaximumPayloadSizeBytesRequest) returns (SetMaximumPayloadSizeBytesResponse);
+}
+
+service RemoveAdSelectionFromOutcomesOverrideRequestService {
+  rpc NewRemoveAdSelectionFromOutcomesOverrideRequest (NewRemoveAdSelectionFromOutcomesOverrideRequestRequest) returns (NewRemoveAdSelectionFromOutcomesOverrideRequestResponse);
+  rpc GetAdSelectionFromOutcomesConfig (GetAdSelectionFromOutcomesConfigRequest) returns (GetAdSelectionFromOutcomesConfigResponse);
+}
+
+service SetAppInstallAdvertisersRequestBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+}
+
+service UpdateAdCounterHistogramRequestService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetAdEventType (GetAdEventTypeRequest) returns (GetAdEventTypeResponse);
+  rpc GetAdSelectionId (GetAdSelectionIdRequest) returns (GetAdSelectionIdResponse);
+  rpc GetCallerAdTech (GetCallerAdTechRequest) returns (GetCallerAdTechResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service UpdateAdCounterHistogramRequestBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetAdEventType (SetAdEventTypeRequest) returns (SetAdEventTypeResponse);
+  rpc SetAdSelectionId (SetAdSelectionIdRequest) returns (SetAdSelectionIdResponse);
+  rpc SetCallerAdTech (SetCallerAdTechRequest) returns (SetCallerAdTechResponse);
+}
+
+service PerBuyerConfigurationService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetBuyer (GetBuyerRequest) returns (GetBuyerResponse);
+  rpc GetTargetInputSizeBytes (GetTargetInputSizeBytesRequest) returns (GetTargetInputSizeBytesResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service PerBuyerConfigurationBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetBuyer (SetBuyerRequest) returns (SetBuyerResponse);
+  rpc SetTargetInputSizeBytes (SetTargetInputSizeBytesRequest) returns (SetTargetInputSizeBytesResponse);
+}
+
+service AdSelectionManagerService {
+  rpc GetTestAdSelectionManager (GetTestAdSelectionManagerRequest) returns (GetTestAdSelectionManagerResponse);
+  rpc Get (GetRequest) returns (GetResponse);
+}
+
+service ReportEventRequestService {
+  rpc GetAdSelectionId (GetAdSelectionIdRequest) returns (GetAdSelectionIdResponse);
+  rpc GetData (GetDataRequest) returns (GetDataResponse);
+  rpc GetInputEvent (GetInputEventRequest) returns (GetInputEventResponse);
+  rpc GetKey (GetKeyRequest) returns (GetKeyResponse);
+  rpc GetReportingDestinations (GetReportingDestinationsRequest) returns (GetReportingDestinationsResponse);
+}
+
+service ReportEventRequestBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetAdSelectionId (SetAdSelectionIdRequest) returns (SetAdSelectionIdResponse);
+  rpc SetData (SetDataRequest) returns (SetDataResponse);
+  rpc SetInputEvent (SetInputEventRequest) returns (SetInputEventResponse);
+  rpc SetKey (SetKeyRequest) returns (SetKeyResponse);
+  rpc SetReportingDestinations (SetReportingDestinationsRequest) returns (SetReportingDestinationsResponse);
+}
+
+service SignedContextualAdsService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetBuyer (GetBuyerRequest) returns (GetBuyerResponse);
+  rpc GetDecisionLogicUri (GetDecisionLogicUriRequest) returns (GetDecisionLogicUriResponse);
+  rpc GetSignature (GetSignatureRequest) returns (GetSignatureResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service SignedContextualAdsBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetBuyer (SetBuyerRequest) returns (SetBuyerResponse);
+  rpc SetDecisionLogicUri (SetDecisionLogicUriRequest) returns (SetDecisionLogicUriResponse);
+  rpc SetSignature (SetSignatureRequest) returns (SetSignatureResponse);
+}
+
+service AdSelectionFromOutcomesConfigService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetSelectionLogicUri (GetSelectionLogicUriRequest) returns (GetSelectionLogicUriResponse);
+  rpc GetSelectionSignals (GetSelectionSignalsRequest) returns (GetSelectionSignalsResponse);
+  rpc GetSeller (GetSellerRequest) returns (GetSellerResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service AdSelectionFromOutcomesConfigBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetSelectionLogicUri (SetSelectionLogicUriRequest) returns (SetSelectionLogicUriResponse);
+  rpc SetSelectionSignals (SetSelectionSignalsRequest) returns (SetSelectionSignalsResponse);
+  rpc SetSeller (SetSellerRequest) returns (SetSellerResponse);
+}
+
+service AddAdSelectionFromOutcomesOverrideRequestService {
+  rpc NewAddAdSelectionFromOutcomesOverrideRequest (NewAddAdSelectionFromOutcomesOverrideRequestRequest) returns (NewAddAdSelectionFromOutcomesOverrideRequestResponse);
+  rpc GetAdSelectionFromOutcomesConfig (GetAdSelectionFromOutcomesConfigRequest) returns (GetAdSelectionFromOutcomesConfigResponse);
+  rpc GetOutcomeSelectionLogicJs (GetOutcomeSelectionLogicJsRequest) returns (GetOutcomeSelectionLogicJsResponse);
+  rpc GetOutcomeSelectionTrustedSignals (GetOutcomeSelectionTrustedSignalsRequest) returns (GetOutcomeSelectionTrustedSignalsResponse);
+}
+
+service PerBuyerDecisionLogicService {
+  rpc NewPerBuyerDecisionLogic (NewPerBuyerDecisionLogicRequest) returns (NewPerBuyerDecisionLogicResponse);
+  rpc DescribeContents (PerBuyerDecisionLogicDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (PerBuyerDecisionLogicEqualsRequest) returns (EqualsResponse);
+  rpc HashCode (PerBuyerDecisionLogicHashCodeRequest) returns (HashCodeResponse);
+  rpc WriteToParcel (PerBuyerDecisionLogicWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service AdSelectionConfigService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetAdSelectionSignals (GetAdSelectionSignalsRequest) returns (GetAdSelectionSignalsResponse);
+  rpc GetDecisionLogicUri (GetDecisionLogicUriRequest) returns (GetDecisionLogicUriResponse);
+  rpc GetSeller (GetSellerRequest) returns (GetSellerResponse);
+  rpc GetSellerSignals (GetSellerSignalsRequest) returns (GetSellerSignalsResponse);
+  rpc GetTrustedScoringSignalsUri (GetTrustedScoringSignalsUriRequest) returns (GetTrustedScoringSignalsUriResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service AdSelectionConfigBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetAdSelectionSignals (SetAdSelectionSignalsRequest) returns (SetAdSelectionSignalsResponse);
+  rpc SetDecisionLogicUri (SetDecisionLogicUriRequest) returns (SetDecisionLogicUriResponse);
+  rpc SetSeller (SetSellerRequest) returns (SetSellerResponse);
+  rpc SetSellerSignals (SetSellerSignalsRequest) returns (SetSellerSignalsResponse);
+  rpc SetTrustedScoringSignalsUri (SetTrustedScoringSignalsUriRequest) returns (SetTrustedScoringSignalsUriResponse);
+}
+
+service AddAdSelectionOverrideRequestService {
+  rpc NewAddAdSelectionOverrideRequest (NewAddAdSelectionOverrideRequestRequest) returns (NewAddAdSelectionOverrideRequestResponse);
+  rpc GetAdSelectionConfig (GetAdSelectionConfigRequest) returns (GetAdSelectionConfigResponse);
+  rpc GetDecisionLogicJs (GetDecisionLogicJsRequest) returns (GetDecisionLogicJsResponse);
+  rpc GetPerBuyerDecisionLogic (GetPerBuyerDecisionLogicRequest) returns (GetPerBuyerDecisionLogicResponse);
+  rpc GetTrustedScoringSignals (GetTrustedScoringSignalsRequest) returns (GetTrustedScoringSignalsResponse);
+}
+
+service AdWithBidService {
+  rpc NewAdWithBid (NewAdWithBidRequest) returns (NewAdWithBidResponse);
+  rpc DescribeContents (AdWithBidDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (AdWithBidEqualsRequest) returns (EqualsResponse);
+  rpc GetAdData (GetAdDataRequest) returns (GetAdDataResponse);
+  rpc GetBid (GetBidRequest) returns (GetBidResponse);
+  rpc HashCode (AdWithBidHashCodeRequest) returns (HashCodeResponse);
+  rpc WriteToParcel (AdWithBidWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service RemoveAdSelectionOverrideRequestService {
+  rpc NewRemoveAdSelectionOverrideRequest (NewRemoveAdSelectionOverrideRequestRequest) returns (NewRemoveAdSelectionOverrideRequestResponse);
+  rpc GetAdSelectionConfig (GetAdSelectionConfigRequest) returns (GetAdSelectionConfigResponse);
+}
+
+service GetAdSelectionDataOutcomeService {
+  rpc GetAdSelectionData (GetAdSelectionDataRequest) returns (GetAdSelectionDataResponse);
+  rpc GetAdSelectionDataId (GetAdSelectionDataIdRequest) returns (GetAdSelectionDataIdResponse);
+  rpc GetAdSelectionId (GetAdSelectionIdRequest) returns (GetAdSelectionIdResponse);
+}
+
+service DecisionLogicService {
+  rpc NewDecisionLogic (NewDecisionLogicRequest) returns (NewDecisionLogicResponse);
+  rpc DescribeContents (DecisionLogicDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (DecisionLogicEqualsRequest) returns (EqualsResponse);
+  rpc GetLogic (GetLogicRequest) returns (GetLogicResponse);
+  rpc HashCode (DecisionLogicHashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (DecisionLogicToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (DecisionLogicWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service GetAdSelectionDataRequestService {
+  rpc GetCoordinatorOriginUri (GetCoordinatorOriginUriRequest) returns (GetCoordinatorOriginUriResponse);
+  rpc GetSeller (GetSellerRequest) returns (GetSellerResponse);
+  rpc GetSellerConfiguration (GetSellerConfigurationRequest) returns (GetSellerConfigurationResponse);
+}
+
+service GetAdSelectionDataRequestBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetCoordinatorOriginUri (SetCoordinatorOriginUriRequest) returns (SetCoordinatorOriginUriResponse);
+  rpc SetSeller (SetSellerRequest) returns (SetSellerResponse);
+  rpc SetSellerConfiguration (SetSellerConfigurationRequest) returns (SetSellerConfigurationResponse);
+}
+
+service AdSelectionOutcomeService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetAdSelectionId (GetAdSelectionIdRequest) returns (GetAdSelectionIdResponse);
+  rpc GetRenderUri (GetRenderUriRequest) returns (GetRenderUriResponse);
+  rpc GetWinningSeller (GetWinningSellerRequest) returns (GetWinningSellerResponse);
+  rpc HasOutcome (HasOutcomeRequest) returns (HasOutcomeResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service AdSelectionOutcomeBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetAdSelectionId (SetAdSelectionIdRequest) returns (SetAdSelectionIdResponse);
+  rpc SetRenderUri (SetRenderUriRequest) returns (SetRenderUriResponse);
+}
+
+service ReportImpressionRequestService {
+  rpc NewReportImpressionRequest (NewReportImpressionRequestRequest) returns (NewReportImpressionRequestResponse);
+  rpc GetAdSelectionConfig (GetAdSelectionConfigRequest) returns (GetAdSelectionConfigResponse);
+  rpc GetAdSelectionId (ReportImpressionRequestGetAdSelectionIdRequest) returns (GetAdSelectionIdResponse);
+}

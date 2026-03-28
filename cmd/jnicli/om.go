@@ -12,6 +12,472 @@ var omCmd = &cobra.Command{
 	Short: "om service operations",
 }
 
+var omFabricatedOverlayCmd = &cobra.Command{
+	Use:   "fabricated-overlay",
+	Short: "FabricatedOverlayService operations",
+}
+
+var omFabricatedOverlayNewFabricatedOverlayCmd = &cobra.Command{
+	Use:   "new-fabricated-overlay",
+	Short: "NewFabricatedOverlay RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFabricatedOverlayServiceClient(grpcConn)
+		req := &pb.NewFabricatedOverlayRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewFabricatedOverlay(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var omFabricatedOverlayGetIdentifierCmd = &cobra.Command{
+	Use:   "get-identifier",
+	Short: "GetIdentifier RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFabricatedOverlayServiceClient(grpcConn)
+		req := &pb.GetIdentifierRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetIdentifier(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var omFabricatedOverlaySetNinePatchResourceValueCmd = &cobra.Command{
+	Use:   "set-nine-patch-resource-value",
+	Short: "SetNinePatchResourceValue RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFabricatedOverlayServiceClient(grpcConn)
+		req := &pb.SetNinePatchResourceValueRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.SetNinePatchResourceValue(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var omFabricatedOverlaySetResourceValue3Cmd = &cobra.Command{
+	Use:   "set-resource-value3",
+	Short: "SetResourceValue3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFabricatedOverlayServiceClient(grpcConn)
+		req := &pb.SetResourceValue3Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.SetResourceValue3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var omFabricatedOverlaySetResourceValue3_1Cmd = &cobra.Command{
+	Use:   "set-resource-value3_1",
+	Short: "SetResourceValue3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFabricatedOverlayServiceClient(grpcConn)
+		req := &pb.SetResourceValue3_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.SetResourceValue3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var omFabricatedOverlaySetResourceValue4_2Cmd = &cobra.Command{
+	Use:   "set-resource-value4_2",
+	Short: "SetResourceValue4_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFabricatedOverlayServiceClient(grpcConn)
+		req := &pb.SetResourceValue4_2Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetString("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.SetResourceValue4_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var omFabricatedOverlaySetResourceValue4_3Cmd = &cobra.Command{
+	Use:   "set-resource-value4_3",
+	Short: "SetResourceValue4_3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFabricatedOverlayServiceClient(grpcConn)
+		req := &pb.SetResourceValue4_3Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetString("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.SetResourceValue4_3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var omFabricatedOverlaySetTargetOverlayableCmd = &cobra.Command{
+	Use:   "set-target-overlayable",
+	Short: "SetTargetOverlayable RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFabricatedOverlayServiceClient(grpcConn)
+		req := &pb.SetTargetOverlayableRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetTargetOverlayable(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var omOverlayIdentifierCmd = &cobra.Command{
+	Use:   "overlay-identifier",
+	Short: "OverlayIdentifierService operations",
+}
+
+var omOverlayIdentifierDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOverlayIdentifierServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var omOverlayIdentifierEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOverlayIdentifierServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var omOverlayIdentifierHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOverlayIdentifierServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var omOverlayIdentifierToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOverlayIdentifierServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var omOverlayIdentifierWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOverlayIdentifierServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var omOverlayInfoCmd = &cobra.Command{
+	Use:   "overlay-info",
+	Short: "OverlayInfoService operations",
+}
+
+var omOverlayInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOverlayInfoServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var omOverlayInfoEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOverlayInfoServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var omOverlayInfoGetOverlayIdentifierCmd = &cobra.Command{
+	Use:   "get-overlay-identifier",
+	Short: "GetOverlayIdentifier RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOverlayInfoServiceClient(grpcConn)
+		req := &pb.GetOverlayIdentifierRequest{}
+		resp, err := client.GetOverlayIdentifier(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var omOverlayInfoGetOverlayNameCmd = &cobra.Command{
+	Use:   "get-overlay-name",
+	Short: "GetOverlayName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOverlayInfoServiceClient(grpcConn)
+		req := &pb.GetOverlayNameRequest{}
+		resp, err := client.GetOverlayName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var omOverlayInfoGetTargetOverlayableNameCmd = &cobra.Command{
+	Use:   "get-target-overlayable-name",
+	Short: "GetTargetOverlayableName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOverlayInfoServiceClient(grpcConn)
+		req := &pb.GetTargetOverlayableNameRequest{}
+		resp, err := client.GetTargetOverlayableName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var omOverlayInfoGetTargetPackageNameCmd = &cobra.Command{
+	Use:   "get-target-package-name",
+	Short: "GetTargetPackageName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOverlayInfoServiceClient(grpcConn)
+		req := &pb.GetTargetPackageNameRequest{}
+		resp, err := client.GetTargetPackageName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var omOverlayInfoHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOverlayInfoServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var omOverlayInfoToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOverlayInfoServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var omOverlayInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOverlayInfoServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var omOverlayManagerCmd = &cobra.Command{
 	Use:   "overlay-manager",
 	Short: "OverlayManagerService operations",
@@ -36,9 +502,191 @@ var omOverlayManagerCommitCmd = &cobra.Command{
 	},
 }
 
+var omOverlayManagerTransactionCmd = &cobra.Command{
+	Use:   "overlay-manager-transaction",
+	Short: "OverlayManagerTransactionService operations",
+}
+
+var omOverlayManagerTransactionDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOverlayManagerTransactionServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var omOverlayManagerTransactionRegisterFabricatedOverlayCmd = &cobra.Command{
+	Use:   "register-fabricated-overlay",
+	Short: "RegisterFabricatedOverlay RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOverlayManagerTransactionServiceClient(grpcConn)
+		req := &pb.RegisterFabricatedOverlayRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RegisterFabricatedOverlay(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var omOverlayManagerTransactionToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOverlayManagerTransactionServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var omOverlayManagerTransactionUnregisterFabricatedOverlayCmd = &cobra.Command{
+	Use:   "unregister-fabricated-overlay",
+	Short: "UnregisterFabricatedOverlay RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOverlayManagerTransactionServiceClient(grpcConn)
+		req := &pb.UnregisterFabricatedOverlayRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.UnregisterFabricatedOverlay(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var omOverlayManagerTransactionWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOverlayManagerTransactionServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var omOverlayManagerTransactionNewInstanceCmd = &cobra.Command{
+	Use:   "new-instance",
+	Short: "NewInstance RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOverlayManagerTransactionServiceClient(grpcConn)
+		req := &pb.NewInstanceRequest{}
+		resp, err := client.NewInstance(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 func init() {
+	omFabricatedOverlayNewFabricatedOverlayCmd.Flags().String("arg0", "", "arg0 (string)")
+	omFabricatedOverlayNewFabricatedOverlayCmd.Flags().String("arg1", "", "arg1 (string)")
+	omFabricatedOverlayCmd.AddCommand(omFabricatedOverlayNewFabricatedOverlayCmd)
+	omFabricatedOverlayGetIdentifierCmd.Flags().Int64("handle", 0, "handle (int64)")
+	omFabricatedOverlayCmd.AddCommand(omFabricatedOverlayGetIdentifierCmd)
+	omFabricatedOverlaySetNinePatchResourceValueCmd.Flags().Int64("handle", 0, "handle (int64)")
+	omFabricatedOverlaySetNinePatchResourceValueCmd.Flags().String("arg0", "", "arg0 (string)")
+	omFabricatedOverlaySetNinePatchResourceValueCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	omFabricatedOverlaySetNinePatchResourceValueCmd.Flags().String("arg2", "", "arg2 (string)")
+	omFabricatedOverlayCmd.AddCommand(omFabricatedOverlaySetNinePatchResourceValueCmd)
+	omFabricatedOverlaySetResourceValue3Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	omFabricatedOverlaySetResourceValue3Cmd.Flags().String("arg0", "", "arg0 (string)")
+	omFabricatedOverlaySetResourceValue3Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	omFabricatedOverlaySetResourceValue3Cmd.Flags().String("arg2", "", "arg2 (string)")
+	omFabricatedOverlayCmd.AddCommand(omFabricatedOverlaySetResourceValue3Cmd)
+	omFabricatedOverlaySetResourceValue3_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	omFabricatedOverlaySetResourceValue3_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	omFabricatedOverlaySetResourceValue3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	omFabricatedOverlaySetResourceValue3_1Cmd.Flags().String("arg2", "", "arg2 (string)")
+	omFabricatedOverlayCmd.AddCommand(omFabricatedOverlaySetResourceValue3_1Cmd)
+	omFabricatedOverlaySetResourceValue4_2Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	omFabricatedOverlaySetResourceValue4_2Cmd.Flags().String("arg0", "", "arg0 (string)")
+	omFabricatedOverlaySetResourceValue4_2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	omFabricatedOverlaySetResourceValue4_2Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	omFabricatedOverlaySetResourceValue4_2Cmd.Flags().String("arg3", "", "arg3 (string)")
+	omFabricatedOverlayCmd.AddCommand(omFabricatedOverlaySetResourceValue4_2Cmd)
+	omFabricatedOverlaySetResourceValue4_3Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	omFabricatedOverlaySetResourceValue4_3Cmd.Flags().String("arg0", "", "arg0 (string)")
+	omFabricatedOverlaySetResourceValue4_3Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	omFabricatedOverlaySetResourceValue4_3Cmd.Flags().String("arg2", "", "arg2 (string)")
+	omFabricatedOverlaySetResourceValue4_3Cmd.Flags().String("arg3", "", "arg3 (string)")
+	omFabricatedOverlayCmd.AddCommand(omFabricatedOverlaySetResourceValue4_3Cmd)
+	omFabricatedOverlaySetTargetOverlayableCmd.Flags().Int64("handle", 0, "handle (int64)")
+	omFabricatedOverlaySetTargetOverlayableCmd.Flags().String("arg0", "", "arg0 (string)")
+	omFabricatedOverlayCmd.AddCommand(omFabricatedOverlaySetTargetOverlayableCmd)
+	omCmd.AddCommand(omFabricatedOverlayCmd)
+	omOverlayIdentifierCmd.AddCommand(omOverlayIdentifierDescribeContentsCmd)
+	omOverlayIdentifierEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	omOverlayIdentifierCmd.AddCommand(omOverlayIdentifierEqualsCmd)
+	omOverlayIdentifierCmd.AddCommand(omOverlayIdentifierHashCodeCmd)
+	omOverlayIdentifierCmd.AddCommand(omOverlayIdentifierToStringCmd)
+	omOverlayIdentifierWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	omOverlayIdentifierWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	omOverlayIdentifierCmd.AddCommand(omOverlayIdentifierWriteToParcelCmd)
+	omCmd.AddCommand(omOverlayIdentifierCmd)
+	omOverlayInfoCmd.AddCommand(omOverlayInfoDescribeContentsCmd)
+	omOverlayInfoEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	omOverlayInfoCmd.AddCommand(omOverlayInfoEqualsCmd)
+	omOverlayInfoCmd.AddCommand(omOverlayInfoGetOverlayIdentifierCmd)
+	omOverlayInfoCmd.AddCommand(omOverlayInfoGetOverlayNameCmd)
+	omOverlayInfoCmd.AddCommand(omOverlayInfoGetTargetOverlayableNameCmd)
+	omOverlayInfoCmd.AddCommand(omOverlayInfoGetTargetPackageNameCmd)
+	omOverlayInfoCmd.AddCommand(omOverlayInfoHashCodeCmd)
+	omOverlayInfoCmd.AddCommand(omOverlayInfoToStringCmd)
+	omOverlayInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	omOverlayInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	omOverlayInfoCmd.AddCommand(omOverlayInfoWriteToParcelCmd)
+	omCmd.AddCommand(omOverlayInfoCmd)
 	omOverlayManagerCommitCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	omOverlayManagerCmd.AddCommand(omOverlayManagerCommitCmd)
 	omCmd.AddCommand(omOverlayManagerCmd)
+	omOverlayManagerTransactionCmd.AddCommand(omOverlayManagerTransactionDescribeContentsCmd)
+	omOverlayManagerTransactionRegisterFabricatedOverlayCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	omOverlayManagerTransactionCmd.AddCommand(omOverlayManagerTransactionRegisterFabricatedOverlayCmd)
+	omOverlayManagerTransactionCmd.AddCommand(omOverlayManagerTransactionToStringCmd)
+	omOverlayManagerTransactionUnregisterFabricatedOverlayCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	omOverlayManagerTransactionCmd.AddCommand(omOverlayManagerTransactionUnregisterFabricatedOverlayCmd)
+	omOverlayManagerTransactionWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	omOverlayManagerTransactionWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	omOverlayManagerTransactionCmd.AddCommand(omOverlayManagerTransactionWriteToParcelCmd)
+	omOverlayManagerTransactionCmd.AddCommand(omOverlayManagerTransactionNewInstanceCmd)
+	omCmd.AddCommand(omOverlayManagerTransactionCmd)
 	rootCmd.AddCommand(omCmd)
 }

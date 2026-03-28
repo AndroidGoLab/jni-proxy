@@ -12,6 +12,1492 @@ var adminCmd = &cobra.Command{
 	Short: "admin service operations",
 }
 
+var adminFactoryResetProtectionPolicyCmd = &cobra.Command{
+	Use:   "factory-reset-protection-policy",
+	Short: "FactoryResetProtectionPolicyService operations",
+}
+
+var adminFactoryResetProtectionPolicyDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFactoryResetProtectionPolicyServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminFactoryResetProtectionPolicyIsFactoryResetProtectionEnabledCmd = &cobra.Command{
+	Use:   "is-factory-reset-protection-enabled",
+	Short: "IsFactoryResetProtectionEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFactoryResetProtectionPolicyServiceClient(grpcConn)
+		req := &pb.IsFactoryResetProtectionEnabledRequest{}
+		resp, err := client.IsFactoryResetProtectionEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminFactoryResetProtectionPolicyToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFactoryResetProtectionPolicyServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminFactoryResetProtectionPolicyWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFactoryResetProtectionPolicyServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminFactoryResetProtectionPolicyBuilderCmd = &cobra.Command{
+	Use:   "factory-reset-protection-policy-builder",
+	Short: "FactoryResetProtectionPolicyBuilderService operations",
+}
+
+var adminFactoryResetProtectionPolicyBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFactoryResetProtectionPolicyBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminFactoryResetProtectionPolicyBuilderSetFactoryResetProtectionEnabledCmd = &cobra.Command{
+	Use:   "set-factory-reset-protection-enabled",
+	Short: "SetFactoryResetProtectionEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFactoryResetProtectionPolicyBuilderServiceClient(grpcConn)
+		req := &pb.SetFactoryResetProtectionEnabledRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetFactoryResetProtectionEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDeviceAdminServiceCmd = &cobra.Command{
+	Use:   "device-admin-service",
+	Short: "DeviceAdminServiceService operations",
+}
+
+var adminDeviceAdminServiceNewDeviceAdminServiceCmd = &cobra.Command{
+	Use:   "new-device-admin-service",
+	Short: "NewDeviceAdminService RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceAdminServiceServiceClient(grpcConn)
+		req := &pb.NewDeviceAdminServiceRequest{}
+		resp, err := client.NewDeviceAdminService(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDeviceAdminServiceOnBindCmd = &cobra.Command{
+	Use:   "on-bind",
+	Short: "OnBind RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceAdminServiceServiceClient(grpcConn)
+		req := &pb.OnBindRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnBind(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminPolicyUpdateReceiverCmd = &cobra.Command{
+	Use:   "policy-update-receiver",
+	Short: "PolicyUpdateReceiverService operations",
+}
+
+var adminPolicyUpdateReceiverOnPolicyChangedCmd = &cobra.Command{
+	Use:   "on-policy-changed",
+	Short: "OnPolicyChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPolicyUpdateReceiverServiceClient(grpcConn)
+		req := &pb.OnPolicyChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.OnPolicyChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminPolicyUpdateReceiverOnPolicySetResultCmd = &cobra.Command{
+	Use:   "on-policy-set-result",
+	Short: "OnPolicySetResult RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPolicyUpdateReceiverServiceClient(grpcConn)
+		req := &pb.OnPolicySetResultRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.OnPolicySetResult(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminPolicyUpdateReceiverOnReceiveCmd = &cobra.Command{
+	Use:   "on-receive",
+	Short: "OnReceive RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPolicyUpdateReceiverServiceClient(grpcConn)
+		req := &pb.OnReceiveRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnReceive(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminWifiSsidPolicyCmd = &cobra.Command{
+	Use:   "wifi-ssid-policy",
+	Short: "WifiSsidPolicyService operations",
+}
+
+var adminWifiSsidPolicyNewWifiSsidPolicyCmd = &cobra.Command{
+	Use:   "new-wifi-ssid-policy",
+	Short: "NewWifiSsidPolicy RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWifiSsidPolicyServiceClient(grpcConn)
+		req := &pb.NewWifiSsidPolicyRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewWifiSsidPolicy(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminWifiSsidPolicyDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWifiSsidPolicyServiceClient(grpcConn)
+		req := &pb.WifiSsidPolicyDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminWifiSsidPolicyEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWifiSsidPolicyServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminWifiSsidPolicyGetPolicyTypeCmd = &cobra.Command{
+	Use:   "get-policy-type",
+	Short: "GetPolicyType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWifiSsidPolicyServiceClient(grpcConn)
+		req := &pb.GetPolicyTypeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetPolicyType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminWifiSsidPolicyHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWifiSsidPolicyServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminWifiSsidPolicyWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWifiSsidPolicyServiceClient(grpcConn)
+		req := &pb.WifiSsidPolicyWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminPackagePolicyCmd = &cobra.Command{
+	Use:   "package-policy",
+	Short: "PackagePolicyService operations",
+}
+
+var adminPackagePolicyNewPackagePolicyCmd = &cobra.Command{
+	Use:   "new-package-policy",
+	Short: "NewPackagePolicy RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackagePolicyServiceClient(grpcConn)
+		req := &pb.NewPackagePolicyRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewPackagePolicy(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminPackagePolicyDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackagePolicyServiceClient(grpcConn)
+		req := &pb.PackagePolicyDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminPackagePolicyEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackagePolicyServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminPackagePolicyGetPolicyTypeCmd = &cobra.Command{
+	Use:   "get-policy-type",
+	Short: "GetPolicyType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackagePolicyServiceClient(grpcConn)
+		req := &pb.GetPolicyTypeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetPolicyType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminPackagePolicyHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackagePolicyServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminPackagePolicyWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPackagePolicyServiceClient(grpcConn)
+		req := &pb.PackagePolicyWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminUnsafeStateExceptionCmd = &cobra.Command{
+	Use:   "unsafe-state-exception",
+	Short: "UnsafeStateExceptionService operations",
+}
+
+var adminUnsafeStateExceptionDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUnsafeStateExceptionServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminUnsafeStateExceptionGetMessageCmd = &cobra.Command{
+	Use:   "get-message",
+	Short: "GetMessage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUnsafeStateExceptionServiceClient(grpcConn)
+		req := &pb.GetMessageRequest{}
+		resp, err := client.GetMessage(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminUnsafeStateExceptionWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUnsafeStateExceptionServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminFreezePeriodCmd = &cobra.Command{
+	Use:   "freeze-period",
+	Short: "FreezePeriodService operations",
+}
+
+var adminFreezePeriodNewFreezePeriodCmd = &cobra.Command{
+	Use:   "new-freeze-period",
+	Short: "NewFreezePeriod RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFreezePeriodServiceClient(grpcConn)
+		req := &pb.NewFreezePeriodRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewFreezePeriod(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminFreezePeriodGetEndCmd = &cobra.Command{
+	Use:   "get-end",
+	Short: "GetEnd RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFreezePeriodServiceClient(grpcConn)
+		req := &pb.GetEndRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetEnd(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminFreezePeriodGetStartCmd = &cobra.Command{
+	Use:   "get-start",
+	Short: "GetStart RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFreezePeriodServiceClient(grpcConn)
+		req := &pb.GetStartRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetStart(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminFreezePeriodToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFreezePeriodServiceClient(grpcConn)
+		req := &pb.FreezePeriodToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminPolicyUpdateResultCmd = &cobra.Command{
+	Use:   "policy-update-result",
+	Short: "PolicyUpdateResultService operations",
+}
+
+var adminPolicyUpdateResultNewPolicyUpdateResultCmd = &cobra.Command{
+	Use:   "new-policy-update-result",
+	Short: "NewPolicyUpdateResult RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPolicyUpdateResultServiceClient(grpcConn)
+		req := &pb.NewPolicyUpdateResultRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewPolicyUpdateResult(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminPolicyUpdateResultGetResultCodeCmd = &cobra.Command{
+	Use:   "get-result-code",
+	Short: "GetResultCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPolicyUpdateResultServiceClient(grpcConn)
+		req := &pb.GetResultCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetResultCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminPreferentialNetworkServiceConfigCmd = &cobra.Command{
+	Use:   "preferential-network-service-config",
+	Short: "PreferentialNetworkServiceConfigService operations",
+}
+
+var adminPreferentialNetworkServiceConfigDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferentialNetworkServiceConfigServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminPreferentialNetworkServiceConfigEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferentialNetworkServiceConfigServiceClient(grpcConn)
+		req := &pb.PreferentialNetworkServiceConfigEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminPreferentialNetworkServiceConfigGetExcludedUidsCmd = &cobra.Command{
+	Use:   "get-excluded-uids",
+	Short: "GetExcludedUids RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferentialNetworkServiceConfigServiceClient(grpcConn)
+		req := &pb.GetExcludedUidsRequest{}
+		resp, err := client.GetExcludedUids(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminPreferentialNetworkServiceConfigGetIncludedUidsCmd = &cobra.Command{
+	Use:   "get-included-uids",
+	Short: "GetIncludedUids RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferentialNetworkServiceConfigServiceClient(grpcConn)
+		req := &pb.GetIncludedUidsRequest{}
+		resp, err := client.GetIncludedUids(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminPreferentialNetworkServiceConfigGetNetworkIdCmd = &cobra.Command{
+	Use:   "get-network-id",
+	Short: "GetNetworkId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferentialNetworkServiceConfigServiceClient(grpcConn)
+		req := &pb.GetNetworkIdRequest{}
+		resp, err := client.GetNetworkId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminPreferentialNetworkServiceConfigHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferentialNetworkServiceConfigServiceClient(grpcConn)
+		req := &pb.PreferentialNetworkServiceConfigHashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminPreferentialNetworkServiceConfigIsEnabledCmd = &cobra.Command{
+	Use:   "is-enabled",
+	Short: "IsEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferentialNetworkServiceConfigServiceClient(grpcConn)
+		req := &pb.IsEnabledRequest{}
+		resp, err := client.IsEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminPreferentialNetworkServiceConfigIsFallbackToDefaultConnectionAllowedCmd = &cobra.Command{
+	Use:   "is-fallback-to-default-connection-allowed",
+	Short: "IsFallbackToDefaultConnectionAllowed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferentialNetworkServiceConfigServiceClient(grpcConn)
+		req := &pb.IsFallbackToDefaultConnectionAllowedRequest{}
+		resp, err := client.IsFallbackToDefaultConnectionAllowed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminPreferentialNetworkServiceConfigShouldBlockNonMatchingNetworksCmd = &cobra.Command{
+	Use:   "should-block-non-matching-networks",
+	Short: "ShouldBlockNonMatchingNetworks RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferentialNetworkServiceConfigServiceClient(grpcConn)
+		req := &pb.ShouldBlockNonMatchingNetworksRequest{}
+		resp, err := client.ShouldBlockNonMatchingNetworks(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminPreferentialNetworkServiceConfigToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferentialNetworkServiceConfigServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminPreferentialNetworkServiceConfigWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferentialNetworkServiceConfigServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminPreferentialNetworkServiceConfigBuilderCmd = &cobra.Command{
+	Use:   "preferential-network-service-config-builder",
+	Short: "PreferentialNetworkServiceConfigBuilderService operations",
+}
+
+var adminPreferentialNetworkServiceConfigBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferentialNetworkServiceConfigBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminPreferentialNetworkServiceConfigBuilderSetEnabledCmd = &cobra.Command{
+	Use:   "set-enabled",
+	Short: "SetEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferentialNetworkServiceConfigBuilderServiceClient(grpcConn)
+		req := &pb.SetEnabledRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminPreferentialNetworkServiceConfigBuilderSetExcludedUidsCmd = &cobra.Command{
+	Use:   "set-excluded-uids",
+	Short: "SetExcludedUids RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferentialNetworkServiceConfigBuilderServiceClient(grpcConn)
+		req := &pb.SetExcludedUidsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetExcludedUids(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminPreferentialNetworkServiceConfigBuilderSetFallbackToDefaultConnectionAllowedCmd = &cobra.Command{
+	Use:   "set-fallback-to-default-connection-allowed",
+	Short: "SetFallbackToDefaultConnectionAllowed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferentialNetworkServiceConfigBuilderServiceClient(grpcConn)
+		req := &pb.SetFallbackToDefaultConnectionAllowedRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetFallbackToDefaultConnectionAllowed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminPreferentialNetworkServiceConfigBuilderSetIncludedUidsCmd = &cobra.Command{
+	Use:   "set-included-uids",
+	Short: "SetIncludedUids RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferentialNetworkServiceConfigBuilderServiceClient(grpcConn)
+		req := &pb.SetIncludedUidsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetIncludedUids(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminPreferentialNetworkServiceConfigBuilderSetNetworkIdCmd = &cobra.Command{
+	Use:   "set-network-id",
+	Short: "SetNetworkId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferentialNetworkServiceConfigBuilderServiceClient(grpcConn)
+		req := &pb.SetNetworkIdRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetNetworkId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminPreferentialNetworkServiceConfigBuilderSetShouldBlockNonMatchingNetworksCmd = &cobra.Command{
+	Use:   "set-should-block-non-matching-networks",
+	Short: "SetShouldBlockNonMatchingNetworks RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreferentialNetworkServiceConfigBuilderServiceClient(grpcConn)
+		req := &pb.SetShouldBlockNonMatchingNetworksRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetShouldBlockNonMatchingNetworks(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminSecurityLogSecurityEventCmd = &cobra.Command{
+	Use:   "security-log-security-event",
+	Short: "SecurityLogSecurityEventService operations",
+}
+
+var adminSecurityLogSecurityEventDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSecurityLogSecurityEventServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminSecurityLogSecurityEventEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSecurityLogSecurityEventServiceClient(grpcConn)
+		req := &pb.SecurityLogSecurityEventEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminSecurityLogSecurityEventGetDataCmd = &cobra.Command{
+	Use:   "get-data",
+	Short: "GetData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSecurityLogSecurityEventServiceClient(grpcConn)
+		req := &pb.GetDataRequest{}
+		resp, err := client.GetData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminSecurityLogSecurityEventGetIdCmd = &cobra.Command{
+	Use:   "get-id",
+	Short: "GetId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSecurityLogSecurityEventServiceClient(grpcConn)
+		req := &pb.GetIdRequest{}
+		resp, err := client.GetId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminSecurityLogSecurityEventGetLogLevelCmd = &cobra.Command{
+	Use:   "get-log-level",
+	Short: "GetLogLevel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSecurityLogSecurityEventServiceClient(grpcConn)
+		req := &pb.GetLogLevelRequest{}
+		resp, err := client.GetLogLevel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminSecurityLogSecurityEventGetTagCmd = &cobra.Command{
+	Use:   "get-tag",
+	Short: "GetTag RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSecurityLogSecurityEventServiceClient(grpcConn)
+		req := &pb.GetTagRequest{}
+		resp, err := client.GetTag(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminSecurityLogSecurityEventGetTimeNanosCmd = &cobra.Command{
+	Use:   "get-time-nanos",
+	Short: "GetTimeNanos RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSecurityLogSecurityEventServiceClient(grpcConn)
+		req := &pb.GetTimeNanosRequest{}
+		resp, err := client.GetTimeNanos(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminSecurityLogSecurityEventHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSecurityLogSecurityEventServiceClient(grpcConn)
+		req := &pb.SecurityLogSecurityEventHashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminSecurityLogSecurityEventWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSecurityLogSecurityEventServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminSystemUpdatePolicyCmd = &cobra.Command{
+	Use:   "system-update-policy",
+	Short: "SystemUpdatePolicyService operations",
+}
+
+var adminSystemUpdatePolicyDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSystemUpdatePolicyServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminSystemUpdatePolicyGetInstallWindowEndCmd = &cobra.Command{
+	Use:   "get-install-window-end",
+	Short: "GetInstallWindowEnd RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSystemUpdatePolicyServiceClient(grpcConn)
+		req := &pb.GetInstallWindowEndRequest{}
+		resp, err := client.GetInstallWindowEnd(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminSystemUpdatePolicyGetInstallWindowStartCmd = &cobra.Command{
+	Use:   "get-install-window-start",
+	Short: "GetInstallWindowStart RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSystemUpdatePolicyServiceClient(grpcConn)
+		req := &pb.GetInstallWindowStartRequest{}
+		resp, err := client.GetInstallWindowStart(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminSystemUpdatePolicyGetPolicyTypeCmd = &cobra.Command{
+	Use:   "get-policy-type",
+	Short: "GetPolicyType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSystemUpdatePolicyServiceClient(grpcConn)
+		req := &pb.SystemUpdatePolicyGetPolicyTypeRequest{}
+		resp, err := client.GetPolicyType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminSystemUpdatePolicyToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSystemUpdatePolicyServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminSystemUpdatePolicyWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSystemUpdatePolicyServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminSystemUpdatePolicyCreateAutomaticInstallPolicyCmd = &cobra.Command{
+	Use:   "create-automatic-install-policy",
+	Short: "CreateAutomaticInstallPolicy RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSystemUpdatePolicyServiceClient(grpcConn)
+		req := &pb.CreateAutomaticInstallPolicyRequest{}
+		resp, err := client.CreateAutomaticInstallPolicy(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminSystemUpdatePolicyCreatePostponeInstallPolicyCmd = &cobra.Command{
+	Use:   "create-postpone-install-policy",
+	Short: "CreatePostponeInstallPolicy RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSystemUpdatePolicyServiceClient(grpcConn)
+		req := &pb.CreatePostponeInstallPolicyRequest{}
+		resp, err := client.CreatePostponeInstallPolicy(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminSystemUpdatePolicyCreateWindowedInstallPolicyCmd = &cobra.Command{
+	Use:   "create-windowed-install-policy",
+	Short: "CreateWindowedInstallPolicy RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSystemUpdatePolicyServiceClient(grpcConn)
+		req := &pb.CreateWindowedInstallPolicyRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.CreateWindowedInstallPolicy(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminSystemUpdatePolicyValidationFailedExceptionCmd = &cobra.Command{
+	Use:   "system-update-policy-validation-failed-exception",
+	Short: "SystemUpdatePolicyValidationFailedExceptionService operations",
+}
+
+var adminSystemUpdatePolicyValidationFailedExceptionDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSystemUpdatePolicyValidationFailedExceptionServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminSystemUpdatePolicyValidationFailedExceptionGetErrorCodeCmd = &cobra.Command{
+	Use:   "get-error-code",
+	Short: "GetErrorCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSystemUpdatePolicyValidationFailedExceptionServiceClient(grpcConn)
+		req := &pb.GetErrorCodeRequest{}
+		resp, err := client.GetErrorCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminSystemUpdatePolicyValidationFailedExceptionWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSystemUpdatePolicyValidationFailedExceptionServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminConnectEventCmd = &cobra.Command{
+	Use:   "connect-event",
+	Short: "ConnectEventService operations",
+}
+
+var adminConnectEventDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConnectEventServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminConnectEventGetInetAddressCmd = &cobra.Command{
+	Use:   "get-inet-address",
+	Short: "GetInetAddress RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConnectEventServiceClient(grpcConn)
+		req := &pb.GetInetAddressRequest{}
+		resp, err := client.GetInetAddress(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminConnectEventGetPortCmd = &cobra.Command{
+	Use:   "get-port",
+	Short: "GetPort RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConnectEventServiceClient(grpcConn)
+		req := &pb.GetPortRequest{}
+		resp, err := client.GetPort(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminConnectEventToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConnectEventServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminConnectEventWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConnectEventServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var adminDevicePolicyManagerCmd = &cobra.Command{
 	Use:   "device-policy-manager",
 	Short: "DevicePolicyManagerService operations",
@@ -5242,7 +6728,2210 @@ var adminDevicePolicyManagerIsMtePolicyEnforcedCmd = &cobra.Command{
 	},
 }
 
+var adminDevicePolicyManagerInstallSystemUpdateCallbackCmd = &cobra.Command{
+	Use:   "device-policy-manager-install-system-update-callback",
+	Short: "DevicePolicyManagerInstallSystemUpdateCallbackService operations",
+}
+
+var adminDevicePolicyManagerInstallSystemUpdateCallbackOnInstallUpdateErrorCmd = &cobra.Command{
+	Use:   "on-install-update-error",
+	Short: "OnInstallUpdateError RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDevicePolicyManagerInstallSystemUpdateCallbackServiceClient(grpcConn)
+		req := &pb.OnInstallUpdateErrorRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnInstallUpdateError(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDevicePolicyManagerOnClearApplicationUserDataListenerCmd = &cobra.Command{
+	Use:   "device-policy-manager-on-clear-application-user-data-listener",
+	Short: "DevicePolicyManagerOnClearApplicationUserDataListenerService operations",
+}
+
+var adminDevicePolicyManagerOnClearApplicationUserDataListenerOnApplicationUserDataClearedCmd = &cobra.Command{
+	Use:   "on-application-user-data-cleared",
+	Short: "OnApplicationUserDataCleared RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDevicePolicyManagerOnClearApplicationUserDataListenerServiceClient(grpcConn)
+		req := &pb.OnApplicationUserDataClearedRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnApplicationUserDataCleared(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDeviceAdminReceiverCmd = &cobra.Command{
+	Use:   "device-admin-receiver",
+	Short: "DeviceAdminReceiverService operations",
+}
+
+var adminDeviceAdminReceiverNewDeviceAdminReceiverCmd = &cobra.Command{
+	Use:   "new-device-admin-receiver",
+	Short: "NewDeviceAdminReceiver RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceAdminReceiverServiceClient(grpcConn)
+		req := &pb.NewDeviceAdminReceiverRequest{}
+		resp, err := client.NewDeviceAdminReceiver(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDeviceAdminReceiverGetManagerCmd = &cobra.Command{
+	Use:   "get-manager",
+	Short: "GetManager RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceAdminReceiverServiceClient(grpcConn)
+		req := &pb.GetManagerRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetManager(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDeviceAdminReceiverGetWhoCmd = &cobra.Command{
+	Use:   "get-who",
+	Short: "GetWho RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceAdminReceiverServiceClient(grpcConn)
+		req := &pb.GetWhoRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetWho(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDeviceAdminReceiverOnBugreportFailedCmd = &cobra.Command{
+	Use:   "on-bugreport-failed",
+	Short: "OnBugreportFailed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceAdminReceiverServiceClient(grpcConn)
+		req := &pb.OnBugreportFailedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnBugreportFailed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDeviceAdminReceiverOnBugreportSharedCmd = &cobra.Command{
+	Use:   "on-bugreport-shared",
+	Short: "OnBugreportShared RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceAdminReceiverServiceClient(grpcConn)
+		req := &pb.OnBugreportSharedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnBugreportShared(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDeviceAdminReceiverOnBugreportSharingDeclinedCmd = &cobra.Command{
+	Use:   "on-bugreport-sharing-declined",
+	Short: "OnBugreportSharingDeclined RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceAdminReceiverServiceClient(grpcConn)
+		req := &pb.OnBugreportSharingDeclinedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnBugreportSharingDeclined(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDeviceAdminReceiverOnChoosePrivateKeyAliasCmd = &cobra.Command{
+	Use:   "on-choose-private-key-alias",
+	Short: "OnChoosePrivateKeyAlias RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceAdminReceiverServiceClient(grpcConn)
+		req := &pb.OnChoosePrivateKeyAliasRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetString("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.OnChoosePrivateKeyAlias(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDeviceAdminReceiverOnComplianceAcknowledgementRequiredCmd = &cobra.Command{
+	Use:   "on-compliance-acknowledgement-required",
+	Short: "OnComplianceAcknowledgementRequired RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceAdminReceiverServiceClient(grpcConn)
+		req := &pb.OnComplianceAcknowledgementRequiredRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnComplianceAcknowledgementRequired(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDeviceAdminReceiverOnDisableRequestedCmd = &cobra.Command{
+	Use:   "on-disable-requested",
+	Short: "OnDisableRequested RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceAdminReceiverServiceClient(grpcConn)
+		req := &pb.OnDisableRequestedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnDisableRequested(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDeviceAdminReceiverOnDisabledCmd = &cobra.Command{
+	Use:   "on-disabled",
+	Short: "OnDisabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceAdminReceiverServiceClient(grpcConn)
+		req := &pb.OnDisabledRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnDisabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDeviceAdminReceiverOnEnabledCmd = &cobra.Command{
+	Use:   "on-enabled",
+	Short: "OnEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceAdminReceiverServiceClient(grpcConn)
+		req := &pb.OnEnabledRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDeviceAdminReceiverOnLockTaskModeEnteringCmd = &cobra.Command{
+	Use:   "on-lock-task-mode-entering",
+	Short: "OnLockTaskModeEntering RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceAdminReceiverServiceClient(grpcConn)
+		req := &pb.OnLockTaskModeEnteringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnLockTaskModeEntering(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDeviceAdminReceiverOnLockTaskModeExitingCmd = &cobra.Command{
+	Use:   "on-lock-task-mode-exiting",
+	Short: "OnLockTaskModeExiting RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceAdminReceiverServiceClient(grpcConn)
+		req := &pb.OnLockTaskModeExitingRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnLockTaskModeExiting(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDeviceAdminReceiverOnNetworkLogsAvailableCmd = &cobra.Command{
+	Use:   "on-network-logs-available",
+	Short: "OnNetworkLogsAvailable RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceAdminReceiverServiceClient(grpcConn)
+		req := &pb.OnNetworkLogsAvailableRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.OnNetworkLogsAvailable(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDeviceAdminReceiverOnOperationSafetyStateChangedCmd = &cobra.Command{
+	Use:   "on-operation-safety-state-changed",
+	Short: "OnOperationSafetyStateChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceAdminReceiverServiceClient(grpcConn)
+		req := &pb.OnOperationSafetyStateChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnOperationSafetyStateChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDeviceAdminReceiverOnPasswordChanged2Cmd = &cobra.Command{
+	Use:   "on-password-changed2",
+	Short: "OnPasswordChanged2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceAdminReceiverServiceClient(grpcConn)
+		req := &pb.OnPasswordChanged2Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnPasswordChanged2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDeviceAdminReceiverOnPasswordChanged3_1Cmd = &cobra.Command{
+	Use:   "on-password-changed3_1",
+	Short: "OnPasswordChanged3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceAdminReceiverServiceClient(grpcConn)
+		req := &pb.OnPasswordChanged3_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnPasswordChanged3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDeviceAdminReceiverOnPasswordExpiring2Cmd = &cobra.Command{
+	Use:   "on-password-expiring2",
+	Short: "OnPasswordExpiring2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceAdminReceiverServiceClient(grpcConn)
+		req := &pb.OnPasswordExpiring2Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnPasswordExpiring2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDeviceAdminReceiverOnPasswordExpiring3_1Cmd = &cobra.Command{
+	Use:   "on-password-expiring3_1",
+	Short: "OnPasswordExpiring3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceAdminReceiverServiceClient(grpcConn)
+		req := &pb.OnPasswordExpiring3_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnPasswordExpiring3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDeviceAdminReceiverOnPasswordFailed2Cmd = &cobra.Command{
+	Use:   "on-password-failed2",
+	Short: "OnPasswordFailed2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceAdminReceiverServiceClient(grpcConn)
+		req := &pb.OnPasswordFailed2Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnPasswordFailed2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDeviceAdminReceiverOnPasswordFailed3_1Cmd = &cobra.Command{
+	Use:   "on-password-failed3_1",
+	Short: "OnPasswordFailed3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceAdminReceiverServiceClient(grpcConn)
+		req := &pb.OnPasswordFailed3_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnPasswordFailed3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDeviceAdminReceiverOnPasswordSucceeded2Cmd = &cobra.Command{
+	Use:   "on-password-succeeded2",
+	Short: "OnPasswordSucceeded2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceAdminReceiverServiceClient(grpcConn)
+		req := &pb.OnPasswordSucceeded2Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnPasswordSucceeded2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDeviceAdminReceiverOnPasswordSucceeded3_1Cmd = &cobra.Command{
+	Use:   "on-password-succeeded3_1",
+	Short: "OnPasswordSucceeded3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceAdminReceiverServiceClient(grpcConn)
+		req := &pb.OnPasswordSucceeded3_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnPasswordSucceeded3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDeviceAdminReceiverOnProfileProvisioningCompleteCmd = &cobra.Command{
+	Use:   "on-profile-provisioning-complete",
+	Short: "OnProfileProvisioningComplete RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceAdminReceiverServiceClient(grpcConn)
+		req := &pb.OnProfileProvisioningCompleteRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnProfileProvisioningComplete(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDeviceAdminReceiverOnReadyForUserInitializationCmd = &cobra.Command{
+	Use:   "on-ready-for-user-initialization",
+	Short: "OnReadyForUserInitialization RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceAdminReceiverServiceClient(grpcConn)
+		req := &pb.OnReadyForUserInitializationRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnReadyForUserInitialization(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDeviceAdminReceiverOnReceiveCmd = &cobra.Command{
+	Use:   "on-receive",
+	Short: "OnReceive RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceAdminReceiverServiceClient(grpcConn)
+		req := &pb.DeviceAdminReceiverOnReceiveRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnReceive(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDeviceAdminReceiverOnSecurityLogsAvailableCmd = &cobra.Command{
+	Use:   "on-security-logs-available",
+	Short: "OnSecurityLogsAvailable RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceAdminReceiverServiceClient(grpcConn)
+		req := &pb.OnSecurityLogsAvailableRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnSecurityLogsAvailable(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDeviceAdminReceiverOnSystemUpdatePendingCmd = &cobra.Command{
+	Use:   "on-system-update-pending",
+	Short: "OnSystemUpdatePending RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceAdminReceiverServiceClient(grpcConn)
+		req := &pb.OnSystemUpdatePendingRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnSystemUpdatePending(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDeviceAdminReceiverOnTransferAffiliatedProfileOwnershipCompleteCmd = &cobra.Command{
+	Use:   "on-transfer-affiliated-profile-ownership-complete",
+	Short: "OnTransferAffiliatedProfileOwnershipComplete RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceAdminReceiverServiceClient(grpcConn)
+		req := &pb.OnTransferAffiliatedProfileOwnershipCompleteRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnTransferAffiliatedProfileOwnershipComplete(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDeviceAdminReceiverOnTransferOwnershipCompleteCmd = &cobra.Command{
+	Use:   "on-transfer-ownership-complete",
+	Short: "OnTransferOwnershipComplete RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceAdminReceiverServiceClient(grpcConn)
+		req := &pb.OnTransferOwnershipCompleteRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnTransferOwnershipComplete(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDeviceAdminReceiverOnUserAddedCmd = &cobra.Command{
+	Use:   "on-user-added",
+	Short: "OnUserAdded RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceAdminReceiverServiceClient(grpcConn)
+		req := &pb.OnUserAddedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnUserAdded(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDeviceAdminReceiverOnUserRemovedCmd = &cobra.Command{
+	Use:   "on-user-removed",
+	Short: "OnUserRemoved RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceAdminReceiverServiceClient(grpcConn)
+		req := &pb.OnUserRemovedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnUserRemoved(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDeviceAdminReceiverOnUserStartedCmd = &cobra.Command{
+	Use:   "on-user-started",
+	Short: "OnUserStarted RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceAdminReceiverServiceClient(grpcConn)
+		req := &pb.OnUserStartedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnUserStarted(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDeviceAdminReceiverOnUserStoppedCmd = &cobra.Command{
+	Use:   "on-user-stopped",
+	Short: "OnUserStopped RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceAdminReceiverServiceClient(grpcConn)
+		req := &pb.OnUserStoppedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnUserStopped(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDeviceAdminReceiverOnUserSwitchedCmd = &cobra.Command{
+	Use:   "on-user-switched",
+	Short: "OnUserSwitched RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceAdminReceiverServiceClient(grpcConn)
+		req := &pb.OnUserSwitchedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnUserSwitched(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDnsEventCmd = &cobra.Command{
+	Use:   "dns-event",
+	Short: "DnsEventService operations",
+}
+
+var adminDnsEventDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDnsEventServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDnsEventGetHostnameCmd = &cobra.Command{
+	Use:   "get-hostname",
+	Short: "GetHostname RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDnsEventServiceClient(grpcConn)
+		req := &pb.GetHostnameRequest{}
+		resp, err := client.GetHostname(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDnsEventGetTotalResolvedAddressCountCmd = &cobra.Command{
+	Use:   "get-total-resolved-address-count",
+	Short: "GetTotalResolvedAddressCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDnsEventServiceClient(grpcConn)
+		req := &pb.GetTotalResolvedAddressCountRequest{}
+		resp, err := client.GetTotalResolvedAddressCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDnsEventToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDnsEventServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDnsEventWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDnsEventServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDevicePolicyIdentifiersCmd = &cobra.Command{
+	Use:   "device-policy-identifiers",
+	Short: "DevicePolicyIdentifiersService operations",
+}
+
+var adminDevicePolicyIdentifiersGetIdentifierForUserRestrictionCmd = &cobra.Command{
+	Use:   "get-identifier-for-user-restriction",
+	Short: "GetIdentifierForUserRestriction RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDevicePolicyIdentifiersServiceClient(grpcConn)
+		req := &pb.GetIdentifierForUserRestrictionRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetIdentifierForUserRestriction(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDevicePolicyResourcesManagerCmd = &cobra.Command{
+	Use:   "device-policy-resources-manager",
+	Short: "DevicePolicyResourcesManagerService operations",
+}
+
+var adminDevicePolicyResourcesManagerGetDrawableAsIcon3Cmd = &cobra.Command{
+	Use:   "get-drawable-as-icon3",
+	Short: "GetDrawableAsIcon3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDevicePolicyResourcesManagerServiceClient(grpcConn)
+		req := &pb.GetDrawableAsIcon3Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.GetDrawableAsIcon3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDevicePolicyResourcesManagerGetDrawableAsIcon4_1Cmd = &cobra.Command{
+	Use:   "get-drawable-as-icon4_1",
+	Short: "GetDrawableAsIcon4_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDevicePolicyResourcesManagerServiceClient(grpcConn)
+		req := &pb.GetDrawableAsIcon4_1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.GetDrawableAsIcon4_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminSystemUpdateInfoCmd = &cobra.Command{
+	Use:   "system-update-info",
+	Short: "SystemUpdateInfoService operations",
+}
+
+var adminSystemUpdateInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSystemUpdateInfoServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminSystemUpdateInfoEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSystemUpdateInfoServiceClient(grpcConn)
+		req := &pb.SystemUpdateInfoEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminSystemUpdateInfoGetReceivedTimeCmd = &cobra.Command{
+	Use:   "get-received-time",
+	Short: "GetReceivedTime RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSystemUpdateInfoServiceClient(grpcConn)
+		req := &pb.GetReceivedTimeRequest{}
+		resp, err := client.GetReceivedTime(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminSystemUpdateInfoGetSecurityPatchStateCmd = &cobra.Command{
+	Use:   "get-security-patch-state",
+	Short: "GetSecurityPatchState RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSystemUpdateInfoServiceClient(grpcConn)
+		req := &pb.GetSecurityPatchStateRequest{}
+		resp, err := client.GetSecurityPatchState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminSystemUpdateInfoHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSystemUpdateInfoServiceClient(grpcConn)
+		req := &pb.SystemUpdateInfoHashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminSystemUpdateInfoToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSystemUpdateInfoServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminSystemUpdateInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSystemUpdateInfoServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminManagedSubscriptionsPolicyCmd = &cobra.Command{
+	Use:   "managed-subscriptions-policy",
+	Short: "ManagedSubscriptionsPolicyService operations",
+}
+
+var adminManagedSubscriptionsPolicyNewManagedSubscriptionsPolicyCmd = &cobra.Command{
+	Use:   "new-managed-subscriptions-policy",
+	Short: "NewManagedSubscriptionsPolicy RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagedSubscriptionsPolicyServiceClient(grpcConn)
+		req := &pb.NewManagedSubscriptionsPolicyRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewManagedSubscriptionsPolicy(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminManagedSubscriptionsPolicyDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagedSubscriptionsPolicyServiceClient(grpcConn)
+		req := &pb.ManagedSubscriptionsPolicyDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminManagedSubscriptionsPolicyEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagedSubscriptionsPolicyServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminManagedSubscriptionsPolicyGetPolicyTypeCmd = &cobra.Command{
+	Use:   "get-policy-type",
+	Short: "GetPolicyType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagedSubscriptionsPolicyServiceClient(grpcConn)
+		req := &pb.GetPolicyTypeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetPolicyType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminManagedSubscriptionsPolicyHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagedSubscriptionsPolicyServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminManagedSubscriptionsPolicyToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagedSubscriptionsPolicyServiceClient(grpcConn)
+		req := &pb.ManagedSubscriptionsPolicyToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminManagedSubscriptionsPolicyWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagedSubscriptionsPolicyServiceClient(grpcConn)
+		req := &pb.ManagedSubscriptionsPolicyWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminTargetUserCmd = &cobra.Command{
+	Use:   "target-user",
+	Short: "TargetUserService operations",
+}
+
+var adminTargetUserEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTargetUserServiceClient(grpcConn)
+		req := &pb.TargetUserEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminTargetUserHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTargetUserServiceClient(grpcConn)
+		req := &pb.TargetUserHashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDeviceAdminInfoCmd = &cobra.Command{
+	Use:   "device-admin-info",
+	Short: "DeviceAdminInfoService operations",
+}
+
+var adminDeviceAdminInfoNewDeviceAdminInfoCmd = &cobra.Command{
+	Use:   "new-device-admin-info",
+	Short: "NewDeviceAdminInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceAdminInfoServiceClient(grpcConn)
+		req := &pb.NewDeviceAdminInfoRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewDeviceAdminInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDeviceAdminInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceAdminInfoServiceClient(grpcConn)
+		req := &pb.DeviceAdminInfoDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDeviceAdminInfoDumpCmd = &cobra.Command{
+	Use:   "dump",
+	Short: "Dump RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceAdminInfoServiceClient(grpcConn)
+		req := &pb.DumpRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Dump(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDeviceAdminInfoGetActivityInfoCmd = &cobra.Command{
+	Use:   "get-activity-info",
+	Short: "GetActivityInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceAdminInfoServiceClient(grpcConn)
+		req := &pb.GetActivityInfoRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetActivityInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDeviceAdminInfoGetComponentCmd = &cobra.Command{
+	Use:   "get-component",
+	Short: "GetComponent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceAdminInfoServiceClient(grpcConn)
+		req := &pb.GetComponentRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetComponent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDeviceAdminInfoGetHeadlessDeviceOwnerModeCmd = &cobra.Command{
+	Use:   "get-headless-device-owner-mode",
+	Short: "GetHeadlessDeviceOwnerMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceAdminInfoServiceClient(grpcConn)
+		req := &pb.GetHeadlessDeviceOwnerModeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetHeadlessDeviceOwnerMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDeviceAdminInfoGetPackageNameCmd = &cobra.Command{
+	Use:   "get-package-name",
+	Short: "GetPackageName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceAdminInfoServiceClient(grpcConn)
+		req := &pb.GetPackageNameRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetPackageName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDeviceAdminInfoGetReceiverNameCmd = &cobra.Command{
+	Use:   "get-receiver-name",
+	Short: "GetReceiverName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceAdminInfoServiceClient(grpcConn)
+		req := &pb.GetReceiverNameRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetReceiverName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDeviceAdminInfoGetTagForPolicyCmd = &cobra.Command{
+	Use:   "get-tag-for-policy",
+	Short: "GetTagForPolicy RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceAdminInfoServiceClient(grpcConn)
+		req := &pb.GetTagForPolicyRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetTagForPolicy(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDeviceAdminInfoIsVisibleCmd = &cobra.Command{
+	Use:   "is-visible",
+	Short: "IsVisible RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceAdminInfoServiceClient(grpcConn)
+		req := &pb.IsVisibleRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsVisible(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDeviceAdminInfoLoadDescriptionCmd = &cobra.Command{
+	Use:   "load-description",
+	Short: "LoadDescription RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceAdminInfoServiceClient(grpcConn)
+		req := &pb.LoadDescriptionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.LoadDescription(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDeviceAdminInfoLoadIconCmd = &cobra.Command{
+	Use:   "load-icon",
+	Short: "LoadIcon RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceAdminInfoServiceClient(grpcConn)
+		req := &pb.LoadIconRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.LoadIcon(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDeviceAdminInfoLoadLabelCmd = &cobra.Command{
+	Use:   "load-label",
+	Short: "LoadLabel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceAdminInfoServiceClient(grpcConn)
+		req := &pb.LoadLabelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.LoadLabel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDeviceAdminInfoSupportsTransferOwnershipCmd = &cobra.Command{
+	Use:   "supports-transfer-ownership",
+	Short: "SupportsTransferOwnership RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceAdminInfoServiceClient(grpcConn)
+		req := &pb.SupportsTransferOwnershipRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.SupportsTransferOwnership(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDeviceAdminInfoToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceAdminInfoServiceClient(grpcConn)
+		req := &pb.DeviceAdminInfoToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDeviceAdminInfoUsesPolicyCmd = &cobra.Command{
+	Use:   "uses-policy",
+	Short: "UsesPolicy RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceAdminInfoServiceClient(grpcConn)
+		req := &pb.UsesPolicyRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.UsesPolicy(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDeviceAdminInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceAdminInfoServiceClient(grpcConn)
+		req := &pb.DeviceAdminInfoWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDelegatedAdminReceiverCmd = &cobra.Command{
+	Use:   "delegated-admin-receiver",
+	Short: "DelegatedAdminReceiverService operations",
+}
+
+var adminDelegatedAdminReceiverNewDelegatedAdminReceiverCmd = &cobra.Command{
+	Use:   "new-delegated-admin-receiver",
+	Short: "NewDelegatedAdminReceiver RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDelegatedAdminReceiverServiceClient(grpcConn)
+		req := &pb.NewDelegatedAdminReceiverRequest{}
+		resp, err := client.NewDelegatedAdminReceiver(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDelegatedAdminReceiverOnChoosePrivateKeyAliasCmd = &cobra.Command{
+	Use:   "on-choose-private-key-alias",
+	Short: "OnChoosePrivateKeyAlias RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDelegatedAdminReceiverServiceClient(grpcConn)
+		req := &pb.OnChoosePrivateKeyAliasRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetString("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.OnChoosePrivateKeyAlias(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDelegatedAdminReceiverOnNetworkLogsAvailableCmd = &cobra.Command{
+	Use:   "on-network-logs-available",
+	Short: "OnNetworkLogsAvailable RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDelegatedAdminReceiverServiceClient(grpcConn)
+		req := &pb.OnNetworkLogsAvailableRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.OnNetworkLogsAvailable(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDelegatedAdminReceiverOnReceiveCmd = &cobra.Command{
+	Use:   "on-receive",
+	Short: "OnReceive RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDelegatedAdminReceiverServiceClient(grpcConn)
+		req := &pb.DelegatedAdminReceiverOnReceiveRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnReceive(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminDelegatedAdminReceiverOnSecurityLogsAvailableCmd = &cobra.Command{
+	Use:   "on-security-logs-available",
+	Short: "OnSecurityLogsAvailable RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDelegatedAdminReceiverServiceClient(grpcConn)
+		req := &pb.OnSecurityLogsAvailableRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnSecurityLogsAvailable(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminNetworkEventCmd = &cobra.Command{
+	Use:   "network-event",
+	Short: "NetworkEventService operations",
+}
+
+var adminNetworkEventDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkEventServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminNetworkEventGetIdCmd = &cobra.Command{
+	Use:   "get-id",
+	Short: "GetId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkEventServiceClient(grpcConn)
+		req := &pb.GetIdRequest{}
+		resp, err := client.GetId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminNetworkEventGetPackageNameCmd = &cobra.Command{
+	Use:   "get-package-name",
+	Short: "GetPackageName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkEventServiceClient(grpcConn)
+		req := &pb.NetworkEventGetPackageNameRequest{}
+		resp, err := client.GetPackageName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminNetworkEventGetTimestampCmd = &cobra.Command{
+	Use:   "get-timestamp",
+	Short: "GetTimestamp RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkEventServiceClient(grpcConn)
+		req := &pb.GetTimestampRequest{}
+		resp, err := client.GetTimestamp(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adminNetworkEventWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkEventServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 func init() {
+	adminFactoryResetProtectionPolicyCmd.AddCommand(adminFactoryResetProtectionPolicyDescribeContentsCmd)
+	adminFactoryResetProtectionPolicyCmd.AddCommand(adminFactoryResetProtectionPolicyIsFactoryResetProtectionEnabledCmd)
+	adminFactoryResetProtectionPolicyCmd.AddCommand(adminFactoryResetProtectionPolicyToStringCmd)
+	adminFactoryResetProtectionPolicyWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminFactoryResetProtectionPolicyWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	adminFactoryResetProtectionPolicyCmd.AddCommand(adminFactoryResetProtectionPolicyWriteToParcelCmd)
+	adminCmd.AddCommand(adminFactoryResetProtectionPolicyCmd)
+	adminFactoryResetProtectionPolicyBuilderCmd.AddCommand(adminFactoryResetProtectionPolicyBuilderBuildCmd)
+	adminFactoryResetProtectionPolicyBuilderSetFactoryResetProtectionEnabledCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	adminFactoryResetProtectionPolicyBuilderCmd.AddCommand(adminFactoryResetProtectionPolicyBuilderSetFactoryResetProtectionEnabledCmd)
+	adminCmd.AddCommand(adminFactoryResetProtectionPolicyBuilderCmd)
+	adminDeviceAdminServiceCmd.AddCommand(adminDeviceAdminServiceNewDeviceAdminServiceCmd)
+	adminDeviceAdminServiceOnBindCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminDeviceAdminServiceOnBindCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminDeviceAdminServiceCmd.AddCommand(adminDeviceAdminServiceOnBindCmd)
+	adminCmd.AddCommand(adminDeviceAdminServiceCmd)
+	adminPolicyUpdateReceiverOnPolicyChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminPolicyUpdateReceiverOnPolicyChangedCmd.Flags().String("arg1", "", "arg1 (string)")
+	adminPolicyUpdateReceiverOnPolicyChangedCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	adminPolicyUpdateReceiverOnPolicyChangedCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	adminPolicyUpdateReceiverOnPolicyChangedCmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	adminPolicyUpdateReceiverCmd.AddCommand(adminPolicyUpdateReceiverOnPolicyChangedCmd)
+	adminPolicyUpdateReceiverOnPolicySetResultCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminPolicyUpdateReceiverOnPolicySetResultCmd.Flags().String("arg1", "", "arg1 (string)")
+	adminPolicyUpdateReceiverOnPolicySetResultCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	adminPolicyUpdateReceiverOnPolicySetResultCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	adminPolicyUpdateReceiverOnPolicySetResultCmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	adminPolicyUpdateReceiverCmd.AddCommand(adminPolicyUpdateReceiverOnPolicySetResultCmd)
+	adminPolicyUpdateReceiverOnReceiveCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminPolicyUpdateReceiverOnReceiveCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	adminPolicyUpdateReceiverCmd.AddCommand(adminPolicyUpdateReceiverOnReceiveCmd)
+	adminCmd.AddCommand(adminPolicyUpdateReceiverCmd)
+	adminWifiSsidPolicyNewWifiSsidPolicyCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	adminWifiSsidPolicyNewWifiSsidPolicyCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	adminWifiSsidPolicyCmd.AddCommand(adminWifiSsidPolicyNewWifiSsidPolicyCmd)
+	adminWifiSsidPolicyDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminWifiSsidPolicyCmd.AddCommand(adminWifiSsidPolicyDescribeContentsCmd)
+	adminWifiSsidPolicyEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminWifiSsidPolicyEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminWifiSsidPolicyCmd.AddCommand(adminWifiSsidPolicyEqualsCmd)
+	adminWifiSsidPolicyGetPolicyTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminWifiSsidPolicyCmd.AddCommand(adminWifiSsidPolicyGetPolicyTypeCmd)
+	adminWifiSsidPolicyHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminWifiSsidPolicyCmd.AddCommand(adminWifiSsidPolicyHashCodeCmd)
+	adminWifiSsidPolicyWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminWifiSsidPolicyWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminWifiSsidPolicyWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	adminWifiSsidPolicyCmd.AddCommand(adminWifiSsidPolicyWriteToParcelCmd)
+	adminCmd.AddCommand(adminWifiSsidPolicyCmd)
+	adminPackagePolicyNewPackagePolicyCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	adminPackagePolicyCmd.AddCommand(adminPackagePolicyNewPackagePolicyCmd)
+	adminPackagePolicyDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminPackagePolicyCmd.AddCommand(adminPackagePolicyDescribeContentsCmd)
+	adminPackagePolicyEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminPackagePolicyEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminPackagePolicyCmd.AddCommand(adminPackagePolicyEqualsCmd)
+	adminPackagePolicyGetPolicyTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminPackagePolicyCmd.AddCommand(adminPackagePolicyGetPolicyTypeCmd)
+	adminPackagePolicyHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminPackagePolicyCmd.AddCommand(adminPackagePolicyHashCodeCmd)
+	adminPackagePolicyWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminPackagePolicyWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminPackagePolicyWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	adminPackagePolicyCmd.AddCommand(adminPackagePolicyWriteToParcelCmd)
+	adminCmd.AddCommand(adminPackagePolicyCmd)
+	adminUnsafeStateExceptionCmd.AddCommand(adminUnsafeStateExceptionDescribeContentsCmd)
+	adminUnsafeStateExceptionCmd.AddCommand(adminUnsafeStateExceptionGetMessageCmd)
+	adminUnsafeStateExceptionWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminUnsafeStateExceptionWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	adminUnsafeStateExceptionCmd.AddCommand(adminUnsafeStateExceptionWriteToParcelCmd)
+	adminCmd.AddCommand(adminUnsafeStateExceptionCmd)
+	adminFreezePeriodNewFreezePeriodCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminFreezePeriodNewFreezePeriodCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	adminFreezePeriodCmd.AddCommand(adminFreezePeriodNewFreezePeriodCmd)
+	adminFreezePeriodGetEndCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminFreezePeriodCmd.AddCommand(adminFreezePeriodGetEndCmd)
+	adminFreezePeriodGetStartCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminFreezePeriodCmd.AddCommand(adminFreezePeriodGetStartCmd)
+	adminFreezePeriodToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminFreezePeriodCmd.AddCommand(adminFreezePeriodToStringCmd)
+	adminCmd.AddCommand(adminFreezePeriodCmd)
+	adminPolicyUpdateResultNewPolicyUpdateResultCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	adminPolicyUpdateResultCmd.AddCommand(adminPolicyUpdateResultNewPolicyUpdateResultCmd)
+	adminPolicyUpdateResultGetResultCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminPolicyUpdateResultCmd.AddCommand(adminPolicyUpdateResultGetResultCodeCmd)
+	adminCmd.AddCommand(adminPolicyUpdateResultCmd)
+	adminPreferentialNetworkServiceConfigCmd.AddCommand(adminPreferentialNetworkServiceConfigDescribeContentsCmd)
+	adminPreferentialNetworkServiceConfigEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminPreferentialNetworkServiceConfigCmd.AddCommand(adminPreferentialNetworkServiceConfigEqualsCmd)
+	adminPreferentialNetworkServiceConfigCmd.AddCommand(adminPreferentialNetworkServiceConfigGetExcludedUidsCmd)
+	adminPreferentialNetworkServiceConfigCmd.AddCommand(adminPreferentialNetworkServiceConfigGetIncludedUidsCmd)
+	adminPreferentialNetworkServiceConfigCmd.AddCommand(adminPreferentialNetworkServiceConfigGetNetworkIdCmd)
+	adminPreferentialNetworkServiceConfigCmd.AddCommand(adminPreferentialNetworkServiceConfigHashCodeCmd)
+	adminPreferentialNetworkServiceConfigCmd.AddCommand(adminPreferentialNetworkServiceConfigIsEnabledCmd)
+	adminPreferentialNetworkServiceConfigCmd.AddCommand(adminPreferentialNetworkServiceConfigIsFallbackToDefaultConnectionAllowedCmd)
+	adminPreferentialNetworkServiceConfigCmd.AddCommand(adminPreferentialNetworkServiceConfigShouldBlockNonMatchingNetworksCmd)
+	adminPreferentialNetworkServiceConfigCmd.AddCommand(adminPreferentialNetworkServiceConfigToStringCmd)
+	adminPreferentialNetworkServiceConfigWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminPreferentialNetworkServiceConfigWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	adminPreferentialNetworkServiceConfigCmd.AddCommand(adminPreferentialNetworkServiceConfigWriteToParcelCmd)
+	adminCmd.AddCommand(adminPreferentialNetworkServiceConfigCmd)
+	adminPreferentialNetworkServiceConfigBuilderCmd.AddCommand(adminPreferentialNetworkServiceConfigBuilderBuildCmd)
+	adminPreferentialNetworkServiceConfigBuilderSetEnabledCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	adminPreferentialNetworkServiceConfigBuilderCmd.AddCommand(adminPreferentialNetworkServiceConfigBuilderSetEnabledCmd)
+	adminPreferentialNetworkServiceConfigBuilderSetExcludedUidsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminPreferentialNetworkServiceConfigBuilderCmd.AddCommand(adminPreferentialNetworkServiceConfigBuilderSetExcludedUidsCmd)
+	adminPreferentialNetworkServiceConfigBuilderSetFallbackToDefaultConnectionAllowedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	adminPreferentialNetworkServiceConfigBuilderCmd.AddCommand(adminPreferentialNetworkServiceConfigBuilderSetFallbackToDefaultConnectionAllowedCmd)
+	adminPreferentialNetworkServiceConfigBuilderSetIncludedUidsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminPreferentialNetworkServiceConfigBuilderCmd.AddCommand(adminPreferentialNetworkServiceConfigBuilderSetIncludedUidsCmd)
+	adminPreferentialNetworkServiceConfigBuilderSetNetworkIdCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	adminPreferentialNetworkServiceConfigBuilderCmd.AddCommand(adminPreferentialNetworkServiceConfigBuilderSetNetworkIdCmd)
+	adminPreferentialNetworkServiceConfigBuilderSetShouldBlockNonMatchingNetworksCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	adminPreferentialNetworkServiceConfigBuilderCmd.AddCommand(adminPreferentialNetworkServiceConfigBuilderSetShouldBlockNonMatchingNetworksCmd)
+	adminCmd.AddCommand(adminPreferentialNetworkServiceConfigBuilderCmd)
+	adminSecurityLogSecurityEventCmd.AddCommand(adminSecurityLogSecurityEventDescribeContentsCmd)
+	adminSecurityLogSecurityEventEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminSecurityLogSecurityEventCmd.AddCommand(adminSecurityLogSecurityEventEqualsCmd)
+	adminSecurityLogSecurityEventCmd.AddCommand(adminSecurityLogSecurityEventGetDataCmd)
+	adminSecurityLogSecurityEventCmd.AddCommand(adminSecurityLogSecurityEventGetIdCmd)
+	adminSecurityLogSecurityEventCmd.AddCommand(adminSecurityLogSecurityEventGetLogLevelCmd)
+	adminSecurityLogSecurityEventCmd.AddCommand(adminSecurityLogSecurityEventGetTagCmd)
+	adminSecurityLogSecurityEventCmd.AddCommand(adminSecurityLogSecurityEventGetTimeNanosCmd)
+	adminSecurityLogSecurityEventCmd.AddCommand(adminSecurityLogSecurityEventHashCodeCmd)
+	adminSecurityLogSecurityEventWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminSecurityLogSecurityEventWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	adminSecurityLogSecurityEventCmd.AddCommand(adminSecurityLogSecurityEventWriteToParcelCmd)
+	adminCmd.AddCommand(adminSecurityLogSecurityEventCmd)
+	adminSystemUpdatePolicyCmd.AddCommand(adminSystemUpdatePolicyDescribeContentsCmd)
+	adminSystemUpdatePolicyCmd.AddCommand(adminSystemUpdatePolicyGetInstallWindowEndCmd)
+	adminSystemUpdatePolicyCmd.AddCommand(adminSystemUpdatePolicyGetInstallWindowStartCmd)
+	adminSystemUpdatePolicyCmd.AddCommand(adminSystemUpdatePolicyGetPolicyTypeCmd)
+	adminSystemUpdatePolicyCmd.AddCommand(adminSystemUpdatePolicyToStringCmd)
+	adminSystemUpdatePolicyWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminSystemUpdatePolicyWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	adminSystemUpdatePolicyCmd.AddCommand(adminSystemUpdatePolicyWriteToParcelCmd)
+	adminSystemUpdatePolicyCmd.AddCommand(adminSystemUpdatePolicyCreateAutomaticInstallPolicyCmd)
+	adminSystemUpdatePolicyCmd.AddCommand(adminSystemUpdatePolicyCreatePostponeInstallPolicyCmd)
+	adminSystemUpdatePolicyCreateWindowedInstallPolicyCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	adminSystemUpdatePolicyCreateWindowedInstallPolicyCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	adminSystemUpdatePolicyCmd.AddCommand(adminSystemUpdatePolicyCreateWindowedInstallPolicyCmd)
+	adminCmd.AddCommand(adminSystemUpdatePolicyCmd)
+	adminSystemUpdatePolicyValidationFailedExceptionCmd.AddCommand(adminSystemUpdatePolicyValidationFailedExceptionDescribeContentsCmd)
+	adminSystemUpdatePolicyValidationFailedExceptionCmd.AddCommand(adminSystemUpdatePolicyValidationFailedExceptionGetErrorCodeCmd)
+	adminSystemUpdatePolicyValidationFailedExceptionWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminSystemUpdatePolicyValidationFailedExceptionWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	adminSystemUpdatePolicyValidationFailedExceptionCmd.AddCommand(adminSystemUpdatePolicyValidationFailedExceptionWriteToParcelCmd)
+	adminCmd.AddCommand(adminSystemUpdatePolicyValidationFailedExceptionCmd)
+	adminConnectEventCmd.AddCommand(adminConnectEventDescribeContentsCmd)
+	adminConnectEventCmd.AddCommand(adminConnectEventGetInetAddressCmd)
+	adminConnectEventCmd.AddCommand(adminConnectEventGetPortCmd)
+	adminConnectEventCmd.AddCommand(adminConnectEventToStringCmd)
+	adminConnectEventWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminConnectEventWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	adminConnectEventCmd.AddCommand(adminConnectEventWriteToParcelCmd)
+	adminCmd.AddCommand(adminConnectEventCmd)
 	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerAcknowledgeDeviceCompliantCmd)
 	adminDevicePolicyManagerAddCrossProfileIntentFilterCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	adminDevicePolicyManagerAddCrossProfileIntentFilterCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
@@ -5872,5 +9561,298 @@ func init() {
 	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerWipeDeviceCmd)
 	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerIsMtePolicyEnforcedCmd)
 	adminCmd.AddCommand(adminDevicePolicyManagerCmd)
+	adminDevicePolicyManagerInstallSystemUpdateCallbackOnInstallUpdateErrorCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	adminDevicePolicyManagerInstallSystemUpdateCallbackOnInstallUpdateErrorCmd.Flags().String("arg1", "", "arg1 (string)")
+	adminDevicePolicyManagerInstallSystemUpdateCallbackCmd.AddCommand(adminDevicePolicyManagerInstallSystemUpdateCallbackOnInstallUpdateErrorCmd)
+	adminCmd.AddCommand(adminDevicePolicyManagerInstallSystemUpdateCallbackCmd)
+	adminDevicePolicyManagerOnClearApplicationUserDataListenerOnApplicationUserDataClearedCmd.Flags().String("arg0", "", "arg0 (string)")
+	adminDevicePolicyManagerOnClearApplicationUserDataListenerOnApplicationUserDataClearedCmd.Flags().Bool("arg1", false, "arg1 (bool)")
+	adminDevicePolicyManagerOnClearApplicationUserDataListenerCmd.AddCommand(adminDevicePolicyManagerOnClearApplicationUserDataListenerOnApplicationUserDataClearedCmd)
+	adminCmd.AddCommand(adminDevicePolicyManagerOnClearApplicationUserDataListenerCmd)
+	adminDeviceAdminReceiverCmd.AddCommand(adminDeviceAdminReceiverNewDeviceAdminReceiverCmd)
+	adminDeviceAdminReceiverGetManagerCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminDeviceAdminReceiverGetManagerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminDeviceAdminReceiverCmd.AddCommand(adminDeviceAdminReceiverGetManagerCmd)
+	adminDeviceAdminReceiverGetWhoCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminDeviceAdminReceiverGetWhoCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminDeviceAdminReceiverCmd.AddCommand(adminDeviceAdminReceiverGetWhoCmd)
+	adminDeviceAdminReceiverOnBugreportFailedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminDeviceAdminReceiverOnBugreportFailedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminDeviceAdminReceiverOnBugreportFailedCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	adminDeviceAdminReceiverOnBugreportFailedCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	adminDeviceAdminReceiverCmd.AddCommand(adminDeviceAdminReceiverOnBugreportFailedCmd)
+	adminDeviceAdminReceiverOnBugreportSharedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminDeviceAdminReceiverOnBugreportSharedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminDeviceAdminReceiverOnBugreportSharedCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	adminDeviceAdminReceiverOnBugreportSharedCmd.Flags().String("arg2", "", "arg2 (string)")
+	adminDeviceAdminReceiverCmd.AddCommand(adminDeviceAdminReceiverOnBugreportSharedCmd)
+	adminDeviceAdminReceiverOnBugreportSharingDeclinedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminDeviceAdminReceiverOnBugreportSharingDeclinedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminDeviceAdminReceiverOnBugreportSharingDeclinedCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	adminDeviceAdminReceiverCmd.AddCommand(adminDeviceAdminReceiverOnBugreportSharingDeclinedCmd)
+	adminDeviceAdminReceiverOnChoosePrivateKeyAliasCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminDeviceAdminReceiverOnChoosePrivateKeyAliasCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminDeviceAdminReceiverOnChoosePrivateKeyAliasCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	adminDeviceAdminReceiverOnChoosePrivateKeyAliasCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	adminDeviceAdminReceiverOnChoosePrivateKeyAliasCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	adminDeviceAdminReceiverOnChoosePrivateKeyAliasCmd.Flags().String("arg4", "", "arg4 (string)")
+	adminDeviceAdminReceiverCmd.AddCommand(adminDeviceAdminReceiverOnChoosePrivateKeyAliasCmd)
+	adminDeviceAdminReceiverOnComplianceAcknowledgementRequiredCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminDeviceAdminReceiverOnComplianceAcknowledgementRequiredCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminDeviceAdminReceiverOnComplianceAcknowledgementRequiredCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	adminDeviceAdminReceiverCmd.AddCommand(adminDeviceAdminReceiverOnComplianceAcknowledgementRequiredCmd)
+	adminDeviceAdminReceiverOnDisableRequestedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminDeviceAdminReceiverOnDisableRequestedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminDeviceAdminReceiverOnDisableRequestedCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	adminDeviceAdminReceiverCmd.AddCommand(adminDeviceAdminReceiverOnDisableRequestedCmd)
+	adminDeviceAdminReceiverOnDisabledCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminDeviceAdminReceiverOnDisabledCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminDeviceAdminReceiverOnDisabledCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	adminDeviceAdminReceiverCmd.AddCommand(adminDeviceAdminReceiverOnDisabledCmd)
+	adminDeviceAdminReceiverOnEnabledCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminDeviceAdminReceiverOnEnabledCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminDeviceAdminReceiverOnEnabledCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	adminDeviceAdminReceiverCmd.AddCommand(adminDeviceAdminReceiverOnEnabledCmd)
+	adminDeviceAdminReceiverOnLockTaskModeEnteringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminDeviceAdminReceiverOnLockTaskModeEnteringCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminDeviceAdminReceiverOnLockTaskModeEnteringCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	adminDeviceAdminReceiverOnLockTaskModeEnteringCmd.Flags().String("arg2", "", "arg2 (string)")
+	adminDeviceAdminReceiverCmd.AddCommand(adminDeviceAdminReceiverOnLockTaskModeEnteringCmd)
+	adminDeviceAdminReceiverOnLockTaskModeExitingCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminDeviceAdminReceiverOnLockTaskModeExitingCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminDeviceAdminReceiverOnLockTaskModeExitingCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	adminDeviceAdminReceiverCmd.AddCommand(adminDeviceAdminReceiverOnLockTaskModeExitingCmd)
+	adminDeviceAdminReceiverOnNetworkLogsAvailableCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminDeviceAdminReceiverOnNetworkLogsAvailableCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminDeviceAdminReceiverOnNetworkLogsAvailableCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	adminDeviceAdminReceiverOnNetworkLogsAvailableCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	adminDeviceAdminReceiverOnNetworkLogsAvailableCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	adminDeviceAdminReceiverCmd.AddCommand(adminDeviceAdminReceiverOnNetworkLogsAvailableCmd)
+	adminDeviceAdminReceiverOnOperationSafetyStateChangedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminDeviceAdminReceiverOnOperationSafetyStateChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminDeviceAdminReceiverOnOperationSafetyStateChangedCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	adminDeviceAdminReceiverOnOperationSafetyStateChangedCmd.Flags().Bool("arg2", false, "arg2 (bool)")
+	adminDeviceAdminReceiverCmd.AddCommand(adminDeviceAdminReceiverOnOperationSafetyStateChangedCmd)
+	adminDeviceAdminReceiverOnPasswordChanged2Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminDeviceAdminReceiverOnPasswordChanged2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminDeviceAdminReceiverOnPasswordChanged2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	adminDeviceAdminReceiverCmd.AddCommand(adminDeviceAdminReceiverOnPasswordChanged2Cmd)
+	adminDeviceAdminReceiverOnPasswordChanged3_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminDeviceAdminReceiverOnPasswordChanged3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminDeviceAdminReceiverOnPasswordChanged3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	adminDeviceAdminReceiverOnPasswordChanged3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	adminDeviceAdminReceiverCmd.AddCommand(adminDeviceAdminReceiverOnPasswordChanged3_1Cmd)
+	adminDeviceAdminReceiverOnPasswordExpiring2Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminDeviceAdminReceiverOnPasswordExpiring2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminDeviceAdminReceiverOnPasswordExpiring2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	adminDeviceAdminReceiverCmd.AddCommand(adminDeviceAdminReceiverOnPasswordExpiring2Cmd)
+	adminDeviceAdminReceiverOnPasswordExpiring3_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminDeviceAdminReceiverOnPasswordExpiring3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminDeviceAdminReceiverOnPasswordExpiring3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	adminDeviceAdminReceiverOnPasswordExpiring3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	adminDeviceAdminReceiverCmd.AddCommand(adminDeviceAdminReceiverOnPasswordExpiring3_1Cmd)
+	adminDeviceAdminReceiverOnPasswordFailed2Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminDeviceAdminReceiverOnPasswordFailed2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminDeviceAdminReceiverOnPasswordFailed2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	adminDeviceAdminReceiverCmd.AddCommand(adminDeviceAdminReceiverOnPasswordFailed2Cmd)
+	adminDeviceAdminReceiverOnPasswordFailed3_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminDeviceAdminReceiverOnPasswordFailed3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminDeviceAdminReceiverOnPasswordFailed3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	adminDeviceAdminReceiverOnPasswordFailed3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	adminDeviceAdminReceiverCmd.AddCommand(adminDeviceAdminReceiverOnPasswordFailed3_1Cmd)
+	adminDeviceAdminReceiverOnPasswordSucceeded2Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminDeviceAdminReceiverOnPasswordSucceeded2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminDeviceAdminReceiverOnPasswordSucceeded2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	adminDeviceAdminReceiverCmd.AddCommand(adminDeviceAdminReceiverOnPasswordSucceeded2Cmd)
+	adminDeviceAdminReceiverOnPasswordSucceeded3_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminDeviceAdminReceiverOnPasswordSucceeded3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminDeviceAdminReceiverOnPasswordSucceeded3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	adminDeviceAdminReceiverOnPasswordSucceeded3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	adminDeviceAdminReceiverCmd.AddCommand(adminDeviceAdminReceiverOnPasswordSucceeded3_1Cmd)
+	adminDeviceAdminReceiverOnProfileProvisioningCompleteCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminDeviceAdminReceiverOnProfileProvisioningCompleteCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminDeviceAdminReceiverOnProfileProvisioningCompleteCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	adminDeviceAdminReceiverCmd.AddCommand(adminDeviceAdminReceiverOnProfileProvisioningCompleteCmd)
+	adminDeviceAdminReceiverOnReadyForUserInitializationCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminDeviceAdminReceiverOnReadyForUserInitializationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminDeviceAdminReceiverOnReadyForUserInitializationCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	adminDeviceAdminReceiverCmd.AddCommand(adminDeviceAdminReceiverOnReadyForUserInitializationCmd)
+	adminDeviceAdminReceiverOnReceiveCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminDeviceAdminReceiverOnReceiveCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminDeviceAdminReceiverOnReceiveCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	adminDeviceAdminReceiverCmd.AddCommand(adminDeviceAdminReceiverOnReceiveCmd)
+	adminDeviceAdminReceiverOnSecurityLogsAvailableCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminDeviceAdminReceiverOnSecurityLogsAvailableCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminDeviceAdminReceiverOnSecurityLogsAvailableCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	adminDeviceAdminReceiverCmd.AddCommand(adminDeviceAdminReceiverOnSecurityLogsAvailableCmd)
+	adminDeviceAdminReceiverOnSystemUpdatePendingCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminDeviceAdminReceiverOnSystemUpdatePendingCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminDeviceAdminReceiverOnSystemUpdatePendingCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	adminDeviceAdminReceiverOnSystemUpdatePendingCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	adminDeviceAdminReceiverCmd.AddCommand(adminDeviceAdminReceiverOnSystemUpdatePendingCmd)
+	adminDeviceAdminReceiverOnTransferAffiliatedProfileOwnershipCompleteCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminDeviceAdminReceiverOnTransferAffiliatedProfileOwnershipCompleteCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminDeviceAdminReceiverOnTransferAffiliatedProfileOwnershipCompleteCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	adminDeviceAdminReceiverCmd.AddCommand(adminDeviceAdminReceiverOnTransferAffiliatedProfileOwnershipCompleteCmd)
+	adminDeviceAdminReceiverOnTransferOwnershipCompleteCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminDeviceAdminReceiverOnTransferOwnershipCompleteCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminDeviceAdminReceiverOnTransferOwnershipCompleteCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	adminDeviceAdminReceiverCmd.AddCommand(adminDeviceAdminReceiverOnTransferOwnershipCompleteCmd)
+	adminDeviceAdminReceiverOnUserAddedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminDeviceAdminReceiverOnUserAddedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminDeviceAdminReceiverOnUserAddedCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	adminDeviceAdminReceiverOnUserAddedCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	adminDeviceAdminReceiverCmd.AddCommand(adminDeviceAdminReceiverOnUserAddedCmd)
+	adminDeviceAdminReceiverOnUserRemovedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminDeviceAdminReceiverOnUserRemovedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminDeviceAdminReceiverOnUserRemovedCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	adminDeviceAdminReceiverOnUserRemovedCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	adminDeviceAdminReceiverCmd.AddCommand(adminDeviceAdminReceiverOnUserRemovedCmd)
+	adminDeviceAdminReceiverOnUserStartedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminDeviceAdminReceiverOnUserStartedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminDeviceAdminReceiverOnUserStartedCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	adminDeviceAdminReceiverOnUserStartedCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	adminDeviceAdminReceiverCmd.AddCommand(adminDeviceAdminReceiverOnUserStartedCmd)
+	adminDeviceAdminReceiverOnUserStoppedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminDeviceAdminReceiverOnUserStoppedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminDeviceAdminReceiverOnUserStoppedCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	adminDeviceAdminReceiverOnUserStoppedCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	adminDeviceAdminReceiverCmd.AddCommand(adminDeviceAdminReceiverOnUserStoppedCmd)
+	adminDeviceAdminReceiverOnUserSwitchedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminDeviceAdminReceiverOnUserSwitchedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminDeviceAdminReceiverOnUserSwitchedCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	adminDeviceAdminReceiverOnUserSwitchedCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	adminDeviceAdminReceiverCmd.AddCommand(adminDeviceAdminReceiverOnUserSwitchedCmd)
+	adminCmd.AddCommand(adminDeviceAdminReceiverCmd)
+	adminDnsEventCmd.AddCommand(adminDnsEventDescribeContentsCmd)
+	adminDnsEventCmd.AddCommand(adminDnsEventGetHostnameCmd)
+	adminDnsEventCmd.AddCommand(adminDnsEventGetTotalResolvedAddressCountCmd)
+	adminDnsEventCmd.AddCommand(adminDnsEventToStringCmd)
+	adminDnsEventWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminDnsEventWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	adminDnsEventCmd.AddCommand(adminDnsEventWriteToParcelCmd)
+	adminCmd.AddCommand(adminDnsEventCmd)
+	adminDevicePolicyIdentifiersGetIdentifierForUserRestrictionCmd.Flags().String("arg0", "", "arg0 (string)")
+	adminDevicePolicyIdentifiersCmd.AddCommand(adminDevicePolicyIdentifiersGetIdentifierForUserRestrictionCmd)
+	adminCmd.AddCommand(adminDevicePolicyIdentifiersCmd)
+	adminDevicePolicyResourcesManagerGetDrawableAsIcon3Cmd.Flags().String("arg0", "", "arg0 (string)")
+	adminDevicePolicyResourcesManagerGetDrawableAsIcon3Cmd.Flags().String("arg1", "", "arg1 (string)")
+	adminDevicePolicyResourcesManagerGetDrawableAsIcon3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	adminDevicePolicyResourcesManagerCmd.AddCommand(adminDevicePolicyResourcesManagerGetDrawableAsIcon3Cmd)
+	adminDevicePolicyResourcesManagerGetDrawableAsIcon4_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	adminDevicePolicyResourcesManagerGetDrawableAsIcon4_1Cmd.Flags().String("arg1", "", "arg1 (string)")
+	adminDevicePolicyResourcesManagerGetDrawableAsIcon4_1Cmd.Flags().String("arg2", "", "arg2 (string)")
+	adminDevicePolicyResourcesManagerGetDrawableAsIcon4_1Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	adminDevicePolicyResourcesManagerCmd.AddCommand(adminDevicePolicyResourcesManagerGetDrawableAsIcon4_1Cmd)
+	adminCmd.AddCommand(adminDevicePolicyResourcesManagerCmd)
+	adminSystemUpdateInfoCmd.AddCommand(adminSystemUpdateInfoDescribeContentsCmd)
+	adminSystemUpdateInfoEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminSystemUpdateInfoCmd.AddCommand(adminSystemUpdateInfoEqualsCmd)
+	adminSystemUpdateInfoCmd.AddCommand(adminSystemUpdateInfoGetReceivedTimeCmd)
+	adminSystemUpdateInfoCmd.AddCommand(adminSystemUpdateInfoGetSecurityPatchStateCmd)
+	adminSystemUpdateInfoCmd.AddCommand(adminSystemUpdateInfoHashCodeCmd)
+	adminSystemUpdateInfoCmd.AddCommand(adminSystemUpdateInfoToStringCmd)
+	adminSystemUpdateInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminSystemUpdateInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	adminSystemUpdateInfoCmd.AddCommand(adminSystemUpdateInfoWriteToParcelCmd)
+	adminCmd.AddCommand(adminSystemUpdateInfoCmd)
+	adminManagedSubscriptionsPolicyNewManagedSubscriptionsPolicyCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	adminManagedSubscriptionsPolicyCmd.AddCommand(adminManagedSubscriptionsPolicyNewManagedSubscriptionsPolicyCmd)
+	adminManagedSubscriptionsPolicyDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminManagedSubscriptionsPolicyCmd.AddCommand(adminManagedSubscriptionsPolicyDescribeContentsCmd)
+	adminManagedSubscriptionsPolicyEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminManagedSubscriptionsPolicyEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminManagedSubscriptionsPolicyCmd.AddCommand(adminManagedSubscriptionsPolicyEqualsCmd)
+	adminManagedSubscriptionsPolicyGetPolicyTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminManagedSubscriptionsPolicyCmd.AddCommand(adminManagedSubscriptionsPolicyGetPolicyTypeCmd)
+	adminManagedSubscriptionsPolicyHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminManagedSubscriptionsPolicyCmd.AddCommand(adminManagedSubscriptionsPolicyHashCodeCmd)
+	adminManagedSubscriptionsPolicyToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminManagedSubscriptionsPolicyCmd.AddCommand(adminManagedSubscriptionsPolicyToStringCmd)
+	adminManagedSubscriptionsPolicyWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminManagedSubscriptionsPolicyWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminManagedSubscriptionsPolicyWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	adminManagedSubscriptionsPolicyCmd.AddCommand(adminManagedSubscriptionsPolicyWriteToParcelCmd)
+	adminCmd.AddCommand(adminManagedSubscriptionsPolicyCmd)
+	adminTargetUserEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminTargetUserCmd.AddCommand(adminTargetUserEqualsCmd)
+	adminTargetUserCmd.AddCommand(adminTargetUserHashCodeCmd)
+	adminCmd.AddCommand(adminTargetUserCmd)
+	adminDeviceAdminInfoNewDeviceAdminInfoCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminDeviceAdminInfoNewDeviceAdminInfoCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	adminDeviceAdminInfoCmd.AddCommand(adminDeviceAdminInfoNewDeviceAdminInfoCmd)
+	adminDeviceAdminInfoDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminDeviceAdminInfoCmd.AddCommand(adminDeviceAdminInfoDescribeContentsCmd)
+	adminDeviceAdminInfoDumpCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminDeviceAdminInfoDumpCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminDeviceAdminInfoDumpCmd.Flags().String("arg1", "", "arg1 (string)")
+	adminDeviceAdminInfoCmd.AddCommand(adminDeviceAdminInfoDumpCmd)
+	adminDeviceAdminInfoGetActivityInfoCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminDeviceAdminInfoCmd.AddCommand(adminDeviceAdminInfoGetActivityInfoCmd)
+	adminDeviceAdminInfoGetComponentCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminDeviceAdminInfoCmd.AddCommand(adminDeviceAdminInfoGetComponentCmd)
+	adminDeviceAdminInfoGetHeadlessDeviceOwnerModeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminDeviceAdminInfoCmd.AddCommand(adminDeviceAdminInfoGetHeadlessDeviceOwnerModeCmd)
+	adminDeviceAdminInfoGetPackageNameCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminDeviceAdminInfoCmd.AddCommand(adminDeviceAdminInfoGetPackageNameCmd)
+	adminDeviceAdminInfoGetReceiverNameCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminDeviceAdminInfoCmd.AddCommand(adminDeviceAdminInfoGetReceiverNameCmd)
+	adminDeviceAdminInfoGetTagForPolicyCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminDeviceAdminInfoGetTagForPolicyCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	adminDeviceAdminInfoCmd.AddCommand(adminDeviceAdminInfoGetTagForPolicyCmd)
+	adminDeviceAdminInfoIsVisibleCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminDeviceAdminInfoCmd.AddCommand(adminDeviceAdminInfoIsVisibleCmd)
+	adminDeviceAdminInfoLoadDescriptionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminDeviceAdminInfoLoadDescriptionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminDeviceAdminInfoCmd.AddCommand(adminDeviceAdminInfoLoadDescriptionCmd)
+	adminDeviceAdminInfoLoadIconCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminDeviceAdminInfoLoadIconCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminDeviceAdminInfoCmd.AddCommand(adminDeviceAdminInfoLoadIconCmd)
+	adminDeviceAdminInfoLoadLabelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminDeviceAdminInfoLoadLabelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminDeviceAdminInfoCmd.AddCommand(adminDeviceAdminInfoLoadLabelCmd)
+	adminDeviceAdminInfoSupportsTransferOwnershipCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminDeviceAdminInfoCmd.AddCommand(adminDeviceAdminInfoSupportsTransferOwnershipCmd)
+	adminDeviceAdminInfoToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminDeviceAdminInfoCmd.AddCommand(adminDeviceAdminInfoToStringCmd)
+	adminDeviceAdminInfoUsesPolicyCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminDeviceAdminInfoUsesPolicyCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	adminDeviceAdminInfoCmd.AddCommand(adminDeviceAdminInfoUsesPolicyCmd)
+	adminDeviceAdminInfoWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminDeviceAdminInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminDeviceAdminInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	adminDeviceAdminInfoCmd.AddCommand(adminDeviceAdminInfoWriteToParcelCmd)
+	adminCmd.AddCommand(adminDeviceAdminInfoCmd)
+	adminDelegatedAdminReceiverCmd.AddCommand(adminDelegatedAdminReceiverNewDelegatedAdminReceiverCmd)
+	adminDelegatedAdminReceiverOnChoosePrivateKeyAliasCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminDelegatedAdminReceiverOnChoosePrivateKeyAliasCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminDelegatedAdminReceiverOnChoosePrivateKeyAliasCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	adminDelegatedAdminReceiverOnChoosePrivateKeyAliasCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	adminDelegatedAdminReceiverOnChoosePrivateKeyAliasCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	adminDelegatedAdminReceiverOnChoosePrivateKeyAliasCmd.Flags().String("arg4", "", "arg4 (string)")
+	adminDelegatedAdminReceiverCmd.AddCommand(adminDelegatedAdminReceiverOnChoosePrivateKeyAliasCmd)
+	adminDelegatedAdminReceiverOnNetworkLogsAvailableCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminDelegatedAdminReceiverOnNetworkLogsAvailableCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminDelegatedAdminReceiverOnNetworkLogsAvailableCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	adminDelegatedAdminReceiverOnNetworkLogsAvailableCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	adminDelegatedAdminReceiverOnNetworkLogsAvailableCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	adminDelegatedAdminReceiverCmd.AddCommand(adminDelegatedAdminReceiverOnNetworkLogsAvailableCmd)
+	adminDelegatedAdminReceiverOnReceiveCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminDelegatedAdminReceiverOnReceiveCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminDelegatedAdminReceiverOnReceiveCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	adminDelegatedAdminReceiverCmd.AddCommand(adminDelegatedAdminReceiverOnReceiveCmd)
+	adminDelegatedAdminReceiverOnSecurityLogsAvailableCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adminDelegatedAdminReceiverOnSecurityLogsAvailableCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminDelegatedAdminReceiverOnSecurityLogsAvailableCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	adminDelegatedAdminReceiverCmd.AddCommand(adminDelegatedAdminReceiverOnSecurityLogsAvailableCmd)
+	adminCmd.AddCommand(adminDelegatedAdminReceiverCmd)
+	adminNetworkEventCmd.AddCommand(adminNetworkEventDescribeContentsCmd)
+	adminNetworkEventCmd.AddCommand(adminNetworkEventGetIdCmd)
+	adminNetworkEventCmd.AddCommand(adminNetworkEventGetPackageNameCmd)
+	adminNetworkEventCmd.AddCommand(adminNetworkEventGetTimestampCmd)
+	adminNetworkEventWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminNetworkEventWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	adminNetworkEventCmd.AddCommand(adminNetworkEventWriteToParcelCmd)
+	adminCmd.AddCommand(adminNetworkEventCmd)
 	rootCmd.AddCommand(adminCmd)
 }

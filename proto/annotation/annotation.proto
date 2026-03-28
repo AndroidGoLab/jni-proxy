@@ -5,3 +5,22 @@ syntax = "proto3";
 package annotation;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/annotation";
+
+message ValueRequest {
+}
+
+message ValueResponse {
+  int32 result = 1;
+}
+
+message SuppressLintValueResponse {
+  int64 result = 1;
+}
+
+service TargetApiService {
+  rpc Value (ValueRequest) returns (ValueResponse);
+}
+
+service SuppressLintService {
+  rpc Value (ValueRequest) returns (SuppressLintValueResponse);
+}

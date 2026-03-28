@@ -21,6 +21,336 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
+	HostUsiVersionService_DescribeContents_FullMethodName = "/input.HostUsiVersionService/DescribeContents"
+	HostUsiVersionService_Equals_FullMethodName           = "/input.HostUsiVersionService/Equals"
+	HostUsiVersionService_GetMajorVersion_FullMethodName  = "/input.HostUsiVersionService/GetMajorVersion"
+	HostUsiVersionService_GetMinorVersion_FullMethodName  = "/input.HostUsiVersionService/GetMinorVersion"
+	HostUsiVersionService_HashCode_FullMethodName         = "/input.HostUsiVersionService/HashCode"
+	HostUsiVersionService_ToString_FullMethodName         = "/input.HostUsiVersionService/ToString"
+	HostUsiVersionService_WriteToParcel_FullMethodName    = "/input.HostUsiVersionService/WriteToParcel"
+)
+
+// HostUsiVersionServiceClient is the client API for HostUsiVersionService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type HostUsiVersionServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetMajorVersion(ctx context.Context, in *GetMajorVersionRequest, opts ...grpc.CallOption) (*GetMajorVersionResponse, error)
+	GetMinorVersion(ctx context.Context, in *GetMinorVersionRequest, opts ...grpc.CallOption) (*GetMinorVersionResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type hostUsiVersionServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewHostUsiVersionServiceClient(cc grpc.ClientConnInterface) HostUsiVersionServiceClient {
+	return &hostUsiVersionServiceClient{cc}
+}
+
+func (c *hostUsiVersionServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, HostUsiVersionService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *hostUsiVersionServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, HostUsiVersionService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *hostUsiVersionServiceClient) GetMajorVersion(ctx context.Context, in *GetMajorVersionRequest, opts ...grpc.CallOption) (*GetMajorVersionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMajorVersionResponse)
+	err := c.cc.Invoke(ctx, HostUsiVersionService_GetMajorVersion_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *hostUsiVersionServiceClient) GetMinorVersion(ctx context.Context, in *GetMinorVersionRequest, opts ...grpc.CallOption) (*GetMinorVersionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMinorVersionResponse)
+	err := c.cc.Invoke(ctx, HostUsiVersionService_GetMinorVersion_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *hostUsiVersionServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, HostUsiVersionService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *hostUsiVersionServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, HostUsiVersionService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *hostUsiVersionServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, HostUsiVersionService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// HostUsiVersionServiceServer is the server API for HostUsiVersionService service.
+// All implementations must embed UnimplementedHostUsiVersionServiceServer
+// for forward compatibility.
+type HostUsiVersionServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetMajorVersion(context.Context, *GetMajorVersionRequest) (*GetMajorVersionResponse, error)
+	GetMinorVersion(context.Context, *GetMinorVersionRequest) (*GetMinorVersionResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedHostUsiVersionServiceServer()
+}
+
+// UnimplementedHostUsiVersionServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedHostUsiVersionServiceServer struct{}
+
+func (UnimplementedHostUsiVersionServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedHostUsiVersionServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedHostUsiVersionServiceServer) GetMajorVersion(context.Context, *GetMajorVersionRequest) (*GetMajorVersionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMajorVersion not implemented")
+}
+func (UnimplementedHostUsiVersionServiceServer) GetMinorVersion(context.Context, *GetMinorVersionRequest) (*GetMinorVersionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMinorVersion not implemented")
+}
+func (UnimplementedHostUsiVersionServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedHostUsiVersionServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedHostUsiVersionServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedHostUsiVersionServiceServer) mustEmbedUnimplementedHostUsiVersionServiceServer() {}
+func (UnimplementedHostUsiVersionServiceServer) testEmbeddedByValue()                               {}
+
+// UnsafeHostUsiVersionServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to HostUsiVersionServiceServer will
+// result in compilation errors.
+type UnsafeHostUsiVersionServiceServer interface {
+	mustEmbedUnimplementedHostUsiVersionServiceServer()
+}
+
+func RegisterHostUsiVersionServiceServer(s grpc.ServiceRegistrar, srv HostUsiVersionServiceServer) {
+	// If the following call panics, it indicates UnimplementedHostUsiVersionServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&HostUsiVersionService_ServiceDesc, srv)
+}
+
+func _HostUsiVersionService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HostUsiVersionServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: HostUsiVersionService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HostUsiVersionServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _HostUsiVersionService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HostUsiVersionServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: HostUsiVersionService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HostUsiVersionServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _HostUsiVersionService_GetMajorVersion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMajorVersionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HostUsiVersionServiceServer).GetMajorVersion(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: HostUsiVersionService_GetMajorVersion_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HostUsiVersionServiceServer).GetMajorVersion(ctx, req.(*GetMajorVersionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _HostUsiVersionService_GetMinorVersion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMinorVersionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HostUsiVersionServiceServer).GetMinorVersion(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: HostUsiVersionService_GetMinorVersion_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HostUsiVersionServiceServer).GetMinorVersion(ctx, req.(*GetMinorVersionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _HostUsiVersionService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HostUsiVersionServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: HostUsiVersionService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HostUsiVersionServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _HostUsiVersionService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HostUsiVersionServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: HostUsiVersionService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HostUsiVersionServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _HostUsiVersionService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HostUsiVersionServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: HostUsiVersionService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HostUsiVersionServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// HostUsiVersionService_ServiceDesc is the grpc.ServiceDesc for HostUsiVersionService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var HostUsiVersionService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "input.HostUsiVersionService",
+	HandlerType: (*HostUsiVersionServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _HostUsiVersionService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _HostUsiVersionService_Equals_Handler,
+		},
+		{
+			MethodName: "GetMajorVersion",
+			Handler:    _HostUsiVersionService_GetMajorVersion_Handler,
+		},
+		{
+			MethodName: "GetMinorVersion",
+			Handler:    _HostUsiVersionService_GetMinorVersion_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _HostUsiVersionService_HashCode_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _HostUsiVersionService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _HostUsiVersionService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/input/input.proto",
+}
+
+const (
 	ManagerService_GetHostUsiVersion_FullMethodName                  = "/input.ManagerService/GetHostUsiVersion"
 	ManagerService_GetInputDevice_FullMethodName                     = "/input.ManagerService/GetInputDevice"
 	ManagerService_GetInputDeviceIds_FullMethodName                  = "/input.ManagerService/GetInputDeviceIds"
@@ -382,6 +712,185 @@ var ManagerService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "VerifyInputEvent",
 			Handler:    _ManagerService_VerifyInputEvent_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/input/input.proto",
+}
+
+const (
+	ManagerInputDeviceListenerService_OnInputDeviceAdded_FullMethodName   = "/input.ManagerInputDeviceListenerService/OnInputDeviceAdded"
+	ManagerInputDeviceListenerService_OnInputDeviceChanged_FullMethodName = "/input.ManagerInputDeviceListenerService/OnInputDeviceChanged"
+	ManagerInputDeviceListenerService_OnInputDeviceRemoved_FullMethodName = "/input.ManagerInputDeviceListenerService/OnInputDeviceRemoved"
+)
+
+// ManagerInputDeviceListenerServiceClient is the client API for ManagerInputDeviceListenerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ManagerInputDeviceListenerServiceClient interface {
+	OnInputDeviceAdded(ctx context.Context, in *OnInputDeviceAddedRequest, opts ...grpc.CallOption) (*OnInputDeviceAddedResponse, error)
+	OnInputDeviceChanged(ctx context.Context, in *OnInputDeviceChangedRequest, opts ...grpc.CallOption) (*OnInputDeviceChangedResponse, error)
+	OnInputDeviceRemoved(ctx context.Context, in *OnInputDeviceRemovedRequest, opts ...grpc.CallOption) (*OnInputDeviceRemovedResponse, error)
+}
+
+type managerInputDeviceListenerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewManagerInputDeviceListenerServiceClient(cc grpc.ClientConnInterface) ManagerInputDeviceListenerServiceClient {
+	return &managerInputDeviceListenerServiceClient{cc}
+}
+
+func (c *managerInputDeviceListenerServiceClient) OnInputDeviceAdded(ctx context.Context, in *OnInputDeviceAddedRequest, opts ...grpc.CallOption) (*OnInputDeviceAddedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnInputDeviceAddedResponse)
+	err := c.cc.Invoke(ctx, ManagerInputDeviceListenerService_OnInputDeviceAdded_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerInputDeviceListenerServiceClient) OnInputDeviceChanged(ctx context.Context, in *OnInputDeviceChangedRequest, opts ...grpc.CallOption) (*OnInputDeviceChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnInputDeviceChangedResponse)
+	err := c.cc.Invoke(ctx, ManagerInputDeviceListenerService_OnInputDeviceChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerInputDeviceListenerServiceClient) OnInputDeviceRemoved(ctx context.Context, in *OnInputDeviceRemovedRequest, opts ...grpc.CallOption) (*OnInputDeviceRemovedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnInputDeviceRemovedResponse)
+	err := c.cc.Invoke(ctx, ManagerInputDeviceListenerService_OnInputDeviceRemoved_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ManagerInputDeviceListenerServiceServer is the server API for ManagerInputDeviceListenerService service.
+// All implementations must embed UnimplementedManagerInputDeviceListenerServiceServer
+// for forward compatibility.
+type ManagerInputDeviceListenerServiceServer interface {
+	OnInputDeviceAdded(context.Context, *OnInputDeviceAddedRequest) (*OnInputDeviceAddedResponse, error)
+	OnInputDeviceChanged(context.Context, *OnInputDeviceChangedRequest) (*OnInputDeviceChangedResponse, error)
+	OnInputDeviceRemoved(context.Context, *OnInputDeviceRemovedRequest) (*OnInputDeviceRemovedResponse, error)
+	mustEmbedUnimplementedManagerInputDeviceListenerServiceServer()
+}
+
+// UnimplementedManagerInputDeviceListenerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedManagerInputDeviceListenerServiceServer struct{}
+
+func (UnimplementedManagerInputDeviceListenerServiceServer) OnInputDeviceAdded(context.Context, *OnInputDeviceAddedRequest) (*OnInputDeviceAddedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnInputDeviceAdded not implemented")
+}
+func (UnimplementedManagerInputDeviceListenerServiceServer) OnInputDeviceChanged(context.Context, *OnInputDeviceChangedRequest) (*OnInputDeviceChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnInputDeviceChanged not implemented")
+}
+func (UnimplementedManagerInputDeviceListenerServiceServer) OnInputDeviceRemoved(context.Context, *OnInputDeviceRemovedRequest) (*OnInputDeviceRemovedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnInputDeviceRemoved not implemented")
+}
+func (UnimplementedManagerInputDeviceListenerServiceServer) mustEmbedUnimplementedManagerInputDeviceListenerServiceServer() {
+}
+func (UnimplementedManagerInputDeviceListenerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeManagerInputDeviceListenerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ManagerInputDeviceListenerServiceServer will
+// result in compilation errors.
+type UnsafeManagerInputDeviceListenerServiceServer interface {
+	mustEmbedUnimplementedManagerInputDeviceListenerServiceServer()
+}
+
+func RegisterManagerInputDeviceListenerServiceServer(s grpc.ServiceRegistrar, srv ManagerInputDeviceListenerServiceServer) {
+	// If the following call panics, it indicates UnimplementedManagerInputDeviceListenerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ManagerInputDeviceListenerService_ServiceDesc, srv)
+}
+
+func _ManagerInputDeviceListenerService_OnInputDeviceAdded_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnInputDeviceAddedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerInputDeviceListenerServiceServer).OnInputDeviceAdded(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerInputDeviceListenerService_OnInputDeviceAdded_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerInputDeviceListenerServiceServer).OnInputDeviceAdded(ctx, req.(*OnInputDeviceAddedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerInputDeviceListenerService_OnInputDeviceChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnInputDeviceChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerInputDeviceListenerServiceServer).OnInputDeviceChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerInputDeviceListenerService_OnInputDeviceChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerInputDeviceListenerServiceServer).OnInputDeviceChanged(ctx, req.(*OnInputDeviceChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerInputDeviceListenerService_OnInputDeviceRemoved_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnInputDeviceRemovedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerInputDeviceListenerServiceServer).OnInputDeviceRemoved(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerInputDeviceListenerService_OnInputDeviceRemoved_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerInputDeviceListenerServiceServer).OnInputDeviceRemoved(ctx, req.(*OnInputDeviceRemovedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ManagerInputDeviceListenerService_ServiceDesc is the grpc.ServiceDesc for ManagerInputDeviceListenerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ManagerInputDeviceListenerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "input.ManagerInputDeviceListenerService",
+	HandlerType: (*ManagerInputDeviceListenerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnInputDeviceAdded",
+			Handler:    _ManagerInputDeviceListenerService_OnInputDeviceAdded_Handler,
+		},
+		{
+			MethodName: "OnInputDeviceChanged",
+			Handler:    _ManagerInputDeviceListenerService_OnInputDeviceChanged_Handler,
+		},
+		{
+			MethodName: "OnInputDeviceRemoved",
+			Handler:    _ManagerInputDeviceListenerService_OnInputDeviceRemoved_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

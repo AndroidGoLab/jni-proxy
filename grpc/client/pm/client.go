@@ -9,6 +9,116 @@ import (
 	"google.golang.org/grpc"
 )
 
+// ComponentInfoClient wraps the gRPC ComponentInfoService client.
+type ComponentInfoClient struct {
+	svc pb.ComponentInfoServiceClient
+}
+
+// NewComponentInfoClient creates a new ComponentInfo client.
+func NewComponentInfoClient(cc grpc.ClientConnInterface) *ComponentInfoClient {
+	return &ComponentInfoClient{
+		svc: pb.NewComponentInfoServiceClient(cc),
+	}
+}
+
+// GetBannerResource calls the GetBannerResource RPC.
+func (c *ComponentInfoClient) GetBannerResource(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetBannerResource(ctx, &pb.GetBannerResourceRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIconResource calls the GetIconResource RPC.
+func (c *ComponentInfoClient) GetIconResource(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetIconResource(ctx, &pb.GetIconResourceRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLogoResource calls the GetLogoResource RPC.
+func (c *ComponentInfoClient) GetLogoResource(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetLogoResource(ctx, &pb.GetLogoResourceRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsEnabled calls the IsEnabled RPC.
+func (c *ComponentInfoClient) IsEnabled(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsEnabled(ctx, &pb.IsEnabledRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ComponentInfoClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// PathPermissionClient wraps the gRPC PathPermissionService client.
+type PathPermissionClient struct {
+	svc pb.PathPermissionServiceClient
+}
+
+// NewPathPermissionClient creates a new PathPermission client.
+func NewPathPermissionClient(cc grpc.ClientConnInterface) *PathPermissionClient {
+	return &PathPermissionClient{
+		svc: pb.NewPathPermissionServiceClient(cc),
+	}
+}
+
+// GetReadPermission calls the GetReadPermission RPC.
+func (c *PathPermissionClient) GetReadPermission(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetReadPermission(ctx, &pb.GetReadPermissionRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWritePermission calls the GetWritePermission RPC.
+func (c *PathPermissionClient) GetWritePermission(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetWritePermission(ctx, &pb.GetWritePermissionRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *PathPermissionClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
 // CrossProfileAppsClient wraps the gRPC CrossProfileAppsService client.
 type CrossProfileAppsClient struct {
 	svc pb.CrossProfileAppsServiceClient
@@ -133,22 +243,22 @@ func (c *CrossProfileAppsClient) StartMainActivity4_1(ctx context.Context, arg0 
 	return err
 }
 
-// ShortcutManagerClient wraps the gRPC ShortcutManagerService client.
-type ShortcutManagerClient struct {
-	svc pb.ShortcutManagerServiceClient
+// ResolveInfoClient wraps the gRPC ResolveInfoService client.
+type ResolveInfoClient struct {
+	svc pb.ResolveInfoServiceClient
 }
 
-// NewShortcutManagerClient creates a new ShortcutManager client.
-func NewShortcutManagerClient(cc grpc.ClientConnInterface) *ShortcutManagerClient {
-	return &ShortcutManagerClient{
-		svc: pb.NewShortcutManagerServiceClient(cc),
+// NewResolveInfoClient creates a new ResolveInfo client.
+func NewResolveInfoClient(cc grpc.ClientConnInterface) *ResolveInfoClient {
+	return &ResolveInfoClient{
+		svc: pb.NewResolveInfoServiceClient(cc),
 	}
 }
 
-// CreateShortcutResultIntent calls the CreateShortcutResultIntent RPC.
-func (c *ShortcutManagerClient) CreateShortcutResultIntent(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.CreateShortcutResultIntent(ctx, &pb.CreateShortcutResultIntentRequest{
-		Arg0: arg0,
+// DescribeContents calls the DescribeContents RPC.
+func (c *ResolveInfoClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
 	})
 	if err != nil {
 		return 0, err
@@ -156,81 +266,735 @@ func (c *ShortcutManagerClient) CreateShortcutResultIntent(ctx context.Context, 
 	return resp.GetResult(), nil
 }
 
-// GetIconMaxHeight calls the GetIconMaxHeight RPC.
-func (c *ShortcutManagerClient) GetIconMaxHeight(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetIconMaxHeight(ctx, &pb.GetIconMaxHeightRequest{})
+// Dump calls the Dump RPC.
+func (c *ResolveInfoClient) Dump(ctx context.Context, handle int64, arg0 int64, arg1 string) error {
+	_, err := c.svc.Dump(ctx, &pb.DumpRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GetIconResource calls the GetIconResource RPC.
+func (c *ResolveInfoClient) GetIconResource(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetIconResource(ctx, &pb.GetIconResourceRequest{
+		Handle: handle,
+	})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetIconMaxWidth calls the GetIconMaxWidth RPC.
-func (c *ShortcutManagerClient) GetIconMaxWidth(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetIconMaxWidth(ctx, &pb.GetIconMaxWidthRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMaxShortcutCountPerActivity calls the GetMaxShortcutCountPerActivity RPC.
-func (c *ShortcutManagerClient) GetMaxShortcutCountPerActivity(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetMaxShortcutCountPerActivity(ctx, &pb.GetMaxShortcutCountPerActivityRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsRateLimitingActive calls the IsRateLimitingActive RPC.
-func (c *ShortcutManagerClient) IsRateLimitingActive(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsRateLimitingActive(ctx, &pb.IsRateLimitingActiveRequest{})
+// IsCrossProfileIntentForwarderActivity calls the IsCrossProfileIntentForwarderActivity RPC.
+func (c *ResolveInfoClient) IsCrossProfileIntentForwarderActivity(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsCrossProfileIntentForwarderActivity(ctx, &pb.IsCrossProfileIntentForwarderActivityRequest{
+		Handle: handle,
+	})
 	if err != nil {
 		return false, err
 	}
 	return resp.GetResult(), nil
 }
 
-// IsRequestPinShortcutSupported calls the IsRequestPinShortcutSupported RPC.
-func (c *ShortcutManagerClient) IsRequestPinShortcutSupported(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsRequestPinShortcutSupported(ctx, &pb.IsRequestPinShortcutSupportedRequest{})
+// LoadIcon calls the LoadIcon RPC.
+func (c *ResolveInfoClient) LoadIcon(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.LoadIcon(ctx, &pb.LoadIconRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
 	if err != nil {
-		return false, err
+		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// PushDynamicShortcut calls the PushDynamicShortcut RPC.
-func (c *ShortcutManagerClient) PushDynamicShortcut(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.PushDynamicShortcut(ctx, &pb.PushDynamicShortcutRequest{
-		Arg0: arg0,
+// LoadLabel calls the LoadLabel RPC.
+func (c *ResolveInfoClient) LoadLabel(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.LoadLabel(ctx, &pb.LoadLabelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *ResolveInfoClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ResolveInfoClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
 	})
 	return err
 }
 
-// RemoveAllDynamicShortcuts calls the RemoveAllDynamicShortcuts RPC.
-func (c *ShortcutManagerClient) RemoveAllDynamicShortcuts(ctx context.Context) error {
-	_, err := c.svc.RemoveAllDynamicShortcuts(ctx, &pb.RemoveAllDynamicShortcutsRequest{})
-	return err
+// ResolveInfoDisplayNameComparatorClient wraps the gRPC ResolveInfoDisplayNameComparatorService client.
+type ResolveInfoDisplayNameComparatorClient struct {
+	svc pb.ResolveInfoDisplayNameComparatorServiceClient
 }
 
-// ReportShortcutUsed calls the ReportShortcutUsed RPC.
-func (c *ShortcutManagerClient) ReportShortcutUsed(ctx context.Context, arg0 string) error {
-	_, err := c.svc.ReportShortcutUsed(ctx, &pb.ReportShortcutUsedRequest{
-		Arg0: arg0,
-	})
-	return err
+// NewResolveInfoDisplayNameComparatorClient creates a new ResolveInfoDisplayNameComparator client.
+func NewResolveInfoDisplayNameComparatorClient(cc grpc.ClientConnInterface) *ResolveInfoDisplayNameComparatorClient {
+	return &ResolveInfoDisplayNameComparatorClient{
+		svc: pb.NewResolveInfoDisplayNameComparatorServiceClient(cc),
+	}
 }
 
-// RequestPinShortcut calls the RequestPinShortcut RPC.
-func (c *ShortcutManagerClient) RequestPinShortcut(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
-	resp, err := c.svc.RequestPinShortcut(ctx, &pb.RequestPinShortcutRequest{
+// Compare2 calls the Compare2 RPC.
+func (c *ResolveInfoDisplayNameComparatorClient) Compare2(ctx context.Context, arg0 int64, arg1 int64) (int32, error) {
+	resp, err := c.svc.Compare2(ctx, &pb.Compare2Request{
 		Arg0: arg0,
 		Arg1: arg1,
 	})
 	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Compare2_1 calls the Compare2_1 RPC.
+func (c *ResolveInfoDisplayNameComparatorClient) Compare2_1(ctx context.Context, arg0 int64, arg1 int64) (int32, error) {
+	resp, err := c.svc.Compare2_1(ctx, &pb.Compare2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SharedLibraryInfoClient wraps the gRPC SharedLibraryInfoService client.
+type SharedLibraryInfoClient struct {
+	svc pb.SharedLibraryInfoServiceClient
+}
+
+// NewSharedLibraryInfoClient creates a new SharedLibraryInfo client.
+func NewSharedLibraryInfoClient(cc grpc.ClientConnInterface) *SharedLibraryInfoClient {
+	return &SharedLibraryInfoClient{
+		svc: pb.NewSharedLibraryInfoServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *SharedLibraryInfoClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.SharedLibraryInfoDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDeclaringPackage calls the GetDeclaringPackage RPC.
+func (c *SharedLibraryInfoClient) GetDeclaringPackage(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDeclaringPackage(ctx, &pb.GetDeclaringPackageRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLongVersion calls the GetLongVersion RPC.
+func (c *SharedLibraryInfoClient) GetLongVersion(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetLongVersion(ctx, &pb.GetLongVersionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetName calls the GetName RPC.
+func (c *SharedLibraryInfoClient) GetName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetName(ctx, &pb.GetNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetType calls the GetType RPC.
+func (c *SharedLibraryInfoClient) GetType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetType(ctx, &pb.GetTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVersion calls the GetVersion RPC.
+func (c *SharedLibraryInfoClient) GetVersion(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetVersion(ctx, &pb.GetVersionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *SharedLibraryInfoClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.SharedLibraryInfoToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *SharedLibraryInfoClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.SharedLibraryInfoWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// PermissionInfoClient wraps the gRPC PermissionInfoService client.
+type PermissionInfoClient struct {
+	svc pb.PermissionInfoServiceClient
+}
+
+// NewPermissionInfoClient creates a new PermissionInfo client.
+func NewPermissionInfoClient(cc grpc.ClientConnInterface) *PermissionInfoClient {
+	return &PermissionInfoClient{
+		svc: pb.NewPermissionInfoServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *PermissionInfoClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetProtection calls the GetProtection RPC.
+func (c *PermissionInfoClient) GetProtection(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetProtection(ctx, &pb.GetProtectionRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetProtectionFlags calls the GetProtectionFlags RPC.
+func (c *PermissionInfoClient) GetProtectionFlags(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetProtectionFlags(ctx, &pb.GetProtectionFlagsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// LoadDescription calls the LoadDescription RPC.
+func (c *PermissionInfoClient) LoadDescription(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.LoadDescription(ctx, &pb.LoadDescriptionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *PermissionInfoClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *PermissionInfoClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// ShortcutInfoClient wraps the gRPC ShortcutInfoService client.
+type ShortcutInfoClient struct {
+	svc pb.ShortcutInfoServiceClient
+}
+
+// NewShortcutInfoClient creates a new ShortcutInfo client.
+func NewShortcutInfoClient(cc grpc.ClientConnInterface) *ShortcutInfoClient {
+	return &ShortcutInfoClient{
+		svc: pb.NewShortcutInfoServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ShortcutInfoClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.ShortcutInfoDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetActivity calls the GetActivity RPC.
+func (c *ShortcutInfoClient) GetActivity(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetActivity(ctx, &pb.GetActivityRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDisabledMessage calls the GetDisabledMessage RPC.
+func (c *ShortcutInfoClient) GetDisabledMessage(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDisabledMessage(ctx, &pb.GetDisabledMessageRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDisabledReason calls the GetDisabledReason RPC.
+func (c *ShortcutInfoClient) GetDisabledReason(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetDisabledReason(ctx, &pb.GetDisabledReasonRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExcludedFromSurfaces calls the GetExcludedFromSurfaces RPC.
+func (c *ShortcutInfoClient) GetExcludedFromSurfaces(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetExcludedFromSurfaces(ctx, &pb.GetExcludedFromSurfacesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExtras calls the GetExtras RPC.
+func (c *ShortcutInfoClient) GetExtras(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetExtras(ctx, &pb.GetExtrasRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetId calls the GetId RPC.
+func (c *ShortcutInfoClient) GetId(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIntent calls the GetIntent RPC.
+func (c *ShortcutInfoClient) GetIntent(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetIntent(ctx, &pb.GetIntentRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIntents calls the GetIntents RPC.
+func (c *ShortcutInfoClient) GetIntents(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetIntents(ctx, &pb.GetIntentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLastChangedTimestamp calls the GetLastChangedTimestamp RPC.
+func (c *ShortcutInfoClient) GetLastChangedTimestamp(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetLastChangedTimestamp(ctx, &pb.GetLastChangedTimestampRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLocusId calls the GetLocusId RPC.
+func (c *ShortcutInfoClient) GetLocusId(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetLocusId(ctx, &pb.GetLocusIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLongLabel calls the GetLongLabel RPC.
+func (c *ShortcutInfoClient) GetLongLabel(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetLongLabel(ctx, &pb.GetLongLabelRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPackage calls the GetPackage RPC.
+func (c *ShortcutInfoClient) GetPackage(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetPackage(ctx, &pb.GetPackageRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRank calls the GetRank RPC.
+func (c *ShortcutInfoClient) GetRank(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetRank(ctx, &pb.GetRankRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetShortLabel calls the GetShortLabel RPC.
+func (c *ShortcutInfoClient) GetShortLabel(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetShortLabel(ctx, &pb.GetShortLabelRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUserHandle calls the GetUserHandle RPC.
+func (c *ShortcutInfoClient) GetUserHandle(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetUserHandle(ctx, &pb.GetUserHandleRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasKeyFieldsOnly calls the HasKeyFieldsOnly RPC.
+func (c *ShortcutInfoClient) HasKeyFieldsOnly(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasKeyFieldsOnly(ctx, &pb.HasKeyFieldsOnlyRequest{})
+	if err != nil {
 		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsCached calls the IsCached RPC.
+func (c *ShortcutInfoClient) IsCached(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsCached(ctx, &pb.IsCachedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsDeclaredInManifest calls the IsDeclaredInManifest RPC.
+func (c *ShortcutInfoClient) IsDeclaredInManifest(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsDeclaredInManifest(ctx, &pb.IsDeclaredInManifestRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsDynamic calls the IsDynamic RPC.
+func (c *ShortcutInfoClient) IsDynamic(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsDynamic(ctx, &pb.IsDynamicRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsEnabled calls the IsEnabled RPC.
+func (c *ShortcutInfoClient) IsEnabled(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsEnabled(ctx, &pb.ShortcutInfoIsEnabledRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsExcludedFromSurfaces calls the IsExcludedFromSurfaces RPC.
+func (c *ShortcutInfoClient) IsExcludedFromSurfaces(ctx context.Context, arg0 int32) (bool, error) {
+	resp, err := c.svc.IsExcludedFromSurfaces(ctx, &pb.IsExcludedFromSurfacesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsImmutable calls the IsImmutable RPC.
+func (c *ShortcutInfoClient) IsImmutable(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsImmutable(ctx, &pb.IsImmutableRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsPinned calls the IsPinned RPC.
+func (c *ShortcutInfoClient) IsPinned(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsPinned(ctx, &pb.IsPinnedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *ShortcutInfoClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ShortcutInfoToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ShortcutInfoClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.ShortcutInfoWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// CreateFromGenericDocument calls the CreateFromGenericDocument RPC.
+func (c *ShortcutInfoClient) CreateFromGenericDocument(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.CreateFromGenericDocument(ctx, &pb.CreateFromGenericDocumentRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ShortcutInfoBuilderClient wraps the gRPC ShortcutInfoBuilderService client.
+type ShortcutInfoBuilderClient struct {
+	svc pb.ShortcutInfoBuilderServiceClient
+}
+
+// NewShortcutInfoBuilderClient creates a new ShortcutInfoBuilder client.
+func NewShortcutInfoBuilderClient(cc grpc.ClientConnInterface) *ShortcutInfoBuilderClient {
+	return &ShortcutInfoBuilderClient{
+		svc: pb.NewShortcutInfoBuilderServiceClient(cc),
+	}
+}
+
+// AddCapabilityBinding calls the AddCapabilityBinding RPC.
+func (c *ShortcutInfoBuilderClient) AddCapabilityBinding(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.AddCapabilityBinding(ctx, &pb.AddCapabilityBindingRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Build calls the Build RPC.
+func (c *ShortcutInfoBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetActivity calls the SetActivity RPC.
+func (c *ShortcutInfoBuilderClient) SetActivity(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetActivity(ctx, &pb.SetActivityRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetDisabledMessage calls the SetDisabledMessage RPC.
+func (c *ShortcutInfoBuilderClient) SetDisabledMessage(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetDisabledMessage(ctx, &pb.SetDisabledMessageRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetExcludedFromSurfaces calls the SetExcludedFromSurfaces RPC.
+func (c *ShortcutInfoBuilderClient) SetExcludedFromSurfaces(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetExcludedFromSurfaces(ctx, &pb.SetExcludedFromSurfacesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetExtras calls the SetExtras RPC.
+func (c *ShortcutInfoBuilderClient) SetExtras(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetExtras(ctx, &pb.SetExtrasRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetIcon calls the SetIcon RPC.
+func (c *ShortcutInfoBuilderClient) SetIcon(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetIcon(ctx, &pb.SetIconRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetIntent calls the SetIntent RPC.
+func (c *ShortcutInfoBuilderClient) SetIntent(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetIntent(ctx, &pb.SetIntentRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetIntents calls the SetIntents RPC.
+func (c *ShortcutInfoBuilderClient) SetIntents(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetIntents(ctx, &pb.SetIntentsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetLocusId calls the SetLocusId RPC.
+func (c *ShortcutInfoBuilderClient) SetLocusId(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetLocusId(ctx, &pb.SetLocusIdRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetLongLabel calls the SetLongLabel RPC.
+func (c *ShortcutInfoBuilderClient) SetLongLabel(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetLongLabel(ctx, &pb.SetLongLabelRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetLongLived calls the SetLongLived RPC.
+func (c *ShortcutInfoBuilderClient) SetLongLived(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetLongLived(ctx, &pb.SetLongLivedRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPerson calls the SetPerson RPC.
+func (c *ShortcutInfoBuilderClient) SetPerson(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetPerson(ctx, &pb.SetPersonRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPersons calls the SetPersons RPC.
+func (c *ShortcutInfoBuilderClient) SetPersons(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetPersons(ctx, &pb.SetPersonsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetRank calls the SetRank RPC.
+func (c *ShortcutInfoBuilderClient) SetRank(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetRank(ctx, &pb.SetRankRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetShortLabel calls the SetShortLabel RPC.
+func (c *ShortcutInfoBuilderClient) SetShortLabel(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetShortLabel(ctx, &pb.SetShortLabelRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetStartingTheme calls the SetStartingTheme RPC.
+func (c *ShortcutInfoBuilderClient) SetStartingTheme(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetStartingTheme(ctx, &pb.SetStartingThemeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
 	}
 	return resp.GetResult(), nil
 }
@@ -512,6 +1276,5806 @@ func (c *LauncherAppsClient) UnregisterCallback(ctx context.Context, arg0 int64)
 func (c *LauncherAppsClient) UnregisterPackageInstallerSessionCallback(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.UnregisterPackageInstallerSessionCallback(ctx, &pb.UnregisterPackageInstallerSessionCallbackRequest{
 		Arg0: arg0,
+	})
+	return err
+}
+
+// LauncherAppsArchiveCompatibilityParamsClient wraps the gRPC LauncherAppsArchiveCompatibilityParamsService client.
+type LauncherAppsArchiveCompatibilityParamsClient struct {
+	svc pb.LauncherAppsArchiveCompatibilityParamsServiceClient
+}
+
+// NewLauncherAppsArchiveCompatibilityParamsClient creates a new LauncherAppsArchiveCompatibilityParams client.
+func NewLauncherAppsArchiveCompatibilityParamsClient(cc grpc.ClientConnInterface) *LauncherAppsArchiveCompatibilityParamsClient {
+	return &LauncherAppsArchiveCompatibilityParamsClient{
+		svc: pb.NewLauncherAppsArchiveCompatibilityParamsServiceClient(cc),
+	}
+}
+
+// SetEnableIconOverlay calls the SetEnableIconOverlay RPC.
+func (c *LauncherAppsArchiveCompatibilityParamsClient) SetEnableIconOverlay(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetEnableIconOverlay(ctx, &pb.SetEnableIconOverlayRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetEnableUnarchivalConfirmation calls the SetEnableUnarchivalConfirmation RPC.
+func (c *LauncherAppsArchiveCompatibilityParamsClient) SetEnableUnarchivalConfirmation(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetEnableUnarchivalConfirmation(ctx, &pb.SetEnableUnarchivalConfirmationRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// LauncherAppsCallbackClient wraps the gRPC LauncherAppsCallbackService client.
+type LauncherAppsCallbackClient struct {
+	svc pb.LauncherAppsCallbackServiceClient
+}
+
+// NewLauncherAppsCallbackClient creates a new LauncherAppsCallback client.
+func NewLauncherAppsCallbackClient(cc grpc.ClientConnInterface) *LauncherAppsCallbackClient {
+	return &LauncherAppsCallbackClient{
+		svc: pb.NewLauncherAppsCallbackServiceClient(cc),
+	}
+}
+
+// OnPackageAdded calls the OnPackageAdded RPC.
+func (c *LauncherAppsCallbackClient) OnPackageAdded(ctx context.Context, arg0 string, arg1 int64) error {
+	_, err := c.svc.OnPackageAdded(ctx, &pb.OnPackageAddedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnPackageChanged calls the OnPackageChanged RPC.
+func (c *LauncherAppsCallbackClient) OnPackageChanged(ctx context.Context, arg0 string, arg1 int64) error {
+	_, err := c.svc.OnPackageChanged(ctx, &pb.OnPackageChangedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnPackageLoadingProgressChanged calls the OnPackageLoadingProgressChanged RPC.
+func (c *LauncherAppsCallbackClient) OnPackageLoadingProgressChanged(ctx context.Context, arg0 string, arg1 int64, arg2 float32) error {
+	_, err := c.svc.OnPackageLoadingProgressChanged(ctx, &pb.OnPackageLoadingProgressChangedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// OnPackageRemoved calls the OnPackageRemoved RPC.
+func (c *LauncherAppsCallbackClient) OnPackageRemoved(ctx context.Context, arg0 string, arg1 int64) error {
+	_, err := c.svc.OnPackageRemoved(ctx, &pb.OnPackageRemovedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnPackagesAvailable calls the OnPackagesAvailable RPC.
+func (c *LauncherAppsCallbackClient) OnPackagesAvailable(ctx context.Context, arg0 int64, arg1 int64, arg2 bool) error {
+	_, err := c.svc.OnPackagesAvailable(ctx, &pb.OnPackagesAvailableRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// OnPackagesSuspended2 calls the OnPackagesSuspended2 RPC.
+func (c *LauncherAppsCallbackClient) OnPackagesSuspended2(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.OnPackagesSuspended2(ctx, &pb.OnPackagesSuspended2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnPackagesSuspended3_1 calls the OnPackagesSuspended3_1 RPC.
+func (c *LauncherAppsCallbackClient) OnPackagesSuspended3_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.OnPackagesSuspended3_1(ctx, &pb.OnPackagesSuspended3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// OnPackagesUnavailable calls the OnPackagesUnavailable RPC.
+func (c *LauncherAppsCallbackClient) OnPackagesUnavailable(ctx context.Context, arg0 int64, arg1 int64, arg2 bool) error {
+	_, err := c.svc.OnPackagesUnavailable(ctx, &pb.OnPackagesUnavailableRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// OnPackagesUnsuspended calls the OnPackagesUnsuspended RPC.
+func (c *LauncherAppsCallbackClient) OnPackagesUnsuspended(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.OnPackagesUnsuspended(ctx, &pb.OnPackagesUnsuspendedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnUserConfigChanged calls the OnUserConfigChanged RPC.
+func (c *LauncherAppsCallbackClient) OnUserConfigChanged(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnUserConfigChanged(ctx, &pb.OnUserConfigChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// LauncherAppsPinItemRequestClient wraps the gRPC LauncherAppsPinItemRequestService client.
+type LauncherAppsPinItemRequestClient struct {
+	svc pb.LauncherAppsPinItemRequestServiceClient
+}
+
+// NewLauncherAppsPinItemRequestClient creates a new LauncherAppsPinItemRequest client.
+func NewLauncherAppsPinItemRequestClient(cc grpc.ClientConnInterface) *LauncherAppsPinItemRequestClient {
+	return &LauncherAppsPinItemRequestClient{
+		svc: pb.NewLauncherAppsPinItemRequestServiceClient(cc),
+	}
+}
+
+// Accept0 calls the Accept0 RPC.
+func (c *LauncherAppsPinItemRequestClient) Accept0(ctx context.Context) (bool, error) {
+	resp, err := c.svc.Accept0(ctx, &pb.Accept0Request{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Accept1_1 calls the Accept1_1 RPC.
+func (c *LauncherAppsPinItemRequestClient) Accept1_1(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Accept1_1(ctx, &pb.Accept1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *LauncherAppsPinItemRequestClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.LauncherAppsPinItemRequestDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAppWidgetProviderInfo calls the GetAppWidgetProviderInfo RPC.
+func (c *LauncherAppsPinItemRequestClient) GetAppWidgetProviderInfo(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetAppWidgetProviderInfo(ctx, &pb.GetAppWidgetProviderInfoRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExtras calls the GetExtras RPC.
+func (c *LauncherAppsPinItemRequestClient) GetExtras(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetExtras(ctx, &pb.GetExtrasRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRequestType calls the GetRequestType RPC.
+func (c *LauncherAppsPinItemRequestClient) GetRequestType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetRequestType(ctx, &pb.GetRequestTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetShortcutInfo calls the GetShortcutInfo RPC.
+func (c *LauncherAppsPinItemRequestClient) GetShortcutInfo(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetShortcutInfo(ctx, &pb.GetShortcutInfoRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsValid calls the IsValid RPC.
+func (c *LauncherAppsPinItemRequestClient) IsValid(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsValid(ctx, &pb.IsValidRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *LauncherAppsPinItemRequestClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.LauncherAppsPinItemRequestWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// LauncherAppsShortcutQueryClient wraps the gRPC LauncherAppsShortcutQueryService client.
+type LauncherAppsShortcutQueryClient struct {
+	svc pb.LauncherAppsShortcutQueryServiceClient
+}
+
+// NewLauncherAppsShortcutQueryClient creates a new LauncherAppsShortcutQuery client.
+func NewLauncherAppsShortcutQueryClient(cc grpc.ClientConnInterface) *LauncherAppsShortcutQueryClient {
+	return &LauncherAppsShortcutQueryClient{
+		svc: pb.NewLauncherAppsShortcutQueryServiceClient(cc),
+	}
+}
+
+// SetActivity calls the SetActivity RPC.
+func (c *LauncherAppsShortcutQueryClient) SetActivity(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetActivity(ctx, &pb.SetActivityRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetChangedSince calls the SetChangedSince RPC.
+func (c *LauncherAppsShortcutQueryClient) SetChangedSince(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetChangedSince(ctx, &pb.SetChangedSinceRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPackage calls the SetPackage RPC.
+func (c *LauncherAppsShortcutQueryClient) SetPackage(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetPackage(ctx, &pb.SetPackageRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetQueryFlags calls the SetQueryFlags RPC.
+func (c *LauncherAppsShortcutQueryClient) SetQueryFlags(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetQueryFlags(ctx, &pb.SetQueryFlagsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// InstallSourceInfoClient wraps the gRPC InstallSourceInfoService client.
+type InstallSourceInfoClient struct {
+	svc pb.InstallSourceInfoServiceClient
+}
+
+// NewInstallSourceInfoClient creates a new InstallSourceInfo client.
+func NewInstallSourceInfoClient(cc grpc.ClientConnInterface) *InstallSourceInfoClient {
+	return &InstallSourceInfoClient{
+		svc: pb.NewInstallSourceInfoServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *InstallSourceInfoClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.InstallSourceInfoDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInitiatingPackageName calls the GetInitiatingPackageName RPC.
+func (c *InstallSourceInfoClient) GetInitiatingPackageName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetInitiatingPackageName(ctx, &pb.GetInitiatingPackageNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInitiatingPackageSigningInfo calls the GetInitiatingPackageSigningInfo RPC.
+func (c *InstallSourceInfoClient) GetInitiatingPackageSigningInfo(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetInitiatingPackageSigningInfo(ctx, &pb.GetInitiatingPackageSigningInfoRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstallingPackageName calls the GetInstallingPackageName RPC.
+func (c *InstallSourceInfoClient) GetInstallingPackageName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetInstallingPackageName(ctx, &pb.GetInstallingPackageNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOriginatingPackageName calls the GetOriginatingPackageName RPC.
+func (c *InstallSourceInfoClient) GetOriginatingPackageName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetOriginatingPackageName(ctx, &pb.GetOriginatingPackageNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPackageSource calls the GetPackageSource RPC.
+func (c *InstallSourceInfoClient) GetPackageSource(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetPackageSource(ctx, &pb.GetPackageSourceRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUpdateOwnerPackageName calls the GetUpdateOwnerPackageName RPC.
+func (c *InstallSourceInfoClient) GetUpdateOwnerPackageName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetUpdateOwnerPackageName(ctx, &pb.GetUpdateOwnerPackageNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *InstallSourceInfoClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.InstallSourceInfoWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// FeatureGroupInfoClient wraps the gRPC FeatureGroupInfoService client.
+type FeatureGroupInfoClient struct {
+	svc pb.FeatureGroupInfoServiceClient
+}
+
+// NewFeatureGroupInfoClient creates a new FeatureGroupInfo client.
+func NewFeatureGroupInfoClient(cc grpc.ClientConnInterface) *FeatureGroupInfoClient {
+	return &FeatureGroupInfoClient{
+		svc: pb.NewFeatureGroupInfoServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *FeatureGroupInfoClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *FeatureGroupInfoClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// PackageStatsClient wraps the gRPC PackageStatsService client.
+type PackageStatsClient struct {
+	svc pb.PackageStatsServiceClient
+}
+
+// NewPackageStatsClient creates a new PackageStats client.
+func NewPackageStatsClient(cc grpc.ClientConnInterface) *PackageStatsClient {
+	return &PackageStatsClient{
+		svc: pb.NewPackageStatsServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *PackageStatsClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *PackageStatsClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *PackageStatsClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *PackageStatsClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *PackageStatsClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// ConfigurationInfoClient wraps the gRPC ConfigurationInfoService client.
+type ConfigurationInfoClient struct {
+	svc pb.ConfigurationInfoServiceClient
+}
+
+// NewConfigurationInfoClient creates a new ConfigurationInfo client.
+func NewConfigurationInfoClient(cc grpc.ClientConnInterface) *ConfigurationInfoClient {
+	return &ConfigurationInfoClient{
+		svc: pb.NewConfigurationInfoServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ConfigurationInfoClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetGlEsVersion calls the GetGlEsVersion RPC.
+func (c *ConfigurationInfoClient) GetGlEsVersion(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetGlEsVersion(ctx, &pb.GetGlEsVersionRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *ConfigurationInfoClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ConfigurationInfoClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SignatureClient wraps the gRPC SignatureService client.
+type SignatureClient struct {
+	svc pb.SignatureServiceClient
+}
+
+// NewSignatureClient creates a new Signature client.
+func NewSignatureClient(cc grpc.ClientConnInterface) *SignatureClient {
+	return &SignatureClient{
+		svc: pb.NewSignatureServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *SignatureClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *SignatureClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *SignatureClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToByteArray calls the ToByteArray RPC.
+func (c *SignatureClient) ToByteArray(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.ToByteArray(ctx, &pb.ToByteArrayRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToChars0 calls the ToChars0 RPC.
+func (c *SignatureClient) ToChars0(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.ToChars0(ctx, &pb.ToChars0Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToChars2_1 calls the ToChars2_1 RPC.
+func (c *SignatureClient) ToChars2_1(ctx context.Context, handle int64, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.ToChars2_1(ctx, &pb.ToChars2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToCharsString calls the ToCharsString RPC.
+func (c *SignatureClient) ToCharsString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToCharsString(ctx, &pb.ToCharsStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *SignatureClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// LabeledIntentClient wraps the gRPC LabeledIntentService client.
+type LabeledIntentClient struct {
+	svc pb.LabeledIntentServiceClient
+}
+
+// NewLabeledIntentClient creates a new LabeledIntent client.
+func NewLabeledIntentClient(cc grpc.ClientConnInterface) *LabeledIntentClient {
+	return &LabeledIntentClient{
+		svc: pb.NewLabeledIntentServiceClient(cc),
+	}
+}
+
+// GetIconResource calls the GetIconResource RPC.
+func (c *LabeledIntentClient) GetIconResource(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetIconResource(ctx, &pb.GetIconResourceRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLabelResource calls the GetLabelResource RPC.
+func (c *LabeledIntentClient) GetLabelResource(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetLabelResource(ctx, &pb.GetLabelResourceRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNonLocalizedLabel calls the GetNonLocalizedLabel RPC.
+func (c *LabeledIntentClient) GetNonLocalizedLabel(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetNonLocalizedLabel(ctx, &pb.GetNonLocalizedLabelRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSourcePackage calls the GetSourcePackage RPC.
+func (c *LabeledIntentClient) GetSourcePackage(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetSourcePackage(ctx, &pb.GetSourcePackageRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// LoadIcon calls the LoadIcon RPC.
+func (c *LabeledIntentClient) LoadIcon(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.LoadIcon(ctx, &pb.LoadIconRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// LoadLabel calls the LoadLabel RPC.
+func (c *LabeledIntentClient) LoadLabel(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.LoadLabel(ctx, &pb.LoadLabelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ReadFromParcel calls the ReadFromParcel RPC.
+func (c *LabeledIntentClient) ReadFromParcel(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.ReadFromParcel(ctx, &pb.ReadFromParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *LabeledIntentClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// ChecksumClient wraps the gRPC ChecksumService client.
+type ChecksumClient struct {
+	svc pb.ChecksumServiceClient
+}
+
+// NewChecksumClient creates a new Checksum client.
+func NewChecksumClient(cc grpc.ClientConnInterface) *ChecksumClient {
+	return &ChecksumClient{
+		svc: pb.NewChecksumServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ChecksumClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetType calls the GetType RPC.
+func (c *ChecksumClient) GetType(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetType(ctx, &pb.ChecksumGetTypeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetValue calls the GetValue RPC.
+func (c *ChecksumClient) GetValue(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetValue(ctx, &pb.GetValueRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ChecksumClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// PackageItemInfoClient wraps the gRPC PackageItemInfoService client.
+type PackageItemInfoClient struct {
+	svc pb.PackageItemInfoServiceClient
+}
+
+// NewPackageItemInfoClient creates a new PackageItemInfo client.
+func NewPackageItemInfoClient(cc grpc.ClientConnInterface) *PackageItemInfoClient {
+	return &PackageItemInfoClient{
+		svc: pb.NewPackageItemInfoServiceClient(cc),
+	}
+}
+
+// LoadBanner calls the LoadBanner RPC.
+func (c *PackageItemInfoClient) LoadBanner(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.LoadBanner(ctx, &pb.LoadBannerRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// LoadIcon calls the LoadIcon RPC.
+func (c *PackageItemInfoClient) LoadIcon(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.LoadIcon(ctx, &pb.LoadIconRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// LoadLabel calls the LoadLabel RPC.
+func (c *PackageItemInfoClient) LoadLabel(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.LoadLabel(ctx, &pb.LoadLabelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// LoadLogo calls the LoadLogo RPC.
+func (c *PackageItemInfoClient) LoadLogo(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.LoadLogo(ctx, &pb.LoadLogoRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// LoadUnbadgedIcon calls the LoadUnbadgedIcon RPC.
+func (c *PackageItemInfoClient) LoadUnbadgedIcon(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.LoadUnbadgedIcon(ctx, &pb.LoadUnbadgedIconRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// LoadXmlMetaData calls the LoadXmlMetaData RPC.
+func (c *PackageItemInfoClient) LoadXmlMetaData(ctx context.Context, handle int64, arg0 int64, arg1 string) (int64, error) {
+	resp, err := c.svc.LoadXmlMetaData(ctx, &pb.LoadXmlMetaDataRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *PackageItemInfoClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// PackageItemInfoDisplayNameComparatorClient wraps the gRPC PackageItemInfoDisplayNameComparatorService client.
+type PackageItemInfoDisplayNameComparatorClient struct {
+	svc pb.PackageItemInfoDisplayNameComparatorServiceClient
+}
+
+// NewPackageItemInfoDisplayNameComparatorClient creates a new PackageItemInfoDisplayNameComparator client.
+func NewPackageItemInfoDisplayNameComparatorClient(cc grpc.ClientConnInterface) *PackageItemInfoDisplayNameComparatorClient {
+	return &PackageItemInfoDisplayNameComparatorClient{
+		svc: pb.NewPackageItemInfoDisplayNameComparatorServiceClient(cc),
+	}
+}
+
+// Compare2 calls the Compare2 RPC.
+func (c *PackageItemInfoDisplayNameComparatorClient) Compare2(ctx context.Context, arg0 int64, arg1 int64) (int32, error) {
+	resp, err := c.svc.Compare2(ctx, &pb.Compare2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Compare2_1 calls the Compare2_1 RPC.
+func (c *PackageItemInfoDisplayNameComparatorClient) Compare2_1(ctx context.Context, arg0 int64, arg1 int64) (int32, error) {
+	resp, err := c.svc.Compare2_1(ctx, &pb.Compare2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CapabilityClient wraps the gRPC CapabilityService client.
+type CapabilityClient struct {
+	svc pb.CapabilityServiceClient
+}
+
+// NewCapabilityClient creates a new Capability client.
+func NewCapabilityClient(cc grpc.ClientConnInterface) *CapabilityClient {
+	return &CapabilityClient{
+		svc: pb.NewCapabilityServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *CapabilityClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.CapabilityDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *CapabilityClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.CapabilityEqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetName calls the GetName RPC.
+func (c *CapabilityClient) GetName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetName(ctx, &pb.GetNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *CapabilityClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.CapabilityHashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *CapabilityClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.CapabilityWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// CapabilityBuilderClient wraps the gRPC CapabilityBuilderService client.
+type CapabilityBuilderClient struct {
+	svc pb.CapabilityBuilderServiceClient
+}
+
+// NewCapabilityBuilderClient creates a new CapabilityBuilder client.
+func NewCapabilityBuilderClient(cc grpc.ClientConnInterface) *CapabilityBuilderClient {
+	return &CapabilityBuilderClient{
+		svc: pb.NewCapabilityBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *CapabilityBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ServiceInfoClient wraps the gRPC ServiceInfoService client.
+type ServiceInfoClient struct {
+	svc pb.ServiceInfoServiceClient
+}
+
+// NewServiceInfoClient creates a new ServiceInfo client.
+func NewServiceInfoClient(cc grpc.ClientConnInterface) *ServiceInfoClient {
+	return &ServiceInfoClient{
+		svc: pb.NewServiceInfoServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ServiceInfoClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Dump calls the Dump RPC.
+func (c *ServiceInfoClient) Dump(ctx context.Context, handle int64, arg0 int64, arg1 string) error {
+	_, err := c.svc.Dump(ctx, &pb.DumpRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GetForegroundServiceType calls the GetForegroundServiceType RPC.
+func (c *ServiceInfoClient) GetForegroundServiceType(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetForegroundServiceType(ctx, &pb.GetForegroundServiceTypeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *ServiceInfoClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ServiceInfoClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// InstrumentationInfoClient wraps the gRPC InstrumentationInfoService client.
+type InstrumentationInfoClient struct {
+	svc pb.InstrumentationInfoServiceClient
+}
+
+// NewInstrumentationInfoClient creates a new InstrumentationInfo client.
+func NewInstrumentationInfoClient(cc grpc.ClientConnInterface) *InstrumentationInfoClient {
+	return &InstrumentationInfoClient{
+		svc: pb.NewInstrumentationInfoServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *InstrumentationInfoClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *InstrumentationInfoClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *InstrumentationInfoClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// PermissionGroupInfoClient wraps the gRPC PermissionGroupInfoService client.
+type PermissionGroupInfoClient struct {
+	svc pb.PermissionGroupInfoServiceClient
+}
+
+// NewPermissionGroupInfoClient creates a new PermissionGroupInfo client.
+func NewPermissionGroupInfoClient(cc grpc.ClientConnInterface) *PermissionGroupInfoClient {
+	return &PermissionGroupInfoClient{
+		svc: pb.NewPermissionGroupInfoServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *PermissionGroupInfoClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// LoadDescription calls the LoadDescription RPC.
+func (c *PermissionGroupInfoClient) LoadDescription(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.LoadDescription(ctx, &pb.LoadDescriptionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *PermissionGroupInfoClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *PermissionGroupInfoClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// ApplicationInfoClient wraps the gRPC ApplicationInfoService client.
+type ApplicationInfoClient struct {
+	svc pb.ApplicationInfoServiceClient
+}
+
+// NewApplicationInfoClient creates a new ApplicationInfo client.
+func NewApplicationInfoClient(cc grpc.ClientConnInterface) *ApplicationInfoClient {
+	return &ApplicationInfoClient{
+		svc: pb.NewApplicationInfoServiceClient(cc),
+	}
+}
+
+// AreAttributionsUserVisible calls the AreAttributionsUserVisible RPC.
+func (c *ApplicationInfoClient) AreAttributionsUserVisible(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.AreAttributionsUserVisible(ctx, &pb.AreAttributionsUserVisibleRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ApplicationInfoClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Dump calls the Dump RPC.
+func (c *ApplicationInfoClient) Dump(ctx context.Context, handle int64, arg0 int64, arg1 string) error {
+	_, err := c.svc.Dump(ctx, &pb.DumpRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GetGwpAsanMode calls the GetGwpAsanMode RPC.
+func (c *ApplicationInfoClient) GetGwpAsanMode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetGwpAsanMode(ctx, &pb.GetGwpAsanModeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMemtagMode calls the GetMemtagMode RPC.
+func (c *ApplicationInfoClient) GetMemtagMode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetMemtagMode(ctx, &pb.GetMemtagModeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNativeHeapZeroInitialized calls the GetNativeHeapZeroInitialized RPC.
+func (c *ApplicationInfoClient) GetNativeHeapZeroInitialized(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetNativeHeapZeroInitialized(ctx, &pb.GetNativeHeapZeroInitializedRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRequestRawExternalStorageAccess calls the GetRequestRawExternalStorageAccess RPC.
+func (c *ApplicationInfoClient) GetRequestRawExternalStorageAccess(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetRequestRawExternalStorageAccess(ctx, &pb.GetRequestRawExternalStorageAccessRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsProfileable calls the IsProfileable RPC.
+func (c *ApplicationInfoClient) IsProfileable(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsProfileable(ctx, &pb.IsProfileableRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsProfileableByShell calls the IsProfileableByShell RPC.
+func (c *ApplicationInfoClient) IsProfileableByShell(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsProfileableByShell(ctx, &pb.IsProfileableByShellRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsResourceOverlay calls the IsResourceOverlay RPC.
+func (c *ApplicationInfoClient) IsResourceOverlay(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsResourceOverlay(ctx, &pb.IsResourceOverlayRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsVirtualPreload calls the IsVirtualPreload RPC.
+func (c *ApplicationInfoClient) IsVirtualPreload(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsVirtualPreload(ctx, &pb.IsVirtualPreloadRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// LoadDescription calls the LoadDescription RPC.
+func (c *ApplicationInfoClient) LoadDescription(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.LoadDescription(ctx, &pb.LoadDescriptionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *ApplicationInfoClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ApplicationInfoClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GetCategoryTitle calls the GetCategoryTitle RPC.
+func (c *ApplicationInfoClient) GetCategoryTitle(ctx context.Context, handle int64, arg0 int64, arg1 int32) (int64, error) {
+	resp, err := c.svc.GetCategoryTitle(ctx, &pb.GetCategoryTitleRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ApplicationInfoDisplayNameComparatorClient wraps the gRPC ApplicationInfoDisplayNameComparatorService client.
+type ApplicationInfoDisplayNameComparatorClient struct {
+	svc pb.ApplicationInfoDisplayNameComparatorServiceClient
+}
+
+// NewApplicationInfoDisplayNameComparatorClient creates a new ApplicationInfoDisplayNameComparator client.
+func NewApplicationInfoDisplayNameComparatorClient(cc grpc.ClientConnInterface) *ApplicationInfoDisplayNameComparatorClient {
+	return &ApplicationInfoDisplayNameComparatorClient{
+		svc: pb.NewApplicationInfoDisplayNameComparatorServiceClient(cc),
+	}
+}
+
+// Compare2 calls the Compare2 RPC.
+func (c *ApplicationInfoDisplayNameComparatorClient) Compare2(ctx context.Context, arg0 int64, arg1 int64) (int32, error) {
+	resp, err := c.svc.Compare2(ctx, &pb.Compare2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Compare2_1 calls the Compare2_1 RPC.
+func (c *ApplicationInfoDisplayNameComparatorClient) Compare2_1(ctx context.Context, arg0 int64, arg1 int64) (int32, error) {
+	resp, err := c.svc.Compare2_1(ctx, &pb.Compare2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ArchivedActivityInfoClient wraps the gRPC ArchivedActivityInfoService client.
+type ArchivedActivityInfoClient struct {
+	svc pb.ArchivedActivityInfoServiceClient
+}
+
+// NewArchivedActivityInfoClient creates a new ArchivedActivityInfo client.
+func NewArchivedActivityInfoClient(cc grpc.ClientConnInterface) *ArchivedActivityInfoClient {
+	return &ArchivedActivityInfoClient{
+		svc: pb.NewArchivedActivityInfoServiceClient(cc),
+	}
+}
+
+// GetComponentName calls the GetComponentName RPC.
+func (c *ArchivedActivityInfoClient) GetComponentName(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetComponentName(ctx, &pb.GetComponentNameRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIcon calls the GetIcon RPC.
+func (c *ArchivedActivityInfoClient) GetIcon(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetIcon(ctx, &pb.GetIconRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLabel calls the GetLabel RPC.
+func (c *ArchivedActivityInfoClient) GetLabel(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetLabel(ctx, &pb.GetLabelRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMonochromeIcon calls the GetMonochromeIcon RPC.
+func (c *ArchivedActivityInfoClient) GetMonochromeIcon(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetMonochromeIcon(ctx, &pb.GetMonochromeIconRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetComponentName calls the SetComponentName RPC.
+func (c *ArchivedActivityInfoClient) SetComponentName(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetComponentName(ctx, &pb.SetComponentNameRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetIcon calls the SetIcon RPC.
+func (c *ArchivedActivityInfoClient) SetIcon(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetIcon(ctx, &pb.ArchivedActivityInfoSetIconRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetLabel calls the SetLabel RPC.
+func (c *ArchivedActivityInfoClient) SetLabel(ctx context.Context, handle int64, arg0 string) (int64, error) {
+	resp, err := c.svc.SetLabel(ctx, &pb.SetLabelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetMonochromeIcon calls the SetMonochromeIcon RPC.
+func (c *ArchivedActivityInfoClient) SetMonochromeIcon(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetMonochromeIcon(ctx, &pb.SetMonochromeIconRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SigningInfoExceptionClient wraps the gRPC SigningInfoExceptionService client.
+type SigningInfoExceptionClient struct {
+	svc pb.SigningInfoExceptionServiceClient
+}
+
+// NewSigningInfoExceptionClient creates a new SigningInfoException client.
+func NewSigningInfoExceptionClient(cc grpc.ClientConnInterface) *SigningInfoExceptionClient {
+	return &SigningInfoExceptionClient{
+		svc: pb.NewSigningInfoExceptionServiceClient(cc),
+	}
+}
+
+// GetCode calls the GetCode RPC.
+func (c *SigningInfoExceptionClient) GetCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetCode(ctx, &pb.GetCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ShortcutManagerClient wraps the gRPC ShortcutManagerService client.
+type ShortcutManagerClient struct {
+	svc pb.ShortcutManagerServiceClient
+}
+
+// NewShortcutManagerClient creates a new ShortcutManager client.
+func NewShortcutManagerClient(cc grpc.ClientConnInterface) *ShortcutManagerClient {
+	return &ShortcutManagerClient{
+		svc: pb.NewShortcutManagerServiceClient(cc),
+	}
+}
+
+// CreateShortcutResultIntent calls the CreateShortcutResultIntent RPC.
+func (c *ShortcutManagerClient) CreateShortcutResultIntent(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.CreateShortcutResultIntent(ctx, &pb.CreateShortcutResultIntentRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIconMaxHeight calls the GetIconMaxHeight RPC.
+func (c *ShortcutManagerClient) GetIconMaxHeight(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetIconMaxHeight(ctx, &pb.GetIconMaxHeightRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIconMaxWidth calls the GetIconMaxWidth RPC.
+func (c *ShortcutManagerClient) GetIconMaxWidth(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetIconMaxWidth(ctx, &pb.GetIconMaxWidthRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMaxShortcutCountPerActivity calls the GetMaxShortcutCountPerActivity RPC.
+func (c *ShortcutManagerClient) GetMaxShortcutCountPerActivity(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMaxShortcutCountPerActivity(ctx, &pb.GetMaxShortcutCountPerActivityRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsRateLimitingActive calls the IsRateLimitingActive RPC.
+func (c *ShortcutManagerClient) IsRateLimitingActive(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsRateLimitingActive(ctx, &pb.IsRateLimitingActiveRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsRequestPinShortcutSupported calls the IsRequestPinShortcutSupported RPC.
+func (c *ShortcutManagerClient) IsRequestPinShortcutSupported(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsRequestPinShortcutSupported(ctx, &pb.IsRequestPinShortcutSupportedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PushDynamicShortcut calls the PushDynamicShortcut RPC.
+func (c *ShortcutManagerClient) PushDynamicShortcut(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.PushDynamicShortcut(ctx, &pb.PushDynamicShortcutRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// RemoveAllDynamicShortcuts calls the RemoveAllDynamicShortcuts RPC.
+func (c *ShortcutManagerClient) RemoveAllDynamicShortcuts(ctx context.Context) error {
+	_, err := c.svc.RemoveAllDynamicShortcuts(ctx, &pb.RemoveAllDynamicShortcutsRequest{})
+	return err
+}
+
+// ReportShortcutUsed calls the ReportShortcutUsed RPC.
+func (c *ShortcutManagerClient) ReportShortcutUsed(ctx context.Context, arg0 string) error {
+	_, err := c.svc.ReportShortcutUsed(ctx, &pb.ReportShortcutUsedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// RequestPinShortcut calls the RequestPinShortcut RPC.
+func (c *ShortcutManagerClient) RequestPinShortcut(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
+	resp, err := c.svc.RequestPinShortcut(ctx, &pb.RequestPinShortcutRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AttributionClient wraps the gRPC AttributionService client.
+type AttributionClient struct {
+	svc pb.AttributionServiceClient
+}
+
+// NewAttributionClient creates a new Attribution client.
+func NewAttributionClient(cc grpc.ClientConnInterface) *AttributionClient {
+	return &AttributionClient{
+		svc: pb.NewAttributionServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *AttributionClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.AttributionDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLabel calls the GetLabel RPC.
+func (c *AttributionClient) GetLabel(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetLabel(ctx, &pb.AttributionGetLabelRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTag calls the GetTag RPC.
+func (c *AttributionClient) GetTag(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetTag(ctx, &pb.GetTagRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *AttributionClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.AttributionWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// CapabilityParamsClient wraps the gRPC CapabilityParamsService client.
+type CapabilityParamsClient struct {
+	svc pb.CapabilityParamsServiceClient
+}
+
+// NewCapabilityParamsClient creates a new CapabilityParams client.
+func NewCapabilityParamsClient(cc grpc.ClientConnInterface) *CapabilityParamsClient {
+	return &CapabilityParamsClient{
+		svc: pb.NewCapabilityParamsServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *CapabilityParamsClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.CapabilityParamsDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *CapabilityParamsClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.CapabilityParamsEqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetName calls the GetName RPC.
+func (c *CapabilityParamsClient) GetName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetName(ctx, &pb.GetNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetValue calls the GetValue RPC.
+func (c *CapabilityParamsClient) GetValue(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetValue(ctx, &pb.CapabilityParamsGetValueRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *CapabilityParamsClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.CapabilityParamsHashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *CapabilityParamsClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.CapabilityParamsWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// CapabilityParamsBuilderClient wraps the gRPC CapabilityParamsBuilderService client.
+type CapabilityParamsBuilderClient struct {
+	svc pb.CapabilityParamsBuilderServiceClient
+}
+
+// NewCapabilityParamsBuilderClient creates a new CapabilityParamsBuilder client.
+func NewCapabilityParamsBuilderClient(cc grpc.ClientConnInterface) *CapabilityParamsBuilderClient {
+	return &CapabilityParamsBuilderClient{
+		svc: pb.NewCapabilityParamsBuilderServiceClient(cc),
+	}
+}
+
+// AddAlias calls the AddAlias RPC.
+func (c *CapabilityParamsBuilderClient) AddAlias(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.AddAlias(ctx, &pb.AddAliasRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Build calls the Build RPC.
+func (c *CapabilityParamsBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ProviderInfoClient wraps the gRPC ProviderInfoService client.
+type ProviderInfoClient struct {
+	svc pb.ProviderInfoServiceClient
+}
+
+// NewProviderInfoClient creates a new ProviderInfo client.
+func NewProviderInfoClient(cc grpc.ClientConnInterface) *ProviderInfoClient {
+	return &ProviderInfoClient{
+		svc: pb.NewProviderInfoServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ProviderInfoClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Dump calls the Dump RPC.
+func (c *ProviderInfoClient) Dump(ctx context.Context, handle int64, arg0 int64, arg1 string) error {
+	_, err := c.svc.Dump(ctx, &pb.DumpRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// ToString calls the ToString RPC.
+func (c *ProviderInfoClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ProviderInfoClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// LauncherActivityInfoClient wraps the gRPC LauncherActivityInfoService client.
+type LauncherActivityInfoClient struct {
+	svc pb.LauncherActivityInfoServiceClient
+}
+
+// NewLauncherActivityInfoClient creates a new LauncherActivityInfo client.
+func NewLauncherActivityInfoClient(cc grpc.ClientConnInterface) *LauncherActivityInfoClient {
+	return &LauncherActivityInfoClient{
+		svc: pb.NewLauncherActivityInfoServiceClient(cc),
+	}
+}
+
+// GetActivityInfo calls the GetActivityInfo RPC.
+func (c *LauncherActivityInfoClient) GetActivityInfo(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetActivityInfo(ctx, &pb.GetActivityInfoRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetApplicationInfo calls the GetApplicationInfo RPC.
+func (c *LauncherActivityInfoClient) GetApplicationInfo(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetApplicationInfo(ctx, &pb.LauncherActivityInfoGetApplicationInfoRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBadgedIcon calls the GetBadgedIcon RPC.
+func (c *LauncherActivityInfoClient) GetBadgedIcon(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetBadgedIcon(ctx, &pb.GetBadgedIconRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetComponentName calls the GetComponentName RPC.
+func (c *LauncherActivityInfoClient) GetComponentName(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetComponentName(ctx, &pb.LauncherActivityInfoGetComponentNameRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFirstInstallTime calls the GetFirstInstallTime RPC.
+func (c *LauncherActivityInfoClient) GetFirstInstallTime(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetFirstInstallTime(ctx, &pb.GetFirstInstallTimeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIcon calls the GetIcon RPC.
+func (c *LauncherActivityInfoClient) GetIcon(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetIcon(ctx, &pb.LauncherActivityInfoGetIconRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLabel calls the GetLabel RPC.
+func (c *LauncherActivityInfoClient) GetLabel(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetLabel(ctx, &pb.LauncherActivityInfoGetLabelRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLoadingProgress calls the GetLoadingProgress RPC.
+func (c *LauncherActivityInfoClient) GetLoadingProgress(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetLoadingProgress(ctx, &pb.GetLoadingProgressRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetName calls the GetName RPC.
+func (c *LauncherActivityInfoClient) GetName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetName(ctx, &pb.GetNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUser calls the GetUser RPC.
+func (c *LauncherActivityInfoClient) GetUser(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetUser(ctx, &pb.GetUserRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// LauncherUserInfoClient wraps the gRPC LauncherUserInfoService client.
+type LauncherUserInfoClient struct {
+	svc pb.LauncherUserInfoServiceClient
+}
+
+// NewLauncherUserInfoClient creates a new LauncherUserInfo client.
+func NewLauncherUserInfoClient(cc grpc.ClientConnInterface) *LauncherUserInfoClient {
+	return &LauncherUserInfoClient{
+		svc: pb.NewLauncherUserInfoServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *LauncherUserInfoClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.LauncherUserInfoDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUserConfig calls the GetUserConfig RPC.
+func (c *LauncherUserInfoClient) GetUserConfig(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetUserConfig(ctx, &pb.GetUserConfigRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUserSerialNumber calls the GetUserSerialNumber RPC.
+func (c *LauncherUserInfoClient) GetUserSerialNumber(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetUserSerialNumber(ctx, &pb.GetUserSerialNumberRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUserType calls the GetUserType RPC.
+func (c *LauncherUserInfoClient) GetUserType(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetUserType(ctx, &pb.GetUserTypeRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *LauncherUserInfoClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.LauncherUserInfoWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ActivityInfoClient wraps the gRPC ActivityInfoService client.
+type ActivityInfoClient struct {
+	svc pb.ActivityInfoServiceClient
+}
+
+// NewActivityInfoClient creates a new ActivityInfo client.
+func NewActivityInfoClient(cc grpc.ClientConnInterface) *ActivityInfoClient {
+	return &ActivityInfoClient{
+		svc: pb.NewActivityInfoServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ActivityInfoClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Dump calls the Dump RPC.
+func (c *ActivityInfoClient) Dump(ctx context.Context, handle int64, arg0 int64, arg1 string) error {
+	_, err := c.svc.Dump(ctx, &pb.DumpRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GetThemeResource calls the GetThemeResource RPC.
+func (c *ActivityInfoClient) GetThemeResource(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetThemeResource(ctx, &pb.GetThemeResourceRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *ActivityInfoClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ActivityInfoClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// PackageInstallerClient wraps the gRPC PackageInstallerService client.
+type PackageInstallerClient struct {
+	svc pb.PackageInstallerServiceClient
+}
+
+// NewPackageInstallerClient creates a new PackageInstaller client.
+func NewPackageInstallerClient(cc grpc.ClientConnInterface) *PackageInstallerClient {
+	return &PackageInstallerClient{
+		svc: pb.NewPackageInstallerServiceClient(cc),
+	}
+}
+
+// AbandonSession calls the AbandonSession RPC.
+func (c *PackageInstallerClient) AbandonSession(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.AbandonSession(ctx, &pb.AbandonSessionRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// CommitSessionAfterInstallConstraintsAreMet calls the CommitSessionAfterInstallConstraintsAreMet RPC.
+func (c *PackageInstallerClient) CommitSessionAfterInstallConstraintsAreMet(ctx context.Context, arg0 int32, arg1 int64, arg2 int64, arg3 int64) error {
+	_, err := c.svc.CommitSessionAfterInstallConstraintsAreMet(ctx, &pb.CommitSessionAfterInstallConstraintsAreMetRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// CreateSession calls the CreateSession RPC.
+func (c *PackageInstallerClient) CreateSession(ctx context.Context, arg0 int64) (int32, error) {
+	resp, err := c.svc.CreateSession(ctx, &pb.CreateSessionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetActiveStagedSession calls the GetActiveStagedSession RPC.
+func (c *PackageInstallerClient) GetActiveStagedSession(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetActiveStagedSession(ctx, &pb.GetActiveStagedSessionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSessionInfo calls the GetSessionInfo RPC.
+func (c *PackageInstallerClient) GetSessionInfo(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetSessionInfo(ctx, &pb.GetSessionInfoRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// InstallExistingPackage calls the InstallExistingPackage RPC.
+func (c *PackageInstallerClient) InstallExistingPackage(ctx context.Context, arg0 string, arg1 int32, arg2 int64) error {
+	_, err := c.svc.InstallExistingPackage(ctx, &pb.InstallExistingPackageRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// InstallPackageArchived calls the InstallPackageArchived RPC.
+func (c *PackageInstallerClient) InstallPackageArchived(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.InstallPackageArchived(ctx, &pb.InstallPackageArchivedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// OpenSession calls the OpenSession RPC.
+func (c *PackageInstallerClient) OpenSession(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.OpenSession(ctx, &pb.OpenSessionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RegisterSessionCallback calls the RegisterSessionCallback RPC.
+func (c *PackageInstallerClient) RegisterSessionCallback(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.RegisterSessionCallback(ctx, &pb.RegisterSessionCallbackRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ReportUnarchivalState calls the ReportUnarchivalState RPC.
+func (c *PackageInstallerClient) ReportUnarchivalState(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.ReportUnarchivalState(ctx, &pb.ReportUnarchivalStateRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ReportUnarchivalStatus calls the ReportUnarchivalStatus RPC.
+func (c *PackageInstallerClient) ReportUnarchivalStatus(ctx context.Context, arg0 int32, arg1 int32, arg2 int64, arg3 int64) error {
+	_, err := c.svc.ReportUnarchivalStatus(ctx, &pb.ReportUnarchivalStatusRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// RequestArchive calls the RequestArchive RPC.
+func (c *PackageInstallerClient) RequestArchive(ctx context.Context, arg0 string, arg1 int64) error {
+	_, err := c.svc.RequestArchive(ctx, &pb.RequestArchiveRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// RequestUnarchive calls the RequestUnarchive RPC.
+func (c *PackageInstallerClient) RequestUnarchive(ctx context.Context, arg0 string, arg1 int64) error {
+	_, err := c.svc.RequestUnarchive(ctx, &pb.RequestUnarchiveRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// Uninstall2 calls the Uninstall2 RPC.
+func (c *PackageInstallerClient) Uninstall2(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.Uninstall2(ctx, &pb.Uninstall2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// Uninstall3_1 calls the Uninstall3_1 RPC.
+func (c *PackageInstallerClient) Uninstall3_1(ctx context.Context, arg0 int64, arg1 int32, arg2 int64) error {
+	_, err := c.svc.Uninstall3_1(ctx, &pb.Uninstall3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// Uninstall2_2 calls the Uninstall2_2 RPC.
+func (c *PackageInstallerClient) Uninstall2_2(ctx context.Context, arg0 string, arg1 int64) error {
+	_, err := c.svc.Uninstall2_2(ctx, &pb.Uninstall2_2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// UninstallExistingPackage calls the UninstallExistingPackage RPC.
+func (c *PackageInstallerClient) UninstallExistingPackage(ctx context.Context, arg0 string, arg1 int64) error {
+	_, err := c.svc.UninstallExistingPackage(ctx, &pb.UninstallExistingPackageRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// UnregisterSessionCallback calls the UnregisterSessionCallback RPC.
+func (c *PackageInstallerClient) UnregisterSessionCallback(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.UnregisterSessionCallback(ctx, &pb.UnregisterSessionCallbackRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// UpdateSessionAppIcon calls the UpdateSessionAppIcon RPC.
+func (c *PackageInstallerClient) UpdateSessionAppIcon(ctx context.Context, arg0 int32, arg1 int64) error {
+	_, err := c.svc.UpdateSessionAppIcon(ctx, &pb.UpdateSessionAppIconRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// UpdateSessionAppLabel calls the UpdateSessionAppLabel RPC.
+func (c *PackageInstallerClient) UpdateSessionAppLabel(ctx context.Context, arg0 int32, arg1 string) error {
+	_, err := c.svc.UpdateSessionAppLabel(ctx, &pb.UpdateSessionAppLabelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// PackageInstallerInstallConstraintsClient wraps the gRPC PackageInstallerInstallConstraintsService client.
+type PackageInstallerInstallConstraintsClient struct {
+	svc pb.PackageInstallerInstallConstraintsServiceClient
+}
+
+// NewPackageInstallerInstallConstraintsClient creates a new PackageInstallerInstallConstraints client.
+func NewPackageInstallerInstallConstraintsClient(cc grpc.ClientConnInterface) *PackageInstallerInstallConstraintsClient {
+	return &PackageInstallerInstallConstraintsClient{
+		svc: pb.NewPackageInstallerInstallConstraintsServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *PackageInstallerInstallConstraintsClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.PackageInstallerInstallConstraintsDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *PackageInstallerInstallConstraintsClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.PackageInstallerInstallConstraintsEqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *PackageInstallerInstallConstraintsClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.PackageInstallerInstallConstraintsHashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsAppNotForegroundRequired calls the IsAppNotForegroundRequired RPC.
+func (c *PackageInstallerInstallConstraintsClient) IsAppNotForegroundRequired(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsAppNotForegroundRequired(ctx, &pb.IsAppNotForegroundRequiredRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsAppNotInteractingRequired calls the IsAppNotInteractingRequired RPC.
+func (c *PackageInstallerInstallConstraintsClient) IsAppNotInteractingRequired(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsAppNotInteractingRequired(ctx, &pb.IsAppNotInteractingRequiredRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsAppNotTopVisibleRequired calls the IsAppNotTopVisibleRequired RPC.
+func (c *PackageInstallerInstallConstraintsClient) IsAppNotTopVisibleRequired(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsAppNotTopVisibleRequired(ctx, &pb.IsAppNotTopVisibleRequiredRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsDeviceIdleRequired calls the IsDeviceIdleRequired RPC.
+func (c *PackageInstallerInstallConstraintsClient) IsDeviceIdleRequired(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsDeviceIdleRequired(ctx, &pb.IsDeviceIdleRequiredRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsNotInCallRequired calls the IsNotInCallRequired RPC.
+func (c *PackageInstallerInstallConstraintsClient) IsNotInCallRequired(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsNotInCallRequired(ctx, &pb.IsNotInCallRequiredRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *PackageInstallerInstallConstraintsClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.PackageInstallerInstallConstraintsWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// PackageInstallerInstallConstraintsResultClient wraps the gRPC PackageInstallerInstallConstraintsResultService client.
+type PackageInstallerInstallConstraintsResultClient struct {
+	svc pb.PackageInstallerInstallConstraintsResultServiceClient
+}
+
+// NewPackageInstallerInstallConstraintsResultClient creates a new PackageInstallerInstallConstraintsResult client.
+func NewPackageInstallerInstallConstraintsResultClient(cc grpc.ClientConnInterface) *PackageInstallerInstallConstraintsResultClient {
+	return &PackageInstallerInstallConstraintsResultClient{
+		svc: pb.NewPackageInstallerInstallConstraintsResultServiceClient(cc),
+	}
+}
+
+// AreAllConstraintsSatisfied calls the AreAllConstraintsSatisfied RPC.
+func (c *PackageInstallerInstallConstraintsResultClient) AreAllConstraintsSatisfied(ctx context.Context) (bool, error) {
+	resp, err := c.svc.AreAllConstraintsSatisfied(ctx, &pb.AreAllConstraintsSatisfiedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *PackageInstallerInstallConstraintsResultClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.PackageInstallerInstallConstraintsResultDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *PackageInstallerInstallConstraintsResultClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.PackageInstallerInstallConstraintsResultWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// PackageInstallerPreapprovalDetailsClient wraps the gRPC PackageInstallerPreapprovalDetailsService client.
+type PackageInstallerPreapprovalDetailsClient struct {
+	svc pb.PackageInstallerPreapprovalDetailsServiceClient
+}
+
+// NewPackageInstallerPreapprovalDetailsClient creates a new PackageInstallerPreapprovalDetails client.
+func NewPackageInstallerPreapprovalDetailsClient(cc grpc.ClientConnInterface) *PackageInstallerPreapprovalDetailsClient {
+	return &PackageInstallerPreapprovalDetailsClient{
+		svc: pb.NewPackageInstallerPreapprovalDetailsServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *PackageInstallerPreapprovalDetailsClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.PackageInstallerPreapprovalDetailsDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIcon calls the GetIcon RPC.
+func (c *PackageInstallerPreapprovalDetailsClient) GetIcon(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetIcon(ctx, &pb.PackageInstallerPreapprovalDetailsGetIconRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLabel calls the GetLabel RPC.
+func (c *PackageInstallerPreapprovalDetailsClient) GetLabel(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetLabel(ctx, &pb.PackageInstallerPreapprovalDetailsGetLabelRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLocale calls the GetLocale RPC.
+func (c *PackageInstallerPreapprovalDetailsClient) GetLocale(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetLocale(ctx, &pb.GetLocaleRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPackageName calls the GetPackageName RPC.
+func (c *PackageInstallerPreapprovalDetailsClient) GetPackageName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetPackageName(ctx, &pb.GetPackageNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *PackageInstallerPreapprovalDetailsClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.PackageInstallerPreapprovalDetailsToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *PackageInstallerPreapprovalDetailsClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.PackageInstallerPreapprovalDetailsWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// PackageInstallerSessionClient wraps the gRPC PackageInstallerSessionService client.
+type PackageInstallerSessionClient struct {
+	svc pb.PackageInstallerSessionServiceClient
+}
+
+// NewPackageInstallerSessionClient creates a new PackageInstallerSession client.
+func NewPackageInstallerSessionClient(cc grpc.ClientConnInterface) *PackageInstallerSessionClient {
+	return &PackageInstallerSessionClient{
+		svc: pb.NewPackageInstallerSessionServiceClient(cc),
+	}
+}
+
+// Abandon calls the Abandon RPC.
+func (c *PackageInstallerSessionClient) Abandon(ctx context.Context) error {
+	_, err := c.svc.Abandon(ctx, &pb.AbandonRequest{})
+	return err
+}
+
+// AddChildSessionId calls the AddChildSessionId RPC.
+func (c *PackageInstallerSessionClient) AddChildSessionId(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.AddChildSessionId(ctx, &pb.AddChildSessionIdRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// Close calls the Close RPC.
+func (c *PackageInstallerSessionClient) Close(ctx context.Context) error {
+	_, err := c.svc.Close(ctx, &pb.CloseRequest{})
+	return err
+}
+
+// Commit calls the Commit RPC.
+func (c *PackageInstallerSessionClient) Commit(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.Commit(ctx, &pb.CommitRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// Fsync calls the Fsync RPC.
+func (c *PackageInstallerSessionClient) Fsync(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.Fsync(ctx, &pb.FsyncRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// GetAppMetadata calls the GetAppMetadata RPC.
+func (c *PackageInstallerSessionClient) GetAppMetadata(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAppMetadata(ctx, &pb.GetAppMetadataRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetChildSessionIds calls the GetChildSessionIds RPC.
+func (c *PackageInstallerSessionClient) GetChildSessionIds(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetChildSessionIds(ctx, &pb.GetChildSessionIdsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNames calls the GetNames RPC.
+func (c *PackageInstallerSessionClient) GetNames(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetNames(ctx, &pb.GetNamesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetParentSessionId calls the GetParentSessionId RPC.
+func (c *PackageInstallerSessionClient) GetParentSessionId(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetParentSessionId(ctx, &pb.GetParentSessionIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsApplicationEnabledSettingPersistent calls the IsApplicationEnabledSettingPersistent RPC.
+func (c *PackageInstallerSessionClient) IsApplicationEnabledSettingPersistent(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsApplicationEnabledSettingPersistent(ctx, &pb.IsApplicationEnabledSettingPersistentRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsMultiPackage calls the IsMultiPackage RPC.
+func (c *PackageInstallerSessionClient) IsMultiPackage(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsMultiPackage(ctx, &pb.IsMultiPackageRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsRequestUpdateOwnership calls the IsRequestUpdateOwnership RPC.
+func (c *PackageInstallerSessionClient) IsRequestUpdateOwnership(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsRequestUpdateOwnership(ctx, &pb.IsRequestUpdateOwnershipRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsStaged calls the IsStaged RPC.
+func (c *PackageInstallerSessionClient) IsStaged(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsStaged(ctx, &pb.IsStagedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OpenRead calls the OpenRead RPC.
+func (c *PackageInstallerSessionClient) OpenRead(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.OpenRead(ctx, &pb.OpenReadRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OpenWrite calls the OpenWrite RPC.
+func (c *PackageInstallerSessionClient) OpenWrite(ctx context.Context, arg0 string, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.OpenWrite(ctx, &pb.OpenWriteRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RemoveChildSessionId calls the RemoveChildSessionId RPC.
+func (c *PackageInstallerSessionClient) RemoveChildSessionId(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.RemoveChildSessionId(ctx, &pb.RemoveChildSessionIdRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// RemoveSplit calls the RemoveSplit RPC.
+func (c *PackageInstallerSessionClient) RemoveSplit(ctx context.Context, arg0 string) error {
+	_, err := c.svc.RemoveSplit(ctx, &pb.RemoveSplitRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// RequestUserPreapproval calls the RequestUserPreapproval RPC.
+func (c *PackageInstallerSessionClient) RequestUserPreapproval(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.RequestUserPreapproval(ctx, &pb.RequestUserPreapprovalRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// SetAppMetadata calls the SetAppMetadata RPC.
+func (c *PackageInstallerSessionClient) SetAppMetadata(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetAppMetadata(ctx, &pb.SetAppMetadataRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetStagingProgress calls the SetStagingProgress RPC.
+func (c *PackageInstallerSessionClient) SetStagingProgress(ctx context.Context, arg0 float32) error {
+	_, err := c.svc.SetStagingProgress(ctx, &pb.SetStagingProgressRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// Transfer calls the Transfer RPC.
+func (c *PackageInstallerSessionClient) Transfer(ctx context.Context, arg0 string) error {
+	_, err := c.svc.Transfer(ctx, &pb.TransferRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// PackageInstallerSessionCallbackClient wraps the gRPC PackageInstallerSessionCallbackService client.
+type PackageInstallerSessionCallbackClient struct {
+	svc pb.PackageInstallerSessionCallbackServiceClient
+}
+
+// NewPackageInstallerSessionCallbackClient creates a new PackageInstallerSessionCallback client.
+func NewPackageInstallerSessionCallbackClient(cc grpc.ClientConnInterface) *PackageInstallerSessionCallbackClient {
+	return &PackageInstallerSessionCallbackClient{
+		svc: pb.NewPackageInstallerSessionCallbackServiceClient(cc),
+	}
+}
+
+// OnActiveChanged calls the OnActiveChanged RPC.
+func (c *PackageInstallerSessionCallbackClient) OnActiveChanged(ctx context.Context, arg0 int32, arg1 bool) error {
+	_, err := c.svc.OnActiveChanged(ctx, &pb.OnActiveChangedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnBadgingChanged calls the OnBadgingChanged RPC.
+func (c *PackageInstallerSessionCallbackClient) OnBadgingChanged(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.OnBadgingChanged(ctx, &pb.OnBadgingChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnCreated calls the OnCreated RPC.
+func (c *PackageInstallerSessionCallbackClient) OnCreated(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.OnCreated(ctx, &pb.OnCreatedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnFinished calls the OnFinished RPC.
+func (c *PackageInstallerSessionCallbackClient) OnFinished(ctx context.Context, arg0 int32, arg1 bool) error {
+	_, err := c.svc.OnFinished(ctx, &pb.OnFinishedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnProgressChanged calls the OnProgressChanged RPC.
+func (c *PackageInstallerSessionCallbackClient) OnProgressChanged(ctx context.Context, arg0 int32, arg1 float32) error {
+	_, err := c.svc.OnProgressChanged(ctx, &pb.OnProgressChangedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// PackageInstallerSessionInfoClient wraps the gRPC PackageInstallerSessionInfoService client.
+type PackageInstallerSessionInfoClient struct {
+	svc pb.PackageInstallerSessionInfoServiceClient
+}
+
+// NewPackageInstallerSessionInfoClient creates a new PackageInstallerSessionInfo client.
+func NewPackageInstallerSessionInfoClient(cc grpc.ClientConnInterface) *PackageInstallerSessionInfoClient {
+	return &PackageInstallerSessionInfoClient{
+		svc: pb.NewPackageInstallerSessionInfoServiceClient(cc),
+	}
+}
+
+// CreateDetailsIntent calls the CreateDetailsIntent RPC.
+func (c *PackageInstallerSessionInfoClient) CreateDetailsIntent(ctx context.Context) (int64, error) {
+	resp, err := c.svc.CreateDetailsIntent(ctx, &pb.CreateDetailsIntentRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *PackageInstallerSessionInfoClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.PackageInstallerSessionInfoDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAppIcon calls the GetAppIcon RPC.
+func (c *PackageInstallerSessionInfoClient) GetAppIcon(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAppIcon(ctx, &pb.GetAppIconRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAppLabel calls the GetAppLabel RPC.
+func (c *PackageInstallerSessionInfoClient) GetAppLabel(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAppLabel(ctx, &pb.GetAppLabelRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAppPackageName calls the GetAppPackageName RPC.
+func (c *PackageInstallerSessionInfoClient) GetAppPackageName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetAppPackageName(ctx, &pb.GetAppPackageNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetChildSessionIds calls the GetChildSessionIds RPC.
+func (c *PackageInstallerSessionInfoClient) GetChildSessionIds(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetChildSessionIds(ctx, &pb.GetChildSessionIdsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCreatedMillis calls the GetCreatedMillis RPC.
+func (c *PackageInstallerSessionInfoClient) GetCreatedMillis(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetCreatedMillis(ctx, &pb.GetCreatedMillisRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDontKillApp calls the GetDontKillApp RPC.
+func (c *PackageInstallerSessionInfoClient) GetDontKillApp(ctx context.Context) (bool, error) {
+	resp, err := c.svc.GetDontKillApp(ctx, &pb.GetDontKillAppRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstallLocation calls the GetInstallLocation RPC.
+func (c *PackageInstallerSessionInfoClient) GetInstallLocation(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetInstallLocation(ctx, &pb.GetInstallLocationRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstallReason calls the GetInstallReason RPC.
+func (c *PackageInstallerSessionInfoClient) GetInstallReason(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetInstallReason(ctx, &pb.GetInstallReasonRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstallerAttributionTag calls the GetInstallerAttributionTag RPC.
+func (c *PackageInstallerSessionInfoClient) GetInstallerAttributionTag(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetInstallerAttributionTag(ctx, &pb.GetInstallerAttributionTagRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstallerPackageName calls the GetInstallerPackageName RPC.
+func (c *PackageInstallerSessionInfoClient) GetInstallerPackageName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetInstallerPackageName(ctx, &pb.GetInstallerPackageNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstallerUid calls the GetInstallerUid RPC.
+func (c *PackageInstallerSessionInfoClient) GetInstallerUid(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetInstallerUid(ctx, &pb.GetInstallerUidRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMode calls the GetMode RPC.
+func (c *PackageInstallerSessionInfoClient) GetMode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMode(ctx, &pb.GetModeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOriginatingUid calls the GetOriginatingUid RPC.
+func (c *PackageInstallerSessionInfoClient) GetOriginatingUid(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetOriginatingUid(ctx, &pb.GetOriginatingUidRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOriginatingUri calls the GetOriginatingUri RPC.
+func (c *PackageInstallerSessionInfoClient) GetOriginatingUri(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetOriginatingUri(ctx, &pb.GetOriginatingUriRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPackageSource calls the GetPackageSource RPC.
+func (c *PackageInstallerSessionInfoClient) GetPackageSource(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetPackageSource(ctx, &pb.GetPackageSourceRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetParentSessionId calls the GetParentSessionId RPC.
+func (c *PackageInstallerSessionInfoClient) GetParentSessionId(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetParentSessionId(ctx, &pb.GetParentSessionIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetProgress calls the GetProgress RPC.
+func (c *PackageInstallerSessionInfoClient) GetProgress(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetProgress(ctx, &pb.GetProgressRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetReferrerUri calls the GetReferrerUri RPC.
+func (c *PackageInstallerSessionInfoClient) GetReferrerUri(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetReferrerUri(ctx, &pb.GetReferrerUriRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRequireUserAction calls the GetRequireUserAction RPC.
+func (c *PackageInstallerSessionInfoClient) GetRequireUserAction(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetRequireUserAction(ctx, &pb.GetRequireUserActionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSessionId calls the GetSessionId RPC.
+func (c *PackageInstallerSessionInfoClient) GetSessionId(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetSessionId(ctx, &pb.GetSessionIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSize calls the GetSize RPC.
+func (c *PackageInstallerSessionInfoClient) GetSize(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSize(ctx, &pb.GetSizeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStagedSessionErrorCode calls the GetStagedSessionErrorCode RPC.
+func (c *PackageInstallerSessionInfoClient) GetStagedSessionErrorCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetStagedSessionErrorCode(ctx, &pb.GetStagedSessionErrorCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStagedSessionErrorMessage calls the GetStagedSessionErrorMessage RPC.
+func (c *PackageInstallerSessionInfoClient) GetStagedSessionErrorMessage(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetStagedSessionErrorMessage(ctx, &pb.GetStagedSessionErrorMessageRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUpdatedMillis calls the GetUpdatedMillis RPC.
+func (c *PackageInstallerSessionInfoClient) GetUpdatedMillis(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetUpdatedMillis(ctx, &pb.GetUpdatedMillisRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUser calls the GetUser RPC.
+func (c *PackageInstallerSessionInfoClient) GetUser(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetUser(ctx, &pb.GetUserRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasParentSessionId calls the HasParentSessionId RPC.
+func (c *PackageInstallerSessionInfoClient) HasParentSessionId(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasParentSessionId(ctx, &pb.HasParentSessionIdRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsActive calls the IsActive RPC.
+func (c *PackageInstallerSessionInfoClient) IsActive(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsActive(ctx, &pb.IsActiveRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsApplicationEnabledSettingPersistent calls the IsApplicationEnabledSettingPersistent RPC.
+func (c *PackageInstallerSessionInfoClient) IsApplicationEnabledSettingPersistent(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsApplicationEnabledSettingPersistent(ctx, &pb.IsApplicationEnabledSettingPersistentRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsAutoInstallDependenciesEnabled calls the IsAutoInstallDependenciesEnabled RPC.
+func (c *PackageInstallerSessionInfoClient) IsAutoInstallDependenciesEnabled(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsAutoInstallDependenciesEnabled(ctx, &pb.IsAutoInstallDependenciesEnabledRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsCommitted calls the IsCommitted RPC.
+func (c *PackageInstallerSessionInfoClient) IsCommitted(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsCommitted(ctx, &pb.IsCommittedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsMultiPackage calls the IsMultiPackage RPC.
+func (c *PackageInstallerSessionInfoClient) IsMultiPackage(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsMultiPackage(ctx, &pb.IsMultiPackageRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsPreApprovalRequested calls the IsPreApprovalRequested RPC.
+func (c *PackageInstallerSessionInfoClient) IsPreApprovalRequested(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsPreApprovalRequested(ctx, &pb.IsPreApprovalRequestedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsRequestUpdateOwnership calls the IsRequestUpdateOwnership RPC.
+func (c *PackageInstallerSessionInfoClient) IsRequestUpdateOwnership(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsRequestUpdateOwnership(ctx, &pb.IsRequestUpdateOwnershipRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsSealed calls the IsSealed RPC.
+func (c *PackageInstallerSessionInfoClient) IsSealed(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsSealed(ctx, &pb.IsSealedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsStaged calls the IsStaged RPC.
+func (c *PackageInstallerSessionInfoClient) IsStaged(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsStaged(ctx, &pb.IsStagedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsStagedSessionActive calls the IsStagedSessionActive RPC.
+func (c *PackageInstallerSessionInfoClient) IsStagedSessionActive(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsStagedSessionActive(ctx, &pb.IsStagedSessionActiveRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsStagedSessionApplied calls the IsStagedSessionApplied RPC.
+func (c *PackageInstallerSessionInfoClient) IsStagedSessionApplied(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsStagedSessionApplied(ctx, &pb.IsStagedSessionAppliedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsStagedSessionFailed calls the IsStagedSessionFailed RPC.
+func (c *PackageInstallerSessionInfoClient) IsStagedSessionFailed(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsStagedSessionFailed(ctx, &pb.IsStagedSessionFailedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsStagedSessionReady calls the IsStagedSessionReady RPC.
+func (c *PackageInstallerSessionInfoClient) IsStagedSessionReady(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsStagedSessionReady(ctx, &pb.IsStagedSessionReadyRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsUnarchival calls the IsUnarchival RPC.
+func (c *PackageInstallerSessionInfoClient) IsUnarchival(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsUnarchival(ctx, &pb.IsUnarchivalRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *PackageInstallerSessionInfoClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.PackageInstallerSessionInfoWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// PackageInstallerSessionParamsClient wraps the gRPC PackageInstallerSessionParamsService client.
+type PackageInstallerSessionParamsClient struct {
+	svc pb.PackageInstallerSessionParamsServiceClient
+}
+
+// NewPackageInstallerSessionParamsClient creates a new PackageInstallerSessionParams client.
+func NewPackageInstallerSessionParamsClient(cc grpc.ClientConnInterface) *PackageInstallerSessionParamsClient {
+	return &PackageInstallerSessionParamsClient{
+		svc: pb.NewPackageInstallerSessionParamsServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *PackageInstallerSessionParamsClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.PackageInstallerSessionParamsDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetAppIcon calls the SetAppIcon RPC.
+func (c *PackageInstallerSessionParamsClient) SetAppIcon(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetAppIcon(ctx, &pb.SetAppIconRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetAppLabel calls the SetAppLabel RPC.
+func (c *PackageInstallerSessionParamsClient) SetAppLabel(ctx context.Context, arg0 string) error {
+	_, err := c.svc.SetAppLabel(ctx, &pb.SetAppLabelRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetAppPackageName calls the SetAppPackageName RPC.
+func (c *PackageInstallerSessionParamsClient) SetAppPackageName(ctx context.Context, arg0 string) error {
+	_, err := c.svc.SetAppPackageName(ctx, &pb.SetAppPackageNameRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetApplicationEnabledSettingPersistent calls the SetApplicationEnabledSettingPersistent RPC.
+func (c *PackageInstallerSessionParamsClient) SetApplicationEnabledSettingPersistent(ctx context.Context) error {
+	_, err := c.svc.SetApplicationEnabledSettingPersistent(ctx, &pb.SetApplicationEnabledSettingPersistentRequest{})
+	return err
+}
+
+// SetAutoInstallDependenciesEnabled calls the SetAutoInstallDependenciesEnabled RPC.
+func (c *PackageInstallerSessionParamsClient) SetAutoInstallDependenciesEnabled(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetAutoInstallDependenciesEnabled(ctx, &pb.SetAutoInstallDependenciesEnabledRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetAutoRevokePermissionsMode calls the SetAutoRevokePermissionsMode RPC.
+func (c *PackageInstallerSessionParamsClient) SetAutoRevokePermissionsMode(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetAutoRevokePermissionsMode(ctx, &pb.SetAutoRevokePermissionsModeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetDontKillApp calls the SetDontKillApp RPC.
+func (c *PackageInstallerSessionParamsClient) SetDontKillApp(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetDontKillApp(ctx, &pb.SetDontKillAppRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetInstallLocation calls the SetInstallLocation RPC.
+func (c *PackageInstallerSessionParamsClient) SetInstallLocation(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetInstallLocation(ctx, &pb.SetInstallLocationRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetInstallReason calls the SetInstallReason RPC.
+func (c *PackageInstallerSessionParamsClient) SetInstallReason(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetInstallReason(ctx, &pb.SetInstallReasonRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetInstallScenario calls the SetInstallScenario RPC.
+func (c *PackageInstallerSessionParamsClient) SetInstallScenario(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetInstallScenario(ctx, &pb.SetInstallScenarioRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetInstallerPackageName calls the SetInstallerPackageName RPC.
+func (c *PackageInstallerSessionParamsClient) SetInstallerPackageName(ctx context.Context, arg0 string) error {
+	_, err := c.svc.SetInstallerPackageName(ctx, &pb.SetInstallerPackageNameRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetMultiPackage calls the SetMultiPackage RPC.
+func (c *PackageInstallerSessionParamsClient) SetMultiPackage(ctx context.Context) error {
+	_, err := c.svc.SetMultiPackage(ctx, &pb.SetMultiPackageRequest{})
+	return err
+}
+
+// SetOriginatingUid calls the SetOriginatingUid RPC.
+func (c *PackageInstallerSessionParamsClient) SetOriginatingUid(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetOriginatingUid(ctx, &pb.SetOriginatingUidRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetOriginatingUri calls the SetOriginatingUri RPC.
+func (c *PackageInstallerSessionParamsClient) SetOriginatingUri(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetOriginatingUri(ctx, &pb.SetOriginatingUriRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetPackageSource calls the SetPackageSource RPC.
+func (c *PackageInstallerSessionParamsClient) SetPackageSource(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetPackageSource(ctx, &pb.SetPackageSourceRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetPermissionState calls the SetPermissionState RPC.
+func (c *PackageInstallerSessionParamsClient) SetPermissionState(ctx context.Context, arg0 string, arg1 int32) (int64, error) {
+	resp, err := c.svc.SetPermissionState(ctx, &pb.SetPermissionStateRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetReferrerUri calls the SetReferrerUri RPC.
+func (c *PackageInstallerSessionParamsClient) SetReferrerUri(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetReferrerUri(ctx, &pb.SetReferrerUriRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetRequestUpdateOwnership calls the SetRequestUpdateOwnership RPC.
+func (c *PackageInstallerSessionParamsClient) SetRequestUpdateOwnership(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetRequestUpdateOwnership(ctx, &pb.SetRequestUpdateOwnershipRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetRequireUserAction calls the SetRequireUserAction RPC.
+func (c *PackageInstallerSessionParamsClient) SetRequireUserAction(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetRequireUserAction(ctx, &pb.SetRequireUserActionRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetSize calls the SetSize RPC.
+func (c *PackageInstallerSessionParamsClient) SetSize(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetSize(ctx, &pb.SetSizeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetUnarchiveId calls the SetUnarchiveId RPC.
+func (c *PackageInstallerSessionParamsClient) SetUnarchiveId(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetUnarchiveId(ctx, &pb.SetUnarchiveIdRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *PackageInstallerSessionParamsClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.PackageInstallerSessionParamsWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// PackageInstallerUnarchivalStateClient wraps the gRPC PackageInstallerUnarchivalStateService client.
+type PackageInstallerUnarchivalStateClient struct {
+	svc pb.PackageInstallerUnarchivalStateServiceClient
+}
+
+// NewPackageInstallerUnarchivalStateClient creates a new PackageInstallerUnarchivalState client.
+func NewPackageInstallerUnarchivalStateClient(cc grpc.ClientConnInterface) *PackageInstallerUnarchivalStateClient {
+	return &PackageInstallerUnarchivalStateClient{
+		svc: pb.NewPackageInstallerUnarchivalStateServiceClient(cc),
+	}
+}
+
+// CreateGenericErrorState calls the CreateGenericErrorState RPC.
+func (c *PackageInstallerUnarchivalStateClient) CreateGenericErrorState(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.CreateGenericErrorState(ctx, &pb.CreateGenericErrorStateRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateInsufficientStorageState calls the CreateInsufficientStorageState RPC.
+func (c *PackageInstallerUnarchivalStateClient) CreateInsufficientStorageState(ctx context.Context, arg0 int32, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.CreateInsufficientStorageState(ctx, &pb.CreateInsufficientStorageStateRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateNoConnectivityState calls the CreateNoConnectivityState RPC.
+func (c *PackageInstallerUnarchivalStateClient) CreateNoConnectivityState(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.CreateNoConnectivityState(ctx, &pb.CreateNoConnectivityStateRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateOkState calls the CreateOkState RPC.
+func (c *PackageInstallerUnarchivalStateClient) CreateOkState(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.CreateOkState(ctx, &pb.CreateOkStateRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateUserActionRequiredState calls the CreateUserActionRequiredState RPC.
+func (c *PackageInstallerUnarchivalStateClient) CreateUserActionRequiredState(ctx context.Context, arg0 int32, arg1 int64) (int64, error) {
+	resp, err := c.svc.CreateUserActionRequiredState(ctx, &pb.CreateUserActionRequiredStateRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// VersionedPackageClient wraps the gRPC VersionedPackageService client.
+type VersionedPackageClient struct {
+	svc pb.VersionedPackageServiceClient
+}
+
+// NewVersionedPackageClient creates a new VersionedPackage client.
+func NewVersionedPackageClient(cc grpc.ClientConnInterface) *VersionedPackageClient {
+	return &VersionedPackageClient{
+		svc: pb.NewVersionedPackageServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *VersionedPackageClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *VersionedPackageClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLongVersionCode calls the GetLongVersionCode RPC.
+func (c *VersionedPackageClient) GetLongVersionCode(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetLongVersionCode(ctx, &pb.GetLongVersionCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPackageName calls the GetPackageName RPC.
+func (c *VersionedPackageClient) GetPackageName(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetPackageName(ctx, &pb.VersionedPackageGetPackageNameRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVersionCode calls the GetVersionCode RPC.
+func (c *VersionedPackageClient) GetVersionCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetVersionCode(ctx, &pb.GetVersionCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *VersionedPackageClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *VersionedPackageClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *VersionedPackageClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// FeatureInfoClient wraps the gRPC FeatureInfoService client.
+type FeatureInfoClient struct {
+	svc pb.FeatureInfoServiceClient
+}
+
+// NewFeatureInfoClient creates a new FeatureInfo client.
+func NewFeatureInfoClient(cc grpc.ClientConnInterface) *FeatureInfoClient {
+	return &FeatureInfoClient{
+		svc: pb.NewFeatureInfoServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *FeatureInfoClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetGlEsVersion calls the GetGlEsVersion RPC.
+func (c *FeatureInfoClient) GetGlEsVersion(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetGlEsVersion(ctx, &pb.GetGlEsVersionRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *FeatureInfoClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *FeatureInfoClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// ArchivedPackageInfoClient wraps the gRPC ArchivedPackageInfoService client.
+type ArchivedPackageInfoClient struct {
+	svc pb.ArchivedPackageInfoServiceClient
+}
+
+// NewArchivedPackageInfoClient creates a new ArchivedPackageInfo client.
+func NewArchivedPackageInfoClient(cc grpc.ClientConnInterface) *ArchivedPackageInfoClient {
+	return &ArchivedPackageInfoClient{
+		svc: pb.NewArchivedPackageInfoServiceClient(cc),
+	}
+}
+
+// GetDefaultToDeviceProtectedStorage calls the GetDefaultToDeviceProtectedStorage RPC.
+func (c *ArchivedPackageInfoClient) GetDefaultToDeviceProtectedStorage(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetDefaultToDeviceProtectedStorage(ctx, &pb.GetDefaultToDeviceProtectedStorageRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPackageName calls the GetPackageName RPC.
+func (c *ArchivedPackageInfoClient) GetPackageName(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetPackageName(ctx, &pb.ArchivedPackageInfoGetPackageNameRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRequestLegacyExternalStorage calls the GetRequestLegacyExternalStorage RPC.
+func (c *ArchivedPackageInfoClient) GetRequestLegacyExternalStorage(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetRequestLegacyExternalStorage(ctx, &pb.GetRequestLegacyExternalStorageRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSigningInfo calls the GetSigningInfo RPC.
+func (c *ArchivedPackageInfoClient) GetSigningInfo(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetSigningInfo(ctx, &pb.GetSigningInfoRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTargetSdkVersion calls the GetTargetSdkVersion RPC.
+func (c *ArchivedPackageInfoClient) GetTargetSdkVersion(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetTargetSdkVersion(ctx, &pb.GetTargetSdkVersionRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUserDataFragile calls the GetUserDataFragile RPC.
+func (c *ArchivedPackageInfoClient) GetUserDataFragile(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetUserDataFragile(ctx, &pb.GetUserDataFragileRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVersionCode calls the GetVersionCode RPC.
+func (c *ArchivedPackageInfoClient) GetVersionCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetVersionCode(ctx, &pb.GetVersionCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVersionCodeMajor calls the GetVersionCodeMajor RPC.
+func (c *ArchivedPackageInfoClient) GetVersionCodeMajor(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetVersionCodeMajor(ctx, &pb.GetVersionCodeMajorRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetDefaultToDeviceProtectedStorage calls the SetDefaultToDeviceProtectedStorage RPC.
+func (c *ArchivedPackageInfoClient) SetDefaultToDeviceProtectedStorage(ctx context.Context, handle int64, arg0 string) (int64, error) {
+	resp, err := c.svc.SetDefaultToDeviceProtectedStorage(ctx, &pb.SetDefaultToDeviceProtectedStorageRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPackageName calls the SetPackageName RPC.
+func (c *ArchivedPackageInfoClient) SetPackageName(ctx context.Context, handle int64, arg0 string) (int64, error) {
+	resp, err := c.svc.SetPackageName(ctx, &pb.SetPackageNameRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetRequestLegacyExternalStorage calls the SetRequestLegacyExternalStorage RPC.
+func (c *ArchivedPackageInfoClient) SetRequestLegacyExternalStorage(ctx context.Context, handle int64, arg0 string) (int64, error) {
+	resp, err := c.svc.SetRequestLegacyExternalStorage(ctx, &pb.SetRequestLegacyExternalStorageRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSigningInfo calls the SetSigningInfo RPC.
+func (c *ArchivedPackageInfoClient) SetSigningInfo(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetSigningInfo(ctx, &pb.SetSigningInfoRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetTargetSdkVersion calls the SetTargetSdkVersion RPC.
+func (c *ArchivedPackageInfoClient) SetTargetSdkVersion(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetTargetSdkVersion(ctx, &pb.SetTargetSdkVersionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetUserDataFragile calls the SetUserDataFragile RPC.
+func (c *ArchivedPackageInfoClient) SetUserDataFragile(ctx context.Context, handle int64, arg0 string) (int64, error) {
+	resp, err := c.svc.SetUserDataFragile(ctx, &pb.SetUserDataFragileRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetVersionCode calls the SetVersionCode RPC.
+func (c *ArchivedPackageInfoClient) SetVersionCode(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetVersionCode(ctx, &pb.SetVersionCodeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetVersionCodeMajor calls the SetVersionCodeMajor RPC.
+func (c *ArchivedPackageInfoClient) SetVersionCodeMajor(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetVersionCodeMajor(ctx, &pb.SetVersionCodeMajorRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PackageInfoClient wraps the gRPC PackageInfoService client.
+type PackageInfoClient struct {
+	svc pb.PackageInfoServiceClient
+}
+
+// NewPackageInfoClient creates a new PackageInfo client.
+func NewPackageInfoClient(cc grpc.ClientConnInterface) *PackageInfoClient {
+	return &PackageInfoClient{
+		svc: pb.NewPackageInfoServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *PackageInfoClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetApexPackageName calls the GetApexPackageName RPC.
+func (c *PackageInfoClient) GetApexPackageName(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetApexPackageName(ctx, &pb.GetApexPackageNameRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetArchiveTimeMillis calls the GetArchiveTimeMillis RPC.
+func (c *PackageInfoClient) GetArchiveTimeMillis(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetArchiveTimeMillis(ctx, &pb.GetArchiveTimeMillisRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLongVersionCode calls the GetLongVersionCode RPC.
+func (c *PackageInfoClient) GetLongVersionCode(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetLongVersionCode(ctx, &pb.GetLongVersionCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetLongVersionCode calls the SetLongVersionCode RPC.
+func (c *PackageInfoClient) SetLongVersionCode(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetLongVersionCode(ctx, &pb.SetLongVersionCodeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// ToString calls the ToString RPC.
+func (c *PackageInfoClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *PackageInfoClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// PackageManagerClient wraps the gRPC PackageManagerService client.
+type PackageManagerClient struct {
+	svc pb.PackageManagerServiceClient
+}
+
+// NewPackageManagerClient creates a new PackageManager client.
+func NewPackageManagerClient(cc grpc.ClientConnInterface) *PackageManagerClient {
+	return &PackageManagerClient{
+		svc: pb.NewPackageManagerServiceClient(cc),
+	}
+}
+
+// AddPackageToPreferred calls the AddPackageToPreferred RPC.
+func (c *PackageManagerClient) AddPackageToPreferred(ctx context.Context, arg0 string) error {
+	_, err := c.svc.AddPackageToPreferred(ctx, &pb.AddPackageToPreferredRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// AddPermission calls the AddPermission RPC.
+func (c *PackageManagerClient) AddPermission(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.AddPermission(ctx, &pb.AddPermissionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddPermissionAsync calls the AddPermissionAsync RPC.
+func (c *PackageManagerClient) AddPermissionAsync(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.AddPermissionAsync(ctx, &pb.AddPermissionAsyncRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddPreferredActivity calls the AddPreferredActivity RPC.
+func (c *PackageManagerClient) AddPreferredActivity(ctx context.Context, arg0 int64, arg1 int32, arg2 int64, arg3 int64) error {
+	_, err := c.svc.AddPreferredActivity(ctx, &pb.AddPreferredActivityRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// AddWhitelistedRestrictedPermission calls the AddWhitelistedRestrictedPermission RPC.
+func (c *PackageManagerClient) AddWhitelistedRestrictedPermission(ctx context.Context, arg0 string, arg1 string, arg2 int32) (bool, error) {
+	resp, err := c.svc.AddWhitelistedRestrictedPermission(ctx, &pb.AddWhitelistedRestrictedPermissionRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CanPackageQuery2 calls the CanPackageQuery2 RPC.
+func (c *PackageManagerClient) CanPackageQuery2(ctx context.Context, arg0 string, arg1 string) (bool, error) {
+	resp, err := c.svc.CanPackageQuery2(ctx, &pb.CanPackageQuery2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CanPackageQuery2_1 calls the CanPackageQuery2_1 RPC.
+func (c *PackageManagerClient) CanPackageQuery2_1(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.CanPackageQuery2_1(ctx, &pb.CanPackageQuery2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CanRequestPackageInstalls calls the CanRequestPackageInstalls RPC.
+func (c *PackageManagerClient) CanRequestPackageInstalls(ctx context.Context) (bool, error) {
+	resp, err := c.svc.CanRequestPackageInstalls(ctx, &pb.CanRequestPackageInstallsRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CanonicalToCurrentPackageNames calls the CanonicalToCurrentPackageNames RPC.
+func (c *PackageManagerClient) CanonicalToCurrentPackageNames(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.CanonicalToCurrentPackageNames(ctx, &pb.CanonicalToCurrentPackageNamesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CheckPermission calls the CheckPermission RPC.
+func (c *PackageManagerClient) CheckPermission(ctx context.Context, arg0 string, arg1 string) (int32, error) {
+	resp, err := c.svc.CheckPermission(ctx, &pb.CheckPermissionRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CheckSignatures2 calls the CheckSignatures2 RPC.
+func (c *PackageManagerClient) CheckSignatures2(ctx context.Context, arg0 int32, arg1 int32) (int32, error) {
+	resp, err := c.svc.CheckSignatures2(ctx, &pb.CheckSignatures2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CheckSignatures2_1 calls the CheckSignatures2_1 RPC.
+func (c *PackageManagerClient) CheckSignatures2_1(ctx context.Context, arg0 string, arg1 string) (int32, error) {
+	resp, err := c.svc.CheckSignatures2_1(ctx, &pb.CheckSignatures2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearInstantAppCookie calls the ClearInstantAppCookie RPC.
+func (c *PackageManagerClient) ClearInstantAppCookie(ctx context.Context) error {
+	_, err := c.svc.ClearInstantAppCookie(ctx, &pb.ClearInstantAppCookieRequest{})
+	return err
+}
+
+// ClearPackagePreferredActivities calls the ClearPackagePreferredActivities RPC.
+func (c *PackageManagerClient) ClearPackagePreferredActivities(ctx context.Context, arg0 string) error {
+	_, err := c.svc.ClearPackagePreferredActivities(ctx, &pb.ClearPackagePreferredActivitiesRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// CurrentToCanonicalPackageNames calls the CurrentToCanonicalPackageNames RPC.
+func (c *PackageManagerClient) CurrentToCanonicalPackageNames(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.CurrentToCanonicalPackageNames(ctx, &pb.CurrentToCanonicalPackageNamesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ExtendVerificationTimeout calls the ExtendVerificationTimeout RPC.
+func (c *PackageManagerClient) ExtendVerificationTimeout(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.ExtendVerificationTimeout(ctx, &pb.ExtendVerificationTimeoutRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// GetActivityBanner1 calls the GetActivityBanner1 RPC.
+func (c *PackageManagerClient) GetActivityBanner1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetActivityBanner1(ctx, &pb.GetActivityBanner1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetActivityBanner1_1 calls the GetActivityBanner1_1 RPC.
+func (c *PackageManagerClient) GetActivityBanner1_1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetActivityBanner1_1(ctx, &pb.GetActivityBanner1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetActivityIcon1 calls the GetActivityIcon1 RPC.
+func (c *PackageManagerClient) GetActivityIcon1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetActivityIcon1(ctx, &pb.GetActivityIcon1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetActivityIcon1_1 calls the GetActivityIcon1_1 RPC.
+func (c *PackageManagerClient) GetActivityIcon1_1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetActivityIcon1_1(ctx, &pb.GetActivityIcon1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetActivityInfo2 calls the GetActivityInfo2 RPC.
+func (c *PackageManagerClient) GetActivityInfo2(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.GetActivityInfo2(ctx, &pb.GetActivityInfo2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetActivityInfo2_1 calls the GetActivityInfo2_1 RPC.
+func (c *PackageManagerClient) GetActivityInfo2_1(ctx context.Context, arg0 int64, arg1 int32) (int64, error) {
+	resp, err := c.svc.GetActivityInfo2_1(ctx, &pb.GetActivityInfo2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetActivityLogo1 calls the GetActivityLogo1 RPC.
+func (c *PackageManagerClient) GetActivityLogo1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetActivityLogo1(ctx, &pb.GetActivityLogo1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetActivityLogo1_1 calls the GetActivityLogo1_1 RPC.
+func (c *PackageManagerClient) GetActivityLogo1_1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetActivityLogo1_1(ctx, &pb.GetActivityLogo1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetApplicationBanner1 calls the GetApplicationBanner1 RPC.
+func (c *PackageManagerClient) GetApplicationBanner1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetApplicationBanner1(ctx, &pb.GetApplicationBanner1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetApplicationBanner1_1 calls the GetApplicationBanner1_1 RPC.
+func (c *PackageManagerClient) GetApplicationBanner1_1(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.GetApplicationBanner1_1(ctx, &pb.GetApplicationBanner1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetApplicationEnabledSetting calls the GetApplicationEnabledSetting RPC.
+func (c *PackageManagerClient) GetApplicationEnabledSetting(ctx context.Context, arg0 string) (int32, error) {
+	resp, err := c.svc.GetApplicationEnabledSetting(ctx, &pb.GetApplicationEnabledSettingRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetApplicationIcon1 calls the GetApplicationIcon1 RPC.
+func (c *PackageManagerClient) GetApplicationIcon1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetApplicationIcon1(ctx, &pb.GetApplicationIcon1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetApplicationIcon1_1 calls the GetApplicationIcon1_1 RPC.
+func (c *PackageManagerClient) GetApplicationIcon1_1(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.GetApplicationIcon1_1(ctx, &pb.GetApplicationIcon1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetApplicationInfo2 calls the GetApplicationInfo2 RPC.
+func (c *PackageManagerClient) GetApplicationInfo2(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.GetApplicationInfo2(ctx, &pb.GetApplicationInfo2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetApplicationInfo2_1 calls the GetApplicationInfo2_1 RPC.
+func (c *PackageManagerClient) GetApplicationInfo2_1(ctx context.Context, arg0 string, arg1 int32) (int64, error) {
+	resp, err := c.svc.GetApplicationInfo2_1(ctx, &pb.GetApplicationInfo2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetApplicationLabel calls the GetApplicationLabel RPC.
+func (c *PackageManagerClient) GetApplicationLabel(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetApplicationLabel(ctx, &pb.GetApplicationLabelRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetApplicationLogo1 calls the GetApplicationLogo1 RPC.
+func (c *PackageManagerClient) GetApplicationLogo1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetApplicationLogo1(ctx, &pb.GetApplicationLogo1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetApplicationLogo1_1 calls the GetApplicationLogo1_1 RPC.
+func (c *PackageManagerClient) GetApplicationLogo1_1(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.GetApplicationLogo1_1(ctx, &pb.GetApplicationLogo1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetArchivedPackage calls the GetArchivedPackage RPC.
+func (c *PackageManagerClient) GetArchivedPackage(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.GetArchivedPackage(ctx, &pb.GetArchivedPackageRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBackgroundPermissionOptionLabel calls the GetBackgroundPermissionOptionLabel RPC.
+func (c *PackageManagerClient) GetBackgroundPermissionOptionLabel(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetBackgroundPermissionOptionLabel(ctx, &pb.GetBackgroundPermissionOptionLabelRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetChangedPackages calls the GetChangedPackages RPC.
+func (c *PackageManagerClient) GetChangedPackages(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetChangedPackages(ctx, &pb.GetChangedPackagesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetComponentEnabledSetting calls the GetComponentEnabledSetting RPC.
+func (c *PackageManagerClient) GetComponentEnabledSetting(ctx context.Context, arg0 int64) (int32, error) {
+	resp, err := c.svc.GetComponentEnabledSetting(ctx, &pb.GetComponentEnabledSettingRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDefaultActivityIcon calls the GetDefaultActivityIcon RPC.
+func (c *PackageManagerClient) GetDefaultActivityIcon(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDefaultActivityIcon(ctx, &pb.GetDefaultActivityIconRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDrawable calls the GetDrawable RPC.
+func (c *PackageManagerClient) GetDrawable(ctx context.Context, arg0 string, arg1 int32, arg2 int64) (int64, error) {
+	resp, err := c.svc.GetDrawable(ctx, &pb.GetDrawableRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstallSourceInfo calls the GetInstallSourceInfo RPC.
+func (c *PackageManagerClient) GetInstallSourceInfo(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.GetInstallSourceInfo(ctx, &pb.GetInstallSourceInfoRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstallerPackageName calls the GetInstallerPackageName RPC.
+func (c *PackageManagerClient) GetInstallerPackageName(ctx context.Context, arg0 string) (string, error) {
+	resp, err := c.svc.GetInstallerPackageName(ctx, &pb.PackageManagerGetInstallerPackageNameRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstantAppCookie calls the GetInstantAppCookie RPC.
+func (c *PackageManagerClient) GetInstantAppCookie(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetInstantAppCookie(ctx, &pb.GetInstantAppCookieRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstantAppCookieMaxBytes calls the GetInstantAppCookieMaxBytes RPC.
+func (c *PackageManagerClient) GetInstantAppCookieMaxBytes(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetInstantAppCookieMaxBytes(ctx, &pb.GetInstantAppCookieMaxBytesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstrumentationInfo calls the GetInstrumentationInfo RPC.
+func (c *PackageManagerClient) GetInstrumentationInfo(ctx context.Context, arg0 int64, arg1 int32) (int64, error) {
+	resp, err := c.svc.GetInstrumentationInfo(ctx, &pb.GetInstrumentationInfoRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLaunchIntentForPackage calls the GetLaunchIntentForPackage RPC.
+func (c *PackageManagerClient) GetLaunchIntentForPackage(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.GetLaunchIntentForPackage(ctx, &pb.GetLaunchIntentForPackageRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLaunchIntentSenderForPackage calls the GetLaunchIntentSenderForPackage RPC.
+func (c *PackageManagerClient) GetLaunchIntentSenderForPackage(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.GetLaunchIntentSenderForPackage(ctx, &pb.GetLaunchIntentSenderForPackageRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLeanbackLaunchIntentForPackage calls the GetLeanbackLaunchIntentForPackage RPC.
+func (c *PackageManagerClient) GetLeanbackLaunchIntentForPackage(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.GetLeanbackLaunchIntentForPackage(ctx, &pb.GetLeanbackLaunchIntentForPackageRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetModuleInfo calls the GetModuleInfo RPC.
+func (c *PackageManagerClient) GetModuleInfo(ctx context.Context, arg0 string, arg1 int32) (int64, error) {
+	resp, err := c.svc.GetModuleInfo(ctx, &pb.GetModuleInfoRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNameForUid calls the GetNameForUid RPC.
+func (c *PackageManagerClient) GetNameForUid(ctx context.Context, arg0 int32) (string, error) {
+	resp, err := c.svc.GetNameForUid(ctx, &pb.GetNameForUidRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPackageArchiveInfo2 calls the GetPackageArchiveInfo2 RPC.
+func (c *PackageManagerClient) GetPackageArchiveInfo2(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.GetPackageArchiveInfo2(ctx, &pb.GetPackageArchiveInfo2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPackageArchiveInfo2_1 calls the GetPackageArchiveInfo2_1 RPC.
+func (c *PackageManagerClient) GetPackageArchiveInfo2_1(ctx context.Context, arg0 string, arg1 int32) (int64, error) {
+	resp, err := c.svc.GetPackageArchiveInfo2_1(ctx, &pb.GetPackageArchiveInfo2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPackageGids1 calls the GetPackageGids1 RPC.
+func (c *PackageManagerClient) GetPackageGids1(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.GetPackageGids1(ctx, &pb.GetPackageGids1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPackageGids2_1 calls the GetPackageGids2_1 RPC.
+func (c *PackageManagerClient) GetPackageGids2_1(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.GetPackageGids2_1(ctx, &pb.GetPackageGids2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPackageGids2_2 calls the GetPackageGids2_2 RPC.
+func (c *PackageManagerClient) GetPackageGids2_2(ctx context.Context, arg0 string, arg1 int32) (int64, error) {
+	resp, err := c.svc.GetPackageGids2_2(ctx, &pb.GetPackageGids2_2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPackageInfo2 calls the GetPackageInfo2 RPC.
+func (c *PackageManagerClient) GetPackageInfo2(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.GetPackageInfo2(ctx, &pb.GetPackageInfo2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPackageInfo2_1 calls the GetPackageInfo2_1 RPC.
+func (c *PackageManagerClient) GetPackageInfo2_1(ctx context.Context, arg0 int64, arg1 int32) (int64, error) {
+	resp, err := c.svc.GetPackageInfo2_1(ctx, &pb.GetPackageInfo2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPackageInfo2_2 calls the GetPackageInfo2_2 RPC.
+func (c *PackageManagerClient) GetPackageInfo2_2(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.GetPackageInfo2_2(ctx, &pb.GetPackageInfo2_2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPackageInfo2_3 calls the GetPackageInfo2_3 RPC.
+func (c *PackageManagerClient) GetPackageInfo2_3(ctx context.Context, arg0 string, arg1 int32) (int64, error) {
+	resp, err := c.svc.GetPackageInfo2_3(ctx, &pb.GetPackageInfo2_3Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPackageInstaller calls the GetPackageInstaller RPC.
+func (c *PackageManagerClient) GetPackageInstaller(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPackageInstaller(ctx, &pb.GetPackageInstallerRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPackageUid2 calls the GetPackageUid2 RPC.
+func (c *PackageManagerClient) GetPackageUid2(ctx context.Context, arg0 string, arg1 int64) (int32, error) {
+	resp, err := c.svc.GetPackageUid2(ctx, &pb.GetPackageUid2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPackageUid2_1 calls the GetPackageUid2_1 RPC.
+func (c *PackageManagerClient) GetPackageUid2_1(ctx context.Context, arg0 string, arg1 int32) (int32, error) {
+	resp, err := c.svc.GetPackageUid2_1(ctx, &pb.GetPackageUid2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPackagesForUid calls the GetPackagesForUid RPC.
+func (c *PackageManagerClient) GetPackagesForUid(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetPackagesForUid(ctx, &pb.GetPackagesForUidRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPermissionGroupInfo calls the GetPermissionGroupInfo RPC.
+func (c *PackageManagerClient) GetPermissionGroupInfo(ctx context.Context, arg0 string, arg1 int32) (int64, error) {
+	resp, err := c.svc.GetPermissionGroupInfo(ctx, &pb.GetPermissionGroupInfoRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPermissionInfo calls the GetPermissionInfo RPC.
+func (c *PackageManagerClient) GetPermissionInfo(ctx context.Context, arg0 string, arg1 int32) (int64, error) {
+	resp, err := c.svc.GetPermissionInfo(ctx, &pb.GetPermissionInfoRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetProperty2 calls the GetProperty2 RPC.
+func (c *PackageManagerClient) GetProperty2(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.GetProperty2(ctx, &pb.GetProperty2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetProperty2_1 calls the GetProperty2_1 RPC.
+func (c *PackageManagerClient) GetProperty2_1(ctx context.Context, arg0 string, arg1 string) (int64, error) {
+	resp, err := c.svc.GetProperty2_1(ctx, &pb.GetProperty2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetProviderInfo2 calls the GetProviderInfo2 RPC.
+func (c *PackageManagerClient) GetProviderInfo2(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.GetProviderInfo2(ctx, &pb.GetProviderInfo2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetProviderInfo2_1 calls the GetProviderInfo2_1 RPC.
+func (c *PackageManagerClient) GetProviderInfo2_1(ctx context.Context, arg0 int64, arg1 int32) (int64, error) {
+	resp, err := c.svc.GetProviderInfo2_1(ctx, &pb.GetProviderInfo2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetReceiverInfo2 calls the GetReceiverInfo2 RPC.
+func (c *PackageManagerClient) GetReceiverInfo2(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.GetReceiverInfo2(ctx, &pb.GetReceiverInfo2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetReceiverInfo2_1 calls the GetReceiverInfo2_1 RPC.
+func (c *PackageManagerClient) GetReceiverInfo2_1(ctx context.Context, arg0 int64, arg1 int32) (int64, error) {
+	resp, err := c.svc.GetReceiverInfo2_1(ctx, &pb.GetReceiverInfo2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetResourcesForActivity calls the GetResourcesForActivity RPC.
+func (c *PackageManagerClient) GetResourcesForActivity(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetResourcesForActivity(ctx, &pb.GetResourcesForActivityRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetResourcesForApplication1 calls the GetResourcesForApplication1 RPC.
+func (c *PackageManagerClient) GetResourcesForApplication1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetResourcesForApplication1(ctx, &pb.GetResourcesForApplication1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetResourcesForApplication2_1 calls the GetResourcesForApplication2_1 RPC.
+func (c *PackageManagerClient) GetResourcesForApplication2_1(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.GetResourcesForApplication2_1(ctx, &pb.GetResourcesForApplication2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetResourcesForApplication1_2 calls the GetResourcesForApplication1_2 RPC.
+func (c *PackageManagerClient) GetResourcesForApplication1_2(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.GetResourcesForApplication1_2(ctx, &pb.GetResourcesForApplication1_2Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetServiceInfo2 calls the GetServiceInfo2 RPC.
+func (c *PackageManagerClient) GetServiceInfo2(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.GetServiceInfo2(ctx, &pb.GetServiceInfo2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetServiceInfo2_1 calls the GetServiceInfo2_1 RPC.
+func (c *PackageManagerClient) GetServiceInfo2_1(ctx context.Context, arg0 int64, arg1 int32) (int64, error) {
+	resp, err := c.svc.GetServiceInfo2_1(ctx, &pb.GetServiceInfo2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSuspendedPackageAppExtras calls the GetSuspendedPackageAppExtras RPC.
+func (c *PackageManagerClient) GetSuspendedPackageAppExtras(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSuspendedPackageAppExtras(ctx, &pb.GetSuspendedPackageAppExtrasRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSyntheticAppDetailsActivityEnabled calls the GetSyntheticAppDetailsActivityEnabled RPC.
+func (c *PackageManagerClient) GetSyntheticAppDetailsActivityEnabled(ctx context.Context, arg0 string) (bool, error) {
+	resp, err := c.svc.GetSyntheticAppDetailsActivityEnabled(ctx, &pb.GetSyntheticAppDetailsActivityEnabledRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSystemAvailableFeatures calls the GetSystemAvailableFeatures RPC.
+func (c *PackageManagerClient) GetSystemAvailableFeatures(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSystemAvailableFeatures(ctx, &pb.GetSystemAvailableFeaturesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSystemSharedLibraryNames calls the GetSystemSharedLibraryNames RPC.
+func (c *PackageManagerClient) GetSystemSharedLibraryNames(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSystemSharedLibraryNames(ctx, &pb.GetSystemSharedLibraryNamesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTargetSdkVersion calls the GetTargetSdkVersion RPC.
+func (c *PackageManagerClient) GetTargetSdkVersion(ctx context.Context, arg0 string) (int32, error) {
+	resp, err := c.svc.GetTargetSdkVersion(ctx, &pb.PackageManagerGetTargetSdkVersionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetText calls the GetText RPC.
+func (c *PackageManagerClient) GetText(ctx context.Context, arg0 string, arg1 int32, arg2 int64) (int64, error) {
+	resp, err := c.svc.GetText(ctx, &pb.GetTextRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUserBadgedDrawableForDensity calls the GetUserBadgedDrawableForDensity RPC.
+func (c *PackageManagerClient) GetUserBadgedDrawableForDensity(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int32) (int64, error) {
+	resp, err := c.svc.GetUserBadgedDrawableForDensity(ctx, &pb.GetUserBadgedDrawableForDensityRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUserBadgedIcon calls the GetUserBadgedIcon RPC.
+func (c *PackageManagerClient) GetUserBadgedIcon(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.GetUserBadgedIcon(ctx, &pb.GetUserBadgedIconRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUserBadgedLabel calls the GetUserBadgedLabel RPC.
+func (c *PackageManagerClient) GetUserBadgedLabel(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.GetUserBadgedLabel(ctx, &pb.GetUserBadgedLabelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetXml calls the GetXml RPC.
+func (c *PackageManagerClient) GetXml(ctx context.Context, arg0 string, arg1 int32, arg2 int64) (int64, error) {
+	resp, err := c.svc.GetXml(ctx, &pb.GetXmlRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasSigningCertificate3 calls the HasSigningCertificate3 RPC.
+func (c *PackageManagerClient) HasSigningCertificate3(ctx context.Context, arg0 int32, arg1 int64, arg2 int32) (bool, error) {
+	resp, err := c.svc.HasSigningCertificate3(ctx, &pb.HasSigningCertificate3Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasSigningCertificate3_1 calls the HasSigningCertificate3_1 RPC.
+func (c *PackageManagerClient) HasSigningCertificate3_1(ctx context.Context, arg0 string, arg1 int64, arg2 int32) (bool, error) {
+	resp, err := c.svc.HasSigningCertificate3_1(ctx, &pb.HasSigningCertificate3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasSystemFeature1 calls the HasSystemFeature1 RPC.
+func (c *PackageManagerClient) HasSystemFeature1(ctx context.Context, arg0 string) (bool, error) {
+	resp, err := c.svc.HasSystemFeature1(ctx, &pb.HasSystemFeature1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasSystemFeature2_1 calls the HasSystemFeature2_1 RPC.
+func (c *PackageManagerClient) HasSystemFeature2_1(ctx context.Context, arg0 string, arg1 int32) (bool, error) {
+	resp, err := c.svc.HasSystemFeature2_1(ctx, &pb.HasSystemFeature2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsAppArchivable calls the IsAppArchivable RPC.
+func (c *PackageManagerClient) IsAppArchivable(ctx context.Context, arg0 string) (bool, error) {
+	resp, err := c.svc.IsAppArchivable(ctx, &pb.IsAppArchivableRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsAutoRevokeWhitelisted0 calls the IsAutoRevokeWhitelisted0 RPC.
+func (c *PackageManagerClient) IsAutoRevokeWhitelisted0(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsAutoRevokeWhitelisted0(ctx, &pb.IsAutoRevokeWhitelisted0Request{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsAutoRevokeWhitelisted1_1 calls the IsAutoRevokeWhitelisted1_1 RPC.
+func (c *PackageManagerClient) IsAutoRevokeWhitelisted1_1(ctx context.Context, arg0 string) (bool, error) {
+	resp, err := c.svc.IsAutoRevokeWhitelisted1_1(ctx, &pb.IsAutoRevokeWhitelisted1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsDefaultApplicationIcon calls the IsDefaultApplicationIcon RPC.
+func (c *PackageManagerClient) IsDefaultApplicationIcon(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.IsDefaultApplicationIcon(ctx, &pb.IsDefaultApplicationIconRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsDeviceUpgrading calls the IsDeviceUpgrading RPC.
+func (c *PackageManagerClient) IsDeviceUpgrading(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsDeviceUpgrading(ctx, &pb.IsDeviceUpgradingRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsInstantApp0 calls the IsInstantApp0 RPC.
+func (c *PackageManagerClient) IsInstantApp0(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsInstantApp0(ctx, &pb.IsInstantApp0Request{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsInstantApp1_1 calls the IsInstantApp1_1 RPC.
+func (c *PackageManagerClient) IsInstantApp1_1(ctx context.Context, arg0 string) (bool, error) {
+	resp, err := c.svc.IsInstantApp1_1(ctx, &pb.IsInstantApp1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsPackageStopped calls the IsPackageStopped RPC.
+func (c *PackageManagerClient) IsPackageStopped(ctx context.Context, arg0 string) (bool, error) {
+	resp, err := c.svc.IsPackageStopped(ctx, &pb.IsPackageStoppedRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsPackageSuspended0 calls the IsPackageSuspended0 RPC.
+func (c *PackageManagerClient) IsPackageSuspended0(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsPackageSuspended0(ctx, &pb.IsPackageSuspended0Request{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsPackageSuspended1_1 calls the IsPackageSuspended1_1 RPC.
+func (c *PackageManagerClient) IsPackageSuspended1_1(ctx context.Context, arg0 string) (bool, error) {
+	resp, err := c.svc.IsPackageSuspended1_1(ctx, &pb.IsPackageSuspended1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsPermissionRevokedByPolicy calls the IsPermissionRevokedByPolicy RPC.
+func (c *PackageManagerClient) IsPermissionRevokedByPolicy(ctx context.Context, arg0 string, arg1 string) (bool, error) {
+	resp, err := c.svc.IsPermissionRevokedByPolicy(ctx, &pb.IsPermissionRevokedByPolicyRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsSafeMode calls the IsSafeMode RPC.
+func (c *PackageManagerClient) IsSafeMode(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsSafeMode(ctx, &pb.IsSafeModeRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RelinquishUpdateOwnership calls the RelinquishUpdateOwnership RPC.
+func (c *PackageManagerClient) RelinquishUpdateOwnership(ctx context.Context, arg0 string) error {
+	_, err := c.svc.RelinquishUpdateOwnership(ctx, &pb.RelinquishUpdateOwnershipRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// RemovePackageFromPreferred calls the RemovePackageFromPreferred RPC.
+func (c *PackageManagerClient) RemovePackageFromPreferred(ctx context.Context, arg0 string) error {
+	_, err := c.svc.RemovePackageFromPreferred(ctx, &pb.RemovePackageFromPreferredRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// RemovePermission calls the RemovePermission RPC.
+func (c *PackageManagerClient) RemovePermission(ctx context.Context, arg0 string) error {
+	_, err := c.svc.RemovePermission(ctx, &pb.RemovePermissionRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// RemoveWhitelistedRestrictedPermission calls the RemoveWhitelistedRestrictedPermission RPC.
+func (c *PackageManagerClient) RemoveWhitelistedRestrictedPermission(ctx context.Context, arg0 string, arg1 string, arg2 int32) (bool, error) {
+	resp, err := c.svc.RemoveWhitelistedRestrictedPermission(ctx, &pb.RemoveWhitelistedRestrictedPermissionRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ResolveActivity2 calls the ResolveActivity2 RPC.
+func (c *PackageManagerClient) ResolveActivity2(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.ResolveActivity2(ctx, &pb.ResolveActivity2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ResolveActivity2_1 calls the ResolveActivity2_1 RPC.
+func (c *PackageManagerClient) ResolveActivity2_1(ctx context.Context, arg0 int64, arg1 int32) (int64, error) {
+	resp, err := c.svc.ResolveActivity2_1(ctx, &pb.ResolveActivity2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ResolveContentProvider2 calls the ResolveContentProvider2 RPC.
+func (c *PackageManagerClient) ResolveContentProvider2(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.ResolveContentProvider2(ctx, &pb.ResolveContentProvider2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ResolveContentProvider2_1 calls the ResolveContentProvider2_1 RPC.
+func (c *PackageManagerClient) ResolveContentProvider2_1(ctx context.Context, arg0 string, arg1 int32) (int64, error) {
+	resp, err := c.svc.ResolveContentProvider2_1(ctx, &pb.ResolveContentProvider2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ResolveService2 calls the ResolveService2 RPC.
+func (c *PackageManagerClient) ResolveService2(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.ResolveService2(ctx, &pb.ResolveService2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ResolveService2_1 calls the ResolveService2_1 RPC.
+func (c *PackageManagerClient) ResolveService2_1(ctx context.Context, arg0 int64, arg1 int32) (int64, error) {
+	resp, err := c.svc.ResolveService2_1(ctx, &pb.ResolveService2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetApplicationCategoryHint calls the SetApplicationCategoryHint RPC.
+func (c *PackageManagerClient) SetApplicationCategoryHint(ctx context.Context, arg0 string, arg1 int32) error {
+	_, err := c.svc.SetApplicationCategoryHint(ctx, &pb.SetApplicationCategoryHintRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// SetApplicationEnabledSetting calls the SetApplicationEnabledSetting RPC.
+func (c *PackageManagerClient) SetApplicationEnabledSetting(ctx context.Context, arg0 string, arg1 int32, arg2 int32) error {
+	_, err := c.svc.SetApplicationEnabledSetting(ctx, &pb.SetApplicationEnabledSettingRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// SetAutoRevokeWhitelisted calls the SetAutoRevokeWhitelisted RPC.
+func (c *PackageManagerClient) SetAutoRevokeWhitelisted(ctx context.Context, arg0 string, arg1 bool) (bool, error) {
+	resp, err := c.svc.SetAutoRevokeWhitelisted(ctx, &pb.SetAutoRevokeWhitelistedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetComponentEnabledSetting calls the SetComponentEnabledSetting RPC.
+func (c *PackageManagerClient) SetComponentEnabledSetting(ctx context.Context, arg0 int64, arg1 int32, arg2 int32) error {
+	_, err := c.svc.SetComponentEnabledSetting(ctx, &pb.SetComponentEnabledSettingRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// SetInstallerPackageName calls the SetInstallerPackageName RPC.
+func (c *PackageManagerClient) SetInstallerPackageName(ctx context.Context, arg0 string, arg1 string) error {
+	_, err := c.svc.SetInstallerPackageName(ctx, &pb.PackageManagerSetInstallerPackageNameRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// UpdateInstantAppCookie calls the UpdateInstantAppCookie RPC.
+func (c *PackageManagerClient) UpdateInstantAppCookie(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.UpdateInstantAppCookie(ctx, &pb.UpdateInstantAppCookieRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// VerifyPendingInstall calls the VerifyPendingInstall RPC.
+func (c *PackageManagerClient) VerifyPendingInstall(ctx context.Context, arg0 int32, arg1 int32) error {
+	_, err := c.svc.VerifyPendingInstall(ctx, &pb.VerifyPendingInstallRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// GetVerifiedSigningInfo calls the GetVerifiedSigningInfo RPC.
+func (c *PackageManagerClient) GetVerifiedSigningInfo(ctx context.Context, arg0 string, arg1 int32) (int64, error) {
+	resp, err := c.svc.GetVerifiedSigningInfo(ctx, &pb.GetVerifiedSigningInfoRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PackageManagerApplicationInfoFlagsClient wraps the gRPC PackageManagerApplicationInfoFlagsService client.
+type PackageManagerApplicationInfoFlagsClient struct {
+	svc pb.PackageManagerApplicationInfoFlagsServiceClient
+}
+
+// NewPackageManagerApplicationInfoFlagsClient creates a new PackageManagerApplicationInfoFlags client.
+func NewPackageManagerApplicationInfoFlagsClient(cc grpc.ClientConnInterface) *PackageManagerApplicationInfoFlagsClient {
+	return &PackageManagerApplicationInfoFlagsClient{
+		svc: pb.NewPackageManagerApplicationInfoFlagsServiceClient(cc),
+	}
+}
+
+// GetValue calls the GetValue RPC.
+func (c *PackageManagerApplicationInfoFlagsClient) GetValue(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetValue(ctx, &pb.PackageManagerApplicationInfoFlagsGetValueRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Of calls the Of RPC.
+func (c *PackageManagerApplicationInfoFlagsClient) Of(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.Of(ctx, &pb.OfRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PackageManagerComponentEnabledSettingClient wraps the gRPC PackageManagerComponentEnabledSettingService client.
+type PackageManagerComponentEnabledSettingClient struct {
+	svc pb.PackageManagerComponentEnabledSettingServiceClient
+}
+
+// NewPackageManagerComponentEnabledSettingClient creates a new PackageManagerComponentEnabledSetting client.
+func NewPackageManagerComponentEnabledSettingClient(cc grpc.ClientConnInterface) *PackageManagerComponentEnabledSettingClient {
+	return &PackageManagerComponentEnabledSettingClient{
+		svc: pb.NewPackageManagerComponentEnabledSettingServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *PackageManagerComponentEnabledSettingClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.PackageManagerComponentEnabledSettingDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetComponentName calls the GetComponentName RPC.
+func (c *PackageManagerComponentEnabledSettingClient) GetComponentName(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetComponentName(ctx, &pb.PackageManagerComponentEnabledSettingGetComponentNameRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEnabledFlags calls the GetEnabledFlags RPC.
+func (c *PackageManagerComponentEnabledSettingClient) GetEnabledFlags(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetEnabledFlags(ctx, &pb.GetEnabledFlagsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEnabledState calls the GetEnabledState RPC.
+func (c *PackageManagerComponentEnabledSettingClient) GetEnabledState(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetEnabledState(ctx, &pb.GetEnabledStateRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *PackageManagerComponentEnabledSettingClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.PackageManagerComponentEnabledSettingWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// PackageManagerComponentInfoFlagsClient wraps the gRPC PackageManagerComponentInfoFlagsService client.
+type PackageManagerComponentInfoFlagsClient struct {
+	svc pb.PackageManagerComponentInfoFlagsServiceClient
+}
+
+// NewPackageManagerComponentInfoFlagsClient creates a new PackageManagerComponentInfoFlags client.
+func NewPackageManagerComponentInfoFlagsClient(cc grpc.ClientConnInterface) *PackageManagerComponentInfoFlagsClient {
+	return &PackageManagerComponentInfoFlagsClient{
+		svc: pb.NewPackageManagerComponentInfoFlagsServiceClient(cc),
+	}
+}
+
+// GetValue calls the GetValue RPC.
+func (c *PackageManagerComponentInfoFlagsClient) GetValue(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetValue(ctx, &pb.PackageManagerComponentInfoFlagsGetValueRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Of calls the Of RPC.
+func (c *PackageManagerComponentInfoFlagsClient) Of(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.Of(ctx, &pb.OfRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PackageManagerPackageInfoFlagsClient wraps the gRPC PackageManagerPackageInfoFlagsService client.
+type PackageManagerPackageInfoFlagsClient struct {
+	svc pb.PackageManagerPackageInfoFlagsServiceClient
+}
+
+// NewPackageManagerPackageInfoFlagsClient creates a new PackageManagerPackageInfoFlags client.
+func NewPackageManagerPackageInfoFlagsClient(cc grpc.ClientConnInterface) *PackageManagerPackageInfoFlagsClient {
+	return &PackageManagerPackageInfoFlagsClient{
+		svc: pb.NewPackageManagerPackageInfoFlagsServiceClient(cc),
+	}
+}
+
+// GetValue calls the GetValue RPC.
+func (c *PackageManagerPackageInfoFlagsClient) GetValue(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetValue(ctx, &pb.PackageManagerPackageInfoFlagsGetValueRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Of calls the Of RPC.
+func (c *PackageManagerPackageInfoFlagsClient) Of(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.Of(ctx, &pb.OfRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PackageManagerPropertyClient wraps the gRPC PackageManagerPropertyService client.
+type PackageManagerPropertyClient struct {
+	svc pb.PackageManagerPropertyServiceClient
+}
+
+// NewPackageManagerPropertyClient creates a new PackageManagerProperty client.
+func NewPackageManagerPropertyClient(cc grpc.ClientConnInterface) *PackageManagerPropertyClient {
+	return &PackageManagerPropertyClient{
+		svc: pb.NewPackageManagerPropertyServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *PackageManagerPropertyClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.PackageManagerPropertyDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *PackageManagerPropertyClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.PackageManagerPropertyEqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBoolean calls the GetBoolean RPC.
+func (c *PackageManagerPropertyClient) GetBoolean(ctx context.Context) (bool, error) {
+	resp, err := c.svc.GetBoolean(ctx, &pb.GetBooleanRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetClassName calls the GetClassName RPC.
+func (c *PackageManagerPropertyClient) GetClassName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetClassName(ctx, &pb.GetClassNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFloat calls the GetFloat RPC.
+func (c *PackageManagerPropertyClient) GetFloat(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetFloat(ctx, &pb.GetFloatRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInteger calls the GetInteger RPC.
+func (c *PackageManagerPropertyClient) GetInteger(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetInteger(ctx, &pb.GetIntegerRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetName calls the GetName RPC.
+func (c *PackageManagerPropertyClient) GetName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetName(ctx, &pb.GetNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPackageName calls the GetPackageName RPC.
+func (c *PackageManagerPropertyClient) GetPackageName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetPackageName(ctx, &pb.GetPackageNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetResourceId calls the GetResourceId RPC.
+func (c *PackageManagerPropertyClient) GetResourceId(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetResourceId(ctx, &pb.GetResourceIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetString calls the GetString RPC.
+func (c *PackageManagerPropertyClient) GetString(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetString(ctx, &pb.GetStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *PackageManagerPropertyClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.PackageManagerPropertyHashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsBoolean calls the IsBoolean RPC.
+func (c *PackageManagerPropertyClient) IsBoolean(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsBoolean(ctx, &pb.IsBooleanRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsFloat calls the IsFloat RPC.
+func (c *PackageManagerPropertyClient) IsFloat(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsFloat(ctx, &pb.IsFloatRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsInteger calls the IsInteger RPC.
+func (c *PackageManagerPropertyClient) IsInteger(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsInteger(ctx, &pb.IsIntegerRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsResourceId calls the IsResourceId RPC.
+func (c *PackageManagerPropertyClient) IsResourceId(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsResourceId(ctx, &pb.IsResourceIdRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsString calls the IsString RPC.
+func (c *PackageManagerPropertyClient) IsString(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsString(ctx, &pb.IsStringRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *PackageManagerPropertyClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.PackageManagerPropertyWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// PackageManagerResolveInfoFlagsClient wraps the gRPC PackageManagerResolveInfoFlagsService client.
+type PackageManagerResolveInfoFlagsClient struct {
+	svc pb.PackageManagerResolveInfoFlagsServiceClient
+}
+
+// NewPackageManagerResolveInfoFlagsClient creates a new PackageManagerResolveInfoFlags client.
+func NewPackageManagerResolveInfoFlagsClient(cc grpc.ClientConnInterface) *PackageManagerResolveInfoFlagsClient {
+	return &PackageManagerResolveInfoFlagsClient{
+		svc: pb.NewPackageManagerResolveInfoFlagsServiceClient(cc),
+	}
+}
+
+// GetValue calls the GetValue RPC.
+func (c *PackageManagerResolveInfoFlagsClient) GetValue(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetValue(ctx, &pb.PackageManagerResolveInfoFlagsGetValueRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Of calls the Of RPC.
+func (c *PackageManagerResolveInfoFlagsClient) Of(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.Of(ctx, &pb.OfRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ModuleInfoClient wraps the gRPC ModuleInfoService client.
+type ModuleInfoClient struct {
+	svc pb.ModuleInfoServiceClient
+}
+
+// NewModuleInfoClient creates a new ModuleInfo client.
+func NewModuleInfoClient(cc grpc.ClientConnInterface) *ModuleInfoClient {
+	return &ModuleInfoClient{
+		svc: pb.NewModuleInfoServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ModuleInfoClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.ModuleInfoDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *ModuleInfoClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.ModuleInfoEqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetName calls the GetName RPC.
+func (c *ModuleInfoClient) GetName(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetName(ctx, &pb.GetNameRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPackageName calls the GetPackageName RPC.
+func (c *ModuleInfoClient) GetPackageName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetPackageName(ctx, &pb.GetPackageNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *ModuleInfoClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.ModuleInfoHashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsHidden calls the IsHidden RPC.
+func (c *ModuleInfoClient) IsHidden(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsHidden(ctx, &pb.IsHiddenRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *ModuleInfoClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ModuleInfoToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ModuleInfoClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.ModuleInfoWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ApkChecksumClient wraps the gRPC ApkChecksumService client.
+type ApkChecksumClient struct {
+	svc pb.ApkChecksumServiceClient
+}
+
+// NewApkChecksumClient creates a new ApkChecksum client.
+func NewApkChecksumClient(cc grpc.ClientConnInterface) *ApkChecksumClient {
+	return &ApkChecksumClient{
+		svc: pb.NewApkChecksumServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ApkChecksumClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.ApkChecksumDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstallerCertificate calls the GetInstallerCertificate RPC.
+func (c *ApkChecksumClient) GetInstallerCertificate(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetInstallerCertificate(ctx, &pb.GetInstallerCertificateRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstallerPackageName calls the GetInstallerPackageName RPC.
+func (c *ApkChecksumClient) GetInstallerPackageName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetInstallerPackageName(ctx, &pb.GetInstallerPackageNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSplitName calls the GetSplitName RPC.
+func (c *ApkChecksumClient) GetSplitName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetSplitName(ctx, &pb.GetSplitNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetType calls the GetType RPC.
+func (c *ApkChecksumClient) GetType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetType(ctx, &pb.GetTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetValue calls the GetValue RPC.
+func (c *ApkChecksumClient) GetValue(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetValue(ctx, &pb.ApkChecksumGetValueRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *ApkChecksumClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ApkChecksumToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ApkChecksumClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.ApkChecksumWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ChangedPackagesClient wraps the gRPC ChangedPackagesService client.
+type ChangedPackagesClient struct {
+	svc pb.ChangedPackagesServiceClient
+}
+
+// NewChangedPackagesClient creates a new ChangedPackages client.
+func NewChangedPackagesClient(cc grpc.ClientConnInterface) *ChangedPackagesClient {
+	return &ChangedPackagesClient{
+		svc: pb.NewChangedPackagesServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ChangedPackagesClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSequenceNumber calls the GetSequenceNumber RPC.
+func (c *ChangedPackagesClient) GetSequenceNumber(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetSequenceNumber(ctx, &pb.GetSequenceNumberRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ChangedPackagesClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SigningInfoClient wraps the gRPC SigningInfoService client.
+type SigningInfoClient struct {
+	svc pb.SigningInfoServiceClient
+}
+
+// NewSigningInfoClient creates a new SigningInfo client.
+func NewSigningInfoClient(cc grpc.ClientConnInterface) *SigningInfoClient {
+	return &SigningInfoClient{
+		svc: pb.NewSigningInfoServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *SigningInfoClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetApkContentsSigners calls the GetApkContentsSigners RPC.
+func (c *SigningInfoClient) GetApkContentsSigners(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetApkContentsSigners(ctx, &pb.GetApkContentsSignersRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSchemeVersion calls the GetSchemeVersion RPC.
+func (c *SigningInfoClient) GetSchemeVersion(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetSchemeVersion(ctx, &pb.GetSchemeVersionRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSigningCertificateHistory calls the GetSigningCertificateHistory RPC.
+func (c *SigningInfoClient) GetSigningCertificateHistory(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetSigningCertificateHistory(ctx, &pb.GetSigningCertificateHistoryRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasMultipleSigners calls the HasMultipleSigners RPC.
+func (c *SigningInfoClient) HasMultipleSigners(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.HasMultipleSigners(ctx, &pb.HasMultipleSignersRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasPastSigningCertificates calls the HasPastSigningCertificates RPC.
+func (c *SigningInfoClient) HasPastSigningCertificates(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.HasPastSigningCertificates(ctx, &pb.HasPastSigningCertificatesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SignersMatchExactly calls the SignersMatchExactly RPC.
+func (c *SigningInfoClient) SignersMatchExactly(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.SignersMatchExactly(ctx, &pb.SignersMatchExactlyRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *SigningInfoClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
 	})
 	return err
 }

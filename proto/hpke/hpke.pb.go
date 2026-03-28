@@ -12,6 +12,7 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -22,19 +23,1328 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type NewXdhKeySpecRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewXdhKeySpecRequest) Reset() {
+	*x = NewXdhKeySpecRequest{}
+	mi := &file_proto_hpke_hpke_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewXdhKeySpecRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewXdhKeySpecRequest) ProtoMessage() {}
+
+func (x *NewXdhKeySpecRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_hpke_hpke_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewXdhKeySpecRequest.ProtoReflect.Descriptor instead.
+func (*NewXdhKeySpecRequest) Descriptor() ([]byte, []int) {
+	return file_proto_hpke_hpke_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *NewXdhKeySpecRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type NewXdhKeySpecResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewXdhKeySpecResponse) Reset() {
+	*x = NewXdhKeySpecResponse{}
+	mi := &file_proto_hpke_hpke_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewXdhKeySpecResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewXdhKeySpecResponse) ProtoMessage() {}
+
+func (x *NewXdhKeySpecResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_hpke_hpke_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewXdhKeySpecResponse.ProtoReflect.Descriptor instead.
+func (*NewXdhKeySpecResponse) Descriptor() ([]byte, []int) {
+	return file_proto_hpke_hpke_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *NewXdhKeySpecResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type EqualsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EqualsRequest) Reset() {
+	*x = EqualsRequest{}
+	mi := &file_proto_hpke_hpke_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EqualsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EqualsRequest) ProtoMessage() {}
+
+func (x *EqualsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_hpke_hpke_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EqualsRequest.ProtoReflect.Descriptor instead.
+func (*EqualsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_hpke_hpke_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *EqualsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *EqualsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type EqualsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EqualsResponse) Reset() {
+	*x = EqualsResponse{}
+	mi := &file_proto_hpke_hpke_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EqualsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EqualsResponse) ProtoMessage() {}
+
+func (x *EqualsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_hpke_hpke_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EqualsResponse.ProtoReflect.Descriptor instead.
+func (*EqualsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_hpke_hpke_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *EqualsResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type GetFormatRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetFormatRequest) Reset() {
+	*x = GetFormatRequest{}
+	mi := &file_proto_hpke_hpke_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetFormatRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetFormatRequest) ProtoMessage() {}
+
+func (x *GetFormatRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_hpke_hpke_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetFormatRequest.ProtoReflect.Descriptor instead.
+func (*GetFormatRequest) Descriptor() ([]byte, []int) {
+	return file_proto_hpke_hpke_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *GetFormatRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetFormatResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetFormatResponse) Reset() {
+	*x = GetFormatResponse{}
+	mi := &file_proto_hpke_hpke_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetFormatResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetFormatResponse) ProtoMessage() {}
+
+func (x *GetFormatResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_hpke_hpke_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetFormatResponse.ProtoReflect.Descriptor instead.
+func (*GetFormatResponse) Descriptor() ([]byte, []int) {
+	return file_proto_hpke_hpke_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *GetFormatResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetKeyRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetKeyRequest) Reset() {
+	*x = GetKeyRequest{}
+	mi := &file_proto_hpke_hpke_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetKeyRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetKeyRequest) ProtoMessage() {}
+
+func (x *GetKeyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_hpke_hpke_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetKeyRequest.ProtoReflect.Descriptor instead.
+func (*GetKeyRequest) Descriptor() ([]byte, []int) {
+	return file_proto_hpke_hpke_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *GetKeyRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetKeyResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetKeyResponse) Reset() {
+	*x = GetKeyResponse{}
+	mi := &file_proto_hpke_hpke_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetKeyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetKeyResponse) ProtoMessage() {}
+
+func (x *GetKeyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_hpke_hpke_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetKeyResponse.ProtoReflect.Descriptor instead.
+func (*GetKeyResponse) Descriptor() ([]byte, []int) {
+	return file_proto_hpke_hpke_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *GetKeyResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type HashCodeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HashCodeRequest) Reset() {
+	*x = HashCodeRequest{}
+	mi := &file_proto_hpke_hpke_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HashCodeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HashCodeRequest) ProtoMessage() {}
+
+func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_hpke_hpke_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HashCodeRequest.ProtoReflect.Descriptor instead.
+func (*HashCodeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_hpke_hpke_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *HashCodeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type HashCodeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HashCodeResponse) Reset() {
+	*x = HashCodeResponse{}
+	mi := &file_proto_hpke_hpke_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HashCodeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HashCodeResponse) ProtoMessage() {}
+
+func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_hpke_hpke_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HashCodeResponse.ProtoReflect.Descriptor instead.
+func (*HashCodeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_hpke_hpke_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *HashCodeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type EngineExportRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EngineExportRequest) Reset() {
+	*x = EngineExportRequest{}
+	mi := &file_proto_hpke_hpke_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EngineExportRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EngineExportRequest) ProtoMessage() {}
+
+func (x *EngineExportRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_hpke_hpke_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EngineExportRequest.ProtoReflect.Descriptor instead.
+func (*EngineExportRequest) Descriptor() ([]byte, []int) {
+	return file_proto_hpke_hpke_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *EngineExportRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *EngineExportRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type EngineExportResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EngineExportResponse) Reset() {
+	*x = EngineExportResponse{}
+	mi := &file_proto_hpke_hpke_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EngineExportResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EngineExportResponse) ProtoMessage() {}
+
+func (x *EngineExportResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_hpke_hpke_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EngineExportResponse.ProtoReflect.Descriptor instead.
+func (*EngineExportResponse) Descriptor() ([]byte, []int) {
+	return file_proto_hpke_hpke_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *EngineExportResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type EngineInitRecipientRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int64                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	Arg4          int64                  `protobuf:"varint,5,opt,name=arg4,proto3" json:"arg4,omitempty"`
+	Arg5          int64                  `protobuf:"varint,6,opt,name=arg5,proto3" json:"arg5,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EngineInitRecipientRequest) Reset() {
+	*x = EngineInitRecipientRequest{}
+	mi := &file_proto_hpke_hpke_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EngineInitRecipientRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EngineInitRecipientRequest) ProtoMessage() {}
+
+func (x *EngineInitRecipientRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_hpke_hpke_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EngineInitRecipientRequest.ProtoReflect.Descriptor instead.
+func (*EngineInitRecipientRequest) Descriptor() ([]byte, []int) {
+	return file_proto_hpke_hpke_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *EngineInitRecipientRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *EngineInitRecipientRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *EngineInitRecipientRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *EngineInitRecipientRequest) GetArg3() int64 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+func (x *EngineInitRecipientRequest) GetArg4() int64 {
+	if x != nil {
+		return x.Arg4
+	}
+	return 0
+}
+
+func (x *EngineInitRecipientRequest) GetArg5() int64 {
+	if x != nil {
+		return x.Arg5
+	}
+	return 0
+}
+
+type EngineInitRecipientResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EngineInitRecipientResponse) Reset() {
+	*x = EngineInitRecipientResponse{}
+	mi := &file_proto_hpke_hpke_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EngineInitRecipientResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EngineInitRecipientResponse) ProtoMessage() {}
+
+func (x *EngineInitRecipientResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_hpke_hpke_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EngineInitRecipientResponse.ProtoReflect.Descriptor instead.
+func (*EngineInitRecipientResponse) Descriptor() ([]byte, []int) {
+	return file_proto_hpke_hpke_proto_rawDescGZIP(), []int{13}
+}
+
+type EngineInitSenderRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int64                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	Arg4          int64                  `protobuf:"varint,5,opt,name=arg4,proto3" json:"arg4,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EngineInitSenderRequest) Reset() {
+	*x = EngineInitSenderRequest{}
+	mi := &file_proto_hpke_hpke_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EngineInitSenderRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EngineInitSenderRequest) ProtoMessage() {}
+
+func (x *EngineInitSenderRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_hpke_hpke_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EngineInitSenderRequest.ProtoReflect.Descriptor instead.
+func (*EngineInitSenderRequest) Descriptor() ([]byte, []int) {
+	return file_proto_hpke_hpke_proto_rawDescGZIP(), []int{14}
+}
+
+func (x *EngineInitSenderRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *EngineInitSenderRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *EngineInitSenderRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *EngineInitSenderRequest) GetArg3() int64 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+func (x *EngineInitSenderRequest) GetArg4() int64 {
+	if x != nil {
+		return x.Arg4
+	}
+	return 0
+}
+
+type EngineInitSenderResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EngineInitSenderResponse) Reset() {
+	*x = EngineInitSenderResponse{}
+	mi := &file_proto_hpke_hpke_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EngineInitSenderResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EngineInitSenderResponse) ProtoMessage() {}
+
+func (x *EngineInitSenderResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_hpke_hpke_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EngineInitSenderResponse.ProtoReflect.Descriptor instead.
+func (*EngineInitSenderResponse) Descriptor() ([]byte, []int) {
+	return file_proto_hpke_hpke_proto_rawDescGZIP(), []int{15}
+}
+
+type EngineInitSenderWithSeedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int64                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	Arg4          int64                  `protobuf:"varint,5,opt,name=arg4,proto3" json:"arg4,omitempty"`
+	Arg5          int64                  `protobuf:"varint,6,opt,name=arg5,proto3" json:"arg5,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EngineInitSenderWithSeedRequest) Reset() {
+	*x = EngineInitSenderWithSeedRequest{}
+	mi := &file_proto_hpke_hpke_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EngineInitSenderWithSeedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EngineInitSenderWithSeedRequest) ProtoMessage() {}
+
+func (x *EngineInitSenderWithSeedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_hpke_hpke_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EngineInitSenderWithSeedRequest.ProtoReflect.Descriptor instead.
+func (*EngineInitSenderWithSeedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_hpke_hpke_proto_rawDescGZIP(), []int{16}
+}
+
+func (x *EngineInitSenderWithSeedRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *EngineInitSenderWithSeedRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *EngineInitSenderWithSeedRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *EngineInitSenderWithSeedRequest) GetArg3() int64 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+func (x *EngineInitSenderWithSeedRequest) GetArg4() int64 {
+	if x != nil {
+		return x.Arg4
+	}
+	return 0
+}
+
+func (x *EngineInitSenderWithSeedRequest) GetArg5() int64 {
+	if x != nil {
+		return x.Arg5
+	}
+	return 0
+}
+
+type EngineInitSenderWithSeedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EngineInitSenderWithSeedResponse) Reset() {
+	*x = EngineInitSenderWithSeedResponse{}
+	mi := &file_proto_hpke_hpke_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EngineInitSenderWithSeedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EngineInitSenderWithSeedResponse) ProtoMessage() {}
+
+func (x *EngineInitSenderWithSeedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_hpke_hpke_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EngineInitSenderWithSeedResponse.ProtoReflect.Descriptor instead.
+func (*EngineInitSenderWithSeedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_hpke_hpke_proto_rawDescGZIP(), []int{17}
+}
+
+type EngineOpenRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EngineOpenRequest) Reset() {
+	*x = EngineOpenRequest{}
+	mi := &file_proto_hpke_hpke_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EngineOpenRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EngineOpenRequest) ProtoMessage() {}
+
+func (x *EngineOpenRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_hpke_hpke_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EngineOpenRequest.ProtoReflect.Descriptor instead.
+func (*EngineOpenRequest) Descriptor() ([]byte, []int) {
+	return file_proto_hpke_hpke_proto_rawDescGZIP(), []int{18}
+}
+
+func (x *EngineOpenRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *EngineOpenRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type EngineOpenResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EngineOpenResponse) Reset() {
+	*x = EngineOpenResponse{}
+	mi := &file_proto_hpke_hpke_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EngineOpenResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EngineOpenResponse) ProtoMessage() {}
+
+func (x *EngineOpenResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_hpke_hpke_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EngineOpenResponse.ProtoReflect.Descriptor instead.
+func (*EngineOpenResponse) Descriptor() ([]byte, []int) {
+	return file_proto_hpke_hpke_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *EngineOpenResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type EngineSealRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EngineSealRequest) Reset() {
+	*x = EngineSealRequest{}
+	mi := &file_proto_hpke_hpke_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EngineSealRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EngineSealRequest) ProtoMessage() {}
+
+func (x *EngineSealRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_hpke_hpke_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EngineSealRequest.ProtoReflect.Descriptor instead.
+func (*EngineSealRequest) Descriptor() ([]byte, []int) {
+	return file_proto_hpke_hpke_proto_rawDescGZIP(), []int{20}
+}
+
+func (x *EngineSealRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *EngineSealRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type EngineSealResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EngineSealResponse) Reset() {
+	*x = EngineSealResponse{}
+	mi := &file_proto_hpke_hpke_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EngineSealResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EngineSealResponse) ProtoMessage() {}
+
+func (x *EngineSealResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_hpke_hpke_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EngineSealResponse.ProtoReflect.Descriptor instead.
+func (*EngineSealResponse) Descriptor() ([]byte, []int) {
+	return file_proto_hpke_hpke_proto_rawDescGZIP(), []int{21}
+}
+
+func (x *EngineSealResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetEncapsulatedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEncapsulatedRequest) Reset() {
+	*x = GetEncapsulatedRequest{}
+	mi := &file_proto_hpke_hpke_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEncapsulatedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEncapsulatedRequest) ProtoMessage() {}
+
+func (x *GetEncapsulatedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_hpke_hpke_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEncapsulatedRequest.ProtoReflect.Descriptor instead.
+func (*GetEncapsulatedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_hpke_hpke_proto_rawDescGZIP(), []int{22}
+}
+
+type GetEncapsulatedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEncapsulatedResponse) Reset() {
+	*x = GetEncapsulatedResponse{}
+	mi := &file_proto_hpke_hpke_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEncapsulatedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEncapsulatedResponse) ProtoMessage() {}
+
+func (x *GetEncapsulatedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_hpke_hpke_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEncapsulatedResponse.ProtoReflect.Descriptor instead.
+func (*GetEncapsulatedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_hpke_hpke_proto_rawDescGZIP(), []int{23}
+}
+
+func (x *GetEncapsulatedResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
 var File_proto_hpke_hpke_proto protoreflect.FileDescriptor
 
 const file_proto_hpke_hpke_proto_rawDesc = "" +
 	"\n" +
-	"\x15proto/hpke/hpke.proto\x12\x04hpkeB.Z,github.com/AndroidGoLab/jni-proxy/proto/hpkeb\x06proto3"
+	"\x15proto/hpke/hpke.proto\x12\x04hpke\"*\n" +
+	"\x14NewXdhKeySpecRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"/\n" +
+	"\x15NewXdhKeySpecResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\";\n" +
+	"\rEqualsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"(\n" +
+	"\x0eEqualsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"*\n" +
+	"\x10GetFormatRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"+\n" +
+	"\x11GetFormatResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"'\n" +
+	"\rGetKeyRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"(\n" +
+	"\x0eGetKeyResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\")\n" +
+	"\x0fHashCodeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
+	"\x10HashCodeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"=\n" +
+	"\x13EngineExportRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\".\n" +
+	"\x14EngineExportResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x94\x01\n" +
+	"\x1aEngineInitRecipientRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\x12\x12\n" +
+	"\x04arg4\x18\x05 \x01(\x03R\x04arg4\x12\x12\n" +
+	"\x04arg5\x18\x06 \x01(\x03R\x04arg5\"\x1d\n" +
+	"\x1bEngineInitRecipientResponse\"}\n" +
+	"\x17EngineInitSenderRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\x12\x12\n" +
+	"\x04arg4\x18\x05 \x01(\x03R\x04arg4\"\x1a\n" +
+	"\x18EngineInitSenderResponse\"\x99\x01\n" +
+	"\x1fEngineInitSenderWithSeedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\x12\x12\n" +
+	"\x04arg4\x18\x05 \x01(\x03R\x04arg4\x12\x12\n" +
+	"\x04arg5\x18\x06 \x01(\x03R\x04arg5\"\"\n" +
+	" EngineInitSenderWithSeedResponse\";\n" +
+	"\x11EngineOpenRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\",\n" +
+	"\x12EngineOpenResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\";\n" +
+	"\x11EngineSealRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\",\n" +
+	"\x12EngineSealResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x18\n" +
+	"\x16GetEncapsulatedRequest\"1\n" +
+	"\x17GetEncapsulatedResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result2\xc0\x02\n" +
+	"\x11XdhKeySpecService\x12H\n" +
+	"\rNewXdhKeySpec\x12\x1a.hpke.NewXdhKeySpecRequest\x1a\x1b.hpke.NewXdhKeySpecResponse\x123\n" +
+	"\x06Equals\x12\x13.hpke.EqualsRequest\x1a\x14.hpke.EqualsResponse\x12<\n" +
+	"\tGetFormat\x12\x16.hpke.GetFormatRequest\x1a\x17.hpke.GetFormatResponse\x123\n" +
+	"\x06GetKey\x12\x13.hpke.GetKeyRequest\x1a\x14.hpke.GetKeyResponse\x129\n" +
+	"\bHashCode\x12\x15.hpke.HashCodeRequest\x1a\x16.hpke.HashCodeResponse2\xbf\x04\n" +
+	"\n" +
+	"SpiService\x12E\n" +
+	"\fEngineExport\x12\x19.hpke.EngineExportRequest\x1a\x1a.hpke.EngineExportResponse\x12Z\n" +
+	"\x13EngineInitRecipient\x12 .hpke.EngineInitRecipientRequest\x1a!.hpke.EngineInitRecipientResponse\x12Q\n" +
+	"\x10EngineInitSender\x12\x1d.hpke.EngineInitSenderRequest\x1a\x1e.hpke.EngineInitSenderResponse\x12i\n" +
+	"\x18EngineInitSenderWithSeed\x12%.hpke.EngineInitSenderWithSeedRequest\x1a&.hpke.EngineInitSenderWithSeedResponse\x12?\n" +
+	"\n" +
+	"EngineOpen\x12\x17.hpke.EngineOpenRequest\x1a\x18.hpke.EngineOpenResponse\x12?\n" +
+	"\n" +
+	"EngineSeal\x12\x17.hpke.EngineSealRequest\x1a\x18.hpke.EngineSealResponse\x12N\n" +
+	"\x0fGetEncapsulated\x12\x1c.hpke.GetEncapsulatedRequest\x1a\x1d.hpke.GetEncapsulatedResponseB.Z,github.com/AndroidGoLab/jni-proxy/proto/hpkeb\x06proto3"
 
-var file_proto_hpke_hpke_proto_goTypes = []any{}
+var (
+	file_proto_hpke_hpke_proto_rawDescOnce sync.Once
+	file_proto_hpke_hpke_proto_rawDescData []byte
+)
+
+func file_proto_hpke_hpke_proto_rawDescGZIP() []byte {
+	file_proto_hpke_hpke_proto_rawDescOnce.Do(func() {
+		file_proto_hpke_hpke_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_proto_hpke_hpke_proto_rawDesc), len(file_proto_hpke_hpke_proto_rawDesc)))
+	})
+	return file_proto_hpke_hpke_proto_rawDescData
+}
+
+var file_proto_hpke_hpke_proto_msgTypes = make([]protoimpl.MessageInfo, 24)
+var file_proto_hpke_hpke_proto_goTypes = []any{
+	(*NewXdhKeySpecRequest)(nil),             // 0: hpke.NewXdhKeySpecRequest
+	(*NewXdhKeySpecResponse)(nil),            // 1: hpke.NewXdhKeySpecResponse
+	(*EqualsRequest)(nil),                    // 2: hpke.EqualsRequest
+	(*EqualsResponse)(nil),                   // 3: hpke.EqualsResponse
+	(*GetFormatRequest)(nil),                 // 4: hpke.GetFormatRequest
+	(*GetFormatResponse)(nil),                // 5: hpke.GetFormatResponse
+	(*GetKeyRequest)(nil),                    // 6: hpke.GetKeyRequest
+	(*GetKeyResponse)(nil),                   // 7: hpke.GetKeyResponse
+	(*HashCodeRequest)(nil),                  // 8: hpke.HashCodeRequest
+	(*HashCodeResponse)(nil),                 // 9: hpke.HashCodeResponse
+	(*EngineExportRequest)(nil),              // 10: hpke.EngineExportRequest
+	(*EngineExportResponse)(nil),             // 11: hpke.EngineExportResponse
+	(*EngineInitRecipientRequest)(nil),       // 12: hpke.EngineInitRecipientRequest
+	(*EngineInitRecipientResponse)(nil),      // 13: hpke.EngineInitRecipientResponse
+	(*EngineInitSenderRequest)(nil),          // 14: hpke.EngineInitSenderRequest
+	(*EngineInitSenderResponse)(nil),         // 15: hpke.EngineInitSenderResponse
+	(*EngineInitSenderWithSeedRequest)(nil),  // 16: hpke.EngineInitSenderWithSeedRequest
+	(*EngineInitSenderWithSeedResponse)(nil), // 17: hpke.EngineInitSenderWithSeedResponse
+	(*EngineOpenRequest)(nil),                // 18: hpke.EngineOpenRequest
+	(*EngineOpenResponse)(nil),               // 19: hpke.EngineOpenResponse
+	(*EngineSealRequest)(nil),                // 20: hpke.EngineSealRequest
+	(*EngineSealResponse)(nil),               // 21: hpke.EngineSealResponse
+	(*GetEncapsulatedRequest)(nil),           // 22: hpke.GetEncapsulatedRequest
+	(*GetEncapsulatedResponse)(nil),          // 23: hpke.GetEncapsulatedResponse
+}
 var file_proto_hpke_hpke_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	0,  // 0: hpke.XdhKeySpecService.NewXdhKeySpec:input_type -> hpke.NewXdhKeySpecRequest
+	2,  // 1: hpke.XdhKeySpecService.Equals:input_type -> hpke.EqualsRequest
+	4,  // 2: hpke.XdhKeySpecService.GetFormat:input_type -> hpke.GetFormatRequest
+	6,  // 3: hpke.XdhKeySpecService.GetKey:input_type -> hpke.GetKeyRequest
+	8,  // 4: hpke.XdhKeySpecService.HashCode:input_type -> hpke.HashCodeRequest
+	10, // 5: hpke.SpiService.EngineExport:input_type -> hpke.EngineExportRequest
+	12, // 6: hpke.SpiService.EngineInitRecipient:input_type -> hpke.EngineInitRecipientRequest
+	14, // 7: hpke.SpiService.EngineInitSender:input_type -> hpke.EngineInitSenderRequest
+	16, // 8: hpke.SpiService.EngineInitSenderWithSeed:input_type -> hpke.EngineInitSenderWithSeedRequest
+	18, // 9: hpke.SpiService.EngineOpen:input_type -> hpke.EngineOpenRequest
+	20, // 10: hpke.SpiService.EngineSeal:input_type -> hpke.EngineSealRequest
+	22, // 11: hpke.SpiService.GetEncapsulated:input_type -> hpke.GetEncapsulatedRequest
+	1,  // 12: hpke.XdhKeySpecService.NewXdhKeySpec:output_type -> hpke.NewXdhKeySpecResponse
+	3,  // 13: hpke.XdhKeySpecService.Equals:output_type -> hpke.EqualsResponse
+	5,  // 14: hpke.XdhKeySpecService.GetFormat:output_type -> hpke.GetFormatResponse
+	7,  // 15: hpke.XdhKeySpecService.GetKey:output_type -> hpke.GetKeyResponse
+	9,  // 16: hpke.XdhKeySpecService.HashCode:output_type -> hpke.HashCodeResponse
+	11, // 17: hpke.SpiService.EngineExport:output_type -> hpke.EngineExportResponse
+	13, // 18: hpke.SpiService.EngineInitRecipient:output_type -> hpke.EngineInitRecipientResponse
+	15, // 19: hpke.SpiService.EngineInitSender:output_type -> hpke.EngineInitSenderResponse
+	17, // 20: hpke.SpiService.EngineInitSenderWithSeed:output_type -> hpke.EngineInitSenderWithSeedResponse
+	19, // 21: hpke.SpiService.EngineOpen:output_type -> hpke.EngineOpenResponse
+	21, // 22: hpke.SpiService.EngineSeal:output_type -> hpke.EngineSealResponse
+	23, // 23: hpke.SpiService.GetEncapsulated:output_type -> hpke.GetEncapsulatedResponse
+	12, // [12:24] is the sub-list for method output_type
+	0,  // [0:12] is the sub-list for method input_type
+	0,  // [0:0] is the sub-list for extension type_name
+	0,  // [0:0] is the sub-list for extension extendee
+	0,  // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_proto_hpke_hpke_proto_init() }
@@ -48,12 +1358,13 @@ func file_proto_hpke_hpke_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_hpke_hpke_proto_rawDesc), len(file_proto_hpke_hpke_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   24,
 			NumExtensions: 0,
-			NumServices:   0,
+			NumServices:   2,
 		},
 		GoTypes:           file_proto_hpke_hpke_proto_goTypes,
 		DependencyIndexes: file_proto_hpke_hpke_proto_depIdxs,
+		MessageInfos:      file_proto_hpke_hpke_proto_msgTypes,
 	}.Build()
 	File_proto_hpke_hpke_proto = out.File
 	file_proto_hpke_hpke_proto_goTypes = nil

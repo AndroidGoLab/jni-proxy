@@ -5,3 +5,269 @@ syntax = "proto3";
 package sdksandbox;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/sdksandbox";
+
+message AttachContextRequest {
+  int64 arg0 = 1;
+}
+
+message AttachContextResponse {
+}
+
+message BeforeUnloadSdkRequest {
+}
+
+message BeforeUnloadSdkResponse {
+}
+
+message GetContextRequest {
+}
+
+message GetContextResponse {
+  int64 result = 1;
+}
+
+message GetViewRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message GetViewResponse {
+  int64 result = 1;
+}
+
+message OnLoadSdkRequest {
+  int64 arg0 = 1;
+}
+
+message OnLoadSdkResponse {
+  int64 result = 1;
+}
+
+message AddSdkSandboxProcessDeathCallbackRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message AddSdkSandboxProcessDeathCallbackResponse {
+}
+
+message RegisterAppOwnedSdkSandboxInterfaceRequest {
+  int64 arg0 = 1;
+}
+
+message RegisterAppOwnedSdkSandboxInterfaceResponse {
+}
+
+message RemoveSdkSandboxProcessDeathCallbackRequest {
+  int64 arg0 = 1;
+}
+
+message RemoveSdkSandboxProcessDeathCallbackResponse {
+}
+
+message StartSdkSandboxActivityRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message StartSdkSandboxActivityResponse {
+}
+
+message UnloadSdkRequest {
+  string arg0 = 1;
+}
+
+message UnloadSdkResponse {
+}
+
+message UnregisterAppOwnedSdkSandboxInterfaceRequest {
+  string arg0 = 1;
+}
+
+message UnregisterAppOwnedSdkSandboxInterfaceResponse {
+}
+
+message GetSdkSandboxStateRequest {
+}
+
+message GetSdkSandboxStateResponse {
+  int32 result = 1;
+}
+
+message OnSdkSandboxDiedRequest {
+}
+
+message OnSdkSandboxDiedResponse {
+}
+
+message NewAppOwnedSdkSandboxInterfaceRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message NewAppOwnedSdkSandboxInterfaceResponse {
+  int64 result = 1;
+}
+
+message DescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message GetInterfaceRequest {
+  int64 handle = 1;
+}
+
+message GetInterfaceResponse {
+  int64 result = 1;
+}
+
+message GetNameRequest {
+  int64 handle = 1;
+}
+
+message GetNameResponse {
+  string result = 1;
+}
+
+message GetVersionRequest {
+  int64 handle = 1;
+}
+
+message GetVersionResponse {
+  int64 result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message WriteToParcelResponse {
+}
+
+message NewRequestSurfacePackageExceptionRequest {
+  int32 arg0 = 1;
+  string arg1 = 2;
+}
+
+message NewRequestSurfacePackageExceptionResponse {
+  int64 result = 1;
+}
+
+message GetExtraErrorInformationRequest {
+  int64 handle = 1;
+}
+
+message GetExtraErrorInformationResponse {
+  int64 result = 1;
+}
+
+message GetRequestSurfacePackageErrorCodeRequest {
+  int64 handle = 1;
+}
+
+message GetRequestSurfacePackageErrorCodeResponse {
+  int32 result = 1;
+}
+
+message NewSandboxedSdkRequest {
+  int64 arg0 = 1;
+}
+
+message NewSandboxedSdkResponse {
+  int64 result = 1;
+}
+
+message GetSharedLibraryInfoRequest {
+  int64 handle = 1;
+}
+
+message GetSharedLibraryInfoResponse {
+  int64 result = 1;
+}
+
+message NewLoadSdkExceptionRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewLoadSdkExceptionResponse {
+  int64 result = 1;
+}
+
+message GetExtraInformationRequest {
+  int64 handle = 1;
+}
+
+message GetExtraInformationResponse {
+  int64 result = 1;
+}
+
+message GetLoadSdkErrorCodeRequest {
+  int64 handle = 1;
+}
+
+message GetLoadSdkErrorCodeResponse {
+  int32 result = 1;
+}
+
+service SandboxedSdkProviderService {
+  rpc AttachContext (AttachContextRequest) returns (AttachContextResponse);
+  rpc BeforeUnloadSdk (BeforeUnloadSdkRequest) returns (BeforeUnloadSdkResponse);
+  rpc GetContext (GetContextRequest) returns (GetContextResponse);
+  rpc GetView (GetViewRequest) returns (GetViewResponse);
+  rpc OnLoadSdk (OnLoadSdkRequest) returns (OnLoadSdkResponse);
+}
+
+service SdkSandboxManagerService {
+  rpc AddSdkSandboxProcessDeathCallback (AddSdkSandboxProcessDeathCallbackRequest) returns (AddSdkSandboxProcessDeathCallbackResponse);
+  rpc RegisterAppOwnedSdkSandboxInterface (RegisterAppOwnedSdkSandboxInterfaceRequest) returns (RegisterAppOwnedSdkSandboxInterfaceResponse);
+  rpc RemoveSdkSandboxProcessDeathCallback (RemoveSdkSandboxProcessDeathCallbackRequest) returns (RemoveSdkSandboxProcessDeathCallbackResponse);
+  rpc StartSdkSandboxActivity (StartSdkSandboxActivityRequest) returns (StartSdkSandboxActivityResponse);
+  rpc UnloadSdk (UnloadSdkRequest) returns (UnloadSdkResponse);
+  rpc UnregisterAppOwnedSdkSandboxInterface (UnregisterAppOwnedSdkSandboxInterfaceRequest) returns (UnregisterAppOwnedSdkSandboxInterfaceResponse);
+  rpc GetSdkSandboxState (GetSdkSandboxStateRequest) returns (GetSdkSandboxStateResponse);
+}
+
+service SdkSandboxManagerSdkSandboxProcessDeathCallbackService {
+  rpc OnSdkSandboxDied (OnSdkSandboxDiedRequest) returns (OnSdkSandboxDiedResponse);
+}
+
+service AppOwnedSdkSandboxInterfaceService {
+  rpc NewAppOwnedSdkSandboxInterface (NewAppOwnedSdkSandboxInterfaceRequest) returns (NewAppOwnedSdkSandboxInterfaceResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetInterface (GetInterfaceRequest) returns (GetInterfaceResponse);
+  rpc GetName (GetNameRequest) returns (GetNameResponse);
+  rpc GetVersion (GetVersionRequest) returns (GetVersionResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service RequestSurfacePackageExceptionService {
+  rpc NewRequestSurfacePackageException (NewRequestSurfacePackageExceptionRequest) returns (NewRequestSurfacePackageExceptionResponse);
+  rpc GetExtraErrorInformation (GetExtraErrorInformationRequest) returns (GetExtraErrorInformationResponse);
+  rpc GetRequestSurfacePackageErrorCode (GetRequestSurfacePackageErrorCodeRequest) returns (GetRequestSurfacePackageErrorCodeResponse);
+}
+
+service SandboxedSdkService {
+  rpc NewSandboxedSdk (NewSandboxedSdkRequest) returns (NewSandboxedSdkResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetInterface (GetInterfaceRequest) returns (GetInterfaceResponse);
+  rpc GetSharedLibraryInfo (GetSharedLibraryInfoRequest) returns (GetSharedLibraryInfoResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service LoadSdkExceptionService {
+  rpc NewLoadSdkException (NewLoadSdkExceptionRequest) returns (NewLoadSdkExceptionResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetExtraInformation (GetExtraInformationRequest) returns (GetExtraInformationResponse);
+  rpc GetLoadSdkErrorCode (GetLoadSdkErrorCodeRequest) returns (GetLoadSdkErrorCodeResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}

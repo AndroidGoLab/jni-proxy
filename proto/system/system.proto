@@ -5,3 +5,1377 @@ syntax = "proto3";
 package system;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/system";
+
+message CleanerRequest {
+}
+
+message CleanerResponse {
+  int64 result = 1;
+}
+
+message NewVmSocketAddressRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message NewVmSocketAddressResponse {
+  int64 result = 1;
+}
+
+message GetSvmCidRequest {
+  int64 handle = 1;
+}
+
+message GetSvmCidResponse {
+  int32 result = 1;
+}
+
+message GetSvmPortRequest {
+  int64 handle = 1;
+}
+
+message GetSvmPortResponse {
+  int32 result = 1;
+}
+
+message NewStructStatRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+  int64 arg3 = 4;
+  int32 arg4 = 5;
+  int32 arg5 = 6;
+  int64 arg6 = 7;
+  int64 arg7 = 8;
+  int64 arg8 = 9;
+  int64 arg9 = 10;
+  int64 arg10 = 11;
+  int64 arg11 = 12;
+  int64 arg12 = 13;
+}
+
+message NewStructStatResponse {
+  int64 result = 1;
+}
+
+message ToStringRequest {
+  int64 handle = 1;
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message NewErrnoExceptionRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message NewErrnoExceptionResponse {
+  int64 result = 1;
+}
+
+message GetMessageRequest {
+  int64 handle = 1;
+}
+
+message GetMessageResponse {
+  string result = 1;
+}
+
+message RethrowAsIOExceptionRequest {
+  int64 handle = 1;
+}
+
+message RethrowAsIOExceptionResponse {
+  int64 result = 1;
+}
+
+message RethrowAsSocketExceptionRequest {
+  int64 handle = 1;
+}
+
+message RethrowAsSocketExceptionResponse {
+  int64 result = 1;
+}
+
+message NewStructStatVfsRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+  int64 arg5 = 6;
+  int64 arg6 = 7;
+  int64 arg7 = 8;
+  int64 arg8 = 9;
+  int64 arg9 = 10;
+  int64 arg10 = 11;
+}
+
+message NewStructStatVfsResponse {
+  int64 result = 1;
+}
+
+message NewStructTimespecRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewStructTimespecResponse {
+  int64 result = 1;
+}
+
+message CompareTo1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message CompareTo1Response {
+  int32 result = 1;
+}
+
+message EqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message HashCodeRequest {
+  int64 handle = 1;
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message CompareTo1_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message CompareTo1_1Response {
+  int32 result = 1;
+}
+
+message NewInt64RefRequest {
+  int64 arg0 = 1;
+}
+
+message NewInt64RefResponse {
+  int64 result = 1;
+}
+
+message NewStructPollfdRequest {
+}
+
+message NewStructPollfdResponse {
+  int64 result = 1;
+}
+
+message S_ISBLKRequest {
+  int32 arg0 = 1;
+}
+
+message S_ISBLKResponse {
+  bool result = 1;
+}
+
+message S_ISCHRRequest {
+  int32 arg0 = 1;
+}
+
+message S_ISCHRResponse {
+  bool result = 1;
+}
+
+message S_ISDIRRequest {
+  int32 arg0 = 1;
+}
+
+message S_ISDIRResponse {
+  bool result = 1;
+}
+
+message S_ISFIFORequest {
+  int32 arg0 = 1;
+}
+
+message S_ISFIFOResponse {
+  bool result = 1;
+}
+
+message S_ISLNKRequest {
+  int32 arg0 = 1;
+}
+
+message S_ISLNKResponse {
+  bool result = 1;
+}
+
+message S_ISREGRequest {
+  int32 arg0 = 1;
+}
+
+message S_ISREGResponse {
+  bool result = 1;
+}
+
+message S_ISSOCKRequest {
+  int32 arg0 = 1;
+}
+
+message S_ISSOCKResponse {
+  bool result = 1;
+}
+
+message WCOREDUMPRequest {
+  int32 arg0 = 1;
+}
+
+message WCOREDUMPResponse {
+  bool result = 1;
+}
+
+message WEXITSTATUSRequest {
+  int32 arg0 = 1;
+}
+
+message WEXITSTATUSResponse {
+  int32 result = 1;
+}
+
+message WIFEXITEDRequest {
+  int32 arg0 = 1;
+}
+
+message WIFEXITEDResponse {
+  bool result = 1;
+}
+
+message WIFSIGNALEDRequest {
+  int32 arg0 = 1;
+}
+
+message WIFSIGNALEDResponse {
+  bool result = 1;
+}
+
+message WIFSTOPPEDRequest {
+  int32 arg0 = 1;
+}
+
+message WIFSTOPPEDResponse {
+  bool result = 1;
+}
+
+message WSTOPSIGRequest {
+  int32 arg0 = 1;
+}
+
+message WSTOPSIGResponse {
+  int32 result = 1;
+}
+
+message WTERMSIGRequest {
+  int32 arg0 = 1;
+}
+
+message WTERMSIGResponse {
+  int32 result = 1;
+}
+
+message ErrnoNameRequest {
+  int32 arg0 = 1;
+}
+
+message ErrnoNameResponse {
+  string result = 1;
+}
+
+message GaiNameRequest {
+  int32 arg0 = 1;
+}
+
+message GaiNameResponse {
+  string result = 1;
+}
+
+message NewStructUtsnameRequest {
+  string arg0 = 1;
+  string arg1 = 2;
+  string arg2 = 3;
+  string arg3 = 4;
+  string arg4 = 5;
+}
+
+message NewStructUtsnameResponse {
+  int64 result = 1;
+}
+
+message StructTimevalEqualsRequest {
+  int64 arg0 = 1;
+}
+
+message StructTimevalHashCodeRequest {
+}
+
+message ToMillisRequest {
+}
+
+message ToMillisResponse {
+  int64 result = 1;
+}
+
+message StructTimevalToStringRequest {
+}
+
+message FromMillisRequest {
+  int64 arg0 = 1;
+}
+
+message FromMillisResponse {
+  int64 result = 1;
+}
+
+message AcceptRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message AcceptResponse {
+  int64 result = 1;
+}
+
+message AccessRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message AccessResponse {
+  bool result = 1;
+}
+
+message Bind3Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message Bind3Response {
+}
+
+message Bind2_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message Bind2_1Response {
+}
+
+message ChmodRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message ChmodResponse {
+}
+
+message ChownRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message ChownResponse {
+}
+
+message CloseRequest {
+  int64 arg0 = 1;
+}
+
+message CloseResponse {
+}
+
+message Connect3Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message Connect3Response {
+}
+
+message Connect2_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message Connect2_1Response {
+}
+
+message DupRequest {
+  int64 arg0 = 1;
+}
+
+message DupResponse {
+  int64 result = 1;
+}
+
+message Dup2Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message Dup2Response {
+  int64 result = 1;
+}
+
+message EnvironRequest {
+}
+
+message EnvironResponse {
+  int64 result = 1;
+}
+
+message ExecvRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message ExecvResponse {
+}
+
+message ExecveRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message ExecveResponse {
+}
+
+message FchmodRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message FchmodResponse {
+}
+
+message FchownRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message FchownResponse {
+}
+
+message FcntlIntRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message FcntlIntResponse {
+  int32 result = 1;
+}
+
+message FdatasyncRequest {
+  int64 arg0 = 1;
+}
+
+message FdatasyncResponse {
+}
+
+message FstatRequest {
+  int64 arg0 = 1;
+}
+
+message FstatResponse {
+  int64 result = 1;
+}
+
+message FstatvfsRequest {
+  int64 arg0 = 1;
+}
+
+message FstatvfsResponse {
+  int64 result = 1;
+}
+
+message FsyncRequest {
+  int64 arg0 = 1;
+}
+
+message FsyncResponse {
+}
+
+message FtruncateRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message FtruncateResponse {
+}
+
+message Gai_strerrorRequest {
+  int32 arg0 = 1;
+}
+
+message Gai_strerrorResponse {
+  string result = 1;
+}
+
+message GetegidRequest {
+}
+
+message GetegidResponse {
+  int32 result = 1;
+}
+
+message GetenvRequest {
+  string arg0 = 1;
+}
+
+message GetenvResponse {
+  string result = 1;
+}
+
+message GeteuidRequest {
+}
+
+message GeteuidResponse {
+  int32 result = 1;
+}
+
+message GetgidRequest {
+}
+
+message GetgidResponse {
+  int32 result = 1;
+}
+
+message GetpeernameRequest {
+  int64 arg0 = 1;
+}
+
+message GetpeernameResponse {
+  int64 result = 1;
+}
+
+message GetpidRequest {
+}
+
+message GetpidResponse {
+  int32 result = 1;
+}
+
+message GetppidRequest {
+}
+
+message GetppidResponse {
+  int32 result = 1;
+}
+
+message GetsocknameRequest {
+  int64 arg0 = 1;
+}
+
+message GetsocknameResponse {
+  int64 result = 1;
+}
+
+message GetsockoptTimevalRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message GetsockoptTimevalResponse {
+  int64 result = 1;
+}
+
+message GettidRequest {
+}
+
+message GettidResponse {
+  int32 result = 1;
+}
+
+message GetuidRequest {
+}
+
+message GetuidResponse {
+  int32 result = 1;
+}
+
+message GetxattrRequest {
+  string arg0 = 1;
+  string arg1 = 2;
+}
+
+message GetxattrResponse {
+  int64 result = 1;
+}
+
+message If_indextonameRequest {
+  int32 arg0 = 1;
+}
+
+message If_indextonameResponse {
+  string result = 1;
+}
+
+message If_nametoindexRequest {
+  string arg0 = 1;
+}
+
+message If_nametoindexResponse {
+  int32 result = 1;
+}
+
+message Inet_ptonRequest {
+  int32 arg0 = 1;
+  string arg1 = 2;
+}
+
+message Inet_ptonResponse {
+  int64 result = 1;
+}
+
+message IsattyRequest {
+  int64 arg0 = 1;
+}
+
+message IsattyResponse {
+  bool result = 1;
+}
+
+message KillRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message KillResponse {
+}
+
+message LchownRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message LchownResponse {
+}
+
+message LinkRequest {
+  string arg0 = 1;
+  string arg1 = 2;
+}
+
+message LinkResponse {
+}
+
+message ListenRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message ListenResponse {
+}
+
+message ListxattrRequest {
+  string arg0 = 1;
+}
+
+message ListxattrResponse {
+  int64 result = 1;
+}
+
+message LseekRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message LseekResponse {
+  int64 result = 1;
+}
+
+message LstatRequest {
+  string arg0 = 1;
+}
+
+message LstatResponse {
+  int64 result = 1;
+}
+
+message Memfd_createRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message Memfd_createResponse {
+  int64 result = 1;
+}
+
+message MincoreRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message MincoreResponse {
+}
+
+message MkdirRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message MkdirResponse {
+}
+
+message MkfifoRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message MkfifoResponse {
+}
+
+message MlockRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message MlockResponse {
+}
+
+message MmapRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int64 arg4 = 5;
+  int64 arg5 = 6;
+}
+
+message MmapResponse {
+  int64 result = 1;
+}
+
+message MsyncRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message MsyncResponse {
+}
+
+message MunlockRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message MunlockResponse {
+}
+
+message MunmapRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message MunmapResponse {
+}
+
+message OpenRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message OpenResponse {
+  int64 result = 1;
+}
+
+message PipeRequest {
+}
+
+message PipeResponse {
+  int64 result = 1;
+}
+
+message PollRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message PollResponse {
+  int32 result = 1;
+}
+
+message Posix_fallocateRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message Posix_fallocateResponse {
+}
+
+message PrctlRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+}
+
+message PrctlResponse {
+  int32 result = 1;
+}
+
+message PreadRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int64 arg4 = 5;
+}
+
+message PreadResponse {
+  int32 result = 1;
+}
+
+message PwriteRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int64 arg4 = 5;
+}
+
+message PwriteResponse {
+  int32 result = 1;
+}
+
+message ReadRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message ReadResponse {
+  int32 result = 1;
+}
+
+message ReadlinkRequest {
+  string arg0 = 1;
+}
+
+message ReadlinkResponse {
+  string result = 1;
+}
+
+message ReadvRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message ReadvResponse {
+  int32 result = 1;
+}
+
+message RecvfromRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int32 arg4 = 5;
+  int64 arg5 = 6;
+}
+
+message RecvfromResponse {
+  int32 result = 1;
+}
+
+message RecvmsgRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message RecvmsgResponse {
+  int32 result = 1;
+}
+
+message RemoveRequest {
+  string arg0 = 1;
+}
+
+message RemoveResponse {
+}
+
+message RemovexattrRequest {
+  string arg0 = 1;
+  string arg1 = 2;
+}
+
+message RemovexattrResponse {
+}
+
+message RenameRequest {
+  string arg0 = 1;
+  string arg1 = 2;
+}
+
+message RenameResponse {
+}
+
+message SendfileRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message SendfileResponse {
+  int64 result = 1;
+}
+
+message SendmsgRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message SendmsgResponse {
+  int32 result = 1;
+}
+
+message Sendto7Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int32 arg4 = 5;
+  int64 arg5 = 6;
+  int32 arg6 = 7;
+}
+
+message Sendto7Response {
+  int32 result = 1;
+}
+
+message Sendto6_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int32 arg4 = 5;
+  int64 arg5 = 6;
+}
+
+message Sendto6_1Response {
+  int32 result = 1;
+}
+
+message SetegidRequest {
+  int32 arg0 = 1;
+}
+
+message SetegidResponse {
+}
+
+message SetenvRequest {
+  string arg0 = 1;
+  string arg1 = 2;
+  bool arg2 = 3;
+}
+
+message SetenvResponse {
+}
+
+message SeteuidRequest {
+  int32 arg0 = 1;
+}
+
+message SeteuidResponse {
+}
+
+message SetgidRequest {
+  int32 arg0 = 1;
+}
+
+message SetgidResponse {
+}
+
+message SetsidRequest {
+}
+
+message SetsidResponse {
+  int32 result = 1;
+}
+
+message SetsockoptIntRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message SetsockoptIntResponse {
+}
+
+message SetsockoptTimevalRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message SetsockoptTimevalResponse {
+}
+
+message SetuidRequest {
+  int32 arg0 = 1;
+}
+
+message SetuidResponse {
+}
+
+message SetxattrRequest {
+  string arg0 = 1;
+  string arg1 = 2;
+  int64 arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message SetxattrResponse {
+}
+
+message ShutdownRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message ShutdownResponse {
+}
+
+message SocketRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message SocketResponse {
+  int64 result = 1;
+}
+
+message SocketpairRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+}
+
+message SocketpairResponse {
+}
+
+message StatRequest {
+  string arg0 = 1;
+}
+
+message StatResponse {
+  int64 result = 1;
+}
+
+message StatvfsRequest {
+  string arg0 = 1;
+}
+
+message StatvfsResponse {
+  int64 result = 1;
+}
+
+message StrerrorRequest {
+  int32 arg0 = 1;
+}
+
+message StrerrorResponse {
+  string result = 1;
+}
+
+message StrsignalRequest {
+  int32 arg0 = 1;
+}
+
+message StrsignalResponse {
+  string result = 1;
+}
+
+message SymlinkRequest {
+  string arg0 = 1;
+  string arg1 = 2;
+}
+
+message SymlinkResponse {
+}
+
+message SysconfRequest {
+  int32 arg0 = 1;
+}
+
+message SysconfResponse {
+  int64 result = 1;
+}
+
+message TcdrainRequest {
+  int64 arg0 = 1;
+}
+
+message TcdrainResponse {
+}
+
+message TcsendbreakRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message TcsendbreakResponse {
+}
+
+message UmaskRequest {
+  int32 arg0 = 1;
+}
+
+message UmaskResponse {
+  int32 result = 1;
+}
+
+message UnameRequest {
+}
+
+message UnameResponse {
+  int64 result = 1;
+}
+
+message UnsetenvRequest {
+  string arg0 = 1;
+}
+
+message UnsetenvResponse {
+}
+
+message WriteRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message WriteResponse {
+  int32 result = 1;
+}
+
+message WritevRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message WritevResponse {
+  int32 result = 1;
+}
+
+service CleanerService {
+  rpc Cleaner (CleanerRequest) returns (CleanerResponse);
+}
+
+service VmSocketAddressService {
+  rpc NewVmSocketAddress (NewVmSocketAddressRequest) returns (NewVmSocketAddressResponse);
+  rpc GetSvmCid (GetSvmCidRequest) returns (GetSvmCidResponse);
+  rpc GetSvmPort (GetSvmPortRequest) returns (GetSvmPortResponse);
+}
+
+service StructStatService {
+  rpc NewStructStat (NewStructStatRequest) returns (NewStructStatResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service ErrnoExceptionService {
+  rpc NewErrnoException (NewErrnoExceptionRequest) returns (NewErrnoExceptionResponse);
+  rpc GetMessage (GetMessageRequest) returns (GetMessageResponse);
+  rpc RethrowAsIOException (RethrowAsIOExceptionRequest) returns (RethrowAsIOExceptionResponse);
+  rpc RethrowAsSocketException (RethrowAsSocketExceptionRequest) returns (RethrowAsSocketExceptionResponse);
+}
+
+service StructStatVfsService {
+  rpc NewStructStatVfs (NewStructStatVfsRequest) returns (NewStructStatVfsResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service StructTimespecService {
+  rpc NewStructTimespec (NewStructTimespecRequest) returns (NewStructTimespecResponse);
+  rpc CompareTo1 (CompareTo1Request) returns (CompareTo1Response);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc CompareTo1_1 (CompareTo1_1Request) returns (CompareTo1_1Response);
+}
+
+service Int64RefService {
+  rpc NewInt64Ref (NewInt64RefRequest) returns (NewInt64RefResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service StructPollfdService {
+  rpc NewStructPollfd (NewStructPollfdRequest) returns (NewStructPollfdResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service OsConstantsService {
+  rpc S_ISBLK (S_ISBLKRequest) returns (S_ISBLKResponse);
+  rpc S_ISCHR (S_ISCHRRequest) returns (S_ISCHRResponse);
+  rpc S_ISDIR (S_ISDIRRequest) returns (S_ISDIRResponse);
+  rpc S_ISFIFO (S_ISFIFORequest) returns (S_ISFIFOResponse);
+  rpc S_ISLNK (S_ISLNKRequest) returns (S_ISLNKResponse);
+  rpc S_ISREG (S_ISREGRequest) returns (S_ISREGResponse);
+  rpc S_ISSOCK (S_ISSOCKRequest) returns (S_ISSOCKResponse);
+  rpc WCOREDUMP (WCOREDUMPRequest) returns (WCOREDUMPResponse);
+  rpc WEXITSTATUS (WEXITSTATUSRequest) returns (WEXITSTATUSResponse);
+  rpc WIFEXITED (WIFEXITEDRequest) returns (WIFEXITEDResponse);
+  rpc WIFSIGNALED (WIFSIGNALEDRequest) returns (WIFSIGNALEDResponse);
+  rpc WIFSTOPPED (WIFSTOPPEDRequest) returns (WIFSTOPPEDResponse);
+  rpc WSTOPSIG (WSTOPSIGRequest) returns (WSTOPSIGResponse);
+  rpc WTERMSIG (WTERMSIGRequest) returns (WTERMSIGResponse);
+  rpc ErrnoName (ErrnoNameRequest) returns (ErrnoNameResponse);
+  rpc GaiName (GaiNameRequest) returns (GaiNameResponse);
+}
+
+service StructUtsnameService {
+  rpc NewStructUtsname (NewStructUtsnameRequest) returns (NewStructUtsnameResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service StructTimevalService {
+  rpc Equals (StructTimevalEqualsRequest) returns (EqualsResponse);
+  rpc HashCode (StructTimevalHashCodeRequest) returns (HashCodeResponse);
+  rpc ToMillis (ToMillisRequest) returns (ToMillisResponse);
+  rpc ToString (StructTimevalToStringRequest) returns (ToStringResponse);
+  rpc FromMillis (FromMillisRequest) returns (FromMillisResponse);
+}
+
+service OsService {
+  rpc Accept (AcceptRequest) returns (AcceptResponse);
+  rpc Access (AccessRequest) returns (AccessResponse);
+  rpc Bind3 (Bind3Request) returns (Bind3Response);
+  rpc Bind2_1 (Bind2_1Request) returns (Bind2_1Response);
+  rpc Chmod (ChmodRequest) returns (ChmodResponse);
+  rpc Chown (ChownRequest) returns (ChownResponse);
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc Connect3 (Connect3Request) returns (Connect3Response);
+  rpc Connect2_1 (Connect2_1Request) returns (Connect2_1Response);
+  rpc Dup (DupRequest) returns (DupResponse);
+  rpc Dup2 (Dup2Request) returns (Dup2Response);
+  rpc Environ (EnvironRequest) returns (EnvironResponse);
+  rpc Execv (ExecvRequest) returns (ExecvResponse);
+  rpc Execve (ExecveRequest) returns (ExecveResponse);
+  rpc Fchmod (FchmodRequest) returns (FchmodResponse);
+  rpc Fchown (FchownRequest) returns (FchownResponse);
+  rpc FcntlInt (FcntlIntRequest) returns (FcntlIntResponse);
+  rpc Fdatasync (FdatasyncRequest) returns (FdatasyncResponse);
+  rpc Fstat (FstatRequest) returns (FstatResponse);
+  rpc Fstatvfs (FstatvfsRequest) returns (FstatvfsResponse);
+  rpc Fsync (FsyncRequest) returns (FsyncResponse);
+  rpc Ftruncate (FtruncateRequest) returns (FtruncateResponse);
+  rpc Gai_strerror (Gai_strerrorRequest) returns (Gai_strerrorResponse);
+  rpc Getegid (GetegidRequest) returns (GetegidResponse);
+  rpc Getenv (GetenvRequest) returns (GetenvResponse);
+  rpc Geteuid (GeteuidRequest) returns (GeteuidResponse);
+  rpc Getgid (GetgidRequest) returns (GetgidResponse);
+  rpc Getpeername (GetpeernameRequest) returns (GetpeernameResponse);
+  rpc Getpid (GetpidRequest) returns (GetpidResponse);
+  rpc Getppid (GetppidRequest) returns (GetppidResponse);
+  rpc Getsockname (GetsocknameRequest) returns (GetsocknameResponse);
+  rpc GetsockoptTimeval (GetsockoptTimevalRequest) returns (GetsockoptTimevalResponse);
+  rpc Gettid (GettidRequest) returns (GettidResponse);
+  rpc Getuid (GetuidRequest) returns (GetuidResponse);
+  rpc Getxattr (GetxattrRequest) returns (GetxattrResponse);
+  rpc If_indextoname (If_indextonameRequest) returns (If_indextonameResponse);
+  rpc If_nametoindex (If_nametoindexRequest) returns (If_nametoindexResponse);
+  rpc Inet_pton (Inet_ptonRequest) returns (Inet_ptonResponse);
+  rpc Isatty (IsattyRequest) returns (IsattyResponse);
+  rpc Kill (KillRequest) returns (KillResponse);
+  rpc Lchown (LchownRequest) returns (LchownResponse);
+  rpc Link (LinkRequest) returns (LinkResponse);
+  rpc Listen (ListenRequest) returns (ListenResponse);
+  rpc Listxattr (ListxattrRequest) returns (ListxattrResponse);
+  rpc Lseek (LseekRequest) returns (LseekResponse);
+  rpc Lstat (LstatRequest) returns (LstatResponse);
+  rpc Memfd_create (Memfd_createRequest) returns (Memfd_createResponse);
+  rpc Mincore (MincoreRequest) returns (MincoreResponse);
+  rpc Mkdir (MkdirRequest) returns (MkdirResponse);
+  rpc Mkfifo (MkfifoRequest) returns (MkfifoResponse);
+  rpc Mlock (MlockRequest) returns (MlockResponse);
+  rpc Mmap (MmapRequest) returns (MmapResponse);
+  rpc Msync (MsyncRequest) returns (MsyncResponse);
+  rpc Munlock (MunlockRequest) returns (MunlockResponse);
+  rpc Munmap (MunmapRequest) returns (MunmapResponse);
+  rpc Open (OpenRequest) returns (OpenResponse);
+  rpc Pipe (PipeRequest) returns (PipeResponse);
+  rpc Poll (PollRequest) returns (PollResponse);
+  rpc Posix_fallocate (Posix_fallocateRequest) returns (Posix_fallocateResponse);
+  rpc Prctl (PrctlRequest) returns (PrctlResponse);
+  rpc Pread (PreadRequest) returns (PreadResponse);
+  rpc Pwrite (PwriteRequest) returns (PwriteResponse);
+  rpc Read (ReadRequest) returns (ReadResponse);
+  rpc Readlink (ReadlinkRequest) returns (ReadlinkResponse);
+  rpc Readv (ReadvRequest) returns (ReadvResponse);
+  rpc Recvfrom (RecvfromRequest) returns (RecvfromResponse);
+  rpc Recvmsg (RecvmsgRequest) returns (RecvmsgResponse);
+  rpc Remove (RemoveRequest) returns (RemoveResponse);
+  rpc Removexattr (RemovexattrRequest) returns (RemovexattrResponse);
+  rpc Rename (RenameRequest) returns (RenameResponse);
+  rpc Sendfile (SendfileRequest) returns (SendfileResponse);
+  rpc Sendmsg (SendmsgRequest) returns (SendmsgResponse);
+  rpc Sendto7 (Sendto7Request) returns (Sendto7Response);
+  rpc Sendto6_1 (Sendto6_1Request) returns (Sendto6_1Response);
+  rpc Setegid (SetegidRequest) returns (SetegidResponse);
+  rpc Setenv (SetenvRequest) returns (SetenvResponse);
+  rpc Seteuid (SeteuidRequest) returns (SeteuidResponse);
+  rpc Setgid (SetgidRequest) returns (SetgidResponse);
+  rpc Setsid (SetsidRequest) returns (SetsidResponse);
+  rpc SetsockoptInt (SetsockoptIntRequest) returns (SetsockoptIntResponse);
+  rpc SetsockoptTimeval (SetsockoptTimevalRequest) returns (SetsockoptTimevalResponse);
+  rpc Setuid (SetuidRequest) returns (SetuidResponse);
+  rpc Setxattr (SetxattrRequest) returns (SetxattrResponse);
+  rpc Shutdown (ShutdownRequest) returns (ShutdownResponse);
+  rpc Socket (SocketRequest) returns (SocketResponse);
+  rpc Socketpair (SocketpairRequest) returns (SocketpairResponse);
+  rpc Stat (StatRequest) returns (StatResponse);
+  rpc Statvfs (StatvfsRequest) returns (StatvfsResponse);
+  rpc Strerror (StrerrorRequest) returns (StrerrorResponse);
+  rpc Strsignal (StrsignalRequest) returns (StrsignalResponse);
+  rpc Symlink (SymlinkRequest) returns (SymlinkResponse);
+  rpc Sysconf (SysconfRequest) returns (SysconfResponse);
+  rpc Tcdrain (TcdrainRequest) returns (TcdrainResponse);
+  rpc Tcsendbreak (TcsendbreakRequest) returns (TcsendbreakResponse);
+  rpc Umask (UmaskRequest) returns (UmaskResponse);
+  rpc Uname (UnameRequest) returns (UnameResponse);
+  rpc Unsetenv (UnsetenvRequest) returns (UnsetenvResponse);
+  rpc Write (WriteRequest) returns (WriteResponse);
+  rpc Writev (WritevRequest) returns (WritevResponse);
+}

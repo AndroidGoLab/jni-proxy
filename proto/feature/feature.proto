@@ -5,3 +5,40 @@ syntax = "proto3";
 package feature;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/feature";
+
+message EqualsRequest {
+  int64 arg0 = 1;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message HashCodeRequest {
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message IsCapableRequest {
+  int32 arg0 = 1;
+}
+
+message IsCapableResponse {
+  bool result = 1;
+}
+
+message ToStringRequest {
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+service MmTelFeatureMmTelCapabilitiesService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc IsCapable (IsCapableRequest) returns (IsCapableResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}

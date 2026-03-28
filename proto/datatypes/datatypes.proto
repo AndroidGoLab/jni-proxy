@@ -5,3 +5,2880 @@ syntax = "proto3";
 package datatypes;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/datatypes";
+
+message EqualsRequest {
+  int64 arg0 = 1;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message GetNotesRequest {
+}
+
+message GetNotesResponse {
+  int64 result = 1;
+}
+
+message GetTitleRequest {
+}
+
+message GetTitleResponse {
+  int64 result = 1;
+}
+
+message HashCodeRequest {
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message BuildRequest {
+}
+
+message BuildResponse {
+  int64 result = 1;
+}
+
+message ClearEndZoneOffsetRequest {
+}
+
+message ClearEndZoneOffsetResponse {
+  int64 result = 1;
+}
+
+message ClearStartZoneOffsetRequest {
+}
+
+message ClearStartZoneOffsetResponse {
+  int64 result = 1;
+}
+
+message SetEndZoneOffsetRequest {
+  int64 arg0 = 1;
+}
+
+message SetEndZoneOffsetResponse {
+  int64 result = 1;
+}
+
+message SetNotesRequest {
+  string arg0 = 1;
+}
+
+message SetNotesResponse {
+  int64 result = 1;
+}
+
+message SetStartZoneOffsetRequest {
+  int64 arg0 = 1;
+}
+
+message SetStartZoneOffsetResponse {
+  int64 result = 1;
+}
+
+message SetTitleRequest {
+  string arg0 = 1;
+}
+
+message SetTitleResponse {
+  int64 result = 1;
+}
+
+message GetEndTimeRequest {
+}
+
+message GetEndTimeResponse {
+  int64 result = 1;
+}
+
+message GetStartTimeRequest {
+}
+
+message GetStartTimeResponse {
+  int64 result = 1;
+}
+
+message GetTypeRequest {
+}
+
+message GetTypeResponse {
+  int32 result = 1;
+}
+
+message GetBodyWaterMassRequest {
+}
+
+message GetBodyWaterMassResponse {
+  int64 result = 1;
+}
+
+message ClearZoneOffsetRequest {
+}
+
+message ClearZoneOffsetResponse {
+  int64 result = 1;
+}
+
+message SetZoneOffsetRequest {
+  int64 arg0 = 1;
+}
+
+message SetZoneOffsetResponse {
+  int64 result = 1;
+}
+
+message GetRepetitionsCountRequest {
+}
+
+message GetRepetitionsCountResponse {
+  int32 result = 1;
+}
+
+message GetSegmentTypeRequest {
+}
+
+message GetSegmentTypeResponse {
+  int32 result = 1;
+}
+
+message SetRepetitionsCountRequest {
+  int32 arg0 = 1;
+}
+
+message SetRepetitionsCountResponse {
+  int64 result = 1;
+}
+
+message GetDistanceRequest {
+}
+
+message GetDistanceResponse {
+  int64 result = 1;
+}
+
+message GetMeasurementLocationRequest {
+}
+
+message GetMeasurementLocationResponse {
+  int32 result = 1;
+}
+
+message GetTemperatureRequest {
+}
+
+message GetTemperatureResponse {
+  int64 result = 1;
+}
+
+message GetEnergyRequest {
+}
+
+message GetEnergyResponse {
+  int64 result = 1;
+}
+
+message GetProtectionUsedRequest {
+}
+
+message GetProtectionUsedResponse {
+  int32 result = 1;
+}
+
+message GetWeightRequest {
+}
+
+message GetWeightResponse {
+  int64 result = 1;
+}
+
+message GetBodyPositionRequest {
+}
+
+message GetBodyPositionResponse {
+  int32 result = 1;
+}
+
+message GetDiastolicRequest {
+}
+
+message GetDiastolicResponse {
+  int64 result = 1;
+}
+
+message GetSystolicRequest {
+}
+
+message GetSystolicResponse {
+  int64 result = 1;
+}
+
+message GetLevelRequest {
+}
+
+message GetLevelResponse {
+  int64 result = 1;
+}
+
+message GetMealTypeRequest {
+}
+
+message GetMealTypeResponse {
+  int32 result = 1;
+}
+
+message GetRelationToMealRequest {
+}
+
+message GetRelationToMealResponse {
+  int32 result = 1;
+}
+
+message GetSpecimenSourceRequest {
+}
+
+message GetSpecimenSourceResponse {
+  int32 result = 1;
+}
+
+message GetMassRequest {
+}
+
+message GetMassResponse {
+  int64 result = 1;
+}
+
+message GetAppearanceRequest {
+}
+
+message GetAppearanceResponse {
+  int32 result = 1;
+}
+
+message GetSensationRequest {
+}
+
+message GetSensationResponse {
+  int32 result = 1;
+}
+
+message GetFlowRequest {
+}
+
+message GetFlowResponse {
+  int32 result = 1;
+}
+
+message GetClientRecordIdRequest {
+}
+
+message GetClientRecordIdResponse {
+  string result = 1;
+}
+
+message GetClientRecordVersionRequest {
+}
+
+message GetClientRecordVersionResponse {
+  int64 result = 1;
+}
+
+message GetDataOriginRequest {
+}
+
+message GetDataOriginResponse {
+  int64 result = 1;
+}
+
+message GetDeviceRequest {
+}
+
+message GetDeviceResponse {
+  int64 result = 1;
+}
+
+message GetIdRequest {
+}
+
+message GetIdResponse {
+  string result = 1;
+}
+
+message GetLastModifiedTimeRequest {
+}
+
+message GetLastModifiedTimeResponse {
+  int64 result = 1;
+}
+
+message GetRecordingMethodRequest {
+}
+
+message GetRecordingMethodResponse {
+  int32 result = 1;
+}
+
+message SetClientRecordIdRequest {
+  string arg0 = 1;
+}
+
+message SetClientRecordIdResponse {
+  int64 result = 1;
+}
+
+message SetClientRecordVersionRequest {
+  int64 arg0 = 1;
+}
+
+message SetClientRecordVersionResponse {
+  int64 result = 1;
+}
+
+message SetDataOriginRequest {
+  int64 arg0 = 1;
+}
+
+message SetDataOriginResponse {
+  int64 result = 1;
+}
+
+message SetDeviceRequest {
+  int64 arg0 = 1;
+}
+
+message SetDeviceResponse {
+  int64 result = 1;
+}
+
+message SetIdRequest {
+  string arg0 = 1;
+}
+
+message SetIdResponse {
+  int64 result = 1;
+}
+
+message SetLastModifiedTimeRequest {
+  int64 arg0 = 1;
+}
+
+message SetLastModifiedTimeResponse {
+  int64 result = 1;
+}
+
+message SetRecordingMethodRequest {
+  int32 arg0 = 1;
+}
+
+message SetRecordingMethodResponse {
+  int64 result = 1;
+}
+
+message GetPowerRequest {
+}
+
+message GetPowerResponse {
+  int64 result = 1;
+}
+
+message GetTimeRequest {
+}
+
+message GetTimeResponse {
+  int64 result = 1;
+}
+
+message NewExerciseRouteRequest {
+  int64 arg0 = 1;
+}
+
+message NewExerciseRouteResponse {
+  int64 result = 1;
+}
+
+message DescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message ExerciseRouteEqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message ExerciseRouteHashCodeRequest {
+  int64 handle = 1;
+}
+
+message WriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message WriteToParcelResponse {
+}
+
+message ExerciseRouteLocationDescribeContentsRequest {
+}
+
+message GetAltitudeRequest {
+}
+
+message GetAltitudeResponse {
+  int64 result = 1;
+}
+
+message GetHorizontalAccuracyRequest {
+}
+
+message GetHorizontalAccuracyResponse {
+  int64 result = 1;
+}
+
+message GetLatitudeRequest {
+}
+
+message GetLatitudeResponse {
+  double result = 1;
+}
+
+message GetLongitudeRequest {
+}
+
+message GetLongitudeResponse {
+  double result = 1;
+}
+
+message GetVerticalAccuracyRequest {
+}
+
+message GetVerticalAccuracyResponse {
+  int64 result = 1;
+}
+
+message ExerciseRouteLocationWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message GetCompletedExerciseSessionIdRequest {
+}
+
+message GetCompletedExerciseSessionIdResponse {
+  string result = 1;
+}
+
+message GetDurationRequest {
+}
+
+message GetDurationResponse {
+  int64 result = 1;
+}
+
+message GetExerciseTypeRequest {
+}
+
+message GetExerciseTypeResponse {
+  int32 result = 1;
+}
+
+message GetStartDateRequest {
+}
+
+message GetStartDateResponse {
+  int64 result = 1;
+}
+
+message HasExplicitTimeRequest {
+}
+
+message HasExplicitTimeResponse {
+  bool result = 1;
+}
+
+message AddBlockRequest {
+  int64 arg0 = 1;
+}
+
+message AddBlockResponse {
+  int64 result = 1;
+}
+
+message ClearBlocksRequest {
+}
+
+message ClearBlocksResponse {
+  int64 result = 1;
+}
+
+message SetEndTimeRequest {
+  int64 arg0 = 1;
+}
+
+message SetEndTimeResponse {
+  int64 result = 1;
+}
+
+message SetExerciseTypeRequest {
+  int32 arg0 = 1;
+}
+
+message SetExerciseTypeResponse {
+  int64 result = 1;
+}
+
+message SetMetadataRequest {
+  int64 arg0 = 1;
+}
+
+message SetMetadataResponse {
+  int64 result = 1;
+}
+
+message SetStartTimeRequest {
+  int64 arg0 = 1;
+}
+
+message SetStartTimeResponse {
+  int64 result = 1;
+}
+
+message MedicalResourceDescribeContentsRequest {
+}
+
+message GetDataSourceIdRequest {
+}
+
+message GetDataSourceIdResponse {
+  string result = 1;
+}
+
+message GetFhirResourceRequest {
+}
+
+message GetFhirResourceResponse {
+  int64 result = 1;
+}
+
+message GetFhirVersionRequest {
+}
+
+message GetFhirVersionResponse {
+  int64 result = 1;
+}
+
+message MedicalResourceGetIdResponse {
+  int64 result = 1;
+}
+
+message ToStringRequest {
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message MedicalResourceWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message SetDataSourceIdRequest {
+  string arg0 = 1;
+}
+
+message SetDataSourceIdResponse {
+  int64 result = 1;
+}
+
+message SetFhirResourceRequest {
+  int64 arg0 = 1;
+}
+
+message SetFhirResourceResponse {
+  int64 result = 1;
+}
+
+message SetFhirVersionRequest {
+  int64 arg0 = 1;
+}
+
+message SetFhirVersionResponse {
+  int64 result = 1;
+}
+
+message SetTypeRequest {
+  int32 arg0 = 1;
+}
+
+message SetTypeResponse {
+  int64 result = 1;
+}
+
+message MedicalDataSourceDescribeContentsRequest {
+}
+
+message GetDisplayNameRequest {
+}
+
+message GetDisplayNameResponse {
+  string result = 1;
+}
+
+message GetFhirBaseUriRequest {
+}
+
+message GetFhirBaseUriResponse {
+  int64 result = 1;
+}
+
+message GetLastDataUpdateTimeRequest {
+}
+
+message GetLastDataUpdateTimeResponse {
+  int64 result = 1;
+}
+
+message GetPackageNameRequest {
+}
+
+message GetPackageNameResponse {
+  string result = 1;
+}
+
+message MedicalDataSourceWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message SetDisplayNameRequest {
+  string arg0 = 1;
+}
+
+message SetDisplayNameResponse {
+  int64 result = 1;
+}
+
+message SetFhirBaseUriRequest {
+  int64 arg0 = 1;
+}
+
+message SetFhirBaseUriResponse {
+  int64 result = 1;
+}
+
+message SetLastDataUpdateTimeRequest {
+  int64 arg0 = 1;
+}
+
+message SetLastDataUpdateTimeResponse {
+  int64 result = 1;
+}
+
+message SetPackageNameRequest {
+  string arg0 = 1;
+}
+
+message SetPackageNameResponse {
+  int64 result = 1;
+}
+
+message GetCompletionGoalRequest {
+}
+
+message GetCompletionGoalResponse {
+  int64 result = 1;
+}
+
+message GetDescriptionRequest {
+}
+
+message GetDescriptionResponse {
+  int64 result = 1;
+}
+
+message GetExerciseCategoryRequest {
+}
+
+message GetExerciseCategoryResponse {
+  int32 result = 1;
+}
+
+message AddPerformanceGoalRequest {
+  int64 arg0 = 1;
+}
+
+message AddPerformanceGoalResponse {
+  int64 result = 1;
+}
+
+message ClearPerformanceGoalsRequest {
+}
+
+message ClearPerformanceGoalsResponse {
+  int64 result = 1;
+}
+
+message SetCompletionGoalRequest {
+  int64 arg0 = 1;
+}
+
+message SetCompletionGoalResponse {
+  int64 result = 1;
+}
+
+message SetDescriptionRequest {
+  string arg0 = 1;
+}
+
+message SetDescriptionResponse {
+  int64 result = 1;
+}
+
+message SetExerciseCategoryRequest {
+  int32 arg0 = 1;
+}
+
+message SetExerciseCategoryResponse {
+  int64 result = 1;
+}
+
+message GetActivityIntensityTypeRequest {
+}
+
+message GetActivityIntensityTypeResponse {
+  int32 result = 1;
+}
+
+message GetLengthRequest {
+}
+
+message GetLengthResponse {
+  int64 result = 1;
+}
+
+message SetLengthRequest {
+  int64 arg0 = 1;
+}
+
+message SetLengthResponse {
+  int64 result = 1;
+}
+
+message GetPlannedExerciseSessionIdRequest {
+}
+
+message GetPlannedExerciseSessionIdResponse {
+  string result = 1;
+}
+
+message GetRouteRequest {
+}
+
+message GetRouteResponse {
+  int64 result = 1;
+}
+
+message HasRouteRequest {
+}
+
+message HasRouteResponse {
+  bool result = 1;
+}
+
+message SetPlannedExerciseSessionIdRequest {
+  string arg0 = 1;
+}
+
+message SetPlannedExerciseSessionIdResponse {
+  int64 result = 1;
+}
+
+message SetRouteRequest {
+  int64 arg0 = 1;
+}
+
+message SetRouteResponse {
+  int64 result = 1;
+}
+
+message GetMindfulnessSessionTypeRequest {
+}
+
+message GetMindfulnessSessionTypeResponse {
+  int32 result = 1;
+}
+
+message GetElevationRequest {
+}
+
+message GetElevationResponse {
+  int64 result = 1;
+}
+
+message GetHeightRequest {
+}
+
+message GetHeightResponse {
+  int64 result = 1;
+}
+
+message GetSpeedRequest {
+}
+
+message GetSpeedResponse {
+  int64 result = 1;
+}
+
+message GetZoneOffsetRequest {
+}
+
+message GetZoneOffsetResponse {
+  int64 result = 1;
+}
+
+message GetIconRequest {
+}
+
+message GetIconResponse {
+  int64 result = 1;
+}
+
+message GetNameRequest {
+}
+
+message GetNameResponse {
+  string result = 1;
+}
+
+message GetMeasurementMethodRequest {
+}
+
+message GetMeasurementMethodResponse {
+  int32 result = 1;
+}
+
+message GetVo2MillilitersPerMinuteKilogramRequest {
+}
+
+message GetVo2MillilitersPerMinuteKilogramResponse {
+  double result = 1;
+}
+
+message GetFloorsRequest {
+}
+
+message GetFloorsResponse {
+  double result = 1;
+}
+
+message GetRateRequest {
+}
+
+message GetRateResponse {
+  double result = 1;
+}
+
+message FhirResourceDescribeContentsRequest {
+}
+
+message GetDataRequest {
+}
+
+message GetDataResponse {
+  string result = 1;
+}
+
+message FhirResourceWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message SetDataRequest {
+  string arg0 = 1;
+}
+
+message SetDataResponse {
+  int64 result = 1;
+}
+
+message GetHeartRateVariabilityMillisRequest {
+}
+
+message GetHeartRateVariabilityMillisResponse {
+  double result = 1;
+}
+
+message GetMetadataRequest {
+}
+
+message GetMetadataResponse {
+  int64 result = 1;
+}
+
+message GetMaxRpmRequest {
+}
+
+message GetMaxRpmResponse {
+  double result = 1;
+}
+
+message GetMinRpmRequest {
+}
+
+message GetMinRpmResponse {
+  double result = 1;
+}
+
+message GetMaxBpmRequest {
+}
+
+message GetMaxBpmResponse {
+  int32 result = 1;
+}
+
+message GetMinBpmRequest {
+}
+
+message GetMinBpmResponse {
+  int32 result = 1;
+}
+
+message GetMaxPowerRequest {
+}
+
+message GetMaxPowerResponse {
+  int64 result = 1;
+}
+
+message GetMinPowerRequest {
+}
+
+message GetMinPowerResponse {
+  int64 result = 1;
+}
+
+message GetRpeRequest {
+}
+
+message GetRpeResponse {
+  int32 result = 1;
+}
+
+message GetMaxSpeedRequest {
+}
+
+message GetMaxSpeedResponse {
+  int64 result = 1;
+}
+
+message GetMinSpeedRequest {
+}
+
+message GetMinSpeedResponse {
+  int64 result = 1;
+}
+
+message GetRevolutionsPerMinuteRequest {
+}
+
+message GetRevolutionsPerMinuteResponse {
+  double result = 1;
+}
+
+message GetBasalMetabolicRateRequest {
+}
+
+message GetBasalMetabolicRateResponse {
+  int64 result = 1;
+}
+
+message GetPercentageRequest {
+}
+
+message GetPercentageResponse {
+  int64 result = 1;
+}
+
+message GetActiveCaloriesRequest {
+}
+
+message GetActiveCaloriesResponse {
+  int64 result = 1;
+}
+
+message GetRepetitionsRequest {
+}
+
+message GetRepetitionsResponse {
+  int32 result = 1;
+}
+
+message GetStepsRequest {
+}
+
+message GetStepsResponse {
+  int32 result = 1;
+}
+
+message GetTotalCaloriesRequest {
+}
+
+message GetTotalCaloriesResponse {
+  int64 result = 1;
+}
+
+message GetBeatsPerMinuteRequest {
+}
+
+message GetBeatsPerMinuteResponse {
+  int64 result = 1;
+}
+
+message GetEndZoneOffsetRequest {
+}
+
+message GetEndZoneOffsetResponse {
+  int64 result = 1;
+}
+
+message GetStartZoneOffsetRequest {
+}
+
+message GetStartZoneOffsetResponse {
+  int64 result = 1;
+}
+
+message GetBaselineRequest {
+}
+
+message GetBaselineResponse {
+  int64 result = 1;
+}
+
+message SetBaselineRequest {
+  int64 arg0 = 1;
+}
+
+message SetBaselineResponse {
+  int64 result = 1;
+}
+
+message SetMeasurementLocationRequest {
+  int32 arg0 = 1;
+}
+
+message SetMeasurementLocationResponse {
+  int64 result = 1;
+}
+
+message GetDeltaRequest {
+}
+
+message GetDeltaResponse {
+  int64 result = 1;
+}
+
+message GetCountRequest {
+}
+
+message GetCountResponse {
+  int64 result = 1;
+}
+
+message GetVolumeRequest {
+}
+
+message GetVolumeResponse {
+  int64 result = 1;
+}
+
+message GetBiotinRequest {
+}
+
+message GetBiotinResponse {
+  int64 result = 1;
+}
+
+message GetCaffeineRequest {
+}
+
+message GetCaffeineResponse {
+  int64 result = 1;
+}
+
+message GetCalciumRequest {
+}
+
+message GetCalciumResponse {
+  int64 result = 1;
+}
+
+message GetChlorideRequest {
+}
+
+message GetChlorideResponse {
+  int64 result = 1;
+}
+
+message GetCholesterolRequest {
+}
+
+message GetCholesterolResponse {
+  int64 result = 1;
+}
+
+message GetChromiumRequest {
+}
+
+message GetChromiumResponse {
+  int64 result = 1;
+}
+
+message GetCopperRequest {
+}
+
+message GetCopperResponse {
+  int64 result = 1;
+}
+
+message GetDietaryFiberRequest {
+}
+
+message GetDietaryFiberResponse {
+  int64 result = 1;
+}
+
+message GetEnergyFromFatRequest {
+}
+
+message GetEnergyFromFatResponse {
+  int64 result = 1;
+}
+
+message GetFolateRequest {
+}
+
+message GetFolateResponse {
+  int64 result = 1;
+}
+
+message GetFolicAcidRequest {
+}
+
+message GetFolicAcidResponse {
+  int64 result = 1;
+}
+
+message GetIodineRequest {
+}
+
+message GetIodineResponse {
+  int64 result = 1;
+}
+
+message GetIronRequest {
+}
+
+message GetIronResponse {
+  int64 result = 1;
+}
+
+message GetMagnesiumRequest {
+}
+
+message GetMagnesiumResponse {
+  int64 result = 1;
+}
+
+message GetManganeseRequest {
+}
+
+message GetManganeseResponse {
+  int64 result = 1;
+}
+
+message GetMealNameRequest {
+}
+
+message GetMealNameResponse {
+  string result = 1;
+}
+
+message GetMolybdenumRequest {
+}
+
+message GetMolybdenumResponse {
+  int64 result = 1;
+}
+
+message GetMonounsaturatedFatRequest {
+}
+
+message GetMonounsaturatedFatResponse {
+  int64 result = 1;
+}
+
+message GetNiacinRequest {
+}
+
+message GetNiacinResponse {
+  int64 result = 1;
+}
+
+message GetPantothenicAcidRequest {
+}
+
+message GetPantothenicAcidResponse {
+  int64 result = 1;
+}
+
+message GetPhosphorusRequest {
+}
+
+message GetPhosphorusResponse {
+  int64 result = 1;
+}
+
+message GetPolyunsaturatedFatRequest {
+}
+
+message GetPolyunsaturatedFatResponse {
+  int64 result = 1;
+}
+
+message GetPotassiumRequest {
+}
+
+message GetPotassiumResponse {
+  int64 result = 1;
+}
+
+message GetProteinRequest {
+}
+
+message GetProteinResponse {
+  int64 result = 1;
+}
+
+message GetRiboflavinRequest {
+}
+
+message GetRiboflavinResponse {
+  int64 result = 1;
+}
+
+message GetSaturatedFatRequest {
+}
+
+message GetSaturatedFatResponse {
+  int64 result = 1;
+}
+
+message GetSeleniumRequest {
+}
+
+message GetSeleniumResponse {
+  int64 result = 1;
+}
+
+message GetSodiumRequest {
+}
+
+message GetSodiumResponse {
+  int64 result = 1;
+}
+
+message GetSugarRequest {
+}
+
+message GetSugarResponse {
+  int64 result = 1;
+}
+
+message GetThiaminRequest {
+}
+
+message GetThiaminResponse {
+  int64 result = 1;
+}
+
+message GetTotalCarbohydrateRequest {
+}
+
+message GetTotalCarbohydrateResponse {
+  int64 result = 1;
+}
+
+message GetTotalFatRequest {
+}
+
+message GetTotalFatResponse {
+  int64 result = 1;
+}
+
+message GetTransFatRequest {
+}
+
+message GetTransFatResponse {
+  int64 result = 1;
+}
+
+message GetUnsaturatedFatRequest {
+}
+
+message GetUnsaturatedFatResponse {
+  int64 result = 1;
+}
+
+message GetVitaminARequest {
+}
+
+message GetVitaminAResponse {
+  int64 result = 1;
+}
+
+message GetVitaminB12Request {
+}
+
+message GetVitaminB12Response {
+  int64 result = 1;
+}
+
+message GetVitaminB6Request {
+}
+
+message GetVitaminB6Response {
+  int64 result = 1;
+}
+
+message GetVitaminCRequest {
+}
+
+message GetVitaminCResponse {
+  int64 result = 1;
+}
+
+message GetVitaminDRequest {
+}
+
+message GetVitaminDResponse {
+  int64 result = 1;
+}
+
+message GetVitaminERequest {
+}
+
+message GetVitaminEResponse {
+  int64 result = 1;
+}
+
+message GetVitaminKRequest {
+}
+
+message GetVitaminKResponse {
+  int64 result = 1;
+}
+
+message GetZincRequest {
+}
+
+message GetZincResponse {
+  int64 result = 1;
+}
+
+message SetBiotinRequest {
+  int64 arg0 = 1;
+}
+
+message SetBiotinResponse {
+  int64 result = 1;
+}
+
+message SetCaffeineRequest {
+  int64 arg0 = 1;
+}
+
+message SetCaffeineResponse {
+  int64 result = 1;
+}
+
+message SetCalciumRequest {
+  int64 arg0 = 1;
+}
+
+message SetCalciumResponse {
+  int64 result = 1;
+}
+
+message SetChlorideRequest {
+  int64 arg0 = 1;
+}
+
+message SetChlorideResponse {
+  int64 result = 1;
+}
+
+message SetCholesterolRequest {
+  int64 arg0 = 1;
+}
+
+message SetCholesterolResponse {
+  int64 result = 1;
+}
+
+message SetChromiumRequest {
+  int64 arg0 = 1;
+}
+
+message SetChromiumResponse {
+  int64 result = 1;
+}
+
+message SetCopperRequest {
+  int64 arg0 = 1;
+}
+
+message SetCopperResponse {
+  int64 result = 1;
+}
+
+message SetDietaryFiberRequest {
+  int64 arg0 = 1;
+}
+
+message SetDietaryFiberResponse {
+  int64 result = 1;
+}
+
+message SetEnergyRequest {
+  int64 arg0 = 1;
+}
+
+message SetEnergyResponse {
+  int64 result = 1;
+}
+
+message SetEnergyFromFatRequest {
+  int64 arg0 = 1;
+}
+
+message SetEnergyFromFatResponse {
+  int64 result = 1;
+}
+
+message SetFolateRequest {
+  int64 arg0 = 1;
+}
+
+message SetFolateResponse {
+  int64 result = 1;
+}
+
+message SetFolicAcidRequest {
+  int64 arg0 = 1;
+}
+
+message SetFolicAcidResponse {
+  int64 result = 1;
+}
+
+message SetIodineRequest {
+  int64 arg0 = 1;
+}
+
+message SetIodineResponse {
+  int64 result = 1;
+}
+
+message SetIronRequest {
+  int64 arg0 = 1;
+}
+
+message SetIronResponse {
+  int64 result = 1;
+}
+
+message SetMagnesiumRequest {
+  int64 arg0 = 1;
+}
+
+message SetMagnesiumResponse {
+  int64 result = 1;
+}
+
+message SetManganeseRequest {
+  int64 arg0 = 1;
+}
+
+message SetManganeseResponse {
+  int64 result = 1;
+}
+
+message SetMealNameRequest {
+  string arg0 = 1;
+}
+
+message SetMealNameResponse {
+  int64 result = 1;
+}
+
+message SetMealTypeRequest {
+  int32 arg0 = 1;
+}
+
+message SetMealTypeResponse {
+  int64 result = 1;
+}
+
+message SetMolybdenumRequest {
+  int64 arg0 = 1;
+}
+
+message SetMolybdenumResponse {
+  int64 result = 1;
+}
+
+message SetMonounsaturatedFatRequest {
+  int64 arg0 = 1;
+}
+
+message SetMonounsaturatedFatResponse {
+  int64 result = 1;
+}
+
+message SetNiacinRequest {
+  int64 arg0 = 1;
+}
+
+message SetNiacinResponse {
+  int64 result = 1;
+}
+
+message SetPantothenicAcidRequest {
+  int64 arg0 = 1;
+}
+
+message SetPantothenicAcidResponse {
+  int64 result = 1;
+}
+
+message SetPhosphorusRequest {
+  int64 arg0 = 1;
+}
+
+message SetPhosphorusResponse {
+  int64 result = 1;
+}
+
+message SetPolyunsaturatedFatRequest {
+  int64 arg0 = 1;
+}
+
+message SetPolyunsaturatedFatResponse {
+  int64 result = 1;
+}
+
+message SetPotassiumRequest {
+  int64 arg0 = 1;
+}
+
+message SetPotassiumResponse {
+  int64 result = 1;
+}
+
+message SetProteinRequest {
+  int64 arg0 = 1;
+}
+
+message SetProteinResponse {
+  int64 result = 1;
+}
+
+message SetRiboflavinRequest {
+  int64 arg0 = 1;
+}
+
+message SetRiboflavinResponse {
+  int64 result = 1;
+}
+
+message SetSaturatedFatRequest {
+  int64 arg0 = 1;
+}
+
+message SetSaturatedFatResponse {
+  int64 result = 1;
+}
+
+message SetSeleniumRequest {
+  int64 arg0 = 1;
+}
+
+message SetSeleniumResponse {
+  int64 result = 1;
+}
+
+message SetSodiumRequest {
+  int64 arg0 = 1;
+}
+
+message SetSodiumResponse {
+  int64 result = 1;
+}
+
+message SetSugarRequest {
+  int64 arg0 = 1;
+}
+
+message SetSugarResponse {
+  int64 result = 1;
+}
+
+message SetThiaminRequest {
+  int64 arg0 = 1;
+}
+
+message SetThiaminResponse {
+  int64 result = 1;
+}
+
+message SetTotalCarbohydrateRequest {
+  int64 arg0 = 1;
+}
+
+message SetTotalCarbohydrateResponse {
+  int64 result = 1;
+}
+
+message SetTotalFatRequest {
+  int64 arg0 = 1;
+}
+
+message SetTotalFatResponse {
+  int64 result = 1;
+}
+
+message SetTransFatRequest {
+  int64 arg0 = 1;
+}
+
+message SetTransFatResponse {
+  int64 result = 1;
+}
+
+message SetUnsaturatedFatRequest {
+  int64 arg0 = 1;
+}
+
+message SetUnsaturatedFatResponse {
+  int64 result = 1;
+}
+
+message SetVitaminARequest {
+  int64 arg0 = 1;
+}
+
+message SetVitaminAResponse {
+  int64 result = 1;
+}
+
+message SetVitaminB12Request {
+  int64 arg0 = 1;
+}
+
+message SetVitaminB12Response {
+  int64 result = 1;
+}
+
+message SetVitaminB6Request {
+  int64 arg0 = 1;
+}
+
+message SetVitaminB6Response {
+  int64 result = 1;
+}
+
+message SetVitaminCRequest {
+  int64 arg0 = 1;
+}
+
+message SetVitaminCResponse {
+  int64 result = 1;
+}
+
+message SetVitaminDRequest {
+  int64 arg0 = 1;
+}
+
+message SetVitaminDResponse {
+  int64 result = 1;
+}
+
+message SetVitaminERequest {
+  int64 arg0 = 1;
+}
+
+message SetVitaminEResponse {
+  int64 result = 1;
+}
+
+message SetVitaminKRequest {
+  int64 arg0 = 1;
+}
+
+message SetVitaminKResponse {
+  int64 result = 1;
+}
+
+message SetZincRequest {
+  int64 arg0 = 1;
+}
+
+message SetZincResponse {
+  int64 result = 1;
+}
+
+message GetResultRequest {
+}
+
+message GetResultResponse {
+  int32 result = 1;
+}
+
+message FhirVersionDescribeContentsRequest {
+}
+
+message GetMajorRequest {
+}
+
+message GetMajorResponse {
+  int32 result = 1;
+}
+
+message GetMinorRequest {
+}
+
+message GetMinorResponse {
+  int32 result = 1;
+}
+
+message GetPatchRequest {
+}
+
+message GetPatchResponse {
+  int32 result = 1;
+}
+
+message IsSupportedFhirVersionRequest {
+}
+
+message IsSupportedFhirVersionResponse {
+  bool result = 1;
+}
+
+message FhirVersionWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message ParseFhirVersionRequest {
+  string arg0 = 1;
+}
+
+message ParseFhirVersionResponse {
+  int64 result = 1;
+}
+
+message GetManufacturerRequest {
+}
+
+message GetManufacturerResponse {
+  string result = 1;
+}
+
+message GetModelRequest {
+}
+
+message GetModelResponse {
+  string result = 1;
+}
+
+message SetManufacturerRequest {
+  string arg0 = 1;
+}
+
+message SetManufacturerResponse {
+  int64 result = 1;
+}
+
+message SetModelRequest {
+  string arg0 = 1;
+}
+
+message SetModelResponse {
+  int64 result = 1;
+}
+
+message AddStepRequest {
+  int64 arg0 = 1;
+}
+
+message AddStepResponse {
+  int64 result = 1;
+}
+
+message ClearStepsRequest {
+}
+
+message ClearStepsResponse {
+  int64 result = 1;
+}
+
+message SetRepetitionsRequest {
+  int32 arg0 = 1;
+}
+
+message SetRepetitionsResponse {
+  int64 result = 1;
+}
+
+service SleepSessionRecordService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetNotes (GetNotesRequest) returns (GetNotesResponse);
+  rpc GetTitle (GetTitleRequest) returns (GetTitleResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service SleepSessionRecordBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc ClearEndZoneOffset (ClearEndZoneOffsetRequest) returns (ClearEndZoneOffsetResponse);
+  rpc ClearStartZoneOffset (ClearStartZoneOffsetRequest) returns (ClearStartZoneOffsetResponse);
+  rpc SetEndZoneOffset (SetEndZoneOffsetRequest) returns (SetEndZoneOffsetResponse);
+  rpc SetNotes (SetNotesRequest) returns (SetNotesResponse);
+  rpc SetStartZoneOffset (SetStartZoneOffsetRequest) returns (SetStartZoneOffsetResponse);
+  rpc SetTitle (SetTitleRequest) returns (SetTitleResponse);
+}
+
+service SleepSessionRecordStageService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetEndTime (GetEndTimeRequest) returns (GetEndTimeResponse);
+  rpc GetStartTime (GetStartTimeRequest) returns (GetStartTimeResponse);
+  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service BodyWaterMassRecordService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetBodyWaterMass (GetBodyWaterMassRequest) returns (GetBodyWaterMassResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service BodyWaterMassRecordBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc ClearZoneOffset (ClearZoneOffsetRequest) returns (ClearZoneOffsetResponse);
+  rpc SetZoneOffset (SetZoneOffsetRequest) returns (SetZoneOffsetResponse);
+}
+
+service ExerciseSegmentService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetEndTime (GetEndTimeRequest) returns (GetEndTimeResponse);
+  rpc GetRepetitionsCount (GetRepetitionsCountRequest) returns (GetRepetitionsCountResponse);
+  rpc GetSegmentType (GetSegmentTypeRequest) returns (GetSegmentTypeResponse);
+  rpc GetStartTime (GetStartTimeRequest) returns (GetStartTimeResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service ExerciseSegmentBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetRepetitionsCount (SetRepetitionsCountRequest) returns (SetRepetitionsCountResponse);
+}
+
+service DistanceRecordService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetDistance (GetDistanceRequest) returns (GetDistanceResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service DistanceRecordBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc ClearEndZoneOffset (ClearEndZoneOffsetRequest) returns (ClearEndZoneOffsetResponse);
+  rpc ClearStartZoneOffset (ClearStartZoneOffsetRequest) returns (ClearStartZoneOffsetResponse);
+  rpc SetEndZoneOffset (SetEndZoneOffsetRequest) returns (SetEndZoneOffsetResponse);
+  rpc SetStartZoneOffset (SetStartZoneOffsetRequest) returns (SetStartZoneOffsetResponse);
+}
+
+service BodyTemperatureRecordService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetMeasurementLocation (GetMeasurementLocationRequest) returns (GetMeasurementLocationResponse);
+  rpc GetTemperature (GetTemperatureRequest) returns (GetTemperatureResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service BodyTemperatureRecordBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc ClearZoneOffset (ClearZoneOffsetRequest) returns (ClearZoneOffsetResponse);
+  rpc SetZoneOffset (SetZoneOffsetRequest) returns (SetZoneOffsetResponse);
+}
+
+service ActiveCaloriesBurnedRecordService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetEnergy (GetEnergyRequest) returns (GetEnergyResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service ActiveCaloriesBurnedRecordBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc ClearEndZoneOffset (ClearEndZoneOffsetRequest) returns (ClearEndZoneOffsetResponse);
+  rpc ClearStartZoneOffset (ClearStartZoneOffsetRequest) returns (ClearStartZoneOffsetResponse);
+  rpc SetEndZoneOffset (SetEndZoneOffsetRequest) returns (SetEndZoneOffsetResponse);
+  rpc SetStartZoneOffset (SetStartZoneOffsetRequest) returns (SetStartZoneOffsetResponse);
+}
+
+service SexualActivityRecordService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetProtectionUsed (GetProtectionUsedRequest) returns (GetProtectionUsedResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service SexualActivityRecordBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc ClearZoneOffset (ClearZoneOffsetRequest) returns (ClearZoneOffsetResponse);
+  rpc SetZoneOffset (SetZoneOffsetRequest) returns (SetZoneOffsetResponse);
+}
+
+service WeightRecordService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetWeight (GetWeightRequest) returns (GetWeightResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service WeightRecordBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc ClearZoneOffset (ClearZoneOffsetRequest) returns (ClearZoneOffsetResponse);
+  rpc SetZoneOffset (SetZoneOffsetRequest) returns (SetZoneOffsetResponse);
+}
+
+service BloodPressureRecordService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetBodyPosition (GetBodyPositionRequest) returns (GetBodyPositionResponse);
+  rpc GetDiastolic (GetDiastolicRequest) returns (GetDiastolicResponse);
+  rpc GetMeasurementLocation (GetMeasurementLocationRequest) returns (GetMeasurementLocationResponse);
+  rpc GetSystolic (GetSystolicRequest) returns (GetSystolicResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service BloodPressureRecordBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc ClearZoneOffset (ClearZoneOffsetRequest) returns (ClearZoneOffsetResponse);
+  rpc SetZoneOffset (SetZoneOffsetRequest) returns (SetZoneOffsetResponse);
+}
+
+service IntermenstrualBleedingRecordService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service IntermenstrualBleedingRecordBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc ClearZoneOffset (ClearZoneOffsetRequest) returns (ClearZoneOffsetResponse);
+  rpc SetZoneOffset (SetZoneOffsetRequest) returns (SetZoneOffsetResponse);
+}
+
+service BloodGlucoseRecordService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetLevel (GetLevelRequest) returns (GetLevelResponse);
+  rpc GetMealType (GetMealTypeRequest) returns (GetMealTypeResponse);
+  rpc GetRelationToMeal (GetRelationToMealRequest) returns (GetRelationToMealResponse);
+  rpc GetSpecimenSource (GetSpecimenSourceRequest) returns (GetSpecimenSourceResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service BloodGlucoseRecordBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc ClearZoneOffset (ClearZoneOffsetRequest) returns (ClearZoneOffsetResponse);
+  rpc SetZoneOffset (SetZoneOffsetRequest) returns (SetZoneOffsetResponse);
+}
+
+service BoneMassRecordService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetMass (GetMassRequest) returns (GetMassResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service BoneMassRecordBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc ClearZoneOffset (ClearZoneOffsetRequest) returns (ClearZoneOffsetResponse);
+  rpc SetZoneOffset (SetZoneOffsetRequest) returns (SetZoneOffsetResponse);
+}
+
+service CervicalMucusRecordService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetAppearance (GetAppearanceRequest) returns (GetAppearanceResponse);
+  rpc GetSensation (GetSensationRequest) returns (GetSensationResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service CervicalMucusRecordBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc ClearZoneOffset (ClearZoneOffsetRequest) returns (ClearZoneOffsetResponse);
+  rpc SetZoneOffset (SetZoneOffsetRequest) returns (SetZoneOffsetResponse);
+}
+
+service MenstruationFlowRecordService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetFlow (GetFlowRequest) returns (GetFlowResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service MenstruationFlowRecordBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc ClearZoneOffset (ClearZoneOffsetRequest) returns (ClearZoneOffsetResponse);
+  rpc SetZoneOffset (SetZoneOffsetRequest) returns (SetZoneOffsetResponse);
+}
+
+service MetadataService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetClientRecordId (GetClientRecordIdRequest) returns (GetClientRecordIdResponse);
+  rpc GetClientRecordVersion (GetClientRecordVersionRequest) returns (GetClientRecordVersionResponse);
+  rpc GetDataOrigin (GetDataOriginRequest) returns (GetDataOriginResponse);
+  rpc GetDevice (GetDeviceRequest) returns (GetDeviceResponse);
+  rpc GetId (GetIdRequest) returns (GetIdResponse);
+  rpc GetLastModifiedTime (GetLastModifiedTimeRequest) returns (GetLastModifiedTimeResponse);
+  rpc GetRecordingMethod (GetRecordingMethodRequest) returns (GetRecordingMethodResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service MetadataBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetClientRecordId (SetClientRecordIdRequest) returns (SetClientRecordIdResponse);
+  rpc SetClientRecordVersion (SetClientRecordVersionRequest) returns (SetClientRecordVersionResponse);
+  rpc SetDataOrigin (SetDataOriginRequest) returns (SetDataOriginResponse);
+  rpc SetDevice (SetDeviceRequest) returns (SetDeviceResponse);
+  rpc SetId (SetIdRequest) returns (SetIdResponse);
+  rpc SetLastModifiedTime (SetLastModifiedTimeRequest) returns (SetLastModifiedTimeResponse);
+  rpc SetRecordingMethod (SetRecordingMethodRequest) returns (SetRecordingMethodResponse);
+}
+
+service PowerRecordService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service PowerRecordBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc ClearEndZoneOffset (ClearEndZoneOffsetRequest) returns (ClearEndZoneOffsetResponse);
+  rpc ClearStartZoneOffset (ClearStartZoneOffsetRequest) returns (ClearStartZoneOffsetResponse);
+  rpc SetEndZoneOffset (SetEndZoneOffsetRequest) returns (SetEndZoneOffsetResponse);
+  rpc SetStartZoneOffset (SetStartZoneOffsetRequest) returns (SetStartZoneOffsetResponse);
+}
+
+service PowerRecordPowerRecordSampleService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetPower (GetPowerRequest) returns (GetPowerResponse);
+  rpc GetTime (GetTimeRequest) returns (GetTimeResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service ExerciseRouteService {
+  rpc NewExerciseRoute (NewExerciseRouteRequest) returns (NewExerciseRouteResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (ExerciseRouteEqualsRequest) returns (EqualsResponse);
+  rpc HashCode (ExerciseRouteHashCodeRequest) returns (HashCodeResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ExerciseRouteLocationService {
+  rpc DescribeContents (ExerciseRouteLocationDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetAltitude (GetAltitudeRequest) returns (GetAltitudeResponse);
+  rpc GetHorizontalAccuracy (GetHorizontalAccuracyRequest) returns (GetHorizontalAccuracyResponse);
+  rpc GetLatitude (GetLatitudeRequest) returns (GetLatitudeResponse);
+  rpc GetLongitude (GetLongitudeRequest) returns (GetLongitudeResponse);
+  rpc GetTime (GetTimeRequest) returns (GetTimeResponse);
+  rpc GetVerticalAccuracy (GetVerticalAccuracyRequest) returns (GetVerticalAccuracyResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc WriteToParcel (ExerciseRouteLocationWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service PlannedExerciseSessionRecordService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetCompletedExerciseSessionId (GetCompletedExerciseSessionIdRequest) returns (GetCompletedExerciseSessionIdResponse);
+  rpc GetDuration (GetDurationRequest) returns (GetDurationResponse);
+  rpc GetExerciseType (GetExerciseTypeRequest) returns (GetExerciseTypeResponse);
+  rpc GetNotes (GetNotesRequest) returns (GetNotesResponse);
+  rpc GetStartDate (GetStartDateRequest) returns (GetStartDateResponse);
+  rpc GetTitle (GetTitleRequest) returns (GetTitleResponse);
+  rpc HasExplicitTime (HasExplicitTimeRequest) returns (HasExplicitTimeResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service PlannedExerciseSessionRecordBuilderService {
+  rpc AddBlock (AddBlockRequest) returns (AddBlockResponse);
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc ClearBlocks (ClearBlocksRequest) returns (ClearBlocksResponse);
+  rpc ClearEndZoneOffset (ClearEndZoneOffsetRequest) returns (ClearEndZoneOffsetResponse);
+  rpc ClearStartZoneOffset (ClearStartZoneOffsetRequest) returns (ClearStartZoneOffsetResponse);
+  rpc SetEndTime (SetEndTimeRequest) returns (SetEndTimeResponse);
+  rpc SetEndZoneOffset (SetEndZoneOffsetRequest) returns (SetEndZoneOffsetResponse);
+  rpc SetExerciseType (SetExerciseTypeRequest) returns (SetExerciseTypeResponse);
+  rpc SetMetadata (SetMetadataRequest) returns (SetMetadataResponse);
+  rpc SetNotes (SetNotesRequest) returns (SetNotesResponse);
+  rpc SetStartTime (SetStartTimeRequest) returns (SetStartTimeResponse);
+  rpc SetStartZoneOffset (SetStartZoneOffsetRequest) returns (SetStartZoneOffsetResponse);
+  rpc SetTitle (SetTitleRequest) returns (SetTitleResponse);
+}
+
+service MedicalResourceService {
+  rpc DescribeContents (MedicalResourceDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetDataSourceId (GetDataSourceIdRequest) returns (GetDataSourceIdResponse);
+  rpc GetFhirResource (GetFhirResourceRequest) returns (GetFhirResourceResponse);
+  rpc GetFhirVersion (GetFhirVersionRequest) returns (GetFhirVersionResponse);
+  rpc GetId (GetIdRequest) returns (MedicalResourceGetIdResponse);
+  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (MedicalResourceWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service MedicalResourceBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetDataSourceId (SetDataSourceIdRequest) returns (SetDataSourceIdResponse);
+  rpc SetFhirResource (SetFhirResourceRequest) returns (SetFhirResourceResponse);
+  rpc SetFhirVersion (SetFhirVersionRequest) returns (SetFhirVersionResponse);
+  rpc SetType (SetTypeRequest) returns (SetTypeResponse);
+}
+
+service MedicalDataSourceService {
+  rpc DescribeContents (MedicalDataSourceDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetDisplayName (GetDisplayNameRequest) returns (GetDisplayNameResponse);
+  rpc GetFhirBaseUri (GetFhirBaseUriRequest) returns (GetFhirBaseUriResponse);
+  rpc GetFhirVersion (GetFhirVersionRequest) returns (GetFhirVersionResponse);
+  rpc GetId (GetIdRequest) returns (GetIdResponse);
+  rpc GetLastDataUpdateTime (GetLastDataUpdateTimeRequest) returns (GetLastDataUpdateTimeResponse);
+  rpc GetPackageName (GetPackageNameRequest) returns (GetPackageNameResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (MedicalDataSourceWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service MedicalDataSourceBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetDisplayName (SetDisplayNameRequest) returns (SetDisplayNameResponse);
+  rpc SetFhirBaseUri (SetFhirBaseUriRequest) returns (SetFhirBaseUriResponse);
+  rpc SetFhirVersion (SetFhirVersionRequest) returns (SetFhirVersionResponse);
+  rpc SetId (SetIdRequest) returns (SetIdResponse);
+  rpc SetLastDataUpdateTime (SetLastDataUpdateTimeRequest) returns (SetLastDataUpdateTimeResponse);
+  rpc SetPackageName (SetPackageNameRequest) returns (SetPackageNameResponse);
+}
+
+service PlannedExerciseStepService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetCompletionGoal (GetCompletionGoalRequest) returns (GetCompletionGoalResponse);
+  rpc GetDescription (GetDescriptionRequest) returns (GetDescriptionResponse);
+  rpc GetExerciseCategory (GetExerciseCategoryRequest) returns (GetExerciseCategoryResponse);
+  rpc GetExerciseType (GetExerciseTypeRequest) returns (GetExerciseTypeResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service PlannedExerciseStepBuilderService {
+  rpc AddPerformanceGoal (AddPerformanceGoalRequest) returns (AddPerformanceGoalResponse);
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc ClearPerformanceGoals (ClearPerformanceGoalsRequest) returns (ClearPerformanceGoalsResponse);
+  rpc SetCompletionGoal (SetCompletionGoalRequest) returns (SetCompletionGoalResponse);
+  rpc SetDescription (SetDescriptionRequest) returns (SetDescriptionResponse);
+  rpc SetExerciseCategory (SetExerciseCategoryRequest) returns (SetExerciseCategoryResponse);
+  rpc SetExerciseType (SetExerciseTypeRequest) returns (SetExerciseTypeResponse);
+}
+
+service MenstruationPeriodRecordService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service MenstruationPeriodRecordBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc ClearEndZoneOffset (ClearEndZoneOffsetRequest) returns (ClearEndZoneOffsetResponse);
+  rpc ClearStartZoneOffset (ClearStartZoneOffsetRequest) returns (ClearStartZoneOffsetResponse);
+  rpc SetEndZoneOffset (SetEndZoneOffsetRequest) returns (SetEndZoneOffsetResponse);
+  rpc SetStartZoneOffset (SetStartZoneOffsetRequest) returns (SetStartZoneOffsetResponse);
+}
+
+service ActivityIntensityRecordService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetActivityIntensityType (GetActivityIntensityTypeRequest) returns (GetActivityIntensityTypeResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service ActivityIntensityRecordBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetEndZoneOffset (SetEndZoneOffsetRequest) returns (SetEndZoneOffsetResponse);
+  rpc SetStartZoneOffset (SetStartZoneOffsetRequest) returns (SetStartZoneOffsetResponse);
+}
+
+service ExerciseLapService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetEndTime (GetEndTimeRequest) returns (GetEndTimeResponse);
+  rpc GetLength (GetLengthRequest) returns (GetLengthResponse);
+  rpc GetStartTime (GetStartTimeRequest) returns (GetStartTimeResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service ExerciseLapBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetLength (SetLengthRequest) returns (SetLengthResponse);
+}
+
+service DataOriginService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetPackageName (GetPackageNameRequest) returns (GetPackageNameResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service DataOriginBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetPackageName (SetPackageNameRequest) returns (SetPackageNameResponse);
+}
+
+service ExerciseSessionRecordService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetExerciseType (GetExerciseTypeRequest) returns (GetExerciseTypeResponse);
+  rpc GetNotes (GetNotesRequest) returns (GetNotesResponse);
+  rpc GetPlannedExerciseSessionId (GetPlannedExerciseSessionIdRequest) returns (GetPlannedExerciseSessionIdResponse);
+  rpc GetRoute (GetRouteRequest) returns (GetRouteResponse);
+  rpc GetTitle (GetTitleRequest) returns (GetTitleResponse);
+  rpc HasRoute (HasRouteRequest) returns (HasRouteResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service ExerciseSessionRecordBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc ClearEndZoneOffset (ClearEndZoneOffsetRequest) returns (ClearEndZoneOffsetResponse);
+  rpc ClearStartZoneOffset (ClearStartZoneOffsetRequest) returns (ClearStartZoneOffsetResponse);
+  rpc SetEndZoneOffset (SetEndZoneOffsetRequest) returns (SetEndZoneOffsetResponse);
+  rpc SetNotes (SetNotesRequest) returns (SetNotesResponse);
+  rpc SetPlannedExerciseSessionId (SetPlannedExerciseSessionIdRequest) returns (SetPlannedExerciseSessionIdResponse);
+  rpc SetRoute (SetRouteRequest) returns (SetRouteResponse);
+  rpc SetStartZoneOffset (SetStartZoneOffsetRequest) returns (SetStartZoneOffsetResponse);
+  rpc SetTitle (SetTitleRequest) returns (SetTitleResponse);
+}
+
+service MindfulnessSessionRecordService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetMindfulnessSessionType (GetMindfulnessSessionTypeRequest) returns (GetMindfulnessSessionTypeResponse);
+  rpc GetNotes (GetNotesRequest) returns (GetNotesResponse);
+  rpc GetTitle (GetTitleRequest) returns (GetTitleResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service MindfulnessSessionRecordBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetEndZoneOffset (SetEndZoneOffsetRequest) returns (SetEndZoneOffsetResponse);
+  rpc SetNotes (SetNotesRequest) returns (SetNotesResponse);
+  rpc SetStartZoneOffset (SetStartZoneOffsetRequest) returns (SetStartZoneOffsetResponse);
+  rpc SetTitle (SetTitleRequest) returns (SetTitleResponse);
+}
+
+service ElevationGainedRecordService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetElevation (GetElevationRequest) returns (GetElevationResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service ElevationGainedRecordBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc ClearEndZoneOffset (ClearEndZoneOffsetRequest) returns (ClearEndZoneOffsetResponse);
+  rpc ClearStartZoneOffset (ClearStartZoneOffsetRequest) returns (ClearStartZoneOffsetResponse);
+  rpc SetEndZoneOffset (SetEndZoneOffsetRequest) returns (SetEndZoneOffsetResponse);
+  rpc SetStartZoneOffset (SetStartZoneOffsetRequest) returns (SetStartZoneOffsetResponse);
+}
+
+service HeightRecordService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetHeight (GetHeightRequest) returns (GetHeightResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service HeightRecordBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc ClearZoneOffset (ClearZoneOffsetRequest) returns (ClearZoneOffsetResponse);
+  rpc SetZoneOffset (SetZoneOffsetRequest) returns (SetZoneOffsetResponse);
+}
+
+service SpeedRecordService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service SpeedRecordBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc ClearEndZoneOffset (ClearEndZoneOffsetRequest) returns (ClearEndZoneOffsetResponse);
+  rpc ClearStartZoneOffset (ClearStartZoneOffsetRequest) returns (ClearStartZoneOffsetResponse);
+  rpc SetEndZoneOffset (SetEndZoneOffsetRequest) returns (SetEndZoneOffsetResponse);
+  rpc SetStartZoneOffset (SetStartZoneOffsetRequest) returns (SetStartZoneOffsetResponse);
+}
+
+service SpeedRecordSpeedRecordSampleService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetSpeed (GetSpeedRequest) returns (GetSpeedResponse);
+  rpc GetTime (GetTimeRequest) returns (GetTimeResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service InstantRecordService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetTime (GetTimeRequest) returns (GetTimeResponse);
+  rpc GetZoneOffset (GetZoneOffsetRequest) returns (GetZoneOffsetResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service AppInfoService {
+  rpc GetIcon (GetIconRequest) returns (GetIconResponse);
+  rpc GetName (GetNameRequest) returns (GetNameResponse);
+  rpc GetPackageName (GetPackageNameRequest) returns (GetPackageNameResponse);
+}
+
+service Vo2MaxRecordService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetMeasurementMethod (GetMeasurementMethodRequest) returns (GetMeasurementMethodResponse);
+  rpc GetVo2MillilitersPerMinuteKilogram (GetVo2MillilitersPerMinuteKilogramRequest) returns (GetVo2MillilitersPerMinuteKilogramResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service Vo2MaxRecordBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc ClearZoneOffset (ClearZoneOffsetRequest) returns (ClearZoneOffsetResponse);
+  rpc SetZoneOffset (SetZoneOffsetRequest) returns (SetZoneOffsetResponse);
+}
+
+service FloorsClimbedRecordService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetFloors (GetFloorsRequest) returns (GetFloorsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service FloorsClimbedRecordBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc ClearEndZoneOffset (ClearEndZoneOffsetRequest) returns (ClearEndZoneOffsetResponse);
+  rpc ClearStartZoneOffset (ClearStartZoneOffsetRequest) returns (ClearStartZoneOffsetResponse);
+  rpc SetEndZoneOffset (SetEndZoneOffsetRequest) returns (SetEndZoneOffsetResponse);
+  rpc SetStartZoneOffset (SetStartZoneOffsetRequest) returns (SetStartZoneOffsetResponse);
+}
+
+service StepsCadenceRecordService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service StepsCadenceRecordBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc ClearEndZoneOffset (ClearEndZoneOffsetRequest) returns (ClearEndZoneOffsetResponse);
+  rpc ClearStartZoneOffset (ClearStartZoneOffsetRequest) returns (ClearStartZoneOffsetResponse);
+  rpc SetEndZoneOffset (SetEndZoneOffsetRequest) returns (SetEndZoneOffsetResponse);
+  rpc SetStartZoneOffset (SetStartZoneOffsetRequest) returns (SetStartZoneOffsetResponse);
+}
+
+service StepsCadenceRecordStepsCadenceRecordSampleService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetRate (GetRateRequest) returns (GetRateResponse);
+  rpc GetTime (GetTimeRequest) returns (GetTimeResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service FhirResourceService {
+  rpc DescribeContents (FhirResourceDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetData (GetDataRequest) returns (GetDataResponse);
+  rpc GetId (GetIdRequest) returns (GetIdResponse);
+  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (FhirResourceWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service FhirResourceBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetData (SetDataRequest) returns (SetDataResponse);
+  rpc SetId (SetIdRequest) returns (SetIdResponse);
+  rpc SetType (SetTypeRequest) returns (SetTypeResponse);
+}
+
+service HeartRateVariabilityRmssdRecordService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetHeartRateVariabilityMillis (GetHeartRateVariabilityMillisRequest) returns (GetHeartRateVariabilityMillisResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service HeartRateVariabilityRmssdRecordBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc ClearZoneOffset (ClearZoneOffsetRequest) returns (ClearZoneOffsetResponse);
+  rpc SetZoneOffset (SetZoneOffsetRequest) returns (SetZoneOffsetResponse);
+}
+
+service RespiratoryRateRecordService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetRate (GetRateRequest) returns (GetRateResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service RespiratoryRateRecordBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc ClearZoneOffset (ClearZoneOffsetRequest) returns (ClearZoneOffsetResponse);
+  rpc SetZoneOffset (SetZoneOffsetRequest) returns (SetZoneOffsetResponse);
+}
+
+service RecordService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetMetadata (GetMetadataRequest) returns (GetMetadataResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service BasalBodyTemperatureRecordService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetMeasurementLocation (GetMeasurementLocationRequest) returns (GetMeasurementLocationResponse);
+  rpc GetTemperature (GetTemperatureRequest) returns (GetTemperatureResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service BasalBodyTemperatureRecordBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc ClearZoneOffset (ClearZoneOffsetRequest) returns (ClearZoneOffsetResponse);
+  rpc SetZoneOffset (SetZoneOffsetRequest) returns (SetZoneOffsetResponse);
+}
+
+service ExercisePerformanceGoalCadenceGoalService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetMaxRpm (GetMaxRpmRequest) returns (GetMaxRpmResponse);
+  rpc GetMinRpm (GetMinRpmRequest) returns (GetMinRpmResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service ExercisePerformanceGoalHeartRateGoalService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetMaxBpm (GetMaxBpmRequest) returns (GetMaxBpmResponse);
+  rpc GetMinBpm (GetMinBpmRequest) returns (GetMinBpmResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service ExercisePerformanceGoalPowerGoalService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetMaxPower (GetMaxPowerRequest) returns (GetMaxPowerResponse);
+  rpc GetMinPower (GetMinPowerRequest) returns (GetMinPowerResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service ExercisePerformanceGoalRateOfPerceivedExertionGoalService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetRpe (GetRpeRequest) returns (GetRpeResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service ExercisePerformanceGoalSpeedGoalService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetMaxSpeed (GetMaxSpeedRequest) returns (GetMaxSpeedResponse);
+  rpc GetMinSpeed (GetMinSpeedRequest) returns (GetMinSpeedResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service ExercisePerformanceGoalWeightGoalService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetMass (GetMassRequest) returns (GetMassResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service CyclingPedalingCadenceRecordService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service CyclingPedalingCadenceRecordBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc ClearEndZoneOffset (ClearEndZoneOffsetRequest) returns (ClearEndZoneOffsetResponse);
+  rpc ClearStartZoneOffset (ClearStartZoneOffsetRequest) returns (ClearStartZoneOffsetResponse);
+  rpc SetEndZoneOffset (SetEndZoneOffsetRequest) returns (SetEndZoneOffsetResponse);
+  rpc SetStartZoneOffset (SetStartZoneOffsetRequest) returns (SetStartZoneOffsetResponse);
+}
+
+service CyclingPedalingCadenceRecordCyclingPedalingCadenceRecordSampleService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetRevolutionsPerMinute (GetRevolutionsPerMinuteRequest) returns (GetRevolutionsPerMinuteResponse);
+  rpc GetTime (GetTimeRequest) returns (GetTimeResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service BasalMetabolicRateRecordService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetBasalMetabolicRate (GetBasalMetabolicRateRequest) returns (GetBasalMetabolicRateResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service BasalMetabolicRateRecordBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc ClearZoneOffset (ClearZoneOffsetRequest) returns (ClearZoneOffsetResponse);
+  rpc SetZoneOffset (SetZoneOffsetRequest) returns (SetZoneOffsetResponse);
+}
+
+service BodyFatRecordService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetPercentage (GetPercentageRequest) returns (GetPercentageResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service BodyFatRecordBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc ClearZoneOffset (ClearZoneOffsetRequest) returns (ClearZoneOffsetResponse);
+  rpc SetZoneOffset (SetZoneOffsetRequest) returns (SetZoneOffsetResponse);
+}
+
+service ExerciseCompletionGoalActiveCaloriesBurnedGoalService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetActiveCalories (GetActiveCaloriesRequest) returns (GetActiveCaloriesResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service ExerciseCompletionGoalDistanceGoalService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetDistance (GetDistanceRequest) returns (GetDistanceResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service ExerciseCompletionGoalDistanceWithVariableRestGoalService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetDistance (GetDistanceRequest) returns (GetDistanceResponse);
+  rpc GetDuration (GetDurationRequest) returns (GetDurationResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service ExerciseCompletionGoalDurationGoalService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetDuration (GetDurationRequest) returns (GetDurationResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service ExerciseCompletionGoalRepetitionsGoalService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetRepetitions (GetRepetitionsRequest) returns (GetRepetitionsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service ExerciseCompletionGoalStepsGoalService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetSteps (GetStepsRequest) returns (GetStepsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service ExerciseCompletionGoalTotalCaloriesBurnedGoalService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetTotalCalories (GetTotalCaloriesRequest) returns (GetTotalCaloriesResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service HeartRateRecordService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service HeartRateRecordBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc ClearEndZoneOffset (ClearEndZoneOffsetRequest) returns (ClearEndZoneOffsetResponse);
+  rpc ClearStartZoneOffset (ClearStartZoneOffsetRequest) returns (ClearStartZoneOffsetResponse);
+  rpc SetEndZoneOffset (SetEndZoneOffsetRequest) returns (SetEndZoneOffsetResponse);
+  rpc SetStartZoneOffset (SetStartZoneOffsetRequest) returns (SetStartZoneOffsetResponse);
+}
+
+service HeartRateRecordHeartRateSampleService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetBeatsPerMinute (GetBeatsPerMinuteRequest) returns (GetBeatsPerMinuteResponse);
+  rpc GetTime (GetTimeRequest) returns (GetTimeResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service LeanBodyMassRecordService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetMass (GetMassRequest) returns (GetMassResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service LeanBodyMassRecordBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc ClearZoneOffset (ClearZoneOffsetRequest) returns (ClearZoneOffsetResponse);
+  rpc SetZoneOffset (SetZoneOffsetRequest) returns (SetZoneOffsetResponse);
+}
+
+service OxygenSaturationRecordService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetPercentage (GetPercentageRequest) returns (GetPercentageResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service OxygenSaturationRecordBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc ClearZoneOffset (ClearZoneOffsetRequest) returns (ClearZoneOffsetResponse);
+  rpc SetZoneOffset (SetZoneOffsetRequest) returns (SetZoneOffsetResponse);
+}
+
+service IntervalRecordService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetEndTime (GetEndTimeRequest) returns (GetEndTimeResponse);
+  rpc GetEndZoneOffset (GetEndZoneOffsetRequest) returns (GetEndZoneOffsetResponse);
+  rpc GetStartTime (GetStartTimeRequest) returns (GetStartTimeResponse);
+  rpc GetStartZoneOffset (GetStartZoneOffsetRequest) returns (GetStartZoneOffsetResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service SkinTemperatureRecordService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetBaseline (GetBaselineRequest) returns (GetBaselineResponse);
+  rpc GetMeasurementLocation (GetMeasurementLocationRequest) returns (GetMeasurementLocationResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service SkinTemperatureRecordBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc ClearEndZoneOffset (ClearEndZoneOffsetRequest) returns (ClearEndZoneOffsetResponse);
+  rpc ClearStartZoneOffset (ClearStartZoneOffsetRequest) returns (ClearStartZoneOffsetResponse);
+  rpc SetBaseline (SetBaselineRequest) returns (SetBaselineResponse);
+  rpc SetEndZoneOffset (SetEndZoneOffsetRequest) returns (SetEndZoneOffsetResponse);
+  rpc SetMeasurementLocation (SetMeasurementLocationRequest) returns (SetMeasurementLocationResponse);
+  rpc SetStartZoneOffset (SetStartZoneOffsetRequest) returns (SetStartZoneOffsetResponse);
+}
+
+service SkinTemperatureRecordDeltaService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetDelta (GetDeltaRequest) returns (GetDeltaResponse);
+  rpc GetTime (GetTimeRequest) returns (GetTimeResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service RestingHeartRateRecordService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetBeatsPerMinute (GetBeatsPerMinuteRequest) returns (GetBeatsPerMinuteResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service RestingHeartRateRecordBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc ClearZoneOffset (ClearZoneOffsetRequest) returns (ClearZoneOffsetResponse);
+  rpc SetZoneOffset (SetZoneOffsetRequest) returns (SetZoneOffsetResponse);
+}
+
+service StepsRecordService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetCount (GetCountRequest) returns (GetCountResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service StepsRecordBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc ClearEndZoneOffset (ClearEndZoneOffsetRequest) returns (ClearEndZoneOffsetResponse);
+  rpc ClearStartZoneOffset (ClearStartZoneOffsetRequest) returns (ClearStartZoneOffsetResponse);
+  rpc SetEndZoneOffset (SetEndZoneOffsetRequest) returns (SetEndZoneOffsetResponse);
+  rpc SetStartZoneOffset (SetStartZoneOffsetRequest) returns (SetStartZoneOffsetResponse);
+}
+
+service HydrationRecordService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetVolume (GetVolumeRequest) returns (GetVolumeResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service HydrationRecordBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc ClearEndZoneOffset (ClearEndZoneOffsetRequest) returns (ClearEndZoneOffsetResponse);
+  rpc ClearStartZoneOffset (ClearStartZoneOffsetRequest) returns (ClearStartZoneOffsetResponse);
+  rpc SetEndZoneOffset (SetEndZoneOffsetRequest) returns (SetEndZoneOffsetResponse);
+  rpc SetStartZoneOffset (SetStartZoneOffsetRequest) returns (SetStartZoneOffsetResponse);
+}
+
+service NutritionRecordService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetBiotin (GetBiotinRequest) returns (GetBiotinResponse);
+  rpc GetCaffeine (GetCaffeineRequest) returns (GetCaffeineResponse);
+  rpc GetCalcium (GetCalciumRequest) returns (GetCalciumResponse);
+  rpc GetChloride (GetChlorideRequest) returns (GetChlorideResponse);
+  rpc GetCholesterol (GetCholesterolRequest) returns (GetCholesterolResponse);
+  rpc GetChromium (GetChromiumRequest) returns (GetChromiumResponse);
+  rpc GetCopper (GetCopperRequest) returns (GetCopperResponse);
+  rpc GetDietaryFiber (GetDietaryFiberRequest) returns (GetDietaryFiberResponse);
+  rpc GetEnergy (GetEnergyRequest) returns (GetEnergyResponse);
+  rpc GetEnergyFromFat (GetEnergyFromFatRequest) returns (GetEnergyFromFatResponse);
+  rpc GetFolate (GetFolateRequest) returns (GetFolateResponse);
+  rpc GetFolicAcid (GetFolicAcidRequest) returns (GetFolicAcidResponse);
+  rpc GetIodine (GetIodineRequest) returns (GetIodineResponse);
+  rpc GetIron (GetIronRequest) returns (GetIronResponse);
+  rpc GetMagnesium (GetMagnesiumRequest) returns (GetMagnesiumResponse);
+  rpc GetManganese (GetManganeseRequest) returns (GetManganeseResponse);
+  rpc GetMealName (GetMealNameRequest) returns (GetMealNameResponse);
+  rpc GetMealType (GetMealTypeRequest) returns (GetMealTypeResponse);
+  rpc GetMolybdenum (GetMolybdenumRequest) returns (GetMolybdenumResponse);
+  rpc GetMonounsaturatedFat (GetMonounsaturatedFatRequest) returns (GetMonounsaturatedFatResponse);
+  rpc GetNiacin (GetNiacinRequest) returns (GetNiacinResponse);
+  rpc GetPantothenicAcid (GetPantothenicAcidRequest) returns (GetPantothenicAcidResponse);
+  rpc GetPhosphorus (GetPhosphorusRequest) returns (GetPhosphorusResponse);
+  rpc GetPolyunsaturatedFat (GetPolyunsaturatedFatRequest) returns (GetPolyunsaturatedFatResponse);
+  rpc GetPotassium (GetPotassiumRequest) returns (GetPotassiumResponse);
+  rpc GetProtein (GetProteinRequest) returns (GetProteinResponse);
+  rpc GetRiboflavin (GetRiboflavinRequest) returns (GetRiboflavinResponse);
+  rpc GetSaturatedFat (GetSaturatedFatRequest) returns (GetSaturatedFatResponse);
+  rpc GetSelenium (GetSeleniumRequest) returns (GetSeleniumResponse);
+  rpc GetSodium (GetSodiumRequest) returns (GetSodiumResponse);
+  rpc GetSugar (GetSugarRequest) returns (GetSugarResponse);
+  rpc GetThiamin (GetThiaminRequest) returns (GetThiaminResponse);
+  rpc GetTotalCarbohydrate (GetTotalCarbohydrateRequest) returns (GetTotalCarbohydrateResponse);
+  rpc GetTotalFat (GetTotalFatRequest) returns (GetTotalFatResponse);
+  rpc GetTransFat (GetTransFatRequest) returns (GetTransFatResponse);
+  rpc GetUnsaturatedFat (GetUnsaturatedFatRequest) returns (GetUnsaturatedFatResponse);
+  rpc GetVitaminA (GetVitaminARequest) returns (GetVitaminAResponse);
+  rpc GetVitaminB12 (GetVitaminB12Request) returns (GetVitaminB12Response);
+  rpc GetVitaminB6 (GetVitaminB6Request) returns (GetVitaminB6Response);
+  rpc GetVitaminC (GetVitaminCRequest) returns (GetVitaminCResponse);
+  rpc GetVitaminD (GetVitaminDRequest) returns (GetVitaminDResponse);
+  rpc GetVitaminE (GetVitaminERequest) returns (GetVitaminEResponse);
+  rpc GetVitaminK (GetVitaminKRequest) returns (GetVitaminKResponse);
+  rpc GetZinc (GetZincRequest) returns (GetZincResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service NutritionRecordBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc ClearEndZoneOffset (ClearEndZoneOffsetRequest) returns (ClearEndZoneOffsetResponse);
+  rpc ClearStartZoneOffset (ClearStartZoneOffsetRequest) returns (ClearStartZoneOffsetResponse);
+  rpc SetBiotin (SetBiotinRequest) returns (SetBiotinResponse);
+  rpc SetCaffeine (SetCaffeineRequest) returns (SetCaffeineResponse);
+  rpc SetCalcium (SetCalciumRequest) returns (SetCalciumResponse);
+  rpc SetChloride (SetChlorideRequest) returns (SetChlorideResponse);
+  rpc SetCholesterol (SetCholesterolRequest) returns (SetCholesterolResponse);
+  rpc SetChromium (SetChromiumRequest) returns (SetChromiumResponse);
+  rpc SetCopper (SetCopperRequest) returns (SetCopperResponse);
+  rpc SetDietaryFiber (SetDietaryFiberRequest) returns (SetDietaryFiberResponse);
+  rpc SetEndZoneOffset (SetEndZoneOffsetRequest) returns (SetEndZoneOffsetResponse);
+  rpc SetEnergy (SetEnergyRequest) returns (SetEnergyResponse);
+  rpc SetEnergyFromFat (SetEnergyFromFatRequest) returns (SetEnergyFromFatResponse);
+  rpc SetFolate (SetFolateRequest) returns (SetFolateResponse);
+  rpc SetFolicAcid (SetFolicAcidRequest) returns (SetFolicAcidResponse);
+  rpc SetIodine (SetIodineRequest) returns (SetIodineResponse);
+  rpc SetIron (SetIronRequest) returns (SetIronResponse);
+  rpc SetMagnesium (SetMagnesiumRequest) returns (SetMagnesiumResponse);
+  rpc SetManganese (SetManganeseRequest) returns (SetManganeseResponse);
+  rpc SetMealName (SetMealNameRequest) returns (SetMealNameResponse);
+  rpc SetMealType (SetMealTypeRequest) returns (SetMealTypeResponse);
+  rpc SetMolybdenum (SetMolybdenumRequest) returns (SetMolybdenumResponse);
+  rpc SetMonounsaturatedFat (SetMonounsaturatedFatRequest) returns (SetMonounsaturatedFatResponse);
+  rpc SetNiacin (SetNiacinRequest) returns (SetNiacinResponse);
+  rpc SetPantothenicAcid (SetPantothenicAcidRequest) returns (SetPantothenicAcidResponse);
+  rpc SetPhosphorus (SetPhosphorusRequest) returns (SetPhosphorusResponse);
+  rpc SetPolyunsaturatedFat (SetPolyunsaturatedFatRequest) returns (SetPolyunsaturatedFatResponse);
+  rpc SetPotassium (SetPotassiumRequest) returns (SetPotassiumResponse);
+  rpc SetProtein (SetProteinRequest) returns (SetProteinResponse);
+  rpc SetRiboflavin (SetRiboflavinRequest) returns (SetRiboflavinResponse);
+  rpc SetSaturatedFat (SetSaturatedFatRequest) returns (SetSaturatedFatResponse);
+  rpc SetSelenium (SetSeleniumRequest) returns (SetSeleniumResponse);
+  rpc SetSodium (SetSodiumRequest) returns (SetSodiumResponse);
+  rpc SetStartZoneOffset (SetStartZoneOffsetRequest) returns (SetStartZoneOffsetResponse);
+  rpc SetSugar (SetSugarRequest) returns (SetSugarResponse);
+  rpc SetThiamin (SetThiaminRequest) returns (SetThiaminResponse);
+  rpc SetTotalCarbohydrate (SetTotalCarbohydrateRequest) returns (SetTotalCarbohydrateResponse);
+  rpc SetTotalFat (SetTotalFatRequest) returns (SetTotalFatResponse);
+  rpc SetTransFat (SetTransFatRequest) returns (SetTransFatResponse);
+  rpc SetUnsaturatedFat (SetUnsaturatedFatRequest) returns (SetUnsaturatedFatResponse);
+  rpc SetVitaminA (SetVitaminARequest) returns (SetVitaminAResponse);
+  rpc SetVitaminB12 (SetVitaminB12Request) returns (SetVitaminB12Response);
+  rpc SetVitaminB6 (SetVitaminB6Request) returns (SetVitaminB6Response);
+  rpc SetVitaminC (SetVitaminCRequest) returns (SetVitaminCResponse);
+  rpc SetVitaminD (SetVitaminDRequest) returns (SetVitaminDResponse);
+  rpc SetVitaminE (SetVitaminERequest) returns (SetVitaminEResponse);
+  rpc SetVitaminK (SetVitaminKRequest) returns (SetVitaminKResponse);
+  rpc SetZinc (SetZincRequest) returns (SetZincResponse);
+}
+
+service OvulationTestRecordService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetResult (GetResultRequest) returns (GetResultResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service OvulationTestRecordBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc ClearZoneOffset (ClearZoneOffsetRequest) returns (ClearZoneOffsetResponse);
+  rpc SetZoneOffset (SetZoneOffsetRequest) returns (SetZoneOffsetResponse);
+}
+
+service TotalCaloriesBurnedRecordService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetEnergy (GetEnergyRequest) returns (GetEnergyResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service TotalCaloriesBurnedRecordBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc ClearEndZoneOffset (ClearEndZoneOffsetRequest) returns (ClearEndZoneOffsetResponse);
+  rpc ClearStartZoneOffset (ClearStartZoneOffsetRequest) returns (ClearStartZoneOffsetResponse);
+  rpc SetEndZoneOffset (SetEndZoneOffsetRequest) returns (SetEndZoneOffsetResponse);
+  rpc SetStartZoneOffset (SetStartZoneOffsetRequest) returns (SetStartZoneOffsetResponse);
+}
+
+service FhirVersionService {
+  rpc DescribeContents (FhirVersionDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetMajor (GetMajorRequest) returns (GetMajorResponse);
+  rpc GetMinor (GetMinorRequest) returns (GetMinorResponse);
+  rpc GetPatch (GetPatchRequest) returns (GetPatchResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc IsSupportedFhirVersion (IsSupportedFhirVersionRequest) returns (IsSupportedFhirVersionResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (FhirVersionWriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc ParseFhirVersion (ParseFhirVersionRequest) returns (ParseFhirVersionResponse);
+}
+
+service DeviceService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetManufacturer (GetManufacturerRequest) returns (GetManufacturerResponse);
+  rpc GetModel (GetModelRequest) returns (GetModelResponse);
+  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service DeviceBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetManufacturer (SetManufacturerRequest) returns (SetManufacturerResponse);
+  rpc SetModel (SetModelRequest) returns (SetModelResponse);
+  rpc SetType (SetTypeRequest) returns (SetTypeResponse);
+}
+
+service WheelchairPushesRecordService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetCount (GetCountRequest) returns (GetCountResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service WheelchairPushesRecordBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc ClearEndZoneOffset (ClearEndZoneOffsetRequest) returns (ClearEndZoneOffsetResponse);
+  rpc ClearStartZoneOffset (ClearStartZoneOffsetRequest) returns (ClearStartZoneOffsetResponse);
+  rpc SetEndZoneOffset (SetEndZoneOffsetRequest) returns (SetEndZoneOffsetResponse);
+  rpc SetStartZoneOffset (SetStartZoneOffsetRequest) returns (SetStartZoneOffsetResponse);
+}
+
+service PlannedExerciseBlockService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetDescription (GetDescriptionRequest) returns (GetDescriptionResponse);
+  rpc GetRepetitions (GetRepetitionsRequest) returns (GetRepetitionsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service PlannedExerciseBlockBuilderService {
+  rpc AddStep (AddStepRequest) returns (AddStepResponse);
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc ClearSteps (ClearStepsRequest) returns (ClearStepsResponse);
+  rpc SetDescription (SetDescriptionRequest) returns (SetDescriptionResponse);
+  rpc SetRepetitions (SetRepetitionsRequest) returns (SetRepetitionsResponse);
+}

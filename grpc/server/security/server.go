@@ -5,6 +5,8 @@ package security
 import (
 	"context"
 
+	"github.com/AndroidGoLab/jni"
+
 	"github.com/AndroidGoLab/jni-proxy/handlestore"
 	pb "github.com/AndroidGoLab/jni-proxy/proto/security"
 	"github.com/AndroidGoLab/jni/app"
@@ -12,6 +14,51 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )
+
+// AttestedKeyPairServer implements pb.AttestedKeyPairServiceServer.
+type AttestedKeyPairServer struct {
+	pb.UnimplementedAttestedKeyPairServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *AttestedKeyPairServer) NewAttestedKeyPair(_ context.Context, req *pb.NewAttestedKeyPairRequest) (*pb.NewAttestedKeyPairResponse, error) {
+	obj, err := jnipkg.NewAttestedKeyPair(s.Ctx.VM, s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewAttestedKeyPairResponse{Result: handle}, nil
+}
+
+func (s *AttestedKeyPairServer) GetKeyPair(_ context.Context, req *pb.GetKeyPairRequest) (*pb.GetKeyPairResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AttestedKeyPair{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetKeyPair()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetKeyPairResponse{Result: handle}, nil
+}
 
 // FileIntegrityManagerServer implements pb.FileIntegrityManagerServiceServer.
 type FileIntegrityManagerServer struct {
@@ -46,4 +93,223 @@ func (s *FileIntegrityManagerServer) IsAppSourceCertificateTrusted(_ context.Con
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.IsAppSourceCertificateTrustedResponse{Result: result}, nil
+}
+
+// KeyChainServer implements pb.KeyChainServiceServer.
+type KeyChainServer struct {
+	pb.UnimplementedKeyChainServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *KeyChainServer) NewKeyChain(_ context.Context, req *pb.NewKeyChainRequest) (*pb.NewKeyChainResponse, error) {
+	obj, err := jnipkg.NewKeyChain(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewKeyChainResponse{Result: handle}, nil
+}
+
+func (s *KeyChainServer) ChoosePrivateKeyAlias6(_ context.Context, req *pb.ChoosePrivateKeyAlias6Request) (*pb.ChoosePrivateKeyAlias6Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.KeyChain{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.ChoosePrivateKeyAlias6(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()), s.Handles.Get(req.GetArg3()), s.Handles.Get(req.GetArg4()), req.GetArg5()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ChoosePrivateKeyAlias6Response{}, nil
+}
+
+func (s *KeyChainServer) ChoosePrivateKeyAlias7_1(_ context.Context, req *pb.ChoosePrivateKeyAlias7_1Request) (*pb.ChoosePrivateKeyAlias7_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.KeyChain{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.ChoosePrivateKeyAlias7_1(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()), s.Handles.Get(req.GetArg3()), req.GetArg4(), req.GetArg5(), req.GetArg6()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ChoosePrivateKeyAlias7_1Response{}, nil
+}
+
+func (s *KeyChainServer) CreateInstallIntent(_ context.Context, req *pb.CreateInstallIntentRequest) (*pb.CreateInstallIntentResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.KeyChain{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.CreateInstallIntent()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.CreateInstallIntentResponse{Result: handle}, nil
+}
+
+func (s *KeyChainServer) CreateManageCredentialsIntent(_ context.Context, req *pb.CreateManageCredentialsIntentRequest) (*pb.CreateManageCredentialsIntentResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.KeyChain{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.CreateManageCredentialsIntent(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.CreateManageCredentialsIntentResponse{Result: handle}, nil
+}
+
+func (s *KeyChainServer) GetCertificateChain(_ context.Context, req *pb.GetCertificateChainRequest) (*pb.GetCertificateChainResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.KeyChain{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetCertificateChain(s.Ctx.Obj, req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetCertificateChainResponse{Result: handle}, nil
+}
+
+func (s *KeyChainServer) GetCredentialManagementAppPolicy(_ context.Context, req *pb.GetCredentialManagementAppPolicyRequest) (*pb.GetCredentialManagementAppPolicyResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.KeyChain{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetCredentialManagementAppPolicy(s.Ctx.Obj)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetCredentialManagementAppPolicyResponse{Result: handle}, nil
+}
+
+func (s *KeyChainServer) GetPrivateKey(_ context.Context, req *pb.GetPrivateKeyRequest) (*pb.GetPrivateKeyResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.KeyChain{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetPrivateKey(s.Ctx.Obj, req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetPrivateKeyResponse{Result: handle}, nil
+}
+
+func (s *KeyChainServer) IsBoundKeyAlgorithm(_ context.Context, req *pb.IsBoundKeyAlgorithmRequest) (*pb.IsBoundKeyAlgorithmResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.KeyChain{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsBoundKeyAlgorithm(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsBoundKeyAlgorithmResponse{Result: result}, nil
+}
+
+func (s *KeyChainServer) IsCredentialManagementApp(_ context.Context, req *pb.IsCredentialManagementAppRequest) (*pb.IsCredentialManagementAppResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.KeyChain{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsCredentialManagementApp(s.Ctx.Obj)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsCredentialManagementAppResponse{Result: result}, nil
+}
+
+func (s *KeyChainServer) IsKeyAlgorithmSupported(_ context.Context, req *pb.IsKeyAlgorithmSupportedRequest) (*pb.IsKeyAlgorithmSupportedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.KeyChain{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsKeyAlgorithmSupported(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsKeyAlgorithmSupportedResponse{Result: result}, nil
+}
+
+func (s *KeyChainServer) RemoveCredentialManagementApp(_ context.Context, req *pb.RemoveCredentialManagementAppRequest) (*pb.RemoveCredentialManagementAppResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.KeyChain{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.RemoveCredentialManagementApp(s.Ctx.Obj)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.RemoveCredentialManagementAppResponse{Result: result}, nil
 }

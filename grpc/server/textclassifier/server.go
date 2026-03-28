@@ -93,3 +93,66 @@ func (s *TextClassificationManagerServer) SetTextClassifier(_ context.Context, r
 	}
 	return &pb.SetTextClassifierResponse{}, nil
 }
+
+// ConversationActionsServer implements pb.ConversationActionsServiceServer.
+type ConversationActionsServer struct {
+	pb.UnimplementedConversationActionsServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *ConversationActionsServer) NewConversationActions(_ context.Context, req *pb.NewConversationActionsRequest) (*pb.NewConversationActionsResponse, error) {
+	obj, err := jnipkg.NewConversationActions(s.Ctx.VM, s.Handles.Get(req.GetArg0()), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewConversationActionsResponse{Result: handle}, nil
+}
+
+func (s *ConversationActionsServer) DescribeContents(_ context.Context, req *pb.ConversationActionsDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ConversationActions{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *ConversationActionsServer) GetId(_ context.Context, req *pb.ConversationActionsGetIdRequest) (*pb.GetIdResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ConversationActions{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetId()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetIdResponse{Result: result}, nil
+}
+
+func (s *ConversationActionsServer) WriteToParcel(_ context.Context, req *pb.ConversationActionsWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ConversationActions{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}

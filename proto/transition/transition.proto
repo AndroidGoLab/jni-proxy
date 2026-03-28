@@ -5,3 +5,1630 @@ syntax = "proto3";
 package transition;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/transition";
+
+message NewSetRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewSetResponse {
+  int64 result = 1;
+}
+
+message AddListener1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AddListener1Response {
+  int64 result = 1;
+}
+
+message AddTarget1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AddTarget1Response {
+  int64 result = 1;
+}
+
+message AddTarget1_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message AddTarget1_1Response {
+  int64 result = 1;
+}
+
+message AddTarget1_2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AddTarget1_2Response {
+  int64 result = 1;
+}
+
+message AddTarget1_3Request {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message AddTarget1_3Response {
+  int64 result = 1;
+}
+
+message AddTransitionRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AddTransitionResponse {
+  int64 result = 1;
+}
+
+message CaptureEndValuesRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message CaptureEndValuesResponse {
+}
+
+message CaptureStartValuesRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message CaptureStartValuesResponse {
+}
+
+message Clone0Request {
+  int64 handle = 1;
+}
+
+message Clone0Response {
+  int64 result = 1;
+}
+
+message ExcludeTarget2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  bool arg1 = 3;
+}
+
+message ExcludeTarget2Response {
+  int64 result = 1;
+}
+
+message ExcludeTarget2_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  bool arg1 = 3;
+}
+
+message ExcludeTarget2_1Response {
+  int64 result = 1;
+}
+
+message ExcludeTarget2_2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  bool arg1 = 3;
+}
+
+message ExcludeTarget2_2Response {
+  int64 result = 1;
+}
+
+message ExcludeTarget2_3Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  bool arg1 = 3;
+}
+
+message ExcludeTarget2_3Response {
+  int64 result = 1;
+}
+
+message GetOrderingRequest {
+  int64 handle = 1;
+}
+
+message GetOrderingResponse {
+  int32 result = 1;
+}
+
+message GetTransitionAtRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetTransitionAtResponse {
+  int64 result = 1;
+}
+
+message GetTransitionCountRequest {
+  int64 handle = 1;
+}
+
+message GetTransitionCountResponse {
+  int32 result = 1;
+}
+
+message RemoveListener1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message RemoveListener1Response {
+  int64 result = 1;
+}
+
+message RemoveTarget1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message RemoveTarget1Response {
+  int64 result = 1;
+}
+
+message RemoveTarget1_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message RemoveTarget1_1Response {
+  int64 result = 1;
+}
+
+message RemoveTarget1_2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message RemoveTarget1_2Response {
+  int64 result = 1;
+}
+
+message RemoveTarget1_3Request {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message RemoveTarget1_3Response {
+  int64 result = 1;
+}
+
+message RemoveTransitionRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message RemoveTransitionResponse {
+  int64 result = 1;
+}
+
+message SetDuration1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetDuration1Response {
+  int64 result = 1;
+}
+
+message SetEpicenterCallbackRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetEpicenterCallbackResponse {
+}
+
+message SetInterpolator1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetInterpolator1Response {
+  int64 result = 1;
+}
+
+message SetOrderingRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetOrderingResponse {
+  int64 result = 1;
+}
+
+message SetPathMotionRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetPathMotionResponse {
+}
+
+message SetPropagationRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetPropagationResponse {
+}
+
+message SetStartDelay1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetStartDelay1Response {
+  int64 result = 1;
+}
+
+message SetStartDelay1_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetStartDelay1_1Response {
+  int64 result = 1;
+}
+
+message SetInterpolator1_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetInterpolator1_1Response {
+  int64 result = 1;
+}
+
+message SetDuration1_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetDuration1_1Response {
+  int64 result = 1;
+}
+
+message RemoveTarget1_4Request {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message RemoveTarget1_4Response {
+  int64 result = 1;
+}
+
+message RemoveTarget1_5Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message RemoveTarget1_5Response {
+  int64 result = 1;
+}
+
+message RemoveTarget1_6Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message RemoveTarget1_6Response {
+  int64 result = 1;
+}
+
+message RemoveTarget1_7Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message RemoveTarget1_7Response {
+  int64 result = 1;
+}
+
+message RemoveListener1_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message RemoveListener1_1Response {
+  int64 result = 1;
+}
+
+message Clone0_1Request {
+  int64 handle = 1;
+}
+
+message Clone0_1Response {
+  int64 result = 1;
+}
+
+message AddTarget1_4Request {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message AddTarget1_4Response {
+  int64 result = 1;
+}
+
+message AddTarget1_5Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AddTarget1_5Response {
+  int64 result = 1;
+}
+
+message AddTarget1_6Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message AddTarget1_6Response {
+  int64 result = 1;
+}
+
+message AddTarget1_7Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AddTarget1_7Response {
+  int64 result = 1;
+}
+
+message AddListener1_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AddListener1_1Response {
+  int64 result = 1;
+}
+
+message Clone0_2Request {
+  int64 handle = 1;
+}
+
+message Clone0_2Response {
+  int64 result = 1;
+}
+
+message CaptureValuesRequest {
+  int64 arg0 = 1;
+}
+
+message CaptureValuesResponse {
+}
+
+message GetPropagationPropertiesRequest {
+}
+
+message GetPropagationPropertiesResponse {
+  int64 result = 1;
+}
+
+message GetViewVisibilityRequest {
+  int64 arg0 = 1;
+}
+
+message GetViewVisibilityResponse {
+  int32 result = 1;
+}
+
+message GetViewXRequest {
+  int64 arg0 = 1;
+}
+
+message GetViewXResponse {
+  int32 result = 1;
+}
+
+message GetViewYRequest {
+  int64 arg0 = 1;
+}
+
+message GetViewYResponse {
+  int32 result = 1;
+}
+
+message NewChangeClipBoundsRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewChangeClipBoundsResponse {
+  int64 result = 1;
+}
+
+message CreateAnimatorRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message CreateAnimatorResponse {
+  int64 result = 1;
+}
+
+message GetTransitionPropertiesRequest {
+  int64 handle = 1;
+}
+
+message GetTransitionPropertiesResponse {
+  int64 result = 1;
+}
+
+message NewChangeScrollRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewChangeScrollResponse {
+  int64 result = 1;
+}
+
+message NewSceneRequest {
+  int64 arg0 = 1;
+}
+
+message NewSceneResponse {
+  int64 result = 1;
+}
+
+message EnterRequest {
+  int64 handle = 1;
+}
+
+message EnterResponse {
+}
+
+message ExitRequest {
+  int64 handle = 1;
+}
+
+message ExitResponse {
+}
+
+message GetSceneRootRequest {
+  int64 handle = 1;
+}
+
+message GetSceneRootResponse {
+  int64 result = 1;
+}
+
+message SetEnterActionRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetEnterActionResponse {
+}
+
+message SetExitActionRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetExitActionResponse {
+}
+
+message GetCurrentSceneRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetCurrentSceneResponse {
+  int64 result = 1;
+}
+
+message GetSceneForLayoutRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message GetSceneForLayoutResponse {
+  int64 result = 1;
+}
+
+message AddListenerRequest {
+  int64 arg0 = 1;
+}
+
+message AddListenerResponse {
+  int64 result = 1;
+}
+
+message TransitionAddTarget1Request {
+  int64 arg0 = 1;
+}
+
+message TransitionAddTarget1_1Request {
+  int32 arg0 = 1;
+}
+
+message TransitionAddTarget1_2Request {
+  int64 arg0 = 1;
+}
+
+message TransitionAddTarget1_3Request {
+  string arg0 = 1;
+}
+
+message CanRemoveViewsRequest {
+}
+
+message CanRemoveViewsResponse {
+  bool result = 1;
+}
+
+message TransitionCaptureEndValuesRequest {
+  int64 arg0 = 1;
+}
+
+message TransitionCaptureStartValuesRequest {
+  int64 arg0 = 1;
+}
+
+message TransitionClone0Request {
+}
+
+message TransitionCreateAnimatorRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message ExcludeChildren2Request {
+  int64 arg0 = 1;
+  bool arg1 = 2;
+}
+
+message ExcludeChildren2Response {
+  int64 result = 1;
+}
+
+message ExcludeChildren2_1Request {
+  int32 arg0 = 1;
+  bool arg1 = 2;
+}
+
+message ExcludeChildren2_1Response {
+  int64 result = 1;
+}
+
+message ExcludeChildren2_2Request {
+  int64 arg0 = 1;
+  bool arg1 = 2;
+}
+
+message ExcludeChildren2_2Response {
+  int64 result = 1;
+}
+
+message TransitionExcludeTarget2Request {
+  int64 arg0 = 1;
+  bool arg1 = 2;
+}
+
+message TransitionExcludeTarget2_1Request {
+  int32 arg0 = 1;
+  bool arg1 = 2;
+}
+
+message TransitionExcludeTarget2_2Request {
+  int64 arg0 = 1;
+  bool arg1 = 2;
+}
+
+message TransitionExcludeTarget2_3Request {
+  string arg0 = 1;
+  bool arg1 = 2;
+}
+
+message GetDurationRequest {
+}
+
+message GetDurationResponse {
+  int64 result = 1;
+}
+
+message GetEpicenterRequest {
+}
+
+message GetEpicenterResponse {
+  int64 result = 1;
+}
+
+message GetEpicenterCallbackRequest {
+}
+
+message GetEpicenterCallbackResponse {
+  int64 result = 1;
+}
+
+message GetInterpolatorRequest {
+}
+
+message GetInterpolatorResponse {
+  int64 result = 1;
+}
+
+message GetNameRequest {
+}
+
+message GetNameResponse {
+  string result = 1;
+}
+
+message GetPathMotionRequest {
+}
+
+message GetPathMotionResponse {
+  int64 result = 1;
+}
+
+message GetPropagationRequest {
+}
+
+message GetPropagationResponse {
+  int64 result = 1;
+}
+
+message GetStartDelayRequest {
+}
+
+message GetStartDelayResponse {
+  int64 result = 1;
+}
+
+message TransitionGetTransitionPropertiesRequest {
+}
+
+message GetTransitionValuesRequest {
+  int64 arg0 = 1;
+  bool arg1 = 2;
+}
+
+message GetTransitionValuesResponse {
+  int64 result = 1;
+}
+
+message IsTransitionRequiredRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message IsTransitionRequiredResponse {
+  bool result = 1;
+}
+
+message RemoveListenerRequest {
+  int64 arg0 = 1;
+}
+
+message RemoveListenerResponse {
+  int64 result = 1;
+}
+
+message TransitionRemoveTarget1Request {
+  int64 arg0 = 1;
+}
+
+message TransitionRemoveTarget1_1Request {
+  int32 arg0 = 1;
+}
+
+message TransitionRemoveTarget1_2Request {
+  int64 arg0 = 1;
+}
+
+message TransitionRemoveTarget1_3Request {
+  string arg0 = 1;
+}
+
+message SetDurationRequest {
+  int64 arg0 = 1;
+}
+
+message SetDurationResponse {
+  int64 result = 1;
+}
+
+message TransitionSetEpicenterCallbackRequest {
+  int64 arg0 = 1;
+}
+
+message SetInterpolatorRequest {
+  int64 arg0 = 1;
+}
+
+message SetInterpolatorResponse {
+  int64 result = 1;
+}
+
+message SetMatchOrderRequest {
+  int64 arg0 = 1;
+}
+
+message SetMatchOrderResponse {
+}
+
+message TransitionSetPathMotionRequest {
+  int64 arg0 = 1;
+}
+
+message TransitionSetPropagationRequest {
+  int64 arg0 = 1;
+}
+
+message SetStartDelayRequest {
+  int64 arg0 = 1;
+}
+
+message SetStartDelayResponse {
+  int64 result = 1;
+}
+
+message ToStringRequest {
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message TransitionClone0_1Request {
+}
+
+message OnGetEpicenterRequest {
+  int64 arg0 = 1;
+}
+
+message OnGetEpicenterResponse {
+  int64 result = 1;
+}
+
+message OnTransitionCancelRequest {
+  int64 arg0 = 1;
+}
+
+message OnTransitionCancelResponse {
+}
+
+message OnTransitionEndRequest {
+  int64 arg0 = 1;
+}
+
+message OnTransitionEndResponse {
+}
+
+message OnTransitionPauseRequest {
+  int64 arg0 = 1;
+}
+
+message OnTransitionPauseResponse {
+}
+
+message OnTransitionResumeRequest {
+  int64 arg0 = 1;
+}
+
+message OnTransitionResumeResponse {
+}
+
+message OnTransitionStartRequest {
+  int64 arg0 = 1;
+}
+
+message OnTransitionStartResponse {
+}
+
+message NewArcMotionRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewArcMotionResponse {
+  int64 result = 1;
+}
+
+message GetMaximumAngleRequest {
+  int64 handle = 1;
+}
+
+message GetMaximumAngleResponse {
+  float result = 1;
+}
+
+message GetMinimumHorizontalAngleRequest {
+  int64 handle = 1;
+}
+
+message GetMinimumHorizontalAngleResponse {
+  float result = 1;
+}
+
+message GetMinimumVerticalAngleRequest {
+  int64 handle = 1;
+}
+
+message GetMinimumVerticalAngleResponse {
+  float result = 1;
+}
+
+message GetPathRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+  float arg3 = 5;
+}
+
+message GetPathResponse {
+  int64 result = 1;
+}
+
+message SetMaximumAngleRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+}
+
+message SetMaximumAngleResponse {
+}
+
+message SetMinimumHorizontalAngleRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+}
+
+message SetMinimumHorizontalAngleResponse {
+}
+
+message SetMinimumVerticalAngleRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+}
+
+message SetMinimumVerticalAngleResponse {
+}
+
+message VisibilityCaptureEndValuesRequest {
+  int64 arg0 = 1;
+}
+
+message VisibilityCaptureStartValuesRequest {
+  int64 arg0 = 1;
+}
+
+message VisibilityCreateAnimatorRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message GetModeRequest {
+}
+
+message GetModeResponse {
+  int32 result = 1;
+}
+
+message VisibilityGetTransitionPropertiesRequest {
+}
+
+message IsVisibleRequest {
+  int64 arg0 = 1;
+}
+
+message IsVisibleResponse {
+  bool result = 1;
+}
+
+message OnAppear5Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+  int64 arg3 = 4;
+  int32 arg4 = 5;
+}
+
+message OnAppear5Response {
+  int64 result = 1;
+}
+
+message OnAppear4_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message OnAppear4_1Response {
+  int64 result = 1;
+}
+
+message OnDisappear5Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+  int64 arg3 = 4;
+  int32 arg4 = 5;
+}
+
+message OnDisappear5Response {
+  int64 result = 1;
+}
+
+message OnDisappear4_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message OnDisappear4_1Response {
+  int64 result = 1;
+}
+
+message SetModeRequest {
+  int32 arg0 = 1;
+}
+
+message SetModeResponse {
+}
+
+message NewExplodeRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewExplodeResponse {
+  int64 result = 1;
+}
+
+message OnAppearRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int64 arg2 = 4;
+  int64 arg3 = 5;
+}
+
+message OnAppearResponse {
+  int64 result = 1;
+}
+
+message OnDisappearRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int64 arg2 = 4;
+  int64 arg3 = 5;
+}
+
+message OnDisappearResponse {
+  int64 result = 1;
+}
+
+message NewChangeTransformRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewChangeTransformResponse {
+  int64 result = 1;
+}
+
+message GetReparentRequest {
+  int64 handle = 1;
+}
+
+message GetReparentResponse {
+  bool result = 1;
+}
+
+message GetReparentWithOverlayRequest {
+  int64 handle = 1;
+}
+
+message GetReparentWithOverlayResponse {
+  bool result = 1;
+}
+
+message SetReparentRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetReparentResponse {
+}
+
+message SetReparentWithOverlayRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetReparentWithOverlayResponse {
+}
+
+message NewCircularPropagationRequest {
+}
+
+message NewCircularPropagationResponse {
+  int64 result = 1;
+}
+
+message CircularPropagationGetStartDelayRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int64 arg2 = 4;
+  int64 arg3 = 5;
+}
+
+message SetPropagationSpeedRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+}
+
+message SetPropagationSpeedResponse {
+}
+
+message NewSidePropagationRequest {
+}
+
+message NewSidePropagationResponse {
+  int64 result = 1;
+}
+
+message SidePropagationGetStartDelayRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int64 arg2 = 4;
+  int64 arg3 = 5;
+}
+
+message SetSideRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetSideResponse {
+}
+
+message NewManagerRequest {
+}
+
+message NewManagerResponse {
+  int64 result = 1;
+}
+
+message SetTransition3Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message SetTransition3Response {
+}
+
+message SetTransition2_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message SetTransition2_1Response {
+}
+
+message TransitionToRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message TransitionToResponse {
+}
+
+message BeginDelayedTransition1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message BeginDelayedTransition1Response {
+}
+
+message BeginDelayedTransition2_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message BeginDelayedTransition2_1Response {
+}
+
+message EndTransitionsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message EndTransitionsResponse {
+}
+
+message Go1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message Go1Response {
+}
+
+message Go2_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message Go2_1Response {
+}
+
+message InflateTransitionRequest {
+  int32 arg0 = 1;
+}
+
+message InflateTransitionResponse {
+  int64 result = 1;
+}
+
+message InflateTransitionManagerRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message InflateTransitionManagerResponse {
+  int64 result = 1;
+}
+
+message FromRequest {
+  int64 arg0 = 1;
+}
+
+message FromResponse {
+  int64 result = 1;
+}
+
+message NewChangeImageTransformRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewChangeImageTransformResponse {
+  int64 result = 1;
+}
+
+message PathMotionGetPathRequest {
+  float arg0 = 1;
+  float arg1 = 2;
+  float arg2 = 3;
+  float arg3 = 4;
+}
+
+message NewFadeRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewFadeResponse {
+  int64 result = 1;
+}
+
+message NewValuesRequest {
+}
+
+message NewValuesResponse {
+  int64 result = 1;
+}
+
+message EqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message HashCodeRequest {
+  int64 handle = 1;
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message ValuesToStringRequest {
+  int64 handle = 1;
+}
+
+message NewChangeBoundsRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewChangeBoundsResponse {
+  int64 result = 1;
+}
+
+message GetResizeClipRequest {
+  int64 handle = 1;
+}
+
+message GetResizeClipResponse {
+  bool result = 1;
+}
+
+message SetResizeClipRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetResizeClipResponse {
+}
+
+message PropagationGetStartDelayRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message NewSlideRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewSlideResponse {
+  int64 result = 1;
+}
+
+message GetSlideEdgeRequest {
+  int64 handle = 1;
+}
+
+message GetSlideEdgeResponse {
+  int32 result = 1;
+}
+
+message SetSlideEdgeRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetSlideEdgeResponse {
+}
+
+message NewPatternPathMotionRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewPatternPathMotionResponse {
+  int64 result = 1;
+}
+
+message GetPatternPathRequest {
+  int64 handle = 1;
+}
+
+message GetPatternPathResponse {
+  int64 result = 1;
+}
+
+message SetPatternPathRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetPatternPathResponse {
+}
+
+service SetService {
+  rpc NewSet (NewSetRequest) returns (NewSetResponse);
+  rpc AddListener1 (AddListener1Request) returns (AddListener1Response);
+  rpc AddTarget1 (AddTarget1Request) returns (AddTarget1Response);
+  rpc AddTarget1_1 (AddTarget1_1Request) returns (AddTarget1_1Response);
+  rpc AddTarget1_2 (AddTarget1_2Request) returns (AddTarget1_2Response);
+  rpc AddTarget1_3 (AddTarget1_3Request) returns (AddTarget1_3Response);
+  rpc AddTransition (AddTransitionRequest) returns (AddTransitionResponse);
+  rpc CaptureEndValues (CaptureEndValuesRequest) returns (CaptureEndValuesResponse);
+  rpc CaptureStartValues (CaptureStartValuesRequest) returns (CaptureStartValuesResponse);
+  rpc Clone0 (Clone0Request) returns (Clone0Response);
+  rpc ExcludeTarget2 (ExcludeTarget2Request) returns (ExcludeTarget2Response);
+  rpc ExcludeTarget2_1 (ExcludeTarget2_1Request) returns (ExcludeTarget2_1Response);
+  rpc ExcludeTarget2_2 (ExcludeTarget2_2Request) returns (ExcludeTarget2_2Response);
+  rpc ExcludeTarget2_3 (ExcludeTarget2_3Request) returns (ExcludeTarget2_3Response);
+  rpc GetOrdering (GetOrderingRequest) returns (GetOrderingResponse);
+  rpc GetTransitionAt (GetTransitionAtRequest) returns (GetTransitionAtResponse);
+  rpc GetTransitionCount (GetTransitionCountRequest) returns (GetTransitionCountResponse);
+  rpc RemoveListener1 (RemoveListener1Request) returns (RemoveListener1Response);
+  rpc RemoveTarget1 (RemoveTarget1Request) returns (RemoveTarget1Response);
+  rpc RemoveTarget1_1 (RemoveTarget1_1Request) returns (RemoveTarget1_1Response);
+  rpc RemoveTarget1_2 (RemoveTarget1_2Request) returns (RemoveTarget1_2Response);
+  rpc RemoveTarget1_3 (RemoveTarget1_3Request) returns (RemoveTarget1_3Response);
+  rpc RemoveTransition (RemoveTransitionRequest) returns (RemoveTransitionResponse);
+  rpc SetDuration1 (SetDuration1Request) returns (SetDuration1Response);
+  rpc SetEpicenterCallback (SetEpicenterCallbackRequest) returns (SetEpicenterCallbackResponse);
+  rpc SetInterpolator1 (SetInterpolator1Request) returns (SetInterpolator1Response);
+  rpc SetOrdering (SetOrderingRequest) returns (SetOrderingResponse);
+  rpc SetPathMotion (SetPathMotionRequest) returns (SetPathMotionResponse);
+  rpc SetPropagation (SetPropagationRequest) returns (SetPropagationResponse);
+  rpc SetStartDelay1 (SetStartDelay1Request) returns (SetStartDelay1Response);
+  rpc SetStartDelay1_1 (SetStartDelay1_1Request) returns (SetStartDelay1_1Response);
+  rpc SetInterpolator1_1 (SetInterpolator1_1Request) returns (SetInterpolator1_1Response);
+  rpc SetDuration1_1 (SetDuration1_1Request) returns (SetDuration1_1Response);
+  rpc RemoveTarget1_4 (RemoveTarget1_4Request) returns (RemoveTarget1_4Response);
+  rpc RemoveTarget1_5 (RemoveTarget1_5Request) returns (RemoveTarget1_5Response);
+  rpc RemoveTarget1_6 (RemoveTarget1_6Request) returns (RemoveTarget1_6Response);
+  rpc RemoveTarget1_7 (RemoveTarget1_7Request) returns (RemoveTarget1_7Response);
+  rpc RemoveListener1_1 (RemoveListener1_1Request) returns (RemoveListener1_1Response);
+  rpc Clone0_1 (Clone0_1Request) returns (Clone0_1Response);
+  rpc AddTarget1_4 (AddTarget1_4Request) returns (AddTarget1_4Response);
+  rpc AddTarget1_5 (AddTarget1_5Request) returns (AddTarget1_5Response);
+  rpc AddTarget1_6 (AddTarget1_6Request) returns (AddTarget1_6Response);
+  rpc AddTarget1_7 (AddTarget1_7Request) returns (AddTarget1_7Response);
+  rpc AddListener1_1 (AddListener1_1Request) returns (AddListener1_1Response);
+  rpc Clone0_2 (Clone0_2Request) returns (Clone0_2Response);
+}
+
+service VisibilityPropagationService {
+  rpc CaptureValues (CaptureValuesRequest) returns (CaptureValuesResponse);
+  rpc GetPropagationProperties (GetPropagationPropertiesRequest) returns (GetPropagationPropertiesResponse);
+  rpc GetViewVisibility (GetViewVisibilityRequest) returns (GetViewVisibilityResponse);
+  rpc GetViewX (GetViewXRequest) returns (GetViewXResponse);
+  rpc GetViewY (GetViewYRequest) returns (GetViewYResponse);
+}
+
+service ChangeClipBoundsService {
+  rpc NewChangeClipBounds (NewChangeClipBoundsRequest) returns (NewChangeClipBoundsResponse);
+  rpc CaptureEndValues (CaptureEndValuesRequest) returns (CaptureEndValuesResponse);
+  rpc CaptureStartValues (CaptureStartValuesRequest) returns (CaptureStartValuesResponse);
+  rpc CreateAnimator (CreateAnimatorRequest) returns (CreateAnimatorResponse);
+  rpc GetTransitionProperties (GetTransitionPropertiesRequest) returns (GetTransitionPropertiesResponse);
+}
+
+service ChangeScrollService {
+  rpc NewChangeScroll (NewChangeScrollRequest) returns (NewChangeScrollResponse);
+  rpc CaptureEndValues (CaptureEndValuesRequest) returns (CaptureEndValuesResponse);
+  rpc CaptureStartValues (CaptureStartValuesRequest) returns (CaptureStartValuesResponse);
+  rpc CreateAnimator (CreateAnimatorRequest) returns (CreateAnimatorResponse);
+  rpc GetTransitionProperties (GetTransitionPropertiesRequest) returns (GetTransitionPropertiesResponse);
+}
+
+service SceneService {
+  rpc NewScene (NewSceneRequest) returns (NewSceneResponse);
+  rpc Enter (EnterRequest) returns (EnterResponse);
+  rpc Exit (ExitRequest) returns (ExitResponse);
+  rpc GetSceneRoot (GetSceneRootRequest) returns (GetSceneRootResponse);
+  rpc SetEnterAction (SetEnterActionRequest) returns (SetEnterActionResponse);
+  rpc SetExitAction (SetExitActionRequest) returns (SetExitActionResponse);
+  rpc GetCurrentScene (GetCurrentSceneRequest) returns (GetCurrentSceneResponse);
+  rpc GetSceneForLayout (GetSceneForLayoutRequest) returns (GetSceneForLayoutResponse);
+}
+
+service TransitionService {
+  rpc AddListener (AddListenerRequest) returns (AddListenerResponse);
+  rpc AddTarget1 (TransitionAddTarget1Request) returns (AddTarget1Response);
+  rpc AddTarget1_1 (TransitionAddTarget1_1Request) returns (AddTarget1_1Response);
+  rpc AddTarget1_2 (TransitionAddTarget1_2Request) returns (AddTarget1_2Response);
+  rpc AddTarget1_3 (TransitionAddTarget1_3Request) returns (AddTarget1_3Response);
+  rpc CanRemoveViews (CanRemoveViewsRequest) returns (CanRemoveViewsResponse);
+  rpc CaptureEndValues (TransitionCaptureEndValuesRequest) returns (CaptureEndValuesResponse);
+  rpc CaptureStartValues (TransitionCaptureStartValuesRequest) returns (CaptureStartValuesResponse);
+  rpc Clone0 (TransitionClone0Request) returns (Clone0Response);
+  rpc CreateAnimator (TransitionCreateAnimatorRequest) returns (CreateAnimatorResponse);
+  rpc ExcludeChildren2 (ExcludeChildren2Request) returns (ExcludeChildren2Response);
+  rpc ExcludeChildren2_1 (ExcludeChildren2_1Request) returns (ExcludeChildren2_1Response);
+  rpc ExcludeChildren2_2 (ExcludeChildren2_2Request) returns (ExcludeChildren2_2Response);
+  rpc ExcludeTarget2 (TransitionExcludeTarget2Request) returns (ExcludeTarget2Response);
+  rpc ExcludeTarget2_1 (TransitionExcludeTarget2_1Request) returns (ExcludeTarget2_1Response);
+  rpc ExcludeTarget2_2 (TransitionExcludeTarget2_2Request) returns (ExcludeTarget2_2Response);
+  rpc ExcludeTarget2_3 (TransitionExcludeTarget2_3Request) returns (ExcludeTarget2_3Response);
+  rpc GetDuration (GetDurationRequest) returns (GetDurationResponse);
+  rpc GetEpicenter (GetEpicenterRequest) returns (GetEpicenterResponse);
+  rpc GetEpicenterCallback (GetEpicenterCallbackRequest) returns (GetEpicenterCallbackResponse);
+  rpc GetInterpolator (GetInterpolatorRequest) returns (GetInterpolatorResponse);
+  rpc GetName (GetNameRequest) returns (GetNameResponse);
+  rpc GetPathMotion (GetPathMotionRequest) returns (GetPathMotionResponse);
+  rpc GetPropagation (GetPropagationRequest) returns (GetPropagationResponse);
+  rpc GetStartDelay (GetStartDelayRequest) returns (GetStartDelayResponse);
+  rpc GetTransitionProperties (TransitionGetTransitionPropertiesRequest) returns (GetTransitionPropertiesResponse);
+  rpc GetTransitionValues (GetTransitionValuesRequest) returns (GetTransitionValuesResponse);
+  rpc IsTransitionRequired (IsTransitionRequiredRequest) returns (IsTransitionRequiredResponse);
+  rpc RemoveListener (RemoveListenerRequest) returns (RemoveListenerResponse);
+  rpc RemoveTarget1 (TransitionRemoveTarget1Request) returns (RemoveTarget1Response);
+  rpc RemoveTarget1_1 (TransitionRemoveTarget1_1Request) returns (RemoveTarget1_1Response);
+  rpc RemoveTarget1_2 (TransitionRemoveTarget1_2Request) returns (RemoveTarget1_2Response);
+  rpc RemoveTarget1_3 (TransitionRemoveTarget1_3Request) returns (RemoveTarget1_3Response);
+  rpc SetDuration (SetDurationRequest) returns (SetDurationResponse);
+  rpc SetEpicenterCallback (TransitionSetEpicenterCallbackRequest) returns (SetEpicenterCallbackResponse);
+  rpc SetInterpolator (SetInterpolatorRequest) returns (SetInterpolatorResponse);
+  rpc SetMatchOrder (SetMatchOrderRequest) returns (SetMatchOrderResponse);
+  rpc SetPathMotion (TransitionSetPathMotionRequest) returns (SetPathMotionResponse);
+  rpc SetPropagation (TransitionSetPropagationRequest) returns (SetPropagationResponse);
+  rpc SetStartDelay (SetStartDelayRequest) returns (SetStartDelayResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc Clone0_1 (TransitionClone0_1Request) returns (Clone0_1Response);
+}
+
+service EpicenterCallbackService {
+  rpc OnGetEpicenter (OnGetEpicenterRequest) returns (OnGetEpicenterResponse);
+}
+
+service TransitionListenerService {
+  rpc OnTransitionCancel (OnTransitionCancelRequest) returns (OnTransitionCancelResponse);
+  rpc OnTransitionEnd (OnTransitionEndRequest) returns (OnTransitionEndResponse);
+  rpc OnTransitionPause (OnTransitionPauseRequest) returns (OnTransitionPauseResponse);
+  rpc OnTransitionResume (OnTransitionResumeRequest) returns (OnTransitionResumeResponse);
+  rpc OnTransitionStart (OnTransitionStartRequest) returns (OnTransitionStartResponse);
+}
+
+service ArcMotionService {
+  rpc NewArcMotion (NewArcMotionRequest) returns (NewArcMotionResponse);
+  rpc GetMaximumAngle (GetMaximumAngleRequest) returns (GetMaximumAngleResponse);
+  rpc GetMinimumHorizontalAngle (GetMinimumHorizontalAngleRequest) returns (GetMinimumHorizontalAngleResponse);
+  rpc GetMinimumVerticalAngle (GetMinimumVerticalAngleRequest) returns (GetMinimumVerticalAngleResponse);
+  rpc GetPath (GetPathRequest) returns (GetPathResponse);
+  rpc SetMaximumAngle (SetMaximumAngleRequest) returns (SetMaximumAngleResponse);
+  rpc SetMinimumHorizontalAngle (SetMinimumHorizontalAngleRequest) returns (SetMinimumHorizontalAngleResponse);
+  rpc SetMinimumVerticalAngle (SetMinimumVerticalAngleRequest) returns (SetMinimumVerticalAngleResponse);
+}
+
+service VisibilityService {
+  rpc CaptureEndValues (VisibilityCaptureEndValuesRequest) returns (CaptureEndValuesResponse);
+  rpc CaptureStartValues (VisibilityCaptureStartValuesRequest) returns (CaptureStartValuesResponse);
+  rpc CreateAnimator (VisibilityCreateAnimatorRequest) returns (CreateAnimatorResponse);
+  rpc GetMode (GetModeRequest) returns (GetModeResponse);
+  rpc GetTransitionProperties (VisibilityGetTransitionPropertiesRequest) returns (GetTransitionPropertiesResponse);
+  rpc IsTransitionRequired (IsTransitionRequiredRequest) returns (IsTransitionRequiredResponse);
+  rpc IsVisible (IsVisibleRequest) returns (IsVisibleResponse);
+  rpc OnAppear5 (OnAppear5Request) returns (OnAppear5Response);
+  rpc OnAppear4_1 (OnAppear4_1Request) returns (OnAppear4_1Response);
+  rpc OnDisappear5 (OnDisappear5Request) returns (OnDisappear5Response);
+  rpc OnDisappear4_1 (OnDisappear4_1Request) returns (OnDisappear4_1Response);
+  rpc SetMode (SetModeRequest) returns (SetModeResponse);
+}
+
+service ExplodeService {
+  rpc NewExplode (NewExplodeRequest) returns (NewExplodeResponse);
+  rpc CaptureEndValues (CaptureEndValuesRequest) returns (CaptureEndValuesResponse);
+  rpc CaptureStartValues (CaptureStartValuesRequest) returns (CaptureStartValuesResponse);
+  rpc OnAppear (OnAppearRequest) returns (OnAppearResponse);
+  rpc OnDisappear (OnDisappearRequest) returns (OnDisappearResponse);
+}
+
+service ListenerAdapterService {
+  rpc OnTransitionCancel (OnTransitionCancelRequest) returns (OnTransitionCancelResponse);
+  rpc OnTransitionEnd (OnTransitionEndRequest) returns (OnTransitionEndResponse);
+  rpc OnTransitionPause (OnTransitionPauseRequest) returns (OnTransitionPauseResponse);
+  rpc OnTransitionResume (OnTransitionResumeRequest) returns (OnTransitionResumeResponse);
+  rpc OnTransitionStart (OnTransitionStartRequest) returns (OnTransitionStartResponse);
+}
+
+service ChangeTransformService {
+  rpc NewChangeTransform (NewChangeTransformRequest) returns (NewChangeTransformResponse);
+  rpc CaptureEndValues (CaptureEndValuesRequest) returns (CaptureEndValuesResponse);
+  rpc CaptureStartValues (CaptureStartValuesRequest) returns (CaptureStartValuesResponse);
+  rpc CreateAnimator (CreateAnimatorRequest) returns (CreateAnimatorResponse);
+  rpc GetReparent (GetReparentRequest) returns (GetReparentResponse);
+  rpc GetReparentWithOverlay (GetReparentWithOverlayRequest) returns (GetReparentWithOverlayResponse);
+  rpc GetTransitionProperties (GetTransitionPropertiesRequest) returns (GetTransitionPropertiesResponse);
+  rpc SetReparent (SetReparentRequest) returns (SetReparentResponse);
+  rpc SetReparentWithOverlay (SetReparentWithOverlayRequest) returns (SetReparentWithOverlayResponse);
+}
+
+service CircularPropagationService {
+  rpc NewCircularPropagation (NewCircularPropagationRequest) returns (NewCircularPropagationResponse);
+  rpc GetStartDelay (CircularPropagationGetStartDelayRequest) returns (GetStartDelayResponse);
+  rpc SetPropagationSpeed (SetPropagationSpeedRequest) returns (SetPropagationSpeedResponse);
+}
+
+service SidePropagationService {
+  rpc NewSidePropagation (NewSidePropagationRequest) returns (NewSidePropagationResponse);
+  rpc GetStartDelay (SidePropagationGetStartDelayRequest) returns (GetStartDelayResponse);
+  rpc SetPropagationSpeed (SetPropagationSpeedRequest) returns (SetPropagationSpeedResponse);
+  rpc SetSide (SetSideRequest) returns (SetSideResponse);
+}
+
+service ManagerService {
+  rpc NewManager (NewManagerRequest) returns (NewManagerResponse);
+  rpc SetTransition3 (SetTransition3Request) returns (SetTransition3Response);
+  rpc SetTransition2_1 (SetTransition2_1Request) returns (SetTransition2_1Response);
+  rpc TransitionTo (TransitionToRequest) returns (TransitionToResponse);
+  rpc BeginDelayedTransition1 (BeginDelayedTransition1Request) returns (BeginDelayedTransition1Response);
+  rpc BeginDelayedTransition2_1 (BeginDelayedTransition2_1Request) returns (BeginDelayedTransition2_1Response);
+  rpc EndTransitions (EndTransitionsRequest) returns (EndTransitionsResponse);
+  rpc Go1 (Go1Request) returns (Go1Response);
+  rpc Go2_1 (Go2_1Request) returns (Go2_1Response);
+}
+
+service InflaterService {
+  rpc InflateTransition (InflateTransitionRequest) returns (InflateTransitionResponse);
+  rpc InflateTransitionManager (InflateTransitionManagerRequest) returns (InflateTransitionManagerResponse);
+  rpc From (FromRequest) returns (FromResponse);
+}
+
+service ChangeImageTransformService {
+  rpc NewChangeImageTransform (NewChangeImageTransformRequest) returns (NewChangeImageTransformResponse);
+  rpc CaptureEndValues (CaptureEndValuesRequest) returns (CaptureEndValuesResponse);
+  rpc CaptureStartValues (CaptureStartValuesRequest) returns (CaptureStartValuesResponse);
+  rpc CreateAnimator (CreateAnimatorRequest) returns (CreateAnimatorResponse);
+  rpc GetTransitionProperties (GetTransitionPropertiesRequest) returns (GetTransitionPropertiesResponse);
+}
+
+service PathMotionService {
+  rpc GetPath (PathMotionGetPathRequest) returns (GetPathResponse);
+}
+
+service FadeService {
+  rpc NewFade (NewFadeRequest) returns (NewFadeResponse);
+  rpc CaptureStartValues (CaptureStartValuesRequest) returns (CaptureStartValuesResponse);
+  rpc OnAppear (OnAppearRequest) returns (OnAppearResponse);
+  rpc OnDisappear (OnDisappearRequest) returns (OnDisappearResponse);
+}
+
+service ValuesService {
+  rpc NewValues (NewValuesRequest) returns (NewValuesResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ValuesToStringRequest) returns (ToStringResponse);
+}
+
+service ChangeBoundsService {
+  rpc NewChangeBounds (NewChangeBoundsRequest) returns (NewChangeBoundsResponse);
+  rpc CaptureEndValues (CaptureEndValuesRequest) returns (CaptureEndValuesResponse);
+  rpc CaptureStartValues (CaptureStartValuesRequest) returns (CaptureStartValuesResponse);
+  rpc CreateAnimator (CreateAnimatorRequest) returns (CreateAnimatorResponse);
+  rpc GetResizeClip (GetResizeClipRequest) returns (GetResizeClipResponse);
+  rpc GetTransitionProperties (GetTransitionPropertiesRequest) returns (GetTransitionPropertiesResponse);
+  rpc SetReparent (SetReparentRequest) returns (SetReparentResponse);
+  rpc SetResizeClip (SetResizeClipRequest) returns (SetResizeClipResponse);
+}
+
+service PropagationService {
+  rpc CaptureValues (CaptureValuesRequest) returns (CaptureValuesResponse);
+  rpc GetPropagationProperties (GetPropagationPropertiesRequest) returns (GetPropagationPropertiesResponse);
+  rpc GetStartDelay (PropagationGetStartDelayRequest) returns (GetStartDelayResponse);
+}
+
+service SlideService {
+  rpc NewSlide (NewSlideRequest) returns (NewSlideResponse);
+  rpc CaptureEndValues (CaptureEndValuesRequest) returns (CaptureEndValuesResponse);
+  rpc CaptureStartValues (CaptureStartValuesRequest) returns (CaptureStartValuesResponse);
+  rpc GetSlideEdge (GetSlideEdgeRequest) returns (GetSlideEdgeResponse);
+  rpc OnAppear (OnAppearRequest) returns (OnAppearResponse);
+  rpc OnDisappear (OnDisappearRequest) returns (OnDisappearResponse);
+  rpc SetSlideEdge (SetSlideEdgeRequest) returns (SetSlideEdgeResponse);
+}
+
+service PatternPathMotionService {
+  rpc NewPatternPathMotion (NewPatternPathMotionRequest) returns (NewPatternPathMotionResponse);
+  rpc GetPath (GetPathRequest) returns (GetPathResponse);
+  rpc GetPatternPath (GetPatternPathRequest) returns (GetPatternPathResponse);
+  rpc SetPatternPath (SetPatternPathRequest) returns (SetPatternPathResponse);
+}

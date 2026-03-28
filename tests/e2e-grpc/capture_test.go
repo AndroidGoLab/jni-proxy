@@ -26,6 +26,8 @@ func TestE2E_CameraRecord(t *testing.T) {
 		"--timeout", "60s",
 		"camera", "record",
 		"-d", "1s",
+		"--width", "640",
+		"--height", "480",
 		"-o", outFile,
 	)
 

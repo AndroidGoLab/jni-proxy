@@ -12,6 +12,7 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -22,19 +23,10335 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type NewMediaPlayerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewMediaPlayerRequest) Reset() {
+	*x = NewMediaPlayerRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewMediaPlayerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewMediaPlayerRequest) ProtoMessage() {}
+
+func (x *NewMediaPlayerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewMediaPlayerRequest.ProtoReflect.Descriptor instead.
+func (*NewMediaPlayerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *NewMediaPlayerRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type NewMediaPlayerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewMediaPlayerResponse) Reset() {
+	*x = NewMediaPlayerResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewMediaPlayerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewMediaPlayerResponse) ProtoMessage() {}
+
+func (x *NewMediaPlayerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewMediaPlayerResponse.ProtoReflect.Descriptor instead.
+func (*NewMediaPlayerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *NewMediaPlayerResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddTimedTextSource3Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          string                 `protobuf:"bytes,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddTimedTextSource3Request) Reset() {
+	*x = AddTimedTextSource3Request{}
+	mi := &file_proto_player_player_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddTimedTextSource3Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddTimedTextSource3Request) ProtoMessage() {}
+
+func (x *AddTimedTextSource3Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddTimedTextSource3Request.ProtoReflect.Descriptor instead.
+func (*AddTimedTextSource3Request) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *AddTimedTextSource3Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *AddTimedTextSource3Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *AddTimedTextSource3Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *AddTimedTextSource3Request) GetArg2() string {
+	if x != nil {
+		return x.Arg2
+	}
+	return ""
+}
+
+type AddTimedTextSource3Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddTimedTextSource3Response) Reset() {
+	*x = AddTimedTextSource3Response{}
+	mi := &file_proto_player_player_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddTimedTextSource3Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddTimedTextSource3Response) ProtoMessage() {}
+
+func (x *AddTimedTextSource3Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddTimedTextSource3Response.ProtoReflect.Descriptor instead.
+func (*AddTimedTextSource3Response) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{3}
+}
+
+type AddTimedTextSource2_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddTimedTextSource2_1Request) Reset() {
+	*x = AddTimedTextSource2_1Request{}
+	mi := &file_proto_player_player_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddTimedTextSource2_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddTimedTextSource2_1Request) ProtoMessage() {}
+
+func (x *AddTimedTextSource2_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddTimedTextSource2_1Request.ProtoReflect.Descriptor instead.
+func (*AddTimedTextSource2_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *AddTimedTextSource2_1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *AddTimedTextSource2_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *AddTimedTextSource2_1Request) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+type AddTimedTextSource2_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddTimedTextSource2_1Response) Reset() {
+	*x = AddTimedTextSource2_1Response{}
+	mi := &file_proto_player_player_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddTimedTextSource2_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddTimedTextSource2_1Response) ProtoMessage() {}
+
+func (x *AddTimedTextSource2_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddTimedTextSource2_1Response.ProtoReflect.Descriptor instead.
+func (*AddTimedTextSource2_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{5}
+}
+
+type AddTimedTextSource4_2Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          string                 `protobuf:"bytes,5,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddTimedTextSource4_2Request) Reset() {
+	*x = AddTimedTextSource4_2Request{}
+	mi := &file_proto_player_player_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddTimedTextSource4_2Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddTimedTextSource4_2Request) ProtoMessage() {}
+
+func (x *AddTimedTextSource4_2Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddTimedTextSource4_2Request.ProtoReflect.Descriptor instead.
+func (*AddTimedTextSource4_2Request) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *AddTimedTextSource4_2Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *AddTimedTextSource4_2Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *AddTimedTextSource4_2Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *AddTimedTextSource4_2Request) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *AddTimedTextSource4_2Request) GetArg3() string {
+	if x != nil {
+		return x.Arg3
+	}
+	return ""
+}
+
+type AddTimedTextSource4_2Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddTimedTextSource4_2Response) Reset() {
+	*x = AddTimedTextSource4_2Response{}
+	mi := &file_proto_player_player_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddTimedTextSource4_2Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddTimedTextSource4_2Response) ProtoMessage() {}
+
+func (x *AddTimedTextSource4_2Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddTimedTextSource4_2Response.ProtoReflect.Descriptor instead.
+func (*AddTimedTextSource4_2Response) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{7}
+}
+
+type AddTimedTextSource2_3Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          string                 `protobuf:"bytes,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddTimedTextSource2_3Request) Reset() {
+	*x = AddTimedTextSource2_3Request{}
+	mi := &file_proto_player_player_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddTimedTextSource2_3Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddTimedTextSource2_3Request) ProtoMessage() {}
+
+func (x *AddTimedTextSource2_3Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddTimedTextSource2_3Request.ProtoReflect.Descriptor instead.
+func (*AddTimedTextSource2_3Request) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *AddTimedTextSource2_3Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *AddTimedTextSource2_3Request) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *AddTimedTextSource2_3Request) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+type AddTimedTextSource2_3Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddTimedTextSource2_3Response) Reset() {
+	*x = AddTimedTextSource2_3Response{}
+	mi := &file_proto_player_player_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddTimedTextSource2_3Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddTimedTextSource2_3Response) ProtoMessage() {}
+
+func (x *AddTimedTextSource2_3Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddTimedTextSource2_3Response.ProtoReflect.Descriptor instead.
+func (*AddTimedTextSource2_3Response) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{9}
+}
+
+type AttachAuxEffectRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AttachAuxEffectRequest) Reset() {
+	*x = AttachAuxEffectRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AttachAuxEffectRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AttachAuxEffectRequest) ProtoMessage() {}
+
+func (x *AttachAuxEffectRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AttachAuxEffectRequest.ProtoReflect.Descriptor instead.
+func (*AttachAuxEffectRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *AttachAuxEffectRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *AttachAuxEffectRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AttachAuxEffectResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AttachAuxEffectResponse) Reset() {
+	*x = AttachAuxEffectResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AttachAuxEffectResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AttachAuxEffectResponse) ProtoMessage() {}
+
+func (x *AttachAuxEffectResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AttachAuxEffectResponse.ProtoReflect.Descriptor instead.
+func (*AttachAuxEffectResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{11}
+}
+
+type ClearOnMediaTimeDiscontinuityListenerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearOnMediaTimeDiscontinuityListenerRequest) Reset() {
+	*x = ClearOnMediaTimeDiscontinuityListenerRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearOnMediaTimeDiscontinuityListenerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearOnMediaTimeDiscontinuityListenerRequest) ProtoMessage() {}
+
+func (x *ClearOnMediaTimeDiscontinuityListenerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearOnMediaTimeDiscontinuityListenerRequest.ProtoReflect.Descriptor instead.
+func (*ClearOnMediaTimeDiscontinuityListenerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *ClearOnMediaTimeDiscontinuityListenerRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type ClearOnMediaTimeDiscontinuityListenerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearOnMediaTimeDiscontinuityListenerResponse) Reset() {
+	*x = ClearOnMediaTimeDiscontinuityListenerResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearOnMediaTimeDiscontinuityListenerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearOnMediaTimeDiscontinuityListenerResponse) ProtoMessage() {}
+
+func (x *ClearOnMediaTimeDiscontinuityListenerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearOnMediaTimeDiscontinuityListenerResponse.ProtoReflect.Descriptor instead.
+func (*ClearOnMediaTimeDiscontinuityListenerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{13}
+}
+
+type ClearOnSubtitleDataListenerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearOnSubtitleDataListenerRequest) Reset() {
+	*x = ClearOnSubtitleDataListenerRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearOnSubtitleDataListenerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearOnSubtitleDataListenerRequest) ProtoMessage() {}
+
+func (x *ClearOnSubtitleDataListenerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearOnSubtitleDataListenerRequest.ProtoReflect.Descriptor instead.
+func (*ClearOnSubtitleDataListenerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{14}
+}
+
+func (x *ClearOnSubtitleDataListenerRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type ClearOnSubtitleDataListenerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearOnSubtitleDataListenerResponse) Reset() {
+	*x = ClearOnSubtitleDataListenerResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearOnSubtitleDataListenerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearOnSubtitleDataListenerResponse) ProtoMessage() {}
+
+func (x *ClearOnSubtitleDataListenerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearOnSubtitleDataListenerResponse.ProtoReflect.Descriptor instead.
+func (*ClearOnSubtitleDataListenerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{15}
+}
+
+type CreateVolumeShaperRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateVolumeShaperRequest) Reset() {
+	*x = CreateVolumeShaperRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateVolumeShaperRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateVolumeShaperRequest) ProtoMessage() {}
+
+func (x *CreateVolumeShaperRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateVolumeShaperRequest.ProtoReflect.Descriptor instead.
+func (*CreateVolumeShaperRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{16}
+}
+
+func (x *CreateVolumeShaperRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *CreateVolumeShaperRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type CreateVolumeShaperResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateVolumeShaperResponse) Reset() {
+	*x = CreateVolumeShaperResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateVolumeShaperResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateVolumeShaperResponse) ProtoMessage() {}
+
+func (x *CreateVolumeShaperResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateVolumeShaperResponse.ProtoReflect.Descriptor instead.
+func (*CreateVolumeShaperResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *CreateVolumeShaperResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type DeselectTrackRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DeselectTrackRequest) Reset() {
+	*x = DeselectTrackRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DeselectTrackRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeselectTrackRequest) ProtoMessage() {}
+
+func (x *DeselectTrackRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeselectTrackRequest.ProtoReflect.Descriptor instead.
+func (*DeselectTrackRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{18}
+}
+
+func (x *DeselectTrackRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *DeselectTrackRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type DeselectTrackResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DeselectTrackResponse) Reset() {
+	*x = DeselectTrackResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DeselectTrackResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeselectTrackResponse) ProtoMessage() {}
+
+func (x *DeselectTrackResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeselectTrackResponse.ProtoReflect.Descriptor instead.
+func (*DeselectTrackResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{19}
+}
+
+type GetAudioSessionIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAudioSessionIdRequest) Reset() {
+	*x = GetAudioSessionIdRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAudioSessionIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAudioSessionIdRequest) ProtoMessage() {}
+
+func (x *GetAudioSessionIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAudioSessionIdRequest.ProtoReflect.Descriptor instead.
+func (*GetAudioSessionIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{20}
+}
+
+func (x *GetAudioSessionIdRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetAudioSessionIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAudioSessionIdResponse) Reset() {
+	*x = GetAudioSessionIdResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAudioSessionIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAudioSessionIdResponse) ProtoMessage() {}
+
+func (x *GetAudioSessionIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAudioSessionIdResponse.ProtoReflect.Descriptor instead.
+func (*GetAudioSessionIdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{21}
+}
+
+func (x *GetAudioSessionIdResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetCurrentPositionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCurrentPositionRequest) Reset() {
+	*x = GetCurrentPositionRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCurrentPositionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCurrentPositionRequest) ProtoMessage() {}
+
+func (x *GetCurrentPositionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCurrentPositionRequest.ProtoReflect.Descriptor instead.
+func (*GetCurrentPositionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{22}
+}
+
+func (x *GetCurrentPositionRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetCurrentPositionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCurrentPositionResponse) Reset() {
+	*x = GetCurrentPositionResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCurrentPositionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCurrentPositionResponse) ProtoMessage() {}
+
+func (x *GetCurrentPositionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCurrentPositionResponse.ProtoReflect.Descriptor instead.
+func (*GetCurrentPositionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{23}
+}
+
+func (x *GetCurrentPositionResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetDrmInfoRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDrmInfoRequest) Reset() {
+	*x = GetDrmInfoRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDrmInfoRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDrmInfoRequest) ProtoMessage() {}
+
+func (x *GetDrmInfoRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDrmInfoRequest.ProtoReflect.Descriptor instead.
+func (*GetDrmInfoRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{24}
+}
+
+func (x *GetDrmInfoRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetDrmInfoResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDrmInfoResponse) Reset() {
+	*x = GetDrmInfoResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDrmInfoResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDrmInfoResponse) ProtoMessage() {}
+
+func (x *GetDrmInfoResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDrmInfoResponse.ProtoReflect.Descriptor instead.
+func (*GetDrmInfoResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{25}
+}
+
+func (x *GetDrmInfoResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetDrmPropertyStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          string                 `protobuf:"bytes,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDrmPropertyStringRequest) Reset() {
+	*x = GetDrmPropertyStringRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[26]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDrmPropertyStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDrmPropertyStringRequest) ProtoMessage() {}
+
+func (x *GetDrmPropertyStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[26]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDrmPropertyStringRequest.ProtoReflect.Descriptor instead.
+func (*GetDrmPropertyStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{26}
+}
+
+func (x *GetDrmPropertyStringRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetDrmPropertyStringRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type GetDrmPropertyStringResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDrmPropertyStringResponse) Reset() {
+	*x = GetDrmPropertyStringResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[27]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDrmPropertyStringResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDrmPropertyStringResponse) ProtoMessage() {}
+
+func (x *GetDrmPropertyStringResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[27]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDrmPropertyStringResponse.ProtoReflect.Descriptor instead.
+func (*GetDrmPropertyStringResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{27}
+}
+
+func (x *GetDrmPropertyStringResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetDurationRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDurationRequest) Reset() {
+	*x = GetDurationRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[28]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDurationRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDurationRequest) ProtoMessage() {}
+
+func (x *GetDurationRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[28]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDurationRequest.ProtoReflect.Descriptor instead.
+func (*GetDurationRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{28}
+}
+
+func (x *GetDurationRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetDurationResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDurationResponse) Reset() {
+	*x = GetDurationResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[29]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDurationResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDurationResponse) ProtoMessage() {}
+
+func (x *GetDurationResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[29]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDurationResponse.ProtoReflect.Descriptor instead.
+func (*GetDurationResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{29}
+}
+
+func (x *GetDurationResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetMetricsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMetricsRequest) Reset() {
+	*x = GetMetricsRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[30]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMetricsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMetricsRequest) ProtoMessage() {}
+
+func (x *GetMetricsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[30]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMetricsRequest.ProtoReflect.Descriptor instead.
+func (*GetMetricsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{30}
+}
+
+func (x *GetMetricsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetMetricsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMetricsResponse) Reset() {
+	*x = GetMetricsResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[31]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMetricsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMetricsResponse) ProtoMessage() {}
+
+func (x *GetMetricsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[31]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMetricsResponse.ProtoReflect.Descriptor instead.
+func (*GetMetricsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{31}
+}
+
+func (x *GetMetricsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPlaybackParamsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPlaybackParamsRequest) Reset() {
+	*x = GetPlaybackParamsRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[32]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPlaybackParamsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPlaybackParamsRequest) ProtoMessage() {}
+
+func (x *GetPlaybackParamsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[32]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPlaybackParamsRequest.ProtoReflect.Descriptor instead.
+func (*GetPlaybackParamsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{32}
+}
+
+func (x *GetPlaybackParamsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetPlaybackParamsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPlaybackParamsResponse) Reset() {
+	*x = GetPlaybackParamsResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[33]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPlaybackParamsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPlaybackParamsResponse) ProtoMessage() {}
+
+func (x *GetPlaybackParamsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[33]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPlaybackParamsResponse.ProtoReflect.Descriptor instead.
+func (*GetPlaybackParamsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{33}
+}
+
+func (x *GetPlaybackParamsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPreferredDeviceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPreferredDeviceRequest) Reset() {
+	*x = GetPreferredDeviceRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[34]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPreferredDeviceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPreferredDeviceRequest) ProtoMessage() {}
+
+func (x *GetPreferredDeviceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[34]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPreferredDeviceRequest.ProtoReflect.Descriptor instead.
+func (*GetPreferredDeviceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{34}
+}
+
+func (x *GetPreferredDeviceRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetPreferredDeviceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPreferredDeviceResponse) Reset() {
+	*x = GetPreferredDeviceResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[35]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPreferredDeviceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPreferredDeviceResponse) ProtoMessage() {}
+
+func (x *GetPreferredDeviceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[35]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPreferredDeviceResponse.ProtoReflect.Descriptor instead.
+func (*GetPreferredDeviceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{35}
+}
+
+func (x *GetPreferredDeviceResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetRoutedDeviceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRoutedDeviceRequest) Reset() {
+	*x = GetRoutedDeviceRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[36]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRoutedDeviceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRoutedDeviceRequest) ProtoMessage() {}
+
+func (x *GetRoutedDeviceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[36]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRoutedDeviceRequest.ProtoReflect.Descriptor instead.
+func (*GetRoutedDeviceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{36}
+}
+
+func (x *GetRoutedDeviceRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetRoutedDeviceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRoutedDeviceResponse) Reset() {
+	*x = GetRoutedDeviceResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[37]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRoutedDeviceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRoutedDeviceResponse) ProtoMessage() {}
+
+func (x *GetRoutedDeviceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[37]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRoutedDeviceResponse.ProtoReflect.Descriptor instead.
+func (*GetRoutedDeviceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{37}
+}
+
+func (x *GetRoutedDeviceResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSelectedTrackRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSelectedTrackRequest) Reset() {
+	*x = GetSelectedTrackRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[38]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSelectedTrackRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSelectedTrackRequest) ProtoMessage() {}
+
+func (x *GetSelectedTrackRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[38]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSelectedTrackRequest.ProtoReflect.Descriptor instead.
+func (*GetSelectedTrackRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{38}
+}
+
+func (x *GetSelectedTrackRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetSelectedTrackRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetSelectedTrackResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSelectedTrackResponse) Reset() {
+	*x = GetSelectedTrackResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[39]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSelectedTrackResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSelectedTrackResponse) ProtoMessage() {}
+
+func (x *GetSelectedTrackResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[39]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSelectedTrackResponse.ProtoReflect.Descriptor instead.
+func (*GetSelectedTrackResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{39}
+}
+
+func (x *GetSelectedTrackResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSyncParamsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSyncParamsRequest) Reset() {
+	*x = GetSyncParamsRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[40]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSyncParamsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSyncParamsRequest) ProtoMessage() {}
+
+func (x *GetSyncParamsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[40]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSyncParamsRequest.ProtoReflect.Descriptor instead.
+func (*GetSyncParamsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{40}
+}
+
+func (x *GetSyncParamsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetSyncParamsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSyncParamsResponse) Reset() {
+	*x = GetSyncParamsResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[41]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSyncParamsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSyncParamsResponse) ProtoMessage() {}
+
+func (x *GetSyncParamsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[41]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSyncParamsResponse.ProtoReflect.Descriptor instead.
+func (*GetSyncParamsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{41}
+}
+
+func (x *GetSyncParamsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetTimestampRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTimestampRequest) Reset() {
+	*x = GetTimestampRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[42]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTimestampRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTimestampRequest) ProtoMessage() {}
+
+func (x *GetTimestampRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[42]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTimestampRequest.ProtoReflect.Descriptor instead.
+func (*GetTimestampRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{42}
+}
+
+func (x *GetTimestampRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetTimestampResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTimestampResponse) Reset() {
+	*x = GetTimestampResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[43]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTimestampResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTimestampResponse) ProtoMessage() {}
+
+func (x *GetTimestampResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[43]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTimestampResponse.ProtoReflect.Descriptor instead.
+func (*GetTimestampResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{43}
+}
+
+func (x *GetTimestampResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetTrackInfoRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTrackInfoRequest) Reset() {
+	*x = GetTrackInfoRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[44]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTrackInfoRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTrackInfoRequest) ProtoMessage() {}
+
+func (x *GetTrackInfoRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[44]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTrackInfoRequest.ProtoReflect.Descriptor instead.
+func (*GetTrackInfoRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{44}
+}
+
+func (x *GetTrackInfoRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetTrackInfoResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTrackInfoResponse) Reset() {
+	*x = GetTrackInfoResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[45]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTrackInfoResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTrackInfoResponse) ProtoMessage() {}
+
+func (x *GetTrackInfoResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[45]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTrackInfoResponse.ProtoReflect.Descriptor instead.
+func (*GetTrackInfoResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{45}
+}
+
+func (x *GetTrackInfoResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetVideoHeightRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetVideoHeightRequest) Reset() {
+	*x = GetVideoHeightRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[46]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetVideoHeightRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetVideoHeightRequest) ProtoMessage() {}
+
+func (x *GetVideoHeightRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[46]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetVideoHeightRequest.ProtoReflect.Descriptor instead.
+func (*GetVideoHeightRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{46}
+}
+
+func (x *GetVideoHeightRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetVideoHeightResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetVideoHeightResponse) Reset() {
+	*x = GetVideoHeightResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[47]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetVideoHeightResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetVideoHeightResponse) ProtoMessage() {}
+
+func (x *GetVideoHeightResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[47]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetVideoHeightResponse.ProtoReflect.Descriptor instead.
+func (*GetVideoHeightResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{47}
+}
+
+func (x *GetVideoHeightResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetVideoWidthRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetVideoWidthRequest) Reset() {
+	*x = GetVideoWidthRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[48]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetVideoWidthRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetVideoWidthRequest) ProtoMessage() {}
+
+func (x *GetVideoWidthRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[48]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetVideoWidthRequest.ProtoReflect.Descriptor instead.
+func (*GetVideoWidthRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{48}
+}
+
+func (x *GetVideoWidthRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetVideoWidthResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetVideoWidthResponse) Reset() {
+	*x = GetVideoWidthResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[49]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetVideoWidthResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetVideoWidthResponse) ProtoMessage() {}
+
+func (x *GetVideoWidthResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[49]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetVideoWidthResponse.ProtoReflect.Descriptor instead.
+func (*GetVideoWidthResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{49}
+}
+
+func (x *GetVideoWidthResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type IsLoopingRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsLoopingRequest) Reset() {
+	*x = IsLoopingRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[50]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsLoopingRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsLoopingRequest) ProtoMessage() {}
+
+func (x *IsLoopingRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[50]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsLoopingRequest.ProtoReflect.Descriptor instead.
+func (*IsLoopingRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{50}
+}
+
+func (x *IsLoopingRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type IsLoopingResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsLoopingResponse) Reset() {
+	*x = IsLoopingResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[51]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsLoopingResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsLoopingResponse) ProtoMessage() {}
+
+func (x *IsLoopingResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[51]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsLoopingResponse.ProtoReflect.Descriptor instead.
+func (*IsLoopingResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{51}
+}
+
+func (x *IsLoopingResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsPlayingRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsPlayingRequest) Reset() {
+	*x = IsPlayingRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[52]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsPlayingRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsPlayingRequest) ProtoMessage() {}
+
+func (x *IsPlayingRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[52]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsPlayingRequest.ProtoReflect.Descriptor instead.
+func (*IsPlayingRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{52}
+}
+
+func (x *IsPlayingRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type IsPlayingResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsPlayingResponse) Reset() {
+	*x = IsPlayingResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[53]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsPlayingResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsPlayingResponse) ProtoMessage() {}
+
+func (x *IsPlayingResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[53]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsPlayingResponse.ProtoReflect.Descriptor instead.
+func (*IsPlayingResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{53}
+}
+
+func (x *IsPlayingResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type PauseRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PauseRequest) Reset() {
+	*x = PauseRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[54]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PauseRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PauseRequest) ProtoMessage() {}
+
+func (x *PauseRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[54]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PauseRequest.ProtoReflect.Descriptor instead.
+func (*PauseRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{54}
+}
+
+func (x *PauseRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type PauseResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PauseResponse) Reset() {
+	*x = PauseResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[55]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PauseResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PauseResponse) ProtoMessage() {}
+
+func (x *PauseResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[55]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PauseResponse.ProtoReflect.Descriptor instead.
+func (*PauseResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{55}
+}
+
+type PrepareRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PrepareRequest) Reset() {
+	*x = PrepareRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[56]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PrepareRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PrepareRequest) ProtoMessage() {}
+
+func (x *PrepareRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[56]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PrepareRequest.ProtoReflect.Descriptor instead.
+func (*PrepareRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{56}
+}
+
+func (x *PrepareRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type PrepareResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PrepareResponse) Reset() {
+	*x = PrepareResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[57]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PrepareResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PrepareResponse) ProtoMessage() {}
+
+func (x *PrepareResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[57]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PrepareResponse.ProtoReflect.Descriptor instead.
+func (*PrepareResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{57}
+}
+
+type PrepareAsyncRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PrepareAsyncRequest) Reset() {
+	*x = PrepareAsyncRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[58]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PrepareAsyncRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PrepareAsyncRequest) ProtoMessage() {}
+
+func (x *PrepareAsyncRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[58]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PrepareAsyncRequest.ProtoReflect.Descriptor instead.
+func (*PrepareAsyncRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{58}
+}
+
+func (x *PrepareAsyncRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type PrepareAsyncResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PrepareAsyncResponse) Reset() {
+	*x = PrepareAsyncResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[59]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PrepareAsyncResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PrepareAsyncResponse) ProtoMessage() {}
+
+func (x *PrepareAsyncResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[59]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PrepareAsyncResponse.ProtoReflect.Descriptor instead.
+func (*PrepareAsyncResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{59}
+}
+
+type PrepareDrmRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PrepareDrmRequest) Reset() {
+	*x = PrepareDrmRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[60]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PrepareDrmRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PrepareDrmRequest) ProtoMessage() {}
+
+func (x *PrepareDrmRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[60]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PrepareDrmRequest.ProtoReflect.Descriptor instead.
+func (*PrepareDrmRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{60}
+}
+
+func (x *PrepareDrmRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *PrepareDrmRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type PrepareDrmResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PrepareDrmResponse) Reset() {
+	*x = PrepareDrmResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[61]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PrepareDrmResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PrepareDrmResponse) ProtoMessage() {}
+
+func (x *PrepareDrmResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[61]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PrepareDrmResponse.ProtoReflect.Descriptor instead.
+func (*PrepareDrmResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{61}
+}
+
+type ProvideKeyResponseRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ProvideKeyResponseRequest) Reset() {
+	*x = ProvideKeyResponseRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[62]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ProvideKeyResponseRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ProvideKeyResponseRequest) ProtoMessage() {}
+
+func (x *ProvideKeyResponseRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[62]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ProvideKeyResponseRequest.ProtoReflect.Descriptor instead.
+func (*ProvideKeyResponseRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{62}
+}
+
+func (x *ProvideKeyResponseRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *ProvideKeyResponseRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *ProvideKeyResponseRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type ProvideKeyResponseResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ProvideKeyResponseResponse) Reset() {
+	*x = ProvideKeyResponseResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[63]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ProvideKeyResponseResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ProvideKeyResponseResponse) ProtoMessage() {}
+
+func (x *ProvideKeyResponseResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[63]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ProvideKeyResponseResponse.ProtoReflect.Descriptor instead.
+func (*ProvideKeyResponseResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{63}
+}
+
+func (x *ProvideKeyResponseResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ReleaseRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ReleaseRequest) Reset() {
+	*x = ReleaseRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[64]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ReleaseRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ReleaseRequest) ProtoMessage() {}
+
+func (x *ReleaseRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[64]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ReleaseRequest.ProtoReflect.Descriptor instead.
+func (*ReleaseRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{64}
+}
+
+func (x *ReleaseRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type ReleaseResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ReleaseResponse) Reset() {
+	*x = ReleaseResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[65]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ReleaseResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ReleaseResponse) ProtoMessage() {}
+
+func (x *ReleaseResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[65]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ReleaseResponse.ProtoReflect.Descriptor instead.
+func (*ReleaseResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{65}
+}
+
+type ReleaseDrmRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ReleaseDrmRequest) Reset() {
+	*x = ReleaseDrmRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[66]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ReleaseDrmRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ReleaseDrmRequest) ProtoMessage() {}
+
+func (x *ReleaseDrmRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[66]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ReleaseDrmRequest.ProtoReflect.Descriptor instead.
+func (*ReleaseDrmRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{66}
+}
+
+func (x *ReleaseDrmRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type ReleaseDrmResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ReleaseDrmResponse) Reset() {
+	*x = ReleaseDrmResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[67]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ReleaseDrmResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ReleaseDrmResponse) ProtoMessage() {}
+
+func (x *ReleaseDrmResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[67]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ReleaseDrmResponse.ProtoReflect.Descriptor instead.
+func (*ReleaseDrmResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{67}
+}
+
+type RemoveOnRoutingChangedListenerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RemoveOnRoutingChangedListenerRequest) Reset() {
+	*x = RemoveOnRoutingChangedListenerRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[68]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RemoveOnRoutingChangedListenerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemoveOnRoutingChangedListenerRequest) ProtoMessage() {}
+
+func (x *RemoveOnRoutingChangedListenerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[68]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemoveOnRoutingChangedListenerRequest.ProtoReflect.Descriptor instead.
+func (*RemoveOnRoutingChangedListenerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{68}
+}
+
+func (x *RemoveOnRoutingChangedListenerRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *RemoveOnRoutingChangedListenerRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type RemoveOnRoutingChangedListenerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RemoveOnRoutingChangedListenerResponse) Reset() {
+	*x = RemoveOnRoutingChangedListenerResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[69]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RemoveOnRoutingChangedListenerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemoveOnRoutingChangedListenerResponse) ProtoMessage() {}
+
+func (x *RemoveOnRoutingChangedListenerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[69]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemoveOnRoutingChangedListenerResponse.ProtoReflect.Descriptor instead.
+func (*RemoveOnRoutingChangedListenerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{69}
+}
+
+type ResetRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ResetRequest) Reset() {
+	*x = ResetRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[70]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ResetRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ResetRequest) ProtoMessage() {}
+
+func (x *ResetRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[70]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ResetRequest.ProtoReflect.Descriptor instead.
+func (*ResetRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{70}
+}
+
+func (x *ResetRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type ResetResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ResetResponse) Reset() {
+	*x = ResetResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[71]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ResetResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ResetResponse) ProtoMessage() {}
+
+func (x *ResetResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[71]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ResetResponse.ProtoReflect.Descriptor instead.
+func (*ResetResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{71}
+}
+
+type RestoreKeysRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RestoreKeysRequest) Reset() {
+	*x = RestoreKeysRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[72]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RestoreKeysRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RestoreKeysRequest) ProtoMessage() {}
+
+func (x *RestoreKeysRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[72]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RestoreKeysRequest.ProtoReflect.Descriptor instead.
+func (*RestoreKeysRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{72}
+}
+
+func (x *RestoreKeysRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *RestoreKeysRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type RestoreKeysResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RestoreKeysResponse) Reset() {
+	*x = RestoreKeysResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[73]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RestoreKeysResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RestoreKeysResponse) ProtoMessage() {}
+
+func (x *RestoreKeysResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[73]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RestoreKeysResponse.ProtoReflect.Descriptor instead.
+func (*RestoreKeysResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{73}
+}
+
+type SeekTo1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SeekTo1Request) Reset() {
+	*x = SeekTo1Request{}
+	mi := &file_proto_player_player_proto_msgTypes[74]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SeekTo1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SeekTo1Request) ProtoMessage() {}
+
+func (x *SeekTo1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[74]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SeekTo1Request.ProtoReflect.Descriptor instead.
+func (*SeekTo1Request) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{74}
+}
+
+func (x *SeekTo1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SeekTo1Request) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SeekTo1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SeekTo1Response) Reset() {
+	*x = SeekTo1Response{}
+	mi := &file_proto_player_player_proto_msgTypes[75]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SeekTo1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SeekTo1Response) ProtoMessage() {}
+
+func (x *SeekTo1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[75]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SeekTo1Response.ProtoReflect.Descriptor instead.
+func (*SeekTo1Response) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{75}
+}
+
+type SeekTo2_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SeekTo2_1Request) Reset() {
+	*x = SeekTo2_1Request{}
+	mi := &file_proto_player_player_proto_msgTypes[76]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SeekTo2_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SeekTo2_1Request) ProtoMessage() {}
+
+func (x *SeekTo2_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[76]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SeekTo2_1Request.ProtoReflect.Descriptor instead.
+func (*SeekTo2_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{76}
+}
+
+func (x *SeekTo2_1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SeekTo2_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SeekTo2_1Request) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type SeekTo2_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SeekTo2_1Response) Reset() {
+	*x = SeekTo2_1Response{}
+	mi := &file_proto_player_player_proto_msgTypes[77]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SeekTo2_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SeekTo2_1Response) ProtoMessage() {}
+
+func (x *SeekTo2_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[77]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SeekTo2_1Response.ProtoReflect.Descriptor instead.
+func (*SeekTo2_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{77}
+}
+
+type SelectTrackRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SelectTrackRequest) Reset() {
+	*x = SelectTrackRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[78]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SelectTrackRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SelectTrackRequest) ProtoMessage() {}
+
+func (x *SelectTrackRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[78]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SelectTrackRequest.ProtoReflect.Descriptor instead.
+func (*SelectTrackRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{78}
+}
+
+func (x *SelectTrackRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SelectTrackRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SelectTrackResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SelectTrackResponse) Reset() {
+	*x = SelectTrackResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[79]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SelectTrackResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SelectTrackResponse) ProtoMessage() {}
+
+func (x *SelectTrackResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[79]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SelectTrackResponse.ProtoReflect.Descriptor instead.
+func (*SelectTrackResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{79}
+}
+
+type SetAudioAttributesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetAudioAttributesRequest) Reset() {
+	*x = SetAudioAttributesRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[80]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetAudioAttributesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetAudioAttributesRequest) ProtoMessage() {}
+
+func (x *SetAudioAttributesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[80]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetAudioAttributesRequest.ProtoReflect.Descriptor instead.
+func (*SetAudioAttributesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{80}
+}
+
+func (x *SetAudioAttributesRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetAudioAttributesRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetAudioAttributesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetAudioAttributesResponse) Reset() {
+	*x = SetAudioAttributesResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[81]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetAudioAttributesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetAudioAttributesResponse) ProtoMessage() {}
+
+func (x *SetAudioAttributesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[81]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetAudioAttributesResponse.ProtoReflect.Descriptor instead.
+func (*SetAudioAttributesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{81}
+}
+
+type SetAudioSessionIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetAudioSessionIdRequest) Reset() {
+	*x = SetAudioSessionIdRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[82]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetAudioSessionIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetAudioSessionIdRequest) ProtoMessage() {}
+
+func (x *SetAudioSessionIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[82]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetAudioSessionIdRequest.ProtoReflect.Descriptor instead.
+func (*SetAudioSessionIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{82}
+}
+
+func (x *SetAudioSessionIdRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetAudioSessionIdRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetAudioSessionIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetAudioSessionIdResponse) Reset() {
+	*x = SetAudioSessionIdResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[83]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetAudioSessionIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetAudioSessionIdResponse) ProtoMessage() {}
+
+func (x *SetAudioSessionIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[83]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetAudioSessionIdResponse.ProtoReflect.Descriptor instead.
+func (*SetAudioSessionIdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{83}
+}
+
+type SetAudioStreamTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetAudioStreamTypeRequest) Reset() {
+	*x = SetAudioStreamTypeRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[84]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetAudioStreamTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetAudioStreamTypeRequest) ProtoMessage() {}
+
+func (x *SetAudioStreamTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[84]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetAudioStreamTypeRequest.ProtoReflect.Descriptor instead.
+func (*SetAudioStreamTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{84}
+}
+
+func (x *SetAudioStreamTypeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetAudioStreamTypeRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetAudioStreamTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetAudioStreamTypeResponse) Reset() {
+	*x = SetAudioStreamTypeResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[85]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetAudioStreamTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetAudioStreamTypeResponse) ProtoMessage() {}
+
+func (x *SetAudioStreamTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[85]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetAudioStreamTypeResponse.ProtoReflect.Descriptor instead.
+func (*SetAudioStreamTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{85}
+}
+
+type SetAuxEffectSendLevelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          float32                `protobuf:"fixed32,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetAuxEffectSendLevelRequest) Reset() {
+	*x = SetAuxEffectSendLevelRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[86]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetAuxEffectSendLevelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetAuxEffectSendLevelRequest) ProtoMessage() {}
+
+func (x *SetAuxEffectSendLevelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[86]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetAuxEffectSendLevelRequest.ProtoReflect.Descriptor instead.
+func (*SetAuxEffectSendLevelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{86}
+}
+
+func (x *SetAuxEffectSendLevelRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetAuxEffectSendLevelRequest) GetArg0() float32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetAuxEffectSendLevelResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetAuxEffectSendLevelResponse) Reset() {
+	*x = SetAuxEffectSendLevelResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[87]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetAuxEffectSendLevelResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetAuxEffectSendLevelResponse) ProtoMessage() {}
+
+func (x *SetAuxEffectSendLevelResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[87]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetAuxEffectSendLevelResponse.ProtoReflect.Descriptor instead.
+func (*SetAuxEffectSendLevelResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{87}
+}
+
+type SetDataSource2Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetDataSource2Request) Reset() {
+	*x = SetDataSource2Request{}
+	mi := &file_proto_player_player_proto_msgTypes[88]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetDataSource2Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetDataSource2Request) ProtoMessage() {}
+
+func (x *SetDataSource2Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[88]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetDataSource2Request.ProtoReflect.Descriptor instead.
+func (*SetDataSource2Request) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{88}
+}
+
+func (x *SetDataSource2Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetDataSource2Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SetDataSource2Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type SetDataSource2Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetDataSource2Response) Reset() {
+	*x = SetDataSource2Response{}
+	mi := &file_proto_player_player_proto_msgTypes[89]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetDataSource2Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetDataSource2Response) ProtoMessage() {}
+
+func (x *SetDataSource2Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[89]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetDataSource2Response.ProtoReflect.Descriptor instead.
+func (*SetDataSource2Response) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{89}
+}
+
+type SetDataSource1_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetDataSource1_1Request) Reset() {
+	*x = SetDataSource1_1Request{}
+	mi := &file_proto_player_player_proto_msgTypes[90]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetDataSource1_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetDataSource1_1Request) ProtoMessage() {}
+
+func (x *SetDataSource1_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[90]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetDataSource1_1Request.ProtoReflect.Descriptor instead.
+func (*SetDataSource1_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{90}
+}
+
+func (x *SetDataSource1_1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetDataSource1_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetDataSource1_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetDataSource1_1Response) Reset() {
+	*x = SetDataSource1_1Response{}
+	mi := &file_proto_player_player_proto_msgTypes[91]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetDataSource1_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetDataSource1_1Response) ProtoMessage() {}
+
+func (x *SetDataSource1_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[91]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetDataSource1_1Response.ProtoReflect.Descriptor instead.
+func (*SetDataSource1_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{91}
+}
+
+type SetDataSource1_2Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetDataSource1_2Request) Reset() {
+	*x = SetDataSource1_2Request{}
+	mi := &file_proto_player_player_proto_msgTypes[92]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetDataSource1_2Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetDataSource1_2Request) ProtoMessage() {}
+
+func (x *SetDataSource1_2Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[92]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetDataSource1_2Request.ProtoReflect.Descriptor instead.
+func (*SetDataSource1_2Request) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{92}
+}
+
+func (x *SetDataSource1_2Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetDataSource1_2Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetDataSource1_2Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetDataSource1_2Response) Reset() {
+	*x = SetDataSource1_2Response{}
+	mi := &file_proto_player_player_proto_msgTypes[93]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetDataSource1_2Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetDataSource1_2Response) ProtoMessage() {}
+
+func (x *SetDataSource1_2Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[93]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetDataSource1_2Response.ProtoReflect.Descriptor instead.
+func (*SetDataSource1_2Response) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{93}
+}
+
+type SetDataSource1_3Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetDataSource1_3Request) Reset() {
+	*x = SetDataSource1_3Request{}
+	mi := &file_proto_player_player_proto_msgTypes[94]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetDataSource1_3Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetDataSource1_3Request) ProtoMessage() {}
+
+func (x *SetDataSource1_3Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[94]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetDataSource1_3Request.ProtoReflect.Descriptor instead.
+func (*SetDataSource1_3Request) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{94}
+}
+
+func (x *SetDataSource1_3Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetDataSource1_3Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetDataSource1_3Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetDataSource1_3Response) Reset() {
+	*x = SetDataSource1_3Response{}
+	mi := &file_proto_player_player_proto_msgTypes[95]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetDataSource1_3Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetDataSource1_3Response) ProtoMessage() {}
+
+func (x *SetDataSource1_3Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[95]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetDataSource1_3Response.ProtoReflect.Descriptor instead.
+func (*SetDataSource1_3Response) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{95}
+}
+
+type SetDataSource3_4Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetDataSource3_4Request) Reset() {
+	*x = SetDataSource3_4Request{}
+	mi := &file_proto_player_player_proto_msgTypes[96]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetDataSource3_4Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetDataSource3_4Request) ProtoMessage() {}
+
+func (x *SetDataSource3_4Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[96]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetDataSource3_4Request.ProtoReflect.Descriptor instead.
+func (*SetDataSource3_4Request) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{96}
+}
+
+func (x *SetDataSource3_4Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetDataSource3_4Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SetDataSource3_4Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *SetDataSource3_4Request) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type SetDataSource3_4Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetDataSource3_4Response) Reset() {
+	*x = SetDataSource3_4Response{}
+	mi := &file_proto_player_player_proto_msgTypes[97]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetDataSource3_4Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetDataSource3_4Response) ProtoMessage() {}
+
+func (x *SetDataSource3_4Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[97]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetDataSource3_4Response.ProtoReflect.Descriptor instead.
+func (*SetDataSource3_4Response) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{97}
+}
+
+type SetDataSource1_5Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          string                 `protobuf:"bytes,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetDataSource1_5Request) Reset() {
+	*x = SetDataSource1_5Request{}
+	mi := &file_proto_player_player_proto_msgTypes[98]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetDataSource1_5Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetDataSource1_5Request) ProtoMessage() {}
+
+func (x *SetDataSource1_5Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[98]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetDataSource1_5Request.ProtoReflect.Descriptor instead.
+func (*SetDataSource1_5Request) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{98}
+}
+
+func (x *SetDataSource1_5Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetDataSource1_5Request) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type SetDataSource1_5Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetDataSource1_5Response) Reset() {
+	*x = SetDataSource1_5Response{}
+	mi := &file_proto_player_player_proto_msgTypes[99]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetDataSource1_5Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetDataSource1_5Response) ProtoMessage() {}
+
+func (x *SetDataSource1_5Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[99]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetDataSource1_5Response.ProtoReflect.Descriptor instead.
+func (*SetDataSource1_5Response) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{99}
+}
+
+type SetDisplayRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetDisplayRequest) Reset() {
+	*x = SetDisplayRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[100]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetDisplayRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetDisplayRequest) ProtoMessage() {}
+
+func (x *SetDisplayRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[100]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetDisplayRequest.ProtoReflect.Descriptor instead.
+func (*SetDisplayRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{100}
+}
+
+func (x *SetDisplayRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetDisplayRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetDisplayResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetDisplayResponse) Reset() {
+	*x = SetDisplayResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[101]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetDisplayResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetDisplayResponse) ProtoMessage() {}
+
+func (x *SetDisplayResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[101]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetDisplayResponse.ProtoReflect.Descriptor instead.
+func (*SetDisplayResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{101}
+}
+
+type SetDrmPropertyStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          string                 `protobuf:"bytes,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetDrmPropertyStringRequest) Reset() {
+	*x = SetDrmPropertyStringRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[102]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetDrmPropertyStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetDrmPropertyStringRequest) ProtoMessage() {}
+
+func (x *SetDrmPropertyStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[102]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetDrmPropertyStringRequest.ProtoReflect.Descriptor instead.
+func (*SetDrmPropertyStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{102}
+}
+
+func (x *SetDrmPropertyStringRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetDrmPropertyStringRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *SetDrmPropertyStringRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+type SetDrmPropertyStringResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetDrmPropertyStringResponse) Reset() {
+	*x = SetDrmPropertyStringResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[103]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetDrmPropertyStringResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetDrmPropertyStringResponse) ProtoMessage() {}
+
+func (x *SetDrmPropertyStringResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[103]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetDrmPropertyStringResponse.ProtoReflect.Descriptor instead.
+func (*SetDrmPropertyStringResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{103}
+}
+
+type SetLoopingRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          bool                   `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetLoopingRequest) Reset() {
+	*x = SetLoopingRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[104]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetLoopingRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetLoopingRequest) ProtoMessage() {}
+
+func (x *SetLoopingRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[104]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetLoopingRequest.ProtoReflect.Descriptor instead.
+func (*SetLoopingRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{104}
+}
+
+func (x *SetLoopingRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetLoopingRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetLoopingResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetLoopingResponse) Reset() {
+	*x = SetLoopingResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[105]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetLoopingResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetLoopingResponse) ProtoMessage() {}
+
+func (x *SetLoopingResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[105]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetLoopingResponse.ProtoReflect.Descriptor instead.
+func (*SetLoopingResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{105}
+}
+
+type SetNextMediaPlayerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetNextMediaPlayerRequest) Reset() {
+	*x = SetNextMediaPlayerRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[106]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetNextMediaPlayerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetNextMediaPlayerRequest) ProtoMessage() {}
+
+func (x *SetNextMediaPlayerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[106]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetNextMediaPlayerRequest.ProtoReflect.Descriptor instead.
+func (*SetNextMediaPlayerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{106}
+}
+
+func (x *SetNextMediaPlayerRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetNextMediaPlayerRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetNextMediaPlayerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetNextMediaPlayerResponse) Reset() {
+	*x = SetNextMediaPlayerResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[107]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetNextMediaPlayerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetNextMediaPlayerResponse) ProtoMessage() {}
+
+func (x *SetNextMediaPlayerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[107]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetNextMediaPlayerResponse.ProtoReflect.Descriptor instead.
+func (*SetNextMediaPlayerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{107}
+}
+
+type SetOnBufferingUpdateListenerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetOnBufferingUpdateListenerRequest) Reset() {
+	*x = SetOnBufferingUpdateListenerRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[108]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetOnBufferingUpdateListenerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetOnBufferingUpdateListenerRequest) ProtoMessage() {}
+
+func (x *SetOnBufferingUpdateListenerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[108]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetOnBufferingUpdateListenerRequest.ProtoReflect.Descriptor instead.
+func (*SetOnBufferingUpdateListenerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{108}
+}
+
+func (x *SetOnBufferingUpdateListenerRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetOnBufferingUpdateListenerRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetOnBufferingUpdateListenerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetOnBufferingUpdateListenerResponse) Reset() {
+	*x = SetOnBufferingUpdateListenerResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[109]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetOnBufferingUpdateListenerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetOnBufferingUpdateListenerResponse) ProtoMessage() {}
+
+func (x *SetOnBufferingUpdateListenerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[109]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetOnBufferingUpdateListenerResponse.ProtoReflect.Descriptor instead.
+func (*SetOnBufferingUpdateListenerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{109}
+}
+
+type SetOnCompletionListenerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetOnCompletionListenerRequest) Reset() {
+	*x = SetOnCompletionListenerRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[110]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetOnCompletionListenerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetOnCompletionListenerRequest) ProtoMessage() {}
+
+func (x *SetOnCompletionListenerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[110]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetOnCompletionListenerRequest.ProtoReflect.Descriptor instead.
+func (*SetOnCompletionListenerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{110}
+}
+
+func (x *SetOnCompletionListenerRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetOnCompletionListenerRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetOnCompletionListenerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetOnCompletionListenerResponse) Reset() {
+	*x = SetOnCompletionListenerResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[111]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetOnCompletionListenerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetOnCompletionListenerResponse) ProtoMessage() {}
+
+func (x *SetOnCompletionListenerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[111]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetOnCompletionListenerResponse.ProtoReflect.Descriptor instead.
+func (*SetOnCompletionListenerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{111}
+}
+
+type SetOnDrmConfigHelperRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetOnDrmConfigHelperRequest) Reset() {
+	*x = SetOnDrmConfigHelperRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[112]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetOnDrmConfigHelperRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetOnDrmConfigHelperRequest) ProtoMessage() {}
+
+func (x *SetOnDrmConfigHelperRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[112]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetOnDrmConfigHelperRequest.ProtoReflect.Descriptor instead.
+func (*SetOnDrmConfigHelperRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{112}
+}
+
+func (x *SetOnDrmConfigHelperRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetOnDrmConfigHelperRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetOnDrmConfigHelperResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetOnDrmConfigHelperResponse) Reset() {
+	*x = SetOnDrmConfigHelperResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[113]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetOnDrmConfigHelperResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetOnDrmConfigHelperResponse) ProtoMessage() {}
+
+func (x *SetOnDrmConfigHelperResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[113]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetOnDrmConfigHelperResponse.ProtoReflect.Descriptor instead.
+func (*SetOnDrmConfigHelperResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{113}
+}
+
+type SetOnDrmInfoListenerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetOnDrmInfoListenerRequest) Reset() {
+	*x = SetOnDrmInfoListenerRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[114]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetOnDrmInfoListenerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetOnDrmInfoListenerRequest) ProtoMessage() {}
+
+func (x *SetOnDrmInfoListenerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[114]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetOnDrmInfoListenerRequest.ProtoReflect.Descriptor instead.
+func (*SetOnDrmInfoListenerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{114}
+}
+
+func (x *SetOnDrmInfoListenerRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetOnDrmInfoListenerRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetOnDrmInfoListenerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetOnDrmInfoListenerResponse) Reset() {
+	*x = SetOnDrmInfoListenerResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[115]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetOnDrmInfoListenerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetOnDrmInfoListenerResponse) ProtoMessage() {}
+
+func (x *SetOnDrmInfoListenerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[115]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetOnDrmInfoListenerResponse.ProtoReflect.Descriptor instead.
+func (*SetOnDrmInfoListenerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{115}
+}
+
+type SetOnDrmPreparedListenerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetOnDrmPreparedListenerRequest) Reset() {
+	*x = SetOnDrmPreparedListenerRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[116]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetOnDrmPreparedListenerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetOnDrmPreparedListenerRequest) ProtoMessage() {}
+
+func (x *SetOnDrmPreparedListenerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[116]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetOnDrmPreparedListenerRequest.ProtoReflect.Descriptor instead.
+func (*SetOnDrmPreparedListenerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{116}
+}
+
+func (x *SetOnDrmPreparedListenerRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetOnDrmPreparedListenerRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetOnDrmPreparedListenerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetOnDrmPreparedListenerResponse) Reset() {
+	*x = SetOnDrmPreparedListenerResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[117]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetOnDrmPreparedListenerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetOnDrmPreparedListenerResponse) ProtoMessage() {}
+
+func (x *SetOnDrmPreparedListenerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[117]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetOnDrmPreparedListenerResponse.ProtoReflect.Descriptor instead.
+func (*SetOnDrmPreparedListenerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{117}
+}
+
+type SetOnErrorListenerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetOnErrorListenerRequest) Reset() {
+	*x = SetOnErrorListenerRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[118]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetOnErrorListenerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetOnErrorListenerRequest) ProtoMessage() {}
+
+func (x *SetOnErrorListenerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[118]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetOnErrorListenerRequest.ProtoReflect.Descriptor instead.
+func (*SetOnErrorListenerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{118}
+}
+
+func (x *SetOnErrorListenerRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetOnErrorListenerRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetOnErrorListenerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetOnErrorListenerResponse) Reset() {
+	*x = SetOnErrorListenerResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[119]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetOnErrorListenerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetOnErrorListenerResponse) ProtoMessage() {}
+
+func (x *SetOnErrorListenerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[119]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetOnErrorListenerResponse.ProtoReflect.Descriptor instead.
+func (*SetOnErrorListenerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{119}
+}
+
+type SetOnInfoListenerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetOnInfoListenerRequest) Reset() {
+	*x = SetOnInfoListenerRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[120]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetOnInfoListenerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetOnInfoListenerRequest) ProtoMessage() {}
+
+func (x *SetOnInfoListenerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[120]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetOnInfoListenerRequest.ProtoReflect.Descriptor instead.
+func (*SetOnInfoListenerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{120}
+}
+
+func (x *SetOnInfoListenerRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetOnInfoListenerRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetOnInfoListenerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetOnInfoListenerResponse) Reset() {
+	*x = SetOnInfoListenerResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[121]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetOnInfoListenerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetOnInfoListenerResponse) ProtoMessage() {}
+
+func (x *SetOnInfoListenerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[121]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetOnInfoListenerResponse.ProtoReflect.Descriptor instead.
+func (*SetOnInfoListenerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{121}
+}
+
+type SetOnMediaTimeDiscontinuityListenerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetOnMediaTimeDiscontinuityListenerRequest) Reset() {
+	*x = SetOnMediaTimeDiscontinuityListenerRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[122]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetOnMediaTimeDiscontinuityListenerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetOnMediaTimeDiscontinuityListenerRequest) ProtoMessage() {}
+
+func (x *SetOnMediaTimeDiscontinuityListenerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[122]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetOnMediaTimeDiscontinuityListenerRequest.ProtoReflect.Descriptor instead.
+func (*SetOnMediaTimeDiscontinuityListenerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{122}
+}
+
+func (x *SetOnMediaTimeDiscontinuityListenerRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetOnMediaTimeDiscontinuityListenerRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetOnMediaTimeDiscontinuityListenerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetOnMediaTimeDiscontinuityListenerResponse) Reset() {
+	*x = SetOnMediaTimeDiscontinuityListenerResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[123]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetOnMediaTimeDiscontinuityListenerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetOnMediaTimeDiscontinuityListenerResponse) ProtoMessage() {}
+
+func (x *SetOnMediaTimeDiscontinuityListenerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[123]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetOnMediaTimeDiscontinuityListenerResponse.ProtoReflect.Descriptor instead.
+func (*SetOnMediaTimeDiscontinuityListenerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{123}
+}
+
+type SetOnPreparedListenerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetOnPreparedListenerRequest) Reset() {
+	*x = SetOnPreparedListenerRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[124]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetOnPreparedListenerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetOnPreparedListenerRequest) ProtoMessage() {}
+
+func (x *SetOnPreparedListenerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[124]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetOnPreparedListenerRequest.ProtoReflect.Descriptor instead.
+func (*SetOnPreparedListenerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{124}
+}
+
+func (x *SetOnPreparedListenerRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetOnPreparedListenerRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetOnPreparedListenerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetOnPreparedListenerResponse) Reset() {
+	*x = SetOnPreparedListenerResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[125]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetOnPreparedListenerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetOnPreparedListenerResponse) ProtoMessage() {}
+
+func (x *SetOnPreparedListenerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[125]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetOnPreparedListenerResponse.ProtoReflect.Descriptor instead.
+func (*SetOnPreparedListenerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{125}
+}
+
+type SetOnSeekCompleteListenerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetOnSeekCompleteListenerRequest) Reset() {
+	*x = SetOnSeekCompleteListenerRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[126]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetOnSeekCompleteListenerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetOnSeekCompleteListenerRequest) ProtoMessage() {}
+
+func (x *SetOnSeekCompleteListenerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[126]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetOnSeekCompleteListenerRequest.ProtoReflect.Descriptor instead.
+func (*SetOnSeekCompleteListenerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{126}
+}
+
+func (x *SetOnSeekCompleteListenerRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetOnSeekCompleteListenerRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetOnSeekCompleteListenerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetOnSeekCompleteListenerResponse) Reset() {
+	*x = SetOnSeekCompleteListenerResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[127]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetOnSeekCompleteListenerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetOnSeekCompleteListenerResponse) ProtoMessage() {}
+
+func (x *SetOnSeekCompleteListenerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[127]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetOnSeekCompleteListenerResponse.ProtoReflect.Descriptor instead.
+func (*SetOnSeekCompleteListenerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{127}
+}
+
+type SetOnSubtitleDataListenerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetOnSubtitleDataListenerRequest) Reset() {
+	*x = SetOnSubtitleDataListenerRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[128]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetOnSubtitleDataListenerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetOnSubtitleDataListenerRequest) ProtoMessage() {}
+
+func (x *SetOnSubtitleDataListenerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[128]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetOnSubtitleDataListenerRequest.ProtoReflect.Descriptor instead.
+func (*SetOnSubtitleDataListenerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{128}
+}
+
+func (x *SetOnSubtitleDataListenerRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetOnSubtitleDataListenerRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetOnSubtitleDataListenerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetOnSubtitleDataListenerResponse) Reset() {
+	*x = SetOnSubtitleDataListenerResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[129]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetOnSubtitleDataListenerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetOnSubtitleDataListenerResponse) ProtoMessage() {}
+
+func (x *SetOnSubtitleDataListenerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[129]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetOnSubtitleDataListenerResponse.ProtoReflect.Descriptor instead.
+func (*SetOnSubtitleDataListenerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{129}
+}
+
+type SetOnTimedMetaDataAvailableListenerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetOnTimedMetaDataAvailableListenerRequest) Reset() {
+	*x = SetOnTimedMetaDataAvailableListenerRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[130]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetOnTimedMetaDataAvailableListenerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetOnTimedMetaDataAvailableListenerRequest) ProtoMessage() {}
+
+func (x *SetOnTimedMetaDataAvailableListenerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[130]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetOnTimedMetaDataAvailableListenerRequest.ProtoReflect.Descriptor instead.
+func (*SetOnTimedMetaDataAvailableListenerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{130}
+}
+
+func (x *SetOnTimedMetaDataAvailableListenerRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetOnTimedMetaDataAvailableListenerRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetOnTimedMetaDataAvailableListenerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetOnTimedMetaDataAvailableListenerResponse) Reset() {
+	*x = SetOnTimedMetaDataAvailableListenerResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[131]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetOnTimedMetaDataAvailableListenerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetOnTimedMetaDataAvailableListenerResponse) ProtoMessage() {}
+
+func (x *SetOnTimedMetaDataAvailableListenerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[131]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetOnTimedMetaDataAvailableListenerResponse.ProtoReflect.Descriptor instead.
+func (*SetOnTimedMetaDataAvailableListenerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{131}
+}
+
+type SetOnTimedTextListenerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetOnTimedTextListenerRequest) Reset() {
+	*x = SetOnTimedTextListenerRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[132]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetOnTimedTextListenerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetOnTimedTextListenerRequest) ProtoMessage() {}
+
+func (x *SetOnTimedTextListenerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[132]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetOnTimedTextListenerRequest.ProtoReflect.Descriptor instead.
+func (*SetOnTimedTextListenerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{132}
+}
+
+func (x *SetOnTimedTextListenerRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetOnTimedTextListenerRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetOnTimedTextListenerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetOnTimedTextListenerResponse) Reset() {
+	*x = SetOnTimedTextListenerResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[133]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetOnTimedTextListenerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetOnTimedTextListenerResponse) ProtoMessage() {}
+
+func (x *SetOnTimedTextListenerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[133]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetOnTimedTextListenerResponse.ProtoReflect.Descriptor instead.
+func (*SetOnTimedTextListenerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{133}
+}
+
+type SetOnVideoSizeChangedListenerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetOnVideoSizeChangedListenerRequest) Reset() {
+	*x = SetOnVideoSizeChangedListenerRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[134]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetOnVideoSizeChangedListenerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetOnVideoSizeChangedListenerRequest) ProtoMessage() {}
+
+func (x *SetOnVideoSizeChangedListenerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[134]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetOnVideoSizeChangedListenerRequest.ProtoReflect.Descriptor instead.
+func (*SetOnVideoSizeChangedListenerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{134}
+}
+
+func (x *SetOnVideoSizeChangedListenerRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetOnVideoSizeChangedListenerRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetOnVideoSizeChangedListenerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetOnVideoSizeChangedListenerResponse) Reset() {
+	*x = SetOnVideoSizeChangedListenerResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[135]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetOnVideoSizeChangedListenerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetOnVideoSizeChangedListenerResponse) ProtoMessage() {}
+
+func (x *SetOnVideoSizeChangedListenerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[135]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetOnVideoSizeChangedListenerResponse.ProtoReflect.Descriptor instead.
+func (*SetOnVideoSizeChangedListenerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{135}
+}
+
+type SetPlaybackParamsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPlaybackParamsRequest) Reset() {
+	*x = SetPlaybackParamsRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[136]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPlaybackParamsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPlaybackParamsRequest) ProtoMessage() {}
+
+func (x *SetPlaybackParamsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[136]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPlaybackParamsRequest.ProtoReflect.Descriptor instead.
+func (*SetPlaybackParamsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{136}
+}
+
+func (x *SetPlaybackParamsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetPlaybackParamsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetPlaybackParamsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPlaybackParamsResponse) Reset() {
+	*x = SetPlaybackParamsResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[137]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPlaybackParamsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPlaybackParamsResponse) ProtoMessage() {}
+
+func (x *SetPlaybackParamsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[137]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPlaybackParamsResponse.ProtoReflect.Descriptor instead.
+func (*SetPlaybackParamsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{137}
+}
+
+type SetPreferredDeviceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPreferredDeviceRequest) Reset() {
+	*x = SetPreferredDeviceRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[138]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPreferredDeviceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPreferredDeviceRequest) ProtoMessage() {}
+
+func (x *SetPreferredDeviceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[138]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPreferredDeviceRequest.ProtoReflect.Descriptor instead.
+func (*SetPreferredDeviceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{138}
+}
+
+func (x *SetPreferredDeviceRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetPreferredDeviceRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetPreferredDeviceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPreferredDeviceResponse) Reset() {
+	*x = SetPreferredDeviceResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[139]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPreferredDeviceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPreferredDeviceResponse) ProtoMessage() {}
+
+func (x *SetPreferredDeviceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[139]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPreferredDeviceResponse.ProtoReflect.Descriptor instead.
+func (*SetPreferredDeviceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{139}
+}
+
+func (x *SetPreferredDeviceResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type SetScreenOnWhilePlayingRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          bool                   `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetScreenOnWhilePlayingRequest) Reset() {
+	*x = SetScreenOnWhilePlayingRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[140]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetScreenOnWhilePlayingRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetScreenOnWhilePlayingRequest) ProtoMessage() {}
+
+func (x *SetScreenOnWhilePlayingRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[140]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetScreenOnWhilePlayingRequest.ProtoReflect.Descriptor instead.
+func (*SetScreenOnWhilePlayingRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{140}
+}
+
+func (x *SetScreenOnWhilePlayingRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetScreenOnWhilePlayingRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetScreenOnWhilePlayingResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetScreenOnWhilePlayingResponse) Reset() {
+	*x = SetScreenOnWhilePlayingResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[141]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetScreenOnWhilePlayingResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetScreenOnWhilePlayingResponse) ProtoMessage() {}
+
+func (x *SetScreenOnWhilePlayingResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[141]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetScreenOnWhilePlayingResponse.ProtoReflect.Descriptor instead.
+func (*SetScreenOnWhilePlayingResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{141}
+}
+
+type SetSurfaceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetSurfaceRequest) Reset() {
+	*x = SetSurfaceRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[142]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetSurfaceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetSurfaceRequest) ProtoMessage() {}
+
+func (x *SetSurfaceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[142]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetSurfaceRequest.ProtoReflect.Descriptor instead.
+func (*SetSurfaceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{142}
+}
+
+func (x *SetSurfaceRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetSurfaceRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetSurfaceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetSurfaceResponse) Reset() {
+	*x = SetSurfaceResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[143]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetSurfaceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetSurfaceResponse) ProtoMessage() {}
+
+func (x *SetSurfaceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[143]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetSurfaceResponse.ProtoReflect.Descriptor instead.
+func (*SetSurfaceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{143}
+}
+
+type SetSyncParamsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetSyncParamsRequest) Reset() {
+	*x = SetSyncParamsRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[144]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetSyncParamsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetSyncParamsRequest) ProtoMessage() {}
+
+func (x *SetSyncParamsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[144]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetSyncParamsRequest.ProtoReflect.Descriptor instead.
+func (*SetSyncParamsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{144}
+}
+
+func (x *SetSyncParamsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetSyncParamsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetSyncParamsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetSyncParamsResponse) Reset() {
+	*x = SetSyncParamsResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[145]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetSyncParamsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetSyncParamsResponse) ProtoMessage() {}
+
+func (x *SetSyncParamsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[145]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetSyncParamsResponse.ProtoReflect.Descriptor instead.
+func (*SetSyncParamsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{145}
+}
+
+type SetVideoScalingModeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetVideoScalingModeRequest) Reset() {
+	*x = SetVideoScalingModeRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[146]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetVideoScalingModeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetVideoScalingModeRequest) ProtoMessage() {}
+
+func (x *SetVideoScalingModeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[146]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetVideoScalingModeRequest.ProtoReflect.Descriptor instead.
+func (*SetVideoScalingModeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{146}
+}
+
+func (x *SetVideoScalingModeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetVideoScalingModeRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetVideoScalingModeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetVideoScalingModeResponse) Reset() {
+	*x = SetVideoScalingModeResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[147]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetVideoScalingModeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetVideoScalingModeResponse) ProtoMessage() {}
+
+func (x *SetVideoScalingModeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[147]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetVideoScalingModeResponse.ProtoReflect.Descriptor instead.
+func (*SetVideoScalingModeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{147}
+}
+
+type SetVolumeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          float32                `protobuf:"fixed32,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          float32                `protobuf:"fixed32,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetVolumeRequest) Reset() {
+	*x = SetVolumeRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[148]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetVolumeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetVolumeRequest) ProtoMessage() {}
+
+func (x *SetVolumeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[148]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetVolumeRequest.ProtoReflect.Descriptor instead.
+func (*SetVolumeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{148}
+}
+
+func (x *SetVolumeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetVolumeRequest) GetArg0() float32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SetVolumeRequest) GetArg1() float32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type SetVolumeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetVolumeResponse) Reset() {
+	*x = SetVolumeResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[149]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetVolumeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetVolumeResponse) ProtoMessage() {}
+
+func (x *SetVolumeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[149]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetVolumeResponse.ProtoReflect.Descriptor instead.
+func (*SetVolumeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{149}
+}
+
+type SetWakeModeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetWakeModeRequest) Reset() {
+	*x = SetWakeModeRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[150]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetWakeModeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetWakeModeRequest) ProtoMessage() {}
+
+func (x *SetWakeModeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[150]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetWakeModeRequest.ProtoReflect.Descriptor instead.
+func (*SetWakeModeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{150}
+}
+
+func (x *SetWakeModeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetWakeModeRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SetWakeModeRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type SetWakeModeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetWakeModeResponse) Reset() {
+	*x = SetWakeModeResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[151]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetWakeModeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetWakeModeResponse) ProtoMessage() {}
+
+func (x *SetWakeModeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[151]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetWakeModeResponse.ProtoReflect.Descriptor instead.
+func (*SetWakeModeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{151}
+}
+
+type StartRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *StartRequest) Reset() {
+	*x = StartRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[152]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *StartRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StartRequest) ProtoMessage() {}
+
+func (x *StartRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[152]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StartRequest.ProtoReflect.Descriptor instead.
+func (*StartRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{152}
+}
+
+func (x *StartRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type StartResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *StartResponse) Reset() {
+	*x = StartResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[153]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *StartResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StartResponse) ProtoMessage() {}
+
+func (x *StartResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[153]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StartResponse.ProtoReflect.Descriptor instead.
+func (*StartResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{153}
+}
+
+type StopRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *StopRequest) Reset() {
+	*x = StopRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[154]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *StopRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StopRequest) ProtoMessage() {}
+
+func (x *StopRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[154]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StopRequest.ProtoReflect.Descriptor instead.
+func (*StopRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{154}
+}
+
+func (x *StopRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type StopResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *StopResponse) Reset() {
+	*x = StopResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[155]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *StopResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StopResponse) ProtoMessage() {}
+
+func (x *StopResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[155]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StopResponse.ProtoReflect.Descriptor instead.
+func (*StopResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{155}
+}
+
+type Create2Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Create2Request) Reset() {
+	*x = Create2Request{}
+	mi := &file_proto_player_player_proto_msgTypes[156]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Create2Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Create2Request) ProtoMessage() {}
+
+func (x *Create2Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[156]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Create2Request.ProtoReflect.Descriptor instead.
+func (*Create2Request) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{156}
+}
+
+func (x *Create2Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *Create2Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *Create2Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type Create2Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Create2Response) Reset() {
+	*x = Create2Response{}
+	mi := &file_proto_player_player_proto_msgTypes[157]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Create2Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Create2Response) ProtoMessage() {}
+
+func (x *Create2Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[157]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Create2Response.ProtoReflect.Descriptor instead.
+func (*Create2Response) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{157}
+}
+
+func (x *Create2Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type Create3_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Create3_1Request) Reset() {
+	*x = Create3_1Request{}
+	mi := &file_proto_player_player_proto_msgTypes[158]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Create3_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Create3_1Request) ProtoMessage() {}
+
+func (x *Create3_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[158]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Create3_1Request.ProtoReflect.Descriptor instead.
+func (*Create3_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{158}
+}
+
+func (x *Create3_1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *Create3_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *Create3_1Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *Create3_1Request) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type Create3_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Create3_1Response) Reset() {
+	*x = Create3_1Response{}
+	mi := &file_proto_player_player_proto_msgTypes[159]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Create3_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Create3_1Response) ProtoMessage() {}
+
+func (x *Create3_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[159]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Create3_1Response.ProtoReflect.Descriptor instead.
+func (*Create3_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{159}
+}
+
+func (x *Create3_1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type Create5_2Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int64                  `protobuf:"varint,5,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	Arg4          int32                  `protobuf:"varint,6,opt,name=arg4,proto3" json:"arg4,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Create5_2Request) Reset() {
+	*x = Create5_2Request{}
+	mi := &file_proto_player_player_proto_msgTypes[160]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Create5_2Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Create5_2Request) ProtoMessage() {}
+
+func (x *Create5_2Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[160]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Create5_2Request.ProtoReflect.Descriptor instead.
+func (*Create5_2Request) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{160}
+}
+
+func (x *Create5_2Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *Create5_2Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *Create5_2Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *Create5_2Request) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *Create5_2Request) GetArg3() int64 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+func (x *Create5_2Request) GetArg4() int32 {
+	if x != nil {
+		return x.Arg4
+	}
+	return 0
+}
+
+type Create5_2Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Create5_2Response) Reset() {
+	*x = Create5_2Response{}
+	mi := &file_proto_player_player_proto_msgTypes[161]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Create5_2Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Create5_2Response) ProtoMessage() {}
+
+func (x *Create5_2Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[161]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Create5_2Response.ProtoReflect.Descriptor instead.
+func (*Create5_2Response) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{161}
+}
+
+func (x *Create5_2Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type Create2_3Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Create2_3Request) Reset() {
+	*x = Create2_3Request{}
+	mi := &file_proto_player_player_proto_msgTypes[162]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Create2_3Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Create2_3Request) ProtoMessage() {}
+
+func (x *Create2_3Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[162]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Create2_3Request.ProtoReflect.Descriptor instead.
+func (*Create2_3Request) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{162}
+}
+
+func (x *Create2_3Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *Create2_3Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *Create2_3Request) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type Create2_3Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Create2_3Response) Reset() {
+	*x = Create2_3Response{}
+	mi := &file_proto_player_player_proto_msgTypes[163]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Create2_3Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Create2_3Response) ProtoMessage() {}
+
+func (x *Create2_3Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[163]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Create2_3Response.ProtoReflect.Descriptor instead.
+func (*Create2_3Response) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{163}
+}
+
+func (x *Create2_3Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type Create4_4Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int32                  `protobuf:"varint,5,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Create4_4Request) Reset() {
+	*x = Create4_4Request{}
+	mi := &file_proto_player_player_proto_msgTypes[164]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Create4_4Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Create4_4Request) ProtoMessage() {}
+
+func (x *Create4_4Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[164]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Create4_4Request.ProtoReflect.Descriptor instead.
+func (*Create4_4Request) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{164}
+}
+
+func (x *Create4_4Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *Create4_4Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *Create4_4Request) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *Create4_4Request) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *Create4_4Request) GetArg3() int32 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+type Create4_4Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Create4_4Response) Reset() {
+	*x = Create4_4Response{}
+	mi := &file_proto_player_player_proto_msgTypes[165]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Create4_4Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Create4_4Response) ProtoMessage() {}
+
+func (x *Create4_4Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[165]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Create4_4Response.ProtoReflect.Descriptor instead.
+func (*Create4_4Response) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{165}
+}
+
+func (x *Create4_4Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSupportedSchemesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSupportedSchemesRequest) Reset() {
+	*x = GetSupportedSchemesRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[166]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSupportedSchemesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSupportedSchemesRequest) ProtoMessage() {}
+
+func (x *GetSupportedSchemesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[166]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSupportedSchemesRequest.ProtoReflect.Descriptor instead.
+func (*GetSupportedSchemesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{166}
+}
+
+type GetSupportedSchemesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSupportedSchemesResponse) Reset() {
+	*x = GetSupportedSchemesResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[167]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSupportedSchemesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSupportedSchemesResponse) ProtoMessage() {}
+
+func (x *GetSupportedSchemesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[167]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSupportedSchemesResponse.ProtoReflect.Descriptor instead.
+func (*GetSupportedSchemesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{167}
+}
+
+func (x *GetSupportedSchemesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OnBufferingUpdateRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnBufferingUpdateRequest) Reset() {
+	*x = OnBufferingUpdateRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[168]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnBufferingUpdateRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnBufferingUpdateRequest) ProtoMessage() {}
+
+func (x *OnBufferingUpdateRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[168]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnBufferingUpdateRequest.ProtoReflect.Descriptor instead.
+func (*OnBufferingUpdateRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{168}
+}
+
+func (x *OnBufferingUpdateRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnBufferingUpdateRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type OnBufferingUpdateResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnBufferingUpdateResponse) Reset() {
+	*x = OnBufferingUpdateResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[169]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnBufferingUpdateResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnBufferingUpdateResponse) ProtoMessage() {}
+
+func (x *OnBufferingUpdateResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[169]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnBufferingUpdateResponse.ProtoReflect.Descriptor instead.
+func (*OnBufferingUpdateResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{169}
+}
+
+type OnCompletionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnCompletionRequest) Reset() {
+	*x = OnCompletionRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[170]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnCompletionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnCompletionRequest) ProtoMessage() {}
+
+func (x *OnCompletionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[170]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnCompletionRequest.ProtoReflect.Descriptor instead.
+func (*OnCompletionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{170}
+}
+
+func (x *OnCompletionRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnCompletionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnCompletionResponse) Reset() {
+	*x = OnCompletionResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[171]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnCompletionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnCompletionResponse) ProtoMessage() {}
+
+func (x *OnCompletionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[171]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnCompletionResponse.ProtoReflect.Descriptor instead.
+func (*OnCompletionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{171}
+}
+
+type OnDrmConfigRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnDrmConfigRequest) Reset() {
+	*x = OnDrmConfigRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[172]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnDrmConfigRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnDrmConfigRequest) ProtoMessage() {}
+
+func (x *OnDrmConfigRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[172]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnDrmConfigRequest.ProtoReflect.Descriptor instead.
+func (*OnDrmConfigRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{172}
+}
+
+func (x *OnDrmConfigRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnDrmConfigResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnDrmConfigResponse) Reset() {
+	*x = OnDrmConfigResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[173]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnDrmConfigResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnDrmConfigResponse) ProtoMessage() {}
+
+func (x *OnDrmConfigResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[173]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnDrmConfigResponse.ProtoReflect.Descriptor instead.
+func (*OnDrmConfigResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{173}
+}
+
+type OnDrmInfoRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnDrmInfoRequest) Reset() {
+	*x = OnDrmInfoRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[174]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnDrmInfoRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnDrmInfoRequest) ProtoMessage() {}
+
+func (x *OnDrmInfoRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[174]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnDrmInfoRequest.ProtoReflect.Descriptor instead.
+func (*OnDrmInfoRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{174}
+}
+
+func (x *OnDrmInfoRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnDrmInfoRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type OnDrmInfoResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnDrmInfoResponse) Reset() {
+	*x = OnDrmInfoResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[175]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnDrmInfoResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnDrmInfoResponse) ProtoMessage() {}
+
+func (x *OnDrmInfoResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[175]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnDrmInfoResponse.ProtoReflect.Descriptor instead.
+func (*OnDrmInfoResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{175}
+}
+
+type OnDrmPreparedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnDrmPreparedRequest) Reset() {
+	*x = OnDrmPreparedRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[176]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnDrmPreparedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnDrmPreparedRequest) ProtoMessage() {}
+
+func (x *OnDrmPreparedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[176]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnDrmPreparedRequest.ProtoReflect.Descriptor instead.
+func (*OnDrmPreparedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{176}
+}
+
+func (x *OnDrmPreparedRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnDrmPreparedRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type OnDrmPreparedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnDrmPreparedResponse) Reset() {
+	*x = OnDrmPreparedResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[177]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnDrmPreparedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnDrmPreparedResponse) ProtoMessage() {}
+
+func (x *OnDrmPreparedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[177]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnDrmPreparedResponse.ProtoReflect.Descriptor instead.
+func (*OnDrmPreparedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{177}
+}
+
+type OnErrorRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnErrorRequest) Reset() {
+	*x = OnErrorRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[178]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnErrorRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnErrorRequest) ProtoMessage() {}
+
+func (x *OnErrorRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[178]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnErrorRequest.ProtoReflect.Descriptor instead.
+func (*OnErrorRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{178}
+}
+
+func (x *OnErrorRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnErrorRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *OnErrorRequest) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type OnErrorResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnErrorResponse) Reset() {
+	*x = OnErrorResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[179]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnErrorResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnErrorResponse) ProtoMessage() {}
+
+func (x *OnErrorResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[179]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnErrorResponse.ProtoReflect.Descriptor instead.
+func (*OnErrorResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{179}
+}
+
+func (x *OnErrorResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type OnInfoRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnInfoRequest) Reset() {
+	*x = OnInfoRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[180]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnInfoRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnInfoRequest) ProtoMessage() {}
+
+func (x *OnInfoRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[180]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnInfoRequest.ProtoReflect.Descriptor instead.
+func (*OnInfoRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{180}
+}
+
+func (x *OnInfoRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnInfoRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *OnInfoRequest) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type OnInfoResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnInfoResponse) Reset() {
+	*x = OnInfoResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[181]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnInfoResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnInfoResponse) ProtoMessage() {}
+
+func (x *OnInfoResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[181]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnInfoResponse.ProtoReflect.Descriptor instead.
+func (*OnInfoResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{181}
+}
+
+func (x *OnInfoResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type OnMediaTimeDiscontinuityRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnMediaTimeDiscontinuityRequest) Reset() {
+	*x = OnMediaTimeDiscontinuityRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[182]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnMediaTimeDiscontinuityRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnMediaTimeDiscontinuityRequest) ProtoMessage() {}
+
+func (x *OnMediaTimeDiscontinuityRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[182]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnMediaTimeDiscontinuityRequest.ProtoReflect.Descriptor instead.
+func (*OnMediaTimeDiscontinuityRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{182}
+}
+
+func (x *OnMediaTimeDiscontinuityRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnMediaTimeDiscontinuityRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type OnMediaTimeDiscontinuityResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnMediaTimeDiscontinuityResponse) Reset() {
+	*x = OnMediaTimeDiscontinuityResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[183]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnMediaTimeDiscontinuityResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnMediaTimeDiscontinuityResponse) ProtoMessage() {}
+
+func (x *OnMediaTimeDiscontinuityResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[183]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnMediaTimeDiscontinuityResponse.ProtoReflect.Descriptor instead.
+func (*OnMediaTimeDiscontinuityResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{183}
+}
+
+type OnPreparedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnPreparedRequest) Reset() {
+	*x = OnPreparedRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[184]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnPreparedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnPreparedRequest) ProtoMessage() {}
+
+func (x *OnPreparedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[184]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnPreparedRequest.ProtoReflect.Descriptor instead.
+func (*OnPreparedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{184}
+}
+
+func (x *OnPreparedRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnPreparedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnPreparedResponse) Reset() {
+	*x = OnPreparedResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[185]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnPreparedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnPreparedResponse) ProtoMessage() {}
+
+func (x *OnPreparedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[185]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnPreparedResponse.ProtoReflect.Descriptor instead.
+func (*OnPreparedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{185}
+}
+
+type OnSeekCompleteRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnSeekCompleteRequest) Reset() {
+	*x = OnSeekCompleteRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[186]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnSeekCompleteRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnSeekCompleteRequest) ProtoMessage() {}
+
+func (x *OnSeekCompleteRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[186]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnSeekCompleteRequest.ProtoReflect.Descriptor instead.
+func (*OnSeekCompleteRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{186}
+}
+
+func (x *OnSeekCompleteRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnSeekCompleteResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnSeekCompleteResponse) Reset() {
+	*x = OnSeekCompleteResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[187]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnSeekCompleteResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnSeekCompleteResponse) ProtoMessage() {}
+
+func (x *OnSeekCompleteResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[187]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnSeekCompleteResponse.ProtoReflect.Descriptor instead.
+func (*OnSeekCompleteResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{187}
+}
+
+type OnSubtitleDataRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnSubtitleDataRequest) Reset() {
+	*x = OnSubtitleDataRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[188]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnSubtitleDataRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnSubtitleDataRequest) ProtoMessage() {}
+
+func (x *OnSubtitleDataRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[188]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnSubtitleDataRequest.ProtoReflect.Descriptor instead.
+func (*OnSubtitleDataRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{188}
+}
+
+func (x *OnSubtitleDataRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnSubtitleDataRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type OnSubtitleDataResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnSubtitleDataResponse) Reset() {
+	*x = OnSubtitleDataResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[189]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnSubtitleDataResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnSubtitleDataResponse) ProtoMessage() {}
+
+func (x *OnSubtitleDataResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[189]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnSubtitleDataResponse.ProtoReflect.Descriptor instead.
+func (*OnSubtitleDataResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{189}
+}
+
+type OnTimedMetaDataAvailableRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnTimedMetaDataAvailableRequest) Reset() {
+	*x = OnTimedMetaDataAvailableRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[190]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnTimedMetaDataAvailableRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnTimedMetaDataAvailableRequest) ProtoMessage() {}
+
+func (x *OnTimedMetaDataAvailableRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[190]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnTimedMetaDataAvailableRequest.ProtoReflect.Descriptor instead.
+func (*OnTimedMetaDataAvailableRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{190}
+}
+
+func (x *OnTimedMetaDataAvailableRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnTimedMetaDataAvailableRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type OnTimedMetaDataAvailableResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnTimedMetaDataAvailableResponse) Reset() {
+	*x = OnTimedMetaDataAvailableResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[191]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnTimedMetaDataAvailableResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnTimedMetaDataAvailableResponse) ProtoMessage() {}
+
+func (x *OnTimedMetaDataAvailableResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[191]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnTimedMetaDataAvailableResponse.ProtoReflect.Descriptor instead.
+func (*OnTimedMetaDataAvailableResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{191}
+}
+
+type OnTimedTextRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnTimedTextRequest) Reset() {
+	*x = OnTimedTextRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[192]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnTimedTextRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnTimedTextRequest) ProtoMessage() {}
+
+func (x *OnTimedTextRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[192]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnTimedTextRequest.ProtoReflect.Descriptor instead.
+func (*OnTimedTextRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{192}
+}
+
+func (x *OnTimedTextRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnTimedTextRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type OnTimedTextResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnTimedTextResponse) Reset() {
+	*x = OnTimedTextResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[193]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnTimedTextResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnTimedTextResponse) ProtoMessage() {}
+
+func (x *OnTimedTextResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[193]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnTimedTextResponse.ProtoReflect.Descriptor instead.
+func (*OnTimedTextResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{193}
+}
+
+type OnVideoSizeChangedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnVideoSizeChangedRequest) Reset() {
+	*x = OnVideoSizeChangedRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[194]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnVideoSizeChangedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnVideoSizeChangedRequest) ProtoMessage() {}
+
+func (x *OnVideoSizeChangedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[194]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnVideoSizeChangedRequest.ProtoReflect.Descriptor instead.
+func (*OnVideoSizeChangedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{194}
+}
+
+func (x *OnVideoSizeChangedRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnVideoSizeChangedRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *OnVideoSizeChangedRequest) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type OnVideoSizeChangedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnVideoSizeChangedResponse) Reset() {
+	*x = OnVideoSizeChangedResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[195]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnVideoSizeChangedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnVideoSizeChangedResponse) ProtoMessage() {}
+
+func (x *OnVideoSizeChangedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[195]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnVideoSizeChangedResponse.ProtoReflect.Descriptor instead.
+func (*OnVideoSizeChangedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{195}
+}
+
+type DescribeContentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DescribeContentsRequest) Reset() {
+	*x = DescribeContentsRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[196]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DescribeContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DescribeContentsRequest) ProtoMessage() {}
+
+func (x *DescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[196]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*DescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{196}
+}
+
+type DescribeContentsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DescribeContentsResponse) Reset() {
+	*x = DescribeContentsResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[197]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DescribeContentsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DescribeContentsResponse) ProtoMessage() {}
+
+func (x *DescribeContentsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[197]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DescribeContentsResponse.ProtoReflect.Descriptor instead.
+func (*DescribeContentsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{197}
+}
+
+func (x *DescribeContentsResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetFormatRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetFormatRequest) Reset() {
+	*x = GetFormatRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[198]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetFormatRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetFormatRequest) ProtoMessage() {}
+
+func (x *GetFormatRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[198]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetFormatRequest.ProtoReflect.Descriptor instead.
+func (*GetFormatRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{198}
+}
+
+type GetFormatResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetFormatResponse) Reset() {
+	*x = GetFormatResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[199]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetFormatResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetFormatResponse) ProtoMessage() {}
+
+func (x *GetFormatResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[199]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetFormatResponse.ProtoReflect.Descriptor instead.
+func (*GetFormatResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{199}
+}
+
+func (x *GetFormatResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetLanguageRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLanguageRequest) Reset() {
+	*x = GetLanguageRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[200]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLanguageRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLanguageRequest) ProtoMessage() {}
+
+func (x *GetLanguageRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[200]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLanguageRequest.ProtoReflect.Descriptor instead.
+func (*GetLanguageRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{200}
+}
+
+type GetLanguageResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLanguageResponse) Reset() {
+	*x = GetLanguageResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[201]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLanguageResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLanguageResponse) ProtoMessage() {}
+
+func (x *GetLanguageResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[201]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLanguageResponse.ProtoReflect.Descriptor instead.
+func (*GetLanguageResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{201}
+}
+
+func (x *GetLanguageResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetTrackTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTrackTypeRequest) Reset() {
+	*x = GetTrackTypeRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[202]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTrackTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTrackTypeRequest) ProtoMessage() {}
+
+func (x *GetTrackTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[202]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTrackTypeRequest.ProtoReflect.Descriptor instead.
+func (*GetTrackTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{202}
+}
+
+type GetTrackTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTrackTypeResponse) Reset() {
+	*x = GetTrackTypeResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[203]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTrackTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTrackTypeResponse) ProtoMessage() {}
+
+func (x *GetTrackTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[203]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTrackTypeResponse.ProtoReflect.Descriptor instead.
+func (*GetTrackTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{203}
+}
+
+func (x *GetTrackTypeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ToStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringRequest) Reset() {
+	*x = ToStringRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[204]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringRequest) ProtoMessage() {}
+
+func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[204]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringRequest.ProtoReflect.Descriptor instead.
+func (*ToStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{204}
+}
+
+type ToStringResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringResponse) Reset() {
+	*x = ToStringResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[205]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringResponse) ProtoMessage() {}
+
+func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[205]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringResponse.ProtoReflect.Descriptor instead.
+func (*ToStringResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{205}
+}
+
+func (x *ToStringResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type WriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WriteToParcelRequest) Reset() {
+	*x = WriteToParcelRequest{}
+	mi := &file_proto_player_player_proto_msgTypes[206]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WriteToParcelRequest) ProtoMessage() {}
+
+func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[206]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*WriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{206}
+}
+
+func (x *WriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *WriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type WriteToParcelResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WriteToParcelResponse) Reset() {
+	*x = WriteToParcelResponse{}
+	mi := &file_proto_player_player_proto_msgTypes[207]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WriteToParcelResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WriteToParcelResponse) ProtoMessage() {}
+
+func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_player_player_proto_msgTypes[207]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WriteToParcelResponse.ProtoReflect.Descriptor instead.
+func (*WriteToParcelResponse) Descriptor() ([]byte, []int) {
+	return file_proto_player_player_proto_rawDescGZIP(), []int{207}
+}
+
 var File_proto_player_player_proto protoreflect.FileDescriptor
 
 const file_proto_player_player_proto_rawDesc = "" +
 	"\n" +
-	"\x19proto/player/player.proto\x12\x06playerB0Z.github.com/AndroidGoLab/jni-proxy/proto/playerb\x06proto3"
+	"\x19proto/player/player.proto\x12\x06player\"+\n" +
+	"\x15NewMediaPlayerRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"0\n" +
+	"\x16NewMediaPlayerResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"p\n" +
+	"\x1aAddTimedTextSource3Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\tR\x04arg2\"\x1d\n" +
+	"\x1bAddTimedTextSource3Response\"^\n" +
+	"\x1cAddTimedTextSource2_1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\tR\x04arg1\"\x1f\n" +
+	"\x1dAddTimedTextSource2_1Response\"\x86\x01\n" +
+	"\x1cAddTimedTextSource4_2Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x03R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x05 \x01(\tR\x04arg3\"\x1f\n" +
+	"\x1dAddTimedTextSource4_2Response\"^\n" +
+	"\x1cAddTimedTextSource2_3Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\tR\x04arg1\"\x1f\n" +
+	"\x1dAddTimedTextSource2_3Response\"D\n" +
+	"\x16AttachAuxEffectRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"\x19\n" +
+	"\x17AttachAuxEffectResponse\"F\n" +
+	",ClearOnMediaTimeDiscontinuityListenerRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"/\n" +
+	"-ClearOnMediaTimeDiscontinuityListenerResponse\"<\n" +
+	"\"ClearOnSubtitleDataListenerRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"%\n" +
+	"#ClearOnSubtitleDataListenerResponse\"G\n" +
+	"\x19CreateVolumeShaperRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"4\n" +
+	"\x1aCreateVolumeShaperResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"B\n" +
+	"\x14DeselectTrackRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"\x17\n" +
+	"\x15DeselectTrackResponse\"2\n" +
+	"\x18GetAudioSessionIdRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"3\n" +
+	"\x19GetAudioSessionIdResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"3\n" +
+	"\x19GetCurrentPositionRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"4\n" +
+	"\x1aGetCurrentPositionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"+\n" +
+	"\x11GetDrmInfoRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\",\n" +
+	"\x12GetDrmInfoResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"I\n" +
+	"\x1bGetDrmPropertyStringRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\tR\x04arg0\"6\n" +
+	"\x1cGetDrmPropertyStringResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\",\n" +
+	"\x12GetDurationRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"-\n" +
+	"\x13GetDurationResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"+\n" +
+	"\x11GetMetricsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\",\n" +
+	"\x12GetMetricsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"2\n" +
+	"\x18GetPlaybackParamsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"3\n" +
+	"\x19GetPlaybackParamsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"3\n" +
+	"\x19GetPreferredDeviceRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"4\n" +
+	"\x1aGetPreferredDeviceResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"0\n" +
+	"\x16GetRoutedDeviceRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"1\n" +
+	"\x17GetRoutedDeviceResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"E\n" +
+	"\x17GetSelectedTrackRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"2\n" +
+	"\x18GetSelectedTrackResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\".\n" +
+	"\x14GetSyncParamsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"/\n" +
+	"\x15GetSyncParamsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"-\n" +
+	"\x13GetTimestampRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\".\n" +
+	"\x14GetTimestampResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"-\n" +
+	"\x13GetTrackInfoRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\".\n" +
+	"\x14GetTrackInfoResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"/\n" +
+	"\x15GetVideoHeightRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"0\n" +
+	"\x16GetVideoHeightResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\".\n" +
+	"\x14GetVideoWidthRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"/\n" +
+	"\x15GetVideoWidthResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"*\n" +
+	"\x10IsLoopingRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"+\n" +
+	"\x11IsLoopingResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"*\n" +
+	"\x10IsPlayingRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"+\n" +
+	"\x11IsPlayingResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"&\n" +
+	"\fPauseRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x0f\n" +
+	"\rPauseResponse\"(\n" +
+	"\x0ePrepareRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x11\n" +
+	"\x0fPrepareResponse\"-\n" +
+	"\x13PrepareAsyncRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x16\n" +
+	"\x14PrepareAsyncResponse\"?\n" +
+	"\x11PrepareDrmRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x14\n" +
+	"\x12PrepareDrmResponse\"[\n" +
+	"\x19ProvideKeyResponseRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"4\n" +
+	"\x1aProvideKeyResponseResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"(\n" +
+	"\x0eReleaseRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x11\n" +
+	"\x0fReleaseResponse\"+\n" +
+	"\x11ReleaseDrmRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x14\n" +
+	"\x12ReleaseDrmResponse\"S\n" +
+	"%RemoveOnRoutingChangedListenerRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"(\n" +
+	"&RemoveOnRoutingChangedListenerResponse\"&\n" +
+	"\fResetRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x0f\n" +
+	"\rResetResponse\"@\n" +
+	"\x12RestoreKeysRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x15\n" +
+	"\x13RestoreKeysResponse\"<\n" +
+	"\x0eSeekTo1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"\x11\n" +
+	"\x0fSeekTo1Response\"R\n" +
+	"\x10SeekTo2_1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"\x13\n" +
+	"\x11SeekTo2_1Response\"@\n" +
+	"\x12SelectTrackRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"\x15\n" +
+	"\x13SelectTrackResponse\"G\n" +
+	"\x19SetAudioAttributesRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x1c\n" +
+	"\x1aSetAudioAttributesResponse\"F\n" +
+	"\x18SetAudioSessionIdRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"\x1b\n" +
+	"\x19SetAudioSessionIdResponse\"G\n" +
+	"\x19SetAudioStreamTypeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"\x1c\n" +
+	"\x1aSetAudioStreamTypeResponse\"J\n" +
+	"\x1cSetAuxEffectSendLevelRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x02R\x04arg0\"\x1f\n" +
+	"\x1dSetAuxEffectSendLevelResponse\"W\n" +
+	"\x15SetDataSource2Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"\x18\n" +
+	"\x16SetDataSource2Response\"E\n" +
+	"\x17SetDataSource1_1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x1a\n" +
+	"\x18SetDataSource1_1Response\"E\n" +
+	"\x17SetDataSource1_2Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x1a\n" +
+	"\x18SetDataSource1_2Response\"E\n" +
+	"\x17SetDataSource1_3Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x1a\n" +
+	"\x18SetDataSource1_3Response\"m\n" +
+	"\x17SetDataSource3_4Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x03R\x04arg2\"\x1a\n" +
+	"\x18SetDataSource3_4Response\"E\n" +
+	"\x17SetDataSource1_5Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\tR\x04arg0\"\x1a\n" +
+	"\x18SetDataSource1_5Response\"?\n" +
+	"\x11SetDisplayRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x14\n" +
+	"\x12SetDisplayResponse\"]\n" +
+	"\x1bSetDrmPropertyStringRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\tR\x04arg1\"\x1e\n" +
+	"\x1cSetDrmPropertyStringResponse\"?\n" +
+	"\x11SetLoopingRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\bR\x04arg0\"\x14\n" +
+	"\x12SetLoopingResponse\"G\n" +
+	"\x19SetNextMediaPlayerRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x1c\n" +
+	"\x1aSetNextMediaPlayerResponse\"Q\n" +
+	"#SetOnBufferingUpdateListenerRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"&\n" +
+	"$SetOnBufferingUpdateListenerResponse\"L\n" +
+	"\x1eSetOnCompletionListenerRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"!\n" +
+	"\x1fSetOnCompletionListenerResponse\"I\n" +
+	"\x1bSetOnDrmConfigHelperRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x1e\n" +
+	"\x1cSetOnDrmConfigHelperResponse\"I\n" +
+	"\x1bSetOnDrmInfoListenerRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x1e\n" +
+	"\x1cSetOnDrmInfoListenerResponse\"M\n" +
+	"\x1fSetOnDrmPreparedListenerRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\"\n" +
+	" SetOnDrmPreparedListenerResponse\"G\n" +
+	"\x19SetOnErrorListenerRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x1c\n" +
+	"\x1aSetOnErrorListenerResponse\"F\n" +
+	"\x18SetOnInfoListenerRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x1b\n" +
+	"\x19SetOnInfoListenerResponse\"X\n" +
+	"*SetOnMediaTimeDiscontinuityListenerRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"-\n" +
+	"+SetOnMediaTimeDiscontinuityListenerResponse\"J\n" +
+	"\x1cSetOnPreparedListenerRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x1f\n" +
+	"\x1dSetOnPreparedListenerResponse\"N\n" +
+	" SetOnSeekCompleteListenerRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"#\n" +
+	"!SetOnSeekCompleteListenerResponse\"N\n" +
+	" SetOnSubtitleDataListenerRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"#\n" +
+	"!SetOnSubtitleDataListenerResponse\"X\n" +
+	"*SetOnTimedMetaDataAvailableListenerRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"-\n" +
+	"+SetOnTimedMetaDataAvailableListenerResponse\"K\n" +
+	"\x1dSetOnTimedTextListenerRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\" \n" +
+	"\x1eSetOnTimedTextListenerResponse\"R\n" +
+	"$SetOnVideoSizeChangedListenerRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"'\n" +
+	"%SetOnVideoSizeChangedListenerResponse\"F\n" +
+	"\x18SetPlaybackParamsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x1b\n" +
+	"\x19SetPlaybackParamsResponse\"G\n" +
+	"\x19SetPreferredDeviceRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"4\n" +
+	"\x1aSetPreferredDeviceResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"L\n" +
+	"\x1eSetScreenOnWhilePlayingRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\bR\x04arg0\"!\n" +
+	"\x1fSetScreenOnWhilePlayingResponse\"?\n" +
+	"\x11SetSurfaceRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x14\n" +
+	"\x12SetSurfaceResponse\"B\n" +
+	"\x14SetSyncParamsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x17\n" +
+	"\x15SetSyncParamsResponse\"H\n" +
+	"\x1aSetVideoScalingModeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"\x1d\n" +
+	"\x1bSetVideoScalingModeResponse\"R\n" +
+	"\x10SetVolumeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x02R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x02R\x04arg1\"\x13\n" +
+	"\x11SetVolumeResponse\"T\n" +
+	"\x12SetWakeModeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"\x15\n" +
+	"\x13SetWakeModeResponse\"&\n" +
+	"\fStartRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x0f\n" +
+	"\rStartResponse\"%\n" +
+	"\vStopRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x0e\n" +
+	"\fStopResponse\"P\n" +
+	"\x0eCreate2Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\")\n" +
+	"\x0fCreate2Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"f\n" +
+	"\x10Create3_1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x03R\x04arg2\"+\n" +
+	"\x11Create3_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x8e\x01\n" +
+	"\x10Create5_2Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x03R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x05 \x01(\x03R\x04arg3\x12\x12\n" +
+	"\x04arg4\x18\x06 \x01(\x05R\x04arg4\"+\n" +
+	"\x11Create5_2Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"R\n" +
+	"\x10Create2_3Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"+\n" +
+	"\x11Create2_3Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"z\n" +
+	"\x10Create4_4Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x03R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x05 \x01(\x05R\x04arg3\"+\n" +
+	"\x11Create4_4Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1c\n" +
+	"\x1aGetSupportedSchemesRequest\"5\n" +
+	"\x1bGetSupportedSchemesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"B\n" +
+	"\x18OnBufferingUpdateRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x1b\n" +
+	"\x19OnBufferingUpdateResponse\")\n" +
+	"\x13OnCompletionRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x16\n" +
+	"\x14OnCompletionResponse\"(\n" +
+	"\x12OnDrmConfigRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x15\n" +
+	"\x13OnDrmConfigResponse\":\n" +
+	"\x10OnDrmInfoRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x13\n" +
+	"\x11OnDrmInfoResponse\">\n" +
+	"\x14OnDrmPreparedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x17\n" +
+	"\x15OnDrmPreparedResponse\"L\n" +
+	"\x0eOnErrorRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\")\n" +
+	"\x0fOnErrorResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"K\n" +
+	"\rOnInfoRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\"(\n" +
+	"\x0eOnInfoResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"I\n" +
+	"\x1fOnMediaTimeDiscontinuityRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\"\n" +
+	" OnMediaTimeDiscontinuityResponse\"'\n" +
+	"\x11OnPreparedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x14\n" +
+	"\x12OnPreparedResponse\"+\n" +
+	"\x15OnSeekCompleteRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x18\n" +
+	"\x16OnSeekCompleteResponse\"?\n" +
+	"\x15OnSubtitleDataRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x18\n" +
+	"\x16OnSubtitleDataResponse\"I\n" +
+	"\x1fOnTimedMetaDataAvailableRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\"\n" +
+	" OnTimedMetaDataAvailableResponse\"<\n" +
+	"\x12OnTimedTextRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x15\n" +
+	"\x13OnTimedTextResponse\"W\n" +
+	"\x19OnVideoSizeChangedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\"\x1c\n" +
+	"\x1aOnVideoSizeChangedResponse\"\x19\n" +
+	"\x17DescribeContentsRequest\"2\n" +
+	"\x18DescribeContentsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x12\n" +
+	"\x10GetFormatRequest\"+\n" +
+	"\x11GetFormatResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x14\n" +
+	"\x12GetLanguageRequest\"-\n" +
+	"\x13GetLanguageResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x15\n" +
+	"\x13GetTrackTypeRequest\".\n" +
+	"\x14GetTrackTypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x11\n" +
+	"\x0fToStringRequest\"*\n" +
+	"\x10ToStringResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\">\n" +
+	"\x14WriteToParcelRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x17\n" +
+	"\x15WriteToParcelResponse2\xba8\n" +
+	"\x12MediaPlayerService\x12O\n" +
+	"\x0eNewMediaPlayer\x12\x1d.player.NewMediaPlayerRequest\x1a\x1e.player.NewMediaPlayerResponse\x12^\n" +
+	"\x13AddTimedTextSource3\x12\".player.AddTimedTextSource3Request\x1a#.player.AddTimedTextSource3Response\x12d\n" +
+	"\x15AddTimedTextSource2_1\x12$.player.AddTimedTextSource2_1Request\x1a%.player.AddTimedTextSource2_1Response\x12d\n" +
+	"\x15AddTimedTextSource4_2\x12$.player.AddTimedTextSource4_2Request\x1a%.player.AddTimedTextSource4_2Response\x12d\n" +
+	"\x15AddTimedTextSource2_3\x12$.player.AddTimedTextSource2_3Request\x1a%.player.AddTimedTextSource2_3Response\x12R\n" +
+	"\x0fAttachAuxEffect\x12\x1e.player.AttachAuxEffectRequest\x1a\x1f.player.AttachAuxEffectResponse\x12\x94\x01\n" +
+	"%ClearOnMediaTimeDiscontinuityListener\x124.player.ClearOnMediaTimeDiscontinuityListenerRequest\x1a5.player.ClearOnMediaTimeDiscontinuityListenerResponse\x12v\n" +
+	"\x1bClearOnSubtitleDataListener\x12*.player.ClearOnSubtitleDataListenerRequest\x1a+.player.ClearOnSubtitleDataListenerResponse\x12[\n" +
+	"\x12CreateVolumeShaper\x12!.player.CreateVolumeShaperRequest\x1a\".player.CreateVolumeShaperResponse\x12L\n" +
+	"\rDeselectTrack\x12\x1c.player.DeselectTrackRequest\x1a\x1d.player.DeselectTrackResponse\x12X\n" +
+	"\x11GetAudioSessionId\x12 .player.GetAudioSessionIdRequest\x1a!.player.GetAudioSessionIdResponse\x12[\n" +
+	"\x12GetCurrentPosition\x12!.player.GetCurrentPositionRequest\x1a\".player.GetCurrentPositionResponse\x12C\n" +
+	"\n" +
+	"GetDrmInfo\x12\x19.player.GetDrmInfoRequest\x1a\x1a.player.GetDrmInfoResponse\x12a\n" +
+	"\x14GetDrmPropertyString\x12#.player.GetDrmPropertyStringRequest\x1a$.player.GetDrmPropertyStringResponse\x12F\n" +
+	"\vGetDuration\x12\x1a.player.GetDurationRequest\x1a\x1b.player.GetDurationResponse\x12C\n" +
+	"\n" +
+	"GetMetrics\x12\x19.player.GetMetricsRequest\x1a\x1a.player.GetMetricsResponse\x12X\n" +
+	"\x11GetPlaybackParams\x12 .player.GetPlaybackParamsRequest\x1a!.player.GetPlaybackParamsResponse\x12[\n" +
+	"\x12GetPreferredDevice\x12!.player.GetPreferredDeviceRequest\x1a\".player.GetPreferredDeviceResponse\x12R\n" +
+	"\x0fGetRoutedDevice\x12\x1e.player.GetRoutedDeviceRequest\x1a\x1f.player.GetRoutedDeviceResponse\x12U\n" +
+	"\x10GetSelectedTrack\x12\x1f.player.GetSelectedTrackRequest\x1a .player.GetSelectedTrackResponse\x12L\n" +
+	"\rGetSyncParams\x12\x1c.player.GetSyncParamsRequest\x1a\x1d.player.GetSyncParamsResponse\x12I\n" +
+	"\fGetTimestamp\x12\x1b.player.GetTimestampRequest\x1a\x1c.player.GetTimestampResponse\x12I\n" +
+	"\fGetTrackInfo\x12\x1b.player.GetTrackInfoRequest\x1a\x1c.player.GetTrackInfoResponse\x12O\n" +
+	"\x0eGetVideoHeight\x12\x1d.player.GetVideoHeightRequest\x1a\x1e.player.GetVideoHeightResponse\x12L\n" +
+	"\rGetVideoWidth\x12\x1c.player.GetVideoWidthRequest\x1a\x1d.player.GetVideoWidthResponse\x12@\n" +
+	"\tIsLooping\x12\x18.player.IsLoopingRequest\x1a\x19.player.IsLoopingResponse\x12@\n" +
+	"\tIsPlaying\x12\x18.player.IsPlayingRequest\x1a\x19.player.IsPlayingResponse\x124\n" +
+	"\x05Pause\x12\x14.player.PauseRequest\x1a\x15.player.PauseResponse\x12:\n" +
+	"\aPrepare\x12\x16.player.PrepareRequest\x1a\x17.player.PrepareResponse\x12I\n" +
+	"\fPrepareAsync\x12\x1b.player.PrepareAsyncRequest\x1a\x1c.player.PrepareAsyncResponse\x12C\n" +
+	"\n" +
+	"PrepareDrm\x12\x19.player.PrepareDrmRequest\x1a\x1a.player.PrepareDrmResponse\x12[\n" +
+	"\x12ProvideKeyResponse\x12!.player.ProvideKeyResponseRequest\x1a\".player.ProvideKeyResponseResponse\x12:\n" +
+	"\aRelease\x12\x16.player.ReleaseRequest\x1a\x17.player.ReleaseResponse\x12C\n" +
+	"\n" +
+	"ReleaseDrm\x12\x19.player.ReleaseDrmRequest\x1a\x1a.player.ReleaseDrmResponse\x12\x7f\n" +
+	"\x1eRemoveOnRoutingChangedListener\x12-.player.RemoveOnRoutingChangedListenerRequest\x1a..player.RemoveOnRoutingChangedListenerResponse\x124\n" +
+	"\x05Reset\x12\x14.player.ResetRequest\x1a\x15.player.ResetResponse\x12F\n" +
+	"\vRestoreKeys\x12\x1a.player.RestoreKeysRequest\x1a\x1b.player.RestoreKeysResponse\x12:\n" +
+	"\aSeekTo1\x12\x16.player.SeekTo1Request\x1a\x17.player.SeekTo1Response\x12@\n" +
+	"\tSeekTo2_1\x12\x18.player.SeekTo2_1Request\x1a\x19.player.SeekTo2_1Response\x12F\n" +
+	"\vSelectTrack\x12\x1a.player.SelectTrackRequest\x1a\x1b.player.SelectTrackResponse\x12[\n" +
+	"\x12SetAudioAttributes\x12!.player.SetAudioAttributesRequest\x1a\".player.SetAudioAttributesResponse\x12X\n" +
+	"\x11SetAudioSessionId\x12 .player.SetAudioSessionIdRequest\x1a!.player.SetAudioSessionIdResponse\x12[\n" +
+	"\x12SetAudioStreamType\x12!.player.SetAudioStreamTypeRequest\x1a\".player.SetAudioStreamTypeResponse\x12d\n" +
+	"\x15SetAuxEffectSendLevel\x12$.player.SetAuxEffectSendLevelRequest\x1a%.player.SetAuxEffectSendLevelResponse\x12O\n" +
+	"\x0eSetDataSource2\x12\x1d.player.SetDataSource2Request\x1a\x1e.player.SetDataSource2Response\x12U\n" +
+	"\x10SetDataSource1_1\x12\x1f.player.SetDataSource1_1Request\x1a .player.SetDataSource1_1Response\x12U\n" +
+	"\x10SetDataSource1_2\x12\x1f.player.SetDataSource1_2Request\x1a .player.SetDataSource1_2Response\x12U\n" +
+	"\x10SetDataSource1_3\x12\x1f.player.SetDataSource1_3Request\x1a .player.SetDataSource1_3Response\x12U\n" +
+	"\x10SetDataSource3_4\x12\x1f.player.SetDataSource3_4Request\x1a .player.SetDataSource3_4Response\x12U\n" +
+	"\x10SetDataSource1_5\x12\x1f.player.SetDataSource1_5Request\x1a .player.SetDataSource1_5Response\x12C\n" +
+	"\n" +
+	"SetDisplay\x12\x19.player.SetDisplayRequest\x1a\x1a.player.SetDisplayResponse\x12a\n" +
+	"\x14SetDrmPropertyString\x12#.player.SetDrmPropertyStringRequest\x1a$.player.SetDrmPropertyStringResponse\x12C\n" +
+	"\n" +
+	"SetLooping\x12\x19.player.SetLoopingRequest\x1a\x1a.player.SetLoopingResponse\x12[\n" +
+	"\x12SetNextMediaPlayer\x12!.player.SetNextMediaPlayerRequest\x1a\".player.SetNextMediaPlayerResponse\x12y\n" +
+	"\x1cSetOnBufferingUpdateListener\x12+.player.SetOnBufferingUpdateListenerRequest\x1a,.player.SetOnBufferingUpdateListenerResponse\x12j\n" +
+	"\x17SetOnCompletionListener\x12&.player.SetOnCompletionListenerRequest\x1a'.player.SetOnCompletionListenerResponse\x12a\n" +
+	"\x14SetOnDrmConfigHelper\x12#.player.SetOnDrmConfigHelperRequest\x1a$.player.SetOnDrmConfigHelperResponse\x12a\n" +
+	"\x14SetOnDrmInfoListener\x12#.player.SetOnDrmInfoListenerRequest\x1a$.player.SetOnDrmInfoListenerResponse\x12m\n" +
+	"\x18SetOnDrmPreparedListener\x12'.player.SetOnDrmPreparedListenerRequest\x1a(.player.SetOnDrmPreparedListenerResponse\x12[\n" +
+	"\x12SetOnErrorListener\x12!.player.SetOnErrorListenerRequest\x1a\".player.SetOnErrorListenerResponse\x12X\n" +
+	"\x11SetOnInfoListener\x12 .player.SetOnInfoListenerRequest\x1a!.player.SetOnInfoListenerResponse\x12\x8e\x01\n" +
+	"#SetOnMediaTimeDiscontinuityListener\x122.player.SetOnMediaTimeDiscontinuityListenerRequest\x1a3.player.SetOnMediaTimeDiscontinuityListenerResponse\x12d\n" +
+	"\x15SetOnPreparedListener\x12$.player.SetOnPreparedListenerRequest\x1a%.player.SetOnPreparedListenerResponse\x12p\n" +
+	"\x19SetOnSeekCompleteListener\x12(.player.SetOnSeekCompleteListenerRequest\x1a).player.SetOnSeekCompleteListenerResponse\x12p\n" +
+	"\x19SetOnSubtitleDataListener\x12(.player.SetOnSubtitleDataListenerRequest\x1a).player.SetOnSubtitleDataListenerResponse\x12\x8e\x01\n" +
+	"#SetOnTimedMetaDataAvailableListener\x122.player.SetOnTimedMetaDataAvailableListenerRequest\x1a3.player.SetOnTimedMetaDataAvailableListenerResponse\x12g\n" +
+	"\x16SetOnTimedTextListener\x12%.player.SetOnTimedTextListenerRequest\x1a&.player.SetOnTimedTextListenerResponse\x12|\n" +
+	"\x1dSetOnVideoSizeChangedListener\x12,.player.SetOnVideoSizeChangedListenerRequest\x1a-.player.SetOnVideoSizeChangedListenerResponse\x12X\n" +
+	"\x11SetPlaybackParams\x12 .player.SetPlaybackParamsRequest\x1a!.player.SetPlaybackParamsResponse\x12[\n" +
+	"\x12SetPreferredDevice\x12!.player.SetPreferredDeviceRequest\x1a\".player.SetPreferredDeviceResponse\x12j\n" +
+	"\x17SetScreenOnWhilePlaying\x12&.player.SetScreenOnWhilePlayingRequest\x1a'.player.SetScreenOnWhilePlayingResponse\x12C\n" +
+	"\n" +
+	"SetSurface\x12\x19.player.SetSurfaceRequest\x1a\x1a.player.SetSurfaceResponse\x12L\n" +
+	"\rSetSyncParams\x12\x1c.player.SetSyncParamsRequest\x1a\x1d.player.SetSyncParamsResponse\x12^\n" +
+	"\x13SetVideoScalingMode\x12\".player.SetVideoScalingModeRequest\x1a#.player.SetVideoScalingModeResponse\x12@\n" +
+	"\tSetVolume\x12\x18.player.SetVolumeRequest\x1a\x19.player.SetVolumeResponse\x12F\n" +
+	"\vSetWakeMode\x12\x1a.player.SetWakeModeRequest\x1a\x1b.player.SetWakeModeResponse\x124\n" +
+	"\x05Start\x12\x14.player.StartRequest\x1a\x15.player.StartResponse\x121\n" +
+	"\x04Stop\x12\x13.player.StopRequest\x1a\x14.player.StopResponse\x12:\n" +
+	"\aCreate2\x12\x16.player.Create2Request\x1a\x17.player.Create2Response\x12@\n" +
+	"\tCreate3_1\x12\x18.player.Create3_1Request\x1a\x19.player.Create3_1Response\x12@\n" +
+	"\tCreate5_2\x12\x18.player.Create5_2Request\x1a\x19.player.Create5_2Response\x12@\n" +
+	"\tCreate2_3\x12\x18.player.Create2_3Request\x1a\x19.player.Create2_3Response\x12@\n" +
+	"\tCreate4_4\x12\x18.player.Create4_4Request\x1a\x19.player.Create4_4Response2{\n" +
+	"\x19MediaPlayerDrmInfoService\x12^\n" +
+	"\x13GetSupportedSchemes\x12\".player.GetSupportedSchemesRequest\x1a#.player.GetSupportedSchemesResponse2\x87\x01\n" +
+	"+MediaPlayerOnBufferingUpdateListenerService\x12X\n" +
+	"\x11OnBufferingUpdate\x12 .player.OnBufferingUpdateRequest\x1a!.player.OnBufferingUpdateResponse2s\n" +
+	"&MediaPlayerOnCompletionListenerService\x12I\n" +
+	"\fOnCompletion\x12\x1b.player.OnCompletionRequest\x1a\x1c.player.OnCompletionResponse2m\n" +
+	"#MediaPlayerOnDrmConfigHelperService\x12F\n" +
+	"\vOnDrmConfig\x12\x1a.player.OnDrmConfigRequest\x1a\x1b.player.OnDrmConfigResponse2g\n" +
+	"#MediaPlayerOnDrmInfoListenerService\x12@\n" +
+	"\tOnDrmInfo\x12\x18.player.OnDrmInfoRequest\x1a\x19.player.OnDrmInfoResponse2w\n" +
+	"'MediaPlayerOnDrmPreparedListenerService\x12L\n" +
+	"\rOnDrmPrepared\x12\x1c.player.OnDrmPreparedRequest\x1a\x1d.player.OnDrmPreparedResponse2_\n" +
+	"!MediaPlayerOnErrorListenerService\x12:\n" +
+	"\aOnError\x12\x16.player.OnErrorRequest\x1a\x17.player.OnErrorResponse2[\n" +
+	" MediaPlayerOnInfoListenerService\x127\n" +
+	"\x06OnInfo\x12\x15.player.OnInfoRequest\x1a\x16.player.OnInfoResponse2\xa3\x01\n" +
+	"2MediaPlayerOnMediaTimeDiscontinuityListenerService\x12m\n" +
+	"\x18OnMediaTimeDiscontinuity\x12'.player.OnMediaTimeDiscontinuityRequest\x1a(.player.OnMediaTimeDiscontinuityResponse2k\n" +
+	"$MediaPlayerOnPreparedListenerService\x12C\n" +
+	"\n" +
+	"OnPrepared\x12\x19.player.OnPreparedRequest\x1a\x1a.player.OnPreparedResponse2{\n" +
+	"(MediaPlayerOnSeekCompleteListenerService\x12O\n" +
+	"\x0eOnSeekComplete\x12\x1d.player.OnSeekCompleteRequest\x1a\x1e.player.OnSeekCompleteResponse2{\n" +
+	"(MediaPlayerOnSubtitleDataListenerService\x12O\n" +
+	"\x0eOnSubtitleData\x12\x1d.player.OnSubtitleDataRequest\x1a\x1e.player.OnSubtitleDataResponse2\xa3\x01\n" +
+	"2MediaPlayerOnTimedMetaDataAvailableListenerService\x12m\n" +
+	"\x18OnTimedMetaDataAvailable\x12'.player.OnTimedMetaDataAvailableRequest\x1a(.player.OnTimedMetaDataAvailableResponse2o\n" +
+	"%MediaPlayerOnTimedTextListenerService\x12F\n" +
+	"\vOnTimedText\x12\x1a.player.OnTimedTextRequest\x1a\x1b.player.OnTimedTextResponse2\x8b\x01\n" +
+	",MediaPlayerOnVideoSizeChangedListenerService\x12[\n" +
+	"\x12OnVideoSizeChanged\x12!.player.OnVideoSizeChangedRequest\x1a\".player.OnVideoSizeChangedResponse2\xd6\x03\n" +
+	"\x1bMediaPlayerTrackInfoService\x12U\n" +
+	"\x10DescribeContents\x12\x1f.player.DescribeContentsRequest\x1a .player.DescribeContentsResponse\x12@\n" +
+	"\tGetFormat\x12\x18.player.GetFormatRequest\x1a\x19.player.GetFormatResponse\x12F\n" +
+	"\vGetLanguage\x12\x1a.player.GetLanguageRequest\x1a\x1b.player.GetLanguageResponse\x12I\n" +
+	"\fGetTrackType\x12\x1b.player.GetTrackTypeRequest\x1a\x1c.player.GetTrackTypeResponse\x12=\n" +
+	"\bToString\x12\x17.player.ToStringRequest\x1a\x18.player.ToStringResponse\x12L\n" +
+	"\rWriteToParcel\x12\x1c.player.WriteToParcelRequest\x1a\x1d.player.WriteToParcelResponseB0Z.github.com/AndroidGoLab/jni-proxy/proto/playerb\x06proto3"
 
-var file_proto_player_player_proto_goTypes = []any{}
+var (
+	file_proto_player_player_proto_rawDescOnce sync.Once
+	file_proto_player_player_proto_rawDescData []byte
+)
+
+func file_proto_player_player_proto_rawDescGZIP() []byte {
+	file_proto_player_player_proto_rawDescOnce.Do(func() {
+		file_proto_player_player_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_proto_player_player_proto_rawDesc), len(file_proto_player_player_proto_rawDesc)))
+	})
+	return file_proto_player_player_proto_rawDescData
+}
+
+var file_proto_player_player_proto_msgTypes = make([]protoimpl.MessageInfo, 208)
+var file_proto_player_player_proto_goTypes = []any{
+	(*NewMediaPlayerRequest)(nil),                         // 0: player.NewMediaPlayerRequest
+	(*NewMediaPlayerResponse)(nil),                        // 1: player.NewMediaPlayerResponse
+	(*AddTimedTextSource3Request)(nil),                    // 2: player.AddTimedTextSource3Request
+	(*AddTimedTextSource3Response)(nil),                   // 3: player.AddTimedTextSource3Response
+	(*AddTimedTextSource2_1Request)(nil),                  // 4: player.AddTimedTextSource2_1Request
+	(*AddTimedTextSource2_1Response)(nil),                 // 5: player.AddTimedTextSource2_1Response
+	(*AddTimedTextSource4_2Request)(nil),                  // 6: player.AddTimedTextSource4_2Request
+	(*AddTimedTextSource4_2Response)(nil),                 // 7: player.AddTimedTextSource4_2Response
+	(*AddTimedTextSource2_3Request)(nil),                  // 8: player.AddTimedTextSource2_3Request
+	(*AddTimedTextSource2_3Response)(nil),                 // 9: player.AddTimedTextSource2_3Response
+	(*AttachAuxEffectRequest)(nil),                        // 10: player.AttachAuxEffectRequest
+	(*AttachAuxEffectResponse)(nil),                       // 11: player.AttachAuxEffectResponse
+	(*ClearOnMediaTimeDiscontinuityListenerRequest)(nil),  // 12: player.ClearOnMediaTimeDiscontinuityListenerRequest
+	(*ClearOnMediaTimeDiscontinuityListenerResponse)(nil), // 13: player.ClearOnMediaTimeDiscontinuityListenerResponse
+	(*ClearOnSubtitleDataListenerRequest)(nil),            // 14: player.ClearOnSubtitleDataListenerRequest
+	(*ClearOnSubtitleDataListenerResponse)(nil),           // 15: player.ClearOnSubtitleDataListenerResponse
+	(*CreateVolumeShaperRequest)(nil),                     // 16: player.CreateVolumeShaperRequest
+	(*CreateVolumeShaperResponse)(nil),                    // 17: player.CreateVolumeShaperResponse
+	(*DeselectTrackRequest)(nil),                          // 18: player.DeselectTrackRequest
+	(*DeselectTrackResponse)(nil),                         // 19: player.DeselectTrackResponse
+	(*GetAudioSessionIdRequest)(nil),                      // 20: player.GetAudioSessionIdRequest
+	(*GetAudioSessionIdResponse)(nil),                     // 21: player.GetAudioSessionIdResponse
+	(*GetCurrentPositionRequest)(nil),                     // 22: player.GetCurrentPositionRequest
+	(*GetCurrentPositionResponse)(nil),                    // 23: player.GetCurrentPositionResponse
+	(*GetDrmInfoRequest)(nil),                             // 24: player.GetDrmInfoRequest
+	(*GetDrmInfoResponse)(nil),                            // 25: player.GetDrmInfoResponse
+	(*GetDrmPropertyStringRequest)(nil),                   // 26: player.GetDrmPropertyStringRequest
+	(*GetDrmPropertyStringResponse)(nil),                  // 27: player.GetDrmPropertyStringResponse
+	(*GetDurationRequest)(nil),                            // 28: player.GetDurationRequest
+	(*GetDurationResponse)(nil),                           // 29: player.GetDurationResponse
+	(*GetMetricsRequest)(nil),                             // 30: player.GetMetricsRequest
+	(*GetMetricsResponse)(nil),                            // 31: player.GetMetricsResponse
+	(*GetPlaybackParamsRequest)(nil),                      // 32: player.GetPlaybackParamsRequest
+	(*GetPlaybackParamsResponse)(nil),                     // 33: player.GetPlaybackParamsResponse
+	(*GetPreferredDeviceRequest)(nil),                     // 34: player.GetPreferredDeviceRequest
+	(*GetPreferredDeviceResponse)(nil),                    // 35: player.GetPreferredDeviceResponse
+	(*GetRoutedDeviceRequest)(nil),                        // 36: player.GetRoutedDeviceRequest
+	(*GetRoutedDeviceResponse)(nil),                       // 37: player.GetRoutedDeviceResponse
+	(*GetSelectedTrackRequest)(nil),                       // 38: player.GetSelectedTrackRequest
+	(*GetSelectedTrackResponse)(nil),                      // 39: player.GetSelectedTrackResponse
+	(*GetSyncParamsRequest)(nil),                          // 40: player.GetSyncParamsRequest
+	(*GetSyncParamsResponse)(nil),                         // 41: player.GetSyncParamsResponse
+	(*GetTimestampRequest)(nil),                           // 42: player.GetTimestampRequest
+	(*GetTimestampResponse)(nil),                          // 43: player.GetTimestampResponse
+	(*GetTrackInfoRequest)(nil),                           // 44: player.GetTrackInfoRequest
+	(*GetTrackInfoResponse)(nil),                          // 45: player.GetTrackInfoResponse
+	(*GetVideoHeightRequest)(nil),                         // 46: player.GetVideoHeightRequest
+	(*GetVideoHeightResponse)(nil),                        // 47: player.GetVideoHeightResponse
+	(*GetVideoWidthRequest)(nil),                          // 48: player.GetVideoWidthRequest
+	(*GetVideoWidthResponse)(nil),                         // 49: player.GetVideoWidthResponse
+	(*IsLoopingRequest)(nil),                              // 50: player.IsLoopingRequest
+	(*IsLoopingResponse)(nil),                             // 51: player.IsLoopingResponse
+	(*IsPlayingRequest)(nil),                              // 52: player.IsPlayingRequest
+	(*IsPlayingResponse)(nil),                             // 53: player.IsPlayingResponse
+	(*PauseRequest)(nil),                                  // 54: player.PauseRequest
+	(*PauseResponse)(nil),                                 // 55: player.PauseResponse
+	(*PrepareRequest)(nil),                                // 56: player.PrepareRequest
+	(*PrepareResponse)(nil),                               // 57: player.PrepareResponse
+	(*PrepareAsyncRequest)(nil),                           // 58: player.PrepareAsyncRequest
+	(*PrepareAsyncResponse)(nil),                          // 59: player.PrepareAsyncResponse
+	(*PrepareDrmRequest)(nil),                             // 60: player.PrepareDrmRequest
+	(*PrepareDrmResponse)(nil),                            // 61: player.PrepareDrmResponse
+	(*ProvideKeyResponseRequest)(nil),                     // 62: player.ProvideKeyResponseRequest
+	(*ProvideKeyResponseResponse)(nil),                    // 63: player.ProvideKeyResponseResponse
+	(*ReleaseRequest)(nil),                                // 64: player.ReleaseRequest
+	(*ReleaseResponse)(nil),                               // 65: player.ReleaseResponse
+	(*ReleaseDrmRequest)(nil),                             // 66: player.ReleaseDrmRequest
+	(*ReleaseDrmResponse)(nil),                            // 67: player.ReleaseDrmResponse
+	(*RemoveOnRoutingChangedListenerRequest)(nil),         // 68: player.RemoveOnRoutingChangedListenerRequest
+	(*RemoveOnRoutingChangedListenerResponse)(nil),        // 69: player.RemoveOnRoutingChangedListenerResponse
+	(*ResetRequest)(nil),                                  // 70: player.ResetRequest
+	(*ResetResponse)(nil),                                 // 71: player.ResetResponse
+	(*RestoreKeysRequest)(nil),                            // 72: player.RestoreKeysRequest
+	(*RestoreKeysResponse)(nil),                           // 73: player.RestoreKeysResponse
+	(*SeekTo1Request)(nil),                                // 74: player.SeekTo1Request
+	(*SeekTo1Response)(nil),                               // 75: player.SeekTo1Response
+	(*SeekTo2_1Request)(nil),                              // 76: player.SeekTo2_1Request
+	(*SeekTo2_1Response)(nil),                             // 77: player.SeekTo2_1Response
+	(*SelectTrackRequest)(nil),                            // 78: player.SelectTrackRequest
+	(*SelectTrackResponse)(nil),                           // 79: player.SelectTrackResponse
+	(*SetAudioAttributesRequest)(nil),                     // 80: player.SetAudioAttributesRequest
+	(*SetAudioAttributesResponse)(nil),                    // 81: player.SetAudioAttributesResponse
+	(*SetAudioSessionIdRequest)(nil),                      // 82: player.SetAudioSessionIdRequest
+	(*SetAudioSessionIdResponse)(nil),                     // 83: player.SetAudioSessionIdResponse
+	(*SetAudioStreamTypeRequest)(nil),                     // 84: player.SetAudioStreamTypeRequest
+	(*SetAudioStreamTypeResponse)(nil),                    // 85: player.SetAudioStreamTypeResponse
+	(*SetAuxEffectSendLevelRequest)(nil),                  // 86: player.SetAuxEffectSendLevelRequest
+	(*SetAuxEffectSendLevelResponse)(nil),                 // 87: player.SetAuxEffectSendLevelResponse
+	(*SetDataSource2Request)(nil),                         // 88: player.SetDataSource2Request
+	(*SetDataSource2Response)(nil),                        // 89: player.SetDataSource2Response
+	(*SetDataSource1_1Request)(nil),                       // 90: player.SetDataSource1_1Request
+	(*SetDataSource1_1Response)(nil),                      // 91: player.SetDataSource1_1Response
+	(*SetDataSource1_2Request)(nil),                       // 92: player.SetDataSource1_2Request
+	(*SetDataSource1_2Response)(nil),                      // 93: player.SetDataSource1_2Response
+	(*SetDataSource1_3Request)(nil),                       // 94: player.SetDataSource1_3Request
+	(*SetDataSource1_3Response)(nil),                      // 95: player.SetDataSource1_3Response
+	(*SetDataSource3_4Request)(nil),                       // 96: player.SetDataSource3_4Request
+	(*SetDataSource3_4Response)(nil),                      // 97: player.SetDataSource3_4Response
+	(*SetDataSource1_5Request)(nil),                       // 98: player.SetDataSource1_5Request
+	(*SetDataSource1_5Response)(nil),                      // 99: player.SetDataSource1_5Response
+	(*SetDisplayRequest)(nil),                             // 100: player.SetDisplayRequest
+	(*SetDisplayResponse)(nil),                            // 101: player.SetDisplayResponse
+	(*SetDrmPropertyStringRequest)(nil),                   // 102: player.SetDrmPropertyStringRequest
+	(*SetDrmPropertyStringResponse)(nil),                  // 103: player.SetDrmPropertyStringResponse
+	(*SetLoopingRequest)(nil),                             // 104: player.SetLoopingRequest
+	(*SetLoopingResponse)(nil),                            // 105: player.SetLoopingResponse
+	(*SetNextMediaPlayerRequest)(nil),                     // 106: player.SetNextMediaPlayerRequest
+	(*SetNextMediaPlayerResponse)(nil),                    // 107: player.SetNextMediaPlayerResponse
+	(*SetOnBufferingUpdateListenerRequest)(nil),           // 108: player.SetOnBufferingUpdateListenerRequest
+	(*SetOnBufferingUpdateListenerResponse)(nil),          // 109: player.SetOnBufferingUpdateListenerResponse
+	(*SetOnCompletionListenerRequest)(nil),                // 110: player.SetOnCompletionListenerRequest
+	(*SetOnCompletionListenerResponse)(nil),               // 111: player.SetOnCompletionListenerResponse
+	(*SetOnDrmConfigHelperRequest)(nil),                   // 112: player.SetOnDrmConfigHelperRequest
+	(*SetOnDrmConfigHelperResponse)(nil),                  // 113: player.SetOnDrmConfigHelperResponse
+	(*SetOnDrmInfoListenerRequest)(nil),                   // 114: player.SetOnDrmInfoListenerRequest
+	(*SetOnDrmInfoListenerResponse)(nil),                  // 115: player.SetOnDrmInfoListenerResponse
+	(*SetOnDrmPreparedListenerRequest)(nil),               // 116: player.SetOnDrmPreparedListenerRequest
+	(*SetOnDrmPreparedListenerResponse)(nil),              // 117: player.SetOnDrmPreparedListenerResponse
+	(*SetOnErrorListenerRequest)(nil),                     // 118: player.SetOnErrorListenerRequest
+	(*SetOnErrorListenerResponse)(nil),                    // 119: player.SetOnErrorListenerResponse
+	(*SetOnInfoListenerRequest)(nil),                      // 120: player.SetOnInfoListenerRequest
+	(*SetOnInfoListenerResponse)(nil),                     // 121: player.SetOnInfoListenerResponse
+	(*SetOnMediaTimeDiscontinuityListenerRequest)(nil),    // 122: player.SetOnMediaTimeDiscontinuityListenerRequest
+	(*SetOnMediaTimeDiscontinuityListenerResponse)(nil),   // 123: player.SetOnMediaTimeDiscontinuityListenerResponse
+	(*SetOnPreparedListenerRequest)(nil),                  // 124: player.SetOnPreparedListenerRequest
+	(*SetOnPreparedListenerResponse)(nil),                 // 125: player.SetOnPreparedListenerResponse
+	(*SetOnSeekCompleteListenerRequest)(nil),              // 126: player.SetOnSeekCompleteListenerRequest
+	(*SetOnSeekCompleteListenerResponse)(nil),             // 127: player.SetOnSeekCompleteListenerResponse
+	(*SetOnSubtitleDataListenerRequest)(nil),              // 128: player.SetOnSubtitleDataListenerRequest
+	(*SetOnSubtitleDataListenerResponse)(nil),             // 129: player.SetOnSubtitleDataListenerResponse
+	(*SetOnTimedMetaDataAvailableListenerRequest)(nil),    // 130: player.SetOnTimedMetaDataAvailableListenerRequest
+	(*SetOnTimedMetaDataAvailableListenerResponse)(nil),   // 131: player.SetOnTimedMetaDataAvailableListenerResponse
+	(*SetOnTimedTextListenerRequest)(nil),                 // 132: player.SetOnTimedTextListenerRequest
+	(*SetOnTimedTextListenerResponse)(nil),                // 133: player.SetOnTimedTextListenerResponse
+	(*SetOnVideoSizeChangedListenerRequest)(nil),          // 134: player.SetOnVideoSizeChangedListenerRequest
+	(*SetOnVideoSizeChangedListenerResponse)(nil),         // 135: player.SetOnVideoSizeChangedListenerResponse
+	(*SetPlaybackParamsRequest)(nil),                      // 136: player.SetPlaybackParamsRequest
+	(*SetPlaybackParamsResponse)(nil),                     // 137: player.SetPlaybackParamsResponse
+	(*SetPreferredDeviceRequest)(nil),                     // 138: player.SetPreferredDeviceRequest
+	(*SetPreferredDeviceResponse)(nil),                    // 139: player.SetPreferredDeviceResponse
+	(*SetScreenOnWhilePlayingRequest)(nil),                // 140: player.SetScreenOnWhilePlayingRequest
+	(*SetScreenOnWhilePlayingResponse)(nil),               // 141: player.SetScreenOnWhilePlayingResponse
+	(*SetSurfaceRequest)(nil),                             // 142: player.SetSurfaceRequest
+	(*SetSurfaceResponse)(nil),                            // 143: player.SetSurfaceResponse
+	(*SetSyncParamsRequest)(nil),                          // 144: player.SetSyncParamsRequest
+	(*SetSyncParamsResponse)(nil),                         // 145: player.SetSyncParamsResponse
+	(*SetVideoScalingModeRequest)(nil),                    // 146: player.SetVideoScalingModeRequest
+	(*SetVideoScalingModeResponse)(nil),                   // 147: player.SetVideoScalingModeResponse
+	(*SetVolumeRequest)(nil),                              // 148: player.SetVolumeRequest
+	(*SetVolumeResponse)(nil),                             // 149: player.SetVolumeResponse
+	(*SetWakeModeRequest)(nil),                            // 150: player.SetWakeModeRequest
+	(*SetWakeModeResponse)(nil),                           // 151: player.SetWakeModeResponse
+	(*StartRequest)(nil),                                  // 152: player.StartRequest
+	(*StartResponse)(nil),                                 // 153: player.StartResponse
+	(*StopRequest)(nil),                                   // 154: player.StopRequest
+	(*StopResponse)(nil),                                  // 155: player.StopResponse
+	(*Create2Request)(nil),                                // 156: player.Create2Request
+	(*Create2Response)(nil),                               // 157: player.Create2Response
+	(*Create3_1Request)(nil),                              // 158: player.Create3_1Request
+	(*Create3_1Response)(nil),                             // 159: player.Create3_1Response
+	(*Create5_2Request)(nil),                              // 160: player.Create5_2Request
+	(*Create5_2Response)(nil),                             // 161: player.Create5_2Response
+	(*Create2_3Request)(nil),                              // 162: player.Create2_3Request
+	(*Create2_3Response)(nil),                             // 163: player.Create2_3Response
+	(*Create4_4Request)(nil),                              // 164: player.Create4_4Request
+	(*Create4_4Response)(nil),                             // 165: player.Create4_4Response
+	(*GetSupportedSchemesRequest)(nil),                    // 166: player.GetSupportedSchemesRequest
+	(*GetSupportedSchemesResponse)(nil),                   // 167: player.GetSupportedSchemesResponse
+	(*OnBufferingUpdateRequest)(nil),                      // 168: player.OnBufferingUpdateRequest
+	(*OnBufferingUpdateResponse)(nil),                     // 169: player.OnBufferingUpdateResponse
+	(*OnCompletionRequest)(nil),                           // 170: player.OnCompletionRequest
+	(*OnCompletionResponse)(nil),                          // 171: player.OnCompletionResponse
+	(*OnDrmConfigRequest)(nil),                            // 172: player.OnDrmConfigRequest
+	(*OnDrmConfigResponse)(nil),                           // 173: player.OnDrmConfigResponse
+	(*OnDrmInfoRequest)(nil),                              // 174: player.OnDrmInfoRequest
+	(*OnDrmInfoResponse)(nil),                             // 175: player.OnDrmInfoResponse
+	(*OnDrmPreparedRequest)(nil),                          // 176: player.OnDrmPreparedRequest
+	(*OnDrmPreparedResponse)(nil),                         // 177: player.OnDrmPreparedResponse
+	(*OnErrorRequest)(nil),                                // 178: player.OnErrorRequest
+	(*OnErrorResponse)(nil),                               // 179: player.OnErrorResponse
+	(*OnInfoRequest)(nil),                                 // 180: player.OnInfoRequest
+	(*OnInfoResponse)(nil),                                // 181: player.OnInfoResponse
+	(*OnMediaTimeDiscontinuityRequest)(nil),               // 182: player.OnMediaTimeDiscontinuityRequest
+	(*OnMediaTimeDiscontinuityResponse)(nil),              // 183: player.OnMediaTimeDiscontinuityResponse
+	(*OnPreparedRequest)(nil),                             // 184: player.OnPreparedRequest
+	(*OnPreparedResponse)(nil),                            // 185: player.OnPreparedResponse
+	(*OnSeekCompleteRequest)(nil),                         // 186: player.OnSeekCompleteRequest
+	(*OnSeekCompleteResponse)(nil),                        // 187: player.OnSeekCompleteResponse
+	(*OnSubtitleDataRequest)(nil),                         // 188: player.OnSubtitleDataRequest
+	(*OnSubtitleDataResponse)(nil),                        // 189: player.OnSubtitleDataResponse
+	(*OnTimedMetaDataAvailableRequest)(nil),               // 190: player.OnTimedMetaDataAvailableRequest
+	(*OnTimedMetaDataAvailableResponse)(nil),              // 191: player.OnTimedMetaDataAvailableResponse
+	(*OnTimedTextRequest)(nil),                            // 192: player.OnTimedTextRequest
+	(*OnTimedTextResponse)(nil),                           // 193: player.OnTimedTextResponse
+	(*OnVideoSizeChangedRequest)(nil),                     // 194: player.OnVideoSizeChangedRequest
+	(*OnVideoSizeChangedResponse)(nil),                    // 195: player.OnVideoSizeChangedResponse
+	(*DescribeContentsRequest)(nil),                       // 196: player.DescribeContentsRequest
+	(*DescribeContentsResponse)(nil),                      // 197: player.DescribeContentsResponse
+	(*GetFormatRequest)(nil),                              // 198: player.GetFormatRequest
+	(*GetFormatResponse)(nil),                             // 199: player.GetFormatResponse
+	(*GetLanguageRequest)(nil),                            // 200: player.GetLanguageRequest
+	(*GetLanguageResponse)(nil),                           // 201: player.GetLanguageResponse
+	(*GetTrackTypeRequest)(nil),                           // 202: player.GetTrackTypeRequest
+	(*GetTrackTypeResponse)(nil),                          // 203: player.GetTrackTypeResponse
+	(*ToStringRequest)(nil),                               // 204: player.ToStringRequest
+	(*ToStringResponse)(nil),                              // 205: player.ToStringResponse
+	(*WriteToParcelRequest)(nil),                          // 206: player.WriteToParcelRequest
+	(*WriteToParcelResponse)(nil),                         // 207: player.WriteToParcelResponse
+}
 var file_proto_player_player_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	0,   // 0: player.MediaPlayerService.NewMediaPlayer:input_type -> player.NewMediaPlayerRequest
+	2,   // 1: player.MediaPlayerService.AddTimedTextSource3:input_type -> player.AddTimedTextSource3Request
+	4,   // 2: player.MediaPlayerService.AddTimedTextSource2_1:input_type -> player.AddTimedTextSource2_1Request
+	6,   // 3: player.MediaPlayerService.AddTimedTextSource4_2:input_type -> player.AddTimedTextSource4_2Request
+	8,   // 4: player.MediaPlayerService.AddTimedTextSource2_3:input_type -> player.AddTimedTextSource2_3Request
+	10,  // 5: player.MediaPlayerService.AttachAuxEffect:input_type -> player.AttachAuxEffectRequest
+	12,  // 6: player.MediaPlayerService.ClearOnMediaTimeDiscontinuityListener:input_type -> player.ClearOnMediaTimeDiscontinuityListenerRequest
+	14,  // 7: player.MediaPlayerService.ClearOnSubtitleDataListener:input_type -> player.ClearOnSubtitleDataListenerRequest
+	16,  // 8: player.MediaPlayerService.CreateVolumeShaper:input_type -> player.CreateVolumeShaperRequest
+	18,  // 9: player.MediaPlayerService.DeselectTrack:input_type -> player.DeselectTrackRequest
+	20,  // 10: player.MediaPlayerService.GetAudioSessionId:input_type -> player.GetAudioSessionIdRequest
+	22,  // 11: player.MediaPlayerService.GetCurrentPosition:input_type -> player.GetCurrentPositionRequest
+	24,  // 12: player.MediaPlayerService.GetDrmInfo:input_type -> player.GetDrmInfoRequest
+	26,  // 13: player.MediaPlayerService.GetDrmPropertyString:input_type -> player.GetDrmPropertyStringRequest
+	28,  // 14: player.MediaPlayerService.GetDuration:input_type -> player.GetDurationRequest
+	30,  // 15: player.MediaPlayerService.GetMetrics:input_type -> player.GetMetricsRequest
+	32,  // 16: player.MediaPlayerService.GetPlaybackParams:input_type -> player.GetPlaybackParamsRequest
+	34,  // 17: player.MediaPlayerService.GetPreferredDevice:input_type -> player.GetPreferredDeviceRequest
+	36,  // 18: player.MediaPlayerService.GetRoutedDevice:input_type -> player.GetRoutedDeviceRequest
+	38,  // 19: player.MediaPlayerService.GetSelectedTrack:input_type -> player.GetSelectedTrackRequest
+	40,  // 20: player.MediaPlayerService.GetSyncParams:input_type -> player.GetSyncParamsRequest
+	42,  // 21: player.MediaPlayerService.GetTimestamp:input_type -> player.GetTimestampRequest
+	44,  // 22: player.MediaPlayerService.GetTrackInfo:input_type -> player.GetTrackInfoRequest
+	46,  // 23: player.MediaPlayerService.GetVideoHeight:input_type -> player.GetVideoHeightRequest
+	48,  // 24: player.MediaPlayerService.GetVideoWidth:input_type -> player.GetVideoWidthRequest
+	50,  // 25: player.MediaPlayerService.IsLooping:input_type -> player.IsLoopingRequest
+	52,  // 26: player.MediaPlayerService.IsPlaying:input_type -> player.IsPlayingRequest
+	54,  // 27: player.MediaPlayerService.Pause:input_type -> player.PauseRequest
+	56,  // 28: player.MediaPlayerService.Prepare:input_type -> player.PrepareRequest
+	58,  // 29: player.MediaPlayerService.PrepareAsync:input_type -> player.PrepareAsyncRequest
+	60,  // 30: player.MediaPlayerService.PrepareDrm:input_type -> player.PrepareDrmRequest
+	62,  // 31: player.MediaPlayerService.ProvideKeyResponse:input_type -> player.ProvideKeyResponseRequest
+	64,  // 32: player.MediaPlayerService.Release:input_type -> player.ReleaseRequest
+	66,  // 33: player.MediaPlayerService.ReleaseDrm:input_type -> player.ReleaseDrmRequest
+	68,  // 34: player.MediaPlayerService.RemoveOnRoutingChangedListener:input_type -> player.RemoveOnRoutingChangedListenerRequest
+	70,  // 35: player.MediaPlayerService.Reset:input_type -> player.ResetRequest
+	72,  // 36: player.MediaPlayerService.RestoreKeys:input_type -> player.RestoreKeysRequest
+	74,  // 37: player.MediaPlayerService.SeekTo1:input_type -> player.SeekTo1Request
+	76,  // 38: player.MediaPlayerService.SeekTo2_1:input_type -> player.SeekTo2_1Request
+	78,  // 39: player.MediaPlayerService.SelectTrack:input_type -> player.SelectTrackRequest
+	80,  // 40: player.MediaPlayerService.SetAudioAttributes:input_type -> player.SetAudioAttributesRequest
+	82,  // 41: player.MediaPlayerService.SetAudioSessionId:input_type -> player.SetAudioSessionIdRequest
+	84,  // 42: player.MediaPlayerService.SetAudioStreamType:input_type -> player.SetAudioStreamTypeRequest
+	86,  // 43: player.MediaPlayerService.SetAuxEffectSendLevel:input_type -> player.SetAuxEffectSendLevelRequest
+	88,  // 44: player.MediaPlayerService.SetDataSource2:input_type -> player.SetDataSource2Request
+	90,  // 45: player.MediaPlayerService.SetDataSource1_1:input_type -> player.SetDataSource1_1Request
+	92,  // 46: player.MediaPlayerService.SetDataSource1_2:input_type -> player.SetDataSource1_2Request
+	94,  // 47: player.MediaPlayerService.SetDataSource1_3:input_type -> player.SetDataSource1_3Request
+	96,  // 48: player.MediaPlayerService.SetDataSource3_4:input_type -> player.SetDataSource3_4Request
+	98,  // 49: player.MediaPlayerService.SetDataSource1_5:input_type -> player.SetDataSource1_5Request
+	100, // 50: player.MediaPlayerService.SetDisplay:input_type -> player.SetDisplayRequest
+	102, // 51: player.MediaPlayerService.SetDrmPropertyString:input_type -> player.SetDrmPropertyStringRequest
+	104, // 52: player.MediaPlayerService.SetLooping:input_type -> player.SetLoopingRequest
+	106, // 53: player.MediaPlayerService.SetNextMediaPlayer:input_type -> player.SetNextMediaPlayerRequest
+	108, // 54: player.MediaPlayerService.SetOnBufferingUpdateListener:input_type -> player.SetOnBufferingUpdateListenerRequest
+	110, // 55: player.MediaPlayerService.SetOnCompletionListener:input_type -> player.SetOnCompletionListenerRequest
+	112, // 56: player.MediaPlayerService.SetOnDrmConfigHelper:input_type -> player.SetOnDrmConfigHelperRequest
+	114, // 57: player.MediaPlayerService.SetOnDrmInfoListener:input_type -> player.SetOnDrmInfoListenerRequest
+	116, // 58: player.MediaPlayerService.SetOnDrmPreparedListener:input_type -> player.SetOnDrmPreparedListenerRequest
+	118, // 59: player.MediaPlayerService.SetOnErrorListener:input_type -> player.SetOnErrorListenerRequest
+	120, // 60: player.MediaPlayerService.SetOnInfoListener:input_type -> player.SetOnInfoListenerRequest
+	122, // 61: player.MediaPlayerService.SetOnMediaTimeDiscontinuityListener:input_type -> player.SetOnMediaTimeDiscontinuityListenerRequest
+	124, // 62: player.MediaPlayerService.SetOnPreparedListener:input_type -> player.SetOnPreparedListenerRequest
+	126, // 63: player.MediaPlayerService.SetOnSeekCompleteListener:input_type -> player.SetOnSeekCompleteListenerRequest
+	128, // 64: player.MediaPlayerService.SetOnSubtitleDataListener:input_type -> player.SetOnSubtitleDataListenerRequest
+	130, // 65: player.MediaPlayerService.SetOnTimedMetaDataAvailableListener:input_type -> player.SetOnTimedMetaDataAvailableListenerRequest
+	132, // 66: player.MediaPlayerService.SetOnTimedTextListener:input_type -> player.SetOnTimedTextListenerRequest
+	134, // 67: player.MediaPlayerService.SetOnVideoSizeChangedListener:input_type -> player.SetOnVideoSizeChangedListenerRequest
+	136, // 68: player.MediaPlayerService.SetPlaybackParams:input_type -> player.SetPlaybackParamsRequest
+	138, // 69: player.MediaPlayerService.SetPreferredDevice:input_type -> player.SetPreferredDeviceRequest
+	140, // 70: player.MediaPlayerService.SetScreenOnWhilePlaying:input_type -> player.SetScreenOnWhilePlayingRequest
+	142, // 71: player.MediaPlayerService.SetSurface:input_type -> player.SetSurfaceRequest
+	144, // 72: player.MediaPlayerService.SetSyncParams:input_type -> player.SetSyncParamsRequest
+	146, // 73: player.MediaPlayerService.SetVideoScalingMode:input_type -> player.SetVideoScalingModeRequest
+	148, // 74: player.MediaPlayerService.SetVolume:input_type -> player.SetVolumeRequest
+	150, // 75: player.MediaPlayerService.SetWakeMode:input_type -> player.SetWakeModeRequest
+	152, // 76: player.MediaPlayerService.Start:input_type -> player.StartRequest
+	154, // 77: player.MediaPlayerService.Stop:input_type -> player.StopRequest
+	156, // 78: player.MediaPlayerService.Create2:input_type -> player.Create2Request
+	158, // 79: player.MediaPlayerService.Create3_1:input_type -> player.Create3_1Request
+	160, // 80: player.MediaPlayerService.Create5_2:input_type -> player.Create5_2Request
+	162, // 81: player.MediaPlayerService.Create2_3:input_type -> player.Create2_3Request
+	164, // 82: player.MediaPlayerService.Create4_4:input_type -> player.Create4_4Request
+	166, // 83: player.MediaPlayerDrmInfoService.GetSupportedSchemes:input_type -> player.GetSupportedSchemesRequest
+	168, // 84: player.MediaPlayerOnBufferingUpdateListenerService.OnBufferingUpdate:input_type -> player.OnBufferingUpdateRequest
+	170, // 85: player.MediaPlayerOnCompletionListenerService.OnCompletion:input_type -> player.OnCompletionRequest
+	172, // 86: player.MediaPlayerOnDrmConfigHelperService.OnDrmConfig:input_type -> player.OnDrmConfigRequest
+	174, // 87: player.MediaPlayerOnDrmInfoListenerService.OnDrmInfo:input_type -> player.OnDrmInfoRequest
+	176, // 88: player.MediaPlayerOnDrmPreparedListenerService.OnDrmPrepared:input_type -> player.OnDrmPreparedRequest
+	178, // 89: player.MediaPlayerOnErrorListenerService.OnError:input_type -> player.OnErrorRequest
+	180, // 90: player.MediaPlayerOnInfoListenerService.OnInfo:input_type -> player.OnInfoRequest
+	182, // 91: player.MediaPlayerOnMediaTimeDiscontinuityListenerService.OnMediaTimeDiscontinuity:input_type -> player.OnMediaTimeDiscontinuityRequest
+	184, // 92: player.MediaPlayerOnPreparedListenerService.OnPrepared:input_type -> player.OnPreparedRequest
+	186, // 93: player.MediaPlayerOnSeekCompleteListenerService.OnSeekComplete:input_type -> player.OnSeekCompleteRequest
+	188, // 94: player.MediaPlayerOnSubtitleDataListenerService.OnSubtitleData:input_type -> player.OnSubtitleDataRequest
+	190, // 95: player.MediaPlayerOnTimedMetaDataAvailableListenerService.OnTimedMetaDataAvailable:input_type -> player.OnTimedMetaDataAvailableRequest
+	192, // 96: player.MediaPlayerOnTimedTextListenerService.OnTimedText:input_type -> player.OnTimedTextRequest
+	194, // 97: player.MediaPlayerOnVideoSizeChangedListenerService.OnVideoSizeChanged:input_type -> player.OnVideoSizeChangedRequest
+	196, // 98: player.MediaPlayerTrackInfoService.DescribeContents:input_type -> player.DescribeContentsRequest
+	198, // 99: player.MediaPlayerTrackInfoService.GetFormat:input_type -> player.GetFormatRequest
+	200, // 100: player.MediaPlayerTrackInfoService.GetLanguage:input_type -> player.GetLanguageRequest
+	202, // 101: player.MediaPlayerTrackInfoService.GetTrackType:input_type -> player.GetTrackTypeRequest
+	204, // 102: player.MediaPlayerTrackInfoService.ToString:input_type -> player.ToStringRequest
+	206, // 103: player.MediaPlayerTrackInfoService.WriteToParcel:input_type -> player.WriteToParcelRequest
+	1,   // 104: player.MediaPlayerService.NewMediaPlayer:output_type -> player.NewMediaPlayerResponse
+	3,   // 105: player.MediaPlayerService.AddTimedTextSource3:output_type -> player.AddTimedTextSource3Response
+	5,   // 106: player.MediaPlayerService.AddTimedTextSource2_1:output_type -> player.AddTimedTextSource2_1Response
+	7,   // 107: player.MediaPlayerService.AddTimedTextSource4_2:output_type -> player.AddTimedTextSource4_2Response
+	9,   // 108: player.MediaPlayerService.AddTimedTextSource2_3:output_type -> player.AddTimedTextSource2_3Response
+	11,  // 109: player.MediaPlayerService.AttachAuxEffect:output_type -> player.AttachAuxEffectResponse
+	13,  // 110: player.MediaPlayerService.ClearOnMediaTimeDiscontinuityListener:output_type -> player.ClearOnMediaTimeDiscontinuityListenerResponse
+	15,  // 111: player.MediaPlayerService.ClearOnSubtitleDataListener:output_type -> player.ClearOnSubtitleDataListenerResponse
+	17,  // 112: player.MediaPlayerService.CreateVolumeShaper:output_type -> player.CreateVolumeShaperResponse
+	19,  // 113: player.MediaPlayerService.DeselectTrack:output_type -> player.DeselectTrackResponse
+	21,  // 114: player.MediaPlayerService.GetAudioSessionId:output_type -> player.GetAudioSessionIdResponse
+	23,  // 115: player.MediaPlayerService.GetCurrentPosition:output_type -> player.GetCurrentPositionResponse
+	25,  // 116: player.MediaPlayerService.GetDrmInfo:output_type -> player.GetDrmInfoResponse
+	27,  // 117: player.MediaPlayerService.GetDrmPropertyString:output_type -> player.GetDrmPropertyStringResponse
+	29,  // 118: player.MediaPlayerService.GetDuration:output_type -> player.GetDurationResponse
+	31,  // 119: player.MediaPlayerService.GetMetrics:output_type -> player.GetMetricsResponse
+	33,  // 120: player.MediaPlayerService.GetPlaybackParams:output_type -> player.GetPlaybackParamsResponse
+	35,  // 121: player.MediaPlayerService.GetPreferredDevice:output_type -> player.GetPreferredDeviceResponse
+	37,  // 122: player.MediaPlayerService.GetRoutedDevice:output_type -> player.GetRoutedDeviceResponse
+	39,  // 123: player.MediaPlayerService.GetSelectedTrack:output_type -> player.GetSelectedTrackResponse
+	41,  // 124: player.MediaPlayerService.GetSyncParams:output_type -> player.GetSyncParamsResponse
+	43,  // 125: player.MediaPlayerService.GetTimestamp:output_type -> player.GetTimestampResponse
+	45,  // 126: player.MediaPlayerService.GetTrackInfo:output_type -> player.GetTrackInfoResponse
+	47,  // 127: player.MediaPlayerService.GetVideoHeight:output_type -> player.GetVideoHeightResponse
+	49,  // 128: player.MediaPlayerService.GetVideoWidth:output_type -> player.GetVideoWidthResponse
+	51,  // 129: player.MediaPlayerService.IsLooping:output_type -> player.IsLoopingResponse
+	53,  // 130: player.MediaPlayerService.IsPlaying:output_type -> player.IsPlayingResponse
+	55,  // 131: player.MediaPlayerService.Pause:output_type -> player.PauseResponse
+	57,  // 132: player.MediaPlayerService.Prepare:output_type -> player.PrepareResponse
+	59,  // 133: player.MediaPlayerService.PrepareAsync:output_type -> player.PrepareAsyncResponse
+	61,  // 134: player.MediaPlayerService.PrepareDrm:output_type -> player.PrepareDrmResponse
+	63,  // 135: player.MediaPlayerService.ProvideKeyResponse:output_type -> player.ProvideKeyResponseResponse
+	65,  // 136: player.MediaPlayerService.Release:output_type -> player.ReleaseResponse
+	67,  // 137: player.MediaPlayerService.ReleaseDrm:output_type -> player.ReleaseDrmResponse
+	69,  // 138: player.MediaPlayerService.RemoveOnRoutingChangedListener:output_type -> player.RemoveOnRoutingChangedListenerResponse
+	71,  // 139: player.MediaPlayerService.Reset:output_type -> player.ResetResponse
+	73,  // 140: player.MediaPlayerService.RestoreKeys:output_type -> player.RestoreKeysResponse
+	75,  // 141: player.MediaPlayerService.SeekTo1:output_type -> player.SeekTo1Response
+	77,  // 142: player.MediaPlayerService.SeekTo2_1:output_type -> player.SeekTo2_1Response
+	79,  // 143: player.MediaPlayerService.SelectTrack:output_type -> player.SelectTrackResponse
+	81,  // 144: player.MediaPlayerService.SetAudioAttributes:output_type -> player.SetAudioAttributesResponse
+	83,  // 145: player.MediaPlayerService.SetAudioSessionId:output_type -> player.SetAudioSessionIdResponse
+	85,  // 146: player.MediaPlayerService.SetAudioStreamType:output_type -> player.SetAudioStreamTypeResponse
+	87,  // 147: player.MediaPlayerService.SetAuxEffectSendLevel:output_type -> player.SetAuxEffectSendLevelResponse
+	89,  // 148: player.MediaPlayerService.SetDataSource2:output_type -> player.SetDataSource2Response
+	91,  // 149: player.MediaPlayerService.SetDataSource1_1:output_type -> player.SetDataSource1_1Response
+	93,  // 150: player.MediaPlayerService.SetDataSource1_2:output_type -> player.SetDataSource1_2Response
+	95,  // 151: player.MediaPlayerService.SetDataSource1_3:output_type -> player.SetDataSource1_3Response
+	97,  // 152: player.MediaPlayerService.SetDataSource3_4:output_type -> player.SetDataSource3_4Response
+	99,  // 153: player.MediaPlayerService.SetDataSource1_5:output_type -> player.SetDataSource1_5Response
+	101, // 154: player.MediaPlayerService.SetDisplay:output_type -> player.SetDisplayResponse
+	103, // 155: player.MediaPlayerService.SetDrmPropertyString:output_type -> player.SetDrmPropertyStringResponse
+	105, // 156: player.MediaPlayerService.SetLooping:output_type -> player.SetLoopingResponse
+	107, // 157: player.MediaPlayerService.SetNextMediaPlayer:output_type -> player.SetNextMediaPlayerResponse
+	109, // 158: player.MediaPlayerService.SetOnBufferingUpdateListener:output_type -> player.SetOnBufferingUpdateListenerResponse
+	111, // 159: player.MediaPlayerService.SetOnCompletionListener:output_type -> player.SetOnCompletionListenerResponse
+	113, // 160: player.MediaPlayerService.SetOnDrmConfigHelper:output_type -> player.SetOnDrmConfigHelperResponse
+	115, // 161: player.MediaPlayerService.SetOnDrmInfoListener:output_type -> player.SetOnDrmInfoListenerResponse
+	117, // 162: player.MediaPlayerService.SetOnDrmPreparedListener:output_type -> player.SetOnDrmPreparedListenerResponse
+	119, // 163: player.MediaPlayerService.SetOnErrorListener:output_type -> player.SetOnErrorListenerResponse
+	121, // 164: player.MediaPlayerService.SetOnInfoListener:output_type -> player.SetOnInfoListenerResponse
+	123, // 165: player.MediaPlayerService.SetOnMediaTimeDiscontinuityListener:output_type -> player.SetOnMediaTimeDiscontinuityListenerResponse
+	125, // 166: player.MediaPlayerService.SetOnPreparedListener:output_type -> player.SetOnPreparedListenerResponse
+	127, // 167: player.MediaPlayerService.SetOnSeekCompleteListener:output_type -> player.SetOnSeekCompleteListenerResponse
+	129, // 168: player.MediaPlayerService.SetOnSubtitleDataListener:output_type -> player.SetOnSubtitleDataListenerResponse
+	131, // 169: player.MediaPlayerService.SetOnTimedMetaDataAvailableListener:output_type -> player.SetOnTimedMetaDataAvailableListenerResponse
+	133, // 170: player.MediaPlayerService.SetOnTimedTextListener:output_type -> player.SetOnTimedTextListenerResponse
+	135, // 171: player.MediaPlayerService.SetOnVideoSizeChangedListener:output_type -> player.SetOnVideoSizeChangedListenerResponse
+	137, // 172: player.MediaPlayerService.SetPlaybackParams:output_type -> player.SetPlaybackParamsResponse
+	139, // 173: player.MediaPlayerService.SetPreferredDevice:output_type -> player.SetPreferredDeviceResponse
+	141, // 174: player.MediaPlayerService.SetScreenOnWhilePlaying:output_type -> player.SetScreenOnWhilePlayingResponse
+	143, // 175: player.MediaPlayerService.SetSurface:output_type -> player.SetSurfaceResponse
+	145, // 176: player.MediaPlayerService.SetSyncParams:output_type -> player.SetSyncParamsResponse
+	147, // 177: player.MediaPlayerService.SetVideoScalingMode:output_type -> player.SetVideoScalingModeResponse
+	149, // 178: player.MediaPlayerService.SetVolume:output_type -> player.SetVolumeResponse
+	151, // 179: player.MediaPlayerService.SetWakeMode:output_type -> player.SetWakeModeResponse
+	153, // 180: player.MediaPlayerService.Start:output_type -> player.StartResponse
+	155, // 181: player.MediaPlayerService.Stop:output_type -> player.StopResponse
+	157, // 182: player.MediaPlayerService.Create2:output_type -> player.Create2Response
+	159, // 183: player.MediaPlayerService.Create3_1:output_type -> player.Create3_1Response
+	161, // 184: player.MediaPlayerService.Create5_2:output_type -> player.Create5_2Response
+	163, // 185: player.MediaPlayerService.Create2_3:output_type -> player.Create2_3Response
+	165, // 186: player.MediaPlayerService.Create4_4:output_type -> player.Create4_4Response
+	167, // 187: player.MediaPlayerDrmInfoService.GetSupportedSchemes:output_type -> player.GetSupportedSchemesResponse
+	169, // 188: player.MediaPlayerOnBufferingUpdateListenerService.OnBufferingUpdate:output_type -> player.OnBufferingUpdateResponse
+	171, // 189: player.MediaPlayerOnCompletionListenerService.OnCompletion:output_type -> player.OnCompletionResponse
+	173, // 190: player.MediaPlayerOnDrmConfigHelperService.OnDrmConfig:output_type -> player.OnDrmConfigResponse
+	175, // 191: player.MediaPlayerOnDrmInfoListenerService.OnDrmInfo:output_type -> player.OnDrmInfoResponse
+	177, // 192: player.MediaPlayerOnDrmPreparedListenerService.OnDrmPrepared:output_type -> player.OnDrmPreparedResponse
+	179, // 193: player.MediaPlayerOnErrorListenerService.OnError:output_type -> player.OnErrorResponse
+	181, // 194: player.MediaPlayerOnInfoListenerService.OnInfo:output_type -> player.OnInfoResponse
+	183, // 195: player.MediaPlayerOnMediaTimeDiscontinuityListenerService.OnMediaTimeDiscontinuity:output_type -> player.OnMediaTimeDiscontinuityResponse
+	185, // 196: player.MediaPlayerOnPreparedListenerService.OnPrepared:output_type -> player.OnPreparedResponse
+	187, // 197: player.MediaPlayerOnSeekCompleteListenerService.OnSeekComplete:output_type -> player.OnSeekCompleteResponse
+	189, // 198: player.MediaPlayerOnSubtitleDataListenerService.OnSubtitleData:output_type -> player.OnSubtitleDataResponse
+	191, // 199: player.MediaPlayerOnTimedMetaDataAvailableListenerService.OnTimedMetaDataAvailable:output_type -> player.OnTimedMetaDataAvailableResponse
+	193, // 200: player.MediaPlayerOnTimedTextListenerService.OnTimedText:output_type -> player.OnTimedTextResponse
+	195, // 201: player.MediaPlayerOnVideoSizeChangedListenerService.OnVideoSizeChanged:output_type -> player.OnVideoSizeChangedResponse
+	197, // 202: player.MediaPlayerTrackInfoService.DescribeContents:output_type -> player.DescribeContentsResponse
+	199, // 203: player.MediaPlayerTrackInfoService.GetFormat:output_type -> player.GetFormatResponse
+	201, // 204: player.MediaPlayerTrackInfoService.GetLanguage:output_type -> player.GetLanguageResponse
+	203, // 205: player.MediaPlayerTrackInfoService.GetTrackType:output_type -> player.GetTrackTypeResponse
+	205, // 206: player.MediaPlayerTrackInfoService.ToString:output_type -> player.ToStringResponse
+	207, // 207: player.MediaPlayerTrackInfoService.WriteToParcel:output_type -> player.WriteToParcelResponse
+	104, // [104:208] is the sub-list for method output_type
+	0,   // [0:104] is the sub-list for method input_type
+	0,   // [0:0] is the sub-list for extension type_name
+	0,   // [0:0] is the sub-list for extension extendee
+	0,   // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_proto_player_player_proto_init() }
@@ -48,12 +10365,13 @@ func file_proto_player_player_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_player_player_proto_rawDesc), len(file_proto_player_player_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   208,
 			NumExtensions: 0,
-			NumServices:   0,
+			NumServices:   17,
 		},
 		GoTypes:           file_proto_player_player_proto_goTypes,
 		DependencyIndexes: file_proto_player_player_proto_depIdxs,
+		MessageInfos:      file_proto_player_player_proto_msgTypes,
 	}.Build()
 	File_proto_player_player_proto = out.File
 	file_proto_player_player_proto_goTypes = nil

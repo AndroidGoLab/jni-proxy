@@ -9,6 +9,1030 @@ import (
 	"google.golang.org/grpc"
 )
 
+// WifiP2pDeviceClient wraps the gRPC WifiP2PDeviceService client.
+type WifiP2pDeviceClient struct {
+	svc pb.WifiP2PDeviceServiceClient
+}
+
+// NewWifiP2pDeviceClient creates a new WifiP2pDevice client.
+func NewWifiP2pDeviceClient(cc grpc.ClientConnInterface) *WifiP2pDeviceClient {
+	return &WifiP2pDeviceClient{
+		svc: pb.NewWifiP2PDeviceServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *WifiP2pDeviceClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *WifiP2pDeviceClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIpAddress calls the GetIpAddress RPC.
+func (c *WifiP2pDeviceClient) GetIpAddress(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetIpAddress(ctx, &pb.GetIpAddressRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWfdInfo calls the GetWfdInfo RPC.
+func (c *WifiP2pDeviceClient) GetWfdInfo(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetWfdInfo(ctx, &pb.GetWfdInfoRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *WifiP2pDeviceClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsGroupOwner calls the IsGroupOwner RPC.
+func (c *WifiP2pDeviceClient) IsGroupOwner(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsGroupOwner(ctx, &pb.IsGroupOwnerRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsOpportunisticBootstrappingMethodSupported calls the IsOpportunisticBootstrappingMethodSupported RPC.
+func (c *WifiP2pDeviceClient) IsOpportunisticBootstrappingMethodSupported(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsOpportunisticBootstrappingMethodSupported(ctx, &pb.IsOpportunisticBootstrappingMethodSupportedRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsPassphraseDisplayBootstrappingMethodSupported calls the IsPassphraseDisplayBootstrappingMethodSupported RPC.
+func (c *WifiP2pDeviceClient) IsPassphraseDisplayBootstrappingMethodSupported(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsPassphraseDisplayBootstrappingMethodSupported(ctx, &pb.IsPassphraseDisplayBootstrappingMethodSupportedRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsPassphraseKeypadBootstrappingMethodSupported calls the IsPassphraseKeypadBootstrappingMethodSupported RPC.
+func (c *WifiP2pDeviceClient) IsPassphraseKeypadBootstrappingMethodSupported(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsPassphraseKeypadBootstrappingMethodSupported(ctx, &pb.IsPassphraseKeypadBootstrappingMethodSupportedRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsPinCodeDisplayBootstrappingMethodSupported calls the IsPinCodeDisplayBootstrappingMethodSupported RPC.
+func (c *WifiP2pDeviceClient) IsPinCodeDisplayBootstrappingMethodSupported(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsPinCodeDisplayBootstrappingMethodSupported(ctx, &pb.IsPinCodeDisplayBootstrappingMethodSupportedRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsPinCodeKeypadBootstrappingMethodSupported calls the IsPinCodeKeypadBootstrappingMethodSupported RPC.
+func (c *WifiP2pDeviceClient) IsPinCodeKeypadBootstrappingMethodSupported(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsPinCodeKeypadBootstrappingMethodSupported(ctx, &pb.IsPinCodeKeypadBootstrappingMethodSupportedRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsServiceDiscoveryCapable calls the IsServiceDiscoveryCapable RPC.
+func (c *WifiP2pDeviceClient) IsServiceDiscoveryCapable(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsServiceDiscoveryCapable(ctx, &pb.IsServiceDiscoveryCapableRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *WifiP2pDeviceClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// Update calls the Update RPC.
+func (c *WifiP2pDeviceClient) Update(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.Update(ctx, &pb.UpdateRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// WpsDisplaySupported calls the WpsDisplaySupported RPC.
+func (c *WifiP2pDeviceClient) WpsDisplaySupported(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.WpsDisplaySupported(ctx, &pb.WpsDisplaySupportedRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WpsKeypadSupported calls the WpsKeypadSupported RPC.
+func (c *WifiP2pDeviceClient) WpsKeypadSupported(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.WpsKeypadSupported(ctx, &pb.WpsKeypadSupportedRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WpsPbcSupported calls the WpsPbcSupported RPC.
+func (c *WifiP2pDeviceClient) WpsPbcSupported(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.WpsPbcSupported(ctx, &pb.WpsPbcSupportedRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *WifiP2pDeviceClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// WifiP2pInfoClient wraps the gRPC WifiP2PInfoService client.
+type WifiP2pInfoClient struct {
+	svc pb.WifiP2PInfoServiceClient
+}
+
+// NewWifiP2pInfoClient creates a new WifiP2pInfo client.
+func NewWifiP2pInfoClient(cc grpc.ClientConnInterface) *WifiP2pInfoClient {
+	return &WifiP2pInfoClient{
+		svc: pb.NewWifiP2PInfoServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *WifiP2pInfoClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *WifiP2pInfoClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *WifiP2pInfoClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// WifiP2pDeviceListClient wraps the gRPC WifiP2PDeviceListService client.
+type WifiP2pDeviceListClient struct {
+	svc pb.WifiP2PDeviceListServiceClient
+}
+
+// NewWifiP2pDeviceListClient creates a new WifiP2pDeviceList client.
+func NewWifiP2pDeviceListClient(cc grpc.ClientConnInterface) *WifiP2pDeviceListClient {
+	return &WifiP2pDeviceListClient{
+		svc: pb.NewWifiP2PDeviceListServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *WifiP2pDeviceListClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Get calls the Get RPC.
+func (c *WifiP2pDeviceListClient) Get(ctx context.Context, handle int64, arg0 string) (int64, error) {
+	resp, err := c.svc.Get(ctx, &pb.GetRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *WifiP2pDeviceListClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *WifiP2pDeviceListClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// WifiP2pDirInfoClient wraps the gRPC WifiP2PDirInfoService client.
+type WifiP2pDirInfoClient struct {
+	svc pb.WifiP2PDirInfoServiceClient
+}
+
+// NewWifiP2pDirInfoClient creates a new WifiP2pDirInfo client.
+func NewWifiP2pDirInfoClient(cc grpc.ClientConnInterface) *WifiP2pDirInfoClient {
+	return &WifiP2pDirInfoClient{
+		svc: pb.NewWifiP2PDirInfoServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *WifiP2pDirInfoClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDirTag calls the GetDirTag RPC.
+func (c *WifiP2pDirInfoClient) GetDirTag(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetDirTag(ctx, &pb.GetDirTagRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMacAddress calls the GetMacAddress RPC.
+func (c *WifiP2pDirInfoClient) GetMacAddress(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetMacAddress(ctx, &pb.GetMacAddressRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNonce calls the GetNonce RPC.
+func (c *WifiP2pDirInfoClient) GetNonce(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetNonce(ctx, &pb.GetNonceRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *WifiP2pDirInfoClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *WifiP2pDirInfoClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// WifiP2pPairingBootstrappingConfigClient wraps the gRPC WifiP2PPairingBootstrappingConfigService client.
+type WifiP2pPairingBootstrappingConfigClient struct {
+	svc pb.WifiP2PPairingBootstrappingConfigServiceClient
+}
+
+// NewWifiP2pPairingBootstrappingConfigClient creates a new WifiP2pPairingBootstrappingConfig client.
+func NewWifiP2pPairingBootstrappingConfigClient(cc grpc.ClientConnInterface) *WifiP2pPairingBootstrappingConfigClient {
+	return &WifiP2pPairingBootstrappingConfigClient{
+		svc: pb.NewWifiP2PPairingBootstrappingConfigServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *WifiP2pPairingBootstrappingConfigClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *WifiP2pPairingBootstrappingConfigClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *WifiP2pPairingBootstrappingConfigClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// WifiP2pDiscoveryConfigClient wraps the gRPC WifiP2PDiscoveryConfigService client.
+type WifiP2pDiscoveryConfigClient struct {
+	svc pb.WifiP2PDiscoveryConfigServiceClient
+}
+
+// NewWifiP2pDiscoveryConfigClient creates a new WifiP2pDiscoveryConfig client.
+func NewWifiP2pDiscoveryConfigClient(cc grpc.ClientConnInterface) *WifiP2pDiscoveryConfigClient {
+	return &WifiP2pDiscoveryConfigClient{
+		svc: pb.NewWifiP2PDiscoveryConfigServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *WifiP2pDiscoveryConfigClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.WifiP2PDiscoveryConfigDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFrequencyMhz calls the GetFrequencyMhz RPC.
+func (c *WifiP2pDiscoveryConfigClient) GetFrequencyMhz(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetFrequencyMhz(ctx, &pb.GetFrequencyMhzRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetScanType calls the GetScanType RPC.
+func (c *WifiP2pDiscoveryConfigClient) GetScanType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetScanType(ctx, &pb.GetScanTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *WifiP2pDiscoveryConfigClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.WifiP2PDiscoveryConfigToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *WifiP2pDiscoveryConfigClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WifiP2PDiscoveryConfigWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// WifiP2pDiscoveryConfigBuilderClient wraps the gRPC WifiP2PDiscoveryConfigBuilderService client.
+type WifiP2pDiscoveryConfigBuilderClient struct {
+	svc pb.WifiP2PDiscoveryConfigBuilderServiceClient
+}
+
+// NewWifiP2pDiscoveryConfigBuilderClient creates a new WifiP2pDiscoveryConfigBuilder client.
+func NewWifiP2pDiscoveryConfigBuilderClient(cc grpc.ClientConnInterface) *WifiP2pDiscoveryConfigBuilderClient {
+	return &WifiP2pDiscoveryConfigBuilderClient{
+		svc: pb.NewWifiP2PDiscoveryConfigBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *WifiP2pDiscoveryConfigBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetFrequencyMhz calls the SetFrequencyMhz RPC.
+func (c *WifiP2pDiscoveryConfigBuilderClient) SetFrequencyMhz(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetFrequencyMhz(ctx, &pb.SetFrequencyMhzRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WifiP2pWfdInfoClient wraps the gRPC WifiP2PWfdInfoService client.
+type WifiP2pWfdInfoClient struct {
+	svc pb.WifiP2PWfdInfoServiceClient
+}
+
+// NewWifiP2pWfdInfoClient creates a new WifiP2pWfdInfo client.
+func NewWifiP2pWfdInfoClient(cc grpc.ClientConnInterface) *WifiP2pWfdInfoClient {
+	return &WifiP2pWfdInfoClient{
+		svc: pb.NewWifiP2PWfdInfoServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *WifiP2pWfdInfoClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetControlPort calls the GetControlPort RPC.
+func (c *WifiP2pWfdInfoClient) GetControlPort(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetControlPort(ctx, &pb.GetControlPortRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDeviceInfo calls the GetDeviceInfo RPC.
+func (c *WifiP2pWfdInfoClient) GetDeviceInfo(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetDeviceInfo(ctx, &pb.GetDeviceInfoRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDeviceType calls the GetDeviceType RPC.
+func (c *WifiP2pWfdInfoClient) GetDeviceType(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetDeviceType(ctx, &pb.GetDeviceTypeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMaxThroughput calls the GetMaxThroughput RPC.
+func (c *WifiP2pWfdInfoClient) GetMaxThroughput(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetMaxThroughput(ctx, &pb.GetMaxThroughputRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetR2DeviceInfo calls the GetR2DeviceInfo RPC.
+func (c *WifiP2pWfdInfoClient) GetR2DeviceInfo(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetR2DeviceInfo(ctx, &pb.GetR2DeviceInfoRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetR2DeviceType calls the GetR2DeviceType RPC.
+func (c *WifiP2pWfdInfoClient) GetR2DeviceType(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetR2DeviceType(ctx, &pb.GetR2DeviceTypeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsContentProtectionSupported calls the IsContentProtectionSupported RPC.
+func (c *WifiP2pWfdInfoClient) IsContentProtectionSupported(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsContentProtectionSupported(ctx, &pb.IsContentProtectionSupportedRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsCoupledSinkSupportedAtSink calls the IsCoupledSinkSupportedAtSink RPC.
+func (c *WifiP2pWfdInfoClient) IsCoupledSinkSupportedAtSink(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsCoupledSinkSupportedAtSink(ctx, &pb.IsCoupledSinkSupportedAtSinkRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsCoupledSinkSupportedAtSource calls the IsCoupledSinkSupportedAtSource RPC.
+func (c *WifiP2pWfdInfoClient) IsCoupledSinkSupportedAtSource(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsCoupledSinkSupportedAtSource(ctx, &pb.IsCoupledSinkSupportedAtSourceRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsEnabled calls the IsEnabled RPC.
+func (c *WifiP2pWfdInfoClient) IsEnabled(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsEnabled(ctx, &pb.IsEnabledRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsR2Supported calls the IsR2Supported RPC.
+func (c *WifiP2pWfdInfoClient) IsR2Supported(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsR2Supported(ctx, &pb.IsR2SupportedRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsSessionAvailable calls the IsSessionAvailable RPC.
+func (c *WifiP2pWfdInfoClient) IsSessionAvailable(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsSessionAvailable(ctx, &pb.IsSessionAvailableRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetContentProtectionSupported calls the SetContentProtectionSupported RPC.
+func (c *WifiP2pWfdInfoClient) SetContentProtectionSupported(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetContentProtectionSupported(ctx, &pb.SetContentProtectionSupportedRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetControlPort calls the SetControlPort RPC.
+func (c *WifiP2pWfdInfoClient) SetControlPort(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetControlPort(ctx, &pb.SetControlPortRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetCoupledSinkSupportAtSink calls the SetCoupledSinkSupportAtSink RPC.
+func (c *WifiP2pWfdInfoClient) SetCoupledSinkSupportAtSink(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetCoupledSinkSupportAtSink(ctx, &pb.SetCoupledSinkSupportAtSinkRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetCoupledSinkSupportAtSource calls the SetCoupledSinkSupportAtSource RPC.
+func (c *WifiP2pWfdInfoClient) SetCoupledSinkSupportAtSource(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetCoupledSinkSupportAtSource(ctx, &pb.SetCoupledSinkSupportAtSourceRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetDeviceType calls the SetDeviceType RPC.
+func (c *WifiP2pWfdInfoClient) SetDeviceType(ctx context.Context, handle int64, arg0 int32) (bool, error) {
+	resp, err := c.svc.SetDeviceType(ctx, &pb.SetDeviceTypeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetEnabled calls the SetEnabled RPC.
+func (c *WifiP2pWfdInfoClient) SetEnabled(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetEnabled(ctx, &pb.SetEnabledRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetMaxThroughput calls the SetMaxThroughput RPC.
+func (c *WifiP2pWfdInfoClient) SetMaxThroughput(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetMaxThroughput(ctx, &pb.SetMaxThroughputRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetR2DeviceType calls the SetR2DeviceType RPC.
+func (c *WifiP2pWfdInfoClient) SetR2DeviceType(ctx context.Context, handle int64, arg0 int32) (bool, error) {
+	resp, err := c.svc.SetR2DeviceType(ctx, &pb.SetR2DeviceTypeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSessionAvailable calls the SetSessionAvailable RPC.
+func (c *WifiP2pWfdInfoClient) SetSessionAvailable(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetSessionAvailable(ctx, &pb.SetSessionAvailableRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// ToString calls the ToString RPC.
+func (c *WifiP2pWfdInfoClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *WifiP2pWfdInfoClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// WifiP2pUsdBasedServiceDiscoveryConfigClient wraps the gRPC WifiP2PUsdBasedServiceDiscoveryConfigService client.
+type WifiP2pUsdBasedServiceDiscoveryConfigClient struct {
+	svc pb.WifiP2PUsdBasedServiceDiscoveryConfigServiceClient
+}
+
+// NewWifiP2pUsdBasedServiceDiscoveryConfigClient creates a new WifiP2pUsdBasedServiceDiscoveryConfig client.
+func NewWifiP2pUsdBasedServiceDiscoveryConfigClient(cc grpc.ClientConnInterface) *WifiP2pUsdBasedServiceDiscoveryConfigClient {
+	return &WifiP2pUsdBasedServiceDiscoveryConfigClient{
+		svc: pb.NewWifiP2PUsdBasedServiceDiscoveryConfigServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *WifiP2pUsdBasedServiceDiscoveryConfigClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.WifiP2PUsdBasedServiceDiscoveryConfigDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBand calls the GetBand RPC.
+func (c *WifiP2pUsdBasedServiceDiscoveryConfigClient) GetBand(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetBand(ctx, &pb.GetBandRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFrequenciesMhz calls the GetFrequenciesMhz RPC.
+func (c *WifiP2pUsdBasedServiceDiscoveryConfigClient) GetFrequenciesMhz(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetFrequenciesMhz(ctx, &pb.GetFrequenciesMhzRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *WifiP2pUsdBasedServiceDiscoveryConfigClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.WifiP2PUsdBasedServiceDiscoveryConfigToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *WifiP2pUsdBasedServiceDiscoveryConfigClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WifiP2PUsdBasedServiceDiscoveryConfigWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// WifiP2pUsdBasedServiceDiscoveryConfigBuilderClient wraps the gRPC WifiP2PUsdBasedServiceDiscoveryConfigBuilderService client.
+type WifiP2pUsdBasedServiceDiscoveryConfigBuilderClient struct {
+	svc pb.WifiP2PUsdBasedServiceDiscoveryConfigBuilderServiceClient
+}
+
+// NewWifiP2pUsdBasedServiceDiscoveryConfigBuilderClient creates a new WifiP2pUsdBasedServiceDiscoveryConfigBuilder client.
+func NewWifiP2pUsdBasedServiceDiscoveryConfigBuilderClient(cc grpc.ClientConnInterface) *WifiP2pUsdBasedServiceDiscoveryConfigBuilderClient {
+	return &WifiP2pUsdBasedServiceDiscoveryConfigBuilderClient{
+		svc: pb.NewWifiP2PUsdBasedServiceDiscoveryConfigBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *WifiP2pUsdBasedServiceDiscoveryConfigBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetBand calls the SetBand RPC.
+func (c *WifiP2pUsdBasedServiceDiscoveryConfigBuilderClient) SetBand(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetBand(ctx, &pb.SetBandRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetFrequenciesMhz calls the SetFrequenciesMhz RPC.
+func (c *WifiP2pUsdBasedServiceDiscoveryConfigBuilderClient) SetFrequenciesMhz(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetFrequenciesMhz(ctx, &pb.SetFrequenciesMhzRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WifiP2pGroupClient wraps the gRPC WifiP2PGroupService client.
+type WifiP2pGroupClient struct {
+	svc pb.WifiP2PGroupServiceClient
+}
+
+// NewWifiP2pGroupClient creates a new WifiP2pGroup client.
+func NewWifiP2pGroupClient(cc grpc.ClientConnInterface) *WifiP2pGroupClient {
+	return &WifiP2pGroupClient{
+		svc: pb.NewWifiP2PGroupServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *WifiP2pGroupClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFrequency calls the GetFrequency RPC.
+func (c *WifiP2pGroupClient) GetFrequency(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetFrequency(ctx, &pb.GetFrequencyRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetGroupOwnerBssid calls the GetGroupOwnerBssid RPC.
+func (c *WifiP2pGroupClient) GetGroupOwnerBssid(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetGroupOwnerBssid(ctx, &pb.GetGroupOwnerBssidRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInterface calls the GetInterface RPC.
+func (c *WifiP2pGroupClient) GetInterface(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetInterface(ctx, &pb.GetInterfaceRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNetworkId calls the GetNetworkId RPC.
+func (c *WifiP2pGroupClient) GetNetworkId(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetNetworkId(ctx, &pb.GetNetworkIdRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNetworkName calls the GetNetworkName RPC.
+func (c *WifiP2pGroupClient) GetNetworkName(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetNetworkName(ctx, &pb.GetNetworkNameRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOwner calls the GetOwner RPC.
+func (c *WifiP2pGroupClient) GetOwner(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetOwner(ctx, &pb.GetOwnerRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPassphrase calls the GetPassphrase RPC.
+func (c *WifiP2pGroupClient) GetPassphrase(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetPassphrase(ctx, &pb.GetPassphraseRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSecurityType calls the GetSecurityType RPC.
+func (c *WifiP2pGroupClient) GetSecurityType(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetSecurityType(ctx, &pb.GetSecurityTypeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsGroupOwner calls the IsGroupOwner RPC.
+func (c *WifiP2pGroupClient) IsGroupOwner(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsGroupOwner(ctx, &pb.IsGroupOwnerRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *WifiP2pGroupClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *WifiP2pGroupClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
 // WifiP2pManagerClient wraps the gRPC WifiP2PManagerService client.
 type WifiP2pManagerClient struct {
 	svc pb.WifiP2PManagerServiceClient
@@ -462,6 +1486,663 @@ func (c *WifiP2pManagerClient) UnregisterWifiP2PListener(ctx context.Context, ar
 // GetP2PMaxAllowedVendorElementsLengthBytes calls the GetP2PMaxAllowedVendorElementsLengthBytes RPC.
 func (c *WifiP2pManagerClient) GetP2PMaxAllowedVendorElementsLengthBytes(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetP2PMaxAllowedVendorElementsLengthBytes(ctx, &pb.GetP2PMaxAllowedVendorElementsLengthBytesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WifiP2pManagerActionListenerClient wraps the gRPC WifiP2PManagerActionListenerService client.
+type WifiP2pManagerActionListenerClient struct {
+	svc pb.WifiP2PManagerActionListenerServiceClient
+}
+
+// NewWifiP2pManagerActionListenerClient creates a new WifiP2pManagerActionListener client.
+func NewWifiP2pManagerActionListenerClient(cc grpc.ClientConnInterface) *WifiP2pManagerActionListenerClient {
+	return &WifiP2pManagerActionListenerClient{
+		svc: pb.NewWifiP2PManagerActionListenerServiceClient(cc),
+	}
+}
+
+// OnFailure calls the OnFailure RPC.
+func (c *WifiP2pManagerActionListenerClient) OnFailure(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.OnFailure(ctx, &pb.OnFailureRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnSuccess calls the OnSuccess RPC.
+func (c *WifiP2pManagerActionListenerClient) OnSuccess(ctx context.Context) error {
+	_, err := c.svc.OnSuccess(ctx, &pb.OnSuccessRequest{})
+	return err
+}
+
+// WifiP2pManagerChannelClient wraps the gRPC WifiP2PManagerChannelService client.
+type WifiP2pManagerChannelClient struct {
+	svc pb.WifiP2PManagerChannelServiceClient
+}
+
+// NewWifiP2pManagerChannelClient creates a new WifiP2pManagerChannel client.
+func NewWifiP2pManagerChannelClient(cc grpc.ClientConnInterface) *WifiP2pManagerChannelClient {
+	return &WifiP2pManagerChannelClient{
+		svc: pb.NewWifiP2PManagerChannelServiceClient(cc),
+	}
+}
+
+// Close calls the Close RPC.
+func (c *WifiP2pManagerChannelClient) Close(ctx context.Context) error {
+	_, err := c.svc.Close(ctx, &pb.CloseRequest{})
+	return err
+}
+
+// WifiP2pManagerChannelListenerClient wraps the gRPC WifiP2PManagerChannelListenerService client.
+type WifiP2pManagerChannelListenerClient struct {
+	svc pb.WifiP2PManagerChannelListenerServiceClient
+}
+
+// NewWifiP2pManagerChannelListenerClient creates a new WifiP2pManagerChannelListener client.
+func NewWifiP2pManagerChannelListenerClient(cc grpc.ClientConnInterface) *WifiP2pManagerChannelListenerClient {
+	return &WifiP2pManagerChannelListenerClient{
+		svc: pb.NewWifiP2PManagerChannelListenerServiceClient(cc),
+	}
+}
+
+// OnChannelDisconnected calls the OnChannelDisconnected RPC.
+func (c *WifiP2pManagerChannelListenerClient) OnChannelDisconnected(ctx context.Context) error {
+	_, err := c.svc.OnChannelDisconnected(ctx, &pb.OnChannelDisconnectedRequest{})
+	return err
+}
+
+// WifiP2pManagerConnectionInfoListenerClient wraps the gRPC WifiP2PManagerConnectionInfoListenerService client.
+type WifiP2pManagerConnectionInfoListenerClient struct {
+	svc pb.WifiP2PManagerConnectionInfoListenerServiceClient
+}
+
+// NewWifiP2pManagerConnectionInfoListenerClient creates a new WifiP2pManagerConnectionInfoListener client.
+func NewWifiP2pManagerConnectionInfoListenerClient(cc grpc.ClientConnInterface) *WifiP2pManagerConnectionInfoListenerClient {
+	return &WifiP2pManagerConnectionInfoListenerClient{
+		svc: pb.NewWifiP2PManagerConnectionInfoListenerServiceClient(cc),
+	}
+}
+
+// OnConnectionInfoAvailable calls the OnConnectionInfoAvailable RPC.
+func (c *WifiP2pManagerConnectionInfoListenerClient) OnConnectionInfoAvailable(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnConnectionInfoAvailable(ctx, &pb.OnConnectionInfoAvailableRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// WifiP2pManagerDeviceInfoListenerClient wraps the gRPC WifiP2PManagerDeviceInfoListenerService client.
+type WifiP2pManagerDeviceInfoListenerClient struct {
+	svc pb.WifiP2PManagerDeviceInfoListenerServiceClient
+}
+
+// NewWifiP2pManagerDeviceInfoListenerClient creates a new WifiP2pManagerDeviceInfoListener client.
+func NewWifiP2pManagerDeviceInfoListenerClient(cc grpc.ClientConnInterface) *WifiP2pManagerDeviceInfoListenerClient {
+	return &WifiP2pManagerDeviceInfoListenerClient{
+		svc: pb.NewWifiP2PManagerDeviceInfoListenerServiceClient(cc),
+	}
+}
+
+// OnDeviceInfoAvailable calls the OnDeviceInfoAvailable RPC.
+func (c *WifiP2pManagerDeviceInfoListenerClient) OnDeviceInfoAvailable(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnDeviceInfoAvailable(ctx, &pb.OnDeviceInfoAvailableRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// WifiP2pManagerDiscoveryStateListenerClient wraps the gRPC WifiP2PManagerDiscoveryStateListenerService client.
+type WifiP2pManagerDiscoveryStateListenerClient struct {
+	svc pb.WifiP2PManagerDiscoveryStateListenerServiceClient
+}
+
+// NewWifiP2pManagerDiscoveryStateListenerClient creates a new WifiP2pManagerDiscoveryStateListener client.
+func NewWifiP2pManagerDiscoveryStateListenerClient(cc grpc.ClientConnInterface) *WifiP2pManagerDiscoveryStateListenerClient {
+	return &WifiP2pManagerDiscoveryStateListenerClient{
+		svc: pb.NewWifiP2PManagerDiscoveryStateListenerServiceClient(cc),
+	}
+}
+
+// OnDiscoveryStateAvailable calls the OnDiscoveryStateAvailable RPC.
+func (c *WifiP2pManagerDiscoveryStateListenerClient) OnDiscoveryStateAvailable(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.OnDiscoveryStateAvailable(ctx, &pb.OnDiscoveryStateAvailableRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// WifiP2pManagerDnsSdServiceResponseListenerClient wraps the gRPC WifiP2PManagerDnsSdServiceResponseListenerService client.
+type WifiP2pManagerDnsSdServiceResponseListenerClient struct {
+	svc pb.WifiP2PManagerDnsSdServiceResponseListenerServiceClient
+}
+
+// NewWifiP2pManagerDnsSdServiceResponseListenerClient creates a new WifiP2pManagerDnsSdServiceResponseListener client.
+func NewWifiP2pManagerDnsSdServiceResponseListenerClient(cc grpc.ClientConnInterface) *WifiP2pManagerDnsSdServiceResponseListenerClient {
+	return &WifiP2pManagerDnsSdServiceResponseListenerClient{
+		svc: pb.NewWifiP2PManagerDnsSdServiceResponseListenerServiceClient(cc),
+	}
+}
+
+// OnDnsSdServiceAvailable calls the OnDnsSdServiceAvailable RPC.
+func (c *WifiP2pManagerDnsSdServiceResponseListenerClient) OnDnsSdServiceAvailable(ctx context.Context, arg0 string, arg1 string, arg2 int64) error {
+	_, err := c.svc.OnDnsSdServiceAvailable(ctx, &pb.OnDnsSdServiceAvailableRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// WifiP2pManagerExternalApproverRequestListenerClient wraps the gRPC WifiP2PManagerExternalApproverRequestListenerService client.
+type WifiP2pManagerExternalApproverRequestListenerClient struct {
+	svc pb.WifiP2PManagerExternalApproverRequestListenerServiceClient
+}
+
+// NewWifiP2pManagerExternalApproverRequestListenerClient creates a new WifiP2pManagerExternalApproverRequestListener client.
+func NewWifiP2pManagerExternalApproverRequestListenerClient(cc grpc.ClientConnInterface) *WifiP2pManagerExternalApproverRequestListenerClient {
+	return &WifiP2pManagerExternalApproverRequestListenerClient{
+		svc: pb.NewWifiP2PManagerExternalApproverRequestListenerServiceClient(cc),
+	}
+}
+
+// OnAttached calls the OnAttached RPC.
+func (c *WifiP2pManagerExternalApproverRequestListenerClient) OnAttached(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnAttached(ctx, &pb.OnAttachedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnConnectionRequested calls the OnConnectionRequested RPC.
+func (c *WifiP2pManagerExternalApproverRequestListenerClient) OnConnectionRequested(ctx context.Context, arg0 int32, arg1 int64, arg2 int64) error {
+	_, err := c.svc.OnConnectionRequested(ctx, &pb.OnConnectionRequestedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// OnDetached calls the OnDetached RPC.
+func (c *WifiP2pManagerExternalApproverRequestListenerClient) OnDetached(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.OnDetached(ctx, &pb.OnDetachedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnPinGenerated calls the OnPinGenerated RPC.
+func (c *WifiP2pManagerExternalApproverRequestListenerClient) OnPinGenerated(ctx context.Context, arg0 int64, arg1 string) error {
+	_, err := c.svc.OnPinGenerated(ctx, &pb.OnPinGeneratedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// WifiP2pManagerGroupInfoListenerClient wraps the gRPC WifiP2PManagerGroupInfoListenerService client.
+type WifiP2pManagerGroupInfoListenerClient struct {
+	svc pb.WifiP2PManagerGroupInfoListenerServiceClient
+}
+
+// NewWifiP2pManagerGroupInfoListenerClient creates a new WifiP2pManagerGroupInfoListener client.
+func NewWifiP2pManagerGroupInfoListenerClient(cc grpc.ClientConnInterface) *WifiP2pManagerGroupInfoListenerClient {
+	return &WifiP2pManagerGroupInfoListenerClient{
+		svc: pb.NewWifiP2PManagerGroupInfoListenerServiceClient(cc),
+	}
+}
+
+// OnGroupInfoAvailable calls the OnGroupInfoAvailable RPC.
+func (c *WifiP2pManagerGroupInfoListenerClient) OnGroupInfoAvailable(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnGroupInfoAvailable(ctx, &pb.OnGroupInfoAvailableRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// WifiP2pManagerNetworkInfoListenerClient wraps the gRPC WifiP2PManagerNetworkInfoListenerService client.
+type WifiP2pManagerNetworkInfoListenerClient struct {
+	svc pb.WifiP2PManagerNetworkInfoListenerServiceClient
+}
+
+// NewWifiP2pManagerNetworkInfoListenerClient creates a new WifiP2pManagerNetworkInfoListener client.
+func NewWifiP2pManagerNetworkInfoListenerClient(cc grpc.ClientConnInterface) *WifiP2pManagerNetworkInfoListenerClient {
+	return &WifiP2pManagerNetworkInfoListenerClient{
+		svc: pb.NewWifiP2PManagerNetworkInfoListenerServiceClient(cc),
+	}
+}
+
+// OnNetworkInfoAvailable calls the OnNetworkInfoAvailable RPC.
+func (c *WifiP2pManagerNetworkInfoListenerClient) OnNetworkInfoAvailable(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnNetworkInfoAvailable(ctx, &pb.OnNetworkInfoAvailableRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// WifiP2pManagerP2pStateListenerClient wraps the gRPC WifiP2PManagerP2PStateListenerService client.
+type WifiP2pManagerP2pStateListenerClient struct {
+	svc pb.WifiP2PManagerP2PStateListenerServiceClient
+}
+
+// NewWifiP2pManagerP2pStateListenerClient creates a new WifiP2pManagerP2pStateListener client.
+func NewWifiP2pManagerP2pStateListenerClient(cc grpc.ClientConnInterface) *WifiP2pManagerP2pStateListenerClient {
+	return &WifiP2pManagerP2pStateListenerClient{
+		svc: pb.NewWifiP2PManagerP2PStateListenerServiceClient(cc),
+	}
+}
+
+// OnP2PStateAvailable calls the OnP2PStateAvailable RPC.
+func (c *WifiP2pManagerP2pStateListenerClient) OnP2PStateAvailable(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.OnP2PStateAvailable(ctx, &pb.OnP2PStateAvailableRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// WifiP2pManagerPeerListListenerClient wraps the gRPC WifiP2PManagerPeerListListenerService client.
+type WifiP2pManagerPeerListListenerClient struct {
+	svc pb.WifiP2PManagerPeerListListenerServiceClient
+}
+
+// NewWifiP2pManagerPeerListListenerClient creates a new WifiP2pManagerPeerListListener client.
+func NewWifiP2pManagerPeerListListenerClient(cc grpc.ClientConnInterface) *WifiP2pManagerPeerListListenerClient {
+	return &WifiP2pManagerPeerListListenerClient{
+		svc: pb.NewWifiP2PManagerPeerListListenerServiceClient(cc),
+	}
+}
+
+// OnPeersAvailable calls the OnPeersAvailable RPC.
+func (c *WifiP2pManagerPeerListListenerClient) OnPeersAvailable(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnPeersAvailable(ctx, &pb.OnPeersAvailableRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// WifiP2pManagerServiceResponseListenerClient wraps the gRPC WifiP2PManagerServiceResponseListenerService client.
+type WifiP2pManagerServiceResponseListenerClient struct {
+	svc pb.WifiP2PManagerServiceResponseListenerServiceClient
+}
+
+// NewWifiP2pManagerServiceResponseListenerClient creates a new WifiP2pManagerServiceResponseListener client.
+func NewWifiP2pManagerServiceResponseListenerClient(cc grpc.ClientConnInterface) *WifiP2pManagerServiceResponseListenerClient {
+	return &WifiP2pManagerServiceResponseListenerClient{
+		svc: pb.NewWifiP2PManagerServiceResponseListenerServiceClient(cc),
+	}
+}
+
+// OnServiceAvailable calls the OnServiceAvailable RPC.
+func (c *WifiP2pManagerServiceResponseListenerClient) OnServiceAvailable(ctx context.Context, arg0 int32, arg1 int64, arg2 int64) error {
+	_, err := c.svc.OnServiceAvailable(ctx, &pb.OnServiceAvailableRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// WifiP2pUsdBasedLocalServiceAdvertisementConfigClient wraps the gRPC WifiP2PUsdBasedLocalServiceAdvertisementConfigService client.
+type WifiP2pUsdBasedLocalServiceAdvertisementConfigClient struct {
+	svc pb.WifiP2PUsdBasedLocalServiceAdvertisementConfigServiceClient
+}
+
+// NewWifiP2pUsdBasedLocalServiceAdvertisementConfigClient creates a new WifiP2pUsdBasedLocalServiceAdvertisementConfig client.
+func NewWifiP2pUsdBasedLocalServiceAdvertisementConfigClient(cc grpc.ClientConnInterface) *WifiP2pUsdBasedLocalServiceAdvertisementConfigClient {
+	return &WifiP2pUsdBasedLocalServiceAdvertisementConfigClient{
+		svc: pb.NewWifiP2PUsdBasedLocalServiceAdvertisementConfigServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *WifiP2pUsdBasedLocalServiceAdvertisementConfigClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.WifiP2PUsdBasedLocalServiceAdvertisementConfigDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFrequencyMhz calls the GetFrequencyMhz RPC.
+func (c *WifiP2pUsdBasedLocalServiceAdvertisementConfigClient) GetFrequencyMhz(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetFrequencyMhz(ctx, &pb.GetFrequencyMhzRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *WifiP2pUsdBasedLocalServiceAdvertisementConfigClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.WifiP2PUsdBasedLocalServiceAdvertisementConfigToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *WifiP2pUsdBasedLocalServiceAdvertisementConfigClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WifiP2PUsdBasedLocalServiceAdvertisementConfigWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// WifiP2pUsdBasedLocalServiceAdvertisementConfigBuilderClient wraps the gRPC WifiP2PUsdBasedLocalServiceAdvertisementConfigBuilderService client.
+type WifiP2pUsdBasedLocalServiceAdvertisementConfigBuilderClient struct {
+	svc pb.WifiP2PUsdBasedLocalServiceAdvertisementConfigBuilderServiceClient
+}
+
+// NewWifiP2pUsdBasedLocalServiceAdvertisementConfigBuilderClient creates a new WifiP2pUsdBasedLocalServiceAdvertisementConfigBuilder client.
+func NewWifiP2pUsdBasedLocalServiceAdvertisementConfigBuilderClient(cc grpc.ClientConnInterface) *WifiP2pUsdBasedLocalServiceAdvertisementConfigBuilderClient {
+	return &WifiP2pUsdBasedLocalServiceAdvertisementConfigBuilderClient{
+		svc: pb.NewWifiP2PUsdBasedLocalServiceAdvertisementConfigBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *WifiP2pUsdBasedLocalServiceAdvertisementConfigBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetFrequencyMhz calls the SetFrequencyMhz RPC.
+func (c *WifiP2pUsdBasedLocalServiceAdvertisementConfigBuilderClient) SetFrequencyMhz(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetFrequencyMhz(ctx, &pb.SetFrequencyMhzRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WifiP2pConfigClient wraps the gRPC WifiP2PConfigService client.
+type WifiP2pConfigClient struct {
+	svc pb.WifiP2PConfigServiceClient
+}
+
+// NewWifiP2pConfigClient creates a new WifiP2pConfig client.
+func NewWifiP2pConfigClient(cc grpc.ClientConnInterface) *WifiP2pConfigClient {
+	return &WifiP2pConfigClient{
+		svc: pb.NewWifiP2PConfigServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *WifiP2pConfigClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetGroupClientIpProvisioningMode calls the GetGroupClientIpProvisioningMode RPC.
+func (c *WifiP2pConfigClient) GetGroupClientIpProvisioningMode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetGroupClientIpProvisioningMode(ctx, &pb.GetGroupClientIpProvisioningModeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetGroupOwnerBand calls the GetGroupOwnerBand RPC.
+func (c *WifiP2pConfigClient) GetGroupOwnerBand(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetGroupOwnerBand(ctx, &pb.GetGroupOwnerBandRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetGroupOwnerVersion calls the GetGroupOwnerVersion RPC.
+func (c *WifiP2pConfigClient) GetGroupOwnerVersion(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetGroupOwnerVersion(ctx, &pb.GetGroupOwnerVersionRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNetworkId calls the GetNetworkId RPC.
+func (c *WifiP2pConfigClient) GetNetworkId(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetNetworkId(ctx, &pb.GetNetworkIdRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNetworkName calls the GetNetworkName RPC.
+func (c *WifiP2pConfigClient) GetNetworkName(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetNetworkName(ctx, &pb.GetNetworkNameRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPairingBootstrappingConfig calls the GetPairingBootstrappingConfig RPC.
+func (c *WifiP2pConfigClient) GetPairingBootstrappingConfig(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetPairingBootstrappingConfig(ctx, &pb.GetPairingBootstrappingConfigRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPassphrase calls the GetPassphrase RPC.
+func (c *WifiP2pConfigClient) GetPassphrase(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetPassphrase(ctx, &pb.GetPassphraseRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPccModeConnectionType calls the GetPccModeConnectionType RPC.
+func (c *WifiP2pConfigClient) GetPccModeConnectionType(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetPccModeConnectionType(ctx, &pb.GetPccModeConnectionTypeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsAuthorizeConnectionFromPeerEnabled calls the IsAuthorizeConnectionFromPeerEnabled RPC.
+func (c *WifiP2pConfigClient) IsAuthorizeConnectionFromPeerEnabled(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsAuthorizeConnectionFromPeerEnabled(ctx, &pb.IsAuthorizeConnectionFromPeerEnabledRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetGroupOwnerVersion calls the SetGroupOwnerVersion RPC.
+func (c *WifiP2pConfigClient) SetGroupOwnerVersion(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetGroupOwnerVersion(ctx, &pb.SetGroupOwnerVersionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// ToString calls the ToString RPC.
+func (c *WifiP2pConfigClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *WifiP2pConfigClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// WifiP2pConfigBuilderClient wraps the gRPC WifiP2PConfigBuilderService client.
+type WifiP2pConfigBuilderClient struct {
+	svc pb.WifiP2PConfigBuilderServiceClient
+}
+
+// NewWifiP2pConfigBuilderClient creates a new WifiP2pConfigBuilder client.
+func NewWifiP2pConfigBuilderClient(cc grpc.ClientConnInterface) *WifiP2pConfigBuilderClient {
+	return &WifiP2pConfigBuilderClient{
+		svc: pb.NewWifiP2PConfigBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *WifiP2pConfigBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// EnablePersistentMode calls the EnablePersistentMode RPC.
+func (c *WifiP2pConfigBuilderClient) EnablePersistentMode(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.EnablePersistentMode(ctx, &pb.EnablePersistentModeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetAuthorizeConnectionFromPeerEnabled calls the SetAuthorizeConnectionFromPeerEnabled RPC.
+func (c *WifiP2pConfigBuilderClient) SetAuthorizeConnectionFromPeerEnabled(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetAuthorizeConnectionFromPeerEnabled(ctx, &pb.SetAuthorizeConnectionFromPeerEnabledRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetDeviceAddress calls the SetDeviceAddress RPC.
+func (c *WifiP2pConfigBuilderClient) SetDeviceAddress(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetDeviceAddress(ctx, &pb.SetDeviceAddressRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetGroupClientIpProvisioningMode calls the SetGroupClientIpProvisioningMode RPC.
+func (c *WifiP2pConfigBuilderClient) SetGroupClientIpProvisioningMode(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetGroupClientIpProvisioningMode(ctx, &pb.SetGroupClientIpProvisioningModeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetGroupOperatingBand calls the SetGroupOperatingBand RPC.
+func (c *WifiP2pConfigBuilderClient) SetGroupOperatingBand(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetGroupOperatingBand(ctx, &pb.SetGroupOperatingBandRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetGroupOperatingFrequency calls the SetGroupOperatingFrequency RPC.
+func (c *WifiP2pConfigBuilderClient) SetGroupOperatingFrequency(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetGroupOperatingFrequency(ctx, &pb.SetGroupOperatingFrequencyRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetNetworkName calls the SetNetworkName RPC.
+func (c *WifiP2pConfigBuilderClient) SetNetworkName(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetNetworkName(ctx, &pb.SetNetworkNameRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPairingBootstrappingConfig calls the SetPairingBootstrappingConfig RPC.
+func (c *WifiP2pConfigBuilderClient) SetPairingBootstrappingConfig(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetPairingBootstrappingConfig(ctx, &pb.SetPairingBootstrappingConfigRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPassphrase calls the SetPassphrase RPC.
+func (c *WifiP2pConfigBuilderClient) SetPassphrase(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetPassphrase(ctx, &pb.SetPassphraseRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPccModeConnectionType calls the SetPccModeConnectionType RPC.
+func (c *WifiP2pConfigBuilderClient) SetPccModeConnectionType(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetPccModeConnectionType(ctx, &pb.SetPccModeConnectionTypeRequest{
+		Arg0: arg0,
+	})
 	if err != nil {
 		return 0, err
 	}

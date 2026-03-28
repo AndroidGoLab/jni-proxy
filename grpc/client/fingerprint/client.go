@@ -38,3 +38,107 @@ func (c *ManagerClient) IsHardwareDetected(ctx context.Context) (bool, error) {
 	}
 	return resp.GetResult(), nil
 }
+
+// ManagerAuthenticationCallbackClient wraps the gRPC ManagerAuthenticationCallbackService client.
+type ManagerAuthenticationCallbackClient struct {
+	svc pb.ManagerAuthenticationCallbackServiceClient
+}
+
+// NewManagerAuthenticationCallbackClient creates a new ManagerAuthenticationCallback client.
+func NewManagerAuthenticationCallbackClient(cc grpc.ClientConnInterface) *ManagerAuthenticationCallbackClient {
+	return &ManagerAuthenticationCallbackClient{
+		svc: pb.NewManagerAuthenticationCallbackServiceClient(cc),
+	}
+}
+
+// OnAuthenticationError calls the OnAuthenticationError RPC.
+func (c *ManagerAuthenticationCallbackClient) OnAuthenticationError(ctx context.Context, arg0 int32, arg1 string) error {
+	_, err := c.svc.OnAuthenticationError(ctx, &pb.OnAuthenticationErrorRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnAuthenticationFailed calls the OnAuthenticationFailed RPC.
+func (c *ManagerAuthenticationCallbackClient) OnAuthenticationFailed(ctx context.Context) error {
+	_, err := c.svc.OnAuthenticationFailed(ctx, &pb.OnAuthenticationFailedRequest{})
+	return err
+}
+
+// OnAuthenticationHelp calls the OnAuthenticationHelp RPC.
+func (c *ManagerAuthenticationCallbackClient) OnAuthenticationHelp(ctx context.Context, arg0 int32, arg1 string) error {
+	_, err := c.svc.OnAuthenticationHelp(ctx, &pb.OnAuthenticationHelpRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnAuthenticationSucceeded calls the OnAuthenticationSucceeded RPC.
+func (c *ManagerAuthenticationCallbackClient) OnAuthenticationSucceeded(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnAuthenticationSucceeded(ctx, &pb.OnAuthenticationSucceededRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ManagerAuthenticationResultClient wraps the gRPC ManagerAuthenticationResultService client.
+type ManagerAuthenticationResultClient struct {
+	svc pb.ManagerAuthenticationResultServiceClient
+}
+
+// NewManagerAuthenticationResultClient creates a new ManagerAuthenticationResult client.
+func NewManagerAuthenticationResultClient(cc grpc.ClientConnInterface) *ManagerAuthenticationResultClient {
+	return &ManagerAuthenticationResultClient{
+		svc: pb.NewManagerAuthenticationResultServiceClient(cc),
+	}
+}
+
+// GetCryptoObject calls the GetCryptoObject RPC.
+func (c *ManagerAuthenticationResultClient) GetCryptoObject(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetCryptoObject(ctx, &pb.GetCryptoObjectRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ManagerCryptoObjectClient wraps the gRPC ManagerCryptoObjectService client.
+type ManagerCryptoObjectClient struct {
+	svc pb.ManagerCryptoObjectServiceClient
+}
+
+// NewManagerCryptoObjectClient creates a new ManagerCryptoObject client.
+func NewManagerCryptoObjectClient(cc grpc.ClientConnInterface) *ManagerCryptoObjectClient {
+	return &ManagerCryptoObjectClient{
+		svc: pb.NewManagerCryptoObjectServiceClient(cc),
+	}
+}
+
+// GetCipher calls the GetCipher RPC.
+func (c *ManagerCryptoObjectClient) GetCipher(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetCipher(ctx, &pb.GetCipherRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMac calls the GetMac RPC.
+func (c *ManagerCryptoObjectClient) GetMac(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetMac(ctx, &pb.GetMacRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSignature calls the GetSignature RPC.
+func (c *ManagerCryptoObjectClient) GetSignature(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSignature(ctx, &pb.GetSignatureRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}

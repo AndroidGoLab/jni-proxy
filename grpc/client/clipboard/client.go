@@ -9,6 +9,278 @@ import (
 	"google.golang.org/grpc"
 )
 
+// ClipDataClient wraps the gRPC ClipDataService client.
+type ClipDataClient struct {
+	svc pb.ClipDataServiceClient
+}
+
+// NewClipDataClient creates a new ClipData client.
+func NewClipDataClient(cc grpc.ClientConnInterface) *ClipDataClient {
+	return &ClipDataClient{
+		svc: pb.NewClipDataServiceClient(cc),
+	}
+}
+
+// AddItem1 calls the AddItem1 RPC.
+func (c *ClipDataClient) AddItem1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.AddItem1(ctx, &pb.AddItem1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// AddItem2_1 calls the AddItem2_1 RPC.
+func (c *ClipDataClient) AddItem2_1(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
+	_, err := c.svc.AddItem2_1(ctx, &pb.AddItem2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ClipDataClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDescription calls the GetDescription RPC.
+func (c *ClipDataClient) GetDescription(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetDescription(ctx, &pb.GetDescriptionRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetItemAt calls the GetItemAt RPC.
+func (c *ClipDataClient) GetItemAt(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetItemAt(ctx, &pb.GetItemAtRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetItemCount calls the GetItemCount RPC.
+func (c *ClipDataClient) GetItemCount(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetItemCount(ctx, &pb.GetItemCountRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *ClipDataClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ClipDataClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// NewHtmlText calls the NewHtmlText RPC.
+func (c *ClipDataClient) NewHtmlText(ctx context.Context, handle int64, arg0 string, arg1 string, arg2 string) (int64, error) {
+	resp, err := c.svc.NewHtmlText(ctx, &pb.NewHtmlTextRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// NewIntent calls the NewIntent RPC.
+func (c *ClipDataClient) NewIntent(ctx context.Context, handle int64, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.NewIntent(ctx, &pb.NewIntentRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// NewPlainText calls the NewPlainText RPC.
+func (c *ClipDataClient) NewPlainText(ctx context.Context, handle int64, arg0 string, arg1 string) (int64, error) {
+	resp, err := c.svc.NewPlainText(ctx, &pb.NewPlainTextRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// NewRawUri calls the NewRawUri RPC.
+func (c *ClipDataClient) NewRawUri(ctx context.Context, handle int64, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.NewRawUri(ctx, &pb.NewRawUriRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// NewUri calls the NewUri RPC.
+func (c *ClipDataClient) NewUri(ctx context.Context, handle int64, arg0 int64, arg1 string, arg2 int64) (int64, error) {
+	resp, err := c.svc.NewUri(ctx, &pb.NewUriRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClipDataItemClient wraps the gRPC ClipDataItemService client.
+type ClipDataItemClient struct {
+	svc pb.ClipDataItemServiceClient
+}
+
+// NewClipDataItemClient creates a new ClipDataItem client.
+func NewClipDataItemClient(cc grpc.ClientConnInterface) *ClipDataItemClient {
+	return &ClipDataItemClient{
+		svc: pb.NewClipDataItemServiceClient(cc),
+	}
+}
+
+// CoerceToHtmlText calls the CoerceToHtmlText RPC.
+func (c *ClipDataItemClient) CoerceToHtmlText(ctx context.Context, arg0 int64) (string, error) {
+	resp, err := c.svc.CoerceToHtmlText(ctx, &pb.CoerceToHtmlTextRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// CoerceToStyledText calls the CoerceToStyledText RPC.
+func (c *ClipDataItemClient) CoerceToStyledText(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.CoerceToStyledText(ctx, &pb.CoerceToStyledTextRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CoerceToText calls the CoerceToText RPC.
+func (c *ClipDataItemClient) CoerceToText(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.CoerceToText(ctx, &pb.CoerceToTextRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHtmlText calls the GetHtmlText RPC.
+func (c *ClipDataItemClient) GetHtmlText(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetHtmlText(ctx, &pb.GetHtmlTextRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIntent calls the GetIntent RPC.
+func (c *ClipDataItemClient) GetIntent(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetIntent(ctx, &pb.GetIntentRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIntentSender calls the GetIntentSender RPC.
+func (c *ClipDataItemClient) GetIntentSender(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetIntentSender(ctx, &pb.GetIntentSenderRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetText calls the GetText RPC.
+func (c *ClipDataItemClient) GetText(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetText(ctx, &pb.GetTextRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTextLinks calls the GetTextLinks RPC.
+func (c *ClipDataItemClient) GetTextLinks(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTextLinks(ctx, &pb.GetTextLinksRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUri calls the GetUri RPC.
+func (c *ClipDataItemClient) GetUri(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetUri(ctx, &pb.GetUriRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *ClipDataItemClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ClipDataItemToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
 // ManagerClient wraps the gRPC ManagerService client.
 type ManagerClient struct {
 	svc pb.ManagerServiceClient
@@ -101,5 +373,23 @@ func (c *ManagerClient) SetText(ctx context.Context, arg0 string) error {
 	_, err := c.svc.SetText(ctx, &pb.SetTextRequest{
 		Arg0: arg0,
 	})
+	return err
+}
+
+// ManagerOnPrimaryClipChangedListenerClient wraps the gRPC ManagerOnPrimaryClipChangedListenerService client.
+type ManagerOnPrimaryClipChangedListenerClient struct {
+	svc pb.ManagerOnPrimaryClipChangedListenerServiceClient
+}
+
+// NewManagerOnPrimaryClipChangedListenerClient creates a new ManagerOnPrimaryClipChangedListener client.
+func NewManagerOnPrimaryClipChangedListenerClient(cc grpc.ClientConnInterface) *ManagerOnPrimaryClipChangedListenerClient {
+	return &ManagerOnPrimaryClipChangedListenerClient{
+		svc: pb.NewManagerOnPrimaryClipChangedListenerServiceClient(cc),
+	}
+}
+
+// OnPrimaryClipChanged calls the OnPrimaryClipChanged RPC.
+func (c *ManagerOnPrimaryClipChangedListenerClient) OnPrimaryClipChanged(ctx context.Context) error {
+	_, err := c.svc.OnPrimaryClipChanged(ctx, &pb.OnPrimaryClipChangedRequest{})
 	return err
 }

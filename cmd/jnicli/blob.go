@@ -222,6 +222,391 @@ var blobStoreManagerReleaseLeaseCmd = &cobra.Command{
 	},
 }
 
+var blobStoreManagerSessionCmd = &cobra.Command{
+	Use:   "store-manager-session",
+	Short: "StoreManagerSessionService operations",
+}
+
+var blobStoreManagerSessionAbandonCmd = &cobra.Command{
+	Use:   "abandon",
+	Short: "Abandon RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStoreManagerSessionServiceClient(grpcConn)
+		req := &pb.AbandonRequest{}
+		resp, err := client.Abandon(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var blobStoreManagerSessionAllowPackageAccessCmd = &cobra.Command{
+	Use:   "allow-package-access",
+	Short: "AllowPackageAccess RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStoreManagerSessionServiceClient(grpcConn)
+		req := &pb.AllowPackageAccessRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.AllowPackageAccess(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var blobStoreManagerSessionAllowPublicAccessCmd = &cobra.Command{
+	Use:   "allow-public-access",
+	Short: "AllowPublicAccess RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStoreManagerSessionServiceClient(grpcConn)
+		req := &pb.AllowPublicAccessRequest{}
+		resp, err := client.AllowPublicAccess(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var blobStoreManagerSessionAllowSameSignatureAccessCmd = &cobra.Command{
+	Use:   "allow-same-signature-access",
+	Short: "AllowSameSignatureAccess RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStoreManagerSessionServiceClient(grpcConn)
+		req := &pb.AllowSameSignatureAccessRequest{}
+		resp, err := client.AllowSameSignatureAccess(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var blobStoreManagerSessionCloseCmd = &cobra.Command{
+	Use:   "close",
+	Short: "Close RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStoreManagerSessionServiceClient(grpcConn)
+		req := &pb.CloseRequest{}
+		resp, err := client.Close(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var blobStoreManagerSessionGetSizeCmd = &cobra.Command{
+	Use:   "get-size",
+	Short: "GetSize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStoreManagerSessionServiceClient(grpcConn)
+		req := &pb.GetSizeRequest{}
+		resp, err := client.GetSize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var blobStoreManagerSessionIsPackageAccessAllowedCmd = &cobra.Command{
+	Use:   "is-package-access-allowed",
+	Short: "IsPackageAccessAllowed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStoreManagerSessionServiceClient(grpcConn)
+		req := &pb.IsPackageAccessAllowedRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.IsPackageAccessAllowed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var blobStoreManagerSessionIsPublicAccessAllowedCmd = &cobra.Command{
+	Use:   "is-public-access-allowed",
+	Short: "IsPublicAccessAllowed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStoreManagerSessionServiceClient(grpcConn)
+		req := &pb.IsPublicAccessAllowedRequest{}
+		resp, err := client.IsPublicAccessAllowed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var blobStoreManagerSessionIsSameSignatureAccessAllowedCmd = &cobra.Command{
+	Use:   "is-same-signature-access-allowed",
+	Short: "IsSameSignatureAccessAllowed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStoreManagerSessionServiceClient(grpcConn)
+		req := &pb.IsSameSignatureAccessAllowedRequest{}
+		resp, err := client.IsSameSignatureAccessAllowed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var blobStoreManagerSessionOpenReadCmd = &cobra.Command{
+	Use:   "open-read",
+	Short: "OpenRead RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStoreManagerSessionServiceClient(grpcConn)
+		req := &pb.OpenReadRequest{}
+		resp, err := client.OpenRead(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var blobStoreManagerSessionOpenWriteCmd = &cobra.Command{
+	Use:   "open-write",
+	Short: "OpenWrite RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStoreManagerSessionServiceClient(grpcConn)
+		req := &pb.OpenWriteRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OpenWrite(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var blobHandleCmd = &cobra.Command{
+	Use:   "handle",
+	Short: "HandleService operations",
+}
+
+var blobHandleDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewHandleServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var blobHandleEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewHandleServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var blobHandleGetExpiryTimeMillisCmd = &cobra.Command{
+	Use:   "get-expiry-time-millis",
+	Short: "GetExpiryTimeMillis RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewHandleServiceClient(grpcConn)
+		req := &pb.GetExpiryTimeMillisRequest{}
+		resp, err := client.GetExpiryTimeMillis(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var blobHandleGetLabelCmd = &cobra.Command{
+	Use:   "get-label",
+	Short: "GetLabel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewHandleServiceClient(grpcConn)
+		req := &pb.GetLabelRequest{}
+		resp, err := client.GetLabel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var blobHandleGetSha256DigestCmd = &cobra.Command{
+	Use:   "get-sha256digest",
+	Short: "GetSha256Digest RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewHandleServiceClient(grpcConn)
+		req := &pb.GetSha256DigestRequest{}
+		resp, err := client.GetSha256Digest(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var blobHandleGetTagCmd = &cobra.Command{
+	Use:   "get-tag",
+	Short: "GetTag RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewHandleServiceClient(grpcConn)
+		req := &pb.GetTagRequest{}
+		resp, err := client.GetTag(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var blobHandleHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewHandleServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var blobHandleToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewHandleServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var blobHandleWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewHandleServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var blobHandleCreateWithSha256Cmd = &cobra.Command{
+	Use:   "create-with-sha256",
+	Short: "CreateWithSha256 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewHandleServiceClient(grpcConn)
+		req := &pb.CreateWithSha256Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetString("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.CreateWithSha256(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 func init() {
 	blobStoreManagerAbandonSessionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	blobStoreManagerCmd.AddCommand(blobStoreManagerAbandonSessionCmd)
@@ -249,5 +634,41 @@ func init() {
 	blobStoreManagerReleaseLeaseCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	blobStoreManagerCmd.AddCommand(blobStoreManagerReleaseLeaseCmd)
 	blobCmd.AddCommand(blobStoreManagerCmd)
+	blobStoreManagerSessionCmd.AddCommand(blobStoreManagerSessionAbandonCmd)
+	blobStoreManagerSessionAllowPackageAccessCmd.Flags().String("arg0", "", "arg0 (string)")
+	blobStoreManagerSessionAllowPackageAccessCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	blobStoreManagerSessionCmd.AddCommand(blobStoreManagerSessionAllowPackageAccessCmd)
+	blobStoreManagerSessionCmd.AddCommand(blobStoreManagerSessionAllowPublicAccessCmd)
+	blobStoreManagerSessionCmd.AddCommand(blobStoreManagerSessionAllowSameSignatureAccessCmd)
+	blobStoreManagerSessionCmd.AddCommand(blobStoreManagerSessionCloseCmd)
+	blobStoreManagerSessionCmd.AddCommand(blobStoreManagerSessionGetSizeCmd)
+	blobStoreManagerSessionIsPackageAccessAllowedCmd.Flags().String("arg0", "", "arg0 (string)")
+	blobStoreManagerSessionIsPackageAccessAllowedCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	blobStoreManagerSessionCmd.AddCommand(blobStoreManagerSessionIsPackageAccessAllowedCmd)
+	blobStoreManagerSessionCmd.AddCommand(blobStoreManagerSessionIsPublicAccessAllowedCmd)
+	blobStoreManagerSessionCmd.AddCommand(blobStoreManagerSessionIsSameSignatureAccessAllowedCmd)
+	blobStoreManagerSessionCmd.AddCommand(blobStoreManagerSessionOpenReadCmd)
+	blobStoreManagerSessionOpenWriteCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	blobStoreManagerSessionOpenWriteCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	blobStoreManagerSessionCmd.AddCommand(blobStoreManagerSessionOpenWriteCmd)
+	blobCmd.AddCommand(blobStoreManagerSessionCmd)
+	blobHandleCmd.AddCommand(blobHandleDescribeContentsCmd)
+	blobHandleEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	blobHandleCmd.AddCommand(blobHandleEqualsCmd)
+	blobHandleCmd.AddCommand(blobHandleGetExpiryTimeMillisCmd)
+	blobHandleCmd.AddCommand(blobHandleGetLabelCmd)
+	blobHandleCmd.AddCommand(blobHandleGetSha256DigestCmd)
+	blobHandleCmd.AddCommand(blobHandleGetTagCmd)
+	blobHandleCmd.AddCommand(blobHandleHashCodeCmd)
+	blobHandleCmd.AddCommand(blobHandleToStringCmd)
+	blobHandleWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	blobHandleWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	blobHandleCmd.AddCommand(blobHandleWriteToParcelCmd)
+	blobHandleCreateWithSha256Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	blobHandleCreateWithSha256Cmd.Flags().String("arg1", "", "arg1 (string)")
+	blobHandleCreateWithSha256Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	blobHandleCreateWithSha256Cmd.Flags().String("arg3", "", "arg3 (string)")
+	blobHandleCmd.AddCommand(blobHandleCreateWithSha256Cmd)
+	blobCmd.AddCommand(blobHandleCmd)
 	rootCmd.AddCommand(blobCmd)
 }

@@ -31,3 +31,158 @@ func (c *DisplayHashManagerClient) VerifyDisplayHash(ctx context.Context, arg0 i
 	}
 	return resp.GetResult(), nil
 }
+
+// DisplayHashResultCallbackClient wraps the gRPC DisplayHashResultCallbackService client.
+type DisplayHashResultCallbackClient struct {
+	svc pb.DisplayHashResultCallbackServiceClient
+}
+
+// NewDisplayHashResultCallbackClient creates a new DisplayHashResultCallback client.
+func NewDisplayHashResultCallbackClient(cc grpc.ClientConnInterface) *DisplayHashResultCallbackClient {
+	return &DisplayHashResultCallbackClient{
+		svc: pb.NewDisplayHashResultCallbackServiceClient(cc),
+	}
+}
+
+// OnDisplayHashError calls the OnDisplayHashError RPC.
+func (c *DisplayHashResultCallbackClient) OnDisplayHashError(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.OnDisplayHashError(ctx, &pb.OnDisplayHashErrorRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnDisplayHashResult calls the OnDisplayHashResult RPC.
+func (c *DisplayHashResultCallbackClient) OnDisplayHashResult(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnDisplayHashResult(ctx, &pb.OnDisplayHashResultRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// VerifiedDisplayHashClient wraps the gRPC VerifiedDisplayHashService client.
+type VerifiedDisplayHashClient struct {
+	svc pb.VerifiedDisplayHashServiceClient
+}
+
+// NewVerifiedDisplayHashClient creates a new VerifiedDisplayHash client.
+func NewVerifiedDisplayHashClient(cc grpc.ClientConnInterface) *VerifiedDisplayHashClient {
+	return &VerifiedDisplayHashClient{
+		svc: pb.NewVerifiedDisplayHashServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *VerifiedDisplayHashClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBoundsInWindow calls the GetBoundsInWindow RPC.
+func (c *VerifiedDisplayHashClient) GetBoundsInWindow(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetBoundsInWindow(ctx, &pb.GetBoundsInWindowRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHashAlgorithm calls the GetHashAlgorithm RPC.
+func (c *VerifiedDisplayHashClient) GetHashAlgorithm(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetHashAlgorithm(ctx, &pb.GetHashAlgorithmRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetImageHash calls the GetImageHash RPC.
+func (c *VerifiedDisplayHashClient) GetImageHash(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetImageHash(ctx, &pb.GetImageHashRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTimeMillis calls the GetTimeMillis RPC.
+func (c *VerifiedDisplayHashClient) GetTimeMillis(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetTimeMillis(ctx, &pb.GetTimeMillisRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *VerifiedDisplayHashClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *VerifiedDisplayHashClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// DisplayHashClient wraps the gRPC DisplayHashService client.
+type DisplayHashClient struct {
+	svc pb.DisplayHashServiceClient
+}
+
+// NewDisplayHashClient creates a new DisplayHash client.
+func NewDisplayHashClient(cc grpc.ClientConnInterface) *DisplayHashClient {
+	return &DisplayHashClient{
+		svc: pb.NewDisplayHashServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *DisplayHashClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DisplayHashDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *DisplayHashClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.DisplayHashToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *DisplayHashClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.DisplayHashWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}

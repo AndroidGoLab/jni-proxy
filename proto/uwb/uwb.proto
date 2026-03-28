@@ -5,3 +5,326 @@ syntax = "proto3";
 package uwb;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/uwb";
+
+message DescribeContentsRequest {
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message EqualsRequest {
+  int64 arg0 = 1;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message GetAddressBytesRequest {
+}
+
+message GetAddressBytesResponse {
+  int64 result = 1;
+}
+
+message HashCodeRequest {
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message ToStringRequest {
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteToParcelResponse {
+}
+
+message CreateRandomShortAddressRequest {
+}
+
+message CreateRandomShortAddressResponse {
+  int64 result = 1;
+}
+
+message FromBytesRequest {
+  int64 arg0 = 1;
+}
+
+message FromBytesResponse {
+  int64 result = 1;
+}
+
+message GetComplexChannelRequest {
+}
+
+message GetComplexChannelResponse {
+  int64 result = 1;
+}
+
+message GetConfigIdRequest {
+}
+
+message GetConfigIdResponse {
+  int32 result = 1;
+}
+
+message GetDeviceAddressRequest {
+}
+
+message GetDeviceAddressResponse {
+  int64 result = 1;
+}
+
+message GetPeerAddressRequest {
+}
+
+message GetPeerAddressResponse {
+  int64 result = 1;
+}
+
+message GetRangingUpdateRateRequest {
+}
+
+message GetRangingUpdateRateResponse {
+  int32 result = 1;
+}
+
+message GetSessionIdRequest {
+}
+
+message GetSessionIdResponse {
+  int32 result = 1;
+}
+
+message GetSessionKeyInfoRequest {
+}
+
+message GetSessionKeyInfoResponse {
+  int64 result = 1;
+}
+
+message GetSlotDurationRequest {
+}
+
+message GetSlotDurationResponse {
+  int32 result = 1;
+}
+
+message GetSubSessionIdRequest {
+}
+
+message GetSubSessionIdResponse {
+  int32 result = 1;
+}
+
+message GetSubSessionKeyInfoRequest {
+}
+
+message GetSubSessionKeyInfoResponse {
+  int64 result = 1;
+}
+
+message BuildRequest {
+}
+
+message BuildResponse {
+  int64 result = 1;
+}
+
+message SetComplexChannelRequest {
+  int64 arg0 = 1;
+}
+
+message SetComplexChannelResponse {
+  int64 result = 1;
+}
+
+message SetRangingUpdateRateRequest {
+  int32 arg0 = 1;
+}
+
+message SetRangingUpdateRateResponse {
+  int64 result = 1;
+}
+
+message SetSessionKeyInfoRequest {
+  int64 arg0 = 1;
+}
+
+message SetSessionKeyInfoResponse {
+  int64 result = 1;
+}
+
+message SetSlotDurationRequest {
+  int32 arg0 = 1;
+}
+
+message SetSlotDurationResponse {
+  int64 result = 1;
+}
+
+message SetSubSessionIdRequest {
+  int32 arg0 = 1;
+}
+
+message SetSubSessionIdResponse {
+  int64 result = 1;
+}
+
+message SetSubSessionKeyInfoRequest {
+  int64 arg0 = 1;
+}
+
+message SetSubSessionKeyInfoResponse {
+  int64 result = 1;
+}
+
+message GetChannelRequest {
+}
+
+message GetChannelResponse {
+  int32 result = 1;
+}
+
+message GetPreambleIndexRequest {
+}
+
+message GetPreambleIndexResponse {
+  int32 result = 1;
+}
+
+message SetChannelRequest {
+  int32 arg0 = 1;
+}
+
+message SetChannelResponse {
+  int64 result = 1;
+}
+
+message SetPreambleIndexRequest {
+  int32 arg0 = 1;
+}
+
+message SetPreambleIndexResponse {
+  int64 result = 1;
+}
+
+message GetMinimumRangingIntervalRequest {
+}
+
+message GetMinimumRangingIntervalResponse {
+  int64 result = 1;
+}
+
+message IsAzimuthalAngleSupportedRequest {
+}
+
+message IsAzimuthalAngleSupportedResponse {
+  bool result = 1;
+}
+
+message IsBackgroundRangingSupportedRequest {
+}
+
+message IsBackgroundRangingSupportedResponse {
+  bool result = 1;
+}
+
+message IsDistanceMeasurementSupportedRequest {
+}
+
+message IsDistanceMeasurementSupportedResponse {
+  bool result = 1;
+}
+
+message IsElevationAngleSupportedRequest {
+}
+
+message IsElevationAngleSupportedResponse {
+  bool result = 1;
+}
+
+message IsRangingIntervalReconfigurationSupportedRequest {
+}
+
+message IsRangingIntervalReconfigurationSupportedResponse {
+  bool result = 1;
+}
+
+service AddressService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetAddressBytes (GetAddressBytesRequest) returns (GetAddressBytesResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc CreateRandomShortAddress (CreateRandomShortAddressRequest) returns (CreateRandomShortAddressResponse);
+  rpc FromBytes (FromBytesRequest) returns (FromBytesResponse);
+}
+
+service RangingParamsService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetComplexChannel (GetComplexChannelRequest) returns (GetComplexChannelResponse);
+  rpc GetConfigId (GetConfigIdRequest) returns (GetConfigIdResponse);
+  rpc GetDeviceAddress (GetDeviceAddressRequest) returns (GetDeviceAddressResponse);
+  rpc GetPeerAddress (GetPeerAddressRequest) returns (GetPeerAddressResponse);
+  rpc GetRangingUpdateRate (GetRangingUpdateRateRequest) returns (GetRangingUpdateRateResponse);
+  rpc GetSessionId (GetSessionIdRequest) returns (GetSessionIdResponse);
+  rpc GetSessionKeyInfo (GetSessionKeyInfoRequest) returns (GetSessionKeyInfoResponse);
+  rpc GetSlotDuration (GetSlotDurationRequest) returns (GetSlotDurationResponse);
+  rpc GetSubSessionId (GetSubSessionIdRequest) returns (GetSubSessionIdResponse);
+  rpc GetSubSessionKeyInfo (GetSubSessionKeyInfoRequest) returns (GetSubSessionKeyInfoResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service RangingParamsBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetComplexChannel (SetComplexChannelRequest) returns (SetComplexChannelResponse);
+  rpc SetRangingUpdateRate (SetRangingUpdateRateRequest) returns (SetRangingUpdateRateResponse);
+  rpc SetSessionKeyInfo (SetSessionKeyInfoRequest) returns (SetSessionKeyInfoResponse);
+  rpc SetSlotDuration (SetSlotDurationRequest) returns (SetSlotDurationResponse);
+  rpc SetSubSessionId (SetSubSessionIdRequest) returns (SetSubSessionIdResponse);
+  rpc SetSubSessionKeyInfo (SetSubSessionKeyInfoRequest) returns (SetSubSessionKeyInfoResponse);
+}
+
+service ComplexChannelService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetChannel (GetChannelRequest) returns (GetChannelResponse);
+  rpc GetPreambleIndex (GetPreambleIndexRequest) returns (GetPreambleIndexResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ComplexChannelBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetChannel (SetChannelRequest) returns (SetChannelResponse);
+  rpc SetPreambleIndex (SetPreambleIndexRequest) returns (SetPreambleIndexResponse);
+}
+
+service RangingCapabilitiesService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetMinimumRangingInterval (GetMinimumRangingIntervalRequest) returns (GetMinimumRangingIntervalResponse);
+  rpc IsAzimuthalAngleSupported (IsAzimuthalAngleSupportedRequest) returns (IsAzimuthalAngleSupportedResponse);
+  rpc IsBackgroundRangingSupported (IsBackgroundRangingSupportedRequest) returns (IsBackgroundRangingSupportedResponse);
+  rpc IsDistanceMeasurementSupported (IsDistanceMeasurementSupportedRequest) returns (IsDistanceMeasurementSupportedResponse);
+  rpc IsElevationAngleSupported (IsElevationAngleSupportedRequest) returns (IsElevationAngleSupportedResponse);
+  rpc IsRangingIntervalReconfigurationSupported (IsRangingIntervalReconfigurationSupportedRequest) returns (IsRangingIntervalReconfigurationSupportedResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}

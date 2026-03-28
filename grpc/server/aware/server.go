@@ -15,6 +15,103 @@ import (
 	"google.golang.org/grpc/status"
 )
 
+// IdentityChangedListenerServer implements pb.IdentityChangedListenerServiceServer.
+type IdentityChangedListenerServer struct {
+	pb.UnimplementedIdentityChangedListenerServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *IdentityChangedListenerServer) NewIdentityChangedListener(_ context.Context, req *pb.NewIdentityChangedListenerRequest) (*pb.NewIdentityChangedListenerResponse, error) {
+	obj, err := jnipkg.NewIdentityChangedListener(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewIdentityChangedListenerResponse{Result: handle}, nil
+}
+
+func (s *IdentityChangedListenerServer) OnClusterIdChanged(_ context.Context, req *pb.OnClusterIdChangedRequest) (*pb.OnClusterIdChangedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.IdentityChangedListener{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnClusterIdChanged(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnClusterIdChangedResponse{}, nil
+}
+
+func (s *IdentityChangedListenerServer) OnIdentityChanged(_ context.Context, req *pb.OnIdentityChangedRequest) (*pb.OnIdentityChangedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.IdentityChangedListener{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnIdentityChanged(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnIdentityChangedResponse{}, nil
+}
+
+// ParcelablePeerHandleServer implements pb.ParcelablePeerHandleServiceServer.
+type ParcelablePeerHandleServer struct {
+	pb.UnimplementedParcelablePeerHandleServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *ParcelablePeerHandleServer) NewParcelablePeerHandle(_ context.Context, req *pb.NewParcelablePeerHandleRequest) (*pb.NewParcelablePeerHandleResponse, error) {
+	obj, err := jnipkg.NewParcelablePeerHandle(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewParcelablePeerHandleResponse{Result: handle}, nil
+}
+
+func (s *ParcelablePeerHandleServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ParcelablePeerHandle{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *ParcelablePeerHandleServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ParcelablePeerHandle{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
 // WifiAwareManagerServer implements pb.WifiAwareManagerServiceServer.
 type WifiAwareManagerServer struct {
 	pb.UnimplementedWifiAwareManagerServiceServer
@@ -161,4 +258,412 @@ func (s *WifiAwareManagerServer) SetOpportunisticModeEnabled(_ context.Context, 
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.SetOpportunisticModeEnabledResponse{}, nil
+}
+
+// AttachCallbackServer implements pb.AttachCallbackServiceServer.
+type AttachCallbackServer struct {
+	pb.UnimplementedAttachCallbackServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *AttachCallbackServer) NewAttachCallback(_ context.Context, req *pb.NewAttachCallbackRequest) (*pb.NewAttachCallbackResponse, error) {
+	obj, err := jnipkg.NewAttachCallback(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewAttachCallbackResponse{Result: handle}, nil
+}
+
+func (s *AttachCallbackServer) OnAttachFailed(_ context.Context, req *pb.OnAttachFailedRequest) (*pb.OnAttachFailedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AttachCallback{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnAttachFailed(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnAttachFailedResponse{}, nil
+}
+
+func (s *AttachCallbackServer) OnAttached(_ context.Context, req *pb.OnAttachedRequest) (*pb.OnAttachedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AttachCallback{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnAttached(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnAttachedResponse{}, nil
+}
+
+func (s *AttachCallbackServer) OnAwareSessionTerminated(_ context.Context, req *pb.OnAwareSessionTerminatedRequest) (*pb.OnAwareSessionTerminatedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AttachCallback{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnAwareSessionTerminated(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnAwareSessionTerminatedResponse{}, nil
+}
+
+// DiscoverySessionCallbackServer implements pb.DiscoverySessionCallbackServiceServer.
+type DiscoverySessionCallbackServer struct {
+	pb.UnimplementedDiscoverySessionCallbackServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *DiscoverySessionCallbackServer) NewDiscoverySessionCallback(_ context.Context, req *pb.NewDiscoverySessionCallbackRequest) (*pb.NewDiscoverySessionCallbackResponse, error) {
+	obj, err := jnipkg.NewDiscoverySessionCallback(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewDiscoverySessionCallbackResponse{Result: handle}, nil
+}
+
+func (s *DiscoverySessionCallbackServer) OnBootstrappingFailed(_ context.Context, req *pb.OnBootstrappingFailedRequest) (*pb.OnBootstrappingFailedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.DiscoverySessionCallback{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnBootstrappingFailed(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnBootstrappingFailedResponse{}, nil
+}
+
+func (s *DiscoverySessionCallbackServer) OnBootstrappingSucceeded(_ context.Context, req *pb.OnBootstrappingSucceededRequest) (*pb.OnBootstrappingSucceededResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.DiscoverySessionCallback{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnBootstrappingSucceeded(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnBootstrappingSucceededResponse{}, nil
+}
+
+func (s *DiscoverySessionCallbackServer) OnMessageReceived(_ context.Context, req *pb.OnMessageReceivedRequest) (*pb.OnMessageReceivedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.DiscoverySessionCallback{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnMessageReceived(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnMessageReceivedResponse{}, nil
+}
+
+func (s *DiscoverySessionCallbackServer) OnMessageSendFailed(_ context.Context, req *pb.OnMessageSendFailedRequest) (*pb.OnMessageSendFailedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.DiscoverySessionCallback{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnMessageSendFailed(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnMessageSendFailedResponse{}, nil
+}
+
+func (s *DiscoverySessionCallbackServer) OnMessageSendSucceeded(_ context.Context, req *pb.OnMessageSendSucceededRequest) (*pb.OnMessageSendSucceededResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.DiscoverySessionCallback{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnMessageSendSucceeded(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnMessageSendSucceededResponse{}, nil
+}
+
+func (s *DiscoverySessionCallbackServer) OnPairingSetupFailed(_ context.Context, req *pb.OnPairingSetupFailedRequest) (*pb.OnPairingSetupFailedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.DiscoverySessionCallback{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnPairingSetupFailed(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnPairingSetupFailedResponse{}, nil
+}
+
+func (s *DiscoverySessionCallbackServer) OnPairingSetupRequestReceived(_ context.Context, req *pb.OnPairingSetupRequestReceivedRequest) (*pb.OnPairingSetupRequestReceivedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.DiscoverySessionCallback{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnPairingSetupRequestReceived(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnPairingSetupRequestReceivedResponse{}, nil
+}
+
+func (s *DiscoverySessionCallbackServer) OnPairingSetupSucceeded(_ context.Context, req *pb.OnPairingSetupSucceededRequest) (*pb.OnPairingSetupSucceededResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.DiscoverySessionCallback{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnPairingSetupSucceeded(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnPairingSetupSucceededResponse{}, nil
+}
+
+func (s *DiscoverySessionCallbackServer) OnPairingVerificationFailed(_ context.Context, req *pb.OnPairingVerificationFailedRequest) (*pb.OnPairingVerificationFailedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.DiscoverySessionCallback{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnPairingVerificationFailed(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnPairingVerificationFailedResponse{}, nil
+}
+
+func (s *DiscoverySessionCallbackServer) OnPairingVerificationSucceed(_ context.Context, req *pb.OnPairingVerificationSucceedRequest) (*pb.OnPairingVerificationSucceedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.DiscoverySessionCallback{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnPairingVerificationSucceed(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnPairingVerificationSucceedResponse{}, nil
+}
+
+func (s *DiscoverySessionCallbackServer) OnPublishStarted(_ context.Context, req *pb.OnPublishStartedRequest) (*pb.OnPublishStartedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.DiscoverySessionCallback{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnPublishStarted(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnPublishStartedResponse{}, nil
+}
+
+func (s *DiscoverySessionCallbackServer) OnServiceDiscovered(_ context.Context, req *pb.OnServiceDiscoveredRequest) (*pb.OnServiceDiscoveredResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.DiscoverySessionCallback{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnServiceDiscovered(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnServiceDiscoveredResponse{}, nil
+}
+
+func (s *DiscoverySessionCallbackServer) OnServiceDiscoveredWithinRange(_ context.Context, req *pb.OnServiceDiscoveredWithinRangeRequest) (*pb.OnServiceDiscoveredWithinRangeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.DiscoverySessionCallback{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnServiceDiscoveredWithinRange(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnServiceDiscoveredWithinRangeResponse{}, nil
+}
+
+func (s *DiscoverySessionCallbackServer) OnServiceLost(_ context.Context, req *pb.OnServiceLostRequest) (*pb.OnServiceLostResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.DiscoverySessionCallback{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnServiceLost(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnServiceLostResponse{}, nil
+}
+
+func (s *DiscoverySessionCallbackServer) OnSessionConfigFailed(_ context.Context, req *pb.OnSessionConfigFailedRequest) (*pb.OnSessionConfigFailedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.DiscoverySessionCallback{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnSessionConfigFailed(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnSessionConfigFailedResponse{}, nil
+}
+
+func (s *DiscoverySessionCallbackServer) OnSessionConfigUpdated(_ context.Context, req *pb.OnSessionConfigUpdatedRequest) (*pb.OnSessionConfigUpdatedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.DiscoverySessionCallback{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnSessionConfigUpdated(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnSessionConfigUpdatedResponse{}, nil
+}
+
+func (s *DiscoverySessionCallbackServer) OnSessionTerminated(_ context.Context, req *pb.OnSessionTerminatedRequest) (*pb.OnSessionTerminatedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.DiscoverySessionCallback{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnSessionTerminated(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnSessionTerminatedResponse{}, nil
+}
+
+func (s *DiscoverySessionCallbackServer) OnSubscribeStarted(_ context.Context, req *pb.OnSubscribeStartedRequest) (*pb.OnSubscribeStartedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.DiscoverySessionCallback{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnSubscribeStarted(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnSubscribeStartedResponse{}, nil
+}
+
+// ResourcesServer implements pb.ResourcesServiceServer.
+type ResourcesServer struct {
+	pb.UnimplementedResourcesServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *ResourcesServer) NewResources(_ context.Context, req *pb.NewResourcesRequest) (*pb.NewResourcesResponse, error) {
+	obj, err := jnipkg.NewResources(s.Ctx.VM, req.GetArg0(), req.GetArg1(), req.GetArg2())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewResourcesResponse{Result: handle}, nil
+}
+
+func (s *ResourcesServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Resources{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *ResourcesServer) GetAvailableDataPathsCount(_ context.Context, req *pb.GetAvailableDataPathsCountRequest) (*pb.GetAvailableDataPathsCountResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Resources{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetAvailableDataPathsCount()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetAvailableDataPathsCountResponse{Result: result}, nil
+}
+
+func (s *ResourcesServer) GetAvailablePublishSessionsCount(_ context.Context, req *pb.GetAvailablePublishSessionsCountRequest) (*pb.GetAvailablePublishSessionsCountResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Resources{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetAvailablePublishSessionsCount()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetAvailablePublishSessionsCountResponse{Result: result}, nil
+}
+
+func (s *ResourcesServer) GetAvailableSubscribeSessionsCount(_ context.Context, req *pb.GetAvailableSubscribeSessionsCountRequest) (*pb.GetAvailableSubscribeSessionsCountResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Resources{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetAvailableSubscribeSessionsCount()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetAvailableSubscribeSessionsCountResponse{Result: result}, nil
+}
+
+func (s *ResourcesServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Resources{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
 }

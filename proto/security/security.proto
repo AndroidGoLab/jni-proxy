@@ -6,6 +6,286 @@ package security;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/security";
 
+message CancelPromptRequest {
+}
+
+message CancelPromptResponse {
+}
+
+message PresentPromptRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message PresentPromptResponse {
+}
+
+message IsSupportedRequest {
+  int64 arg0 = 1;
+}
+
+message IsSupportedResponse {
+  bool result = 1;
+}
+
+message BuildRequest {
+}
+
+message BuildResponse {
+  int64 result = 1;
+}
+
+message SetExtraDataRequest {
+  int64 arg0 = 1;
+}
+
+message SetExtraDataResponse {
+  int64 result = 1;
+}
+
+message SetPromptTextRequest {
+  string arg0 = 1;
+}
+
+message SetPromptTextResponse {
+  int64 result = 1;
+}
+
+message IsEncryptionRequiredRequest {
+}
+
+message IsEncryptionRequiredResponse {
+  bool result = 1;
+}
+
+message SetEncryptionRequiredRequest {
+  bool arg0 = 1;
+}
+
+message SetEncryptionRequiredResponse {
+  int64 result = 1;
+}
+
+message NewAttestedKeyPairRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewAttestedKeyPairResponse {
+  int64 result = 1;
+}
+
+message GetKeyPairRequest {
+  int64 handle = 1;
+}
+
+message GetKeyPairResponse {
+  int64 result = 1;
+}
+
+message DescribeContentsRequest {
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message EqualsRequest {
+  int64 arg0 = 1;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message HashCodeRequest {
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message ToStringRequest {
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteToParcelResponse {
+}
+
+message AddAppAndUriMappingRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+  string arg2 = 3;
+}
+
+message AddAppAndUriMappingResponse {
+  int64 result = 1;
+}
+
+message GetAlgorithmParameterSpecRequest {
+}
+
+message GetAlgorithmParameterSpecResponse {
+  int64 result = 1;
+}
+
+message GetContextRequest {
+}
+
+message GetContextResponse {
+  int64 result = 1;
+}
+
+message GetEndDateRequest {
+}
+
+message GetEndDateResponse {
+  int64 result = 1;
+}
+
+message GetKeySizeRequest {
+}
+
+message GetKeySizeResponse {
+  int32 result = 1;
+}
+
+message GetKeyTypeRequest {
+}
+
+message GetKeyTypeResponse {
+  string result = 1;
+}
+
+message GetKeystoreAliasRequest {
+}
+
+message GetKeystoreAliasResponse {
+  string result = 1;
+}
+
+message GetSerialNumberRequest {
+}
+
+message GetSerialNumberResponse {
+  int64 result = 1;
+}
+
+message GetStartDateRequest {
+}
+
+message GetStartDateResponse {
+  int64 result = 1;
+}
+
+message GetSubjectDNRequest {
+}
+
+message GetSubjectDNResponse {
+  int64 result = 1;
+}
+
+message SetAlgorithmParameterSpecRequest {
+  int64 arg0 = 1;
+}
+
+message SetAlgorithmParameterSpecResponse {
+  int64 result = 1;
+}
+
+message SetAliasRequest {
+  string arg0 = 1;
+}
+
+message SetAliasResponse {
+  int64 result = 1;
+}
+
+message KeyPairGeneratorSpecBuilderSetEncryptionRequiredRequest {
+}
+
+message SetEndDateRequest {
+  int64 arg0 = 1;
+}
+
+message SetEndDateResponse {
+  int64 result = 1;
+}
+
+message SetKeySizeRequest {
+  int32 arg0 = 1;
+}
+
+message SetKeySizeResponse {
+  int64 result = 1;
+}
+
+message SetKeyTypeRequest {
+  string arg0 = 1;
+}
+
+message SetKeyTypeResponse {
+  int64 result = 1;
+}
+
+message SetSerialNumberRequest {
+  int64 arg0 = 1;
+}
+
+message SetSerialNumberResponse {
+  int64 result = 1;
+}
+
+message SetStartDateRequest {
+  int64 arg0 = 1;
+}
+
+message SetStartDateResponse {
+  int64 result = 1;
+}
+
+message SetSubjectRequest {
+  int64 arg0 = 1;
+}
+
+message SetSubjectResponse {
+  int64 result = 1;
+}
+
+message OnCanceledRequest {
+}
+
+message OnCanceledResponse {
+}
+
+message OnConfirmedRequest {
+  int64 arg0 = 1;
+}
+
+message OnConfirmedResponse {
+}
+
+message OnDismissedRequest {
+}
+
+message OnDismissedResponse {
+}
+
+message OnErrorRequest {
+  int64 arg0 = 1;
+}
+
+message OnErrorResponse {
+}
+
 message IsApkVeritySupportedRequest {
 }
 
@@ -21,7 +301,302 @@ message IsAppSourceCertificateTrustedResponse {
   bool result = 1;
 }
 
+message AliasRequest {
+  string arg0 = 1;
+}
+
+message AliasResponse {
+}
+
+message GetNumericErrorCodeRequest {
+}
+
+message GetNumericErrorCodeResponse {
+  int32 result = 1;
+}
+
+message GetRetryPolicyRequest {
+}
+
+message GetRetryPolicyResponse {
+  int32 result = 1;
+}
+
+message IsSystemErrorRequest {
+}
+
+message IsSystemErrorResponse {
+  bool result = 1;
+}
+
+message IsTransientFailureRequest {
+}
+
+message IsTransientFailureResponse {
+  bool result = 1;
+}
+
+message RequiresUserAuthenticationRequest {
+}
+
+message RequiresUserAuthenticationResponse {
+  bool result = 1;
+}
+
+message IsCertificateTransparencyVerificationRequiredRequest {
+  string arg0 = 1;
+}
+
+message IsCertificateTransparencyVerificationRequiredResponse {
+  bool result = 1;
+}
+
+message IsCleartextTrafficPermitted0Request {
+}
+
+message IsCleartextTrafficPermitted0Response {
+  bool result = 1;
+}
+
+message IsCleartextTrafficPermitted1_1Request {
+  string arg0 = 1;
+}
+
+message IsCleartextTrafficPermitted1_1Response {
+  bool result = 1;
+}
+
+message GetInstanceRequest {
+}
+
+message GetInstanceResponse {
+  int64 result = 1;
+}
+
+message NewKeyChainRequest {
+}
+
+message NewKeyChainResponse {
+  int64 result = 1;
+}
+
+message ChoosePrivateKeyAlias6Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int64 arg2 = 4;
+  int64 arg3 = 5;
+  int64 arg4 = 6;
+  string arg5 = 7;
+}
+
+message ChoosePrivateKeyAlias6Response {
+}
+
+message ChoosePrivateKeyAlias7_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int64 arg2 = 4;
+  int64 arg3 = 5;
+  string arg4 = 6;
+  int32 arg5 = 7;
+  string arg6 = 8;
+}
+
+message ChoosePrivateKeyAlias7_1Response {
+}
+
+message CreateInstallIntentRequest {
+  int64 handle = 1;
+}
+
+message CreateInstallIntentResponse {
+  int64 result = 1;
+}
+
+message CreateManageCredentialsIntentRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message CreateManageCredentialsIntentResponse {
+  int64 result = 1;
+}
+
+message GetCertificateChainRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+}
+
+message GetCertificateChainResponse {
+  int64 result = 1;
+}
+
+message GetCredentialManagementAppPolicyRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetCredentialManagementAppPolicyResponse {
+  int64 result = 1;
+}
+
+message GetPrivateKeyRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+}
+
+message GetPrivateKeyResponse {
+  int64 result = 1;
+}
+
+message IsBoundKeyAlgorithmRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message IsBoundKeyAlgorithmResponse {
+  bool result = 1;
+}
+
+message IsCredentialManagementAppRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message IsCredentialManagementAppResponse {
+  bool result = 1;
+}
+
+message IsKeyAlgorithmSupportedRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message IsKeyAlgorithmSupportedResponse {
+  bool result = 1;
+}
+
+message RemoveCredentialManagementAppRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message RemoveCredentialManagementAppResponse {
+  bool result = 1;
+}
+
+service ConfirmationPromptService {
+  rpc CancelPrompt (CancelPromptRequest) returns (CancelPromptResponse);
+  rpc PresentPrompt (PresentPromptRequest) returns (PresentPromptResponse);
+  rpc IsSupported (IsSupportedRequest) returns (IsSupportedResponse);
+}
+
+service ConfirmationPromptBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetExtraData (SetExtraDataRequest) returns (SetExtraDataResponse);
+  rpc SetPromptText (SetPromptTextRequest) returns (SetPromptTextResponse);
+}
+
+service KeyStoreParameterService {
+  rpc IsEncryptionRequired (IsEncryptionRequiredRequest) returns (IsEncryptionRequiredResponse);
+}
+
+service KeyStoreParameterBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetEncryptionRequired (SetEncryptionRequiredRequest) returns (SetEncryptionRequiredResponse);
+}
+
+service AttestedKeyPairService {
+  rpc NewAttestedKeyPair (NewAttestedKeyPairRequest) returns (NewAttestedKeyPairResponse);
+  rpc GetKeyPair (GetKeyPairRequest) returns (GetKeyPairResponse);
+}
+
+service AppUriAuthenticationPolicyService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service AppUriAuthenticationPolicyBuilderService {
+  rpc AddAppAndUriMapping (AddAppAndUriMappingRequest) returns (AddAppAndUriMappingResponse);
+  rpc Build (BuildRequest) returns (BuildResponse);
+}
+
+service KeyPairGeneratorSpecService {
+  rpc GetAlgorithmParameterSpec (GetAlgorithmParameterSpecRequest) returns (GetAlgorithmParameterSpecResponse);
+  rpc GetContext (GetContextRequest) returns (GetContextResponse);
+  rpc GetEndDate (GetEndDateRequest) returns (GetEndDateResponse);
+  rpc GetKeySize (GetKeySizeRequest) returns (GetKeySizeResponse);
+  rpc GetKeyType (GetKeyTypeRequest) returns (GetKeyTypeResponse);
+  rpc GetKeystoreAlias (GetKeystoreAliasRequest) returns (GetKeystoreAliasResponse);
+  rpc GetSerialNumber (GetSerialNumberRequest) returns (GetSerialNumberResponse);
+  rpc GetStartDate (GetStartDateRequest) returns (GetStartDateResponse);
+  rpc GetSubjectDN (GetSubjectDNRequest) returns (GetSubjectDNResponse);
+  rpc IsEncryptionRequired (IsEncryptionRequiredRequest) returns (IsEncryptionRequiredResponse);
+}
+
+service KeyPairGeneratorSpecBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetAlgorithmParameterSpec (SetAlgorithmParameterSpecRequest) returns (SetAlgorithmParameterSpecResponse);
+  rpc SetAlias (SetAliasRequest) returns (SetAliasResponse);
+  rpc SetEncryptionRequired (KeyPairGeneratorSpecBuilderSetEncryptionRequiredRequest) returns (SetEncryptionRequiredResponse);
+  rpc SetEndDate (SetEndDateRequest) returns (SetEndDateResponse);
+  rpc SetKeySize (SetKeySizeRequest) returns (SetKeySizeResponse);
+  rpc SetKeyType (SetKeyTypeRequest) returns (SetKeyTypeResponse);
+  rpc SetSerialNumber (SetSerialNumberRequest) returns (SetSerialNumberResponse);
+  rpc SetStartDate (SetStartDateRequest) returns (SetStartDateResponse);
+  rpc SetSubject (SetSubjectRequest) returns (SetSubjectResponse);
+}
+
+service ConfirmationCallbackService {
+  rpc OnCanceled (OnCanceledRequest) returns (OnCanceledResponse);
+  rpc OnConfirmed (OnConfirmedRequest) returns (OnConfirmedResponse);
+  rpc OnDismissed (OnDismissedRequest) returns (OnDismissedResponse);
+  rpc OnError (OnErrorRequest) returns (OnErrorResponse);
+}
+
 service FileIntegrityManagerService {
   rpc IsApkVeritySupported (IsApkVeritySupportedRequest) returns (IsApkVeritySupportedResponse);
   rpc IsAppSourceCertificateTrusted (IsAppSourceCertificateTrustedRequest) returns (IsAppSourceCertificateTrustedResponse);
+}
+
+service KeyChainAliasCallbackService {
+  rpc Alias (AliasRequest) returns (AliasResponse);
+}
+
+service KeyStoreExceptionService {
+  rpc GetNumericErrorCode (GetNumericErrorCodeRequest) returns (GetNumericErrorCodeResponse);
+  rpc GetRetryPolicy (GetRetryPolicyRequest) returns (GetRetryPolicyResponse);
+  rpc IsSystemError (IsSystemErrorRequest) returns (IsSystemErrorResponse);
+  rpc IsTransientFailure (IsTransientFailureRequest) returns (IsTransientFailureResponse);
+  rpc RequiresUserAuthentication (RequiresUserAuthenticationRequest) returns (RequiresUserAuthenticationResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service NetworkSecurityPolicyService {
+  rpc IsCertificateTransparencyVerificationRequired (IsCertificateTransparencyVerificationRequiredRequest) returns (IsCertificateTransparencyVerificationRequiredResponse);
+  rpc IsCleartextTrafficPermitted0 (IsCleartextTrafficPermitted0Request) returns (IsCleartextTrafficPermitted0Response);
+  rpc IsCleartextTrafficPermitted1_1 (IsCleartextTrafficPermitted1_1Request) returns (IsCleartextTrafficPermitted1_1Response);
+  rpc GetInstance (GetInstanceRequest) returns (GetInstanceResponse);
+}
+
+service KeyChainService {
+  rpc NewKeyChain (NewKeyChainRequest) returns (NewKeyChainResponse);
+  rpc ChoosePrivateKeyAlias6 (ChoosePrivateKeyAlias6Request) returns (ChoosePrivateKeyAlias6Response);
+  rpc ChoosePrivateKeyAlias7_1 (ChoosePrivateKeyAlias7_1Request) returns (ChoosePrivateKeyAlias7_1Response);
+  rpc CreateInstallIntent (CreateInstallIntentRequest) returns (CreateInstallIntentResponse);
+  rpc CreateManageCredentialsIntent (CreateManageCredentialsIntentRequest) returns (CreateManageCredentialsIntentResponse);
+  rpc GetCertificateChain (GetCertificateChainRequest) returns (GetCertificateChainResponse);
+  rpc GetCredentialManagementAppPolicy (GetCredentialManagementAppPolicyRequest) returns (GetCredentialManagementAppPolicyResponse);
+  rpc GetPrivateKey (GetPrivateKeyRequest) returns (GetPrivateKeyResponse);
+  rpc IsBoundKeyAlgorithm (IsBoundKeyAlgorithmRequest) returns (IsBoundKeyAlgorithmResponse);
+  rpc IsCredentialManagementApp (IsCredentialManagementAppRequest) returns (IsCredentialManagementAppResponse);
+  rpc IsKeyAlgorithmSupported (IsKeyAlgorithmSupportedRequest) returns (IsKeyAlgorithmSupportedResponse);
+  rpc RemoveCredentialManagementApp (RemoveCredentialManagementAppRequest) returns (RemoveCredentialManagementAppResponse);
 }

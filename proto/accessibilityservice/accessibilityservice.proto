@@ -5,3 +5,1508 @@ syntax = "proto3";
 package accessibilityservice;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/accessibilityservice";
+
+message GetDisplayIdRequest {
+}
+
+message GetDisplayIdResponse {
+  int32 result = 1;
+}
+
+message GetMaxPointerCountRequest {
+}
+
+message GetMaxPointerCountResponse {
+  int32 result = 1;
+}
+
+message GetStateRequest {
+}
+
+message GetStateResponse {
+  int32 result = 1;
+}
+
+message PerformClickRequest {
+}
+
+message PerformClickResponse {
+}
+
+message PerformLongClickAndStartDragRequest {
+}
+
+message PerformLongClickAndStartDragResponse {
+}
+
+message RegisterCallbackRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message RegisterCallbackResponse {
+}
+
+message RequestDelegatingRequest {
+}
+
+message RequestDelegatingResponse {
+}
+
+message RequestDraggingRequest {
+  int32 arg0 = 1;
+}
+
+message RequestDraggingResponse {
+}
+
+message RequestTouchExplorationRequest {
+}
+
+message RequestTouchExplorationResponse {
+}
+
+message UnregisterAllCallbacksRequest {
+}
+
+message UnregisterAllCallbacksResponse {
+}
+
+message UnregisterCallbackRequest {
+  int64 arg0 = 1;
+}
+
+message UnregisterCallbackResponse {
+  bool result = 1;
+}
+
+message StateToStringRequest {
+  int32 arg0 = 1;
+}
+
+message StateToStringResponse {
+  string result = 1;
+}
+
+message OnMotionEventRequest {
+  int64 arg0 = 1;
+}
+
+message OnMotionEventResponse {
+}
+
+message OnStateChangedRequest {
+  int32 arg0 = 1;
+}
+
+message OnStateChangedResponse {
+}
+
+message Connect2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message Connect2Response {
+}
+
+message Connect3_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message Connect3_1Response {
+}
+
+message Connect2_2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message Connect2_2Response {
+}
+
+message Connect3_3Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message Connect3_3Response {
+}
+
+message DisconnectRequest {
+}
+
+message DisconnectResponse {
+}
+
+message IsConnectedRequest {
+}
+
+message IsConnectedResponse {
+  bool result = 1;
+}
+
+message WriteRequest {
+  int64 arg0 = 1;
+}
+
+message WriteResponse {
+}
+
+message OnConnectedRequest {
+  int64 arg0 = 1;
+}
+
+message OnConnectedResponse {
+}
+
+message OnConnectionFailedRequest {
+  int32 arg0 = 1;
+}
+
+message OnConnectionFailedResponse {
+}
+
+message OnDisconnectedRequest {
+}
+
+message OnDisconnectedResponse {
+}
+
+message OnInputRequest {
+  int64 arg0 = 1;
+}
+
+message OnInputResponse {
+}
+
+message IsGestureDetectionAvailableRequest {
+}
+
+message IsGestureDetectionAvailableResponse {
+  bool result = 1;
+}
+
+message UnregisterFingerprintGestureCallbackRequest {
+  int64 arg0 = 1;
+}
+
+message UnregisterFingerprintGestureCallbackResponse {
+}
+
+message OnGestureDetectedRequest {
+  int32 arg0 = 1;
+}
+
+message OnGestureDetectedResponse {
+}
+
+message OnGestureDetectionAvailabilityChangedRequest {
+  bool arg0 = 1;
+}
+
+message OnGestureDetectionAvailabilityChangedResponse {
+}
+
+message AttachAccessibilityOverlayToDisplayRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message AttachAccessibilityOverlayToDisplayResponse {
+}
+
+message AttachAccessibilityOverlayToWindowRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message AttachAccessibilityOverlayToWindowResponse {
+}
+
+message ClearCacheRequest {
+}
+
+message ClearCacheResponse {
+  bool result = 1;
+}
+
+message ClearCachedSubtreeRequest {
+  int64 arg0 = 1;
+}
+
+message ClearCachedSubtreeResponse {
+  bool result = 1;
+}
+
+message CreateDisplayContextRequest {
+  int64 arg0 = 1;
+}
+
+message CreateDisplayContextResponse {
+  int64 result = 1;
+}
+
+message CreateWindowContext3Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message CreateWindowContext3Response {
+  int64 result = 1;
+}
+
+message CreateWindowContext2_1Request {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message CreateWindowContext2_1Response {
+  int64 result = 1;
+}
+
+message DisableSelfRequest {
+}
+
+message DisableSelfResponse {
+}
+
+message FindFocusRequest {
+  int32 arg0 = 1;
+}
+
+message FindFocusResponse {
+  int64 result = 1;
+}
+
+message GetAccessibilityButtonController0Request {
+}
+
+message GetAccessibilityButtonController0Response {
+  int64 result = 1;
+}
+
+message GetAccessibilityButtonController1_1Request {
+  int32 arg0 = 1;
+}
+
+message GetAccessibilityButtonController1_1Response {
+  int64 result = 1;
+}
+
+message GetBrailleDisplayControllerRequest {
+}
+
+message GetBrailleDisplayControllerResponse {
+  int64 result = 1;
+}
+
+message GetFingerprintGestureControllerRequest {
+}
+
+message GetFingerprintGestureControllerResponse {
+  int64 result = 1;
+}
+
+message GetInputMethodRequest {
+}
+
+message GetInputMethodResponse {
+  int64 result = 1;
+}
+
+message GetMagnificationControllerRequest {
+}
+
+message GetMagnificationControllerResponse {
+  int64 result = 1;
+}
+
+message GetRootInActiveWindow0Request {
+}
+
+message GetRootInActiveWindow0Response {
+  int64 result = 1;
+}
+
+message GetRootInActiveWindow1_1Request {
+  int32 arg0 = 1;
+}
+
+message GetRootInActiveWindow1_1Response {
+  int64 result = 1;
+}
+
+message GetServiceInfoRequest {
+}
+
+message GetServiceInfoResponse {
+  int64 result = 1;
+}
+
+message GetSoftKeyboardControllerRequest {
+}
+
+message GetSoftKeyboardControllerResponse {
+  int64 result = 1;
+}
+
+message GetSystemServiceRequest {
+  string arg0 = 1;
+}
+
+message GetSystemServiceResponse {
+  int64 result = 1;
+}
+
+message GetTouchInteractionControllerRequest {
+  int32 arg0 = 1;
+}
+
+message GetTouchInteractionControllerResponse {
+  int64 result = 1;
+}
+
+message IsCacheEnabledRequest {
+}
+
+message IsCacheEnabledResponse {
+  bool result = 1;
+}
+
+message IsNodeInCacheRequest {
+  int64 arg0 = 1;
+}
+
+message IsNodeInCacheResponse {
+  bool result = 1;
+}
+
+message OnAccessibilityEventRequest {
+  int64 arg0 = 1;
+}
+
+message OnAccessibilityEventResponse {
+}
+
+message OnBindRequest {
+  int64 arg0 = 1;
+}
+
+message OnBindResponse {
+  int64 result = 1;
+}
+
+message OnCreateInputMethodRequest {
+}
+
+message OnCreateInputMethodResponse {
+  int64 result = 1;
+}
+
+message OnGestureRequest {
+  int64 arg0 = 1;
+}
+
+message OnGestureResponse {
+  bool result = 1;
+}
+
+message OnInterruptRequest {
+}
+
+message OnInterruptResponse {
+}
+
+message OnSystemActionsChangedRequest {
+}
+
+message OnSystemActionsChangedResponse {
+}
+
+message PerformGlobalActionRequest {
+  int32 arg0 = 1;
+}
+
+message PerformGlobalActionResponse {
+  bool result = 1;
+}
+
+message SetAccessibilityFocusAppearanceRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message SetAccessibilityFocusAppearanceResponse {
+}
+
+message SetAnimationScaleRequest {
+  float arg0 = 1;
+}
+
+message SetAnimationScaleResponse {
+}
+
+message SetCacheEnabledRequest {
+  bool arg0 = 1;
+}
+
+message SetCacheEnabledResponse {
+  bool result = 1;
+}
+
+message SetGestureDetectionPassthroughRegionRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SetGestureDetectionPassthroughRegionResponse {
+}
+
+message SetServiceInfoRequest {
+  int64 arg0 = 1;
+}
+
+message SetServiceInfoResponse {
+}
+
+message SetTouchExplorationPassthroughRegionRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SetTouchExplorationPassthroughRegionResponse {
+}
+
+message TakeScreenshotRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message TakeScreenshotResponse {
+}
+
+message TakeScreenshotOfWindowRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message TakeScreenshotOfWindowResponse {
+}
+
+message OnCancelledRequest {
+  int64 arg0 = 1;
+}
+
+message OnCancelledResponse {
+}
+
+message OnCompletedRequest {
+  int64 arg0 = 1;
+}
+
+message OnCompletedResponse {
+}
+
+message AddListenerRequest {
+  int64 arg0 = 1;
+}
+
+message AddListenerResponse {
+}
+
+message GetCenterXRequest {
+}
+
+message GetCenterXResponse {
+  float result = 1;
+}
+
+message GetCenterYRequest {
+}
+
+message GetCenterYResponse {
+  float result = 1;
+}
+
+message GetCurrentMagnificationRegionRequest {
+}
+
+message GetCurrentMagnificationRegionResponse {
+  int64 result = 1;
+}
+
+message GetMagnificationConfigRequest {
+}
+
+message GetMagnificationConfigResponse {
+  int64 result = 1;
+}
+
+message GetMagnificationRegionRequest {
+}
+
+message GetMagnificationRegionResponse {
+  int64 result = 1;
+}
+
+message GetScaleRequest {
+}
+
+message GetScaleResponse {
+  float result = 1;
+}
+
+message RemoveListenerRequest {
+  int64 arg0 = 1;
+}
+
+message RemoveListenerResponse {
+  bool result = 1;
+}
+
+message ResetRequest {
+  bool arg0 = 1;
+}
+
+message ResetResponse {
+  bool result = 1;
+}
+
+message ResetCurrentMagnificationRequest {
+  bool arg0 = 1;
+}
+
+message ResetCurrentMagnificationResponse {
+  bool result = 1;
+}
+
+message SetCenterRequest {
+  float arg0 = 1;
+  float arg1 = 2;
+  bool arg2 = 3;
+}
+
+message SetCenterResponse {
+  bool result = 1;
+}
+
+message SetMagnificationConfigRequest {
+  int64 arg0 = 1;
+  bool arg1 = 2;
+}
+
+message SetMagnificationConfigResponse {
+  bool result = 1;
+}
+
+message SetScaleRequest {
+  float arg0 = 1;
+  bool arg1 = 2;
+}
+
+message SetScaleResponse {
+  bool result = 1;
+}
+
+message GetColorSpaceRequest {
+}
+
+message GetColorSpaceResponse {
+  int64 result = 1;
+}
+
+message GetHardwareBufferRequest {
+}
+
+message GetHardwareBufferResponse {
+  int64 result = 1;
+}
+
+message GetTimestampRequest {
+}
+
+message GetTimestampResponse {
+  int64 result = 1;
+}
+
+message AddOnShowModeChangedListenerRequest {
+  int64 arg0 = 1;
+}
+
+message AddOnShowModeChangedListenerResponse {
+}
+
+message GetShowModeRequest {
+}
+
+message GetShowModeResponse {
+  int32 result = 1;
+}
+
+message RemoveOnShowModeChangedListenerRequest {
+  int64 arg0 = 1;
+}
+
+message RemoveOnShowModeChangedListenerResponse {
+  bool result = 1;
+}
+
+message SetInputMethodEnabledRequest {
+  string arg0 = 1;
+  bool arg1 = 2;
+}
+
+message SetInputMethodEnabledResponse {
+  int32 result = 1;
+}
+
+message SetShowModeRequest {
+  int32 arg0 = 1;
+}
+
+message SetShowModeResponse {
+  bool result = 1;
+}
+
+message SwitchToInputMethodRequest {
+  string arg0 = 1;
+}
+
+message SwitchToInputMethodResponse {
+  bool result = 1;
+}
+
+message OnFailureRequest {
+  int32 arg0 = 1;
+}
+
+message OnFailureResponse {
+}
+
+message OnSuccessRequest {
+  int64 arg0 = 1;
+}
+
+message OnSuccessResponse {
+}
+
+message IsAccessibilityButtonAvailableRequest {
+}
+
+message IsAccessibilityButtonAvailableResponse {
+  bool result = 1;
+}
+
+message RegisterAccessibilityButtonCallbackRequest {
+  int64 arg0 = 1;
+}
+
+message RegisterAccessibilityButtonCallbackResponse {
+}
+
+message UnregisterAccessibilityButtonCallbackRequest {
+  int64 arg0 = 1;
+}
+
+message UnregisterAccessibilityButtonCallbackResponse {
+}
+
+message OnAvailabilityChangedRequest {
+  int64 arg0 = 1;
+  bool arg1 = 2;
+}
+
+message OnAvailabilityChangedResponse {
+}
+
+message OnClickedRequest {
+  int64 arg0 = 1;
+}
+
+message OnClickedResponse {
+}
+
+message NewAccessibilityGestureEventRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message NewAccessibilityGestureEventResponse {
+  int64 result = 1;
+}
+
+message DescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message AccessibilityGestureEventGetDisplayIdRequest {
+  int64 handle = 1;
+}
+
+message GetGestureIdRequest {
+  int64 handle = 1;
+}
+
+message GetGestureIdResponse {
+  int32 result = 1;
+}
+
+message ToStringRequest {
+  int64 handle = 1;
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message WriteToParcelResponse {
+}
+
+message GestureIdToStringRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GestureIdToStringResponse {
+  string result = 1;
+}
+
+message NewAccessibilityServiceInfoRequest {
+}
+
+message NewAccessibilityServiceInfoResponse {
+  int64 result = 1;
+}
+
+message EqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message GetCanRetrieveWindowContentRequest {
+  int64 handle = 1;
+}
+
+message GetCanRetrieveWindowContentResponse {
+  bool result = 1;
+}
+
+message GetCapabilitiesRequest {
+  int64 handle = 1;
+}
+
+message GetCapabilitiesResponse {
+  int32 result = 1;
+}
+
+message GetDescriptionRequest {
+  int64 handle = 1;
+}
+
+message GetDescriptionResponse {
+  string result = 1;
+}
+
+message GetIdRequest {
+  int64 handle = 1;
+}
+
+message GetIdResponse {
+  string result = 1;
+}
+
+message GetInteractiveUiTimeoutMillisRequest {
+  int64 handle = 1;
+}
+
+message GetInteractiveUiTimeoutMillisResponse {
+  int32 result = 1;
+}
+
+message GetMotionEventSourcesRequest {
+  int64 handle = 1;
+}
+
+message GetMotionEventSourcesResponse {
+  int32 result = 1;
+}
+
+message GetNonInteractiveUiTimeoutMillisRequest {
+  int64 handle = 1;
+}
+
+message GetNonInteractiveUiTimeoutMillisResponse {
+  int32 result = 1;
+}
+
+message GetResolveInfoRequest {
+  int64 handle = 1;
+}
+
+message GetResolveInfoResponse {
+  int64 result = 1;
+}
+
+message GetSettingsActivityNameRequest {
+  int64 handle = 1;
+}
+
+message GetSettingsActivityNameResponse {
+  string result = 1;
+}
+
+message GetTileServiceNameRequest {
+  int64 handle = 1;
+}
+
+message GetTileServiceNameResponse {
+  string result = 1;
+}
+
+message HashCodeRequest {
+  int64 handle = 1;
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message IsAccessibilityToolRequest {
+  int64 handle = 1;
+}
+
+message IsAccessibilityToolResponse {
+  bool result = 1;
+}
+
+message LoadDescriptionRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message LoadDescriptionResponse {
+  string result = 1;
+}
+
+message LoadIntroRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message LoadIntroResponse {
+  int64 result = 1;
+}
+
+message LoadSummaryRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message LoadSummaryResponse {
+  int64 result = 1;
+}
+
+message SetInteractiveUiTimeoutMillisRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetInteractiveUiTimeoutMillisResponse {
+}
+
+message SetMotionEventSourcesRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetMotionEventSourcesResponse {
+}
+
+message SetNonInteractiveUiTimeoutMillisRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetNonInteractiveUiTimeoutMillisResponse {
+}
+
+message CapabilityToStringRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message CapabilityToStringResponse {
+  string result = 1;
+}
+
+message FeedbackTypeToStringRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message FeedbackTypeToStringResponse {
+  string result = 1;
+}
+
+message FlagToStringRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message FlagToStringResponse {
+  string result = 1;
+}
+
+message GetStrokeRequest {
+  int32 arg0 = 1;
+}
+
+message GetStrokeResponse {
+  int64 result = 1;
+}
+
+message GetStrokeCountRequest {
+}
+
+message GetStrokeCountResponse {
+  int32 result = 1;
+}
+
+message GetMaxGestureDurationRequest {
+}
+
+message GetMaxGestureDurationResponse {
+  int64 result = 1;
+}
+
+message GetMaxStrokeCountRequest {
+}
+
+message GetMaxStrokeCountResponse {
+  int32 result = 1;
+}
+
+message AddStrokeRequest {
+  int64 arg0 = 1;
+}
+
+message AddStrokeResponse {
+  int64 result = 1;
+}
+
+message BuildRequest {
+}
+
+message BuildResponse {
+  int64 result = 1;
+}
+
+message SetDisplayIdRequest {
+  int32 arg0 = 1;
+}
+
+message SetDisplayIdResponse {
+  int64 result = 1;
+}
+
+message ContinueStrokeRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  bool arg3 = 4;
+}
+
+message ContinueStrokeResponse {
+  int64 result = 1;
+}
+
+message GetDurationRequest {
+}
+
+message GetDurationResponse {
+  int64 result = 1;
+}
+
+message GetPathRequest {
+}
+
+message GetPathResponse {
+  int64 result = 1;
+}
+
+message GetStartTimeRequest {
+}
+
+message GetStartTimeResponse {
+  int64 result = 1;
+}
+
+message WillContinueRequest {
+}
+
+message WillContinueResponse {
+  bool result = 1;
+}
+
+message MagnificationConfigDescribeContentsRequest {
+}
+
+message GetModeRequest {
+}
+
+message GetModeResponse {
+  int32 result = 1;
+}
+
+message IsActivatedRequest {
+}
+
+message IsActivatedResponse {
+  bool result = 1;
+}
+
+message MagnificationConfigToStringRequest {
+}
+
+message MagnificationConfigWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message SetActivatedRequest {
+  bool arg0 = 1;
+}
+
+message SetActivatedResponse {
+  int64 result = 1;
+}
+
+message SetCenterXRequest {
+  float arg0 = 1;
+}
+
+message SetCenterXResponse {
+  int64 result = 1;
+}
+
+message SetCenterYRequest {
+  float arg0 = 1;
+}
+
+message SetCenterYResponse {
+  int64 result = 1;
+}
+
+message SetModeRequest {
+  int32 arg0 = 1;
+}
+
+message SetModeResponse {
+  int64 result = 1;
+}
+
+message MagnificationConfigBuilderSetScaleRequest {
+  float arg0 = 1;
+}
+
+message MagnificationConfigBuilderSetScaleResponse {
+  int64 result = 1;
+}
+
+message NewInputMethodRequest {
+  int64 arg0 = 1;
+}
+
+message NewInputMethodResponse {
+  int64 result = 1;
+}
+
+message GetCurrentInputConnectionRequest {
+  int64 handle = 1;
+}
+
+message GetCurrentInputConnectionResponse {
+  int64 result = 1;
+}
+
+message GetCurrentInputEditorInfoRequest {
+  int64 handle = 1;
+}
+
+message GetCurrentInputEditorInfoResponse {
+  int64 result = 1;
+}
+
+message GetCurrentInputStartedRequest {
+  int64 handle = 1;
+}
+
+message GetCurrentInputStartedResponse {
+  bool result = 1;
+}
+
+message OnFinishInputRequest {
+  int64 handle = 1;
+}
+
+message OnFinishInputResponse {
+}
+
+message OnStartInputRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  bool arg1 = 3;
+}
+
+message OnStartInputResponse {
+}
+
+message OnUpdateSelectionRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
+  int32 arg4 = 6;
+  int32 arg5 = 7;
+}
+
+message OnUpdateSelectionResponse {
+}
+
+message ClearMetaKeyStatesRequest {
+  int32 arg0 = 1;
+}
+
+message ClearMetaKeyStatesResponse {
+}
+
+message CommitTextRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message CommitTextResponse {
+}
+
+message DeleteSurroundingTextRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message DeleteSurroundingTextResponse {
+}
+
+message GetCursorCapsModeRequest {
+  int32 arg0 = 1;
+}
+
+message GetCursorCapsModeResponse {
+  int32 result = 1;
+}
+
+message GetSurroundingTextRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message GetSurroundingTextResponse {
+  int64 result = 1;
+}
+
+message PerformContextMenuActionRequest {
+  int32 arg0 = 1;
+}
+
+message PerformContextMenuActionResponse {
+}
+
+message PerformEditorActionRequest {
+  int32 arg0 = 1;
+}
+
+message PerformEditorActionResponse {
+}
+
+message SendKeyEventRequest {
+  int64 arg0 = 1;
+}
+
+message SendKeyEventResponse {
+}
+
+message SetSelectionRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message SetSelectionResponse {
+}
+
+service TouchInteractionControllerService {
+  rpc GetDisplayId (GetDisplayIdRequest) returns (GetDisplayIdResponse);
+  rpc GetMaxPointerCount (GetMaxPointerCountRequest) returns (GetMaxPointerCountResponse);
+  rpc GetState (GetStateRequest) returns (GetStateResponse);
+  rpc PerformClick (PerformClickRequest) returns (PerformClickResponse);
+  rpc PerformLongClickAndStartDrag (PerformLongClickAndStartDragRequest) returns (PerformLongClickAndStartDragResponse);
+  rpc RegisterCallback (RegisterCallbackRequest) returns (RegisterCallbackResponse);
+  rpc RequestDelegating (RequestDelegatingRequest) returns (RequestDelegatingResponse);
+  rpc RequestDragging (RequestDraggingRequest) returns (RequestDraggingResponse);
+  rpc RequestTouchExploration (RequestTouchExplorationRequest) returns (RequestTouchExplorationResponse);
+  rpc UnregisterAllCallbacks (UnregisterAllCallbacksRequest) returns (UnregisterAllCallbacksResponse);
+  rpc UnregisterCallback (UnregisterCallbackRequest) returns (UnregisterCallbackResponse);
+  rpc StateToString (StateToStringRequest) returns (StateToStringResponse);
+}
+
+service TouchInteractionControllerCallbackService {
+  rpc OnMotionEvent (OnMotionEventRequest) returns (OnMotionEventResponse);
+  rpc OnStateChanged (OnStateChangedRequest) returns (OnStateChangedResponse);
+}
+
+service BrailleDisplayControllerService {
+  rpc Connect2 (Connect2Request) returns (Connect2Response);
+  rpc Connect3_1 (Connect3_1Request) returns (Connect3_1Response);
+  rpc Connect2_2 (Connect2_2Request) returns (Connect2_2Response);
+  rpc Connect3_3 (Connect3_3Request) returns (Connect3_3Response);
+  rpc Disconnect (DisconnectRequest) returns (DisconnectResponse);
+  rpc IsConnected (IsConnectedRequest) returns (IsConnectedResponse);
+  rpc Write (WriteRequest) returns (WriteResponse);
+}
+
+service BrailleDisplayControllerBrailleDisplayCallbackService {
+  rpc OnConnected (OnConnectedRequest) returns (OnConnectedResponse);
+  rpc OnConnectionFailed (OnConnectionFailedRequest) returns (OnConnectionFailedResponse);
+  rpc OnDisconnected (OnDisconnectedRequest) returns (OnDisconnectedResponse);
+  rpc OnInput (OnInputRequest) returns (OnInputResponse);
+}
+
+service FingerprintGestureControllerService {
+  rpc IsGestureDetectionAvailable (IsGestureDetectionAvailableRequest) returns (IsGestureDetectionAvailableResponse);
+  rpc UnregisterFingerprintGestureCallback (UnregisterFingerprintGestureCallbackRequest) returns (UnregisterFingerprintGestureCallbackResponse);
+}
+
+service FingerprintGestureControllerFingerprintGestureCallbackService {
+  rpc OnGestureDetected (OnGestureDetectedRequest) returns (OnGestureDetectedResponse);
+  rpc OnGestureDetectionAvailabilityChanged (OnGestureDetectionAvailabilityChangedRequest) returns (OnGestureDetectionAvailabilityChangedResponse);
+}
+
+service AccessibilityServiceService {
+  rpc AttachAccessibilityOverlayToDisplay (AttachAccessibilityOverlayToDisplayRequest) returns (AttachAccessibilityOverlayToDisplayResponse);
+  rpc AttachAccessibilityOverlayToWindow (AttachAccessibilityOverlayToWindowRequest) returns (AttachAccessibilityOverlayToWindowResponse);
+  rpc ClearCache (ClearCacheRequest) returns (ClearCacheResponse);
+  rpc ClearCachedSubtree (ClearCachedSubtreeRequest) returns (ClearCachedSubtreeResponse);
+  rpc CreateDisplayContext (CreateDisplayContextRequest) returns (CreateDisplayContextResponse);
+  rpc CreateWindowContext3 (CreateWindowContext3Request) returns (CreateWindowContext3Response);
+  rpc CreateWindowContext2_1 (CreateWindowContext2_1Request) returns (CreateWindowContext2_1Response);
+  rpc DisableSelf (DisableSelfRequest) returns (DisableSelfResponse);
+  rpc FindFocus (FindFocusRequest) returns (FindFocusResponse);
+  rpc GetAccessibilityButtonController0 (GetAccessibilityButtonController0Request) returns (GetAccessibilityButtonController0Response);
+  rpc GetAccessibilityButtonController1_1 (GetAccessibilityButtonController1_1Request) returns (GetAccessibilityButtonController1_1Response);
+  rpc GetBrailleDisplayController (GetBrailleDisplayControllerRequest) returns (GetBrailleDisplayControllerResponse);
+  rpc GetFingerprintGestureController (GetFingerprintGestureControllerRequest) returns (GetFingerprintGestureControllerResponse);
+  rpc GetInputMethod (GetInputMethodRequest) returns (GetInputMethodResponse);
+  rpc GetMagnificationController (GetMagnificationControllerRequest) returns (GetMagnificationControllerResponse);
+  rpc GetRootInActiveWindow0 (GetRootInActiveWindow0Request) returns (GetRootInActiveWindow0Response);
+  rpc GetRootInActiveWindow1_1 (GetRootInActiveWindow1_1Request) returns (GetRootInActiveWindow1_1Response);
+  rpc GetServiceInfo (GetServiceInfoRequest) returns (GetServiceInfoResponse);
+  rpc GetSoftKeyboardController (GetSoftKeyboardControllerRequest) returns (GetSoftKeyboardControllerResponse);
+  rpc GetSystemService (GetSystemServiceRequest) returns (GetSystemServiceResponse);
+  rpc GetTouchInteractionController (GetTouchInteractionControllerRequest) returns (GetTouchInteractionControllerResponse);
+  rpc IsCacheEnabled (IsCacheEnabledRequest) returns (IsCacheEnabledResponse);
+  rpc IsNodeInCache (IsNodeInCacheRequest) returns (IsNodeInCacheResponse);
+  rpc OnAccessibilityEvent (OnAccessibilityEventRequest) returns (OnAccessibilityEventResponse);
+  rpc OnBind (OnBindRequest) returns (OnBindResponse);
+  rpc OnCreateInputMethod (OnCreateInputMethodRequest) returns (OnCreateInputMethodResponse);
+  rpc OnGesture (OnGestureRequest) returns (OnGestureResponse);
+  rpc OnInterrupt (OnInterruptRequest) returns (OnInterruptResponse);
+  rpc OnMotionEvent (OnMotionEventRequest) returns (OnMotionEventResponse);
+  rpc OnSystemActionsChanged (OnSystemActionsChangedRequest) returns (OnSystemActionsChangedResponse);
+  rpc PerformGlobalAction (PerformGlobalActionRequest) returns (PerformGlobalActionResponse);
+  rpc SetAccessibilityFocusAppearance (SetAccessibilityFocusAppearanceRequest) returns (SetAccessibilityFocusAppearanceResponse);
+  rpc SetAnimationScale (SetAnimationScaleRequest) returns (SetAnimationScaleResponse);
+  rpc SetCacheEnabled (SetCacheEnabledRequest) returns (SetCacheEnabledResponse);
+  rpc SetGestureDetectionPassthroughRegion (SetGestureDetectionPassthroughRegionRequest) returns (SetGestureDetectionPassthroughRegionResponse);
+  rpc SetServiceInfo (SetServiceInfoRequest) returns (SetServiceInfoResponse);
+  rpc SetTouchExplorationPassthroughRegion (SetTouchExplorationPassthroughRegionRequest) returns (SetTouchExplorationPassthroughRegionResponse);
+  rpc TakeScreenshot (TakeScreenshotRequest) returns (TakeScreenshotResponse);
+  rpc TakeScreenshotOfWindow (TakeScreenshotOfWindowRequest) returns (TakeScreenshotOfWindowResponse);
+}
+
+service AccessibilityServiceGestureResultCallbackService {
+  rpc OnCancelled (OnCancelledRequest) returns (OnCancelledResponse);
+  rpc OnCompleted (OnCompletedRequest) returns (OnCompletedResponse);
+}
+
+service AccessibilityServiceMagnificationControllerService {
+  rpc AddListener (AddListenerRequest) returns (AddListenerResponse);
+  rpc GetCenterX (GetCenterXRequest) returns (GetCenterXResponse);
+  rpc GetCenterY (GetCenterYRequest) returns (GetCenterYResponse);
+  rpc GetCurrentMagnificationRegion (GetCurrentMagnificationRegionRequest) returns (GetCurrentMagnificationRegionResponse);
+  rpc GetMagnificationConfig (GetMagnificationConfigRequest) returns (GetMagnificationConfigResponse);
+  rpc GetMagnificationRegion (GetMagnificationRegionRequest) returns (GetMagnificationRegionResponse);
+  rpc GetScale (GetScaleRequest) returns (GetScaleResponse);
+  rpc RemoveListener (RemoveListenerRequest) returns (RemoveListenerResponse);
+  rpc Reset (ResetRequest) returns (ResetResponse);
+  rpc ResetCurrentMagnification (ResetCurrentMagnificationRequest) returns (ResetCurrentMagnificationResponse);
+  rpc SetCenter (SetCenterRequest) returns (SetCenterResponse);
+  rpc SetMagnificationConfig (SetMagnificationConfigRequest) returns (SetMagnificationConfigResponse);
+  rpc SetScale (SetScaleRequest) returns (SetScaleResponse);
+}
+
+service AccessibilityServiceScreenshotResultService {
+  rpc GetColorSpace (GetColorSpaceRequest) returns (GetColorSpaceResponse);
+  rpc GetHardwareBuffer (GetHardwareBufferRequest) returns (GetHardwareBufferResponse);
+  rpc GetTimestamp (GetTimestampRequest) returns (GetTimestampResponse);
+}
+
+service AccessibilityServiceSoftKeyboardControllerService {
+  rpc AddOnShowModeChangedListener (AddOnShowModeChangedListenerRequest) returns (AddOnShowModeChangedListenerResponse);
+  rpc GetShowMode (GetShowModeRequest) returns (GetShowModeResponse);
+  rpc RemoveOnShowModeChangedListener (RemoveOnShowModeChangedListenerRequest) returns (RemoveOnShowModeChangedListenerResponse);
+  rpc SetInputMethodEnabled (SetInputMethodEnabledRequest) returns (SetInputMethodEnabledResponse);
+  rpc SetShowMode (SetShowModeRequest) returns (SetShowModeResponse);
+  rpc SwitchToInputMethod (SwitchToInputMethodRequest) returns (SwitchToInputMethodResponse);
+}
+
+service AccessibilityServiceTakeScreenshotCallbackService {
+  rpc OnFailure (OnFailureRequest) returns (OnFailureResponse);
+  rpc OnSuccess (OnSuccessRequest) returns (OnSuccessResponse);
+}
+
+service AccessibilityButtonControllerService {
+  rpc IsAccessibilityButtonAvailable (IsAccessibilityButtonAvailableRequest) returns (IsAccessibilityButtonAvailableResponse);
+  rpc RegisterAccessibilityButtonCallback (RegisterAccessibilityButtonCallbackRequest) returns (RegisterAccessibilityButtonCallbackResponse);
+  rpc UnregisterAccessibilityButtonCallback (UnregisterAccessibilityButtonCallbackRequest) returns (UnregisterAccessibilityButtonCallbackResponse);
+}
+
+service AccessibilityButtonControllerAccessibilityButtonCallbackService {
+  rpc OnAvailabilityChanged (OnAvailabilityChangedRequest) returns (OnAvailabilityChangedResponse);
+  rpc OnClicked (OnClickedRequest) returns (OnClickedResponse);
+}
+
+service AccessibilityGestureEventService {
+  rpc NewAccessibilityGestureEvent (NewAccessibilityGestureEventRequest) returns (NewAccessibilityGestureEventResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetDisplayId (AccessibilityGestureEventGetDisplayIdRequest) returns (GetDisplayIdResponse);
+  rpc GetGestureId (GetGestureIdRequest) returns (GetGestureIdResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc GestureIdToString (GestureIdToStringRequest) returns (GestureIdToStringResponse);
+}
+
+service AccessibilityServiceInfoService {
+  rpc NewAccessibilityServiceInfo (NewAccessibilityServiceInfoRequest) returns (NewAccessibilityServiceInfoResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetCanRetrieveWindowContent (GetCanRetrieveWindowContentRequest) returns (GetCanRetrieveWindowContentResponse);
+  rpc GetCapabilities (GetCapabilitiesRequest) returns (GetCapabilitiesResponse);
+  rpc GetDescription (GetDescriptionRequest) returns (GetDescriptionResponse);
+  rpc GetId (GetIdRequest) returns (GetIdResponse);
+  rpc GetInteractiveUiTimeoutMillis (GetInteractiveUiTimeoutMillisRequest) returns (GetInteractiveUiTimeoutMillisResponse);
+  rpc GetMotionEventSources (GetMotionEventSourcesRequest) returns (GetMotionEventSourcesResponse);
+  rpc GetNonInteractiveUiTimeoutMillis (GetNonInteractiveUiTimeoutMillisRequest) returns (GetNonInteractiveUiTimeoutMillisResponse);
+  rpc GetResolveInfo (GetResolveInfoRequest) returns (GetResolveInfoResponse);
+  rpc GetSettingsActivityName (GetSettingsActivityNameRequest) returns (GetSettingsActivityNameResponse);
+  rpc GetTileServiceName (GetTileServiceNameRequest) returns (GetTileServiceNameResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc IsAccessibilityTool (IsAccessibilityToolRequest) returns (IsAccessibilityToolResponse);
+  rpc LoadDescription (LoadDescriptionRequest) returns (LoadDescriptionResponse);
+  rpc LoadIntro (LoadIntroRequest) returns (LoadIntroResponse);
+  rpc LoadSummary (LoadSummaryRequest) returns (LoadSummaryResponse);
+  rpc SetInteractiveUiTimeoutMillis (SetInteractiveUiTimeoutMillisRequest) returns (SetInteractiveUiTimeoutMillisResponse);
+  rpc SetMotionEventSources (SetMotionEventSourcesRequest) returns (SetMotionEventSourcesResponse);
+  rpc SetNonInteractiveUiTimeoutMillis (SetNonInteractiveUiTimeoutMillisRequest) returns (SetNonInteractiveUiTimeoutMillisResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc CapabilityToString (CapabilityToStringRequest) returns (CapabilityToStringResponse);
+  rpc FeedbackTypeToString (FeedbackTypeToStringRequest) returns (FeedbackTypeToStringResponse);
+  rpc FlagToString (FlagToStringRequest) returns (FlagToStringResponse);
+}
+
+service GestureDescriptionService {
+  rpc GetDisplayId (GetDisplayIdRequest) returns (GetDisplayIdResponse);
+  rpc GetStroke (GetStrokeRequest) returns (GetStrokeResponse);
+  rpc GetStrokeCount (GetStrokeCountRequest) returns (GetStrokeCountResponse);
+  rpc GetMaxGestureDuration (GetMaxGestureDurationRequest) returns (GetMaxGestureDurationResponse);
+  rpc GetMaxStrokeCount (GetMaxStrokeCountRequest) returns (GetMaxStrokeCountResponse);
+}
+
+service GestureDescriptionBuilderService {
+  rpc AddStroke (AddStrokeRequest) returns (AddStrokeResponse);
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetDisplayId (SetDisplayIdRequest) returns (SetDisplayIdResponse);
+}
+
+service GestureDescriptionStrokeDescriptionService {
+  rpc ContinueStroke (ContinueStrokeRequest) returns (ContinueStrokeResponse);
+  rpc GetDuration (GetDurationRequest) returns (GetDurationResponse);
+  rpc GetPath (GetPathRequest) returns (GetPathResponse);
+  rpc GetStartTime (GetStartTimeRequest) returns (GetStartTimeResponse);
+  rpc WillContinue (WillContinueRequest) returns (WillContinueResponse);
+}
+
+service MagnificationConfigService {
+  rpc DescribeContents (MagnificationConfigDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetCenterX (GetCenterXRequest) returns (GetCenterXResponse);
+  rpc GetCenterY (GetCenterYRequest) returns (GetCenterYResponse);
+  rpc GetMode (GetModeRequest) returns (GetModeResponse);
+  rpc GetScale (GetScaleRequest) returns (GetScaleResponse);
+  rpc IsActivated (IsActivatedRequest) returns (IsActivatedResponse);
+  rpc ToString (MagnificationConfigToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (MagnificationConfigWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service MagnificationConfigBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetActivated (SetActivatedRequest) returns (SetActivatedResponse);
+  rpc SetCenterX (SetCenterXRequest) returns (SetCenterXResponse);
+  rpc SetCenterY (SetCenterYRequest) returns (SetCenterYResponse);
+  rpc SetMode (SetModeRequest) returns (SetModeResponse);
+  rpc SetScale (MagnificationConfigBuilderSetScaleRequest) returns (MagnificationConfigBuilderSetScaleResponse);
+}
+
+service InputMethodService {
+  rpc NewInputMethod (NewInputMethodRequest) returns (NewInputMethodResponse);
+  rpc GetCurrentInputConnection (GetCurrentInputConnectionRequest) returns (GetCurrentInputConnectionResponse);
+  rpc GetCurrentInputEditorInfo (GetCurrentInputEditorInfoRequest) returns (GetCurrentInputEditorInfoResponse);
+  rpc GetCurrentInputStarted (GetCurrentInputStartedRequest) returns (GetCurrentInputStartedResponse);
+  rpc OnFinishInput (OnFinishInputRequest) returns (OnFinishInputResponse);
+  rpc OnStartInput (OnStartInputRequest) returns (OnStartInputResponse);
+  rpc OnUpdateSelection (OnUpdateSelectionRequest) returns (OnUpdateSelectionResponse);
+}
+
+service InputMethodAccessibilityInputConnectionService {
+  rpc ClearMetaKeyStates (ClearMetaKeyStatesRequest) returns (ClearMetaKeyStatesResponse);
+  rpc CommitText (CommitTextRequest) returns (CommitTextResponse);
+  rpc DeleteSurroundingText (DeleteSurroundingTextRequest) returns (DeleteSurroundingTextResponse);
+  rpc GetCursorCapsMode (GetCursorCapsModeRequest) returns (GetCursorCapsModeResponse);
+  rpc GetSurroundingText (GetSurroundingTextRequest) returns (GetSurroundingTextResponse);
+  rpc PerformContextMenuAction (PerformContextMenuActionRequest) returns (PerformContextMenuActionResponse);
+  rpc PerformEditorAction (PerformEditorActionRequest) returns (PerformEditorActionResponse);
+  rpc SendKeyEvent (SendKeyEventRequest) returns (SendKeyEventResponse);
+  rpc SetSelection (SetSelectionRequest) returns (SetSelectionResponse);
+}

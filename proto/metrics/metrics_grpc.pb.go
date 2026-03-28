@@ -21,6 +21,8544 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
+	EditingEndedEventService_DescribeContents_FullMethodName          = "/metrics.EditingEndedEventService/DescribeContents"
+	EditingEndedEventService_Equals_FullMethodName                    = "/metrics.EditingEndedEventService/Equals"
+	EditingEndedEventService_GetErrorCode_FullMethodName              = "/metrics.EditingEndedEventService/GetErrorCode"
+	EditingEndedEventService_GetExporterName_FullMethodName           = "/metrics.EditingEndedEventService/GetExporterName"
+	EditingEndedEventService_GetFinalProgressPercent_FullMethodName   = "/metrics.EditingEndedEventService/GetFinalProgressPercent"
+	EditingEndedEventService_GetFinalState_FullMethodName             = "/metrics.EditingEndedEventService/GetFinalState"
+	EditingEndedEventService_GetMetricsBundle_FullMethodName          = "/metrics.EditingEndedEventService/GetMetricsBundle"
+	EditingEndedEventService_GetMuxerName_FullMethodName              = "/metrics.EditingEndedEventService/GetMuxerName"
+	EditingEndedEventService_GetOperationTypes_FullMethodName         = "/metrics.EditingEndedEventService/GetOperationTypes"
+	EditingEndedEventService_GetOutputMediaItemInfo_FullMethodName    = "/metrics.EditingEndedEventService/GetOutputMediaItemInfo"
+	EditingEndedEventService_GetTimeSinceCreatedMillis_FullMethodName = "/metrics.EditingEndedEventService/GetTimeSinceCreatedMillis"
+	EditingEndedEventService_HashCode_FullMethodName                  = "/metrics.EditingEndedEventService/HashCode"
+	EditingEndedEventService_ToString_FullMethodName                  = "/metrics.EditingEndedEventService/ToString"
+	EditingEndedEventService_WriteToParcel_FullMethodName             = "/metrics.EditingEndedEventService/WriteToParcel"
+)
+
+// EditingEndedEventServiceClient is the client API for EditingEndedEventService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type EditingEndedEventServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetErrorCode(ctx context.Context, in *GetErrorCodeRequest, opts ...grpc.CallOption) (*GetErrorCodeResponse, error)
+	GetExporterName(ctx context.Context, in *GetExporterNameRequest, opts ...grpc.CallOption) (*GetExporterNameResponse, error)
+	GetFinalProgressPercent(ctx context.Context, in *GetFinalProgressPercentRequest, opts ...grpc.CallOption) (*GetFinalProgressPercentResponse, error)
+	GetFinalState(ctx context.Context, in *GetFinalStateRequest, opts ...grpc.CallOption) (*GetFinalStateResponse, error)
+	GetMetricsBundle(ctx context.Context, in *GetMetricsBundleRequest, opts ...grpc.CallOption) (*GetMetricsBundleResponse, error)
+	GetMuxerName(ctx context.Context, in *GetMuxerNameRequest, opts ...grpc.CallOption) (*GetMuxerNameResponse, error)
+	GetOperationTypes(ctx context.Context, in *GetOperationTypesRequest, opts ...grpc.CallOption) (*GetOperationTypesResponse, error)
+	GetOutputMediaItemInfo(ctx context.Context, in *GetOutputMediaItemInfoRequest, opts ...grpc.CallOption) (*GetOutputMediaItemInfoResponse, error)
+	GetTimeSinceCreatedMillis(ctx context.Context, in *GetTimeSinceCreatedMillisRequest, opts ...grpc.CallOption) (*GetTimeSinceCreatedMillisResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type editingEndedEventServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewEditingEndedEventServiceClient(cc grpc.ClientConnInterface) EditingEndedEventServiceClient {
+	return &editingEndedEventServiceClient{cc}
+}
+
+func (c *editingEndedEventServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, EditingEndedEventService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *editingEndedEventServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, EditingEndedEventService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *editingEndedEventServiceClient) GetErrorCode(ctx context.Context, in *GetErrorCodeRequest, opts ...grpc.CallOption) (*GetErrorCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetErrorCodeResponse)
+	err := c.cc.Invoke(ctx, EditingEndedEventService_GetErrorCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *editingEndedEventServiceClient) GetExporterName(ctx context.Context, in *GetExporterNameRequest, opts ...grpc.CallOption) (*GetExporterNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetExporterNameResponse)
+	err := c.cc.Invoke(ctx, EditingEndedEventService_GetExporterName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *editingEndedEventServiceClient) GetFinalProgressPercent(ctx context.Context, in *GetFinalProgressPercentRequest, opts ...grpc.CallOption) (*GetFinalProgressPercentResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFinalProgressPercentResponse)
+	err := c.cc.Invoke(ctx, EditingEndedEventService_GetFinalProgressPercent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *editingEndedEventServiceClient) GetFinalState(ctx context.Context, in *GetFinalStateRequest, opts ...grpc.CallOption) (*GetFinalStateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFinalStateResponse)
+	err := c.cc.Invoke(ctx, EditingEndedEventService_GetFinalState_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *editingEndedEventServiceClient) GetMetricsBundle(ctx context.Context, in *GetMetricsBundleRequest, opts ...grpc.CallOption) (*GetMetricsBundleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMetricsBundleResponse)
+	err := c.cc.Invoke(ctx, EditingEndedEventService_GetMetricsBundle_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *editingEndedEventServiceClient) GetMuxerName(ctx context.Context, in *GetMuxerNameRequest, opts ...grpc.CallOption) (*GetMuxerNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMuxerNameResponse)
+	err := c.cc.Invoke(ctx, EditingEndedEventService_GetMuxerName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *editingEndedEventServiceClient) GetOperationTypes(ctx context.Context, in *GetOperationTypesRequest, opts ...grpc.CallOption) (*GetOperationTypesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetOperationTypesResponse)
+	err := c.cc.Invoke(ctx, EditingEndedEventService_GetOperationTypes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *editingEndedEventServiceClient) GetOutputMediaItemInfo(ctx context.Context, in *GetOutputMediaItemInfoRequest, opts ...grpc.CallOption) (*GetOutputMediaItemInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetOutputMediaItemInfoResponse)
+	err := c.cc.Invoke(ctx, EditingEndedEventService_GetOutputMediaItemInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *editingEndedEventServiceClient) GetTimeSinceCreatedMillis(ctx context.Context, in *GetTimeSinceCreatedMillisRequest, opts ...grpc.CallOption) (*GetTimeSinceCreatedMillisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTimeSinceCreatedMillisResponse)
+	err := c.cc.Invoke(ctx, EditingEndedEventService_GetTimeSinceCreatedMillis_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *editingEndedEventServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, EditingEndedEventService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *editingEndedEventServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, EditingEndedEventService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *editingEndedEventServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, EditingEndedEventService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// EditingEndedEventServiceServer is the server API for EditingEndedEventService service.
+// All implementations must embed UnimplementedEditingEndedEventServiceServer
+// for forward compatibility.
+type EditingEndedEventServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetErrorCode(context.Context, *GetErrorCodeRequest) (*GetErrorCodeResponse, error)
+	GetExporterName(context.Context, *GetExporterNameRequest) (*GetExporterNameResponse, error)
+	GetFinalProgressPercent(context.Context, *GetFinalProgressPercentRequest) (*GetFinalProgressPercentResponse, error)
+	GetFinalState(context.Context, *GetFinalStateRequest) (*GetFinalStateResponse, error)
+	GetMetricsBundle(context.Context, *GetMetricsBundleRequest) (*GetMetricsBundleResponse, error)
+	GetMuxerName(context.Context, *GetMuxerNameRequest) (*GetMuxerNameResponse, error)
+	GetOperationTypes(context.Context, *GetOperationTypesRequest) (*GetOperationTypesResponse, error)
+	GetOutputMediaItemInfo(context.Context, *GetOutputMediaItemInfoRequest) (*GetOutputMediaItemInfoResponse, error)
+	GetTimeSinceCreatedMillis(context.Context, *GetTimeSinceCreatedMillisRequest) (*GetTimeSinceCreatedMillisResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedEditingEndedEventServiceServer()
+}
+
+// UnimplementedEditingEndedEventServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedEditingEndedEventServiceServer struct{}
+
+func (UnimplementedEditingEndedEventServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedEditingEndedEventServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedEditingEndedEventServiceServer) GetErrorCode(context.Context, *GetErrorCodeRequest) (*GetErrorCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetErrorCode not implemented")
+}
+func (UnimplementedEditingEndedEventServiceServer) GetExporterName(context.Context, *GetExporterNameRequest) (*GetExporterNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetExporterName not implemented")
+}
+func (UnimplementedEditingEndedEventServiceServer) GetFinalProgressPercent(context.Context, *GetFinalProgressPercentRequest) (*GetFinalProgressPercentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFinalProgressPercent not implemented")
+}
+func (UnimplementedEditingEndedEventServiceServer) GetFinalState(context.Context, *GetFinalStateRequest) (*GetFinalStateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFinalState not implemented")
+}
+func (UnimplementedEditingEndedEventServiceServer) GetMetricsBundle(context.Context, *GetMetricsBundleRequest) (*GetMetricsBundleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMetricsBundle not implemented")
+}
+func (UnimplementedEditingEndedEventServiceServer) GetMuxerName(context.Context, *GetMuxerNameRequest) (*GetMuxerNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMuxerName not implemented")
+}
+func (UnimplementedEditingEndedEventServiceServer) GetOperationTypes(context.Context, *GetOperationTypesRequest) (*GetOperationTypesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetOperationTypes not implemented")
+}
+func (UnimplementedEditingEndedEventServiceServer) GetOutputMediaItemInfo(context.Context, *GetOutputMediaItemInfoRequest) (*GetOutputMediaItemInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetOutputMediaItemInfo not implemented")
+}
+func (UnimplementedEditingEndedEventServiceServer) GetTimeSinceCreatedMillis(context.Context, *GetTimeSinceCreatedMillisRequest) (*GetTimeSinceCreatedMillisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTimeSinceCreatedMillis not implemented")
+}
+func (UnimplementedEditingEndedEventServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedEditingEndedEventServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedEditingEndedEventServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedEditingEndedEventServiceServer) mustEmbedUnimplementedEditingEndedEventServiceServer() {
+}
+func (UnimplementedEditingEndedEventServiceServer) testEmbeddedByValue() {}
+
+// UnsafeEditingEndedEventServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to EditingEndedEventServiceServer will
+// result in compilation errors.
+type UnsafeEditingEndedEventServiceServer interface {
+	mustEmbedUnimplementedEditingEndedEventServiceServer()
+}
+
+func RegisterEditingEndedEventServiceServer(s grpc.ServiceRegistrar, srv EditingEndedEventServiceServer) {
+	// If the following call panics, it indicates UnimplementedEditingEndedEventServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&EditingEndedEventService_ServiceDesc, srv)
+}
+
+func _EditingEndedEventService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EditingEndedEventServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EditingEndedEventService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EditingEndedEventServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EditingEndedEventService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EditingEndedEventServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EditingEndedEventService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EditingEndedEventServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EditingEndedEventService_GetErrorCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetErrorCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EditingEndedEventServiceServer).GetErrorCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EditingEndedEventService_GetErrorCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EditingEndedEventServiceServer).GetErrorCode(ctx, req.(*GetErrorCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EditingEndedEventService_GetExporterName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetExporterNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EditingEndedEventServiceServer).GetExporterName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EditingEndedEventService_GetExporterName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EditingEndedEventServiceServer).GetExporterName(ctx, req.(*GetExporterNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EditingEndedEventService_GetFinalProgressPercent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFinalProgressPercentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EditingEndedEventServiceServer).GetFinalProgressPercent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EditingEndedEventService_GetFinalProgressPercent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EditingEndedEventServiceServer).GetFinalProgressPercent(ctx, req.(*GetFinalProgressPercentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EditingEndedEventService_GetFinalState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFinalStateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EditingEndedEventServiceServer).GetFinalState(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EditingEndedEventService_GetFinalState_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EditingEndedEventServiceServer).GetFinalState(ctx, req.(*GetFinalStateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EditingEndedEventService_GetMetricsBundle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMetricsBundleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EditingEndedEventServiceServer).GetMetricsBundle(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EditingEndedEventService_GetMetricsBundle_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EditingEndedEventServiceServer).GetMetricsBundle(ctx, req.(*GetMetricsBundleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EditingEndedEventService_GetMuxerName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMuxerNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EditingEndedEventServiceServer).GetMuxerName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EditingEndedEventService_GetMuxerName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EditingEndedEventServiceServer).GetMuxerName(ctx, req.(*GetMuxerNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EditingEndedEventService_GetOperationTypes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetOperationTypesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EditingEndedEventServiceServer).GetOperationTypes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EditingEndedEventService_GetOperationTypes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EditingEndedEventServiceServer).GetOperationTypes(ctx, req.(*GetOperationTypesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EditingEndedEventService_GetOutputMediaItemInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetOutputMediaItemInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EditingEndedEventServiceServer).GetOutputMediaItemInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EditingEndedEventService_GetOutputMediaItemInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EditingEndedEventServiceServer).GetOutputMediaItemInfo(ctx, req.(*GetOutputMediaItemInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EditingEndedEventService_GetTimeSinceCreatedMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTimeSinceCreatedMillisRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EditingEndedEventServiceServer).GetTimeSinceCreatedMillis(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EditingEndedEventService_GetTimeSinceCreatedMillis_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EditingEndedEventServiceServer).GetTimeSinceCreatedMillis(ctx, req.(*GetTimeSinceCreatedMillisRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EditingEndedEventService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EditingEndedEventServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EditingEndedEventService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EditingEndedEventServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EditingEndedEventService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EditingEndedEventServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EditingEndedEventService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EditingEndedEventServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EditingEndedEventService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EditingEndedEventServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EditingEndedEventService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EditingEndedEventServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// EditingEndedEventService_ServiceDesc is the grpc.ServiceDesc for EditingEndedEventService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var EditingEndedEventService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "metrics.EditingEndedEventService",
+	HandlerType: (*EditingEndedEventServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _EditingEndedEventService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _EditingEndedEventService_Equals_Handler,
+		},
+		{
+			MethodName: "GetErrorCode",
+			Handler:    _EditingEndedEventService_GetErrorCode_Handler,
+		},
+		{
+			MethodName: "GetExporterName",
+			Handler:    _EditingEndedEventService_GetExporterName_Handler,
+		},
+		{
+			MethodName: "GetFinalProgressPercent",
+			Handler:    _EditingEndedEventService_GetFinalProgressPercent_Handler,
+		},
+		{
+			MethodName: "GetFinalState",
+			Handler:    _EditingEndedEventService_GetFinalState_Handler,
+		},
+		{
+			MethodName: "GetMetricsBundle",
+			Handler:    _EditingEndedEventService_GetMetricsBundle_Handler,
+		},
+		{
+			MethodName: "GetMuxerName",
+			Handler:    _EditingEndedEventService_GetMuxerName_Handler,
+		},
+		{
+			MethodName: "GetOperationTypes",
+			Handler:    _EditingEndedEventService_GetOperationTypes_Handler,
+		},
+		{
+			MethodName: "GetOutputMediaItemInfo",
+			Handler:    _EditingEndedEventService_GetOutputMediaItemInfo_Handler,
+		},
+		{
+			MethodName: "GetTimeSinceCreatedMillis",
+			Handler:    _EditingEndedEventService_GetTimeSinceCreatedMillis_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _EditingEndedEventService_HashCode_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _EditingEndedEventService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _EditingEndedEventService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/metrics/metrics.proto",
+}
+
+const (
+	EditingEndedEventBuilderService_AddInputMediaItemInfo_FullMethodName     = "/metrics.EditingEndedEventBuilderService/AddInputMediaItemInfo"
+	EditingEndedEventBuilderService_AddOperationType_FullMethodName          = "/metrics.EditingEndedEventBuilderService/AddOperationType"
+	EditingEndedEventBuilderService_Build_FullMethodName                     = "/metrics.EditingEndedEventBuilderService/Build"
+	EditingEndedEventBuilderService_SetErrorCode_FullMethodName              = "/metrics.EditingEndedEventBuilderService/SetErrorCode"
+	EditingEndedEventBuilderService_SetExporterName_FullMethodName           = "/metrics.EditingEndedEventBuilderService/SetExporterName"
+	EditingEndedEventBuilderService_SetFinalProgressPercent_FullMethodName   = "/metrics.EditingEndedEventBuilderService/SetFinalProgressPercent"
+	EditingEndedEventBuilderService_SetMetricsBundle_FullMethodName          = "/metrics.EditingEndedEventBuilderService/SetMetricsBundle"
+	EditingEndedEventBuilderService_SetMuxerName_FullMethodName              = "/metrics.EditingEndedEventBuilderService/SetMuxerName"
+	EditingEndedEventBuilderService_SetOutputMediaItemInfo_FullMethodName    = "/metrics.EditingEndedEventBuilderService/SetOutputMediaItemInfo"
+	EditingEndedEventBuilderService_SetTimeSinceCreatedMillis_FullMethodName = "/metrics.EditingEndedEventBuilderService/SetTimeSinceCreatedMillis"
+)
+
+// EditingEndedEventBuilderServiceClient is the client API for EditingEndedEventBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type EditingEndedEventBuilderServiceClient interface {
+	AddInputMediaItemInfo(ctx context.Context, in *AddInputMediaItemInfoRequest, opts ...grpc.CallOption) (*AddInputMediaItemInfoResponse, error)
+	AddOperationType(ctx context.Context, in *AddOperationTypeRequest, opts ...grpc.CallOption) (*AddOperationTypeResponse, error)
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetErrorCode(ctx context.Context, in *SetErrorCodeRequest, opts ...grpc.CallOption) (*SetErrorCodeResponse, error)
+	SetExporterName(ctx context.Context, in *SetExporterNameRequest, opts ...grpc.CallOption) (*SetExporterNameResponse, error)
+	SetFinalProgressPercent(ctx context.Context, in *SetFinalProgressPercentRequest, opts ...grpc.CallOption) (*SetFinalProgressPercentResponse, error)
+	SetMetricsBundle(ctx context.Context, in *SetMetricsBundleRequest, opts ...grpc.CallOption) (*SetMetricsBundleResponse, error)
+	SetMuxerName(ctx context.Context, in *SetMuxerNameRequest, opts ...grpc.CallOption) (*SetMuxerNameResponse, error)
+	SetOutputMediaItemInfo(ctx context.Context, in *SetOutputMediaItemInfoRequest, opts ...grpc.CallOption) (*SetOutputMediaItemInfoResponse, error)
+	SetTimeSinceCreatedMillis(ctx context.Context, in *SetTimeSinceCreatedMillisRequest, opts ...grpc.CallOption) (*SetTimeSinceCreatedMillisResponse, error)
+}
+
+type editingEndedEventBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewEditingEndedEventBuilderServiceClient(cc grpc.ClientConnInterface) EditingEndedEventBuilderServiceClient {
+	return &editingEndedEventBuilderServiceClient{cc}
+}
+
+func (c *editingEndedEventBuilderServiceClient) AddInputMediaItemInfo(ctx context.Context, in *AddInputMediaItemInfoRequest, opts ...grpc.CallOption) (*AddInputMediaItemInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddInputMediaItemInfoResponse)
+	err := c.cc.Invoke(ctx, EditingEndedEventBuilderService_AddInputMediaItemInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *editingEndedEventBuilderServiceClient) AddOperationType(ctx context.Context, in *AddOperationTypeRequest, opts ...grpc.CallOption) (*AddOperationTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddOperationTypeResponse)
+	err := c.cc.Invoke(ctx, EditingEndedEventBuilderService_AddOperationType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *editingEndedEventBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, EditingEndedEventBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *editingEndedEventBuilderServiceClient) SetErrorCode(ctx context.Context, in *SetErrorCodeRequest, opts ...grpc.CallOption) (*SetErrorCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetErrorCodeResponse)
+	err := c.cc.Invoke(ctx, EditingEndedEventBuilderService_SetErrorCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *editingEndedEventBuilderServiceClient) SetExporterName(ctx context.Context, in *SetExporterNameRequest, opts ...grpc.CallOption) (*SetExporterNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetExporterNameResponse)
+	err := c.cc.Invoke(ctx, EditingEndedEventBuilderService_SetExporterName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *editingEndedEventBuilderServiceClient) SetFinalProgressPercent(ctx context.Context, in *SetFinalProgressPercentRequest, opts ...grpc.CallOption) (*SetFinalProgressPercentResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetFinalProgressPercentResponse)
+	err := c.cc.Invoke(ctx, EditingEndedEventBuilderService_SetFinalProgressPercent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *editingEndedEventBuilderServiceClient) SetMetricsBundle(ctx context.Context, in *SetMetricsBundleRequest, opts ...grpc.CallOption) (*SetMetricsBundleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetMetricsBundleResponse)
+	err := c.cc.Invoke(ctx, EditingEndedEventBuilderService_SetMetricsBundle_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *editingEndedEventBuilderServiceClient) SetMuxerName(ctx context.Context, in *SetMuxerNameRequest, opts ...grpc.CallOption) (*SetMuxerNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetMuxerNameResponse)
+	err := c.cc.Invoke(ctx, EditingEndedEventBuilderService_SetMuxerName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *editingEndedEventBuilderServiceClient) SetOutputMediaItemInfo(ctx context.Context, in *SetOutputMediaItemInfoRequest, opts ...grpc.CallOption) (*SetOutputMediaItemInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetOutputMediaItemInfoResponse)
+	err := c.cc.Invoke(ctx, EditingEndedEventBuilderService_SetOutputMediaItemInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *editingEndedEventBuilderServiceClient) SetTimeSinceCreatedMillis(ctx context.Context, in *SetTimeSinceCreatedMillisRequest, opts ...grpc.CallOption) (*SetTimeSinceCreatedMillisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetTimeSinceCreatedMillisResponse)
+	err := c.cc.Invoke(ctx, EditingEndedEventBuilderService_SetTimeSinceCreatedMillis_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// EditingEndedEventBuilderServiceServer is the server API for EditingEndedEventBuilderService service.
+// All implementations must embed UnimplementedEditingEndedEventBuilderServiceServer
+// for forward compatibility.
+type EditingEndedEventBuilderServiceServer interface {
+	AddInputMediaItemInfo(context.Context, *AddInputMediaItemInfoRequest) (*AddInputMediaItemInfoResponse, error)
+	AddOperationType(context.Context, *AddOperationTypeRequest) (*AddOperationTypeResponse, error)
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetErrorCode(context.Context, *SetErrorCodeRequest) (*SetErrorCodeResponse, error)
+	SetExporterName(context.Context, *SetExporterNameRequest) (*SetExporterNameResponse, error)
+	SetFinalProgressPercent(context.Context, *SetFinalProgressPercentRequest) (*SetFinalProgressPercentResponse, error)
+	SetMetricsBundle(context.Context, *SetMetricsBundleRequest) (*SetMetricsBundleResponse, error)
+	SetMuxerName(context.Context, *SetMuxerNameRequest) (*SetMuxerNameResponse, error)
+	SetOutputMediaItemInfo(context.Context, *SetOutputMediaItemInfoRequest) (*SetOutputMediaItemInfoResponse, error)
+	SetTimeSinceCreatedMillis(context.Context, *SetTimeSinceCreatedMillisRequest) (*SetTimeSinceCreatedMillisResponse, error)
+	mustEmbedUnimplementedEditingEndedEventBuilderServiceServer()
+}
+
+// UnimplementedEditingEndedEventBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedEditingEndedEventBuilderServiceServer struct{}
+
+func (UnimplementedEditingEndedEventBuilderServiceServer) AddInputMediaItemInfo(context.Context, *AddInputMediaItemInfoRequest) (*AddInputMediaItemInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddInputMediaItemInfo not implemented")
+}
+func (UnimplementedEditingEndedEventBuilderServiceServer) AddOperationType(context.Context, *AddOperationTypeRequest) (*AddOperationTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddOperationType not implemented")
+}
+func (UnimplementedEditingEndedEventBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedEditingEndedEventBuilderServiceServer) SetErrorCode(context.Context, *SetErrorCodeRequest) (*SetErrorCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetErrorCode not implemented")
+}
+func (UnimplementedEditingEndedEventBuilderServiceServer) SetExporterName(context.Context, *SetExporterNameRequest) (*SetExporterNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetExporterName not implemented")
+}
+func (UnimplementedEditingEndedEventBuilderServiceServer) SetFinalProgressPercent(context.Context, *SetFinalProgressPercentRequest) (*SetFinalProgressPercentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetFinalProgressPercent not implemented")
+}
+func (UnimplementedEditingEndedEventBuilderServiceServer) SetMetricsBundle(context.Context, *SetMetricsBundleRequest) (*SetMetricsBundleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetMetricsBundle not implemented")
+}
+func (UnimplementedEditingEndedEventBuilderServiceServer) SetMuxerName(context.Context, *SetMuxerNameRequest) (*SetMuxerNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetMuxerName not implemented")
+}
+func (UnimplementedEditingEndedEventBuilderServiceServer) SetOutputMediaItemInfo(context.Context, *SetOutputMediaItemInfoRequest) (*SetOutputMediaItemInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetOutputMediaItemInfo not implemented")
+}
+func (UnimplementedEditingEndedEventBuilderServiceServer) SetTimeSinceCreatedMillis(context.Context, *SetTimeSinceCreatedMillisRequest) (*SetTimeSinceCreatedMillisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetTimeSinceCreatedMillis not implemented")
+}
+func (UnimplementedEditingEndedEventBuilderServiceServer) mustEmbedUnimplementedEditingEndedEventBuilderServiceServer() {
+}
+func (UnimplementedEditingEndedEventBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeEditingEndedEventBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to EditingEndedEventBuilderServiceServer will
+// result in compilation errors.
+type UnsafeEditingEndedEventBuilderServiceServer interface {
+	mustEmbedUnimplementedEditingEndedEventBuilderServiceServer()
+}
+
+func RegisterEditingEndedEventBuilderServiceServer(s grpc.ServiceRegistrar, srv EditingEndedEventBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedEditingEndedEventBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&EditingEndedEventBuilderService_ServiceDesc, srv)
+}
+
+func _EditingEndedEventBuilderService_AddInputMediaItemInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddInputMediaItemInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EditingEndedEventBuilderServiceServer).AddInputMediaItemInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EditingEndedEventBuilderService_AddInputMediaItemInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EditingEndedEventBuilderServiceServer).AddInputMediaItemInfo(ctx, req.(*AddInputMediaItemInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EditingEndedEventBuilderService_AddOperationType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddOperationTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EditingEndedEventBuilderServiceServer).AddOperationType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EditingEndedEventBuilderService_AddOperationType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EditingEndedEventBuilderServiceServer).AddOperationType(ctx, req.(*AddOperationTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EditingEndedEventBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EditingEndedEventBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EditingEndedEventBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EditingEndedEventBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EditingEndedEventBuilderService_SetErrorCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetErrorCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EditingEndedEventBuilderServiceServer).SetErrorCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EditingEndedEventBuilderService_SetErrorCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EditingEndedEventBuilderServiceServer).SetErrorCode(ctx, req.(*SetErrorCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EditingEndedEventBuilderService_SetExporterName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetExporterNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EditingEndedEventBuilderServiceServer).SetExporterName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EditingEndedEventBuilderService_SetExporterName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EditingEndedEventBuilderServiceServer).SetExporterName(ctx, req.(*SetExporterNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EditingEndedEventBuilderService_SetFinalProgressPercent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetFinalProgressPercentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EditingEndedEventBuilderServiceServer).SetFinalProgressPercent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EditingEndedEventBuilderService_SetFinalProgressPercent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EditingEndedEventBuilderServiceServer).SetFinalProgressPercent(ctx, req.(*SetFinalProgressPercentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EditingEndedEventBuilderService_SetMetricsBundle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetMetricsBundleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EditingEndedEventBuilderServiceServer).SetMetricsBundle(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EditingEndedEventBuilderService_SetMetricsBundle_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EditingEndedEventBuilderServiceServer).SetMetricsBundle(ctx, req.(*SetMetricsBundleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EditingEndedEventBuilderService_SetMuxerName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetMuxerNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EditingEndedEventBuilderServiceServer).SetMuxerName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EditingEndedEventBuilderService_SetMuxerName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EditingEndedEventBuilderServiceServer).SetMuxerName(ctx, req.(*SetMuxerNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EditingEndedEventBuilderService_SetOutputMediaItemInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetOutputMediaItemInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EditingEndedEventBuilderServiceServer).SetOutputMediaItemInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EditingEndedEventBuilderService_SetOutputMediaItemInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EditingEndedEventBuilderServiceServer).SetOutputMediaItemInfo(ctx, req.(*SetOutputMediaItemInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EditingEndedEventBuilderService_SetTimeSinceCreatedMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetTimeSinceCreatedMillisRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EditingEndedEventBuilderServiceServer).SetTimeSinceCreatedMillis(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EditingEndedEventBuilderService_SetTimeSinceCreatedMillis_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EditingEndedEventBuilderServiceServer).SetTimeSinceCreatedMillis(ctx, req.(*SetTimeSinceCreatedMillisRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// EditingEndedEventBuilderService_ServiceDesc is the grpc.ServiceDesc for EditingEndedEventBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var EditingEndedEventBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "metrics.EditingEndedEventBuilderService",
+	HandlerType: (*EditingEndedEventBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "AddInputMediaItemInfo",
+			Handler:    _EditingEndedEventBuilderService_AddInputMediaItemInfo_Handler,
+		},
+		{
+			MethodName: "AddOperationType",
+			Handler:    _EditingEndedEventBuilderService_AddOperationType_Handler,
+		},
+		{
+			MethodName: "Build",
+			Handler:    _EditingEndedEventBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetErrorCode",
+			Handler:    _EditingEndedEventBuilderService_SetErrorCode_Handler,
+		},
+		{
+			MethodName: "SetExporterName",
+			Handler:    _EditingEndedEventBuilderService_SetExporterName_Handler,
+		},
+		{
+			MethodName: "SetFinalProgressPercent",
+			Handler:    _EditingEndedEventBuilderService_SetFinalProgressPercent_Handler,
+		},
+		{
+			MethodName: "SetMetricsBundle",
+			Handler:    _EditingEndedEventBuilderService_SetMetricsBundle_Handler,
+		},
+		{
+			MethodName: "SetMuxerName",
+			Handler:    _EditingEndedEventBuilderService_SetMuxerName_Handler,
+		},
+		{
+			MethodName: "SetOutputMediaItemInfo",
+			Handler:    _EditingEndedEventBuilderService_SetOutputMediaItemInfo_Handler,
+		},
+		{
+			MethodName: "SetTimeSinceCreatedMillis",
+			Handler:    _EditingEndedEventBuilderService_SetTimeSinceCreatedMillis_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/metrics/metrics.proto",
+}
+
+const (
+	MediaItemInfoService_DescribeContents_FullMethodName      = "/metrics.MediaItemInfoService/DescribeContents"
+	MediaItemInfoService_Equals_FullMethodName                = "/metrics.MediaItemInfoService/Equals"
+	MediaItemInfoService_GetAudioChannelCount_FullMethodName  = "/metrics.MediaItemInfoService/GetAudioChannelCount"
+	MediaItemInfoService_GetAudioSampleCount_FullMethodName   = "/metrics.MediaItemInfoService/GetAudioSampleCount"
+	MediaItemInfoService_GetAudioSampleRateHz_FullMethodName  = "/metrics.MediaItemInfoService/GetAudioSampleRateHz"
+	MediaItemInfoService_GetClipDurationMillis_FullMethodName = "/metrics.MediaItemInfoService/GetClipDurationMillis"
+	MediaItemInfoService_GetContainerMimeType_FullMethodName  = "/metrics.MediaItemInfoService/GetContainerMimeType"
+	MediaItemInfoService_GetDataTypes_FullMethodName          = "/metrics.MediaItemInfoService/GetDataTypes"
+	MediaItemInfoService_GetDurationMillis_FullMethodName     = "/metrics.MediaItemInfoService/GetDurationMillis"
+	MediaItemInfoService_GetSourceType_FullMethodName         = "/metrics.MediaItemInfoService/GetSourceType"
+	MediaItemInfoService_GetVideoDataSpace_FullMethodName     = "/metrics.MediaItemInfoService/GetVideoDataSpace"
+	MediaItemInfoService_GetVideoFrameRate_FullMethodName     = "/metrics.MediaItemInfoService/GetVideoFrameRate"
+	MediaItemInfoService_GetVideoSampleCount_FullMethodName   = "/metrics.MediaItemInfoService/GetVideoSampleCount"
+	MediaItemInfoService_GetVideoSize_FullMethodName          = "/metrics.MediaItemInfoService/GetVideoSize"
+	MediaItemInfoService_HashCode_FullMethodName              = "/metrics.MediaItemInfoService/HashCode"
+	MediaItemInfoService_ToString_FullMethodName              = "/metrics.MediaItemInfoService/ToString"
+	MediaItemInfoService_WriteToParcel_FullMethodName         = "/metrics.MediaItemInfoService/WriteToParcel"
+)
+
+// MediaItemInfoServiceClient is the client API for MediaItemInfoService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type MediaItemInfoServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetAudioChannelCount(ctx context.Context, in *GetAudioChannelCountRequest, opts ...grpc.CallOption) (*GetAudioChannelCountResponse, error)
+	GetAudioSampleCount(ctx context.Context, in *GetAudioSampleCountRequest, opts ...grpc.CallOption) (*GetAudioSampleCountResponse, error)
+	GetAudioSampleRateHz(ctx context.Context, in *GetAudioSampleRateHzRequest, opts ...grpc.CallOption) (*GetAudioSampleRateHzResponse, error)
+	GetClipDurationMillis(ctx context.Context, in *GetClipDurationMillisRequest, opts ...grpc.CallOption) (*GetClipDurationMillisResponse, error)
+	GetContainerMimeType(ctx context.Context, in *GetContainerMimeTypeRequest, opts ...grpc.CallOption) (*GetContainerMimeTypeResponse, error)
+	GetDataTypes(ctx context.Context, in *GetDataTypesRequest, opts ...grpc.CallOption) (*GetDataTypesResponse, error)
+	GetDurationMillis(ctx context.Context, in *GetDurationMillisRequest, opts ...grpc.CallOption) (*GetDurationMillisResponse, error)
+	GetSourceType(ctx context.Context, in *GetSourceTypeRequest, opts ...grpc.CallOption) (*GetSourceTypeResponse, error)
+	GetVideoDataSpace(ctx context.Context, in *GetVideoDataSpaceRequest, opts ...grpc.CallOption) (*GetVideoDataSpaceResponse, error)
+	GetVideoFrameRate(ctx context.Context, in *GetVideoFrameRateRequest, opts ...grpc.CallOption) (*GetVideoFrameRateResponse, error)
+	GetVideoSampleCount(ctx context.Context, in *GetVideoSampleCountRequest, opts ...grpc.CallOption) (*GetVideoSampleCountResponse, error)
+	GetVideoSize(ctx context.Context, in *GetVideoSizeRequest, opts ...grpc.CallOption) (*GetVideoSizeResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type mediaItemInfoServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewMediaItemInfoServiceClient(cc grpc.ClientConnInterface) MediaItemInfoServiceClient {
+	return &mediaItemInfoServiceClient{cc}
+}
+
+func (c *mediaItemInfoServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, MediaItemInfoService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *mediaItemInfoServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, MediaItemInfoService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *mediaItemInfoServiceClient) GetAudioChannelCount(ctx context.Context, in *GetAudioChannelCountRequest, opts ...grpc.CallOption) (*GetAudioChannelCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAudioChannelCountResponse)
+	err := c.cc.Invoke(ctx, MediaItemInfoService_GetAudioChannelCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *mediaItemInfoServiceClient) GetAudioSampleCount(ctx context.Context, in *GetAudioSampleCountRequest, opts ...grpc.CallOption) (*GetAudioSampleCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAudioSampleCountResponse)
+	err := c.cc.Invoke(ctx, MediaItemInfoService_GetAudioSampleCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *mediaItemInfoServiceClient) GetAudioSampleRateHz(ctx context.Context, in *GetAudioSampleRateHzRequest, opts ...grpc.CallOption) (*GetAudioSampleRateHzResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAudioSampleRateHzResponse)
+	err := c.cc.Invoke(ctx, MediaItemInfoService_GetAudioSampleRateHz_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *mediaItemInfoServiceClient) GetClipDurationMillis(ctx context.Context, in *GetClipDurationMillisRequest, opts ...grpc.CallOption) (*GetClipDurationMillisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetClipDurationMillisResponse)
+	err := c.cc.Invoke(ctx, MediaItemInfoService_GetClipDurationMillis_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *mediaItemInfoServiceClient) GetContainerMimeType(ctx context.Context, in *GetContainerMimeTypeRequest, opts ...grpc.CallOption) (*GetContainerMimeTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetContainerMimeTypeResponse)
+	err := c.cc.Invoke(ctx, MediaItemInfoService_GetContainerMimeType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *mediaItemInfoServiceClient) GetDataTypes(ctx context.Context, in *GetDataTypesRequest, opts ...grpc.CallOption) (*GetDataTypesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDataTypesResponse)
+	err := c.cc.Invoke(ctx, MediaItemInfoService_GetDataTypes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *mediaItemInfoServiceClient) GetDurationMillis(ctx context.Context, in *GetDurationMillisRequest, opts ...grpc.CallOption) (*GetDurationMillisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDurationMillisResponse)
+	err := c.cc.Invoke(ctx, MediaItemInfoService_GetDurationMillis_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *mediaItemInfoServiceClient) GetSourceType(ctx context.Context, in *GetSourceTypeRequest, opts ...grpc.CallOption) (*GetSourceTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSourceTypeResponse)
+	err := c.cc.Invoke(ctx, MediaItemInfoService_GetSourceType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *mediaItemInfoServiceClient) GetVideoDataSpace(ctx context.Context, in *GetVideoDataSpaceRequest, opts ...grpc.CallOption) (*GetVideoDataSpaceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetVideoDataSpaceResponse)
+	err := c.cc.Invoke(ctx, MediaItemInfoService_GetVideoDataSpace_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *mediaItemInfoServiceClient) GetVideoFrameRate(ctx context.Context, in *GetVideoFrameRateRequest, opts ...grpc.CallOption) (*GetVideoFrameRateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetVideoFrameRateResponse)
+	err := c.cc.Invoke(ctx, MediaItemInfoService_GetVideoFrameRate_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *mediaItemInfoServiceClient) GetVideoSampleCount(ctx context.Context, in *GetVideoSampleCountRequest, opts ...grpc.CallOption) (*GetVideoSampleCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetVideoSampleCountResponse)
+	err := c.cc.Invoke(ctx, MediaItemInfoService_GetVideoSampleCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *mediaItemInfoServiceClient) GetVideoSize(ctx context.Context, in *GetVideoSizeRequest, opts ...grpc.CallOption) (*GetVideoSizeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetVideoSizeResponse)
+	err := c.cc.Invoke(ctx, MediaItemInfoService_GetVideoSize_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *mediaItemInfoServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, MediaItemInfoService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *mediaItemInfoServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, MediaItemInfoService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *mediaItemInfoServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, MediaItemInfoService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// MediaItemInfoServiceServer is the server API for MediaItemInfoService service.
+// All implementations must embed UnimplementedMediaItemInfoServiceServer
+// for forward compatibility.
+type MediaItemInfoServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetAudioChannelCount(context.Context, *GetAudioChannelCountRequest) (*GetAudioChannelCountResponse, error)
+	GetAudioSampleCount(context.Context, *GetAudioSampleCountRequest) (*GetAudioSampleCountResponse, error)
+	GetAudioSampleRateHz(context.Context, *GetAudioSampleRateHzRequest) (*GetAudioSampleRateHzResponse, error)
+	GetClipDurationMillis(context.Context, *GetClipDurationMillisRequest) (*GetClipDurationMillisResponse, error)
+	GetContainerMimeType(context.Context, *GetContainerMimeTypeRequest) (*GetContainerMimeTypeResponse, error)
+	GetDataTypes(context.Context, *GetDataTypesRequest) (*GetDataTypesResponse, error)
+	GetDurationMillis(context.Context, *GetDurationMillisRequest) (*GetDurationMillisResponse, error)
+	GetSourceType(context.Context, *GetSourceTypeRequest) (*GetSourceTypeResponse, error)
+	GetVideoDataSpace(context.Context, *GetVideoDataSpaceRequest) (*GetVideoDataSpaceResponse, error)
+	GetVideoFrameRate(context.Context, *GetVideoFrameRateRequest) (*GetVideoFrameRateResponse, error)
+	GetVideoSampleCount(context.Context, *GetVideoSampleCountRequest) (*GetVideoSampleCountResponse, error)
+	GetVideoSize(context.Context, *GetVideoSizeRequest) (*GetVideoSizeResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedMediaItemInfoServiceServer()
+}
+
+// UnimplementedMediaItemInfoServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedMediaItemInfoServiceServer struct{}
+
+func (UnimplementedMediaItemInfoServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedMediaItemInfoServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedMediaItemInfoServiceServer) GetAudioChannelCount(context.Context, *GetAudioChannelCountRequest) (*GetAudioChannelCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAudioChannelCount not implemented")
+}
+func (UnimplementedMediaItemInfoServiceServer) GetAudioSampleCount(context.Context, *GetAudioSampleCountRequest) (*GetAudioSampleCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAudioSampleCount not implemented")
+}
+func (UnimplementedMediaItemInfoServiceServer) GetAudioSampleRateHz(context.Context, *GetAudioSampleRateHzRequest) (*GetAudioSampleRateHzResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAudioSampleRateHz not implemented")
+}
+func (UnimplementedMediaItemInfoServiceServer) GetClipDurationMillis(context.Context, *GetClipDurationMillisRequest) (*GetClipDurationMillisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetClipDurationMillis not implemented")
+}
+func (UnimplementedMediaItemInfoServiceServer) GetContainerMimeType(context.Context, *GetContainerMimeTypeRequest) (*GetContainerMimeTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetContainerMimeType not implemented")
+}
+func (UnimplementedMediaItemInfoServiceServer) GetDataTypes(context.Context, *GetDataTypesRequest) (*GetDataTypesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDataTypes not implemented")
+}
+func (UnimplementedMediaItemInfoServiceServer) GetDurationMillis(context.Context, *GetDurationMillisRequest) (*GetDurationMillisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDurationMillis not implemented")
+}
+func (UnimplementedMediaItemInfoServiceServer) GetSourceType(context.Context, *GetSourceTypeRequest) (*GetSourceTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSourceType not implemented")
+}
+func (UnimplementedMediaItemInfoServiceServer) GetVideoDataSpace(context.Context, *GetVideoDataSpaceRequest) (*GetVideoDataSpaceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetVideoDataSpace not implemented")
+}
+func (UnimplementedMediaItemInfoServiceServer) GetVideoFrameRate(context.Context, *GetVideoFrameRateRequest) (*GetVideoFrameRateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetVideoFrameRate not implemented")
+}
+func (UnimplementedMediaItemInfoServiceServer) GetVideoSampleCount(context.Context, *GetVideoSampleCountRequest) (*GetVideoSampleCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetVideoSampleCount not implemented")
+}
+func (UnimplementedMediaItemInfoServiceServer) GetVideoSize(context.Context, *GetVideoSizeRequest) (*GetVideoSizeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetVideoSize not implemented")
+}
+func (UnimplementedMediaItemInfoServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedMediaItemInfoServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedMediaItemInfoServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedMediaItemInfoServiceServer) mustEmbedUnimplementedMediaItemInfoServiceServer() {}
+func (UnimplementedMediaItemInfoServiceServer) testEmbeddedByValue()                              {}
+
+// UnsafeMediaItemInfoServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to MediaItemInfoServiceServer will
+// result in compilation errors.
+type UnsafeMediaItemInfoServiceServer interface {
+	mustEmbedUnimplementedMediaItemInfoServiceServer()
+}
+
+func RegisterMediaItemInfoServiceServer(s grpc.ServiceRegistrar, srv MediaItemInfoServiceServer) {
+	// If the following call panics, it indicates UnimplementedMediaItemInfoServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&MediaItemInfoService_ServiceDesc, srv)
+}
+
+func _MediaItemInfoService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MediaItemInfoServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MediaItemInfoService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MediaItemInfoServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MediaItemInfoService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MediaItemInfoServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MediaItemInfoService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MediaItemInfoServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MediaItemInfoService_GetAudioChannelCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAudioChannelCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MediaItemInfoServiceServer).GetAudioChannelCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MediaItemInfoService_GetAudioChannelCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MediaItemInfoServiceServer).GetAudioChannelCount(ctx, req.(*GetAudioChannelCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MediaItemInfoService_GetAudioSampleCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAudioSampleCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MediaItemInfoServiceServer).GetAudioSampleCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MediaItemInfoService_GetAudioSampleCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MediaItemInfoServiceServer).GetAudioSampleCount(ctx, req.(*GetAudioSampleCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MediaItemInfoService_GetAudioSampleRateHz_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAudioSampleRateHzRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MediaItemInfoServiceServer).GetAudioSampleRateHz(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MediaItemInfoService_GetAudioSampleRateHz_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MediaItemInfoServiceServer).GetAudioSampleRateHz(ctx, req.(*GetAudioSampleRateHzRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MediaItemInfoService_GetClipDurationMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetClipDurationMillisRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MediaItemInfoServiceServer).GetClipDurationMillis(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MediaItemInfoService_GetClipDurationMillis_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MediaItemInfoServiceServer).GetClipDurationMillis(ctx, req.(*GetClipDurationMillisRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MediaItemInfoService_GetContainerMimeType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetContainerMimeTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MediaItemInfoServiceServer).GetContainerMimeType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MediaItemInfoService_GetContainerMimeType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MediaItemInfoServiceServer).GetContainerMimeType(ctx, req.(*GetContainerMimeTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MediaItemInfoService_GetDataTypes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDataTypesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MediaItemInfoServiceServer).GetDataTypes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MediaItemInfoService_GetDataTypes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MediaItemInfoServiceServer).GetDataTypes(ctx, req.(*GetDataTypesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MediaItemInfoService_GetDurationMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDurationMillisRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MediaItemInfoServiceServer).GetDurationMillis(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MediaItemInfoService_GetDurationMillis_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MediaItemInfoServiceServer).GetDurationMillis(ctx, req.(*GetDurationMillisRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MediaItemInfoService_GetSourceType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSourceTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MediaItemInfoServiceServer).GetSourceType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MediaItemInfoService_GetSourceType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MediaItemInfoServiceServer).GetSourceType(ctx, req.(*GetSourceTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MediaItemInfoService_GetVideoDataSpace_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetVideoDataSpaceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MediaItemInfoServiceServer).GetVideoDataSpace(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MediaItemInfoService_GetVideoDataSpace_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MediaItemInfoServiceServer).GetVideoDataSpace(ctx, req.(*GetVideoDataSpaceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MediaItemInfoService_GetVideoFrameRate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetVideoFrameRateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MediaItemInfoServiceServer).GetVideoFrameRate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MediaItemInfoService_GetVideoFrameRate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MediaItemInfoServiceServer).GetVideoFrameRate(ctx, req.(*GetVideoFrameRateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MediaItemInfoService_GetVideoSampleCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetVideoSampleCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MediaItemInfoServiceServer).GetVideoSampleCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MediaItemInfoService_GetVideoSampleCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MediaItemInfoServiceServer).GetVideoSampleCount(ctx, req.(*GetVideoSampleCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MediaItemInfoService_GetVideoSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetVideoSizeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MediaItemInfoServiceServer).GetVideoSize(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MediaItemInfoService_GetVideoSize_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MediaItemInfoServiceServer).GetVideoSize(ctx, req.(*GetVideoSizeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MediaItemInfoService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MediaItemInfoServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MediaItemInfoService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MediaItemInfoServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MediaItemInfoService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MediaItemInfoServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MediaItemInfoService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MediaItemInfoServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MediaItemInfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MediaItemInfoServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MediaItemInfoService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MediaItemInfoServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// MediaItemInfoService_ServiceDesc is the grpc.ServiceDesc for MediaItemInfoService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var MediaItemInfoService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "metrics.MediaItemInfoService",
+	HandlerType: (*MediaItemInfoServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _MediaItemInfoService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _MediaItemInfoService_Equals_Handler,
+		},
+		{
+			MethodName: "GetAudioChannelCount",
+			Handler:    _MediaItemInfoService_GetAudioChannelCount_Handler,
+		},
+		{
+			MethodName: "GetAudioSampleCount",
+			Handler:    _MediaItemInfoService_GetAudioSampleCount_Handler,
+		},
+		{
+			MethodName: "GetAudioSampleRateHz",
+			Handler:    _MediaItemInfoService_GetAudioSampleRateHz_Handler,
+		},
+		{
+			MethodName: "GetClipDurationMillis",
+			Handler:    _MediaItemInfoService_GetClipDurationMillis_Handler,
+		},
+		{
+			MethodName: "GetContainerMimeType",
+			Handler:    _MediaItemInfoService_GetContainerMimeType_Handler,
+		},
+		{
+			MethodName: "GetDataTypes",
+			Handler:    _MediaItemInfoService_GetDataTypes_Handler,
+		},
+		{
+			MethodName: "GetDurationMillis",
+			Handler:    _MediaItemInfoService_GetDurationMillis_Handler,
+		},
+		{
+			MethodName: "GetSourceType",
+			Handler:    _MediaItemInfoService_GetSourceType_Handler,
+		},
+		{
+			MethodName: "GetVideoDataSpace",
+			Handler:    _MediaItemInfoService_GetVideoDataSpace_Handler,
+		},
+		{
+			MethodName: "GetVideoFrameRate",
+			Handler:    _MediaItemInfoService_GetVideoFrameRate_Handler,
+		},
+		{
+			MethodName: "GetVideoSampleCount",
+			Handler:    _MediaItemInfoService_GetVideoSampleCount_Handler,
+		},
+		{
+			MethodName: "GetVideoSize",
+			Handler:    _MediaItemInfoService_GetVideoSize_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _MediaItemInfoService_HashCode_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _MediaItemInfoService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _MediaItemInfoService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/metrics/metrics.proto",
+}
+
+const (
+	MediaItemInfoBuilderService_AddCodecName_FullMethodName          = "/metrics.MediaItemInfoBuilderService/AddCodecName"
+	MediaItemInfoBuilderService_AddDataType_FullMethodName           = "/metrics.MediaItemInfoBuilderService/AddDataType"
+	MediaItemInfoBuilderService_AddSampleMimeType_FullMethodName     = "/metrics.MediaItemInfoBuilderService/AddSampleMimeType"
+	MediaItemInfoBuilderService_Build_FullMethodName                 = "/metrics.MediaItemInfoBuilderService/Build"
+	MediaItemInfoBuilderService_SetAudioChannelCount_FullMethodName  = "/metrics.MediaItemInfoBuilderService/SetAudioChannelCount"
+	MediaItemInfoBuilderService_SetAudioSampleCount_FullMethodName   = "/metrics.MediaItemInfoBuilderService/SetAudioSampleCount"
+	MediaItemInfoBuilderService_SetAudioSampleRateHz_FullMethodName  = "/metrics.MediaItemInfoBuilderService/SetAudioSampleRateHz"
+	MediaItemInfoBuilderService_SetClipDurationMillis_FullMethodName = "/metrics.MediaItemInfoBuilderService/SetClipDurationMillis"
+	MediaItemInfoBuilderService_SetContainerMimeType_FullMethodName  = "/metrics.MediaItemInfoBuilderService/SetContainerMimeType"
+	MediaItemInfoBuilderService_SetDurationMillis_FullMethodName     = "/metrics.MediaItemInfoBuilderService/SetDurationMillis"
+	MediaItemInfoBuilderService_SetSourceType_FullMethodName         = "/metrics.MediaItemInfoBuilderService/SetSourceType"
+	MediaItemInfoBuilderService_SetVideoDataSpace_FullMethodName     = "/metrics.MediaItemInfoBuilderService/SetVideoDataSpace"
+	MediaItemInfoBuilderService_SetVideoFrameRate_FullMethodName     = "/metrics.MediaItemInfoBuilderService/SetVideoFrameRate"
+	MediaItemInfoBuilderService_SetVideoSampleCount_FullMethodName   = "/metrics.MediaItemInfoBuilderService/SetVideoSampleCount"
+	MediaItemInfoBuilderService_SetVideoSize_FullMethodName          = "/metrics.MediaItemInfoBuilderService/SetVideoSize"
+)
+
+// MediaItemInfoBuilderServiceClient is the client API for MediaItemInfoBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type MediaItemInfoBuilderServiceClient interface {
+	AddCodecName(ctx context.Context, in *AddCodecNameRequest, opts ...grpc.CallOption) (*AddCodecNameResponse, error)
+	AddDataType(ctx context.Context, in *AddDataTypeRequest, opts ...grpc.CallOption) (*AddDataTypeResponse, error)
+	AddSampleMimeType(ctx context.Context, in *AddSampleMimeTypeRequest, opts ...grpc.CallOption) (*AddSampleMimeTypeResponse, error)
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetAudioChannelCount(ctx context.Context, in *SetAudioChannelCountRequest, opts ...grpc.CallOption) (*SetAudioChannelCountResponse, error)
+	SetAudioSampleCount(ctx context.Context, in *SetAudioSampleCountRequest, opts ...grpc.CallOption) (*SetAudioSampleCountResponse, error)
+	SetAudioSampleRateHz(ctx context.Context, in *SetAudioSampleRateHzRequest, opts ...grpc.CallOption) (*SetAudioSampleRateHzResponse, error)
+	SetClipDurationMillis(ctx context.Context, in *SetClipDurationMillisRequest, opts ...grpc.CallOption) (*SetClipDurationMillisResponse, error)
+	SetContainerMimeType(ctx context.Context, in *SetContainerMimeTypeRequest, opts ...grpc.CallOption) (*SetContainerMimeTypeResponse, error)
+	SetDurationMillis(ctx context.Context, in *SetDurationMillisRequest, opts ...grpc.CallOption) (*SetDurationMillisResponse, error)
+	SetSourceType(ctx context.Context, in *SetSourceTypeRequest, opts ...grpc.CallOption) (*SetSourceTypeResponse, error)
+	SetVideoDataSpace(ctx context.Context, in *SetVideoDataSpaceRequest, opts ...grpc.CallOption) (*SetVideoDataSpaceResponse, error)
+	SetVideoFrameRate(ctx context.Context, in *SetVideoFrameRateRequest, opts ...grpc.CallOption) (*SetVideoFrameRateResponse, error)
+	SetVideoSampleCount(ctx context.Context, in *SetVideoSampleCountRequest, opts ...grpc.CallOption) (*SetVideoSampleCountResponse, error)
+	SetVideoSize(ctx context.Context, in *SetVideoSizeRequest, opts ...grpc.CallOption) (*SetVideoSizeResponse, error)
+}
+
+type mediaItemInfoBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewMediaItemInfoBuilderServiceClient(cc grpc.ClientConnInterface) MediaItemInfoBuilderServiceClient {
+	return &mediaItemInfoBuilderServiceClient{cc}
+}
+
+func (c *mediaItemInfoBuilderServiceClient) AddCodecName(ctx context.Context, in *AddCodecNameRequest, opts ...grpc.CallOption) (*AddCodecNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddCodecNameResponse)
+	err := c.cc.Invoke(ctx, MediaItemInfoBuilderService_AddCodecName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *mediaItemInfoBuilderServiceClient) AddDataType(ctx context.Context, in *AddDataTypeRequest, opts ...grpc.CallOption) (*AddDataTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddDataTypeResponse)
+	err := c.cc.Invoke(ctx, MediaItemInfoBuilderService_AddDataType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *mediaItemInfoBuilderServiceClient) AddSampleMimeType(ctx context.Context, in *AddSampleMimeTypeRequest, opts ...grpc.CallOption) (*AddSampleMimeTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddSampleMimeTypeResponse)
+	err := c.cc.Invoke(ctx, MediaItemInfoBuilderService_AddSampleMimeType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *mediaItemInfoBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, MediaItemInfoBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *mediaItemInfoBuilderServiceClient) SetAudioChannelCount(ctx context.Context, in *SetAudioChannelCountRequest, opts ...grpc.CallOption) (*SetAudioChannelCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetAudioChannelCountResponse)
+	err := c.cc.Invoke(ctx, MediaItemInfoBuilderService_SetAudioChannelCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *mediaItemInfoBuilderServiceClient) SetAudioSampleCount(ctx context.Context, in *SetAudioSampleCountRequest, opts ...grpc.CallOption) (*SetAudioSampleCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetAudioSampleCountResponse)
+	err := c.cc.Invoke(ctx, MediaItemInfoBuilderService_SetAudioSampleCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *mediaItemInfoBuilderServiceClient) SetAudioSampleRateHz(ctx context.Context, in *SetAudioSampleRateHzRequest, opts ...grpc.CallOption) (*SetAudioSampleRateHzResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetAudioSampleRateHzResponse)
+	err := c.cc.Invoke(ctx, MediaItemInfoBuilderService_SetAudioSampleRateHz_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *mediaItemInfoBuilderServiceClient) SetClipDurationMillis(ctx context.Context, in *SetClipDurationMillisRequest, opts ...grpc.CallOption) (*SetClipDurationMillisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetClipDurationMillisResponse)
+	err := c.cc.Invoke(ctx, MediaItemInfoBuilderService_SetClipDurationMillis_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *mediaItemInfoBuilderServiceClient) SetContainerMimeType(ctx context.Context, in *SetContainerMimeTypeRequest, opts ...grpc.CallOption) (*SetContainerMimeTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetContainerMimeTypeResponse)
+	err := c.cc.Invoke(ctx, MediaItemInfoBuilderService_SetContainerMimeType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *mediaItemInfoBuilderServiceClient) SetDurationMillis(ctx context.Context, in *SetDurationMillisRequest, opts ...grpc.CallOption) (*SetDurationMillisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetDurationMillisResponse)
+	err := c.cc.Invoke(ctx, MediaItemInfoBuilderService_SetDurationMillis_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *mediaItemInfoBuilderServiceClient) SetSourceType(ctx context.Context, in *SetSourceTypeRequest, opts ...grpc.CallOption) (*SetSourceTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetSourceTypeResponse)
+	err := c.cc.Invoke(ctx, MediaItemInfoBuilderService_SetSourceType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *mediaItemInfoBuilderServiceClient) SetVideoDataSpace(ctx context.Context, in *SetVideoDataSpaceRequest, opts ...grpc.CallOption) (*SetVideoDataSpaceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetVideoDataSpaceResponse)
+	err := c.cc.Invoke(ctx, MediaItemInfoBuilderService_SetVideoDataSpace_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *mediaItemInfoBuilderServiceClient) SetVideoFrameRate(ctx context.Context, in *SetVideoFrameRateRequest, opts ...grpc.CallOption) (*SetVideoFrameRateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetVideoFrameRateResponse)
+	err := c.cc.Invoke(ctx, MediaItemInfoBuilderService_SetVideoFrameRate_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *mediaItemInfoBuilderServiceClient) SetVideoSampleCount(ctx context.Context, in *SetVideoSampleCountRequest, opts ...grpc.CallOption) (*SetVideoSampleCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetVideoSampleCountResponse)
+	err := c.cc.Invoke(ctx, MediaItemInfoBuilderService_SetVideoSampleCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *mediaItemInfoBuilderServiceClient) SetVideoSize(ctx context.Context, in *SetVideoSizeRequest, opts ...grpc.CallOption) (*SetVideoSizeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetVideoSizeResponse)
+	err := c.cc.Invoke(ctx, MediaItemInfoBuilderService_SetVideoSize_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// MediaItemInfoBuilderServiceServer is the server API for MediaItemInfoBuilderService service.
+// All implementations must embed UnimplementedMediaItemInfoBuilderServiceServer
+// for forward compatibility.
+type MediaItemInfoBuilderServiceServer interface {
+	AddCodecName(context.Context, *AddCodecNameRequest) (*AddCodecNameResponse, error)
+	AddDataType(context.Context, *AddDataTypeRequest) (*AddDataTypeResponse, error)
+	AddSampleMimeType(context.Context, *AddSampleMimeTypeRequest) (*AddSampleMimeTypeResponse, error)
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetAudioChannelCount(context.Context, *SetAudioChannelCountRequest) (*SetAudioChannelCountResponse, error)
+	SetAudioSampleCount(context.Context, *SetAudioSampleCountRequest) (*SetAudioSampleCountResponse, error)
+	SetAudioSampleRateHz(context.Context, *SetAudioSampleRateHzRequest) (*SetAudioSampleRateHzResponse, error)
+	SetClipDurationMillis(context.Context, *SetClipDurationMillisRequest) (*SetClipDurationMillisResponse, error)
+	SetContainerMimeType(context.Context, *SetContainerMimeTypeRequest) (*SetContainerMimeTypeResponse, error)
+	SetDurationMillis(context.Context, *SetDurationMillisRequest) (*SetDurationMillisResponse, error)
+	SetSourceType(context.Context, *SetSourceTypeRequest) (*SetSourceTypeResponse, error)
+	SetVideoDataSpace(context.Context, *SetVideoDataSpaceRequest) (*SetVideoDataSpaceResponse, error)
+	SetVideoFrameRate(context.Context, *SetVideoFrameRateRequest) (*SetVideoFrameRateResponse, error)
+	SetVideoSampleCount(context.Context, *SetVideoSampleCountRequest) (*SetVideoSampleCountResponse, error)
+	SetVideoSize(context.Context, *SetVideoSizeRequest) (*SetVideoSizeResponse, error)
+	mustEmbedUnimplementedMediaItemInfoBuilderServiceServer()
+}
+
+// UnimplementedMediaItemInfoBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedMediaItemInfoBuilderServiceServer struct{}
+
+func (UnimplementedMediaItemInfoBuilderServiceServer) AddCodecName(context.Context, *AddCodecNameRequest) (*AddCodecNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddCodecName not implemented")
+}
+func (UnimplementedMediaItemInfoBuilderServiceServer) AddDataType(context.Context, *AddDataTypeRequest) (*AddDataTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddDataType not implemented")
+}
+func (UnimplementedMediaItemInfoBuilderServiceServer) AddSampleMimeType(context.Context, *AddSampleMimeTypeRequest) (*AddSampleMimeTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddSampleMimeType not implemented")
+}
+func (UnimplementedMediaItemInfoBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedMediaItemInfoBuilderServiceServer) SetAudioChannelCount(context.Context, *SetAudioChannelCountRequest) (*SetAudioChannelCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetAudioChannelCount not implemented")
+}
+func (UnimplementedMediaItemInfoBuilderServiceServer) SetAudioSampleCount(context.Context, *SetAudioSampleCountRequest) (*SetAudioSampleCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetAudioSampleCount not implemented")
+}
+func (UnimplementedMediaItemInfoBuilderServiceServer) SetAudioSampleRateHz(context.Context, *SetAudioSampleRateHzRequest) (*SetAudioSampleRateHzResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetAudioSampleRateHz not implemented")
+}
+func (UnimplementedMediaItemInfoBuilderServiceServer) SetClipDurationMillis(context.Context, *SetClipDurationMillisRequest) (*SetClipDurationMillisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetClipDurationMillis not implemented")
+}
+func (UnimplementedMediaItemInfoBuilderServiceServer) SetContainerMimeType(context.Context, *SetContainerMimeTypeRequest) (*SetContainerMimeTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetContainerMimeType not implemented")
+}
+func (UnimplementedMediaItemInfoBuilderServiceServer) SetDurationMillis(context.Context, *SetDurationMillisRequest) (*SetDurationMillisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetDurationMillis not implemented")
+}
+func (UnimplementedMediaItemInfoBuilderServiceServer) SetSourceType(context.Context, *SetSourceTypeRequest) (*SetSourceTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetSourceType not implemented")
+}
+func (UnimplementedMediaItemInfoBuilderServiceServer) SetVideoDataSpace(context.Context, *SetVideoDataSpaceRequest) (*SetVideoDataSpaceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetVideoDataSpace not implemented")
+}
+func (UnimplementedMediaItemInfoBuilderServiceServer) SetVideoFrameRate(context.Context, *SetVideoFrameRateRequest) (*SetVideoFrameRateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetVideoFrameRate not implemented")
+}
+func (UnimplementedMediaItemInfoBuilderServiceServer) SetVideoSampleCount(context.Context, *SetVideoSampleCountRequest) (*SetVideoSampleCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetVideoSampleCount not implemented")
+}
+func (UnimplementedMediaItemInfoBuilderServiceServer) SetVideoSize(context.Context, *SetVideoSizeRequest) (*SetVideoSizeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetVideoSize not implemented")
+}
+func (UnimplementedMediaItemInfoBuilderServiceServer) mustEmbedUnimplementedMediaItemInfoBuilderServiceServer() {
+}
+func (UnimplementedMediaItemInfoBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeMediaItemInfoBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to MediaItemInfoBuilderServiceServer will
+// result in compilation errors.
+type UnsafeMediaItemInfoBuilderServiceServer interface {
+	mustEmbedUnimplementedMediaItemInfoBuilderServiceServer()
+}
+
+func RegisterMediaItemInfoBuilderServiceServer(s grpc.ServiceRegistrar, srv MediaItemInfoBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedMediaItemInfoBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&MediaItemInfoBuilderService_ServiceDesc, srv)
+}
+
+func _MediaItemInfoBuilderService_AddCodecName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddCodecNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MediaItemInfoBuilderServiceServer).AddCodecName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MediaItemInfoBuilderService_AddCodecName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MediaItemInfoBuilderServiceServer).AddCodecName(ctx, req.(*AddCodecNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MediaItemInfoBuilderService_AddDataType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddDataTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MediaItemInfoBuilderServiceServer).AddDataType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MediaItemInfoBuilderService_AddDataType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MediaItemInfoBuilderServiceServer).AddDataType(ctx, req.(*AddDataTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MediaItemInfoBuilderService_AddSampleMimeType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddSampleMimeTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MediaItemInfoBuilderServiceServer).AddSampleMimeType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MediaItemInfoBuilderService_AddSampleMimeType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MediaItemInfoBuilderServiceServer).AddSampleMimeType(ctx, req.(*AddSampleMimeTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MediaItemInfoBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MediaItemInfoBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MediaItemInfoBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MediaItemInfoBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MediaItemInfoBuilderService_SetAudioChannelCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetAudioChannelCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MediaItemInfoBuilderServiceServer).SetAudioChannelCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MediaItemInfoBuilderService_SetAudioChannelCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MediaItemInfoBuilderServiceServer).SetAudioChannelCount(ctx, req.(*SetAudioChannelCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MediaItemInfoBuilderService_SetAudioSampleCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetAudioSampleCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MediaItemInfoBuilderServiceServer).SetAudioSampleCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MediaItemInfoBuilderService_SetAudioSampleCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MediaItemInfoBuilderServiceServer).SetAudioSampleCount(ctx, req.(*SetAudioSampleCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MediaItemInfoBuilderService_SetAudioSampleRateHz_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetAudioSampleRateHzRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MediaItemInfoBuilderServiceServer).SetAudioSampleRateHz(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MediaItemInfoBuilderService_SetAudioSampleRateHz_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MediaItemInfoBuilderServiceServer).SetAudioSampleRateHz(ctx, req.(*SetAudioSampleRateHzRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MediaItemInfoBuilderService_SetClipDurationMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetClipDurationMillisRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MediaItemInfoBuilderServiceServer).SetClipDurationMillis(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MediaItemInfoBuilderService_SetClipDurationMillis_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MediaItemInfoBuilderServiceServer).SetClipDurationMillis(ctx, req.(*SetClipDurationMillisRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MediaItemInfoBuilderService_SetContainerMimeType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetContainerMimeTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MediaItemInfoBuilderServiceServer).SetContainerMimeType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MediaItemInfoBuilderService_SetContainerMimeType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MediaItemInfoBuilderServiceServer).SetContainerMimeType(ctx, req.(*SetContainerMimeTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MediaItemInfoBuilderService_SetDurationMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetDurationMillisRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MediaItemInfoBuilderServiceServer).SetDurationMillis(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MediaItemInfoBuilderService_SetDurationMillis_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MediaItemInfoBuilderServiceServer).SetDurationMillis(ctx, req.(*SetDurationMillisRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MediaItemInfoBuilderService_SetSourceType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetSourceTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MediaItemInfoBuilderServiceServer).SetSourceType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MediaItemInfoBuilderService_SetSourceType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MediaItemInfoBuilderServiceServer).SetSourceType(ctx, req.(*SetSourceTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MediaItemInfoBuilderService_SetVideoDataSpace_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetVideoDataSpaceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MediaItemInfoBuilderServiceServer).SetVideoDataSpace(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MediaItemInfoBuilderService_SetVideoDataSpace_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MediaItemInfoBuilderServiceServer).SetVideoDataSpace(ctx, req.(*SetVideoDataSpaceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MediaItemInfoBuilderService_SetVideoFrameRate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetVideoFrameRateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MediaItemInfoBuilderServiceServer).SetVideoFrameRate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MediaItemInfoBuilderService_SetVideoFrameRate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MediaItemInfoBuilderServiceServer).SetVideoFrameRate(ctx, req.(*SetVideoFrameRateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MediaItemInfoBuilderService_SetVideoSampleCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetVideoSampleCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MediaItemInfoBuilderServiceServer).SetVideoSampleCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MediaItemInfoBuilderService_SetVideoSampleCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MediaItemInfoBuilderServiceServer).SetVideoSampleCount(ctx, req.(*SetVideoSampleCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MediaItemInfoBuilderService_SetVideoSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetVideoSizeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MediaItemInfoBuilderServiceServer).SetVideoSize(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MediaItemInfoBuilderService_SetVideoSize_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MediaItemInfoBuilderServiceServer).SetVideoSize(ctx, req.(*SetVideoSizeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// MediaItemInfoBuilderService_ServiceDesc is the grpc.ServiceDesc for MediaItemInfoBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var MediaItemInfoBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "metrics.MediaItemInfoBuilderService",
+	HandlerType: (*MediaItemInfoBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "AddCodecName",
+			Handler:    _MediaItemInfoBuilderService_AddCodecName_Handler,
+		},
+		{
+			MethodName: "AddDataType",
+			Handler:    _MediaItemInfoBuilderService_AddDataType_Handler,
+		},
+		{
+			MethodName: "AddSampleMimeType",
+			Handler:    _MediaItemInfoBuilderService_AddSampleMimeType_Handler,
+		},
+		{
+			MethodName: "Build",
+			Handler:    _MediaItemInfoBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetAudioChannelCount",
+			Handler:    _MediaItemInfoBuilderService_SetAudioChannelCount_Handler,
+		},
+		{
+			MethodName: "SetAudioSampleCount",
+			Handler:    _MediaItemInfoBuilderService_SetAudioSampleCount_Handler,
+		},
+		{
+			MethodName: "SetAudioSampleRateHz",
+			Handler:    _MediaItemInfoBuilderService_SetAudioSampleRateHz_Handler,
+		},
+		{
+			MethodName: "SetClipDurationMillis",
+			Handler:    _MediaItemInfoBuilderService_SetClipDurationMillis_Handler,
+		},
+		{
+			MethodName: "SetContainerMimeType",
+			Handler:    _MediaItemInfoBuilderService_SetContainerMimeType_Handler,
+		},
+		{
+			MethodName: "SetDurationMillis",
+			Handler:    _MediaItemInfoBuilderService_SetDurationMillis_Handler,
+		},
+		{
+			MethodName: "SetSourceType",
+			Handler:    _MediaItemInfoBuilderService_SetSourceType_Handler,
+		},
+		{
+			MethodName: "SetVideoDataSpace",
+			Handler:    _MediaItemInfoBuilderService_SetVideoDataSpace_Handler,
+		},
+		{
+			MethodName: "SetVideoFrameRate",
+			Handler:    _MediaItemInfoBuilderService_SetVideoFrameRate_Handler,
+		},
+		{
+			MethodName: "SetVideoSampleCount",
+			Handler:    _MediaItemInfoBuilderService_SetVideoSampleCount_Handler,
+		},
+		{
+			MethodName: "SetVideoSize",
+			Handler:    _MediaItemInfoBuilderService_SetVideoSize_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/metrics/metrics.proto",
+}
+
+const (
+	PlaybackMetricsService_DescribeContents_FullMethodName                 = "/metrics.PlaybackMetricsService/DescribeContents"
+	PlaybackMetricsService_Equals_FullMethodName                           = "/metrics.PlaybackMetricsService/Equals"
+	PlaybackMetricsService_GetAudioUnderrunCount_FullMethodName            = "/metrics.PlaybackMetricsService/GetAudioUnderrunCount"
+	PlaybackMetricsService_GetContentType_FullMethodName                   = "/metrics.PlaybackMetricsService/GetContentType"
+	PlaybackMetricsService_GetDrmSessionId_FullMethodName                  = "/metrics.PlaybackMetricsService/GetDrmSessionId"
+	PlaybackMetricsService_GetDrmType_FullMethodName                       = "/metrics.PlaybackMetricsService/GetDrmType"
+	PlaybackMetricsService_GetExperimentIds_FullMethodName                 = "/metrics.PlaybackMetricsService/GetExperimentIds"
+	PlaybackMetricsService_GetLocalBytesRead_FullMethodName                = "/metrics.PlaybackMetricsService/GetLocalBytesRead"
+	PlaybackMetricsService_GetMediaDurationMillis_FullMethodName           = "/metrics.PlaybackMetricsService/GetMediaDurationMillis"
+	PlaybackMetricsService_GetMetricsBundle_FullMethodName                 = "/metrics.PlaybackMetricsService/GetMetricsBundle"
+	PlaybackMetricsService_GetNetworkBytesRead_FullMethodName              = "/metrics.PlaybackMetricsService/GetNetworkBytesRead"
+	PlaybackMetricsService_GetNetworkTransferDurationMillis_FullMethodName = "/metrics.PlaybackMetricsService/GetNetworkTransferDurationMillis"
+	PlaybackMetricsService_GetPlaybackType_FullMethodName                  = "/metrics.PlaybackMetricsService/GetPlaybackType"
+	PlaybackMetricsService_GetPlayerName_FullMethodName                    = "/metrics.PlaybackMetricsService/GetPlayerName"
+	PlaybackMetricsService_GetPlayerVersion_FullMethodName                 = "/metrics.PlaybackMetricsService/GetPlayerVersion"
+	PlaybackMetricsService_GetStreamSource_FullMethodName                  = "/metrics.PlaybackMetricsService/GetStreamSource"
+	PlaybackMetricsService_GetStreamType_FullMethodName                    = "/metrics.PlaybackMetricsService/GetStreamType"
+	PlaybackMetricsService_GetVideoFramesDropped_FullMethodName            = "/metrics.PlaybackMetricsService/GetVideoFramesDropped"
+	PlaybackMetricsService_GetVideoFramesPlayed_FullMethodName             = "/metrics.PlaybackMetricsService/GetVideoFramesPlayed"
+	PlaybackMetricsService_HashCode_FullMethodName                         = "/metrics.PlaybackMetricsService/HashCode"
+	PlaybackMetricsService_ToString_FullMethodName                         = "/metrics.PlaybackMetricsService/ToString"
+	PlaybackMetricsService_WriteToParcel_FullMethodName                    = "/metrics.PlaybackMetricsService/WriteToParcel"
+)
+
+// PlaybackMetricsServiceClient is the client API for PlaybackMetricsService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type PlaybackMetricsServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetAudioUnderrunCount(ctx context.Context, in *GetAudioUnderrunCountRequest, opts ...grpc.CallOption) (*GetAudioUnderrunCountResponse, error)
+	GetContentType(ctx context.Context, in *GetContentTypeRequest, opts ...grpc.CallOption) (*GetContentTypeResponse, error)
+	GetDrmSessionId(ctx context.Context, in *GetDrmSessionIdRequest, opts ...grpc.CallOption) (*GetDrmSessionIdResponse, error)
+	GetDrmType(ctx context.Context, in *GetDrmTypeRequest, opts ...grpc.CallOption) (*GetDrmTypeResponse, error)
+	GetExperimentIds(ctx context.Context, in *GetExperimentIdsRequest, opts ...grpc.CallOption) (*GetExperimentIdsResponse, error)
+	GetLocalBytesRead(ctx context.Context, in *GetLocalBytesReadRequest, opts ...grpc.CallOption) (*GetLocalBytesReadResponse, error)
+	GetMediaDurationMillis(ctx context.Context, in *GetMediaDurationMillisRequest, opts ...grpc.CallOption) (*GetMediaDurationMillisResponse, error)
+	GetMetricsBundle(ctx context.Context, in *GetMetricsBundleRequest, opts ...grpc.CallOption) (*GetMetricsBundleResponse, error)
+	GetNetworkBytesRead(ctx context.Context, in *GetNetworkBytesReadRequest, opts ...grpc.CallOption) (*GetNetworkBytesReadResponse, error)
+	GetNetworkTransferDurationMillis(ctx context.Context, in *GetNetworkTransferDurationMillisRequest, opts ...grpc.CallOption) (*GetNetworkTransferDurationMillisResponse, error)
+	GetPlaybackType(ctx context.Context, in *GetPlaybackTypeRequest, opts ...grpc.CallOption) (*GetPlaybackTypeResponse, error)
+	GetPlayerName(ctx context.Context, in *GetPlayerNameRequest, opts ...grpc.CallOption) (*GetPlayerNameResponse, error)
+	GetPlayerVersion(ctx context.Context, in *GetPlayerVersionRequest, opts ...grpc.CallOption) (*GetPlayerVersionResponse, error)
+	GetStreamSource(ctx context.Context, in *GetStreamSourceRequest, opts ...grpc.CallOption) (*GetStreamSourceResponse, error)
+	GetStreamType(ctx context.Context, in *GetStreamTypeRequest, opts ...grpc.CallOption) (*GetStreamTypeResponse, error)
+	GetVideoFramesDropped(ctx context.Context, in *GetVideoFramesDroppedRequest, opts ...grpc.CallOption) (*GetVideoFramesDroppedResponse, error)
+	GetVideoFramesPlayed(ctx context.Context, in *GetVideoFramesPlayedRequest, opts ...grpc.CallOption) (*GetVideoFramesPlayedResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type playbackMetricsServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewPlaybackMetricsServiceClient(cc grpc.ClientConnInterface) PlaybackMetricsServiceClient {
+	return &playbackMetricsServiceClient{cc}
+}
+
+func (c *playbackMetricsServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, PlaybackMetricsService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackMetricsServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, PlaybackMetricsService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackMetricsServiceClient) GetAudioUnderrunCount(ctx context.Context, in *GetAudioUnderrunCountRequest, opts ...grpc.CallOption) (*GetAudioUnderrunCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAudioUnderrunCountResponse)
+	err := c.cc.Invoke(ctx, PlaybackMetricsService_GetAudioUnderrunCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackMetricsServiceClient) GetContentType(ctx context.Context, in *GetContentTypeRequest, opts ...grpc.CallOption) (*GetContentTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetContentTypeResponse)
+	err := c.cc.Invoke(ctx, PlaybackMetricsService_GetContentType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackMetricsServiceClient) GetDrmSessionId(ctx context.Context, in *GetDrmSessionIdRequest, opts ...grpc.CallOption) (*GetDrmSessionIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDrmSessionIdResponse)
+	err := c.cc.Invoke(ctx, PlaybackMetricsService_GetDrmSessionId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackMetricsServiceClient) GetDrmType(ctx context.Context, in *GetDrmTypeRequest, opts ...grpc.CallOption) (*GetDrmTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDrmTypeResponse)
+	err := c.cc.Invoke(ctx, PlaybackMetricsService_GetDrmType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackMetricsServiceClient) GetExperimentIds(ctx context.Context, in *GetExperimentIdsRequest, opts ...grpc.CallOption) (*GetExperimentIdsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetExperimentIdsResponse)
+	err := c.cc.Invoke(ctx, PlaybackMetricsService_GetExperimentIds_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackMetricsServiceClient) GetLocalBytesRead(ctx context.Context, in *GetLocalBytesReadRequest, opts ...grpc.CallOption) (*GetLocalBytesReadResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLocalBytesReadResponse)
+	err := c.cc.Invoke(ctx, PlaybackMetricsService_GetLocalBytesRead_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackMetricsServiceClient) GetMediaDurationMillis(ctx context.Context, in *GetMediaDurationMillisRequest, opts ...grpc.CallOption) (*GetMediaDurationMillisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMediaDurationMillisResponse)
+	err := c.cc.Invoke(ctx, PlaybackMetricsService_GetMediaDurationMillis_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackMetricsServiceClient) GetMetricsBundle(ctx context.Context, in *GetMetricsBundleRequest, opts ...grpc.CallOption) (*GetMetricsBundleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMetricsBundleResponse)
+	err := c.cc.Invoke(ctx, PlaybackMetricsService_GetMetricsBundle_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackMetricsServiceClient) GetNetworkBytesRead(ctx context.Context, in *GetNetworkBytesReadRequest, opts ...grpc.CallOption) (*GetNetworkBytesReadResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetNetworkBytesReadResponse)
+	err := c.cc.Invoke(ctx, PlaybackMetricsService_GetNetworkBytesRead_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackMetricsServiceClient) GetNetworkTransferDurationMillis(ctx context.Context, in *GetNetworkTransferDurationMillisRequest, opts ...grpc.CallOption) (*GetNetworkTransferDurationMillisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetNetworkTransferDurationMillisResponse)
+	err := c.cc.Invoke(ctx, PlaybackMetricsService_GetNetworkTransferDurationMillis_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackMetricsServiceClient) GetPlaybackType(ctx context.Context, in *GetPlaybackTypeRequest, opts ...grpc.CallOption) (*GetPlaybackTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPlaybackTypeResponse)
+	err := c.cc.Invoke(ctx, PlaybackMetricsService_GetPlaybackType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackMetricsServiceClient) GetPlayerName(ctx context.Context, in *GetPlayerNameRequest, opts ...grpc.CallOption) (*GetPlayerNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPlayerNameResponse)
+	err := c.cc.Invoke(ctx, PlaybackMetricsService_GetPlayerName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackMetricsServiceClient) GetPlayerVersion(ctx context.Context, in *GetPlayerVersionRequest, opts ...grpc.CallOption) (*GetPlayerVersionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPlayerVersionResponse)
+	err := c.cc.Invoke(ctx, PlaybackMetricsService_GetPlayerVersion_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackMetricsServiceClient) GetStreamSource(ctx context.Context, in *GetStreamSourceRequest, opts ...grpc.CallOption) (*GetStreamSourceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStreamSourceResponse)
+	err := c.cc.Invoke(ctx, PlaybackMetricsService_GetStreamSource_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackMetricsServiceClient) GetStreamType(ctx context.Context, in *GetStreamTypeRequest, opts ...grpc.CallOption) (*GetStreamTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStreamTypeResponse)
+	err := c.cc.Invoke(ctx, PlaybackMetricsService_GetStreamType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackMetricsServiceClient) GetVideoFramesDropped(ctx context.Context, in *GetVideoFramesDroppedRequest, opts ...grpc.CallOption) (*GetVideoFramesDroppedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetVideoFramesDroppedResponse)
+	err := c.cc.Invoke(ctx, PlaybackMetricsService_GetVideoFramesDropped_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackMetricsServiceClient) GetVideoFramesPlayed(ctx context.Context, in *GetVideoFramesPlayedRequest, opts ...grpc.CallOption) (*GetVideoFramesPlayedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetVideoFramesPlayedResponse)
+	err := c.cc.Invoke(ctx, PlaybackMetricsService_GetVideoFramesPlayed_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackMetricsServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, PlaybackMetricsService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackMetricsServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, PlaybackMetricsService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackMetricsServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, PlaybackMetricsService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// PlaybackMetricsServiceServer is the server API for PlaybackMetricsService service.
+// All implementations must embed UnimplementedPlaybackMetricsServiceServer
+// for forward compatibility.
+type PlaybackMetricsServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetAudioUnderrunCount(context.Context, *GetAudioUnderrunCountRequest) (*GetAudioUnderrunCountResponse, error)
+	GetContentType(context.Context, *GetContentTypeRequest) (*GetContentTypeResponse, error)
+	GetDrmSessionId(context.Context, *GetDrmSessionIdRequest) (*GetDrmSessionIdResponse, error)
+	GetDrmType(context.Context, *GetDrmTypeRequest) (*GetDrmTypeResponse, error)
+	GetExperimentIds(context.Context, *GetExperimentIdsRequest) (*GetExperimentIdsResponse, error)
+	GetLocalBytesRead(context.Context, *GetLocalBytesReadRequest) (*GetLocalBytesReadResponse, error)
+	GetMediaDurationMillis(context.Context, *GetMediaDurationMillisRequest) (*GetMediaDurationMillisResponse, error)
+	GetMetricsBundle(context.Context, *GetMetricsBundleRequest) (*GetMetricsBundleResponse, error)
+	GetNetworkBytesRead(context.Context, *GetNetworkBytesReadRequest) (*GetNetworkBytesReadResponse, error)
+	GetNetworkTransferDurationMillis(context.Context, *GetNetworkTransferDurationMillisRequest) (*GetNetworkTransferDurationMillisResponse, error)
+	GetPlaybackType(context.Context, *GetPlaybackTypeRequest) (*GetPlaybackTypeResponse, error)
+	GetPlayerName(context.Context, *GetPlayerNameRequest) (*GetPlayerNameResponse, error)
+	GetPlayerVersion(context.Context, *GetPlayerVersionRequest) (*GetPlayerVersionResponse, error)
+	GetStreamSource(context.Context, *GetStreamSourceRequest) (*GetStreamSourceResponse, error)
+	GetStreamType(context.Context, *GetStreamTypeRequest) (*GetStreamTypeResponse, error)
+	GetVideoFramesDropped(context.Context, *GetVideoFramesDroppedRequest) (*GetVideoFramesDroppedResponse, error)
+	GetVideoFramesPlayed(context.Context, *GetVideoFramesPlayedRequest) (*GetVideoFramesPlayedResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedPlaybackMetricsServiceServer()
+}
+
+// UnimplementedPlaybackMetricsServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedPlaybackMetricsServiceServer struct{}
+
+func (UnimplementedPlaybackMetricsServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedPlaybackMetricsServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedPlaybackMetricsServiceServer) GetAudioUnderrunCount(context.Context, *GetAudioUnderrunCountRequest) (*GetAudioUnderrunCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAudioUnderrunCount not implemented")
+}
+func (UnimplementedPlaybackMetricsServiceServer) GetContentType(context.Context, *GetContentTypeRequest) (*GetContentTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetContentType not implemented")
+}
+func (UnimplementedPlaybackMetricsServiceServer) GetDrmSessionId(context.Context, *GetDrmSessionIdRequest) (*GetDrmSessionIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDrmSessionId not implemented")
+}
+func (UnimplementedPlaybackMetricsServiceServer) GetDrmType(context.Context, *GetDrmTypeRequest) (*GetDrmTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDrmType not implemented")
+}
+func (UnimplementedPlaybackMetricsServiceServer) GetExperimentIds(context.Context, *GetExperimentIdsRequest) (*GetExperimentIdsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetExperimentIds not implemented")
+}
+func (UnimplementedPlaybackMetricsServiceServer) GetLocalBytesRead(context.Context, *GetLocalBytesReadRequest) (*GetLocalBytesReadResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLocalBytesRead not implemented")
+}
+func (UnimplementedPlaybackMetricsServiceServer) GetMediaDurationMillis(context.Context, *GetMediaDurationMillisRequest) (*GetMediaDurationMillisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMediaDurationMillis not implemented")
+}
+func (UnimplementedPlaybackMetricsServiceServer) GetMetricsBundle(context.Context, *GetMetricsBundleRequest) (*GetMetricsBundleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMetricsBundle not implemented")
+}
+func (UnimplementedPlaybackMetricsServiceServer) GetNetworkBytesRead(context.Context, *GetNetworkBytesReadRequest) (*GetNetworkBytesReadResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetNetworkBytesRead not implemented")
+}
+func (UnimplementedPlaybackMetricsServiceServer) GetNetworkTransferDurationMillis(context.Context, *GetNetworkTransferDurationMillisRequest) (*GetNetworkTransferDurationMillisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetNetworkTransferDurationMillis not implemented")
+}
+func (UnimplementedPlaybackMetricsServiceServer) GetPlaybackType(context.Context, *GetPlaybackTypeRequest) (*GetPlaybackTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPlaybackType not implemented")
+}
+func (UnimplementedPlaybackMetricsServiceServer) GetPlayerName(context.Context, *GetPlayerNameRequest) (*GetPlayerNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPlayerName not implemented")
+}
+func (UnimplementedPlaybackMetricsServiceServer) GetPlayerVersion(context.Context, *GetPlayerVersionRequest) (*GetPlayerVersionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPlayerVersion not implemented")
+}
+func (UnimplementedPlaybackMetricsServiceServer) GetStreamSource(context.Context, *GetStreamSourceRequest) (*GetStreamSourceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetStreamSource not implemented")
+}
+func (UnimplementedPlaybackMetricsServiceServer) GetStreamType(context.Context, *GetStreamTypeRequest) (*GetStreamTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetStreamType not implemented")
+}
+func (UnimplementedPlaybackMetricsServiceServer) GetVideoFramesDropped(context.Context, *GetVideoFramesDroppedRequest) (*GetVideoFramesDroppedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetVideoFramesDropped not implemented")
+}
+func (UnimplementedPlaybackMetricsServiceServer) GetVideoFramesPlayed(context.Context, *GetVideoFramesPlayedRequest) (*GetVideoFramesPlayedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetVideoFramesPlayed not implemented")
+}
+func (UnimplementedPlaybackMetricsServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedPlaybackMetricsServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedPlaybackMetricsServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedPlaybackMetricsServiceServer) mustEmbedUnimplementedPlaybackMetricsServiceServer() {
+}
+func (UnimplementedPlaybackMetricsServiceServer) testEmbeddedByValue() {}
+
+// UnsafePlaybackMetricsServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to PlaybackMetricsServiceServer will
+// result in compilation errors.
+type UnsafePlaybackMetricsServiceServer interface {
+	mustEmbedUnimplementedPlaybackMetricsServiceServer()
+}
+
+func RegisterPlaybackMetricsServiceServer(s grpc.ServiceRegistrar, srv PlaybackMetricsServiceServer) {
+	// If the following call panics, it indicates UnimplementedPlaybackMetricsServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&PlaybackMetricsService_ServiceDesc, srv)
+}
+
+func _PlaybackMetricsService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackMetricsServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackMetricsService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackMetricsServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackMetricsService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackMetricsServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackMetricsService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackMetricsServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackMetricsService_GetAudioUnderrunCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAudioUnderrunCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackMetricsServiceServer).GetAudioUnderrunCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackMetricsService_GetAudioUnderrunCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackMetricsServiceServer).GetAudioUnderrunCount(ctx, req.(*GetAudioUnderrunCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackMetricsService_GetContentType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetContentTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackMetricsServiceServer).GetContentType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackMetricsService_GetContentType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackMetricsServiceServer).GetContentType(ctx, req.(*GetContentTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackMetricsService_GetDrmSessionId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDrmSessionIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackMetricsServiceServer).GetDrmSessionId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackMetricsService_GetDrmSessionId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackMetricsServiceServer).GetDrmSessionId(ctx, req.(*GetDrmSessionIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackMetricsService_GetDrmType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDrmTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackMetricsServiceServer).GetDrmType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackMetricsService_GetDrmType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackMetricsServiceServer).GetDrmType(ctx, req.(*GetDrmTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackMetricsService_GetExperimentIds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetExperimentIdsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackMetricsServiceServer).GetExperimentIds(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackMetricsService_GetExperimentIds_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackMetricsServiceServer).GetExperimentIds(ctx, req.(*GetExperimentIdsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackMetricsService_GetLocalBytesRead_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLocalBytesReadRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackMetricsServiceServer).GetLocalBytesRead(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackMetricsService_GetLocalBytesRead_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackMetricsServiceServer).GetLocalBytesRead(ctx, req.(*GetLocalBytesReadRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackMetricsService_GetMediaDurationMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMediaDurationMillisRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackMetricsServiceServer).GetMediaDurationMillis(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackMetricsService_GetMediaDurationMillis_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackMetricsServiceServer).GetMediaDurationMillis(ctx, req.(*GetMediaDurationMillisRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackMetricsService_GetMetricsBundle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMetricsBundleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackMetricsServiceServer).GetMetricsBundle(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackMetricsService_GetMetricsBundle_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackMetricsServiceServer).GetMetricsBundle(ctx, req.(*GetMetricsBundleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackMetricsService_GetNetworkBytesRead_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetNetworkBytesReadRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackMetricsServiceServer).GetNetworkBytesRead(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackMetricsService_GetNetworkBytesRead_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackMetricsServiceServer).GetNetworkBytesRead(ctx, req.(*GetNetworkBytesReadRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackMetricsService_GetNetworkTransferDurationMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetNetworkTransferDurationMillisRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackMetricsServiceServer).GetNetworkTransferDurationMillis(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackMetricsService_GetNetworkTransferDurationMillis_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackMetricsServiceServer).GetNetworkTransferDurationMillis(ctx, req.(*GetNetworkTransferDurationMillisRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackMetricsService_GetPlaybackType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPlaybackTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackMetricsServiceServer).GetPlaybackType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackMetricsService_GetPlaybackType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackMetricsServiceServer).GetPlaybackType(ctx, req.(*GetPlaybackTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackMetricsService_GetPlayerName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPlayerNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackMetricsServiceServer).GetPlayerName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackMetricsService_GetPlayerName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackMetricsServiceServer).GetPlayerName(ctx, req.(*GetPlayerNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackMetricsService_GetPlayerVersion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPlayerVersionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackMetricsServiceServer).GetPlayerVersion(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackMetricsService_GetPlayerVersion_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackMetricsServiceServer).GetPlayerVersion(ctx, req.(*GetPlayerVersionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackMetricsService_GetStreamSource_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStreamSourceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackMetricsServiceServer).GetStreamSource(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackMetricsService_GetStreamSource_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackMetricsServiceServer).GetStreamSource(ctx, req.(*GetStreamSourceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackMetricsService_GetStreamType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStreamTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackMetricsServiceServer).GetStreamType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackMetricsService_GetStreamType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackMetricsServiceServer).GetStreamType(ctx, req.(*GetStreamTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackMetricsService_GetVideoFramesDropped_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetVideoFramesDroppedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackMetricsServiceServer).GetVideoFramesDropped(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackMetricsService_GetVideoFramesDropped_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackMetricsServiceServer).GetVideoFramesDropped(ctx, req.(*GetVideoFramesDroppedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackMetricsService_GetVideoFramesPlayed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetVideoFramesPlayedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackMetricsServiceServer).GetVideoFramesPlayed(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackMetricsService_GetVideoFramesPlayed_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackMetricsServiceServer).GetVideoFramesPlayed(ctx, req.(*GetVideoFramesPlayedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackMetricsService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackMetricsServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackMetricsService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackMetricsServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackMetricsService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackMetricsServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackMetricsService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackMetricsServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackMetricsService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackMetricsServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackMetricsService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackMetricsServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// PlaybackMetricsService_ServiceDesc is the grpc.ServiceDesc for PlaybackMetricsService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var PlaybackMetricsService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "metrics.PlaybackMetricsService",
+	HandlerType: (*PlaybackMetricsServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _PlaybackMetricsService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _PlaybackMetricsService_Equals_Handler,
+		},
+		{
+			MethodName: "GetAudioUnderrunCount",
+			Handler:    _PlaybackMetricsService_GetAudioUnderrunCount_Handler,
+		},
+		{
+			MethodName: "GetContentType",
+			Handler:    _PlaybackMetricsService_GetContentType_Handler,
+		},
+		{
+			MethodName: "GetDrmSessionId",
+			Handler:    _PlaybackMetricsService_GetDrmSessionId_Handler,
+		},
+		{
+			MethodName: "GetDrmType",
+			Handler:    _PlaybackMetricsService_GetDrmType_Handler,
+		},
+		{
+			MethodName: "GetExperimentIds",
+			Handler:    _PlaybackMetricsService_GetExperimentIds_Handler,
+		},
+		{
+			MethodName: "GetLocalBytesRead",
+			Handler:    _PlaybackMetricsService_GetLocalBytesRead_Handler,
+		},
+		{
+			MethodName: "GetMediaDurationMillis",
+			Handler:    _PlaybackMetricsService_GetMediaDurationMillis_Handler,
+		},
+		{
+			MethodName: "GetMetricsBundle",
+			Handler:    _PlaybackMetricsService_GetMetricsBundle_Handler,
+		},
+		{
+			MethodName: "GetNetworkBytesRead",
+			Handler:    _PlaybackMetricsService_GetNetworkBytesRead_Handler,
+		},
+		{
+			MethodName: "GetNetworkTransferDurationMillis",
+			Handler:    _PlaybackMetricsService_GetNetworkTransferDurationMillis_Handler,
+		},
+		{
+			MethodName: "GetPlaybackType",
+			Handler:    _PlaybackMetricsService_GetPlaybackType_Handler,
+		},
+		{
+			MethodName: "GetPlayerName",
+			Handler:    _PlaybackMetricsService_GetPlayerName_Handler,
+		},
+		{
+			MethodName: "GetPlayerVersion",
+			Handler:    _PlaybackMetricsService_GetPlayerVersion_Handler,
+		},
+		{
+			MethodName: "GetStreamSource",
+			Handler:    _PlaybackMetricsService_GetStreamSource_Handler,
+		},
+		{
+			MethodName: "GetStreamType",
+			Handler:    _PlaybackMetricsService_GetStreamType_Handler,
+		},
+		{
+			MethodName: "GetVideoFramesDropped",
+			Handler:    _PlaybackMetricsService_GetVideoFramesDropped_Handler,
+		},
+		{
+			MethodName: "GetVideoFramesPlayed",
+			Handler:    _PlaybackMetricsService_GetVideoFramesPlayed_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _PlaybackMetricsService_HashCode_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _PlaybackMetricsService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _PlaybackMetricsService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/metrics/metrics.proto",
+}
+
+const (
+	PlaybackMetricsBuilderService_AddExperimentId_FullMethodName                  = "/metrics.PlaybackMetricsBuilderService/AddExperimentId"
+	PlaybackMetricsBuilderService_Build_FullMethodName                            = "/metrics.PlaybackMetricsBuilderService/Build"
+	PlaybackMetricsBuilderService_SetAudioUnderrunCount_FullMethodName            = "/metrics.PlaybackMetricsBuilderService/SetAudioUnderrunCount"
+	PlaybackMetricsBuilderService_SetContentType_FullMethodName                   = "/metrics.PlaybackMetricsBuilderService/SetContentType"
+	PlaybackMetricsBuilderService_SetDrmSessionId_FullMethodName                  = "/metrics.PlaybackMetricsBuilderService/SetDrmSessionId"
+	PlaybackMetricsBuilderService_SetDrmType_FullMethodName                       = "/metrics.PlaybackMetricsBuilderService/SetDrmType"
+	PlaybackMetricsBuilderService_SetLocalBytesRead_FullMethodName                = "/metrics.PlaybackMetricsBuilderService/SetLocalBytesRead"
+	PlaybackMetricsBuilderService_SetMediaDurationMillis_FullMethodName           = "/metrics.PlaybackMetricsBuilderService/SetMediaDurationMillis"
+	PlaybackMetricsBuilderService_SetMetricsBundle_FullMethodName                 = "/metrics.PlaybackMetricsBuilderService/SetMetricsBundle"
+	PlaybackMetricsBuilderService_SetNetworkBytesRead_FullMethodName              = "/metrics.PlaybackMetricsBuilderService/SetNetworkBytesRead"
+	PlaybackMetricsBuilderService_SetNetworkTransferDurationMillis_FullMethodName = "/metrics.PlaybackMetricsBuilderService/SetNetworkTransferDurationMillis"
+	PlaybackMetricsBuilderService_SetPlaybackType_FullMethodName                  = "/metrics.PlaybackMetricsBuilderService/SetPlaybackType"
+	PlaybackMetricsBuilderService_SetPlayerName_FullMethodName                    = "/metrics.PlaybackMetricsBuilderService/SetPlayerName"
+	PlaybackMetricsBuilderService_SetPlayerVersion_FullMethodName                 = "/metrics.PlaybackMetricsBuilderService/SetPlayerVersion"
+	PlaybackMetricsBuilderService_SetStreamSource_FullMethodName                  = "/metrics.PlaybackMetricsBuilderService/SetStreamSource"
+	PlaybackMetricsBuilderService_SetStreamType_FullMethodName                    = "/metrics.PlaybackMetricsBuilderService/SetStreamType"
+	PlaybackMetricsBuilderService_SetVideoFramesDropped_FullMethodName            = "/metrics.PlaybackMetricsBuilderService/SetVideoFramesDropped"
+	PlaybackMetricsBuilderService_SetVideoFramesPlayed_FullMethodName             = "/metrics.PlaybackMetricsBuilderService/SetVideoFramesPlayed"
+)
+
+// PlaybackMetricsBuilderServiceClient is the client API for PlaybackMetricsBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type PlaybackMetricsBuilderServiceClient interface {
+	AddExperimentId(ctx context.Context, in *AddExperimentIdRequest, opts ...grpc.CallOption) (*AddExperimentIdResponse, error)
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetAudioUnderrunCount(ctx context.Context, in *SetAudioUnderrunCountRequest, opts ...grpc.CallOption) (*SetAudioUnderrunCountResponse, error)
+	SetContentType(ctx context.Context, in *SetContentTypeRequest, opts ...grpc.CallOption) (*SetContentTypeResponse, error)
+	SetDrmSessionId(ctx context.Context, in *SetDrmSessionIdRequest, opts ...grpc.CallOption) (*SetDrmSessionIdResponse, error)
+	SetDrmType(ctx context.Context, in *SetDrmTypeRequest, opts ...grpc.CallOption) (*SetDrmTypeResponse, error)
+	SetLocalBytesRead(ctx context.Context, in *SetLocalBytesReadRequest, opts ...grpc.CallOption) (*SetLocalBytesReadResponse, error)
+	SetMediaDurationMillis(ctx context.Context, in *SetMediaDurationMillisRequest, opts ...grpc.CallOption) (*SetMediaDurationMillisResponse, error)
+	SetMetricsBundle(ctx context.Context, in *SetMetricsBundleRequest, opts ...grpc.CallOption) (*SetMetricsBundleResponse, error)
+	SetNetworkBytesRead(ctx context.Context, in *SetNetworkBytesReadRequest, opts ...grpc.CallOption) (*SetNetworkBytesReadResponse, error)
+	SetNetworkTransferDurationMillis(ctx context.Context, in *SetNetworkTransferDurationMillisRequest, opts ...grpc.CallOption) (*SetNetworkTransferDurationMillisResponse, error)
+	SetPlaybackType(ctx context.Context, in *SetPlaybackTypeRequest, opts ...grpc.CallOption) (*SetPlaybackTypeResponse, error)
+	SetPlayerName(ctx context.Context, in *SetPlayerNameRequest, opts ...grpc.CallOption) (*SetPlayerNameResponse, error)
+	SetPlayerVersion(ctx context.Context, in *SetPlayerVersionRequest, opts ...grpc.CallOption) (*SetPlayerVersionResponse, error)
+	SetStreamSource(ctx context.Context, in *SetStreamSourceRequest, opts ...grpc.CallOption) (*SetStreamSourceResponse, error)
+	SetStreamType(ctx context.Context, in *SetStreamTypeRequest, opts ...grpc.CallOption) (*SetStreamTypeResponse, error)
+	SetVideoFramesDropped(ctx context.Context, in *SetVideoFramesDroppedRequest, opts ...grpc.CallOption) (*SetVideoFramesDroppedResponse, error)
+	SetVideoFramesPlayed(ctx context.Context, in *SetVideoFramesPlayedRequest, opts ...grpc.CallOption) (*SetVideoFramesPlayedResponse, error)
+}
+
+type playbackMetricsBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewPlaybackMetricsBuilderServiceClient(cc grpc.ClientConnInterface) PlaybackMetricsBuilderServiceClient {
+	return &playbackMetricsBuilderServiceClient{cc}
+}
+
+func (c *playbackMetricsBuilderServiceClient) AddExperimentId(ctx context.Context, in *AddExperimentIdRequest, opts ...grpc.CallOption) (*AddExperimentIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddExperimentIdResponse)
+	err := c.cc.Invoke(ctx, PlaybackMetricsBuilderService_AddExperimentId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackMetricsBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, PlaybackMetricsBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackMetricsBuilderServiceClient) SetAudioUnderrunCount(ctx context.Context, in *SetAudioUnderrunCountRequest, opts ...grpc.CallOption) (*SetAudioUnderrunCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetAudioUnderrunCountResponse)
+	err := c.cc.Invoke(ctx, PlaybackMetricsBuilderService_SetAudioUnderrunCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackMetricsBuilderServiceClient) SetContentType(ctx context.Context, in *SetContentTypeRequest, opts ...grpc.CallOption) (*SetContentTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetContentTypeResponse)
+	err := c.cc.Invoke(ctx, PlaybackMetricsBuilderService_SetContentType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackMetricsBuilderServiceClient) SetDrmSessionId(ctx context.Context, in *SetDrmSessionIdRequest, opts ...grpc.CallOption) (*SetDrmSessionIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetDrmSessionIdResponse)
+	err := c.cc.Invoke(ctx, PlaybackMetricsBuilderService_SetDrmSessionId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackMetricsBuilderServiceClient) SetDrmType(ctx context.Context, in *SetDrmTypeRequest, opts ...grpc.CallOption) (*SetDrmTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetDrmTypeResponse)
+	err := c.cc.Invoke(ctx, PlaybackMetricsBuilderService_SetDrmType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackMetricsBuilderServiceClient) SetLocalBytesRead(ctx context.Context, in *SetLocalBytesReadRequest, opts ...grpc.CallOption) (*SetLocalBytesReadResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetLocalBytesReadResponse)
+	err := c.cc.Invoke(ctx, PlaybackMetricsBuilderService_SetLocalBytesRead_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackMetricsBuilderServiceClient) SetMediaDurationMillis(ctx context.Context, in *SetMediaDurationMillisRequest, opts ...grpc.CallOption) (*SetMediaDurationMillisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetMediaDurationMillisResponse)
+	err := c.cc.Invoke(ctx, PlaybackMetricsBuilderService_SetMediaDurationMillis_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackMetricsBuilderServiceClient) SetMetricsBundle(ctx context.Context, in *SetMetricsBundleRequest, opts ...grpc.CallOption) (*SetMetricsBundleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetMetricsBundleResponse)
+	err := c.cc.Invoke(ctx, PlaybackMetricsBuilderService_SetMetricsBundle_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackMetricsBuilderServiceClient) SetNetworkBytesRead(ctx context.Context, in *SetNetworkBytesReadRequest, opts ...grpc.CallOption) (*SetNetworkBytesReadResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetNetworkBytesReadResponse)
+	err := c.cc.Invoke(ctx, PlaybackMetricsBuilderService_SetNetworkBytesRead_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackMetricsBuilderServiceClient) SetNetworkTransferDurationMillis(ctx context.Context, in *SetNetworkTransferDurationMillisRequest, opts ...grpc.CallOption) (*SetNetworkTransferDurationMillisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetNetworkTransferDurationMillisResponse)
+	err := c.cc.Invoke(ctx, PlaybackMetricsBuilderService_SetNetworkTransferDurationMillis_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackMetricsBuilderServiceClient) SetPlaybackType(ctx context.Context, in *SetPlaybackTypeRequest, opts ...grpc.CallOption) (*SetPlaybackTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetPlaybackTypeResponse)
+	err := c.cc.Invoke(ctx, PlaybackMetricsBuilderService_SetPlaybackType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackMetricsBuilderServiceClient) SetPlayerName(ctx context.Context, in *SetPlayerNameRequest, opts ...grpc.CallOption) (*SetPlayerNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetPlayerNameResponse)
+	err := c.cc.Invoke(ctx, PlaybackMetricsBuilderService_SetPlayerName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackMetricsBuilderServiceClient) SetPlayerVersion(ctx context.Context, in *SetPlayerVersionRequest, opts ...grpc.CallOption) (*SetPlayerVersionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetPlayerVersionResponse)
+	err := c.cc.Invoke(ctx, PlaybackMetricsBuilderService_SetPlayerVersion_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackMetricsBuilderServiceClient) SetStreamSource(ctx context.Context, in *SetStreamSourceRequest, opts ...grpc.CallOption) (*SetStreamSourceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetStreamSourceResponse)
+	err := c.cc.Invoke(ctx, PlaybackMetricsBuilderService_SetStreamSource_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackMetricsBuilderServiceClient) SetStreamType(ctx context.Context, in *SetStreamTypeRequest, opts ...grpc.CallOption) (*SetStreamTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetStreamTypeResponse)
+	err := c.cc.Invoke(ctx, PlaybackMetricsBuilderService_SetStreamType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackMetricsBuilderServiceClient) SetVideoFramesDropped(ctx context.Context, in *SetVideoFramesDroppedRequest, opts ...grpc.CallOption) (*SetVideoFramesDroppedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetVideoFramesDroppedResponse)
+	err := c.cc.Invoke(ctx, PlaybackMetricsBuilderService_SetVideoFramesDropped_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackMetricsBuilderServiceClient) SetVideoFramesPlayed(ctx context.Context, in *SetVideoFramesPlayedRequest, opts ...grpc.CallOption) (*SetVideoFramesPlayedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetVideoFramesPlayedResponse)
+	err := c.cc.Invoke(ctx, PlaybackMetricsBuilderService_SetVideoFramesPlayed_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// PlaybackMetricsBuilderServiceServer is the server API for PlaybackMetricsBuilderService service.
+// All implementations must embed UnimplementedPlaybackMetricsBuilderServiceServer
+// for forward compatibility.
+type PlaybackMetricsBuilderServiceServer interface {
+	AddExperimentId(context.Context, *AddExperimentIdRequest) (*AddExperimentIdResponse, error)
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetAudioUnderrunCount(context.Context, *SetAudioUnderrunCountRequest) (*SetAudioUnderrunCountResponse, error)
+	SetContentType(context.Context, *SetContentTypeRequest) (*SetContentTypeResponse, error)
+	SetDrmSessionId(context.Context, *SetDrmSessionIdRequest) (*SetDrmSessionIdResponse, error)
+	SetDrmType(context.Context, *SetDrmTypeRequest) (*SetDrmTypeResponse, error)
+	SetLocalBytesRead(context.Context, *SetLocalBytesReadRequest) (*SetLocalBytesReadResponse, error)
+	SetMediaDurationMillis(context.Context, *SetMediaDurationMillisRequest) (*SetMediaDurationMillisResponse, error)
+	SetMetricsBundle(context.Context, *SetMetricsBundleRequest) (*SetMetricsBundleResponse, error)
+	SetNetworkBytesRead(context.Context, *SetNetworkBytesReadRequest) (*SetNetworkBytesReadResponse, error)
+	SetNetworkTransferDurationMillis(context.Context, *SetNetworkTransferDurationMillisRequest) (*SetNetworkTransferDurationMillisResponse, error)
+	SetPlaybackType(context.Context, *SetPlaybackTypeRequest) (*SetPlaybackTypeResponse, error)
+	SetPlayerName(context.Context, *SetPlayerNameRequest) (*SetPlayerNameResponse, error)
+	SetPlayerVersion(context.Context, *SetPlayerVersionRequest) (*SetPlayerVersionResponse, error)
+	SetStreamSource(context.Context, *SetStreamSourceRequest) (*SetStreamSourceResponse, error)
+	SetStreamType(context.Context, *SetStreamTypeRequest) (*SetStreamTypeResponse, error)
+	SetVideoFramesDropped(context.Context, *SetVideoFramesDroppedRequest) (*SetVideoFramesDroppedResponse, error)
+	SetVideoFramesPlayed(context.Context, *SetVideoFramesPlayedRequest) (*SetVideoFramesPlayedResponse, error)
+	mustEmbedUnimplementedPlaybackMetricsBuilderServiceServer()
+}
+
+// UnimplementedPlaybackMetricsBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedPlaybackMetricsBuilderServiceServer struct{}
+
+func (UnimplementedPlaybackMetricsBuilderServiceServer) AddExperimentId(context.Context, *AddExperimentIdRequest) (*AddExperimentIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddExperimentId not implemented")
+}
+func (UnimplementedPlaybackMetricsBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedPlaybackMetricsBuilderServiceServer) SetAudioUnderrunCount(context.Context, *SetAudioUnderrunCountRequest) (*SetAudioUnderrunCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetAudioUnderrunCount not implemented")
+}
+func (UnimplementedPlaybackMetricsBuilderServiceServer) SetContentType(context.Context, *SetContentTypeRequest) (*SetContentTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetContentType not implemented")
+}
+func (UnimplementedPlaybackMetricsBuilderServiceServer) SetDrmSessionId(context.Context, *SetDrmSessionIdRequest) (*SetDrmSessionIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetDrmSessionId not implemented")
+}
+func (UnimplementedPlaybackMetricsBuilderServiceServer) SetDrmType(context.Context, *SetDrmTypeRequest) (*SetDrmTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetDrmType not implemented")
+}
+func (UnimplementedPlaybackMetricsBuilderServiceServer) SetLocalBytesRead(context.Context, *SetLocalBytesReadRequest) (*SetLocalBytesReadResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetLocalBytesRead not implemented")
+}
+func (UnimplementedPlaybackMetricsBuilderServiceServer) SetMediaDurationMillis(context.Context, *SetMediaDurationMillisRequest) (*SetMediaDurationMillisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetMediaDurationMillis not implemented")
+}
+func (UnimplementedPlaybackMetricsBuilderServiceServer) SetMetricsBundle(context.Context, *SetMetricsBundleRequest) (*SetMetricsBundleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetMetricsBundle not implemented")
+}
+func (UnimplementedPlaybackMetricsBuilderServiceServer) SetNetworkBytesRead(context.Context, *SetNetworkBytesReadRequest) (*SetNetworkBytesReadResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetNetworkBytesRead not implemented")
+}
+func (UnimplementedPlaybackMetricsBuilderServiceServer) SetNetworkTransferDurationMillis(context.Context, *SetNetworkTransferDurationMillisRequest) (*SetNetworkTransferDurationMillisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetNetworkTransferDurationMillis not implemented")
+}
+func (UnimplementedPlaybackMetricsBuilderServiceServer) SetPlaybackType(context.Context, *SetPlaybackTypeRequest) (*SetPlaybackTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetPlaybackType not implemented")
+}
+func (UnimplementedPlaybackMetricsBuilderServiceServer) SetPlayerName(context.Context, *SetPlayerNameRequest) (*SetPlayerNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetPlayerName not implemented")
+}
+func (UnimplementedPlaybackMetricsBuilderServiceServer) SetPlayerVersion(context.Context, *SetPlayerVersionRequest) (*SetPlayerVersionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetPlayerVersion not implemented")
+}
+func (UnimplementedPlaybackMetricsBuilderServiceServer) SetStreamSource(context.Context, *SetStreamSourceRequest) (*SetStreamSourceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetStreamSource not implemented")
+}
+func (UnimplementedPlaybackMetricsBuilderServiceServer) SetStreamType(context.Context, *SetStreamTypeRequest) (*SetStreamTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetStreamType not implemented")
+}
+func (UnimplementedPlaybackMetricsBuilderServiceServer) SetVideoFramesDropped(context.Context, *SetVideoFramesDroppedRequest) (*SetVideoFramesDroppedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetVideoFramesDropped not implemented")
+}
+func (UnimplementedPlaybackMetricsBuilderServiceServer) SetVideoFramesPlayed(context.Context, *SetVideoFramesPlayedRequest) (*SetVideoFramesPlayedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetVideoFramesPlayed not implemented")
+}
+func (UnimplementedPlaybackMetricsBuilderServiceServer) mustEmbedUnimplementedPlaybackMetricsBuilderServiceServer() {
+}
+func (UnimplementedPlaybackMetricsBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafePlaybackMetricsBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to PlaybackMetricsBuilderServiceServer will
+// result in compilation errors.
+type UnsafePlaybackMetricsBuilderServiceServer interface {
+	mustEmbedUnimplementedPlaybackMetricsBuilderServiceServer()
+}
+
+func RegisterPlaybackMetricsBuilderServiceServer(s grpc.ServiceRegistrar, srv PlaybackMetricsBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedPlaybackMetricsBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&PlaybackMetricsBuilderService_ServiceDesc, srv)
+}
+
+func _PlaybackMetricsBuilderService_AddExperimentId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddExperimentIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackMetricsBuilderServiceServer).AddExperimentId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackMetricsBuilderService_AddExperimentId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackMetricsBuilderServiceServer).AddExperimentId(ctx, req.(*AddExperimentIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackMetricsBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackMetricsBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackMetricsBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackMetricsBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackMetricsBuilderService_SetAudioUnderrunCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetAudioUnderrunCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackMetricsBuilderServiceServer).SetAudioUnderrunCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackMetricsBuilderService_SetAudioUnderrunCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackMetricsBuilderServiceServer).SetAudioUnderrunCount(ctx, req.(*SetAudioUnderrunCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackMetricsBuilderService_SetContentType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetContentTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackMetricsBuilderServiceServer).SetContentType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackMetricsBuilderService_SetContentType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackMetricsBuilderServiceServer).SetContentType(ctx, req.(*SetContentTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackMetricsBuilderService_SetDrmSessionId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetDrmSessionIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackMetricsBuilderServiceServer).SetDrmSessionId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackMetricsBuilderService_SetDrmSessionId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackMetricsBuilderServiceServer).SetDrmSessionId(ctx, req.(*SetDrmSessionIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackMetricsBuilderService_SetDrmType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetDrmTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackMetricsBuilderServiceServer).SetDrmType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackMetricsBuilderService_SetDrmType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackMetricsBuilderServiceServer).SetDrmType(ctx, req.(*SetDrmTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackMetricsBuilderService_SetLocalBytesRead_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetLocalBytesReadRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackMetricsBuilderServiceServer).SetLocalBytesRead(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackMetricsBuilderService_SetLocalBytesRead_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackMetricsBuilderServiceServer).SetLocalBytesRead(ctx, req.(*SetLocalBytesReadRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackMetricsBuilderService_SetMediaDurationMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetMediaDurationMillisRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackMetricsBuilderServiceServer).SetMediaDurationMillis(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackMetricsBuilderService_SetMediaDurationMillis_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackMetricsBuilderServiceServer).SetMediaDurationMillis(ctx, req.(*SetMediaDurationMillisRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackMetricsBuilderService_SetMetricsBundle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetMetricsBundleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackMetricsBuilderServiceServer).SetMetricsBundle(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackMetricsBuilderService_SetMetricsBundle_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackMetricsBuilderServiceServer).SetMetricsBundle(ctx, req.(*SetMetricsBundleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackMetricsBuilderService_SetNetworkBytesRead_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetNetworkBytesReadRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackMetricsBuilderServiceServer).SetNetworkBytesRead(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackMetricsBuilderService_SetNetworkBytesRead_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackMetricsBuilderServiceServer).SetNetworkBytesRead(ctx, req.(*SetNetworkBytesReadRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackMetricsBuilderService_SetNetworkTransferDurationMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetNetworkTransferDurationMillisRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackMetricsBuilderServiceServer).SetNetworkTransferDurationMillis(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackMetricsBuilderService_SetNetworkTransferDurationMillis_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackMetricsBuilderServiceServer).SetNetworkTransferDurationMillis(ctx, req.(*SetNetworkTransferDurationMillisRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackMetricsBuilderService_SetPlaybackType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetPlaybackTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackMetricsBuilderServiceServer).SetPlaybackType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackMetricsBuilderService_SetPlaybackType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackMetricsBuilderServiceServer).SetPlaybackType(ctx, req.(*SetPlaybackTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackMetricsBuilderService_SetPlayerName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetPlayerNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackMetricsBuilderServiceServer).SetPlayerName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackMetricsBuilderService_SetPlayerName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackMetricsBuilderServiceServer).SetPlayerName(ctx, req.(*SetPlayerNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackMetricsBuilderService_SetPlayerVersion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetPlayerVersionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackMetricsBuilderServiceServer).SetPlayerVersion(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackMetricsBuilderService_SetPlayerVersion_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackMetricsBuilderServiceServer).SetPlayerVersion(ctx, req.(*SetPlayerVersionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackMetricsBuilderService_SetStreamSource_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetStreamSourceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackMetricsBuilderServiceServer).SetStreamSource(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackMetricsBuilderService_SetStreamSource_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackMetricsBuilderServiceServer).SetStreamSource(ctx, req.(*SetStreamSourceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackMetricsBuilderService_SetStreamType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetStreamTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackMetricsBuilderServiceServer).SetStreamType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackMetricsBuilderService_SetStreamType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackMetricsBuilderServiceServer).SetStreamType(ctx, req.(*SetStreamTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackMetricsBuilderService_SetVideoFramesDropped_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetVideoFramesDroppedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackMetricsBuilderServiceServer).SetVideoFramesDropped(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackMetricsBuilderService_SetVideoFramesDropped_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackMetricsBuilderServiceServer).SetVideoFramesDropped(ctx, req.(*SetVideoFramesDroppedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackMetricsBuilderService_SetVideoFramesPlayed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetVideoFramesPlayedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackMetricsBuilderServiceServer).SetVideoFramesPlayed(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackMetricsBuilderService_SetVideoFramesPlayed_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackMetricsBuilderServiceServer).SetVideoFramesPlayed(ctx, req.(*SetVideoFramesPlayedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// PlaybackMetricsBuilderService_ServiceDesc is the grpc.ServiceDesc for PlaybackMetricsBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var PlaybackMetricsBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "metrics.PlaybackMetricsBuilderService",
+	HandlerType: (*PlaybackMetricsBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "AddExperimentId",
+			Handler:    _PlaybackMetricsBuilderService_AddExperimentId_Handler,
+		},
+		{
+			MethodName: "Build",
+			Handler:    _PlaybackMetricsBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetAudioUnderrunCount",
+			Handler:    _PlaybackMetricsBuilderService_SetAudioUnderrunCount_Handler,
+		},
+		{
+			MethodName: "SetContentType",
+			Handler:    _PlaybackMetricsBuilderService_SetContentType_Handler,
+		},
+		{
+			MethodName: "SetDrmSessionId",
+			Handler:    _PlaybackMetricsBuilderService_SetDrmSessionId_Handler,
+		},
+		{
+			MethodName: "SetDrmType",
+			Handler:    _PlaybackMetricsBuilderService_SetDrmType_Handler,
+		},
+		{
+			MethodName: "SetLocalBytesRead",
+			Handler:    _PlaybackMetricsBuilderService_SetLocalBytesRead_Handler,
+		},
+		{
+			MethodName: "SetMediaDurationMillis",
+			Handler:    _PlaybackMetricsBuilderService_SetMediaDurationMillis_Handler,
+		},
+		{
+			MethodName: "SetMetricsBundle",
+			Handler:    _PlaybackMetricsBuilderService_SetMetricsBundle_Handler,
+		},
+		{
+			MethodName: "SetNetworkBytesRead",
+			Handler:    _PlaybackMetricsBuilderService_SetNetworkBytesRead_Handler,
+		},
+		{
+			MethodName: "SetNetworkTransferDurationMillis",
+			Handler:    _PlaybackMetricsBuilderService_SetNetworkTransferDurationMillis_Handler,
+		},
+		{
+			MethodName: "SetPlaybackType",
+			Handler:    _PlaybackMetricsBuilderService_SetPlaybackType_Handler,
+		},
+		{
+			MethodName: "SetPlayerName",
+			Handler:    _PlaybackMetricsBuilderService_SetPlayerName_Handler,
+		},
+		{
+			MethodName: "SetPlayerVersion",
+			Handler:    _PlaybackMetricsBuilderService_SetPlayerVersion_Handler,
+		},
+		{
+			MethodName: "SetStreamSource",
+			Handler:    _PlaybackMetricsBuilderService_SetStreamSource_Handler,
+		},
+		{
+			MethodName: "SetStreamType",
+			Handler:    _PlaybackMetricsBuilderService_SetStreamType_Handler,
+		},
+		{
+			MethodName: "SetVideoFramesDropped",
+			Handler:    _PlaybackMetricsBuilderService_SetVideoFramesDropped_Handler,
+		},
+		{
+			MethodName: "SetVideoFramesPlayed",
+			Handler:    _PlaybackMetricsBuilderService_SetVideoFramesPlayed_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/metrics/metrics.proto",
+}
+
+const (
+	PlaybackErrorEventService_DescribeContents_FullMethodName          = "/metrics.PlaybackErrorEventService/DescribeContents"
+	PlaybackErrorEventService_Equals_FullMethodName                    = "/metrics.PlaybackErrorEventService/Equals"
+	PlaybackErrorEventService_GetErrorCode_FullMethodName              = "/metrics.PlaybackErrorEventService/GetErrorCode"
+	PlaybackErrorEventService_GetMetricsBundle_FullMethodName          = "/metrics.PlaybackErrorEventService/GetMetricsBundle"
+	PlaybackErrorEventService_GetSubErrorCode_FullMethodName           = "/metrics.PlaybackErrorEventService/GetSubErrorCode"
+	PlaybackErrorEventService_GetTimeSinceCreatedMillis_FullMethodName = "/metrics.PlaybackErrorEventService/GetTimeSinceCreatedMillis"
+	PlaybackErrorEventService_HashCode_FullMethodName                  = "/metrics.PlaybackErrorEventService/HashCode"
+	PlaybackErrorEventService_ToString_FullMethodName                  = "/metrics.PlaybackErrorEventService/ToString"
+	PlaybackErrorEventService_WriteToParcel_FullMethodName             = "/metrics.PlaybackErrorEventService/WriteToParcel"
+)
+
+// PlaybackErrorEventServiceClient is the client API for PlaybackErrorEventService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type PlaybackErrorEventServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetErrorCode(ctx context.Context, in *GetErrorCodeRequest, opts ...grpc.CallOption) (*GetErrorCodeResponse, error)
+	GetMetricsBundle(ctx context.Context, in *GetMetricsBundleRequest, opts ...grpc.CallOption) (*GetMetricsBundleResponse, error)
+	GetSubErrorCode(ctx context.Context, in *GetSubErrorCodeRequest, opts ...grpc.CallOption) (*GetSubErrorCodeResponse, error)
+	GetTimeSinceCreatedMillis(ctx context.Context, in *GetTimeSinceCreatedMillisRequest, opts ...grpc.CallOption) (*GetTimeSinceCreatedMillisResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type playbackErrorEventServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewPlaybackErrorEventServiceClient(cc grpc.ClientConnInterface) PlaybackErrorEventServiceClient {
+	return &playbackErrorEventServiceClient{cc}
+}
+
+func (c *playbackErrorEventServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, PlaybackErrorEventService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackErrorEventServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, PlaybackErrorEventService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackErrorEventServiceClient) GetErrorCode(ctx context.Context, in *GetErrorCodeRequest, opts ...grpc.CallOption) (*GetErrorCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetErrorCodeResponse)
+	err := c.cc.Invoke(ctx, PlaybackErrorEventService_GetErrorCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackErrorEventServiceClient) GetMetricsBundle(ctx context.Context, in *GetMetricsBundleRequest, opts ...grpc.CallOption) (*GetMetricsBundleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMetricsBundleResponse)
+	err := c.cc.Invoke(ctx, PlaybackErrorEventService_GetMetricsBundle_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackErrorEventServiceClient) GetSubErrorCode(ctx context.Context, in *GetSubErrorCodeRequest, opts ...grpc.CallOption) (*GetSubErrorCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSubErrorCodeResponse)
+	err := c.cc.Invoke(ctx, PlaybackErrorEventService_GetSubErrorCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackErrorEventServiceClient) GetTimeSinceCreatedMillis(ctx context.Context, in *GetTimeSinceCreatedMillisRequest, opts ...grpc.CallOption) (*GetTimeSinceCreatedMillisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTimeSinceCreatedMillisResponse)
+	err := c.cc.Invoke(ctx, PlaybackErrorEventService_GetTimeSinceCreatedMillis_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackErrorEventServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, PlaybackErrorEventService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackErrorEventServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, PlaybackErrorEventService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackErrorEventServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, PlaybackErrorEventService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// PlaybackErrorEventServiceServer is the server API for PlaybackErrorEventService service.
+// All implementations must embed UnimplementedPlaybackErrorEventServiceServer
+// for forward compatibility.
+type PlaybackErrorEventServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetErrorCode(context.Context, *GetErrorCodeRequest) (*GetErrorCodeResponse, error)
+	GetMetricsBundle(context.Context, *GetMetricsBundleRequest) (*GetMetricsBundleResponse, error)
+	GetSubErrorCode(context.Context, *GetSubErrorCodeRequest) (*GetSubErrorCodeResponse, error)
+	GetTimeSinceCreatedMillis(context.Context, *GetTimeSinceCreatedMillisRequest) (*GetTimeSinceCreatedMillisResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedPlaybackErrorEventServiceServer()
+}
+
+// UnimplementedPlaybackErrorEventServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedPlaybackErrorEventServiceServer struct{}
+
+func (UnimplementedPlaybackErrorEventServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedPlaybackErrorEventServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedPlaybackErrorEventServiceServer) GetErrorCode(context.Context, *GetErrorCodeRequest) (*GetErrorCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetErrorCode not implemented")
+}
+func (UnimplementedPlaybackErrorEventServiceServer) GetMetricsBundle(context.Context, *GetMetricsBundleRequest) (*GetMetricsBundleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMetricsBundle not implemented")
+}
+func (UnimplementedPlaybackErrorEventServiceServer) GetSubErrorCode(context.Context, *GetSubErrorCodeRequest) (*GetSubErrorCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSubErrorCode not implemented")
+}
+func (UnimplementedPlaybackErrorEventServiceServer) GetTimeSinceCreatedMillis(context.Context, *GetTimeSinceCreatedMillisRequest) (*GetTimeSinceCreatedMillisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTimeSinceCreatedMillis not implemented")
+}
+func (UnimplementedPlaybackErrorEventServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedPlaybackErrorEventServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedPlaybackErrorEventServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedPlaybackErrorEventServiceServer) mustEmbedUnimplementedPlaybackErrorEventServiceServer() {
+}
+func (UnimplementedPlaybackErrorEventServiceServer) testEmbeddedByValue() {}
+
+// UnsafePlaybackErrorEventServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to PlaybackErrorEventServiceServer will
+// result in compilation errors.
+type UnsafePlaybackErrorEventServiceServer interface {
+	mustEmbedUnimplementedPlaybackErrorEventServiceServer()
+}
+
+func RegisterPlaybackErrorEventServiceServer(s grpc.ServiceRegistrar, srv PlaybackErrorEventServiceServer) {
+	// If the following call panics, it indicates UnimplementedPlaybackErrorEventServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&PlaybackErrorEventService_ServiceDesc, srv)
+}
+
+func _PlaybackErrorEventService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackErrorEventServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackErrorEventService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackErrorEventServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackErrorEventService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackErrorEventServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackErrorEventService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackErrorEventServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackErrorEventService_GetErrorCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetErrorCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackErrorEventServiceServer).GetErrorCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackErrorEventService_GetErrorCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackErrorEventServiceServer).GetErrorCode(ctx, req.(*GetErrorCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackErrorEventService_GetMetricsBundle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMetricsBundleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackErrorEventServiceServer).GetMetricsBundle(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackErrorEventService_GetMetricsBundle_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackErrorEventServiceServer).GetMetricsBundle(ctx, req.(*GetMetricsBundleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackErrorEventService_GetSubErrorCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSubErrorCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackErrorEventServiceServer).GetSubErrorCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackErrorEventService_GetSubErrorCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackErrorEventServiceServer).GetSubErrorCode(ctx, req.(*GetSubErrorCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackErrorEventService_GetTimeSinceCreatedMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTimeSinceCreatedMillisRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackErrorEventServiceServer).GetTimeSinceCreatedMillis(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackErrorEventService_GetTimeSinceCreatedMillis_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackErrorEventServiceServer).GetTimeSinceCreatedMillis(ctx, req.(*GetTimeSinceCreatedMillisRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackErrorEventService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackErrorEventServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackErrorEventService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackErrorEventServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackErrorEventService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackErrorEventServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackErrorEventService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackErrorEventServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackErrorEventService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackErrorEventServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackErrorEventService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackErrorEventServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// PlaybackErrorEventService_ServiceDesc is the grpc.ServiceDesc for PlaybackErrorEventService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var PlaybackErrorEventService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "metrics.PlaybackErrorEventService",
+	HandlerType: (*PlaybackErrorEventServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _PlaybackErrorEventService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _PlaybackErrorEventService_Equals_Handler,
+		},
+		{
+			MethodName: "GetErrorCode",
+			Handler:    _PlaybackErrorEventService_GetErrorCode_Handler,
+		},
+		{
+			MethodName: "GetMetricsBundle",
+			Handler:    _PlaybackErrorEventService_GetMetricsBundle_Handler,
+		},
+		{
+			MethodName: "GetSubErrorCode",
+			Handler:    _PlaybackErrorEventService_GetSubErrorCode_Handler,
+		},
+		{
+			MethodName: "GetTimeSinceCreatedMillis",
+			Handler:    _PlaybackErrorEventService_GetTimeSinceCreatedMillis_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _PlaybackErrorEventService_HashCode_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _PlaybackErrorEventService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _PlaybackErrorEventService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/metrics/metrics.proto",
+}
+
+const (
+	PlaybackErrorEventBuilderService_Build_FullMethodName                     = "/metrics.PlaybackErrorEventBuilderService/Build"
+	PlaybackErrorEventBuilderService_SetErrorCode_FullMethodName              = "/metrics.PlaybackErrorEventBuilderService/SetErrorCode"
+	PlaybackErrorEventBuilderService_SetException_FullMethodName              = "/metrics.PlaybackErrorEventBuilderService/SetException"
+	PlaybackErrorEventBuilderService_SetMetricsBundle_FullMethodName          = "/metrics.PlaybackErrorEventBuilderService/SetMetricsBundle"
+	PlaybackErrorEventBuilderService_SetSubErrorCode_FullMethodName           = "/metrics.PlaybackErrorEventBuilderService/SetSubErrorCode"
+	PlaybackErrorEventBuilderService_SetTimeSinceCreatedMillis_FullMethodName = "/metrics.PlaybackErrorEventBuilderService/SetTimeSinceCreatedMillis"
+)
+
+// PlaybackErrorEventBuilderServiceClient is the client API for PlaybackErrorEventBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type PlaybackErrorEventBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetErrorCode(ctx context.Context, in *SetErrorCodeRequest, opts ...grpc.CallOption) (*SetErrorCodeResponse, error)
+	SetException(ctx context.Context, in *SetExceptionRequest, opts ...grpc.CallOption) (*SetExceptionResponse, error)
+	SetMetricsBundle(ctx context.Context, in *SetMetricsBundleRequest, opts ...grpc.CallOption) (*SetMetricsBundleResponse, error)
+	SetSubErrorCode(ctx context.Context, in *SetSubErrorCodeRequest, opts ...grpc.CallOption) (*SetSubErrorCodeResponse, error)
+	SetTimeSinceCreatedMillis(ctx context.Context, in *SetTimeSinceCreatedMillisRequest, opts ...grpc.CallOption) (*SetTimeSinceCreatedMillisResponse, error)
+}
+
+type playbackErrorEventBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewPlaybackErrorEventBuilderServiceClient(cc grpc.ClientConnInterface) PlaybackErrorEventBuilderServiceClient {
+	return &playbackErrorEventBuilderServiceClient{cc}
+}
+
+func (c *playbackErrorEventBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, PlaybackErrorEventBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackErrorEventBuilderServiceClient) SetErrorCode(ctx context.Context, in *SetErrorCodeRequest, opts ...grpc.CallOption) (*SetErrorCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetErrorCodeResponse)
+	err := c.cc.Invoke(ctx, PlaybackErrorEventBuilderService_SetErrorCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackErrorEventBuilderServiceClient) SetException(ctx context.Context, in *SetExceptionRequest, opts ...grpc.CallOption) (*SetExceptionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetExceptionResponse)
+	err := c.cc.Invoke(ctx, PlaybackErrorEventBuilderService_SetException_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackErrorEventBuilderServiceClient) SetMetricsBundle(ctx context.Context, in *SetMetricsBundleRequest, opts ...grpc.CallOption) (*SetMetricsBundleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetMetricsBundleResponse)
+	err := c.cc.Invoke(ctx, PlaybackErrorEventBuilderService_SetMetricsBundle_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackErrorEventBuilderServiceClient) SetSubErrorCode(ctx context.Context, in *SetSubErrorCodeRequest, opts ...grpc.CallOption) (*SetSubErrorCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetSubErrorCodeResponse)
+	err := c.cc.Invoke(ctx, PlaybackErrorEventBuilderService_SetSubErrorCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackErrorEventBuilderServiceClient) SetTimeSinceCreatedMillis(ctx context.Context, in *SetTimeSinceCreatedMillisRequest, opts ...grpc.CallOption) (*SetTimeSinceCreatedMillisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetTimeSinceCreatedMillisResponse)
+	err := c.cc.Invoke(ctx, PlaybackErrorEventBuilderService_SetTimeSinceCreatedMillis_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// PlaybackErrorEventBuilderServiceServer is the server API for PlaybackErrorEventBuilderService service.
+// All implementations must embed UnimplementedPlaybackErrorEventBuilderServiceServer
+// for forward compatibility.
+type PlaybackErrorEventBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetErrorCode(context.Context, *SetErrorCodeRequest) (*SetErrorCodeResponse, error)
+	SetException(context.Context, *SetExceptionRequest) (*SetExceptionResponse, error)
+	SetMetricsBundle(context.Context, *SetMetricsBundleRequest) (*SetMetricsBundleResponse, error)
+	SetSubErrorCode(context.Context, *SetSubErrorCodeRequest) (*SetSubErrorCodeResponse, error)
+	SetTimeSinceCreatedMillis(context.Context, *SetTimeSinceCreatedMillisRequest) (*SetTimeSinceCreatedMillisResponse, error)
+	mustEmbedUnimplementedPlaybackErrorEventBuilderServiceServer()
+}
+
+// UnimplementedPlaybackErrorEventBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedPlaybackErrorEventBuilderServiceServer struct{}
+
+func (UnimplementedPlaybackErrorEventBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedPlaybackErrorEventBuilderServiceServer) SetErrorCode(context.Context, *SetErrorCodeRequest) (*SetErrorCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetErrorCode not implemented")
+}
+func (UnimplementedPlaybackErrorEventBuilderServiceServer) SetException(context.Context, *SetExceptionRequest) (*SetExceptionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetException not implemented")
+}
+func (UnimplementedPlaybackErrorEventBuilderServiceServer) SetMetricsBundle(context.Context, *SetMetricsBundleRequest) (*SetMetricsBundleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetMetricsBundle not implemented")
+}
+func (UnimplementedPlaybackErrorEventBuilderServiceServer) SetSubErrorCode(context.Context, *SetSubErrorCodeRequest) (*SetSubErrorCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetSubErrorCode not implemented")
+}
+func (UnimplementedPlaybackErrorEventBuilderServiceServer) SetTimeSinceCreatedMillis(context.Context, *SetTimeSinceCreatedMillisRequest) (*SetTimeSinceCreatedMillisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetTimeSinceCreatedMillis not implemented")
+}
+func (UnimplementedPlaybackErrorEventBuilderServiceServer) mustEmbedUnimplementedPlaybackErrorEventBuilderServiceServer() {
+}
+func (UnimplementedPlaybackErrorEventBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafePlaybackErrorEventBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to PlaybackErrorEventBuilderServiceServer will
+// result in compilation errors.
+type UnsafePlaybackErrorEventBuilderServiceServer interface {
+	mustEmbedUnimplementedPlaybackErrorEventBuilderServiceServer()
+}
+
+func RegisterPlaybackErrorEventBuilderServiceServer(s grpc.ServiceRegistrar, srv PlaybackErrorEventBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedPlaybackErrorEventBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&PlaybackErrorEventBuilderService_ServiceDesc, srv)
+}
+
+func _PlaybackErrorEventBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackErrorEventBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackErrorEventBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackErrorEventBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackErrorEventBuilderService_SetErrorCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetErrorCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackErrorEventBuilderServiceServer).SetErrorCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackErrorEventBuilderService_SetErrorCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackErrorEventBuilderServiceServer).SetErrorCode(ctx, req.(*SetErrorCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackErrorEventBuilderService_SetException_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetExceptionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackErrorEventBuilderServiceServer).SetException(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackErrorEventBuilderService_SetException_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackErrorEventBuilderServiceServer).SetException(ctx, req.(*SetExceptionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackErrorEventBuilderService_SetMetricsBundle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetMetricsBundleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackErrorEventBuilderServiceServer).SetMetricsBundle(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackErrorEventBuilderService_SetMetricsBundle_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackErrorEventBuilderServiceServer).SetMetricsBundle(ctx, req.(*SetMetricsBundleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackErrorEventBuilderService_SetSubErrorCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetSubErrorCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackErrorEventBuilderServiceServer).SetSubErrorCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackErrorEventBuilderService_SetSubErrorCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackErrorEventBuilderServiceServer).SetSubErrorCode(ctx, req.(*SetSubErrorCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackErrorEventBuilderService_SetTimeSinceCreatedMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetTimeSinceCreatedMillisRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackErrorEventBuilderServiceServer).SetTimeSinceCreatedMillis(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackErrorEventBuilderService_SetTimeSinceCreatedMillis_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackErrorEventBuilderServiceServer).SetTimeSinceCreatedMillis(ctx, req.(*SetTimeSinceCreatedMillisRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// PlaybackErrorEventBuilderService_ServiceDesc is the grpc.ServiceDesc for PlaybackErrorEventBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var PlaybackErrorEventBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "metrics.PlaybackErrorEventBuilderService",
+	HandlerType: (*PlaybackErrorEventBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _PlaybackErrorEventBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetErrorCode",
+			Handler:    _PlaybackErrorEventBuilderService_SetErrorCode_Handler,
+		},
+		{
+			MethodName: "SetException",
+			Handler:    _PlaybackErrorEventBuilderService_SetException_Handler,
+		},
+		{
+			MethodName: "SetMetricsBundle",
+			Handler:    _PlaybackErrorEventBuilderService_SetMetricsBundle_Handler,
+		},
+		{
+			MethodName: "SetSubErrorCode",
+			Handler:    _PlaybackErrorEventBuilderService_SetSubErrorCode_Handler,
+		},
+		{
+			MethodName: "SetTimeSinceCreatedMillis",
+			Handler:    _PlaybackErrorEventBuilderService_SetTimeSinceCreatedMillis_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/metrics/metrics.proto",
+}
+
+const (
+	PlaybackStateEventService_DescribeContents_FullMethodName          = "/metrics.PlaybackStateEventService/DescribeContents"
+	PlaybackStateEventService_Equals_FullMethodName                    = "/metrics.PlaybackStateEventService/Equals"
+	PlaybackStateEventService_GetMetricsBundle_FullMethodName          = "/metrics.PlaybackStateEventService/GetMetricsBundle"
+	PlaybackStateEventService_GetState_FullMethodName                  = "/metrics.PlaybackStateEventService/GetState"
+	PlaybackStateEventService_GetTimeSinceCreatedMillis_FullMethodName = "/metrics.PlaybackStateEventService/GetTimeSinceCreatedMillis"
+	PlaybackStateEventService_HashCode_FullMethodName                  = "/metrics.PlaybackStateEventService/HashCode"
+	PlaybackStateEventService_WriteToParcel_FullMethodName             = "/metrics.PlaybackStateEventService/WriteToParcel"
+)
+
+// PlaybackStateEventServiceClient is the client API for PlaybackStateEventService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type PlaybackStateEventServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetMetricsBundle(ctx context.Context, in *GetMetricsBundleRequest, opts ...grpc.CallOption) (*GetMetricsBundleResponse, error)
+	GetState(ctx context.Context, in *GetStateRequest, opts ...grpc.CallOption) (*GetStateResponse, error)
+	GetTimeSinceCreatedMillis(ctx context.Context, in *GetTimeSinceCreatedMillisRequest, opts ...grpc.CallOption) (*GetTimeSinceCreatedMillisResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type playbackStateEventServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewPlaybackStateEventServiceClient(cc grpc.ClientConnInterface) PlaybackStateEventServiceClient {
+	return &playbackStateEventServiceClient{cc}
+}
+
+func (c *playbackStateEventServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, PlaybackStateEventService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackStateEventServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, PlaybackStateEventService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackStateEventServiceClient) GetMetricsBundle(ctx context.Context, in *GetMetricsBundleRequest, opts ...grpc.CallOption) (*GetMetricsBundleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMetricsBundleResponse)
+	err := c.cc.Invoke(ctx, PlaybackStateEventService_GetMetricsBundle_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackStateEventServiceClient) GetState(ctx context.Context, in *GetStateRequest, opts ...grpc.CallOption) (*GetStateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStateResponse)
+	err := c.cc.Invoke(ctx, PlaybackStateEventService_GetState_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackStateEventServiceClient) GetTimeSinceCreatedMillis(ctx context.Context, in *GetTimeSinceCreatedMillisRequest, opts ...grpc.CallOption) (*GetTimeSinceCreatedMillisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTimeSinceCreatedMillisResponse)
+	err := c.cc.Invoke(ctx, PlaybackStateEventService_GetTimeSinceCreatedMillis_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackStateEventServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, PlaybackStateEventService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackStateEventServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, PlaybackStateEventService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// PlaybackStateEventServiceServer is the server API for PlaybackStateEventService service.
+// All implementations must embed UnimplementedPlaybackStateEventServiceServer
+// for forward compatibility.
+type PlaybackStateEventServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetMetricsBundle(context.Context, *GetMetricsBundleRequest) (*GetMetricsBundleResponse, error)
+	GetState(context.Context, *GetStateRequest) (*GetStateResponse, error)
+	GetTimeSinceCreatedMillis(context.Context, *GetTimeSinceCreatedMillisRequest) (*GetTimeSinceCreatedMillisResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedPlaybackStateEventServiceServer()
+}
+
+// UnimplementedPlaybackStateEventServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedPlaybackStateEventServiceServer struct{}
+
+func (UnimplementedPlaybackStateEventServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedPlaybackStateEventServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedPlaybackStateEventServiceServer) GetMetricsBundle(context.Context, *GetMetricsBundleRequest) (*GetMetricsBundleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMetricsBundle not implemented")
+}
+func (UnimplementedPlaybackStateEventServiceServer) GetState(context.Context, *GetStateRequest) (*GetStateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetState not implemented")
+}
+func (UnimplementedPlaybackStateEventServiceServer) GetTimeSinceCreatedMillis(context.Context, *GetTimeSinceCreatedMillisRequest) (*GetTimeSinceCreatedMillisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTimeSinceCreatedMillis not implemented")
+}
+func (UnimplementedPlaybackStateEventServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedPlaybackStateEventServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedPlaybackStateEventServiceServer) mustEmbedUnimplementedPlaybackStateEventServiceServer() {
+}
+func (UnimplementedPlaybackStateEventServiceServer) testEmbeddedByValue() {}
+
+// UnsafePlaybackStateEventServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to PlaybackStateEventServiceServer will
+// result in compilation errors.
+type UnsafePlaybackStateEventServiceServer interface {
+	mustEmbedUnimplementedPlaybackStateEventServiceServer()
+}
+
+func RegisterPlaybackStateEventServiceServer(s grpc.ServiceRegistrar, srv PlaybackStateEventServiceServer) {
+	// If the following call panics, it indicates UnimplementedPlaybackStateEventServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&PlaybackStateEventService_ServiceDesc, srv)
+}
+
+func _PlaybackStateEventService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackStateEventServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackStateEventService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackStateEventServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackStateEventService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackStateEventServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackStateEventService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackStateEventServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackStateEventService_GetMetricsBundle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMetricsBundleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackStateEventServiceServer).GetMetricsBundle(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackStateEventService_GetMetricsBundle_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackStateEventServiceServer).GetMetricsBundle(ctx, req.(*GetMetricsBundleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackStateEventService_GetState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackStateEventServiceServer).GetState(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackStateEventService_GetState_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackStateEventServiceServer).GetState(ctx, req.(*GetStateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackStateEventService_GetTimeSinceCreatedMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTimeSinceCreatedMillisRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackStateEventServiceServer).GetTimeSinceCreatedMillis(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackStateEventService_GetTimeSinceCreatedMillis_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackStateEventServiceServer).GetTimeSinceCreatedMillis(ctx, req.(*GetTimeSinceCreatedMillisRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackStateEventService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackStateEventServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackStateEventService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackStateEventServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackStateEventService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackStateEventServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackStateEventService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackStateEventServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// PlaybackStateEventService_ServiceDesc is the grpc.ServiceDesc for PlaybackStateEventService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var PlaybackStateEventService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "metrics.PlaybackStateEventService",
+	HandlerType: (*PlaybackStateEventServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _PlaybackStateEventService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _PlaybackStateEventService_Equals_Handler,
+		},
+		{
+			MethodName: "GetMetricsBundle",
+			Handler:    _PlaybackStateEventService_GetMetricsBundle_Handler,
+		},
+		{
+			MethodName: "GetState",
+			Handler:    _PlaybackStateEventService_GetState_Handler,
+		},
+		{
+			MethodName: "GetTimeSinceCreatedMillis",
+			Handler:    _PlaybackStateEventService_GetTimeSinceCreatedMillis_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _PlaybackStateEventService_HashCode_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _PlaybackStateEventService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/metrics/metrics.proto",
+}
+
+const (
+	PlaybackStateEventBuilderService_Build_FullMethodName                     = "/metrics.PlaybackStateEventBuilderService/Build"
+	PlaybackStateEventBuilderService_SetMetricsBundle_FullMethodName          = "/metrics.PlaybackStateEventBuilderService/SetMetricsBundle"
+	PlaybackStateEventBuilderService_SetState_FullMethodName                  = "/metrics.PlaybackStateEventBuilderService/SetState"
+	PlaybackStateEventBuilderService_SetTimeSinceCreatedMillis_FullMethodName = "/metrics.PlaybackStateEventBuilderService/SetTimeSinceCreatedMillis"
+)
+
+// PlaybackStateEventBuilderServiceClient is the client API for PlaybackStateEventBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type PlaybackStateEventBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetMetricsBundle(ctx context.Context, in *SetMetricsBundleRequest, opts ...grpc.CallOption) (*SetMetricsBundleResponse, error)
+	SetState(ctx context.Context, in *SetStateRequest, opts ...grpc.CallOption) (*SetStateResponse, error)
+	SetTimeSinceCreatedMillis(ctx context.Context, in *SetTimeSinceCreatedMillisRequest, opts ...grpc.CallOption) (*SetTimeSinceCreatedMillisResponse, error)
+}
+
+type playbackStateEventBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewPlaybackStateEventBuilderServiceClient(cc grpc.ClientConnInterface) PlaybackStateEventBuilderServiceClient {
+	return &playbackStateEventBuilderServiceClient{cc}
+}
+
+func (c *playbackStateEventBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, PlaybackStateEventBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackStateEventBuilderServiceClient) SetMetricsBundle(ctx context.Context, in *SetMetricsBundleRequest, opts ...grpc.CallOption) (*SetMetricsBundleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetMetricsBundleResponse)
+	err := c.cc.Invoke(ctx, PlaybackStateEventBuilderService_SetMetricsBundle_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackStateEventBuilderServiceClient) SetState(ctx context.Context, in *SetStateRequest, opts ...grpc.CallOption) (*SetStateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetStateResponse)
+	err := c.cc.Invoke(ctx, PlaybackStateEventBuilderService_SetState_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackStateEventBuilderServiceClient) SetTimeSinceCreatedMillis(ctx context.Context, in *SetTimeSinceCreatedMillisRequest, opts ...grpc.CallOption) (*SetTimeSinceCreatedMillisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetTimeSinceCreatedMillisResponse)
+	err := c.cc.Invoke(ctx, PlaybackStateEventBuilderService_SetTimeSinceCreatedMillis_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// PlaybackStateEventBuilderServiceServer is the server API for PlaybackStateEventBuilderService service.
+// All implementations must embed UnimplementedPlaybackStateEventBuilderServiceServer
+// for forward compatibility.
+type PlaybackStateEventBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetMetricsBundle(context.Context, *SetMetricsBundleRequest) (*SetMetricsBundleResponse, error)
+	SetState(context.Context, *SetStateRequest) (*SetStateResponse, error)
+	SetTimeSinceCreatedMillis(context.Context, *SetTimeSinceCreatedMillisRequest) (*SetTimeSinceCreatedMillisResponse, error)
+	mustEmbedUnimplementedPlaybackStateEventBuilderServiceServer()
+}
+
+// UnimplementedPlaybackStateEventBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedPlaybackStateEventBuilderServiceServer struct{}
+
+func (UnimplementedPlaybackStateEventBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedPlaybackStateEventBuilderServiceServer) SetMetricsBundle(context.Context, *SetMetricsBundleRequest) (*SetMetricsBundleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetMetricsBundle not implemented")
+}
+func (UnimplementedPlaybackStateEventBuilderServiceServer) SetState(context.Context, *SetStateRequest) (*SetStateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetState not implemented")
+}
+func (UnimplementedPlaybackStateEventBuilderServiceServer) SetTimeSinceCreatedMillis(context.Context, *SetTimeSinceCreatedMillisRequest) (*SetTimeSinceCreatedMillisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetTimeSinceCreatedMillis not implemented")
+}
+func (UnimplementedPlaybackStateEventBuilderServiceServer) mustEmbedUnimplementedPlaybackStateEventBuilderServiceServer() {
+}
+func (UnimplementedPlaybackStateEventBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafePlaybackStateEventBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to PlaybackStateEventBuilderServiceServer will
+// result in compilation errors.
+type UnsafePlaybackStateEventBuilderServiceServer interface {
+	mustEmbedUnimplementedPlaybackStateEventBuilderServiceServer()
+}
+
+func RegisterPlaybackStateEventBuilderServiceServer(s grpc.ServiceRegistrar, srv PlaybackStateEventBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedPlaybackStateEventBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&PlaybackStateEventBuilderService_ServiceDesc, srv)
+}
+
+func _PlaybackStateEventBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackStateEventBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackStateEventBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackStateEventBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackStateEventBuilderService_SetMetricsBundle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetMetricsBundleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackStateEventBuilderServiceServer).SetMetricsBundle(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackStateEventBuilderService_SetMetricsBundle_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackStateEventBuilderServiceServer).SetMetricsBundle(ctx, req.(*SetMetricsBundleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackStateEventBuilderService_SetState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetStateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackStateEventBuilderServiceServer).SetState(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackStateEventBuilderService_SetState_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackStateEventBuilderServiceServer).SetState(ctx, req.(*SetStateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackStateEventBuilderService_SetTimeSinceCreatedMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetTimeSinceCreatedMillisRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackStateEventBuilderServiceServer).SetTimeSinceCreatedMillis(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackStateEventBuilderService_SetTimeSinceCreatedMillis_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackStateEventBuilderServiceServer).SetTimeSinceCreatedMillis(ctx, req.(*SetTimeSinceCreatedMillisRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// PlaybackStateEventBuilderService_ServiceDesc is the grpc.ServiceDesc for PlaybackStateEventBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var PlaybackStateEventBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "metrics.PlaybackStateEventBuilderService",
+	HandlerType: (*PlaybackStateEventBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _PlaybackStateEventBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetMetricsBundle",
+			Handler:    _PlaybackStateEventBuilderService_SetMetricsBundle_Handler,
+		},
+		{
+			MethodName: "SetState",
+			Handler:    _PlaybackStateEventBuilderService_SetState_Handler,
+		},
+		{
+			MethodName: "SetTimeSinceCreatedMillis",
+			Handler:    _PlaybackStateEventBuilderService_SetTimeSinceCreatedMillis_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/metrics/metrics.proto",
+}
+
+const (
+	PlaybackSessionService_Close_FullMethodName                    = "/metrics.PlaybackSessionService/Close"
+	PlaybackSessionService_Equals_FullMethodName                   = "/metrics.PlaybackSessionService/Equals"
+	PlaybackSessionService_GetSessionId_FullMethodName             = "/metrics.PlaybackSessionService/GetSessionId"
+	PlaybackSessionService_HashCode_FullMethodName                 = "/metrics.PlaybackSessionService/HashCode"
+	PlaybackSessionService_ReportNetworkEvent_FullMethodName       = "/metrics.PlaybackSessionService/ReportNetworkEvent"
+	PlaybackSessionService_ReportPlaybackErrorEvent_FullMethodName = "/metrics.PlaybackSessionService/ReportPlaybackErrorEvent"
+	PlaybackSessionService_ReportPlaybackMetrics_FullMethodName    = "/metrics.PlaybackSessionService/ReportPlaybackMetrics"
+	PlaybackSessionService_ReportPlaybackStateEvent_FullMethodName = "/metrics.PlaybackSessionService/ReportPlaybackStateEvent"
+	PlaybackSessionService_ReportTrackChangeEvent_FullMethodName   = "/metrics.PlaybackSessionService/ReportTrackChangeEvent"
+)
+
+// PlaybackSessionServiceClient is the client API for PlaybackSessionService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type PlaybackSessionServiceClient interface {
+	Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetSessionId(ctx context.Context, in *GetSessionIdRequest, opts ...grpc.CallOption) (*GetSessionIdResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ReportNetworkEvent(ctx context.Context, in *ReportNetworkEventRequest, opts ...grpc.CallOption) (*ReportNetworkEventResponse, error)
+	ReportPlaybackErrorEvent(ctx context.Context, in *ReportPlaybackErrorEventRequest, opts ...grpc.CallOption) (*ReportPlaybackErrorEventResponse, error)
+	ReportPlaybackMetrics(ctx context.Context, in *ReportPlaybackMetricsRequest, opts ...grpc.CallOption) (*ReportPlaybackMetricsResponse, error)
+	ReportPlaybackStateEvent(ctx context.Context, in *ReportPlaybackStateEventRequest, opts ...grpc.CallOption) (*ReportPlaybackStateEventResponse, error)
+	ReportTrackChangeEvent(ctx context.Context, in *ReportTrackChangeEventRequest, opts ...grpc.CallOption) (*ReportTrackChangeEventResponse, error)
+}
+
+type playbackSessionServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewPlaybackSessionServiceClient(cc grpc.ClientConnInterface) PlaybackSessionServiceClient {
+	return &playbackSessionServiceClient{cc}
+}
+
+func (c *playbackSessionServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CloseResponse)
+	err := c.cc.Invoke(ctx, PlaybackSessionService_Close_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackSessionServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, PlaybackSessionService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackSessionServiceClient) GetSessionId(ctx context.Context, in *GetSessionIdRequest, opts ...grpc.CallOption) (*GetSessionIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSessionIdResponse)
+	err := c.cc.Invoke(ctx, PlaybackSessionService_GetSessionId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackSessionServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, PlaybackSessionService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackSessionServiceClient) ReportNetworkEvent(ctx context.Context, in *ReportNetworkEventRequest, opts ...grpc.CallOption) (*ReportNetworkEventResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ReportNetworkEventResponse)
+	err := c.cc.Invoke(ctx, PlaybackSessionService_ReportNetworkEvent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackSessionServiceClient) ReportPlaybackErrorEvent(ctx context.Context, in *ReportPlaybackErrorEventRequest, opts ...grpc.CallOption) (*ReportPlaybackErrorEventResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ReportPlaybackErrorEventResponse)
+	err := c.cc.Invoke(ctx, PlaybackSessionService_ReportPlaybackErrorEvent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackSessionServiceClient) ReportPlaybackMetrics(ctx context.Context, in *ReportPlaybackMetricsRequest, opts ...grpc.CallOption) (*ReportPlaybackMetricsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ReportPlaybackMetricsResponse)
+	err := c.cc.Invoke(ctx, PlaybackSessionService_ReportPlaybackMetrics_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackSessionServiceClient) ReportPlaybackStateEvent(ctx context.Context, in *ReportPlaybackStateEventRequest, opts ...grpc.CallOption) (*ReportPlaybackStateEventResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ReportPlaybackStateEventResponse)
+	err := c.cc.Invoke(ctx, PlaybackSessionService_ReportPlaybackStateEvent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playbackSessionServiceClient) ReportTrackChangeEvent(ctx context.Context, in *ReportTrackChangeEventRequest, opts ...grpc.CallOption) (*ReportTrackChangeEventResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ReportTrackChangeEventResponse)
+	err := c.cc.Invoke(ctx, PlaybackSessionService_ReportTrackChangeEvent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// PlaybackSessionServiceServer is the server API for PlaybackSessionService service.
+// All implementations must embed UnimplementedPlaybackSessionServiceServer
+// for forward compatibility.
+type PlaybackSessionServiceServer interface {
+	Close(context.Context, *CloseRequest) (*CloseResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetSessionId(context.Context, *GetSessionIdRequest) (*GetSessionIdResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	ReportNetworkEvent(context.Context, *ReportNetworkEventRequest) (*ReportNetworkEventResponse, error)
+	ReportPlaybackErrorEvent(context.Context, *ReportPlaybackErrorEventRequest) (*ReportPlaybackErrorEventResponse, error)
+	ReportPlaybackMetrics(context.Context, *ReportPlaybackMetricsRequest) (*ReportPlaybackMetricsResponse, error)
+	ReportPlaybackStateEvent(context.Context, *ReportPlaybackStateEventRequest) (*ReportPlaybackStateEventResponse, error)
+	ReportTrackChangeEvent(context.Context, *ReportTrackChangeEventRequest) (*ReportTrackChangeEventResponse, error)
+	mustEmbedUnimplementedPlaybackSessionServiceServer()
+}
+
+// UnimplementedPlaybackSessionServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedPlaybackSessionServiceServer struct{}
+
+func (UnimplementedPlaybackSessionServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
+}
+func (UnimplementedPlaybackSessionServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedPlaybackSessionServiceServer) GetSessionId(context.Context, *GetSessionIdRequest) (*GetSessionIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSessionId not implemented")
+}
+func (UnimplementedPlaybackSessionServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedPlaybackSessionServiceServer) ReportNetworkEvent(context.Context, *ReportNetworkEventRequest) (*ReportNetworkEventResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ReportNetworkEvent not implemented")
+}
+func (UnimplementedPlaybackSessionServiceServer) ReportPlaybackErrorEvent(context.Context, *ReportPlaybackErrorEventRequest) (*ReportPlaybackErrorEventResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ReportPlaybackErrorEvent not implemented")
+}
+func (UnimplementedPlaybackSessionServiceServer) ReportPlaybackMetrics(context.Context, *ReportPlaybackMetricsRequest) (*ReportPlaybackMetricsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ReportPlaybackMetrics not implemented")
+}
+func (UnimplementedPlaybackSessionServiceServer) ReportPlaybackStateEvent(context.Context, *ReportPlaybackStateEventRequest) (*ReportPlaybackStateEventResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ReportPlaybackStateEvent not implemented")
+}
+func (UnimplementedPlaybackSessionServiceServer) ReportTrackChangeEvent(context.Context, *ReportTrackChangeEventRequest) (*ReportTrackChangeEventResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ReportTrackChangeEvent not implemented")
+}
+func (UnimplementedPlaybackSessionServiceServer) mustEmbedUnimplementedPlaybackSessionServiceServer() {
+}
+func (UnimplementedPlaybackSessionServiceServer) testEmbeddedByValue() {}
+
+// UnsafePlaybackSessionServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to PlaybackSessionServiceServer will
+// result in compilation errors.
+type UnsafePlaybackSessionServiceServer interface {
+	mustEmbedUnimplementedPlaybackSessionServiceServer()
+}
+
+func RegisterPlaybackSessionServiceServer(s grpc.ServiceRegistrar, srv PlaybackSessionServiceServer) {
+	// If the following call panics, it indicates UnimplementedPlaybackSessionServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&PlaybackSessionService_ServiceDesc, srv)
+}
+
+func _PlaybackSessionService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CloseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackSessionServiceServer).Close(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackSessionService_Close_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackSessionServiceServer).Close(ctx, req.(*CloseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackSessionService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackSessionServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackSessionService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackSessionServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackSessionService_GetSessionId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSessionIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackSessionServiceServer).GetSessionId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackSessionService_GetSessionId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackSessionServiceServer).GetSessionId(ctx, req.(*GetSessionIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackSessionService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackSessionServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackSessionService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackSessionServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackSessionService_ReportNetworkEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReportNetworkEventRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackSessionServiceServer).ReportNetworkEvent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackSessionService_ReportNetworkEvent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackSessionServiceServer).ReportNetworkEvent(ctx, req.(*ReportNetworkEventRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackSessionService_ReportPlaybackErrorEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReportPlaybackErrorEventRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackSessionServiceServer).ReportPlaybackErrorEvent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackSessionService_ReportPlaybackErrorEvent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackSessionServiceServer).ReportPlaybackErrorEvent(ctx, req.(*ReportPlaybackErrorEventRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackSessionService_ReportPlaybackMetrics_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReportPlaybackMetricsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackSessionServiceServer).ReportPlaybackMetrics(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackSessionService_ReportPlaybackMetrics_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackSessionServiceServer).ReportPlaybackMetrics(ctx, req.(*ReportPlaybackMetricsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackSessionService_ReportPlaybackStateEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReportPlaybackStateEventRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackSessionServiceServer).ReportPlaybackStateEvent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackSessionService_ReportPlaybackStateEvent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackSessionServiceServer).ReportPlaybackStateEvent(ctx, req.(*ReportPlaybackStateEventRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlaybackSessionService_ReportTrackChangeEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReportTrackChangeEventRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlaybackSessionServiceServer).ReportTrackChangeEvent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlaybackSessionService_ReportTrackChangeEvent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlaybackSessionServiceServer).ReportTrackChangeEvent(ctx, req.(*ReportTrackChangeEventRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// PlaybackSessionService_ServiceDesc is the grpc.ServiceDesc for PlaybackSessionService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var PlaybackSessionService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "metrics.PlaybackSessionService",
+	HandlerType: (*PlaybackSessionServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Close",
+			Handler:    _PlaybackSessionService_Close_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _PlaybackSessionService_Equals_Handler,
+		},
+		{
+			MethodName: "GetSessionId",
+			Handler:    _PlaybackSessionService_GetSessionId_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _PlaybackSessionService_HashCode_Handler,
+		},
+		{
+			MethodName: "ReportNetworkEvent",
+			Handler:    _PlaybackSessionService_ReportNetworkEvent_Handler,
+		},
+		{
+			MethodName: "ReportPlaybackErrorEvent",
+			Handler:    _PlaybackSessionService_ReportPlaybackErrorEvent_Handler,
+		},
+		{
+			MethodName: "ReportPlaybackMetrics",
+			Handler:    _PlaybackSessionService_ReportPlaybackMetrics_Handler,
+		},
+		{
+			MethodName: "ReportPlaybackStateEvent",
+			Handler:    _PlaybackSessionService_ReportPlaybackStateEvent_Handler,
+		},
+		{
+			MethodName: "ReportTrackChangeEvent",
+			Handler:    _PlaybackSessionService_ReportTrackChangeEvent_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/metrics/metrics.proto",
+}
+
+const (
+	BundleSessionService_Close_FullMethodName               = "/metrics.BundleSessionService/Close"
+	BundleSessionService_Equals_FullMethodName              = "/metrics.BundleSessionService/Equals"
+	BundleSessionService_GetSessionId_FullMethodName        = "/metrics.BundleSessionService/GetSessionId"
+	BundleSessionService_HashCode_FullMethodName            = "/metrics.BundleSessionService/HashCode"
+	BundleSessionService_ReportBundleMetrics_FullMethodName = "/metrics.BundleSessionService/ReportBundleMetrics"
+)
+
+// BundleSessionServiceClient is the client API for BundleSessionService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type BundleSessionServiceClient interface {
+	Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetSessionId(ctx context.Context, in *GetSessionIdRequest, opts ...grpc.CallOption) (*GetSessionIdResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ReportBundleMetrics(ctx context.Context, in *ReportBundleMetricsRequest, opts ...grpc.CallOption) (*ReportBundleMetricsResponse, error)
+}
+
+type bundleSessionServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewBundleSessionServiceClient(cc grpc.ClientConnInterface) BundleSessionServiceClient {
+	return &bundleSessionServiceClient{cc}
+}
+
+func (c *bundleSessionServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CloseResponse)
+	err := c.cc.Invoke(ctx, BundleSessionService_Close_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *bundleSessionServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, BundleSessionService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *bundleSessionServiceClient) GetSessionId(ctx context.Context, in *GetSessionIdRequest, opts ...grpc.CallOption) (*GetSessionIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSessionIdResponse)
+	err := c.cc.Invoke(ctx, BundleSessionService_GetSessionId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *bundleSessionServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, BundleSessionService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *bundleSessionServiceClient) ReportBundleMetrics(ctx context.Context, in *ReportBundleMetricsRequest, opts ...grpc.CallOption) (*ReportBundleMetricsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ReportBundleMetricsResponse)
+	err := c.cc.Invoke(ctx, BundleSessionService_ReportBundleMetrics_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// BundleSessionServiceServer is the server API for BundleSessionService service.
+// All implementations must embed UnimplementedBundleSessionServiceServer
+// for forward compatibility.
+type BundleSessionServiceServer interface {
+	Close(context.Context, *CloseRequest) (*CloseResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetSessionId(context.Context, *GetSessionIdRequest) (*GetSessionIdResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	ReportBundleMetrics(context.Context, *ReportBundleMetricsRequest) (*ReportBundleMetricsResponse, error)
+	mustEmbedUnimplementedBundleSessionServiceServer()
+}
+
+// UnimplementedBundleSessionServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedBundleSessionServiceServer struct{}
+
+func (UnimplementedBundleSessionServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
+}
+func (UnimplementedBundleSessionServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedBundleSessionServiceServer) GetSessionId(context.Context, *GetSessionIdRequest) (*GetSessionIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSessionId not implemented")
+}
+func (UnimplementedBundleSessionServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedBundleSessionServiceServer) ReportBundleMetrics(context.Context, *ReportBundleMetricsRequest) (*ReportBundleMetricsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ReportBundleMetrics not implemented")
+}
+func (UnimplementedBundleSessionServiceServer) mustEmbedUnimplementedBundleSessionServiceServer() {}
+func (UnimplementedBundleSessionServiceServer) testEmbeddedByValue()                              {}
+
+// UnsafeBundleSessionServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to BundleSessionServiceServer will
+// result in compilation errors.
+type UnsafeBundleSessionServiceServer interface {
+	mustEmbedUnimplementedBundleSessionServiceServer()
+}
+
+func RegisterBundleSessionServiceServer(s grpc.ServiceRegistrar, srv BundleSessionServiceServer) {
+	// If the following call panics, it indicates UnimplementedBundleSessionServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&BundleSessionService_ServiceDesc, srv)
+}
+
+func _BundleSessionService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CloseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BundleSessionServiceServer).Close(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BundleSessionService_Close_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BundleSessionServiceServer).Close(ctx, req.(*CloseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BundleSessionService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BundleSessionServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BundleSessionService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BundleSessionServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BundleSessionService_GetSessionId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSessionIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BundleSessionServiceServer).GetSessionId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BundleSessionService_GetSessionId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BundleSessionServiceServer).GetSessionId(ctx, req.(*GetSessionIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BundleSessionService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BundleSessionServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BundleSessionService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BundleSessionServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BundleSessionService_ReportBundleMetrics_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReportBundleMetricsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BundleSessionServiceServer).ReportBundleMetrics(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BundleSessionService_ReportBundleMetrics_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BundleSessionServiceServer).ReportBundleMetrics(ctx, req.(*ReportBundleMetricsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// BundleSessionService_ServiceDesc is the grpc.ServiceDesc for BundleSessionService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var BundleSessionService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "metrics.BundleSessionService",
+	HandlerType: (*BundleSessionServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Close",
+			Handler:    _BundleSessionService_Close_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _BundleSessionService_Equals_Handler,
+		},
+		{
+			MethodName: "GetSessionId",
+			Handler:    _BundleSessionService_GetSessionId_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _BundleSessionService_HashCode_Handler,
+		},
+		{
+			MethodName: "ReportBundleMetrics",
+			Handler:    _BundleSessionService_ReportBundleMetrics_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/metrics/metrics.proto",
+}
+
+const (
+	NetworkEventService_DescribeContents_FullMethodName          = "/metrics.NetworkEventService/DescribeContents"
+	NetworkEventService_Equals_FullMethodName                    = "/metrics.NetworkEventService/Equals"
+	NetworkEventService_GetMetricsBundle_FullMethodName          = "/metrics.NetworkEventService/GetMetricsBundle"
+	NetworkEventService_GetNetworkType_FullMethodName            = "/metrics.NetworkEventService/GetNetworkType"
+	NetworkEventService_GetTimeSinceCreatedMillis_FullMethodName = "/metrics.NetworkEventService/GetTimeSinceCreatedMillis"
+	NetworkEventService_HashCode_FullMethodName                  = "/metrics.NetworkEventService/HashCode"
+	NetworkEventService_ToString_FullMethodName                  = "/metrics.NetworkEventService/ToString"
+	NetworkEventService_WriteToParcel_FullMethodName             = "/metrics.NetworkEventService/WriteToParcel"
+)
+
+// NetworkEventServiceClient is the client API for NetworkEventService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type NetworkEventServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetMetricsBundle(ctx context.Context, in *GetMetricsBundleRequest, opts ...grpc.CallOption) (*GetMetricsBundleResponse, error)
+	GetNetworkType(ctx context.Context, in *GetNetworkTypeRequest, opts ...grpc.CallOption) (*GetNetworkTypeResponse, error)
+	GetTimeSinceCreatedMillis(ctx context.Context, in *GetTimeSinceCreatedMillisRequest, opts ...grpc.CallOption) (*GetTimeSinceCreatedMillisResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type networkEventServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewNetworkEventServiceClient(cc grpc.ClientConnInterface) NetworkEventServiceClient {
+	return &networkEventServiceClient{cc}
+}
+
+func (c *networkEventServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, NetworkEventService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *networkEventServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, NetworkEventService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *networkEventServiceClient) GetMetricsBundle(ctx context.Context, in *GetMetricsBundleRequest, opts ...grpc.CallOption) (*GetMetricsBundleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMetricsBundleResponse)
+	err := c.cc.Invoke(ctx, NetworkEventService_GetMetricsBundle_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *networkEventServiceClient) GetNetworkType(ctx context.Context, in *GetNetworkTypeRequest, opts ...grpc.CallOption) (*GetNetworkTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetNetworkTypeResponse)
+	err := c.cc.Invoke(ctx, NetworkEventService_GetNetworkType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *networkEventServiceClient) GetTimeSinceCreatedMillis(ctx context.Context, in *GetTimeSinceCreatedMillisRequest, opts ...grpc.CallOption) (*GetTimeSinceCreatedMillisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTimeSinceCreatedMillisResponse)
+	err := c.cc.Invoke(ctx, NetworkEventService_GetTimeSinceCreatedMillis_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *networkEventServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, NetworkEventService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *networkEventServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, NetworkEventService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *networkEventServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, NetworkEventService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// NetworkEventServiceServer is the server API for NetworkEventService service.
+// All implementations must embed UnimplementedNetworkEventServiceServer
+// for forward compatibility.
+type NetworkEventServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetMetricsBundle(context.Context, *GetMetricsBundleRequest) (*GetMetricsBundleResponse, error)
+	GetNetworkType(context.Context, *GetNetworkTypeRequest) (*GetNetworkTypeResponse, error)
+	GetTimeSinceCreatedMillis(context.Context, *GetTimeSinceCreatedMillisRequest) (*GetTimeSinceCreatedMillisResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedNetworkEventServiceServer()
+}
+
+// UnimplementedNetworkEventServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedNetworkEventServiceServer struct{}
+
+func (UnimplementedNetworkEventServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedNetworkEventServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedNetworkEventServiceServer) GetMetricsBundle(context.Context, *GetMetricsBundleRequest) (*GetMetricsBundleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMetricsBundle not implemented")
+}
+func (UnimplementedNetworkEventServiceServer) GetNetworkType(context.Context, *GetNetworkTypeRequest) (*GetNetworkTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetNetworkType not implemented")
+}
+func (UnimplementedNetworkEventServiceServer) GetTimeSinceCreatedMillis(context.Context, *GetTimeSinceCreatedMillisRequest) (*GetTimeSinceCreatedMillisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTimeSinceCreatedMillis not implemented")
+}
+func (UnimplementedNetworkEventServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedNetworkEventServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedNetworkEventServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedNetworkEventServiceServer) mustEmbedUnimplementedNetworkEventServiceServer() {}
+func (UnimplementedNetworkEventServiceServer) testEmbeddedByValue()                             {}
+
+// UnsafeNetworkEventServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to NetworkEventServiceServer will
+// result in compilation errors.
+type UnsafeNetworkEventServiceServer interface {
+	mustEmbedUnimplementedNetworkEventServiceServer()
+}
+
+func RegisterNetworkEventServiceServer(s grpc.ServiceRegistrar, srv NetworkEventServiceServer) {
+	// If the following call panics, it indicates UnimplementedNetworkEventServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&NetworkEventService_ServiceDesc, srv)
+}
+
+func _NetworkEventService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NetworkEventServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NetworkEventService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NetworkEventServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NetworkEventService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NetworkEventServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NetworkEventService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NetworkEventServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NetworkEventService_GetMetricsBundle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMetricsBundleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NetworkEventServiceServer).GetMetricsBundle(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NetworkEventService_GetMetricsBundle_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NetworkEventServiceServer).GetMetricsBundle(ctx, req.(*GetMetricsBundleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NetworkEventService_GetNetworkType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetNetworkTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NetworkEventServiceServer).GetNetworkType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NetworkEventService_GetNetworkType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NetworkEventServiceServer).GetNetworkType(ctx, req.(*GetNetworkTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NetworkEventService_GetTimeSinceCreatedMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTimeSinceCreatedMillisRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NetworkEventServiceServer).GetTimeSinceCreatedMillis(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NetworkEventService_GetTimeSinceCreatedMillis_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NetworkEventServiceServer).GetTimeSinceCreatedMillis(ctx, req.(*GetTimeSinceCreatedMillisRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NetworkEventService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NetworkEventServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NetworkEventService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NetworkEventServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NetworkEventService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NetworkEventServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NetworkEventService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NetworkEventServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NetworkEventService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NetworkEventServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NetworkEventService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NetworkEventServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// NetworkEventService_ServiceDesc is the grpc.ServiceDesc for NetworkEventService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var NetworkEventService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "metrics.NetworkEventService",
+	HandlerType: (*NetworkEventServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _NetworkEventService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _NetworkEventService_Equals_Handler,
+		},
+		{
+			MethodName: "GetMetricsBundle",
+			Handler:    _NetworkEventService_GetMetricsBundle_Handler,
+		},
+		{
+			MethodName: "GetNetworkType",
+			Handler:    _NetworkEventService_GetNetworkType_Handler,
+		},
+		{
+			MethodName: "GetTimeSinceCreatedMillis",
+			Handler:    _NetworkEventService_GetTimeSinceCreatedMillis_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _NetworkEventService_HashCode_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _NetworkEventService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _NetworkEventService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/metrics/metrics.proto",
+}
+
+const (
+	NetworkEventBuilderService_Build_FullMethodName                     = "/metrics.NetworkEventBuilderService/Build"
+	NetworkEventBuilderService_SetMetricsBundle_FullMethodName          = "/metrics.NetworkEventBuilderService/SetMetricsBundle"
+	NetworkEventBuilderService_SetNetworkType_FullMethodName            = "/metrics.NetworkEventBuilderService/SetNetworkType"
+	NetworkEventBuilderService_SetTimeSinceCreatedMillis_FullMethodName = "/metrics.NetworkEventBuilderService/SetTimeSinceCreatedMillis"
+)
+
+// NetworkEventBuilderServiceClient is the client API for NetworkEventBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type NetworkEventBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetMetricsBundle(ctx context.Context, in *SetMetricsBundleRequest, opts ...grpc.CallOption) (*SetMetricsBundleResponse, error)
+	SetNetworkType(ctx context.Context, in *SetNetworkTypeRequest, opts ...grpc.CallOption) (*SetNetworkTypeResponse, error)
+	SetTimeSinceCreatedMillis(ctx context.Context, in *SetTimeSinceCreatedMillisRequest, opts ...grpc.CallOption) (*SetTimeSinceCreatedMillisResponse, error)
+}
+
+type networkEventBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewNetworkEventBuilderServiceClient(cc grpc.ClientConnInterface) NetworkEventBuilderServiceClient {
+	return &networkEventBuilderServiceClient{cc}
+}
+
+func (c *networkEventBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, NetworkEventBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *networkEventBuilderServiceClient) SetMetricsBundle(ctx context.Context, in *SetMetricsBundleRequest, opts ...grpc.CallOption) (*SetMetricsBundleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetMetricsBundleResponse)
+	err := c.cc.Invoke(ctx, NetworkEventBuilderService_SetMetricsBundle_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *networkEventBuilderServiceClient) SetNetworkType(ctx context.Context, in *SetNetworkTypeRequest, opts ...grpc.CallOption) (*SetNetworkTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetNetworkTypeResponse)
+	err := c.cc.Invoke(ctx, NetworkEventBuilderService_SetNetworkType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *networkEventBuilderServiceClient) SetTimeSinceCreatedMillis(ctx context.Context, in *SetTimeSinceCreatedMillisRequest, opts ...grpc.CallOption) (*SetTimeSinceCreatedMillisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetTimeSinceCreatedMillisResponse)
+	err := c.cc.Invoke(ctx, NetworkEventBuilderService_SetTimeSinceCreatedMillis_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// NetworkEventBuilderServiceServer is the server API for NetworkEventBuilderService service.
+// All implementations must embed UnimplementedNetworkEventBuilderServiceServer
+// for forward compatibility.
+type NetworkEventBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetMetricsBundle(context.Context, *SetMetricsBundleRequest) (*SetMetricsBundleResponse, error)
+	SetNetworkType(context.Context, *SetNetworkTypeRequest) (*SetNetworkTypeResponse, error)
+	SetTimeSinceCreatedMillis(context.Context, *SetTimeSinceCreatedMillisRequest) (*SetTimeSinceCreatedMillisResponse, error)
+	mustEmbedUnimplementedNetworkEventBuilderServiceServer()
+}
+
+// UnimplementedNetworkEventBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedNetworkEventBuilderServiceServer struct{}
+
+func (UnimplementedNetworkEventBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedNetworkEventBuilderServiceServer) SetMetricsBundle(context.Context, *SetMetricsBundleRequest) (*SetMetricsBundleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetMetricsBundle not implemented")
+}
+func (UnimplementedNetworkEventBuilderServiceServer) SetNetworkType(context.Context, *SetNetworkTypeRequest) (*SetNetworkTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetNetworkType not implemented")
+}
+func (UnimplementedNetworkEventBuilderServiceServer) SetTimeSinceCreatedMillis(context.Context, *SetTimeSinceCreatedMillisRequest) (*SetTimeSinceCreatedMillisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetTimeSinceCreatedMillis not implemented")
+}
+func (UnimplementedNetworkEventBuilderServiceServer) mustEmbedUnimplementedNetworkEventBuilderServiceServer() {
+}
+func (UnimplementedNetworkEventBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeNetworkEventBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to NetworkEventBuilderServiceServer will
+// result in compilation errors.
+type UnsafeNetworkEventBuilderServiceServer interface {
+	mustEmbedUnimplementedNetworkEventBuilderServiceServer()
+}
+
+func RegisterNetworkEventBuilderServiceServer(s grpc.ServiceRegistrar, srv NetworkEventBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedNetworkEventBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&NetworkEventBuilderService_ServiceDesc, srv)
+}
+
+func _NetworkEventBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NetworkEventBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NetworkEventBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NetworkEventBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NetworkEventBuilderService_SetMetricsBundle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetMetricsBundleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NetworkEventBuilderServiceServer).SetMetricsBundle(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NetworkEventBuilderService_SetMetricsBundle_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NetworkEventBuilderServiceServer).SetMetricsBundle(ctx, req.(*SetMetricsBundleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NetworkEventBuilderService_SetNetworkType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetNetworkTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NetworkEventBuilderServiceServer).SetNetworkType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NetworkEventBuilderService_SetNetworkType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NetworkEventBuilderServiceServer).SetNetworkType(ctx, req.(*SetNetworkTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NetworkEventBuilderService_SetTimeSinceCreatedMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetTimeSinceCreatedMillisRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NetworkEventBuilderServiceServer).SetTimeSinceCreatedMillis(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NetworkEventBuilderService_SetTimeSinceCreatedMillis_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NetworkEventBuilderServiceServer).SetTimeSinceCreatedMillis(ctx, req.(*SetTimeSinceCreatedMillisRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// NetworkEventBuilderService_ServiceDesc is the grpc.ServiceDesc for NetworkEventBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var NetworkEventBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "metrics.NetworkEventBuilderService",
+	HandlerType: (*NetworkEventBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _NetworkEventBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetMetricsBundle",
+			Handler:    _NetworkEventBuilderService_SetMetricsBundle_Handler,
+		},
+		{
+			MethodName: "SetNetworkType",
+			Handler:    _NetworkEventBuilderService_SetNetworkType_Handler,
+		},
+		{
+			MethodName: "SetTimeSinceCreatedMillis",
+			Handler:    _NetworkEventBuilderService_SetTimeSinceCreatedMillis_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/metrics/metrics.proto",
+}
+
+const (
+	EditingSessionService_Close_FullMethodName                   = "/metrics.EditingSessionService/Close"
+	EditingSessionService_Equals_FullMethodName                  = "/metrics.EditingSessionService/Equals"
+	EditingSessionService_GetSessionId_FullMethodName            = "/metrics.EditingSessionService/GetSessionId"
+	EditingSessionService_HashCode_FullMethodName                = "/metrics.EditingSessionService/HashCode"
+	EditingSessionService_ReportEditingEndedEvent_FullMethodName = "/metrics.EditingSessionService/ReportEditingEndedEvent"
+)
+
+// EditingSessionServiceClient is the client API for EditingSessionService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type EditingSessionServiceClient interface {
+	Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetSessionId(ctx context.Context, in *GetSessionIdRequest, opts ...grpc.CallOption) (*GetSessionIdResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ReportEditingEndedEvent(ctx context.Context, in *ReportEditingEndedEventRequest, opts ...grpc.CallOption) (*ReportEditingEndedEventResponse, error)
+}
+
+type editingSessionServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewEditingSessionServiceClient(cc grpc.ClientConnInterface) EditingSessionServiceClient {
+	return &editingSessionServiceClient{cc}
+}
+
+func (c *editingSessionServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CloseResponse)
+	err := c.cc.Invoke(ctx, EditingSessionService_Close_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *editingSessionServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, EditingSessionService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *editingSessionServiceClient) GetSessionId(ctx context.Context, in *GetSessionIdRequest, opts ...grpc.CallOption) (*GetSessionIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSessionIdResponse)
+	err := c.cc.Invoke(ctx, EditingSessionService_GetSessionId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *editingSessionServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, EditingSessionService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *editingSessionServiceClient) ReportEditingEndedEvent(ctx context.Context, in *ReportEditingEndedEventRequest, opts ...grpc.CallOption) (*ReportEditingEndedEventResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ReportEditingEndedEventResponse)
+	err := c.cc.Invoke(ctx, EditingSessionService_ReportEditingEndedEvent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// EditingSessionServiceServer is the server API for EditingSessionService service.
+// All implementations must embed UnimplementedEditingSessionServiceServer
+// for forward compatibility.
+type EditingSessionServiceServer interface {
+	Close(context.Context, *CloseRequest) (*CloseResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetSessionId(context.Context, *GetSessionIdRequest) (*GetSessionIdResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	ReportEditingEndedEvent(context.Context, *ReportEditingEndedEventRequest) (*ReportEditingEndedEventResponse, error)
+	mustEmbedUnimplementedEditingSessionServiceServer()
+}
+
+// UnimplementedEditingSessionServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedEditingSessionServiceServer struct{}
+
+func (UnimplementedEditingSessionServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
+}
+func (UnimplementedEditingSessionServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedEditingSessionServiceServer) GetSessionId(context.Context, *GetSessionIdRequest) (*GetSessionIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSessionId not implemented")
+}
+func (UnimplementedEditingSessionServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedEditingSessionServiceServer) ReportEditingEndedEvent(context.Context, *ReportEditingEndedEventRequest) (*ReportEditingEndedEventResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ReportEditingEndedEvent not implemented")
+}
+func (UnimplementedEditingSessionServiceServer) mustEmbedUnimplementedEditingSessionServiceServer() {}
+func (UnimplementedEditingSessionServiceServer) testEmbeddedByValue()                               {}
+
+// UnsafeEditingSessionServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to EditingSessionServiceServer will
+// result in compilation errors.
+type UnsafeEditingSessionServiceServer interface {
+	mustEmbedUnimplementedEditingSessionServiceServer()
+}
+
+func RegisterEditingSessionServiceServer(s grpc.ServiceRegistrar, srv EditingSessionServiceServer) {
+	// If the following call panics, it indicates UnimplementedEditingSessionServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&EditingSessionService_ServiceDesc, srv)
+}
+
+func _EditingSessionService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CloseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EditingSessionServiceServer).Close(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EditingSessionService_Close_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EditingSessionServiceServer).Close(ctx, req.(*CloseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EditingSessionService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EditingSessionServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EditingSessionService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EditingSessionServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EditingSessionService_GetSessionId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSessionIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EditingSessionServiceServer).GetSessionId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EditingSessionService_GetSessionId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EditingSessionServiceServer).GetSessionId(ctx, req.(*GetSessionIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EditingSessionService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EditingSessionServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EditingSessionService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EditingSessionServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EditingSessionService_ReportEditingEndedEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReportEditingEndedEventRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EditingSessionServiceServer).ReportEditingEndedEvent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EditingSessionService_ReportEditingEndedEvent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EditingSessionServiceServer).ReportEditingEndedEvent(ctx, req.(*ReportEditingEndedEventRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// EditingSessionService_ServiceDesc is the grpc.ServiceDesc for EditingSessionService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var EditingSessionService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "metrics.EditingSessionService",
+	HandlerType: (*EditingSessionServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Close",
+			Handler:    _EditingSessionService_Close_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _EditingSessionService_Equals_Handler,
+		},
+		{
+			MethodName: "GetSessionId",
+			Handler:    _EditingSessionService_GetSessionId_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _EditingSessionService_HashCode_Handler,
+		},
+		{
+			MethodName: "ReportEditingEndedEvent",
+			Handler:    _EditingSessionService_ReportEditingEndedEvent_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/metrics/metrics.proto",
+}
+
+const (
+	TrackChangeEventService_DescribeContents_FullMethodName          = "/metrics.TrackChangeEventService/DescribeContents"
+	TrackChangeEventService_Equals_FullMethodName                    = "/metrics.TrackChangeEventService/Equals"
+	TrackChangeEventService_GetAudioSampleRate_FullMethodName        = "/metrics.TrackChangeEventService/GetAudioSampleRate"
+	TrackChangeEventService_GetBitrate_FullMethodName                = "/metrics.TrackChangeEventService/GetBitrate"
+	TrackChangeEventService_GetChannelCount_FullMethodName           = "/metrics.TrackChangeEventService/GetChannelCount"
+	TrackChangeEventService_GetCodecName_FullMethodName              = "/metrics.TrackChangeEventService/GetCodecName"
+	TrackChangeEventService_GetContainerMimeType_FullMethodName      = "/metrics.TrackChangeEventService/GetContainerMimeType"
+	TrackChangeEventService_GetHeight_FullMethodName                 = "/metrics.TrackChangeEventService/GetHeight"
+	TrackChangeEventService_GetLanguage_FullMethodName               = "/metrics.TrackChangeEventService/GetLanguage"
+	TrackChangeEventService_GetLanguageRegion_FullMethodName         = "/metrics.TrackChangeEventService/GetLanguageRegion"
+	TrackChangeEventService_GetMetricsBundle_FullMethodName          = "/metrics.TrackChangeEventService/GetMetricsBundle"
+	TrackChangeEventService_GetSampleMimeType_FullMethodName         = "/metrics.TrackChangeEventService/GetSampleMimeType"
+	TrackChangeEventService_GetTimeSinceCreatedMillis_FullMethodName = "/metrics.TrackChangeEventService/GetTimeSinceCreatedMillis"
+	TrackChangeEventService_GetTrackChangeReason_FullMethodName      = "/metrics.TrackChangeEventService/GetTrackChangeReason"
+	TrackChangeEventService_GetTrackState_FullMethodName             = "/metrics.TrackChangeEventService/GetTrackState"
+	TrackChangeEventService_GetTrackType_FullMethodName              = "/metrics.TrackChangeEventService/GetTrackType"
+	TrackChangeEventService_GetVideoFrameRate_FullMethodName         = "/metrics.TrackChangeEventService/GetVideoFrameRate"
+	TrackChangeEventService_GetWidth_FullMethodName                  = "/metrics.TrackChangeEventService/GetWidth"
+	TrackChangeEventService_HashCode_FullMethodName                  = "/metrics.TrackChangeEventService/HashCode"
+	TrackChangeEventService_ToString_FullMethodName                  = "/metrics.TrackChangeEventService/ToString"
+	TrackChangeEventService_WriteToParcel_FullMethodName             = "/metrics.TrackChangeEventService/WriteToParcel"
+)
+
+// TrackChangeEventServiceClient is the client API for TrackChangeEventService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TrackChangeEventServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetAudioSampleRate(ctx context.Context, in *GetAudioSampleRateRequest, opts ...grpc.CallOption) (*GetAudioSampleRateResponse, error)
+	GetBitrate(ctx context.Context, in *GetBitrateRequest, opts ...grpc.CallOption) (*GetBitrateResponse, error)
+	GetChannelCount(ctx context.Context, in *GetChannelCountRequest, opts ...grpc.CallOption) (*GetChannelCountResponse, error)
+	GetCodecName(ctx context.Context, in *GetCodecNameRequest, opts ...grpc.CallOption) (*GetCodecNameResponse, error)
+	GetContainerMimeType(ctx context.Context, in *GetContainerMimeTypeRequest, opts ...grpc.CallOption) (*GetContainerMimeTypeResponse, error)
+	GetHeight(ctx context.Context, in *GetHeightRequest, opts ...grpc.CallOption) (*GetHeightResponse, error)
+	GetLanguage(ctx context.Context, in *GetLanguageRequest, opts ...grpc.CallOption) (*GetLanguageResponse, error)
+	GetLanguageRegion(ctx context.Context, in *GetLanguageRegionRequest, opts ...grpc.CallOption) (*GetLanguageRegionResponse, error)
+	GetMetricsBundle(ctx context.Context, in *GetMetricsBundleRequest, opts ...grpc.CallOption) (*GetMetricsBundleResponse, error)
+	GetSampleMimeType(ctx context.Context, in *GetSampleMimeTypeRequest, opts ...grpc.CallOption) (*GetSampleMimeTypeResponse, error)
+	GetTimeSinceCreatedMillis(ctx context.Context, in *GetTimeSinceCreatedMillisRequest, opts ...grpc.CallOption) (*GetTimeSinceCreatedMillisResponse, error)
+	GetTrackChangeReason(ctx context.Context, in *GetTrackChangeReasonRequest, opts ...grpc.CallOption) (*GetTrackChangeReasonResponse, error)
+	GetTrackState(ctx context.Context, in *GetTrackStateRequest, opts ...grpc.CallOption) (*GetTrackStateResponse, error)
+	GetTrackType(ctx context.Context, in *GetTrackTypeRequest, opts ...grpc.CallOption) (*GetTrackTypeResponse, error)
+	GetVideoFrameRate(ctx context.Context, in *GetVideoFrameRateRequest, opts ...grpc.CallOption) (*GetVideoFrameRateResponse, error)
+	GetWidth(ctx context.Context, in *GetWidthRequest, opts ...grpc.CallOption) (*GetWidthResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type trackChangeEventServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTrackChangeEventServiceClient(cc grpc.ClientConnInterface) TrackChangeEventServiceClient {
+	return &trackChangeEventServiceClient{cc}
+}
+
+func (c *trackChangeEventServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, TrackChangeEventService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackChangeEventServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, TrackChangeEventService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackChangeEventServiceClient) GetAudioSampleRate(ctx context.Context, in *GetAudioSampleRateRequest, opts ...grpc.CallOption) (*GetAudioSampleRateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAudioSampleRateResponse)
+	err := c.cc.Invoke(ctx, TrackChangeEventService_GetAudioSampleRate_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackChangeEventServiceClient) GetBitrate(ctx context.Context, in *GetBitrateRequest, opts ...grpc.CallOption) (*GetBitrateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetBitrateResponse)
+	err := c.cc.Invoke(ctx, TrackChangeEventService_GetBitrate_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackChangeEventServiceClient) GetChannelCount(ctx context.Context, in *GetChannelCountRequest, opts ...grpc.CallOption) (*GetChannelCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetChannelCountResponse)
+	err := c.cc.Invoke(ctx, TrackChangeEventService_GetChannelCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackChangeEventServiceClient) GetCodecName(ctx context.Context, in *GetCodecNameRequest, opts ...grpc.CallOption) (*GetCodecNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCodecNameResponse)
+	err := c.cc.Invoke(ctx, TrackChangeEventService_GetCodecName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackChangeEventServiceClient) GetContainerMimeType(ctx context.Context, in *GetContainerMimeTypeRequest, opts ...grpc.CallOption) (*GetContainerMimeTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetContainerMimeTypeResponse)
+	err := c.cc.Invoke(ctx, TrackChangeEventService_GetContainerMimeType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackChangeEventServiceClient) GetHeight(ctx context.Context, in *GetHeightRequest, opts ...grpc.CallOption) (*GetHeightResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetHeightResponse)
+	err := c.cc.Invoke(ctx, TrackChangeEventService_GetHeight_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackChangeEventServiceClient) GetLanguage(ctx context.Context, in *GetLanguageRequest, opts ...grpc.CallOption) (*GetLanguageResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLanguageResponse)
+	err := c.cc.Invoke(ctx, TrackChangeEventService_GetLanguage_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackChangeEventServiceClient) GetLanguageRegion(ctx context.Context, in *GetLanguageRegionRequest, opts ...grpc.CallOption) (*GetLanguageRegionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLanguageRegionResponse)
+	err := c.cc.Invoke(ctx, TrackChangeEventService_GetLanguageRegion_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackChangeEventServiceClient) GetMetricsBundle(ctx context.Context, in *GetMetricsBundleRequest, opts ...grpc.CallOption) (*GetMetricsBundleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMetricsBundleResponse)
+	err := c.cc.Invoke(ctx, TrackChangeEventService_GetMetricsBundle_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackChangeEventServiceClient) GetSampleMimeType(ctx context.Context, in *GetSampleMimeTypeRequest, opts ...grpc.CallOption) (*GetSampleMimeTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSampleMimeTypeResponse)
+	err := c.cc.Invoke(ctx, TrackChangeEventService_GetSampleMimeType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackChangeEventServiceClient) GetTimeSinceCreatedMillis(ctx context.Context, in *GetTimeSinceCreatedMillisRequest, opts ...grpc.CallOption) (*GetTimeSinceCreatedMillisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTimeSinceCreatedMillisResponse)
+	err := c.cc.Invoke(ctx, TrackChangeEventService_GetTimeSinceCreatedMillis_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackChangeEventServiceClient) GetTrackChangeReason(ctx context.Context, in *GetTrackChangeReasonRequest, opts ...grpc.CallOption) (*GetTrackChangeReasonResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTrackChangeReasonResponse)
+	err := c.cc.Invoke(ctx, TrackChangeEventService_GetTrackChangeReason_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackChangeEventServiceClient) GetTrackState(ctx context.Context, in *GetTrackStateRequest, opts ...grpc.CallOption) (*GetTrackStateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTrackStateResponse)
+	err := c.cc.Invoke(ctx, TrackChangeEventService_GetTrackState_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackChangeEventServiceClient) GetTrackType(ctx context.Context, in *GetTrackTypeRequest, opts ...grpc.CallOption) (*GetTrackTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTrackTypeResponse)
+	err := c.cc.Invoke(ctx, TrackChangeEventService_GetTrackType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackChangeEventServiceClient) GetVideoFrameRate(ctx context.Context, in *GetVideoFrameRateRequest, opts ...grpc.CallOption) (*GetVideoFrameRateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetVideoFrameRateResponse)
+	err := c.cc.Invoke(ctx, TrackChangeEventService_GetVideoFrameRate_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackChangeEventServiceClient) GetWidth(ctx context.Context, in *GetWidthRequest, opts ...grpc.CallOption) (*GetWidthResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetWidthResponse)
+	err := c.cc.Invoke(ctx, TrackChangeEventService_GetWidth_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackChangeEventServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, TrackChangeEventService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackChangeEventServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, TrackChangeEventService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackChangeEventServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, TrackChangeEventService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TrackChangeEventServiceServer is the server API for TrackChangeEventService service.
+// All implementations must embed UnimplementedTrackChangeEventServiceServer
+// for forward compatibility.
+type TrackChangeEventServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetAudioSampleRate(context.Context, *GetAudioSampleRateRequest) (*GetAudioSampleRateResponse, error)
+	GetBitrate(context.Context, *GetBitrateRequest) (*GetBitrateResponse, error)
+	GetChannelCount(context.Context, *GetChannelCountRequest) (*GetChannelCountResponse, error)
+	GetCodecName(context.Context, *GetCodecNameRequest) (*GetCodecNameResponse, error)
+	GetContainerMimeType(context.Context, *GetContainerMimeTypeRequest) (*GetContainerMimeTypeResponse, error)
+	GetHeight(context.Context, *GetHeightRequest) (*GetHeightResponse, error)
+	GetLanguage(context.Context, *GetLanguageRequest) (*GetLanguageResponse, error)
+	GetLanguageRegion(context.Context, *GetLanguageRegionRequest) (*GetLanguageRegionResponse, error)
+	GetMetricsBundle(context.Context, *GetMetricsBundleRequest) (*GetMetricsBundleResponse, error)
+	GetSampleMimeType(context.Context, *GetSampleMimeTypeRequest) (*GetSampleMimeTypeResponse, error)
+	GetTimeSinceCreatedMillis(context.Context, *GetTimeSinceCreatedMillisRequest) (*GetTimeSinceCreatedMillisResponse, error)
+	GetTrackChangeReason(context.Context, *GetTrackChangeReasonRequest) (*GetTrackChangeReasonResponse, error)
+	GetTrackState(context.Context, *GetTrackStateRequest) (*GetTrackStateResponse, error)
+	GetTrackType(context.Context, *GetTrackTypeRequest) (*GetTrackTypeResponse, error)
+	GetVideoFrameRate(context.Context, *GetVideoFrameRateRequest) (*GetVideoFrameRateResponse, error)
+	GetWidth(context.Context, *GetWidthRequest) (*GetWidthResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedTrackChangeEventServiceServer()
+}
+
+// UnimplementedTrackChangeEventServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTrackChangeEventServiceServer struct{}
+
+func (UnimplementedTrackChangeEventServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedTrackChangeEventServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedTrackChangeEventServiceServer) GetAudioSampleRate(context.Context, *GetAudioSampleRateRequest) (*GetAudioSampleRateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAudioSampleRate not implemented")
+}
+func (UnimplementedTrackChangeEventServiceServer) GetBitrate(context.Context, *GetBitrateRequest) (*GetBitrateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetBitrate not implemented")
+}
+func (UnimplementedTrackChangeEventServiceServer) GetChannelCount(context.Context, *GetChannelCountRequest) (*GetChannelCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetChannelCount not implemented")
+}
+func (UnimplementedTrackChangeEventServiceServer) GetCodecName(context.Context, *GetCodecNameRequest) (*GetCodecNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCodecName not implemented")
+}
+func (UnimplementedTrackChangeEventServiceServer) GetContainerMimeType(context.Context, *GetContainerMimeTypeRequest) (*GetContainerMimeTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetContainerMimeType not implemented")
+}
+func (UnimplementedTrackChangeEventServiceServer) GetHeight(context.Context, *GetHeightRequest) (*GetHeightResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetHeight not implemented")
+}
+func (UnimplementedTrackChangeEventServiceServer) GetLanguage(context.Context, *GetLanguageRequest) (*GetLanguageResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLanguage not implemented")
+}
+func (UnimplementedTrackChangeEventServiceServer) GetLanguageRegion(context.Context, *GetLanguageRegionRequest) (*GetLanguageRegionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLanguageRegion not implemented")
+}
+func (UnimplementedTrackChangeEventServiceServer) GetMetricsBundle(context.Context, *GetMetricsBundleRequest) (*GetMetricsBundleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMetricsBundle not implemented")
+}
+func (UnimplementedTrackChangeEventServiceServer) GetSampleMimeType(context.Context, *GetSampleMimeTypeRequest) (*GetSampleMimeTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSampleMimeType not implemented")
+}
+func (UnimplementedTrackChangeEventServiceServer) GetTimeSinceCreatedMillis(context.Context, *GetTimeSinceCreatedMillisRequest) (*GetTimeSinceCreatedMillisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTimeSinceCreatedMillis not implemented")
+}
+func (UnimplementedTrackChangeEventServiceServer) GetTrackChangeReason(context.Context, *GetTrackChangeReasonRequest) (*GetTrackChangeReasonResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTrackChangeReason not implemented")
+}
+func (UnimplementedTrackChangeEventServiceServer) GetTrackState(context.Context, *GetTrackStateRequest) (*GetTrackStateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTrackState not implemented")
+}
+func (UnimplementedTrackChangeEventServiceServer) GetTrackType(context.Context, *GetTrackTypeRequest) (*GetTrackTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTrackType not implemented")
+}
+func (UnimplementedTrackChangeEventServiceServer) GetVideoFrameRate(context.Context, *GetVideoFrameRateRequest) (*GetVideoFrameRateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetVideoFrameRate not implemented")
+}
+func (UnimplementedTrackChangeEventServiceServer) GetWidth(context.Context, *GetWidthRequest) (*GetWidthResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetWidth not implemented")
+}
+func (UnimplementedTrackChangeEventServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedTrackChangeEventServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedTrackChangeEventServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedTrackChangeEventServiceServer) mustEmbedUnimplementedTrackChangeEventServiceServer() {
+}
+func (UnimplementedTrackChangeEventServiceServer) testEmbeddedByValue() {}
+
+// UnsafeTrackChangeEventServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TrackChangeEventServiceServer will
+// result in compilation errors.
+type UnsafeTrackChangeEventServiceServer interface {
+	mustEmbedUnimplementedTrackChangeEventServiceServer()
+}
+
+func RegisterTrackChangeEventServiceServer(s grpc.ServiceRegistrar, srv TrackChangeEventServiceServer) {
+	// If the following call panics, it indicates UnimplementedTrackChangeEventServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TrackChangeEventService_ServiceDesc, srv)
+}
+
+func _TrackChangeEventService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackChangeEventServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackChangeEventService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackChangeEventServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackChangeEventService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackChangeEventServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackChangeEventService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackChangeEventServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackChangeEventService_GetAudioSampleRate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAudioSampleRateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackChangeEventServiceServer).GetAudioSampleRate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackChangeEventService_GetAudioSampleRate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackChangeEventServiceServer).GetAudioSampleRate(ctx, req.(*GetAudioSampleRateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackChangeEventService_GetBitrate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetBitrateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackChangeEventServiceServer).GetBitrate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackChangeEventService_GetBitrate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackChangeEventServiceServer).GetBitrate(ctx, req.(*GetBitrateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackChangeEventService_GetChannelCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetChannelCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackChangeEventServiceServer).GetChannelCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackChangeEventService_GetChannelCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackChangeEventServiceServer).GetChannelCount(ctx, req.(*GetChannelCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackChangeEventService_GetCodecName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCodecNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackChangeEventServiceServer).GetCodecName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackChangeEventService_GetCodecName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackChangeEventServiceServer).GetCodecName(ctx, req.(*GetCodecNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackChangeEventService_GetContainerMimeType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetContainerMimeTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackChangeEventServiceServer).GetContainerMimeType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackChangeEventService_GetContainerMimeType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackChangeEventServiceServer).GetContainerMimeType(ctx, req.(*GetContainerMimeTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackChangeEventService_GetHeight_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetHeightRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackChangeEventServiceServer).GetHeight(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackChangeEventService_GetHeight_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackChangeEventServiceServer).GetHeight(ctx, req.(*GetHeightRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackChangeEventService_GetLanguage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLanguageRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackChangeEventServiceServer).GetLanguage(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackChangeEventService_GetLanguage_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackChangeEventServiceServer).GetLanguage(ctx, req.(*GetLanguageRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackChangeEventService_GetLanguageRegion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLanguageRegionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackChangeEventServiceServer).GetLanguageRegion(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackChangeEventService_GetLanguageRegion_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackChangeEventServiceServer).GetLanguageRegion(ctx, req.(*GetLanguageRegionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackChangeEventService_GetMetricsBundle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMetricsBundleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackChangeEventServiceServer).GetMetricsBundle(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackChangeEventService_GetMetricsBundle_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackChangeEventServiceServer).GetMetricsBundle(ctx, req.(*GetMetricsBundleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackChangeEventService_GetSampleMimeType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSampleMimeTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackChangeEventServiceServer).GetSampleMimeType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackChangeEventService_GetSampleMimeType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackChangeEventServiceServer).GetSampleMimeType(ctx, req.(*GetSampleMimeTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackChangeEventService_GetTimeSinceCreatedMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTimeSinceCreatedMillisRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackChangeEventServiceServer).GetTimeSinceCreatedMillis(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackChangeEventService_GetTimeSinceCreatedMillis_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackChangeEventServiceServer).GetTimeSinceCreatedMillis(ctx, req.(*GetTimeSinceCreatedMillisRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackChangeEventService_GetTrackChangeReason_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTrackChangeReasonRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackChangeEventServiceServer).GetTrackChangeReason(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackChangeEventService_GetTrackChangeReason_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackChangeEventServiceServer).GetTrackChangeReason(ctx, req.(*GetTrackChangeReasonRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackChangeEventService_GetTrackState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTrackStateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackChangeEventServiceServer).GetTrackState(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackChangeEventService_GetTrackState_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackChangeEventServiceServer).GetTrackState(ctx, req.(*GetTrackStateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackChangeEventService_GetTrackType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTrackTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackChangeEventServiceServer).GetTrackType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackChangeEventService_GetTrackType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackChangeEventServiceServer).GetTrackType(ctx, req.(*GetTrackTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackChangeEventService_GetVideoFrameRate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetVideoFrameRateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackChangeEventServiceServer).GetVideoFrameRate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackChangeEventService_GetVideoFrameRate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackChangeEventServiceServer).GetVideoFrameRate(ctx, req.(*GetVideoFrameRateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackChangeEventService_GetWidth_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetWidthRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackChangeEventServiceServer).GetWidth(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackChangeEventService_GetWidth_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackChangeEventServiceServer).GetWidth(ctx, req.(*GetWidthRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackChangeEventService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackChangeEventServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackChangeEventService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackChangeEventServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackChangeEventService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackChangeEventServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackChangeEventService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackChangeEventServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackChangeEventService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackChangeEventServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackChangeEventService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackChangeEventServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TrackChangeEventService_ServiceDesc is the grpc.ServiceDesc for TrackChangeEventService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TrackChangeEventService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "metrics.TrackChangeEventService",
+	HandlerType: (*TrackChangeEventServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _TrackChangeEventService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _TrackChangeEventService_Equals_Handler,
+		},
+		{
+			MethodName: "GetAudioSampleRate",
+			Handler:    _TrackChangeEventService_GetAudioSampleRate_Handler,
+		},
+		{
+			MethodName: "GetBitrate",
+			Handler:    _TrackChangeEventService_GetBitrate_Handler,
+		},
+		{
+			MethodName: "GetChannelCount",
+			Handler:    _TrackChangeEventService_GetChannelCount_Handler,
+		},
+		{
+			MethodName: "GetCodecName",
+			Handler:    _TrackChangeEventService_GetCodecName_Handler,
+		},
+		{
+			MethodName: "GetContainerMimeType",
+			Handler:    _TrackChangeEventService_GetContainerMimeType_Handler,
+		},
+		{
+			MethodName: "GetHeight",
+			Handler:    _TrackChangeEventService_GetHeight_Handler,
+		},
+		{
+			MethodName: "GetLanguage",
+			Handler:    _TrackChangeEventService_GetLanguage_Handler,
+		},
+		{
+			MethodName: "GetLanguageRegion",
+			Handler:    _TrackChangeEventService_GetLanguageRegion_Handler,
+		},
+		{
+			MethodName: "GetMetricsBundle",
+			Handler:    _TrackChangeEventService_GetMetricsBundle_Handler,
+		},
+		{
+			MethodName: "GetSampleMimeType",
+			Handler:    _TrackChangeEventService_GetSampleMimeType_Handler,
+		},
+		{
+			MethodName: "GetTimeSinceCreatedMillis",
+			Handler:    _TrackChangeEventService_GetTimeSinceCreatedMillis_Handler,
+		},
+		{
+			MethodName: "GetTrackChangeReason",
+			Handler:    _TrackChangeEventService_GetTrackChangeReason_Handler,
+		},
+		{
+			MethodName: "GetTrackState",
+			Handler:    _TrackChangeEventService_GetTrackState_Handler,
+		},
+		{
+			MethodName: "GetTrackType",
+			Handler:    _TrackChangeEventService_GetTrackType_Handler,
+		},
+		{
+			MethodName: "GetVideoFrameRate",
+			Handler:    _TrackChangeEventService_GetVideoFrameRate_Handler,
+		},
+		{
+			MethodName: "GetWidth",
+			Handler:    _TrackChangeEventService_GetWidth_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _TrackChangeEventService_HashCode_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _TrackChangeEventService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _TrackChangeEventService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/metrics/metrics.proto",
+}
+
+const (
+	TrackChangeEventBuilderService_Build_FullMethodName                     = "/metrics.TrackChangeEventBuilderService/Build"
+	TrackChangeEventBuilderService_SetAudioSampleRate_FullMethodName        = "/metrics.TrackChangeEventBuilderService/SetAudioSampleRate"
+	TrackChangeEventBuilderService_SetBitrate_FullMethodName                = "/metrics.TrackChangeEventBuilderService/SetBitrate"
+	TrackChangeEventBuilderService_SetChannelCount_FullMethodName           = "/metrics.TrackChangeEventBuilderService/SetChannelCount"
+	TrackChangeEventBuilderService_SetCodecName_FullMethodName              = "/metrics.TrackChangeEventBuilderService/SetCodecName"
+	TrackChangeEventBuilderService_SetContainerMimeType_FullMethodName      = "/metrics.TrackChangeEventBuilderService/SetContainerMimeType"
+	TrackChangeEventBuilderService_SetHeight_FullMethodName                 = "/metrics.TrackChangeEventBuilderService/SetHeight"
+	TrackChangeEventBuilderService_SetLanguage_FullMethodName               = "/metrics.TrackChangeEventBuilderService/SetLanguage"
+	TrackChangeEventBuilderService_SetLanguageRegion_FullMethodName         = "/metrics.TrackChangeEventBuilderService/SetLanguageRegion"
+	TrackChangeEventBuilderService_SetMetricsBundle_FullMethodName          = "/metrics.TrackChangeEventBuilderService/SetMetricsBundle"
+	TrackChangeEventBuilderService_SetSampleMimeType_FullMethodName         = "/metrics.TrackChangeEventBuilderService/SetSampleMimeType"
+	TrackChangeEventBuilderService_SetTimeSinceCreatedMillis_FullMethodName = "/metrics.TrackChangeEventBuilderService/SetTimeSinceCreatedMillis"
+	TrackChangeEventBuilderService_SetTrackChangeReason_FullMethodName      = "/metrics.TrackChangeEventBuilderService/SetTrackChangeReason"
+	TrackChangeEventBuilderService_SetTrackState_FullMethodName             = "/metrics.TrackChangeEventBuilderService/SetTrackState"
+	TrackChangeEventBuilderService_SetVideoFrameRate_FullMethodName         = "/metrics.TrackChangeEventBuilderService/SetVideoFrameRate"
+	TrackChangeEventBuilderService_SetWidth_FullMethodName                  = "/metrics.TrackChangeEventBuilderService/SetWidth"
+)
+
+// TrackChangeEventBuilderServiceClient is the client API for TrackChangeEventBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TrackChangeEventBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetAudioSampleRate(ctx context.Context, in *SetAudioSampleRateRequest, opts ...grpc.CallOption) (*SetAudioSampleRateResponse, error)
+	SetBitrate(ctx context.Context, in *SetBitrateRequest, opts ...grpc.CallOption) (*SetBitrateResponse, error)
+	SetChannelCount(ctx context.Context, in *SetChannelCountRequest, opts ...grpc.CallOption) (*SetChannelCountResponse, error)
+	SetCodecName(ctx context.Context, in *SetCodecNameRequest, opts ...grpc.CallOption) (*SetCodecNameResponse, error)
+	SetContainerMimeType(ctx context.Context, in *SetContainerMimeTypeRequest, opts ...grpc.CallOption) (*SetContainerMimeTypeResponse, error)
+	SetHeight(ctx context.Context, in *SetHeightRequest, opts ...grpc.CallOption) (*SetHeightResponse, error)
+	SetLanguage(ctx context.Context, in *SetLanguageRequest, opts ...grpc.CallOption) (*SetLanguageResponse, error)
+	SetLanguageRegion(ctx context.Context, in *SetLanguageRegionRequest, opts ...grpc.CallOption) (*SetLanguageRegionResponse, error)
+	SetMetricsBundle(ctx context.Context, in *SetMetricsBundleRequest, opts ...grpc.CallOption) (*SetMetricsBundleResponse, error)
+	SetSampleMimeType(ctx context.Context, in *SetSampleMimeTypeRequest, opts ...grpc.CallOption) (*SetSampleMimeTypeResponse, error)
+	SetTimeSinceCreatedMillis(ctx context.Context, in *SetTimeSinceCreatedMillisRequest, opts ...grpc.CallOption) (*SetTimeSinceCreatedMillisResponse, error)
+	SetTrackChangeReason(ctx context.Context, in *SetTrackChangeReasonRequest, opts ...grpc.CallOption) (*SetTrackChangeReasonResponse, error)
+	SetTrackState(ctx context.Context, in *SetTrackStateRequest, opts ...grpc.CallOption) (*SetTrackStateResponse, error)
+	SetVideoFrameRate(ctx context.Context, in *SetVideoFrameRateRequest, opts ...grpc.CallOption) (*SetVideoFrameRateResponse, error)
+	SetWidth(ctx context.Context, in *SetWidthRequest, opts ...grpc.CallOption) (*SetWidthResponse, error)
+}
+
+type trackChangeEventBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTrackChangeEventBuilderServiceClient(cc grpc.ClientConnInterface) TrackChangeEventBuilderServiceClient {
+	return &trackChangeEventBuilderServiceClient{cc}
+}
+
+func (c *trackChangeEventBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, TrackChangeEventBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackChangeEventBuilderServiceClient) SetAudioSampleRate(ctx context.Context, in *SetAudioSampleRateRequest, opts ...grpc.CallOption) (*SetAudioSampleRateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetAudioSampleRateResponse)
+	err := c.cc.Invoke(ctx, TrackChangeEventBuilderService_SetAudioSampleRate_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackChangeEventBuilderServiceClient) SetBitrate(ctx context.Context, in *SetBitrateRequest, opts ...grpc.CallOption) (*SetBitrateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetBitrateResponse)
+	err := c.cc.Invoke(ctx, TrackChangeEventBuilderService_SetBitrate_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackChangeEventBuilderServiceClient) SetChannelCount(ctx context.Context, in *SetChannelCountRequest, opts ...grpc.CallOption) (*SetChannelCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetChannelCountResponse)
+	err := c.cc.Invoke(ctx, TrackChangeEventBuilderService_SetChannelCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackChangeEventBuilderServiceClient) SetCodecName(ctx context.Context, in *SetCodecNameRequest, opts ...grpc.CallOption) (*SetCodecNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetCodecNameResponse)
+	err := c.cc.Invoke(ctx, TrackChangeEventBuilderService_SetCodecName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackChangeEventBuilderServiceClient) SetContainerMimeType(ctx context.Context, in *SetContainerMimeTypeRequest, opts ...grpc.CallOption) (*SetContainerMimeTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetContainerMimeTypeResponse)
+	err := c.cc.Invoke(ctx, TrackChangeEventBuilderService_SetContainerMimeType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackChangeEventBuilderServiceClient) SetHeight(ctx context.Context, in *SetHeightRequest, opts ...grpc.CallOption) (*SetHeightResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetHeightResponse)
+	err := c.cc.Invoke(ctx, TrackChangeEventBuilderService_SetHeight_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackChangeEventBuilderServiceClient) SetLanguage(ctx context.Context, in *SetLanguageRequest, opts ...grpc.CallOption) (*SetLanguageResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetLanguageResponse)
+	err := c.cc.Invoke(ctx, TrackChangeEventBuilderService_SetLanguage_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackChangeEventBuilderServiceClient) SetLanguageRegion(ctx context.Context, in *SetLanguageRegionRequest, opts ...grpc.CallOption) (*SetLanguageRegionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetLanguageRegionResponse)
+	err := c.cc.Invoke(ctx, TrackChangeEventBuilderService_SetLanguageRegion_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackChangeEventBuilderServiceClient) SetMetricsBundle(ctx context.Context, in *SetMetricsBundleRequest, opts ...grpc.CallOption) (*SetMetricsBundleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetMetricsBundleResponse)
+	err := c.cc.Invoke(ctx, TrackChangeEventBuilderService_SetMetricsBundle_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackChangeEventBuilderServiceClient) SetSampleMimeType(ctx context.Context, in *SetSampleMimeTypeRequest, opts ...grpc.CallOption) (*SetSampleMimeTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetSampleMimeTypeResponse)
+	err := c.cc.Invoke(ctx, TrackChangeEventBuilderService_SetSampleMimeType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackChangeEventBuilderServiceClient) SetTimeSinceCreatedMillis(ctx context.Context, in *SetTimeSinceCreatedMillisRequest, opts ...grpc.CallOption) (*SetTimeSinceCreatedMillisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetTimeSinceCreatedMillisResponse)
+	err := c.cc.Invoke(ctx, TrackChangeEventBuilderService_SetTimeSinceCreatedMillis_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackChangeEventBuilderServiceClient) SetTrackChangeReason(ctx context.Context, in *SetTrackChangeReasonRequest, opts ...grpc.CallOption) (*SetTrackChangeReasonResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetTrackChangeReasonResponse)
+	err := c.cc.Invoke(ctx, TrackChangeEventBuilderService_SetTrackChangeReason_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackChangeEventBuilderServiceClient) SetTrackState(ctx context.Context, in *SetTrackStateRequest, opts ...grpc.CallOption) (*SetTrackStateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetTrackStateResponse)
+	err := c.cc.Invoke(ctx, TrackChangeEventBuilderService_SetTrackState_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackChangeEventBuilderServiceClient) SetVideoFrameRate(ctx context.Context, in *SetVideoFrameRateRequest, opts ...grpc.CallOption) (*SetVideoFrameRateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetVideoFrameRateResponse)
+	err := c.cc.Invoke(ctx, TrackChangeEventBuilderService_SetVideoFrameRate_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trackChangeEventBuilderServiceClient) SetWidth(ctx context.Context, in *SetWidthRequest, opts ...grpc.CallOption) (*SetWidthResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetWidthResponse)
+	err := c.cc.Invoke(ctx, TrackChangeEventBuilderService_SetWidth_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TrackChangeEventBuilderServiceServer is the server API for TrackChangeEventBuilderService service.
+// All implementations must embed UnimplementedTrackChangeEventBuilderServiceServer
+// for forward compatibility.
+type TrackChangeEventBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetAudioSampleRate(context.Context, *SetAudioSampleRateRequest) (*SetAudioSampleRateResponse, error)
+	SetBitrate(context.Context, *SetBitrateRequest) (*SetBitrateResponse, error)
+	SetChannelCount(context.Context, *SetChannelCountRequest) (*SetChannelCountResponse, error)
+	SetCodecName(context.Context, *SetCodecNameRequest) (*SetCodecNameResponse, error)
+	SetContainerMimeType(context.Context, *SetContainerMimeTypeRequest) (*SetContainerMimeTypeResponse, error)
+	SetHeight(context.Context, *SetHeightRequest) (*SetHeightResponse, error)
+	SetLanguage(context.Context, *SetLanguageRequest) (*SetLanguageResponse, error)
+	SetLanguageRegion(context.Context, *SetLanguageRegionRequest) (*SetLanguageRegionResponse, error)
+	SetMetricsBundle(context.Context, *SetMetricsBundleRequest) (*SetMetricsBundleResponse, error)
+	SetSampleMimeType(context.Context, *SetSampleMimeTypeRequest) (*SetSampleMimeTypeResponse, error)
+	SetTimeSinceCreatedMillis(context.Context, *SetTimeSinceCreatedMillisRequest) (*SetTimeSinceCreatedMillisResponse, error)
+	SetTrackChangeReason(context.Context, *SetTrackChangeReasonRequest) (*SetTrackChangeReasonResponse, error)
+	SetTrackState(context.Context, *SetTrackStateRequest) (*SetTrackStateResponse, error)
+	SetVideoFrameRate(context.Context, *SetVideoFrameRateRequest) (*SetVideoFrameRateResponse, error)
+	SetWidth(context.Context, *SetWidthRequest) (*SetWidthResponse, error)
+	mustEmbedUnimplementedTrackChangeEventBuilderServiceServer()
+}
+
+// UnimplementedTrackChangeEventBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTrackChangeEventBuilderServiceServer struct{}
+
+func (UnimplementedTrackChangeEventBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedTrackChangeEventBuilderServiceServer) SetAudioSampleRate(context.Context, *SetAudioSampleRateRequest) (*SetAudioSampleRateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetAudioSampleRate not implemented")
+}
+func (UnimplementedTrackChangeEventBuilderServiceServer) SetBitrate(context.Context, *SetBitrateRequest) (*SetBitrateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetBitrate not implemented")
+}
+func (UnimplementedTrackChangeEventBuilderServiceServer) SetChannelCount(context.Context, *SetChannelCountRequest) (*SetChannelCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetChannelCount not implemented")
+}
+func (UnimplementedTrackChangeEventBuilderServiceServer) SetCodecName(context.Context, *SetCodecNameRequest) (*SetCodecNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetCodecName not implemented")
+}
+func (UnimplementedTrackChangeEventBuilderServiceServer) SetContainerMimeType(context.Context, *SetContainerMimeTypeRequest) (*SetContainerMimeTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetContainerMimeType not implemented")
+}
+func (UnimplementedTrackChangeEventBuilderServiceServer) SetHeight(context.Context, *SetHeightRequest) (*SetHeightResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetHeight not implemented")
+}
+func (UnimplementedTrackChangeEventBuilderServiceServer) SetLanguage(context.Context, *SetLanguageRequest) (*SetLanguageResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetLanguage not implemented")
+}
+func (UnimplementedTrackChangeEventBuilderServiceServer) SetLanguageRegion(context.Context, *SetLanguageRegionRequest) (*SetLanguageRegionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetLanguageRegion not implemented")
+}
+func (UnimplementedTrackChangeEventBuilderServiceServer) SetMetricsBundle(context.Context, *SetMetricsBundleRequest) (*SetMetricsBundleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetMetricsBundle not implemented")
+}
+func (UnimplementedTrackChangeEventBuilderServiceServer) SetSampleMimeType(context.Context, *SetSampleMimeTypeRequest) (*SetSampleMimeTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetSampleMimeType not implemented")
+}
+func (UnimplementedTrackChangeEventBuilderServiceServer) SetTimeSinceCreatedMillis(context.Context, *SetTimeSinceCreatedMillisRequest) (*SetTimeSinceCreatedMillisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetTimeSinceCreatedMillis not implemented")
+}
+func (UnimplementedTrackChangeEventBuilderServiceServer) SetTrackChangeReason(context.Context, *SetTrackChangeReasonRequest) (*SetTrackChangeReasonResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetTrackChangeReason not implemented")
+}
+func (UnimplementedTrackChangeEventBuilderServiceServer) SetTrackState(context.Context, *SetTrackStateRequest) (*SetTrackStateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetTrackState not implemented")
+}
+func (UnimplementedTrackChangeEventBuilderServiceServer) SetVideoFrameRate(context.Context, *SetVideoFrameRateRequest) (*SetVideoFrameRateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetVideoFrameRate not implemented")
+}
+func (UnimplementedTrackChangeEventBuilderServiceServer) SetWidth(context.Context, *SetWidthRequest) (*SetWidthResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetWidth not implemented")
+}
+func (UnimplementedTrackChangeEventBuilderServiceServer) mustEmbedUnimplementedTrackChangeEventBuilderServiceServer() {
+}
+func (UnimplementedTrackChangeEventBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeTrackChangeEventBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TrackChangeEventBuilderServiceServer will
+// result in compilation errors.
+type UnsafeTrackChangeEventBuilderServiceServer interface {
+	mustEmbedUnimplementedTrackChangeEventBuilderServiceServer()
+}
+
+func RegisterTrackChangeEventBuilderServiceServer(s grpc.ServiceRegistrar, srv TrackChangeEventBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedTrackChangeEventBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TrackChangeEventBuilderService_ServiceDesc, srv)
+}
+
+func _TrackChangeEventBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackChangeEventBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackChangeEventBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackChangeEventBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackChangeEventBuilderService_SetAudioSampleRate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetAudioSampleRateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackChangeEventBuilderServiceServer).SetAudioSampleRate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackChangeEventBuilderService_SetAudioSampleRate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackChangeEventBuilderServiceServer).SetAudioSampleRate(ctx, req.(*SetAudioSampleRateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackChangeEventBuilderService_SetBitrate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetBitrateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackChangeEventBuilderServiceServer).SetBitrate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackChangeEventBuilderService_SetBitrate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackChangeEventBuilderServiceServer).SetBitrate(ctx, req.(*SetBitrateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackChangeEventBuilderService_SetChannelCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetChannelCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackChangeEventBuilderServiceServer).SetChannelCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackChangeEventBuilderService_SetChannelCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackChangeEventBuilderServiceServer).SetChannelCount(ctx, req.(*SetChannelCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackChangeEventBuilderService_SetCodecName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetCodecNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackChangeEventBuilderServiceServer).SetCodecName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackChangeEventBuilderService_SetCodecName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackChangeEventBuilderServiceServer).SetCodecName(ctx, req.(*SetCodecNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackChangeEventBuilderService_SetContainerMimeType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetContainerMimeTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackChangeEventBuilderServiceServer).SetContainerMimeType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackChangeEventBuilderService_SetContainerMimeType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackChangeEventBuilderServiceServer).SetContainerMimeType(ctx, req.(*SetContainerMimeTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackChangeEventBuilderService_SetHeight_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetHeightRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackChangeEventBuilderServiceServer).SetHeight(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackChangeEventBuilderService_SetHeight_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackChangeEventBuilderServiceServer).SetHeight(ctx, req.(*SetHeightRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackChangeEventBuilderService_SetLanguage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetLanguageRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackChangeEventBuilderServiceServer).SetLanguage(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackChangeEventBuilderService_SetLanguage_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackChangeEventBuilderServiceServer).SetLanguage(ctx, req.(*SetLanguageRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackChangeEventBuilderService_SetLanguageRegion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetLanguageRegionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackChangeEventBuilderServiceServer).SetLanguageRegion(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackChangeEventBuilderService_SetLanguageRegion_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackChangeEventBuilderServiceServer).SetLanguageRegion(ctx, req.(*SetLanguageRegionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackChangeEventBuilderService_SetMetricsBundle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetMetricsBundleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackChangeEventBuilderServiceServer).SetMetricsBundle(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackChangeEventBuilderService_SetMetricsBundle_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackChangeEventBuilderServiceServer).SetMetricsBundle(ctx, req.(*SetMetricsBundleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackChangeEventBuilderService_SetSampleMimeType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetSampleMimeTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackChangeEventBuilderServiceServer).SetSampleMimeType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackChangeEventBuilderService_SetSampleMimeType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackChangeEventBuilderServiceServer).SetSampleMimeType(ctx, req.(*SetSampleMimeTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackChangeEventBuilderService_SetTimeSinceCreatedMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetTimeSinceCreatedMillisRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackChangeEventBuilderServiceServer).SetTimeSinceCreatedMillis(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackChangeEventBuilderService_SetTimeSinceCreatedMillis_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackChangeEventBuilderServiceServer).SetTimeSinceCreatedMillis(ctx, req.(*SetTimeSinceCreatedMillisRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackChangeEventBuilderService_SetTrackChangeReason_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetTrackChangeReasonRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackChangeEventBuilderServiceServer).SetTrackChangeReason(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackChangeEventBuilderService_SetTrackChangeReason_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackChangeEventBuilderServiceServer).SetTrackChangeReason(ctx, req.(*SetTrackChangeReasonRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackChangeEventBuilderService_SetTrackState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetTrackStateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackChangeEventBuilderServiceServer).SetTrackState(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackChangeEventBuilderService_SetTrackState_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackChangeEventBuilderServiceServer).SetTrackState(ctx, req.(*SetTrackStateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackChangeEventBuilderService_SetVideoFrameRate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetVideoFrameRateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackChangeEventBuilderServiceServer).SetVideoFrameRate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackChangeEventBuilderService_SetVideoFrameRate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackChangeEventBuilderServiceServer).SetVideoFrameRate(ctx, req.(*SetVideoFrameRateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrackChangeEventBuilderService_SetWidth_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetWidthRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrackChangeEventBuilderServiceServer).SetWidth(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrackChangeEventBuilderService_SetWidth_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrackChangeEventBuilderServiceServer).SetWidth(ctx, req.(*SetWidthRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TrackChangeEventBuilderService_ServiceDesc is the grpc.ServiceDesc for TrackChangeEventBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TrackChangeEventBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "metrics.TrackChangeEventBuilderService",
+	HandlerType: (*TrackChangeEventBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _TrackChangeEventBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetAudioSampleRate",
+			Handler:    _TrackChangeEventBuilderService_SetAudioSampleRate_Handler,
+		},
+		{
+			MethodName: "SetBitrate",
+			Handler:    _TrackChangeEventBuilderService_SetBitrate_Handler,
+		},
+		{
+			MethodName: "SetChannelCount",
+			Handler:    _TrackChangeEventBuilderService_SetChannelCount_Handler,
+		},
+		{
+			MethodName: "SetCodecName",
+			Handler:    _TrackChangeEventBuilderService_SetCodecName_Handler,
+		},
+		{
+			MethodName: "SetContainerMimeType",
+			Handler:    _TrackChangeEventBuilderService_SetContainerMimeType_Handler,
+		},
+		{
+			MethodName: "SetHeight",
+			Handler:    _TrackChangeEventBuilderService_SetHeight_Handler,
+		},
+		{
+			MethodName: "SetLanguage",
+			Handler:    _TrackChangeEventBuilderService_SetLanguage_Handler,
+		},
+		{
+			MethodName: "SetLanguageRegion",
+			Handler:    _TrackChangeEventBuilderService_SetLanguageRegion_Handler,
+		},
+		{
+			MethodName: "SetMetricsBundle",
+			Handler:    _TrackChangeEventBuilderService_SetMetricsBundle_Handler,
+		},
+		{
+			MethodName: "SetSampleMimeType",
+			Handler:    _TrackChangeEventBuilderService_SetSampleMimeType_Handler,
+		},
+		{
+			MethodName: "SetTimeSinceCreatedMillis",
+			Handler:    _TrackChangeEventBuilderService_SetTimeSinceCreatedMillis_Handler,
+		},
+		{
+			MethodName: "SetTrackChangeReason",
+			Handler:    _TrackChangeEventBuilderService_SetTrackChangeReason_Handler,
+		},
+		{
+			MethodName: "SetTrackState",
+			Handler:    _TrackChangeEventBuilderService_SetTrackState_Handler,
+		},
+		{
+			MethodName: "SetVideoFrameRate",
+			Handler:    _TrackChangeEventBuilderService_SetVideoFrameRate_Handler,
+		},
+		{
+			MethodName: "SetWidth",
+			Handler:    _TrackChangeEventBuilderService_SetWidth_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/metrics/metrics.proto",
+}
+
+const (
+	TranscodingSessionService_Close_FullMethodName        = "/metrics.TranscodingSessionService/Close"
+	TranscodingSessionService_Equals_FullMethodName       = "/metrics.TranscodingSessionService/Equals"
+	TranscodingSessionService_GetSessionId_FullMethodName = "/metrics.TranscodingSessionService/GetSessionId"
+	TranscodingSessionService_HashCode_FullMethodName     = "/metrics.TranscodingSessionService/HashCode"
+)
+
+// TranscodingSessionServiceClient is the client API for TranscodingSessionService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TranscodingSessionServiceClient interface {
+	Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetSessionId(ctx context.Context, in *GetSessionIdRequest, opts ...grpc.CallOption) (*GetSessionIdResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+}
+
+type transcodingSessionServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTranscodingSessionServiceClient(cc grpc.ClientConnInterface) TranscodingSessionServiceClient {
+	return &transcodingSessionServiceClient{cc}
+}
+
+func (c *transcodingSessionServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CloseResponse)
+	err := c.cc.Invoke(ctx, TranscodingSessionService_Close_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *transcodingSessionServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, TranscodingSessionService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *transcodingSessionServiceClient) GetSessionId(ctx context.Context, in *GetSessionIdRequest, opts ...grpc.CallOption) (*GetSessionIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSessionIdResponse)
+	err := c.cc.Invoke(ctx, TranscodingSessionService_GetSessionId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *transcodingSessionServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, TranscodingSessionService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TranscodingSessionServiceServer is the server API for TranscodingSessionService service.
+// All implementations must embed UnimplementedTranscodingSessionServiceServer
+// for forward compatibility.
+type TranscodingSessionServiceServer interface {
+	Close(context.Context, *CloseRequest) (*CloseResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetSessionId(context.Context, *GetSessionIdRequest) (*GetSessionIdResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	mustEmbedUnimplementedTranscodingSessionServiceServer()
+}
+
+// UnimplementedTranscodingSessionServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTranscodingSessionServiceServer struct{}
+
+func (UnimplementedTranscodingSessionServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
+}
+func (UnimplementedTranscodingSessionServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedTranscodingSessionServiceServer) GetSessionId(context.Context, *GetSessionIdRequest) (*GetSessionIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSessionId not implemented")
+}
+func (UnimplementedTranscodingSessionServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedTranscodingSessionServiceServer) mustEmbedUnimplementedTranscodingSessionServiceServer() {
+}
+func (UnimplementedTranscodingSessionServiceServer) testEmbeddedByValue() {}
+
+// UnsafeTranscodingSessionServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TranscodingSessionServiceServer will
+// result in compilation errors.
+type UnsafeTranscodingSessionServiceServer interface {
+	mustEmbedUnimplementedTranscodingSessionServiceServer()
+}
+
+func RegisterTranscodingSessionServiceServer(s grpc.ServiceRegistrar, srv TranscodingSessionServiceServer) {
+	// If the following call panics, it indicates UnimplementedTranscodingSessionServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TranscodingSessionService_ServiceDesc, srv)
+}
+
+func _TranscodingSessionService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CloseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TranscodingSessionServiceServer).Close(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TranscodingSessionService_Close_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TranscodingSessionServiceServer).Close(ctx, req.(*CloseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TranscodingSessionService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TranscodingSessionServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TranscodingSessionService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TranscodingSessionServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TranscodingSessionService_GetSessionId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSessionIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TranscodingSessionServiceServer).GetSessionId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TranscodingSessionService_GetSessionId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TranscodingSessionServiceServer).GetSessionId(ctx, req.(*GetSessionIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TranscodingSessionService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TranscodingSessionServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TranscodingSessionService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TranscodingSessionServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TranscodingSessionService_ServiceDesc is the grpc.ServiceDesc for TranscodingSessionService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TranscodingSessionService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "metrics.TranscodingSessionService",
+	HandlerType: (*TranscodingSessionServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Close",
+			Handler:    _TranscodingSessionService_Close_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _TranscodingSessionService_Equals_Handler,
+		},
+		{
+			MethodName: "GetSessionId",
+			Handler:    _TranscodingSessionService_GetSessionId_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _TranscodingSessionService_HashCode_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/metrics/metrics.proto",
+}
+
+const (
 	MediaMetricsManagerService_CreateBundleSession_FullMethodName      = "/metrics.MediaMetricsManagerService/CreateBundleSession"
 	MediaMetricsManagerService_CreateEditingSession_FullMethodName     = "/metrics.MediaMetricsManagerService/CreateEditingSession"
 	MediaMetricsManagerService_CreatePlaybackSession_FullMethodName    = "/metrics.MediaMetricsManagerService/CreatePlaybackSession"
@@ -307,6 +8845,579 @@ var MediaMetricsManagerService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ReleaseSessionId",
 			Handler:    _MediaMetricsManagerService_ReleaseSessionId_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/metrics/metrics.proto",
+}
+
+const (
+	EventService_GetMetricsBundle_FullMethodName          = "/metrics.EventService/GetMetricsBundle"
+	EventService_GetTimeSinceCreatedMillis_FullMethodName = "/metrics.EventService/GetTimeSinceCreatedMillis"
+)
+
+// EventServiceClient is the client API for EventService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type EventServiceClient interface {
+	GetMetricsBundle(ctx context.Context, in *GetMetricsBundleRequest, opts ...grpc.CallOption) (*GetMetricsBundleResponse, error)
+	GetTimeSinceCreatedMillis(ctx context.Context, in *GetTimeSinceCreatedMillisRequest, opts ...grpc.CallOption) (*GetTimeSinceCreatedMillisResponse, error)
+}
+
+type eventServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewEventServiceClient(cc grpc.ClientConnInterface) EventServiceClient {
+	return &eventServiceClient{cc}
+}
+
+func (c *eventServiceClient) GetMetricsBundle(ctx context.Context, in *GetMetricsBundleRequest, opts ...grpc.CallOption) (*GetMetricsBundleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMetricsBundleResponse)
+	err := c.cc.Invoke(ctx, EventService_GetMetricsBundle_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *eventServiceClient) GetTimeSinceCreatedMillis(ctx context.Context, in *GetTimeSinceCreatedMillisRequest, opts ...grpc.CallOption) (*GetTimeSinceCreatedMillisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTimeSinceCreatedMillisResponse)
+	err := c.cc.Invoke(ctx, EventService_GetTimeSinceCreatedMillis_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// EventServiceServer is the server API for EventService service.
+// All implementations must embed UnimplementedEventServiceServer
+// for forward compatibility.
+type EventServiceServer interface {
+	GetMetricsBundle(context.Context, *GetMetricsBundleRequest) (*GetMetricsBundleResponse, error)
+	GetTimeSinceCreatedMillis(context.Context, *GetTimeSinceCreatedMillisRequest) (*GetTimeSinceCreatedMillisResponse, error)
+	mustEmbedUnimplementedEventServiceServer()
+}
+
+// UnimplementedEventServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedEventServiceServer struct{}
+
+func (UnimplementedEventServiceServer) GetMetricsBundle(context.Context, *GetMetricsBundleRequest) (*GetMetricsBundleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMetricsBundle not implemented")
+}
+func (UnimplementedEventServiceServer) GetTimeSinceCreatedMillis(context.Context, *GetTimeSinceCreatedMillisRequest) (*GetTimeSinceCreatedMillisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTimeSinceCreatedMillis not implemented")
+}
+func (UnimplementedEventServiceServer) mustEmbedUnimplementedEventServiceServer() {}
+func (UnimplementedEventServiceServer) testEmbeddedByValue()                      {}
+
+// UnsafeEventServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to EventServiceServer will
+// result in compilation errors.
+type UnsafeEventServiceServer interface {
+	mustEmbedUnimplementedEventServiceServer()
+}
+
+func RegisterEventServiceServer(s grpc.ServiceRegistrar, srv EventServiceServer) {
+	// If the following call panics, it indicates UnimplementedEventServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&EventService_ServiceDesc, srv)
+}
+
+func _EventService_GetMetricsBundle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMetricsBundleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EventServiceServer).GetMetricsBundle(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EventService_GetMetricsBundle_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EventServiceServer).GetMetricsBundle(ctx, req.(*GetMetricsBundleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EventService_GetTimeSinceCreatedMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTimeSinceCreatedMillisRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EventServiceServer).GetTimeSinceCreatedMillis(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EventService_GetTimeSinceCreatedMillis_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EventServiceServer).GetTimeSinceCreatedMillis(ctx, req.(*GetTimeSinceCreatedMillisRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// EventService_ServiceDesc is the grpc.ServiceDesc for EventService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var EventService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "metrics.EventService",
+	HandlerType: (*EventServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetMetricsBundle",
+			Handler:    _EventService_GetMetricsBundle_Handler,
+		},
+		{
+			MethodName: "GetTimeSinceCreatedMillis",
+			Handler:    _EventService_GetTimeSinceCreatedMillis_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/metrics/metrics.proto",
+}
+
+const (
+	RecordingSessionService_Close_FullMethodName        = "/metrics.RecordingSessionService/Close"
+	RecordingSessionService_Equals_FullMethodName       = "/metrics.RecordingSessionService/Equals"
+	RecordingSessionService_GetSessionId_FullMethodName = "/metrics.RecordingSessionService/GetSessionId"
+	RecordingSessionService_HashCode_FullMethodName     = "/metrics.RecordingSessionService/HashCode"
+)
+
+// RecordingSessionServiceClient is the client API for RecordingSessionService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type RecordingSessionServiceClient interface {
+	Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetSessionId(ctx context.Context, in *GetSessionIdRequest, opts ...grpc.CallOption) (*GetSessionIdResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+}
+
+type recordingSessionServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewRecordingSessionServiceClient(cc grpc.ClientConnInterface) RecordingSessionServiceClient {
+	return &recordingSessionServiceClient{cc}
+}
+
+func (c *recordingSessionServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CloseResponse)
+	err := c.cc.Invoke(ctx, RecordingSessionService_Close_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordingSessionServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, RecordingSessionService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordingSessionServiceClient) GetSessionId(ctx context.Context, in *GetSessionIdRequest, opts ...grpc.CallOption) (*GetSessionIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSessionIdResponse)
+	err := c.cc.Invoke(ctx, RecordingSessionService_GetSessionId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordingSessionServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, RecordingSessionService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// RecordingSessionServiceServer is the server API for RecordingSessionService service.
+// All implementations must embed UnimplementedRecordingSessionServiceServer
+// for forward compatibility.
+type RecordingSessionServiceServer interface {
+	Close(context.Context, *CloseRequest) (*CloseResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetSessionId(context.Context, *GetSessionIdRequest) (*GetSessionIdResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	mustEmbedUnimplementedRecordingSessionServiceServer()
+}
+
+// UnimplementedRecordingSessionServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedRecordingSessionServiceServer struct{}
+
+func (UnimplementedRecordingSessionServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
+}
+func (UnimplementedRecordingSessionServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedRecordingSessionServiceServer) GetSessionId(context.Context, *GetSessionIdRequest) (*GetSessionIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSessionId not implemented")
+}
+func (UnimplementedRecordingSessionServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedRecordingSessionServiceServer) mustEmbedUnimplementedRecordingSessionServiceServer() {
+}
+func (UnimplementedRecordingSessionServiceServer) testEmbeddedByValue() {}
+
+// UnsafeRecordingSessionServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to RecordingSessionServiceServer will
+// result in compilation errors.
+type UnsafeRecordingSessionServiceServer interface {
+	mustEmbedUnimplementedRecordingSessionServiceServer()
+}
+
+func RegisterRecordingSessionServiceServer(s grpc.ServiceRegistrar, srv RecordingSessionServiceServer) {
+	// If the following call panics, it indicates UnimplementedRecordingSessionServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&RecordingSessionService_ServiceDesc, srv)
+}
+
+func _RecordingSessionService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CloseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordingSessionServiceServer).Close(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordingSessionService_Close_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordingSessionServiceServer).Close(ctx, req.(*CloseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordingSessionService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordingSessionServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordingSessionService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordingSessionServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordingSessionService_GetSessionId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSessionIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordingSessionServiceServer).GetSessionId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordingSessionService_GetSessionId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordingSessionServiceServer).GetSessionId(ctx, req.(*GetSessionIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordingSessionService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordingSessionServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordingSessionService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordingSessionServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// RecordingSessionService_ServiceDesc is the grpc.ServiceDesc for RecordingSessionService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var RecordingSessionService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "metrics.RecordingSessionService",
+	HandlerType: (*RecordingSessionServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Close",
+			Handler:    _RecordingSessionService_Close_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _RecordingSessionService_Equals_Handler,
+		},
+		{
+			MethodName: "GetSessionId",
+			Handler:    _RecordingSessionService_GetSessionId_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _RecordingSessionService_HashCode_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/metrics/metrics.proto",
+}
+
+const (
+	LogSessionIdService_Equals_FullMethodName      = "/metrics.LogSessionIdService/Equals"
+	LogSessionIdService_GetStringId_FullMethodName = "/metrics.LogSessionIdService/GetStringId"
+	LogSessionIdService_HashCode_FullMethodName    = "/metrics.LogSessionIdService/HashCode"
+	LogSessionIdService_ToString_FullMethodName    = "/metrics.LogSessionIdService/ToString"
+)
+
+// LogSessionIdServiceClient is the client API for LogSessionIdService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type LogSessionIdServiceClient interface {
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetStringId(ctx context.Context, in *GetStringIdRequest, opts ...grpc.CallOption) (*GetStringIdResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+}
+
+type logSessionIdServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewLogSessionIdServiceClient(cc grpc.ClientConnInterface) LogSessionIdServiceClient {
+	return &logSessionIdServiceClient{cc}
+}
+
+func (c *logSessionIdServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, LogSessionIdService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *logSessionIdServiceClient) GetStringId(ctx context.Context, in *GetStringIdRequest, opts ...grpc.CallOption) (*GetStringIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStringIdResponse)
+	err := c.cc.Invoke(ctx, LogSessionIdService_GetStringId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *logSessionIdServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, LogSessionIdService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *logSessionIdServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, LogSessionIdService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// LogSessionIdServiceServer is the server API for LogSessionIdService service.
+// All implementations must embed UnimplementedLogSessionIdServiceServer
+// for forward compatibility.
+type LogSessionIdServiceServer interface {
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetStringId(context.Context, *GetStringIdRequest) (*GetStringIdResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	mustEmbedUnimplementedLogSessionIdServiceServer()
+}
+
+// UnimplementedLogSessionIdServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedLogSessionIdServiceServer struct{}
+
+func (UnimplementedLogSessionIdServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedLogSessionIdServiceServer) GetStringId(context.Context, *GetStringIdRequest) (*GetStringIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetStringId not implemented")
+}
+func (UnimplementedLogSessionIdServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedLogSessionIdServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedLogSessionIdServiceServer) mustEmbedUnimplementedLogSessionIdServiceServer() {}
+func (UnimplementedLogSessionIdServiceServer) testEmbeddedByValue()                             {}
+
+// UnsafeLogSessionIdServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to LogSessionIdServiceServer will
+// result in compilation errors.
+type UnsafeLogSessionIdServiceServer interface {
+	mustEmbedUnimplementedLogSessionIdServiceServer()
+}
+
+func RegisterLogSessionIdServiceServer(s grpc.ServiceRegistrar, srv LogSessionIdServiceServer) {
+	// If the following call panics, it indicates UnimplementedLogSessionIdServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&LogSessionIdService_ServiceDesc, srv)
+}
+
+func _LogSessionIdService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LogSessionIdServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LogSessionIdService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LogSessionIdServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _LogSessionIdService_GetStringId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStringIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LogSessionIdServiceServer).GetStringId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LogSessionIdService_GetStringId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LogSessionIdServiceServer).GetStringId(ctx, req.(*GetStringIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _LogSessionIdService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LogSessionIdServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LogSessionIdService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LogSessionIdServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _LogSessionIdService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LogSessionIdServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LogSessionIdService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LogSessionIdServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// LogSessionIdService_ServiceDesc is the grpc.ServiceDesc for LogSessionIdService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var LogSessionIdService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "metrics.LogSessionIdService",
+	HandlerType: (*LogSessionIdServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Equals",
+			Handler:    _LogSessionIdService_Equals_Handler,
+		},
+		{
+			MethodName: "GetStringId",
+			Handler:    _LogSessionIdService_GetStringId_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _LogSessionIdService_HashCode_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _LogSessionIdService_ToString_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

@@ -9,6 +9,1362 @@ import (
 	"google.golang.org/grpc"
 )
 
+// MediaSessionClient wraps the gRPC MediaSessionService client.
+type MediaSessionClient struct {
+	svc pb.MediaSessionServiceClient
+}
+
+// NewMediaSessionClient creates a new MediaSession client.
+func NewMediaSessionClient(cc grpc.ClientConnInterface) *MediaSessionClient {
+	return &MediaSessionClient{
+		svc: pb.NewMediaSessionServiceClient(cc),
+	}
+}
+
+// GetController calls the GetController RPC.
+func (c *MediaSessionClient) GetController(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetController(ctx, &pb.GetControllerRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCurrentControllerInfo calls the GetCurrentControllerInfo RPC.
+func (c *MediaSessionClient) GetCurrentControllerInfo(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetCurrentControllerInfo(ctx, &pb.GetCurrentControllerInfoRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSessionToken calls the GetSessionToken RPC.
+func (c *MediaSessionClient) GetSessionToken(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetSessionToken(ctx, &pb.GetSessionTokenRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsActive calls the IsActive RPC.
+func (c *MediaSessionClient) IsActive(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsActive(ctx, &pb.IsActiveRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Release calls the Release RPC.
+func (c *MediaSessionClient) Release(ctx context.Context, handle int64) error {
+	_, err := c.svc.Release(ctx, &pb.ReleaseRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// SendSessionEvent calls the SendSessionEvent RPC.
+func (c *MediaSessionClient) SendSessionEvent(ctx context.Context, handle int64, arg0 string, arg1 int64) error {
+	_, err := c.svc.SendSessionEvent(ctx, &pb.SendSessionEventRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SetActive calls the SetActive RPC.
+func (c *MediaSessionClient) SetActive(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetActive(ctx, &pb.SetActiveRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetCallback calls the SetCallback RPC.
+func (c *MediaSessionClient) SetCallback(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetCallback(ctx, &pb.SetCallbackRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetExtras calls the SetExtras RPC.
+func (c *MediaSessionClient) SetExtras(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetExtras(ctx, &pb.SetExtrasRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetFlags calls the SetFlags RPC.
+func (c *MediaSessionClient) SetFlags(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetFlags(ctx, &pb.SetFlagsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetMediaButtonBroadcastReceiver calls the SetMediaButtonBroadcastReceiver RPC.
+func (c *MediaSessionClient) SetMediaButtonBroadcastReceiver(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetMediaButtonBroadcastReceiver(ctx, &pb.SetMediaButtonBroadcastReceiverRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetMediaButtonReceiver calls the SetMediaButtonReceiver RPC.
+func (c *MediaSessionClient) SetMediaButtonReceiver(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetMediaButtonReceiver(ctx, &pb.SetMediaButtonReceiverRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetMetadata calls the SetMetadata RPC.
+func (c *MediaSessionClient) SetMetadata(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetMetadata(ctx, &pb.SetMetadataRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetPlaybackState calls the SetPlaybackState RPC.
+func (c *MediaSessionClient) SetPlaybackState(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetPlaybackState(ctx, &pb.SetPlaybackStateRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetPlaybackToLocal calls the SetPlaybackToLocal RPC.
+func (c *MediaSessionClient) SetPlaybackToLocal(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetPlaybackToLocal(ctx, &pb.SetPlaybackToLocalRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetPlaybackToRemote calls the SetPlaybackToRemote RPC.
+func (c *MediaSessionClient) SetPlaybackToRemote(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetPlaybackToRemote(ctx, &pb.SetPlaybackToRemoteRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetQueueTitle calls the SetQueueTitle RPC.
+func (c *MediaSessionClient) SetQueueTitle(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.SetQueueTitle(ctx, &pb.SetQueueTitleRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetRatingType calls the SetRatingType RPC.
+func (c *MediaSessionClient) SetRatingType(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetRatingType(ctx, &pb.SetRatingTypeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetSessionActivity calls the SetSessionActivity RPC.
+func (c *MediaSessionClient) SetSessionActivity(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetSessionActivity(ctx, &pb.SetSessionActivityRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// MediaSessionCallbackClient wraps the gRPC MediaSessionCallbackService client.
+type MediaSessionCallbackClient struct {
+	svc pb.MediaSessionCallbackServiceClient
+}
+
+// NewMediaSessionCallbackClient creates a new MediaSessionCallback client.
+func NewMediaSessionCallbackClient(cc grpc.ClientConnInterface) *MediaSessionCallbackClient {
+	return &MediaSessionCallbackClient{
+		svc: pb.NewMediaSessionCallbackServiceClient(cc),
+	}
+}
+
+// OnCommand calls the OnCommand RPC.
+func (c *MediaSessionCallbackClient) OnCommand(ctx context.Context, arg0 string, arg1 int64, arg2 int64) error {
+	_, err := c.svc.OnCommand(ctx, &pb.OnCommandRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// OnCustomAction calls the OnCustomAction RPC.
+func (c *MediaSessionCallbackClient) OnCustomAction(ctx context.Context, arg0 string, arg1 int64) error {
+	_, err := c.svc.OnCustomAction(ctx, &pb.OnCustomActionRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnFastForward calls the OnFastForward RPC.
+func (c *MediaSessionCallbackClient) OnFastForward(ctx context.Context) error {
+	_, err := c.svc.OnFastForward(ctx, &pb.OnFastForwardRequest{})
+	return err
+}
+
+// OnMediaButtonEvent calls the OnMediaButtonEvent RPC.
+func (c *MediaSessionCallbackClient) OnMediaButtonEvent(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.OnMediaButtonEvent(ctx, &pb.OnMediaButtonEventRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnPause calls the OnPause RPC.
+func (c *MediaSessionCallbackClient) OnPause(ctx context.Context) error {
+	_, err := c.svc.OnPause(ctx, &pb.OnPauseRequest{})
+	return err
+}
+
+// OnPlay calls the OnPlay RPC.
+func (c *MediaSessionCallbackClient) OnPlay(ctx context.Context) error {
+	_, err := c.svc.OnPlay(ctx, &pb.OnPlayRequest{})
+	return err
+}
+
+// OnPlayFromMediaId calls the OnPlayFromMediaId RPC.
+func (c *MediaSessionCallbackClient) OnPlayFromMediaId(ctx context.Context, arg0 string, arg1 int64) error {
+	_, err := c.svc.OnPlayFromMediaId(ctx, &pb.OnPlayFromMediaIdRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnPlayFromSearch calls the OnPlayFromSearch RPC.
+func (c *MediaSessionCallbackClient) OnPlayFromSearch(ctx context.Context, arg0 string, arg1 int64) error {
+	_, err := c.svc.OnPlayFromSearch(ctx, &pb.OnPlayFromSearchRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnPlayFromUri calls the OnPlayFromUri RPC.
+func (c *MediaSessionCallbackClient) OnPlayFromUri(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.OnPlayFromUri(ctx, &pb.OnPlayFromUriRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnPrepare calls the OnPrepare RPC.
+func (c *MediaSessionCallbackClient) OnPrepare(ctx context.Context) error {
+	_, err := c.svc.OnPrepare(ctx, &pb.OnPrepareRequest{})
+	return err
+}
+
+// OnPrepareFromMediaId calls the OnPrepareFromMediaId RPC.
+func (c *MediaSessionCallbackClient) OnPrepareFromMediaId(ctx context.Context, arg0 string, arg1 int64) error {
+	_, err := c.svc.OnPrepareFromMediaId(ctx, &pb.OnPrepareFromMediaIdRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnPrepareFromSearch calls the OnPrepareFromSearch RPC.
+func (c *MediaSessionCallbackClient) OnPrepareFromSearch(ctx context.Context, arg0 string, arg1 int64) error {
+	_, err := c.svc.OnPrepareFromSearch(ctx, &pb.OnPrepareFromSearchRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnPrepareFromUri calls the OnPrepareFromUri RPC.
+func (c *MediaSessionCallbackClient) OnPrepareFromUri(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.OnPrepareFromUri(ctx, &pb.OnPrepareFromUriRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnRewind calls the OnRewind RPC.
+func (c *MediaSessionCallbackClient) OnRewind(ctx context.Context) error {
+	_, err := c.svc.OnRewind(ctx, &pb.OnRewindRequest{})
+	return err
+}
+
+// OnSeekTo calls the OnSeekTo RPC.
+func (c *MediaSessionCallbackClient) OnSeekTo(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnSeekTo(ctx, &pb.OnSeekToRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnSetPlaybackSpeed calls the OnSetPlaybackSpeed RPC.
+func (c *MediaSessionCallbackClient) OnSetPlaybackSpeed(ctx context.Context, arg0 float32) error {
+	_, err := c.svc.OnSetPlaybackSpeed(ctx, &pb.OnSetPlaybackSpeedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnSetRating calls the OnSetRating RPC.
+func (c *MediaSessionCallbackClient) OnSetRating(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnSetRating(ctx, &pb.OnSetRatingRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnSkipToNext calls the OnSkipToNext RPC.
+func (c *MediaSessionCallbackClient) OnSkipToNext(ctx context.Context) error {
+	_, err := c.svc.OnSkipToNext(ctx, &pb.OnSkipToNextRequest{})
+	return err
+}
+
+// OnSkipToPrevious calls the OnSkipToPrevious RPC.
+func (c *MediaSessionCallbackClient) OnSkipToPrevious(ctx context.Context) error {
+	_, err := c.svc.OnSkipToPrevious(ctx, &pb.OnSkipToPreviousRequest{})
+	return err
+}
+
+// OnSkipToQueueItem calls the OnSkipToQueueItem RPC.
+func (c *MediaSessionCallbackClient) OnSkipToQueueItem(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnSkipToQueueItem(ctx, &pb.OnSkipToQueueItemRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnStop calls the OnStop RPC.
+func (c *MediaSessionCallbackClient) OnStop(ctx context.Context) error {
+	_, err := c.svc.OnStop(ctx, &pb.OnStopRequest{})
+	return err
+}
+
+// MediaSessionQueueItemClient wraps the gRPC MediaSessionQueueItemService client.
+type MediaSessionQueueItemClient struct {
+	svc pb.MediaSessionQueueItemServiceClient
+}
+
+// NewMediaSessionQueueItemClient creates a new MediaSessionQueueItem client.
+func NewMediaSessionQueueItemClient(cc grpc.ClientConnInterface) *MediaSessionQueueItemClient {
+	return &MediaSessionQueueItemClient{
+		svc: pb.NewMediaSessionQueueItemServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *MediaSessionQueueItemClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *MediaSessionQueueItemClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDescription calls the GetDescription RPC.
+func (c *MediaSessionQueueItemClient) GetDescription(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDescription(ctx, &pb.GetDescriptionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetQueueId calls the GetQueueId RPC.
+func (c *MediaSessionQueueItemClient) GetQueueId(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetQueueId(ctx, &pb.GetQueueIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *MediaSessionQueueItemClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *MediaSessionQueueItemClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// MediaSessionTokenClient wraps the gRPC MediaSessionTokenService client.
+type MediaSessionTokenClient struct {
+	svc pb.MediaSessionTokenServiceClient
+}
+
+// NewMediaSessionTokenClient creates a new MediaSessionToken client.
+func NewMediaSessionTokenClient(cc grpc.ClientConnInterface) *MediaSessionTokenClient {
+	return &MediaSessionTokenClient{
+		svc: pb.NewMediaSessionTokenServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *MediaSessionTokenClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *MediaSessionTokenClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *MediaSessionTokenClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *MediaSessionTokenClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// PlaybackStateClient wraps the gRPC PlaybackStateService client.
+type PlaybackStateClient struct {
+	svc pb.PlaybackStateServiceClient
+}
+
+// NewPlaybackStateClient creates a new PlaybackState client.
+func NewPlaybackStateClient(cc grpc.ClientConnInterface) *PlaybackStateClient {
+	return &PlaybackStateClient{
+		svc: pb.NewPlaybackStateServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *PlaybackStateClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetActions calls the GetActions RPC.
+func (c *PlaybackStateClient) GetActions(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetActions(ctx, &pb.GetActionsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetActiveQueueItemId calls the GetActiveQueueItemId RPC.
+func (c *PlaybackStateClient) GetActiveQueueItemId(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetActiveQueueItemId(ctx, &pb.GetActiveQueueItemIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBufferedPosition calls the GetBufferedPosition RPC.
+func (c *PlaybackStateClient) GetBufferedPosition(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetBufferedPosition(ctx, &pb.GetBufferedPositionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetErrorMessage calls the GetErrorMessage RPC.
+func (c *PlaybackStateClient) GetErrorMessage(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetErrorMessage(ctx, &pb.GetErrorMessageRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExtras calls the GetExtras RPC.
+func (c *PlaybackStateClient) GetExtras(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetExtras(ctx, &pb.GetExtrasRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLastPositionUpdateTime calls the GetLastPositionUpdateTime RPC.
+func (c *PlaybackStateClient) GetLastPositionUpdateTime(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetLastPositionUpdateTime(ctx, &pb.GetLastPositionUpdateTimeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPlaybackSpeed calls the GetPlaybackSpeed RPC.
+func (c *PlaybackStateClient) GetPlaybackSpeed(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetPlaybackSpeed(ctx, &pb.GetPlaybackSpeedRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPosition calls the GetPosition RPC.
+func (c *PlaybackStateClient) GetPosition(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPosition(ctx, &pb.GetPositionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetState calls the GetState RPC.
+func (c *PlaybackStateClient) GetState(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetState(ctx, &pb.GetStateRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsActive calls the IsActive RPC.
+func (c *PlaybackStateClient) IsActive(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsActive(ctx, &pb.PlaybackStateIsActiveRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *PlaybackStateClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *PlaybackStateClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// PlaybackStateBuilderClient wraps the gRPC PlaybackStateBuilderService client.
+type PlaybackStateBuilderClient struct {
+	svc pb.PlaybackStateBuilderServiceClient
+}
+
+// NewPlaybackStateBuilderClient creates a new PlaybackStateBuilder client.
+func NewPlaybackStateBuilderClient(cc grpc.ClientConnInterface) *PlaybackStateBuilderClient {
+	return &PlaybackStateBuilderClient{
+		svc: pb.NewPlaybackStateBuilderServiceClient(cc),
+	}
+}
+
+// AddCustomAction1 calls the AddCustomAction1 RPC.
+func (c *PlaybackStateBuilderClient) AddCustomAction1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.AddCustomAction1(ctx, &pb.AddCustomAction1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddCustomAction3_1 calls the AddCustomAction3_1 RPC.
+func (c *PlaybackStateBuilderClient) AddCustomAction3_1(ctx context.Context, arg0 string, arg1 string, arg2 int32) (int64, error) {
+	resp, err := c.svc.AddCustomAction3_1(ctx, &pb.AddCustomAction3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Build calls the Build RPC.
+func (c *PlaybackStateBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetActions calls the SetActions RPC.
+func (c *PlaybackStateBuilderClient) SetActions(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetActions(ctx, &pb.SetActionsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetActiveQueueItemId calls the SetActiveQueueItemId RPC.
+func (c *PlaybackStateBuilderClient) SetActiveQueueItemId(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetActiveQueueItemId(ctx, &pb.SetActiveQueueItemIdRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetBufferedPosition calls the SetBufferedPosition RPC.
+func (c *PlaybackStateBuilderClient) SetBufferedPosition(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetBufferedPosition(ctx, &pb.SetBufferedPositionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetErrorMessage calls the SetErrorMessage RPC.
+func (c *PlaybackStateBuilderClient) SetErrorMessage(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetErrorMessage(ctx, &pb.SetErrorMessageRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetExtras calls the SetExtras RPC.
+func (c *PlaybackStateBuilderClient) SetExtras(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetExtras(ctx, &pb.PlaybackStateBuilderSetExtrasRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetState3 calls the SetState3 RPC.
+func (c *PlaybackStateBuilderClient) SetState3(ctx context.Context, arg0 int32, arg1 int64, arg2 float32) (int64, error) {
+	resp, err := c.svc.SetState3(ctx, &pb.SetState3Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetState4_1 calls the SetState4_1 RPC.
+func (c *PlaybackStateBuilderClient) SetState4_1(ctx context.Context, arg0 int32, arg1 int64, arg2 float32, arg3 int64) (int64, error) {
+	resp, err := c.svc.SetState4_1(ctx, &pb.SetState4_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PlaybackStateCustomActionClient wraps the gRPC PlaybackStateCustomActionService client.
+type PlaybackStateCustomActionClient struct {
+	svc pb.PlaybackStateCustomActionServiceClient
+}
+
+// NewPlaybackStateCustomActionClient creates a new PlaybackStateCustomAction client.
+func NewPlaybackStateCustomActionClient(cc grpc.ClientConnInterface) *PlaybackStateCustomActionClient {
+	return &PlaybackStateCustomActionClient{
+		svc: pb.NewPlaybackStateCustomActionServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *PlaybackStateCustomActionClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAction calls the GetAction RPC.
+func (c *PlaybackStateCustomActionClient) GetAction(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetAction(ctx, &pb.GetActionRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExtras calls the GetExtras RPC.
+func (c *PlaybackStateCustomActionClient) GetExtras(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetExtras(ctx, &pb.GetExtrasRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIcon calls the GetIcon RPC.
+func (c *PlaybackStateCustomActionClient) GetIcon(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetIcon(ctx, &pb.GetIconRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetName calls the GetName RPC.
+func (c *PlaybackStateCustomActionClient) GetName(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetName(ctx, &pb.GetNameRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *PlaybackStateCustomActionClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *PlaybackStateCustomActionClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// MediaControllerClient wraps the gRPC MediaControllerService client.
+type MediaControllerClient struct {
+	svc pb.MediaControllerServiceClient
+}
+
+// NewMediaControllerClient creates a new MediaController client.
+func NewMediaControllerClient(cc grpc.ClientConnInterface) *MediaControllerClient {
+	return &MediaControllerClient{
+		svc: pb.NewMediaControllerServiceClient(cc),
+	}
+}
+
+// AdjustVolume calls the AdjustVolume RPC.
+func (c *MediaControllerClient) AdjustVolume(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
+	_, err := c.svc.AdjustVolume(ctx, &pb.AdjustVolumeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// DispatchMediaButtonEvent calls the DispatchMediaButtonEvent RPC.
+func (c *MediaControllerClient) DispatchMediaButtonEvent(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.DispatchMediaButtonEvent(ctx, &pb.DispatchMediaButtonEventRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExtras calls the GetExtras RPC.
+func (c *MediaControllerClient) GetExtras(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetExtras(ctx, &pb.MediaControllerGetExtrasRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFlags calls the GetFlags RPC.
+func (c *MediaControllerClient) GetFlags(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetFlags(ctx, &pb.GetFlagsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMetadata calls the GetMetadata RPC.
+func (c *MediaControllerClient) GetMetadata(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetMetadata(ctx, &pb.GetMetadataRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPackageName calls the GetPackageName RPC.
+func (c *MediaControllerClient) GetPackageName(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetPackageName(ctx, &pb.GetPackageNameRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPlaybackInfo calls the GetPlaybackInfo RPC.
+func (c *MediaControllerClient) GetPlaybackInfo(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetPlaybackInfo(ctx, &pb.GetPlaybackInfoRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPlaybackState calls the GetPlaybackState RPC.
+func (c *MediaControllerClient) GetPlaybackState(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetPlaybackState(ctx, &pb.GetPlaybackStateRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetQueueTitle calls the GetQueueTitle RPC.
+func (c *MediaControllerClient) GetQueueTitle(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetQueueTitle(ctx, &pb.GetQueueTitleRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRatingType calls the GetRatingType RPC.
+func (c *MediaControllerClient) GetRatingType(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetRatingType(ctx, &pb.GetRatingTypeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSessionActivity calls the GetSessionActivity RPC.
+func (c *MediaControllerClient) GetSessionActivity(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetSessionActivity(ctx, &pb.GetSessionActivityRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSessionInfo calls the GetSessionInfo RPC.
+func (c *MediaControllerClient) GetSessionInfo(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetSessionInfo(ctx, &pb.GetSessionInfoRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSessionToken calls the GetSessionToken RPC.
+func (c *MediaControllerClient) GetSessionToken(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetSessionToken(ctx, &pb.GetSessionTokenRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTag calls the GetTag RPC.
+func (c *MediaControllerClient) GetTag(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetTag(ctx, &pb.GetTagRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTransportControls calls the GetTransportControls RPC.
+func (c *MediaControllerClient) GetTransportControls(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetTransportControls(ctx, &pb.GetTransportControlsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RegisterCallback calls the RegisterCallback RPC.
+func (c *MediaControllerClient) RegisterCallback(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.RegisterCallback(ctx, &pb.RegisterCallbackRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SendCommand calls the SendCommand RPC.
+func (c *MediaControllerClient) SendCommand(ctx context.Context, handle int64, arg0 string, arg1 int64, arg2 int64) error {
+	_, err := c.svc.SendCommand(ctx, &pb.SendCommandRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// SetVolumeTo calls the SetVolumeTo RPC.
+func (c *MediaControllerClient) SetVolumeTo(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
+	_, err := c.svc.SetVolumeTo(ctx, &pb.SetVolumeToRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// UnregisterCallback calls the UnregisterCallback RPC.
+func (c *MediaControllerClient) UnregisterCallback(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.UnregisterCallback(ctx, &pb.UnregisterCallbackRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// MediaControllerCallbackClient wraps the gRPC MediaControllerCallbackService client.
+type MediaControllerCallbackClient struct {
+	svc pb.MediaControllerCallbackServiceClient
+}
+
+// NewMediaControllerCallbackClient creates a new MediaControllerCallback client.
+func NewMediaControllerCallbackClient(cc grpc.ClientConnInterface) *MediaControllerCallbackClient {
+	return &MediaControllerCallbackClient{
+		svc: pb.NewMediaControllerCallbackServiceClient(cc),
+	}
+}
+
+// OnAudioInfoChanged calls the OnAudioInfoChanged RPC.
+func (c *MediaControllerCallbackClient) OnAudioInfoChanged(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnAudioInfoChanged(ctx, &pb.OnAudioInfoChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnExtrasChanged calls the OnExtrasChanged RPC.
+func (c *MediaControllerCallbackClient) OnExtrasChanged(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnExtrasChanged(ctx, &pb.OnExtrasChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnMetadataChanged calls the OnMetadataChanged RPC.
+func (c *MediaControllerCallbackClient) OnMetadataChanged(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnMetadataChanged(ctx, &pb.OnMetadataChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnPlaybackStateChanged calls the OnPlaybackStateChanged RPC.
+func (c *MediaControllerCallbackClient) OnPlaybackStateChanged(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnPlaybackStateChanged(ctx, &pb.OnPlaybackStateChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnQueueTitleChanged calls the OnQueueTitleChanged RPC.
+func (c *MediaControllerCallbackClient) OnQueueTitleChanged(ctx context.Context, arg0 string) error {
+	_, err := c.svc.OnQueueTitleChanged(ctx, &pb.OnQueueTitleChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnSessionDestroyed calls the OnSessionDestroyed RPC.
+func (c *MediaControllerCallbackClient) OnSessionDestroyed(ctx context.Context) error {
+	_, err := c.svc.OnSessionDestroyed(ctx, &pb.OnSessionDestroyedRequest{})
+	return err
+}
+
+// OnSessionEvent calls the OnSessionEvent RPC.
+func (c *MediaControllerCallbackClient) OnSessionEvent(ctx context.Context, arg0 string, arg1 int64) error {
+	_, err := c.svc.OnSessionEvent(ctx, &pb.OnSessionEventRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// MediaControllerPlaybackInfoClient wraps the gRPC MediaControllerPlaybackInfoService client.
+type MediaControllerPlaybackInfoClient struct {
+	svc pb.MediaControllerPlaybackInfoServiceClient
+}
+
+// NewMediaControllerPlaybackInfoClient creates a new MediaControllerPlaybackInfo client.
+func NewMediaControllerPlaybackInfoClient(cc grpc.ClientConnInterface) *MediaControllerPlaybackInfoClient {
+	return &MediaControllerPlaybackInfoClient{
+		svc: pb.NewMediaControllerPlaybackInfoServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *MediaControllerPlaybackInfoClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAudioAttributes calls the GetAudioAttributes RPC.
+func (c *MediaControllerPlaybackInfoClient) GetAudioAttributes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAudioAttributes(ctx, &pb.GetAudioAttributesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCurrentVolume calls the GetCurrentVolume RPC.
+func (c *MediaControllerPlaybackInfoClient) GetCurrentVolume(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetCurrentVolume(ctx, &pb.GetCurrentVolumeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMaxVolume calls the GetMaxVolume RPC.
+func (c *MediaControllerPlaybackInfoClient) GetMaxVolume(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMaxVolume(ctx, &pb.GetMaxVolumeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPlaybackType calls the GetPlaybackType RPC.
+func (c *MediaControllerPlaybackInfoClient) GetPlaybackType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetPlaybackType(ctx, &pb.GetPlaybackTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVolumeControl calls the GetVolumeControl RPC.
+func (c *MediaControllerPlaybackInfoClient) GetVolumeControl(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetVolumeControl(ctx, &pb.GetVolumeControlRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVolumeControlId calls the GetVolumeControlId RPC.
+func (c *MediaControllerPlaybackInfoClient) GetVolumeControlId(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetVolumeControlId(ctx, &pb.GetVolumeControlIdRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *MediaControllerPlaybackInfoClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *MediaControllerPlaybackInfoClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// MediaControllerTransportControlsClient wraps the gRPC MediaControllerTransportControlsService client.
+type MediaControllerTransportControlsClient struct {
+	svc pb.MediaControllerTransportControlsServiceClient
+}
+
+// NewMediaControllerTransportControlsClient creates a new MediaControllerTransportControls client.
+func NewMediaControllerTransportControlsClient(cc grpc.ClientConnInterface) *MediaControllerTransportControlsClient {
+	return &MediaControllerTransportControlsClient{
+		svc: pb.NewMediaControllerTransportControlsServiceClient(cc),
+	}
+}
+
+// FastForward calls the FastForward RPC.
+func (c *MediaControllerTransportControlsClient) FastForward(ctx context.Context) error {
+	_, err := c.svc.FastForward(ctx, &pb.FastForwardRequest{})
+	return err
+}
+
+// Pause calls the Pause RPC.
+func (c *MediaControllerTransportControlsClient) Pause(ctx context.Context) error {
+	_, err := c.svc.Pause(ctx, &pb.PauseRequest{})
+	return err
+}
+
+// Play calls the Play RPC.
+func (c *MediaControllerTransportControlsClient) Play(ctx context.Context) error {
+	_, err := c.svc.Play(ctx, &pb.PlayRequest{})
+	return err
+}
+
+// PlayFromMediaId calls the PlayFromMediaId RPC.
+func (c *MediaControllerTransportControlsClient) PlayFromMediaId(ctx context.Context, arg0 string, arg1 int64) error {
+	_, err := c.svc.PlayFromMediaId(ctx, &pb.PlayFromMediaIdRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// PlayFromSearch calls the PlayFromSearch RPC.
+func (c *MediaControllerTransportControlsClient) PlayFromSearch(ctx context.Context, arg0 string, arg1 int64) error {
+	_, err := c.svc.PlayFromSearch(ctx, &pb.PlayFromSearchRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// PlayFromUri calls the PlayFromUri RPC.
+func (c *MediaControllerTransportControlsClient) PlayFromUri(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.PlayFromUri(ctx, &pb.PlayFromUriRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// Prepare calls the Prepare RPC.
+func (c *MediaControllerTransportControlsClient) Prepare(ctx context.Context) error {
+	_, err := c.svc.Prepare(ctx, &pb.PrepareRequest{})
+	return err
+}
+
+// PrepareFromMediaId calls the PrepareFromMediaId RPC.
+func (c *MediaControllerTransportControlsClient) PrepareFromMediaId(ctx context.Context, arg0 string, arg1 int64) error {
+	_, err := c.svc.PrepareFromMediaId(ctx, &pb.PrepareFromMediaIdRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// PrepareFromSearch calls the PrepareFromSearch RPC.
+func (c *MediaControllerTransportControlsClient) PrepareFromSearch(ctx context.Context, arg0 string, arg1 int64) error {
+	_, err := c.svc.PrepareFromSearch(ctx, &pb.PrepareFromSearchRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// PrepareFromUri calls the PrepareFromUri RPC.
+func (c *MediaControllerTransportControlsClient) PrepareFromUri(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.PrepareFromUri(ctx, &pb.PrepareFromUriRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// Rewind calls the Rewind RPC.
+func (c *MediaControllerTransportControlsClient) Rewind(ctx context.Context) error {
+	_, err := c.svc.Rewind(ctx, &pb.RewindRequest{})
+	return err
+}
+
+// SeekTo calls the SeekTo RPC.
+func (c *MediaControllerTransportControlsClient) SeekTo(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SeekTo(ctx, &pb.SeekToRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SendCustomAction2 calls the SendCustomAction2 RPC.
+func (c *MediaControllerTransportControlsClient) SendCustomAction2(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.SendCustomAction2(ctx, &pb.SendCustomAction2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// SendCustomAction2_1 calls the SendCustomAction2_1 RPC.
+func (c *MediaControllerTransportControlsClient) SendCustomAction2_1(ctx context.Context, arg0 string, arg1 int64) error {
+	_, err := c.svc.SendCustomAction2_1(ctx, &pb.SendCustomAction2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// SetPlaybackSpeed calls the SetPlaybackSpeed RPC.
+func (c *MediaControllerTransportControlsClient) SetPlaybackSpeed(ctx context.Context, arg0 float32) error {
+	_, err := c.svc.SetPlaybackSpeed(ctx, &pb.SetPlaybackSpeedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetRating calls the SetRating RPC.
+func (c *MediaControllerTransportControlsClient) SetRating(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetRating(ctx, &pb.SetRatingRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SkipToNext calls the SkipToNext RPC.
+func (c *MediaControllerTransportControlsClient) SkipToNext(ctx context.Context) error {
+	_, err := c.svc.SkipToNext(ctx, &pb.SkipToNextRequest{})
+	return err
+}
+
+// SkipToPrevious calls the SkipToPrevious RPC.
+func (c *MediaControllerTransportControlsClient) SkipToPrevious(ctx context.Context) error {
+	_, err := c.svc.SkipToPrevious(ctx, &pb.SkipToPreviousRequest{})
+	return err
+}
+
+// SkipToQueueItem calls the SkipToQueueItem RPC.
+func (c *MediaControllerTransportControlsClient) SkipToQueueItem(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SkipToQueueItem(ctx, &pb.SkipToQueueItemRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// Stop calls the Stop RPC.
+func (c *MediaControllerTransportControlsClient) Stop(ctx context.Context) error {
+	_, err := c.svc.Stop(ctx, &pb.StopRequest{})
+	return err
+}
+
 // MediaSessionManagerClient wraps the gRPC MediaSessionManagerService client.
 type MediaSessionManagerClient struct {
 	svc pb.MediaSessionManagerServiceClient
@@ -106,4 +1462,84 @@ func (c *MediaSessionManagerClient) RemoveOnSession2TokensChangedListener(ctx co
 		Arg0: arg0,
 	})
 	return err
+}
+
+// MediaSessionManagerOnMediaKeyEventSessionChangedListenerClient wraps the gRPC MediaSessionManagerOnMediaKeyEventSessionChangedListenerService client.
+type MediaSessionManagerOnMediaKeyEventSessionChangedListenerClient struct {
+	svc pb.MediaSessionManagerOnMediaKeyEventSessionChangedListenerServiceClient
+}
+
+// NewMediaSessionManagerOnMediaKeyEventSessionChangedListenerClient creates a new MediaSessionManagerOnMediaKeyEventSessionChangedListener client.
+func NewMediaSessionManagerOnMediaKeyEventSessionChangedListenerClient(cc grpc.ClientConnInterface) *MediaSessionManagerOnMediaKeyEventSessionChangedListenerClient {
+	return &MediaSessionManagerOnMediaKeyEventSessionChangedListenerClient{
+		svc: pb.NewMediaSessionManagerOnMediaKeyEventSessionChangedListenerServiceClient(cc),
+	}
+}
+
+// OnMediaKeyEventSessionChanged calls the OnMediaKeyEventSessionChanged RPC.
+func (c *MediaSessionManagerOnMediaKeyEventSessionChangedListenerClient) OnMediaKeyEventSessionChanged(ctx context.Context, arg0 string, arg1 int64) error {
+	_, err := c.svc.OnMediaKeyEventSessionChanged(ctx, &pb.OnMediaKeyEventSessionChangedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// MediaSessionManagerRemoteUserInfoClient wraps the gRPC MediaSessionManagerRemoteUserInfoService client.
+type MediaSessionManagerRemoteUserInfoClient struct {
+	svc pb.MediaSessionManagerRemoteUserInfoServiceClient
+}
+
+// NewMediaSessionManagerRemoteUserInfoClient creates a new MediaSessionManagerRemoteUserInfo client.
+func NewMediaSessionManagerRemoteUserInfoClient(cc grpc.ClientConnInterface) *MediaSessionManagerRemoteUserInfoClient {
+	return &MediaSessionManagerRemoteUserInfoClient{
+		svc: pb.NewMediaSessionManagerRemoteUserInfoServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *MediaSessionManagerRemoteUserInfoClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPackageName calls the GetPackageName RPC.
+func (c *MediaSessionManagerRemoteUserInfoClient) GetPackageName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetPackageName(ctx, &pb.MediaSessionManagerRemoteUserInfoGetPackageNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPid calls the GetPid RPC.
+func (c *MediaSessionManagerRemoteUserInfoClient) GetPid(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetPid(ctx, &pb.GetPidRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUid calls the GetUid RPC.
+func (c *MediaSessionManagerRemoteUserInfoClient) GetUid(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetUid(ctx, &pb.GetUidRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *MediaSessionManagerRemoteUserInfoClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
 }

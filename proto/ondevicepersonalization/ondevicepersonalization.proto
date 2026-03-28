@@ -5,3 +5,1294 @@ syntax = "proto3";
 package ondevicepersonalization;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/ondevicepersonalization";
+
+message GetErrorCodeRequest {
+}
+
+message GetErrorCodeResponse {
+  int32 result = 1;
+}
+
+message NewExecuteInputRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewExecuteInputResponse {
+  int64 result = 1;
+}
+
+message GetAppPackageNameRequest {
+  int64 handle = 1;
+}
+
+message GetAppPackageNameResponse {
+  string result = 1;
+}
+
+message GetAppParamsRequest {
+  int64 handle = 1;
+}
+
+message GetAppParamsResponse {
+  int64 result = 1;
+}
+
+message DescribeContentsRequest {
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message EqualsRequest {
+  int64 arg0 = 1;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message GetDataRequest {
+}
+
+message GetDataResponse {
+  int64 result = 1;
+}
+
+message GetRequestLogRecordRequest {
+}
+
+message GetRequestLogRecordResponse {
+  int64 result = 1;
+}
+
+message GetRowIndexRequest {
+}
+
+message GetRowIndexResponse {
+  int32 result = 1;
+}
+
+message GetTimeRequest {
+}
+
+message GetTimeResponse {
+  int64 result = 1;
+}
+
+message GetTypeRequest {
+}
+
+message GetTypeResponse {
+  int32 result = 1;
+}
+
+message HashCodeRequest {
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteToParcelResponse {
+}
+
+message BuildRequest {
+}
+
+message BuildResponse {
+  int64 result = 1;
+}
+
+message SetDataRequest {
+  int64 arg0 = 1;
+}
+
+message SetDataResponse {
+  int64 result = 1;
+}
+
+message SetRequestLogRecordRequest {
+  int64 arg0 = 1;
+}
+
+message SetRequestLogRecordResponse {
+  int64 result = 1;
+}
+
+message SetRowIndexRequest {
+  int32 arg0 = 1;
+}
+
+message SetRowIndexResponse {
+  int64 result = 1;
+}
+
+message SetTypeRequest {
+  int32 arg0 = 1;
+}
+
+message SetTypeResponse {
+  int64 result = 1;
+}
+
+message CancelRequest {
+  int64 arg0 = 1;
+}
+
+message CancelResponse {
+}
+
+message ScheduleRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message ScheduleResponse {
+}
+
+message GetTrainingIntervalRequest {
+}
+
+message GetTrainingIntervalResponse {
+  int64 result = 1;
+}
+
+message AddRetainedKeyRequest {
+  string arg0 = 1;
+}
+
+message AddRetainedKeyResponse {
+  int64 result = 1;
+}
+
+message AddDataOutputRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message AddDataOutputResponse {
+  int64 result = 1;
+}
+
+message NewAppInfoRequest {
+  bool arg0 = 1;
+}
+
+message NewAppInfoResponse {
+  int64 result = 1;
+}
+
+message AppInfoDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message AppInfoEqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AppInfoHashCodeRequest {
+  int64 handle = 1;
+}
+
+message IsInstalledRequest {
+  int64 handle = 1;
+}
+
+message IsInstalledResponse {
+  bool result = 1;
+}
+
+message AppInfoWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message AddEventLogRecordRequest {
+  int64 arg0 = 1;
+}
+
+message AddEventLogRecordResponse {
+  int64 result = 1;
+}
+
+message GetBatchSizeRequest {
+}
+
+message GetBatchSizeResponse {
+  int32 result = 1;
+}
+
+message GetExpectedOutputStructureRequest {
+}
+
+message GetExpectedOutputStructureResponse {
+  int64 result = 1;
+}
+
+message GetInputDataRequest {
+}
+
+message GetInputDataResponse {
+  int64 result = 1;
+}
+
+message GetParamsRequest {
+}
+
+message GetParamsResponse {
+  int64 result = 1;
+}
+
+message SetBatchSizeRequest {
+  int32 arg0 = 1;
+}
+
+message SetBatchSizeResponse {
+  int64 result = 1;
+}
+
+message SetExpectedOutputStructureRequest {
+  int64 arg0 = 1;
+}
+
+message SetExpectedOutputStructureResponse {
+  int64 result = 1;
+}
+
+message SetInputDataRequest {
+  int64 arg0 = 1;
+}
+
+message SetInputDataResponse {
+  int64 result = 1;
+}
+
+message SetParamsRequest {
+  int64 arg0 = 1;
+}
+
+message SetParamsResponse {
+  int64 result = 1;
+}
+
+message GetDelegateTypeRequest {
+}
+
+message GetDelegateTypeResponse {
+  int32 result = 1;
+}
+
+message GetKeyValueStoreRequest {
+}
+
+message GetKeyValueStoreResponse {
+  int64 result = 1;
+}
+
+message GetModelKeyRequest {
+}
+
+message GetModelKeyResponse {
+  string result = 1;
+}
+
+message GetModelTypeRequest {
+}
+
+message GetModelTypeResponse {
+  int32 result = 1;
+}
+
+message GetRecommendedNumThreadsRequest {
+}
+
+message GetRecommendedNumThreadsResponse {
+  int32 result = 1;
+}
+
+message GetOutputDataRequest {
+}
+
+message GetOutputDataResponse {
+  int64 result = 1;
+}
+
+message GetSurfacePackageTokenRequest {
+}
+
+message GetSurfacePackageTokenResponse {
+  int64 result = 1;
+}
+
+message AddKeyRequest {
+  string arg0 = 1;
+}
+
+message AddKeyResponse {
+  int64 result = 1;
+}
+
+message NewWebTriggerInputRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message NewWebTriggerInputResponse {
+  int64 result = 1;
+}
+
+message WebTriggerInputEqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message WebTriggerInputGetDataRequest {
+  int64 handle = 1;
+}
+
+message GetDestinationUrlRequest {
+  int64 handle = 1;
+}
+
+message GetDestinationUrlResponse {
+  int64 result = 1;
+}
+
+message WebTriggerInputHashCodeRequest {
+  int64 handle = 1;
+}
+
+message GetBestValueRequest {
+}
+
+message GetBestValueResponse {
+  int32 result = 1;
+}
+
+message GetRenderingConfigRequest {
+}
+
+message GetRenderingConfigResponse {
+  int64 result = 1;
+}
+
+message SetBestValueRequest {
+  int32 arg0 = 1;
+}
+
+message SetBestValueResponse {
+  int64 result = 1;
+}
+
+message SetOutputDataRequest {
+  int64 arg0 = 1;
+}
+
+message SetOutputDataResponse {
+  int64 result = 1;
+}
+
+message SetRenderingConfigRequest {
+  int64 arg0 = 1;
+}
+
+message SetRenderingConfigResponse {
+  int64 result = 1;
+}
+
+message ExecuteInIsolatedServiceRequestGetAppParamsRequest {
+}
+
+message GetOutputSpecRequest {
+}
+
+message GetOutputSpecResponse {
+  int64 result = 1;
+}
+
+message GetServiceRequest {
+}
+
+message GetServiceResponse {
+  int64 result = 1;
+}
+
+message SetAppParamsRequest {
+  int64 arg0 = 1;
+}
+
+message SetAppParamsResponse {
+  int64 result = 1;
+}
+
+message SetOutputSpecRequest {
+  int64 arg0 = 1;
+}
+
+message SetOutputSpecResponse {
+  int64 result = 1;
+}
+
+message GetMaxIntValueRequest {
+}
+
+message GetMaxIntValueResponse {
+  int32 result = 1;
+}
+
+message GetOutputTypeRequest {
+}
+
+message GetOutputTypeResponse {
+  int32 result = 1;
+}
+
+message BuildBestValueSpecRequest {
+  int32 arg0 = 1;
+}
+
+message BuildBestValueSpecResponse {
+  int64 result = 1;
+}
+
+message GetContentRequest {
+}
+
+message GetContentResponse {
+  string result = 1;
+}
+
+message GetTemplateIdRequest {
+}
+
+message GetTemplateIdResponse {
+  string result = 1;
+}
+
+message GetTemplateParamsRequest {
+}
+
+message GetTemplateParamsResponse {
+  int64 result = 1;
+}
+
+message SetContentRequest {
+  string arg0 = 1;
+}
+
+message SetContentResponse {
+  int64 result = 1;
+}
+
+message SetTemplateIdRequest {
+  string arg0 = 1;
+}
+
+message SetTemplateIdResponse {
+  int64 result = 1;
+}
+
+message SetTemplateParamsRequest {
+  int64 arg0 = 1;
+}
+
+message SetTemplateParamsResponse {
+  int64 result = 1;
+}
+
+message AddRowRequest {
+  int64 arg0 = 1;
+}
+
+message AddRowResponse {
+  int64 result = 1;
+}
+
+message NewRenderInputRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message NewRenderInputResponse {
+  int64 result = 1;
+}
+
+message RenderInputEqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetHeightRequest {
+  int64 handle = 1;
+}
+
+message GetHeightResponse {
+  int32 result = 1;
+}
+
+message RenderInputGetRenderingConfigRequest {
+  int64 handle = 1;
+}
+
+message GetWidthRequest {
+  int64 handle = 1;
+}
+
+message GetWidthResponse {
+  int32 result = 1;
+}
+
+message RenderInputHashCodeRequest {
+  int64 handle = 1;
+}
+
+message PutRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message PutResponse {
+  int64 result = 1;
+}
+
+message RemoveRequest {
+  string arg0 = 1;
+}
+
+message RemoveResponse {
+  int64 result = 1;
+}
+
+message NewTrainingExamplesInputRequest {
+  string arg0 = 1;
+  string arg1 = 2;
+  int64 arg2 = 3;
+  string arg3 = 4;
+}
+
+message NewTrainingExamplesInputResponse {
+  int64 result = 1;
+}
+
+message TrainingExamplesInputEqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetCollectionNameRequest {
+  int64 handle = 1;
+}
+
+message GetCollectionNameResponse {
+  string result = 1;
+}
+
+message GetPopulationNameRequest {
+  int64 handle = 1;
+}
+
+message GetPopulationNameResponse {
+  string result = 1;
+}
+
+message GetResumptionTokenRequest {
+  int64 handle = 1;
+}
+
+message GetResumptionTokenResponse {
+  int64 result = 1;
+}
+
+message GetTaskNameRequest {
+  int64 handle = 1;
+}
+
+message GetTaskNameResponse {
+  string result = 1;
+}
+
+message TrainingExamplesInputHashCodeRequest {
+  int64 handle = 1;
+}
+
+message NewIsolatedServiceExceptionRequest {
+  int32 arg0 = 1;
+}
+
+message NewIsolatedServiceExceptionResponse {
+  int64 result = 1;
+}
+
+message IsolatedServiceExceptionGetErrorCodeRequest {
+  int64 handle = 1;
+}
+
+message AddTrainingExampleRecordRequest {
+  int64 arg0 = 1;
+}
+
+message AddTrainingExampleRecordResponse {
+  int64 result = 1;
+}
+
+message GetRequest {
+  string arg0 = 1;
+}
+
+message GetResponse {
+  int64 result = 1;
+}
+
+message GetEventLogRecordRequest {
+}
+
+message GetEventLogRecordResponse {
+  int64 result = 1;
+}
+
+message SetEventLogRecordRequest {
+  int64 arg0 = 1;
+}
+
+message SetEventLogRecordResponse {
+  int64 result = 1;
+}
+
+message GetMinimumIntervalRequest {
+}
+
+message GetMinimumIntervalResponse {
+  int64 result = 1;
+}
+
+message GetSchedulingModeRequest {
+}
+
+message GetSchedulingModeResponse {
+  int32 result = 1;
+}
+
+message SetMinimumIntervalRequest {
+  int64 arg0 = 1;
+}
+
+message SetMinimumIntervalResponse {
+  int64 result = 1;
+}
+
+message SetSchedulingModeRequest {
+  int32 arg0 = 1;
+}
+
+message SetSchedulingModeResponse {
+  int64 result = 1;
+}
+
+message TrainingExampleRecordGetResumptionTokenRequest {
+}
+
+message GetTrainingExampleRequest {
+}
+
+message GetTrainingExampleResponse {
+  int64 result = 1;
+}
+
+message SetResumptionTokenRequest {
+  int64 arg0 = 1;
+}
+
+message SetResumptionTokenResponse {
+  int64 result = 1;
+}
+
+message SetTrainingExampleRequest {
+  int64 arg0 = 1;
+}
+
+message SetTrainingExampleResponse {
+  int64 result = 1;
+}
+
+message NewExecuteInIsolatedServiceResponseRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message NewExecuteInIsolatedServiceResponseResponse {
+  int64 result = 1;
+}
+
+message ExecuteInIsolatedServiceResponseGetBestValueRequest {
+  int64 handle = 1;
+}
+
+message ExecuteInIsolatedServiceResponseGetSurfacePackageTokenRequest {
+  int64 handle = 1;
+}
+
+message CreateEventTrackingUrlWithRedirectRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message CreateEventTrackingUrlWithRedirectResponse {
+  int64 result = 1;
+}
+
+message CreateEventTrackingUrlWithResponseRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  string arg2 = 3;
+}
+
+message CreateEventTrackingUrlWithResponseResponse {
+  int64 result = 1;
+}
+
+message NewEventInputRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewEventInputResponse {
+  int64 result = 1;
+}
+
+message EventInputEqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetParametersRequest {
+  int64 handle = 1;
+}
+
+message GetParametersResponse {
+  int64 result = 1;
+}
+
+message EventInputGetRequestLogRecordRequest {
+  int64 handle = 1;
+}
+
+message EventInputHashCodeRequest {
+  int64 handle = 1;
+}
+
+message NewDownloadCompletedInputRequest {
+  int64 arg0 = 1;
+}
+
+message NewDownloadCompletedInputResponse {
+  int64 result = 1;
+}
+
+message DownloadCompletedInputEqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetDownloadedContentsRequest {
+  int64 handle = 1;
+}
+
+message GetDownloadedContentsResponse {
+  int64 result = 1;
+}
+
+message DownloadCompletedInputHashCodeRequest {
+  int64 handle = 1;
+}
+
+message GetEventUrlProviderRequest {
+  int64 arg0 = 1;
+}
+
+message GetEventUrlProviderResponse {
+  int64 result = 1;
+}
+
+message GetFederatedComputeSchedulerRequest {
+  int64 arg0 = 1;
+}
+
+message GetFederatedComputeSchedulerResponse {
+  int64 result = 1;
+}
+
+message GetLocalDataRequest {
+  int64 arg0 = 1;
+}
+
+message GetLocalDataResponse {
+  int64 result = 1;
+}
+
+message GetLogReaderRequest {
+  int64 arg0 = 1;
+}
+
+message GetLogReaderResponse {
+  int64 result = 1;
+}
+
+message GetModelManagerRequest {
+  int64 arg0 = 1;
+}
+
+message GetModelManagerResponse {
+  int64 result = 1;
+}
+
+message GetRemoteDataRequest {
+  int64 arg0 = 1;
+}
+
+message GetRemoteDataResponse {
+  int64 result = 1;
+}
+
+message GetUserDataRequest {
+  int64 arg0 = 1;
+}
+
+message GetUserDataResponse {
+  int64 result = 1;
+}
+
+message OnBindRequest {
+  int64 arg0 = 1;
+}
+
+message OnBindResponse {
+  int64 result = 1;
+}
+
+message OnCreateRequest {
+}
+
+message OnCreateResponse {
+}
+
+message OnRequestRequest {
+  int64 arg0 = 1;
+}
+
+message OnRequestResponse {
+  int64 result = 1;
+}
+
+message GetAvailableStorageBytesRequest {
+}
+
+message GetAvailableStorageBytesResponse {
+  int64 result = 1;
+}
+
+message GetBatteryPercentageRequest {
+}
+
+message GetBatteryPercentageResponse {
+  int32 result = 1;
+}
+
+message GetCarrierRequest {
+}
+
+message GetCarrierResponse {
+  string result = 1;
+}
+
+message GetDataNetworkTypeRequest {
+}
+
+message GetDataNetworkTypeResponse {
+  int32 result = 1;
+}
+
+message GetNetworkCapabilitiesRequest {
+}
+
+message GetNetworkCapabilitiesResponse {
+  int64 result = 1;
+}
+
+message GetOrientationRequest {
+}
+
+message GetOrientationResponse {
+  int32 result = 1;
+}
+
+message GetTimezoneUtcOffsetRequest {
+}
+
+message GetTimezoneUtcOffsetResponse {
+  int64 result = 1;
+}
+
+message FederatedComputeInputGetPopulationNameRequest {
+}
+
+message SetPopulationNameRequest {
+  string arg0 = 1;
+}
+
+message SetPopulationNameResponse {
+  int64 result = 1;
+}
+
+service OnDevicePersonalizationExceptionService {
+  rpc GetErrorCode (GetErrorCodeRequest) returns (GetErrorCodeResponse);
+}
+
+service ExecuteInputService {
+  rpc NewExecuteInput (NewExecuteInputRequest) returns (NewExecuteInputResponse);
+  rpc GetAppPackageName (GetAppPackageNameRequest) returns (GetAppPackageNameResponse);
+  rpc GetAppParams (GetAppParamsRequest) returns (GetAppParamsResponse);
+}
+
+service EventLogRecordService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetData (GetDataRequest) returns (GetDataResponse);
+  rpc GetRequestLogRecord (GetRequestLogRecordRequest) returns (GetRequestLogRecordResponse);
+  rpc GetRowIndex (GetRowIndexRequest) returns (GetRowIndexResponse);
+  rpc GetTime (GetTimeRequest) returns (GetTimeResponse);
+  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service EventLogRecordBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetData (SetDataRequest) returns (SetDataResponse);
+  rpc SetRequestLogRecord (SetRequestLogRecordRequest) returns (SetRequestLogRecordResponse);
+  rpc SetRowIndex (SetRowIndexRequest) returns (SetRowIndexResponse);
+  rpc SetType (SetTypeRequest) returns (SetTypeResponse);
+}
+
+service FederatedComputeSchedulerService {
+  rpc Cancel (CancelRequest) returns (CancelResponse);
+  rpc Schedule (ScheduleRequest) returns (ScheduleResponse);
+}
+
+service FederatedComputeSchedulerParamsService {
+  rpc GetTrainingInterval (GetTrainingIntervalRequest) returns (GetTrainingIntervalResponse);
+}
+
+service DownloadCompletedOutputService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service DownloadCompletedOutputBuilderService {
+  rpc AddRetainedKey (AddRetainedKeyRequest) returns (AddRetainedKeyResponse);
+  rpc Build (BuildRequest) returns (BuildResponse);
+}
+
+service InferenceOutputService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service InferenceOutputBuilderService {
+  rpc AddDataOutput (AddDataOutputRequest) returns (AddDataOutputResponse);
+  rpc Build (BuildRequest) returns (BuildResponse);
+}
+
+service AppInfoService {
+  rpc NewAppInfo (NewAppInfoRequest) returns (NewAppInfoResponse);
+  rpc DescribeContents (AppInfoDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (AppInfoEqualsRequest) returns (EqualsResponse);
+  rpc HashCode (AppInfoHashCodeRequest) returns (HashCodeResponse);
+  rpc IsInstalled (IsInstalledRequest) returns (IsInstalledResponse);
+  rpc WriteToParcel (AppInfoWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service WebTriggerOutputService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetRequestLogRecord (GetRequestLogRecordRequest) returns (GetRequestLogRecordResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service WebTriggerOutputBuilderService {
+  rpc AddEventLogRecord (AddEventLogRecordRequest) returns (AddEventLogRecordResponse);
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetRequestLogRecord (SetRequestLogRecordRequest) returns (SetRequestLogRecordResponse);
+}
+
+service InferenceInputService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetBatchSize (GetBatchSizeRequest) returns (GetBatchSizeResponse);
+  rpc GetExpectedOutputStructure (GetExpectedOutputStructureRequest) returns (GetExpectedOutputStructureResponse);
+  rpc GetInputData (GetInputDataRequest) returns (GetInputDataResponse);
+  rpc GetParams (GetParamsRequest) returns (GetParamsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service InferenceInputBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetBatchSize (SetBatchSizeRequest) returns (SetBatchSizeResponse);
+  rpc SetExpectedOutputStructure (SetExpectedOutputStructureRequest) returns (SetExpectedOutputStructureResponse);
+  rpc SetInputData (SetInputDataRequest) returns (SetInputDataResponse);
+  rpc SetParams (SetParamsRequest) returns (SetParamsResponse);
+}
+
+service InferenceInputParamsService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetDelegateType (GetDelegateTypeRequest) returns (GetDelegateTypeResponse);
+  rpc GetKeyValueStore (GetKeyValueStoreRequest) returns (GetKeyValueStoreResponse);
+  rpc GetModelKey (GetModelKeyRequest) returns (GetModelKeyResponse);
+  rpc GetModelType (GetModelTypeRequest) returns (GetModelTypeResponse);
+  rpc GetRecommendedNumThreads (GetRecommendedNumThreadsRequest) returns (GetRecommendedNumThreadsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service OnDevicePersonalizationManagerExecuteResultService {
+  rpc GetOutputData (GetOutputDataRequest) returns (GetOutputDataResponse);
+  rpc GetSurfacePackageToken (GetSurfacePackageTokenRequest) returns (GetSurfacePackageTokenResponse);
+}
+
+service RenderingConfigService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service RenderingConfigBuilderService {
+  rpc AddKey (AddKeyRequest) returns (AddKeyResponse);
+  rpc Build (BuildRequest) returns (BuildResponse);
+}
+
+service WebTriggerInputService {
+  rpc NewWebTriggerInput (NewWebTriggerInputRequest) returns (NewWebTriggerInputResponse);
+  rpc Equals (WebTriggerInputEqualsRequest) returns (EqualsResponse);
+  rpc GetAppPackageName (GetAppPackageNameRequest) returns (GetAppPackageNameResponse);
+  rpc GetData (WebTriggerInputGetDataRequest) returns (GetDataResponse);
+  rpc GetDestinationUrl (GetDestinationUrlRequest) returns (GetDestinationUrlResponse);
+  rpc HashCode (WebTriggerInputHashCodeRequest) returns (HashCodeResponse);
+}
+
+service ExecuteOutputService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetBestValue (GetBestValueRequest) returns (GetBestValueResponse);
+  rpc GetOutputData (GetOutputDataRequest) returns (GetOutputDataResponse);
+  rpc GetRenderingConfig (GetRenderingConfigRequest) returns (GetRenderingConfigResponse);
+  rpc GetRequestLogRecord (GetRequestLogRecordRequest) returns (GetRequestLogRecordResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service ExecuteOutputBuilderService {
+  rpc AddEventLogRecord (AddEventLogRecordRequest) returns (AddEventLogRecordResponse);
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetBestValue (SetBestValueRequest) returns (SetBestValueResponse);
+  rpc SetOutputData (SetOutputDataRequest) returns (SetOutputDataResponse);
+  rpc SetRenderingConfig (SetRenderingConfigRequest) returns (SetRenderingConfigResponse);
+  rpc SetRequestLogRecord (SetRequestLogRecordRequest) returns (SetRequestLogRecordResponse);
+}
+
+service ExecuteInIsolatedServiceRequestService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetAppParams (ExecuteInIsolatedServiceRequestGetAppParamsRequest) returns (GetAppParamsResponse);
+  rpc GetOutputSpec (GetOutputSpecRequest) returns (GetOutputSpecResponse);
+  rpc GetService (GetServiceRequest) returns (GetServiceResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service ExecuteInIsolatedServiceRequestBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetAppParams (SetAppParamsRequest) returns (SetAppParamsResponse);
+  rpc SetOutputSpec (SetOutputSpecRequest) returns (SetOutputSpecResponse);
+}
+
+service ExecuteInIsolatedServiceRequestOutputSpecService {
+  rpc GetMaxIntValue (GetMaxIntValueRequest) returns (GetMaxIntValueResponse);
+  rpc GetOutputType (GetOutputTypeRequest) returns (GetOutputTypeResponse);
+  rpc BuildBestValueSpec (BuildBestValueSpecRequest) returns (BuildBestValueSpecResponse);
+}
+
+service RenderOutputService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetContent (GetContentRequest) returns (GetContentResponse);
+  rpc GetTemplateId (GetTemplateIdRequest) returns (GetTemplateIdResponse);
+  rpc GetTemplateParams (GetTemplateParamsRequest) returns (GetTemplateParamsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service RenderOutputBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetContent (SetContentRequest) returns (SetContentResponse);
+  rpc SetTemplateId (SetTemplateIdRequest) returns (SetTemplateIdResponse);
+  rpc SetTemplateParams (SetTemplateParamsRequest) returns (SetTemplateParamsResponse);
+}
+
+service RequestLogRecordService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetTime (GetTimeRequest) returns (GetTimeResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service RequestLogRecordBuilderService {
+  rpc AddRow (AddRowRequest) returns (AddRowResponse);
+  rpc Build (BuildRequest) returns (BuildResponse);
+}
+
+service RenderInputService {
+  rpc NewRenderInput (NewRenderInputRequest) returns (NewRenderInputResponse);
+  rpc Equals (RenderInputEqualsRequest) returns (EqualsResponse);
+  rpc GetHeight (GetHeightRequest) returns (GetHeightResponse);
+  rpc GetRenderingConfig (RenderInputGetRenderingConfigRequest) returns (GetRenderingConfigResponse);
+  rpc GetWidth (GetWidthRequest) returns (GetWidthResponse);
+  rpc HashCode (RenderInputHashCodeRequest) returns (HashCodeResponse);
+}
+
+service MutableKeyValueStoreService {
+  rpc Put (PutRequest) returns (PutResponse);
+  rpc Remove (RemoveRequest) returns (RemoveResponse);
+}
+
+service TrainingExamplesInputService {
+  rpc NewTrainingExamplesInput (NewTrainingExamplesInputRequest) returns (NewTrainingExamplesInputResponse);
+  rpc Equals (TrainingExamplesInputEqualsRequest) returns (EqualsResponse);
+  rpc GetCollectionName (GetCollectionNameRequest) returns (GetCollectionNameResponse);
+  rpc GetPopulationName (GetPopulationNameRequest) returns (GetPopulationNameResponse);
+  rpc GetResumptionToken (GetResumptionTokenRequest) returns (GetResumptionTokenResponse);
+  rpc GetTaskName (GetTaskNameRequest) returns (GetTaskNameResponse);
+  rpc HashCode (TrainingExamplesInputHashCodeRequest) returns (HashCodeResponse);
+}
+
+service IsolatedServiceExceptionService {
+  rpc NewIsolatedServiceException (NewIsolatedServiceExceptionRequest) returns (NewIsolatedServiceExceptionResponse);
+  rpc GetErrorCode (IsolatedServiceExceptionGetErrorCodeRequest) returns (GetErrorCodeResponse);
+}
+
+service TrainingExamplesOutputService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service TrainingExamplesOutputBuilderService {
+  rpc AddTrainingExampleRecord (AddTrainingExampleRecordRequest) returns (AddTrainingExampleRecordResponse);
+  rpc Build (BuildRequest) returns (BuildResponse);
+}
+
+service KeyValueStoreService {
+  rpc Get (GetRequest) returns (GetResponse);
+}
+
+service EventOutputService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetEventLogRecord (GetEventLogRecordRequest) returns (GetEventLogRecordResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service EventOutputBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetEventLogRecord (SetEventLogRecordRequest) returns (SetEventLogRecordResponse);
+}
+
+service TrainingIntervalService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetMinimumInterval (GetMinimumIntervalRequest) returns (GetMinimumIntervalResponse);
+  rpc GetSchedulingMode (GetSchedulingModeRequest) returns (GetSchedulingModeResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service TrainingIntervalBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetMinimumInterval (SetMinimumIntervalRequest) returns (SetMinimumIntervalResponse);
+  rpc SetSchedulingMode (SetSchedulingModeRequest) returns (SetSchedulingModeResponse);
+}
+
+service TrainingExampleRecordService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetResumptionToken (TrainingExampleRecordGetResumptionTokenRequest) returns (GetResumptionTokenResponse);
+  rpc GetTrainingExample (GetTrainingExampleRequest) returns (GetTrainingExampleResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service TrainingExampleRecordBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetResumptionToken (SetResumptionTokenRequest) returns (SetResumptionTokenResponse);
+  rpc SetTrainingExample (SetTrainingExampleRequest) returns (SetTrainingExampleResponse);
+}
+
+service ExecuteInIsolatedServiceResponseService {
+  rpc NewExecuteInIsolatedServiceResponse (NewExecuteInIsolatedServiceResponseRequest) returns (NewExecuteInIsolatedServiceResponseResponse);
+  rpc GetBestValue (ExecuteInIsolatedServiceResponseGetBestValueRequest) returns (GetBestValueResponse);
+  rpc GetSurfacePackageToken (ExecuteInIsolatedServiceResponseGetSurfacePackageTokenRequest) returns (GetSurfacePackageTokenResponse);
+}
+
+service EventUrlProviderService {
+  rpc CreateEventTrackingUrlWithRedirect (CreateEventTrackingUrlWithRedirectRequest) returns (CreateEventTrackingUrlWithRedirectResponse);
+  rpc CreateEventTrackingUrlWithResponse (CreateEventTrackingUrlWithResponseRequest) returns (CreateEventTrackingUrlWithResponseResponse);
+}
+
+service EventInputService {
+  rpc NewEventInput (NewEventInputRequest) returns (NewEventInputResponse);
+  rpc Equals (EventInputEqualsRequest) returns (EqualsResponse);
+  rpc GetParameters (GetParametersRequest) returns (GetParametersResponse);
+  rpc GetRequestLogRecord (EventInputGetRequestLogRecordRequest) returns (GetRequestLogRecordResponse);
+  rpc HashCode (EventInputHashCodeRequest) returns (HashCodeResponse);
+}
+
+service DownloadCompletedInputService {
+  rpc NewDownloadCompletedInput (NewDownloadCompletedInputRequest) returns (NewDownloadCompletedInputResponse);
+  rpc Equals (DownloadCompletedInputEqualsRequest) returns (EqualsResponse);
+  rpc GetDownloadedContents (GetDownloadedContentsRequest) returns (GetDownloadedContentsResponse);
+  rpc HashCode (DownloadCompletedInputHashCodeRequest) returns (HashCodeResponse);
+}
+
+service IsolatedServiceService {
+  rpc GetEventUrlProvider (GetEventUrlProviderRequest) returns (GetEventUrlProviderResponse);
+  rpc GetFederatedComputeScheduler (GetFederatedComputeSchedulerRequest) returns (GetFederatedComputeSchedulerResponse);
+  rpc GetLocalData (GetLocalDataRequest) returns (GetLocalDataResponse);
+  rpc GetLogReader (GetLogReaderRequest) returns (GetLogReaderResponse);
+  rpc GetModelManager (GetModelManagerRequest) returns (GetModelManagerResponse);
+  rpc GetRemoteData (GetRemoteDataRequest) returns (GetRemoteDataResponse);
+  rpc GetUserData (GetUserDataRequest) returns (GetUserDataResponse);
+  rpc OnBind (OnBindRequest) returns (OnBindResponse);
+  rpc OnCreate (OnCreateRequest) returns (OnCreateResponse);
+  rpc OnRequest (OnRequestRequest) returns (OnRequestResponse);
+}
+
+service UserDataService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetAvailableStorageBytes (GetAvailableStorageBytesRequest) returns (GetAvailableStorageBytesResponse);
+  rpc GetBatteryPercentage (GetBatteryPercentageRequest) returns (GetBatteryPercentageResponse);
+  rpc GetCarrier (GetCarrierRequest) returns (GetCarrierResponse);
+  rpc GetDataNetworkType (GetDataNetworkTypeRequest) returns (GetDataNetworkTypeResponse);
+  rpc GetNetworkCapabilities (GetNetworkCapabilitiesRequest) returns (GetNetworkCapabilitiesResponse);
+  rpc GetOrientation (GetOrientationRequest) returns (GetOrientationResponse);
+  rpc GetTimezoneUtcOffset (GetTimezoneUtcOffsetRequest) returns (GetTimezoneUtcOffsetResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service FederatedComputeInputService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetPopulationName (FederatedComputeInputGetPopulationNameRequest) returns (GetPopulationNameResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service FederatedComputeInputBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetPopulationName (SetPopulationNameRequest) returns (SetPopulationNameResponse);
+}

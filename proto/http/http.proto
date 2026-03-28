@@ -5,3 +5,1234 @@ syntax = "proto3";
 package http;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/http";
+
+message CloseRequest {
+}
+
+message CloseResponse {
+}
+
+message GetLengthRequest {
+}
+
+message GetLengthResponse {
+  int64 result = 1;
+}
+
+message RewindRequest {
+  int64 arg0 = 1;
+}
+
+message RewindResponse {
+}
+
+message GetHeadersRequest {
+}
+
+message GetHeadersResponse {
+  int64 result = 1;
+}
+
+message GetHttpStatusCodeRequest {
+}
+
+message GetHttpStatusCodeResponse {
+  int32 result = 1;
+}
+
+message GetHttpStatusTextRequest {
+}
+
+message GetHttpStatusTextResponse {
+  string result = 1;
+}
+
+message GetNegotiatedProtocolRequest {
+}
+
+message GetNegotiatedProtocolResponse {
+  string result = 1;
+}
+
+message GetReceivedByteCountRequest {
+}
+
+message GetReceivedByteCountResponse {
+  int64 result = 1;
+}
+
+message GetUrlRequest {
+}
+
+message GetUrlResponse {
+  string result = 1;
+}
+
+message WasCachedRequest {
+}
+
+message WasCachedResponse {
+  bool result = 1;
+}
+
+message DeleteRequest {
+}
+
+message DeleteResponse {
+}
+
+message FlushRequest {
+}
+
+message FlushResponse {
+}
+
+message GetHitCountRequest {
+}
+
+message GetHitCountResponse {
+  int32 result = 1;
+}
+
+message GetNetworkCountRequest {
+}
+
+message GetNetworkCountResponse {
+  int32 result = 1;
+}
+
+message GetRequestCountRequest {
+}
+
+message GetRequestCountResponse {
+  int32 result = 1;
+}
+
+message MaxSizeRequest {
+}
+
+message MaxSizeResponse {
+  int64 result = 1;
+}
+
+message PutRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message PutResponse {
+  int64 result = 1;
+}
+
+message SizeRequest {
+}
+
+message SizeResponse {
+  int64 result = 1;
+}
+
+message GetInstalledRequest {
+}
+
+message GetInstalledResponse {
+  int64 result = 1;
+}
+
+message BindToNetworkRequest {
+  int64 arg0 = 1;
+}
+
+message BindToNetworkResponse {
+}
+
+message CreateUrlStreamHandlerFactoryRequest {
+}
+
+message CreateUrlStreamHandlerFactoryResponse {
+  int64 result = 1;
+}
+
+message NewBidirectionalStreamBuilderRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message NewBidirectionalStreamBuilderResponse {
+  int64 result = 1;
+}
+
+message NewUrlRequestBuilderRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message NewUrlRequestBuilderResponse {
+  int64 result = 1;
+}
+
+message OpenConnectionRequest {
+  int64 arg0 = 1;
+}
+
+message OpenConnectionResponse {
+  int64 result = 1;
+}
+
+message ShutdownRequest {
+}
+
+message ShutdownResponse {
+}
+
+message GetVersionStringRequest {
+}
+
+message GetVersionStringResponse {
+  string result = 1;
+}
+
+message AddQuicHintRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message AddQuicHintResponse {
+  int64 result = 1;
+}
+
+message BuildRequest {
+}
+
+message BuildResponse {
+  int64 result = 1;
+}
+
+message GetDefaultUserAgentRequest {
+}
+
+message GetDefaultUserAgentResponse {
+  string result = 1;
+}
+
+message SetConnectionMigrationOptionsRequest {
+  int64 arg0 = 1;
+}
+
+message SetConnectionMigrationOptionsResponse {
+  int64 result = 1;
+}
+
+message SetDnsOptionsRequest {
+  int64 arg0 = 1;
+}
+
+message SetDnsOptionsResponse {
+  int64 result = 1;
+}
+
+message SetEnableBrotliRequest {
+  bool arg0 = 1;
+}
+
+message SetEnableBrotliResponse {
+  int64 result = 1;
+}
+
+message SetEnableHttp2Request {
+  bool arg0 = 1;
+}
+
+message SetEnableHttp2Response {
+  int64 result = 1;
+}
+
+message SetEnableHttpCacheRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SetEnableHttpCacheResponse {
+  int64 result = 1;
+}
+
+message SetEnablePublicKeyPinningBypassForLocalTrustAnchorsRequest {
+  bool arg0 = 1;
+}
+
+message SetEnablePublicKeyPinningBypassForLocalTrustAnchorsResponse {
+  int64 result = 1;
+}
+
+message SetEnableQuicRequest {
+  bool arg0 = 1;
+}
+
+message SetEnableQuicResponse {
+  int64 result = 1;
+}
+
+message SetQuicOptionsRequest {
+  int64 arg0 = 1;
+}
+
+message SetQuicOptionsResponse {
+  int64 result = 1;
+}
+
+message SetStoragePathRequest {
+  string arg0 = 1;
+}
+
+message SetStoragePathResponse {
+  int64 result = 1;
+}
+
+message SetUserAgentRequest {
+  string arg0 = 1;
+}
+
+message SetUserAgentResponse {
+  int64 result = 1;
+}
+
+message GetErrorCodeRequest {
+}
+
+message GetErrorCodeResponse {
+  int32 result = 1;
+}
+
+message IsImmediatelyRetryableRequest {
+}
+
+message IsImmediatelyRetryableResponse {
+  bool result = 1;
+}
+
+message CancelRequest {
+}
+
+message CancelResponse {
+}
+
+message FollowRedirectRequest {
+}
+
+message FollowRedirectResponse {
+}
+
+message GetHttpMethodRequest {
+}
+
+message GetHttpMethodResponse {
+  string result = 1;
+}
+
+message GetPriorityRequest {
+}
+
+message GetPriorityResponse {
+  int32 result = 1;
+}
+
+message GetStatusRequest {
+  int64 arg0 = 1;
+}
+
+message GetStatusResponse {
+}
+
+message GetTrafficStatsTagRequest {
+}
+
+message GetTrafficStatsTagResponse {
+  int32 result = 1;
+}
+
+message GetTrafficStatsUidRequest {
+}
+
+message GetTrafficStatsUidResponse {
+  int32 result = 1;
+}
+
+message HasTrafficStatsTagRequest {
+}
+
+message HasTrafficStatsTagResponse {
+  bool result = 1;
+}
+
+message HasTrafficStatsUidRequest {
+}
+
+message HasTrafficStatsUidResponse {
+  bool result = 1;
+}
+
+message IsCacheDisabledRequest {
+}
+
+message IsCacheDisabledResponse {
+  bool result = 1;
+}
+
+message IsDirectExecutorAllowedRequest {
+}
+
+message IsDirectExecutorAllowedResponse {
+  bool result = 1;
+}
+
+message IsDoneRequest {
+}
+
+message IsDoneResponse {
+  bool result = 1;
+}
+
+message StartRequest {
+}
+
+message StartResponse {
+}
+
+message AddHeaderRequest {
+  string arg0 = 1;
+  string arg1 = 2;
+}
+
+message AddHeaderResponse {
+  int64 result = 1;
+}
+
+message UrlRequestBuilderBindToNetworkResponse {
+  int64 result = 1;
+}
+
+message SetCacheDisabledRequest {
+  bool arg0 = 1;
+}
+
+message SetCacheDisabledResponse {
+  int64 result = 1;
+}
+
+message SetDirectExecutorAllowedRequest {
+  bool arg0 = 1;
+}
+
+message SetDirectExecutorAllowedResponse {
+  int64 result = 1;
+}
+
+message SetHttpMethodRequest {
+  string arg0 = 1;
+}
+
+message SetHttpMethodResponse {
+  int64 result = 1;
+}
+
+message SetPriorityRequest {
+  int32 arg0 = 1;
+}
+
+message SetPriorityResponse {
+  int64 result = 1;
+}
+
+message SetTrafficStatsTagRequest {
+  int32 arg0 = 1;
+}
+
+message SetTrafficStatsTagResponse {
+  int64 result = 1;
+}
+
+message SetTrafficStatsUidRequest {
+  int32 arg0 = 1;
+}
+
+message SetTrafficStatsUidResponse {
+  int64 result = 1;
+}
+
+message SetUploadDataProviderRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SetUploadDataProviderResponse {
+  int64 result = 1;
+}
+
+message OnCanceledRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnCanceledResponse {
+}
+
+message OnFailedRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message OnFailedResponse {
+}
+
+message OnRedirectReceivedRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  string arg2 = 3;
+}
+
+message OnRedirectReceivedResponse {
+}
+
+message OnResponseStartedRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnResponseStartedResponse {
+}
+
+message OnSucceededRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnSucceededResponse {
+}
+
+message OnStatusRequest {
+  int32 arg0 = 1;
+}
+
+message OnStatusResponse {
+}
+
+message NewSslErrorRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewSslErrorResponse {
+  int64 result = 1;
+}
+
+message AddErrorRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message AddErrorResponse {
+  bool result = 1;
+}
+
+message GetCertificateRequest {
+  int64 handle = 1;
+}
+
+message GetCertificateResponse {
+  int64 result = 1;
+}
+
+message GetPrimaryErrorRequest {
+  int64 handle = 1;
+}
+
+message GetPrimaryErrorResponse {
+  int32 result = 1;
+}
+
+message SslErrorGetUrlRequest {
+  int64 handle = 1;
+}
+
+message HasErrorRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message HasErrorResponse {
+  bool result = 1;
+}
+
+message ToStringRequest {
+  int64 handle = 1;
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message NewX509TrustManagerExtensionsRequest {
+  int64 arg0 = 1;
+}
+
+message NewX509TrustManagerExtensionsResponse {
+  int64 result = 1;
+}
+
+message IsSameTrustConfigurationRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  string arg1 = 3;
+}
+
+message IsSameTrustConfigurationResponse {
+  bool result = 1;
+}
+
+message IsUserAddedCertificateRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message IsUserAddedCertificateResponse {
+  bool result = 1;
+}
+
+message OnReadErrorRequest {
+  int64 arg0 = 1;
+}
+
+message OnReadErrorResponse {
+}
+
+message OnReadSucceededRequest {
+  bool arg0 = 1;
+}
+
+message OnReadSucceededResponse {
+}
+
+message OnRewindErrorRequest {
+  int64 arg0 = 1;
+}
+
+message OnRewindErrorResponse {
+}
+
+message OnRewindSucceededRequest {
+}
+
+message OnRewindSucceededResponse {
+}
+
+message GetHandshakeUserAgentRequest {
+}
+
+message GetHandshakeUserAgentResponse {
+  string result = 1;
+}
+
+message GetIdleConnectionTimeoutRequest {
+}
+
+message GetIdleConnectionTimeoutResponse {
+  int64 result = 1;
+}
+
+message GetInMemoryServerConfigsCacheSizeRequest {
+}
+
+message GetInMemoryServerConfigsCacheSizeResponse {
+  int32 result = 1;
+}
+
+message HasInMemoryServerConfigsCacheSizeRequest {
+}
+
+message HasInMemoryServerConfigsCacheSizeResponse {
+  bool result = 1;
+}
+
+message AddAllowedQuicHostRequest {
+  string arg0 = 1;
+}
+
+message AddAllowedQuicHostResponse {
+  int64 result = 1;
+}
+
+message SetHandshakeUserAgentRequest {
+  string arg0 = 1;
+}
+
+message SetHandshakeUserAgentResponse {
+  int64 result = 1;
+}
+
+message SetIdleConnectionTimeoutRequest {
+  int64 arg0 = 1;
+}
+
+message SetIdleConnectionTimeoutResponse {
+  int64 result = 1;
+}
+
+message SetInMemoryServerConfigsCacheSizeRequest {
+  int32 arg0 = 1;
+}
+
+message SetInMemoryServerConfigsCacheSizeResponse {
+  int64 result = 1;
+}
+
+message NewSslCertificateRequest {
+  string arg0 = 1;
+  string arg1 = 2;
+  string arg2 = 3;
+  string arg3 = 4;
+}
+
+message NewSslCertificateResponse {
+  int64 result = 1;
+}
+
+message GetIssuedByRequest {
+  int64 handle = 1;
+}
+
+message GetIssuedByResponse {
+  int64 result = 1;
+}
+
+message GetIssuedToRequest {
+  int64 handle = 1;
+}
+
+message GetIssuedToResponse {
+  int64 result = 1;
+}
+
+message GetValidNotAfterRequest {
+  int64 handle = 1;
+}
+
+message GetValidNotAfterResponse {
+  string result = 1;
+}
+
+message GetValidNotAfterDateRequest {
+  int64 handle = 1;
+}
+
+message GetValidNotAfterDateResponse {
+  int64 result = 1;
+}
+
+message GetValidNotBeforeRequest {
+  int64 handle = 1;
+}
+
+message GetValidNotBeforeResponse {
+  string result = 1;
+}
+
+message GetValidNotBeforeDateRequest {
+  int64 handle = 1;
+}
+
+message GetValidNotBeforeDateResponse {
+  int64 result = 1;
+}
+
+message GetX509CertificateRequest {
+  int64 handle = 1;
+}
+
+message GetX509CertificateResponse {
+  int64 result = 1;
+}
+
+message RestoreStateRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message RestoreStateResponse {
+  int64 result = 1;
+}
+
+message SaveStateRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SaveStateResponse {
+  int64 result = 1;
+}
+
+message GetCNameRequest {
+}
+
+message GetCNameResponse {
+  string result = 1;
+}
+
+message GetDNameRequest {
+}
+
+message GetDNameResponse {
+  string result = 1;
+}
+
+message GetONameRequest {
+}
+
+message GetONameResponse {
+  string result = 1;
+}
+
+message GetUNameRequest {
+}
+
+message GetUNameResponse {
+  string result = 1;
+}
+
+message GetPersistHostCacheRequest {
+}
+
+message GetPersistHostCacheResponse {
+  int32 result = 1;
+}
+
+message GetPersistHostCachePeriodRequest {
+}
+
+message GetPersistHostCachePeriodResponse {
+  int64 result = 1;
+}
+
+message GetPreestablishConnectionsToStaleDnsResultsRequest {
+}
+
+message GetPreestablishConnectionsToStaleDnsResultsResponse {
+  int32 result = 1;
+}
+
+message GetStaleDnsRequest {
+}
+
+message GetStaleDnsResponse {
+  int32 result = 1;
+}
+
+message GetStaleDnsOptionsRequest {
+}
+
+message GetStaleDnsOptionsResponse {
+  int64 result = 1;
+}
+
+message GetUseHttpStackDnsResolverRequest {
+}
+
+message GetUseHttpStackDnsResolverResponse {
+  int32 result = 1;
+}
+
+message SetPersistHostCacheRequest {
+  int32 arg0 = 1;
+}
+
+message SetPersistHostCacheResponse {
+  int64 result = 1;
+}
+
+message SetPersistHostCachePeriodRequest {
+  int64 arg0 = 1;
+}
+
+message SetPersistHostCachePeriodResponse {
+  int64 result = 1;
+}
+
+message SetPreestablishConnectionsToStaleDnsResultsRequest {
+  int32 arg0 = 1;
+}
+
+message SetPreestablishConnectionsToStaleDnsResultsResponse {
+  int64 result = 1;
+}
+
+message SetStaleDnsRequest {
+  int32 arg0 = 1;
+}
+
+message SetStaleDnsResponse {
+  int64 result = 1;
+}
+
+message SetStaleDnsOptionsRequest {
+  int64 arg0 = 1;
+}
+
+message SetStaleDnsOptionsResponse {
+  int64 result = 1;
+}
+
+message SetUseHttpStackDnsResolverRequest {
+  int32 arg0 = 1;
+}
+
+message SetUseHttpStackDnsResolverResponse {
+  int64 result = 1;
+}
+
+message GetAllowCrossNetworkUsageRequest {
+}
+
+message GetAllowCrossNetworkUsageResponse {
+  int32 result = 1;
+}
+
+message GetFreshLookupTimeoutRequest {
+}
+
+message GetFreshLookupTimeoutResponse {
+  int64 result = 1;
+}
+
+message GetMaxExpiredDelayRequest {
+}
+
+message GetMaxExpiredDelayResponse {
+  int64 result = 1;
+}
+
+message GetUseStaleOnNameNotResolvedRequest {
+}
+
+message GetUseStaleOnNameNotResolvedResponse {
+  int32 result = 1;
+}
+
+message GetAllowNonDefaultNetworkUsageRequest {
+}
+
+message GetAllowNonDefaultNetworkUsageResponse {
+  int32 result = 1;
+}
+
+message GetDefaultNetworkMigrationRequest {
+}
+
+message GetDefaultNetworkMigrationResponse {
+  int32 result = 1;
+}
+
+message GetPathDegradationMigrationRequest {
+}
+
+message GetPathDegradationMigrationResponse {
+  int32 result = 1;
+}
+
+message SetAllowNonDefaultNetworkUsageRequest {
+  int32 arg0 = 1;
+}
+
+message SetAllowNonDefaultNetworkUsageResponse {
+  int64 result = 1;
+}
+
+message SetDefaultNetworkMigrationRequest {
+  int32 arg0 = 1;
+}
+
+message SetDefaultNetworkMigrationResponse {
+  int64 result = 1;
+}
+
+message SetPathDegradationMigrationRequest {
+  int32 arg0 = 1;
+}
+
+message SetPathDegradationMigrationResponse {
+  int64 result = 1;
+}
+
+message IsDelayRequestHeadersUntilFirstFlushEnabledRequest {
+}
+
+message IsDelayRequestHeadersUntilFirstFlushEnabledResponse {
+  bool result = 1;
+}
+
+message SetDelayRequestHeadersUntilFirstFlushEnabledRequest {
+  bool arg0 = 1;
+}
+
+message SetDelayRequestHeadersUntilFirstFlushEnabledResponse {
+  int64 result = 1;
+}
+
+message OnResponseHeadersReceivedRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnResponseHeadersReceivedResponse {
+}
+
+message OnResponseTrailersReceivedRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message OnResponseTrailersReceivedResponse {
+}
+
+message OnStreamReadyRequest {
+  int64 arg0 = 1;
+}
+
+message OnStreamReadyResponse {
+}
+
+service UploadDataProviderService {
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc GetLength (GetLengthRequest) returns (GetLengthResponse);
+  rpc Rewind (RewindRequest) returns (RewindResponse);
+}
+
+service UrlResponseInfoService {
+  rpc GetHeaders (GetHeadersRequest) returns (GetHeadersResponse);
+  rpc GetHttpStatusCode (GetHttpStatusCodeRequest) returns (GetHttpStatusCodeResponse);
+  rpc GetHttpStatusText (GetHttpStatusTextRequest) returns (GetHttpStatusTextResponse);
+  rpc GetNegotiatedProtocol (GetNegotiatedProtocolRequest) returns (GetNegotiatedProtocolResponse);
+  rpc GetReceivedByteCount (GetReceivedByteCountRequest) returns (GetReceivedByteCountResponse);
+  rpc GetUrl (GetUrlRequest) returns (GetUrlResponse);
+  rpc WasCached (WasCachedRequest) returns (WasCachedResponse);
+}
+
+service ResponseCacheService {
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc Delete (DeleteRequest) returns (DeleteResponse);
+  rpc Flush (FlushRequest) returns (FlushResponse);
+  rpc GetHitCount (GetHitCountRequest) returns (GetHitCountResponse);
+  rpc GetNetworkCount (GetNetworkCountRequest) returns (GetNetworkCountResponse);
+  rpc GetRequestCount (GetRequestCountRequest) returns (GetRequestCountResponse);
+  rpc MaxSize (MaxSizeRequest) returns (MaxSizeResponse);
+  rpc Put (PutRequest) returns (PutResponse);
+  rpc Size (SizeRequest) returns (SizeResponse);
+  rpc GetInstalled (GetInstalledRequest) returns (GetInstalledResponse);
+}
+
+service EngineService {
+  rpc BindToNetwork (BindToNetworkRequest) returns (BindToNetworkResponse);
+  rpc CreateUrlStreamHandlerFactory (CreateUrlStreamHandlerFactoryRequest) returns (CreateUrlStreamHandlerFactoryResponse);
+  rpc NewBidirectionalStreamBuilder (NewBidirectionalStreamBuilderRequest) returns (NewBidirectionalStreamBuilderResponse);
+  rpc NewUrlRequestBuilder (NewUrlRequestBuilderRequest) returns (NewUrlRequestBuilderResponse);
+  rpc OpenConnection (OpenConnectionRequest) returns (OpenConnectionResponse);
+  rpc Shutdown (ShutdownRequest) returns (ShutdownResponse);
+  rpc GetVersionString (GetVersionStringRequest) returns (GetVersionStringResponse);
+}
+
+service EngineBuilderService {
+  rpc AddQuicHint (AddQuicHintRequest) returns (AddQuicHintResponse);
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc GetDefaultUserAgent (GetDefaultUserAgentRequest) returns (GetDefaultUserAgentResponse);
+  rpc SetConnectionMigrationOptions (SetConnectionMigrationOptionsRequest) returns (SetConnectionMigrationOptionsResponse);
+  rpc SetDnsOptions (SetDnsOptionsRequest) returns (SetDnsOptionsResponse);
+  rpc SetEnableBrotli (SetEnableBrotliRequest) returns (SetEnableBrotliResponse);
+  rpc SetEnableHttp2 (SetEnableHttp2Request) returns (SetEnableHttp2Response);
+  rpc SetEnableHttpCache (SetEnableHttpCacheRequest) returns (SetEnableHttpCacheResponse);
+  rpc SetEnablePublicKeyPinningBypassForLocalTrustAnchors (SetEnablePublicKeyPinningBypassForLocalTrustAnchorsRequest) returns (SetEnablePublicKeyPinningBypassForLocalTrustAnchorsResponse);
+  rpc SetEnableQuic (SetEnableQuicRequest) returns (SetEnableQuicResponse);
+  rpc SetQuicOptions (SetQuicOptionsRequest) returns (SetQuicOptionsResponse);
+  rpc SetStoragePath (SetStoragePathRequest) returns (SetStoragePathResponse);
+  rpc SetUserAgent (SetUserAgentRequest) returns (SetUserAgentResponse);
+}
+
+service NetworkExceptionService {
+  rpc GetErrorCode (GetErrorCodeRequest) returns (GetErrorCodeResponse);
+  rpc IsImmediatelyRetryable (IsImmediatelyRetryableRequest) returns (IsImmediatelyRetryableResponse);
+}
+
+service UrlRequestService {
+  rpc Cancel (CancelRequest) returns (CancelResponse);
+  rpc FollowRedirect (FollowRedirectRequest) returns (FollowRedirectResponse);
+  rpc GetHeaders (GetHeadersRequest) returns (GetHeadersResponse);
+  rpc GetHttpMethod (GetHttpMethodRequest) returns (GetHttpMethodResponse);
+  rpc GetPriority (GetPriorityRequest) returns (GetPriorityResponse);
+  rpc GetStatus (GetStatusRequest) returns (GetStatusResponse);
+  rpc GetTrafficStatsTag (GetTrafficStatsTagRequest) returns (GetTrafficStatsTagResponse);
+  rpc GetTrafficStatsUid (GetTrafficStatsUidRequest) returns (GetTrafficStatsUidResponse);
+  rpc HasTrafficStatsTag (HasTrafficStatsTagRequest) returns (HasTrafficStatsTagResponse);
+  rpc HasTrafficStatsUid (HasTrafficStatsUidRequest) returns (HasTrafficStatsUidResponse);
+  rpc IsCacheDisabled (IsCacheDisabledRequest) returns (IsCacheDisabledResponse);
+  rpc IsDirectExecutorAllowed (IsDirectExecutorAllowedRequest) returns (IsDirectExecutorAllowedResponse);
+  rpc IsDone (IsDoneRequest) returns (IsDoneResponse);
+  rpc Start (StartRequest) returns (StartResponse);
+}
+
+service UrlRequestBuilderService {
+  rpc AddHeader (AddHeaderRequest) returns (AddHeaderResponse);
+  rpc BindToNetwork (BindToNetworkRequest) returns (UrlRequestBuilderBindToNetworkResponse);
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetCacheDisabled (SetCacheDisabledRequest) returns (SetCacheDisabledResponse);
+  rpc SetDirectExecutorAllowed (SetDirectExecutorAllowedRequest) returns (SetDirectExecutorAllowedResponse);
+  rpc SetHttpMethod (SetHttpMethodRequest) returns (SetHttpMethodResponse);
+  rpc SetPriority (SetPriorityRequest) returns (SetPriorityResponse);
+  rpc SetTrafficStatsTag (SetTrafficStatsTagRequest) returns (SetTrafficStatsTagResponse);
+  rpc SetTrafficStatsUid (SetTrafficStatsUidRequest) returns (SetTrafficStatsUidResponse);
+  rpc SetUploadDataProvider (SetUploadDataProviderRequest) returns (SetUploadDataProviderResponse);
+}
+
+service UrlRequestCallbackService {
+  rpc OnCanceled (OnCanceledRequest) returns (OnCanceledResponse);
+  rpc OnFailed (OnFailedRequest) returns (OnFailedResponse);
+  rpc OnRedirectReceived (OnRedirectReceivedRequest) returns (OnRedirectReceivedResponse);
+  rpc OnResponseStarted (OnResponseStartedRequest) returns (OnResponseStartedResponse);
+  rpc OnSucceeded (OnSucceededRequest) returns (OnSucceededResponse);
+}
+
+service UrlRequestStatusListenerService {
+  rpc OnStatus (OnStatusRequest) returns (OnStatusResponse);
+}
+
+service SslErrorService {
+  rpc NewSslError (NewSslErrorRequest) returns (NewSslErrorResponse);
+  rpc AddError (AddErrorRequest) returns (AddErrorResponse);
+  rpc GetCertificate (GetCertificateRequest) returns (GetCertificateResponse);
+  rpc GetPrimaryError (GetPrimaryErrorRequest) returns (GetPrimaryErrorResponse);
+  rpc GetUrl (SslErrorGetUrlRequest) returns (GetUrlResponse);
+  rpc HasError (HasErrorRequest) returns (HasErrorResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service X509TrustManagerExtensionsService {
+  rpc NewX509TrustManagerExtensions (NewX509TrustManagerExtensionsRequest) returns (NewX509TrustManagerExtensionsResponse);
+  rpc IsSameTrustConfiguration (IsSameTrustConfigurationRequest) returns (IsSameTrustConfigurationResponse);
+  rpc IsUserAddedCertificate (IsUserAddedCertificateRequest) returns (IsUserAddedCertificateResponse);
+}
+
+service UploadDataSinkService {
+  rpc OnReadError (OnReadErrorRequest) returns (OnReadErrorResponse);
+  rpc OnReadSucceeded (OnReadSucceededRequest) returns (OnReadSucceededResponse);
+  rpc OnRewindError (OnRewindErrorRequest) returns (OnRewindErrorResponse);
+  rpc OnRewindSucceeded (OnRewindSucceededRequest) returns (OnRewindSucceededResponse);
+}
+
+service QuicOptionsService {
+  rpc GetHandshakeUserAgent (GetHandshakeUserAgentRequest) returns (GetHandshakeUserAgentResponse);
+  rpc GetIdleConnectionTimeout (GetIdleConnectionTimeoutRequest) returns (GetIdleConnectionTimeoutResponse);
+  rpc GetInMemoryServerConfigsCacheSize (GetInMemoryServerConfigsCacheSizeRequest) returns (GetInMemoryServerConfigsCacheSizeResponse);
+  rpc HasInMemoryServerConfigsCacheSize (HasInMemoryServerConfigsCacheSizeRequest) returns (HasInMemoryServerConfigsCacheSizeResponse);
+}
+
+service QuicOptionsBuilderService {
+  rpc AddAllowedQuicHost (AddAllowedQuicHostRequest) returns (AddAllowedQuicHostResponse);
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetHandshakeUserAgent (SetHandshakeUserAgentRequest) returns (SetHandshakeUserAgentResponse);
+  rpc SetIdleConnectionTimeout (SetIdleConnectionTimeoutRequest) returns (SetIdleConnectionTimeoutResponse);
+  rpc SetInMemoryServerConfigsCacheSize (SetInMemoryServerConfigsCacheSizeRequest) returns (SetInMemoryServerConfigsCacheSizeResponse);
+}
+
+service SslCertificateService {
+  rpc NewSslCertificate (NewSslCertificateRequest) returns (NewSslCertificateResponse);
+  rpc GetIssuedBy (GetIssuedByRequest) returns (GetIssuedByResponse);
+  rpc GetIssuedTo (GetIssuedToRequest) returns (GetIssuedToResponse);
+  rpc GetValidNotAfter (GetValidNotAfterRequest) returns (GetValidNotAfterResponse);
+  rpc GetValidNotAfterDate (GetValidNotAfterDateRequest) returns (GetValidNotAfterDateResponse);
+  rpc GetValidNotBefore (GetValidNotBeforeRequest) returns (GetValidNotBeforeResponse);
+  rpc GetValidNotBeforeDate (GetValidNotBeforeDateRequest) returns (GetValidNotBeforeDateResponse);
+  rpc GetX509Certificate (GetX509CertificateRequest) returns (GetX509CertificateResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc RestoreState (RestoreStateRequest) returns (RestoreStateResponse);
+  rpc SaveState (SaveStateRequest) returns (SaveStateResponse);
+}
+
+service SslCertificateDNameService {
+  rpc GetCName (GetCNameRequest) returns (GetCNameResponse);
+  rpc GetDName (GetDNameRequest) returns (GetDNameResponse);
+  rpc GetOName (GetONameRequest) returns (GetONameResponse);
+  rpc GetUName (GetUNameRequest) returns (GetUNameResponse);
+}
+
+service DnsOptionsService {
+  rpc GetPersistHostCache (GetPersistHostCacheRequest) returns (GetPersistHostCacheResponse);
+  rpc GetPersistHostCachePeriod (GetPersistHostCachePeriodRequest) returns (GetPersistHostCachePeriodResponse);
+  rpc GetPreestablishConnectionsToStaleDnsResults (GetPreestablishConnectionsToStaleDnsResultsRequest) returns (GetPreestablishConnectionsToStaleDnsResultsResponse);
+  rpc GetStaleDns (GetStaleDnsRequest) returns (GetStaleDnsResponse);
+  rpc GetStaleDnsOptions (GetStaleDnsOptionsRequest) returns (GetStaleDnsOptionsResponse);
+  rpc GetUseHttpStackDnsResolver (GetUseHttpStackDnsResolverRequest) returns (GetUseHttpStackDnsResolverResponse);
+}
+
+service DnsOptionsBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetPersistHostCache (SetPersistHostCacheRequest) returns (SetPersistHostCacheResponse);
+  rpc SetPersistHostCachePeriod (SetPersistHostCachePeriodRequest) returns (SetPersistHostCachePeriodResponse);
+  rpc SetPreestablishConnectionsToStaleDnsResults (SetPreestablishConnectionsToStaleDnsResultsRequest) returns (SetPreestablishConnectionsToStaleDnsResultsResponse);
+  rpc SetStaleDns (SetStaleDnsRequest) returns (SetStaleDnsResponse);
+  rpc SetStaleDnsOptions (SetStaleDnsOptionsRequest) returns (SetStaleDnsOptionsResponse);
+  rpc SetUseHttpStackDnsResolver (SetUseHttpStackDnsResolverRequest) returns (SetUseHttpStackDnsResolverResponse);
+}
+
+service DnsOptionsStaleDnsOptionsService {
+  rpc GetAllowCrossNetworkUsage (GetAllowCrossNetworkUsageRequest) returns (GetAllowCrossNetworkUsageResponse);
+  rpc GetFreshLookupTimeout (GetFreshLookupTimeoutRequest) returns (GetFreshLookupTimeoutResponse);
+  rpc GetMaxExpiredDelay (GetMaxExpiredDelayRequest) returns (GetMaxExpiredDelayResponse);
+  rpc GetUseStaleOnNameNotResolved (GetUseStaleOnNameNotResolvedRequest) returns (GetUseStaleOnNameNotResolvedResponse);
+}
+
+service ConnectionMigrationOptionsService {
+  rpc GetAllowNonDefaultNetworkUsage (GetAllowNonDefaultNetworkUsageRequest) returns (GetAllowNonDefaultNetworkUsageResponse);
+  rpc GetDefaultNetworkMigration (GetDefaultNetworkMigrationRequest) returns (GetDefaultNetworkMigrationResponse);
+  rpc GetPathDegradationMigration (GetPathDegradationMigrationRequest) returns (GetPathDegradationMigrationResponse);
+}
+
+service ConnectionMigrationOptionsBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetAllowNonDefaultNetworkUsage (SetAllowNonDefaultNetworkUsageRequest) returns (SetAllowNonDefaultNetworkUsageResponse);
+  rpc SetDefaultNetworkMigration (SetDefaultNetworkMigrationRequest) returns (SetDefaultNetworkMigrationResponse);
+  rpc SetPathDegradationMigration (SetPathDegradationMigrationRequest) returns (SetPathDegradationMigrationResponse);
+}
+
+service BidirectionalStreamService {
+  rpc Cancel (CancelRequest) returns (CancelResponse);
+  rpc Flush (FlushRequest) returns (FlushResponse);
+  rpc GetHeaders (GetHeadersRequest) returns (GetHeadersResponse);
+  rpc GetHttpMethod (GetHttpMethodRequest) returns (GetHttpMethodResponse);
+  rpc GetPriority (GetPriorityRequest) returns (GetPriorityResponse);
+  rpc GetTrafficStatsTag (GetTrafficStatsTagRequest) returns (GetTrafficStatsTagResponse);
+  rpc GetTrafficStatsUid (GetTrafficStatsUidRequest) returns (GetTrafficStatsUidResponse);
+  rpc HasTrafficStatsTag (HasTrafficStatsTagRequest) returns (HasTrafficStatsTagResponse);
+  rpc HasTrafficStatsUid (HasTrafficStatsUidRequest) returns (HasTrafficStatsUidResponse);
+  rpc IsDelayRequestHeadersUntilFirstFlushEnabled (IsDelayRequestHeadersUntilFirstFlushEnabledRequest) returns (IsDelayRequestHeadersUntilFirstFlushEnabledResponse);
+  rpc IsDone (IsDoneRequest) returns (IsDoneResponse);
+  rpc Start (StartRequest) returns (StartResponse);
+}
+
+service BidirectionalStreamBuilderService {
+  rpc AddHeader (AddHeaderRequest) returns (AddHeaderResponse);
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetDelayRequestHeadersUntilFirstFlushEnabled (SetDelayRequestHeadersUntilFirstFlushEnabledRequest) returns (SetDelayRequestHeadersUntilFirstFlushEnabledResponse);
+  rpc SetHttpMethod (SetHttpMethodRequest) returns (SetHttpMethodResponse);
+  rpc SetPriority (SetPriorityRequest) returns (SetPriorityResponse);
+  rpc SetTrafficStatsTag (SetTrafficStatsTagRequest) returns (SetTrafficStatsTagResponse);
+  rpc SetTrafficStatsUid (SetTrafficStatsUidRequest) returns (SetTrafficStatsUidResponse);
+}
+
+service BidirectionalStreamCallbackService {
+  rpc OnCanceled (OnCanceledRequest) returns (OnCanceledResponse);
+  rpc OnFailed (OnFailedRequest) returns (OnFailedResponse);
+  rpc OnResponseHeadersReceived (OnResponseHeadersReceivedRequest) returns (OnResponseHeadersReceivedResponse);
+  rpc OnResponseTrailersReceived (OnResponseTrailersReceivedRequest) returns (OnResponseTrailersReceivedResponse);
+  rpc OnStreamReady (OnStreamReadyRequest) returns (OnStreamReadyResponse);
+  rpc OnSucceeded (OnSucceededRequest) returns (OnSucceededResponse);
+}

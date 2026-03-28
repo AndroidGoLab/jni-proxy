@@ -12,6 +12,7 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -22,19 +23,1446 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type NewCellLocationRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewCellLocationRequest) Reset() {
+	*x = NewCellLocationRequest{}
+	mi := &file_proto_cdma_cdma_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewCellLocationRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewCellLocationRequest) ProtoMessage() {}
+
+func (x *NewCellLocationRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cdma_cdma_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewCellLocationRequest.ProtoReflect.Descriptor instead.
+func (*NewCellLocationRequest) Descriptor() ([]byte, []int) {
+	return file_proto_cdma_cdma_proto_rawDescGZIP(), []int{0}
+}
+
+type NewCellLocationResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewCellLocationResponse) Reset() {
+	*x = NewCellLocationResponse{}
+	mi := &file_proto_cdma_cdma_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewCellLocationResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewCellLocationResponse) ProtoMessage() {}
+
+func (x *NewCellLocationResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cdma_cdma_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewCellLocationResponse.ProtoReflect.Descriptor instead.
+func (*NewCellLocationResponse) Descriptor() ([]byte, []int) {
+	return file_proto_cdma_cdma_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *NewCellLocationResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type EqualsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EqualsRequest) Reset() {
+	*x = EqualsRequest{}
+	mi := &file_proto_cdma_cdma_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EqualsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EqualsRequest) ProtoMessage() {}
+
+func (x *EqualsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cdma_cdma_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EqualsRequest.ProtoReflect.Descriptor instead.
+func (*EqualsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_cdma_cdma_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *EqualsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *EqualsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type EqualsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EqualsResponse) Reset() {
+	*x = EqualsResponse{}
+	mi := &file_proto_cdma_cdma_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EqualsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EqualsResponse) ProtoMessage() {}
+
+func (x *EqualsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cdma_cdma_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EqualsResponse.ProtoReflect.Descriptor instead.
+func (*EqualsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_cdma_cdma_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *EqualsResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type FillInNotifierBundleRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FillInNotifierBundleRequest) Reset() {
+	*x = FillInNotifierBundleRequest{}
+	mi := &file_proto_cdma_cdma_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FillInNotifierBundleRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FillInNotifierBundleRequest) ProtoMessage() {}
+
+func (x *FillInNotifierBundleRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cdma_cdma_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FillInNotifierBundleRequest.ProtoReflect.Descriptor instead.
+func (*FillInNotifierBundleRequest) Descriptor() ([]byte, []int) {
+	return file_proto_cdma_cdma_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *FillInNotifierBundleRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *FillInNotifierBundleRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type FillInNotifierBundleResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FillInNotifierBundleResponse) Reset() {
+	*x = FillInNotifierBundleResponse{}
+	mi := &file_proto_cdma_cdma_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FillInNotifierBundleResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FillInNotifierBundleResponse) ProtoMessage() {}
+
+func (x *FillInNotifierBundleResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cdma_cdma_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FillInNotifierBundleResponse.ProtoReflect.Descriptor instead.
+func (*FillInNotifierBundleResponse) Descriptor() ([]byte, []int) {
+	return file_proto_cdma_cdma_proto_rawDescGZIP(), []int{5}
+}
+
+type GetBaseStationIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBaseStationIdRequest) Reset() {
+	*x = GetBaseStationIdRequest{}
+	mi := &file_proto_cdma_cdma_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBaseStationIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBaseStationIdRequest) ProtoMessage() {}
+
+func (x *GetBaseStationIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cdma_cdma_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBaseStationIdRequest.ProtoReflect.Descriptor instead.
+func (*GetBaseStationIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_cdma_cdma_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *GetBaseStationIdRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetBaseStationIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBaseStationIdResponse) Reset() {
+	*x = GetBaseStationIdResponse{}
+	mi := &file_proto_cdma_cdma_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBaseStationIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBaseStationIdResponse) ProtoMessage() {}
+
+func (x *GetBaseStationIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cdma_cdma_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBaseStationIdResponse.ProtoReflect.Descriptor instead.
+func (*GetBaseStationIdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_cdma_cdma_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *GetBaseStationIdResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetBaseStationLatitudeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBaseStationLatitudeRequest) Reset() {
+	*x = GetBaseStationLatitudeRequest{}
+	mi := &file_proto_cdma_cdma_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBaseStationLatitudeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBaseStationLatitudeRequest) ProtoMessage() {}
+
+func (x *GetBaseStationLatitudeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cdma_cdma_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBaseStationLatitudeRequest.ProtoReflect.Descriptor instead.
+func (*GetBaseStationLatitudeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_cdma_cdma_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *GetBaseStationLatitudeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetBaseStationLatitudeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBaseStationLatitudeResponse) Reset() {
+	*x = GetBaseStationLatitudeResponse{}
+	mi := &file_proto_cdma_cdma_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBaseStationLatitudeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBaseStationLatitudeResponse) ProtoMessage() {}
+
+func (x *GetBaseStationLatitudeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cdma_cdma_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBaseStationLatitudeResponse.ProtoReflect.Descriptor instead.
+func (*GetBaseStationLatitudeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_cdma_cdma_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *GetBaseStationLatitudeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetBaseStationLongitudeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBaseStationLongitudeRequest) Reset() {
+	*x = GetBaseStationLongitudeRequest{}
+	mi := &file_proto_cdma_cdma_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBaseStationLongitudeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBaseStationLongitudeRequest) ProtoMessage() {}
+
+func (x *GetBaseStationLongitudeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cdma_cdma_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBaseStationLongitudeRequest.ProtoReflect.Descriptor instead.
+func (*GetBaseStationLongitudeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_cdma_cdma_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *GetBaseStationLongitudeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetBaseStationLongitudeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBaseStationLongitudeResponse) Reset() {
+	*x = GetBaseStationLongitudeResponse{}
+	mi := &file_proto_cdma_cdma_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBaseStationLongitudeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBaseStationLongitudeResponse) ProtoMessage() {}
+
+func (x *GetBaseStationLongitudeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cdma_cdma_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBaseStationLongitudeResponse.ProtoReflect.Descriptor instead.
+func (*GetBaseStationLongitudeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_cdma_cdma_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *GetBaseStationLongitudeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetNetworkIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNetworkIdRequest) Reset() {
+	*x = GetNetworkIdRequest{}
+	mi := &file_proto_cdma_cdma_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNetworkIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNetworkIdRequest) ProtoMessage() {}
+
+func (x *GetNetworkIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cdma_cdma_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNetworkIdRequest.ProtoReflect.Descriptor instead.
+func (*GetNetworkIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_cdma_cdma_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *GetNetworkIdRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetNetworkIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNetworkIdResponse) Reset() {
+	*x = GetNetworkIdResponse{}
+	mi := &file_proto_cdma_cdma_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNetworkIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNetworkIdResponse) ProtoMessage() {}
+
+func (x *GetNetworkIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cdma_cdma_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNetworkIdResponse.ProtoReflect.Descriptor instead.
+func (*GetNetworkIdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_cdma_cdma_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *GetNetworkIdResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSystemIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSystemIdRequest) Reset() {
+	*x = GetSystemIdRequest{}
+	mi := &file_proto_cdma_cdma_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSystemIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSystemIdRequest) ProtoMessage() {}
+
+func (x *GetSystemIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cdma_cdma_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSystemIdRequest.ProtoReflect.Descriptor instead.
+func (*GetSystemIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_cdma_cdma_proto_rawDescGZIP(), []int{14}
+}
+
+func (x *GetSystemIdRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetSystemIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSystemIdResponse) Reset() {
+	*x = GetSystemIdResponse{}
+	mi := &file_proto_cdma_cdma_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSystemIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSystemIdResponse) ProtoMessage() {}
+
+func (x *GetSystemIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cdma_cdma_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSystemIdResponse.ProtoReflect.Descriptor instead.
+func (*GetSystemIdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_cdma_cdma_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *GetSystemIdResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type HashCodeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HashCodeRequest) Reset() {
+	*x = HashCodeRequest{}
+	mi := &file_proto_cdma_cdma_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HashCodeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HashCodeRequest) ProtoMessage() {}
+
+func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cdma_cdma_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HashCodeRequest.ProtoReflect.Descriptor instead.
+func (*HashCodeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_cdma_cdma_proto_rawDescGZIP(), []int{16}
+}
+
+func (x *HashCodeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type HashCodeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HashCodeResponse) Reset() {
+	*x = HashCodeResponse{}
+	mi := &file_proto_cdma_cdma_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HashCodeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HashCodeResponse) ProtoMessage() {}
+
+func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cdma_cdma_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HashCodeResponse.ProtoReflect.Descriptor instead.
+func (*HashCodeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_cdma_cdma_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *HashCodeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetCellLocationData3Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetCellLocationData3Request) Reset() {
+	*x = SetCellLocationData3Request{}
+	mi := &file_proto_cdma_cdma_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetCellLocationData3Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetCellLocationData3Request) ProtoMessage() {}
+
+func (x *SetCellLocationData3Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cdma_cdma_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetCellLocationData3Request.ProtoReflect.Descriptor instead.
+func (*SetCellLocationData3Request) Descriptor() ([]byte, []int) {
+	return file_proto_cdma_cdma_proto_rawDescGZIP(), []int{18}
+}
+
+func (x *SetCellLocationData3Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetCellLocationData3Request) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SetCellLocationData3Request) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *SetCellLocationData3Request) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type SetCellLocationData3Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetCellLocationData3Response) Reset() {
+	*x = SetCellLocationData3Response{}
+	mi := &file_proto_cdma_cdma_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetCellLocationData3Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetCellLocationData3Response) ProtoMessage() {}
+
+func (x *SetCellLocationData3Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cdma_cdma_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetCellLocationData3Response.ProtoReflect.Descriptor instead.
+func (*SetCellLocationData3Response) Descriptor() ([]byte, []int) {
+	return file_proto_cdma_cdma_proto_rawDescGZIP(), []int{19}
+}
+
+type SetCellLocationData5_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int32                  `protobuf:"varint,5,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	Arg4          int32                  `protobuf:"varint,6,opt,name=arg4,proto3" json:"arg4,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetCellLocationData5_1Request) Reset() {
+	*x = SetCellLocationData5_1Request{}
+	mi := &file_proto_cdma_cdma_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetCellLocationData5_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetCellLocationData5_1Request) ProtoMessage() {}
+
+func (x *SetCellLocationData5_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cdma_cdma_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetCellLocationData5_1Request.ProtoReflect.Descriptor instead.
+func (*SetCellLocationData5_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_cdma_cdma_proto_rawDescGZIP(), []int{20}
+}
+
+func (x *SetCellLocationData5_1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetCellLocationData5_1Request) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SetCellLocationData5_1Request) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *SetCellLocationData5_1Request) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *SetCellLocationData5_1Request) GetArg3() int32 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+func (x *SetCellLocationData5_1Request) GetArg4() int32 {
+	if x != nil {
+		return x.Arg4
+	}
+	return 0
+}
+
+type SetCellLocationData5_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetCellLocationData5_1Response) Reset() {
+	*x = SetCellLocationData5_1Response{}
+	mi := &file_proto_cdma_cdma_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetCellLocationData5_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetCellLocationData5_1Response) ProtoMessage() {}
+
+func (x *SetCellLocationData5_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cdma_cdma_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetCellLocationData5_1Response.ProtoReflect.Descriptor instead.
+func (*SetCellLocationData5_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_cdma_cdma_proto_rawDescGZIP(), []int{21}
+}
+
+type SetStateInvalidRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetStateInvalidRequest) Reset() {
+	*x = SetStateInvalidRequest{}
+	mi := &file_proto_cdma_cdma_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetStateInvalidRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetStateInvalidRequest) ProtoMessage() {}
+
+func (x *SetStateInvalidRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cdma_cdma_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetStateInvalidRequest.ProtoReflect.Descriptor instead.
+func (*SetStateInvalidRequest) Descriptor() ([]byte, []int) {
+	return file_proto_cdma_cdma_proto_rawDescGZIP(), []int{22}
+}
+
+func (x *SetStateInvalidRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type SetStateInvalidResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetStateInvalidResponse) Reset() {
+	*x = SetStateInvalidResponse{}
+	mi := &file_proto_cdma_cdma_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetStateInvalidResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetStateInvalidResponse) ProtoMessage() {}
+
+func (x *SetStateInvalidResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cdma_cdma_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetStateInvalidResponse.ProtoReflect.Descriptor instead.
+func (*SetStateInvalidResponse) Descriptor() ([]byte, []int) {
+	return file_proto_cdma_cdma_proto_rawDescGZIP(), []int{23}
+}
+
+type ToStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringRequest) Reset() {
+	*x = ToStringRequest{}
+	mi := &file_proto_cdma_cdma_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringRequest) ProtoMessage() {}
+
+func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cdma_cdma_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringRequest.ProtoReflect.Descriptor instead.
+func (*ToStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_cdma_cdma_proto_rawDescGZIP(), []int{24}
+}
+
+func (x *ToStringRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type ToStringResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringResponse) Reset() {
+	*x = ToStringResponse{}
+	mi := &file_proto_cdma_cdma_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringResponse) ProtoMessage() {}
+
+func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cdma_cdma_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringResponse.ProtoReflect.Descriptor instead.
+func (*ToStringResponse) Descriptor() ([]byte, []int) {
+	return file_proto_cdma_cdma_proto_rawDescGZIP(), []int{25}
+}
+
+func (x *ToStringResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type ConvertQuartSecToDecDegreesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ConvertQuartSecToDecDegreesRequest) Reset() {
+	*x = ConvertQuartSecToDecDegreesRequest{}
+	mi := &file_proto_cdma_cdma_proto_msgTypes[26]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ConvertQuartSecToDecDegreesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ConvertQuartSecToDecDegreesRequest) ProtoMessage() {}
+
+func (x *ConvertQuartSecToDecDegreesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cdma_cdma_proto_msgTypes[26]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ConvertQuartSecToDecDegreesRequest.ProtoReflect.Descriptor instead.
+func (*ConvertQuartSecToDecDegreesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_cdma_cdma_proto_rawDescGZIP(), []int{26}
+}
+
+func (x *ConvertQuartSecToDecDegreesRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *ConvertQuartSecToDecDegreesRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type ConvertQuartSecToDecDegreesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        float64                `protobuf:"fixed64,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ConvertQuartSecToDecDegreesResponse) Reset() {
+	*x = ConvertQuartSecToDecDegreesResponse{}
+	mi := &file_proto_cdma_cdma_proto_msgTypes[27]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ConvertQuartSecToDecDegreesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ConvertQuartSecToDecDegreesResponse) ProtoMessage() {}
+
+func (x *ConvertQuartSecToDecDegreesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cdma_cdma_proto_msgTypes[27]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ConvertQuartSecToDecDegreesResponse.ProtoReflect.Descriptor instead.
+func (*ConvertQuartSecToDecDegreesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_cdma_cdma_proto_rawDescGZIP(), []int{27}
+}
+
+func (x *ConvertQuartSecToDecDegreesResponse) GetResult() float64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
 var File_proto_cdma_cdma_proto protoreflect.FileDescriptor
 
 const file_proto_cdma_cdma_proto_rawDesc = "" +
 	"\n" +
-	"\x15proto/cdma/cdma.proto\x12\x04cdmaB.Z,github.com/AndroidGoLab/jni-proxy/proto/cdmab\x06proto3"
+	"\x15proto/cdma/cdma.proto\x12\x04cdma\"\x18\n" +
+	"\x16NewCellLocationRequest\"1\n" +
+	"\x17NewCellLocationResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\";\n" +
+	"\rEqualsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"(\n" +
+	"\x0eEqualsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"I\n" +
+	"\x1bFillInNotifierBundleRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x1e\n" +
+	"\x1cFillInNotifierBundleResponse\"1\n" +
+	"\x17GetBaseStationIdRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"2\n" +
+	"\x18GetBaseStationIdResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"7\n" +
+	"\x1dGetBaseStationLatitudeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"8\n" +
+	"\x1eGetBaseStationLatitudeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"8\n" +
+	"\x1eGetBaseStationLongitudeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"9\n" +
+	"\x1fGetBaseStationLongitudeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"-\n" +
+	"\x13GetNetworkIdRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\".\n" +
+	"\x14GetNetworkIdResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\",\n" +
+	"\x12GetSystemIdRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"-\n" +
+	"\x13GetSystemIdResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\")\n" +
+	"\x0fHashCodeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
+	"\x10HashCodeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"q\n" +
+	"\x1bSetCellLocationData3Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x05R\x04arg2\"\x1e\n" +
+	"\x1cSetCellLocationData3Response\"\x9b\x01\n" +
+	"\x1dSetCellLocationData5_1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x05R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x05 \x01(\x05R\x04arg3\x12\x12\n" +
+	"\x04arg4\x18\x06 \x01(\x05R\x04arg4\" \n" +
+	"\x1eSetCellLocationData5_1Response\"0\n" +
+	"\x16SetStateInvalidRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x19\n" +
+	"\x17SetStateInvalidResponse\")\n" +
+	"\x0fToStringRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
+	"\x10ToStringResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"P\n" +
+	"\"ConvertQuartSecToDecDegreesRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"=\n" +
+	"#ConvertQuartSecToDecDegreesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x01R\x06result2\xa2\t\n" +
+	"\x13CellLocationService\x12N\n" +
+	"\x0fNewCellLocation\x12\x1c.cdma.NewCellLocationRequest\x1a\x1d.cdma.NewCellLocationResponse\x123\n" +
+	"\x06Equals\x12\x13.cdma.EqualsRequest\x1a\x14.cdma.EqualsResponse\x12]\n" +
+	"\x14FillInNotifierBundle\x12!.cdma.FillInNotifierBundleRequest\x1a\".cdma.FillInNotifierBundleResponse\x12Q\n" +
+	"\x10GetBaseStationId\x12\x1d.cdma.GetBaseStationIdRequest\x1a\x1e.cdma.GetBaseStationIdResponse\x12c\n" +
+	"\x16GetBaseStationLatitude\x12#.cdma.GetBaseStationLatitudeRequest\x1a$.cdma.GetBaseStationLatitudeResponse\x12f\n" +
+	"\x17GetBaseStationLongitude\x12$.cdma.GetBaseStationLongitudeRequest\x1a%.cdma.GetBaseStationLongitudeResponse\x12E\n" +
+	"\fGetNetworkId\x12\x19.cdma.GetNetworkIdRequest\x1a\x1a.cdma.GetNetworkIdResponse\x12B\n" +
+	"\vGetSystemId\x12\x18.cdma.GetSystemIdRequest\x1a\x19.cdma.GetSystemIdResponse\x129\n" +
+	"\bHashCode\x12\x15.cdma.HashCodeRequest\x1a\x16.cdma.HashCodeResponse\x12]\n" +
+	"\x14SetCellLocationData3\x12!.cdma.SetCellLocationData3Request\x1a\".cdma.SetCellLocationData3Response\x12c\n" +
+	"\x16SetCellLocationData5_1\x12#.cdma.SetCellLocationData5_1Request\x1a$.cdma.SetCellLocationData5_1Response\x12N\n" +
+	"\x0fSetStateInvalid\x12\x1c.cdma.SetStateInvalidRequest\x1a\x1d.cdma.SetStateInvalidResponse\x129\n" +
+	"\bToString\x12\x15.cdma.ToStringRequest\x1a\x16.cdma.ToStringResponse\x12r\n" +
+	"\x1bConvertQuartSecToDecDegrees\x12(.cdma.ConvertQuartSecToDecDegreesRequest\x1a).cdma.ConvertQuartSecToDecDegreesResponseB.Z,github.com/AndroidGoLab/jni-proxy/proto/cdmab\x06proto3"
 
-var file_proto_cdma_cdma_proto_goTypes = []any{}
+var (
+	file_proto_cdma_cdma_proto_rawDescOnce sync.Once
+	file_proto_cdma_cdma_proto_rawDescData []byte
+)
+
+func file_proto_cdma_cdma_proto_rawDescGZIP() []byte {
+	file_proto_cdma_cdma_proto_rawDescOnce.Do(func() {
+		file_proto_cdma_cdma_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_proto_cdma_cdma_proto_rawDesc), len(file_proto_cdma_cdma_proto_rawDesc)))
+	})
+	return file_proto_cdma_cdma_proto_rawDescData
+}
+
+var file_proto_cdma_cdma_proto_msgTypes = make([]protoimpl.MessageInfo, 28)
+var file_proto_cdma_cdma_proto_goTypes = []any{
+	(*NewCellLocationRequest)(nil),              // 0: cdma.NewCellLocationRequest
+	(*NewCellLocationResponse)(nil),             // 1: cdma.NewCellLocationResponse
+	(*EqualsRequest)(nil),                       // 2: cdma.EqualsRequest
+	(*EqualsResponse)(nil),                      // 3: cdma.EqualsResponse
+	(*FillInNotifierBundleRequest)(nil),         // 4: cdma.FillInNotifierBundleRequest
+	(*FillInNotifierBundleResponse)(nil),        // 5: cdma.FillInNotifierBundleResponse
+	(*GetBaseStationIdRequest)(nil),             // 6: cdma.GetBaseStationIdRequest
+	(*GetBaseStationIdResponse)(nil),            // 7: cdma.GetBaseStationIdResponse
+	(*GetBaseStationLatitudeRequest)(nil),       // 8: cdma.GetBaseStationLatitudeRequest
+	(*GetBaseStationLatitudeResponse)(nil),      // 9: cdma.GetBaseStationLatitudeResponse
+	(*GetBaseStationLongitudeRequest)(nil),      // 10: cdma.GetBaseStationLongitudeRequest
+	(*GetBaseStationLongitudeResponse)(nil),     // 11: cdma.GetBaseStationLongitudeResponse
+	(*GetNetworkIdRequest)(nil),                 // 12: cdma.GetNetworkIdRequest
+	(*GetNetworkIdResponse)(nil),                // 13: cdma.GetNetworkIdResponse
+	(*GetSystemIdRequest)(nil),                  // 14: cdma.GetSystemIdRequest
+	(*GetSystemIdResponse)(nil),                 // 15: cdma.GetSystemIdResponse
+	(*HashCodeRequest)(nil),                     // 16: cdma.HashCodeRequest
+	(*HashCodeResponse)(nil),                    // 17: cdma.HashCodeResponse
+	(*SetCellLocationData3Request)(nil),         // 18: cdma.SetCellLocationData3Request
+	(*SetCellLocationData3Response)(nil),        // 19: cdma.SetCellLocationData3Response
+	(*SetCellLocationData5_1Request)(nil),       // 20: cdma.SetCellLocationData5_1Request
+	(*SetCellLocationData5_1Response)(nil),      // 21: cdma.SetCellLocationData5_1Response
+	(*SetStateInvalidRequest)(nil),              // 22: cdma.SetStateInvalidRequest
+	(*SetStateInvalidResponse)(nil),             // 23: cdma.SetStateInvalidResponse
+	(*ToStringRequest)(nil),                     // 24: cdma.ToStringRequest
+	(*ToStringResponse)(nil),                    // 25: cdma.ToStringResponse
+	(*ConvertQuartSecToDecDegreesRequest)(nil),  // 26: cdma.ConvertQuartSecToDecDegreesRequest
+	(*ConvertQuartSecToDecDegreesResponse)(nil), // 27: cdma.ConvertQuartSecToDecDegreesResponse
+}
 var file_proto_cdma_cdma_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	0,  // 0: cdma.CellLocationService.NewCellLocation:input_type -> cdma.NewCellLocationRequest
+	2,  // 1: cdma.CellLocationService.Equals:input_type -> cdma.EqualsRequest
+	4,  // 2: cdma.CellLocationService.FillInNotifierBundle:input_type -> cdma.FillInNotifierBundleRequest
+	6,  // 3: cdma.CellLocationService.GetBaseStationId:input_type -> cdma.GetBaseStationIdRequest
+	8,  // 4: cdma.CellLocationService.GetBaseStationLatitude:input_type -> cdma.GetBaseStationLatitudeRequest
+	10, // 5: cdma.CellLocationService.GetBaseStationLongitude:input_type -> cdma.GetBaseStationLongitudeRequest
+	12, // 6: cdma.CellLocationService.GetNetworkId:input_type -> cdma.GetNetworkIdRequest
+	14, // 7: cdma.CellLocationService.GetSystemId:input_type -> cdma.GetSystemIdRequest
+	16, // 8: cdma.CellLocationService.HashCode:input_type -> cdma.HashCodeRequest
+	18, // 9: cdma.CellLocationService.SetCellLocationData3:input_type -> cdma.SetCellLocationData3Request
+	20, // 10: cdma.CellLocationService.SetCellLocationData5_1:input_type -> cdma.SetCellLocationData5_1Request
+	22, // 11: cdma.CellLocationService.SetStateInvalid:input_type -> cdma.SetStateInvalidRequest
+	24, // 12: cdma.CellLocationService.ToString:input_type -> cdma.ToStringRequest
+	26, // 13: cdma.CellLocationService.ConvertQuartSecToDecDegrees:input_type -> cdma.ConvertQuartSecToDecDegreesRequest
+	1,  // 14: cdma.CellLocationService.NewCellLocation:output_type -> cdma.NewCellLocationResponse
+	3,  // 15: cdma.CellLocationService.Equals:output_type -> cdma.EqualsResponse
+	5,  // 16: cdma.CellLocationService.FillInNotifierBundle:output_type -> cdma.FillInNotifierBundleResponse
+	7,  // 17: cdma.CellLocationService.GetBaseStationId:output_type -> cdma.GetBaseStationIdResponse
+	9,  // 18: cdma.CellLocationService.GetBaseStationLatitude:output_type -> cdma.GetBaseStationLatitudeResponse
+	11, // 19: cdma.CellLocationService.GetBaseStationLongitude:output_type -> cdma.GetBaseStationLongitudeResponse
+	13, // 20: cdma.CellLocationService.GetNetworkId:output_type -> cdma.GetNetworkIdResponse
+	15, // 21: cdma.CellLocationService.GetSystemId:output_type -> cdma.GetSystemIdResponse
+	17, // 22: cdma.CellLocationService.HashCode:output_type -> cdma.HashCodeResponse
+	19, // 23: cdma.CellLocationService.SetCellLocationData3:output_type -> cdma.SetCellLocationData3Response
+	21, // 24: cdma.CellLocationService.SetCellLocationData5_1:output_type -> cdma.SetCellLocationData5_1Response
+	23, // 25: cdma.CellLocationService.SetStateInvalid:output_type -> cdma.SetStateInvalidResponse
+	25, // 26: cdma.CellLocationService.ToString:output_type -> cdma.ToStringResponse
+	27, // 27: cdma.CellLocationService.ConvertQuartSecToDecDegrees:output_type -> cdma.ConvertQuartSecToDecDegreesResponse
+	14, // [14:28] is the sub-list for method output_type
+	0,  // [0:14] is the sub-list for method input_type
+	0,  // [0:0] is the sub-list for extension type_name
+	0,  // [0:0] is the sub-list for extension extendee
+	0,  // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_proto_cdma_cdma_proto_init() }
@@ -48,12 +1476,13 @@ func file_proto_cdma_cdma_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_cdma_cdma_proto_rawDesc), len(file_proto_cdma_cdma_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   28,
 			NumExtensions: 0,
-			NumServices:   0,
+			NumServices:   1,
 		},
 		GoTypes:           file_proto_cdma_cdma_proto_goTypes,
 		DependencyIndexes: file_proto_cdma_cdma_proto_depIdxs,
+		MessageInfos:      file_proto_cdma_cdma_proto_msgTypes,
 	}.Build()
 	File_proto_cdma_cdma_proto = out.File
 	file_proto_cdma_cdma_proto_goTypes = nil

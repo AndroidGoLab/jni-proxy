@@ -12,6 +12,7 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -22,19 +23,4210 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type NotifyUnhandledRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NotifyUnhandledRequest) Reset() {
+	*x = NotifyUnhandledRequest{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NotifyUnhandledRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NotifyUnhandledRequest) ProtoMessage() {}
+
+func (x *NotifyUnhandledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NotifyUnhandledRequest.ProtoReflect.Descriptor instead.
+func (*NotifyUnhandledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{0}
+}
+
+type NotifyUnhandledResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NotifyUnhandledResponse) Reset() {
+	*x = NotifyUnhandledResponse{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NotifyUnhandledResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NotifyUnhandledResponse) ProtoMessage() {}
+
+func (x *NotifyUnhandledResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NotifyUnhandledResponse.ProtoReflect.Descriptor instead.
+func (*NotifyUnhandledResponse) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{1}
+}
+
+type OnBindRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnBindRequest) Reset() {
+	*x = OnBindRequest{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnBindRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnBindRequest) ProtoMessage() {}
+
+func (x *OnBindRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnBindRequest.ProtoReflect.Descriptor instead.
+func (*OnBindRequest) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *OnBindRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnBindResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnBindResponse) Reset() {
+	*x = OnBindResponse{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnBindResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnBindResponse) ProtoMessage() {}
+
+func (x *OnBindResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnBindResponse.ProtoReflect.Descriptor instead.
+func (*OnBindResponse) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *OnBindResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OnDeactivatedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnDeactivatedRequest) Reset() {
+	*x = OnDeactivatedRequest{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnDeactivatedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnDeactivatedRequest) ProtoMessage() {}
+
+func (x *OnDeactivatedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnDeactivatedRequest.ProtoReflect.Descriptor instead.
+func (*OnDeactivatedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *OnDeactivatedRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnDeactivatedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnDeactivatedResponse) Reset() {
+	*x = OnDeactivatedResponse{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnDeactivatedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnDeactivatedResponse) ProtoMessage() {}
+
+func (x *OnDeactivatedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnDeactivatedResponse.ProtoReflect.Descriptor instead.
+func (*OnDeactivatedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{5}
+}
+
+type ProcessCommandApduRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ProcessCommandApduRequest) Reset() {
+	*x = ProcessCommandApduRequest{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ProcessCommandApduRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ProcessCommandApduRequest) ProtoMessage() {}
+
+func (x *ProcessCommandApduRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ProcessCommandApduRequest.ProtoReflect.Descriptor instead.
+func (*ProcessCommandApduRequest) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *ProcessCommandApduRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *ProcessCommandApduRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type ProcessCommandApduResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ProcessCommandApduResponse) Reset() {
+	*x = ProcessCommandApduResponse{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ProcessCommandApduResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ProcessCommandApduResponse) ProtoMessage() {}
+
+func (x *ProcessCommandApduResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ProcessCommandApduResponse.ProtoReflect.Descriptor instead.
+func (*ProcessCommandApduResponse) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *ProcessCommandApduResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SendResponseApduRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SendResponseApduRequest) Reset() {
+	*x = SendResponseApduRequest{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SendResponseApduRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SendResponseApduRequest) ProtoMessage() {}
+
+func (x *SendResponseApduRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SendResponseApduRequest.ProtoReflect.Descriptor instead.
+func (*SendResponseApduRequest) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *SendResponseApduRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SendResponseApduResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SendResponseApduResponse) Reset() {
+	*x = SendResponseApduResponse{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SendResponseApduResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SendResponseApduResponse) ProtoMessage() {}
+
+func (x *SendResponseApduResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SendResponseApduResponse.ProtoReflect.Descriptor instead.
+func (*SendResponseApduResponse) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{9}
+}
+
+type DescribeContentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DescribeContentsRequest) Reset() {
+	*x = DescribeContentsRequest{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DescribeContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DescribeContentsRequest) ProtoMessage() {}
+
+func (x *DescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*DescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{10}
+}
+
+type DescribeContentsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DescribeContentsResponse) Reset() {
+	*x = DescribeContentsResponse{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DescribeContentsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DescribeContentsResponse) ProtoMessage() {}
+
+func (x *DescribeContentsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DescribeContentsResponse.ProtoReflect.Descriptor instead.
+func (*DescribeContentsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *DescribeContentsResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetDataRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDataRequest) Reset() {
+	*x = GetDataRequest{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDataRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDataRequest) ProtoMessage() {}
+
+func (x *GetDataRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDataRequest.ProtoReflect.Descriptor instead.
+func (*GetDataRequest) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{12}
+}
+
+type GetDataResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDataResponse) Reset() {
+	*x = GetDataResponse{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDataResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDataResponse) ProtoMessage() {}
+
+func (x *GetDataResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDataResponse.ProtoReflect.Descriptor instead.
+func (*GetDataResponse) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *GetDataResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetTimestampRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTimestampRequest) Reset() {
+	*x = GetTimestampRequest{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTimestampRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTimestampRequest) ProtoMessage() {}
+
+func (x *GetTimestampRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTimestampRequest.ProtoReflect.Descriptor instead.
+func (*GetTimestampRequest) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{14}
+}
+
+type GetTimestampResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTimestampResponse) Reset() {
+	*x = GetTimestampResponse{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTimestampResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTimestampResponse) ProtoMessage() {}
+
+func (x *GetTimestampResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTimestampResponse.ProtoReflect.Descriptor instead.
+func (*GetTimestampResponse) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *GetTimestampResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetTriggeredAutoTransactRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTriggeredAutoTransactRequest) Reset() {
+	*x = GetTriggeredAutoTransactRequest{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTriggeredAutoTransactRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTriggeredAutoTransactRequest) ProtoMessage() {}
+
+func (x *GetTriggeredAutoTransactRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTriggeredAutoTransactRequest.ProtoReflect.Descriptor instead.
+func (*GetTriggeredAutoTransactRequest) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{16}
+}
+
+type GetTriggeredAutoTransactResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTriggeredAutoTransactResponse) Reset() {
+	*x = GetTriggeredAutoTransactResponse{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTriggeredAutoTransactResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTriggeredAutoTransactResponse) ProtoMessage() {}
+
+func (x *GetTriggeredAutoTransactResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTriggeredAutoTransactResponse.ProtoReflect.Descriptor instead.
+func (*GetTriggeredAutoTransactResponse) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *GetTriggeredAutoTransactResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type GetTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTypeRequest) Reset() {
+	*x = GetTypeRequest{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTypeRequest) ProtoMessage() {}
+
+func (x *GetTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTypeRequest.ProtoReflect.Descriptor instead.
+func (*GetTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{18}
+}
+
+type GetTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTypeResponse) Reset() {
+	*x = GetTypeResponse{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTypeResponse) ProtoMessage() {}
+
+func (x *GetTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTypeResponse.ProtoReflect.Descriptor instead.
+func (*GetTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *GetTypeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetVendorSpecificGainRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetVendorSpecificGainRequest) Reset() {
+	*x = GetVendorSpecificGainRequest{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetVendorSpecificGainRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetVendorSpecificGainRequest) ProtoMessage() {}
+
+func (x *GetVendorSpecificGainRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetVendorSpecificGainRequest.ProtoReflect.Descriptor instead.
+func (*GetVendorSpecificGainRequest) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{20}
+}
+
+type GetVendorSpecificGainResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetVendorSpecificGainResponse) Reset() {
+	*x = GetVendorSpecificGainResponse{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetVendorSpecificGainResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetVendorSpecificGainResponse) ProtoMessage() {}
+
+func (x *GetVendorSpecificGainResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetVendorSpecificGainResponse.ProtoReflect.Descriptor instead.
+func (*GetVendorSpecificGainResponse) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{21}
+}
+
+func (x *GetVendorSpecificGainResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ToStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringRequest) Reset() {
+	*x = ToStringRequest{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringRequest) ProtoMessage() {}
+
+func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringRequest.ProtoReflect.Descriptor instead.
+func (*ToStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{22}
+}
+
+type ToStringResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringResponse) Reset() {
+	*x = ToStringResponse{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringResponse) ProtoMessage() {}
+
+func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringResponse.ProtoReflect.Descriptor instead.
+func (*ToStringResponse) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{23}
+}
+
+func (x *ToStringResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type WriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WriteToParcelRequest) Reset() {
+	*x = WriteToParcelRequest{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WriteToParcelRequest) ProtoMessage() {}
+
+func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*WriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{24}
+}
+
+func (x *WriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *WriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type WriteToParcelResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WriteToParcelResponse) Reset() {
+	*x = WriteToParcelResponse{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WriteToParcelResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WriteToParcelResponse) ProtoMessage() {}
+
+func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WriteToParcelResponse.ProtoReflect.Descriptor instead.
+func (*WriteToParcelResponse) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{25}
+}
+
+type ProcessNfcFPacketRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ProcessNfcFPacketRequest) Reset() {
+	*x = ProcessNfcFPacketRequest{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[26]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ProcessNfcFPacketRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ProcessNfcFPacketRequest) ProtoMessage() {}
+
+func (x *ProcessNfcFPacketRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[26]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ProcessNfcFPacketRequest.ProtoReflect.Descriptor instead.
+func (*ProcessNfcFPacketRequest) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{26}
+}
+
+func (x *ProcessNfcFPacketRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *ProcessNfcFPacketRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type ProcessNfcFPacketResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ProcessNfcFPacketResponse) Reset() {
+	*x = ProcessNfcFPacketResponse{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[27]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ProcessNfcFPacketResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ProcessNfcFPacketResponse) ProtoMessage() {}
+
+func (x *ProcessNfcFPacketResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[27]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ProcessNfcFPacketResponse.ProtoReflect.Descriptor instead.
+func (*ProcessNfcFPacketResponse) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{27}
+}
+
+func (x *ProcessNfcFPacketResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SendResponsePacketRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SendResponsePacketRequest) Reset() {
+	*x = SendResponsePacketRequest{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[28]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SendResponsePacketRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SendResponsePacketRequest) ProtoMessage() {}
+
+func (x *SendResponsePacketRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[28]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SendResponsePacketRequest.ProtoReflect.Descriptor instead.
+func (*SendResponsePacketRequest) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{28}
+}
+
+func (x *SendResponsePacketRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SendResponsePacketResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SendResponsePacketResponse) Reset() {
+	*x = SendResponsePacketResponse{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[29]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SendResponsePacketResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SendResponsePacketResponse) ProtoMessage() {}
+
+func (x *SendResponsePacketResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[29]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SendResponsePacketResponse.ProtoReflect.Descriptor instead.
+func (*SendResponsePacketResponse) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{29}
+}
+
+type CategoryAllowsForegroundPreferenceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CategoryAllowsForegroundPreferenceRequest) Reset() {
+	*x = CategoryAllowsForegroundPreferenceRequest{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[30]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CategoryAllowsForegroundPreferenceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CategoryAllowsForegroundPreferenceRequest) ProtoMessage() {}
+
+func (x *CategoryAllowsForegroundPreferenceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[30]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CategoryAllowsForegroundPreferenceRequest.ProtoReflect.Descriptor instead.
+func (*CategoryAllowsForegroundPreferenceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{30}
+}
+
+func (x *CategoryAllowsForegroundPreferenceRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type CategoryAllowsForegroundPreferenceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CategoryAllowsForegroundPreferenceResponse) Reset() {
+	*x = CategoryAllowsForegroundPreferenceResponse{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[31]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CategoryAllowsForegroundPreferenceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CategoryAllowsForegroundPreferenceResponse) ProtoMessage() {}
+
+func (x *CategoryAllowsForegroundPreferenceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[31]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CategoryAllowsForegroundPreferenceResponse.ProtoReflect.Descriptor instead.
+func (*CategoryAllowsForegroundPreferenceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{31}
+}
+
+func (x *CategoryAllowsForegroundPreferenceResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type GetDefaultNfcSubscriptionIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDefaultNfcSubscriptionIdRequest) Reset() {
+	*x = GetDefaultNfcSubscriptionIdRequest{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[32]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDefaultNfcSubscriptionIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDefaultNfcSubscriptionIdRequest) ProtoMessage() {}
+
+func (x *GetDefaultNfcSubscriptionIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[32]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDefaultNfcSubscriptionIdRequest.ProtoReflect.Descriptor instead.
+func (*GetDefaultNfcSubscriptionIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{32}
+}
+
+type GetDefaultNfcSubscriptionIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDefaultNfcSubscriptionIdResponse) Reset() {
+	*x = GetDefaultNfcSubscriptionIdResponse{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[33]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDefaultNfcSubscriptionIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDefaultNfcSubscriptionIdResponse) ProtoMessage() {}
+
+func (x *GetDefaultNfcSubscriptionIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[33]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDefaultNfcSubscriptionIdResponse.ProtoReflect.Descriptor instead.
+func (*GetDefaultNfcSubscriptionIdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{33}
+}
+
+func (x *GetDefaultNfcSubscriptionIdResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetDescriptionForPreferredPaymentServiceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDescriptionForPreferredPaymentServiceRequest) Reset() {
+	*x = GetDescriptionForPreferredPaymentServiceRequest{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[34]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDescriptionForPreferredPaymentServiceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDescriptionForPreferredPaymentServiceRequest) ProtoMessage() {}
+
+func (x *GetDescriptionForPreferredPaymentServiceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[34]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDescriptionForPreferredPaymentServiceRequest.ProtoReflect.Descriptor instead.
+func (*GetDescriptionForPreferredPaymentServiceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{34}
+}
+
+type GetDescriptionForPreferredPaymentServiceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDescriptionForPreferredPaymentServiceResponse) Reset() {
+	*x = GetDescriptionForPreferredPaymentServiceResponse{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[35]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDescriptionForPreferredPaymentServiceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDescriptionForPreferredPaymentServiceResponse) ProtoMessage() {}
+
+func (x *GetDescriptionForPreferredPaymentServiceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[35]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDescriptionForPreferredPaymentServiceResponse.ProtoReflect.Descriptor instead.
+func (*GetDescriptionForPreferredPaymentServiceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{35}
+}
+
+func (x *GetDescriptionForPreferredPaymentServiceResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetRouteDestinationForPreferredPaymentServiceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRouteDestinationForPreferredPaymentServiceRequest) Reset() {
+	*x = GetRouteDestinationForPreferredPaymentServiceRequest{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[36]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRouteDestinationForPreferredPaymentServiceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRouteDestinationForPreferredPaymentServiceRequest) ProtoMessage() {}
+
+func (x *GetRouteDestinationForPreferredPaymentServiceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[36]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRouteDestinationForPreferredPaymentServiceRequest.ProtoReflect.Descriptor instead.
+func (*GetRouteDestinationForPreferredPaymentServiceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{36}
+}
+
+type GetRouteDestinationForPreferredPaymentServiceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRouteDestinationForPreferredPaymentServiceResponse) Reset() {
+	*x = GetRouteDestinationForPreferredPaymentServiceResponse{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[37]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRouteDestinationForPreferredPaymentServiceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRouteDestinationForPreferredPaymentServiceResponse) ProtoMessage() {}
+
+func (x *GetRouteDestinationForPreferredPaymentServiceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[37]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRouteDestinationForPreferredPaymentServiceResponse.ProtoReflect.Descriptor instead.
+func (*GetRouteDestinationForPreferredPaymentServiceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{37}
+}
+
+func (x *GetRouteDestinationForPreferredPaymentServiceResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetSelectionModeForCategoryRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSelectionModeForCategoryRequest) Reset() {
+	*x = GetSelectionModeForCategoryRequest{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[38]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSelectionModeForCategoryRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSelectionModeForCategoryRequest) ProtoMessage() {}
+
+func (x *GetSelectionModeForCategoryRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[38]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSelectionModeForCategoryRequest.ProtoReflect.Descriptor instead.
+func (*GetSelectionModeForCategoryRequest) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{38}
+}
+
+func (x *GetSelectionModeForCategoryRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type GetSelectionModeForCategoryResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSelectionModeForCategoryResponse) Reset() {
+	*x = GetSelectionModeForCategoryResponse{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[39]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSelectionModeForCategoryResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSelectionModeForCategoryResponse) ProtoMessage() {}
+
+func (x *GetSelectionModeForCategoryResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[39]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSelectionModeForCategoryResponse.ProtoReflect.Descriptor instead.
+func (*GetSelectionModeForCategoryResponse) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{39}
+}
+
+func (x *GetSelectionModeForCategoryResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type IsDefaultServiceForAidRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsDefaultServiceForAidRequest) Reset() {
+	*x = IsDefaultServiceForAidRequest{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[40]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsDefaultServiceForAidRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsDefaultServiceForAidRequest) ProtoMessage() {}
+
+func (x *IsDefaultServiceForAidRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[40]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsDefaultServiceForAidRequest.ProtoReflect.Descriptor instead.
+func (*IsDefaultServiceForAidRequest) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{40}
+}
+
+func (x *IsDefaultServiceForAidRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *IsDefaultServiceForAidRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+type IsDefaultServiceForAidResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsDefaultServiceForAidResponse) Reset() {
+	*x = IsDefaultServiceForAidResponse{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[41]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsDefaultServiceForAidResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsDefaultServiceForAidResponse) ProtoMessage() {}
+
+func (x *IsDefaultServiceForAidResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[41]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsDefaultServiceForAidResponse.ProtoReflect.Descriptor instead.
+func (*IsDefaultServiceForAidResponse) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{41}
+}
+
+func (x *IsDefaultServiceForAidResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsDefaultServiceForCategoryRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsDefaultServiceForCategoryRequest) Reset() {
+	*x = IsDefaultServiceForCategoryRequest{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[42]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsDefaultServiceForCategoryRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsDefaultServiceForCategoryRequest) ProtoMessage() {}
+
+func (x *IsDefaultServiceForCategoryRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[42]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsDefaultServiceForCategoryRequest.ProtoReflect.Descriptor instead.
+func (*IsDefaultServiceForCategoryRequest) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{42}
+}
+
+func (x *IsDefaultServiceForCategoryRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *IsDefaultServiceForCategoryRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+type IsDefaultServiceForCategoryResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsDefaultServiceForCategoryResponse) Reset() {
+	*x = IsDefaultServiceForCategoryResponse{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[43]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsDefaultServiceForCategoryResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsDefaultServiceForCategoryResponse) ProtoMessage() {}
+
+func (x *IsDefaultServiceForCategoryResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[43]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsDefaultServiceForCategoryResponse.ProtoReflect.Descriptor instead.
+func (*IsDefaultServiceForCategoryResponse) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{43}
+}
+
+func (x *IsDefaultServiceForCategoryResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsEuiccSupportedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsEuiccSupportedRequest) Reset() {
+	*x = IsEuiccSupportedRequest{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[44]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsEuiccSupportedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsEuiccSupportedRequest) ProtoMessage() {}
+
+func (x *IsEuiccSupportedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[44]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsEuiccSupportedRequest.ProtoReflect.Descriptor instead.
+func (*IsEuiccSupportedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{44}
+}
+
+type IsEuiccSupportedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsEuiccSupportedResponse) Reset() {
+	*x = IsEuiccSupportedResponse{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[45]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsEuiccSupportedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsEuiccSupportedResponse) ProtoMessage() {}
+
+func (x *IsEuiccSupportedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[45]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsEuiccSupportedResponse.ProtoReflect.Descriptor instead.
+func (*IsEuiccSupportedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{45}
+}
+
+func (x *IsEuiccSupportedResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type RegisterNfcEventCallbackRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RegisterNfcEventCallbackRequest) Reset() {
+	*x = RegisterNfcEventCallbackRequest{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[46]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RegisterNfcEventCallbackRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RegisterNfcEventCallbackRequest) ProtoMessage() {}
+
+func (x *RegisterNfcEventCallbackRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[46]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RegisterNfcEventCallbackRequest.ProtoReflect.Descriptor instead.
+func (*RegisterNfcEventCallbackRequest) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{46}
+}
+
+func (x *RegisterNfcEventCallbackRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *RegisterNfcEventCallbackRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type RegisterNfcEventCallbackResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RegisterNfcEventCallbackResponse) Reset() {
+	*x = RegisterNfcEventCallbackResponse{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[47]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RegisterNfcEventCallbackResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RegisterNfcEventCallbackResponse) ProtoMessage() {}
+
+func (x *RegisterNfcEventCallbackResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[47]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RegisterNfcEventCallbackResponse.ProtoReflect.Descriptor instead.
+func (*RegisterNfcEventCallbackResponse) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{47}
+}
+
+type RegisterPollingLoopFilterForServiceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          bool                   `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RegisterPollingLoopFilterForServiceRequest) Reset() {
+	*x = RegisterPollingLoopFilterForServiceRequest{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[48]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RegisterPollingLoopFilterForServiceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RegisterPollingLoopFilterForServiceRequest) ProtoMessage() {}
+
+func (x *RegisterPollingLoopFilterForServiceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[48]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RegisterPollingLoopFilterForServiceRequest.ProtoReflect.Descriptor instead.
+func (*RegisterPollingLoopFilterForServiceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{48}
+}
+
+func (x *RegisterPollingLoopFilterForServiceRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *RegisterPollingLoopFilterForServiceRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *RegisterPollingLoopFilterForServiceRequest) GetArg2() bool {
+	if x != nil {
+		return x.Arg2
+	}
+	return false
+}
+
+type RegisterPollingLoopFilterForServiceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RegisterPollingLoopFilterForServiceResponse) Reset() {
+	*x = RegisterPollingLoopFilterForServiceResponse{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[49]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RegisterPollingLoopFilterForServiceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RegisterPollingLoopFilterForServiceResponse) ProtoMessage() {}
+
+func (x *RegisterPollingLoopFilterForServiceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[49]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RegisterPollingLoopFilterForServiceResponse.ProtoReflect.Descriptor instead.
+func (*RegisterPollingLoopFilterForServiceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{49}
+}
+
+func (x *RegisterPollingLoopFilterForServiceResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type RegisterPollingLoopPatternFilterForServiceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          bool                   `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RegisterPollingLoopPatternFilterForServiceRequest) Reset() {
+	*x = RegisterPollingLoopPatternFilterForServiceRequest{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[50]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RegisterPollingLoopPatternFilterForServiceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RegisterPollingLoopPatternFilterForServiceRequest) ProtoMessage() {}
+
+func (x *RegisterPollingLoopPatternFilterForServiceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[50]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RegisterPollingLoopPatternFilterForServiceRequest.ProtoReflect.Descriptor instead.
+func (*RegisterPollingLoopPatternFilterForServiceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{50}
+}
+
+func (x *RegisterPollingLoopPatternFilterForServiceRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *RegisterPollingLoopPatternFilterForServiceRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *RegisterPollingLoopPatternFilterForServiceRequest) GetArg2() bool {
+	if x != nil {
+		return x.Arg2
+	}
+	return false
+}
+
+type RegisterPollingLoopPatternFilterForServiceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RegisterPollingLoopPatternFilterForServiceResponse) Reset() {
+	*x = RegisterPollingLoopPatternFilterForServiceResponse{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[51]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RegisterPollingLoopPatternFilterForServiceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RegisterPollingLoopPatternFilterForServiceResponse) ProtoMessage() {}
+
+func (x *RegisterPollingLoopPatternFilterForServiceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[51]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RegisterPollingLoopPatternFilterForServiceResponse.ProtoReflect.Descriptor instead.
+func (*RegisterPollingLoopPatternFilterForServiceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{51}
+}
+
+func (x *RegisterPollingLoopPatternFilterForServiceResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type RemoveAidsForServiceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RemoveAidsForServiceRequest) Reset() {
+	*x = RemoveAidsForServiceRequest{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[52]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RemoveAidsForServiceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemoveAidsForServiceRequest) ProtoMessage() {}
+
+func (x *RemoveAidsForServiceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[52]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemoveAidsForServiceRequest.ProtoReflect.Descriptor instead.
+func (*RemoveAidsForServiceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{52}
+}
+
+func (x *RemoveAidsForServiceRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *RemoveAidsForServiceRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+type RemoveAidsForServiceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RemoveAidsForServiceResponse) Reset() {
+	*x = RemoveAidsForServiceResponse{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[53]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RemoveAidsForServiceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemoveAidsForServiceResponse) ProtoMessage() {}
+
+func (x *RemoveAidsForServiceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[53]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemoveAidsForServiceResponse.ProtoReflect.Descriptor instead.
+func (*RemoveAidsForServiceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{53}
+}
+
+func (x *RemoveAidsForServiceResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type RemovePollingLoopFilterForServiceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RemovePollingLoopFilterForServiceRequest) Reset() {
+	*x = RemovePollingLoopFilterForServiceRequest{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[54]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RemovePollingLoopFilterForServiceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemovePollingLoopFilterForServiceRequest) ProtoMessage() {}
+
+func (x *RemovePollingLoopFilterForServiceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[54]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemovePollingLoopFilterForServiceRequest.ProtoReflect.Descriptor instead.
+func (*RemovePollingLoopFilterForServiceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{54}
+}
+
+func (x *RemovePollingLoopFilterForServiceRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *RemovePollingLoopFilterForServiceRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+type RemovePollingLoopFilterForServiceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RemovePollingLoopFilterForServiceResponse) Reset() {
+	*x = RemovePollingLoopFilterForServiceResponse{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[55]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RemovePollingLoopFilterForServiceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemovePollingLoopFilterForServiceResponse) ProtoMessage() {}
+
+func (x *RemovePollingLoopFilterForServiceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[55]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemovePollingLoopFilterForServiceResponse.ProtoReflect.Descriptor instead.
+func (*RemovePollingLoopFilterForServiceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{55}
+}
+
+func (x *RemovePollingLoopFilterForServiceResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type RemovePollingLoopPatternFilterForServiceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RemovePollingLoopPatternFilterForServiceRequest) Reset() {
+	*x = RemovePollingLoopPatternFilterForServiceRequest{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[56]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RemovePollingLoopPatternFilterForServiceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemovePollingLoopPatternFilterForServiceRequest) ProtoMessage() {}
+
+func (x *RemovePollingLoopPatternFilterForServiceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[56]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemovePollingLoopPatternFilterForServiceRequest.ProtoReflect.Descriptor instead.
+func (*RemovePollingLoopPatternFilterForServiceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{56}
+}
+
+func (x *RemovePollingLoopPatternFilterForServiceRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *RemovePollingLoopPatternFilterForServiceRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+type RemovePollingLoopPatternFilterForServiceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RemovePollingLoopPatternFilterForServiceResponse) Reset() {
+	*x = RemovePollingLoopPatternFilterForServiceResponse{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[57]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RemovePollingLoopPatternFilterForServiceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemovePollingLoopPatternFilterForServiceResponse) ProtoMessage() {}
+
+func (x *RemovePollingLoopPatternFilterForServiceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[57]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemovePollingLoopPatternFilterForServiceResponse.ProtoReflect.Descriptor instead.
+func (*RemovePollingLoopPatternFilterForServiceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{57}
+}
+
+func (x *RemovePollingLoopPatternFilterForServiceResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type SetOffHostForServiceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetOffHostForServiceRequest) Reset() {
+	*x = SetOffHostForServiceRequest{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[58]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetOffHostForServiceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetOffHostForServiceRequest) ProtoMessage() {}
+
+func (x *SetOffHostForServiceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[58]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetOffHostForServiceRequest.ProtoReflect.Descriptor instead.
+func (*SetOffHostForServiceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{58}
+}
+
+func (x *SetOffHostForServiceRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SetOffHostForServiceRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+type SetOffHostForServiceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetOffHostForServiceResponse) Reset() {
+	*x = SetOffHostForServiceResponse{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[59]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetOffHostForServiceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetOffHostForServiceResponse) ProtoMessage() {}
+
+func (x *SetOffHostForServiceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[59]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetOffHostForServiceResponse.ProtoReflect.Descriptor instead.
+func (*SetOffHostForServiceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{59}
+}
+
+func (x *SetOffHostForServiceResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type SetPreferredServiceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPreferredServiceRequest) Reset() {
+	*x = SetPreferredServiceRequest{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[60]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPreferredServiceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPreferredServiceRequest) ProtoMessage() {}
+
+func (x *SetPreferredServiceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[60]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPreferredServiceRequest.ProtoReflect.Descriptor instead.
+func (*SetPreferredServiceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{60}
+}
+
+func (x *SetPreferredServiceRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SetPreferredServiceRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type SetPreferredServiceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPreferredServiceResponse) Reset() {
+	*x = SetPreferredServiceResponse{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[61]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPreferredServiceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPreferredServiceResponse) ProtoMessage() {}
+
+func (x *SetPreferredServiceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[61]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPreferredServiceResponse.ProtoReflect.Descriptor instead.
+func (*SetPreferredServiceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{61}
+}
+
+func (x *SetPreferredServiceResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type SetShouldDefaultToObserveModeForServiceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          bool                   `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetShouldDefaultToObserveModeForServiceRequest) Reset() {
+	*x = SetShouldDefaultToObserveModeForServiceRequest{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[62]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetShouldDefaultToObserveModeForServiceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetShouldDefaultToObserveModeForServiceRequest) ProtoMessage() {}
+
+func (x *SetShouldDefaultToObserveModeForServiceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[62]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetShouldDefaultToObserveModeForServiceRequest.ProtoReflect.Descriptor instead.
+func (*SetShouldDefaultToObserveModeForServiceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{62}
+}
+
+func (x *SetShouldDefaultToObserveModeForServiceRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SetShouldDefaultToObserveModeForServiceRequest) GetArg1() bool {
+	if x != nil {
+		return x.Arg1
+	}
+	return false
+}
+
+type SetShouldDefaultToObserveModeForServiceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetShouldDefaultToObserveModeForServiceResponse) Reset() {
+	*x = SetShouldDefaultToObserveModeForServiceResponse{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[63]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetShouldDefaultToObserveModeForServiceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetShouldDefaultToObserveModeForServiceResponse) ProtoMessage() {}
+
+func (x *SetShouldDefaultToObserveModeForServiceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[63]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetShouldDefaultToObserveModeForServiceResponse.ProtoReflect.Descriptor instead.
+func (*SetShouldDefaultToObserveModeForServiceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{63}
+}
+
+func (x *SetShouldDefaultToObserveModeForServiceResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type SupportsAidPrefixRegistrationRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SupportsAidPrefixRegistrationRequest) Reset() {
+	*x = SupportsAidPrefixRegistrationRequest{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[64]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SupportsAidPrefixRegistrationRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SupportsAidPrefixRegistrationRequest) ProtoMessage() {}
+
+func (x *SupportsAidPrefixRegistrationRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[64]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SupportsAidPrefixRegistrationRequest.ProtoReflect.Descriptor instead.
+func (*SupportsAidPrefixRegistrationRequest) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{64}
+}
+
+type SupportsAidPrefixRegistrationResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SupportsAidPrefixRegistrationResponse) Reset() {
+	*x = SupportsAidPrefixRegistrationResponse{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[65]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SupportsAidPrefixRegistrationResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SupportsAidPrefixRegistrationResponse) ProtoMessage() {}
+
+func (x *SupportsAidPrefixRegistrationResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[65]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SupportsAidPrefixRegistrationResponse.ProtoReflect.Descriptor instead.
+func (*SupportsAidPrefixRegistrationResponse) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{65}
+}
+
+func (x *SupportsAidPrefixRegistrationResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type UnregisterNfcEventCallbackRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UnregisterNfcEventCallbackRequest) Reset() {
+	*x = UnregisterNfcEventCallbackRequest{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[66]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UnregisterNfcEventCallbackRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UnregisterNfcEventCallbackRequest) ProtoMessage() {}
+
+func (x *UnregisterNfcEventCallbackRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[66]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UnregisterNfcEventCallbackRequest.ProtoReflect.Descriptor instead.
+func (*UnregisterNfcEventCallbackRequest) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{66}
+}
+
+func (x *UnregisterNfcEventCallbackRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type UnregisterNfcEventCallbackResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UnregisterNfcEventCallbackResponse) Reset() {
+	*x = UnregisterNfcEventCallbackResponse{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[67]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UnregisterNfcEventCallbackResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UnregisterNfcEventCallbackResponse) ProtoMessage() {}
+
+func (x *UnregisterNfcEventCallbackResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[67]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UnregisterNfcEventCallbackResponse.ProtoReflect.Descriptor instead.
+func (*UnregisterNfcEventCallbackResponse) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{67}
+}
+
+type UnsetOffHostForServiceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UnsetOffHostForServiceRequest) Reset() {
+	*x = UnsetOffHostForServiceRequest{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[68]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UnsetOffHostForServiceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UnsetOffHostForServiceRequest) ProtoMessage() {}
+
+func (x *UnsetOffHostForServiceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[68]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UnsetOffHostForServiceRequest.ProtoReflect.Descriptor instead.
+func (*UnsetOffHostForServiceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{68}
+}
+
+func (x *UnsetOffHostForServiceRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type UnsetOffHostForServiceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UnsetOffHostForServiceResponse) Reset() {
+	*x = UnsetOffHostForServiceResponse{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[69]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UnsetOffHostForServiceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UnsetOffHostForServiceResponse) ProtoMessage() {}
+
+func (x *UnsetOffHostForServiceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[69]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UnsetOffHostForServiceResponse.ProtoReflect.Descriptor instead.
+func (*UnsetOffHostForServiceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{69}
+}
+
+func (x *UnsetOffHostForServiceResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type UnsetPreferredServiceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UnsetPreferredServiceRequest) Reset() {
+	*x = UnsetPreferredServiceRequest{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[70]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UnsetPreferredServiceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UnsetPreferredServiceRequest) ProtoMessage() {}
+
+func (x *UnsetPreferredServiceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[70]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UnsetPreferredServiceRequest.ProtoReflect.Descriptor instead.
+func (*UnsetPreferredServiceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{70}
+}
+
+func (x *UnsetPreferredServiceRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type UnsetPreferredServiceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UnsetPreferredServiceResponse) Reset() {
+	*x = UnsetPreferredServiceResponse{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[71]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UnsetPreferredServiceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UnsetPreferredServiceResponse) ProtoMessage() {}
+
+func (x *UnsetPreferredServiceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[71]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UnsetPreferredServiceResponse.ProtoReflect.Descriptor instead.
+func (*UnsetPreferredServiceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{71}
+}
+
+func (x *UnsetPreferredServiceResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type DisableServiceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DisableServiceRequest) Reset() {
+	*x = DisableServiceRequest{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[72]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DisableServiceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DisableServiceRequest) ProtoMessage() {}
+
+func (x *DisableServiceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[72]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DisableServiceRequest.ProtoReflect.Descriptor instead.
+func (*DisableServiceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{72}
+}
+
+func (x *DisableServiceRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type DisableServiceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DisableServiceResponse) Reset() {
+	*x = DisableServiceResponse{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[73]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DisableServiceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DisableServiceResponse) ProtoMessage() {}
+
+func (x *DisableServiceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[73]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DisableServiceResponse.ProtoReflect.Descriptor instead.
+func (*DisableServiceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{73}
+}
+
+func (x *DisableServiceResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type EnableServiceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EnableServiceRequest) Reset() {
+	*x = EnableServiceRequest{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[74]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EnableServiceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EnableServiceRequest) ProtoMessage() {}
+
+func (x *EnableServiceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[74]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EnableServiceRequest.ProtoReflect.Descriptor instead.
+func (*EnableServiceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{74}
+}
+
+func (x *EnableServiceRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *EnableServiceRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type EnableServiceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EnableServiceResponse) Reset() {
+	*x = EnableServiceResponse{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[75]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EnableServiceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EnableServiceResponse) ProtoMessage() {}
+
+func (x *EnableServiceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[75]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EnableServiceResponse.ProtoReflect.Descriptor instead.
+func (*EnableServiceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{75}
+}
+
+func (x *EnableServiceResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type GetNfcid2ForServiceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNfcid2ForServiceRequest) Reset() {
+	*x = GetNfcid2ForServiceRequest{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[76]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNfcid2ForServiceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNfcid2ForServiceRequest) ProtoMessage() {}
+
+func (x *GetNfcid2ForServiceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[76]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNfcid2ForServiceRequest.ProtoReflect.Descriptor instead.
+func (*GetNfcid2ForServiceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{76}
+}
+
+func (x *GetNfcid2ForServiceRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetNfcid2ForServiceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNfcid2ForServiceResponse) Reset() {
+	*x = GetNfcid2ForServiceResponse{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[77]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNfcid2ForServiceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNfcid2ForServiceResponse) ProtoMessage() {}
+
+func (x *GetNfcid2ForServiceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[77]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNfcid2ForServiceResponse.ProtoReflect.Descriptor instead.
+func (*GetNfcid2ForServiceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{77}
+}
+
+func (x *GetNfcid2ForServiceResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetSystemCodeForServiceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSystemCodeForServiceRequest) Reset() {
+	*x = GetSystemCodeForServiceRequest{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[78]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSystemCodeForServiceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSystemCodeForServiceRequest) ProtoMessage() {}
+
+func (x *GetSystemCodeForServiceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[78]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSystemCodeForServiceRequest.ProtoReflect.Descriptor instead.
+func (*GetSystemCodeForServiceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{78}
+}
+
+func (x *GetSystemCodeForServiceRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetSystemCodeForServiceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSystemCodeForServiceResponse) Reset() {
+	*x = GetSystemCodeForServiceResponse{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[79]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSystemCodeForServiceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSystemCodeForServiceResponse) ProtoMessage() {}
+
+func (x *GetSystemCodeForServiceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[79]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSystemCodeForServiceResponse.ProtoReflect.Descriptor instead.
+func (*GetSystemCodeForServiceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{79}
+}
+
+func (x *GetSystemCodeForServiceResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type RegisterSystemCodeForServiceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RegisterSystemCodeForServiceRequest) Reset() {
+	*x = RegisterSystemCodeForServiceRequest{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[80]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RegisterSystemCodeForServiceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RegisterSystemCodeForServiceRequest) ProtoMessage() {}
+
+func (x *RegisterSystemCodeForServiceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[80]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RegisterSystemCodeForServiceRequest.ProtoReflect.Descriptor instead.
+func (*RegisterSystemCodeForServiceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{80}
+}
+
+func (x *RegisterSystemCodeForServiceRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *RegisterSystemCodeForServiceRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+type RegisterSystemCodeForServiceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RegisterSystemCodeForServiceResponse) Reset() {
+	*x = RegisterSystemCodeForServiceResponse{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[81]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RegisterSystemCodeForServiceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RegisterSystemCodeForServiceResponse) ProtoMessage() {}
+
+func (x *RegisterSystemCodeForServiceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[81]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RegisterSystemCodeForServiceResponse.ProtoReflect.Descriptor instead.
+func (*RegisterSystemCodeForServiceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{81}
+}
+
+func (x *RegisterSystemCodeForServiceResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type SetNfcid2ForServiceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetNfcid2ForServiceRequest) Reset() {
+	*x = SetNfcid2ForServiceRequest{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[82]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetNfcid2ForServiceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetNfcid2ForServiceRequest) ProtoMessage() {}
+
+func (x *SetNfcid2ForServiceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[82]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetNfcid2ForServiceRequest.ProtoReflect.Descriptor instead.
+func (*SetNfcid2ForServiceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{82}
+}
+
+func (x *SetNfcid2ForServiceRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SetNfcid2ForServiceRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+type SetNfcid2ForServiceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetNfcid2ForServiceResponse) Reset() {
+	*x = SetNfcid2ForServiceResponse{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[83]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetNfcid2ForServiceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetNfcid2ForServiceResponse) ProtoMessage() {}
+
+func (x *SetNfcid2ForServiceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[83]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetNfcid2ForServiceResponse.ProtoReflect.Descriptor instead.
+func (*SetNfcid2ForServiceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{83}
+}
+
+func (x *SetNfcid2ForServiceResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type UnregisterSystemCodeForServiceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UnregisterSystemCodeForServiceRequest) Reset() {
+	*x = UnregisterSystemCodeForServiceRequest{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[84]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UnregisterSystemCodeForServiceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UnregisterSystemCodeForServiceRequest) ProtoMessage() {}
+
+func (x *UnregisterSystemCodeForServiceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[84]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UnregisterSystemCodeForServiceRequest.ProtoReflect.Descriptor instead.
+func (*UnregisterSystemCodeForServiceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{84}
+}
+
+func (x *UnregisterSystemCodeForServiceRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type UnregisterSystemCodeForServiceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UnregisterSystemCodeForServiceResponse) Reset() {
+	*x = UnregisterSystemCodeForServiceResponse{}
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[85]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UnregisterSystemCodeForServiceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UnregisterSystemCodeForServiceResponse) ProtoMessage() {}
+
+func (x *UnregisterSystemCodeForServiceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_cardemulation_cardemulation_proto_msgTypes[85]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UnregisterSystemCodeForServiceResponse.ProtoReflect.Descriptor instead.
+func (*UnregisterSystemCodeForServiceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_cardemulation_cardemulation_proto_rawDescGZIP(), []int{85}
+}
+
+func (x *UnregisterSystemCodeForServiceResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
 var File_proto_cardemulation_cardemulation_proto protoreflect.FileDescriptor
 
 const file_proto_cardemulation_cardemulation_proto_rawDesc = "" +
 	"\n" +
-	"'proto/cardemulation/cardemulation.proto\x12\rcardemulationB7Z5github.com/AndroidGoLab/jni-proxy/proto/cardemulationb\x06proto3"
+	"'proto/cardemulation/cardemulation.proto\x12\rcardemulation\"\x18\n" +
+	"\x16NotifyUnhandledRequest\"\x19\n" +
+	"\x17NotifyUnhandledResponse\"#\n" +
+	"\rOnBindRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"(\n" +
+	"\x0eOnBindResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"*\n" +
+	"\x14OnDeactivatedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"\x17\n" +
+	"\x15OnDeactivatedResponse\"C\n" +
+	"\x19ProcessCommandApduRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"4\n" +
+	"\x1aProcessCommandApduResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"-\n" +
+	"\x17SendResponseApduRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x1a\n" +
+	"\x18SendResponseApduResponse\"\x19\n" +
+	"\x17DescribeContentsRequest\"2\n" +
+	"\x18DescribeContentsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x10\n" +
+	"\x0eGetDataRequest\")\n" +
+	"\x0fGetDataResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x15\n" +
+	"\x13GetTimestampRequest\".\n" +
+	"\x14GetTimestampResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"!\n" +
+	"\x1fGetTriggeredAutoTransactRequest\":\n" +
+	" GetTriggeredAutoTransactResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x10\n" +
+	"\x0eGetTypeRequest\")\n" +
+	"\x0fGetTypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1e\n" +
+	"\x1cGetVendorSpecificGainRequest\"7\n" +
+	"\x1dGetVendorSpecificGainResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x11\n" +
+	"\x0fToStringRequest\"*\n" +
+	"\x10ToStringResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\">\n" +
+	"\x14WriteToParcelRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x17\n" +
+	"\x15WriteToParcelResponse\"B\n" +
+	"\x18ProcessNfcFPacketRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"3\n" +
+	"\x19ProcessNfcFPacketResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"/\n" +
+	"\x19SendResponsePacketRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x1c\n" +
+	"\x1aSendResponsePacketResponse\"?\n" +
+	")CategoryAllowsForegroundPreferenceRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"D\n" +
+	"*CategoryAllowsForegroundPreferenceResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"$\n" +
+	"\"GetDefaultNfcSubscriptionIdRequest\"=\n" +
+	"#GetDefaultNfcSubscriptionIdResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"1\n" +
+	"/GetDescriptionForPreferredPaymentServiceRequest\"J\n" +
+	"0GetDescriptionForPreferredPaymentServiceResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"6\n" +
+	"4GetRouteDestinationForPreferredPaymentServiceRequest\"O\n" +
+	"5GetRouteDestinationForPreferredPaymentServiceResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"8\n" +
+	"\"GetSelectionModeForCategoryRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"=\n" +
+	"#GetSelectionModeForCategoryResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"G\n" +
+	"\x1dIsDefaultServiceForAidRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\"8\n" +
+	"\x1eIsDefaultServiceForAidResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"L\n" +
+	"\"IsDefaultServiceForCategoryRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\"=\n" +
+	"#IsDefaultServiceForCategoryResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x19\n" +
+	"\x17IsEuiccSupportedRequest\"2\n" +
+	"\x18IsEuiccSupportedResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"I\n" +
+	"\x1fRegisterNfcEventCallbackRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\"\n" +
+	" RegisterNfcEventCallbackResponse\"h\n" +
+	"*RegisterPollingLoopFilterForServiceRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\bR\x04arg2\"E\n" +
+	"+RegisterPollingLoopFilterForServiceResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"o\n" +
+	"1RegisterPollingLoopPatternFilterForServiceRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\bR\x04arg2\"L\n" +
+	"2RegisterPollingLoopPatternFilterForServiceResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"E\n" +
+	"\x1bRemoveAidsForServiceRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\"6\n" +
+	"\x1cRemoveAidsForServiceResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"R\n" +
+	"(RemovePollingLoopFilterForServiceRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\"C\n" +
+	")RemovePollingLoopFilterForServiceResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"Y\n" +
+	"/RemovePollingLoopPatternFilterForServiceRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\"J\n" +
+	"0RemovePollingLoopPatternFilterForServiceResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"E\n" +
+	"\x1bSetOffHostForServiceRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\"6\n" +
+	"\x1cSetOffHostForServiceResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"D\n" +
+	"\x1aSetPreferredServiceRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"5\n" +
+	"\x1bSetPreferredServiceResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"X\n" +
+	".SetShouldDefaultToObserveModeForServiceRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\bR\x04arg1\"I\n" +
+	"/SetShouldDefaultToObserveModeForServiceResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"&\n" +
+	"$SupportsAidPrefixRegistrationRequest\"?\n" +
+	"%SupportsAidPrefixRegistrationResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"7\n" +
+	"!UnregisterNfcEventCallbackRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"$\n" +
+	"\"UnregisterNfcEventCallbackResponse\"3\n" +
+	"\x1dUnsetOffHostForServiceRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"8\n" +
+	"\x1eUnsetOffHostForServiceResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"2\n" +
+	"\x1cUnsetPreferredServiceRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"7\n" +
+	"\x1dUnsetPreferredServiceResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"+\n" +
+	"\x15DisableServiceRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"0\n" +
+	"\x16DisableServiceResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\">\n" +
+	"\x14EnableServiceRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"/\n" +
+	"\x15EnableServiceResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"0\n" +
+	"\x1aGetNfcid2ForServiceRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"5\n" +
+	"\x1bGetNfcid2ForServiceResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"4\n" +
+	"\x1eGetSystemCodeForServiceRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"9\n" +
+	"\x1fGetSystemCodeForServiceResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"M\n" +
+	"#RegisterSystemCodeForServiceRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\">\n" +
+	"$RegisterSystemCodeForServiceResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"D\n" +
+	"\x1aSetNfcid2ForServiceRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\"5\n" +
+	"\x1bSetNfcid2ForServiceResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\";\n" +
+	"%UnregisterSystemCodeForServiceRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"@\n" +
+	"&UnregisterSystemCodeForServiceResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result2\xed\x03\n" +
+	"\x16HostApduServiceService\x12`\n" +
+	"\x0fNotifyUnhandled\x12%.cardemulation.NotifyUnhandledRequest\x1a&.cardemulation.NotifyUnhandledResponse\x12E\n" +
+	"\x06OnBind\x12\x1c.cardemulation.OnBindRequest\x1a\x1d.cardemulation.OnBindResponse\x12Z\n" +
+	"\rOnDeactivated\x12#.cardemulation.OnDeactivatedRequest\x1a$.cardemulation.OnDeactivatedResponse\x12i\n" +
+	"\x12ProcessCommandApdu\x12(.cardemulation.ProcessCommandApduRequest\x1a).cardemulation.ProcessCommandApduResponse\x12c\n" +
+	"\x10SendResponseApdu\x12&.cardemulation.SendResponseApduRequest\x1a'.cardemulation.SendResponseApduResponse2\x81\x06\n" +
+	"\x13PollingFrameService\x12c\n" +
+	"\x10DescribeContents\x12&.cardemulation.DescribeContentsRequest\x1a'.cardemulation.DescribeContentsResponse\x12H\n" +
+	"\aGetData\x12\x1d.cardemulation.GetDataRequest\x1a\x1e.cardemulation.GetDataResponse\x12W\n" +
+	"\fGetTimestamp\x12\".cardemulation.GetTimestampRequest\x1a#.cardemulation.GetTimestampResponse\x12{\n" +
+	"\x18GetTriggeredAutoTransact\x12..cardemulation.GetTriggeredAutoTransactRequest\x1a/.cardemulation.GetTriggeredAutoTransactResponse\x12H\n" +
+	"\aGetType\x12\x1d.cardemulation.GetTypeRequest\x1a\x1e.cardemulation.GetTypeResponse\x12r\n" +
+	"\x15GetVendorSpecificGain\x12+.cardemulation.GetVendorSpecificGainRequest\x1a,.cardemulation.GetVendorSpecificGainResponse\x12K\n" +
+	"\bToString\x12\x1e.cardemulation.ToStringRequest\x1a\x1f.cardemulation.ToStringResponse\x12Z\n" +
+	"\rWriteToParcel\x12#.cardemulation.WriteToParcelRequest\x1a$.cardemulation.WriteToParcelResponse2\x8e\x03\n" +
+	"\x16HostNfcFServiceService\x12E\n" +
+	"\x06OnBind\x12\x1c.cardemulation.OnBindRequest\x1a\x1d.cardemulation.OnBindResponse\x12Z\n" +
+	"\rOnDeactivated\x12#.cardemulation.OnDeactivatedRequest\x1a$.cardemulation.OnDeactivatedResponse\x12f\n" +
+	"\x11ProcessNfcFPacket\x12'.cardemulation.ProcessNfcFPacketRequest\x1a(.cardemulation.ProcessNfcFPacketResponse\x12i\n" +
+	"\x12SendResponsePacket\x12(.cardemulation.SendResponsePacketRequest\x1a).cardemulation.SendResponsePacketResponse2b\n" +
+	"\x19OffHostApduServiceService\x12E\n" +
+	"\x06OnBind\x12\x1c.cardemulation.OnBindRequest\x1a\x1d.cardemulation.OnBindResponse2\x9c\x17\n" +
+	"\x14CardEmulationService\x12\x99\x01\n" +
+	"\"CategoryAllowsForegroundPreference\x128.cardemulation.CategoryAllowsForegroundPreferenceRequest\x1a9.cardemulation.CategoryAllowsForegroundPreferenceResponse\x12\x84\x01\n" +
+	"\x1bGetDefaultNfcSubscriptionId\x121.cardemulation.GetDefaultNfcSubscriptionIdRequest\x1a2.cardemulation.GetDefaultNfcSubscriptionIdResponse\x12\xab\x01\n" +
+	"(GetDescriptionForPreferredPaymentService\x12>.cardemulation.GetDescriptionForPreferredPaymentServiceRequest\x1a?.cardemulation.GetDescriptionForPreferredPaymentServiceResponse\x12\xba\x01\n" +
+	"-GetRouteDestinationForPreferredPaymentService\x12C.cardemulation.GetRouteDestinationForPreferredPaymentServiceRequest\x1aD.cardemulation.GetRouteDestinationForPreferredPaymentServiceResponse\x12\x84\x01\n" +
+	"\x1bGetSelectionModeForCategory\x121.cardemulation.GetSelectionModeForCategoryRequest\x1a2.cardemulation.GetSelectionModeForCategoryResponse\x12u\n" +
+	"\x16IsDefaultServiceForAid\x12,.cardemulation.IsDefaultServiceForAidRequest\x1a-.cardemulation.IsDefaultServiceForAidResponse\x12\x84\x01\n" +
+	"\x1bIsDefaultServiceForCategory\x121.cardemulation.IsDefaultServiceForCategoryRequest\x1a2.cardemulation.IsDefaultServiceForCategoryResponse\x12c\n" +
+	"\x10IsEuiccSupported\x12&.cardemulation.IsEuiccSupportedRequest\x1a'.cardemulation.IsEuiccSupportedResponse\x12{\n" +
+	"\x18RegisterNfcEventCallback\x12..cardemulation.RegisterNfcEventCallbackRequest\x1a/.cardemulation.RegisterNfcEventCallbackResponse\x12\x9c\x01\n" +
+	"#RegisterPollingLoopFilterForService\x129.cardemulation.RegisterPollingLoopFilterForServiceRequest\x1a:.cardemulation.RegisterPollingLoopFilterForServiceResponse\x12\xb1\x01\n" +
+	"*RegisterPollingLoopPatternFilterForService\x12@.cardemulation.RegisterPollingLoopPatternFilterForServiceRequest\x1aA.cardemulation.RegisterPollingLoopPatternFilterForServiceResponse\x12o\n" +
+	"\x14RemoveAidsForService\x12*.cardemulation.RemoveAidsForServiceRequest\x1a+.cardemulation.RemoveAidsForServiceResponse\x12\x96\x01\n" +
+	"!RemovePollingLoopFilterForService\x127.cardemulation.RemovePollingLoopFilterForServiceRequest\x1a8.cardemulation.RemovePollingLoopFilterForServiceResponse\x12\xab\x01\n" +
+	"(RemovePollingLoopPatternFilterForService\x12>.cardemulation.RemovePollingLoopPatternFilterForServiceRequest\x1a?.cardemulation.RemovePollingLoopPatternFilterForServiceResponse\x12o\n" +
+	"\x14SetOffHostForService\x12*.cardemulation.SetOffHostForServiceRequest\x1a+.cardemulation.SetOffHostForServiceResponse\x12l\n" +
+	"\x13SetPreferredService\x12).cardemulation.SetPreferredServiceRequest\x1a*.cardemulation.SetPreferredServiceResponse\x12\xa8\x01\n" +
+	"'SetShouldDefaultToObserveModeForService\x12=.cardemulation.SetShouldDefaultToObserveModeForServiceRequest\x1a>.cardemulation.SetShouldDefaultToObserveModeForServiceResponse\x12\x8a\x01\n" +
+	"\x1dSupportsAidPrefixRegistration\x123.cardemulation.SupportsAidPrefixRegistrationRequest\x1a4.cardemulation.SupportsAidPrefixRegistrationResponse\x12\x81\x01\n" +
+	"\x1aUnregisterNfcEventCallback\x120.cardemulation.UnregisterNfcEventCallbackRequest\x1a1.cardemulation.UnregisterNfcEventCallbackResponse\x12u\n" +
+	"\x16UnsetOffHostForService\x12,.cardemulation.UnsetOffHostForServiceRequest\x1a-.cardemulation.UnsetOffHostForServiceResponse\x12r\n" +
+	"\x15UnsetPreferredService\x12+.cardemulation.UnsetPreferredServiceRequest\x1a,.cardemulation.UnsetPreferredServiceResponse2\xc5\x06\n" +
+	"\x18NfcFCardEmulationService\x12]\n" +
+	"\x0eDisableService\x12$.cardemulation.DisableServiceRequest\x1a%.cardemulation.DisableServiceResponse\x12Z\n" +
+	"\rEnableService\x12#.cardemulation.EnableServiceRequest\x1a$.cardemulation.EnableServiceResponse\x12l\n" +
+	"\x13GetNfcid2ForService\x12).cardemulation.GetNfcid2ForServiceRequest\x1a*.cardemulation.GetNfcid2ForServiceResponse\x12x\n" +
+	"\x17GetSystemCodeForService\x12-.cardemulation.GetSystemCodeForServiceRequest\x1a..cardemulation.GetSystemCodeForServiceResponse\x12\x87\x01\n" +
+	"\x1cRegisterSystemCodeForService\x122.cardemulation.RegisterSystemCodeForServiceRequest\x1a3.cardemulation.RegisterSystemCodeForServiceResponse\x12l\n" +
+	"\x13SetNfcid2ForService\x12).cardemulation.SetNfcid2ForServiceRequest\x1a*.cardemulation.SetNfcid2ForServiceResponse\x12\x8d\x01\n" +
+	"\x1eUnregisterSystemCodeForService\x124.cardemulation.UnregisterSystemCodeForServiceRequest\x1a5.cardemulation.UnregisterSystemCodeForServiceResponseB7Z5github.com/AndroidGoLab/jni-proxy/proto/cardemulationb\x06proto3"
 
-var file_proto_cardemulation_cardemulation_proto_goTypes = []any{}
+var (
+	file_proto_cardemulation_cardemulation_proto_rawDescOnce sync.Once
+	file_proto_cardemulation_cardemulation_proto_rawDescData []byte
+)
+
+func file_proto_cardemulation_cardemulation_proto_rawDescGZIP() []byte {
+	file_proto_cardemulation_cardemulation_proto_rawDescOnce.Do(func() {
+		file_proto_cardemulation_cardemulation_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_proto_cardemulation_cardemulation_proto_rawDesc), len(file_proto_cardemulation_cardemulation_proto_rawDesc)))
+	})
+	return file_proto_cardemulation_cardemulation_proto_rawDescData
+}
+
+var file_proto_cardemulation_cardemulation_proto_msgTypes = make([]protoimpl.MessageInfo, 86)
+var file_proto_cardemulation_cardemulation_proto_goTypes = []any{
+	(*NotifyUnhandledRequest)(nil),                                // 0: cardemulation.NotifyUnhandledRequest
+	(*NotifyUnhandledResponse)(nil),                               // 1: cardemulation.NotifyUnhandledResponse
+	(*OnBindRequest)(nil),                                         // 2: cardemulation.OnBindRequest
+	(*OnBindResponse)(nil),                                        // 3: cardemulation.OnBindResponse
+	(*OnDeactivatedRequest)(nil),                                  // 4: cardemulation.OnDeactivatedRequest
+	(*OnDeactivatedResponse)(nil),                                 // 5: cardemulation.OnDeactivatedResponse
+	(*ProcessCommandApduRequest)(nil),                             // 6: cardemulation.ProcessCommandApduRequest
+	(*ProcessCommandApduResponse)(nil),                            // 7: cardemulation.ProcessCommandApduResponse
+	(*SendResponseApduRequest)(nil),                               // 8: cardemulation.SendResponseApduRequest
+	(*SendResponseApduResponse)(nil),                              // 9: cardemulation.SendResponseApduResponse
+	(*DescribeContentsRequest)(nil),                               // 10: cardemulation.DescribeContentsRequest
+	(*DescribeContentsResponse)(nil),                              // 11: cardemulation.DescribeContentsResponse
+	(*GetDataRequest)(nil),                                        // 12: cardemulation.GetDataRequest
+	(*GetDataResponse)(nil),                                       // 13: cardemulation.GetDataResponse
+	(*GetTimestampRequest)(nil),                                   // 14: cardemulation.GetTimestampRequest
+	(*GetTimestampResponse)(nil),                                  // 15: cardemulation.GetTimestampResponse
+	(*GetTriggeredAutoTransactRequest)(nil),                       // 16: cardemulation.GetTriggeredAutoTransactRequest
+	(*GetTriggeredAutoTransactResponse)(nil),                      // 17: cardemulation.GetTriggeredAutoTransactResponse
+	(*GetTypeRequest)(nil),                                        // 18: cardemulation.GetTypeRequest
+	(*GetTypeResponse)(nil),                                       // 19: cardemulation.GetTypeResponse
+	(*GetVendorSpecificGainRequest)(nil),                          // 20: cardemulation.GetVendorSpecificGainRequest
+	(*GetVendorSpecificGainResponse)(nil),                         // 21: cardemulation.GetVendorSpecificGainResponse
+	(*ToStringRequest)(nil),                                       // 22: cardemulation.ToStringRequest
+	(*ToStringResponse)(nil),                                      // 23: cardemulation.ToStringResponse
+	(*WriteToParcelRequest)(nil),                                  // 24: cardemulation.WriteToParcelRequest
+	(*WriteToParcelResponse)(nil),                                 // 25: cardemulation.WriteToParcelResponse
+	(*ProcessNfcFPacketRequest)(nil),                              // 26: cardemulation.ProcessNfcFPacketRequest
+	(*ProcessNfcFPacketResponse)(nil),                             // 27: cardemulation.ProcessNfcFPacketResponse
+	(*SendResponsePacketRequest)(nil),                             // 28: cardemulation.SendResponsePacketRequest
+	(*SendResponsePacketResponse)(nil),                            // 29: cardemulation.SendResponsePacketResponse
+	(*CategoryAllowsForegroundPreferenceRequest)(nil),             // 30: cardemulation.CategoryAllowsForegroundPreferenceRequest
+	(*CategoryAllowsForegroundPreferenceResponse)(nil),            // 31: cardemulation.CategoryAllowsForegroundPreferenceResponse
+	(*GetDefaultNfcSubscriptionIdRequest)(nil),                    // 32: cardemulation.GetDefaultNfcSubscriptionIdRequest
+	(*GetDefaultNfcSubscriptionIdResponse)(nil),                   // 33: cardemulation.GetDefaultNfcSubscriptionIdResponse
+	(*GetDescriptionForPreferredPaymentServiceRequest)(nil),       // 34: cardemulation.GetDescriptionForPreferredPaymentServiceRequest
+	(*GetDescriptionForPreferredPaymentServiceResponse)(nil),      // 35: cardemulation.GetDescriptionForPreferredPaymentServiceResponse
+	(*GetRouteDestinationForPreferredPaymentServiceRequest)(nil),  // 36: cardemulation.GetRouteDestinationForPreferredPaymentServiceRequest
+	(*GetRouteDestinationForPreferredPaymentServiceResponse)(nil), // 37: cardemulation.GetRouteDestinationForPreferredPaymentServiceResponse
+	(*GetSelectionModeForCategoryRequest)(nil),                    // 38: cardemulation.GetSelectionModeForCategoryRequest
+	(*GetSelectionModeForCategoryResponse)(nil),                   // 39: cardemulation.GetSelectionModeForCategoryResponse
+	(*IsDefaultServiceForAidRequest)(nil),                         // 40: cardemulation.IsDefaultServiceForAidRequest
+	(*IsDefaultServiceForAidResponse)(nil),                        // 41: cardemulation.IsDefaultServiceForAidResponse
+	(*IsDefaultServiceForCategoryRequest)(nil),                    // 42: cardemulation.IsDefaultServiceForCategoryRequest
+	(*IsDefaultServiceForCategoryResponse)(nil),                   // 43: cardemulation.IsDefaultServiceForCategoryResponse
+	(*IsEuiccSupportedRequest)(nil),                               // 44: cardemulation.IsEuiccSupportedRequest
+	(*IsEuiccSupportedResponse)(nil),                              // 45: cardemulation.IsEuiccSupportedResponse
+	(*RegisterNfcEventCallbackRequest)(nil),                       // 46: cardemulation.RegisterNfcEventCallbackRequest
+	(*RegisterNfcEventCallbackResponse)(nil),                      // 47: cardemulation.RegisterNfcEventCallbackResponse
+	(*RegisterPollingLoopFilterForServiceRequest)(nil),            // 48: cardemulation.RegisterPollingLoopFilterForServiceRequest
+	(*RegisterPollingLoopFilterForServiceResponse)(nil),           // 49: cardemulation.RegisterPollingLoopFilterForServiceResponse
+	(*RegisterPollingLoopPatternFilterForServiceRequest)(nil),     // 50: cardemulation.RegisterPollingLoopPatternFilterForServiceRequest
+	(*RegisterPollingLoopPatternFilterForServiceResponse)(nil),    // 51: cardemulation.RegisterPollingLoopPatternFilterForServiceResponse
+	(*RemoveAidsForServiceRequest)(nil),                           // 52: cardemulation.RemoveAidsForServiceRequest
+	(*RemoveAidsForServiceResponse)(nil),                          // 53: cardemulation.RemoveAidsForServiceResponse
+	(*RemovePollingLoopFilterForServiceRequest)(nil),              // 54: cardemulation.RemovePollingLoopFilterForServiceRequest
+	(*RemovePollingLoopFilterForServiceResponse)(nil),             // 55: cardemulation.RemovePollingLoopFilterForServiceResponse
+	(*RemovePollingLoopPatternFilterForServiceRequest)(nil),       // 56: cardemulation.RemovePollingLoopPatternFilterForServiceRequest
+	(*RemovePollingLoopPatternFilterForServiceResponse)(nil),      // 57: cardemulation.RemovePollingLoopPatternFilterForServiceResponse
+	(*SetOffHostForServiceRequest)(nil),                           // 58: cardemulation.SetOffHostForServiceRequest
+	(*SetOffHostForServiceResponse)(nil),                          // 59: cardemulation.SetOffHostForServiceResponse
+	(*SetPreferredServiceRequest)(nil),                            // 60: cardemulation.SetPreferredServiceRequest
+	(*SetPreferredServiceResponse)(nil),                           // 61: cardemulation.SetPreferredServiceResponse
+	(*SetShouldDefaultToObserveModeForServiceRequest)(nil),        // 62: cardemulation.SetShouldDefaultToObserveModeForServiceRequest
+	(*SetShouldDefaultToObserveModeForServiceResponse)(nil),       // 63: cardemulation.SetShouldDefaultToObserveModeForServiceResponse
+	(*SupportsAidPrefixRegistrationRequest)(nil),                  // 64: cardemulation.SupportsAidPrefixRegistrationRequest
+	(*SupportsAidPrefixRegistrationResponse)(nil),                 // 65: cardemulation.SupportsAidPrefixRegistrationResponse
+	(*UnregisterNfcEventCallbackRequest)(nil),                     // 66: cardemulation.UnregisterNfcEventCallbackRequest
+	(*UnregisterNfcEventCallbackResponse)(nil),                    // 67: cardemulation.UnregisterNfcEventCallbackResponse
+	(*UnsetOffHostForServiceRequest)(nil),                         // 68: cardemulation.UnsetOffHostForServiceRequest
+	(*UnsetOffHostForServiceResponse)(nil),                        // 69: cardemulation.UnsetOffHostForServiceResponse
+	(*UnsetPreferredServiceRequest)(nil),                          // 70: cardemulation.UnsetPreferredServiceRequest
+	(*UnsetPreferredServiceResponse)(nil),                         // 71: cardemulation.UnsetPreferredServiceResponse
+	(*DisableServiceRequest)(nil),                                 // 72: cardemulation.DisableServiceRequest
+	(*DisableServiceResponse)(nil),                                // 73: cardemulation.DisableServiceResponse
+	(*EnableServiceRequest)(nil),                                  // 74: cardemulation.EnableServiceRequest
+	(*EnableServiceResponse)(nil),                                 // 75: cardemulation.EnableServiceResponse
+	(*GetNfcid2ForServiceRequest)(nil),                            // 76: cardemulation.GetNfcid2ForServiceRequest
+	(*GetNfcid2ForServiceResponse)(nil),                           // 77: cardemulation.GetNfcid2ForServiceResponse
+	(*GetSystemCodeForServiceRequest)(nil),                        // 78: cardemulation.GetSystemCodeForServiceRequest
+	(*GetSystemCodeForServiceResponse)(nil),                       // 79: cardemulation.GetSystemCodeForServiceResponse
+	(*RegisterSystemCodeForServiceRequest)(nil),                   // 80: cardemulation.RegisterSystemCodeForServiceRequest
+	(*RegisterSystemCodeForServiceResponse)(nil),                  // 81: cardemulation.RegisterSystemCodeForServiceResponse
+	(*SetNfcid2ForServiceRequest)(nil),                            // 82: cardemulation.SetNfcid2ForServiceRequest
+	(*SetNfcid2ForServiceResponse)(nil),                           // 83: cardemulation.SetNfcid2ForServiceResponse
+	(*UnregisterSystemCodeForServiceRequest)(nil),                 // 84: cardemulation.UnregisterSystemCodeForServiceRequest
+	(*UnregisterSystemCodeForServiceResponse)(nil),                // 85: cardemulation.UnregisterSystemCodeForServiceResponse
+}
 var file_proto_cardemulation_cardemulation_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	0,  // 0: cardemulation.HostApduServiceService.NotifyUnhandled:input_type -> cardemulation.NotifyUnhandledRequest
+	2,  // 1: cardemulation.HostApduServiceService.OnBind:input_type -> cardemulation.OnBindRequest
+	4,  // 2: cardemulation.HostApduServiceService.OnDeactivated:input_type -> cardemulation.OnDeactivatedRequest
+	6,  // 3: cardemulation.HostApduServiceService.ProcessCommandApdu:input_type -> cardemulation.ProcessCommandApduRequest
+	8,  // 4: cardemulation.HostApduServiceService.SendResponseApdu:input_type -> cardemulation.SendResponseApduRequest
+	10, // 5: cardemulation.PollingFrameService.DescribeContents:input_type -> cardemulation.DescribeContentsRequest
+	12, // 6: cardemulation.PollingFrameService.GetData:input_type -> cardemulation.GetDataRequest
+	14, // 7: cardemulation.PollingFrameService.GetTimestamp:input_type -> cardemulation.GetTimestampRequest
+	16, // 8: cardemulation.PollingFrameService.GetTriggeredAutoTransact:input_type -> cardemulation.GetTriggeredAutoTransactRequest
+	18, // 9: cardemulation.PollingFrameService.GetType:input_type -> cardemulation.GetTypeRequest
+	20, // 10: cardemulation.PollingFrameService.GetVendorSpecificGain:input_type -> cardemulation.GetVendorSpecificGainRequest
+	22, // 11: cardemulation.PollingFrameService.ToString:input_type -> cardemulation.ToStringRequest
+	24, // 12: cardemulation.PollingFrameService.WriteToParcel:input_type -> cardemulation.WriteToParcelRequest
+	2,  // 13: cardemulation.HostNfcFServiceService.OnBind:input_type -> cardemulation.OnBindRequest
+	4,  // 14: cardemulation.HostNfcFServiceService.OnDeactivated:input_type -> cardemulation.OnDeactivatedRequest
+	26, // 15: cardemulation.HostNfcFServiceService.ProcessNfcFPacket:input_type -> cardemulation.ProcessNfcFPacketRequest
+	28, // 16: cardemulation.HostNfcFServiceService.SendResponsePacket:input_type -> cardemulation.SendResponsePacketRequest
+	2,  // 17: cardemulation.OffHostApduServiceService.OnBind:input_type -> cardemulation.OnBindRequest
+	30, // 18: cardemulation.CardEmulationService.CategoryAllowsForegroundPreference:input_type -> cardemulation.CategoryAllowsForegroundPreferenceRequest
+	32, // 19: cardemulation.CardEmulationService.GetDefaultNfcSubscriptionId:input_type -> cardemulation.GetDefaultNfcSubscriptionIdRequest
+	34, // 20: cardemulation.CardEmulationService.GetDescriptionForPreferredPaymentService:input_type -> cardemulation.GetDescriptionForPreferredPaymentServiceRequest
+	36, // 21: cardemulation.CardEmulationService.GetRouteDestinationForPreferredPaymentService:input_type -> cardemulation.GetRouteDestinationForPreferredPaymentServiceRequest
+	38, // 22: cardemulation.CardEmulationService.GetSelectionModeForCategory:input_type -> cardemulation.GetSelectionModeForCategoryRequest
+	40, // 23: cardemulation.CardEmulationService.IsDefaultServiceForAid:input_type -> cardemulation.IsDefaultServiceForAidRequest
+	42, // 24: cardemulation.CardEmulationService.IsDefaultServiceForCategory:input_type -> cardemulation.IsDefaultServiceForCategoryRequest
+	44, // 25: cardemulation.CardEmulationService.IsEuiccSupported:input_type -> cardemulation.IsEuiccSupportedRequest
+	46, // 26: cardemulation.CardEmulationService.RegisterNfcEventCallback:input_type -> cardemulation.RegisterNfcEventCallbackRequest
+	48, // 27: cardemulation.CardEmulationService.RegisterPollingLoopFilterForService:input_type -> cardemulation.RegisterPollingLoopFilterForServiceRequest
+	50, // 28: cardemulation.CardEmulationService.RegisterPollingLoopPatternFilterForService:input_type -> cardemulation.RegisterPollingLoopPatternFilterForServiceRequest
+	52, // 29: cardemulation.CardEmulationService.RemoveAidsForService:input_type -> cardemulation.RemoveAidsForServiceRequest
+	54, // 30: cardemulation.CardEmulationService.RemovePollingLoopFilterForService:input_type -> cardemulation.RemovePollingLoopFilterForServiceRequest
+	56, // 31: cardemulation.CardEmulationService.RemovePollingLoopPatternFilterForService:input_type -> cardemulation.RemovePollingLoopPatternFilterForServiceRequest
+	58, // 32: cardemulation.CardEmulationService.SetOffHostForService:input_type -> cardemulation.SetOffHostForServiceRequest
+	60, // 33: cardemulation.CardEmulationService.SetPreferredService:input_type -> cardemulation.SetPreferredServiceRequest
+	62, // 34: cardemulation.CardEmulationService.SetShouldDefaultToObserveModeForService:input_type -> cardemulation.SetShouldDefaultToObserveModeForServiceRequest
+	64, // 35: cardemulation.CardEmulationService.SupportsAidPrefixRegistration:input_type -> cardemulation.SupportsAidPrefixRegistrationRequest
+	66, // 36: cardemulation.CardEmulationService.UnregisterNfcEventCallback:input_type -> cardemulation.UnregisterNfcEventCallbackRequest
+	68, // 37: cardemulation.CardEmulationService.UnsetOffHostForService:input_type -> cardemulation.UnsetOffHostForServiceRequest
+	70, // 38: cardemulation.CardEmulationService.UnsetPreferredService:input_type -> cardemulation.UnsetPreferredServiceRequest
+	72, // 39: cardemulation.NfcFCardEmulationService.DisableService:input_type -> cardemulation.DisableServiceRequest
+	74, // 40: cardemulation.NfcFCardEmulationService.EnableService:input_type -> cardemulation.EnableServiceRequest
+	76, // 41: cardemulation.NfcFCardEmulationService.GetNfcid2ForService:input_type -> cardemulation.GetNfcid2ForServiceRequest
+	78, // 42: cardemulation.NfcFCardEmulationService.GetSystemCodeForService:input_type -> cardemulation.GetSystemCodeForServiceRequest
+	80, // 43: cardemulation.NfcFCardEmulationService.RegisterSystemCodeForService:input_type -> cardemulation.RegisterSystemCodeForServiceRequest
+	82, // 44: cardemulation.NfcFCardEmulationService.SetNfcid2ForService:input_type -> cardemulation.SetNfcid2ForServiceRequest
+	84, // 45: cardemulation.NfcFCardEmulationService.UnregisterSystemCodeForService:input_type -> cardemulation.UnregisterSystemCodeForServiceRequest
+	1,  // 46: cardemulation.HostApduServiceService.NotifyUnhandled:output_type -> cardemulation.NotifyUnhandledResponse
+	3,  // 47: cardemulation.HostApduServiceService.OnBind:output_type -> cardemulation.OnBindResponse
+	5,  // 48: cardemulation.HostApduServiceService.OnDeactivated:output_type -> cardemulation.OnDeactivatedResponse
+	7,  // 49: cardemulation.HostApduServiceService.ProcessCommandApdu:output_type -> cardemulation.ProcessCommandApduResponse
+	9,  // 50: cardemulation.HostApduServiceService.SendResponseApdu:output_type -> cardemulation.SendResponseApduResponse
+	11, // 51: cardemulation.PollingFrameService.DescribeContents:output_type -> cardemulation.DescribeContentsResponse
+	13, // 52: cardemulation.PollingFrameService.GetData:output_type -> cardemulation.GetDataResponse
+	15, // 53: cardemulation.PollingFrameService.GetTimestamp:output_type -> cardemulation.GetTimestampResponse
+	17, // 54: cardemulation.PollingFrameService.GetTriggeredAutoTransact:output_type -> cardemulation.GetTriggeredAutoTransactResponse
+	19, // 55: cardemulation.PollingFrameService.GetType:output_type -> cardemulation.GetTypeResponse
+	21, // 56: cardemulation.PollingFrameService.GetVendorSpecificGain:output_type -> cardemulation.GetVendorSpecificGainResponse
+	23, // 57: cardemulation.PollingFrameService.ToString:output_type -> cardemulation.ToStringResponse
+	25, // 58: cardemulation.PollingFrameService.WriteToParcel:output_type -> cardemulation.WriteToParcelResponse
+	3,  // 59: cardemulation.HostNfcFServiceService.OnBind:output_type -> cardemulation.OnBindResponse
+	5,  // 60: cardemulation.HostNfcFServiceService.OnDeactivated:output_type -> cardemulation.OnDeactivatedResponse
+	27, // 61: cardemulation.HostNfcFServiceService.ProcessNfcFPacket:output_type -> cardemulation.ProcessNfcFPacketResponse
+	29, // 62: cardemulation.HostNfcFServiceService.SendResponsePacket:output_type -> cardemulation.SendResponsePacketResponse
+	3,  // 63: cardemulation.OffHostApduServiceService.OnBind:output_type -> cardemulation.OnBindResponse
+	31, // 64: cardemulation.CardEmulationService.CategoryAllowsForegroundPreference:output_type -> cardemulation.CategoryAllowsForegroundPreferenceResponse
+	33, // 65: cardemulation.CardEmulationService.GetDefaultNfcSubscriptionId:output_type -> cardemulation.GetDefaultNfcSubscriptionIdResponse
+	35, // 66: cardemulation.CardEmulationService.GetDescriptionForPreferredPaymentService:output_type -> cardemulation.GetDescriptionForPreferredPaymentServiceResponse
+	37, // 67: cardemulation.CardEmulationService.GetRouteDestinationForPreferredPaymentService:output_type -> cardemulation.GetRouteDestinationForPreferredPaymentServiceResponse
+	39, // 68: cardemulation.CardEmulationService.GetSelectionModeForCategory:output_type -> cardemulation.GetSelectionModeForCategoryResponse
+	41, // 69: cardemulation.CardEmulationService.IsDefaultServiceForAid:output_type -> cardemulation.IsDefaultServiceForAidResponse
+	43, // 70: cardemulation.CardEmulationService.IsDefaultServiceForCategory:output_type -> cardemulation.IsDefaultServiceForCategoryResponse
+	45, // 71: cardemulation.CardEmulationService.IsEuiccSupported:output_type -> cardemulation.IsEuiccSupportedResponse
+	47, // 72: cardemulation.CardEmulationService.RegisterNfcEventCallback:output_type -> cardemulation.RegisterNfcEventCallbackResponse
+	49, // 73: cardemulation.CardEmulationService.RegisterPollingLoopFilterForService:output_type -> cardemulation.RegisterPollingLoopFilterForServiceResponse
+	51, // 74: cardemulation.CardEmulationService.RegisterPollingLoopPatternFilterForService:output_type -> cardemulation.RegisterPollingLoopPatternFilterForServiceResponse
+	53, // 75: cardemulation.CardEmulationService.RemoveAidsForService:output_type -> cardemulation.RemoveAidsForServiceResponse
+	55, // 76: cardemulation.CardEmulationService.RemovePollingLoopFilterForService:output_type -> cardemulation.RemovePollingLoopFilterForServiceResponse
+	57, // 77: cardemulation.CardEmulationService.RemovePollingLoopPatternFilterForService:output_type -> cardemulation.RemovePollingLoopPatternFilterForServiceResponse
+	59, // 78: cardemulation.CardEmulationService.SetOffHostForService:output_type -> cardemulation.SetOffHostForServiceResponse
+	61, // 79: cardemulation.CardEmulationService.SetPreferredService:output_type -> cardemulation.SetPreferredServiceResponse
+	63, // 80: cardemulation.CardEmulationService.SetShouldDefaultToObserveModeForService:output_type -> cardemulation.SetShouldDefaultToObserveModeForServiceResponse
+	65, // 81: cardemulation.CardEmulationService.SupportsAidPrefixRegistration:output_type -> cardemulation.SupportsAidPrefixRegistrationResponse
+	67, // 82: cardemulation.CardEmulationService.UnregisterNfcEventCallback:output_type -> cardemulation.UnregisterNfcEventCallbackResponse
+	69, // 83: cardemulation.CardEmulationService.UnsetOffHostForService:output_type -> cardemulation.UnsetOffHostForServiceResponse
+	71, // 84: cardemulation.CardEmulationService.UnsetPreferredService:output_type -> cardemulation.UnsetPreferredServiceResponse
+	73, // 85: cardemulation.NfcFCardEmulationService.DisableService:output_type -> cardemulation.DisableServiceResponse
+	75, // 86: cardemulation.NfcFCardEmulationService.EnableService:output_type -> cardemulation.EnableServiceResponse
+	77, // 87: cardemulation.NfcFCardEmulationService.GetNfcid2ForService:output_type -> cardemulation.GetNfcid2ForServiceResponse
+	79, // 88: cardemulation.NfcFCardEmulationService.GetSystemCodeForService:output_type -> cardemulation.GetSystemCodeForServiceResponse
+	81, // 89: cardemulation.NfcFCardEmulationService.RegisterSystemCodeForService:output_type -> cardemulation.RegisterSystemCodeForServiceResponse
+	83, // 90: cardemulation.NfcFCardEmulationService.SetNfcid2ForService:output_type -> cardemulation.SetNfcid2ForServiceResponse
+	85, // 91: cardemulation.NfcFCardEmulationService.UnregisterSystemCodeForService:output_type -> cardemulation.UnregisterSystemCodeForServiceResponse
+	46, // [46:92] is the sub-list for method output_type
+	0,  // [0:46] is the sub-list for method input_type
+	0,  // [0:0] is the sub-list for extension type_name
+	0,  // [0:0] is the sub-list for extension extendee
+	0,  // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_proto_cardemulation_cardemulation_proto_init() }
@@ -48,12 +4240,13 @@ func file_proto_cardemulation_cardemulation_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_cardemulation_cardemulation_proto_rawDesc), len(file_proto_cardemulation_cardemulation_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   86,
 			NumExtensions: 0,
-			NumServices:   0,
+			NumServices:   6,
 		},
 		GoTypes:           file_proto_cardemulation_cardemulation_proto_goTypes,
 		DependencyIndexes: file_proto_cardemulation_cardemulation_proto_depIdxs,
+		MessageInfos:      file_proto_cardemulation_cardemulation_proto_msgTypes,
 	}.Build()
 	File_proto_cardemulation_cardemulation_proto = out.File
 	file_proto_cardemulation_cardemulation_proto_goTypes = nil

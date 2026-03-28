@@ -23,6 +23,1294 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type EqualsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EqualsRequest) Reset() {
+	*x = EqualsRequest{}
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EqualsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EqualsRequest) ProtoMessage() {}
+
+func (x *EqualsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EqualsRequest.ProtoReflect.Descriptor instead.
+func (*EqualsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *EqualsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type EqualsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EqualsResponse) Reset() {
+	*x = EqualsResponse{}
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EqualsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EqualsResponse) ProtoMessage() {}
+
+func (x *EqualsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EqualsResponse.ProtoReflect.Descriptor instead.
+func (*EqualsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *EqualsResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type GetAddressRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAddressRequest) Reset() {
+	*x = GetAddressRequest{}
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAddressRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAddressRequest) ProtoMessage() {}
+
+func (x *GetAddressRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAddressRequest.ProtoReflect.Descriptor instead.
+func (*GetAddressRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{2}
+}
+
+type GetAddressResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAddressResponse) Reset() {
+	*x = GetAddressResponse{}
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAddressResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAddressResponse) ProtoMessage() {}
+
+func (x *GetAddressResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAddressResponse.ProtoReflect.Descriptor instead.
+func (*GetAddressResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *GetAddressResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetChannelCountsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetChannelCountsRequest) Reset() {
+	*x = GetChannelCountsRequest{}
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetChannelCountsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetChannelCountsRequest) ProtoMessage() {}
+
+func (x *GetChannelCountsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetChannelCountsRequest.ProtoReflect.Descriptor instead.
+func (*GetChannelCountsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{4}
+}
+
+type GetChannelCountsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetChannelCountsResponse) Reset() {
+	*x = GetChannelCountsResponse{}
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetChannelCountsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetChannelCountsResponse) ProtoMessage() {}
+
+func (x *GetChannelCountsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetChannelCountsResponse.ProtoReflect.Descriptor instead.
+func (*GetChannelCountsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *GetChannelCountsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetChannelIndexMasksRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetChannelIndexMasksRequest) Reset() {
+	*x = GetChannelIndexMasksRequest{}
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetChannelIndexMasksRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetChannelIndexMasksRequest) ProtoMessage() {}
+
+func (x *GetChannelIndexMasksRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetChannelIndexMasksRequest.ProtoReflect.Descriptor instead.
+func (*GetChannelIndexMasksRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{6}
+}
+
+type GetChannelIndexMasksResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetChannelIndexMasksResponse) Reset() {
+	*x = GetChannelIndexMasksResponse{}
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetChannelIndexMasksResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetChannelIndexMasksResponse) ProtoMessage() {}
+
+func (x *GetChannelIndexMasksResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetChannelIndexMasksResponse.ProtoReflect.Descriptor instead.
+func (*GetChannelIndexMasksResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *GetChannelIndexMasksResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetChannelMasksRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetChannelMasksRequest) Reset() {
+	*x = GetChannelMasksRequest{}
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetChannelMasksRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetChannelMasksRequest) ProtoMessage() {}
+
+func (x *GetChannelMasksRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetChannelMasksRequest.ProtoReflect.Descriptor instead.
+func (*GetChannelMasksRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{8}
+}
+
+type GetChannelMasksResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetChannelMasksResponse) Reset() {
+	*x = GetChannelMasksResponse{}
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetChannelMasksResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetChannelMasksResponse) ProtoMessage() {}
+
+func (x *GetChannelMasksResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetChannelMasksResponse.ProtoReflect.Descriptor instead.
+func (*GetChannelMasksResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *GetChannelMasksResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetEncapsulationMetadataTypesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEncapsulationMetadataTypesRequest) Reset() {
+	*x = GetEncapsulationMetadataTypesRequest{}
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEncapsulationMetadataTypesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEncapsulationMetadataTypesRequest) ProtoMessage() {}
+
+func (x *GetEncapsulationMetadataTypesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEncapsulationMetadataTypesRequest.ProtoReflect.Descriptor instead.
+func (*GetEncapsulationMetadataTypesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{10}
+}
+
+type GetEncapsulationMetadataTypesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEncapsulationMetadataTypesResponse) Reset() {
+	*x = GetEncapsulationMetadataTypesResponse{}
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEncapsulationMetadataTypesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEncapsulationMetadataTypesResponse) ProtoMessage() {}
+
+func (x *GetEncapsulationMetadataTypesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEncapsulationMetadataTypesResponse.ProtoReflect.Descriptor instead.
+func (*GetEncapsulationMetadataTypesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *GetEncapsulationMetadataTypesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetEncapsulationModesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEncapsulationModesRequest) Reset() {
+	*x = GetEncapsulationModesRequest{}
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEncapsulationModesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEncapsulationModesRequest) ProtoMessage() {}
+
+func (x *GetEncapsulationModesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEncapsulationModesRequest.ProtoReflect.Descriptor instead.
+func (*GetEncapsulationModesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{12}
+}
+
+type GetEncapsulationModesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEncapsulationModesResponse) Reset() {
+	*x = GetEncapsulationModesResponse{}
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEncapsulationModesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEncapsulationModesResponse) ProtoMessage() {}
+
+func (x *GetEncapsulationModesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEncapsulationModesResponse.ProtoReflect.Descriptor instead.
+func (*GetEncapsulationModesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *GetEncapsulationModesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetEncodingsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEncodingsRequest) Reset() {
+	*x = GetEncodingsRequest{}
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEncodingsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEncodingsRequest) ProtoMessage() {}
+
+func (x *GetEncodingsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEncodingsRequest.ProtoReflect.Descriptor instead.
+func (*GetEncodingsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{14}
+}
+
+type GetEncodingsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEncodingsResponse) Reset() {
+	*x = GetEncodingsResponse{}
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEncodingsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEncodingsResponse) ProtoMessage() {}
+
+func (x *GetEncodingsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEncodingsResponse.ProtoReflect.Descriptor instead.
+func (*GetEncodingsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *GetEncodingsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetIdRequest) Reset() {
+	*x = GetIdRequest{}
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetIdRequest) ProtoMessage() {}
+
+func (x *GetIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetIdRequest.ProtoReflect.Descriptor instead.
+func (*GetIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{16}
+}
+
+type GetIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetIdResponse) Reset() {
+	*x = GetIdResponse{}
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetIdResponse) ProtoMessage() {}
+
+func (x *GetIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetIdResponse.ProtoReflect.Descriptor instead.
+func (*GetIdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *GetIdResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetProductNameRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetProductNameRequest) Reset() {
+	*x = GetProductNameRequest{}
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetProductNameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetProductNameRequest) ProtoMessage() {}
+
+func (x *GetProductNameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetProductNameRequest.ProtoReflect.Descriptor instead.
+func (*GetProductNameRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{18}
+}
+
+type GetProductNameResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetProductNameResponse) Reset() {
+	*x = GetProductNameResponse{}
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetProductNameResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetProductNameResponse) ProtoMessage() {}
+
+func (x *GetProductNameResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetProductNameResponse.ProtoReflect.Descriptor instead.
+func (*GetProductNameResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *GetProductNameResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSampleRatesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSampleRatesRequest) Reset() {
+	*x = GetSampleRatesRequest{}
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSampleRatesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSampleRatesRequest) ProtoMessage() {}
+
+func (x *GetSampleRatesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSampleRatesRequest.ProtoReflect.Descriptor instead.
+func (*GetSampleRatesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{20}
+}
+
+type GetSampleRatesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSampleRatesResponse) Reset() {
+	*x = GetSampleRatesResponse{}
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSampleRatesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSampleRatesResponse) ProtoMessage() {}
+
+func (x *GetSampleRatesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSampleRatesResponse.ProtoReflect.Descriptor instead.
+func (*GetSampleRatesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{21}
+}
+
+func (x *GetSampleRatesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSpeakerLayoutChannelMaskRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSpeakerLayoutChannelMaskRequest) Reset() {
+	*x = GetSpeakerLayoutChannelMaskRequest{}
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSpeakerLayoutChannelMaskRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSpeakerLayoutChannelMaskRequest) ProtoMessage() {}
+
+func (x *GetSpeakerLayoutChannelMaskRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSpeakerLayoutChannelMaskRequest.ProtoReflect.Descriptor instead.
+func (*GetSpeakerLayoutChannelMaskRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{22}
+}
+
+type GetSpeakerLayoutChannelMaskResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSpeakerLayoutChannelMaskResponse) Reset() {
+	*x = GetSpeakerLayoutChannelMaskResponse{}
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSpeakerLayoutChannelMaskResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSpeakerLayoutChannelMaskResponse) ProtoMessage() {}
+
+func (x *GetSpeakerLayoutChannelMaskResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSpeakerLayoutChannelMaskResponse.ProtoReflect.Descriptor instead.
+func (*GetSpeakerLayoutChannelMaskResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{23}
+}
+
+func (x *GetSpeakerLayoutChannelMaskResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTypeRequest) Reset() {
+	*x = GetTypeRequest{}
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTypeRequest) ProtoMessage() {}
+
+func (x *GetTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTypeRequest.ProtoReflect.Descriptor instead.
+func (*GetTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{24}
+}
+
+type GetTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTypeResponse) Reset() {
+	*x = GetTypeResponse{}
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTypeResponse) ProtoMessage() {}
+
+func (x *GetTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTypeResponse.ProtoReflect.Descriptor instead.
+func (*GetTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{25}
+}
+
+func (x *GetTypeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type HashCodeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HashCodeRequest) Reset() {
+	*x = HashCodeRequest{}
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[26]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HashCodeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HashCodeRequest) ProtoMessage() {}
+
+func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[26]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HashCodeRequest.ProtoReflect.Descriptor instead.
+func (*HashCodeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{26}
+}
+
+type HashCodeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HashCodeResponse) Reset() {
+	*x = HashCodeResponse{}
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[27]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HashCodeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HashCodeResponse) ProtoMessage() {}
+
+func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[27]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HashCodeResponse.ProtoReflect.Descriptor instead.
+func (*HashCodeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{27}
+}
+
+func (x *HashCodeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type IsSinkRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsSinkRequest) Reset() {
+	*x = IsSinkRequest{}
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[28]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsSinkRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsSinkRequest) ProtoMessage() {}
+
+func (x *IsSinkRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[28]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsSinkRequest.ProtoReflect.Descriptor instead.
+func (*IsSinkRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{28}
+}
+
+type IsSinkResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsSinkResponse) Reset() {
+	*x = IsSinkResponse{}
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[29]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsSinkResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsSinkResponse) ProtoMessage() {}
+
+func (x *IsSinkResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[29]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsSinkResponse.ProtoReflect.Descriptor instead.
+func (*IsSinkResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{29}
+}
+
+func (x *IsSinkResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsSourceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsSourceRequest) Reset() {
+	*x = IsSourceRequest{}
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[30]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsSourceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsSourceRequest) ProtoMessage() {}
+
+func (x *IsSourceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[30]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsSourceRequest.ProtoReflect.Descriptor instead.
+func (*IsSourceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{30}
+}
+
+type IsSourceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsSourceResponse) Reset() {
+	*x = IsSourceResponse{}
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[31]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsSourceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsSourceResponse) ProtoMessage() {}
+
+func (x *IsSourceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[31]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsSourceResponse.ProtoReflect.Descriptor instead.
+func (*IsSourceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{31}
+}
+
+func (x *IsSourceResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
 type AbandonAudioFocusRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
@@ -32,7 +1320,7 @@ type AbandonAudioFocusRequest struct {
 
 func (x *AbandonAudioFocusRequest) Reset() {
 	*x = AbandonAudioFocusRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[0]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[32]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -44,7 +1332,7 @@ func (x *AbandonAudioFocusRequest) String() string {
 func (*AbandonAudioFocusRequest) ProtoMessage() {}
 
 func (x *AbandonAudioFocusRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[0]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[32]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -57,7 +1345,7 @@ func (x *AbandonAudioFocusRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AbandonAudioFocusRequest.ProtoReflect.Descriptor instead.
 func (*AbandonAudioFocusRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{0}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{32}
 }
 
 func (x *AbandonAudioFocusRequest) GetArg0() int64 {
@@ -76,7 +1364,7 @@ type AbandonAudioFocusResponse struct {
 
 func (x *AbandonAudioFocusResponse) Reset() {
 	*x = AbandonAudioFocusResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[1]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[33]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -88,7 +1376,7 @@ func (x *AbandonAudioFocusResponse) String() string {
 func (*AbandonAudioFocusResponse) ProtoMessage() {}
 
 func (x *AbandonAudioFocusResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[1]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[33]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -101,7 +1389,7 @@ func (x *AbandonAudioFocusResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AbandonAudioFocusResponse.ProtoReflect.Descriptor instead.
 func (*AbandonAudioFocusResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{1}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{33}
 }
 
 func (x *AbandonAudioFocusResponse) GetResult() int32 {
@@ -120,7 +1408,7 @@ type AbandonAudioFocusRequestRequest struct {
 
 func (x *AbandonAudioFocusRequestRequest) Reset() {
 	*x = AbandonAudioFocusRequestRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[2]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[34]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -132,7 +1420,7 @@ func (x *AbandonAudioFocusRequestRequest) String() string {
 func (*AbandonAudioFocusRequestRequest) ProtoMessage() {}
 
 func (x *AbandonAudioFocusRequestRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[2]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[34]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -145,7 +1433,7 @@ func (x *AbandonAudioFocusRequestRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AbandonAudioFocusRequestRequest.ProtoReflect.Descriptor instead.
 func (*AbandonAudioFocusRequestRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{2}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{34}
 }
 
 func (x *AbandonAudioFocusRequestRequest) GetArg0() int64 {
@@ -164,7 +1452,7 @@ type AbandonAudioFocusRequestResponse struct {
 
 func (x *AbandonAudioFocusRequestResponse) Reset() {
 	*x = AbandonAudioFocusRequestResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[3]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[35]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -176,7 +1464,7 @@ func (x *AbandonAudioFocusRequestResponse) String() string {
 func (*AbandonAudioFocusRequestResponse) ProtoMessage() {}
 
 func (x *AbandonAudioFocusRequestResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[3]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[35]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -189,7 +1477,7 @@ func (x *AbandonAudioFocusRequestResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AbandonAudioFocusRequestResponse.ProtoReflect.Descriptor instead.
 func (*AbandonAudioFocusRequestResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{3}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{35}
 }
 
 func (x *AbandonAudioFocusRequestResponse) GetResult() int32 {
@@ -209,7 +1497,7 @@ type AddOnCommunicationDeviceChangedListenerRequest struct {
 
 func (x *AddOnCommunicationDeviceChangedListenerRequest) Reset() {
 	*x = AddOnCommunicationDeviceChangedListenerRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[4]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[36]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -221,7 +1509,7 @@ func (x *AddOnCommunicationDeviceChangedListenerRequest) String() string {
 func (*AddOnCommunicationDeviceChangedListenerRequest) ProtoMessage() {}
 
 func (x *AddOnCommunicationDeviceChangedListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[4]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[36]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -234,7 +1522,7 @@ func (x *AddOnCommunicationDeviceChangedListenerRequest) ProtoReflect() protoref
 
 // Deprecated: Use AddOnCommunicationDeviceChangedListenerRequest.ProtoReflect.Descriptor instead.
 func (*AddOnCommunicationDeviceChangedListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{4}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{36}
 }
 
 func (x *AddOnCommunicationDeviceChangedListenerRequest) GetArg0() int64 {
@@ -259,7 +1547,7 @@ type AddOnCommunicationDeviceChangedListenerResponse struct {
 
 func (x *AddOnCommunicationDeviceChangedListenerResponse) Reset() {
 	*x = AddOnCommunicationDeviceChangedListenerResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[5]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[37]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -271,7 +1559,7 @@ func (x *AddOnCommunicationDeviceChangedListenerResponse) String() string {
 func (*AddOnCommunicationDeviceChangedListenerResponse) ProtoMessage() {}
 
 func (x *AddOnCommunicationDeviceChangedListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[5]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[37]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -284,7 +1572,7 @@ func (x *AddOnCommunicationDeviceChangedListenerResponse) ProtoReflect() protore
 
 // Deprecated: Use AddOnCommunicationDeviceChangedListenerResponse.ProtoReflect.Descriptor instead.
 func (*AddOnCommunicationDeviceChangedListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{5}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{37}
 }
 
 type AddOnModeChangedListenerRequest struct {
@@ -297,7 +1585,7 @@ type AddOnModeChangedListenerRequest struct {
 
 func (x *AddOnModeChangedListenerRequest) Reset() {
 	*x = AddOnModeChangedListenerRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[6]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[38]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -309,7 +1597,7 @@ func (x *AddOnModeChangedListenerRequest) String() string {
 func (*AddOnModeChangedListenerRequest) ProtoMessage() {}
 
 func (x *AddOnModeChangedListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[6]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[38]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -322,7 +1610,7 @@ func (x *AddOnModeChangedListenerRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddOnModeChangedListenerRequest.ProtoReflect.Descriptor instead.
 func (*AddOnModeChangedListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{6}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{38}
 }
 
 func (x *AddOnModeChangedListenerRequest) GetArg0() int64 {
@@ -347,7 +1635,7 @@ type AddOnModeChangedListenerResponse struct {
 
 func (x *AddOnModeChangedListenerResponse) Reset() {
 	*x = AddOnModeChangedListenerResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[7]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[39]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -359,7 +1647,7 @@ func (x *AddOnModeChangedListenerResponse) String() string {
 func (*AddOnModeChangedListenerResponse) ProtoMessage() {}
 
 func (x *AddOnModeChangedListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[7]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[39]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -372,7 +1660,7 @@ func (x *AddOnModeChangedListenerResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddOnModeChangedListenerResponse.ProtoReflect.Descriptor instead.
 func (*AddOnModeChangedListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{7}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{39}
 }
 
 type AddOnPreferredMixerAttributesChangedListenerRequest struct {
@@ -385,7 +1673,7 @@ type AddOnPreferredMixerAttributesChangedListenerRequest struct {
 
 func (x *AddOnPreferredMixerAttributesChangedListenerRequest) Reset() {
 	*x = AddOnPreferredMixerAttributesChangedListenerRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[8]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[40]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -397,7 +1685,7 @@ func (x *AddOnPreferredMixerAttributesChangedListenerRequest) String() string {
 func (*AddOnPreferredMixerAttributesChangedListenerRequest) ProtoMessage() {}
 
 func (x *AddOnPreferredMixerAttributesChangedListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[8]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[40]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -410,7 +1698,7 @@ func (x *AddOnPreferredMixerAttributesChangedListenerRequest) ProtoReflect() pro
 
 // Deprecated: Use AddOnPreferredMixerAttributesChangedListenerRequest.ProtoReflect.Descriptor instead.
 func (*AddOnPreferredMixerAttributesChangedListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{8}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{40}
 }
 
 func (x *AddOnPreferredMixerAttributesChangedListenerRequest) GetArg0() int64 {
@@ -435,7 +1723,7 @@ type AddOnPreferredMixerAttributesChangedListenerResponse struct {
 
 func (x *AddOnPreferredMixerAttributesChangedListenerResponse) Reset() {
 	*x = AddOnPreferredMixerAttributesChangedListenerResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[9]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[41]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -447,7 +1735,7 @@ func (x *AddOnPreferredMixerAttributesChangedListenerResponse) String() string {
 func (*AddOnPreferredMixerAttributesChangedListenerResponse) ProtoMessage() {}
 
 func (x *AddOnPreferredMixerAttributesChangedListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[9]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[41]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -460,7 +1748,7 @@ func (x *AddOnPreferredMixerAttributesChangedListenerResponse) ProtoReflect() pr
 
 // Deprecated: Use AddOnPreferredMixerAttributesChangedListenerResponse.ProtoReflect.Descriptor instead.
 func (*AddOnPreferredMixerAttributesChangedListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{9}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{41}
 }
 
 type AdjustStreamVolumeRequest struct {
@@ -474,7 +1762,7 @@ type AdjustStreamVolumeRequest struct {
 
 func (x *AdjustStreamVolumeRequest) Reset() {
 	*x = AdjustStreamVolumeRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[10]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[42]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -486,7 +1774,7 @@ func (x *AdjustStreamVolumeRequest) String() string {
 func (*AdjustStreamVolumeRequest) ProtoMessage() {}
 
 func (x *AdjustStreamVolumeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[10]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[42]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -499,7 +1787,7 @@ func (x *AdjustStreamVolumeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AdjustStreamVolumeRequest.ProtoReflect.Descriptor instead.
 func (*AdjustStreamVolumeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{10}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{42}
 }
 
 func (x *AdjustStreamVolumeRequest) GetArg0() int32 {
@@ -531,7 +1819,7 @@ type AdjustStreamVolumeResponse struct {
 
 func (x *AdjustStreamVolumeResponse) Reset() {
 	*x = AdjustStreamVolumeResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[11]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[43]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -543,7 +1831,7 @@ func (x *AdjustStreamVolumeResponse) String() string {
 func (*AdjustStreamVolumeResponse) ProtoMessage() {}
 
 func (x *AdjustStreamVolumeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[11]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[43]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -556,7 +1844,7 @@ func (x *AdjustStreamVolumeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AdjustStreamVolumeResponse.ProtoReflect.Descriptor instead.
 func (*AdjustStreamVolumeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{11}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{43}
 }
 
 type AdjustSuggestedStreamVolumeRequest struct {
@@ -570,7 +1858,7 @@ type AdjustSuggestedStreamVolumeRequest struct {
 
 func (x *AdjustSuggestedStreamVolumeRequest) Reset() {
 	*x = AdjustSuggestedStreamVolumeRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[12]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[44]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -582,7 +1870,7 @@ func (x *AdjustSuggestedStreamVolumeRequest) String() string {
 func (*AdjustSuggestedStreamVolumeRequest) ProtoMessage() {}
 
 func (x *AdjustSuggestedStreamVolumeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[12]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[44]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -595,7 +1883,7 @@ func (x *AdjustSuggestedStreamVolumeRequest) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use AdjustSuggestedStreamVolumeRequest.ProtoReflect.Descriptor instead.
 func (*AdjustSuggestedStreamVolumeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{12}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{44}
 }
 
 func (x *AdjustSuggestedStreamVolumeRequest) GetArg0() int32 {
@@ -627,7 +1915,7 @@ type AdjustSuggestedStreamVolumeResponse struct {
 
 func (x *AdjustSuggestedStreamVolumeResponse) Reset() {
 	*x = AdjustSuggestedStreamVolumeResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[13]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[45]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -639,7 +1927,7 @@ func (x *AdjustSuggestedStreamVolumeResponse) String() string {
 func (*AdjustSuggestedStreamVolumeResponse) ProtoMessage() {}
 
 func (x *AdjustSuggestedStreamVolumeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[13]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[45]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -652,7 +1940,7 @@ func (x *AdjustSuggestedStreamVolumeResponse) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use AdjustSuggestedStreamVolumeResponse.ProtoReflect.Descriptor instead.
 func (*AdjustSuggestedStreamVolumeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{13}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{45}
 }
 
 type AdjustVolumeRequest struct {
@@ -665,7 +1953,7 @@ type AdjustVolumeRequest struct {
 
 func (x *AdjustVolumeRequest) Reset() {
 	*x = AdjustVolumeRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[14]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[46]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -677,7 +1965,7 @@ func (x *AdjustVolumeRequest) String() string {
 func (*AdjustVolumeRequest) ProtoMessage() {}
 
 func (x *AdjustVolumeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[14]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[46]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -690,7 +1978,7 @@ func (x *AdjustVolumeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AdjustVolumeRequest.ProtoReflect.Descriptor instead.
 func (*AdjustVolumeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{14}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{46}
 }
 
 func (x *AdjustVolumeRequest) GetArg0() int32 {
@@ -715,7 +2003,7 @@ type AdjustVolumeResponse struct {
 
 func (x *AdjustVolumeResponse) Reset() {
 	*x = AdjustVolumeResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[15]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[47]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -727,7 +2015,7 @@ func (x *AdjustVolumeResponse) String() string {
 func (*AdjustVolumeResponse) ProtoMessage() {}
 
 func (x *AdjustVolumeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[15]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[47]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -740,7 +2028,7 @@ func (x *AdjustVolumeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AdjustVolumeResponse.ProtoReflect.Descriptor instead.
 func (*AdjustVolumeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{15}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{47}
 }
 
 type AdjustVolumeGroupVolumeRequest struct {
@@ -754,7 +2042,7 @@ type AdjustVolumeGroupVolumeRequest struct {
 
 func (x *AdjustVolumeGroupVolumeRequest) Reset() {
 	*x = AdjustVolumeGroupVolumeRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[16]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[48]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -766,7 +2054,7 @@ func (x *AdjustVolumeGroupVolumeRequest) String() string {
 func (*AdjustVolumeGroupVolumeRequest) ProtoMessage() {}
 
 func (x *AdjustVolumeGroupVolumeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[16]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[48]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -779,7 +2067,7 @@ func (x *AdjustVolumeGroupVolumeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AdjustVolumeGroupVolumeRequest.ProtoReflect.Descriptor instead.
 func (*AdjustVolumeGroupVolumeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{16}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{48}
 }
 
 func (x *AdjustVolumeGroupVolumeRequest) GetArg0() int32 {
@@ -811,7 +2099,7 @@ type AdjustVolumeGroupVolumeResponse struct {
 
 func (x *AdjustVolumeGroupVolumeResponse) Reset() {
 	*x = AdjustVolumeGroupVolumeResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[17]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[49]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -823,7 +2111,7 @@ func (x *AdjustVolumeGroupVolumeResponse) String() string {
 func (*AdjustVolumeGroupVolumeResponse) ProtoMessage() {}
 
 func (x *AdjustVolumeGroupVolumeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[17]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[49]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -836,7 +2124,7 @@ func (x *AdjustVolumeGroupVolumeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AdjustVolumeGroupVolumeResponse.ProtoReflect.Descriptor instead.
 func (*AdjustVolumeGroupVolumeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{17}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{49}
 }
 
 type ClearCommunicationDeviceRequest struct {
@@ -847,7 +2135,7 @@ type ClearCommunicationDeviceRequest struct {
 
 func (x *ClearCommunicationDeviceRequest) Reset() {
 	*x = ClearCommunicationDeviceRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[18]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[50]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -859,7 +2147,7 @@ func (x *ClearCommunicationDeviceRequest) String() string {
 func (*ClearCommunicationDeviceRequest) ProtoMessage() {}
 
 func (x *ClearCommunicationDeviceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[18]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[50]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -872,7 +2160,7 @@ func (x *ClearCommunicationDeviceRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ClearCommunicationDeviceRequest.ProtoReflect.Descriptor instead.
 func (*ClearCommunicationDeviceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{18}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{50}
 }
 
 type ClearCommunicationDeviceResponse struct {
@@ -883,7 +2171,7 @@ type ClearCommunicationDeviceResponse struct {
 
 func (x *ClearCommunicationDeviceResponse) Reset() {
 	*x = ClearCommunicationDeviceResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[19]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[51]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -895,7 +2183,7 @@ func (x *ClearCommunicationDeviceResponse) String() string {
 func (*ClearCommunicationDeviceResponse) ProtoMessage() {}
 
 func (x *ClearCommunicationDeviceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[19]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[51]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -908,7 +2196,7 @@ func (x *ClearCommunicationDeviceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ClearCommunicationDeviceResponse.ProtoReflect.Descriptor instead.
 func (*ClearCommunicationDeviceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{19}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{51}
 }
 
 type ClearPreferredMixerAttributesRequest struct {
@@ -921,7 +2209,7 @@ type ClearPreferredMixerAttributesRequest struct {
 
 func (x *ClearPreferredMixerAttributesRequest) Reset() {
 	*x = ClearPreferredMixerAttributesRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[20]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[52]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -933,7 +2221,7 @@ func (x *ClearPreferredMixerAttributesRequest) String() string {
 func (*ClearPreferredMixerAttributesRequest) ProtoMessage() {}
 
 func (x *ClearPreferredMixerAttributesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[20]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[52]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -946,7 +2234,7 @@ func (x *ClearPreferredMixerAttributesRequest) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use ClearPreferredMixerAttributesRequest.ProtoReflect.Descriptor instead.
 func (*ClearPreferredMixerAttributesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{20}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{52}
 }
 
 func (x *ClearPreferredMixerAttributesRequest) GetArg0() int64 {
@@ -972,7 +2260,7 @@ type ClearPreferredMixerAttributesResponse struct {
 
 func (x *ClearPreferredMixerAttributesResponse) Reset() {
 	*x = ClearPreferredMixerAttributesResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[21]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[53]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -984,7 +2272,7 @@ func (x *ClearPreferredMixerAttributesResponse) String() string {
 func (*ClearPreferredMixerAttributesResponse) ProtoMessage() {}
 
 func (x *ClearPreferredMixerAttributesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[21]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[53]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -997,7 +2285,7 @@ func (x *ClearPreferredMixerAttributesResponse) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use ClearPreferredMixerAttributesResponse.ProtoReflect.Descriptor instead.
 func (*ClearPreferredMixerAttributesResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{21}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{53}
 }
 
 func (x *ClearPreferredMixerAttributesResponse) GetResult() bool {
@@ -1016,7 +2304,7 @@ type DispatchMediaKeyEventRequest struct {
 
 func (x *DispatchMediaKeyEventRequest) Reset() {
 	*x = DispatchMediaKeyEventRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[22]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[54]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1028,7 +2316,7 @@ func (x *DispatchMediaKeyEventRequest) String() string {
 func (*DispatchMediaKeyEventRequest) ProtoMessage() {}
 
 func (x *DispatchMediaKeyEventRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[22]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[54]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1041,7 +2329,7 @@ func (x *DispatchMediaKeyEventRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DispatchMediaKeyEventRequest.ProtoReflect.Descriptor instead.
 func (*DispatchMediaKeyEventRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{22}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{54}
 }
 
 func (x *DispatchMediaKeyEventRequest) GetArg0() int64 {
@@ -1059,7 +2347,7 @@ type DispatchMediaKeyEventResponse struct {
 
 func (x *DispatchMediaKeyEventResponse) Reset() {
 	*x = DispatchMediaKeyEventResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[23]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[55]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1071,7 +2359,7 @@ func (x *DispatchMediaKeyEventResponse) String() string {
 func (*DispatchMediaKeyEventResponse) ProtoMessage() {}
 
 func (x *DispatchMediaKeyEventResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[23]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[55]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1084,7 +2372,7 @@ func (x *DispatchMediaKeyEventResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DispatchMediaKeyEventResponse.ProtoReflect.Descriptor instead.
 func (*DispatchMediaKeyEventResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{23}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{55}
 }
 
 type GenerateAudioSessionIdRequest struct {
@@ -1095,7 +2383,7 @@ type GenerateAudioSessionIdRequest struct {
 
 func (x *GenerateAudioSessionIdRequest) Reset() {
 	*x = GenerateAudioSessionIdRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[24]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[56]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1107,7 +2395,7 @@ func (x *GenerateAudioSessionIdRequest) String() string {
 func (*GenerateAudioSessionIdRequest) ProtoMessage() {}
 
 func (x *GenerateAudioSessionIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[24]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[56]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1120,7 +2408,7 @@ func (x *GenerateAudioSessionIdRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GenerateAudioSessionIdRequest.ProtoReflect.Descriptor instead.
 func (*GenerateAudioSessionIdRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{24}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{56}
 }
 
 type GenerateAudioSessionIdResponse struct {
@@ -1132,7 +2420,7 @@ type GenerateAudioSessionIdResponse struct {
 
 func (x *GenerateAudioSessionIdResponse) Reset() {
 	*x = GenerateAudioSessionIdResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[25]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[57]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1144,7 +2432,7 @@ func (x *GenerateAudioSessionIdResponse) String() string {
 func (*GenerateAudioSessionIdResponse) ProtoMessage() {}
 
 func (x *GenerateAudioSessionIdResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[25]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[57]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1157,7 +2445,7 @@ func (x *GenerateAudioSessionIdResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GenerateAudioSessionIdResponse.ProtoReflect.Descriptor instead.
 func (*GenerateAudioSessionIdResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{25}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{57}
 }
 
 func (x *GenerateAudioSessionIdResponse) GetResult() int32 {
@@ -1175,7 +2463,7 @@ type GetAllowedCapturePolicyRequest struct {
 
 func (x *GetAllowedCapturePolicyRequest) Reset() {
 	*x = GetAllowedCapturePolicyRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[26]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[58]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1187,7 +2475,7 @@ func (x *GetAllowedCapturePolicyRequest) String() string {
 func (*GetAllowedCapturePolicyRequest) ProtoMessage() {}
 
 func (x *GetAllowedCapturePolicyRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[26]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[58]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1200,7 +2488,7 @@ func (x *GetAllowedCapturePolicyRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAllowedCapturePolicyRequest.ProtoReflect.Descriptor instead.
 func (*GetAllowedCapturePolicyRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{26}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{58}
 }
 
 type GetAllowedCapturePolicyResponse struct {
@@ -1212,7 +2500,7 @@ type GetAllowedCapturePolicyResponse struct {
 
 func (x *GetAllowedCapturePolicyResponse) Reset() {
 	*x = GetAllowedCapturePolicyResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[27]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[59]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1224,7 +2512,7 @@ func (x *GetAllowedCapturePolicyResponse) String() string {
 func (*GetAllowedCapturePolicyResponse) ProtoMessage() {}
 
 func (x *GetAllowedCapturePolicyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[27]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[59]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1237,7 +2525,7 @@ func (x *GetAllowedCapturePolicyResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAllowedCapturePolicyResponse.ProtoReflect.Descriptor instead.
 func (*GetAllowedCapturePolicyResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{27}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{59}
 }
 
 func (x *GetAllowedCapturePolicyResponse) GetResult() int32 {
@@ -1256,7 +2544,7 @@ type GetAudioHwSyncForSessionRequest struct {
 
 func (x *GetAudioHwSyncForSessionRequest) Reset() {
 	*x = GetAudioHwSyncForSessionRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[28]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[60]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1268,7 +2556,7 @@ func (x *GetAudioHwSyncForSessionRequest) String() string {
 func (*GetAudioHwSyncForSessionRequest) ProtoMessage() {}
 
 func (x *GetAudioHwSyncForSessionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[28]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[60]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1281,7 +2569,7 @@ func (x *GetAudioHwSyncForSessionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAudioHwSyncForSessionRequest.ProtoReflect.Descriptor instead.
 func (*GetAudioHwSyncForSessionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{28}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{60}
 }
 
 func (x *GetAudioHwSyncForSessionRequest) GetArg0() int32 {
@@ -1300,7 +2588,7 @@ type GetAudioHwSyncForSessionResponse struct {
 
 func (x *GetAudioHwSyncForSessionResponse) Reset() {
 	*x = GetAudioHwSyncForSessionResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[29]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[61]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1312,7 +2600,7 @@ func (x *GetAudioHwSyncForSessionResponse) String() string {
 func (*GetAudioHwSyncForSessionResponse) ProtoMessage() {}
 
 func (x *GetAudioHwSyncForSessionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[29]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[61]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1325,7 +2613,7 @@ func (x *GetAudioHwSyncForSessionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAudioHwSyncForSessionResponse.ProtoReflect.Descriptor instead.
 func (*GetAudioHwSyncForSessionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{29}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{61}
 }
 
 func (x *GetAudioHwSyncForSessionResponse) GetResult() int32 {
@@ -1343,7 +2631,7 @@ type GetCommunicationDeviceRequest struct {
 
 func (x *GetCommunicationDeviceRequest) Reset() {
 	*x = GetCommunicationDeviceRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[30]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[62]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1355,7 +2643,7 @@ func (x *GetCommunicationDeviceRequest) String() string {
 func (*GetCommunicationDeviceRequest) ProtoMessage() {}
 
 func (x *GetCommunicationDeviceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[30]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[62]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1368,7 +2656,7 @@ func (x *GetCommunicationDeviceRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetCommunicationDeviceRequest.ProtoReflect.Descriptor instead.
 func (*GetCommunicationDeviceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{30}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{62}
 }
 
 type GetCommunicationDeviceResponse struct {
@@ -1380,7 +2668,7 @@ type GetCommunicationDeviceResponse struct {
 
 func (x *GetCommunicationDeviceResponse) Reset() {
 	*x = GetCommunicationDeviceResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[31]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[63]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1392,7 +2680,7 @@ func (x *GetCommunicationDeviceResponse) String() string {
 func (*GetCommunicationDeviceResponse) ProtoMessage() {}
 
 func (x *GetCommunicationDeviceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[31]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[63]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1405,7 +2693,7 @@ func (x *GetCommunicationDeviceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetCommunicationDeviceResponse.ProtoReflect.Descriptor instead.
 func (*GetCommunicationDeviceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{31}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{63}
 }
 
 func (x *GetCommunicationDeviceResponse) GetResult() int64 {
@@ -1424,7 +2712,7 @@ type GetDevicesRequest struct {
 
 func (x *GetDevicesRequest) Reset() {
 	*x = GetDevicesRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[32]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[64]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1436,7 +2724,7 @@ func (x *GetDevicesRequest) String() string {
 func (*GetDevicesRequest) ProtoMessage() {}
 
 func (x *GetDevicesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[32]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[64]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1449,7 +2737,7 @@ func (x *GetDevicesRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDevicesRequest.ProtoReflect.Descriptor instead.
 func (*GetDevicesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{32}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{64}
 }
 
 func (x *GetDevicesRequest) GetArg0() int32 {
@@ -1468,7 +2756,7 @@ type GetDevicesResponse struct {
 
 func (x *GetDevicesResponse) Reset() {
 	*x = GetDevicesResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[33]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[65]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1480,7 +2768,7 @@ func (x *GetDevicesResponse) String() string {
 func (*GetDevicesResponse) ProtoMessage() {}
 
 func (x *GetDevicesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[33]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[65]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1493,7 +2781,7 @@ func (x *GetDevicesResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDevicesResponse.ProtoReflect.Descriptor instead.
 func (*GetDevicesResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{33}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{65}
 }
 
 func (x *GetDevicesResponse) GetResult() int64 {
@@ -1511,7 +2799,7 @@ type GetEncodedSurroundModeRequest struct {
 
 func (x *GetEncodedSurroundModeRequest) Reset() {
 	*x = GetEncodedSurroundModeRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[34]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[66]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1523,7 +2811,7 @@ func (x *GetEncodedSurroundModeRequest) String() string {
 func (*GetEncodedSurroundModeRequest) ProtoMessage() {}
 
 func (x *GetEncodedSurroundModeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[34]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[66]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1536,7 +2824,7 @@ func (x *GetEncodedSurroundModeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetEncodedSurroundModeRequest.ProtoReflect.Descriptor instead.
 func (*GetEncodedSurroundModeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{34}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{66}
 }
 
 type GetEncodedSurroundModeResponse struct {
@@ -1548,7 +2836,7 @@ type GetEncodedSurroundModeResponse struct {
 
 func (x *GetEncodedSurroundModeResponse) Reset() {
 	*x = GetEncodedSurroundModeResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[35]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[67]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1560,7 +2848,7 @@ func (x *GetEncodedSurroundModeResponse) String() string {
 func (*GetEncodedSurroundModeResponse) ProtoMessage() {}
 
 func (x *GetEncodedSurroundModeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[35]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[67]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1573,7 +2861,7 @@ func (x *GetEncodedSurroundModeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetEncodedSurroundModeResponse.ProtoReflect.Descriptor instead.
 func (*GetEncodedSurroundModeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{35}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{67}
 }
 
 func (x *GetEncodedSurroundModeResponse) GetResult() int32 {
@@ -1591,7 +2879,7 @@ type GetModeRequest struct {
 
 func (x *GetModeRequest) Reset() {
 	*x = GetModeRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[36]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[68]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1603,7 +2891,7 @@ func (x *GetModeRequest) String() string {
 func (*GetModeRequest) ProtoMessage() {}
 
 func (x *GetModeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[36]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[68]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1616,7 +2904,7 @@ func (x *GetModeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetModeRequest.ProtoReflect.Descriptor instead.
 func (*GetModeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{36}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{68}
 }
 
 type GetModeResponse struct {
@@ -1628,7 +2916,7 @@ type GetModeResponse struct {
 
 func (x *GetModeResponse) Reset() {
 	*x = GetModeResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[37]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[69]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1640,7 +2928,7 @@ func (x *GetModeResponse) String() string {
 func (*GetModeResponse) ProtoMessage() {}
 
 func (x *GetModeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[37]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[69]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1653,7 +2941,7 @@ func (x *GetModeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetModeResponse.ProtoReflect.Descriptor instead.
 func (*GetModeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{37}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{69}
 }
 
 func (x *GetModeResponse) GetResult() int32 {
@@ -1672,7 +2960,7 @@ type GetParametersRequest struct {
 
 func (x *GetParametersRequest) Reset() {
 	*x = GetParametersRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[38]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[70]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1684,7 +2972,7 @@ func (x *GetParametersRequest) String() string {
 func (*GetParametersRequest) ProtoMessage() {}
 
 func (x *GetParametersRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[38]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[70]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1697,7 +2985,7 @@ func (x *GetParametersRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetParametersRequest.ProtoReflect.Descriptor instead.
 func (*GetParametersRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{38}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{70}
 }
 
 func (x *GetParametersRequest) GetArg0() string {
@@ -1716,7 +3004,7 @@ type GetParametersResponse struct {
 
 func (x *GetParametersResponse) Reset() {
 	*x = GetParametersResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[39]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[71]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1728,7 +3016,7 @@ func (x *GetParametersResponse) String() string {
 func (*GetParametersResponse) ProtoMessage() {}
 
 func (x *GetParametersResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[39]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[71]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1741,7 +3029,7 @@ func (x *GetParametersResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetParametersResponse.ProtoReflect.Descriptor instead.
 func (*GetParametersResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{39}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{71}
 }
 
 func (x *GetParametersResponse) GetResult() string {
@@ -1761,7 +3049,7 @@ type GetPreferredMixerAttributesRequest struct {
 
 func (x *GetPreferredMixerAttributesRequest) Reset() {
 	*x = GetPreferredMixerAttributesRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[40]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[72]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1773,7 +3061,7 @@ func (x *GetPreferredMixerAttributesRequest) String() string {
 func (*GetPreferredMixerAttributesRequest) ProtoMessage() {}
 
 func (x *GetPreferredMixerAttributesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[40]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[72]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1786,7 +3074,7 @@ func (x *GetPreferredMixerAttributesRequest) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use GetPreferredMixerAttributesRequest.ProtoReflect.Descriptor instead.
 func (*GetPreferredMixerAttributesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{40}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{72}
 }
 
 func (x *GetPreferredMixerAttributesRequest) GetArg0() int64 {
@@ -1812,7 +3100,7 @@ type GetPreferredMixerAttributesResponse struct {
 
 func (x *GetPreferredMixerAttributesResponse) Reset() {
 	*x = GetPreferredMixerAttributesResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[41]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[73]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1824,7 +3112,7 @@ func (x *GetPreferredMixerAttributesResponse) String() string {
 func (*GetPreferredMixerAttributesResponse) ProtoMessage() {}
 
 func (x *GetPreferredMixerAttributesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[41]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[73]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1837,7 +3125,7 @@ func (x *GetPreferredMixerAttributesResponse) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use GetPreferredMixerAttributesResponse.ProtoReflect.Descriptor instead.
 func (*GetPreferredMixerAttributesResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{41}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{73}
 }
 
 func (x *GetPreferredMixerAttributesResponse) GetResult() int64 {
@@ -1856,7 +3144,7 @@ type GetPropertyRequest struct {
 
 func (x *GetPropertyRequest) Reset() {
 	*x = GetPropertyRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[42]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[74]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1868,7 +3156,7 @@ func (x *GetPropertyRequest) String() string {
 func (*GetPropertyRequest) ProtoMessage() {}
 
 func (x *GetPropertyRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[42]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[74]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1881,7 +3169,7 @@ func (x *GetPropertyRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPropertyRequest.ProtoReflect.Descriptor instead.
 func (*GetPropertyRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{42}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{74}
 }
 
 func (x *GetPropertyRequest) GetArg0() string {
@@ -1900,7 +3188,7 @@ type GetPropertyResponse struct {
 
 func (x *GetPropertyResponse) Reset() {
 	*x = GetPropertyResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[43]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[75]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1912,7 +3200,7 @@ func (x *GetPropertyResponse) String() string {
 func (*GetPropertyResponse) ProtoMessage() {}
 
 func (x *GetPropertyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[43]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[75]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1925,7 +3213,7 @@ func (x *GetPropertyResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPropertyResponse.ProtoReflect.Descriptor instead.
 func (*GetPropertyResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{43}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{75}
 }
 
 func (x *GetPropertyResponse) GetResult() string {
@@ -1943,7 +3231,7 @@ type GetRingerModeRequest struct {
 
 func (x *GetRingerModeRequest) Reset() {
 	*x = GetRingerModeRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[44]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[76]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1955,7 +3243,7 @@ func (x *GetRingerModeRequest) String() string {
 func (*GetRingerModeRequest) ProtoMessage() {}
 
 func (x *GetRingerModeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[44]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[76]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1968,7 +3256,7 @@ func (x *GetRingerModeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetRingerModeRequest.ProtoReflect.Descriptor instead.
 func (*GetRingerModeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{44}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{76}
 }
 
 type GetRingerModeResponse struct {
@@ -1980,7 +3268,7 @@ type GetRingerModeResponse struct {
 
 func (x *GetRingerModeResponse) Reset() {
 	*x = GetRingerModeResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[45]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[77]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1992,7 +3280,7 @@ func (x *GetRingerModeResponse) String() string {
 func (*GetRingerModeResponse) ProtoMessage() {}
 
 func (x *GetRingerModeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[45]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[77]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2005,7 +3293,7 @@ func (x *GetRingerModeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetRingerModeResponse.ProtoReflect.Descriptor instead.
 func (*GetRingerModeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{45}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{77}
 }
 
 func (x *GetRingerModeResponse) GetResult() int32 {
@@ -2024,7 +3312,7 @@ type GetRoutingRequest struct {
 
 func (x *GetRoutingRequest) Reset() {
 	*x = GetRoutingRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[46]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[78]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2036,7 +3324,7 @@ func (x *GetRoutingRequest) String() string {
 func (*GetRoutingRequest) ProtoMessage() {}
 
 func (x *GetRoutingRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[46]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[78]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2049,7 +3337,7 @@ func (x *GetRoutingRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetRoutingRequest.ProtoReflect.Descriptor instead.
 func (*GetRoutingRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{46}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{78}
 }
 
 func (x *GetRoutingRequest) GetArg0() int32 {
@@ -2068,7 +3356,7 @@ type GetRoutingResponse struct {
 
 func (x *GetRoutingResponse) Reset() {
 	*x = GetRoutingResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[47]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[79]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2080,7 +3368,7 @@ func (x *GetRoutingResponse) String() string {
 func (*GetRoutingResponse) ProtoMessage() {}
 
 func (x *GetRoutingResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[47]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[79]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2093,7 +3381,7 @@ func (x *GetRoutingResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetRoutingResponse.ProtoReflect.Descriptor instead.
 func (*GetRoutingResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{47}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{79}
 }
 
 func (x *GetRoutingResponse) GetResult() int32 {
@@ -2111,7 +3399,7 @@ type GetSpatializerRequest struct {
 
 func (x *GetSpatializerRequest) Reset() {
 	*x = GetSpatializerRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[48]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[80]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2123,7 +3411,7 @@ func (x *GetSpatializerRequest) String() string {
 func (*GetSpatializerRequest) ProtoMessage() {}
 
 func (x *GetSpatializerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[48]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[80]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2136,7 +3424,7 @@ func (x *GetSpatializerRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetSpatializerRequest.ProtoReflect.Descriptor instead.
 func (*GetSpatializerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{48}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{80}
 }
 
 type GetSpatializerResponse struct {
@@ -2148,7 +3436,7 @@ type GetSpatializerResponse struct {
 
 func (x *GetSpatializerResponse) Reset() {
 	*x = GetSpatializerResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[49]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[81]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2160,7 +3448,7 @@ func (x *GetSpatializerResponse) String() string {
 func (*GetSpatializerResponse) ProtoMessage() {}
 
 func (x *GetSpatializerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[49]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[81]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2173,7 +3461,7 @@ func (x *GetSpatializerResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetSpatializerResponse.ProtoReflect.Descriptor instead.
 func (*GetSpatializerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{49}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{81}
 }
 
 func (x *GetSpatializerResponse) GetResult() int64 {
@@ -2192,7 +3480,7 @@ type GetStreamMaxVolumeRequest struct {
 
 func (x *GetStreamMaxVolumeRequest) Reset() {
 	*x = GetStreamMaxVolumeRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[50]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[82]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2204,7 +3492,7 @@ func (x *GetStreamMaxVolumeRequest) String() string {
 func (*GetStreamMaxVolumeRequest) ProtoMessage() {}
 
 func (x *GetStreamMaxVolumeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[50]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[82]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2217,7 +3505,7 @@ func (x *GetStreamMaxVolumeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetStreamMaxVolumeRequest.ProtoReflect.Descriptor instead.
 func (*GetStreamMaxVolumeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{50}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{82}
 }
 
 func (x *GetStreamMaxVolumeRequest) GetArg0() int32 {
@@ -2236,7 +3524,7 @@ type GetStreamMaxVolumeResponse struct {
 
 func (x *GetStreamMaxVolumeResponse) Reset() {
 	*x = GetStreamMaxVolumeResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[51]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[83]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2248,7 +3536,7 @@ func (x *GetStreamMaxVolumeResponse) String() string {
 func (*GetStreamMaxVolumeResponse) ProtoMessage() {}
 
 func (x *GetStreamMaxVolumeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[51]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[83]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2261,7 +3549,7 @@ func (x *GetStreamMaxVolumeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetStreamMaxVolumeResponse.ProtoReflect.Descriptor instead.
 func (*GetStreamMaxVolumeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{51}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{83}
 }
 
 func (x *GetStreamMaxVolumeResponse) GetResult() int32 {
@@ -2280,7 +3568,7 @@ type GetStreamMinVolumeRequest struct {
 
 func (x *GetStreamMinVolumeRequest) Reset() {
 	*x = GetStreamMinVolumeRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[52]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[84]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2292,7 +3580,7 @@ func (x *GetStreamMinVolumeRequest) String() string {
 func (*GetStreamMinVolumeRequest) ProtoMessage() {}
 
 func (x *GetStreamMinVolumeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[52]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[84]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2305,7 +3593,7 @@ func (x *GetStreamMinVolumeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetStreamMinVolumeRequest.ProtoReflect.Descriptor instead.
 func (*GetStreamMinVolumeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{52}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{84}
 }
 
 func (x *GetStreamMinVolumeRequest) GetArg0() int32 {
@@ -2324,7 +3612,7 @@ type GetStreamMinVolumeResponse struct {
 
 func (x *GetStreamMinVolumeResponse) Reset() {
 	*x = GetStreamMinVolumeResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[53]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[85]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2336,7 +3624,7 @@ func (x *GetStreamMinVolumeResponse) String() string {
 func (*GetStreamMinVolumeResponse) ProtoMessage() {}
 
 func (x *GetStreamMinVolumeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[53]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[85]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2349,7 +3637,7 @@ func (x *GetStreamMinVolumeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetStreamMinVolumeResponse.ProtoReflect.Descriptor instead.
 func (*GetStreamMinVolumeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{53}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{85}
 }
 
 func (x *GetStreamMinVolumeResponse) GetResult() int32 {
@@ -2368,7 +3656,7 @@ type GetStreamVolumeRequest struct {
 
 func (x *GetStreamVolumeRequest) Reset() {
 	*x = GetStreamVolumeRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[54]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[86]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2380,7 +3668,7 @@ func (x *GetStreamVolumeRequest) String() string {
 func (*GetStreamVolumeRequest) ProtoMessage() {}
 
 func (x *GetStreamVolumeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[54]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[86]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2393,7 +3681,7 @@ func (x *GetStreamVolumeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetStreamVolumeRequest.ProtoReflect.Descriptor instead.
 func (*GetStreamVolumeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{54}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{86}
 }
 
 func (x *GetStreamVolumeRequest) GetArg0() int32 {
@@ -2412,7 +3700,7 @@ type GetStreamVolumeResponse struct {
 
 func (x *GetStreamVolumeResponse) Reset() {
 	*x = GetStreamVolumeResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[55]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[87]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2424,7 +3712,7 @@ func (x *GetStreamVolumeResponse) String() string {
 func (*GetStreamVolumeResponse) ProtoMessage() {}
 
 func (x *GetStreamVolumeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[55]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[87]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2437,7 +3725,7 @@ func (x *GetStreamVolumeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetStreamVolumeResponse.ProtoReflect.Descriptor instead.
 func (*GetStreamVolumeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{55}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{87}
 }
 
 func (x *GetStreamVolumeResponse) GetResult() int32 {
@@ -2458,7 +3746,7 @@ type GetStreamVolumeDbRequest struct {
 
 func (x *GetStreamVolumeDbRequest) Reset() {
 	*x = GetStreamVolumeDbRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[56]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[88]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2470,7 +3758,7 @@ func (x *GetStreamVolumeDbRequest) String() string {
 func (*GetStreamVolumeDbRequest) ProtoMessage() {}
 
 func (x *GetStreamVolumeDbRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[56]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[88]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2483,7 +3771,7 @@ func (x *GetStreamVolumeDbRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetStreamVolumeDbRequest.ProtoReflect.Descriptor instead.
 func (*GetStreamVolumeDbRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{56}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{88}
 }
 
 func (x *GetStreamVolumeDbRequest) GetArg0() int32 {
@@ -2516,7 +3804,7 @@ type GetStreamVolumeDbResponse struct {
 
 func (x *GetStreamVolumeDbResponse) Reset() {
 	*x = GetStreamVolumeDbResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[57]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[89]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2528,7 +3816,7 @@ func (x *GetStreamVolumeDbResponse) String() string {
 func (*GetStreamVolumeDbResponse) ProtoMessage() {}
 
 func (x *GetStreamVolumeDbResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[57]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[89]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2541,7 +3829,7 @@ func (x *GetStreamVolumeDbResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetStreamVolumeDbResponse.ProtoReflect.Descriptor instead.
 func (*GetStreamVolumeDbResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{57}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{89}
 }
 
 func (x *GetStreamVolumeDbResponse) GetResult() float32 {
@@ -2560,7 +3848,7 @@ type GetVibrateSettingRequest struct {
 
 func (x *GetVibrateSettingRequest) Reset() {
 	*x = GetVibrateSettingRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[58]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[90]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2572,7 +3860,7 @@ func (x *GetVibrateSettingRequest) String() string {
 func (*GetVibrateSettingRequest) ProtoMessage() {}
 
 func (x *GetVibrateSettingRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[58]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[90]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2585,7 +3873,7 @@ func (x *GetVibrateSettingRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetVibrateSettingRequest.ProtoReflect.Descriptor instead.
 func (*GetVibrateSettingRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{58}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{90}
 }
 
 func (x *GetVibrateSettingRequest) GetArg0() int32 {
@@ -2604,7 +3892,7 @@ type GetVibrateSettingResponse struct {
 
 func (x *GetVibrateSettingResponse) Reset() {
 	*x = GetVibrateSettingResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[59]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[91]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2616,7 +3904,7 @@ func (x *GetVibrateSettingResponse) String() string {
 func (*GetVibrateSettingResponse) ProtoMessage() {}
 
 func (x *GetVibrateSettingResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[59]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[91]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2629,7 +3917,7 @@ func (x *GetVibrateSettingResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetVibrateSettingResponse.ProtoReflect.Descriptor instead.
 func (*GetVibrateSettingResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{59}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{91}
 }
 
 func (x *GetVibrateSettingResponse) GetResult() int32 {
@@ -2648,7 +3936,7 @@ type GetVolumeGroupIdForAttributesRequest struct {
 
 func (x *GetVolumeGroupIdForAttributesRequest) Reset() {
 	*x = GetVolumeGroupIdForAttributesRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[60]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[92]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2660,7 +3948,7 @@ func (x *GetVolumeGroupIdForAttributesRequest) String() string {
 func (*GetVolumeGroupIdForAttributesRequest) ProtoMessage() {}
 
 func (x *GetVolumeGroupIdForAttributesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[60]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[92]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2673,7 +3961,7 @@ func (x *GetVolumeGroupIdForAttributesRequest) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use GetVolumeGroupIdForAttributesRequest.ProtoReflect.Descriptor instead.
 func (*GetVolumeGroupIdForAttributesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{60}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{92}
 }
 
 func (x *GetVolumeGroupIdForAttributesRequest) GetArg0() int64 {
@@ -2692,7 +3980,7 @@ type GetVolumeGroupIdForAttributesResponse struct {
 
 func (x *GetVolumeGroupIdForAttributesResponse) Reset() {
 	*x = GetVolumeGroupIdForAttributesResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[61]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[93]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2704,7 +3992,7 @@ func (x *GetVolumeGroupIdForAttributesResponse) String() string {
 func (*GetVolumeGroupIdForAttributesResponse) ProtoMessage() {}
 
 func (x *GetVolumeGroupIdForAttributesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[61]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[93]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2717,7 +4005,7 @@ func (x *GetVolumeGroupIdForAttributesResponse) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use GetVolumeGroupIdForAttributesResponse.ProtoReflect.Descriptor instead.
 func (*GetVolumeGroupIdForAttributesResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{61}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{93}
 }
 
 func (x *GetVolumeGroupIdForAttributesResponse) GetResult() int32 {
@@ -2735,7 +4023,7 @@ type IsBluetoothA2DpOnRequest struct {
 
 func (x *IsBluetoothA2DpOnRequest) Reset() {
 	*x = IsBluetoothA2DpOnRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[62]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[94]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2747,7 +4035,7 @@ func (x *IsBluetoothA2DpOnRequest) String() string {
 func (*IsBluetoothA2DpOnRequest) ProtoMessage() {}
 
 func (x *IsBluetoothA2DpOnRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[62]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[94]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2760,7 +4048,7 @@ func (x *IsBluetoothA2DpOnRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsBluetoothA2DpOnRequest.ProtoReflect.Descriptor instead.
 func (*IsBluetoothA2DpOnRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{62}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{94}
 }
 
 type IsBluetoothA2DpOnResponse struct {
@@ -2772,7 +4060,7 @@ type IsBluetoothA2DpOnResponse struct {
 
 func (x *IsBluetoothA2DpOnResponse) Reset() {
 	*x = IsBluetoothA2DpOnResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[63]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[95]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2784,7 +4072,7 @@ func (x *IsBluetoothA2DpOnResponse) String() string {
 func (*IsBluetoothA2DpOnResponse) ProtoMessage() {}
 
 func (x *IsBluetoothA2DpOnResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[63]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[95]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2797,7 +4085,7 @@ func (x *IsBluetoothA2DpOnResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsBluetoothA2DpOnResponse.ProtoReflect.Descriptor instead.
 func (*IsBluetoothA2DpOnResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{63}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{95}
 }
 
 func (x *IsBluetoothA2DpOnResponse) GetResult() bool {
@@ -2815,7 +4103,7 @@ type IsBluetoothScoAvailableOffCallRequest struct {
 
 func (x *IsBluetoothScoAvailableOffCallRequest) Reset() {
 	*x = IsBluetoothScoAvailableOffCallRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[64]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[96]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2827,7 +4115,7 @@ func (x *IsBluetoothScoAvailableOffCallRequest) String() string {
 func (*IsBluetoothScoAvailableOffCallRequest) ProtoMessage() {}
 
 func (x *IsBluetoothScoAvailableOffCallRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[64]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[96]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2840,7 +4128,7 @@ func (x *IsBluetoothScoAvailableOffCallRequest) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use IsBluetoothScoAvailableOffCallRequest.ProtoReflect.Descriptor instead.
 func (*IsBluetoothScoAvailableOffCallRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{64}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{96}
 }
 
 type IsBluetoothScoAvailableOffCallResponse struct {
@@ -2852,7 +4140,7 @@ type IsBluetoothScoAvailableOffCallResponse struct {
 
 func (x *IsBluetoothScoAvailableOffCallResponse) Reset() {
 	*x = IsBluetoothScoAvailableOffCallResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[65]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[97]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2864,7 +4152,7 @@ func (x *IsBluetoothScoAvailableOffCallResponse) String() string {
 func (*IsBluetoothScoAvailableOffCallResponse) ProtoMessage() {}
 
 func (x *IsBluetoothScoAvailableOffCallResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[65]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[97]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2877,7 +4165,7 @@ func (x *IsBluetoothScoAvailableOffCallResponse) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use IsBluetoothScoAvailableOffCallResponse.ProtoReflect.Descriptor instead.
 func (*IsBluetoothScoAvailableOffCallResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{65}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{97}
 }
 
 func (x *IsBluetoothScoAvailableOffCallResponse) GetResult() bool {
@@ -2895,7 +4183,7 @@ type IsBluetoothScoOnRequest struct {
 
 func (x *IsBluetoothScoOnRequest) Reset() {
 	*x = IsBluetoothScoOnRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[66]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[98]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2907,7 +4195,7 @@ func (x *IsBluetoothScoOnRequest) String() string {
 func (*IsBluetoothScoOnRequest) ProtoMessage() {}
 
 func (x *IsBluetoothScoOnRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[66]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[98]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2920,7 +4208,7 @@ func (x *IsBluetoothScoOnRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsBluetoothScoOnRequest.ProtoReflect.Descriptor instead.
 func (*IsBluetoothScoOnRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{66}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{98}
 }
 
 type IsBluetoothScoOnResponse struct {
@@ -2932,7 +4220,7 @@ type IsBluetoothScoOnResponse struct {
 
 func (x *IsBluetoothScoOnResponse) Reset() {
 	*x = IsBluetoothScoOnResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[67]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[99]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2944,7 +4232,7 @@ func (x *IsBluetoothScoOnResponse) String() string {
 func (*IsBluetoothScoOnResponse) ProtoMessage() {}
 
 func (x *IsBluetoothScoOnResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[67]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[99]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2957,7 +4245,7 @@ func (x *IsBluetoothScoOnResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsBluetoothScoOnResponse.ProtoReflect.Descriptor instead.
 func (*IsBluetoothScoOnResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{67}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{99}
 }
 
 func (x *IsBluetoothScoOnResponse) GetResult() bool {
@@ -2975,7 +4263,7 @@ type IsCallScreeningModeSupportedRequest struct {
 
 func (x *IsCallScreeningModeSupportedRequest) Reset() {
 	*x = IsCallScreeningModeSupportedRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[68]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[100]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2987,7 +4275,7 @@ func (x *IsCallScreeningModeSupportedRequest) String() string {
 func (*IsCallScreeningModeSupportedRequest) ProtoMessage() {}
 
 func (x *IsCallScreeningModeSupportedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[68]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[100]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3000,7 +4288,7 @@ func (x *IsCallScreeningModeSupportedRequest) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use IsCallScreeningModeSupportedRequest.ProtoReflect.Descriptor instead.
 func (*IsCallScreeningModeSupportedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{68}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{100}
 }
 
 type IsCallScreeningModeSupportedResponse struct {
@@ -3012,7 +4300,7 @@ type IsCallScreeningModeSupportedResponse struct {
 
 func (x *IsCallScreeningModeSupportedResponse) Reset() {
 	*x = IsCallScreeningModeSupportedResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[69]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[101]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3024,7 +4312,7 @@ func (x *IsCallScreeningModeSupportedResponse) String() string {
 func (*IsCallScreeningModeSupportedResponse) ProtoMessage() {}
 
 func (x *IsCallScreeningModeSupportedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[69]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[101]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3037,7 +4325,7 @@ func (x *IsCallScreeningModeSupportedResponse) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use IsCallScreeningModeSupportedResponse.ProtoReflect.Descriptor instead.
 func (*IsCallScreeningModeSupportedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{69}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{101}
 }
 
 func (x *IsCallScreeningModeSupportedResponse) GetResult() bool {
@@ -3055,7 +4343,7 @@ type IsMicrophoneMuteRequest struct {
 
 func (x *IsMicrophoneMuteRequest) Reset() {
 	*x = IsMicrophoneMuteRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[70]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[102]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3067,7 +4355,7 @@ func (x *IsMicrophoneMuteRequest) String() string {
 func (*IsMicrophoneMuteRequest) ProtoMessage() {}
 
 func (x *IsMicrophoneMuteRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[70]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[102]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3080,7 +4368,7 @@ func (x *IsMicrophoneMuteRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsMicrophoneMuteRequest.ProtoReflect.Descriptor instead.
 func (*IsMicrophoneMuteRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{70}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{102}
 }
 
 type IsMicrophoneMuteResponse struct {
@@ -3092,7 +4380,7 @@ type IsMicrophoneMuteResponse struct {
 
 func (x *IsMicrophoneMuteResponse) Reset() {
 	*x = IsMicrophoneMuteResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[71]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[103]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3104,7 +4392,7 @@ func (x *IsMicrophoneMuteResponse) String() string {
 func (*IsMicrophoneMuteResponse) ProtoMessage() {}
 
 func (x *IsMicrophoneMuteResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[71]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[103]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3117,7 +4405,7 @@ func (x *IsMicrophoneMuteResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsMicrophoneMuteResponse.ProtoReflect.Descriptor instead.
 func (*IsMicrophoneMuteResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{71}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{103}
 }
 
 func (x *IsMicrophoneMuteResponse) GetResult() bool {
@@ -3135,7 +4423,7 @@ type IsMusicActiveRequest struct {
 
 func (x *IsMusicActiveRequest) Reset() {
 	*x = IsMusicActiveRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[72]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[104]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3147,7 +4435,7 @@ func (x *IsMusicActiveRequest) String() string {
 func (*IsMusicActiveRequest) ProtoMessage() {}
 
 func (x *IsMusicActiveRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[72]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[104]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3160,7 +4448,7 @@ func (x *IsMusicActiveRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsMusicActiveRequest.ProtoReflect.Descriptor instead.
 func (*IsMusicActiveRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{72}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{104}
 }
 
 type IsMusicActiveResponse struct {
@@ -3172,7 +4460,7 @@ type IsMusicActiveResponse struct {
 
 func (x *IsMusicActiveResponse) Reset() {
 	*x = IsMusicActiveResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[73]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[105]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3184,7 +4472,7 @@ func (x *IsMusicActiveResponse) String() string {
 func (*IsMusicActiveResponse) ProtoMessage() {}
 
 func (x *IsMusicActiveResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[73]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[105]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3197,7 +4485,7 @@ func (x *IsMusicActiveResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsMusicActiveResponse.ProtoReflect.Descriptor instead.
 func (*IsMusicActiveResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{73}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{105}
 }
 
 func (x *IsMusicActiveResponse) GetResult() bool {
@@ -3215,7 +4503,7 @@ type IsRampingRingerEnabledRequest struct {
 
 func (x *IsRampingRingerEnabledRequest) Reset() {
 	*x = IsRampingRingerEnabledRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[74]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[106]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3227,7 +4515,7 @@ func (x *IsRampingRingerEnabledRequest) String() string {
 func (*IsRampingRingerEnabledRequest) ProtoMessage() {}
 
 func (x *IsRampingRingerEnabledRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[74]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[106]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3240,7 +4528,7 @@ func (x *IsRampingRingerEnabledRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsRampingRingerEnabledRequest.ProtoReflect.Descriptor instead.
 func (*IsRampingRingerEnabledRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{74}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{106}
 }
 
 type IsRampingRingerEnabledResponse struct {
@@ -3252,7 +4540,7 @@ type IsRampingRingerEnabledResponse struct {
 
 func (x *IsRampingRingerEnabledResponse) Reset() {
 	*x = IsRampingRingerEnabledResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[75]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[107]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3264,7 +4552,7 @@ func (x *IsRampingRingerEnabledResponse) String() string {
 func (*IsRampingRingerEnabledResponse) ProtoMessage() {}
 
 func (x *IsRampingRingerEnabledResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[75]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[107]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3277,7 +4565,7 @@ func (x *IsRampingRingerEnabledResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsRampingRingerEnabledResponse.ProtoReflect.Descriptor instead.
 func (*IsRampingRingerEnabledResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{75}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{107}
 }
 
 func (x *IsRampingRingerEnabledResponse) GetResult() bool {
@@ -3295,7 +4583,7 @@ type IsSpeakerphoneOnRequest struct {
 
 func (x *IsSpeakerphoneOnRequest) Reset() {
 	*x = IsSpeakerphoneOnRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[76]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[108]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3307,7 +4595,7 @@ func (x *IsSpeakerphoneOnRequest) String() string {
 func (*IsSpeakerphoneOnRequest) ProtoMessage() {}
 
 func (x *IsSpeakerphoneOnRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[76]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[108]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3320,7 +4608,7 @@ func (x *IsSpeakerphoneOnRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsSpeakerphoneOnRequest.ProtoReflect.Descriptor instead.
 func (*IsSpeakerphoneOnRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{76}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{108}
 }
 
 type IsSpeakerphoneOnResponse struct {
@@ -3332,7 +4620,7 @@ type IsSpeakerphoneOnResponse struct {
 
 func (x *IsSpeakerphoneOnResponse) Reset() {
 	*x = IsSpeakerphoneOnResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[77]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[109]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3344,7 +4632,7 @@ func (x *IsSpeakerphoneOnResponse) String() string {
 func (*IsSpeakerphoneOnResponse) ProtoMessage() {}
 
 func (x *IsSpeakerphoneOnResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[77]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[109]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3357,7 +4645,7 @@ func (x *IsSpeakerphoneOnResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsSpeakerphoneOnResponse.ProtoReflect.Descriptor instead.
 func (*IsSpeakerphoneOnResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{77}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{109}
 }
 
 func (x *IsSpeakerphoneOnResponse) GetResult() bool {
@@ -3376,7 +4664,7 @@ type IsStreamMuteRequest struct {
 
 func (x *IsStreamMuteRequest) Reset() {
 	*x = IsStreamMuteRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[78]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[110]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3388,7 +4676,7 @@ func (x *IsStreamMuteRequest) String() string {
 func (*IsStreamMuteRequest) ProtoMessage() {}
 
 func (x *IsStreamMuteRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[78]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[110]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3401,7 +4689,7 @@ func (x *IsStreamMuteRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsStreamMuteRequest.ProtoReflect.Descriptor instead.
 func (*IsStreamMuteRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{78}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{110}
 }
 
 func (x *IsStreamMuteRequest) GetArg0() int32 {
@@ -3420,7 +4708,7 @@ type IsStreamMuteResponse struct {
 
 func (x *IsStreamMuteResponse) Reset() {
 	*x = IsStreamMuteResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[79]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[111]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3432,7 +4720,7 @@ func (x *IsStreamMuteResponse) String() string {
 func (*IsStreamMuteResponse) ProtoMessage() {}
 
 func (x *IsStreamMuteResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[79]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[111]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3445,7 +4733,7 @@ func (x *IsStreamMuteResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsStreamMuteResponse.ProtoReflect.Descriptor instead.
 func (*IsStreamMuteResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{79}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{111}
 }
 
 func (x *IsStreamMuteResponse) GetResult() bool {
@@ -3464,7 +4752,7 @@ type IsSurroundFormatEnabledRequest struct {
 
 func (x *IsSurroundFormatEnabledRequest) Reset() {
 	*x = IsSurroundFormatEnabledRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[80]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[112]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3476,7 +4764,7 @@ func (x *IsSurroundFormatEnabledRequest) String() string {
 func (*IsSurroundFormatEnabledRequest) ProtoMessage() {}
 
 func (x *IsSurroundFormatEnabledRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[80]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[112]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3489,7 +4777,7 @@ func (x *IsSurroundFormatEnabledRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsSurroundFormatEnabledRequest.ProtoReflect.Descriptor instead.
 func (*IsSurroundFormatEnabledRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{80}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{112}
 }
 
 func (x *IsSurroundFormatEnabledRequest) GetArg0() int32 {
@@ -3508,7 +4796,7 @@ type IsSurroundFormatEnabledResponse struct {
 
 func (x *IsSurroundFormatEnabledResponse) Reset() {
 	*x = IsSurroundFormatEnabledResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[81]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[113]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3520,7 +4808,7 @@ func (x *IsSurroundFormatEnabledResponse) String() string {
 func (*IsSurroundFormatEnabledResponse) ProtoMessage() {}
 
 func (x *IsSurroundFormatEnabledResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[81]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[113]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3533,7 +4821,7 @@ func (x *IsSurroundFormatEnabledResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsSurroundFormatEnabledResponse.ProtoReflect.Descriptor instead.
 func (*IsSurroundFormatEnabledResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{81}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{113}
 }
 
 func (x *IsSurroundFormatEnabledResponse) GetResult() bool {
@@ -3551,7 +4839,7 @@ type IsVolumeFixedRequest struct {
 
 func (x *IsVolumeFixedRequest) Reset() {
 	*x = IsVolumeFixedRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[82]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[114]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3563,7 +4851,7 @@ func (x *IsVolumeFixedRequest) String() string {
 func (*IsVolumeFixedRequest) ProtoMessage() {}
 
 func (x *IsVolumeFixedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[82]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[114]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3576,7 +4864,7 @@ func (x *IsVolumeFixedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsVolumeFixedRequest.ProtoReflect.Descriptor instead.
 func (*IsVolumeFixedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{82}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{114}
 }
 
 type IsVolumeFixedResponse struct {
@@ -3588,7 +4876,7 @@ type IsVolumeFixedResponse struct {
 
 func (x *IsVolumeFixedResponse) Reset() {
 	*x = IsVolumeFixedResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[83]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[115]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3600,7 +4888,7 @@ func (x *IsVolumeFixedResponse) String() string {
 func (*IsVolumeFixedResponse) ProtoMessage() {}
 
 func (x *IsVolumeFixedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[83]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[115]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3613,7 +4901,7 @@ func (x *IsVolumeFixedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsVolumeFixedResponse.ProtoReflect.Descriptor instead.
 func (*IsVolumeFixedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{83}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{115}
 }
 
 func (x *IsVolumeFixedResponse) GetResult() bool {
@@ -3632,7 +4920,7 @@ type IsVolumeGroupMutedRequest struct {
 
 func (x *IsVolumeGroupMutedRequest) Reset() {
 	*x = IsVolumeGroupMutedRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[84]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[116]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3644,7 +4932,7 @@ func (x *IsVolumeGroupMutedRequest) String() string {
 func (*IsVolumeGroupMutedRequest) ProtoMessage() {}
 
 func (x *IsVolumeGroupMutedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[84]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[116]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3657,7 +4945,7 @@ func (x *IsVolumeGroupMutedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsVolumeGroupMutedRequest.ProtoReflect.Descriptor instead.
 func (*IsVolumeGroupMutedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{84}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{116}
 }
 
 func (x *IsVolumeGroupMutedRequest) GetArg0() int32 {
@@ -3676,7 +4964,7 @@ type IsVolumeGroupMutedResponse struct {
 
 func (x *IsVolumeGroupMutedResponse) Reset() {
 	*x = IsVolumeGroupMutedResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[85]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[117]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3688,7 +4976,7 @@ func (x *IsVolumeGroupMutedResponse) String() string {
 func (*IsVolumeGroupMutedResponse) ProtoMessage() {}
 
 func (x *IsVolumeGroupMutedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[85]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[117]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3701,7 +4989,7 @@ func (x *IsVolumeGroupMutedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsVolumeGroupMutedResponse.ProtoReflect.Descriptor instead.
 func (*IsVolumeGroupMutedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{85}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{117}
 }
 
 func (x *IsVolumeGroupMutedResponse) GetResult() bool {
@@ -3719,7 +5007,7 @@ type IsWiredHeadsetOnRequest struct {
 
 func (x *IsWiredHeadsetOnRequest) Reset() {
 	*x = IsWiredHeadsetOnRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[86]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[118]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3731,7 +5019,7 @@ func (x *IsWiredHeadsetOnRequest) String() string {
 func (*IsWiredHeadsetOnRequest) ProtoMessage() {}
 
 func (x *IsWiredHeadsetOnRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[86]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[118]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3744,7 +5032,7 @@ func (x *IsWiredHeadsetOnRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsWiredHeadsetOnRequest.ProtoReflect.Descriptor instead.
 func (*IsWiredHeadsetOnRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{86}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{118}
 }
 
 type IsWiredHeadsetOnResponse struct {
@@ -3756,7 +5044,7 @@ type IsWiredHeadsetOnResponse struct {
 
 func (x *IsWiredHeadsetOnResponse) Reset() {
 	*x = IsWiredHeadsetOnResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[87]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[119]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3768,7 +5056,7 @@ func (x *IsWiredHeadsetOnResponse) String() string {
 func (*IsWiredHeadsetOnResponse) ProtoMessage() {}
 
 func (x *IsWiredHeadsetOnResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[87]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[119]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3781,7 +5069,7 @@ func (x *IsWiredHeadsetOnResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsWiredHeadsetOnResponse.ProtoReflect.Descriptor instead.
 func (*IsWiredHeadsetOnResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{87}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{119}
 }
 
 func (x *IsWiredHeadsetOnResponse) GetResult() bool {
@@ -3799,7 +5087,7 @@ type LoadSoundEffectsRequest struct {
 
 func (x *LoadSoundEffectsRequest) Reset() {
 	*x = LoadSoundEffectsRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[88]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[120]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3811,7 +5099,7 @@ func (x *LoadSoundEffectsRequest) String() string {
 func (*LoadSoundEffectsRequest) ProtoMessage() {}
 
 func (x *LoadSoundEffectsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[88]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[120]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3824,7 +5112,7 @@ func (x *LoadSoundEffectsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LoadSoundEffectsRequest.ProtoReflect.Descriptor instead.
 func (*LoadSoundEffectsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{88}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{120}
 }
 
 type LoadSoundEffectsResponse struct {
@@ -3835,7 +5123,7 @@ type LoadSoundEffectsResponse struct {
 
 func (x *LoadSoundEffectsResponse) Reset() {
 	*x = LoadSoundEffectsResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[89]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[121]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3847,7 +5135,7 @@ func (x *LoadSoundEffectsResponse) String() string {
 func (*LoadSoundEffectsResponse) ProtoMessage() {}
 
 func (x *LoadSoundEffectsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[89]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[121]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3860,7 +5148,7 @@ func (x *LoadSoundEffectsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LoadSoundEffectsResponse.ProtoReflect.Descriptor instead.
 func (*LoadSoundEffectsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{89}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{121}
 }
 
 type PlaySoundEffect1Request struct {
@@ -3872,7 +5160,7 @@ type PlaySoundEffect1Request struct {
 
 func (x *PlaySoundEffect1Request) Reset() {
 	*x = PlaySoundEffect1Request{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[90]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[122]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3884,7 +5172,7 @@ func (x *PlaySoundEffect1Request) String() string {
 func (*PlaySoundEffect1Request) ProtoMessage() {}
 
 func (x *PlaySoundEffect1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[90]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[122]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3897,7 +5185,7 @@ func (x *PlaySoundEffect1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PlaySoundEffect1Request.ProtoReflect.Descriptor instead.
 func (*PlaySoundEffect1Request) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{90}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{122}
 }
 
 func (x *PlaySoundEffect1Request) GetArg0() int32 {
@@ -3915,7 +5203,7 @@ type PlaySoundEffect1Response struct {
 
 func (x *PlaySoundEffect1Response) Reset() {
 	*x = PlaySoundEffect1Response{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[91]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[123]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3927,7 +5215,7 @@ func (x *PlaySoundEffect1Response) String() string {
 func (*PlaySoundEffect1Response) ProtoMessage() {}
 
 func (x *PlaySoundEffect1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[91]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[123]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3940,7 +5228,7 @@ func (x *PlaySoundEffect1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PlaySoundEffect1Response.ProtoReflect.Descriptor instead.
 func (*PlaySoundEffect1Response) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{91}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{123}
 }
 
 type PlaySoundEffect2_1Request struct {
@@ -3953,7 +5241,7 @@ type PlaySoundEffect2_1Request struct {
 
 func (x *PlaySoundEffect2_1Request) Reset() {
 	*x = PlaySoundEffect2_1Request{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[92]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[124]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3965,7 +5253,7 @@ func (x *PlaySoundEffect2_1Request) String() string {
 func (*PlaySoundEffect2_1Request) ProtoMessage() {}
 
 func (x *PlaySoundEffect2_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[92]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[124]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3978,7 +5266,7 @@ func (x *PlaySoundEffect2_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PlaySoundEffect2_1Request.ProtoReflect.Descriptor instead.
 func (*PlaySoundEffect2_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{92}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{124}
 }
 
 func (x *PlaySoundEffect2_1Request) GetArg0() int32 {
@@ -4003,7 +5291,7 @@ type PlaySoundEffect2_1Response struct {
 
 func (x *PlaySoundEffect2_1Response) Reset() {
 	*x = PlaySoundEffect2_1Response{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[93]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[125]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4015,7 +5303,7 @@ func (x *PlaySoundEffect2_1Response) String() string {
 func (*PlaySoundEffect2_1Response) ProtoMessage() {}
 
 func (x *PlaySoundEffect2_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[93]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[125]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4028,7 +5316,7 @@ func (x *PlaySoundEffect2_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PlaySoundEffect2_1Response.ProtoReflect.Descriptor instead.
 func (*PlaySoundEffect2_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{93}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{125}
 }
 
 type RegisterMediaButtonEventReceiver1Request struct {
@@ -4040,7 +5328,7 @@ type RegisterMediaButtonEventReceiver1Request struct {
 
 func (x *RegisterMediaButtonEventReceiver1Request) Reset() {
 	*x = RegisterMediaButtonEventReceiver1Request{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[94]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[126]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4052,7 +5340,7 @@ func (x *RegisterMediaButtonEventReceiver1Request) String() string {
 func (*RegisterMediaButtonEventReceiver1Request) ProtoMessage() {}
 
 func (x *RegisterMediaButtonEventReceiver1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[94]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[126]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4065,7 +5353,7 @@ func (x *RegisterMediaButtonEventReceiver1Request) ProtoReflect() protoreflect.M
 
 // Deprecated: Use RegisterMediaButtonEventReceiver1Request.ProtoReflect.Descriptor instead.
 func (*RegisterMediaButtonEventReceiver1Request) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{94}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{126}
 }
 
 func (x *RegisterMediaButtonEventReceiver1Request) GetArg0() int64 {
@@ -4083,7 +5371,7 @@ type RegisterMediaButtonEventReceiver1Response struct {
 
 func (x *RegisterMediaButtonEventReceiver1Response) Reset() {
 	*x = RegisterMediaButtonEventReceiver1Response{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[95]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[127]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4095,7 +5383,7 @@ func (x *RegisterMediaButtonEventReceiver1Response) String() string {
 func (*RegisterMediaButtonEventReceiver1Response) ProtoMessage() {}
 
 func (x *RegisterMediaButtonEventReceiver1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[95]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[127]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4108,7 +5396,7 @@ func (x *RegisterMediaButtonEventReceiver1Response) ProtoReflect() protoreflect.
 
 // Deprecated: Use RegisterMediaButtonEventReceiver1Response.ProtoReflect.Descriptor instead.
 func (*RegisterMediaButtonEventReceiver1Response) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{95}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{127}
 }
 
 type RegisterMediaButtonEventReceiver1_1Request struct {
@@ -4120,7 +5408,7 @@ type RegisterMediaButtonEventReceiver1_1Request struct {
 
 func (x *RegisterMediaButtonEventReceiver1_1Request) Reset() {
 	*x = RegisterMediaButtonEventReceiver1_1Request{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[96]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[128]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4132,7 +5420,7 @@ func (x *RegisterMediaButtonEventReceiver1_1Request) String() string {
 func (*RegisterMediaButtonEventReceiver1_1Request) ProtoMessage() {}
 
 func (x *RegisterMediaButtonEventReceiver1_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[96]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[128]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4145,7 +5433,7 @@ func (x *RegisterMediaButtonEventReceiver1_1Request) ProtoReflect() protoreflect
 
 // Deprecated: Use RegisterMediaButtonEventReceiver1_1Request.ProtoReflect.Descriptor instead.
 func (*RegisterMediaButtonEventReceiver1_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{96}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{128}
 }
 
 func (x *RegisterMediaButtonEventReceiver1_1Request) GetArg0() int64 {
@@ -4163,7 +5451,7 @@ type RegisterMediaButtonEventReceiver1_1Response struct {
 
 func (x *RegisterMediaButtonEventReceiver1_1Response) Reset() {
 	*x = RegisterMediaButtonEventReceiver1_1Response{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[97]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[129]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4175,7 +5463,7 @@ func (x *RegisterMediaButtonEventReceiver1_1Response) String() string {
 func (*RegisterMediaButtonEventReceiver1_1Response) ProtoMessage() {}
 
 func (x *RegisterMediaButtonEventReceiver1_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[97]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[129]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4188,7 +5476,7 @@ func (x *RegisterMediaButtonEventReceiver1_1Response) ProtoReflect() protoreflec
 
 // Deprecated: Use RegisterMediaButtonEventReceiver1_1Response.ProtoReflect.Descriptor instead.
 func (*RegisterMediaButtonEventReceiver1_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{97}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{129}
 }
 
 type RegisterRemoteControlClientRequest struct {
@@ -4200,7 +5488,7 @@ type RegisterRemoteControlClientRequest struct {
 
 func (x *RegisterRemoteControlClientRequest) Reset() {
 	*x = RegisterRemoteControlClientRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[98]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[130]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4212,7 +5500,7 @@ func (x *RegisterRemoteControlClientRequest) String() string {
 func (*RegisterRemoteControlClientRequest) ProtoMessage() {}
 
 func (x *RegisterRemoteControlClientRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[98]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[130]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4225,7 +5513,7 @@ func (x *RegisterRemoteControlClientRequest) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use RegisterRemoteControlClientRequest.ProtoReflect.Descriptor instead.
 func (*RegisterRemoteControlClientRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{98}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{130}
 }
 
 func (x *RegisterRemoteControlClientRequest) GetArg0() int64 {
@@ -4243,7 +5531,7 @@ type RegisterRemoteControlClientResponse struct {
 
 func (x *RegisterRemoteControlClientResponse) Reset() {
 	*x = RegisterRemoteControlClientResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[99]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[131]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4255,7 +5543,7 @@ func (x *RegisterRemoteControlClientResponse) String() string {
 func (*RegisterRemoteControlClientResponse) ProtoMessage() {}
 
 func (x *RegisterRemoteControlClientResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[99]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[131]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4268,7 +5556,7 @@ func (x *RegisterRemoteControlClientResponse) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use RegisterRemoteControlClientResponse.ProtoReflect.Descriptor instead.
 func (*RegisterRemoteControlClientResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{99}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{131}
 }
 
 type RegisterRemoteControllerRequest struct {
@@ -4280,7 +5568,7 @@ type RegisterRemoteControllerRequest struct {
 
 func (x *RegisterRemoteControllerRequest) Reset() {
 	*x = RegisterRemoteControllerRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[100]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[132]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4292,7 +5580,7 @@ func (x *RegisterRemoteControllerRequest) String() string {
 func (*RegisterRemoteControllerRequest) ProtoMessage() {}
 
 func (x *RegisterRemoteControllerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[100]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[132]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4305,7 +5593,7 @@ func (x *RegisterRemoteControllerRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RegisterRemoteControllerRequest.ProtoReflect.Descriptor instead.
 func (*RegisterRemoteControllerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{100}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{132}
 }
 
 func (x *RegisterRemoteControllerRequest) GetArg0() int64 {
@@ -4324,7 +5612,7 @@ type RegisterRemoteControllerResponse struct {
 
 func (x *RegisterRemoteControllerResponse) Reset() {
 	*x = RegisterRemoteControllerResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[101]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[133]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4336,7 +5624,7 @@ func (x *RegisterRemoteControllerResponse) String() string {
 func (*RegisterRemoteControllerResponse) ProtoMessage() {}
 
 func (x *RegisterRemoteControllerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[101]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[133]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4349,7 +5637,7 @@ func (x *RegisterRemoteControllerResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RegisterRemoteControllerResponse.ProtoReflect.Descriptor instead.
 func (*RegisterRemoteControllerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{101}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{133}
 }
 
 func (x *RegisterRemoteControllerResponse) GetResult() bool {
@@ -4368,7 +5656,7 @@ type RemoveOnCommunicationDeviceChangedListenerRequest struct {
 
 func (x *RemoveOnCommunicationDeviceChangedListenerRequest) Reset() {
 	*x = RemoveOnCommunicationDeviceChangedListenerRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[102]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[134]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4380,7 +5668,7 @@ func (x *RemoveOnCommunicationDeviceChangedListenerRequest) String() string {
 func (*RemoveOnCommunicationDeviceChangedListenerRequest) ProtoMessage() {}
 
 func (x *RemoveOnCommunicationDeviceChangedListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[102]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[134]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4393,7 +5681,7 @@ func (x *RemoveOnCommunicationDeviceChangedListenerRequest) ProtoReflect() proto
 
 // Deprecated: Use RemoveOnCommunicationDeviceChangedListenerRequest.ProtoReflect.Descriptor instead.
 func (*RemoveOnCommunicationDeviceChangedListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{102}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{134}
 }
 
 func (x *RemoveOnCommunicationDeviceChangedListenerRequest) GetArg0() int64 {
@@ -4411,7 +5699,7 @@ type RemoveOnCommunicationDeviceChangedListenerResponse struct {
 
 func (x *RemoveOnCommunicationDeviceChangedListenerResponse) Reset() {
 	*x = RemoveOnCommunicationDeviceChangedListenerResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[103]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[135]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4423,7 +5711,7 @@ func (x *RemoveOnCommunicationDeviceChangedListenerResponse) String() string {
 func (*RemoveOnCommunicationDeviceChangedListenerResponse) ProtoMessage() {}
 
 func (x *RemoveOnCommunicationDeviceChangedListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[103]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[135]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4436,7 +5724,7 @@ func (x *RemoveOnCommunicationDeviceChangedListenerResponse) ProtoReflect() prot
 
 // Deprecated: Use RemoveOnCommunicationDeviceChangedListenerResponse.ProtoReflect.Descriptor instead.
 func (*RemoveOnCommunicationDeviceChangedListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{103}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{135}
 }
 
 type RemoveOnModeChangedListenerRequest struct {
@@ -4448,7 +5736,7 @@ type RemoveOnModeChangedListenerRequest struct {
 
 func (x *RemoveOnModeChangedListenerRequest) Reset() {
 	*x = RemoveOnModeChangedListenerRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[104]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[136]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4460,7 +5748,7 @@ func (x *RemoveOnModeChangedListenerRequest) String() string {
 func (*RemoveOnModeChangedListenerRequest) ProtoMessage() {}
 
 func (x *RemoveOnModeChangedListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[104]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[136]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4473,7 +5761,7 @@ func (x *RemoveOnModeChangedListenerRequest) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use RemoveOnModeChangedListenerRequest.ProtoReflect.Descriptor instead.
 func (*RemoveOnModeChangedListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{104}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{136}
 }
 
 func (x *RemoveOnModeChangedListenerRequest) GetArg0() int64 {
@@ -4491,7 +5779,7 @@ type RemoveOnModeChangedListenerResponse struct {
 
 func (x *RemoveOnModeChangedListenerResponse) Reset() {
 	*x = RemoveOnModeChangedListenerResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[105]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[137]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4503,7 +5791,7 @@ func (x *RemoveOnModeChangedListenerResponse) String() string {
 func (*RemoveOnModeChangedListenerResponse) ProtoMessage() {}
 
 func (x *RemoveOnModeChangedListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[105]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[137]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4516,7 +5804,7 @@ func (x *RemoveOnModeChangedListenerResponse) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use RemoveOnModeChangedListenerResponse.ProtoReflect.Descriptor instead.
 func (*RemoveOnModeChangedListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{105}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{137}
 }
 
 type RemoveOnPreferredMixerAttributesChangedListenerRequest struct {
@@ -4528,7 +5816,7 @@ type RemoveOnPreferredMixerAttributesChangedListenerRequest struct {
 
 func (x *RemoveOnPreferredMixerAttributesChangedListenerRequest) Reset() {
 	*x = RemoveOnPreferredMixerAttributesChangedListenerRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[106]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[138]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4540,7 +5828,7 @@ func (x *RemoveOnPreferredMixerAttributesChangedListenerRequest) String() string
 func (*RemoveOnPreferredMixerAttributesChangedListenerRequest) ProtoMessage() {}
 
 func (x *RemoveOnPreferredMixerAttributesChangedListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[106]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[138]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4553,7 +5841,7 @@ func (x *RemoveOnPreferredMixerAttributesChangedListenerRequest) ProtoReflect() 
 
 // Deprecated: Use RemoveOnPreferredMixerAttributesChangedListenerRequest.ProtoReflect.Descriptor instead.
 func (*RemoveOnPreferredMixerAttributesChangedListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{106}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{138}
 }
 
 func (x *RemoveOnPreferredMixerAttributesChangedListenerRequest) GetArg0() int64 {
@@ -4571,7 +5859,7 @@ type RemoveOnPreferredMixerAttributesChangedListenerResponse struct {
 
 func (x *RemoveOnPreferredMixerAttributesChangedListenerResponse) Reset() {
 	*x = RemoveOnPreferredMixerAttributesChangedListenerResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[107]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[139]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4583,7 +5871,7 @@ func (x *RemoveOnPreferredMixerAttributesChangedListenerResponse) String() strin
 func (*RemoveOnPreferredMixerAttributesChangedListenerResponse) ProtoMessage() {}
 
 func (x *RemoveOnPreferredMixerAttributesChangedListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[107]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[139]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4596,7 +5884,7 @@ func (x *RemoveOnPreferredMixerAttributesChangedListenerResponse) ProtoReflect()
 
 // Deprecated: Use RemoveOnPreferredMixerAttributesChangedListenerResponse.ProtoReflect.Descriptor instead.
 func (*RemoveOnPreferredMixerAttributesChangedListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{107}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{139}
 }
 
 type RequestAudioFocus1Request struct {
@@ -4608,7 +5896,7 @@ type RequestAudioFocus1Request struct {
 
 func (x *RequestAudioFocus1Request) Reset() {
 	*x = RequestAudioFocus1Request{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[108]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[140]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4620,7 +5908,7 @@ func (x *RequestAudioFocus1Request) String() string {
 func (*RequestAudioFocus1Request) ProtoMessage() {}
 
 func (x *RequestAudioFocus1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[108]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[140]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4633,7 +5921,7 @@ func (x *RequestAudioFocus1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestAudioFocus1Request.ProtoReflect.Descriptor instead.
 func (*RequestAudioFocus1Request) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{108}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{140}
 }
 
 func (x *RequestAudioFocus1Request) GetArg0() int64 {
@@ -4652,7 +5940,7 @@ type RequestAudioFocus1Response struct {
 
 func (x *RequestAudioFocus1Response) Reset() {
 	*x = RequestAudioFocus1Response{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[109]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[141]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4664,7 +5952,7 @@ func (x *RequestAudioFocus1Response) String() string {
 func (*RequestAudioFocus1Response) ProtoMessage() {}
 
 func (x *RequestAudioFocus1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[109]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[141]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4677,7 +5965,7 @@ func (x *RequestAudioFocus1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestAudioFocus1Response.ProtoReflect.Descriptor instead.
 func (*RequestAudioFocus1Response) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{109}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{141}
 }
 
 func (x *RequestAudioFocus1Response) GetResult() int32 {
@@ -4698,7 +5986,7 @@ type RequestAudioFocus3_1Request struct {
 
 func (x *RequestAudioFocus3_1Request) Reset() {
 	*x = RequestAudioFocus3_1Request{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[110]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[142]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4710,7 +5998,7 @@ func (x *RequestAudioFocus3_1Request) String() string {
 func (*RequestAudioFocus3_1Request) ProtoMessage() {}
 
 func (x *RequestAudioFocus3_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[110]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[142]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4723,7 +6011,7 @@ func (x *RequestAudioFocus3_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestAudioFocus3_1Request.ProtoReflect.Descriptor instead.
 func (*RequestAudioFocus3_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{110}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{142}
 }
 
 func (x *RequestAudioFocus3_1Request) GetArg0() int64 {
@@ -4756,7 +6044,7 @@ type RequestAudioFocus3_1Response struct {
 
 func (x *RequestAudioFocus3_1Response) Reset() {
 	*x = RequestAudioFocus3_1Response{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[111]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[143]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4768,7 +6056,7 @@ func (x *RequestAudioFocus3_1Response) String() string {
 func (*RequestAudioFocus3_1Response) ProtoMessage() {}
 
 func (x *RequestAudioFocus3_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[111]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[143]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4781,7 +6069,7 @@ func (x *RequestAudioFocus3_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestAudioFocus3_1Response.ProtoReflect.Descriptor instead.
 func (*RequestAudioFocus3_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{111}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{143}
 }
 
 func (x *RequestAudioFocus3_1Response) GetResult() int32 {
@@ -4800,7 +6088,7 @@ type SetAllowedCapturePolicyRequest struct {
 
 func (x *SetAllowedCapturePolicyRequest) Reset() {
 	*x = SetAllowedCapturePolicyRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[112]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[144]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4812,7 +6100,7 @@ func (x *SetAllowedCapturePolicyRequest) String() string {
 func (*SetAllowedCapturePolicyRequest) ProtoMessage() {}
 
 func (x *SetAllowedCapturePolicyRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[112]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[144]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4825,7 +6113,7 @@ func (x *SetAllowedCapturePolicyRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetAllowedCapturePolicyRequest.ProtoReflect.Descriptor instead.
 func (*SetAllowedCapturePolicyRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{112}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{144}
 }
 
 func (x *SetAllowedCapturePolicyRequest) GetArg0() int32 {
@@ -4843,7 +6131,7 @@ type SetAllowedCapturePolicyResponse struct {
 
 func (x *SetAllowedCapturePolicyResponse) Reset() {
 	*x = SetAllowedCapturePolicyResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[113]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[145]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4855,7 +6143,7 @@ func (x *SetAllowedCapturePolicyResponse) String() string {
 func (*SetAllowedCapturePolicyResponse) ProtoMessage() {}
 
 func (x *SetAllowedCapturePolicyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[113]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[145]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4868,7 +6156,7 @@ func (x *SetAllowedCapturePolicyResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetAllowedCapturePolicyResponse.ProtoReflect.Descriptor instead.
 func (*SetAllowedCapturePolicyResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{113}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{145}
 }
 
 type SetBluetoothA2DpOnRequest struct {
@@ -4880,7 +6168,7 @@ type SetBluetoothA2DpOnRequest struct {
 
 func (x *SetBluetoothA2DpOnRequest) Reset() {
 	*x = SetBluetoothA2DpOnRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[114]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[146]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4892,7 +6180,7 @@ func (x *SetBluetoothA2DpOnRequest) String() string {
 func (*SetBluetoothA2DpOnRequest) ProtoMessage() {}
 
 func (x *SetBluetoothA2DpOnRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[114]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[146]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4905,7 +6193,7 @@ func (x *SetBluetoothA2DpOnRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetBluetoothA2DpOnRequest.ProtoReflect.Descriptor instead.
 func (*SetBluetoothA2DpOnRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{114}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{146}
 }
 
 func (x *SetBluetoothA2DpOnRequest) GetArg0() bool {
@@ -4923,7 +6211,7 @@ type SetBluetoothA2DpOnResponse struct {
 
 func (x *SetBluetoothA2DpOnResponse) Reset() {
 	*x = SetBluetoothA2DpOnResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[115]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[147]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4935,7 +6223,7 @@ func (x *SetBluetoothA2DpOnResponse) String() string {
 func (*SetBluetoothA2DpOnResponse) ProtoMessage() {}
 
 func (x *SetBluetoothA2DpOnResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[115]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[147]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4948,7 +6236,7 @@ func (x *SetBluetoothA2DpOnResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetBluetoothA2DpOnResponse.ProtoReflect.Descriptor instead.
 func (*SetBluetoothA2DpOnResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{115}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{147}
 }
 
 type SetBluetoothScoOnRequest struct {
@@ -4960,7 +6248,7 @@ type SetBluetoothScoOnRequest struct {
 
 func (x *SetBluetoothScoOnRequest) Reset() {
 	*x = SetBluetoothScoOnRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[116]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[148]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4972,7 +6260,7 @@ func (x *SetBluetoothScoOnRequest) String() string {
 func (*SetBluetoothScoOnRequest) ProtoMessage() {}
 
 func (x *SetBluetoothScoOnRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[116]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[148]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4985,7 +6273,7 @@ func (x *SetBluetoothScoOnRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetBluetoothScoOnRequest.ProtoReflect.Descriptor instead.
 func (*SetBluetoothScoOnRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{116}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{148}
 }
 
 func (x *SetBluetoothScoOnRequest) GetArg0() bool {
@@ -5003,7 +6291,7 @@ type SetBluetoothScoOnResponse struct {
 
 func (x *SetBluetoothScoOnResponse) Reset() {
 	*x = SetBluetoothScoOnResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[117]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[149]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5015,7 +6303,7 @@ func (x *SetBluetoothScoOnResponse) String() string {
 func (*SetBluetoothScoOnResponse) ProtoMessage() {}
 
 func (x *SetBluetoothScoOnResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[117]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[149]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5028,7 +6316,7 @@ func (x *SetBluetoothScoOnResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetBluetoothScoOnResponse.ProtoReflect.Descriptor instead.
 func (*SetBluetoothScoOnResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{117}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{149}
 }
 
 type SetCommunicationDeviceRequest struct {
@@ -5040,7 +6328,7 @@ type SetCommunicationDeviceRequest struct {
 
 func (x *SetCommunicationDeviceRequest) Reset() {
 	*x = SetCommunicationDeviceRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[118]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[150]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5052,7 +6340,7 @@ func (x *SetCommunicationDeviceRequest) String() string {
 func (*SetCommunicationDeviceRequest) ProtoMessage() {}
 
 func (x *SetCommunicationDeviceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[118]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[150]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5065,7 +6353,7 @@ func (x *SetCommunicationDeviceRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetCommunicationDeviceRequest.ProtoReflect.Descriptor instead.
 func (*SetCommunicationDeviceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{118}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{150}
 }
 
 func (x *SetCommunicationDeviceRequest) GetArg0() int64 {
@@ -5084,7 +6372,7 @@ type SetCommunicationDeviceResponse struct {
 
 func (x *SetCommunicationDeviceResponse) Reset() {
 	*x = SetCommunicationDeviceResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[119]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[151]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5096,7 +6384,7 @@ func (x *SetCommunicationDeviceResponse) String() string {
 func (*SetCommunicationDeviceResponse) ProtoMessage() {}
 
 func (x *SetCommunicationDeviceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[119]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[151]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5109,7 +6397,7 @@ func (x *SetCommunicationDeviceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetCommunicationDeviceResponse.ProtoReflect.Descriptor instead.
 func (*SetCommunicationDeviceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{119}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{151}
 }
 
 func (x *SetCommunicationDeviceResponse) GetResult() bool {
@@ -5128,7 +6416,7 @@ type SetEncodedSurroundModeRequest struct {
 
 func (x *SetEncodedSurroundModeRequest) Reset() {
 	*x = SetEncodedSurroundModeRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[120]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[152]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5140,7 +6428,7 @@ func (x *SetEncodedSurroundModeRequest) String() string {
 func (*SetEncodedSurroundModeRequest) ProtoMessage() {}
 
 func (x *SetEncodedSurroundModeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[120]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[152]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5153,7 +6441,7 @@ func (x *SetEncodedSurroundModeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetEncodedSurroundModeRequest.ProtoReflect.Descriptor instead.
 func (*SetEncodedSurroundModeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{120}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{152}
 }
 
 func (x *SetEncodedSurroundModeRequest) GetArg0() int32 {
@@ -5172,7 +6460,7 @@ type SetEncodedSurroundModeResponse struct {
 
 func (x *SetEncodedSurroundModeResponse) Reset() {
 	*x = SetEncodedSurroundModeResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[121]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[153]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5184,7 +6472,7 @@ func (x *SetEncodedSurroundModeResponse) String() string {
 func (*SetEncodedSurroundModeResponse) ProtoMessage() {}
 
 func (x *SetEncodedSurroundModeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[121]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[153]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5197,7 +6485,7 @@ func (x *SetEncodedSurroundModeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetEncodedSurroundModeResponse.ProtoReflect.Descriptor instead.
 func (*SetEncodedSurroundModeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{121}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{153}
 }
 
 func (x *SetEncodedSurroundModeResponse) GetResult() bool {
@@ -5216,7 +6504,7 @@ type SetMicrophoneMuteRequest struct {
 
 func (x *SetMicrophoneMuteRequest) Reset() {
 	*x = SetMicrophoneMuteRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[122]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[154]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5228,7 +6516,7 @@ func (x *SetMicrophoneMuteRequest) String() string {
 func (*SetMicrophoneMuteRequest) ProtoMessage() {}
 
 func (x *SetMicrophoneMuteRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[122]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[154]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5241,7 +6529,7 @@ func (x *SetMicrophoneMuteRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetMicrophoneMuteRequest.ProtoReflect.Descriptor instead.
 func (*SetMicrophoneMuteRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{122}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{154}
 }
 
 func (x *SetMicrophoneMuteRequest) GetArg0() bool {
@@ -5259,7 +6547,7 @@ type SetMicrophoneMuteResponse struct {
 
 func (x *SetMicrophoneMuteResponse) Reset() {
 	*x = SetMicrophoneMuteResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[123]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[155]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5271,7 +6559,7 @@ func (x *SetMicrophoneMuteResponse) String() string {
 func (*SetMicrophoneMuteResponse) ProtoMessage() {}
 
 func (x *SetMicrophoneMuteResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[123]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[155]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5284,7 +6572,7 @@ func (x *SetMicrophoneMuteResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetMicrophoneMuteResponse.ProtoReflect.Descriptor instead.
 func (*SetMicrophoneMuteResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{123}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{155}
 }
 
 type SetModeRequest struct {
@@ -5296,7 +6584,7 @@ type SetModeRequest struct {
 
 func (x *SetModeRequest) Reset() {
 	*x = SetModeRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[124]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[156]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5308,7 +6596,7 @@ func (x *SetModeRequest) String() string {
 func (*SetModeRequest) ProtoMessage() {}
 
 func (x *SetModeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[124]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[156]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5321,7 +6609,7 @@ func (x *SetModeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetModeRequest.ProtoReflect.Descriptor instead.
 func (*SetModeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{124}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{156}
 }
 
 func (x *SetModeRequest) GetArg0() int32 {
@@ -5339,7 +6627,7 @@ type SetModeResponse struct {
 
 func (x *SetModeResponse) Reset() {
 	*x = SetModeResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[125]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[157]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5351,7 +6639,7 @@ func (x *SetModeResponse) String() string {
 func (*SetModeResponse) ProtoMessage() {}
 
 func (x *SetModeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[125]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[157]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5364,7 +6652,7 @@ func (x *SetModeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetModeResponse.ProtoReflect.Descriptor instead.
 func (*SetModeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{125}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{157}
 }
 
 type SetParametersRequest struct {
@@ -5376,7 +6664,7 @@ type SetParametersRequest struct {
 
 func (x *SetParametersRequest) Reset() {
 	*x = SetParametersRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[126]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[158]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5388,7 +6676,7 @@ func (x *SetParametersRequest) String() string {
 func (*SetParametersRequest) ProtoMessage() {}
 
 func (x *SetParametersRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[126]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[158]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5401,7 +6689,7 @@ func (x *SetParametersRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetParametersRequest.ProtoReflect.Descriptor instead.
 func (*SetParametersRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{126}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{158}
 }
 
 func (x *SetParametersRequest) GetArg0() string {
@@ -5419,7 +6707,7 @@ type SetParametersResponse struct {
 
 func (x *SetParametersResponse) Reset() {
 	*x = SetParametersResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[127]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[159]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5431,7 +6719,7 @@ func (x *SetParametersResponse) String() string {
 func (*SetParametersResponse) ProtoMessage() {}
 
 func (x *SetParametersResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[127]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[159]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5444,7 +6732,7 @@ func (x *SetParametersResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetParametersResponse.ProtoReflect.Descriptor instead.
 func (*SetParametersResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{127}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{159}
 }
 
 type SetPreferredMixerAttributesRequest struct {
@@ -5458,7 +6746,7 @@ type SetPreferredMixerAttributesRequest struct {
 
 func (x *SetPreferredMixerAttributesRequest) Reset() {
 	*x = SetPreferredMixerAttributesRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[128]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[160]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5470,7 +6758,7 @@ func (x *SetPreferredMixerAttributesRequest) String() string {
 func (*SetPreferredMixerAttributesRequest) ProtoMessage() {}
 
 func (x *SetPreferredMixerAttributesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[128]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[160]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5483,7 +6771,7 @@ func (x *SetPreferredMixerAttributesRequest) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use SetPreferredMixerAttributesRequest.ProtoReflect.Descriptor instead.
 func (*SetPreferredMixerAttributesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{128}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{160}
 }
 
 func (x *SetPreferredMixerAttributesRequest) GetArg0() int64 {
@@ -5516,7 +6804,7 @@ type SetPreferredMixerAttributesResponse struct {
 
 func (x *SetPreferredMixerAttributesResponse) Reset() {
 	*x = SetPreferredMixerAttributesResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[129]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[161]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5528,7 +6816,7 @@ func (x *SetPreferredMixerAttributesResponse) String() string {
 func (*SetPreferredMixerAttributesResponse) ProtoMessage() {}
 
 func (x *SetPreferredMixerAttributesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[129]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[161]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5541,7 +6829,7 @@ func (x *SetPreferredMixerAttributesResponse) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use SetPreferredMixerAttributesResponse.ProtoReflect.Descriptor instead.
 func (*SetPreferredMixerAttributesResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{129}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{161}
 }
 
 func (x *SetPreferredMixerAttributesResponse) GetResult() bool {
@@ -5560,7 +6848,7 @@ type SetRingerModeRequest struct {
 
 func (x *SetRingerModeRequest) Reset() {
 	*x = SetRingerModeRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[130]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[162]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5572,7 +6860,7 @@ func (x *SetRingerModeRequest) String() string {
 func (*SetRingerModeRequest) ProtoMessage() {}
 
 func (x *SetRingerModeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[130]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[162]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5585,7 +6873,7 @@ func (x *SetRingerModeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetRingerModeRequest.ProtoReflect.Descriptor instead.
 func (*SetRingerModeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{130}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{162}
 }
 
 func (x *SetRingerModeRequest) GetArg0() int32 {
@@ -5603,7 +6891,7 @@ type SetRingerModeResponse struct {
 
 func (x *SetRingerModeResponse) Reset() {
 	*x = SetRingerModeResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[131]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[163]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5615,7 +6903,7 @@ func (x *SetRingerModeResponse) String() string {
 func (*SetRingerModeResponse) ProtoMessage() {}
 
 func (x *SetRingerModeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[131]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[163]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5628,7 +6916,7 @@ func (x *SetRingerModeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetRingerModeResponse.ProtoReflect.Descriptor instead.
 func (*SetRingerModeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{131}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{163}
 }
 
 type SetRoutingRequest struct {
@@ -5642,7 +6930,7 @@ type SetRoutingRequest struct {
 
 func (x *SetRoutingRequest) Reset() {
 	*x = SetRoutingRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[132]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[164]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5654,7 +6942,7 @@ func (x *SetRoutingRequest) String() string {
 func (*SetRoutingRequest) ProtoMessage() {}
 
 func (x *SetRoutingRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[132]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[164]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5667,7 +6955,7 @@ func (x *SetRoutingRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetRoutingRequest.ProtoReflect.Descriptor instead.
 func (*SetRoutingRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{132}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{164}
 }
 
 func (x *SetRoutingRequest) GetArg0() int32 {
@@ -5699,7 +6987,7 @@ type SetRoutingResponse struct {
 
 func (x *SetRoutingResponse) Reset() {
 	*x = SetRoutingResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[133]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[165]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5711,7 +6999,7 @@ func (x *SetRoutingResponse) String() string {
 func (*SetRoutingResponse) ProtoMessage() {}
 
 func (x *SetRoutingResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[133]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[165]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5724,7 +7012,7 @@ func (x *SetRoutingResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetRoutingResponse.ProtoReflect.Descriptor instead.
 func (*SetRoutingResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{133}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{165}
 }
 
 type SetSpeakerphoneOnRequest struct {
@@ -5736,7 +7024,7 @@ type SetSpeakerphoneOnRequest struct {
 
 func (x *SetSpeakerphoneOnRequest) Reset() {
 	*x = SetSpeakerphoneOnRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[134]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[166]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5748,7 +7036,7 @@ func (x *SetSpeakerphoneOnRequest) String() string {
 func (*SetSpeakerphoneOnRequest) ProtoMessage() {}
 
 func (x *SetSpeakerphoneOnRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[134]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[166]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5761,7 +7049,7 @@ func (x *SetSpeakerphoneOnRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetSpeakerphoneOnRequest.ProtoReflect.Descriptor instead.
 func (*SetSpeakerphoneOnRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{134}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{166}
 }
 
 func (x *SetSpeakerphoneOnRequest) GetArg0() bool {
@@ -5779,7 +7067,7 @@ type SetSpeakerphoneOnResponse struct {
 
 func (x *SetSpeakerphoneOnResponse) Reset() {
 	*x = SetSpeakerphoneOnResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[135]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[167]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5791,7 +7079,7 @@ func (x *SetSpeakerphoneOnResponse) String() string {
 func (*SetSpeakerphoneOnResponse) ProtoMessage() {}
 
 func (x *SetSpeakerphoneOnResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[135]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[167]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5804,7 +7092,7 @@ func (x *SetSpeakerphoneOnResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetSpeakerphoneOnResponse.ProtoReflect.Descriptor instead.
 func (*SetSpeakerphoneOnResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{135}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{167}
 }
 
 type SetStreamMuteRequest struct {
@@ -5817,7 +7105,7 @@ type SetStreamMuteRequest struct {
 
 func (x *SetStreamMuteRequest) Reset() {
 	*x = SetStreamMuteRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[136]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[168]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5829,7 +7117,7 @@ func (x *SetStreamMuteRequest) String() string {
 func (*SetStreamMuteRequest) ProtoMessage() {}
 
 func (x *SetStreamMuteRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[136]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[168]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5842,7 +7130,7 @@ func (x *SetStreamMuteRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetStreamMuteRequest.ProtoReflect.Descriptor instead.
 func (*SetStreamMuteRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{136}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{168}
 }
 
 func (x *SetStreamMuteRequest) GetArg0() int32 {
@@ -5867,7 +7155,7 @@ type SetStreamMuteResponse struct {
 
 func (x *SetStreamMuteResponse) Reset() {
 	*x = SetStreamMuteResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[137]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[169]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5879,7 +7167,7 @@ func (x *SetStreamMuteResponse) String() string {
 func (*SetStreamMuteResponse) ProtoMessage() {}
 
 func (x *SetStreamMuteResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[137]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[169]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5892,7 +7180,7 @@ func (x *SetStreamMuteResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetStreamMuteResponse.ProtoReflect.Descriptor instead.
 func (*SetStreamMuteResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{137}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{169}
 }
 
 type SetStreamSoloRequest struct {
@@ -5905,7 +7193,7 @@ type SetStreamSoloRequest struct {
 
 func (x *SetStreamSoloRequest) Reset() {
 	*x = SetStreamSoloRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[138]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[170]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5917,7 +7205,7 @@ func (x *SetStreamSoloRequest) String() string {
 func (*SetStreamSoloRequest) ProtoMessage() {}
 
 func (x *SetStreamSoloRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[138]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[170]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5930,7 +7218,7 @@ func (x *SetStreamSoloRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetStreamSoloRequest.ProtoReflect.Descriptor instead.
 func (*SetStreamSoloRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{138}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{170}
 }
 
 func (x *SetStreamSoloRequest) GetArg0() int32 {
@@ -5955,7 +7243,7 @@ type SetStreamSoloResponse struct {
 
 func (x *SetStreamSoloResponse) Reset() {
 	*x = SetStreamSoloResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[139]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[171]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5967,7 +7255,7 @@ func (x *SetStreamSoloResponse) String() string {
 func (*SetStreamSoloResponse) ProtoMessage() {}
 
 func (x *SetStreamSoloResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[139]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[171]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5980,7 +7268,7 @@ func (x *SetStreamSoloResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetStreamSoloResponse.ProtoReflect.Descriptor instead.
 func (*SetStreamSoloResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{139}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{171}
 }
 
 type SetStreamVolumeRequest struct {
@@ -5994,7 +7282,7 @@ type SetStreamVolumeRequest struct {
 
 func (x *SetStreamVolumeRequest) Reset() {
 	*x = SetStreamVolumeRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[140]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[172]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6006,7 +7294,7 @@ func (x *SetStreamVolumeRequest) String() string {
 func (*SetStreamVolumeRequest) ProtoMessage() {}
 
 func (x *SetStreamVolumeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[140]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[172]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6019,7 +7307,7 @@ func (x *SetStreamVolumeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetStreamVolumeRequest.ProtoReflect.Descriptor instead.
 func (*SetStreamVolumeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{140}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{172}
 }
 
 func (x *SetStreamVolumeRequest) GetArg0() int32 {
@@ -6051,7 +7339,7 @@ type SetStreamVolumeResponse struct {
 
 func (x *SetStreamVolumeResponse) Reset() {
 	*x = SetStreamVolumeResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[141]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[173]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6063,7 +7351,7 @@ func (x *SetStreamVolumeResponse) String() string {
 func (*SetStreamVolumeResponse) ProtoMessage() {}
 
 func (x *SetStreamVolumeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[141]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[173]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6076,7 +7364,7 @@ func (x *SetStreamVolumeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetStreamVolumeResponse.ProtoReflect.Descriptor instead.
 func (*SetStreamVolumeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{141}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{173}
 }
 
 type SetSurroundFormatEnabledRequest struct {
@@ -6089,7 +7377,7 @@ type SetSurroundFormatEnabledRequest struct {
 
 func (x *SetSurroundFormatEnabledRequest) Reset() {
 	*x = SetSurroundFormatEnabledRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[142]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[174]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6101,7 +7389,7 @@ func (x *SetSurroundFormatEnabledRequest) String() string {
 func (*SetSurroundFormatEnabledRequest) ProtoMessage() {}
 
 func (x *SetSurroundFormatEnabledRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[142]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[174]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6114,7 +7402,7 @@ func (x *SetSurroundFormatEnabledRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetSurroundFormatEnabledRequest.ProtoReflect.Descriptor instead.
 func (*SetSurroundFormatEnabledRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{142}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{174}
 }
 
 func (x *SetSurroundFormatEnabledRequest) GetArg0() int32 {
@@ -6140,7 +7428,7 @@ type SetSurroundFormatEnabledResponse struct {
 
 func (x *SetSurroundFormatEnabledResponse) Reset() {
 	*x = SetSurroundFormatEnabledResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[143]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[175]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6152,7 +7440,7 @@ func (x *SetSurroundFormatEnabledResponse) String() string {
 func (*SetSurroundFormatEnabledResponse) ProtoMessage() {}
 
 func (x *SetSurroundFormatEnabledResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[143]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[175]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6165,7 +7453,7 @@ func (x *SetSurroundFormatEnabledResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetSurroundFormatEnabledResponse.ProtoReflect.Descriptor instead.
 func (*SetSurroundFormatEnabledResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{143}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{175}
 }
 
 func (x *SetSurroundFormatEnabledResponse) GetResult() bool {
@@ -6185,7 +7473,7 @@ type SetVibrateSettingRequest struct {
 
 func (x *SetVibrateSettingRequest) Reset() {
 	*x = SetVibrateSettingRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[144]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[176]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6197,7 +7485,7 @@ func (x *SetVibrateSettingRequest) String() string {
 func (*SetVibrateSettingRequest) ProtoMessage() {}
 
 func (x *SetVibrateSettingRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[144]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[176]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6210,7 +7498,7 @@ func (x *SetVibrateSettingRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetVibrateSettingRequest.ProtoReflect.Descriptor instead.
 func (*SetVibrateSettingRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{144}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{176}
 }
 
 func (x *SetVibrateSettingRequest) GetArg0() int32 {
@@ -6235,7 +7523,7 @@ type SetVibrateSettingResponse struct {
 
 func (x *SetVibrateSettingResponse) Reset() {
 	*x = SetVibrateSettingResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[145]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[177]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6247,7 +7535,7 @@ func (x *SetVibrateSettingResponse) String() string {
 func (*SetVibrateSettingResponse) ProtoMessage() {}
 
 func (x *SetVibrateSettingResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[145]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[177]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6260,7 +7548,7 @@ func (x *SetVibrateSettingResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetVibrateSettingResponse.ProtoReflect.Descriptor instead.
 func (*SetVibrateSettingResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{145}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{177}
 }
 
 type SetWiredHeadsetOnRequest struct {
@@ -6272,7 +7560,7 @@ type SetWiredHeadsetOnRequest struct {
 
 func (x *SetWiredHeadsetOnRequest) Reset() {
 	*x = SetWiredHeadsetOnRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[146]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[178]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6284,7 +7572,7 @@ func (x *SetWiredHeadsetOnRequest) String() string {
 func (*SetWiredHeadsetOnRequest) ProtoMessage() {}
 
 func (x *SetWiredHeadsetOnRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[146]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[178]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6297,7 +7585,7 @@ func (x *SetWiredHeadsetOnRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetWiredHeadsetOnRequest.ProtoReflect.Descriptor instead.
 func (*SetWiredHeadsetOnRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{146}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{178}
 }
 
 func (x *SetWiredHeadsetOnRequest) GetArg0() bool {
@@ -6315,7 +7603,7 @@ type SetWiredHeadsetOnResponse struct {
 
 func (x *SetWiredHeadsetOnResponse) Reset() {
 	*x = SetWiredHeadsetOnResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[147]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[179]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6327,7 +7615,7 @@ func (x *SetWiredHeadsetOnResponse) String() string {
 func (*SetWiredHeadsetOnResponse) ProtoMessage() {}
 
 func (x *SetWiredHeadsetOnResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[147]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[179]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6340,7 +7628,7 @@ func (x *SetWiredHeadsetOnResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetWiredHeadsetOnResponse.ProtoReflect.Descriptor instead.
 func (*SetWiredHeadsetOnResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{147}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{179}
 }
 
 type ShouldVibrateRequest struct {
@@ -6352,7 +7640,7 @@ type ShouldVibrateRequest struct {
 
 func (x *ShouldVibrateRequest) Reset() {
 	*x = ShouldVibrateRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[148]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[180]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6364,7 +7652,7 @@ func (x *ShouldVibrateRequest) String() string {
 func (*ShouldVibrateRequest) ProtoMessage() {}
 
 func (x *ShouldVibrateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[148]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[180]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6377,7 +7665,7 @@ func (x *ShouldVibrateRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ShouldVibrateRequest.ProtoReflect.Descriptor instead.
 func (*ShouldVibrateRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{148}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{180}
 }
 
 func (x *ShouldVibrateRequest) GetArg0() int32 {
@@ -6396,7 +7684,7 @@ type ShouldVibrateResponse struct {
 
 func (x *ShouldVibrateResponse) Reset() {
 	*x = ShouldVibrateResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[149]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[181]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6408,7 +7696,7 @@ func (x *ShouldVibrateResponse) String() string {
 func (*ShouldVibrateResponse) ProtoMessage() {}
 
 func (x *ShouldVibrateResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[149]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[181]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6421,7 +7709,7 @@ func (x *ShouldVibrateResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ShouldVibrateResponse.ProtoReflect.Descriptor instead.
 func (*ShouldVibrateResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{149}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{181}
 }
 
 func (x *ShouldVibrateResponse) GetResult() bool {
@@ -6439,7 +7727,7 @@ type StartBluetoothScoRequest struct {
 
 func (x *StartBluetoothScoRequest) Reset() {
 	*x = StartBluetoothScoRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[150]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[182]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6451,7 +7739,7 @@ func (x *StartBluetoothScoRequest) String() string {
 func (*StartBluetoothScoRequest) ProtoMessage() {}
 
 func (x *StartBluetoothScoRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[150]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[182]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6464,7 +7752,7 @@ func (x *StartBluetoothScoRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StartBluetoothScoRequest.ProtoReflect.Descriptor instead.
 func (*StartBluetoothScoRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{150}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{182}
 }
 
 type StartBluetoothScoResponse struct {
@@ -6475,7 +7763,7 @@ type StartBluetoothScoResponse struct {
 
 func (x *StartBluetoothScoResponse) Reset() {
 	*x = StartBluetoothScoResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[151]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[183]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6487,7 +7775,7 @@ func (x *StartBluetoothScoResponse) String() string {
 func (*StartBluetoothScoResponse) ProtoMessage() {}
 
 func (x *StartBluetoothScoResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[151]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[183]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6500,7 +7788,7 @@ func (x *StartBluetoothScoResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StartBluetoothScoResponse.ProtoReflect.Descriptor instead.
 func (*StartBluetoothScoResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{151}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{183}
 }
 
 type StopBluetoothScoRequest struct {
@@ -6511,7 +7799,7 @@ type StopBluetoothScoRequest struct {
 
 func (x *StopBluetoothScoRequest) Reset() {
 	*x = StopBluetoothScoRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[152]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[184]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6523,7 +7811,7 @@ func (x *StopBluetoothScoRequest) String() string {
 func (*StopBluetoothScoRequest) ProtoMessage() {}
 
 func (x *StopBluetoothScoRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[152]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[184]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6536,7 +7824,7 @@ func (x *StopBluetoothScoRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StopBluetoothScoRequest.ProtoReflect.Descriptor instead.
 func (*StopBluetoothScoRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{152}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{184}
 }
 
 type StopBluetoothScoResponse struct {
@@ -6547,7 +7835,7 @@ type StopBluetoothScoResponse struct {
 
 func (x *StopBluetoothScoResponse) Reset() {
 	*x = StopBluetoothScoResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[153]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[185]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6559,7 +7847,7 @@ func (x *StopBluetoothScoResponse) String() string {
 func (*StopBluetoothScoResponse) ProtoMessage() {}
 
 func (x *StopBluetoothScoResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[153]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[185]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6572,7 +7860,7 @@ func (x *StopBluetoothScoResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StopBluetoothScoResponse.ProtoReflect.Descriptor instead.
 func (*StopBluetoothScoResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{153}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{185}
 }
 
 type UnloadSoundEffectsRequest struct {
@@ -6583,7 +7871,7 @@ type UnloadSoundEffectsRequest struct {
 
 func (x *UnloadSoundEffectsRequest) Reset() {
 	*x = UnloadSoundEffectsRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[154]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[186]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6595,7 +7883,7 @@ func (x *UnloadSoundEffectsRequest) String() string {
 func (*UnloadSoundEffectsRequest) ProtoMessage() {}
 
 func (x *UnloadSoundEffectsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[154]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[186]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6608,7 +7896,7 @@ func (x *UnloadSoundEffectsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UnloadSoundEffectsRequest.ProtoReflect.Descriptor instead.
 func (*UnloadSoundEffectsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{154}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{186}
 }
 
 type UnloadSoundEffectsResponse struct {
@@ -6619,7 +7907,7 @@ type UnloadSoundEffectsResponse struct {
 
 func (x *UnloadSoundEffectsResponse) Reset() {
 	*x = UnloadSoundEffectsResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[155]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[187]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6631,7 +7919,7 @@ func (x *UnloadSoundEffectsResponse) String() string {
 func (*UnloadSoundEffectsResponse) ProtoMessage() {}
 
 func (x *UnloadSoundEffectsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[155]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[187]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6644,7 +7932,7 @@ func (x *UnloadSoundEffectsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UnloadSoundEffectsResponse.ProtoReflect.Descriptor instead.
 func (*UnloadSoundEffectsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{155}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{187}
 }
 
 type UnregisterAudioDeviceCallbackRequest struct {
@@ -6656,7 +7944,7 @@ type UnregisterAudioDeviceCallbackRequest struct {
 
 func (x *UnregisterAudioDeviceCallbackRequest) Reset() {
 	*x = UnregisterAudioDeviceCallbackRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[156]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[188]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6668,7 +7956,7 @@ func (x *UnregisterAudioDeviceCallbackRequest) String() string {
 func (*UnregisterAudioDeviceCallbackRequest) ProtoMessage() {}
 
 func (x *UnregisterAudioDeviceCallbackRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[156]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[188]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6681,7 +7969,7 @@ func (x *UnregisterAudioDeviceCallbackRequest) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use UnregisterAudioDeviceCallbackRequest.ProtoReflect.Descriptor instead.
 func (*UnregisterAudioDeviceCallbackRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{156}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{188}
 }
 
 func (x *UnregisterAudioDeviceCallbackRequest) GetArg0() int64 {
@@ -6699,7 +7987,7 @@ type UnregisterAudioDeviceCallbackResponse struct {
 
 func (x *UnregisterAudioDeviceCallbackResponse) Reset() {
 	*x = UnregisterAudioDeviceCallbackResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[157]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[189]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6711,7 +7999,7 @@ func (x *UnregisterAudioDeviceCallbackResponse) String() string {
 func (*UnregisterAudioDeviceCallbackResponse) ProtoMessage() {}
 
 func (x *UnregisterAudioDeviceCallbackResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[157]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[189]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6724,7 +8012,7 @@ func (x *UnregisterAudioDeviceCallbackResponse) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use UnregisterAudioDeviceCallbackResponse.ProtoReflect.Descriptor instead.
 func (*UnregisterAudioDeviceCallbackResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{157}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{189}
 }
 
 type UnregisterAudioPlaybackCallbackRequest struct {
@@ -6736,7 +8024,7 @@ type UnregisterAudioPlaybackCallbackRequest struct {
 
 func (x *UnregisterAudioPlaybackCallbackRequest) Reset() {
 	*x = UnregisterAudioPlaybackCallbackRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[158]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[190]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6748,7 +8036,7 @@ func (x *UnregisterAudioPlaybackCallbackRequest) String() string {
 func (*UnregisterAudioPlaybackCallbackRequest) ProtoMessage() {}
 
 func (x *UnregisterAudioPlaybackCallbackRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[158]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[190]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6761,7 +8049,7 @@ func (x *UnregisterAudioPlaybackCallbackRequest) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use UnregisterAudioPlaybackCallbackRequest.ProtoReflect.Descriptor instead.
 func (*UnregisterAudioPlaybackCallbackRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{158}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{190}
 }
 
 func (x *UnregisterAudioPlaybackCallbackRequest) GetArg0() int64 {
@@ -6779,7 +8067,7 @@ type UnregisterAudioPlaybackCallbackResponse struct {
 
 func (x *UnregisterAudioPlaybackCallbackResponse) Reset() {
 	*x = UnregisterAudioPlaybackCallbackResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[159]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[191]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6791,7 +8079,7 @@ func (x *UnregisterAudioPlaybackCallbackResponse) String() string {
 func (*UnregisterAudioPlaybackCallbackResponse) ProtoMessage() {}
 
 func (x *UnregisterAudioPlaybackCallbackResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[159]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[191]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6804,7 +8092,7 @@ func (x *UnregisterAudioPlaybackCallbackResponse) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use UnregisterAudioPlaybackCallbackResponse.ProtoReflect.Descriptor instead.
 func (*UnregisterAudioPlaybackCallbackResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{159}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{191}
 }
 
 type UnregisterAudioRecordingCallbackRequest struct {
@@ -6816,7 +8104,7 @@ type UnregisterAudioRecordingCallbackRequest struct {
 
 func (x *UnregisterAudioRecordingCallbackRequest) Reset() {
 	*x = UnregisterAudioRecordingCallbackRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[160]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[192]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6828,7 +8116,7 @@ func (x *UnregisterAudioRecordingCallbackRequest) String() string {
 func (*UnregisterAudioRecordingCallbackRequest) ProtoMessage() {}
 
 func (x *UnregisterAudioRecordingCallbackRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[160]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[192]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6841,7 +8129,7 @@ func (x *UnregisterAudioRecordingCallbackRequest) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use UnregisterAudioRecordingCallbackRequest.ProtoReflect.Descriptor instead.
 func (*UnregisterAudioRecordingCallbackRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{160}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{192}
 }
 
 func (x *UnregisterAudioRecordingCallbackRequest) GetArg0() int64 {
@@ -6859,7 +8147,7 @@ type UnregisterAudioRecordingCallbackResponse struct {
 
 func (x *UnregisterAudioRecordingCallbackResponse) Reset() {
 	*x = UnregisterAudioRecordingCallbackResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[161]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[193]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6871,7 +8159,7 @@ func (x *UnregisterAudioRecordingCallbackResponse) String() string {
 func (*UnregisterAudioRecordingCallbackResponse) ProtoMessage() {}
 
 func (x *UnregisterAudioRecordingCallbackResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[161]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[193]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6884,7 +8172,7 @@ func (x *UnregisterAudioRecordingCallbackResponse) ProtoReflect() protoreflect.M
 
 // Deprecated: Use UnregisterAudioRecordingCallbackResponse.ProtoReflect.Descriptor instead.
 func (*UnregisterAudioRecordingCallbackResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{161}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{193}
 }
 
 type UnregisterMediaButtonEventReceiver1Request struct {
@@ -6896,7 +8184,7 @@ type UnregisterMediaButtonEventReceiver1Request struct {
 
 func (x *UnregisterMediaButtonEventReceiver1Request) Reset() {
 	*x = UnregisterMediaButtonEventReceiver1Request{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[162]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[194]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6908,7 +8196,7 @@ func (x *UnregisterMediaButtonEventReceiver1Request) String() string {
 func (*UnregisterMediaButtonEventReceiver1Request) ProtoMessage() {}
 
 func (x *UnregisterMediaButtonEventReceiver1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[162]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[194]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6921,7 +8209,7 @@ func (x *UnregisterMediaButtonEventReceiver1Request) ProtoReflect() protoreflect
 
 // Deprecated: Use UnregisterMediaButtonEventReceiver1Request.ProtoReflect.Descriptor instead.
 func (*UnregisterMediaButtonEventReceiver1Request) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{162}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{194}
 }
 
 func (x *UnregisterMediaButtonEventReceiver1Request) GetArg0() int64 {
@@ -6939,7 +8227,7 @@ type UnregisterMediaButtonEventReceiver1Response struct {
 
 func (x *UnregisterMediaButtonEventReceiver1Response) Reset() {
 	*x = UnregisterMediaButtonEventReceiver1Response{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[163]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[195]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6951,7 +8239,7 @@ func (x *UnregisterMediaButtonEventReceiver1Response) String() string {
 func (*UnregisterMediaButtonEventReceiver1Response) ProtoMessage() {}
 
 func (x *UnregisterMediaButtonEventReceiver1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[163]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[195]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6964,7 +8252,7 @@ func (x *UnregisterMediaButtonEventReceiver1Response) ProtoReflect() protoreflec
 
 // Deprecated: Use UnregisterMediaButtonEventReceiver1Response.ProtoReflect.Descriptor instead.
 func (*UnregisterMediaButtonEventReceiver1Response) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{163}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{195}
 }
 
 type UnregisterMediaButtonEventReceiver1_1Request struct {
@@ -6976,7 +8264,7 @@ type UnregisterMediaButtonEventReceiver1_1Request struct {
 
 func (x *UnregisterMediaButtonEventReceiver1_1Request) Reset() {
 	*x = UnregisterMediaButtonEventReceiver1_1Request{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[164]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[196]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6988,7 +8276,7 @@ func (x *UnregisterMediaButtonEventReceiver1_1Request) String() string {
 func (*UnregisterMediaButtonEventReceiver1_1Request) ProtoMessage() {}
 
 func (x *UnregisterMediaButtonEventReceiver1_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[164]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[196]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7001,7 +8289,7 @@ func (x *UnregisterMediaButtonEventReceiver1_1Request) ProtoReflect() protorefle
 
 // Deprecated: Use UnregisterMediaButtonEventReceiver1_1Request.ProtoReflect.Descriptor instead.
 func (*UnregisterMediaButtonEventReceiver1_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{164}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{196}
 }
 
 func (x *UnregisterMediaButtonEventReceiver1_1Request) GetArg0() int64 {
@@ -7019,7 +8307,7 @@ type UnregisterMediaButtonEventReceiver1_1Response struct {
 
 func (x *UnregisterMediaButtonEventReceiver1_1Response) Reset() {
 	*x = UnregisterMediaButtonEventReceiver1_1Response{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[165]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[197]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7031,7 +8319,7 @@ func (x *UnregisterMediaButtonEventReceiver1_1Response) String() string {
 func (*UnregisterMediaButtonEventReceiver1_1Response) ProtoMessage() {}
 
 func (x *UnregisterMediaButtonEventReceiver1_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[165]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[197]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7044,7 +8332,7 @@ func (x *UnregisterMediaButtonEventReceiver1_1Response) ProtoReflect() protorefl
 
 // Deprecated: Use UnregisterMediaButtonEventReceiver1_1Response.ProtoReflect.Descriptor instead.
 func (*UnregisterMediaButtonEventReceiver1_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{165}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{197}
 }
 
 type UnregisterRemoteControlClientRequest struct {
@@ -7056,7 +8344,7 @@ type UnregisterRemoteControlClientRequest struct {
 
 func (x *UnregisterRemoteControlClientRequest) Reset() {
 	*x = UnregisterRemoteControlClientRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[166]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[198]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7068,7 +8356,7 @@ func (x *UnregisterRemoteControlClientRequest) String() string {
 func (*UnregisterRemoteControlClientRequest) ProtoMessage() {}
 
 func (x *UnregisterRemoteControlClientRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[166]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[198]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7081,7 +8369,7 @@ func (x *UnregisterRemoteControlClientRequest) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use UnregisterRemoteControlClientRequest.ProtoReflect.Descriptor instead.
 func (*UnregisterRemoteControlClientRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{166}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{198}
 }
 
 func (x *UnregisterRemoteControlClientRequest) GetArg0() int64 {
@@ -7099,7 +8387,7 @@ type UnregisterRemoteControlClientResponse struct {
 
 func (x *UnregisterRemoteControlClientResponse) Reset() {
 	*x = UnregisterRemoteControlClientResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[167]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[199]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7111,7 +8399,7 @@ func (x *UnregisterRemoteControlClientResponse) String() string {
 func (*UnregisterRemoteControlClientResponse) ProtoMessage() {}
 
 func (x *UnregisterRemoteControlClientResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[167]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[199]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7124,7 +8412,7 @@ func (x *UnregisterRemoteControlClientResponse) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use UnregisterRemoteControlClientResponse.ProtoReflect.Descriptor instead.
 func (*UnregisterRemoteControlClientResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{167}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{199}
 }
 
 type UnregisterRemoteControllerRequest struct {
@@ -7136,7 +8424,7 @@ type UnregisterRemoteControllerRequest struct {
 
 func (x *UnregisterRemoteControllerRequest) Reset() {
 	*x = UnregisterRemoteControllerRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[168]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[200]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7148,7 +8436,7 @@ func (x *UnregisterRemoteControllerRequest) String() string {
 func (*UnregisterRemoteControllerRequest) ProtoMessage() {}
 
 func (x *UnregisterRemoteControllerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[168]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[200]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7161,7 +8449,7 @@ func (x *UnregisterRemoteControllerRequest) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use UnregisterRemoteControllerRequest.ProtoReflect.Descriptor instead.
 func (*UnregisterRemoteControllerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{168}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{200}
 }
 
 func (x *UnregisterRemoteControllerRequest) GetArg0() int64 {
@@ -7179,7 +8467,7 @@ type UnregisterRemoteControllerResponse struct {
 
 func (x *UnregisterRemoteControllerResponse) Reset() {
 	*x = UnregisterRemoteControllerResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[169]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[201]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7191,7 +8479,7 @@ func (x *UnregisterRemoteControllerResponse) String() string {
 func (*UnregisterRemoteControllerResponse) ProtoMessage() {}
 
 func (x *UnregisterRemoteControllerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[169]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[201]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7204,7 +8492,7 @@ func (x *UnregisterRemoteControllerResponse) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use UnregisterRemoteControllerResponse.ProtoReflect.Descriptor instead.
 func (*UnregisterRemoteControllerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{169}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{201}
 }
 
 type GetDirectPlaybackSupportRequest struct {
@@ -7217,7 +8505,7 @@ type GetDirectPlaybackSupportRequest struct {
 
 func (x *GetDirectPlaybackSupportRequest) Reset() {
 	*x = GetDirectPlaybackSupportRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[170]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[202]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7229,7 +8517,7 @@ func (x *GetDirectPlaybackSupportRequest) String() string {
 func (*GetDirectPlaybackSupportRequest) ProtoMessage() {}
 
 func (x *GetDirectPlaybackSupportRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[170]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[202]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7242,7 +8530,7 @@ func (x *GetDirectPlaybackSupportRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDirectPlaybackSupportRequest.ProtoReflect.Descriptor instead.
 func (*GetDirectPlaybackSupportRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{170}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{202}
 }
 
 func (x *GetDirectPlaybackSupportRequest) GetArg0() int64 {
@@ -7268,7 +8556,7 @@ type GetDirectPlaybackSupportResponse struct {
 
 func (x *GetDirectPlaybackSupportResponse) Reset() {
 	*x = GetDirectPlaybackSupportResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[171]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[203]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7280,7 +8568,7 @@ func (x *GetDirectPlaybackSupportResponse) String() string {
 func (*GetDirectPlaybackSupportResponse) ProtoMessage() {}
 
 func (x *GetDirectPlaybackSupportResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[171]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[203]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7293,7 +8581,7 @@ func (x *GetDirectPlaybackSupportResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDirectPlaybackSupportResponse.ProtoReflect.Descriptor instead.
 func (*GetDirectPlaybackSupportResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{171}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{203}
 }
 
 func (x *GetDirectPlaybackSupportResponse) GetResult() int32 {
@@ -7313,7 +8601,7 @@ type GetPlaybackOffloadSupportRequest struct {
 
 func (x *GetPlaybackOffloadSupportRequest) Reset() {
 	*x = GetPlaybackOffloadSupportRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[172]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[204]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7325,7 +8613,7 @@ func (x *GetPlaybackOffloadSupportRequest) String() string {
 func (*GetPlaybackOffloadSupportRequest) ProtoMessage() {}
 
 func (x *GetPlaybackOffloadSupportRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[172]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[204]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7338,7 +8626,7 @@ func (x *GetPlaybackOffloadSupportRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPlaybackOffloadSupportRequest.ProtoReflect.Descriptor instead.
 func (*GetPlaybackOffloadSupportRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{172}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{204}
 }
 
 func (x *GetPlaybackOffloadSupportRequest) GetArg0() int64 {
@@ -7364,7 +8652,7 @@ type GetPlaybackOffloadSupportResponse struct {
 
 func (x *GetPlaybackOffloadSupportResponse) Reset() {
 	*x = GetPlaybackOffloadSupportResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[173]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[205]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7376,7 +8664,7 @@ func (x *GetPlaybackOffloadSupportResponse) String() string {
 func (*GetPlaybackOffloadSupportResponse) ProtoMessage() {}
 
 func (x *GetPlaybackOffloadSupportResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[173]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[205]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7389,7 +8677,7 @@ func (x *GetPlaybackOffloadSupportResponse) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use GetPlaybackOffloadSupportResponse.ProtoReflect.Descriptor instead.
 func (*GetPlaybackOffloadSupportResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{173}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{205}
 }
 
 func (x *GetPlaybackOffloadSupportResponse) GetResult() int32 {
@@ -7407,7 +8695,7 @@ type IsHapticPlaybackSupportedRequest struct {
 
 func (x *IsHapticPlaybackSupportedRequest) Reset() {
 	*x = IsHapticPlaybackSupportedRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[174]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[206]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7419,7 +8707,7 @@ func (x *IsHapticPlaybackSupportedRequest) String() string {
 func (*IsHapticPlaybackSupportedRequest) ProtoMessage() {}
 
 func (x *IsHapticPlaybackSupportedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[174]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[206]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7432,7 +8720,7 @@ func (x *IsHapticPlaybackSupportedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsHapticPlaybackSupportedRequest.ProtoReflect.Descriptor instead.
 func (*IsHapticPlaybackSupportedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{174}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{206}
 }
 
 type IsHapticPlaybackSupportedResponse struct {
@@ -7444,7 +8732,7 @@ type IsHapticPlaybackSupportedResponse struct {
 
 func (x *IsHapticPlaybackSupportedResponse) Reset() {
 	*x = IsHapticPlaybackSupportedResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[175]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[207]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7456,7 +8744,7 @@ func (x *IsHapticPlaybackSupportedResponse) String() string {
 func (*IsHapticPlaybackSupportedResponse) ProtoMessage() {}
 
 func (x *IsHapticPlaybackSupportedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[175]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[207]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7469,7 +8757,7 @@ func (x *IsHapticPlaybackSupportedResponse) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use IsHapticPlaybackSupportedResponse.ProtoReflect.Descriptor instead.
 func (*IsHapticPlaybackSupportedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{175}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{207}
 }
 
 func (x *IsHapticPlaybackSupportedResponse) GetResult() bool {
@@ -7489,7 +8777,7 @@ type IsOffloadedPlaybackSupportedRequest struct {
 
 func (x *IsOffloadedPlaybackSupportedRequest) Reset() {
 	*x = IsOffloadedPlaybackSupportedRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[176]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[208]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7501,7 +8789,7 @@ func (x *IsOffloadedPlaybackSupportedRequest) String() string {
 func (*IsOffloadedPlaybackSupportedRequest) ProtoMessage() {}
 
 func (x *IsOffloadedPlaybackSupportedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[176]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[208]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7514,7 +8802,7 @@ func (x *IsOffloadedPlaybackSupportedRequest) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use IsOffloadedPlaybackSupportedRequest.ProtoReflect.Descriptor instead.
 func (*IsOffloadedPlaybackSupportedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{176}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{208}
 }
 
 func (x *IsOffloadedPlaybackSupportedRequest) GetArg0() int64 {
@@ -7540,7 +8828,7 @@ type IsOffloadedPlaybackSupportedResponse struct {
 
 func (x *IsOffloadedPlaybackSupportedResponse) Reset() {
 	*x = IsOffloadedPlaybackSupportedResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[177]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[209]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7552,7 +8840,7 @@ func (x *IsOffloadedPlaybackSupportedResponse) String() string {
 func (*IsOffloadedPlaybackSupportedResponse) ProtoMessage() {}
 
 func (x *IsOffloadedPlaybackSupportedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[177]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[209]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7565,7 +8853,7 @@ func (x *IsOffloadedPlaybackSupportedResponse) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use IsOffloadedPlaybackSupportedResponse.ProtoReflect.Descriptor instead.
 func (*IsOffloadedPlaybackSupportedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{177}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{209}
 }
 
 func (x *IsOffloadedPlaybackSupportedResponse) GetResult() bool {
@@ -7573,6 +8861,342 @@ func (x *IsOffloadedPlaybackSupportedResponse) GetResult() bool {
 		return x.Result
 	}
 	return false
+}
+
+type OnAudioFocusChangeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnAudioFocusChangeRequest) Reset() {
+	*x = OnAudioFocusChangeRequest{}
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[210]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnAudioFocusChangeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnAudioFocusChangeRequest) ProtoMessage() {}
+
+func (x *OnAudioFocusChangeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[210]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnAudioFocusChangeRequest.ProtoReflect.Descriptor instead.
+func (*OnAudioFocusChangeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{210}
+}
+
+func (x *OnAudioFocusChangeRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnAudioFocusChangeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnAudioFocusChangeResponse) Reset() {
+	*x = OnAudioFocusChangeResponse{}
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[211]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnAudioFocusChangeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnAudioFocusChangeResponse) ProtoMessage() {}
+
+func (x *OnAudioFocusChangeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[211]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnAudioFocusChangeResponse.ProtoReflect.Descriptor instead.
+func (*OnAudioFocusChangeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{211}
+}
+
+type OnCommunicationDeviceChangedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnCommunicationDeviceChangedRequest) Reset() {
+	*x = OnCommunicationDeviceChangedRequest{}
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[212]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnCommunicationDeviceChangedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnCommunicationDeviceChangedRequest) ProtoMessage() {}
+
+func (x *OnCommunicationDeviceChangedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[212]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnCommunicationDeviceChangedRequest.ProtoReflect.Descriptor instead.
+func (*OnCommunicationDeviceChangedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{212}
+}
+
+func (x *OnCommunicationDeviceChangedRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnCommunicationDeviceChangedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnCommunicationDeviceChangedResponse) Reset() {
+	*x = OnCommunicationDeviceChangedResponse{}
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[213]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnCommunicationDeviceChangedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnCommunicationDeviceChangedResponse) ProtoMessage() {}
+
+func (x *OnCommunicationDeviceChangedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[213]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnCommunicationDeviceChangedResponse.ProtoReflect.Descriptor instead.
+func (*OnCommunicationDeviceChangedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{213}
+}
+
+type OnModeChangedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnModeChangedRequest) Reset() {
+	*x = OnModeChangedRequest{}
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[214]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnModeChangedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnModeChangedRequest) ProtoMessage() {}
+
+func (x *OnModeChangedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[214]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnModeChangedRequest.ProtoReflect.Descriptor instead.
+func (*OnModeChangedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{214}
+}
+
+func (x *OnModeChangedRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnModeChangedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnModeChangedResponse) Reset() {
+	*x = OnModeChangedResponse{}
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[215]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnModeChangedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnModeChangedResponse) ProtoMessage() {}
+
+func (x *OnModeChangedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[215]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnModeChangedResponse.ProtoReflect.Descriptor instead.
+func (*OnModeChangedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{215}
+}
+
+type OnPreferredMixerAttributesChangedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnPreferredMixerAttributesChangedRequest) Reset() {
+	*x = OnPreferredMixerAttributesChangedRequest{}
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[216]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnPreferredMixerAttributesChangedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnPreferredMixerAttributesChangedRequest) ProtoMessage() {}
+
+func (x *OnPreferredMixerAttributesChangedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[216]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnPreferredMixerAttributesChangedRequest.ProtoReflect.Descriptor instead.
+func (*OnPreferredMixerAttributesChangedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{216}
+}
+
+func (x *OnPreferredMixerAttributesChangedRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnPreferredMixerAttributesChangedRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *OnPreferredMixerAttributesChangedRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type OnPreferredMixerAttributesChangedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnPreferredMixerAttributesChangedResponse) Reset() {
+	*x = OnPreferredMixerAttributesChangedResponse{}
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[217]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnPreferredMixerAttributesChangedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnPreferredMixerAttributesChangedResponse) ProtoMessage() {}
+
+func (x *OnPreferredMixerAttributesChangedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[217]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnPreferredMixerAttributesChangedResponse.ProtoReflect.Descriptor instead.
+func (*OnPreferredMixerAttributesChangedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{217}
 }
 
 type AbandonAudioFocusRequestOpRequest struct {
@@ -7584,7 +9208,7 @@ type AbandonAudioFocusRequestOpRequest struct {
 
 func (x *AbandonAudioFocusRequestOpRequest) Reset() {
 	*x = AbandonAudioFocusRequestOpRequest{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[178]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[218]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7596,7 +9220,7 @@ func (x *AbandonAudioFocusRequestOpRequest) String() string {
 func (*AbandonAudioFocusRequestOpRequest) ProtoMessage() {}
 
 func (x *AbandonAudioFocusRequestOpRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[178]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[218]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7609,7 +9233,7 @@ func (x *AbandonAudioFocusRequestOpRequest) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use AbandonAudioFocusRequestOpRequest.ProtoReflect.Descriptor instead.
 func (*AbandonAudioFocusRequestOpRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{178}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{218}
 }
 
 func (x *AbandonAudioFocusRequestOpRequest) GetArg0() int64 {
@@ -7628,7 +9252,7 @@ type AbandonAudioFocusRequestOpResponse struct {
 
 func (x *AbandonAudioFocusRequestOpResponse) Reset() {
 	*x = AbandonAudioFocusRequestOpResponse{}
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[179]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[219]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7640,7 +9264,7 @@ func (x *AbandonAudioFocusRequestOpResponse) String() string {
 func (*AbandonAudioFocusRequestOpResponse) ProtoMessage() {}
 
 func (x *AbandonAudioFocusRequestOpResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[179]
+	mi := &file_proto_audiomanager_audiomanager_proto_msgTypes[219]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7653,7 +9277,7 @@ func (x *AbandonAudioFocusRequestOpResponse) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use AbandonAudioFocusRequestOpResponse.ProtoReflect.Descriptor instead.
 func (*AbandonAudioFocusRequestOpResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{179}
+	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{219}
 }
 
 func (x *AbandonAudioFocusRequestOpResponse) GetResult() int32 {
@@ -7667,7 +9291,56 @@ var File_proto_audiomanager_audiomanager_proto protoreflect.FileDescriptor
 
 const file_proto_audiomanager_audiomanager_proto_rawDesc = "" +
 	"\n" +
-	"%proto/audiomanager/audiomanager.proto\x12\faudiomanager\".\n" +
+	"%proto/audiomanager/audiomanager.proto\x12\faudiomanager\"#\n" +
+	"\rEqualsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"(\n" +
+	"\x0eEqualsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x13\n" +
+	"\x11GetAddressRequest\",\n" +
+	"\x12GetAddressResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x19\n" +
+	"\x17GetChannelCountsRequest\"2\n" +
+	"\x18GetChannelCountsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1d\n" +
+	"\x1bGetChannelIndexMasksRequest\"6\n" +
+	"\x1cGetChannelIndexMasksResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x18\n" +
+	"\x16GetChannelMasksRequest\"1\n" +
+	"\x17GetChannelMasksResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"&\n" +
+	"$GetEncapsulationMetadataTypesRequest\"?\n" +
+	"%GetEncapsulationMetadataTypesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1e\n" +
+	"\x1cGetEncapsulationModesRequest\"7\n" +
+	"\x1dGetEncapsulationModesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x15\n" +
+	"\x13GetEncodingsRequest\".\n" +
+	"\x14GetEncodingsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x0e\n" +
+	"\fGetIdRequest\"'\n" +
+	"\rGetIdResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x17\n" +
+	"\x15GetProductNameRequest\"0\n" +
+	"\x16GetProductNameResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x17\n" +
+	"\x15GetSampleRatesRequest\"0\n" +
+	"\x16GetSampleRatesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"$\n" +
+	"\"GetSpeakerLayoutChannelMaskRequest\"=\n" +
+	"#GetSpeakerLayoutChannelMaskResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x10\n" +
+	"\x0eGetTypeRequest\")\n" +
+	"\x0fGetTypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x11\n" +
+	"\x0fHashCodeRequest\"*\n" +
+	"\x10HashCodeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x0f\n" +
+	"\rIsSinkRequest\"(\n" +
+	"\x0eIsSinkResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x11\n" +
+	"\x0fIsSourceRequest\"*\n" +
+	"\x10IsSourceResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\".\n" +
 	"\x18AbandonAudioFocusRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"3\n" +
 	"\x19AbandonAudioFocusResponse\x12\x16\n" +
@@ -7988,11 +9661,43 @@ const file_proto_audiomanager_audiomanager_proto_rawDesc = "" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\">\n" +
 	"$IsOffloadedPlaybackSupportedResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"7\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"/\n" +
+	"\x19OnAudioFocusChangeRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"\x1c\n" +
+	"\x1aOnAudioFocusChangeResponse\"9\n" +
+	"#OnCommunicationDeviceChangedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"&\n" +
+	"$OnCommunicationDeviceChangedResponse\"*\n" +
+	"\x14OnModeChangedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"\x17\n" +
+	"\x15OnModeChangedResponse\"f\n" +
+	"(OnPreferredMixerAttributesChangedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"+\n" +
+	")OnPreferredMixerAttributesChangedResponse\"7\n" +
 	"!AbandonAudioFocusRequestOpRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"<\n" +
 	"\"AbandonAudioFocusRequestOpResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result2\x89P\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result2\xd8\v\n" +
+	"\x16AudioDeviceInfoService\x12C\n" +
+	"\x06Equals\x12\x1b.audiomanager.EqualsRequest\x1a\x1c.audiomanager.EqualsResponse\x12O\n" +
+	"\n" +
+	"GetAddress\x12\x1f.audiomanager.GetAddressRequest\x1a .audiomanager.GetAddressResponse\x12a\n" +
+	"\x10GetChannelCounts\x12%.audiomanager.GetChannelCountsRequest\x1a&.audiomanager.GetChannelCountsResponse\x12m\n" +
+	"\x14GetChannelIndexMasks\x12).audiomanager.GetChannelIndexMasksRequest\x1a*.audiomanager.GetChannelIndexMasksResponse\x12^\n" +
+	"\x0fGetChannelMasks\x12$.audiomanager.GetChannelMasksRequest\x1a%.audiomanager.GetChannelMasksResponse\x12\x88\x01\n" +
+	"\x1dGetEncapsulationMetadataTypes\x122.audiomanager.GetEncapsulationMetadataTypesRequest\x1a3.audiomanager.GetEncapsulationMetadataTypesResponse\x12p\n" +
+	"\x15GetEncapsulationModes\x12*.audiomanager.GetEncapsulationModesRequest\x1a+.audiomanager.GetEncapsulationModesResponse\x12U\n" +
+	"\fGetEncodings\x12!.audiomanager.GetEncodingsRequest\x1a\".audiomanager.GetEncodingsResponse\x12@\n" +
+	"\x05GetId\x12\x1a.audiomanager.GetIdRequest\x1a\x1b.audiomanager.GetIdResponse\x12[\n" +
+	"\x0eGetProductName\x12#.audiomanager.GetProductNameRequest\x1a$.audiomanager.GetProductNameResponse\x12[\n" +
+	"\x0eGetSampleRates\x12#.audiomanager.GetSampleRatesRequest\x1a$.audiomanager.GetSampleRatesResponse\x12\x82\x01\n" +
+	"\x1bGetSpeakerLayoutChannelMask\x120.audiomanager.GetSpeakerLayoutChannelMaskRequest\x1a1.audiomanager.GetSpeakerLayoutChannelMaskResponse\x12F\n" +
+	"\aGetType\x12\x1c.audiomanager.GetTypeRequest\x1a\x1d.audiomanager.GetTypeResponse\x12I\n" +
+	"\bHashCode\x12\x1d.audiomanager.HashCodeRequest\x1a\x1e.audiomanager.HashCodeResponse\x12C\n" +
+	"\x06IsSink\x12\x1b.audiomanager.IsSinkRequest\x1a\x1c.audiomanager.IsSinkResponse\x12I\n" +
+	"\bIsSource\x12\x1d.audiomanager.IsSourceRequest\x1a\x1e.audiomanager.IsSourceResponse2\x89P\n" +
 	"\x13AudioManagerService\x12d\n" +
 	"\x11AbandonAudioFocus\x12&.audiomanager.AbandonAudioFocusRequest\x1a'.audiomanager.AbandonAudioFocusResponse\x12\x7f\n" +
 	"\x1aAbandonAudioFocusRequestOp\x12/.audiomanager.AbandonAudioFocusRequestOpRequest\x1a0.audiomanager.AbandonAudioFocusRequestOpResponse\x12\xa6\x01\n" +
@@ -8085,7 +9790,15 @@ const file_proto_audiomanager_audiomanager_proto_rawDesc = "" +
 	"\x18GetDirectPlaybackSupport\x12-.audiomanager.GetDirectPlaybackSupportRequest\x1a..audiomanager.GetDirectPlaybackSupportResponse\x12|\n" +
 	"\x19GetPlaybackOffloadSupport\x12..audiomanager.GetPlaybackOffloadSupportRequest\x1a/.audiomanager.GetPlaybackOffloadSupportResponse\x12|\n" +
 	"\x19IsHapticPlaybackSupported\x12..audiomanager.IsHapticPlaybackSupportedRequest\x1a/.audiomanager.IsHapticPlaybackSupportedResponse\x12\x85\x01\n" +
-	"\x1cIsOffloadedPlaybackSupported\x121.audiomanager.IsOffloadedPlaybackSupportedRequest\x1a2.audiomanager.IsOffloadedPlaybackSupportedResponseB6Z4github.com/AndroidGoLab/jni-proxy/proto/audiomanagerb\x06proto3"
+	"\x1cIsOffloadedPlaybackSupported\x121.audiomanager.IsOffloadedPlaybackSupportedRequest\x1a2.audiomanager.IsOffloadedPlaybackSupportedResponse2\x98\x01\n" +
+	"-AudioManagerOnAudioFocusChangeListenerService\x12g\n" +
+	"\x12OnAudioFocusChange\x12'.audiomanager.OnAudioFocusChangeRequest\x1a(.audiomanager.OnAudioFocusChangeResponse2\xc1\x01\n" +
+	"7AudioManagerOnCommunicationDeviceChangedListenerService\x12\x85\x01\n" +
+	"\x1cOnCommunicationDeviceChanged\x121.audiomanager.OnCommunicationDeviceChangedRequest\x1a2.audiomanager.OnCommunicationDeviceChangedResponse2\x84\x01\n" +
+	"(AudioManagerOnModeChangedListenerService\x12X\n" +
+	"\rOnModeChanged\x12\".audiomanager.OnModeChangedRequest\x1a#.audiomanager.OnModeChangedResponse2\xd5\x01\n" +
+	"<AudioManagerOnPreferredMixerAttributesChangedListenerService\x12\x94\x01\n" +
+	"!OnPreferredMixerAttributesChanged\x126.audiomanager.OnPreferredMixerAttributesChangedRequest\x1a7.audiomanager.OnPreferredMixerAttributesChangedResponseB6Z4github.com/AndroidGoLab/jni-proxy/proto/audiomanagerb\x06proto3"
 
 var (
 	file_proto_audiomanager_audiomanager_proto_rawDescOnce sync.Once
@@ -8099,370 +9812,450 @@ func file_proto_audiomanager_audiomanager_proto_rawDescGZIP() []byte {
 	return file_proto_audiomanager_audiomanager_proto_rawDescData
 }
 
-var file_proto_audiomanager_audiomanager_proto_msgTypes = make([]protoimpl.MessageInfo, 180)
+var file_proto_audiomanager_audiomanager_proto_msgTypes = make([]protoimpl.MessageInfo, 220)
 var file_proto_audiomanager_audiomanager_proto_goTypes = []any{
-	(*AbandonAudioFocusRequest)(nil),                                // 0: audiomanager.AbandonAudioFocusRequest
-	(*AbandonAudioFocusResponse)(nil),                               // 1: audiomanager.AbandonAudioFocusResponse
-	(*AbandonAudioFocusRequestRequest)(nil),                         // 2: audiomanager.AbandonAudioFocusRequestRequest
-	(*AbandonAudioFocusRequestResponse)(nil),                        // 3: audiomanager.AbandonAudioFocusRequestResponse
-	(*AddOnCommunicationDeviceChangedListenerRequest)(nil),          // 4: audiomanager.AddOnCommunicationDeviceChangedListenerRequest
-	(*AddOnCommunicationDeviceChangedListenerResponse)(nil),         // 5: audiomanager.AddOnCommunicationDeviceChangedListenerResponse
-	(*AddOnModeChangedListenerRequest)(nil),                         // 6: audiomanager.AddOnModeChangedListenerRequest
-	(*AddOnModeChangedListenerResponse)(nil),                        // 7: audiomanager.AddOnModeChangedListenerResponse
-	(*AddOnPreferredMixerAttributesChangedListenerRequest)(nil),     // 8: audiomanager.AddOnPreferredMixerAttributesChangedListenerRequest
-	(*AddOnPreferredMixerAttributesChangedListenerResponse)(nil),    // 9: audiomanager.AddOnPreferredMixerAttributesChangedListenerResponse
-	(*AdjustStreamVolumeRequest)(nil),                               // 10: audiomanager.AdjustStreamVolumeRequest
-	(*AdjustStreamVolumeResponse)(nil),                              // 11: audiomanager.AdjustStreamVolumeResponse
-	(*AdjustSuggestedStreamVolumeRequest)(nil),                      // 12: audiomanager.AdjustSuggestedStreamVolumeRequest
-	(*AdjustSuggestedStreamVolumeResponse)(nil),                     // 13: audiomanager.AdjustSuggestedStreamVolumeResponse
-	(*AdjustVolumeRequest)(nil),                                     // 14: audiomanager.AdjustVolumeRequest
-	(*AdjustVolumeResponse)(nil),                                    // 15: audiomanager.AdjustVolumeResponse
-	(*AdjustVolumeGroupVolumeRequest)(nil),                          // 16: audiomanager.AdjustVolumeGroupVolumeRequest
-	(*AdjustVolumeGroupVolumeResponse)(nil),                         // 17: audiomanager.AdjustVolumeGroupVolumeResponse
-	(*ClearCommunicationDeviceRequest)(nil),                         // 18: audiomanager.ClearCommunicationDeviceRequest
-	(*ClearCommunicationDeviceResponse)(nil),                        // 19: audiomanager.ClearCommunicationDeviceResponse
-	(*ClearPreferredMixerAttributesRequest)(nil),                    // 20: audiomanager.ClearPreferredMixerAttributesRequest
-	(*ClearPreferredMixerAttributesResponse)(nil),                   // 21: audiomanager.ClearPreferredMixerAttributesResponse
-	(*DispatchMediaKeyEventRequest)(nil),                            // 22: audiomanager.DispatchMediaKeyEventRequest
-	(*DispatchMediaKeyEventResponse)(nil),                           // 23: audiomanager.DispatchMediaKeyEventResponse
-	(*GenerateAudioSessionIdRequest)(nil),                           // 24: audiomanager.GenerateAudioSessionIdRequest
-	(*GenerateAudioSessionIdResponse)(nil),                          // 25: audiomanager.GenerateAudioSessionIdResponse
-	(*GetAllowedCapturePolicyRequest)(nil),                          // 26: audiomanager.GetAllowedCapturePolicyRequest
-	(*GetAllowedCapturePolicyResponse)(nil),                         // 27: audiomanager.GetAllowedCapturePolicyResponse
-	(*GetAudioHwSyncForSessionRequest)(nil),                         // 28: audiomanager.GetAudioHwSyncForSessionRequest
-	(*GetAudioHwSyncForSessionResponse)(nil),                        // 29: audiomanager.GetAudioHwSyncForSessionResponse
-	(*GetCommunicationDeviceRequest)(nil),                           // 30: audiomanager.GetCommunicationDeviceRequest
-	(*GetCommunicationDeviceResponse)(nil),                          // 31: audiomanager.GetCommunicationDeviceResponse
-	(*GetDevicesRequest)(nil),                                       // 32: audiomanager.GetDevicesRequest
-	(*GetDevicesResponse)(nil),                                      // 33: audiomanager.GetDevicesResponse
-	(*GetEncodedSurroundModeRequest)(nil),                           // 34: audiomanager.GetEncodedSurroundModeRequest
-	(*GetEncodedSurroundModeResponse)(nil),                          // 35: audiomanager.GetEncodedSurroundModeResponse
-	(*GetModeRequest)(nil),                                          // 36: audiomanager.GetModeRequest
-	(*GetModeResponse)(nil),                                         // 37: audiomanager.GetModeResponse
-	(*GetParametersRequest)(nil),                                    // 38: audiomanager.GetParametersRequest
-	(*GetParametersResponse)(nil),                                   // 39: audiomanager.GetParametersResponse
-	(*GetPreferredMixerAttributesRequest)(nil),                      // 40: audiomanager.GetPreferredMixerAttributesRequest
-	(*GetPreferredMixerAttributesResponse)(nil),                     // 41: audiomanager.GetPreferredMixerAttributesResponse
-	(*GetPropertyRequest)(nil),                                      // 42: audiomanager.GetPropertyRequest
-	(*GetPropertyResponse)(nil),                                     // 43: audiomanager.GetPropertyResponse
-	(*GetRingerModeRequest)(nil),                                    // 44: audiomanager.GetRingerModeRequest
-	(*GetRingerModeResponse)(nil),                                   // 45: audiomanager.GetRingerModeResponse
-	(*GetRoutingRequest)(nil),                                       // 46: audiomanager.GetRoutingRequest
-	(*GetRoutingResponse)(nil),                                      // 47: audiomanager.GetRoutingResponse
-	(*GetSpatializerRequest)(nil),                                   // 48: audiomanager.GetSpatializerRequest
-	(*GetSpatializerResponse)(nil),                                  // 49: audiomanager.GetSpatializerResponse
-	(*GetStreamMaxVolumeRequest)(nil),                               // 50: audiomanager.GetStreamMaxVolumeRequest
-	(*GetStreamMaxVolumeResponse)(nil),                              // 51: audiomanager.GetStreamMaxVolumeResponse
-	(*GetStreamMinVolumeRequest)(nil),                               // 52: audiomanager.GetStreamMinVolumeRequest
-	(*GetStreamMinVolumeResponse)(nil),                              // 53: audiomanager.GetStreamMinVolumeResponse
-	(*GetStreamVolumeRequest)(nil),                                  // 54: audiomanager.GetStreamVolumeRequest
-	(*GetStreamVolumeResponse)(nil),                                 // 55: audiomanager.GetStreamVolumeResponse
-	(*GetStreamVolumeDbRequest)(nil),                                // 56: audiomanager.GetStreamVolumeDbRequest
-	(*GetStreamVolumeDbResponse)(nil),                               // 57: audiomanager.GetStreamVolumeDbResponse
-	(*GetVibrateSettingRequest)(nil),                                // 58: audiomanager.GetVibrateSettingRequest
-	(*GetVibrateSettingResponse)(nil),                               // 59: audiomanager.GetVibrateSettingResponse
-	(*GetVolumeGroupIdForAttributesRequest)(nil),                    // 60: audiomanager.GetVolumeGroupIdForAttributesRequest
-	(*GetVolumeGroupIdForAttributesResponse)(nil),                   // 61: audiomanager.GetVolumeGroupIdForAttributesResponse
-	(*IsBluetoothA2DpOnRequest)(nil),                                // 62: audiomanager.IsBluetoothA2dpOnRequest
-	(*IsBluetoothA2DpOnResponse)(nil),                               // 63: audiomanager.IsBluetoothA2dpOnResponse
-	(*IsBluetoothScoAvailableOffCallRequest)(nil),                   // 64: audiomanager.IsBluetoothScoAvailableOffCallRequest
-	(*IsBluetoothScoAvailableOffCallResponse)(nil),                  // 65: audiomanager.IsBluetoothScoAvailableOffCallResponse
-	(*IsBluetoothScoOnRequest)(nil),                                 // 66: audiomanager.IsBluetoothScoOnRequest
-	(*IsBluetoothScoOnResponse)(nil),                                // 67: audiomanager.IsBluetoothScoOnResponse
-	(*IsCallScreeningModeSupportedRequest)(nil),                     // 68: audiomanager.IsCallScreeningModeSupportedRequest
-	(*IsCallScreeningModeSupportedResponse)(nil),                    // 69: audiomanager.IsCallScreeningModeSupportedResponse
-	(*IsMicrophoneMuteRequest)(nil),                                 // 70: audiomanager.IsMicrophoneMuteRequest
-	(*IsMicrophoneMuteResponse)(nil),                                // 71: audiomanager.IsMicrophoneMuteResponse
-	(*IsMusicActiveRequest)(nil),                                    // 72: audiomanager.IsMusicActiveRequest
-	(*IsMusicActiveResponse)(nil),                                   // 73: audiomanager.IsMusicActiveResponse
-	(*IsRampingRingerEnabledRequest)(nil),                           // 74: audiomanager.IsRampingRingerEnabledRequest
-	(*IsRampingRingerEnabledResponse)(nil),                          // 75: audiomanager.IsRampingRingerEnabledResponse
-	(*IsSpeakerphoneOnRequest)(nil),                                 // 76: audiomanager.IsSpeakerphoneOnRequest
-	(*IsSpeakerphoneOnResponse)(nil),                                // 77: audiomanager.IsSpeakerphoneOnResponse
-	(*IsStreamMuteRequest)(nil),                                     // 78: audiomanager.IsStreamMuteRequest
-	(*IsStreamMuteResponse)(nil),                                    // 79: audiomanager.IsStreamMuteResponse
-	(*IsSurroundFormatEnabledRequest)(nil),                          // 80: audiomanager.IsSurroundFormatEnabledRequest
-	(*IsSurroundFormatEnabledResponse)(nil),                         // 81: audiomanager.IsSurroundFormatEnabledResponse
-	(*IsVolumeFixedRequest)(nil),                                    // 82: audiomanager.IsVolumeFixedRequest
-	(*IsVolumeFixedResponse)(nil),                                   // 83: audiomanager.IsVolumeFixedResponse
-	(*IsVolumeGroupMutedRequest)(nil),                               // 84: audiomanager.IsVolumeGroupMutedRequest
-	(*IsVolumeGroupMutedResponse)(nil),                              // 85: audiomanager.IsVolumeGroupMutedResponse
-	(*IsWiredHeadsetOnRequest)(nil),                                 // 86: audiomanager.IsWiredHeadsetOnRequest
-	(*IsWiredHeadsetOnResponse)(nil),                                // 87: audiomanager.IsWiredHeadsetOnResponse
-	(*LoadSoundEffectsRequest)(nil),                                 // 88: audiomanager.LoadSoundEffectsRequest
-	(*LoadSoundEffectsResponse)(nil),                                // 89: audiomanager.LoadSoundEffectsResponse
-	(*PlaySoundEffect1Request)(nil),                                 // 90: audiomanager.PlaySoundEffect1Request
-	(*PlaySoundEffect1Response)(nil),                                // 91: audiomanager.PlaySoundEffect1Response
-	(*PlaySoundEffect2_1Request)(nil),                               // 92: audiomanager.PlaySoundEffect2_1Request
-	(*PlaySoundEffect2_1Response)(nil),                              // 93: audiomanager.PlaySoundEffect2_1Response
-	(*RegisterMediaButtonEventReceiver1Request)(nil),                // 94: audiomanager.RegisterMediaButtonEventReceiver1Request
-	(*RegisterMediaButtonEventReceiver1Response)(nil),               // 95: audiomanager.RegisterMediaButtonEventReceiver1Response
-	(*RegisterMediaButtonEventReceiver1_1Request)(nil),              // 96: audiomanager.RegisterMediaButtonEventReceiver1_1Request
-	(*RegisterMediaButtonEventReceiver1_1Response)(nil),             // 97: audiomanager.RegisterMediaButtonEventReceiver1_1Response
-	(*RegisterRemoteControlClientRequest)(nil),                      // 98: audiomanager.RegisterRemoteControlClientRequest
-	(*RegisterRemoteControlClientResponse)(nil),                     // 99: audiomanager.RegisterRemoteControlClientResponse
-	(*RegisterRemoteControllerRequest)(nil),                         // 100: audiomanager.RegisterRemoteControllerRequest
-	(*RegisterRemoteControllerResponse)(nil),                        // 101: audiomanager.RegisterRemoteControllerResponse
-	(*RemoveOnCommunicationDeviceChangedListenerRequest)(nil),       // 102: audiomanager.RemoveOnCommunicationDeviceChangedListenerRequest
-	(*RemoveOnCommunicationDeviceChangedListenerResponse)(nil),      // 103: audiomanager.RemoveOnCommunicationDeviceChangedListenerResponse
-	(*RemoveOnModeChangedListenerRequest)(nil),                      // 104: audiomanager.RemoveOnModeChangedListenerRequest
-	(*RemoveOnModeChangedListenerResponse)(nil),                     // 105: audiomanager.RemoveOnModeChangedListenerResponse
-	(*RemoveOnPreferredMixerAttributesChangedListenerRequest)(nil),  // 106: audiomanager.RemoveOnPreferredMixerAttributesChangedListenerRequest
-	(*RemoveOnPreferredMixerAttributesChangedListenerResponse)(nil), // 107: audiomanager.RemoveOnPreferredMixerAttributesChangedListenerResponse
-	(*RequestAudioFocus1Request)(nil),                               // 108: audiomanager.RequestAudioFocus1Request
-	(*RequestAudioFocus1Response)(nil),                              // 109: audiomanager.RequestAudioFocus1Response
-	(*RequestAudioFocus3_1Request)(nil),                             // 110: audiomanager.RequestAudioFocus3_1Request
-	(*RequestAudioFocus3_1Response)(nil),                            // 111: audiomanager.RequestAudioFocus3_1Response
-	(*SetAllowedCapturePolicyRequest)(nil),                          // 112: audiomanager.SetAllowedCapturePolicyRequest
-	(*SetAllowedCapturePolicyResponse)(nil),                         // 113: audiomanager.SetAllowedCapturePolicyResponse
-	(*SetBluetoothA2DpOnRequest)(nil),                               // 114: audiomanager.SetBluetoothA2dpOnRequest
-	(*SetBluetoothA2DpOnResponse)(nil),                              // 115: audiomanager.SetBluetoothA2dpOnResponse
-	(*SetBluetoothScoOnRequest)(nil),                                // 116: audiomanager.SetBluetoothScoOnRequest
-	(*SetBluetoothScoOnResponse)(nil),                               // 117: audiomanager.SetBluetoothScoOnResponse
-	(*SetCommunicationDeviceRequest)(nil),                           // 118: audiomanager.SetCommunicationDeviceRequest
-	(*SetCommunicationDeviceResponse)(nil),                          // 119: audiomanager.SetCommunicationDeviceResponse
-	(*SetEncodedSurroundModeRequest)(nil),                           // 120: audiomanager.SetEncodedSurroundModeRequest
-	(*SetEncodedSurroundModeResponse)(nil),                          // 121: audiomanager.SetEncodedSurroundModeResponse
-	(*SetMicrophoneMuteRequest)(nil),                                // 122: audiomanager.SetMicrophoneMuteRequest
-	(*SetMicrophoneMuteResponse)(nil),                               // 123: audiomanager.SetMicrophoneMuteResponse
-	(*SetModeRequest)(nil),                                          // 124: audiomanager.SetModeRequest
-	(*SetModeResponse)(nil),                                         // 125: audiomanager.SetModeResponse
-	(*SetParametersRequest)(nil),                                    // 126: audiomanager.SetParametersRequest
-	(*SetParametersResponse)(nil),                                   // 127: audiomanager.SetParametersResponse
-	(*SetPreferredMixerAttributesRequest)(nil),                      // 128: audiomanager.SetPreferredMixerAttributesRequest
-	(*SetPreferredMixerAttributesResponse)(nil),                     // 129: audiomanager.SetPreferredMixerAttributesResponse
-	(*SetRingerModeRequest)(nil),                                    // 130: audiomanager.SetRingerModeRequest
-	(*SetRingerModeResponse)(nil),                                   // 131: audiomanager.SetRingerModeResponse
-	(*SetRoutingRequest)(nil),                                       // 132: audiomanager.SetRoutingRequest
-	(*SetRoutingResponse)(nil),                                      // 133: audiomanager.SetRoutingResponse
-	(*SetSpeakerphoneOnRequest)(nil),                                // 134: audiomanager.SetSpeakerphoneOnRequest
-	(*SetSpeakerphoneOnResponse)(nil),                               // 135: audiomanager.SetSpeakerphoneOnResponse
-	(*SetStreamMuteRequest)(nil),                                    // 136: audiomanager.SetStreamMuteRequest
-	(*SetStreamMuteResponse)(nil),                                   // 137: audiomanager.SetStreamMuteResponse
-	(*SetStreamSoloRequest)(nil),                                    // 138: audiomanager.SetStreamSoloRequest
-	(*SetStreamSoloResponse)(nil),                                   // 139: audiomanager.SetStreamSoloResponse
-	(*SetStreamVolumeRequest)(nil),                                  // 140: audiomanager.SetStreamVolumeRequest
-	(*SetStreamVolumeResponse)(nil),                                 // 141: audiomanager.SetStreamVolumeResponse
-	(*SetSurroundFormatEnabledRequest)(nil),                         // 142: audiomanager.SetSurroundFormatEnabledRequest
-	(*SetSurroundFormatEnabledResponse)(nil),                        // 143: audiomanager.SetSurroundFormatEnabledResponse
-	(*SetVibrateSettingRequest)(nil),                                // 144: audiomanager.SetVibrateSettingRequest
-	(*SetVibrateSettingResponse)(nil),                               // 145: audiomanager.SetVibrateSettingResponse
-	(*SetWiredHeadsetOnRequest)(nil),                                // 146: audiomanager.SetWiredHeadsetOnRequest
-	(*SetWiredHeadsetOnResponse)(nil),                               // 147: audiomanager.SetWiredHeadsetOnResponse
-	(*ShouldVibrateRequest)(nil),                                    // 148: audiomanager.ShouldVibrateRequest
-	(*ShouldVibrateResponse)(nil),                                   // 149: audiomanager.ShouldVibrateResponse
-	(*StartBluetoothScoRequest)(nil),                                // 150: audiomanager.StartBluetoothScoRequest
-	(*StartBluetoothScoResponse)(nil),                               // 151: audiomanager.StartBluetoothScoResponse
-	(*StopBluetoothScoRequest)(nil),                                 // 152: audiomanager.StopBluetoothScoRequest
-	(*StopBluetoothScoResponse)(nil),                                // 153: audiomanager.StopBluetoothScoResponse
-	(*UnloadSoundEffectsRequest)(nil),                               // 154: audiomanager.UnloadSoundEffectsRequest
-	(*UnloadSoundEffectsResponse)(nil),                              // 155: audiomanager.UnloadSoundEffectsResponse
-	(*UnregisterAudioDeviceCallbackRequest)(nil),                    // 156: audiomanager.UnregisterAudioDeviceCallbackRequest
-	(*UnregisterAudioDeviceCallbackResponse)(nil),                   // 157: audiomanager.UnregisterAudioDeviceCallbackResponse
-	(*UnregisterAudioPlaybackCallbackRequest)(nil),                  // 158: audiomanager.UnregisterAudioPlaybackCallbackRequest
-	(*UnregisterAudioPlaybackCallbackResponse)(nil),                 // 159: audiomanager.UnregisterAudioPlaybackCallbackResponse
-	(*UnregisterAudioRecordingCallbackRequest)(nil),                 // 160: audiomanager.UnregisterAudioRecordingCallbackRequest
-	(*UnregisterAudioRecordingCallbackResponse)(nil),                // 161: audiomanager.UnregisterAudioRecordingCallbackResponse
-	(*UnregisterMediaButtonEventReceiver1Request)(nil),              // 162: audiomanager.UnregisterMediaButtonEventReceiver1Request
-	(*UnregisterMediaButtonEventReceiver1Response)(nil),             // 163: audiomanager.UnregisterMediaButtonEventReceiver1Response
-	(*UnregisterMediaButtonEventReceiver1_1Request)(nil),            // 164: audiomanager.UnregisterMediaButtonEventReceiver1_1Request
-	(*UnregisterMediaButtonEventReceiver1_1Response)(nil),           // 165: audiomanager.UnregisterMediaButtonEventReceiver1_1Response
-	(*UnregisterRemoteControlClientRequest)(nil),                    // 166: audiomanager.UnregisterRemoteControlClientRequest
-	(*UnregisterRemoteControlClientResponse)(nil),                   // 167: audiomanager.UnregisterRemoteControlClientResponse
-	(*UnregisterRemoteControllerRequest)(nil),                       // 168: audiomanager.UnregisterRemoteControllerRequest
-	(*UnregisterRemoteControllerResponse)(nil),                      // 169: audiomanager.UnregisterRemoteControllerResponse
-	(*GetDirectPlaybackSupportRequest)(nil),                         // 170: audiomanager.GetDirectPlaybackSupportRequest
-	(*GetDirectPlaybackSupportResponse)(nil),                        // 171: audiomanager.GetDirectPlaybackSupportResponse
-	(*GetPlaybackOffloadSupportRequest)(nil),                        // 172: audiomanager.GetPlaybackOffloadSupportRequest
-	(*GetPlaybackOffloadSupportResponse)(nil),                       // 173: audiomanager.GetPlaybackOffloadSupportResponse
-	(*IsHapticPlaybackSupportedRequest)(nil),                        // 174: audiomanager.IsHapticPlaybackSupportedRequest
-	(*IsHapticPlaybackSupportedResponse)(nil),                       // 175: audiomanager.IsHapticPlaybackSupportedResponse
-	(*IsOffloadedPlaybackSupportedRequest)(nil),                     // 176: audiomanager.IsOffloadedPlaybackSupportedRequest
-	(*IsOffloadedPlaybackSupportedResponse)(nil),                    // 177: audiomanager.IsOffloadedPlaybackSupportedResponse
-	(*AbandonAudioFocusRequestOpRequest)(nil),                       // 178: audiomanager.AbandonAudioFocusRequestOpRequest
-	(*AbandonAudioFocusRequestOpResponse)(nil),                      // 179: audiomanager.AbandonAudioFocusRequestOpResponse
+	(*EqualsRequest)(nil),                                           // 0: audiomanager.EqualsRequest
+	(*EqualsResponse)(nil),                                          // 1: audiomanager.EqualsResponse
+	(*GetAddressRequest)(nil),                                       // 2: audiomanager.GetAddressRequest
+	(*GetAddressResponse)(nil),                                      // 3: audiomanager.GetAddressResponse
+	(*GetChannelCountsRequest)(nil),                                 // 4: audiomanager.GetChannelCountsRequest
+	(*GetChannelCountsResponse)(nil),                                // 5: audiomanager.GetChannelCountsResponse
+	(*GetChannelIndexMasksRequest)(nil),                             // 6: audiomanager.GetChannelIndexMasksRequest
+	(*GetChannelIndexMasksResponse)(nil),                            // 7: audiomanager.GetChannelIndexMasksResponse
+	(*GetChannelMasksRequest)(nil),                                  // 8: audiomanager.GetChannelMasksRequest
+	(*GetChannelMasksResponse)(nil),                                 // 9: audiomanager.GetChannelMasksResponse
+	(*GetEncapsulationMetadataTypesRequest)(nil),                    // 10: audiomanager.GetEncapsulationMetadataTypesRequest
+	(*GetEncapsulationMetadataTypesResponse)(nil),                   // 11: audiomanager.GetEncapsulationMetadataTypesResponse
+	(*GetEncapsulationModesRequest)(nil),                            // 12: audiomanager.GetEncapsulationModesRequest
+	(*GetEncapsulationModesResponse)(nil),                           // 13: audiomanager.GetEncapsulationModesResponse
+	(*GetEncodingsRequest)(nil),                                     // 14: audiomanager.GetEncodingsRequest
+	(*GetEncodingsResponse)(nil),                                    // 15: audiomanager.GetEncodingsResponse
+	(*GetIdRequest)(nil),                                            // 16: audiomanager.GetIdRequest
+	(*GetIdResponse)(nil),                                           // 17: audiomanager.GetIdResponse
+	(*GetProductNameRequest)(nil),                                   // 18: audiomanager.GetProductNameRequest
+	(*GetProductNameResponse)(nil),                                  // 19: audiomanager.GetProductNameResponse
+	(*GetSampleRatesRequest)(nil),                                   // 20: audiomanager.GetSampleRatesRequest
+	(*GetSampleRatesResponse)(nil),                                  // 21: audiomanager.GetSampleRatesResponse
+	(*GetSpeakerLayoutChannelMaskRequest)(nil),                      // 22: audiomanager.GetSpeakerLayoutChannelMaskRequest
+	(*GetSpeakerLayoutChannelMaskResponse)(nil),                     // 23: audiomanager.GetSpeakerLayoutChannelMaskResponse
+	(*GetTypeRequest)(nil),                                          // 24: audiomanager.GetTypeRequest
+	(*GetTypeResponse)(nil),                                         // 25: audiomanager.GetTypeResponse
+	(*HashCodeRequest)(nil),                                         // 26: audiomanager.HashCodeRequest
+	(*HashCodeResponse)(nil),                                        // 27: audiomanager.HashCodeResponse
+	(*IsSinkRequest)(nil),                                           // 28: audiomanager.IsSinkRequest
+	(*IsSinkResponse)(nil),                                          // 29: audiomanager.IsSinkResponse
+	(*IsSourceRequest)(nil),                                         // 30: audiomanager.IsSourceRequest
+	(*IsSourceResponse)(nil),                                        // 31: audiomanager.IsSourceResponse
+	(*AbandonAudioFocusRequest)(nil),                                // 32: audiomanager.AbandonAudioFocusRequest
+	(*AbandonAudioFocusResponse)(nil),                               // 33: audiomanager.AbandonAudioFocusResponse
+	(*AbandonAudioFocusRequestRequest)(nil),                         // 34: audiomanager.AbandonAudioFocusRequestRequest
+	(*AbandonAudioFocusRequestResponse)(nil),                        // 35: audiomanager.AbandonAudioFocusRequestResponse
+	(*AddOnCommunicationDeviceChangedListenerRequest)(nil),          // 36: audiomanager.AddOnCommunicationDeviceChangedListenerRequest
+	(*AddOnCommunicationDeviceChangedListenerResponse)(nil),         // 37: audiomanager.AddOnCommunicationDeviceChangedListenerResponse
+	(*AddOnModeChangedListenerRequest)(nil),                         // 38: audiomanager.AddOnModeChangedListenerRequest
+	(*AddOnModeChangedListenerResponse)(nil),                        // 39: audiomanager.AddOnModeChangedListenerResponse
+	(*AddOnPreferredMixerAttributesChangedListenerRequest)(nil),     // 40: audiomanager.AddOnPreferredMixerAttributesChangedListenerRequest
+	(*AddOnPreferredMixerAttributesChangedListenerResponse)(nil),    // 41: audiomanager.AddOnPreferredMixerAttributesChangedListenerResponse
+	(*AdjustStreamVolumeRequest)(nil),                               // 42: audiomanager.AdjustStreamVolumeRequest
+	(*AdjustStreamVolumeResponse)(nil),                              // 43: audiomanager.AdjustStreamVolumeResponse
+	(*AdjustSuggestedStreamVolumeRequest)(nil),                      // 44: audiomanager.AdjustSuggestedStreamVolumeRequest
+	(*AdjustSuggestedStreamVolumeResponse)(nil),                     // 45: audiomanager.AdjustSuggestedStreamVolumeResponse
+	(*AdjustVolumeRequest)(nil),                                     // 46: audiomanager.AdjustVolumeRequest
+	(*AdjustVolumeResponse)(nil),                                    // 47: audiomanager.AdjustVolumeResponse
+	(*AdjustVolumeGroupVolumeRequest)(nil),                          // 48: audiomanager.AdjustVolumeGroupVolumeRequest
+	(*AdjustVolumeGroupVolumeResponse)(nil),                         // 49: audiomanager.AdjustVolumeGroupVolumeResponse
+	(*ClearCommunicationDeviceRequest)(nil),                         // 50: audiomanager.ClearCommunicationDeviceRequest
+	(*ClearCommunicationDeviceResponse)(nil),                        // 51: audiomanager.ClearCommunicationDeviceResponse
+	(*ClearPreferredMixerAttributesRequest)(nil),                    // 52: audiomanager.ClearPreferredMixerAttributesRequest
+	(*ClearPreferredMixerAttributesResponse)(nil),                   // 53: audiomanager.ClearPreferredMixerAttributesResponse
+	(*DispatchMediaKeyEventRequest)(nil),                            // 54: audiomanager.DispatchMediaKeyEventRequest
+	(*DispatchMediaKeyEventResponse)(nil),                           // 55: audiomanager.DispatchMediaKeyEventResponse
+	(*GenerateAudioSessionIdRequest)(nil),                           // 56: audiomanager.GenerateAudioSessionIdRequest
+	(*GenerateAudioSessionIdResponse)(nil),                          // 57: audiomanager.GenerateAudioSessionIdResponse
+	(*GetAllowedCapturePolicyRequest)(nil),                          // 58: audiomanager.GetAllowedCapturePolicyRequest
+	(*GetAllowedCapturePolicyResponse)(nil),                         // 59: audiomanager.GetAllowedCapturePolicyResponse
+	(*GetAudioHwSyncForSessionRequest)(nil),                         // 60: audiomanager.GetAudioHwSyncForSessionRequest
+	(*GetAudioHwSyncForSessionResponse)(nil),                        // 61: audiomanager.GetAudioHwSyncForSessionResponse
+	(*GetCommunicationDeviceRequest)(nil),                           // 62: audiomanager.GetCommunicationDeviceRequest
+	(*GetCommunicationDeviceResponse)(nil),                          // 63: audiomanager.GetCommunicationDeviceResponse
+	(*GetDevicesRequest)(nil),                                       // 64: audiomanager.GetDevicesRequest
+	(*GetDevicesResponse)(nil),                                      // 65: audiomanager.GetDevicesResponse
+	(*GetEncodedSurroundModeRequest)(nil),                           // 66: audiomanager.GetEncodedSurroundModeRequest
+	(*GetEncodedSurroundModeResponse)(nil),                          // 67: audiomanager.GetEncodedSurroundModeResponse
+	(*GetModeRequest)(nil),                                          // 68: audiomanager.GetModeRequest
+	(*GetModeResponse)(nil),                                         // 69: audiomanager.GetModeResponse
+	(*GetParametersRequest)(nil),                                    // 70: audiomanager.GetParametersRequest
+	(*GetParametersResponse)(nil),                                   // 71: audiomanager.GetParametersResponse
+	(*GetPreferredMixerAttributesRequest)(nil),                      // 72: audiomanager.GetPreferredMixerAttributesRequest
+	(*GetPreferredMixerAttributesResponse)(nil),                     // 73: audiomanager.GetPreferredMixerAttributesResponse
+	(*GetPropertyRequest)(nil),                                      // 74: audiomanager.GetPropertyRequest
+	(*GetPropertyResponse)(nil),                                     // 75: audiomanager.GetPropertyResponse
+	(*GetRingerModeRequest)(nil),                                    // 76: audiomanager.GetRingerModeRequest
+	(*GetRingerModeResponse)(nil),                                   // 77: audiomanager.GetRingerModeResponse
+	(*GetRoutingRequest)(nil),                                       // 78: audiomanager.GetRoutingRequest
+	(*GetRoutingResponse)(nil),                                      // 79: audiomanager.GetRoutingResponse
+	(*GetSpatializerRequest)(nil),                                   // 80: audiomanager.GetSpatializerRequest
+	(*GetSpatializerResponse)(nil),                                  // 81: audiomanager.GetSpatializerResponse
+	(*GetStreamMaxVolumeRequest)(nil),                               // 82: audiomanager.GetStreamMaxVolumeRequest
+	(*GetStreamMaxVolumeResponse)(nil),                              // 83: audiomanager.GetStreamMaxVolumeResponse
+	(*GetStreamMinVolumeRequest)(nil),                               // 84: audiomanager.GetStreamMinVolumeRequest
+	(*GetStreamMinVolumeResponse)(nil),                              // 85: audiomanager.GetStreamMinVolumeResponse
+	(*GetStreamVolumeRequest)(nil),                                  // 86: audiomanager.GetStreamVolumeRequest
+	(*GetStreamVolumeResponse)(nil),                                 // 87: audiomanager.GetStreamVolumeResponse
+	(*GetStreamVolumeDbRequest)(nil),                                // 88: audiomanager.GetStreamVolumeDbRequest
+	(*GetStreamVolumeDbResponse)(nil),                               // 89: audiomanager.GetStreamVolumeDbResponse
+	(*GetVibrateSettingRequest)(nil),                                // 90: audiomanager.GetVibrateSettingRequest
+	(*GetVibrateSettingResponse)(nil),                               // 91: audiomanager.GetVibrateSettingResponse
+	(*GetVolumeGroupIdForAttributesRequest)(nil),                    // 92: audiomanager.GetVolumeGroupIdForAttributesRequest
+	(*GetVolumeGroupIdForAttributesResponse)(nil),                   // 93: audiomanager.GetVolumeGroupIdForAttributesResponse
+	(*IsBluetoothA2DpOnRequest)(nil),                                // 94: audiomanager.IsBluetoothA2dpOnRequest
+	(*IsBluetoothA2DpOnResponse)(nil),                               // 95: audiomanager.IsBluetoothA2dpOnResponse
+	(*IsBluetoothScoAvailableOffCallRequest)(nil),                   // 96: audiomanager.IsBluetoothScoAvailableOffCallRequest
+	(*IsBluetoothScoAvailableOffCallResponse)(nil),                  // 97: audiomanager.IsBluetoothScoAvailableOffCallResponse
+	(*IsBluetoothScoOnRequest)(nil),                                 // 98: audiomanager.IsBluetoothScoOnRequest
+	(*IsBluetoothScoOnResponse)(nil),                                // 99: audiomanager.IsBluetoothScoOnResponse
+	(*IsCallScreeningModeSupportedRequest)(nil),                     // 100: audiomanager.IsCallScreeningModeSupportedRequest
+	(*IsCallScreeningModeSupportedResponse)(nil),                    // 101: audiomanager.IsCallScreeningModeSupportedResponse
+	(*IsMicrophoneMuteRequest)(nil),                                 // 102: audiomanager.IsMicrophoneMuteRequest
+	(*IsMicrophoneMuteResponse)(nil),                                // 103: audiomanager.IsMicrophoneMuteResponse
+	(*IsMusicActiveRequest)(nil),                                    // 104: audiomanager.IsMusicActiveRequest
+	(*IsMusicActiveResponse)(nil),                                   // 105: audiomanager.IsMusicActiveResponse
+	(*IsRampingRingerEnabledRequest)(nil),                           // 106: audiomanager.IsRampingRingerEnabledRequest
+	(*IsRampingRingerEnabledResponse)(nil),                          // 107: audiomanager.IsRampingRingerEnabledResponse
+	(*IsSpeakerphoneOnRequest)(nil),                                 // 108: audiomanager.IsSpeakerphoneOnRequest
+	(*IsSpeakerphoneOnResponse)(nil),                                // 109: audiomanager.IsSpeakerphoneOnResponse
+	(*IsStreamMuteRequest)(nil),                                     // 110: audiomanager.IsStreamMuteRequest
+	(*IsStreamMuteResponse)(nil),                                    // 111: audiomanager.IsStreamMuteResponse
+	(*IsSurroundFormatEnabledRequest)(nil),                          // 112: audiomanager.IsSurroundFormatEnabledRequest
+	(*IsSurroundFormatEnabledResponse)(nil),                         // 113: audiomanager.IsSurroundFormatEnabledResponse
+	(*IsVolumeFixedRequest)(nil),                                    // 114: audiomanager.IsVolumeFixedRequest
+	(*IsVolumeFixedResponse)(nil),                                   // 115: audiomanager.IsVolumeFixedResponse
+	(*IsVolumeGroupMutedRequest)(nil),                               // 116: audiomanager.IsVolumeGroupMutedRequest
+	(*IsVolumeGroupMutedResponse)(nil),                              // 117: audiomanager.IsVolumeGroupMutedResponse
+	(*IsWiredHeadsetOnRequest)(nil),                                 // 118: audiomanager.IsWiredHeadsetOnRequest
+	(*IsWiredHeadsetOnResponse)(nil),                                // 119: audiomanager.IsWiredHeadsetOnResponse
+	(*LoadSoundEffectsRequest)(nil),                                 // 120: audiomanager.LoadSoundEffectsRequest
+	(*LoadSoundEffectsResponse)(nil),                                // 121: audiomanager.LoadSoundEffectsResponse
+	(*PlaySoundEffect1Request)(nil),                                 // 122: audiomanager.PlaySoundEffect1Request
+	(*PlaySoundEffect1Response)(nil),                                // 123: audiomanager.PlaySoundEffect1Response
+	(*PlaySoundEffect2_1Request)(nil),                               // 124: audiomanager.PlaySoundEffect2_1Request
+	(*PlaySoundEffect2_1Response)(nil),                              // 125: audiomanager.PlaySoundEffect2_1Response
+	(*RegisterMediaButtonEventReceiver1Request)(nil),                // 126: audiomanager.RegisterMediaButtonEventReceiver1Request
+	(*RegisterMediaButtonEventReceiver1Response)(nil),               // 127: audiomanager.RegisterMediaButtonEventReceiver1Response
+	(*RegisterMediaButtonEventReceiver1_1Request)(nil),              // 128: audiomanager.RegisterMediaButtonEventReceiver1_1Request
+	(*RegisterMediaButtonEventReceiver1_1Response)(nil),             // 129: audiomanager.RegisterMediaButtonEventReceiver1_1Response
+	(*RegisterRemoteControlClientRequest)(nil),                      // 130: audiomanager.RegisterRemoteControlClientRequest
+	(*RegisterRemoteControlClientResponse)(nil),                     // 131: audiomanager.RegisterRemoteControlClientResponse
+	(*RegisterRemoteControllerRequest)(nil),                         // 132: audiomanager.RegisterRemoteControllerRequest
+	(*RegisterRemoteControllerResponse)(nil),                        // 133: audiomanager.RegisterRemoteControllerResponse
+	(*RemoveOnCommunicationDeviceChangedListenerRequest)(nil),       // 134: audiomanager.RemoveOnCommunicationDeviceChangedListenerRequest
+	(*RemoveOnCommunicationDeviceChangedListenerResponse)(nil),      // 135: audiomanager.RemoveOnCommunicationDeviceChangedListenerResponse
+	(*RemoveOnModeChangedListenerRequest)(nil),                      // 136: audiomanager.RemoveOnModeChangedListenerRequest
+	(*RemoveOnModeChangedListenerResponse)(nil),                     // 137: audiomanager.RemoveOnModeChangedListenerResponse
+	(*RemoveOnPreferredMixerAttributesChangedListenerRequest)(nil),  // 138: audiomanager.RemoveOnPreferredMixerAttributesChangedListenerRequest
+	(*RemoveOnPreferredMixerAttributesChangedListenerResponse)(nil), // 139: audiomanager.RemoveOnPreferredMixerAttributesChangedListenerResponse
+	(*RequestAudioFocus1Request)(nil),                               // 140: audiomanager.RequestAudioFocus1Request
+	(*RequestAudioFocus1Response)(nil),                              // 141: audiomanager.RequestAudioFocus1Response
+	(*RequestAudioFocus3_1Request)(nil),                             // 142: audiomanager.RequestAudioFocus3_1Request
+	(*RequestAudioFocus3_1Response)(nil),                            // 143: audiomanager.RequestAudioFocus3_1Response
+	(*SetAllowedCapturePolicyRequest)(nil),                          // 144: audiomanager.SetAllowedCapturePolicyRequest
+	(*SetAllowedCapturePolicyResponse)(nil),                         // 145: audiomanager.SetAllowedCapturePolicyResponse
+	(*SetBluetoothA2DpOnRequest)(nil),                               // 146: audiomanager.SetBluetoothA2dpOnRequest
+	(*SetBluetoothA2DpOnResponse)(nil),                              // 147: audiomanager.SetBluetoothA2dpOnResponse
+	(*SetBluetoothScoOnRequest)(nil),                                // 148: audiomanager.SetBluetoothScoOnRequest
+	(*SetBluetoothScoOnResponse)(nil),                               // 149: audiomanager.SetBluetoothScoOnResponse
+	(*SetCommunicationDeviceRequest)(nil),                           // 150: audiomanager.SetCommunicationDeviceRequest
+	(*SetCommunicationDeviceResponse)(nil),                          // 151: audiomanager.SetCommunicationDeviceResponse
+	(*SetEncodedSurroundModeRequest)(nil),                           // 152: audiomanager.SetEncodedSurroundModeRequest
+	(*SetEncodedSurroundModeResponse)(nil),                          // 153: audiomanager.SetEncodedSurroundModeResponse
+	(*SetMicrophoneMuteRequest)(nil),                                // 154: audiomanager.SetMicrophoneMuteRequest
+	(*SetMicrophoneMuteResponse)(nil),                               // 155: audiomanager.SetMicrophoneMuteResponse
+	(*SetModeRequest)(nil),                                          // 156: audiomanager.SetModeRequest
+	(*SetModeResponse)(nil),                                         // 157: audiomanager.SetModeResponse
+	(*SetParametersRequest)(nil),                                    // 158: audiomanager.SetParametersRequest
+	(*SetParametersResponse)(nil),                                   // 159: audiomanager.SetParametersResponse
+	(*SetPreferredMixerAttributesRequest)(nil),                      // 160: audiomanager.SetPreferredMixerAttributesRequest
+	(*SetPreferredMixerAttributesResponse)(nil),                     // 161: audiomanager.SetPreferredMixerAttributesResponse
+	(*SetRingerModeRequest)(nil),                                    // 162: audiomanager.SetRingerModeRequest
+	(*SetRingerModeResponse)(nil),                                   // 163: audiomanager.SetRingerModeResponse
+	(*SetRoutingRequest)(nil),                                       // 164: audiomanager.SetRoutingRequest
+	(*SetRoutingResponse)(nil),                                      // 165: audiomanager.SetRoutingResponse
+	(*SetSpeakerphoneOnRequest)(nil),                                // 166: audiomanager.SetSpeakerphoneOnRequest
+	(*SetSpeakerphoneOnResponse)(nil),                               // 167: audiomanager.SetSpeakerphoneOnResponse
+	(*SetStreamMuteRequest)(nil),                                    // 168: audiomanager.SetStreamMuteRequest
+	(*SetStreamMuteResponse)(nil),                                   // 169: audiomanager.SetStreamMuteResponse
+	(*SetStreamSoloRequest)(nil),                                    // 170: audiomanager.SetStreamSoloRequest
+	(*SetStreamSoloResponse)(nil),                                   // 171: audiomanager.SetStreamSoloResponse
+	(*SetStreamVolumeRequest)(nil),                                  // 172: audiomanager.SetStreamVolumeRequest
+	(*SetStreamVolumeResponse)(nil),                                 // 173: audiomanager.SetStreamVolumeResponse
+	(*SetSurroundFormatEnabledRequest)(nil),                         // 174: audiomanager.SetSurroundFormatEnabledRequest
+	(*SetSurroundFormatEnabledResponse)(nil),                        // 175: audiomanager.SetSurroundFormatEnabledResponse
+	(*SetVibrateSettingRequest)(nil),                                // 176: audiomanager.SetVibrateSettingRequest
+	(*SetVibrateSettingResponse)(nil),                               // 177: audiomanager.SetVibrateSettingResponse
+	(*SetWiredHeadsetOnRequest)(nil),                                // 178: audiomanager.SetWiredHeadsetOnRequest
+	(*SetWiredHeadsetOnResponse)(nil),                               // 179: audiomanager.SetWiredHeadsetOnResponse
+	(*ShouldVibrateRequest)(nil),                                    // 180: audiomanager.ShouldVibrateRequest
+	(*ShouldVibrateResponse)(nil),                                   // 181: audiomanager.ShouldVibrateResponse
+	(*StartBluetoothScoRequest)(nil),                                // 182: audiomanager.StartBluetoothScoRequest
+	(*StartBluetoothScoResponse)(nil),                               // 183: audiomanager.StartBluetoothScoResponse
+	(*StopBluetoothScoRequest)(nil),                                 // 184: audiomanager.StopBluetoothScoRequest
+	(*StopBluetoothScoResponse)(nil),                                // 185: audiomanager.StopBluetoothScoResponse
+	(*UnloadSoundEffectsRequest)(nil),                               // 186: audiomanager.UnloadSoundEffectsRequest
+	(*UnloadSoundEffectsResponse)(nil),                              // 187: audiomanager.UnloadSoundEffectsResponse
+	(*UnregisterAudioDeviceCallbackRequest)(nil),                    // 188: audiomanager.UnregisterAudioDeviceCallbackRequest
+	(*UnregisterAudioDeviceCallbackResponse)(nil),                   // 189: audiomanager.UnregisterAudioDeviceCallbackResponse
+	(*UnregisterAudioPlaybackCallbackRequest)(nil),                  // 190: audiomanager.UnregisterAudioPlaybackCallbackRequest
+	(*UnregisterAudioPlaybackCallbackResponse)(nil),                 // 191: audiomanager.UnregisterAudioPlaybackCallbackResponse
+	(*UnregisterAudioRecordingCallbackRequest)(nil),                 // 192: audiomanager.UnregisterAudioRecordingCallbackRequest
+	(*UnregisterAudioRecordingCallbackResponse)(nil),                // 193: audiomanager.UnregisterAudioRecordingCallbackResponse
+	(*UnregisterMediaButtonEventReceiver1Request)(nil),              // 194: audiomanager.UnregisterMediaButtonEventReceiver1Request
+	(*UnregisterMediaButtonEventReceiver1Response)(nil),             // 195: audiomanager.UnregisterMediaButtonEventReceiver1Response
+	(*UnregisterMediaButtonEventReceiver1_1Request)(nil),            // 196: audiomanager.UnregisterMediaButtonEventReceiver1_1Request
+	(*UnregisterMediaButtonEventReceiver1_1Response)(nil),           // 197: audiomanager.UnregisterMediaButtonEventReceiver1_1Response
+	(*UnregisterRemoteControlClientRequest)(nil),                    // 198: audiomanager.UnregisterRemoteControlClientRequest
+	(*UnregisterRemoteControlClientResponse)(nil),                   // 199: audiomanager.UnregisterRemoteControlClientResponse
+	(*UnregisterRemoteControllerRequest)(nil),                       // 200: audiomanager.UnregisterRemoteControllerRequest
+	(*UnregisterRemoteControllerResponse)(nil),                      // 201: audiomanager.UnregisterRemoteControllerResponse
+	(*GetDirectPlaybackSupportRequest)(nil),                         // 202: audiomanager.GetDirectPlaybackSupportRequest
+	(*GetDirectPlaybackSupportResponse)(nil),                        // 203: audiomanager.GetDirectPlaybackSupportResponse
+	(*GetPlaybackOffloadSupportRequest)(nil),                        // 204: audiomanager.GetPlaybackOffloadSupportRequest
+	(*GetPlaybackOffloadSupportResponse)(nil),                       // 205: audiomanager.GetPlaybackOffloadSupportResponse
+	(*IsHapticPlaybackSupportedRequest)(nil),                        // 206: audiomanager.IsHapticPlaybackSupportedRequest
+	(*IsHapticPlaybackSupportedResponse)(nil),                       // 207: audiomanager.IsHapticPlaybackSupportedResponse
+	(*IsOffloadedPlaybackSupportedRequest)(nil),                     // 208: audiomanager.IsOffloadedPlaybackSupportedRequest
+	(*IsOffloadedPlaybackSupportedResponse)(nil),                    // 209: audiomanager.IsOffloadedPlaybackSupportedResponse
+	(*OnAudioFocusChangeRequest)(nil),                               // 210: audiomanager.OnAudioFocusChangeRequest
+	(*OnAudioFocusChangeResponse)(nil),                              // 211: audiomanager.OnAudioFocusChangeResponse
+	(*OnCommunicationDeviceChangedRequest)(nil),                     // 212: audiomanager.OnCommunicationDeviceChangedRequest
+	(*OnCommunicationDeviceChangedResponse)(nil),                    // 213: audiomanager.OnCommunicationDeviceChangedResponse
+	(*OnModeChangedRequest)(nil),                                    // 214: audiomanager.OnModeChangedRequest
+	(*OnModeChangedResponse)(nil),                                   // 215: audiomanager.OnModeChangedResponse
+	(*OnPreferredMixerAttributesChangedRequest)(nil),                // 216: audiomanager.OnPreferredMixerAttributesChangedRequest
+	(*OnPreferredMixerAttributesChangedResponse)(nil),               // 217: audiomanager.OnPreferredMixerAttributesChangedResponse
+	(*AbandonAudioFocusRequestOpRequest)(nil),                       // 218: audiomanager.AbandonAudioFocusRequestOpRequest
+	(*AbandonAudioFocusRequestOpResponse)(nil),                      // 219: audiomanager.AbandonAudioFocusRequestOpResponse
 }
 var file_proto_audiomanager_audiomanager_proto_depIdxs = []int32{
-	0,   // 0: audiomanager.AudioManagerService.AbandonAudioFocus:input_type -> audiomanager.AbandonAudioFocusRequest
-	178, // 1: audiomanager.AudioManagerService.AbandonAudioFocusRequestOp:input_type -> audiomanager.AbandonAudioFocusRequestOpRequest
-	4,   // 2: audiomanager.AudioManagerService.AddOnCommunicationDeviceChangedListener:input_type -> audiomanager.AddOnCommunicationDeviceChangedListenerRequest
-	6,   // 3: audiomanager.AudioManagerService.AddOnModeChangedListener:input_type -> audiomanager.AddOnModeChangedListenerRequest
-	8,   // 4: audiomanager.AudioManagerService.AddOnPreferredMixerAttributesChangedListener:input_type -> audiomanager.AddOnPreferredMixerAttributesChangedListenerRequest
-	10,  // 5: audiomanager.AudioManagerService.AdjustStreamVolume:input_type -> audiomanager.AdjustStreamVolumeRequest
-	12,  // 6: audiomanager.AudioManagerService.AdjustSuggestedStreamVolume:input_type -> audiomanager.AdjustSuggestedStreamVolumeRequest
-	14,  // 7: audiomanager.AudioManagerService.AdjustVolume:input_type -> audiomanager.AdjustVolumeRequest
-	16,  // 8: audiomanager.AudioManagerService.AdjustVolumeGroupVolume:input_type -> audiomanager.AdjustVolumeGroupVolumeRequest
-	18,  // 9: audiomanager.AudioManagerService.ClearCommunicationDevice:input_type -> audiomanager.ClearCommunicationDeviceRequest
-	20,  // 10: audiomanager.AudioManagerService.ClearPreferredMixerAttributes:input_type -> audiomanager.ClearPreferredMixerAttributesRequest
-	22,  // 11: audiomanager.AudioManagerService.DispatchMediaKeyEvent:input_type -> audiomanager.DispatchMediaKeyEventRequest
-	24,  // 12: audiomanager.AudioManagerService.GenerateAudioSessionId:input_type -> audiomanager.GenerateAudioSessionIdRequest
-	26,  // 13: audiomanager.AudioManagerService.GetAllowedCapturePolicy:input_type -> audiomanager.GetAllowedCapturePolicyRequest
-	28,  // 14: audiomanager.AudioManagerService.GetAudioHwSyncForSession:input_type -> audiomanager.GetAudioHwSyncForSessionRequest
-	30,  // 15: audiomanager.AudioManagerService.GetCommunicationDevice:input_type -> audiomanager.GetCommunicationDeviceRequest
-	32,  // 16: audiomanager.AudioManagerService.GetDevices:input_type -> audiomanager.GetDevicesRequest
-	34,  // 17: audiomanager.AudioManagerService.GetEncodedSurroundMode:input_type -> audiomanager.GetEncodedSurroundModeRequest
-	36,  // 18: audiomanager.AudioManagerService.GetMode:input_type -> audiomanager.GetModeRequest
-	38,  // 19: audiomanager.AudioManagerService.GetParameters:input_type -> audiomanager.GetParametersRequest
-	40,  // 20: audiomanager.AudioManagerService.GetPreferredMixerAttributes:input_type -> audiomanager.GetPreferredMixerAttributesRequest
-	42,  // 21: audiomanager.AudioManagerService.GetProperty:input_type -> audiomanager.GetPropertyRequest
-	44,  // 22: audiomanager.AudioManagerService.GetRingerMode:input_type -> audiomanager.GetRingerModeRequest
-	46,  // 23: audiomanager.AudioManagerService.GetRouting:input_type -> audiomanager.GetRoutingRequest
-	48,  // 24: audiomanager.AudioManagerService.GetSpatializer:input_type -> audiomanager.GetSpatializerRequest
-	50,  // 25: audiomanager.AudioManagerService.GetStreamMaxVolume:input_type -> audiomanager.GetStreamMaxVolumeRequest
-	52,  // 26: audiomanager.AudioManagerService.GetStreamMinVolume:input_type -> audiomanager.GetStreamMinVolumeRequest
-	54,  // 27: audiomanager.AudioManagerService.GetStreamVolume:input_type -> audiomanager.GetStreamVolumeRequest
-	56,  // 28: audiomanager.AudioManagerService.GetStreamVolumeDb:input_type -> audiomanager.GetStreamVolumeDbRequest
-	58,  // 29: audiomanager.AudioManagerService.GetVibrateSetting:input_type -> audiomanager.GetVibrateSettingRequest
-	60,  // 30: audiomanager.AudioManagerService.GetVolumeGroupIdForAttributes:input_type -> audiomanager.GetVolumeGroupIdForAttributesRequest
-	62,  // 31: audiomanager.AudioManagerService.IsBluetoothA2dpOn:input_type -> audiomanager.IsBluetoothA2dpOnRequest
-	64,  // 32: audiomanager.AudioManagerService.IsBluetoothScoAvailableOffCall:input_type -> audiomanager.IsBluetoothScoAvailableOffCallRequest
-	66,  // 33: audiomanager.AudioManagerService.IsBluetoothScoOn:input_type -> audiomanager.IsBluetoothScoOnRequest
-	68,  // 34: audiomanager.AudioManagerService.IsCallScreeningModeSupported:input_type -> audiomanager.IsCallScreeningModeSupportedRequest
-	70,  // 35: audiomanager.AudioManagerService.IsMicrophoneMute:input_type -> audiomanager.IsMicrophoneMuteRequest
-	72,  // 36: audiomanager.AudioManagerService.IsMusicActive:input_type -> audiomanager.IsMusicActiveRequest
-	74,  // 37: audiomanager.AudioManagerService.IsRampingRingerEnabled:input_type -> audiomanager.IsRampingRingerEnabledRequest
-	76,  // 38: audiomanager.AudioManagerService.IsSpeakerphoneOn:input_type -> audiomanager.IsSpeakerphoneOnRequest
-	78,  // 39: audiomanager.AudioManagerService.IsStreamMute:input_type -> audiomanager.IsStreamMuteRequest
-	80,  // 40: audiomanager.AudioManagerService.IsSurroundFormatEnabled:input_type -> audiomanager.IsSurroundFormatEnabledRequest
-	82,  // 41: audiomanager.AudioManagerService.IsVolumeFixed:input_type -> audiomanager.IsVolumeFixedRequest
-	84,  // 42: audiomanager.AudioManagerService.IsVolumeGroupMuted:input_type -> audiomanager.IsVolumeGroupMutedRequest
-	86,  // 43: audiomanager.AudioManagerService.IsWiredHeadsetOn:input_type -> audiomanager.IsWiredHeadsetOnRequest
-	88,  // 44: audiomanager.AudioManagerService.LoadSoundEffects:input_type -> audiomanager.LoadSoundEffectsRequest
-	90,  // 45: audiomanager.AudioManagerService.PlaySoundEffect1:input_type -> audiomanager.PlaySoundEffect1Request
-	92,  // 46: audiomanager.AudioManagerService.PlaySoundEffect2_1:input_type -> audiomanager.PlaySoundEffect2_1Request
-	94,  // 47: audiomanager.AudioManagerService.RegisterMediaButtonEventReceiver1:input_type -> audiomanager.RegisterMediaButtonEventReceiver1Request
-	96,  // 48: audiomanager.AudioManagerService.RegisterMediaButtonEventReceiver1_1:input_type -> audiomanager.RegisterMediaButtonEventReceiver1_1Request
-	98,  // 49: audiomanager.AudioManagerService.RegisterRemoteControlClient:input_type -> audiomanager.RegisterRemoteControlClientRequest
-	100, // 50: audiomanager.AudioManagerService.RegisterRemoteController:input_type -> audiomanager.RegisterRemoteControllerRequest
-	102, // 51: audiomanager.AudioManagerService.RemoveOnCommunicationDeviceChangedListener:input_type -> audiomanager.RemoveOnCommunicationDeviceChangedListenerRequest
-	104, // 52: audiomanager.AudioManagerService.RemoveOnModeChangedListener:input_type -> audiomanager.RemoveOnModeChangedListenerRequest
-	106, // 53: audiomanager.AudioManagerService.RemoveOnPreferredMixerAttributesChangedListener:input_type -> audiomanager.RemoveOnPreferredMixerAttributesChangedListenerRequest
-	108, // 54: audiomanager.AudioManagerService.RequestAudioFocus1:input_type -> audiomanager.RequestAudioFocus1Request
-	110, // 55: audiomanager.AudioManagerService.RequestAudioFocus3_1:input_type -> audiomanager.RequestAudioFocus3_1Request
-	112, // 56: audiomanager.AudioManagerService.SetAllowedCapturePolicy:input_type -> audiomanager.SetAllowedCapturePolicyRequest
-	114, // 57: audiomanager.AudioManagerService.SetBluetoothA2dpOn:input_type -> audiomanager.SetBluetoothA2dpOnRequest
-	116, // 58: audiomanager.AudioManagerService.SetBluetoothScoOn:input_type -> audiomanager.SetBluetoothScoOnRequest
-	118, // 59: audiomanager.AudioManagerService.SetCommunicationDevice:input_type -> audiomanager.SetCommunicationDeviceRequest
-	120, // 60: audiomanager.AudioManagerService.SetEncodedSurroundMode:input_type -> audiomanager.SetEncodedSurroundModeRequest
-	122, // 61: audiomanager.AudioManagerService.SetMicrophoneMute:input_type -> audiomanager.SetMicrophoneMuteRequest
-	124, // 62: audiomanager.AudioManagerService.SetMode:input_type -> audiomanager.SetModeRequest
-	126, // 63: audiomanager.AudioManagerService.SetParameters:input_type -> audiomanager.SetParametersRequest
-	128, // 64: audiomanager.AudioManagerService.SetPreferredMixerAttributes:input_type -> audiomanager.SetPreferredMixerAttributesRequest
-	130, // 65: audiomanager.AudioManagerService.SetRingerMode:input_type -> audiomanager.SetRingerModeRequest
-	132, // 66: audiomanager.AudioManagerService.SetRouting:input_type -> audiomanager.SetRoutingRequest
-	134, // 67: audiomanager.AudioManagerService.SetSpeakerphoneOn:input_type -> audiomanager.SetSpeakerphoneOnRequest
-	136, // 68: audiomanager.AudioManagerService.SetStreamMute:input_type -> audiomanager.SetStreamMuteRequest
-	138, // 69: audiomanager.AudioManagerService.SetStreamSolo:input_type -> audiomanager.SetStreamSoloRequest
-	140, // 70: audiomanager.AudioManagerService.SetStreamVolume:input_type -> audiomanager.SetStreamVolumeRequest
-	142, // 71: audiomanager.AudioManagerService.SetSurroundFormatEnabled:input_type -> audiomanager.SetSurroundFormatEnabledRequest
-	144, // 72: audiomanager.AudioManagerService.SetVibrateSetting:input_type -> audiomanager.SetVibrateSettingRequest
-	146, // 73: audiomanager.AudioManagerService.SetWiredHeadsetOn:input_type -> audiomanager.SetWiredHeadsetOnRequest
-	148, // 74: audiomanager.AudioManagerService.ShouldVibrate:input_type -> audiomanager.ShouldVibrateRequest
-	150, // 75: audiomanager.AudioManagerService.StartBluetoothSco:input_type -> audiomanager.StartBluetoothScoRequest
-	152, // 76: audiomanager.AudioManagerService.StopBluetoothSco:input_type -> audiomanager.StopBluetoothScoRequest
-	154, // 77: audiomanager.AudioManagerService.UnloadSoundEffects:input_type -> audiomanager.UnloadSoundEffectsRequest
-	156, // 78: audiomanager.AudioManagerService.UnregisterAudioDeviceCallback:input_type -> audiomanager.UnregisterAudioDeviceCallbackRequest
-	158, // 79: audiomanager.AudioManagerService.UnregisterAudioPlaybackCallback:input_type -> audiomanager.UnregisterAudioPlaybackCallbackRequest
-	160, // 80: audiomanager.AudioManagerService.UnregisterAudioRecordingCallback:input_type -> audiomanager.UnregisterAudioRecordingCallbackRequest
-	162, // 81: audiomanager.AudioManagerService.UnregisterMediaButtonEventReceiver1:input_type -> audiomanager.UnregisterMediaButtonEventReceiver1Request
-	164, // 82: audiomanager.AudioManagerService.UnregisterMediaButtonEventReceiver1_1:input_type -> audiomanager.UnregisterMediaButtonEventReceiver1_1Request
-	166, // 83: audiomanager.AudioManagerService.UnregisterRemoteControlClient:input_type -> audiomanager.UnregisterRemoteControlClientRequest
-	168, // 84: audiomanager.AudioManagerService.UnregisterRemoteController:input_type -> audiomanager.UnregisterRemoteControllerRequest
-	170, // 85: audiomanager.AudioManagerService.GetDirectPlaybackSupport:input_type -> audiomanager.GetDirectPlaybackSupportRequest
-	172, // 86: audiomanager.AudioManagerService.GetPlaybackOffloadSupport:input_type -> audiomanager.GetPlaybackOffloadSupportRequest
-	174, // 87: audiomanager.AudioManagerService.IsHapticPlaybackSupported:input_type -> audiomanager.IsHapticPlaybackSupportedRequest
-	176, // 88: audiomanager.AudioManagerService.IsOffloadedPlaybackSupported:input_type -> audiomanager.IsOffloadedPlaybackSupportedRequest
-	1,   // 89: audiomanager.AudioManagerService.AbandonAudioFocus:output_type -> audiomanager.AbandonAudioFocusResponse
-	179, // 90: audiomanager.AudioManagerService.AbandonAudioFocusRequestOp:output_type -> audiomanager.AbandonAudioFocusRequestOpResponse
-	5,   // 91: audiomanager.AudioManagerService.AddOnCommunicationDeviceChangedListener:output_type -> audiomanager.AddOnCommunicationDeviceChangedListenerResponse
-	7,   // 92: audiomanager.AudioManagerService.AddOnModeChangedListener:output_type -> audiomanager.AddOnModeChangedListenerResponse
-	9,   // 93: audiomanager.AudioManagerService.AddOnPreferredMixerAttributesChangedListener:output_type -> audiomanager.AddOnPreferredMixerAttributesChangedListenerResponse
-	11,  // 94: audiomanager.AudioManagerService.AdjustStreamVolume:output_type -> audiomanager.AdjustStreamVolumeResponse
-	13,  // 95: audiomanager.AudioManagerService.AdjustSuggestedStreamVolume:output_type -> audiomanager.AdjustSuggestedStreamVolumeResponse
-	15,  // 96: audiomanager.AudioManagerService.AdjustVolume:output_type -> audiomanager.AdjustVolumeResponse
-	17,  // 97: audiomanager.AudioManagerService.AdjustVolumeGroupVolume:output_type -> audiomanager.AdjustVolumeGroupVolumeResponse
-	19,  // 98: audiomanager.AudioManagerService.ClearCommunicationDevice:output_type -> audiomanager.ClearCommunicationDeviceResponse
-	21,  // 99: audiomanager.AudioManagerService.ClearPreferredMixerAttributes:output_type -> audiomanager.ClearPreferredMixerAttributesResponse
-	23,  // 100: audiomanager.AudioManagerService.DispatchMediaKeyEvent:output_type -> audiomanager.DispatchMediaKeyEventResponse
-	25,  // 101: audiomanager.AudioManagerService.GenerateAudioSessionId:output_type -> audiomanager.GenerateAudioSessionIdResponse
-	27,  // 102: audiomanager.AudioManagerService.GetAllowedCapturePolicy:output_type -> audiomanager.GetAllowedCapturePolicyResponse
-	29,  // 103: audiomanager.AudioManagerService.GetAudioHwSyncForSession:output_type -> audiomanager.GetAudioHwSyncForSessionResponse
-	31,  // 104: audiomanager.AudioManagerService.GetCommunicationDevice:output_type -> audiomanager.GetCommunicationDeviceResponse
-	33,  // 105: audiomanager.AudioManagerService.GetDevices:output_type -> audiomanager.GetDevicesResponse
-	35,  // 106: audiomanager.AudioManagerService.GetEncodedSurroundMode:output_type -> audiomanager.GetEncodedSurroundModeResponse
-	37,  // 107: audiomanager.AudioManagerService.GetMode:output_type -> audiomanager.GetModeResponse
-	39,  // 108: audiomanager.AudioManagerService.GetParameters:output_type -> audiomanager.GetParametersResponse
-	41,  // 109: audiomanager.AudioManagerService.GetPreferredMixerAttributes:output_type -> audiomanager.GetPreferredMixerAttributesResponse
-	43,  // 110: audiomanager.AudioManagerService.GetProperty:output_type -> audiomanager.GetPropertyResponse
-	45,  // 111: audiomanager.AudioManagerService.GetRingerMode:output_type -> audiomanager.GetRingerModeResponse
-	47,  // 112: audiomanager.AudioManagerService.GetRouting:output_type -> audiomanager.GetRoutingResponse
-	49,  // 113: audiomanager.AudioManagerService.GetSpatializer:output_type -> audiomanager.GetSpatializerResponse
-	51,  // 114: audiomanager.AudioManagerService.GetStreamMaxVolume:output_type -> audiomanager.GetStreamMaxVolumeResponse
-	53,  // 115: audiomanager.AudioManagerService.GetStreamMinVolume:output_type -> audiomanager.GetStreamMinVolumeResponse
-	55,  // 116: audiomanager.AudioManagerService.GetStreamVolume:output_type -> audiomanager.GetStreamVolumeResponse
-	57,  // 117: audiomanager.AudioManagerService.GetStreamVolumeDb:output_type -> audiomanager.GetStreamVolumeDbResponse
-	59,  // 118: audiomanager.AudioManagerService.GetVibrateSetting:output_type -> audiomanager.GetVibrateSettingResponse
-	61,  // 119: audiomanager.AudioManagerService.GetVolumeGroupIdForAttributes:output_type -> audiomanager.GetVolumeGroupIdForAttributesResponse
-	63,  // 120: audiomanager.AudioManagerService.IsBluetoothA2dpOn:output_type -> audiomanager.IsBluetoothA2dpOnResponse
-	65,  // 121: audiomanager.AudioManagerService.IsBluetoothScoAvailableOffCall:output_type -> audiomanager.IsBluetoothScoAvailableOffCallResponse
-	67,  // 122: audiomanager.AudioManagerService.IsBluetoothScoOn:output_type -> audiomanager.IsBluetoothScoOnResponse
-	69,  // 123: audiomanager.AudioManagerService.IsCallScreeningModeSupported:output_type -> audiomanager.IsCallScreeningModeSupportedResponse
-	71,  // 124: audiomanager.AudioManagerService.IsMicrophoneMute:output_type -> audiomanager.IsMicrophoneMuteResponse
-	73,  // 125: audiomanager.AudioManagerService.IsMusicActive:output_type -> audiomanager.IsMusicActiveResponse
-	75,  // 126: audiomanager.AudioManagerService.IsRampingRingerEnabled:output_type -> audiomanager.IsRampingRingerEnabledResponse
-	77,  // 127: audiomanager.AudioManagerService.IsSpeakerphoneOn:output_type -> audiomanager.IsSpeakerphoneOnResponse
-	79,  // 128: audiomanager.AudioManagerService.IsStreamMute:output_type -> audiomanager.IsStreamMuteResponse
-	81,  // 129: audiomanager.AudioManagerService.IsSurroundFormatEnabled:output_type -> audiomanager.IsSurroundFormatEnabledResponse
-	83,  // 130: audiomanager.AudioManagerService.IsVolumeFixed:output_type -> audiomanager.IsVolumeFixedResponse
-	85,  // 131: audiomanager.AudioManagerService.IsVolumeGroupMuted:output_type -> audiomanager.IsVolumeGroupMutedResponse
-	87,  // 132: audiomanager.AudioManagerService.IsWiredHeadsetOn:output_type -> audiomanager.IsWiredHeadsetOnResponse
-	89,  // 133: audiomanager.AudioManagerService.LoadSoundEffects:output_type -> audiomanager.LoadSoundEffectsResponse
-	91,  // 134: audiomanager.AudioManagerService.PlaySoundEffect1:output_type -> audiomanager.PlaySoundEffect1Response
-	93,  // 135: audiomanager.AudioManagerService.PlaySoundEffect2_1:output_type -> audiomanager.PlaySoundEffect2_1Response
-	95,  // 136: audiomanager.AudioManagerService.RegisterMediaButtonEventReceiver1:output_type -> audiomanager.RegisterMediaButtonEventReceiver1Response
-	97,  // 137: audiomanager.AudioManagerService.RegisterMediaButtonEventReceiver1_1:output_type -> audiomanager.RegisterMediaButtonEventReceiver1_1Response
-	99,  // 138: audiomanager.AudioManagerService.RegisterRemoteControlClient:output_type -> audiomanager.RegisterRemoteControlClientResponse
-	101, // 139: audiomanager.AudioManagerService.RegisterRemoteController:output_type -> audiomanager.RegisterRemoteControllerResponse
-	103, // 140: audiomanager.AudioManagerService.RemoveOnCommunicationDeviceChangedListener:output_type -> audiomanager.RemoveOnCommunicationDeviceChangedListenerResponse
-	105, // 141: audiomanager.AudioManagerService.RemoveOnModeChangedListener:output_type -> audiomanager.RemoveOnModeChangedListenerResponse
-	107, // 142: audiomanager.AudioManagerService.RemoveOnPreferredMixerAttributesChangedListener:output_type -> audiomanager.RemoveOnPreferredMixerAttributesChangedListenerResponse
-	109, // 143: audiomanager.AudioManagerService.RequestAudioFocus1:output_type -> audiomanager.RequestAudioFocus1Response
-	111, // 144: audiomanager.AudioManagerService.RequestAudioFocus3_1:output_type -> audiomanager.RequestAudioFocus3_1Response
-	113, // 145: audiomanager.AudioManagerService.SetAllowedCapturePolicy:output_type -> audiomanager.SetAllowedCapturePolicyResponse
-	115, // 146: audiomanager.AudioManagerService.SetBluetoothA2dpOn:output_type -> audiomanager.SetBluetoothA2dpOnResponse
-	117, // 147: audiomanager.AudioManagerService.SetBluetoothScoOn:output_type -> audiomanager.SetBluetoothScoOnResponse
-	119, // 148: audiomanager.AudioManagerService.SetCommunicationDevice:output_type -> audiomanager.SetCommunicationDeviceResponse
-	121, // 149: audiomanager.AudioManagerService.SetEncodedSurroundMode:output_type -> audiomanager.SetEncodedSurroundModeResponse
-	123, // 150: audiomanager.AudioManagerService.SetMicrophoneMute:output_type -> audiomanager.SetMicrophoneMuteResponse
-	125, // 151: audiomanager.AudioManagerService.SetMode:output_type -> audiomanager.SetModeResponse
-	127, // 152: audiomanager.AudioManagerService.SetParameters:output_type -> audiomanager.SetParametersResponse
-	129, // 153: audiomanager.AudioManagerService.SetPreferredMixerAttributes:output_type -> audiomanager.SetPreferredMixerAttributesResponse
-	131, // 154: audiomanager.AudioManagerService.SetRingerMode:output_type -> audiomanager.SetRingerModeResponse
-	133, // 155: audiomanager.AudioManagerService.SetRouting:output_type -> audiomanager.SetRoutingResponse
-	135, // 156: audiomanager.AudioManagerService.SetSpeakerphoneOn:output_type -> audiomanager.SetSpeakerphoneOnResponse
-	137, // 157: audiomanager.AudioManagerService.SetStreamMute:output_type -> audiomanager.SetStreamMuteResponse
-	139, // 158: audiomanager.AudioManagerService.SetStreamSolo:output_type -> audiomanager.SetStreamSoloResponse
-	141, // 159: audiomanager.AudioManagerService.SetStreamVolume:output_type -> audiomanager.SetStreamVolumeResponse
-	143, // 160: audiomanager.AudioManagerService.SetSurroundFormatEnabled:output_type -> audiomanager.SetSurroundFormatEnabledResponse
-	145, // 161: audiomanager.AudioManagerService.SetVibrateSetting:output_type -> audiomanager.SetVibrateSettingResponse
-	147, // 162: audiomanager.AudioManagerService.SetWiredHeadsetOn:output_type -> audiomanager.SetWiredHeadsetOnResponse
-	149, // 163: audiomanager.AudioManagerService.ShouldVibrate:output_type -> audiomanager.ShouldVibrateResponse
-	151, // 164: audiomanager.AudioManagerService.StartBluetoothSco:output_type -> audiomanager.StartBluetoothScoResponse
-	153, // 165: audiomanager.AudioManagerService.StopBluetoothSco:output_type -> audiomanager.StopBluetoothScoResponse
-	155, // 166: audiomanager.AudioManagerService.UnloadSoundEffects:output_type -> audiomanager.UnloadSoundEffectsResponse
-	157, // 167: audiomanager.AudioManagerService.UnregisterAudioDeviceCallback:output_type -> audiomanager.UnregisterAudioDeviceCallbackResponse
-	159, // 168: audiomanager.AudioManagerService.UnregisterAudioPlaybackCallback:output_type -> audiomanager.UnregisterAudioPlaybackCallbackResponse
-	161, // 169: audiomanager.AudioManagerService.UnregisterAudioRecordingCallback:output_type -> audiomanager.UnregisterAudioRecordingCallbackResponse
-	163, // 170: audiomanager.AudioManagerService.UnregisterMediaButtonEventReceiver1:output_type -> audiomanager.UnregisterMediaButtonEventReceiver1Response
-	165, // 171: audiomanager.AudioManagerService.UnregisterMediaButtonEventReceiver1_1:output_type -> audiomanager.UnregisterMediaButtonEventReceiver1_1Response
-	167, // 172: audiomanager.AudioManagerService.UnregisterRemoteControlClient:output_type -> audiomanager.UnregisterRemoteControlClientResponse
-	169, // 173: audiomanager.AudioManagerService.UnregisterRemoteController:output_type -> audiomanager.UnregisterRemoteControllerResponse
-	171, // 174: audiomanager.AudioManagerService.GetDirectPlaybackSupport:output_type -> audiomanager.GetDirectPlaybackSupportResponse
-	173, // 175: audiomanager.AudioManagerService.GetPlaybackOffloadSupport:output_type -> audiomanager.GetPlaybackOffloadSupportResponse
-	175, // 176: audiomanager.AudioManagerService.IsHapticPlaybackSupported:output_type -> audiomanager.IsHapticPlaybackSupportedResponse
-	177, // 177: audiomanager.AudioManagerService.IsOffloadedPlaybackSupported:output_type -> audiomanager.IsOffloadedPlaybackSupportedResponse
-	89,  // [89:178] is the sub-list for method output_type
-	0,   // [0:89] is the sub-list for method input_type
+	0,   // 0: audiomanager.AudioDeviceInfoService.Equals:input_type -> audiomanager.EqualsRequest
+	2,   // 1: audiomanager.AudioDeviceInfoService.GetAddress:input_type -> audiomanager.GetAddressRequest
+	4,   // 2: audiomanager.AudioDeviceInfoService.GetChannelCounts:input_type -> audiomanager.GetChannelCountsRequest
+	6,   // 3: audiomanager.AudioDeviceInfoService.GetChannelIndexMasks:input_type -> audiomanager.GetChannelIndexMasksRequest
+	8,   // 4: audiomanager.AudioDeviceInfoService.GetChannelMasks:input_type -> audiomanager.GetChannelMasksRequest
+	10,  // 5: audiomanager.AudioDeviceInfoService.GetEncapsulationMetadataTypes:input_type -> audiomanager.GetEncapsulationMetadataTypesRequest
+	12,  // 6: audiomanager.AudioDeviceInfoService.GetEncapsulationModes:input_type -> audiomanager.GetEncapsulationModesRequest
+	14,  // 7: audiomanager.AudioDeviceInfoService.GetEncodings:input_type -> audiomanager.GetEncodingsRequest
+	16,  // 8: audiomanager.AudioDeviceInfoService.GetId:input_type -> audiomanager.GetIdRequest
+	18,  // 9: audiomanager.AudioDeviceInfoService.GetProductName:input_type -> audiomanager.GetProductNameRequest
+	20,  // 10: audiomanager.AudioDeviceInfoService.GetSampleRates:input_type -> audiomanager.GetSampleRatesRequest
+	22,  // 11: audiomanager.AudioDeviceInfoService.GetSpeakerLayoutChannelMask:input_type -> audiomanager.GetSpeakerLayoutChannelMaskRequest
+	24,  // 12: audiomanager.AudioDeviceInfoService.GetType:input_type -> audiomanager.GetTypeRequest
+	26,  // 13: audiomanager.AudioDeviceInfoService.HashCode:input_type -> audiomanager.HashCodeRequest
+	28,  // 14: audiomanager.AudioDeviceInfoService.IsSink:input_type -> audiomanager.IsSinkRequest
+	30,  // 15: audiomanager.AudioDeviceInfoService.IsSource:input_type -> audiomanager.IsSourceRequest
+	32,  // 16: audiomanager.AudioManagerService.AbandonAudioFocus:input_type -> audiomanager.AbandonAudioFocusRequest
+	218, // 17: audiomanager.AudioManagerService.AbandonAudioFocusRequestOp:input_type -> audiomanager.AbandonAudioFocusRequestOpRequest
+	36,  // 18: audiomanager.AudioManagerService.AddOnCommunicationDeviceChangedListener:input_type -> audiomanager.AddOnCommunicationDeviceChangedListenerRequest
+	38,  // 19: audiomanager.AudioManagerService.AddOnModeChangedListener:input_type -> audiomanager.AddOnModeChangedListenerRequest
+	40,  // 20: audiomanager.AudioManagerService.AddOnPreferredMixerAttributesChangedListener:input_type -> audiomanager.AddOnPreferredMixerAttributesChangedListenerRequest
+	42,  // 21: audiomanager.AudioManagerService.AdjustStreamVolume:input_type -> audiomanager.AdjustStreamVolumeRequest
+	44,  // 22: audiomanager.AudioManagerService.AdjustSuggestedStreamVolume:input_type -> audiomanager.AdjustSuggestedStreamVolumeRequest
+	46,  // 23: audiomanager.AudioManagerService.AdjustVolume:input_type -> audiomanager.AdjustVolumeRequest
+	48,  // 24: audiomanager.AudioManagerService.AdjustVolumeGroupVolume:input_type -> audiomanager.AdjustVolumeGroupVolumeRequest
+	50,  // 25: audiomanager.AudioManagerService.ClearCommunicationDevice:input_type -> audiomanager.ClearCommunicationDeviceRequest
+	52,  // 26: audiomanager.AudioManagerService.ClearPreferredMixerAttributes:input_type -> audiomanager.ClearPreferredMixerAttributesRequest
+	54,  // 27: audiomanager.AudioManagerService.DispatchMediaKeyEvent:input_type -> audiomanager.DispatchMediaKeyEventRequest
+	56,  // 28: audiomanager.AudioManagerService.GenerateAudioSessionId:input_type -> audiomanager.GenerateAudioSessionIdRequest
+	58,  // 29: audiomanager.AudioManagerService.GetAllowedCapturePolicy:input_type -> audiomanager.GetAllowedCapturePolicyRequest
+	60,  // 30: audiomanager.AudioManagerService.GetAudioHwSyncForSession:input_type -> audiomanager.GetAudioHwSyncForSessionRequest
+	62,  // 31: audiomanager.AudioManagerService.GetCommunicationDevice:input_type -> audiomanager.GetCommunicationDeviceRequest
+	64,  // 32: audiomanager.AudioManagerService.GetDevices:input_type -> audiomanager.GetDevicesRequest
+	66,  // 33: audiomanager.AudioManagerService.GetEncodedSurroundMode:input_type -> audiomanager.GetEncodedSurroundModeRequest
+	68,  // 34: audiomanager.AudioManagerService.GetMode:input_type -> audiomanager.GetModeRequest
+	70,  // 35: audiomanager.AudioManagerService.GetParameters:input_type -> audiomanager.GetParametersRequest
+	72,  // 36: audiomanager.AudioManagerService.GetPreferredMixerAttributes:input_type -> audiomanager.GetPreferredMixerAttributesRequest
+	74,  // 37: audiomanager.AudioManagerService.GetProperty:input_type -> audiomanager.GetPropertyRequest
+	76,  // 38: audiomanager.AudioManagerService.GetRingerMode:input_type -> audiomanager.GetRingerModeRequest
+	78,  // 39: audiomanager.AudioManagerService.GetRouting:input_type -> audiomanager.GetRoutingRequest
+	80,  // 40: audiomanager.AudioManagerService.GetSpatializer:input_type -> audiomanager.GetSpatializerRequest
+	82,  // 41: audiomanager.AudioManagerService.GetStreamMaxVolume:input_type -> audiomanager.GetStreamMaxVolumeRequest
+	84,  // 42: audiomanager.AudioManagerService.GetStreamMinVolume:input_type -> audiomanager.GetStreamMinVolumeRequest
+	86,  // 43: audiomanager.AudioManagerService.GetStreamVolume:input_type -> audiomanager.GetStreamVolumeRequest
+	88,  // 44: audiomanager.AudioManagerService.GetStreamVolumeDb:input_type -> audiomanager.GetStreamVolumeDbRequest
+	90,  // 45: audiomanager.AudioManagerService.GetVibrateSetting:input_type -> audiomanager.GetVibrateSettingRequest
+	92,  // 46: audiomanager.AudioManagerService.GetVolumeGroupIdForAttributes:input_type -> audiomanager.GetVolumeGroupIdForAttributesRequest
+	94,  // 47: audiomanager.AudioManagerService.IsBluetoothA2dpOn:input_type -> audiomanager.IsBluetoothA2dpOnRequest
+	96,  // 48: audiomanager.AudioManagerService.IsBluetoothScoAvailableOffCall:input_type -> audiomanager.IsBluetoothScoAvailableOffCallRequest
+	98,  // 49: audiomanager.AudioManagerService.IsBluetoothScoOn:input_type -> audiomanager.IsBluetoothScoOnRequest
+	100, // 50: audiomanager.AudioManagerService.IsCallScreeningModeSupported:input_type -> audiomanager.IsCallScreeningModeSupportedRequest
+	102, // 51: audiomanager.AudioManagerService.IsMicrophoneMute:input_type -> audiomanager.IsMicrophoneMuteRequest
+	104, // 52: audiomanager.AudioManagerService.IsMusicActive:input_type -> audiomanager.IsMusicActiveRequest
+	106, // 53: audiomanager.AudioManagerService.IsRampingRingerEnabled:input_type -> audiomanager.IsRampingRingerEnabledRequest
+	108, // 54: audiomanager.AudioManagerService.IsSpeakerphoneOn:input_type -> audiomanager.IsSpeakerphoneOnRequest
+	110, // 55: audiomanager.AudioManagerService.IsStreamMute:input_type -> audiomanager.IsStreamMuteRequest
+	112, // 56: audiomanager.AudioManagerService.IsSurroundFormatEnabled:input_type -> audiomanager.IsSurroundFormatEnabledRequest
+	114, // 57: audiomanager.AudioManagerService.IsVolumeFixed:input_type -> audiomanager.IsVolumeFixedRequest
+	116, // 58: audiomanager.AudioManagerService.IsVolumeGroupMuted:input_type -> audiomanager.IsVolumeGroupMutedRequest
+	118, // 59: audiomanager.AudioManagerService.IsWiredHeadsetOn:input_type -> audiomanager.IsWiredHeadsetOnRequest
+	120, // 60: audiomanager.AudioManagerService.LoadSoundEffects:input_type -> audiomanager.LoadSoundEffectsRequest
+	122, // 61: audiomanager.AudioManagerService.PlaySoundEffect1:input_type -> audiomanager.PlaySoundEffect1Request
+	124, // 62: audiomanager.AudioManagerService.PlaySoundEffect2_1:input_type -> audiomanager.PlaySoundEffect2_1Request
+	126, // 63: audiomanager.AudioManagerService.RegisterMediaButtonEventReceiver1:input_type -> audiomanager.RegisterMediaButtonEventReceiver1Request
+	128, // 64: audiomanager.AudioManagerService.RegisterMediaButtonEventReceiver1_1:input_type -> audiomanager.RegisterMediaButtonEventReceiver1_1Request
+	130, // 65: audiomanager.AudioManagerService.RegisterRemoteControlClient:input_type -> audiomanager.RegisterRemoteControlClientRequest
+	132, // 66: audiomanager.AudioManagerService.RegisterRemoteController:input_type -> audiomanager.RegisterRemoteControllerRequest
+	134, // 67: audiomanager.AudioManagerService.RemoveOnCommunicationDeviceChangedListener:input_type -> audiomanager.RemoveOnCommunicationDeviceChangedListenerRequest
+	136, // 68: audiomanager.AudioManagerService.RemoveOnModeChangedListener:input_type -> audiomanager.RemoveOnModeChangedListenerRequest
+	138, // 69: audiomanager.AudioManagerService.RemoveOnPreferredMixerAttributesChangedListener:input_type -> audiomanager.RemoveOnPreferredMixerAttributesChangedListenerRequest
+	140, // 70: audiomanager.AudioManagerService.RequestAudioFocus1:input_type -> audiomanager.RequestAudioFocus1Request
+	142, // 71: audiomanager.AudioManagerService.RequestAudioFocus3_1:input_type -> audiomanager.RequestAudioFocus3_1Request
+	144, // 72: audiomanager.AudioManagerService.SetAllowedCapturePolicy:input_type -> audiomanager.SetAllowedCapturePolicyRequest
+	146, // 73: audiomanager.AudioManagerService.SetBluetoothA2dpOn:input_type -> audiomanager.SetBluetoothA2dpOnRequest
+	148, // 74: audiomanager.AudioManagerService.SetBluetoothScoOn:input_type -> audiomanager.SetBluetoothScoOnRequest
+	150, // 75: audiomanager.AudioManagerService.SetCommunicationDevice:input_type -> audiomanager.SetCommunicationDeviceRequest
+	152, // 76: audiomanager.AudioManagerService.SetEncodedSurroundMode:input_type -> audiomanager.SetEncodedSurroundModeRequest
+	154, // 77: audiomanager.AudioManagerService.SetMicrophoneMute:input_type -> audiomanager.SetMicrophoneMuteRequest
+	156, // 78: audiomanager.AudioManagerService.SetMode:input_type -> audiomanager.SetModeRequest
+	158, // 79: audiomanager.AudioManagerService.SetParameters:input_type -> audiomanager.SetParametersRequest
+	160, // 80: audiomanager.AudioManagerService.SetPreferredMixerAttributes:input_type -> audiomanager.SetPreferredMixerAttributesRequest
+	162, // 81: audiomanager.AudioManagerService.SetRingerMode:input_type -> audiomanager.SetRingerModeRequest
+	164, // 82: audiomanager.AudioManagerService.SetRouting:input_type -> audiomanager.SetRoutingRequest
+	166, // 83: audiomanager.AudioManagerService.SetSpeakerphoneOn:input_type -> audiomanager.SetSpeakerphoneOnRequest
+	168, // 84: audiomanager.AudioManagerService.SetStreamMute:input_type -> audiomanager.SetStreamMuteRequest
+	170, // 85: audiomanager.AudioManagerService.SetStreamSolo:input_type -> audiomanager.SetStreamSoloRequest
+	172, // 86: audiomanager.AudioManagerService.SetStreamVolume:input_type -> audiomanager.SetStreamVolumeRequest
+	174, // 87: audiomanager.AudioManagerService.SetSurroundFormatEnabled:input_type -> audiomanager.SetSurroundFormatEnabledRequest
+	176, // 88: audiomanager.AudioManagerService.SetVibrateSetting:input_type -> audiomanager.SetVibrateSettingRequest
+	178, // 89: audiomanager.AudioManagerService.SetWiredHeadsetOn:input_type -> audiomanager.SetWiredHeadsetOnRequest
+	180, // 90: audiomanager.AudioManagerService.ShouldVibrate:input_type -> audiomanager.ShouldVibrateRequest
+	182, // 91: audiomanager.AudioManagerService.StartBluetoothSco:input_type -> audiomanager.StartBluetoothScoRequest
+	184, // 92: audiomanager.AudioManagerService.StopBluetoothSco:input_type -> audiomanager.StopBluetoothScoRequest
+	186, // 93: audiomanager.AudioManagerService.UnloadSoundEffects:input_type -> audiomanager.UnloadSoundEffectsRequest
+	188, // 94: audiomanager.AudioManagerService.UnregisterAudioDeviceCallback:input_type -> audiomanager.UnregisterAudioDeviceCallbackRequest
+	190, // 95: audiomanager.AudioManagerService.UnregisterAudioPlaybackCallback:input_type -> audiomanager.UnregisterAudioPlaybackCallbackRequest
+	192, // 96: audiomanager.AudioManagerService.UnregisterAudioRecordingCallback:input_type -> audiomanager.UnregisterAudioRecordingCallbackRequest
+	194, // 97: audiomanager.AudioManagerService.UnregisterMediaButtonEventReceiver1:input_type -> audiomanager.UnregisterMediaButtonEventReceiver1Request
+	196, // 98: audiomanager.AudioManagerService.UnregisterMediaButtonEventReceiver1_1:input_type -> audiomanager.UnregisterMediaButtonEventReceiver1_1Request
+	198, // 99: audiomanager.AudioManagerService.UnregisterRemoteControlClient:input_type -> audiomanager.UnregisterRemoteControlClientRequest
+	200, // 100: audiomanager.AudioManagerService.UnregisterRemoteController:input_type -> audiomanager.UnregisterRemoteControllerRequest
+	202, // 101: audiomanager.AudioManagerService.GetDirectPlaybackSupport:input_type -> audiomanager.GetDirectPlaybackSupportRequest
+	204, // 102: audiomanager.AudioManagerService.GetPlaybackOffloadSupport:input_type -> audiomanager.GetPlaybackOffloadSupportRequest
+	206, // 103: audiomanager.AudioManagerService.IsHapticPlaybackSupported:input_type -> audiomanager.IsHapticPlaybackSupportedRequest
+	208, // 104: audiomanager.AudioManagerService.IsOffloadedPlaybackSupported:input_type -> audiomanager.IsOffloadedPlaybackSupportedRequest
+	210, // 105: audiomanager.AudioManagerOnAudioFocusChangeListenerService.OnAudioFocusChange:input_type -> audiomanager.OnAudioFocusChangeRequest
+	212, // 106: audiomanager.AudioManagerOnCommunicationDeviceChangedListenerService.OnCommunicationDeviceChanged:input_type -> audiomanager.OnCommunicationDeviceChangedRequest
+	214, // 107: audiomanager.AudioManagerOnModeChangedListenerService.OnModeChanged:input_type -> audiomanager.OnModeChangedRequest
+	216, // 108: audiomanager.AudioManagerOnPreferredMixerAttributesChangedListenerService.OnPreferredMixerAttributesChanged:input_type -> audiomanager.OnPreferredMixerAttributesChangedRequest
+	1,   // 109: audiomanager.AudioDeviceInfoService.Equals:output_type -> audiomanager.EqualsResponse
+	3,   // 110: audiomanager.AudioDeviceInfoService.GetAddress:output_type -> audiomanager.GetAddressResponse
+	5,   // 111: audiomanager.AudioDeviceInfoService.GetChannelCounts:output_type -> audiomanager.GetChannelCountsResponse
+	7,   // 112: audiomanager.AudioDeviceInfoService.GetChannelIndexMasks:output_type -> audiomanager.GetChannelIndexMasksResponse
+	9,   // 113: audiomanager.AudioDeviceInfoService.GetChannelMasks:output_type -> audiomanager.GetChannelMasksResponse
+	11,  // 114: audiomanager.AudioDeviceInfoService.GetEncapsulationMetadataTypes:output_type -> audiomanager.GetEncapsulationMetadataTypesResponse
+	13,  // 115: audiomanager.AudioDeviceInfoService.GetEncapsulationModes:output_type -> audiomanager.GetEncapsulationModesResponse
+	15,  // 116: audiomanager.AudioDeviceInfoService.GetEncodings:output_type -> audiomanager.GetEncodingsResponse
+	17,  // 117: audiomanager.AudioDeviceInfoService.GetId:output_type -> audiomanager.GetIdResponse
+	19,  // 118: audiomanager.AudioDeviceInfoService.GetProductName:output_type -> audiomanager.GetProductNameResponse
+	21,  // 119: audiomanager.AudioDeviceInfoService.GetSampleRates:output_type -> audiomanager.GetSampleRatesResponse
+	23,  // 120: audiomanager.AudioDeviceInfoService.GetSpeakerLayoutChannelMask:output_type -> audiomanager.GetSpeakerLayoutChannelMaskResponse
+	25,  // 121: audiomanager.AudioDeviceInfoService.GetType:output_type -> audiomanager.GetTypeResponse
+	27,  // 122: audiomanager.AudioDeviceInfoService.HashCode:output_type -> audiomanager.HashCodeResponse
+	29,  // 123: audiomanager.AudioDeviceInfoService.IsSink:output_type -> audiomanager.IsSinkResponse
+	31,  // 124: audiomanager.AudioDeviceInfoService.IsSource:output_type -> audiomanager.IsSourceResponse
+	33,  // 125: audiomanager.AudioManagerService.AbandonAudioFocus:output_type -> audiomanager.AbandonAudioFocusResponse
+	219, // 126: audiomanager.AudioManagerService.AbandonAudioFocusRequestOp:output_type -> audiomanager.AbandonAudioFocusRequestOpResponse
+	37,  // 127: audiomanager.AudioManagerService.AddOnCommunicationDeviceChangedListener:output_type -> audiomanager.AddOnCommunicationDeviceChangedListenerResponse
+	39,  // 128: audiomanager.AudioManagerService.AddOnModeChangedListener:output_type -> audiomanager.AddOnModeChangedListenerResponse
+	41,  // 129: audiomanager.AudioManagerService.AddOnPreferredMixerAttributesChangedListener:output_type -> audiomanager.AddOnPreferredMixerAttributesChangedListenerResponse
+	43,  // 130: audiomanager.AudioManagerService.AdjustStreamVolume:output_type -> audiomanager.AdjustStreamVolumeResponse
+	45,  // 131: audiomanager.AudioManagerService.AdjustSuggestedStreamVolume:output_type -> audiomanager.AdjustSuggestedStreamVolumeResponse
+	47,  // 132: audiomanager.AudioManagerService.AdjustVolume:output_type -> audiomanager.AdjustVolumeResponse
+	49,  // 133: audiomanager.AudioManagerService.AdjustVolumeGroupVolume:output_type -> audiomanager.AdjustVolumeGroupVolumeResponse
+	51,  // 134: audiomanager.AudioManagerService.ClearCommunicationDevice:output_type -> audiomanager.ClearCommunicationDeviceResponse
+	53,  // 135: audiomanager.AudioManagerService.ClearPreferredMixerAttributes:output_type -> audiomanager.ClearPreferredMixerAttributesResponse
+	55,  // 136: audiomanager.AudioManagerService.DispatchMediaKeyEvent:output_type -> audiomanager.DispatchMediaKeyEventResponse
+	57,  // 137: audiomanager.AudioManagerService.GenerateAudioSessionId:output_type -> audiomanager.GenerateAudioSessionIdResponse
+	59,  // 138: audiomanager.AudioManagerService.GetAllowedCapturePolicy:output_type -> audiomanager.GetAllowedCapturePolicyResponse
+	61,  // 139: audiomanager.AudioManagerService.GetAudioHwSyncForSession:output_type -> audiomanager.GetAudioHwSyncForSessionResponse
+	63,  // 140: audiomanager.AudioManagerService.GetCommunicationDevice:output_type -> audiomanager.GetCommunicationDeviceResponse
+	65,  // 141: audiomanager.AudioManagerService.GetDevices:output_type -> audiomanager.GetDevicesResponse
+	67,  // 142: audiomanager.AudioManagerService.GetEncodedSurroundMode:output_type -> audiomanager.GetEncodedSurroundModeResponse
+	69,  // 143: audiomanager.AudioManagerService.GetMode:output_type -> audiomanager.GetModeResponse
+	71,  // 144: audiomanager.AudioManagerService.GetParameters:output_type -> audiomanager.GetParametersResponse
+	73,  // 145: audiomanager.AudioManagerService.GetPreferredMixerAttributes:output_type -> audiomanager.GetPreferredMixerAttributesResponse
+	75,  // 146: audiomanager.AudioManagerService.GetProperty:output_type -> audiomanager.GetPropertyResponse
+	77,  // 147: audiomanager.AudioManagerService.GetRingerMode:output_type -> audiomanager.GetRingerModeResponse
+	79,  // 148: audiomanager.AudioManagerService.GetRouting:output_type -> audiomanager.GetRoutingResponse
+	81,  // 149: audiomanager.AudioManagerService.GetSpatializer:output_type -> audiomanager.GetSpatializerResponse
+	83,  // 150: audiomanager.AudioManagerService.GetStreamMaxVolume:output_type -> audiomanager.GetStreamMaxVolumeResponse
+	85,  // 151: audiomanager.AudioManagerService.GetStreamMinVolume:output_type -> audiomanager.GetStreamMinVolumeResponse
+	87,  // 152: audiomanager.AudioManagerService.GetStreamVolume:output_type -> audiomanager.GetStreamVolumeResponse
+	89,  // 153: audiomanager.AudioManagerService.GetStreamVolumeDb:output_type -> audiomanager.GetStreamVolumeDbResponse
+	91,  // 154: audiomanager.AudioManagerService.GetVibrateSetting:output_type -> audiomanager.GetVibrateSettingResponse
+	93,  // 155: audiomanager.AudioManagerService.GetVolumeGroupIdForAttributes:output_type -> audiomanager.GetVolumeGroupIdForAttributesResponse
+	95,  // 156: audiomanager.AudioManagerService.IsBluetoothA2dpOn:output_type -> audiomanager.IsBluetoothA2dpOnResponse
+	97,  // 157: audiomanager.AudioManagerService.IsBluetoothScoAvailableOffCall:output_type -> audiomanager.IsBluetoothScoAvailableOffCallResponse
+	99,  // 158: audiomanager.AudioManagerService.IsBluetoothScoOn:output_type -> audiomanager.IsBluetoothScoOnResponse
+	101, // 159: audiomanager.AudioManagerService.IsCallScreeningModeSupported:output_type -> audiomanager.IsCallScreeningModeSupportedResponse
+	103, // 160: audiomanager.AudioManagerService.IsMicrophoneMute:output_type -> audiomanager.IsMicrophoneMuteResponse
+	105, // 161: audiomanager.AudioManagerService.IsMusicActive:output_type -> audiomanager.IsMusicActiveResponse
+	107, // 162: audiomanager.AudioManagerService.IsRampingRingerEnabled:output_type -> audiomanager.IsRampingRingerEnabledResponse
+	109, // 163: audiomanager.AudioManagerService.IsSpeakerphoneOn:output_type -> audiomanager.IsSpeakerphoneOnResponse
+	111, // 164: audiomanager.AudioManagerService.IsStreamMute:output_type -> audiomanager.IsStreamMuteResponse
+	113, // 165: audiomanager.AudioManagerService.IsSurroundFormatEnabled:output_type -> audiomanager.IsSurroundFormatEnabledResponse
+	115, // 166: audiomanager.AudioManagerService.IsVolumeFixed:output_type -> audiomanager.IsVolumeFixedResponse
+	117, // 167: audiomanager.AudioManagerService.IsVolumeGroupMuted:output_type -> audiomanager.IsVolumeGroupMutedResponse
+	119, // 168: audiomanager.AudioManagerService.IsWiredHeadsetOn:output_type -> audiomanager.IsWiredHeadsetOnResponse
+	121, // 169: audiomanager.AudioManagerService.LoadSoundEffects:output_type -> audiomanager.LoadSoundEffectsResponse
+	123, // 170: audiomanager.AudioManagerService.PlaySoundEffect1:output_type -> audiomanager.PlaySoundEffect1Response
+	125, // 171: audiomanager.AudioManagerService.PlaySoundEffect2_1:output_type -> audiomanager.PlaySoundEffect2_1Response
+	127, // 172: audiomanager.AudioManagerService.RegisterMediaButtonEventReceiver1:output_type -> audiomanager.RegisterMediaButtonEventReceiver1Response
+	129, // 173: audiomanager.AudioManagerService.RegisterMediaButtonEventReceiver1_1:output_type -> audiomanager.RegisterMediaButtonEventReceiver1_1Response
+	131, // 174: audiomanager.AudioManagerService.RegisterRemoteControlClient:output_type -> audiomanager.RegisterRemoteControlClientResponse
+	133, // 175: audiomanager.AudioManagerService.RegisterRemoteController:output_type -> audiomanager.RegisterRemoteControllerResponse
+	135, // 176: audiomanager.AudioManagerService.RemoveOnCommunicationDeviceChangedListener:output_type -> audiomanager.RemoveOnCommunicationDeviceChangedListenerResponse
+	137, // 177: audiomanager.AudioManagerService.RemoveOnModeChangedListener:output_type -> audiomanager.RemoveOnModeChangedListenerResponse
+	139, // 178: audiomanager.AudioManagerService.RemoveOnPreferredMixerAttributesChangedListener:output_type -> audiomanager.RemoveOnPreferredMixerAttributesChangedListenerResponse
+	141, // 179: audiomanager.AudioManagerService.RequestAudioFocus1:output_type -> audiomanager.RequestAudioFocus1Response
+	143, // 180: audiomanager.AudioManagerService.RequestAudioFocus3_1:output_type -> audiomanager.RequestAudioFocus3_1Response
+	145, // 181: audiomanager.AudioManagerService.SetAllowedCapturePolicy:output_type -> audiomanager.SetAllowedCapturePolicyResponse
+	147, // 182: audiomanager.AudioManagerService.SetBluetoothA2dpOn:output_type -> audiomanager.SetBluetoothA2dpOnResponse
+	149, // 183: audiomanager.AudioManagerService.SetBluetoothScoOn:output_type -> audiomanager.SetBluetoothScoOnResponse
+	151, // 184: audiomanager.AudioManagerService.SetCommunicationDevice:output_type -> audiomanager.SetCommunicationDeviceResponse
+	153, // 185: audiomanager.AudioManagerService.SetEncodedSurroundMode:output_type -> audiomanager.SetEncodedSurroundModeResponse
+	155, // 186: audiomanager.AudioManagerService.SetMicrophoneMute:output_type -> audiomanager.SetMicrophoneMuteResponse
+	157, // 187: audiomanager.AudioManagerService.SetMode:output_type -> audiomanager.SetModeResponse
+	159, // 188: audiomanager.AudioManagerService.SetParameters:output_type -> audiomanager.SetParametersResponse
+	161, // 189: audiomanager.AudioManagerService.SetPreferredMixerAttributes:output_type -> audiomanager.SetPreferredMixerAttributesResponse
+	163, // 190: audiomanager.AudioManagerService.SetRingerMode:output_type -> audiomanager.SetRingerModeResponse
+	165, // 191: audiomanager.AudioManagerService.SetRouting:output_type -> audiomanager.SetRoutingResponse
+	167, // 192: audiomanager.AudioManagerService.SetSpeakerphoneOn:output_type -> audiomanager.SetSpeakerphoneOnResponse
+	169, // 193: audiomanager.AudioManagerService.SetStreamMute:output_type -> audiomanager.SetStreamMuteResponse
+	171, // 194: audiomanager.AudioManagerService.SetStreamSolo:output_type -> audiomanager.SetStreamSoloResponse
+	173, // 195: audiomanager.AudioManagerService.SetStreamVolume:output_type -> audiomanager.SetStreamVolumeResponse
+	175, // 196: audiomanager.AudioManagerService.SetSurroundFormatEnabled:output_type -> audiomanager.SetSurroundFormatEnabledResponse
+	177, // 197: audiomanager.AudioManagerService.SetVibrateSetting:output_type -> audiomanager.SetVibrateSettingResponse
+	179, // 198: audiomanager.AudioManagerService.SetWiredHeadsetOn:output_type -> audiomanager.SetWiredHeadsetOnResponse
+	181, // 199: audiomanager.AudioManagerService.ShouldVibrate:output_type -> audiomanager.ShouldVibrateResponse
+	183, // 200: audiomanager.AudioManagerService.StartBluetoothSco:output_type -> audiomanager.StartBluetoothScoResponse
+	185, // 201: audiomanager.AudioManagerService.StopBluetoothSco:output_type -> audiomanager.StopBluetoothScoResponse
+	187, // 202: audiomanager.AudioManagerService.UnloadSoundEffects:output_type -> audiomanager.UnloadSoundEffectsResponse
+	189, // 203: audiomanager.AudioManagerService.UnregisterAudioDeviceCallback:output_type -> audiomanager.UnregisterAudioDeviceCallbackResponse
+	191, // 204: audiomanager.AudioManagerService.UnregisterAudioPlaybackCallback:output_type -> audiomanager.UnregisterAudioPlaybackCallbackResponse
+	193, // 205: audiomanager.AudioManagerService.UnregisterAudioRecordingCallback:output_type -> audiomanager.UnregisterAudioRecordingCallbackResponse
+	195, // 206: audiomanager.AudioManagerService.UnregisterMediaButtonEventReceiver1:output_type -> audiomanager.UnregisterMediaButtonEventReceiver1Response
+	197, // 207: audiomanager.AudioManagerService.UnregisterMediaButtonEventReceiver1_1:output_type -> audiomanager.UnregisterMediaButtonEventReceiver1_1Response
+	199, // 208: audiomanager.AudioManagerService.UnregisterRemoteControlClient:output_type -> audiomanager.UnregisterRemoteControlClientResponse
+	201, // 209: audiomanager.AudioManagerService.UnregisterRemoteController:output_type -> audiomanager.UnregisterRemoteControllerResponse
+	203, // 210: audiomanager.AudioManagerService.GetDirectPlaybackSupport:output_type -> audiomanager.GetDirectPlaybackSupportResponse
+	205, // 211: audiomanager.AudioManagerService.GetPlaybackOffloadSupport:output_type -> audiomanager.GetPlaybackOffloadSupportResponse
+	207, // 212: audiomanager.AudioManagerService.IsHapticPlaybackSupported:output_type -> audiomanager.IsHapticPlaybackSupportedResponse
+	209, // 213: audiomanager.AudioManagerService.IsOffloadedPlaybackSupported:output_type -> audiomanager.IsOffloadedPlaybackSupportedResponse
+	211, // 214: audiomanager.AudioManagerOnAudioFocusChangeListenerService.OnAudioFocusChange:output_type -> audiomanager.OnAudioFocusChangeResponse
+	213, // 215: audiomanager.AudioManagerOnCommunicationDeviceChangedListenerService.OnCommunicationDeviceChanged:output_type -> audiomanager.OnCommunicationDeviceChangedResponse
+	215, // 216: audiomanager.AudioManagerOnModeChangedListenerService.OnModeChanged:output_type -> audiomanager.OnModeChangedResponse
+	217, // 217: audiomanager.AudioManagerOnPreferredMixerAttributesChangedListenerService.OnPreferredMixerAttributesChanged:output_type -> audiomanager.OnPreferredMixerAttributesChangedResponse
+	109, // [109:218] is the sub-list for method output_type
+	0,   // [0:109] is the sub-list for method input_type
 	0,   // [0:0] is the sub-list for extension type_name
 	0,   // [0:0] is the sub-list for extension extendee
 	0,   // [0:0] is the sub-list for field type_name
@@ -8479,9 +10272,9 @@ func file_proto_audiomanager_audiomanager_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_audiomanager_audiomanager_proto_rawDesc), len(file_proto_audiomanager_audiomanager_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   180,
+			NumMessages:   220,
 			NumExtensions: 0,
-			NumServices:   1,
+			NumServices:   6,
 		},
 		GoTypes:           file_proto_audiomanager_audiomanager_proto_goTypes,
 		DependencyIndexes: file_proto_audiomanager_audiomanager_proto_depIdxs,

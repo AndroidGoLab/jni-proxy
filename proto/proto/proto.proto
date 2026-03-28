@@ -5,3 +5,234 @@ syntax = "proto3";
 package proto;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/proto";
+
+message NewOutputStreamRequest {
+}
+
+message NewOutputStreamResponse {
+  int64 result = 1;
+}
+
+message DumpRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message DumpResponse {
+}
+
+message EndRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message EndResponse {
+}
+
+message FlushRequest {
+  int64 handle = 1;
+}
+
+message FlushResponse {
+}
+
+message GetBytesRequest {
+  int64 handle = 1;
+}
+
+message GetBytesResponse {
+  int64 result = 1;
+}
+
+message GetRawSizeRequest {
+  int64 handle = 1;
+}
+
+message GetRawSizeResponse {
+  int32 result = 1;
+}
+
+message StartRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message StartResponse {
+  int64 result = 1;
+}
+
+message Write2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  bool arg1 = 3;
+}
+
+message Write2Response {
+}
+
+message Write2_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message Write2_1Response {
+}
+
+message Write2_2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  double arg1 = 3;
+}
+
+message Write2_2Response {
+}
+
+message Write2_3Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  float arg1 = 3;
+}
+
+message Write2_3Response {
+}
+
+message Write2_4Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message Write2_4Response {
+}
+
+message Write2_5Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+}
+
+message Write2_5Response {
+}
+
+message Write2_6Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message Write2_6Response {
+}
+
+message WriteTagRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message WriteTagResponse {
+}
+
+message CheckFieldIdRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message CheckFieldIdResponse {
+  int32 result = 1;
+}
+
+message GetFieldCountStringRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetFieldCountStringResponse {
+  string result = 1;
+}
+
+message GetFieldIdStringRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetFieldIdStringResponse {
+  string result = 1;
+}
+
+message GetFieldTypeStringRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetFieldTypeStringResponse {
+  string result = 1;
+}
+
+message GetWireTypeStringRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetWireTypeStringResponse {
+  string result = 1;
+}
+
+message MakeFieldIdRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message MakeFieldIdResponse {
+  int64 result = 1;
+}
+
+message MakeTokenRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  bool arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
+  int32 arg4 = 6;
+}
+
+message MakeTokenResponse {
+  int64 result = 1;
+}
+
+message Token2StringRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message Token2StringResponse {
+  string result = 1;
+}
+
+service OutputStreamService {
+  rpc NewOutputStream (NewOutputStreamRequest) returns (NewOutputStreamResponse);
+  rpc Dump (DumpRequest) returns (DumpResponse);
+  rpc End (EndRequest) returns (EndResponse);
+  rpc Flush (FlushRequest) returns (FlushResponse);
+  rpc GetBytes (GetBytesRequest) returns (GetBytesResponse);
+  rpc GetRawSize (GetRawSizeRequest) returns (GetRawSizeResponse);
+  rpc Start (StartRequest) returns (StartResponse);
+  rpc Write2 (Write2Request) returns (Write2Response);
+  rpc Write2_1 (Write2_1Request) returns (Write2_1Response);
+  rpc Write2_2 (Write2_2Request) returns (Write2_2Response);
+  rpc Write2_3 (Write2_3Request) returns (Write2_3Response);
+  rpc Write2_4 (Write2_4Request) returns (Write2_4Response);
+  rpc Write2_5 (Write2_5Request) returns (Write2_5Response);
+  rpc Write2_6 (Write2_6Request) returns (Write2_6Response);
+  rpc WriteTag (WriteTagRequest) returns (WriteTagResponse);
+  rpc CheckFieldId (CheckFieldIdRequest) returns (CheckFieldIdResponse);
+  rpc GetFieldCountString (GetFieldCountStringRequest) returns (GetFieldCountStringResponse);
+  rpc GetFieldIdString (GetFieldIdStringRequest) returns (GetFieldIdStringResponse);
+  rpc GetFieldTypeString (GetFieldTypeStringRequest) returns (GetFieldTypeStringResponse);
+  rpc GetWireTypeString (GetWireTypeStringRequest) returns (GetWireTypeStringResponse);
+  rpc MakeFieldId (MakeFieldIdRequest) returns (MakeFieldIdResponse);
+  rpc MakeToken (MakeTokenRequest) returns (MakeTokenResponse);
+  rpc Token2String (Token2StringRequest) returns (Token2StringResponse);
+}

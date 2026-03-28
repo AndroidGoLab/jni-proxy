@@ -5,3 +5,309 @@ syntax = "proto3";
 package printservice;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/printservice";
+
+message BlockRequest {
+  string arg0 = 1;
+}
+
+message BlockResponse {
+  bool result = 1;
+}
+
+message CancelRequest {
+}
+
+message CancelResponse {
+  bool result = 1;
+}
+
+message CompleteRequest {
+}
+
+message CompleteResponse {
+  bool result = 1;
+}
+
+message EqualsRequest {
+  int64 arg0 = 1;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message FailRequest {
+  string arg0 = 1;
+}
+
+message FailResponse {
+  bool result = 1;
+}
+
+message GetAdvancedIntOptionRequest {
+  string arg0 = 1;
+}
+
+message GetAdvancedIntOptionResponse {
+  int32 result = 1;
+}
+
+message GetAdvancedStringOptionRequest {
+  string arg0 = 1;
+}
+
+message GetAdvancedStringOptionResponse {
+  string result = 1;
+}
+
+message GetDocumentRequest {
+}
+
+message GetDocumentResponse {
+  int64 result = 1;
+}
+
+message GetIdRequest {
+}
+
+message GetIdResponse {
+  int64 result = 1;
+}
+
+message GetInfoRequest {
+}
+
+message GetInfoResponse {
+  int64 result = 1;
+}
+
+message GetTagRequest {
+}
+
+message GetTagResponse {
+  string result = 1;
+}
+
+message HasAdvancedOptionRequest {
+  string arg0 = 1;
+}
+
+message HasAdvancedOptionResponse {
+  bool result = 1;
+}
+
+message HashCodeRequest {
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message IsBlockedRequest {
+}
+
+message IsBlockedResponse {
+  bool result = 1;
+}
+
+message IsCancelledRequest {
+}
+
+message IsCancelledResponse {
+  bool result = 1;
+}
+
+message IsCompletedRequest {
+}
+
+message IsCompletedResponse {
+  bool result = 1;
+}
+
+message IsFailedRequest {
+}
+
+message IsFailedResponse {
+  bool result = 1;
+}
+
+message IsQueuedRequest {
+}
+
+message IsQueuedResponse {
+  bool result = 1;
+}
+
+message IsStartedRequest {
+}
+
+message IsStartedResponse {
+  bool result = 1;
+}
+
+message SetProgressRequest {
+  float arg0 = 1;
+}
+
+message SetProgressResponse {
+}
+
+message SetStatus1Request {
+  int32 arg0 = 1;
+}
+
+message SetStatus1Response {
+}
+
+message SetStatus1_1Request {
+  string arg0 = 1;
+}
+
+message SetStatus1_1Response {
+}
+
+message SetTagRequest {
+  string arg0 = 1;
+}
+
+message SetTagResponse {
+  bool result = 1;
+}
+
+message StartRequest {
+}
+
+message StartResponse {
+  bool result = 1;
+}
+
+message OnCustomPrinterIconLoadedRequest {
+  int64 arg0 = 1;
+}
+
+message OnCustomPrinterIconLoadedResponse {
+  bool result = 1;
+}
+
+message GetDataRequest {
+}
+
+message GetDataResponse {
+  int64 result = 1;
+}
+
+message GeneratePrinterIdRequest {
+  string arg0 = 1;
+}
+
+message GeneratePrinterIdResponse {
+  int64 result = 1;
+}
+
+message OnBindRequest {
+  int64 arg0 = 1;
+}
+
+message OnBindResponse {
+  int64 result = 1;
+}
+
+message IsDestroyedRequest {
+}
+
+message IsDestroyedResponse {
+  bool result = 1;
+}
+
+message IsPrinterDiscoveryStartedRequest {
+}
+
+message IsPrinterDiscoveryStartedResponse {
+  bool result = 1;
+}
+
+message OnDestroyRequest {
+}
+
+message OnDestroyResponse {
+}
+
+message OnRequestCustomPrinterIconRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message OnRequestCustomPrinterIconResponse {
+}
+
+message OnStartPrinterStateTrackingRequest {
+  int64 arg0 = 1;
+}
+
+message OnStartPrinterStateTrackingResponse {
+}
+
+message OnStopPrinterDiscoveryRequest {
+}
+
+message OnStopPrinterDiscoveryResponse {
+}
+
+message OnStopPrinterStateTrackingRequest {
+  int64 arg0 = 1;
+}
+
+message OnStopPrinterStateTrackingResponse {
+}
+
+service PrintJobService {
+  rpc Block (BlockRequest) returns (BlockResponse);
+  rpc Cancel (CancelRequest) returns (CancelResponse);
+  rpc Complete (CompleteRequest) returns (CompleteResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc Fail (FailRequest) returns (FailResponse);
+  rpc GetAdvancedIntOption (GetAdvancedIntOptionRequest) returns (GetAdvancedIntOptionResponse);
+  rpc GetAdvancedStringOption (GetAdvancedStringOptionRequest) returns (GetAdvancedStringOptionResponse);
+  rpc GetDocument (GetDocumentRequest) returns (GetDocumentResponse);
+  rpc GetId (GetIdRequest) returns (GetIdResponse);
+  rpc GetInfo (GetInfoRequest) returns (GetInfoResponse);
+  rpc GetTag (GetTagRequest) returns (GetTagResponse);
+  rpc HasAdvancedOption (HasAdvancedOptionRequest) returns (HasAdvancedOptionResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc IsBlocked (IsBlockedRequest) returns (IsBlockedResponse);
+  rpc IsCancelled (IsCancelledRequest) returns (IsCancelledResponse);
+  rpc IsCompleted (IsCompletedRequest) returns (IsCompletedResponse);
+  rpc IsFailed (IsFailedRequest) returns (IsFailedResponse);
+  rpc IsQueued (IsQueuedRequest) returns (IsQueuedResponse);
+  rpc IsStarted (IsStartedRequest) returns (IsStartedResponse);
+  rpc SetProgress (SetProgressRequest) returns (SetProgressResponse);
+  rpc SetStatus1 (SetStatus1Request) returns (SetStatus1Response);
+  rpc SetStatus1_1 (SetStatus1_1Request) returns (SetStatus1_1Response);
+  rpc SetTag (SetTagRequest) returns (SetTagResponse);
+  rpc Start (StartRequest) returns (StartResponse);
+}
+
+service CustomPrinterIconCallbackService {
+  rpc OnCustomPrinterIconLoaded (OnCustomPrinterIconLoadedRequest) returns (OnCustomPrinterIconLoadedResponse);
+}
+
+service PrintDocumentService {
+  rpc GetData (GetDataRequest) returns (GetDataResponse);
+  rpc GetInfo (GetInfoRequest) returns (GetInfoResponse);
+}
+
+service PrintServiceService {
+  rpc GeneratePrinterId (GeneratePrinterIdRequest) returns (GeneratePrinterIdResponse);
+  rpc OnBind (OnBindRequest) returns (OnBindResponse);
+}
+
+service PrinterDiscoverySessionService {
+  rpc IsDestroyed (IsDestroyedRequest) returns (IsDestroyedResponse);
+  rpc IsPrinterDiscoveryStarted (IsPrinterDiscoveryStartedRequest) returns (IsPrinterDiscoveryStartedResponse);
+  rpc OnDestroy (OnDestroyRequest) returns (OnDestroyResponse);
+  rpc OnRequestCustomPrinterIcon (OnRequestCustomPrinterIconRequest) returns (OnRequestCustomPrinterIconResponse);
+  rpc OnStartPrinterStateTracking (OnStartPrinterStateTrackingRequest) returns (OnStartPrinterStateTrackingResponse);
+  rpc OnStopPrinterDiscovery (OnStopPrinterDiscoveryRequest) returns (OnStopPrinterDiscoveryResponse);
+  rpc OnStopPrinterStateTracking (OnStopPrinterStateTrackingRequest) returns (OnStopPrinterStateTrackingResponse);
+}

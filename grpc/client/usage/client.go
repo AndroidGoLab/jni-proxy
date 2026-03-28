@@ -9,6 +9,971 @@ import (
 	"google.golang.org/grpc"
 )
 
+// StatsClient wraps the gRPC StatsService client.
+type StatsClient struct {
+	svc pb.StatsServiceClient
+}
+
+// NewStatsClient creates a new Stats client.
+func NewStatsClient(cc grpc.ClientConnInterface) *StatsClient {
+	return &StatsClient{
+		svc: pb.NewStatsServiceClient(cc),
+	}
+}
+
+// Add calls the Add RPC.
+func (c *StatsClient) Add(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.Add(ctx, &pb.AddRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *StatsClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFirstTimeStamp calls the GetFirstTimeStamp RPC.
+func (c *StatsClient) GetFirstTimeStamp(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetFirstTimeStamp(ctx, &pb.GetFirstTimeStampRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLastTimeForegroundServiceUsed calls the GetLastTimeForegroundServiceUsed RPC.
+func (c *StatsClient) GetLastTimeForegroundServiceUsed(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetLastTimeForegroundServiceUsed(ctx, &pb.GetLastTimeForegroundServiceUsedRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLastTimeStamp calls the GetLastTimeStamp RPC.
+func (c *StatsClient) GetLastTimeStamp(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetLastTimeStamp(ctx, &pb.GetLastTimeStampRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLastTimeUsed calls the GetLastTimeUsed RPC.
+func (c *StatsClient) GetLastTimeUsed(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetLastTimeUsed(ctx, &pb.GetLastTimeUsedRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLastTimeVisible calls the GetLastTimeVisible RPC.
+func (c *StatsClient) GetLastTimeVisible(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetLastTimeVisible(ctx, &pb.GetLastTimeVisibleRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPackageName calls the GetPackageName RPC.
+func (c *StatsClient) GetPackageName(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetPackageName(ctx, &pb.GetPackageNameRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTotalTimeForegroundServiceUsed calls the GetTotalTimeForegroundServiceUsed RPC.
+func (c *StatsClient) GetTotalTimeForegroundServiceUsed(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetTotalTimeForegroundServiceUsed(ctx, &pb.GetTotalTimeForegroundServiceUsedRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTotalTimeInForeground calls the GetTotalTimeInForeground RPC.
+func (c *StatsClient) GetTotalTimeInForeground(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetTotalTimeInForeground(ctx, &pb.GetTotalTimeInForegroundRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTotalTimeVisible calls the GetTotalTimeVisible RPC.
+func (c *StatsClient) GetTotalTimeVisible(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetTotalTimeVisible(ctx, &pb.GetTotalTimeVisibleRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *StatsClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// EventsClient wraps the gRPC EventsService client.
+type EventsClient struct {
+	svc pb.EventsServiceClient
+}
+
+// NewEventsClient creates a new Events client.
+func NewEventsClient(cc grpc.ClientConnInterface) *EventsClient {
+	return &EventsClient{
+		svc: pb.NewEventsServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *EventsClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.EventsDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNextEvent calls the GetNextEvent RPC.
+func (c *EventsClient) GetNextEvent(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.GetNextEvent(ctx, &pb.GetNextEventRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasNextEvent calls the HasNextEvent RPC.
+func (c *EventsClient) HasNextEvent(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasNextEvent(ctx, &pb.HasNextEventRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *EventsClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.EventsWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// EventsEventClient wraps the gRPC EventsEventService client.
+type EventsEventClient struct {
+	svc pb.EventsEventServiceClient
+}
+
+// NewEventsEventClient creates a new EventsEvent client.
+func NewEventsEventClient(cc grpc.ClientConnInterface) *EventsEventClient {
+	return &EventsEventClient{
+		svc: pb.NewEventsEventServiceClient(cc),
+	}
+}
+
+// GetAppStandbyBucket calls the GetAppStandbyBucket RPC.
+func (c *EventsEventClient) GetAppStandbyBucket(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetAppStandbyBucket(ctx, &pb.GetAppStandbyBucketRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetClassName calls the GetClassName RPC.
+func (c *EventsEventClient) GetClassName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetClassName(ctx, &pb.GetClassNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetConfiguration calls the GetConfiguration RPC.
+func (c *EventsEventClient) GetConfiguration(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetConfiguration(ctx, &pb.GetConfigurationRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEventType calls the GetEventType RPC.
+func (c *EventsEventClient) GetEventType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetEventType(ctx, &pb.GetEventTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExtras calls the GetExtras RPC.
+func (c *EventsEventClient) GetExtras(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetExtras(ctx, &pb.GetExtrasRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPackageName calls the GetPackageName RPC.
+func (c *EventsEventClient) GetPackageName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetPackageName(ctx, &pb.EventsEventGetPackageNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetShortcutId calls the GetShortcutId RPC.
+func (c *EventsEventClient) GetShortcutId(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetShortcutId(ctx, &pb.GetShortcutIdRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTimeStamp calls the GetTimeStamp RPC.
+func (c *EventsEventClient) GetTimeStamp(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTimeStamp(ctx, &pb.GetTimeStampRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ExternalStorageStatsClient wraps the gRPC ExternalStorageStatsService client.
+type ExternalStorageStatsClient struct {
+	svc pb.ExternalStorageStatsServiceClient
+}
+
+// NewExternalStorageStatsClient creates a new ExternalStorageStats client.
+func NewExternalStorageStatsClient(cc grpc.ClientConnInterface) *ExternalStorageStatsClient {
+	return &ExternalStorageStatsClient{
+		svc: pb.NewExternalStorageStatsServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ExternalStorageStatsClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.ExternalStorageStatsDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAppBytes calls the GetAppBytes RPC.
+func (c *ExternalStorageStatsClient) GetAppBytes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAppBytes(ctx, &pb.GetAppBytesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAudioBytes calls the GetAudioBytes RPC.
+func (c *ExternalStorageStatsClient) GetAudioBytes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAudioBytes(ctx, &pb.GetAudioBytesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetImageBytes calls the GetImageBytes RPC.
+func (c *ExternalStorageStatsClient) GetImageBytes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetImageBytes(ctx, &pb.GetImageBytesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTotalBytes calls the GetTotalBytes RPC.
+func (c *ExternalStorageStatsClient) GetTotalBytes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTotalBytes(ctx, &pb.GetTotalBytesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVideoBytes calls the GetVideoBytes RPC.
+func (c *ExternalStorageStatsClient) GetVideoBytes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetVideoBytes(ctx, &pb.GetVideoBytesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ExternalStorageStatsClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.ExternalStorageStatsWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// StorageStatsManagerClient wraps the gRPC StorageStatsManagerService client.
+type StorageStatsManagerClient struct {
+	svc pb.StorageStatsManagerServiceClient
+}
+
+// NewStorageStatsManagerClient creates a new StorageStatsManager client.
+func NewStorageStatsManagerClient(cc grpc.ClientConnInterface) *StorageStatsManagerClient {
+	return &StorageStatsManagerClient{
+		svc: pb.NewStorageStatsManagerServiceClient(cc),
+	}
+}
+
+// GetFreeBytes calls the GetFreeBytes RPC.
+func (c *StorageStatsManagerClient) GetFreeBytes(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetFreeBytes(ctx, &pb.GetFreeBytesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTotalBytes calls the GetTotalBytes RPC.
+func (c *StorageStatsManagerClient) GetTotalBytes(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetTotalBytes(ctx, &pb.StorageStatsManagerGetTotalBytesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// QueryExternalStatsForUser calls the QueryExternalStatsForUser RPC.
+func (c *StorageStatsManagerClient) QueryExternalStatsForUser(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.QueryExternalStatsForUser(ctx, &pb.QueryExternalStatsForUserRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// QueryStatsForPackage calls the QueryStatsForPackage RPC.
+func (c *StorageStatsManagerClient) QueryStatsForPackage(ctx context.Context, arg0 int64, arg1 string, arg2 int64) (int64, error) {
+	resp, err := c.svc.QueryStatsForPackage(ctx, &pb.QueryStatsForPackageRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// QueryStatsForUid calls the QueryStatsForUid RPC.
+func (c *StorageStatsManagerClient) QueryStatsForUid(ctx context.Context, arg0 int64, arg1 int32) (int64, error) {
+	resp, err := c.svc.QueryStatsForUid(ctx, &pb.QueryStatsForUidRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// QueryStatsForUser calls the QueryStatsForUser RPC.
+func (c *StorageStatsManagerClient) QueryStatsForUser(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.QueryStatsForUser(ctx, &pb.QueryStatsForUserRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ConfigurationStatsClient wraps the gRPC ConfigurationStatsService client.
+type ConfigurationStatsClient struct {
+	svc pb.ConfigurationStatsServiceClient
+}
+
+// NewConfigurationStatsClient creates a new ConfigurationStats client.
+func NewConfigurationStatsClient(cc grpc.ClientConnInterface) *ConfigurationStatsClient {
+	return &ConfigurationStatsClient{
+		svc: pb.NewConfigurationStatsServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ConfigurationStatsClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetActivationCount calls the GetActivationCount RPC.
+func (c *ConfigurationStatsClient) GetActivationCount(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetActivationCount(ctx, &pb.GetActivationCountRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetConfiguration calls the GetConfiguration RPC.
+func (c *ConfigurationStatsClient) GetConfiguration(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetConfiguration(ctx, &pb.ConfigurationStatsGetConfigurationRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFirstTimeStamp calls the GetFirstTimeStamp RPC.
+func (c *ConfigurationStatsClient) GetFirstTimeStamp(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetFirstTimeStamp(ctx, &pb.GetFirstTimeStampRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLastTimeActive calls the GetLastTimeActive RPC.
+func (c *ConfigurationStatsClient) GetLastTimeActive(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetLastTimeActive(ctx, &pb.GetLastTimeActiveRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLastTimeStamp calls the GetLastTimeStamp RPC.
+func (c *ConfigurationStatsClient) GetLastTimeStamp(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetLastTimeStamp(ctx, &pb.GetLastTimeStampRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTotalTimeActive calls the GetTotalTimeActive RPC.
+func (c *ConfigurationStatsClient) GetTotalTimeActive(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetTotalTimeActive(ctx, &pb.GetTotalTimeActiveRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ConfigurationStatsClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// NetworkStatsClient wraps the gRPC NetworkStatsService client.
+type NetworkStatsClient struct {
+	svc pb.NetworkStatsServiceClient
+}
+
+// NewNetworkStatsClient creates a new NetworkStats client.
+func NewNetworkStatsClient(cc grpc.ClientConnInterface) *NetworkStatsClient {
+	return &NetworkStatsClient{
+		svc: pb.NewNetworkStatsServiceClient(cc),
+	}
+}
+
+// Close calls the Close RPC.
+func (c *NetworkStatsClient) Close(ctx context.Context) error {
+	_, err := c.svc.Close(ctx, &pb.CloseRequest{})
+	return err
+}
+
+// GetNextBucket calls the GetNextBucket RPC.
+func (c *NetworkStatsClient) GetNextBucket(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.GetNextBucket(ctx, &pb.GetNextBucketRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasNextBucket calls the HasNextBucket RPC.
+func (c *NetworkStatsClient) HasNextBucket(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasNextBucket(ctx, &pb.HasNextBucketRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// NetworkStatsBucketClient wraps the gRPC NetworkStatsBucketService client.
+type NetworkStatsBucketClient struct {
+	svc pb.NetworkStatsBucketServiceClient
+}
+
+// NewNetworkStatsBucketClient creates a new NetworkStatsBucket client.
+func NewNetworkStatsBucketClient(cc grpc.ClientConnInterface) *NetworkStatsBucketClient {
+	return &NetworkStatsBucketClient{
+		svc: pb.NewNetworkStatsBucketServiceClient(cc),
+	}
+}
+
+// GetDefaultNetworkStatus calls the GetDefaultNetworkStatus RPC.
+func (c *NetworkStatsBucketClient) GetDefaultNetworkStatus(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetDefaultNetworkStatus(ctx, &pb.GetDefaultNetworkStatusRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEndTimeStamp calls the GetEndTimeStamp RPC.
+func (c *NetworkStatsBucketClient) GetEndTimeStamp(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetEndTimeStamp(ctx, &pb.GetEndTimeStampRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMetered calls the GetMetered RPC.
+func (c *NetworkStatsBucketClient) GetMetered(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMetered(ctx, &pb.GetMeteredRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRoaming calls the GetRoaming RPC.
+func (c *NetworkStatsBucketClient) GetRoaming(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetRoaming(ctx, &pb.GetRoamingRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRxBytes calls the GetRxBytes RPC.
+func (c *NetworkStatsBucketClient) GetRxBytes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetRxBytes(ctx, &pb.GetRxBytesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRxPackets calls the GetRxPackets RPC.
+func (c *NetworkStatsBucketClient) GetRxPackets(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetRxPackets(ctx, &pb.GetRxPacketsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStartTimeStamp calls the GetStartTimeStamp RPC.
+func (c *NetworkStatsBucketClient) GetStartTimeStamp(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetStartTimeStamp(ctx, &pb.GetStartTimeStampRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetState calls the GetState RPC.
+func (c *NetworkStatsBucketClient) GetState(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetState(ctx, &pb.GetStateRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTag calls the GetTag RPC.
+func (c *NetworkStatsBucketClient) GetTag(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetTag(ctx, &pb.GetTagRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTxBytes calls the GetTxBytes RPC.
+func (c *NetworkStatsBucketClient) GetTxBytes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTxBytes(ctx, &pb.GetTxBytesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTxPackets calls the GetTxPackets RPC.
+func (c *NetworkStatsBucketClient) GetTxPackets(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTxPackets(ctx, &pb.GetTxPacketsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUid calls the GetUid RPC.
+func (c *NetworkStatsBucketClient) GetUid(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetUid(ctx, &pb.GetUidRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// StatsManagerClient wraps the gRPC StatsManagerService client.
+type StatsManagerClient struct {
+	svc pb.StatsManagerServiceClient
+}
+
+// NewStatsManagerClient creates a new StatsManager client.
+func NewStatsManagerClient(cc grpc.ClientConnInterface) *StatsManagerClient {
+	return &StatsManagerClient{
+		svc: pb.NewStatsManagerServiceClient(cc),
+	}
+}
+
+// GetAppStandbyBucket calls the GetAppStandbyBucket RPC.
+func (c *StatsManagerClient) GetAppStandbyBucket(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetAppStandbyBucket(ctx, &pb.GetAppStandbyBucketRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsAppInactive calls the IsAppInactive RPC.
+func (c *StatsManagerClient) IsAppInactive(ctx context.Context, arg0 string) (bool, error) {
+	resp, err := c.svc.IsAppInactive(ctx, &pb.IsAppInactiveRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// QueryEvents1 calls the QueryEvents1 RPC.
+func (c *StatsManagerClient) QueryEvents1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.QueryEvents1(ctx, &pb.QueryEvents1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// QueryEvents2_1 calls the QueryEvents2_1 RPC.
+func (c *StatsManagerClient) QueryEvents2_1(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.QueryEvents2_1(ctx, &pb.QueryEvents2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// QueryEventsForSelf calls the QueryEventsForSelf RPC.
+func (c *StatsManagerClient) QueryEventsForSelf(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.QueryEventsForSelf(ctx, &pb.QueryEventsForSelfRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// EventStatsClient wraps the gRPC EventStatsService client.
+type EventStatsClient struct {
+	svc pb.EventStatsServiceClient
+}
+
+// NewEventStatsClient creates a new EventStats client.
+func NewEventStatsClient(cc grpc.ClientConnInterface) *EventStatsClient {
+	return &EventStatsClient{
+		svc: pb.NewEventStatsServiceClient(cc),
+	}
+}
+
+// Add calls the Add RPC.
+func (c *EventStatsClient) Add(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.Add(ctx, &pb.AddRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *EventStatsClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCount calls the GetCount RPC.
+func (c *EventStatsClient) GetCount(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetCount(ctx, &pb.GetCountRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEventType calls the GetEventType RPC.
+func (c *EventStatsClient) GetEventType(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetEventType(ctx, &pb.EventStatsGetEventTypeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFirstTimeStamp calls the GetFirstTimeStamp RPC.
+func (c *EventStatsClient) GetFirstTimeStamp(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetFirstTimeStamp(ctx, &pb.GetFirstTimeStampRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLastEventTime calls the GetLastEventTime RPC.
+func (c *EventStatsClient) GetLastEventTime(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetLastEventTime(ctx, &pb.GetLastEventTimeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLastTimeStamp calls the GetLastTimeStamp RPC.
+func (c *EventStatsClient) GetLastTimeStamp(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetLastTimeStamp(ctx, &pb.GetLastTimeStampRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTotalTime calls the GetTotalTime RPC.
+func (c *EventStatsClient) GetTotalTime(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetTotalTime(ctx, &pb.GetTotalTimeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *EventStatsClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// EventsQueryClient wraps the gRPC EventsQueryService client.
+type EventsQueryClient struct {
+	svc pb.EventsQueryServiceClient
+}
+
+// NewEventsQueryClient creates a new EventsQuery client.
+func NewEventsQueryClient(cc grpc.ClientConnInterface) *EventsQueryClient {
+	return &EventsQueryClient{
+		svc: pb.NewEventsQueryServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *EventsQueryClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.EventsQueryDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBeginTimeMillis calls the GetBeginTimeMillis RPC.
+func (c *EventsQueryClient) GetBeginTimeMillis(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetBeginTimeMillis(ctx, &pb.GetBeginTimeMillisRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEndTimeMillis calls the GetEndTimeMillis RPC.
+func (c *EventsQueryClient) GetEndTimeMillis(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetEndTimeMillis(ctx, &pb.GetEndTimeMillisRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEventTypes calls the GetEventTypes RPC.
+func (c *EventsQueryClient) GetEventTypes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetEventTypes(ctx, &pb.GetEventTypesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *EventsQueryClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.EventsQueryWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// EventsQueryBuilderClient wraps the gRPC EventsQueryBuilderService client.
+type EventsQueryBuilderClient struct {
+	svc pb.EventsQueryBuilderServiceClient
+}
+
+// NewEventsQueryBuilderClient creates a new EventsQueryBuilder client.
+func NewEventsQueryBuilderClient(cc grpc.ClientConnInterface) *EventsQueryBuilderClient {
+	return &EventsQueryBuilderClient{
+		svc: pb.NewEventsQueryBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *EventsQueryBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetEventTypes calls the SetEventTypes RPC.
+func (c *EventsQueryBuilderClient) SetEventTypes(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetEventTypes(ctx, &pb.SetEventTypesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPackageNames calls the SetPackageNames RPC.
+func (c *EventsQueryBuilderClient) SetPackageNames(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetPackageNames(ctx, &pb.SetPackageNamesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // NetworkStatsManagerClient wraps the gRPC NetworkStatsManagerService client.
 type NetworkStatsManagerClient struct {
 	svc pb.NetworkStatsManagerServiceClient
@@ -144,152 +1109,100 @@ func (c *NetworkStatsManagerClient) UnregisterUsageCallback(ctx context.Context,
 	return err
 }
 
-// StatsManagerClient wraps the gRPC StatsManagerService client.
-type StatsManagerClient struct {
-	svc pb.StatsManagerServiceClient
+// NetworkStatsManagerUsageCallbackClient wraps the gRPC NetworkStatsManagerUsageCallbackService client.
+type NetworkStatsManagerUsageCallbackClient struct {
+	svc pb.NetworkStatsManagerUsageCallbackServiceClient
 }
 
-// NewStatsManagerClient creates a new StatsManager client.
-func NewStatsManagerClient(cc grpc.ClientConnInterface) *StatsManagerClient {
-	return &StatsManagerClient{
-		svc: pb.NewStatsManagerServiceClient(cc),
+// NewNetworkStatsManagerUsageCallbackClient creates a new NetworkStatsManagerUsageCallback client.
+func NewNetworkStatsManagerUsageCallbackClient(cc grpc.ClientConnInterface) *NetworkStatsManagerUsageCallbackClient {
+	return &NetworkStatsManagerUsageCallbackClient{
+		svc: pb.NewNetworkStatsManagerUsageCallbackServiceClient(cc),
 	}
 }
 
-// GetAppStandbyBucket calls the GetAppStandbyBucket RPC.
-func (c *StatsManagerClient) GetAppStandbyBucket(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetAppStandbyBucket(ctx, &pb.GetAppStandbyBucketRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsAppInactive calls the IsAppInactive RPC.
-func (c *StatsManagerClient) IsAppInactive(ctx context.Context, arg0 string) (bool, error) {
-	resp, err := c.svc.IsAppInactive(ctx, &pb.IsAppInactiveRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// QueryEvents1 calls the QueryEvents1 RPC.
-func (c *StatsManagerClient) QueryEvents1(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.QueryEvents1(ctx, &pb.QueryEvents1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// QueryEvents2_1 calls the QueryEvents2_1 RPC.
-func (c *StatsManagerClient) QueryEvents2_1(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
-	resp, err := c.svc.QueryEvents2_1(ctx, &pb.QueryEvents2_1Request{
+// OnThresholdReached calls the OnThresholdReached RPC.
+func (c *NetworkStatsManagerUsageCallbackClient) OnThresholdReached(ctx context.Context, arg0 int32, arg1 string) error {
+	_, err := c.svc.OnThresholdReached(ctx, &pb.OnThresholdReachedRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 	})
+	return err
+}
+
+// StorageStatsClient wraps the gRPC StorageStatsService client.
+type StorageStatsClient struct {
+	svc pb.StorageStatsServiceClient
+}
+
+// NewStorageStatsClient creates a new StorageStats client.
+func NewStorageStatsClient(cc grpc.ClientConnInterface) *StorageStatsClient {
+	return &StorageStatsClient{
+		svc: pb.NewStorageStatsServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *StorageStatsClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.StorageStatsDescribeContentsRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// QueryEventsForSelf calls the QueryEventsForSelf RPC.
-func (c *StatsManagerClient) QueryEventsForSelf(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
-	resp, err := c.svc.QueryEventsForSelf(ctx, &pb.QueryEventsForSelfRequest{
+// GetAppBytes calls the GetAppBytes RPC.
+func (c *StorageStatsClient) GetAppBytes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAppBytes(ctx, &pb.GetAppBytesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAppBytesByDataType calls the GetAppBytesByDataType RPC.
+func (c *StorageStatsClient) GetAppBytesByDataType(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetAppBytesByDataType(ctx, &pb.GetAppBytesByDataTypeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCacheBytes calls the GetCacheBytes RPC.
+func (c *StorageStatsClient) GetCacheBytes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetCacheBytes(ctx, &pb.GetCacheBytesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDataBytes calls the GetDataBytes RPC.
+func (c *StorageStatsClient) GetDataBytes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDataBytes(ctx, &pb.GetDataBytesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExternalCacheBytes calls the GetExternalCacheBytes RPC.
+func (c *StorageStatsClient) GetExternalCacheBytes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetExternalCacheBytes(ctx, &pb.GetExternalCacheBytesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *StorageStatsClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.StorageStatsWriteToParcelRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// StorageStatsManagerClient wraps the gRPC StorageStatsManagerService client.
-type StorageStatsManagerClient struct {
-	svc pb.StorageStatsManagerServiceClient
-}
-
-// NewStorageStatsManagerClient creates a new StorageStatsManager client.
-func NewStorageStatsManagerClient(cc grpc.ClientConnInterface) *StorageStatsManagerClient {
-	return &StorageStatsManagerClient{
-		svc: pb.NewStorageStatsManagerServiceClient(cc),
-	}
-}
-
-// GetFreeBytes calls the GetFreeBytes RPC.
-func (c *StorageStatsManagerClient) GetFreeBytes(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetFreeBytes(ctx, &pb.GetFreeBytesRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTotalBytes calls the GetTotalBytes RPC.
-func (c *StorageStatsManagerClient) GetTotalBytes(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetTotalBytes(ctx, &pb.GetTotalBytesRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// QueryExternalStatsForUser calls the QueryExternalStatsForUser RPC.
-func (c *StorageStatsManagerClient) QueryExternalStatsForUser(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
-	resp, err := c.svc.QueryExternalStatsForUser(ctx, &pb.QueryExternalStatsForUserRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// QueryStatsForPackage calls the QueryStatsForPackage RPC.
-func (c *StorageStatsManagerClient) QueryStatsForPackage(ctx context.Context, arg0 int64, arg1 string, arg2 int64) (int64, error) {
-	resp, err := c.svc.QueryStatsForPackage(ctx, &pb.QueryStatsForPackageRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// QueryStatsForUid calls the QueryStatsForUid RPC.
-func (c *StorageStatsManagerClient) QueryStatsForUid(ctx context.Context, arg0 int64, arg1 int32) (int64, error) {
-	resp, err := c.svc.QueryStatsForUid(ctx, &pb.QueryStatsForUidRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// QueryStatsForUser calls the QueryStatsForUser RPC.
-func (c *StorageStatsManagerClient) QueryStatsForUser(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
-	resp, err := c.svc.QueryStatsForUser(ctx, &pb.QueryStatsForUserRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
+	return err
 }

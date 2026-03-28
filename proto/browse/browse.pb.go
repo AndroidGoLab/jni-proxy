@@ -12,6 +12,7 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -22,19 +23,2669 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type NewMediaBrowserRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int64                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewMediaBrowserRequest) Reset() {
+	*x = NewMediaBrowserRequest{}
+	mi := &file_proto_browse_browse_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewMediaBrowserRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewMediaBrowserRequest) ProtoMessage() {}
+
+func (x *NewMediaBrowserRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_browse_browse_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewMediaBrowserRequest.ProtoReflect.Descriptor instead.
+func (*NewMediaBrowserRequest) Descriptor() ([]byte, []int) {
+	return file_proto_browse_browse_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *NewMediaBrowserRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *NewMediaBrowserRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *NewMediaBrowserRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *NewMediaBrowserRequest) GetArg3() int64 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+type NewMediaBrowserResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewMediaBrowserResponse) Reset() {
+	*x = NewMediaBrowserResponse{}
+	mi := &file_proto_browse_browse_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewMediaBrowserResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewMediaBrowserResponse) ProtoMessage() {}
+
+func (x *NewMediaBrowserResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_browse_browse_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewMediaBrowserResponse.ProtoReflect.Descriptor instead.
+func (*NewMediaBrowserResponse) Descriptor() ([]byte, []int) {
+	return file_proto_browse_browse_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *NewMediaBrowserResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ConnectRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ConnectRequest) Reset() {
+	*x = ConnectRequest{}
+	mi := &file_proto_browse_browse_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ConnectRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ConnectRequest) ProtoMessage() {}
+
+func (x *ConnectRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_browse_browse_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ConnectRequest.ProtoReflect.Descriptor instead.
+func (*ConnectRequest) Descriptor() ([]byte, []int) {
+	return file_proto_browse_browse_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *ConnectRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type ConnectResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ConnectResponse) Reset() {
+	*x = ConnectResponse{}
+	mi := &file_proto_browse_browse_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ConnectResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ConnectResponse) ProtoMessage() {}
+
+func (x *ConnectResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_browse_browse_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ConnectResponse.ProtoReflect.Descriptor instead.
+func (*ConnectResponse) Descriptor() ([]byte, []int) {
+	return file_proto_browse_browse_proto_rawDescGZIP(), []int{3}
+}
+
+type DisconnectRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DisconnectRequest) Reset() {
+	*x = DisconnectRequest{}
+	mi := &file_proto_browse_browse_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DisconnectRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DisconnectRequest) ProtoMessage() {}
+
+func (x *DisconnectRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_browse_browse_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DisconnectRequest.ProtoReflect.Descriptor instead.
+func (*DisconnectRequest) Descriptor() ([]byte, []int) {
+	return file_proto_browse_browse_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *DisconnectRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type DisconnectResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DisconnectResponse) Reset() {
+	*x = DisconnectResponse{}
+	mi := &file_proto_browse_browse_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DisconnectResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DisconnectResponse) ProtoMessage() {}
+
+func (x *DisconnectResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_browse_browse_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DisconnectResponse.ProtoReflect.Descriptor instead.
+func (*DisconnectResponse) Descriptor() ([]byte, []int) {
+	return file_proto_browse_browse_proto_rawDescGZIP(), []int{5}
+}
+
+type GetExtrasRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetExtrasRequest) Reset() {
+	*x = GetExtrasRequest{}
+	mi := &file_proto_browse_browse_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetExtrasRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetExtrasRequest) ProtoMessage() {}
+
+func (x *GetExtrasRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_browse_browse_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetExtrasRequest.ProtoReflect.Descriptor instead.
+func (*GetExtrasRequest) Descriptor() ([]byte, []int) {
+	return file_proto_browse_browse_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *GetExtrasRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetExtrasResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetExtrasResponse) Reset() {
+	*x = GetExtrasResponse{}
+	mi := &file_proto_browse_browse_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetExtrasResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetExtrasResponse) ProtoMessage() {}
+
+func (x *GetExtrasResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_browse_browse_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetExtrasResponse.ProtoReflect.Descriptor instead.
+func (*GetExtrasResponse) Descriptor() ([]byte, []int) {
+	return file_proto_browse_browse_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *GetExtrasResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetItemRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          string                 `protobuf:"bytes,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetItemRequest) Reset() {
+	*x = GetItemRequest{}
+	mi := &file_proto_browse_browse_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetItemRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetItemRequest) ProtoMessage() {}
+
+func (x *GetItemRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_browse_browse_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetItemRequest.ProtoReflect.Descriptor instead.
+func (*GetItemRequest) Descriptor() ([]byte, []int) {
+	return file_proto_browse_browse_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *GetItemRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetItemRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *GetItemRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type GetItemResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetItemResponse) Reset() {
+	*x = GetItemResponse{}
+	mi := &file_proto_browse_browse_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetItemResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetItemResponse) ProtoMessage() {}
+
+func (x *GetItemResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_browse_browse_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetItemResponse.ProtoReflect.Descriptor instead.
+func (*GetItemResponse) Descriptor() ([]byte, []int) {
+	return file_proto_browse_browse_proto_rawDescGZIP(), []int{9}
+}
+
+type GetRootRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRootRequest) Reset() {
+	*x = GetRootRequest{}
+	mi := &file_proto_browse_browse_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRootRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRootRequest) ProtoMessage() {}
+
+func (x *GetRootRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_browse_browse_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRootRequest.ProtoReflect.Descriptor instead.
+func (*GetRootRequest) Descriptor() ([]byte, []int) {
+	return file_proto_browse_browse_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *GetRootRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetRootResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRootResponse) Reset() {
+	*x = GetRootResponse{}
+	mi := &file_proto_browse_browse_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRootResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRootResponse) ProtoMessage() {}
+
+func (x *GetRootResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_browse_browse_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRootResponse.ProtoReflect.Descriptor instead.
+func (*GetRootResponse) Descriptor() ([]byte, []int) {
+	return file_proto_browse_browse_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *GetRootResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetServiceComponentRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetServiceComponentRequest) Reset() {
+	*x = GetServiceComponentRequest{}
+	mi := &file_proto_browse_browse_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetServiceComponentRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetServiceComponentRequest) ProtoMessage() {}
+
+func (x *GetServiceComponentRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_browse_browse_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetServiceComponentRequest.ProtoReflect.Descriptor instead.
+func (*GetServiceComponentRequest) Descriptor() ([]byte, []int) {
+	return file_proto_browse_browse_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *GetServiceComponentRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetServiceComponentResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetServiceComponentResponse) Reset() {
+	*x = GetServiceComponentResponse{}
+	mi := &file_proto_browse_browse_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetServiceComponentResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetServiceComponentResponse) ProtoMessage() {}
+
+func (x *GetServiceComponentResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_browse_browse_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetServiceComponentResponse.ProtoReflect.Descriptor instead.
+func (*GetServiceComponentResponse) Descriptor() ([]byte, []int) {
+	return file_proto_browse_browse_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *GetServiceComponentResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSessionTokenRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSessionTokenRequest) Reset() {
+	*x = GetSessionTokenRequest{}
+	mi := &file_proto_browse_browse_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSessionTokenRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSessionTokenRequest) ProtoMessage() {}
+
+func (x *GetSessionTokenRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_browse_browse_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSessionTokenRequest.ProtoReflect.Descriptor instead.
+func (*GetSessionTokenRequest) Descriptor() ([]byte, []int) {
+	return file_proto_browse_browse_proto_rawDescGZIP(), []int{14}
+}
+
+func (x *GetSessionTokenRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetSessionTokenResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSessionTokenResponse) Reset() {
+	*x = GetSessionTokenResponse{}
+	mi := &file_proto_browse_browse_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSessionTokenResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSessionTokenResponse) ProtoMessage() {}
+
+func (x *GetSessionTokenResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_browse_browse_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSessionTokenResponse.ProtoReflect.Descriptor instead.
+func (*GetSessionTokenResponse) Descriptor() ([]byte, []int) {
+	return file_proto_browse_browse_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *GetSessionTokenResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type IsConnectedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsConnectedRequest) Reset() {
+	*x = IsConnectedRequest{}
+	mi := &file_proto_browse_browse_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsConnectedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsConnectedRequest) ProtoMessage() {}
+
+func (x *IsConnectedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_browse_browse_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsConnectedRequest.ProtoReflect.Descriptor instead.
+func (*IsConnectedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_browse_browse_proto_rawDescGZIP(), []int{16}
+}
+
+func (x *IsConnectedRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type IsConnectedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsConnectedResponse) Reset() {
+	*x = IsConnectedResponse{}
+	mi := &file_proto_browse_browse_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsConnectedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsConnectedResponse) ProtoMessage() {}
+
+func (x *IsConnectedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_browse_browse_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsConnectedResponse.ProtoReflect.Descriptor instead.
+func (*IsConnectedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_browse_browse_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *IsConnectedResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type Subscribe2Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          string                 `protobuf:"bytes,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Subscribe2Request) Reset() {
+	*x = Subscribe2Request{}
+	mi := &file_proto_browse_browse_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Subscribe2Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Subscribe2Request) ProtoMessage() {}
+
+func (x *Subscribe2Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_browse_browse_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Subscribe2Request.ProtoReflect.Descriptor instead.
+func (*Subscribe2Request) Descriptor() ([]byte, []int) {
+	return file_proto_browse_browse_proto_rawDescGZIP(), []int{18}
+}
+
+func (x *Subscribe2Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *Subscribe2Request) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *Subscribe2Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type Subscribe2Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Subscribe2Response) Reset() {
+	*x = Subscribe2Response{}
+	mi := &file_proto_browse_browse_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Subscribe2Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Subscribe2Response) ProtoMessage() {}
+
+func (x *Subscribe2Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_browse_browse_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Subscribe2Response.ProtoReflect.Descriptor instead.
+func (*Subscribe2Response) Descriptor() ([]byte, []int) {
+	return file_proto_browse_browse_proto_rawDescGZIP(), []int{19}
+}
+
+type Subscribe3_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          string                 `protobuf:"bytes,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Subscribe3_1Request) Reset() {
+	*x = Subscribe3_1Request{}
+	mi := &file_proto_browse_browse_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Subscribe3_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Subscribe3_1Request) ProtoMessage() {}
+
+func (x *Subscribe3_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_browse_browse_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Subscribe3_1Request.ProtoReflect.Descriptor instead.
+func (*Subscribe3_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_browse_browse_proto_rawDescGZIP(), []int{20}
+}
+
+func (x *Subscribe3_1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *Subscribe3_1Request) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *Subscribe3_1Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *Subscribe3_1Request) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type Subscribe3_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Subscribe3_1Response) Reset() {
+	*x = Subscribe3_1Response{}
+	mi := &file_proto_browse_browse_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Subscribe3_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Subscribe3_1Response) ProtoMessage() {}
+
+func (x *Subscribe3_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_browse_browse_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Subscribe3_1Response.ProtoReflect.Descriptor instead.
+func (*Subscribe3_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_browse_browse_proto_rawDescGZIP(), []int{21}
+}
+
+type Unsubscribe1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          string                 `protobuf:"bytes,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Unsubscribe1Request) Reset() {
+	*x = Unsubscribe1Request{}
+	mi := &file_proto_browse_browse_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Unsubscribe1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Unsubscribe1Request) ProtoMessage() {}
+
+func (x *Unsubscribe1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_browse_browse_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Unsubscribe1Request.ProtoReflect.Descriptor instead.
+func (*Unsubscribe1Request) Descriptor() ([]byte, []int) {
+	return file_proto_browse_browse_proto_rawDescGZIP(), []int{22}
+}
+
+func (x *Unsubscribe1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *Unsubscribe1Request) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type Unsubscribe1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Unsubscribe1Response) Reset() {
+	*x = Unsubscribe1Response{}
+	mi := &file_proto_browse_browse_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Unsubscribe1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Unsubscribe1Response) ProtoMessage() {}
+
+func (x *Unsubscribe1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_browse_browse_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Unsubscribe1Response.ProtoReflect.Descriptor instead.
+func (*Unsubscribe1Response) Descriptor() ([]byte, []int) {
+	return file_proto_browse_browse_proto_rawDescGZIP(), []int{23}
+}
+
+type Unsubscribe2_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          string                 `protobuf:"bytes,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Unsubscribe2_1Request) Reset() {
+	*x = Unsubscribe2_1Request{}
+	mi := &file_proto_browse_browse_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Unsubscribe2_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Unsubscribe2_1Request) ProtoMessage() {}
+
+func (x *Unsubscribe2_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_browse_browse_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Unsubscribe2_1Request.ProtoReflect.Descriptor instead.
+func (*Unsubscribe2_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_browse_browse_proto_rawDescGZIP(), []int{24}
+}
+
+func (x *Unsubscribe2_1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *Unsubscribe2_1Request) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *Unsubscribe2_1Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type Unsubscribe2_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Unsubscribe2_1Response) Reset() {
+	*x = Unsubscribe2_1Response{}
+	mi := &file_proto_browse_browse_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Unsubscribe2_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Unsubscribe2_1Response) ProtoMessage() {}
+
+func (x *Unsubscribe2_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_browse_browse_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Unsubscribe2_1Response.ProtoReflect.Descriptor instead.
+func (*Unsubscribe2_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_browse_browse_proto_rawDescGZIP(), []int{25}
+}
+
+type OnConnectedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnConnectedRequest) Reset() {
+	*x = OnConnectedRequest{}
+	mi := &file_proto_browse_browse_proto_msgTypes[26]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnConnectedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnConnectedRequest) ProtoMessage() {}
+
+func (x *OnConnectedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_browse_browse_proto_msgTypes[26]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnConnectedRequest.ProtoReflect.Descriptor instead.
+func (*OnConnectedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_browse_browse_proto_rawDescGZIP(), []int{26}
+}
+
+type OnConnectedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnConnectedResponse) Reset() {
+	*x = OnConnectedResponse{}
+	mi := &file_proto_browse_browse_proto_msgTypes[27]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnConnectedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnConnectedResponse) ProtoMessage() {}
+
+func (x *OnConnectedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_browse_browse_proto_msgTypes[27]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnConnectedResponse.ProtoReflect.Descriptor instead.
+func (*OnConnectedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_browse_browse_proto_rawDescGZIP(), []int{27}
+}
+
+type OnConnectionFailedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnConnectionFailedRequest) Reset() {
+	*x = OnConnectionFailedRequest{}
+	mi := &file_proto_browse_browse_proto_msgTypes[28]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnConnectionFailedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnConnectionFailedRequest) ProtoMessage() {}
+
+func (x *OnConnectionFailedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_browse_browse_proto_msgTypes[28]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnConnectionFailedRequest.ProtoReflect.Descriptor instead.
+func (*OnConnectionFailedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_browse_browse_proto_rawDescGZIP(), []int{28}
+}
+
+type OnConnectionFailedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnConnectionFailedResponse) Reset() {
+	*x = OnConnectionFailedResponse{}
+	mi := &file_proto_browse_browse_proto_msgTypes[29]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnConnectionFailedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnConnectionFailedResponse) ProtoMessage() {}
+
+func (x *OnConnectionFailedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_browse_browse_proto_msgTypes[29]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnConnectionFailedResponse.ProtoReflect.Descriptor instead.
+func (*OnConnectionFailedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_browse_browse_proto_rawDescGZIP(), []int{29}
+}
+
+type OnConnectionSuspendedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnConnectionSuspendedRequest) Reset() {
+	*x = OnConnectionSuspendedRequest{}
+	mi := &file_proto_browse_browse_proto_msgTypes[30]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnConnectionSuspendedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnConnectionSuspendedRequest) ProtoMessage() {}
+
+func (x *OnConnectionSuspendedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_browse_browse_proto_msgTypes[30]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnConnectionSuspendedRequest.ProtoReflect.Descriptor instead.
+func (*OnConnectionSuspendedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_browse_browse_proto_rawDescGZIP(), []int{30}
+}
+
+type OnConnectionSuspendedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnConnectionSuspendedResponse) Reset() {
+	*x = OnConnectionSuspendedResponse{}
+	mi := &file_proto_browse_browse_proto_msgTypes[31]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnConnectionSuspendedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnConnectionSuspendedResponse) ProtoMessage() {}
+
+func (x *OnConnectionSuspendedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_browse_browse_proto_msgTypes[31]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnConnectionSuspendedResponse.ProtoReflect.Descriptor instead.
+func (*OnConnectionSuspendedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_browse_browse_proto_rawDescGZIP(), []int{31}
+}
+
+type OnErrorRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnErrorRequest) Reset() {
+	*x = OnErrorRequest{}
+	mi := &file_proto_browse_browse_proto_msgTypes[32]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnErrorRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnErrorRequest) ProtoMessage() {}
+
+func (x *OnErrorRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_browse_browse_proto_msgTypes[32]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnErrorRequest.ProtoReflect.Descriptor instead.
+func (*OnErrorRequest) Descriptor() ([]byte, []int) {
+	return file_proto_browse_browse_proto_rawDescGZIP(), []int{32}
+}
+
+func (x *OnErrorRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type OnErrorResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnErrorResponse) Reset() {
+	*x = OnErrorResponse{}
+	mi := &file_proto_browse_browse_proto_msgTypes[33]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnErrorResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnErrorResponse) ProtoMessage() {}
+
+func (x *OnErrorResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_browse_browse_proto_msgTypes[33]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnErrorResponse.ProtoReflect.Descriptor instead.
+func (*OnErrorResponse) Descriptor() ([]byte, []int) {
+	return file_proto_browse_browse_proto_rawDescGZIP(), []int{33}
+}
+
+type OnItemLoadedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnItemLoadedRequest) Reset() {
+	*x = OnItemLoadedRequest{}
+	mi := &file_proto_browse_browse_proto_msgTypes[34]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnItemLoadedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnItemLoadedRequest) ProtoMessage() {}
+
+func (x *OnItemLoadedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_browse_browse_proto_msgTypes[34]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnItemLoadedRequest.ProtoReflect.Descriptor instead.
+func (*OnItemLoadedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_browse_browse_proto_rawDescGZIP(), []int{34}
+}
+
+func (x *OnItemLoadedRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnItemLoadedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnItemLoadedResponse) Reset() {
+	*x = OnItemLoadedResponse{}
+	mi := &file_proto_browse_browse_proto_msgTypes[35]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnItemLoadedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnItemLoadedResponse) ProtoMessage() {}
+
+func (x *OnItemLoadedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_browse_browse_proto_msgTypes[35]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnItemLoadedResponse.ProtoReflect.Descriptor instead.
+func (*OnItemLoadedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_browse_browse_proto_rawDescGZIP(), []int{35}
+}
+
+type DescribeContentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DescribeContentsRequest) Reset() {
+	*x = DescribeContentsRequest{}
+	mi := &file_proto_browse_browse_proto_msgTypes[36]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DescribeContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DescribeContentsRequest) ProtoMessage() {}
+
+func (x *DescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_browse_browse_proto_msgTypes[36]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*DescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_browse_browse_proto_rawDescGZIP(), []int{36}
+}
+
+type DescribeContentsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DescribeContentsResponse) Reset() {
+	*x = DescribeContentsResponse{}
+	mi := &file_proto_browse_browse_proto_msgTypes[37]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DescribeContentsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DescribeContentsResponse) ProtoMessage() {}
+
+func (x *DescribeContentsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_browse_browse_proto_msgTypes[37]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DescribeContentsResponse.ProtoReflect.Descriptor instead.
+func (*DescribeContentsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_browse_browse_proto_rawDescGZIP(), []int{37}
+}
+
+func (x *DescribeContentsResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetDescriptionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDescriptionRequest) Reset() {
+	*x = GetDescriptionRequest{}
+	mi := &file_proto_browse_browse_proto_msgTypes[38]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDescriptionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDescriptionRequest) ProtoMessage() {}
+
+func (x *GetDescriptionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_browse_browse_proto_msgTypes[38]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDescriptionRequest.ProtoReflect.Descriptor instead.
+func (*GetDescriptionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_browse_browse_proto_rawDescGZIP(), []int{38}
+}
+
+type GetDescriptionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDescriptionResponse) Reset() {
+	*x = GetDescriptionResponse{}
+	mi := &file_proto_browse_browse_proto_msgTypes[39]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDescriptionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDescriptionResponse) ProtoMessage() {}
+
+func (x *GetDescriptionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_browse_browse_proto_msgTypes[39]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDescriptionResponse.ProtoReflect.Descriptor instead.
+func (*GetDescriptionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_browse_browse_proto_rawDescGZIP(), []int{39}
+}
+
+func (x *GetDescriptionResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetFlagsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetFlagsRequest) Reset() {
+	*x = GetFlagsRequest{}
+	mi := &file_proto_browse_browse_proto_msgTypes[40]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetFlagsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetFlagsRequest) ProtoMessage() {}
+
+func (x *GetFlagsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_browse_browse_proto_msgTypes[40]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetFlagsRequest.ProtoReflect.Descriptor instead.
+func (*GetFlagsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_browse_browse_proto_rawDescGZIP(), []int{40}
+}
+
+type GetFlagsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetFlagsResponse) Reset() {
+	*x = GetFlagsResponse{}
+	mi := &file_proto_browse_browse_proto_msgTypes[41]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetFlagsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetFlagsResponse) ProtoMessage() {}
+
+func (x *GetFlagsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_browse_browse_proto_msgTypes[41]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetFlagsResponse.ProtoReflect.Descriptor instead.
+func (*GetFlagsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_browse_browse_proto_rawDescGZIP(), []int{41}
+}
+
+func (x *GetFlagsResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetMediaIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMediaIdRequest) Reset() {
+	*x = GetMediaIdRequest{}
+	mi := &file_proto_browse_browse_proto_msgTypes[42]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMediaIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMediaIdRequest) ProtoMessage() {}
+
+func (x *GetMediaIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_browse_browse_proto_msgTypes[42]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMediaIdRequest.ProtoReflect.Descriptor instead.
+func (*GetMediaIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_browse_browse_proto_rawDescGZIP(), []int{42}
+}
+
+type GetMediaIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMediaIdResponse) Reset() {
+	*x = GetMediaIdResponse{}
+	mi := &file_proto_browse_browse_proto_msgTypes[43]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMediaIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMediaIdResponse) ProtoMessage() {}
+
+func (x *GetMediaIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_browse_browse_proto_msgTypes[43]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMediaIdResponse.ProtoReflect.Descriptor instead.
+func (*GetMediaIdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_browse_browse_proto_rawDescGZIP(), []int{43}
+}
+
+func (x *GetMediaIdResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type IsBrowsableRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsBrowsableRequest) Reset() {
+	*x = IsBrowsableRequest{}
+	mi := &file_proto_browse_browse_proto_msgTypes[44]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsBrowsableRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsBrowsableRequest) ProtoMessage() {}
+
+func (x *IsBrowsableRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_browse_browse_proto_msgTypes[44]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsBrowsableRequest.ProtoReflect.Descriptor instead.
+func (*IsBrowsableRequest) Descriptor() ([]byte, []int) {
+	return file_proto_browse_browse_proto_rawDescGZIP(), []int{44}
+}
+
+type IsBrowsableResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsBrowsableResponse) Reset() {
+	*x = IsBrowsableResponse{}
+	mi := &file_proto_browse_browse_proto_msgTypes[45]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsBrowsableResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsBrowsableResponse) ProtoMessage() {}
+
+func (x *IsBrowsableResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_browse_browse_proto_msgTypes[45]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsBrowsableResponse.ProtoReflect.Descriptor instead.
+func (*IsBrowsableResponse) Descriptor() ([]byte, []int) {
+	return file_proto_browse_browse_proto_rawDescGZIP(), []int{45}
+}
+
+func (x *IsBrowsableResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsPlayableRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsPlayableRequest) Reset() {
+	*x = IsPlayableRequest{}
+	mi := &file_proto_browse_browse_proto_msgTypes[46]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsPlayableRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsPlayableRequest) ProtoMessage() {}
+
+func (x *IsPlayableRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_browse_browse_proto_msgTypes[46]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsPlayableRequest.ProtoReflect.Descriptor instead.
+func (*IsPlayableRequest) Descriptor() ([]byte, []int) {
+	return file_proto_browse_browse_proto_rawDescGZIP(), []int{46}
+}
+
+type IsPlayableResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsPlayableResponse) Reset() {
+	*x = IsPlayableResponse{}
+	mi := &file_proto_browse_browse_proto_msgTypes[47]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsPlayableResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsPlayableResponse) ProtoMessage() {}
+
+func (x *IsPlayableResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_browse_browse_proto_msgTypes[47]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsPlayableResponse.ProtoReflect.Descriptor instead.
+func (*IsPlayableResponse) Descriptor() ([]byte, []int) {
+	return file_proto_browse_browse_proto_rawDescGZIP(), []int{47}
+}
+
+func (x *IsPlayableResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type ToStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringRequest) Reset() {
+	*x = ToStringRequest{}
+	mi := &file_proto_browse_browse_proto_msgTypes[48]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringRequest) ProtoMessage() {}
+
+func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_browse_browse_proto_msgTypes[48]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringRequest.ProtoReflect.Descriptor instead.
+func (*ToStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_browse_browse_proto_rawDescGZIP(), []int{48}
+}
+
+type ToStringResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringResponse) Reset() {
+	*x = ToStringResponse{}
+	mi := &file_proto_browse_browse_proto_msgTypes[49]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringResponse) ProtoMessage() {}
+
+func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_browse_browse_proto_msgTypes[49]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringResponse.ProtoReflect.Descriptor instead.
+func (*ToStringResponse) Descriptor() ([]byte, []int) {
+	return file_proto_browse_browse_proto_rawDescGZIP(), []int{49}
+}
+
+func (x *ToStringResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type WriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WriteToParcelRequest) Reset() {
+	*x = WriteToParcelRequest{}
+	mi := &file_proto_browse_browse_proto_msgTypes[50]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WriteToParcelRequest) ProtoMessage() {}
+
+func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_browse_browse_proto_msgTypes[50]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*WriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_browse_browse_proto_rawDescGZIP(), []int{50}
+}
+
+func (x *WriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *WriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type WriteToParcelResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WriteToParcelResponse) Reset() {
+	*x = WriteToParcelResponse{}
+	mi := &file_proto_browse_browse_proto_msgTypes[51]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WriteToParcelResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WriteToParcelResponse) ProtoMessage() {}
+
+func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_browse_browse_proto_msgTypes[51]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WriteToParcelResponse.ProtoReflect.Descriptor instead.
+func (*WriteToParcelResponse) Descriptor() ([]byte, []int) {
+	return file_proto_browse_browse_proto_rawDescGZIP(), []int{51}
+}
+
+type OnError1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnError1Request) Reset() {
+	*x = OnError1Request{}
+	mi := &file_proto_browse_browse_proto_msgTypes[52]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnError1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnError1Request) ProtoMessage() {}
+
+func (x *OnError1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_browse_browse_proto_msgTypes[52]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnError1Request.ProtoReflect.Descriptor instead.
+func (*OnError1Request) Descriptor() ([]byte, []int) {
+	return file_proto_browse_browse_proto_rawDescGZIP(), []int{52}
+}
+
+func (x *OnError1Request) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type OnError1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnError1Response) Reset() {
+	*x = OnError1Response{}
+	mi := &file_proto_browse_browse_proto_msgTypes[53]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnError1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnError1Response) ProtoMessage() {}
+
+func (x *OnError1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_browse_browse_proto_msgTypes[53]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnError1Response.ProtoReflect.Descriptor instead.
+func (*OnError1Response) Descriptor() ([]byte, []int) {
+	return file_proto_browse_browse_proto_rawDescGZIP(), []int{53}
+}
+
+type OnError2_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnError2_1Request) Reset() {
+	*x = OnError2_1Request{}
+	mi := &file_proto_browse_browse_proto_msgTypes[54]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnError2_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnError2_1Request) ProtoMessage() {}
+
+func (x *OnError2_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_browse_browse_proto_msgTypes[54]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnError2_1Request.ProtoReflect.Descriptor instead.
+func (*OnError2_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_browse_browse_proto_rawDescGZIP(), []int{54}
+}
+
+func (x *OnError2_1Request) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *OnError2_1Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type OnError2_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnError2_1Response) Reset() {
+	*x = OnError2_1Response{}
+	mi := &file_proto_browse_browse_proto_msgTypes[55]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnError2_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnError2_1Response) ProtoMessage() {}
+
+func (x *OnError2_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_browse_browse_proto_msgTypes[55]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnError2_1Response.ProtoReflect.Descriptor instead.
+func (*OnError2_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_browse_browse_proto_rawDescGZIP(), []int{55}
+}
+
 var File_proto_browse_browse_proto protoreflect.FileDescriptor
 
 const file_proto_browse_browse_proto_rawDesc = "" +
 	"\n" +
-	"\x19proto/browse/browse.proto\x12\x06browseB0Z.github.com/AndroidGoLab/jni-proxy/proto/browseb\x06proto3"
+	"\x19proto/browse/browse.proto\x12\x06browse\"h\n" +
+	"\x16NewMediaBrowserRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\"1\n" +
+	"\x17NewMediaBrowserResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"(\n" +
+	"\x0eConnectRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x11\n" +
+	"\x0fConnectResponse\"+\n" +
+	"\x11DisconnectRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x14\n" +
+	"\x12DisconnectResponse\"*\n" +
+	"\x10GetExtrasRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"+\n" +
+	"\x11GetExtrasResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"P\n" +
+	"\x0eGetItemRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"\x11\n" +
+	"\x0fGetItemResponse\"(\n" +
+	"\x0eGetRootRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\")\n" +
+	"\x0fGetRootResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"4\n" +
+	"\x1aGetServiceComponentRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"5\n" +
+	"\x1bGetServiceComponentResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"0\n" +
+	"\x16GetSessionTokenRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"1\n" +
+	"\x17GetSessionTokenResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\",\n" +
+	"\x12IsConnectedRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"-\n" +
+	"\x13IsConnectedResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"S\n" +
+	"\x11Subscribe2Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"\x14\n" +
+	"\x12Subscribe2Response\"i\n" +
+	"\x13Subscribe3_1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x03R\x04arg2\"\x16\n" +
+	"\x14Subscribe3_1Response\"A\n" +
+	"\x13Unsubscribe1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\tR\x04arg0\"\x16\n" +
+	"\x14Unsubscribe1Response\"W\n" +
+	"\x15Unsubscribe2_1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"\x18\n" +
+	"\x16Unsubscribe2_1Response\"\x14\n" +
+	"\x12OnConnectedRequest\"\x15\n" +
+	"\x13OnConnectedResponse\"\x1b\n" +
+	"\x19OnConnectionFailedRequest\"\x1c\n" +
+	"\x1aOnConnectionFailedResponse\"\x1e\n" +
+	"\x1cOnConnectionSuspendedRequest\"\x1f\n" +
+	"\x1dOnConnectionSuspendedResponse\"$\n" +
+	"\x0eOnErrorRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"\x11\n" +
+	"\x0fOnErrorResponse\")\n" +
+	"\x13OnItemLoadedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x16\n" +
+	"\x14OnItemLoadedResponse\"\x19\n" +
+	"\x17DescribeContentsRequest\"2\n" +
+	"\x18DescribeContentsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x17\n" +
+	"\x15GetDescriptionRequest\"0\n" +
+	"\x16GetDescriptionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x11\n" +
+	"\x0fGetFlagsRequest\"*\n" +
+	"\x10GetFlagsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x13\n" +
+	"\x11GetMediaIdRequest\",\n" +
+	"\x12GetMediaIdResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x14\n" +
+	"\x12IsBrowsableRequest\"-\n" +
+	"\x13IsBrowsableResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x13\n" +
+	"\x11IsPlayableRequest\",\n" +
+	"\x12IsPlayableResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x11\n" +
+	"\x0fToStringRequest\"*\n" +
+	"\x10ToStringResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\">\n" +
+	"\x14WriteToParcelRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x17\n" +
+	"\x15WriteToParcelResponse\"%\n" +
+	"\x0fOnError1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"\x12\n" +
+	"\x10OnError1Response\";\n" +
+	"\x11OnError2_1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x14\n" +
+	"\x12OnError2_1Response2\xcc\a\n" +
+	"\x13MediaBrowserService\x12R\n" +
+	"\x0fNewMediaBrowser\x12\x1e.browse.NewMediaBrowserRequest\x1a\x1f.browse.NewMediaBrowserResponse\x12:\n" +
+	"\aConnect\x12\x16.browse.ConnectRequest\x1a\x17.browse.ConnectResponse\x12C\n" +
+	"\n" +
+	"Disconnect\x12\x19.browse.DisconnectRequest\x1a\x1a.browse.DisconnectResponse\x12@\n" +
+	"\tGetExtras\x12\x18.browse.GetExtrasRequest\x1a\x19.browse.GetExtrasResponse\x12:\n" +
+	"\aGetItem\x12\x16.browse.GetItemRequest\x1a\x17.browse.GetItemResponse\x12:\n" +
+	"\aGetRoot\x12\x16.browse.GetRootRequest\x1a\x17.browse.GetRootResponse\x12^\n" +
+	"\x13GetServiceComponent\x12\".browse.GetServiceComponentRequest\x1a#.browse.GetServiceComponentResponse\x12R\n" +
+	"\x0fGetSessionToken\x12\x1e.browse.GetSessionTokenRequest\x1a\x1f.browse.GetSessionTokenResponse\x12F\n" +
+	"\vIsConnected\x12\x1a.browse.IsConnectedRequest\x1a\x1b.browse.IsConnectedResponse\x12C\n" +
+	"\n" +
+	"Subscribe2\x12\x19.browse.Subscribe2Request\x1a\x1a.browse.Subscribe2Response\x12I\n" +
+	"\fSubscribe3_1\x12\x1b.browse.Subscribe3_1Request\x1a\x1c.browse.Subscribe3_1Response\x12I\n" +
+	"\fUnsubscribe1\x12\x1b.browse.Unsubscribe1Request\x1a\x1c.browse.Unsubscribe1Response\x12O\n" +
+	"\x0eUnsubscribe2_1\x12\x1d.browse.Unsubscribe2_1Request\x1a\x1e.browse.Unsubscribe2_1Response2\xb2\x02\n" +
+	"%MediaBrowserConnectionCallbackService\x12F\n" +
+	"\vOnConnected\x12\x1a.browse.OnConnectedRequest\x1a\x1b.browse.OnConnectedResponse\x12[\n" +
+	"\x12OnConnectionFailed\x12!.browse.OnConnectionFailedRequest\x1a\".browse.OnConnectionFailedResponse\x12d\n" +
+	"\x15OnConnectionSuspended\x12$.browse.OnConnectionSuspendedRequest\x1a%.browse.OnConnectionSuspendedResponse2\xa8\x01\n" +
+	"\x1fMediaBrowserItemCallbackService\x12:\n" +
+	"\aOnError\x12\x16.browse.OnErrorRequest\x1a\x17.browse.OnErrorResponse\x12I\n" +
+	"\fOnItemLoaded\x12\x1b.browse.OnItemLoadedRequest\x1a\x1c.browse.OnItemLoadedResponse2\xe4\x04\n" +
+	"\x1cMediaBrowserMediaItemService\x12U\n" +
+	"\x10DescribeContents\x12\x1f.browse.DescribeContentsRequest\x1a .browse.DescribeContentsResponse\x12O\n" +
+	"\x0eGetDescription\x12\x1d.browse.GetDescriptionRequest\x1a\x1e.browse.GetDescriptionResponse\x12=\n" +
+	"\bGetFlags\x12\x17.browse.GetFlagsRequest\x1a\x18.browse.GetFlagsResponse\x12C\n" +
+	"\n" +
+	"GetMediaId\x12\x19.browse.GetMediaIdRequest\x1a\x1a.browse.GetMediaIdResponse\x12F\n" +
+	"\vIsBrowsable\x12\x1a.browse.IsBrowsableRequest\x1a\x1b.browse.IsBrowsableResponse\x12C\n" +
+	"\n" +
+	"IsPlayable\x12\x19.browse.IsPlayableRequest\x1a\x1a.browse.IsPlayableResponse\x12=\n" +
+	"\bToString\x12\x17.browse.ToStringRequest\x1a\x18.browse.ToStringResponse\x12L\n" +
+	"\rWriteToParcel\x12\x1c.browse.WriteToParcelRequest\x1a\x1d.browse.WriteToParcelResponse2\xad\x01\n" +
+	"'MediaBrowserSubscriptionCallbackService\x12=\n" +
+	"\bOnError1\x12\x17.browse.OnError1Request\x1a\x18.browse.OnError1Response\x12C\n" +
+	"\n" +
+	"OnError2_1\x12\x19.browse.OnError2_1Request\x1a\x1a.browse.OnError2_1ResponseB0Z.github.com/AndroidGoLab/jni-proxy/proto/browseb\x06proto3"
 
-var file_proto_browse_browse_proto_goTypes = []any{}
+var (
+	file_proto_browse_browse_proto_rawDescOnce sync.Once
+	file_proto_browse_browse_proto_rawDescData []byte
+)
+
+func file_proto_browse_browse_proto_rawDescGZIP() []byte {
+	file_proto_browse_browse_proto_rawDescOnce.Do(func() {
+		file_proto_browse_browse_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_proto_browse_browse_proto_rawDesc), len(file_proto_browse_browse_proto_rawDesc)))
+	})
+	return file_proto_browse_browse_proto_rawDescData
+}
+
+var file_proto_browse_browse_proto_msgTypes = make([]protoimpl.MessageInfo, 56)
+var file_proto_browse_browse_proto_goTypes = []any{
+	(*NewMediaBrowserRequest)(nil),        // 0: browse.NewMediaBrowserRequest
+	(*NewMediaBrowserResponse)(nil),       // 1: browse.NewMediaBrowserResponse
+	(*ConnectRequest)(nil),                // 2: browse.ConnectRequest
+	(*ConnectResponse)(nil),               // 3: browse.ConnectResponse
+	(*DisconnectRequest)(nil),             // 4: browse.DisconnectRequest
+	(*DisconnectResponse)(nil),            // 5: browse.DisconnectResponse
+	(*GetExtrasRequest)(nil),              // 6: browse.GetExtrasRequest
+	(*GetExtrasResponse)(nil),             // 7: browse.GetExtrasResponse
+	(*GetItemRequest)(nil),                // 8: browse.GetItemRequest
+	(*GetItemResponse)(nil),               // 9: browse.GetItemResponse
+	(*GetRootRequest)(nil),                // 10: browse.GetRootRequest
+	(*GetRootResponse)(nil),               // 11: browse.GetRootResponse
+	(*GetServiceComponentRequest)(nil),    // 12: browse.GetServiceComponentRequest
+	(*GetServiceComponentResponse)(nil),   // 13: browse.GetServiceComponentResponse
+	(*GetSessionTokenRequest)(nil),        // 14: browse.GetSessionTokenRequest
+	(*GetSessionTokenResponse)(nil),       // 15: browse.GetSessionTokenResponse
+	(*IsConnectedRequest)(nil),            // 16: browse.IsConnectedRequest
+	(*IsConnectedResponse)(nil),           // 17: browse.IsConnectedResponse
+	(*Subscribe2Request)(nil),             // 18: browse.Subscribe2Request
+	(*Subscribe2Response)(nil),            // 19: browse.Subscribe2Response
+	(*Subscribe3_1Request)(nil),           // 20: browse.Subscribe3_1Request
+	(*Subscribe3_1Response)(nil),          // 21: browse.Subscribe3_1Response
+	(*Unsubscribe1Request)(nil),           // 22: browse.Unsubscribe1Request
+	(*Unsubscribe1Response)(nil),          // 23: browse.Unsubscribe1Response
+	(*Unsubscribe2_1Request)(nil),         // 24: browse.Unsubscribe2_1Request
+	(*Unsubscribe2_1Response)(nil),        // 25: browse.Unsubscribe2_1Response
+	(*OnConnectedRequest)(nil),            // 26: browse.OnConnectedRequest
+	(*OnConnectedResponse)(nil),           // 27: browse.OnConnectedResponse
+	(*OnConnectionFailedRequest)(nil),     // 28: browse.OnConnectionFailedRequest
+	(*OnConnectionFailedResponse)(nil),    // 29: browse.OnConnectionFailedResponse
+	(*OnConnectionSuspendedRequest)(nil),  // 30: browse.OnConnectionSuspendedRequest
+	(*OnConnectionSuspendedResponse)(nil), // 31: browse.OnConnectionSuspendedResponse
+	(*OnErrorRequest)(nil),                // 32: browse.OnErrorRequest
+	(*OnErrorResponse)(nil),               // 33: browse.OnErrorResponse
+	(*OnItemLoadedRequest)(nil),           // 34: browse.OnItemLoadedRequest
+	(*OnItemLoadedResponse)(nil),          // 35: browse.OnItemLoadedResponse
+	(*DescribeContentsRequest)(nil),       // 36: browse.DescribeContentsRequest
+	(*DescribeContentsResponse)(nil),      // 37: browse.DescribeContentsResponse
+	(*GetDescriptionRequest)(nil),         // 38: browse.GetDescriptionRequest
+	(*GetDescriptionResponse)(nil),        // 39: browse.GetDescriptionResponse
+	(*GetFlagsRequest)(nil),               // 40: browse.GetFlagsRequest
+	(*GetFlagsResponse)(nil),              // 41: browse.GetFlagsResponse
+	(*GetMediaIdRequest)(nil),             // 42: browse.GetMediaIdRequest
+	(*GetMediaIdResponse)(nil),            // 43: browse.GetMediaIdResponse
+	(*IsBrowsableRequest)(nil),            // 44: browse.IsBrowsableRequest
+	(*IsBrowsableResponse)(nil),           // 45: browse.IsBrowsableResponse
+	(*IsPlayableRequest)(nil),             // 46: browse.IsPlayableRequest
+	(*IsPlayableResponse)(nil),            // 47: browse.IsPlayableResponse
+	(*ToStringRequest)(nil),               // 48: browse.ToStringRequest
+	(*ToStringResponse)(nil),              // 49: browse.ToStringResponse
+	(*WriteToParcelRequest)(nil),          // 50: browse.WriteToParcelRequest
+	(*WriteToParcelResponse)(nil),         // 51: browse.WriteToParcelResponse
+	(*OnError1Request)(nil),               // 52: browse.OnError1Request
+	(*OnError1Response)(nil),              // 53: browse.OnError1Response
+	(*OnError2_1Request)(nil),             // 54: browse.OnError2_1Request
+	(*OnError2_1Response)(nil),            // 55: browse.OnError2_1Response
+}
 var file_proto_browse_browse_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	0,  // 0: browse.MediaBrowserService.NewMediaBrowser:input_type -> browse.NewMediaBrowserRequest
+	2,  // 1: browse.MediaBrowserService.Connect:input_type -> browse.ConnectRequest
+	4,  // 2: browse.MediaBrowserService.Disconnect:input_type -> browse.DisconnectRequest
+	6,  // 3: browse.MediaBrowserService.GetExtras:input_type -> browse.GetExtrasRequest
+	8,  // 4: browse.MediaBrowserService.GetItem:input_type -> browse.GetItemRequest
+	10, // 5: browse.MediaBrowserService.GetRoot:input_type -> browse.GetRootRequest
+	12, // 6: browse.MediaBrowserService.GetServiceComponent:input_type -> browse.GetServiceComponentRequest
+	14, // 7: browse.MediaBrowserService.GetSessionToken:input_type -> browse.GetSessionTokenRequest
+	16, // 8: browse.MediaBrowserService.IsConnected:input_type -> browse.IsConnectedRequest
+	18, // 9: browse.MediaBrowserService.Subscribe2:input_type -> browse.Subscribe2Request
+	20, // 10: browse.MediaBrowserService.Subscribe3_1:input_type -> browse.Subscribe3_1Request
+	22, // 11: browse.MediaBrowserService.Unsubscribe1:input_type -> browse.Unsubscribe1Request
+	24, // 12: browse.MediaBrowserService.Unsubscribe2_1:input_type -> browse.Unsubscribe2_1Request
+	26, // 13: browse.MediaBrowserConnectionCallbackService.OnConnected:input_type -> browse.OnConnectedRequest
+	28, // 14: browse.MediaBrowserConnectionCallbackService.OnConnectionFailed:input_type -> browse.OnConnectionFailedRequest
+	30, // 15: browse.MediaBrowserConnectionCallbackService.OnConnectionSuspended:input_type -> browse.OnConnectionSuspendedRequest
+	32, // 16: browse.MediaBrowserItemCallbackService.OnError:input_type -> browse.OnErrorRequest
+	34, // 17: browse.MediaBrowserItemCallbackService.OnItemLoaded:input_type -> browse.OnItemLoadedRequest
+	36, // 18: browse.MediaBrowserMediaItemService.DescribeContents:input_type -> browse.DescribeContentsRequest
+	38, // 19: browse.MediaBrowserMediaItemService.GetDescription:input_type -> browse.GetDescriptionRequest
+	40, // 20: browse.MediaBrowserMediaItemService.GetFlags:input_type -> browse.GetFlagsRequest
+	42, // 21: browse.MediaBrowserMediaItemService.GetMediaId:input_type -> browse.GetMediaIdRequest
+	44, // 22: browse.MediaBrowserMediaItemService.IsBrowsable:input_type -> browse.IsBrowsableRequest
+	46, // 23: browse.MediaBrowserMediaItemService.IsPlayable:input_type -> browse.IsPlayableRequest
+	48, // 24: browse.MediaBrowserMediaItemService.ToString:input_type -> browse.ToStringRequest
+	50, // 25: browse.MediaBrowserMediaItemService.WriteToParcel:input_type -> browse.WriteToParcelRequest
+	52, // 26: browse.MediaBrowserSubscriptionCallbackService.OnError1:input_type -> browse.OnError1Request
+	54, // 27: browse.MediaBrowserSubscriptionCallbackService.OnError2_1:input_type -> browse.OnError2_1Request
+	1,  // 28: browse.MediaBrowserService.NewMediaBrowser:output_type -> browse.NewMediaBrowserResponse
+	3,  // 29: browse.MediaBrowserService.Connect:output_type -> browse.ConnectResponse
+	5,  // 30: browse.MediaBrowserService.Disconnect:output_type -> browse.DisconnectResponse
+	7,  // 31: browse.MediaBrowserService.GetExtras:output_type -> browse.GetExtrasResponse
+	9,  // 32: browse.MediaBrowserService.GetItem:output_type -> browse.GetItemResponse
+	11, // 33: browse.MediaBrowserService.GetRoot:output_type -> browse.GetRootResponse
+	13, // 34: browse.MediaBrowserService.GetServiceComponent:output_type -> browse.GetServiceComponentResponse
+	15, // 35: browse.MediaBrowserService.GetSessionToken:output_type -> browse.GetSessionTokenResponse
+	17, // 36: browse.MediaBrowserService.IsConnected:output_type -> browse.IsConnectedResponse
+	19, // 37: browse.MediaBrowserService.Subscribe2:output_type -> browse.Subscribe2Response
+	21, // 38: browse.MediaBrowserService.Subscribe3_1:output_type -> browse.Subscribe3_1Response
+	23, // 39: browse.MediaBrowserService.Unsubscribe1:output_type -> browse.Unsubscribe1Response
+	25, // 40: browse.MediaBrowserService.Unsubscribe2_1:output_type -> browse.Unsubscribe2_1Response
+	27, // 41: browse.MediaBrowserConnectionCallbackService.OnConnected:output_type -> browse.OnConnectedResponse
+	29, // 42: browse.MediaBrowserConnectionCallbackService.OnConnectionFailed:output_type -> browse.OnConnectionFailedResponse
+	31, // 43: browse.MediaBrowserConnectionCallbackService.OnConnectionSuspended:output_type -> browse.OnConnectionSuspendedResponse
+	33, // 44: browse.MediaBrowserItemCallbackService.OnError:output_type -> browse.OnErrorResponse
+	35, // 45: browse.MediaBrowserItemCallbackService.OnItemLoaded:output_type -> browse.OnItemLoadedResponse
+	37, // 46: browse.MediaBrowserMediaItemService.DescribeContents:output_type -> browse.DescribeContentsResponse
+	39, // 47: browse.MediaBrowserMediaItemService.GetDescription:output_type -> browse.GetDescriptionResponse
+	41, // 48: browse.MediaBrowserMediaItemService.GetFlags:output_type -> browse.GetFlagsResponse
+	43, // 49: browse.MediaBrowserMediaItemService.GetMediaId:output_type -> browse.GetMediaIdResponse
+	45, // 50: browse.MediaBrowserMediaItemService.IsBrowsable:output_type -> browse.IsBrowsableResponse
+	47, // 51: browse.MediaBrowserMediaItemService.IsPlayable:output_type -> browse.IsPlayableResponse
+	49, // 52: browse.MediaBrowserMediaItemService.ToString:output_type -> browse.ToStringResponse
+	51, // 53: browse.MediaBrowserMediaItemService.WriteToParcel:output_type -> browse.WriteToParcelResponse
+	53, // 54: browse.MediaBrowserSubscriptionCallbackService.OnError1:output_type -> browse.OnError1Response
+	55, // 55: browse.MediaBrowserSubscriptionCallbackService.OnError2_1:output_type -> browse.OnError2_1Response
+	28, // [28:56] is the sub-list for method output_type
+	0,  // [0:28] is the sub-list for method input_type
+	0,  // [0:0] is the sub-list for extension type_name
+	0,  // [0:0] is the sub-list for extension extendee
+	0,  // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_proto_browse_browse_proto_init() }
@@ -48,12 +2699,13 @@ func file_proto_browse_browse_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_browse_browse_proto_rawDesc), len(file_proto_browse_browse_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   56,
 			NumExtensions: 0,
-			NumServices:   0,
+			NumServices:   5,
 		},
 		GoTypes:           file_proto_browse_browse_proto_goTypes,
 		DependencyIndexes: file_proto_browse_browse_proto_depIdxs,
+		MessageInfos:      file_proto_browse_browse_proto_msgTypes,
 	}.Build()
 	File_proto_browse_browse_proto = out.File
 	file_proto_browse_browse_proto_goTypes = nil

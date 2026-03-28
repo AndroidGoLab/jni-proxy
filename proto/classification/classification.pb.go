@@ -12,6 +12,7 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -22,16 +23,534 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type NewFieldClassificationRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewFieldClassificationRequest) Reset() {
+	*x = NewFieldClassificationRequest{}
+	mi := &file_proto_classification_classification_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewFieldClassificationRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewFieldClassificationRequest) ProtoMessage() {}
+
+func (x *NewFieldClassificationRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_classification_classification_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewFieldClassificationRequest.ProtoReflect.Descriptor instead.
+func (*NewFieldClassificationRequest) Descriptor() ([]byte, []int) {
+	return file_proto_classification_classification_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *NewFieldClassificationRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *NewFieldClassificationRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type NewFieldClassificationResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewFieldClassificationResponse) Reset() {
+	*x = NewFieldClassificationResponse{}
+	mi := &file_proto_classification_classification_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewFieldClassificationResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewFieldClassificationResponse) ProtoMessage() {}
+
+func (x *NewFieldClassificationResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_classification_classification_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewFieldClassificationResponse.ProtoReflect.Descriptor instead.
+func (*NewFieldClassificationResponse) Descriptor() ([]byte, []int) {
+	return file_proto_classification_classification_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *NewFieldClassificationResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type DescribeContentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DescribeContentsRequest) Reset() {
+	*x = DescribeContentsRequest{}
+	mi := &file_proto_classification_classification_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DescribeContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DescribeContentsRequest) ProtoMessage() {}
+
+func (x *DescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_classification_classification_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*DescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_classification_classification_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *DescribeContentsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type DescribeContentsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DescribeContentsResponse) Reset() {
+	*x = DescribeContentsResponse{}
+	mi := &file_proto_classification_classification_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DescribeContentsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DescribeContentsResponse) ProtoMessage() {}
+
+func (x *DescribeContentsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_classification_classification_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DescribeContentsResponse.ProtoReflect.Descriptor instead.
+func (*DescribeContentsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_classification_classification_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *DescribeContentsResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetAutofillIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAutofillIdRequest) Reset() {
+	*x = GetAutofillIdRequest{}
+	mi := &file_proto_classification_classification_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAutofillIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAutofillIdRequest) ProtoMessage() {}
+
+func (x *GetAutofillIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_classification_classification_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAutofillIdRequest.ProtoReflect.Descriptor instead.
+func (*GetAutofillIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_classification_classification_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *GetAutofillIdRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetAutofillIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAutofillIdResponse) Reset() {
+	*x = GetAutofillIdResponse{}
+	mi := &file_proto_classification_classification_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAutofillIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAutofillIdResponse) ProtoMessage() {}
+
+func (x *GetAutofillIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_classification_classification_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAutofillIdResponse.ProtoReflect.Descriptor instead.
+func (*GetAutofillIdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_classification_classification_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *GetAutofillIdResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ToStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringRequest) Reset() {
+	*x = ToStringRequest{}
+	mi := &file_proto_classification_classification_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringRequest) ProtoMessage() {}
+
+func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_classification_classification_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringRequest.ProtoReflect.Descriptor instead.
+func (*ToStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_classification_classification_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *ToStringRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type ToStringResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringResponse) Reset() {
+	*x = ToStringResponse{}
+	mi := &file_proto_classification_classification_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringResponse) ProtoMessage() {}
+
+func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_classification_classification_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringResponse.ProtoReflect.Descriptor instead.
+func (*ToStringResponse) Descriptor() ([]byte, []int) {
+	return file_proto_classification_classification_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *ToStringResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type WriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WriteToParcelRequest) Reset() {
+	*x = WriteToParcelRequest{}
+	mi := &file_proto_classification_classification_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WriteToParcelRequest) ProtoMessage() {}
+
+func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_classification_classification_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*WriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_classification_classification_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *WriteToParcelRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *WriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *WriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type WriteToParcelResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WriteToParcelResponse) Reset() {
+	*x = WriteToParcelResponse{}
+	mi := &file_proto_classification_classification_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WriteToParcelResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WriteToParcelResponse) ProtoMessage() {}
+
+func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_classification_classification_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WriteToParcelResponse.ProtoReflect.Descriptor instead.
+func (*WriteToParcelResponse) Descriptor() ([]byte, []int) {
+	return file_proto_classification_classification_proto_rawDescGZIP(), []int{9}
+}
+
 var File_proto_classification_classification_proto protoreflect.FileDescriptor
 
 const file_proto_classification_classification_proto_rawDesc = "" +
 	"\n" +
-	")proto/classification/classification.proto\x12\x0eclassificationB8Z6github.com/AndroidGoLab/jni-proxy/proto/classificationb\x06proto3"
+	")proto/classification/classification.proto\x12\x0eclassification\"G\n" +
+	"\x1dNewFieldClassificationRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"8\n" +
+	"\x1eNewFieldClassificationResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"1\n" +
+	"\x17DescribeContentsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"2\n" +
+	"\x18DescribeContentsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\".\n" +
+	"\x14GetAutofillIdRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"/\n" +
+	"\x15GetAutofillIdResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\")\n" +
+	"\x0fToStringRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
+	"\x10ToStringResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"V\n" +
+	"\x14WriteToParcelRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"\x17\n" +
+	"\x15WriteToParcelResponse2\x87\x04\n" +
+	"\x1aFieldClassificationService\x12w\n" +
+	"\x16NewFieldClassification\x12-.classification.NewFieldClassificationRequest\x1a..classification.NewFieldClassificationResponse\x12e\n" +
+	"\x10DescribeContents\x12'.classification.DescribeContentsRequest\x1a(.classification.DescribeContentsResponse\x12\\\n" +
+	"\rGetAutofillId\x12$.classification.GetAutofillIdRequest\x1a%.classification.GetAutofillIdResponse\x12M\n" +
+	"\bToString\x12\x1f.classification.ToStringRequest\x1a .classification.ToStringResponse\x12\\\n" +
+	"\rWriteToParcel\x12$.classification.WriteToParcelRequest\x1a%.classification.WriteToParcelResponseB8Z6github.com/AndroidGoLab/jni-proxy/proto/classificationb\x06proto3"
 
-var file_proto_classification_classification_proto_goTypes = []any{}
+var (
+	file_proto_classification_classification_proto_rawDescOnce sync.Once
+	file_proto_classification_classification_proto_rawDescData []byte
+)
+
+func file_proto_classification_classification_proto_rawDescGZIP() []byte {
+	file_proto_classification_classification_proto_rawDescOnce.Do(func() {
+		file_proto_classification_classification_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_proto_classification_classification_proto_rawDesc), len(file_proto_classification_classification_proto_rawDesc)))
+	})
+	return file_proto_classification_classification_proto_rawDescData
+}
+
+var file_proto_classification_classification_proto_msgTypes = make([]protoimpl.MessageInfo, 10)
+var file_proto_classification_classification_proto_goTypes = []any{
+	(*NewFieldClassificationRequest)(nil),  // 0: classification.NewFieldClassificationRequest
+	(*NewFieldClassificationResponse)(nil), // 1: classification.NewFieldClassificationResponse
+	(*DescribeContentsRequest)(nil),        // 2: classification.DescribeContentsRequest
+	(*DescribeContentsResponse)(nil),       // 3: classification.DescribeContentsResponse
+	(*GetAutofillIdRequest)(nil),           // 4: classification.GetAutofillIdRequest
+	(*GetAutofillIdResponse)(nil),          // 5: classification.GetAutofillIdResponse
+	(*ToStringRequest)(nil),                // 6: classification.ToStringRequest
+	(*ToStringResponse)(nil),               // 7: classification.ToStringResponse
+	(*WriteToParcelRequest)(nil),           // 8: classification.WriteToParcelRequest
+	(*WriteToParcelResponse)(nil),          // 9: classification.WriteToParcelResponse
+}
 var file_proto_classification_classification_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
+	0, // 0: classification.FieldClassificationService.NewFieldClassification:input_type -> classification.NewFieldClassificationRequest
+	2, // 1: classification.FieldClassificationService.DescribeContents:input_type -> classification.DescribeContentsRequest
+	4, // 2: classification.FieldClassificationService.GetAutofillId:input_type -> classification.GetAutofillIdRequest
+	6, // 3: classification.FieldClassificationService.ToString:input_type -> classification.ToStringRequest
+	8, // 4: classification.FieldClassificationService.WriteToParcel:input_type -> classification.WriteToParcelRequest
+	1, // 5: classification.FieldClassificationService.NewFieldClassification:output_type -> classification.NewFieldClassificationResponse
+	3, // 6: classification.FieldClassificationService.DescribeContents:output_type -> classification.DescribeContentsResponse
+	5, // 7: classification.FieldClassificationService.GetAutofillId:output_type -> classification.GetAutofillIdResponse
+	7, // 8: classification.FieldClassificationService.ToString:output_type -> classification.ToStringResponse
+	9, // 9: classification.FieldClassificationService.WriteToParcel:output_type -> classification.WriteToParcelResponse
+	5, // [5:10] is the sub-list for method output_type
+	0, // [0:5] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
 	0, // [0:0] is the sub-list for extension extendee
 	0, // [0:0] is the sub-list for field type_name
@@ -48,12 +567,13 @@ func file_proto_classification_classification_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_classification_classification_proto_rawDesc), len(file_proto_classification_classification_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   10,
 			NumExtensions: 0,
-			NumServices:   0,
+			NumServices:   1,
 		},
 		GoTypes:           file_proto_classification_classification_proto_goTypes,
 		DependencyIndexes: file_proto_classification_classification_proto_depIdxs,
+		MessageInfos:      file_proto_classification_classification_proto_msgTypes,
 	}.Build()
 	File_proto_classification_classification_proto = out.File
 	file_proto_classification_classification_proto_goTypes = nil

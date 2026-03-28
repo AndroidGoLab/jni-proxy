@@ -5,3 +5,164 @@ syntax = "proto3";
 package hotspot2;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/hotspot2";
+
+message NewPasspointConfigurationRequest {
+}
+
+message NewPasspointConfigurationResponse {
+  int64 result = 1;
+}
+
+message DescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message EqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message GetCredentialRequest {
+  int64 handle = 1;
+}
+
+message GetCredentialResponse {
+  int64 result = 1;
+}
+
+message GetDecoratedIdentityPrefixRequest {
+  int64 handle = 1;
+}
+
+message GetDecoratedIdentityPrefixResponse {
+  string result = 1;
+}
+
+message GetHomeSpRequest {
+  int64 handle = 1;
+}
+
+message GetHomeSpResponse {
+  int64 result = 1;
+}
+
+message GetSubscriptionExpirationTimeMillisRequest {
+  int64 handle = 1;
+}
+
+message GetSubscriptionExpirationTimeMillisResponse {
+  int64 result = 1;
+}
+
+message GetUniqueIdRequest {
+  int64 handle = 1;
+}
+
+message GetUniqueIdResponse {
+  string result = 1;
+}
+
+message HashCodeRequest {
+  int64 handle = 1;
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message IsOsuProvisionedRequest {
+  int64 handle = 1;
+}
+
+message IsOsuProvisionedResponse {
+  bool result = 1;
+}
+
+message SetCredentialRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetCredentialResponse {
+}
+
+message SetDecoratedIdentityPrefixRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetDecoratedIdentityPrefixResponse {
+}
+
+message SetHomeSpRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetHomeSpResponse {
+}
+
+message SetSubscriptionExpirationTimeInMillisRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetSubscriptionExpirationTimeInMillisResponse {
+}
+
+message ToStringRequest {
+  int64 handle = 1;
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message WriteToParcelResponse {
+}
+
+message ParsePasspointConfigRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message ParsePasspointConfigResponse {
+  int64 result = 1;
+}
+
+service PasspointConfigurationService {
+  rpc NewPasspointConfiguration (NewPasspointConfigurationRequest) returns (NewPasspointConfigurationResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetCredential (GetCredentialRequest) returns (GetCredentialResponse);
+  rpc GetDecoratedIdentityPrefix (GetDecoratedIdentityPrefixRequest) returns (GetDecoratedIdentityPrefixResponse);
+  rpc GetHomeSp (GetHomeSpRequest) returns (GetHomeSpResponse);
+  rpc GetSubscriptionExpirationTimeMillis (GetSubscriptionExpirationTimeMillisRequest) returns (GetSubscriptionExpirationTimeMillisResponse);
+  rpc GetUniqueId (GetUniqueIdRequest) returns (GetUniqueIdResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc IsOsuProvisioned (IsOsuProvisionedRequest) returns (IsOsuProvisionedResponse);
+  rpc SetCredential (SetCredentialRequest) returns (SetCredentialResponse);
+  rpc SetDecoratedIdentityPrefix (SetDecoratedIdentityPrefixRequest) returns (SetDecoratedIdentityPrefixResponse);
+  rpc SetHomeSp (SetHomeSpRequest) returns (SetHomeSpResponse);
+  rpc SetSubscriptionExpirationTimeInMillis (SetSubscriptionExpirationTimeInMillisRequest) returns (SetSubscriptionExpirationTimeInMillisResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ConfigParserService {
+  rpc ParsePasspointConfig (ParsePasspointConfigRequest) returns (ParsePasspointConfigResponse);
+}

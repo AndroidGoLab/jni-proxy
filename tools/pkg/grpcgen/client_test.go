@@ -35,13 +35,20 @@ func TestBuildClientData_Location(t *testing.T) {
 	if data.Package != "location" {
 		t.Errorf("Package = %q, want %q", data.Package, "location")
 	}
-	if len(data.Services) != 1 {
-		t.Fatalf("Services count = %d, want 1", len(data.Services))
+	if len(data.Services) == 0 {
+		t.Fatal("no services generated")
 	}
 
-	svc := data.Services[0]
-	if svc.GoType != "Manager" {
-		t.Errorf("Service GoType = %q, want %q", svc.GoType, "Manager")
+	// Find the Manager service.
+	var svc *ClientService
+	for i := range data.Services {
+		if data.Services[i].GoType == "Manager" {
+			svc = &data.Services[i]
+			break
+		}
+	}
+	if svc == nil {
+		t.Fatal("Manager service not found")
 	}
 	if svc.ServiceName != "ManagerService" {
 		t.Errorf("Service ServiceName = %q, want %q", svc.ServiceName, "ManagerService")
@@ -71,15 +78,21 @@ func TestBuildClientData_LocationMethod_Object(t *testing.T) {
 	protoData := protogen.BuildProtoData(merged, goModule)
 	data := buildClientData(merged, goModule, protoData, emptyGoNames())
 
+	// Find the Manager service and GetLastKnownLocation method.
 	var m *ClientMethod
-	for i := range data.Services[0].Methods {
-		if data.Services[0].Methods[i].GoName == "GetLastKnownLocation" {
-			m = &data.Services[0].Methods[i]
-			break
+	for si := range data.Services {
+		if data.Services[si].GoType != "Manager" {
+			continue
+		}
+		for i := range data.Services[si].Methods {
+			if data.Services[si].Methods[i].GoName == "GetLastKnownLocation" {
+				m = &data.Services[si].Methods[i]
+				break
+			}
 		}
 	}
 	if m == nil {
-		t.Fatal("GetLastKnownLocation method not found")
+		t.Fatal("GetLastKnownLocation method not found in Manager service")
 	}
 
 	// The new spec has no data_class kind; GetLastKnownLocation returns an

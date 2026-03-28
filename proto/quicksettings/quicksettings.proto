@@ -5,3 +5,284 @@ syntax = "proto3";
 package quicksettings;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/quicksettings";
+
+message NewTileServiceRequest {
+}
+
+message NewTileServiceResponse {
+  int64 result = 1;
+}
+
+message GetQsTileRequest {
+  int64 handle = 1;
+}
+
+message GetQsTileResponse {
+  int64 result = 1;
+}
+
+message IsLockedRequest {
+  int64 handle = 1;
+}
+
+message IsLockedResponse {
+  bool result = 1;
+}
+
+message IsSecureRequest {
+  int64 handle = 1;
+}
+
+message IsSecureResponse {
+  bool result = 1;
+}
+
+message OnBindRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OnBindResponse {
+  int64 result = 1;
+}
+
+message OnClickRequest {
+  int64 handle = 1;
+}
+
+message OnClickResponse {
+}
+
+message OnDestroyRequest {
+  int64 handle = 1;
+}
+
+message OnDestroyResponse {
+}
+
+message OnStartListeningRequest {
+  int64 handle = 1;
+}
+
+message OnStartListeningResponse {
+}
+
+message OnStopListeningRequest {
+  int64 handle = 1;
+}
+
+message OnStopListeningResponse {
+}
+
+message OnTileAddedRequest {
+  int64 handle = 1;
+}
+
+message OnTileAddedResponse {
+}
+
+message OnTileRemovedRequest {
+  int64 handle = 1;
+}
+
+message OnTileRemovedResponse {
+}
+
+message ShowDialogRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message ShowDialogResponse {
+}
+
+message StartActivityAndCollapse1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message StartActivityAndCollapse1Response {
+}
+
+message StartActivityAndCollapse1_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message StartActivityAndCollapse1_1Response {
+}
+
+message UnlockAndRunRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message UnlockAndRunResponse {
+}
+
+message RequestListeningStateRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message RequestListeningStateResponse {
+}
+
+message DescribeContentsRequest {
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message GetActivityLaunchForClickRequest {
+}
+
+message GetActivityLaunchForClickResponse {
+  int64 result = 1;
+}
+
+message GetContentDescriptionRequest {
+}
+
+message GetContentDescriptionResponse {
+  int64 result = 1;
+}
+
+message GetIconRequest {
+}
+
+message GetIconResponse {
+  int64 result = 1;
+}
+
+message GetLabelRequest {
+}
+
+message GetLabelResponse {
+  int64 result = 1;
+}
+
+message GetStateRequest {
+}
+
+message GetStateResponse {
+  int32 result = 1;
+}
+
+message GetStateDescriptionRequest {
+}
+
+message GetStateDescriptionResponse {
+  int64 result = 1;
+}
+
+message GetSubtitleRequest {
+}
+
+message GetSubtitleResponse {
+  int64 result = 1;
+}
+
+message SetActivityLaunchForClickRequest {
+  int64 arg0 = 1;
+}
+
+message SetActivityLaunchForClickResponse {
+}
+
+message SetContentDescriptionRequest {
+  string arg0 = 1;
+}
+
+message SetContentDescriptionResponse {
+}
+
+message SetIconRequest {
+  int64 arg0 = 1;
+}
+
+message SetIconResponse {
+}
+
+message SetLabelRequest {
+  string arg0 = 1;
+}
+
+message SetLabelResponse {
+}
+
+message SetStateRequest {
+  int32 arg0 = 1;
+}
+
+message SetStateResponse {
+}
+
+message SetStateDescriptionRequest {
+  string arg0 = 1;
+}
+
+message SetStateDescriptionResponse {
+}
+
+message SetSubtitleRequest {
+  string arg0 = 1;
+}
+
+message SetSubtitleResponse {
+}
+
+message UpdateTileRequest {
+}
+
+message UpdateTileResponse {
+}
+
+message WriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteToParcelResponse {
+}
+
+service TileServiceService {
+  rpc NewTileService (NewTileServiceRequest) returns (NewTileServiceResponse);
+  rpc GetQsTile (GetQsTileRequest) returns (GetQsTileResponse);
+  rpc IsLocked (IsLockedRequest) returns (IsLockedResponse);
+  rpc IsSecure (IsSecureRequest) returns (IsSecureResponse);
+  rpc OnBind (OnBindRequest) returns (OnBindResponse);
+  rpc OnClick (OnClickRequest) returns (OnClickResponse);
+  rpc OnDestroy (OnDestroyRequest) returns (OnDestroyResponse);
+  rpc OnStartListening (OnStartListeningRequest) returns (OnStartListeningResponse);
+  rpc OnStopListening (OnStopListeningRequest) returns (OnStopListeningResponse);
+  rpc OnTileAdded (OnTileAddedRequest) returns (OnTileAddedResponse);
+  rpc OnTileRemoved (OnTileRemovedRequest) returns (OnTileRemovedResponse);
+  rpc ShowDialog (ShowDialogRequest) returns (ShowDialogResponse);
+  rpc StartActivityAndCollapse1 (StartActivityAndCollapse1Request) returns (StartActivityAndCollapse1Response);
+  rpc StartActivityAndCollapse1_1 (StartActivityAndCollapse1_1Request) returns (StartActivityAndCollapse1_1Response);
+  rpc UnlockAndRun (UnlockAndRunRequest) returns (UnlockAndRunResponse);
+  rpc RequestListeningState (RequestListeningStateRequest) returns (RequestListeningStateResponse);
+}
+
+service TileService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetActivityLaunchForClick (GetActivityLaunchForClickRequest) returns (GetActivityLaunchForClickResponse);
+  rpc GetContentDescription (GetContentDescriptionRequest) returns (GetContentDescriptionResponse);
+  rpc GetIcon (GetIconRequest) returns (GetIconResponse);
+  rpc GetLabel (GetLabelRequest) returns (GetLabelResponse);
+  rpc GetState (GetStateRequest) returns (GetStateResponse);
+  rpc GetStateDescription (GetStateDescriptionRequest) returns (GetStateDescriptionResponse);
+  rpc GetSubtitle (GetSubtitleRequest) returns (GetSubtitleResponse);
+  rpc SetActivityLaunchForClick (SetActivityLaunchForClickRequest) returns (SetActivityLaunchForClickResponse);
+  rpc SetContentDescription (SetContentDescriptionRequest) returns (SetContentDescriptionResponse);
+  rpc SetIcon (SetIconRequest) returns (SetIconResponse);
+  rpc SetLabel (SetLabelRequest) returns (SetLabelResponse);
+  rpc SetState (SetStateRequest) returns (SetStateResponse);
+  rpc SetStateDescription (SetStateDescriptionRequest) returns (SetStateDescriptionResponse);
+  rpc SetSubtitle (SetSubtitleRequest) returns (SetSubtitleResponse);
+  rpc UpdateTile (UpdateTileRequest) returns (UpdateTileResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}

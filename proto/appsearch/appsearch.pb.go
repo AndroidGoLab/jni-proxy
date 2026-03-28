@@ -12,6 +12,7 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -22,19 +23,22660 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type EqualsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EqualsRequest) Reset() {
+	*x = EqualsRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EqualsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EqualsRequest) ProtoMessage() {}
+
+func (x *EqualsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EqualsRequest.ProtoReflect.Descriptor instead.
+func (*EqualsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *EqualsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type EqualsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EqualsResponse) Reset() {
+	*x = EqualsResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EqualsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EqualsResponse) ProtoMessage() {}
+
+func (x *EqualsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EqualsResponse.ProtoReflect.Descriptor instead.
+func (*EqualsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *EqualsResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type GetErrorMessageRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetErrorMessageRequest) Reset() {
+	*x = GetErrorMessageRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetErrorMessageRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetErrorMessageRequest) ProtoMessage() {}
+
+func (x *GetErrorMessageRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetErrorMessageRequest.ProtoReflect.Descriptor instead.
+func (*GetErrorMessageRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{2}
+}
+
+type GetErrorMessageResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetErrorMessageResponse) Reset() {
+	*x = GetErrorMessageResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetErrorMessageResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetErrorMessageResponse) ProtoMessage() {}
+
+func (x *GetErrorMessageResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetErrorMessageResponse.ProtoReflect.Descriptor instead.
+func (*GetErrorMessageResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *GetErrorMessageResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetResultCodeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetResultCodeRequest) Reset() {
+	*x = GetResultCodeRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetResultCodeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetResultCodeRequest) ProtoMessage() {}
+
+func (x *GetResultCodeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetResultCodeRequest.ProtoReflect.Descriptor instead.
+func (*GetResultCodeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{4}
+}
+
+type GetResultCodeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetResultCodeResponse) Reset() {
+	*x = GetResultCodeResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetResultCodeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetResultCodeResponse) ProtoMessage() {}
+
+func (x *GetResultCodeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetResultCodeResponse.ProtoReflect.Descriptor instead.
+func (*GetResultCodeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *GetResultCodeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetResultValueRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetResultValueRequest) Reset() {
+	*x = GetResultValueRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetResultValueRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetResultValueRequest) ProtoMessage() {}
+
+func (x *GetResultValueRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetResultValueRequest.ProtoReflect.Descriptor instead.
+func (*GetResultValueRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{6}
+}
+
+type GetResultValueResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetResultValueResponse) Reset() {
+	*x = GetResultValueResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetResultValueResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetResultValueResponse) ProtoMessage() {}
+
+func (x *GetResultValueResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetResultValueResponse.ProtoReflect.Descriptor instead.
+func (*GetResultValueResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *GetResultValueResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type HashCodeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HashCodeRequest) Reset() {
+	*x = HashCodeRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HashCodeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HashCodeRequest) ProtoMessage() {}
+
+func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HashCodeRequest.ProtoReflect.Descriptor instead.
+func (*HashCodeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{8}
+}
+
+type HashCodeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HashCodeResponse) Reset() {
+	*x = HashCodeResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HashCodeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HashCodeResponse) ProtoMessage() {}
+
+func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HashCodeResponse.ProtoReflect.Descriptor instead.
+func (*HashCodeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *HashCodeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type IsSuccessRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsSuccessRequest) Reset() {
+	*x = IsSuccessRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsSuccessRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsSuccessRequest) ProtoMessage() {}
+
+func (x *IsSuccessRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsSuccessRequest.ProtoReflect.Descriptor instead.
+func (*IsSuccessRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{10}
+}
+
+type IsSuccessResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsSuccessResponse) Reset() {
+	*x = IsSuccessResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsSuccessResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsSuccessResponse) ProtoMessage() {}
+
+func (x *IsSuccessResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsSuccessResponse.ProtoReflect.Descriptor instead.
+func (*IsSuccessResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *IsSuccessResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type ToStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringRequest) Reset() {
+	*x = ToStringRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringRequest) ProtoMessage() {}
+
+func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringRequest.ProtoReflect.Descriptor instead.
+func (*ToStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{12}
+}
+
+type ToStringResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringResponse) Reset() {
+	*x = ToStringResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringResponse) ProtoMessage() {}
+
+func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringResponse.ProtoReflect.Descriptor instead.
+func (*ToStringResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *ToStringResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetDatabaseNameRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDatabaseNameRequest) Reset() {
+	*x = GetDatabaseNameRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDatabaseNameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDatabaseNameRequest) ProtoMessage() {}
+
+func (x *GetDatabaseNameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDatabaseNameRequest.ProtoReflect.Descriptor instead.
+func (*GetDatabaseNameRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{14}
+}
+
+type GetDatabaseNameResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDatabaseNameResponse) Reset() {
+	*x = GetDatabaseNameResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDatabaseNameResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDatabaseNameResponse) ProtoMessage() {}
+
+func (x *GetDatabaseNameResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDatabaseNameResponse.ProtoReflect.Descriptor instead.
+func (*GetDatabaseNameResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *GetDatabaseNameResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetDocumentIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDocumentIdRequest) Reset() {
+	*x = GetDocumentIdRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDocumentIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDocumentIdRequest) ProtoMessage() {}
+
+func (x *GetDocumentIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDocumentIdRequest.ProtoReflect.Descriptor instead.
+func (*GetDocumentIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{16}
+}
+
+type GetDocumentIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDocumentIdResponse) Reset() {
+	*x = GetDocumentIdResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDocumentIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDocumentIdResponse) ProtoMessage() {}
+
+func (x *GetDocumentIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDocumentIdResponse.ProtoReflect.Descriptor instead.
+func (*GetDocumentIdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *GetDocumentIdResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetNamespaceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNamespaceRequest) Reset() {
+	*x = GetNamespaceRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNamespaceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNamespaceRequest) ProtoMessage() {}
+
+func (x *GetNamespaceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNamespaceRequest.ProtoReflect.Descriptor instead.
+func (*GetNamespaceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{18}
+}
+
+type GetNamespaceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNamespaceResponse) Reset() {
+	*x = GetNamespaceResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNamespaceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNamespaceResponse) ProtoMessage() {}
+
+func (x *GetNamespaceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNamespaceResponse.ProtoReflect.Descriptor instead.
+func (*GetNamespaceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *GetNamespaceResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetPackageNameRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPackageNameRequest) Reset() {
+	*x = GetPackageNameRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPackageNameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPackageNameRequest) ProtoMessage() {}
+
+func (x *GetPackageNameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPackageNameRequest.ProtoReflect.Descriptor instead.
+func (*GetPackageNameRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{20}
+}
+
+type GetPackageNameResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPackageNameResponse) Reset() {
+	*x = GetPackageNameResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPackageNameResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPackageNameResponse) ProtoMessage() {}
+
+func (x *GetPackageNameResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPackageNameResponse.ProtoReflect.Descriptor instead.
+func (*GetPackageNameResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{21}
+}
+
+func (x *GetPackageNameResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetUsageTimestampMillisRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetUsageTimestampMillisRequest) Reset() {
+	*x = GetUsageTimestampMillisRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetUsageTimestampMillisRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetUsageTimestampMillisRequest) ProtoMessage() {}
+
+func (x *GetUsageTimestampMillisRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetUsageTimestampMillisRequest.ProtoReflect.Descriptor instead.
+func (*GetUsageTimestampMillisRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{22}
+}
+
+type GetUsageTimestampMillisResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetUsageTimestampMillisResponse) Reset() {
+	*x = GetUsageTimestampMillisResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetUsageTimestampMillisResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetUsageTimestampMillisResponse) ProtoMessage() {}
+
+func (x *GetUsageTimestampMillisResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetUsageTimestampMillisResponse.ProtoReflect.Descriptor instead.
+func (*GetUsageTimestampMillisResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{23}
+}
+
+func (x *GetUsageTimestampMillisResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type BuildRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BuildRequest) Reset() {
+	*x = BuildRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BuildRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BuildRequest) ProtoMessage() {}
+
+func (x *BuildRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BuildRequest.ProtoReflect.Descriptor instead.
+func (*BuildRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{24}
+}
+
+type BuildResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BuildResponse) Reset() {
+	*x = BuildResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BuildResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BuildResponse) ProtoMessage() {}
+
+func (x *BuildResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BuildResponse.ProtoReflect.Descriptor instead.
+func (*BuildResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{25}
+}
+
+func (x *BuildResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetUsageTimestampMillisRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetUsageTimestampMillisRequest) Reset() {
+	*x = SetUsageTimestampMillisRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[26]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetUsageTimestampMillisRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetUsageTimestampMillisRequest) ProtoMessage() {}
+
+func (x *SetUsageTimestampMillisRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[26]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetUsageTimestampMillisRequest.ProtoReflect.Descriptor instead.
+func (*SetUsageTimestampMillisRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{26}
+}
+
+func (x *SetUsageTimestampMillisRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetUsageTimestampMillisResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetUsageTimestampMillisResponse) Reset() {
+	*x = SetUsageTimestampMillisResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[27]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetUsageTimestampMillisResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetUsageTimestampMillisResponse) ProtoMessage() {}
+
+func (x *SetUsageTimestampMillisResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[27]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetUsageTimestampMillisResponse.ProtoReflect.Descriptor instead.
+func (*SetUsageTimestampMillisResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{27}
+}
+
+func (x *SetUsageTimestampMillisResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type DescribeContentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DescribeContentsRequest) Reset() {
+	*x = DescribeContentsRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[28]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DescribeContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DescribeContentsRequest) ProtoMessage() {}
+
+func (x *DescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[28]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*DescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{28}
+}
+
+type DescribeContentsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DescribeContentsResponse) Reset() {
+	*x = DescribeContentsResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[29]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DescribeContentsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DescribeContentsResponse) ProtoMessage() {}
+
+func (x *DescribeContentsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[29]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DescribeContentsResponse.ProtoReflect.Descriptor instead.
+func (*DescribeContentsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{29}
+}
+
+func (x *DescribeContentsResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetAdvancedRankingExpressionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAdvancedRankingExpressionRequest) Reset() {
+	*x = GetAdvancedRankingExpressionRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[30]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAdvancedRankingExpressionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAdvancedRankingExpressionRequest) ProtoMessage() {}
+
+func (x *GetAdvancedRankingExpressionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[30]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAdvancedRankingExpressionRequest.ProtoReflect.Descriptor instead.
+func (*GetAdvancedRankingExpressionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{30}
+}
+
+type GetAdvancedRankingExpressionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAdvancedRankingExpressionResponse) Reset() {
+	*x = GetAdvancedRankingExpressionResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[31]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAdvancedRankingExpressionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAdvancedRankingExpressionResponse) ProtoMessage() {}
+
+func (x *GetAdvancedRankingExpressionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[31]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAdvancedRankingExpressionResponse.ProtoReflect.Descriptor instead.
+func (*GetAdvancedRankingExpressionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{31}
+}
+
+func (x *GetAdvancedRankingExpressionResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetDefaultEmbeddingSearchMetricTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDefaultEmbeddingSearchMetricTypeRequest) Reset() {
+	*x = GetDefaultEmbeddingSearchMetricTypeRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[32]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDefaultEmbeddingSearchMetricTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDefaultEmbeddingSearchMetricTypeRequest) ProtoMessage() {}
+
+func (x *GetDefaultEmbeddingSearchMetricTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[32]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDefaultEmbeddingSearchMetricTypeRequest.ProtoReflect.Descriptor instead.
+func (*GetDefaultEmbeddingSearchMetricTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{32}
+}
+
+type GetDefaultEmbeddingSearchMetricTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDefaultEmbeddingSearchMetricTypeResponse) Reset() {
+	*x = GetDefaultEmbeddingSearchMetricTypeResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[33]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDefaultEmbeddingSearchMetricTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDefaultEmbeddingSearchMetricTypeResponse) ProtoMessage() {}
+
+func (x *GetDefaultEmbeddingSearchMetricTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[33]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDefaultEmbeddingSearchMetricTypeResponse.ProtoReflect.Descriptor instead.
+func (*GetDefaultEmbeddingSearchMetricTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{33}
+}
+
+func (x *GetDefaultEmbeddingSearchMetricTypeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetJoinSpecRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetJoinSpecRequest) Reset() {
+	*x = GetJoinSpecRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[34]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetJoinSpecRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetJoinSpecRequest) ProtoMessage() {}
+
+func (x *GetJoinSpecRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[34]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetJoinSpecRequest.ProtoReflect.Descriptor instead.
+func (*GetJoinSpecRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{34}
+}
+
+type GetJoinSpecResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetJoinSpecResponse) Reset() {
+	*x = GetJoinSpecResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[35]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetJoinSpecResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetJoinSpecResponse) ProtoMessage() {}
+
+func (x *GetJoinSpecResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[35]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetJoinSpecResponse.ProtoReflect.Descriptor instead.
+func (*GetJoinSpecResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{35}
+}
+
+func (x *GetJoinSpecResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetMaxSnippetSizeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMaxSnippetSizeRequest) Reset() {
+	*x = GetMaxSnippetSizeRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[36]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMaxSnippetSizeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMaxSnippetSizeRequest) ProtoMessage() {}
+
+func (x *GetMaxSnippetSizeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[36]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMaxSnippetSizeRequest.ProtoReflect.Descriptor instead.
+func (*GetMaxSnippetSizeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{36}
+}
+
+type GetMaxSnippetSizeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMaxSnippetSizeResponse) Reset() {
+	*x = GetMaxSnippetSizeResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[37]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMaxSnippetSizeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMaxSnippetSizeResponse) ProtoMessage() {}
+
+func (x *GetMaxSnippetSizeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[37]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMaxSnippetSizeResponse.ProtoReflect.Descriptor instead.
+func (*GetMaxSnippetSizeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{37}
+}
+
+func (x *GetMaxSnippetSizeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetOrderRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetOrderRequest) Reset() {
+	*x = GetOrderRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[38]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetOrderRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetOrderRequest) ProtoMessage() {}
+
+func (x *GetOrderRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[38]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetOrderRequest.ProtoReflect.Descriptor instead.
+func (*GetOrderRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{38}
+}
+
+type GetOrderResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetOrderResponse) Reset() {
+	*x = GetOrderResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[39]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetOrderResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetOrderResponse) ProtoMessage() {}
+
+func (x *GetOrderResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[39]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetOrderResponse.ProtoReflect.Descriptor instead.
+func (*GetOrderResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{39}
+}
+
+func (x *GetOrderResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetRankingStrategyRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRankingStrategyRequest) Reset() {
+	*x = GetRankingStrategyRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[40]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRankingStrategyRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRankingStrategyRequest) ProtoMessage() {}
+
+func (x *GetRankingStrategyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[40]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRankingStrategyRequest.ProtoReflect.Descriptor instead.
+func (*GetRankingStrategyRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{40}
+}
+
+type GetRankingStrategyResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRankingStrategyResponse) Reset() {
+	*x = GetRankingStrategyResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[41]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRankingStrategyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRankingStrategyResponse) ProtoMessage() {}
+
+func (x *GetRankingStrategyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[41]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRankingStrategyResponse.ProtoReflect.Descriptor instead.
+func (*GetRankingStrategyResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{41}
+}
+
+func (x *GetRankingStrategyResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetResultCountPerPageRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetResultCountPerPageRequest) Reset() {
+	*x = GetResultCountPerPageRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[42]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetResultCountPerPageRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetResultCountPerPageRequest) ProtoMessage() {}
+
+func (x *GetResultCountPerPageRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[42]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetResultCountPerPageRequest.ProtoReflect.Descriptor instead.
+func (*GetResultCountPerPageRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{42}
+}
+
+type GetResultCountPerPageResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetResultCountPerPageResponse) Reset() {
+	*x = GetResultCountPerPageResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[43]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetResultCountPerPageResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetResultCountPerPageResponse) ProtoMessage() {}
+
+func (x *GetResultCountPerPageResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[43]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetResultCountPerPageResponse.ProtoReflect.Descriptor instead.
+func (*GetResultCountPerPageResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{43}
+}
+
+func (x *GetResultCountPerPageResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetResultGroupingLimitRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetResultGroupingLimitRequest) Reset() {
+	*x = GetResultGroupingLimitRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[44]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetResultGroupingLimitRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetResultGroupingLimitRequest) ProtoMessage() {}
+
+func (x *GetResultGroupingLimitRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[44]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetResultGroupingLimitRequest.ProtoReflect.Descriptor instead.
+func (*GetResultGroupingLimitRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{44}
+}
+
+type GetResultGroupingLimitResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetResultGroupingLimitResponse) Reset() {
+	*x = GetResultGroupingLimitResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[45]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetResultGroupingLimitResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetResultGroupingLimitResponse) ProtoMessage() {}
+
+func (x *GetResultGroupingLimitResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[45]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetResultGroupingLimitResponse.ProtoReflect.Descriptor instead.
+func (*GetResultGroupingLimitResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{45}
+}
+
+func (x *GetResultGroupingLimitResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetResultGroupingTypeFlagsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetResultGroupingTypeFlagsRequest) Reset() {
+	*x = GetResultGroupingTypeFlagsRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[46]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetResultGroupingTypeFlagsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetResultGroupingTypeFlagsRequest) ProtoMessage() {}
+
+func (x *GetResultGroupingTypeFlagsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[46]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetResultGroupingTypeFlagsRequest.ProtoReflect.Descriptor instead.
+func (*GetResultGroupingTypeFlagsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{46}
+}
+
+type GetResultGroupingTypeFlagsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetResultGroupingTypeFlagsResponse) Reset() {
+	*x = GetResultGroupingTypeFlagsResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[47]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetResultGroupingTypeFlagsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetResultGroupingTypeFlagsResponse) ProtoMessage() {}
+
+func (x *GetResultGroupingTypeFlagsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[47]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetResultGroupingTypeFlagsResponse.ProtoReflect.Descriptor instead.
+func (*GetResultGroupingTypeFlagsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{47}
+}
+
+func (x *GetResultGroupingTypeFlagsResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSearchSourceLogTagRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSearchSourceLogTagRequest) Reset() {
+	*x = GetSearchSourceLogTagRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[48]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSearchSourceLogTagRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSearchSourceLogTagRequest) ProtoMessage() {}
+
+func (x *GetSearchSourceLogTagRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[48]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSearchSourceLogTagRequest.ProtoReflect.Descriptor instead.
+func (*GetSearchSourceLogTagRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{48}
+}
+
+type GetSearchSourceLogTagResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSearchSourceLogTagResponse) Reset() {
+	*x = GetSearchSourceLogTagResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[49]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSearchSourceLogTagResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSearchSourceLogTagResponse) ProtoMessage() {}
+
+func (x *GetSearchSourceLogTagResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[49]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSearchSourceLogTagResponse.ProtoReflect.Descriptor instead.
+func (*GetSearchSourceLogTagResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{49}
+}
+
+func (x *GetSearchSourceLogTagResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetSnippetCountRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSnippetCountRequest) Reset() {
+	*x = GetSnippetCountRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[50]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSnippetCountRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSnippetCountRequest) ProtoMessage() {}
+
+func (x *GetSnippetCountRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[50]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSnippetCountRequest.ProtoReflect.Descriptor instead.
+func (*GetSnippetCountRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{50}
+}
+
+type GetSnippetCountResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSnippetCountResponse) Reset() {
+	*x = GetSnippetCountResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[51]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSnippetCountResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSnippetCountResponse) ProtoMessage() {}
+
+func (x *GetSnippetCountResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[51]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSnippetCountResponse.ProtoReflect.Descriptor instead.
+func (*GetSnippetCountResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{51}
+}
+
+func (x *GetSnippetCountResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSnippetCountPerPropertyRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSnippetCountPerPropertyRequest) Reset() {
+	*x = GetSnippetCountPerPropertyRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[52]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSnippetCountPerPropertyRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSnippetCountPerPropertyRequest) ProtoMessage() {}
+
+func (x *GetSnippetCountPerPropertyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[52]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSnippetCountPerPropertyRequest.ProtoReflect.Descriptor instead.
+func (*GetSnippetCountPerPropertyRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{52}
+}
+
+type GetSnippetCountPerPropertyResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSnippetCountPerPropertyResponse) Reset() {
+	*x = GetSnippetCountPerPropertyResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[53]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSnippetCountPerPropertyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSnippetCountPerPropertyResponse) ProtoMessage() {}
+
+func (x *GetSnippetCountPerPropertyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[53]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSnippetCountPerPropertyResponse.ProtoReflect.Descriptor instead.
+func (*GetSnippetCountPerPropertyResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{53}
+}
+
+func (x *GetSnippetCountPerPropertyResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetTermMatchRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTermMatchRequest) Reset() {
+	*x = GetTermMatchRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[54]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTermMatchRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTermMatchRequest) ProtoMessage() {}
+
+func (x *GetTermMatchRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[54]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTermMatchRequest.ProtoReflect.Descriptor instead.
+func (*GetTermMatchRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{54}
+}
+
+type GetTermMatchResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTermMatchResponse) Reset() {
+	*x = GetTermMatchResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[55]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTermMatchResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTermMatchResponse) ProtoMessage() {}
+
+func (x *GetTermMatchResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[55]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTermMatchResponse.ProtoReflect.Descriptor instead.
+func (*GetTermMatchResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{55}
+}
+
+func (x *GetTermMatchResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type IsListFilterHasPropertyFunctionEnabledRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsListFilterHasPropertyFunctionEnabledRequest) Reset() {
+	*x = IsListFilterHasPropertyFunctionEnabledRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[56]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsListFilterHasPropertyFunctionEnabledRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsListFilterHasPropertyFunctionEnabledRequest) ProtoMessage() {}
+
+func (x *IsListFilterHasPropertyFunctionEnabledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[56]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsListFilterHasPropertyFunctionEnabledRequest.ProtoReflect.Descriptor instead.
+func (*IsListFilterHasPropertyFunctionEnabledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{56}
+}
+
+type IsListFilterHasPropertyFunctionEnabledResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsListFilterHasPropertyFunctionEnabledResponse) Reset() {
+	*x = IsListFilterHasPropertyFunctionEnabledResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[57]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsListFilterHasPropertyFunctionEnabledResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsListFilterHasPropertyFunctionEnabledResponse) ProtoMessage() {}
+
+func (x *IsListFilterHasPropertyFunctionEnabledResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[57]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsListFilterHasPropertyFunctionEnabledResponse.ProtoReflect.Descriptor instead.
+func (*IsListFilterHasPropertyFunctionEnabledResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{57}
+}
+
+func (x *IsListFilterHasPropertyFunctionEnabledResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsListFilterMatchScoreExpressionFunctionEnabledRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsListFilterMatchScoreExpressionFunctionEnabledRequest) Reset() {
+	*x = IsListFilterMatchScoreExpressionFunctionEnabledRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[58]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsListFilterMatchScoreExpressionFunctionEnabledRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsListFilterMatchScoreExpressionFunctionEnabledRequest) ProtoMessage() {}
+
+func (x *IsListFilterMatchScoreExpressionFunctionEnabledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[58]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsListFilterMatchScoreExpressionFunctionEnabledRequest.ProtoReflect.Descriptor instead.
+func (*IsListFilterMatchScoreExpressionFunctionEnabledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{58}
+}
+
+type IsListFilterMatchScoreExpressionFunctionEnabledResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsListFilterMatchScoreExpressionFunctionEnabledResponse) Reset() {
+	*x = IsListFilterMatchScoreExpressionFunctionEnabledResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[59]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsListFilterMatchScoreExpressionFunctionEnabledResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsListFilterMatchScoreExpressionFunctionEnabledResponse) ProtoMessage() {}
+
+func (x *IsListFilterMatchScoreExpressionFunctionEnabledResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[59]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsListFilterMatchScoreExpressionFunctionEnabledResponse.ProtoReflect.Descriptor instead.
+func (*IsListFilterMatchScoreExpressionFunctionEnabledResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{59}
+}
+
+func (x *IsListFilterMatchScoreExpressionFunctionEnabledResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsListFilterQueryLanguageEnabledRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsListFilterQueryLanguageEnabledRequest) Reset() {
+	*x = IsListFilterQueryLanguageEnabledRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[60]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsListFilterQueryLanguageEnabledRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsListFilterQueryLanguageEnabledRequest) ProtoMessage() {}
+
+func (x *IsListFilterQueryLanguageEnabledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[60]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsListFilterQueryLanguageEnabledRequest.ProtoReflect.Descriptor instead.
+func (*IsListFilterQueryLanguageEnabledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{60}
+}
+
+type IsListFilterQueryLanguageEnabledResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsListFilterQueryLanguageEnabledResponse) Reset() {
+	*x = IsListFilterQueryLanguageEnabledResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[61]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsListFilterQueryLanguageEnabledResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsListFilterQueryLanguageEnabledResponse) ProtoMessage() {}
+
+func (x *IsListFilterQueryLanguageEnabledResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[61]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsListFilterQueryLanguageEnabledResponse.ProtoReflect.Descriptor instead.
+func (*IsListFilterQueryLanguageEnabledResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{61}
+}
+
+func (x *IsListFilterQueryLanguageEnabledResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsNumericSearchEnabledRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsNumericSearchEnabledRequest) Reset() {
+	*x = IsNumericSearchEnabledRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[62]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsNumericSearchEnabledRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsNumericSearchEnabledRequest) ProtoMessage() {}
+
+func (x *IsNumericSearchEnabledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[62]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsNumericSearchEnabledRequest.ProtoReflect.Descriptor instead.
+func (*IsNumericSearchEnabledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{62}
+}
+
+type IsNumericSearchEnabledResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsNumericSearchEnabledResponse) Reset() {
+	*x = IsNumericSearchEnabledResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[63]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsNumericSearchEnabledResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsNumericSearchEnabledResponse) ProtoMessage() {}
+
+func (x *IsNumericSearchEnabledResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[63]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsNumericSearchEnabledResponse.ProtoReflect.Descriptor instead.
+func (*IsNumericSearchEnabledResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{63}
+}
+
+func (x *IsNumericSearchEnabledResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsScorablePropertyRankingEnabledRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsScorablePropertyRankingEnabledRequest) Reset() {
+	*x = IsScorablePropertyRankingEnabledRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[64]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsScorablePropertyRankingEnabledRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsScorablePropertyRankingEnabledRequest) ProtoMessage() {}
+
+func (x *IsScorablePropertyRankingEnabledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[64]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsScorablePropertyRankingEnabledRequest.ProtoReflect.Descriptor instead.
+func (*IsScorablePropertyRankingEnabledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{64}
+}
+
+type IsScorablePropertyRankingEnabledResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsScorablePropertyRankingEnabledResponse) Reset() {
+	*x = IsScorablePropertyRankingEnabledResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[65]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsScorablePropertyRankingEnabledResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsScorablePropertyRankingEnabledResponse) ProtoMessage() {}
+
+func (x *IsScorablePropertyRankingEnabledResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[65]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsScorablePropertyRankingEnabledResponse.ProtoReflect.Descriptor instead.
+func (*IsScorablePropertyRankingEnabledResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{65}
+}
+
+func (x *IsScorablePropertyRankingEnabledResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsVerbatimSearchEnabledRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsVerbatimSearchEnabledRequest) Reset() {
+	*x = IsVerbatimSearchEnabledRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[66]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsVerbatimSearchEnabledRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsVerbatimSearchEnabledRequest) ProtoMessage() {}
+
+func (x *IsVerbatimSearchEnabledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[66]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsVerbatimSearchEnabledRequest.ProtoReflect.Descriptor instead.
+func (*IsVerbatimSearchEnabledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{66}
+}
+
+type IsVerbatimSearchEnabledResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsVerbatimSearchEnabledResponse) Reset() {
+	*x = IsVerbatimSearchEnabledResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[67]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsVerbatimSearchEnabledResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsVerbatimSearchEnabledResponse) ProtoMessage() {}
+
+func (x *IsVerbatimSearchEnabledResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[67]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsVerbatimSearchEnabledResponse.ProtoReflect.Descriptor instead.
+func (*IsVerbatimSearchEnabledResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{67}
+}
+
+func (x *IsVerbatimSearchEnabledResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type WriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WriteToParcelRequest) Reset() {
+	*x = WriteToParcelRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[68]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WriteToParcelRequest) ProtoMessage() {}
+
+func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[68]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*WriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{68}
+}
+
+func (x *WriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *WriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type WriteToParcelResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WriteToParcelResponse) Reset() {
+	*x = WriteToParcelResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[69]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WriteToParcelResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WriteToParcelResponse) ProtoMessage() {}
+
+func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[69]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WriteToParcelResponse.ProtoReflect.Descriptor instead.
+func (*WriteToParcelResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{69}
+}
+
+type AddEmbeddingParametersRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddEmbeddingParametersRequest) Reset() {
+	*x = AddEmbeddingParametersRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[70]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddEmbeddingParametersRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddEmbeddingParametersRequest) ProtoMessage() {}
+
+func (x *AddEmbeddingParametersRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[70]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddEmbeddingParametersRequest.ProtoReflect.Descriptor instead.
+func (*AddEmbeddingParametersRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{70}
+}
+
+func (x *AddEmbeddingParametersRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AddEmbeddingParametersResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddEmbeddingParametersResponse) Reset() {
+	*x = AddEmbeddingParametersResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[71]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddEmbeddingParametersResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddEmbeddingParametersResponse) ProtoMessage() {}
+
+func (x *AddEmbeddingParametersResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[71]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddEmbeddingParametersResponse.ProtoReflect.Descriptor instead.
+func (*AddEmbeddingParametersResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{71}
+}
+
+func (x *AddEmbeddingParametersResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddFilterDocumentIdsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddFilterDocumentIdsRequest) Reset() {
+	*x = AddFilterDocumentIdsRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[72]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddFilterDocumentIdsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddFilterDocumentIdsRequest) ProtoMessage() {}
+
+func (x *AddFilterDocumentIdsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[72]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddFilterDocumentIdsRequest.ProtoReflect.Descriptor instead.
+func (*AddFilterDocumentIdsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{72}
+}
+
+func (x *AddFilterDocumentIdsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AddFilterDocumentIdsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddFilterDocumentIdsResponse) Reset() {
+	*x = AddFilterDocumentIdsResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[73]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddFilterDocumentIdsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddFilterDocumentIdsResponse) ProtoMessage() {}
+
+func (x *AddFilterDocumentIdsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[73]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddFilterDocumentIdsResponse.ProtoReflect.Descriptor instead.
+func (*AddFilterDocumentIdsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{73}
+}
+
+func (x *AddFilterDocumentIdsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddFilterNamespacesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddFilterNamespacesRequest) Reset() {
+	*x = AddFilterNamespacesRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[74]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddFilterNamespacesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddFilterNamespacesRequest) ProtoMessage() {}
+
+func (x *AddFilterNamespacesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[74]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddFilterNamespacesRequest.ProtoReflect.Descriptor instead.
+func (*AddFilterNamespacesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{74}
+}
+
+func (x *AddFilterNamespacesRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AddFilterNamespacesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddFilterNamespacesResponse) Reset() {
+	*x = AddFilterNamespacesResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[75]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddFilterNamespacesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddFilterNamespacesResponse) ProtoMessage() {}
+
+func (x *AddFilterNamespacesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[75]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddFilterNamespacesResponse.ProtoReflect.Descriptor instead.
+func (*AddFilterNamespacesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{75}
+}
+
+func (x *AddFilterNamespacesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddFilterPackageNamesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddFilterPackageNamesRequest) Reset() {
+	*x = AddFilterPackageNamesRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[76]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddFilterPackageNamesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddFilterPackageNamesRequest) ProtoMessage() {}
+
+func (x *AddFilterPackageNamesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[76]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddFilterPackageNamesRequest.ProtoReflect.Descriptor instead.
+func (*AddFilterPackageNamesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{76}
+}
+
+func (x *AddFilterPackageNamesRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AddFilterPackageNamesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddFilterPackageNamesResponse) Reset() {
+	*x = AddFilterPackageNamesResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[77]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddFilterPackageNamesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddFilterPackageNamesResponse) ProtoMessage() {}
+
+func (x *AddFilterPackageNamesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[77]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddFilterPackageNamesResponse.ProtoReflect.Descriptor instead.
+func (*AddFilterPackageNamesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{77}
+}
+
+func (x *AddFilterPackageNamesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddFilterSchemasRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddFilterSchemasRequest) Reset() {
+	*x = AddFilterSchemasRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[78]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddFilterSchemasRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddFilterSchemasRequest) ProtoMessage() {}
+
+func (x *AddFilterSchemasRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[78]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddFilterSchemasRequest.ProtoReflect.Descriptor instead.
+func (*AddFilterSchemasRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{78}
+}
+
+func (x *AddFilterSchemasRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AddFilterSchemasResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddFilterSchemasResponse) Reset() {
+	*x = AddFilterSchemasResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[79]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddFilterSchemasResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddFilterSchemasResponse) ProtoMessage() {}
+
+func (x *AddFilterSchemasResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[79]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddFilterSchemasResponse.ProtoReflect.Descriptor instead.
+func (*AddFilterSchemasResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{79}
+}
+
+func (x *AddFilterSchemasResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddInformationalRankingExpressionsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddInformationalRankingExpressionsRequest) Reset() {
+	*x = AddInformationalRankingExpressionsRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[80]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddInformationalRankingExpressionsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddInformationalRankingExpressionsRequest) ProtoMessage() {}
+
+func (x *AddInformationalRankingExpressionsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[80]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddInformationalRankingExpressionsRequest.ProtoReflect.Descriptor instead.
+func (*AddInformationalRankingExpressionsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{80}
+}
+
+func (x *AddInformationalRankingExpressionsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AddInformationalRankingExpressionsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddInformationalRankingExpressionsResponse) Reset() {
+	*x = AddInformationalRankingExpressionsResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[81]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddInformationalRankingExpressionsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddInformationalRankingExpressionsResponse) ProtoMessage() {}
+
+func (x *AddInformationalRankingExpressionsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[81]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddInformationalRankingExpressionsResponse.ProtoReflect.Descriptor instead.
+func (*AddInformationalRankingExpressionsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{81}
+}
+
+func (x *AddInformationalRankingExpressionsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddSearchStringParametersRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddSearchStringParametersRequest) Reset() {
+	*x = AddSearchStringParametersRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[82]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddSearchStringParametersRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddSearchStringParametersRequest) ProtoMessage() {}
+
+func (x *AddSearchStringParametersRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[82]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddSearchStringParametersRequest.ProtoReflect.Descriptor instead.
+func (*AddSearchStringParametersRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{82}
+}
+
+func (x *AddSearchStringParametersRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AddSearchStringParametersResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddSearchStringParametersResponse) Reset() {
+	*x = AddSearchStringParametersResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[83]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddSearchStringParametersResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddSearchStringParametersResponse) ProtoMessage() {}
+
+func (x *AddSearchStringParametersResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[83]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddSearchStringParametersResponse.ProtoReflect.Descriptor instead.
+func (*AddSearchStringParametersResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{83}
+}
+
+func (x *AddSearchStringParametersResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ClearEmbeddingParametersRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearEmbeddingParametersRequest) Reset() {
+	*x = ClearEmbeddingParametersRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[84]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearEmbeddingParametersRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearEmbeddingParametersRequest) ProtoMessage() {}
+
+func (x *ClearEmbeddingParametersRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[84]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearEmbeddingParametersRequest.ProtoReflect.Descriptor instead.
+func (*ClearEmbeddingParametersRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{84}
+}
+
+type ClearEmbeddingParametersResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearEmbeddingParametersResponse) Reset() {
+	*x = ClearEmbeddingParametersResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[85]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearEmbeddingParametersResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearEmbeddingParametersResponse) ProtoMessage() {}
+
+func (x *ClearEmbeddingParametersResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[85]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearEmbeddingParametersResponse.ProtoReflect.Descriptor instead.
+func (*ClearEmbeddingParametersResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{85}
+}
+
+func (x *ClearEmbeddingParametersResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ClearFilterDocumentIdsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearFilterDocumentIdsRequest) Reset() {
+	*x = ClearFilterDocumentIdsRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[86]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearFilterDocumentIdsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearFilterDocumentIdsRequest) ProtoMessage() {}
+
+func (x *ClearFilterDocumentIdsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[86]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearFilterDocumentIdsRequest.ProtoReflect.Descriptor instead.
+func (*ClearFilterDocumentIdsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{86}
+}
+
+type ClearFilterDocumentIdsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearFilterDocumentIdsResponse) Reset() {
+	*x = ClearFilterDocumentIdsResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[87]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearFilterDocumentIdsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearFilterDocumentIdsResponse) ProtoMessage() {}
+
+func (x *ClearFilterDocumentIdsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[87]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearFilterDocumentIdsResponse.ProtoReflect.Descriptor instead.
+func (*ClearFilterDocumentIdsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{87}
+}
+
+func (x *ClearFilterDocumentIdsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ClearFilterNamespacesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearFilterNamespacesRequest) Reset() {
+	*x = ClearFilterNamespacesRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[88]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearFilterNamespacesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearFilterNamespacesRequest) ProtoMessage() {}
+
+func (x *ClearFilterNamespacesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[88]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearFilterNamespacesRequest.ProtoReflect.Descriptor instead.
+func (*ClearFilterNamespacesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{88}
+}
+
+type ClearFilterNamespacesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearFilterNamespacesResponse) Reset() {
+	*x = ClearFilterNamespacesResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[89]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearFilterNamespacesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearFilterNamespacesResponse) ProtoMessage() {}
+
+func (x *ClearFilterNamespacesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[89]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearFilterNamespacesResponse.ProtoReflect.Descriptor instead.
+func (*ClearFilterNamespacesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{89}
+}
+
+func (x *ClearFilterNamespacesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ClearFilterPackageNamesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearFilterPackageNamesRequest) Reset() {
+	*x = ClearFilterPackageNamesRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[90]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearFilterPackageNamesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearFilterPackageNamesRequest) ProtoMessage() {}
+
+func (x *ClearFilterPackageNamesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[90]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearFilterPackageNamesRequest.ProtoReflect.Descriptor instead.
+func (*ClearFilterPackageNamesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{90}
+}
+
+type ClearFilterPackageNamesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearFilterPackageNamesResponse) Reset() {
+	*x = ClearFilterPackageNamesResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[91]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearFilterPackageNamesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearFilterPackageNamesResponse) ProtoMessage() {}
+
+func (x *ClearFilterPackageNamesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[91]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearFilterPackageNamesResponse.ProtoReflect.Descriptor instead.
+func (*ClearFilterPackageNamesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{91}
+}
+
+func (x *ClearFilterPackageNamesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ClearFilterPropertiesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearFilterPropertiesRequest) Reset() {
+	*x = ClearFilterPropertiesRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[92]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearFilterPropertiesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearFilterPropertiesRequest) ProtoMessage() {}
+
+func (x *ClearFilterPropertiesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[92]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearFilterPropertiesRequest.ProtoReflect.Descriptor instead.
+func (*ClearFilterPropertiesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{92}
+}
+
+type ClearFilterPropertiesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearFilterPropertiesResponse) Reset() {
+	*x = ClearFilterPropertiesResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[93]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearFilterPropertiesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearFilterPropertiesResponse) ProtoMessage() {}
+
+func (x *ClearFilterPropertiesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[93]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearFilterPropertiesResponse.ProtoReflect.Descriptor instead.
+func (*ClearFilterPropertiesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{93}
+}
+
+func (x *ClearFilterPropertiesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ClearFilterSchemasRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearFilterSchemasRequest) Reset() {
+	*x = ClearFilterSchemasRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[94]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearFilterSchemasRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearFilterSchemasRequest) ProtoMessage() {}
+
+func (x *ClearFilterSchemasRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[94]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearFilterSchemasRequest.ProtoReflect.Descriptor instead.
+func (*ClearFilterSchemasRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{94}
+}
+
+type ClearFilterSchemasResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearFilterSchemasResponse) Reset() {
+	*x = ClearFilterSchemasResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[95]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearFilterSchemasResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearFilterSchemasResponse) ProtoMessage() {}
+
+func (x *ClearFilterSchemasResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[95]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearFilterSchemasResponse.ProtoReflect.Descriptor instead.
+func (*ClearFilterSchemasResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{95}
+}
+
+func (x *ClearFilterSchemasResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ClearInformationalRankingExpressionsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearInformationalRankingExpressionsRequest) Reset() {
+	*x = ClearInformationalRankingExpressionsRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[96]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearInformationalRankingExpressionsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearInformationalRankingExpressionsRequest) ProtoMessage() {}
+
+func (x *ClearInformationalRankingExpressionsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[96]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearInformationalRankingExpressionsRequest.ProtoReflect.Descriptor instead.
+func (*ClearInformationalRankingExpressionsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{96}
+}
+
+type ClearInformationalRankingExpressionsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearInformationalRankingExpressionsResponse) Reset() {
+	*x = ClearInformationalRankingExpressionsResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[97]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearInformationalRankingExpressionsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearInformationalRankingExpressionsResponse) ProtoMessage() {}
+
+func (x *ClearInformationalRankingExpressionsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[97]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearInformationalRankingExpressionsResponse.ProtoReflect.Descriptor instead.
+func (*ClearInformationalRankingExpressionsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{97}
+}
+
+func (x *ClearInformationalRankingExpressionsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ClearJoinSpecRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearJoinSpecRequest) Reset() {
+	*x = ClearJoinSpecRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[98]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearJoinSpecRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearJoinSpecRequest) ProtoMessage() {}
+
+func (x *ClearJoinSpecRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[98]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearJoinSpecRequest.ProtoReflect.Descriptor instead.
+func (*ClearJoinSpecRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{98}
+}
+
+type ClearJoinSpecResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearJoinSpecResponse) Reset() {
+	*x = ClearJoinSpecResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[99]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearJoinSpecResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearJoinSpecResponse) ProtoMessage() {}
+
+func (x *ClearJoinSpecResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[99]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearJoinSpecResponse.ProtoReflect.Descriptor instead.
+func (*ClearJoinSpecResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{99}
+}
+
+func (x *ClearJoinSpecResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ClearProjectionsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearProjectionsRequest) Reset() {
+	*x = ClearProjectionsRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[100]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearProjectionsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearProjectionsRequest) ProtoMessage() {}
+
+func (x *ClearProjectionsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[100]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearProjectionsRequest.ProtoReflect.Descriptor instead.
+func (*ClearProjectionsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{100}
+}
+
+type ClearProjectionsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearProjectionsResponse) Reset() {
+	*x = ClearProjectionsResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[101]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearProjectionsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearProjectionsResponse) ProtoMessage() {}
+
+func (x *ClearProjectionsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[101]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearProjectionsResponse.ProtoReflect.Descriptor instead.
+func (*ClearProjectionsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{101}
+}
+
+func (x *ClearProjectionsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ClearPropertyWeightsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearPropertyWeightsRequest) Reset() {
+	*x = ClearPropertyWeightsRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[102]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearPropertyWeightsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearPropertyWeightsRequest) ProtoMessage() {}
+
+func (x *ClearPropertyWeightsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[102]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearPropertyWeightsRequest.ProtoReflect.Descriptor instead.
+func (*ClearPropertyWeightsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{102}
+}
+
+type ClearPropertyWeightsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearPropertyWeightsResponse) Reset() {
+	*x = ClearPropertyWeightsResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[103]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearPropertyWeightsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearPropertyWeightsResponse) ProtoMessage() {}
+
+func (x *ClearPropertyWeightsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[103]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearPropertyWeightsResponse.ProtoReflect.Descriptor instead.
+func (*ClearPropertyWeightsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{103}
+}
+
+func (x *ClearPropertyWeightsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ClearResultGroupingRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearResultGroupingRequest) Reset() {
+	*x = ClearResultGroupingRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[104]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearResultGroupingRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearResultGroupingRequest) ProtoMessage() {}
+
+func (x *ClearResultGroupingRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[104]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearResultGroupingRequest.ProtoReflect.Descriptor instead.
+func (*ClearResultGroupingRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{104}
+}
+
+type ClearResultGroupingResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearResultGroupingResponse) Reset() {
+	*x = ClearResultGroupingResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[105]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearResultGroupingResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearResultGroupingResponse) ProtoMessage() {}
+
+func (x *ClearResultGroupingResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[105]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearResultGroupingResponse.ProtoReflect.Descriptor instead.
+func (*ClearResultGroupingResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{105}
+}
+
+func (x *ClearResultGroupingResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ClearSearchSourceLogTagRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearSearchSourceLogTagRequest) Reset() {
+	*x = ClearSearchSourceLogTagRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[106]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearSearchSourceLogTagRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearSearchSourceLogTagRequest) ProtoMessage() {}
+
+func (x *ClearSearchSourceLogTagRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[106]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearSearchSourceLogTagRequest.ProtoReflect.Descriptor instead.
+func (*ClearSearchSourceLogTagRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{106}
+}
+
+type ClearSearchSourceLogTagResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearSearchSourceLogTagResponse) Reset() {
+	*x = ClearSearchSourceLogTagResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[107]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearSearchSourceLogTagResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearSearchSourceLogTagResponse) ProtoMessage() {}
+
+func (x *ClearSearchSourceLogTagResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[107]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearSearchSourceLogTagResponse.ProtoReflect.Descriptor instead.
+func (*ClearSearchSourceLogTagResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{107}
+}
+
+func (x *ClearSearchSourceLogTagResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ClearSearchStringParametersRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearSearchStringParametersRequest) Reset() {
+	*x = ClearSearchStringParametersRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[108]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearSearchStringParametersRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearSearchStringParametersRequest) ProtoMessage() {}
+
+func (x *ClearSearchStringParametersRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[108]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearSearchStringParametersRequest.ProtoReflect.Descriptor instead.
+func (*ClearSearchStringParametersRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{108}
+}
+
+type ClearSearchStringParametersResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearSearchStringParametersResponse) Reset() {
+	*x = ClearSearchStringParametersResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[109]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearSearchStringParametersResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearSearchStringParametersResponse) ProtoMessage() {}
+
+func (x *ClearSearchStringParametersResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[109]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearSearchStringParametersResponse.ProtoReflect.Descriptor instead.
+func (*ClearSearchStringParametersResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{109}
+}
+
+func (x *ClearSearchStringParametersResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetDefaultEmbeddingSearchMetricTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetDefaultEmbeddingSearchMetricTypeRequest) Reset() {
+	*x = SetDefaultEmbeddingSearchMetricTypeRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[110]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetDefaultEmbeddingSearchMetricTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetDefaultEmbeddingSearchMetricTypeRequest) ProtoMessage() {}
+
+func (x *SetDefaultEmbeddingSearchMetricTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[110]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetDefaultEmbeddingSearchMetricTypeRequest.ProtoReflect.Descriptor instead.
+func (*SetDefaultEmbeddingSearchMetricTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{110}
+}
+
+func (x *SetDefaultEmbeddingSearchMetricTypeRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetDefaultEmbeddingSearchMetricTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetDefaultEmbeddingSearchMetricTypeResponse) Reset() {
+	*x = SetDefaultEmbeddingSearchMetricTypeResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[111]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetDefaultEmbeddingSearchMetricTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetDefaultEmbeddingSearchMetricTypeResponse) ProtoMessage() {}
+
+func (x *SetDefaultEmbeddingSearchMetricTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[111]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetDefaultEmbeddingSearchMetricTypeResponse.ProtoReflect.Descriptor instead.
+func (*SetDefaultEmbeddingSearchMetricTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{111}
+}
+
+func (x *SetDefaultEmbeddingSearchMetricTypeResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetJoinSpecRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetJoinSpecRequest) Reset() {
+	*x = SetJoinSpecRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[112]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetJoinSpecRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetJoinSpecRequest) ProtoMessage() {}
+
+func (x *SetJoinSpecRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[112]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetJoinSpecRequest.ProtoReflect.Descriptor instead.
+func (*SetJoinSpecRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{112}
+}
+
+func (x *SetJoinSpecRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetJoinSpecResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetJoinSpecResponse) Reset() {
+	*x = SetJoinSpecResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[113]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetJoinSpecResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetJoinSpecResponse) ProtoMessage() {}
+
+func (x *SetJoinSpecResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[113]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetJoinSpecResponse.ProtoReflect.Descriptor instead.
+func (*SetJoinSpecResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{113}
+}
+
+func (x *SetJoinSpecResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetListFilterHasPropertyFunctionEnabledRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetListFilterHasPropertyFunctionEnabledRequest) Reset() {
+	*x = SetListFilterHasPropertyFunctionEnabledRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[114]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetListFilterHasPropertyFunctionEnabledRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetListFilterHasPropertyFunctionEnabledRequest) ProtoMessage() {}
+
+func (x *SetListFilterHasPropertyFunctionEnabledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[114]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetListFilterHasPropertyFunctionEnabledRequest.ProtoReflect.Descriptor instead.
+func (*SetListFilterHasPropertyFunctionEnabledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{114}
+}
+
+func (x *SetListFilterHasPropertyFunctionEnabledRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetListFilterHasPropertyFunctionEnabledResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetListFilterHasPropertyFunctionEnabledResponse) Reset() {
+	*x = SetListFilterHasPropertyFunctionEnabledResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[115]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetListFilterHasPropertyFunctionEnabledResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetListFilterHasPropertyFunctionEnabledResponse) ProtoMessage() {}
+
+func (x *SetListFilterHasPropertyFunctionEnabledResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[115]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetListFilterHasPropertyFunctionEnabledResponse.ProtoReflect.Descriptor instead.
+func (*SetListFilterHasPropertyFunctionEnabledResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{115}
+}
+
+func (x *SetListFilterHasPropertyFunctionEnabledResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetListFilterMatchScoreExpressionFunctionEnabledRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetListFilterMatchScoreExpressionFunctionEnabledRequest) Reset() {
+	*x = SetListFilterMatchScoreExpressionFunctionEnabledRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[116]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetListFilterMatchScoreExpressionFunctionEnabledRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetListFilterMatchScoreExpressionFunctionEnabledRequest) ProtoMessage() {}
+
+func (x *SetListFilterMatchScoreExpressionFunctionEnabledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[116]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetListFilterMatchScoreExpressionFunctionEnabledRequest.ProtoReflect.Descriptor instead.
+func (*SetListFilterMatchScoreExpressionFunctionEnabledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{116}
+}
+
+func (x *SetListFilterMatchScoreExpressionFunctionEnabledRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetListFilterMatchScoreExpressionFunctionEnabledResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetListFilterMatchScoreExpressionFunctionEnabledResponse) Reset() {
+	*x = SetListFilterMatchScoreExpressionFunctionEnabledResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[117]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetListFilterMatchScoreExpressionFunctionEnabledResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetListFilterMatchScoreExpressionFunctionEnabledResponse) ProtoMessage() {}
+
+func (x *SetListFilterMatchScoreExpressionFunctionEnabledResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[117]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetListFilterMatchScoreExpressionFunctionEnabledResponse.ProtoReflect.Descriptor instead.
+func (*SetListFilterMatchScoreExpressionFunctionEnabledResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{117}
+}
+
+func (x *SetListFilterMatchScoreExpressionFunctionEnabledResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetListFilterQueryLanguageEnabledRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetListFilterQueryLanguageEnabledRequest) Reset() {
+	*x = SetListFilterQueryLanguageEnabledRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[118]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetListFilterQueryLanguageEnabledRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetListFilterQueryLanguageEnabledRequest) ProtoMessage() {}
+
+func (x *SetListFilterQueryLanguageEnabledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[118]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetListFilterQueryLanguageEnabledRequest.ProtoReflect.Descriptor instead.
+func (*SetListFilterQueryLanguageEnabledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{118}
+}
+
+func (x *SetListFilterQueryLanguageEnabledRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetListFilterQueryLanguageEnabledResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetListFilterQueryLanguageEnabledResponse) Reset() {
+	*x = SetListFilterQueryLanguageEnabledResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[119]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetListFilterQueryLanguageEnabledResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetListFilterQueryLanguageEnabledResponse) ProtoMessage() {}
+
+func (x *SetListFilterQueryLanguageEnabledResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[119]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetListFilterQueryLanguageEnabledResponse.ProtoReflect.Descriptor instead.
+func (*SetListFilterQueryLanguageEnabledResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{119}
+}
+
+func (x *SetListFilterQueryLanguageEnabledResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetMaxSnippetSizeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetMaxSnippetSizeRequest) Reset() {
+	*x = SetMaxSnippetSizeRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[120]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetMaxSnippetSizeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetMaxSnippetSizeRequest) ProtoMessage() {}
+
+func (x *SetMaxSnippetSizeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[120]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetMaxSnippetSizeRequest.ProtoReflect.Descriptor instead.
+func (*SetMaxSnippetSizeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{120}
+}
+
+func (x *SetMaxSnippetSizeRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetMaxSnippetSizeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetMaxSnippetSizeResponse) Reset() {
+	*x = SetMaxSnippetSizeResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[121]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetMaxSnippetSizeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetMaxSnippetSizeResponse) ProtoMessage() {}
+
+func (x *SetMaxSnippetSizeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[121]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetMaxSnippetSizeResponse.ProtoReflect.Descriptor instead.
+func (*SetMaxSnippetSizeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{121}
+}
+
+func (x *SetMaxSnippetSizeResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetNumericSearchEnabledRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetNumericSearchEnabledRequest) Reset() {
+	*x = SetNumericSearchEnabledRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[122]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetNumericSearchEnabledRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetNumericSearchEnabledRequest) ProtoMessage() {}
+
+func (x *SetNumericSearchEnabledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[122]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetNumericSearchEnabledRequest.ProtoReflect.Descriptor instead.
+func (*SetNumericSearchEnabledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{122}
+}
+
+func (x *SetNumericSearchEnabledRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetNumericSearchEnabledResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetNumericSearchEnabledResponse) Reset() {
+	*x = SetNumericSearchEnabledResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[123]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetNumericSearchEnabledResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetNumericSearchEnabledResponse) ProtoMessage() {}
+
+func (x *SetNumericSearchEnabledResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[123]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetNumericSearchEnabledResponse.ProtoReflect.Descriptor instead.
+func (*SetNumericSearchEnabledResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{123}
+}
+
+func (x *SetNumericSearchEnabledResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetOrderRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetOrderRequest) Reset() {
+	*x = SetOrderRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[124]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetOrderRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetOrderRequest) ProtoMessage() {}
+
+func (x *SetOrderRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[124]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetOrderRequest.ProtoReflect.Descriptor instead.
+func (*SetOrderRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{124}
+}
+
+func (x *SetOrderRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetOrderResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetOrderResponse) Reset() {
+	*x = SetOrderResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[125]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetOrderResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetOrderResponse) ProtoMessage() {}
+
+func (x *SetOrderResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[125]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetOrderResponse.ProtoReflect.Descriptor instead.
+func (*SetOrderResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{125}
+}
+
+func (x *SetOrderResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetRankingStrategy1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetRankingStrategy1Request) Reset() {
+	*x = SetRankingStrategy1Request{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[126]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetRankingStrategy1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetRankingStrategy1Request) ProtoMessage() {}
+
+func (x *SetRankingStrategy1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[126]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetRankingStrategy1Request.ProtoReflect.Descriptor instead.
+func (*SetRankingStrategy1Request) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{126}
+}
+
+func (x *SetRankingStrategy1Request) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetRankingStrategy1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetRankingStrategy1Response) Reset() {
+	*x = SetRankingStrategy1Response{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[127]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetRankingStrategy1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetRankingStrategy1Response) ProtoMessage() {}
+
+func (x *SetRankingStrategy1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[127]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetRankingStrategy1Response.ProtoReflect.Descriptor instead.
+func (*SetRankingStrategy1Response) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{127}
+}
+
+func (x *SetRankingStrategy1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetRankingStrategy1_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetRankingStrategy1_1Request) Reset() {
+	*x = SetRankingStrategy1_1Request{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[128]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetRankingStrategy1_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetRankingStrategy1_1Request) ProtoMessage() {}
+
+func (x *SetRankingStrategy1_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[128]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetRankingStrategy1_1Request.ProtoReflect.Descriptor instead.
+func (*SetRankingStrategy1_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{128}
+}
+
+func (x *SetRankingStrategy1_1Request) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type SetRankingStrategy1_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetRankingStrategy1_1Response) Reset() {
+	*x = SetRankingStrategy1_1Response{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[129]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetRankingStrategy1_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetRankingStrategy1_1Response) ProtoMessage() {}
+
+func (x *SetRankingStrategy1_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[129]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetRankingStrategy1_1Response.ProtoReflect.Descriptor instead.
+func (*SetRankingStrategy1_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{129}
+}
+
+func (x *SetRankingStrategy1_1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetResultCountPerPageRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetResultCountPerPageRequest) Reset() {
+	*x = SetResultCountPerPageRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[130]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetResultCountPerPageRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetResultCountPerPageRequest) ProtoMessage() {}
+
+func (x *SetResultCountPerPageRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[130]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetResultCountPerPageRequest.ProtoReflect.Descriptor instead.
+func (*SetResultCountPerPageRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{130}
+}
+
+func (x *SetResultCountPerPageRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetResultCountPerPageResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetResultCountPerPageResponse) Reset() {
+	*x = SetResultCountPerPageResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[131]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetResultCountPerPageResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetResultCountPerPageResponse) ProtoMessage() {}
+
+func (x *SetResultCountPerPageResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[131]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetResultCountPerPageResponse.ProtoReflect.Descriptor instead.
+func (*SetResultCountPerPageResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{131}
+}
+
+func (x *SetResultCountPerPageResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetResultGroupingRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetResultGroupingRequest) Reset() {
+	*x = SetResultGroupingRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[132]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetResultGroupingRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetResultGroupingRequest) ProtoMessage() {}
+
+func (x *SetResultGroupingRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[132]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetResultGroupingRequest.ProtoReflect.Descriptor instead.
+func (*SetResultGroupingRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{132}
+}
+
+func (x *SetResultGroupingRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SetResultGroupingRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type SetResultGroupingResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetResultGroupingResponse) Reset() {
+	*x = SetResultGroupingResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[133]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetResultGroupingResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetResultGroupingResponse) ProtoMessage() {}
+
+func (x *SetResultGroupingResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[133]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetResultGroupingResponse.ProtoReflect.Descriptor instead.
+func (*SetResultGroupingResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{133}
+}
+
+func (x *SetResultGroupingResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetScorablePropertyRankingEnabledRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetScorablePropertyRankingEnabledRequest) Reset() {
+	*x = SetScorablePropertyRankingEnabledRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[134]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetScorablePropertyRankingEnabledRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetScorablePropertyRankingEnabledRequest) ProtoMessage() {}
+
+func (x *SetScorablePropertyRankingEnabledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[134]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetScorablePropertyRankingEnabledRequest.ProtoReflect.Descriptor instead.
+func (*SetScorablePropertyRankingEnabledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{134}
+}
+
+func (x *SetScorablePropertyRankingEnabledRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetScorablePropertyRankingEnabledResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetScorablePropertyRankingEnabledResponse) Reset() {
+	*x = SetScorablePropertyRankingEnabledResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[135]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetScorablePropertyRankingEnabledResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetScorablePropertyRankingEnabledResponse) ProtoMessage() {}
+
+func (x *SetScorablePropertyRankingEnabledResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[135]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetScorablePropertyRankingEnabledResponse.ProtoReflect.Descriptor instead.
+func (*SetScorablePropertyRankingEnabledResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{135}
+}
+
+func (x *SetScorablePropertyRankingEnabledResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetSearchSourceLogTagRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetSearchSourceLogTagRequest) Reset() {
+	*x = SetSearchSourceLogTagRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[136]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetSearchSourceLogTagRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetSearchSourceLogTagRequest) ProtoMessage() {}
+
+func (x *SetSearchSourceLogTagRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[136]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetSearchSourceLogTagRequest.ProtoReflect.Descriptor instead.
+func (*SetSearchSourceLogTagRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{136}
+}
+
+func (x *SetSearchSourceLogTagRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type SetSearchSourceLogTagResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetSearchSourceLogTagResponse) Reset() {
+	*x = SetSearchSourceLogTagResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[137]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetSearchSourceLogTagResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetSearchSourceLogTagResponse) ProtoMessage() {}
+
+func (x *SetSearchSourceLogTagResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[137]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetSearchSourceLogTagResponse.ProtoReflect.Descriptor instead.
+func (*SetSearchSourceLogTagResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{137}
+}
+
+func (x *SetSearchSourceLogTagResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetSnippetCountRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetSnippetCountRequest) Reset() {
+	*x = SetSnippetCountRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[138]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetSnippetCountRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetSnippetCountRequest) ProtoMessage() {}
+
+func (x *SetSnippetCountRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[138]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetSnippetCountRequest.ProtoReflect.Descriptor instead.
+func (*SetSnippetCountRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{138}
+}
+
+func (x *SetSnippetCountRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetSnippetCountResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetSnippetCountResponse) Reset() {
+	*x = SetSnippetCountResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[139]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetSnippetCountResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetSnippetCountResponse) ProtoMessage() {}
+
+func (x *SetSnippetCountResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[139]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetSnippetCountResponse.ProtoReflect.Descriptor instead.
+func (*SetSnippetCountResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{139}
+}
+
+func (x *SetSnippetCountResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetSnippetCountPerPropertyRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetSnippetCountPerPropertyRequest) Reset() {
+	*x = SetSnippetCountPerPropertyRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[140]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetSnippetCountPerPropertyRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetSnippetCountPerPropertyRequest) ProtoMessage() {}
+
+func (x *SetSnippetCountPerPropertyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[140]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetSnippetCountPerPropertyRequest.ProtoReflect.Descriptor instead.
+func (*SetSnippetCountPerPropertyRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{140}
+}
+
+func (x *SetSnippetCountPerPropertyRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetSnippetCountPerPropertyResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetSnippetCountPerPropertyResponse) Reset() {
+	*x = SetSnippetCountPerPropertyResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[141]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetSnippetCountPerPropertyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetSnippetCountPerPropertyResponse) ProtoMessage() {}
+
+func (x *SetSnippetCountPerPropertyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[141]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetSnippetCountPerPropertyResponse.ProtoReflect.Descriptor instead.
+func (*SetSnippetCountPerPropertyResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{141}
+}
+
+func (x *SetSnippetCountPerPropertyResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetTermMatchRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetTermMatchRequest) Reset() {
+	*x = SetTermMatchRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[142]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetTermMatchRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetTermMatchRequest) ProtoMessage() {}
+
+func (x *SetTermMatchRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[142]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetTermMatchRequest.ProtoReflect.Descriptor instead.
+func (*SetTermMatchRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{142}
+}
+
+func (x *SetTermMatchRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetTermMatchResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetTermMatchResponse) Reset() {
+	*x = SetTermMatchResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[143]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetTermMatchResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetTermMatchResponse) ProtoMessage() {}
+
+func (x *SetTermMatchResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[143]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetTermMatchResponse.ProtoReflect.Descriptor instead.
+func (*SetTermMatchResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{143}
+}
+
+func (x *SetTermMatchResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetVerbatimSearchEnabledRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetVerbatimSearchEnabledRequest) Reset() {
+	*x = SetVerbatimSearchEnabledRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[144]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetVerbatimSearchEnabledRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetVerbatimSearchEnabledRequest) ProtoMessage() {}
+
+func (x *SetVerbatimSearchEnabledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[144]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetVerbatimSearchEnabledRequest.ProtoReflect.Descriptor instead.
+func (*SetVerbatimSearchEnabledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{144}
+}
+
+func (x *SetVerbatimSearchEnabledRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetVerbatimSearchEnabledResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetVerbatimSearchEnabledResponse) Reset() {
+	*x = SetVerbatimSearchEnabledResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[145]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetVerbatimSearchEnabledResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetVerbatimSearchEnabledResponse) ProtoMessage() {}
+
+func (x *SetVerbatimSearchEnabledResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[145]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetVerbatimSearchEnabledResponse.ProtoReflect.Descriptor instead.
+func (*SetVerbatimSearchEnabledResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{145}
+}
+
+func (x *SetVerbatimSearchEnabledResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type NewRemoveBlobResponseRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewRemoveBlobResponseRequest) Reset() {
+	*x = NewRemoveBlobResponseRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[146]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewRemoveBlobResponseRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewRemoveBlobResponseRequest) ProtoMessage() {}
+
+func (x *NewRemoveBlobResponseRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[146]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewRemoveBlobResponseRequest.ProtoReflect.Descriptor instead.
+func (*NewRemoveBlobResponseRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{146}
+}
+
+func (x *NewRemoveBlobResponseRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type NewRemoveBlobResponseResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewRemoveBlobResponseResponse) Reset() {
+	*x = NewRemoveBlobResponseResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[147]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewRemoveBlobResponseResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewRemoveBlobResponseResponse) ProtoMessage() {}
+
+func (x *NewRemoveBlobResponseResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[147]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewRemoveBlobResponseResponse.ProtoReflect.Descriptor instead.
+func (*NewRemoveBlobResponseResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{147}
+}
+
+func (x *NewRemoveBlobResponseResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type RemoveBlobResponseDescribeContentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RemoveBlobResponseDescribeContentsRequest) Reset() {
+	*x = RemoveBlobResponseDescribeContentsRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[148]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RemoveBlobResponseDescribeContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemoveBlobResponseDescribeContentsRequest) ProtoMessage() {}
+
+func (x *RemoveBlobResponseDescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[148]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemoveBlobResponseDescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*RemoveBlobResponseDescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{148}
+}
+
+func (x *RemoveBlobResponseDescribeContentsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type RemoveBlobResponseWriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RemoveBlobResponseWriteToParcelRequest) Reset() {
+	*x = RemoveBlobResponseWriteToParcelRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[149]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RemoveBlobResponseWriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemoveBlobResponseWriteToParcelRequest) ProtoMessage() {}
+
+func (x *RemoveBlobResponseWriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[149]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemoveBlobResponseWriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*RemoveBlobResponseWriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{149}
+}
+
+func (x *RemoveBlobResponseWriteToParcelRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *RemoveBlobResponseWriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *RemoveBlobResponseWriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type CloseRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CloseRequest) Reset() {
+	*x = CloseRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[150]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CloseRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CloseRequest) ProtoMessage() {}
+
+func (x *CloseRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[150]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CloseRequest.ProtoReflect.Descriptor instead.
+func (*CloseRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{150}
+}
+
+type CloseResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CloseResponse) Reset() {
+	*x = CloseResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[151]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CloseResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CloseResponse) ProtoMessage() {}
+
+func (x *CloseResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[151]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CloseResponse.ProtoReflect.Descriptor instead.
+func (*CloseResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{151}
+}
+
+type RegisterObserverCallbackRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int64                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RegisterObserverCallbackRequest) Reset() {
+	*x = RegisterObserverCallbackRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[152]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RegisterObserverCallbackRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RegisterObserverCallbackRequest) ProtoMessage() {}
+
+func (x *RegisterObserverCallbackRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[152]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RegisterObserverCallbackRequest.ProtoReflect.Descriptor instead.
+func (*RegisterObserverCallbackRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{152}
+}
+
+func (x *RegisterObserverCallbackRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *RegisterObserverCallbackRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *RegisterObserverCallbackRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *RegisterObserverCallbackRequest) GetArg3() int64 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+type RegisterObserverCallbackResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RegisterObserverCallbackResponse) Reset() {
+	*x = RegisterObserverCallbackResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[153]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RegisterObserverCallbackResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RegisterObserverCallbackResponse) ProtoMessage() {}
+
+func (x *RegisterObserverCallbackResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[153]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RegisterObserverCallbackResponse.ProtoReflect.Descriptor instead.
+func (*RegisterObserverCallbackResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{153}
+}
+
+type SearchRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SearchRequest) Reset() {
+	*x = SearchRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[154]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SearchRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SearchRequest) ProtoMessage() {}
+
+func (x *SearchRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[154]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SearchRequest.ProtoReflect.Descriptor instead.
+func (*SearchRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{154}
+}
+
+func (x *SearchRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *SearchRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type SearchResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SearchResponse) Reset() {
+	*x = SearchResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[155]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SearchResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SearchResponse) ProtoMessage() {}
+
+func (x *SearchResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[155]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SearchResponse.ProtoReflect.Descriptor instead.
+func (*SearchResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{155}
+}
+
+func (x *SearchResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type UnregisterObserverCallbackRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UnregisterObserverCallbackRequest) Reset() {
+	*x = UnregisterObserverCallbackRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[156]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UnregisterObserverCallbackRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UnregisterObserverCallbackRequest) ProtoMessage() {}
+
+func (x *UnregisterObserverCallbackRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[156]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UnregisterObserverCallbackRequest.ProtoReflect.Descriptor instead.
+func (*UnregisterObserverCallbackRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{156}
+}
+
+func (x *UnregisterObserverCallbackRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *UnregisterObserverCallbackRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type UnregisterObserverCallbackResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UnregisterObserverCallbackResponse) Reset() {
+	*x = UnregisterObserverCallbackResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[157]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UnregisterObserverCallbackResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UnregisterObserverCallbackResponse) ProtoMessage() {}
+
+func (x *UnregisterObserverCallbackResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[157]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UnregisterObserverCallbackResponse.ProtoReflect.Descriptor instead.
+func (*UnregisterObserverCallbackResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{157}
+}
+
+type AddNamespaceVisibleToConfigRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddNamespaceVisibleToConfigRequest) Reset() {
+	*x = AddNamespaceVisibleToConfigRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[158]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddNamespaceVisibleToConfigRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddNamespaceVisibleToConfigRequest) ProtoMessage() {}
+
+func (x *AddNamespaceVisibleToConfigRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[158]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddNamespaceVisibleToConfigRequest.ProtoReflect.Descriptor instead.
+func (*AddNamespaceVisibleToConfigRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{158}
+}
+
+func (x *AddNamespaceVisibleToConfigRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *AddNamespaceVisibleToConfigRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type AddNamespaceVisibleToConfigResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddNamespaceVisibleToConfigResponse) Reset() {
+	*x = AddNamespaceVisibleToConfigResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[159]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddNamespaceVisibleToConfigResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddNamespaceVisibleToConfigResponse) ProtoMessage() {}
+
+func (x *AddNamespaceVisibleToConfigResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[159]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddNamespaceVisibleToConfigResponse.ProtoReflect.Descriptor instead.
+func (*AddNamespaceVisibleToConfigResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{159}
+}
+
+func (x *AddNamespaceVisibleToConfigResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ClearNamespaceVisibleToConfigsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearNamespaceVisibleToConfigsRequest) Reset() {
+	*x = ClearNamespaceVisibleToConfigsRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[160]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearNamespaceVisibleToConfigsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearNamespaceVisibleToConfigsRequest) ProtoMessage() {}
+
+func (x *ClearNamespaceVisibleToConfigsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[160]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearNamespaceVisibleToConfigsRequest.ProtoReflect.Descriptor instead.
+func (*ClearNamespaceVisibleToConfigsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{160}
+}
+
+func (x *ClearNamespaceVisibleToConfigsRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type ClearNamespaceVisibleToConfigsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearNamespaceVisibleToConfigsResponse) Reset() {
+	*x = ClearNamespaceVisibleToConfigsResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[161]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearNamespaceVisibleToConfigsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearNamespaceVisibleToConfigsResponse) ProtoMessage() {}
+
+func (x *ClearNamespaceVisibleToConfigsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[161]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearNamespaceVisibleToConfigsResponse.ProtoReflect.Descriptor instead.
+func (*ClearNamespaceVisibleToConfigsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{161}
+}
+
+func (x *ClearNamespaceVisibleToConfigsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetNamespaceDisplayedBySystemRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          bool                   `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetNamespaceDisplayedBySystemRequest) Reset() {
+	*x = SetNamespaceDisplayedBySystemRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[162]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetNamespaceDisplayedBySystemRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetNamespaceDisplayedBySystemRequest) ProtoMessage() {}
+
+func (x *SetNamespaceDisplayedBySystemRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[162]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetNamespaceDisplayedBySystemRequest.ProtoReflect.Descriptor instead.
+func (*SetNamespaceDisplayedBySystemRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{162}
+}
+
+func (x *SetNamespaceDisplayedBySystemRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *SetNamespaceDisplayedBySystemRequest) GetArg1() bool {
+	if x != nil {
+		return x.Arg1
+	}
+	return false
+}
+
+type SetNamespaceDisplayedBySystemResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetNamespaceDisplayedBySystemResponse) Reset() {
+	*x = SetNamespaceDisplayedBySystemResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[163]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetNamespaceDisplayedBySystemResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetNamespaceDisplayedBySystemResponse) ProtoMessage() {}
+
+func (x *SetNamespaceDisplayedBySystemResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[163]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetNamespaceDisplayedBySystemResponse.ProtoReflect.Descriptor instead.
+func (*SetNamespaceDisplayedBySystemResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{163}
+}
+
+func (x *SetNamespaceDisplayedBySystemResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPubliclyVisibleTargetPackageRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPubliclyVisibleTargetPackageRequest) Reset() {
+	*x = GetPubliclyVisibleTargetPackageRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[164]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPubliclyVisibleTargetPackageRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPubliclyVisibleTargetPackageRequest) ProtoMessage() {}
+
+func (x *GetPubliclyVisibleTargetPackageRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[164]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPubliclyVisibleTargetPackageRequest.ProtoReflect.Descriptor instead.
+func (*GetPubliclyVisibleTargetPackageRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{164}
+}
+
+type GetPubliclyVisibleTargetPackageResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPubliclyVisibleTargetPackageResponse) Reset() {
+	*x = GetPubliclyVisibleTargetPackageResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[165]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPubliclyVisibleTargetPackageResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPubliclyVisibleTargetPackageResponse) ProtoMessage() {}
+
+func (x *GetPubliclyVisibleTargetPackageResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[165]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPubliclyVisibleTargetPackageResponse.ProtoReflect.Descriptor instead.
+func (*GetPubliclyVisibleTargetPackageResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{165}
+}
+
+func (x *GetPubliclyVisibleTargetPackageResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddAllowedPackageRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddAllowedPackageRequest) Reset() {
+	*x = AddAllowedPackageRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[166]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddAllowedPackageRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddAllowedPackageRequest) ProtoMessage() {}
+
+func (x *AddAllowedPackageRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[166]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddAllowedPackageRequest.ProtoReflect.Descriptor instead.
+func (*AddAllowedPackageRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{166}
+}
+
+func (x *AddAllowedPackageRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AddAllowedPackageResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddAllowedPackageResponse) Reset() {
+	*x = AddAllowedPackageResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[167]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddAllowedPackageResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddAllowedPackageResponse) ProtoMessage() {}
+
+func (x *AddAllowedPackageResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[167]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddAllowedPackageResponse.ProtoReflect.Descriptor instead.
+func (*AddAllowedPackageResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{167}
+}
+
+func (x *AddAllowedPackageResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ClearAllowedPackagesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearAllowedPackagesRequest) Reset() {
+	*x = ClearAllowedPackagesRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[168]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearAllowedPackagesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearAllowedPackagesRequest) ProtoMessage() {}
+
+func (x *ClearAllowedPackagesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[168]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearAllowedPackagesRequest.ProtoReflect.Descriptor instead.
+func (*ClearAllowedPackagesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{168}
+}
+
+type ClearAllowedPackagesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearAllowedPackagesResponse) Reset() {
+	*x = ClearAllowedPackagesResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[169]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearAllowedPackagesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearAllowedPackagesResponse) ProtoMessage() {}
+
+func (x *ClearAllowedPackagesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[169]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearAllowedPackagesResponse.ProtoReflect.Descriptor instead.
+func (*ClearAllowedPackagesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{169}
+}
+
+func (x *ClearAllowedPackagesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ClearRequiredPermissionsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearRequiredPermissionsRequest) Reset() {
+	*x = ClearRequiredPermissionsRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[170]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearRequiredPermissionsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearRequiredPermissionsRequest) ProtoMessage() {}
+
+func (x *ClearRequiredPermissionsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[170]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearRequiredPermissionsRequest.ProtoReflect.Descriptor instead.
+func (*ClearRequiredPermissionsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{170}
+}
+
+type ClearRequiredPermissionsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearRequiredPermissionsResponse) Reset() {
+	*x = ClearRequiredPermissionsResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[171]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearRequiredPermissionsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearRequiredPermissionsResponse) ProtoMessage() {}
+
+func (x *ClearRequiredPermissionsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[171]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearRequiredPermissionsResponse.ProtoReflect.Descriptor instead.
+func (*ClearRequiredPermissionsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{171}
+}
+
+func (x *ClearRequiredPermissionsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetPubliclyVisibleTargetPackageRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPubliclyVisibleTargetPackageRequest) Reset() {
+	*x = SetPubliclyVisibleTargetPackageRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[172]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPubliclyVisibleTargetPackageRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPubliclyVisibleTargetPackageRequest) ProtoMessage() {}
+
+func (x *SetPubliclyVisibleTargetPackageRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[172]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPubliclyVisibleTargetPackageRequest.ProtoReflect.Descriptor instead.
+func (*SetPubliclyVisibleTargetPackageRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{172}
+}
+
+func (x *SetPubliclyVisibleTargetPackageRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetPubliclyVisibleTargetPackageResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPubliclyVisibleTargetPackageResponse) Reset() {
+	*x = SetPubliclyVisibleTargetPackageResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[173]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPubliclyVisibleTargetPackageResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPubliclyVisibleTargetPackageResponse) ProtoMessage() {}
+
+func (x *SetPubliclyVisibleTargetPackageResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[173]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPubliclyVisibleTargetPackageResponse.ProtoReflect.Descriptor instead.
+func (*SetPubliclyVisibleTargetPackageResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{173}
+}
+
+func (x *SetPubliclyVisibleTargetPackageResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetGenericDocumentRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetGenericDocumentRequest) Reset() {
+	*x = GetGenericDocumentRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[174]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetGenericDocumentRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetGenericDocumentRequest) ProtoMessage() {}
+
+func (x *GetGenericDocumentRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[174]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetGenericDocumentRequest.ProtoReflect.Descriptor instead.
+func (*GetGenericDocumentRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{174}
+}
+
+type GetGenericDocumentResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetGenericDocumentResponse) Reset() {
+	*x = GetGenericDocumentResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[175]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetGenericDocumentResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetGenericDocumentResponse) ProtoMessage() {}
+
+func (x *GetGenericDocumentResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[175]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetGenericDocumentResponse.ProtoReflect.Descriptor instead.
+func (*GetGenericDocumentResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{175}
+}
+
+func (x *GetGenericDocumentResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetRankingSignalRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRankingSignalRequest) Reset() {
+	*x = GetRankingSignalRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[176]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRankingSignalRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRankingSignalRequest) ProtoMessage() {}
+
+func (x *GetRankingSignalRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[176]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRankingSignalRequest.ProtoReflect.Descriptor instead.
+func (*GetRankingSignalRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{176}
+}
+
+type GetRankingSignalResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        float64                `protobuf:"fixed64,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRankingSignalResponse) Reset() {
+	*x = GetRankingSignalResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[177]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRankingSignalResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRankingSignalResponse) ProtoMessage() {}
+
+func (x *GetRankingSignalResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[177]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRankingSignalResponse.ProtoReflect.Descriptor instead.
+func (*GetRankingSignalResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{177}
+}
+
+func (x *GetRankingSignalResponse) GetResult() float64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddInformationalRankingSignalRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          float64                `protobuf:"fixed64,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddInformationalRankingSignalRequest) Reset() {
+	*x = AddInformationalRankingSignalRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[178]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddInformationalRankingSignalRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddInformationalRankingSignalRequest) ProtoMessage() {}
+
+func (x *AddInformationalRankingSignalRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[178]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddInformationalRankingSignalRequest.ProtoReflect.Descriptor instead.
+func (*AddInformationalRankingSignalRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{178}
+}
+
+func (x *AddInformationalRankingSignalRequest) GetArg0() float64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AddInformationalRankingSignalResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddInformationalRankingSignalResponse) Reset() {
+	*x = AddInformationalRankingSignalResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[179]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddInformationalRankingSignalResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddInformationalRankingSignalResponse) ProtoMessage() {}
+
+func (x *AddInformationalRankingSignalResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[179]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddInformationalRankingSignalResponse.ProtoReflect.Descriptor instead.
+func (*AddInformationalRankingSignalResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{179}
+}
+
+func (x *AddInformationalRankingSignalResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddJoinedResultRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddJoinedResultRequest) Reset() {
+	*x = AddJoinedResultRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[180]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddJoinedResultRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddJoinedResultRequest) ProtoMessage() {}
+
+func (x *AddJoinedResultRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[180]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddJoinedResultRequest.ProtoReflect.Descriptor instead.
+func (*AddJoinedResultRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{180}
+}
+
+func (x *AddJoinedResultRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AddJoinedResultResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddJoinedResultResponse) Reset() {
+	*x = AddJoinedResultResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[181]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddJoinedResultResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddJoinedResultResponse) ProtoMessage() {}
+
+func (x *AddJoinedResultResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[181]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddJoinedResultResponse.ProtoReflect.Descriptor instead.
+func (*AddJoinedResultResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{181}
+}
+
+func (x *AddJoinedResultResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddMatchInfoRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddMatchInfoRequest) Reset() {
+	*x = AddMatchInfoRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[182]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddMatchInfoRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddMatchInfoRequest) ProtoMessage() {}
+
+func (x *AddMatchInfoRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[182]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddMatchInfoRequest.ProtoReflect.Descriptor instead.
+func (*AddMatchInfoRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{182}
+}
+
+func (x *AddMatchInfoRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AddMatchInfoResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddMatchInfoResponse) Reset() {
+	*x = AddMatchInfoResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[183]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddMatchInfoResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddMatchInfoResponse) ProtoMessage() {}
+
+func (x *AddMatchInfoResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[183]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddMatchInfoResponse.ProtoReflect.Descriptor instead.
+func (*AddMatchInfoResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{183}
+}
+
+func (x *AddMatchInfoResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetGenericDocumentRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetGenericDocumentRequest) Reset() {
+	*x = SetGenericDocumentRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[184]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetGenericDocumentRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetGenericDocumentRequest) ProtoMessage() {}
+
+func (x *SetGenericDocumentRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[184]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetGenericDocumentRequest.ProtoReflect.Descriptor instead.
+func (*SetGenericDocumentRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{184}
+}
+
+func (x *SetGenericDocumentRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetGenericDocumentResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetGenericDocumentResponse) Reset() {
+	*x = SetGenericDocumentResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[185]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetGenericDocumentResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetGenericDocumentResponse) ProtoMessage() {}
+
+func (x *SetGenericDocumentResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[185]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetGenericDocumentResponse.ProtoReflect.Descriptor instead.
+func (*SetGenericDocumentResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{185}
+}
+
+func (x *SetGenericDocumentResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetRankingSignalRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          float64                `protobuf:"fixed64,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetRankingSignalRequest) Reset() {
+	*x = SetRankingSignalRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[186]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetRankingSignalRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetRankingSignalRequest) ProtoMessage() {}
+
+func (x *SetRankingSignalRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[186]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetRankingSignalRequest.ProtoReflect.Descriptor instead.
+func (*SetRankingSignalRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{186}
+}
+
+func (x *SetRankingSignalRequest) GetArg0() float64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetRankingSignalResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetRankingSignalResponse) Reset() {
+	*x = SetRankingSignalResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[187]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetRankingSignalResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetRankingSignalResponse) ProtoMessage() {}
+
+func (x *SetRankingSignalResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[187]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetRankingSignalResponse.ProtoReflect.Descriptor instead.
+func (*SetRankingSignalResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{187}
+}
+
+func (x *SetRankingSignalResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetExactMatchRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetExactMatchRequest) Reset() {
+	*x = GetExactMatchRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[188]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetExactMatchRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetExactMatchRequest) ProtoMessage() {}
+
+func (x *GetExactMatchRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[188]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetExactMatchRequest.ProtoReflect.Descriptor instead.
+func (*GetExactMatchRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{188}
+}
+
+type GetExactMatchResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetExactMatchResponse) Reset() {
+	*x = GetExactMatchResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[189]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetExactMatchResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetExactMatchResponse) ProtoMessage() {}
+
+func (x *GetExactMatchResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[189]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetExactMatchResponse.ProtoReflect.Descriptor instead.
+func (*GetExactMatchResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{189}
+}
+
+func (x *GetExactMatchResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetExactMatchRangeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetExactMatchRangeRequest) Reset() {
+	*x = GetExactMatchRangeRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[190]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetExactMatchRangeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetExactMatchRangeRequest) ProtoMessage() {}
+
+func (x *GetExactMatchRangeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[190]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetExactMatchRangeRequest.ProtoReflect.Descriptor instead.
+func (*GetExactMatchRangeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{190}
+}
+
+type GetExactMatchRangeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetExactMatchRangeResponse) Reset() {
+	*x = GetExactMatchRangeResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[191]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetExactMatchRangeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetExactMatchRangeResponse) ProtoMessage() {}
+
+func (x *GetExactMatchRangeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[191]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetExactMatchRangeResponse.ProtoReflect.Descriptor instead.
+func (*GetExactMatchRangeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{191}
+}
+
+func (x *GetExactMatchRangeResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetFullTextRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetFullTextRequest) Reset() {
+	*x = GetFullTextRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[192]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetFullTextRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetFullTextRequest) ProtoMessage() {}
+
+func (x *GetFullTextRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[192]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetFullTextRequest.ProtoReflect.Descriptor instead.
+func (*GetFullTextRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{192}
+}
+
+type GetFullTextResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetFullTextResponse) Reset() {
+	*x = GetFullTextResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[193]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetFullTextResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetFullTextResponse) ProtoMessage() {}
+
+func (x *GetFullTextResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[193]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetFullTextResponse.ProtoReflect.Descriptor instead.
+func (*GetFullTextResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{193}
+}
+
+func (x *GetFullTextResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetPropertyPathRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPropertyPathRequest) Reset() {
+	*x = GetPropertyPathRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[194]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPropertyPathRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPropertyPathRequest) ProtoMessage() {}
+
+func (x *GetPropertyPathRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[194]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPropertyPathRequest.ProtoReflect.Descriptor instead.
+func (*GetPropertyPathRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{194}
+}
+
+type GetPropertyPathResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPropertyPathResponse) Reset() {
+	*x = GetPropertyPathResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[195]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPropertyPathResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPropertyPathResponse) ProtoMessage() {}
+
+func (x *GetPropertyPathResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[195]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPropertyPathResponse.ProtoReflect.Descriptor instead.
+func (*GetPropertyPathResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{195}
+}
+
+func (x *GetPropertyPathResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetPropertyPathObjectRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPropertyPathObjectRequest) Reset() {
+	*x = GetPropertyPathObjectRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[196]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPropertyPathObjectRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPropertyPathObjectRequest) ProtoMessage() {}
+
+func (x *GetPropertyPathObjectRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[196]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPropertyPathObjectRequest.ProtoReflect.Descriptor instead.
+func (*GetPropertyPathObjectRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{196}
+}
+
+type GetPropertyPathObjectResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPropertyPathObjectResponse) Reset() {
+	*x = GetPropertyPathObjectResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[197]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPropertyPathObjectResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPropertyPathObjectResponse) ProtoMessage() {}
+
+func (x *GetPropertyPathObjectResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[197]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPropertyPathObjectResponse.ProtoReflect.Descriptor instead.
+func (*GetPropertyPathObjectResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{197}
+}
+
+func (x *GetPropertyPathObjectResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSnippetRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSnippetRequest) Reset() {
+	*x = GetSnippetRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[198]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSnippetRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSnippetRequest) ProtoMessage() {}
+
+func (x *GetSnippetRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[198]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSnippetRequest.ProtoReflect.Descriptor instead.
+func (*GetSnippetRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{198}
+}
+
+type GetSnippetResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSnippetResponse) Reset() {
+	*x = GetSnippetResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[199]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSnippetResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSnippetResponse) ProtoMessage() {}
+
+func (x *GetSnippetResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[199]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSnippetResponse.ProtoReflect.Descriptor instead.
+func (*GetSnippetResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{199}
+}
+
+func (x *GetSnippetResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSnippetRangeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSnippetRangeRequest) Reset() {
+	*x = GetSnippetRangeRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[200]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSnippetRangeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSnippetRangeRequest) ProtoMessage() {}
+
+func (x *GetSnippetRangeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[200]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSnippetRangeRequest.ProtoReflect.Descriptor instead.
+func (*GetSnippetRangeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{200}
+}
+
+type GetSnippetRangeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSnippetRangeResponse) Reset() {
+	*x = GetSnippetRangeResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[201]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSnippetRangeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSnippetRangeResponse) ProtoMessage() {}
+
+func (x *GetSnippetRangeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[201]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSnippetRangeResponse.ProtoReflect.Descriptor instead.
+func (*GetSnippetRangeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{201}
+}
+
+func (x *GetSnippetRangeResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSubmatchRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSubmatchRequest) Reset() {
+	*x = GetSubmatchRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[202]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSubmatchRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSubmatchRequest) ProtoMessage() {}
+
+func (x *GetSubmatchRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[202]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSubmatchRequest.ProtoReflect.Descriptor instead.
+func (*GetSubmatchRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{202}
+}
+
+type GetSubmatchResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSubmatchResponse) Reset() {
+	*x = GetSubmatchResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[203]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSubmatchResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSubmatchResponse) ProtoMessage() {}
+
+func (x *GetSubmatchResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[203]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSubmatchResponse.ProtoReflect.Descriptor instead.
+func (*GetSubmatchResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{203}
+}
+
+func (x *GetSubmatchResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSubmatchRangeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSubmatchRangeRequest) Reset() {
+	*x = GetSubmatchRangeRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[204]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSubmatchRangeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSubmatchRangeRequest) ProtoMessage() {}
+
+func (x *GetSubmatchRangeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[204]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSubmatchRangeRequest.ProtoReflect.Descriptor instead.
+func (*GetSubmatchRangeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{204}
+}
+
+type GetSubmatchRangeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSubmatchRangeResponse) Reset() {
+	*x = GetSubmatchRangeResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[205]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSubmatchRangeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSubmatchRangeResponse) ProtoMessage() {}
+
+func (x *GetSubmatchRangeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[205]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSubmatchRangeResponse.ProtoReflect.Descriptor instead.
+func (*GetSubmatchRangeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{205}
+}
+
+func (x *GetSubmatchRangeResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetEndRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEndRequest) Reset() {
+	*x = GetEndRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[206]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEndRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEndRequest) ProtoMessage() {}
+
+func (x *GetEndRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[206]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEndRequest.ProtoReflect.Descriptor instead.
+func (*GetEndRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{206}
+}
+
+type GetEndResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEndResponse) Reset() {
+	*x = GetEndResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[207]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEndResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEndResponse) ProtoMessage() {}
+
+func (x *GetEndResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[207]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEndResponse.ProtoReflect.Descriptor instead.
+func (*GetEndResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{207}
+}
+
+func (x *GetEndResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetStartRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetStartRequest) Reset() {
+	*x = GetStartRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[208]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetStartRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetStartRequest) ProtoMessage() {}
+
+func (x *GetStartRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[208]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetStartRequest.ProtoReflect.Descriptor instead.
+func (*GetStartRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{208}
+}
+
+type GetStartResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetStartResponse) Reset() {
+	*x = GetStartResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[209]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetStartResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetStartResponse) ProtoMessage() {}
+
+func (x *GetStartResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[209]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetStartResponse.ProtoReflect.Descriptor instead.
+func (*GetStartResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{209}
+}
+
+func (x *GetStartResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetMaximumResultCountRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMaximumResultCountRequest) Reset() {
+	*x = GetMaximumResultCountRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[210]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMaximumResultCountRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMaximumResultCountRequest) ProtoMessage() {}
+
+func (x *GetMaximumResultCountRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[210]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMaximumResultCountRequest.ProtoReflect.Descriptor instead.
+func (*GetMaximumResultCountRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{210}
+}
+
+type GetMaximumResultCountResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMaximumResultCountResponse) Reset() {
+	*x = GetMaximumResultCountResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[211]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMaximumResultCountResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMaximumResultCountResponse) ProtoMessage() {}
+
+func (x *GetMaximumResultCountResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[211]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMaximumResultCountResponse.ProtoReflect.Descriptor instead.
+func (*GetMaximumResultCountResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{211}
+}
+
+func (x *GetMaximumResultCountResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SearchSuggestionSpecBuilderAddFilterDocumentIdsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SearchSuggestionSpecBuilderAddFilterDocumentIdsRequest) Reset() {
+	*x = SearchSuggestionSpecBuilderAddFilterDocumentIdsRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[212]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SearchSuggestionSpecBuilderAddFilterDocumentIdsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SearchSuggestionSpecBuilderAddFilterDocumentIdsRequest) ProtoMessage() {}
+
+func (x *SearchSuggestionSpecBuilderAddFilterDocumentIdsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[212]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SearchSuggestionSpecBuilderAddFilterDocumentIdsRequest.ProtoReflect.Descriptor instead.
+func (*SearchSuggestionSpecBuilderAddFilterDocumentIdsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{212}
+}
+
+func (x *SearchSuggestionSpecBuilderAddFilterDocumentIdsRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *SearchSuggestionSpecBuilderAddFilterDocumentIdsRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type SetRankingStrategyRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetRankingStrategyRequest) Reset() {
+	*x = SetRankingStrategyRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[213]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetRankingStrategyRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetRankingStrategyRequest) ProtoMessage() {}
+
+func (x *SetRankingStrategyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[213]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetRankingStrategyRequest.ProtoReflect.Descriptor instead.
+func (*SetRankingStrategyRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{213}
+}
+
+func (x *SetRankingStrategyRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetRankingStrategyResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetRankingStrategyResponse) Reset() {
+	*x = SetRankingStrategyResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[214]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetRankingStrategyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetRankingStrategyResponse) ProtoMessage() {}
+
+func (x *SetRankingStrategyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[214]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetRankingStrategyResponse.ProtoReflect.Descriptor instead.
+func (*SetRankingStrategyResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{214}
+}
+
+func (x *SetRankingStrategyResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type NewCommitBlobResponseRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewCommitBlobResponseRequest) Reset() {
+	*x = NewCommitBlobResponseRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[215]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewCommitBlobResponseRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewCommitBlobResponseRequest) ProtoMessage() {}
+
+func (x *NewCommitBlobResponseRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[215]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewCommitBlobResponseRequest.ProtoReflect.Descriptor instead.
+func (*NewCommitBlobResponseRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{215}
+}
+
+func (x *NewCommitBlobResponseRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type NewCommitBlobResponseResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewCommitBlobResponseResponse) Reset() {
+	*x = NewCommitBlobResponseResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[216]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewCommitBlobResponseResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewCommitBlobResponseResponse) ProtoMessage() {}
+
+func (x *NewCommitBlobResponseResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[216]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewCommitBlobResponseResponse.ProtoReflect.Descriptor instead.
+func (*NewCommitBlobResponseResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{216}
+}
+
+func (x *NewCommitBlobResponseResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type CommitBlobResponseDescribeContentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CommitBlobResponseDescribeContentsRequest) Reset() {
+	*x = CommitBlobResponseDescribeContentsRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[217]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CommitBlobResponseDescribeContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CommitBlobResponseDescribeContentsRequest) ProtoMessage() {}
+
+func (x *CommitBlobResponseDescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[217]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CommitBlobResponseDescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*CommitBlobResponseDescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{217}
+}
+
+func (x *CommitBlobResponseDescribeContentsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type CommitBlobResponseWriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CommitBlobResponseWriteToParcelRequest) Reset() {
+	*x = CommitBlobResponseWriteToParcelRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[218]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CommitBlobResponseWriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CommitBlobResponseWriteToParcelRequest) ProtoMessage() {}
+
+func (x *CommitBlobResponseWriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[218]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CommitBlobResponseWriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*CommitBlobResponseWriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{218}
+}
+
+func (x *CommitBlobResponseWriteToParcelRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *CommitBlobResponseWriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *CommitBlobResponseWriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type GetVersionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetVersionRequest) Reset() {
+	*x = GetVersionRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[219]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetVersionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetVersionRequest) ProtoMessage() {}
+
+func (x *GetVersionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[219]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetVersionRequest.ProtoReflect.Descriptor instead.
+func (*GetVersionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{219}
+}
+
+type GetVersionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetVersionResponse) Reset() {
+	*x = GetVersionResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[220]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetVersionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetVersionResponse) ProtoMessage() {}
+
+func (x *GetVersionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[220]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetVersionResponse.ProtoReflect.Descriptor instead.
+func (*GetVersionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{220}
+}
+
+func (x *GetVersionResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddSchemaRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddSchemaRequest) Reset() {
+	*x = AddSchemaRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[221]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddSchemaRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddSchemaRequest) ProtoMessage() {}
+
+func (x *AddSchemaRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[221]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddSchemaRequest.ProtoReflect.Descriptor instead.
+func (*AddSchemaRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{221}
+}
+
+func (x *AddSchemaRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AddSchemaResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddSchemaResponse) Reset() {
+	*x = AddSchemaResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[222]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddSchemaResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddSchemaResponse) ProtoMessage() {}
+
+func (x *AddSchemaResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[222]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddSchemaResponse.ProtoReflect.Descriptor instead.
+func (*AddSchemaResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{222}
+}
+
+func (x *AddSchemaResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddSchemaTypeNotDisplayedBySystemRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddSchemaTypeNotDisplayedBySystemRequest) Reset() {
+	*x = AddSchemaTypeNotDisplayedBySystemRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[223]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddSchemaTypeNotDisplayedBySystemRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddSchemaTypeNotDisplayedBySystemRequest) ProtoMessage() {}
+
+func (x *AddSchemaTypeNotDisplayedBySystemRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[223]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddSchemaTypeNotDisplayedBySystemRequest.ProtoReflect.Descriptor instead.
+func (*AddSchemaTypeNotDisplayedBySystemRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{223}
+}
+
+func (x *AddSchemaTypeNotDisplayedBySystemRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type AddSchemaTypeNotDisplayedBySystemResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddSchemaTypeNotDisplayedBySystemResponse) Reset() {
+	*x = AddSchemaTypeNotDisplayedBySystemResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[224]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddSchemaTypeNotDisplayedBySystemResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddSchemaTypeNotDisplayedBySystemResponse) ProtoMessage() {}
+
+func (x *AddSchemaTypeNotDisplayedBySystemResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[224]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddSchemaTypeNotDisplayedBySystemResponse.ProtoReflect.Descriptor instead.
+func (*AddSchemaTypeNotDisplayedBySystemResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{224}
+}
+
+func (x *AddSchemaTypeNotDisplayedBySystemResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ClearPubliclyVisibleSchemaRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearPubliclyVisibleSchemaRequest) Reset() {
+	*x = ClearPubliclyVisibleSchemaRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[225]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearPubliclyVisibleSchemaRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearPubliclyVisibleSchemaRequest) ProtoMessage() {}
+
+func (x *ClearPubliclyVisibleSchemaRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[225]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearPubliclyVisibleSchemaRequest.ProtoReflect.Descriptor instead.
+func (*ClearPubliclyVisibleSchemaRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{225}
+}
+
+func (x *ClearPubliclyVisibleSchemaRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type ClearPubliclyVisibleSchemaResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearPubliclyVisibleSchemaResponse) Reset() {
+	*x = ClearPubliclyVisibleSchemaResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[226]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearPubliclyVisibleSchemaResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearPubliclyVisibleSchemaResponse) ProtoMessage() {}
+
+func (x *ClearPubliclyVisibleSchemaResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[226]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearPubliclyVisibleSchemaResponse.ProtoReflect.Descriptor instead.
+func (*ClearPubliclyVisibleSchemaResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{226}
+}
+
+func (x *ClearPubliclyVisibleSchemaResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ClearRequiredPermissionsForSchemaTypeVisibilityRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearRequiredPermissionsForSchemaTypeVisibilityRequest) Reset() {
+	*x = ClearRequiredPermissionsForSchemaTypeVisibilityRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[227]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearRequiredPermissionsForSchemaTypeVisibilityRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearRequiredPermissionsForSchemaTypeVisibilityRequest) ProtoMessage() {}
+
+func (x *ClearRequiredPermissionsForSchemaTypeVisibilityRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[227]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearRequiredPermissionsForSchemaTypeVisibilityRequest.ProtoReflect.Descriptor instead.
+func (*ClearRequiredPermissionsForSchemaTypeVisibilityRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{227}
+}
+
+func (x *ClearRequiredPermissionsForSchemaTypeVisibilityRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type ClearRequiredPermissionsForSchemaTypeVisibilityResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearRequiredPermissionsForSchemaTypeVisibilityResponse) Reset() {
+	*x = ClearRequiredPermissionsForSchemaTypeVisibilityResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[228]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearRequiredPermissionsForSchemaTypeVisibilityResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearRequiredPermissionsForSchemaTypeVisibilityResponse) ProtoMessage() {}
+
+func (x *ClearRequiredPermissionsForSchemaTypeVisibilityResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[228]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearRequiredPermissionsForSchemaTypeVisibilityResponse.ProtoReflect.Descriptor instead.
+func (*ClearRequiredPermissionsForSchemaTypeVisibilityResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{228}
+}
+
+func (x *ClearRequiredPermissionsForSchemaTypeVisibilityResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ClearSchemaTypeNotDisplayedBySystemRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearSchemaTypeNotDisplayedBySystemRequest) Reset() {
+	*x = ClearSchemaTypeNotDisplayedBySystemRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[229]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearSchemaTypeNotDisplayedBySystemRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearSchemaTypeNotDisplayedBySystemRequest) ProtoMessage() {}
+
+func (x *ClearSchemaTypeNotDisplayedBySystemRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[229]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearSchemaTypeNotDisplayedBySystemRequest.ProtoReflect.Descriptor instead.
+func (*ClearSchemaTypeNotDisplayedBySystemRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{229}
+}
+
+func (x *ClearSchemaTypeNotDisplayedBySystemRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type ClearSchemaTypeNotDisplayedBySystemResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearSchemaTypeNotDisplayedBySystemResponse) Reset() {
+	*x = ClearSchemaTypeNotDisplayedBySystemResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[230]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearSchemaTypeNotDisplayedBySystemResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearSchemaTypeNotDisplayedBySystemResponse) ProtoMessage() {}
+
+func (x *ClearSchemaTypeNotDisplayedBySystemResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[230]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearSchemaTypeNotDisplayedBySystemResponse.ProtoReflect.Descriptor instead.
+func (*ClearSchemaTypeNotDisplayedBySystemResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{230}
+}
+
+func (x *ClearSchemaTypeNotDisplayedBySystemResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ClearSchemaTypeVisibleToConfigsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearSchemaTypeVisibleToConfigsRequest) Reset() {
+	*x = ClearSchemaTypeVisibleToConfigsRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[231]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearSchemaTypeVisibleToConfigsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearSchemaTypeVisibleToConfigsRequest) ProtoMessage() {}
+
+func (x *ClearSchemaTypeVisibleToConfigsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[231]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearSchemaTypeVisibleToConfigsRequest.ProtoReflect.Descriptor instead.
+func (*ClearSchemaTypeVisibleToConfigsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{231}
+}
+
+func (x *ClearSchemaTypeVisibleToConfigsRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type ClearSchemaTypeVisibleToConfigsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearSchemaTypeVisibleToConfigsResponse) Reset() {
+	*x = ClearSchemaTypeVisibleToConfigsResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[232]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearSchemaTypeVisibleToConfigsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearSchemaTypeVisibleToConfigsResponse) ProtoMessage() {}
+
+func (x *ClearSchemaTypeVisibleToConfigsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[232]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearSchemaTypeVisibleToConfigsResponse.ProtoReflect.Descriptor instead.
+func (*ClearSchemaTypeVisibleToConfigsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{232}
+}
+
+func (x *ClearSchemaTypeVisibleToConfigsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ClearSchemaTypeVisibleToPackagesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearSchemaTypeVisibleToPackagesRequest) Reset() {
+	*x = ClearSchemaTypeVisibleToPackagesRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[233]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearSchemaTypeVisibleToPackagesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearSchemaTypeVisibleToPackagesRequest) ProtoMessage() {}
+
+func (x *ClearSchemaTypeVisibleToPackagesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[233]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearSchemaTypeVisibleToPackagesRequest.ProtoReflect.Descriptor instead.
+func (*ClearSchemaTypeVisibleToPackagesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{233}
+}
+
+func (x *ClearSchemaTypeVisibleToPackagesRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type ClearSchemaTypeVisibleToPackagesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearSchemaTypeVisibleToPackagesResponse) Reset() {
+	*x = ClearSchemaTypeVisibleToPackagesResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[234]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearSchemaTypeVisibleToPackagesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearSchemaTypeVisibleToPackagesResponse) ProtoMessage() {}
+
+func (x *ClearSchemaTypeVisibleToPackagesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[234]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearSchemaTypeVisibleToPackagesResponse.ProtoReflect.Descriptor instead.
+func (*ClearSchemaTypeVisibleToPackagesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{234}
+}
+
+func (x *ClearSchemaTypeVisibleToPackagesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ClearSchemasRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearSchemasRequest) Reset() {
+	*x = ClearSchemasRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[235]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearSchemasRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearSchemasRequest) ProtoMessage() {}
+
+func (x *ClearSchemasRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[235]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearSchemasRequest.ProtoReflect.Descriptor instead.
+func (*ClearSchemasRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{235}
+}
+
+type ClearSchemasResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearSchemasResponse) Reset() {
+	*x = ClearSchemasResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[236]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearSchemasResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearSchemasResponse) ProtoMessage() {}
+
+func (x *ClearSchemasResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[236]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearSchemasResponse.ProtoReflect.Descriptor instead.
+func (*ClearSchemasResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{236}
+}
+
+func (x *ClearSchemasResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetPubliclyVisibleSchemaRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPubliclyVisibleSchemaRequest) Reset() {
+	*x = SetPubliclyVisibleSchemaRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[237]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPubliclyVisibleSchemaRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPubliclyVisibleSchemaRequest) ProtoMessage() {}
+
+func (x *SetPubliclyVisibleSchemaRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[237]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPubliclyVisibleSchemaRequest.ProtoReflect.Descriptor instead.
+func (*SetPubliclyVisibleSchemaRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{237}
+}
+
+func (x *SetPubliclyVisibleSchemaRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *SetPubliclyVisibleSchemaRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type SetPubliclyVisibleSchemaResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPubliclyVisibleSchemaResponse) Reset() {
+	*x = SetPubliclyVisibleSchemaResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[238]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPubliclyVisibleSchemaResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPubliclyVisibleSchemaResponse) ProtoMessage() {}
+
+func (x *SetPubliclyVisibleSchemaResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[238]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPubliclyVisibleSchemaResponse.ProtoReflect.Descriptor instead.
+func (*SetPubliclyVisibleSchemaResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{238}
+}
+
+func (x *SetPubliclyVisibleSchemaResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetVersionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetVersionRequest) Reset() {
+	*x = SetVersionRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[239]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetVersionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetVersionRequest) ProtoMessage() {}
+
+func (x *SetVersionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[239]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetVersionRequest.ProtoReflect.Descriptor instead.
+func (*SetVersionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{239}
+}
+
+func (x *SetVersionRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetVersionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetVersionResponse) Reset() {
+	*x = SetVersionResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[240]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetVersionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetVersionResponse) ProtoMessage() {}
+
+func (x *SetVersionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[240]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetVersionResponse.ProtoReflect.Descriptor instead.
+func (*SetVersionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{240}
+}
+
+func (x *SetVersionResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type NewOpenBlobForReadResponseRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewOpenBlobForReadResponseRequest) Reset() {
+	*x = NewOpenBlobForReadResponseRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[241]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewOpenBlobForReadResponseRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewOpenBlobForReadResponseRequest) ProtoMessage() {}
+
+func (x *NewOpenBlobForReadResponseRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[241]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewOpenBlobForReadResponseRequest.ProtoReflect.Descriptor instead.
+func (*NewOpenBlobForReadResponseRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{241}
+}
+
+func (x *NewOpenBlobForReadResponseRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type NewOpenBlobForReadResponseResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewOpenBlobForReadResponseResponse) Reset() {
+	*x = NewOpenBlobForReadResponseResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[242]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewOpenBlobForReadResponseResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewOpenBlobForReadResponseResponse) ProtoMessage() {}
+
+func (x *NewOpenBlobForReadResponseResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[242]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewOpenBlobForReadResponseResponse.ProtoReflect.Descriptor instead.
+func (*NewOpenBlobForReadResponseResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{242}
+}
+
+func (x *NewOpenBlobForReadResponseResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OpenBlobForReadResponseCloseRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OpenBlobForReadResponseCloseRequest) Reset() {
+	*x = OpenBlobForReadResponseCloseRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[243]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OpenBlobForReadResponseCloseRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OpenBlobForReadResponseCloseRequest) ProtoMessage() {}
+
+func (x *OpenBlobForReadResponseCloseRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[243]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OpenBlobForReadResponseCloseRequest.ProtoReflect.Descriptor instead.
+func (*OpenBlobForReadResponseCloseRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{243}
+}
+
+func (x *OpenBlobForReadResponseCloseRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type OpenBlobForReadResponseDescribeContentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OpenBlobForReadResponseDescribeContentsRequest) Reset() {
+	*x = OpenBlobForReadResponseDescribeContentsRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[244]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OpenBlobForReadResponseDescribeContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OpenBlobForReadResponseDescribeContentsRequest) ProtoMessage() {}
+
+func (x *OpenBlobForReadResponseDescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[244]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OpenBlobForReadResponseDescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*OpenBlobForReadResponseDescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{244}
+}
+
+func (x *OpenBlobForReadResponseDescribeContentsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type OpenBlobForReadResponseWriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OpenBlobForReadResponseWriteToParcelRequest) Reset() {
+	*x = OpenBlobForReadResponseWriteToParcelRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[245]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OpenBlobForReadResponseWriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OpenBlobForReadResponseWriteToParcelRequest) ProtoMessage() {}
+
+func (x *OpenBlobForReadResponseWriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[245]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OpenBlobForReadResponseWriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*OpenBlobForReadResponseWriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{245}
+}
+
+func (x *OpenBlobForReadResponseWriteToParcelRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *OpenBlobForReadResponseWriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OpenBlobForReadResponseWriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type OnDowngradeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnDowngradeRequest) Reset() {
+	*x = OnDowngradeRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[246]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnDowngradeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnDowngradeRequest) ProtoMessage() {}
+
+func (x *OnDowngradeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[246]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnDowngradeRequest.ProtoReflect.Descriptor instead.
+func (*OnDowngradeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{246}
+}
+
+func (x *OnDowngradeRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnDowngradeRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *OnDowngradeRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type OnDowngradeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnDowngradeResponse) Reset() {
+	*x = OnDowngradeResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[247]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnDowngradeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnDowngradeResponse) ProtoMessage() {}
+
+func (x *OnDowngradeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[247]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnDowngradeResponse.ProtoReflect.Descriptor instead.
+func (*OnDowngradeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{247}
+}
+
+func (x *OnDowngradeResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OnUpgradeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnUpgradeRequest) Reset() {
+	*x = OnUpgradeRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[248]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnUpgradeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnUpgradeRequest) ProtoMessage() {}
+
+func (x *OnUpgradeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[248]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnUpgradeRequest.ProtoReflect.Descriptor instead.
+func (*OnUpgradeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{248}
+}
+
+func (x *OnUpgradeRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnUpgradeRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *OnUpgradeRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type OnUpgradeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnUpgradeResponse) Reset() {
+	*x = OnUpgradeResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[249]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnUpgradeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnUpgradeResponse) ProtoMessage() {}
+
+func (x *OnUpgradeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[249]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnUpgradeResponse.ProtoReflect.Descriptor instead.
+func (*OnUpgradeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{249}
+}
+
+func (x *OnUpgradeResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ShouldMigrateRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ShouldMigrateRequest) Reset() {
+	*x = ShouldMigrateRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[250]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ShouldMigrateRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ShouldMigrateRequest) ProtoMessage() {}
+
+func (x *ShouldMigrateRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[250]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ShouldMigrateRequest.ProtoReflect.Descriptor instead.
+func (*ShouldMigrateRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{250}
+}
+
+func (x *ShouldMigrateRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *ShouldMigrateRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type ShouldMigrateResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ShouldMigrateResponse) Reset() {
+	*x = ShouldMigrateResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[251]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ShouldMigrateResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ShouldMigrateResponse) ProtoMessage() {}
+
+func (x *ShouldMigrateResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[251]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ShouldMigrateResponse.ProtoReflect.Descriptor instead.
+func (*ShouldMigrateResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{251}
+}
+
+func (x *ShouldMigrateResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type GetSchemaTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSchemaTypeRequest) Reset() {
+	*x = GetSchemaTypeRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[252]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSchemaTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSchemaTypeRequest) ProtoMessage() {}
+
+func (x *GetSchemaTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[252]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSchemaTypeRequest.ProtoReflect.Descriptor instead.
+func (*GetSchemaTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{252}
+}
+
+type GetSchemaTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSchemaTypeResponse) Reset() {
+	*x = GetSchemaTypeResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[253]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSchemaTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSchemaTypeResponse) ProtoMessage() {}
+
+func (x *GetSchemaTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[253]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSchemaTypeResponse.ProtoReflect.Descriptor instead.
+func (*GetSchemaTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{253}
+}
+
+func (x *GetSchemaTypeResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type IsScoringEnabledRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsScoringEnabledRequest) Reset() {
+	*x = IsScoringEnabledRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[254]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsScoringEnabledRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsScoringEnabledRequest) ProtoMessage() {}
+
+func (x *IsScoringEnabledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[254]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsScoringEnabledRequest.ProtoReflect.Descriptor instead.
+func (*IsScoringEnabledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{254}
+}
+
+type IsScoringEnabledResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsScoringEnabledResponse) Reset() {
+	*x = IsScoringEnabledResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[255]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsScoringEnabledResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsScoringEnabledResponse) ProtoMessage() {}
+
+func (x *IsScoringEnabledResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[255]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsScoringEnabledResponse.ProtoReflect.Descriptor instead.
+func (*IsScoringEnabledResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{255}
+}
+
+func (x *IsScoringEnabledResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type AddParentTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddParentTypeRequest) Reset() {
+	*x = AddParentTypeRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[256]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddParentTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddParentTypeRequest) ProtoMessage() {}
+
+func (x *AddParentTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[256]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddParentTypeRequest.ProtoReflect.Descriptor instead.
+func (*AddParentTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{256}
+}
+
+func (x *AddParentTypeRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type AddParentTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddParentTypeResponse) Reset() {
+	*x = AddParentTypeResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[257]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddParentTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddParentTypeResponse) ProtoMessage() {}
+
+func (x *AddParentTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[257]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddParentTypeResponse.ProtoReflect.Descriptor instead.
+func (*AddParentTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{257}
+}
+
+func (x *AddParentTypeResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddPropertyRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddPropertyRequest) Reset() {
+	*x = AddPropertyRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[258]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddPropertyRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddPropertyRequest) ProtoMessage() {}
+
+func (x *AddPropertyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[258]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddPropertyRequest.ProtoReflect.Descriptor instead.
+func (*AddPropertyRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{258}
+}
+
+func (x *AddPropertyRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AddPropertyResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddPropertyResponse) Reset() {
+	*x = AddPropertyResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[259]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddPropertyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddPropertyResponse) ProtoMessage() {}
+
+func (x *AddPropertyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[259]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddPropertyResponse.ProtoReflect.Descriptor instead.
+func (*AddPropertyResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{259}
+}
+
+func (x *AddPropertyResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ClearParentTypesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearParentTypesRequest) Reset() {
+	*x = ClearParentTypesRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[260]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearParentTypesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearParentTypesRequest) ProtoMessage() {}
+
+func (x *ClearParentTypesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[260]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearParentTypesRequest.ProtoReflect.Descriptor instead.
+func (*ClearParentTypesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{260}
+}
+
+type ClearParentTypesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearParentTypesResponse) Reset() {
+	*x = ClearParentTypesResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[261]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearParentTypesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearParentTypesResponse) ProtoMessage() {}
+
+func (x *ClearParentTypesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[261]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearParentTypesResponse.ProtoReflect.Descriptor instead.
+func (*ClearParentTypesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{261}
+}
+
+func (x *ClearParentTypesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ClearPropertiesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearPropertiesRequest) Reset() {
+	*x = ClearPropertiesRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[262]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearPropertiesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearPropertiesRequest) ProtoMessage() {}
+
+func (x *ClearPropertiesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[262]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearPropertiesRequest.ProtoReflect.Descriptor instead.
+func (*ClearPropertiesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{262}
+}
+
+type ClearPropertiesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearPropertiesResponse) Reset() {
+	*x = ClearPropertiesResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[263]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearPropertiesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearPropertiesResponse) ProtoMessage() {}
+
+func (x *ClearPropertiesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[263]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearPropertiesResponse.ProtoReflect.Descriptor instead.
+func (*ClearPropertiesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{263}
+}
+
+func (x *ClearPropertiesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetSchemaTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetSchemaTypeRequest) Reset() {
+	*x = SetSchemaTypeRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[264]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetSchemaTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetSchemaTypeRequest) ProtoMessage() {}
+
+func (x *SetSchemaTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[264]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetSchemaTypeRequest.ProtoReflect.Descriptor instead.
+func (*SetSchemaTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{264}
+}
+
+func (x *SetSchemaTypeRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type SetSchemaTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetSchemaTypeResponse) Reset() {
+	*x = SetSchemaTypeResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[265]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetSchemaTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetSchemaTypeResponse) ProtoMessage() {}
+
+func (x *SetSchemaTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[265]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetSchemaTypeResponse.ProtoReflect.Descriptor instead.
+func (*SetSchemaTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{265}
+}
+
+func (x *SetSchemaTypeResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ShouldIndexNestedPropertiesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ShouldIndexNestedPropertiesRequest) Reset() {
+	*x = ShouldIndexNestedPropertiesRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[266]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ShouldIndexNestedPropertiesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ShouldIndexNestedPropertiesRequest) ProtoMessage() {}
+
+func (x *ShouldIndexNestedPropertiesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[266]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ShouldIndexNestedPropertiesRequest.ProtoReflect.Descriptor instead.
+func (*ShouldIndexNestedPropertiesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{266}
+}
+
+type ShouldIndexNestedPropertiesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ShouldIndexNestedPropertiesResponse) Reset() {
+	*x = ShouldIndexNestedPropertiesResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[267]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ShouldIndexNestedPropertiesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ShouldIndexNestedPropertiesResponse) ProtoMessage() {}
+
+func (x *ShouldIndexNestedPropertiesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[267]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ShouldIndexNestedPropertiesResponse.ProtoReflect.Descriptor instead.
+func (*ShouldIndexNestedPropertiesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{267}
+}
+
+func (x *ShouldIndexNestedPropertiesResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type GetIndexingTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetIndexingTypeRequest) Reset() {
+	*x = GetIndexingTypeRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[268]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetIndexingTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetIndexingTypeRequest) ProtoMessage() {}
+
+func (x *GetIndexingTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[268]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetIndexingTypeRequest.ProtoReflect.Descriptor instead.
+func (*GetIndexingTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{268}
+}
+
+type GetIndexingTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetIndexingTypeResponse) Reset() {
+	*x = GetIndexingTypeResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[269]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetIndexingTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetIndexingTypeResponse) ProtoMessage() {}
+
+func (x *GetIndexingTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[269]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetIndexingTypeResponse.ProtoReflect.Descriptor instead.
+func (*GetIndexingTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{269}
+}
+
+func (x *GetIndexingTypeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetQuantizationTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetQuantizationTypeRequest) Reset() {
+	*x = GetQuantizationTypeRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[270]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetQuantizationTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetQuantizationTypeRequest) ProtoMessage() {}
+
+func (x *GetQuantizationTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[270]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetQuantizationTypeRequest.ProtoReflect.Descriptor instead.
+func (*GetQuantizationTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{270}
+}
+
+type GetQuantizationTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetQuantizationTypeResponse) Reset() {
+	*x = GetQuantizationTypeResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[271]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetQuantizationTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetQuantizationTypeResponse) ProtoMessage() {}
+
+func (x *GetQuantizationTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[271]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetQuantizationTypeResponse.ProtoReflect.Descriptor instead.
+func (*GetQuantizationTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{271}
+}
+
+func (x *GetQuantizationTypeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetCardinalityRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCardinalityRequest) Reset() {
+	*x = GetCardinalityRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[272]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCardinalityRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCardinalityRequest) ProtoMessage() {}
+
+func (x *GetCardinalityRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[272]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCardinalityRequest.ProtoReflect.Descriptor instead.
+func (*GetCardinalityRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{272}
+}
+
+type GetCardinalityResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCardinalityResponse) Reset() {
+	*x = GetCardinalityResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[273]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCardinalityResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCardinalityResponse) ProtoMessage() {}
+
+func (x *GetCardinalityResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[273]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCardinalityResponse.ProtoReflect.Descriptor instead.
+func (*GetCardinalityResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{273}
+}
+
+func (x *GetCardinalityResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetNameRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNameRequest) Reset() {
+	*x = GetNameRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[274]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNameRequest) ProtoMessage() {}
+
+func (x *GetNameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[274]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNameRequest.ProtoReflect.Descriptor instead.
+func (*GetNameRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{274}
+}
+
+type GetNameResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNameResponse) Reset() {
+	*x = GetNameResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[275]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNameResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNameResponse) ProtoMessage() {}
+
+func (x *GetNameResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[275]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNameResponse.ProtoReflect.Descriptor instead.
+func (*GetNameResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{275}
+}
+
+func (x *GetNameResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetJoinableValueTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetJoinableValueTypeRequest) Reset() {
+	*x = GetJoinableValueTypeRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[276]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetJoinableValueTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetJoinableValueTypeRequest) ProtoMessage() {}
+
+func (x *GetJoinableValueTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[276]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetJoinableValueTypeRequest.ProtoReflect.Descriptor instead.
+func (*GetJoinableValueTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{276}
+}
+
+type GetJoinableValueTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetJoinableValueTypeResponse) Reset() {
+	*x = GetJoinableValueTypeResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[277]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetJoinableValueTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetJoinableValueTypeResponse) ProtoMessage() {}
+
+func (x *GetJoinableValueTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[277]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetJoinableValueTypeResponse.ProtoReflect.Descriptor instead.
+func (*GetJoinableValueTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{277}
+}
+
+func (x *GetJoinableValueTypeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetTokenizerTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTokenizerTypeRequest) Reset() {
+	*x = GetTokenizerTypeRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[278]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTokenizerTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTokenizerTypeRequest) ProtoMessage() {}
+
+func (x *GetTokenizerTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[278]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTokenizerTypeRequest.ProtoReflect.Descriptor instead.
+func (*GetTokenizerTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{278}
+}
+
+type GetTokenizerTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTokenizerTypeResponse) Reset() {
+	*x = GetTokenizerTypeResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[279]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTokenizerTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTokenizerTypeResponse) ProtoMessage() {}
+
+func (x *GetTokenizerTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[279]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTokenizerTypeResponse.ProtoReflect.Descriptor instead.
+func (*GetTokenizerTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{279}
+}
+
+func (x *GetTokenizerTypeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddDeletedTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddDeletedTypeRequest) Reset() {
+	*x = AddDeletedTypeRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[280]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddDeletedTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddDeletedTypeRequest) ProtoMessage() {}
+
+func (x *AddDeletedTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[280]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddDeletedTypeRequest.ProtoReflect.Descriptor instead.
+func (*AddDeletedTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{280}
+}
+
+func (x *AddDeletedTypeRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type AddDeletedTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddDeletedTypeResponse) Reset() {
+	*x = AddDeletedTypeResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[281]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddDeletedTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddDeletedTypeResponse) ProtoMessage() {}
+
+func (x *AddDeletedTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[281]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddDeletedTypeResponse.ProtoReflect.Descriptor instead.
+func (*AddDeletedTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{281}
+}
+
+func (x *AddDeletedTypeResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddIncompatibleTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddIncompatibleTypeRequest) Reset() {
+	*x = AddIncompatibleTypeRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[282]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddIncompatibleTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddIncompatibleTypeRequest) ProtoMessage() {}
+
+func (x *AddIncompatibleTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[282]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddIncompatibleTypeRequest.ProtoReflect.Descriptor instead.
+func (*AddIncompatibleTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{282}
+}
+
+func (x *AddIncompatibleTypeRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type AddIncompatibleTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddIncompatibleTypeResponse) Reset() {
+	*x = AddIncompatibleTypeResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[283]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddIncompatibleTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddIncompatibleTypeResponse) ProtoMessage() {}
+
+func (x *AddIncompatibleTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[283]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddIncompatibleTypeResponse.ProtoReflect.Descriptor instead.
+func (*AddIncompatibleTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{283}
+}
+
+func (x *AddIncompatibleTypeResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddMigratedTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddMigratedTypeRequest) Reset() {
+	*x = AddMigratedTypeRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[284]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddMigratedTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddMigratedTypeRequest) ProtoMessage() {}
+
+func (x *AddMigratedTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[284]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddMigratedTypeRequest.ProtoReflect.Descriptor instead.
+func (*AddMigratedTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{284}
+}
+
+func (x *AddMigratedTypeRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type AddMigratedTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddMigratedTypeResponse) Reset() {
+	*x = AddMigratedTypeResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[285]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddMigratedTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddMigratedTypeResponse) ProtoMessage() {}
+
+func (x *AddMigratedTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[285]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddMigratedTypeResponse.ProtoReflect.Descriptor instead.
+func (*AddMigratedTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{285}
+}
+
+func (x *AddMigratedTypeResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddMigrationFailureRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddMigrationFailureRequest) Reset() {
+	*x = AddMigrationFailureRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[286]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddMigrationFailureRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddMigrationFailureRequest) ProtoMessage() {}
+
+func (x *AddMigrationFailureRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[286]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddMigrationFailureRequest.ProtoReflect.Descriptor instead.
+func (*AddMigrationFailureRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{286}
+}
+
+func (x *AddMigrationFailureRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AddMigrationFailureResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddMigrationFailureResponse) Reset() {
+	*x = AddMigrationFailureResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[287]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddMigrationFailureResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddMigrationFailureResponse) ProtoMessage() {}
+
+func (x *AddMigrationFailureResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[287]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddMigrationFailureResponse.ProtoReflect.Descriptor instead.
+func (*AddMigrationFailureResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{287}
+}
+
+func (x *AddMigrationFailureResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type NewPackageIdentifierRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewPackageIdentifierRequest) Reset() {
+	*x = NewPackageIdentifierRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[288]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewPackageIdentifierRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewPackageIdentifierRequest) ProtoMessage() {}
+
+func (x *NewPackageIdentifierRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[288]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewPackageIdentifierRequest.ProtoReflect.Descriptor instead.
+func (*NewPackageIdentifierRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{288}
+}
+
+func (x *NewPackageIdentifierRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *NewPackageIdentifierRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type NewPackageIdentifierResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewPackageIdentifierResponse) Reset() {
+	*x = NewPackageIdentifierResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[289]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewPackageIdentifierResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewPackageIdentifierResponse) ProtoMessage() {}
+
+func (x *NewPackageIdentifierResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[289]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewPackageIdentifierResponse.ProtoReflect.Descriptor instead.
+func (*NewPackageIdentifierResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{289}
+}
+
+func (x *NewPackageIdentifierResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type PackageIdentifierEqualsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PackageIdentifierEqualsRequest) Reset() {
+	*x = PackageIdentifierEqualsRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[290]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PackageIdentifierEqualsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PackageIdentifierEqualsRequest) ProtoMessage() {}
+
+func (x *PackageIdentifierEqualsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[290]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PackageIdentifierEqualsRequest.ProtoReflect.Descriptor instead.
+func (*PackageIdentifierEqualsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{290}
+}
+
+func (x *PackageIdentifierEqualsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *PackageIdentifierEqualsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type PackageIdentifierGetPackageNameRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PackageIdentifierGetPackageNameRequest) Reset() {
+	*x = PackageIdentifierGetPackageNameRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[291]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PackageIdentifierGetPackageNameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PackageIdentifierGetPackageNameRequest) ProtoMessage() {}
+
+func (x *PackageIdentifierGetPackageNameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[291]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PackageIdentifierGetPackageNameRequest.ProtoReflect.Descriptor instead.
+func (*PackageIdentifierGetPackageNameRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{291}
+}
+
+func (x *PackageIdentifierGetPackageNameRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetSha256CertificateRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSha256CertificateRequest) Reset() {
+	*x = GetSha256CertificateRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[292]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSha256CertificateRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSha256CertificateRequest) ProtoMessage() {}
+
+func (x *GetSha256CertificateRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[292]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSha256CertificateRequest.ProtoReflect.Descriptor instead.
+func (*GetSha256CertificateRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{292}
+}
+
+func (x *GetSha256CertificateRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetSha256CertificateResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSha256CertificateResponse) Reset() {
+	*x = GetSha256CertificateResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[293]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSha256CertificateResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSha256CertificateResponse) ProtoMessage() {}
+
+func (x *GetSha256CertificateResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[293]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSha256CertificateResponse.ProtoReflect.Descriptor instead.
+func (*GetSha256CertificateResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{293}
+}
+
+func (x *GetSha256CertificateResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type PackageIdentifierHashCodeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PackageIdentifierHashCodeRequest) Reset() {
+	*x = PackageIdentifierHashCodeRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[294]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PackageIdentifierHashCodeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PackageIdentifierHashCodeRequest) ProtoMessage() {}
+
+func (x *PackageIdentifierHashCodeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[294]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PackageIdentifierHashCodeRequest.ProtoReflect.Descriptor instead.
+func (*PackageIdentifierHashCodeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{294}
+}
+
+func (x *PackageIdentifierHashCodeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type NewOpenBlobForWriteResponseRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewOpenBlobForWriteResponseRequest) Reset() {
+	*x = NewOpenBlobForWriteResponseRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[295]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewOpenBlobForWriteResponseRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewOpenBlobForWriteResponseRequest) ProtoMessage() {}
+
+func (x *NewOpenBlobForWriteResponseRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[295]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewOpenBlobForWriteResponseRequest.ProtoReflect.Descriptor instead.
+func (*NewOpenBlobForWriteResponseRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{295}
+}
+
+func (x *NewOpenBlobForWriteResponseRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type NewOpenBlobForWriteResponseResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewOpenBlobForWriteResponseResponse) Reset() {
+	*x = NewOpenBlobForWriteResponseResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[296]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewOpenBlobForWriteResponseResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewOpenBlobForWriteResponseResponse) ProtoMessage() {}
+
+func (x *NewOpenBlobForWriteResponseResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[296]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewOpenBlobForWriteResponseResponse.ProtoReflect.Descriptor instead.
+func (*NewOpenBlobForWriteResponseResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{296}
+}
+
+func (x *NewOpenBlobForWriteResponseResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OpenBlobForWriteResponseCloseRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OpenBlobForWriteResponseCloseRequest) Reset() {
+	*x = OpenBlobForWriteResponseCloseRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[297]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OpenBlobForWriteResponseCloseRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OpenBlobForWriteResponseCloseRequest) ProtoMessage() {}
+
+func (x *OpenBlobForWriteResponseCloseRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[297]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OpenBlobForWriteResponseCloseRequest.ProtoReflect.Descriptor instead.
+func (*OpenBlobForWriteResponseCloseRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{297}
+}
+
+func (x *OpenBlobForWriteResponseCloseRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type OpenBlobForWriteResponseDescribeContentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OpenBlobForWriteResponseDescribeContentsRequest) Reset() {
+	*x = OpenBlobForWriteResponseDescribeContentsRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[298]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OpenBlobForWriteResponseDescribeContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OpenBlobForWriteResponseDescribeContentsRequest) ProtoMessage() {}
+
+func (x *OpenBlobForWriteResponseDescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[298]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OpenBlobForWriteResponseDescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*OpenBlobForWriteResponseDescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{298}
+}
+
+func (x *OpenBlobForWriteResponseDescribeContentsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type OpenBlobForWriteResponseWriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OpenBlobForWriteResponseWriteToParcelRequest) Reset() {
+	*x = OpenBlobForWriteResponseWriteToParcelRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[299]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OpenBlobForWriteResponseWriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OpenBlobForWriteResponseWriteToParcelRequest) ProtoMessage() {}
+
+func (x *OpenBlobForWriteResponseWriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[299]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OpenBlobForWriteResponseWriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*OpenBlobForWriteResponseWriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{299}
+}
+
+func (x *OpenBlobForWriteResponseWriteToParcelRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *OpenBlobForWriteResponseWriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OpenBlobForWriteResponseWriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type AddIdsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddIdsRequest) Reset() {
+	*x = AddIdsRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[300]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddIdsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddIdsRequest) ProtoMessage() {}
+
+func (x *AddIdsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[300]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddIdsRequest.ProtoReflect.Descriptor instead.
+func (*AddIdsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{300}
+}
+
+func (x *AddIdsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AddIdsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddIdsResponse) Reset() {
+	*x = AddIdsResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[301]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddIdsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddIdsResponse) ProtoMessage() {}
+
+func (x *AddIdsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[301]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddIdsResponse.ProtoReflect.Descriptor instead.
+func (*AddIdsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{301}
+}
+
+func (x *AddIdsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddGenericDocumentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddGenericDocumentsRequest) Reset() {
+	*x = AddGenericDocumentsRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[302]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddGenericDocumentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddGenericDocumentsRequest) ProtoMessage() {}
+
+func (x *AddGenericDocumentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[302]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddGenericDocumentsRequest.ProtoReflect.Descriptor instead.
+func (*AddGenericDocumentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{302}
+}
+
+func (x *AddGenericDocumentsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AddGenericDocumentsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddGenericDocumentsResponse) Reset() {
+	*x = AddGenericDocumentsResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[303]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddGenericDocumentsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddGenericDocumentsResponse) ProtoMessage() {}
+
+func (x *AddGenericDocumentsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[303]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddGenericDocumentsResponse.ProtoReflect.Descriptor instead.
+func (*AddGenericDocumentsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{303}
+}
+
+func (x *AddGenericDocumentsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddTakenActionGenericDocumentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddTakenActionGenericDocumentsRequest) Reset() {
+	*x = AddTakenActionGenericDocumentsRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[304]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddTakenActionGenericDocumentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddTakenActionGenericDocumentsRequest) ProtoMessage() {}
+
+func (x *AddTakenActionGenericDocumentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[304]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddTakenActionGenericDocumentsRequest.ProtoReflect.Descriptor instead.
+func (*AddTakenActionGenericDocumentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{304}
+}
+
+func (x *AddTakenActionGenericDocumentsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AddTakenActionGenericDocumentsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddTakenActionGenericDocumentsResponse) Reset() {
+	*x = AddTakenActionGenericDocumentsResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[305]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddTakenActionGenericDocumentsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddTakenActionGenericDocumentsResponse) ProtoMessage() {}
+
+func (x *AddTakenActionGenericDocumentsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[305]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddTakenActionGenericDocumentsResponse.ProtoReflect.Descriptor instead.
+func (*AddTakenActionGenericDocumentsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{305}
+}
+
+func (x *AddTakenActionGenericDocumentsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetAliveDocumentsCountRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAliveDocumentsCountRequest) Reset() {
+	*x = GetAliveDocumentsCountRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[306]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAliveDocumentsCountRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAliveDocumentsCountRequest) ProtoMessage() {}
+
+func (x *GetAliveDocumentsCountRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[306]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAliveDocumentsCountRequest.ProtoReflect.Descriptor instead.
+func (*GetAliveDocumentsCountRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{306}
+}
+
+type GetAliveDocumentsCountResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAliveDocumentsCountResponse) Reset() {
+	*x = GetAliveDocumentsCountResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[307]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAliveDocumentsCountResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAliveDocumentsCountResponse) ProtoMessage() {}
+
+func (x *GetAliveDocumentsCountResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[307]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAliveDocumentsCountResponse.ProtoReflect.Descriptor instead.
+func (*GetAliveDocumentsCountResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{307}
+}
+
+func (x *GetAliveDocumentsCountResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetAliveNamespacesCountRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAliveNamespacesCountRequest) Reset() {
+	*x = GetAliveNamespacesCountRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[308]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAliveNamespacesCountRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAliveNamespacesCountRequest) ProtoMessage() {}
+
+func (x *GetAliveNamespacesCountRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[308]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAliveNamespacesCountRequest.ProtoReflect.Descriptor instead.
+func (*GetAliveNamespacesCountRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{308}
+}
+
+type GetAliveNamespacesCountResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAliveNamespacesCountResponse) Reset() {
+	*x = GetAliveNamespacesCountResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[309]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAliveNamespacesCountResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAliveNamespacesCountResponse) ProtoMessage() {}
+
+func (x *GetAliveNamespacesCountResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[309]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAliveNamespacesCountResponse.ProtoReflect.Descriptor instead.
+func (*GetAliveNamespacesCountResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{309}
+}
+
+func (x *GetAliveNamespacesCountResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetBlobsCountRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBlobsCountRequest) Reset() {
+	*x = GetBlobsCountRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[310]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBlobsCountRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBlobsCountRequest) ProtoMessage() {}
+
+func (x *GetBlobsCountRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[310]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBlobsCountRequest.ProtoReflect.Descriptor instead.
+func (*GetBlobsCountRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{310}
+}
+
+type GetBlobsCountResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBlobsCountResponse) Reset() {
+	*x = GetBlobsCountResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[311]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBlobsCountResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBlobsCountResponse) ProtoMessage() {}
+
+func (x *GetBlobsCountResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[311]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBlobsCountResponse.ProtoReflect.Descriptor instead.
+func (*GetBlobsCountResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{311}
+}
+
+func (x *GetBlobsCountResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetBlobsSizeBytesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBlobsSizeBytesRequest) Reset() {
+	*x = GetBlobsSizeBytesRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[312]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBlobsSizeBytesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBlobsSizeBytesRequest) ProtoMessage() {}
+
+func (x *GetBlobsSizeBytesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[312]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBlobsSizeBytesRequest.ProtoReflect.Descriptor instead.
+func (*GetBlobsSizeBytesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{312}
+}
+
+type GetBlobsSizeBytesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBlobsSizeBytesResponse) Reset() {
+	*x = GetBlobsSizeBytesResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[313]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBlobsSizeBytesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBlobsSizeBytesResponse) ProtoMessage() {}
+
+func (x *GetBlobsSizeBytesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[313]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBlobsSizeBytesResponse.ProtoReflect.Descriptor instead.
+func (*GetBlobsSizeBytesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{313}
+}
+
+func (x *GetBlobsSizeBytesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSizeBytesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSizeBytesRequest) Reset() {
+	*x = GetSizeBytesRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[314]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSizeBytesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSizeBytesRequest) ProtoMessage() {}
+
+func (x *GetSizeBytesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[314]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSizeBytesRequest.ProtoReflect.Descriptor instead.
+func (*GetSizeBytesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{314}
+}
+
+type GetSizeBytesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSizeBytesResponse) Reset() {
+	*x = GetSizeBytesResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[315]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSizeBytesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSizeBytesResponse) ProtoMessage() {}
+
+func (x *GetSizeBytesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[315]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSizeBytesResponse.ProtoReflect.Descriptor instead.
+func (*GetSizeBytesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{315}
+}
+
+func (x *GetSizeBytesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetAliveDocumentsCountRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetAliveDocumentsCountRequest) Reset() {
+	*x = SetAliveDocumentsCountRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[316]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetAliveDocumentsCountRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetAliveDocumentsCountRequest) ProtoMessage() {}
+
+func (x *SetAliveDocumentsCountRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[316]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetAliveDocumentsCountRequest.ProtoReflect.Descriptor instead.
+func (*SetAliveDocumentsCountRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{316}
+}
+
+func (x *SetAliveDocumentsCountRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetAliveDocumentsCountResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetAliveDocumentsCountResponse) Reset() {
+	*x = SetAliveDocumentsCountResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[317]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetAliveDocumentsCountResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetAliveDocumentsCountResponse) ProtoMessage() {}
+
+func (x *SetAliveDocumentsCountResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[317]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetAliveDocumentsCountResponse.ProtoReflect.Descriptor instead.
+func (*SetAliveDocumentsCountResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{317}
+}
+
+func (x *SetAliveDocumentsCountResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetAliveNamespacesCountRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetAliveNamespacesCountRequest) Reset() {
+	*x = SetAliveNamespacesCountRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[318]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetAliveNamespacesCountRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetAliveNamespacesCountRequest) ProtoMessage() {}
+
+func (x *SetAliveNamespacesCountRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[318]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetAliveNamespacesCountRequest.ProtoReflect.Descriptor instead.
+func (*SetAliveNamespacesCountRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{318}
+}
+
+func (x *SetAliveNamespacesCountRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetAliveNamespacesCountResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetAliveNamespacesCountResponse) Reset() {
+	*x = SetAliveNamespacesCountResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[319]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetAliveNamespacesCountResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetAliveNamespacesCountResponse) ProtoMessage() {}
+
+func (x *SetAliveNamespacesCountResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[319]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetAliveNamespacesCountResponse.ProtoReflect.Descriptor instead.
+func (*SetAliveNamespacesCountResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{319}
+}
+
+func (x *SetAliveNamespacesCountResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetBlobsCountRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetBlobsCountRequest) Reset() {
+	*x = SetBlobsCountRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[320]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetBlobsCountRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetBlobsCountRequest) ProtoMessage() {}
+
+func (x *SetBlobsCountRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[320]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetBlobsCountRequest.ProtoReflect.Descriptor instead.
+func (*SetBlobsCountRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{320}
+}
+
+func (x *SetBlobsCountRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetBlobsCountResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetBlobsCountResponse) Reset() {
+	*x = SetBlobsCountResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[321]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetBlobsCountResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetBlobsCountResponse) ProtoMessage() {}
+
+func (x *SetBlobsCountResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[321]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetBlobsCountResponse.ProtoReflect.Descriptor instead.
+func (*SetBlobsCountResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{321}
+}
+
+func (x *SetBlobsCountResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetBlobsSizeBytesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetBlobsSizeBytesRequest) Reset() {
+	*x = SetBlobsSizeBytesRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[322]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetBlobsSizeBytesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetBlobsSizeBytesRequest) ProtoMessage() {}
+
+func (x *SetBlobsSizeBytesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[322]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetBlobsSizeBytesRequest.ProtoReflect.Descriptor instead.
+func (*SetBlobsSizeBytesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{322}
+}
+
+func (x *SetBlobsSizeBytesRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetBlobsSizeBytesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetBlobsSizeBytesResponse) Reset() {
+	*x = SetBlobsSizeBytesResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[323]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetBlobsSizeBytesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetBlobsSizeBytesResponse) ProtoMessage() {}
+
+func (x *SetBlobsSizeBytesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[323]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetBlobsSizeBytesResponse.ProtoReflect.Descriptor instead.
+func (*SetBlobsSizeBytesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{323}
+}
+
+func (x *SetBlobsSizeBytesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetSizeBytesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetSizeBytesRequest) Reset() {
+	*x = SetSizeBytesRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[324]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetSizeBytesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetSizeBytesRequest) ProtoMessage() {}
+
+func (x *SetSizeBytesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[324]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetSizeBytesRequest.ProtoReflect.Descriptor instead.
+func (*SetSizeBytesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{324}
+}
+
+func (x *SetSizeBytesRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetSizeBytesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetSizeBytesResponse) Reset() {
+	*x = SetSizeBytesResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[325]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetSizeBytesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetSizeBytesResponse) ProtoMessage() {}
+
+func (x *SetSizeBytesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[325]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetSizeBytesResponse.ProtoReflect.Descriptor instead.
+func (*SetSizeBytesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{325}
+}
+
+func (x *SetSizeBytesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetCreationTimestampMillisRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCreationTimestampMillisRequest) Reset() {
+	*x = GetCreationTimestampMillisRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[326]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCreationTimestampMillisRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCreationTimestampMillisRequest) ProtoMessage() {}
+
+func (x *GetCreationTimestampMillisRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[326]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCreationTimestampMillisRequest.ProtoReflect.Descriptor instead.
+func (*GetCreationTimestampMillisRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{326}
+}
+
+type GetCreationTimestampMillisResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCreationTimestampMillisResponse) Reset() {
+	*x = GetCreationTimestampMillisResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[327]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCreationTimestampMillisResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCreationTimestampMillisResponse) ProtoMessage() {}
+
+func (x *GetCreationTimestampMillisResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[327]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCreationTimestampMillisResponse.ProtoReflect.Descriptor instead.
+func (*GetCreationTimestampMillisResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{327}
+}
+
+func (x *GetCreationTimestampMillisResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetIdRequest) Reset() {
+	*x = GetIdRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[328]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetIdRequest) ProtoMessage() {}
+
+func (x *GetIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[328]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetIdRequest.ProtoReflect.Descriptor instead.
+func (*GetIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{328}
+}
+
+type GetIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetIdResponse) Reset() {
+	*x = GetIdResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[329]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetIdResponse) ProtoMessage() {}
+
+func (x *GetIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[329]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetIdResponse.ProtoReflect.Descriptor instead.
+func (*GetIdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{329}
+}
+
+func (x *GetIdResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetPropertyRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPropertyRequest) Reset() {
+	*x = GetPropertyRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[330]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPropertyRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPropertyRequest) ProtoMessage() {}
+
+func (x *GetPropertyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[330]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPropertyRequest.ProtoReflect.Descriptor instead.
+func (*GetPropertyRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{330}
+}
+
+func (x *GetPropertyRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type GetPropertyResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPropertyResponse) Reset() {
+	*x = GetPropertyResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[331]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPropertyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPropertyResponse) ProtoMessage() {}
+
+func (x *GetPropertyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[331]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPropertyResponse.ProtoReflect.Descriptor instead.
+func (*GetPropertyResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{331}
+}
+
+func (x *GetPropertyResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPropertyBlobHandleRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPropertyBlobHandleRequest) Reset() {
+	*x = GetPropertyBlobHandleRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[332]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPropertyBlobHandleRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPropertyBlobHandleRequest) ProtoMessage() {}
+
+func (x *GetPropertyBlobHandleRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[332]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPropertyBlobHandleRequest.ProtoReflect.Descriptor instead.
+func (*GetPropertyBlobHandleRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{332}
+}
+
+func (x *GetPropertyBlobHandleRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type GetPropertyBlobHandleResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPropertyBlobHandleResponse) Reset() {
+	*x = GetPropertyBlobHandleResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[333]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPropertyBlobHandleResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPropertyBlobHandleResponse) ProtoMessage() {}
+
+func (x *GetPropertyBlobHandleResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[333]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPropertyBlobHandleResponse.ProtoReflect.Descriptor instead.
+func (*GetPropertyBlobHandleResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{333}
+}
+
+func (x *GetPropertyBlobHandleResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPropertyBlobHandleArrayRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPropertyBlobHandleArrayRequest) Reset() {
+	*x = GetPropertyBlobHandleArrayRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[334]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPropertyBlobHandleArrayRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPropertyBlobHandleArrayRequest) ProtoMessage() {}
+
+func (x *GetPropertyBlobHandleArrayRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[334]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPropertyBlobHandleArrayRequest.ProtoReflect.Descriptor instead.
+func (*GetPropertyBlobHandleArrayRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{334}
+}
+
+func (x *GetPropertyBlobHandleArrayRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type GetPropertyBlobHandleArrayResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPropertyBlobHandleArrayResponse) Reset() {
+	*x = GetPropertyBlobHandleArrayResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[335]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPropertyBlobHandleArrayResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPropertyBlobHandleArrayResponse) ProtoMessage() {}
+
+func (x *GetPropertyBlobHandleArrayResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[335]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPropertyBlobHandleArrayResponse.ProtoReflect.Descriptor instead.
+func (*GetPropertyBlobHandleArrayResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{335}
+}
+
+func (x *GetPropertyBlobHandleArrayResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPropertyBooleanRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPropertyBooleanRequest) Reset() {
+	*x = GetPropertyBooleanRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[336]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPropertyBooleanRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPropertyBooleanRequest) ProtoMessage() {}
+
+func (x *GetPropertyBooleanRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[336]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPropertyBooleanRequest.ProtoReflect.Descriptor instead.
+func (*GetPropertyBooleanRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{336}
+}
+
+func (x *GetPropertyBooleanRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type GetPropertyBooleanResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPropertyBooleanResponse) Reset() {
+	*x = GetPropertyBooleanResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[337]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPropertyBooleanResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPropertyBooleanResponse) ProtoMessage() {}
+
+func (x *GetPropertyBooleanResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[337]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPropertyBooleanResponse.ProtoReflect.Descriptor instead.
+func (*GetPropertyBooleanResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{337}
+}
+
+func (x *GetPropertyBooleanResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type GetPropertyBooleanArrayRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPropertyBooleanArrayRequest) Reset() {
+	*x = GetPropertyBooleanArrayRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[338]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPropertyBooleanArrayRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPropertyBooleanArrayRequest) ProtoMessage() {}
+
+func (x *GetPropertyBooleanArrayRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[338]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPropertyBooleanArrayRequest.ProtoReflect.Descriptor instead.
+func (*GetPropertyBooleanArrayRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{338}
+}
+
+func (x *GetPropertyBooleanArrayRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type GetPropertyBooleanArrayResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPropertyBooleanArrayResponse) Reset() {
+	*x = GetPropertyBooleanArrayResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[339]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPropertyBooleanArrayResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPropertyBooleanArrayResponse) ProtoMessage() {}
+
+func (x *GetPropertyBooleanArrayResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[339]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPropertyBooleanArrayResponse.ProtoReflect.Descriptor instead.
+func (*GetPropertyBooleanArrayResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{339}
+}
+
+func (x *GetPropertyBooleanArrayResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPropertyBytesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPropertyBytesRequest) Reset() {
+	*x = GetPropertyBytesRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[340]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPropertyBytesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPropertyBytesRequest) ProtoMessage() {}
+
+func (x *GetPropertyBytesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[340]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPropertyBytesRequest.ProtoReflect.Descriptor instead.
+func (*GetPropertyBytesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{340}
+}
+
+func (x *GetPropertyBytesRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type GetPropertyBytesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPropertyBytesResponse) Reset() {
+	*x = GetPropertyBytesResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[341]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPropertyBytesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPropertyBytesResponse) ProtoMessage() {}
+
+func (x *GetPropertyBytesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[341]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPropertyBytesResponse.ProtoReflect.Descriptor instead.
+func (*GetPropertyBytesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{341}
+}
+
+func (x *GetPropertyBytesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPropertyBytesArrayRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPropertyBytesArrayRequest) Reset() {
+	*x = GetPropertyBytesArrayRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[342]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPropertyBytesArrayRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPropertyBytesArrayRequest) ProtoMessage() {}
+
+func (x *GetPropertyBytesArrayRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[342]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPropertyBytesArrayRequest.ProtoReflect.Descriptor instead.
+func (*GetPropertyBytesArrayRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{342}
+}
+
+func (x *GetPropertyBytesArrayRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type GetPropertyBytesArrayResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPropertyBytesArrayResponse) Reset() {
+	*x = GetPropertyBytesArrayResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[343]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPropertyBytesArrayResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPropertyBytesArrayResponse) ProtoMessage() {}
+
+func (x *GetPropertyBytesArrayResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[343]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPropertyBytesArrayResponse.ProtoReflect.Descriptor instead.
+func (*GetPropertyBytesArrayResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{343}
+}
+
+func (x *GetPropertyBytesArrayResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPropertyDocumentRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPropertyDocumentRequest) Reset() {
+	*x = GetPropertyDocumentRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[344]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPropertyDocumentRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPropertyDocumentRequest) ProtoMessage() {}
+
+func (x *GetPropertyDocumentRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[344]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPropertyDocumentRequest.ProtoReflect.Descriptor instead.
+func (*GetPropertyDocumentRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{344}
+}
+
+func (x *GetPropertyDocumentRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type GetPropertyDocumentResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPropertyDocumentResponse) Reset() {
+	*x = GetPropertyDocumentResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[345]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPropertyDocumentResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPropertyDocumentResponse) ProtoMessage() {}
+
+func (x *GetPropertyDocumentResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[345]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPropertyDocumentResponse.ProtoReflect.Descriptor instead.
+func (*GetPropertyDocumentResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{345}
+}
+
+func (x *GetPropertyDocumentResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPropertyDocumentArrayRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPropertyDocumentArrayRequest) Reset() {
+	*x = GetPropertyDocumentArrayRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[346]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPropertyDocumentArrayRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPropertyDocumentArrayRequest) ProtoMessage() {}
+
+func (x *GetPropertyDocumentArrayRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[346]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPropertyDocumentArrayRequest.ProtoReflect.Descriptor instead.
+func (*GetPropertyDocumentArrayRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{346}
+}
+
+func (x *GetPropertyDocumentArrayRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type GetPropertyDocumentArrayResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPropertyDocumentArrayResponse) Reset() {
+	*x = GetPropertyDocumentArrayResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[347]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPropertyDocumentArrayResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPropertyDocumentArrayResponse) ProtoMessage() {}
+
+func (x *GetPropertyDocumentArrayResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[347]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPropertyDocumentArrayResponse.ProtoReflect.Descriptor instead.
+func (*GetPropertyDocumentArrayResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{347}
+}
+
+func (x *GetPropertyDocumentArrayResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPropertyDoubleRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPropertyDoubleRequest) Reset() {
+	*x = GetPropertyDoubleRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[348]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPropertyDoubleRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPropertyDoubleRequest) ProtoMessage() {}
+
+func (x *GetPropertyDoubleRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[348]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPropertyDoubleRequest.ProtoReflect.Descriptor instead.
+func (*GetPropertyDoubleRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{348}
+}
+
+func (x *GetPropertyDoubleRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type GetPropertyDoubleResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        float64                `protobuf:"fixed64,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPropertyDoubleResponse) Reset() {
+	*x = GetPropertyDoubleResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[349]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPropertyDoubleResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPropertyDoubleResponse) ProtoMessage() {}
+
+func (x *GetPropertyDoubleResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[349]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPropertyDoubleResponse.ProtoReflect.Descriptor instead.
+func (*GetPropertyDoubleResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{349}
+}
+
+func (x *GetPropertyDoubleResponse) GetResult() float64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPropertyDoubleArrayRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPropertyDoubleArrayRequest) Reset() {
+	*x = GetPropertyDoubleArrayRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[350]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPropertyDoubleArrayRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPropertyDoubleArrayRequest) ProtoMessage() {}
+
+func (x *GetPropertyDoubleArrayRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[350]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPropertyDoubleArrayRequest.ProtoReflect.Descriptor instead.
+func (*GetPropertyDoubleArrayRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{350}
+}
+
+func (x *GetPropertyDoubleArrayRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type GetPropertyDoubleArrayResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPropertyDoubleArrayResponse) Reset() {
+	*x = GetPropertyDoubleArrayResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[351]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPropertyDoubleArrayResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPropertyDoubleArrayResponse) ProtoMessage() {}
+
+func (x *GetPropertyDoubleArrayResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[351]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPropertyDoubleArrayResponse.ProtoReflect.Descriptor instead.
+func (*GetPropertyDoubleArrayResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{351}
+}
+
+func (x *GetPropertyDoubleArrayResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPropertyEmbeddingRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPropertyEmbeddingRequest) Reset() {
+	*x = GetPropertyEmbeddingRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[352]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPropertyEmbeddingRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPropertyEmbeddingRequest) ProtoMessage() {}
+
+func (x *GetPropertyEmbeddingRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[352]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPropertyEmbeddingRequest.ProtoReflect.Descriptor instead.
+func (*GetPropertyEmbeddingRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{352}
+}
+
+func (x *GetPropertyEmbeddingRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type GetPropertyEmbeddingResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPropertyEmbeddingResponse) Reset() {
+	*x = GetPropertyEmbeddingResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[353]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPropertyEmbeddingResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPropertyEmbeddingResponse) ProtoMessage() {}
+
+func (x *GetPropertyEmbeddingResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[353]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPropertyEmbeddingResponse.ProtoReflect.Descriptor instead.
+func (*GetPropertyEmbeddingResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{353}
+}
+
+func (x *GetPropertyEmbeddingResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPropertyEmbeddingArrayRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPropertyEmbeddingArrayRequest) Reset() {
+	*x = GetPropertyEmbeddingArrayRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[354]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPropertyEmbeddingArrayRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPropertyEmbeddingArrayRequest) ProtoMessage() {}
+
+func (x *GetPropertyEmbeddingArrayRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[354]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPropertyEmbeddingArrayRequest.ProtoReflect.Descriptor instead.
+func (*GetPropertyEmbeddingArrayRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{354}
+}
+
+func (x *GetPropertyEmbeddingArrayRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type GetPropertyEmbeddingArrayResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPropertyEmbeddingArrayResponse) Reset() {
+	*x = GetPropertyEmbeddingArrayResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[355]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPropertyEmbeddingArrayResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPropertyEmbeddingArrayResponse) ProtoMessage() {}
+
+func (x *GetPropertyEmbeddingArrayResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[355]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPropertyEmbeddingArrayResponse.ProtoReflect.Descriptor instead.
+func (*GetPropertyEmbeddingArrayResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{355}
+}
+
+func (x *GetPropertyEmbeddingArrayResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPropertyLongRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPropertyLongRequest) Reset() {
+	*x = GetPropertyLongRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[356]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPropertyLongRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPropertyLongRequest) ProtoMessage() {}
+
+func (x *GetPropertyLongRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[356]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPropertyLongRequest.ProtoReflect.Descriptor instead.
+func (*GetPropertyLongRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{356}
+}
+
+func (x *GetPropertyLongRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type GetPropertyLongResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPropertyLongResponse) Reset() {
+	*x = GetPropertyLongResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[357]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPropertyLongResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPropertyLongResponse) ProtoMessage() {}
+
+func (x *GetPropertyLongResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[357]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPropertyLongResponse.ProtoReflect.Descriptor instead.
+func (*GetPropertyLongResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{357}
+}
+
+func (x *GetPropertyLongResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPropertyLongArrayRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPropertyLongArrayRequest) Reset() {
+	*x = GetPropertyLongArrayRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[358]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPropertyLongArrayRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPropertyLongArrayRequest) ProtoMessage() {}
+
+func (x *GetPropertyLongArrayRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[358]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPropertyLongArrayRequest.ProtoReflect.Descriptor instead.
+func (*GetPropertyLongArrayRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{358}
+}
+
+func (x *GetPropertyLongArrayRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type GetPropertyLongArrayResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPropertyLongArrayResponse) Reset() {
+	*x = GetPropertyLongArrayResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[359]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPropertyLongArrayResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPropertyLongArrayResponse) ProtoMessage() {}
+
+func (x *GetPropertyLongArrayResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[359]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPropertyLongArrayResponse.ProtoReflect.Descriptor instead.
+func (*GetPropertyLongArrayResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{359}
+}
+
+func (x *GetPropertyLongArrayResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPropertyStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPropertyStringRequest) Reset() {
+	*x = GetPropertyStringRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[360]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPropertyStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPropertyStringRequest) ProtoMessage() {}
+
+func (x *GetPropertyStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[360]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPropertyStringRequest.ProtoReflect.Descriptor instead.
+func (*GetPropertyStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{360}
+}
+
+func (x *GetPropertyStringRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type GetPropertyStringResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPropertyStringResponse) Reset() {
+	*x = GetPropertyStringResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[361]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPropertyStringResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPropertyStringResponse) ProtoMessage() {}
+
+func (x *GetPropertyStringResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[361]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPropertyStringResponse.ProtoReflect.Descriptor instead.
+func (*GetPropertyStringResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{361}
+}
+
+func (x *GetPropertyStringResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetPropertyStringArrayRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPropertyStringArrayRequest) Reset() {
+	*x = GetPropertyStringArrayRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[362]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPropertyStringArrayRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPropertyStringArrayRequest) ProtoMessage() {}
+
+func (x *GetPropertyStringArrayRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[362]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPropertyStringArrayRequest.ProtoReflect.Descriptor instead.
+func (*GetPropertyStringArrayRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{362}
+}
+
+func (x *GetPropertyStringArrayRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type GetPropertyStringArrayResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPropertyStringArrayResponse) Reset() {
+	*x = GetPropertyStringArrayResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[363]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPropertyStringArrayResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPropertyStringArrayResponse) ProtoMessage() {}
+
+func (x *GetPropertyStringArrayResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[363]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPropertyStringArrayResponse.ProtoReflect.Descriptor instead.
+func (*GetPropertyStringArrayResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{363}
+}
+
+func (x *GetPropertyStringArrayResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetScoreRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetScoreRequest) Reset() {
+	*x = GetScoreRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[364]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetScoreRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetScoreRequest) ProtoMessage() {}
+
+func (x *GetScoreRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[364]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetScoreRequest.ProtoReflect.Descriptor instead.
+func (*GetScoreRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{364}
+}
+
+type GetScoreResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetScoreResponse) Reset() {
+	*x = GetScoreResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[365]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetScoreResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetScoreResponse) ProtoMessage() {}
+
+func (x *GetScoreResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[365]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetScoreResponse.ProtoReflect.Descriptor instead.
+func (*GetScoreResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{365}
+}
+
+func (x *GetScoreResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetTtlMillisRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTtlMillisRequest) Reset() {
+	*x = GetTtlMillisRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[366]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTtlMillisRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTtlMillisRequest) ProtoMessage() {}
+
+func (x *GetTtlMillisRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[366]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTtlMillisRequest.ProtoReflect.Descriptor instead.
+func (*GetTtlMillisRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{366}
+}
+
+type GetTtlMillisResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTtlMillisResponse) Reset() {
+	*x = GetTtlMillisResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[367]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTtlMillisResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTtlMillisResponse) ProtoMessage() {}
+
+func (x *GetTtlMillisResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[367]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTtlMillisResponse.ProtoReflect.Descriptor instead.
+func (*GetTtlMillisResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{367}
+}
+
+func (x *GetTtlMillisResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetMaxIndexedPropertiesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMaxIndexedPropertiesRequest) Reset() {
+	*x = GetMaxIndexedPropertiesRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[368]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMaxIndexedPropertiesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMaxIndexedPropertiesRequest) ProtoMessage() {}
+
+func (x *GetMaxIndexedPropertiesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[368]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMaxIndexedPropertiesRequest.ProtoReflect.Descriptor instead.
+func (*GetMaxIndexedPropertiesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{368}
+}
+
+type GetMaxIndexedPropertiesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMaxIndexedPropertiesResponse) Reset() {
+	*x = GetMaxIndexedPropertiesResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[369]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMaxIndexedPropertiesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMaxIndexedPropertiesResponse) ProtoMessage() {}
+
+func (x *GetMaxIndexedPropertiesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[369]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMaxIndexedPropertiesResponse.ProtoReflect.Descriptor instead.
+func (*GetMaxIndexedPropertiesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{369}
+}
+
+func (x *GetMaxIndexedPropertiesResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ClearPropertyRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearPropertyRequest) Reset() {
+	*x = ClearPropertyRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[370]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearPropertyRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearPropertyRequest) ProtoMessage() {}
+
+func (x *ClearPropertyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[370]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearPropertyRequest.ProtoReflect.Descriptor instead.
+func (*ClearPropertyRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{370}
+}
+
+func (x *ClearPropertyRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type ClearPropertyResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearPropertyResponse) Reset() {
+	*x = ClearPropertyResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[371]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearPropertyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearPropertyResponse) ProtoMessage() {}
+
+func (x *ClearPropertyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[371]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearPropertyResponse.ProtoReflect.Descriptor instead.
+func (*ClearPropertyResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{371}
+}
+
+func (x *ClearPropertyResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetCreationTimestampMillisRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetCreationTimestampMillisRequest) Reset() {
+	*x = SetCreationTimestampMillisRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[372]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetCreationTimestampMillisRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetCreationTimestampMillisRequest) ProtoMessage() {}
+
+func (x *SetCreationTimestampMillisRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[372]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetCreationTimestampMillisRequest.ProtoReflect.Descriptor instead.
+func (*SetCreationTimestampMillisRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{372}
+}
+
+func (x *SetCreationTimestampMillisRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetCreationTimestampMillisResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetCreationTimestampMillisResponse) Reset() {
+	*x = SetCreationTimestampMillisResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[373]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetCreationTimestampMillisResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetCreationTimestampMillisResponse) ProtoMessage() {}
+
+func (x *SetCreationTimestampMillisResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[373]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetCreationTimestampMillisResponse.ProtoReflect.Descriptor instead.
+func (*SetCreationTimestampMillisResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{373}
+}
+
+func (x *SetCreationTimestampMillisResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetIdRequest) Reset() {
+	*x = SetIdRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[374]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetIdRequest) ProtoMessage() {}
+
+func (x *SetIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[374]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetIdRequest.ProtoReflect.Descriptor instead.
+func (*SetIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{374}
+}
+
+func (x *SetIdRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type SetIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetIdResponse) Reset() {
+	*x = SetIdResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[375]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetIdResponse) ProtoMessage() {}
+
+func (x *SetIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[375]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetIdResponse.ProtoReflect.Descriptor instead.
+func (*SetIdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{375}
+}
+
+func (x *SetIdResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetNamespaceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetNamespaceRequest) Reset() {
+	*x = SetNamespaceRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[376]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetNamespaceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetNamespaceRequest) ProtoMessage() {}
+
+func (x *SetNamespaceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[376]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetNamespaceRequest.ProtoReflect.Descriptor instead.
+func (*SetNamespaceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{376}
+}
+
+func (x *SetNamespaceRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type SetNamespaceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetNamespaceResponse) Reset() {
+	*x = SetNamespaceResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[377]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetNamespaceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetNamespaceResponse) ProtoMessage() {}
+
+func (x *SetNamespaceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[377]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetNamespaceResponse.ProtoReflect.Descriptor instead.
+func (*SetNamespaceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{377}
+}
+
+func (x *SetNamespaceResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetPropertyBlobHandleRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPropertyBlobHandleRequest) Reset() {
+	*x = SetPropertyBlobHandleRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[378]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPropertyBlobHandleRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPropertyBlobHandleRequest) ProtoMessage() {}
+
+func (x *SetPropertyBlobHandleRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[378]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPropertyBlobHandleRequest.ProtoReflect.Descriptor instead.
+func (*SetPropertyBlobHandleRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{378}
+}
+
+func (x *SetPropertyBlobHandleRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *SetPropertyBlobHandleRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type SetPropertyBlobHandleResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPropertyBlobHandleResponse) Reset() {
+	*x = SetPropertyBlobHandleResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[379]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPropertyBlobHandleResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPropertyBlobHandleResponse) ProtoMessage() {}
+
+func (x *SetPropertyBlobHandleResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[379]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPropertyBlobHandleResponse.ProtoReflect.Descriptor instead.
+func (*SetPropertyBlobHandleResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{379}
+}
+
+func (x *SetPropertyBlobHandleResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetPropertyBooleanRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPropertyBooleanRequest) Reset() {
+	*x = SetPropertyBooleanRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[380]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPropertyBooleanRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPropertyBooleanRequest) ProtoMessage() {}
+
+func (x *SetPropertyBooleanRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[380]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPropertyBooleanRequest.ProtoReflect.Descriptor instead.
+func (*SetPropertyBooleanRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{380}
+}
+
+func (x *SetPropertyBooleanRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *SetPropertyBooleanRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type SetPropertyBooleanResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPropertyBooleanResponse) Reset() {
+	*x = SetPropertyBooleanResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[381]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPropertyBooleanResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPropertyBooleanResponse) ProtoMessage() {}
+
+func (x *SetPropertyBooleanResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[381]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPropertyBooleanResponse.ProtoReflect.Descriptor instead.
+func (*SetPropertyBooleanResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{381}
+}
+
+func (x *SetPropertyBooleanResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetPropertyBytesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPropertyBytesRequest) Reset() {
+	*x = SetPropertyBytesRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[382]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPropertyBytesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPropertyBytesRequest) ProtoMessage() {}
+
+func (x *SetPropertyBytesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[382]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPropertyBytesRequest.ProtoReflect.Descriptor instead.
+func (*SetPropertyBytesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{382}
+}
+
+func (x *SetPropertyBytesRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *SetPropertyBytesRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type SetPropertyBytesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPropertyBytesResponse) Reset() {
+	*x = SetPropertyBytesResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[383]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPropertyBytesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPropertyBytesResponse) ProtoMessage() {}
+
+func (x *SetPropertyBytesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[383]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPropertyBytesResponse.ProtoReflect.Descriptor instead.
+func (*SetPropertyBytesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{383}
+}
+
+func (x *SetPropertyBytesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetPropertyDocumentRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPropertyDocumentRequest) Reset() {
+	*x = SetPropertyDocumentRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[384]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPropertyDocumentRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPropertyDocumentRequest) ProtoMessage() {}
+
+func (x *SetPropertyDocumentRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[384]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPropertyDocumentRequest.ProtoReflect.Descriptor instead.
+func (*SetPropertyDocumentRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{384}
+}
+
+func (x *SetPropertyDocumentRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *SetPropertyDocumentRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type SetPropertyDocumentResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPropertyDocumentResponse) Reset() {
+	*x = SetPropertyDocumentResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[385]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPropertyDocumentResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPropertyDocumentResponse) ProtoMessage() {}
+
+func (x *SetPropertyDocumentResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[385]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPropertyDocumentResponse.ProtoReflect.Descriptor instead.
+func (*SetPropertyDocumentResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{385}
+}
+
+func (x *SetPropertyDocumentResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetPropertyDoubleRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPropertyDoubleRequest) Reset() {
+	*x = SetPropertyDoubleRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[386]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPropertyDoubleRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPropertyDoubleRequest) ProtoMessage() {}
+
+func (x *SetPropertyDoubleRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[386]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPropertyDoubleRequest.ProtoReflect.Descriptor instead.
+func (*SetPropertyDoubleRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{386}
+}
+
+func (x *SetPropertyDoubleRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *SetPropertyDoubleRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type SetPropertyDoubleResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPropertyDoubleResponse) Reset() {
+	*x = SetPropertyDoubleResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[387]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPropertyDoubleResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPropertyDoubleResponse) ProtoMessage() {}
+
+func (x *SetPropertyDoubleResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[387]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPropertyDoubleResponse.ProtoReflect.Descriptor instead.
+func (*SetPropertyDoubleResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{387}
+}
+
+func (x *SetPropertyDoubleResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetPropertyEmbeddingRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPropertyEmbeddingRequest) Reset() {
+	*x = SetPropertyEmbeddingRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[388]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPropertyEmbeddingRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPropertyEmbeddingRequest) ProtoMessage() {}
+
+func (x *SetPropertyEmbeddingRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[388]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPropertyEmbeddingRequest.ProtoReflect.Descriptor instead.
+func (*SetPropertyEmbeddingRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{388}
+}
+
+func (x *SetPropertyEmbeddingRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *SetPropertyEmbeddingRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type SetPropertyEmbeddingResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPropertyEmbeddingResponse) Reset() {
+	*x = SetPropertyEmbeddingResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[389]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPropertyEmbeddingResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPropertyEmbeddingResponse) ProtoMessage() {}
+
+func (x *SetPropertyEmbeddingResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[389]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPropertyEmbeddingResponse.ProtoReflect.Descriptor instead.
+func (*SetPropertyEmbeddingResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{389}
+}
+
+func (x *SetPropertyEmbeddingResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetPropertyLongRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPropertyLongRequest) Reset() {
+	*x = SetPropertyLongRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[390]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPropertyLongRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPropertyLongRequest) ProtoMessage() {}
+
+func (x *SetPropertyLongRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[390]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPropertyLongRequest.ProtoReflect.Descriptor instead.
+func (*SetPropertyLongRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{390}
+}
+
+func (x *SetPropertyLongRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *SetPropertyLongRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type SetPropertyLongResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPropertyLongResponse) Reset() {
+	*x = SetPropertyLongResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[391]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPropertyLongResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPropertyLongResponse) ProtoMessage() {}
+
+func (x *SetPropertyLongResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[391]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPropertyLongResponse.ProtoReflect.Descriptor instead.
+func (*SetPropertyLongResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{391}
+}
+
+func (x *SetPropertyLongResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetPropertyStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPropertyStringRequest) Reset() {
+	*x = SetPropertyStringRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[392]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPropertyStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPropertyStringRequest) ProtoMessage() {}
+
+func (x *SetPropertyStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[392]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPropertyStringRequest.ProtoReflect.Descriptor instead.
+func (*SetPropertyStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{392}
+}
+
+func (x *SetPropertyStringRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *SetPropertyStringRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type SetPropertyStringResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPropertyStringResponse) Reset() {
+	*x = SetPropertyStringResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[393]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPropertyStringResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPropertyStringResponse) ProtoMessage() {}
+
+func (x *SetPropertyStringResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[393]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPropertyStringResponse.ProtoReflect.Descriptor instead.
+func (*SetPropertyStringResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{393}
+}
+
+func (x *SetPropertyStringResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetScoreRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetScoreRequest) Reset() {
+	*x = SetScoreRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[394]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetScoreRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetScoreRequest) ProtoMessage() {}
+
+func (x *SetScoreRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[394]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetScoreRequest.ProtoReflect.Descriptor instead.
+func (*SetScoreRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{394}
+}
+
+func (x *SetScoreRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetScoreResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetScoreResponse) Reset() {
+	*x = SetScoreResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[395]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetScoreResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetScoreResponse) ProtoMessage() {}
+
+func (x *SetScoreResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[395]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetScoreResponse.ProtoReflect.Descriptor instead.
+func (*SetScoreResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{395}
+}
+
+func (x *SetScoreResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetTtlMillisRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetTtlMillisRequest) Reset() {
+	*x = SetTtlMillisRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[396]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetTtlMillisRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetTtlMillisRequest) ProtoMessage() {}
+
+func (x *SetTtlMillisRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[396]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetTtlMillisRequest.ProtoReflect.Descriptor instead.
+func (*SetTtlMillisRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{396}
+}
+
+func (x *SetTtlMillisRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetTtlMillisResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetTtlMillisResponse) Reset() {
+	*x = SetTtlMillisResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[397]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetTtlMillisResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetTtlMillisResponse) ProtoMessage() {}
+
+func (x *SetTtlMillisResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[397]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetTtlMillisResponse.ProtoReflect.Descriptor instead.
+func (*SetTtlMillisResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{397}
+}
+
+func (x *SetTtlMillisResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSha256DigestRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSha256DigestRequest) Reset() {
+	*x = GetSha256DigestRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[398]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSha256DigestRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSha256DigestRequest) ProtoMessage() {}
+
+func (x *GetSha256DigestRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[398]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSha256DigestRequest.ProtoReflect.Descriptor instead.
+func (*GetSha256DigestRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{398}
+}
+
+type GetSha256DigestResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSha256DigestResponse) Reset() {
+	*x = GetSha256DigestResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[399]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSha256DigestResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSha256DigestResponse) ProtoMessage() {}
+
+func (x *GetSha256DigestResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[399]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSha256DigestResponse.ProtoReflect.Descriptor instead.
+func (*GetSha256DigestResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{399}
+}
+
+func (x *GetSha256DigestResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type CreateWithSha256Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          string                 `protobuf:"bytes,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          string                 `protobuf:"bytes,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateWithSha256Request) Reset() {
+	*x = CreateWithSha256Request{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[400]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateWithSha256Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateWithSha256Request) ProtoMessage() {}
+
+func (x *CreateWithSha256Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[400]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateWithSha256Request.ProtoReflect.Descriptor instead.
+func (*CreateWithSha256Request) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{400}
+}
+
+func (x *CreateWithSha256Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *CreateWithSha256Request) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *CreateWithSha256Request) GetArg2() string {
+	if x != nil {
+		return x.Arg2
+	}
+	return ""
+}
+
+func (x *CreateWithSha256Request) GetArg3() string {
+	if x != nil {
+		return x.Arg3
+	}
+	return ""
+}
+
+type CreateWithSha256Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateWithSha256Response) Reset() {
+	*x = CreateWithSha256Response{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[401]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateWithSha256Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateWithSha256Response) ProtoMessage() {}
+
+func (x *CreateWithSha256Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[401]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateWithSha256Response.ProtoReflect.Descriptor instead.
+func (*CreateWithSha256Response) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{401}
+}
+
+func (x *CreateWithSha256Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSuggestedResultRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSuggestedResultRequest) Reset() {
+	*x = GetSuggestedResultRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[402]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSuggestedResultRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSuggestedResultRequest) ProtoMessage() {}
+
+func (x *GetSuggestedResultRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[402]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSuggestedResultRequest.ProtoReflect.Descriptor instead.
+func (*GetSuggestedResultRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{402}
+}
+
+type GetSuggestedResultResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSuggestedResultResponse) Reset() {
+	*x = GetSuggestedResultResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[403]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSuggestedResultResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSuggestedResultResponse) ProtoMessage() {}
+
+func (x *GetSuggestedResultResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[403]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSuggestedResultResponse.ProtoReflect.Descriptor instead.
+func (*GetSuggestedResultResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{403}
+}
+
+func (x *GetSuggestedResultResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type SetSuggestedResultRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetSuggestedResultRequest) Reset() {
+	*x = SetSuggestedResultRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[404]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetSuggestedResultRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetSuggestedResultRequest) ProtoMessage() {}
+
+func (x *SetSuggestedResultRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[404]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetSuggestedResultRequest.ProtoReflect.Descriptor instead.
+func (*SetSuggestedResultRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{404}
+}
+
+func (x *SetSuggestedResultRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type SetSuggestedResultResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetSuggestedResultResponse) Reset() {
+	*x = SetSuggestedResultResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[405]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetSuggestedResultResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetSuggestedResultResponse) ProtoMessage() {}
+
+func (x *SetSuggestedResultResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[405]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetSuggestedResultResponse.ProtoReflect.Descriptor instead.
+func (*SetSuggestedResultResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{405}
+}
+
+func (x *SetSuggestedResultResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type IsForceOverrideRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsForceOverrideRequest) Reset() {
+	*x = IsForceOverrideRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[406]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsForceOverrideRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsForceOverrideRequest) ProtoMessage() {}
+
+func (x *IsForceOverrideRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[406]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsForceOverrideRequest.ProtoReflect.Descriptor instead.
+func (*IsForceOverrideRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{406}
+}
+
+type IsForceOverrideResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsForceOverrideResponse) Reset() {
+	*x = IsForceOverrideResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[407]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsForceOverrideResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsForceOverrideResponse) ProtoMessage() {}
+
+func (x *IsForceOverrideResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[407]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsForceOverrideResponse.ProtoReflect.Descriptor instead.
+func (*IsForceOverrideResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{407}
+}
+
+func (x *IsForceOverrideResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type AddSchemaTypeVisibleToConfigRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddSchemaTypeVisibleToConfigRequest) Reset() {
+	*x = AddSchemaTypeVisibleToConfigRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[408]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddSchemaTypeVisibleToConfigRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddSchemaTypeVisibleToConfigRequest) ProtoMessage() {}
+
+func (x *AddSchemaTypeVisibleToConfigRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[408]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddSchemaTypeVisibleToConfigRequest.ProtoReflect.Descriptor instead.
+func (*AddSchemaTypeVisibleToConfigRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{408}
+}
+
+func (x *AddSchemaTypeVisibleToConfigRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *AddSchemaTypeVisibleToConfigRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type AddSchemaTypeVisibleToConfigResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddSchemaTypeVisibleToConfigResponse) Reset() {
+	*x = AddSchemaTypeVisibleToConfigResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[409]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddSchemaTypeVisibleToConfigResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddSchemaTypeVisibleToConfigResponse) ProtoMessage() {}
+
+func (x *AddSchemaTypeVisibleToConfigResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[409]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddSchemaTypeVisibleToConfigResponse.ProtoReflect.Descriptor instead.
+func (*AddSchemaTypeVisibleToConfigResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{409}
+}
+
+func (x *AddSchemaTypeVisibleToConfigResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddSchemasRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddSchemasRequest) Reset() {
+	*x = AddSchemasRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[410]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddSchemasRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddSchemasRequest) ProtoMessage() {}
+
+func (x *AddSchemasRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[410]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddSchemasRequest.ProtoReflect.Descriptor instead.
+func (*AddSchemasRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{410}
+}
+
+func (x *AddSchemasRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AddSchemasResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddSchemasResponse) Reset() {
+	*x = AddSchemasResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[411]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddSchemasResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddSchemasResponse) ProtoMessage() {}
+
+func (x *AddSchemasResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[411]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddSchemasResponse.ProtoReflect.Descriptor instead.
+func (*AddSchemasResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{411}
+}
+
+func (x *AddSchemasResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ClearMigratorsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearMigratorsRequest) Reset() {
+	*x = ClearMigratorsRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[412]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearMigratorsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearMigratorsRequest) ProtoMessage() {}
+
+func (x *ClearMigratorsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[412]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearMigratorsRequest.ProtoReflect.Descriptor instead.
+func (*ClearMigratorsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{412}
+}
+
+type ClearMigratorsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearMigratorsResponse) Reset() {
+	*x = ClearMigratorsResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[413]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearMigratorsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearMigratorsResponse) ProtoMessage() {}
+
+func (x *ClearMigratorsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[413]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearMigratorsResponse.ProtoReflect.Descriptor instead.
+func (*ClearMigratorsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{413}
+}
+
+func (x *ClearMigratorsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetForceOverrideRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetForceOverrideRequest) Reset() {
+	*x = SetForceOverrideRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[414]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetForceOverrideRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetForceOverrideRequest) ProtoMessage() {}
+
+func (x *SetForceOverrideRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[414]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetForceOverrideRequest.ProtoReflect.Descriptor instead.
+func (*SetForceOverrideRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{414}
+}
+
+func (x *SetForceOverrideRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetForceOverrideResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetForceOverrideResponse) Reset() {
+	*x = SetForceOverrideResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[415]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetForceOverrideResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetForceOverrideResponse) ProtoMessage() {}
+
+func (x *SetForceOverrideResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[415]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetForceOverrideResponse.ProtoReflect.Descriptor instead.
+func (*SetForceOverrideResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{415}
+}
+
+func (x *SetForceOverrideResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetMigratorRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetMigratorRequest) Reset() {
+	*x = SetMigratorRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[416]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetMigratorRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetMigratorRequest) ProtoMessage() {}
+
+func (x *SetMigratorRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[416]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetMigratorRequest.ProtoReflect.Descriptor instead.
+func (*SetMigratorRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{416}
+}
+
+func (x *SetMigratorRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *SetMigratorRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type SetMigratorResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetMigratorResponse) Reset() {
+	*x = SetMigratorResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[417]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetMigratorResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetMigratorResponse) ProtoMessage() {}
+
+func (x *SetMigratorResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[417]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetMigratorResponse.ProtoReflect.Descriptor instead.
+func (*SetMigratorResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{417}
+}
+
+func (x *SetMigratorResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetSchemaTypeDisplayedBySystemRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          bool                   `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetSchemaTypeDisplayedBySystemRequest) Reset() {
+	*x = SetSchemaTypeDisplayedBySystemRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[418]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetSchemaTypeDisplayedBySystemRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetSchemaTypeDisplayedBySystemRequest) ProtoMessage() {}
+
+func (x *SetSchemaTypeDisplayedBySystemRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[418]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetSchemaTypeDisplayedBySystemRequest.ProtoReflect.Descriptor instead.
+func (*SetSchemaTypeDisplayedBySystemRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{418}
+}
+
+func (x *SetSchemaTypeDisplayedBySystemRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *SetSchemaTypeDisplayedBySystemRequest) GetArg1() bool {
+	if x != nil {
+		return x.Arg1
+	}
+	return false
+}
+
+type SetSchemaTypeDisplayedBySystemResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetSchemaTypeDisplayedBySystemResponse) Reset() {
+	*x = SetSchemaTypeDisplayedBySystemResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[419]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetSchemaTypeDisplayedBySystemResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetSchemaTypeDisplayedBySystemResponse) ProtoMessage() {}
+
+func (x *SetSchemaTypeDisplayedBySystemResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[419]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetSchemaTypeDisplayedBySystemResponse.ProtoReflect.Descriptor instead.
+func (*SetSchemaTypeDisplayedBySystemResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{419}
+}
+
+func (x *SetSchemaTypeDisplayedBySystemResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetSchemaTypeVisibilityForPackageRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          bool                   `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetSchemaTypeVisibilityForPackageRequest) Reset() {
+	*x = SetSchemaTypeVisibilityForPackageRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[420]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetSchemaTypeVisibilityForPackageRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetSchemaTypeVisibilityForPackageRequest) ProtoMessage() {}
+
+func (x *SetSchemaTypeVisibilityForPackageRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[420]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetSchemaTypeVisibilityForPackageRequest.ProtoReflect.Descriptor instead.
+func (*SetSchemaTypeVisibilityForPackageRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{420}
+}
+
+func (x *SetSchemaTypeVisibilityForPackageRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *SetSchemaTypeVisibilityForPackageRequest) GetArg1() bool {
+	if x != nil {
+		return x.Arg1
+	}
+	return false
+}
+
+func (x *SetSchemaTypeVisibilityForPackageRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type SetSchemaTypeVisibilityForPackageResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetSchemaTypeVisibilityForPackageResponse) Reset() {
+	*x = SetSchemaTypeVisibilityForPackageResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[421]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetSchemaTypeVisibilityForPackageResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetSchemaTypeVisibilityForPackageResponse) ProtoMessage() {}
+
+func (x *SetSchemaTypeVisibilityForPackageResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[421]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetSchemaTypeVisibilityForPackageResponse.ProtoReflect.Descriptor instead.
+func (*SetSchemaTypeVisibilityForPackageResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{421}
+}
+
+func (x *SetSchemaTypeVisibilityForPackageResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type NewEmbeddingVectorRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewEmbeddingVectorRequest) Reset() {
+	*x = NewEmbeddingVectorRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[422]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewEmbeddingVectorRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewEmbeddingVectorRequest) ProtoMessage() {}
+
+func (x *NewEmbeddingVectorRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[422]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewEmbeddingVectorRequest.ProtoReflect.Descriptor instead.
+func (*NewEmbeddingVectorRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{422}
+}
+
+func (x *NewEmbeddingVectorRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *NewEmbeddingVectorRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+type NewEmbeddingVectorResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewEmbeddingVectorResponse) Reset() {
+	*x = NewEmbeddingVectorResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[423]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewEmbeddingVectorResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewEmbeddingVectorResponse) ProtoMessage() {}
+
+func (x *NewEmbeddingVectorResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[423]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewEmbeddingVectorResponse.ProtoReflect.Descriptor instead.
+func (*NewEmbeddingVectorResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{423}
+}
+
+func (x *NewEmbeddingVectorResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type EmbeddingVectorDescribeContentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EmbeddingVectorDescribeContentsRequest) Reset() {
+	*x = EmbeddingVectorDescribeContentsRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[424]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EmbeddingVectorDescribeContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EmbeddingVectorDescribeContentsRequest) ProtoMessage() {}
+
+func (x *EmbeddingVectorDescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[424]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EmbeddingVectorDescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*EmbeddingVectorDescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{424}
+}
+
+func (x *EmbeddingVectorDescribeContentsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type EmbeddingVectorEqualsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EmbeddingVectorEqualsRequest) Reset() {
+	*x = EmbeddingVectorEqualsRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[425]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EmbeddingVectorEqualsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EmbeddingVectorEqualsRequest) ProtoMessage() {}
+
+func (x *EmbeddingVectorEqualsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[425]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EmbeddingVectorEqualsRequest.ProtoReflect.Descriptor instead.
+func (*EmbeddingVectorEqualsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{425}
+}
+
+func (x *EmbeddingVectorEqualsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *EmbeddingVectorEqualsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetModelSignatureRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetModelSignatureRequest) Reset() {
+	*x = GetModelSignatureRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[426]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetModelSignatureRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetModelSignatureRequest) ProtoMessage() {}
+
+func (x *GetModelSignatureRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[426]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetModelSignatureRequest.ProtoReflect.Descriptor instead.
+func (*GetModelSignatureRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{426}
+}
+
+func (x *GetModelSignatureRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetModelSignatureResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetModelSignatureResponse) Reset() {
+	*x = GetModelSignatureResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[427]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetModelSignatureResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetModelSignatureResponse) ProtoMessage() {}
+
+func (x *GetModelSignatureResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[427]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetModelSignatureResponse.ProtoReflect.Descriptor instead.
+func (*GetModelSignatureResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{427}
+}
+
+func (x *GetModelSignatureResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetValuesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetValuesRequest) Reset() {
+	*x = GetValuesRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[428]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetValuesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetValuesRequest) ProtoMessage() {}
+
+func (x *GetValuesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[428]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetValuesRequest.ProtoReflect.Descriptor instead.
+func (*GetValuesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{428}
+}
+
+func (x *GetValuesRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetValuesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetValuesResponse) Reset() {
+	*x = GetValuesResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[429]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetValuesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetValuesResponse) ProtoMessage() {}
+
+func (x *GetValuesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[429]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetValuesResponse.ProtoReflect.Descriptor instead.
+func (*GetValuesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{429}
+}
+
+func (x *GetValuesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type EmbeddingVectorHashCodeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EmbeddingVectorHashCodeRequest) Reset() {
+	*x = EmbeddingVectorHashCodeRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[430]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EmbeddingVectorHashCodeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EmbeddingVectorHashCodeRequest) ProtoMessage() {}
+
+func (x *EmbeddingVectorHashCodeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[430]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EmbeddingVectorHashCodeRequest.ProtoReflect.Descriptor instead.
+func (*EmbeddingVectorHashCodeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{430}
+}
+
+func (x *EmbeddingVectorHashCodeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type EmbeddingVectorWriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EmbeddingVectorWriteToParcelRequest) Reset() {
+	*x = EmbeddingVectorWriteToParcelRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[431]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EmbeddingVectorWriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EmbeddingVectorWriteToParcelRequest) ProtoMessage() {}
+
+func (x *EmbeddingVectorWriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[431]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EmbeddingVectorWriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*EmbeddingVectorWriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{431}
+}
+
+func (x *EmbeddingVectorWriteToParcelRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *EmbeddingVectorWriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *EmbeddingVectorWriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type GetAggregationScoringStrategyRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAggregationScoringStrategyRequest) Reset() {
+	*x = GetAggregationScoringStrategyRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[432]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAggregationScoringStrategyRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAggregationScoringStrategyRequest) ProtoMessage() {}
+
+func (x *GetAggregationScoringStrategyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[432]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAggregationScoringStrategyRequest.ProtoReflect.Descriptor instead.
+func (*GetAggregationScoringStrategyRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{432}
+}
+
+type GetAggregationScoringStrategyResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAggregationScoringStrategyResponse) Reset() {
+	*x = GetAggregationScoringStrategyResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[433]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAggregationScoringStrategyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAggregationScoringStrategyResponse) ProtoMessage() {}
+
+func (x *GetAggregationScoringStrategyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[433]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAggregationScoringStrategyResponse.ProtoReflect.Descriptor instead.
+func (*GetAggregationScoringStrategyResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{433}
+}
+
+func (x *GetAggregationScoringStrategyResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetChildPropertyExpressionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetChildPropertyExpressionRequest) Reset() {
+	*x = GetChildPropertyExpressionRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[434]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetChildPropertyExpressionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetChildPropertyExpressionRequest) ProtoMessage() {}
+
+func (x *GetChildPropertyExpressionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[434]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetChildPropertyExpressionRequest.ProtoReflect.Descriptor instead.
+func (*GetChildPropertyExpressionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{434}
+}
+
+type GetChildPropertyExpressionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetChildPropertyExpressionResponse) Reset() {
+	*x = GetChildPropertyExpressionResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[435]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetChildPropertyExpressionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetChildPropertyExpressionResponse) ProtoMessage() {}
+
+func (x *GetChildPropertyExpressionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[435]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetChildPropertyExpressionResponse.ProtoReflect.Descriptor instead.
+func (*GetChildPropertyExpressionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{435}
+}
+
+func (x *GetChildPropertyExpressionResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetMaxJoinedResultCountRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMaxJoinedResultCountRequest) Reset() {
+	*x = GetMaxJoinedResultCountRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[436]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMaxJoinedResultCountRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMaxJoinedResultCountRequest) ProtoMessage() {}
+
+func (x *GetMaxJoinedResultCountRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[436]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMaxJoinedResultCountRequest.ProtoReflect.Descriptor instead.
+func (*GetMaxJoinedResultCountRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{436}
+}
+
+type GetMaxJoinedResultCountResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMaxJoinedResultCountResponse) Reset() {
+	*x = GetMaxJoinedResultCountResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[437]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMaxJoinedResultCountResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMaxJoinedResultCountResponse) ProtoMessage() {}
+
+func (x *GetMaxJoinedResultCountResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[437]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMaxJoinedResultCountResponse.ProtoReflect.Descriptor instead.
+func (*GetMaxJoinedResultCountResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{437}
+}
+
+func (x *GetMaxJoinedResultCountResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetNestedQueryRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNestedQueryRequest) Reset() {
+	*x = GetNestedQueryRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[438]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNestedQueryRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNestedQueryRequest) ProtoMessage() {}
+
+func (x *GetNestedQueryRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[438]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNestedQueryRequest.ProtoReflect.Descriptor instead.
+func (*GetNestedQueryRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{438}
+}
+
+type GetNestedQueryResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNestedQueryResponse) Reset() {
+	*x = GetNestedQueryResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[439]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNestedQueryResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNestedQueryResponse) ProtoMessage() {}
+
+func (x *GetNestedQueryResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[439]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNestedQueryResponse.ProtoReflect.Descriptor instead.
+func (*GetNestedQueryResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{439}
+}
+
+func (x *GetNestedQueryResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetNestedSearchSpecRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNestedSearchSpecRequest) Reset() {
+	*x = GetNestedSearchSpecRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[440]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNestedSearchSpecRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNestedSearchSpecRequest) ProtoMessage() {}
+
+func (x *GetNestedSearchSpecRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[440]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNestedSearchSpecRequest.ProtoReflect.Descriptor instead.
+func (*GetNestedSearchSpecRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{440}
+}
+
+type GetNestedSearchSpecResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNestedSearchSpecResponse) Reset() {
+	*x = GetNestedSearchSpecResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[441]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNestedSearchSpecResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNestedSearchSpecResponse) ProtoMessage() {}
+
+func (x *GetNestedSearchSpecResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[441]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNestedSearchSpecResponse.ProtoReflect.Descriptor instead.
+func (*GetNestedSearchSpecResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{441}
+}
+
+func (x *GetNestedSearchSpecResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetAggregationScoringStrategyRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetAggregationScoringStrategyRequest) Reset() {
+	*x = SetAggregationScoringStrategyRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[442]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetAggregationScoringStrategyRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetAggregationScoringStrategyRequest) ProtoMessage() {}
+
+func (x *SetAggregationScoringStrategyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[442]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetAggregationScoringStrategyRequest.ProtoReflect.Descriptor instead.
+func (*SetAggregationScoringStrategyRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{442}
+}
+
+func (x *SetAggregationScoringStrategyRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetAggregationScoringStrategyResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetAggregationScoringStrategyResponse) Reset() {
+	*x = SetAggregationScoringStrategyResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[443]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetAggregationScoringStrategyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetAggregationScoringStrategyResponse) ProtoMessage() {}
+
+func (x *SetAggregationScoringStrategyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[443]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetAggregationScoringStrategyResponse.ProtoReflect.Descriptor instead.
+func (*SetAggregationScoringStrategyResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{443}
+}
+
+func (x *SetAggregationScoringStrategyResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetChildPropertyExpressionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetChildPropertyExpressionRequest) Reset() {
+	*x = SetChildPropertyExpressionRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[444]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetChildPropertyExpressionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetChildPropertyExpressionRequest) ProtoMessage() {}
+
+func (x *SetChildPropertyExpressionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[444]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetChildPropertyExpressionRequest.ProtoReflect.Descriptor instead.
+func (*SetChildPropertyExpressionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{444}
+}
+
+func (x *SetChildPropertyExpressionRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type SetChildPropertyExpressionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetChildPropertyExpressionResponse) Reset() {
+	*x = SetChildPropertyExpressionResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[445]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetChildPropertyExpressionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetChildPropertyExpressionResponse) ProtoMessage() {}
+
+func (x *SetChildPropertyExpressionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[445]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetChildPropertyExpressionResponse.ProtoReflect.Descriptor instead.
+func (*SetChildPropertyExpressionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{445}
+}
+
+func (x *SetChildPropertyExpressionResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetMaxJoinedResultCountRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetMaxJoinedResultCountRequest) Reset() {
+	*x = SetMaxJoinedResultCountRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[446]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetMaxJoinedResultCountRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetMaxJoinedResultCountRequest) ProtoMessage() {}
+
+func (x *SetMaxJoinedResultCountRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[446]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetMaxJoinedResultCountRequest.ProtoReflect.Descriptor instead.
+func (*SetMaxJoinedResultCountRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{446}
+}
+
+func (x *SetMaxJoinedResultCountRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetMaxJoinedResultCountResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetMaxJoinedResultCountResponse) Reset() {
+	*x = SetMaxJoinedResultCountResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[447]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetMaxJoinedResultCountResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetMaxJoinedResultCountResponse) ProtoMessage() {}
+
+func (x *SetMaxJoinedResultCountResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[447]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetMaxJoinedResultCountResponse.ProtoReflect.Descriptor instead.
+func (*SetMaxJoinedResultCountResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{447}
+}
+
+func (x *SetMaxJoinedResultCountResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetNestedSearchRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetNestedSearchRequest) Reset() {
+	*x = SetNestedSearchRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[448]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetNestedSearchRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetNestedSearchRequest) ProtoMessage() {}
+
+func (x *SetNestedSearchRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[448]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetNestedSearchRequest.ProtoReflect.Descriptor instead.
+func (*SetNestedSearchRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{448}
+}
+
+func (x *SetNestedSearchRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *SetNestedSearchRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type SetNestedSearchResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetNestedSearchResponse) Reset() {
+	*x = SetNestedSearchResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[449]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetNestedSearchResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetNestedSearchResponse) ProtoMessage() {}
+
+func (x *SetNestedSearchResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[449]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetNestedSearchResponse.ProtoReflect.Descriptor instead.
+func (*SetNestedSearchResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{449}
+}
+
+func (x *SetNestedSearchResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type NewPropertyPathRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewPropertyPathRequest) Reset() {
+	*x = NewPropertyPathRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[450]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewPropertyPathRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewPropertyPathRequest) ProtoMessage() {}
+
+func (x *NewPropertyPathRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[450]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewPropertyPathRequest.ProtoReflect.Descriptor instead.
+func (*NewPropertyPathRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{450}
+}
+
+func (x *NewPropertyPathRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type NewPropertyPathResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewPropertyPathResponse) Reset() {
+	*x = NewPropertyPathResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[451]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewPropertyPathResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewPropertyPathResponse) ProtoMessage() {}
+
+func (x *NewPropertyPathResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[451]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewPropertyPathResponse.ProtoReflect.Descriptor instead.
+func (*NewPropertyPathResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{451}
+}
+
+func (x *NewPropertyPathResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type PropertyPathEqualsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PropertyPathEqualsRequest) Reset() {
+	*x = PropertyPathEqualsRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[452]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PropertyPathEqualsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PropertyPathEqualsRequest) ProtoMessage() {}
+
+func (x *PropertyPathEqualsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[452]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PropertyPathEqualsRequest.ProtoReflect.Descriptor instead.
+func (*PropertyPathEqualsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{452}
+}
+
+func (x *PropertyPathEqualsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *PropertyPathEqualsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRequest) Reset() {
+	*x = GetRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[453]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRequest) ProtoMessage() {}
+
+func (x *GetRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[453]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRequest.ProtoReflect.Descriptor instead.
+func (*GetRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{453}
+}
+
+func (x *GetRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetResponse) Reset() {
+	*x = GetResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[454]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetResponse) ProtoMessage() {}
+
+func (x *GetResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[454]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetResponse.ProtoReflect.Descriptor instead.
+func (*GetResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{454}
+}
+
+func (x *GetResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type PropertyPathHashCodeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PropertyPathHashCodeRequest) Reset() {
+	*x = PropertyPathHashCodeRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[455]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PropertyPathHashCodeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PropertyPathHashCodeRequest) ProtoMessage() {}
+
+func (x *PropertyPathHashCodeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[455]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PropertyPathHashCodeRequest.ProtoReflect.Descriptor instead.
+func (*PropertyPathHashCodeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{455}
+}
+
+func (x *PropertyPathHashCodeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type SizeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SizeRequest) Reset() {
+	*x = SizeRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[456]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SizeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SizeRequest) ProtoMessage() {}
+
+func (x *SizeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[456]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SizeRequest.ProtoReflect.Descriptor instead.
+func (*SizeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{456}
+}
+
+func (x *SizeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type SizeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SizeResponse) Reset() {
+	*x = SizeResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[457]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SizeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SizeResponse) ProtoMessage() {}
+
+func (x *SizeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[457]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SizeResponse.ProtoReflect.Descriptor instead.
+func (*SizeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{457}
+}
+
+func (x *SizeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type PropertyPathToStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PropertyPathToStringRequest) Reset() {
+	*x = PropertyPathToStringRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[458]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PropertyPathToStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PropertyPathToStringRequest) ProtoMessage() {}
+
+func (x *PropertyPathToStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[458]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PropertyPathToStringRequest.ProtoReflect.Descriptor instead.
+func (*PropertyPathToStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{458}
+}
+
+func (x *PropertyPathToStringRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetPropertyIndexRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPropertyIndexRequest) Reset() {
+	*x = GetPropertyIndexRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[459]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPropertyIndexRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPropertyIndexRequest) ProtoMessage() {}
+
+func (x *GetPropertyIndexRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[459]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPropertyIndexRequest.ProtoReflect.Descriptor instead.
+func (*GetPropertyIndexRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{459}
+}
+
+type GetPropertyIndexResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPropertyIndexResponse) Reset() {
+	*x = GetPropertyIndexResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[460]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPropertyIndexResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPropertyIndexResponse) ProtoMessage() {}
+
+func (x *GetPropertyIndexResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[460]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPropertyIndexResponse.ProtoReflect.Descriptor instead.
+func (*GetPropertyIndexResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{460}
+}
+
+func (x *GetPropertyIndexResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPropertyNameRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPropertyNameRequest) Reset() {
+	*x = GetPropertyNameRequest{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[461]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPropertyNameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPropertyNameRequest) ProtoMessage() {}
+
+func (x *GetPropertyNameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[461]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPropertyNameRequest.ProtoReflect.Descriptor instead.
+func (*GetPropertyNameRequest) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{461}
+}
+
+type GetPropertyNameResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPropertyNameResponse) Reset() {
+	*x = GetPropertyNameResponse{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[462]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPropertyNameResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPropertyNameResponse) ProtoMessage() {}
+
+func (x *GetPropertyNameResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[462]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPropertyNameResponse.ProtoReflect.Descriptor instead.
+func (*GetPropertyNameResponse) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{462}
+}
+
+func (x *GetPropertyNameResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type Create1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Create1Request) Reset() {
+	*x = Create1Request{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[463]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Create1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Create1Request) ProtoMessage() {}
+
+func (x *Create1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[463]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Create1Request.ProtoReflect.Descriptor instead.
+func (*Create1Request) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{463}
+}
+
+func (x *Create1Request) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type Create1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Create1Response) Reset() {
+	*x = Create1Response{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[464]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Create1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Create1Response) ProtoMessage() {}
+
+func (x *Create1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[464]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Create1Response.ProtoReflect.Descriptor instead.
+func (*Create1Response) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{464}
+}
+
+func (x *Create1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type Create2_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Create2_1Request) Reset() {
+	*x = Create2_1Request{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[465]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Create2_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Create2_1Request) ProtoMessage() {}
+
+func (x *Create2_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[465]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Create2_1Request.ProtoReflect.Descriptor instead.
+func (*Create2_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{465}
+}
+
+func (x *Create2_1Request) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *Create2_1Request) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type Create2_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Create2_1Response) Reset() {
+	*x = Create2_1Response{}
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[466]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Create2_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Create2_1Response) ProtoMessage() {}
+
+func (x *Create2_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_appsearch_appsearch_proto_msgTypes[466]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Create2_1Response.ProtoReflect.Descriptor instead.
+func (*Create2_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_appsearch_appsearch_proto_rawDescGZIP(), []int{466}
+}
+
+func (x *Create2_1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
 var File_proto_appsearch_appsearch_proto protoreflect.FileDescriptor
 
 const file_proto_appsearch_appsearch_proto_rawDesc = "" +
 	"\n" +
-	"\x1fproto/appsearch/appsearch.proto\x12\tappsearchB3Z1github.com/AndroidGoLab/jni-proxy/proto/appsearchb\x06proto3"
+	"\x1fproto/appsearch/appsearch.proto\x12\tappsearch\"#\n" +
+	"\rEqualsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"(\n" +
+	"\x0eEqualsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x18\n" +
+	"\x16GetErrorMessageRequest\"1\n" +
+	"\x17GetErrorMessageResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x16\n" +
+	"\x14GetResultCodeRequest\"/\n" +
+	"\x15GetResultCodeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x17\n" +
+	"\x15GetResultValueRequest\"0\n" +
+	"\x16GetResultValueResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x11\n" +
+	"\x0fHashCodeRequest\"*\n" +
+	"\x10HashCodeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x12\n" +
+	"\x10IsSuccessRequest\"+\n" +
+	"\x11IsSuccessResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x11\n" +
+	"\x0fToStringRequest\"*\n" +
+	"\x10ToStringResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x18\n" +
+	"\x16GetDatabaseNameRequest\"1\n" +
+	"\x17GetDatabaseNameResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x16\n" +
+	"\x14GetDocumentIdRequest\"/\n" +
+	"\x15GetDocumentIdResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x15\n" +
+	"\x13GetNamespaceRequest\".\n" +
+	"\x14GetNamespaceResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x17\n" +
+	"\x15GetPackageNameRequest\"0\n" +
+	"\x16GetPackageNameResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\" \n" +
+	"\x1eGetUsageTimestampMillisRequest\"9\n" +
+	"\x1fGetUsageTimestampMillisResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x0e\n" +
+	"\fBuildRequest\"'\n" +
+	"\rBuildResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"4\n" +
+	"\x1eSetUsageTimestampMillisRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"9\n" +
+	"\x1fSetUsageTimestampMillisResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x19\n" +
+	"\x17DescribeContentsRequest\"2\n" +
+	"\x18DescribeContentsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"%\n" +
+	"#GetAdvancedRankingExpressionRequest\">\n" +
+	"$GetAdvancedRankingExpressionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\",\n" +
+	"*GetDefaultEmbeddingSearchMetricTypeRequest\"E\n" +
+	"+GetDefaultEmbeddingSearchMetricTypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x14\n" +
+	"\x12GetJoinSpecRequest\"-\n" +
+	"\x13GetJoinSpecResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1a\n" +
+	"\x18GetMaxSnippetSizeRequest\"3\n" +
+	"\x19GetMaxSnippetSizeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x11\n" +
+	"\x0fGetOrderRequest\"*\n" +
+	"\x10GetOrderResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1b\n" +
+	"\x19GetRankingStrategyRequest\"4\n" +
+	"\x1aGetRankingStrategyResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1e\n" +
+	"\x1cGetResultCountPerPageRequest\"7\n" +
+	"\x1dGetResultCountPerPageResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1f\n" +
+	"\x1dGetResultGroupingLimitRequest\"8\n" +
+	"\x1eGetResultGroupingLimitResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"#\n" +
+	"!GetResultGroupingTypeFlagsRequest\"<\n" +
+	"\"GetResultGroupingTypeFlagsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1e\n" +
+	"\x1cGetSearchSourceLogTagRequest\"7\n" +
+	"\x1dGetSearchSourceLogTagResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x18\n" +
+	"\x16GetSnippetCountRequest\"1\n" +
+	"\x17GetSnippetCountResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"#\n" +
+	"!GetSnippetCountPerPropertyRequest\"<\n" +
+	"\"GetSnippetCountPerPropertyResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x15\n" +
+	"\x13GetTermMatchRequest\".\n" +
+	"\x14GetTermMatchResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"/\n" +
+	"-IsListFilterHasPropertyFunctionEnabledRequest\"H\n" +
+	".IsListFilterHasPropertyFunctionEnabledResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"8\n" +
+	"6IsListFilterMatchScoreExpressionFunctionEnabledRequest\"Q\n" +
+	"7IsListFilterMatchScoreExpressionFunctionEnabledResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\")\n" +
+	"'IsListFilterQueryLanguageEnabledRequest\"B\n" +
+	"(IsListFilterQueryLanguageEnabledResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x1f\n" +
+	"\x1dIsNumericSearchEnabledRequest\"8\n" +
+	"\x1eIsNumericSearchEnabledResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\")\n" +
+	"'IsScorablePropertyRankingEnabledRequest\"B\n" +
+	"(IsScorablePropertyRankingEnabledResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\" \n" +
+	"\x1eIsVerbatimSearchEnabledRequest\"9\n" +
+	"\x1fIsVerbatimSearchEnabledResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\">\n" +
+	"\x14WriteToParcelRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x17\n" +
+	"\x15WriteToParcelResponse\"3\n" +
+	"\x1dAddEmbeddingParametersRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"8\n" +
+	"\x1eAddEmbeddingParametersResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"1\n" +
+	"\x1bAddFilterDocumentIdsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"6\n" +
+	"\x1cAddFilterDocumentIdsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"0\n" +
+	"\x1aAddFilterNamespacesRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"5\n" +
+	"\x1bAddFilterNamespacesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"2\n" +
+	"\x1cAddFilterPackageNamesRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"7\n" +
+	"\x1dAddFilterPackageNamesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"-\n" +
+	"\x17AddFilterSchemasRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"2\n" +
+	"\x18AddFilterSchemasResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"?\n" +
+	")AddInformationalRankingExpressionsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"D\n" +
+	"*AddInformationalRankingExpressionsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"6\n" +
+	" AddSearchStringParametersRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\";\n" +
+	"!AddSearchStringParametersResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"!\n" +
+	"\x1fClearEmbeddingParametersRequest\":\n" +
+	" ClearEmbeddingParametersResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1f\n" +
+	"\x1dClearFilterDocumentIdsRequest\"8\n" +
+	"\x1eClearFilterDocumentIdsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1e\n" +
+	"\x1cClearFilterNamespacesRequest\"7\n" +
+	"\x1dClearFilterNamespacesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\" \n" +
+	"\x1eClearFilterPackageNamesRequest\"9\n" +
+	"\x1fClearFilterPackageNamesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1e\n" +
+	"\x1cClearFilterPropertiesRequest\"7\n" +
+	"\x1dClearFilterPropertiesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1b\n" +
+	"\x19ClearFilterSchemasRequest\"4\n" +
+	"\x1aClearFilterSchemasResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"-\n" +
+	"+ClearInformationalRankingExpressionsRequest\"F\n" +
+	",ClearInformationalRankingExpressionsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x16\n" +
+	"\x14ClearJoinSpecRequest\"/\n" +
+	"\x15ClearJoinSpecResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x19\n" +
+	"\x17ClearProjectionsRequest\"2\n" +
+	"\x18ClearProjectionsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1d\n" +
+	"\x1bClearPropertyWeightsRequest\"6\n" +
+	"\x1cClearPropertyWeightsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1c\n" +
+	"\x1aClearResultGroupingRequest\"5\n" +
+	"\x1bClearResultGroupingResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\" \n" +
+	"\x1eClearSearchSourceLogTagRequest\"9\n" +
+	"\x1fClearSearchSourceLogTagResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"$\n" +
+	"\"ClearSearchStringParametersRequest\"=\n" +
+	"#ClearSearchStringParametersResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"@\n" +
+	"*SetDefaultEmbeddingSearchMetricTypeRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"E\n" +
+	"+SetDefaultEmbeddingSearchMetricTypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"(\n" +
+	"\x12SetJoinSpecRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"-\n" +
+	"\x13SetJoinSpecResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"D\n" +
+	".SetListFilterHasPropertyFunctionEnabledRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"I\n" +
+	"/SetListFilterHasPropertyFunctionEnabledResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"M\n" +
+	"7SetListFilterMatchScoreExpressionFunctionEnabledRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"R\n" +
+	"8SetListFilterMatchScoreExpressionFunctionEnabledResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\">\n" +
+	"(SetListFilterQueryLanguageEnabledRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"C\n" +
+	")SetListFilterQueryLanguageEnabledResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\".\n" +
+	"\x18SetMaxSnippetSizeRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"3\n" +
+	"\x19SetMaxSnippetSizeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"4\n" +
+	"\x1eSetNumericSearchEnabledRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"9\n" +
+	"\x1fSetNumericSearchEnabledResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"%\n" +
+	"\x0fSetOrderRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"*\n" +
+	"\x10SetOrderResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"0\n" +
+	"\x1aSetRankingStrategy1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"5\n" +
+	"\x1bSetRankingStrategy1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"2\n" +
+	"\x1cSetRankingStrategy1_1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"7\n" +
+	"\x1dSetRankingStrategy1_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"2\n" +
+	"\x1cSetResultCountPerPageRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"7\n" +
+	"\x1dSetResultCountPerPageResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"B\n" +
+	"\x18SetResultGroupingRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"3\n" +
+	"\x19SetResultGroupingResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\">\n" +
+	"(SetScorablePropertyRankingEnabledRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"C\n" +
+	")SetScorablePropertyRankingEnabledResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"2\n" +
+	"\x1cSetSearchSourceLogTagRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"7\n" +
+	"\x1dSetSearchSourceLogTagResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\",\n" +
+	"\x16SetSnippetCountRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"1\n" +
+	"\x17SetSnippetCountResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"7\n" +
+	"!SetSnippetCountPerPropertyRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"<\n" +
+	"\"SetSnippetCountPerPropertyResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\")\n" +
+	"\x13SetTermMatchRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\".\n" +
+	"\x14SetTermMatchResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"5\n" +
+	"\x1fSetVerbatimSearchEnabledRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\":\n" +
+	" SetVerbatimSearchEnabledResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"2\n" +
+	"\x1cNewRemoveBlobResponseRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"7\n" +
+	"\x1dNewRemoveBlobResponseResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"C\n" +
+	")RemoveBlobResponseDescribeContentsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"h\n" +
+	"&RemoveBlobResponseWriteToParcelRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"\x0e\n" +
+	"\fCloseRequest\"\x0f\n" +
+	"\rCloseResponse\"q\n" +
+	"\x1fRegisterObserverCallbackRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\"\"\n" +
+	" RegisterObserverCallbackResponse\"7\n" +
+	"\rSearchRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"(\n" +
+	"\x0eSearchResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"K\n" +
+	"!UnregisterObserverCallbackRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"$\n" +
+	"\"UnregisterObserverCallbackResponse\"L\n" +
+	"\"AddNamespaceVisibleToConfigRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"=\n" +
+	"#AddNamespaceVisibleToConfigResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\";\n" +
+	"%ClearNamespaceVisibleToConfigsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"@\n" +
+	"&ClearNamespaceVisibleToConfigsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"N\n" +
+	"$SetNamespaceDisplayedBySystemRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\bR\x04arg1\"?\n" +
+	"%SetNamespaceDisplayedBySystemResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"(\n" +
+	"&GetPubliclyVisibleTargetPackageRequest\"A\n" +
+	"'GetPubliclyVisibleTargetPackageResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\".\n" +
+	"\x18AddAllowedPackageRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"3\n" +
+	"\x19AddAllowedPackageResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1d\n" +
+	"\x1bClearAllowedPackagesRequest\"6\n" +
+	"\x1cClearAllowedPackagesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"!\n" +
+	"\x1fClearRequiredPermissionsRequest\":\n" +
+	" ClearRequiredPermissionsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"<\n" +
+	"&SetPubliclyVisibleTargetPackageRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"A\n" +
+	"'SetPubliclyVisibleTargetPackageResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1b\n" +
+	"\x19GetGenericDocumentRequest\"4\n" +
+	"\x1aGetGenericDocumentResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x19\n" +
+	"\x17GetRankingSignalRequest\"2\n" +
+	"\x18GetRankingSignalResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x01R\x06result\":\n" +
+	"$AddInformationalRankingSignalRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x01R\x04arg0\"?\n" +
+	"%AddInformationalRankingSignalResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\",\n" +
+	"\x16AddJoinedResultRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"1\n" +
+	"\x17AddJoinedResultResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\")\n" +
+	"\x13AddMatchInfoRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\".\n" +
+	"\x14AddMatchInfoResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"/\n" +
+	"\x19SetGenericDocumentRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"4\n" +
+	"\x1aSetGenericDocumentResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"-\n" +
+	"\x17SetRankingSignalRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x01R\x04arg0\"2\n" +
+	"\x18SetRankingSignalResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x16\n" +
+	"\x14GetExactMatchRequest\"/\n" +
+	"\x15GetExactMatchResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1b\n" +
+	"\x19GetExactMatchRangeRequest\"4\n" +
+	"\x1aGetExactMatchRangeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x14\n" +
+	"\x12GetFullTextRequest\"-\n" +
+	"\x13GetFullTextResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x18\n" +
+	"\x16GetPropertyPathRequest\"1\n" +
+	"\x17GetPropertyPathResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x1e\n" +
+	"\x1cGetPropertyPathObjectRequest\"7\n" +
+	"\x1dGetPropertyPathObjectResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x13\n" +
+	"\x11GetSnippetRequest\",\n" +
+	"\x12GetSnippetResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x18\n" +
+	"\x16GetSnippetRangeRequest\"1\n" +
+	"\x17GetSnippetRangeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x14\n" +
+	"\x12GetSubmatchRequest\"-\n" +
+	"\x13GetSubmatchResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x19\n" +
+	"\x17GetSubmatchRangeRequest\"2\n" +
+	"\x18GetSubmatchRangeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x0f\n" +
+	"\rGetEndRequest\"(\n" +
+	"\x0eGetEndResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x11\n" +
+	"\x0fGetStartRequest\"*\n" +
+	"\x10GetStartResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1e\n" +
+	"\x1cGetMaximumResultCountRequest\"7\n" +
+	"\x1dGetMaximumResultCountResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"`\n" +
+	"6SearchSuggestionSpecBuilderAddFilterDocumentIdsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"/\n" +
+	"\x19SetRankingStrategyRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"4\n" +
+	"\x1aSetRankingStrategyResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"2\n" +
+	"\x1cNewCommitBlobResponseRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"7\n" +
+	"\x1dNewCommitBlobResponseResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"C\n" +
+	")CommitBlobResponseDescribeContentsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"h\n" +
+	"&CommitBlobResponseWriteToParcelRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"\x13\n" +
+	"\x11GetVersionRequest\",\n" +
+	"\x12GetVersionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"&\n" +
+	"\x10AddSchemaRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"+\n" +
+	"\x11AddSchemaResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\">\n" +
+	"(AddSchemaTypeNotDisplayedBySystemRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"C\n" +
+	")AddSchemaTypeNotDisplayedBySystemResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"7\n" +
+	"!ClearPubliclyVisibleSchemaRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"<\n" +
+	"\"ClearPubliclyVisibleSchemaResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"L\n" +
+	"6ClearRequiredPermissionsForSchemaTypeVisibilityRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"Q\n" +
+	"7ClearRequiredPermissionsForSchemaTypeVisibilityResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"@\n" +
+	"*ClearSchemaTypeNotDisplayedBySystemRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"E\n" +
+	"+ClearSchemaTypeNotDisplayedBySystemResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"<\n" +
+	"&ClearSchemaTypeVisibleToConfigsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"A\n" +
+	"'ClearSchemaTypeVisibleToConfigsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"=\n" +
+	"'ClearSchemaTypeVisibleToPackagesRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"B\n" +
+	"(ClearSchemaTypeVisibleToPackagesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x15\n" +
+	"\x13ClearSchemasRequest\".\n" +
+	"\x14ClearSchemasResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"I\n" +
+	"\x1fSetPubliclyVisibleSchemaRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\":\n" +
+	" SetPubliclyVisibleSchemaResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"'\n" +
+	"\x11SetVersionRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\",\n" +
+	"\x12SetVersionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"7\n" +
+	"!NewOpenBlobForReadResponseRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"<\n" +
+	"\"NewOpenBlobForReadResponseResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"=\n" +
+	"#OpenBlobForReadResponseCloseRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"H\n" +
+	".OpenBlobForReadResponseDescribeContentsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"m\n" +
+	"+OpenBlobForReadResponseWriteToParcelRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"P\n" +
+	"\x12OnDowngradeRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"-\n" +
+	"\x13OnDowngradeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"N\n" +
+	"\x10OnUpgradeRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"+\n" +
+	"\x11OnUpgradeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\">\n" +
+	"\x14ShouldMigrateRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"/\n" +
+	"\x15ShouldMigrateResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x16\n" +
+	"\x14GetSchemaTypeRequest\"/\n" +
+	"\x15GetSchemaTypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x19\n" +
+	"\x17IsScoringEnabledRequest\"2\n" +
+	"\x18IsScoringEnabledResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"*\n" +
+	"\x14AddParentTypeRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"/\n" +
+	"\x15AddParentTypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"(\n" +
+	"\x12AddPropertyRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"-\n" +
+	"\x13AddPropertyResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x19\n" +
+	"\x17ClearParentTypesRequest\"2\n" +
+	"\x18ClearParentTypesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x18\n" +
+	"\x16ClearPropertiesRequest\"1\n" +
+	"\x17ClearPropertiesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"*\n" +
+	"\x14SetSchemaTypeRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"/\n" +
+	"\x15SetSchemaTypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"$\n" +
+	"\"ShouldIndexNestedPropertiesRequest\"=\n" +
+	"#ShouldIndexNestedPropertiesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x18\n" +
+	"\x16GetIndexingTypeRequest\"1\n" +
+	"\x17GetIndexingTypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1c\n" +
+	"\x1aGetQuantizationTypeRequest\"5\n" +
+	"\x1bGetQuantizationTypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x17\n" +
+	"\x15GetCardinalityRequest\"0\n" +
+	"\x16GetCardinalityResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x10\n" +
+	"\x0eGetNameRequest\")\n" +
+	"\x0fGetNameResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x1d\n" +
+	"\x1bGetJoinableValueTypeRequest\"6\n" +
+	"\x1cGetJoinableValueTypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x19\n" +
+	"\x17GetTokenizerTypeRequest\"2\n" +
+	"\x18GetTokenizerTypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"+\n" +
+	"\x15AddDeletedTypeRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"0\n" +
+	"\x16AddDeletedTypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"0\n" +
+	"\x1aAddIncompatibleTypeRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"5\n" +
+	"\x1bAddIncompatibleTypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\",\n" +
+	"\x16AddMigratedTypeRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"1\n" +
+	"\x17AddMigratedTypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"0\n" +
+	"\x1aAddMigrationFailureRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"5\n" +
+	"\x1bAddMigrationFailureResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"E\n" +
+	"\x1bNewPackageIdentifierRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"6\n" +
+	"\x1cNewPackageIdentifierResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"L\n" +
+	"\x1ePackageIdentifierEqualsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"@\n" +
+	"&PackageIdentifierGetPackageNameRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"5\n" +
+	"\x1bGetSha256CertificateRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"6\n" +
+	"\x1cGetSha256CertificateResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\":\n" +
+	" PackageIdentifierHashCodeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"8\n" +
+	"\"NewOpenBlobForWriteResponseRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"=\n" +
+	"#NewOpenBlobForWriteResponseResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\">\n" +
+	"$OpenBlobForWriteResponseCloseRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"I\n" +
+	"/OpenBlobForWriteResponseDescribeContentsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"n\n" +
+	",OpenBlobForWriteResponseWriteToParcelRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"#\n" +
+	"\rAddIdsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"(\n" +
+	"\x0eAddIdsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"0\n" +
+	"\x1aAddGenericDocumentsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"5\n" +
+	"\x1bAddGenericDocumentsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\";\n" +
+	"%AddTakenActionGenericDocumentsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"@\n" +
+	"&AddTakenActionGenericDocumentsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1f\n" +
+	"\x1dGetAliveDocumentsCountRequest\"8\n" +
+	"\x1eGetAliveDocumentsCountResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\" \n" +
+	"\x1eGetAliveNamespacesCountRequest\"9\n" +
+	"\x1fGetAliveNamespacesCountResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x16\n" +
+	"\x14GetBlobsCountRequest\"/\n" +
+	"\x15GetBlobsCountResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1a\n" +
+	"\x18GetBlobsSizeBytesRequest\"3\n" +
+	"\x19GetBlobsSizeBytesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x15\n" +
+	"\x13GetSizeBytesRequest\".\n" +
+	"\x14GetSizeBytesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"3\n" +
+	"\x1dSetAliveDocumentsCountRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"8\n" +
+	"\x1eSetAliveDocumentsCountResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"4\n" +
+	"\x1eSetAliveNamespacesCountRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"9\n" +
+	"\x1fSetAliveNamespacesCountResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"*\n" +
+	"\x14SetBlobsCountRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"/\n" +
+	"\x15SetBlobsCountResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\".\n" +
+	"\x18SetBlobsSizeBytesRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"3\n" +
+	"\x19SetBlobsSizeBytesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\")\n" +
+	"\x13SetSizeBytesRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\".\n" +
+	"\x14SetSizeBytesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"#\n" +
+	"!GetCreationTimestampMillisRequest\"<\n" +
+	"\"GetCreationTimestampMillisResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x0e\n" +
+	"\fGetIdRequest\"'\n" +
+	"\rGetIdResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"(\n" +
+	"\x12GetPropertyRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"-\n" +
+	"\x13GetPropertyResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"2\n" +
+	"\x1cGetPropertyBlobHandleRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"7\n" +
+	"\x1dGetPropertyBlobHandleResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"7\n" +
+	"!GetPropertyBlobHandleArrayRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"<\n" +
+	"\"GetPropertyBlobHandleArrayResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"/\n" +
+	"\x19GetPropertyBooleanRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"4\n" +
+	"\x1aGetPropertyBooleanResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"4\n" +
+	"\x1eGetPropertyBooleanArrayRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"9\n" +
+	"\x1fGetPropertyBooleanArrayResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"-\n" +
+	"\x17GetPropertyBytesRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"2\n" +
+	"\x18GetPropertyBytesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"2\n" +
+	"\x1cGetPropertyBytesArrayRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"7\n" +
+	"\x1dGetPropertyBytesArrayResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"0\n" +
+	"\x1aGetPropertyDocumentRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"5\n" +
+	"\x1bGetPropertyDocumentResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"5\n" +
+	"\x1fGetPropertyDocumentArrayRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\":\n" +
+	" GetPropertyDocumentArrayResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\".\n" +
+	"\x18GetPropertyDoubleRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"3\n" +
+	"\x19GetPropertyDoubleResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x01R\x06result\"3\n" +
+	"\x1dGetPropertyDoubleArrayRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"8\n" +
+	"\x1eGetPropertyDoubleArrayResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"1\n" +
+	"\x1bGetPropertyEmbeddingRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"6\n" +
+	"\x1cGetPropertyEmbeddingResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"6\n" +
+	" GetPropertyEmbeddingArrayRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\";\n" +
+	"!GetPropertyEmbeddingArrayResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\",\n" +
+	"\x16GetPropertyLongRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"1\n" +
+	"\x17GetPropertyLongResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"1\n" +
+	"\x1bGetPropertyLongArrayRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"6\n" +
+	"\x1cGetPropertyLongArrayResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\".\n" +
+	"\x18GetPropertyStringRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"3\n" +
+	"\x19GetPropertyStringResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"3\n" +
+	"\x1dGetPropertyStringArrayRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"8\n" +
+	"\x1eGetPropertyStringArrayResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x11\n" +
+	"\x0fGetScoreRequest\"*\n" +
+	"\x10GetScoreResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x15\n" +
+	"\x13GetTtlMillisRequest\".\n" +
+	"\x14GetTtlMillisResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\" \n" +
+	"\x1eGetMaxIndexedPropertiesRequest\"9\n" +
+	"\x1fGetMaxIndexedPropertiesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"*\n" +
+	"\x14ClearPropertyRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"/\n" +
+	"\x15ClearPropertyResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"7\n" +
+	"!SetCreationTimestampMillisRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"<\n" +
+	"\"SetCreationTimestampMillisResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\"\n" +
+	"\fSetIdRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"'\n" +
+	"\rSetIdResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\")\n" +
+	"\x13SetNamespaceRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\".\n" +
+	"\x14SetNamespaceResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"F\n" +
+	"\x1cSetPropertyBlobHandleRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"7\n" +
+	"\x1dSetPropertyBlobHandleResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"C\n" +
+	"\x19SetPropertyBooleanRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"4\n" +
+	"\x1aSetPropertyBooleanResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"A\n" +
+	"\x17SetPropertyBytesRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"2\n" +
+	"\x18SetPropertyBytesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"D\n" +
+	"\x1aSetPropertyDocumentRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"5\n" +
+	"\x1bSetPropertyDocumentResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"B\n" +
+	"\x18SetPropertyDoubleRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"3\n" +
+	"\x19SetPropertyDoubleResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"E\n" +
+	"\x1bSetPropertyEmbeddingRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"6\n" +
+	"\x1cSetPropertyEmbeddingResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"@\n" +
+	"\x16SetPropertyLongRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"1\n" +
+	"\x17SetPropertyLongResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"B\n" +
+	"\x18SetPropertyStringRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"3\n" +
+	"\x19SetPropertyStringResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"%\n" +
+	"\x0fSetScoreRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"*\n" +
+	"\x10SetScoreResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\")\n" +
+	"\x13SetTtlMillisRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\".\n" +
+	"\x14SetTtlMillisResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x18\n" +
+	"\x16GetSha256DigestRequest\"1\n" +
+	"\x17GetSha256DigestResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"i\n" +
+	"\x17CreateWithSha256Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\tR\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\tR\x04arg3\"2\n" +
+	"\x18CreateWithSha256Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1b\n" +
+	"\x19GetSuggestedResultRequest\"4\n" +
+	"\x1aGetSuggestedResultResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"/\n" +
+	"\x19SetSuggestedResultRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"4\n" +
+	"\x1aSetSuggestedResultResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x18\n" +
+	"\x16IsForceOverrideRequest\"1\n" +
+	"\x17IsForceOverrideResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"M\n" +
+	"#AddSchemaTypeVisibleToConfigRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\">\n" +
+	"$AddSchemaTypeVisibleToConfigResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"'\n" +
+	"\x11AddSchemasRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\",\n" +
+	"\x12AddSchemasResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x17\n" +
+	"\x15ClearMigratorsRequest\"0\n" +
+	"\x16ClearMigratorsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"-\n" +
+	"\x17SetForceOverrideRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"2\n" +
+	"\x18SetForceOverrideResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"<\n" +
+	"\x12SetMigratorRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"-\n" +
+	"\x13SetMigratorResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"O\n" +
+	"%SetSchemaTypeDisplayedBySystemRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\bR\x04arg1\"@\n" +
+	"&SetSchemaTypeDisplayedBySystemResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"f\n" +
+	"(SetSchemaTypeVisibilityForPackageRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\bR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"C\n" +
+	")SetSchemaTypeVisibilityForPackageResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"C\n" +
+	"\x19NewEmbeddingVectorRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\"4\n" +
+	"\x1aNewEmbeddingVectorResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"@\n" +
+	"&EmbeddingVectorDescribeContentsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"J\n" +
+	"\x1cEmbeddingVectorEqualsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"2\n" +
+	"\x18GetModelSignatureRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"3\n" +
+	"\x19GetModelSignatureResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"*\n" +
+	"\x10GetValuesRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"+\n" +
+	"\x11GetValuesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"8\n" +
+	"\x1eEmbeddingVectorHashCodeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"e\n" +
+	"#EmbeddingVectorWriteToParcelRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"&\n" +
+	"$GetAggregationScoringStrategyRequest\"?\n" +
+	"%GetAggregationScoringStrategyResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"#\n" +
+	"!GetChildPropertyExpressionRequest\"<\n" +
+	"\"GetChildPropertyExpressionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\" \n" +
+	"\x1eGetMaxJoinedResultCountRequest\"9\n" +
+	"\x1fGetMaxJoinedResultCountResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x17\n" +
+	"\x15GetNestedQueryRequest\"0\n" +
+	"\x16GetNestedQueryResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x1c\n" +
+	"\x1aGetNestedSearchSpecRequest\"5\n" +
+	"\x1bGetNestedSearchSpecResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\":\n" +
+	"$SetAggregationScoringStrategyRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"?\n" +
+	"%SetAggregationScoringStrategyResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"7\n" +
+	"!SetChildPropertyExpressionRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"<\n" +
+	"\"SetChildPropertyExpressionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"4\n" +
+	"\x1eSetMaxJoinedResultCountRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"9\n" +
+	"\x1fSetMaxJoinedResultCountResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"@\n" +
+	"\x16SetNestedSearchRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"1\n" +
+	"\x17SetNestedSearchResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\",\n" +
+	"\x16NewPropertyPathRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"1\n" +
+	"\x17NewPropertyPathResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"G\n" +
+	"\x19PropertyPathEqualsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"8\n" +
+	"\n" +
+	"GetRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"%\n" +
+	"\vGetResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"5\n" +
+	"\x1bPropertyPathHashCodeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"%\n" +
+	"\vSizeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"&\n" +
+	"\fSizeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"5\n" +
+	"\x1bPropertyPathToStringRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x19\n" +
+	"\x17GetPropertyIndexRequest\"2\n" +
+	"\x18GetPropertyIndexResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x18\n" +
+	"\x16GetPropertyNameRequest\"1\n" +
+	"\x17GetPropertyNameResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"$\n" +
+	"\x0eCreate1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\")\n" +
+	"\x0fCreate1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\":\n" +
+	"\x10Create2_1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"+\n" +
+	"\x11Create2_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result2\xae\x04\n" +
+	"\x16AppSearchResultService\x12=\n" +
+	"\x06Equals\x12\x18.appsearch.EqualsRequest\x1a\x19.appsearch.EqualsResponse\x12X\n" +
+	"\x0fGetErrorMessage\x12!.appsearch.GetErrorMessageRequest\x1a\".appsearch.GetErrorMessageResponse\x12R\n" +
+	"\rGetResultCode\x12\x1f.appsearch.GetResultCodeRequest\x1a .appsearch.GetResultCodeResponse\x12U\n" +
+	"\x0eGetResultValue\x12 .appsearch.GetResultValueRequest\x1a!.appsearch.GetResultValueResponse\x12C\n" +
+	"\bHashCode\x12\x1a.appsearch.HashCodeRequest\x1a\x1b.appsearch.HashCodeResponse\x12F\n" +
+	"\tIsSuccess\x12\x1b.appsearch.IsSuccessRequest\x1a\x1c.appsearch.IsSuccessResponse\x12C\n" +
+	"\bToString\x12\x1a.appsearch.ToStringRequest\x1a\x1b.appsearch.ToStringResponse2\xe9\x03\n" +
+	"\x1fReportSystemUsageRequestService\x12X\n" +
+	"\x0fGetDatabaseName\x12!.appsearch.GetDatabaseNameRequest\x1a\".appsearch.GetDatabaseNameResponse\x12R\n" +
+	"\rGetDocumentId\x12\x1f.appsearch.GetDocumentIdRequest\x1a .appsearch.GetDocumentIdResponse\x12O\n" +
+	"\fGetNamespace\x12\x1e.appsearch.GetNamespaceRequest\x1a\x1f.appsearch.GetNamespaceResponse\x12U\n" +
+	"\x0eGetPackageName\x12 .appsearch.GetPackageNameRequest\x1a!.appsearch.GetPackageNameResponse\x12p\n" +
+	"\x17GetUsageTimestampMillis\x12).appsearch.GetUsageTimestampMillisRequest\x1a*.appsearch.GetUsageTimestampMillisResponse2\xd6\x01\n" +
+	"&ReportSystemUsageRequestBuilderService\x12:\n" +
+	"\x05Build\x12\x17.appsearch.BuildRequest\x1a\x18.appsearch.BuildResponse\x12p\n" +
+	"\x17SetUsageTimestampMillis\x12).appsearch.SetUsageTimestampMillisRequest\x1a*.appsearch.SetUsageTimestampMillisResponse2\xf2\x12\n" +
+	"\x11SearchSpecService\x12[\n" +
+	"\x10DescribeContents\x12\".appsearch.DescribeContentsRequest\x1a#.appsearch.DescribeContentsResponse\x12\x7f\n" +
+	"\x1cGetAdvancedRankingExpression\x12..appsearch.GetAdvancedRankingExpressionRequest\x1a/.appsearch.GetAdvancedRankingExpressionResponse\x12\x94\x01\n" +
+	"#GetDefaultEmbeddingSearchMetricType\x125.appsearch.GetDefaultEmbeddingSearchMetricTypeRequest\x1a6.appsearch.GetDefaultEmbeddingSearchMetricTypeResponse\x12L\n" +
+	"\vGetJoinSpec\x12\x1d.appsearch.GetJoinSpecRequest\x1a\x1e.appsearch.GetJoinSpecResponse\x12^\n" +
+	"\x11GetMaxSnippetSize\x12#.appsearch.GetMaxSnippetSizeRequest\x1a$.appsearch.GetMaxSnippetSizeResponse\x12C\n" +
+	"\bGetOrder\x12\x1a.appsearch.GetOrderRequest\x1a\x1b.appsearch.GetOrderResponse\x12a\n" +
+	"\x12GetRankingStrategy\x12$.appsearch.GetRankingStrategyRequest\x1a%.appsearch.GetRankingStrategyResponse\x12j\n" +
+	"\x15GetResultCountPerPage\x12'.appsearch.GetResultCountPerPageRequest\x1a(.appsearch.GetResultCountPerPageResponse\x12m\n" +
+	"\x16GetResultGroupingLimit\x12(.appsearch.GetResultGroupingLimitRequest\x1a).appsearch.GetResultGroupingLimitResponse\x12y\n" +
+	"\x1aGetResultGroupingTypeFlags\x12,.appsearch.GetResultGroupingTypeFlagsRequest\x1a-.appsearch.GetResultGroupingTypeFlagsResponse\x12j\n" +
+	"\x15GetSearchSourceLogTag\x12'.appsearch.GetSearchSourceLogTagRequest\x1a(.appsearch.GetSearchSourceLogTagResponse\x12X\n" +
+	"\x0fGetSnippetCount\x12!.appsearch.GetSnippetCountRequest\x1a\".appsearch.GetSnippetCountResponse\x12y\n" +
+	"\x1aGetSnippetCountPerProperty\x12,.appsearch.GetSnippetCountPerPropertyRequest\x1a-.appsearch.GetSnippetCountPerPropertyResponse\x12O\n" +
+	"\fGetTermMatch\x12\x1e.appsearch.GetTermMatchRequest\x1a\x1f.appsearch.GetTermMatchResponse\x12\x9d\x01\n" +
+	"&IsListFilterHasPropertyFunctionEnabled\x128.appsearch.IsListFilterHasPropertyFunctionEnabledRequest\x1a9.appsearch.IsListFilterHasPropertyFunctionEnabledResponse\x12\xb8\x01\n" +
+	"/IsListFilterMatchScoreExpressionFunctionEnabled\x12A.appsearch.IsListFilterMatchScoreExpressionFunctionEnabledRequest\x1aB.appsearch.IsListFilterMatchScoreExpressionFunctionEnabledResponse\x12\x8b\x01\n" +
+	" IsListFilterQueryLanguageEnabled\x122.appsearch.IsListFilterQueryLanguageEnabledRequest\x1a3.appsearch.IsListFilterQueryLanguageEnabledResponse\x12m\n" +
+	"\x16IsNumericSearchEnabled\x12(.appsearch.IsNumericSearchEnabledRequest\x1a).appsearch.IsNumericSearchEnabledResponse\x12\x8b\x01\n" +
+	" IsScorablePropertyRankingEnabled\x122.appsearch.IsScorablePropertyRankingEnabledRequest\x1a3.appsearch.IsScorablePropertyRankingEnabledResponse\x12p\n" +
+	"\x17IsVerbatimSearchEnabled\x12).appsearch.IsVerbatimSearchEnabledRequest\x1a*.appsearch.IsVerbatimSearchEnabledResponse\x12R\n" +
+	"\rWriteToParcel\x12\x1f.appsearch.WriteToParcelRequest\x1a .appsearch.WriteToParcelResponse2\xa8\"\n" +
+	"\x18SearchSpecBuilderService\x12m\n" +
+	"\x16AddEmbeddingParameters\x12(.appsearch.AddEmbeddingParametersRequest\x1a).appsearch.AddEmbeddingParametersResponse\x12g\n" +
+	"\x14AddFilterDocumentIds\x12&.appsearch.AddFilterDocumentIdsRequest\x1a'.appsearch.AddFilterDocumentIdsResponse\x12d\n" +
+	"\x13AddFilterNamespaces\x12%.appsearch.AddFilterNamespacesRequest\x1a&.appsearch.AddFilterNamespacesResponse\x12j\n" +
+	"\x15AddFilterPackageNames\x12'.appsearch.AddFilterPackageNamesRequest\x1a(.appsearch.AddFilterPackageNamesResponse\x12[\n" +
+	"\x10AddFilterSchemas\x12\".appsearch.AddFilterSchemasRequest\x1a#.appsearch.AddFilterSchemasResponse\x12\x91\x01\n" +
+	"\"AddInformationalRankingExpressions\x124.appsearch.AddInformationalRankingExpressionsRequest\x1a5.appsearch.AddInformationalRankingExpressionsResponse\x12v\n" +
+	"\x19AddSearchStringParameters\x12+.appsearch.AddSearchStringParametersRequest\x1a,.appsearch.AddSearchStringParametersResponse\x12:\n" +
+	"\x05Build\x12\x17.appsearch.BuildRequest\x1a\x18.appsearch.BuildResponse\x12s\n" +
+	"\x18ClearEmbeddingParameters\x12*.appsearch.ClearEmbeddingParametersRequest\x1a+.appsearch.ClearEmbeddingParametersResponse\x12m\n" +
+	"\x16ClearFilterDocumentIds\x12(.appsearch.ClearFilterDocumentIdsRequest\x1a).appsearch.ClearFilterDocumentIdsResponse\x12j\n" +
+	"\x15ClearFilterNamespaces\x12'.appsearch.ClearFilterNamespacesRequest\x1a(.appsearch.ClearFilterNamespacesResponse\x12p\n" +
+	"\x17ClearFilterPackageNames\x12).appsearch.ClearFilterPackageNamesRequest\x1a*.appsearch.ClearFilterPackageNamesResponse\x12j\n" +
+	"\x15ClearFilterProperties\x12'.appsearch.ClearFilterPropertiesRequest\x1a(.appsearch.ClearFilterPropertiesResponse\x12a\n" +
+	"\x12ClearFilterSchemas\x12$.appsearch.ClearFilterSchemasRequest\x1a%.appsearch.ClearFilterSchemasResponse\x12\x97\x01\n" +
+	"$ClearInformationalRankingExpressions\x126.appsearch.ClearInformationalRankingExpressionsRequest\x1a7.appsearch.ClearInformationalRankingExpressionsResponse\x12R\n" +
+	"\rClearJoinSpec\x12\x1f.appsearch.ClearJoinSpecRequest\x1a .appsearch.ClearJoinSpecResponse\x12[\n" +
+	"\x10ClearProjections\x12\".appsearch.ClearProjectionsRequest\x1a#.appsearch.ClearProjectionsResponse\x12g\n" +
+	"\x14ClearPropertyWeights\x12&.appsearch.ClearPropertyWeightsRequest\x1a'.appsearch.ClearPropertyWeightsResponse\x12d\n" +
+	"\x13ClearResultGrouping\x12%.appsearch.ClearResultGroupingRequest\x1a&.appsearch.ClearResultGroupingResponse\x12p\n" +
+	"\x17ClearSearchSourceLogTag\x12).appsearch.ClearSearchSourceLogTagRequest\x1a*.appsearch.ClearSearchSourceLogTagResponse\x12|\n" +
+	"\x1bClearSearchStringParameters\x12-.appsearch.ClearSearchStringParametersRequest\x1a..appsearch.ClearSearchStringParametersResponse\x12\x94\x01\n" +
+	"#SetDefaultEmbeddingSearchMetricType\x125.appsearch.SetDefaultEmbeddingSearchMetricTypeRequest\x1a6.appsearch.SetDefaultEmbeddingSearchMetricTypeResponse\x12L\n" +
+	"\vSetJoinSpec\x12\x1d.appsearch.SetJoinSpecRequest\x1a\x1e.appsearch.SetJoinSpecResponse\x12\xa0\x01\n" +
+	"'SetListFilterHasPropertyFunctionEnabled\x129.appsearch.SetListFilterHasPropertyFunctionEnabledRequest\x1a:.appsearch.SetListFilterHasPropertyFunctionEnabledResponse\x12\xbb\x01\n" +
+	"0SetListFilterMatchScoreExpressionFunctionEnabled\x12B.appsearch.SetListFilterMatchScoreExpressionFunctionEnabledRequest\x1aC.appsearch.SetListFilterMatchScoreExpressionFunctionEnabledResponse\x12\x8e\x01\n" +
+	"!SetListFilterQueryLanguageEnabled\x123.appsearch.SetListFilterQueryLanguageEnabledRequest\x1a4.appsearch.SetListFilterQueryLanguageEnabledResponse\x12^\n" +
+	"\x11SetMaxSnippetSize\x12#.appsearch.SetMaxSnippetSizeRequest\x1a$.appsearch.SetMaxSnippetSizeResponse\x12p\n" +
+	"\x17SetNumericSearchEnabled\x12).appsearch.SetNumericSearchEnabledRequest\x1a*.appsearch.SetNumericSearchEnabledResponse\x12C\n" +
+	"\bSetOrder\x12\x1a.appsearch.SetOrderRequest\x1a\x1b.appsearch.SetOrderResponse\x12d\n" +
+	"\x13SetRankingStrategy1\x12%.appsearch.SetRankingStrategy1Request\x1a&.appsearch.SetRankingStrategy1Response\x12j\n" +
+	"\x15SetRankingStrategy1_1\x12'.appsearch.SetRankingStrategy1_1Request\x1a(.appsearch.SetRankingStrategy1_1Response\x12j\n" +
+	"\x15SetResultCountPerPage\x12'.appsearch.SetResultCountPerPageRequest\x1a(.appsearch.SetResultCountPerPageResponse\x12^\n" +
+	"\x11SetResultGrouping\x12#.appsearch.SetResultGroupingRequest\x1a$.appsearch.SetResultGroupingResponse\x12\x8e\x01\n" +
+	"!SetScorablePropertyRankingEnabled\x123.appsearch.SetScorablePropertyRankingEnabledRequest\x1a4.appsearch.SetScorablePropertyRankingEnabledResponse\x12j\n" +
+	"\x15SetSearchSourceLogTag\x12'.appsearch.SetSearchSourceLogTagRequest\x1a(.appsearch.SetSearchSourceLogTagResponse\x12X\n" +
+	"\x0fSetSnippetCount\x12!.appsearch.SetSnippetCountRequest\x1a\".appsearch.SetSnippetCountResponse\x12y\n" +
+	"\x1aSetSnippetCountPerProperty\x12,.appsearch.SetSnippetCountPerPropertyRequest\x1a-.appsearch.SetSnippetCountPerPropertyResponse\x12O\n" +
+	"\fSetTermMatch\x12\x1e.appsearch.SetTermMatchRequest\x1a\x1f.appsearch.SetTermMatchResponse\x12s\n" +
+	"\x18SetVerbatimSearchEnabled\x12*.appsearch.SetVerbatimSearchEnabledRequest\x1a+.appsearch.SetVerbatimSearchEnabledResponse2\xdc\x02\n" +
+	"\x19RemoveBlobResponseService\x12j\n" +
+	"\x15NewRemoveBlobResponse\x12'.appsearch.NewRemoveBlobResponseRequest\x1a(.appsearch.NewRemoveBlobResponseResponse\x12m\n" +
+	"\x10DescribeContents\x124.appsearch.RemoveBlobResponseDescribeContentsRequest\x1a#.appsearch.DescribeContentsResponse\x12d\n" +
+	"\rWriteToParcel\x121.appsearch.RemoveBlobResponseWriteToParcelRequest\x1a .appsearch.WriteToParcelResponse2\x87\x03\n" +
+	"\x1aGlobalSearchSessionService\x12:\n" +
+	"\x05Close\x12\x17.appsearch.CloseRequest\x1a\x18.appsearch.CloseResponse\x12s\n" +
+	"\x18RegisterObserverCallback\x12*.appsearch.RegisterObserverCallbackRequest\x1a+.appsearch.RegisterObserverCallbackResponse\x12=\n" +
+	"\x06Search\x12\x18.appsearch.SearchRequest\x1a\x19.appsearch.SearchResponse\x12y\n" +
+	"\x1aUnregisterObserverCallback\x12,.appsearch.UnregisterObserverCallbackRequest\x1a-.appsearch.UnregisterObserverCallbackResponse2\xef\x03\n" +
+	"&SetBlobVisibilityRequestBuilderService\x12|\n" +
+	"\x1bAddNamespaceVisibleToConfig\x12-.appsearch.AddNamespaceVisibleToConfigRequest\x1a..appsearch.AddNamespaceVisibleToConfigResponse\x12:\n" +
+	"\x05Build\x12\x17.appsearch.BuildRequest\x1a\x18.appsearch.BuildResponse\x12\x85\x01\n" +
+	"\x1eClearNamespaceVisibleToConfigs\x120.appsearch.ClearNamespaceVisibleToConfigsRequest\x1a1.appsearch.ClearNamespaceVisibleToConfigsResponse\x12\x82\x01\n" +
+	"\x1dSetNamespaceDisplayedBySystem\x12/.appsearch.SetNamespaceDisplayedBySystemRequest\x1a0.appsearch.SetNamespaceDisplayedBySystemResponse2\xdf\x03\n" +
+	"\x1dSchemaVisibilityConfigService\x12[\n" +
+	"\x10DescribeContents\x12\".appsearch.DescribeContentsRequest\x1a#.appsearch.DescribeContentsResponse\x12=\n" +
+	"\x06Equals\x12\x18.appsearch.EqualsRequest\x1a\x19.appsearch.EqualsResponse\x12\x88\x01\n" +
+	"\x1fGetPubliclyVisibleTargetPackage\x121.appsearch.GetPubliclyVisibleTargetPackageRequest\x1a2.appsearch.GetPubliclyVisibleTargetPackageResponse\x12C\n" +
+	"\bHashCode\x12\x1a.appsearch.HashCodeRequest\x1a\x1b.appsearch.HashCodeResponse\x12R\n" +
+	"\rWriteToParcel\x12\x1f.appsearch.WriteToParcelRequest\x1a .appsearch.WriteToParcelResponse2\xab\x04\n" +
+	"$SchemaVisibilityConfigBuilderService\x12^\n" +
+	"\x11AddAllowedPackage\x12#.appsearch.AddAllowedPackageRequest\x1a$.appsearch.AddAllowedPackageResponse\x12:\n" +
+	"\x05Build\x12\x17.appsearch.BuildRequest\x1a\x18.appsearch.BuildResponse\x12g\n" +
+	"\x14ClearAllowedPackages\x12&.appsearch.ClearAllowedPackagesRequest\x1a'.appsearch.ClearAllowedPackagesResponse\x12s\n" +
+	"\x18ClearRequiredPermissions\x12*.appsearch.ClearRequiredPermissionsRequest\x1a+.appsearch.ClearRequiredPermissionsResponse\x12\x88\x01\n" +
+	"\x1fSetPubliclyVisibleTargetPackage\x121.appsearch.SetPubliclyVisibleTargetPackageRequest\x1a2.appsearch.SetPubliclyVisibleTargetPackageResponse2\xb7\x04\n" +
+	"\x13SearchResultService\x12[\n" +
+	"\x10DescribeContents\x12\".appsearch.DescribeContentsRequest\x1a#.appsearch.DescribeContentsResponse\x12X\n" +
+	"\x0fGetDatabaseName\x12!.appsearch.GetDatabaseNameRequest\x1a\".appsearch.GetDatabaseNameResponse\x12a\n" +
+	"\x12GetGenericDocument\x12$.appsearch.GetGenericDocumentRequest\x1a%.appsearch.GetGenericDocumentResponse\x12U\n" +
+	"\x0eGetPackageName\x12 .appsearch.GetPackageNameRequest\x1a!.appsearch.GetPackageNameResponse\x12[\n" +
+	"\x10GetRankingSignal\x12\".appsearch.GetRankingSignalRequest\x1a#.appsearch.GetRankingSignalResponse\x12R\n" +
+	"\rWriteToParcel\x12\x1f.appsearch.WriteToParcelRequest\x1a .appsearch.WriteToParcelResponse2\xc8\x04\n" +
+	"\x1aSearchResultBuilderService\x12\x82\x01\n" +
+	"\x1dAddInformationalRankingSignal\x12/.appsearch.AddInformationalRankingSignalRequest\x1a0.appsearch.AddInformationalRankingSignalResponse\x12X\n" +
+	"\x0fAddJoinedResult\x12!.appsearch.AddJoinedResultRequest\x1a\".appsearch.AddJoinedResultResponse\x12O\n" +
+	"\fAddMatchInfo\x12\x1e.appsearch.AddMatchInfoRequest\x1a\x1f.appsearch.AddMatchInfoResponse\x12:\n" +
+	"\x05Build\x12\x17.appsearch.BuildRequest\x1a\x18.appsearch.BuildResponse\x12a\n" +
+	"\x12SetGenericDocument\x12$.appsearch.SetGenericDocumentRequest\x1a%.appsearch.SetGenericDocumentResponse\x12[\n" +
+	"\x10SetRankingSignal\x12\".appsearch.SetRankingSignalRequest\x1a#.appsearch.SetRankingSignalResponse2\xea\a\n" +
+	"\x1cSearchResultMatchInfoService\x12[\n" +
+	"\x10DescribeContents\x12\".appsearch.DescribeContentsRequest\x1a#.appsearch.DescribeContentsResponse\x12R\n" +
+	"\rGetExactMatch\x12\x1f.appsearch.GetExactMatchRequest\x1a .appsearch.GetExactMatchResponse\x12a\n" +
+	"\x12GetExactMatchRange\x12$.appsearch.GetExactMatchRangeRequest\x1a%.appsearch.GetExactMatchRangeResponse\x12L\n" +
+	"\vGetFullText\x12\x1d.appsearch.GetFullTextRequest\x1a\x1e.appsearch.GetFullTextResponse\x12X\n" +
+	"\x0fGetPropertyPath\x12!.appsearch.GetPropertyPathRequest\x1a\".appsearch.GetPropertyPathResponse\x12j\n" +
+	"\x15GetPropertyPathObject\x12'.appsearch.GetPropertyPathObjectRequest\x1a(.appsearch.GetPropertyPathObjectResponse\x12I\n" +
+	"\n" +
+	"GetSnippet\x12\x1c.appsearch.GetSnippetRequest\x1a\x1d.appsearch.GetSnippetResponse\x12X\n" +
+	"\x0fGetSnippetRange\x12!.appsearch.GetSnippetRangeRequest\x1a\".appsearch.GetSnippetRangeResponse\x12L\n" +
+	"\vGetSubmatch\x12\x1d.appsearch.GetSubmatchRequest\x1a\x1e.appsearch.GetSubmatchResponse\x12[\n" +
+	"\x10GetSubmatchRange\x12\".appsearch.GetSubmatchRangeRequest\x1a#.appsearch.GetSubmatchRangeResponse\x12R\n" +
+	"\rWriteToParcel\x12\x1f.appsearch.WriteToParcelRequest\x1a .appsearch.WriteToParcelResponse2\xec\x02\n" +
+	"\x1dSearchResultMatchRangeService\x12=\n" +
+	"\x06Equals\x12\x18.appsearch.EqualsRequest\x1a\x19.appsearch.EqualsResponse\x12=\n" +
+	"\x06GetEnd\x12\x18.appsearch.GetEndRequest\x1a\x19.appsearch.GetEndResponse\x12C\n" +
+	"\bGetStart\x12\x1a.appsearch.GetStartRequest\x1a\x1b.appsearch.GetStartResponse\x12C\n" +
+	"\bHashCode\x12\x1a.appsearch.HashCodeRequest\x1a\x1b.appsearch.HashCodeResponse\x12C\n" +
+	"\bToString\x12\x1a.appsearch.ToStringRequest\x1a\x1b.appsearch.ToStringResponse2\x9d\x03\n" +
+	"\x1bSearchSuggestionSpecService\x12[\n" +
+	"\x10DescribeContents\x12\".appsearch.DescribeContentsRequest\x1a#.appsearch.DescribeContentsResponse\x12j\n" +
+	"\x15GetMaximumResultCount\x12'.appsearch.GetMaximumResultCountRequest\x1a(.appsearch.GetMaximumResultCountResponse\x12a\n" +
+	"\x12GetRankingStrategy\x12$.appsearch.GetRankingStrategyRequest\x1a%.appsearch.GetRankingStrategyResponse\x12R\n" +
+	"\rWriteToParcel\x12\x1f.appsearch.WriteToParcelRequest\x1a .appsearch.WriteToParcelResponse2\x83\x05\n" +
+	"\"SearchSuggestionSpecBuilderService\x12\x82\x01\n" +
+	"\x14AddFilterDocumentIds\x12A.appsearch.SearchSuggestionSpecBuilderAddFilterDocumentIdsRequest\x1a'.appsearch.AddFilterDocumentIdsResponse\x12d\n" +
+	"\x13AddFilterNamespaces\x12%.appsearch.AddFilterNamespacesRequest\x1a&.appsearch.AddFilterNamespacesResponse\x12[\n" +
+	"\x10AddFilterSchemas\x12\".appsearch.AddFilterSchemasRequest\x1a#.appsearch.AddFilterSchemasResponse\x12v\n" +
+	"\x19AddSearchStringParameters\x12+.appsearch.AddSearchStringParametersRequest\x1a,.appsearch.AddSearchStringParametersResponse\x12:\n" +
+	"\x05Build\x12\x17.appsearch.BuildRequest\x1a\x18.appsearch.BuildResponse\x12a\n" +
+	"\x12SetRankingStrategy\x12$.appsearch.SetRankingStrategyRequest\x1a%.appsearch.SetRankingStrategyResponse2\xdc\x02\n" +
+	"\x19CommitBlobResponseService\x12j\n" +
+	"\x15NewCommitBlobResponse\x12'.appsearch.NewCommitBlobResponseRequest\x1a(.appsearch.NewCommitBlobResponseResponse\x12m\n" +
+	"\x10DescribeContents\x124.appsearch.CommitBlobResponseDescribeContentsRequest\x1a#.appsearch.DescribeContentsResponse\x12d\n" +
+	"\rWriteToParcel\x121.appsearch.CommitBlobResponseWriteToParcelRequest\x1a .appsearch.WriteToParcelResponse2\x96\x02\n" +
+	"\x18GetSchemaResponseService\x12[\n" +
+	"\x10DescribeContents\x12\".appsearch.DescribeContentsRequest\x1a#.appsearch.DescribeContentsResponse\x12I\n" +
+	"\n" +
+	"GetVersion\x12\x1c.appsearch.GetVersionRequest\x1a\x1d.appsearch.GetVersionResponse\x12R\n" +
+	"\rWriteToParcel\x12\x1f.appsearch.WriteToParcelRequest\x1a .appsearch.WriteToParcelResponse2\xad\n" +
+	"\n" +
+	"\x1fGetSchemaResponseBuilderService\x12F\n" +
+	"\tAddSchema\x12\x1b.appsearch.AddSchemaRequest\x1a\x1c.appsearch.AddSchemaResponse\x12\x8e\x01\n" +
+	"!AddSchemaTypeNotDisplayedBySystem\x123.appsearch.AddSchemaTypeNotDisplayedBySystemRequest\x1a4.appsearch.AddSchemaTypeNotDisplayedBySystemResponse\x12:\n" +
+	"\x05Build\x12\x17.appsearch.BuildRequest\x1a\x18.appsearch.BuildResponse\x12y\n" +
+	"\x1aClearPubliclyVisibleSchema\x12,.appsearch.ClearPubliclyVisibleSchemaRequest\x1a-.appsearch.ClearPubliclyVisibleSchemaResponse\x12\xb8\x01\n" +
+	"/ClearRequiredPermissionsForSchemaTypeVisibility\x12A.appsearch.ClearRequiredPermissionsForSchemaTypeVisibilityRequest\x1aB.appsearch.ClearRequiredPermissionsForSchemaTypeVisibilityResponse\x12\x94\x01\n" +
+	"#ClearSchemaTypeNotDisplayedBySystem\x125.appsearch.ClearSchemaTypeNotDisplayedBySystemRequest\x1a6.appsearch.ClearSchemaTypeNotDisplayedBySystemResponse\x12\x88\x01\n" +
+	"\x1fClearSchemaTypeVisibleToConfigs\x121.appsearch.ClearSchemaTypeVisibleToConfigsRequest\x1a2.appsearch.ClearSchemaTypeVisibleToConfigsResponse\x12\x8b\x01\n" +
+	" ClearSchemaTypeVisibleToPackages\x122.appsearch.ClearSchemaTypeVisibleToPackagesRequest\x1a3.appsearch.ClearSchemaTypeVisibleToPackagesResponse\x12O\n" +
+	"\fClearSchemas\x12\x1e.appsearch.ClearSchemasRequest\x1a\x1f.appsearch.ClearSchemasResponse\x12s\n" +
+	"\x18SetPubliclyVisibleSchema\x12*.appsearch.SetPubliclyVisibleSchemaRequest\x1a+.appsearch.SetPubliclyVisibleSchemaResponse\x12I\n" +
+	"\n" +
+	"SetVersion\x12\x1c.appsearch.SetVersionRequest\x1a\x1d.appsearch.SetVersionResponse2\xcd\x03\n" +
+	"\x1eOpenBlobForReadResponseService\x12y\n" +
+	"\x1aNewOpenBlobForReadResponse\x12,.appsearch.NewOpenBlobForReadResponseRequest\x1a-.appsearch.NewOpenBlobForReadResponseResponse\x12Q\n" +
+	"\x05Close\x12..appsearch.OpenBlobForReadResponseCloseRequest\x1a\x18.appsearch.CloseResponse\x12r\n" +
+	"\x10DescribeContents\x129.appsearch.OpenBlobForReadResponseDescribeContentsRequest\x1a#.appsearch.DescribeContentsResponse\x12i\n" +
+	"\rWriteToParcel\x126.appsearch.OpenBlobForReadResponseWriteToParcelRequest\x1a .appsearch.WriteToParcelResponse2\xfb\x01\n" +
+	"\x0fMigratorService\x12L\n" +
+	"\vOnDowngrade\x12\x1d.appsearch.OnDowngradeRequest\x1a\x1e.appsearch.OnDowngradeResponse\x12F\n" +
+	"\tOnUpgrade\x12\x1b.appsearch.OnUpgradeRequest\x1a\x1c.appsearch.OnUpgradeResponse\x12R\n" +
+	"\rShouldMigrate\x12\x1f.appsearch.ShouldMigrateRequest\x1a .appsearch.ShouldMigrateResponse2\xe6\x03\n" +
+	"\x16AppSearchSchemaService\x12[\n" +
+	"\x10DescribeContents\x12\".appsearch.DescribeContentsRequest\x1a#.appsearch.DescribeContentsResponse\x12=\n" +
+	"\x06Equals\x12\x18.appsearch.EqualsRequest\x1a\x19.appsearch.EqualsResponse\x12R\n" +
+	"\rGetSchemaType\x12\x1f.appsearch.GetSchemaTypeRequest\x1a .appsearch.GetSchemaTypeResponse\x12C\n" +
+	"\bHashCode\x12\x1a.appsearch.HashCodeRequest\x1a\x1b.appsearch.HashCodeResponse\x12C\n" +
+	"\bToString\x12\x1a.appsearch.ToStringRequest\x1a\x1b.appsearch.ToStringResponse\x12R\n" +
+	"\rWriteToParcel\x12\x1f.appsearch.WriteToParcelRequest\x1a .appsearch.WriteToParcelResponse2\x8a\x01\n" +
+	"+AppSearchSchemaBooleanPropertyConfigService\x12[\n" +
+	"\x10IsScoringEnabled\x12\".appsearch.IsScoringEnabledRequest\x1a#.appsearch.IsScoringEnabledResponse2\x88\x04\n" +
+	"\x1dAppSearchSchemaBuilderService\x12R\n" +
+	"\rAddParentType\x12\x1f.appsearch.AddParentTypeRequest\x1a .appsearch.AddParentTypeResponse\x12L\n" +
+	"\vAddProperty\x12\x1d.appsearch.AddPropertyRequest\x1a\x1e.appsearch.AddPropertyResponse\x12:\n" +
+	"\x05Build\x12\x17.appsearch.BuildRequest\x1a\x18.appsearch.BuildResponse\x12[\n" +
+	"\x10ClearParentTypes\x12\".appsearch.ClearParentTypesRequest\x1a#.appsearch.ClearParentTypesResponse\x12X\n" +
+	"\x0fClearProperties\x12!.appsearch.ClearPropertiesRequest\x1a\".appsearch.ClearPropertiesResponse\x12R\n" +
+	"\rSetSchemaType\x12\x1f.appsearch.SetSchemaTypeRequest\x1a .appsearch.SetSchemaTypeResponse2\x80\x02\n" +
+	",AppSearchSchemaDocumentPropertyConfigService\x12R\n" +
+	"\rGetSchemaType\x12\x1f.appsearch.GetSchemaTypeRequest\x1a .appsearch.GetSchemaTypeResponse\x12|\n" +
+	"\x1bShouldIndexNestedProperties\x12-.appsearch.ShouldIndexNestedPropertiesRequest\x1a..appsearch.ShouldIndexNestedPropertiesResponse2\x89\x01\n" +
+	"*AppSearchSchemaDoublePropertyConfigService\x12[\n" +
+	"\x10IsScoringEnabled\x12\".appsearch.IsScoringEnabledRequest\x1a#.appsearch.IsScoringEnabledResponse2\xef\x01\n" +
+	"-AppSearchSchemaEmbeddingPropertyConfigService\x12X\n" +
+	"\x0fGetIndexingType\x12!.appsearch.GetIndexingTypeRequest\x1a\".appsearch.GetIndexingTypeResponse\x12d\n" +
+	"\x13GetQuantizationType\x12%.appsearch.GetQuantizationTypeRequest\x1a&.appsearch.GetQuantizationTypeResponse2\xe1\x01\n" +
+	"(AppSearchSchemaLongPropertyConfigService\x12X\n" +
+	"\x0fGetIndexingType\x12!.appsearch.GetIndexingTypeRequest\x1a\".appsearch.GetIndexingTypeResponse\x12[\n" +
+	"\x10IsScoringEnabled\x12\".appsearch.IsScoringEnabledRequest\x1a#.appsearch.IsScoringEnabledResponse2\x88\x03\n" +
+	"$AppSearchSchemaPropertyConfigService\x12=\n" +
+	"\x06Equals\x12\x18.appsearch.EqualsRequest\x1a\x19.appsearch.EqualsResponse\x12U\n" +
+	"\x0eGetCardinality\x12 .appsearch.GetCardinalityRequest\x1a!.appsearch.GetCardinalityResponse\x12@\n" +
+	"\aGetName\x12\x19.appsearch.GetNameRequest\x1a\x1a.appsearch.GetNameResponse\x12C\n" +
+	"\bHashCode\x12\x1a.appsearch.HashCodeRequest\x1a\x1b.appsearch.HashCodeResponse\x12C\n" +
+	"\bToString\x12\x1a.appsearch.ToStringRequest\x1a\x1b.appsearch.ToStringResponse2\xcc\x02\n" +
+	"*AppSearchSchemaStringPropertyConfigService\x12X\n" +
+	"\x0fGetIndexingType\x12!.appsearch.GetIndexingTypeRequest\x1a\".appsearch.GetIndexingTypeResponse\x12g\n" +
+	"\x14GetJoinableValueType\x12&.appsearch.GetJoinableValueTypeRequest\x1a'.appsearch.GetJoinableValueTypeResponse\x12[\n" +
+	"\x10GetTokenizerType\x12\".appsearch.GetTokenizerTypeRequest\x1a#.appsearch.GetTokenizerTypeResponse2\xcb\x01\n" +
+	"\x18SetSchemaResponseService\x12[\n" +
+	"\x10DescribeContents\x12\".appsearch.DescribeContentsRequest\x1a#.appsearch.DescribeContentsResponse\x12R\n" +
+	"\rWriteToParcel\x12\x1f.appsearch.WriteToParcelRequest\x1a .appsearch.WriteToParcelResponse2\xda\x03\n" +
+	"\x1fSetSchemaResponseBuilderService\x12U\n" +
+	"\x0eAddDeletedType\x12 .appsearch.AddDeletedTypeRequest\x1a!.appsearch.AddDeletedTypeResponse\x12d\n" +
+	"\x13AddIncompatibleType\x12%.appsearch.AddIncompatibleTypeRequest\x1a&.appsearch.AddIncompatibleTypeResponse\x12X\n" +
+	"\x0fAddMigratedType\x12!.appsearch.AddMigratedTypeRequest\x1a\".appsearch.AddMigratedTypeResponse\x12d\n" +
+	"\x13AddMigrationFailure\x12%.appsearch.AddMigrationFailureRequest\x1a&.appsearch.AddMigrationFailureResponse\x12:\n" +
+	"\x05Build\x12\x17.appsearch.BuildRequest\x1a\x18.appsearch.BuildResponse2\x99\x04\n" +
+	"(SetSchemaResponseMigrationFailureService\x12[\n" +
+	"\x10DescribeContents\x12\".appsearch.DescribeContentsRequest\x1a#.appsearch.DescribeContentsResponse\x12R\n" +
+	"\rGetDocumentId\x12\x1f.appsearch.GetDocumentIdRequest\x1a .appsearch.GetDocumentIdResponse\x12O\n" +
+	"\fGetNamespace\x12\x1e.appsearch.GetNamespaceRequest\x1a\x1f.appsearch.GetNamespaceResponse\x12R\n" +
+	"\rGetSchemaType\x12\x1f.appsearch.GetSchemaTypeRequest\x1a .appsearch.GetSchemaTypeResponse\x12C\n" +
+	"\bToString\x12\x1a.appsearch.ToStringRequest\x1a\x1b.appsearch.ToStringResponse\x12R\n" +
+	"\rWriteToParcel\x12\x1f.appsearch.WriteToParcelRequest\x1a .appsearch.WriteToParcelResponse2\xfa\x03\n" +
+	"\x18PackageIdentifierService\x12g\n" +
+	"\x14NewPackageIdentifier\x12&.appsearch.NewPackageIdentifierRequest\x1a'.appsearch.NewPackageIdentifierResponse\x12N\n" +
+	"\x06Equals\x12).appsearch.PackageIdentifierEqualsRequest\x1a\x19.appsearch.EqualsResponse\x12f\n" +
+	"\x0eGetPackageName\x121.appsearch.PackageIdentifierGetPackageNameRequest\x1a!.appsearch.GetPackageNameResponse\x12g\n" +
+	"\x14GetSha256Certificate\x12&.appsearch.GetSha256CertificateRequest\x1a'.appsearch.GetSha256CertificateResponse\x12T\n" +
+	"\bHashCode\x12+.appsearch.PackageIdentifierHashCodeRequest\x1a\x1b.appsearch.HashCodeResponse2\xd4\x03\n" +
+	"\x1fOpenBlobForWriteResponseService\x12|\n" +
+	"\x1bNewOpenBlobForWriteResponse\x12-.appsearch.NewOpenBlobForWriteResponseRequest\x1a..appsearch.NewOpenBlobForWriteResponseResponse\x12R\n" +
+	"\x05Close\x12/.appsearch.OpenBlobForWriteResponseCloseRequest\x1a\x18.appsearch.CloseResponse\x12s\n" +
+	"\x10DescribeContents\x12:.appsearch.OpenBlobForWriteResponseDescribeContentsRequest\x1a#.appsearch.DescribeContentsResponse\x12j\n" +
+	"\rWriteToParcel\x127.appsearch.OpenBlobForWriteResponseWriteToParcelRequest\x1a .appsearch.WriteToParcelResponse2\xa1\x02\n" +
+	"\x1dGetByDocumentIdRequestService\x12[\n" +
+	"\x10DescribeContents\x12\".appsearch.DescribeContentsRequest\x1a#.appsearch.DescribeContentsResponse\x12O\n" +
+	"\fGetNamespace\x12\x1e.appsearch.GetNamespaceRequest\x1a\x1f.appsearch.GetNamespaceResponse\x12R\n" +
+	"\rWriteToParcel\x12\x1f.appsearch.WriteToParcelRequest\x1a .appsearch.WriteToParcelResponse2\xa1\x01\n" +
+	"$GetByDocumentIdRequestBuilderService\x12=\n" +
+	"\x06AddIds\x12\x18.appsearch.AddIdsRequest\x1a\x19.appsearch.AddIdsResponse\x12:\n" +
+	"\x05Build\x12\x17.appsearch.BuildRequest\x1a\x18.appsearch.BuildResponse2e\n" +
+	"$EnterpriseGlobalSearchSessionService\x12=\n" +
+	"\x06Search\x12\x18.appsearch.SearchRequest\x1a\x19.appsearch.SearchResponse2\x80\x01\n" +
+	"$AppSearchManagerSearchContextService\x12X\n" +
+	"\x0fGetDatabaseName\x12!.appsearch.GetDatabaseNameRequest\x1a\".appsearch.GetDatabaseNameResponse2R\n" +
+	"\x14SearchResultsService\x12:\n" +
+	"\x05Close\x12\x17.appsearch.CloseRequest\x1a\x18.appsearch.CloseResponse2\xcd\x02\n" +
+	"!PutDocumentsRequestBuilderService\x12d\n" +
+	"\x13AddGenericDocuments\x12%.appsearch.AddGenericDocumentsRequest\x1a&.appsearch.AddGenericDocumentsResponse\x12\x85\x01\n" +
+	"\x1eAddTakenActionGenericDocuments\x120.appsearch.AddTakenActionGenericDocumentsRequest\x1a1.appsearch.AddTakenActionGenericDocumentsResponse\x12:\n" +
+	"\x05Build\x12\x17.appsearch.BuildRequest\x1a\x18.appsearch.BuildResponse2\xe3\x03\n" +
+	"\x19ReportUsageRequestService\x12[\n" +
+	"\x10DescribeContents\x12\".appsearch.DescribeContentsRequest\x1a#.appsearch.DescribeContentsResponse\x12R\n" +
+	"\rGetDocumentId\x12\x1f.appsearch.GetDocumentIdRequest\x1a .appsearch.GetDocumentIdResponse\x12O\n" +
+	"\fGetNamespace\x12\x1e.appsearch.GetNamespaceRequest\x1a\x1f.appsearch.GetNamespaceResponse\x12p\n" +
+	"\x17GetUsageTimestampMillis\x12).appsearch.GetUsageTimestampMillisRequest\x1a*.appsearch.GetUsageTimestampMillisResponse\x12R\n" +
+	"\rWriteToParcel\x12\x1f.appsearch.WriteToParcelRequest\x1a .appsearch.WriteToParcelResponse2\xd0\x01\n" +
+	" ReportUsageRequestBuilderService\x12:\n" +
+	"\x05Build\x12\x17.appsearch.BuildRequest\x1a\x18.appsearch.BuildResponse\x12p\n" +
+	"\x17SetUsageTimestampMillis\x12).appsearch.SetUsageTimestampMillisRequest\x1a*.appsearch.SetUsageTimestampMillisResponse2\xab\x05\n" +
+	"\x12StorageInfoService\x12[\n" +
+	"\x10DescribeContents\x12\".appsearch.DescribeContentsRequest\x1a#.appsearch.DescribeContentsResponse\x12m\n" +
+	"\x16GetAliveDocumentsCount\x12(.appsearch.GetAliveDocumentsCountRequest\x1a).appsearch.GetAliveDocumentsCountResponse\x12p\n" +
+	"\x17GetAliveNamespacesCount\x12).appsearch.GetAliveNamespacesCountRequest\x1a*.appsearch.GetAliveNamespacesCountResponse\x12R\n" +
+	"\rGetBlobsCount\x12\x1f.appsearch.GetBlobsCountRequest\x1a .appsearch.GetBlobsCountResponse\x12^\n" +
+	"\x11GetBlobsSizeBytes\x12#.appsearch.GetBlobsSizeBytesRequest\x1a$.appsearch.GetBlobsSizeBytesResponse\x12O\n" +
+	"\fGetSizeBytes\x12\x1e.appsearch.GetSizeBytesRequest\x1a\x1f.appsearch.GetSizeBytesResponse\x12R\n" +
+	"\rWriteToParcel\x12\x1f.appsearch.WriteToParcelRequest\x1a .appsearch.WriteToParcelResponse2\xbd\x04\n" +
+	"\x19StorageInfoBuilderService\x12:\n" +
+	"\x05Build\x12\x17.appsearch.BuildRequest\x1a\x18.appsearch.BuildResponse\x12m\n" +
+	"\x16SetAliveDocumentsCount\x12(.appsearch.SetAliveDocumentsCountRequest\x1a).appsearch.SetAliveDocumentsCountResponse\x12p\n" +
+	"\x17SetAliveNamespacesCount\x12).appsearch.SetAliveNamespacesCountRequest\x1a*.appsearch.SetAliveNamespacesCountResponse\x12R\n" +
+	"\rSetBlobsCount\x12\x1f.appsearch.SetBlobsCountRequest\x1a .appsearch.SetBlobsCountResponse\x12^\n" +
+	"\x11SetBlobsSizeBytes\x12#.appsearch.SetBlobsSizeBytesRequest\x1a$.appsearch.SetBlobsSizeBytesResponse\x12O\n" +
+	"\fSetSizeBytes\x12\x1e.appsearch.SetSizeBytesRequest\x1a\x1f.appsearch.SetSizeBytesResponse2\xb5\x14\n" +
+	"\x16GenericDocumentService\x12=\n" +
+	"\x06Equals\x12\x18.appsearch.EqualsRequest\x1a\x19.appsearch.EqualsResponse\x12y\n" +
+	"\x1aGetCreationTimestampMillis\x12,.appsearch.GetCreationTimestampMillisRequest\x1a-.appsearch.GetCreationTimestampMillisResponse\x12:\n" +
+	"\x05GetId\x12\x17.appsearch.GetIdRequest\x1a\x18.appsearch.GetIdResponse\x12O\n" +
+	"\fGetNamespace\x12\x1e.appsearch.GetNamespaceRequest\x1a\x1f.appsearch.GetNamespaceResponse\x12L\n" +
+	"\vGetProperty\x12\x1d.appsearch.GetPropertyRequest\x1a\x1e.appsearch.GetPropertyResponse\x12j\n" +
+	"\x15GetPropertyBlobHandle\x12'.appsearch.GetPropertyBlobHandleRequest\x1a(.appsearch.GetPropertyBlobHandleResponse\x12y\n" +
+	"\x1aGetPropertyBlobHandleArray\x12,.appsearch.GetPropertyBlobHandleArrayRequest\x1a-.appsearch.GetPropertyBlobHandleArrayResponse\x12a\n" +
+	"\x12GetPropertyBoolean\x12$.appsearch.GetPropertyBooleanRequest\x1a%.appsearch.GetPropertyBooleanResponse\x12p\n" +
+	"\x17GetPropertyBooleanArray\x12).appsearch.GetPropertyBooleanArrayRequest\x1a*.appsearch.GetPropertyBooleanArrayResponse\x12[\n" +
+	"\x10GetPropertyBytes\x12\".appsearch.GetPropertyBytesRequest\x1a#.appsearch.GetPropertyBytesResponse\x12j\n" +
+	"\x15GetPropertyBytesArray\x12'.appsearch.GetPropertyBytesArrayRequest\x1a(.appsearch.GetPropertyBytesArrayResponse\x12d\n" +
+	"\x13GetPropertyDocument\x12%.appsearch.GetPropertyDocumentRequest\x1a&.appsearch.GetPropertyDocumentResponse\x12s\n" +
+	"\x18GetPropertyDocumentArray\x12*.appsearch.GetPropertyDocumentArrayRequest\x1a+.appsearch.GetPropertyDocumentArrayResponse\x12^\n" +
+	"\x11GetPropertyDouble\x12#.appsearch.GetPropertyDoubleRequest\x1a$.appsearch.GetPropertyDoubleResponse\x12m\n" +
+	"\x16GetPropertyDoubleArray\x12(.appsearch.GetPropertyDoubleArrayRequest\x1a).appsearch.GetPropertyDoubleArrayResponse\x12g\n" +
+	"\x14GetPropertyEmbedding\x12&.appsearch.GetPropertyEmbeddingRequest\x1a'.appsearch.GetPropertyEmbeddingResponse\x12v\n" +
+	"\x19GetPropertyEmbeddingArray\x12+.appsearch.GetPropertyEmbeddingArrayRequest\x1a,.appsearch.GetPropertyEmbeddingArrayResponse\x12X\n" +
+	"\x0fGetPropertyLong\x12!.appsearch.GetPropertyLongRequest\x1a\".appsearch.GetPropertyLongResponse\x12g\n" +
+	"\x14GetPropertyLongArray\x12&.appsearch.GetPropertyLongArrayRequest\x1a'.appsearch.GetPropertyLongArrayResponse\x12^\n" +
+	"\x11GetPropertyString\x12#.appsearch.GetPropertyStringRequest\x1a$.appsearch.GetPropertyStringResponse\x12m\n" +
+	"\x16GetPropertyStringArray\x12(.appsearch.GetPropertyStringArrayRequest\x1a).appsearch.GetPropertyStringArrayResponse\x12R\n" +
+	"\rGetSchemaType\x12\x1f.appsearch.GetSchemaTypeRequest\x1a .appsearch.GetSchemaTypeResponse\x12C\n" +
+	"\bGetScore\x12\x1a.appsearch.GetScoreRequest\x1a\x1b.appsearch.GetScoreResponse\x12O\n" +
+	"\fGetTtlMillis\x12\x1e.appsearch.GetTtlMillisRequest\x1a\x1f.appsearch.GetTtlMillisResponse\x12C\n" +
+	"\bHashCode\x12\x1a.appsearch.HashCodeRequest\x1a\x1b.appsearch.HashCodeResponse\x12C\n" +
+	"\bToString\x12\x1a.appsearch.ToStringRequest\x1a\x1b.appsearch.ToStringResponse\x12p\n" +
+	"\x17GetMaxIndexedProperties\x12).appsearch.GetMaxIndexedPropertiesRequest\x1a*.appsearch.GetMaxIndexedPropertiesResponse2\xb6\v\n" +
+	"\x1dGenericDocumentBuilderService\x12:\n" +
+	"\x05Build\x12\x17.appsearch.BuildRequest\x1a\x18.appsearch.BuildResponse\x12R\n" +
+	"\rClearProperty\x12\x1f.appsearch.ClearPropertyRequest\x1a .appsearch.ClearPropertyResponse\x12y\n" +
+	"\x1aSetCreationTimestampMillis\x12,.appsearch.SetCreationTimestampMillisRequest\x1a-.appsearch.SetCreationTimestampMillisResponse\x12:\n" +
+	"\x05SetId\x12\x17.appsearch.SetIdRequest\x1a\x18.appsearch.SetIdResponse\x12O\n" +
+	"\fSetNamespace\x12\x1e.appsearch.SetNamespaceRequest\x1a\x1f.appsearch.SetNamespaceResponse\x12j\n" +
+	"\x15SetPropertyBlobHandle\x12'.appsearch.SetPropertyBlobHandleRequest\x1a(.appsearch.SetPropertyBlobHandleResponse\x12a\n" +
+	"\x12SetPropertyBoolean\x12$.appsearch.SetPropertyBooleanRequest\x1a%.appsearch.SetPropertyBooleanResponse\x12[\n" +
+	"\x10SetPropertyBytes\x12\".appsearch.SetPropertyBytesRequest\x1a#.appsearch.SetPropertyBytesResponse\x12d\n" +
+	"\x13SetPropertyDocument\x12%.appsearch.SetPropertyDocumentRequest\x1a&.appsearch.SetPropertyDocumentResponse\x12^\n" +
+	"\x11SetPropertyDouble\x12#.appsearch.SetPropertyDoubleRequest\x1a$.appsearch.SetPropertyDoubleResponse\x12g\n" +
+	"\x14SetPropertyEmbedding\x12&.appsearch.SetPropertyEmbeddingRequest\x1a'.appsearch.SetPropertyEmbeddingResponse\x12X\n" +
+	"\x0fSetPropertyLong\x12!.appsearch.SetPropertyLongRequest\x1a\".appsearch.SetPropertyLongResponse\x12^\n" +
+	"\x11SetPropertyString\x12#.appsearch.SetPropertyStringRequest\x1a$.appsearch.SetPropertyStringResponse\x12R\n" +
+	"\rSetSchemaType\x12\x1f.appsearch.SetSchemaTypeRequest\x1a .appsearch.SetSchemaTypeResponse\x12C\n" +
+	"\bSetScore\x12\x1a.appsearch.SetScoreRequest\x1a\x1b.appsearch.SetScoreResponse\x12O\n" +
+	"\fSetTtlMillis\x12\x1e.appsearch.SetTtlMillisRequest\x1a\x1f.appsearch.SetTtlMillisResponse2\xcf\x06\n" +
+	"\x1aAppSearchBlobHandleService\x12[\n" +
+	"\x10DescribeContents\x12\".appsearch.DescribeContentsRequest\x1a#.appsearch.DescribeContentsResponse\x12=\n" +
+	"\x06Equals\x12\x18.appsearch.EqualsRequest\x1a\x19.appsearch.EqualsResponse\x12X\n" +
+	"\x0fGetDatabaseName\x12!.appsearch.GetDatabaseNameRequest\x1a\".appsearch.GetDatabaseNameResponse\x12O\n" +
+	"\fGetNamespace\x12\x1e.appsearch.GetNamespaceRequest\x1a\x1f.appsearch.GetNamespaceResponse\x12U\n" +
+	"\x0eGetPackageName\x12 .appsearch.GetPackageNameRequest\x1a!.appsearch.GetPackageNameResponse\x12X\n" +
+	"\x0fGetSha256Digest\x12!.appsearch.GetSha256DigestRequest\x1a\".appsearch.GetSha256DigestResponse\x12C\n" +
+	"\bHashCode\x12\x1a.appsearch.HashCodeRequest\x1a\x1b.appsearch.HashCodeResponse\x12C\n" +
+	"\bToString\x12\x1a.appsearch.ToStringRequest\x1a\x1b.appsearch.ToStringResponse\x12R\n" +
+	"\rWriteToParcel\x12\x1f.appsearch.WriteToParcelRequest\x1a .appsearch.WriteToParcelResponse\x12[\n" +
+	"\x10CreateWithSha256\x12\".appsearch.CreateWithSha256Request\x1a#.appsearch.CreateWithSha256Response2\x94\x01\n" +
+	"\x17AppSearchSessionService\x12:\n" +
+	"\x05Close\x12\x17.appsearch.CloseRequest\x1a\x18.appsearch.CloseResponse\x12=\n" +
+	"\x06Search\x12\x18.appsearch.SearchRequest\x1a\x19.appsearch.SearchResponse2\xb7\x03\n" +
+	"\x1dSearchSuggestionResultService\x12[\n" +
+	"\x10DescribeContents\x12\".appsearch.DescribeContentsRequest\x1a#.appsearch.DescribeContentsResponse\x12=\n" +
+	"\x06Equals\x12\x18.appsearch.EqualsRequest\x1a\x19.appsearch.EqualsResponse\x12a\n" +
+	"\x12GetSuggestedResult\x12$.appsearch.GetSuggestedResultRequest\x1a%.appsearch.GetSuggestedResultResponse\x12C\n" +
+	"\bHashCode\x12\x1a.appsearch.HashCodeRequest\x1a\x1b.appsearch.HashCodeResponse\x12R\n" +
+	"\rWriteToParcel\x12\x1f.appsearch.WriteToParcelRequest\x1a .appsearch.WriteToParcelResponse2\xc5\x01\n" +
+	"$SearchSuggestionResultBuilderService\x12:\n" +
+	"\x05Build\x12\x17.appsearch.BuildRequest\x1a\x18.appsearch.BuildResponse\x12a\n" +
+	"\x12SetSuggestedResult\x12$.appsearch.SetSuggestedResultRequest\x1a%.appsearch.SetSuggestedResultResponse2\xa4\x02\n" +
+	" RemoveByDocumentIdRequestService\x12[\n" +
+	"\x10DescribeContents\x12\".appsearch.DescribeContentsRequest\x1a#.appsearch.DescribeContentsResponse\x12O\n" +
+	"\fGetNamespace\x12\x1e.appsearch.GetNamespaceRequest\x1a\x1f.appsearch.GetNamespaceResponse\x12R\n" +
+	"\rWriteToParcel\x12\x1f.appsearch.WriteToParcelRequest\x1a .appsearch.WriteToParcelResponse2\xa4\x01\n" +
+	"'RemoveByDocumentIdRequestBuilderService\x12=\n" +
+	"\x06AddIds\x12\x18.appsearch.AddIdsRequest\x1a\x19.appsearch.AddIdsResponse\x12:\n" +
+	"\x05Build\x12\x17.appsearch.BuildRequest\x1a\x18.appsearch.BuildResponse2\xc2\x02\n" +
+	"\x17SetSchemaRequestService\x12=\n" +
+	"\x06Equals\x12\x18.appsearch.EqualsRequest\x1a\x19.appsearch.EqualsResponse\x12I\n" +
+	"\n" +
+	"GetVersion\x12\x1c.appsearch.GetVersionRequest\x1a\x1d.appsearch.GetVersionResponse\x12C\n" +
+	"\bHashCode\x12\x1a.appsearch.HashCodeRequest\x1a\x1b.appsearch.HashCodeResponse\x12X\n" +
+	"\x0fIsForceOverride\x12!.appsearch.IsForceOverrideRequest\x1a\".appsearch.IsForceOverrideResponse2\x9a\v\n" +
+	"\x1eSetSchemaRequestBuilderService\x12\x7f\n" +
+	"\x1cAddSchemaTypeVisibleToConfig\x12..appsearch.AddSchemaTypeVisibleToConfigRequest\x1a/.appsearch.AddSchemaTypeVisibleToConfigResponse\x12I\n" +
+	"\n" +
+	"AddSchemas\x12\x1c.appsearch.AddSchemasRequest\x1a\x1d.appsearch.AddSchemasResponse\x12:\n" +
+	"\x05Build\x12\x17.appsearch.BuildRequest\x1a\x18.appsearch.BuildResponse\x12U\n" +
+	"\x0eClearMigrators\x12 .appsearch.ClearMigratorsRequest\x1a!.appsearch.ClearMigratorsResponse\x12\xb8\x01\n" +
+	"/ClearRequiredPermissionsForSchemaTypeVisibility\x12A.appsearch.ClearRequiredPermissionsForSchemaTypeVisibilityRequest\x1aB.appsearch.ClearRequiredPermissionsForSchemaTypeVisibilityResponse\x12\x88\x01\n" +
+	"\x1fClearSchemaTypeVisibleToConfigs\x121.appsearch.ClearSchemaTypeVisibleToConfigsRequest\x1a2.appsearch.ClearSchemaTypeVisibleToConfigsResponse\x12O\n" +
+	"\fClearSchemas\x12\x1e.appsearch.ClearSchemasRequest\x1a\x1f.appsearch.ClearSchemasResponse\x12[\n" +
+	"\x10SetForceOverride\x12\".appsearch.SetForceOverrideRequest\x1a#.appsearch.SetForceOverrideResponse\x12L\n" +
+	"\vSetMigrator\x12\x1d.appsearch.SetMigratorRequest\x1a\x1e.appsearch.SetMigratorResponse\x12s\n" +
+	"\x18SetPubliclyVisibleSchema\x12*.appsearch.SetPubliclyVisibleSchemaRequest\x1a+.appsearch.SetPubliclyVisibleSchemaResponse\x12\x85\x01\n" +
+	"\x1eSetSchemaTypeDisplayedBySystem\x120.appsearch.SetSchemaTypeDisplayedBySystemRequest\x1a1.appsearch.SetSchemaTypeDisplayedBySystemResponse\x12\x8e\x01\n" +
+	"!SetSchemaTypeVisibilityForPackage\x123.appsearch.SetSchemaTypeVisibilityForPackageRequest\x1a4.appsearch.SetSchemaTypeVisibilityForPackageResponse\x12I\n" +
+	"\n" +
+	"SetVersion\x12\x1c.appsearch.SetVersionRequest\x1a\x1d.appsearch.SetVersionResponse2\xaa\x01\n" +
+	"\x1bAppSearchBatchResultService\x12F\n" +
+	"\tIsSuccess\x12\x1b.appsearch.IsSuccessRequest\x1a\x1c.appsearch.IsSuccessResponse\x12C\n" +
+	"\bToString\x12\x1a.appsearch.ToStringRequest\x1a\x1b.appsearch.ToStringResponse2\x94\x05\n" +
+	"\x16EmbeddingVectorService\x12a\n" +
+	"\x12NewEmbeddingVector\x12$.appsearch.NewEmbeddingVectorRequest\x1a%.appsearch.NewEmbeddingVectorResponse\x12j\n" +
+	"\x10DescribeContents\x121.appsearch.EmbeddingVectorDescribeContentsRequest\x1a#.appsearch.DescribeContentsResponse\x12L\n" +
+	"\x06Equals\x12'.appsearch.EmbeddingVectorEqualsRequest\x1a\x19.appsearch.EqualsResponse\x12^\n" +
+	"\x11GetModelSignature\x12#.appsearch.GetModelSignatureRequest\x1a$.appsearch.GetModelSignatureResponse\x12F\n" +
+	"\tGetValues\x12\x1b.appsearch.GetValuesRequest\x1a\x1c.appsearch.GetValuesResponse\x12R\n" +
+	"\bHashCode\x12).appsearch.EmbeddingVectorHashCodeRequest\x1a\x1b.appsearch.HashCodeResponse\x12a\n" +
+	"\rWriteToParcel\x12..appsearch.EmbeddingVectorWriteToParcelRequest\x1a .appsearch.WriteToParcelResponse2\xf1\x05\n" +
+	"\x0fJoinSpecService\x12[\n" +
+	"\x10DescribeContents\x12\".appsearch.DescribeContentsRequest\x1a#.appsearch.DescribeContentsResponse\x12\x82\x01\n" +
+	"\x1dGetAggregationScoringStrategy\x12/.appsearch.GetAggregationScoringStrategyRequest\x1a0.appsearch.GetAggregationScoringStrategyResponse\x12y\n" +
+	"\x1aGetChildPropertyExpression\x12,.appsearch.GetChildPropertyExpressionRequest\x1a-.appsearch.GetChildPropertyExpressionResponse\x12p\n" +
+	"\x17GetMaxJoinedResultCount\x12).appsearch.GetMaxJoinedResultCountRequest\x1a*.appsearch.GetMaxJoinedResultCountResponse\x12U\n" +
+	"\x0eGetNestedQuery\x12 .appsearch.GetNestedQueryRequest\x1a!.appsearch.GetNestedQueryResponse\x12d\n" +
+	"\x13GetNestedSearchSpec\x12%.appsearch.GetNestedSearchSpecRequest\x1a&.appsearch.GetNestedSearchSpecResponse\x12R\n" +
+	"\rWriteToParcel\x12\x1f.appsearch.WriteToParcelRequest\x1a .appsearch.WriteToParcelResponse2\xa0\x04\n" +
+	"\x16JoinSpecBuilderService\x12:\n" +
+	"\x05Build\x12\x17.appsearch.BuildRequest\x1a\x18.appsearch.BuildResponse\x12\x82\x01\n" +
+	"\x1dSetAggregationScoringStrategy\x12/.appsearch.SetAggregationScoringStrategyRequest\x1a0.appsearch.SetAggregationScoringStrategyResponse\x12y\n" +
+	"\x1aSetChildPropertyExpression\x12,.appsearch.SetChildPropertyExpressionRequest\x1a-.appsearch.SetChildPropertyExpressionResponse\x12p\n" +
+	"\x17SetMaxJoinedResultCount\x12).appsearch.SetMaxJoinedResultCountRequest\x1a*.appsearch.SetMaxJoinedResultCountResponse\x12X\n" +
+	"\x0fSetNestedSearch\x12!.appsearch.SetNestedSearchRequest\x1a\".appsearch.SetNestedSearchResponse2\xcb\x03\n" +
+	"\x13PropertyPathService\x12X\n" +
+	"\x0fNewPropertyPath\x12!.appsearch.NewPropertyPathRequest\x1a\".appsearch.NewPropertyPathResponse\x12I\n" +
+	"\x06Equals\x12$.appsearch.PropertyPathEqualsRequest\x1a\x19.appsearch.EqualsResponse\x124\n" +
+	"\x03Get\x12\x15.appsearch.GetRequest\x1a\x16.appsearch.GetResponse\x12O\n" +
+	"\bHashCode\x12&.appsearch.PropertyPathHashCodeRequest\x1a\x1b.appsearch.HashCodeResponse\x127\n" +
+	"\x04Size\x12\x16.appsearch.SizeRequest\x1a\x17.appsearch.SizeResponse\x12O\n" +
+	"\bToString\x12&.appsearch.PropertyPathToStringRequest\x1a\x1b.appsearch.ToStringResponse2\xaa\x04\n" +
+	"\x1ePropertyPathPathSegmentService\x12=\n" +
+	"\x06Equals\x12\x18.appsearch.EqualsRequest\x1a\x19.appsearch.EqualsResponse\x12[\n" +
+	"\x10GetPropertyIndex\x12\".appsearch.GetPropertyIndexRequest\x1a#.appsearch.GetPropertyIndexResponse\x12X\n" +
+	"\x0fGetPropertyName\x12!.appsearch.GetPropertyNameRequest\x1a\".appsearch.GetPropertyNameResponse\x12C\n" +
+	"\bHashCode\x12\x1a.appsearch.HashCodeRequest\x1a\x1b.appsearch.HashCodeResponse\x12C\n" +
+	"\bToString\x12\x1a.appsearch.ToStringRequest\x1a\x1b.appsearch.ToStringResponse\x12@\n" +
+	"\aCreate1\x12\x19.appsearch.Create1Request\x1a\x1a.appsearch.Create1Response\x12F\n" +
+	"\tCreate2_1\x12\x1b.appsearch.Create2_1Request\x1a\x1c.appsearch.Create2_1ResponseB3Z1github.com/AndroidGoLab/jni-proxy/proto/appsearchb\x06proto3"
 
-var file_proto_appsearch_appsearch_proto_goTypes = []any{}
+var (
+	file_proto_appsearch_appsearch_proto_rawDescOnce sync.Once
+	file_proto_appsearch_appsearch_proto_rawDescData []byte
+)
+
+func file_proto_appsearch_appsearch_proto_rawDescGZIP() []byte {
+	file_proto_appsearch_appsearch_proto_rawDescOnce.Do(func() {
+		file_proto_appsearch_appsearch_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_proto_appsearch_appsearch_proto_rawDesc), len(file_proto_appsearch_appsearch_proto_rawDesc)))
+	})
+	return file_proto_appsearch_appsearch_proto_rawDescData
+}
+
+var file_proto_appsearch_appsearch_proto_msgTypes = make([]protoimpl.MessageInfo, 467)
+var file_proto_appsearch_appsearch_proto_goTypes = []any{
+	(*EqualsRequest)(nil),                                            // 0: appsearch.EqualsRequest
+	(*EqualsResponse)(nil),                                           // 1: appsearch.EqualsResponse
+	(*GetErrorMessageRequest)(nil),                                   // 2: appsearch.GetErrorMessageRequest
+	(*GetErrorMessageResponse)(nil),                                  // 3: appsearch.GetErrorMessageResponse
+	(*GetResultCodeRequest)(nil),                                     // 4: appsearch.GetResultCodeRequest
+	(*GetResultCodeResponse)(nil),                                    // 5: appsearch.GetResultCodeResponse
+	(*GetResultValueRequest)(nil),                                    // 6: appsearch.GetResultValueRequest
+	(*GetResultValueResponse)(nil),                                   // 7: appsearch.GetResultValueResponse
+	(*HashCodeRequest)(nil),                                          // 8: appsearch.HashCodeRequest
+	(*HashCodeResponse)(nil),                                         // 9: appsearch.HashCodeResponse
+	(*IsSuccessRequest)(nil),                                         // 10: appsearch.IsSuccessRequest
+	(*IsSuccessResponse)(nil),                                        // 11: appsearch.IsSuccessResponse
+	(*ToStringRequest)(nil),                                          // 12: appsearch.ToStringRequest
+	(*ToStringResponse)(nil),                                         // 13: appsearch.ToStringResponse
+	(*GetDatabaseNameRequest)(nil),                                   // 14: appsearch.GetDatabaseNameRequest
+	(*GetDatabaseNameResponse)(nil),                                  // 15: appsearch.GetDatabaseNameResponse
+	(*GetDocumentIdRequest)(nil),                                     // 16: appsearch.GetDocumentIdRequest
+	(*GetDocumentIdResponse)(nil),                                    // 17: appsearch.GetDocumentIdResponse
+	(*GetNamespaceRequest)(nil),                                      // 18: appsearch.GetNamespaceRequest
+	(*GetNamespaceResponse)(nil),                                     // 19: appsearch.GetNamespaceResponse
+	(*GetPackageNameRequest)(nil),                                    // 20: appsearch.GetPackageNameRequest
+	(*GetPackageNameResponse)(nil),                                   // 21: appsearch.GetPackageNameResponse
+	(*GetUsageTimestampMillisRequest)(nil),                           // 22: appsearch.GetUsageTimestampMillisRequest
+	(*GetUsageTimestampMillisResponse)(nil),                          // 23: appsearch.GetUsageTimestampMillisResponse
+	(*BuildRequest)(nil),                                             // 24: appsearch.BuildRequest
+	(*BuildResponse)(nil),                                            // 25: appsearch.BuildResponse
+	(*SetUsageTimestampMillisRequest)(nil),                           // 26: appsearch.SetUsageTimestampMillisRequest
+	(*SetUsageTimestampMillisResponse)(nil),                          // 27: appsearch.SetUsageTimestampMillisResponse
+	(*DescribeContentsRequest)(nil),                                  // 28: appsearch.DescribeContentsRequest
+	(*DescribeContentsResponse)(nil),                                 // 29: appsearch.DescribeContentsResponse
+	(*GetAdvancedRankingExpressionRequest)(nil),                      // 30: appsearch.GetAdvancedRankingExpressionRequest
+	(*GetAdvancedRankingExpressionResponse)(nil),                     // 31: appsearch.GetAdvancedRankingExpressionResponse
+	(*GetDefaultEmbeddingSearchMetricTypeRequest)(nil),               // 32: appsearch.GetDefaultEmbeddingSearchMetricTypeRequest
+	(*GetDefaultEmbeddingSearchMetricTypeResponse)(nil),              // 33: appsearch.GetDefaultEmbeddingSearchMetricTypeResponse
+	(*GetJoinSpecRequest)(nil),                                       // 34: appsearch.GetJoinSpecRequest
+	(*GetJoinSpecResponse)(nil),                                      // 35: appsearch.GetJoinSpecResponse
+	(*GetMaxSnippetSizeRequest)(nil),                                 // 36: appsearch.GetMaxSnippetSizeRequest
+	(*GetMaxSnippetSizeResponse)(nil),                                // 37: appsearch.GetMaxSnippetSizeResponse
+	(*GetOrderRequest)(nil),                                          // 38: appsearch.GetOrderRequest
+	(*GetOrderResponse)(nil),                                         // 39: appsearch.GetOrderResponse
+	(*GetRankingStrategyRequest)(nil),                                // 40: appsearch.GetRankingStrategyRequest
+	(*GetRankingStrategyResponse)(nil),                               // 41: appsearch.GetRankingStrategyResponse
+	(*GetResultCountPerPageRequest)(nil),                             // 42: appsearch.GetResultCountPerPageRequest
+	(*GetResultCountPerPageResponse)(nil),                            // 43: appsearch.GetResultCountPerPageResponse
+	(*GetResultGroupingLimitRequest)(nil),                            // 44: appsearch.GetResultGroupingLimitRequest
+	(*GetResultGroupingLimitResponse)(nil),                           // 45: appsearch.GetResultGroupingLimitResponse
+	(*GetResultGroupingTypeFlagsRequest)(nil),                        // 46: appsearch.GetResultGroupingTypeFlagsRequest
+	(*GetResultGroupingTypeFlagsResponse)(nil),                       // 47: appsearch.GetResultGroupingTypeFlagsResponse
+	(*GetSearchSourceLogTagRequest)(nil),                             // 48: appsearch.GetSearchSourceLogTagRequest
+	(*GetSearchSourceLogTagResponse)(nil),                            // 49: appsearch.GetSearchSourceLogTagResponse
+	(*GetSnippetCountRequest)(nil),                                   // 50: appsearch.GetSnippetCountRequest
+	(*GetSnippetCountResponse)(nil),                                  // 51: appsearch.GetSnippetCountResponse
+	(*GetSnippetCountPerPropertyRequest)(nil),                        // 52: appsearch.GetSnippetCountPerPropertyRequest
+	(*GetSnippetCountPerPropertyResponse)(nil),                       // 53: appsearch.GetSnippetCountPerPropertyResponse
+	(*GetTermMatchRequest)(nil),                                      // 54: appsearch.GetTermMatchRequest
+	(*GetTermMatchResponse)(nil),                                     // 55: appsearch.GetTermMatchResponse
+	(*IsListFilterHasPropertyFunctionEnabledRequest)(nil),            // 56: appsearch.IsListFilterHasPropertyFunctionEnabledRequest
+	(*IsListFilterHasPropertyFunctionEnabledResponse)(nil),           // 57: appsearch.IsListFilterHasPropertyFunctionEnabledResponse
+	(*IsListFilterMatchScoreExpressionFunctionEnabledRequest)(nil),   // 58: appsearch.IsListFilterMatchScoreExpressionFunctionEnabledRequest
+	(*IsListFilterMatchScoreExpressionFunctionEnabledResponse)(nil),  // 59: appsearch.IsListFilterMatchScoreExpressionFunctionEnabledResponse
+	(*IsListFilterQueryLanguageEnabledRequest)(nil),                  // 60: appsearch.IsListFilterQueryLanguageEnabledRequest
+	(*IsListFilterQueryLanguageEnabledResponse)(nil),                 // 61: appsearch.IsListFilterQueryLanguageEnabledResponse
+	(*IsNumericSearchEnabledRequest)(nil),                            // 62: appsearch.IsNumericSearchEnabledRequest
+	(*IsNumericSearchEnabledResponse)(nil),                           // 63: appsearch.IsNumericSearchEnabledResponse
+	(*IsScorablePropertyRankingEnabledRequest)(nil),                  // 64: appsearch.IsScorablePropertyRankingEnabledRequest
+	(*IsScorablePropertyRankingEnabledResponse)(nil),                 // 65: appsearch.IsScorablePropertyRankingEnabledResponse
+	(*IsVerbatimSearchEnabledRequest)(nil),                           // 66: appsearch.IsVerbatimSearchEnabledRequest
+	(*IsVerbatimSearchEnabledResponse)(nil),                          // 67: appsearch.IsVerbatimSearchEnabledResponse
+	(*WriteToParcelRequest)(nil),                                     // 68: appsearch.WriteToParcelRequest
+	(*WriteToParcelResponse)(nil),                                    // 69: appsearch.WriteToParcelResponse
+	(*AddEmbeddingParametersRequest)(nil),                            // 70: appsearch.AddEmbeddingParametersRequest
+	(*AddEmbeddingParametersResponse)(nil),                           // 71: appsearch.AddEmbeddingParametersResponse
+	(*AddFilterDocumentIdsRequest)(nil),                              // 72: appsearch.AddFilterDocumentIdsRequest
+	(*AddFilterDocumentIdsResponse)(nil),                             // 73: appsearch.AddFilterDocumentIdsResponse
+	(*AddFilterNamespacesRequest)(nil),                               // 74: appsearch.AddFilterNamespacesRequest
+	(*AddFilterNamespacesResponse)(nil),                              // 75: appsearch.AddFilterNamespacesResponse
+	(*AddFilterPackageNamesRequest)(nil),                             // 76: appsearch.AddFilterPackageNamesRequest
+	(*AddFilterPackageNamesResponse)(nil),                            // 77: appsearch.AddFilterPackageNamesResponse
+	(*AddFilterSchemasRequest)(nil),                                  // 78: appsearch.AddFilterSchemasRequest
+	(*AddFilterSchemasResponse)(nil),                                 // 79: appsearch.AddFilterSchemasResponse
+	(*AddInformationalRankingExpressionsRequest)(nil),                // 80: appsearch.AddInformationalRankingExpressionsRequest
+	(*AddInformationalRankingExpressionsResponse)(nil),               // 81: appsearch.AddInformationalRankingExpressionsResponse
+	(*AddSearchStringParametersRequest)(nil),                         // 82: appsearch.AddSearchStringParametersRequest
+	(*AddSearchStringParametersResponse)(nil),                        // 83: appsearch.AddSearchStringParametersResponse
+	(*ClearEmbeddingParametersRequest)(nil),                          // 84: appsearch.ClearEmbeddingParametersRequest
+	(*ClearEmbeddingParametersResponse)(nil),                         // 85: appsearch.ClearEmbeddingParametersResponse
+	(*ClearFilterDocumentIdsRequest)(nil),                            // 86: appsearch.ClearFilterDocumentIdsRequest
+	(*ClearFilterDocumentIdsResponse)(nil),                           // 87: appsearch.ClearFilterDocumentIdsResponse
+	(*ClearFilterNamespacesRequest)(nil),                             // 88: appsearch.ClearFilterNamespacesRequest
+	(*ClearFilterNamespacesResponse)(nil),                            // 89: appsearch.ClearFilterNamespacesResponse
+	(*ClearFilterPackageNamesRequest)(nil),                           // 90: appsearch.ClearFilterPackageNamesRequest
+	(*ClearFilterPackageNamesResponse)(nil),                          // 91: appsearch.ClearFilterPackageNamesResponse
+	(*ClearFilterPropertiesRequest)(nil),                             // 92: appsearch.ClearFilterPropertiesRequest
+	(*ClearFilterPropertiesResponse)(nil),                            // 93: appsearch.ClearFilterPropertiesResponse
+	(*ClearFilterSchemasRequest)(nil),                                // 94: appsearch.ClearFilterSchemasRequest
+	(*ClearFilterSchemasResponse)(nil),                               // 95: appsearch.ClearFilterSchemasResponse
+	(*ClearInformationalRankingExpressionsRequest)(nil),              // 96: appsearch.ClearInformationalRankingExpressionsRequest
+	(*ClearInformationalRankingExpressionsResponse)(nil),             // 97: appsearch.ClearInformationalRankingExpressionsResponse
+	(*ClearJoinSpecRequest)(nil),                                     // 98: appsearch.ClearJoinSpecRequest
+	(*ClearJoinSpecResponse)(nil),                                    // 99: appsearch.ClearJoinSpecResponse
+	(*ClearProjectionsRequest)(nil),                                  // 100: appsearch.ClearProjectionsRequest
+	(*ClearProjectionsResponse)(nil),                                 // 101: appsearch.ClearProjectionsResponse
+	(*ClearPropertyWeightsRequest)(nil),                              // 102: appsearch.ClearPropertyWeightsRequest
+	(*ClearPropertyWeightsResponse)(nil),                             // 103: appsearch.ClearPropertyWeightsResponse
+	(*ClearResultGroupingRequest)(nil),                               // 104: appsearch.ClearResultGroupingRequest
+	(*ClearResultGroupingResponse)(nil),                              // 105: appsearch.ClearResultGroupingResponse
+	(*ClearSearchSourceLogTagRequest)(nil),                           // 106: appsearch.ClearSearchSourceLogTagRequest
+	(*ClearSearchSourceLogTagResponse)(nil),                          // 107: appsearch.ClearSearchSourceLogTagResponse
+	(*ClearSearchStringParametersRequest)(nil),                       // 108: appsearch.ClearSearchStringParametersRequest
+	(*ClearSearchStringParametersResponse)(nil),                      // 109: appsearch.ClearSearchStringParametersResponse
+	(*SetDefaultEmbeddingSearchMetricTypeRequest)(nil),               // 110: appsearch.SetDefaultEmbeddingSearchMetricTypeRequest
+	(*SetDefaultEmbeddingSearchMetricTypeResponse)(nil),              // 111: appsearch.SetDefaultEmbeddingSearchMetricTypeResponse
+	(*SetJoinSpecRequest)(nil),                                       // 112: appsearch.SetJoinSpecRequest
+	(*SetJoinSpecResponse)(nil),                                      // 113: appsearch.SetJoinSpecResponse
+	(*SetListFilterHasPropertyFunctionEnabledRequest)(nil),           // 114: appsearch.SetListFilterHasPropertyFunctionEnabledRequest
+	(*SetListFilterHasPropertyFunctionEnabledResponse)(nil),          // 115: appsearch.SetListFilterHasPropertyFunctionEnabledResponse
+	(*SetListFilterMatchScoreExpressionFunctionEnabledRequest)(nil),  // 116: appsearch.SetListFilterMatchScoreExpressionFunctionEnabledRequest
+	(*SetListFilterMatchScoreExpressionFunctionEnabledResponse)(nil), // 117: appsearch.SetListFilterMatchScoreExpressionFunctionEnabledResponse
+	(*SetListFilterQueryLanguageEnabledRequest)(nil),                 // 118: appsearch.SetListFilterQueryLanguageEnabledRequest
+	(*SetListFilterQueryLanguageEnabledResponse)(nil),                // 119: appsearch.SetListFilterQueryLanguageEnabledResponse
+	(*SetMaxSnippetSizeRequest)(nil),                                 // 120: appsearch.SetMaxSnippetSizeRequest
+	(*SetMaxSnippetSizeResponse)(nil),                                // 121: appsearch.SetMaxSnippetSizeResponse
+	(*SetNumericSearchEnabledRequest)(nil),                           // 122: appsearch.SetNumericSearchEnabledRequest
+	(*SetNumericSearchEnabledResponse)(nil),                          // 123: appsearch.SetNumericSearchEnabledResponse
+	(*SetOrderRequest)(nil),                                          // 124: appsearch.SetOrderRequest
+	(*SetOrderResponse)(nil),                                         // 125: appsearch.SetOrderResponse
+	(*SetRankingStrategy1Request)(nil),                               // 126: appsearch.SetRankingStrategy1Request
+	(*SetRankingStrategy1Response)(nil),                              // 127: appsearch.SetRankingStrategy1Response
+	(*SetRankingStrategy1_1Request)(nil),                             // 128: appsearch.SetRankingStrategy1_1Request
+	(*SetRankingStrategy1_1Response)(nil),                            // 129: appsearch.SetRankingStrategy1_1Response
+	(*SetResultCountPerPageRequest)(nil),                             // 130: appsearch.SetResultCountPerPageRequest
+	(*SetResultCountPerPageResponse)(nil),                            // 131: appsearch.SetResultCountPerPageResponse
+	(*SetResultGroupingRequest)(nil),                                 // 132: appsearch.SetResultGroupingRequest
+	(*SetResultGroupingResponse)(nil),                                // 133: appsearch.SetResultGroupingResponse
+	(*SetScorablePropertyRankingEnabledRequest)(nil),                 // 134: appsearch.SetScorablePropertyRankingEnabledRequest
+	(*SetScorablePropertyRankingEnabledResponse)(nil),                // 135: appsearch.SetScorablePropertyRankingEnabledResponse
+	(*SetSearchSourceLogTagRequest)(nil),                             // 136: appsearch.SetSearchSourceLogTagRequest
+	(*SetSearchSourceLogTagResponse)(nil),                            // 137: appsearch.SetSearchSourceLogTagResponse
+	(*SetSnippetCountRequest)(nil),                                   // 138: appsearch.SetSnippetCountRequest
+	(*SetSnippetCountResponse)(nil),                                  // 139: appsearch.SetSnippetCountResponse
+	(*SetSnippetCountPerPropertyRequest)(nil),                        // 140: appsearch.SetSnippetCountPerPropertyRequest
+	(*SetSnippetCountPerPropertyResponse)(nil),                       // 141: appsearch.SetSnippetCountPerPropertyResponse
+	(*SetTermMatchRequest)(nil),                                      // 142: appsearch.SetTermMatchRequest
+	(*SetTermMatchResponse)(nil),                                     // 143: appsearch.SetTermMatchResponse
+	(*SetVerbatimSearchEnabledRequest)(nil),                          // 144: appsearch.SetVerbatimSearchEnabledRequest
+	(*SetVerbatimSearchEnabledResponse)(nil),                         // 145: appsearch.SetVerbatimSearchEnabledResponse
+	(*NewRemoveBlobResponseRequest)(nil),                             // 146: appsearch.NewRemoveBlobResponseRequest
+	(*NewRemoveBlobResponseResponse)(nil),                            // 147: appsearch.NewRemoveBlobResponseResponse
+	(*RemoveBlobResponseDescribeContentsRequest)(nil),                // 148: appsearch.RemoveBlobResponseDescribeContentsRequest
+	(*RemoveBlobResponseWriteToParcelRequest)(nil),                   // 149: appsearch.RemoveBlobResponseWriteToParcelRequest
+	(*CloseRequest)(nil),                                             // 150: appsearch.CloseRequest
+	(*CloseResponse)(nil),                                            // 151: appsearch.CloseResponse
+	(*RegisterObserverCallbackRequest)(nil),                          // 152: appsearch.RegisterObserverCallbackRequest
+	(*RegisterObserverCallbackResponse)(nil),                         // 153: appsearch.RegisterObserverCallbackResponse
+	(*SearchRequest)(nil),                                            // 154: appsearch.SearchRequest
+	(*SearchResponse)(nil),                                           // 155: appsearch.SearchResponse
+	(*UnregisterObserverCallbackRequest)(nil),                        // 156: appsearch.UnregisterObserverCallbackRequest
+	(*UnregisterObserverCallbackResponse)(nil),                       // 157: appsearch.UnregisterObserverCallbackResponse
+	(*AddNamespaceVisibleToConfigRequest)(nil),                       // 158: appsearch.AddNamespaceVisibleToConfigRequest
+	(*AddNamespaceVisibleToConfigResponse)(nil),                      // 159: appsearch.AddNamespaceVisibleToConfigResponse
+	(*ClearNamespaceVisibleToConfigsRequest)(nil),                    // 160: appsearch.ClearNamespaceVisibleToConfigsRequest
+	(*ClearNamespaceVisibleToConfigsResponse)(nil),                   // 161: appsearch.ClearNamespaceVisibleToConfigsResponse
+	(*SetNamespaceDisplayedBySystemRequest)(nil),                     // 162: appsearch.SetNamespaceDisplayedBySystemRequest
+	(*SetNamespaceDisplayedBySystemResponse)(nil),                    // 163: appsearch.SetNamespaceDisplayedBySystemResponse
+	(*GetPubliclyVisibleTargetPackageRequest)(nil),                   // 164: appsearch.GetPubliclyVisibleTargetPackageRequest
+	(*GetPubliclyVisibleTargetPackageResponse)(nil),                  // 165: appsearch.GetPubliclyVisibleTargetPackageResponse
+	(*AddAllowedPackageRequest)(nil),                                 // 166: appsearch.AddAllowedPackageRequest
+	(*AddAllowedPackageResponse)(nil),                                // 167: appsearch.AddAllowedPackageResponse
+	(*ClearAllowedPackagesRequest)(nil),                              // 168: appsearch.ClearAllowedPackagesRequest
+	(*ClearAllowedPackagesResponse)(nil),                             // 169: appsearch.ClearAllowedPackagesResponse
+	(*ClearRequiredPermissionsRequest)(nil),                          // 170: appsearch.ClearRequiredPermissionsRequest
+	(*ClearRequiredPermissionsResponse)(nil),                         // 171: appsearch.ClearRequiredPermissionsResponse
+	(*SetPubliclyVisibleTargetPackageRequest)(nil),                   // 172: appsearch.SetPubliclyVisibleTargetPackageRequest
+	(*SetPubliclyVisibleTargetPackageResponse)(nil),                  // 173: appsearch.SetPubliclyVisibleTargetPackageResponse
+	(*GetGenericDocumentRequest)(nil),                                // 174: appsearch.GetGenericDocumentRequest
+	(*GetGenericDocumentResponse)(nil),                               // 175: appsearch.GetGenericDocumentResponse
+	(*GetRankingSignalRequest)(nil),                                  // 176: appsearch.GetRankingSignalRequest
+	(*GetRankingSignalResponse)(nil),                                 // 177: appsearch.GetRankingSignalResponse
+	(*AddInformationalRankingSignalRequest)(nil),                     // 178: appsearch.AddInformationalRankingSignalRequest
+	(*AddInformationalRankingSignalResponse)(nil),                    // 179: appsearch.AddInformationalRankingSignalResponse
+	(*AddJoinedResultRequest)(nil),                                   // 180: appsearch.AddJoinedResultRequest
+	(*AddJoinedResultResponse)(nil),                                  // 181: appsearch.AddJoinedResultResponse
+	(*AddMatchInfoRequest)(nil),                                      // 182: appsearch.AddMatchInfoRequest
+	(*AddMatchInfoResponse)(nil),                                     // 183: appsearch.AddMatchInfoResponse
+	(*SetGenericDocumentRequest)(nil),                                // 184: appsearch.SetGenericDocumentRequest
+	(*SetGenericDocumentResponse)(nil),                               // 185: appsearch.SetGenericDocumentResponse
+	(*SetRankingSignalRequest)(nil),                                  // 186: appsearch.SetRankingSignalRequest
+	(*SetRankingSignalResponse)(nil),                                 // 187: appsearch.SetRankingSignalResponse
+	(*GetExactMatchRequest)(nil),                                     // 188: appsearch.GetExactMatchRequest
+	(*GetExactMatchResponse)(nil),                                    // 189: appsearch.GetExactMatchResponse
+	(*GetExactMatchRangeRequest)(nil),                                // 190: appsearch.GetExactMatchRangeRequest
+	(*GetExactMatchRangeResponse)(nil),                               // 191: appsearch.GetExactMatchRangeResponse
+	(*GetFullTextRequest)(nil),                                       // 192: appsearch.GetFullTextRequest
+	(*GetFullTextResponse)(nil),                                      // 193: appsearch.GetFullTextResponse
+	(*GetPropertyPathRequest)(nil),                                   // 194: appsearch.GetPropertyPathRequest
+	(*GetPropertyPathResponse)(nil),                                  // 195: appsearch.GetPropertyPathResponse
+	(*GetPropertyPathObjectRequest)(nil),                             // 196: appsearch.GetPropertyPathObjectRequest
+	(*GetPropertyPathObjectResponse)(nil),                            // 197: appsearch.GetPropertyPathObjectResponse
+	(*GetSnippetRequest)(nil),                                        // 198: appsearch.GetSnippetRequest
+	(*GetSnippetResponse)(nil),                                       // 199: appsearch.GetSnippetResponse
+	(*GetSnippetRangeRequest)(nil),                                   // 200: appsearch.GetSnippetRangeRequest
+	(*GetSnippetRangeResponse)(nil),                                  // 201: appsearch.GetSnippetRangeResponse
+	(*GetSubmatchRequest)(nil),                                       // 202: appsearch.GetSubmatchRequest
+	(*GetSubmatchResponse)(nil),                                      // 203: appsearch.GetSubmatchResponse
+	(*GetSubmatchRangeRequest)(nil),                                  // 204: appsearch.GetSubmatchRangeRequest
+	(*GetSubmatchRangeResponse)(nil),                                 // 205: appsearch.GetSubmatchRangeResponse
+	(*GetEndRequest)(nil),                                            // 206: appsearch.GetEndRequest
+	(*GetEndResponse)(nil),                                           // 207: appsearch.GetEndResponse
+	(*GetStartRequest)(nil),                                          // 208: appsearch.GetStartRequest
+	(*GetStartResponse)(nil),                                         // 209: appsearch.GetStartResponse
+	(*GetMaximumResultCountRequest)(nil),                             // 210: appsearch.GetMaximumResultCountRequest
+	(*GetMaximumResultCountResponse)(nil),                            // 211: appsearch.GetMaximumResultCountResponse
+	(*SearchSuggestionSpecBuilderAddFilterDocumentIdsRequest)(nil),   // 212: appsearch.SearchSuggestionSpecBuilderAddFilterDocumentIdsRequest
+	(*SetRankingStrategyRequest)(nil),                                // 213: appsearch.SetRankingStrategyRequest
+	(*SetRankingStrategyResponse)(nil),                               // 214: appsearch.SetRankingStrategyResponse
+	(*NewCommitBlobResponseRequest)(nil),                             // 215: appsearch.NewCommitBlobResponseRequest
+	(*NewCommitBlobResponseResponse)(nil),                            // 216: appsearch.NewCommitBlobResponseResponse
+	(*CommitBlobResponseDescribeContentsRequest)(nil),                // 217: appsearch.CommitBlobResponseDescribeContentsRequest
+	(*CommitBlobResponseWriteToParcelRequest)(nil),                   // 218: appsearch.CommitBlobResponseWriteToParcelRequest
+	(*GetVersionRequest)(nil),                                        // 219: appsearch.GetVersionRequest
+	(*GetVersionResponse)(nil),                                       // 220: appsearch.GetVersionResponse
+	(*AddSchemaRequest)(nil),                                         // 221: appsearch.AddSchemaRequest
+	(*AddSchemaResponse)(nil),                                        // 222: appsearch.AddSchemaResponse
+	(*AddSchemaTypeNotDisplayedBySystemRequest)(nil),                 // 223: appsearch.AddSchemaTypeNotDisplayedBySystemRequest
+	(*AddSchemaTypeNotDisplayedBySystemResponse)(nil),                // 224: appsearch.AddSchemaTypeNotDisplayedBySystemResponse
+	(*ClearPubliclyVisibleSchemaRequest)(nil),                        // 225: appsearch.ClearPubliclyVisibleSchemaRequest
+	(*ClearPubliclyVisibleSchemaResponse)(nil),                       // 226: appsearch.ClearPubliclyVisibleSchemaResponse
+	(*ClearRequiredPermissionsForSchemaTypeVisibilityRequest)(nil),   // 227: appsearch.ClearRequiredPermissionsForSchemaTypeVisibilityRequest
+	(*ClearRequiredPermissionsForSchemaTypeVisibilityResponse)(nil),  // 228: appsearch.ClearRequiredPermissionsForSchemaTypeVisibilityResponse
+	(*ClearSchemaTypeNotDisplayedBySystemRequest)(nil),               // 229: appsearch.ClearSchemaTypeNotDisplayedBySystemRequest
+	(*ClearSchemaTypeNotDisplayedBySystemResponse)(nil),              // 230: appsearch.ClearSchemaTypeNotDisplayedBySystemResponse
+	(*ClearSchemaTypeVisibleToConfigsRequest)(nil),                   // 231: appsearch.ClearSchemaTypeVisibleToConfigsRequest
+	(*ClearSchemaTypeVisibleToConfigsResponse)(nil),                  // 232: appsearch.ClearSchemaTypeVisibleToConfigsResponse
+	(*ClearSchemaTypeVisibleToPackagesRequest)(nil),                  // 233: appsearch.ClearSchemaTypeVisibleToPackagesRequest
+	(*ClearSchemaTypeVisibleToPackagesResponse)(nil),                 // 234: appsearch.ClearSchemaTypeVisibleToPackagesResponse
+	(*ClearSchemasRequest)(nil),                                      // 235: appsearch.ClearSchemasRequest
+	(*ClearSchemasResponse)(nil),                                     // 236: appsearch.ClearSchemasResponse
+	(*SetPubliclyVisibleSchemaRequest)(nil),                          // 237: appsearch.SetPubliclyVisibleSchemaRequest
+	(*SetPubliclyVisibleSchemaResponse)(nil),                         // 238: appsearch.SetPubliclyVisibleSchemaResponse
+	(*SetVersionRequest)(nil),                                        // 239: appsearch.SetVersionRequest
+	(*SetVersionResponse)(nil),                                       // 240: appsearch.SetVersionResponse
+	(*NewOpenBlobForReadResponseRequest)(nil),                        // 241: appsearch.NewOpenBlobForReadResponseRequest
+	(*NewOpenBlobForReadResponseResponse)(nil),                       // 242: appsearch.NewOpenBlobForReadResponseResponse
+	(*OpenBlobForReadResponseCloseRequest)(nil),                      // 243: appsearch.OpenBlobForReadResponseCloseRequest
+	(*OpenBlobForReadResponseDescribeContentsRequest)(nil),           // 244: appsearch.OpenBlobForReadResponseDescribeContentsRequest
+	(*OpenBlobForReadResponseWriteToParcelRequest)(nil),              // 245: appsearch.OpenBlobForReadResponseWriteToParcelRequest
+	(*OnDowngradeRequest)(nil),                                       // 246: appsearch.OnDowngradeRequest
+	(*OnDowngradeResponse)(nil),                                      // 247: appsearch.OnDowngradeResponse
+	(*OnUpgradeRequest)(nil),                                         // 248: appsearch.OnUpgradeRequest
+	(*OnUpgradeResponse)(nil),                                        // 249: appsearch.OnUpgradeResponse
+	(*ShouldMigrateRequest)(nil),                                     // 250: appsearch.ShouldMigrateRequest
+	(*ShouldMigrateResponse)(nil),                                    // 251: appsearch.ShouldMigrateResponse
+	(*GetSchemaTypeRequest)(nil),                                     // 252: appsearch.GetSchemaTypeRequest
+	(*GetSchemaTypeResponse)(nil),                                    // 253: appsearch.GetSchemaTypeResponse
+	(*IsScoringEnabledRequest)(nil),                                  // 254: appsearch.IsScoringEnabledRequest
+	(*IsScoringEnabledResponse)(nil),                                 // 255: appsearch.IsScoringEnabledResponse
+	(*AddParentTypeRequest)(nil),                                     // 256: appsearch.AddParentTypeRequest
+	(*AddParentTypeResponse)(nil),                                    // 257: appsearch.AddParentTypeResponse
+	(*AddPropertyRequest)(nil),                                       // 258: appsearch.AddPropertyRequest
+	(*AddPropertyResponse)(nil),                                      // 259: appsearch.AddPropertyResponse
+	(*ClearParentTypesRequest)(nil),                                  // 260: appsearch.ClearParentTypesRequest
+	(*ClearParentTypesResponse)(nil),                                 // 261: appsearch.ClearParentTypesResponse
+	(*ClearPropertiesRequest)(nil),                                   // 262: appsearch.ClearPropertiesRequest
+	(*ClearPropertiesResponse)(nil),                                  // 263: appsearch.ClearPropertiesResponse
+	(*SetSchemaTypeRequest)(nil),                                     // 264: appsearch.SetSchemaTypeRequest
+	(*SetSchemaTypeResponse)(nil),                                    // 265: appsearch.SetSchemaTypeResponse
+	(*ShouldIndexNestedPropertiesRequest)(nil),                       // 266: appsearch.ShouldIndexNestedPropertiesRequest
+	(*ShouldIndexNestedPropertiesResponse)(nil),                      // 267: appsearch.ShouldIndexNestedPropertiesResponse
+	(*GetIndexingTypeRequest)(nil),                                   // 268: appsearch.GetIndexingTypeRequest
+	(*GetIndexingTypeResponse)(nil),                                  // 269: appsearch.GetIndexingTypeResponse
+	(*GetQuantizationTypeRequest)(nil),                               // 270: appsearch.GetQuantizationTypeRequest
+	(*GetQuantizationTypeResponse)(nil),                              // 271: appsearch.GetQuantizationTypeResponse
+	(*GetCardinalityRequest)(nil),                                    // 272: appsearch.GetCardinalityRequest
+	(*GetCardinalityResponse)(nil),                                   // 273: appsearch.GetCardinalityResponse
+	(*GetNameRequest)(nil),                                           // 274: appsearch.GetNameRequest
+	(*GetNameResponse)(nil),                                          // 275: appsearch.GetNameResponse
+	(*GetJoinableValueTypeRequest)(nil),                              // 276: appsearch.GetJoinableValueTypeRequest
+	(*GetJoinableValueTypeResponse)(nil),                             // 277: appsearch.GetJoinableValueTypeResponse
+	(*GetTokenizerTypeRequest)(nil),                                  // 278: appsearch.GetTokenizerTypeRequest
+	(*GetTokenizerTypeResponse)(nil),                                 // 279: appsearch.GetTokenizerTypeResponse
+	(*AddDeletedTypeRequest)(nil),                                    // 280: appsearch.AddDeletedTypeRequest
+	(*AddDeletedTypeResponse)(nil),                                   // 281: appsearch.AddDeletedTypeResponse
+	(*AddIncompatibleTypeRequest)(nil),                               // 282: appsearch.AddIncompatibleTypeRequest
+	(*AddIncompatibleTypeResponse)(nil),                              // 283: appsearch.AddIncompatibleTypeResponse
+	(*AddMigratedTypeRequest)(nil),                                   // 284: appsearch.AddMigratedTypeRequest
+	(*AddMigratedTypeResponse)(nil),                                  // 285: appsearch.AddMigratedTypeResponse
+	(*AddMigrationFailureRequest)(nil),                               // 286: appsearch.AddMigrationFailureRequest
+	(*AddMigrationFailureResponse)(nil),                              // 287: appsearch.AddMigrationFailureResponse
+	(*NewPackageIdentifierRequest)(nil),                              // 288: appsearch.NewPackageIdentifierRequest
+	(*NewPackageIdentifierResponse)(nil),                             // 289: appsearch.NewPackageIdentifierResponse
+	(*PackageIdentifierEqualsRequest)(nil),                           // 290: appsearch.PackageIdentifierEqualsRequest
+	(*PackageIdentifierGetPackageNameRequest)(nil),                   // 291: appsearch.PackageIdentifierGetPackageNameRequest
+	(*GetSha256CertificateRequest)(nil),                              // 292: appsearch.GetSha256CertificateRequest
+	(*GetSha256CertificateResponse)(nil),                             // 293: appsearch.GetSha256CertificateResponse
+	(*PackageIdentifierHashCodeRequest)(nil),                         // 294: appsearch.PackageIdentifierHashCodeRequest
+	(*NewOpenBlobForWriteResponseRequest)(nil),                       // 295: appsearch.NewOpenBlobForWriteResponseRequest
+	(*NewOpenBlobForWriteResponseResponse)(nil),                      // 296: appsearch.NewOpenBlobForWriteResponseResponse
+	(*OpenBlobForWriteResponseCloseRequest)(nil),                     // 297: appsearch.OpenBlobForWriteResponseCloseRequest
+	(*OpenBlobForWriteResponseDescribeContentsRequest)(nil),          // 298: appsearch.OpenBlobForWriteResponseDescribeContentsRequest
+	(*OpenBlobForWriteResponseWriteToParcelRequest)(nil),             // 299: appsearch.OpenBlobForWriteResponseWriteToParcelRequest
+	(*AddIdsRequest)(nil),                                            // 300: appsearch.AddIdsRequest
+	(*AddIdsResponse)(nil),                                           // 301: appsearch.AddIdsResponse
+	(*AddGenericDocumentsRequest)(nil),                               // 302: appsearch.AddGenericDocumentsRequest
+	(*AddGenericDocumentsResponse)(nil),                              // 303: appsearch.AddGenericDocumentsResponse
+	(*AddTakenActionGenericDocumentsRequest)(nil),                    // 304: appsearch.AddTakenActionGenericDocumentsRequest
+	(*AddTakenActionGenericDocumentsResponse)(nil),                   // 305: appsearch.AddTakenActionGenericDocumentsResponse
+	(*GetAliveDocumentsCountRequest)(nil),                            // 306: appsearch.GetAliveDocumentsCountRequest
+	(*GetAliveDocumentsCountResponse)(nil),                           // 307: appsearch.GetAliveDocumentsCountResponse
+	(*GetAliveNamespacesCountRequest)(nil),                           // 308: appsearch.GetAliveNamespacesCountRequest
+	(*GetAliveNamespacesCountResponse)(nil),                          // 309: appsearch.GetAliveNamespacesCountResponse
+	(*GetBlobsCountRequest)(nil),                                     // 310: appsearch.GetBlobsCountRequest
+	(*GetBlobsCountResponse)(nil),                                    // 311: appsearch.GetBlobsCountResponse
+	(*GetBlobsSizeBytesRequest)(nil),                                 // 312: appsearch.GetBlobsSizeBytesRequest
+	(*GetBlobsSizeBytesResponse)(nil),                                // 313: appsearch.GetBlobsSizeBytesResponse
+	(*GetSizeBytesRequest)(nil),                                      // 314: appsearch.GetSizeBytesRequest
+	(*GetSizeBytesResponse)(nil),                                     // 315: appsearch.GetSizeBytesResponse
+	(*SetAliveDocumentsCountRequest)(nil),                            // 316: appsearch.SetAliveDocumentsCountRequest
+	(*SetAliveDocumentsCountResponse)(nil),                           // 317: appsearch.SetAliveDocumentsCountResponse
+	(*SetAliveNamespacesCountRequest)(nil),                           // 318: appsearch.SetAliveNamespacesCountRequest
+	(*SetAliveNamespacesCountResponse)(nil),                          // 319: appsearch.SetAliveNamespacesCountResponse
+	(*SetBlobsCountRequest)(nil),                                     // 320: appsearch.SetBlobsCountRequest
+	(*SetBlobsCountResponse)(nil),                                    // 321: appsearch.SetBlobsCountResponse
+	(*SetBlobsSizeBytesRequest)(nil),                                 // 322: appsearch.SetBlobsSizeBytesRequest
+	(*SetBlobsSizeBytesResponse)(nil),                                // 323: appsearch.SetBlobsSizeBytesResponse
+	(*SetSizeBytesRequest)(nil),                                      // 324: appsearch.SetSizeBytesRequest
+	(*SetSizeBytesResponse)(nil),                                     // 325: appsearch.SetSizeBytesResponse
+	(*GetCreationTimestampMillisRequest)(nil),                        // 326: appsearch.GetCreationTimestampMillisRequest
+	(*GetCreationTimestampMillisResponse)(nil),                       // 327: appsearch.GetCreationTimestampMillisResponse
+	(*GetIdRequest)(nil),                                             // 328: appsearch.GetIdRequest
+	(*GetIdResponse)(nil),                                            // 329: appsearch.GetIdResponse
+	(*GetPropertyRequest)(nil),                                       // 330: appsearch.GetPropertyRequest
+	(*GetPropertyResponse)(nil),                                      // 331: appsearch.GetPropertyResponse
+	(*GetPropertyBlobHandleRequest)(nil),                             // 332: appsearch.GetPropertyBlobHandleRequest
+	(*GetPropertyBlobHandleResponse)(nil),                            // 333: appsearch.GetPropertyBlobHandleResponse
+	(*GetPropertyBlobHandleArrayRequest)(nil),                        // 334: appsearch.GetPropertyBlobHandleArrayRequest
+	(*GetPropertyBlobHandleArrayResponse)(nil),                       // 335: appsearch.GetPropertyBlobHandleArrayResponse
+	(*GetPropertyBooleanRequest)(nil),                                // 336: appsearch.GetPropertyBooleanRequest
+	(*GetPropertyBooleanResponse)(nil),                               // 337: appsearch.GetPropertyBooleanResponse
+	(*GetPropertyBooleanArrayRequest)(nil),                           // 338: appsearch.GetPropertyBooleanArrayRequest
+	(*GetPropertyBooleanArrayResponse)(nil),                          // 339: appsearch.GetPropertyBooleanArrayResponse
+	(*GetPropertyBytesRequest)(nil),                                  // 340: appsearch.GetPropertyBytesRequest
+	(*GetPropertyBytesResponse)(nil),                                 // 341: appsearch.GetPropertyBytesResponse
+	(*GetPropertyBytesArrayRequest)(nil),                             // 342: appsearch.GetPropertyBytesArrayRequest
+	(*GetPropertyBytesArrayResponse)(nil),                            // 343: appsearch.GetPropertyBytesArrayResponse
+	(*GetPropertyDocumentRequest)(nil),                               // 344: appsearch.GetPropertyDocumentRequest
+	(*GetPropertyDocumentResponse)(nil),                              // 345: appsearch.GetPropertyDocumentResponse
+	(*GetPropertyDocumentArrayRequest)(nil),                          // 346: appsearch.GetPropertyDocumentArrayRequest
+	(*GetPropertyDocumentArrayResponse)(nil),                         // 347: appsearch.GetPropertyDocumentArrayResponse
+	(*GetPropertyDoubleRequest)(nil),                                 // 348: appsearch.GetPropertyDoubleRequest
+	(*GetPropertyDoubleResponse)(nil),                                // 349: appsearch.GetPropertyDoubleResponse
+	(*GetPropertyDoubleArrayRequest)(nil),                            // 350: appsearch.GetPropertyDoubleArrayRequest
+	(*GetPropertyDoubleArrayResponse)(nil),                           // 351: appsearch.GetPropertyDoubleArrayResponse
+	(*GetPropertyEmbeddingRequest)(nil),                              // 352: appsearch.GetPropertyEmbeddingRequest
+	(*GetPropertyEmbeddingResponse)(nil),                             // 353: appsearch.GetPropertyEmbeddingResponse
+	(*GetPropertyEmbeddingArrayRequest)(nil),                         // 354: appsearch.GetPropertyEmbeddingArrayRequest
+	(*GetPropertyEmbeddingArrayResponse)(nil),                        // 355: appsearch.GetPropertyEmbeddingArrayResponse
+	(*GetPropertyLongRequest)(nil),                                   // 356: appsearch.GetPropertyLongRequest
+	(*GetPropertyLongResponse)(nil),                                  // 357: appsearch.GetPropertyLongResponse
+	(*GetPropertyLongArrayRequest)(nil),                              // 358: appsearch.GetPropertyLongArrayRequest
+	(*GetPropertyLongArrayResponse)(nil),                             // 359: appsearch.GetPropertyLongArrayResponse
+	(*GetPropertyStringRequest)(nil),                                 // 360: appsearch.GetPropertyStringRequest
+	(*GetPropertyStringResponse)(nil),                                // 361: appsearch.GetPropertyStringResponse
+	(*GetPropertyStringArrayRequest)(nil),                            // 362: appsearch.GetPropertyStringArrayRequest
+	(*GetPropertyStringArrayResponse)(nil),                           // 363: appsearch.GetPropertyStringArrayResponse
+	(*GetScoreRequest)(nil),                                          // 364: appsearch.GetScoreRequest
+	(*GetScoreResponse)(nil),                                         // 365: appsearch.GetScoreResponse
+	(*GetTtlMillisRequest)(nil),                                      // 366: appsearch.GetTtlMillisRequest
+	(*GetTtlMillisResponse)(nil),                                     // 367: appsearch.GetTtlMillisResponse
+	(*GetMaxIndexedPropertiesRequest)(nil),                           // 368: appsearch.GetMaxIndexedPropertiesRequest
+	(*GetMaxIndexedPropertiesResponse)(nil),                          // 369: appsearch.GetMaxIndexedPropertiesResponse
+	(*ClearPropertyRequest)(nil),                                     // 370: appsearch.ClearPropertyRequest
+	(*ClearPropertyResponse)(nil),                                    // 371: appsearch.ClearPropertyResponse
+	(*SetCreationTimestampMillisRequest)(nil),                        // 372: appsearch.SetCreationTimestampMillisRequest
+	(*SetCreationTimestampMillisResponse)(nil),                       // 373: appsearch.SetCreationTimestampMillisResponse
+	(*SetIdRequest)(nil),                                             // 374: appsearch.SetIdRequest
+	(*SetIdResponse)(nil),                                            // 375: appsearch.SetIdResponse
+	(*SetNamespaceRequest)(nil),                                      // 376: appsearch.SetNamespaceRequest
+	(*SetNamespaceResponse)(nil),                                     // 377: appsearch.SetNamespaceResponse
+	(*SetPropertyBlobHandleRequest)(nil),                             // 378: appsearch.SetPropertyBlobHandleRequest
+	(*SetPropertyBlobHandleResponse)(nil),                            // 379: appsearch.SetPropertyBlobHandleResponse
+	(*SetPropertyBooleanRequest)(nil),                                // 380: appsearch.SetPropertyBooleanRequest
+	(*SetPropertyBooleanResponse)(nil),                               // 381: appsearch.SetPropertyBooleanResponse
+	(*SetPropertyBytesRequest)(nil),                                  // 382: appsearch.SetPropertyBytesRequest
+	(*SetPropertyBytesResponse)(nil),                                 // 383: appsearch.SetPropertyBytesResponse
+	(*SetPropertyDocumentRequest)(nil),                               // 384: appsearch.SetPropertyDocumentRequest
+	(*SetPropertyDocumentResponse)(nil),                              // 385: appsearch.SetPropertyDocumentResponse
+	(*SetPropertyDoubleRequest)(nil),                                 // 386: appsearch.SetPropertyDoubleRequest
+	(*SetPropertyDoubleResponse)(nil),                                // 387: appsearch.SetPropertyDoubleResponse
+	(*SetPropertyEmbeddingRequest)(nil),                              // 388: appsearch.SetPropertyEmbeddingRequest
+	(*SetPropertyEmbeddingResponse)(nil),                             // 389: appsearch.SetPropertyEmbeddingResponse
+	(*SetPropertyLongRequest)(nil),                                   // 390: appsearch.SetPropertyLongRequest
+	(*SetPropertyLongResponse)(nil),                                  // 391: appsearch.SetPropertyLongResponse
+	(*SetPropertyStringRequest)(nil),                                 // 392: appsearch.SetPropertyStringRequest
+	(*SetPropertyStringResponse)(nil),                                // 393: appsearch.SetPropertyStringResponse
+	(*SetScoreRequest)(nil),                                          // 394: appsearch.SetScoreRequest
+	(*SetScoreResponse)(nil),                                         // 395: appsearch.SetScoreResponse
+	(*SetTtlMillisRequest)(nil),                                      // 396: appsearch.SetTtlMillisRequest
+	(*SetTtlMillisResponse)(nil),                                     // 397: appsearch.SetTtlMillisResponse
+	(*GetSha256DigestRequest)(nil),                                   // 398: appsearch.GetSha256DigestRequest
+	(*GetSha256DigestResponse)(nil),                                  // 399: appsearch.GetSha256DigestResponse
+	(*CreateWithSha256Request)(nil),                                  // 400: appsearch.CreateWithSha256Request
+	(*CreateWithSha256Response)(nil),                                 // 401: appsearch.CreateWithSha256Response
+	(*GetSuggestedResultRequest)(nil),                                // 402: appsearch.GetSuggestedResultRequest
+	(*GetSuggestedResultResponse)(nil),                               // 403: appsearch.GetSuggestedResultResponse
+	(*SetSuggestedResultRequest)(nil),                                // 404: appsearch.SetSuggestedResultRequest
+	(*SetSuggestedResultResponse)(nil),                               // 405: appsearch.SetSuggestedResultResponse
+	(*IsForceOverrideRequest)(nil),                                   // 406: appsearch.IsForceOverrideRequest
+	(*IsForceOverrideResponse)(nil),                                  // 407: appsearch.IsForceOverrideResponse
+	(*AddSchemaTypeVisibleToConfigRequest)(nil),                      // 408: appsearch.AddSchemaTypeVisibleToConfigRequest
+	(*AddSchemaTypeVisibleToConfigResponse)(nil),                     // 409: appsearch.AddSchemaTypeVisibleToConfigResponse
+	(*AddSchemasRequest)(nil),                                        // 410: appsearch.AddSchemasRequest
+	(*AddSchemasResponse)(nil),                                       // 411: appsearch.AddSchemasResponse
+	(*ClearMigratorsRequest)(nil),                                    // 412: appsearch.ClearMigratorsRequest
+	(*ClearMigratorsResponse)(nil),                                   // 413: appsearch.ClearMigratorsResponse
+	(*SetForceOverrideRequest)(nil),                                  // 414: appsearch.SetForceOverrideRequest
+	(*SetForceOverrideResponse)(nil),                                 // 415: appsearch.SetForceOverrideResponse
+	(*SetMigratorRequest)(nil),                                       // 416: appsearch.SetMigratorRequest
+	(*SetMigratorResponse)(nil),                                      // 417: appsearch.SetMigratorResponse
+	(*SetSchemaTypeDisplayedBySystemRequest)(nil),                    // 418: appsearch.SetSchemaTypeDisplayedBySystemRequest
+	(*SetSchemaTypeDisplayedBySystemResponse)(nil),                   // 419: appsearch.SetSchemaTypeDisplayedBySystemResponse
+	(*SetSchemaTypeVisibilityForPackageRequest)(nil),                 // 420: appsearch.SetSchemaTypeVisibilityForPackageRequest
+	(*SetSchemaTypeVisibilityForPackageResponse)(nil),                // 421: appsearch.SetSchemaTypeVisibilityForPackageResponse
+	(*NewEmbeddingVectorRequest)(nil),                                // 422: appsearch.NewEmbeddingVectorRequest
+	(*NewEmbeddingVectorResponse)(nil),                               // 423: appsearch.NewEmbeddingVectorResponse
+	(*EmbeddingVectorDescribeContentsRequest)(nil),                   // 424: appsearch.EmbeddingVectorDescribeContentsRequest
+	(*EmbeddingVectorEqualsRequest)(nil),                             // 425: appsearch.EmbeddingVectorEqualsRequest
+	(*GetModelSignatureRequest)(nil),                                 // 426: appsearch.GetModelSignatureRequest
+	(*GetModelSignatureResponse)(nil),                                // 427: appsearch.GetModelSignatureResponse
+	(*GetValuesRequest)(nil),                                         // 428: appsearch.GetValuesRequest
+	(*GetValuesResponse)(nil),                                        // 429: appsearch.GetValuesResponse
+	(*EmbeddingVectorHashCodeRequest)(nil),                           // 430: appsearch.EmbeddingVectorHashCodeRequest
+	(*EmbeddingVectorWriteToParcelRequest)(nil),                      // 431: appsearch.EmbeddingVectorWriteToParcelRequest
+	(*GetAggregationScoringStrategyRequest)(nil),                     // 432: appsearch.GetAggregationScoringStrategyRequest
+	(*GetAggregationScoringStrategyResponse)(nil),                    // 433: appsearch.GetAggregationScoringStrategyResponse
+	(*GetChildPropertyExpressionRequest)(nil),                        // 434: appsearch.GetChildPropertyExpressionRequest
+	(*GetChildPropertyExpressionResponse)(nil),                       // 435: appsearch.GetChildPropertyExpressionResponse
+	(*GetMaxJoinedResultCountRequest)(nil),                           // 436: appsearch.GetMaxJoinedResultCountRequest
+	(*GetMaxJoinedResultCountResponse)(nil),                          // 437: appsearch.GetMaxJoinedResultCountResponse
+	(*GetNestedQueryRequest)(nil),                                    // 438: appsearch.GetNestedQueryRequest
+	(*GetNestedQueryResponse)(nil),                                   // 439: appsearch.GetNestedQueryResponse
+	(*GetNestedSearchSpecRequest)(nil),                               // 440: appsearch.GetNestedSearchSpecRequest
+	(*GetNestedSearchSpecResponse)(nil),                              // 441: appsearch.GetNestedSearchSpecResponse
+	(*SetAggregationScoringStrategyRequest)(nil),                     // 442: appsearch.SetAggregationScoringStrategyRequest
+	(*SetAggregationScoringStrategyResponse)(nil),                    // 443: appsearch.SetAggregationScoringStrategyResponse
+	(*SetChildPropertyExpressionRequest)(nil),                        // 444: appsearch.SetChildPropertyExpressionRequest
+	(*SetChildPropertyExpressionResponse)(nil),                       // 445: appsearch.SetChildPropertyExpressionResponse
+	(*SetMaxJoinedResultCountRequest)(nil),                           // 446: appsearch.SetMaxJoinedResultCountRequest
+	(*SetMaxJoinedResultCountResponse)(nil),                          // 447: appsearch.SetMaxJoinedResultCountResponse
+	(*SetNestedSearchRequest)(nil),                                   // 448: appsearch.SetNestedSearchRequest
+	(*SetNestedSearchResponse)(nil),                                  // 449: appsearch.SetNestedSearchResponse
+	(*NewPropertyPathRequest)(nil),                                   // 450: appsearch.NewPropertyPathRequest
+	(*NewPropertyPathResponse)(nil),                                  // 451: appsearch.NewPropertyPathResponse
+	(*PropertyPathEqualsRequest)(nil),                                // 452: appsearch.PropertyPathEqualsRequest
+	(*GetRequest)(nil),                                               // 453: appsearch.GetRequest
+	(*GetResponse)(nil),                                              // 454: appsearch.GetResponse
+	(*PropertyPathHashCodeRequest)(nil),                              // 455: appsearch.PropertyPathHashCodeRequest
+	(*SizeRequest)(nil),                                              // 456: appsearch.SizeRequest
+	(*SizeResponse)(nil),                                             // 457: appsearch.SizeResponse
+	(*PropertyPathToStringRequest)(nil),                              // 458: appsearch.PropertyPathToStringRequest
+	(*GetPropertyIndexRequest)(nil),                                  // 459: appsearch.GetPropertyIndexRequest
+	(*GetPropertyIndexResponse)(nil),                                 // 460: appsearch.GetPropertyIndexResponse
+	(*GetPropertyNameRequest)(nil),                                   // 461: appsearch.GetPropertyNameRequest
+	(*GetPropertyNameResponse)(nil),                                  // 462: appsearch.GetPropertyNameResponse
+	(*Create1Request)(nil),                                           // 463: appsearch.Create1Request
+	(*Create1Response)(nil),                                          // 464: appsearch.Create1Response
+	(*Create2_1Request)(nil),                                         // 465: appsearch.Create2_1Request
+	(*Create2_1Response)(nil),                                        // 466: appsearch.Create2_1Response
+}
 var file_proto_appsearch_appsearch_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	0,   // 0: appsearch.AppSearchResultService.Equals:input_type -> appsearch.EqualsRequest
+	2,   // 1: appsearch.AppSearchResultService.GetErrorMessage:input_type -> appsearch.GetErrorMessageRequest
+	4,   // 2: appsearch.AppSearchResultService.GetResultCode:input_type -> appsearch.GetResultCodeRequest
+	6,   // 3: appsearch.AppSearchResultService.GetResultValue:input_type -> appsearch.GetResultValueRequest
+	8,   // 4: appsearch.AppSearchResultService.HashCode:input_type -> appsearch.HashCodeRequest
+	10,  // 5: appsearch.AppSearchResultService.IsSuccess:input_type -> appsearch.IsSuccessRequest
+	12,  // 6: appsearch.AppSearchResultService.ToString:input_type -> appsearch.ToStringRequest
+	14,  // 7: appsearch.ReportSystemUsageRequestService.GetDatabaseName:input_type -> appsearch.GetDatabaseNameRequest
+	16,  // 8: appsearch.ReportSystemUsageRequestService.GetDocumentId:input_type -> appsearch.GetDocumentIdRequest
+	18,  // 9: appsearch.ReportSystemUsageRequestService.GetNamespace:input_type -> appsearch.GetNamespaceRequest
+	20,  // 10: appsearch.ReportSystemUsageRequestService.GetPackageName:input_type -> appsearch.GetPackageNameRequest
+	22,  // 11: appsearch.ReportSystemUsageRequestService.GetUsageTimestampMillis:input_type -> appsearch.GetUsageTimestampMillisRequest
+	24,  // 12: appsearch.ReportSystemUsageRequestBuilderService.Build:input_type -> appsearch.BuildRequest
+	26,  // 13: appsearch.ReportSystemUsageRequestBuilderService.SetUsageTimestampMillis:input_type -> appsearch.SetUsageTimestampMillisRequest
+	28,  // 14: appsearch.SearchSpecService.DescribeContents:input_type -> appsearch.DescribeContentsRequest
+	30,  // 15: appsearch.SearchSpecService.GetAdvancedRankingExpression:input_type -> appsearch.GetAdvancedRankingExpressionRequest
+	32,  // 16: appsearch.SearchSpecService.GetDefaultEmbeddingSearchMetricType:input_type -> appsearch.GetDefaultEmbeddingSearchMetricTypeRequest
+	34,  // 17: appsearch.SearchSpecService.GetJoinSpec:input_type -> appsearch.GetJoinSpecRequest
+	36,  // 18: appsearch.SearchSpecService.GetMaxSnippetSize:input_type -> appsearch.GetMaxSnippetSizeRequest
+	38,  // 19: appsearch.SearchSpecService.GetOrder:input_type -> appsearch.GetOrderRequest
+	40,  // 20: appsearch.SearchSpecService.GetRankingStrategy:input_type -> appsearch.GetRankingStrategyRequest
+	42,  // 21: appsearch.SearchSpecService.GetResultCountPerPage:input_type -> appsearch.GetResultCountPerPageRequest
+	44,  // 22: appsearch.SearchSpecService.GetResultGroupingLimit:input_type -> appsearch.GetResultGroupingLimitRequest
+	46,  // 23: appsearch.SearchSpecService.GetResultGroupingTypeFlags:input_type -> appsearch.GetResultGroupingTypeFlagsRequest
+	48,  // 24: appsearch.SearchSpecService.GetSearchSourceLogTag:input_type -> appsearch.GetSearchSourceLogTagRequest
+	50,  // 25: appsearch.SearchSpecService.GetSnippetCount:input_type -> appsearch.GetSnippetCountRequest
+	52,  // 26: appsearch.SearchSpecService.GetSnippetCountPerProperty:input_type -> appsearch.GetSnippetCountPerPropertyRequest
+	54,  // 27: appsearch.SearchSpecService.GetTermMatch:input_type -> appsearch.GetTermMatchRequest
+	56,  // 28: appsearch.SearchSpecService.IsListFilterHasPropertyFunctionEnabled:input_type -> appsearch.IsListFilterHasPropertyFunctionEnabledRequest
+	58,  // 29: appsearch.SearchSpecService.IsListFilterMatchScoreExpressionFunctionEnabled:input_type -> appsearch.IsListFilterMatchScoreExpressionFunctionEnabledRequest
+	60,  // 30: appsearch.SearchSpecService.IsListFilterQueryLanguageEnabled:input_type -> appsearch.IsListFilterQueryLanguageEnabledRequest
+	62,  // 31: appsearch.SearchSpecService.IsNumericSearchEnabled:input_type -> appsearch.IsNumericSearchEnabledRequest
+	64,  // 32: appsearch.SearchSpecService.IsScorablePropertyRankingEnabled:input_type -> appsearch.IsScorablePropertyRankingEnabledRequest
+	66,  // 33: appsearch.SearchSpecService.IsVerbatimSearchEnabled:input_type -> appsearch.IsVerbatimSearchEnabledRequest
+	68,  // 34: appsearch.SearchSpecService.WriteToParcel:input_type -> appsearch.WriteToParcelRequest
+	70,  // 35: appsearch.SearchSpecBuilderService.AddEmbeddingParameters:input_type -> appsearch.AddEmbeddingParametersRequest
+	72,  // 36: appsearch.SearchSpecBuilderService.AddFilterDocumentIds:input_type -> appsearch.AddFilterDocumentIdsRequest
+	74,  // 37: appsearch.SearchSpecBuilderService.AddFilterNamespaces:input_type -> appsearch.AddFilterNamespacesRequest
+	76,  // 38: appsearch.SearchSpecBuilderService.AddFilterPackageNames:input_type -> appsearch.AddFilterPackageNamesRequest
+	78,  // 39: appsearch.SearchSpecBuilderService.AddFilterSchemas:input_type -> appsearch.AddFilterSchemasRequest
+	80,  // 40: appsearch.SearchSpecBuilderService.AddInformationalRankingExpressions:input_type -> appsearch.AddInformationalRankingExpressionsRequest
+	82,  // 41: appsearch.SearchSpecBuilderService.AddSearchStringParameters:input_type -> appsearch.AddSearchStringParametersRequest
+	24,  // 42: appsearch.SearchSpecBuilderService.Build:input_type -> appsearch.BuildRequest
+	84,  // 43: appsearch.SearchSpecBuilderService.ClearEmbeddingParameters:input_type -> appsearch.ClearEmbeddingParametersRequest
+	86,  // 44: appsearch.SearchSpecBuilderService.ClearFilterDocumentIds:input_type -> appsearch.ClearFilterDocumentIdsRequest
+	88,  // 45: appsearch.SearchSpecBuilderService.ClearFilterNamespaces:input_type -> appsearch.ClearFilterNamespacesRequest
+	90,  // 46: appsearch.SearchSpecBuilderService.ClearFilterPackageNames:input_type -> appsearch.ClearFilterPackageNamesRequest
+	92,  // 47: appsearch.SearchSpecBuilderService.ClearFilterProperties:input_type -> appsearch.ClearFilterPropertiesRequest
+	94,  // 48: appsearch.SearchSpecBuilderService.ClearFilterSchemas:input_type -> appsearch.ClearFilterSchemasRequest
+	96,  // 49: appsearch.SearchSpecBuilderService.ClearInformationalRankingExpressions:input_type -> appsearch.ClearInformationalRankingExpressionsRequest
+	98,  // 50: appsearch.SearchSpecBuilderService.ClearJoinSpec:input_type -> appsearch.ClearJoinSpecRequest
+	100, // 51: appsearch.SearchSpecBuilderService.ClearProjections:input_type -> appsearch.ClearProjectionsRequest
+	102, // 52: appsearch.SearchSpecBuilderService.ClearPropertyWeights:input_type -> appsearch.ClearPropertyWeightsRequest
+	104, // 53: appsearch.SearchSpecBuilderService.ClearResultGrouping:input_type -> appsearch.ClearResultGroupingRequest
+	106, // 54: appsearch.SearchSpecBuilderService.ClearSearchSourceLogTag:input_type -> appsearch.ClearSearchSourceLogTagRequest
+	108, // 55: appsearch.SearchSpecBuilderService.ClearSearchStringParameters:input_type -> appsearch.ClearSearchStringParametersRequest
+	110, // 56: appsearch.SearchSpecBuilderService.SetDefaultEmbeddingSearchMetricType:input_type -> appsearch.SetDefaultEmbeddingSearchMetricTypeRequest
+	112, // 57: appsearch.SearchSpecBuilderService.SetJoinSpec:input_type -> appsearch.SetJoinSpecRequest
+	114, // 58: appsearch.SearchSpecBuilderService.SetListFilterHasPropertyFunctionEnabled:input_type -> appsearch.SetListFilterHasPropertyFunctionEnabledRequest
+	116, // 59: appsearch.SearchSpecBuilderService.SetListFilterMatchScoreExpressionFunctionEnabled:input_type -> appsearch.SetListFilterMatchScoreExpressionFunctionEnabledRequest
+	118, // 60: appsearch.SearchSpecBuilderService.SetListFilterQueryLanguageEnabled:input_type -> appsearch.SetListFilterQueryLanguageEnabledRequest
+	120, // 61: appsearch.SearchSpecBuilderService.SetMaxSnippetSize:input_type -> appsearch.SetMaxSnippetSizeRequest
+	122, // 62: appsearch.SearchSpecBuilderService.SetNumericSearchEnabled:input_type -> appsearch.SetNumericSearchEnabledRequest
+	124, // 63: appsearch.SearchSpecBuilderService.SetOrder:input_type -> appsearch.SetOrderRequest
+	126, // 64: appsearch.SearchSpecBuilderService.SetRankingStrategy1:input_type -> appsearch.SetRankingStrategy1Request
+	128, // 65: appsearch.SearchSpecBuilderService.SetRankingStrategy1_1:input_type -> appsearch.SetRankingStrategy1_1Request
+	130, // 66: appsearch.SearchSpecBuilderService.SetResultCountPerPage:input_type -> appsearch.SetResultCountPerPageRequest
+	132, // 67: appsearch.SearchSpecBuilderService.SetResultGrouping:input_type -> appsearch.SetResultGroupingRequest
+	134, // 68: appsearch.SearchSpecBuilderService.SetScorablePropertyRankingEnabled:input_type -> appsearch.SetScorablePropertyRankingEnabledRequest
+	136, // 69: appsearch.SearchSpecBuilderService.SetSearchSourceLogTag:input_type -> appsearch.SetSearchSourceLogTagRequest
+	138, // 70: appsearch.SearchSpecBuilderService.SetSnippetCount:input_type -> appsearch.SetSnippetCountRequest
+	140, // 71: appsearch.SearchSpecBuilderService.SetSnippetCountPerProperty:input_type -> appsearch.SetSnippetCountPerPropertyRequest
+	142, // 72: appsearch.SearchSpecBuilderService.SetTermMatch:input_type -> appsearch.SetTermMatchRequest
+	144, // 73: appsearch.SearchSpecBuilderService.SetVerbatimSearchEnabled:input_type -> appsearch.SetVerbatimSearchEnabledRequest
+	146, // 74: appsearch.RemoveBlobResponseService.NewRemoveBlobResponse:input_type -> appsearch.NewRemoveBlobResponseRequest
+	148, // 75: appsearch.RemoveBlobResponseService.DescribeContents:input_type -> appsearch.RemoveBlobResponseDescribeContentsRequest
+	149, // 76: appsearch.RemoveBlobResponseService.WriteToParcel:input_type -> appsearch.RemoveBlobResponseWriteToParcelRequest
+	150, // 77: appsearch.GlobalSearchSessionService.Close:input_type -> appsearch.CloseRequest
+	152, // 78: appsearch.GlobalSearchSessionService.RegisterObserverCallback:input_type -> appsearch.RegisterObserverCallbackRequest
+	154, // 79: appsearch.GlobalSearchSessionService.Search:input_type -> appsearch.SearchRequest
+	156, // 80: appsearch.GlobalSearchSessionService.UnregisterObserverCallback:input_type -> appsearch.UnregisterObserverCallbackRequest
+	158, // 81: appsearch.SetBlobVisibilityRequestBuilderService.AddNamespaceVisibleToConfig:input_type -> appsearch.AddNamespaceVisibleToConfigRequest
+	24,  // 82: appsearch.SetBlobVisibilityRequestBuilderService.Build:input_type -> appsearch.BuildRequest
+	160, // 83: appsearch.SetBlobVisibilityRequestBuilderService.ClearNamespaceVisibleToConfigs:input_type -> appsearch.ClearNamespaceVisibleToConfigsRequest
+	162, // 84: appsearch.SetBlobVisibilityRequestBuilderService.SetNamespaceDisplayedBySystem:input_type -> appsearch.SetNamespaceDisplayedBySystemRequest
+	28,  // 85: appsearch.SchemaVisibilityConfigService.DescribeContents:input_type -> appsearch.DescribeContentsRequest
+	0,   // 86: appsearch.SchemaVisibilityConfigService.Equals:input_type -> appsearch.EqualsRequest
+	164, // 87: appsearch.SchemaVisibilityConfigService.GetPubliclyVisibleTargetPackage:input_type -> appsearch.GetPubliclyVisibleTargetPackageRequest
+	8,   // 88: appsearch.SchemaVisibilityConfigService.HashCode:input_type -> appsearch.HashCodeRequest
+	68,  // 89: appsearch.SchemaVisibilityConfigService.WriteToParcel:input_type -> appsearch.WriteToParcelRequest
+	166, // 90: appsearch.SchemaVisibilityConfigBuilderService.AddAllowedPackage:input_type -> appsearch.AddAllowedPackageRequest
+	24,  // 91: appsearch.SchemaVisibilityConfigBuilderService.Build:input_type -> appsearch.BuildRequest
+	168, // 92: appsearch.SchemaVisibilityConfigBuilderService.ClearAllowedPackages:input_type -> appsearch.ClearAllowedPackagesRequest
+	170, // 93: appsearch.SchemaVisibilityConfigBuilderService.ClearRequiredPermissions:input_type -> appsearch.ClearRequiredPermissionsRequest
+	172, // 94: appsearch.SchemaVisibilityConfigBuilderService.SetPubliclyVisibleTargetPackage:input_type -> appsearch.SetPubliclyVisibleTargetPackageRequest
+	28,  // 95: appsearch.SearchResultService.DescribeContents:input_type -> appsearch.DescribeContentsRequest
+	14,  // 96: appsearch.SearchResultService.GetDatabaseName:input_type -> appsearch.GetDatabaseNameRequest
+	174, // 97: appsearch.SearchResultService.GetGenericDocument:input_type -> appsearch.GetGenericDocumentRequest
+	20,  // 98: appsearch.SearchResultService.GetPackageName:input_type -> appsearch.GetPackageNameRequest
+	176, // 99: appsearch.SearchResultService.GetRankingSignal:input_type -> appsearch.GetRankingSignalRequest
+	68,  // 100: appsearch.SearchResultService.WriteToParcel:input_type -> appsearch.WriteToParcelRequest
+	178, // 101: appsearch.SearchResultBuilderService.AddInformationalRankingSignal:input_type -> appsearch.AddInformationalRankingSignalRequest
+	180, // 102: appsearch.SearchResultBuilderService.AddJoinedResult:input_type -> appsearch.AddJoinedResultRequest
+	182, // 103: appsearch.SearchResultBuilderService.AddMatchInfo:input_type -> appsearch.AddMatchInfoRequest
+	24,  // 104: appsearch.SearchResultBuilderService.Build:input_type -> appsearch.BuildRequest
+	184, // 105: appsearch.SearchResultBuilderService.SetGenericDocument:input_type -> appsearch.SetGenericDocumentRequest
+	186, // 106: appsearch.SearchResultBuilderService.SetRankingSignal:input_type -> appsearch.SetRankingSignalRequest
+	28,  // 107: appsearch.SearchResultMatchInfoService.DescribeContents:input_type -> appsearch.DescribeContentsRequest
+	188, // 108: appsearch.SearchResultMatchInfoService.GetExactMatch:input_type -> appsearch.GetExactMatchRequest
+	190, // 109: appsearch.SearchResultMatchInfoService.GetExactMatchRange:input_type -> appsearch.GetExactMatchRangeRequest
+	192, // 110: appsearch.SearchResultMatchInfoService.GetFullText:input_type -> appsearch.GetFullTextRequest
+	194, // 111: appsearch.SearchResultMatchInfoService.GetPropertyPath:input_type -> appsearch.GetPropertyPathRequest
+	196, // 112: appsearch.SearchResultMatchInfoService.GetPropertyPathObject:input_type -> appsearch.GetPropertyPathObjectRequest
+	198, // 113: appsearch.SearchResultMatchInfoService.GetSnippet:input_type -> appsearch.GetSnippetRequest
+	200, // 114: appsearch.SearchResultMatchInfoService.GetSnippetRange:input_type -> appsearch.GetSnippetRangeRequest
+	202, // 115: appsearch.SearchResultMatchInfoService.GetSubmatch:input_type -> appsearch.GetSubmatchRequest
+	204, // 116: appsearch.SearchResultMatchInfoService.GetSubmatchRange:input_type -> appsearch.GetSubmatchRangeRequest
+	68,  // 117: appsearch.SearchResultMatchInfoService.WriteToParcel:input_type -> appsearch.WriteToParcelRequest
+	0,   // 118: appsearch.SearchResultMatchRangeService.Equals:input_type -> appsearch.EqualsRequest
+	206, // 119: appsearch.SearchResultMatchRangeService.GetEnd:input_type -> appsearch.GetEndRequest
+	208, // 120: appsearch.SearchResultMatchRangeService.GetStart:input_type -> appsearch.GetStartRequest
+	8,   // 121: appsearch.SearchResultMatchRangeService.HashCode:input_type -> appsearch.HashCodeRequest
+	12,  // 122: appsearch.SearchResultMatchRangeService.ToString:input_type -> appsearch.ToStringRequest
+	28,  // 123: appsearch.SearchSuggestionSpecService.DescribeContents:input_type -> appsearch.DescribeContentsRequest
+	210, // 124: appsearch.SearchSuggestionSpecService.GetMaximumResultCount:input_type -> appsearch.GetMaximumResultCountRequest
+	40,  // 125: appsearch.SearchSuggestionSpecService.GetRankingStrategy:input_type -> appsearch.GetRankingStrategyRequest
+	68,  // 126: appsearch.SearchSuggestionSpecService.WriteToParcel:input_type -> appsearch.WriteToParcelRequest
+	212, // 127: appsearch.SearchSuggestionSpecBuilderService.AddFilterDocumentIds:input_type -> appsearch.SearchSuggestionSpecBuilderAddFilterDocumentIdsRequest
+	74,  // 128: appsearch.SearchSuggestionSpecBuilderService.AddFilterNamespaces:input_type -> appsearch.AddFilterNamespacesRequest
+	78,  // 129: appsearch.SearchSuggestionSpecBuilderService.AddFilterSchemas:input_type -> appsearch.AddFilterSchemasRequest
+	82,  // 130: appsearch.SearchSuggestionSpecBuilderService.AddSearchStringParameters:input_type -> appsearch.AddSearchStringParametersRequest
+	24,  // 131: appsearch.SearchSuggestionSpecBuilderService.Build:input_type -> appsearch.BuildRequest
+	213, // 132: appsearch.SearchSuggestionSpecBuilderService.SetRankingStrategy:input_type -> appsearch.SetRankingStrategyRequest
+	215, // 133: appsearch.CommitBlobResponseService.NewCommitBlobResponse:input_type -> appsearch.NewCommitBlobResponseRequest
+	217, // 134: appsearch.CommitBlobResponseService.DescribeContents:input_type -> appsearch.CommitBlobResponseDescribeContentsRequest
+	218, // 135: appsearch.CommitBlobResponseService.WriteToParcel:input_type -> appsearch.CommitBlobResponseWriteToParcelRequest
+	28,  // 136: appsearch.GetSchemaResponseService.DescribeContents:input_type -> appsearch.DescribeContentsRequest
+	219, // 137: appsearch.GetSchemaResponseService.GetVersion:input_type -> appsearch.GetVersionRequest
+	68,  // 138: appsearch.GetSchemaResponseService.WriteToParcel:input_type -> appsearch.WriteToParcelRequest
+	221, // 139: appsearch.GetSchemaResponseBuilderService.AddSchema:input_type -> appsearch.AddSchemaRequest
+	223, // 140: appsearch.GetSchemaResponseBuilderService.AddSchemaTypeNotDisplayedBySystem:input_type -> appsearch.AddSchemaTypeNotDisplayedBySystemRequest
+	24,  // 141: appsearch.GetSchemaResponseBuilderService.Build:input_type -> appsearch.BuildRequest
+	225, // 142: appsearch.GetSchemaResponseBuilderService.ClearPubliclyVisibleSchema:input_type -> appsearch.ClearPubliclyVisibleSchemaRequest
+	227, // 143: appsearch.GetSchemaResponseBuilderService.ClearRequiredPermissionsForSchemaTypeVisibility:input_type -> appsearch.ClearRequiredPermissionsForSchemaTypeVisibilityRequest
+	229, // 144: appsearch.GetSchemaResponseBuilderService.ClearSchemaTypeNotDisplayedBySystem:input_type -> appsearch.ClearSchemaTypeNotDisplayedBySystemRequest
+	231, // 145: appsearch.GetSchemaResponseBuilderService.ClearSchemaTypeVisibleToConfigs:input_type -> appsearch.ClearSchemaTypeVisibleToConfigsRequest
+	233, // 146: appsearch.GetSchemaResponseBuilderService.ClearSchemaTypeVisibleToPackages:input_type -> appsearch.ClearSchemaTypeVisibleToPackagesRequest
+	235, // 147: appsearch.GetSchemaResponseBuilderService.ClearSchemas:input_type -> appsearch.ClearSchemasRequest
+	237, // 148: appsearch.GetSchemaResponseBuilderService.SetPubliclyVisibleSchema:input_type -> appsearch.SetPubliclyVisibleSchemaRequest
+	239, // 149: appsearch.GetSchemaResponseBuilderService.SetVersion:input_type -> appsearch.SetVersionRequest
+	241, // 150: appsearch.OpenBlobForReadResponseService.NewOpenBlobForReadResponse:input_type -> appsearch.NewOpenBlobForReadResponseRequest
+	243, // 151: appsearch.OpenBlobForReadResponseService.Close:input_type -> appsearch.OpenBlobForReadResponseCloseRequest
+	244, // 152: appsearch.OpenBlobForReadResponseService.DescribeContents:input_type -> appsearch.OpenBlobForReadResponseDescribeContentsRequest
+	245, // 153: appsearch.OpenBlobForReadResponseService.WriteToParcel:input_type -> appsearch.OpenBlobForReadResponseWriteToParcelRequest
+	246, // 154: appsearch.MigratorService.OnDowngrade:input_type -> appsearch.OnDowngradeRequest
+	248, // 155: appsearch.MigratorService.OnUpgrade:input_type -> appsearch.OnUpgradeRequest
+	250, // 156: appsearch.MigratorService.ShouldMigrate:input_type -> appsearch.ShouldMigrateRequest
+	28,  // 157: appsearch.AppSearchSchemaService.DescribeContents:input_type -> appsearch.DescribeContentsRequest
+	0,   // 158: appsearch.AppSearchSchemaService.Equals:input_type -> appsearch.EqualsRequest
+	252, // 159: appsearch.AppSearchSchemaService.GetSchemaType:input_type -> appsearch.GetSchemaTypeRequest
+	8,   // 160: appsearch.AppSearchSchemaService.HashCode:input_type -> appsearch.HashCodeRequest
+	12,  // 161: appsearch.AppSearchSchemaService.ToString:input_type -> appsearch.ToStringRequest
+	68,  // 162: appsearch.AppSearchSchemaService.WriteToParcel:input_type -> appsearch.WriteToParcelRequest
+	254, // 163: appsearch.AppSearchSchemaBooleanPropertyConfigService.IsScoringEnabled:input_type -> appsearch.IsScoringEnabledRequest
+	256, // 164: appsearch.AppSearchSchemaBuilderService.AddParentType:input_type -> appsearch.AddParentTypeRequest
+	258, // 165: appsearch.AppSearchSchemaBuilderService.AddProperty:input_type -> appsearch.AddPropertyRequest
+	24,  // 166: appsearch.AppSearchSchemaBuilderService.Build:input_type -> appsearch.BuildRequest
+	260, // 167: appsearch.AppSearchSchemaBuilderService.ClearParentTypes:input_type -> appsearch.ClearParentTypesRequest
+	262, // 168: appsearch.AppSearchSchemaBuilderService.ClearProperties:input_type -> appsearch.ClearPropertiesRequest
+	264, // 169: appsearch.AppSearchSchemaBuilderService.SetSchemaType:input_type -> appsearch.SetSchemaTypeRequest
+	252, // 170: appsearch.AppSearchSchemaDocumentPropertyConfigService.GetSchemaType:input_type -> appsearch.GetSchemaTypeRequest
+	266, // 171: appsearch.AppSearchSchemaDocumentPropertyConfigService.ShouldIndexNestedProperties:input_type -> appsearch.ShouldIndexNestedPropertiesRequest
+	254, // 172: appsearch.AppSearchSchemaDoublePropertyConfigService.IsScoringEnabled:input_type -> appsearch.IsScoringEnabledRequest
+	268, // 173: appsearch.AppSearchSchemaEmbeddingPropertyConfigService.GetIndexingType:input_type -> appsearch.GetIndexingTypeRequest
+	270, // 174: appsearch.AppSearchSchemaEmbeddingPropertyConfigService.GetQuantizationType:input_type -> appsearch.GetQuantizationTypeRequest
+	268, // 175: appsearch.AppSearchSchemaLongPropertyConfigService.GetIndexingType:input_type -> appsearch.GetIndexingTypeRequest
+	254, // 176: appsearch.AppSearchSchemaLongPropertyConfigService.IsScoringEnabled:input_type -> appsearch.IsScoringEnabledRequest
+	0,   // 177: appsearch.AppSearchSchemaPropertyConfigService.Equals:input_type -> appsearch.EqualsRequest
+	272, // 178: appsearch.AppSearchSchemaPropertyConfigService.GetCardinality:input_type -> appsearch.GetCardinalityRequest
+	274, // 179: appsearch.AppSearchSchemaPropertyConfigService.GetName:input_type -> appsearch.GetNameRequest
+	8,   // 180: appsearch.AppSearchSchemaPropertyConfigService.HashCode:input_type -> appsearch.HashCodeRequest
+	12,  // 181: appsearch.AppSearchSchemaPropertyConfigService.ToString:input_type -> appsearch.ToStringRequest
+	268, // 182: appsearch.AppSearchSchemaStringPropertyConfigService.GetIndexingType:input_type -> appsearch.GetIndexingTypeRequest
+	276, // 183: appsearch.AppSearchSchemaStringPropertyConfigService.GetJoinableValueType:input_type -> appsearch.GetJoinableValueTypeRequest
+	278, // 184: appsearch.AppSearchSchemaStringPropertyConfigService.GetTokenizerType:input_type -> appsearch.GetTokenizerTypeRequest
+	28,  // 185: appsearch.SetSchemaResponseService.DescribeContents:input_type -> appsearch.DescribeContentsRequest
+	68,  // 186: appsearch.SetSchemaResponseService.WriteToParcel:input_type -> appsearch.WriteToParcelRequest
+	280, // 187: appsearch.SetSchemaResponseBuilderService.AddDeletedType:input_type -> appsearch.AddDeletedTypeRequest
+	282, // 188: appsearch.SetSchemaResponseBuilderService.AddIncompatibleType:input_type -> appsearch.AddIncompatibleTypeRequest
+	284, // 189: appsearch.SetSchemaResponseBuilderService.AddMigratedType:input_type -> appsearch.AddMigratedTypeRequest
+	286, // 190: appsearch.SetSchemaResponseBuilderService.AddMigrationFailure:input_type -> appsearch.AddMigrationFailureRequest
+	24,  // 191: appsearch.SetSchemaResponseBuilderService.Build:input_type -> appsearch.BuildRequest
+	28,  // 192: appsearch.SetSchemaResponseMigrationFailureService.DescribeContents:input_type -> appsearch.DescribeContentsRequest
+	16,  // 193: appsearch.SetSchemaResponseMigrationFailureService.GetDocumentId:input_type -> appsearch.GetDocumentIdRequest
+	18,  // 194: appsearch.SetSchemaResponseMigrationFailureService.GetNamespace:input_type -> appsearch.GetNamespaceRequest
+	252, // 195: appsearch.SetSchemaResponseMigrationFailureService.GetSchemaType:input_type -> appsearch.GetSchemaTypeRequest
+	12,  // 196: appsearch.SetSchemaResponseMigrationFailureService.ToString:input_type -> appsearch.ToStringRequest
+	68,  // 197: appsearch.SetSchemaResponseMigrationFailureService.WriteToParcel:input_type -> appsearch.WriteToParcelRequest
+	288, // 198: appsearch.PackageIdentifierService.NewPackageIdentifier:input_type -> appsearch.NewPackageIdentifierRequest
+	290, // 199: appsearch.PackageIdentifierService.Equals:input_type -> appsearch.PackageIdentifierEqualsRequest
+	291, // 200: appsearch.PackageIdentifierService.GetPackageName:input_type -> appsearch.PackageIdentifierGetPackageNameRequest
+	292, // 201: appsearch.PackageIdentifierService.GetSha256Certificate:input_type -> appsearch.GetSha256CertificateRequest
+	294, // 202: appsearch.PackageIdentifierService.HashCode:input_type -> appsearch.PackageIdentifierHashCodeRequest
+	295, // 203: appsearch.OpenBlobForWriteResponseService.NewOpenBlobForWriteResponse:input_type -> appsearch.NewOpenBlobForWriteResponseRequest
+	297, // 204: appsearch.OpenBlobForWriteResponseService.Close:input_type -> appsearch.OpenBlobForWriteResponseCloseRequest
+	298, // 205: appsearch.OpenBlobForWriteResponseService.DescribeContents:input_type -> appsearch.OpenBlobForWriteResponseDescribeContentsRequest
+	299, // 206: appsearch.OpenBlobForWriteResponseService.WriteToParcel:input_type -> appsearch.OpenBlobForWriteResponseWriteToParcelRequest
+	28,  // 207: appsearch.GetByDocumentIdRequestService.DescribeContents:input_type -> appsearch.DescribeContentsRequest
+	18,  // 208: appsearch.GetByDocumentIdRequestService.GetNamespace:input_type -> appsearch.GetNamespaceRequest
+	68,  // 209: appsearch.GetByDocumentIdRequestService.WriteToParcel:input_type -> appsearch.WriteToParcelRequest
+	300, // 210: appsearch.GetByDocumentIdRequestBuilderService.AddIds:input_type -> appsearch.AddIdsRequest
+	24,  // 211: appsearch.GetByDocumentIdRequestBuilderService.Build:input_type -> appsearch.BuildRequest
+	154, // 212: appsearch.EnterpriseGlobalSearchSessionService.Search:input_type -> appsearch.SearchRequest
+	14,  // 213: appsearch.AppSearchManagerSearchContextService.GetDatabaseName:input_type -> appsearch.GetDatabaseNameRequest
+	150, // 214: appsearch.SearchResultsService.Close:input_type -> appsearch.CloseRequest
+	302, // 215: appsearch.PutDocumentsRequestBuilderService.AddGenericDocuments:input_type -> appsearch.AddGenericDocumentsRequest
+	304, // 216: appsearch.PutDocumentsRequestBuilderService.AddTakenActionGenericDocuments:input_type -> appsearch.AddTakenActionGenericDocumentsRequest
+	24,  // 217: appsearch.PutDocumentsRequestBuilderService.Build:input_type -> appsearch.BuildRequest
+	28,  // 218: appsearch.ReportUsageRequestService.DescribeContents:input_type -> appsearch.DescribeContentsRequest
+	16,  // 219: appsearch.ReportUsageRequestService.GetDocumentId:input_type -> appsearch.GetDocumentIdRequest
+	18,  // 220: appsearch.ReportUsageRequestService.GetNamespace:input_type -> appsearch.GetNamespaceRequest
+	22,  // 221: appsearch.ReportUsageRequestService.GetUsageTimestampMillis:input_type -> appsearch.GetUsageTimestampMillisRequest
+	68,  // 222: appsearch.ReportUsageRequestService.WriteToParcel:input_type -> appsearch.WriteToParcelRequest
+	24,  // 223: appsearch.ReportUsageRequestBuilderService.Build:input_type -> appsearch.BuildRequest
+	26,  // 224: appsearch.ReportUsageRequestBuilderService.SetUsageTimestampMillis:input_type -> appsearch.SetUsageTimestampMillisRequest
+	28,  // 225: appsearch.StorageInfoService.DescribeContents:input_type -> appsearch.DescribeContentsRequest
+	306, // 226: appsearch.StorageInfoService.GetAliveDocumentsCount:input_type -> appsearch.GetAliveDocumentsCountRequest
+	308, // 227: appsearch.StorageInfoService.GetAliveNamespacesCount:input_type -> appsearch.GetAliveNamespacesCountRequest
+	310, // 228: appsearch.StorageInfoService.GetBlobsCount:input_type -> appsearch.GetBlobsCountRequest
+	312, // 229: appsearch.StorageInfoService.GetBlobsSizeBytes:input_type -> appsearch.GetBlobsSizeBytesRequest
+	314, // 230: appsearch.StorageInfoService.GetSizeBytes:input_type -> appsearch.GetSizeBytesRequest
+	68,  // 231: appsearch.StorageInfoService.WriteToParcel:input_type -> appsearch.WriteToParcelRequest
+	24,  // 232: appsearch.StorageInfoBuilderService.Build:input_type -> appsearch.BuildRequest
+	316, // 233: appsearch.StorageInfoBuilderService.SetAliveDocumentsCount:input_type -> appsearch.SetAliveDocumentsCountRequest
+	318, // 234: appsearch.StorageInfoBuilderService.SetAliveNamespacesCount:input_type -> appsearch.SetAliveNamespacesCountRequest
+	320, // 235: appsearch.StorageInfoBuilderService.SetBlobsCount:input_type -> appsearch.SetBlobsCountRequest
+	322, // 236: appsearch.StorageInfoBuilderService.SetBlobsSizeBytes:input_type -> appsearch.SetBlobsSizeBytesRequest
+	324, // 237: appsearch.StorageInfoBuilderService.SetSizeBytes:input_type -> appsearch.SetSizeBytesRequest
+	0,   // 238: appsearch.GenericDocumentService.Equals:input_type -> appsearch.EqualsRequest
+	326, // 239: appsearch.GenericDocumentService.GetCreationTimestampMillis:input_type -> appsearch.GetCreationTimestampMillisRequest
+	328, // 240: appsearch.GenericDocumentService.GetId:input_type -> appsearch.GetIdRequest
+	18,  // 241: appsearch.GenericDocumentService.GetNamespace:input_type -> appsearch.GetNamespaceRequest
+	330, // 242: appsearch.GenericDocumentService.GetProperty:input_type -> appsearch.GetPropertyRequest
+	332, // 243: appsearch.GenericDocumentService.GetPropertyBlobHandle:input_type -> appsearch.GetPropertyBlobHandleRequest
+	334, // 244: appsearch.GenericDocumentService.GetPropertyBlobHandleArray:input_type -> appsearch.GetPropertyBlobHandleArrayRequest
+	336, // 245: appsearch.GenericDocumentService.GetPropertyBoolean:input_type -> appsearch.GetPropertyBooleanRequest
+	338, // 246: appsearch.GenericDocumentService.GetPropertyBooleanArray:input_type -> appsearch.GetPropertyBooleanArrayRequest
+	340, // 247: appsearch.GenericDocumentService.GetPropertyBytes:input_type -> appsearch.GetPropertyBytesRequest
+	342, // 248: appsearch.GenericDocumentService.GetPropertyBytesArray:input_type -> appsearch.GetPropertyBytesArrayRequest
+	344, // 249: appsearch.GenericDocumentService.GetPropertyDocument:input_type -> appsearch.GetPropertyDocumentRequest
+	346, // 250: appsearch.GenericDocumentService.GetPropertyDocumentArray:input_type -> appsearch.GetPropertyDocumentArrayRequest
+	348, // 251: appsearch.GenericDocumentService.GetPropertyDouble:input_type -> appsearch.GetPropertyDoubleRequest
+	350, // 252: appsearch.GenericDocumentService.GetPropertyDoubleArray:input_type -> appsearch.GetPropertyDoubleArrayRequest
+	352, // 253: appsearch.GenericDocumentService.GetPropertyEmbedding:input_type -> appsearch.GetPropertyEmbeddingRequest
+	354, // 254: appsearch.GenericDocumentService.GetPropertyEmbeddingArray:input_type -> appsearch.GetPropertyEmbeddingArrayRequest
+	356, // 255: appsearch.GenericDocumentService.GetPropertyLong:input_type -> appsearch.GetPropertyLongRequest
+	358, // 256: appsearch.GenericDocumentService.GetPropertyLongArray:input_type -> appsearch.GetPropertyLongArrayRequest
+	360, // 257: appsearch.GenericDocumentService.GetPropertyString:input_type -> appsearch.GetPropertyStringRequest
+	362, // 258: appsearch.GenericDocumentService.GetPropertyStringArray:input_type -> appsearch.GetPropertyStringArrayRequest
+	252, // 259: appsearch.GenericDocumentService.GetSchemaType:input_type -> appsearch.GetSchemaTypeRequest
+	364, // 260: appsearch.GenericDocumentService.GetScore:input_type -> appsearch.GetScoreRequest
+	366, // 261: appsearch.GenericDocumentService.GetTtlMillis:input_type -> appsearch.GetTtlMillisRequest
+	8,   // 262: appsearch.GenericDocumentService.HashCode:input_type -> appsearch.HashCodeRequest
+	12,  // 263: appsearch.GenericDocumentService.ToString:input_type -> appsearch.ToStringRequest
+	368, // 264: appsearch.GenericDocumentService.GetMaxIndexedProperties:input_type -> appsearch.GetMaxIndexedPropertiesRequest
+	24,  // 265: appsearch.GenericDocumentBuilderService.Build:input_type -> appsearch.BuildRequest
+	370, // 266: appsearch.GenericDocumentBuilderService.ClearProperty:input_type -> appsearch.ClearPropertyRequest
+	372, // 267: appsearch.GenericDocumentBuilderService.SetCreationTimestampMillis:input_type -> appsearch.SetCreationTimestampMillisRequest
+	374, // 268: appsearch.GenericDocumentBuilderService.SetId:input_type -> appsearch.SetIdRequest
+	376, // 269: appsearch.GenericDocumentBuilderService.SetNamespace:input_type -> appsearch.SetNamespaceRequest
+	378, // 270: appsearch.GenericDocumentBuilderService.SetPropertyBlobHandle:input_type -> appsearch.SetPropertyBlobHandleRequest
+	380, // 271: appsearch.GenericDocumentBuilderService.SetPropertyBoolean:input_type -> appsearch.SetPropertyBooleanRequest
+	382, // 272: appsearch.GenericDocumentBuilderService.SetPropertyBytes:input_type -> appsearch.SetPropertyBytesRequest
+	384, // 273: appsearch.GenericDocumentBuilderService.SetPropertyDocument:input_type -> appsearch.SetPropertyDocumentRequest
+	386, // 274: appsearch.GenericDocumentBuilderService.SetPropertyDouble:input_type -> appsearch.SetPropertyDoubleRequest
+	388, // 275: appsearch.GenericDocumentBuilderService.SetPropertyEmbedding:input_type -> appsearch.SetPropertyEmbeddingRequest
+	390, // 276: appsearch.GenericDocumentBuilderService.SetPropertyLong:input_type -> appsearch.SetPropertyLongRequest
+	392, // 277: appsearch.GenericDocumentBuilderService.SetPropertyString:input_type -> appsearch.SetPropertyStringRequest
+	264, // 278: appsearch.GenericDocumentBuilderService.SetSchemaType:input_type -> appsearch.SetSchemaTypeRequest
+	394, // 279: appsearch.GenericDocumentBuilderService.SetScore:input_type -> appsearch.SetScoreRequest
+	396, // 280: appsearch.GenericDocumentBuilderService.SetTtlMillis:input_type -> appsearch.SetTtlMillisRequest
+	28,  // 281: appsearch.AppSearchBlobHandleService.DescribeContents:input_type -> appsearch.DescribeContentsRequest
+	0,   // 282: appsearch.AppSearchBlobHandleService.Equals:input_type -> appsearch.EqualsRequest
+	14,  // 283: appsearch.AppSearchBlobHandleService.GetDatabaseName:input_type -> appsearch.GetDatabaseNameRequest
+	18,  // 284: appsearch.AppSearchBlobHandleService.GetNamespace:input_type -> appsearch.GetNamespaceRequest
+	20,  // 285: appsearch.AppSearchBlobHandleService.GetPackageName:input_type -> appsearch.GetPackageNameRequest
+	398, // 286: appsearch.AppSearchBlobHandleService.GetSha256Digest:input_type -> appsearch.GetSha256DigestRequest
+	8,   // 287: appsearch.AppSearchBlobHandleService.HashCode:input_type -> appsearch.HashCodeRequest
+	12,  // 288: appsearch.AppSearchBlobHandleService.ToString:input_type -> appsearch.ToStringRequest
+	68,  // 289: appsearch.AppSearchBlobHandleService.WriteToParcel:input_type -> appsearch.WriteToParcelRequest
+	400, // 290: appsearch.AppSearchBlobHandleService.CreateWithSha256:input_type -> appsearch.CreateWithSha256Request
+	150, // 291: appsearch.AppSearchSessionService.Close:input_type -> appsearch.CloseRequest
+	154, // 292: appsearch.AppSearchSessionService.Search:input_type -> appsearch.SearchRequest
+	28,  // 293: appsearch.SearchSuggestionResultService.DescribeContents:input_type -> appsearch.DescribeContentsRequest
+	0,   // 294: appsearch.SearchSuggestionResultService.Equals:input_type -> appsearch.EqualsRequest
+	402, // 295: appsearch.SearchSuggestionResultService.GetSuggestedResult:input_type -> appsearch.GetSuggestedResultRequest
+	8,   // 296: appsearch.SearchSuggestionResultService.HashCode:input_type -> appsearch.HashCodeRequest
+	68,  // 297: appsearch.SearchSuggestionResultService.WriteToParcel:input_type -> appsearch.WriteToParcelRequest
+	24,  // 298: appsearch.SearchSuggestionResultBuilderService.Build:input_type -> appsearch.BuildRequest
+	404, // 299: appsearch.SearchSuggestionResultBuilderService.SetSuggestedResult:input_type -> appsearch.SetSuggestedResultRequest
+	28,  // 300: appsearch.RemoveByDocumentIdRequestService.DescribeContents:input_type -> appsearch.DescribeContentsRequest
+	18,  // 301: appsearch.RemoveByDocumentIdRequestService.GetNamespace:input_type -> appsearch.GetNamespaceRequest
+	68,  // 302: appsearch.RemoveByDocumentIdRequestService.WriteToParcel:input_type -> appsearch.WriteToParcelRequest
+	300, // 303: appsearch.RemoveByDocumentIdRequestBuilderService.AddIds:input_type -> appsearch.AddIdsRequest
+	24,  // 304: appsearch.RemoveByDocumentIdRequestBuilderService.Build:input_type -> appsearch.BuildRequest
+	0,   // 305: appsearch.SetSchemaRequestService.Equals:input_type -> appsearch.EqualsRequest
+	219, // 306: appsearch.SetSchemaRequestService.GetVersion:input_type -> appsearch.GetVersionRequest
+	8,   // 307: appsearch.SetSchemaRequestService.HashCode:input_type -> appsearch.HashCodeRequest
+	406, // 308: appsearch.SetSchemaRequestService.IsForceOverride:input_type -> appsearch.IsForceOverrideRequest
+	408, // 309: appsearch.SetSchemaRequestBuilderService.AddSchemaTypeVisibleToConfig:input_type -> appsearch.AddSchemaTypeVisibleToConfigRequest
+	410, // 310: appsearch.SetSchemaRequestBuilderService.AddSchemas:input_type -> appsearch.AddSchemasRequest
+	24,  // 311: appsearch.SetSchemaRequestBuilderService.Build:input_type -> appsearch.BuildRequest
+	412, // 312: appsearch.SetSchemaRequestBuilderService.ClearMigrators:input_type -> appsearch.ClearMigratorsRequest
+	227, // 313: appsearch.SetSchemaRequestBuilderService.ClearRequiredPermissionsForSchemaTypeVisibility:input_type -> appsearch.ClearRequiredPermissionsForSchemaTypeVisibilityRequest
+	231, // 314: appsearch.SetSchemaRequestBuilderService.ClearSchemaTypeVisibleToConfigs:input_type -> appsearch.ClearSchemaTypeVisibleToConfigsRequest
+	235, // 315: appsearch.SetSchemaRequestBuilderService.ClearSchemas:input_type -> appsearch.ClearSchemasRequest
+	414, // 316: appsearch.SetSchemaRequestBuilderService.SetForceOverride:input_type -> appsearch.SetForceOverrideRequest
+	416, // 317: appsearch.SetSchemaRequestBuilderService.SetMigrator:input_type -> appsearch.SetMigratorRequest
+	237, // 318: appsearch.SetSchemaRequestBuilderService.SetPubliclyVisibleSchema:input_type -> appsearch.SetPubliclyVisibleSchemaRequest
+	418, // 319: appsearch.SetSchemaRequestBuilderService.SetSchemaTypeDisplayedBySystem:input_type -> appsearch.SetSchemaTypeDisplayedBySystemRequest
+	420, // 320: appsearch.SetSchemaRequestBuilderService.SetSchemaTypeVisibilityForPackage:input_type -> appsearch.SetSchemaTypeVisibilityForPackageRequest
+	239, // 321: appsearch.SetSchemaRequestBuilderService.SetVersion:input_type -> appsearch.SetVersionRequest
+	10,  // 322: appsearch.AppSearchBatchResultService.IsSuccess:input_type -> appsearch.IsSuccessRequest
+	12,  // 323: appsearch.AppSearchBatchResultService.ToString:input_type -> appsearch.ToStringRequest
+	422, // 324: appsearch.EmbeddingVectorService.NewEmbeddingVector:input_type -> appsearch.NewEmbeddingVectorRequest
+	424, // 325: appsearch.EmbeddingVectorService.DescribeContents:input_type -> appsearch.EmbeddingVectorDescribeContentsRequest
+	425, // 326: appsearch.EmbeddingVectorService.Equals:input_type -> appsearch.EmbeddingVectorEqualsRequest
+	426, // 327: appsearch.EmbeddingVectorService.GetModelSignature:input_type -> appsearch.GetModelSignatureRequest
+	428, // 328: appsearch.EmbeddingVectorService.GetValues:input_type -> appsearch.GetValuesRequest
+	430, // 329: appsearch.EmbeddingVectorService.HashCode:input_type -> appsearch.EmbeddingVectorHashCodeRequest
+	431, // 330: appsearch.EmbeddingVectorService.WriteToParcel:input_type -> appsearch.EmbeddingVectorWriteToParcelRequest
+	28,  // 331: appsearch.JoinSpecService.DescribeContents:input_type -> appsearch.DescribeContentsRequest
+	432, // 332: appsearch.JoinSpecService.GetAggregationScoringStrategy:input_type -> appsearch.GetAggregationScoringStrategyRequest
+	434, // 333: appsearch.JoinSpecService.GetChildPropertyExpression:input_type -> appsearch.GetChildPropertyExpressionRequest
+	436, // 334: appsearch.JoinSpecService.GetMaxJoinedResultCount:input_type -> appsearch.GetMaxJoinedResultCountRequest
+	438, // 335: appsearch.JoinSpecService.GetNestedQuery:input_type -> appsearch.GetNestedQueryRequest
+	440, // 336: appsearch.JoinSpecService.GetNestedSearchSpec:input_type -> appsearch.GetNestedSearchSpecRequest
+	68,  // 337: appsearch.JoinSpecService.WriteToParcel:input_type -> appsearch.WriteToParcelRequest
+	24,  // 338: appsearch.JoinSpecBuilderService.Build:input_type -> appsearch.BuildRequest
+	442, // 339: appsearch.JoinSpecBuilderService.SetAggregationScoringStrategy:input_type -> appsearch.SetAggregationScoringStrategyRequest
+	444, // 340: appsearch.JoinSpecBuilderService.SetChildPropertyExpression:input_type -> appsearch.SetChildPropertyExpressionRequest
+	446, // 341: appsearch.JoinSpecBuilderService.SetMaxJoinedResultCount:input_type -> appsearch.SetMaxJoinedResultCountRequest
+	448, // 342: appsearch.JoinSpecBuilderService.SetNestedSearch:input_type -> appsearch.SetNestedSearchRequest
+	450, // 343: appsearch.PropertyPathService.NewPropertyPath:input_type -> appsearch.NewPropertyPathRequest
+	452, // 344: appsearch.PropertyPathService.Equals:input_type -> appsearch.PropertyPathEqualsRequest
+	453, // 345: appsearch.PropertyPathService.Get:input_type -> appsearch.GetRequest
+	455, // 346: appsearch.PropertyPathService.HashCode:input_type -> appsearch.PropertyPathHashCodeRequest
+	456, // 347: appsearch.PropertyPathService.Size:input_type -> appsearch.SizeRequest
+	458, // 348: appsearch.PropertyPathService.ToString:input_type -> appsearch.PropertyPathToStringRequest
+	0,   // 349: appsearch.PropertyPathPathSegmentService.Equals:input_type -> appsearch.EqualsRequest
+	459, // 350: appsearch.PropertyPathPathSegmentService.GetPropertyIndex:input_type -> appsearch.GetPropertyIndexRequest
+	461, // 351: appsearch.PropertyPathPathSegmentService.GetPropertyName:input_type -> appsearch.GetPropertyNameRequest
+	8,   // 352: appsearch.PropertyPathPathSegmentService.HashCode:input_type -> appsearch.HashCodeRequest
+	12,  // 353: appsearch.PropertyPathPathSegmentService.ToString:input_type -> appsearch.ToStringRequest
+	463, // 354: appsearch.PropertyPathPathSegmentService.Create1:input_type -> appsearch.Create1Request
+	465, // 355: appsearch.PropertyPathPathSegmentService.Create2_1:input_type -> appsearch.Create2_1Request
+	1,   // 356: appsearch.AppSearchResultService.Equals:output_type -> appsearch.EqualsResponse
+	3,   // 357: appsearch.AppSearchResultService.GetErrorMessage:output_type -> appsearch.GetErrorMessageResponse
+	5,   // 358: appsearch.AppSearchResultService.GetResultCode:output_type -> appsearch.GetResultCodeResponse
+	7,   // 359: appsearch.AppSearchResultService.GetResultValue:output_type -> appsearch.GetResultValueResponse
+	9,   // 360: appsearch.AppSearchResultService.HashCode:output_type -> appsearch.HashCodeResponse
+	11,  // 361: appsearch.AppSearchResultService.IsSuccess:output_type -> appsearch.IsSuccessResponse
+	13,  // 362: appsearch.AppSearchResultService.ToString:output_type -> appsearch.ToStringResponse
+	15,  // 363: appsearch.ReportSystemUsageRequestService.GetDatabaseName:output_type -> appsearch.GetDatabaseNameResponse
+	17,  // 364: appsearch.ReportSystemUsageRequestService.GetDocumentId:output_type -> appsearch.GetDocumentIdResponse
+	19,  // 365: appsearch.ReportSystemUsageRequestService.GetNamespace:output_type -> appsearch.GetNamespaceResponse
+	21,  // 366: appsearch.ReportSystemUsageRequestService.GetPackageName:output_type -> appsearch.GetPackageNameResponse
+	23,  // 367: appsearch.ReportSystemUsageRequestService.GetUsageTimestampMillis:output_type -> appsearch.GetUsageTimestampMillisResponse
+	25,  // 368: appsearch.ReportSystemUsageRequestBuilderService.Build:output_type -> appsearch.BuildResponse
+	27,  // 369: appsearch.ReportSystemUsageRequestBuilderService.SetUsageTimestampMillis:output_type -> appsearch.SetUsageTimestampMillisResponse
+	29,  // 370: appsearch.SearchSpecService.DescribeContents:output_type -> appsearch.DescribeContentsResponse
+	31,  // 371: appsearch.SearchSpecService.GetAdvancedRankingExpression:output_type -> appsearch.GetAdvancedRankingExpressionResponse
+	33,  // 372: appsearch.SearchSpecService.GetDefaultEmbeddingSearchMetricType:output_type -> appsearch.GetDefaultEmbeddingSearchMetricTypeResponse
+	35,  // 373: appsearch.SearchSpecService.GetJoinSpec:output_type -> appsearch.GetJoinSpecResponse
+	37,  // 374: appsearch.SearchSpecService.GetMaxSnippetSize:output_type -> appsearch.GetMaxSnippetSizeResponse
+	39,  // 375: appsearch.SearchSpecService.GetOrder:output_type -> appsearch.GetOrderResponse
+	41,  // 376: appsearch.SearchSpecService.GetRankingStrategy:output_type -> appsearch.GetRankingStrategyResponse
+	43,  // 377: appsearch.SearchSpecService.GetResultCountPerPage:output_type -> appsearch.GetResultCountPerPageResponse
+	45,  // 378: appsearch.SearchSpecService.GetResultGroupingLimit:output_type -> appsearch.GetResultGroupingLimitResponse
+	47,  // 379: appsearch.SearchSpecService.GetResultGroupingTypeFlags:output_type -> appsearch.GetResultGroupingTypeFlagsResponse
+	49,  // 380: appsearch.SearchSpecService.GetSearchSourceLogTag:output_type -> appsearch.GetSearchSourceLogTagResponse
+	51,  // 381: appsearch.SearchSpecService.GetSnippetCount:output_type -> appsearch.GetSnippetCountResponse
+	53,  // 382: appsearch.SearchSpecService.GetSnippetCountPerProperty:output_type -> appsearch.GetSnippetCountPerPropertyResponse
+	55,  // 383: appsearch.SearchSpecService.GetTermMatch:output_type -> appsearch.GetTermMatchResponse
+	57,  // 384: appsearch.SearchSpecService.IsListFilterHasPropertyFunctionEnabled:output_type -> appsearch.IsListFilterHasPropertyFunctionEnabledResponse
+	59,  // 385: appsearch.SearchSpecService.IsListFilterMatchScoreExpressionFunctionEnabled:output_type -> appsearch.IsListFilterMatchScoreExpressionFunctionEnabledResponse
+	61,  // 386: appsearch.SearchSpecService.IsListFilterQueryLanguageEnabled:output_type -> appsearch.IsListFilterQueryLanguageEnabledResponse
+	63,  // 387: appsearch.SearchSpecService.IsNumericSearchEnabled:output_type -> appsearch.IsNumericSearchEnabledResponse
+	65,  // 388: appsearch.SearchSpecService.IsScorablePropertyRankingEnabled:output_type -> appsearch.IsScorablePropertyRankingEnabledResponse
+	67,  // 389: appsearch.SearchSpecService.IsVerbatimSearchEnabled:output_type -> appsearch.IsVerbatimSearchEnabledResponse
+	69,  // 390: appsearch.SearchSpecService.WriteToParcel:output_type -> appsearch.WriteToParcelResponse
+	71,  // 391: appsearch.SearchSpecBuilderService.AddEmbeddingParameters:output_type -> appsearch.AddEmbeddingParametersResponse
+	73,  // 392: appsearch.SearchSpecBuilderService.AddFilterDocumentIds:output_type -> appsearch.AddFilterDocumentIdsResponse
+	75,  // 393: appsearch.SearchSpecBuilderService.AddFilterNamespaces:output_type -> appsearch.AddFilterNamespacesResponse
+	77,  // 394: appsearch.SearchSpecBuilderService.AddFilterPackageNames:output_type -> appsearch.AddFilterPackageNamesResponse
+	79,  // 395: appsearch.SearchSpecBuilderService.AddFilterSchemas:output_type -> appsearch.AddFilterSchemasResponse
+	81,  // 396: appsearch.SearchSpecBuilderService.AddInformationalRankingExpressions:output_type -> appsearch.AddInformationalRankingExpressionsResponse
+	83,  // 397: appsearch.SearchSpecBuilderService.AddSearchStringParameters:output_type -> appsearch.AddSearchStringParametersResponse
+	25,  // 398: appsearch.SearchSpecBuilderService.Build:output_type -> appsearch.BuildResponse
+	85,  // 399: appsearch.SearchSpecBuilderService.ClearEmbeddingParameters:output_type -> appsearch.ClearEmbeddingParametersResponse
+	87,  // 400: appsearch.SearchSpecBuilderService.ClearFilterDocumentIds:output_type -> appsearch.ClearFilterDocumentIdsResponse
+	89,  // 401: appsearch.SearchSpecBuilderService.ClearFilterNamespaces:output_type -> appsearch.ClearFilterNamespacesResponse
+	91,  // 402: appsearch.SearchSpecBuilderService.ClearFilterPackageNames:output_type -> appsearch.ClearFilterPackageNamesResponse
+	93,  // 403: appsearch.SearchSpecBuilderService.ClearFilterProperties:output_type -> appsearch.ClearFilterPropertiesResponse
+	95,  // 404: appsearch.SearchSpecBuilderService.ClearFilterSchemas:output_type -> appsearch.ClearFilterSchemasResponse
+	97,  // 405: appsearch.SearchSpecBuilderService.ClearInformationalRankingExpressions:output_type -> appsearch.ClearInformationalRankingExpressionsResponse
+	99,  // 406: appsearch.SearchSpecBuilderService.ClearJoinSpec:output_type -> appsearch.ClearJoinSpecResponse
+	101, // 407: appsearch.SearchSpecBuilderService.ClearProjections:output_type -> appsearch.ClearProjectionsResponse
+	103, // 408: appsearch.SearchSpecBuilderService.ClearPropertyWeights:output_type -> appsearch.ClearPropertyWeightsResponse
+	105, // 409: appsearch.SearchSpecBuilderService.ClearResultGrouping:output_type -> appsearch.ClearResultGroupingResponse
+	107, // 410: appsearch.SearchSpecBuilderService.ClearSearchSourceLogTag:output_type -> appsearch.ClearSearchSourceLogTagResponse
+	109, // 411: appsearch.SearchSpecBuilderService.ClearSearchStringParameters:output_type -> appsearch.ClearSearchStringParametersResponse
+	111, // 412: appsearch.SearchSpecBuilderService.SetDefaultEmbeddingSearchMetricType:output_type -> appsearch.SetDefaultEmbeddingSearchMetricTypeResponse
+	113, // 413: appsearch.SearchSpecBuilderService.SetJoinSpec:output_type -> appsearch.SetJoinSpecResponse
+	115, // 414: appsearch.SearchSpecBuilderService.SetListFilterHasPropertyFunctionEnabled:output_type -> appsearch.SetListFilterHasPropertyFunctionEnabledResponse
+	117, // 415: appsearch.SearchSpecBuilderService.SetListFilterMatchScoreExpressionFunctionEnabled:output_type -> appsearch.SetListFilterMatchScoreExpressionFunctionEnabledResponse
+	119, // 416: appsearch.SearchSpecBuilderService.SetListFilterQueryLanguageEnabled:output_type -> appsearch.SetListFilterQueryLanguageEnabledResponse
+	121, // 417: appsearch.SearchSpecBuilderService.SetMaxSnippetSize:output_type -> appsearch.SetMaxSnippetSizeResponse
+	123, // 418: appsearch.SearchSpecBuilderService.SetNumericSearchEnabled:output_type -> appsearch.SetNumericSearchEnabledResponse
+	125, // 419: appsearch.SearchSpecBuilderService.SetOrder:output_type -> appsearch.SetOrderResponse
+	127, // 420: appsearch.SearchSpecBuilderService.SetRankingStrategy1:output_type -> appsearch.SetRankingStrategy1Response
+	129, // 421: appsearch.SearchSpecBuilderService.SetRankingStrategy1_1:output_type -> appsearch.SetRankingStrategy1_1Response
+	131, // 422: appsearch.SearchSpecBuilderService.SetResultCountPerPage:output_type -> appsearch.SetResultCountPerPageResponse
+	133, // 423: appsearch.SearchSpecBuilderService.SetResultGrouping:output_type -> appsearch.SetResultGroupingResponse
+	135, // 424: appsearch.SearchSpecBuilderService.SetScorablePropertyRankingEnabled:output_type -> appsearch.SetScorablePropertyRankingEnabledResponse
+	137, // 425: appsearch.SearchSpecBuilderService.SetSearchSourceLogTag:output_type -> appsearch.SetSearchSourceLogTagResponse
+	139, // 426: appsearch.SearchSpecBuilderService.SetSnippetCount:output_type -> appsearch.SetSnippetCountResponse
+	141, // 427: appsearch.SearchSpecBuilderService.SetSnippetCountPerProperty:output_type -> appsearch.SetSnippetCountPerPropertyResponse
+	143, // 428: appsearch.SearchSpecBuilderService.SetTermMatch:output_type -> appsearch.SetTermMatchResponse
+	145, // 429: appsearch.SearchSpecBuilderService.SetVerbatimSearchEnabled:output_type -> appsearch.SetVerbatimSearchEnabledResponse
+	147, // 430: appsearch.RemoveBlobResponseService.NewRemoveBlobResponse:output_type -> appsearch.NewRemoveBlobResponseResponse
+	29,  // 431: appsearch.RemoveBlobResponseService.DescribeContents:output_type -> appsearch.DescribeContentsResponse
+	69,  // 432: appsearch.RemoveBlobResponseService.WriteToParcel:output_type -> appsearch.WriteToParcelResponse
+	151, // 433: appsearch.GlobalSearchSessionService.Close:output_type -> appsearch.CloseResponse
+	153, // 434: appsearch.GlobalSearchSessionService.RegisterObserverCallback:output_type -> appsearch.RegisterObserverCallbackResponse
+	155, // 435: appsearch.GlobalSearchSessionService.Search:output_type -> appsearch.SearchResponse
+	157, // 436: appsearch.GlobalSearchSessionService.UnregisterObserverCallback:output_type -> appsearch.UnregisterObserverCallbackResponse
+	159, // 437: appsearch.SetBlobVisibilityRequestBuilderService.AddNamespaceVisibleToConfig:output_type -> appsearch.AddNamespaceVisibleToConfigResponse
+	25,  // 438: appsearch.SetBlobVisibilityRequestBuilderService.Build:output_type -> appsearch.BuildResponse
+	161, // 439: appsearch.SetBlobVisibilityRequestBuilderService.ClearNamespaceVisibleToConfigs:output_type -> appsearch.ClearNamespaceVisibleToConfigsResponse
+	163, // 440: appsearch.SetBlobVisibilityRequestBuilderService.SetNamespaceDisplayedBySystem:output_type -> appsearch.SetNamespaceDisplayedBySystemResponse
+	29,  // 441: appsearch.SchemaVisibilityConfigService.DescribeContents:output_type -> appsearch.DescribeContentsResponse
+	1,   // 442: appsearch.SchemaVisibilityConfigService.Equals:output_type -> appsearch.EqualsResponse
+	165, // 443: appsearch.SchemaVisibilityConfigService.GetPubliclyVisibleTargetPackage:output_type -> appsearch.GetPubliclyVisibleTargetPackageResponse
+	9,   // 444: appsearch.SchemaVisibilityConfigService.HashCode:output_type -> appsearch.HashCodeResponse
+	69,  // 445: appsearch.SchemaVisibilityConfigService.WriteToParcel:output_type -> appsearch.WriteToParcelResponse
+	167, // 446: appsearch.SchemaVisibilityConfigBuilderService.AddAllowedPackage:output_type -> appsearch.AddAllowedPackageResponse
+	25,  // 447: appsearch.SchemaVisibilityConfigBuilderService.Build:output_type -> appsearch.BuildResponse
+	169, // 448: appsearch.SchemaVisibilityConfigBuilderService.ClearAllowedPackages:output_type -> appsearch.ClearAllowedPackagesResponse
+	171, // 449: appsearch.SchemaVisibilityConfigBuilderService.ClearRequiredPermissions:output_type -> appsearch.ClearRequiredPermissionsResponse
+	173, // 450: appsearch.SchemaVisibilityConfigBuilderService.SetPubliclyVisibleTargetPackage:output_type -> appsearch.SetPubliclyVisibleTargetPackageResponse
+	29,  // 451: appsearch.SearchResultService.DescribeContents:output_type -> appsearch.DescribeContentsResponse
+	15,  // 452: appsearch.SearchResultService.GetDatabaseName:output_type -> appsearch.GetDatabaseNameResponse
+	175, // 453: appsearch.SearchResultService.GetGenericDocument:output_type -> appsearch.GetGenericDocumentResponse
+	21,  // 454: appsearch.SearchResultService.GetPackageName:output_type -> appsearch.GetPackageNameResponse
+	177, // 455: appsearch.SearchResultService.GetRankingSignal:output_type -> appsearch.GetRankingSignalResponse
+	69,  // 456: appsearch.SearchResultService.WriteToParcel:output_type -> appsearch.WriteToParcelResponse
+	179, // 457: appsearch.SearchResultBuilderService.AddInformationalRankingSignal:output_type -> appsearch.AddInformationalRankingSignalResponse
+	181, // 458: appsearch.SearchResultBuilderService.AddJoinedResult:output_type -> appsearch.AddJoinedResultResponse
+	183, // 459: appsearch.SearchResultBuilderService.AddMatchInfo:output_type -> appsearch.AddMatchInfoResponse
+	25,  // 460: appsearch.SearchResultBuilderService.Build:output_type -> appsearch.BuildResponse
+	185, // 461: appsearch.SearchResultBuilderService.SetGenericDocument:output_type -> appsearch.SetGenericDocumentResponse
+	187, // 462: appsearch.SearchResultBuilderService.SetRankingSignal:output_type -> appsearch.SetRankingSignalResponse
+	29,  // 463: appsearch.SearchResultMatchInfoService.DescribeContents:output_type -> appsearch.DescribeContentsResponse
+	189, // 464: appsearch.SearchResultMatchInfoService.GetExactMatch:output_type -> appsearch.GetExactMatchResponse
+	191, // 465: appsearch.SearchResultMatchInfoService.GetExactMatchRange:output_type -> appsearch.GetExactMatchRangeResponse
+	193, // 466: appsearch.SearchResultMatchInfoService.GetFullText:output_type -> appsearch.GetFullTextResponse
+	195, // 467: appsearch.SearchResultMatchInfoService.GetPropertyPath:output_type -> appsearch.GetPropertyPathResponse
+	197, // 468: appsearch.SearchResultMatchInfoService.GetPropertyPathObject:output_type -> appsearch.GetPropertyPathObjectResponse
+	199, // 469: appsearch.SearchResultMatchInfoService.GetSnippet:output_type -> appsearch.GetSnippetResponse
+	201, // 470: appsearch.SearchResultMatchInfoService.GetSnippetRange:output_type -> appsearch.GetSnippetRangeResponse
+	203, // 471: appsearch.SearchResultMatchInfoService.GetSubmatch:output_type -> appsearch.GetSubmatchResponse
+	205, // 472: appsearch.SearchResultMatchInfoService.GetSubmatchRange:output_type -> appsearch.GetSubmatchRangeResponse
+	69,  // 473: appsearch.SearchResultMatchInfoService.WriteToParcel:output_type -> appsearch.WriteToParcelResponse
+	1,   // 474: appsearch.SearchResultMatchRangeService.Equals:output_type -> appsearch.EqualsResponse
+	207, // 475: appsearch.SearchResultMatchRangeService.GetEnd:output_type -> appsearch.GetEndResponse
+	209, // 476: appsearch.SearchResultMatchRangeService.GetStart:output_type -> appsearch.GetStartResponse
+	9,   // 477: appsearch.SearchResultMatchRangeService.HashCode:output_type -> appsearch.HashCodeResponse
+	13,  // 478: appsearch.SearchResultMatchRangeService.ToString:output_type -> appsearch.ToStringResponse
+	29,  // 479: appsearch.SearchSuggestionSpecService.DescribeContents:output_type -> appsearch.DescribeContentsResponse
+	211, // 480: appsearch.SearchSuggestionSpecService.GetMaximumResultCount:output_type -> appsearch.GetMaximumResultCountResponse
+	41,  // 481: appsearch.SearchSuggestionSpecService.GetRankingStrategy:output_type -> appsearch.GetRankingStrategyResponse
+	69,  // 482: appsearch.SearchSuggestionSpecService.WriteToParcel:output_type -> appsearch.WriteToParcelResponse
+	73,  // 483: appsearch.SearchSuggestionSpecBuilderService.AddFilterDocumentIds:output_type -> appsearch.AddFilterDocumentIdsResponse
+	75,  // 484: appsearch.SearchSuggestionSpecBuilderService.AddFilterNamespaces:output_type -> appsearch.AddFilterNamespacesResponse
+	79,  // 485: appsearch.SearchSuggestionSpecBuilderService.AddFilterSchemas:output_type -> appsearch.AddFilterSchemasResponse
+	83,  // 486: appsearch.SearchSuggestionSpecBuilderService.AddSearchStringParameters:output_type -> appsearch.AddSearchStringParametersResponse
+	25,  // 487: appsearch.SearchSuggestionSpecBuilderService.Build:output_type -> appsearch.BuildResponse
+	214, // 488: appsearch.SearchSuggestionSpecBuilderService.SetRankingStrategy:output_type -> appsearch.SetRankingStrategyResponse
+	216, // 489: appsearch.CommitBlobResponseService.NewCommitBlobResponse:output_type -> appsearch.NewCommitBlobResponseResponse
+	29,  // 490: appsearch.CommitBlobResponseService.DescribeContents:output_type -> appsearch.DescribeContentsResponse
+	69,  // 491: appsearch.CommitBlobResponseService.WriteToParcel:output_type -> appsearch.WriteToParcelResponse
+	29,  // 492: appsearch.GetSchemaResponseService.DescribeContents:output_type -> appsearch.DescribeContentsResponse
+	220, // 493: appsearch.GetSchemaResponseService.GetVersion:output_type -> appsearch.GetVersionResponse
+	69,  // 494: appsearch.GetSchemaResponseService.WriteToParcel:output_type -> appsearch.WriteToParcelResponse
+	222, // 495: appsearch.GetSchemaResponseBuilderService.AddSchema:output_type -> appsearch.AddSchemaResponse
+	224, // 496: appsearch.GetSchemaResponseBuilderService.AddSchemaTypeNotDisplayedBySystem:output_type -> appsearch.AddSchemaTypeNotDisplayedBySystemResponse
+	25,  // 497: appsearch.GetSchemaResponseBuilderService.Build:output_type -> appsearch.BuildResponse
+	226, // 498: appsearch.GetSchemaResponseBuilderService.ClearPubliclyVisibleSchema:output_type -> appsearch.ClearPubliclyVisibleSchemaResponse
+	228, // 499: appsearch.GetSchemaResponseBuilderService.ClearRequiredPermissionsForSchemaTypeVisibility:output_type -> appsearch.ClearRequiredPermissionsForSchemaTypeVisibilityResponse
+	230, // 500: appsearch.GetSchemaResponseBuilderService.ClearSchemaTypeNotDisplayedBySystem:output_type -> appsearch.ClearSchemaTypeNotDisplayedBySystemResponse
+	232, // 501: appsearch.GetSchemaResponseBuilderService.ClearSchemaTypeVisibleToConfigs:output_type -> appsearch.ClearSchemaTypeVisibleToConfigsResponse
+	234, // 502: appsearch.GetSchemaResponseBuilderService.ClearSchemaTypeVisibleToPackages:output_type -> appsearch.ClearSchemaTypeVisibleToPackagesResponse
+	236, // 503: appsearch.GetSchemaResponseBuilderService.ClearSchemas:output_type -> appsearch.ClearSchemasResponse
+	238, // 504: appsearch.GetSchemaResponseBuilderService.SetPubliclyVisibleSchema:output_type -> appsearch.SetPubliclyVisibleSchemaResponse
+	240, // 505: appsearch.GetSchemaResponseBuilderService.SetVersion:output_type -> appsearch.SetVersionResponse
+	242, // 506: appsearch.OpenBlobForReadResponseService.NewOpenBlobForReadResponse:output_type -> appsearch.NewOpenBlobForReadResponseResponse
+	151, // 507: appsearch.OpenBlobForReadResponseService.Close:output_type -> appsearch.CloseResponse
+	29,  // 508: appsearch.OpenBlobForReadResponseService.DescribeContents:output_type -> appsearch.DescribeContentsResponse
+	69,  // 509: appsearch.OpenBlobForReadResponseService.WriteToParcel:output_type -> appsearch.WriteToParcelResponse
+	247, // 510: appsearch.MigratorService.OnDowngrade:output_type -> appsearch.OnDowngradeResponse
+	249, // 511: appsearch.MigratorService.OnUpgrade:output_type -> appsearch.OnUpgradeResponse
+	251, // 512: appsearch.MigratorService.ShouldMigrate:output_type -> appsearch.ShouldMigrateResponse
+	29,  // 513: appsearch.AppSearchSchemaService.DescribeContents:output_type -> appsearch.DescribeContentsResponse
+	1,   // 514: appsearch.AppSearchSchemaService.Equals:output_type -> appsearch.EqualsResponse
+	253, // 515: appsearch.AppSearchSchemaService.GetSchemaType:output_type -> appsearch.GetSchemaTypeResponse
+	9,   // 516: appsearch.AppSearchSchemaService.HashCode:output_type -> appsearch.HashCodeResponse
+	13,  // 517: appsearch.AppSearchSchemaService.ToString:output_type -> appsearch.ToStringResponse
+	69,  // 518: appsearch.AppSearchSchemaService.WriteToParcel:output_type -> appsearch.WriteToParcelResponse
+	255, // 519: appsearch.AppSearchSchemaBooleanPropertyConfigService.IsScoringEnabled:output_type -> appsearch.IsScoringEnabledResponse
+	257, // 520: appsearch.AppSearchSchemaBuilderService.AddParentType:output_type -> appsearch.AddParentTypeResponse
+	259, // 521: appsearch.AppSearchSchemaBuilderService.AddProperty:output_type -> appsearch.AddPropertyResponse
+	25,  // 522: appsearch.AppSearchSchemaBuilderService.Build:output_type -> appsearch.BuildResponse
+	261, // 523: appsearch.AppSearchSchemaBuilderService.ClearParentTypes:output_type -> appsearch.ClearParentTypesResponse
+	263, // 524: appsearch.AppSearchSchemaBuilderService.ClearProperties:output_type -> appsearch.ClearPropertiesResponse
+	265, // 525: appsearch.AppSearchSchemaBuilderService.SetSchemaType:output_type -> appsearch.SetSchemaTypeResponse
+	253, // 526: appsearch.AppSearchSchemaDocumentPropertyConfigService.GetSchemaType:output_type -> appsearch.GetSchemaTypeResponse
+	267, // 527: appsearch.AppSearchSchemaDocumentPropertyConfigService.ShouldIndexNestedProperties:output_type -> appsearch.ShouldIndexNestedPropertiesResponse
+	255, // 528: appsearch.AppSearchSchemaDoublePropertyConfigService.IsScoringEnabled:output_type -> appsearch.IsScoringEnabledResponse
+	269, // 529: appsearch.AppSearchSchemaEmbeddingPropertyConfigService.GetIndexingType:output_type -> appsearch.GetIndexingTypeResponse
+	271, // 530: appsearch.AppSearchSchemaEmbeddingPropertyConfigService.GetQuantizationType:output_type -> appsearch.GetQuantizationTypeResponse
+	269, // 531: appsearch.AppSearchSchemaLongPropertyConfigService.GetIndexingType:output_type -> appsearch.GetIndexingTypeResponse
+	255, // 532: appsearch.AppSearchSchemaLongPropertyConfigService.IsScoringEnabled:output_type -> appsearch.IsScoringEnabledResponse
+	1,   // 533: appsearch.AppSearchSchemaPropertyConfigService.Equals:output_type -> appsearch.EqualsResponse
+	273, // 534: appsearch.AppSearchSchemaPropertyConfigService.GetCardinality:output_type -> appsearch.GetCardinalityResponse
+	275, // 535: appsearch.AppSearchSchemaPropertyConfigService.GetName:output_type -> appsearch.GetNameResponse
+	9,   // 536: appsearch.AppSearchSchemaPropertyConfigService.HashCode:output_type -> appsearch.HashCodeResponse
+	13,  // 537: appsearch.AppSearchSchemaPropertyConfigService.ToString:output_type -> appsearch.ToStringResponse
+	269, // 538: appsearch.AppSearchSchemaStringPropertyConfigService.GetIndexingType:output_type -> appsearch.GetIndexingTypeResponse
+	277, // 539: appsearch.AppSearchSchemaStringPropertyConfigService.GetJoinableValueType:output_type -> appsearch.GetJoinableValueTypeResponse
+	279, // 540: appsearch.AppSearchSchemaStringPropertyConfigService.GetTokenizerType:output_type -> appsearch.GetTokenizerTypeResponse
+	29,  // 541: appsearch.SetSchemaResponseService.DescribeContents:output_type -> appsearch.DescribeContentsResponse
+	69,  // 542: appsearch.SetSchemaResponseService.WriteToParcel:output_type -> appsearch.WriteToParcelResponse
+	281, // 543: appsearch.SetSchemaResponseBuilderService.AddDeletedType:output_type -> appsearch.AddDeletedTypeResponse
+	283, // 544: appsearch.SetSchemaResponseBuilderService.AddIncompatibleType:output_type -> appsearch.AddIncompatibleTypeResponse
+	285, // 545: appsearch.SetSchemaResponseBuilderService.AddMigratedType:output_type -> appsearch.AddMigratedTypeResponse
+	287, // 546: appsearch.SetSchemaResponseBuilderService.AddMigrationFailure:output_type -> appsearch.AddMigrationFailureResponse
+	25,  // 547: appsearch.SetSchemaResponseBuilderService.Build:output_type -> appsearch.BuildResponse
+	29,  // 548: appsearch.SetSchemaResponseMigrationFailureService.DescribeContents:output_type -> appsearch.DescribeContentsResponse
+	17,  // 549: appsearch.SetSchemaResponseMigrationFailureService.GetDocumentId:output_type -> appsearch.GetDocumentIdResponse
+	19,  // 550: appsearch.SetSchemaResponseMigrationFailureService.GetNamespace:output_type -> appsearch.GetNamespaceResponse
+	253, // 551: appsearch.SetSchemaResponseMigrationFailureService.GetSchemaType:output_type -> appsearch.GetSchemaTypeResponse
+	13,  // 552: appsearch.SetSchemaResponseMigrationFailureService.ToString:output_type -> appsearch.ToStringResponse
+	69,  // 553: appsearch.SetSchemaResponseMigrationFailureService.WriteToParcel:output_type -> appsearch.WriteToParcelResponse
+	289, // 554: appsearch.PackageIdentifierService.NewPackageIdentifier:output_type -> appsearch.NewPackageIdentifierResponse
+	1,   // 555: appsearch.PackageIdentifierService.Equals:output_type -> appsearch.EqualsResponse
+	21,  // 556: appsearch.PackageIdentifierService.GetPackageName:output_type -> appsearch.GetPackageNameResponse
+	293, // 557: appsearch.PackageIdentifierService.GetSha256Certificate:output_type -> appsearch.GetSha256CertificateResponse
+	9,   // 558: appsearch.PackageIdentifierService.HashCode:output_type -> appsearch.HashCodeResponse
+	296, // 559: appsearch.OpenBlobForWriteResponseService.NewOpenBlobForWriteResponse:output_type -> appsearch.NewOpenBlobForWriteResponseResponse
+	151, // 560: appsearch.OpenBlobForWriteResponseService.Close:output_type -> appsearch.CloseResponse
+	29,  // 561: appsearch.OpenBlobForWriteResponseService.DescribeContents:output_type -> appsearch.DescribeContentsResponse
+	69,  // 562: appsearch.OpenBlobForWriteResponseService.WriteToParcel:output_type -> appsearch.WriteToParcelResponse
+	29,  // 563: appsearch.GetByDocumentIdRequestService.DescribeContents:output_type -> appsearch.DescribeContentsResponse
+	19,  // 564: appsearch.GetByDocumentIdRequestService.GetNamespace:output_type -> appsearch.GetNamespaceResponse
+	69,  // 565: appsearch.GetByDocumentIdRequestService.WriteToParcel:output_type -> appsearch.WriteToParcelResponse
+	301, // 566: appsearch.GetByDocumentIdRequestBuilderService.AddIds:output_type -> appsearch.AddIdsResponse
+	25,  // 567: appsearch.GetByDocumentIdRequestBuilderService.Build:output_type -> appsearch.BuildResponse
+	155, // 568: appsearch.EnterpriseGlobalSearchSessionService.Search:output_type -> appsearch.SearchResponse
+	15,  // 569: appsearch.AppSearchManagerSearchContextService.GetDatabaseName:output_type -> appsearch.GetDatabaseNameResponse
+	151, // 570: appsearch.SearchResultsService.Close:output_type -> appsearch.CloseResponse
+	303, // 571: appsearch.PutDocumentsRequestBuilderService.AddGenericDocuments:output_type -> appsearch.AddGenericDocumentsResponse
+	305, // 572: appsearch.PutDocumentsRequestBuilderService.AddTakenActionGenericDocuments:output_type -> appsearch.AddTakenActionGenericDocumentsResponse
+	25,  // 573: appsearch.PutDocumentsRequestBuilderService.Build:output_type -> appsearch.BuildResponse
+	29,  // 574: appsearch.ReportUsageRequestService.DescribeContents:output_type -> appsearch.DescribeContentsResponse
+	17,  // 575: appsearch.ReportUsageRequestService.GetDocumentId:output_type -> appsearch.GetDocumentIdResponse
+	19,  // 576: appsearch.ReportUsageRequestService.GetNamespace:output_type -> appsearch.GetNamespaceResponse
+	23,  // 577: appsearch.ReportUsageRequestService.GetUsageTimestampMillis:output_type -> appsearch.GetUsageTimestampMillisResponse
+	69,  // 578: appsearch.ReportUsageRequestService.WriteToParcel:output_type -> appsearch.WriteToParcelResponse
+	25,  // 579: appsearch.ReportUsageRequestBuilderService.Build:output_type -> appsearch.BuildResponse
+	27,  // 580: appsearch.ReportUsageRequestBuilderService.SetUsageTimestampMillis:output_type -> appsearch.SetUsageTimestampMillisResponse
+	29,  // 581: appsearch.StorageInfoService.DescribeContents:output_type -> appsearch.DescribeContentsResponse
+	307, // 582: appsearch.StorageInfoService.GetAliveDocumentsCount:output_type -> appsearch.GetAliveDocumentsCountResponse
+	309, // 583: appsearch.StorageInfoService.GetAliveNamespacesCount:output_type -> appsearch.GetAliveNamespacesCountResponse
+	311, // 584: appsearch.StorageInfoService.GetBlobsCount:output_type -> appsearch.GetBlobsCountResponse
+	313, // 585: appsearch.StorageInfoService.GetBlobsSizeBytes:output_type -> appsearch.GetBlobsSizeBytesResponse
+	315, // 586: appsearch.StorageInfoService.GetSizeBytes:output_type -> appsearch.GetSizeBytesResponse
+	69,  // 587: appsearch.StorageInfoService.WriteToParcel:output_type -> appsearch.WriteToParcelResponse
+	25,  // 588: appsearch.StorageInfoBuilderService.Build:output_type -> appsearch.BuildResponse
+	317, // 589: appsearch.StorageInfoBuilderService.SetAliveDocumentsCount:output_type -> appsearch.SetAliveDocumentsCountResponse
+	319, // 590: appsearch.StorageInfoBuilderService.SetAliveNamespacesCount:output_type -> appsearch.SetAliveNamespacesCountResponse
+	321, // 591: appsearch.StorageInfoBuilderService.SetBlobsCount:output_type -> appsearch.SetBlobsCountResponse
+	323, // 592: appsearch.StorageInfoBuilderService.SetBlobsSizeBytes:output_type -> appsearch.SetBlobsSizeBytesResponse
+	325, // 593: appsearch.StorageInfoBuilderService.SetSizeBytes:output_type -> appsearch.SetSizeBytesResponse
+	1,   // 594: appsearch.GenericDocumentService.Equals:output_type -> appsearch.EqualsResponse
+	327, // 595: appsearch.GenericDocumentService.GetCreationTimestampMillis:output_type -> appsearch.GetCreationTimestampMillisResponse
+	329, // 596: appsearch.GenericDocumentService.GetId:output_type -> appsearch.GetIdResponse
+	19,  // 597: appsearch.GenericDocumentService.GetNamespace:output_type -> appsearch.GetNamespaceResponse
+	331, // 598: appsearch.GenericDocumentService.GetProperty:output_type -> appsearch.GetPropertyResponse
+	333, // 599: appsearch.GenericDocumentService.GetPropertyBlobHandle:output_type -> appsearch.GetPropertyBlobHandleResponse
+	335, // 600: appsearch.GenericDocumentService.GetPropertyBlobHandleArray:output_type -> appsearch.GetPropertyBlobHandleArrayResponse
+	337, // 601: appsearch.GenericDocumentService.GetPropertyBoolean:output_type -> appsearch.GetPropertyBooleanResponse
+	339, // 602: appsearch.GenericDocumentService.GetPropertyBooleanArray:output_type -> appsearch.GetPropertyBooleanArrayResponse
+	341, // 603: appsearch.GenericDocumentService.GetPropertyBytes:output_type -> appsearch.GetPropertyBytesResponse
+	343, // 604: appsearch.GenericDocumentService.GetPropertyBytesArray:output_type -> appsearch.GetPropertyBytesArrayResponse
+	345, // 605: appsearch.GenericDocumentService.GetPropertyDocument:output_type -> appsearch.GetPropertyDocumentResponse
+	347, // 606: appsearch.GenericDocumentService.GetPropertyDocumentArray:output_type -> appsearch.GetPropertyDocumentArrayResponse
+	349, // 607: appsearch.GenericDocumentService.GetPropertyDouble:output_type -> appsearch.GetPropertyDoubleResponse
+	351, // 608: appsearch.GenericDocumentService.GetPropertyDoubleArray:output_type -> appsearch.GetPropertyDoubleArrayResponse
+	353, // 609: appsearch.GenericDocumentService.GetPropertyEmbedding:output_type -> appsearch.GetPropertyEmbeddingResponse
+	355, // 610: appsearch.GenericDocumentService.GetPropertyEmbeddingArray:output_type -> appsearch.GetPropertyEmbeddingArrayResponse
+	357, // 611: appsearch.GenericDocumentService.GetPropertyLong:output_type -> appsearch.GetPropertyLongResponse
+	359, // 612: appsearch.GenericDocumentService.GetPropertyLongArray:output_type -> appsearch.GetPropertyLongArrayResponse
+	361, // 613: appsearch.GenericDocumentService.GetPropertyString:output_type -> appsearch.GetPropertyStringResponse
+	363, // 614: appsearch.GenericDocumentService.GetPropertyStringArray:output_type -> appsearch.GetPropertyStringArrayResponse
+	253, // 615: appsearch.GenericDocumentService.GetSchemaType:output_type -> appsearch.GetSchemaTypeResponse
+	365, // 616: appsearch.GenericDocumentService.GetScore:output_type -> appsearch.GetScoreResponse
+	367, // 617: appsearch.GenericDocumentService.GetTtlMillis:output_type -> appsearch.GetTtlMillisResponse
+	9,   // 618: appsearch.GenericDocumentService.HashCode:output_type -> appsearch.HashCodeResponse
+	13,  // 619: appsearch.GenericDocumentService.ToString:output_type -> appsearch.ToStringResponse
+	369, // 620: appsearch.GenericDocumentService.GetMaxIndexedProperties:output_type -> appsearch.GetMaxIndexedPropertiesResponse
+	25,  // 621: appsearch.GenericDocumentBuilderService.Build:output_type -> appsearch.BuildResponse
+	371, // 622: appsearch.GenericDocumentBuilderService.ClearProperty:output_type -> appsearch.ClearPropertyResponse
+	373, // 623: appsearch.GenericDocumentBuilderService.SetCreationTimestampMillis:output_type -> appsearch.SetCreationTimestampMillisResponse
+	375, // 624: appsearch.GenericDocumentBuilderService.SetId:output_type -> appsearch.SetIdResponse
+	377, // 625: appsearch.GenericDocumentBuilderService.SetNamespace:output_type -> appsearch.SetNamespaceResponse
+	379, // 626: appsearch.GenericDocumentBuilderService.SetPropertyBlobHandle:output_type -> appsearch.SetPropertyBlobHandleResponse
+	381, // 627: appsearch.GenericDocumentBuilderService.SetPropertyBoolean:output_type -> appsearch.SetPropertyBooleanResponse
+	383, // 628: appsearch.GenericDocumentBuilderService.SetPropertyBytes:output_type -> appsearch.SetPropertyBytesResponse
+	385, // 629: appsearch.GenericDocumentBuilderService.SetPropertyDocument:output_type -> appsearch.SetPropertyDocumentResponse
+	387, // 630: appsearch.GenericDocumentBuilderService.SetPropertyDouble:output_type -> appsearch.SetPropertyDoubleResponse
+	389, // 631: appsearch.GenericDocumentBuilderService.SetPropertyEmbedding:output_type -> appsearch.SetPropertyEmbeddingResponse
+	391, // 632: appsearch.GenericDocumentBuilderService.SetPropertyLong:output_type -> appsearch.SetPropertyLongResponse
+	393, // 633: appsearch.GenericDocumentBuilderService.SetPropertyString:output_type -> appsearch.SetPropertyStringResponse
+	265, // 634: appsearch.GenericDocumentBuilderService.SetSchemaType:output_type -> appsearch.SetSchemaTypeResponse
+	395, // 635: appsearch.GenericDocumentBuilderService.SetScore:output_type -> appsearch.SetScoreResponse
+	397, // 636: appsearch.GenericDocumentBuilderService.SetTtlMillis:output_type -> appsearch.SetTtlMillisResponse
+	29,  // 637: appsearch.AppSearchBlobHandleService.DescribeContents:output_type -> appsearch.DescribeContentsResponse
+	1,   // 638: appsearch.AppSearchBlobHandleService.Equals:output_type -> appsearch.EqualsResponse
+	15,  // 639: appsearch.AppSearchBlobHandleService.GetDatabaseName:output_type -> appsearch.GetDatabaseNameResponse
+	19,  // 640: appsearch.AppSearchBlobHandleService.GetNamespace:output_type -> appsearch.GetNamespaceResponse
+	21,  // 641: appsearch.AppSearchBlobHandleService.GetPackageName:output_type -> appsearch.GetPackageNameResponse
+	399, // 642: appsearch.AppSearchBlobHandleService.GetSha256Digest:output_type -> appsearch.GetSha256DigestResponse
+	9,   // 643: appsearch.AppSearchBlobHandleService.HashCode:output_type -> appsearch.HashCodeResponse
+	13,  // 644: appsearch.AppSearchBlobHandleService.ToString:output_type -> appsearch.ToStringResponse
+	69,  // 645: appsearch.AppSearchBlobHandleService.WriteToParcel:output_type -> appsearch.WriteToParcelResponse
+	401, // 646: appsearch.AppSearchBlobHandleService.CreateWithSha256:output_type -> appsearch.CreateWithSha256Response
+	151, // 647: appsearch.AppSearchSessionService.Close:output_type -> appsearch.CloseResponse
+	155, // 648: appsearch.AppSearchSessionService.Search:output_type -> appsearch.SearchResponse
+	29,  // 649: appsearch.SearchSuggestionResultService.DescribeContents:output_type -> appsearch.DescribeContentsResponse
+	1,   // 650: appsearch.SearchSuggestionResultService.Equals:output_type -> appsearch.EqualsResponse
+	403, // 651: appsearch.SearchSuggestionResultService.GetSuggestedResult:output_type -> appsearch.GetSuggestedResultResponse
+	9,   // 652: appsearch.SearchSuggestionResultService.HashCode:output_type -> appsearch.HashCodeResponse
+	69,  // 653: appsearch.SearchSuggestionResultService.WriteToParcel:output_type -> appsearch.WriteToParcelResponse
+	25,  // 654: appsearch.SearchSuggestionResultBuilderService.Build:output_type -> appsearch.BuildResponse
+	405, // 655: appsearch.SearchSuggestionResultBuilderService.SetSuggestedResult:output_type -> appsearch.SetSuggestedResultResponse
+	29,  // 656: appsearch.RemoveByDocumentIdRequestService.DescribeContents:output_type -> appsearch.DescribeContentsResponse
+	19,  // 657: appsearch.RemoveByDocumentIdRequestService.GetNamespace:output_type -> appsearch.GetNamespaceResponse
+	69,  // 658: appsearch.RemoveByDocumentIdRequestService.WriteToParcel:output_type -> appsearch.WriteToParcelResponse
+	301, // 659: appsearch.RemoveByDocumentIdRequestBuilderService.AddIds:output_type -> appsearch.AddIdsResponse
+	25,  // 660: appsearch.RemoveByDocumentIdRequestBuilderService.Build:output_type -> appsearch.BuildResponse
+	1,   // 661: appsearch.SetSchemaRequestService.Equals:output_type -> appsearch.EqualsResponse
+	220, // 662: appsearch.SetSchemaRequestService.GetVersion:output_type -> appsearch.GetVersionResponse
+	9,   // 663: appsearch.SetSchemaRequestService.HashCode:output_type -> appsearch.HashCodeResponse
+	407, // 664: appsearch.SetSchemaRequestService.IsForceOverride:output_type -> appsearch.IsForceOverrideResponse
+	409, // 665: appsearch.SetSchemaRequestBuilderService.AddSchemaTypeVisibleToConfig:output_type -> appsearch.AddSchemaTypeVisibleToConfigResponse
+	411, // 666: appsearch.SetSchemaRequestBuilderService.AddSchemas:output_type -> appsearch.AddSchemasResponse
+	25,  // 667: appsearch.SetSchemaRequestBuilderService.Build:output_type -> appsearch.BuildResponse
+	413, // 668: appsearch.SetSchemaRequestBuilderService.ClearMigrators:output_type -> appsearch.ClearMigratorsResponse
+	228, // 669: appsearch.SetSchemaRequestBuilderService.ClearRequiredPermissionsForSchemaTypeVisibility:output_type -> appsearch.ClearRequiredPermissionsForSchemaTypeVisibilityResponse
+	232, // 670: appsearch.SetSchemaRequestBuilderService.ClearSchemaTypeVisibleToConfigs:output_type -> appsearch.ClearSchemaTypeVisibleToConfigsResponse
+	236, // 671: appsearch.SetSchemaRequestBuilderService.ClearSchemas:output_type -> appsearch.ClearSchemasResponse
+	415, // 672: appsearch.SetSchemaRequestBuilderService.SetForceOverride:output_type -> appsearch.SetForceOverrideResponse
+	417, // 673: appsearch.SetSchemaRequestBuilderService.SetMigrator:output_type -> appsearch.SetMigratorResponse
+	238, // 674: appsearch.SetSchemaRequestBuilderService.SetPubliclyVisibleSchema:output_type -> appsearch.SetPubliclyVisibleSchemaResponse
+	419, // 675: appsearch.SetSchemaRequestBuilderService.SetSchemaTypeDisplayedBySystem:output_type -> appsearch.SetSchemaTypeDisplayedBySystemResponse
+	421, // 676: appsearch.SetSchemaRequestBuilderService.SetSchemaTypeVisibilityForPackage:output_type -> appsearch.SetSchemaTypeVisibilityForPackageResponse
+	240, // 677: appsearch.SetSchemaRequestBuilderService.SetVersion:output_type -> appsearch.SetVersionResponse
+	11,  // 678: appsearch.AppSearchBatchResultService.IsSuccess:output_type -> appsearch.IsSuccessResponse
+	13,  // 679: appsearch.AppSearchBatchResultService.ToString:output_type -> appsearch.ToStringResponse
+	423, // 680: appsearch.EmbeddingVectorService.NewEmbeddingVector:output_type -> appsearch.NewEmbeddingVectorResponse
+	29,  // 681: appsearch.EmbeddingVectorService.DescribeContents:output_type -> appsearch.DescribeContentsResponse
+	1,   // 682: appsearch.EmbeddingVectorService.Equals:output_type -> appsearch.EqualsResponse
+	427, // 683: appsearch.EmbeddingVectorService.GetModelSignature:output_type -> appsearch.GetModelSignatureResponse
+	429, // 684: appsearch.EmbeddingVectorService.GetValues:output_type -> appsearch.GetValuesResponse
+	9,   // 685: appsearch.EmbeddingVectorService.HashCode:output_type -> appsearch.HashCodeResponse
+	69,  // 686: appsearch.EmbeddingVectorService.WriteToParcel:output_type -> appsearch.WriteToParcelResponse
+	29,  // 687: appsearch.JoinSpecService.DescribeContents:output_type -> appsearch.DescribeContentsResponse
+	433, // 688: appsearch.JoinSpecService.GetAggregationScoringStrategy:output_type -> appsearch.GetAggregationScoringStrategyResponse
+	435, // 689: appsearch.JoinSpecService.GetChildPropertyExpression:output_type -> appsearch.GetChildPropertyExpressionResponse
+	437, // 690: appsearch.JoinSpecService.GetMaxJoinedResultCount:output_type -> appsearch.GetMaxJoinedResultCountResponse
+	439, // 691: appsearch.JoinSpecService.GetNestedQuery:output_type -> appsearch.GetNestedQueryResponse
+	441, // 692: appsearch.JoinSpecService.GetNestedSearchSpec:output_type -> appsearch.GetNestedSearchSpecResponse
+	69,  // 693: appsearch.JoinSpecService.WriteToParcel:output_type -> appsearch.WriteToParcelResponse
+	25,  // 694: appsearch.JoinSpecBuilderService.Build:output_type -> appsearch.BuildResponse
+	443, // 695: appsearch.JoinSpecBuilderService.SetAggregationScoringStrategy:output_type -> appsearch.SetAggregationScoringStrategyResponse
+	445, // 696: appsearch.JoinSpecBuilderService.SetChildPropertyExpression:output_type -> appsearch.SetChildPropertyExpressionResponse
+	447, // 697: appsearch.JoinSpecBuilderService.SetMaxJoinedResultCount:output_type -> appsearch.SetMaxJoinedResultCountResponse
+	449, // 698: appsearch.JoinSpecBuilderService.SetNestedSearch:output_type -> appsearch.SetNestedSearchResponse
+	451, // 699: appsearch.PropertyPathService.NewPropertyPath:output_type -> appsearch.NewPropertyPathResponse
+	1,   // 700: appsearch.PropertyPathService.Equals:output_type -> appsearch.EqualsResponse
+	454, // 701: appsearch.PropertyPathService.Get:output_type -> appsearch.GetResponse
+	9,   // 702: appsearch.PropertyPathService.HashCode:output_type -> appsearch.HashCodeResponse
+	457, // 703: appsearch.PropertyPathService.Size:output_type -> appsearch.SizeResponse
+	13,  // 704: appsearch.PropertyPathService.ToString:output_type -> appsearch.ToStringResponse
+	1,   // 705: appsearch.PropertyPathPathSegmentService.Equals:output_type -> appsearch.EqualsResponse
+	460, // 706: appsearch.PropertyPathPathSegmentService.GetPropertyIndex:output_type -> appsearch.GetPropertyIndexResponse
+	462, // 707: appsearch.PropertyPathPathSegmentService.GetPropertyName:output_type -> appsearch.GetPropertyNameResponse
+	9,   // 708: appsearch.PropertyPathPathSegmentService.HashCode:output_type -> appsearch.HashCodeResponse
+	13,  // 709: appsearch.PropertyPathPathSegmentService.ToString:output_type -> appsearch.ToStringResponse
+	464, // 710: appsearch.PropertyPathPathSegmentService.Create1:output_type -> appsearch.Create1Response
+	466, // 711: appsearch.PropertyPathPathSegmentService.Create2_1:output_type -> appsearch.Create2_1Response
+	356, // [356:712] is the sub-list for method output_type
+	0,   // [0:356] is the sub-list for method input_type
+	0,   // [0:0] is the sub-list for extension type_name
+	0,   // [0:0] is the sub-list for extension extendee
+	0,   // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_proto_appsearch_appsearch_proto_init() }
@@ -48,12 +22690,13 @@ func file_proto_appsearch_appsearch_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_appsearch_appsearch_proto_rawDesc), len(file_proto_appsearch_appsearch_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   467,
 			NumExtensions: 0,
-			NumServices:   0,
+			NumServices:   61,
 		},
 		GoTypes:           file_proto_appsearch_appsearch_proto_goTypes,
 		DependencyIndexes: file_proto_appsearch_appsearch_proto_depIdxs,
+		MessageInfos:      file_proto_appsearch_appsearch_proto_msgTypes,
 	}.Build()
 	File_proto_appsearch_appsearch_proto = out.File
 	file_proto_appsearch_appsearch_proto_goTypes = nil

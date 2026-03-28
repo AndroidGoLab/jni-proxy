@@ -5,3 +5,132 @@ syntax = "proto3";
 package rtt;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/rtt";
+
+message DescribeContentsRequest {
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message EqualsRequest {
+  int64 arg0 = 1;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message GetMatchFilterRequest {
+}
+
+message GetMatchFilterResponse {
+  int64 result = 1;
+}
+
+message GetRangingUpdateRateRequest {
+}
+
+message GetRangingUpdateRateResponse {
+  int32 result = 1;
+}
+
+message GetServiceNameRequest {
+}
+
+message GetServiceNameResponse {
+  string result = 1;
+}
+
+message HashCodeRequest {
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message IsPeriodicRangingHwFeatureEnabledRequest {
+}
+
+message IsPeriodicRangingHwFeatureEnabledResponse {
+  bool result = 1;
+}
+
+message ToStringRequest {
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteToParcelResponse {
+}
+
+message BuildRequest {
+}
+
+message BuildResponse {
+  int64 result = 1;
+}
+
+message SetMatchFilterRequest {
+  int64 arg0 = 1;
+}
+
+message SetMatchFilterResponse {
+  int64 result = 1;
+}
+
+message SetPeriodicRangingHwFeatureEnabledRequest {
+  bool arg0 = 1;
+}
+
+message SetPeriodicRangingHwFeatureEnabledResponse {
+  int64 result = 1;
+}
+
+message SetRangingUpdateRateRequest {
+  int32 arg0 = 1;
+}
+
+message SetRangingUpdateRateResponse {
+  int64 result = 1;
+}
+
+message HasPeriodicRangingHardwareFeatureRequest {
+}
+
+message HasPeriodicRangingHardwareFeatureResponse {
+  bool result = 1;
+}
+
+service RangingParamsService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetMatchFilter (GetMatchFilterRequest) returns (GetMatchFilterResponse);
+  rpc GetRangingUpdateRate (GetRangingUpdateRateRequest) returns (GetRangingUpdateRateResponse);
+  rpc GetServiceName (GetServiceNameRequest) returns (GetServiceNameResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc IsPeriodicRangingHwFeatureEnabled (IsPeriodicRangingHwFeatureEnabledRequest) returns (IsPeriodicRangingHwFeatureEnabledResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service RangingParamsBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetMatchFilter (SetMatchFilterRequest) returns (SetMatchFilterResponse);
+  rpc SetPeriodicRangingHwFeatureEnabled (SetPeriodicRangingHwFeatureEnabledRequest) returns (SetPeriodicRangingHwFeatureEnabledResponse);
+  rpc SetRangingUpdateRate (SetRangingUpdateRateRequest) returns (SetRangingUpdateRateResponse);
+}
+
+service RangingCapabilitiesService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc HasPeriodicRangingHardwareFeature (HasPeriodicRangingHardwareFeatureRequest) returns (HasPeriodicRangingHardwareFeatureResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}

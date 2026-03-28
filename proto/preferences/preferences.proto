@@ -5,3 +5,660 @@ syntax = "proto3";
 package preferences;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/preferences";
+
+message ContainsRequest {
+  string arg0 = 1;
+}
+
+message ContainsResponse {
+  bool result = 1;
+}
+
+message EditRequest {
+}
+
+message EditResponse {
+  int64 result = 1;
+}
+
+message GetBooleanRequest {
+  string arg0 = 1;
+  bool arg1 = 2;
+}
+
+message GetBooleanResponse {
+  bool result = 1;
+}
+
+message GetFloatRequest {
+  string arg0 = 1;
+  float arg1 = 2;
+}
+
+message GetFloatResponse {
+  float result = 1;
+}
+
+message GetIntRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message GetIntResponse {
+  int32 result = 1;
+}
+
+message GetLongRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message GetLongResponse {
+  int64 result = 1;
+}
+
+message GetStringRequest {
+  string arg0 = 1;
+  string arg1 = 2;
+}
+
+message GetStringResponse {
+  string result = 1;
+}
+
+message RegisterOnSharedPreferenceChangeListenerRequest {
+  int64 arg0 = 1;
+}
+
+message RegisterOnSharedPreferenceChangeListenerResponse {
+}
+
+message UnregisterOnSharedPreferenceChangeListenerRequest {
+  int64 arg0 = 1;
+}
+
+message UnregisterOnSharedPreferenceChangeListenerResponse {
+}
+
+message ApplyRequest {
+}
+
+message ApplyResponse {
+}
+
+message ClearRequest {
+}
+
+message ClearResponse {
+  int64 result = 1;
+}
+
+message CommitRequest {
+}
+
+message CommitResponse {
+  bool result = 1;
+}
+
+message PutBooleanRequest {
+  string arg0 = 1;
+  bool arg1 = 2;
+}
+
+message PutBooleanResponse {
+  int64 result = 1;
+}
+
+message PutFloatRequest {
+  string arg0 = 1;
+  float arg1 = 2;
+}
+
+message PutFloatResponse {
+  int64 result = 1;
+}
+
+message PutIntRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message PutIntResponse {
+  int64 result = 1;
+}
+
+message PutLongRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message PutLongResponse {
+  int64 result = 1;
+}
+
+message PutStringRequest {
+  string arg0 = 1;
+  string arg1 = 2;
+}
+
+message PutStringResponse {
+  int64 result = 1;
+}
+
+message RemoveRequest {
+  string arg0 = 1;
+}
+
+message RemoveResponse {
+  int64 result = 1;
+}
+
+message OnSharedPreferenceChangedRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+}
+
+message OnSharedPreferenceChangedResponse {
+}
+
+message GetStringSetRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message GetStringSetResponse {
+  int64 result = 1;
+}
+
+message PutStringSetRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message PutStringSetResponse {
+  int64 result = 1;
+}
+
+message OnBindRequest {
+  int64 arg0 = 1;
+}
+
+message OnBindResponse {
+  int64 result = 1;
+}
+
+message DescribeContentsRequest {
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message GetPreferenceKeyRequest {
+}
+
+message GetPreferenceKeyResponse {
+  string result = 1;
+}
+
+message GetScreenKeyRequest {
+}
+
+message GetScreenKeyResponse {
+  string result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteToParcelResponse {
+}
+
+message BuildRequest {
+}
+
+message BuildResponse {
+  int64 result = 1;
+}
+
+message GetBooleanValueRequest {
+}
+
+message GetBooleanValueResponse {
+  bool result = 1;
+}
+
+message GetDoubleValueRequest {
+}
+
+message GetDoubleValueResponse {
+  double result = 1;
+}
+
+message GetIntValueRequest {
+}
+
+message GetIntValueResponse {
+  int32 result = 1;
+}
+
+message GetLongValueRequest {
+}
+
+message GetLongValueResponse {
+  int64 result = 1;
+}
+
+message GetStringValueRequest {
+}
+
+message GetStringValueResponse {
+  string result = 1;
+}
+
+message GetTypeRequest {
+}
+
+message GetTypeResponse {
+  int32 result = 1;
+}
+
+message SetBooleanValueRequest {
+  bool arg0 = 1;
+}
+
+message SetBooleanValueResponse {
+  int64 result = 1;
+}
+
+message SetDoubleValueRequest {
+  double arg0 = 1;
+}
+
+message SetDoubleValueResponse {
+  int64 result = 1;
+}
+
+message SetIntValueRequest {
+  int32 arg0 = 1;
+}
+
+message SetIntValueResponse {
+  int64 result = 1;
+}
+
+message SetLongValueRequest {
+  int64 arg0 = 1;
+}
+
+message SetLongValueResponse {
+  int64 result = 1;
+}
+
+message SetStringValueRequest {
+  string arg0 = 1;
+}
+
+message SetStringValueResponse {
+  int64 result = 1;
+}
+
+message GetResultCodeRequest {
+}
+
+message GetResultCodeResponse {
+  int32 result = 1;
+}
+
+message NewSettingsPreferenceServiceClientRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message NewSettingsPreferenceServiceClientResponse {
+  int64 result = 1;
+}
+
+message CloseRequest {
+  int64 handle = 1;
+}
+
+message CloseResponse {
+}
+
+message GetExtrasRequest {
+}
+
+message GetExtrasResponse {
+  int64 result = 1;
+}
+
+message GetKeyRequest {
+}
+
+message GetKeyResponse {
+  string result = 1;
+}
+
+message GetLaunchIntentRequest {
+}
+
+message GetLaunchIntentResponse {
+  int64 result = 1;
+}
+
+message GetSummaryRequest {
+}
+
+message GetSummaryResponse {
+  string result = 1;
+}
+
+message GetTitleRequest {
+}
+
+message GetTitleResponse {
+  string result = 1;
+}
+
+message GetWriteSensitivityRequest {
+}
+
+message GetWriteSensitivityResponse {
+  int32 result = 1;
+}
+
+message IsAvailableRequest {
+}
+
+message IsAvailableResponse {
+  bool result = 1;
+}
+
+message IsEnabledRequest {
+}
+
+message IsEnabledResponse {
+  bool result = 1;
+}
+
+message IsRestrictedRequest {
+}
+
+message IsRestrictedResponse {
+  bool result = 1;
+}
+
+message IsWritableRequest {
+}
+
+message IsWritableResponse {
+  bool result = 1;
+}
+
+message SetAvailableRequest {
+  bool arg0 = 1;
+}
+
+message SetAvailableResponse {
+  int64 result = 1;
+}
+
+message SetEnabledRequest {
+  bool arg0 = 1;
+}
+
+message SetEnabledResponse {
+  int64 result = 1;
+}
+
+message SetExtrasRequest {
+  int64 arg0 = 1;
+}
+
+message SetExtrasResponse {
+  int64 result = 1;
+}
+
+message SetLaunchIntentRequest {
+  int64 arg0 = 1;
+}
+
+message SetLaunchIntentResponse {
+  int64 result = 1;
+}
+
+message SetRestrictedRequest {
+  bool arg0 = 1;
+}
+
+message SetRestrictedResponse {
+  int64 result = 1;
+}
+
+message SetSummaryRequest {
+  string arg0 = 1;
+}
+
+message SetSummaryResponse {
+  int64 result = 1;
+}
+
+message SetTitleRequest {
+  string arg0 = 1;
+}
+
+message SetTitleResponse {
+  int64 result = 1;
+}
+
+message SetWritableRequest {
+  bool arg0 = 1;
+}
+
+message SetWritableResponse {
+  int64 result = 1;
+}
+
+message SetWriteSensitivityRequest {
+  int32 arg0 = 1;
+}
+
+message SetWriteSensitivityResponse {
+  int64 result = 1;
+}
+
+message GetPreferenceValueRequest {
+}
+
+message GetPreferenceValueResponse {
+  int64 result = 1;
+}
+
+message GetMetadataRequest {
+}
+
+message GetMetadataResponse {
+  int64 result = 1;
+}
+
+message GetValueRequest {
+}
+
+message GetValueResponse {
+  int64 result = 1;
+}
+
+message SetMetadataRequest {
+  int64 arg0 = 1;
+}
+
+message SetMetadataResponse {
+  int64 result = 1;
+}
+
+message SetValueRequest {
+  int64 arg0 = 1;
+}
+
+message SetValueResponse {
+  int64 result = 1;
+}
+
+service SharedPreferencesService {
+  rpc Contains (ContainsRequest) returns (ContainsResponse);
+  rpc Edit (EditRequest) returns (EditResponse);
+  rpc GetBoolean (GetBooleanRequest) returns (GetBooleanResponse);
+  rpc GetFloat (GetFloatRequest) returns (GetFloatResponse);
+  rpc GetInt (GetIntRequest) returns (GetIntResponse);
+  rpc GetLong (GetLongRequest) returns (GetLongResponse);
+  rpc GetString (GetStringRequest) returns (GetStringResponse);
+  rpc RegisterOnSharedPreferenceChangeListener (RegisterOnSharedPreferenceChangeListenerRequest) returns (RegisterOnSharedPreferenceChangeListenerResponse);
+  rpc UnregisterOnSharedPreferenceChangeListener (UnregisterOnSharedPreferenceChangeListenerRequest) returns (UnregisterOnSharedPreferenceChangeListenerResponse);
+  rpc GetStringSet (GetStringSetRequest) returns (GetStringSetResponse);
+}
+
+service SharedPreferencesEditorService {
+  rpc Apply (ApplyRequest) returns (ApplyResponse);
+  rpc Clear (ClearRequest) returns (ClearResponse);
+  rpc Commit (CommitRequest) returns (CommitResponse);
+  rpc PutBoolean (PutBooleanRequest) returns (PutBooleanResponse);
+  rpc PutFloat (PutFloatRequest) returns (PutFloatResponse);
+  rpc PutInt (PutIntRequest) returns (PutIntResponse);
+  rpc PutLong (PutLongRequest) returns (PutLongResponse);
+  rpc PutString (PutStringRequest) returns (PutStringResponse);
+  rpc Remove (RemoveRequest) returns (RemoveResponse);
+  rpc PutStringSet (PutStringSetRequest) returns (PutStringSetResponse);
+}
+
+service SharedPreferencesOnSharedPreferenceChangeListenerService {
+  rpc OnSharedPreferenceChanged (OnSharedPreferenceChangedRequest) returns (OnSharedPreferenceChangedResponse);
+}
+
+service SettingsPreferenceServiceService {
+  rpc OnBind (OnBindRequest) returns (OnBindResponse);
+}
+
+service GetValueRequestService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetPreferenceKey (GetPreferenceKeyRequest) returns (GetPreferenceKeyResponse);
+  rpc GetScreenKey (GetScreenKeyRequest) returns (GetScreenKeyResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service GetValueRequestBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+}
+
+service SettingsPreferenceValueService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetBooleanValue (GetBooleanValueRequest) returns (GetBooleanValueResponse);
+  rpc GetDoubleValue (GetDoubleValueRequest) returns (GetDoubleValueResponse);
+  rpc GetIntValue (GetIntValueRequest) returns (GetIntValueResponse);
+  rpc GetLongValue (GetLongValueRequest) returns (GetLongValueResponse);
+  rpc GetStringValue (GetStringValueRequest) returns (GetStringValueResponse);
+  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service SettingsPreferenceValueBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetBooleanValue (SetBooleanValueRequest) returns (SetBooleanValueResponse);
+  rpc SetDoubleValue (SetDoubleValueRequest) returns (SetDoubleValueResponse);
+  rpc SetIntValue (SetIntValueRequest) returns (SetIntValueResponse);
+  rpc SetLongValue (SetLongValueRequest) returns (SetLongValueResponse);
+  rpc SetStringValue (SetStringValueRequest) returns (SetStringValueResponse);
+}
+
+service MetadataResultService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetResultCode (GetResultCodeRequest) returns (GetResultCodeResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service MetadataResultBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+}
+
+service SetValueResultService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetResultCode (GetResultCodeRequest) returns (GetResultCodeResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service SetValueResultBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+}
+
+service SettingsPreferenceServiceClientService {
+  rpc NewSettingsPreferenceServiceClient (NewSettingsPreferenceServiceClientRequest) returns (NewSettingsPreferenceServiceClientResponse);
+  rpc Close (CloseRequest) returns (CloseResponse);
+}
+
+service MetadataRequestService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service MetadataRequestBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+}
+
+service SettingsPreferenceMetadataService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetExtras (GetExtrasRequest) returns (GetExtrasResponse);
+  rpc GetKey (GetKeyRequest) returns (GetKeyResponse);
+  rpc GetLaunchIntent (GetLaunchIntentRequest) returns (GetLaunchIntentResponse);
+  rpc GetScreenKey (GetScreenKeyRequest) returns (GetScreenKeyResponse);
+  rpc GetSummary (GetSummaryRequest) returns (GetSummaryResponse);
+  rpc GetTitle (GetTitleRequest) returns (GetTitleResponse);
+  rpc GetWriteSensitivity (GetWriteSensitivityRequest) returns (GetWriteSensitivityResponse);
+  rpc IsAvailable (IsAvailableRequest) returns (IsAvailableResponse);
+  rpc IsEnabled (IsEnabledRequest) returns (IsEnabledResponse);
+  rpc IsRestricted (IsRestrictedRequest) returns (IsRestrictedResponse);
+  rpc IsWritable (IsWritableRequest) returns (IsWritableResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service SettingsPreferenceMetadataBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetAvailable (SetAvailableRequest) returns (SetAvailableResponse);
+  rpc SetEnabled (SetEnabledRequest) returns (SetEnabledResponse);
+  rpc SetExtras (SetExtrasRequest) returns (SetExtrasResponse);
+  rpc SetLaunchIntent (SetLaunchIntentRequest) returns (SetLaunchIntentResponse);
+  rpc SetRestricted (SetRestrictedRequest) returns (SetRestrictedResponse);
+  rpc SetSummary (SetSummaryRequest) returns (SetSummaryResponse);
+  rpc SetTitle (SetTitleRequest) returns (SetTitleResponse);
+  rpc SetWritable (SetWritableRequest) returns (SetWritableResponse);
+  rpc SetWriteSensitivity (SetWriteSensitivityRequest) returns (SetWriteSensitivityResponse);
+}
+
+service SetValueRequestService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetPreferenceKey (GetPreferenceKeyRequest) returns (GetPreferenceKeyResponse);
+  rpc GetPreferenceValue (GetPreferenceValueRequest) returns (GetPreferenceValueResponse);
+  rpc GetScreenKey (GetScreenKeyRequest) returns (GetScreenKeyResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service SetValueRequestBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+}
+
+service GetValueResultService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetMetadata (GetMetadataRequest) returns (GetMetadataResponse);
+  rpc GetResultCode (GetResultCodeRequest) returns (GetResultCodeResponse);
+  rpc GetValue (GetValueRequest) returns (GetValueResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service GetValueResultBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetMetadata (SetMetadataRequest) returns (SetMetadataResponse);
+  rpc SetValue (SetValueRequest) returns (SetValueResponse);
+}

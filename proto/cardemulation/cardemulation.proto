@@ -5,3 +5,410 @@ syntax = "proto3";
 package cardemulation;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/cardemulation";
+
+message NotifyUnhandledRequest {
+}
+
+message NotifyUnhandledResponse {
+}
+
+message OnBindRequest {
+  int64 arg0 = 1;
+}
+
+message OnBindResponse {
+  int64 result = 1;
+}
+
+message OnDeactivatedRequest {
+  int32 arg0 = 1;
+}
+
+message OnDeactivatedResponse {
+}
+
+message ProcessCommandApduRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message ProcessCommandApduResponse {
+  int64 result = 1;
+}
+
+message SendResponseApduRequest {
+  int64 arg0 = 1;
+}
+
+message SendResponseApduResponse {
+}
+
+message DescribeContentsRequest {
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message GetDataRequest {
+}
+
+message GetDataResponse {
+  int64 result = 1;
+}
+
+message GetTimestampRequest {
+}
+
+message GetTimestampResponse {
+  int64 result = 1;
+}
+
+message GetTriggeredAutoTransactRequest {
+}
+
+message GetTriggeredAutoTransactResponse {
+  bool result = 1;
+}
+
+message GetTypeRequest {
+}
+
+message GetTypeResponse {
+  int32 result = 1;
+}
+
+message GetVendorSpecificGainRequest {
+}
+
+message GetVendorSpecificGainResponse {
+  int32 result = 1;
+}
+
+message ToStringRequest {
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteToParcelResponse {
+}
+
+message ProcessNfcFPacketRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message ProcessNfcFPacketResponse {
+  int64 result = 1;
+}
+
+message SendResponsePacketRequest {
+  int64 arg0 = 1;
+}
+
+message SendResponsePacketResponse {
+}
+
+message CategoryAllowsForegroundPreferenceRequest {
+  string arg0 = 1;
+}
+
+message CategoryAllowsForegroundPreferenceResponse {
+  bool result = 1;
+}
+
+message GetDefaultNfcSubscriptionIdRequest {
+}
+
+message GetDefaultNfcSubscriptionIdResponse {
+  int32 result = 1;
+}
+
+message GetDescriptionForPreferredPaymentServiceRequest {
+}
+
+message GetDescriptionForPreferredPaymentServiceResponse {
+  int64 result = 1;
+}
+
+message GetRouteDestinationForPreferredPaymentServiceRequest {
+}
+
+message GetRouteDestinationForPreferredPaymentServiceResponse {
+  string result = 1;
+}
+
+message GetSelectionModeForCategoryRequest {
+  string arg0 = 1;
+}
+
+message GetSelectionModeForCategoryResponse {
+  int32 result = 1;
+}
+
+message IsDefaultServiceForAidRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+}
+
+message IsDefaultServiceForAidResponse {
+  bool result = 1;
+}
+
+message IsDefaultServiceForCategoryRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+}
+
+message IsDefaultServiceForCategoryResponse {
+  bool result = 1;
+}
+
+message IsEuiccSupportedRequest {
+}
+
+message IsEuiccSupportedResponse {
+  bool result = 1;
+}
+
+message RegisterNfcEventCallbackRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message RegisterNfcEventCallbackResponse {
+}
+
+message RegisterPollingLoopFilterForServiceRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  bool arg2 = 3;
+}
+
+message RegisterPollingLoopFilterForServiceResponse {
+  bool result = 1;
+}
+
+message RegisterPollingLoopPatternFilterForServiceRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  bool arg2 = 3;
+}
+
+message RegisterPollingLoopPatternFilterForServiceResponse {
+  bool result = 1;
+}
+
+message RemoveAidsForServiceRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+}
+
+message RemoveAidsForServiceResponse {
+  bool result = 1;
+}
+
+message RemovePollingLoopFilterForServiceRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+}
+
+message RemovePollingLoopFilterForServiceResponse {
+  bool result = 1;
+}
+
+message RemovePollingLoopPatternFilterForServiceRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+}
+
+message RemovePollingLoopPatternFilterForServiceResponse {
+  bool result = 1;
+}
+
+message SetOffHostForServiceRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+}
+
+message SetOffHostForServiceResponse {
+  bool result = 1;
+}
+
+message SetPreferredServiceRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SetPreferredServiceResponse {
+  bool result = 1;
+}
+
+message SetShouldDefaultToObserveModeForServiceRequest {
+  int64 arg0 = 1;
+  bool arg1 = 2;
+}
+
+message SetShouldDefaultToObserveModeForServiceResponse {
+  bool result = 1;
+}
+
+message SupportsAidPrefixRegistrationRequest {
+}
+
+message SupportsAidPrefixRegistrationResponse {
+  bool result = 1;
+}
+
+message UnregisterNfcEventCallbackRequest {
+  int64 arg0 = 1;
+}
+
+message UnregisterNfcEventCallbackResponse {
+}
+
+message UnsetOffHostForServiceRequest {
+  int64 arg0 = 1;
+}
+
+message UnsetOffHostForServiceResponse {
+  bool result = 1;
+}
+
+message UnsetPreferredServiceRequest {
+  int64 arg0 = 1;
+}
+
+message UnsetPreferredServiceResponse {
+  bool result = 1;
+}
+
+message DisableServiceRequest {
+  int64 arg0 = 1;
+}
+
+message DisableServiceResponse {
+  bool result = 1;
+}
+
+message EnableServiceRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message EnableServiceResponse {
+  bool result = 1;
+}
+
+message GetNfcid2ForServiceRequest {
+  int64 arg0 = 1;
+}
+
+message GetNfcid2ForServiceResponse {
+  string result = 1;
+}
+
+message GetSystemCodeForServiceRequest {
+  int64 arg0 = 1;
+}
+
+message GetSystemCodeForServiceResponse {
+  string result = 1;
+}
+
+message RegisterSystemCodeForServiceRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+}
+
+message RegisterSystemCodeForServiceResponse {
+  bool result = 1;
+}
+
+message SetNfcid2ForServiceRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+}
+
+message SetNfcid2ForServiceResponse {
+  bool result = 1;
+}
+
+message UnregisterSystemCodeForServiceRequest {
+  int64 arg0 = 1;
+}
+
+message UnregisterSystemCodeForServiceResponse {
+  bool result = 1;
+}
+
+service HostApduServiceService {
+  rpc NotifyUnhandled (NotifyUnhandledRequest) returns (NotifyUnhandledResponse);
+  rpc OnBind (OnBindRequest) returns (OnBindResponse);
+  rpc OnDeactivated (OnDeactivatedRequest) returns (OnDeactivatedResponse);
+  rpc ProcessCommandApdu (ProcessCommandApduRequest) returns (ProcessCommandApduResponse);
+  rpc SendResponseApdu (SendResponseApduRequest) returns (SendResponseApduResponse);
+}
+
+service PollingFrameService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetData (GetDataRequest) returns (GetDataResponse);
+  rpc GetTimestamp (GetTimestampRequest) returns (GetTimestampResponse);
+  rpc GetTriggeredAutoTransact (GetTriggeredAutoTransactRequest) returns (GetTriggeredAutoTransactResponse);
+  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
+  rpc GetVendorSpecificGain (GetVendorSpecificGainRequest) returns (GetVendorSpecificGainResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service HostNfcFServiceService {
+  rpc OnBind (OnBindRequest) returns (OnBindResponse);
+  rpc OnDeactivated (OnDeactivatedRequest) returns (OnDeactivatedResponse);
+  rpc ProcessNfcFPacket (ProcessNfcFPacketRequest) returns (ProcessNfcFPacketResponse);
+  rpc SendResponsePacket (SendResponsePacketRequest) returns (SendResponsePacketResponse);
+}
+
+service OffHostApduServiceService {
+  rpc OnBind (OnBindRequest) returns (OnBindResponse);
+}
+
+service CardEmulationService {
+  rpc CategoryAllowsForegroundPreference (CategoryAllowsForegroundPreferenceRequest) returns (CategoryAllowsForegroundPreferenceResponse);
+  rpc GetDefaultNfcSubscriptionId (GetDefaultNfcSubscriptionIdRequest) returns (GetDefaultNfcSubscriptionIdResponse);
+  rpc GetDescriptionForPreferredPaymentService (GetDescriptionForPreferredPaymentServiceRequest) returns (GetDescriptionForPreferredPaymentServiceResponse);
+  rpc GetRouteDestinationForPreferredPaymentService (GetRouteDestinationForPreferredPaymentServiceRequest) returns (GetRouteDestinationForPreferredPaymentServiceResponse);
+  rpc GetSelectionModeForCategory (GetSelectionModeForCategoryRequest) returns (GetSelectionModeForCategoryResponse);
+  rpc IsDefaultServiceForAid (IsDefaultServiceForAidRequest) returns (IsDefaultServiceForAidResponse);
+  rpc IsDefaultServiceForCategory (IsDefaultServiceForCategoryRequest) returns (IsDefaultServiceForCategoryResponse);
+  rpc IsEuiccSupported (IsEuiccSupportedRequest) returns (IsEuiccSupportedResponse);
+  rpc RegisterNfcEventCallback (RegisterNfcEventCallbackRequest) returns (RegisterNfcEventCallbackResponse);
+  rpc RegisterPollingLoopFilterForService (RegisterPollingLoopFilterForServiceRequest) returns (RegisterPollingLoopFilterForServiceResponse);
+  rpc RegisterPollingLoopPatternFilterForService (RegisterPollingLoopPatternFilterForServiceRequest) returns (RegisterPollingLoopPatternFilterForServiceResponse);
+  rpc RemoveAidsForService (RemoveAidsForServiceRequest) returns (RemoveAidsForServiceResponse);
+  rpc RemovePollingLoopFilterForService (RemovePollingLoopFilterForServiceRequest) returns (RemovePollingLoopFilterForServiceResponse);
+  rpc RemovePollingLoopPatternFilterForService (RemovePollingLoopPatternFilterForServiceRequest) returns (RemovePollingLoopPatternFilterForServiceResponse);
+  rpc SetOffHostForService (SetOffHostForServiceRequest) returns (SetOffHostForServiceResponse);
+  rpc SetPreferredService (SetPreferredServiceRequest) returns (SetPreferredServiceResponse);
+  rpc SetShouldDefaultToObserveModeForService (SetShouldDefaultToObserveModeForServiceRequest) returns (SetShouldDefaultToObserveModeForServiceResponse);
+  rpc SupportsAidPrefixRegistration (SupportsAidPrefixRegistrationRequest) returns (SupportsAidPrefixRegistrationResponse);
+  rpc UnregisterNfcEventCallback (UnregisterNfcEventCallbackRequest) returns (UnregisterNfcEventCallbackResponse);
+  rpc UnsetOffHostForService (UnsetOffHostForServiceRequest) returns (UnsetOffHostForServiceResponse);
+  rpc UnsetPreferredService (UnsetPreferredServiceRequest) returns (UnsetPreferredServiceResponse);
+}
+
+service NfcFCardEmulationService {
+  rpc DisableService (DisableServiceRequest) returns (DisableServiceResponse);
+  rpc EnableService (EnableServiceRequest) returns (EnableServiceResponse);
+  rpc GetNfcid2ForService (GetNfcid2ForServiceRequest) returns (GetNfcid2ForServiceResponse);
+  rpc GetSystemCodeForService (GetSystemCodeForServiceRequest) returns (GetSystemCodeForServiceResponse);
+  rpc RegisterSystemCodeForService (RegisterSystemCodeForServiceRequest) returns (RegisterSystemCodeForServiceResponse);
+  rpc SetNfcid2ForService (SetNfcid2ForServiceRequest) returns (SetNfcid2ForServiceResponse);
+  rpc UnregisterSystemCodeForService (UnregisterSystemCodeForServiceRequest) returns (UnregisterSystemCodeForServiceResponse);
+}

@@ -5,3 +5,140 @@ syntax = "proto3";
 package cs;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/cs";
+
+message DescribeContentsRequest {
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message ToStringRequest {
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteToParcelResponse {
+}
+
+message EqualsRequest {
+  int64 arg0 = 1;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message GetLocationTypeRequest {
+}
+
+message GetLocationTypeResponse {
+  int32 result = 1;
+}
+
+message GetPeerBluetoothAddressRequest {
+}
+
+message GetPeerBluetoothAddressResponse {
+  string result = 1;
+}
+
+message GetRangingUpdateRateRequest {
+}
+
+message GetRangingUpdateRateResponse {
+  int32 result = 1;
+}
+
+message GetSecurityLevelRequest {
+}
+
+message GetSecurityLevelResponse {
+  int32 result = 1;
+}
+
+message GetSightTypeRequest {
+}
+
+message GetSightTypeResponse {
+  int32 result = 1;
+}
+
+message HashCodeRequest {
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message BuildRequest {
+}
+
+message BuildResponse {
+  int64 result = 1;
+}
+
+message SetLocationTypeRequest {
+  int32 arg0 = 1;
+}
+
+message SetLocationTypeResponse {
+  int64 result = 1;
+}
+
+message SetRangingUpdateRateRequest {
+  int32 arg0 = 1;
+}
+
+message SetRangingUpdateRateResponse {
+  int64 result = 1;
+}
+
+message SetSecurityLevelRequest {
+  int32 arg0 = 1;
+}
+
+message SetSecurityLevelResponse {
+  int64 result = 1;
+}
+
+message SetSightTypeRequest {
+  int32 arg0 = 1;
+}
+
+message SetSightTypeResponse {
+  int64 result = 1;
+}
+
+service BleCsRangingCapabilitiesService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service BleCsRangingParamsService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetLocationType (GetLocationTypeRequest) returns (GetLocationTypeResponse);
+  rpc GetPeerBluetoothAddress (GetPeerBluetoothAddressRequest) returns (GetPeerBluetoothAddressResponse);
+  rpc GetRangingUpdateRate (GetRangingUpdateRateRequest) returns (GetRangingUpdateRateResponse);
+  rpc GetSecurityLevel (GetSecurityLevelRequest) returns (GetSecurityLevelResponse);
+  rpc GetSightType (GetSightTypeRequest) returns (GetSightTypeResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service BleCsRangingParamsBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetLocationType (SetLocationTypeRequest) returns (SetLocationTypeResponse);
+  rpc SetRangingUpdateRate (SetRangingUpdateRateRequest) returns (SetRangingUpdateRateResponse);
+  rpc SetSecurityLevel (SetSecurityLevelRequest) returns (SetSecurityLevelResponse);
+  rpc SetSightType (SetSightTypeRequest) returns (SetSightTypeResponse);
+}

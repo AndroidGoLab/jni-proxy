@@ -12,6 +12,7 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -22,19 +23,20877 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type NewDataSetObservableRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewDataSetObservableRequest) Reset() {
+	*x = NewDataSetObservableRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewDataSetObservableRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewDataSetObservableRequest) ProtoMessage() {}
+
+func (x *NewDataSetObservableRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewDataSetObservableRequest.ProtoReflect.Descriptor instead.
+func (*NewDataSetObservableRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{0}
+}
+
+type NewDataSetObservableResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewDataSetObservableResponse) Reset() {
+	*x = NewDataSetObservableResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewDataSetObservableResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewDataSetObservableResponse) ProtoMessage() {}
+
+func (x *NewDataSetObservableResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewDataSetObservableResponse.ProtoReflect.Descriptor instead.
+func (*NewDataSetObservableResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *NewDataSetObservableResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type NotifyChangedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NotifyChangedRequest) Reset() {
+	*x = NotifyChangedRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NotifyChangedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NotifyChangedRequest) ProtoMessage() {}
+
+func (x *NotifyChangedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NotifyChangedRequest.ProtoReflect.Descriptor instead.
+func (*NotifyChangedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *NotifyChangedRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type NotifyChangedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NotifyChangedResponse) Reset() {
+	*x = NotifyChangedResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NotifyChangedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NotifyChangedResponse) ProtoMessage() {}
+
+func (x *NotifyChangedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NotifyChangedResponse.ProtoReflect.Descriptor instead.
+func (*NotifyChangedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{3}
+}
+
+type NotifyInvalidatedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NotifyInvalidatedRequest) Reset() {
+	*x = NotifyInvalidatedRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NotifyInvalidatedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NotifyInvalidatedRequest) ProtoMessage() {}
+
+func (x *NotifyInvalidatedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NotifyInvalidatedRequest.ProtoReflect.Descriptor instead.
+func (*NotifyInvalidatedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *NotifyInvalidatedRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type NotifyInvalidatedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NotifyInvalidatedResponse) Reset() {
+	*x = NotifyInvalidatedResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NotifyInvalidatedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NotifyInvalidatedResponse) ProtoMessage() {}
+
+func (x *NotifyInvalidatedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NotifyInvalidatedResponse.ProtoReflect.Descriptor instead.
+func (*NotifyInvalidatedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{5}
+}
+
+type NewUtilsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewUtilsRequest) Reset() {
+	*x = NewUtilsRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewUtilsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewUtilsRequest) ProtoMessage() {}
+
+func (x *NewUtilsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewUtilsRequest.ProtoReflect.Descriptor instead.
+func (*NewUtilsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{6}
+}
+
+type NewUtilsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewUtilsResponse) Reset() {
+	*x = NewUtilsResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewUtilsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewUtilsResponse) ProtoMessage() {}
+
+func (x *NewUtilsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewUtilsResponse.ProtoReflect.Descriptor instead.
+func (*NewUtilsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *NewUtilsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AppendEscapedSQLStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AppendEscapedSQLStringRequest) Reset() {
+	*x = AppendEscapedSQLStringRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AppendEscapedSQLStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AppendEscapedSQLStringRequest) ProtoMessage() {}
+
+func (x *AppendEscapedSQLStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AppendEscapedSQLStringRequest.ProtoReflect.Descriptor instead.
+func (*AppendEscapedSQLStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *AppendEscapedSQLStringRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *AppendEscapedSQLStringRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *AppendEscapedSQLStringRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+type AppendEscapedSQLStringResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AppendEscapedSQLStringResponse) Reset() {
+	*x = AppendEscapedSQLStringResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AppendEscapedSQLStringResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AppendEscapedSQLStringResponse) ProtoMessage() {}
+
+func (x *AppendEscapedSQLStringResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AppendEscapedSQLStringResponse.ProtoReflect.Descriptor instead.
+func (*AppendEscapedSQLStringResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{9}
+}
+
+type AppendSelectionArgsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AppendSelectionArgsRequest) Reset() {
+	*x = AppendSelectionArgsRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AppendSelectionArgsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AppendSelectionArgsRequest) ProtoMessage() {}
+
+func (x *AppendSelectionArgsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AppendSelectionArgsRequest.ProtoReflect.Descriptor instead.
+func (*AppendSelectionArgsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *AppendSelectionArgsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *AppendSelectionArgsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *AppendSelectionArgsRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type AppendSelectionArgsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AppendSelectionArgsResponse) Reset() {
+	*x = AppendSelectionArgsResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AppendSelectionArgsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AppendSelectionArgsResponse) ProtoMessage() {}
+
+func (x *AppendSelectionArgsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AppendSelectionArgsResponse.ProtoReflect.Descriptor instead.
+func (*AppendSelectionArgsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *AppendSelectionArgsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AppendValueToSqlRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AppendValueToSqlRequest) Reset() {
+	*x = AppendValueToSqlRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AppendValueToSqlRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AppendValueToSqlRequest) ProtoMessage() {}
+
+func (x *AppendValueToSqlRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AppendValueToSqlRequest.ProtoReflect.Descriptor instead.
+func (*AppendValueToSqlRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *AppendValueToSqlRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *AppendValueToSqlRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *AppendValueToSqlRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type AppendValueToSqlResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AppendValueToSqlResponse) Reset() {
+	*x = AppendValueToSqlResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AppendValueToSqlResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AppendValueToSqlResponse) ProtoMessage() {}
+
+func (x *AppendValueToSqlResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AppendValueToSqlResponse.ProtoReflect.Descriptor instead.
+func (*AppendValueToSqlResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{13}
+}
+
+type BindObjectToProgramRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BindObjectToProgramRequest) Reset() {
+	*x = BindObjectToProgramRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BindObjectToProgramRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BindObjectToProgramRequest) ProtoMessage() {}
+
+func (x *BindObjectToProgramRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BindObjectToProgramRequest.ProtoReflect.Descriptor instead.
+func (*BindObjectToProgramRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{14}
+}
+
+func (x *BindObjectToProgramRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *BindObjectToProgramRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *BindObjectToProgramRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *BindObjectToProgramRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type BindObjectToProgramResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BindObjectToProgramResponse) Reset() {
+	*x = BindObjectToProgramResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BindObjectToProgramResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BindObjectToProgramResponse) ProtoMessage() {}
+
+func (x *BindObjectToProgramResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BindObjectToProgramResponse.ProtoReflect.Descriptor instead.
+func (*BindObjectToProgramResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{15}
+}
+
+type BlobFileDescriptorForQuery3Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BlobFileDescriptorForQuery3Request) Reset() {
+	*x = BlobFileDescriptorForQuery3Request{}
+	mi := &file_proto_database_database_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BlobFileDescriptorForQuery3Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BlobFileDescriptorForQuery3Request) ProtoMessage() {}
+
+func (x *BlobFileDescriptorForQuery3Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BlobFileDescriptorForQuery3Request.ProtoReflect.Descriptor instead.
+func (*BlobFileDescriptorForQuery3Request) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{16}
+}
+
+func (x *BlobFileDescriptorForQuery3Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *BlobFileDescriptorForQuery3Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *BlobFileDescriptorForQuery3Request) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *BlobFileDescriptorForQuery3Request) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type BlobFileDescriptorForQuery3Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BlobFileDescriptorForQuery3Response) Reset() {
+	*x = BlobFileDescriptorForQuery3Response{}
+	mi := &file_proto_database_database_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BlobFileDescriptorForQuery3Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BlobFileDescriptorForQuery3Response) ProtoMessage() {}
+
+func (x *BlobFileDescriptorForQuery3Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BlobFileDescriptorForQuery3Response.ProtoReflect.Descriptor instead.
+func (*BlobFileDescriptorForQuery3Response) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *BlobFileDescriptorForQuery3Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type BlobFileDescriptorForQuery2_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BlobFileDescriptorForQuery2_1Request) Reset() {
+	*x = BlobFileDescriptorForQuery2_1Request{}
+	mi := &file_proto_database_database_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BlobFileDescriptorForQuery2_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BlobFileDescriptorForQuery2_1Request) ProtoMessage() {}
+
+func (x *BlobFileDescriptorForQuery2_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BlobFileDescriptorForQuery2_1Request.ProtoReflect.Descriptor instead.
+func (*BlobFileDescriptorForQuery2_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{18}
+}
+
+func (x *BlobFileDescriptorForQuery2_1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *BlobFileDescriptorForQuery2_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *BlobFileDescriptorForQuery2_1Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type BlobFileDescriptorForQuery2_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BlobFileDescriptorForQuery2_1Response) Reset() {
+	*x = BlobFileDescriptorForQuery2_1Response{}
+	mi := &file_proto_database_database_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BlobFileDescriptorForQuery2_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BlobFileDescriptorForQuery2_1Response) ProtoMessage() {}
+
+func (x *BlobFileDescriptorForQuery2_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BlobFileDescriptorForQuery2_1Response.ProtoReflect.Descriptor instead.
+func (*BlobFileDescriptorForQuery2_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *BlobFileDescriptorForQuery2_1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ConcatenateWhereRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          string                 `protobuf:"bytes,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ConcatenateWhereRequest) Reset() {
+	*x = ConcatenateWhereRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ConcatenateWhereRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ConcatenateWhereRequest) ProtoMessage() {}
+
+func (x *ConcatenateWhereRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ConcatenateWhereRequest.ProtoReflect.Descriptor instead.
+func (*ConcatenateWhereRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{20}
+}
+
+func (x *ConcatenateWhereRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *ConcatenateWhereRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *ConcatenateWhereRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+type ConcatenateWhereResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ConcatenateWhereResponse) Reset() {
+	*x = ConcatenateWhereResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ConcatenateWhereResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ConcatenateWhereResponse) ProtoMessage() {}
+
+func (x *ConcatenateWhereResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ConcatenateWhereResponse.ProtoReflect.Descriptor instead.
+func (*ConcatenateWhereResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{21}
+}
+
+func (x *ConcatenateWhereResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type CreateDbFromSqlStatementsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          string                 `protobuf:"bytes,5,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateDbFromSqlStatementsRequest) Reset() {
+	*x = CreateDbFromSqlStatementsRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateDbFromSqlStatementsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateDbFromSqlStatementsRequest) ProtoMessage() {}
+
+func (x *CreateDbFromSqlStatementsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateDbFromSqlStatementsRequest.ProtoReflect.Descriptor instead.
+func (*CreateDbFromSqlStatementsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{22}
+}
+
+func (x *CreateDbFromSqlStatementsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *CreateDbFromSqlStatementsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *CreateDbFromSqlStatementsRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *CreateDbFromSqlStatementsRequest) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *CreateDbFromSqlStatementsRequest) GetArg3() string {
+	if x != nil {
+		return x.Arg3
+	}
+	return ""
+}
+
+type CreateDbFromSqlStatementsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateDbFromSqlStatementsResponse) Reset() {
+	*x = CreateDbFromSqlStatementsResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateDbFromSqlStatementsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateDbFromSqlStatementsResponse) ProtoMessage() {}
+
+func (x *CreateDbFromSqlStatementsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateDbFromSqlStatementsResponse.ProtoReflect.Descriptor instead.
+func (*CreateDbFromSqlStatementsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{23}
+}
+
+type CursorDoubleToContentValuesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          string                 `protobuf:"bytes,5,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CursorDoubleToContentValuesRequest) Reset() {
+	*x = CursorDoubleToContentValuesRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CursorDoubleToContentValuesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CursorDoubleToContentValuesRequest) ProtoMessage() {}
+
+func (x *CursorDoubleToContentValuesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CursorDoubleToContentValuesRequest.ProtoReflect.Descriptor instead.
+func (*CursorDoubleToContentValuesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{24}
+}
+
+func (x *CursorDoubleToContentValuesRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *CursorDoubleToContentValuesRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *CursorDoubleToContentValuesRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *CursorDoubleToContentValuesRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *CursorDoubleToContentValuesRequest) GetArg3() string {
+	if x != nil {
+		return x.Arg3
+	}
+	return ""
+}
+
+type CursorDoubleToContentValuesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CursorDoubleToContentValuesResponse) Reset() {
+	*x = CursorDoubleToContentValuesResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CursorDoubleToContentValuesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CursorDoubleToContentValuesResponse) ProtoMessage() {}
+
+func (x *CursorDoubleToContentValuesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CursorDoubleToContentValuesResponse.ProtoReflect.Descriptor instead.
+func (*CursorDoubleToContentValuesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{25}
+}
+
+type CursorDoubleToContentValuesIfPresentRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          string                 `protobuf:"bytes,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CursorDoubleToContentValuesIfPresentRequest) Reset() {
+	*x = CursorDoubleToContentValuesIfPresentRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[26]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CursorDoubleToContentValuesIfPresentRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CursorDoubleToContentValuesIfPresentRequest) ProtoMessage() {}
+
+func (x *CursorDoubleToContentValuesIfPresentRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[26]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CursorDoubleToContentValuesIfPresentRequest.ProtoReflect.Descriptor instead.
+func (*CursorDoubleToContentValuesIfPresentRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{26}
+}
+
+func (x *CursorDoubleToContentValuesIfPresentRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *CursorDoubleToContentValuesIfPresentRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *CursorDoubleToContentValuesIfPresentRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *CursorDoubleToContentValuesIfPresentRequest) GetArg2() string {
+	if x != nil {
+		return x.Arg2
+	}
+	return ""
+}
+
+type CursorDoubleToContentValuesIfPresentResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CursorDoubleToContentValuesIfPresentResponse) Reset() {
+	*x = CursorDoubleToContentValuesIfPresentResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[27]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CursorDoubleToContentValuesIfPresentResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CursorDoubleToContentValuesIfPresentResponse) ProtoMessage() {}
+
+func (x *CursorDoubleToContentValuesIfPresentResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[27]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CursorDoubleToContentValuesIfPresentResponse.ProtoReflect.Descriptor instead.
+func (*CursorDoubleToContentValuesIfPresentResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{27}
+}
+
+type CursorDoubleToCursorValuesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CursorDoubleToCursorValuesRequest) Reset() {
+	*x = CursorDoubleToCursorValuesRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[28]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CursorDoubleToCursorValuesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CursorDoubleToCursorValuesRequest) ProtoMessage() {}
+
+func (x *CursorDoubleToCursorValuesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[28]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CursorDoubleToCursorValuesRequest.ProtoReflect.Descriptor instead.
+func (*CursorDoubleToCursorValuesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{28}
+}
+
+func (x *CursorDoubleToCursorValuesRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *CursorDoubleToCursorValuesRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *CursorDoubleToCursorValuesRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *CursorDoubleToCursorValuesRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type CursorDoubleToCursorValuesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CursorDoubleToCursorValuesResponse) Reset() {
+	*x = CursorDoubleToCursorValuesResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[29]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CursorDoubleToCursorValuesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CursorDoubleToCursorValuesResponse) ProtoMessage() {}
+
+func (x *CursorDoubleToCursorValuesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[29]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CursorDoubleToCursorValuesResponse.ProtoReflect.Descriptor instead.
+func (*CursorDoubleToCursorValuesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{29}
+}
+
+type CursorFloatToContentValuesIfPresentRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          string                 `protobuf:"bytes,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CursorFloatToContentValuesIfPresentRequest) Reset() {
+	*x = CursorFloatToContentValuesIfPresentRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[30]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CursorFloatToContentValuesIfPresentRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CursorFloatToContentValuesIfPresentRequest) ProtoMessage() {}
+
+func (x *CursorFloatToContentValuesIfPresentRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[30]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CursorFloatToContentValuesIfPresentRequest.ProtoReflect.Descriptor instead.
+func (*CursorFloatToContentValuesIfPresentRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{30}
+}
+
+func (x *CursorFloatToContentValuesIfPresentRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *CursorFloatToContentValuesIfPresentRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *CursorFloatToContentValuesIfPresentRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *CursorFloatToContentValuesIfPresentRequest) GetArg2() string {
+	if x != nil {
+		return x.Arg2
+	}
+	return ""
+}
+
+type CursorFloatToContentValuesIfPresentResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CursorFloatToContentValuesIfPresentResponse) Reset() {
+	*x = CursorFloatToContentValuesIfPresentResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[31]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CursorFloatToContentValuesIfPresentResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CursorFloatToContentValuesIfPresentResponse) ProtoMessage() {}
+
+func (x *CursorFloatToContentValuesIfPresentResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[31]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CursorFloatToContentValuesIfPresentResponse.ProtoReflect.Descriptor instead.
+func (*CursorFloatToContentValuesIfPresentResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{31}
+}
+
+type CursorIntToContentValues3Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CursorIntToContentValues3Request) Reset() {
+	*x = CursorIntToContentValues3Request{}
+	mi := &file_proto_database_database_proto_msgTypes[32]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CursorIntToContentValues3Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CursorIntToContentValues3Request) ProtoMessage() {}
+
+func (x *CursorIntToContentValues3Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[32]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CursorIntToContentValues3Request.ProtoReflect.Descriptor instead.
+func (*CursorIntToContentValues3Request) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{32}
+}
+
+func (x *CursorIntToContentValues3Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *CursorIntToContentValues3Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *CursorIntToContentValues3Request) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *CursorIntToContentValues3Request) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type CursorIntToContentValues3Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CursorIntToContentValues3Response) Reset() {
+	*x = CursorIntToContentValues3Response{}
+	mi := &file_proto_database_database_proto_msgTypes[33]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CursorIntToContentValues3Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CursorIntToContentValues3Response) ProtoMessage() {}
+
+func (x *CursorIntToContentValues3Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[33]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CursorIntToContentValues3Response.ProtoReflect.Descriptor instead.
+func (*CursorIntToContentValues3Response) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{33}
+}
+
+type CursorIntToContentValues4_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          string                 `protobuf:"bytes,5,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CursorIntToContentValues4_1Request) Reset() {
+	*x = CursorIntToContentValues4_1Request{}
+	mi := &file_proto_database_database_proto_msgTypes[34]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CursorIntToContentValues4_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CursorIntToContentValues4_1Request) ProtoMessage() {}
+
+func (x *CursorIntToContentValues4_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[34]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CursorIntToContentValues4_1Request.ProtoReflect.Descriptor instead.
+func (*CursorIntToContentValues4_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{34}
+}
+
+func (x *CursorIntToContentValues4_1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *CursorIntToContentValues4_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *CursorIntToContentValues4_1Request) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *CursorIntToContentValues4_1Request) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *CursorIntToContentValues4_1Request) GetArg3() string {
+	if x != nil {
+		return x.Arg3
+	}
+	return ""
+}
+
+type CursorIntToContentValues4_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CursorIntToContentValues4_1Response) Reset() {
+	*x = CursorIntToContentValues4_1Response{}
+	mi := &file_proto_database_database_proto_msgTypes[35]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CursorIntToContentValues4_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CursorIntToContentValues4_1Response) ProtoMessage() {}
+
+func (x *CursorIntToContentValues4_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[35]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CursorIntToContentValues4_1Response.ProtoReflect.Descriptor instead.
+func (*CursorIntToContentValues4_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{35}
+}
+
+type CursorIntToContentValuesIfPresentRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          string                 `protobuf:"bytes,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CursorIntToContentValuesIfPresentRequest) Reset() {
+	*x = CursorIntToContentValuesIfPresentRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[36]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CursorIntToContentValuesIfPresentRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CursorIntToContentValuesIfPresentRequest) ProtoMessage() {}
+
+func (x *CursorIntToContentValuesIfPresentRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[36]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CursorIntToContentValuesIfPresentRequest.ProtoReflect.Descriptor instead.
+func (*CursorIntToContentValuesIfPresentRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{36}
+}
+
+func (x *CursorIntToContentValuesIfPresentRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *CursorIntToContentValuesIfPresentRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *CursorIntToContentValuesIfPresentRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *CursorIntToContentValuesIfPresentRequest) GetArg2() string {
+	if x != nil {
+		return x.Arg2
+	}
+	return ""
+}
+
+type CursorIntToContentValuesIfPresentResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CursorIntToContentValuesIfPresentResponse) Reset() {
+	*x = CursorIntToContentValuesIfPresentResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[37]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CursorIntToContentValuesIfPresentResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CursorIntToContentValuesIfPresentResponse) ProtoMessage() {}
+
+func (x *CursorIntToContentValuesIfPresentResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[37]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CursorIntToContentValuesIfPresentResponse.ProtoReflect.Descriptor instead.
+func (*CursorIntToContentValuesIfPresentResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{37}
+}
+
+type CursorLongToContentValues3Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CursorLongToContentValues3Request) Reset() {
+	*x = CursorLongToContentValues3Request{}
+	mi := &file_proto_database_database_proto_msgTypes[38]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CursorLongToContentValues3Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CursorLongToContentValues3Request) ProtoMessage() {}
+
+func (x *CursorLongToContentValues3Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[38]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CursorLongToContentValues3Request.ProtoReflect.Descriptor instead.
+func (*CursorLongToContentValues3Request) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{38}
+}
+
+func (x *CursorLongToContentValues3Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *CursorLongToContentValues3Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *CursorLongToContentValues3Request) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *CursorLongToContentValues3Request) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type CursorLongToContentValues3Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CursorLongToContentValues3Response) Reset() {
+	*x = CursorLongToContentValues3Response{}
+	mi := &file_proto_database_database_proto_msgTypes[39]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CursorLongToContentValues3Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CursorLongToContentValues3Response) ProtoMessage() {}
+
+func (x *CursorLongToContentValues3Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[39]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CursorLongToContentValues3Response.ProtoReflect.Descriptor instead.
+func (*CursorLongToContentValues3Response) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{39}
+}
+
+type CursorLongToContentValues4_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          string                 `protobuf:"bytes,5,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CursorLongToContentValues4_1Request) Reset() {
+	*x = CursorLongToContentValues4_1Request{}
+	mi := &file_proto_database_database_proto_msgTypes[40]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CursorLongToContentValues4_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CursorLongToContentValues4_1Request) ProtoMessage() {}
+
+func (x *CursorLongToContentValues4_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[40]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CursorLongToContentValues4_1Request.ProtoReflect.Descriptor instead.
+func (*CursorLongToContentValues4_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{40}
+}
+
+func (x *CursorLongToContentValues4_1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *CursorLongToContentValues4_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *CursorLongToContentValues4_1Request) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *CursorLongToContentValues4_1Request) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *CursorLongToContentValues4_1Request) GetArg3() string {
+	if x != nil {
+		return x.Arg3
+	}
+	return ""
+}
+
+type CursorLongToContentValues4_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CursorLongToContentValues4_1Response) Reset() {
+	*x = CursorLongToContentValues4_1Response{}
+	mi := &file_proto_database_database_proto_msgTypes[41]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CursorLongToContentValues4_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CursorLongToContentValues4_1Response) ProtoMessage() {}
+
+func (x *CursorLongToContentValues4_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[41]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CursorLongToContentValues4_1Response.ProtoReflect.Descriptor instead.
+func (*CursorLongToContentValues4_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{41}
+}
+
+type CursorLongToContentValuesIfPresentRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          string                 `protobuf:"bytes,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CursorLongToContentValuesIfPresentRequest) Reset() {
+	*x = CursorLongToContentValuesIfPresentRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[42]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CursorLongToContentValuesIfPresentRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CursorLongToContentValuesIfPresentRequest) ProtoMessage() {}
+
+func (x *CursorLongToContentValuesIfPresentRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[42]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CursorLongToContentValuesIfPresentRequest.ProtoReflect.Descriptor instead.
+func (*CursorLongToContentValuesIfPresentRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{42}
+}
+
+func (x *CursorLongToContentValuesIfPresentRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *CursorLongToContentValuesIfPresentRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *CursorLongToContentValuesIfPresentRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *CursorLongToContentValuesIfPresentRequest) GetArg2() string {
+	if x != nil {
+		return x.Arg2
+	}
+	return ""
+}
+
+type CursorLongToContentValuesIfPresentResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CursorLongToContentValuesIfPresentResponse) Reset() {
+	*x = CursorLongToContentValuesIfPresentResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[43]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CursorLongToContentValuesIfPresentResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CursorLongToContentValuesIfPresentResponse) ProtoMessage() {}
+
+func (x *CursorLongToContentValuesIfPresentResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[43]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CursorLongToContentValuesIfPresentResponse.ProtoReflect.Descriptor instead.
+func (*CursorLongToContentValuesIfPresentResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{43}
+}
+
+type CursorRowToContentValuesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CursorRowToContentValuesRequest) Reset() {
+	*x = CursorRowToContentValuesRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[44]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CursorRowToContentValuesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CursorRowToContentValuesRequest) ProtoMessage() {}
+
+func (x *CursorRowToContentValuesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[44]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CursorRowToContentValuesRequest.ProtoReflect.Descriptor instead.
+func (*CursorRowToContentValuesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{44}
+}
+
+func (x *CursorRowToContentValuesRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *CursorRowToContentValuesRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *CursorRowToContentValuesRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type CursorRowToContentValuesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CursorRowToContentValuesResponse) Reset() {
+	*x = CursorRowToContentValuesResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[45]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CursorRowToContentValuesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CursorRowToContentValuesResponse) ProtoMessage() {}
+
+func (x *CursorRowToContentValuesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[45]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CursorRowToContentValuesResponse.ProtoReflect.Descriptor instead.
+func (*CursorRowToContentValuesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{45}
+}
+
+type CursorShortToContentValuesIfPresentRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          string                 `protobuf:"bytes,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CursorShortToContentValuesIfPresentRequest) Reset() {
+	*x = CursorShortToContentValuesIfPresentRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[46]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CursorShortToContentValuesIfPresentRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CursorShortToContentValuesIfPresentRequest) ProtoMessage() {}
+
+func (x *CursorShortToContentValuesIfPresentRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[46]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CursorShortToContentValuesIfPresentRequest.ProtoReflect.Descriptor instead.
+func (*CursorShortToContentValuesIfPresentRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{46}
+}
+
+func (x *CursorShortToContentValuesIfPresentRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *CursorShortToContentValuesIfPresentRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *CursorShortToContentValuesIfPresentRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *CursorShortToContentValuesIfPresentRequest) GetArg2() string {
+	if x != nil {
+		return x.Arg2
+	}
+	return ""
+}
+
+type CursorShortToContentValuesIfPresentResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CursorShortToContentValuesIfPresentResponse) Reset() {
+	*x = CursorShortToContentValuesIfPresentResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[47]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CursorShortToContentValuesIfPresentResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CursorShortToContentValuesIfPresentResponse) ProtoMessage() {}
+
+func (x *CursorShortToContentValuesIfPresentResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[47]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CursorShortToContentValuesIfPresentResponse.ProtoReflect.Descriptor instead.
+func (*CursorShortToContentValuesIfPresentResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{47}
+}
+
+type CursorStringToContentValues3Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CursorStringToContentValues3Request) Reset() {
+	*x = CursorStringToContentValues3Request{}
+	mi := &file_proto_database_database_proto_msgTypes[48]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CursorStringToContentValues3Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CursorStringToContentValues3Request) ProtoMessage() {}
+
+func (x *CursorStringToContentValues3Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[48]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CursorStringToContentValues3Request.ProtoReflect.Descriptor instead.
+func (*CursorStringToContentValues3Request) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{48}
+}
+
+func (x *CursorStringToContentValues3Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *CursorStringToContentValues3Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *CursorStringToContentValues3Request) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *CursorStringToContentValues3Request) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type CursorStringToContentValues3Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CursorStringToContentValues3Response) Reset() {
+	*x = CursorStringToContentValues3Response{}
+	mi := &file_proto_database_database_proto_msgTypes[49]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CursorStringToContentValues3Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CursorStringToContentValues3Response) ProtoMessage() {}
+
+func (x *CursorStringToContentValues3Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[49]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CursorStringToContentValues3Response.ProtoReflect.Descriptor instead.
+func (*CursorStringToContentValues3Response) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{49}
+}
+
+type CursorStringToContentValues4_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          string                 `protobuf:"bytes,5,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CursorStringToContentValues4_1Request) Reset() {
+	*x = CursorStringToContentValues4_1Request{}
+	mi := &file_proto_database_database_proto_msgTypes[50]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CursorStringToContentValues4_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CursorStringToContentValues4_1Request) ProtoMessage() {}
+
+func (x *CursorStringToContentValues4_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[50]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CursorStringToContentValues4_1Request.ProtoReflect.Descriptor instead.
+func (*CursorStringToContentValues4_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{50}
+}
+
+func (x *CursorStringToContentValues4_1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *CursorStringToContentValues4_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *CursorStringToContentValues4_1Request) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *CursorStringToContentValues4_1Request) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *CursorStringToContentValues4_1Request) GetArg3() string {
+	if x != nil {
+		return x.Arg3
+	}
+	return ""
+}
+
+type CursorStringToContentValues4_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CursorStringToContentValues4_1Response) Reset() {
+	*x = CursorStringToContentValues4_1Response{}
+	mi := &file_proto_database_database_proto_msgTypes[51]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CursorStringToContentValues4_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CursorStringToContentValues4_1Response) ProtoMessage() {}
+
+func (x *CursorStringToContentValues4_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[51]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CursorStringToContentValues4_1Response.ProtoReflect.Descriptor instead.
+func (*CursorStringToContentValues4_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{51}
+}
+
+type CursorStringToContentValuesIfPresentRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          string                 `protobuf:"bytes,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CursorStringToContentValuesIfPresentRequest) Reset() {
+	*x = CursorStringToContentValuesIfPresentRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[52]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CursorStringToContentValuesIfPresentRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CursorStringToContentValuesIfPresentRequest) ProtoMessage() {}
+
+func (x *CursorStringToContentValuesIfPresentRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[52]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CursorStringToContentValuesIfPresentRequest.ProtoReflect.Descriptor instead.
+func (*CursorStringToContentValuesIfPresentRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{52}
+}
+
+func (x *CursorStringToContentValuesIfPresentRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *CursorStringToContentValuesIfPresentRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *CursorStringToContentValuesIfPresentRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *CursorStringToContentValuesIfPresentRequest) GetArg2() string {
+	if x != nil {
+		return x.Arg2
+	}
+	return ""
+}
+
+type CursorStringToContentValuesIfPresentResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CursorStringToContentValuesIfPresentResponse) Reset() {
+	*x = CursorStringToContentValuesIfPresentResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[53]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CursorStringToContentValuesIfPresentResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CursorStringToContentValuesIfPresentResponse) ProtoMessage() {}
+
+func (x *CursorStringToContentValuesIfPresentResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[53]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CursorStringToContentValuesIfPresentResponse.ProtoReflect.Descriptor instead.
+func (*CursorStringToContentValuesIfPresentResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{53}
+}
+
+type CursorStringToInsertHelperRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int32                  `protobuf:"varint,5,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CursorStringToInsertHelperRequest) Reset() {
+	*x = CursorStringToInsertHelperRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[54]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CursorStringToInsertHelperRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CursorStringToInsertHelperRequest) ProtoMessage() {}
+
+func (x *CursorStringToInsertHelperRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[54]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CursorStringToInsertHelperRequest.ProtoReflect.Descriptor instead.
+func (*CursorStringToInsertHelperRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{54}
+}
+
+func (x *CursorStringToInsertHelperRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *CursorStringToInsertHelperRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *CursorStringToInsertHelperRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *CursorStringToInsertHelperRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *CursorStringToInsertHelperRequest) GetArg3() int32 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+type CursorStringToInsertHelperResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CursorStringToInsertHelperResponse) Reset() {
+	*x = CursorStringToInsertHelperResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[55]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CursorStringToInsertHelperResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CursorStringToInsertHelperResponse) ProtoMessage() {}
+
+func (x *CursorStringToInsertHelperResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[55]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CursorStringToInsertHelperResponse.ProtoReflect.Descriptor instead.
+func (*CursorStringToInsertHelperResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{55}
+}
+
+type DumpCurrentRow1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DumpCurrentRow1Request) Reset() {
+	*x = DumpCurrentRow1Request{}
+	mi := &file_proto_database_database_proto_msgTypes[56]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DumpCurrentRow1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DumpCurrentRow1Request) ProtoMessage() {}
+
+func (x *DumpCurrentRow1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[56]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DumpCurrentRow1Request.ProtoReflect.Descriptor instead.
+func (*DumpCurrentRow1Request) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{56}
+}
+
+func (x *DumpCurrentRow1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *DumpCurrentRow1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type DumpCurrentRow1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DumpCurrentRow1Response) Reset() {
+	*x = DumpCurrentRow1Response{}
+	mi := &file_proto_database_database_proto_msgTypes[57]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DumpCurrentRow1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DumpCurrentRow1Response) ProtoMessage() {}
+
+func (x *DumpCurrentRow1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[57]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DumpCurrentRow1Response.ProtoReflect.Descriptor instead.
+func (*DumpCurrentRow1Response) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{57}
+}
+
+type DumpCurrentRow2_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DumpCurrentRow2_1Request) Reset() {
+	*x = DumpCurrentRow2_1Request{}
+	mi := &file_proto_database_database_proto_msgTypes[58]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DumpCurrentRow2_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DumpCurrentRow2_1Request) ProtoMessage() {}
+
+func (x *DumpCurrentRow2_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[58]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DumpCurrentRow2_1Request.ProtoReflect.Descriptor instead.
+func (*DumpCurrentRow2_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{58}
+}
+
+func (x *DumpCurrentRow2_1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *DumpCurrentRow2_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *DumpCurrentRow2_1Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type DumpCurrentRow2_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DumpCurrentRow2_1Response) Reset() {
+	*x = DumpCurrentRow2_1Response{}
+	mi := &file_proto_database_database_proto_msgTypes[59]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DumpCurrentRow2_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DumpCurrentRow2_1Response) ProtoMessage() {}
+
+func (x *DumpCurrentRow2_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[59]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DumpCurrentRow2_1Response.ProtoReflect.Descriptor instead.
+func (*DumpCurrentRow2_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{59}
+}
+
+type DumpCurrentRow2_2Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DumpCurrentRow2_2Request) Reset() {
+	*x = DumpCurrentRow2_2Request{}
+	mi := &file_proto_database_database_proto_msgTypes[60]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DumpCurrentRow2_2Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DumpCurrentRow2_2Request) ProtoMessage() {}
+
+func (x *DumpCurrentRow2_2Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[60]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DumpCurrentRow2_2Request.ProtoReflect.Descriptor instead.
+func (*DumpCurrentRow2_2Request) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{60}
+}
+
+func (x *DumpCurrentRow2_2Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *DumpCurrentRow2_2Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *DumpCurrentRow2_2Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type DumpCurrentRow2_2Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DumpCurrentRow2_2Response) Reset() {
+	*x = DumpCurrentRow2_2Response{}
+	mi := &file_proto_database_database_proto_msgTypes[61]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DumpCurrentRow2_2Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DumpCurrentRow2_2Response) ProtoMessage() {}
+
+func (x *DumpCurrentRow2_2Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[61]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DumpCurrentRow2_2Response.ProtoReflect.Descriptor instead.
+func (*DumpCurrentRow2_2Response) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{61}
+}
+
+type DumpCurrentRowToStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DumpCurrentRowToStringRequest) Reset() {
+	*x = DumpCurrentRowToStringRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[62]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DumpCurrentRowToStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DumpCurrentRowToStringRequest) ProtoMessage() {}
+
+func (x *DumpCurrentRowToStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[62]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DumpCurrentRowToStringRequest.ProtoReflect.Descriptor instead.
+func (*DumpCurrentRowToStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{62}
+}
+
+func (x *DumpCurrentRowToStringRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *DumpCurrentRowToStringRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type DumpCurrentRowToStringResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DumpCurrentRowToStringResponse) Reset() {
+	*x = DumpCurrentRowToStringResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[63]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DumpCurrentRowToStringResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DumpCurrentRowToStringResponse) ProtoMessage() {}
+
+func (x *DumpCurrentRowToStringResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[63]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DumpCurrentRowToStringResponse.ProtoReflect.Descriptor instead.
+func (*DumpCurrentRowToStringResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{63}
+}
+
+func (x *DumpCurrentRowToStringResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type DumpCursor1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DumpCursor1Request) Reset() {
+	*x = DumpCursor1Request{}
+	mi := &file_proto_database_database_proto_msgTypes[64]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DumpCursor1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DumpCursor1Request) ProtoMessage() {}
+
+func (x *DumpCursor1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[64]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DumpCursor1Request.ProtoReflect.Descriptor instead.
+func (*DumpCursor1Request) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{64}
+}
+
+func (x *DumpCursor1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *DumpCursor1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type DumpCursor1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DumpCursor1Response) Reset() {
+	*x = DumpCursor1Response{}
+	mi := &file_proto_database_database_proto_msgTypes[65]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DumpCursor1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DumpCursor1Response) ProtoMessage() {}
+
+func (x *DumpCursor1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[65]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DumpCursor1Response.ProtoReflect.Descriptor instead.
+func (*DumpCursor1Response) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{65}
+}
+
+type DumpCursor2_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DumpCursor2_1Request) Reset() {
+	*x = DumpCursor2_1Request{}
+	mi := &file_proto_database_database_proto_msgTypes[66]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DumpCursor2_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DumpCursor2_1Request) ProtoMessage() {}
+
+func (x *DumpCursor2_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[66]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DumpCursor2_1Request.ProtoReflect.Descriptor instead.
+func (*DumpCursor2_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{66}
+}
+
+func (x *DumpCursor2_1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *DumpCursor2_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *DumpCursor2_1Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type DumpCursor2_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DumpCursor2_1Response) Reset() {
+	*x = DumpCursor2_1Response{}
+	mi := &file_proto_database_database_proto_msgTypes[67]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DumpCursor2_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DumpCursor2_1Response) ProtoMessage() {}
+
+func (x *DumpCursor2_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[67]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DumpCursor2_1Response.ProtoReflect.Descriptor instead.
+func (*DumpCursor2_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{67}
+}
+
+type DumpCursor2_2Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DumpCursor2_2Request) Reset() {
+	*x = DumpCursor2_2Request{}
+	mi := &file_proto_database_database_proto_msgTypes[68]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DumpCursor2_2Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DumpCursor2_2Request) ProtoMessage() {}
+
+func (x *DumpCursor2_2Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[68]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DumpCursor2_2Request.ProtoReflect.Descriptor instead.
+func (*DumpCursor2_2Request) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{68}
+}
+
+func (x *DumpCursor2_2Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *DumpCursor2_2Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *DumpCursor2_2Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type DumpCursor2_2Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DumpCursor2_2Response) Reset() {
+	*x = DumpCursor2_2Response{}
+	mi := &file_proto_database_database_proto_msgTypes[69]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DumpCursor2_2Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DumpCursor2_2Response) ProtoMessage() {}
+
+func (x *DumpCursor2_2Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[69]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DumpCursor2_2Response.ProtoReflect.Descriptor instead.
+func (*DumpCursor2_2Response) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{69}
+}
+
+type DumpCursorToStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DumpCursorToStringRequest) Reset() {
+	*x = DumpCursorToStringRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[70]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DumpCursorToStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DumpCursorToStringRequest) ProtoMessage() {}
+
+func (x *DumpCursorToStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[70]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DumpCursorToStringRequest.ProtoReflect.Descriptor instead.
+func (*DumpCursorToStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{70}
+}
+
+func (x *DumpCursorToStringRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *DumpCursorToStringRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type DumpCursorToStringResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DumpCursorToStringResponse) Reset() {
+	*x = DumpCursorToStringResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[71]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DumpCursorToStringResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DumpCursorToStringResponse) ProtoMessage() {}
+
+func (x *DumpCursorToStringResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[71]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DumpCursorToStringResponse.ProtoReflect.Descriptor instead.
+func (*DumpCursorToStringResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{71}
+}
+
+func (x *DumpCursorToStringResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetCollationKeyRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          string                 `protobuf:"bytes,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCollationKeyRequest) Reset() {
+	*x = GetCollationKeyRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[72]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCollationKeyRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCollationKeyRequest) ProtoMessage() {}
+
+func (x *GetCollationKeyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[72]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCollationKeyRequest.ProtoReflect.Descriptor instead.
+func (*GetCollationKeyRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{72}
+}
+
+func (x *GetCollationKeyRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetCollationKeyRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type GetCollationKeyResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCollationKeyResponse) Reset() {
+	*x = GetCollationKeyResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[73]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCollationKeyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCollationKeyResponse) ProtoMessage() {}
+
+func (x *GetCollationKeyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[73]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCollationKeyResponse.ProtoReflect.Descriptor instead.
+func (*GetCollationKeyResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{73}
+}
+
+func (x *GetCollationKeyResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetHexCollationKeyRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          string                 `protobuf:"bytes,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetHexCollationKeyRequest) Reset() {
+	*x = GetHexCollationKeyRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[74]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetHexCollationKeyRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetHexCollationKeyRequest) ProtoMessage() {}
+
+func (x *GetHexCollationKeyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[74]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetHexCollationKeyRequest.ProtoReflect.Descriptor instead.
+func (*GetHexCollationKeyRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{74}
+}
+
+func (x *GetHexCollationKeyRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetHexCollationKeyRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type GetHexCollationKeyResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetHexCollationKeyResponse) Reset() {
+	*x = GetHexCollationKeyResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[75]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetHexCollationKeyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetHexCollationKeyResponse) ProtoMessage() {}
+
+func (x *GetHexCollationKeyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[75]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetHexCollationKeyResponse.ProtoReflect.Descriptor instead.
+func (*GetHexCollationKeyResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{75}
+}
+
+func (x *GetHexCollationKeyResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetSqlStatementTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          string                 `protobuf:"bytes,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSqlStatementTypeRequest) Reset() {
+	*x = GetSqlStatementTypeRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[76]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSqlStatementTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSqlStatementTypeRequest) ProtoMessage() {}
+
+func (x *GetSqlStatementTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[76]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSqlStatementTypeRequest.ProtoReflect.Descriptor instead.
+func (*GetSqlStatementTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{76}
+}
+
+func (x *GetSqlStatementTypeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetSqlStatementTypeRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type GetSqlStatementTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSqlStatementTypeResponse) Reset() {
+	*x = GetSqlStatementTypeResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[77]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSqlStatementTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSqlStatementTypeResponse) ProtoMessage() {}
+
+func (x *GetSqlStatementTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[77]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSqlStatementTypeResponse.ProtoReflect.Descriptor instead.
+func (*GetSqlStatementTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{77}
+}
+
+func (x *GetSqlStatementTypeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type LongForQuery3Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *LongForQuery3Request) Reset() {
+	*x = LongForQuery3Request{}
+	mi := &file_proto_database_database_proto_msgTypes[78]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *LongForQuery3Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*LongForQuery3Request) ProtoMessage() {}
+
+func (x *LongForQuery3Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[78]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use LongForQuery3Request.ProtoReflect.Descriptor instead.
+func (*LongForQuery3Request) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{78}
+}
+
+func (x *LongForQuery3Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *LongForQuery3Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *LongForQuery3Request) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *LongForQuery3Request) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type LongForQuery3Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *LongForQuery3Response) Reset() {
+	*x = LongForQuery3Response{}
+	mi := &file_proto_database_database_proto_msgTypes[79]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *LongForQuery3Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*LongForQuery3Response) ProtoMessage() {}
+
+func (x *LongForQuery3Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[79]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use LongForQuery3Response.ProtoReflect.Descriptor instead.
+func (*LongForQuery3Response) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{79}
+}
+
+func (x *LongForQuery3Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type LongForQuery2_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *LongForQuery2_1Request) Reset() {
+	*x = LongForQuery2_1Request{}
+	mi := &file_proto_database_database_proto_msgTypes[80]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *LongForQuery2_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*LongForQuery2_1Request) ProtoMessage() {}
+
+func (x *LongForQuery2_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[80]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use LongForQuery2_1Request.ProtoReflect.Descriptor instead.
+func (*LongForQuery2_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{80}
+}
+
+func (x *LongForQuery2_1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *LongForQuery2_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *LongForQuery2_1Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type LongForQuery2_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *LongForQuery2_1Response) Reset() {
+	*x = LongForQuery2_1Response{}
+	mi := &file_proto_database_database_proto_msgTypes[81]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *LongForQuery2_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*LongForQuery2_1Response) ProtoMessage() {}
+
+func (x *LongForQuery2_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[81]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use LongForQuery2_1Response.ProtoReflect.Descriptor instead.
+func (*LongForQuery2_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{81}
+}
+
+func (x *LongForQuery2_1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type QueryNumEntries2Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *QueryNumEntries2Request) Reset() {
+	*x = QueryNumEntries2Request{}
+	mi := &file_proto_database_database_proto_msgTypes[82]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *QueryNumEntries2Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryNumEntries2Request) ProtoMessage() {}
+
+func (x *QueryNumEntries2Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[82]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use QueryNumEntries2Request.ProtoReflect.Descriptor instead.
+func (*QueryNumEntries2Request) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{82}
+}
+
+func (x *QueryNumEntries2Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *QueryNumEntries2Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *QueryNumEntries2Request) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+type QueryNumEntries2Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *QueryNumEntries2Response) Reset() {
+	*x = QueryNumEntries2Response{}
+	mi := &file_proto_database_database_proto_msgTypes[83]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *QueryNumEntries2Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryNumEntries2Response) ProtoMessage() {}
+
+func (x *QueryNumEntries2Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[83]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use QueryNumEntries2Response.ProtoReflect.Descriptor instead.
+func (*QueryNumEntries2Response) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{83}
+}
+
+func (x *QueryNumEntries2Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type QueryNumEntries3_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          string                 `protobuf:"bytes,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *QueryNumEntries3_1Request) Reset() {
+	*x = QueryNumEntries3_1Request{}
+	mi := &file_proto_database_database_proto_msgTypes[84]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *QueryNumEntries3_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryNumEntries3_1Request) ProtoMessage() {}
+
+func (x *QueryNumEntries3_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[84]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use QueryNumEntries3_1Request.ProtoReflect.Descriptor instead.
+func (*QueryNumEntries3_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{84}
+}
+
+func (x *QueryNumEntries3_1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *QueryNumEntries3_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *QueryNumEntries3_1Request) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *QueryNumEntries3_1Request) GetArg2() string {
+	if x != nil {
+		return x.Arg2
+	}
+	return ""
+}
+
+type QueryNumEntries3_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *QueryNumEntries3_1Response) Reset() {
+	*x = QueryNumEntries3_1Response{}
+	mi := &file_proto_database_database_proto_msgTypes[85]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *QueryNumEntries3_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryNumEntries3_1Response) ProtoMessage() {}
+
+func (x *QueryNumEntries3_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[85]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use QueryNumEntries3_1Response.ProtoReflect.Descriptor instead.
+func (*QueryNumEntries3_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{85}
+}
+
+func (x *QueryNumEntries3_1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type QueryNumEntries4_2Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          string                 `protobuf:"bytes,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int64                  `protobuf:"varint,5,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *QueryNumEntries4_2Request) Reset() {
+	*x = QueryNumEntries4_2Request{}
+	mi := &file_proto_database_database_proto_msgTypes[86]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *QueryNumEntries4_2Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryNumEntries4_2Request) ProtoMessage() {}
+
+func (x *QueryNumEntries4_2Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[86]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use QueryNumEntries4_2Request.ProtoReflect.Descriptor instead.
+func (*QueryNumEntries4_2Request) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{86}
+}
+
+func (x *QueryNumEntries4_2Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *QueryNumEntries4_2Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *QueryNumEntries4_2Request) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *QueryNumEntries4_2Request) GetArg2() string {
+	if x != nil {
+		return x.Arg2
+	}
+	return ""
+}
+
+func (x *QueryNumEntries4_2Request) GetArg3() int64 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+type QueryNumEntries4_2Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *QueryNumEntries4_2Response) Reset() {
+	*x = QueryNumEntries4_2Response{}
+	mi := &file_proto_database_database_proto_msgTypes[87]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *QueryNumEntries4_2Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryNumEntries4_2Response) ProtoMessage() {}
+
+func (x *QueryNumEntries4_2Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[87]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use QueryNumEntries4_2Response.ProtoReflect.Descriptor instead.
+func (*QueryNumEntries4_2Response) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{87}
+}
+
+func (x *QueryNumEntries4_2Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ReadExceptionFromParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ReadExceptionFromParcelRequest) Reset() {
+	*x = ReadExceptionFromParcelRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[88]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ReadExceptionFromParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ReadExceptionFromParcelRequest) ProtoMessage() {}
+
+func (x *ReadExceptionFromParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[88]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ReadExceptionFromParcelRequest.ProtoReflect.Descriptor instead.
+func (*ReadExceptionFromParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{88}
+}
+
+func (x *ReadExceptionFromParcelRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *ReadExceptionFromParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type ReadExceptionFromParcelResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ReadExceptionFromParcelResponse) Reset() {
+	*x = ReadExceptionFromParcelResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[89]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ReadExceptionFromParcelResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ReadExceptionFromParcelResponse) ProtoMessage() {}
+
+func (x *ReadExceptionFromParcelResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[89]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ReadExceptionFromParcelResponse.ProtoReflect.Descriptor instead.
+func (*ReadExceptionFromParcelResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{89}
+}
+
+type ReadExceptionWithFileNotFoundExceptionFromParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ReadExceptionWithFileNotFoundExceptionFromParcelRequest) Reset() {
+	*x = ReadExceptionWithFileNotFoundExceptionFromParcelRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[90]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ReadExceptionWithFileNotFoundExceptionFromParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ReadExceptionWithFileNotFoundExceptionFromParcelRequest) ProtoMessage() {}
+
+func (x *ReadExceptionWithFileNotFoundExceptionFromParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[90]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ReadExceptionWithFileNotFoundExceptionFromParcelRequest.ProtoReflect.Descriptor instead.
+func (*ReadExceptionWithFileNotFoundExceptionFromParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{90}
+}
+
+func (x *ReadExceptionWithFileNotFoundExceptionFromParcelRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *ReadExceptionWithFileNotFoundExceptionFromParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type ReadExceptionWithFileNotFoundExceptionFromParcelResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ReadExceptionWithFileNotFoundExceptionFromParcelResponse) Reset() {
+	*x = ReadExceptionWithFileNotFoundExceptionFromParcelResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[91]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ReadExceptionWithFileNotFoundExceptionFromParcelResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ReadExceptionWithFileNotFoundExceptionFromParcelResponse) ProtoMessage() {}
+
+func (x *ReadExceptionWithFileNotFoundExceptionFromParcelResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[91]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ReadExceptionWithFileNotFoundExceptionFromParcelResponse.ProtoReflect.Descriptor instead.
+func (*ReadExceptionWithFileNotFoundExceptionFromParcelResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{91}
+}
+
+type ReadExceptionWithOperationApplicationExceptionFromParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ReadExceptionWithOperationApplicationExceptionFromParcelRequest) Reset() {
+	*x = ReadExceptionWithOperationApplicationExceptionFromParcelRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[92]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ReadExceptionWithOperationApplicationExceptionFromParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ReadExceptionWithOperationApplicationExceptionFromParcelRequest) ProtoMessage() {}
+
+func (x *ReadExceptionWithOperationApplicationExceptionFromParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[92]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ReadExceptionWithOperationApplicationExceptionFromParcelRequest.ProtoReflect.Descriptor instead.
+func (*ReadExceptionWithOperationApplicationExceptionFromParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{92}
+}
+
+func (x *ReadExceptionWithOperationApplicationExceptionFromParcelRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *ReadExceptionWithOperationApplicationExceptionFromParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type ReadExceptionWithOperationApplicationExceptionFromParcelResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ReadExceptionWithOperationApplicationExceptionFromParcelResponse) Reset() {
+	*x = ReadExceptionWithOperationApplicationExceptionFromParcelResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[93]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ReadExceptionWithOperationApplicationExceptionFromParcelResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ReadExceptionWithOperationApplicationExceptionFromParcelResponse) ProtoMessage() {}
+
+func (x *ReadExceptionWithOperationApplicationExceptionFromParcelResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[93]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ReadExceptionWithOperationApplicationExceptionFromParcelResponse.ProtoReflect.Descriptor instead.
+func (*ReadExceptionWithOperationApplicationExceptionFromParcelResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{93}
+}
+
+type SqlEscapeStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          string                 `protobuf:"bytes,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SqlEscapeStringRequest) Reset() {
+	*x = SqlEscapeStringRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[94]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SqlEscapeStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SqlEscapeStringRequest) ProtoMessage() {}
+
+func (x *SqlEscapeStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[94]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SqlEscapeStringRequest.ProtoReflect.Descriptor instead.
+func (*SqlEscapeStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{94}
+}
+
+func (x *SqlEscapeStringRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SqlEscapeStringRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type SqlEscapeStringResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SqlEscapeStringResponse) Reset() {
+	*x = SqlEscapeStringResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[95]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SqlEscapeStringResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SqlEscapeStringResponse) ProtoMessage() {}
+
+func (x *SqlEscapeStringResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[95]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SqlEscapeStringResponse.ProtoReflect.Descriptor instead.
+func (*SqlEscapeStringResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{95}
+}
+
+func (x *SqlEscapeStringResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type StringForQuery3Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *StringForQuery3Request) Reset() {
+	*x = StringForQuery3Request{}
+	mi := &file_proto_database_database_proto_msgTypes[96]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *StringForQuery3Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StringForQuery3Request) ProtoMessage() {}
+
+func (x *StringForQuery3Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[96]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StringForQuery3Request.ProtoReflect.Descriptor instead.
+func (*StringForQuery3Request) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{96}
+}
+
+func (x *StringForQuery3Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *StringForQuery3Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *StringForQuery3Request) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *StringForQuery3Request) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type StringForQuery3Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *StringForQuery3Response) Reset() {
+	*x = StringForQuery3Response{}
+	mi := &file_proto_database_database_proto_msgTypes[97]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *StringForQuery3Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StringForQuery3Response) ProtoMessage() {}
+
+func (x *StringForQuery3Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[97]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StringForQuery3Response.ProtoReflect.Descriptor instead.
+func (*StringForQuery3Response) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{97}
+}
+
+func (x *StringForQuery3Response) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type StringForQuery2_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *StringForQuery2_1Request) Reset() {
+	*x = StringForQuery2_1Request{}
+	mi := &file_proto_database_database_proto_msgTypes[98]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *StringForQuery2_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StringForQuery2_1Request) ProtoMessage() {}
+
+func (x *StringForQuery2_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[98]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StringForQuery2_1Request.ProtoReflect.Descriptor instead.
+func (*StringForQuery2_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{98}
+}
+
+func (x *StringForQuery2_1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *StringForQuery2_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *StringForQuery2_1Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type StringForQuery2_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *StringForQuery2_1Response) Reset() {
+	*x = StringForQuery2_1Response{}
+	mi := &file_proto_database_database_proto_msgTypes[99]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *StringForQuery2_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StringForQuery2_1Response) ProtoMessage() {}
+
+func (x *StringForQuery2_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[99]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StringForQuery2_1Response.ProtoReflect.Descriptor instead.
+func (*StringForQuery2_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{99}
+}
+
+func (x *StringForQuery2_1Response) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type WriteExceptionToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WriteExceptionToParcelRequest) Reset() {
+	*x = WriteExceptionToParcelRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[100]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WriteExceptionToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WriteExceptionToParcelRequest) ProtoMessage() {}
+
+func (x *WriteExceptionToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[100]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WriteExceptionToParcelRequest.ProtoReflect.Descriptor instead.
+func (*WriteExceptionToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{100}
+}
+
+func (x *WriteExceptionToParcelRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *WriteExceptionToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *WriteExceptionToParcelRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type WriteExceptionToParcelResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WriteExceptionToParcelResponse) Reset() {
+	*x = WriteExceptionToParcelResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[101]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WriteExceptionToParcelResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WriteExceptionToParcelResponse) ProtoMessage() {}
+
+func (x *WriteExceptionToParcelResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[101]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WriteExceptionToParcelResponse.ProtoReflect.Descriptor instead.
+func (*WriteExceptionToParcelResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{101}
+}
+
+type Bind2Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          bool                   `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Bind2Request) Reset() {
+	*x = Bind2Request{}
+	mi := &file_proto_database_database_proto_msgTypes[102]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Bind2Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Bind2Request) ProtoMessage() {}
+
+func (x *Bind2Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[102]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Bind2Request.ProtoReflect.Descriptor instead.
+func (*Bind2Request) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{102}
+}
+
+func (x *Bind2Request) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *Bind2Request) GetArg1() bool {
+	if x != nil {
+		return x.Arg1
+	}
+	return false
+}
+
+type Bind2Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Bind2Response) Reset() {
+	*x = Bind2Response{}
+	mi := &file_proto_database_database_proto_msgTypes[103]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Bind2Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Bind2Response) ProtoMessage() {}
+
+func (x *Bind2Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[103]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Bind2Response.ProtoReflect.Descriptor instead.
+func (*Bind2Response) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{103}
+}
+
+type Bind2_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Bind2_1Request) Reset() {
+	*x = Bind2_1Request{}
+	mi := &file_proto_database_database_proto_msgTypes[104]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Bind2_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Bind2_1Request) ProtoMessage() {}
+
+func (x *Bind2_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[104]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Bind2_1Request.ProtoReflect.Descriptor instead.
+func (*Bind2_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{104}
+}
+
+func (x *Bind2_1Request) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *Bind2_1Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type Bind2_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Bind2_1Response) Reset() {
+	*x = Bind2_1Response{}
+	mi := &file_proto_database_database_proto_msgTypes[105]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Bind2_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Bind2_1Response) ProtoMessage() {}
+
+func (x *Bind2_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[105]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Bind2_1Response.ProtoReflect.Descriptor instead.
+func (*Bind2_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{105}
+}
+
+type Bind2_2Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          float64                `protobuf:"fixed64,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Bind2_2Request) Reset() {
+	*x = Bind2_2Request{}
+	mi := &file_proto_database_database_proto_msgTypes[106]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Bind2_2Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Bind2_2Request) ProtoMessage() {}
+
+func (x *Bind2_2Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[106]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Bind2_2Request.ProtoReflect.Descriptor instead.
+func (*Bind2_2Request) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{106}
+}
+
+func (x *Bind2_2Request) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *Bind2_2Request) GetArg1() float64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type Bind2_2Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Bind2_2Response) Reset() {
+	*x = Bind2_2Response{}
+	mi := &file_proto_database_database_proto_msgTypes[107]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Bind2_2Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Bind2_2Response) ProtoMessage() {}
+
+func (x *Bind2_2Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[107]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Bind2_2Response.ProtoReflect.Descriptor instead.
+func (*Bind2_2Response) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{107}
+}
+
+type Bind2_3Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          float32                `protobuf:"fixed32,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Bind2_3Request) Reset() {
+	*x = Bind2_3Request{}
+	mi := &file_proto_database_database_proto_msgTypes[108]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Bind2_3Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Bind2_3Request) ProtoMessage() {}
+
+func (x *Bind2_3Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[108]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Bind2_3Request.ProtoReflect.Descriptor instead.
+func (*Bind2_3Request) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{108}
+}
+
+func (x *Bind2_3Request) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *Bind2_3Request) GetArg1() float32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type Bind2_3Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Bind2_3Response) Reset() {
+	*x = Bind2_3Response{}
+	mi := &file_proto_database_database_proto_msgTypes[109]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Bind2_3Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Bind2_3Response) ProtoMessage() {}
+
+func (x *Bind2_3Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[109]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Bind2_3Response.ProtoReflect.Descriptor instead.
+func (*Bind2_3Response) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{109}
+}
+
+type Bind2_4Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Bind2_4Request) Reset() {
+	*x = Bind2_4Request{}
+	mi := &file_proto_database_database_proto_msgTypes[110]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Bind2_4Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Bind2_4Request) ProtoMessage() {}
+
+func (x *Bind2_4Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[110]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Bind2_4Request.ProtoReflect.Descriptor instead.
+func (*Bind2_4Request) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{110}
+}
+
+func (x *Bind2_4Request) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *Bind2_4Request) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type Bind2_4Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Bind2_4Response) Reset() {
+	*x = Bind2_4Response{}
+	mi := &file_proto_database_database_proto_msgTypes[111]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Bind2_4Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Bind2_4Response) ProtoMessage() {}
+
+func (x *Bind2_4Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[111]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Bind2_4Response.ProtoReflect.Descriptor instead.
+func (*Bind2_4Response) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{111}
+}
+
+type Bind2_5Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Bind2_5Request) Reset() {
+	*x = Bind2_5Request{}
+	mi := &file_proto_database_database_proto_msgTypes[112]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Bind2_5Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Bind2_5Request) ProtoMessage() {}
+
+func (x *Bind2_5Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[112]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Bind2_5Request.ProtoReflect.Descriptor instead.
+func (*Bind2_5Request) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{112}
+}
+
+func (x *Bind2_5Request) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *Bind2_5Request) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+type Bind2_5Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Bind2_5Response) Reset() {
+	*x = Bind2_5Response{}
+	mi := &file_proto_database_database_proto_msgTypes[113]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Bind2_5Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Bind2_5Response) ProtoMessage() {}
+
+func (x *Bind2_5Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[113]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Bind2_5Response.ProtoReflect.Descriptor instead.
+func (*Bind2_5Response) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{113}
+}
+
+type Bind2_6Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Bind2_6Request) Reset() {
+	*x = Bind2_6Request{}
+	mi := &file_proto_database_database_proto_msgTypes[114]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Bind2_6Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Bind2_6Request) ProtoMessage() {}
+
+func (x *Bind2_6Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[114]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Bind2_6Request.ProtoReflect.Descriptor instead.
+func (*Bind2_6Request) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{114}
+}
+
+func (x *Bind2_6Request) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *Bind2_6Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type Bind2_6Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Bind2_6Response) Reset() {
+	*x = Bind2_6Response{}
+	mi := &file_proto_database_database_proto_msgTypes[115]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Bind2_6Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Bind2_6Response) ProtoMessage() {}
+
+func (x *Bind2_6Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[115]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Bind2_6Response.ProtoReflect.Descriptor instead.
+func (*Bind2_6Response) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{115}
+}
+
+type BindNullRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BindNullRequest) Reset() {
+	*x = BindNullRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[116]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BindNullRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BindNullRequest) ProtoMessage() {}
+
+func (x *BindNullRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[116]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BindNullRequest.ProtoReflect.Descriptor instead.
+func (*BindNullRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{116}
+}
+
+func (x *BindNullRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type BindNullResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BindNullResponse) Reset() {
+	*x = BindNullResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[117]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BindNullResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BindNullResponse) ProtoMessage() {}
+
+func (x *BindNullResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[117]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BindNullResponse.ProtoReflect.Descriptor instead.
+func (*BindNullResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{117}
+}
+
+type CloseRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CloseRequest) Reset() {
+	*x = CloseRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[118]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CloseRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CloseRequest) ProtoMessage() {}
+
+func (x *CloseRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[118]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CloseRequest.ProtoReflect.Descriptor instead.
+func (*CloseRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{118}
+}
+
+type CloseResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CloseResponse) Reset() {
+	*x = CloseResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[119]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CloseResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CloseResponse) ProtoMessage() {}
+
+func (x *CloseResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[119]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CloseResponse.ProtoReflect.Descriptor instead.
+func (*CloseResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{119}
+}
+
+type ExecuteRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ExecuteRequest) Reset() {
+	*x = ExecuteRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[120]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ExecuteRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ExecuteRequest) ProtoMessage() {}
+
+func (x *ExecuteRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[120]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ExecuteRequest.ProtoReflect.Descriptor instead.
+func (*ExecuteRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{120}
+}
+
+type ExecuteResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ExecuteResponse) Reset() {
+	*x = ExecuteResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[121]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ExecuteResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ExecuteResponse) ProtoMessage() {}
+
+func (x *ExecuteResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[121]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ExecuteResponse.ProtoReflect.Descriptor instead.
+func (*ExecuteResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{121}
+}
+
+func (x *ExecuteResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetColumnIndexRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetColumnIndexRequest) Reset() {
+	*x = GetColumnIndexRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[122]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetColumnIndexRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetColumnIndexRequest) ProtoMessage() {}
+
+func (x *GetColumnIndexRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[122]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetColumnIndexRequest.ProtoReflect.Descriptor instead.
+func (*GetColumnIndexRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{122}
+}
+
+func (x *GetColumnIndexRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type GetColumnIndexResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetColumnIndexResponse) Reset() {
+	*x = GetColumnIndexResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[123]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetColumnIndexResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetColumnIndexResponse) ProtoMessage() {}
+
+func (x *GetColumnIndexResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[123]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetColumnIndexResponse.ProtoReflect.Descriptor instead.
+func (*GetColumnIndexResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{123}
+}
+
+func (x *GetColumnIndexResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type InsertRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *InsertRequest) Reset() {
+	*x = InsertRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[124]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *InsertRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*InsertRequest) ProtoMessage() {}
+
+func (x *InsertRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[124]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use InsertRequest.ProtoReflect.Descriptor instead.
+func (*InsertRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{124}
+}
+
+func (x *InsertRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type InsertResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *InsertResponse) Reset() {
+	*x = InsertResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[125]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *InsertResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*InsertResponse) ProtoMessage() {}
+
+func (x *InsertResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[125]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use InsertResponse.ProtoReflect.Descriptor instead.
+func (*InsertResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{125}
+}
+
+func (x *InsertResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type PrepareForInsertRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PrepareForInsertRequest) Reset() {
+	*x = PrepareForInsertRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[126]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PrepareForInsertRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PrepareForInsertRequest) ProtoMessage() {}
+
+func (x *PrepareForInsertRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[126]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PrepareForInsertRequest.ProtoReflect.Descriptor instead.
+func (*PrepareForInsertRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{126}
+}
+
+type PrepareForInsertResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PrepareForInsertResponse) Reset() {
+	*x = PrepareForInsertResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[127]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PrepareForInsertResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PrepareForInsertResponse) ProtoMessage() {}
+
+func (x *PrepareForInsertResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[127]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PrepareForInsertResponse.ProtoReflect.Descriptor instead.
+func (*PrepareForInsertResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{127}
+}
+
+type PrepareForReplaceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PrepareForReplaceRequest) Reset() {
+	*x = PrepareForReplaceRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[128]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PrepareForReplaceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PrepareForReplaceRequest) ProtoMessage() {}
+
+func (x *PrepareForReplaceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[128]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PrepareForReplaceRequest.ProtoReflect.Descriptor instead.
+func (*PrepareForReplaceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{128}
+}
+
+type PrepareForReplaceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PrepareForReplaceResponse) Reset() {
+	*x = PrepareForReplaceResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[129]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PrepareForReplaceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PrepareForReplaceResponse) ProtoMessage() {}
+
+func (x *PrepareForReplaceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[129]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PrepareForReplaceResponse.ProtoReflect.Descriptor instead.
+func (*PrepareForReplaceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{129}
+}
+
+type ReplaceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ReplaceRequest) Reset() {
+	*x = ReplaceRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[130]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ReplaceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ReplaceRequest) ProtoMessage() {}
+
+func (x *ReplaceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[130]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ReplaceRequest.ProtoReflect.Descriptor instead.
+func (*ReplaceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{130}
+}
+
+func (x *ReplaceRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type ReplaceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ReplaceResponse) Reset() {
+	*x = ReplaceResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[131]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ReplaceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ReplaceResponse) ProtoMessage() {}
+
+func (x *ReplaceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[131]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ReplaceResponse.ProtoReflect.Descriptor instead.
+func (*ReplaceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{131}
+}
+
+func (x *ReplaceResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type NewMatrixCursorRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewMatrixCursorRequest) Reset() {
+	*x = NewMatrixCursorRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[132]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewMatrixCursorRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewMatrixCursorRequest) ProtoMessage() {}
+
+func (x *NewMatrixCursorRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[132]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewMatrixCursorRequest.ProtoReflect.Descriptor instead.
+func (*NewMatrixCursorRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{132}
+}
+
+func (x *NewMatrixCursorRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type NewMatrixCursorResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewMatrixCursorResponse) Reset() {
+	*x = NewMatrixCursorResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[133]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewMatrixCursorResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewMatrixCursorResponse) ProtoMessage() {}
+
+func (x *NewMatrixCursorResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[133]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewMatrixCursorResponse.ProtoReflect.Descriptor instead.
+func (*NewMatrixCursorResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{133}
+}
+
+func (x *NewMatrixCursorResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddRowRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddRowRequest) Reset() {
+	*x = AddRowRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[134]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddRowRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddRowRequest) ProtoMessage() {}
+
+func (x *AddRowRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[134]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddRowRequest.ProtoReflect.Descriptor instead.
+func (*AddRowRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{134}
+}
+
+func (x *AddRowRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *AddRowRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AddRowResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddRowResponse) Reset() {
+	*x = AddRowResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[135]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddRowResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddRowResponse) ProtoMessage() {}
+
+func (x *AddRowResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[135]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddRowResponse.ProtoReflect.Descriptor instead.
+func (*AddRowResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{135}
+}
+
+type GetBlobRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBlobRequest) Reset() {
+	*x = GetBlobRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[136]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBlobRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBlobRequest) ProtoMessage() {}
+
+func (x *GetBlobRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[136]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBlobRequest.ProtoReflect.Descriptor instead.
+func (*GetBlobRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{136}
+}
+
+func (x *GetBlobRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetBlobRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetBlobResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBlobResponse) Reset() {
+	*x = GetBlobResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[137]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBlobResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBlobResponse) ProtoMessage() {}
+
+func (x *GetBlobResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[137]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBlobResponse.ProtoReflect.Descriptor instead.
+func (*GetBlobResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{137}
+}
+
+func (x *GetBlobResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetColumnNamesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetColumnNamesRequest) Reset() {
+	*x = GetColumnNamesRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[138]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetColumnNamesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetColumnNamesRequest) ProtoMessage() {}
+
+func (x *GetColumnNamesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[138]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetColumnNamesRequest.ProtoReflect.Descriptor instead.
+func (*GetColumnNamesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{138}
+}
+
+func (x *GetColumnNamesRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetColumnNamesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetColumnNamesResponse) Reset() {
+	*x = GetColumnNamesResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[139]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetColumnNamesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetColumnNamesResponse) ProtoMessage() {}
+
+func (x *GetColumnNamesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[139]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetColumnNamesResponse.ProtoReflect.Descriptor instead.
+func (*GetColumnNamesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{139}
+}
+
+func (x *GetColumnNamesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetCountRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCountRequest) Reset() {
+	*x = GetCountRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[140]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCountRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCountRequest) ProtoMessage() {}
+
+func (x *GetCountRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[140]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCountRequest.ProtoReflect.Descriptor instead.
+func (*GetCountRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{140}
+}
+
+func (x *GetCountRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetCountResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCountResponse) Reset() {
+	*x = GetCountResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[141]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCountResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCountResponse) ProtoMessage() {}
+
+func (x *GetCountResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[141]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCountResponse.ProtoReflect.Descriptor instead.
+func (*GetCountResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{141}
+}
+
+func (x *GetCountResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetDoubleRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDoubleRequest) Reset() {
+	*x = GetDoubleRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[142]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDoubleRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDoubleRequest) ProtoMessage() {}
+
+func (x *GetDoubleRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[142]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDoubleRequest.ProtoReflect.Descriptor instead.
+func (*GetDoubleRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{142}
+}
+
+func (x *GetDoubleRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetDoubleRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetDoubleResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        float64                `protobuf:"fixed64,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDoubleResponse) Reset() {
+	*x = GetDoubleResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[143]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDoubleResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDoubleResponse) ProtoMessage() {}
+
+func (x *GetDoubleResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[143]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDoubleResponse.ProtoReflect.Descriptor instead.
+func (*GetDoubleResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{143}
+}
+
+func (x *GetDoubleResponse) GetResult() float64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetFloatRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetFloatRequest) Reset() {
+	*x = GetFloatRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[144]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetFloatRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetFloatRequest) ProtoMessage() {}
+
+func (x *GetFloatRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[144]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetFloatRequest.ProtoReflect.Descriptor instead.
+func (*GetFloatRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{144}
+}
+
+func (x *GetFloatRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetFloatRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetFloatResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        float32                `protobuf:"fixed32,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetFloatResponse) Reset() {
+	*x = GetFloatResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[145]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetFloatResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetFloatResponse) ProtoMessage() {}
+
+func (x *GetFloatResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[145]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetFloatResponse.ProtoReflect.Descriptor instead.
+func (*GetFloatResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{145}
+}
+
+func (x *GetFloatResponse) GetResult() float32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetIntRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetIntRequest) Reset() {
+	*x = GetIntRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[146]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetIntRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetIntRequest) ProtoMessage() {}
+
+func (x *GetIntRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[146]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetIntRequest.ProtoReflect.Descriptor instead.
+func (*GetIntRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{146}
+}
+
+func (x *GetIntRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetIntRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetIntResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetIntResponse) Reset() {
+	*x = GetIntResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[147]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetIntResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetIntResponse) ProtoMessage() {}
+
+func (x *GetIntResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[147]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetIntResponse.ProtoReflect.Descriptor instead.
+func (*GetIntResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{147}
+}
+
+func (x *GetIntResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetLongRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLongRequest) Reset() {
+	*x = GetLongRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[148]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLongRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLongRequest) ProtoMessage() {}
+
+func (x *GetLongRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[148]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLongRequest.ProtoReflect.Descriptor instead.
+func (*GetLongRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{148}
+}
+
+func (x *GetLongRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetLongRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetLongResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLongResponse) Reset() {
+	*x = GetLongResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[149]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLongResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLongResponse) ProtoMessage() {}
+
+func (x *GetLongResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[149]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLongResponse.ProtoReflect.Descriptor instead.
+func (*GetLongResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{149}
+}
+
+func (x *GetLongResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetShortRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetShortRequest) Reset() {
+	*x = GetShortRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[150]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetShortRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetShortRequest) ProtoMessage() {}
+
+func (x *GetShortRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[150]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetShortRequest.ProtoReflect.Descriptor instead.
+func (*GetShortRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{150}
+}
+
+func (x *GetShortRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetShortRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetShortResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetShortResponse) Reset() {
+	*x = GetShortResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[151]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetShortResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetShortResponse) ProtoMessage() {}
+
+func (x *GetShortResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[151]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetShortResponse.ProtoReflect.Descriptor instead.
+func (*GetShortResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{151}
+}
+
+func (x *GetShortResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetStringRequest) Reset() {
+	*x = GetStringRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[152]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetStringRequest) ProtoMessage() {}
+
+func (x *GetStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[152]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetStringRequest.ProtoReflect.Descriptor instead.
+func (*GetStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{152}
+}
+
+func (x *GetStringRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetStringRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetStringResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetStringResponse) Reset() {
+	*x = GetStringResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[153]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetStringResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetStringResponse) ProtoMessage() {}
+
+func (x *GetStringResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[153]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetStringResponse.ProtoReflect.Descriptor instead.
+func (*GetStringResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{153}
+}
+
+func (x *GetStringResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTypeRequest) Reset() {
+	*x = GetTypeRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[154]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTypeRequest) ProtoMessage() {}
+
+func (x *GetTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[154]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTypeRequest.ProtoReflect.Descriptor instead.
+func (*GetTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{154}
+}
+
+func (x *GetTypeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetTypeRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTypeResponse) Reset() {
+	*x = GetTypeResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[155]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTypeResponse) ProtoMessage() {}
+
+func (x *GetTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[155]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTypeResponse.ProtoReflect.Descriptor instead.
+func (*GetTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{155}
+}
+
+func (x *GetTypeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type IsNullRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsNullRequest) Reset() {
+	*x = IsNullRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[156]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsNullRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsNullRequest) ProtoMessage() {}
+
+func (x *IsNullRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[156]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsNullRequest.ProtoReflect.Descriptor instead.
+func (*IsNullRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{156}
+}
+
+func (x *IsNullRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *IsNullRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type IsNullResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsNullResponse) Reset() {
+	*x = IsNullResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[157]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsNullResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsNullResponse) ProtoMessage() {}
+
+func (x *IsNullResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[157]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsNullResponse.ProtoReflect.Descriptor instead.
+func (*IsNullResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{157}
+}
+
+func (x *IsNullResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type NewRowRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewRowRequest) Reset() {
+	*x = NewRowRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[158]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewRowRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewRowRequest) ProtoMessage() {}
+
+func (x *NewRowRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[158]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewRowRequest.ProtoReflect.Descriptor instead.
+func (*NewRowRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{158}
+}
+
+func (x *NewRowRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type NewRowResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewRowResponse) Reset() {
+	*x = NewRowResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[159]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewRowResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewRowResponse) ProtoMessage() {}
+
+func (x *NewRowResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[159]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewRowResponse.ProtoReflect.Descriptor instead.
+func (*NewRowResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{159}
+}
+
+func (x *NewRowResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type Add1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Add1Request) Reset() {
+	*x = Add1Request{}
+	mi := &file_proto_database_database_proto_msgTypes[160]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Add1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Add1Request) ProtoMessage() {}
+
+func (x *Add1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[160]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Add1Request.ProtoReflect.Descriptor instead.
+func (*Add1Request) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{160}
+}
+
+func (x *Add1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type Add1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Add1Response) Reset() {
+	*x = Add1Response{}
+	mi := &file_proto_database_database_proto_msgTypes[161]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Add1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Add1Response) ProtoMessage() {}
+
+func (x *Add1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[161]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Add1Response.ProtoReflect.Descriptor instead.
+func (*Add1Response) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{161}
+}
+
+func (x *Add1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type Add2_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Add2_1Request) Reset() {
+	*x = Add2_1Request{}
+	mi := &file_proto_database_database_proto_msgTypes[162]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Add2_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Add2_1Request) ProtoMessage() {}
+
+func (x *Add2_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[162]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Add2_1Request.ProtoReflect.Descriptor instead.
+func (*Add2_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{162}
+}
+
+func (x *Add2_1Request) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *Add2_1Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type Add2_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Add2_1Response) Reset() {
+	*x = Add2_1Response{}
+	mi := &file_proto_database_database_proto_msgTypes[163]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Add2_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Add2_1Response) ProtoMessage() {}
+
+func (x *Add2_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[163]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Add2_1Response.ProtoReflect.Descriptor instead.
+func (*Add2_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{163}
+}
+
+func (x *Add2_1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type DeliverSelfNotificationsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DeliverSelfNotificationsRequest) Reset() {
+	*x = DeliverSelfNotificationsRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[164]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DeliverSelfNotificationsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeliverSelfNotificationsRequest) ProtoMessage() {}
+
+func (x *DeliverSelfNotificationsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[164]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeliverSelfNotificationsRequest.ProtoReflect.Descriptor instead.
+func (*DeliverSelfNotificationsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{164}
+}
+
+type DeliverSelfNotificationsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DeliverSelfNotificationsResponse) Reset() {
+	*x = DeliverSelfNotificationsResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[165]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DeliverSelfNotificationsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeliverSelfNotificationsResponse) ProtoMessage() {}
+
+func (x *DeliverSelfNotificationsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[165]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeliverSelfNotificationsResponse.ProtoReflect.Descriptor instead.
+func (*DeliverSelfNotificationsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{165}
+}
+
+func (x *DeliverSelfNotificationsResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type DispatchChange1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DispatchChange1Request) Reset() {
+	*x = DispatchChange1Request{}
+	mi := &file_proto_database_database_proto_msgTypes[166]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DispatchChange1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DispatchChange1Request) ProtoMessage() {}
+
+func (x *DispatchChange1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[166]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DispatchChange1Request.ProtoReflect.Descriptor instead.
+func (*DispatchChange1Request) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{166}
+}
+
+func (x *DispatchChange1Request) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type DispatchChange1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DispatchChange1Response) Reset() {
+	*x = DispatchChange1Response{}
+	mi := &file_proto_database_database_proto_msgTypes[167]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DispatchChange1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DispatchChange1Response) ProtoMessage() {}
+
+func (x *DispatchChange1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[167]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DispatchChange1Response.ProtoReflect.Descriptor instead.
+func (*DispatchChange1Response) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{167}
+}
+
+type DispatchChange2_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DispatchChange2_1Request) Reset() {
+	*x = DispatchChange2_1Request{}
+	mi := &file_proto_database_database_proto_msgTypes[168]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DispatchChange2_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DispatchChange2_1Request) ProtoMessage() {}
+
+func (x *DispatchChange2_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[168]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DispatchChange2_1Request.ProtoReflect.Descriptor instead.
+func (*DispatchChange2_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{168}
+}
+
+func (x *DispatchChange2_1Request) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+func (x *DispatchChange2_1Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type DispatchChange2_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DispatchChange2_1Response) Reset() {
+	*x = DispatchChange2_1Response{}
+	mi := &file_proto_database_database_proto_msgTypes[169]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DispatchChange2_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DispatchChange2_1Response) ProtoMessage() {}
+
+func (x *DispatchChange2_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[169]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DispatchChange2_1Response.ProtoReflect.Descriptor instead.
+func (*DispatchChange2_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{169}
+}
+
+type DispatchChange3_2Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DispatchChange3_2Request) Reset() {
+	*x = DispatchChange3_2Request{}
+	mi := &file_proto_database_database_proto_msgTypes[170]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DispatchChange3_2Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DispatchChange3_2Request) ProtoMessage() {}
+
+func (x *DispatchChange3_2Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[170]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DispatchChange3_2Request.ProtoReflect.Descriptor instead.
+func (*DispatchChange3_2Request) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{170}
+}
+
+func (x *DispatchChange3_2Request) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+func (x *DispatchChange3_2Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *DispatchChange3_2Request) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type DispatchChange3_2Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DispatchChange3_2Response) Reset() {
+	*x = DispatchChange3_2Response{}
+	mi := &file_proto_database_database_proto_msgTypes[171]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DispatchChange3_2Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DispatchChange3_2Response) ProtoMessage() {}
+
+func (x *DispatchChange3_2Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[171]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DispatchChange3_2Response.ProtoReflect.Descriptor instead.
+func (*DispatchChange3_2Response) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{171}
+}
+
+type OnChange1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnChange1Request) Reset() {
+	*x = OnChange1Request{}
+	mi := &file_proto_database_database_proto_msgTypes[172]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnChange1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnChange1Request) ProtoMessage() {}
+
+func (x *OnChange1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[172]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnChange1Request.ProtoReflect.Descriptor instead.
+func (*OnChange1Request) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{172}
+}
+
+func (x *OnChange1Request) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type OnChange1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnChange1Response) Reset() {
+	*x = OnChange1Response{}
+	mi := &file_proto_database_database_proto_msgTypes[173]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnChange1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnChange1Response) ProtoMessage() {}
+
+func (x *OnChange1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[173]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnChange1Response.ProtoReflect.Descriptor instead.
+func (*OnChange1Response) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{173}
+}
+
+type OnChange2_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnChange2_1Request) Reset() {
+	*x = OnChange2_1Request{}
+	mi := &file_proto_database_database_proto_msgTypes[174]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnChange2_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnChange2_1Request) ProtoMessage() {}
+
+func (x *OnChange2_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[174]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnChange2_1Request.ProtoReflect.Descriptor instead.
+func (*OnChange2_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{174}
+}
+
+func (x *OnChange2_1Request) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+func (x *OnChange2_1Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type OnChange2_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnChange2_1Response) Reset() {
+	*x = OnChange2_1Response{}
+	mi := &file_proto_database_database_proto_msgTypes[175]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnChange2_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnChange2_1Response) ProtoMessage() {}
+
+func (x *OnChange2_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[175]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnChange2_1Response.ProtoReflect.Descriptor instead.
+func (*OnChange2_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{175}
+}
+
+type OnChange3_2Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnChange3_2Request) Reset() {
+	*x = OnChange3_2Request{}
+	mi := &file_proto_database_database_proto_msgTypes[176]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnChange3_2Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnChange3_2Request) ProtoMessage() {}
+
+func (x *OnChange3_2Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[176]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnChange3_2Request.ProtoReflect.Descriptor instead.
+func (*OnChange3_2Request) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{176}
+}
+
+func (x *OnChange3_2Request) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+func (x *OnChange3_2Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *OnChange3_2Request) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type OnChange3_2Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnChange3_2Response) Reset() {
+	*x = OnChange3_2Response{}
+	mi := &file_proto_database_database_proto_msgTypes[177]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnChange3_2Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnChange3_2Response) ProtoMessage() {}
+
+func (x *OnChange3_2Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[177]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnChange3_2Response.ProtoReflect.Descriptor instead.
+func (*OnChange3_2Response) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{177}
+}
+
+type NewDefaultDatabaseErrorHandlerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewDefaultDatabaseErrorHandlerRequest) Reset() {
+	*x = NewDefaultDatabaseErrorHandlerRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[178]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewDefaultDatabaseErrorHandlerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewDefaultDatabaseErrorHandlerRequest) ProtoMessage() {}
+
+func (x *NewDefaultDatabaseErrorHandlerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[178]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewDefaultDatabaseErrorHandlerRequest.ProtoReflect.Descriptor instead.
+func (*NewDefaultDatabaseErrorHandlerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{178}
+}
+
+type NewDefaultDatabaseErrorHandlerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewDefaultDatabaseErrorHandlerResponse) Reset() {
+	*x = NewDefaultDatabaseErrorHandlerResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[179]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewDefaultDatabaseErrorHandlerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewDefaultDatabaseErrorHandlerResponse) ProtoMessage() {}
+
+func (x *NewDefaultDatabaseErrorHandlerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[179]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewDefaultDatabaseErrorHandlerResponse.ProtoReflect.Descriptor instead.
+func (*NewDefaultDatabaseErrorHandlerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{179}
+}
+
+func (x *NewDefaultDatabaseErrorHandlerResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OnCorruptionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnCorruptionRequest) Reset() {
+	*x = OnCorruptionRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[180]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnCorruptionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnCorruptionRequest) ProtoMessage() {}
+
+func (x *OnCorruptionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[180]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnCorruptionRequest.ProtoReflect.Descriptor instead.
+func (*OnCorruptionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{180}
+}
+
+func (x *OnCorruptionRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *OnCorruptionRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnCorruptionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnCorruptionResponse) Reset() {
+	*x = OnCorruptionResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[181]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnCorruptionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnCorruptionResponse) ProtoMessage() {}
+
+func (x *OnCorruptionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[181]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnCorruptionResponse.ProtoReflect.Descriptor instead.
+func (*OnCorruptionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{181}
+}
+
+type NewCursorWrapperRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewCursorWrapperRequest) Reset() {
+	*x = NewCursorWrapperRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[182]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewCursorWrapperRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewCursorWrapperRequest) ProtoMessage() {}
+
+func (x *NewCursorWrapperRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[182]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewCursorWrapperRequest.ProtoReflect.Descriptor instead.
+func (*NewCursorWrapperRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{182}
+}
+
+func (x *NewCursorWrapperRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type NewCursorWrapperResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewCursorWrapperResponse) Reset() {
+	*x = NewCursorWrapperResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[183]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewCursorWrapperResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewCursorWrapperResponse) ProtoMessage() {}
+
+func (x *NewCursorWrapperResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[183]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewCursorWrapperResponse.ProtoReflect.Descriptor instead.
+func (*NewCursorWrapperResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{183}
+}
+
+func (x *NewCursorWrapperResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type CursorWrapperCloseRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CursorWrapperCloseRequest) Reset() {
+	*x = CursorWrapperCloseRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[184]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CursorWrapperCloseRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CursorWrapperCloseRequest) ProtoMessage() {}
+
+func (x *CursorWrapperCloseRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[184]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CursorWrapperCloseRequest.ProtoReflect.Descriptor instead.
+func (*CursorWrapperCloseRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{184}
+}
+
+func (x *CursorWrapperCloseRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type CopyStringToBufferRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CopyStringToBufferRequest) Reset() {
+	*x = CopyStringToBufferRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[185]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CopyStringToBufferRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CopyStringToBufferRequest) ProtoMessage() {}
+
+func (x *CopyStringToBufferRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[185]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CopyStringToBufferRequest.ProtoReflect.Descriptor instead.
+func (*CopyStringToBufferRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{185}
+}
+
+func (x *CopyStringToBufferRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *CopyStringToBufferRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *CopyStringToBufferRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type CopyStringToBufferResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CopyStringToBufferResponse) Reset() {
+	*x = CopyStringToBufferResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[186]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CopyStringToBufferResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CopyStringToBufferResponse) ProtoMessage() {}
+
+func (x *CopyStringToBufferResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[186]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CopyStringToBufferResponse.ProtoReflect.Descriptor instead.
+func (*CopyStringToBufferResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{186}
+}
+
+type DeactivateRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DeactivateRequest) Reset() {
+	*x = DeactivateRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[187]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DeactivateRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeactivateRequest) ProtoMessage() {}
+
+func (x *DeactivateRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[187]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeactivateRequest.ProtoReflect.Descriptor instead.
+func (*DeactivateRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{187}
+}
+
+func (x *DeactivateRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type DeactivateResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DeactivateResponse) Reset() {
+	*x = DeactivateResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[188]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DeactivateResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeactivateResponse) ProtoMessage() {}
+
+func (x *DeactivateResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[188]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeactivateResponse.ProtoReflect.Descriptor instead.
+func (*DeactivateResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{188}
+}
+
+type GetColumnCountRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetColumnCountRequest) Reset() {
+	*x = GetColumnCountRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[189]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetColumnCountRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetColumnCountRequest) ProtoMessage() {}
+
+func (x *GetColumnCountRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[189]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetColumnCountRequest.ProtoReflect.Descriptor instead.
+func (*GetColumnCountRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{189}
+}
+
+func (x *GetColumnCountRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetColumnCountResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetColumnCountResponse) Reset() {
+	*x = GetColumnCountResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[190]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetColumnCountResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetColumnCountResponse) ProtoMessage() {}
+
+func (x *GetColumnCountResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[190]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetColumnCountResponse.ProtoReflect.Descriptor instead.
+func (*GetColumnCountResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{190}
+}
+
+func (x *GetColumnCountResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type CursorWrapperGetColumnIndexRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          string                 `protobuf:"bytes,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CursorWrapperGetColumnIndexRequest) Reset() {
+	*x = CursorWrapperGetColumnIndexRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[191]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CursorWrapperGetColumnIndexRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CursorWrapperGetColumnIndexRequest) ProtoMessage() {}
+
+func (x *CursorWrapperGetColumnIndexRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[191]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CursorWrapperGetColumnIndexRequest.ProtoReflect.Descriptor instead.
+func (*CursorWrapperGetColumnIndexRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{191}
+}
+
+func (x *CursorWrapperGetColumnIndexRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *CursorWrapperGetColumnIndexRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type GetColumnIndexOrThrowRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          string                 `protobuf:"bytes,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetColumnIndexOrThrowRequest) Reset() {
+	*x = GetColumnIndexOrThrowRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[192]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetColumnIndexOrThrowRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetColumnIndexOrThrowRequest) ProtoMessage() {}
+
+func (x *GetColumnIndexOrThrowRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[192]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetColumnIndexOrThrowRequest.ProtoReflect.Descriptor instead.
+func (*GetColumnIndexOrThrowRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{192}
+}
+
+func (x *GetColumnIndexOrThrowRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetColumnIndexOrThrowRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type GetColumnIndexOrThrowResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetColumnIndexOrThrowResponse) Reset() {
+	*x = GetColumnIndexOrThrowResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[193]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetColumnIndexOrThrowResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetColumnIndexOrThrowResponse) ProtoMessage() {}
+
+func (x *GetColumnIndexOrThrowResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[193]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetColumnIndexOrThrowResponse.ProtoReflect.Descriptor instead.
+func (*GetColumnIndexOrThrowResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{193}
+}
+
+func (x *GetColumnIndexOrThrowResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetColumnNameRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetColumnNameRequest) Reset() {
+	*x = GetColumnNameRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[194]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetColumnNameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetColumnNameRequest) ProtoMessage() {}
+
+func (x *GetColumnNameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[194]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetColumnNameRequest.ProtoReflect.Descriptor instead.
+func (*GetColumnNameRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{194}
+}
+
+func (x *GetColumnNameRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetColumnNameRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetColumnNameResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetColumnNameResponse) Reset() {
+	*x = GetColumnNameResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[195]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetColumnNameResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetColumnNameResponse) ProtoMessage() {}
+
+func (x *GetColumnNameResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[195]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetColumnNameResponse.ProtoReflect.Descriptor instead.
+func (*GetColumnNameResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{195}
+}
+
+func (x *GetColumnNameResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetExtrasRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetExtrasRequest) Reset() {
+	*x = GetExtrasRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[196]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetExtrasRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetExtrasRequest) ProtoMessage() {}
+
+func (x *GetExtrasRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[196]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetExtrasRequest.ProtoReflect.Descriptor instead.
+func (*GetExtrasRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{196}
+}
+
+func (x *GetExtrasRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetExtrasResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetExtrasResponse) Reset() {
+	*x = GetExtrasResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[197]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetExtrasResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetExtrasResponse) ProtoMessage() {}
+
+func (x *GetExtrasResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[197]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetExtrasResponse.ProtoReflect.Descriptor instead.
+func (*GetExtrasResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{197}
+}
+
+func (x *GetExtrasResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetNotificationUriRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNotificationUriRequest) Reset() {
+	*x = GetNotificationUriRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[198]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNotificationUriRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNotificationUriRequest) ProtoMessage() {}
+
+func (x *GetNotificationUriRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[198]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNotificationUriRequest.ProtoReflect.Descriptor instead.
+func (*GetNotificationUriRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{198}
+}
+
+func (x *GetNotificationUriRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetNotificationUriResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNotificationUriResponse) Reset() {
+	*x = GetNotificationUriResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[199]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNotificationUriResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNotificationUriResponse) ProtoMessage() {}
+
+func (x *GetNotificationUriResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[199]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNotificationUriResponse.ProtoReflect.Descriptor instead.
+func (*GetNotificationUriResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{199}
+}
+
+func (x *GetNotificationUriResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPositionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPositionRequest) Reset() {
+	*x = GetPositionRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[200]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPositionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPositionRequest) ProtoMessage() {}
+
+func (x *GetPositionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[200]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPositionRequest.ProtoReflect.Descriptor instead.
+func (*GetPositionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{200}
+}
+
+func (x *GetPositionRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetPositionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPositionResponse) Reset() {
+	*x = GetPositionResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[201]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPositionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPositionResponse) ProtoMessage() {}
+
+func (x *GetPositionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[201]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPositionResponse.ProtoReflect.Descriptor instead.
+func (*GetPositionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{201}
+}
+
+func (x *GetPositionResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetWantsAllOnMoveCallsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetWantsAllOnMoveCallsRequest) Reset() {
+	*x = GetWantsAllOnMoveCallsRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[202]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetWantsAllOnMoveCallsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetWantsAllOnMoveCallsRequest) ProtoMessage() {}
+
+func (x *GetWantsAllOnMoveCallsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[202]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetWantsAllOnMoveCallsRequest.ProtoReflect.Descriptor instead.
+func (*GetWantsAllOnMoveCallsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{202}
+}
+
+func (x *GetWantsAllOnMoveCallsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetWantsAllOnMoveCallsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetWantsAllOnMoveCallsResponse) Reset() {
+	*x = GetWantsAllOnMoveCallsResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[203]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetWantsAllOnMoveCallsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetWantsAllOnMoveCallsResponse) ProtoMessage() {}
+
+func (x *GetWantsAllOnMoveCallsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[203]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetWantsAllOnMoveCallsResponse.ProtoReflect.Descriptor instead.
+func (*GetWantsAllOnMoveCallsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{203}
+}
+
+func (x *GetWantsAllOnMoveCallsResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type GetWrappedCursorRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetWrappedCursorRequest) Reset() {
+	*x = GetWrappedCursorRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[204]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetWrappedCursorRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetWrappedCursorRequest) ProtoMessage() {}
+
+func (x *GetWrappedCursorRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[204]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetWrappedCursorRequest.ProtoReflect.Descriptor instead.
+func (*GetWrappedCursorRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{204}
+}
+
+func (x *GetWrappedCursorRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetWrappedCursorResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetWrappedCursorResponse) Reset() {
+	*x = GetWrappedCursorResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[205]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetWrappedCursorResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetWrappedCursorResponse) ProtoMessage() {}
+
+func (x *GetWrappedCursorResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[205]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetWrappedCursorResponse.ProtoReflect.Descriptor instead.
+func (*GetWrappedCursorResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{205}
+}
+
+func (x *GetWrappedCursorResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type IsAfterLastRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsAfterLastRequest) Reset() {
+	*x = IsAfterLastRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[206]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsAfterLastRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsAfterLastRequest) ProtoMessage() {}
+
+func (x *IsAfterLastRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[206]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsAfterLastRequest.ProtoReflect.Descriptor instead.
+func (*IsAfterLastRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{206}
+}
+
+func (x *IsAfterLastRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type IsAfterLastResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsAfterLastResponse) Reset() {
+	*x = IsAfterLastResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[207]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsAfterLastResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsAfterLastResponse) ProtoMessage() {}
+
+func (x *IsAfterLastResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[207]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsAfterLastResponse.ProtoReflect.Descriptor instead.
+func (*IsAfterLastResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{207}
+}
+
+func (x *IsAfterLastResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsBeforeFirstRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsBeforeFirstRequest) Reset() {
+	*x = IsBeforeFirstRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[208]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsBeforeFirstRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsBeforeFirstRequest) ProtoMessage() {}
+
+func (x *IsBeforeFirstRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[208]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsBeforeFirstRequest.ProtoReflect.Descriptor instead.
+func (*IsBeforeFirstRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{208}
+}
+
+func (x *IsBeforeFirstRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type IsBeforeFirstResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsBeforeFirstResponse) Reset() {
+	*x = IsBeforeFirstResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[209]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsBeforeFirstResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsBeforeFirstResponse) ProtoMessage() {}
+
+func (x *IsBeforeFirstResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[209]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsBeforeFirstResponse.ProtoReflect.Descriptor instead.
+func (*IsBeforeFirstResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{209}
+}
+
+func (x *IsBeforeFirstResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsClosedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsClosedRequest) Reset() {
+	*x = IsClosedRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[210]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsClosedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsClosedRequest) ProtoMessage() {}
+
+func (x *IsClosedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[210]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsClosedRequest.ProtoReflect.Descriptor instead.
+func (*IsClosedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{210}
+}
+
+func (x *IsClosedRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type IsClosedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsClosedResponse) Reset() {
+	*x = IsClosedResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[211]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsClosedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsClosedResponse) ProtoMessage() {}
+
+func (x *IsClosedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[211]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsClosedResponse.ProtoReflect.Descriptor instead.
+func (*IsClosedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{211}
+}
+
+func (x *IsClosedResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsFirstRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsFirstRequest) Reset() {
+	*x = IsFirstRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[212]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsFirstRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsFirstRequest) ProtoMessage() {}
+
+func (x *IsFirstRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[212]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsFirstRequest.ProtoReflect.Descriptor instead.
+func (*IsFirstRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{212}
+}
+
+func (x *IsFirstRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type IsFirstResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsFirstResponse) Reset() {
+	*x = IsFirstResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[213]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsFirstResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsFirstResponse) ProtoMessage() {}
+
+func (x *IsFirstResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[213]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsFirstResponse.ProtoReflect.Descriptor instead.
+func (*IsFirstResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{213}
+}
+
+func (x *IsFirstResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsLastRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsLastRequest) Reset() {
+	*x = IsLastRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[214]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsLastRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsLastRequest) ProtoMessage() {}
+
+func (x *IsLastRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[214]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsLastRequest.ProtoReflect.Descriptor instead.
+func (*IsLastRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{214}
+}
+
+func (x *IsLastRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type IsLastResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsLastResponse) Reset() {
+	*x = IsLastResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[215]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsLastResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsLastResponse) ProtoMessage() {}
+
+func (x *IsLastResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[215]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsLastResponse.ProtoReflect.Descriptor instead.
+func (*IsLastResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{215}
+}
+
+func (x *IsLastResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type MoveRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *MoveRequest) Reset() {
+	*x = MoveRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[216]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *MoveRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MoveRequest) ProtoMessage() {}
+
+func (x *MoveRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[216]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MoveRequest.ProtoReflect.Descriptor instead.
+func (*MoveRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{216}
+}
+
+func (x *MoveRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *MoveRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type MoveResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *MoveResponse) Reset() {
+	*x = MoveResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[217]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *MoveResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MoveResponse) ProtoMessage() {}
+
+func (x *MoveResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[217]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MoveResponse.ProtoReflect.Descriptor instead.
+func (*MoveResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{217}
+}
+
+func (x *MoveResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type MoveToFirstRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *MoveToFirstRequest) Reset() {
+	*x = MoveToFirstRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[218]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *MoveToFirstRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MoveToFirstRequest) ProtoMessage() {}
+
+func (x *MoveToFirstRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[218]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MoveToFirstRequest.ProtoReflect.Descriptor instead.
+func (*MoveToFirstRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{218}
+}
+
+func (x *MoveToFirstRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type MoveToFirstResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *MoveToFirstResponse) Reset() {
+	*x = MoveToFirstResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[219]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *MoveToFirstResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MoveToFirstResponse) ProtoMessage() {}
+
+func (x *MoveToFirstResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[219]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MoveToFirstResponse.ProtoReflect.Descriptor instead.
+func (*MoveToFirstResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{219}
+}
+
+func (x *MoveToFirstResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type MoveToLastRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *MoveToLastRequest) Reset() {
+	*x = MoveToLastRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[220]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *MoveToLastRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MoveToLastRequest) ProtoMessage() {}
+
+func (x *MoveToLastRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[220]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MoveToLastRequest.ProtoReflect.Descriptor instead.
+func (*MoveToLastRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{220}
+}
+
+func (x *MoveToLastRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type MoveToLastResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *MoveToLastResponse) Reset() {
+	*x = MoveToLastResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[221]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *MoveToLastResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MoveToLastResponse) ProtoMessage() {}
+
+func (x *MoveToLastResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[221]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MoveToLastResponse.ProtoReflect.Descriptor instead.
+func (*MoveToLastResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{221}
+}
+
+func (x *MoveToLastResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type MoveToNextRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *MoveToNextRequest) Reset() {
+	*x = MoveToNextRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[222]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *MoveToNextRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MoveToNextRequest) ProtoMessage() {}
+
+func (x *MoveToNextRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[222]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MoveToNextRequest.ProtoReflect.Descriptor instead.
+func (*MoveToNextRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{222}
+}
+
+func (x *MoveToNextRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type MoveToNextResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *MoveToNextResponse) Reset() {
+	*x = MoveToNextResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[223]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *MoveToNextResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MoveToNextResponse) ProtoMessage() {}
+
+func (x *MoveToNextResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[223]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MoveToNextResponse.ProtoReflect.Descriptor instead.
+func (*MoveToNextResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{223}
+}
+
+func (x *MoveToNextResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type MoveToPositionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *MoveToPositionRequest) Reset() {
+	*x = MoveToPositionRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[224]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *MoveToPositionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MoveToPositionRequest) ProtoMessage() {}
+
+func (x *MoveToPositionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[224]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MoveToPositionRequest.ProtoReflect.Descriptor instead.
+func (*MoveToPositionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{224}
+}
+
+func (x *MoveToPositionRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *MoveToPositionRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type MoveToPositionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *MoveToPositionResponse) Reset() {
+	*x = MoveToPositionResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[225]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *MoveToPositionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MoveToPositionResponse) ProtoMessage() {}
+
+func (x *MoveToPositionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[225]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MoveToPositionResponse.ProtoReflect.Descriptor instead.
+func (*MoveToPositionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{225}
+}
+
+func (x *MoveToPositionResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type MoveToPreviousRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *MoveToPreviousRequest) Reset() {
+	*x = MoveToPreviousRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[226]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *MoveToPreviousRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MoveToPreviousRequest) ProtoMessage() {}
+
+func (x *MoveToPreviousRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[226]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MoveToPreviousRequest.ProtoReflect.Descriptor instead.
+func (*MoveToPreviousRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{226}
+}
+
+func (x *MoveToPreviousRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type MoveToPreviousResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *MoveToPreviousResponse) Reset() {
+	*x = MoveToPreviousResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[227]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *MoveToPreviousResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MoveToPreviousResponse) ProtoMessage() {}
+
+func (x *MoveToPreviousResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[227]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MoveToPreviousResponse.ProtoReflect.Descriptor instead.
+func (*MoveToPreviousResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{227}
+}
+
+func (x *MoveToPreviousResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type RegisterContentObserverRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RegisterContentObserverRequest) Reset() {
+	*x = RegisterContentObserverRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[228]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RegisterContentObserverRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RegisterContentObserverRequest) ProtoMessage() {}
+
+func (x *RegisterContentObserverRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[228]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RegisterContentObserverRequest.ProtoReflect.Descriptor instead.
+func (*RegisterContentObserverRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{228}
+}
+
+func (x *RegisterContentObserverRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *RegisterContentObserverRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type RegisterContentObserverResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RegisterContentObserverResponse) Reset() {
+	*x = RegisterContentObserverResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[229]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RegisterContentObserverResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RegisterContentObserverResponse) ProtoMessage() {}
+
+func (x *RegisterContentObserverResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[229]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RegisterContentObserverResponse.ProtoReflect.Descriptor instead.
+func (*RegisterContentObserverResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{229}
+}
+
+type RegisterDataSetObserverRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RegisterDataSetObserverRequest) Reset() {
+	*x = RegisterDataSetObserverRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[230]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RegisterDataSetObserverRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RegisterDataSetObserverRequest) ProtoMessage() {}
+
+func (x *RegisterDataSetObserverRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[230]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RegisterDataSetObserverRequest.ProtoReflect.Descriptor instead.
+func (*RegisterDataSetObserverRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{230}
+}
+
+func (x *RegisterDataSetObserverRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *RegisterDataSetObserverRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type RegisterDataSetObserverResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RegisterDataSetObserverResponse) Reset() {
+	*x = RegisterDataSetObserverResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[231]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RegisterDataSetObserverResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RegisterDataSetObserverResponse) ProtoMessage() {}
+
+func (x *RegisterDataSetObserverResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[231]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RegisterDataSetObserverResponse.ProtoReflect.Descriptor instead.
+func (*RegisterDataSetObserverResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{231}
+}
+
+type RequeryRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RequeryRequest) Reset() {
+	*x = RequeryRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[232]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RequeryRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RequeryRequest) ProtoMessage() {}
+
+func (x *RequeryRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[232]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RequeryRequest.ProtoReflect.Descriptor instead.
+func (*RequeryRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{232}
+}
+
+func (x *RequeryRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type RequeryResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RequeryResponse) Reset() {
+	*x = RequeryResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[233]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RequeryResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RequeryResponse) ProtoMessage() {}
+
+func (x *RequeryResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[233]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RequeryResponse.ProtoReflect.Descriptor instead.
+func (*RequeryResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{233}
+}
+
+func (x *RequeryResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type RespondRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RespondRequest) Reset() {
+	*x = RespondRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[234]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RespondRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RespondRequest) ProtoMessage() {}
+
+func (x *RespondRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[234]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RespondRequest.ProtoReflect.Descriptor instead.
+func (*RespondRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{234}
+}
+
+func (x *RespondRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *RespondRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type RespondResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RespondResponse) Reset() {
+	*x = RespondResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[235]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RespondResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RespondResponse) ProtoMessage() {}
+
+func (x *RespondResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[235]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RespondResponse.ProtoReflect.Descriptor instead.
+func (*RespondResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{235}
+}
+
+func (x *RespondResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetExtrasRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetExtrasRequest) Reset() {
+	*x = SetExtrasRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[236]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetExtrasRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetExtrasRequest) ProtoMessage() {}
+
+func (x *SetExtrasRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[236]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetExtrasRequest.ProtoReflect.Descriptor instead.
+func (*SetExtrasRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{236}
+}
+
+func (x *SetExtrasRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetExtrasRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetExtrasResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetExtrasResponse) Reset() {
+	*x = SetExtrasResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[237]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetExtrasResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetExtrasResponse) ProtoMessage() {}
+
+func (x *SetExtrasResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[237]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetExtrasResponse.ProtoReflect.Descriptor instead.
+func (*SetExtrasResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{237}
+}
+
+type SetNotificationUriRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetNotificationUriRequest) Reset() {
+	*x = SetNotificationUriRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[238]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetNotificationUriRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetNotificationUriRequest) ProtoMessage() {}
+
+func (x *SetNotificationUriRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[238]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetNotificationUriRequest.ProtoReflect.Descriptor instead.
+func (*SetNotificationUriRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{238}
+}
+
+func (x *SetNotificationUriRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetNotificationUriRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SetNotificationUriRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type SetNotificationUriResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetNotificationUriResponse) Reset() {
+	*x = SetNotificationUriResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[239]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetNotificationUriResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetNotificationUriResponse) ProtoMessage() {}
+
+func (x *SetNotificationUriResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[239]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetNotificationUriResponse.ProtoReflect.Descriptor instead.
+func (*SetNotificationUriResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{239}
+}
+
+type UnregisterContentObserverRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UnregisterContentObserverRequest) Reset() {
+	*x = UnregisterContentObserverRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[240]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UnregisterContentObserverRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UnregisterContentObserverRequest) ProtoMessage() {}
+
+func (x *UnregisterContentObserverRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[240]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UnregisterContentObserverRequest.ProtoReflect.Descriptor instead.
+func (*UnregisterContentObserverRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{240}
+}
+
+func (x *UnregisterContentObserverRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *UnregisterContentObserverRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type UnregisterContentObserverResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UnregisterContentObserverResponse) Reset() {
+	*x = UnregisterContentObserverResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[241]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UnregisterContentObserverResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UnregisterContentObserverResponse) ProtoMessage() {}
+
+func (x *UnregisterContentObserverResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[241]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UnregisterContentObserverResponse.ProtoReflect.Descriptor instead.
+func (*UnregisterContentObserverResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{241}
+}
+
+type UnregisterDataSetObserverRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UnregisterDataSetObserverRequest) Reset() {
+	*x = UnregisterDataSetObserverRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[242]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UnregisterDataSetObserverRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UnregisterDataSetObserverRequest) ProtoMessage() {}
+
+func (x *UnregisterDataSetObserverRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[242]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UnregisterDataSetObserverRequest.ProtoReflect.Descriptor instead.
+func (*UnregisterDataSetObserverRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{242}
+}
+
+func (x *UnregisterDataSetObserverRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *UnregisterDataSetObserverRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type UnregisterDataSetObserverResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UnregisterDataSetObserverResponse) Reset() {
+	*x = UnregisterDataSetObserverResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[243]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UnregisterDataSetObserverResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UnregisterDataSetObserverResponse) ProtoMessage() {}
+
+func (x *UnregisterDataSetObserverResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[243]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UnregisterDataSetObserverResponse.ProtoReflect.Descriptor instead.
+func (*UnregisterDataSetObserverResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{243}
+}
+
+type UnregisterAllRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UnregisterAllRequest) Reset() {
+	*x = UnregisterAllRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[244]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UnregisterAllRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UnregisterAllRequest) ProtoMessage() {}
+
+func (x *UnregisterAllRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[244]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UnregisterAllRequest.ProtoReflect.Descriptor instead.
+func (*UnregisterAllRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{244}
+}
+
+type UnregisterAllResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UnregisterAllResponse) Reset() {
+	*x = UnregisterAllResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[245]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UnregisterAllResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UnregisterAllResponse) ProtoMessage() {}
+
+func (x *UnregisterAllResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[245]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UnregisterAllResponse.ProtoReflect.Descriptor instead.
+func (*UnregisterAllResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{245}
+}
+
+type NewCrossProcessCursorWrapperRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewCrossProcessCursorWrapperRequest) Reset() {
+	*x = NewCrossProcessCursorWrapperRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[246]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewCrossProcessCursorWrapperRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewCrossProcessCursorWrapperRequest) ProtoMessage() {}
+
+func (x *NewCrossProcessCursorWrapperRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[246]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewCrossProcessCursorWrapperRequest.ProtoReflect.Descriptor instead.
+func (*NewCrossProcessCursorWrapperRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{246}
+}
+
+func (x *NewCrossProcessCursorWrapperRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type NewCrossProcessCursorWrapperResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewCrossProcessCursorWrapperResponse) Reset() {
+	*x = NewCrossProcessCursorWrapperResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[247]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewCrossProcessCursorWrapperResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewCrossProcessCursorWrapperResponse) ProtoMessage() {}
+
+func (x *NewCrossProcessCursorWrapperResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[247]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewCrossProcessCursorWrapperResponse.ProtoReflect.Descriptor instead.
+func (*NewCrossProcessCursorWrapperResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{247}
+}
+
+func (x *NewCrossProcessCursorWrapperResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type FillWindowRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FillWindowRequest) Reset() {
+	*x = FillWindowRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[248]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FillWindowRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FillWindowRequest) ProtoMessage() {}
+
+func (x *FillWindowRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[248]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FillWindowRequest.ProtoReflect.Descriptor instead.
+func (*FillWindowRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{248}
+}
+
+func (x *FillWindowRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *FillWindowRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *FillWindowRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type FillWindowResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FillWindowResponse) Reset() {
+	*x = FillWindowResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[249]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FillWindowResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FillWindowResponse) ProtoMessage() {}
+
+func (x *FillWindowResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[249]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FillWindowResponse.ProtoReflect.Descriptor instead.
+func (*FillWindowResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{249}
+}
+
+type GetWindowRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetWindowRequest) Reset() {
+	*x = GetWindowRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[250]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetWindowRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetWindowRequest) ProtoMessage() {}
+
+func (x *GetWindowRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[250]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetWindowRequest.ProtoReflect.Descriptor instead.
+func (*GetWindowRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{250}
+}
+
+func (x *GetWindowRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetWindowResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetWindowResponse) Reset() {
+	*x = GetWindowResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[251]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetWindowResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetWindowResponse) ProtoMessage() {}
+
+func (x *GetWindowResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[251]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetWindowResponse.ProtoReflect.Descriptor instead.
+func (*GetWindowResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{251}
+}
+
+func (x *GetWindowResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OnMoveRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnMoveRequest) Reset() {
+	*x = OnMoveRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[252]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnMoveRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnMoveRequest) ProtoMessage() {}
+
+func (x *OnMoveRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[252]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnMoveRequest.ProtoReflect.Descriptor instead.
+func (*OnMoveRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{252}
+}
+
+func (x *OnMoveRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *OnMoveRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnMoveRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type OnMoveResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnMoveResponse) Reset() {
+	*x = OnMoveResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[253]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnMoveResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnMoveResponse) ProtoMessage() {}
+
+func (x *OnMoveResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[253]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnMoveResponse.ProtoReflect.Descriptor instead.
+func (*OnMoveResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{253}
+}
+
+func (x *OnMoveResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type OnChangedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnChangedRequest) Reset() {
+	*x = OnChangedRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[254]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnChangedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnChangedRequest) ProtoMessage() {}
+
+func (x *OnChangedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[254]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnChangedRequest.ProtoReflect.Descriptor instead.
+func (*OnChangedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{254}
+}
+
+type OnChangedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnChangedResponse) Reset() {
+	*x = OnChangedResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[255]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnChangedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnChangedResponse) ProtoMessage() {}
+
+func (x *OnChangedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[255]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnChangedResponse.ProtoReflect.Descriptor instead.
+func (*OnChangedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{255}
+}
+
+type OnInvalidatedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnInvalidatedRequest) Reset() {
+	*x = OnInvalidatedRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[256]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnInvalidatedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnInvalidatedRequest) ProtoMessage() {}
+
+func (x *OnInvalidatedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[256]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnInvalidatedRequest.ProtoReflect.Descriptor instead.
+func (*OnInvalidatedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{256}
+}
+
+type OnInvalidatedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnInvalidatedResponse) Reset() {
+	*x = OnInvalidatedResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[257]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnInvalidatedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnInvalidatedResponse) ProtoMessage() {}
+
+func (x *OnInvalidatedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[257]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnInvalidatedResponse.ProtoReflect.Descriptor instead.
+func (*OnInvalidatedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{257}
+}
+
+type NewCursorJoinerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int64                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewCursorJoinerRequest) Reset() {
+	*x = NewCursorJoinerRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[258]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewCursorJoinerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewCursorJoinerRequest) ProtoMessage() {}
+
+func (x *NewCursorJoinerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[258]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewCursorJoinerRequest.ProtoReflect.Descriptor instead.
+func (*NewCursorJoinerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{258}
+}
+
+func (x *NewCursorJoinerRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *NewCursorJoinerRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *NewCursorJoinerRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *NewCursorJoinerRequest) GetArg3() int64 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+type NewCursorJoinerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewCursorJoinerResponse) Reset() {
+	*x = NewCursorJoinerResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[259]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewCursorJoinerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewCursorJoinerResponse) ProtoMessage() {}
+
+func (x *NewCursorJoinerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[259]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewCursorJoinerResponse.ProtoReflect.Descriptor instead.
+func (*NewCursorJoinerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{259}
+}
+
+func (x *NewCursorJoinerResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type HasNextRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HasNextRequest) Reset() {
+	*x = HasNextRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[260]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HasNextRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HasNextRequest) ProtoMessage() {}
+
+func (x *HasNextRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[260]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HasNextRequest.ProtoReflect.Descriptor instead.
+func (*HasNextRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{260}
+}
+
+func (x *HasNextRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type HasNextResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HasNextResponse) Reset() {
+	*x = HasNextResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[261]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HasNextResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HasNextResponse) ProtoMessage() {}
+
+func (x *HasNextResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[261]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HasNextResponse.ProtoReflect.Descriptor instead.
+func (*HasNextResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{261}
+}
+
+func (x *HasNextResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type Next0Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Next0Request) Reset() {
+	*x = Next0Request{}
+	mi := &file_proto_database_database_proto_msgTypes[262]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Next0Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Next0Request) ProtoMessage() {}
+
+func (x *Next0Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[262]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Next0Request.ProtoReflect.Descriptor instead.
+func (*Next0Request) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{262}
+}
+
+func (x *Next0Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type Next0Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Next0Response) Reset() {
+	*x = Next0Response{}
+	mi := &file_proto_database_database_proto_msgTypes[263]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Next0Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Next0Response) ProtoMessage() {}
+
+func (x *Next0Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[263]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Next0Response.ProtoReflect.Descriptor instead.
+func (*Next0Response) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{263}
+}
+
+func (x *Next0Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type RemoveRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RemoveRequest) Reset() {
+	*x = RemoveRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[264]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RemoveRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemoveRequest) ProtoMessage() {}
+
+func (x *RemoveRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[264]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemoveRequest.ProtoReflect.Descriptor instead.
+func (*RemoveRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{264}
+}
+
+func (x *RemoveRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type RemoveResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RemoveResponse) Reset() {
+	*x = RemoveResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[265]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RemoveResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemoveResponse) ProtoMessage() {}
+
+func (x *RemoveResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[265]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemoveResponse.ProtoReflect.Descriptor instead.
+func (*RemoveResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{265}
+}
+
+type Next0_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Next0_1Request) Reset() {
+	*x = Next0_1Request{}
+	mi := &file_proto_database_database_proto_msgTypes[266]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Next0_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Next0_1Request) ProtoMessage() {}
+
+func (x *Next0_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[266]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Next0_1Request.ProtoReflect.Descriptor instead.
+func (*Next0_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{266}
+}
+
+func (x *Next0_1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type Next0_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Next0_1Response) Reset() {
+	*x = Next0_1Response{}
+	mi := &file_proto_database_database_proto_msgTypes[267]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Next0_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Next0_1Response) ProtoMessage() {}
+
+func (x *Next0_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[267]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Next0_1Response.ProtoReflect.Descriptor instead.
+func (*Next0_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{267}
+}
+
+func (x *Next0_1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ValuesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ValuesRequest) Reset() {
+	*x = ValuesRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[268]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ValuesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ValuesRequest) ProtoMessage() {}
+
+func (x *ValuesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[268]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ValuesRequest.ProtoReflect.Descriptor instead.
+func (*ValuesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{268}
+}
+
+type ValuesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ValuesResponse) Reset() {
+	*x = ValuesResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[269]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ValuesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ValuesResponse) ProtoMessage() {}
+
+func (x *ValuesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[269]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ValuesResponse.ProtoReflect.Descriptor instead.
+func (*ValuesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{269}
+}
+
+func (x *ValuesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ValueOfRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ValueOfRequest) Reset() {
+	*x = ValueOfRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[270]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ValueOfRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ValueOfRequest) ProtoMessage() {}
+
+func (x *ValueOfRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[270]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ValueOfRequest.ProtoReflect.Descriptor instead.
+func (*ValueOfRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{270}
+}
+
+func (x *ValueOfRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type ValueOfResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ValueOfResponse) Reset() {
+	*x = ValueOfResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[271]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ValueOfResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ValueOfResponse) ProtoMessage() {}
+
+func (x *ValueOfResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[271]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ValueOfResponse.ProtoReflect.Descriptor instead.
+func (*ValueOfResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{271}
+}
+
+func (x *ValueOfResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type CrossProcessCursorFillWindowRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CrossProcessCursorFillWindowRequest) Reset() {
+	*x = CrossProcessCursorFillWindowRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[272]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CrossProcessCursorFillWindowRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CrossProcessCursorFillWindowRequest) ProtoMessage() {}
+
+func (x *CrossProcessCursorFillWindowRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[272]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CrossProcessCursorFillWindowRequest.ProtoReflect.Descriptor instead.
+func (*CrossProcessCursorFillWindowRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{272}
+}
+
+func (x *CrossProcessCursorFillWindowRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *CrossProcessCursorFillWindowRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type CrossProcessCursorGetWindowRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CrossProcessCursorGetWindowRequest) Reset() {
+	*x = CrossProcessCursorGetWindowRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[273]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CrossProcessCursorGetWindowRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CrossProcessCursorGetWindowRequest) ProtoMessage() {}
+
+func (x *CrossProcessCursorGetWindowRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[273]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CrossProcessCursorGetWindowRequest.ProtoReflect.Descriptor instead.
+func (*CrossProcessCursorGetWindowRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{273}
+}
+
+type CrossProcessCursorOnMoveRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CrossProcessCursorOnMoveRequest) Reset() {
+	*x = CrossProcessCursorOnMoveRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[274]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CrossProcessCursorOnMoveRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CrossProcessCursorOnMoveRequest) ProtoMessage() {}
+
+func (x *CrossProcessCursorOnMoveRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[274]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CrossProcessCursorOnMoveRequest.ProtoReflect.Descriptor instead.
+func (*CrossProcessCursorOnMoveRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{274}
+}
+
+func (x *CrossProcessCursorOnMoveRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *CrossProcessCursorOnMoveRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type NewCursorWindowRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewCursorWindowRequest) Reset() {
+	*x = NewCursorWindowRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[275]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewCursorWindowRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewCursorWindowRequest) ProtoMessage() {}
+
+func (x *NewCursorWindowRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[275]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewCursorWindowRequest.ProtoReflect.Descriptor instead.
+func (*NewCursorWindowRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{275}
+}
+
+func (x *NewCursorWindowRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type NewCursorWindowResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewCursorWindowResponse) Reset() {
+	*x = NewCursorWindowResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[276]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewCursorWindowResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewCursorWindowResponse) ProtoMessage() {}
+
+func (x *NewCursorWindowResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[276]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewCursorWindowResponse.ProtoReflect.Descriptor instead.
+func (*NewCursorWindowResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{276}
+}
+
+func (x *NewCursorWindowResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AllocRowRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AllocRowRequest) Reset() {
+	*x = AllocRowRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[277]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AllocRowRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AllocRowRequest) ProtoMessage() {}
+
+func (x *AllocRowRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[277]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AllocRowRequest.ProtoReflect.Descriptor instead.
+func (*AllocRowRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{277}
+}
+
+func (x *AllocRowRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type AllocRowResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AllocRowResponse) Reset() {
+	*x = AllocRowResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[278]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AllocRowResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AllocRowResponse) ProtoMessage() {}
+
+func (x *AllocRowResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[278]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AllocRowResponse.ProtoReflect.Descriptor instead.
+func (*AllocRowResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{278}
+}
+
+func (x *AllocRowResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type ClearRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearRequest) Reset() {
+	*x = ClearRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[279]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearRequest) ProtoMessage() {}
+
+func (x *ClearRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[279]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearRequest.ProtoReflect.Descriptor instead.
+func (*ClearRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{279}
+}
+
+func (x *ClearRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type ClearResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearResponse) Reset() {
+	*x = ClearResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[280]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearResponse) ProtoMessage() {}
+
+func (x *ClearResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[280]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearResponse.ProtoReflect.Descriptor instead.
+func (*ClearResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{280}
+}
+
+type CursorWindowCopyStringToBufferRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CursorWindowCopyStringToBufferRequest) Reset() {
+	*x = CursorWindowCopyStringToBufferRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[281]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CursorWindowCopyStringToBufferRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CursorWindowCopyStringToBufferRequest) ProtoMessage() {}
+
+func (x *CursorWindowCopyStringToBufferRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[281]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CursorWindowCopyStringToBufferRequest.ProtoReflect.Descriptor instead.
+func (*CursorWindowCopyStringToBufferRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{281}
+}
+
+func (x *CursorWindowCopyStringToBufferRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *CursorWindowCopyStringToBufferRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *CursorWindowCopyStringToBufferRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *CursorWindowCopyStringToBufferRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type DescribeContentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DescribeContentsRequest) Reset() {
+	*x = DescribeContentsRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[282]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DescribeContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DescribeContentsRequest) ProtoMessage() {}
+
+func (x *DescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[282]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*DescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{282}
+}
+
+func (x *DescribeContentsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type DescribeContentsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DescribeContentsResponse) Reset() {
+	*x = DescribeContentsResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[283]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DescribeContentsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DescribeContentsResponse) ProtoMessage() {}
+
+func (x *DescribeContentsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[283]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DescribeContentsResponse.ProtoReflect.Descriptor instead.
+func (*DescribeContentsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{283}
+}
+
+func (x *DescribeContentsResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type FreeLastRowRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FreeLastRowRequest) Reset() {
+	*x = FreeLastRowRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[284]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FreeLastRowRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FreeLastRowRequest) ProtoMessage() {}
+
+func (x *FreeLastRowRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[284]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FreeLastRowRequest.ProtoReflect.Descriptor instead.
+func (*FreeLastRowRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{284}
+}
+
+func (x *FreeLastRowRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type FreeLastRowResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FreeLastRowResponse) Reset() {
+	*x = FreeLastRowResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[285]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FreeLastRowResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FreeLastRowResponse) ProtoMessage() {}
+
+func (x *FreeLastRowResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[285]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FreeLastRowResponse.ProtoReflect.Descriptor instead.
+func (*FreeLastRowResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{285}
+}
+
+type CursorWindowGetBlobRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CursorWindowGetBlobRequest) Reset() {
+	*x = CursorWindowGetBlobRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[286]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CursorWindowGetBlobRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CursorWindowGetBlobRequest) ProtoMessage() {}
+
+func (x *CursorWindowGetBlobRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[286]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CursorWindowGetBlobRequest.ProtoReflect.Descriptor instead.
+func (*CursorWindowGetBlobRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{286}
+}
+
+func (x *CursorWindowGetBlobRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *CursorWindowGetBlobRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *CursorWindowGetBlobRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type CursorWindowGetDoubleRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CursorWindowGetDoubleRequest) Reset() {
+	*x = CursorWindowGetDoubleRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[287]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CursorWindowGetDoubleRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CursorWindowGetDoubleRequest) ProtoMessage() {}
+
+func (x *CursorWindowGetDoubleRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[287]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CursorWindowGetDoubleRequest.ProtoReflect.Descriptor instead.
+func (*CursorWindowGetDoubleRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{287}
+}
+
+func (x *CursorWindowGetDoubleRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *CursorWindowGetDoubleRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *CursorWindowGetDoubleRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type CursorWindowGetFloatRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CursorWindowGetFloatRequest) Reset() {
+	*x = CursorWindowGetFloatRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[288]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CursorWindowGetFloatRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CursorWindowGetFloatRequest) ProtoMessage() {}
+
+func (x *CursorWindowGetFloatRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[288]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CursorWindowGetFloatRequest.ProtoReflect.Descriptor instead.
+func (*CursorWindowGetFloatRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{288}
+}
+
+func (x *CursorWindowGetFloatRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *CursorWindowGetFloatRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *CursorWindowGetFloatRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type CursorWindowGetIntRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CursorWindowGetIntRequest) Reset() {
+	*x = CursorWindowGetIntRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[289]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CursorWindowGetIntRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CursorWindowGetIntRequest) ProtoMessage() {}
+
+func (x *CursorWindowGetIntRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[289]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CursorWindowGetIntRequest.ProtoReflect.Descriptor instead.
+func (*CursorWindowGetIntRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{289}
+}
+
+func (x *CursorWindowGetIntRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *CursorWindowGetIntRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *CursorWindowGetIntRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type CursorWindowGetLongRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CursorWindowGetLongRequest) Reset() {
+	*x = CursorWindowGetLongRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[290]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CursorWindowGetLongRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CursorWindowGetLongRequest) ProtoMessage() {}
+
+func (x *CursorWindowGetLongRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[290]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CursorWindowGetLongRequest.ProtoReflect.Descriptor instead.
+func (*CursorWindowGetLongRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{290}
+}
+
+func (x *CursorWindowGetLongRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *CursorWindowGetLongRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *CursorWindowGetLongRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type GetNumRowsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNumRowsRequest) Reset() {
+	*x = GetNumRowsRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[291]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNumRowsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNumRowsRequest) ProtoMessage() {}
+
+func (x *GetNumRowsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[291]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNumRowsRequest.ProtoReflect.Descriptor instead.
+func (*GetNumRowsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{291}
+}
+
+func (x *GetNumRowsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetNumRowsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNumRowsResponse) Reset() {
+	*x = GetNumRowsResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[292]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNumRowsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNumRowsResponse) ProtoMessage() {}
+
+func (x *GetNumRowsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[292]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNumRowsResponse.ProtoReflect.Descriptor instead.
+func (*GetNumRowsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{292}
+}
+
+func (x *GetNumRowsResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type CursorWindowGetShortRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CursorWindowGetShortRequest) Reset() {
+	*x = CursorWindowGetShortRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[293]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CursorWindowGetShortRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CursorWindowGetShortRequest) ProtoMessage() {}
+
+func (x *CursorWindowGetShortRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[293]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CursorWindowGetShortRequest.ProtoReflect.Descriptor instead.
+func (*CursorWindowGetShortRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{293}
+}
+
+func (x *CursorWindowGetShortRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *CursorWindowGetShortRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *CursorWindowGetShortRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type GetStartPositionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetStartPositionRequest) Reset() {
+	*x = GetStartPositionRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[294]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetStartPositionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetStartPositionRequest) ProtoMessage() {}
+
+func (x *GetStartPositionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[294]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetStartPositionRequest.ProtoReflect.Descriptor instead.
+func (*GetStartPositionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{294}
+}
+
+func (x *GetStartPositionRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetStartPositionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetStartPositionResponse) Reset() {
+	*x = GetStartPositionResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[295]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetStartPositionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetStartPositionResponse) ProtoMessage() {}
+
+func (x *GetStartPositionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[295]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetStartPositionResponse.ProtoReflect.Descriptor instead.
+func (*GetStartPositionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{295}
+}
+
+func (x *GetStartPositionResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type CursorWindowGetStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CursorWindowGetStringRequest) Reset() {
+	*x = CursorWindowGetStringRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[296]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CursorWindowGetStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CursorWindowGetStringRequest) ProtoMessage() {}
+
+func (x *CursorWindowGetStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[296]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CursorWindowGetStringRequest.ProtoReflect.Descriptor instead.
+func (*CursorWindowGetStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{296}
+}
+
+func (x *CursorWindowGetStringRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *CursorWindowGetStringRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *CursorWindowGetStringRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type CursorWindowGetTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CursorWindowGetTypeRequest) Reset() {
+	*x = CursorWindowGetTypeRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[297]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CursorWindowGetTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CursorWindowGetTypeRequest) ProtoMessage() {}
+
+func (x *CursorWindowGetTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[297]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CursorWindowGetTypeRequest.ProtoReflect.Descriptor instead.
+func (*CursorWindowGetTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{297}
+}
+
+func (x *CursorWindowGetTypeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *CursorWindowGetTypeRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *CursorWindowGetTypeRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type IsBlobRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsBlobRequest) Reset() {
+	*x = IsBlobRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[298]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsBlobRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsBlobRequest) ProtoMessage() {}
+
+func (x *IsBlobRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[298]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsBlobRequest.ProtoReflect.Descriptor instead.
+func (*IsBlobRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{298}
+}
+
+func (x *IsBlobRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *IsBlobRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *IsBlobRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type IsBlobResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsBlobResponse) Reset() {
+	*x = IsBlobResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[299]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsBlobResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsBlobResponse) ProtoMessage() {}
+
+func (x *IsBlobResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[299]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsBlobResponse.ProtoReflect.Descriptor instead.
+func (*IsBlobResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{299}
+}
+
+func (x *IsBlobResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsFloatRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsFloatRequest) Reset() {
+	*x = IsFloatRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[300]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsFloatRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsFloatRequest) ProtoMessage() {}
+
+func (x *IsFloatRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[300]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsFloatRequest.ProtoReflect.Descriptor instead.
+func (*IsFloatRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{300}
+}
+
+func (x *IsFloatRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *IsFloatRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *IsFloatRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type IsFloatResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsFloatResponse) Reset() {
+	*x = IsFloatResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[301]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsFloatResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsFloatResponse) ProtoMessage() {}
+
+func (x *IsFloatResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[301]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsFloatResponse.ProtoReflect.Descriptor instead.
+func (*IsFloatResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{301}
+}
+
+func (x *IsFloatResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsLongRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsLongRequest) Reset() {
+	*x = IsLongRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[302]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsLongRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsLongRequest) ProtoMessage() {}
+
+func (x *IsLongRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[302]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsLongRequest.ProtoReflect.Descriptor instead.
+func (*IsLongRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{302}
+}
+
+func (x *IsLongRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *IsLongRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *IsLongRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type IsLongResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsLongResponse) Reset() {
+	*x = IsLongResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[303]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsLongResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsLongResponse) ProtoMessage() {}
+
+func (x *IsLongResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[303]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsLongResponse.ProtoReflect.Descriptor instead.
+func (*IsLongResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{303}
+}
+
+func (x *IsLongResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type CursorWindowIsNullRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CursorWindowIsNullRequest) Reset() {
+	*x = CursorWindowIsNullRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[304]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CursorWindowIsNullRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CursorWindowIsNullRequest) ProtoMessage() {}
+
+func (x *CursorWindowIsNullRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[304]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CursorWindowIsNullRequest.ProtoReflect.Descriptor instead.
+func (*CursorWindowIsNullRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{304}
+}
+
+func (x *CursorWindowIsNullRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *CursorWindowIsNullRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *CursorWindowIsNullRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type IsStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsStringRequest) Reset() {
+	*x = IsStringRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[305]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsStringRequest) ProtoMessage() {}
+
+func (x *IsStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[305]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsStringRequest.ProtoReflect.Descriptor instead.
+func (*IsStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{305}
+}
+
+func (x *IsStringRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *IsStringRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *IsStringRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type IsStringResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsStringResponse) Reset() {
+	*x = IsStringResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[306]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsStringResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsStringResponse) ProtoMessage() {}
+
+func (x *IsStringResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[306]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsStringResponse.ProtoReflect.Descriptor instead.
+func (*IsStringResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{306}
+}
+
+func (x *IsStringResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type PutBlobRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PutBlobRequest) Reset() {
+	*x = PutBlobRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[307]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PutBlobRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PutBlobRequest) ProtoMessage() {}
+
+func (x *PutBlobRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[307]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PutBlobRequest.ProtoReflect.Descriptor instead.
+func (*PutBlobRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{307}
+}
+
+func (x *PutBlobRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *PutBlobRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *PutBlobRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *PutBlobRequest) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type PutBlobResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PutBlobResponse) Reset() {
+	*x = PutBlobResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[308]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PutBlobResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PutBlobResponse) ProtoMessage() {}
+
+func (x *PutBlobResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[308]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PutBlobResponse.ProtoReflect.Descriptor instead.
+func (*PutBlobResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{308}
+}
+
+func (x *PutBlobResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type PutDoubleRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          float64                `protobuf:"fixed64,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PutDoubleRequest) Reset() {
+	*x = PutDoubleRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[309]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PutDoubleRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PutDoubleRequest) ProtoMessage() {}
+
+func (x *PutDoubleRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[309]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PutDoubleRequest.ProtoReflect.Descriptor instead.
+func (*PutDoubleRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{309}
+}
+
+func (x *PutDoubleRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *PutDoubleRequest) GetArg0() float64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *PutDoubleRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *PutDoubleRequest) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type PutDoubleResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PutDoubleResponse) Reset() {
+	*x = PutDoubleResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[310]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PutDoubleResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PutDoubleResponse) ProtoMessage() {}
+
+func (x *PutDoubleResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[310]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PutDoubleResponse.ProtoReflect.Descriptor instead.
+func (*PutDoubleResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{310}
+}
+
+func (x *PutDoubleResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type PutLongRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PutLongRequest) Reset() {
+	*x = PutLongRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[311]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PutLongRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PutLongRequest) ProtoMessage() {}
+
+func (x *PutLongRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[311]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PutLongRequest.ProtoReflect.Descriptor instead.
+func (*PutLongRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{311}
+}
+
+func (x *PutLongRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *PutLongRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *PutLongRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *PutLongRequest) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type PutLongResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PutLongResponse) Reset() {
+	*x = PutLongResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[312]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PutLongResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PutLongResponse) ProtoMessage() {}
+
+func (x *PutLongResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[312]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PutLongResponse.ProtoReflect.Descriptor instead.
+func (*PutLongResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{312}
+}
+
+func (x *PutLongResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type PutNullRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PutNullRequest) Reset() {
+	*x = PutNullRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[313]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PutNullRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PutNullRequest) ProtoMessage() {}
+
+func (x *PutNullRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[313]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PutNullRequest.ProtoReflect.Descriptor instead.
+func (*PutNullRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{313}
+}
+
+func (x *PutNullRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *PutNullRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *PutNullRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type PutNullResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PutNullResponse) Reset() {
+	*x = PutNullResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[314]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PutNullResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PutNullResponse) ProtoMessage() {}
+
+func (x *PutNullResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[314]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PutNullResponse.ProtoReflect.Descriptor instead.
+func (*PutNullResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{314}
+}
+
+func (x *PutNullResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type PutStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          string                 `protobuf:"bytes,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PutStringRequest) Reset() {
+	*x = PutStringRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[315]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PutStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PutStringRequest) ProtoMessage() {}
+
+func (x *PutStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[315]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PutStringRequest.ProtoReflect.Descriptor instead.
+func (*PutStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{315}
+}
+
+func (x *PutStringRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *PutStringRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *PutStringRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *PutStringRequest) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type PutStringResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PutStringResponse) Reset() {
+	*x = PutStringResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[316]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PutStringResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PutStringResponse) ProtoMessage() {}
+
+func (x *PutStringResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[316]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PutStringResponse.ProtoReflect.Descriptor instead.
+func (*PutStringResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{316}
+}
+
+func (x *PutStringResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type SetNumColumnsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetNumColumnsRequest) Reset() {
+	*x = SetNumColumnsRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[317]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetNumColumnsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetNumColumnsRequest) ProtoMessage() {}
+
+func (x *SetNumColumnsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[317]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetNumColumnsRequest.ProtoReflect.Descriptor instead.
+func (*SetNumColumnsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{317}
+}
+
+func (x *SetNumColumnsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetNumColumnsRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetNumColumnsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetNumColumnsResponse) Reset() {
+	*x = SetNumColumnsResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[318]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetNumColumnsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetNumColumnsResponse) ProtoMessage() {}
+
+func (x *SetNumColumnsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[318]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetNumColumnsResponse.ProtoReflect.Descriptor instead.
+func (*SetNumColumnsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{318}
+}
+
+func (x *SetNumColumnsResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type SetStartPositionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetStartPositionRequest) Reset() {
+	*x = SetStartPositionRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[319]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetStartPositionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetStartPositionRequest) ProtoMessage() {}
+
+func (x *SetStartPositionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[319]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetStartPositionRequest.ProtoReflect.Descriptor instead.
+func (*SetStartPositionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{319}
+}
+
+func (x *SetStartPositionRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetStartPositionRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetStartPositionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetStartPositionResponse) Reset() {
+	*x = SetStartPositionResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[320]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetStartPositionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetStartPositionResponse) ProtoMessage() {}
+
+func (x *SetStartPositionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[320]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetStartPositionResponse.ProtoReflect.Descriptor instead.
+func (*SetStartPositionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{320}
+}
+
+type ToStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringRequest) Reset() {
+	*x = ToStringRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[321]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringRequest) ProtoMessage() {}
+
+func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[321]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringRequest.ProtoReflect.Descriptor instead.
+func (*ToStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{321}
+}
+
+func (x *ToStringRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type ToStringResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringResponse) Reset() {
+	*x = ToStringResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[322]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringResponse) ProtoMessage() {}
+
+func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[322]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringResponse.ProtoReflect.Descriptor instead.
+func (*ToStringResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{322}
+}
+
+func (x *ToStringResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type WriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WriteToParcelRequest) Reset() {
+	*x = WriteToParcelRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[323]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WriteToParcelRequest) ProtoMessage() {}
+
+func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[323]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*WriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{323}
+}
+
+func (x *WriteToParcelRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *WriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *WriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type WriteToParcelResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WriteToParcelResponse) Reset() {
+	*x = WriteToParcelResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[324]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WriteToParcelResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WriteToParcelResponse) ProtoMessage() {}
+
+func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[324]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WriteToParcelResponse.ProtoReflect.Descriptor instead.
+func (*WriteToParcelResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{324}
+}
+
+type NewFromParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewFromParcelRequest) Reset() {
+	*x = NewFromParcelRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[325]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewFromParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewFromParcelRequest) ProtoMessage() {}
+
+func (x *NewFromParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[325]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewFromParcelRequest.ProtoReflect.Descriptor instead.
+func (*NewFromParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{325}
+}
+
+func (x *NewFromParcelRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *NewFromParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type NewFromParcelResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewFromParcelResponse) Reset() {
+	*x = NewFromParcelResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[326]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewFromParcelResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewFromParcelResponse) ProtoMessage() {}
+
+func (x *NewFromParcelResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[326]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewFromParcelResponse.ProtoReflect.Descriptor instead.
+func (*NewFromParcelResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{326}
+}
+
+func (x *NewFromParcelResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type NewContentObservableRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewContentObservableRequest) Reset() {
+	*x = NewContentObservableRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[327]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewContentObservableRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewContentObservableRequest) ProtoMessage() {}
+
+func (x *NewContentObservableRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[327]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewContentObservableRequest.ProtoReflect.Descriptor instead.
+func (*NewContentObservableRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{327}
+}
+
+type NewContentObservableResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewContentObservableResponse) Reset() {
+	*x = NewContentObservableResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[328]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewContentObservableResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewContentObservableResponse) ProtoMessage() {}
+
+func (x *NewContentObservableResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[328]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewContentObservableResponse.ProtoReflect.Descriptor instead.
+func (*NewContentObservableResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{328}
+}
+
+func (x *NewContentObservableResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ContentObservableDispatchChange1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          bool                   `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ContentObservableDispatchChange1Request) Reset() {
+	*x = ContentObservableDispatchChange1Request{}
+	mi := &file_proto_database_database_proto_msgTypes[329]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ContentObservableDispatchChange1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ContentObservableDispatchChange1Request) ProtoMessage() {}
+
+func (x *ContentObservableDispatchChange1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[329]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ContentObservableDispatchChange1Request.ProtoReflect.Descriptor instead.
+func (*ContentObservableDispatchChange1Request) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{329}
+}
+
+func (x *ContentObservableDispatchChange1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *ContentObservableDispatchChange1Request) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type ContentObservableDispatchChange2_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          bool                   `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ContentObservableDispatchChange2_1Request) Reset() {
+	*x = ContentObservableDispatchChange2_1Request{}
+	mi := &file_proto_database_database_proto_msgTypes[330]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ContentObservableDispatchChange2_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ContentObservableDispatchChange2_1Request) ProtoMessage() {}
+
+func (x *ContentObservableDispatchChange2_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[330]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ContentObservableDispatchChange2_1Request.ProtoReflect.Descriptor instead.
+func (*ContentObservableDispatchChange2_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{330}
+}
+
+func (x *ContentObservableDispatchChange2_1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *ContentObservableDispatchChange2_1Request) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+func (x *ContentObservableDispatchChange2_1Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type NotifyChangeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          bool                   `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NotifyChangeRequest) Reset() {
+	*x = NotifyChangeRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[331]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NotifyChangeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NotifyChangeRequest) ProtoMessage() {}
+
+func (x *NotifyChangeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[331]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NotifyChangeRequest.ProtoReflect.Descriptor instead.
+func (*NotifyChangeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{331}
+}
+
+func (x *NotifyChangeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *NotifyChangeRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type NotifyChangeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NotifyChangeResponse) Reset() {
+	*x = NotifyChangeResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[332]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NotifyChangeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NotifyChangeResponse) ProtoMessage() {}
+
+func (x *NotifyChangeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[332]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NotifyChangeResponse.ProtoReflect.Descriptor instead.
+func (*NotifyChangeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{332}
+}
+
+type RegisterObserver1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RegisterObserver1Request) Reset() {
+	*x = RegisterObserver1Request{}
+	mi := &file_proto_database_database_proto_msgTypes[333]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RegisterObserver1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RegisterObserver1Request) ProtoMessage() {}
+
+func (x *RegisterObserver1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[333]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RegisterObserver1Request.ProtoReflect.Descriptor instead.
+func (*RegisterObserver1Request) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{333}
+}
+
+func (x *RegisterObserver1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *RegisterObserver1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type RegisterObserver1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RegisterObserver1Response) Reset() {
+	*x = RegisterObserver1Response{}
+	mi := &file_proto_database_database_proto_msgTypes[334]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RegisterObserver1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RegisterObserver1Response) ProtoMessage() {}
+
+func (x *RegisterObserver1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[334]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RegisterObserver1Response.ProtoReflect.Descriptor instead.
+func (*RegisterObserver1Response) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{334}
+}
+
+type RegisterObserver1_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RegisterObserver1_1Request) Reset() {
+	*x = RegisterObserver1_1Request{}
+	mi := &file_proto_database_database_proto_msgTypes[335]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RegisterObserver1_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RegisterObserver1_1Request) ProtoMessage() {}
+
+func (x *RegisterObserver1_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[335]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RegisterObserver1_1Request.ProtoReflect.Descriptor instead.
+func (*RegisterObserver1_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{335}
+}
+
+func (x *RegisterObserver1_1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *RegisterObserver1_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type RegisterObserver1_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RegisterObserver1_1Response) Reset() {
+	*x = RegisterObserver1_1Response{}
+	mi := &file_proto_database_database_proto_msgTypes[336]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RegisterObserver1_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RegisterObserver1_1Response) ProtoMessage() {}
+
+func (x *RegisterObserver1_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[336]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RegisterObserver1_1Response.ProtoReflect.Descriptor instead.
+func (*RegisterObserver1_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{336}
+}
+
+type NewMergeCursorRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewMergeCursorRequest) Reset() {
+	*x = NewMergeCursorRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[337]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewMergeCursorRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewMergeCursorRequest) ProtoMessage() {}
+
+func (x *NewMergeCursorRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[337]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewMergeCursorRequest.ProtoReflect.Descriptor instead.
+func (*NewMergeCursorRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{337}
+}
+
+func (x *NewMergeCursorRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type NewMergeCursorResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewMergeCursorResponse) Reset() {
+	*x = NewMergeCursorResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[338]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewMergeCursorResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewMergeCursorResponse) ProtoMessage() {}
+
+func (x *NewMergeCursorResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[338]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewMergeCursorResponse.ProtoReflect.Descriptor instead.
+func (*NewMergeCursorResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{338}
+}
+
+func (x *NewMergeCursorResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type MergeCursorCloseRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *MergeCursorCloseRequest) Reset() {
+	*x = MergeCursorCloseRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[339]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *MergeCursorCloseRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MergeCursorCloseRequest) ProtoMessage() {}
+
+func (x *MergeCursorCloseRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[339]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MergeCursorCloseRequest.ProtoReflect.Descriptor instead.
+func (*MergeCursorCloseRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{339}
+}
+
+func (x *MergeCursorCloseRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type AbstractWindowedCursorCopyStringToBufferRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AbstractWindowedCursorCopyStringToBufferRequest) Reset() {
+	*x = AbstractWindowedCursorCopyStringToBufferRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[340]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AbstractWindowedCursorCopyStringToBufferRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AbstractWindowedCursorCopyStringToBufferRequest) ProtoMessage() {}
+
+func (x *AbstractWindowedCursorCopyStringToBufferRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[340]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AbstractWindowedCursorCopyStringToBufferRequest.ProtoReflect.Descriptor instead.
+func (*AbstractWindowedCursorCopyStringToBufferRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{340}
+}
+
+func (x *AbstractWindowedCursorCopyStringToBufferRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *AbstractWindowedCursorCopyStringToBufferRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type AbstractWindowedCursorGetBlobRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AbstractWindowedCursorGetBlobRequest) Reset() {
+	*x = AbstractWindowedCursorGetBlobRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[341]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AbstractWindowedCursorGetBlobRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AbstractWindowedCursorGetBlobRequest) ProtoMessage() {}
+
+func (x *AbstractWindowedCursorGetBlobRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[341]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AbstractWindowedCursorGetBlobRequest.ProtoReflect.Descriptor instead.
+func (*AbstractWindowedCursorGetBlobRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{341}
+}
+
+func (x *AbstractWindowedCursorGetBlobRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AbstractWindowedCursorGetDoubleRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AbstractWindowedCursorGetDoubleRequest) Reset() {
+	*x = AbstractWindowedCursorGetDoubleRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[342]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AbstractWindowedCursorGetDoubleRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AbstractWindowedCursorGetDoubleRequest) ProtoMessage() {}
+
+func (x *AbstractWindowedCursorGetDoubleRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[342]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AbstractWindowedCursorGetDoubleRequest.ProtoReflect.Descriptor instead.
+func (*AbstractWindowedCursorGetDoubleRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{342}
+}
+
+func (x *AbstractWindowedCursorGetDoubleRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AbstractWindowedCursorGetFloatRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AbstractWindowedCursorGetFloatRequest) Reset() {
+	*x = AbstractWindowedCursorGetFloatRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[343]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AbstractWindowedCursorGetFloatRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AbstractWindowedCursorGetFloatRequest) ProtoMessage() {}
+
+func (x *AbstractWindowedCursorGetFloatRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[343]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AbstractWindowedCursorGetFloatRequest.ProtoReflect.Descriptor instead.
+func (*AbstractWindowedCursorGetFloatRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{343}
+}
+
+func (x *AbstractWindowedCursorGetFloatRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AbstractWindowedCursorGetIntRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AbstractWindowedCursorGetIntRequest) Reset() {
+	*x = AbstractWindowedCursorGetIntRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[344]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AbstractWindowedCursorGetIntRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AbstractWindowedCursorGetIntRequest) ProtoMessage() {}
+
+func (x *AbstractWindowedCursorGetIntRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[344]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AbstractWindowedCursorGetIntRequest.ProtoReflect.Descriptor instead.
+func (*AbstractWindowedCursorGetIntRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{344}
+}
+
+func (x *AbstractWindowedCursorGetIntRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AbstractWindowedCursorGetLongRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AbstractWindowedCursorGetLongRequest) Reset() {
+	*x = AbstractWindowedCursorGetLongRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[345]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AbstractWindowedCursorGetLongRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AbstractWindowedCursorGetLongRequest) ProtoMessage() {}
+
+func (x *AbstractWindowedCursorGetLongRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[345]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AbstractWindowedCursorGetLongRequest.ProtoReflect.Descriptor instead.
+func (*AbstractWindowedCursorGetLongRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{345}
+}
+
+func (x *AbstractWindowedCursorGetLongRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AbstractWindowedCursorGetShortRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AbstractWindowedCursorGetShortRequest) Reset() {
+	*x = AbstractWindowedCursorGetShortRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[346]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AbstractWindowedCursorGetShortRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AbstractWindowedCursorGetShortRequest) ProtoMessage() {}
+
+func (x *AbstractWindowedCursorGetShortRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[346]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AbstractWindowedCursorGetShortRequest.ProtoReflect.Descriptor instead.
+func (*AbstractWindowedCursorGetShortRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{346}
+}
+
+func (x *AbstractWindowedCursorGetShortRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AbstractWindowedCursorGetStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AbstractWindowedCursorGetStringRequest) Reset() {
+	*x = AbstractWindowedCursorGetStringRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[347]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AbstractWindowedCursorGetStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AbstractWindowedCursorGetStringRequest) ProtoMessage() {}
+
+func (x *AbstractWindowedCursorGetStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[347]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AbstractWindowedCursorGetStringRequest.ProtoReflect.Descriptor instead.
+func (*AbstractWindowedCursorGetStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{347}
+}
+
+func (x *AbstractWindowedCursorGetStringRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AbstractWindowedCursorGetTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AbstractWindowedCursorGetTypeRequest) Reset() {
+	*x = AbstractWindowedCursorGetTypeRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[348]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AbstractWindowedCursorGetTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AbstractWindowedCursorGetTypeRequest) ProtoMessage() {}
+
+func (x *AbstractWindowedCursorGetTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[348]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AbstractWindowedCursorGetTypeRequest.ProtoReflect.Descriptor instead.
+func (*AbstractWindowedCursorGetTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{348}
+}
+
+func (x *AbstractWindowedCursorGetTypeRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AbstractWindowedCursorGetWindowRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AbstractWindowedCursorGetWindowRequest) Reset() {
+	*x = AbstractWindowedCursorGetWindowRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[349]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AbstractWindowedCursorGetWindowRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AbstractWindowedCursorGetWindowRequest) ProtoMessage() {}
+
+func (x *AbstractWindowedCursorGetWindowRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[349]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AbstractWindowedCursorGetWindowRequest.ProtoReflect.Descriptor instead.
+func (*AbstractWindowedCursorGetWindowRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{349}
+}
+
+type HasWindowRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HasWindowRequest) Reset() {
+	*x = HasWindowRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[350]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HasWindowRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HasWindowRequest) ProtoMessage() {}
+
+func (x *HasWindowRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[350]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HasWindowRequest.ProtoReflect.Descriptor instead.
+func (*HasWindowRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{350}
+}
+
+type HasWindowResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HasWindowResponse) Reset() {
+	*x = HasWindowResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[351]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HasWindowResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HasWindowResponse) ProtoMessage() {}
+
+func (x *HasWindowResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[351]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HasWindowResponse.ProtoReflect.Descriptor instead.
+func (*HasWindowResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{351}
+}
+
+func (x *HasWindowResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type AbstractWindowedCursorIsBlobRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AbstractWindowedCursorIsBlobRequest) Reset() {
+	*x = AbstractWindowedCursorIsBlobRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[352]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AbstractWindowedCursorIsBlobRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AbstractWindowedCursorIsBlobRequest) ProtoMessage() {}
+
+func (x *AbstractWindowedCursorIsBlobRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[352]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AbstractWindowedCursorIsBlobRequest.ProtoReflect.Descriptor instead.
+func (*AbstractWindowedCursorIsBlobRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{352}
+}
+
+func (x *AbstractWindowedCursorIsBlobRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AbstractWindowedCursorIsFloatRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AbstractWindowedCursorIsFloatRequest) Reset() {
+	*x = AbstractWindowedCursorIsFloatRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[353]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AbstractWindowedCursorIsFloatRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AbstractWindowedCursorIsFloatRequest) ProtoMessage() {}
+
+func (x *AbstractWindowedCursorIsFloatRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[353]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AbstractWindowedCursorIsFloatRequest.ProtoReflect.Descriptor instead.
+func (*AbstractWindowedCursorIsFloatRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{353}
+}
+
+func (x *AbstractWindowedCursorIsFloatRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AbstractWindowedCursorIsLongRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AbstractWindowedCursorIsLongRequest) Reset() {
+	*x = AbstractWindowedCursorIsLongRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[354]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AbstractWindowedCursorIsLongRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AbstractWindowedCursorIsLongRequest) ProtoMessage() {}
+
+func (x *AbstractWindowedCursorIsLongRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[354]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AbstractWindowedCursorIsLongRequest.ProtoReflect.Descriptor instead.
+func (*AbstractWindowedCursorIsLongRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{354}
+}
+
+func (x *AbstractWindowedCursorIsLongRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AbstractWindowedCursorIsNullRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AbstractWindowedCursorIsNullRequest) Reset() {
+	*x = AbstractWindowedCursorIsNullRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[355]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AbstractWindowedCursorIsNullRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AbstractWindowedCursorIsNullRequest) ProtoMessage() {}
+
+func (x *AbstractWindowedCursorIsNullRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[355]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AbstractWindowedCursorIsNullRequest.ProtoReflect.Descriptor instead.
+func (*AbstractWindowedCursorIsNullRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{355}
+}
+
+func (x *AbstractWindowedCursorIsNullRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AbstractWindowedCursorIsStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AbstractWindowedCursorIsStringRequest) Reset() {
+	*x = AbstractWindowedCursorIsStringRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[356]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AbstractWindowedCursorIsStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AbstractWindowedCursorIsStringRequest) ProtoMessage() {}
+
+func (x *AbstractWindowedCursorIsStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[356]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AbstractWindowedCursorIsStringRequest.ProtoReflect.Descriptor instead.
+func (*AbstractWindowedCursorIsStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{356}
+}
+
+func (x *AbstractWindowedCursorIsStringRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetWindowRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetWindowRequest) Reset() {
+	*x = SetWindowRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[357]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetWindowRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetWindowRequest) ProtoMessage() {}
+
+func (x *SetWindowRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[357]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetWindowRequest.ProtoReflect.Descriptor instead.
+func (*SetWindowRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{357}
+}
+
+func (x *SetWindowRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetWindowResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetWindowResponse) Reset() {
+	*x = SetWindowResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[358]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetWindowResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetWindowResponse) ProtoMessage() {}
+
+func (x *SetWindowResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[358]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetWindowResponse.ProtoReflect.Descriptor instead.
+func (*SetWindowResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{358}
+}
+
+type ErrorHandlerOnCorruptionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ErrorHandlerOnCorruptionRequest) Reset() {
+	*x = ErrorHandlerOnCorruptionRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[359]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ErrorHandlerOnCorruptionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ErrorHandlerOnCorruptionRequest) ProtoMessage() {}
+
+func (x *ErrorHandlerOnCorruptionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[359]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ErrorHandlerOnCorruptionRequest.ProtoReflect.Descriptor instead.
+func (*ErrorHandlerOnCorruptionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{359}
+}
+
+func (x *ErrorHandlerOnCorruptionRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AbstractCursorCopyStringToBufferRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AbstractCursorCopyStringToBufferRequest) Reset() {
+	*x = AbstractCursorCopyStringToBufferRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[360]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AbstractCursorCopyStringToBufferRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AbstractCursorCopyStringToBufferRequest) ProtoMessage() {}
+
+func (x *AbstractCursorCopyStringToBufferRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[360]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AbstractCursorCopyStringToBufferRequest.ProtoReflect.Descriptor instead.
+func (*AbstractCursorCopyStringToBufferRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{360}
+}
+
+func (x *AbstractCursorCopyStringToBufferRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *AbstractCursorCopyStringToBufferRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type AbstractCursorDeactivateRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AbstractCursorDeactivateRequest) Reset() {
+	*x = AbstractCursorDeactivateRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[361]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AbstractCursorDeactivateRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AbstractCursorDeactivateRequest) ProtoMessage() {}
+
+func (x *AbstractCursorDeactivateRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[361]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AbstractCursorDeactivateRequest.ProtoReflect.Descriptor instead.
+func (*AbstractCursorDeactivateRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{361}
+}
+
+type AbstractCursorFillWindowRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AbstractCursorFillWindowRequest) Reset() {
+	*x = AbstractCursorFillWindowRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[362]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AbstractCursorFillWindowRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AbstractCursorFillWindowRequest) ProtoMessage() {}
+
+func (x *AbstractCursorFillWindowRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[362]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AbstractCursorFillWindowRequest.ProtoReflect.Descriptor instead.
+func (*AbstractCursorFillWindowRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{362}
+}
+
+func (x *AbstractCursorFillWindowRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *AbstractCursorFillWindowRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type AbstractCursorGetBlobRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AbstractCursorGetBlobRequest) Reset() {
+	*x = AbstractCursorGetBlobRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[363]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AbstractCursorGetBlobRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AbstractCursorGetBlobRequest) ProtoMessage() {}
+
+func (x *AbstractCursorGetBlobRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[363]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AbstractCursorGetBlobRequest.ProtoReflect.Descriptor instead.
+func (*AbstractCursorGetBlobRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{363}
+}
+
+func (x *AbstractCursorGetBlobRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AbstractCursorGetColumnCountRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AbstractCursorGetColumnCountRequest) Reset() {
+	*x = AbstractCursorGetColumnCountRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[364]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AbstractCursorGetColumnCountRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AbstractCursorGetColumnCountRequest) ProtoMessage() {}
+
+func (x *AbstractCursorGetColumnCountRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[364]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AbstractCursorGetColumnCountRequest.ProtoReflect.Descriptor instead.
+func (*AbstractCursorGetColumnCountRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{364}
+}
+
+type AbstractCursorGetColumnIndexOrThrowRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AbstractCursorGetColumnIndexOrThrowRequest) Reset() {
+	*x = AbstractCursorGetColumnIndexOrThrowRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[365]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AbstractCursorGetColumnIndexOrThrowRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AbstractCursorGetColumnIndexOrThrowRequest) ProtoMessage() {}
+
+func (x *AbstractCursorGetColumnIndexOrThrowRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[365]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AbstractCursorGetColumnIndexOrThrowRequest.ProtoReflect.Descriptor instead.
+func (*AbstractCursorGetColumnIndexOrThrowRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{365}
+}
+
+func (x *AbstractCursorGetColumnIndexOrThrowRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type AbstractCursorGetColumnNameRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AbstractCursorGetColumnNameRequest) Reset() {
+	*x = AbstractCursorGetColumnNameRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[366]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AbstractCursorGetColumnNameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AbstractCursorGetColumnNameRequest) ProtoMessage() {}
+
+func (x *AbstractCursorGetColumnNameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[366]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AbstractCursorGetColumnNameRequest.ProtoReflect.Descriptor instead.
+func (*AbstractCursorGetColumnNameRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{366}
+}
+
+func (x *AbstractCursorGetColumnNameRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AbstractCursorGetColumnNamesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AbstractCursorGetColumnNamesRequest) Reset() {
+	*x = AbstractCursorGetColumnNamesRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[367]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AbstractCursorGetColumnNamesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AbstractCursorGetColumnNamesRequest) ProtoMessage() {}
+
+func (x *AbstractCursorGetColumnNamesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[367]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AbstractCursorGetColumnNamesRequest.ProtoReflect.Descriptor instead.
+func (*AbstractCursorGetColumnNamesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{367}
+}
+
+type AbstractCursorGetCountRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AbstractCursorGetCountRequest) Reset() {
+	*x = AbstractCursorGetCountRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[368]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AbstractCursorGetCountRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AbstractCursorGetCountRequest) ProtoMessage() {}
+
+func (x *AbstractCursorGetCountRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[368]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AbstractCursorGetCountRequest.ProtoReflect.Descriptor instead.
+func (*AbstractCursorGetCountRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{368}
+}
+
+type AbstractCursorGetDoubleRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AbstractCursorGetDoubleRequest) Reset() {
+	*x = AbstractCursorGetDoubleRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[369]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AbstractCursorGetDoubleRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AbstractCursorGetDoubleRequest) ProtoMessage() {}
+
+func (x *AbstractCursorGetDoubleRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[369]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AbstractCursorGetDoubleRequest.ProtoReflect.Descriptor instead.
+func (*AbstractCursorGetDoubleRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{369}
+}
+
+func (x *AbstractCursorGetDoubleRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AbstractCursorGetExtrasRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AbstractCursorGetExtrasRequest) Reset() {
+	*x = AbstractCursorGetExtrasRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[370]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AbstractCursorGetExtrasRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AbstractCursorGetExtrasRequest) ProtoMessage() {}
+
+func (x *AbstractCursorGetExtrasRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[370]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AbstractCursorGetExtrasRequest.ProtoReflect.Descriptor instead.
+func (*AbstractCursorGetExtrasRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{370}
+}
+
+type AbstractCursorGetFloatRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AbstractCursorGetFloatRequest) Reset() {
+	*x = AbstractCursorGetFloatRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[371]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AbstractCursorGetFloatRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AbstractCursorGetFloatRequest) ProtoMessage() {}
+
+func (x *AbstractCursorGetFloatRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[371]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AbstractCursorGetFloatRequest.ProtoReflect.Descriptor instead.
+func (*AbstractCursorGetFloatRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{371}
+}
+
+func (x *AbstractCursorGetFloatRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AbstractCursorGetIntRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AbstractCursorGetIntRequest) Reset() {
+	*x = AbstractCursorGetIntRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[372]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AbstractCursorGetIntRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AbstractCursorGetIntRequest) ProtoMessage() {}
+
+func (x *AbstractCursorGetIntRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[372]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AbstractCursorGetIntRequest.ProtoReflect.Descriptor instead.
+func (*AbstractCursorGetIntRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{372}
+}
+
+func (x *AbstractCursorGetIntRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AbstractCursorGetLongRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AbstractCursorGetLongRequest) Reset() {
+	*x = AbstractCursorGetLongRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[373]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AbstractCursorGetLongRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AbstractCursorGetLongRequest) ProtoMessage() {}
+
+func (x *AbstractCursorGetLongRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[373]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AbstractCursorGetLongRequest.ProtoReflect.Descriptor instead.
+func (*AbstractCursorGetLongRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{373}
+}
+
+func (x *AbstractCursorGetLongRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AbstractCursorGetNotificationUriRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AbstractCursorGetNotificationUriRequest) Reset() {
+	*x = AbstractCursorGetNotificationUriRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[374]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AbstractCursorGetNotificationUriRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AbstractCursorGetNotificationUriRequest) ProtoMessage() {}
+
+func (x *AbstractCursorGetNotificationUriRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[374]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AbstractCursorGetNotificationUriRequest.ProtoReflect.Descriptor instead.
+func (*AbstractCursorGetNotificationUriRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{374}
+}
+
+type AbstractCursorGetPositionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AbstractCursorGetPositionRequest) Reset() {
+	*x = AbstractCursorGetPositionRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[375]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AbstractCursorGetPositionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AbstractCursorGetPositionRequest) ProtoMessage() {}
+
+func (x *AbstractCursorGetPositionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[375]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AbstractCursorGetPositionRequest.ProtoReflect.Descriptor instead.
+func (*AbstractCursorGetPositionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{375}
+}
+
+type AbstractCursorGetShortRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AbstractCursorGetShortRequest) Reset() {
+	*x = AbstractCursorGetShortRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[376]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AbstractCursorGetShortRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AbstractCursorGetShortRequest) ProtoMessage() {}
+
+func (x *AbstractCursorGetShortRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[376]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AbstractCursorGetShortRequest.ProtoReflect.Descriptor instead.
+func (*AbstractCursorGetShortRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{376}
+}
+
+func (x *AbstractCursorGetShortRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AbstractCursorGetStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AbstractCursorGetStringRequest) Reset() {
+	*x = AbstractCursorGetStringRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[377]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AbstractCursorGetStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AbstractCursorGetStringRequest) ProtoMessage() {}
+
+func (x *AbstractCursorGetStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[377]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AbstractCursorGetStringRequest.ProtoReflect.Descriptor instead.
+func (*AbstractCursorGetStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{377}
+}
+
+func (x *AbstractCursorGetStringRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AbstractCursorGetTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AbstractCursorGetTypeRequest) Reset() {
+	*x = AbstractCursorGetTypeRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[378]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AbstractCursorGetTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AbstractCursorGetTypeRequest) ProtoMessage() {}
+
+func (x *AbstractCursorGetTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[378]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AbstractCursorGetTypeRequest.ProtoReflect.Descriptor instead.
+func (*AbstractCursorGetTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{378}
+}
+
+func (x *AbstractCursorGetTypeRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AbstractCursorGetWantsAllOnMoveCallsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AbstractCursorGetWantsAllOnMoveCallsRequest) Reset() {
+	*x = AbstractCursorGetWantsAllOnMoveCallsRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[379]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AbstractCursorGetWantsAllOnMoveCallsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AbstractCursorGetWantsAllOnMoveCallsRequest) ProtoMessage() {}
+
+func (x *AbstractCursorGetWantsAllOnMoveCallsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[379]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AbstractCursorGetWantsAllOnMoveCallsRequest.ProtoReflect.Descriptor instead.
+func (*AbstractCursorGetWantsAllOnMoveCallsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{379}
+}
+
+type AbstractCursorGetWindowRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AbstractCursorGetWindowRequest) Reset() {
+	*x = AbstractCursorGetWindowRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[380]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AbstractCursorGetWindowRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AbstractCursorGetWindowRequest) ProtoMessage() {}
+
+func (x *AbstractCursorGetWindowRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[380]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AbstractCursorGetWindowRequest.ProtoReflect.Descriptor instead.
+func (*AbstractCursorGetWindowRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{380}
+}
+
+type AbstractCursorIsAfterLastRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AbstractCursorIsAfterLastRequest) Reset() {
+	*x = AbstractCursorIsAfterLastRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[381]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AbstractCursorIsAfterLastRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AbstractCursorIsAfterLastRequest) ProtoMessage() {}
+
+func (x *AbstractCursorIsAfterLastRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[381]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AbstractCursorIsAfterLastRequest.ProtoReflect.Descriptor instead.
+func (*AbstractCursorIsAfterLastRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{381}
+}
+
+type AbstractCursorIsBeforeFirstRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AbstractCursorIsBeforeFirstRequest) Reset() {
+	*x = AbstractCursorIsBeforeFirstRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[382]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AbstractCursorIsBeforeFirstRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AbstractCursorIsBeforeFirstRequest) ProtoMessage() {}
+
+func (x *AbstractCursorIsBeforeFirstRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[382]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AbstractCursorIsBeforeFirstRequest.ProtoReflect.Descriptor instead.
+func (*AbstractCursorIsBeforeFirstRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{382}
+}
+
+type AbstractCursorIsClosedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AbstractCursorIsClosedRequest) Reset() {
+	*x = AbstractCursorIsClosedRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[383]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AbstractCursorIsClosedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AbstractCursorIsClosedRequest) ProtoMessage() {}
+
+func (x *AbstractCursorIsClosedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[383]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AbstractCursorIsClosedRequest.ProtoReflect.Descriptor instead.
+func (*AbstractCursorIsClosedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{383}
+}
+
+type AbstractCursorIsFirstRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AbstractCursorIsFirstRequest) Reset() {
+	*x = AbstractCursorIsFirstRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[384]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AbstractCursorIsFirstRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AbstractCursorIsFirstRequest) ProtoMessage() {}
+
+func (x *AbstractCursorIsFirstRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[384]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AbstractCursorIsFirstRequest.ProtoReflect.Descriptor instead.
+func (*AbstractCursorIsFirstRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{384}
+}
+
+type AbstractCursorIsLastRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AbstractCursorIsLastRequest) Reset() {
+	*x = AbstractCursorIsLastRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[385]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AbstractCursorIsLastRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AbstractCursorIsLastRequest) ProtoMessage() {}
+
+func (x *AbstractCursorIsLastRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[385]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AbstractCursorIsLastRequest.ProtoReflect.Descriptor instead.
+func (*AbstractCursorIsLastRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{385}
+}
+
+type AbstractCursorIsNullRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AbstractCursorIsNullRequest) Reset() {
+	*x = AbstractCursorIsNullRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[386]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AbstractCursorIsNullRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AbstractCursorIsNullRequest) ProtoMessage() {}
+
+func (x *AbstractCursorIsNullRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[386]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AbstractCursorIsNullRequest.ProtoReflect.Descriptor instead.
+func (*AbstractCursorIsNullRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{386}
+}
+
+func (x *AbstractCursorIsNullRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AbstractCursorMoveRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AbstractCursorMoveRequest) Reset() {
+	*x = AbstractCursorMoveRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[387]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AbstractCursorMoveRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AbstractCursorMoveRequest) ProtoMessage() {}
+
+func (x *AbstractCursorMoveRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[387]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AbstractCursorMoveRequest.ProtoReflect.Descriptor instead.
+func (*AbstractCursorMoveRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{387}
+}
+
+func (x *AbstractCursorMoveRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AbstractCursorMoveToFirstRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AbstractCursorMoveToFirstRequest) Reset() {
+	*x = AbstractCursorMoveToFirstRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[388]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AbstractCursorMoveToFirstRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AbstractCursorMoveToFirstRequest) ProtoMessage() {}
+
+func (x *AbstractCursorMoveToFirstRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[388]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AbstractCursorMoveToFirstRequest.ProtoReflect.Descriptor instead.
+func (*AbstractCursorMoveToFirstRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{388}
+}
+
+type AbstractCursorMoveToLastRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AbstractCursorMoveToLastRequest) Reset() {
+	*x = AbstractCursorMoveToLastRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[389]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AbstractCursorMoveToLastRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AbstractCursorMoveToLastRequest) ProtoMessage() {}
+
+func (x *AbstractCursorMoveToLastRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[389]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AbstractCursorMoveToLastRequest.ProtoReflect.Descriptor instead.
+func (*AbstractCursorMoveToLastRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{389}
+}
+
+type AbstractCursorMoveToNextRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AbstractCursorMoveToNextRequest) Reset() {
+	*x = AbstractCursorMoveToNextRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[390]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AbstractCursorMoveToNextRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AbstractCursorMoveToNextRequest) ProtoMessage() {}
+
+func (x *AbstractCursorMoveToNextRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[390]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AbstractCursorMoveToNextRequest.ProtoReflect.Descriptor instead.
+func (*AbstractCursorMoveToNextRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{390}
+}
+
+type AbstractCursorMoveToPositionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AbstractCursorMoveToPositionRequest) Reset() {
+	*x = AbstractCursorMoveToPositionRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[391]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AbstractCursorMoveToPositionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AbstractCursorMoveToPositionRequest) ProtoMessage() {}
+
+func (x *AbstractCursorMoveToPositionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[391]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AbstractCursorMoveToPositionRequest.ProtoReflect.Descriptor instead.
+func (*AbstractCursorMoveToPositionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{391}
+}
+
+func (x *AbstractCursorMoveToPositionRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AbstractCursorMoveToPreviousRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AbstractCursorMoveToPreviousRequest) Reset() {
+	*x = AbstractCursorMoveToPreviousRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[392]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AbstractCursorMoveToPreviousRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AbstractCursorMoveToPreviousRequest) ProtoMessage() {}
+
+func (x *AbstractCursorMoveToPreviousRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[392]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AbstractCursorMoveToPreviousRequest.ProtoReflect.Descriptor instead.
+func (*AbstractCursorMoveToPreviousRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{392}
+}
+
+type AbstractCursorOnMoveRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AbstractCursorOnMoveRequest) Reset() {
+	*x = AbstractCursorOnMoveRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[393]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AbstractCursorOnMoveRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AbstractCursorOnMoveRequest) ProtoMessage() {}
+
+func (x *AbstractCursorOnMoveRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[393]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AbstractCursorOnMoveRequest.ProtoReflect.Descriptor instead.
+func (*AbstractCursorOnMoveRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{393}
+}
+
+func (x *AbstractCursorOnMoveRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *AbstractCursorOnMoveRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type AbstractCursorRegisterContentObserverRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AbstractCursorRegisterContentObserverRequest) Reset() {
+	*x = AbstractCursorRegisterContentObserverRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[394]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AbstractCursorRegisterContentObserverRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AbstractCursorRegisterContentObserverRequest) ProtoMessage() {}
+
+func (x *AbstractCursorRegisterContentObserverRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[394]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AbstractCursorRegisterContentObserverRequest.ProtoReflect.Descriptor instead.
+func (*AbstractCursorRegisterContentObserverRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{394}
+}
+
+func (x *AbstractCursorRegisterContentObserverRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AbstractCursorRegisterDataSetObserverRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AbstractCursorRegisterDataSetObserverRequest) Reset() {
+	*x = AbstractCursorRegisterDataSetObserverRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[395]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AbstractCursorRegisterDataSetObserverRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AbstractCursorRegisterDataSetObserverRequest) ProtoMessage() {}
+
+func (x *AbstractCursorRegisterDataSetObserverRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[395]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AbstractCursorRegisterDataSetObserverRequest.ProtoReflect.Descriptor instead.
+func (*AbstractCursorRegisterDataSetObserverRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{395}
+}
+
+func (x *AbstractCursorRegisterDataSetObserverRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AbstractCursorRequeryRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AbstractCursorRequeryRequest) Reset() {
+	*x = AbstractCursorRequeryRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[396]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AbstractCursorRequeryRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AbstractCursorRequeryRequest) ProtoMessage() {}
+
+func (x *AbstractCursorRequeryRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[396]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AbstractCursorRequeryRequest.ProtoReflect.Descriptor instead.
+func (*AbstractCursorRequeryRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{396}
+}
+
+type AbstractCursorRespondRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AbstractCursorRespondRequest) Reset() {
+	*x = AbstractCursorRespondRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[397]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AbstractCursorRespondRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AbstractCursorRespondRequest) ProtoMessage() {}
+
+func (x *AbstractCursorRespondRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[397]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AbstractCursorRespondRequest.ProtoReflect.Descriptor instead.
+func (*AbstractCursorRespondRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{397}
+}
+
+func (x *AbstractCursorRespondRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AbstractCursorSetExtrasRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AbstractCursorSetExtrasRequest) Reset() {
+	*x = AbstractCursorSetExtrasRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[398]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AbstractCursorSetExtrasRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AbstractCursorSetExtrasRequest) ProtoMessage() {}
+
+func (x *AbstractCursorSetExtrasRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[398]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AbstractCursorSetExtrasRequest.ProtoReflect.Descriptor instead.
+func (*AbstractCursorSetExtrasRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{398}
+}
+
+func (x *AbstractCursorSetExtrasRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AbstractCursorSetNotificationUriRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AbstractCursorSetNotificationUriRequest) Reset() {
+	*x = AbstractCursorSetNotificationUriRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[399]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AbstractCursorSetNotificationUriRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AbstractCursorSetNotificationUriRequest) ProtoMessage() {}
+
+func (x *AbstractCursorSetNotificationUriRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[399]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AbstractCursorSetNotificationUriRequest.ProtoReflect.Descriptor instead.
+func (*AbstractCursorSetNotificationUriRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{399}
+}
+
+func (x *AbstractCursorSetNotificationUriRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *AbstractCursorSetNotificationUriRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type AbstractCursorUnregisterContentObserverRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AbstractCursorUnregisterContentObserverRequest) Reset() {
+	*x = AbstractCursorUnregisterContentObserverRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[400]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AbstractCursorUnregisterContentObserverRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AbstractCursorUnregisterContentObserverRequest) ProtoMessage() {}
+
+func (x *AbstractCursorUnregisterContentObserverRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[400]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AbstractCursorUnregisterContentObserverRequest.ProtoReflect.Descriptor instead.
+func (*AbstractCursorUnregisterContentObserverRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{400}
+}
+
+func (x *AbstractCursorUnregisterContentObserverRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AbstractCursorUnregisterDataSetObserverRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AbstractCursorUnregisterDataSetObserverRequest) Reset() {
+	*x = AbstractCursorUnregisterDataSetObserverRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[401]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AbstractCursorUnregisterDataSetObserverRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AbstractCursorUnregisterDataSetObserverRequest) ProtoMessage() {}
+
+func (x *AbstractCursorUnregisterDataSetObserverRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[401]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AbstractCursorUnregisterDataSetObserverRequest.ProtoReflect.Descriptor instead.
+func (*AbstractCursorUnregisterDataSetObserverRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{401}
+}
+
+func (x *AbstractCursorUnregisterDataSetObserverRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnChangeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnChangeRequest) Reset() {
+	*x = OnChangeRequest{}
+	mi := &file_proto_database_database_proto_msgTypes[402]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnChangeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnChangeRequest) ProtoMessage() {}
+
+func (x *OnChangeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[402]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnChangeRequest.ProtoReflect.Descriptor instead.
+func (*OnChangeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{402}
+}
+
+func (x *OnChangeRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type OnChangeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnChangeResponse) Reset() {
+	*x = OnChangeResponse{}
+	mi := &file_proto_database_database_proto_msgTypes[403]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnChangeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnChangeResponse) ProtoMessage() {}
+
+func (x *OnChangeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_database_database_proto_msgTypes[403]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnChangeResponse.ProtoReflect.Descriptor instead.
+func (*OnChangeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_database_database_proto_rawDescGZIP(), []int{403}
+}
+
 var File_proto_database_database_proto protoreflect.FileDescriptor
 
 const file_proto_database_database_proto_rawDesc = "" +
 	"\n" +
-	"\x1dproto/database/database.proto\x12\bdatabaseB2Z0github.com/AndroidGoLab/jni-proxy/proto/databaseb\x06proto3"
+	"\x1dproto/database/database.proto\x12\bdatabase\"\x1d\n" +
+	"\x1bNewDataSetObservableRequest\"6\n" +
+	"\x1cNewDataSetObservableResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\".\n" +
+	"\x14NotifyChangedRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x17\n" +
+	"\x15NotifyChangedResponse\"2\n" +
+	"\x18NotifyInvalidatedRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x1b\n" +
+	"\x19NotifyInvalidatedResponse\"\x11\n" +
+	"\x0fNewUtilsRequest\"*\n" +
+	"\x10NewUtilsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"_\n" +
+	"\x1dAppendEscapedSQLStringRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\tR\x04arg1\" \n" +
+	"\x1eAppendEscapedSQLStringResponse\"\\\n" +
+	"\x1aAppendSelectionArgsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"5\n" +
+	"\x1bAppendSelectionArgsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"Y\n" +
+	"\x17AppendValueToSqlRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"\x1a\n" +
+	"\x18AppendValueToSqlResponse\"p\n" +
+	"\x1aBindObjectToProgramRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x03R\x04arg2\"\x1d\n" +
+	"\x1bBindObjectToProgramResponse\"x\n" +
+	"\"BlobFileDescriptorForQuery3Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x03R\x04arg2\"=\n" +
+	"#BlobFileDescriptorForQuery3Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"f\n" +
+	"$BlobFileDescriptorForQuery2_1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"?\n" +
+	"%BlobFileDescriptorForQuery2_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"Y\n" +
+	"\x17ConcatenateWhereRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\tR\x04arg1\"2\n" +
+	"\x18ConcatenateWhereResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x8a\x01\n" +
+	" CreateDbFromSqlStatementsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x05R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x05 \x01(\tR\x04arg3\"#\n" +
+	"!CreateDbFromSqlStatementsResponse\"\x8c\x01\n" +
+	"\"CursorDoubleToContentValuesRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x03R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x05 \x01(\tR\x04arg3\"%\n" +
+	"#CursorDoubleToContentValuesResponse\"\x81\x01\n" +
+	"+CursorDoubleToContentValuesIfPresentRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\tR\x04arg2\".\n" +
+	",CursorDoubleToContentValuesIfPresentResponse\"w\n" +
+	"!CursorDoubleToCursorValuesRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x03R\x04arg2\"$\n" +
+	"\"CursorDoubleToCursorValuesResponse\"\x80\x01\n" +
+	"*CursorFloatToContentValuesIfPresentRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\tR\x04arg2\"-\n" +
+	"+CursorFloatToContentValuesIfPresentResponse\"v\n" +
+	" CursorIntToContentValues3Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x03R\x04arg2\"#\n" +
+	"!CursorIntToContentValues3Response\"\x8c\x01\n" +
+	"\"CursorIntToContentValues4_1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x03R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x05 \x01(\tR\x04arg3\"%\n" +
+	"#CursorIntToContentValues4_1Response\"~\n" +
+	"(CursorIntToContentValuesIfPresentRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\tR\x04arg2\"+\n" +
+	")CursorIntToContentValuesIfPresentResponse\"w\n" +
+	"!CursorLongToContentValues3Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x03R\x04arg2\"$\n" +
+	"\"CursorLongToContentValues3Response\"\x8d\x01\n" +
+	"#CursorLongToContentValues4_1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x03R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x05 \x01(\tR\x04arg3\"&\n" +
+	"$CursorLongToContentValues4_1Response\"\x7f\n" +
+	")CursorLongToContentValuesIfPresentRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\tR\x04arg2\",\n" +
+	"*CursorLongToContentValuesIfPresentResponse\"a\n" +
+	"\x1fCursorRowToContentValuesRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"\"\n" +
+	" CursorRowToContentValuesResponse\"\x80\x01\n" +
+	"*CursorShortToContentValuesIfPresentRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\tR\x04arg2\"-\n" +
+	"+CursorShortToContentValuesIfPresentResponse\"y\n" +
+	"#CursorStringToContentValues3Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x03R\x04arg2\"&\n" +
+	"$CursorStringToContentValues3Response\"\x8f\x01\n" +
+	"%CursorStringToContentValues4_1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x03R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x05 \x01(\tR\x04arg3\"(\n" +
+	"&CursorStringToContentValues4_1Response\"\x81\x01\n" +
+	"+CursorStringToContentValuesIfPresentRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\tR\x04arg2\".\n" +
+	",CursorStringToContentValuesIfPresentResponse\"\x8b\x01\n" +
+	"!CursorStringToInsertHelperRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x03R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x05 \x01(\x05R\x04arg3\"$\n" +
+	"\"CursorStringToInsertHelperResponse\"D\n" +
+	"\x16DumpCurrentRow1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x19\n" +
+	"\x17DumpCurrentRow1Response\"Z\n" +
+	"\x18DumpCurrentRow2_1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"\x1b\n" +
+	"\x19DumpCurrentRow2_1Response\"Z\n" +
+	"\x18DumpCurrentRow2_2Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"\x1b\n" +
+	"\x19DumpCurrentRow2_2Response\"K\n" +
+	"\x1dDumpCurrentRowToStringRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"8\n" +
+	"\x1eDumpCurrentRowToStringResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"@\n" +
+	"\x12DumpCursor1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x15\n" +
+	"\x13DumpCursor1Response\"V\n" +
+	"\x14DumpCursor2_1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"\x17\n" +
+	"\x15DumpCursor2_1Response\"V\n" +
+	"\x14DumpCursor2_2Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"\x17\n" +
+	"\x15DumpCursor2_2Response\"G\n" +
+	"\x19DumpCursorToStringRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"4\n" +
+	"\x1aDumpCursorToStringResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"D\n" +
+	"\x16GetCollationKeyRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\tR\x04arg0\"1\n" +
+	"\x17GetCollationKeyResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"G\n" +
+	"\x19GetHexCollationKeyRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\tR\x04arg0\"4\n" +
+	"\x1aGetHexCollationKeyResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"H\n" +
+	"\x1aGetSqlStatementTypeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\tR\x04arg0\"5\n" +
+	"\x1bGetSqlStatementTypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"j\n" +
+	"\x14LongForQuery3Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x03R\x04arg2\"/\n" +
+	"\x15LongForQuery3Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"X\n" +
+	"\x16LongForQuery2_1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"1\n" +
+	"\x17LongForQuery2_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"Y\n" +
+	"\x17QueryNumEntries2Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\tR\x04arg1\"2\n" +
+	"\x18QueryNumEntries2Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"o\n" +
+	"\x19QueryNumEntries3_1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\tR\x04arg2\"4\n" +
+	"\x1aQueryNumEntries3_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x83\x01\n" +
+	"\x19QueryNumEntries4_2Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\tR\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x05 \x01(\x03R\x04arg3\"4\n" +
+	"\x1aQueryNumEntries4_2Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"L\n" +
+	"\x1eReadExceptionFromParcelRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"!\n" +
+	"\x1fReadExceptionFromParcelResponse\"e\n" +
+	"7ReadExceptionWithFileNotFoundExceptionFromParcelRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\":\n" +
+	"8ReadExceptionWithFileNotFoundExceptionFromParcelResponse\"m\n" +
+	"?ReadExceptionWithOperationApplicationExceptionFromParcelRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"B\n" +
+	"@ReadExceptionWithOperationApplicationExceptionFromParcelResponse\"D\n" +
+	"\x16SqlEscapeStringRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\tR\x04arg0\"1\n" +
+	"\x17SqlEscapeStringResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"l\n" +
+	"\x16StringForQuery3Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x03R\x04arg2\"1\n" +
+	"\x17StringForQuery3Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"Z\n" +
+	"\x18StringForQuery2_1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"3\n" +
+	"\x19StringForQuery2_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"_\n" +
+	"\x1dWriteExceptionToParcelRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\" \n" +
+	"\x1eWriteExceptionToParcelResponse\"6\n" +
+	"\fBind2Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\bR\x04arg1\"\x0f\n" +
+	"\rBind2Response\"8\n" +
+	"\x0eBind2_1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x11\n" +
+	"\x0fBind2_1Response\"8\n" +
+	"\x0eBind2_2Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x01R\x04arg1\"\x11\n" +
+	"\x0fBind2_2Response\"8\n" +
+	"\x0eBind2_3Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x02R\x04arg1\"\x11\n" +
+	"\x0fBind2_3Response\"8\n" +
+	"\x0eBind2_4Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x11\n" +
+	"\x0fBind2_4Response\"8\n" +
+	"\x0eBind2_5Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\"\x11\n" +
+	"\x0fBind2_5Response\"8\n" +
+	"\x0eBind2_6Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x11\n" +
+	"\x0fBind2_6Response\"%\n" +
+	"\x0fBindNullRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"\x12\n" +
+	"\x10BindNullResponse\"\x0e\n" +
+	"\fCloseRequest\"\x0f\n" +
+	"\rCloseResponse\"\x10\n" +
+	"\x0eExecuteRequest\")\n" +
+	"\x0fExecuteResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"+\n" +
+	"\x15GetColumnIndexRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"0\n" +
+	"\x16GetColumnIndexResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"#\n" +
+	"\rInsertRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"(\n" +
+	"\x0eInsertResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x19\n" +
+	"\x17PrepareForInsertRequest\"\x1a\n" +
+	"\x18PrepareForInsertResponse\"\x1a\n" +
+	"\x18PrepareForReplaceRequest\"\x1b\n" +
+	"\x19PrepareForReplaceResponse\"$\n" +
+	"\x0eReplaceRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\")\n" +
+	"\x0fReplaceResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\",\n" +
+	"\x16NewMatrixCursorRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"1\n" +
+	"\x17NewMatrixCursorResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\";\n" +
+	"\rAddRowRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x10\n" +
+	"\x0eAddRowResponse\"<\n" +
+	"\x0eGetBlobRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\")\n" +
+	"\x0fGetBlobResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"/\n" +
+	"\x15GetColumnNamesRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"0\n" +
+	"\x16GetColumnNamesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\")\n" +
+	"\x0fGetCountRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
+	"\x10GetCountResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\">\n" +
+	"\x10GetDoubleRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"+\n" +
+	"\x11GetDoubleResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x01R\x06result\"=\n" +
+	"\x0fGetFloatRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"*\n" +
+	"\x10GetFloatResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x02R\x06result\";\n" +
+	"\rGetIntRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"(\n" +
+	"\x0eGetIntResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"<\n" +
+	"\x0eGetLongRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\")\n" +
+	"\x0fGetLongResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"=\n" +
+	"\x0fGetShortRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"*\n" +
+	"\x10GetShortResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\">\n" +
+	"\x10GetStringRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"+\n" +
+	"\x11GetStringResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"<\n" +
+	"\x0eGetTypeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\")\n" +
+	"\x0fGetTypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\";\n" +
+	"\rIsNullRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"(\n" +
+	"\x0eIsNullResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"'\n" +
+	"\rNewRowRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"(\n" +
+	"\x0eNewRowResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"!\n" +
+	"\vAdd1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"&\n" +
+	"\fAdd1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"7\n" +
+	"\rAdd2_1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"(\n" +
+	"\x0eAdd2_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"!\n" +
+	"\x1fDeliverSelfNotificationsRequest\":\n" +
+	" DeliverSelfNotificationsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\",\n" +
+	"\x16DispatchChange1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"\x19\n" +
+	"\x17DispatchChange1Response\"B\n" +
+	"\x18DispatchChange2_1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x1b\n" +
+	"\x19DispatchChange2_1Response\"V\n" +
+	"\x18DispatchChange3_2Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\"\x1b\n" +
+	"\x19DispatchChange3_2Response\"&\n" +
+	"\x10OnChange1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"\x13\n" +
+	"\x11OnChange1Response\"<\n" +
+	"\x12OnChange2_1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x15\n" +
+	"\x13OnChange2_1Response\"P\n" +
+	"\x12OnChange3_2Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\"\x15\n" +
+	"\x13OnChange3_2Response\"'\n" +
+	"%NewDefaultDatabaseErrorHandlerRequest\"@\n" +
+	"&NewDefaultDatabaseErrorHandlerResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"A\n" +
+	"\x13OnCorruptionRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x16\n" +
+	"\x14OnCorruptionResponse\"-\n" +
+	"\x17NewCursorWrapperRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"2\n" +
+	"\x18NewCursorWrapperResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"3\n" +
+	"\x19CursorWrapperCloseRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"[\n" +
+	"\x19CopyStringToBufferRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"\x1c\n" +
+	"\x1aCopyStringToBufferResponse\"+\n" +
+	"\x11DeactivateRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x14\n" +
+	"\x12DeactivateResponse\"/\n" +
+	"\x15GetColumnCountRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"0\n" +
+	"\x16GetColumnCountResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"P\n" +
+	"\"CursorWrapperGetColumnIndexRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\tR\x04arg0\"J\n" +
+	"\x1cGetColumnIndexOrThrowRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\tR\x04arg0\"7\n" +
+	"\x1dGetColumnIndexOrThrowResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"B\n" +
+	"\x14GetColumnNameRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"/\n" +
+	"\x15GetColumnNameResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"*\n" +
+	"\x10GetExtrasRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"+\n" +
+	"\x11GetExtrasResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"3\n" +
+	"\x19GetNotificationUriRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"4\n" +
+	"\x1aGetNotificationUriResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\",\n" +
+	"\x12GetPositionRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"-\n" +
+	"\x13GetPositionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"7\n" +
+	"\x1dGetWantsAllOnMoveCallsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"8\n" +
+	"\x1eGetWantsAllOnMoveCallsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"1\n" +
+	"\x17GetWrappedCursorRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"2\n" +
+	"\x18GetWrappedCursorResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\",\n" +
+	"\x12IsAfterLastRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"-\n" +
+	"\x13IsAfterLastResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\".\n" +
+	"\x14IsBeforeFirstRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"/\n" +
+	"\x15IsBeforeFirstResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\")\n" +
+	"\x0fIsClosedRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
+	"\x10IsClosedResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"(\n" +
+	"\x0eIsFirstRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\")\n" +
+	"\x0fIsFirstResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"'\n" +
+	"\rIsLastRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"(\n" +
+	"\x0eIsLastResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"9\n" +
+	"\vMoveRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"&\n" +
+	"\fMoveResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\",\n" +
+	"\x12MoveToFirstRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"-\n" +
+	"\x13MoveToFirstResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"+\n" +
+	"\x11MoveToLastRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\",\n" +
+	"\x12MoveToLastResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"+\n" +
+	"\x11MoveToNextRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\",\n" +
+	"\x12MoveToNextResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"C\n" +
+	"\x15MoveToPositionRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"0\n" +
+	"\x16MoveToPositionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"/\n" +
+	"\x15MoveToPreviousRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"0\n" +
+	"\x16MoveToPreviousResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"L\n" +
+	"\x1eRegisterContentObserverRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"!\n" +
+	"\x1fRegisterContentObserverResponse\"L\n" +
+	"\x1eRegisterDataSetObserverRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"!\n" +
+	"\x1fRegisterDataSetObserverResponse\"(\n" +
+	"\x0eRequeryRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\")\n" +
+	"\x0fRequeryResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"<\n" +
+	"\x0eRespondRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\")\n" +
+	"\x0fRespondResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\">\n" +
+	"\x10SetExtrasRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x13\n" +
+	"\x11SetExtrasResponse\"[\n" +
+	"\x19SetNotificationUriRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"\x1c\n" +
+	"\x1aSetNotificationUriResponse\"N\n" +
+	" UnregisterContentObserverRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"#\n" +
+	"!UnregisterContentObserverResponse\"N\n" +
+	" UnregisterDataSetObserverRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"#\n" +
+	"!UnregisterDataSetObserverResponse\"\x16\n" +
+	"\x14UnregisterAllRequest\"\x17\n" +
+	"\x15UnregisterAllResponse\"9\n" +
+	"#NewCrossProcessCursorWrapperRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\">\n" +
+	"$NewCrossProcessCursorWrapperResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"S\n" +
+	"\x11FillWindowRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"\x14\n" +
+	"\x12FillWindowResponse\"*\n" +
+	"\x10GetWindowRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"+\n" +
+	"\x11GetWindowResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"O\n" +
+	"\rOnMoveRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"(\n" +
+	"\x0eOnMoveResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x12\n" +
+	"\x10OnChangedRequest\"\x13\n" +
+	"\x11OnChangedResponse\"\x16\n" +
+	"\x14OnInvalidatedRequest\"\x17\n" +
+	"\x15OnInvalidatedResponse\"h\n" +
+	"\x16NewCursorJoinerRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\"1\n" +
+	"\x17NewCursorJoinerResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"(\n" +
+	"\x0eHasNextRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\")\n" +
+	"\x0fHasNextResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"&\n" +
+	"\fNext0Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"'\n" +
+	"\rNext0Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"'\n" +
+	"\rRemoveRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x10\n" +
+	"\x0eRemoveResponse\"(\n" +
+	"\x0eNext0_1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\")\n" +
+	"\x0fNext0_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x0f\n" +
+	"\rValuesRequest\"(\n" +
+	"\x0eValuesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"$\n" +
+	"\x0eValueOfRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\")\n" +
+	"\x0fValueOfResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"M\n" +
+	"#CrossProcessCursorFillWindowRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"$\n" +
+	"\"CrossProcessCursorGetWindowRequest\"I\n" +
+	"\x1fCrossProcessCursorOnMoveRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\",\n" +
+	"\x16NewCursorWindowRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"1\n" +
+	"\x17NewCursorWindowResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\")\n" +
+	"\x0fAllocRowRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
+	"\x10AllocRowResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"&\n" +
+	"\fClearRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x0f\n" +
+	"\rClearResponse\"{\n" +
+	"%CursorWindowCopyStringToBufferRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x03R\x04arg2\"1\n" +
+	"\x17DescribeContentsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"2\n" +
+	"\x18DescribeContentsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\",\n" +
+	"\x12FreeLastRowRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x15\n" +
+	"\x13FreeLastRowResponse\"\\\n" +
+	"\x1aCursorWindowGetBlobRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"^\n" +
+	"\x1cCursorWindowGetDoubleRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"]\n" +
+	"\x1bCursorWindowGetFloatRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"[\n" +
+	"\x19CursorWindowGetIntRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"\\\n" +
+	"\x1aCursorWindowGetLongRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"+\n" +
+	"\x11GetNumRowsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\",\n" +
+	"\x12GetNumRowsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"]\n" +
+	"\x1bCursorWindowGetShortRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"1\n" +
+	"\x17GetStartPositionRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"2\n" +
+	"\x18GetStartPositionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"^\n" +
+	"\x1cCursorWindowGetStringRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"\\\n" +
+	"\x1aCursorWindowGetTypeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"O\n" +
+	"\rIsBlobRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"(\n" +
+	"\x0eIsBlobResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"P\n" +
+	"\x0eIsFloatRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\")\n" +
+	"\x0fIsFloatResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"O\n" +
+	"\rIsLongRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"(\n" +
+	"\x0eIsLongResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"[\n" +
+	"\x19CursorWindowIsNullRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"Q\n" +
+	"\x0fIsStringRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"*\n" +
+	"\x10IsStringResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"d\n" +
+	"\x0ePutBlobRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x05R\x04arg2\")\n" +
+	"\x0fPutBlobResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"f\n" +
+	"\x10PutDoubleRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x01R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x05R\x04arg2\"+\n" +
+	"\x11PutDoubleResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"d\n" +
+	"\x0ePutLongRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x05R\x04arg2\")\n" +
+	"\x0fPutLongResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"P\n" +
+	"\x0ePutNullRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\")\n" +
+	"\x0fPutNullResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"f\n" +
+	"\x10PutStringRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x05R\x04arg2\"+\n" +
+	"\x11PutStringResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"B\n" +
+	"\x14SetNumColumnsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"/\n" +
+	"\x15SetNumColumnsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"E\n" +
+	"\x17SetStartPositionRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"\x1a\n" +
+	"\x18SetStartPositionResponse\")\n" +
+	"\x0fToStringRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
+	"\x10ToStringResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"V\n" +
+	"\x14WriteToParcelRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"\x17\n" +
+	"\x15WriteToParcelResponse\"B\n" +
+	"\x14NewFromParcelRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"/\n" +
+	"\x15NewFromParcelResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1d\n" +
+	"\x1bNewContentObservableRequest\"6\n" +
+	"\x1cNewContentObservableResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"U\n" +
+	"'ContentObservableDispatchChange1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\bR\x04arg0\"k\n" +
+	")ContentObservableDispatchChange2_1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\bR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"A\n" +
+	"\x13NotifyChangeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\bR\x04arg0\"\x16\n" +
+	"\x14NotifyChangeResponse\"F\n" +
+	"\x18RegisterObserver1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x1b\n" +
+	"\x19RegisterObserver1Response\"H\n" +
+	"\x1aRegisterObserver1_1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x1d\n" +
+	"\x1bRegisterObserver1_1Response\"+\n" +
+	"\x15NewMergeCursorRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"0\n" +
+	"\x16NewMergeCursorResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"1\n" +
+	"\x17MergeCursorCloseRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"Y\n" +
+	"/AbstractWindowedCursorCopyStringToBufferRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\":\n" +
+	"$AbstractWindowedCursorGetBlobRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"<\n" +
+	"&AbstractWindowedCursorGetDoubleRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\";\n" +
+	"%AbstractWindowedCursorGetFloatRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"9\n" +
+	"#AbstractWindowedCursorGetIntRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\":\n" +
+	"$AbstractWindowedCursorGetLongRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\";\n" +
+	"%AbstractWindowedCursorGetShortRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"<\n" +
+	"&AbstractWindowedCursorGetStringRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\":\n" +
+	"$AbstractWindowedCursorGetTypeRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"(\n" +
+	"&AbstractWindowedCursorGetWindowRequest\"\x12\n" +
+	"\x10HasWindowRequest\"+\n" +
+	"\x11HasWindowResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"9\n" +
+	"#AbstractWindowedCursorIsBlobRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\":\n" +
+	"$AbstractWindowedCursorIsFloatRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"9\n" +
+	"#AbstractWindowedCursorIsLongRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"9\n" +
+	"#AbstractWindowedCursorIsNullRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\";\n" +
+	"%AbstractWindowedCursorIsStringRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"&\n" +
+	"\x10SetWindowRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x13\n" +
+	"\x11SetWindowResponse\"5\n" +
+	"\x1fErrorHandlerOnCorruptionRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"Q\n" +
+	"'AbstractCursorCopyStringToBufferRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"!\n" +
+	"\x1fAbstractCursorDeactivateRequest\"I\n" +
+	"\x1fAbstractCursorFillWindowRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"2\n" +
+	"\x1cAbstractCursorGetBlobRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"%\n" +
+	"#AbstractCursorGetColumnCountRequest\"@\n" +
+	"*AbstractCursorGetColumnIndexOrThrowRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"8\n" +
+	"\"AbstractCursorGetColumnNameRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"%\n" +
+	"#AbstractCursorGetColumnNamesRequest\"\x1f\n" +
+	"\x1dAbstractCursorGetCountRequest\"4\n" +
+	"\x1eAbstractCursorGetDoubleRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\" \n" +
+	"\x1eAbstractCursorGetExtrasRequest\"3\n" +
+	"\x1dAbstractCursorGetFloatRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"1\n" +
+	"\x1bAbstractCursorGetIntRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"2\n" +
+	"\x1cAbstractCursorGetLongRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\")\n" +
+	"'AbstractCursorGetNotificationUriRequest\"\"\n" +
+	" AbstractCursorGetPositionRequest\"3\n" +
+	"\x1dAbstractCursorGetShortRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"4\n" +
+	"\x1eAbstractCursorGetStringRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"2\n" +
+	"\x1cAbstractCursorGetTypeRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"-\n" +
+	"+AbstractCursorGetWantsAllOnMoveCallsRequest\" \n" +
+	"\x1eAbstractCursorGetWindowRequest\"\"\n" +
+	" AbstractCursorIsAfterLastRequest\"$\n" +
+	"\"AbstractCursorIsBeforeFirstRequest\"\x1f\n" +
+	"\x1dAbstractCursorIsClosedRequest\"\x1e\n" +
+	"\x1cAbstractCursorIsFirstRequest\"\x1d\n" +
+	"\x1bAbstractCursorIsLastRequest\"1\n" +
+	"\x1bAbstractCursorIsNullRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"/\n" +
+	"\x19AbstractCursorMoveRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"\"\n" +
+	" AbstractCursorMoveToFirstRequest\"!\n" +
+	"\x1fAbstractCursorMoveToLastRequest\"!\n" +
+	"\x1fAbstractCursorMoveToNextRequest\"9\n" +
+	"#AbstractCursorMoveToPositionRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"%\n" +
+	"#AbstractCursorMoveToPreviousRequest\"E\n" +
+	"\x1bAbstractCursorOnMoveRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"B\n" +
+	",AbstractCursorRegisterContentObserverRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"B\n" +
+	",AbstractCursorRegisterDataSetObserverRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x1e\n" +
+	"\x1cAbstractCursorRequeryRequest\"2\n" +
+	"\x1cAbstractCursorRespondRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"4\n" +
+	"\x1eAbstractCursorSetExtrasRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"Q\n" +
+	"'AbstractCursorSetNotificationUriRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"D\n" +
+	".AbstractCursorUnregisterContentObserverRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"D\n" +
+	".AbstractCursorUnregisterDataSetObserverRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"%\n" +
+	"\x0fOnChangeRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"\x12\n" +
+	"\x10OnChangeResponse2\xb1\x02\n" +
+	"\x18DataSetObservableService\x12e\n" +
+	"\x14NewDataSetObservable\x12%.database.NewDataSetObservableRequest\x1a&.database.NewDataSetObservableResponse\x12P\n" +
+	"\rNotifyChanged\x12\x1e.database.NotifyChangedRequest\x1a\x1f.database.NotifyChangedResponse\x12\\\n" +
+	"\x11NotifyInvalidated\x12\".database.NotifyInvalidatedRequest\x1a#.database.NotifyInvalidatedResponse2\xad*\n" +
+	"\fUtilsService\x12A\n" +
+	"\bNewUtils\x12\x19.database.NewUtilsRequest\x1a\x1a.database.NewUtilsResponse\x12k\n" +
+	"\x16AppendEscapedSQLString\x12'.database.AppendEscapedSQLStringRequest\x1a(.database.AppendEscapedSQLStringResponse\x12b\n" +
+	"\x13AppendSelectionArgs\x12$.database.AppendSelectionArgsRequest\x1a%.database.AppendSelectionArgsResponse\x12Y\n" +
+	"\x10AppendValueToSql\x12!.database.AppendValueToSqlRequest\x1a\".database.AppendValueToSqlResponse\x12b\n" +
+	"\x13BindObjectToProgram\x12$.database.BindObjectToProgramRequest\x1a%.database.BindObjectToProgramResponse\x12z\n" +
+	"\x1bBlobFileDescriptorForQuery3\x12,.database.BlobFileDescriptorForQuery3Request\x1a-.database.BlobFileDescriptorForQuery3Response\x12\x80\x01\n" +
+	"\x1dBlobFileDescriptorForQuery2_1\x12..database.BlobFileDescriptorForQuery2_1Request\x1a/.database.BlobFileDescriptorForQuery2_1Response\x12Y\n" +
+	"\x10ConcatenateWhere\x12!.database.ConcatenateWhereRequest\x1a\".database.ConcatenateWhereResponse\x12t\n" +
+	"\x19CreateDbFromSqlStatements\x12*.database.CreateDbFromSqlStatementsRequest\x1a+.database.CreateDbFromSqlStatementsResponse\x12z\n" +
+	"\x1bCursorDoubleToContentValues\x12,.database.CursorDoubleToContentValuesRequest\x1a-.database.CursorDoubleToContentValuesResponse\x12\x95\x01\n" +
+	"$CursorDoubleToContentValuesIfPresent\x125.database.CursorDoubleToContentValuesIfPresentRequest\x1a6.database.CursorDoubleToContentValuesIfPresentResponse\x12w\n" +
+	"\x1aCursorDoubleToCursorValues\x12+.database.CursorDoubleToCursorValuesRequest\x1a,.database.CursorDoubleToCursorValuesResponse\x12\x92\x01\n" +
+	"#CursorFloatToContentValuesIfPresent\x124.database.CursorFloatToContentValuesIfPresentRequest\x1a5.database.CursorFloatToContentValuesIfPresentResponse\x12t\n" +
+	"\x19CursorIntToContentValues3\x12*.database.CursorIntToContentValues3Request\x1a+.database.CursorIntToContentValues3Response\x12z\n" +
+	"\x1bCursorIntToContentValues4_1\x12,.database.CursorIntToContentValues4_1Request\x1a-.database.CursorIntToContentValues4_1Response\x12\x8c\x01\n" +
+	"!CursorIntToContentValuesIfPresent\x122.database.CursorIntToContentValuesIfPresentRequest\x1a3.database.CursorIntToContentValuesIfPresentResponse\x12w\n" +
+	"\x1aCursorLongToContentValues3\x12+.database.CursorLongToContentValues3Request\x1a,.database.CursorLongToContentValues3Response\x12}\n" +
+	"\x1cCursorLongToContentValues4_1\x12-.database.CursorLongToContentValues4_1Request\x1a..database.CursorLongToContentValues4_1Response\x12\x8f\x01\n" +
+	"\"CursorLongToContentValuesIfPresent\x123.database.CursorLongToContentValuesIfPresentRequest\x1a4.database.CursorLongToContentValuesIfPresentResponse\x12q\n" +
+	"\x18CursorRowToContentValues\x12).database.CursorRowToContentValuesRequest\x1a*.database.CursorRowToContentValuesResponse\x12\x92\x01\n" +
+	"#CursorShortToContentValuesIfPresent\x124.database.CursorShortToContentValuesIfPresentRequest\x1a5.database.CursorShortToContentValuesIfPresentResponse\x12}\n" +
+	"\x1cCursorStringToContentValues3\x12-.database.CursorStringToContentValues3Request\x1a..database.CursorStringToContentValues3Response\x12\x83\x01\n" +
+	"\x1eCursorStringToContentValues4_1\x12/.database.CursorStringToContentValues4_1Request\x1a0.database.CursorStringToContentValues4_1Response\x12\x95\x01\n" +
+	"$CursorStringToContentValuesIfPresent\x125.database.CursorStringToContentValuesIfPresentRequest\x1a6.database.CursorStringToContentValuesIfPresentResponse\x12w\n" +
+	"\x1aCursorStringToInsertHelper\x12+.database.CursorStringToInsertHelperRequest\x1a,.database.CursorStringToInsertHelperResponse\x12V\n" +
+	"\x0fDumpCurrentRow1\x12 .database.DumpCurrentRow1Request\x1a!.database.DumpCurrentRow1Response\x12\\\n" +
+	"\x11DumpCurrentRow2_1\x12\".database.DumpCurrentRow2_1Request\x1a#.database.DumpCurrentRow2_1Response\x12\\\n" +
+	"\x11DumpCurrentRow2_2\x12\".database.DumpCurrentRow2_2Request\x1a#.database.DumpCurrentRow2_2Response\x12k\n" +
+	"\x16DumpCurrentRowToString\x12'.database.DumpCurrentRowToStringRequest\x1a(.database.DumpCurrentRowToStringResponse\x12J\n" +
+	"\vDumpCursor1\x12\x1c.database.DumpCursor1Request\x1a\x1d.database.DumpCursor1Response\x12P\n" +
+	"\rDumpCursor2_1\x12\x1e.database.DumpCursor2_1Request\x1a\x1f.database.DumpCursor2_1Response\x12P\n" +
+	"\rDumpCursor2_2\x12\x1e.database.DumpCursor2_2Request\x1a\x1f.database.DumpCursor2_2Response\x12_\n" +
+	"\x12DumpCursorToString\x12#.database.DumpCursorToStringRequest\x1a$.database.DumpCursorToStringResponse\x12V\n" +
+	"\x0fGetCollationKey\x12 .database.GetCollationKeyRequest\x1a!.database.GetCollationKeyResponse\x12_\n" +
+	"\x12GetHexCollationKey\x12#.database.GetHexCollationKeyRequest\x1a$.database.GetHexCollationKeyResponse\x12b\n" +
+	"\x13GetSqlStatementType\x12$.database.GetSqlStatementTypeRequest\x1a%.database.GetSqlStatementTypeResponse\x12P\n" +
+	"\rLongForQuery3\x12\x1e.database.LongForQuery3Request\x1a\x1f.database.LongForQuery3Response\x12V\n" +
+	"\x0fLongForQuery2_1\x12 .database.LongForQuery2_1Request\x1a!.database.LongForQuery2_1Response\x12Y\n" +
+	"\x10QueryNumEntries2\x12!.database.QueryNumEntries2Request\x1a\".database.QueryNumEntries2Response\x12_\n" +
+	"\x12QueryNumEntries3_1\x12#.database.QueryNumEntries3_1Request\x1a$.database.QueryNumEntries3_1Response\x12_\n" +
+	"\x12QueryNumEntries4_2\x12#.database.QueryNumEntries4_2Request\x1a$.database.QueryNumEntries4_2Response\x12n\n" +
+	"\x17ReadExceptionFromParcel\x12(.database.ReadExceptionFromParcelRequest\x1a).database.ReadExceptionFromParcelResponse\x12\xb9\x01\n" +
+	"0ReadExceptionWithFileNotFoundExceptionFromParcel\x12A.database.ReadExceptionWithFileNotFoundExceptionFromParcelRequest\x1aB.database.ReadExceptionWithFileNotFoundExceptionFromParcelResponse\x12\xd1\x01\n" +
+	"8ReadExceptionWithOperationApplicationExceptionFromParcel\x12I.database.ReadExceptionWithOperationApplicationExceptionFromParcelRequest\x1aJ.database.ReadExceptionWithOperationApplicationExceptionFromParcelResponse\x12V\n" +
+	"\x0fSqlEscapeString\x12 .database.SqlEscapeStringRequest\x1a!.database.SqlEscapeStringResponse\x12V\n" +
+	"\x0fStringForQuery3\x12 .database.StringForQuery3Request\x1a!.database.StringForQuery3Response\x12\\\n" +
+	"\x11StringForQuery2_1\x12\".database.StringForQuery2_1Request\x1a#.database.StringForQuery2_1Response\x12k\n" +
+	"\x16WriteExceptionToParcel\x12'.database.WriteExceptionToParcelRequest\x1a(.database.WriteExceptionToParcelResponse2\x9c\b\n" +
+	"\x18UtilsInsertHelperService\x128\n" +
+	"\x05Bind2\x12\x16.database.Bind2Request\x1a\x17.database.Bind2Response\x12>\n" +
+	"\aBind2_1\x12\x18.database.Bind2_1Request\x1a\x19.database.Bind2_1Response\x12>\n" +
+	"\aBind2_2\x12\x18.database.Bind2_2Request\x1a\x19.database.Bind2_2Response\x12>\n" +
+	"\aBind2_3\x12\x18.database.Bind2_3Request\x1a\x19.database.Bind2_3Response\x12>\n" +
+	"\aBind2_4\x12\x18.database.Bind2_4Request\x1a\x19.database.Bind2_4Response\x12>\n" +
+	"\aBind2_5\x12\x18.database.Bind2_5Request\x1a\x19.database.Bind2_5Response\x12>\n" +
+	"\aBind2_6\x12\x18.database.Bind2_6Request\x1a\x19.database.Bind2_6Response\x12A\n" +
+	"\bBindNull\x12\x19.database.BindNullRequest\x1a\x1a.database.BindNullResponse\x128\n" +
+	"\x05Close\x12\x16.database.CloseRequest\x1a\x17.database.CloseResponse\x12>\n" +
+	"\aExecute\x12\x18.database.ExecuteRequest\x1a\x19.database.ExecuteResponse\x12S\n" +
+	"\x0eGetColumnIndex\x12\x1f.database.GetColumnIndexRequest\x1a .database.GetColumnIndexResponse\x12;\n" +
+	"\x06Insert\x12\x17.database.InsertRequest\x1a\x18.database.InsertResponse\x12Y\n" +
+	"\x10PrepareForInsert\x12!.database.PrepareForInsertRequest\x1a\".database.PrepareForInsertResponse\x12\\\n" +
+	"\x11PrepareForReplace\x12\".database.PrepareForReplaceRequest\x1a#.database.PrepareForReplaceResponse\x12>\n" +
+	"\aReplace\x12\x18.database.ReplaceRequest\x1a\x19.database.ReplaceResponse2\xcb\a\n" +
+	"\x13MatrixCursorService\x12V\n" +
+	"\x0fNewMatrixCursor\x12 .database.NewMatrixCursorRequest\x1a!.database.NewMatrixCursorResponse\x12;\n" +
+	"\x06AddRow\x12\x17.database.AddRowRequest\x1a\x18.database.AddRowResponse\x12>\n" +
+	"\aGetBlob\x12\x18.database.GetBlobRequest\x1a\x19.database.GetBlobResponse\x12S\n" +
+	"\x0eGetColumnNames\x12\x1f.database.GetColumnNamesRequest\x1a .database.GetColumnNamesResponse\x12A\n" +
+	"\bGetCount\x12\x19.database.GetCountRequest\x1a\x1a.database.GetCountResponse\x12D\n" +
+	"\tGetDouble\x12\x1a.database.GetDoubleRequest\x1a\x1b.database.GetDoubleResponse\x12A\n" +
+	"\bGetFloat\x12\x19.database.GetFloatRequest\x1a\x1a.database.GetFloatResponse\x12;\n" +
+	"\x06GetInt\x12\x17.database.GetIntRequest\x1a\x18.database.GetIntResponse\x12>\n" +
+	"\aGetLong\x12\x18.database.GetLongRequest\x1a\x19.database.GetLongResponse\x12A\n" +
+	"\bGetShort\x12\x19.database.GetShortRequest\x1a\x1a.database.GetShortResponse\x12D\n" +
+	"\tGetString\x12\x1a.database.GetStringRequest\x1a\x1b.database.GetStringResponse\x12>\n" +
+	"\aGetType\x12\x18.database.GetTypeRequest\x1a\x19.database.GetTypeResponse\x12;\n" +
+	"\x06IsNull\x12\x17.database.IsNullRequest\x1a\x18.database.IsNullResponse\x12;\n" +
+	"\x06NewRow\x12\x17.database.NewRowRequest\x1a\x18.database.NewRowResponse2\x93\x01\n" +
+	"\x1dMatrixCursorRowBuilderService\x125\n" +
+	"\x04Add1\x12\x15.database.Add1Request\x1a\x16.database.Add1Response\x12;\n" +
+	"\x06Add2_1\x12\x17.database.Add2_1Request\x1a\x18.database.Add2_1Response2\xfd\x04\n" +
+	"\x16ContentObserverService\x12q\n" +
+	"\x18DeliverSelfNotifications\x12).database.DeliverSelfNotificationsRequest\x1a*.database.DeliverSelfNotificationsResponse\x12V\n" +
+	"\x0fDispatchChange1\x12 .database.DispatchChange1Request\x1a!.database.DispatchChange1Response\x12\\\n" +
+	"\x11DispatchChange2_1\x12\".database.DispatchChange2_1Request\x1a#.database.DispatchChange2_1Response\x12\\\n" +
+	"\x11DispatchChange3_2\x12\".database.DispatchChange3_2Request\x1a#.database.DispatchChange3_2Response\x12D\n" +
+	"\tOnChange1\x12\x1a.database.OnChange1Request\x1a\x1b.database.OnChange1Response\x12J\n" +
+	"\vOnChange2_1\x12\x1c.database.OnChange2_1Request\x1a\x1d.database.OnChange2_1Response\x12J\n" +
+	"\vOnChange3_2\x12\x1c.database.OnChange3_2Request\x1a\x1d.database.OnChange3_2Response2\xf9\x01\n" +
+	"\"DefaultDatabaseErrorHandlerService\x12\x83\x01\n" +
+	"\x1eNewDefaultDatabaseErrorHandler\x12/.database.NewDefaultDatabaseErrorHandlerRequest\x1a0.database.NewDefaultDatabaseErrorHandlerResponse\x12M\n" +
+	"\fOnCorruption\x12\x1d.database.OnCorruptionRequest\x1a\x1e.database.OnCorruptionResponse2\x84\x1b\n" +
+	"\x14CursorWrapperService\x12Y\n" +
+	"\x10NewCursorWrapper\x12!.database.NewCursorWrapperRequest\x1a\".database.NewCursorWrapperResponse\x12E\n" +
+	"\x05Close\x12#.database.CursorWrapperCloseRequest\x1a\x17.database.CloseResponse\x12_\n" +
+	"\x12CopyStringToBuffer\x12#.database.CopyStringToBufferRequest\x1a$.database.CopyStringToBufferResponse\x12G\n" +
+	"\n" +
+	"Deactivate\x12\x1b.database.DeactivateRequest\x1a\x1c.database.DeactivateResponse\x12>\n" +
+	"\aGetBlob\x12\x18.database.GetBlobRequest\x1a\x19.database.GetBlobResponse\x12S\n" +
+	"\x0eGetColumnCount\x12\x1f.database.GetColumnCountRequest\x1a .database.GetColumnCountResponse\x12`\n" +
+	"\x0eGetColumnIndex\x12,.database.CursorWrapperGetColumnIndexRequest\x1a .database.GetColumnIndexResponse\x12h\n" +
+	"\x15GetColumnIndexOrThrow\x12&.database.GetColumnIndexOrThrowRequest\x1a'.database.GetColumnIndexOrThrowResponse\x12P\n" +
+	"\rGetColumnName\x12\x1e.database.GetColumnNameRequest\x1a\x1f.database.GetColumnNameResponse\x12S\n" +
+	"\x0eGetColumnNames\x12\x1f.database.GetColumnNamesRequest\x1a .database.GetColumnNamesResponse\x12A\n" +
+	"\bGetCount\x12\x19.database.GetCountRequest\x1a\x1a.database.GetCountResponse\x12D\n" +
+	"\tGetDouble\x12\x1a.database.GetDoubleRequest\x1a\x1b.database.GetDoubleResponse\x12D\n" +
+	"\tGetExtras\x12\x1a.database.GetExtrasRequest\x1a\x1b.database.GetExtrasResponse\x12A\n" +
+	"\bGetFloat\x12\x19.database.GetFloatRequest\x1a\x1a.database.GetFloatResponse\x12;\n" +
+	"\x06GetInt\x12\x17.database.GetIntRequest\x1a\x18.database.GetIntResponse\x12>\n" +
+	"\aGetLong\x12\x18.database.GetLongRequest\x1a\x19.database.GetLongResponse\x12_\n" +
+	"\x12GetNotificationUri\x12#.database.GetNotificationUriRequest\x1a$.database.GetNotificationUriResponse\x12J\n" +
+	"\vGetPosition\x12\x1c.database.GetPositionRequest\x1a\x1d.database.GetPositionResponse\x12A\n" +
+	"\bGetShort\x12\x19.database.GetShortRequest\x1a\x1a.database.GetShortResponse\x12D\n" +
+	"\tGetString\x12\x1a.database.GetStringRequest\x1a\x1b.database.GetStringResponse\x12>\n" +
+	"\aGetType\x12\x18.database.GetTypeRequest\x1a\x19.database.GetTypeResponse\x12k\n" +
+	"\x16GetWantsAllOnMoveCalls\x12'.database.GetWantsAllOnMoveCallsRequest\x1a(.database.GetWantsAllOnMoveCallsResponse\x12Y\n" +
+	"\x10GetWrappedCursor\x12!.database.GetWrappedCursorRequest\x1a\".database.GetWrappedCursorResponse\x12J\n" +
+	"\vIsAfterLast\x12\x1c.database.IsAfterLastRequest\x1a\x1d.database.IsAfterLastResponse\x12P\n" +
+	"\rIsBeforeFirst\x12\x1e.database.IsBeforeFirstRequest\x1a\x1f.database.IsBeforeFirstResponse\x12A\n" +
+	"\bIsClosed\x12\x19.database.IsClosedRequest\x1a\x1a.database.IsClosedResponse\x12>\n" +
+	"\aIsFirst\x12\x18.database.IsFirstRequest\x1a\x19.database.IsFirstResponse\x12;\n" +
+	"\x06IsLast\x12\x17.database.IsLastRequest\x1a\x18.database.IsLastResponse\x12;\n" +
+	"\x06IsNull\x12\x17.database.IsNullRequest\x1a\x18.database.IsNullResponse\x125\n" +
+	"\x04Move\x12\x15.database.MoveRequest\x1a\x16.database.MoveResponse\x12J\n" +
+	"\vMoveToFirst\x12\x1c.database.MoveToFirstRequest\x1a\x1d.database.MoveToFirstResponse\x12G\n" +
+	"\n" +
+	"MoveToLast\x12\x1b.database.MoveToLastRequest\x1a\x1c.database.MoveToLastResponse\x12G\n" +
+	"\n" +
+	"MoveToNext\x12\x1b.database.MoveToNextRequest\x1a\x1c.database.MoveToNextResponse\x12S\n" +
+	"\x0eMoveToPosition\x12\x1f.database.MoveToPositionRequest\x1a .database.MoveToPositionResponse\x12S\n" +
+	"\x0eMoveToPrevious\x12\x1f.database.MoveToPreviousRequest\x1a .database.MoveToPreviousResponse\x12n\n" +
+	"\x17RegisterContentObserver\x12(.database.RegisterContentObserverRequest\x1a).database.RegisterContentObserverResponse\x12n\n" +
+	"\x17RegisterDataSetObserver\x12(.database.RegisterDataSetObserverRequest\x1a).database.RegisterDataSetObserverResponse\x12>\n" +
+	"\aRequery\x12\x18.database.RequeryRequest\x1a\x19.database.RequeryResponse\x12>\n" +
+	"\aRespond\x12\x18.database.RespondRequest\x1a\x19.database.RespondResponse\x12D\n" +
+	"\tSetExtras\x12\x1a.database.SetExtrasRequest\x1a\x1b.database.SetExtrasResponse\x12_\n" +
+	"\x12SetNotificationUri\x12#.database.SetNotificationUriRequest\x1a$.database.SetNotificationUriResponse\x12t\n" +
+	"\x19UnregisterContentObserver\x12*.database.UnregisterContentObserverRequest\x1a+.database.UnregisterContentObserverResponse\x12t\n" +
+	"\x19UnregisterDataSetObserver\x12*.database.UnregisterDataSetObserverRequest\x1a+.database.UnregisterDataSetObserverResponse2e\n" +
+	"\x11ObservableService\x12P\n" +
+	"\rUnregisterAll\x12\x1e.database.UnregisterAllRequest\x1a\x1f.database.UnregisterAllResponse2\xed\x02\n" +
+	" CrossProcessCursorWrapperService\x12}\n" +
+	"\x1cNewCrossProcessCursorWrapper\x12-.database.NewCrossProcessCursorWrapperRequest\x1a..database.NewCrossProcessCursorWrapperResponse\x12G\n" +
+	"\n" +
+	"FillWindow\x12\x1b.database.FillWindowRequest\x1a\x1c.database.FillWindowResponse\x12D\n" +
+	"\tGetWindow\x12\x1a.database.GetWindowRequest\x1a\x1b.database.GetWindowResponse\x12;\n" +
+	"\x06OnMove\x12\x17.database.OnMoveRequest\x1a\x18.database.OnMoveResponse2\xb0\x01\n" +
+	"\x16DataSetObserverService\x12D\n" +
+	"\tOnChanged\x12\x1a.database.OnChangedRequest\x1a\x1b.database.OnChangedResponse\x12P\n" +
+	"\rOnInvalidated\x12\x1e.database.OnInvalidatedRequest\x1a\x1f.database.OnInvalidatedResponse2\xe4\x02\n" +
+	"\x13CursorJoinerService\x12V\n" +
+	"\x0fNewCursorJoiner\x12 .database.NewCursorJoinerRequest\x1a!.database.NewCursorJoinerResponse\x12>\n" +
+	"\aHasNext\x12\x18.database.HasNextRequest\x1a\x19.database.HasNextResponse\x128\n" +
+	"\x05Next0\x12\x16.database.Next0Request\x1a\x17.database.Next0Response\x12;\n" +
+	"\x06Remove\x12\x17.database.RemoveRequest\x1a\x18.database.RemoveResponse\x12>\n" +
+	"\aNext0_1\x12\x18.database.Next0_1Request\x1a\x19.database.Next0_1Response2\x98\x01\n" +
+	"\x19CursorJoinerResultService\x12;\n" +
+	"\x06Values\x12\x17.database.ValuesRequest\x1a\x18.database.ValuesResponse\x12>\n" +
+	"\aValueOf\x12\x18.database.ValueOfRequest\x1a\x19.database.ValueOfResponse2\x9d\x02\n" +
+	"\x19CrossProcessCursorService\x12Y\n" +
+	"\n" +
+	"FillWindow\x12-.database.CrossProcessCursorFillWindowRequest\x1a\x1c.database.FillWindowResponse\x12V\n" +
+	"\tGetWindow\x12,.database.CrossProcessCursorGetWindowRequest\x1a\x1b.database.GetWindowResponse\x12M\n" +
+	"\x06OnMove\x12).database.CrossProcessCursorOnMoveRequest\x1a\x18.database.OnMoveResponse2\xb7\x12\n" +
+	"\x13CursorWindowService\x12V\n" +
+	"\x0fNewCursorWindow\x12 .database.NewCursorWindowRequest\x1a!.database.NewCursorWindowResponse\x12A\n" +
+	"\bAllocRow\x12\x19.database.AllocRowRequest\x1a\x1a.database.AllocRowResponse\x128\n" +
+	"\x05Clear\x12\x16.database.ClearRequest\x1a\x17.database.ClearResponse\x12k\n" +
+	"\x12CopyStringToBuffer\x12/.database.CursorWindowCopyStringToBufferRequest\x1a$.database.CopyStringToBufferResponse\x12Y\n" +
+	"\x10DescribeContents\x12!.database.DescribeContentsRequest\x1a\".database.DescribeContentsResponse\x12J\n" +
+	"\vFreeLastRow\x12\x1c.database.FreeLastRowRequest\x1a\x1d.database.FreeLastRowResponse\x12J\n" +
+	"\aGetBlob\x12$.database.CursorWindowGetBlobRequest\x1a\x19.database.GetBlobResponse\x12P\n" +
+	"\tGetDouble\x12&.database.CursorWindowGetDoubleRequest\x1a\x1b.database.GetDoubleResponse\x12M\n" +
+	"\bGetFloat\x12%.database.CursorWindowGetFloatRequest\x1a\x1a.database.GetFloatResponse\x12G\n" +
+	"\x06GetInt\x12#.database.CursorWindowGetIntRequest\x1a\x18.database.GetIntResponse\x12J\n" +
+	"\aGetLong\x12$.database.CursorWindowGetLongRequest\x1a\x19.database.GetLongResponse\x12G\n" +
+	"\n" +
+	"GetNumRows\x12\x1b.database.GetNumRowsRequest\x1a\x1c.database.GetNumRowsResponse\x12M\n" +
+	"\bGetShort\x12%.database.CursorWindowGetShortRequest\x1a\x1a.database.GetShortResponse\x12Y\n" +
+	"\x10GetStartPosition\x12!.database.GetStartPositionRequest\x1a\".database.GetStartPositionResponse\x12P\n" +
+	"\tGetString\x12&.database.CursorWindowGetStringRequest\x1a\x1b.database.GetStringResponse\x12J\n" +
+	"\aGetType\x12$.database.CursorWindowGetTypeRequest\x1a\x19.database.GetTypeResponse\x12;\n" +
+	"\x06IsBlob\x12\x17.database.IsBlobRequest\x1a\x18.database.IsBlobResponse\x12>\n" +
+	"\aIsFloat\x12\x18.database.IsFloatRequest\x1a\x19.database.IsFloatResponse\x12;\n" +
+	"\x06IsLong\x12\x17.database.IsLongRequest\x1a\x18.database.IsLongResponse\x12G\n" +
+	"\x06IsNull\x12#.database.CursorWindowIsNullRequest\x1a\x18.database.IsNullResponse\x12A\n" +
+	"\bIsString\x12\x19.database.IsStringRequest\x1a\x1a.database.IsStringResponse\x12>\n" +
+	"\aPutBlob\x12\x18.database.PutBlobRequest\x1a\x19.database.PutBlobResponse\x12D\n" +
+	"\tPutDouble\x12\x1a.database.PutDoubleRequest\x1a\x1b.database.PutDoubleResponse\x12>\n" +
+	"\aPutLong\x12\x18.database.PutLongRequest\x1a\x19.database.PutLongResponse\x12>\n" +
+	"\aPutNull\x12\x18.database.PutNullRequest\x1a\x19.database.PutNullResponse\x12D\n" +
+	"\tPutString\x12\x1a.database.PutStringRequest\x1a\x1b.database.PutStringResponse\x12P\n" +
+	"\rSetNumColumns\x12\x1e.database.SetNumColumnsRequest\x1a\x1f.database.SetNumColumnsResponse\x12Y\n" +
+	"\x10SetStartPosition\x12!.database.SetStartPositionRequest\x1a\".database.SetStartPositionResponse\x12A\n" +
+	"\bToString\x12\x19.database.ToStringRequest\x1a\x1a.database.ToStringResponse\x12P\n" +
+	"\rWriteToParcel\x12\x1e.database.WriteToParcelRequest\x1a\x1f.database.WriteToParcelResponse\x12P\n" +
+	"\rNewFromParcel\x12\x1e.database.NewFromParcelRequest\x1a\x1f.database.NewFromParcelResponse2\xea\x04\n" +
+	"\x18ContentObservableService\x12e\n" +
+	"\x14NewContentObservable\x12%.database.NewContentObservableRequest\x1a&.database.NewContentObservableResponse\x12g\n" +
+	"\x0fDispatchChange1\x121.database.ContentObservableDispatchChange1Request\x1a!.database.DispatchChange1Response\x12m\n" +
+	"\x11DispatchChange2_1\x123.database.ContentObservableDispatchChange2_1Request\x1a#.database.DispatchChange2_1Response\x12M\n" +
+	"\fNotifyChange\x12\x1d.database.NotifyChangeRequest\x1a\x1e.database.NotifyChangeResponse\x12\\\n" +
+	"\x11RegisterObserver1\x12\".database.RegisterObserver1Request\x1a#.database.RegisterObserver1Response\x12b\n" +
+	"\x13RegisterObserver1_1\x12$.database.RegisterObserver1_1Request\x1a%.database.RegisterObserver1_1Response2\xa4\f\n" +
+	"\x12MergeCursorService\x12S\n" +
+	"\x0eNewMergeCursor\x12\x1f.database.NewMergeCursorRequest\x1a .database.NewMergeCursorResponse\x12C\n" +
+	"\x05Close\x12!.database.MergeCursorCloseRequest\x1a\x17.database.CloseResponse\x12G\n" +
+	"\n" +
+	"Deactivate\x12\x1b.database.DeactivateRequest\x1a\x1c.database.DeactivateResponse\x12>\n" +
+	"\aGetBlob\x12\x18.database.GetBlobRequest\x1a\x19.database.GetBlobResponse\x12S\n" +
+	"\x0eGetColumnNames\x12\x1f.database.GetColumnNamesRequest\x1a .database.GetColumnNamesResponse\x12A\n" +
+	"\bGetCount\x12\x19.database.GetCountRequest\x1a\x1a.database.GetCountResponse\x12D\n" +
+	"\tGetDouble\x12\x1a.database.GetDoubleRequest\x1a\x1b.database.GetDoubleResponse\x12A\n" +
+	"\bGetFloat\x12\x19.database.GetFloatRequest\x1a\x1a.database.GetFloatResponse\x12;\n" +
+	"\x06GetInt\x12\x17.database.GetIntRequest\x1a\x18.database.GetIntResponse\x12>\n" +
+	"\aGetLong\x12\x18.database.GetLongRequest\x1a\x19.database.GetLongResponse\x12A\n" +
+	"\bGetShort\x12\x19.database.GetShortRequest\x1a\x1a.database.GetShortResponse\x12D\n" +
+	"\tGetString\x12\x1a.database.GetStringRequest\x1a\x1b.database.GetStringResponse\x12>\n" +
+	"\aGetType\x12\x18.database.GetTypeRequest\x1a\x19.database.GetTypeResponse\x12;\n" +
+	"\x06IsNull\x12\x17.database.IsNullRequest\x1a\x18.database.IsNullResponse\x12;\n" +
+	"\x06OnMove\x12\x17.database.OnMoveRequest\x1a\x18.database.OnMoveResponse\x12n\n" +
+	"\x17RegisterContentObserver\x12(.database.RegisterContentObserverRequest\x1a).database.RegisterContentObserverResponse\x12n\n" +
+	"\x17RegisterDataSetObserver\x12(.database.RegisterDataSetObserverRequest\x1a).database.RegisterDataSetObserverResponse\x12>\n" +
+	"\aRequery\x12\x18.database.RequeryRequest\x1a\x19.database.RequeryResponse\x12t\n" +
+	"\x19UnregisterContentObserver\x12*.database.UnregisterContentObserverRequest\x1a+.database.UnregisterContentObserverResponse\x12t\n" +
+	"\x19UnregisterDataSetObserver\x12*.database.UnregisterDataSetObserverRequest\x1a+.database.UnregisterDataSetObserverResponse2\xe5\v\n" +
+	"\x1dAbstractWindowedCursorService\x12u\n" +
+	"\x12CopyStringToBuffer\x129.database.AbstractWindowedCursorCopyStringToBufferRequest\x1a$.database.CopyStringToBufferResponse\x12T\n" +
+	"\aGetBlob\x12..database.AbstractWindowedCursorGetBlobRequest\x1a\x19.database.GetBlobResponse\x12Z\n" +
+	"\tGetDouble\x120.database.AbstractWindowedCursorGetDoubleRequest\x1a\x1b.database.GetDoubleResponse\x12W\n" +
+	"\bGetFloat\x12/.database.AbstractWindowedCursorGetFloatRequest\x1a\x1a.database.GetFloatResponse\x12Q\n" +
+	"\x06GetInt\x12-.database.AbstractWindowedCursorGetIntRequest\x1a\x18.database.GetIntResponse\x12T\n" +
+	"\aGetLong\x12..database.AbstractWindowedCursorGetLongRequest\x1a\x19.database.GetLongResponse\x12W\n" +
+	"\bGetShort\x12/.database.AbstractWindowedCursorGetShortRequest\x1a\x1a.database.GetShortResponse\x12Z\n" +
+	"\tGetString\x120.database.AbstractWindowedCursorGetStringRequest\x1a\x1b.database.GetStringResponse\x12T\n" +
+	"\aGetType\x12..database.AbstractWindowedCursorGetTypeRequest\x1a\x19.database.GetTypeResponse\x12Z\n" +
+	"\tGetWindow\x120.database.AbstractWindowedCursorGetWindowRequest\x1a\x1b.database.GetWindowResponse\x12D\n" +
+	"\tHasWindow\x12\x1a.database.HasWindowRequest\x1a\x1b.database.HasWindowResponse\x12Q\n" +
+	"\x06IsBlob\x12-.database.AbstractWindowedCursorIsBlobRequest\x1a\x18.database.IsBlobResponse\x12T\n" +
+	"\aIsFloat\x12..database.AbstractWindowedCursorIsFloatRequest\x1a\x19.database.IsFloatResponse\x12Q\n" +
+	"\x06IsLong\x12-.database.AbstractWindowedCursorIsLongRequest\x1a\x18.database.IsLongResponse\x12Q\n" +
+	"\x06IsNull\x12-.database.AbstractWindowedCursorIsNullRequest\x1a\x18.database.IsNullResponse\x12W\n" +
+	"\bIsString\x12/.database.AbstractWindowedCursorIsStringRequest\x1a\x1a.database.IsStringResponse\x12D\n" +
+	"\tSetWindow\x12\x1a.database.SetWindowRequest\x1a\x1b.database.SetWindowResponse2p\n" +
+	"\x13ErrorHandlerService\x12Y\n" +
+	"\fOnCorruption\x12).database.ErrorHandlerOnCorruptionRequest\x1a\x1e.database.OnCorruptionResponse2\xcf\x1f\n" +
+	"\x15AbstractCursorService\x128\n" +
+	"\x05Close\x12\x16.database.CloseRequest\x1a\x17.database.CloseResponse\x12m\n" +
+	"\x12CopyStringToBuffer\x121.database.AbstractCursorCopyStringToBufferRequest\x1a$.database.CopyStringToBufferResponse\x12U\n" +
+	"\n" +
+	"Deactivate\x12).database.AbstractCursorDeactivateRequest\x1a\x1c.database.DeactivateResponse\x12U\n" +
+	"\n" +
+	"FillWindow\x12).database.AbstractCursorFillWindowRequest\x1a\x1c.database.FillWindowResponse\x12L\n" +
+	"\aGetBlob\x12&.database.AbstractCursorGetBlobRequest\x1a\x19.database.GetBlobResponse\x12a\n" +
+	"\x0eGetColumnCount\x12-.database.AbstractCursorGetColumnCountRequest\x1a .database.GetColumnCountResponse\x12S\n" +
+	"\x0eGetColumnIndex\x12\x1f.database.GetColumnIndexRequest\x1a .database.GetColumnIndexResponse\x12v\n" +
+	"\x15GetColumnIndexOrThrow\x124.database.AbstractCursorGetColumnIndexOrThrowRequest\x1a'.database.GetColumnIndexOrThrowResponse\x12^\n" +
+	"\rGetColumnName\x12,.database.AbstractCursorGetColumnNameRequest\x1a\x1f.database.GetColumnNameResponse\x12a\n" +
+	"\x0eGetColumnNames\x12-.database.AbstractCursorGetColumnNamesRequest\x1a .database.GetColumnNamesResponse\x12O\n" +
+	"\bGetCount\x12'.database.AbstractCursorGetCountRequest\x1a\x1a.database.GetCountResponse\x12R\n" +
+	"\tGetDouble\x12(.database.AbstractCursorGetDoubleRequest\x1a\x1b.database.GetDoubleResponse\x12R\n" +
+	"\tGetExtras\x12(.database.AbstractCursorGetExtrasRequest\x1a\x1b.database.GetExtrasResponse\x12O\n" +
+	"\bGetFloat\x12'.database.AbstractCursorGetFloatRequest\x1a\x1a.database.GetFloatResponse\x12I\n" +
+	"\x06GetInt\x12%.database.AbstractCursorGetIntRequest\x1a\x18.database.GetIntResponse\x12L\n" +
+	"\aGetLong\x12&.database.AbstractCursorGetLongRequest\x1a\x19.database.GetLongResponse\x12m\n" +
+	"\x12GetNotificationUri\x121.database.AbstractCursorGetNotificationUriRequest\x1a$.database.GetNotificationUriResponse\x12X\n" +
+	"\vGetPosition\x12*.database.AbstractCursorGetPositionRequest\x1a\x1d.database.GetPositionResponse\x12O\n" +
+	"\bGetShort\x12'.database.AbstractCursorGetShortRequest\x1a\x1a.database.GetShortResponse\x12R\n" +
+	"\tGetString\x12(.database.AbstractCursorGetStringRequest\x1a\x1b.database.GetStringResponse\x12L\n" +
+	"\aGetType\x12&.database.AbstractCursorGetTypeRequest\x1a\x19.database.GetTypeResponse\x12y\n" +
+	"\x16GetWantsAllOnMoveCalls\x125.database.AbstractCursorGetWantsAllOnMoveCallsRequest\x1a(.database.GetWantsAllOnMoveCallsResponse\x12R\n" +
+	"\tGetWindow\x12(.database.AbstractCursorGetWindowRequest\x1a\x1b.database.GetWindowResponse\x12X\n" +
+	"\vIsAfterLast\x12*.database.AbstractCursorIsAfterLastRequest\x1a\x1d.database.IsAfterLastResponse\x12^\n" +
+	"\rIsBeforeFirst\x12,.database.AbstractCursorIsBeforeFirstRequest\x1a\x1f.database.IsBeforeFirstResponse\x12O\n" +
+	"\bIsClosed\x12'.database.AbstractCursorIsClosedRequest\x1a\x1a.database.IsClosedResponse\x12L\n" +
+	"\aIsFirst\x12&.database.AbstractCursorIsFirstRequest\x1a\x19.database.IsFirstResponse\x12I\n" +
+	"\x06IsLast\x12%.database.AbstractCursorIsLastRequest\x1a\x18.database.IsLastResponse\x12I\n" +
+	"\x06IsNull\x12%.database.AbstractCursorIsNullRequest\x1a\x18.database.IsNullResponse\x12C\n" +
+	"\x04Move\x12#.database.AbstractCursorMoveRequest\x1a\x16.database.MoveResponse\x12X\n" +
+	"\vMoveToFirst\x12*.database.AbstractCursorMoveToFirstRequest\x1a\x1d.database.MoveToFirstResponse\x12U\n" +
+	"\n" +
+	"MoveToLast\x12).database.AbstractCursorMoveToLastRequest\x1a\x1c.database.MoveToLastResponse\x12U\n" +
+	"\n" +
+	"MoveToNext\x12).database.AbstractCursorMoveToNextRequest\x1a\x1c.database.MoveToNextResponse\x12a\n" +
+	"\x0eMoveToPosition\x12-.database.AbstractCursorMoveToPositionRequest\x1a .database.MoveToPositionResponse\x12a\n" +
+	"\x0eMoveToPrevious\x12-.database.AbstractCursorMoveToPreviousRequest\x1a .database.MoveToPreviousResponse\x12I\n" +
+	"\x06OnMove\x12%.database.AbstractCursorOnMoveRequest\x1a\x18.database.OnMoveResponse\x12|\n" +
+	"\x17RegisterContentObserver\x126.database.AbstractCursorRegisterContentObserverRequest\x1a).database.RegisterContentObserverResponse\x12|\n" +
+	"\x17RegisterDataSetObserver\x126.database.AbstractCursorRegisterDataSetObserverRequest\x1a).database.RegisterDataSetObserverResponse\x12L\n" +
+	"\aRequery\x12&.database.AbstractCursorRequeryRequest\x1a\x19.database.RequeryResponse\x12L\n" +
+	"\aRespond\x12&.database.AbstractCursorRespondRequest\x1a\x19.database.RespondResponse\x12R\n" +
+	"\tSetExtras\x12(.database.AbstractCursorSetExtrasRequest\x1a\x1b.database.SetExtrasResponse\x12m\n" +
+	"\x12SetNotificationUri\x121.database.AbstractCursorSetNotificationUriRequest\x1a$.database.SetNotificationUriResponse\x12\x82\x01\n" +
+	"\x19UnregisterContentObserver\x128.database.AbstractCursorUnregisterContentObserverRequest\x1a+.database.UnregisterContentObserverResponse\x12\x82\x01\n" +
+	"\x19UnregisterDataSetObserver\x128.database.AbstractCursorUnregisterDataSetObserverRequest\x1a+.database.UnregisterDataSetObserverResponse2\xe0\x01\n" +
+	"(AbstractCursorSelfContentObserverService\x12q\n" +
+	"\x18DeliverSelfNotifications\x12).database.DeliverSelfNotificationsRequest\x1a*.database.DeliverSelfNotificationsResponse\x12A\n" +
+	"\bOnChange\x12\x19.database.OnChangeRequest\x1a\x1a.database.OnChangeResponseB2Z0github.com/AndroidGoLab/jni-proxy/proto/databaseb\x06proto3"
 
-var file_proto_database_database_proto_goTypes = []any{}
+var (
+	file_proto_database_database_proto_rawDescOnce sync.Once
+	file_proto_database_database_proto_rawDescData []byte
+)
+
+func file_proto_database_database_proto_rawDescGZIP() []byte {
+	file_proto_database_database_proto_rawDescOnce.Do(func() {
+		file_proto_database_database_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_proto_database_database_proto_rawDesc), len(file_proto_database_database_proto_rawDesc)))
+	})
+	return file_proto_database_database_proto_rawDescData
+}
+
+var file_proto_database_database_proto_msgTypes = make([]protoimpl.MessageInfo, 404)
+var file_proto_database_database_proto_goTypes = []any{
+	(*NewDataSetObservableRequest)(nil),                                      // 0: database.NewDataSetObservableRequest
+	(*NewDataSetObservableResponse)(nil),                                     // 1: database.NewDataSetObservableResponse
+	(*NotifyChangedRequest)(nil),                                             // 2: database.NotifyChangedRequest
+	(*NotifyChangedResponse)(nil),                                            // 3: database.NotifyChangedResponse
+	(*NotifyInvalidatedRequest)(nil),                                         // 4: database.NotifyInvalidatedRequest
+	(*NotifyInvalidatedResponse)(nil),                                        // 5: database.NotifyInvalidatedResponse
+	(*NewUtilsRequest)(nil),                                                  // 6: database.NewUtilsRequest
+	(*NewUtilsResponse)(nil),                                                 // 7: database.NewUtilsResponse
+	(*AppendEscapedSQLStringRequest)(nil),                                    // 8: database.AppendEscapedSQLStringRequest
+	(*AppendEscapedSQLStringResponse)(nil),                                   // 9: database.AppendEscapedSQLStringResponse
+	(*AppendSelectionArgsRequest)(nil),                                       // 10: database.AppendSelectionArgsRequest
+	(*AppendSelectionArgsResponse)(nil),                                      // 11: database.AppendSelectionArgsResponse
+	(*AppendValueToSqlRequest)(nil),                                          // 12: database.AppendValueToSqlRequest
+	(*AppendValueToSqlResponse)(nil),                                         // 13: database.AppendValueToSqlResponse
+	(*BindObjectToProgramRequest)(nil),                                       // 14: database.BindObjectToProgramRequest
+	(*BindObjectToProgramResponse)(nil),                                      // 15: database.BindObjectToProgramResponse
+	(*BlobFileDescriptorForQuery3Request)(nil),                               // 16: database.BlobFileDescriptorForQuery3Request
+	(*BlobFileDescriptorForQuery3Response)(nil),                              // 17: database.BlobFileDescriptorForQuery3Response
+	(*BlobFileDescriptorForQuery2_1Request)(nil),                             // 18: database.BlobFileDescriptorForQuery2_1Request
+	(*BlobFileDescriptorForQuery2_1Response)(nil),                            // 19: database.BlobFileDescriptorForQuery2_1Response
+	(*ConcatenateWhereRequest)(nil),                                          // 20: database.ConcatenateWhereRequest
+	(*ConcatenateWhereResponse)(nil),                                         // 21: database.ConcatenateWhereResponse
+	(*CreateDbFromSqlStatementsRequest)(nil),                                 // 22: database.CreateDbFromSqlStatementsRequest
+	(*CreateDbFromSqlStatementsResponse)(nil),                                // 23: database.CreateDbFromSqlStatementsResponse
+	(*CursorDoubleToContentValuesRequest)(nil),                               // 24: database.CursorDoubleToContentValuesRequest
+	(*CursorDoubleToContentValuesResponse)(nil),                              // 25: database.CursorDoubleToContentValuesResponse
+	(*CursorDoubleToContentValuesIfPresentRequest)(nil),                      // 26: database.CursorDoubleToContentValuesIfPresentRequest
+	(*CursorDoubleToContentValuesIfPresentResponse)(nil),                     // 27: database.CursorDoubleToContentValuesIfPresentResponse
+	(*CursorDoubleToCursorValuesRequest)(nil),                                // 28: database.CursorDoubleToCursorValuesRequest
+	(*CursorDoubleToCursorValuesResponse)(nil),                               // 29: database.CursorDoubleToCursorValuesResponse
+	(*CursorFloatToContentValuesIfPresentRequest)(nil),                       // 30: database.CursorFloatToContentValuesIfPresentRequest
+	(*CursorFloatToContentValuesIfPresentResponse)(nil),                      // 31: database.CursorFloatToContentValuesIfPresentResponse
+	(*CursorIntToContentValues3Request)(nil),                                 // 32: database.CursorIntToContentValues3Request
+	(*CursorIntToContentValues3Response)(nil),                                // 33: database.CursorIntToContentValues3Response
+	(*CursorIntToContentValues4_1Request)(nil),                               // 34: database.CursorIntToContentValues4_1Request
+	(*CursorIntToContentValues4_1Response)(nil),                              // 35: database.CursorIntToContentValues4_1Response
+	(*CursorIntToContentValuesIfPresentRequest)(nil),                         // 36: database.CursorIntToContentValuesIfPresentRequest
+	(*CursorIntToContentValuesIfPresentResponse)(nil),                        // 37: database.CursorIntToContentValuesIfPresentResponse
+	(*CursorLongToContentValues3Request)(nil),                                // 38: database.CursorLongToContentValues3Request
+	(*CursorLongToContentValues3Response)(nil),                               // 39: database.CursorLongToContentValues3Response
+	(*CursorLongToContentValues4_1Request)(nil),                              // 40: database.CursorLongToContentValues4_1Request
+	(*CursorLongToContentValues4_1Response)(nil),                             // 41: database.CursorLongToContentValues4_1Response
+	(*CursorLongToContentValuesIfPresentRequest)(nil),                        // 42: database.CursorLongToContentValuesIfPresentRequest
+	(*CursorLongToContentValuesIfPresentResponse)(nil),                       // 43: database.CursorLongToContentValuesIfPresentResponse
+	(*CursorRowToContentValuesRequest)(nil),                                  // 44: database.CursorRowToContentValuesRequest
+	(*CursorRowToContentValuesResponse)(nil),                                 // 45: database.CursorRowToContentValuesResponse
+	(*CursorShortToContentValuesIfPresentRequest)(nil),                       // 46: database.CursorShortToContentValuesIfPresentRequest
+	(*CursorShortToContentValuesIfPresentResponse)(nil),                      // 47: database.CursorShortToContentValuesIfPresentResponse
+	(*CursorStringToContentValues3Request)(nil),                              // 48: database.CursorStringToContentValues3Request
+	(*CursorStringToContentValues3Response)(nil),                             // 49: database.CursorStringToContentValues3Response
+	(*CursorStringToContentValues4_1Request)(nil),                            // 50: database.CursorStringToContentValues4_1Request
+	(*CursorStringToContentValues4_1Response)(nil),                           // 51: database.CursorStringToContentValues4_1Response
+	(*CursorStringToContentValuesIfPresentRequest)(nil),                      // 52: database.CursorStringToContentValuesIfPresentRequest
+	(*CursorStringToContentValuesIfPresentResponse)(nil),                     // 53: database.CursorStringToContentValuesIfPresentResponse
+	(*CursorStringToInsertHelperRequest)(nil),                                // 54: database.CursorStringToInsertHelperRequest
+	(*CursorStringToInsertHelperResponse)(nil),                               // 55: database.CursorStringToInsertHelperResponse
+	(*DumpCurrentRow1Request)(nil),                                           // 56: database.DumpCurrentRow1Request
+	(*DumpCurrentRow1Response)(nil),                                          // 57: database.DumpCurrentRow1Response
+	(*DumpCurrentRow2_1Request)(nil),                                         // 58: database.DumpCurrentRow2_1Request
+	(*DumpCurrentRow2_1Response)(nil),                                        // 59: database.DumpCurrentRow2_1Response
+	(*DumpCurrentRow2_2Request)(nil),                                         // 60: database.DumpCurrentRow2_2Request
+	(*DumpCurrentRow2_2Response)(nil),                                        // 61: database.DumpCurrentRow2_2Response
+	(*DumpCurrentRowToStringRequest)(nil),                                    // 62: database.DumpCurrentRowToStringRequest
+	(*DumpCurrentRowToStringResponse)(nil),                                   // 63: database.DumpCurrentRowToStringResponse
+	(*DumpCursor1Request)(nil),                                               // 64: database.DumpCursor1Request
+	(*DumpCursor1Response)(nil),                                              // 65: database.DumpCursor1Response
+	(*DumpCursor2_1Request)(nil),                                             // 66: database.DumpCursor2_1Request
+	(*DumpCursor2_1Response)(nil),                                            // 67: database.DumpCursor2_1Response
+	(*DumpCursor2_2Request)(nil),                                             // 68: database.DumpCursor2_2Request
+	(*DumpCursor2_2Response)(nil),                                            // 69: database.DumpCursor2_2Response
+	(*DumpCursorToStringRequest)(nil),                                        // 70: database.DumpCursorToStringRequest
+	(*DumpCursorToStringResponse)(nil),                                       // 71: database.DumpCursorToStringResponse
+	(*GetCollationKeyRequest)(nil),                                           // 72: database.GetCollationKeyRequest
+	(*GetCollationKeyResponse)(nil),                                          // 73: database.GetCollationKeyResponse
+	(*GetHexCollationKeyRequest)(nil),                                        // 74: database.GetHexCollationKeyRequest
+	(*GetHexCollationKeyResponse)(nil),                                       // 75: database.GetHexCollationKeyResponse
+	(*GetSqlStatementTypeRequest)(nil),                                       // 76: database.GetSqlStatementTypeRequest
+	(*GetSqlStatementTypeResponse)(nil),                                      // 77: database.GetSqlStatementTypeResponse
+	(*LongForQuery3Request)(nil),                                             // 78: database.LongForQuery3Request
+	(*LongForQuery3Response)(nil),                                            // 79: database.LongForQuery3Response
+	(*LongForQuery2_1Request)(nil),                                           // 80: database.LongForQuery2_1Request
+	(*LongForQuery2_1Response)(nil),                                          // 81: database.LongForQuery2_1Response
+	(*QueryNumEntries2Request)(nil),                                          // 82: database.QueryNumEntries2Request
+	(*QueryNumEntries2Response)(nil),                                         // 83: database.QueryNumEntries2Response
+	(*QueryNumEntries3_1Request)(nil),                                        // 84: database.QueryNumEntries3_1Request
+	(*QueryNumEntries3_1Response)(nil),                                       // 85: database.QueryNumEntries3_1Response
+	(*QueryNumEntries4_2Request)(nil),                                        // 86: database.QueryNumEntries4_2Request
+	(*QueryNumEntries4_2Response)(nil),                                       // 87: database.QueryNumEntries4_2Response
+	(*ReadExceptionFromParcelRequest)(nil),                                   // 88: database.ReadExceptionFromParcelRequest
+	(*ReadExceptionFromParcelResponse)(nil),                                  // 89: database.ReadExceptionFromParcelResponse
+	(*ReadExceptionWithFileNotFoundExceptionFromParcelRequest)(nil),          // 90: database.ReadExceptionWithFileNotFoundExceptionFromParcelRequest
+	(*ReadExceptionWithFileNotFoundExceptionFromParcelResponse)(nil),         // 91: database.ReadExceptionWithFileNotFoundExceptionFromParcelResponse
+	(*ReadExceptionWithOperationApplicationExceptionFromParcelRequest)(nil),  // 92: database.ReadExceptionWithOperationApplicationExceptionFromParcelRequest
+	(*ReadExceptionWithOperationApplicationExceptionFromParcelResponse)(nil), // 93: database.ReadExceptionWithOperationApplicationExceptionFromParcelResponse
+	(*SqlEscapeStringRequest)(nil),                                           // 94: database.SqlEscapeStringRequest
+	(*SqlEscapeStringResponse)(nil),                                          // 95: database.SqlEscapeStringResponse
+	(*StringForQuery3Request)(nil),                                           // 96: database.StringForQuery3Request
+	(*StringForQuery3Response)(nil),                                          // 97: database.StringForQuery3Response
+	(*StringForQuery2_1Request)(nil),                                         // 98: database.StringForQuery2_1Request
+	(*StringForQuery2_1Response)(nil),                                        // 99: database.StringForQuery2_1Response
+	(*WriteExceptionToParcelRequest)(nil),                                    // 100: database.WriteExceptionToParcelRequest
+	(*WriteExceptionToParcelResponse)(nil),                                   // 101: database.WriteExceptionToParcelResponse
+	(*Bind2Request)(nil),                                                     // 102: database.Bind2Request
+	(*Bind2Response)(nil),                                                    // 103: database.Bind2Response
+	(*Bind2_1Request)(nil),                                                   // 104: database.Bind2_1Request
+	(*Bind2_1Response)(nil),                                                  // 105: database.Bind2_1Response
+	(*Bind2_2Request)(nil),                                                   // 106: database.Bind2_2Request
+	(*Bind2_2Response)(nil),                                                  // 107: database.Bind2_2Response
+	(*Bind2_3Request)(nil),                                                   // 108: database.Bind2_3Request
+	(*Bind2_3Response)(nil),                                                  // 109: database.Bind2_3Response
+	(*Bind2_4Request)(nil),                                                   // 110: database.Bind2_4Request
+	(*Bind2_4Response)(nil),                                                  // 111: database.Bind2_4Response
+	(*Bind2_5Request)(nil),                                                   // 112: database.Bind2_5Request
+	(*Bind2_5Response)(nil),                                                  // 113: database.Bind2_5Response
+	(*Bind2_6Request)(nil),                                                   // 114: database.Bind2_6Request
+	(*Bind2_6Response)(nil),                                                  // 115: database.Bind2_6Response
+	(*BindNullRequest)(nil),                                                  // 116: database.BindNullRequest
+	(*BindNullResponse)(nil),                                                 // 117: database.BindNullResponse
+	(*CloseRequest)(nil),                                                     // 118: database.CloseRequest
+	(*CloseResponse)(nil),                                                    // 119: database.CloseResponse
+	(*ExecuteRequest)(nil),                                                   // 120: database.ExecuteRequest
+	(*ExecuteResponse)(nil),                                                  // 121: database.ExecuteResponse
+	(*GetColumnIndexRequest)(nil),                                            // 122: database.GetColumnIndexRequest
+	(*GetColumnIndexResponse)(nil),                                           // 123: database.GetColumnIndexResponse
+	(*InsertRequest)(nil),                                                    // 124: database.InsertRequest
+	(*InsertResponse)(nil),                                                   // 125: database.InsertResponse
+	(*PrepareForInsertRequest)(nil),                                          // 126: database.PrepareForInsertRequest
+	(*PrepareForInsertResponse)(nil),                                         // 127: database.PrepareForInsertResponse
+	(*PrepareForReplaceRequest)(nil),                                         // 128: database.PrepareForReplaceRequest
+	(*PrepareForReplaceResponse)(nil),                                        // 129: database.PrepareForReplaceResponse
+	(*ReplaceRequest)(nil),                                                   // 130: database.ReplaceRequest
+	(*ReplaceResponse)(nil),                                                  // 131: database.ReplaceResponse
+	(*NewMatrixCursorRequest)(nil),                                           // 132: database.NewMatrixCursorRequest
+	(*NewMatrixCursorResponse)(nil),                                          // 133: database.NewMatrixCursorResponse
+	(*AddRowRequest)(nil),                                                    // 134: database.AddRowRequest
+	(*AddRowResponse)(nil),                                                   // 135: database.AddRowResponse
+	(*GetBlobRequest)(nil),                                                   // 136: database.GetBlobRequest
+	(*GetBlobResponse)(nil),                                                  // 137: database.GetBlobResponse
+	(*GetColumnNamesRequest)(nil),                                            // 138: database.GetColumnNamesRequest
+	(*GetColumnNamesResponse)(nil),                                           // 139: database.GetColumnNamesResponse
+	(*GetCountRequest)(nil),                                                  // 140: database.GetCountRequest
+	(*GetCountResponse)(nil),                                                 // 141: database.GetCountResponse
+	(*GetDoubleRequest)(nil),                                                 // 142: database.GetDoubleRequest
+	(*GetDoubleResponse)(nil),                                                // 143: database.GetDoubleResponse
+	(*GetFloatRequest)(nil),                                                  // 144: database.GetFloatRequest
+	(*GetFloatResponse)(nil),                                                 // 145: database.GetFloatResponse
+	(*GetIntRequest)(nil),                                                    // 146: database.GetIntRequest
+	(*GetIntResponse)(nil),                                                   // 147: database.GetIntResponse
+	(*GetLongRequest)(nil),                                                   // 148: database.GetLongRequest
+	(*GetLongResponse)(nil),                                                  // 149: database.GetLongResponse
+	(*GetShortRequest)(nil),                                                  // 150: database.GetShortRequest
+	(*GetShortResponse)(nil),                                                 // 151: database.GetShortResponse
+	(*GetStringRequest)(nil),                                                 // 152: database.GetStringRequest
+	(*GetStringResponse)(nil),                                                // 153: database.GetStringResponse
+	(*GetTypeRequest)(nil),                                                   // 154: database.GetTypeRequest
+	(*GetTypeResponse)(nil),                                                  // 155: database.GetTypeResponse
+	(*IsNullRequest)(nil),                                                    // 156: database.IsNullRequest
+	(*IsNullResponse)(nil),                                                   // 157: database.IsNullResponse
+	(*NewRowRequest)(nil),                                                    // 158: database.NewRowRequest
+	(*NewRowResponse)(nil),                                                   // 159: database.NewRowResponse
+	(*Add1Request)(nil),                                                      // 160: database.Add1Request
+	(*Add1Response)(nil),                                                     // 161: database.Add1Response
+	(*Add2_1Request)(nil),                                                    // 162: database.Add2_1Request
+	(*Add2_1Response)(nil),                                                   // 163: database.Add2_1Response
+	(*DeliverSelfNotificationsRequest)(nil),                                  // 164: database.DeliverSelfNotificationsRequest
+	(*DeliverSelfNotificationsResponse)(nil),                                 // 165: database.DeliverSelfNotificationsResponse
+	(*DispatchChange1Request)(nil),                                           // 166: database.DispatchChange1Request
+	(*DispatchChange1Response)(nil),                                          // 167: database.DispatchChange1Response
+	(*DispatchChange2_1Request)(nil),                                         // 168: database.DispatchChange2_1Request
+	(*DispatchChange2_1Response)(nil),                                        // 169: database.DispatchChange2_1Response
+	(*DispatchChange3_2Request)(nil),                                         // 170: database.DispatchChange3_2Request
+	(*DispatchChange3_2Response)(nil),                                        // 171: database.DispatchChange3_2Response
+	(*OnChange1Request)(nil),                                                 // 172: database.OnChange1Request
+	(*OnChange1Response)(nil),                                                // 173: database.OnChange1Response
+	(*OnChange2_1Request)(nil),                                               // 174: database.OnChange2_1Request
+	(*OnChange2_1Response)(nil),                                              // 175: database.OnChange2_1Response
+	(*OnChange3_2Request)(nil),                                               // 176: database.OnChange3_2Request
+	(*OnChange3_2Response)(nil),                                              // 177: database.OnChange3_2Response
+	(*NewDefaultDatabaseErrorHandlerRequest)(nil),                            // 178: database.NewDefaultDatabaseErrorHandlerRequest
+	(*NewDefaultDatabaseErrorHandlerResponse)(nil),                           // 179: database.NewDefaultDatabaseErrorHandlerResponse
+	(*OnCorruptionRequest)(nil),                                              // 180: database.OnCorruptionRequest
+	(*OnCorruptionResponse)(nil),                                             // 181: database.OnCorruptionResponse
+	(*NewCursorWrapperRequest)(nil),                                          // 182: database.NewCursorWrapperRequest
+	(*NewCursorWrapperResponse)(nil),                                         // 183: database.NewCursorWrapperResponse
+	(*CursorWrapperCloseRequest)(nil),                                        // 184: database.CursorWrapperCloseRequest
+	(*CopyStringToBufferRequest)(nil),                                        // 185: database.CopyStringToBufferRequest
+	(*CopyStringToBufferResponse)(nil),                                       // 186: database.CopyStringToBufferResponse
+	(*DeactivateRequest)(nil),                                                // 187: database.DeactivateRequest
+	(*DeactivateResponse)(nil),                                               // 188: database.DeactivateResponse
+	(*GetColumnCountRequest)(nil),                                            // 189: database.GetColumnCountRequest
+	(*GetColumnCountResponse)(nil),                                           // 190: database.GetColumnCountResponse
+	(*CursorWrapperGetColumnIndexRequest)(nil),                               // 191: database.CursorWrapperGetColumnIndexRequest
+	(*GetColumnIndexOrThrowRequest)(nil),                                     // 192: database.GetColumnIndexOrThrowRequest
+	(*GetColumnIndexOrThrowResponse)(nil),                                    // 193: database.GetColumnIndexOrThrowResponse
+	(*GetColumnNameRequest)(nil),                                             // 194: database.GetColumnNameRequest
+	(*GetColumnNameResponse)(nil),                                            // 195: database.GetColumnNameResponse
+	(*GetExtrasRequest)(nil),                                                 // 196: database.GetExtrasRequest
+	(*GetExtrasResponse)(nil),                                                // 197: database.GetExtrasResponse
+	(*GetNotificationUriRequest)(nil),                                        // 198: database.GetNotificationUriRequest
+	(*GetNotificationUriResponse)(nil),                                       // 199: database.GetNotificationUriResponse
+	(*GetPositionRequest)(nil),                                               // 200: database.GetPositionRequest
+	(*GetPositionResponse)(nil),                                              // 201: database.GetPositionResponse
+	(*GetWantsAllOnMoveCallsRequest)(nil),                                    // 202: database.GetWantsAllOnMoveCallsRequest
+	(*GetWantsAllOnMoveCallsResponse)(nil),                                   // 203: database.GetWantsAllOnMoveCallsResponse
+	(*GetWrappedCursorRequest)(nil),                                          // 204: database.GetWrappedCursorRequest
+	(*GetWrappedCursorResponse)(nil),                                         // 205: database.GetWrappedCursorResponse
+	(*IsAfterLastRequest)(nil),                                               // 206: database.IsAfterLastRequest
+	(*IsAfterLastResponse)(nil),                                              // 207: database.IsAfterLastResponse
+	(*IsBeforeFirstRequest)(nil),                                             // 208: database.IsBeforeFirstRequest
+	(*IsBeforeFirstResponse)(nil),                                            // 209: database.IsBeforeFirstResponse
+	(*IsClosedRequest)(nil),                                                  // 210: database.IsClosedRequest
+	(*IsClosedResponse)(nil),                                                 // 211: database.IsClosedResponse
+	(*IsFirstRequest)(nil),                                                   // 212: database.IsFirstRequest
+	(*IsFirstResponse)(nil),                                                  // 213: database.IsFirstResponse
+	(*IsLastRequest)(nil),                                                    // 214: database.IsLastRequest
+	(*IsLastResponse)(nil),                                                   // 215: database.IsLastResponse
+	(*MoveRequest)(nil),                                                      // 216: database.MoveRequest
+	(*MoveResponse)(nil),                                                     // 217: database.MoveResponse
+	(*MoveToFirstRequest)(nil),                                               // 218: database.MoveToFirstRequest
+	(*MoveToFirstResponse)(nil),                                              // 219: database.MoveToFirstResponse
+	(*MoveToLastRequest)(nil),                                                // 220: database.MoveToLastRequest
+	(*MoveToLastResponse)(nil),                                               // 221: database.MoveToLastResponse
+	(*MoveToNextRequest)(nil),                                                // 222: database.MoveToNextRequest
+	(*MoveToNextResponse)(nil),                                               // 223: database.MoveToNextResponse
+	(*MoveToPositionRequest)(nil),                                            // 224: database.MoveToPositionRequest
+	(*MoveToPositionResponse)(nil),                                           // 225: database.MoveToPositionResponse
+	(*MoveToPreviousRequest)(nil),                                            // 226: database.MoveToPreviousRequest
+	(*MoveToPreviousResponse)(nil),                                           // 227: database.MoveToPreviousResponse
+	(*RegisterContentObserverRequest)(nil),                                   // 228: database.RegisterContentObserverRequest
+	(*RegisterContentObserverResponse)(nil),                                  // 229: database.RegisterContentObserverResponse
+	(*RegisterDataSetObserverRequest)(nil),                                   // 230: database.RegisterDataSetObserverRequest
+	(*RegisterDataSetObserverResponse)(nil),                                  // 231: database.RegisterDataSetObserverResponse
+	(*RequeryRequest)(nil),                                                   // 232: database.RequeryRequest
+	(*RequeryResponse)(nil),                                                  // 233: database.RequeryResponse
+	(*RespondRequest)(nil),                                                   // 234: database.RespondRequest
+	(*RespondResponse)(nil),                                                  // 235: database.RespondResponse
+	(*SetExtrasRequest)(nil),                                                 // 236: database.SetExtrasRequest
+	(*SetExtrasResponse)(nil),                                                // 237: database.SetExtrasResponse
+	(*SetNotificationUriRequest)(nil),                                        // 238: database.SetNotificationUriRequest
+	(*SetNotificationUriResponse)(nil),                                       // 239: database.SetNotificationUriResponse
+	(*UnregisterContentObserverRequest)(nil),                                 // 240: database.UnregisterContentObserverRequest
+	(*UnregisterContentObserverResponse)(nil),                                // 241: database.UnregisterContentObserverResponse
+	(*UnregisterDataSetObserverRequest)(nil),                                 // 242: database.UnregisterDataSetObserverRequest
+	(*UnregisterDataSetObserverResponse)(nil),                                // 243: database.UnregisterDataSetObserverResponse
+	(*UnregisterAllRequest)(nil),                                             // 244: database.UnregisterAllRequest
+	(*UnregisterAllResponse)(nil),                                            // 245: database.UnregisterAllResponse
+	(*NewCrossProcessCursorWrapperRequest)(nil),                              // 246: database.NewCrossProcessCursorWrapperRequest
+	(*NewCrossProcessCursorWrapperResponse)(nil),                             // 247: database.NewCrossProcessCursorWrapperResponse
+	(*FillWindowRequest)(nil),                                                // 248: database.FillWindowRequest
+	(*FillWindowResponse)(nil),                                               // 249: database.FillWindowResponse
+	(*GetWindowRequest)(nil),                                                 // 250: database.GetWindowRequest
+	(*GetWindowResponse)(nil),                                                // 251: database.GetWindowResponse
+	(*OnMoveRequest)(nil),                                                    // 252: database.OnMoveRequest
+	(*OnMoveResponse)(nil),                                                   // 253: database.OnMoveResponse
+	(*OnChangedRequest)(nil),                                                 // 254: database.OnChangedRequest
+	(*OnChangedResponse)(nil),                                                // 255: database.OnChangedResponse
+	(*OnInvalidatedRequest)(nil),                                             // 256: database.OnInvalidatedRequest
+	(*OnInvalidatedResponse)(nil),                                            // 257: database.OnInvalidatedResponse
+	(*NewCursorJoinerRequest)(nil),                                           // 258: database.NewCursorJoinerRequest
+	(*NewCursorJoinerResponse)(nil),                                          // 259: database.NewCursorJoinerResponse
+	(*HasNextRequest)(nil),                                                   // 260: database.HasNextRequest
+	(*HasNextResponse)(nil),                                                  // 261: database.HasNextResponse
+	(*Next0Request)(nil),                                                     // 262: database.Next0Request
+	(*Next0Response)(nil),                                                    // 263: database.Next0Response
+	(*RemoveRequest)(nil),                                                    // 264: database.RemoveRequest
+	(*RemoveResponse)(nil),                                                   // 265: database.RemoveResponse
+	(*Next0_1Request)(nil),                                                   // 266: database.Next0_1Request
+	(*Next0_1Response)(nil),                                                  // 267: database.Next0_1Response
+	(*ValuesRequest)(nil),                                                    // 268: database.ValuesRequest
+	(*ValuesResponse)(nil),                                                   // 269: database.ValuesResponse
+	(*ValueOfRequest)(nil),                                                   // 270: database.ValueOfRequest
+	(*ValueOfResponse)(nil),                                                  // 271: database.ValueOfResponse
+	(*CrossProcessCursorFillWindowRequest)(nil),                              // 272: database.CrossProcessCursorFillWindowRequest
+	(*CrossProcessCursorGetWindowRequest)(nil),                               // 273: database.CrossProcessCursorGetWindowRequest
+	(*CrossProcessCursorOnMoveRequest)(nil),                                  // 274: database.CrossProcessCursorOnMoveRequest
+	(*NewCursorWindowRequest)(nil),                                           // 275: database.NewCursorWindowRequest
+	(*NewCursorWindowResponse)(nil),                                          // 276: database.NewCursorWindowResponse
+	(*AllocRowRequest)(nil),                                                  // 277: database.AllocRowRequest
+	(*AllocRowResponse)(nil),                                                 // 278: database.AllocRowResponse
+	(*ClearRequest)(nil),                                                     // 279: database.ClearRequest
+	(*ClearResponse)(nil),                                                    // 280: database.ClearResponse
+	(*CursorWindowCopyStringToBufferRequest)(nil),                            // 281: database.CursorWindowCopyStringToBufferRequest
+	(*DescribeContentsRequest)(nil),                                          // 282: database.DescribeContentsRequest
+	(*DescribeContentsResponse)(nil),                                         // 283: database.DescribeContentsResponse
+	(*FreeLastRowRequest)(nil),                                               // 284: database.FreeLastRowRequest
+	(*FreeLastRowResponse)(nil),                                              // 285: database.FreeLastRowResponse
+	(*CursorWindowGetBlobRequest)(nil),                                       // 286: database.CursorWindowGetBlobRequest
+	(*CursorWindowGetDoubleRequest)(nil),                                     // 287: database.CursorWindowGetDoubleRequest
+	(*CursorWindowGetFloatRequest)(nil),                                      // 288: database.CursorWindowGetFloatRequest
+	(*CursorWindowGetIntRequest)(nil),                                        // 289: database.CursorWindowGetIntRequest
+	(*CursorWindowGetLongRequest)(nil),                                       // 290: database.CursorWindowGetLongRequest
+	(*GetNumRowsRequest)(nil),                                                // 291: database.GetNumRowsRequest
+	(*GetNumRowsResponse)(nil),                                               // 292: database.GetNumRowsResponse
+	(*CursorWindowGetShortRequest)(nil),                                      // 293: database.CursorWindowGetShortRequest
+	(*GetStartPositionRequest)(nil),                                          // 294: database.GetStartPositionRequest
+	(*GetStartPositionResponse)(nil),                                         // 295: database.GetStartPositionResponse
+	(*CursorWindowGetStringRequest)(nil),                                     // 296: database.CursorWindowGetStringRequest
+	(*CursorWindowGetTypeRequest)(nil),                                       // 297: database.CursorWindowGetTypeRequest
+	(*IsBlobRequest)(nil),                                                    // 298: database.IsBlobRequest
+	(*IsBlobResponse)(nil),                                                   // 299: database.IsBlobResponse
+	(*IsFloatRequest)(nil),                                                   // 300: database.IsFloatRequest
+	(*IsFloatResponse)(nil),                                                  // 301: database.IsFloatResponse
+	(*IsLongRequest)(nil),                                                    // 302: database.IsLongRequest
+	(*IsLongResponse)(nil),                                                   // 303: database.IsLongResponse
+	(*CursorWindowIsNullRequest)(nil),                                        // 304: database.CursorWindowIsNullRequest
+	(*IsStringRequest)(nil),                                                  // 305: database.IsStringRequest
+	(*IsStringResponse)(nil),                                                 // 306: database.IsStringResponse
+	(*PutBlobRequest)(nil),                                                   // 307: database.PutBlobRequest
+	(*PutBlobResponse)(nil),                                                  // 308: database.PutBlobResponse
+	(*PutDoubleRequest)(nil),                                                 // 309: database.PutDoubleRequest
+	(*PutDoubleResponse)(nil),                                                // 310: database.PutDoubleResponse
+	(*PutLongRequest)(nil),                                                   // 311: database.PutLongRequest
+	(*PutLongResponse)(nil),                                                  // 312: database.PutLongResponse
+	(*PutNullRequest)(nil),                                                   // 313: database.PutNullRequest
+	(*PutNullResponse)(nil),                                                  // 314: database.PutNullResponse
+	(*PutStringRequest)(nil),                                                 // 315: database.PutStringRequest
+	(*PutStringResponse)(nil),                                                // 316: database.PutStringResponse
+	(*SetNumColumnsRequest)(nil),                                             // 317: database.SetNumColumnsRequest
+	(*SetNumColumnsResponse)(nil),                                            // 318: database.SetNumColumnsResponse
+	(*SetStartPositionRequest)(nil),                                          // 319: database.SetStartPositionRequest
+	(*SetStartPositionResponse)(nil),                                         // 320: database.SetStartPositionResponse
+	(*ToStringRequest)(nil),                                                  // 321: database.ToStringRequest
+	(*ToStringResponse)(nil),                                                 // 322: database.ToStringResponse
+	(*WriteToParcelRequest)(nil),                                             // 323: database.WriteToParcelRequest
+	(*WriteToParcelResponse)(nil),                                            // 324: database.WriteToParcelResponse
+	(*NewFromParcelRequest)(nil),                                             // 325: database.NewFromParcelRequest
+	(*NewFromParcelResponse)(nil),                                            // 326: database.NewFromParcelResponse
+	(*NewContentObservableRequest)(nil),                                      // 327: database.NewContentObservableRequest
+	(*NewContentObservableResponse)(nil),                                     // 328: database.NewContentObservableResponse
+	(*ContentObservableDispatchChange1Request)(nil),                          // 329: database.ContentObservableDispatchChange1Request
+	(*ContentObservableDispatchChange2_1Request)(nil),                        // 330: database.ContentObservableDispatchChange2_1Request
+	(*NotifyChangeRequest)(nil),                                              // 331: database.NotifyChangeRequest
+	(*NotifyChangeResponse)(nil),                                             // 332: database.NotifyChangeResponse
+	(*RegisterObserver1Request)(nil),                                         // 333: database.RegisterObserver1Request
+	(*RegisterObserver1Response)(nil),                                        // 334: database.RegisterObserver1Response
+	(*RegisterObserver1_1Request)(nil),                                       // 335: database.RegisterObserver1_1Request
+	(*RegisterObserver1_1Response)(nil),                                      // 336: database.RegisterObserver1_1Response
+	(*NewMergeCursorRequest)(nil),                                            // 337: database.NewMergeCursorRequest
+	(*NewMergeCursorResponse)(nil),                                           // 338: database.NewMergeCursorResponse
+	(*MergeCursorCloseRequest)(nil),                                          // 339: database.MergeCursorCloseRequest
+	(*AbstractWindowedCursorCopyStringToBufferRequest)(nil),                  // 340: database.AbstractWindowedCursorCopyStringToBufferRequest
+	(*AbstractWindowedCursorGetBlobRequest)(nil),                             // 341: database.AbstractWindowedCursorGetBlobRequest
+	(*AbstractWindowedCursorGetDoubleRequest)(nil),                           // 342: database.AbstractWindowedCursorGetDoubleRequest
+	(*AbstractWindowedCursorGetFloatRequest)(nil),                            // 343: database.AbstractWindowedCursorGetFloatRequest
+	(*AbstractWindowedCursorGetIntRequest)(nil),                              // 344: database.AbstractWindowedCursorGetIntRequest
+	(*AbstractWindowedCursorGetLongRequest)(nil),                             // 345: database.AbstractWindowedCursorGetLongRequest
+	(*AbstractWindowedCursorGetShortRequest)(nil),                            // 346: database.AbstractWindowedCursorGetShortRequest
+	(*AbstractWindowedCursorGetStringRequest)(nil),                           // 347: database.AbstractWindowedCursorGetStringRequest
+	(*AbstractWindowedCursorGetTypeRequest)(nil),                             // 348: database.AbstractWindowedCursorGetTypeRequest
+	(*AbstractWindowedCursorGetWindowRequest)(nil),                           // 349: database.AbstractWindowedCursorGetWindowRequest
+	(*HasWindowRequest)(nil),                                                 // 350: database.HasWindowRequest
+	(*HasWindowResponse)(nil),                                                // 351: database.HasWindowResponse
+	(*AbstractWindowedCursorIsBlobRequest)(nil),                              // 352: database.AbstractWindowedCursorIsBlobRequest
+	(*AbstractWindowedCursorIsFloatRequest)(nil),                             // 353: database.AbstractWindowedCursorIsFloatRequest
+	(*AbstractWindowedCursorIsLongRequest)(nil),                              // 354: database.AbstractWindowedCursorIsLongRequest
+	(*AbstractWindowedCursorIsNullRequest)(nil),                              // 355: database.AbstractWindowedCursorIsNullRequest
+	(*AbstractWindowedCursorIsStringRequest)(nil),                            // 356: database.AbstractWindowedCursorIsStringRequest
+	(*SetWindowRequest)(nil),                                                 // 357: database.SetWindowRequest
+	(*SetWindowResponse)(nil),                                                // 358: database.SetWindowResponse
+	(*ErrorHandlerOnCorruptionRequest)(nil),                                  // 359: database.ErrorHandlerOnCorruptionRequest
+	(*AbstractCursorCopyStringToBufferRequest)(nil),                          // 360: database.AbstractCursorCopyStringToBufferRequest
+	(*AbstractCursorDeactivateRequest)(nil),                                  // 361: database.AbstractCursorDeactivateRequest
+	(*AbstractCursorFillWindowRequest)(nil),                                  // 362: database.AbstractCursorFillWindowRequest
+	(*AbstractCursorGetBlobRequest)(nil),                                     // 363: database.AbstractCursorGetBlobRequest
+	(*AbstractCursorGetColumnCountRequest)(nil),                              // 364: database.AbstractCursorGetColumnCountRequest
+	(*AbstractCursorGetColumnIndexOrThrowRequest)(nil),                       // 365: database.AbstractCursorGetColumnIndexOrThrowRequest
+	(*AbstractCursorGetColumnNameRequest)(nil),                               // 366: database.AbstractCursorGetColumnNameRequest
+	(*AbstractCursorGetColumnNamesRequest)(nil),                              // 367: database.AbstractCursorGetColumnNamesRequest
+	(*AbstractCursorGetCountRequest)(nil),                                    // 368: database.AbstractCursorGetCountRequest
+	(*AbstractCursorGetDoubleRequest)(nil),                                   // 369: database.AbstractCursorGetDoubleRequest
+	(*AbstractCursorGetExtrasRequest)(nil),                                   // 370: database.AbstractCursorGetExtrasRequest
+	(*AbstractCursorGetFloatRequest)(nil),                                    // 371: database.AbstractCursorGetFloatRequest
+	(*AbstractCursorGetIntRequest)(nil),                                      // 372: database.AbstractCursorGetIntRequest
+	(*AbstractCursorGetLongRequest)(nil),                                     // 373: database.AbstractCursorGetLongRequest
+	(*AbstractCursorGetNotificationUriRequest)(nil),                          // 374: database.AbstractCursorGetNotificationUriRequest
+	(*AbstractCursorGetPositionRequest)(nil),                                 // 375: database.AbstractCursorGetPositionRequest
+	(*AbstractCursorGetShortRequest)(nil),                                    // 376: database.AbstractCursorGetShortRequest
+	(*AbstractCursorGetStringRequest)(nil),                                   // 377: database.AbstractCursorGetStringRequest
+	(*AbstractCursorGetTypeRequest)(nil),                                     // 378: database.AbstractCursorGetTypeRequest
+	(*AbstractCursorGetWantsAllOnMoveCallsRequest)(nil),                      // 379: database.AbstractCursorGetWantsAllOnMoveCallsRequest
+	(*AbstractCursorGetWindowRequest)(nil),                                   // 380: database.AbstractCursorGetWindowRequest
+	(*AbstractCursorIsAfterLastRequest)(nil),                                 // 381: database.AbstractCursorIsAfterLastRequest
+	(*AbstractCursorIsBeforeFirstRequest)(nil),                               // 382: database.AbstractCursorIsBeforeFirstRequest
+	(*AbstractCursorIsClosedRequest)(nil),                                    // 383: database.AbstractCursorIsClosedRequest
+	(*AbstractCursorIsFirstRequest)(nil),                                     // 384: database.AbstractCursorIsFirstRequest
+	(*AbstractCursorIsLastRequest)(nil),                                      // 385: database.AbstractCursorIsLastRequest
+	(*AbstractCursorIsNullRequest)(nil),                                      // 386: database.AbstractCursorIsNullRequest
+	(*AbstractCursorMoveRequest)(nil),                                        // 387: database.AbstractCursorMoveRequest
+	(*AbstractCursorMoveToFirstRequest)(nil),                                 // 388: database.AbstractCursorMoveToFirstRequest
+	(*AbstractCursorMoveToLastRequest)(nil),                                  // 389: database.AbstractCursorMoveToLastRequest
+	(*AbstractCursorMoveToNextRequest)(nil),                                  // 390: database.AbstractCursorMoveToNextRequest
+	(*AbstractCursorMoveToPositionRequest)(nil),                              // 391: database.AbstractCursorMoveToPositionRequest
+	(*AbstractCursorMoveToPreviousRequest)(nil),                              // 392: database.AbstractCursorMoveToPreviousRequest
+	(*AbstractCursorOnMoveRequest)(nil),                                      // 393: database.AbstractCursorOnMoveRequest
+	(*AbstractCursorRegisterContentObserverRequest)(nil),                     // 394: database.AbstractCursorRegisterContentObserverRequest
+	(*AbstractCursorRegisterDataSetObserverRequest)(nil),                     // 395: database.AbstractCursorRegisterDataSetObserverRequest
+	(*AbstractCursorRequeryRequest)(nil),                                     // 396: database.AbstractCursorRequeryRequest
+	(*AbstractCursorRespondRequest)(nil),                                     // 397: database.AbstractCursorRespondRequest
+	(*AbstractCursorSetExtrasRequest)(nil),                                   // 398: database.AbstractCursorSetExtrasRequest
+	(*AbstractCursorSetNotificationUriRequest)(nil),                          // 399: database.AbstractCursorSetNotificationUriRequest
+	(*AbstractCursorUnregisterContentObserverRequest)(nil),                   // 400: database.AbstractCursorUnregisterContentObserverRequest
+	(*AbstractCursorUnregisterDataSetObserverRequest)(nil),                   // 401: database.AbstractCursorUnregisterDataSetObserverRequest
+	(*OnChangeRequest)(nil),                                                  // 402: database.OnChangeRequest
+	(*OnChangeResponse)(nil),                                                 // 403: database.OnChangeResponse
+}
 var file_proto_database_database_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	0,   // 0: database.DataSetObservableService.NewDataSetObservable:input_type -> database.NewDataSetObservableRequest
+	2,   // 1: database.DataSetObservableService.NotifyChanged:input_type -> database.NotifyChangedRequest
+	4,   // 2: database.DataSetObservableService.NotifyInvalidated:input_type -> database.NotifyInvalidatedRequest
+	6,   // 3: database.UtilsService.NewUtils:input_type -> database.NewUtilsRequest
+	8,   // 4: database.UtilsService.AppendEscapedSQLString:input_type -> database.AppendEscapedSQLStringRequest
+	10,  // 5: database.UtilsService.AppendSelectionArgs:input_type -> database.AppendSelectionArgsRequest
+	12,  // 6: database.UtilsService.AppendValueToSql:input_type -> database.AppendValueToSqlRequest
+	14,  // 7: database.UtilsService.BindObjectToProgram:input_type -> database.BindObjectToProgramRequest
+	16,  // 8: database.UtilsService.BlobFileDescriptorForQuery3:input_type -> database.BlobFileDescriptorForQuery3Request
+	18,  // 9: database.UtilsService.BlobFileDescriptorForQuery2_1:input_type -> database.BlobFileDescriptorForQuery2_1Request
+	20,  // 10: database.UtilsService.ConcatenateWhere:input_type -> database.ConcatenateWhereRequest
+	22,  // 11: database.UtilsService.CreateDbFromSqlStatements:input_type -> database.CreateDbFromSqlStatementsRequest
+	24,  // 12: database.UtilsService.CursorDoubleToContentValues:input_type -> database.CursorDoubleToContentValuesRequest
+	26,  // 13: database.UtilsService.CursorDoubleToContentValuesIfPresent:input_type -> database.CursorDoubleToContentValuesIfPresentRequest
+	28,  // 14: database.UtilsService.CursorDoubleToCursorValues:input_type -> database.CursorDoubleToCursorValuesRequest
+	30,  // 15: database.UtilsService.CursorFloatToContentValuesIfPresent:input_type -> database.CursorFloatToContentValuesIfPresentRequest
+	32,  // 16: database.UtilsService.CursorIntToContentValues3:input_type -> database.CursorIntToContentValues3Request
+	34,  // 17: database.UtilsService.CursorIntToContentValues4_1:input_type -> database.CursorIntToContentValues4_1Request
+	36,  // 18: database.UtilsService.CursorIntToContentValuesIfPresent:input_type -> database.CursorIntToContentValuesIfPresentRequest
+	38,  // 19: database.UtilsService.CursorLongToContentValues3:input_type -> database.CursorLongToContentValues3Request
+	40,  // 20: database.UtilsService.CursorLongToContentValues4_1:input_type -> database.CursorLongToContentValues4_1Request
+	42,  // 21: database.UtilsService.CursorLongToContentValuesIfPresent:input_type -> database.CursorLongToContentValuesIfPresentRequest
+	44,  // 22: database.UtilsService.CursorRowToContentValues:input_type -> database.CursorRowToContentValuesRequest
+	46,  // 23: database.UtilsService.CursorShortToContentValuesIfPresent:input_type -> database.CursorShortToContentValuesIfPresentRequest
+	48,  // 24: database.UtilsService.CursorStringToContentValues3:input_type -> database.CursorStringToContentValues3Request
+	50,  // 25: database.UtilsService.CursorStringToContentValues4_1:input_type -> database.CursorStringToContentValues4_1Request
+	52,  // 26: database.UtilsService.CursorStringToContentValuesIfPresent:input_type -> database.CursorStringToContentValuesIfPresentRequest
+	54,  // 27: database.UtilsService.CursorStringToInsertHelper:input_type -> database.CursorStringToInsertHelperRequest
+	56,  // 28: database.UtilsService.DumpCurrentRow1:input_type -> database.DumpCurrentRow1Request
+	58,  // 29: database.UtilsService.DumpCurrentRow2_1:input_type -> database.DumpCurrentRow2_1Request
+	60,  // 30: database.UtilsService.DumpCurrentRow2_2:input_type -> database.DumpCurrentRow2_2Request
+	62,  // 31: database.UtilsService.DumpCurrentRowToString:input_type -> database.DumpCurrentRowToStringRequest
+	64,  // 32: database.UtilsService.DumpCursor1:input_type -> database.DumpCursor1Request
+	66,  // 33: database.UtilsService.DumpCursor2_1:input_type -> database.DumpCursor2_1Request
+	68,  // 34: database.UtilsService.DumpCursor2_2:input_type -> database.DumpCursor2_2Request
+	70,  // 35: database.UtilsService.DumpCursorToString:input_type -> database.DumpCursorToStringRequest
+	72,  // 36: database.UtilsService.GetCollationKey:input_type -> database.GetCollationKeyRequest
+	74,  // 37: database.UtilsService.GetHexCollationKey:input_type -> database.GetHexCollationKeyRequest
+	76,  // 38: database.UtilsService.GetSqlStatementType:input_type -> database.GetSqlStatementTypeRequest
+	78,  // 39: database.UtilsService.LongForQuery3:input_type -> database.LongForQuery3Request
+	80,  // 40: database.UtilsService.LongForQuery2_1:input_type -> database.LongForQuery2_1Request
+	82,  // 41: database.UtilsService.QueryNumEntries2:input_type -> database.QueryNumEntries2Request
+	84,  // 42: database.UtilsService.QueryNumEntries3_1:input_type -> database.QueryNumEntries3_1Request
+	86,  // 43: database.UtilsService.QueryNumEntries4_2:input_type -> database.QueryNumEntries4_2Request
+	88,  // 44: database.UtilsService.ReadExceptionFromParcel:input_type -> database.ReadExceptionFromParcelRequest
+	90,  // 45: database.UtilsService.ReadExceptionWithFileNotFoundExceptionFromParcel:input_type -> database.ReadExceptionWithFileNotFoundExceptionFromParcelRequest
+	92,  // 46: database.UtilsService.ReadExceptionWithOperationApplicationExceptionFromParcel:input_type -> database.ReadExceptionWithOperationApplicationExceptionFromParcelRequest
+	94,  // 47: database.UtilsService.SqlEscapeString:input_type -> database.SqlEscapeStringRequest
+	96,  // 48: database.UtilsService.StringForQuery3:input_type -> database.StringForQuery3Request
+	98,  // 49: database.UtilsService.StringForQuery2_1:input_type -> database.StringForQuery2_1Request
+	100, // 50: database.UtilsService.WriteExceptionToParcel:input_type -> database.WriteExceptionToParcelRequest
+	102, // 51: database.UtilsInsertHelperService.Bind2:input_type -> database.Bind2Request
+	104, // 52: database.UtilsInsertHelperService.Bind2_1:input_type -> database.Bind2_1Request
+	106, // 53: database.UtilsInsertHelperService.Bind2_2:input_type -> database.Bind2_2Request
+	108, // 54: database.UtilsInsertHelperService.Bind2_3:input_type -> database.Bind2_3Request
+	110, // 55: database.UtilsInsertHelperService.Bind2_4:input_type -> database.Bind2_4Request
+	112, // 56: database.UtilsInsertHelperService.Bind2_5:input_type -> database.Bind2_5Request
+	114, // 57: database.UtilsInsertHelperService.Bind2_6:input_type -> database.Bind2_6Request
+	116, // 58: database.UtilsInsertHelperService.BindNull:input_type -> database.BindNullRequest
+	118, // 59: database.UtilsInsertHelperService.Close:input_type -> database.CloseRequest
+	120, // 60: database.UtilsInsertHelperService.Execute:input_type -> database.ExecuteRequest
+	122, // 61: database.UtilsInsertHelperService.GetColumnIndex:input_type -> database.GetColumnIndexRequest
+	124, // 62: database.UtilsInsertHelperService.Insert:input_type -> database.InsertRequest
+	126, // 63: database.UtilsInsertHelperService.PrepareForInsert:input_type -> database.PrepareForInsertRequest
+	128, // 64: database.UtilsInsertHelperService.PrepareForReplace:input_type -> database.PrepareForReplaceRequest
+	130, // 65: database.UtilsInsertHelperService.Replace:input_type -> database.ReplaceRequest
+	132, // 66: database.MatrixCursorService.NewMatrixCursor:input_type -> database.NewMatrixCursorRequest
+	134, // 67: database.MatrixCursorService.AddRow:input_type -> database.AddRowRequest
+	136, // 68: database.MatrixCursorService.GetBlob:input_type -> database.GetBlobRequest
+	138, // 69: database.MatrixCursorService.GetColumnNames:input_type -> database.GetColumnNamesRequest
+	140, // 70: database.MatrixCursorService.GetCount:input_type -> database.GetCountRequest
+	142, // 71: database.MatrixCursorService.GetDouble:input_type -> database.GetDoubleRequest
+	144, // 72: database.MatrixCursorService.GetFloat:input_type -> database.GetFloatRequest
+	146, // 73: database.MatrixCursorService.GetInt:input_type -> database.GetIntRequest
+	148, // 74: database.MatrixCursorService.GetLong:input_type -> database.GetLongRequest
+	150, // 75: database.MatrixCursorService.GetShort:input_type -> database.GetShortRequest
+	152, // 76: database.MatrixCursorService.GetString:input_type -> database.GetStringRequest
+	154, // 77: database.MatrixCursorService.GetType:input_type -> database.GetTypeRequest
+	156, // 78: database.MatrixCursorService.IsNull:input_type -> database.IsNullRequest
+	158, // 79: database.MatrixCursorService.NewRow:input_type -> database.NewRowRequest
+	160, // 80: database.MatrixCursorRowBuilderService.Add1:input_type -> database.Add1Request
+	162, // 81: database.MatrixCursorRowBuilderService.Add2_1:input_type -> database.Add2_1Request
+	164, // 82: database.ContentObserverService.DeliverSelfNotifications:input_type -> database.DeliverSelfNotificationsRequest
+	166, // 83: database.ContentObserverService.DispatchChange1:input_type -> database.DispatchChange1Request
+	168, // 84: database.ContentObserverService.DispatchChange2_1:input_type -> database.DispatchChange2_1Request
+	170, // 85: database.ContentObserverService.DispatchChange3_2:input_type -> database.DispatchChange3_2Request
+	172, // 86: database.ContentObserverService.OnChange1:input_type -> database.OnChange1Request
+	174, // 87: database.ContentObserverService.OnChange2_1:input_type -> database.OnChange2_1Request
+	176, // 88: database.ContentObserverService.OnChange3_2:input_type -> database.OnChange3_2Request
+	178, // 89: database.DefaultDatabaseErrorHandlerService.NewDefaultDatabaseErrorHandler:input_type -> database.NewDefaultDatabaseErrorHandlerRequest
+	180, // 90: database.DefaultDatabaseErrorHandlerService.OnCorruption:input_type -> database.OnCorruptionRequest
+	182, // 91: database.CursorWrapperService.NewCursorWrapper:input_type -> database.NewCursorWrapperRequest
+	184, // 92: database.CursorWrapperService.Close:input_type -> database.CursorWrapperCloseRequest
+	185, // 93: database.CursorWrapperService.CopyStringToBuffer:input_type -> database.CopyStringToBufferRequest
+	187, // 94: database.CursorWrapperService.Deactivate:input_type -> database.DeactivateRequest
+	136, // 95: database.CursorWrapperService.GetBlob:input_type -> database.GetBlobRequest
+	189, // 96: database.CursorWrapperService.GetColumnCount:input_type -> database.GetColumnCountRequest
+	191, // 97: database.CursorWrapperService.GetColumnIndex:input_type -> database.CursorWrapperGetColumnIndexRequest
+	192, // 98: database.CursorWrapperService.GetColumnIndexOrThrow:input_type -> database.GetColumnIndexOrThrowRequest
+	194, // 99: database.CursorWrapperService.GetColumnName:input_type -> database.GetColumnNameRequest
+	138, // 100: database.CursorWrapperService.GetColumnNames:input_type -> database.GetColumnNamesRequest
+	140, // 101: database.CursorWrapperService.GetCount:input_type -> database.GetCountRequest
+	142, // 102: database.CursorWrapperService.GetDouble:input_type -> database.GetDoubleRequest
+	196, // 103: database.CursorWrapperService.GetExtras:input_type -> database.GetExtrasRequest
+	144, // 104: database.CursorWrapperService.GetFloat:input_type -> database.GetFloatRequest
+	146, // 105: database.CursorWrapperService.GetInt:input_type -> database.GetIntRequest
+	148, // 106: database.CursorWrapperService.GetLong:input_type -> database.GetLongRequest
+	198, // 107: database.CursorWrapperService.GetNotificationUri:input_type -> database.GetNotificationUriRequest
+	200, // 108: database.CursorWrapperService.GetPosition:input_type -> database.GetPositionRequest
+	150, // 109: database.CursorWrapperService.GetShort:input_type -> database.GetShortRequest
+	152, // 110: database.CursorWrapperService.GetString:input_type -> database.GetStringRequest
+	154, // 111: database.CursorWrapperService.GetType:input_type -> database.GetTypeRequest
+	202, // 112: database.CursorWrapperService.GetWantsAllOnMoveCalls:input_type -> database.GetWantsAllOnMoveCallsRequest
+	204, // 113: database.CursorWrapperService.GetWrappedCursor:input_type -> database.GetWrappedCursorRequest
+	206, // 114: database.CursorWrapperService.IsAfterLast:input_type -> database.IsAfterLastRequest
+	208, // 115: database.CursorWrapperService.IsBeforeFirst:input_type -> database.IsBeforeFirstRequest
+	210, // 116: database.CursorWrapperService.IsClosed:input_type -> database.IsClosedRequest
+	212, // 117: database.CursorWrapperService.IsFirst:input_type -> database.IsFirstRequest
+	214, // 118: database.CursorWrapperService.IsLast:input_type -> database.IsLastRequest
+	156, // 119: database.CursorWrapperService.IsNull:input_type -> database.IsNullRequest
+	216, // 120: database.CursorWrapperService.Move:input_type -> database.MoveRequest
+	218, // 121: database.CursorWrapperService.MoveToFirst:input_type -> database.MoveToFirstRequest
+	220, // 122: database.CursorWrapperService.MoveToLast:input_type -> database.MoveToLastRequest
+	222, // 123: database.CursorWrapperService.MoveToNext:input_type -> database.MoveToNextRequest
+	224, // 124: database.CursorWrapperService.MoveToPosition:input_type -> database.MoveToPositionRequest
+	226, // 125: database.CursorWrapperService.MoveToPrevious:input_type -> database.MoveToPreviousRequest
+	228, // 126: database.CursorWrapperService.RegisterContentObserver:input_type -> database.RegisterContentObserverRequest
+	230, // 127: database.CursorWrapperService.RegisterDataSetObserver:input_type -> database.RegisterDataSetObserverRequest
+	232, // 128: database.CursorWrapperService.Requery:input_type -> database.RequeryRequest
+	234, // 129: database.CursorWrapperService.Respond:input_type -> database.RespondRequest
+	236, // 130: database.CursorWrapperService.SetExtras:input_type -> database.SetExtrasRequest
+	238, // 131: database.CursorWrapperService.SetNotificationUri:input_type -> database.SetNotificationUriRequest
+	240, // 132: database.CursorWrapperService.UnregisterContentObserver:input_type -> database.UnregisterContentObserverRequest
+	242, // 133: database.CursorWrapperService.UnregisterDataSetObserver:input_type -> database.UnregisterDataSetObserverRequest
+	244, // 134: database.ObservableService.UnregisterAll:input_type -> database.UnregisterAllRequest
+	246, // 135: database.CrossProcessCursorWrapperService.NewCrossProcessCursorWrapper:input_type -> database.NewCrossProcessCursorWrapperRequest
+	248, // 136: database.CrossProcessCursorWrapperService.FillWindow:input_type -> database.FillWindowRequest
+	250, // 137: database.CrossProcessCursorWrapperService.GetWindow:input_type -> database.GetWindowRequest
+	252, // 138: database.CrossProcessCursorWrapperService.OnMove:input_type -> database.OnMoveRequest
+	254, // 139: database.DataSetObserverService.OnChanged:input_type -> database.OnChangedRequest
+	256, // 140: database.DataSetObserverService.OnInvalidated:input_type -> database.OnInvalidatedRequest
+	258, // 141: database.CursorJoinerService.NewCursorJoiner:input_type -> database.NewCursorJoinerRequest
+	260, // 142: database.CursorJoinerService.HasNext:input_type -> database.HasNextRequest
+	262, // 143: database.CursorJoinerService.Next0:input_type -> database.Next0Request
+	264, // 144: database.CursorJoinerService.Remove:input_type -> database.RemoveRequest
+	266, // 145: database.CursorJoinerService.Next0_1:input_type -> database.Next0_1Request
+	268, // 146: database.CursorJoinerResultService.Values:input_type -> database.ValuesRequest
+	270, // 147: database.CursorJoinerResultService.ValueOf:input_type -> database.ValueOfRequest
+	272, // 148: database.CrossProcessCursorService.FillWindow:input_type -> database.CrossProcessCursorFillWindowRequest
+	273, // 149: database.CrossProcessCursorService.GetWindow:input_type -> database.CrossProcessCursorGetWindowRequest
+	274, // 150: database.CrossProcessCursorService.OnMove:input_type -> database.CrossProcessCursorOnMoveRequest
+	275, // 151: database.CursorWindowService.NewCursorWindow:input_type -> database.NewCursorWindowRequest
+	277, // 152: database.CursorWindowService.AllocRow:input_type -> database.AllocRowRequest
+	279, // 153: database.CursorWindowService.Clear:input_type -> database.ClearRequest
+	281, // 154: database.CursorWindowService.CopyStringToBuffer:input_type -> database.CursorWindowCopyStringToBufferRequest
+	282, // 155: database.CursorWindowService.DescribeContents:input_type -> database.DescribeContentsRequest
+	284, // 156: database.CursorWindowService.FreeLastRow:input_type -> database.FreeLastRowRequest
+	286, // 157: database.CursorWindowService.GetBlob:input_type -> database.CursorWindowGetBlobRequest
+	287, // 158: database.CursorWindowService.GetDouble:input_type -> database.CursorWindowGetDoubleRequest
+	288, // 159: database.CursorWindowService.GetFloat:input_type -> database.CursorWindowGetFloatRequest
+	289, // 160: database.CursorWindowService.GetInt:input_type -> database.CursorWindowGetIntRequest
+	290, // 161: database.CursorWindowService.GetLong:input_type -> database.CursorWindowGetLongRequest
+	291, // 162: database.CursorWindowService.GetNumRows:input_type -> database.GetNumRowsRequest
+	293, // 163: database.CursorWindowService.GetShort:input_type -> database.CursorWindowGetShortRequest
+	294, // 164: database.CursorWindowService.GetStartPosition:input_type -> database.GetStartPositionRequest
+	296, // 165: database.CursorWindowService.GetString:input_type -> database.CursorWindowGetStringRequest
+	297, // 166: database.CursorWindowService.GetType:input_type -> database.CursorWindowGetTypeRequest
+	298, // 167: database.CursorWindowService.IsBlob:input_type -> database.IsBlobRequest
+	300, // 168: database.CursorWindowService.IsFloat:input_type -> database.IsFloatRequest
+	302, // 169: database.CursorWindowService.IsLong:input_type -> database.IsLongRequest
+	304, // 170: database.CursorWindowService.IsNull:input_type -> database.CursorWindowIsNullRequest
+	305, // 171: database.CursorWindowService.IsString:input_type -> database.IsStringRequest
+	307, // 172: database.CursorWindowService.PutBlob:input_type -> database.PutBlobRequest
+	309, // 173: database.CursorWindowService.PutDouble:input_type -> database.PutDoubleRequest
+	311, // 174: database.CursorWindowService.PutLong:input_type -> database.PutLongRequest
+	313, // 175: database.CursorWindowService.PutNull:input_type -> database.PutNullRequest
+	315, // 176: database.CursorWindowService.PutString:input_type -> database.PutStringRequest
+	317, // 177: database.CursorWindowService.SetNumColumns:input_type -> database.SetNumColumnsRequest
+	319, // 178: database.CursorWindowService.SetStartPosition:input_type -> database.SetStartPositionRequest
+	321, // 179: database.CursorWindowService.ToString:input_type -> database.ToStringRequest
+	323, // 180: database.CursorWindowService.WriteToParcel:input_type -> database.WriteToParcelRequest
+	325, // 181: database.CursorWindowService.NewFromParcel:input_type -> database.NewFromParcelRequest
+	327, // 182: database.ContentObservableService.NewContentObservable:input_type -> database.NewContentObservableRequest
+	329, // 183: database.ContentObservableService.DispatchChange1:input_type -> database.ContentObservableDispatchChange1Request
+	330, // 184: database.ContentObservableService.DispatchChange2_1:input_type -> database.ContentObservableDispatchChange2_1Request
+	331, // 185: database.ContentObservableService.NotifyChange:input_type -> database.NotifyChangeRequest
+	333, // 186: database.ContentObservableService.RegisterObserver1:input_type -> database.RegisterObserver1Request
+	335, // 187: database.ContentObservableService.RegisterObserver1_1:input_type -> database.RegisterObserver1_1Request
+	337, // 188: database.MergeCursorService.NewMergeCursor:input_type -> database.NewMergeCursorRequest
+	339, // 189: database.MergeCursorService.Close:input_type -> database.MergeCursorCloseRequest
+	187, // 190: database.MergeCursorService.Deactivate:input_type -> database.DeactivateRequest
+	136, // 191: database.MergeCursorService.GetBlob:input_type -> database.GetBlobRequest
+	138, // 192: database.MergeCursorService.GetColumnNames:input_type -> database.GetColumnNamesRequest
+	140, // 193: database.MergeCursorService.GetCount:input_type -> database.GetCountRequest
+	142, // 194: database.MergeCursorService.GetDouble:input_type -> database.GetDoubleRequest
+	144, // 195: database.MergeCursorService.GetFloat:input_type -> database.GetFloatRequest
+	146, // 196: database.MergeCursorService.GetInt:input_type -> database.GetIntRequest
+	148, // 197: database.MergeCursorService.GetLong:input_type -> database.GetLongRequest
+	150, // 198: database.MergeCursorService.GetShort:input_type -> database.GetShortRequest
+	152, // 199: database.MergeCursorService.GetString:input_type -> database.GetStringRequest
+	154, // 200: database.MergeCursorService.GetType:input_type -> database.GetTypeRequest
+	156, // 201: database.MergeCursorService.IsNull:input_type -> database.IsNullRequest
+	252, // 202: database.MergeCursorService.OnMove:input_type -> database.OnMoveRequest
+	228, // 203: database.MergeCursorService.RegisterContentObserver:input_type -> database.RegisterContentObserverRequest
+	230, // 204: database.MergeCursorService.RegisterDataSetObserver:input_type -> database.RegisterDataSetObserverRequest
+	232, // 205: database.MergeCursorService.Requery:input_type -> database.RequeryRequest
+	240, // 206: database.MergeCursorService.UnregisterContentObserver:input_type -> database.UnregisterContentObserverRequest
+	242, // 207: database.MergeCursorService.UnregisterDataSetObserver:input_type -> database.UnregisterDataSetObserverRequest
+	340, // 208: database.AbstractWindowedCursorService.CopyStringToBuffer:input_type -> database.AbstractWindowedCursorCopyStringToBufferRequest
+	341, // 209: database.AbstractWindowedCursorService.GetBlob:input_type -> database.AbstractWindowedCursorGetBlobRequest
+	342, // 210: database.AbstractWindowedCursorService.GetDouble:input_type -> database.AbstractWindowedCursorGetDoubleRequest
+	343, // 211: database.AbstractWindowedCursorService.GetFloat:input_type -> database.AbstractWindowedCursorGetFloatRequest
+	344, // 212: database.AbstractWindowedCursorService.GetInt:input_type -> database.AbstractWindowedCursorGetIntRequest
+	345, // 213: database.AbstractWindowedCursorService.GetLong:input_type -> database.AbstractWindowedCursorGetLongRequest
+	346, // 214: database.AbstractWindowedCursorService.GetShort:input_type -> database.AbstractWindowedCursorGetShortRequest
+	347, // 215: database.AbstractWindowedCursorService.GetString:input_type -> database.AbstractWindowedCursorGetStringRequest
+	348, // 216: database.AbstractWindowedCursorService.GetType:input_type -> database.AbstractWindowedCursorGetTypeRequest
+	349, // 217: database.AbstractWindowedCursorService.GetWindow:input_type -> database.AbstractWindowedCursorGetWindowRequest
+	350, // 218: database.AbstractWindowedCursorService.HasWindow:input_type -> database.HasWindowRequest
+	352, // 219: database.AbstractWindowedCursorService.IsBlob:input_type -> database.AbstractWindowedCursorIsBlobRequest
+	353, // 220: database.AbstractWindowedCursorService.IsFloat:input_type -> database.AbstractWindowedCursorIsFloatRequest
+	354, // 221: database.AbstractWindowedCursorService.IsLong:input_type -> database.AbstractWindowedCursorIsLongRequest
+	355, // 222: database.AbstractWindowedCursorService.IsNull:input_type -> database.AbstractWindowedCursorIsNullRequest
+	356, // 223: database.AbstractWindowedCursorService.IsString:input_type -> database.AbstractWindowedCursorIsStringRequest
+	357, // 224: database.AbstractWindowedCursorService.SetWindow:input_type -> database.SetWindowRequest
+	359, // 225: database.ErrorHandlerService.OnCorruption:input_type -> database.ErrorHandlerOnCorruptionRequest
+	118, // 226: database.AbstractCursorService.Close:input_type -> database.CloseRequest
+	360, // 227: database.AbstractCursorService.CopyStringToBuffer:input_type -> database.AbstractCursorCopyStringToBufferRequest
+	361, // 228: database.AbstractCursorService.Deactivate:input_type -> database.AbstractCursorDeactivateRequest
+	362, // 229: database.AbstractCursorService.FillWindow:input_type -> database.AbstractCursorFillWindowRequest
+	363, // 230: database.AbstractCursorService.GetBlob:input_type -> database.AbstractCursorGetBlobRequest
+	364, // 231: database.AbstractCursorService.GetColumnCount:input_type -> database.AbstractCursorGetColumnCountRequest
+	122, // 232: database.AbstractCursorService.GetColumnIndex:input_type -> database.GetColumnIndexRequest
+	365, // 233: database.AbstractCursorService.GetColumnIndexOrThrow:input_type -> database.AbstractCursorGetColumnIndexOrThrowRequest
+	366, // 234: database.AbstractCursorService.GetColumnName:input_type -> database.AbstractCursorGetColumnNameRequest
+	367, // 235: database.AbstractCursorService.GetColumnNames:input_type -> database.AbstractCursorGetColumnNamesRequest
+	368, // 236: database.AbstractCursorService.GetCount:input_type -> database.AbstractCursorGetCountRequest
+	369, // 237: database.AbstractCursorService.GetDouble:input_type -> database.AbstractCursorGetDoubleRequest
+	370, // 238: database.AbstractCursorService.GetExtras:input_type -> database.AbstractCursorGetExtrasRequest
+	371, // 239: database.AbstractCursorService.GetFloat:input_type -> database.AbstractCursorGetFloatRequest
+	372, // 240: database.AbstractCursorService.GetInt:input_type -> database.AbstractCursorGetIntRequest
+	373, // 241: database.AbstractCursorService.GetLong:input_type -> database.AbstractCursorGetLongRequest
+	374, // 242: database.AbstractCursorService.GetNotificationUri:input_type -> database.AbstractCursorGetNotificationUriRequest
+	375, // 243: database.AbstractCursorService.GetPosition:input_type -> database.AbstractCursorGetPositionRequest
+	376, // 244: database.AbstractCursorService.GetShort:input_type -> database.AbstractCursorGetShortRequest
+	377, // 245: database.AbstractCursorService.GetString:input_type -> database.AbstractCursorGetStringRequest
+	378, // 246: database.AbstractCursorService.GetType:input_type -> database.AbstractCursorGetTypeRequest
+	379, // 247: database.AbstractCursorService.GetWantsAllOnMoveCalls:input_type -> database.AbstractCursorGetWantsAllOnMoveCallsRequest
+	380, // 248: database.AbstractCursorService.GetWindow:input_type -> database.AbstractCursorGetWindowRequest
+	381, // 249: database.AbstractCursorService.IsAfterLast:input_type -> database.AbstractCursorIsAfterLastRequest
+	382, // 250: database.AbstractCursorService.IsBeforeFirst:input_type -> database.AbstractCursorIsBeforeFirstRequest
+	383, // 251: database.AbstractCursorService.IsClosed:input_type -> database.AbstractCursorIsClosedRequest
+	384, // 252: database.AbstractCursorService.IsFirst:input_type -> database.AbstractCursorIsFirstRequest
+	385, // 253: database.AbstractCursorService.IsLast:input_type -> database.AbstractCursorIsLastRequest
+	386, // 254: database.AbstractCursorService.IsNull:input_type -> database.AbstractCursorIsNullRequest
+	387, // 255: database.AbstractCursorService.Move:input_type -> database.AbstractCursorMoveRequest
+	388, // 256: database.AbstractCursorService.MoveToFirst:input_type -> database.AbstractCursorMoveToFirstRequest
+	389, // 257: database.AbstractCursorService.MoveToLast:input_type -> database.AbstractCursorMoveToLastRequest
+	390, // 258: database.AbstractCursorService.MoveToNext:input_type -> database.AbstractCursorMoveToNextRequest
+	391, // 259: database.AbstractCursorService.MoveToPosition:input_type -> database.AbstractCursorMoveToPositionRequest
+	392, // 260: database.AbstractCursorService.MoveToPrevious:input_type -> database.AbstractCursorMoveToPreviousRequest
+	393, // 261: database.AbstractCursorService.OnMove:input_type -> database.AbstractCursorOnMoveRequest
+	394, // 262: database.AbstractCursorService.RegisterContentObserver:input_type -> database.AbstractCursorRegisterContentObserverRequest
+	395, // 263: database.AbstractCursorService.RegisterDataSetObserver:input_type -> database.AbstractCursorRegisterDataSetObserverRequest
+	396, // 264: database.AbstractCursorService.Requery:input_type -> database.AbstractCursorRequeryRequest
+	397, // 265: database.AbstractCursorService.Respond:input_type -> database.AbstractCursorRespondRequest
+	398, // 266: database.AbstractCursorService.SetExtras:input_type -> database.AbstractCursorSetExtrasRequest
+	399, // 267: database.AbstractCursorService.SetNotificationUri:input_type -> database.AbstractCursorSetNotificationUriRequest
+	400, // 268: database.AbstractCursorService.UnregisterContentObserver:input_type -> database.AbstractCursorUnregisterContentObserverRequest
+	401, // 269: database.AbstractCursorService.UnregisterDataSetObserver:input_type -> database.AbstractCursorUnregisterDataSetObserverRequest
+	164, // 270: database.AbstractCursorSelfContentObserverService.DeliverSelfNotifications:input_type -> database.DeliverSelfNotificationsRequest
+	402, // 271: database.AbstractCursorSelfContentObserverService.OnChange:input_type -> database.OnChangeRequest
+	1,   // 272: database.DataSetObservableService.NewDataSetObservable:output_type -> database.NewDataSetObservableResponse
+	3,   // 273: database.DataSetObservableService.NotifyChanged:output_type -> database.NotifyChangedResponse
+	5,   // 274: database.DataSetObservableService.NotifyInvalidated:output_type -> database.NotifyInvalidatedResponse
+	7,   // 275: database.UtilsService.NewUtils:output_type -> database.NewUtilsResponse
+	9,   // 276: database.UtilsService.AppendEscapedSQLString:output_type -> database.AppendEscapedSQLStringResponse
+	11,  // 277: database.UtilsService.AppendSelectionArgs:output_type -> database.AppendSelectionArgsResponse
+	13,  // 278: database.UtilsService.AppendValueToSql:output_type -> database.AppendValueToSqlResponse
+	15,  // 279: database.UtilsService.BindObjectToProgram:output_type -> database.BindObjectToProgramResponse
+	17,  // 280: database.UtilsService.BlobFileDescriptorForQuery3:output_type -> database.BlobFileDescriptorForQuery3Response
+	19,  // 281: database.UtilsService.BlobFileDescriptorForQuery2_1:output_type -> database.BlobFileDescriptorForQuery2_1Response
+	21,  // 282: database.UtilsService.ConcatenateWhere:output_type -> database.ConcatenateWhereResponse
+	23,  // 283: database.UtilsService.CreateDbFromSqlStatements:output_type -> database.CreateDbFromSqlStatementsResponse
+	25,  // 284: database.UtilsService.CursorDoubleToContentValues:output_type -> database.CursorDoubleToContentValuesResponse
+	27,  // 285: database.UtilsService.CursorDoubleToContentValuesIfPresent:output_type -> database.CursorDoubleToContentValuesIfPresentResponse
+	29,  // 286: database.UtilsService.CursorDoubleToCursorValues:output_type -> database.CursorDoubleToCursorValuesResponse
+	31,  // 287: database.UtilsService.CursorFloatToContentValuesIfPresent:output_type -> database.CursorFloatToContentValuesIfPresentResponse
+	33,  // 288: database.UtilsService.CursorIntToContentValues3:output_type -> database.CursorIntToContentValues3Response
+	35,  // 289: database.UtilsService.CursorIntToContentValues4_1:output_type -> database.CursorIntToContentValues4_1Response
+	37,  // 290: database.UtilsService.CursorIntToContentValuesIfPresent:output_type -> database.CursorIntToContentValuesIfPresentResponse
+	39,  // 291: database.UtilsService.CursorLongToContentValues3:output_type -> database.CursorLongToContentValues3Response
+	41,  // 292: database.UtilsService.CursorLongToContentValues4_1:output_type -> database.CursorLongToContentValues4_1Response
+	43,  // 293: database.UtilsService.CursorLongToContentValuesIfPresent:output_type -> database.CursorLongToContentValuesIfPresentResponse
+	45,  // 294: database.UtilsService.CursorRowToContentValues:output_type -> database.CursorRowToContentValuesResponse
+	47,  // 295: database.UtilsService.CursorShortToContentValuesIfPresent:output_type -> database.CursorShortToContentValuesIfPresentResponse
+	49,  // 296: database.UtilsService.CursorStringToContentValues3:output_type -> database.CursorStringToContentValues3Response
+	51,  // 297: database.UtilsService.CursorStringToContentValues4_1:output_type -> database.CursorStringToContentValues4_1Response
+	53,  // 298: database.UtilsService.CursorStringToContentValuesIfPresent:output_type -> database.CursorStringToContentValuesIfPresentResponse
+	55,  // 299: database.UtilsService.CursorStringToInsertHelper:output_type -> database.CursorStringToInsertHelperResponse
+	57,  // 300: database.UtilsService.DumpCurrentRow1:output_type -> database.DumpCurrentRow1Response
+	59,  // 301: database.UtilsService.DumpCurrentRow2_1:output_type -> database.DumpCurrentRow2_1Response
+	61,  // 302: database.UtilsService.DumpCurrentRow2_2:output_type -> database.DumpCurrentRow2_2Response
+	63,  // 303: database.UtilsService.DumpCurrentRowToString:output_type -> database.DumpCurrentRowToStringResponse
+	65,  // 304: database.UtilsService.DumpCursor1:output_type -> database.DumpCursor1Response
+	67,  // 305: database.UtilsService.DumpCursor2_1:output_type -> database.DumpCursor2_1Response
+	69,  // 306: database.UtilsService.DumpCursor2_2:output_type -> database.DumpCursor2_2Response
+	71,  // 307: database.UtilsService.DumpCursorToString:output_type -> database.DumpCursorToStringResponse
+	73,  // 308: database.UtilsService.GetCollationKey:output_type -> database.GetCollationKeyResponse
+	75,  // 309: database.UtilsService.GetHexCollationKey:output_type -> database.GetHexCollationKeyResponse
+	77,  // 310: database.UtilsService.GetSqlStatementType:output_type -> database.GetSqlStatementTypeResponse
+	79,  // 311: database.UtilsService.LongForQuery3:output_type -> database.LongForQuery3Response
+	81,  // 312: database.UtilsService.LongForQuery2_1:output_type -> database.LongForQuery2_1Response
+	83,  // 313: database.UtilsService.QueryNumEntries2:output_type -> database.QueryNumEntries2Response
+	85,  // 314: database.UtilsService.QueryNumEntries3_1:output_type -> database.QueryNumEntries3_1Response
+	87,  // 315: database.UtilsService.QueryNumEntries4_2:output_type -> database.QueryNumEntries4_2Response
+	89,  // 316: database.UtilsService.ReadExceptionFromParcel:output_type -> database.ReadExceptionFromParcelResponse
+	91,  // 317: database.UtilsService.ReadExceptionWithFileNotFoundExceptionFromParcel:output_type -> database.ReadExceptionWithFileNotFoundExceptionFromParcelResponse
+	93,  // 318: database.UtilsService.ReadExceptionWithOperationApplicationExceptionFromParcel:output_type -> database.ReadExceptionWithOperationApplicationExceptionFromParcelResponse
+	95,  // 319: database.UtilsService.SqlEscapeString:output_type -> database.SqlEscapeStringResponse
+	97,  // 320: database.UtilsService.StringForQuery3:output_type -> database.StringForQuery3Response
+	99,  // 321: database.UtilsService.StringForQuery2_1:output_type -> database.StringForQuery2_1Response
+	101, // 322: database.UtilsService.WriteExceptionToParcel:output_type -> database.WriteExceptionToParcelResponse
+	103, // 323: database.UtilsInsertHelperService.Bind2:output_type -> database.Bind2Response
+	105, // 324: database.UtilsInsertHelperService.Bind2_1:output_type -> database.Bind2_1Response
+	107, // 325: database.UtilsInsertHelperService.Bind2_2:output_type -> database.Bind2_2Response
+	109, // 326: database.UtilsInsertHelperService.Bind2_3:output_type -> database.Bind2_3Response
+	111, // 327: database.UtilsInsertHelperService.Bind2_4:output_type -> database.Bind2_4Response
+	113, // 328: database.UtilsInsertHelperService.Bind2_5:output_type -> database.Bind2_5Response
+	115, // 329: database.UtilsInsertHelperService.Bind2_6:output_type -> database.Bind2_6Response
+	117, // 330: database.UtilsInsertHelperService.BindNull:output_type -> database.BindNullResponse
+	119, // 331: database.UtilsInsertHelperService.Close:output_type -> database.CloseResponse
+	121, // 332: database.UtilsInsertHelperService.Execute:output_type -> database.ExecuteResponse
+	123, // 333: database.UtilsInsertHelperService.GetColumnIndex:output_type -> database.GetColumnIndexResponse
+	125, // 334: database.UtilsInsertHelperService.Insert:output_type -> database.InsertResponse
+	127, // 335: database.UtilsInsertHelperService.PrepareForInsert:output_type -> database.PrepareForInsertResponse
+	129, // 336: database.UtilsInsertHelperService.PrepareForReplace:output_type -> database.PrepareForReplaceResponse
+	131, // 337: database.UtilsInsertHelperService.Replace:output_type -> database.ReplaceResponse
+	133, // 338: database.MatrixCursorService.NewMatrixCursor:output_type -> database.NewMatrixCursorResponse
+	135, // 339: database.MatrixCursorService.AddRow:output_type -> database.AddRowResponse
+	137, // 340: database.MatrixCursorService.GetBlob:output_type -> database.GetBlobResponse
+	139, // 341: database.MatrixCursorService.GetColumnNames:output_type -> database.GetColumnNamesResponse
+	141, // 342: database.MatrixCursorService.GetCount:output_type -> database.GetCountResponse
+	143, // 343: database.MatrixCursorService.GetDouble:output_type -> database.GetDoubleResponse
+	145, // 344: database.MatrixCursorService.GetFloat:output_type -> database.GetFloatResponse
+	147, // 345: database.MatrixCursorService.GetInt:output_type -> database.GetIntResponse
+	149, // 346: database.MatrixCursorService.GetLong:output_type -> database.GetLongResponse
+	151, // 347: database.MatrixCursorService.GetShort:output_type -> database.GetShortResponse
+	153, // 348: database.MatrixCursorService.GetString:output_type -> database.GetStringResponse
+	155, // 349: database.MatrixCursorService.GetType:output_type -> database.GetTypeResponse
+	157, // 350: database.MatrixCursorService.IsNull:output_type -> database.IsNullResponse
+	159, // 351: database.MatrixCursorService.NewRow:output_type -> database.NewRowResponse
+	161, // 352: database.MatrixCursorRowBuilderService.Add1:output_type -> database.Add1Response
+	163, // 353: database.MatrixCursorRowBuilderService.Add2_1:output_type -> database.Add2_1Response
+	165, // 354: database.ContentObserverService.DeliverSelfNotifications:output_type -> database.DeliverSelfNotificationsResponse
+	167, // 355: database.ContentObserverService.DispatchChange1:output_type -> database.DispatchChange1Response
+	169, // 356: database.ContentObserverService.DispatchChange2_1:output_type -> database.DispatchChange2_1Response
+	171, // 357: database.ContentObserverService.DispatchChange3_2:output_type -> database.DispatchChange3_2Response
+	173, // 358: database.ContentObserverService.OnChange1:output_type -> database.OnChange1Response
+	175, // 359: database.ContentObserverService.OnChange2_1:output_type -> database.OnChange2_1Response
+	177, // 360: database.ContentObserverService.OnChange3_2:output_type -> database.OnChange3_2Response
+	179, // 361: database.DefaultDatabaseErrorHandlerService.NewDefaultDatabaseErrorHandler:output_type -> database.NewDefaultDatabaseErrorHandlerResponse
+	181, // 362: database.DefaultDatabaseErrorHandlerService.OnCorruption:output_type -> database.OnCorruptionResponse
+	183, // 363: database.CursorWrapperService.NewCursorWrapper:output_type -> database.NewCursorWrapperResponse
+	119, // 364: database.CursorWrapperService.Close:output_type -> database.CloseResponse
+	186, // 365: database.CursorWrapperService.CopyStringToBuffer:output_type -> database.CopyStringToBufferResponse
+	188, // 366: database.CursorWrapperService.Deactivate:output_type -> database.DeactivateResponse
+	137, // 367: database.CursorWrapperService.GetBlob:output_type -> database.GetBlobResponse
+	190, // 368: database.CursorWrapperService.GetColumnCount:output_type -> database.GetColumnCountResponse
+	123, // 369: database.CursorWrapperService.GetColumnIndex:output_type -> database.GetColumnIndexResponse
+	193, // 370: database.CursorWrapperService.GetColumnIndexOrThrow:output_type -> database.GetColumnIndexOrThrowResponse
+	195, // 371: database.CursorWrapperService.GetColumnName:output_type -> database.GetColumnNameResponse
+	139, // 372: database.CursorWrapperService.GetColumnNames:output_type -> database.GetColumnNamesResponse
+	141, // 373: database.CursorWrapperService.GetCount:output_type -> database.GetCountResponse
+	143, // 374: database.CursorWrapperService.GetDouble:output_type -> database.GetDoubleResponse
+	197, // 375: database.CursorWrapperService.GetExtras:output_type -> database.GetExtrasResponse
+	145, // 376: database.CursorWrapperService.GetFloat:output_type -> database.GetFloatResponse
+	147, // 377: database.CursorWrapperService.GetInt:output_type -> database.GetIntResponse
+	149, // 378: database.CursorWrapperService.GetLong:output_type -> database.GetLongResponse
+	199, // 379: database.CursorWrapperService.GetNotificationUri:output_type -> database.GetNotificationUriResponse
+	201, // 380: database.CursorWrapperService.GetPosition:output_type -> database.GetPositionResponse
+	151, // 381: database.CursorWrapperService.GetShort:output_type -> database.GetShortResponse
+	153, // 382: database.CursorWrapperService.GetString:output_type -> database.GetStringResponse
+	155, // 383: database.CursorWrapperService.GetType:output_type -> database.GetTypeResponse
+	203, // 384: database.CursorWrapperService.GetWantsAllOnMoveCalls:output_type -> database.GetWantsAllOnMoveCallsResponse
+	205, // 385: database.CursorWrapperService.GetWrappedCursor:output_type -> database.GetWrappedCursorResponse
+	207, // 386: database.CursorWrapperService.IsAfterLast:output_type -> database.IsAfterLastResponse
+	209, // 387: database.CursorWrapperService.IsBeforeFirst:output_type -> database.IsBeforeFirstResponse
+	211, // 388: database.CursorWrapperService.IsClosed:output_type -> database.IsClosedResponse
+	213, // 389: database.CursorWrapperService.IsFirst:output_type -> database.IsFirstResponse
+	215, // 390: database.CursorWrapperService.IsLast:output_type -> database.IsLastResponse
+	157, // 391: database.CursorWrapperService.IsNull:output_type -> database.IsNullResponse
+	217, // 392: database.CursorWrapperService.Move:output_type -> database.MoveResponse
+	219, // 393: database.CursorWrapperService.MoveToFirst:output_type -> database.MoveToFirstResponse
+	221, // 394: database.CursorWrapperService.MoveToLast:output_type -> database.MoveToLastResponse
+	223, // 395: database.CursorWrapperService.MoveToNext:output_type -> database.MoveToNextResponse
+	225, // 396: database.CursorWrapperService.MoveToPosition:output_type -> database.MoveToPositionResponse
+	227, // 397: database.CursorWrapperService.MoveToPrevious:output_type -> database.MoveToPreviousResponse
+	229, // 398: database.CursorWrapperService.RegisterContentObserver:output_type -> database.RegisterContentObserverResponse
+	231, // 399: database.CursorWrapperService.RegisterDataSetObserver:output_type -> database.RegisterDataSetObserverResponse
+	233, // 400: database.CursorWrapperService.Requery:output_type -> database.RequeryResponse
+	235, // 401: database.CursorWrapperService.Respond:output_type -> database.RespondResponse
+	237, // 402: database.CursorWrapperService.SetExtras:output_type -> database.SetExtrasResponse
+	239, // 403: database.CursorWrapperService.SetNotificationUri:output_type -> database.SetNotificationUriResponse
+	241, // 404: database.CursorWrapperService.UnregisterContentObserver:output_type -> database.UnregisterContentObserverResponse
+	243, // 405: database.CursorWrapperService.UnregisterDataSetObserver:output_type -> database.UnregisterDataSetObserverResponse
+	245, // 406: database.ObservableService.UnregisterAll:output_type -> database.UnregisterAllResponse
+	247, // 407: database.CrossProcessCursorWrapperService.NewCrossProcessCursorWrapper:output_type -> database.NewCrossProcessCursorWrapperResponse
+	249, // 408: database.CrossProcessCursorWrapperService.FillWindow:output_type -> database.FillWindowResponse
+	251, // 409: database.CrossProcessCursorWrapperService.GetWindow:output_type -> database.GetWindowResponse
+	253, // 410: database.CrossProcessCursorWrapperService.OnMove:output_type -> database.OnMoveResponse
+	255, // 411: database.DataSetObserverService.OnChanged:output_type -> database.OnChangedResponse
+	257, // 412: database.DataSetObserverService.OnInvalidated:output_type -> database.OnInvalidatedResponse
+	259, // 413: database.CursorJoinerService.NewCursorJoiner:output_type -> database.NewCursorJoinerResponse
+	261, // 414: database.CursorJoinerService.HasNext:output_type -> database.HasNextResponse
+	263, // 415: database.CursorJoinerService.Next0:output_type -> database.Next0Response
+	265, // 416: database.CursorJoinerService.Remove:output_type -> database.RemoveResponse
+	267, // 417: database.CursorJoinerService.Next0_1:output_type -> database.Next0_1Response
+	269, // 418: database.CursorJoinerResultService.Values:output_type -> database.ValuesResponse
+	271, // 419: database.CursorJoinerResultService.ValueOf:output_type -> database.ValueOfResponse
+	249, // 420: database.CrossProcessCursorService.FillWindow:output_type -> database.FillWindowResponse
+	251, // 421: database.CrossProcessCursorService.GetWindow:output_type -> database.GetWindowResponse
+	253, // 422: database.CrossProcessCursorService.OnMove:output_type -> database.OnMoveResponse
+	276, // 423: database.CursorWindowService.NewCursorWindow:output_type -> database.NewCursorWindowResponse
+	278, // 424: database.CursorWindowService.AllocRow:output_type -> database.AllocRowResponse
+	280, // 425: database.CursorWindowService.Clear:output_type -> database.ClearResponse
+	186, // 426: database.CursorWindowService.CopyStringToBuffer:output_type -> database.CopyStringToBufferResponse
+	283, // 427: database.CursorWindowService.DescribeContents:output_type -> database.DescribeContentsResponse
+	285, // 428: database.CursorWindowService.FreeLastRow:output_type -> database.FreeLastRowResponse
+	137, // 429: database.CursorWindowService.GetBlob:output_type -> database.GetBlobResponse
+	143, // 430: database.CursorWindowService.GetDouble:output_type -> database.GetDoubleResponse
+	145, // 431: database.CursorWindowService.GetFloat:output_type -> database.GetFloatResponse
+	147, // 432: database.CursorWindowService.GetInt:output_type -> database.GetIntResponse
+	149, // 433: database.CursorWindowService.GetLong:output_type -> database.GetLongResponse
+	292, // 434: database.CursorWindowService.GetNumRows:output_type -> database.GetNumRowsResponse
+	151, // 435: database.CursorWindowService.GetShort:output_type -> database.GetShortResponse
+	295, // 436: database.CursorWindowService.GetStartPosition:output_type -> database.GetStartPositionResponse
+	153, // 437: database.CursorWindowService.GetString:output_type -> database.GetStringResponse
+	155, // 438: database.CursorWindowService.GetType:output_type -> database.GetTypeResponse
+	299, // 439: database.CursorWindowService.IsBlob:output_type -> database.IsBlobResponse
+	301, // 440: database.CursorWindowService.IsFloat:output_type -> database.IsFloatResponse
+	303, // 441: database.CursorWindowService.IsLong:output_type -> database.IsLongResponse
+	157, // 442: database.CursorWindowService.IsNull:output_type -> database.IsNullResponse
+	306, // 443: database.CursorWindowService.IsString:output_type -> database.IsStringResponse
+	308, // 444: database.CursorWindowService.PutBlob:output_type -> database.PutBlobResponse
+	310, // 445: database.CursorWindowService.PutDouble:output_type -> database.PutDoubleResponse
+	312, // 446: database.CursorWindowService.PutLong:output_type -> database.PutLongResponse
+	314, // 447: database.CursorWindowService.PutNull:output_type -> database.PutNullResponse
+	316, // 448: database.CursorWindowService.PutString:output_type -> database.PutStringResponse
+	318, // 449: database.CursorWindowService.SetNumColumns:output_type -> database.SetNumColumnsResponse
+	320, // 450: database.CursorWindowService.SetStartPosition:output_type -> database.SetStartPositionResponse
+	322, // 451: database.CursorWindowService.ToString:output_type -> database.ToStringResponse
+	324, // 452: database.CursorWindowService.WriteToParcel:output_type -> database.WriteToParcelResponse
+	326, // 453: database.CursorWindowService.NewFromParcel:output_type -> database.NewFromParcelResponse
+	328, // 454: database.ContentObservableService.NewContentObservable:output_type -> database.NewContentObservableResponse
+	167, // 455: database.ContentObservableService.DispatchChange1:output_type -> database.DispatchChange1Response
+	169, // 456: database.ContentObservableService.DispatchChange2_1:output_type -> database.DispatchChange2_1Response
+	332, // 457: database.ContentObservableService.NotifyChange:output_type -> database.NotifyChangeResponse
+	334, // 458: database.ContentObservableService.RegisterObserver1:output_type -> database.RegisterObserver1Response
+	336, // 459: database.ContentObservableService.RegisterObserver1_1:output_type -> database.RegisterObserver1_1Response
+	338, // 460: database.MergeCursorService.NewMergeCursor:output_type -> database.NewMergeCursorResponse
+	119, // 461: database.MergeCursorService.Close:output_type -> database.CloseResponse
+	188, // 462: database.MergeCursorService.Deactivate:output_type -> database.DeactivateResponse
+	137, // 463: database.MergeCursorService.GetBlob:output_type -> database.GetBlobResponse
+	139, // 464: database.MergeCursorService.GetColumnNames:output_type -> database.GetColumnNamesResponse
+	141, // 465: database.MergeCursorService.GetCount:output_type -> database.GetCountResponse
+	143, // 466: database.MergeCursorService.GetDouble:output_type -> database.GetDoubleResponse
+	145, // 467: database.MergeCursorService.GetFloat:output_type -> database.GetFloatResponse
+	147, // 468: database.MergeCursorService.GetInt:output_type -> database.GetIntResponse
+	149, // 469: database.MergeCursorService.GetLong:output_type -> database.GetLongResponse
+	151, // 470: database.MergeCursorService.GetShort:output_type -> database.GetShortResponse
+	153, // 471: database.MergeCursorService.GetString:output_type -> database.GetStringResponse
+	155, // 472: database.MergeCursorService.GetType:output_type -> database.GetTypeResponse
+	157, // 473: database.MergeCursorService.IsNull:output_type -> database.IsNullResponse
+	253, // 474: database.MergeCursorService.OnMove:output_type -> database.OnMoveResponse
+	229, // 475: database.MergeCursorService.RegisterContentObserver:output_type -> database.RegisterContentObserverResponse
+	231, // 476: database.MergeCursorService.RegisterDataSetObserver:output_type -> database.RegisterDataSetObserverResponse
+	233, // 477: database.MergeCursorService.Requery:output_type -> database.RequeryResponse
+	241, // 478: database.MergeCursorService.UnregisterContentObserver:output_type -> database.UnregisterContentObserverResponse
+	243, // 479: database.MergeCursorService.UnregisterDataSetObserver:output_type -> database.UnregisterDataSetObserverResponse
+	186, // 480: database.AbstractWindowedCursorService.CopyStringToBuffer:output_type -> database.CopyStringToBufferResponse
+	137, // 481: database.AbstractWindowedCursorService.GetBlob:output_type -> database.GetBlobResponse
+	143, // 482: database.AbstractWindowedCursorService.GetDouble:output_type -> database.GetDoubleResponse
+	145, // 483: database.AbstractWindowedCursorService.GetFloat:output_type -> database.GetFloatResponse
+	147, // 484: database.AbstractWindowedCursorService.GetInt:output_type -> database.GetIntResponse
+	149, // 485: database.AbstractWindowedCursorService.GetLong:output_type -> database.GetLongResponse
+	151, // 486: database.AbstractWindowedCursorService.GetShort:output_type -> database.GetShortResponse
+	153, // 487: database.AbstractWindowedCursorService.GetString:output_type -> database.GetStringResponse
+	155, // 488: database.AbstractWindowedCursorService.GetType:output_type -> database.GetTypeResponse
+	251, // 489: database.AbstractWindowedCursorService.GetWindow:output_type -> database.GetWindowResponse
+	351, // 490: database.AbstractWindowedCursorService.HasWindow:output_type -> database.HasWindowResponse
+	299, // 491: database.AbstractWindowedCursorService.IsBlob:output_type -> database.IsBlobResponse
+	301, // 492: database.AbstractWindowedCursorService.IsFloat:output_type -> database.IsFloatResponse
+	303, // 493: database.AbstractWindowedCursorService.IsLong:output_type -> database.IsLongResponse
+	157, // 494: database.AbstractWindowedCursorService.IsNull:output_type -> database.IsNullResponse
+	306, // 495: database.AbstractWindowedCursorService.IsString:output_type -> database.IsStringResponse
+	358, // 496: database.AbstractWindowedCursorService.SetWindow:output_type -> database.SetWindowResponse
+	181, // 497: database.ErrorHandlerService.OnCorruption:output_type -> database.OnCorruptionResponse
+	119, // 498: database.AbstractCursorService.Close:output_type -> database.CloseResponse
+	186, // 499: database.AbstractCursorService.CopyStringToBuffer:output_type -> database.CopyStringToBufferResponse
+	188, // 500: database.AbstractCursorService.Deactivate:output_type -> database.DeactivateResponse
+	249, // 501: database.AbstractCursorService.FillWindow:output_type -> database.FillWindowResponse
+	137, // 502: database.AbstractCursorService.GetBlob:output_type -> database.GetBlobResponse
+	190, // 503: database.AbstractCursorService.GetColumnCount:output_type -> database.GetColumnCountResponse
+	123, // 504: database.AbstractCursorService.GetColumnIndex:output_type -> database.GetColumnIndexResponse
+	193, // 505: database.AbstractCursorService.GetColumnIndexOrThrow:output_type -> database.GetColumnIndexOrThrowResponse
+	195, // 506: database.AbstractCursorService.GetColumnName:output_type -> database.GetColumnNameResponse
+	139, // 507: database.AbstractCursorService.GetColumnNames:output_type -> database.GetColumnNamesResponse
+	141, // 508: database.AbstractCursorService.GetCount:output_type -> database.GetCountResponse
+	143, // 509: database.AbstractCursorService.GetDouble:output_type -> database.GetDoubleResponse
+	197, // 510: database.AbstractCursorService.GetExtras:output_type -> database.GetExtrasResponse
+	145, // 511: database.AbstractCursorService.GetFloat:output_type -> database.GetFloatResponse
+	147, // 512: database.AbstractCursorService.GetInt:output_type -> database.GetIntResponse
+	149, // 513: database.AbstractCursorService.GetLong:output_type -> database.GetLongResponse
+	199, // 514: database.AbstractCursorService.GetNotificationUri:output_type -> database.GetNotificationUriResponse
+	201, // 515: database.AbstractCursorService.GetPosition:output_type -> database.GetPositionResponse
+	151, // 516: database.AbstractCursorService.GetShort:output_type -> database.GetShortResponse
+	153, // 517: database.AbstractCursorService.GetString:output_type -> database.GetStringResponse
+	155, // 518: database.AbstractCursorService.GetType:output_type -> database.GetTypeResponse
+	203, // 519: database.AbstractCursorService.GetWantsAllOnMoveCalls:output_type -> database.GetWantsAllOnMoveCallsResponse
+	251, // 520: database.AbstractCursorService.GetWindow:output_type -> database.GetWindowResponse
+	207, // 521: database.AbstractCursorService.IsAfterLast:output_type -> database.IsAfterLastResponse
+	209, // 522: database.AbstractCursorService.IsBeforeFirst:output_type -> database.IsBeforeFirstResponse
+	211, // 523: database.AbstractCursorService.IsClosed:output_type -> database.IsClosedResponse
+	213, // 524: database.AbstractCursorService.IsFirst:output_type -> database.IsFirstResponse
+	215, // 525: database.AbstractCursorService.IsLast:output_type -> database.IsLastResponse
+	157, // 526: database.AbstractCursorService.IsNull:output_type -> database.IsNullResponse
+	217, // 527: database.AbstractCursorService.Move:output_type -> database.MoveResponse
+	219, // 528: database.AbstractCursorService.MoveToFirst:output_type -> database.MoveToFirstResponse
+	221, // 529: database.AbstractCursorService.MoveToLast:output_type -> database.MoveToLastResponse
+	223, // 530: database.AbstractCursorService.MoveToNext:output_type -> database.MoveToNextResponse
+	225, // 531: database.AbstractCursorService.MoveToPosition:output_type -> database.MoveToPositionResponse
+	227, // 532: database.AbstractCursorService.MoveToPrevious:output_type -> database.MoveToPreviousResponse
+	253, // 533: database.AbstractCursorService.OnMove:output_type -> database.OnMoveResponse
+	229, // 534: database.AbstractCursorService.RegisterContentObserver:output_type -> database.RegisterContentObserverResponse
+	231, // 535: database.AbstractCursorService.RegisterDataSetObserver:output_type -> database.RegisterDataSetObserverResponse
+	233, // 536: database.AbstractCursorService.Requery:output_type -> database.RequeryResponse
+	235, // 537: database.AbstractCursorService.Respond:output_type -> database.RespondResponse
+	237, // 538: database.AbstractCursorService.SetExtras:output_type -> database.SetExtrasResponse
+	239, // 539: database.AbstractCursorService.SetNotificationUri:output_type -> database.SetNotificationUriResponse
+	241, // 540: database.AbstractCursorService.UnregisterContentObserver:output_type -> database.UnregisterContentObserverResponse
+	243, // 541: database.AbstractCursorService.UnregisterDataSetObserver:output_type -> database.UnregisterDataSetObserverResponse
+	165, // 542: database.AbstractCursorSelfContentObserverService.DeliverSelfNotifications:output_type -> database.DeliverSelfNotificationsResponse
+	403, // 543: database.AbstractCursorSelfContentObserverService.OnChange:output_type -> database.OnChangeResponse
+	272, // [272:544] is the sub-list for method output_type
+	0,   // [0:272] is the sub-list for method input_type
+	0,   // [0:0] is the sub-list for extension type_name
+	0,   // [0:0] is the sub-list for extension extendee
+	0,   // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_proto_database_database_proto_init() }
@@ -48,12 +20907,13 @@ func file_proto_database_database_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_database_database_proto_rawDesc), len(file_proto_database_database_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   404,
 			NumExtensions: 0,
-			NumServices:   0,
+			NumServices:   21,
 		},
 		GoTypes:           file_proto_database_database_proto_goTypes,
 		DependencyIndexes: file_proto_database_database_proto_depIdxs,
+		MessageInfos:      file_proto_database_database_proto_msgTypes,
 	}.Build()
 	File_proto_database_database_proto = out.File
 	file_proto_database_database_proto_goTypes = nil

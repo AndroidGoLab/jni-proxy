@@ -5,3 +5,296 @@ syntax = "proto3";
 package measurement;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/measurement";
+
+message GetRequest {
+  int64 arg0 = 1;
+}
+
+message GetResponse {
+  int64 result = 1;
+}
+
+message DescribeContentsRequest {
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message EqualsRequest {
+  int64 arg0 = 1;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message GetInputEventRequest {
+}
+
+message GetInputEventResponse {
+  int64 result = 1;
+}
+
+message HashCodeRequest {
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteToParcelResponse {
+}
+
+message BuildRequest {
+}
+
+message BuildResponse {
+  int64 result = 1;
+}
+
+message SetInputEventRequest {
+  int64 arg0 = 1;
+}
+
+message SetInputEventResponse {
+  int64 result = 1;
+}
+
+message GetDeletionModeRequest {
+}
+
+message GetDeletionModeResponse {
+  int32 result = 1;
+}
+
+message GetEndRequest {
+}
+
+message GetEndResponse {
+  int64 result = 1;
+}
+
+message GetMatchBehaviorRequest {
+}
+
+message GetMatchBehaviorResponse {
+  int32 result = 1;
+}
+
+message GetStartRequest {
+}
+
+message GetStartResponse {
+  int64 result = 1;
+}
+
+message SetDeletionModeRequest {
+  int32 arg0 = 1;
+}
+
+message SetDeletionModeResponse {
+  int64 result = 1;
+}
+
+message SetEndRequest {
+  int64 arg0 = 1;
+}
+
+message SetEndResponse {
+  int64 result = 1;
+}
+
+message SetMatchBehaviorRequest {
+  int32 arg0 = 1;
+}
+
+message SetMatchBehaviorResponse {
+  int64 result = 1;
+}
+
+message SetStartRequest {
+  int64 arg0 = 1;
+}
+
+message SetStartResponse {
+  int64 result = 1;
+}
+
+message GetRegistrationUriRequest {
+}
+
+message GetRegistrationUriResponse {
+  int64 result = 1;
+}
+
+message IsDebugKeyAllowedRequest {
+}
+
+message IsDebugKeyAllowedResponse {
+  bool result = 1;
+}
+
+message SetDebugKeyAllowedRequest {
+  bool arg0 = 1;
+}
+
+message SetDebugKeyAllowedResponse {
+  int64 result = 1;
+}
+
+message GetDestinationRequest {
+}
+
+message GetDestinationResponse {
+  int64 result = 1;
+}
+
+message GetAppDestinationRequest {
+}
+
+message GetAppDestinationResponse {
+  int64 result = 1;
+}
+
+message GetTopOriginUriRequest {
+}
+
+message GetTopOriginUriResponse {
+  int64 result = 1;
+}
+
+message GetVerifiedDestinationRequest {
+}
+
+message GetVerifiedDestinationResponse {
+  int64 result = 1;
+}
+
+message GetWebDestinationRequest {
+}
+
+message GetWebDestinationResponse {
+  int64 result = 1;
+}
+
+message SetAppDestinationRequest {
+  int64 arg0 = 1;
+}
+
+message SetAppDestinationResponse {
+  int64 result = 1;
+}
+
+message SetVerifiedDestinationRequest {
+  int64 arg0 = 1;
+}
+
+message SetVerifiedDestinationResponse {
+  int64 result = 1;
+}
+
+message SetWebDestinationRequest {
+  int64 arg0 = 1;
+}
+
+message SetWebDestinationResponse {
+  int64 result = 1;
+}
+
+service ManagerService {
+  rpc Get (GetRequest) returns (GetResponse);
+}
+
+service SourceRegistrationRequestService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetInputEvent (GetInputEventRequest) returns (GetInputEventResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service SourceRegistrationRequestBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetInputEvent (SetInputEventRequest) returns (SetInputEventResponse);
+}
+
+service DeletionRequestService {
+  rpc GetDeletionMode (GetDeletionModeRequest) returns (GetDeletionModeResponse);
+  rpc GetEnd (GetEndRequest) returns (GetEndResponse);
+  rpc GetMatchBehavior (GetMatchBehaviorRequest) returns (GetMatchBehaviorResponse);
+  rpc GetStart (GetStartRequest) returns (GetStartResponse);
+}
+
+service DeletionRequestBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetDeletionMode (SetDeletionModeRequest) returns (SetDeletionModeResponse);
+  rpc SetEnd (SetEndRequest) returns (SetEndResponse);
+  rpc SetMatchBehavior (SetMatchBehaviorRequest) returns (SetMatchBehaviorResponse);
+  rpc SetStart (SetStartRequest) returns (SetStartResponse);
+}
+
+service WebTriggerParamsService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetRegistrationUri (GetRegistrationUriRequest) returns (GetRegistrationUriResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc IsDebugKeyAllowed (IsDebugKeyAllowedRequest) returns (IsDebugKeyAllowedResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service WebTriggerParamsBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetDebugKeyAllowed (SetDebugKeyAllowedRequest) returns (SetDebugKeyAllowedResponse);
+}
+
+service WebSourceParamsService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetRegistrationUri (GetRegistrationUriRequest) returns (GetRegistrationUriResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc IsDebugKeyAllowed (IsDebugKeyAllowedRequest) returns (IsDebugKeyAllowedResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service WebSourceParamsBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetDebugKeyAllowed (SetDebugKeyAllowedRequest) returns (SetDebugKeyAllowedResponse);
+}
+
+service WebTriggerRegistrationRequestService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetDestination (GetDestinationRequest) returns (GetDestinationResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service WebTriggerRegistrationRequestBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+}
+
+service WebSourceRegistrationRequestService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetAppDestination (GetAppDestinationRequest) returns (GetAppDestinationResponse);
+  rpc GetInputEvent (GetInputEventRequest) returns (GetInputEventResponse);
+  rpc GetTopOriginUri (GetTopOriginUriRequest) returns (GetTopOriginUriResponse);
+  rpc GetVerifiedDestination (GetVerifiedDestinationRequest) returns (GetVerifiedDestinationResponse);
+  rpc GetWebDestination (GetWebDestinationRequest) returns (GetWebDestinationResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service WebSourceRegistrationRequestBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetAppDestination (SetAppDestinationRequest) returns (SetAppDestinationResponse);
+  rpc SetInputEvent (SetInputEventRequest) returns (SetInputEventResponse);
+  rpc SetVerifiedDestination (SetVerifiedDestinationRequest) returns (SetVerifiedDestinationResponse);
+  rpc SetWebDestination (SetWebDestinationRequest) returns (SetWebDestinationResponse);
+}

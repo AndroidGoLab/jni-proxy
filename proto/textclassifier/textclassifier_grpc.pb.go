@@ -21,6 +21,3098 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
+	TextClassificationSessionFactoryService_CreateTextClassificationSession_FullMethodName = "/textclassifier.TextClassificationSessionFactoryService/CreateTextClassificationSession"
+)
+
+// TextClassificationSessionFactoryServiceClient is the client API for TextClassificationSessionFactoryService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TextClassificationSessionFactoryServiceClient interface {
+	CreateTextClassificationSession(ctx context.Context, in *CreateTextClassificationSessionRequest, opts ...grpc.CallOption) (*CreateTextClassificationSessionResponse, error)
+}
+
+type textClassificationSessionFactoryServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTextClassificationSessionFactoryServiceClient(cc grpc.ClientConnInterface) TextClassificationSessionFactoryServiceClient {
+	return &textClassificationSessionFactoryServiceClient{cc}
+}
+
+func (c *textClassificationSessionFactoryServiceClient) CreateTextClassificationSession(ctx context.Context, in *CreateTextClassificationSessionRequest, opts ...grpc.CallOption) (*CreateTextClassificationSessionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateTextClassificationSessionResponse)
+	err := c.cc.Invoke(ctx, TextClassificationSessionFactoryService_CreateTextClassificationSession_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TextClassificationSessionFactoryServiceServer is the server API for TextClassificationSessionFactoryService service.
+// All implementations must embed UnimplementedTextClassificationSessionFactoryServiceServer
+// for forward compatibility.
+type TextClassificationSessionFactoryServiceServer interface {
+	CreateTextClassificationSession(context.Context, *CreateTextClassificationSessionRequest) (*CreateTextClassificationSessionResponse, error)
+	mustEmbedUnimplementedTextClassificationSessionFactoryServiceServer()
+}
+
+// UnimplementedTextClassificationSessionFactoryServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTextClassificationSessionFactoryServiceServer struct{}
+
+func (UnimplementedTextClassificationSessionFactoryServiceServer) CreateTextClassificationSession(context.Context, *CreateTextClassificationSessionRequest) (*CreateTextClassificationSessionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CreateTextClassificationSession not implemented")
+}
+func (UnimplementedTextClassificationSessionFactoryServiceServer) mustEmbedUnimplementedTextClassificationSessionFactoryServiceServer() {
+}
+func (UnimplementedTextClassificationSessionFactoryServiceServer) testEmbeddedByValue() {}
+
+// UnsafeTextClassificationSessionFactoryServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TextClassificationSessionFactoryServiceServer will
+// result in compilation errors.
+type UnsafeTextClassificationSessionFactoryServiceServer interface {
+	mustEmbedUnimplementedTextClassificationSessionFactoryServiceServer()
+}
+
+func RegisterTextClassificationSessionFactoryServiceServer(s grpc.ServiceRegistrar, srv TextClassificationSessionFactoryServiceServer) {
+	// If the following call panics, it indicates UnimplementedTextClassificationSessionFactoryServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TextClassificationSessionFactoryService_ServiceDesc, srv)
+}
+
+func _TextClassificationSessionFactoryService_CreateTextClassificationSession_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateTextClassificationSessionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassificationSessionFactoryServiceServer).CreateTextClassificationSession(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassificationSessionFactoryService_CreateTextClassificationSession_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassificationSessionFactoryServiceServer).CreateTextClassificationSession(ctx, req.(*CreateTextClassificationSessionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TextClassificationSessionFactoryService_ServiceDesc is the grpc.ServiceDesc for TextClassificationSessionFactoryService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TextClassificationSessionFactoryService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "textclassifier.TextClassificationSessionFactoryService",
+	HandlerType: (*TextClassificationSessionFactoryServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "CreateTextClassificationSession",
+			Handler:    _TextClassificationSessionFactoryService_CreateTextClassificationSession_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/textclassifier/textclassifier.proto",
+}
+
+const (
+	TextSelectionService_DescribeContents_FullMethodName       = "/textclassifier.TextSelectionService/DescribeContents"
+	TextSelectionService_GetConfidenceScore_FullMethodName     = "/textclassifier.TextSelectionService/GetConfidenceScore"
+	TextSelectionService_GetEntity_FullMethodName              = "/textclassifier.TextSelectionService/GetEntity"
+	TextSelectionService_GetEntityCount_FullMethodName         = "/textclassifier.TextSelectionService/GetEntityCount"
+	TextSelectionService_GetExtras_FullMethodName              = "/textclassifier.TextSelectionService/GetExtras"
+	TextSelectionService_GetId_FullMethodName                  = "/textclassifier.TextSelectionService/GetId"
+	TextSelectionService_GetSelectionEndIndex_FullMethodName   = "/textclassifier.TextSelectionService/GetSelectionEndIndex"
+	TextSelectionService_GetSelectionStartIndex_FullMethodName = "/textclassifier.TextSelectionService/GetSelectionStartIndex"
+	TextSelectionService_GetTextClassification_FullMethodName  = "/textclassifier.TextSelectionService/GetTextClassification"
+	TextSelectionService_ToString_FullMethodName               = "/textclassifier.TextSelectionService/ToString"
+	TextSelectionService_WriteToParcel_FullMethodName          = "/textclassifier.TextSelectionService/WriteToParcel"
+)
+
+// TextSelectionServiceClient is the client API for TextSelectionService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TextSelectionServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetConfidenceScore(ctx context.Context, in *GetConfidenceScoreRequest, opts ...grpc.CallOption) (*GetConfidenceScoreResponse, error)
+	GetEntity(ctx context.Context, in *GetEntityRequest, opts ...grpc.CallOption) (*GetEntityResponse, error)
+	GetEntityCount(ctx context.Context, in *GetEntityCountRequest, opts ...grpc.CallOption) (*GetEntityCountResponse, error)
+	GetExtras(ctx context.Context, in *GetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error)
+	GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error)
+	GetSelectionEndIndex(ctx context.Context, in *GetSelectionEndIndexRequest, opts ...grpc.CallOption) (*GetSelectionEndIndexResponse, error)
+	GetSelectionStartIndex(ctx context.Context, in *GetSelectionStartIndexRequest, opts ...grpc.CallOption) (*GetSelectionStartIndexResponse, error)
+	GetTextClassification(ctx context.Context, in *GetTextClassificationRequest, opts ...grpc.CallOption) (*GetTextClassificationResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type textSelectionServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTextSelectionServiceClient(cc grpc.ClientConnInterface) TextSelectionServiceClient {
+	return &textSelectionServiceClient{cc}
+}
+
+func (c *textSelectionServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, TextSelectionService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textSelectionServiceClient) GetConfidenceScore(ctx context.Context, in *GetConfidenceScoreRequest, opts ...grpc.CallOption) (*GetConfidenceScoreResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetConfidenceScoreResponse)
+	err := c.cc.Invoke(ctx, TextSelectionService_GetConfidenceScore_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textSelectionServiceClient) GetEntity(ctx context.Context, in *GetEntityRequest, opts ...grpc.CallOption) (*GetEntityResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEntityResponse)
+	err := c.cc.Invoke(ctx, TextSelectionService_GetEntity_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textSelectionServiceClient) GetEntityCount(ctx context.Context, in *GetEntityCountRequest, opts ...grpc.CallOption) (*GetEntityCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEntityCountResponse)
+	err := c.cc.Invoke(ctx, TextSelectionService_GetEntityCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textSelectionServiceClient) GetExtras(ctx context.Context, in *GetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetExtrasResponse)
+	err := c.cc.Invoke(ctx, TextSelectionService_GetExtras_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textSelectionServiceClient) GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetIdResponse)
+	err := c.cc.Invoke(ctx, TextSelectionService_GetId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textSelectionServiceClient) GetSelectionEndIndex(ctx context.Context, in *GetSelectionEndIndexRequest, opts ...grpc.CallOption) (*GetSelectionEndIndexResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSelectionEndIndexResponse)
+	err := c.cc.Invoke(ctx, TextSelectionService_GetSelectionEndIndex_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textSelectionServiceClient) GetSelectionStartIndex(ctx context.Context, in *GetSelectionStartIndexRequest, opts ...grpc.CallOption) (*GetSelectionStartIndexResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSelectionStartIndexResponse)
+	err := c.cc.Invoke(ctx, TextSelectionService_GetSelectionStartIndex_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textSelectionServiceClient) GetTextClassification(ctx context.Context, in *GetTextClassificationRequest, opts ...grpc.CallOption) (*GetTextClassificationResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTextClassificationResponse)
+	err := c.cc.Invoke(ctx, TextSelectionService_GetTextClassification_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textSelectionServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, TextSelectionService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textSelectionServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, TextSelectionService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TextSelectionServiceServer is the server API for TextSelectionService service.
+// All implementations must embed UnimplementedTextSelectionServiceServer
+// for forward compatibility.
+type TextSelectionServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetConfidenceScore(context.Context, *GetConfidenceScoreRequest) (*GetConfidenceScoreResponse, error)
+	GetEntity(context.Context, *GetEntityRequest) (*GetEntityResponse, error)
+	GetEntityCount(context.Context, *GetEntityCountRequest) (*GetEntityCountResponse, error)
+	GetExtras(context.Context, *GetExtrasRequest) (*GetExtrasResponse, error)
+	GetId(context.Context, *GetIdRequest) (*GetIdResponse, error)
+	GetSelectionEndIndex(context.Context, *GetSelectionEndIndexRequest) (*GetSelectionEndIndexResponse, error)
+	GetSelectionStartIndex(context.Context, *GetSelectionStartIndexRequest) (*GetSelectionStartIndexResponse, error)
+	GetTextClassification(context.Context, *GetTextClassificationRequest) (*GetTextClassificationResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedTextSelectionServiceServer()
+}
+
+// UnimplementedTextSelectionServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTextSelectionServiceServer struct{}
+
+func (UnimplementedTextSelectionServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedTextSelectionServiceServer) GetConfidenceScore(context.Context, *GetConfidenceScoreRequest) (*GetConfidenceScoreResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetConfidenceScore not implemented")
+}
+func (UnimplementedTextSelectionServiceServer) GetEntity(context.Context, *GetEntityRequest) (*GetEntityResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEntity not implemented")
+}
+func (UnimplementedTextSelectionServiceServer) GetEntityCount(context.Context, *GetEntityCountRequest) (*GetEntityCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEntityCount not implemented")
+}
+func (UnimplementedTextSelectionServiceServer) GetExtras(context.Context, *GetExtrasRequest) (*GetExtrasResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetExtras not implemented")
+}
+func (UnimplementedTextSelectionServiceServer) GetId(context.Context, *GetIdRequest) (*GetIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetId not implemented")
+}
+func (UnimplementedTextSelectionServiceServer) GetSelectionEndIndex(context.Context, *GetSelectionEndIndexRequest) (*GetSelectionEndIndexResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSelectionEndIndex not implemented")
+}
+func (UnimplementedTextSelectionServiceServer) GetSelectionStartIndex(context.Context, *GetSelectionStartIndexRequest) (*GetSelectionStartIndexResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSelectionStartIndex not implemented")
+}
+func (UnimplementedTextSelectionServiceServer) GetTextClassification(context.Context, *GetTextClassificationRequest) (*GetTextClassificationResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTextClassification not implemented")
+}
+func (UnimplementedTextSelectionServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedTextSelectionServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedTextSelectionServiceServer) mustEmbedUnimplementedTextSelectionServiceServer() {}
+func (UnimplementedTextSelectionServiceServer) testEmbeddedByValue()                              {}
+
+// UnsafeTextSelectionServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TextSelectionServiceServer will
+// result in compilation errors.
+type UnsafeTextSelectionServiceServer interface {
+	mustEmbedUnimplementedTextSelectionServiceServer()
+}
+
+func RegisterTextSelectionServiceServer(s grpc.ServiceRegistrar, srv TextSelectionServiceServer) {
+	// If the following call panics, it indicates UnimplementedTextSelectionServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TextSelectionService_ServiceDesc, srv)
+}
+
+func _TextSelectionService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextSelectionServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextSelectionService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextSelectionServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextSelectionService_GetConfidenceScore_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetConfidenceScoreRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextSelectionServiceServer).GetConfidenceScore(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextSelectionService_GetConfidenceScore_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextSelectionServiceServer).GetConfidenceScore(ctx, req.(*GetConfidenceScoreRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextSelectionService_GetEntity_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEntityRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextSelectionServiceServer).GetEntity(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextSelectionService_GetEntity_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextSelectionServiceServer).GetEntity(ctx, req.(*GetEntityRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextSelectionService_GetEntityCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEntityCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextSelectionServiceServer).GetEntityCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextSelectionService_GetEntityCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextSelectionServiceServer).GetEntityCount(ctx, req.(*GetEntityCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextSelectionService_GetExtras_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetExtrasRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextSelectionServiceServer).GetExtras(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextSelectionService_GetExtras_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextSelectionServiceServer).GetExtras(ctx, req.(*GetExtrasRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextSelectionService_GetId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextSelectionServiceServer).GetId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextSelectionService_GetId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextSelectionServiceServer).GetId(ctx, req.(*GetIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextSelectionService_GetSelectionEndIndex_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSelectionEndIndexRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextSelectionServiceServer).GetSelectionEndIndex(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextSelectionService_GetSelectionEndIndex_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextSelectionServiceServer).GetSelectionEndIndex(ctx, req.(*GetSelectionEndIndexRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextSelectionService_GetSelectionStartIndex_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSelectionStartIndexRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextSelectionServiceServer).GetSelectionStartIndex(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextSelectionService_GetSelectionStartIndex_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextSelectionServiceServer).GetSelectionStartIndex(ctx, req.(*GetSelectionStartIndexRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextSelectionService_GetTextClassification_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTextClassificationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextSelectionServiceServer).GetTextClassification(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextSelectionService_GetTextClassification_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextSelectionServiceServer).GetTextClassification(ctx, req.(*GetTextClassificationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextSelectionService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextSelectionServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextSelectionService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextSelectionServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextSelectionService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextSelectionServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextSelectionService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextSelectionServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TextSelectionService_ServiceDesc is the grpc.ServiceDesc for TextSelectionService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TextSelectionService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "textclassifier.TextSelectionService",
+	HandlerType: (*TextSelectionServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _TextSelectionService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetConfidenceScore",
+			Handler:    _TextSelectionService_GetConfidenceScore_Handler,
+		},
+		{
+			MethodName: "GetEntity",
+			Handler:    _TextSelectionService_GetEntity_Handler,
+		},
+		{
+			MethodName: "GetEntityCount",
+			Handler:    _TextSelectionService_GetEntityCount_Handler,
+		},
+		{
+			MethodName: "GetExtras",
+			Handler:    _TextSelectionService_GetExtras_Handler,
+		},
+		{
+			MethodName: "GetId",
+			Handler:    _TextSelectionService_GetId_Handler,
+		},
+		{
+			MethodName: "GetSelectionEndIndex",
+			Handler:    _TextSelectionService_GetSelectionEndIndex_Handler,
+		},
+		{
+			MethodName: "GetSelectionStartIndex",
+			Handler:    _TextSelectionService_GetSelectionStartIndex_Handler,
+		},
+		{
+			MethodName: "GetTextClassification",
+			Handler:    _TextSelectionService_GetTextClassification_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _TextSelectionService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _TextSelectionService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/textclassifier/textclassifier.proto",
+}
+
+const (
+	TextSelectionBuilderService_Build_FullMethodName                 = "/textclassifier.TextSelectionBuilderService/Build"
+	TextSelectionBuilderService_SetEntityType_FullMethodName         = "/textclassifier.TextSelectionBuilderService/SetEntityType"
+	TextSelectionBuilderService_SetExtras_FullMethodName             = "/textclassifier.TextSelectionBuilderService/SetExtras"
+	TextSelectionBuilderService_SetId_FullMethodName                 = "/textclassifier.TextSelectionBuilderService/SetId"
+	TextSelectionBuilderService_SetTextClassification_FullMethodName = "/textclassifier.TextSelectionBuilderService/SetTextClassification"
+)
+
+// TextSelectionBuilderServiceClient is the client API for TextSelectionBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TextSelectionBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetEntityType(ctx context.Context, in *SetEntityTypeRequest, opts ...grpc.CallOption) (*SetEntityTypeResponse, error)
+	SetExtras(ctx context.Context, in *SetExtrasRequest, opts ...grpc.CallOption) (*SetExtrasResponse, error)
+	SetId(ctx context.Context, in *SetIdRequest, opts ...grpc.CallOption) (*SetIdResponse, error)
+	SetTextClassification(ctx context.Context, in *SetTextClassificationRequest, opts ...grpc.CallOption) (*SetTextClassificationResponse, error)
+}
+
+type textSelectionBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTextSelectionBuilderServiceClient(cc grpc.ClientConnInterface) TextSelectionBuilderServiceClient {
+	return &textSelectionBuilderServiceClient{cc}
+}
+
+func (c *textSelectionBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, TextSelectionBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textSelectionBuilderServiceClient) SetEntityType(ctx context.Context, in *SetEntityTypeRequest, opts ...grpc.CallOption) (*SetEntityTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetEntityTypeResponse)
+	err := c.cc.Invoke(ctx, TextSelectionBuilderService_SetEntityType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textSelectionBuilderServiceClient) SetExtras(ctx context.Context, in *SetExtrasRequest, opts ...grpc.CallOption) (*SetExtrasResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetExtrasResponse)
+	err := c.cc.Invoke(ctx, TextSelectionBuilderService_SetExtras_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textSelectionBuilderServiceClient) SetId(ctx context.Context, in *SetIdRequest, opts ...grpc.CallOption) (*SetIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetIdResponse)
+	err := c.cc.Invoke(ctx, TextSelectionBuilderService_SetId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textSelectionBuilderServiceClient) SetTextClassification(ctx context.Context, in *SetTextClassificationRequest, opts ...grpc.CallOption) (*SetTextClassificationResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetTextClassificationResponse)
+	err := c.cc.Invoke(ctx, TextSelectionBuilderService_SetTextClassification_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TextSelectionBuilderServiceServer is the server API for TextSelectionBuilderService service.
+// All implementations must embed UnimplementedTextSelectionBuilderServiceServer
+// for forward compatibility.
+type TextSelectionBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetEntityType(context.Context, *SetEntityTypeRequest) (*SetEntityTypeResponse, error)
+	SetExtras(context.Context, *SetExtrasRequest) (*SetExtrasResponse, error)
+	SetId(context.Context, *SetIdRequest) (*SetIdResponse, error)
+	SetTextClassification(context.Context, *SetTextClassificationRequest) (*SetTextClassificationResponse, error)
+	mustEmbedUnimplementedTextSelectionBuilderServiceServer()
+}
+
+// UnimplementedTextSelectionBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTextSelectionBuilderServiceServer struct{}
+
+func (UnimplementedTextSelectionBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedTextSelectionBuilderServiceServer) SetEntityType(context.Context, *SetEntityTypeRequest) (*SetEntityTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetEntityType not implemented")
+}
+func (UnimplementedTextSelectionBuilderServiceServer) SetExtras(context.Context, *SetExtrasRequest) (*SetExtrasResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetExtras not implemented")
+}
+func (UnimplementedTextSelectionBuilderServiceServer) SetId(context.Context, *SetIdRequest) (*SetIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetId not implemented")
+}
+func (UnimplementedTextSelectionBuilderServiceServer) SetTextClassification(context.Context, *SetTextClassificationRequest) (*SetTextClassificationResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetTextClassification not implemented")
+}
+func (UnimplementedTextSelectionBuilderServiceServer) mustEmbedUnimplementedTextSelectionBuilderServiceServer() {
+}
+func (UnimplementedTextSelectionBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeTextSelectionBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TextSelectionBuilderServiceServer will
+// result in compilation errors.
+type UnsafeTextSelectionBuilderServiceServer interface {
+	mustEmbedUnimplementedTextSelectionBuilderServiceServer()
+}
+
+func RegisterTextSelectionBuilderServiceServer(s grpc.ServiceRegistrar, srv TextSelectionBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedTextSelectionBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TextSelectionBuilderService_ServiceDesc, srv)
+}
+
+func _TextSelectionBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextSelectionBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextSelectionBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextSelectionBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextSelectionBuilderService_SetEntityType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetEntityTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextSelectionBuilderServiceServer).SetEntityType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextSelectionBuilderService_SetEntityType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextSelectionBuilderServiceServer).SetEntityType(ctx, req.(*SetEntityTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextSelectionBuilderService_SetExtras_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetExtrasRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextSelectionBuilderServiceServer).SetExtras(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextSelectionBuilderService_SetExtras_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextSelectionBuilderServiceServer).SetExtras(ctx, req.(*SetExtrasRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextSelectionBuilderService_SetId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextSelectionBuilderServiceServer).SetId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextSelectionBuilderService_SetId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextSelectionBuilderServiceServer).SetId(ctx, req.(*SetIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextSelectionBuilderService_SetTextClassification_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetTextClassificationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextSelectionBuilderServiceServer).SetTextClassification(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextSelectionBuilderService_SetTextClassification_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextSelectionBuilderServiceServer).SetTextClassification(ctx, req.(*SetTextClassificationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TextSelectionBuilderService_ServiceDesc is the grpc.ServiceDesc for TextSelectionBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TextSelectionBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "textclassifier.TextSelectionBuilderService",
+	HandlerType: (*TextSelectionBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _TextSelectionBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetEntityType",
+			Handler:    _TextSelectionBuilderService_SetEntityType_Handler,
+		},
+		{
+			MethodName: "SetExtras",
+			Handler:    _TextSelectionBuilderService_SetExtras_Handler,
+		},
+		{
+			MethodName: "SetId",
+			Handler:    _TextSelectionBuilderService_SetId_Handler,
+		},
+		{
+			MethodName: "SetTextClassification",
+			Handler:    _TextSelectionBuilderService_SetTextClassification_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/textclassifier/textclassifier.proto",
+}
+
+const (
+	TextSelectionRequestService_DescribeContents_FullMethodName                = "/textclassifier.TextSelectionRequestService/DescribeContents"
+	TextSelectionRequestService_GetCallingPackageName_FullMethodName           = "/textclassifier.TextSelectionRequestService/GetCallingPackageName"
+	TextSelectionRequestService_GetDefaultLocales_FullMethodName               = "/textclassifier.TextSelectionRequestService/GetDefaultLocales"
+	TextSelectionRequestService_GetEndIndex_FullMethodName                     = "/textclassifier.TextSelectionRequestService/GetEndIndex"
+	TextSelectionRequestService_GetExtras_FullMethodName                       = "/textclassifier.TextSelectionRequestService/GetExtras"
+	TextSelectionRequestService_GetStartIndex_FullMethodName                   = "/textclassifier.TextSelectionRequestService/GetStartIndex"
+	TextSelectionRequestService_GetText_FullMethodName                         = "/textclassifier.TextSelectionRequestService/GetText"
+	TextSelectionRequestService_ShouldIncludeTextClassification_FullMethodName = "/textclassifier.TextSelectionRequestService/ShouldIncludeTextClassification"
+	TextSelectionRequestService_WriteToParcel_FullMethodName                   = "/textclassifier.TextSelectionRequestService/WriteToParcel"
+)
+
+// TextSelectionRequestServiceClient is the client API for TextSelectionRequestService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TextSelectionRequestServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetCallingPackageName(ctx context.Context, in *GetCallingPackageNameRequest, opts ...grpc.CallOption) (*GetCallingPackageNameResponse, error)
+	GetDefaultLocales(ctx context.Context, in *GetDefaultLocalesRequest, opts ...grpc.CallOption) (*GetDefaultLocalesResponse, error)
+	GetEndIndex(ctx context.Context, in *GetEndIndexRequest, opts ...grpc.CallOption) (*GetEndIndexResponse, error)
+	GetExtras(ctx context.Context, in *GetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error)
+	GetStartIndex(ctx context.Context, in *GetStartIndexRequest, opts ...grpc.CallOption) (*GetStartIndexResponse, error)
+	GetText(ctx context.Context, in *GetTextRequest, opts ...grpc.CallOption) (*GetTextResponse, error)
+	ShouldIncludeTextClassification(ctx context.Context, in *ShouldIncludeTextClassificationRequest, opts ...grpc.CallOption) (*ShouldIncludeTextClassificationResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type textSelectionRequestServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTextSelectionRequestServiceClient(cc grpc.ClientConnInterface) TextSelectionRequestServiceClient {
+	return &textSelectionRequestServiceClient{cc}
+}
+
+func (c *textSelectionRequestServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, TextSelectionRequestService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textSelectionRequestServiceClient) GetCallingPackageName(ctx context.Context, in *GetCallingPackageNameRequest, opts ...grpc.CallOption) (*GetCallingPackageNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCallingPackageNameResponse)
+	err := c.cc.Invoke(ctx, TextSelectionRequestService_GetCallingPackageName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textSelectionRequestServiceClient) GetDefaultLocales(ctx context.Context, in *GetDefaultLocalesRequest, opts ...grpc.CallOption) (*GetDefaultLocalesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDefaultLocalesResponse)
+	err := c.cc.Invoke(ctx, TextSelectionRequestService_GetDefaultLocales_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textSelectionRequestServiceClient) GetEndIndex(ctx context.Context, in *GetEndIndexRequest, opts ...grpc.CallOption) (*GetEndIndexResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEndIndexResponse)
+	err := c.cc.Invoke(ctx, TextSelectionRequestService_GetEndIndex_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textSelectionRequestServiceClient) GetExtras(ctx context.Context, in *GetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetExtrasResponse)
+	err := c.cc.Invoke(ctx, TextSelectionRequestService_GetExtras_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textSelectionRequestServiceClient) GetStartIndex(ctx context.Context, in *GetStartIndexRequest, opts ...grpc.CallOption) (*GetStartIndexResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStartIndexResponse)
+	err := c.cc.Invoke(ctx, TextSelectionRequestService_GetStartIndex_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textSelectionRequestServiceClient) GetText(ctx context.Context, in *GetTextRequest, opts ...grpc.CallOption) (*GetTextResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTextResponse)
+	err := c.cc.Invoke(ctx, TextSelectionRequestService_GetText_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textSelectionRequestServiceClient) ShouldIncludeTextClassification(ctx context.Context, in *ShouldIncludeTextClassificationRequest, opts ...grpc.CallOption) (*ShouldIncludeTextClassificationResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ShouldIncludeTextClassificationResponse)
+	err := c.cc.Invoke(ctx, TextSelectionRequestService_ShouldIncludeTextClassification_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textSelectionRequestServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, TextSelectionRequestService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TextSelectionRequestServiceServer is the server API for TextSelectionRequestService service.
+// All implementations must embed UnimplementedTextSelectionRequestServiceServer
+// for forward compatibility.
+type TextSelectionRequestServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetCallingPackageName(context.Context, *GetCallingPackageNameRequest) (*GetCallingPackageNameResponse, error)
+	GetDefaultLocales(context.Context, *GetDefaultLocalesRequest) (*GetDefaultLocalesResponse, error)
+	GetEndIndex(context.Context, *GetEndIndexRequest) (*GetEndIndexResponse, error)
+	GetExtras(context.Context, *GetExtrasRequest) (*GetExtrasResponse, error)
+	GetStartIndex(context.Context, *GetStartIndexRequest) (*GetStartIndexResponse, error)
+	GetText(context.Context, *GetTextRequest) (*GetTextResponse, error)
+	ShouldIncludeTextClassification(context.Context, *ShouldIncludeTextClassificationRequest) (*ShouldIncludeTextClassificationResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedTextSelectionRequestServiceServer()
+}
+
+// UnimplementedTextSelectionRequestServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTextSelectionRequestServiceServer struct{}
+
+func (UnimplementedTextSelectionRequestServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedTextSelectionRequestServiceServer) GetCallingPackageName(context.Context, *GetCallingPackageNameRequest) (*GetCallingPackageNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCallingPackageName not implemented")
+}
+func (UnimplementedTextSelectionRequestServiceServer) GetDefaultLocales(context.Context, *GetDefaultLocalesRequest) (*GetDefaultLocalesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDefaultLocales not implemented")
+}
+func (UnimplementedTextSelectionRequestServiceServer) GetEndIndex(context.Context, *GetEndIndexRequest) (*GetEndIndexResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEndIndex not implemented")
+}
+func (UnimplementedTextSelectionRequestServiceServer) GetExtras(context.Context, *GetExtrasRequest) (*GetExtrasResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetExtras not implemented")
+}
+func (UnimplementedTextSelectionRequestServiceServer) GetStartIndex(context.Context, *GetStartIndexRequest) (*GetStartIndexResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetStartIndex not implemented")
+}
+func (UnimplementedTextSelectionRequestServiceServer) GetText(context.Context, *GetTextRequest) (*GetTextResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetText not implemented")
+}
+func (UnimplementedTextSelectionRequestServiceServer) ShouldIncludeTextClassification(context.Context, *ShouldIncludeTextClassificationRequest) (*ShouldIncludeTextClassificationResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ShouldIncludeTextClassification not implemented")
+}
+func (UnimplementedTextSelectionRequestServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedTextSelectionRequestServiceServer) mustEmbedUnimplementedTextSelectionRequestServiceServer() {
+}
+func (UnimplementedTextSelectionRequestServiceServer) testEmbeddedByValue() {}
+
+// UnsafeTextSelectionRequestServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TextSelectionRequestServiceServer will
+// result in compilation errors.
+type UnsafeTextSelectionRequestServiceServer interface {
+	mustEmbedUnimplementedTextSelectionRequestServiceServer()
+}
+
+func RegisterTextSelectionRequestServiceServer(s grpc.ServiceRegistrar, srv TextSelectionRequestServiceServer) {
+	// If the following call panics, it indicates UnimplementedTextSelectionRequestServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TextSelectionRequestService_ServiceDesc, srv)
+}
+
+func _TextSelectionRequestService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextSelectionRequestServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextSelectionRequestService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextSelectionRequestServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextSelectionRequestService_GetCallingPackageName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCallingPackageNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextSelectionRequestServiceServer).GetCallingPackageName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextSelectionRequestService_GetCallingPackageName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextSelectionRequestServiceServer).GetCallingPackageName(ctx, req.(*GetCallingPackageNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextSelectionRequestService_GetDefaultLocales_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDefaultLocalesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextSelectionRequestServiceServer).GetDefaultLocales(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextSelectionRequestService_GetDefaultLocales_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextSelectionRequestServiceServer).GetDefaultLocales(ctx, req.(*GetDefaultLocalesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextSelectionRequestService_GetEndIndex_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEndIndexRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextSelectionRequestServiceServer).GetEndIndex(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextSelectionRequestService_GetEndIndex_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextSelectionRequestServiceServer).GetEndIndex(ctx, req.(*GetEndIndexRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextSelectionRequestService_GetExtras_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetExtrasRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextSelectionRequestServiceServer).GetExtras(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextSelectionRequestService_GetExtras_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextSelectionRequestServiceServer).GetExtras(ctx, req.(*GetExtrasRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextSelectionRequestService_GetStartIndex_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStartIndexRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextSelectionRequestServiceServer).GetStartIndex(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextSelectionRequestService_GetStartIndex_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextSelectionRequestServiceServer).GetStartIndex(ctx, req.(*GetStartIndexRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextSelectionRequestService_GetText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTextRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextSelectionRequestServiceServer).GetText(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextSelectionRequestService_GetText_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextSelectionRequestServiceServer).GetText(ctx, req.(*GetTextRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextSelectionRequestService_ShouldIncludeTextClassification_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ShouldIncludeTextClassificationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextSelectionRequestServiceServer).ShouldIncludeTextClassification(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextSelectionRequestService_ShouldIncludeTextClassification_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextSelectionRequestServiceServer).ShouldIncludeTextClassification(ctx, req.(*ShouldIncludeTextClassificationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextSelectionRequestService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextSelectionRequestServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextSelectionRequestService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextSelectionRequestServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TextSelectionRequestService_ServiceDesc is the grpc.ServiceDesc for TextSelectionRequestService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TextSelectionRequestService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "textclassifier.TextSelectionRequestService",
+	HandlerType: (*TextSelectionRequestServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _TextSelectionRequestService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetCallingPackageName",
+			Handler:    _TextSelectionRequestService_GetCallingPackageName_Handler,
+		},
+		{
+			MethodName: "GetDefaultLocales",
+			Handler:    _TextSelectionRequestService_GetDefaultLocales_Handler,
+		},
+		{
+			MethodName: "GetEndIndex",
+			Handler:    _TextSelectionRequestService_GetEndIndex_Handler,
+		},
+		{
+			MethodName: "GetExtras",
+			Handler:    _TextSelectionRequestService_GetExtras_Handler,
+		},
+		{
+			MethodName: "GetStartIndex",
+			Handler:    _TextSelectionRequestService_GetStartIndex_Handler,
+		},
+		{
+			MethodName: "GetText",
+			Handler:    _TextSelectionRequestService_GetText_Handler,
+		},
+		{
+			MethodName: "ShouldIncludeTextClassification",
+			Handler:    _TextSelectionRequestService_ShouldIncludeTextClassification_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _TextSelectionRequestService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/textclassifier/textclassifier.proto",
+}
+
+const (
+	TextClassificationContextService_DescribeContents_FullMethodName = "/textclassifier.TextClassificationContextService/DescribeContents"
+	TextClassificationContextService_GetPackageName_FullMethodName   = "/textclassifier.TextClassificationContextService/GetPackageName"
+	TextClassificationContextService_GetWidgetType_FullMethodName    = "/textclassifier.TextClassificationContextService/GetWidgetType"
+	TextClassificationContextService_GetWidgetVersion_FullMethodName = "/textclassifier.TextClassificationContextService/GetWidgetVersion"
+	TextClassificationContextService_ToString_FullMethodName         = "/textclassifier.TextClassificationContextService/ToString"
+	TextClassificationContextService_WriteToParcel_FullMethodName    = "/textclassifier.TextClassificationContextService/WriteToParcel"
+)
+
+// TextClassificationContextServiceClient is the client API for TextClassificationContextService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TextClassificationContextServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetPackageName(ctx context.Context, in *GetPackageNameRequest, opts ...grpc.CallOption) (*GetPackageNameResponse, error)
+	GetWidgetType(ctx context.Context, in *GetWidgetTypeRequest, opts ...grpc.CallOption) (*GetWidgetTypeResponse, error)
+	GetWidgetVersion(ctx context.Context, in *GetWidgetVersionRequest, opts ...grpc.CallOption) (*GetWidgetVersionResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type textClassificationContextServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTextClassificationContextServiceClient(cc grpc.ClientConnInterface) TextClassificationContextServiceClient {
+	return &textClassificationContextServiceClient{cc}
+}
+
+func (c *textClassificationContextServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, TextClassificationContextService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textClassificationContextServiceClient) GetPackageName(ctx context.Context, in *GetPackageNameRequest, opts ...grpc.CallOption) (*GetPackageNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPackageNameResponse)
+	err := c.cc.Invoke(ctx, TextClassificationContextService_GetPackageName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textClassificationContextServiceClient) GetWidgetType(ctx context.Context, in *GetWidgetTypeRequest, opts ...grpc.CallOption) (*GetWidgetTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetWidgetTypeResponse)
+	err := c.cc.Invoke(ctx, TextClassificationContextService_GetWidgetType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textClassificationContextServiceClient) GetWidgetVersion(ctx context.Context, in *GetWidgetVersionRequest, opts ...grpc.CallOption) (*GetWidgetVersionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetWidgetVersionResponse)
+	err := c.cc.Invoke(ctx, TextClassificationContextService_GetWidgetVersion_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textClassificationContextServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, TextClassificationContextService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textClassificationContextServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, TextClassificationContextService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TextClassificationContextServiceServer is the server API for TextClassificationContextService service.
+// All implementations must embed UnimplementedTextClassificationContextServiceServer
+// for forward compatibility.
+type TextClassificationContextServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetPackageName(context.Context, *GetPackageNameRequest) (*GetPackageNameResponse, error)
+	GetWidgetType(context.Context, *GetWidgetTypeRequest) (*GetWidgetTypeResponse, error)
+	GetWidgetVersion(context.Context, *GetWidgetVersionRequest) (*GetWidgetVersionResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedTextClassificationContextServiceServer()
+}
+
+// UnimplementedTextClassificationContextServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTextClassificationContextServiceServer struct{}
+
+func (UnimplementedTextClassificationContextServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedTextClassificationContextServiceServer) GetPackageName(context.Context, *GetPackageNameRequest) (*GetPackageNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPackageName not implemented")
+}
+func (UnimplementedTextClassificationContextServiceServer) GetWidgetType(context.Context, *GetWidgetTypeRequest) (*GetWidgetTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetWidgetType not implemented")
+}
+func (UnimplementedTextClassificationContextServiceServer) GetWidgetVersion(context.Context, *GetWidgetVersionRequest) (*GetWidgetVersionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetWidgetVersion not implemented")
+}
+func (UnimplementedTextClassificationContextServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedTextClassificationContextServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedTextClassificationContextServiceServer) mustEmbedUnimplementedTextClassificationContextServiceServer() {
+}
+func (UnimplementedTextClassificationContextServiceServer) testEmbeddedByValue() {}
+
+// UnsafeTextClassificationContextServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TextClassificationContextServiceServer will
+// result in compilation errors.
+type UnsafeTextClassificationContextServiceServer interface {
+	mustEmbedUnimplementedTextClassificationContextServiceServer()
+}
+
+func RegisterTextClassificationContextServiceServer(s grpc.ServiceRegistrar, srv TextClassificationContextServiceServer) {
+	// If the following call panics, it indicates UnimplementedTextClassificationContextServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TextClassificationContextService_ServiceDesc, srv)
+}
+
+func _TextClassificationContextService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassificationContextServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassificationContextService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassificationContextServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextClassificationContextService_GetPackageName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPackageNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassificationContextServiceServer).GetPackageName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassificationContextService_GetPackageName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassificationContextServiceServer).GetPackageName(ctx, req.(*GetPackageNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextClassificationContextService_GetWidgetType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetWidgetTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassificationContextServiceServer).GetWidgetType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassificationContextService_GetWidgetType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassificationContextServiceServer).GetWidgetType(ctx, req.(*GetWidgetTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextClassificationContextService_GetWidgetVersion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetWidgetVersionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassificationContextServiceServer).GetWidgetVersion(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassificationContextService_GetWidgetVersion_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassificationContextServiceServer).GetWidgetVersion(ctx, req.(*GetWidgetVersionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextClassificationContextService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassificationContextServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassificationContextService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassificationContextServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextClassificationContextService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassificationContextServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassificationContextService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassificationContextServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TextClassificationContextService_ServiceDesc is the grpc.ServiceDesc for TextClassificationContextService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TextClassificationContextService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "textclassifier.TextClassificationContextService",
+	HandlerType: (*TextClassificationContextServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _TextClassificationContextService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetPackageName",
+			Handler:    _TextClassificationContextService_GetPackageName_Handler,
+		},
+		{
+			MethodName: "GetWidgetType",
+			Handler:    _TextClassificationContextService_GetWidgetType_Handler,
+		},
+		{
+			MethodName: "GetWidgetVersion",
+			Handler:    _TextClassificationContextService_GetWidgetVersion_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _TextClassificationContextService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _TextClassificationContextService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/textclassifier/textclassifier.proto",
+}
+
+const (
+	TextClassificationContextBuilderService_Build_FullMethodName            = "/textclassifier.TextClassificationContextBuilderService/Build"
+	TextClassificationContextBuilderService_SetWidgetVersion_FullMethodName = "/textclassifier.TextClassificationContextBuilderService/SetWidgetVersion"
+)
+
+// TextClassificationContextBuilderServiceClient is the client API for TextClassificationContextBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TextClassificationContextBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetWidgetVersion(ctx context.Context, in *SetWidgetVersionRequest, opts ...grpc.CallOption) (*SetWidgetVersionResponse, error)
+}
+
+type textClassificationContextBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTextClassificationContextBuilderServiceClient(cc grpc.ClientConnInterface) TextClassificationContextBuilderServiceClient {
+	return &textClassificationContextBuilderServiceClient{cc}
+}
+
+func (c *textClassificationContextBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, TextClassificationContextBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textClassificationContextBuilderServiceClient) SetWidgetVersion(ctx context.Context, in *SetWidgetVersionRequest, opts ...grpc.CallOption) (*SetWidgetVersionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetWidgetVersionResponse)
+	err := c.cc.Invoke(ctx, TextClassificationContextBuilderService_SetWidgetVersion_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TextClassificationContextBuilderServiceServer is the server API for TextClassificationContextBuilderService service.
+// All implementations must embed UnimplementedTextClassificationContextBuilderServiceServer
+// for forward compatibility.
+type TextClassificationContextBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetWidgetVersion(context.Context, *SetWidgetVersionRequest) (*SetWidgetVersionResponse, error)
+	mustEmbedUnimplementedTextClassificationContextBuilderServiceServer()
+}
+
+// UnimplementedTextClassificationContextBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTextClassificationContextBuilderServiceServer struct{}
+
+func (UnimplementedTextClassificationContextBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedTextClassificationContextBuilderServiceServer) SetWidgetVersion(context.Context, *SetWidgetVersionRequest) (*SetWidgetVersionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetWidgetVersion not implemented")
+}
+func (UnimplementedTextClassificationContextBuilderServiceServer) mustEmbedUnimplementedTextClassificationContextBuilderServiceServer() {
+}
+func (UnimplementedTextClassificationContextBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeTextClassificationContextBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TextClassificationContextBuilderServiceServer will
+// result in compilation errors.
+type UnsafeTextClassificationContextBuilderServiceServer interface {
+	mustEmbedUnimplementedTextClassificationContextBuilderServiceServer()
+}
+
+func RegisterTextClassificationContextBuilderServiceServer(s grpc.ServiceRegistrar, srv TextClassificationContextBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedTextClassificationContextBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TextClassificationContextBuilderService_ServiceDesc, srv)
+}
+
+func _TextClassificationContextBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassificationContextBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassificationContextBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassificationContextBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextClassificationContextBuilderService_SetWidgetVersion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetWidgetVersionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassificationContextBuilderServiceServer).SetWidgetVersion(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassificationContextBuilderService_SetWidgetVersion_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassificationContextBuilderServiceServer).SetWidgetVersion(ctx, req.(*SetWidgetVersionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TextClassificationContextBuilderService_ServiceDesc is the grpc.ServiceDesc for TextClassificationContextBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TextClassificationContextBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "textclassifier.TextClassificationContextBuilderService",
+	HandlerType: (*TextClassificationContextBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _TextClassificationContextBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetWidgetVersion",
+			Handler:    _TextClassificationContextBuilderService_SetWidgetVersion_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/textclassifier/textclassifier.proto",
+}
+
+const (
+	TextClassificationService_DescribeContents_FullMethodName   = "/textclassifier.TextClassificationService/DescribeContents"
+	TextClassificationService_GetConfidenceScore_FullMethodName = "/textclassifier.TextClassificationService/GetConfidenceScore"
+	TextClassificationService_GetEntity_FullMethodName          = "/textclassifier.TextClassificationService/GetEntity"
+	TextClassificationService_GetEntityCount_FullMethodName     = "/textclassifier.TextClassificationService/GetEntityCount"
+	TextClassificationService_GetExtras_FullMethodName          = "/textclassifier.TextClassificationService/GetExtras"
+	TextClassificationService_GetIcon_FullMethodName            = "/textclassifier.TextClassificationService/GetIcon"
+	TextClassificationService_GetId_FullMethodName              = "/textclassifier.TextClassificationService/GetId"
+	TextClassificationService_GetIntent_FullMethodName          = "/textclassifier.TextClassificationService/GetIntent"
+	TextClassificationService_GetLabel_FullMethodName           = "/textclassifier.TextClassificationService/GetLabel"
+	TextClassificationService_GetOnClickListener_FullMethodName = "/textclassifier.TextClassificationService/GetOnClickListener"
+	TextClassificationService_GetText_FullMethodName            = "/textclassifier.TextClassificationService/GetText"
+	TextClassificationService_ToString_FullMethodName           = "/textclassifier.TextClassificationService/ToString"
+	TextClassificationService_WriteToParcel_FullMethodName      = "/textclassifier.TextClassificationService/WriteToParcel"
+)
+
+// TextClassificationServiceClient is the client API for TextClassificationService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TextClassificationServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetConfidenceScore(ctx context.Context, in *GetConfidenceScoreRequest, opts ...grpc.CallOption) (*GetConfidenceScoreResponse, error)
+	GetEntity(ctx context.Context, in *GetEntityRequest, opts ...grpc.CallOption) (*GetEntityResponse, error)
+	GetEntityCount(ctx context.Context, in *GetEntityCountRequest, opts ...grpc.CallOption) (*GetEntityCountResponse, error)
+	GetExtras(ctx context.Context, in *GetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error)
+	GetIcon(ctx context.Context, in *GetIconRequest, opts ...grpc.CallOption) (*GetIconResponse, error)
+	GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error)
+	GetIntent(ctx context.Context, in *GetIntentRequest, opts ...grpc.CallOption) (*GetIntentResponse, error)
+	GetLabel(ctx context.Context, in *GetLabelRequest, opts ...grpc.CallOption) (*GetLabelResponse, error)
+	GetOnClickListener(ctx context.Context, in *GetOnClickListenerRequest, opts ...grpc.CallOption) (*GetOnClickListenerResponse, error)
+	GetText(ctx context.Context, in *GetTextRequest, opts ...grpc.CallOption) (*TextClassificationGetTextResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type textClassificationServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTextClassificationServiceClient(cc grpc.ClientConnInterface) TextClassificationServiceClient {
+	return &textClassificationServiceClient{cc}
+}
+
+func (c *textClassificationServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, TextClassificationService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textClassificationServiceClient) GetConfidenceScore(ctx context.Context, in *GetConfidenceScoreRequest, opts ...grpc.CallOption) (*GetConfidenceScoreResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetConfidenceScoreResponse)
+	err := c.cc.Invoke(ctx, TextClassificationService_GetConfidenceScore_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textClassificationServiceClient) GetEntity(ctx context.Context, in *GetEntityRequest, opts ...grpc.CallOption) (*GetEntityResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEntityResponse)
+	err := c.cc.Invoke(ctx, TextClassificationService_GetEntity_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textClassificationServiceClient) GetEntityCount(ctx context.Context, in *GetEntityCountRequest, opts ...grpc.CallOption) (*GetEntityCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEntityCountResponse)
+	err := c.cc.Invoke(ctx, TextClassificationService_GetEntityCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textClassificationServiceClient) GetExtras(ctx context.Context, in *GetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetExtrasResponse)
+	err := c.cc.Invoke(ctx, TextClassificationService_GetExtras_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textClassificationServiceClient) GetIcon(ctx context.Context, in *GetIconRequest, opts ...grpc.CallOption) (*GetIconResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetIconResponse)
+	err := c.cc.Invoke(ctx, TextClassificationService_GetIcon_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textClassificationServiceClient) GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetIdResponse)
+	err := c.cc.Invoke(ctx, TextClassificationService_GetId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textClassificationServiceClient) GetIntent(ctx context.Context, in *GetIntentRequest, opts ...grpc.CallOption) (*GetIntentResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetIntentResponse)
+	err := c.cc.Invoke(ctx, TextClassificationService_GetIntent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textClassificationServiceClient) GetLabel(ctx context.Context, in *GetLabelRequest, opts ...grpc.CallOption) (*GetLabelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLabelResponse)
+	err := c.cc.Invoke(ctx, TextClassificationService_GetLabel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textClassificationServiceClient) GetOnClickListener(ctx context.Context, in *GetOnClickListenerRequest, opts ...grpc.CallOption) (*GetOnClickListenerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetOnClickListenerResponse)
+	err := c.cc.Invoke(ctx, TextClassificationService_GetOnClickListener_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textClassificationServiceClient) GetText(ctx context.Context, in *GetTextRequest, opts ...grpc.CallOption) (*TextClassificationGetTextResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(TextClassificationGetTextResponse)
+	err := c.cc.Invoke(ctx, TextClassificationService_GetText_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textClassificationServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, TextClassificationService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textClassificationServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, TextClassificationService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TextClassificationServiceServer is the server API for TextClassificationService service.
+// All implementations must embed UnimplementedTextClassificationServiceServer
+// for forward compatibility.
+type TextClassificationServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetConfidenceScore(context.Context, *GetConfidenceScoreRequest) (*GetConfidenceScoreResponse, error)
+	GetEntity(context.Context, *GetEntityRequest) (*GetEntityResponse, error)
+	GetEntityCount(context.Context, *GetEntityCountRequest) (*GetEntityCountResponse, error)
+	GetExtras(context.Context, *GetExtrasRequest) (*GetExtrasResponse, error)
+	GetIcon(context.Context, *GetIconRequest) (*GetIconResponse, error)
+	GetId(context.Context, *GetIdRequest) (*GetIdResponse, error)
+	GetIntent(context.Context, *GetIntentRequest) (*GetIntentResponse, error)
+	GetLabel(context.Context, *GetLabelRequest) (*GetLabelResponse, error)
+	GetOnClickListener(context.Context, *GetOnClickListenerRequest) (*GetOnClickListenerResponse, error)
+	GetText(context.Context, *GetTextRequest) (*TextClassificationGetTextResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedTextClassificationServiceServer()
+}
+
+// UnimplementedTextClassificationServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTextClassificationServiceServer struct{}
+
+func (UnimplementedTextClassificationServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedTextClassificationServiceServer) GetConfidenceScore(context.Context, *GetConfidenceScoreRequest) (*GetConfidenceScoreResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetConfidenceScore not implemented")
+}
+func (UnimplementedTextClassificationServiceServer) GetEntity(context.Context, *GetEntityRequest) (*GetEntityResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEntity not implemented")
+}
+func (UnimplementedTextClassificationServiceServer) GetEntityCount(context.Context, *GetEntityCountRequest) (*GetEntityCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEntityCount not implemented")
+}
+func (UnimplementedTextClassificationServiceServer) GetExtras(context.Context, *GetExtrasRequest) (*GetExtrasResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetExtras not implemented")
+}
+func (UnimplementedTextClassificationServiceServer) GetIcon(context.Context, *GetIconRequest) (*GetIconResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetIcon not implemented")
+}
+func (UnimplementedTextClassificationServiceServer) GetId(context.Context, *GetIdRequest) (*GetIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetId not implemented")
+}
+func (UnimplementedTextClassificationServiceServer) GetIntent(context.Context, *GetIntentRequest) (*GetIntentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetIntent not implemented")
+}
+func (UnimplementedTextClassificationServiceServer) GetLabel(context.Context, *GetLabelRequest) (*GetLabelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLabel not implemented")
+}
+func (UnimplementedTextClassificationServiceServer) GetOnClickListener(context.Context, *GetOnClickListenerRequest) (*GetOnClickListenerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetOnClickListener not implemented")
+}
+func (UnimplementedTextClassificationServiceServer) GetText(context.Context, *GetTextRequest) (*TextClassificationGetTextResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetText not implemented")
+}
+func (UnimplementedTextClassificationServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedTextClassificationServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedTextClassificationServiceServer) mustEmbedUnimplementedTextClassificationServiceServer() {
+}
+func (UnimplementedTextClassificationServiceServer) testEmbeddedByValue() {}
+
+// UnsafeTextClassificationServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TextClassificationServiceServer will
+// result in compilation errors.
+type UnsafeTextClassificationServiceServer interface {
+	mustEmbedUnimplementedTextClassificationServiceServer()
+}
+
+func RegisterTextClassificationServiceServer(s grpc.ServiceRegistrar, srv TextClassificationServiceServer) {
+	// If the following call panics, it indicates UnimplementedTextClassificationServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TextClassificationService_ServiceDesc, srv)
+}
+
+func _TextClassificationService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassificationServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassificationService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassificationServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextClassificationService_GetConfidenceScore_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetConfidenceScoreRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassificationServiceServer).GetConfidenceScore(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassificationService_GetConfidenceScore_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassificationServiceServer).GetConfidenceScore(ctx, req.(*GetConfidenceScoreRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextClassificationService_GetEntity_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEntityRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassificationServiceServer).GetEntity(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassificationService_GetEntity_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassificationServiceServer).GetEntity(ctx, req.(*GetEntityRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextClassificationService_GetEntityCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEntityCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassificationServiceServer).GetEntityCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassificationService_GetEntityCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassificationServiceServer).GetEntityCount(ctx, req.(*GetEntityCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextClassificationService_GetExtras_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetExtrasRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassificationServiceServer).GetExtras(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassificationService_GetExtras_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassificationServiceServer).GetExtras(ctx, req.(*GetExtrasRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextClassificationService_GetIcon_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIconRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassificationServiceServer).GetIcon(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassificationService_GetIcon_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassificationServiceServer).GetIcon(ctx, req.(*GetIconRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextClassificationService_GetId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassificationServiceServer).GetId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassificationService_GetId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassificationServiceServer).GetId(ctx, req.(*GetIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextClassificationService_GetIntent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIntentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassificationServiceServer).GetIntent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassificationService_GetIntent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassificationServiceServer).GetIntent(ctx, req.(*GetIntentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextClassificationService_GetLabel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLabelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassificationServiceServer).GetLabel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassificationService_GetLabel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassificationServiceServer).GetLabel(ctx, req.(*GetLabelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextClassificationService_GetOnClickListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetOnClickListenerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassificationServiceServer).GetOnClickListener(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassificationService_GetOnClickListener_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassificationServiceServer).GetOnClickListener(ctx, req.(*GetOnClickListenerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextClassificationService_GetText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTextRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassificationServiceServer).GetText(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassificationService_GetText_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassificationServiceServer).GetText(ctx, req.(*GetTextRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextClassificationService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassificationServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassificationService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassificationServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextClassificationService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassificationServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassificationService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassificationServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TextClassificationService_ServiceDesc is the grpc.ServiceDesc for TextClassificationService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TextClassificationService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "textclassifier.TextClassificationService",
+	HandlerType: (*TextClassificationServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _TextClassificationService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetConfidenceScore",
+			Handler:    _TextClassificationService_GetConfidenceScore_Handler,
+		},
+		{
+			MethodName: "GetEntity",
+			Handler:    _TextClassificationService_GetEntity_Handler,
+		},
+		{
+			MethodName: "GetEntityCount",
+			Handler:    _TextClassificationService_GetEntityCount_Handler,
+		},
+		{
+			MethodName: "GetExtras",
+			Handler:    _TextClassificationService_GetExtras_Handler,
+		},
+		{
+			MethodName: "GetIcon",
+			Handler:    _TextClassificationService_GetIcon_Handler,
+		},
+		{
+			MethodName: "GetId",
+			Handler:    _TextClassificationService_GetId_Handler,
+		},
+		{
+			MethodName: "GetIntent",
+			Handler:    _TextClassificationService_GetIntent_Handler,
+		},
+		{
+			MethodName: "GetLabel",
+			Handler:    _TextClassificationService_GetLabel_Handler,
+		},
+		{
+			MethodName: "GetOnClickListener",
+			Handler:    _TextClassificationService_GetOnClickListener_Handler,
+		},
+		{
+			MethodName: "GetText",
+			Handler:    _TextClassificationService_GetText_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _TextClassificationService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _TextClassificationService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/textclassifier/textclassifier.proto",
+}
+
+const (
+	TextClassificationBuilderService_AddAction_FullMethodName          = "/textclassifier.TextClassificationBuilderService/AddAction"
+	TextClassificationBuilderService_Build_FullMethodName              = "/textclassifier.TextClassificationBuilderService/Build"
+	TextClassificationBuilderService_SetEntityType_FullMethodName      = "/textclassifier.TextClassificationBuilderService/SetEntityType"
+	TextClassificationBuilderService_SetExtras_FullMethodName          = "/textclassifier.TextClassificationBuilderService/SetExtras"
+	TextClassificationBuilderService_SetIcon_FullMethodName            = "/textclassifier.TextClassificationBuilderService/SetIcon"
+	TextClassificationBuilderService_SetId_FullMethodName              = "/textclassifier.TextClassificationBuilderService/SetId"
+	TextClassificationBuilderService_SetIntent_FullMethodName          = "/textclassifier.TextClassificationBuilderService/SetIntent"
+	TextClassificationBuilderService_SetLabel_FullMethodName           = "/textclassifier.TextClassificationBuilderService/SetLabel"
+	TextClassificationBuilderService_SetOnClickListener_FullMethodName = "/textclassifier.TextClassificationBuilderService/SetOnClickListener"
+	TextClassificationBuilderService_SetText_FullMethodName            = "/textclassifier.TextClassificationBuilderService/SetText"
+)
+
+// TextClassificationBuilderServiceClient is the client API for TextClassificationBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TextClassificationBuilderServiceClient interface {
+	AddAction(ctx context.Context, in *AddActionRequest, opts ...grpc.CallOption) (*AddActionResponse, error)
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetEntityType(ctx context.Context, in *SetEntityTypeRequest, opts ...grpc.CallOption) (*SetEntityTypeResponse, error)
+	SetExtras(ctx context.Context, in *SetExtrasRequest, opts ...grpc.CallOption) (*SetExtrasResponse, error)
+	SetIcon(ctx context.Context, in *SetIconRequest, opts ...grpc.CallOption) (*SetIconResponse, error)
+	SetId(ctx context.Context, in *SetIdRequest, opts ...grpc.CallOption) (*SetIdResponse, error)
+	SetIntent(ctx context.Context, in *SetIntentRequest, opts ...grpc.CallOption) (*SetIntentResponse, error)
+	SetLabel(ctx context.Context, in *SetLabelRequest, opts ...grpc.CallOption) (*SetLabelResponse, error)
+	SetOnClickListener(ctx context.Context, in *SetOnClickListenerRequest, opts ...grpc.CallOption) (*SetOnClickListenerResponse, error)
+	SetText(ctx context.Context, in *SetTextRequest, opts ...grpc.CallOption) (*SetTextResponse, error)
+}
+
+type textClassificationBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTextClassificationBuilderServiceClient(cc grpc.ClientConnInterface) TextClassificationBuilderServiceClient {
+	return &textClassificationBuilderServiceClient{cc}
+}
+
+func (c *textClassificationBuilderServiceClient) AddAction(ctx context.Context, in *AddActionRequest, opts ...grpc.CallOption) (*AddActionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddActionResponse)
+	err := c.cc.Invoke(ctx, TextClassificationBuilderService_AddAction_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textClassificationBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, TextClassificationBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textClassificationBuilderServiceClient) SetEntityType(ctx context.Context, in *SetEntityTypeRequest, opts ...grpc.CallOption) (*SetEntityTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetEntityTypeResponse)
+	err := c.cc.Invoke(ctx, TextClassificationBuilderService_SetEntityType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textClassificationBuilderServiceClient) SetExtras(ctx context.Context, in *SetExtrasRequest, opts ...grpc.CallOption) (*SetExtrasResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetExtrasResponse)
+	err := c.cc.Invoke(ctx, TextClassificationBuilderService_SetExtras_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textClassificationBuilderServiceClient) SetIcon(ctx context.Context, in *SetIconRequest, opts ...grpc.CallOption) (*SetIconResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetIconResponse)
+	err := c.cc.Invoke(ctx, TextClassificationBuilderService_SetIcon_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textClassificationBuilderServiceClient) SetId(ctx context.Context, in *SetIdRequest, opts ...grpc.CallOption) (*SetIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetIdResponse)
+	err := c.cc.Invoke(ctx, TextClassificationBuilderService_SetId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textClassificationBuilderServiceClient) SetIntent(ctx context.Context, in *SetIntentRequest, opts ...grpc.CallOption) (*SetIntentResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetIntentResponse)
+	err := c.cc.Invoke(ctx, TextClassificationBuilderService_SetIntent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textClassificationBuilderServiceClient) SetLabel(ctx context.Context, in *SetLabelRequest, opts ...grpc.CallOption) (*SetLabelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetLabelResponse)
+	err := c.cc.Invoke(ctx, TextClassificationBuilderService_SetLabel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textClassificationBuilderServiceClient) SetOnClickListener(ctx context.Context, in *SetOnClickListenerRequest, opts ...grpc.CallOption) (*SetOnClickListenerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetOnClickListenerResponse)
+	err := c.cc.Invoke(ctx, TextClassificationBuilderService_SetOnClickListener_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textClassificationBuilderServiceClient) SetText(ctx context.Context, in *SetTextRequest, opts ...grpc.CallOption) (*SetTextResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetTextResponse)
+	err := c.cc.Invoke(ctx, TextClassificationBuilderService_SetText_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TextClassificationBuilderServiceServer is the server API for TextClassificationBuilderService service.
+// All implementations must embed UnimplementedTextClassificationBuilderServiceServer
+// for forward compatibility.
+type TextClassificationBuilderServiceServer interface {
+	AddAction(context.Context, *AddActionRequest) (*AddActionResponse, error)
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetEntityType(context.Context, *SetEntityTypeRequest) (*SetEntityTypeResponse, error)
+	SetExtras(context.Context, *SetExtrasRequest) (*SetExtrasResponse, error)
+	SetIcon(context.Context, *SetIconRequest) (*SetIconResponse, error)
+	SetId(context.Context, *SetIdRequest) (*SetIdResponse, error)
+	SetIntent(context.Context, *SetIntentRequest) (*SetIntentResponse, error)
+	SetLabel(context.Context, *SetLabelRequest) (*SetLabelResponse, error)
+	SetOnClickListener(context.Context, *SetOnClickListenerRequest) (*SetOnClickListenerResponse, error)
+	SetText(context.Context, *SetTextRequest) (*SetTextResponse, error)
+	mustEmbedUnimplementedTextClassificationBuilderServiceServer()
+}
+
+// UnimplementedTextClassificationBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTextClassificationBuilderServiceServer struct{}
+
+func (UnimplementedTextClassificationBuilderServiceServer) AddAction(context.Context, *AddActionRequest) (*AddActionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddAction not implemented")
+}
+func (UnimplementedTextClassificationBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedTextClassificationBuilderServiceServer) SetEntityType(context.Context, *SetEntityTypeRequest) (*SetEntityTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetEntityType not implemented")
+}
+func (UnimplementedTextClassificationBuilderServiceServer) SetExtras(context.Context, *SetExtrasRequest) (*SetExtrasResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetExtras not implemented")
+}
+func (UnimplementedTextClassificationBuilderServiceServer) SetIcon(context.Context, *SetIconRequest) (*SetIconResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetIcon not implemented")
+}
+func (UnimplementedTextClassificationBuilderServiceServer) SetId(context.Context, *SetIdRequest) (*SetIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetId not implemented")
+}
+func (UnimplementedTextClassificationBuilderServiceServer) SetIntent(context.Context, *SetIntentRequest) (*SetIntentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetIntent not implemented")
+}
+func (UnimplementedTextClassificationBuilderServiceServer) SetLabel(context.Context, *SetLabelRequest) (*SetLabelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetLabel not implemented")
+}
+func (UnimplementedTextClassificationBuilderServiceServer) SetOnClickListener(context.Context, *SetOnClickListenerRequest) (*SetOnClickListenerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetOnClickListener not implemented")
+}
+func (UnimplementedTextClassificationBuilderServiceServer) SetText(context.Context, *SetTextRequest) (*SetTextResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetText not implemented")
+}
+func (UnimplementedTextClassificationBuilderServiceServer) mustEmbedUnimplementedTextClassificationBuilderServiceServer() {
+}
+func (UnimplementedTextClassificationBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeTextClassificationBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TextClassificationBuilderServiceServer will
+// result in compilation errors.
+type UnsafeTextClassificationBuilderServiceServer interface {
+	mustEmbedUnimplementedTextClassificationBuilderServiceServer()
+}
+
+func RegisterTextClassificationBuilderServiceServer(s grpc.ServiceRegistrar, srv TextClassificationBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedTextClassificationBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TextClassificationBuilderService_ServiceDesc, srv)
+}
+
+func _TextClassificationBuilderService_AddAction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddActionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassificationBuilderServiceServer).AddAction(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassificationBuilderService_AddAction_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassificationBuilderServiceServer).AddAction(ctx, req.(*AddActionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextClassificationBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassificationBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassificationBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassificationBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextClassificationBuilderService_SetEntityType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetEntityTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassificationBuilderServiceServer).SetEntityType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassificationBuilderService_SetEntityType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassificationBuilderServiceServer).SetEntityType(ctx, req.(*SetEntityTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextClassificationBuilderService_SetExtras_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetExtrasRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassificationBuilderServiceServer).SetExtras(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassificationBuilderService_SetExtras_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassificationBuilderServiceServer).SetExtras(ctx, req.(*SetExtrasRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextClassificationBuilderService_SetIcon_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetIconRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassificationBuilderServiceServer).SetIcon(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassificationBuilderService_SetIcon_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassificationBuilderServiceServer).SetIcon(ctx, req.(*SetIconRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextClassificationBuilderService_SetId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassificationBuilderServiceServer).SetId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassificationBuilderService_SetId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassificationBuilderServiceServer).SetId(ctx, req.(*SetIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextClassificationBuilderService_SetIntent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetIntentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassificationBuilderServiceServer).SetIntent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassificationBuilderService_SetIntent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassificationBuilderServiceServer).SetIntent(ctx, req.(*SetIntentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextClassificationBuilderService_SetLabel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetLabelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassificationBuilderServiceServer).SetLabel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassificationBuilderService_SetLabel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassificationBuilderServiceServer).SetLabel(ctx, req.(*SetLabelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextClassificationBuilderService_SetOnClickListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetOnClickListenerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassificationBuilderServiceServer).SetOnClickListener(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassificationBuilderService_SetOnClickListener_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassificationBuilderServiceServer).SetOnClickListener(ctx, req.(*SetOnClickListenerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextClassificationBuilderService_SetText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetTextRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassificationBuilderServiceServer).SetText(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassificationBuilderService_SetText_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassificationBuilderServiceServer).SetText(ctx, req.(*SetTextRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TextClassificationBuilderService_ServiceDesc is the grpc.ServiceDesc for TextClassificationBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TextClassificationBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "textclassifier.TextClassificationBuilderService",
+	HandlerType: (*TextClassificationBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "AddAction",
+			Handler:    _TextClassificationBuilderService_AddAction_Handler,
+		},
+		{
+			MethodName: "Build",
+			Handler:    _TextClassificationBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetEntityType",
+			Handler:    _TextClassificationBuilderService_SetEntityType_Handler,
+		},
+		{
+			MethodName: "SetExtras",
+			Handler:    _TextClassificationBuilderService_SetExtras_Handler,
+		},
+		{
+			MethodName: "SetIcon",
+			Handler:    _TextClassificationBuilderService_SetIcon_Handler,
+		},
+		{
+			MethodName: "SetId",
+			Handler:    _TextClassificationBuilderService_SetId_Handler,
+		},
+		{
+			MethodName: "SetIntent",
+			Handler:    _TextClassificationBuilderService_SetIntent_Handler,
+		},
+		{
+			MethodName: "SetLabel",
+			Handler:    _TextClassificationBuilderService_SetLabel_Handler,
+		},
+		{
+			MethodName: "SetOnClickListener",
+			Handler:    _TextClassificationBuilderService_SetOnClickListener_Handler,
+		},
+		{
+			MethodName: "SetText",
+			Handler:    _TextClassificationBuilderService_SetText_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/textclassifier/textclassifier.proto",
+}
+
+const (
+	TextClassificationRequestService_DescribeContents_FullMethodName      = "/textclassifier.TextClassificationRequestService/DescribeContents"
+	TextClassificationRequestService_GetCallingPackageName_FullMethodName = "/textclassifier.TextClassificationRequestService/GetCallingPackageName"
+	TextClassificationRequestService_GetDefaultLocales_FullMethodName     = "/textclassifier.TextClassificationRequestService/GetDefaultLocales"
+	TextClassificationRequestService_GetEndIndex_FullMethodName           = "/textclassifier.TextClassificationRequestService/GetEndIndex"
+	TextClassificationRequestService_GetExtras_FullMethodName             = "/textclassifier.TextClassificationRequestService/GetExtras"
+	TextClassificationRequestService_GetReferenceTime_FullMethodName      = "/textclassifier.TextClassificationRequestService/GetReferenceTime"
+	TextClassificationRequestService_GetStartIndex_FullMethodName         = "/textclassifier.TextClassificationRequestService/GetStartIndex"
+	TextClassificationRequestService_GetText_FullMethodName               = "/textclassifier.TextClassificationRequestService/GetText"
+	TextClassificationRequestService_WriteToParcel_FullMethodName         = "/textclassifier.TextClassificationRequestService/WriteToParcel"
+)
+
+// TextClassificationRequestServiceClient is the client API for TextClassificationRequestService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TextClassificationRequestServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetCallingPackageName(ctx context.Context, in *GetCallingPackageNameRequest, opts ...grpc.CallOption) (*GetCallingPackageNameResponse, error)
+	GetDefaultLocales(ctx context.Context, in *GetDefaultLocalesRequest, opts ...grpc.CallOption) (*GetDefaultLocalesResponse, error)
+	GetEndIndex(ctx context.Context, in *GetEndIndexRequest, opts ...grpc.CallOption) (*GetEndIndexResponse, error)
+	GetExtras(ctx context.Context, in *GetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error)
+	GetReferenceTime(ctx context.Context, in *GetReferenceTimeRequest, opts ...grpc.CallOption) (*GetReferenceTimeResponse, error)
+	GetStartIndex(ctx context.Context, in *GetStartIndexRequest, opts ...grpc.CallOption) (*GetStartIndexResponse, error)
+	GetText(ctx context.Context, in *GetTextRequest, opts ...grpc.CallOption) (*GetTextResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type textClassificationRequestServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTextClassificationRequestServiceClient(cc grpc.ClientConnInterface) TextClassificationRequestServiceClient {
+	return &textClassificationRequestServiceClient{cc}
+}
+
+func (c *textClassificationRequestServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, TextClassificationRequestService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textClassificationRequestServiceClient) GetCallingPackageName(ctx context.Context, in *GetCallingPackageNameRequest, opts ...grpc.CallOption) (*GetCallingPackageNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCallingPackageNameResponse)
+	err := c.cc.Invoke(ctx, TextClassificationRequestService_GetCallingPackageName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textClassificationRequestServiceClient) GetDefaultLocales(ctx context.Context, in *GetDefaultLocalesRequest, opts ...grpc.CallOption) (*GetDefaultLocalesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDefaultLocalesResponse)
+	err := c.cc.Invoke(ctx, TextClassificationRequestService_GetDefaultLocales_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textClassificationRequestServiceClient) GetEndIndex(ctx context.Context, in *GetEndIndexRequest, opts ...grpc.CallOption) (*GetEndIndexResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEndIndexResponse)
+	err := c.cc.Invoke(ctx, TextClassificationRequestService_GetEndIndex_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textClassificationRequestServiceClient) GetExtras(ctx context.Context, in *GetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetExtrasResponse)
+	err := c.cc.Invoke(ctx, TextClassificationRequestService_GetExtras_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textClassificationRequestServiceClient) GetReferenceTime(ctx context.Context, in *GetReferenceTimeRequest, opts ...grpc.CallOption) (*GetReferenceTimeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetReferenceTimeResponse)
+	err := c.cc.Invoke(ctx, TextClassificationRequestService_GetReferenceTime_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textClassificationRequestServiceClient) GetStartIndex(ctx context.Context, in *GetStartIndexRequest, opts ...grpc.CallOption) (*GetStartIndexResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStartIndexResponse)
+	err := c.cc.Invoke(ctx, TextClassificationRequestService_GetStartIndex_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textClassificationRequestServiceClient) GetText(ctx context.Context, in *GetTextRequest, opts ...grpc.CallOption) (*GetTextResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTextResponse)
+	err := c.cc.Invoke(ctx, TextClassificationRequestService_GetText_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textClassificationRequestServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, TextClassificationRequestService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TextClassificationRequestServiceServer is the server API for TextClassificationRequestService service.
+// All implementations must embed UnimplementedTextClassificationRequestServiceServer
+// for forward compatibility.
+type TextClassificationRequestServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetCallingPackageName(context.Context, *GetCallingPackageNameRequest) (*GetCallingPackageNameResponse, error)
+	GetDefaultLocales(context.Context, *GetDefaultLocalesRequest) (*GetDefaultLocalesResponse, error)
+	GetEndIndex(context.Context, *GetEndIndexRequest) (*GetEndIndexResponse, error)
+	GetExtras(context.Context, *GetExtrasRequest) (*GetExtrasResponse, error)
+	GetReferenceTime(context.Context, *GetReferenceTimeRequest) (*GetReferenceTimeResponse, error)
+	GetStartIndex(context.Context, *GetStartIndexRequest) (*GetStartIndexResponse, error)
+	GetText(context.Context, *GetTextRequest) (*GetTextResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedTextClassificationRequestServiceServer()
+}
+
+// UnimplementedTextClassificationRequestServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTextClassificationRequestServiceServer struct{}
+
+func (UnimplementedTextClassificationRequestServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedTextClassificationRequestServiceServer) GetCallingPackageName(context.Context, *GetCallingPackageNameRequest) (*GetCallingPackageNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCallingPackageName not implemented")
+}
+func (UnimplementedTextClassificationRequestServiceServer) GetDefaultLocales(context.Context, *GetDefaultLocalesRequest) (*GetDefaultLocalesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDefaultLocales not implemented")
+}
+func (UnimplementedTextClassificationRequestServiceServer) GetEndIndex(context.Context, *GetEndIndexRequest) (*GetEndIndexResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEndIndex not implemented")
+}
+func (UnimplementedTextClassificationRequestServiceServer) GetExtras(context.Context, *GetExtrasRequest) (*GetExtrasResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetExtras not implemented")
+}
+func (UnimplementedTextClassificationRequestServiceServer) GetReferenceTime(context.Context, *GetReferenceTimeRequest) (*GetReferenceTimeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetReferenceTime not implemented")
+}
+func (UnimplementedTextClassificationRequestServiceServer) GetStartIndex(context.Context, *GetStartIndexRequest) (*GetStartIndexResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetStartIndex not implemented")
+}
+func (UnimplementedTextClassificationRequestServiceServer) GetText(context.Context, *GetTextRequest) (*GetTextResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetText not implemented")
+}
+func (UnimplementedTextClassificationRequestServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedTextClassificationRequestServiceServer) mustEmbedUnimplementedTextClassificationRequestServiceServer() {
+}
+func (UnimplementedTextClassificationRequestServiceServer) testEmbeddedByValue() {}
+
+// UnsafeTextClassificationRequestServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TextClassificationRequestServiceServer will
+// result in compilation errors.
+type UnsafeTextClassificationRequestServiceServer interface {
+	mustEmbedUnimplementedTextClassificationRequestServiceServer()
+}
+
+func RegisterTextClassificationRequestServiceServer(s grpc.ServiceRegistrar, srv TextClassificationRequestServiceServer) {
+	// If the following call panics, it indicates UnimplementedTextClassificationRequestServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TextClassificationRequestService_ServiceDesc, srv)
+}
+
+func _TextClassificationRequestService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassificationRequestServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassificationRequestService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassificationRequestServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextClassificationRequestService_GetCallingPackageName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCallingPackageNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassificationRequestServiceServer).GetCallingPackageName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassificationRequestService_GetCallingPackageName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassificationRequestServiceServer).GetCallingPackageName(ctx, req.(*GetCallingPackageNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextClassificationRequestService_GetDefaultLocales_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDefaultLocalesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassificationRequestServiceServer).GetDefaultLocales(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassificationRequestService_GetDefaultLocales_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassificationRequestServiceServer).GetDefaultLocales(ctx, req.(*GetDefaultLocalesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextClassificationRequestService_GetEndIndex_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEndIndexRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassificationRequestServiceServer).GetEndIndex(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassificationRequestService_GetEndIndex_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassificationRequestServiceServer).GetEndIndex(ctx, req.(*GetEndIndexRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextClassificationRequestService_GetExtras_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetExtrasRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassificationRequestServiceServer).GetExtras(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassificationRequestService_GetExtras_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassificationRequestServiceServer).GetExtras(ctx, req.(*GetExtrasRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextClassificationRequestService_GetReferenceTime_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetReferenceTimeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassificationRequestServiceServer).GetReferenceTime(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassificationRequestService_GetReferenceTime_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassificationRequestServiceServer).GetReferenceTime(ctx, req.(*GetReferenceTimeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextClassificationRequestService_GetStartIndex_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStartIndexRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassificationRequestServiceServer).GetStartIndex(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassificationRequestService_GetStartIndex_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassificationRequestServiceServer).GetStartIndex(ctx, req.(*GetStartIndexRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextClassificationRequestService_GetText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTextRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassificationRequestServiceServer).GetText(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassificationRequestService_GetText_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassificationRequestServiceServer).GetText(ctx, req.(*GetTextRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextClassificationRequestService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassificationRequestServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassificationRequestService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassificationRequestServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TextClassificationRequestService_ServiceDesc is the grpc.ServiceDesc for TextClassificationRequestService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TextClassificationRequestService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "textclassifier.TextClassificationRequestService",
+	HandlerType: (*TextClassificationRequestServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _TextClassificationRequestService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetCallingPackageName",
+			Handler:    _TextClassificationRequestService_GetCallingPackageName_Handler,
+		},
+		{
+			MethodName: "GetDefaultLocales",
+			Handler:    _TextClassificationRequestService_GetDefaultLocales_Handler,
+		},
+		{
+			MethodName: "GetEndIndex",
+			Handler:    _TextClassificationRequestService_GetEndIndex_Handler,
+		},
+		{
+			MethodName: "GetExtras",
+			Handler:    _TextClassificationRequestService_GetExtras_Handler,
+		},
+		{
+			MethodName: "GetReferenceTime",
+			Handler:    _TextClassificationRequestService_GetReferenceTime_Handler,
+		},
+		{
+			MethodName: "GetStartIndex",
+			Handler:    _TextClassificationRequestService_GetStartIndex_Handler,
+		},
+		{
+			MethodName: "GetText",
+			Handler:    _TextClassificationRequestService_GetText_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _TextClassificationRequestService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/textclassifier/textclassifier.proto",
+}
+
+const (
 	TextClassificationManagerService_CreateTextClassificationSession_FullMethodName     = "/textclassifier.TextClassificationManagerService/CreateTextClassificationSession"
 	TextClassificationManagerService_GetTextClassifier_FullMethodName                   = "/textclassifier.TextClassificationManagerService/GetTextClassifier"
 	TextClassificationManagerService_SetTextClassificationSessionFactory_FullMethodName = "/textclassifier.TextClassificationManagerService/SetTextClassificationSessionFactory"
@@ -231,6 +3323,6037 @@ var TextClassificationManagerService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "SetTextClassifier",
 			Handler:    _TextClassificationManagerService_SetTextClassifier_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/textclassifier/textclassifier.proto",
+}
+
+const (
+	TextClassificationSessionIdService_DescribeContents_FullMethodName = "/textclassifier.TextClassificationSessionIdService/DescribeContents"
+	TextClassificationSessionIdService_Equals_FullMethodName           = "/textclassifier.TextClassificationSessionIdService/Equals"
+	TextClassificationSessionIdService_GetValue_FullMethodName         = "/textclassifier.TextClassificationSessionIdService/GetValue"
+	TextClassificationSessionIdService_HashCode_FullMethodName         = "/textclassifier.TextClassificationSessionIdService/HashCode"
+	TextClassificationSessionIdService_ToString_FullMethodName         = "/textclassifier.TextClassificationSessionIdService/ToString"
+	TextClassificationSessionIdService_WriteToParcel_FullMethodName    = "/textclassifier.TextClassificationSessionIdService/WriteToParcel"
+)
+
+// TextClassificationSessionIdServiceClient is the client API for TextClassificationSessionIdService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TextClassificationSessionIdServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetValue(ctx context.Context, in *GetValueRequest, opts ...grpc.CallOption) (*GetValueResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type textClassificationSessionIdServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTextClassificationSessionIdServiceClient(cc grpc.ClientConnInterface) TextClassificationSessionIdServiceClient {
+	return &textClassificationSessionIdServiceClient{cc}
+}
+
+func (c *textClassificationSessionIdServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, TextClassificationSessionIdService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textClassificationSessionIdServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, TextClassificationSessionIdService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textClassificationSessionIdServiceClient) GetValue(ctx context.Context, in *GetValueRequest, opts ...grpc.CallOption) (*GetValueResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetValueResponse)
+	err := c.cc.Invoke(ctx, TextClassificationSessionIdService_GetValue_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textClassificationSessionIdServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, TextClassificationSessionIdService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textClassificationSessionIdServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, TextClassificationSessionIdService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textClassificationSessionIdServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, TextClassificationSessionIdService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TextClassificationSessionIdServiceServer is the server API for TextClassificationSessionIdService service.
+// All implementations must embed UnimplementedTextClassificationSessionIdServiceServer
+// for forward compatibility.
+type TextClassificationSessionIdServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetValue(context.Context, *GetValueRequest) (*GetValueResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedTextClassificationSessionIdServiceServer()
+}
+
+// UnimplementedTextClassificationSessionIdServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTextClassificationSessionIdServiceServer struct{}
+
+func (UnimplementedTextClassificationSessionIdServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedTextClassificationSessionIdServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedTextClassificationSessionIdServiceServer) GetValue(context.Context, *GetValueRequest) (*GetValueResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetValue not implemented")
+}
+func (UnimplementedTextClassificationSessionIdServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedTextClassificationSessionIdServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedTextClassificationSessionIdServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedTextClassificationSessionIdServiceServer) mustEmbedUnimplementedTextClassificationSessionIdServiceServer() {
+}
+func (UnimplementedTextClassificationSessionIdServiceServer) testEmbeddedByValue() {}
+
+// UnsafeTextClassificationSessionIdServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TextClassificationSessionIdServiceServer will
+// result in compilation errors.
+type UnsafeTextClassificationSessionIdServiceServer interface {
+	mustEmbedUnimplementedTextClassificationSessionIdServiceServer()
+}
+
+func RegisterTextClassificationSessionIdServiceServer(s grpc.ServiceRegistrar, srv TextClassificationSessionIdServiceServer) {
+	// If the following call panics, it indicates UnimplementedTextClassificationSessionIdServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TextClassificationSessionIdService_ServiceDesc, srv)
+}
+
+func _TextClassificationSessionIdService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassificationSessionIdServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassificationSessionIdService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassificationSessionIdServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextClassificationSessionIdService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassificationSessionIdServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassificationSessionIdService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassificationSessionIdServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextClassificationSessionIdService_GetValue_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetValueRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassificationSessionIdServiceServer).GetValue(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassificationSessionIdService_GetValue_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassificationSessionIdServiceServer).GetValue(ctx, req.(*GetValueRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextClassificationSessionIdService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassificationSessionIdServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassificationSessionIdService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassificationSessionIdServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextClassificationSessionIdService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassificationSessionIdServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassificationSessionIdService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassificationSessionIdServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextClassificationSessionIdService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassificationSessionIdServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassificationSessionIdService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassificationSessionIdServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TextClassificationSessionIdService_ServiceDesc is the grpc.ServiceDesc for TextClassificationSessionIdService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TextClassificationSessionIdService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "textclassifier.TextClassificationSessionIdService",
+	HandlerType: (*TextClassificationSessionIdServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _TextClassificationSessionIdService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _TextClassificationSessionIdService_Equals_Handler,
+		},
+		{
+			MethodName: "GetValue",
+			Handler:    _TextClassificationSessionIdService_GetValue_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _TextClassificationSessionIdService_HashCode_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _TextClassificationSessionIdService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _TextClassificationSessionIdService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/textclassifier/textclassifier.proto",
+}
+
+const (
+	TextClassifierEventService_DescribeContents_FullMethodName = "/textclassifier.TextClassifierEventService/DescribeContents"
+	TextClassifierEventService_GetActionIndices_FullMethodName = "/textclassifier.TextClassifierEventService/GetActionIndices"
+	TextClassifierEventService_GetEntityTypes_FullMethodName   = "/textclassifier.TextClassifierEventService/GetEntityTypes"
+	TextClassifierEventService_GetEventCategory_FullMethodName = "/textclassifier.TextClassifierEventService/GetEventCategory"
+	TextClassifierEventService_GetEventContext_FullMethodName  = "/textclassifier.TextClassifierEventService/GetEventContext"
+	TextClassifierEventService_GetEventIndex_FullMethodName    = "/textclassifier.TextClassifierEventService/GetEventIndex"
+	TextClassifierEventService_GetEventType_FullMethodName     = "/textclassifier.TextClassifierEventService/GetEventType"
+	TextClassifierEventService_GetExtras_FullMethodName        = "/textclassifier.TextClassifierEventService/GetExtras"
+	TextClassifierEventService_GetLocale_FullMethodName        = "/textclassifier.TextClassifierEventService/GetLocale"
+	TextClassifierEventService_GetModelName_FullMethodName     = "/textclassifier.TextClassifierEventService/GetModelName"
+	TextClassifierEventService_GetResultId_FullMethodName      = "/textclassifier.TextClassifierEventService/GetResultId"
+	TextClassifierEventService_GetScores_FullMethodName        = "/textclassifier.TextClassifierEventService/GetScores"
+	TextClassifierEventService_ToString_FullMethodName         = "/textclassifier.TextClassifierEventService/ToString"
+	TextClassifierEventService_WriteToParcel_FullMethodName    = "/textclassifier.TextClassifierEventService/WriteToParcel"
+)
+
+// TextClassifierEventServiceClient is the client API for TextClassifierEventService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TextClassifierEventServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetActionIndices(ctx context.Context, in *GetActionIndicesRequest, opts ...grpc.CallOption) (*GetActionIndicesResponse, error)
+	GetEntityTypes(ctx context.Context, in *GetEntityTypesRequest, opts ...grpc.CallOption) (*GetEntityTypesResponse, error)
+	GetEventCategory(ctx context.Context, in *GetEventCategoryRequest, opts ...grpc.CallOption) (*GetEventCategoryResponse, error)
+	GetEventContext(ctx context.Context, in *GetEventContextRequest, opts ...grpc.CallOption) (*GetEventContextResponse, error)
+	GetEventIndex(ctx context.Context, in *GetEventIndexRequest, opts ...grpc.CallOption) (*GetEventIndexResponse, error)
+	GetEventType(ctx context.Context, in *GetEventTypeRequest, opts ...grpc.CallOption) (*GetEventTypeResponse, error)
+	GetExtras(ctx context.Context, in *GetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error)
+	GetLocale(ctx context.Context, in *GetLocaleRequest, opts ...grpc.CallOption) (*GetLocaleResponse, error)
+	GetModelName(ctx context.Context, in *GetModelNameRequest, opts ...grpc.CallOption) (*GetModelNameResponse, error)
+	GetResultId(ctx context.Context, in *GetResultIdRequest, opts ...grpc.CallOption) (*GetResultIdResponse, error)
+	GetScores(ctx context.Context, in *GetScoresRequest, opts ...grpc.CallOption) (*GetScoresResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type textClassifierEventServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTextClassifierEventServiceClient(cc grpc.ClientConnInterface) TextClassifierEventServiceClient {
+	return &textClassifierEventServiceClient{cc}
+}
+
+func (c *textClassifierEventServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, TextClassifierEventService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textClassifierEventServiceClient) GetActionIndices(ctx context.Context, in *GetActionIndicesRequest, opts ...grpc.CallOption) (*GetActionIndicesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetActionIndicesResponse)
+	err := c.cc.Invoke(ctx, TextClassifierEventService_GetActionIndices_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textClassifierEventServiceClient) GetEntityTypes(ctx context.Context, in *GetEntityTypesRequest, opts ...grpc.CallOption) (*GetEntityTypesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEntityTypesResponse)
+	err := c.cc.Invoke(ctx, TextClassifierEventService_GetEntityTypes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textClassifierEventServiceClient) GetEventCategory(ctx context.Context, in *GetEventCategoryRequest, opts ...grpc.CallOption) (*GetEventCategoryResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEventCategoryResponse)
+	err := c.cc.Invoke(ctx, TextClassifierEventService_GetEventCategory_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textClassifierEventServiceClient) GetEventContext(ctx context.Context, in *GetEventContextRequest, opts ...grpc.CallOption) (*GetEventContextResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEventContextResponse)
+	err := c.cc.Invoke(ctx, TextClassifierEventService_GetEventContext_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textClassifierEventServiceClient) GetEventIndex(ctx context.Context, in *GetEventIndexRequest, opts ...grpc.CallOption) (*GetEventIndexResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEventIndexResponse)
+	err := c.cc.Invoke(ctx, TextClassifierEventService_GetEventIndex_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textClassifierEventServiceClient) GetEventType(ctx context.Context, in *GetEventTypeRequest, opts ...grpc.CallOption) (*GetEventTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEventTypeResponse)
+	err := c.cc.Invoke(ctx, TextClassifierEventService_GetEventType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textClassifierEventServiceClient) GetExtras(ctx context.Context, in *GetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetExtrasResponse)
+	err := c.cc.Invoke(ctx, TextClassifierEventService_GetExtras_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textClassifierEventServiceClient) GetLocale(ctx context.Context, in *GetLocaleRequest, opts ...grpc.CallOption) (*GetLocaleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLocaleResponse)
+	err := c.cc.Invoke(ctx, TextClassifierEventService_GetLocale_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textClassifierEventServiceClient) GetModelName(ctx context.Context, in *GetModelNameRequest, opts ...grpc.CallOption) (*GetModelNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetModelNameResponse)
+	err := c.cc.Invoke(ctx, TextClassifierEventService_GetModelName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textClassifierEventServiceClient) GetResultId(ctx context.Context, in *GetResultIdRequest, opts ...grpc.CallOption) (*GetResultIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetResultIdResponse)
+	err := c.cc.Invoke(ctx, TextClassifierEventService_GetResultId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textClassifierEventServiceClient) GetScores(ctx context.Context, in *GetScoresRequest, opts ...grpc.CallOption) (*GetScoresResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetScoresResponse)
+	err := c.cc.Invoke(ctx, TextClassifierEventService_GetScores_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textClassifierEventServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, TextClassifierEventService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textClassifierEventServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, TextClassifierEventService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TextClassifierEventServiceServer is the server API for TextClassifierEventService service.
+// All implementations must embed UnimplementedTextClassifierEventServiceServer
+// for forward compatibility.
+type TextClassifierEventServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetActionIndices(context.Context, *GetActionIndicesRequest) (*GetActionIndicesResponse, error)
+	GetEntityTypes(context.Context, *GetEntityTypesRequest) (*GetEntityTypesResponse, error)
+	GetEventCategory(context.Context, *GetEventCategoryRequest) (*GetEventCategoryResponse, error)
+	GetEventContext(context.Context, *GetEventContextRequest) (*GetEventContextResponse, error)
+	GetEventIndex(context.Context, *GetEventIndexRequest) (*GetEventIndexResponse, error)
+	GetEventType(context.Context, *GetEventTypeRequest) (*GetEventTypeResponse, error)
+	GetExtras(context.Context, *GetExtrasRequest) (*GetExtrasResponse, error)
+	GetLocale(context.Context, *GetLocaleRequest) (*GetLocaleResponse, error)
+	GetModelName(context.Context, *GetModelNameRequest) (*GetModelNameResponse, error)
+	GetResultId(context.Context, *GetResultIdRequest) (*GetResultIdResponse, error)
+	GetScores(context.Context, *GetScoresRequest) (*GetScoresResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedTextClassifierEventServiceServer()
+}
+
+// UnimplementedTextClassifierEventServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTextClassifierEventServiceServer struct{}
+
+func (UnimplementedTextClassifierEventServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedTextClassifierEventServiceServer) GetActionIndices(context.Context, *GetActionIndicesRequest) (*GetActionIndicesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetActionIndices not implemented")
+}
+func (UnimplementedTextClassifierEventServiceServer) GetEntityTypes(context.Context, *GetEntityTypesRequest) (*GetEntityTypesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEntityTypes not implemented")
+}
+func (UnimplementedTextClassifierEventServiceServer) GetEventCategory(context.Context, *GetEventCategoryRequest) (*GetEventCategoryResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEventCategory not implemented")
+}
+func (UnimplementedTextClassifierEventServiceServer) GetEventContext(context.Context, *GetEventContextRequest) (*GetEventContextResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEventContext not implemented")
+}
+func (UnimplementedTextClassifierEventServiceServer) GetEventIndex(context.Context, *GetEventIndexRequest) (*GetEventIndexResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEventIndex not implemented")
+}
+func (UnimplementedTextClassifierEventServiceServer) GetEventType(context.Context, *GetEventTypeRequest) (*GetEventTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEventType not implemented")
+}
+func (UnimplementedTextClassifierEventServiceServer) GetExtras(context.Context, *GetExtrasRequest) (*GetExtrasResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetExtras not implemented")
+}
+func (UnimplementedTextClassifierEventServiceServer) GetLocale(context.Context, *GetLocaleRequest) (*GetLocaleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLocale not implemented")
+}
+func (UnimplementedTextClassifierEventServiceServer) GetModelName(context.Context, *GetModelNameRequest) (*GetModelNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetModelName not implemented")
+}
+func (UnimplementedTextClassifierEventServiceServer) GetResultId(context.Context, *GetResultIdRequest) (*GetResultIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetResultId not implemented")
+}
+func (UnimplementedTextClassifierEventServiceServer) GetScores(context.Context, *GetScoresRequest) (*GetScoresResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetScores not implemented")
+}
+func (UnimplementedTextClassifierEventServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedTextClassifierEventServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedTextClassifierEventServiceServer) mustEmbedUnimplementedTextClassifierEventServiceServer() {
+}
+func (UnimplementedTextClassifierEventServiceServer) testEmbeddedByValue() {}
+
+// UnsafeTextClassifierEventServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TextClassifierEventServiceServer will
+// result in compilation errors.
+type UnsafeTextClassifierEventServiceServer interface {
+	mustEmbedUnimplementedTextClassifierEventServiceServer()
+}
+
+func RegisterTextClassifierEventServiceServer(s grpc.ServiceRegistrar, srv TextClassifierEventServiceServer) {
+	// If the following call panics, it indicates UnimplementedTextClassifierEventServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TextClassifierEventService_ServiceDesc, srv)
+}
+
+func _TextClassifierEventService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassifierEventServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassifierEventService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassifierEventServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextClassifierEventService_GetActionIndices_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetActionIndicesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassifierEventServiceServer).GetActionIndices(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassifierEventService_GetActionIndices_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassifierEventServiceServer).GetActionIndices(ctx, req.(*GetActionIndicesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextClassifierEventService_GetEntityTypes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEntityTypesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassifierEventServiceServer).GetEntityTypes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassifierEventService_GetEntityTypes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassifierEventServiceServer).GetEntityTypes(ctx, req.(*GetEntityTypesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextClassifierEventService_GetEventCategory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEventCategoryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassifierEventServiceServer).GetEventCategory(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassifierEventService_GetEventCategory_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassifierEventServiceServer).GetEventCategory(ctx, req.(*GetEventCategoryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextClassifierEventService_GetEventContext_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEventContextRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassifierEventServiceServer).GetEventContext(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassifierEventService_GetEventContext_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassifierEventServiceServer).GetEventContext(ctx, req.(*GetEventContextRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextClassifierEventService_GetEventIndex_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEventIndexRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassifierEventServiceServer).GetEventIndex(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassifierEventService_GetEventIndex_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassifierEventServiceServer).GetEventIndex(ctx, req.(*GetEventIndexRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextClassifierEventService_GetEventType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEventTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassifierEventServiceServer).GetEventType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassifierEventService_GetEventType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassifierEventServiceServer).GetEventType(ctx, req.(*GetEventTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextClassifierEventService_GetExtras_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetExtrasRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassifierEventServiceServer).GetExtras(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassifierEventService_GetExtras_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassifierEventServiceServer).GetExtras(ctx, req.(*GetExtrasRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextClassifierEventService_GetLocale_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLocaleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassifierEventServiceServer).GetLocale(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassifierEventService_GetLocale_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassifierEventServiceServer).GetLocale(ctx, req.(*GetLocaleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextClassifierEventService_GetModelName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetModelNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassifierEventServiceServer).GetModelName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassifierEventService_GetModelName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassifierEventServiceServer).GetModelName(ctx, req.(*GetModelNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextClassifierEventService_GetResultId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetResultIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassifierEventServiceServer).GetResultId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassifierEventService_GetResultId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassifierEventServiceServer).GetResultId(ctx, req.(*GetResultIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextClassifierEventService_GetScores_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetScoresRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassifierEventServiceServer).GetScores(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassifierEventService_GetScores_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassifierEventServiceServer).GetScores(ctx, req.(*GetScoresRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextClassifierEventService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassifierEventServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassifierEventService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassifierEventServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextClassifierEventService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassifierEventServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassifierEventService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassifierEventServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TextClassifierEventService_ServiceDesc is the grpc.ServiceDesc for TextClassifierEventService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TextClassifierEventService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "textclassifier.TextClassifierEventService",
+	HandlerType: (*TextClassifierEventServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _TextClassifierEventService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetActionIndices",
+			Handler:    _TextClassifierEventService_GetActionIndices_Handler,
+		},
+		{
+			MethodName: "GetEntityTypes",
+			Handler:    _TextClassifierEventService_GetEntityTypes_Handler,
+		},
+		{
+			MethodName: "GetEventCategory",
+			Handler:    _TextClassifierEventService_GetEventCategory_Handler,
+		},
+		{
+			MethodName: "GetEventContext",
+			Handler:    _TextClassifierEventService_GetEventContext_Handler,
+		},
+		{
+			MethodName: "GetEventIndex",
+			Handler:    _TextClassifierEventService_GetEventIndex_Handler,
+		},
+		{
+			MethodName: "GetEventType",
+			Handler:    _TextClassifierEventService_GetEventType_Handler,
+		},
+		{
+			MethodName: "GetExtras",
+			Handler:    _TextClassifierEventService_GetExtras_Handler,
+		},
+		{
+			MethodName: "GetLocale",
+			Handler:    _TextClassifierEventService_GetLocale_Handler,
+		},
+		{
+			MethodName: "GetModelName",
+			Handler:    _TextClassifierEventService_GetModelName_Handler,
+		},
+		{
+			MethodName: "GetResultId",
+			Handler:    _TextClassifierEventService_GetResultId_Handler,
+		},
+		{
+			MethodName: "GetScores",
+			Handler:    _TextClassifierEventService_GetScores_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _TextClassifierEventService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _TextClassifierEventService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/textclassifier/textclassifier.proto",
+}
+
+const (
+	TextClassifierEventTextSelectionEventService_GetRelativeSuggestedWordEndIndex_FullMethodName   = "/textclassifier.TextClassifierEventTextSelectionEventService/GetRelativeSuggestedWordEndIndex"
+	TextClassifierEventTextSelectionEventService_GetRelativeSuggestedWordStartIndex_FullMethodName = "/textclassifier.TextClassifierEventTextSelectionEventService/GetRelativeSuggestedWordStartIndex"
+	TextClassifierEventTextSelectionEventService_GetRelativeWordEndIndex_FullMethodName            = "/textclassifier.TextClassifierEventTextSelectionEventService/GetRelativeWordEndIndex"
+	TextClassifierEventTextSelectionEventService_GetRelativeWordStartIndex_FullMethodName          = "/textclassifier.TextClassifierEventTextSelectionEventService/GetRelativeWordStartIndex"
+	TextClassifierEventTextSelectionEventService_WriteToParcel_FullMethodName                      = "/textclassifier.TextClassifierEventTextSelectionEventService/WriteToParcel"
+)
+
+// TextClassifierEventTextSelectionEventServiceClient is the client API for TextClassifierEventTextSelectionEventService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TextClassifierEventTextSelectionEventServiceClient interface {
+	GetRelativeSuggestedWordEndIndex(ctx context.Context, in *GetRelativeSuggestedWordEndIndexRequest, opts ...grpc.CallOption) (*GetRelativeSuggestedWordEndIndexResponse, error)
+	GetRelativeSuggestedWordStartIndex(ctx context.Context, in *GetRelativeSuggestedWordStartIndexRequest, opts ...grpc.CallOption) (*GetRelativeSuggestedWordStartIndexResponse, error)
+	GetRelativeWordEndIndex(ctx context.Context, in *GetRelativeWordEndIndexRequest, opts ...grpc.CallOption) (*GetRelativeWordEndIndexResponse, error)
+	GetRelativeWordStartIndex(ctx context.Context, in *GetRelativeWordStartIndexRequest, opts ...grpc.CallOption) (*GetRelativeWordStartIndexResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type textClassifierEventTextSelectionEventServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTextClassifierEventTextSelectionEventServiceClient(cc grpc.ClientConnInterface) TextClassifierEventTextSelectionEventServiceClient {
+	return &textClassifierEventTextSelectionEventServiceClient{cc}
+}
+
+func (c *textClassifierEventTextSelectionEventServiceClient) GetRelativeSuggestedWordEndIndex(ctx context.Context, in *GetRelativeSuggestedWordEndIndexRequest, opts ...grpc.CallOption) (*GetRelativeSuggestedWordEndIndexResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRelativeSuggestedWordEndIndexResponse)
+	err := c.cc.Invoke(ctx, TextClassifierEventTextSelectionEventService_GetRelativeSuggestedWordEndIndex_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textClassifierEventTextSelectionEventServiceClient) GetRelativeSuggestedWordStartIndex(ctx context.Context, in *GetRelativeSuggestedWordStartIndexRequest, opts ...grpc.CallOption) (*GetRelativeSuggestedWordStartIndexResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRelativeSuggestedWordStartIndexResponse)
+	err := c.cc.Invoke(ctx, TextClassifierEventTextSelectionEventService_GetRelativeSuggestedWordStartIndex_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textClassifierEventTextSelectionEventServiceClient) GetRelativeWordEndIndex(ctx context.Context, in *GetRelativeWordEndIndexRequest, opts ...grpc.CallOption) (*GetRelativeWordEndIndexResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRelativeWordEndIndexResponse)
+	err := c.cc.Invoke(ctx, TextClassifierEventTextSelectionEventService_GetRelativeWordEndIndex_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textClassifierEventTextSelectionEventServiceClient) GetRelativeWordStartIndex(ctx context.Context, in *GetRelativeWordStartIndexRequest, opts ...grpc.CallOption) (*GetRelativeWordStartIndexResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRelativeWordStartIndexResponse)
+	err := c.cc.Invoke(ctx, TextClassifierEventTextSelectionEventService_GetRelativeWordStartIndex_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textClassifierEventTextSelectionEventServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, TextClassifierEventTextSelectionEventService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TextClassifierEventTextSelectionEventServiceServer is the server API for TextClassifierEventTextSelectionEventService service.
+// All implementations must embed UnimplementedTextClassifierEventTextSelectionEventServiceServer
+// for forward compatibility.
+type TextClassifierEventTextSelectionEventServiceServer interface {
+	GetRelativeSuggestedWordEndIndex(context.Context, *GetRelativeSuggestedWordEndIndexRequest) (*GetRelativeSuggestedWordEndIndexResponse, error)
+	GetRelativeSuggestedWordStartIndex(context.Context, *GetRelativeSuggestedWordStartIndexRequest) (*GetRelativeSuggestedWordStartIndexResponse, error)
+	GetRelativeWordEndIndex(context.Context, *GetRelativeWordEndIndexRequest) (*GetRelativeWordEndIndexResponse, error)
+	GetRelativeWordStartIndex(context.Context, *GetRelativeWordStartIndexRequest) (*GetRelativeWordStartIndexResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedTextClassifierEventTextSelectionEventServiceServer()
+}
+
+// UnimplementedTextClassifierEventTextSelectionEventServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTextClassifierEventTextSelectionEventServiceServer struct{}
+
+func (UnimplementedTextClassifierEventTextSelectionEventServiceServer) GetRelativeSuggestedWordEndIndex(context.Context, *GetRelativeSuggestedWordEndIndexRequest) (*GetRelativeSuggestedWordEndIndexResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRelativeSuggestedWordEndIndex not implemented")
+}
+func (UnimplementedTextClassifierEventTextSelectionEventServiceServer) GetRelativeSuggestedWordStartIndex(context.Context, *GetRelativeSuggestedWordStartIndexRequest) (*GetRelativeSuggestedWordStartIndexResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRelativeSuggestedWordStartIndex not implemented")
+}
+func (UnimplementedTextClassifierEventTextSelectionEventServiceServer) GetRelativeWordEndIndex(context.Context, *GetRelativeWordEndIndexRequest) (*GetRelativeWordEndIndexResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRelativeWordEndIndex not implemented")
+}
+func (UnimplementedTextClassifierEventTextSelectionEventServiceServer) GetRelativeWordStartIndex(context.Context, *GetRelativeWordStartIndexRequest) (*GetRelativeWordStartIndexResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRelativeWordStartIndex not implemented")
+}
+func (UnimplementedTextClassifierEventTextSelectionEventServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedTextClassifierEventTextSelectionEventServiceServer) mustEmbedUnimplementedTextClassifierEventTextSelectionEventServiceServer() {
+}
+func (UnimplementedTextClassifierEventTextSelectionEventServiceServer) testEmbeddedByValue() {}
+
+// UnsafeTextClassifierEventTextSelectionEventServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TextClassifierEventTextSelectionEventServiceServer will
+// result in compilation errors.
+type UnsafeTextClassifierEventTextSelectionEventServiceServer interface {
+	mustEmbedUnimplementedTextClassifierEventTextSelectionEventServiceServer()
+}
+
+func RegisterTextClassifierEventTextSelectionEventServiceServer(s grpc.ServiceRegistrar, srv TextClassifierEventTextSelectionEventServiceServer) {
+	// If the following call panics, it indicates UnimplementedTextClassifierEventTextSelectionEventServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TextClassifierEventTextSelectionEventService_ServiceDesc, srv)
+}
+
+func _TextClassifierEventTextSelectionEventService_GetRelativeSuggestedWordEndIndex_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRelativeSuggestedWordEndIndexRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassifierEventTextSelectionEventServiceServer).GetRelativeSuggestedWordEndIndex(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassifierEventTextSelectionEventService_GetRelativeSuggestedWordEndIndex_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassifierEventTextSelectionEventServiceServer).GetRelativeSuggestedWordEndIndex(ctx, req.(*GetRelativeSuggestedWordEndIndexRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextClassifierEventTextSelectionEventService_GetRelativeSuggestedWordStartIndex_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRelativeSuggestedWordStartIndexRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassifierEventTextSelectionEventServiceServer).GetRelativeSuggestedWordStartIndex(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassifierEventTextSelectionEventService_GetRelativeSuggestedWordStartIndex_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassifierEventTextSelectionEventServiceServer).GetRelativeSuggestedWordStartIndex(ctx, req.(*GetRelativeSuggestedWordStartIndexRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextClassifierEventTextSelectionEventService_GetRelativeWordEndIndex_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRelativeWordEndIndexRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassifierEventTextSelectionEventServiceServer).GetRelativeWordEndIndex(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassifierEventTextSelectionEventService_GetRelativeWordEndIndex_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassifierEventTextSelectionEventServiceServer).GetRelativeWordEndIndex(ctx, req.(*GetRelativeWordEndIndexRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextClassifierEventTextSelectionEventService_GetRelativeWordStartIndex_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRelativeWordStartIndexRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassifierEventTextSelectionEventServiceServer).GetRelativeWordStartIndex(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassifierEventTextSelectionEventService_GetRelativeWordStartIndex_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassifierEventTextSelectionEventServiceServer).GetRelativeWordStartIndex(ctx, req.(*GetRelativeWordStartIndexRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextClassifierEventTextSelectionEventService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassifierEventTextSelectionEventServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassifierEventTextSelectionEventService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassifierEventTextSelectionEventServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TextClassifierEventTextSelectionEventService_ServiceDesc is the grpc.ServiceDesc for TextClassifierEventTextSelectionEventService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TextClassifierEventTextSelectionEventService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "textclassifier.TextClassifierEventTextSelectionEventService",
+	HandlerType: (*TextClassifierEventTextSelectionEventServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetRelativeSuggestedWordEndIndex",
+			Handler:    _TextClassifierEventTextSelectionEventService_GetRelativeSuggestedWordEndIndex_Handler,
+		},
+		{
+			MethodName: "GetRelativeSuggestedWordStartIndex",
+			Handler:    _TextClassifierEventTextSelectionEventService_GetRelativeSuggestedWordStartIndex_Handler,
+		},
+		{
+			MethodName: "GetRelativeWordEndIndex",
+			Handler:    _TextClassifierEventTextSelectionEventService_GetRelativeWordEndIndex_Handler,
+		},
+		{
+			MethodName: "GetRelativeWordStartIndex",
+			Handler:    _TextClassifierEventTextSelectionEventService_GetRelativeWordStartIndex_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _TextClassifierEventTextSelectionEventService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/textclassifier/textclassifier.proto",
+}
+
+const (
+	SelectionEventService_DescribeContents_FullMethodName                = "/textclassifier.SelectionEventService/DescribeContents"
+	SelectionEventService_Equals_FullMethodName                          = "/textclassifier.SelectionEventService/Equals"
+	SelectionEventService_GetDurationSincePreviousEvent_FullMethodName   = "/textclassifier.SelectionEventService/GetDurationSincePreviousEvent"
+	SelectionEventService_GetDurationSinceSessionStart_FullMethodName    = "/textclassifier.SelectionEventService/GetDurationSinceSessionStart"
+	SelectionEventService_GetEnd_FullMethodName                          = "/textclassifier.SelectionEventService/GetEnd"
+	SelectionEventService_GetEntityType_FullMethodName                   = "/textclassifier.SelectionEventService/GetEntityType"
+	SelectionEventService_GetEventIndex_FullMethodName                   = "/textclassifier.SelectionEventService/GetEventIndex"
+	SelectionEventService_GetEventTime_FullMethodName                    = "/textclassifier.SelectionEventService/GetEventTime"
+	SelectionEventService_GetEventType_FullMethodName                    = "/textclassifier.SelectionEventService/GetEventType"
+	SelectionEventService_GetInvocationMethod_FullMethodName             = "/textclassifier.SelectionEventService/GetInvocationMethod"
+	SelectionEventService_GetPackageName_FullMethodName                  = "/textclassifier.SelectionEventService/GetPackageName"
+	SelectionEventService_GetResultId_FullMethodName                     = "/textclassifier.SelectionEventService/GetResultId"
+	SelectionEventService_GetSessionId_FullMethodName                    = "/textclassifier.SelectionEventService/GetSessionId"
+	SelectionEventService_GetSmartEnd_FullMethodName                     = "/textclassifier.SelectionEventService/GetSmartEnd"
+	SelectionEventService_GetSmartStart_FullMethodName                   = "/textclassifier.SelectionEventService/GetSmartStart"
+	SelectionEventService_GetStart_FullMethodName                        = "/textclassifier.SelectionEventService/GetStart"
+	SelectionEventService_GetWidgetType_FullMethodName                   = "/textclassifier.SelectionEventService/GetWidgetType"
+	SelectionEventService_GetWidgetVersion_FullMethodName                = "/textclassifier.SelectionEventService/GetWidgetVersion"
+	SelectionEventService_HashCode_FullMethodName                        = "/textclassifier.SelectionEventService/HashCode"
+	SelectionEventService_ToString_FullMethodName                        = "/textclassifier.SelectionEventService/ToString"
+	SelectionEventService_WriteToParcel_FullMethodName                   = "/textclassifier.SelectionEventService/WriteToParcel"
+	SelectionEventService_CreateSelectionActionEvent3_FullMethodName     = "/textclassifier.SelectionEventService/CreateSelectionActionEvent3"
+	SelectionEventService_CreateSelectionActionEvent4_1_FullMethodName   = "/textclassifier.SelectionEventService/CreateSelectionActionEvent4_1"
+	SelectionEventService_CreateSelectionModifiedEvent2_FullMethodName   = "/textclassifier.SelectionEventService/CreateSelectionModifiedEvent2"
+	SelectionEventService_CreateSelectionModifiedEvent3_1_FullMethodName = "/textclassifier.SelectionEventService/CreateSelectionModifiedEvent3_1"
+	SelectionEventService_CreateSelectionModifiedEvent3_2_FullMethodName = "/textclassifier.SelectionEventService/CreateSelectionModifiedEvent3_2"
+	SelectionEventService_CreateSelectionStartedEvent_FullMethodName     = "/textclassifier.SelectionEventService/CreateSelectionStartedEvent"
+	SelectionEventService_IsTerminal_FullMethodName                      = "/textclassifier.SelectionEventService/IsTerminal"
+)
+
+// SelectionEventServiceClient is the client API for SelectionEventService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SelectionEventServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetDurationSincePreviousEvent(ctx context.Context, in *GetDurationSincePreviousEventRequest, opts ...grpc.CallOption) (*GetDurationSincePreviousEventResponse, error)
+	GetDurationSinceSessionStart(ctx context.Context, in *GetDurationSinceSessionStartRequest, opts ...grpc.CallOption) (*GetDurationSinceSessionStartResponse, error)
+	GetEnd(ctx context.Context, in *GetEndRequest, opts ...grpc.CallOption) (*GetEndResponse, error)
+	GetEntityType(ctx context.Context, in *GetEntityTypeRequest, opts ...grpc.CallOption) (*GetEntityTypeResponse, error)
+	GetEventIndex(ctx context.Context, in *GetEventIndexRequest, opts ...grpc.CallOption) (*GetEventIndexResponse, error)
+	GetEventTime(ctx context.Context, in *GetEventTimeRequest, opts ...grpc.CallOption) (*GetEventTimeResponse, error)
+	GetEventType(ctx context.Context, in *GetEventTypeRequest, opts ...grpc.CallOption) (*GetEventTypeResponse, error)
+	GetInvocationMethod(ctx context.Context, in *GetInvocationMethodRequest, opts ...grpc.CallOption) (*GetInvocationMethodResponse, error)
+	GetPackageName(ctx context.Context, in *GetPackageNameRequest, opts ...grpc.CallOption) (*GetPackageNameResponse, error)
+	GetResultId(ctx context.Context, in *GetResultIdRequest, opts ...grpc.CallOption) (*GetResultIdResponse, error)
+	GetSessionId(ctx context.Context, in *GetSessionIdRequest, opts ...grpc.CallOption) (*GetSessionIdResponse, error)
+	GetSmartEnd(ctx context.Context, in *GetSmartEndRequest, opts ...grpc.CallOption) (*GetSmartEndResponse, error)
+	GetSmartStart(ctx context.Context, in *GetSmartStartRequest, opts ...grpc.CallOption) (*GetSmartStartResponse, error)
+	GetStart(ctx context.Context, in *GetStartRequest, opts ...grpc.CallOption) (*GetStartResponse, error)
+	GetWidgetType(ctx context.Context, in *GetWidgetTypeRequest, opts ...grpc.CallOption) (*GetWidgetTypeResponse, error)
+	GetWidgetVersion(ctx context.Context, in *GetWidgetVersionRequest, opts ...grpc.CallOption) (*GetWidgetVersionResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+	CreateSelectionActionEvent3(ctx context.Context, in *CreateSelectionActionEvent3Request, opts ...grpc.CallOption) (*CreateSelectionActionEvent3Response, error)
+	CreateSelectionActionEvent4_1(ctx context.Context, in *CreateSelectionActionEvent4_1Request, opts ...grpc.CallOption) (*CreateSelectionActionEvent4_1Response, error)
+	CreateSelectionModifiedEvent2(ctx context.Context, in *CreateSelectionModifiedEvent2Request, opts ...grpc.CallOption) (*CreateSelectionModifiedEvent2Response, error)
+	CreateSelectionModifiedEvent3_1(ctx context.Context, in *CreateSelectionModifiedEvent3_1Request, opts ...grpc.CallOption) (*CreateSelectionModifiedEvent3_1Response, error)
+	CreateSelectionModifiedEvent3_2(ctx context.Context, in *CreateSelectionModifiedEvent3_2Request, opts ...grpc.CallOption) (*CreateSelectionModifiedEvent3_2Response, error)
+	CreateSelectionStartedEvent(ctx context.Context, in *CreateSelectionStartedEventRequest, opts ...grpc.CallOption) (*CreateSelectionStartedEventResponse, error)
+	IsTerminal(ctx context.Context, in *IsTerminalRequest, opts ...grpc.CallOption) (*IsTerminalResponse, error)
+}
+
+type selectionEventServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSelectionEventServiceClient(cc grpc.ClientConnInterface) SelectionEventServiceClient {
+	return &selectionEventServiceClient{cc}
+}
+
+func (c *selectionEventServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, SelectionEventService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *selectionEventServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, SelectionEventService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *selectionEventServiceClient) GetDurationSincePreviousEvent(ctx context.Context, in *GetDurationSincePreviousEventRequest, opts ...grpc.CallOption) (*GetDurationSincePreviousEventResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDurationSincePreviousEventResponse)
+	err := c.cc.Invoke(ctx, SelectionEventService_GetDurationSincePreviousEvent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *selectionEventServiceClient) GetDurationSinceSessionStart(ctx context.Context, in *GetDurationSinceSessionStartRequest, opts ...grpc.CallOption) (*GetDurationSinceSessionStartResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDurationSinceSessionStartResponse)
+	err := c.cc.Invoke(ctx, SelectionEventService_GetDurationSinceSessionStart_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *selectionEventServiceClient) GetEnd(ctx context.Context, in *GetEndRequest, opts ...grpc.CallOption) (*GetEndResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEndResponse)
+	err := c.cc.Invoke(ctx, SelectionEventService_GetEnd_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *selectionEventServiceClient) GetEntityType(ctx context.Context, in *GetEntityTypeRequest, opts ...grpc.CallOption) (*GetEntityTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEntityTypeResponse)
+	err := c.cc.Invoke(ctx, SelectionEventService_GetEntityType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *selectionEventServiceClient) GetEventIndex(ctx context.Context, in *GetEventIndexRequest, opts ...grpc.CallOption) (*GetEventIndexResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEventIndexResponse)
+	err := c.cc.Invoke(ctx, SelectionEventService_GetEventIndex_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *selectionEventServiceClient) GetEventTime(ctx context.Context, in *GetEventTimeRequest, opts ...grpc.CallOption) (*GetEventTimeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEventTimeResponse)
+	err := c.cc.Invoke(ctx, SelectionEventService_GetEventTime_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *selectionEventServiceClient) GetEventType(ctx context.Context, in *GetEventTypeRequest, opts ...grpc.CallOption) (*GetEventTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEventTypeResponse)
+	err := c.cc.Invoke(ctx, SelectionEventService_GetEventType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *selectionEventServiceClient) GetInvocationMethod(ctx context.Context, in *GetInvocationMethodRequest, opts ...grpc.CallOption) (*GetInvocationMethodResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetInvocationMethodResponse)
+	err := c.cc.Invoke(ctx, SelectionEventService_GetInvocationMethod_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *selectionEventServiceClient) GetPackageName(ctx context.Context, in *GetPackageNameRequest, opts ...grpc.CallOption) (*GetPackageNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPackageNameResponse)
+	err := c.cc.Invoke(ctx, SelectionEventService_GetPackageName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *selectionEventServiceClient) GetResultId(ctx context.Context, in *GetResultIdRequest, opts ...grpc.CallOption) (*GetResultIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetResultIdResponse)
+	err := c.cc.Invoke(ctx, SelectionEventService_GetResultId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *selectionEventServiceClient) GetSessionId(ctx context.Context, in *GetSessionIdRequest, opts ...grpc.CallOption) (*GetSessionIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSessionIdResponse)
+	err := c.cc.Invoke(ctx, SelectionEventService_GetSessionId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *selectionEventServiceClient) GetSmartEnd(ctx context.Context, in *GetSmartEndRequest, opts ...grpc.CallOption) (*GetSmartEndResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSmartEndResponse)
+	err := c.cc.Invoke(ctx, SelectionEventService_GetSmartEnd_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *selectionEventServiceClient) GetSmartStart(ctx context.Context, in *GetSmartStartRequest, opts ...grpc.CallOption) (*GetSmartStartResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSmartStartResponse)
+	err := c.cc.Invoke(ctx, SelectionEventService_GetSmartStart_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *selectionEventServiceClient) GetStart(ctx context.Context, in *GetStartRequest, opts ...grpc.CallOption) (*GetStartResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStartResponse)
+	err := c.cc.Invoke(ctx, SelectionEventService_GetStart_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *selectionEventServiceClient) GetWidgetType(ctx context.Context, in *GetWidgetTypeRequest, opts ...grpc.CallOption) (*GetWidgetTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetWidgetTypeResponse)
+	err := c.cc.Invoke(ctx, SelectionEventService_GetWidgetType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *selectionEventServiceClient) GetWidgetVersion(ctx context.Context, in *GetWidgetVersionRequest, opts ...grpc.CallOption) (*GetWidgetVersionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetWidgetVersionResponse)
+	err := c.cc.Invoke(ctx, SelectionEventService_GetWidgetVersion_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *selectionEventServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, SelectionEventService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *selectionEventServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, SelectionEventService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *selectionEventServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, SelectionEventService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *selectionEventServiceClient) CreateSelectionActionEvent3(ctx context.Context, in *CreateSelectionActionEvent3Request, opts ...grpc.CallOption) (*CreateSelectionActionEvent3Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateSelectionActionEvent3Response)
+	err := c.cc.Invoke(ctx, SelectionEventService_CreateSelectionActionEvent3_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *selectionEventServiceClient) CreateSelectionActionEvent4_1(ctx context.Context, in *CreateSelectionActionEvent4_1Request, opts ...grpc.CallOption) (*CreateSelectionActionEvent4_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateSelectionActionEvent4_1Response)
+	err := c.cc.Invoke(ctx, SelectionEventService_CreateSelectionActionEvent4_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *selectionEventServiceClient) CreateSelectionModifiedEvent2(ctx context.Context, in *CreateSelectionModifiedEvent2Request, opts ...grpc.CallOption) (*CreateSelectionModifiedEvent2Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateSelectionModifiedEvent2Response)
+	err := c.cc.Invoke(ctx, SelectionEventService_CreateSelectionModifiedEvent2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *selectionEventServiceClient) CreateSelectionModifiedEvent3_1(ctx context.Context, in *CreateSelectionModifiedEvent3_1Request, opts ...grpc.CallOption) (*CreateSelectionModifiedEvent3_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateSelectionModifiedEvent3_1Response)
+	err := c.cc.Invoke(ctx, SelectionEventService_CreateSelectionModifiedEvent3_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *selectionEventServiceClient) CreateSelectionModifiedEvent3_2(ctx context.Context, in *CreateSelectionModifiedEvent3_2Request, opts ...grpc.CallOption) (*CreateSelectionModifiedEvent3_2Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateSelectionModifiedEvent3_2Response)
+	err := c.cc.Invoke(ctx, SelectionEventService_CreateSelectionModifiedEvent3_2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *selectionEventServiceClient) CreateSelectionStartedEvent(ctx context.Context, in *CreateSelectionStartedEventRequest, opts ...grpc.CallOption) (*CreateSelectionStartedEventResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateSelectionStartedEventResponse)
+	err := c.cc.Invoke(ctx, SelectionEventService_CreateSelectionStartedEvent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *selectionEventServiceClient) IsTerminal(ctx context.Context, in *IsTerminalRequest, opts ...grpc.CallOption) (*IsTerminalResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsTerminalResponse)
+	err := c.cc.Invoke(ctx, SelectionEventService_IsTerminal_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SelectionEventServiceServer is the server API for SelectionEventService service.
+// All implementations must embed UnimplementedSelectionEventServiceServer
+// for forward compatibility.
+type SelectionEventServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetDurationSincePreviousEvent(context.Context, *GetDurationSincePreviousEventRequest) (*GetDurationSincePreviousEventResponse, error)
+	GetDurationSinceSessionStart(context.Context, *GetDurationSinceSessionStartRequest) (*GetDurationSinceSessionStartResponse, error)
+	GetEnd(context.Context, *GetEndRequest) (*GetEndResponse, error)
+	GetEntityType(context.Context, *GetEntityTypeRequest) (*GetEntityTypeResponse, error)
+	GetEventIndex(context.Context, *GetEventIndexRequest) (*GetEventIndexResponse, error)
+	GetEventTime(context.Context, *GetEventTimeRequest) (*GetEventTimeResponse, error)
+	GetEventType(context.Context, *GetEventTypeRequest) (*GetEventTypeResponse, error)
+	GetInvocationMethod(context.Context, *GetInvocationMethodRequest) (*GetInvocationMethodResponse, error)
+	GetPackageName(context.Context, *GetPackageNameRequest) (*GetPackageNameResponse, error)
+	GetResultId(context.Context, *GetResultIdRequest) (*GetResultIdResponse, error)
+	GetSessionId(context.Context, *GetSessionIdRequest) (*GetSessionIdResponse, error)
+	GetSmartEnd(context.Context, *GetSmartEndRequest) (*GetSmartEndResponse, error)
+	GetSmartStart(context.Context, *GetSmartStartRequest) (*GetSmartStartResponse, error)
+	GetStart(context.Context, *GetStartRequest) (*GetStartResponse, error)
+	GetWidgetType(context.Context, *GetWidgetTypeRequest) (*GetWidgetTypeResponse, error)
+	GetWidgetVersion(context.Context, *GetWidgetVersionRequest) (*GetWidgetVersionResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	CreateSelectionActionEvent3(context.Context, *CreateSelectionActionEvent3Request) (*CreateSelectionActionEvent3Response, error)
+	CreateSelectionActionEvent4_1(context.Context, *CreateSelectionActionEvent4_1Request) (*CreateSelectionActionEvent4_1Response, error)
+	CreateSelectionModifiedEvent2(context.Context, *CreateSelectionModifiedEvent2Request) (*CreateSelectionModifiedEvent2Response, error)
+	CreateSelectionModifiedEvent3_1(context.Context, *CreateSelectionModifiedEvent3_1Request) (*CreateSelectionModifiedEvent3_1Response, error)
+	CreateSelectionModifiedEvent3_2(context.Context, *CreateSelectionModifiedEvent3_2Request) (*CreateSelectionModifiedEvent3_2Response, error)
+	CreateSelectionStartedEvent(context.Context, *CreateSelectionStartedEventRequest) (*CreateSelectionStartedEventResponse, error)
+	IsTerminal(context.Context, *IsTerminalRequest) (*IsTerminalResponse, error)
+	mustEmbedUnimplementedSelectionEventServiceServer()
+}
+
+// UnimplementedSelectionEventServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSelectionEventServiceServer struct{}
+
+func (UnimplementedSelectionEventServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedSelectionEventServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedSelectionEventServiceServer) GetDurationSincePreviousEvent(context.Context, *GetDurationSincePreviousEventRequest) (*GetDurationSincePreviousEventResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDurationSincePreviousEvent not implemented")
+}
+func (UnimplementedSelectionEventServiceServer) GetDurationSinceSessionStart(context.Context, *GetDurationSinceSessionStartRequest) (*GetDurationSinceSessionStartResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDurationSinceSessionStart not implemented")
+}
+func (UnimplementedSelectionEventServiceServer) GetEnd(context.Context, *GetEndRequest) (*GetEndResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEnd not implemented")
+}
+func (UnimplementedSelectionEventServiceServer) GetEntityType(context.Context, *GetEntityTypeRequest) (*GetEntityTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEntityType not implemented")
+}
+func (UnimplementedSelectionEventServiceServer) GetEventIndex(context.Context, *GetEventIndexRequest) (*GetEventIndexResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEventIndex not implemented")
+}
+func (UnimplementedSelectionEventServiceServer) GetEventTime(context.Context, *GetEventTimeRequest) (*GetEventTimeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEventTime not implemented")
+}
+func (UnimplementedSelectionEventServiceServer) GetEventType(context.Context, *GetEventTypeRequest) (*GetEventTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEventType not implemented")
+}
+func (UnimplementedSelectionEventServiceServer) GetInvocationMethod(context.Context, *GetInvocationMethodRequest) (*GetInvocationMethodResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInvocationMethod not implemented")
+}
+func (UnimplementedSelectionEventServiceServer) GetPackageName(context.Context, *GetPackageNameRequest) (*GetPackageNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPackageName not implemented")
+}
+func (UnimplementedSelectionEventServiceServer) GetResultId(context.Context, *GetResultIdRequest) (*GetResultIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetResultId not implemented")
+}
+func (UnimplementedSelectionEventServiceServer) GetSessionId(context.Context, *GetSessionIdRequest) (*GetSessionIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSessionId not implemented")
+}
+func (UnimplementedSelectionEventServiceServer) GetSmartEnd(context.Context, *GetSmartEndRequest) (*GetSmartEndResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSmartEnd not implemented")
+}
+func (UnimplementedSelectionEventServiceServer) GetSmartStart(context.Context, *GetSmartStartRequest) (*GetSmartStartResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSmartStart not implemented")
+}
+func (UnimplementedSelectionEventServiceServer) GetStart(context.Context, *GetStartRequest) (*GetStartResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetStart not implemented")
+}
+func (UnimplementedSelectionEventServiceServer) GetWidgetType(context.Context, *GetWidgetTypeRequest) (*GetWidgetTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetWidgetType not implemented")
+}
+func (UnimplementedSelectionEventServiceServer) GetWidgetVersion(context.Context, *GetWidgetVersionRequest) (*GetWidgetVersionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetWidgetVersion not implemented")
+}
+func (UnimplementedSelectionEventServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedSelectionEventServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedSelectionEventServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedSelectionEventServiceServer) CreateSelectionActionEvent3(context.Context, *CreateSelectionActionEvent3Request) (*CreateSelectionActionEvent3Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method CreateSelectionActionEvent3 not implemented")
+}
+func (UnimplementedSelectionEventServiceServer) CreateSelectionActionEvent4_1(context.Context, *CreateSelectionActionEvent4_1Request) (*CreateSelectionActionEvent4_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method CreateSelectionActionEvent4_1 not implemented")
+}
+func (UnimplementedSelectionEventServiceServer) CreateSelectionModifiedEvent2(context.Context, *CreateSelectionModifiedEvent2Request) (*CreateSelectionModifiedEvent2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method CreateSelectionModifiedEvent2 not implemented")
+}
+func (UnimplementedSelectionEventServiceServer) CreateSelectionModifiedEvent3_1(context.Context, *CreateSelectionModifiedEvent3_1Request) (*CreateSelectionModifiedEvent3_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method CreateSelectionModifiedEvent3_1 not implemented")
+}
+func (UnimplementedSelectionEventServiceServer) CreateSelectionModifiedEvent3_2(context.Context, *CreateSelectionModifiedEvent3_2Request) (*CreateSelectionModifiedEvent3_2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method CreateSelectionModifiedEvent3_2 not implemented")
+}
+func (UnimplementedSelectionEventServiceServer) CreateSelectionStartedEvent(context.Context, *CreateSelectionStartedEventRequest) (*CreateSelectionStartedEventResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CreateSelectionStartedEvent not implemented")
+}
+func (UnimplementedSelectionEventServiceServer) IsTerminal(context.Context, *IsTerminalRequest) (*IsTerminalResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsTerminal not implemented")
+}
+func (UnimplementedSelectionEventServiceServer) mustEmbedUnimplementedSelectionEventServiceServer() {}
+func (UnimplementedSelectionEventServiceServer) testEmbeddedByValue()                               {}
+
+// UnsafeSelectionEventServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SelectionEventServiceServer will
+// result in compilation errors.
+type UnsafeSelectionEventServiceServer interface {
+	mustEmbedUnimplementedSelectionEventServiceServer()
+}
+
+func RegisterSelectionEventServiceServer(s grpc.ServiceRegistrar, srv SelectionEventServiceServer) {
+	// If the following call panics, it indicates UnimplementedSelectionEventServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SelectionEventService_ServiceDesc, srv)
+}
+
+func _SelectionEventService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SelectionEventServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SelectionEventService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SelectionEventServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SelectionEventService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SelectionEventServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SelectionEventService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SelectionEventServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SelectionEventService_GetDurationSincePreviousEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDurationSincePreviousEventRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SelectionEventServiceServer).GetDurationSincePreviousEvent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SelectionEventService_GetDurationSincePreviousEvent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SelectionEventServiceServer).GetDurationSincePreviousEvent(ctx, req.(*GetDurationSincePreviousEventRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SelectionEventService_GetDurationSinceSessionStart_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDurationSinceSessionStartRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SelectionEventServiceServer).GetDurationSinceSessionStart(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SelectionEventService_GetDurationSinceSessionStart_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SelectionEventServiceServer).GetDurationSinceSessionStart(ctx, req.(*GetDurationSinceSessionStartRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SelectionEventService_GetEnd_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEndRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SelectionEventServiceServer).GetEnd(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SelectionEventService_GetEnd_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SelectionEventServiceServer).GetEnd(ctx, req.(*GetEndRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SelectionEventService_GetEntityType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEntityTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SelectionEventServiceServer).GetEntityType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SelectionEventService_GetEntityType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SelectionEventServiceServer).GetEntityType(ctx, req.(*GetEntityTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SelectionEventService_GetEventIndex_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEventIndexRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SelectionEventServiceServer).GetEventIndex(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SelectionEventService_GetEventIndex_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SelectionEventServiceServer).GetEventIndex(ctx, req.(*GetEventIndexRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SelectionEventService_GetEventTime_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEventTimeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SelectionEventServiceServer).GetEventTime(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SelectionEventService_GetEventTime_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SelectionEventServiceServer).GetEventTime(ctx, req.(*GetEventTimeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SelectionEventService_GetEventType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEventTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SelectionEventServiceServer).GetEventType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SelectionEventService_GetEventType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SelectionEventServiceServer).GetEventType(ctx, req.(*GetEventTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SelectionEventService_GetInvocationMethod_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetInvocationMethodRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SelectionEventServiceServer).GetInvocationMethod(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SelectionEventService_GetInvocationMethod_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SelectionEventServiceServer).GetInvocationMethod(ctx, req.(*GetInvocationMethodRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SelectionEventService_GetPackageName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPackageNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SelectionEventServiceServer).GetPackageName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SelectionEventService_GetPackageName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SelectionEventServiceServer).GetPackageName(ctx, req.(*GetPackageNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SelectionEventService_GetResultId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetResultIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SelectionEventServiceServer).GetResultId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SelectionEventService_GetResultId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SelectionEventServiceServer).GetResultId(ctx, req.(*GetResultIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SelectionEventService_GetSessionId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSessionIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SelectionEventServiceServer).GetSessionId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SelectionEventService_GetSessionId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SelectionEventServiceServer).GetSessionId(ctx, req.(*GetSessionIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SelectionEventService_GetSmartEnd_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSmartEndRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SelectionEventServiceServer).GetSmartEnd(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SelectionEventService_GetSmartEnd_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SelectionEventServiceServer).GetSmartEnd(ctx, req.(*GetSmartEndRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SelectionEventService_GetSmartStart_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSmartStartRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SelectionEventServiceServer).GetSmartStart(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SelectionEventService_GetSmartStart_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SelectionEventServiceServer).GetSmartStart(ctx, req.(*GetSmartStartRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SelectionEventService_GetStart_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStartRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SelectionEventServiceServer).GetStart(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SelectionEventService_GetStart_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SelectionEventServiceServer).GetStart(ctx, req.(*GetStartRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SelectionEventService_GetWidgetType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetWidgetTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SelectionEventServiceServer).GetWidgetType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SelectionEventService_GetWidgetType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SelectionEventServiceServer).GetWidgetType(ctx, req.(*GetWidgetTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SelectionEventService_GetWidgetVersion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetWidgetVersionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SelectionEventServiceServer).GetWidgetVersion(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SelectionEventService_GetWidgetVersion_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SelectionEventServiceServer).GetWidgetVersion(ctx, req.(*GetWidgetVersionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SelectionEventService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SelectionEventServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SelectionEventService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SelectionEventServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SelectionEventService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SelectionEventServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SelectionEventService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SelectionEventServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SelectionEventService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SelectionEventServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SelectionEventService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SelectionEventServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SelectionEventService_CreateSelectionActionEvent3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateSelectionActionEvent3Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SelectionEventServiceServer).CreateSelectionActionEvent3(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SelectionEventService_CreateSelectionActionEvent3_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SelectionEventServiceServer).CreateSelectionActionEvent3(ctx, req.(*CreateSelectionActionEvent3Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SelectionEventService_CreateSelectionActionEvent4_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateSelectionActionEvent4_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SelectionEventServiceServer).CreateSelectionActionEvent4_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SelectionEventService_CreateSelectionActionEvent4_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SelectionEventServiceServer).CreateSelectionActionEvent4_1(ctx, req.(*CreateSelectionActionEvent4_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SelectionEventService_CreateSelectionModifiedEvent2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateSelectionModifiedEvent2Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SelectionEventServiceServer).CreateSelectionModifiedEvent2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SelectionEventService_CreateSelectionModifiedEvent2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SelectionEventServiceServer).CreateSelectionModifiedEvent2(ctx, req.(*CreateSelectionModifiedEvent2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SelectionEventService_CreateSelectionModifiedEvent3_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateSelectionModifiedEvent3_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SelectionEventServiceServer).CreateSelectionModifiedEvent3_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SelectionEventService_CreateSelectionModifiedEvent3_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SelectionEventServiceServer).CreateSelectionModifiedEvent3_1(ctx, req.(*CreateSelectionModifiedEvent3_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SelectionEventService_CreateSelectionModifiedEvent3_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateSelectionModifiedEvent3_2Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SelectionEventServiceServer).CreateSelectionModifiedEvent3_2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SelectionEventService_CreateSelectionModifiedEvent3_2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SelectionEventServiceServer).CreateSelectionModifiedEvent3_2(ctx, req.(*CreateSelectionModifiedEvent3_2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SelectionEventService_CreateSelectionStartedEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateSelectionStartedEventRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SelectionEventServiceServer).CreateSelectionStartedEvent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SelectionEventService_CreateSelectionStartedEvent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SelectionEventServiceServer).CreateSelectionStartedEvent(ctx, req.(*CreateSelectionStartedEventRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SelectionEventService_IsTerminal_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsTerminalRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SelectionEventServiceServer).IsTerminal(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SelectionEventService_IsTerminal_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SelectionEventServiceServer).IsTerminal(ctx, req.(*IsTerminalRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SelectionEventService_ServiceDesc is the grpc.ServiceDesc for SelectionEventService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SelectionEventService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "textclassifier.SelectionEventService",
+	HandlerType: (*SelectionEventServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _SelectionEventService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _SelectionEventService_Equals_Handler,
+		},
+		{
+			MethodName: "GetDurationSincePreviousEvent",
+			Handler:    _SelectionEventService_GetDurationSincePreviousEvent_Handler,
+		},
+		{
+			MethodName: "GetDurationSinceSessionStart",
+			Handler:    _SelectionEventService_GetDurationSinceSessionStart_Handler,
+		},
+		{
+			MethodName: "GetEnd",
+			Handler:    _SelectionEventService_GetEnd_Handler,
+		},
+		{
+			MethodName: "GetEntityType",
+			Handler:    _SelectionEventService_GetEntityType_Handler,
+		},
+		{
+			MethodName: "GetEventIndex",
+			Handler:    _SelectionEventService_GetEventIndex_Handler,
+		},
+		{
+			MethodName: "GetEventTime",
+			Handler:    _SelectionEventService_GetEventTime_Handler,
+		},
+		{
+			MethodName: "GetEventType",
+			Handler:    _SelectionEventService_GetEventType_Handler,
+		},
+		{
+			MethodName: "GetInvocationMethod",
+			Handler:    _SelectionEventService_GetInvocationMethod_Handler,
+		},
+		{
+			MethodName: "GetPackageName",
+			Handler:    _SelectionEventService_GetPackageName_Handler,
+		},
+		{
+			MethodName: "GetResultId",
+			Handler:    _SelectionEventService_GetResultId_Handler,
+		},
+		{
+			MethodName: "GetSessionId",
+			Handler:    _SelectionEventService_GetSessionId_Handler,
+		},
+		{
+			MethodName: "GetSmartEnd",
+			Handler:    _SelectionEventService_GetSmartEnd_Handler,
+		},
+		{
+			MethodName: "GetSmartStart",
+			Handler:    _SelectionEventService_GetSmartStart_Handler,
+		},
+		{
+			MethodName: "GetStart",
+			Handler:    _SelectionEventService_GetStart_Handler,
+		},
+		{
+			MethodName: "GetWidgetType",
+			Handler:    _SelectionEventService_GetWidgetType_Handler,
+		},
+		{
+			MethodName: "GetWidgetVersion",
+			Handler:    _SelectionEventService_GetWidgetVersion_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _SelectionEventService_HashCode_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _SelectionEventService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _SelectionEventService_WriteToParcel_Handler,
+		},
+		{
+			MethodName: "CreateSelectionActionEvent3",
+			Handler:    _SelectionEventService_CreateSelectionActionEvent3_Handler,
+		},
+		{
+			MethodName: "CreateSelectionActionEvent4_1",
+			Handler:    _SelectionEventService_CreateSelectionActionEvent4_1_Handler,
+		},
+		{
+			MethodName: "CreateSelectionModifiedEvent2",
+			Handler:    _SelectionEventService_CreateSelectionModifiedEvent2_Handler,
+		},
+		{
+			MethodName: "CreateSelectionModifiedEvent3_1",
+			Handler:    _SelectionEventService_CreateSelectionModifiedEvent3_1_Handler,
+		},
+		{
+			MethodName: "CreateSelectionModifiedEvent3_2",
+			Handler:    _SelectionEventService_CreateSelectionModifiedEvent3_2_Handler,
+		},
+		{
+			MethodName: "CreateSelectionStartedEvent",
+			Handler:    _SelectionEventService_CreateSelectionStartedEvent_Handler,
+		},
+		{
+			MethodName: "IsTerminal",
+			Handler:    _SelectionEventService_IsTerminal_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/textclassifier/textclassifier.proto",
+}
+
+const (
+	TextLinksService_DescribeContents_FullMethodName = "/textclassifier.TextLinksService/DescribeContents"
+	TextLinksService_GetExtras_FullMethodName        = "/textclassifier.TextLinksService/GetExtras"
+	TextLinksService_GetText_FullMethodName          = "/textclassifier.TextLinksService/GetText"
+	TextLinksService_ToString_FullMethodName         = "/textclassifier.TextLinksService/ToString"
+	TextLinksService_WriteToParcel_FullMethodName    = "/textclassifier.TextLinksService/WriteToParcel"
+)
+
+// TextLinksServiceClient is the client API for TextLinksService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TextLinksServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetExtras(ctx context.Context, in *GetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error)
+	GetText(ctx context.Context, in *GetTextRequest, opts ...grpc.CallOption) (*GetTextResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type textLinksServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTextLinksServiceClient(cc grpc.ClientConnInterface) TextLinksServiceClient {
+	return &textLinksServiceClient{cc}
+}
+
+func (c *textLinksServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, TextLinksService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textLinksServiceClient) GetExtras(ctx context.Context, in *GetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetExtrasResponse)
+	err := c.cc.Invoke(ctx, TextLinksService_GetExtras_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textLinksServiceClient) GetText(ctx context.Context, in *GetTextRequest, opts ...grpc.CallOption) (*GetTextResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTextResponse)
+	err := c.cc.Invoke(ctx, TextLinksService_GetText_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textLinksServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, TextLinksService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textLinksServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, TextLinksService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TextLinksServiceServer is the server API for TextLinksService service.
+// All implementations must embed UnimplementedTextLinksServiceServer
+// for forward compatibility.
+type TextLinksServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetExtras(context.Context, *GetExtrasRequest) (*GetExtrasResponse, error)
+	GetText(context.Context, *GetTextRequest) (*GetTextResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedTextLinksServiceServer()
+}
+
+// UnimplementedTextLinksServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTextLinksServiceServer struct{}
+
+func (UnimplementedTextLinksServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedTextLinksServiceServer) GetExtras(context.Context, *GetExtrasRequest) (*GetExtrasResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetExtras not implemented")
+}
+func (UnimplementedTextLinksServiceServer) GetText(context.Context, *GetTextRequest) (*GetTextResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetText not implemented")
+}
+func (UnimplementedTextLinksServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedTextLinksServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedTextLinksServiceServer) mustEmbedUnimplementedTextLinksServiceServer() {}
+func (UnimplementedTextLinksServiceServer) testEmbeddedByValue()                          {}
+
+// UnsafeTextLinksServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TextLinksServiceServer will
+// result in compilation errors.
+type UnsafeTextLinksServiceServer interface {
+	mustEmbedUnimplementedTextLinksServiceServer()
+}
+
+func RegisterTextLinksServiceServer(s grpc.ServiceRegistrar, srv TextLinksServiceServer) {
+	// If the following call panics, it indicates UnimplementedTextLinksServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TextLinksService_ServiceDesc, srv)
+}
+
+func _TextLinksService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextLinksServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextLinksService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextLinksServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextLinksService_GetExtras_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetExtrasRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextLinksServiceServer).GetExtras(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextLinksService_GetExtras_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextLinksServiceServer).GetExtras(ctx, req.(*GetExtrasRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextLinksService_GetText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTextRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextLinksServiceServer).GetText(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextLinksService_GetText_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextLinksServiceServer).GetText(ctx, req.(*GetTextRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextLinksService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextLinksServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextLinksService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextLinksServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextLinksService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextLinksServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextLinksService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextLinksServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TextLinksService_ServiceDesc is the grpc.ServiceDesc for TextLinksService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TextLinksService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "textclassifier.TextLinksService",
+	HandlerType: (*TextLinksServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _TextLinksService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetExtras",
+			Handler:    _TextLinksService_GetExtras_Handler,
+		},
+		{
+			MethodName: "GetText",
+			Handler:    _TextLinksService_GetText_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _TextLinksService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _TextLinksService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/textclassifier/textclassifier.proto",
+}
+
+const (
+	TextLinksBuilderService_Build_FullMethodName          = "/textclassifier.TextLinksBuilderService/Build"
+	TextLinksBuilderService_ClearTextLinks_FullMethodName = "/textclassifier.TextLinksBuilderService/ClearTextLinks"
+	TextLinksBuilderService_SetExtras_FullMethodName      = "/textclassifier.TextLinksBuilderService/SetExtras"
+)
+
+// TextLinksBuilderServiceClient is the client API for TextLinksBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TextLinksBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	ClearTextLinks(ctx context.Context, in *ClearTextLinksRequest, opts ...grpc.CallOption) (*ClearTextLinksResponse, error)
+	SetExtras(ctx context.Context, in *SetExtrasRequest, opts ...grpc.CallOption) (*SetExtrasResponse, error)
+}
+
+type textLinksBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTextLinksBuilderServiceClient(cc grpc.ClientConnInterface) TextLinksBuilderServiceClient {
+	return &textLinksBuilderServiceClient{cc}
+}
+
+func (c *textLinksBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, TextLinksBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textLinksBuilderServiceClient) ClearTextLinks(ctx context.Context, in *ClearTextLinksRequest, opts ...grpc.CallOption) (*ClearTextLinksResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ClearTextLinksResponse)
+	err := c.cc.Invoke(ctx, TextLinksBuilderService_ClearTextLinks_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textLinksBuilderServiceClient) SetExtras(ctx context.Context, in *SetExtrasRequest, opts ...grpc.CallOption) (*SetExtrasResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetExtrasResponse)
+	err := c.cc.Invoke(ctx, TextLinksBuilderService_SetExtras_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TextLinksBuilderServiceServer is the server API for TextLinksBuilderService service.
+// All implementations must embed UnimplementedTextLinksBuilderServiceServer
+// for forward compatibility.
+type TextLinksBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	ClearTextLinks(context.Context, *ClearTextLinksRequest) (*ClearTextLinksResponse, error)
+	SetExtras(context.Context, *SetExtrasRequest) (*SetExtrasResponse, error)
+	mustEmbedUnimplementedTextLinksBuilderServiceServer()
+}
+
+// UnimplementedTextLinksBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTextLinksBuilderServiceServer struct{}
+
+func (UnimplementedTextLinksBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedTextLinksBuilderServiceServer) ClearTextLinks(context.Context, *ClearTextLinksRequest) (*ClearTextLinksResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ClearTextLinks not implemented")
+}
+func (UnimplementedTextLinksBuilderServiceServer) SetExtras(context.Context, *SetExtrasRequest) (*SetExtrasResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetExtras not implemented")
+}
+func (UnimplementedTextLinksBuilderServiceServer) mustEmbedUnimplementedTextLinksBuilderServiceServer() {
+}
+func (UnimplementedTextLinksBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeTextLinksBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TextLinksBuilderServiceServer will
+// result in compilation errors.
+type UnsafeTextLinksBuilderServiceServer interface {
+	mustEmbedUnimplementedTextLinksBuilderServiceServer()
+}
+
+func RegisterTextLinksBuilderServiceServer(s grpc.ServiceRegistrar, srv TextLinksBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedTextLinksBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TextLinksBuilderService_ServiceDesc, srv)
+}
+
+func _TextLinksBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextLinksBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextLinksBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextLinksBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextLinksBuilderService_ClearTextLinks_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ClearTextLinksRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextLinksBuilderServiceServer).ClearTextLinks(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextLinksBuilderService_ClearTextLinks_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextLinksBuilderServiceServer).ClearTextLinks(ctx, req.(*ClearTextLinksRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextLinksBuilderService_SetExtras_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetExtrasRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextLinksBuilderServiceServer).SetExtras(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextLinksBuilderService_SetExtras_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextLinksBuilderServiceServer).SetExtras(ctx, req.(*SetExtrasRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TextLinksBuilderService_ServiceDesc is the grpc.ServiceDesc for TextLinksBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TextLinksBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "textclassifier.TextLinksBuilderService",
+	HandlerType: (*TextLinksBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _TextLinksBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "ClearTextLinks",
+			Handler:    _TextLinksBuilderService_ClearTextLinks_Handler,
+		},
+		{
+			MethodName: "SetExtras",
+			Handler:    _TextLinksBuilderService_SetExtras_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/textclassifier/textclassifier.proto",
+}
+
+const (
+	TextLinksRequestService_DescribeContents_FullMethodName      = "/textclassifier.TextLinksRequestService/DescribeContents"
+	TextLinksRequestService_GetCallingPackageName_FullMethodName = "/textclassifier.TextLinksRequestService/GetCallingPackageName"
+	TextLinksRequestService_GetDefaultLocales_FullMethodName     = "/textclassifier.TextLinksRequestService/GetDefaultLocales"
+	TextLinksRequestService_GetEntityConfig_FullMethodName       = "/textclassifier.TextLinksRequestService/GetEntityConfig"
+	TextLinksRequestService_GetExtras_FullMethodName             = "/textclassifier.TextLinksRequestService/GetExtras"
+	TextLinksRequestService_GetReferenceTime_FullMethodName      = "/textclassifier.TextLinksRequestService/GetReferenceTime"
+	TextLinksRequestService_GetText_FullMethodName               = "/textclassifier.TextLinksRequestService/GetText"
+	TextLinksRequestService_WriteToParcel_FullMethodName         = "/textclassifier.TextLinksRequestService/WriteToParcel"
+)
+
+// TextLinksRequestServiceClient is the client API for TextLinksRequestService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TextLinksRequestServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetCallingPackageName(ctx context.Context, in *GetCallingPackageNameRequest, opts ...grpc.CallOption) (*GetCallingPackageNameResponse, error)
+	GetDefaultLocales(ctx context.Context, in *GetDefaultLocalesRequest, opts ...grpc.CallOption) (*GetDefaultLocalesResponse, error)
+	GetEntityConfig(ctx context.Context, in *GetEntityConfigRequest, opts ...grpc.CallOption) (*GetEntityConfigResponse, error)
+	GetExtras(ctx context.Context, in *GetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error)
+	GetReferenceTime(ctx context.Context, in *GetReferenceTimeRequest, opts ...grpc.CallOption) (*GetReferenceTimeResponse, error)
+	GetText(ctx context.Context, in *GetTextRequest, opts ...grpc.CallOption) (*GetTextResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type textLinksRequestServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTextLinksRequestServiceClient(cc grpc.ClientConnInterface) TextLinksRequestServiceClient {
+	return &textLinksRequestServiceClient{cc}
+}
+
+func (c *textLinksRequestServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, TextLinksRequestService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textLinksRequestServiceClient) GetCallingPackageName(ctx context.Context, in *GetCallingPackageNameRequest, opts ...grpc.CallOption) (*GetCallingPackageNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCallingPackageNameResponse)
+	err := c.cc.Invoke(ctx, TextLinksRequestService_GetCallingPackageName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textLinksRequestServiceClient) GetDefaultLocales(ctx context.Context, in *GetDefaultLocalesRequest, opts ...grpc.CallOption) (*GetDefaultLocalesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDefaultLocalesResponse)
+	err := c.cc.Invoke(ctx, TextLinksRequestService_GetDefaultLocales_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textLinksRequestServiceClient) GetEntityConfig(ctx context.Context, in *GetEntityConfigRequest, opts ...grpc.CallOption) (*GetEntityConfigResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEntityConfigResponse)
+	err := c.cc.Invoke(ctx, TextLinksRequestService_GetEntityConfig_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textLinksRequestServiceClient) GetExtras(ctx context.Context, in *GetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetExtrasResponse)
+	err := c.cc.Invoke(ctx, TextLinksRequestService_GetExtras_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textLinksRequestServiceClient) GetReferenceTime(ctx context.Context, in *GetReferenceTimeRequest, opts ...grpc.CallOption) (*GetReferenceTimeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetReferenceTimeResponse)
+	err := c.cc.Invoke(ctx, TextLinksRequestService_GetReferenceTime_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textLinksRequestServiceClient) GetText(ctx context.Context, in *GetTextRequest, opts ...grpc.CallOption) (*GetTextResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTextResponse)
+	err := c.cc.Invoke(ctx, TextLinksRequestService_GetText_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textLinksRequestServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, TextLinksRequestService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TextLinksRequestServiceServer is the server API for TextLinksRequestService service.
+// All implementations must embed UnimplementedTextLinksRequestServiceServer
+// for forward compatibility.
+type TextLinksRequestServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetCallingPackageName(context.Context, *GetCallingPackageNameRequest) (*GetCallingPackageNameResponse, error)
+	GetDefaultLocales(context.Context, *GetDefaultLocalesRequest) (*GetDefaultLocalesResponse, error)
+	GetEntityConfig(context.Context, *GetEntityConfigRequest) (*GetEntityConfigResponse, error)
+	GetExtras(context.Context, *GetExtrasRequest) (*GetExtrasResponse, error)
+	GetReferenceTime(context.Context, *GetReferenceTimeRequest) (*GetReferenceTimeResponse, error)
+	GetText(context.Context, *GetTextRequest) (*GetTextResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedTextLinksRequestServiceServer()
+}
+
+// UnimplementedTextLinksRequestServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTextLinksRequestServiceServer struct{}
+
+func (UnimplementedTextLinksRequestServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedTextLinksRequestServiceServer) GetCallingPackageName(context.Context, *GetCallingPackageNameRequest) (*GetCallingPackageNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCallingPackageName not implemented")
+}
+func (UnimplementedTextLinksRequestServiceServer) GetDefaultLocales(context.Context, *GetDefaultLocalesRequest) (*GetDefaultLocalesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDefaultLocales not implemented")
+}
+func (UnimplementedTextLinksRequestServiceServer) GetEntityConfig(context.Context, *GetEntityConfigRequest) (*GetEntityConfigResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEntityConfig not implemented")
+}
+func (UnimplementedTextLinksRequestServiceServer) GetExtras(context.Context, *GetExtrasRequest) (*GetExtrasResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetExtras not implemented")
+}
+func (UnimplementedTextLinksRequestServiceServer) GetReferenceTime(context.Context, *GetReferenceTimeRequest) (*GetReferenceTimeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetReferenceTime not implemented")
+}
+func (UnimplementedTextLinksRequestServiceServer) GetText(context.Context, *GetTextRequest) (*GetTextResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetText not implemented")
+}
+func (UnimplementedTextLinksRequestServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedTextLinksRequestServiceServer) mustEmbedUnimplementedTextLinksRequestServiceServer() {
+}
+func (UnimplementedTextLinksRequestServiceServer) testEmbeddedByValue() {}
+
+// UnsafeTextLinksRequestServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TextLinksRequestServiceServer will
+// result in compilation errors.
+type UnsafeTextLinksRequestServiceServer interface {
+	mustEmbedUnimplementedTextLinksRequestServiceServer()
+}
+
+func RegisterTextLinksRequestServiceServer(s grpc.ServiceRegistrar, srv TextLinksRequestServiceServer) {
+	// If the following call panics, it indicates UnimplementedTextLinksRequestServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TextLinksRequestService_ServiceDesc, srv)
+}
+
+func _TextLinksRequestService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextLinksRequestServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextLinksRequestService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextLinksRequestServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextLinksRequestService_GetCallingPackageName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCallingPackageNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextLinksRequestServiceServer).GetCallingPackageName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextLinksRequestService_GetCallingPackageName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextLinksRequestServiceServer).GetCallingPackageName(ctx, req.(*GetCallingPackageNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextLinksRequestService_GetDefaultLocales_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDefaultLocalesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextLinksRequestServiceServer).GetDefaultLocales(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextLinksRequestService_GetDefaultLocales_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextLinksRequestServiceServer).GetDefaultLocales(ctx, req.(*GetDefaultLocalesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextLinksRequestService_GetEntityConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEntityConfigRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextLinksRequestServiceServer).GetEntityConfig(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextLinksRequestService_GetEntityConfig_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextLinksRequestServiceServer).GetEntityConfig(ctx, req.(*GetEntityConfigRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextLinksRequestService_GetExtras_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetExtrasRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextLinksRequestServiceServer).GetExtras(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextLinksRequestService_GetExtras_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextLinksRequestServiceServer).GetExtras(ctx, req.(*GetExtrasRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextLinksRequestService_GetReferenceTime_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetReferenceTimeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextLinksRequestServiceServer).GetReferenceTime(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextLinksRequestService_GetReferenceTime_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextLinksRequestServiceServer).GetReferenceTime(ctx, req.(*GetReferenceTimeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextLinksRequestService_GetText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTextRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextLinksRequestServiceServer).GetText(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextLinksRequestService_GetText_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextLinksRequestServiceServer).GetText(ctx, req.(*GetTextRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextLinksRequestService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextLinksRequestServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextLinksRequestService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextLinksRequestServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TextLinksRequestService_ServiceDesc is the grpc.ServiceDesc for TextLinksRequestService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TextLinksRequestService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "textclassifier.TextLinksRequestService",
+	HandlerType: (*TextLinksRequestServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _TextLinksRequestService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetCallingPackageName",
+			Handler:    _TextLinksRequestService_GetCallingPackageName_Handler,
+		},
+		{
+			MethodName: "GetDefaultLocales",
+			Handler:    _TextLinksRequestService_GetDefaultLocales_Handler,
+		},
+		{
+			MethodName: "GetEntityConfig",
+			Handler:    _TextLinksRequestService_GetEntityConfig_Handler,
+		},
+		{
+			MethodName: "GetExtras",
+			Handler:    _TextLinksRequestService_GetExtras_Handler,
+		},
+		{
+			MethodName: "GetReferenceTime",
+			Handler:    _TextLinksRequestService_GetReferenceTime_Handler,
+		},
+		{
+			MethodName: "GetText",
+			Handler:    _TextLinksRequestService_GetText_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _TextLinksRequestService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/textclassifier/textclassifier.proto",
+}
+
+const (
+	TextLinksTextLinkService_DescribeContents_FullMethodName   = "/textclassifier.TextLinksTextLinkService/DescribeContents"
+	TextLinksTextLinkService_GetConfidenceScore_FullMethodName = "/textclassifier.TextLinksTextLinkService/GetConfidenceScore"
+	TextLinksTextLinkService_GetEnd_FullMethodName             = "/textclassifier.TextLinksTextLinkService/GetEnd"
+	TextLinksTextLinkService_GetEntity_FullMethodName          = "/textclassifier.TextLinksTextLinkService/GetEntity"
+	TextLinksTextLinkService_GetEntityCount_FullMethodName     = "/textclassifier.TextLinksTextLinkService/GetEntityCount"
+	TextLinksTextLinkService_GetExtras_FullMethodName          = "/textclassifier.TextLinksTextLinkService/GetExtras"
+	TextLinksTextLinkService_GetStart_FullMethodName           = "/textclassifier.TextLinksTextLinkService/GetStart"
+	TextLinksTextLinkService_ToString_FullMethodName           = "/textclassifier.TextLinksTextLinkService/ToString"
+	TextLinksTextLinkService_WriteToParcel_FullMethodName      = "/textclassifier.TextLinksTextLinkService/WriteToParcel"
+)
+
+// TextLinksTextLinkServiceClient is the client API for TextLinksTextLinkService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TextLinksTextLinkServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetConfidenceScore(ctx context.Context, in *GetConfidenceScoreRequest, opts ...grpc.CallOption) (*GetConfidenceScoreResponse, error)
+	GetEnd(ctx context.Context, in *GetEndRequest, opts ...grpc.CallOption) (*GetEndResponse, error)
+	GetEntity(ctx context.Context, in *GetEntityRequest, opts ...grpc.CallOption) (*GetEntityResponse, error)
+	GetEntityCount(ctx context.Context, in *GetEntityCountRequest, opts ...grpc.CallOption) (*GetEntityCountResponse, error)
+	GetExtras(ctx context.Context, in *GetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error)
+	GetStart(ctx context.Context, in *GetStartRequest, opts ...grpc.CallOption) (*GetStartResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type textLinksTextLinkServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTextLinksTextLinkServiceClient(cc grpc.ClientConnInterface) TextLinksTextLinkServiceClient {
+	return &textLinksTextLinkServiceClient{cc}
+}
+
+func (c *textLinksTextLinkServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, TextLinksTextLinkService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textLinksTextLinkServiceClient) GetConfidenceScore(ctx context.Context, in *GetConfidenceScoreRequest, opts ...grpc.CallOption) (*GetConfidenceScoreResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetConfidenceScoreResponse)
+	err := c.cc.Invoke(ctx, TextLinksTextLinkService_GetConfidenceScore_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textLinksTextLinkServiceClient) GetEnd(ctx context.Context, in *GetEndRequest, opts ...grpc.CallOption) (*GetEndResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEndResponse)
+	err := c.cc.Invoke(ctx, TextLinksTextLinkService_GetEnd_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textLinksTextLinkServiceClient) GetEntity(ctx context.Context, in *GetEntityRequest, opts ...grpc.CallOption) (*GetEntityResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEntityResponse)
+	err := c.cc.Invoke(ctx, TextLinksTextLinkService_GetEntity_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textLinksTextLinkServiceClient) GetEntityCount(ctx context.Context, in *GetEntityCountRequest, opts ...grpc.CallOption) (*GetEntityCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEntityCountResponse)
+	err := c.cc.Invoke(ctx, TextLinksTextLinkService_GetEntityCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textLinksTextLinkServiceClient) GetExtras(ctx context.Context, in *GetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetExtrasResponse)
+	err := c.cc.Invoke(ctx, TextLinksTextLinkService_GetExtras_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textLinksTextLinkServiceClient) GetStart(ctx context.Context, in *GetStartRequest, opts ...grpc.CallOption) (*GetStartResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStartResponse)
+	err := c.cc.Invoke(ctx, TextLinksTextLinkService_GetStart_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textLinksTextLinkServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, TextLinksTextLinkService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textLinksTextLinkServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, TextLinksTextLinkService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TextLinksTextLinkServiceServer is the server API for TextLinksTextLinkService service.
+// All implementations must embed UnimplementedTextLinksTextLinkServiceServer
+// for forward compatibility.
+type TextLinksTextLinkServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetConfidenceScore(context.Context, *GetConfidenceScoreRequest) (*GetConfidenceScoreResponse, error)
+	GetEnd(context.Context, *GetEndRequest) (*GetEndResponse, error)
+	GetEntity(context.Context, *GetEntityRequest) (*GetEntityResponse, error)
+	GetEntityCount(context.Context, *GetEntityCountRequest) (*GetEntityCountResponse, error)
+	GetExtras(context.Context, *GetExtrasRequest) (*GetExtrasResponse, error)
+	GetStart(context.Context, *GetStartRequest) (*GetStartResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedTextLinksTextLinkServiceServer()
+}
+
+// UnimplementedTextLinksTextLinkServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTextLinksTextLinkServiceServer struct{}
+
+func (UnimplementedTextLinksTextLinkServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedTextLinksTextLinkServiceServer) GetConfidenceScore(context.Context, *GetConfidenceScoreRequest) (*GetConfidenceScoreResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetConfidenceScore not implemented")
+}
+func (UnimplementedTextLinksTextLinkServiceServer) GetEnd(context.Context, *GetEndRequest) (*GetEndResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEnd not implemented")
+}
+func (UnimplementedTextLinksTextLinkServiceServer) GetEntity(context.Context, *GetEntityRequest) (*GetEntityResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEntity not implemented")
+}
+func (UnimplementedTextLinksTextLinkServiceServer) GetEntityCount(context.Context, *GetEntityCountRequest) (*GetEntityCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEntityCount not implemented")
+}
+func (UnimplementedTextLinksTextLinkServiceServer) GetExtras(context.Context, *GetExtrasRequest) (*GetExtrasResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetExtras not implemented")
+}
+func (UnimplementedTextLinksTextLinkServiceServer) GetStart(context.Context, *GetStartRequest) (*GetStartResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetStart not implemented")
+}
+func (UnimplementedTextLinksTextLinkServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedTextLinksTextLinkServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedTextLinksTextLinkServiceServer) mustEmbedUnimplementedTextLinksTextLinkServiceServer() {
+}
+func (UnimplementedTextLinksTextLinkServiceServer) testEmbeddedByValue() {}
+
+// UnsafeTextLinksTextLinkServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TextLinksTextLinkServiceServer will
+// result in compilation errors.
+type UnsafeTextLinksTextLinkServiceServer interface {
+	mustEmbedUnimplementedTextLinksTextLinkServiceServer()
+}
+
+func RegisterTextLinksTextLinkServiceServer(s grpc.ServiceRegistrar, srv TextLinksTextLinkServiceServer) {
+	// If the following call panics, it indicates UnimplementedTextLinksTextLinkServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TextLinksTextLinkService_ServiceDesc, srv)
+}
+
+func _TextLinksTextLinkService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextLinksTextLinkServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextLinksTextLinkService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextLinksTextLinkServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextLinksTextLinkService_GetConfidenceScore_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetConfidenceScoreRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextLinksTextLinkServiceServer).GetConfidenceScore(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextLinksTextLinkService_GetConfidenceScore_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextLinksTextLinkServiceServer).GetConfidenceScore(ctx, req.(*GetConfidenceScoreRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextLinksTextLinkService_GetEnd_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEndRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextLinksTextLinkServiceServer).GetEnd(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextLinksTextLinkService_GetEnd_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextLinksTextLinkServiceServer).GetEnd(ctx, req.(*GetEndRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextLinksTextLinkService_GetEntity_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEntityRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextLinksTextLinkServiceServer).GetEntity(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextLinksTextLinkService_GetEntity_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextLinksTextLinkServiceServer).GetEntity(ctx, req.(*GetEntityRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextLinksTextLinkService_GetEntityCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEntityCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextLinksTextLinkServiceServer).GetEntityCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextLinksTextLinkService_GetEntityCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextLinksTextLinkServiceServer).GetEntityCount(ctx, req.(*GetEntityCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextLinksTextLinkService_GetExtras_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetExtrasRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextLinksTextLinkServiceServer).GetExtras(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextLinksTextLinkService_GetExtras_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextLinksTextLinkServiceServer).GetExtras(ctx, req.(*GetExtrasRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextLinksTextLinkService_GetStart_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStartRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextLinksTextLinkServiceServer).GetStart(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextLinksTextLinkService_GetStart_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextLinksTextLinkServiceServer).GetStart(ctx, req.(*GetStartRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextLinksTextLinkService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextLinksTextLinkServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextLinksTextLinkService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextLinksTextLinkServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextLinksTextLinkService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextLinksTextLinkServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextLinksTextLinkService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextLinksTextLinkServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TextLinksTextLinkService_ServiceDesc is the grpc.ServiceDesc for TextLinksTextLinkService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TextLinksTextLinkService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "textclassifier.TextLinksTextLinkService",
+	HandlerType: (*TextLinksTextLinkServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _TextLinksTextLinkService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetConfidenceScore",
+			Handler:    _TextLinksTextLinkService_GetConfidenceScore_Handler,
+		},
+		{
+			MethodName: "GetEnd",
+			Handler:    _TextLinksTextLinkService_GetEnd_Handler,
+		},
+		{
+			MethodName: "GetEntity",
+			Handler:    _TextLinksTextLinkService_GetEntity_Handler,
+		},
+		{
+			MethodName: "GetEntityCount",
+			Handler:    _TextLinksTextLinkService_GetEntityCount_Handler,
+		},
+		{
+			MethodName: "GetExtras",
+			Handler:    _TextLinksTextLinkService_GetExtras_Handler,
+		},
+		{
+			MethodName: "GetStart",
+			Handler:    _TextLinksTextLinkService_GetStart_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _TextLinksTextLinkService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _TextLinksTextLinkService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/textclassifier/textclassifier.proto",
+}
+
+const (
+	TextLinksTextLinkSpanService_GetTextLink_FullMethodName = "/textclassifier.TextLinksTextLinkSpanService/GetTextLink"
+	TextLinksTextLinkSpanService_OnClick_FullMethodName     = "/textclassifier.TextLinksTextLinkSpanService/OnClick"
+)
+
+// TextLinksTextLinkSpanServiceClient is the client API for TextLinksTextLinkSpanService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TextLinksTextLinkSpanServiceClient interface {
+	GetTextLink(ctx context.Context, in *GetTextLinkRequest, opts ...grpc.CallOption) (*GetTextLinkResponse, error)
+	OnClick(ctx context.Context, in *OnClickRequest, opts ...grpc.CallOption) (*OnClickResponse, error)
+}
+
+type textLinksTextLinkSpanServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTextLinksTextLinkSpanServiceClient(cc grpc.ClientConnInterface) TextLinksTextLinkSpanServiceClient {
+	return &textLinksTextLinkSpanServiceClient{cc}
+}
+
+func (c *textLinksTextLinkSpanServiceClient) GetTextLink(ctx context.Context, in *GetTextLinkRequest, opts ...grpc.CallOption) (*GetTextLinkResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTextLinkResponse)
+	err := c.cc.Invoke(ctx, TextLinksTextLinkSpanService_GetTextLink_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textLinksTextLinkSpanServiceClient) OnClick(ctx context.Context, in *OnClickRequest, opts ...grpc.CallOption) (*OnClickResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnClickResponse)
+	err := c.cc.Invoke(ctx, TextLinksTextLinkSpanService_OnClick_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TextLinksTextLinkSpanServiceServer is the server API for TextLinksTextLinkSpanService service.
+// All implementations must embed UnimplementedTextLinksTextLinkSpanServiceServer
+// for forward compatibility.
+type TextLinksTextLinkSpanServiceServer interface {
+	GetTextLink(context.Context, *GetTextLinkRequest) (*GetTextLinkResponse, error)
+	OnClick(context.Context, *OnClickRequest) (*OnClickResponse, error)
+	mustEmbedUnimplementedTextLinksTextLinkSpanServiceServer()
+}
+
+// UnimplementedTextLinksTextLinkSpanServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTextLinksTextLinkSpanServiceServer struct{}
+
+func (UnimplementedTextLinksTextLinkSpanServiceServer) GetTextLink(context.Context, *GetTextLinkRequest) (*GetTextLinkResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTextLink not implemented")
+}
+func (UnimplementedTextLinksTextLinkSpanServiceServer) OnClick(context.Context, *OnClickRequest) (*OnClickResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnClick not implemented")
+}
+func (UnimplementedTextLinksTextLinkSpanServiceServer) mustEmbedUnimplementedTextLinksTextLinkSpanServiceServer() {
+}
+func (UnimplementedTextLinksTextLinkSpanServiceServer) testEmbeddedByValue() {}
+
+// UnsafeTextLinksTextLinkSpanServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TextLinksTextLinkSpanServiceServer will
+// result in compilation errors.
+type UnsafeTextLinksTextLinkSpanServiceServer interface {
+	mustEmbedUnimplementedTextLinksTextLinkSpanServiceServer()
+}
+
+func RegisterTextLinksTextLinkSpanServiceServer(s grpc.ServiceRegistrar, srv TextLinksTextLinkSpanServiceServer) {
+	// If the following call panics, it indicates UnimplementedTextLinksTextLinkSpanServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TextLinksTextLinkSpanService_ServiceDesc, srv)
+}
+
+func _TextLinksTextLinkSpanService_GetTextLink_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTextLinkRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextLinksTextLinkSpanServiceServer).GetTextLink(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextLinksTextLinkSpanService_GetTextLink_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextLinksTextLinkSpanServiceServer).GetTextLink(ctx, req.(*GetTextLinkRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextLinksTextLinkSpanService_OnClick_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnClickRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextLinksTextLinkSpanServiceServer).OnClick(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextLinksTextLinkSpanService_OnClick_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextLinksTextLinkSpanServiceServer).OnClick(ctx, req.(*OnClickRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TextLinksTextLinkSpanService_ServiceDesc is the grpc.ServiceDesc for TextLinksTextLinkSpanService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TextLinksTextLinkSpanService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "textclassifier.TextLinksTextLinkSpanService",
+	HandlerType: (*TextLinksTextLinkSpanServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetTextLink",
+			Handler:    _TextLinksTextLinkSpanService_GetTextLink_Handler,
+		},
+		{
+			MethodName: "OnClick",
+			Handler:    _TextLinksTextLinkSpanService_OnClick_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/textclassifier/textclassifier.proto",
+}
+
+const (
+	TextLanguageService_DescribeContents_FullMethodName         = "/textclassifier.TextLanguageService/DescribeContents"
+	TextLanguageService_GetConfidenceScore_FullMethodName       = "/textclassifier.TextLanguageService/GetConfidenceScore"
+	TextLanguageService_GetExtras_FullMethodName                = "/textclassifier.TextLanguageService/GetExtras"
+	TextLanguageService_GetId_FullMethodName                    = "/textclassifier.TextLanguageService/GetId"
+	TextLanguageService_GetLocale_FullMethodName                = "/textclassifier.TextLanguageService/GetLocale"
+	TextLanguageService_GetLocaleHypothesisCount_FullMethodName = "/textclassifier.TextLanguageService/GetLocaleHypothesisCount"
+	TextLanguageService_ToString_FullMethodName                 = "/textclassifier.TextLanguageService/ToString"
+	TextLanguageService_WriteToParcel_FullMethodName            = "/textclassifier.TextLanguageService/WriteToParcel"
+)
+
+// TextLanguageServiceClient is the client API for TextLanguageService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TextLanguageServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetConfidenceScore(ctx context.Context, in *TextLanguageGetConfidenceScoreRequest, opts ...grpc.CallOption) (*GetConfidenceScoreResponse, error)
+	GetExtras(ctx context.Context, in *GetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error)
+	GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error)
+	GetLocale(ctx context.Context, in *TextLanguageGetLocaleRequest, opts ...grpc.CallOption) (*GetLocaleResponse, error)
+	GetLocaleHypothesisCount(ctx context.Context, in *GetLocaleHypothesisCountRequest, opts ...grpc.CallOption) (*GetLocaleHypothesisCountResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type textLanguageServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTextLanguageServiceClient(cc grpc.ClientConnInterface) TextLanguageServiceClient {
+	return &textLanguageServiceClient{cc}
+}
+
+func (c *textLanguageServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, TextLanguageService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textLanguageServiceClient) GetConfidenceScore(ctx context.Context, in *TextLanguageGetConfidenceScoreRequest, opts ...grpc.CallOption) (*GetConfidenceScoreResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetConfidenceScoreResponse)
+	err := c.cc.Invoke(ctx, TextLanguageService_GetConfidenceScore_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textLanguageServiceClient) GetExtras(ctx context.Context, in *GetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetExtrasResponse)
+	err := c.cc.Invoke(ctx, TextLanguageService_GetExtras_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textLanguageServiceClient) GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetIdResponse)
+	err := c.cc.Invoke(ctx, TextLanguageService_GetId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textLanguageServiceClient) GetLocale(ctx context.Context, in *TextLanguageGetLocaleRequest, opts ...grpc.CallOption) (*GetLocaleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLocaleResponse)
+	err := c.cc.Invoke(ctx, TextLanguageService_GetLocale_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textLanguageServiceClient) GetLocaleHypothesisCount(ctx context.Context, in *GetLocaleHypothesisCountRequest, opts ...grpc.CallOption) (*GetLocaleHypothesisCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLocaleHypothesisCountResponse)
+	err := c.cc.Invoke(ctx, TextLanguageService_GetLocaleHypothesisCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textLanguageServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, TextLanguageService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textLanguageServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, TextLanguageService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TextLanguageServiceServer is the server API for TextLanguageService service.
+// All implementations must embed UnimplementedTextLanguageServiceServer
+// for forward compatibility.
+type TextLanguageServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetConfidenceScore(context.Context, *TextLanguageGetConfidenceScoreRequest) (*GetConfidenceScoreResponse, error)
+	GetExtras(context.Context, *GetExtrasRequest) (*GetExtrasResponse, error)
+	GetId(context.Context, *GetIdRequest) (*GetIdResponse, error)
+	GetLocale(context.Context, *TextLanguageGetLocaleRequest) (*GetLocaleResponse, error)
+	GetLocaleHypothesisCount(context.Context, *GetLocaleHypothesisCountRequest) (*GetLocaleHypothesisCountResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedTextLanguageServiceServer()
+}
+
+// UnimplementedTextLanguageServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTextLanguageServiceServer struct{}
+
+func (UnimplementedTextLanguageServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedTextLanguageServiceServer) GetConfidenceScore(context.Context, *TextLanguageGetConfidenceScoreRequest) (*GetConfidenceScoreResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetConfidenceScore not implemented")
+}
+func (UnimplementedTextLanguageServiceServer) GetExtras(context.Context, *GetExtrasRequest) (*GetExtrasResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetExtras not implemented")
+}
+func (UnimplementedTextLanguageServiceServer) GetId(context.Context, *GetIdRequest) (*GetIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetId not implemented")
+}
+func (UnimplementedTextLanguageServiceServer) GetLocale(context.Context, *TextLanguageGetLocaleRequest) (*GetLocaleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLocale not implemented")
+}
+func (UnimplementedTextLanguageServiceServer) GetLocaleHypothesisCount(context.Context, *GetLocaleHypothesisCountRequest) (*GetLocaleHypothesisCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLocaleHypothesisCount not implemented")
+}
+func (UnimplementedTextLanguageServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedTextLanguageServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedTextLanguageServiceServer) mustEmbedUnimplementedTextLanguageServiceServer() {}
+func (UnimplementedTextLanguageServiceServer) testEmbeddedByValue()                             {}
+
+// UnsafeTextLanguageServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TextLanguageServiceServer will
+// result in compilation errors.
+type UnsafeTextLanguageServiceServer interface {
+	mustEmbedUnimplementedTextLanguageServiceServer()
+}
+
+func RegisterTextLanguageServiceServer(s grpc.ServiceRegistrar, srv TextLanguageServiceServer) {
+	// If the following call panics, it indicates UnimplementedTextLanguageServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TextLanguageService_ServiceDesc, srv)
+}
+
+func _TextLanguageService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextLanguageServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextLanguageService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextLanguageServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextLanguageService_GetConfidenceScore_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TextLanguageGetConfidenceScoreRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextLanguageServiceServer).GetConfidenceScore(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextLanguageService_GetConfidenceScore_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextLanguageServiceServer).GetConfidenceScore(ctx, req.(*TextLanguageGetConfidenceScoreRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextLanguageService_GetExtras_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetExtrasRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextLanguageServiceServer).GetExtras(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextLanguageService_GetExtras_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextLanguageServiceServer).GetExtras(ctx, req.(*GetExtrasRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextLanguageService_GetId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextLanguageServiceServer).GetId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextLanguageService_GetId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextLanguageServiceServer).GetId(ctx, req.(*GetIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextLanguageService_GetLocale_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TextLanguageGetLocaleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextLanguageServiceServer).GetLocale(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextLanguageService_GetLocale_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextLanguageServiceServer).GetLocale(ctx, req.(*TextLanguageGetLocaleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextLanguageService_GetLocaleHypothesisCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLocaleHypothesisCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextLanguageServiceServer).GetLocaleHypothesisCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextLanguageService_GetLocaleHypothesisCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextLanguageServiceServer).GetLocaleHypothesisCount(ctx, req.(*GetLocaleHypothesisCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextLanguageService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextLanguageServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextLanguageService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextLanguageServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextLanguageService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextLanguageServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextLanguageService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextLanguageServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TextLanguageService_ServiceDesc is the grpc.ServiceDesc for TextLanguageService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TextLanguageService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "textclassifier.TextLanguageService",
+	HandlerType: (*TextLanguageServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _TextLanguageService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetConfidenceScore",
+			Handler:    _TextLanguageService_GetConfidenceScore_Handler,
+		},
+		{
+			MethodName: "GetExtras",
+			Handler:    _TextLanguageService_GetExtras_Handler,
+		},
+		{
+			MethodName: "GetId",
+			Handler:    _TextLanguageService_GetId_Handler,
+		},
+		{
+			MethodName: "GetLocale",
+			Handler:    _TextLanguageService_GetLocale_Handler,
+		},
+		{
+			MethodName: "GetLocaleHypothesisCount",
+			Handler:    _TextLanguageService_GetLocaleHypothesisCount_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _TextLanguageService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _TextLanguageService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/textclassifier/textclassifier.proto",
+}
+
+const (
+	TextLanguageBuilderService_Build_FullMethodName     = "/textclassifier.TextLanguageBuilderService/Build"
+	TextLanguageBuilderService_PutLocale_FullMethodName = "/textclassifier.TextLanguageBuilderService/PutLocale"
+	TextLanguageBuilderService_SetExtras_FullMethodName = "/textclassifier.TextLanguageBuilderService/SetExtras"
+	TextLanguageBuilderService_SetId_FullMethodName     = "/textclassifier.TextLanguageBuilderService/SetId"
+)
+
+// TextLanguageBuilderServiceClient is the client API for TextLanguageBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TextLanguageBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	PutLocale(ctx context.Context, in *PutLocaleRequest, opts ...grpc.CallOption) (*PutLocaleResponse, error)
+	SetExtras(ctx context.Context, in *SetExtrasRequest, opts ...grpc.CallOption) (*SetExtrasResponse, error)
+	SetId(ctx context.Context, in *SetIdRequest, opts ...grpc.CallOption) (*SetIdResponse, error)
+}
+
+type textLanguageBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTextLanguageBuilderServiceClient(cc grpc.ClientConnInterface) TextLanguageBuilderServiceClient {
+	return &textLanguageBuilderServiceClient{cc}
+}
+
+func (c *textLanguageBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, TextLanguageBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textLanguageBuilderServiceClient) PutLocale(ctx context.Context, in *PutLocaleRequest, opts ...grpc.CallOption) (*PutLocaleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(PutLocaleResponse)
+	err := c.cc.Invoke(ctx, TextLanguageBuilderService_PutLocale_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textLanguageBuilderServiceClient) SetExtras(ctx context.Context, in *SetExtrasRequest, opts ...grpc.CallOption) (*SetExtrasResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetExtrasResponse)
+	err := c.cc.Invoke(ctx, TextLanguageBuilderService_SetExtras_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textLanguageBuilderServiceClient) SetId(ctx context.Context, in *SetIdRequest, opts ...grpc.CallOption) (*SetIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetIdResponse)
+	err := c.cc.Invoke(ctx, TextLanguageBuilderService_SetId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TextLanguageBuilderServiceServer is the server API for TextLanguageBuilderService service.
+// All implementations must embed UnimplementedTextLanguageBuilderServiceServer
+// for forward compatibility.
+type TextLanguageBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	PutLocale(context.Context, *PutLocaleRequest) (*PutLocaleResponse, error)
+	SetExtras(context.Context, *SetExtrasRequest) (*SetExtrasResponse, error)
+	SetId(context.Context, *SetIdRequest) (*SetIdResponse, error)
+	mustEmbedUnimplementedTextLanguageBuilderServiceServer()
+}
+
+// UnimplementedTextLanguageBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTextLanguageBuilderServiceServer struct{}
+
+func (UnimplementedTextLanguageBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedTextLanguageBuilderServiceServer) PutLocale(context.Context, *PutLocaleRequest) (*PutLocaleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method PutLocale not implemented")
+}
+func (UnimplementedTextLanguageBuilderServiceServer) SetExtras(context.Context, *SetExtrasRequest) (*SetExtrasResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetExtras not implemented")
+}
+func (UnimplementedTextLanguageBuilderServiceServer) SetId(context.Context, *SetIdRequest) (*SetIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetId not implemented")
+}
+func (UnimplementedTextLanguageBuilderServiceServer) mustEmbedUnimplementedTextLanguageBuilderServiceServer() {
+}
+func (UnimplementedTextLanguageBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeTextLanguageBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TextLanguageBuilderServiceServer will
+// result in compilation errors.
+type UnsafeTextLanguageBuilderServiceServer interface {
+	mustEmbedUnimplementedTextLanguageBuilderServiceServer()
+}
+
+func RegisterTextLanguageBuilderServiceServer(s grpc.ServiceRegistrar, srv TextLanguageBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedTextLanguageBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TextLanguageBuilderService_ServiceDesc, srv)
+}
+
+func _TextLanguageBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextLanguageBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextLanguageBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextLanguageBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextLanguageBuilderService_PutLocale_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PutLocaleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextLanguageBuilderServiceServer).PutLocale(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextLanguageBuilderService_PutLocale_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextLanguageBuilderServiceServer).PutLocale(ctx, req.(*PutLocaleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextLanguageBuilderService_SetExtras_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetExtrasRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextLanguageBuilderServiceServer).SetExtras(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextLanguageBuilderService_SetExtras_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextLanguageBuilderServiceServer).SetExtras(ctx, req.(*SetExtrasRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextLanguageBuilderService_SetId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextLanguageBuilderServiceServer).SetId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextLanguageBuilderService_SetId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextLanguageBuilderServiceServer).SetId(ctx, req.(*SetIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TextLanguageBuilderService_ServiceDesc is the grpc.ServiceDesc for TextLanguageBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TextLanguageBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "textclassifier.TextLanguageBuilderService",
+	HandlerType: (*TextLanguageBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _TextLanguageBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "PutLocale",
+			Handler:    _TextLanguageBuilderService_PutLocale_Handler,
+		},
+		{
+			MethodName: "SetExtras",
+			Handler:    _TextLanguageBuilderService_SetExtras_Handler,
+		},
+		{
+			MethodName: "SetId",
+			Handler:    _TextLanguageBuilderService_SetId_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/textclassifier/textclassifier.proto",
+}
+
+const (
+	TextLanguageRequestService_DescribeContents_FullMethodName      = "/textclassifier.TextLanguageRequestService/DescribeContents"
+	TextLanguageRequestService_GetCallingPackageName_FullMethodName = "/textclassifier.TextLanguageRequestService/GetCallingPackageName"
+	TextLanguageRequestService_GetExtras_FullMethodName             = "/textclassifier.TextLanguageRequestService/GetExtras"
+	TextLanguageRequestService_GetText_FullMethodName               = "/textclassifier.TextLanguageRequestService/GetText"
+	TextLanguageRequestService_WriteToParcel_FullMethodName         = "/textclassifier.TextLanguageRequestService/WriteToParcel"
+)
+
+// TextLanguageRequestServiceClient is the client API for TextLanguageRequestService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TextLanguageRequestServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetCallingPackageName(ctx context.Context, in *GetCallingPackageNameRequest, opts ...grpc.CallOption) (*GetCallingPackageNameResponse, error)
+	GetExtras(ctx context.Context, in *GetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error)
+	GetText(ctx context.Context, in *GetTextRequest, opts ...grpc.CallOption) (*GetTextResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type textLanguageRequestServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTextLanguageRequestServiceClient(cc grpc.ClientConnInterface) TextLanguageRequestServiceClient {
+	return &textLanguageRequestServiceClient{cc}
+}
+
+func (c *textLanguageRequestServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, TextLanguageRequestService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textLanguageRequestServiceClient) GetCallingPackageName(ctx context.Context, in *GetCallingPackageNameRequest, opts ...grpc.CallOption) (*GetCallingPackageNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCallingPackageNameResponse)
+	err := c.cc.Invoke(ctx, TextLanguageRequestService_GetCallingPackageName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textLanguageRequestServiceClient) GetExtras(ctx context.Context, in *GetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetExtrasResponse)
+	err := c.cc.Invoke(ctx, TextLanguageRequestService_GetExtras_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textLanguageRequestServiceClient) GetText(ctx context.Context, in *GetTextRequest, opts ...grpc.CallOption) (*GetTextResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTextResponse)
+	err := c.cc.Invoke(ctx, TextLanguageRequestService_GetText_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textLanguageRequestServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, TextLanguageRequestService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TextLanguageRequestServiceServer is the server API for TextLanguageRequestService service.
+// All implementations must embed UnimplementedTextLanguageRequestServiceServer
+// for forward compatibility.
+type TextLanguageRequestServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetCallingPackageName(context.Context, *GetCallingPackageNameRequest) (*GetCallingPackageNameResponse, error)
+	GetExtras(context.Context, *GetExtrasRequest) (*GetExtrasResponse, error)
+	GetText(context.Context, *GetTextRequest) (*GetTextResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedTextLanguageRequestServiceServer()
+}
+
+// UnimplementedTextLanguageRequestServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTextLanguageRequestServiceServer struct{}
+
+func (UnimplementedTextLanguageRequestServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedTextLanguageRequestServiceServer) GetCallingPackageName(context.Context, *GetCallingPackageNameRequest) (*GetCallingPackageNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCallingPackageName not implemented")
+}
+func (UnimplementedTextLanguageRequestServiceServer) GetExtras(context.Context, *GetExtrasRequest) (*GetExtrasResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetExtras not implemented")
+}
+func (UnimplementedTextLanguageRequestServiceServer) GetText(context.Context, *GetTextRequest) (*GetTextResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetText not implemented")
+}
+func (UnimplementedTextLanguageRequestServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedTextLanguageRequestServiceServer) mustEmbedUnimplementedTextLanguageRequestServiceServer() {
+}
+func (UnimplementedTextLanguageRequestServiceServer) testEmbeddedByValue() {}
+
+// UnsafeTextLanguageRequestServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TextLanguageRequestServiceServer will
+// result in compilation errors.
+type UnsafeTextLanguageRequestServiceServer interface {
+	mustEmbedUnimplementedTextLanguageRequestServiceServer()
+}
+
+func RegisterTextLanguageRequestServiceServer(s grpc.ServiceRegistrar, srv TextLanguageRequestServiceServer) {
+	// If the following call panics, it indicates UnimplementedTextLanguageRequestServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TextLanguageRequestService_ServiceDesc, srv)
+}
+
+func _TextLanguageRequestService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextLanguageRequestServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextLanguageRequestService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextLanguageRequestServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextLanguageRequestService_GetCallingPackageName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCallingPackageNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextLanguageRequestServiceServer).GetCallingPackageName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextLanguageRequestService_GetCallingPackageName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextLanguageRequestServiceServer).GetCallingPackageName(ctx, req.(*GetCallingPackageNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextLanguageRequestService_GetExtras_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetExtrasRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextLanguageRequestServiceServer).GetExtras(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextLanguageRequestService_GetExtras_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextLanguageRequestServiceServer).GetExtras(ctx, req.(*GetExtrasRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextLanguageRequestService_GetText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTextRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextLanguageRequestServiceServer).GetText(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextLanguageRequestService_GetText_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextLanguageRequestServiceServer).GetText(ctx, req.(*GetTextRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextLanguageRequestService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextLanguageRequestServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextLanguageRequestService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextLanguageRequestServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TextLanguageRequestService_ServiceDesc is the grpc.ServiceDesc for TextLanguageRequestService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TextLanguageRequestService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "textclassifier.TextLanguageRequestService",
+	HandlerType: (*TextLanguageRequestServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _TextLanguageRequestService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetCallingPackageName",
+			Handler:    _TextLanguageRequestService_GetCallingPackageName_Handler,
+		},
+		{
+			MethodName: "GetExtras",
+			Handler:    _TextLanguageRequestService_GetExtras_Handler,
+		},
+		{
+			MethodName: "GetText",
+			Handler:    _TextLanguageRequestService_GetText_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _TextLanguageRequestService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/textclassifier/textclassifier.proto",
+}
+
+const (
+	ConversationActionService_DescribeContents_FullMethodName   = "/textclassifier.ConversationActionService/DescribeContents"
+	ConversationActionService_GetAction_FullMethodName          = "/textclassifier.ConversationActionService/GetAction"
+	ConversationActionService_GetConfidenceScore_FullMethodName = "/textclassifier.ConversationActionService/GetConfidenceScore"
+	ConversationActionService_GetExtras_FullMethodName          = "/textclassifier.ConversationActionService/GetExtras"
+	ConversationActionService_GetTextReply_FullMethodName       = "/textclassifier.ConversationActionService/GetTextReply"
+	ConversationActionService_GetType_FullMethodName            = "/textclassifier.ConversationActionService/GetType"
+	ConversationActionService_WriteToParcel_FullMethodName      = "/textclassifier.ConversationActionService/WriteToParcel"
+)
+
+// ConversationActionServiceClient is the client API for ConversationActionService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ConversationActionServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetAction(ctx context.Context, in *GetActionRequest, opts ...grpc.CallOption) (*GetActionResponse, error)
+	GetConfidenceScore(ctx context.Context, in *ConversationActionGetConfidenceScoreRequest, opts ...grpc.CallOption) (*GetConfidenceScoreResponse, error)
+	GetExtras(ctx context.Context, in *GetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error)
+	GetTextReply(ctx context.Context, in *GetTextReplyRequest, opts ...grpc.CallOption) (*GetTextReplyResponse, error)
+	GetType(ctx context.Context, in *GetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type conversationActionServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewConversationActionServiceClient(cc grpc.ClientConnInterface) ConversationActionServiceClient {
+	return &conversationActionServiceClient{cc}
+}
+
+func (c *conversationActionServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, ConversationActionService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *conversationActionServiceClient) GetAction(ctx context.Context, in *GetActionRequest, opts ...grpc.CallOption) (*GetActionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetActionResponse)
+	err := c.cc.Invoke(ctx, ConversationActionService_GetAction_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *conversationActionServiceClient) GetConfidenceScore(ctx context.Context, in *ConversationActionGetConfidenceScoreRequest, opts ...grpc.CallOption) (*GetConfidenceScoreResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetConfidenceScoreResponse)
+	err := c.cc.Invoke(ctx, ConversationActionService_GetConfidenceScore_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *conversationActionServiceClient) GetExtras(ctx context.Context, in *GetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetExtrasResponse)
+	err := c.cc.Invoke(ctx, ConversationActionService_GetExtras_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *conversationActionServiceClient) GetTextReply(ctx context.Context, in *GetTextReplyRequest, opts ...grpc.CallOption) (*GetTextReplyResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTextReplyResponse)
+	err := c.cc.Invoke(ctx, ConversationActionService_GetTextReply_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *conversationActionServiceClient) GetType(ctx context.Context, in *GetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTypeResponse)
+	err := c.cc.Invoke(ctx, ConversationActionService_GetType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *conversationActionServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, ConversationActionService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ConversationActionServiceServer is the server API for ConversationActionService service.
+// All implementations must embed UnimplementedConversationActionServiceServer
+// for forward compatibility.
+type ConversationActionServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetAction(context.Context, *GetActionRequest) (*GetActionResponse, error)
+	GetConfidenceScore(context.Context, *ConversationActionGetConfidenceScoreRequest) (*GetConfidenceScoreResponse, error)
+	GetExtras(context.Context, *GetExtrasRequest) (*GetExtrasResponse, error)
+	GetTextReply(context.Context, *GetTextReplyRequest) (*GetTextReplyResponse, error)
+	GetType(context.Context, *GetTypeRequest) (*GetTypeResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedConversationActionServiceServer()
+}
+
+// UnimplementedConversationActionServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedConversationActionServiceServer struct{}
+
+func (UnimplementedConversationActionServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedConversationActionServiceServer) GetAction(context.Context, *GetActionRequest) (*GetActionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAction not implemented")
+}
+func (UnimplementedConversationActionServiceServer) GetConfidenceScore(context.Context, *ConversationActionGetConfidenceScoreRequest) (*GetConfidenceScoreResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetConfidenceScore not implemented")
+}
+func (UnimplementedConversationActionServiceServer) GetExtras(context.Context, *GetExtrasRequest) (*GetExtrasResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetExtras not implemented")
+}
+func (UnimplementedConversationActionServiceServer) GetTextReply(context.Context, *GetTextReplyRequest) (*GetTextReplyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTextReply not implemented")
+}
+func (UnimplementedConversationActionServiceServer) GetType(context.Context, *GetTypeRequest) (*GetTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetType not implemented")
+}
+func (UnimplementedConversationActionServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedConversationActionServiceServer) mustEmbedUnimplementedConversationActionServiceServer() {
+}
+func (UnimplementedConversationActionServiceServer) testEmbeddedByValue() {}
+
+// UnsafeConversationActionServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ConversationActionServiceServer will
+// result in compilation errors.
+type UnsafeConversationActionServiceServer interface {
+	mustEmbedUnimplementedConversationActionServiceServer()
+}
+
+func RegisterConversationActionServiceServer(s grpc.ServiceRegistrar, srv ConversationActionServiceServer) {
+	// If the following call panics, it indicates UnimplementedConversationActionServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ConversationActionService_ServiceDesc, srv)
+}
+
+func _ConversationActionService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConversationActionServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConversationActionService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConversationActionServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConversationActionService_GetAction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetActionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConversationActionServiceServer).GetAction(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConversationActionService_GetAction_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConversationActionServiceServer).GetAction(ctx, req.(*GetActionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConversationActionService_GetConfidenceScore_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ConversationActionGetConfidenceScoreRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConversationActionServiceServer).GetConfidenceScore(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConversationActionService_GetConfidenceScore_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConversationActionServiceServer).GetConfidenceScore(ctx, req.(*ConversationActionGetConfidenceScoreRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConversationActionService_GetExtras_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetExtrasRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConversationActionServiceServer).GetExtras(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConversationActionService_GetExtras_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConversationActionServiceServer).GetExtras(ctx, req.(*GetExtrasRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConversationActionService_GetTextReply_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTextReplyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConversationActionServiceServer).GetTextReply(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConversationActionService_GetTextReply_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConversationActionServiceServer).GetTextReply(ctx, req.(*GetTextReplyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConversationActionService_GetType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConversationActionServiceServer).GetType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConversationActionService_GetType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConversationActionServiceServer).GetType(ctx, req.(*GetTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConversationActionService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConversationActionServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConversationActionService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConversationActionServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ConversationActionService_ServiceDesc is the grpc.ServiceDesc for ConversationActionService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ConversationActionService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "textclassifier.ConversationActionService",
+	HandlerType: (*ConversationActionServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _ConversationActionService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetAction",
+			Handler:    _ConversationActionService_GetAction_Handler,
+		},
+		{
+			MethodName: "GetConfidenceScore",
+			Handler:    _ConversationActionService_GetConfidenceScore_Handler,
+		},
+		{
+			MethodName: "GetExtras",
+			Handler:    _ConversationActionService_GetExtras_Handler,
+		},
+		{
+			MethodName: "GetTextReply",
+			Handler:    _ConversationActionService_GetTextReply_Handler,
+		},
+		{
+			MethodName: "GetType",
+			Handler:    _ConversationActionService_GetType_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _ConversationActionService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/textclassifier/textclassifier.proto",
+}
+
+const (
+	ConversationActionBuilderService_Build_FullMethodName              = "/textclassifier.ConversationActionBuilderService/Build"
+	ConversationActionBuilderService_SetAction_FullMethodName          = "/textclassifier.ConversationActionBuilderService/SetAction"
+	ConversationActionBuilderService_SetConfidenceScore_FullMethodName = "/textclassifier.ConversationActionBuilderService/SetConfidenceScore"
+	ConversationActionBuilderService_SetExtras_FullMethodName          = "/textclassifier.ConversationActionBuilderService/SetExtras"
+	ConversationActionBuilderService_SetTextReply_FullMethodName       = "/textclassifier.ConversationActionBuilderService/SetTextReply"
+)
+
+// ConversationActionBuilderServiceClient is the client API for ConversationActionBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ConversationActionBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetAction(ctx context.Context, in *SetActionRequest, opts ...grpc.CallOption) (*SetActionResponse, error)
+	SetConfidenceScore(ctx context.Context, in *SetConfidenceScoreRequest, opts ...grpc.CallOption) (*SetConfidenceScoreResponse, error)
+	SetExtras(ctx context.Context, in *SetExtrasRequest, opts ...grpc.CallOption) (*SetExtrasResponse, error)
+	SetTextReply(ctx context.Context, in *SetTextReplyRequest, opts ...grpc.CallOption) (*SetTextReplyResponse, error)
+}
+
+type conversationActionBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewConversationActionBuilderServiceClient(cc grpc.ClientConnInterface) ConversationActionBuilderServiceClient {
+	return &conversationActionBuilderServiceClient{cc}
+}
+
+func (c *conversationActionBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, ConversationActionBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *conversationActionBuilderServiceClient) SetAction(ctx context.Context, in *SetActionRequest, opts ...grpc.CallOption) (*SetActionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetActionResponse)
+	err := c.cc.Invoke(ctx, ConversationActionBuilderService_SetAction_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *conversationActionBuilderServiceClient) SetConfidenceScore(ctx context.Context, in *SetConfidenceScoreRequest, opts ...grpc.CallOption) (*SetConfidenceScoreResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetConfidenceScoreResponse)
+	err := c.cc.Invoke(ctx, ConversationActionBuilderService_SetConfidenceScore_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *conversationActionBuilderServiceClient) SetExtras(ctx context.Context, in *SetExtrasRequest, opts ...grpc.CallOption) (*SetExtrasResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetExtrasResponse)
+	err := c.cc.Invoke(ctx, ConversationActionBuilderService_SetExtras_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *conversationActionBuilderServiceClient) SetTextReply(ctx context.Context, in *SetTextReplyRequest, opts ...grpc.CallOption) (*SetTextReplyResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetTextReplyResponse)
+	err := c.cc.Invoke(ctx, ConversationActionBuilderService_SetTextReply_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ConversationActionBuilderServiceServer is the server API for ConversationActionBuilderService service.
+// All implementations must embed UnimplementedConversationActionBuilderServiceServer
+// for forward compatibility.
+type ConversationActionBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetAction(context.Context, *SetActionRequest) (*SetActionResponse, error)
+	SetConfidenceScore(context.Context, *SetConfidenceScoreRequest) (*SetConfidenceScoreResponse, error)
+	SetExtras(context.Context, *SetExtrasRequest) (*SetExtrasResponse, error)
+	SetTextReply(context.Context, *SetTextReplyRequest) (*SetTextReplyResponse, error)
+	mustEmbedUnimplementedConversationActionBuilderServiceServer()
+}
+
+// UnimplementedConversationActionBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedConversationActionBuilderServiceServer struct{}
+
+func (UnimplementedConversationActionBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedConversationActionBuilderServiceServer) SetAction(context.Context, *SetActionRequest) (*SetActionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetAction not implemented")
+}
+func (UnimplementedConversationActionBuilderServiceServer) SetConfidenceScore(context.Context, *SetConfidenceScoreRequest) (*SetConfidenceScoreResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetConfidenceScore not implemented")
+}
+func (UnimplementedConversationActionBuilderServiceServer) SetExtras(context.Context, *SetExtrasRequest) (*SetExtrasResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetExtras not implemented")
+}
+func (UnimplementedConversationActionBuilderServiceServer) SetTextReply(context.Context, *SetTextReplyRequest) (*SetTextReplyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetTextReply not implemented")
+}
+func (UnimplementedConversationActionBuilderServiceServer) mustEmbedUnimplementedConversationActionBuilderServiceServer() {
+}
+func (UnimplementedConversationActionBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeConversationActionBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ConversationActionBuilderServiceServer will
+// result in compilation errors.
+type UnsafeConversationActionBuilderServiceServer interface {
+	mustEmbedUnimplementedConversationActionBuilderServiceServer()
+}
+
+func RegisterConversationActionBuilderServiceServer(s grpc.ServiceRegistrar, srv ConversationActionBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedConversationActionBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ConversationActionBuilderService_ServiceDesc, srv)
+}
+
+func _ConversationActionBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConversationActionBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConversationActionBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConversationActionBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConversationActionBuilderService_SetAction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetActionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConversationActionBuilderServiceServer).SetAction(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConversationActionBuilderService_SetAction_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConversationActionBuilderServiceServer).SetAction(ctx, req.(*SetActionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConversationActionBuilderService_SetConfidenceScore_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetConfidenceScoreRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConversationActionBuilderServiceServer).SetConfidenceScore(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConversationActionBuilderService_SetConfidenceScore_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConversationActionBuilderServiceServer).SetConfidenceScore(ctx, req.(*SetConfidenceScoreRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConversationActionBuilderService_SetExtras_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetExtrasRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConversationActionBuilderServiceServer).SetExtras(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConversationActionBuilderService_SetExtras_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConversationActionBuilderServiceServer).SetExtras(ctx, req.(*SetExtrasRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConversationActionBuilderService_SetTextReply_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetTextReplyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConversationActionBuilderServiceServer).SetTextReply(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConversationActionBuilderService_SetTextReply_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConversationActionBuilderServiceServer).SetTextReply(ctx, req.(*SetTextReplyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ConversationActionBuilderService_ServiceDesc is the grpc.ServiceDesc for ConversationActionBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ConversationActionBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "textclassifier.ConversationActionBuilderService",
+	HandlerType: (*ConversationActionBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _ConversationActionBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetAction",
+			Handler:    _ConversationActionBuilderService_SetAction_Handler,
+		},
+		{
+			MethodName: "SetConfidenceScore",
+			Handler:    _ConversationActionBuilderService_SetConfidenceScore_Handler,
+		},
+		{
+			MethodName: "SetExtras",
+			Handler:    _ConversationActionBuilderService_SetExtras_Handler,
+		},
+		{
+			MethodName: "SetTextReply",
+			Handler:    _ConversationActionBuilderService_SetTextReply_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/textclassifier/textclassifier.proto",
+}
+
+const (
+	TextClassifierEntityConfigService_DescribeContents_FullMethodName                     = "/textclassifier.TextClassifierEntityConfigService/DescribeContents"
+	TextClassifierEntityConfigService_ShouldIncludeTypesFromTextClassifier_FullMethodName = "/textclassifier.TextClassifierEntityConfigService/ShouldIncludeTypesFromTextClassifier"
+	TextClassifierEntityConfigService_WriteToParcel_FullMethodName                        = "/textclassifier.TextClassifierEntityConfigService/WriteToParcel"
+)
+
+// TextClassifierEntityConfigServiceClient is the client API for TextClassifierEntityConfigService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TextClassifierEntityConfigServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	ShouldIncludeTypesFromTextClassifier(ctx context.Context, in *ShouldIncludeTypesFromTextClassifierRequest, opts ...grpc.CallOption) (*ShouldIncludeTypesFromTextClassifierResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type textClassifierEntityConfigServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTextClassifierEntityConfigServiceClient(cc grpc.ClientConnInterface) TextClassifierEntityConfigServiceClient {
+	return &textClassifierEntityConfigServiceClient{cc}
+}
+
+func (c *textClassifierEntityConfigServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, TextClassifierEntityConfigService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textClassifierEntityConfigServiceClient) ShouldIncludeTypesFromTextClassifier(ctx context.Context, in *ShouldIncludeTypesFromTextClassifierRequest, opts ...grpc.CallOption) (*ShouldIncludeTypesFromTextClassifierResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ShouldIncludeTypesFromTextClassifierResponse)
+	err := c.cc.Invoke(ctx, TextClassifierEntityConfigService_ShouldIncludeTypesFromTextClassifier_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textClassifierEntityConfigServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, TextClassifierEntityConfigService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TextClassifierEntityConfigServiceServer is the server API for TextClassifierEntityConfigService service.
+// All implementations must embed UnimplementedTextClassifierEntityConfigServiceServer
+// for forward compatibility.
+type TextClassifierEntityConfigServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	ShouldIncludeTypesFromTextClassifier(context.Context, *ShouldIncludeTypesFromTextClassifierRequest) (*ShouldIncludeTypesFromTextClassifierResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedTextClassifierEntityConfigServiceServer()
+}
+
+// UnimplementedTextClassifierEntityConfigServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTextClassifierEntityConfigServiceServer struct{}
+
+func (UnimplementedTextClassifierEntityConfigServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedTextClassifierEntityConfigServiceServer) ShouldIncludeTypesFromTextClassifier(context.Context, *ShouldIncludeTypesFromTextClassifierRequest) (*ShouldIncludeTypesFromTextClassifierResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ShouldIncludeTypesFromTextClassifier not implemented")
+}
+func (UnimplementedTextClassifierEntityConfigServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedTextClassifierEntityConfigServiceServer) mustEmbedUnimplementedTextClassifierEntityConfigServiceServer() {
+}
+func (UnimplementedTextClassifierEntityConfigServiceServer) testEmbeddedByValue() {}
+
+// UnsafeTextClassifierEntityConfigServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TextClassifierEntityConfigServiceServer will
+// result in compilation errors.
+type UnsafeTextClassifierEntityConfigServiceServer interface {
+	mustEmbedUnimplementedTextClassifierEntityConfigServiceServer()
+}
+
+func RegisterTextClassifierEntityConfigServiceServer(s grpc.ServiceRegistrar, srv TextClassifierEntityConfigServiceServer) {
+	// If the following call panics, it indicates UnimplementedTextClassifierEntityConfigServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TextClassifierEntityConfigService_ServiceDesc, srv)
+}
+
+func _TextClassifierEntityConfigService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassifierEntityConfigServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassifierEntityConfigService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassifierEntityConfigServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextClassifierEntityConfigService_ShouldIncludeTypesFromTextClassifier_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ShouldIncludeTypesFromTextClassifierRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassifierEntityConfigServiceServer).ShouldIncludeTypesFromTextClassifier(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassifierEntityConfigService_ShouldIncludeTypesFromTextClassifier_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassifierEntityConfigServiceServer).ShouldIncludeTypesFromTextClassifier(ctx, req.(*ShouldIncludeTypesFromTextClassifierRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextClassifierEntityConfigService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextClassifierEntityConfigServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextClassifierEntityConfigService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextClassifierEntityConfigServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TextClassifierEntityConfigService_ServiceDesc is the grpc.ServiceDesc for TextClassifierEntityConfigService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TextClassifierEntityConfigService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "textclassifier.TextClassifierEntityConfigService",
+	HandlerType: (*TextClassifierEntityConfigServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _TextClassifierEntityConfigService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "ShouldIncludeTypesFromTextClassifier",
+			Handler:    _TextClassifierEntityConfigService_ShouldIncludeTypesFromTextClassifier_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _TextClassifierEntityConfigService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/textclassifier/textclassifier.proto",
+}
+
+const (
+	ConversationActionsService_NewConversationActions_FullMethodName = "/textclassifier.ConversationActionsService/NewConversationActions"
+	ConversationActionsService_DescribeContents_FullMethodName       = "/textclassifier.ConversationActionsService/DescribeContents"
+	ConversationActionsService_GetId_FullMethodName                  = "/textclassifier.ConversationActionsService/GetId"
+	ConversationActionsService_WriteToParcel_FullMethodName          = "/textclassifier.ConversationActionsService/WriteToParcel"
+)
+
+// ConversationActionsServiceClient is the client API for ConversationActionsService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ConversationActionsServiceClient interface {
+	NewConversationActions(ctx context.Context, in *NewConversationActionsRequest, opts ...grpc.CallOption) (*NewConversationActionsResponse, error)
+	DescribeContents(ctx context.Context, in *ConversationActionsDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetId(ctx context.Context, in *ConversationActionsGetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error)
+	WriteToParcel(ctx context.Context, in *ConversationActionsWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type conversationActionsServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewConversationActionsServiceClient(cc grpc.ClientConnInterface) ConversationActionsServiceClient {
+	return &conversationActionsServiceClient{cc}
+}
+
+func (c *conversationActionsServiceClient) NewConversationActions(ctx context.Context, in *NewConversationActionsRequest, opts ...grpc.CallOption) (*NewConversationActionsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewConversationActionsResponse)
+	err := c.cc.Invoke(ctx, ConversationActionsService_NewConversationActions_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *conversationActionsServiceClient) DescribeContents(ctx context.Context, in *ConversationActionsDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, ConversationActionsService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *conversationActionsServiceClient) GetId(ctx context.Context, in *ConversationActionsGetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetIdResponse)
+	err := c.cc.Invoke(ctx, ConversationActionsService_GetId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *conversationActionsServiceClient) WriteToParcel(ctx context.Context, in *ConversationActionsWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, ConversationActionsService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ConversationActionsServiceServer is the server API for ConversationActionsService service.
+// All implementations must embed UnimplementedConversationActionsServiceServer
+// for forward compatibility.
+type ConversationActionsServiceServer interface {
+	NewConversationActions(context.Context, *NewConversationActionsRequest) (*NewConversationActionsResponse, error)
+	DescribeContents(context.Context, *ConversationActionsDescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetId(context.Context, *ConversationActionsGetIdRequest) (*GetIdResponse, error)
+	WriteToParcel(context.Context, *ConversationActionsWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedConversationActionsServiceServer()
+}
+
+// UnimplementedConversationActionsServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedConversationActionsServiceServer struct{}
+
+func (UnimplementedConversationActionsServiceServer) NewConversationActions(context.Context, *NewConversationActionsRequest) (*NewConversationActionsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewConversationActions not implemented")
+}
+func (UnimplementedConversationActionsServiceServer) DescribeContents(context.Context, *ConversationActionsDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedConversationActionsServiceServer) GetId(context.Context, *ConversationActionsGetIdRequest) (*GetIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetId not implemented")
+}
+func (UnimplementedConversationActionsServiceServer) WriteToParcel(context.Context, *ConversationActionsWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedConversationActionsServiceServer) mustEmbedUnimplementedConversationActionsServiceServer() {
+}
+func (UnimplementedConversationActionsServiceServer) testEmbeddedByValue() {}
+
+// UnsafeConversationActionsServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ConversationActionsServiceServer will
+// result in compilation errors.
+type UnsafeConversationActionsServiceServer interface {
+	mustEmbedUnimplementedConversationActionsServiceServer()
+}
+
+func RegisterConversationActionsServiceServer(s grpc.ServiceRegistrar, srv ConversationActionsServiceServer) {
+	// If the following call panics, it indicates UnimplementedConversationActionsServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ConversationActionsService_ServiceDesc, srv)
+}
+
+func _ConversationActionsService_NewConversationActions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewConversationActionsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConversationActionsServiceServer).NewConversationActions(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConversationActionsService_NewConversationActions_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConversationActionsServiceServer).NewConversationActions(ctx, req.(*NewConversationActionsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConversationActionsService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ConversationActionsDescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConversationActionsServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConversationActionsService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConversationActionsServiceServer).DescribeContents(ctx, req.(*ConversationActionsDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConversationActionsService_GetId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ConversationActionsGetIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConversationActionsServiceServer).GetId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConversationActionsService_GetId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConversationActionsServiceServer).GetId(ctx, req.(*ConversationActionsGetIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConversationActionsService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ConversationActionsWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConversationActionsServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConversationActionsService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConversationActionsServiceServer).WriteToParcel(ctx, req.(*ConversationActionsWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ConversationActionsService_ServiceDesc is the grpc.ServiceDesc for ConversationActionsService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ConversationActionsService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "textclassifier.ConversationActionsService",
+	HandlerType: (*ConversationActionsServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewConversationActions",
+			Handler:    _ConversationActionsService_NewConversationActions_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _ConversationActionsService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetId",
+			Handler:    _ConversationActionsService_GetId_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _ConversationActionsService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/textclassifier/textclassifier.proto",
+}
+
+const (
+	ConversationActionsMessageService_DescribeContents_FullMethodName = "/textclassifier.ConversationActionsMessageService/DescribeContents"
+	ConversationActionsMessageService_GetAuthor_FullMethodName        = "/textclassifier.ConversationActionsMessageService/GetAuthor"
+	ConversationActionsMessageService_GetExtras_FullMethodName        = "/textclassifier.ConversationActionsMessageService/GetExtras"
+	ConversationActionsMessageService_GetReferenceTime_FullMethodName = "/textclassifier.ConversationActionsMessageService/GetReferenceTime"
+	ConversationActionsMessageService_GetText_FullMethodName          = "/textclassifier.ConversationActionsMessageService/GetText"
+	ConversationActionsMessageService_WriteToParcel_FullMethodName    = "/textclassifier.ConversationActionsMessageService/WriteToParcel"
+)
+
+// ConversationActionsMessageServiceClient is the client API for ConversationActionsMessageService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ConversationActionsMessageServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetAuthor(ctx context.Context, in *GetAuthorRequest, opts ...grpc.CallOption) (*GetAuthorResponse, error)
+	GetExtras(ctx context.Context, in *GetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error)
+	GetReferenceTime(ctx context.Context, in *GetReferenceTimeRequest, opts ...grpc.CallOption) (*GetReferenceTimeResponse, error)
+	GetText(ctx context.Context, in *GetTextRequest, opts ...grpc.CallOption) (*GetTextResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type conversationActionsMessageServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewConversationActionsMessageServiceClient(cc grpc.ClientConnInterface) ConversationActionsMessageServiceClient {
+	return &conversationActionsMessageServiceClient{cc}
+}
+
+func (c *conversationActionsMessageServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, ConversationActionsMessageService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *conversationActionsMessageServiceClient) GetAuthor(ctx context.Context, in *GetAuthorRequest, opts ...grpc.CallOption) (*GetAuthorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAuthorResponse)
+	err := c.cc.Invoke(ctx, ConversationActionsMessageService_GetAuthor_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *conversationActionsMessageServiceClient) GetExtras(ctx context.Context, in *GetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetExtrasResponse)
+	err := c.cc.Invoke(ctx, ConversationActionsMessageService_GetExtras_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *conversationActionsMessageServiceClient) GetReferenceTime(ctx context.Context, in *GetReferenceTimeRequest, opts ...grpc.CallOption) (*GetReferenceTimeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetReferenceTimeResponse)
+	err := c.cc.Invoke(ctx, ConversationActionsMessageService_GetReferenceTime_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *conversationActionsMessageServiceClient) GetText(ctx context.Context, in *GetTextRequest, opts ...grpc.CallOption) (*GetTextResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTextResponse)
+	err := c.cc.Invoke(ctx, ConversationActionsMessageService_GetText_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *conversationActionsMessageServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, ConversationActionsMessageService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ConversationActionsMessageServiceServer is the server API for ConversationActionsMessageService service.
+// All implementations must embed UnimplementedConversationActionsMessageServiceServer
+// for forward compatibility.
+type ConversationActionsMessageServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetAuthor(context.Context, *GetAuthorRequest) (*GetAuthorResponse, error)
+	GetExtras(context.Context, *GetExtrasRequest) (*GetExtrasResponse, error)
+	GetReferenceTime(context.Context, *GetReferenceTimeRequest) (*GetReferenceTimeResponse, error)
+	GetText(context.Context, *GetTextRequest) (*GetTextResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedConversationActionsMessageServiceServer()
+}
+
+// UnimplementedConversationActionsMessageServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedConversationActionsMessageServiceServer struct{}
+
+func (UnimplementedConversationActionsMessageServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedConversationActionsMessageServiceServer) GetAuthor(context.Context, *GetAuthorRequest) (*GetAuthorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAuthor not implemented")
+}
+func (UnimplementedConversationActionsMessageServiceServer) GetExtras(context.Context, *GetExtrasRequest) (*GetExtrasResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetExtras not implemented")
+}
+func (UnimplementedConversationActionsMessageServiceServer) GetReferenceTime(context.Context, *GetReferenceTimeRequest) (*GetReferenceTimeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetReferenceTime not implemented")
+}
+func (UnimplementedConversationActionsMessageServiceServer) GetText(context.Context, *GetTextRequest) (*GetTextResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetText not implemented")
+}
+func (UnimplementedConversationActionsMessageServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedConversationActionsMessageServiceServer) mustEmbedUnimplementedConversationActionsMessageServiceServer() {
+}
+func (UnimplementedConversationActionsMessageServiceServer) testEmbeddedByValue() {}
+
+// UnsafeConversationActionsMessageServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ConversationActionsMessageServiceServer will
+// result in compilation errors.
+type UnsafeConversationActionsMessageServiceServer interface {
+	mustEmbedUnimplementedConversationActionsMessageServiceServer()
+}
+
+func RegisterConversationActionsMessageServiceServer(s grpc.ServiceRegistrar, srv ConversationActionsMessageServiceServer) {
+	// If the following call panics, it indicates UnimplementedConversationActionsMessageServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ConversationActionsMessageService_ServiceDesc, srv)
+}
+
+func _ConversationActionsMessageService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConversationActionsMessageServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConversationActionsMessageService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConversationActionsMessageServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConversationActionsMessageService_GetAuthor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAuthorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConversationActionsMessageServiceServer).GetAuthor(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConversationActionsMessageService_GetAuthor_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConversationActionsMessageServiceServer).GetAuthor(ctx, req.(*GetAuthorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConversationActionsMessageService_GetExtras_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetExtrasRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConversationActionsMessageServiceServer).GetExtras(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConversationActionsMessageService_GetExtras_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConversationActionsMessageServiceServer).GetExtras(ctx, req.(*GetExtrasRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConversationActionsMessageService_GetReferenceTime_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetReferenceTimeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConversationActionsMessageServiceServer).GetReferenceTime(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConversationActionsMessageService_GetReferenceTime_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConversationActionsMessageServiceServer).GetReferenceTime(ctx, req.(*GetReferenceTimeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConversationActionsMessageService_GetText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTextRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConversationActionsMessageServiceServer).GetText(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConversationActionsMessageService_GetText_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConversationActionsMessageServiceServer).GetText(ctx, req.(*GetTextRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConversationActionsMessageService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConversationActionsMessageServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConversationActionsMessageService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConversationActionsMessageServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ConversationActionsMessageService_ServiceDesc is the grpc.ServiceDesc for ConversationActionsMessageService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ConversationActionsMessageService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "textclassifier.ConversationActionsMessageService",
+	HandlerType: (*ConversationActionsMessageServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _ConversationActionsMessageService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetAuthor",
+			Handler:    _ConversationActionsMessageService_GetAuthor_Handler,
+		},
+		{
+			MethodName: "GetExtras",
+			Handler:    _ConversationActionsMessageService_GetExtras_Handler,
+		},
+		{
+			MethodName: "GetReferenceTime",
+			Handler:    _ConversationActionsMessageService_GetReferenceTime_Handler,
+		},
+		{
+			MethodName: "GetText",
+			Handler:    _ConversationActionsMessageService_GetText_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _ConversationActionsMessageService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/textclassifier/textclassifier.proto",
+}
+
+const (
+	ConversationActionsRequestService_DescribeContents_FullMethodName      = "/textclassifier.ConversationActionsRequestService/DescribeContents"
+	ConversationActionsRequestService_GetCallingPackageName_FullMethodName = "/textclassifier.ConversationActionsRequestService/GetCallingPackageName"
+	ConversationActionsRequestService_GetExtras_FullMethodName             = "/textclassifier.ConversationActionsRequestService/GetExtras"
+	ConversationActionsRequestService_GetMaxSuggestions_FullMethodName     = "/textclassifier.ConversationActionsRequestService/GetMaxSuggestions"
+	ConversationActionsRequestService_GetTypeConfig_FullMethodName         = "/textclassifier.ConversationActionsRequestService/GetTypeConfig"
+	ConversationActionsRequestService_WriteToParcel_FullMethodName         = "/textclassifier.ConversationActionsRequestService/WriteToParcel"
+)
+
+// ConversationActionsRequestServiceClient is the client API for ConversationActionsRequestService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ConversationActionsRequestServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetCallingPackageName(ctx context.Context, in *GetCallingPackageNameRequest, opts ...grpc.CallOption) (*GetCallingPackageNameResponse, error)
+	GetExtras(ctx context.Context, in *GetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error)
+	GetMaxSuggestions(ctx context.Context, in *GetMaxSuggestionsRequest, opts ...grpc.CallOption) (*GetMaxSuggestionsResponse, error)
+	GetTypeConfig(ctx context.Context, in *GetTypeConfigRequest, opts ...grpc.CallOption) (*GetTypeConfigResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type conversationActionsRequestServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewConversationActionsRequestServiceClient(cc grpc.ClientConnInterface) ConversationActionsRequestServiceClient {
+	return &conversationActionsRequestServiceClient{cc}
+}
+
+func (c *conversationActionsRequestServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, ConversationActionsRequestService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *conversationActionsRequestServiceClient) GetCallingPackageName(ctx context.Context, in *GetCallingPackageNameRequest, opts ...grpc.CallOption) (*GetCallingPackageNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCallingPackageNameResponse)
+	err := c.cc.Invoke(ctx, ConversationActionsRequestService_GetCallingPackageName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *conversationActionsRequestServiceClient) GetExtras(ctx context.Context, in *GetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetExtrasResponse)
+	err := c.cc.Invoke(ctx, ConversationActionsRequestService_GetExtras_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *conversationActionsRequestServiceClient) GetMaxSuggestions(ctx context.Context, in *GetMaxSuggestionsRequest, opts ...grpc.CallOption) (*GetMaxSuggestionsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMaxSuggestionsResponse)
+	err := c.cc.Invoke(ctx, ConversationActionsRequestService_GetMaxSuggestions_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *conversationActionsRequestServiceClient) GetTypeConfig(ctx context.Context, in *GetTypeConfigRequest, opts ...grpc.CallOption) (*GetTypeConfigResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTypeConfigResponse)
+	err := c.cc.Invoke(ctx, ConversationActionsRequestService_GetTypeConfig_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *conversationActionsRequestServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, ConversationActionsRequestService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ConversationActionsRequestServiceServer is the server API for ConversationActionsRequestService service.
+// All implementations must embed UnimplementedConversationActionsRequestServiceServer
+// for forward compatibility.
+type ConversationActionsRequestServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetCallingPackageName(context.Context, *GetCallingPackageNameRequest) (*GetCallingPackageNameResponse, error)
+	GetExtras(context.Context, *GetExtrasRequest) (*GetExtrasResponse, error)
+	GetMaxSuggestions(context.Context, *GetMaxSuggestionsRequest) (*GetMaxSuggestionsResponse, error)
+	GetTypeConfig(context.Context, *GetTypeConfigRequest) (*GetTypeConfigResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedConversationActionsRequestServiceServer()
+}
+
+// UnimplementedConversationActionsRequestServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedConversationActionsRequestServiceServer struct{}
+
+func (UnimplementedConversationActionsRequestServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedConversationActionsRequestServiceServer) GetCallingPackageName(context.Context, *GetCallingPackageNameRequest) (*GetCallingPackageNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCallingPackageName not implemented")
+}
+func (UnimplementedConversationActionsRequestServiceServer) GetExtras(context.Context, *GetExtrasRequest) (*GetExtrasResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetExtras not implemented")
+}
+func (UnimplementedConversationActionsRequestServiceServer) GetMaxSuggestions(context.Context, *GetMaxSuggestionsRequest) (*GetMaxSuggestionsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMaxSuggestions not implemented")
+}
+func (UnimplementedConversationActionsRequestServiceServer) GetTypeConfig(context.Context, *GetTypeConfigRequest) (*GetTypeConfigResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTypeConfig not implemented")
+}
+func (UnimplementedConversationActionsRequestServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedConversationActionsRequestServiceServer) mustEmbedUnimplementedConversationActionsRequestServiceServer() {
+}
+func (UnimplementedConversationActionsRequestServiceServer) testEmbeddedByValue() {}
+
+// UnsafeConversationActionsRequestServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ConversationActionsRequestServiceServer will
+// result in compilation errors.
+type UnsafeConversationActionsRequestServiceServer interface {
+	mustEmbedUnimplementedConversationActionsRequestServiceServer()
+}
+
+func RegisterConversationActionsRequestServiceServer(s grpc.ServiceRegistrar, srv ConversationActionsRequestServiceServer) {
+	// If the following call panics, it indicates UnimplementedConversationActionsRequestServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ConversationActionsRequestService_ServiceDesc, srv)
+}
+
+func _ConversationActionsRequestService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConversationActionsRequestServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConversationActionsRequestService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConversationActionsRequestServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConversationActionsRequestService_GetCallingPackageName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCallingPackageNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConversationActionsRequestServiceServer).GetCallingPackageName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConversationActionsRequestService_GetCallingPackageName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConversationActionsRequestServiceServer).GetCallingPackageName(ctx, req.(*GetCallingPackageNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConversationActionsRequestService_GetExtras_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetExtrasRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConversationActionsRequestServiceServer).GetExtras(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConversationActionsRequestService_GetExtras_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConversationActionsRequestServiceServer).GetExtras(ctx, req.(*GetExtrasRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConversationActionsRequestService_GetMaxSuggestions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMaxSuggestionsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConversationActionsRequestServiceServer).GetMaxSuggestions(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConversationActionsRequestService_GetMaxSuggestions_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConversationActionsRequestServiceServer).GetMaxSuggestions(ctx, req.(*GetMaxSuggestionsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConversationActionsRequestService_GetTypeConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTypeConfigRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConversationActionsRequestServiceServer).GetTypeConfig(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConversationActionsRequestService_GetTypeConfig_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConversationActionsRequestServiceServer).GetTypeConfig(ctx, req.(*GetTypeConfigRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConversationActionsRequestService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConversationActionsRequestServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConversationActionsRequestService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConversationActionsRequestServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ConversationActionsRequestService_ServiceDesc is the grpc.ServiceDesc for ConversationActionsRequestService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ConversationActionsRequestService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "textclassifier.ConversationActionsRequestService",
+	HandlerType: (*ConversationActionsRequestServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _ConversationActionsRequestService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetCallingPackageName",
+			Handler:    _ConversationActionsRequestService_GetCallingPackageName_Handler,
+		},
+		{
+			MethodName: "GetExtras",
+			Handler:    _ConversationActionsRequestService_GetExtras_Handler,
+		},
+		{
+			MethodName: "GetMaxSuggestions",
+			Handler:    _ConversationActionsRequestService_GetMaxSuggestions_Handler,
+		},
+		{
+			MethodName: "GetTypeConfig",
+			Handler:    _ConversationActionsRequestService_GetTypeConfig_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _ConversationActionsRequestService_WriteToParcel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

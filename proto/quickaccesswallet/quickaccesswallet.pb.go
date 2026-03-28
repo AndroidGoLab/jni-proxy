@@ -12,6 +12,7 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -22,19 +23,4058 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type GetGestureTargetActivityPendingIntentRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetGestureTargetActivityPendingIntentRequest) Reset() {
+	*x = GetGestureTargetActivityPendingIntentRequest{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetGestureTargetActivityPendingIntentRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetGestureTargetActivityPendingIntentRequest) ProtoMessage() {}
+
+func (x *GetGestureTargetActivityPendingIntentRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetGestureTargetActivityPendingIntentRequest.ProtoReflect.Descriptor instead.
+func (*GetGestureTargetActivityPendingIntentRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{0}
+}
+
+type GetGestureTargetActivityPendingIntentResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetGestureTargetActivityPendingIntentResponse) Reset() {
+	*x = GetGestureTargetActivityPendingIntentResponse{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetGestureTargetActivityPendingIntentResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetGestureTargetActivityPendingIntentResponse) ProtoMessage() {}
+
+func (x *GetGestureTargetActivityPendingIntentResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetGestureTargetActivityPendingIntentResponse.ProtoReflect.Descriptor instead.
+func (*GetGestureTargetActivityPendingIntentResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *GetGestureTargetActivityPendingIntentResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetTargetActivityPendingIntentRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTargetActivityPendingIntentRequest) Reset() {
+	*x = GetTargetActivityPendingIntentRequest{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTargetActivityPendingIntentRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTargetActivityPendingIntentRequest) ProtoMessage() {}
+
+func (x *GetTargetActivityPendingIntentRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTargetActivityPendingIntentRequest.ProtoReflect.Descriptor instead.
+func (*GetTargetActivityPendingIntentRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{2}
+}
+
+type GetTargetActivityPendingIntentResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTargetActivityPendingIntentResponse) Reset() {
+	*x = GetTargetActivityPendingIntentResponse{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTargetActivityPendingIntentResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTargetActivityPendingIntentResponse) ProtoMessage() {}
+
+func (x *GetTargetActivityPendingIntentResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTargetActivityPendingIntentResponse.ProtoReflect.Descriptor instead.
+func (*GetTargetActivityPendingIntentResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *GetTargetActivityPendingIntentResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OnBindRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnBindRequest) Reset() {
+	*x = OnBindRequest{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnBindRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnBindRequest) ProtoMessage() {}
+
+func (x *OnBindRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnBindRequest.ProtoReflect.Descriptor instead.
+func (*OnBindRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *OnBindRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnBindResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnBindResponse) Reset() {
+	*x = OnBindResponse{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnBindResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnBindResponse) ProtoMessage() {}
+
+func (x *OnBindResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnBindResponse.ProtoReflect.Descriptor instead.
+func (*OnBindResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *OnBindResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OnWalletCardSelectedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnWalletCardSelectedRequest) Reset() {
+	*x = OnWalletCardSelectedRequest{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnWalletCardSelectedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnWalletCardSelectedRequest) ProtoMessage() {}
+
+func (x *OnWalletCardSelectedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnWalletCardSelectedRequest.ProtoReflect.Descriptor instead.
+func (*OnWalletCardSelectedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *OnWalletCardSelectedRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnWalletCardSelectedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnWalletCardSelectedResponse) Reset() {
+	*x = OnWalletCardSelectedResponse{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnWalletCardSelectedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnWalletCardSelectedResponse) ProtoMessage() {}
+
+func (x *OnWalletCardSelectedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnWalletCardSelectedResponse.ProtoReflect.Descriptor instead.
+func (*OnWalletCardSelectedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{7}
+}
+
+type OnWalletCardsRequestedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnWalletCardsRequestedRequest) Reset() {
+	*x = OnWalletCardsRequestedRequest{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnWalletCardsRequestedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnWalletCardsRequestedRequest) ProtoMessage() {}
+
+func (x *OnWalletCardsRequestedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnWalletCardsRequestedRequest.ProtoReflect.Descriptor instead.
+func (*OnWalletCardsRequestedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *OnWalletCardsRequestedRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnWalletCardsRequestedRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type OnWalletCardsRequestedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnWalletCardsRequestedResponse) Reset() {
+	*x = OnWalletCardsRequestedResponse{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnWalletCardsRequestedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnWalletCardsRequestedResponse) ProtoMessage() {}
+
+func (x *OnWalletCardsRequestedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnWalletCardsRequestedResponse.ProtoReflect.Descriptor instead.
+func (*OnWalletCardsRequestedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{9}
+}
+
+type OnWalletDismissedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnWalletDismissedRequest) Reset() {
+	*x = OnWalletDismissedRequest{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnWalletDismissedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnWalletDismissedRequest) ProtoMessage() {}
+
+func (x *OnWalletDismissedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnWalletDismissedRequest.ProtoReflect.Descriptor instead.
+func (*OnWalletDismissedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{10}
+}
+
+type OnWalletDismissedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnWalletDismissedResponse) Reset() {
+	*x = OnWalletDismissedResponse{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnWalletDismissedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnWalletDismissedResponse) ProtoMessage() {}
+
+func (x *OnWalletDismissedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnWalletDismissedResponse.ProtoReflect.Descriptor instead.
+func (*OnWalletDismissedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{11}
+}
+
+type SendWalletServiceEventRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SendWalletServiceEventRequest) Reset() {
+	*x = SendWalletServiceEventRequest{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SendWalletServiceEventRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SendWalletServiceEventRequest) ProtoMessage() {}
+
+func (x *SendWalletServiceEventRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SendWalletServiceEventRequest.ProtoReflect.Descriptor instead.
+func (*SendWalletServiceEventRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *SendWalletServiceEventRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SendWalletServiceEventResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SendWalletServiceEventResponse) Reset() {
+	*x = SendWalletServiceEventResponse{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SendWalletServiceEventResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SendWalletServiceEventResponse) ProtoMessage() {}
+
+func (x *SendWalletServiceEventResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SendWalletServiceEventResponse.ProtoReflect.Descriptor instead.
+func (*SendWalletServiceEventResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{13}
+}
+
+type DescribeContentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DescribeContentsRequest) Reset() {
+	*x = DescribeContentsRequest{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DescribeContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DescribeContentsRequest) ProtoMessage() {}
+
+func (x *DescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*DescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{14}
+}
+
+type DescribeContentsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DescribeContentsResponse) Reset() {
+	*x = DescribeContentsResponse{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DescribeContentsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DescribeContentsResponse) ProtoMessage() {}
+
+func (x *DescribeContentsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DescribeContentsResponse.ProtoReflect.Descriptor instead.
+func (*DescribeContentsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *DescribeContentsResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetCardIconRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCardIconRequest) Reset() {
+	*x = GetCardIconRequest{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCardIconRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCardIconRequest) ProtoMessage() {}
+
+func (x *GetCardIconRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCardIconRequest.ProtoReflect.Descriptor instead.
+func (*GetCardIconRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{16}
+}
+
+type GetCardIconResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCardIconResponse) Reset() {
+	*x = GetCardIconResponse{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCardIconResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCardIconResponse) ProtoMessage() {}
+
+func (x *GetCardIconResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCardIconResponse.ProtoReflect.Descriptor instead.
+func (*GetCardIconResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *GetCardIconResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetCardIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCardIdRequest) Reset() {
+	*x = GetCardIdRequest{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCardIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCardIdRequest) ProtoMessage() {}
+
+func (x *GetCardIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCardIdRequest.ProtoReflect.Descriptor instead.
+func (*GetCardIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{18}
+}
+
+type GetCardIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCardIdResponse) Reset() {
+	*x = GetCardIdResponse{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCardIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCardIdResponse) ProtoMessage() {}
+
+func (x *GetCardIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCardIdResponse.ProtoReflect.Descriptor instead.
+func (*GetCardIdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *GetCardIdResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetCardImageRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCardImageRequest) Reset() {
+	*x = GetCardImageRequest{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCardImageRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCardImageRequest) ProtoMessage() {}
+
+func (x *GetCardImageRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCardImageRequest.ProtoReflect.Descriptor instead.
+func (*GetCardImageRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{20}
+}
+
+type GetCardImageResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCardImageResponse) Reset() {
+	*x = GetCardImageResponse{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCardImageResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCardImageResponse) ProtoMessage() {}
+
+func (x *GetCardImageResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCardImageResponse.ProtoReflect.Descriptor instead.
+func (*GetCardImageResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{21}
+}
+
+func (x *GetCardImageResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetCardLabelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCardLabelRequest) Reset() {
+	*x = GetCardLabelRequest{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCardLabelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCardLabelRequest) ProtoMessage() {}
+
+func (x *GetCardLabelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCardLabelRequest.ProtoReflect.Descriptor instead.
+func (*GetCardLabelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{22}
+}
+
+type GetCardLabelResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCardLabelResponse) Reset() {
+	*x = GetCardLabelResponse{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCardLabelResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCardLabelResponse) ProtoMessage() {}
+
+func (x *GetCardLabelResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCardLabelResponse.ProtoReflect.Descriptor instead.
+func (*GetCardLabelResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{23}
+}
+
+func (x *GetCardLabelResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetCardTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCardTypeRequest) Reset() {
+	*x = GetCardTypeRequest{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCardTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCardTypeRequest) ProtoMessage() {}
+
+func (x *GetCardTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCardTypeRequest.ProtoReflect.Descriptor instead.
+func (*GetCardTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{24}
+}
+
+type GetCardTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCardTypeResponse) Reset() {
+	*x = GetCardTypeResponse{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCardTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCardTypeResponse) ProtoMessage() {}
+
+func (x *GetCardTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCardTypeResponse.ProtoReflect.Descriptor instead.
+func (*GetCardTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{25}
+}
+
+func (x *GetCardTypeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetContentDescriptionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetContentDescriptionRequest) Reset() {
+	*x = GetContentDescriptionRequest{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[26]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetContentDescriptionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetContentDescriptionRequest) ProtoMessage() {}
+
+func (x *GetContentDescriptionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[26]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetContentDescriptionRequest.ProtoReflect.Descriptor instead.
+func (*GetContentDescriptionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{26}
+}
+
+type GetContentDescriptionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetContentDescriptionResponse) Reset() {
+	*x = GetContentDescriptionResponse{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[27]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetContentDescriptionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetContentDescriptionResponse) ProtoMessage() {}
+
+func (x *GetContentDescriptionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[27]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetContentDescriptionResponse.ProtoReflect.Descriptor instead.
+func (*GetContentDescriptionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{27}
+}
+
+func (x *GetContentDescriptionResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetNonPaymentCardSecondaryImageRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNonPaymentCardSecondaryImageRequest) Reset() {
+	*x = GetNonPaymentCardSecondaryImageRequest{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[28]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNonPaymentCardSecondaryImageRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNonPaymentCardSecondaryImageRequest) ProtoMessage() {}
+
+func (x *GetNonPaymentCardSecondaryImageRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[28]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNonPaymentCardSecondaryImageRequest.ProtoReflect.Descriptor instead.
+func (*GetNonPaymentCardSecondaryImageRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{28}
+}
+
+type GetNonPaymentCardSecondaryImageResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNonPaymentCardSecondaryImageResponse) Reset() {
+	*x = GetNonPaymentCardSecondaryImageResponse{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[29]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNonPaymentCardSecondaryImageResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNonPaymentCardSecondaryImageResponse) ProtoMessage() {}
+
+func (x *GetNonPaymentCardSecondaryImageResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[29]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNonPaymentCardSecondaryImageResponse.ProtoReflect.Descriptor instead.
+func (*GetNonPaymentCardSecondaryImageResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{29}
+}
+
+func (x *GetNonPaymentCardSecondaryImageResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPendingIntentRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPendingIntentRequest) Reset() {
+	*x = GetPendingIntentRequest{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[30]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPendingIntentRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPendingIntentRequest) ProtoMessage() {}
+
+func (x *GetPendingIntentRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[30]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPendingIntentRequest.ProtoReflect.Descriptor instead.
+func (*GetPendingIntentRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{30}
+}
+
+type GetPendingIntentResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPendingIntentResponse) Reset() {
+	*x = GetPendingIntentResponse{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[31]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPendingIntentResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPendingIntentResponse) ProtoMessage() {}
+
+func (x *GetPendingIntentResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[31]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPendingIntentResponse.ProtoReflect.Descriptor instead.
+func (*GetPendingIntentResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{31}
+}
+
+func (x *GetPendingIntentResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type WriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WriteToParcelRequest) Reset() {
+	*x = WriteToParcelRequest{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[32]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WriteToParcelRequest) ProtoMessage() {}
+
+func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[32]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*WriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{32}
+}
+
+func (x *WriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *WriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type WriteToParcelResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WriteToParcelResponse) Reset() {
+	*x = WriteToParcelResponse{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[33]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WriteToParcelResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WriteToParcelResponse) ProtoMessage() {}
+
+func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[33]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WriteToParcelResponse.ProtoReflect.Descriptor instead.
+func (*WriteToParcelResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{33}
+}
+
+type BuildRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BuildRequest) Reset() {
+	*x = BuildRequest{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[34]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BuildRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BuildRequest) ProtoMessage() {}
+
+func (x *BuildRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[34]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BuildRequest.ProtoReflect.Descriptor instead.
+func (*BuildRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{34}
+}
+
+type BuildResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BuildResponse) Reset() {
+	*x = BuildResponse{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[35]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BuildResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BuildResponse) ProtoMessage() {}
+
+func (x *BuildResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[35]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BuildResponse.ProtoReflect.Descriptor instead.
+func (*BuildResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{35}
+}
+
+func (x *BuildResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetCardIconRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetCardIconRequest) Reset() {
+	*x = SetCardIconRequest{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[36]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetCardIconRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetCardIconRequest) ProtoMessage() {}
+
+func (x *SetCardIconRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[36]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetCardIconRequest.ProtoReflect.Descriptor instead.
+func (*SetCardIconRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{36}
+}
+
+func (x *SetCardIconRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetCardIconResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetCardIconResponse) Reset() {
+	*x = SetCardIconResponse{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[37]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetCardIconResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetCardIconResponse) ProtoMessage() {}
+
+func (x *SetCardIconResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[37]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetCardIconResponse.ProtoReflect.Descriptor instead.
+func (*SetCardIconResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{37}
+}
+
+func (x *SetCardIconResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetCardLabelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetCardLabelRequest) Reset() {
+	*x = SetCardLabelRequest{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[38]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetCardLabelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetCardLabelRequest) ProtoMessage() {}
+
+func (x *SetCardLabelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[38]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetCardLabelRequest.ProtoReflect.Descriptor instead.
+func (*SetCardLabelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{38}
+}
+
+func (x *SetCardLabelRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type SetCardLabelResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetCardLabelResponse) Reset() {
+	*x = SetCardLabelResponse{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[39]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetCardLabelResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetCardLabelResponse) ProtoMessage() {}
+
+func (x *SetCardLabelResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[39]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetCardLabelResponse.ProtoReflect.Descriptor instead.
+func (*SetCardLabelResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{39}
+}
+
+func (x *SetCardLabelResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetNonPaymentCardSecondaryImageRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetNonPaymentCardSecondaryImageRequest) Reset() {
+	*x = SetNonPaymentCardSecondaryImageRequest{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[40]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetNonPaymentCardSecondaryImageRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetNonPaymentCardSecondaryImageRequest) ProtoMessage() {}
+
+func (x *SetNonPaymentCardSecondaryImageRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[40]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetNonPaymentCardSecondaryImageRequest.ProtoReflect.Descriptor instead.
+func (*SetNonPaymentCardSecondaryImageRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{40}
+}
+
+func (x *SetNonPaymentCardSecondaryImageRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetNonPaymentCardSecondaryImageResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetNonPaymentCardSecondaryImageResponse) Reset() {
+	*x = SetNonPaymentCardSecondaryImageResponse{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[41]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetNonPaymentCardSecondaryImageResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetNonPaymentCardSecondaryImageResponse) ProtoMessage() {}
+
+func (x *SetNonPaymentCardSecondaryImageResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[41]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetNonPaymentCardSecondaryImageResponse.ProtoReflect.Descriptor instead.
+func (*SetNonPaymentCardSecondaryImageResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{41}
+}
+
+func (x *SetNonPaymentCardSecondaryImageResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type NewSelectWalletCardRequestRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewSelectWalletCardRequestRequest) Reset() {
+	*x = NewSelectWalletCardRequestRequest{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[42]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewSelectWalletCardRequestRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewSelectWalletCardRequestRequest) ProtoMessage() {}
+
+func (x *NewSelectWalletCardRequestRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[42]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewSelectWalletCardRequestRequest.ProtoReflect.Descriptor instead.
+func (*NewSelectWalletCardRequestRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{42}
+}
+
+func (x *NewSelectWalletCardRequestRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type NewSelectWalletCardRequestResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewSelectWalletCardRequestResponse) Reset() {
+	*x = NewSelectWalletCardRequestResponse{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[43]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewSelectWalletCardRequestResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewSelectWalletCardRequestResponse) ProtoMessage() {}
+
+func (x *NewSelectWalletCardRequestResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[43]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewSelectWalletCardRequestResponse.ProtoReflect.Descriptor instead.
+func (*NewSelectWalletCardRequestResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{43}
+}
+
+func (x *NewSelectWalletCardRequestResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SelectWalletCardRequestDescribeContentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SelectWalletCardRequestDescribeContentsRequest) Reset() {
+	*x = SelectWalletCardRequestDescribeContentsRequest{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[44]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SelectWalletCardRequestDescribeContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SelectWalletCardRequestDescribeContentsRequest) ProtoMessage() {}
+
+func (x *SelectWalletCardRequestDescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[44]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SelectWalletCardRequestDescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*SelectWalletCardRequestDescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{44}
+}
+
+func (x *SelectWalletCardRequestDescribeContentsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type SelectWalletCardRequestGetCardIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SelectWalletCardRequestGetCardIdRequest) Reset() {
+	*x = SelectWalletCardRequestGetCardIdRequest{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[45]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SelectWalletCardRequestGetCardIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SelectWalletCardRequestGetCardIdRequest) ProtoMessage() {}
+
+func (x *SelectWalletCardRequestGetCardIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[45]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SelectWalletCardRequestGetCardIdRequest.ProtoReflect.Descriptor instead.
+func (*SelectWalletCardRequestGetCardIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{45}
+}
+
+func (x *SelectWalletCardRequestGetCardIdRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type SelectWalletCardRequestWriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SelectWalletCardRequestWriteToParcelRequest) Reset() {
+	*x = SelectWalletCardRequestWriteToParcelRequest{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[46]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SelectWalletCardRequestWriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SelectWalletCardRequestWriteToParcelRequest) ProtoMessage() {}
+
+func (x *SelectWalletCardRequestWriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[46]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SelectWalletCardRequestWriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*SelectWalletCardRequestWriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{46}
+}
+
+func (x *SelectWalletCardRequestWriteToParcelRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SelectWalletCardRequestWriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SelectWalletCardRequestWriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type NewGetWalletCardsErrorRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewGetWalletCardsErrorRequest) Reset() {
+	*x = NewGetWalletCardsErrorRequest{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[47]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewGetWalletCardsErrorRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewGetWalletCardsErrorRequest) ProtoMessage() {}
+
+func (x *NewGetWalletCardsErrorRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[47]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewGetWalletCardsErrorRequest.ProtoReflect.Descriptor instead.
+func (*NewGetWalletCardsErrorRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{47}
+}
+
+func (x *NewGetWalletCardsErrorRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *NewGetWalletCardsErrorRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+type NewGetWalletCardsErrorResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewGetWalletCardsErrorResponse) Reset() {
+	*x = NewGetWalletCardsErrorResponse{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[48]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewGetWalletCardsErrorResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewGetWalletCardsErrorResponse) ProtoMessage() {}
+
+func (x *NewGetWalletCardsErrorResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[48]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewGetWalletCardsErrorResponse.ProtoReflect.Descriptor instead.
+func (*NewGetWalletCardsErrorResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{48}
+}
+
+func (x *NewGetWalletCardsErrorResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetWalletCardsErrorDescribeContentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetWalletCardsErrorDescribeContentsRequest) Reset() {
+	*x = GetWalletCardsErrorDescribeContentsRequest{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[49]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetWalletCardsErrorDescribeContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetWalletCardsErrorDescribeContentsRequest) ProtoMessage() {}
+
+func (x *GetWalletCardsErrorDescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[49]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetWalletCardsErrorDescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*GetWalletCardsErrorDescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{49}
+}
+
+func (x *GetWalletCardsErrorDescribeContentsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetIconRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetIconRequest) Reset() {
+	*x = GetIconRequest{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[50]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetIconRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetIconRequest) ProtoMessage() {}
+
+func (x *GetIconRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[50]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetIconRequest.ProtoReflect.Descriptor instead.
+func (*GetIconRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{50}
+}
+
+func (x *GetIconRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetIconResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetIconResponse) Reset() {
+	*x = GetIconResponse{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[51]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetIconResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetIconResponse) ProtoMessage() {}
+
+func (x *GetIconResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[51]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetIconResponse.ProtoReflect.Descriptor instead.
+func (*GetIconResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{51}
+}
+
+func (x *GetIconResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetMessageRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMessageRequest) Reset() {
+	*x = GetMessageRequest{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[52]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMessageRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMessageRequest) ProtoMessage() {}
+
+func (x *GetMessageRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[52]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMessageRequest.ProtoReflect.Descriptor instead.
+func (*GetMessageRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{52}
+}
+
+func (x *GetMessageRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetMessageResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMessageResponse) Reset() {
+	*x = GetMessageResponse{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[53]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMessageResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMessageResponse) ProtoMessage() {}
+
+func (x *GetMessageResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[53]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMessageResponse.ProtoReflect.Descriptor instead.
+func (*GetMessageResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{53}
+}
+
+func (x *GetMessageResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetWalletCardsErrorWriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetWalletCardsErrorWriteToParcelRequest) Reset() {
+	*x = GetWalletCardsErrorWriteToParcelRequest{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[54]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetWalletCardsErrorWriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetWalletCardsErrorWriteToParcelRequest) ProtoMessage() {}
+
+func (x *GetWalletCardsErrorWriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[54]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetWalletCardsErrorWriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*GetWalletCardsErrorWriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{54}
+}
+
+func (x *GetWalletCardsErrorWriteToParcelRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetWalletCardsErrorWriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *GetWalletCardsErrorWriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type NewWalletServiceEventRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewWalletServiceEventRequest) Reset() {
+	*x = NewWalletServiceEventRequest{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[55]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewWalletServiceEventRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewWalletServiceEventRequest) ProtoMessage() {}
+
+func (x *NewWalletServiceEventRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[55]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewWalletServiceEventRequest.ProtoReflect.Descriptor instead.
+func (*NewWalletServiceEventRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{55}
+}
+
+func (x *NewWalletServiceEventRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type NewWalletServiceEventResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewWalletServiceEventResponse) Reset() {
+	*x = NewWalletServiceEventResponse{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[56]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewWalletServiceEventResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewWalletServiceEventResponse) ProtoMessage() {}
+
+func (x *NewWalletServiceEventResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[56]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewWalletServiceEventResponse.ProtoReflect.Descriptor instead.
+func (*NewWalletServiceEventResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{56}
+}
+
+func (x *NewWalletServiceEventResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type WalletServiceEventDescribeContentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WalletServiceEventDescribeContentsRequest) Reset() {
+	*x = WalletServiceEventDescribeContentsRequest{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[57]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WalletServiceEventDescribeContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WalletServiceEventDescribeContentsRequest) ProtoMessage() {}
+
+func (x *WalletServiceEventDescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[57]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WalletServiceEventDescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*WalletServiceEventDescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{57}
+}
+
+func (x *WalletServiceEventDescribeContentsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetEventTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEventTypeRequest) Reset() {
+	*x = GetEventTypeRequest{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[58]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEventTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEventTypeRequest) ProtoMessage() {}
+
+func (x *GetEventTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[58]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEventTypeRequest.ProtoReflect.Descriptor instead.
+func (*GetEventTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{58}
+}
+
+func (x *GetEventTypeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetEventTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEventTypeResponse) Reset() {
+	*x = GetEventTypeResponse{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[59]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEventTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEventTypeResponse) ProtoMessage() {}
+
+func (x *GetEventTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[59]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEventTypeResponse.ProtoReflect.Descriptor instead.
+func (*GetEventTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{59}
+}
+
+func (x *GetEventTypeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type WalletServiceEventWriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WalletServiceEventWriteToParcelRequest) Reset() {
+	*x = WalletServiceEventWriteToParcelRequest{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[60]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WalletServiceEventWriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WalletServiceEventWriteToParcelRequest) ProtoMessage() {}
+
+func (x *WalletServiceEventWriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[60]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WalletServiceEventWriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*WalletServiceEventWriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{60}
+}
+
+func (x *WalletServiceEventWriteToParcelRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *WalletServiceEventWriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *WalletServiceEventWriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type OnFailureRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnFailureRequest) Reset() {
+	*x = OnFailureRequest{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[61]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnFailureRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnFailureRequest) ProtoMessage() {}
+
+func (x *OnFailureRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[61]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnFailureRequest.ProtoReflect.Descriptor instead.
+func (*OnFailureRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{61}
+}
+
+func (x *OnFailureRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnFailureResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnFailureResponse) Reset() {
+	*x = OnFailureResponse{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[62]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnFailureResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnFailureResponse) ProtoMessage() {}
+
+func (x *OnFailureResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[62]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnFailureResponse.ProtoReflect.Descriptor instead.
+func (*OnFailureResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{62}
+}
+
+type OnSuccessRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnSuccessRequest) Reset() {
+	*x = OnSuccessRequest{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[63]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnSuccessRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnSuccessRequest) ProtoMessage() {}
+
+func (x *OnSuccessRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[63]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnSuccessRequest.ProtoReflect.Descriptor instead.
+func (*OnSuccessRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{63}
+}
+
+func (x *OnSuccessRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnSuccessResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnSuccessResponse) Reset() {
+	*x = OnSuccessResponse{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[64]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnSuccessResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnSuccessResponse) ProtoMessage() {}
+
+func (x *OnSuccessResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[64]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnSuccessResponse.ProtoReflect.Descriptor instead.
+func (*OnSuccessResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{64}
+}
+
+type NewGetWalletCardsResponseRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewGetWalletCardsResponseRequest) Reset() {
+	*x = NewGetWalletCardsResponseRequest{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[65]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewGetWalletCardsResponseRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewGetWalletCardsResponseRequest) ProtoMessage() {}
+
+func (x *NewGetWalletCardsResponseRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[65]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewGetWalletCardsResponseRequest.ProtoReflect.Descriptor instead.
+func (*NewGetWalletCardsResponseRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{65}
+}
+
+func (x *NewGetWalletCardsResponseRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *NewGetWalletCardsResponseRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type NewGetWalletCardsResponseResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewGetWalletCardsResponseResponse) Reset() {
+	*x = NewGetWalletCardsResponseResponse{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[66]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewGetWalletCardsResponseResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewGetWalletCardsResponseResponse) ProtoMessage() {}
+
+func (x *NewGetWalletCardsResponseResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[66]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewGetWalletCardsResponseResponse.ProtoReflect.Descriptor instead.
+func (*NewGetWalletCardsResponseResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{66}
+}
+
+func (x *NewGetWalletCardsResponseResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetWalletCardsResponseDescribeContentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetWalletCardsResponseDescribeContentsRequest) Reset() {
+	*x = GetWalletCardsResponseDescribeContentsRequest{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[67]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetWalletCardsResponseDescribeContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetWalletCardsResponseDescribeContentsRequest) ProtoMessage() {}
+
+func (x *GetWalletCardsResponseDescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[67]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetWalletCardsResponseDescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*GetWalletCardsResponseDescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{67}
+}
+
+func (x *GetWalletCardsResponseDescribeContentsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetSelectedIndexRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSelectedIndexRequest) Reset() {
+	*x = GetSelectedIndexRequest{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[68]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSelectedIndexRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSelectedIndexRequest) ProtoMessage() {}
+
+func (x *GetSelectedIndexRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[68]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSelectedIndexRequest.ProtoReflect.Descriptor instead.
+func (*GetSelectedIndexRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{68}
+}
+
+func (x *GetSelectedIndexRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetSelectedIndexResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSelectedIndexResponse) Reset() {
+	*x = GetSelectedIndexResponse{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[69]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSelectedIndexResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSelectedIndexResponse) ProtoMessage() {}
+
+func (x *GetSelectedIndexResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[69]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSelectedIndexResponse.ProtoReflect.Descriptor instead.
+func (*GetSelectedIndexResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{69}
+}
+
+func (x *GetSelectedIndexResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetWalletCardsResponseWriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetWalletCardsResponseWriteToParcelRequest) Reset() {
+	*x = GetWalletCardsResponseWriteToParcelRequest{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[70]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetWalletCardsResponseWriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetWalletCardsResponseWriteToParcelRequest) ProtoMessage() {}
+
+func (x *GetWalletCardsResponseWriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[70]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetWalletCardsResponseWriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*GetWalletCardsResponseWriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{70}
+}
+
+func (x *GetWalletCardsResponseWriteToParcelRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetWalletCardsResponseWriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *GetWalletCardsResponseWriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type NewGetWalletCardsRequestRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int32                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewGetWalletCardsRequestRequest) Reset() {
+	*x = NewGetWalletCardsRequestRequest{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[71]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewGetWalletCardsRequestRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewGetWalletCardsRequestRequest) ProtoMessage() {}
+
+func (x *NewGetWalletCardsRequestRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[71]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewGetWalletCardsRequestRequest.ProtoReflect.Descriptor instead.
+func (*NewGetWalletCardsRequestRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{71}
+}
+
+func (x *NewGetWalletCardsRequestRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *NewGetWalletCardsRequestRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *NewGetWalletCardsRequestRequest) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *NewGetWalletCardsRequestRequest) GetArg3() int32 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+type NewGetWalletCardsRequestResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewGetWalletCardsRequestResponse) Reset() {
+	*x = NewGetWalletCardsRequestResponse{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[72]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewGetWalletCardsRequestResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewGetWalletCardsRequestResponse) ProtoMessage() {}
+
+func (x *NewGetWalletCardsRequestResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[72]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewGetWalletCardsRequestResponse.ProtoReflect.Descriptor instead.
+func (*NewGetWalletCardsRequestResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{72}
+}
+
+func (x *NewGetWalletCardsRequestResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetWalletCardsRequestDescribeContentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetWalletCardsRequestDescribeContentsRequest) Reset() {
+	*x = GetWalletCardsRequestDescribeContentsRequest{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[73]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetWalletCardsRequestDescribeContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetWalletCardsRequestDescribeContentsRequest) ProtoMessage() {}
+
+func (x *GetWalletCardsRequestDescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[73]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetWalletCardsRequestDescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*GetWalletCardsRequestDescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{73}
+}
+
+func (x *GetWalletCardsRequestDescribeContentsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetCardHeightPxRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCardHeightPxRequest) Reset() {
+	*x = GetCardHeightPxRequest{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[74]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCardHeightPxRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCardHeightPxRequest) ProtoMessage() {}
+
+func (x *GetCardHeightPxRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[74]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCardHeightPxRequest.ProtoReflect.Descriptor instead.
+func (*GetCardHeightPxRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{74}
+}
+
+func (x *GetCardHeightPxRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetCardHeightPxResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCardHeightPxResponse) Reset() {
+	*x = GetCardHeightPxResponse{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[75]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCardHeightPxResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCardHeightPxResponse) ProtoMessage() {}
+
+func (x *GetCardHeightPxResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[75]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCardHeightPxResponse.ProtoReflect.Descriptor instead.
+func (*GetCardHeightPxResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{75}
+}
+
+func (x *GetCardHeightPxResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetCardWidthPxRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCardWidthPxRequest) Reset() {
+	*x = GetCardWidthPxRequest{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[76]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCardWidthPxRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCardWidthPxRequest) ProtoMessage() {}
+
+func (x *GetCardWidthPxRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[76]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCardWidthPxRequest.ProtoReflect.Descriptor instead.
+func (*GetCardWidthPxRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{76}
+}
+
+func (x *GetCardWidthPxRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetCardWidthPxResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCardWidthPxResponse) Reset() {
+	*x = GetCardWidthPxResponse{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[77]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCardWidthPxResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCardWidthPxResponse) ProtoMessage() {}
+
+func (x *GetCardWidthPxResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[77]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCardWidthPxResponse.ProtoReflect.Descriptor instead.
+func (*GetCardWidthPxResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{77}
+}
+
+func (x *GetCardWidthPxResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetIconSizePxRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetIconSizePxRequest) Reset() {
+	*x = GetIconSizePxRequest{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[78]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetIconSizePxRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetIconSizePxRequest) ProtoMessage() {}
+
+func (x *GetIconSizePxRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[78]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetIconSizePxRequest.ProtoReflect.Descriptor instead.
+func (*GetIconSizePxRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{78}
+}
+
+func (x *GetIconSizePxRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetIconSizePxResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetIconSizePxResponse) Reset() {
+	*x = GetIconSizePxResponse{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[79]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetIconSizePxResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetIconSizePxResponse) ProtoMessage() {}
+
+func (x *GetIconSizePxResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[79]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetIconSizePxResponse.ProtoReflect.Descriptor instead.
+func (*GetIconSizePxResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{79}
+}
+
+func (x *GetIconSizePxResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetMaxCardsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMaxCardsRequest) Reset() {
+	*x = GetMaxCardsRequest{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[80]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMaxCardsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMaxCardsRequest) ProtoMessage() {}
+
+func (x *GetMaxCardsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[80]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMaxCardsRequest.ProtoReflect.Descriptor instead.
+func (*GetMaxCardsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{80}
+}
+
+func (x *GetMaxCardsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetMaxCardsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMaxCardsResponse) Reset() {
+	*x = GetMaxCardsResponse{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[81]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMaxCardsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMaxCardsResponse) ProtoMessage() {}
+
+func (x *GetMaxCardsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[81]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMaxCardsResponse.ProtoReflect.Descriptor instead.
+func (*GetMaxCardsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{81}
+}
+
+func (x *GetMaxCardsResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetWalletCardsRequestWriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetWalletCardsRequestWriteToParcelRequest) Reset() {
+	*x = GetWalletCardsRequestWriteToParcelRequest{}
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[82]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetWalletCardsRequestWriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetWalletCardsRequestWriteToParcelRequest) ProtoMessage() {}
+
+func (x *GetWalletCardsRequestWriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes[82]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetWalletCardsRequestWriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*GetWalletCardsRequestWriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP(), []int{82}
+}
+
+func (x *GetWalletCardsRequestWriteToParcelRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetWalletCardsRequestWriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *GetWalletCardsRequestWriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
 var File_proto_quickaccesswallet_quickaccesswallet_proto protoreflect.FileDescriptor
 
 const file_proto_quickaccesswallet_quickaccesswallet_proto_rawDesc = "" +
 	"\n" +
-	"/proto/quickaccesswallet/quickaccesswallet.proto\x12\x11quickaccesswalletB;Z9github.com/AndroidGoLab/jni-proxy/proto/quickaccesswalletb\x06proto3"
+	"/proto/quickaccesswallet/quickaccesswallet.proto\x12\x11quickaccesswallet\".\n" +
+	",GetGestureTargetActivityPendingIntentRequest\"G\n" +
+	"-GetGestureTargetActivityPendingIntentResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"'\n" +
+	"%GetTargetActivityPendingIntentRequest\"@\n" +
+	"&GetTargetActivityPendingIntentResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"#\n" +
+	"\rOnBindRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"(\n" +
+	"\x0eOnBindResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"1\n" +
+	"\x1bOnWalletCardSelectedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x1e\n" +
+	"\x1cOnWalletCardSelectedResponse\"G\n" +
+	"\x1dOnWalletCardsRequestedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\" \n" +
+	"\x1eOnWalletCardsRequestedResponse\"\x1a\n" +
+	"\x18OnWalletDismissedRequest\"\x1b\n" +
+	"\x19OnWalletDismissedResponse\"3\n" +
+	"\x1dSendWalletServiceEventRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\" \n" +
+	"\x1eSendWalletServiceEventResponse\"\x19\n" +
+	"\x17DescribeContentsRequest\"2\n" +
+	"\x18DescribeContentsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x14\n" +
+	"\x12GetCardIconRequest\"-\n" +
+	"\x13GetCardIconResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x12\n" +
+	"\x10GetCardIdRequest\"+\n" +
+	"\x11GetCardIdResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x15\n" +
+	"\x13GetCardImageRequest\".\n" +
+	"\x14GetCardImageResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x15\n" +
+	"\x13GetCardLabelRequest\".\n" +
+	"\x14GetCardLabelResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x14\n" +
+	"\x12GetCardTypeRequest\"-\n" +
+	"\x13GetCardTypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1e\n" +
+	"\x1cGetContentDescriptionRequest\"7\n" +
+	"\x1dGetContentDescriptionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"(\n" +
+	"&GetNonPaymentCardSecondaryImageRequest\"A\n" +
+	"'GetNonPaymentCardSecondaryImageResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x19\n" +
+	"\x17GetPendingIntentRequest\"2\n" +
+	"\x18GetPendingIntentResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\">\n" +
+	"\x14WriteToParcelRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x17\n" +
+	"\x15WriteToParcelResponse\"\x0e\n" +
+	"\fBuildRequest\"'\n" +
+	"\rBuildResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"(\n" +
+	"\x12SetCardIconRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"-\n" +
+	"\x13SetCardIconResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\")\n" +
+	"\x13SetCardLabelRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\".\n" +
+	"\x14SetCardLabelResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"<\n" +
+	"&SetNonPaymentCardSecondaryImageRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"A\n" +
+	"'SetNonPaymentCardSecondaryImageResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"7\n" +
+	"!NewSelectWalletCardRequestRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"<\n" +
+	"\"NewSelectWalletCardRequestResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"H\n" +
+	".SelectWalletCardRequestDescribeContentsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"A\n" +
+	"'SelectWalletCardRequestGetCardIdRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"m\n" +
+	"+SelectWalletCardRequestWriteToParcelRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"G\n" +
+	"\x1dNewGetWalletCardsErrorRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\"8\n" +
+	"\x1eNewGetWalletCardsErrorResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"D\n" +
+	"*GetWalletCardsErrorDescribeContentsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"(\n" +
+	"\x0eGetIconRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\")\n" +
+	"\x0fGetIconResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"+\n" +
+	"\x11GetMessageRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\",\n" +
+	"\x12GetMessageResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"i\n" +
+	"'GetWalletCardsErrorWriteToParcelRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"2\n" +
+	"\x1cNewWalletServiceEventRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"7\n" +
+	"\x1dNewWalletServiceEventResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"C\n" +
+	")WalletServiceEventDescribeContentsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"-\n" +
+	"\x13GetEventTypeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\".\n" +
+	"\x14GetEventTypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"h\n" +
+	"&WalletServiceEventWriteToParcelRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"&\n" +
+	"\x10OnFailureRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x13\n" +
+	"\x11OnFailureResponse\"&\n" +
+	"\x10OnSuccessRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x13\n" +
+	"\x11OnSuccessResponse\"J\n" +
+	" NewGetWalletCardsResponseRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\";\n" +
+	"!NewGetWalletCardsResponseResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"G\n" +
+	"-GetWalletCardsResponseDescribeContentsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"1\n" +
+	"\x17GetSelectedIndexRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"2\n" +
+	"\x18GetSelectedIndexResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"l\n" +
+	"*GetWalletCardsResponseWriteToParcelRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"q\n" +
+	"\x1fNewGetWalletCardsRequestRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x05R\x04arg3\":\n" +
+	" NewGetWalletCardsRequestResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"F\n" +
+	",GetWalletCardsRequestDescribeContentsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"0\n" +
+	"\x16GetCardHeightPxRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"1\n" +
+	"\x17GetCardHeightPxResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"/\n" +
+	"\x15GetCardWidthPxRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"0\n" +
+	"\x16GetCardWidthPxResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\".\n" +
+	"\x14GetIconSizePxRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"/\n" +
+	"\x15GetIconSizePxResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\",\n" +
+	"\x12GetMaxCardsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"-\n" +
+	"\x13GetMaxCardsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"k\n" +
+	")GetWalletCardsRequestWriteToParcelRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg12\x9c\a\n" +
+	"\x1fQuickAccessWalletServiceService\x12\xaa\x01\n" +
+	"%GetGestureTargetActivityPendingIntent\x12?.quickaccesswallet.GetGestureTargetActivityPendingIntentRequest\x1a@.quickaccesswallet.GetGestureTargetActivityPendingIntentResponse\x12\x95\x01\n" +
+	"\x1eGetTargetActivityPendingIntent\x128.quickaccesswallet.GetTargetActivityPendingIntentRequest\x1a9.quickaccesswallet.GetTargetActivityPendingIntentResponse\x12M\n" +
+	"\x06OnBind\x12 .quickaccesswallet.OnBindRequest\x1a!.quickaccesswallet.OnBindResponse\x12w\n" +
+	"\x14OnWalletCardSelected\x12..quickaccesswallet.OnWalletCardSelectedRequest\x1a/.quickaccesswallet.OnWalletCardSelectedResponse\x12}\n" +
+	"\x16OnWalletCardsRequested\x120.quickaccesswallet.OnWalletCardsRequestedRequest\x1a1.quickaccesswallet.OnWalletCardsRequestedResponse\x12n\n" +
+	"\x11OnWalletDismissed\x12+.quickaccesswallet.OnWalletDismissedRequest\x1a,.quickaccesswallet.OnWalletDismissedResponse\x12}\n" +
+	"\x16SendWalletServiceEvent\x120.quickaccesswallet.SendWalletServiceEventRequest\x1a1.quickaccesswallet.SendWalletServiceEventResponse2\xbe\b\n" +
+	"\x11WalletCardService\x12k\n" +
+	"\x10DescribeContents\x12*.quickaccesswallet.DescribeContentsRequest\x1a+.quickaccesswallet.DescribeContentsResponse\x12\\\n" +
+	"\vGetCardIcon\x12%.quickaccesswallet.GetCardIconRequest\x1a&.quickaccesswallet.GetCardIconResponse\x12V\n" +
+	"\tGetCardId\x12#.quickaccesswallet.GetCardIdRequest\x1a$.quickaccesswallet.GetCardIdResponse\x12_\n" +
+	"\fGetCardImage\x12&.quickaccesswallet.GetCardImageRequest\x1a'.quickaccesswallet.GetCardImageResponse\x12_\n" +
+	"\fGetCardLabel\x12&.quickaccesswallet.GetCardLabelRequest\x1a'.quickaccesswallet.GetCardLabelResponse\x12\\\n" +
+	"\vGetCardType\x12%.quickaccesswallet.GetCardTypeRequest\x1a&.quickaccesswallet.GetCardTypeResponse\x12z\n" +
+	"\x15GetContentDescription\x12/.quickaccesswallet.GetContentDescriptionRequest\x1a0.quickaccesswallet.GetContentDescriptionResponse\x12\x98\x01\n" +
+	"\x1fGetNonPaymentCardSecondaryImage\x129.quickaccesswallet.GetNonPaymentCardSecondaryImageRequest\x1a:.quickaccesswallet.GetNonPaymentCardSecondaryImageResponse\x12k\n" +
+	"\x10GetPendingIntent\x12*.quickaccesswallet.GetPendingIntentRequest\x1a+.quickaccesswallet.GetPendingIntentResponse\x12b\n" +
+	"\rWriteToParcel\x12'.quickaccesswallet.WriteToParcelRequest\x1a(.quickaccesswallet.WriteToParcelResponse2\xc0\x03\n" +
+	"\x18WalletCardBuilderService\x12J\n" +
+	"\x05Build\x12\x1f.quickaccesswallet.BuildRequest\x1a .quickaccesswallet.BuildResponse\x12\\\n" +
+	"\vSetCardIcon\x12%.quickaccesswallet.SetCardIconRequest\x1a&.quickaccesswallet.SetCardIconResponse\x12_\n" +
+	"\fSetCardLabel\x12&.quickaccesswallet.SetCardLabelRequest\x1a'.quickaccesswallet.SetCardLabelResponse\x12\x98\x01\n" +
+	"\x1fSetNonPaymentCardSecondaryImage\x129.quickaccesswallet.SetNonPaymentCardSecondaryImageRequest\x1a:.quickaccesswallet.SetNonPaymentCardSecondaryImageResponse2\x9b\x04\n" +
+	"\x1eSelectWalletCardRequestService\x12\x89\x01\n" +
+	"\x1aNewSelectWalletCardRequest\x124.quickaccesswallet.NewSelectWalletCardRequestRequest\x1a5.quickaccesswallet.NewSelectWalletCardRequestResponse\x12\x82\x01\n" +
+	"\x10DescribeContents\x12A.quickaccesswallet.SelectWalletCardRequestDescribeContentsRequest\x1a+.quickaccesswallet.DescribeContentsResponse\x12m\n" +
+	"\tGetCardId\x12:.quickaccesswallet.SelectWalletCardRequestGetCardIdRequest\x1a$.quickaccesswallet.GetCardIdResponse\x12y\n" +
+	"\rWriteToParcel\x12>.quickaccesswallet.SelectWalletCardRequestWriteToParcelRequest\x1a(.quickaccesswallet.WriteToParcelResponse2\xbf\x04\n" +
+	"\x1aGetWalletCardsErrorService\x12}\n" +
+	"\x16NewGetWalletCardsError\x120.quickaccesswallet.NewGetWalletCardsErrorRequest\x1a1.quickaccesswallet.NewGetWalletCardsErrorResponse\x12~\n" +
+	"\x10DescribeContents\x12=.quickaccesswallet.GetWalletCardsErrorDescribeContentsRequest\x1a+.quickaccesswallet.DescribeContentsResponse\x12P\n" +
+	"\aGetIcon\x12!.quickaccesswallet.GetIconRequest\x1a\".quickaccesswallet.GetIconResponse\x12Y\n" +
+	"\n" +
+	"GetMessage\x12$.quickaccesswallet.GetMessageRequest\x1a%.quickaccesswallet.GetMessageResponse\x12u\n" +
+	"\rWriteToParcel\x12:.quickaccesswallet.GetWalletCardsErrorWriteToParcelRequest\x1a(.quickaccesswallet.WriteToParcelResponse2\xed\x03\n" +
+	"\x19WalletServiceEventService\x12z\n" +
+	"\x15NewWalletServiceEvent\x12/.quickaccesswallet.NewWalletServiceEventRequest\x1a0.quickaccesswallet.NewWalletServiceEventResponse\x12}\n" +
+	"\x10DescribeContents\x12<.quickaccesswallet.WalletServiceEventDescribeContentsRequest\x1a+.quickaccesswallet.DescribeContentsResponse\x12_\n" +
+	"\fGetEventType\x12&.quickaccesswallet.GetEventTypeRequest\x1a'.quickaccesswallet.GetEventTypeResponse\x12t\n" +
+	"\rWriteToParcel\x129.quickaccesswallet.WalletServiceEventWriteToParcelRequest\x1a(.quickaccesswallet.WriteToParcelResponse2\xcf\x01\n" +
+	"\x1dGetWalletCardsCallbackService\x12V\n" +
+	"\tOnFailure\x12#.quickaccesswallet.OnFailureRequest\x1a$.quickaccesswallet.OnFailureResponse\x12V\n" +
+	"\tOnSuccess\x12#.quickaccesswallet.OnSuccessRequest\x1a$.quickaccesswallet.OnSuccessResponse2\x93\x04\n" +
+	"\x1dGetWalletCardsResponseService\x12\x86\x01\n" +
+	"\x19NewGetWalletCardsResponse\x123.quickaccesswallet.NewGetWalletCardsResponseRequest\x1a4.quickaccesswallet.NewGetWalletCardsResponseResponse\x12\x81\x01\n" +
+	"\x10DescribeContents\x12@.quickaccesswallet.GetWalletCardsResponseDescribeContentsRequest\x1a+.quickaccesswallet.DescribeContentsResponse\x12k\n" +
+	"\x10GetSelectedIndex\x12*.quickaccesswallet.GetSelectedIndexRequest\x1a+.quickaccesswallet.GetSelectedIndexResponse\x12x\n" +
+	"\rWriteToParcel\x12=.quickaccesswallet.GetWalletCardsResponseWriteToParcelRequest\x1a(.quickaccesswallet.WriteToParcelResponse2\xb3\x06\n" +
+	"\x1cGetWalletCardsRequestService\x12\x83\x01\n" +
+	"\x18NewGetWalletCardsRequest\x122.quickaccesswallet.NewGetWalletCardsRequestRequest\x1a3.quickaccesswallet.NewGetWalletCardsRequestResponse\x12\x80\x01\n" +
+	"\x10DescribeContents\x12?.quickaccesswallet.GetWalletCardsRequestDescribeContentsRequest\x1a+.quickaccesswallet.DescribeContentsResponse\x12h\n" +
+	"\x0fGetCardHeightPx\x12).quickaccesswallet.GetCardHeightPxRequest\x1a*.quickaccesswallet.GetCardHeightPxResponse\x12e\n" +
+	"\x0eGetCardWidthPx\x12(.quickaccesswallet.GetCardWidthPxRequest\x1a).quickaccesswallet.GetCardWidthPxResponse\x12b\n" +
+	"\rGetIconSizePx\x12'.quickaccesswallet.GetIconSizePxRequest\x1a(.quickaccesswallet.GetIconSizePxResponse\x12\\\n" +
+	"\vGetMaxCards\x12%.quickaccesswallet.GetMaxCardsRequest\x1a&.quickaccesswallet.GetMaxCardsResponse\x12w\n" +
+	"\rWriteToParcel\x12<.quickaccesswallet.GetWalletCardsRequestWriteToParcelRequest\x1a(.quickaccesswallet.WriteToParcelResponseB;Z9github.com/AndroidGoLab/jni-proxy/proto/quickaccesswalletb\x06proto3"
 
-var file_proto_quickaccesswallet_quickaccesswallet_proto_goTypes = []any{}
+var (
+	file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescOnce sync.Once
+	file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescData []byte
+)
+
+func file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescGZIP() []byte {
+	file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescOnce.Do(func() {
+		file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_proto_quickaccesswallet_quickaccesswallet_proto_rawDesc), len(file_proto_quickaccesswallet_quickaccesswallet_proto_rawDesc)))
+	})
+	return file_proto_quickaccesswallet_quickaccesswallet_proto_rawDescData
+}
+
+var file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes = make([]protoimpl.MessageInfo, 83)
+var file_proto_quickaccesswallet_quickaccesswallet_proto_goTypes = []any{
+	(*GetGestureTargetActivityPendingIntentRequest)(nil),   // 0: quickaccesswallet.GetGestureTargetActivityPendingIntentRequest
+	(*GetGestureTargetActivityPendingIntentResponse)(nil),  // 1: quickaccesswallet.GetGestureTargetActivityPendingIntentResponse
+	(*GetTargetActivityPendingIntentRequest)(nil),          // 2: quickaccesswallet.GetTargetActivityPendingIntentRequest
+	(*GetTargetActivityPendingIntentResponse)(nil),         // 3: quickaccesswallet.GetTargetActivityPendingIntentResponse
+	(*OnBindRequest)(nil),                                  // 4: quickaccesswallet.OnBindRequest
+	(*OnBindResponse)(nil),                                 // 5: quickaccesswallet.OnBindResponse
+	(*OnWalletCardSelectedRequest)(nil),                    // 6: quickaccesswallet.OnWalletCardSelectedRequest
+	(*OnWalletCardSelectedResponse)(nil),                   // 7: quickaccesswallet.OnWalletCardSelectedResponse
+	(*OnWalletCardsRequestedRequest)(nil),                  // 8: quickaccesswallet.OnWalletCardsRequestedRequest
+	(*OnWalletCardsRequestedResponse)(nil),                 // 9: quickaccesswallet.OnWalletCardsRequestedResponse
+	(*OnWalletDismissedRequest)(nil),                       // 10: quickaccesswallet.OnWalletDismissedRequest
+	(*OnWalletDismissedResponse)(nil),                      // 11: quickaccesswallet.OnWalletDismissedResponse
+	(*SendWalletServiceEventRequest)(nil),                  // 12: quickaccesswallet.SendWalletServiceEventRequest
+	(*SendWalletServiceEventResponse)(nil),                 // 13: quickaccesswallet.SendWalletServiceEventResponse
+	(*DescribeContentsRequest)(nil),                        // 14: quickaccesswallet.DescribeContentsRequest
+	(*DescribeContentsResponse)(nil),                       // 15: quickaccesswallet.DescribeContentsResponse
+	(*GetCardIconRequest)(nil),                             // 16: quickaccesswallet.GetCardIconRequest
+	(*GetCardIconResponse)(nil),                            // 17: quickaccesswallet.GetCardIconResponse
+	(*GetCardIdRequest)(nil),                               // 18: quickaccesswallet.GetCardIdRequest
+	(*GetCardIdResponse)(nil),                              // 19: quickaccesswallet.GetCardIdResponse
+	(*GetCardImageRequest)(nil),                            // 20: quickaccesswallet.GetCardImageRequest
+	(*GetCardImageResponse)(nil),                           // 21: quickaccesswallet.GetCardImageResponse
+	(*GetCardLabelRequest)(nil),                            // 22: quickaccesswallet.GetCardLabelRequest
+	(*GetCardLabelResponse)(nil),                           // 23: quickaccesswallet.GetCardLabelResponse
+	(*GetCardTypeRequest)(nil),                             // 24: quickaccesswallet.GetCardTypeRequest
+	(*GetCardTypeResponse)(nil),                            // 25: quickaccesswallet.GetCardTypeResponse
+	(*GetContentDescriptionRequest)(nil),                   // 26: quickaccesswallet.GetContentDescriptionRequest
+	(*GetContentDescriptionResponse)(nil),                  // 27: quickaccesswallet.GetContentDescriptionResponse
+	(*GetNonPaymentCardSecondaryImageRequest)(nil),         // 28: quickaccesswallet.GetNonPaymentCardSecondaryImageRequest
+	(*GetNonPaymentCardSecondaryImageResponse)(nil),        // 29: quickaccesswallet.GetNonPaymentCardSecondaryImageResponse
+	(*GetPendingIntentRequest)(nil),                        // 30: quickaccesswallet.GetPendingIntentRequest
+	(*GetPendingIntentResponse)(nil),                       // 31: quickaccesswallet.GetPendingIntentResponse
+	(*WriteToParcelRequest)(nil),                           // 32: quickaccesswallet.WriteToParcelRequest
+	(*WriteToParcelResponse)(nil),                          // 33: quickaccesswallet.WriteToParcelResponse
+	(*BuildRequest)(nil),                                   // 34: quickaccesswallet.BuildRequest
+	(*BuildResponse)(nil),                                  // 35: quickaccesswallet.BuildResponse
+	(*SetCardIconRequest)(nil),                             // 36: quickaccesswallet.SetCardIconRequest
+	(*SetCardIconResponse)(nil),                            // 37: quickaccesswallet.SetCardIconResponse
+	(*SetCardLabelRequest)(nil),                            // 38: quickaccesswallet.SetCardLabelRequest
+	(*SetCardLabelResponse)(nil),                           // 39: quickaccesswallet.SetCardLabelResponse
+	(*SetNonPaymentCardSecondaryImageRequest)(nil),         // 40: quickaccesswallet.SetNonPaymentCardSecondaryImageRequest
+	(*SetNonPaymentCardSecondaryImageResponse)(nil),        // 41: quickaccesswallet.SetNonPaymentCardSecondaryImageResponse
+	(*NewSelectWalletCardRequestRequest)(nil),              // 42: quickaccesswallet.NewSelectWalletCardRequestRequest
+	(*NewSelectWalletCardRequestResponse)(nil),             // 43: quickaccesswallet.NewSelectWalletCardRequestResponse
+	(*SelectWalletCardRequestDescribeContentsRequest)(nil), // 44: quickaccesswallet.SelectWalletCardRequestDescribeContentsRequest
+	(*SelectWalletCardRequestGetCardIdRequest)(nil),        // 45: quickaccesswallet.SelectWalletCardRequestGetCardIdRequest
+	(*SelectWalletCardRequestWriteToParcelRequest)(nil),    // 46: quickaccesswallet.SelectWalletCardRequestWriteToParcelRequest
+	(*NewGetWalletCardsErrorRequest)(nil),                  // 47: quickaccesswallet.NewGetWalletCardsErrorRequest
+	(*NewGetWalletCardsErrorResponse)(nil),                 // 48: quickaccesswallet.NewGetWalletCardsErrorResponse
+	(*GetWalletCardsErrorDescribeContentsRequest)(nil),     // 49: quickaccesswallet.GetWalletCardsErrorDescribeContentsRequest
+	(*GetIconRequest)(nil),                                 // 50: quickaccesswallet.GetIconRequest
+	(*GetIconResponse)(nil),                                // 51: quickaccesswallet.GetIconResponse
+	(*GetMessageRequest)(nil),                              // 52: quickaccesswallet.GetMessageRequest
+	(*GetMessageResponse)(nil),                             // 53: quickaccesswallet.GetMessageResponse
+	(*GetWalletCardsErrorWriteToParcelRequest)(nil),        // 54: quickaccesswallet.GetWalletCardsErrorWriteToParcelRequest
+	(*NewWalletServiceEventRequest)(nil),                   // 55: quickaccesswallet.NewWalletServiceEventRequest
+	(*NewWalletServiceEventResponse)(nil),                  // 56: quickaccesswallet.NewWalletServiceEventResponse
+	(*WalletServiceEventDescribeContentsRequest)(nil),      // 57: quickaccesswallet.WalletServiceEventDescribeContentsRequest
+	(*GetEventTypeRequest)(nil),                            // 58: quickaccesswallet.GetEventTypeRequest
+	(*GetEventTypeResponse)(nil),                           // 59: quickaccesswallet.GetEventTypeResponse
+	(*WalletServiceEventWriteToParcelRequest)(nil),         // 60: quickaccesswallet.WalletServiceEventWriteToParcelRequest
+	(*OnFailureRequest)(nil),                               // 61: quickaccesswallet.OnFailureRequest
+	(*OnFailureResponse)(nil),                              // 62: quickaccesswallet.OnFailureResponse
+	(*OnSuccessRequest)(nil),                               // 63: quickaccesswallet.OnSuccessRequest
+	(*OnSuccessResponse)(nil),                              // 64: quickaccesswallet.OnSuccessResponse
+	(*NewGetWalletCardsResponseRequest)(nil),               // 65: quickaccesswallet.NewGetWalletCardsResponseRequest
+	(*NewGetWalletCardsResponseResponse)(nil),              // 66: quickaccesswallet.NewGetWalletCardsResponseResponse
+	(*GetWalletCardsResponseDescribeContentsRequest)(nil),  // 67: quickaccesswallet.GetWalletCardsResponseDescribeContentsRequest
+	(*GetSelectedIndexRequest)(nil),                        // 68: quickaccesswallet.GetSelectedIndexRequest
+	(*GetSelectedIndexResponse)(nil),                       // 69: quickaccesswallet.GetSelectedIndexResponse
+	(*GetWalletCardsResponseWriteToParcelRequest)(nil),     // 70: quickaccesswallet.GetWalletCardsResponseWriteToParcelRequest
+	(*NewGetWalletCardsRequestRequest)(nil),                // 71: quickaccesswallet.NewGetWalletCardsRequestRequest
+	(*NewGetWalletCardsRequestResponse)(nil),               // 72: quickaccesswallet.NewGetWalletCardsRequestResponse
+	(*GetWalletCardsRequestDescribeContentsRequest)(nil),   // 73: quickaccesswallet.GetWalletCardsRequestDescribeContentsRequest
+	(*GetCardHeightPxRequest)(nil),                         // 74: quickaccesswallet.GetCardHeightPxRequest
+	(*GetCardHeightPxResponse)(nil),                        // 75: quickaccesswallet.GetCardHeightPxResponse
+	(*GetCardWidthPxRequest)(nil),                          // 76: quickaccesswallet.GetCardWidthPxRequest
+	(*GetCardWidthPxResponse)(nil),                         // 77: quickaccesswallet.GetCardWidthPxResponse
+	(*GetIconSizePxRequest)(nil),                           // 78: quickaccesswallet.GetIconSizePxRequest
+	(*GetIconSizePxResponse)(nil),                          // 79: quickaccesswallet.GetIconSizePxResponse
+	(*GetMaxCardsRequest)(nil),                             // 80: quickaccesswallet.GetMaxCardsRequest
+	(*GetMaxCardsResponse)(nil),                            // 81: quickaccesswallet.GetMaxCardsResponse
+	(*GetWalletCardsRequestWriteToParcelRequest)(nil),      // 82: quickaccesswallet.GetWalletCardsRequestWriteToParcelRequest
+}
 var file_proto_quickaccesswallet_quickaccesswallet_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	0,  // 0: quickaccesswallet.QuickAccessWalletServiceService.GetGestureTargetActivityPendingIntent:input_type -> quickaccesswallet.GetGestureTargetActivityPendingIntentRequest
+	2,  // 1: quickaccesswallet.QuickAccessWalletServiceService.GetTargetActivityPendingIntent:input_type -> quickaccesswallet.GetTargetActivityPendingIntentRequest
+	4,  // 2: quickaccesswallet.QuickAccessWalletServiceService.OnBind:input_type -> quickaccesswallet.OnBindRequest
+	6,  // 3: quickaccesswallet.QuickAccessWalletServiceService.OnWalletCardSelected:input_type -> quickaccesswallet.OnWalletCardSelectedRequest
+	8,  // 4: quickaccesswallet.QuickAccessWalletServiceService.OnWalletCardsRequested:input_type -> quickaccesswallet.OnWalletCardsRequestedRequest
+	10, // 5: quickaccesswallet.QuickAccessWalletServiceService.OnWalletDismissed:input_type -> quickaccesswallet.OnWalletDismissedRequest
+	12, // 6: quickaccesswallet.QuickAccessWalletServiceService.SendWalletServiceEvent:input_type -> quickaccesswallet.SendWalletServiceEventRequest
+	14, // 7: quickaccesswallet.WalletCardService.DescribeContents:input_type -> quickaccesswallet.DescribeContentsRequest
+	16, // 8: quickaccesswallet.WalletCardService.GetCardIcon:input_type -> quickaccesswallet.GetCardIconRequest
+	18, // 9: quickaccesswallet.WalletCardService.GetCardId:input_type -> quickaccesswallet.GetCardIdRequest
+	20, // 10: quickaccesswallet.WalletCardService.GetCardImage:input_type -> quickaccesswallet.GetCardImageRequest
+	22, // 11: quickaccesswallet.WalletCardService.GetCardLabel:input_type -> quickaccesswallet.GetCardLabelRequest
+	24, // 12: quickaccesswallet.WalletCardService.GetCardType:input_type -> quickaccesswallet.GetCardTypeRequest
+	26, // 13: quickaccesswallet.WalletCardService.GetContentDescription:input_type -> quickaccesswallet.GetContentDescriptionRequest
+	28, // 14: quickaccesswallet.WalletCardService.GetNonPaymentCardSecondaryImage:input_type -> quickaccesswallet.GetNonPaymentCardSecondaryImageRequest
+	30, // 15: quickaccesswallet.WalletCardService.GetPendingIntent:input_type -> quickaccesswallet.GetPendingIntentRequest
+	32, // 16: quickaccesswallet.WalletCardService.WriteToParcel:input_type -> quickaccesswallet.WriteToParcelRequest
+	34, // 17: quickaccesswallet.WalletCardBuilderService.Build:input_type -> quickaccesswallet.BuildRequest
+	36, // 18: quickaccesswallet.WalletCardBuilderService.SetCardIcon:input_type -> quickaccesswallet.SetCardIconRequest
+	38, // 19: quickaccesswallet.WalletCardBuilderService.SetCardLabel:input_type -> quickaccesswallet.SetCardLabelRequest
+	40, // 20: quickaccesswallet.WalletCardBuilderService.SetNonPaymentCardSecondaryImage:input_type -> quickaccesswallet.SetNonPaymentCardSecondaryImageRequest
+	42, // 21: quickaccesswallet.SelectWalletCardRequestService.NewSelectWalletCardRequest:input_type -> quickaccesswallet.NewSelectWalletCardRequestRequest
+	44, // 22: quickaccesswallet.SelectWalletCardRequestService.DescribeContents:input_type -> quickaccesswallet.SelectWalletCardRequestDescribeContentsRequest
+	45, // 23: quickaccesswallet.SelectWalletCardRequestService.GetCardId:input_type -> quickaccesswallet.SelectWalletCardRequestGetCardIdRequest
+	46, // 24: quickaccesswallet.SelectWalletCardRequestService.WriteToParcel:input_type -> quickaccesswallet.SelectWalletCardRequestWriteToParcelRequest
+	47, // 25: quickaccesswallet.GetWalletCardsErrorService.NewGetWalletCardsError:input_type -> quickaccesswallet.NewGetWalletCardsErrorRequest
+	49, // 26: quickaccesswallet.GetWalletCardsErrorService.DescribeContents:input_type -> quickaccesswallet.GetWalletCardsErrorDescribeContentsRequest
+	50, // 27: quickaccesswallet.GetWalletCardsErrorService.GetIcon:input_type -> quickaccesswallet.GetIconRequest
+	52, // 28: quickaccesswallet.GetWalletCardsErrorService.GetMessage:input_type -> quickaccesswallet.GetMessageRequest
+	54, // 29: quickaccesswallet.GetWalletCardsErrorService.WriteToParcel:input_type -> quickaccesswallet.GetWalletCardsErrorWriteToParcelRequest
+	55, // 30: quickaccesswallet.WalletServiceEventService.NewWalletServiceEvent:input_type -> quickaccesswallet.NewWalletServiceEventRequest
+	57, // 31: quickaccesswallet.WalletServiceEventService.DescribeContents:input_type -> quickaccesswallet.WalletServiceEventDescribeContentsRequest
+	58, // 32: quickaccesswallet.WalletServiceEventService.GetEventType:input_type -> quickaccesswallet.GetEventTypeRequest
+	60, // 33: quickaccesswallet.WalletServiceEventService.WriteToParcel:input_type -> quickaccesswallet.WalletServiceEventWriteToParcelRequest
+	61, // 34: quickaccesswallet.GetWalletCardsCallbackService.OnFailure:input_type -> quickaccesswallet.OnFailureRequest
+	63, // 35: quickaccesswallet.GetWalletCardsCallbackService.OnSuccess:input_type -> quickaccesswallet.OnSuccessRequest
+	65, // 36: quickaccesswallet.GetWalletCardsResponseService.NewGetWalletCardsResponse:input_type -> quickaccesswallet.NewGetWalletCardsResponseRequest
+	67, // 37: quickaccesswallet.GetWalletCardsResponseService.DescribeContents:input_type -> quickaccesswallet.GetWalletCardsResponseDescribeContentsRequest
+	68, // 38: quickaccesswallet.GetWalletCardsResponseService.GetSelectedIndex:input_type -> quickaccesswallet.GetSelectedIndexRequest
+	70, // 39: quickaccesswallet.GetWalletCardsResponseService.WriteToParcel:input_type -> quickaccesswallet.GetWalletCardsResponseWriteToParcelRequest
+	71, // 40: quickaccesswallet.GetWalletCardsRequestService.NewGetWalletCardsRequest:input_type -> quickaccesswallet.NewGetWalletCardsRequestRequest
+	73, // 41: quickaccesswallet.GetWalletCardsRequestService.DescribeContents:input_type -> quickaccesswallet.GetWalletCardsRequestDescribeContentsRequest
+	74, // 42: quickaccesswallet.GetWalletCardsRequestService.GetCardHeightPx:input_type -> quickaccesswallet.GetCardHeightPxRequest
+	76, // 43: quickaccesswallet.GetWalletCardsRequestService.GetCardWidthPx:input_type -> quickaccesswallet.GetCardWidthPxRequest
+	78, // 44: quickaccesswallet.GetWalletCardsRequestService.GetIconSizePx:input_type -> quickaccesswallet.GetIconSizePxRequest
+	80, // 45: quickaccesswallet.GetWalletCardsRequestService.GetMaxCards:input_type -> quickaccesswallet.GetMaxCardsRequest
+	82, // 46: quickaccesswallet.GetWalletCardsRequestService.WriteToParcel:input_type -> quickaccesswallet.GetWalletCardsRequestWriteToParcelRequest
+	1,  // 47: quickaccesswallet.QuickAccessWalletServiceService.GetGestureTargetActivityPendingIntent:output_type -> quickaccesswallet.GetGestureTargetActivityPendingIntentResponse
+	3,  // 48: quickaccesswallet.QuickAccessWalletServiceService.GetTargetActivityPendingIntent:output_type -> quickaccesswallet.GetTargetActivityPendingIntentResponse
+	5,  // 49: quickaccesswallet.QuickAccessWalletServiceService.OnBind:output_type -> quickaccesswallet.OnBindResponse
+	7,  // 50: quickaccesswallet.QuickAccessWalletServiceService.OnWalletCardSelected:output_type -> quickaccesswallet.OnWalletCardSelectedResponse
+	9,  // 51: quickaccesswallet.QuickAccessWalletServiceService.OnWalletCardsRequested:output_type -> quickaccesswallet.OnWalletCardsRequestedResponse
+	11, // 52: quickaccesswallet.QuickAccessWalletServiceService.OnWalletDismissed:output_type -> quickaccesswallet.OnWalletDismissedResponse
+	13, // 53: quickaccesswallet.QuickAccessWalletServiceService.SendWalletServiceEvent:output_type -> quickaccesswallet.SendWalletServiceEventResponse
+	15, // 54: quickaccesswallet.WalletCardService.DescribeContents:output_type -> quickaccesswallet.DescribeContentsResponse
+	17, // 55: quickaccesswallet.WalletCardService.GetCardIcon:output_type -> quickaccesswallet.GetCardIconResponse
+	19, // 56: quickaccesswallet.WalletCardService.GetCardId:output_type -> quickaccesswallet.GetCardIdResponse
+	21, // 57: quickaccesswallet.WalletCardService.GetCardImage:output_type -> quickaccesswallet.GetCardImageResponse
+	23, // 58: quickaccesswallet.WalletCardService.GetCardLabel:output_type -> quickaccesswallet.GetCardLabelResponse
+	25, // 59: quickaccesswallet.WalletCardService.GetCardType:output_type -> quickaccesswallet.GetCardTypeResponse
+	27, // 60: quickaccesswallet.WalletCardService.GetContentDescription:output_type -> quickaccesswallet.GetContentDescriptionResponse
+	29, // 61: quickaccesswallet.WalletCardService.GetNonPaymentCardSecondaryImage:output_type -> quickaccesswallet.GetNonPaymentCardSecondaryImageResponse
+	31, // 62: quickaccesswallet.WalletCardService.GetPendingIntent:output_type -> quickaccesswallet.GetPendingIntentResponse
+	33, // 63: quickaccesswallet.WalletCardService.WriteToParcel:output_type -> quickaccesswallet.WriteToParcelResponse
+	35, // 64: quickaccesswallet.WalletCardBuilderService.Build:output_type -> quickaccesswallet.BuildResponse
+	37, // 65: quickaccesswallet.WalletCardBuilderService.SetCardIcon:output_type -> quickaccesswallet.SetCardIconResponse
+	39, // 66: quickaccesswallet.WalletCardBuilderService.SetCardLabel:output_type -> quickaccesswallet.SetCardLabelResponse
+	41, // 67: quickaccesswallet.WalletCardBuilderService.SetNonPaymentCardSecondaryImage:output_type -> quickaccesswallet.SetNonPaymentCardSecondaryImageResponse
+	43, // 68: quickaccesswallet.SelectWalletCardRequestService.NewSelectWalletCardRequest:output_type -> quickaccesswallet.NewSelectWalletCardRequestResponse
+	15, // 69: quickaccesswallet.SelectWalletCardRequestService.DescribeContents:output_type -> quickaccesswallet.DescribeContentsResponse
+	19, // 70: quickaccesswallet.SelectWalletCardRequestService.GetCardId:output_type -> quickaccesswallet.GetCardIdResponse
+	33, // 71: quickaccesswallet.SelectWalletCardRequestService.WriteToParcel:output_type -> quickaccesswallet.WriteToParcelResponse
+	48, // 72: quickaccesswallet.GetWalletCardsErrorService.NewGetWalletCardsError:output_type -> quickaccesswallet.NewGetWalletCardsErrorResponse
+	15, // 73: quickaccesswallet.GetWalletCardsErrorService.DescribeContents:output_type -> quickaccesswallet.DescribeContentsResponse
+	51, // 74: quickaccesswallet.GetWalletCardsErrorService.GetIcon:output_type -> quickaccesswallet.GetIconResponse
+	53, // 75: quickaccesswallet.GetWalletCardsErrorService.GetMessage:output_type -> quickaccesswallet.GetMessageResponse
+	33, // 76: quickaccesswallet.GetWalletCardsErrorService.WriteToParcel:output_type -> quickaccesswallet.WriteToParcelResponse
+	56, // 77: quickaccesswallet.WalletServiceEventService.NewWalletServiceEvent:output_type -> quickaccesswallet.NewWalletServiceEventResponse
+	15, // 78: quickaccesswallet.WalletServiceEventService.DescribeContents:output_type -> quickaccesswallet.DescribeContentsResponse
+	59, // 79: quickaccesswallet.WalletServiceEventService.GetEventType:output_type -> quickaccesswallet.GetEventTypeResponse
+	33, // 80: quickaccesswallet.WalletServiceEventService.WriteToParcel:output_type -> quickaccesswallet.WriteToParcelResponse
+	62, // 81: quickaccesswallet.GetWalletCardsCallbackService.OnFailure:output_type -> quickaccesswallet.OnFailureResponse
+	64, // 82: quickaccesswallet.GetWalletCardsCallbackService.OnSuccess:output_type -> quickaccesswallet.OnSuccessResponse
+	66, // 83: quickaccesswallet.GetWalletCardsResponseService.NewGetWalletCardsResponse:output_type -> quickaccesswallet.NewGetWalletCardsResponseResponse
+	15, // 84: quickaccesswallet.GetWalletCardsResponseService.DescribeContents:output_type -> quickaccesswallet.DescribeContentsResponse
+	69, // 85: quickaccesswallet.GetWalletCardsResponseService.GetSelectedIndex:output_type -> quickaccesswallet.GetSelectedIndexResponse
+	33, // 86: quickaccesswallet.GetWalletCardsResponseService.WriteToParcel:output_type -> quickaccesswallet.WriteToParcelResponse
+	72, // 87: quickaccesswallet.GetWalletCardsRequestService.NewGetWalletCardsRequest:output_type -> quickaccesswallet.NewGetWalletCardsRequestResponse
+	15, // 88: quickaccesswallet.GetWalletCardsRequestService.DescribeContents:output_type -> quickaccesswallet.DescribeContentsResponse
+	75, // 89: quickaccesswallet.GetWalletCardsRequestService.GetCardHeightPx:output_type -> quickaccesswallet.GetCardHeightPxResponse
+	77, // 90: quickaccesswallet.GetWalletCardsRequestService.GetCardWidthPx:output_type -> quickaccesswallet.GetCardWidthPxResponse
+	79, // 91: quickaccesswallet.GetWalletCardsRequestService.GetIconSizePx:output_type -> quickaccesswallet.GetIconSizePxResponse
+	81, // 92: quickaccesswallet.GetWalletCardsRequestService.GetMaxCards:output_type -> quickaccesswallet.GetMaxCardsResponse
+	33, // 93: quickaccesswallet.GetWalletCardsRequestService.WriteToParcel:output_type -> quickaccesswallet.WriteToParcelResponse
+	47, // [47:94] is the sub-list for method output_type
+	0,  // [0:47] is the sub-list for method input_type
+	0,  // [0:0] is the sub-list for extension type_name
+	0,  // [0:0] is the sub-list for extension extendee
+	0,  // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_proto_quickaccesswallet_quickaccesswallet_proto_init() }
@@ -48,12 +4088,13 @@ func file_proto_quickaccesswallet_quickaccesswallet_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_quickaccesswallet_quickaccesswallet_proto_rawDesc), len(file_proto_quickaccesswallet_quickaccesswallet_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   83,
 			NumExtensions: 0,
-			NumServices:   0,
+			NumServices:   9,
 		},
 		GoTypes:           file_proto_quickaccesswallet_quickaccesswallet_proto_goTypes,
 		DependencyIndexes: file_proto_quickaccesswallet_quickaccesswallet_proto_depIdxs,
+		MessageInfos:      file_proto_quickaccesswallet_quickaccesswallet_proto_msgTypes,
 	}.Build()
 	File_proto_quickaccesswallet_quickaccesswallet_proto = out.File
 	file_proto_quickaccesswallet_quickaccesswallet_proto_goTypes = nil

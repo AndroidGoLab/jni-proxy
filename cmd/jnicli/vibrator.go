@@ -407,6 +407,236 @@ var vibratorVibratorVibrate3_6Cmd = &cobra.Command{
 	},
 }
 
+var vibratorEnvelopeEffectInfoCmd = &cobra.Command{
+	Use:   "envelope-effect-info",
+	Short: "EnvelopeEffectInfoService operations",
+}
+
+var vibratorEnvelopeEffectInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEnvelopeEffectInfoServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var vibratorEnvelopeEffectInfoEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEnvelopeEffectInfoServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var vibratorEnvelopeEffectInfoGetMaxControlPointDurationMillisCmd = &cobra.Command{
+	Use:   "get-max-control-point-duration-millis",
+	Short: "GetMaxControlPointDurationMillis RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEnvelopeEffectInfoServiceClient(grpcConn)
+		req := &pb.GetMaxControlPointDurationMillisRequest{}
+		resp, err := client.GetMaxControlPointDurationMillis(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var vibratorEnvelopeEffectInfoGetMaxDurationMillisCmd = &cobra.Command{
+	Use:   "get-max-duration-millis",
+	Short: "GetMaxDurationMillis RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEnvelopeEffectInfoServiceClient(grpcConn)
+		req := &pb.GetMaxDurationMillisRequest{}
+		resp, err := client.GetMaxDurationMillis(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var vibratorEnvelopeEffectInfoGetMaxSizeCmd = &cobra.Command{
+	Use:   "get-max-size",
+	Short: "GetMaxSize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEnvelopeEffectInfoServiceClient(grpcConn)
+		req := &pb.GetMaxSizeRequest{}
+		resp, err := client.GetMaxSize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var vibratorEnvelopeEffectInfoGetMinControlPointDurationMillisCmd = &cobra.Command{
+	Use:   "get-min-control-point-duration-millis",
+	Short: "GetMinControlPointDurationMillis RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEnvelopeEffectInfoServiceClient(grpcConn)
+		req := &pb.GetMinControlPointDurationMillisRequest{}
+		resp, err := client.GetMinControlPointDurationMillis(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var vibratorEnvelopeEffectInfoHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEnvelopeEffectInfoServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var vibratorEnvelopeEffectInfoToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEnvelopeEffectInfoServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var vibratorEnvelopeEffectInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEnvelopeEffectInfoServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var vibratorFrequencyProfileCmd = &cobra.Command{
+	Use:   "frequency-profile",
+	Short: "FrequencyProfileService operations",
+}
+
+var vibratorFrequencyProfileGetMaxFrequencyHzCmd = &cobra.Command{
+	Use:   "get-max-frequency-hz",
+	Short: "GetMaxFrequencyHz RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFrequencyProfileServiceClient(grpcConn)
+		req := &pb.GetMaxFrequencyHzRequest{}
+		resp, err := client.GetMaxFrequencyHz(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var vibratorFrequencyProfileGetMaxOutputAccelerationGsCmd = &cobra.Command{
+	Use:   "get-max-output-acceleration-gs",
+	Short: "GetMaxOutputAccelerationGs RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFrequencyProfileServiceClient(grpcConn)
+		req := &pb.GetMaxOutputAccelerationGsRequest{}
+		resp, err := client.GetMaxOutputAccelerationGs(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var vibratorFrequencyProfileGetMinFrequencyHzCmd = &cobra.Command{
+	Use:   "get-min-frequency-hz",
+	Short: "GetMinFrequencyHz RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFrequencyProfileServiceClient(grpcConn)
+		req := &pb.GetMinFrequencyHzRequest{}
+		resp, err := client.GetMinFrequencyHz(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var vibratorFrequencyProfileGetOutputAccelerationGsCmd = &cobra.Command{
+	Use:   "get-output-acceleration-gs",
+	Short: "GetOutputAccelerationGs RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFrequencyProfileServiceClient(grpcConn)
+		req := &pb.GetOutputAccelerationGsRequest{}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetOutputAccelerationGs(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 func init() {
 	vibratorVibratorAreAllEffectsSupportedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	vibratorVibratorCmd.AddCommand(vibratorVibratorAreAllEffectsSupportedCmd)
@@ -448,5 +678,24 @@ func init() {
 	vibratorVibratorVibrate3_6Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
 	vibratorVibratorCmd.AddCommand(vibratorVibratorVibrate3_6Cmd)
 	vibratorCmd.AddCommand(vibratorVibratorCmd)
+	vibratorEnvelopeEffectInfoCmd.AddCommand(vibratorEnvelopeEffectInfoDescribeContentsCmd)
+	vibratorEnvelopeEffectInfoEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	vibratorEnvelopeEffectInfoCmd.AddCommand(vibratorEnvelopeEffectInfoEqualsCmd)
+	vibratorEnvelopeEffectInfoCmd.AddCommand(vibratorEnvelopeEffectInfoGetMaxControlPointDurationMillisCmd)
+	vibratorEnvelopeEffectInfoCmd.AddCommand(vibratorEnvelopeEffectInfoGetMaxDurationMillisCmd)
+	vibratorEnvelopeEffectInfoCmd.AddCommand(vibratorEnvelopeEffectInfoGetMaxSizeCmd)
+	vibratorEnvelopeEffectInfoCmd.AddCommand(vibratorEnvelopeEffectInfoGetMinControlPointDurationMillisCmd)
+	vibratorEnvelopeEffectInfoCmd.AddCommand(vibratorEnvelopeEffectInfoHashCodeCmd)
+	vibratorEnvelopeEffectInfoCmd.AddCommand(vibratorEnvelopeEffectInfoToStringCmd)
+	vibratorEnvelopeEffectInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	vibratorEnvelopeEffectInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	vibratorEnvelopeEffectInfoCmd.AddCommand(vibratorEnvelopeEffectInfoWriteToParcelCmd)
+	vibratorCmd.AddCommand(vibratorEnvelopeEffectInfoCmd)
+	vibratorFrequencyProfileCmd.AddCommand(vibratorFrequencyProfileGetMaxFrequencyHzCmd)
+	vibratorFrequencyProfileCmd.AddCommand(vibratorFrequencyProfileGetMaxOutputAccelerationGsCmd)
+	vibratorFrequencyProfileCmd.AddCommand(vibratorFrequencyProfileGetMinFrequencyHzCmd)
+	vibratorFrequencyProfileGetOutputAccelerationGsCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	vibratorFrequencyProfileCmd.AddCommand(vibratorFrequencyProfileGetOutputAccelerationGsCmd)
+	vibratorCmd.AddCommand(vibratorFrequencyProfileCmd)
 	rootCmd.AddCommand(vibratorCmd)
 }

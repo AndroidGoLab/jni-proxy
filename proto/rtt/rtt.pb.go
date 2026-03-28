@@ -12,6 +12,7 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -22,19 +23,1322 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type DescribeContentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DescribeContentsRequest) Reset() {
+	*x = DescribeContentsRequest{}
+	mi := &file_proto_rtt_rtt_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DescribeContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DescribeContentsRequest) ProtoMessage() {}
+
+func (x *DescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtt_rtt_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*DescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_rtt_rtt_proto_rawDescGZIP(), []int{0}
+}
+
+type DescribeContentsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DescribeContentsResponse) Reset() {
+	*x = DescribeContentsResponse{}
+	mi := &file_proto_rtt_rtt_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DescribeContentsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DescribeContentsResponse) ProtoMessage() {}
+
+func (x *DescribeContentsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtt_rtt_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DescribeContentsResponse.ProtoReflect.Descriptor instead.
+func (*DescribeContentsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_rtt_rtt_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *DescribeContentsResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type EqualsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EqualsRequest) Reset() {
+	*x = EqualsRequest{}
+	mi := &file_proto_rtt_rtt_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EqualsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EqualsRequest) ProtoMessage() {}
+
+func (x *EqualsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtt_rtt_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EqualsRequest.ProtoReflect.Descriptor instead.
+func (*EqualsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_rtt_rtt_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *EqualsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type EqualsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EqualsResponse) Reset() {
+	*x = EqualsResponse{}
+	mi := &file_proto_rtt_rtt_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EqualsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EqualsResponse) ProtoMessage() {}
+
+func (x *EqualsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtt_rtt_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EqualsResponse.ProtoReflect.Descriptor instead.
+func (*EqualsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_rtt_rtt_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *EqualsResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type GetMatchFilterRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMatchFilterRequest) Reset() {
+	*x = GetMatchFilterRequest{}
+	mi := &file_proto_rtt_rtt_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMatchFilterRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMatchFilterRequest) ProtoMessage() {}
+
+func (x *GetMatchFilterRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtt_rtt_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMatchFilterRequest.ProtoReflect.Descriptor instead.
+func (*GetMatchFilterRequest) Descriptor() ([]byte, []int) {
+	return file_proto_rtt_rtt_proto_rawDescGZIP(), []int{4}
+}
+
+type GetMatchFilterResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMatchFilterResponse) Reset() {
+	*x = GetMatchFilterResponse{}
+	mi := &file_proto_rtt_rtt_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMatchFilterResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMatchFilterResponse) ProtoMessage() {}
+
+func (x *GetMatchFilterResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtt_rtt_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMatchFilterResponse.ProtoReflect.Descriptor instead.
+func (*GetMatchFilterResponse) Descriptor() ([]byte, []int) {
+	return file_proto_rtt_rtt_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *GetMatchFilterResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetRangingUpdateRateRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRangingUpdateRateRequest) Reset() {
+	*x = GetRangingUpdateRateRequest{}
+	mi := &file_proto_rtt_rtt_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRangingUpdateRateRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRangingUpdateRateRequest) ProtoMessage() {}
+
+func (x *GetRangingUpdateRateRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtt_rtt_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRangingUpdateRateRequest.ProtoReflect.Descriptor instead.
+func (*GetRangingUpdateRateRequest) Descriptor() ([]byte, []int) {
+	return file_proto_rtt_rtt_proto_rawDescGZIP(), []int{6}
+}
+
+type GetRangingUpdateRateResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRangingUpdateRateResponse) Reset() {
+	*x = GetRangingUpdateRateResponse{}
+	mi := &file_proto_rtt_rtt_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRangingUpdateRateResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRangingUpdateRateResponse) ProtoMessage() {}
+
+func (x *GetRangingUpdateRateResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtt_rtt_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRangingUpdateRateResponse.ProtoReflect.Descriptor instead.
+func (*GetRangingUpdateRateResponse) Descriptor() ([]byte, []int) {
+	return file_proto_rtt_rtt_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *GetRangingUpdateRateResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetServiceNameRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetServiceNameRequest) Reset() {
+	*x = GetServiceNameRequest{}
+	mi := &file_proto_rtt_rtt_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetServiceNameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetServiceNameRequest) ProtoMessage() {}
+
+func (x *GetServiceNameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtt_rtt_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetServiceNameRequest.ProtoReflect.Descriptor instead.
+func (*GetServiceNameRequest) Descriptor() ([]byte, []int) {
+	return file_proto_rtt_rtt_proto_rawDescGZIP(), []int{8}
+}
+
+type GetServiceNameResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetServiceNameResponse) Reset() {
+	*x = GetServiceNameResponse{}
+	mi := &file_proto_rtt_rtt_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetServiceNameResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetServiceNameResponse) ProtoMessage() {}
+
+func (x *GetServiceNameResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtt_rtt_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetServiceNameResponse.ProtoReflect.Descriptor instead.
+func (*GetServiceNameResponse) Descriptor() ([]byte, []int) {
+	return file_proto_rtt_rtt_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *GetServiceNameResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type HashCodeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HashCodeRequest) Reset() {
+	*x = HashCodeRequest{}
+	mi := &file_proto_rtt_rtt_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HashCodeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HashCodeRequest) ProtoMessage() {}
+
+func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtt_rtt_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HashCodeRequest.ProtoReflect.Descriptor instead.
+func (*HashCodeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_rtt_rtt_proto_rawDescGZIP(), []int{10}
+}
+
+type HashCodeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HashCodeResponse) Reset() {
+	*x = HashCodeResponse{}
+	mi := &file_proto_rtt_rtt_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HashCodeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HashCodeResponse) ProtoMessage() {}
+
+func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtt_rtt_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HashCodeResponse.ProtoReflect.Descriptor instead.
+func (*HashCodeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_rtt_rtt_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *HashCodeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type IsPeriodicRangingHwFeatureEnabledRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsPeriodicRangingHwFeatureEnabledRequest) Reset() {
+	*x = IsPeriodicRangingHwFeatureEnabledRequest{}
+	mi := &file_proto_rtt_rtt_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsPeriodicRangingHwFeatureEnabledRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsPeriodicRangingHwFeatureEnabledRequest) ProtoMessage() {}
+
+func (x *IsPeriodicRangingHwFeatureEnabledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtt_rtt_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsPeriodicRangingHwFeatureEnabledRequest.ProtoReflect.Descriptor instead.
+func (*IsPeriodicRangingHwFeatureEnabledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_rtt_rtt_proto_rawDescGZIP(), []int{12}
+}
+
+type IsPeriodicRangingHwFeatureEnabledResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsPeriodicRangingHwFeatureEnabledResponse) Reset() {
+	*x = IsPeriodicRangingHwFeatureEnabledResponse{}
+	mi := &file_proto_rtt_rtt_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsPeriodicRangingHwFeatureEnabledResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsPeriodicRangingHwFeatureEnabledResponse) ProtoMessage() {}
+
+func (x *IsPeriodicRangingHwFeatureEnabledResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtt_rtt_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsPeriodicRangingHwFeatureEnabledResponse.ProtoReflect.Descriptor instead.
+func (*IsPeriodicRangingHwFeatureEnabledResponse) Descriptor() ([]byte, []int) {
+	return file_proto_rtt_rtt_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *IsPeriodicRangingHwFeatureEnabledResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type ToStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringRequest) Reset() {
+	*x = ToStringRequest{}
+	mi := &file_proto_rtt_rtt_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringRequest) ProtoMessage() {}
+
+func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtt_rtt_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringRequest.ProtoReflect.Descriptor instead.
+func (*ToStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_rtt_rtt_proto_rawDescGZIP(), []int{14}
+}
+
+type ToStringResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringResponse) Reset() {
+	*x = ToStringResponse{}
+	mi := &file_proto_rtt_rtt_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringResponse) ProtoMessage() {}
+
+func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtt_rtt_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringResponse.ProtoReflect.Descriptor instead.
+func (*ToStringResponse) Descriptor() ([]byte, []int) {
+	return file_proto_rtt_rtt_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *ToStringResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type WriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WriteToParcelRequest) Reset() {
+	*x = WriteToParcelRequest{}
+	mi := &file_proto_rtt_rtt_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WriteToParcelRequest) ProtoMessage() {}
+
+func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtt_rtt_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*WriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_rtt_rtt_proto_rawDescGZIP(), []int{16}
+}
+
+func (x *WriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *WriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type WriteToParcelResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WriteToParcelResponse) Reset() {
+	*x = WriteToParcelResponse{}
+	mi := &file_proto_rtt_rtt_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WriteToParcelResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WriteToParcelResponse) ProtoMessage() {}
+
+func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtt_rtt_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WriteToParcelResponse.ProtoReflect.Descriptor instead.
+func (*WriteToParcelResponse) Descriptor() ([]byte, []int) {
+	return file_proto_rtt_rtt_proto_rawDescGZIP(), []int{17}
+}
+
+type BuildRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BuildRequest) Reset() {
+	*x = BuildRequest{}
+	mi := &file_proto_rtt_rtt_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BuildRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BuildRequest) ProtoMessage() {}
+
+func (x *BuildRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtt_rtt_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BuildRequest.ProtoReflect.Descriptor instead.
+func (*BuildRequest) Descriptor() ([]byte, []int) {
+	return file_proto_rtt_rtt_proto_rawDescGZIP(), []int{18}
+}
+
+type BuildResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BuildResponse) Reset() {
+	*x = BuildResponse{}
+	mi := &file_proto_rtt_rtt_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BuildResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BuildResponse) ProtoMessage() {}
+
+func (x *BuildResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtt_rtt_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BuildResponse.ProtoReflect.Descriptor instead.
+func (*BuildResponse) Descriptor() ([]byte, []int) {
+	return file_proto_rtt_rtt_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *BuildResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetMatchFilterRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetMatchFilterRequest) Reset() {
+	*x = SetMatchFilterRequest{}
+	mi := &file_proto_rtt_rtt_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetMatchFilterRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetMatchFilterRequest) ProtoMessage() {}
+
+func (x *SetMatchFilterRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtt_rtt_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetMatchFilterRequest.ProtoReflect.Descriptor instead.
+func (*SetMatchFilterRequest) Descriptor() ([]byte, []int) {
+	return file_proto_rtt_rtt_proto_rawDescGZIP(), []int{20}
+}
+
+func (x *SetMatchFilterRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetMatchFilterResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetMatchFilterResponse) Reset() {
+	*x = SetMatchFilterResponse{}
+	mi := &file_proto_rtt_rtt_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetMatchFilterResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetMatchFilterResponse) ProtoMessage() {}
+
+func (x *SetMatchFilterResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtt_rtt_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetMatchFilterResponse.ProtoReflect.Descriptor instead.
+func (*SetMatchFilterResponse) Descriptor() ([]byte, []int) {
+	return file_proto_rtt_rtt_proto_rawDescGZIP(), []int{21}
+}
+
+func (x *SetMatchFilterResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetPeriodicRangingHwFeatureEnabledRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPeriodicRangingHwFeatureEnabledRequest) Reset() {
+	*x = SetPeriodicRangingHwFeatureEnabledRequest{}
+	mi := &file_proto_rtt_rtt_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPeriodicRangingHwFeatureEnabledRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPeriodicRangingHwFeatureEnabledRequest) ProtoMessage() {}
+
+func (x *SetPeriodicRangingHwFeatureEnabledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtt_rtt_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPeriodicRangingHwFeatureEnabledRequest.ProtoReflect.Descriptor instead.
+func (*SetPeriodicRangingHwFeatureEnabledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_rtt_rtt_proto_rawDescGZIP(), []int{22}
+}
+
+func (x *SetPeriodicRangingHwFeatureEnabledRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetPeriodicRangingHwFeatureEnabledResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPeriodicRangingHwFeatureEnabledResponse) Reset() {
+	*x = SetPeriodicRangingHwFeatureEnabledResponse{}
+	mi := &file_proto_rtt_rtt_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPeriodicRangingHwFeatureEnabledResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPeriodicRangingHwFeatureEnabledResponse) ProtoMessage() {}
+
+func (x *SetPeriodicRangingHwFeatureEnabledResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtt_rtt_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPeriodicRangingHwFeatureEnabledResponse.ProtoReflect.Descriptor instead.
+func (*SetPeriodicRangingHwFeatureEnabledResponse) Descriptor() ([]byte, []int) {
+	return file_proto_rtt_rtt_proto_rawDescGZIP(), []int{23}
+}
+
+func (x *SetPeriodicRangingHwFeatureEnabledResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetRangingUpdateRateRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetRangingUpdateRateRequest) Reset() {
+	*x = SetRangingUpdateRateRequest{}
+	mi := &file_proto_rtt_rtt_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetRangingUpdateRateRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetRangingUpdateRateRequest) ProtoMessage() {}
+
+func (x *SetRangingUpdateRateRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtt_rtt_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetRangingUpdateRateRequest.ProtoReflect.Descriptor instead.
+func (*SetRangingUpdateRateRequest) Descriptor() ([]byte, []int) {
+	return file_proto_rtt_rtt_proto_rawDescGZIP(), []int{24}
+}
+
+func (x *SetRangingUpdateRateRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetRangingUpdateRateResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetRangingUpdateRateResponse) Reset() {
+	*x = SetRangingUpdateRateResponse{}
+	mi := &file_proto_rtt_rtt_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetRangingUpdateRateResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetRangingUpdateRateResponse) ProtoMessage() {}
+
+func (x *SetRangingUpdateRateResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtt_rtt_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetRangingUpdateRateResponse.ProtoReflect.Descriptor instead.
+func (*SetRangingUpdateRateResponse) Descriptor() ([]byte, []int) {
+	return file_proto_rtt_rtt_proto_rawDescGZIP(), []int{25}
+}
+
+func (x *SetRangingUpdateRateResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type HasPeriodicRangingHardwareFeatureRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HasPeriodicRangingHardwareFeatureRequest) Reset() {
+	*x = HasPeriodicRangingHardwareFeatureRequest{}
+	mi := &file_proto_rtt_rtt_proto_msgTypes[26]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HasPeriodicRangingHardwareFeatureRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HasPeriodicRangingHardwareFeatureRequest) ProtoMessage() {}
+
+func (x *HasPeriodicRangingHardwareFeatureRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtt_rtt_proto_msgTypes[26]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HasPeriodicRangingHardwareFeatureRequest.ProtoReflect.Descriptor instead.
+func (*HasPeriodicRangingHardwareFeatureRequest) Descriptor() ([]byte, []int) {
+	return file_proto_rtt_rtt_proto_rawDescGZIP(), []int{26}
+}
+
+type HasPeriodicRangingHardwareFeatureResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HasPeriodicRangingHardwareFeatureResponse) Reset() {
+	*x = HasPeriodicRangingHardwareFeatureResponse{}
+	mi := &file_proto_rtt_rtt_proto_msgTypes[27]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HasPeriodicRangingHardwareFeatureResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HasPeriodicRangingHardwareFeatureResponse) ProtoMessage() {}
+
+func (x *HasPeriodicRangingHardwareFeatureResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtt_rtt_proto_msgTypes[27]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HasPeriodicRangingHardwareFeatureResponse.ProtoReflect.Descriptor instead.
+func (*HasPeriodicRangingHardwareFeatureResponse) Descriptor() ([]byte, []int) {
+	return file_proto_rtt_rtt_proto_rawDescGZIP(), []int{27}
+}
+
+func (x *HasPeriodicRangingHardwareFeatureResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
 var File_proto_rtt_rtt_proto protoreflect.FileDescriptor
 
 const file_proto_rtt_rtt_proto_rawDesc = "" +
 	"\n" +
-	"\x13proto/rtt/rtt.proto\x12\x03rttB-Z+github.com/AndroidGoLab/jni-proxy/proto/rttb\x06proto3"
+	"\x13proto/rtt/rtt.proto\x12\x03rtt\"\x19\n" +
+	"\x17DescribeContentsRequest\"2\n" +
+	"\x18DescribeContentsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"#\n" +
+	"\rEqualsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"(\n" +
+	"\x0eEqualsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x17\n" +
+	"\x15GetMatchFilterRequest\"0\n" +
+	"\x16GetMatchFilterResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1d\n" +
+	"\x1bGetRangingUpdateRateRequest\"6\n" +
+	"\x1cGetRangingUpdateRateResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x17\n" +
+	"\x15GetServiceNameRequest\"0\n" +
+	"\x16GetServiceNameResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x11\n" +
+	"\x0fHashCodeRequest\"*\n" +
+	"\x10HashCodeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"*\n" +
+	"(IsPeriodicRangingHwFeatureEnabledRequest\"C\n" +
+	")IsPeriodicRangingHwFeatureEnabledResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x11\n" +
+	"\x0fToStringRequest\"*\n" +
+	"\x10ToStringResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\">\n" +
+	"\x14WriteToParcelRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x17\n" +
+	"\x15WriteToParcelResponse\"\x0e\n" +
+	"\fBuildRequest\"'\n" +
+	"\rBuildResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"+\n" +
+	"\x15SetMatchFilterRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"0\n" +
+	"\x16SetMatchFilterResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"?\n" +
+	")SetPeriodicRangingHwFeatureEnabledRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"D\n" +
+	"*SetPeriodicRangingHwFeatureEnabledResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"1\n" +
+	"\x1bSetRangingUpdateRateRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"6\n" +
+	"\x1cSetRangingUpdateRateResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"*\n" +
+	"(HasPeriodicRangingHardwareFeatureRequest\"C\n" +
+	")HasPeriodicRangingHardwareFeatureResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result2\xcc\x05\n" +
+	"\x14RangingParamsService\x12O\n" +
+	"\x10DescribeContents\x12\x1c.rtt.DescribeContentsRequest\x1a\x1d.rtt.DescribeContentsResponse\x121\n" +
+	"\x06Equals\x12\x12.rtt.EqualsRequest\x1a\x13.rtt.EqualsResponse\x12I\n" +
+	"\x0eGetMatchFilter\x12\x1a.rtt.GetMatchFilterRequest\x1a\x1b.rtt.GetMatchFilterResponse\x12[\n" +
+	"\x14GetRangingUpdateRate\x12 .rtt.GetRangingUpdateRateRequest\x1a!.rtt.GetRangingUpdateRateResponse\x12I\n" +
+	"\x0eGetServiceName\x12\x1a.rtt.GetServiceNameRequest\x1a\x1b.rtt.GetServiceNameResponse\x127\n" +
+	"\bHashCode\x12\x14.rtt.HashCodeRequest\x1a\x15.rtt.HashCodeResponse\x12\x82\x01\n" +
+	"!IsPeriodicRangingHwFeatureEnabled\x12-.rtt.IsPeriodicRangingHwFeatureEnabledRequest\x1a..rtt.IsPeriodicRangingHwFeatureEnabledResponse\x127\n" +
+	"\bToString\x12\x14.rtt.ToStringRequest\x1a\x15.rtt.ToStringResponse\x12F\n" +
+	"\rWriteToParcel\x12\x19.rtt.WriteToParcelRequest\x1a\x1a.rtt.WriteToParcelResponse2\xfd\x02\n" +
+	"\x1bRangingParamsBuilderService\x12.\n" +
+	"\x05Build\x12\x11.rtt.BuildRequest\x1a\x12.rtt.BuildResponse\x12I\n" +
+	"\x0eSetMatchFilter\x12\x1a.rtt.SetMatchFilterRequest\x1a\x1b.rtt.SetMatchFilterResponse\x12\x85\x01\n" +
+	"\"SetPeriodicRangingHwFeatureEnabled\x12..rtt.SetPeriodicRangingHwFeatureEnabledRequest\x1a/.rtt.SetPeriodicRangingHwFeatureEnabledResponse\x12[\n" +
+	"\x14SetRangingUpdateRate\x12 .rtt.SetRangingUpdateRateRequest\x1a!.rtt.SetRangingUpdateRateResponse2\xf3\x02\n" +
+	"\x1aRangingCapabilitiesService\x12O\n" +
+	"\x10DescribeContents\x12\x1c.rtt.DescribeContentsRequest\x1a\x1d.rtt.DescribeContentsResponse\x12\x82\x01\n" +
+	"!HasPeriodicRangingHardwareFeature\x12-.rtt.HasPeriodicRangingHardwareFeatureRequest\x1a..rtt.HasPeriodicRangingHardwareFeatureResponse\x127\n" +
+	"\bToString\x12\x14.rtt.ToStringRequest\x1a\x15.rtt.ToStringResponse\x12F\n" +
+	"\rWriteToParcel\x12\x19.rtt.WriteToParcelRequest\x1a\x1a.rtt.WriteToParcelResponseB-Z+github.com/AndroidGoLab/jni-proxy/proto/rttb\x06proto3"
 
-var file_proto_rtt_rtt_proto_goTypes = []any{}
+var (
+	file_proto_rtt_rtt_proto_rawDescOnce sync.Once
+	file_proto_rtt_rtt_proto_rawDescData []byte
+)
+
+func file_proto_rtt_rtt_proto_rawDescGZIP() []byte {
+	file_proto_rtt_rtt_proto_rawDescOnce.Do(func() {
+		file_proto_rtt_rtt_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_proto_rtt_rtt_proto_rawDesc), len(file_proto_rtt_rtt_proto_rawDesc)))
+	})
+	return file_proto_rtt_rtt_proto_rawDescData
+}
+
+var file_proto_rtt_rtt_proto_msgTypes = make([]protoimpl.MessageInfo, 28)
+var file_proto_rtt_rtt_proto_goTypes = []any{
+	(*DescribeContentsRequest)(nil),                    // 0: rtt.DescribeContentsRequest
+	(*DescribeContentsResponse)(nil),                   // 1: rtt.DescribeContentsResponse
+	(*EqualsRequest)(nil),                              // 2: rtt.EqualsRequest
+	(*EqualsResponse)(nil),                             // 3: rtt.EqualsResponse
+	(*GetMatchFilterRequest)(nil),                      // 4: rtt.GetMatchFilterRequest
+	(*GetMatchFilterResponse)(nil),                     // 5: rtt.GetMatchFilterResponse
+	(*GetRangingUpdateRateRequest)(nil),                // 6: rtt.GetRangingUpdateRateRequest
+	(*GetRangingUpdateRateResponse)(nil),               // 7: rtt.GetRangingUpdateRateResponse
+	(*GetServiceNameRequest)(nil),                      // 8: rtt.GetServiceNameRequest
+	(*GetServiceNameResponse)(nil),                     // 9: rtt.GetServiceNameResponse
+	(*HashCodeRequest)(nil),                            // 10: rtt.HashCodeRequest
+	(*HashCodeResponse)(nil),                           // 11: rtt.HashCodeResponse
+	(*IsPeriodicRangingHwFeatureEnabledRequest)(nil),   // 12: rtt.IsPeriodicRangingHwFeatureEnabledRequest
+	(*IsPeriodicRangingHwFeatureEnabledResponse)(nil),  // 13: rtt.IsPeriodicRangingHwFeatureEnabledResponse
+	(*ToStringRequest)(nil),                            // 14: rtt.ToStringRequest
+	(*ToStringResponse)(nil),                           // 15: rtt.ToStringResponse
+	(*WriteToParcelRequest)(nil),                       // 16: rtt.WriteToParcelRequest
+	(*WriteToParcelResponse)(nil),                      // 17: rtt.WriteToParcelResponse
+	(*BuildRequest)(nil),                               // 18: rtt.BuildRequest
+	(*BuildResponse)(nil),                              // 19: rtt.BuildResponse
+	(*SetMatchFilterRequest)(nil),                      // 20: rtt.SetMatchFilterRequest
+	(*SetMatchFilterResponse)(nil),                     // 21: rtt.SetMatchFilterResponse
+	(*SetPeriodicRangingHwFeatureEnabledRequest)(nil),  // 22: rtt.SetPeriodicRangingHwFeatureEnabledRequest
+	(*SetPeriodicRangingHwFeatureEnabledResponse)(nil), // 23: rtt.SetPeriodicRangingHwFeatureEnabledResponse
+	(*SetRangingUpdateRateRequest)(nil),                // 24: rtt.SetRangingUpdateRateRequest
+	(*SetRangingUpdateRateResponse)(nil),               // 25: rtt.SetRangingUpdateRateResponse
+	(*HasPeriodicRangingHardwareFeatureRequest)(nil),   // 26: rtt.HasPeriodicRangingHardwareFeatureRequest
+	(*HasPeriodicRangingHardwareFeatureResponse)(nil),  // 27: rtt.HasPeriodicRangingHardwareFeatureResponse
+}
 var file_proto_rtt_rtt_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	0,  // 0: rtt.RangingParamsService.DescribeContents:input_type -> rtt.DescribeContentsRequest
+	2,  // 1: rtt.RangingParamsService.Equals:input_type -> rtt.EqualsRequest
+	4,  // 2: rtt.RangingParamsService.GetMatchFilter:input_type -> rtt.GetMatchFilterRequest
+	6,  // 3: rtt.RangingParamsService.GetRangingUpdateRate:input_type -> rtt.GetRangingUpdateRateRequest
+	8,  // 4: rtt.RangingParamsService.GetServiceName:input_type -> rtt.GetServiceNameRequest
+	10, // 5: rtt.RangingParamsService.HashCode:input_type -> rtt.HashCodeRequest
+	12, // 6: rtt.RangingParamsService.IsPeriodicRangingHwFeatureEnabled:input_type -> rtt.IsPeriodicRangingHwFeatureEnabledRequest
+	14, // 7: rtt.RangingParamsService.ToString:input_type -> rtt.ToStringRequest
+	16, // 8: rtt.RangingParamsService.WriteToParcel:input_type -> rtt.WriteToParcelRequest
+	18, // 9: rtt.RangingParamsBuilderService.Build:input_type -> rtt.BuildRequest
+	20, // 10: rtt.RangingParamsBuilderService.SetMatchFilter:input_type -> rtt.SetMatchFilterRequest
+	22, // 11: rtt.RangingParamsBuilderService.SetPeriodicRangingHwFeatureEnabled:input_type -> rtt.SetPeriodicRangingHwFeatureEnabledRequest
+	24, // 12: rtt.RangingParamsBuilderService.SetRangingUpdateRate:input_type -> rtt.SetRangingUpdateRateRequest
+	0,  // 13: rtt.RangingCapabilitiesService.DescribeContents:input_type -> rtt.DescribeContentsRequest
+	26, // 14: rtt.RangingCapabilitiesService.HasPeriodicRangingHardwareFeature:input_type -> rtt.HasPeriodicRangingHardwareFeatureRequest
+	14, // 15: rtt.RangingCapabilitiesService.ToString:input_type -> rtt.ToStringRequest
+	16, // 16: rtt.RangingCapabilitiesService.WriteToParcel:input_type -> rtt.WriteToParcelRequest
+	1,  // 17: rtt.RangingParamsService.DescribeContents:output_type -> rtt.DescribeContentsResponse
+	3,  // 18: rtt.RangingParamsService.Equals:output_type -> rtt.EqualsResponse
+	5,  // 19: rtt.RangingParamsService.GetMatchFilter:output_type -> rtt.GetMatchFilterResponse
+	7,  // 20: rtt.RangingParamsService.GetRangingUpdateRate:output_type -> rtt.GetRangingUpdateRateResponse
+	9,  // 21: rtt.RangingParamsService.GetServiceName:output_type -> rtt.GetServiceNameResponse
+	11, // 22: rtt.RangingParamsService.HashCode:output_type -> rtt.HashCodeResponse
+	13, // 23: rtt.RangingParamsService.IsPeriodicRangingHwFeatureEnabled:output_type -> rtt.IsPeriodicRangingHwFeatureEnabledResponse
+	15, // 24: rtt.RangingParamsService.ToString:output_type -> rtt.ToStringResponse
+	17, // 25: rtt.RangingParamsService.WriteToParcel:output_type -> rtt.WriteToParcelResponse
+	19, // 26: rtt.RangingParamsBuilderService.Build:output_type -> rtt.BuildResponse
+	21, // 27: rtt.RangingParamsBuilderService.SetMatchFilter:output_type -> rtt.SetMatchFilterResponse
+	23, // 28: rtt.RangingParamsBuilderService.SetPeriodicRangingHwFeatureEnabled:output_type -> rtt.SetPeriodicRangingHwFeatureEnabledResponse
+	25, // 29: rtt.RangingParamsBuilderService.SetRangingUpdateRate:output_type -> rtt.SetRangingUpdateRateResponse
+	1,  // 30: rtt.RangingCapabilitiesService.DescribeContents:output_type -> rtt.DescribeContentsResponse
+	27, // 31: rtt.RangingCapabilitiesService.HasPeriodicRangingHardwareFeature:output_type -> rtt.HasPeriodicRangingHardwareFeatureResponse
+	15, // 32: rtt.RangingCapabilitiesService.ToString:output_type -> rtt.ToStringResponse
+	17, // 33: rtt.RangingCapabilitiesService.WriteToParcel:output_type -> rtt.WriteToParcelResponse
+	17, // [17:34] is the sub-list for method output_type
+	0,  // [0:17] is the sub-list for method input_type
+	0,  // [0:0] is the sub-list for extension type_name
+	0,  // [0:0] is the sub-list for extension extendee
+	0,  // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_proto_rtt_rtt_proto_init() }
@@ -48,12 +1352,13 @@ func file_proto_rtt_rtt_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_rtt_rtt_proto_rawDesc), len(file_proto_rtt_rtt_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   28,
 			NumExtensions: 0,
-			NumServices:   0,
+			NumServices:   3,
 		},
 		GoTypes:           file_proto_rtt_rtt_proto_goTypes,
 		DependencyIndexes: file_proto_rtt_rtt_proto_depIdxs,
+		MessageInfos:      file_proto_rtt_rtt_proto_msgTypes,
 	}.Build()
 	File_proto_rtt_rtt_proto = out.File
 	file_proto_rtt_rtt_proto_goTypes = nil

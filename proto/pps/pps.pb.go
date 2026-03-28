@@ -12,6 +12,7 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -22,19 +23,5192 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type NewHomeSpRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewHomeSpRequest) Reset() {
+	*x = NewHomeSpRequest{}
+	mi := &file_proto_pps_pps_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewHomeSpRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewHomeSpRequest) ProtoMessage() {}
+
+func (x *NewHomeSpRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewHomeSpRequest.ProtoReflect.Descriptor instead.
+func (*NewHomeSpRequest) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{0}
+}
+
+type NewHomeSpResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewHomeSpResponse) Reset() {
+	*x = NewHomeSpResponse{}
+	mi := &file_proto_pps_pps_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewHomeSpResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewHomeSpResponse) ProtoMessage() {}
+
+func (x *NewHomeSpResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewHomeSpResponse.ProtoReflect.Descriptor instead.
+func (*NewHomeSpResponse) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *NewHomeSpResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type DescribeContentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DescribeContentsRequest) Reset() {
+	*x = DescribeContentsRequest{}
+	mi := &file_proto_pps_pps_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DescribeContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DescribeContentsRequest) ProtoMessage() {}
+
+func (x *DescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*DescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *DescribeContentsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type DescribeContentsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DescribeContentsResponse) Reset() {
+	*x = DescribeContentsResponse{}
+	mi := &file_proto_pps_pps_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DescribeContentsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DescribeContentsResponse) ProtoMessage() {}
+
+func (x *DescribeContentsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DescribeContentsResponse.ProtoReflect.Descriptor instead.
+func (*DescribeContentsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *DescribeContentsResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type EqualsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EqualsRequest) Reset() {
+	*x = EqualsRequest{}
+	mi := &file_proto_pps_pps_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EqualsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EqualsRequest) ProtoMessage() {}
+
+func (x *EqualsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EqualsRequest.ProtoReflect.Descriptor instead.
+func (*EqualsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *EqualsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *EqualsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type EqualsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EqualsResponse) Reset() {
+	*x = EqualsResponse{}
+	mi := &file_proto_pps_pps_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EqualsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EqualsResponse) ProtoMessage() {}
+
+func (x *EqualsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EqualsResponse.ProtoReflect.Descriptor instead.
+func (*EqualsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *EqualsResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type GetFqdnRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetFqdnRequest) Reset() {
+	*x = GetFqdnRequest{}
+	mi := &file_proto_pps_pps_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetFqdnRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetFqdnRequest) ProtoMessage() {}
+
+func (x *GetFqdnRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetFqdnRequest.ProtoReflect.Descriptor instead.
+func (*GetFqdnRequest) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *GetFqdnRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetFqdnResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetFqdnResponse) Reset() {
+	*x = GetFqdnResponse{}
+	mi := &file_proto_pps_pps_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetFqdnResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetFqdnResponse) ProtoMessage() {}
+
+func (x *GetFqdnResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetFqdnResponse.ProtoReflect.Descriptor instead.
+func (*GetFqdnResponse) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *GetFqdnResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetFriendlyNameRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetFriendlyNameRequest) Reset() {
+	*x = GetFriendlyNameRequest{}
+	mi := &file_proto_pps_pps_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetFriendlyNameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetFriendlyNameRequest) ProtoMessage() {}
+
+func (x *GetFriendlyNameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetFriendlyNameRequest.ProtoReflect.Descriptor instead.
+func (*GetFriendlyNameRequest) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *GetFriendlyNameRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetFriendlyNameResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetFriendlyNameResponse) Reset() {
+	*x = GetFriendlyNameResponse{}
+	mi := &file_proto_pps_pps_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetFriendlyNameResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetFriendlyNameResponse) ProtoMessage() {}
+
+func (x *GetFriendlyNameResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetFriendlyNameResponse.ProtoReflect.Descriptor instead.
+func (*GetFriendlyNameResponse) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *GetFriendlyNameResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetMatchAllOisRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMatchAllOisRequest) Reset() {
+	*x = GetMatchAllOisRequest{}
+	mi := &file_proto_pps_pps_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMatchAllOisRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMatchAllOisRequest) ProtoMessage() {}
+
+func (x *GetMatchAllOisRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMatchAllOisRequest.ProtoReflect.Descriptor instead.
+func (*GetMatchAllOisRequest) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *GetMatchAllOisRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetMatchAllOisResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMatchAllOisResponse) Reset() {
+	*x = GetMatchAllOisResponse{}
+	mi := &file_proto_pps_pps_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMatchAllOisResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMatchAllOisResponse) ProtoMessage() {}
+
+func (x *GetMatchAllOisResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMatchAllOisResponse.ProtoReflect.Descriptor instead.
+func (*GetMatchAllOisResponse) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *GetMatchAllOisResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetMatchAnyOisRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMatchAnyOisRequest) Reset() {
+	*x = GetMatchAnyOisRequest{}
+	mi := &file_proto_pps_pps_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMatchAnyOisRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMatchAnyOisRequest) ProtoMessage() {}
+
+func (x *GetMatchAnyOisRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMatchAnyOisRequest.ProtoReflect.Descriptor instead.
+func (*GetMatchAnyOisRequest) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *GetMatchAnyOisRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetMatchAnyOisResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMatchAnyOisResponse) Reset() {
+	*x = GetMatchAnyOisResponse{}
+	mi := &file_proto_pps_pps_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMatchAnyOisResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMatchAnyOisResponse) ProtoMessage() {}
+
+func (x *GetMatchAnyOisResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMatchAnyOisResponse.ProtoReflect.Descriptor instead.
+func (*GetMatchAnyOisResponse) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *GetMatchAnyOisResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetRoamingConsortiumOisRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRoamingConsortiumOisRequest) Reset() {
+	*x = GetRoamingConsortiumOisRequest{}
+	mi := &file_proto_pps_pps_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRoamingConsortiumOisRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRoamingConsortiumOisRequest) ProtoMessage() {}
+
+func (x *GetRoamingConsortiumOisRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRoamingConsortiumOisRequest.ProtoReflect.Descriptor instead.
+func (*GetRoamingConsortiumOisRequest) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{14}
+}
+
+func (x *GetRoamingConsortiumOisRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetRoamingConsortiumOisResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRoamingConsortiumOisResponse) Reset() {
+	*x = GetRoamingConsortiumOisResponse{}
+	mi := &file_proto_pps_pps_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRoamingConsortiumOisResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRoamingConsortiumOisResponse) ProtoMessage() {}
+
+func (x *GetRoamingConsortiumOisResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRoamingConsortiumOisResponse.ProtoReflect.Descriptor instead.
+func (*GetRoamingConsortiumOisResponse) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *GetRoamingConsortiumOisResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type HashCodeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HashCodeRequest) Reset() {
+	*x = HashCodeRequest{}
+	mi := &file_proto_pps_pps_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HashCodeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HashCodeRequest) ProtoMessage() {}
+
+func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HashCodeRequest.ProtoReflect.Descriptor instead.
+func (*HashCodeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{16}
+}
+
+func (x *HashCodeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type HashCodeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HashCodeResponse) Reset() {
+	*x = HashCodeResponse{}
+	mi := &file_proto_pps_pps_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HashCodeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HashCodeResponse) ProtoMessage() {}
+
+func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HashCodeResponse.ProtoReflect.Descriptor instead.
+func (*HashCodeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *HashCodeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetFqdnRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          string                 `protobuf:"bytes,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetFqdnRequest) Reset() {
+	*x = SetFqdnRequest{}
+	mi := &file_proto_pps_pps_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetFqdnRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetFqdnRequest) ProtoMessage() {}
+
+func (x *SetFqdnRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetFqdnRequest.ProtoReflect.Descriptor instead.
+func (*SetFqdnRequest) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{18}
+}
+
+func (x *SetFqdnRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetFqdnRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type SetFqdnResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetFqdnResponse) Reset() {
+	*x = SetFqdnResponse{}
+	mi := &file_proto_pps_pps_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetFqdnResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetFqdnResponse) ProtoMessage() {}
+
+func (x *SetFqdnResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetFqdnResponse.ProtoReflect.Descriptor instead.
+func (*SetFqdnResponse) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{19}
+}
+
+type SetFriendlyNameRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          string                 `protobuf:"bytes,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetFriendlyNameRequest) Reset() {
+	*x = SetFriendlyNameRequest{}
+	mi := &file_proto_pps_pps_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetFriendlyNameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetFriendlyNameRequest) ProtoMessage() {}
+
+func (x *SetFriendlyNameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetFriendlyNameRequest.ProtoReflect.Descriptor instead.
+func (*SetFriendlyNameRequest) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{20}
+}
+
+func (x *SetFriendlyNameRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetFriendlyNameRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type SetFriendlyNameResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetFriendlyNameResponse) Reset() {
+	*x = SetFriendlyNameResponse{}
+	mi := &file_proto_pps_pps_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetFriendlyNameResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetFriendlyNameResponse) ProtoMessage() {}
+
+func (x *SetFriendlyNameResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetFriendlyNameResponse.ProtoReflect.Descriptor instead.
+func (*SetFriendlyNameResponse) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{21}
+}
+
+type SetMatchAllOisRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetMatchAllOisRequest) Reset() {
+	*x = SetMatchAllOisRequest{}
+	mi := &file_proto_pps_pps_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetMatchAllOisRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetMatchAllOisRequest) ProtoMessage() {}
+
+func (x *SetMatchAllOisRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetMatchAllOisRequest.ProtoReflect.Descriptor instead.
+func (*SetMatchAllOisRequest) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{22}
+}
+
+func (x *SetMatchAllOisRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetMatchAllOisRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetMatchAllOisResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetMatchAllOisResponse) Reset() {
+	*x = SetMatchAllOisResponse{}
+	mi := &file_proto_pps_pps_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetMatchAllOisResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetMatchAllOisResponse) ProtoMessage() {}
+
+func (x *SetMatchAllOisResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetMatchAllOisResponse.ProtoReflect.Descriptor instead.
+func (*SetMatchAllOisResponse) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{23}
+}
+
+type SetMatchAnyOisRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetMatchAnyOisRequest) Reset() {
+	*x = SetMatchAnyOisRequest{}
+	mi := &file_proto_pps_pps_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetMatchAnyOisRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetMatchAnyOisRequest) ProtoMessage() {}
+
+func (x *SetMatchAnyOisRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetMatchAnyOisRequest.ProtoReflect.Descriptor instead.
+func (*SetMatchAnyOisRequest) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{24}
+}
+
+func (x *SetMatchAnyOisRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetMatchAnyOisRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetMatchAnyOisResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetMatchAnyOisResponse) Reset() {
+	*x = SetMatchAnyOisResponse{}
+	mi := &file_proto_pps_pps_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetMatchAnyOisResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetMatchAnyOisResponse) ProtoMessage() {}
+
+func (x *SetMatchAnyOisResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetMatchAnyOisResponse.ProtoReflect.Descriptor instead.
+func (*SetMatchAnyOisResponse) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{25}
+}
+
+type SetRoamingConsortiumOisRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetRoamingConsortiumOisRequest) Reset() {
+	*x = SetRoamingConsortiumOisRequest{}
+	mi := &file_proto_pps_pps_proto_msgTypes[26]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetRoamingConsortiumOisRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetRoamingConsortiumOisRequest) ProtoMessage() {}
+
+func (x *SetRoamingConsortiumOisRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[26]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetRoamingConsortiumOisRequest.ProtoReflect.Descriptor instead.
+func (*SetRoamingConsortiumOisRequest) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{26}
+}
+
+func (x *SetRoamingConsortiumOisRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetRoamingConsortiumOisRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetRoamingConsortiumOisResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetRoamingConsortiumOisResponse) Reset() {
+	*x = SetRoamingConsortiumOisResponse{}
+	mi := &file_proto_pps_pps_proto_msgTypes[27]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetRoamingConsortiumOisResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetRoamingConsortiumOisResponse) ProtoMessage() {}
+
+func (x *SetRoamingConsortiumOisResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[27]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetRoamingConsortiumOisResponse.ProtoReflect.Descriptor instead.
+func (*SetRoamingConsortiumOisResponse) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{27}
+}
+
+type ToStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringRequest) Reset() {
+	*x = ToStringRequest{}
+	mi := &file_proto_pps_pps_proto_msgTypes[28]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringRequest) ProtoMessage() {}
+
+func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[28]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringRequest.ProtoReflect.Descriptor instead.
+func (*ToStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{28}
+}
+
+func (x *ToStringRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type ToStringResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringResponse) Reset() {
+	*x = ToStringResponse{}
+	mi := &file_proto_pps_pps_proto_msgTypes[29]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringResponse) ProtoMessage() {}
+
+func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[29]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringResponse.ProtoReflect.Descriptor instead.
+func (*ToStringResponse) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{29}
+}
+
+func (x *ToStringResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type WriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WriteToParcelRequest) Reset() {
+	*x = WriteToParcelRequest{}
+	mi := &file_proto_pps_pps_proto_msgTypes[30]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WriteToParcelRequest) ProtoMessage() {}
+
+func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[30]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*WriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{30}
+}
+
+func (x *WriteToParcelRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *WriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *WriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type WriteToParcelResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WriteToParcelResponse) Reset() {
+	*x = WriteToParcelResponse{}
+	mi := &file_proto_pps_pps_proto_msgTypes[31]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WriteToParcelResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WriteToParcelResponse) ProtoMessage() {}
+
+func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[31]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WriteToParcelResponse.ProtoReflect.Descriptor instead.
+func (*WriteToParcelResponse) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{31}
+}
+
+type NewCredentialRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewCredentialRequest) Reset() {
+	*x = NewCredentialRequest{}
+	mi := &file_proto_pps_pps_proto_msgTypes[32]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewCredentialRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewCredentialRequest) ProtoMessage() {}
+
+func (x *NewCredentialRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[32]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewCredentialRequest.ProtoReflect.Descriptor instead.
+func (*NewCredentialRequest) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{32}
+}
+
+type NewCredentialResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewCredentialResponse) Reset() {
+	*x = NewCredentialResponse{}
+	mi := &file_proto_pps_pps_proto_msgTypes[33]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewCredentialResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewCredentialResponse) ProtoMessage() {}
+
+func (x *NewCredentialResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[33]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewCredentialResponse.ProtoReflect.Descriptor instead.
+func (*NewCredentialResponse) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{33}
+}
+
+func (x *NewCredentialResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetCaCertificateRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCaCertificateRequest) Reset() {
+	*x = GetCaCertificateRequest{}
+	mi := &file_proto_pps_pps_proto_msgTypes[34]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCaCertificateRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCaCertificateRequest) ProtoMessage() {}
+
+func (x *GetCaCertificateRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[34]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCaCertificateRequest.ProtoReflect.Descriptor instead.
+func (*GetCaCertificateRequest) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{34}
+}
+
+func (x *GetCaCertificateRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetCaCertificateResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCaCertificateResponse) Reset() {
+	*x = GetCaCertificateResponse{}
+	mi := &file_proto_pps_pps_proto_msgTypes[35]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCaCertificateResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCaCertificateResponse) ProtoMessage() {}
+
+func (x *GetCaCertificateResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[35]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCaCertificateResponse.ProtoReflect.Descriptor instead.
+func (*GetCaCertificateResponse) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{35}
+}
+
+func (x *GetCaCertificateResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetCertCredentialRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCertCredentialRequest) Reset() {
+	*x = GetCertCredentialRequest{}
+	mi := &file_proto_pps_pps_proto_msgTypes[36]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCertCredentialRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCertCredentialRequest) ProtoMessage() {}
+
+func (x *GetCertCredentialRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[36]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCertCredentialRequest.ProtoReflect.Descriptor instead.
+func (*GetCertCredentialRequest) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{36}
+}
+
+func (x *GetCertCredentialRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetCertCredentialResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCertCredentialResponse) Reset() {
+	*x = GetCertCredentialResponse{}
+	mi := &file_proto_pps_pps_proto_msgTypes[37]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCertCredentialResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCertCredentialResponse) ProtoMessage() {}
+
+func (x *GetCertCredentialResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[37]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCertCredentialResponse.ProtoReflect.Descriptor instead.
+func (*GetCertCredentialResponse) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{37}
+}
+
+func (x *GetCertCredentialResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetClientCertificateChainRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetClientCertificateChainRequest) Reset() {
+	*x = GetClientCertificateChainRequest{}
+	mi := &file_proto_pps_pps_proto_msgTypes[38]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetClientCertificateChainRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetClientCertificateChainRequest) ProtoMessage() {}
+
+func (x *GetClientCertificateChainRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[38]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetClientCertificateChainRequest.ProtoReflect.Descriptor instead.
+func (*GetClientCertificateChainRequest) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{38}
+}
+
+func (x *GetClientCertificateChainRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetClientCertificateChainResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetClientCertificateChainResponse) Reset() {
+	*x = GetClientCertificateChainResponse{}
+	mi := &file_proto_pps_pps_proto_msgTypes[39]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetClientCertificateChainResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetClientCertificateChainResponse) ProtoMessage() {}
+
+func (x *GetClientCertificateChainResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[39]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetClientCertificateChainResponse.ProtoReflect.Descriptor instead.
+func (*GetClientCertificateChainResponse) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{39}
+}
+
+func (x *GetClientCertificateChainResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetClientPrivateKeyRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetClientPrivateKeyRequest) Reset() {
+	*x = GetClientPrivateKeyRequest{}
+	mi := &file_proto_pps_pps_proto_msgTypes[40]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetClientPrivateKeyRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetClientPrivateKeyRequest) ProtoMessage() {}
+
+func (x *GetClientPrivateKeyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[40]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetClientPrivateKeyRequest.ProtoReflect.Descriptor instead.
+func (*GetClientPrivateKeyRequest) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{40}
+}
+
+func (x *GetClientPrivateKeyRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetClientPrivateKeyResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetClientPrivateKeyResponse) Reset() {
+	*x = GetClientPrivateKeyResponse{}
+	mi := &file_proto_pps_pps_proto_msgTypes[41]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetClientPrivateKeyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetClientPrivateKeyResponse) ProtoMessage() {}
+
+func (x *GetClientPrivateKeyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[41]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetClientPrivateKeyResponse.ProtoReflect.Descriptor instead.
+func (*GetClientPrivateKeyResponse) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{41}
+}
+
+func (x *GetClientPrivateKeyResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetMinimumTlsVersionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMinimumTlsVersionRequest) Reset() {
+	*x = GetMinimumTlsVersionRequest{}
+	mi := &file_proto_pps_pps_proto_msgTypes[42]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMinimumTlsVersionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMinimumTlsVersionRequest) ProtoMessage() {}
+
+func (x *GetMinimumTlsVersionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[42]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMinimumTlsVersionRequest.ProtoReflect.Descriptor instead.
+func (*GetMinimumTlsVersionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{42}
+}
+
+func (x *GetMinimumTlsVersionRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetMinimumTlsVersionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMinimumTlsVersionResponse) Reset() {
+	*x = GetMinimumTlsVersionResponse{}
+	mi := &file_proto_pps_pps_proto_msgTypes[43]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMinimumTlsVersionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMinimumTlsVersionResponse) ProtoMessage() {}
+
+func (x *GetMinimumTlsVersionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[43]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMinimumTlsVersionResponse.ProtoReflect.Descriptor instead.
+func (*GetMinimumTlsVersionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{43}
+}
+
+func (x *GetMinimumTlsVersionResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetRealmRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRealmRequest) Reset() {
+	*x = GetRealmRequest{}
+	mi := &file_proto_pps_pps_proto_msgTypes[44]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRealmRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRealmRequest) ProtoMessage() {}
+
+func (x *GetRealmRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[44]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRealmRequest.ProtoReflect.Descriptor instead.
+func (*GetRealmRequest) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{44}
+}
+
+func (x *GetRealmRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetRealmResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRealmResponse) Reset() {
+	*x = GetRealmResponse{}
+	mi := &file_proto_pps_pps_proto_msgTypes[45]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRealmResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRealmResponse) ProtoMessage() {}
+
+func (x *GetRealmResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[45]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRealmResponse.ProtoReflect.Descriptor instead.
+func (*GetRealmResponse) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{45}
+}
+
+func (x *GetRealmResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetSimCredentialRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSimCredentialRequest) Reset() {
+	*x = GetSimCredentialRequest{}
+	mi := &file_proto_pps_pps_proto_msgTypes[46]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSimCredentialRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSimCredentialRequest) ProtoMessage() {}
+
+func (x *GetSimCredentialRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[46]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSimCredentialRequest.ProtoReflect.Descriptor instead.
+func (*GetSimCredentialRequest) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{46}
+}
+
+func (x *GetSimCredentialRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetSimCredentialResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSimCredentialResponse) Reset() {
+	*x = GetSimCredentialResponse{}
+	mi := &file_proto_pps_pps_proto_msgTypes[47]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSimCredentialResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSimCredentialResponse) ProtoMessage() {}
+
+func (x *GetSimCredentialResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[47]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSimCredentialResponse.ProtoReflect.Descriptor instead.
+func (*GetSimCredentialResponse) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{47}
+}
+
+func (x *GetSimCredentialResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetUserCredentialRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetUserCredentialRequest) Reset() {
+	*x = GetUserCredentialRequest{}
+	mi := &file_proto_pps_pps_proto_msgTypes[48]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetUserCredentialRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetUserCredentialRequest) ProtoMessage() {}
+
+func (x *GetUserCredentialRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[48]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetUserCredentialRequest.ProtoReflect.Descriptor instead.
+func (*GetUserCredentialRequest) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{48}
+}
+
+func (x *GetUserCredentialRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetUserCredentialResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetUserCredentialResponse) Reset() {
+	*x = GetUserCredentialResponse{}
+	mi := &file_proto_pps_pps_proto_msgTypes[49]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetUserCredentialResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetUserCredentialResponse) ProtoMessage() {}
+
+func (x *GetUserCredentialResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[49]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetUserCredentialResponse.ProtoReflect.Descriptor instead.
+func (*GetUserCredentialResponse) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{49}
+}
+
+func (x *GetUserCredentialResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetCaCertificateRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetCaCertificateRequest) Reset() {
+	*x = SetCaCertificateRequest{}
+	mi := &file_proto_pps_pps_proto_msgTypes[50]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetCaCertificateRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetCaCertificateRequest) ProtoMessage() {}
+
+func (x *SetCaCertificateRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[50]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetCaCertificateRequest.ProtoReflect.Descriptor instead.
+func (*SetCaCertificateRequest) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{50}
+}
+
+func (x *SetCaCertificateRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetCaCertificateRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetCaCertificateResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetCaCertificateResponse) Reset() {
+	*x = SetCaCertificateResponse{}
+	mi := &file_proto_pps_pps_proto_msgTypes[51]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetCaCertificateResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetCaCertificateResponse) ProtoMessage() {}
+
+func (x *SetCaCertificateResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[51]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetCaCertificateResponse.ProtoReflect.Descriptor instead.
+func (*SetCaCertificateResponse) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{51}
+}
+
+type SetCertCredentialRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetCertCredentialRequest) Reset() {
+	*x = SetCertCredentialRequest{}
+	mi := &file_proto_pps_pps_proto_msgTypes[52]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetCertCredentialRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetCertCredentialRequest) ProtoMessage() {}
+
+func (x *SetCertCredentialRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[52]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetCertCredentialRequest.ProtoReflect.Descriptor instead.
+func (*SetCertCredentialRequest) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{52}
+}
+
+func (x *SetCertCredentialRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetCertCredentialRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetCertCredentialResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetCertCredentialResponse) Reset() {
+	*x = SetCertCredentialResponse{}
+	mi := &file_proto_pps_pps_proto_msgTypes[53]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetCertCredentialResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetCertCredentialResponse) ProtoMessage() {}
+
+func (x *SetCertCredentialResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[53]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetCertCredentialResponse.ProtoReflect.Descriptor instead.
+func (*SetCertCredentialResponse) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{53}
+}
+
+type SetClientCertificateChainRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetClientCertificateChainRequest) Reset() {
+	*x = SetClientCertificateChainRequest{}
+	mi := &file_proto_pps_pps_proto_msgTypes[54]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetClientCertificateChainRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetClientCertificateChainRequest) ProtoMessage() {}
+
+func (x *SetClientCertificateChainRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[54]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetClientCertificateChainRequest.ProtoReflect.Descriptor instead.
+func (*SetClientCertificateChainRequest) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{54}
+}
+
+func (x *SetClientCertificateChainRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetClientCertificateChainRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetClientCertificateChainResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetClientCertificateChainResponse) Reset() {
+	*x = SetClientCertificateChainResponse{}
+	mi := &file_proto_pps_pps_proto_msgTypes[55]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetClientCertificateChainResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetClientCertificateChainResponse) ProtoMessage() {}
+
+func (x *SetClientCertificateChainResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[55]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetClientCertificateChainResponse.ProtoReflect.Descriptor instead.
+func (*SetClientCertificateChainResponse) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{55}
+}
+
+type SetClientPrivateKeyRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetClientPrivateKeyRequest) Reset() {
+	*x = SetClientPrivateKeyRequest{}
+	mi := &file_proto_pps_pps_proto_msgTypes[56]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetClientPrivateKeyRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetClientPrivateKeyRequest) ProtoMessage() {}
+
+func (x *SetClientPrivateKeyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[56]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetClientPrivateKeyRequest.ProtoReflect.Descriptor instead.
+func (*SetClientPrivateKeyRequest) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{56}
+}
+
+func (x *SetClientPrivateKeyRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetClientPrivateKeyRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetClientPrivateKeyResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetClientPrivateKeyResponse) Reset() {
+	*x = SetClientPrivateKeyResponse{}
+	mi := &file_proto_pps_pps_proto_msgTypes[57]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetClientPrivateKeyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetClientPrivateKeyResponse) ProtoMessage() {}
+
+func (x *SetClientPrivateKeyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[57]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetClientPrivateKeyResponse.ProtoReflect.Descriptor instead.
+func (*SetClientPrivateKeyResponse) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{57}
+}
+
+type SetMinimumTlsVersionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetMinimumTlsVersionRequest) Reset() {
+	*x = SetMinimumTlsVersionRequest{}
+	mi := &file_proto_pps_pps_proto_msgTypes[58]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetMinimumTlsVersionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetMinimumTlsVersionRequest) ProtoMessage() {}
+
+func (x *SetMinimumTlsVersionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[58]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetMinimumTlsVersionRequest.ProtoReflect.Descriptor instead.
+func (*SetMinimumTlsVersionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{58}
+}
+
+func (x *SetMinimumTlsVersionRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetMinimumTlsVersionRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetMinimumTlsVersionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetMinimumTlsVersionResponse) Reset() {
+	*x = SetMinimumTlsVersionResponse{}
+	mi := &file_proto_pps_pps_proto_msgTypes[59]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetMinimumTlsVersionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetMinimumTlsVersionResponse) ProtoMessage() {}
+
+func (x *SetMinimumTlsVersionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[59]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetMinimumTlsVersionResponse.ProtoReflect.Descriptor instead.
+func (*SetMinimumTlsVersionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{59}
+}
+
+type SetRealmRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          string                 `protobuf:"bytes,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetRealmRequest) Reset() {
+	*x = SetRealmRequest{}
+	mi := &file_proto_pps_pps_proto_msgTypes[60]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetRealmRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetRealmRequest) ProtoMessage() {}
+
+func (x *SetRealmRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[60]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetRealmRequest.ProtoReflect.Descriptor instead.
+func (*SetRealmRequest) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{60}
+}
+
+func (x *SetRealmRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetRealmRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type SetRealmResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetRealmResponse) Reset() {
+	*x = SetRealmResponse{}
+	mi := &file_proto_pps_pps_proto_msgTypes[61]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetRealmResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetRealmResponse) ProtoMessage() {}
+
+func (x *SetRealmResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[61]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetRealmResponse.ProtoReflect.Descriptor instead.
+func (*SetRealmResponse) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{61}
+}
+
+type SetSimCredentialRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetSimCredentialRequest) Reset() {
+	*x = SetSimCredentialRequest{}
+	mi := &file_proto_pps_pps_proto_msgTypes[62]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetSimCredentialRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetSimCredentialRequest) ProtoMessage() {}
+
+func (x *SetSimCredentialRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[62]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetSimCredentialRequest.ProtoReflect.Descriptor instead.
+func (*SetSimCredentialRequest) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{62}
+}
+
+func (x *SetSimCredentialRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetSimCredentialRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetSimCredentialResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetSimCredentialResponse) Reset() {
+	*x = SetSimCredentialResponse{}
+	mi := &file_proto_pps_pps_proto_msgTypes[63]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetSimCredentialResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetSimCredentialResponse) ProtoMessage() {}
+
+func (x *SetSimCredentialResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[63]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetSimCredentialResponse.ProtoReflect.Descriptor instead.
+func (*SetSimCredentialResponse) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{63}
+}
+
+type SetUserCredentialRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetUserCredentialRequest) Reset() {
+	*x = SetUserCredentialRequest{}
+	mi := &file_proto_pps_pps_proto_msgTypes[64]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetUserCredentialRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetUserCredentialRequest) ProtoMessage() {}
+
+func (x *SetUserCredentialRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[64]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetUserCredentialRequest.ProtoReflect.Descriptor instead.
+func (*SetUserCredentialRequest) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{64}
+}
+
+func (x *SetUserCredentialRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetUserCredentialRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetUserCredentialResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetUserCredentialResponse) Reset() {
+	*x = SetUserCredentialResponse{}
+	mi := &file_proto_pps_pps_proto_msgTypes[65]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetUserCredentialResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetUserCredentialResponse) ProtoMessage() {}
+
+func (x *SetUserCredentialResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[65]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetUserCredentialResponse.ProtoReflect.Descriptor instead.
+func (*SetUserCredentialResponse) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{65}
+}
+
+type CredentialCertificateCredentialDescribeContentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CredentialCertificateCredentialDescribeContentsRequest) Reset() {
+	*x = CredentialCertificateCredentialDescribeContentsRequest{}
+	mi := &file_proto_pps_pps_proto_msgTypes[66]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CredentialCertificateCredentialDescribeContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CredentialCertificateCredentialDescribeContentsRequest) ProtoMessage() {}
+
+func (x *CredentialCertificateCredentialDescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[66]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CredentialCertificateCredentialDescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*CredentialCertificateCredentialDescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{66}
+}
+
+type CredentialCertificateCredentialEqualsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CredentialCertificateCredentialEqualsRequest) Reset() {
+	*x = CredentialCertificateCredentialEqualsRequest{}
+	mi := &file_proto_pps_pps_proto_msgTypes[67]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CredentialCertificateCredentialEqualsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CredentialCertificateCredentialEqualsRequest) ProtoMessage() {}
+
+func (x *CredentialCertificateCredentialEqualsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[67]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CredentialCertificateCredentialEqualsRequest.ProtoReflect.Descriptor instead.
+func (*CredentialCertificateCredentialEqualsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{67}
+}
+
+func (x *CredentialCertificateCredentialEqualsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetCertSha256FingerprintRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCertSha256FingerprintRequest) Reset() {
+	*x = GetCertSha256FingerprintRequest{}
+	mi := &file_proto_pps_pps_proto_msgTypes[68]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCertSha256FingerprintRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCertSha256FingerprintRequest) ProtoMessage() {}
+
+func (x *GetCertSha256FingerprintRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[68]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCertSha256FingerprintRequest.ProtoReflect.Descriptor instead.
+func (*GetCertSha256FingerprintRequest) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{68}
+}
+
+type GetCertSha256FingerprintResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCertSha256FingerprintResponse) Reset() {
+	*x = GetCertSha256FingerprintResponse{}
+	mi := &file_proto_pps_pps_proto_msgTypes[69]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCertSha256FingerprintResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCertSha256FingerprintResponse) ProtoMessage() {}
+
+func (x *GetCertSha256FingerprintResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[69]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCertSha256FingerprintResponse.ProtoReflect.Descriptor instead.
+func (*GetCertSha256FingerprintResponse) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{69}
+}
+
+func (x *GetCertSha256FingerprintResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetCertTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCertTypeRequest) Reset() {
+	*x = GetCertTypeRequest{}
+	mi := &file_proto_pps_pps_proto_msgTypes[70]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCertTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCertTypeRequest) ProtoMessage() {}
+
+func (x *GetCertTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[70]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCertTypeRequest.ProtoReflect.Descriptor instead.
+func (*GetCertTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{70}
+}
+
+type GetCertTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCertTypeResponse) Reset() {
+	*x = GetCertTypeResponse{}
+	mi := &file_proto_pps_pps_proto_msgTypes[71]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCertTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCertTypeResponse) ProtoMessage() {}
+
+func (x *GetCertTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[71]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCertTypeResponse.ProtoReflect.Descriptor instead.
+func (*GetCertTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{71}
+}
+
+func (x *GetCertTypeResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type CredentialCertificateCredentialHashCodeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CredentialCertificateCredentialHashCodeRequest) Reset() {
+	*x = CredentialCertificateCredentialHashCodeRequest{}
+	mi := &file_proto_pps_pps_proto_msgTypes[72]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CredentialCertificateCredentialHashCodeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CredentialCertificateCredentialHashCodeRequest) ProtoMessage() {}
+
+func (x *CredentialCertificateCredentialHashCodeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[72]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CredentialCertificateCredentialHashCodeRequest.ProtoReflect.Descriptor instead.
+func (*CredentialCertificateCredentialHashCodeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{72}
+}
+
+type SetCertSha256FingerprintRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetCertSha256FingerprintRequest) Reset() {
+	*x = SetCertSha256FingerprintRequest{}
+	mi := &file_proto_pps_pps_proto_msgTypes[73]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetCertSha256FingerprintRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetCertSha256FingerprintRequest) ProtoMessage() {}
+
+func (x *SetCertSha256FingerprintRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[73]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetCertSha256FingerprintRequest.ProtoReflect.Descriptor instead.
+func (*SetCertSha256FingerprintRequest) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{73}
+}
+
+func (x *SetCertSha256FingerprintRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetCertSha256FingerprintResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetCertSha256FingerprintResponse) Reset() {
+	*x = SetCertSha256FingerprintResponse{}
+	mi := &file_proto_pps_pps_proto_msgTypes[74]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetCertSha256FingerprintResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetCertSha256FingerprintResponse) ProtoMessage() {}
+
+func (x *SetCertSha256FingerprintResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[74]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetCertSha256FingerprintResponse.ProtoReflect.Descriptor instead.
+func (*SetCertSha256FingerprintResponse) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{74}
+}
+
+type SetCertTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetCertTypeRequest) Reset() {
+	*x = SetCertTypeRequest{}
+	mi := &file_proto_pps_pps_proto_msgTypes[75]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetCertTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetCertTypeRequest) ProtoMessage() {}
+
+func (x *SetCertTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[75]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetCertTypeRequest.ProtoReflect.Descriptor instead.
+func (*SetCertTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{75}
+}
+
+func (x *SetCertTypeRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type SetCertTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetCertTypeResponse) Reset() {
+	*x = SetCertTypeResponse{}
+	mi := &file_proto_pps_pps_proto_msgTypes[76]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetCertTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetCertTypeResponse) ProtoMessage() {}
+
+func (x *SetCertTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[76]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetCertTypeResponse.ProtoReflect.Descriptor instead.
+func (*SetCertTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{76}
+}
+
+type CredentialCertificateCredentialToStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CredentialCertificateCredentialToStringRequest) Reset() {
+	*x = CredentialCertificateCredentialToStringRequest{}
+	mi := &file_proto_pps_pps_proto_msgTypes[77]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CredentialCertificateCredentialToStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CredentialCertificateCredentialToStringRequest) ProtoMessage() {}
+
+func (x *CredentialCertificateCredentialToStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[77]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CredentialCertificateCredentialToStringRequest.ProtoReflect.Descriptor instead.
+func (*CredentialCertificateCredentialToStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{77}
+}
+
+type CredentialCertificateCredentialWriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CredentialCertificateCredentialWriteToParcelRequest) Reset() {
+	*x = CredentialCertificateCredentialWriteToParcelRequest{}
+	mi := &file_proto_pps_pps_proto_msgTypes[78]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CredentialCertificateCredentialWriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CredentialCertificateCredentialWriteToParcelRequest) ProtoMessage() {}
+
+func (x *CredentialCertificateCredentialWriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[78]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CredentialCertificateCredentialWriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*CredentialCertificateCredentialWriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{78}
+}
+
+func (x *CredentialCertificateCredentialWriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *CredentialCertificateCredentialWriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type CredentialSimCredentialDescribeContentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CredentialSimCredentialDescribeContentsRequest) Reset() {
+	*x = CredentialSimCredentialDescribeContentsRequest{}
+	mi := &file_proto_pps_pps_proto_msgTypes[79]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CredentialSimCredentialDescribeContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CredentialSimCredentialDescribeContentsRequest) ProtoMessage() {}
+
+func (x *CredentialSimCredentialDescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[79]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CredentialSimCredentialDescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*CredentialSimCredentialDescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{79}
+}
+
+type CredentialSimCredentialEqualsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CredentialSimCredentialEqualsRequest) Reset() {
+	*x = CredentialSimCredentialEqualsRequest{}
+	mi := &file_proto_pps_pps_proto_msgTypes[80]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CredentialSimCredentialEqualsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CredentialSimCredentialEqualsRequest) ProtoMessage() {}
+
+func (x *CredentialSimCredentialEqualsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[80]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CredentialSimCredentialEqualsRequest.ProtoReflect.Descriptor instead.
+func (*CredentialSimCredentialEqualsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{80}
+}
+
+func (x *CredentialSimCredentialEqualsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetEapTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEapTypeRequest) Reset() {
+	*x = GetEapTypeRequest{}
+	mi := &file_proto_pps_pps_proto_msgTypes[81]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEapTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEapTypeRequest) ProtoMessage() {}
+
+func (x *GetEapTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[81]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEapTypeRequest.ProtoReflect.Descriptor instead.
+func (*GetEapTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{81}
+}
+
+type GetEapTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEapTypeResponse) Reset() {
+	*x = GetEapTypeResponse{}
+	mi := &file_proto_pps_pps_proto_msgTypes[82]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEapTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEapTypeResponse) ProtoMessage() {}
+
+func (x *GetEapTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[82]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEapTypeResponse.ProtoReflect.Descriptor instead.
+func (*GetEapTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{82}
+}
+
+func (x *GetEapTypeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetImsiRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetImsiRequest) Reset() {
+	*x = GetImsiRequest{}
+	mi := &file_proto_pps_pps_proto_msgTypes[83]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetImsiRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetImsiRequest) ProtoMessage() {}
+
+func (x *GetImsiRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[83]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetImsiRequest.ProtoReflect.Descriptor instead.
+func (*GetImsiRequest) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{83}
+}
+
+type GetImsiResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetImsiResponse) Reset() {
+	*x = GetImsiResponse{}
+	mi := &file_proto_pps_pps_proto_msgTypes[84]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetImsiResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetImsiResponse) ProtoMessage() {}
+
+func (x *GetImsiResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[84]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetImsiResponse.ProtoReflect.Descriptor instead.
+func (*GetImsiResponse) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{84}
+}
+
+func (x *GetImsiResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type CredentialSimCredentialHashCodeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CredentialSimCredentialHashCodeRequest) Reset() {
+	*x = CredentialSimCredentialHashCodeRequest{}
+	mi := &file_proto_pps_pps_proto_msgTypes[85]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CredentialSimCredentialHashCodeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CredentialSimCredentialHashCodeRequest) ProtoMessage() {}
+
+func (x *CredentialSimCredentialHashCodeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[85]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CredentialSimCredentialHashCodeRequest.ProtoReflect.Descriptor instead.
+func (*CredentialSimCredentialHashCodeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{85}
+}
+
+type SetEapTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetEapTypeRequest) Reset() {
+	*x = SetEapTypeRequest{}
+	mi := &file_proto_pps_pps_proto_msgTypes[86]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetEapTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetEapTypeRequest) ProtoMessage() {}
+
+func (x *SetEapTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[86]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetEapTypeRequest.ProtoReflect.Descriptor instead.
+func (*SetEapTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{86}
+}
+
+func (x *SetEapTypeRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetEapTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetEapTypeResponse) Reset() {
+	*x = SetEapTypeResponse{}
+	mi := &file_proto_pps_pps_proto_msgTypes[87]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetEapTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetEapTypeResponse) ProtoMessage() {}
+
+func (x *SetEapTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[87]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetEapTypeResponse.ProtoReflect.Descriptor instead.
+func (*SetEapTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{87}
+}
+
+type SetImsiRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetImsiRequest) Reset() {
+	*x = SetImsiRequest{}
+	mi := &file_proto_pps_pps_proto_msgTypes[88]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetImsiRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetImsiRequest) ProtoMessage() {}
+
+func (x *SetImsiRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[88]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetImsiRequest.ProtoReflect.Descriptor instead.
+func (*SetImsiRequest) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{88}
+}
+
+func (x *SetImsiRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type SetImsiResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetImsiResponse) Reset() {
+	*x = SetImsiResponse{}
+	mi := &file_proto_pps_pps_proto_msgTypes[89]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetImsiResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetImsiResponse) ProtoMessage() {}
+
+func (x *SetImsiResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[89]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetImsiResponse.ProtoReflect.Descriptor instead.
+func (*SetImsiResponse) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{89}
+}
+
+type CredentialSimCredentialToStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CredentialSimCredentialToStringRequest) Reset() {
+	*x = CredentialSimCredentialToStringRequest{}
+	mi := &file_proto_pps_pps_proto_msgTypes[90]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CredentialSimCredentialToStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CredentialSimCredentialToStringRequest) ProtoMessage() {}
+
+func (x *CredentialSimCredentialToStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[90]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CredentialSimCredentialToStringRequest.ProtoReflect.Descriptor instead.
+func (*CredentialSimCredentialToStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{90}
+}
+
+type CredentialSimCredentialWriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CredentialSimCredentialWriteToParcelRequest) Reset() {
+	*x = CredentialSimCredentialWriteToParcelRequest{}
+	mi := &file_proto_pps_pps_proto_msgTypes[91]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CredentialSimCredentialWriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CredentialSimCredentialWriteToParcelRequest) ProtoMessage() {}
+
+func (x *CredentialSimCredentialWriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[91]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CredentialSimCredentialWriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*CredentialSimCredentialWriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{91}
+}
+
+func (x *CredentialSimCredentialWriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *CredentialSimCredentialWriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type CredentialUserCredentialDescribeContentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CredentialUserCredentialDescribeContentsRequest) Reset() {
+	*x = CredentialUserCredentialDescribeContentsRequest{}
+	mi := &file_proto_pps_pps_proto_msgTypes[92]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CredentialUserCredentialDescribeContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CredentialUserCredentialDescribeContentsRequest) ProtoMessage() {}
+
+func (x *CredentialUserCredentialDescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[92]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CredentialUserCredentialDescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*CredentialUserCredentialDescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{92}
+}
+
+type CredentialUserCredentialEqualsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CredentialUserCredentialEqualsRequest) Reset() {
+	*x = CredentialUserCredentialEqualsRequest{}
+	mi := &file_proto_pps_pps_proto_msgTypes[93]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CredentialUserCredentialEqualsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CredentialUserCredentialEqualsRequest) ProtoMessage() {}
+
+func (x *CredentialUserCredentialEqualsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[93]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CredentialUserCredentialEqualsRequest.ProtoReflect.Descriptor instead.
+func (*CredentialUserCredentialEqualsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{93}
+}
+
+func (x *CredentialUserCredentialEqualsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetNonEapInnerMethodRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNonEapInnerMethodRequest) Reset() {
+	*x = GetNonEapInnerMethodRequest{}
+	mi := &file_proto_pps_pps_proto_msgTypes[94]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNonEapInnerMethodRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNonEapInnerMethodRequest) ProtoMessage() {}
+
+func (x *GetNonEapInnerMethodRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[94]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNonEapInnerMethodRequest.ProtoReflect.Descriptor instead.
+func (*GetNonEapInnerMethodRequest) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{94}
+}
+
+type GetNonEapInnerMethodResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNonEapInnerMethodResponse) Reset() {
+	*x = GetNonEapInnerMethodResponse{}
+	mi := &file_proto_pps_pps_proto_msgTypes[95]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNonEapInnerMethodResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNonEapInnerMethodResponse) ProtoMessage() {}
+
+func (x *GetNonEapInnerMethodResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[95]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNonEapInnerMethodResponse.ProtoReflect.Descriptor instead.
+func (*GetNonEapInnerMethodResponse) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{95}
+}
+
+func (x *GetNonEapInnerMethodResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetPasswordRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPasswordRequest) Reset() {
+	*x = GetPasswordRequest{}
+	mi := &file_proto_pps_pps_proto_msgTypes[96]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPasswordRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPasswordRequest) ProtoMessage() {}
+
+func (x *GetPasswordRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[96]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPasswordRequest.ProtoReflect.Descriptor instead.
+func (*GetPasswordRequest) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{96}
+}
+
+type GetPasswordResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPasswordResponse) Reset() {
+	*x = GetPasswordResponse{}
+	mi := &file_proto_pps_pps_proto_msgTypes[97]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPasswordResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPasswordResponse) ProtoMessage() {}
+
+func (x *GetPasswordResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[97]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPasswordResponse.ProtoReflect.Descriptor instead.
+func (*GetPasswordResponse) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{97}
+}
+
+func (x *GetPasswordResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetUsernameRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetUsernameRequest) Reset() {
+	*x = GetUsernameRequest{}
+	mi := &file_proto_pps_pps_proto_msgTypes[98]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetUsernameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetUsernameRequest) ProtoMessage() {}
+
+func (x *GetUsernameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[98]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetUsernameRequest.ProtoReflect.Descriptor instead.
+func (*GetUsernameRequest) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{98}
+}
+
+type GetUsernameResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetUsernameResponse) Reset() {
+	*x = GetUsernameResponse{}
+	mi := &file_proto_pps_pps_proto_msgTypes[99]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetUsernameResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetUsernameResponse) ProtoMessage() {}
+
+func (x *GetUsernameResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[99]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetUsernameResponse.ProtoReflect.Descriptor instead.
+func (*GetUsernameResponse) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{99}
+}
+
+func (x *GetUsernameResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type CredentialUserCredentialHashCodeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CredentialUserCredentialHashCodeRequest) Reset() {
+	*x = CredentialUserCredentialHashCodeRequest{}
+	mi := &file_proto_pps_pps_proto_msgTypes[100]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CredentialUserCredentialHashCodeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CredentialUserCredentialHashCodeRequest) ProtoMessage() {}
+
+func (x *CredentialUserCredentialHashCodeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[100]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CredentialUserCredentialHashCodeRequest.ProtoReflect.Descriptor instead.
+func (*CredentialUserCredentialHashCodeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{100}
+}
+
+type SetNonEapInnerMethodRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetNonEapInnerMethodRequest) Reset() {
+	*x = SetNonEapInnerMethodRequest{}
+	mi := &file_proto_pps_pps_proto_msgTypes[101]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetNonEapInnerMethodRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetNonEapInnerMethodRequest) ProtoMessage() {}
+
+func (x *SetNonEapInnerMethodRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[101]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetNonEapInnerMethodRequest.ProtoReflect.Descriptor instead.
+func (*SetNonEapInnerMethodRequest) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{101}
+}
+
+func (x *SetNonEapInnerMethodRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type SetNonEapInnerMethodResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetNonEapInnerMethodResponse) Reset() {
+	*x = SetNonEapInnerMethodResponse{}
+	mi := &file_proto_pps_pps_proto_msgTypes[102]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetNonEapInnerMethodResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetNonEapInnerMethodResponse) ProtoMessage() {}
+
+func (x *SetNonEapInnerMethodResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[102]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetNonEapInnerMethodResponse.ProtoReflect.Descriptor instead.
+func (*SetNonEapInnerMethodResponse) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{102}
+}
+
+type SetPasswordRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPasswordRequest) Reset() {
+	*x = SetPasswordRequest{}
+	mi := &file_proto_pps_pps_proto_msgTypes[103]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPasswordRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPasswordRequest) ProtoMessage() {}
+
+func (x *SetPasswordRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[103]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPasswordRequest.ProtoReflect.Descriptor instead.
+func (*SetPasswordRequest) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{103}
+}
+
+func (x *SetPasswordRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type SetPasswordResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPasswordResponse) Reset() {
+	*x = SetPasswordResponse{}
+	mi := &file_proto_pps_pps_proto_msgTypes[104]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPasswordResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPasswordResponse) ProtoMessage() {}
+
+func (x *SetPasswordResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[104]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPasswordResponse.ProtoReflect.Descriptor instead.
+func (*SetPasswordResponse) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{104}
+}
+
+type SetUsernameRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetUsernameRequest) Reset() {
+	*x = SetUsernameRequest{}
+	mi := &file_proto_pps_pps_proto_msgTypes[105]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetUsernameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetUsernameRequest) ProtoMessage() {}
+
+func (x *SetUsernameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[105]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetUsernameRequest.ProtoReflect.Descriptor instead.
+func (*SetUsernameRequest) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{105}
+}
+
+func (x *SetUsernameRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type SetUsernameResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetUsernameResponse) Reset() {
+	*x = SetUsernameResponse{}
+	mi := &file_proto_pps_pps_proto_msgTypes[106]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetUsernameResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetUsernameResponse) ProtoMessage() {}
+
+func (x *SetUsernameResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[106]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetUsernameResponse.ProtoReflect.Descriptor instead.
+func (*SetUsernameResponse) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{106}
+}
+
+type CredentialUserCredentialToStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CredentialUserCredentialToStringRequest) Reset() {
+	*x = CredentialUserCredentialToStringRequest{}
+	mi := &file_proto_pps_pps_proto_msgTypes[107]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CredentialUserCredentialToStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CredentialUserCredentialToStringRequest) ProtoMessage() {}
+
+func (x *CredentialUserCredentialToStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[107]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CredentialUserCredentialToStringRequest.ProtoReflect.Descriptor instead.
+func (*CredentialUserCredentialToStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{107}
+}
+
+type CredentialUserCredentialWriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CredentialUserCredentialWriteToParcelRequest) Reset() {
+	*x = CredentialUserCredentialWriteToParcelRequest{}
+	mi := &file_proto_pps_pps_proto_msgTypes[108]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CredentialUserCredentialWriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CredentialUserCredentialWriteToParcelRequest) ProtoMessage() {}
+
+func (x *CredentialUserCredentialWriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[108]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CredentialUserCredentialWriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*CredentialUserCredentialWriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{108}
+}
+
+func (x *CredentialUserCredentialWriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *CredentialUserCredentialWriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
 var File_proto_pps_pps_proto protoreflect.FileDescriptor
 
 const file_proto_pps_pps_proto_rawDesc = "" +
 	"\n" +
-	"\x13proto/pps/pps.proto\x12\x03ppsB-Z+github.com/AndroidGoLab/jni-proxy/proto/ppsb\x06proto3"
+	"\x13proto/pps/pps.proto\x12\x03pps\"\x12\n" +
+	"\x10NewHomeSpRequest\"+\n" +
+	"\x11NewHomeSpResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"1\n" +
+	"\x17DescribeContentsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"2\n" +
+	"\x18DescribeContentsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\";\n" +
+	"\rEqualsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"(\n" +
+	"\x0eEqualsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"(\n" +
+	"\x0eGetFqdnRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\")\n" +
+	"\x0fGetFqdnResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"0\n" +
+	"\x16GetFriendlyNameRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"1\n" +
+	"\x17GetFriendlyNameResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"/\n" +
+	"\x15GetMatchAllOisRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"0\n" +
+	"\x16GetMatchAllOisResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"/\n" +
+	"\x15GetMatchAnyOisRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"0\n" +
+	"\x16GetMatchAnyOisResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"8\n" +
+	"\x1eGetRoamingConsortiumOisRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"9\n" +
+	"\x1fGetRoamingConsortiumOisResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\")\n" +
+	"\x0fHashCodeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
+	"\x10HashCodeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"<\n" +
+	"\x0eSetFqdnRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\tR\x04arg0\"\x11\n" +
+	"\x0fSetFqdnResponse\"D\n" +
+	"\x16SetFriendlyNameRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\tR\x04arg0\"\x19\n" +
+	"\x17SetFriendlyNameResponse\"C\n" +
+	"\x15SetMatchAllOisRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x18\n" +
+	"\x16SetMatchAllOisResponse\"C\n" +
+	"\x15SetMatchAnyOisRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x18\n" +
+	"\x16SetMatchAnyOisResponse\"L\n" +
+	"\x1eSetRoamingConsortiumOisRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"!\n" +
+	"\x1fSetRoamingConsortiumOisResponse\")\n" +
+	"\x0fToStringRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
+	"\x10ToStringResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"V\n" +
+	"\x14WriteToParcelRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"\x17\n" +
+	"\x15WriteToParcelResponse\"\x16\n" +
+	"\x14NewCredentialRequest\"/\n" +
+	"\x15NewCredentialResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"1\n" +
+	"\x17GetCaCertificateRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"2\n" +
+	"\x18GetCaCertificateResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"2\n" +
+	"\x18GetCertCredentialRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"3\n" +
+	"\x19GetCertCredentialResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\":\n" +
+	" GetClientCertificateChainRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\";\n" +
+	"!GetClientCertificateChainResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"4\n" +
+	"\x1aGetClientPrivateKeyRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"5\n" +
+	"\x1bGetClientPrivateKeyResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"5\n" +
+	"\x1bGetMinimumTlsVersionRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"6\n" +
+	"\x1cGetMinimumTlsVersionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\")\n" +
+	"\x0fGetRealmRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
+	"\x10GetRealmResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"1\n" +
+	"\x17GetSimCredentialRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"2\n" +
+	"\x18GetSimCredentialResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"2\n" +
+	"\x18GetUserCredentialRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"3\n" +
+	"\x19GetUserCredentialResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"E\n" +
+	"\x17SetCaCertificateRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x1a\n" +
+	"\x18SetCaCertificateResponse\"F\n" +
+	"\x18SetCertCredentialRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x1b\n" +
+	"\x19SetCertCredentialResponse\"N\n" +
+	" SetClientCertificateChainRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"#\n" +
+	"!SetClientCertificateChainResponse\"H\n" +
+	"\x1aSetClientPrivateKeyRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x1d\n" +
+	"\x1bSetClientPrivateKeyResponse\"I\n" +
+	"\x1bSetMinimumTlsVersionRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"\x1e\n" +
+	"\x1cSetMinimumTlsVersionResponse\"=\n" +
+	"\x0fSetRealmRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\tR\x04arg0\"\x12\n" +
+	"\x10SetRealmResponse\"E\n" +
+	"\x17SetSimCredentialRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x1a\n" +
+	"\x18SetSimCredentialResponse\"F\n" +
+	"\x18SetUserCredentialRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x1b\n" +
+	"\x19SetUserCredentialResponse\"8\n" +
+	"6CredentialCertificateCredentialDescribeContentsRequest\"B\n" +
+	",CredentialCertificateCredentialEqualsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"!\n" +
+	"\x1fGetCertSha256FingerprintRequest\":\n" +
+	" GetCertSha256FingerprintResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x14\n" +
+	"\x12GetCertTypeRequest\"-\n" +
+	"\x13GetCertTypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"0\n" +
+	".CredentialCertificateCredentialHashCodeRequest\"5\n" +
+	"\x1fSetCertSha256FingerprintRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\"\n" +
+	" SetCertSha256FingerprintResponse\"(\n" +
+	"\x12SetCertTypeRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"\x15\n" +
+	"\x13SetCertTypeResponse\"0\n" +
+	".CredentialCertificateCredentialToStringRequest\"]\n" +
+	"3CredentialCertificateCredentialWriteToParcelRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"0\n" +
+	".CredentialSimCredentialDescribeContentsRequest\":\n" +
+	"$CredentialSimCredentialEqualsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x13\n" +
+	"\x11GetEapTypeRequest\",\n" +
+	"\x12GetEapTypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x10\n" +
+	"\x0eGetImsiRequest\")\n" +
+	"\x0fGetImsiResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"(\n" +
+	"&CredentialSimCredentialHashCodeRequest\"'\n" +
+	"\x11SetEapTypeRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"\x14\n" +
+	"\x12SetEapTypeResponse\"$\n" +
+	"\x0eSetImsiRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"\x11\n" +
+	"\x0fSetImsiResponse\"(\n" +
+	"&CredentialSimCredentialToStringRequest\"U\n" +
+	"+CredentialSimCredentialWriteToParcelRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"1\n" +
+	"/CredentialUserCredentialDescribeContentsRequest\";\n" +
+	"%CredentialUserCredentialEqualsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x1d\n" +
+	"\x1bGetNonEapInnerMethodRequest\"6\n" +
+	"\x1cGetNonEapInnerMethodResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x14\n" +
+	"\x12GetPasswordRequest\"-\n" +
+	"\x13GetPasswordResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x14\n" +
+	"\x12GetUsernameRequest\"-\n" +
+	"\x13GetUsernameResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\")\n" +
+	"'CredentialUserCredentialHashCodeRequest\"1\n" +
+	"\x1bSetNonEapInnerMethodRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"\x1e\n" +
+	"\x1cSetNonEapInnerMethodResponse\"(\n" +
+	"\x12SetPasswordRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"\x15\n" +
+	"\x13SetPasswordResponse\"(\n" +
+	"\x12SetUsernameRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"\x15\n" +
+	"\x13SetUsernameResponse\")\n" +
+	"'CredentialUserCredentialToStringRequest\"V\n" +
+	",CredentialUserCredentialWriteToParcelRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg12\x89\t\n" +
+	"\rHomeSpService\x12:\n" +
+	"\tNewHomeSp\x12\x15.pps.NewHomeSpRequest\x1a\x16.pps.NewHomeSpResponse\x12O\n" +
+	"\x10DescribeContents\x12\x1c.pps.DescribeContentsRequest\x1a\x1d.pps.DescribeContentsResponse\x121\n" +
+	"\x06Equals\x12\x12.pps.EqualsRequest\x1a\x13.pps.EqualsResponse\x124\n" +
+	"\aGetFqdn\x12\x13.pps.GetFqdnRequest\x1a\x14.pps.GetFqdnResponse\x12L\n" +
+	"\x0fGetFriendlyName\x12\x1b.pps.GetFriendlyNameRequest\x1a\x1c.pps.GetFriendlyNameResponse\x12I\n" +
+	"\x0eGetMatchAllOis\x12\x1a.pps.GetMatchAllOisRequest\x1a\x1b.pps.GetMatchAllOisResponse\x12I\n" +
+	"\x0eGetMatchAnyOis\x12\x1a.pps.GetMatchAnyOisRequest\x1a\x1b.pps.GetMatchAnyOisResponse\x12d\n" +
+	"\x17GetRoamingConsortiumOis\x12#.pps.GetRoamingConsortiumOisRequest\x1a$.pps.GetRoamingConsortiumOisResponse\x127\n" +
+	"\bHashCode\x12\x14.pps.HashCodeRequest\x1a\x15.pps.HashCodeResponse\x124\n" +
+	"\aSetFqdn\x12\x13.pps.SetFqdnRequest\x1a\x14.pps.SetFqdnResponse\x12L\n" +
+	"\x0fSetFriendlyName\x12\x1b.pps.SetFriendlyNameRequest\x1a\x1c.pps.SetFriendlyNameResponse\x12I\n" +
+	"\x0eSetMatchAllOis\x12\x1a.pps.SetMatchAllOisRequest\x1a\x1b.pps.SetMatchAllOisResponse\x12I\n" +
+	"\x0eSetMatchAnyOis\x12\x1a.pps.SetMatchAnyOisRequest\x1a\x1b.pps.SetMatchAnyOisResponse\x12d\n" +
+	"\x17SetRoamingConsortiumOis\x12#.pps.SetRoamingConsortiumOisRequest\x1a$.pps.SetRoamingConsortiumOisResponse\x127\n" +
+	"\bToString\x12\x14.pps.ToStringRequest\x1a\x15.pps.ToStringResponse\x12F\n" +
+	"\rWriteToParcel\x12\x19.pps.WriteToParcelRequest\x1a\x1a.pps.WriteToParcelResponse2\xe5\r\n" +
+	"\x11CredentialService\x12F\n" +
+	"\rNewCredential\x12\x19.pps.NewCredentialRequest\x1a\x1a.pps.NewCredentialResponse\x12O\n" +
+	"\x10DescribeContents\x12\x1c.pps.DescribeContentsRequest\x1a\x1d.pps.DescribeContentsResponse\x121\n" +
+	"\x06Equals\x12\x12.pps.EqualsRequest\x1a\x13.pps.EqualsResponse\x12O\n" +
+	"\x10GetCaCertificate\x12\x1c.pps.GetCaCertificateRequest\x1a\x1d.pps.GetCaCertificateResponse\x12R\n" +
+	"\x11GetCertCredential\x12\x1d.pps.GetCertCredentialRequest\x1a\x1e.pps.GetCertCredentialResponse\x12j\n" +
+	"\x19GetClientCertificateChain\x12%.pps.GetClientCertificateChainRequest\x1a&.pps.GetClientCertificateChainResponse\x12X\n" +
+	"\x13GetClientPrivateKey\x12\x1f.pps.GetClientPrivateKeyRequest\x1a .pps.GetClientPrivateKeyResponse\x12[\n" +
+	"\x14GetMinimumTlsVersion\x12 .pps.GetMinimumTlsVersionRequest\x1a!.pps.GetMinimumTlsVersionResponse\x127\n" +
+	"\bGetRealm\x12\x14.pps.GetRealmRequest\x1a\x15.pps.GetRealmResponse\x12O\n" +
+	"\x10GetSimCredential\x12\x1c.pps.GetSimCredentialRequest\x1a\x1d.pps.GetSimCredentialResponse\x12R\n" +
+	"\x11GetUserCredential\x12\x1d.pps.GetUserCredentialRequest\x1a\x1e.pps.GetUserCredentialResponse\x127\n" +
+	"\bHashCode\x12\x14.pps.HashCodeRequest\x1a\x15.pps.HashCodeResponse\x12O\n" +
+	"\x10SetCaCertificate\x12\x1c.pps.SetCaCertificateRequest\x1a\x1d.pps.SetCaCertificateResponse\x12R\n" +
+	"\x11SetCertCredential\x12\x1d.pps.SetCertCredentialRequest\x1a\x1e.pps.SetCertCredentialResponse\x12j\n" +
+	"\x19SetClientCertificateChain\x12%.pps.SetClientCertificateChainRequest\x1a&.pps.SetClientCertificateChainResponse\x12X\n" +
+	"\x13SetClientPrivateKey\x12\x1f.pps.SetClientPrivateKeyRequest\x1a .pps.SetClientPrivateKeyResponse\x12[\n" +
+	"\x14SetMinimumTlsVersion\x12 .pps.SetMinimumTlsVersionRequest\x1a!.pps.SetMinimumTlsVersionResponse\x127\n" +
+	"\bSetRealm\x12\x14.pps.SetRealmRequest\x1a\x15.pps.SetRealmResponse\x12O\n" +
+	"\x10SetSimCredential\x12\x1c.pps.SetSimCredentialRequest\x1a\x1d.pps.SetSimCredentialResponse\x12R\n" +
+	"\x11SetUserCredential\x12\x1d.pps.SetUserCredentialRequest\x1a\x1e.pps.SetUserCredentialResponse\x127\n" +
+	"\bToString\x12\x14.pps.ToStringRequest\x1a\x15.pps.ToStringResponse\x12F\n" +
+	"\rWriteToParcel\x12\x19.pps.WriteToParcelRequest\x1a\x1a.pps.WriteToParcelResponse2\xd7\x06\n" +
+	"&CredentialCertificateCredentialService\x12n\n" +
+	"\x10DescribeContents\x12;.pps.CredentialCertificateCredentialDescribeContentsRequest\x1a\x1d.pps.DescribeContentsResponse\x12P\n" +
+	"\x06Equals\x121.pps.CredentialCertificateCredentialEqualsRequest\x1a\x13.pps.EqualsResponse\x12g\n" +
+	"\x18GetCertSha256Fingerprint\x12$.pps.GetCertSha256FingerprintRequest\x1a%.pps.GetCertSha256FingerprintResponse\x12@\n" +
+	"\vGetCertType\x12\x17.pps.GetCertTypeRequest\x1a\x18.pps.GetCertTypeResponse\x12V\n" +
+	"\bHashCode\x123.pps.CredentialCertificateCredentialHashCodeRequest\x1a\x15.pps.HashCodeResponse\x12g\n" +
+	"\x18SetCertSha256Fingerprint\x12$.pps.SetCertSha256FingerprintRequest\x1a%.pps.SetCertSha256FingerprintResponse\x12@\n" +
+	"\vSetCertType\x12\x17.pps.SetCertTypeRequest\x1a\x18.pps.SetCertTypeResponse\x12V\n" +
+	"\bToString\x123.pps.CredentialCertificateCredentialToStringRequest\x1a\x15.pps.ToStringResponse\x12e\n" +
+	"\rWriteToParcel\x128.pps.CredentialCertificateCredentialWriteToParcelRequest\x1a\x1a.pps.WriteToParcelResponse2\xbb\x05\n" +
+	"\x1eCredentialSimCredentialService\x12f\n" +
+	"\x10DescribeContents\x123.pps.CredentialSimCredentialDescribeContentsRequest\x1a\x1d.pps.DescribeContentsResponse\x12H\n" +
+	"\x06Equals\x12).pps.CredentialSimCredentialEqualsRequest\x1a\x13.pps.EqualsResponse\x12=\n" +
+	"\n" +
+	"GetEapType\x12\x16.pps.GetEapTypeRequest\x1a\x17.pps.GetEapTypeResponse\x124\n" +
+	"\aGetImsi\x12\x13.pps.GetImsiRequest\x1a\x14.pps.GetImsiResponse\x12N\n" +
+	"\bHashCode\x12+.pps.CredentialSimCredentialHashCodeRequest\x1a\x15.pps.HashCodeResponse\x12=\n" +
+	"\n" +
+	"SetEapType\x12\x16.pps.SetEapTypeRequest\x1a\x17.pps.SetEapTypeResponse\x124\n" +
+	"\aSetImsi\x12\x13.pps.SetImsiRequest\x1a\x14.pps.SetImsiResponse\x12N\n" +
+	"\bToString\x12+.pps.CredentialSimCredentialToStringRequest\x1a\x15.pps.ToStringResponse\x12]\n" +
+	"\rWriteToParcel\x120.pps.CredentialSimCredentialWriteToParcelRequest\x1a\x1a.pps.WriteToParcelResponse2\x97\b\n" +
+	"\x1fCredentialUserCredentialService\x12g\n" +
+	"\x10DescribeContents\x124.pps.CredentialUserCredentialDescribeContentsRequest\x1a\x1d.pps.DescribeContentsResponse\x12I\n" +
+	"\x06Equals\x12*.pps.CredentialUserCredentialEqualsRequest\x1a\x13.pps.EqualsResponse\x12=\n" +
+	"\n" +
+	"GetEapType\x12\x16.pps.GetEapTypeRequest\x1a\x17.pps.GetEapTypeResponse\x12[\n" +
+	"\x14GetNonEapInnerMethod\x12 .pps.GetNonEapInnerMethodRequest\x1a!.pps.GetNonEapInnerMethodResponse\x12@\n" +
+	"\vGetPassword\x12\x17.pps.GetPasswordRequest\x1a\x18.pps.GetPasswordResponse\x12@\n" +
+	"\vGetUsername\x12\x17.pps.GetUsernameRequest\x1a\x18.pps.GetUsernameResponse\x12O\n" +
+	"\bHashCode\x12,.pps.CredentialUserCredentialHashCodeRequest\x1a\x15.pps.HashCodeResponse\x12=\n" +
+	"\n" +
+	"SetEapType\x12\x16.pps.SetEapTypeRequest\x1a\x17.pps.SetEapTypeResponse\x12[\n" +
+	"\x14SetNonEapInnerMethod\x12 .pps.SetNonEapInnerMethodRequest\x1a!.pps.SetNonEapInnerMethodResponse\x12@\n" +
+	"\vSetPassword\x12\x17.pps.SetPasswordRequest\x1a\x18.pps.SetPasswordResponse\x12@\n" +
+	"\vSetUsername\x12\x17.pps.SetUsernameRequest\x1a\x18.pps.SetUsernameResponse\x12O\n" +
+	"\bToString\x12,.pps.CredentialUserCredentialToStringRequest\x1a\x15.pps.ToStringResponse\x12^\n" +
+	"\rWriteToParcel\x121.pps.CredentialUserCredentialWriteToParcelRequest\x1a\x1a.pps.WriteToParcelResponseB-Z+github.com/AndroidGoLab/jni-proxy/proto/ppsb\x06proto3"
 
-var file_proto_pps_pps_proto_goTypes = []any{}
+var (
+	file_proto_pps_pps_proto_rawDescOnce sync.Once
+	file_proto_pps_pps_proto_rawDescData []byte
+)
+
+func file_proto_pps_pps_proto_rawDescGZIP() []byte {
+	file_proto_pps_pps_proto_rawDescOnce.Do(func() {
+		file_proto_pps_pps_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_proto_pps_pps_proto_rawDesc), len(file_proto_pps_pps_proto_rawDesc)))
+	})
+	return file_proto_pps_pps_proto_rawDescData
+}
+
+var file_proto_pps_pps_proto_msgTypes = make([]protoimpl.MessageInfo, 109)
+var file_proto_pps_pps_proto_goTypes = []any{
+	(*NewHomeSpRequest)(nil),                                       // 0: pps.NewHomeSpRequest
+	(*NewHomeSpResponse)(nil),                                      // 1: pps.NewHomeSpResponse
+	(*DescribeContentsRequest)(nil),                                // 2: pps.DescribeContentsRequest
+	(*DescribeContentsResponse)(nil),                               // 3: pps.DescribeContentsResponse
+	(*EqualsRequest)(nil),                                          // 4: pps.EqualsRequest
+	(*EqualsResponse)(nil),                                         // 5: pps.EqualsResponse
+	(*GetFqdnRequest)(nil),                                         // 6: pps.GetFqdnRequest
+	(*GetFqdnResponse)(nil),                                        // 7: pps.GetFqdnResponse
+	(*GetFriendlyNameRequest)(nil),                                 // 8: pps.GetFriendlyNameRequest
+	(*GetFriendlyNameResponse)(nil),                                // 9: pps.GetFriendlyNameResponse
+	(*GetMatchAllOisRequest)(nil),                                  // 10: pps.GetMatchAllOisRequest
+	(*GetMatchAllOisResponse)(nil),                                 // 11: pps.GetMatchAllOisResponse
+	(*GetMatchAnyOisRequest)(nil),                                  // 12: pps.GetMatchAnyOisRequest
+	(*GetMatchAnyOisResponse)(nil),                                 // 13: pps.GetMatchAnyOisResponse
+	(*GetRoamingConsortiumOisRequest)(nil),                         // 14: pps.GetRoamingConsortiumOisRequest
+	(*GetRoamingConsortiumOisResponse)(nil),                        // 15: pps.GetRoamingConsortiumOisResponse
+	(*HashCodeRequest)(nil),                                        // 16: pps.HashCodeRequest
+	(*HashCodeResponse)(nil),                                       // 17: pps.HashCodeResponse
+	(*SetFqdnRequest)(nil),                                         // 18: pps.SetFqdnRequest
+	(*SetFqdnResponse)(nil),                                        // 19: pps.SetFqdnResponse
+	(*SetFriendlyNameRequest)(nil),                                 // 20: pps.SetFriendlyNameRequest
+	(*SetFriendlyNameResponse)(nil),                                // 21: pps.SetFriendlyNameResponse
+	(*SetMatchAllOisRequest)(nil),                                  // 22: pps.SetMatchAllOisRequest
+	(*SetMatchAllOisResponse)(nil),                                 // 23: pps.SetMatchAllOisResponse
+	(*SetMatchAnyOisRequest)(nil),                                  // 24: pps.SetMatchAnyOisRequest
+	(*SetMatchAnyOisResponse)(nil),                                 // 25: pps.SetMatchAnyOisResponse
+	(*SetRoamingConsortiumOisRequest)(nil),                         // 26: pps.SetRoamingConsortiumOisRequest
+	(*SetRoamingConsortiumOisResponse)(nil),                        // 27: pps.SetRoamingConsortiumOisResponse
+	(*ToStringRequest)(nil),                                        // 28: pps.ToStringRequest
+	(*ToStringResponse)(nil),                                       // 29: pps.ToStringResponse
+	(*WriteToParcelRequest)(nil),                                   // 30: pps.WriteToParcelRequest
+	(*WriteToParcelResponse)(nil),                                  // 31: pps.WriteToParcelResponse
+	(*NewCredentialRequest)(nil),                                   // 32: pps.NewCredentialRequest
+	(*NewCredentialResponse)(nil),                                  // 33: pps.NewCredentialResponse
+	(*GetCaCertificateRequest)(nil),                                // 34: pps.GetCaCertificateRequest
+	(*GetCaCertificateResponse)(nil),                               // 35: pps.GetCaCertificateResponse
+	(*GetCertCredentialRequest)(nil),                               // 36: pps.GetCertCredentialRequest
+	(*GetCertCredentialResponse)(nil),                              // 37: pps.GetCertCredentialResponse
+	(*GetClientCertificateChainRequest)(nil),                       // 38: pps.GetClientCertificateChainRequest
+	(*GetClientCertificateChainResponse)(nil),                      // 39: pps.GetClientCertificateChainResponse
+	(*GetClientPrivateKeyRequest)(nil),                             // 40: pps.GetClientPrivateKeyRequest
+	(*GetClientPrivateKeyResponse)(nil),                            // 41: pps.GetClientPrivateKeyResponse
+	(*GetMinimumTlsVersionRequest)(nil),                            // 42: pps.GetMinimumTlsVersionRequest
+	(*GetMinimumTlsVersionResponse)(nil),                           // 43: pps.GetMinimumTlsVersionResponse
+	(*GetRealmRequest)(nil),                                        // 44: pps.GetRealmRequest
+	(*GetRealmResponse)(nil),                                       // 45: pps.GetRealmResponse
+	(*GetSimCredentialRequest)(nil),                                // 46: pps.GetSimCredentialRequest
+	(*GetSimCredentialResponse)(nil),                               // 47: pps.GetSimCredentialResponse
+	(*GetUserCredentialRequest)(nil),                               // 48: pps.GetUserCredentialRequest
+	(*GetUserCredentialResponse)(nil),                              // 49: pps.GetUserCredentialResponse
+	(*SetCaCertificateRequest)(nil),                                // 50: pps.SetCaCertificateRequest
+	(*SetCaCertificateResponse)(nil),                               // 51: pps.SetCaCertificateResponse
+	(*SetCertCredentialRequest)(nil),                               // 52: pps.SetCertCredentialRequest
+	(*SetCertCredentialResponse)(nil),                              // 53: pps.SetCertCredentialResponse
+	(*SetClientCertificateChainRequest)(nil),                       // 54: pps.SetClientCertificateChainRequest
+	(*SetClientCertificateChainResponse)(nil),                      // 55: pps.SetClientCertificateChainResponse
+	(*SetClientPrivateKeyRequest)(nil),                             // 56: pps.SetClientPrivateKeyRequest
+	(*SetClientPrivateKeyResponse)(nil),                            // 57: pps.SetClientPrivateKeyResponse
+	(*SetMinimumTlsVersionRequest)(nil),                            // 58: pps.SetMinimumTlsVersionRequest
+	(*SetMinimumTlsVersionResponse)(nil),                           // 59: pps.SetMinimumTlsVersionResponse
+	(*SetRealmRequest)(nil),                                        // 60: pps.SetRealmRequest
+	(*SetRealmResponse)(nil),                                       // 61: pps.SetRealmResponse
+	(*SetSimCredentialRequest)(nil),                                // 62: pps.SetSimCredentialRequest
+	(*SetSimCredentialResponse)(nil),                               // 63: pps.SetSimCredentialResponse
+	(*SetUserCredentialRequest)(nil),                               // 64: pps.SetUserCredentialRequest
+	(*SetUserCredentialResponse)(nil),                              // 65: pps.SetUserCredentialResponse
+	(*CredentialCertificateCredentialDescribeContentsRequest)(nil), // 66: pps.CredentialCertificateCredentialDescribeContentsRequest
+	(*CredentialCertificateCredentialEqualsRequest)(nil),           // 67: pps.CredentialCertificateCredentialEqualsRequest
+	(*GetCertSha256FingerprintRequest)(nil),                        // 68: pps.GetCertSha256FingerprintRequest
+	(*GetCertSha256FingerprintResponse)(nil),                       // 69: pps.GetCertSha256FingerprintResponse
+	(*GetCertTypeRequest)(nil),                                     // 70: pps.GetCertTypeRequest
+	(*GetCertTypeResponse)(nil),                                    // 71: pps.GetCertTypeResponse
+	(*CredentialCertificateCredentialHashCodeRequest)(nil),         // 72: pps.CredentialCertificateCredentialHashCodeRequest
+	(*SetCertSha256FingerprintRequest)(nil),                        // 73: pps.SetCertSha256FingerprintRequest
+	(*SetCertSha256FingerprintResponse)(nil),                       // 74: pps.SetCertSha256FingerprintResponse
+	(*SetCertTypeRequest)(nil),                                     // 75: pps.SetCertTypeRequest
+	(*SetCertTypeResponse)(nil),                                    // 76: pps.SetCertTypeResponse
+	(*CredentialCertificateCredentialToStringRequest)(nil),         // 77: pps.CredentialCertificateCredentialToStringRequest
+	(*CredentialCertificateCredentialWriteToParcelRequest)(nil),    // 78: pps.CredentialCertificateCredentialWriteToParcelRequest
+	(*CredentialSimCredentialDescribeContentsRequest)(nil),         // 79: pps.CredentialSimCredentialDescribeContentsRequest
+	(*CredentialSimCredentialEqualsRequest)(nil),                   // 80: pps.CredentialSimCredentialEqualsRequest
+	(*GetEapTypeRequest)(nil),                                      // 81: pps.GetEapTypeRequest
+	(*GetEapTypeResponse)(nil),                                     // 82: pps.GetEapTypeResponse
+	(*GetImsiRequest)(nil),                                         // 83: pps.GetImsiRequest
+	(*GetImsiResponse)(nil),                                        // 84: pps.GetImsiResponse
+	(*CredentialSimCredentialHashCodeRequest)(nil),                 // 85: pps.CredentialSimCredentialHashCodeRequest
+	(*SetEapTypeRequest)(nil),                                      // 86: pps.SetEapTypeRequest
+	(*SetEapTypeResponse)(nil),                                     // 87: pps.SetEapTypeResponse
+	(*SetImsiRequest)(nil),                                         // 88: pps.SetImsiRequest
+	(*SetImsiResponse)(nil),                                        // 89: pps.SetImsiResponse
+	(*CredentialSimCredentialToStringRequest)(nil),                 // 90: pps.CredentialSimCredentialToStringRequest
+	(*CredentialSimCredentialWriteToParcelRequest)(nil),            // 91: pps.CredentialSimCredentialWriteToParcelRequest
+	(*CredentialUserCredentialDescribeContentsRequest)(nil),        // 92: pps.CredentialUserCredentialDescribeContentsRequest
+	(*CredentialUserCredentialEqualsRequest)(nil),                  // 93: pps.CredentialUserCredentialEqualsRequest
+	(*GetNonEapInnerMethodRequest)(nil),                            // 94: pps.GetNonEapInnerMethodRequest
+	(*GetNonEapInnerMethodResponse)(nil),                           // 95: pps.GetNonEapInnerMethodResponse
+	(*GetPasswordRequest)(nil),                                     // 96: pps.GetPasswordRequest
+	(*GetPasswordResponse)(nil),                                    // 97: pps.GetPasswordResponse
+	(*GetUsernameRequest)(nil),                                     // 98: pps.GetUsernameRequest
+	(*GetUsernameResponse)(nil),                                    // 99: pps.GetUsernameResponse
+	(*CredentialUserCredentialHashCodeRequest)(nil),                // 100: pps.CredentialUserCredentialHashCodeRequest
+	(*SetNonEapInnerMethodRequest)(nil),                            // 101: pps.SetNonEapInnerMethodRequest
+	(*SetNonEapInnerMethodResponse)(nil),                           // 102: pps.SetNonEapInnerMethodResponse
+	(*SetPasswordRequest)(nil),                                     // 103: pps.SetPasswordRequest
+	(*SetPasswordResponse)(nil),                                    // 104: pps.SetPasswordResponse
+	(*SetUsernameRequest)(nil),                                     // 105: pps.SetUsernameRequest
+	(*SetUsernameResponse)(nil),                                    // 106: pps.SetUsernameResponse
+	(*CredentialUserCredentialToStringRequest)(nil),                // 107: pps.CredentialUserCredentialToStringRequest
+	(*CredentialUserCredentialWriteToParcelRequest)(nil),           // 108: pps.CredentialUserCredentialWriteToParcelRequest
+}
 var file_proto_pps_pps_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	0,   // 0: pps.HomeSpService.NewHomeSp:input_type -> pps.NewHomeSpRequest
+	2,   // 1: pps.HomeSpService.DescribeContents:input_type -> pps.DescribeContentsRequest
+	4,   // 2: pps.HomeSpService.Equals:input_type -> pps.EqualsRequest
+	6,   // 3: pps.HomeSpService.GetFqdn:input_type -> pps.GetFqdnRequest
+	8,   // 4: pps.HomeSpService.GetFriendlyName:input_type -> pps.GetFriendlyNameRequest
+	10,  // 5: pps.HomeSpService.GetMatchAllOis:input_type -> pps.GetMatchAllOisRequest
+	12,  // 6: pps.HomeSpService.GetMatchAnyOis:input_type -> pps.GetMatchAnyOisRequest
+	14,  // 7: pps.HomeSpService.GetRoamingConsortiumOis:input_type -> pps.GetRoamingConsortiumOisRequest
+	16,  // 8: pps.HomeSpService.HashCode:input_type -> pps.HashCodeRequest
+	18,  // 9: pps.HomeSpService.SetFqdn:input_type -> pps.SetFqdnRequest
+	20,  // 10: pps.HomeSpService.SetFriendlyName:input_type -> pps.SetFriendlyNameRequest
+	22,  // 11: pps.HomeSpService.SetMatchAllOis:input_type -> pps.SetMatchAllOisRequest
+	24,  // 12: pps.HomeSpService.SetMatchAnyOis:input_type -> pps.SetMatchAnyOisRequest
+	26,  // 13: pps.HomeSpService.SetRoamingConsortiumOis:input_type -> pps.SetRoamingConsortiumOisRequest
+	28,  // 14: pps.HomeSpService.ToString:input_type -> pps.ToStringRequest
+	30,  // 15: pps.HomeSpService.WriteToParcel:input_type -> pps.WriteToParcelRequest
+	32,  // 16: pps.CredentialService.NewCredential:input_type -> pps.NewCredentialRequest
+	2,   // 17: pps.CredentialService.DescribeContents:input_type -> pps.DescribeContentsRequest
+	4,   // 18: pps.CredentialService.Equals:input_type -> pps.EqualsRequest
+	34,  // 19: pps.CredentialService.GetCaCertificate:input_type -> pps.GetCaCertificateRequest
+	36,  // 20: pps.CredentialService.GetCertCredential:input_type -> pps.GetCertCredentialRequest
+	38,  // 21: pps.CredentialService.GetClientCertificateChain:input_type -> pps.GetClientCertificateChainRequest
+	40,  // 22: pps.CredentialService.GetClientPrivateKey:input_type -> pps.GetClientPrivateKeyRequest
+	42,  // 23: pps.CredentialService.GetMinimumTlsVersion:input_type -> pps.GetMinimumTlsVersionRequest
+	44,  // 24: pps.CredentialService.GetRealm:input_type -> pps.GetRealmRequest
+	46,  // 25: pps.CredentialService.GetSimCredential:input_type -> pps.GetSimCredentialRequest
+	48,  // 26: pps.CredentialService.GetUserCredential:input_type -> pps.GetUserCredentialRequest
+	16,  // 27: pps.CredentialService.HashCode:input_type -> pps.HashCodeRequest
+	50,  // 28: pps.CredentialService.SetCaCertificate:input_type -> pps.SetCaCertificateRequest
+	52,  // 29: pps.CredentialService.SetCertCredential:input_type -> pps.SetCertCredentialRequest
+	54,  // 30: pps.CredentialService.SetClientCertificateChain:input_type -> pps.SetClientCertificateChainRequest
+	56,  // 31: pps.CredentialService.SetClientPrivateKey:input_type -> pps.SetClientPrivateKeyRequest
+	58,  // 32: pps.CredentialService.SetMinimumTlsVersion:input_type -> pps.SetMinimumTlsVersionRequest
+	60,  // 33: pps.CredentialService.SetRealm:input_type -> pps.SetRealmRequest
+	62,  // 34: pps.CredentialService.SetSimCredential:input_type -> pps.SetSimCredentialRequest
+	64,  // 35: pps.CredentialService.SetUserCredential:input_type -> pps.SetUserCredentialRequest
+	28,  // 36: pps.CredentialService.ToString:input_type -> pps.ToStringRequest
+	30,  // 37: pps.CredentialService.WriteToParcel:input_type -> pps.WriteToParcelRequest
+	66,  // 38: pps.CredentialCertificateCredentialService.DescribeContents:input_type -> pps.CredentialCertificateCredentialDescribeContentsRequest
+	67,  // 39: pps.CredentialCertificateCredentialService.Equals:input_type -> pps.CredentialCertificateCredentialEqualsRequest
+	68,  // 40: pps.CredentialCertificateCredentialService.GetCertSha256Fingerprint:input_type -> pps.GetCertSha256FingerprintRequest
+	70,  // 41: pps.CredentialCertificateCredentialService.GetCertType:input_type -> pps.GetCertTypeRequest
+	72,  // 42: pps.CredentialCertificateCredentialService.HashCode:input_type -> pps.CredentialCertificateCredentialHashCodeRequest
+	73,  // 43: pps.CredentialCertificateCredentialService.SetCertSha256Fingerprint:input_type -> pps.SetCertSha256FingerprintRequest
+	75,  // 44: pps.CredentialCertificateCredentialService.SetCertType:input_type -> pps.SetCertTypeRequest
+	77,  // 45: pps.CredentialCertificateCredentialService.ToString:input_type -> pps.CredentialCertificateCredentialToStringRequest
+	78,  // 46: pps.CredentialCertificateCredentialService.WriteToParcel:input_type -> pps.CredentialCertificateCredentialWriteToParcelRequest
+	79,  // 47: pps.CredentialSimCredentialService.DescribeContents:input_type -> pps.CredentialSimCredentialDescribeContentsRequest
+	80,  // 48: pps.CredentialSimCredentialService.Equals:input_type -> pps.CredentialSimCredentialEqualsRequest
+	81,  // 49: pps.CredentialSimCredentialService.GetEapType:input_type -> pps.GetEapTypeRequest
+	83,  // 50: pps.CredentialSimCredentialService.GetImsi:input_type -> pps.GetImsiRequest
+	85,  // 51: pps.CredentialSimCredentialService.HashCode:input_type -> pps.CredentialSimCredentialHashCodeRequest
+	86,  // 52: pps.CredentialSimCredentialService.SetEapType:input_type -> pps.SetEapTypeRequest
+	88,  // 53: pps.CredentialSimCredentialService.SetImsi:input_type -> pps.SetImsiRequest
+	90,  // 54: pps.CredentialSimCredentialService.ToString:input_type -> pps.CredentialSimCredentialToStringRequest
+	91,  // 55: pps.CredentialSimCredentialService.WriteToParcel:input_type -> pps.CredentialSimCredentialWriteToParcelRequest
+	92,  // 56: pps.CredentialUserCredentialService.DescribeContents:input_type -> pps.CredentialUserCredentialDescribeContentsRequest
+	93,  // 57: pps.CredentialUserCredentialService.Equals:input_type -> pps.CredentialUserCredentialEqualsRequest
+	81,  // 58: pps.CredentialUserCredentialService.GetEapType:input_type -> pps.GetEapTypeRequest
+	94,  // 59: pps.CredentialUserCredentialService.GetNonEapInnerMethod:input_type -> pps.GetNonEapInnerMethodRequest
+	96,  // 60: pps.CredentialUserCredentialService.GetPassword:input_type -> pps.GetPasswordRequest
+	98,  // 61: pps.CredentialUserCredentialService.GetUsername:input_type -> pps.GetUsernameRequest
+	100, // 62: pps.CredentialUserCredentialService.HashCode:input_type -> pps.CredentialUserCredentialHashCodeRequest
+	86,  // 63: pps.CredentialUserCredentialService.SetEapType:input_type -> pps.SetEapTypeRequest
+	101, // 64: pps.CredentialUserCredentialService.SetNonEapInnerMethod:input_type -> pps.SetNonEapInnerMethodRequest
+	103, // 65: pps.CredentialUserCredentialService.SetPassword:input_type -> pps.SetPasswordRequest
+	105, // 66: pps.CredentialUserCredentialService.SetUsername:input_type -> pps.SetUsernameRequest
+	107, // 67: pps.CredentialUserCredentialService.ToString:input_type -> pps.CredentialUserCredentialToStringRequest
+	108, // 68: pps.CredentialUserCredentialService.WriteToParcel:input_type -> pps.CredentialUserCredentialWriteToParcelRequest
+	1,   // 69: pps.HomeSpService.NewHomeSp:output_type -> pps.NewHomeSpResponse
+	3,   // 70: pps.HomeSpService.DescribeContents:output_type -> pps.DescribeContentsResponse
+	5,   // 71: pps.HomeSpService.Equals:output_type -> pps.EqualsResponse
+	7,   // 72: pps.HomeSpService.GetFqdn:output_type -> pps.GetFqdnResponse
+	9,   // 73: pps.HomeSpService.GetFriendlyName:output_type -> pps.GetFriendlyNameResponse
+	11,  // 74: pps.HomeSpService.GetMatchAllOis:output_type -> pps.GetMatchAllOisResponse
+	13,  // 75: pps.HomeSpService.GetMatchAnyOis:output_type -> pps.GetMatchAnyOisResponse
+	15,  // 76: pps.HomeSpService.GetRoamingConsortiumOis:output_type -> pps.GetRoamingConsortiumOisResponse
+	17,  // 77: pps.HomeSpService.HashCode:output_type -> pps.HashCodeResponse
+	19,  // 78: pps.HomeSpService.SetFqdn:output_type -> pps.SetFqdnResponse
+	21,  // 79: pps.HomeSpService.SetFriendlyName:output_type -> pps.SetFriendlyNameResponse
+	23,  // 80: pps.HomeSpService.SetMatchAllOis:output_type -> pps.SetMatchAllOisResponse
+	25,  // 81: pps.HomeSpService.SetMatchAnyOis:output_type -> pps.SetMatchAnyOisResponse
+	27,  // 82: pps.HomeSpService.SetRoamingConsortiumOis:output_type -> pps.SetRoamingConsortiumOisResponse
+	29,  // 83: pps.HomeSpService.ToString:output_type -> pps.ToStringResponse
+	31,  // 84: pps.HomeSpService.WriteToParcel:output_type -> pps.WriteToParcelResponse
+	33,  // 85: pps.CredentialService.NewCredential:output_type -> pps.NewCredentialResponse
+	3,   // 86: pps.CredentialService.DescribeContents:output_type -> pps.DescribeContentsResponse
+	5,   // 87: pps.CredentialService.Equals:output_type -> pps.EqualsResponse
+	35,  // 88: pps.CredentialService.GetCaCertificate:output_type -> pps.GetCaCertificateResponse
+	37,  // 89: pps.CredentialService.GetCertCredential:output_type -> pps.GetCertCredentialResponse
+	39,  // 90: pps.CredentialService.GetClientCertificateChain:output_type -> pps.GetClientCertificateChainResponse
+	41,  // 91: pps.CredentialService.GetClientPrivateKey:output_type -> pps.GetClientPrivateKeyResponse
+	43,  // 92: pps.CredentialService.GetMinimumTlsVersion:output_type -> pps.GetMinimumTlsVersionResponse
+	45,  // 93: pps.CredentialService.GetRealm:output_type -> pps.GetRealmResponse
+	47,  // 94: pps.CredentialService.GetSimCredential:output_type -> pps.GetSimCredentialResponse
+	49,  // 95: pps.CredentialService.GetUserCredential:output_type -> pps.GetUserCredentialResponse
+	17,  // 96: pps.CredentialService.HashCode:output_type -> pps.HashCodeResponse
+	51,  // 97: pps.CredentialService.SetCaCertificate:output_type -> pps.SetCaCertificateResponse
+	53,  // 98: pps.CredentialService.SetCertCredential:output_type -> pps.SetCertCredentialResponse
+	55,  // 99: pps.CredentialService.SetClientCertificateChain:output_type -> pps.SetClientCertificateChainResponse
+	57,  // 100: pps.CredentialService.SetClientPrivateKey:output_type -> pps.SetClientPrivateKeyResponse
+	59,  // 101: pps.CredentialService.SetMinimumTlsVersion:output_type -> pps.SetMinimumTlsVersionResponse
+	61,  // 102: pps.CredentialService.SetRealm:output_type -> pps.SetRealmResponse
+	63,  // 103: pps.CredentialService.SetSimCredential:output_type -> pps.SetSimCredentialResponse
+	65,  // 104: pps.CredentialService.SetUserCredential:output_type -> pps.SetUserCredentialResponse
+	29,  // 105: pps.CredentialService.ToString:output_type -> pps.ToStringResponse
+	31,  // 106: pps.CredentialService.WriteToParcel:output_type -> pps.WriteToParcelResponse
+	3,   // 107: pps.CredentialCertificateCredentialService.DescribeContents:output_type -> pps.DescribeContentsResponse
+	5,   // 108: pps.CredentialCertificateCredentialService.Equals:output_type -> pps.EqualsResponse
+	69,  // 109: pps.CredentialCertificateCredentialService.GetCertSha256Fingerprint:output_type -> pps.GetCertSha256FingerprintResponse
+	71,  // 110: pps.CredentialCertificateCredentialService.GetCertType:output_type -> pps.GetCertTypeResponse
+	17,  // 111: pps.CredentialCertificateCredentialService.HashCode:output_type -> pps.HashCodeResponse
+	74,  // 112: pps.CredentialCertificateCredentialService.SetCertSha256Fingerprint:output_type -> pps.SetCertSha256FingerprintResponse
+	76,  // 113: pps.CredentialCertificateCredentialService.SetCertType:output_type -> pps.SetCertTypeResponse
+	29,  // 114: pps.CredentialCertificateCredentialService.ToString:output_type -> pps.ToStringResponse
+	31,  // 115: pps.CredentialCertificateCredentialService.WriteToParcel:output_type -> pps.WriteToParcelResponse
+	3,   // 116: pps.CredentialSimCredentialService.DescribeContents:output_type -> pps.DescribeContentsResponse
+	5,   // 117: pps.CredentialSimCredentialService.Equals:output_type -> pps.EqualsResponse
+	82,  // 118: pps.CredentialSimCredentialService.GetEapType:output_type -> pps.GetEapTypeResponse
+	84,  // 119: pps.CredentialSimCredentialService.GetImsi:output_type -> pps.GetImsiResponse
+	17,  // 120: pps.CredentialSimCredentialService.HashCode:output_type -> pps.HashCodeResponse
+	87,  // 121: pps.CredentialSimCredentialService.SetEapType:output_type -> pps.SetEapTypeResponse
+	89,  // 122: pps.CredentialSimCredentialService.SetImsi:output_type -> pps.SetImsiResponse
+	29,  // 123: pps.CredentialSimCredentialService.ToString:output_type -> pps.ToStringResponse
+	31,  // 124: pps.CredentialSimCredentialService.WriteToParcel:output_type -> pps.WriteToParcelResponse
+	3,   // 125: pps.CredentialUserCredentialService.DescribeContents:output_type -> pps.DescribeContentsResponse
+	5,   // 126: pps.CredentialUserCredentialService.Equals:output_type -> pps.EqualsResponse
+	82,  // 127: pps.CredentialUserCredentialService.GetEapType:output_type -> pps.GetEapTypeResponse
+	95,  // 128: pps.CredentialUserCredentialService.GetNonEapInnerMethod:output_type -> pps.GetNonEapInnerMethodResponse
+	97,  // 129: pps.CredentialUserCredentialService.GetPassword:output_type -> pps.GetPasswordResponse
+	99,  // 130: pps.CredentialUserCredentialService.GetUsername:output_type -> pps.GetUsernameResponse
+	17,  // 131: pps.CredentialUserCredentialService.HashCode:output_type -> pps.HashCodeResponse
+	87,  // 132: pps.CredentialUserCredentialService.SetEapType:output_type -> pps.SetEapTypeResponse
+	102, // 133: pps.CredentialUserCredentialService.SetNonEapInnerMethod:output_type -> pps.SetNonEapInnerMethodResponse
+	104, // 134: pps.CredentialUserCredentialService.SetPassword:output_type -> pps.SetPasswordResponse
+	106, // 135: pps.CredentialUserCredentialService.SetUsername:output_type -> pps.SetUsernameResponse
+	29,  // 136: pps.CredentialUserCredentialService.ToString:output_type -> pps.ToStringResponse
+	31,  // 137: pps.CredentialUserCredentialService.WriteToParcel:output_type -> pps.WriteToParcelResponse
+	69,  // [69:138] is the sub-list for method output_type
+	0,   // [0:69] is the sub-list for method input_type
+	0,   // [0:0] is the sub-list for extension type_name
+	0,   // [0:0] is the sub-list for extension extendee
+	0,   // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_proto_pps_pps_proto_init() }
@@ -48,12 +5222,13 @@ func file_proto_pps_pps_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_pps_pps_proto_rawDesc), len(file_proto_pps_pps_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   109,
 			NumExtensions: 0,
-			NumServices:   0,
+			NumServices:   5,
 		},
 		GoTypes:           file_proto_pps_pps_proto_goTypes,
 		DependencyIndexes: file_proto_pps_pps_proto_depIdxs,
+		MessageInfos:      file_proto_pps_pps_proto_msgTypes,
 	}.Build()
 	File_proto_pps_pps_proto = out.File
 	file_proto_pps_pps_proto_goTypes = nil

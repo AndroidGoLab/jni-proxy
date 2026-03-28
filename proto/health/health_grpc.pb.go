@@ -21,6 +21,830 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
+	StatsService_GetDataType_FullMethodName             = "/health.StatsService/GetDataType"
+	StatsService_GetMeasurement_FullMethodName          = "/health.StatsService/GetMeasurement"
+	StatsService_GetMeasurementKeyAt_FullMethodName     = "/health.StatsService/GetMeasurementKeyAt"
+	StatsService_GetMeasurementKeyCount_FullMethodName  = "/health.StatsService/GetMeasurementKeyCount"
+	StatsService_GetMeasurementsKeyAt_FullMethodName    = "/health.StatsService/GetMeasurementsKeyAt"
+	StatsService_GetMeasurementsKeyCount_FullMethodName = "/health.StatsService/GetMeasurementsKeyCount"
+	StatsService_GetStatsKeyAt_FullMethodName           = "/health.StatsService/GetStatsKeyAt"
+	StatsService_GetStatsKeyCount_FullMethodName        = "/health.StatsService/GetStatsKeyCount"
+	StatsService_GetTimer_FullMethodName                = "/health.StatsService/GetTimer"
+	StatsService_GetTimerCount_FullMethodName           = "/health.StatsService/GetTimerCount"
+	StatsService_GetTimerKeyAt_FullMethodName           = "/health.StatsService/GetTimerKeyAt"
+	StatsService_GetTimerKeyCount_FullMethodName        = "/health.StatsService/GetTimerKeyCount"
+	StatsService_GetTimerTime_FullMethodName            = "/health.StatsService/GetTimerTime"
+	StatsService_GetTimersKeyAt_FullMethodName          = "/health.StatsService/GetTimersKeyAt"
+	StatsService_GetTimersKeyCount_FullMethodName       = "/health.StatsService/GetTimersKeyCount"
+	StatsService_HasMeasurement_FullMethodName          = "/health.StatsService/HasMeasurement"
+	StatsService_HasMeasurements_FullMethodName         = "/health.StatsService/HasMeasurements"
+	StatsService_HasStats_FullMethodName                = "/health.StatsService/HasStats"
+	StatsService_HasTimer_FullMethodName                = "/health.StatsService/HasTimer"
+	StatsService_HasTimers_FullMethodName               = "/health.StatsService/HasTimers"
+)
+
+// StatsServiceClient is the client API for StatsService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type StatsServiceClient interface {
+	GetDataType(ctx context.Context, in *GetDataTypeRequest, opts ...grpc.CallOption) (*GetDataTypeResponse, error)
+	GetMeasurement(ctx context.Context, in *GetMeasurementRequest, opts ...grpc.CallOption) (*GetMeasurementResponse, error)
+	GetMeasurementKeyAt(ctx context.Context, in *GetMeasurementKeyAtRequest, opts ...grpc.CallOption) (*GetMeasurementKeyAtResponse, error)
+	GetMeasurementKeyCount(ctx context.Context, in *GetMeasurementKeyCountRequest, opts ...grpc.CallOption) (*GetMeasurementKeyCountResponse, error)
+	GetMeasurementsKeyAt(ctx context.Context, in *GetMeasurementsKeyAtRequest, opts ...grpc.CallOption) (*GetMeasurementsKeyAtResponse, error)
+	GetMeasurementsKeyCount(ctx context.Context, in *GetMeasurementsKeyCountRequest, opts ...grpc.CallOption) (*GetMeasurementsKeyCountResponse, error)
+	GetStatsKeyAt(ctx context.Context, in *GetStatsKeyAtRequest, opts ...grpc.CallOption) (*GetStatsKeyAtResponse, error)
+	GetStatsKeyCount(ctx context.Context, in *GetStatsKeyCountRequest, opts ...grpc.CallOption) (*GetStatsKeyCountResponse, error)
+	GetTimer(ctx context.Context, in *GetTimerRequest, opts ...grpc.CallOption) (*GetTimerResponse, error)
+	GetTimerCount(ctx context.Context, in *GetTimerCountRequest, opts ...grpc.CallOption) (*GetTimerCountResponse, error)
+	GetTimerKeyAt(ctx context.Context, in *GetTimerKeyAtRequest, opts ...grpc.CallOption) (*GetTimerKeyAtResponse, error)
+	GetTimerKeyCount(ctx context.Context, in *GetTimerKeyCountRequest, opts ...grpc.CallOption) (*GetTimerKeyCountResponse, error)
+	GetTimerTime(ctx context.Context, in *GetTimerTimeRequest, opts ...grpc.CallOption) (*GetTimerTimeResponse, error)
+	GetTimersKeyAt(ctx context.Context, in *GetTimersKeyAtRequest, opts ...grpc.CallOption) (*GetTimersKeyAtResponse, error)
+	GetTimersKeyCount(ctx context.Context, in *GetTimersKeyCountRequest, opts ...grpc.CallOption) (*GetTimersKeyCountResponse, error)
+	HasMeasurement(ctx context.Context, in *HasMeasurementRequest, opts ...grpc.CallOption) (*HasMeasurementResponse, error)
+	HasMeasurements(ctx context.Context, in *HasMeasurementsRequest, opts ...grpc.CallOption) (*HasMeasurementsResponse, error)
+	HasStats(ctx context.Context, in *HasStatsRequest, opts ...grpc.CallOption) (*HasStatsResponse, error)
+	HasTimer(ctx context.Context, in *HasTimerRequest, opts ...grpc.CallOption) (*HasTimerResponse, error)
+	HasTimers(ctx context.Context, in *HasTimersRequest, opts ...grpc.CallOption) (*HasTimersResponse, error)
+}
+
+type statsServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewStatsServiceClient(cc grpc.ClientConnInterface) StatsServiceClient {
+	return &statsServiceClient{cc}
+}
+
+func (c *statsServiceClient) GetDataType(ctx context.Context, in *GetDataTypeRequest, opts ...grpc.CallOption) (*GetDataTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDataTypeResponse)
+	err := c.cc.Invoke(ctx, StatsService_GetDataType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *statsServiceClient) GetMeasurement(ctx context.Context, in *GetMeasurementRequest, opts ...grpc.CallOption) (*GetMeasurementResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMeasurementResponse)
+	err := c.cc.Invoke(ctx, StatsService_GetMeasurement_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *statsServiceClient) GetMeasurementKeyAt(ctx context.Context, in *GetMeasurementKeyAtRequest, opts ...grpc.CallOption) (*GetMeasurementKeyAtResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMeasurementKeyAtResponse)
+	err := c.cc.Invoke(ctx, StatsService_GetMeasurementKeyAt_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *statsServiceClient) GetMeasurementKeyCount(ctx context.Context, in *GetMeasurementKeyCountRequest, opts ...grpc.CallOption) (*GetMeasurementKeyCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMeasurementKeyCountResponse)
+	err := c.cc.Invoke(ctx, StatsService_GetMeasurementKeyCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *statsServiceClient) GetMeasurementsKeyAt(ctx context.Context, in *GetMeasurementsKeyAtRequest, opts ...grpc.CallOption) (*GetMeasurementsKeyAtResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMeasurementsKeyAtResponse)
+	err := c.cc.Invoke(ctx, StatsService_GetMeasurementsKeyAt_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *statsServiceClient) GetMeasurementsKeyCount(ctx context.Context, in *GetMeasurementsKeyCountRequest, opts ...grpc.CallOption) (*GetMeasurementsKeyCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMeasurementsKeyCountResponse)
+	err := c.cc.Invoke(ctx, StatsService_GetMeasurementsKeyCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *statsServiceClient) GetStatsKeyAt(ctx context.Context, in *GetStatsKeyAtRequest, opts ...grpc.CallOption) (*GetStatsKeyAtResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStatsKeyAtResponse)
+	err := c.cc.Invoke(ctx, StatsService_GetStatsKeyAt_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *statsServiceClient) GetStatsKeyCount(ctx context.Context, in *GetStatsKeyCountRequest, opts ...grpc.CallOption) (*GetStatsKeyCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStatsKeyCountResponse)
+	err := c.cc.Invoke(ctx, StatsService_GetStatsKeyCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *statsServiceClient) GetTimer(ctx context.Context, in *GetTimerRequest, opts ...grpc.CallOption) (*GetTimerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTimerResponse)
+	err := c.cc.Invoke(ctx, StatsService_GetTimer_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *statsServiceClient) GetTimerCount(ctx context.Context, in *GetTimerCountRequest, opts ...grpc.CallOption) (*GetTimerCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTimerCountResponse)
+	err := c.cc.Invoke(ctx, StatsService_GetTimerCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *statsServiceClient) GetTimerKeyAt(ctx context.Context, in *GetTimerKeyAtRequest, opts ...grpc.CallOption) (*GetTimerKeyAtResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTimerKeyAtResponse)
+	err := c.cc.Invoke(ctx, StatsService_GetTimerKeyAt_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *statsServiceClient) GetTimerKeyCount(ctx context.Context, in *GetTimerKeyCountRequest, opts ...grpc.CallOption) (*GetTimerKeyCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTimerKeyCountResponse)
+	err := c.cc.Invoke(ctx, StatsService_GetTimerKeyCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *statsServiceClient) GetTimerTime(ctx context.Context, in *GetTimerTimeRequest, opts ...grpc.CallOption) (*GetTimerTimeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTimerTimeResponse)
+	err := c.cc.Invoke(ctx, StatsService_GetTimerTime_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *statsServiceClient) GetTimersKeyAt(ctx context.Context, in *GetTimersKeyAtRequest, opts ...grpc.CallOption) (*GetTimersKeyAtResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTimersKeyAtResponse)
+	err := c.cc.Invoke(ctx, StatsService_GetTimersKeyAt_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *statsServiceClient) GetTimersKeyCount(ctx context.Context, in *GetTimersKeyCountRequest, opts ...grpc.CallOption) (*GetTimersKeyCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTimersKeyCountResponse)
+	err := c.cc.Invoke(ctx, StatsService_GetTimersKeyCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *statsServiceClient) HasMeasurement(ctx context.Context, in *HasMeasurementRequest, opts ...grpc.CallOption) (*HasMeasurementResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HasMeasurementResponse)
+	err := c.cc.Invoke(ctx, StatsService_HasMeasurement_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *statsServiceClient) HasMeasurements(ctx context.Context, in *HasMeasurementsRequest, opts ...grpc.CallOption) (*HasMeasurementsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HasMeasurementsResponse)
+	err := c.cc.Invoke(ctx, StatsService_HasMeasurements_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *statsServiceClient) HasStats(ctx context.Context, in *HasStatsRequest, opts ...grpc.CallOption) (*HasStatsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HasStatsResponse)
+	err := c.cc.Invoke(ctx, StatsService_HasStats_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *statsServiceClient) HasTimer(ctx context.Context, in *HasTimerRequest, opts ...grpc.CallOption) (*HasTimerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HasTimerResponse)
+	err := c.cc.Invoke(ctx, StatsService_HasTimer_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *statsServiceClient) HasTimers(ctx context.Context, in *HasTimersRequest, opts ...grpc.CallOption) (*HasTimersResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HasTimersResponse)
+	err := c.cc.Invoke(ctx, StatsService_HasTimers_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// StatsServiceServer is the server API for StatsService service.
+// All implementations must embed UnimplementedStatsServiceServer
+// for forward compatibility.
+type StatsServiceServer interface {
+	GetDataType(context.Context, *GetDataTypeRequest) (*GetDataTypeResponse, error)
+	GetMeasurement(context.Context, *GetMeasurementRequest) (*GetMeasurementResponse, error)
+	GetMeasurementKeyAt(context.Context, *GetMeasurementKeyAtRequest) (*GetMeasurementKeyAtResponse, error)
+	GetMeasurementKeyCount(context.Context, *GetMeasurementKeyCountRequest) (*GetMeasurementKeyCountResponse, error)
+	GetMeasurementsKeyAt(context.Context, *GetMeasurementsKeyAtRequest) (*GetMeasurementsKeyAtResponse, error)
+	GetMeasurementsKeyCount(context.Context, *GetMeasurementsKeyCountRequest) (*GetMeasurementsKeyCountResponse, error)
+	GetStatsKeyAt(context.Context, *GetStatsKeyAtRequest) (*GetStatsKeyAtResponse, error)
+	GetStatsKeyCount(context.Context, *GetStatsKeyCountRequest) (*GetStatsKeyCountResponse, error)
+	GetTimer(context.Context, *GetTimerRequest) (*GetTimerResponse, error)
+	GetTimerCount(context.Context, *GetTimerCountRequest) (*GetTimerCountResponse, error)
+	GetTimerKeyAt(context.Context, *GetTimerKeyAtRequest) (*GetTimerKeyAtResponse, error)
+	GetTimerKeyCount(context.Context, *GetTimerKeyCountRequest) (*GetTimerKeyCountResponse, error)
+	GetTimerTime(context.Context, *GetTimerTimeRequest) (*GetTimerTimeResponse, error)
+	GetTimersKeyAt(context.Context, *GetTimersKeyAtRequest) (*GetTimersKeyAtResponse, error)
+	GetTimersKeyCount(context.Context, *GetTimersKeyCountRequest) (*GetTimersKeyCountResponse, error)
+	HasMeasurement(context.Context, *HasMeasurementRequest) (*HasMeasurementResponse, error)
+	HasMeasurements(context.Context, *HasMeasurementsRequest) (*HasMeasurementsResponse, error)
+	HasStats(context.Context, *HasStatsRequest) (*HasStatsResponse, error)
+	HasTimer(context.Context, *HasTimerRequest) (*HasTimerResponse, error)
+	HasTimers(context.Context, *HasTimersRequest) (*HasTimersResponse, error)
+	mustEmbedUnimplementedStatsServiceServer()
+}
+
+// UnimplementedStatsServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedStatsServiceServer struct{}
+
+func (UnimplementedStatsServiceServer) GetDataType(context.Context, *GetDataTypeRequest) (*GetDataTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDataType not implemented")
+}
+func (UnimplementedStatsServiceServer) GetMeasurement(context.Context, *GetMeasurementRequest) (*GetMeasurementResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMeasurement not implemented")
+}
+func (UnimplementedStatsServiceServer) GetMeasurementKeyAt(context.Context, *GetMeasurementKeyAtRequest) (*GetMeasurementKeyAtResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMeasurementKeyAt not implemented")
+}
+func (UnimplementedStatsServiceServer) GetMeasurementKeyCount(context.Context, *GetMeasurementKeyCountRequest) (*GetMeasurementKeyCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMeasurementKeyCount not implemented")
+}
+func (UnimplementedStatsServiceServer) GetMeasurementsKeyAt(context.Context, *GetMeasurementsKeyAtRequest) (*GetMeasurementsKeyAtResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMeasurementsKeyAt not implemented")
+}
+func (UnimplementedStatsServiceServer) GetMeasurementsKeyCount(context.Context, *GetMeasurementsKeyCountRequest) (*GetMeasurementsKeyCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMeasurementsKeyCount not implemented")
+}
+func (UnimplementedStatsServiceServer) GetStatsKeyAt(context.Context, *GetStatsKeyAtRequest) (*GetStatsKeyAtResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetStatsKeyAt not implemented")
+}
+func (UnimplementedStatsServiceServer) GetStatsKeyCount(context.Context, *GetStatsKeyCountRequest) (*GetStatsKeyCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetStatsKeyCount not implemented")
+}
+func (UnimplementedStatsServiceServer) GetTimer(context.Context, *GetTimerRequest) (*GetTimerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTimer not implemented")
+}
+func (UnimplementedStatsServiceServer) GetTimerCount(context.Context, *GetTimerCountRequest) (*GetTimerCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTimerCount not implemented")
+}
+func (UnimplementedStatsServiceServer) GetTimerKeyAt(context.Context, *GetTimerKeyAtRequest) (*GetTimerKeyAtResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTimerKeyAt not implemented")
+}
+func (UnimplementedStatsServiceServer) GetTimerKeyCount(context.Context, *GetTimerKeyCountRequest) (*GetTimerKeyCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTimerKeyCount not implemented")
+}
+func (UnimplementedStatsServiceServer) GetTimerTime(context.Context, *GetTimerTimeRequest) (*GetTimerTimeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTimerTime not implemented")
+}
+func (UnimplementedStatsServiceServer) GetTimersKeyAt(context.Context, *GetTimersKeyAtRequest) (*GetTimersKeyAtResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTimersKeyAt not implemented")
+}
+func (UnimplementedStatsServiceServer) GetTimersKeyCount(context.Context, *GetTimersKeyCountRequest) (*GetTimersKeyCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTimersKeyCount not implemented")
+}
+func (UnimplementedStatsServiceServer) HasMeasurement(context.Context, *HasMeasurementRequest) (*HasMeasurementResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HasMeasurement not implemented")
+}
+func (UnimplementedStatsServiceServer) HasMeasurements(context.Context, *HasMeasurementsRequest) (*HasMeasurementsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HasMeasurements not implemented")
+}
+func (UnimplementedStatsServiceServer) HasStats(context.Context, *HasStatsRequest) (*HasStatsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HasStats not implemented")
+}
+func (UnimplementedStatsServiceServer) HasTimer(context.Context, *HasTimerRequest) (*HasTimerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HasTimer not implemented")
+}
+func (UnimplementedStatsServiceServer) HasTimers(context.Context, *HasTimersRequest) (*HasTimersResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HasTimers not implemented")
+}
+func (UnimplementedStatsServiceServer) mustEmbedUnimplementedStatsServiceServer() {}
+func (UnimplementedStatsServiceServer) testEmbeddedByValue()                      {}
+
+// UnsafeStatsServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to StatsServiceServer will
+// result in compilation errors.
+type UnsafeStatsServiceServer interface {
+	mustEmbedUnimplementedStatsServiceServer()
+}
+
+func RegisterStatsServiceServer(s grpc.ServiceRegistrar, srv StatsServiceServer) {
+	// If the following call panics, it indicates UnimplementedStatsServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&StatsService_ServiceDesc, srv)
+}
+
+func _StatsService_GetDataType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDataTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StatsServiceServer).GetDataType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StatsService_GetDataType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StatsServiceServer).GetDataType(ctx, req.(*GetDataTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StatsService_GetMeasurement_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMeasurementRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StatsServiceServer).GetMeasurement(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StatsService_GetMeasurement_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StatsServiceServer).GetMeasurement(ctx, req.(*GetMeasurementRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StatsService_GetMeasurementKeyAt_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMeasurementKeyAtRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StatsServiceServer).GetMeasurementKeyAt(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StatsService_GetMeasurementKeyAt_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StatsServiceServer).GetMeasurementKeyAt(ctx, req.(*GetMeasurementKeyAtRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StatsService_GetMeasurementKeyCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMeasurementKeyCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StatsServiceServer).GetMeasurementKeyCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StatsService_GetMeasurementKeyCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StatsServiceServer).GetMeasurementKeyCount(ctx, req.(*GetMeasurementKeyCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StatsService_GetMeasurementsKeyAt_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMeasurementsKeyAtRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StatsServiceServer).GetMeasurementsKeyAt(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StatsService_GetMeasurementsKeyAt_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StatsServiceServer).GetMeasurementsKeyAt(ctx, req.(*GetMeasurementsKeyAtRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StatsService_GetMeasurementsKeyCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMeasurementsKeyCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StatsServiceServer).GetMeasurementsKeyCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StatsService_GetMeasurementsKeyCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StatsServiceServer).GetMeasurementsKeyCount(ctx, req.(*GetMeasurementsKeyCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StatsService_GetStatsKeyAt_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStatsKeyAtRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StatsServiceServer).GetStatsKeyAt(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StatsService_GetStatsKeyAt_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StatsServiceServer).GetStatsKeyAt(ctx, req.(*GetStatsKeyAtRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StatsService_GetStatsKeyCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStatsKeyCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StatsServiceServer).GetStatsKeyCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StatsService_GetStatsKeyCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StatsServiceServer).GetStatsKeyCount(ctx, req.(*GetStatsKeyCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StatsService_GetTimer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTimerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StatsServiceServer).GetTimer(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StatsService_GetTimer_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StatsServiceServer).GetTimer(ctx, req.(*GetTimerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StatsService_GetTimerCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTimerCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StatsServiceServer).GetTimerCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StatsService_GetTimerCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StatsServiceServer).GetTimerCount(ctx, req.(*GetTimerCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StatsService_GetTimerKeyAt_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTimerKeyAtRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StatsServiceServer).GetTimerKeyAt(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StatsService_GetTimerKeyAt_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StatsServiceServer).GetTimerKeyAt(ctx, req.(*GetTimerKeyAtRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StatsService_GetTimerKeyCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTimerKeyCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StatsServiceServer).GetTimerKeyCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StatsService_GetTimerKeyCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StatsServiceServer).GetTimerKeyCount(ctx, req.(*GetTimerKeyCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StatsService_GetTimerTime_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTimerTimeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StatsServiceServer).GetTimerTime(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StatsService_GetTimerTime_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StatsServiceServer).GetTimerTime(ctx, req.(*GetTimerTimeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StatsService_GetTimersKeyAt_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTimersKeyAtRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StatsServiceServer).GetTimersKeyAt(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StatsService_GetTimersKeyAt_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StatsServiceServer).GetTimersKeyAt(ctx, req.(*GetTimersKeyAtRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StatsService_GetTimersKeyCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTimersKeyCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StatsServiceServer).GetTimersKeyCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StatsService_GetTimersKeyCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StatsServiceServer).GetTimersKeyCount(ctx, req.(*GetTimersKeyCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StatsService_HasMeasurement_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HasMeasurementRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StatsServiceServer).HasMeasurement(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StatsService_HasMeasurement_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StatsServiceServer).HasMeasurement(ctx, req.(*HasMeasurementRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StatsService_HasMeasurements_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HasMeasurementsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StatsServiceServer).HasMeasurements(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StatsService_HasMeasurements_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StatsServiceServer).HasMeasurements(ctx, req.(*HasMeasurementsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StatsService_HasStats_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HasStatsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StatsServiceServer).HasStats(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StatsService_HasStats_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StatsServiceServer).HasStats(ctx, req.(*HasStatsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StatsService_HasTimer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HasTimerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StatsServiceServer).HasTimer(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StatsService_HasTimer_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StatsServiceServer).HasTimer(ctx, req.(*HasTimerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StatsService_HasTimers_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HasTimersRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StatsServiceServer).HasTimers(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StatsService_HasTimers_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StatsServiceServer).HasTimers(ctx, req.(*HasTimersRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// StatsService_ServiceDesc is the grpc.ServiceDesc for StatsService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var StatsService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "health.StatsService",
+	HandlerType: (*StatsServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetDataType",
+			Handler:    _StatsService_GetDataType_Handler,
+		},
+		{
+			MethodName: "GetMeasurement",
+			Handler:    _StatsService_GetMeasurement_Handler,
+		},
+		{
+			MethodName: "GetMeasurementKeyAt",
+			Handler:    _StatsService_GetMeasurementKeyAt_Handler,
+		},
+		{
+			MethodName: "GetMeasurementKeyCount",
+			Handler:    _StatsService_GetMeasurementKeyCount_Handler,
+		},
+		{
+			MethodName: "GetMeasurementsKeyAt",
+			Handler:    _StatsService_GetMeasurementsKeyAt_Handler,
+		},
+		{
+			MethodName: "GetMeasurementsKeyCount",
+			Handler:    _StatsService_GetMeasurementsKeyCount_Handler,
+		},
+		{
+			MethodName: "GetStatsKeyAt",
+			Handler:    _StatsService_GetStatsKeyAt_Handler,
+		},
+		{
+			MethodName: "GetStatsKeyCount",
+			Handler:    _StatsService_GetStatsKeyCount_Handler,
+		},
+		{
+			MethodName: "GetTimer",
+			Handler:    _StatsService_GetTimer_Handler,
+		},
+		{
+			MethodName: "GetTimerCount",
+			Handler:    _StatsService_GetTimerCount_Handler,
+		},
+		{
+			MethodName: "GetTimerKeyAt",
+			Handler:    _StatsService_GetTimerKeyAt_Handler,
+		},
+		{
+			MethodName: "GetTimerKeyCount",
+			Handler:    _StatsService_GetTimerKeyCount_Handler,
+		},
+		{
+			MethodName: "GetTimerTime",
+			Handler:    _StatsService_GetTimerTime_Handler,
+		},
+		{
+			MethodName: "GetTimersKeyAt",
+			Handler:    _StatsService_GetTimersKeyAt_Handler,
+		},
+		{
+			MethodName: "GetTimersKeyCount",
+			Handler:    _StatsService_GetTimersKeyCount_Handler,
+		},
+		{
+			MethodName: "HasMeasurement",
+			Handler:    _StatsService_HasMeasurement_Handler,
+		},
+		{
+			MethodName: "HasMeasurements",
+			Handler:    _StatsService_HasMeasurements_Handler,
+		},
+		{
+			MethodName: "HasStats",
+			Handler:    _StatsService_HasStats_Handler,
+		},
+		{
+			MethodName: "HasTimer",
+			Handler:    _StatsService_HasTimer_Handler,
+		},
+		{
+			MethodName: "HasTimers",
+			Handler:    _StatsService_HasTimers_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/health/health.proto",
+}
+
+const (
 	SystemHealthManagerService_GetCpuHeadroom_FullMethodName                  = "/health.SystemHealthManagerService/GetCpuHeadroom"
 	SystemHealthManagerService_GetCpuHeadroomMinIntervalMillis_FullMethodName = "/health.SystemHealthManagerService/GetCpuHeadroomMinIntervalMillis"
 	SystemHealthManagerService_GetGpuHeadroom_FullMethodName                  = "/health.SystemHealthManagerService/GetGpuHeadroom"
@@ -383,6 +1207,336 @@ var SystemHealthManagerService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "TakeUidSnapshots",
 			Handler:    _SystemHealthManagerService_TakeUidSnapshots_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/health/health.proto",
+}
+
+const (
+	TimerStatService_NewTimerStat_FullMethodName     = "/health.TimerStatService/NewTimerStat"
+	TimerStatService_DescribeContents_FullMethodName = "/health.TimerStatService/DescribeContents"
+	TimerStatService_GetCount_FullMethodName         = "/health.TimerStatService/GetCount"
+	TimerStatService_GetTime_FullMethodName          = "/health.TimerStatService/GetTime"
+	TimerStatService_SetCount_FullMethodName         = "/health.TimerStatService/SetCount"
+	TimerStatService_SetTime_FullMethodName          = "/health.TimerStatService/SetTime"
+	TimerStatService_WriteToParcel_FullMethodName    = "/health.TimerStatService/WriteToParcel"
+)
+
+// TimerStatServiceClient is the client API for TimerStatService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TimerStatServiceClient interface {
+	NewTimerStat(ctx context.Context, in *NewTimerStatRequest, opts ...grpc.CallOption) (*NewTimerStatResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetCount(ctx context.Context, in *GetCountRequest, opts ...grpc.CallOption) (*GetCountResponse, error)
+	GetTime(ctx context.Context, in *GetTimeRequest, opts ...grpc.CallOption) (*GetTimeResponse, error)
+	SetCount(ctx context.Context, in *SetCountRequest, opts ...grpc.CallOption) (*SetCountResponse, error)
+	SetTime(ctx context.Context, in *SetTimeRequest, opts ...grpc.CallOption) (*SetTimeResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type timerStatServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTimerStatServiceClient(cc grpc.ClientConnInterface) TimerStatServiceClient {
+	return &timerStatServiceClient{cc}
+}
+
+func (c *timerStatServiceClient) NewTimerStat(ctx context.Context, in *NewTimerStatRequest, opts ...grpc.CallOption) (*NewTimerStatResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewTimerStatResponse)
+	err := c.cc.Invoke(ctx, TimerStatService_NewTimerStat_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *timerStatServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, TimerStatService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *timerStatServiceClient) GetCount(ctx context.Context, in *GetCountRequest, opts ...grpc.CallOption) (*GetCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCountResponse)
+	err := c.cc.Invoke(ctx, TimerStatService_GetCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *timerStatServiceClient) GetTime(ctx context.Context, in *GetTimeRequest, opts ...grpc.CallOption) (*GetTimeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTimeResponse)
+	err := c.cc.Invoke(ctx, TimerStatService_GetTime_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *timerStatServiceClient) SetCount(ctx context.Context, in *SetCountRequest, opts ...grpc.CallOption) (*SetCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetCountResponse)
+	err := c.cc.Invoke(ctx, TimerStatService_SetCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *timerStatServiceClient) SetTime(ctx context.Context, in *SetTimeRequest, opts ...grpc.CallOption) (*SetTimeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetTimeResponse)
+	err := c.cc.Invoke(ctx, TimerStatService_SetTime_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *timerStatServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, TimerStatService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TimerStatServiceServer is the server API for TimerStatService service.
+// All implementations must embed UnimplementedTimerStatServiceServer
+// for forward compatibility.
+type TimerStatServiceServer interface {
+	NewTimerStat(context.Context, *NewTimerStatRequest) (*NewTimerStatResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetCount(context.Context, *GetCountRequest) (*GetCountResponse, error)
+	GetTime(context.Context, *GetTimeRequest) (*GetTimeResponse, error)
+	SetCount(context.Context, *SetCountRequest) (*SetCountResponse, error)
+	SetTime(context.Context, *SetTimeRequest) (*SetTimeResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedTimerStatServiceServer()
+}
+
+// UnimplementedTimerStatServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTimerStatServiceServer struct{}
+
+func (UnimplementedTimerStatServiceServer) NewTimerStat(context.Context, *NewTimerStatRequest) (*NewTimerStatResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewTimerStat not implemented")
+}
+func (UnimplementedTimerStatServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedTimerStatServiceServer) GetCount(context.Context, *GetCountRequest) (*GetCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCount not implemented")
+}
+func (UnimplementedTimerStatServiceServer) GetTime(context.Context, *GetTimeRequest) (*GetTimeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTime not implemented")
+}
+func (UnimplementedTimerStatServiceServer) SetCount(context.Context, *SetCountRequest) (*SetCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetCount not implemented")
+}
+func (UnimplementedTimerStatServiceServer) SetTime(context.Context, *SetTimeRequest) (*SetTimeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetTime not implemented")
+}
+func (UnimplementedTimerStatServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedTimerStatServiceServer) mustEmbedUnimplementedTimerStatServiceServer() {}
+func (UnimplementedTimerStatServiceServer) testEmbeddedByValue()                          {}
+
+// UnsafeTimerStatServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TimerStatServiceServer will
+// result in compilation errors.
+type UnsafeTimerStatServiceServer interface {
+	mustEmbedUnimplementedTimerStatServiceServer()
+}
+
+func RegisterTimerStatServiceServer(s grpc.ServiceRegistrar, srv TimerStatServiceServer) {
+	// If the following call panics, it indicates UnimplementedTimerStatServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TimerStatService_ServiceDesc, srv)
+}
+
+func _TimerStatService_NewTimerStat_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewTimerStatRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TimerStatServiceServer).NewTimerStat(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TimerStatService_NewTimerStat_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TimerStatServiceServer).NewTimerStat(ctx, req.(*NewTimerStatRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TimerStatService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TimerStatServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TimerStatService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TimerStatServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TimerStatService_GetCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TimerStatServiceServer).GetCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TimerStatService_GetCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TimerStatServiceServer).GetCount(ctx, req.(*GetCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TimerStatService_GetTime_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTimeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TimerStatServiceServer).GetTime(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TimerStatService_GetTime_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TimerStatServiceServer).GetTime(ctx, req.(*GetTimeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TimerStatService_SetCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TimerStatServiceServer).SetCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TimerStatService_SetCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TimerStatServiceServer).SetCount(ctx, req.(*SetCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TimerStatService_SetTime_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetTimeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TimerStatServiceServer).SetTime(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TimerStatService_SetTime_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TimerStatServiceServer).SetTime(ctx, req.(*SetTimeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TimerStatService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TimerStatServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TimerStatService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TimerStatServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TimerStatService_ServiceDesc is the grpc.ServiceDesc for TimerStatService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TimerStatService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "health.TimerStatService",
+	HandlerType: (*TimerStatServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewTimerStat",
+			Handler:    _TimerStatService_NewTimerStat_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _TimerStatService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetCount",
+			Handler:    _TimerStatService_GetCount_Handler,
+		},
+		{
+			MethodName: "GetTime",
+			Handler:    _TimerStatService_GetTime_Handler,
+		},
+		{
+			MethodName: "SetCount",
+			Handler:    _TimerStatService_SetCount_Handler,
+		},
+		{
+			MethodName: "SetTime",
+			Handler:    _TimerStatService_SetTime_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _TimerStatService_WriteToParcel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

@@ -5,3 +5,76 @@ syntax = "proto3";
 package rssi;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/rssi";
+
+message DescribeContentsRequest {
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message EqualsRequest {
+  int64 arg0 = 1;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message GetPeerBluetoothAddressRequest {
+}
+
+message GetPeerBluetoothAddressResponse {
+  string result = 1;
+}
+
+message GetRangingUpdateRateRequest {
+}
+
+message GetRangingUpdateRateResponse {
+  int32 result = 1;
+}
+
+message HashCodeRequest {
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteToParcelResponse {
+}
+
+message BuildRequest {
+}
+
+message BuildResponse {
+  int64 result = 1;
+}
+
+message SetRangingUpdateRateRequest {
+  int32 arg0 = 1;
+}
+
+message SetRangingUpdateRateResponse {
+  int64 result = 1;
+}
+
+service BleRssiRangingParamsService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetPeerBluetoothAddress (GetPeerBluetoothAddressRequest) returns (GetPeerBluetoothAddressResponse);
+  rpc GetRangingUpdateRate (GetRangingUpdateRateRequest) returns (GetRangingUpdateRateResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service BleRssiRangingParamsBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetRangingUpdateRate (SetRangingUpdateRateRequest) returns (SetRangingUpdateRateResponse);
+}

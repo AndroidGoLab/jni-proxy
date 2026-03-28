@@ -65,6 +65,30 @@ func BuildServerFromSpec(specPath, overlayPath, goModule, jniModule, protoDir st
 	return data, nil
 }
 
+// BuildServerFromMergedProto builds server data using pre-merged ProtoData.
+func BuildServerFromMergedProto(specPath, overlayPath, goModule, jniModule string, mergedProto *protogen.ProtoData, goNames protoscan.GoNames) (*ServerData, error) {
+	spec, err := javagen.LoadSpec(specPath)
+	if err != nil {
+		return nil, fmt.Errorf("load spec: %w", err)
+	}
+
+	overlay, err := javagen.LoadOverlay(overlayPath)
+	if err != nil {
+		return nil, fmt.Errorf("load overlay: %w", err)
+	}
+
+	merged, err := javagen.Merge(spec, overlay)
+	if err != nil {
+		return nil, fmt.Errorf("merge: %w", err)
+	}
+
+	data := buildServerData(merged, goModule, jniModule, mergedProto, goNames)
+	if len(data.Services) == 0 {
+		return nil, nil
+	}
+	return data, nil
+}
+
 // MergeServerData combines two ServerData for the same package.
 func MergeServerData(dst, src *ServerData) {
 	seenSvc := make(map[string]bool, len(dst.Services))
@@ -95,6 +119,40 @@ func MergeServerData(dst, src *ServerData) {
 		}
 		seenDC[dc.GoType] = true
 		dst.DataClasses = append(dst.DataClasses, dc)
+	}
+
+	// In mixed packages (system_service + constructor), constructor services
+	// cause message name collisions (handle vs no-handle). Remove them.
+	hasSystemService := false
+	for _, svc := range dst.Services {
+		if svc.InstantiationKind == "system_service" {
+			hasSystemService = true
+			break
+		}
+	}
+	if hasSystemService {
+		var filtered []ServerService
+		for _, svc := range dst.Services {
+			if svc.InstantiationKind == "constructor" {
+				continue
+			}
+			filtered = append(filtered, svc)
+		}
+		dst.Services = filtered
+	}
+
+	// Recalculate flags after filtering.
+	dst.NeedsJNI = false
+	dst.NeedsHandles = false
+	for _, svc := range dst.Services {
+		if svc.NeedsHandles {
+			dst.NeedsHandles = true
+		}
+		for _, m := range svc.Methods {
+			if m.IsConstructor || m.ReturnKind == "data_class" || m.ReturnKind == "object" {
+				dst.NeedsJNI = true
+			}
+		}
 	}
 
 	assignImportAliases(dst)
@@ -216,7 +274,7 @@ func buildServerData(
 
 	// Build services from eligible classes (same criteria as protogen).
 	for _, cls := range merged.Classes {
-		if !protogen.IsServiceEligible(cls) {
+		if !protogen.IsServerEligible(cls) || !isExported(cls.GoType) {
 			continue
 		}
 
@@ -233,11 +291,55 @@ func buildServerData(
 			Close:       cls.Close,
 		}
 
+		switch cls.Obtain {
+		case "system_service":
+			svc.InstantiationKind = "system_service"
+		case "constructor":
+			svc.InstantiationKind = "constructor"
+			svc.NeedsHandles = true
+			data.NeedsHandles = true
+		}
+
+		// For constructor classes, try to find a constructor RPC in
+		// protoRPCLookup and synthesize a ServerMethod with IsConstructor.
+		// If no constructor RPC exists, skip the class entirely — the
+		// server has no way to instantiate the object.
+		if cls.Obtain == "constructor" {
+			ctorRPCName := "New" + exportName(cls.GoType)
+			ctorLookupKey := protoServiceName + "/" + strings.ToLower(ctorRPCName)
+			info, found := protoRPCLookup[ctorLookupKey]
+			if !found {
+				continue
+			}
+			callArgs, _ := buildCallArgs(cls.ConstructorParams)
+			ctorMethod := ServerMethod{
+				GoName:        info.Name,
+				SpecGoName:    ctorRPCName,
+				RequestType:   goNames.ResolveMessage(info.InputType),
+				ResponseType:  goNames.ResolveMessage(info.OutputType),
+				CallArgs:      callArgs,
+				ReturnKind:    "object",
+				HasError:      true,
+				HasResult:     true,
+				GoReturnType:  "*" + cls.GoType,
+				NeedsHandles:  true,
+				IsConstructor: true,
+				ResultExpr:    "result",
+			}
+			svc.Methods = append(svc.Methods, ctorMethod)
+			data.NeedsJNI = true
+		}
+
+		seenMethod := make(map[string]bool)
 		for _, m := range cls.Methods {
 			if !isExported(m.GoName) {
 				continue
 			}
 			sm := buildServerMethod(m, dataClassMap, javaClassToDataClass, dcFieldMap, protoRPCLookup, protoServiceName, goNames)
+			if seenMethod[sm.GoName] {
+				continue
+			}
+			seenMethod[sm.GoName] = true
 			if sm.ReturnKind == "data_class" || sm.ReturnKind == "object" {
 				data.NeedsJNI = true
 			}
@@ -254,8 +356,93 @@ func buildServerData(
 		data.Services = append(data.Services, svc)
 	}
 
+	// Remove constructor services whose Go types don't exist in the jni package.
+	var validServices []ServerService
+	for _, svc := range data.Services {
+		if svc.InstantiationKind == "constructor" {
+			if !goTypeExistsInPackage(svc.GoImport, svc.GoType) {
+				continue
+			}
+		}
+		validServices = append(validServices, svc)
+	}
+	data.Services = validServices
+
+	// Recalculate NeedsJNI/NeedsHandles after filtering.
+	data.NeedsJNI = false
+	data.NeedsHandles = false
+	for _, svc := range data.Services {
+		if svc.NeedsHandles {
+			data.NeedsHandles = true
+		}
+		for _, m := range svc.Methods {
+			if m.IsConstructor || m.ReturnKind == "data_class" || m.ReturnKind == "object" {
+				data.NeedsJNI = true
+			}
+		}
+	}
+
 	assignImportAliases(data)
 	return data
+}
+
+// goTypeExistsInPackage checks if a Go type struct is defined in the
+// package at the given import path. It tries multiple resolution
+// strategies: GOPATH, go.work sibling directories, and module cache.
+func goTypeExistsInPackage(goImport, goType string) bool {
+	// Check for both the type definition and the constructor function.
+	typePattern := "type " + goType + " struct"
+	ctorPattern := "func New" + goType + "("
+
+	// Strategy 1: GOPATH/src resolution.
+	gopath := os.Getenv("GOPATH")
+	if gopath == "" {
+		gopath = filepath.Join(os.Getenv("HOME"), "go")
+	}
+	candidates := []string{
+		filepath.Join(gopath, "src", strings.ReplaceAll(goImport, "/", string(filepath.Separator))),
+	}
+
+	// Strategy 2: resolve via go.work — check sibling directories.
+	// If the import is "github.com/Org/mod/pkg", try "../mod/pkg" relative
+	// to the current working directory.
+	parts := strings.SplitN(goImport, "/", 4) // host/org/mod/pkg...
+	if len(parts) >= 3 {
+		modName := parts[2] // e.g., "jni"
+		subPath := ""
+		if len(parts) >= 4 {
+			subPath = parts[3]
+		}
+		if cwd, err := os.Getwd(); err == nil {
+			candidates = append(candidates,
+				filepath.Join(cwd, "..", modName, subPath),
+				filepath.Join(filepath.Dir(cwd), modName, subPath),
+			)
+		}
+	}
+
+	foundType := false
+	foundCtor := false
+	for _, dir := range candidates {
+		files, err := filepath.Glob(filepath.Join(dir, "*.go"))
+		if err != nil || len(files) == 0 {
+			continue
+		}
+		for _, f := range files {
+			content, err := os.ReadFile(f)
+			if err != nil {
+				continue
+			}
+			s := string(content)
+			if strings.Contains(s, typePattern) {
+				foundType = true
+			}
+			if strings.Contains(s, ctorPattern) {
+				foundCtor = true
+			}
+		}
+	}
+	return foundType && foundCtor
 }
 
 // buildServerMethod converts a MergedMethod to a ServerMethod with
@@ -371,6 +558,8 @@ func convertProtoToGo(goType, expr string) string {
 	switch goType {
 	case "string", "bool", "int32", "int64", "float32", "float64":
 		return expr
+	case "int8":
+		return fmt.Sprintf("int8(%s)", expr)
 	case "int16":
 		return fmt.Sprintf("int16(%s)", expr)
 	case "uint16":
@@ -392,6 +581,8 @@ func convertPrimitiveExpr(goType, varName string) string {
 		return varName
 	case "int":
 		return fmt.Sprintf("int32(%s)", varName)
+	case "int8":
+		return fmt.Sprintf("uint32(%s)", varName)
 	case "int16", "uint16":
 		return fmt.Sprintf("int32(%s)", varName)
 	case "byte":

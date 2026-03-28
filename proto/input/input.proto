@@ -6,6 +6,57 @@ package input;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/input";
 
+message DescribeContentsRequest {
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message EqualsRequest {
+  int64 arg0 = 1;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message GetMajorVersionRequest {
+}
+
+message GetMajorVersionResponse {
+  int32 result = 1;
+}
+
+message GetMinorVersionRequest {
+}
+
+message GetMinorVersionResponse {
+  int32 result = 1;
+}
+
+message HashCodeRequest {
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message ToStringRequest {
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteToParcelResponse {
+}
+
 message GetHostUsiVersionRequest {
   int64 arg0 = 1;
 }
@@ -66,6 +117,37 @@ message VerifyInputEventResponse {
   int64 result = 1;
 }
 
+message OnInputDeviceAddedRequest {
+  int32 arg0 = 1;
+}
+
+message OnInputDeviceAddedResponse {
+}
+
+message OnInputDeviceChangedRequest {
+  int32 arg0 = 1;
+}
+
+message OnInputDeviceChangedResponse {
+}
+
+message OnInputDeviceRemovedRequest {
+  int32 arg0 = 1;
+}
+
+message OnInputDeviceRemovedResponse {
+}
+
+service HostUsiVersionService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetMajorVersion (GetMajorVersionRequest) returns (GetMajorVersionResponse);
+  rpc GetMinorVersion (GetMinorVersionRequest) returns (GetMinorVersionResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
 service ManagerService {
   rpc GetHostUsiVersion (GetHostUsiVersionRequest) returns (GetHostUsiVersionResponse);
   rpc GetInputDevice (GetInputDeviceRequest) returns (GetInputDeviceResponse);
@@ -75,4 +157,10 @@ service ManagerService {
   rpc IsStylusPointerIconEnabled (IsStylusPointerIconEnabledRequest) returns (IsStylusPointerIconEnabledResponse);
   rpc UnregisterInputDeviceListener (UnregisterInputDeviceListenerRequest) returns (UnregisterInputDeviceListenerResponse);
   rpc VerifyInputEvent (VerifyInputEventRequest) returns (VerifyInputEventResponse);
+}
+
+service ManagerInputDeviceListenerService {
+  rpc OnInputDeviceAdded (OnInputDeviceAddedRequest) returns (OnInputDeviceAddedResponse);
+  rpc OnInputDeviceChanged (OnInputDeviceChangedRequest) returns (OnInputDeviceChangedResponse);
+  rpc OnInputDeviceRemoved (OnInputDeviceRemovedRequest) returns (OnInputDeviceRemovedResponse);
 }

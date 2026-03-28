@@ -12,6 +12,7 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -22,19 +23,4525 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type NewDreamServiceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewDreamServiceRequest) Reset() {
+	*x = NewDreamServiceRequest{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewDreamServiceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewDreamServiceRequest) ProtoMessage() {}
+
+func (x *NewDreamServiceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewDreamServiceRequest.ProtoReflect.Descriptor instead.
+func (*NewDreamServiceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{0}
+}
+
+type NewDreamServiceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewDreamServiceResponse) Reset() {
+	*x = NewDreamServiceResponse{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewDreamServiceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewDreamServiceResponse) ProtoMessage() {}
+
+func (x *NewDreamServiceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewDreamServiceResponse.ProtoReflect.Descriptor instead.
+func (*NewDreamServiceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *NewDreamServiceResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddContentViewRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddContentViewRequest) Reset() {
+	*x = AddContentViewRequest{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddContentViewRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddContentViewRequest) ProtoMessage() {}
+
+func (x *AddContentViewRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddContentViewRequest.ProtoReflect.Descriptor instead.
+func (*AddContentViewRequest) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *AddContentViewRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *AddContentViewRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *AddContentViewRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type AddContentViewResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddContentViewResponse) Reset() {
+	*x = AddContentViewResponse{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddContentViewResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddContentViewResponse) ProtoMessage() {}
+
+func (x *AddContentViewResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddContentViewResponse.ProtoReflect.Descriptor instead.
+func (*AddContentViewResponse) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{3}
+}
+
+type DispatchGenericMotionEventRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DispatchGenericMotionEventRequest) Reset() {
+	*x = DispatchGenericMotionEventRequest{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DispatchGenericMotionEventRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DispatchGenericMotionEventRequest) ProtoMessage() {}
+
+func (x *DispatchGenericMotionEventRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DispatchGenericMotionEventRequest.ProtoReflect.Descriptor instead.
+func (*DispatchGenericMotionEventRequest) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *DispatchGenericMotionEventRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *DispatchGenericMotionEventRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type DispatchGenericMotionEventResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DispatchGenericMotionEventResponse) Reset() {
+	*x = DispatchGenericMotionEventResponse{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DispatchGenericMotionEventResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DispatchGenericMotionEventResponse) ProtoMessage() {}
+
+func (x *DispatchGenericMotionEventResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DispatchGenericMotionEventResponse.ProtoReflect.Descriptor instead.
+func (*DispatchGenericMotionEventResponse) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *DispatchGenericMotionEventResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type DispatchKeyEventRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DispatchKeyEventRequest) Reset() {
+	*x = DispatchKeyEventRequest{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DispatchKeyEventRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DispatchKeyEventRequest) ProtoMessage() {}
+
+func (x *DispatchKeyEventRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DispatchKeyEventRequest.ProtoReflect.Descriptor instead.
+func (*DispatchKeyEventRequest) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *DispatchKeyEventRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *DispatchKeyEventRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type DispatchKeyEventResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DispatchKeyEventResponse) Reset() {
+	*x = DispatchKeyEventResponse{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DispatchKeyEventResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DispatchKeyEventResponse) ProtoMessage() {}
+
+func (x *DispatchKeyEventResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DispatchKeyEventResponse.ProtoReflect.Descriptor instead.
+func (*DispatchKeyEventResponse) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *DispatchKeyEventResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type DispatchKeyShortcutEventRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DispatchKeyShortcutEventRequest) Reset() {
+	*x = DispatchKeyShortcutEventRequest{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DispatchKeyShortcutEventRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DispatchKeyShortcutEventRequest) ProtoMessage() {}
+
+func (x *DispatchKeyShortcutEventRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DispatchKeyShortcutEventRequest.ProtoReflect.Descriptor instead.
+func (*DispatchKeyShortcutEventRequest) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *DispatchKeyShortcutEventRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *DispatchKeyShortcutEventRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type DispatchKeyShortcutEventResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DispatchKeyShortcutEventResponse) Reset() {
+	*x = DispatchKeyShortcutEventResponse{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DispatchKeyShortcutEventResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DispatchKeyShortcutEventResponse) ProtoMessage() {}
+
+func (x *DispatchKeyShortcutEventResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DispatchKeyShortcutEventResponse.ProtoReflect.Descriptor instead.
+func (*DispatchKeyShortcutEventResponse) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *DispatchKeyShortcutEventResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type DispatchPopulateAccessibilityEventRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DispatchPopulateAccessibilityEventRequest) Reset() {
+	*x = DispatchPopulateAccessibilityEventRequest{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DispatchPopulateAccessibilityEventRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DispatchPopulateAccessibilityEventRequest) ProtoMessage() {}
+
+func (x *DispatchPopulateAccessibilityEventRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DispatchPopulateAccessibilityEventRequest.ProtoReflect.Descriptor instead.
+func (*DispatchPopulateAccessibilityEventRequest) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *DispatchPopulateAccessibilityEventRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *DispatchPopulateAccessibilityEventRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type DispatchPopulateAccessibilityEventResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DispatchPopulateAccessibilityEventResponse) Reset() {
+	*x = DispatchPopulateAccessibilityEventResponse{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DispatchPopulateAccessibilityEventResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DispatchPopulateAccessibilityEventResponse) ProtoMessage() {}
+
+func (x *DispatchPopulateAccessibilityEventResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DispatchPopulateAccessibilityEventResponse.ProtoReflect.Descriptor instead.
+func (*DispatchPopulateAccessibilityEventResponse) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *DispatchPopulateAccessibilityEventResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type DispatchTouchEventRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DispatchTouchEventRequest) Reset() {
+	*x = DispatchTouchEventRequest{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DispatchTouchEventRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DispatchTouchEventRequest) ProtoMessage() {}
+
+func (x *DispatchTouchEventRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DispatchTouchEventRequest.ProtoReflect.Descriptor instead.
+func (*DispatchTouchEventRequest) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *DispatchTouchEventRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *DispatchTouchEventRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type DispatchTouchEventResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DispatchTouchEventResponse) Reset() {
+	*x = DispatchTouchEventResponse{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DispatchTouchEventResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DispatchTouchEventResponse) ProtoMessage() {}
+
+func (x *DispatchTouchEventResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DispatchTouchEventResponse.ProtoReflect.Descriptor instead.
+func (*DispatchTouchEventResponse) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *DispatchTouchEventResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type DispatchTrackballEventRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DispatchTrackballEventRequest) Reset() {
+	*x = DispatchTrackballEventRequest{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DispatchTrackballEventRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DispatchTrackballEventRequest) ProtoMessage() {}
+
+func (x *DispatchTrackballEventRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DispatchTrackballEventRequest.ProtoReflect.Descriptor instead.
+func (*DispatchTrackballEventRequest) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{14}
+}
+
+func (x *DispatchTrackballEventRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *DispatchTrackballEventRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type DispatchTrackballEventResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DispatchTrackballEventResponse) Reset() {
+	*x = DispatchTrackballEventResponse{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DispatchTrackballEventResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DispatchTrackballEventResponse) ProtoMessage() {}
+
+func (x *DispatchTrackballEventResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DispatchTrackballEventResponse.ProtoReflect.Descriptor instead.
+func (*DispatchTrackballEventResponse) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *DispatchTrackballEventResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type FinishRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FinishRequest) Reset() {
+	*x = FinishRequest{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FinishRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FinishRequest) ProtoMessage() {}
+
+func (x *FinishRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FinishRequest.ProtoReflect.Descriptor instead.
+func (*FinishRequest) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{16}
+}
+
+func (x *FinishRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type FinishResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FinishResponse) Reset() {
+	*x = FinishResponse{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FinishResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FinishResponse) ProtoMessage() {}
+
+func (x *FinishResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FinishResponse.ProtoReflect.Descriptor instead.
+func (*FinishResponse) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{17}
+}
+
+type GetWindowRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetWindowRequest) Reset() {
+	*x = GetWindowRequest{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetWindowRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetWindowRequest) ProtoMessage() {}
+
+func (x *GetWindowRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetWindowRequest.ProtoReflect.Descriptor instead.
+func (*GetWindowRequest) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{18}
+}
+
+func (x *GetWindowRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetWindowResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetWindowResponse) Reset() {
+	*x = GetWindowResponse{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetWindowResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetWindowResponse) ProtoMessage() {}
+
+func (x *GetWindowResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetWindowResponse.ProtoReflect.Descriptor instead.
+func (*GetWindowResponse) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *GetWindowResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetWindowManagerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetWindowManagerRequest) Reset() {
+	*x = GetWindowManagerRequest{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetWindowManagerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetWindowManagerRequest) ProtoMessage() {}
+
+func (x *GetWindowManagerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetWindowManagerRequest.ProtoReflect.Descriptor instead.
+func (*GetWindowManagerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{20}
+}
+
+func (x *GetWindowManagerRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetWindowManagerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetWindowManagerResponse) Reset() {
+	*x = GetWindowManagerResponse{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetWindowManagerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetWindowManagerResponse) ProtoMessage() {}
+
+func (x *GetWindowManagerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetWindowManagerResponse.ProtoReflect.Descriptor instead.
+func (*GetWindowManagerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{21}
+}
+
+func (x *GetWindowManagerResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type IsFullscreenRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsFullscreenRequest) Reset() {
+	*x = IsFullscreenRequest{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsFullscreenRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsFullscreenRequest) ProtoMessage() {}
+
+func (x *IsFullscreenRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsFullscreenRequest.ProtoReflect.Descriptor instead.
+func (*IsFullscreenRequest) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{22}
+}
+
+func (x *IsFullscreenRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type IsFullscreenResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsFullscreenResponse) Reset() {
+	*x = IsFullscreenResponse{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsFullscreenResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsFullscreenResponse) ProtoMessage() {}
+
+func (x *IsFullscreenResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsFullscreenResponse.ProtoReflect.Descriptor instead.
+func (*IsFullscreenResponse) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{23}
+}
+
+func (x *IsFullscreenResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsInteractiveRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsInteractiveRequest) Reset() {
+	*x = IsInteractiveRequest{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsInteractiveRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsInteractiveRequest) ProtoMessage() {}
+
+func (x *IsInteractiveRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsInteractiveRequest.ProtoReflect.Descriptor instead.
+func (*IsInteractiveRequest) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{24}
+}
+
+func (x *IsInteractiveRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type IsInteractiveResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsInteractiveResponse) Reset() {
+	*x = IsInteractiveResponse{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsInteractiveResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsInteractiveResponse) ProtoMessage() {}
+
+func (x *IsInteractiveResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsInteractiveResponse.ProtoReflect.Descriptor instead.
+func (*IsInteractiveResponse) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{25}
+}
+
+func (x *IsInteractiveResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsScreenBrightRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsScreenBrightRequest) Reset() {
+	*x = IsScreenBrightRequest{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[26]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsScreenBrightRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsScreenBrightRequest) ProtoMessage() {}
+
+func (x *IsScreenBrightRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[26]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsScreenBrightRequest.ProtoReflect.Descriptor instead.
+func (*IsScreenBrightRequest) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{26}
+}
+
+func (x *IsScreenBrightRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type IsScreenBrightResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsScreenBrightResponse) Reset() {
+	*x = IsScreenBrightResponse{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[27]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsScreenBrightResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsScreenBrightResponse) ProtoMessage() {}
+
+func (x *IsScreenBrightResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[27]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsScreenBrightResponse.ProtoReflect.Descriptor instead.
+func (*IsScreenBrightResponse) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{27}
+}
+
+func (x *IsScreenBrightResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type OnActionModeFinishedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnActionModeFinishedRequest) Reset() {
+	*x = OnActionModeFinishedRequest{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[28]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnActionModeFinishedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnActionModeFinishedRequest) ProtoMessage() {}
+
+func (x *OnActionModeFinishedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[28]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnActionModeFinishedRequest.ProtoReflect.Descriptor instead.
+func (*OnActionModeFinishedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{28}
+}
+
+func (x *OnActionModeFinishedRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *OnActionModeFinishedRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnActionModeFinishedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnActionModeFinishedResponse) Reset() {
+	*x = OnActionModeFinishedResponse{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[29]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnActionModeFinishedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnActionModeFinishedResponse) ProtoMessage() {}
+
+func (x *OnActionModeFinishedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[29]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnActionModeFinishedResponse.ProtoReflect.Descriptor instead.
+func (*OnActionModeFinishedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{29}
+}
+
+type OnActionModeStartedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnActionModeStartedRequest) Reset() {
+	*x = OnActionModeStartedRequest{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[30]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnActionModeStartedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnActionModeStartedRequest) ProtoMessage() {}
+
+func (x *OnActionModeStartedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[30]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnActionModeStartedRequest.ProtoReflect.Descriptor instead.
+func (*OnActionModeStartedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{30}
+}
+
+func (x *OnActionModeStartedRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *OnActionModeStartedRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnActionModeStartedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnActionModeStartedResponse) Reset() {
+	*x = OnActionModeStartedResponse{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[31]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnActionModeStartedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnActionModeStartedResponse) ProtoMessage() {}
+
+func (x *OnActionModeStartedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[31]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnActionModeStartedResponse.ProtoReflect.Descriptor instead.
+func (*OnActionModeStartedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{31}
+}
+
+type OnAttachedToWindowRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnAttachedToWindowRequest) Reset() {
+	*x = OnAttachedToWindowRequest{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[32]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnAttachedToWindowRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnAttachedToWindowRequest) ProtoMessage() {}
+
+func (x *OnAttachedToWindowRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[32]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnAttachedToWindowRequest.ProtoReflect.Descriptor instead.
+func (*OnAttachedToWindowRequest) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{32}
+}
+
+func (x *OnAttachedToWindowRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type OnAttachedToWindowResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnAttachedToWindowResponse) Reset() {
+	*x = OnAttachedToWindowResponse{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[33]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnAttachedToWindowResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnAttachedToWindowResponse) ProtoMessage() {}
+
+func (x *OnAttachedToWindowResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[33]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnAttachedToWindowResponse.ProtoReflect.Descriptor instead.
+func (*OnAttachedToWindowResponse) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{33}
+}
+
+type OnBindRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnBindRequest) Reset() {
+	*x = OnBindRequest{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[34]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnBindRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnBindRequest) ProtoMessage() {}
+
+func (x *OnBindRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[34]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnBindRequest.ProtoReflect.Descriptor instead.
+func (*OnBindRequest) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{34}
+}
+
+func (x *OnBindRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *OnBindRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnBindResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnBindResponse) Reset() {
+	*x = OnBindResponse{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[35]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnBindResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnBindResponse) ProtoMessage() {}
+
+func (x *OnBindResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[35]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnBindResponse.ProtoReflect.Descriptor instead.
+func (*OnBindResponse) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{35}
+}
+
+func (x *OnBindResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OnContentChangedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnContentChangedRequest) Reset() {
+	*x = OnContentChangedRequest{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[36]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnContentChangedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnContentChangedRequest) ProtoMessage() {}
+
+func (x *OnContentChangedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[36]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnContentChangedRequest.ProtoReflect.Descriptor instead.
+func (*OnContentChangedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{36}
+}
+
+func (x *OnContentChangedRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type OnContentChangedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnContentChangedResponse) Reset() {
+	*x = OnContentChangedResponse{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[37]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnContentChangedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnContentChangedResponse) ProtoMessage() {}
+
+func (x *OnContentChangedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[37]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnContentChangedResponse.ProtoReflect.Descriptor instead.
+func (*OnContentChangedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{37}
+}
+
+type OnCreateRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnCreateRequest) Reset() {
+	*x = OnCreateRequest{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[38]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnCreateRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnCreateRequest) ProtoMessage() {}
+
+func (x *OnCreateRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[38]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnCreateRequest.ProtoReflect.Descriptor instead.
+func (*OnCreateRequest) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{38}
+}
+
+func (x *OnCreateRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type OnCreateResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnCreateResponse) Reset() {
+	*x = OnCreateResponse{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[39]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnCreateResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnCreateResponse) ProtoMessage() {}
+
+func (x *OnCreateResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[39]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnCreateResponse.ProtoReflect.Descriptor instead.
+func (*OnCreateResponse) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{39}
+}
+
+type OnCreatePanelMenuRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnCreatePanelMenuRequest) Reset() {
+	*x = OnCreatePanelMenuRequest{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[40]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnCreatePanelMenuRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnCreatePanelMenuRequest) ProtoMessage() {}
+
+func (x *OnCreatePanelMenuRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[40]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnCreatePanelMenuRequest.ProtoReflect.Descriptor instead.
+func (*OnCreatePanelMenuRequest) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{40}
+}
+
+func (x *OnCreatePanelMenuRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *OnCreatePanelMenuRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnCreatePanelMenuRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type OnCreatePanelMenuResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnCreatePanelMenuResponse) Reset() {
+	*x = OnCreatePanelMenuResponse{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[41]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnCreatePanelMenuResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnCreatePanelMenuResponse) ProtoMessage() {}
+
+func (x *OnCreatePanelMenuResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[41]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnCreatePanelMenuResponse.ProtoReflect.Descriptor instead.
+func (*OnCreatePanelMenuResponse) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{41}
+}
+
+func (x *OnCreatePanelMenuResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type OnCreatePanelViewRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnCreatePanelViewRequest) Reset() {
+	*x = OnCreatePanelViewRequest{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[42]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnCreatePanelViewRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnCreatePanelViewRequest) ProtoMessage() {}
+
+func (x *OnCreatePanelViewRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[42]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnCreatePanelViewRequest.ProtoReflect.Descriptor instead.
+func (*OnCreatePanelViewRequest) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{42}
+}
+
+func (x *OnCreatePanelViewRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *OnCreatePanelViewRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnCreatePanelViewResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnCreatePanelViewResponse) Reset() {
+	*x = OnCreatePanelViewResponse{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[43]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnCreatePanelViewResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnCreatePanelViewResponse) ProtoMessage() {}
+
+func (x *OnCreatePanelViewResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[43]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnCreatePanelViewResponse.ProtoReflect.Descriptor instead.
+func (*OnCreatePanelViewResponse) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{43}
+}
+
+func (x *OnCreatePanelViewResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OnDestroyRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnDestroyRequest) Reset() {
+	*x = OnDestroyRequest{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[44]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnDestroyRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnDestroyRequest) ProtoMessage() {}
+
+func (x *OnDestroyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[44]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnDestroyRequest.ProtoReflect.Descriptor instead.
+func (*OnDestroyRequest) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{44}
+}
+
+func (x *OnDestroyRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type OnDestroyResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnDestroyResponse) Reset() {
+	*x = OnDestroyResponse{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[45]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnDestroyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnDestroyResponse) ProtoMessage() {}
+
+func (x *OnDestroyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[45]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnDestroyResponse.ProtoReflect.Descriptor instead.
+func (*OnDestroyResponse) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{45}
+}
+
+type OnDetachedFromWindowRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnDetachedFromWindowRequest) Reset() {
+	*x = OnDetachedFromWindowRequest{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[46]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnDetachedFromWindowRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnDetachedFromWindowRequest) ProtoMessage() {}
+
+func (x *OnDetachedFromWindowRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[46]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnDetachedFromWindowRequest.ProtoReflect.Descriptor instead.
+func (*OnDetachedFromWindowRequest) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{46}
+}
+
+func (x *OnDetachedFromWindowRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type OnDetachedFromWindowResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnDetachedFromWindowResponse) Reset() {
+	*x = OnDetachedFromWindowResponse{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[47]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnDetachedFromWindowResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnDetachedFromWindowResponse) ProtoMessage() {}
+
+func (x *OnDetachedFromWindowResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[47]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnDetachedFromWindowResponse.ProtoReflect.Descriptor instead.
+func (*OnDetachedFromWindowResponse) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{47}
+}
+
+type OnDreamingStartedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnDreamingStartedRequest) Reset() {
+	*x = OnDreamingStartedRequest{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[48]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnDreamingStartedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnDreamingStartedRequest) ProtoMessage() {}
+
+func (x *OnDreamingStartedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[48]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnDreamingStartedRequest.ProtoReflect.Descriptor instead.
+func (*OnDreamingStartedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{48}
+}
+
+func (x *OnDreamingStartedRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type OnDreamingStartedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnDreamingStartedResponse) Reset() {
+	*x = OnDreamingStartedResponse{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[49]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnDreamingStartedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnDreamingStartedResponse) ProtoMessage() {}
+
+func (x *OnDreamingStartedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[49]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnDreamingStartedResponse.ProtoReflect.Descriptor instead.
+func (*OnDreamingStartedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{49}
+}
+
+type OnDreamingStoppedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnDreamingStoppedRequest) Reset() {
+	*x = OnDreamingStoppedRequest{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[50]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnDreamingStoppedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnDreamingStoppedRequest) ProtoMessage() {}
+
+func (x *OnDreamingStoppedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[50]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnDreamingStoppedRequest.ProtoReflect.Descriptor instead.
+func (*OnDreamingStoppedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{50}
+}
+
+func (x *OnDreamingStoppedRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type OnDreamingStoppedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnDreamingStoppedResponse) Reset() {
+	*x = OnDreamingStoppedResponse{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[51]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnDreamingStoppedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnDreamingStoppedResponse) ProtoMessage() {}
+
+func (x *OnDreamingStoppedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[51]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnDreamingStoppedResponse.ProtoReflect.Descriptor instead.
+func (*OnDreamingStoppedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{51}
+}
+
+type OnMenuItemSelectedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnMenuItemSelectedRequest) Reset() {
+	*x = OnMenuItemSelectedRequest{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[52]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnMenuItemSelectedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnMenuItemSelectedRequest) ProtoMessage() {}
+
+func (x *OnMenuItemSelectedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[52]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnMenuItemSelectedRequest.ProtoReflect.Descriptor instead.
+func (*OnMenuItemSelectedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{52}
+}
+
+func (x *OnMenuItemSelectedRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *OnMenuItemSelectedRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnMenuItemSelectedRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type OnMenuItemSelectedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnMenuItemSelectedResponse) Reset() {
+	*x = OnMenuItemSelectedResponse{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[53]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnMenuItemSelectedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnMenuItemSelectedResponse) ProtoMessage() {}
+
+func (x *OnMenuItemSelectedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[53]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnMenuItemSelectedResponse.ProtoReflect.Descriptor instead.
+func (*OnMenuItemSelectedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{53}
+}
+
+func (x *OnMenuItemSelectedResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type OnMenuOpenedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnMenuOpenedRequest) Reset() {
+	*x = OnMenuOpenedRequest{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[54]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnMenuOpenedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnMenuOpenedRequest) ProtoMessage() {}
+
+func (x *OnMenuOpenedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[54]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnMenuOpenedRequest.ProtoReflect.Descriptor instead.
+func (*OnMenuOpenedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{54}
+}
+
+func (x *OnMenuOpenedRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *OnMenuOpenedRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnMenuOpenedRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type OnMenuOpenedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnMenuOpenedResponse) Reset() {
+	*x = OnMenuOpenedResponse{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[55]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnMenuOpenedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnMenuOpenedResponse) ProtoMessage() {}
+
+func (x *OnMenuOpenedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[55]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnMenuOpenedResponse.ProtoReflect.Descriptor instead.
+func (*OnMenuOpenedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{55}
+}
+
+func (x *OnMenuOpenedResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type OnPanelClosedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnPanelClosedRequest) Reset() {
+	*x = OnPanelClosedRequest{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[56]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnPanelClosedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnPanelClosedRequest) ProtoMessage() {}
+
+func (x *OnPanelClosedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[56]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnPanelClosedRequest.ProtoReflect.Descriptor instead.
+func (*OnPanelClosedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{56}
+}
+
+func (x *OnPanelClosedRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *OnPanelClosedRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnPanelClosedRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type OnPanelClosedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnPanelClosedResponse) Reset() {
+	*x = OnPanelClosedResponse{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[57]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnPanelClosedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnPanelClosedResponse) ProtoMessage() {}
+
+func (x *OnPanelClosedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[57]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnPanelClosedResponse.ProtoReflect.Descriptor instead.
+func (*OnPanelClosedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{57}
+}
+
+type OnPreparePanelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnPreparePanelRequest) Reset() {
+	*x = OnPreparePanelRequest{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[58]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnPreparePanelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnPreparePanelRequest) ProtoMessage() {}
+
+func (x *OnPreparePanelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[58]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnPreparePanelRequest.ProtoReflect.Descriptor instead.
+func (*OnPreparePanelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{58}
+}
+
+func (x *OnPreparePanelRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *OnPreparePanelRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnPreparePanelRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *OnPreparePanelRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type OnPreparePanelResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnPreparePanelResponse) Reset() {
+	*x = OnPreparePanelResponse{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[59]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnPreparePanelResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnPreparePanelResponse) ProtoMessage() {}
+
+func (x *OnPreparePanelResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[59]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnPreparePanelResponse.ProtoReflect.Descriptor instead.
+func (*OnPreparePanelResponse) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{59}
+}
+
+func (x *OnPreparePanelResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type OnSearchRequested0Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnSearchRequested0Request) Reset() {
+	*x = OnSearchRequested0Request{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[60]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnSearchRequested0Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnSearchRequested0Request) ProtoMessage() {}
+
+func (x *OnSearchRequested0Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[60]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnSearchRequested0Request.ProtoReflect.Descriptor instead.
+func (*OnSearchRequested0Request) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{60}
+}
+
+func (x *OnSearchRequested0Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type OnSearchRequested0Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnSearchRequested0Response) Reset() {
+	*x = OnSearchRequested0Response{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[61]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnSearchRequested0Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnSearchRequested0Response) ProtoMessage() {}
+
+func (x *OnSearchRequested0Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[61]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnSearchRequested0Response.ProtoReflect.Descriptor instead.
+func (*OnSearchRequested0Response) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{61}
+}
+
+func (x *OnSearchRequested0Response) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type OnSearchRequested1_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnSearchRequested1_1Request) Reset() {
+	*x = OnSearchRequested1_1Request{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[62]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnSearchRequested1_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnSearchRequested1_1Request) ProtoMessage() {}
+
+func (x *OnSearchRequested1_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[62]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnSearchRequested1_1Request.ProtoReflect.Descriptor instead.
+func (*OnSearchRequested1_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{62}
+}
+
+func (x *OnSearchRequested1_1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *OnSearchRequested1_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnSearchRequested1_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnSearchRequested1_1Response) Reset() {
+	*x = OnSearchRequested1_1Response{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[63]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnSearchRequested1_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnSearchRequested1_1Response) ProtoMessage() {}
+
+func (x *OnSearchRequested1_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[63]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnSearchRequested1_1Response.ProtoReflect.Descriptor instead.
+func (*OnSearchRequested1_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{63}
+}
+
+func (x *OnSearchRequested1_1Response) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type OnUnbindRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnUnbindRequest) Reset() {
+	*x = OnUnbindRequest{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[64]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnUnbindRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnUnbindRequest) ProtoMessage() {}
+
+func (x *OnUnbindRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[64]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnUnbindRequest.ProtoReflect.Descriptor instead.
+func (*OnUnbindRequest) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{64}
+}
+
+func (x *OnUnbindRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *OnUnbindRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnUnbindResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnUnbindResponse) Reset() {
+	*x = OnUnbindResponse{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[65]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnUnbindResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnUnbindResponse) ProtoMessage() {}
+
+func (x *OnUnbindResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[65]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnUnbindResponse.ProtoReflect.Descriptor instead.
+func (*OnUnbindResponse) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{65}
+}
+
+func (x *OnUnbindResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type OnWakeUpRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnWakeUpRequest) Reset() {
+	*x = OnWakeUpRequest{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[66]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnWakeUpRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnWakeUpRequest) ProtoMessage() {}
+
+func (x *OnWakeUpRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[66]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnWakeUpRequest.ProtoReflect.Descriptor instead.
+func (*OnWakeUpRequest) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{66}
+}
+
+func (x *OnWakeUpRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type OnWakeUpResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnWakeUpResponse) Reset() {
+	*x = OnWakeUpResponse{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[67]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnWakeUpResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnWakeUpResponse) ProtoMessage() {}
+
+func (x *OnWakeUpResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[67]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnWakeUpResponse.ProtoReflect.Descriptor instead.
+func (*OnWakeUpResponse) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{67}
+}
+
+type OnWindowAttributesChangedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnWindowAttributesChangedRequest) Reset() {
+	*x = OnWindowAttributesChangedRequest{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[68]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnWindowAttributesChangedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnWindowAttributesChangedRequest) ProtoMessage() {}
+
+func (x *OnWindowAttributesChangedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[68]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnWindowAttributesChangedRequest.ProtoReflect.Descriptor instead.
+func (*OnWindowAttributesChangedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{68}
+}
+
+func (x *OnWindowAttributesChangedRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *OnWindowAttributesChangedRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnWindowAttributesChangedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnWindowAttributesChangedResponse) Reset() {
+	*x = OnWindowAttributesChangedResponse{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[69]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnWindowAttributesChangedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnWindowAttributesChangedResponse) ProtoMessage() {}
+
+func (x *OnWindowAttributesChangedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[69]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnWindowAttributesChangedResponse.ProtoReflect.Descriptor instead.
+func (*OnWindowAttributesChangedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{69}
+}
+
+type OnWindowFocusChangedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          bool                   `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnWindowFocusChangedRequest) Reset() {
+	*x = OnWindowFocusChangedRequest{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[70]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnWindowFocusChangedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnWindowFocusChangedRequest) ProtoMessage() {}
+
+func (x *OnWindowFocusChangedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[70]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnWindowFocusChangedRequest.ProtoReflect.Descriptor instead.
+func (*OnWindowFocusChangedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{70}
+}
+
+func (x *OnWindowFocusChangedRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *OnWindowFocusChangedRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type OnWindowFocusChangedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnWindowFocusChangedResponse) Reset() {
+	*x = OnWindowFocusChangedResponse{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[71]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnWindowFocusChangedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnWindowFocusChangedResponse) ProtoMessage() {}
+
+func (x *OnWindowFocusChangedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[71]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnWindowFocusChangedResponse.ProtoReflect.Descriptor instead.
+func (*OnWindowFocusChangedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{71}
+}
+
+type OnWindowStartingActionMode1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnWindowStartingActionMode1Request) Reset() {
+	*x = OnWindowStartingActionMode1Request{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[72]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnWindowStartingActionMode1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnWindowStartingActionMode1Request) ProtoMessage() {}
+
+func (x *OnWindowStartingActionMode1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[72]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnWindowStartingActionMode1Request.ProtoReflect.Descriptor instead.
+func (*OnWindowStartingActionMode1Request) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{72}
+}
+
+func (x *OnWindowStartingActionMode1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *OnWindowStartingActionMode1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnWindowStartingActionMode1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnWindowStartingActionMode1Response) Reset() {
+	*x = OnWindowStartingActionMode1Response{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[73]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnWindowStartingActionMode1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnWindowStartingActionMode1Response) ProtoMessage() {}
+
+func (x *OnWindowStartingActionMode1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[73]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnWindowStartingActionMode1Response.ProtoReflect.Descriptor instead.
+func (*OnWindowStartingActionMode1Response) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{73}
+}
+
+func (x *OnWindowStartingActionMode1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OnWindowStartingActionMode2_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnWindowStartingActionMode2_1Request) Reset() {
+	*x = OnWindowStartingActionMode2_1Request{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[74]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnWindowStartingActionMode2_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnWindowStartingActionMode2_1Request) ProtoMessage() {}
+
+func (x *OnWindowStartingActionMode2_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[74]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnWindowStartingActionMode2_1Request.ProtoReflect.Descriptor instead.
+func (*OnWindowStartingActionMode2_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{74}
+}
+
+func (x *OnWindowStartingActionMode2_1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *OnWindowStartingActionMode2_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnWindowStartingActionMode2_1Request) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type OnWindowStartingActionMode2_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnWindowStartingActionMode2_1Response) Reset() {
+	*x = OnWindowStartingActionMode2_1Response{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[75]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnWindowStartingActionMode2_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnWindowStartingActionMode2_1Response) ProtoMessage() {}
+
+func (x *OnWindowStartingActionMode2_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[75]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnWindowStartingActionMode2_1Response.ProtoReflect.Descriptor instead.
+func (*OnWindowStartingActionMode2_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{75}
+}
+
+func (x *OnWindowStartingActionMode2_1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetContentView1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetContentView1Request) Reset() {
+	*x = SetContentView1Request{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[76]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetContentView1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetContentView1Request) ProtoMessage() {}
+
+func (x *SetContentView1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[76]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetContentView1Request.ProtoReflect.Descriptor instead.
+func (*SetContentView1Request) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{76}
+}
+
+func (x *SetContentView1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetContentView1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetContentView1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetContentView1Response) Reset() {
+	*x = SetContentView1Response{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[77]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetContentView1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetContentView1Response) ProtoMessage() {}
+
+func (x *SetContentView1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[77]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetContentView1Response.ProtoReflect.Descriptor instead.
+func (*SetContentView1Response) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{77}
+}
+
+type SetContentView2_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetContentView2_1Request) Reset() {
+	*x = SetContentView2_1Request{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[78]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetContentView2_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetContentView2_1Request) ProtoMessage() {}
+
+func (x *SetContentView2_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[78]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetContentView2_1Request.ProtoReflect.Descriptor instead.
+func (*SetContentView2_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{78}
+}
+
+func (x *SetContentView2_1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetContentView2_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SetContentView2_1Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type SetContentView2_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetContentView2_1Response) Reset() {
+	*x = SetContentView2_1Response{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[79]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetContentView2_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetContentView2_1Response) ProtoMessage() {}
+
+func (x *SetContentView2_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[79]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetContentView2_1Response.ProtoReflect.Descriptor instead.
+func (*SetContentView2_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{79}
+}
+
+type SetContentView1_2Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetContentView1_2Request) Reset() {
+	*x = SetContentView1_2Request{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[80]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetContentView1_2Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetContentView1_2Request) ProtoMessage() {}
+
+func (x *SetContentView1_2Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[80]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetContentView1_2Request.ProtoReflect.Descriptor instead.
+func (*SetContentView1_2Request) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{80}
+}
+
+func (x *SetContentView1_2Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetContentView1_2Request) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetContentView1_2Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetContentView1_2Response) Reset() {
+	*x = SetContentView1_2Response{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[81]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetContentView1_2Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetContentView1_2Response) ProtoMessage() {}
+
+func (x *SetContentView1_2Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[81]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetContentView1_2Response.ProtoReflect.Descriptor instead.
+func (*SetContentView1_2Response) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{81}
+}
+
+type SetFullscreenRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          bool                   `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetFullscreenRequest) Reset() {
+	*x = SetFullscreenRequest{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[82]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetFullscreenRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetFullscreenRequest) ProtoMessage() {}
+
+func (x *SetFullscreenRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[82]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetFullscreenRequest.ProtoReflect.Descriptor instead.
+func (*SetFullscreenRequest) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{82}
+}
+
+func (x *SetFullscreenRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetFullscreenRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetFullscreenResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetFullscreenResponse) Reset() {
+	*x = SetFullscreenResponse{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[83]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetFullscreenResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetFullscreenResponse) ProtoMessage() {}
+
+func (x *SetFullscreenResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[83]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetFullscreenResponse.ProtoReflect.Descriptor instead.
+func (*SetFullscreenResponse) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{83}
+}
+
+type SetInteractiveRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          bool                   `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetInteractiveRequest) Reset() {
+	*x = SetInteractiveRequest{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[84]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetInteractiveRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetInteractiveRequest) ProtoMessage() {}
+
+func (x *SetInteractiveRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[84]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetInteractiveRequest.ProtoReflect.Descriptor instead.
+func (*SetInteractiveRequest) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{84}
+}
+
+func (x *SetInteractiveRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetInteractiveRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetInteractiveResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetInteractiveResponse) Reset() {
+	*x = SetInteractiveResponse{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[85]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetInteractiveResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetInteractiveResponse) ProtoMessage() {}
+
+func (x *SetInteractiveResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[85]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetInteractiveResponse.ProtoReflect.Descriptor instead.
+func (*SetInteractiveResponse) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{85}
+}
+
+type SetScreenBrightRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          bool                   `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetScreenBrightRequest) Reset() {
+	*x = SetScreenBrightRequest{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[86]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetScreenBrightRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetScreenBrightRequest) ProtoMessage() {}
+
+func (x *SetScreenBrightRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[86]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetScreenBrightRequest.ProtoReflect.Descriptor instead.
+func (*SetScreenBrightRequest) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{86}
+}
+
+func (x *SetScreenBrightRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetScreenBrightRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetScreenBrightResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetScreenBrightResponse) Reset() {
+	*x = SetScreenBrightResponse{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[87]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetScreenBrightResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetScreenBrightResponse) ProtoMessage() {}
+
+func (x *SetScreenBrightResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[87]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetScreenBrightResponse.ProtoReflect.Descriptor instead.
+func (*SetScreenBrightResponse) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{87}
+}
+
+type WakeUpRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WakeUpRequest) Reset() {
+	*x = WakeUpRequest{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[88]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WakeUpRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WakeUpRequest) ProtoMessage() {}
+
+func (x *WakeUpRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[88]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WakeUpRequest.ProtoReflect.Descriptor instead.
+func (*WakeUpRequest) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{88}
+}
+
+func (x *WakeUpRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type WakeUpResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WakeUpResponse) Reset() {
+	*x = WakeUpResponse{}
+	mi := &file_proto_dreams_dreams_proto_msgTypes[89]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WakeUpResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WakeUpResponse) ProtoMessage() {}
+
+func (x *WakeUpResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_dreams_dreams_proto_msgTypes[89]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WakeUpResponse.ProtoReflect.Descriptor instead.
+func (*WakeUpResponse) Descriptor() ([]byte, []int) {
+	return file_proto_dreams_dreams_proto_rawDescGZIP(), []int{89}
+}
+
 var File_proto_dreams_dreams_proto protoreflect.FileDescriptor
 
 const file_proto_dreams_dreams_proto_rawDesc = "" +
 	"\n" +
-	"\x19proto/dreams/dreams.proto\x12\x06dreamsB0Z.github.com/AndroidGoLab/jni-proxy/proto/dreamsb\x06proto3"
+	"\x19proto/dreams/dreams.proto\x12\x06dreams\"\x18\n" +
+	"\x16NewDreamServiceRequest\"1\n" +
+	"\x17NewDreamServiceResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"W\n" +
+	"\x15AddContentViewRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"\x18\n" +
+	"\x16AddContentViewResponse\"O\n" +
+	"!DispatchGenericMotionEventRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"<\n" +
+	"\"DispatchGenericMotionEventResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"E\n" +
+	"\x17DispatchKeyEventRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"2\n" +
+	"\x18DispatchKeyEventResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"M\n" +
+	"\x1fDispatchKeyShortcutEventRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\":\n" +
+	" DispatchKeyShortcutEventResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"W\n" +
+	")DispatchPopulateAccessibilityEventRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"D\n" +
+	"*DispatchPopulateAccessibilityEventResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"G\n" +
+	"\x19DispatchTouchEventRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"4\n" +
+	"\x1aDispatchTouchEventResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"K\n" +
+	"\x1dDispatchTrackballEventRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"8\n" +
+	"\x1eDispatchTrackballEventResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"'\n" +
+	"\rFinishRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x10\n" +
+	"\x0eFinishResponse\"*\n" +
+	"\x10GetWindowRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"+\n" +
+	"\x11GetWindowResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"1\n" +
+	"\x17GetWindowManagerRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"2\n" +
+	"\x18GetWindowManagerResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"-\n" +
+	"\x13IsFullscreenRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\".\n" +
+	"\x14IsFullscreenResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\".\n" +
+	"\x14IsInteractiveRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"/\n" +
+	"\x15IsInteractiveResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"/\n" +
+	"\x15IsScreenBrightRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"0\n" +
+	"\x16IsScreenBrightResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"I\n" +
+	"\x1bOnActionModeFinishedRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x1e\n" +
+	"\x1cOnActionModeFinishedResponse\"H\n" +
+	"\x1aOnActionModeStartedRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x1d\n" +
+	"\x1bOnActionModeStartedResponse\"3\n" +
+	"\x19OnAttachedToWindowRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x1c\n" +
+	"\x1aOnAttachedToWindowResponse\";\n" +
+	"\rOnBindRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"(\n" +
+	"\x0eOnBindResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"1\n" +
+	"\x17OnContentChangedRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x1a\n" +
+	"\x18OnContentChangedResponse\")\n" +
+	"\x0fOnCreateRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x12\n" +
+	"\x10OnCreateResponse\"Z\n" +
+	"\x18OnCreatePanelMenuRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"3\n" +
+	"\x19OnCreatePanelMenuResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"F\n" +
+	"\x18OnCreatePanelViewRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"3\n" +
+	"\x19OnCreatePanelViewResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"*\n" +
+	"\x10OnDestroyRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x13\n" +
+	"\x11OnDestroyResponse\"5\n" +
+	"\x1bOnDetachedFromWindowRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x1e\n" +
+	"\x1cOnDetachedFromWindowResponse\"2\n" +
+	"\x18OnDreamingStartedRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x1b\n" +
+	"\x19OnDreamingStartedResponse\"2\n" +
+	"\x18OnDreamingStoppedRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x1b\n" +
+	"\x19OnDreamingStoppedResponse\"[\n" +
+	"\x19OnMenuItemSelectedRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"4\n" +
+	"\x1aOnMenuItemSelectedResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"U\n" +
+	"\x13OnMenuOpenedRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\".\n" +
+	"\x14OnMenuOpenedResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"V\n" +
+	"\x14OnPanelClosedRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"\x17\n" +
+	"\x15OnPanelClosedResponse\"k\n" +
+	"\x15OnPreparePanelRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x03R\x04arg2\"0\n" +
+	"\x16OnPreparePanelResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"3\n" +
+	"\x19OnSearchRequested0Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"4\n" +
+	"\x1aOnSearchRequested0Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"I\n" +
+	"\x1bOnSearchRequested1_1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"6\n" +
+	"\x1cOnSearchRequested1_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"=\n" +
+	"\x0fOnUnbindRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"*\n" +
+	"\x10OnUnbindResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\")\n" +
+	"\x0fOnWakeUpRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x12\n" +
+	"\x10OnWakeUpResponse\"N\n" +
+	" OnWindowAttributesChangedRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"#\n" +
+	"!OnWindowAttributesChangedResponse\"I\n" +
+	"\x1bOnWindowFocusChangedRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\bR\x04arg0\"\x1e\n" +
+	"\x1cOnWindowFocusChangedResponse\"P\n" +
+	"\"OnWindowStartingActionMode1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"=\n" +
+	"#OnWindowStartingActionMode1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"f\n" +
+	"$OnWindowStartingActionMode2_1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"?\n" +
+	"%OnWindowStartingActionMode2_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"D\n" +
+	"\x16SetContentView1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x19\n" +
+	"\x17SetContentView1Response\"Z\n" +
+	"\x18SetContentView2_1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"\x1b\n" +
+	"\x19SetContentView2_1Response\"F\n" +
+	"\x18SetContentView1_2Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"\x1b\n" +
+	"\x19SetContentView1_2Response\"B\n" +
+	"\x14SetFullscreenRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\bR\x04arg0\"\x17\n" +
+	"\x15SetFullscreenResponse\"C\n" +
+	"\x15SetInteractiveRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\bR\x04arg0\"\x18\n" +
+	"\x16SetInteractiveResponse\"D\n" +
+	"\x16SetScreenBrightRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\bR\x04arg0\"\x19\n" +
+	"\x17SetScreenBrightResponse\"'\n" +
+	"\rWakeUpRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x10\n" +
+	"\x0eWakeUpResponse2\x85\x1f\n" +
+	"\x13DreamServiceService\x12R\n" +
+	"\x0fNewDreamService\x12\x1e.dreams.NewDreamServiceRequest\x1a\x1f.dreams.NewDreamServiceResponse\x12O\n" +
+	"\x0eAddContentView\x12\x1d.dreams.AddContentViewRequest\x1a\x1e.dreams.AddContentViewResponse\x12s\n" +
+	"\x1aDispatchGenericMotionEvent\x12).dreams.DispatchGenericMotionEventRequest\x1a*.dreams.DispatchGenericMotionEventResponse\x12U\n" +
+	"\x10DispatchKeyEvent\x12\x1f.dreams.DispatchKeyEventRequest\x1a .dreams.DispatchKeyEventResponse\x12m\n" +
+	"\x18DispatchKeyShortcutEvent\x12'.dreams.DispatchKeyShortcutEventRequest\x1a(.dreams.DispatchKeyShortcutEventResponse\x12\x8b\x01\n" +
+	"\"DispatchPopulateAccessibilityEvent\x121.dreams.DispatchPopulateAccessibilityEventRequest\x1a2.dreams.DispatchPopulateAccessibilityEventResponse\x12[\n" +
+	"\x12DispatchTouchEvent\x12!.dreams.DispatchTouchEventRequest\x1a\".dreams.DispatchTouchEventResponse\x12g\n" +
+	"\x16DispatchTrackballEvent\x12%.dreams.DispatchTrackballEventRequest\x1a&.dreams.DispatchTrackballEventResponse\x127\n" +
+	"\x06Finish\x12\x15.dreams.FinishRequest\x1a\x16.dreams.FinishResponse\x12@\n" +
+	"\tGetWindow\x12\x18.dreams.GetWindowRequest\x1a\x19.dreams.GetWindowResponse\x12U\n" +
+	"\x10GetWindowManager\x12\x1f.dreams.GetWindowManagerRequest\x1a .dreams.GetWindowManagerResponse\x12I\n" +
+	"\fIsFullscreen\x12\x1b.dreams.IsFullscreenRequest\x1a\x1c.dreams.IsFullscreenResponse\x12L\n" +
+	"\rIsInteractive\x12\x1c.dreams.IsInteractiveRequest\x1a\x1d.dreams.IsInteractiveResponse\x12O\n" +
+	"\x0eIsScreenBright\x12\x1d.dreams.IsScreenBrightRequest\x1a\x1e.dreams.IsScreenBrightResponse\x12a\n" +
+	"\x14OnActionModeFinished\x12#.dreams.OnActionModeFinishedRequest\x1a$.dreams.OnActionModeFinishedResponse\x12^\n" +
+	"\x13OnActionModeStarted\x12\".dreams.OnActionModeStartedRequest\x1a#.dreams.OnActionModeStartedResponse\x12[\n" +
+	"\x12OnAttachedToWindow\x12!.dreams.OnAttachedToWindowRequest\x1a\".dreams.OnAttachedToWindowResponse\x127\n" +
+	"\x06OnBind\x12\x15.dreams.OnBindRequest\x1a\x16.dreams.OnBindResponse\x12U\n" +
+	"\x10OnContentChanged\x12\x1f.dreams.OnContentChangedRequest\x1a .dreams.OnContentChangedResponse\x12=\n" +
+	"\bOnCreate\x12\x17.dreams.OnCreateRequest\x1a\x18.dreams.OnCreateResponse\x12X\n" +
+	"\x11OnCreatePanelMenu\x12 .dreams.OnCreatePanelMenuRequest\x1a!.dreams.OnCreatePanelMenuResponse\x12X\n" +
+	"\x11OnCreatePanelView\x12 .dreams.OnCreatePanelViewRequest\x1a!.dreams.OnCreatePanelViewResponse\x12@\n" +
+	"\tOnDestroy\x12\x18.dreams.OnDestroyRequest\x1a\x19.dreams.OnDestroyResponse\x12a\n" +
+	"\x14OnDetachedFromWindow\x12#.dreams.OnDetachedFromWindowRequest\x1a$.dreams.OnDetachedFromWindowResponse\x12X\n" +
+	"\x11OnDreamingStarted\x12 .dreams.OnDreamingStartedRequest\x1a!.dreams.OnDreamingStartedResponse\x12X\n" +
+	"\x11OnDreamingStopped\x12 .dreams.OnDreamingStoppedRequest\x1a!.dreams.OnDreamingStoppedResponse\x12[\n" +
+	"\x12OnMenuItemSelected\x12!.dreams.OnMenuItemSelectedRequest\x1a\".dreams.OnMenuItemSelectedResponse\x12I\n" +
+	"\fOnMenuOpened\x12\x1b.dreams.OnMenuOpenedRequest\x1a\x1c.dreams.OnMenuOpenedResponse\x12L\n" +
+	"\rOnPanelClosed\x12\x1c.dreams.OnPanelClosedRequest\x1a\x1d.dreams.OnPanelClosedResponse\x12O\n" +
+	"\x0eOnPreparePanel\x12\x1d.dreams.OnPreparePanelRequest\x1a\x1e.dreams.OnPreparePanelResponse\x12[\n" +
+	"\x12OnSearchRequested0\x12!.dreams.OnSearchRequested0Request\x1a\".dreams.OnSearchRequested0Response\x12a\n" +
+	"\x14OnSearchRequested1_1\x12#.dreams.OnSearchRequested1_1Request\x1a$.dreams.OnSearchRequested1_1Response\x12=\n" +
+	"\bOnUnbind\x12\x17.dreams.OnUnbindRequest\x1a\x18.dreams.OnUnbindResponse\x12=\n" +
+	"\bOnWakeUp\x12\x17.dreams.OnWakeUpRequest\x1a\x18.dreams.OnWakeUpResponse\x12p\n" +
+	"\x19OnWindowAttributesChanged\x12(.dreams.OnWindowAttributesChangedRequest\x1a).dreams.OnWindowAttributesChangedResponse\x12a\n" +
+	"\x14OnWindowFocusChanged\x12#.dreams.OnWindowFocusChangedRequest\x1a$.dreams.OnWindowFocusChangedResponse\x12v\n" +
+	"\x1bOnWindowStartingActionMode1\x12*.dreams.OnWindowStartingActionMode1Request\x1a+.dreams.OnWindowStartingActionMode1Response\x12|\n" +
+	"\x1dOnWindowStartingActionMode2_1\x12,.dreams.OnWindowStartingActionMode2_1Request\x1a-.dreams.OnWindowStartingActionMode2_1Response\x12R\n" +
+	"\x0fSetContentView1\x12\x1e.dreams.SetContentView1Request\x1a\x1f.dreams.SetContentView1Response\x12X\n" +
+	"\x11SetContentView2_1\x12 .dreams.SetContentView2_1Request\x1a!.dreams.SetContentView2_1Response\x12X\n" +
+	"\x11SetContentView1_2\x12 .dreams.SetContentView1_2Request\x1a!.dreams.SetContentView1_2Response\x12L\n" +
+	"\rSetFullscreen\x12\x1c.dreams.SetFullscreenRequest\x1a\x1d.dreams.SetFullscreenResponse\x12O\n" +
+	"\x0eSetInteractive\x12\x1d.dreams.SetInteractiveRequest\x1a\x1e.dreams.SetInteractiveResponse\x12R\n" +
+	"\x0fSetScreenBright\x12\x1e.dreams.SetScreenBrightRequest\x1a\x1f.dreams.SetScreenBrightResponse\x127\n" +
+	"\x06WakeUp\x12\x15.dreams.WakeUpRequest\x1a\x16.dreams.WakeUpResponseB0Z.github.com/AndroidGoLab/jni-proxy/proto/dreamsb\x06proto3"
 
-var file_proto_dreams_dreams_proto_goTypes = []any{}
+var (
+	file_proto_dreams_dreams_proto_rawDescOnce sync.Once
+	file_proto_dreams_dreams_proto_rawDescData []byte
+)
+
+func file_proto_dreams_dreams_proto_rawDescGZIP() []byte {
+	file_proto_dreams_dreams_proto_rawDescOnce.Do(func() {
+		file_proto_dreams_dreams_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_proto_dreams_dreams_proto_rawDesc), len(file_proto_dreams_dreams_proto_rawDesc)))
+	})
+	return file_proto_dreams_dreams_proto_rawDescData
+}
+
+var file_proto_dreams_dreams_proto_msgTypes = make([]protoimpl.MessageInfo, 90)
+var file_proto_dreams_dreams_proto_goTypes = []any{
+	(*NewDreamServiceRequest)(nil),                     // 0: dreams.NewDreamServiceRequest
+	(*NewDreamServiceResponse)(nil),                    // 1: dreams.NewDreamServiceResponse
+	(*AddContentViewRequest)(nil),                      // 2: dreams.AddContentViewRequest
+	(*AddContentViewResponse)(nil),                     // 3: dreams.AddContentViewResponse
+	(*DispatchGenericMotionEventRequest)(nil),          // 4: dreams.DispatchGenericMotionEventRequest
+	(*DispatchGenericMotionEventResponse)(nil),         // 5: dreams.DispatchGenericMotionEventResponse
+	(*DispatchKeyEventRequest)(nil),                    // 6: dreams.DispatchKeyEventRequest
+	(*DispatchKeyEventResponse)(nil),                   // 7: dreams.DispatchKeyEventResponse
+	(*DispatchKeyShortcutEventRequest)(nil),            // 8: dreams.DispatchKeyShortcutEventRequest
+	(*DispatchKeyShortcutEventResponse)(nil),           // 9: dreams.DispatchKeyShortcutEventResponse
+	(*DispatchPopulateAccessibilityEventRequest)(nil),  // 10: dreams.DispatchPopulateAccessibilityEventRequest
+	(*DispatchPopulateAccessibilityEventResponse)(nil), // 11: dreams.DispatchPopulateAccessibilityEventResponse
+	(*DispatchTouchEventRequest)(nil),                  // 12: dreams.DispatchTouchEventRequest
+	(*DispatchTouchEventResponse)(nil),                 // 13: dreams.DispatchTouchEventResponse
+	(*DispatchTrackballEventRequest)(nil),              // 14: dreams.DispatchTrackballEventRequest
+	(*DispatchTrackballEventResponse)(nil),             // 15: dreams.DispatchTrackballEventResponse
+	(*FinishRequest)(nil),                              // 16: dreams.FinishRequest
+	(*FinishResponse)(nil),                             // 17: dreams.FinishResponse
+	(*GetWindowRequest)(nil),                           // 18: dreams.GetWindowRequest
+	(*GetWindowResponse)(nil),                          // 19: dreams.GetWindowResponse
+	(*GetWindowManagerRequest)(nil),                    // 20: dreams.GetWindowManagerRequest
+	(*GetWindowManagerResponse)(nil),                   // 21: dreams.GetWindowManagerResponse
+	(*IsFullscreenRequest)(nil),                        // 22: dreams.IsFullscreenRequest
+	(*IsFullscreenResponse)(nil),                       // 23: dreams.IsFullscreenResponse
+	(*IsInteractiveRequest)(nil),                       // 24: dreams.IsInteractiveRequest
+	(*IsInteractiveResponse)(nil),                      // 25: dreams.IsInteractiveResponse
+	(*IsScreenBrightRequest)(nil),                      // 26: dreams.IsScreenBrightRequest
+	(*IsScreenBrightResponse)(nil),                     // 27: dreams.IsScreenBrightResponse
+	(*OnActionModeFinishedRequest)(nil),                // 28: dreams.OnActionModeFinishedRequest
+	(*OnActionModeFinishedResponse)(nil),               // 29: dreams.OnActionModeFinishedResponse
+	(*OnActionModeStartedRequest)(nil),                 // 30: dreams.OnActionModeStartedRequest
+	(*OnActionModeStartedResponse)(nil),                // 31: dreams.OnActionModeStartedResponse
+	(*OnAttachedToWindowRequest)(nil),                  // 32: dreams.OnAttachedToWindowRequest
+	(*OnAttachedToWindowResponse)(nil),                 // 33: dreams.OnAttachedToWindowResponse
+	(*OnBindRequest)(nil),                              // 34: dreams.OnBindRequest
+	(*OnBindResponse)(nil),                             // 35: dreams.OnBindResponse
+	(*OnContentChangedRequest)(nil),                    // 36: dreams.OnContentChangedRequest
+	(*OnContentChangedResponse)(nil),                   // 37: dreams.OnContentChangedResponse
+	(*OnCreateRequest)(nil),                            // 38: dreams.OnCreateRequest
+	(*OnCreateResponse)(nil),                           // 39: dreams.OnCreateResponse
+	(*OnCreatePanelMenuRequest)(nil),                   // 40: dreams.OnCreatePanelMenuRequest
+	(*OnCreatePanelMenuResponse)(nil),                  // 41: dreams.OnCreatePanelMenuResponse
+	(*OnCreatePanelViewRequest)(nil),                   // 42: dreams.OnCreatePanelViewRequest
+	(*OnCreatePanelViewResponse)(nil),                  // 43: dreams.OnCreatePanelViewResponse
+	(*OnDestroyRequest)(nil),                           // 44: dreams.OnDestroyRequest
+	(*OnDestroyResponse)(nil),                          // 45: dreams.OnDestroyResponse
+	(*OnDetachedFromWindowRequest)(nil),                // 46: dreams.OnDetachedFromWindowRequest
+	(*OnDetachedFromWindowResponse)(nil),               // 47: dreams.OnDetachedFromWindowResponse
+	(*OnDreamingStartedRequest)(nil),                   // 48: dreams.OnDreamingStartedRequest
+	(*OnDreamingStartedResponse)(nil),                  // 49: dreams.OnDreamingStartedResponse
+	(*OnDreamingStoppedRequest)(nil),                   // 50: dreams.OnDreamingStoppedRequest
+	(*OnDreamingStoppedResponse)(nil),                  // 51: dreams.OnDreamingStoppedResponse
+	(*OnMenuItemSelectedRequest)(nil),                  // 52: dreams.OnMenuItemSelectedRequest
+	(*OnMenuItemSelectedResponse)(nil),                 // 53: dreams.OnMenuItemSelectedResponse
+	(*OnMenuOpenedRequest)(nil),                        // 54: dreams.OnMenuOpenedRequest
+	(*OnMenuOpenedResponse)(nil),                       // 55: dreams.OnMenuOpenedResponse
+	(*OnPanelClosedRequest)(nil),                       // 56: dreams.OnPanelClosedRequest
+	(*OnPanelClosedResponse)(nil),                      // 57: dreams.OnPanelClosedResponse
+	(*OnPreparePanelRequest)(nil),                      // 58: dreams.OnPreparePanelRequest
+	(*OnPreparePanelResponse)(nil),                     // 59: dreams.OnPreparePanelResponse
+	(*OnSearchRequested0Request)(nil),                  // 60: dreams.OnSearchRequested0Request
+	(*OnSearchRequested0Response)(nil),                 // 61: dreams.OnSearchRequested0Response
+	(*OnSearchRequested1_1Request)(nil),                // 62: dreams.OnSearchRequested1_1Request
+	(*OnSearchRequested1_1Response)(nil),               // 63: dreams.OnSearchRequested1_1Response
+	(*OnUnbindRequest)(nil),                            // 64: dreams.OnUnbindRequest
+	(*OnUnbindResponse)(nil),                           // 65: dreams.OnUnbindResponse
+	(*OnWakeUpRequest)(nil),                            // 66: dreams.OnWakeUpRequest
+	(*OnWakeUpResponse)(nil),                           // 67: dreams.OnWakeUpResponse
+	(*OnWindowAttributesChangedRequest)(nil),           // 68: dreams.OnWindowAttributesChangedRequest
+	(*OnWindowAttributesChangedResponse)(nil),          // 69: dreams.OnWindowAttributesChangedResponse
+	(*OnWindowFocusChangedRequest)(nil),                // 70: dreams.OnWindowFocusChangedRequest
+	(*OnWindowFocusChangedResponse)(nil),               // 71: dreams.OnWindowFocusChangedResponse
+	(*OnWindowStartingActionMode1Request)(nil),         // 72: dreams.OnWindowStartingActionMode1Request
+	(*OnWindowStartingActionMode1Response)(nil),        // 73: dreams.OnWindowStartingActionMode1Response
+	(*OnWindowStartingActionMode2_1Request)(nil),       // 74: dreams.OnWindowStartingActionMode2_1Request
+	(*OnWindowStartingActionMode2_1Response)(nil),      // 75: dreams.OnWindowStartingActionMode2_1Response
+	(*SetContentView1Request)(nil),                     // 76: dreams.SetContentView1Request
+	(*SetContentView1Response)(nil),                    // 77: dreams.SetContentView1Response
+	(*SetContentView2_1Request)(nil),                   // 78: dreams.SetContentView2_1Request
+	(*SetContentView2_1Response)(nil),                  // 79: dreams.SetContentView2_1Response
+	(*SetContentView1_2Request)(nil),                   // 80: dreams.SetContentView1_2Request
+	(*SetContentView1_2Response)(nil),                  // 81: dreams.SetContentView1_2Response
+	(*SetFullscreenRequest)(nil),                       // 82: dreams.SetFullscreenRequest
+	(*SetFullscreenResponse)(nil),                      // 83: dreams.SetFullscreenResponse
+	(*SetInteractiveRequest)(nil),                      // 84: dreams.SetInteractiveRequest
+	(*SetInteractiveResponse)(nil),                     // 85: dreams.SetInteractiveResponse
+	(*SetScreenBrightRequest)(nil),                     // 86: dreams.SetScreenBrightRequest
+	(*SetScreenBrightResponse)(nil),                    // 87: dreams.SetScreenBrightResponse
+	(*WakeUpRequest)(nil),                              // 88: dreams.WakeUpRequest
+	(*WakeUpResponse)(nil),                             // 89: dreams.WakeUpResponse
+}
 var file_proto_dreams_dreams_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	0,  // 0: dreams.DreamServiceService.NewDreamService:input_type -> dreams.NewDreamServiceRequest
+	2,  // 1: dreams.DreamServiceService.AddContentView:input_type -> dreams.AddContentViewRequest
+	4,  // 2: dreams.DreamServiceService.DispatchGenericMotionEvent:input_type -> dreams.DispatchGenericMotionEventRequest
+	6,  // 3: dreams.DreamServiceService.DispatchKeyEvent:input_type -> dreams.DispatchKeyEventRequest
+	8,  // 4: dreams.DreamServiceService.DispatchKeyShortcutEvent:input_type -> dreams.DispatchKeyShortcutEventRequest
+	10, // 5: dreams.DreamServiceService.DispatchPopulateAccessibilityEvent:input_type -> dreams.DispatchPopulateAccessibilityEventRequest
+	12, // 6: dreams.DreamServiceService.DispatchTouchEvent:input_type -> dreams.DispatchTouchEventRequest
+	14, // 7: dreams.DreamServiceService.DispatchTrackballEvent:input_type -> dreams.DispatchTrackballEventRequest
+	16, // 8: dreams.DreamServiceService.Finish:input_type -> dreams.FinishRequest
+	18, // 9: dreams.DreamServiceService.GetWindow:input_type -> dreams.GetWindowRequest
+	20, // 10: dreams.DreamServiceService.GetWindowManager:input_type -> dreams.GetWindowManagerRequest
+	22, // 11: dreams.DreamServiceService.IsFullscreen:input_type -> dreams.IsFullscreenRequest
+	24, // 12: dreams.DreamServiceService.IsInteractive:input_type -> dreams.IsInteractiveRequest
+	26, // 13: dreams.DreamServiceService.IsScreenBright:input_type -> dreams.IsScreenBrightRequest
+	28, // 14: dreams.DreamServiceService.OnActionModeFinished:input_type -> dreams.OnActionModeFinishedRequest
+	30, // 15: dreams.DreamServiceService.OnActionModeStarted:input_type -> dreams.OnActionModeStartedRequest
+	32, // 16: dreams.DreamServiceService.OnAttachedToWindow:input_type -> dreams.OnAttachedToWindowRequest
+	34, // 17: dreams.DreamServiceService.OnBind:input_type -> dreams.OnBindRequest
+	36, // 18: dreams.DreamServiceService.OnContentChanged:input_type -> dreams.OnContentChangedRequest
+	38, // 19: dreams.DreamServiceService.OnCreate:input_type -> dreams.OnCreateRequest
+	40, // 20: dreams.DreamServiceService.OnCreatePanelMenu:input_type -> dreams.OnCreatePanelMenuRequest
+	42, // 21: dreams.DreamServiceService.OnCreatePanelView:input_type -> dreams.OnCreatePanelViewRequest
+	44, // 22: dreams.DreamServiceService.OnDestroy:input_type -> dreams.OnDestroyRequest
+	46, // 23: dreams.DreamServiceService.OnDetachedFromWindow:input_type -> dreams.OnDetachedFromWindowRequest
+	48, // 24: dreams.DreamServiceService.OnDreamingStarted:input_type -> dreams.OnDreamingStartedRequest
+	50, // 25: dreams.DreamServiceService.OnDreamingStopped:input_type -> dreams.OnDreamingStoppedRequest
+	52, // 26: dreams.DreamServiceService.OnMenuItemSelected:input_type -> dreams.OnMenuItemSelectedRequest
+	54, // 27: dreams.DreamServiceService.OnMenuOpened:input_type -> dreams.OnMenuOpenedRequest
+	56, // 28: dreams.DreamServiceService.OnPanelClosed:input_type -> dreams.OnPanelClosedRequest
+	58, // 29: dreams.DreamServiceService.OnPreparePanel:input_type -> dreams.OnPreparePanelRequest
+	60, // 30: dreams.DreamServiceService.OnSearchRequested0:input_type -> dreams.OnSearchRequested0Request
+	62, // 31: dreams.DreamServiceService.OnSearchRequested1_1:input_type -> dreams.OnSearchRequested1_1Request
+	64, // 32: dreams.DreamServiceService.OnUnbind:input_type -> dreams.OnUnbindRequest
+	66, // 33: dreams.DreamServiceService.OnWakeUp:input_type -> dreams.OnWakeUpRequest
+	68, // 34: dreams.DreamServiceService.OnWindowAttributesChanged:input_type -> dreams.OnWindowAttributesChangedRequest
+	70, // 35: dreams.DreamServiceService.OnWindowFocusChanged:input_type -> dreams.OnWindowFocusChangedRequest
+	72, // 36: dreams.DreamServiceService.OnWindowStartingActionMode1:input_type -> dreams.OnWindowStartingActionMode1Request
+	74, // 37: dreams.DreamServiceService.OnWindowStartingActionMode2_1:input_type -> dreams.OnWindowStartingActionMode2_1Request
+	76, // 38: dreams.DreamServiceService.SetContentView1:input_type -> dreams.SetContentView1Request
+	78, // 39: dreams.DreamServiceService.SetContentView2_1:input_type -> dreams.SetContentView2_1Request
+	80, // 40: dreams.DreamServiceService.SetContentView1_2:input_type -> dreams.SetContentView1_2Request
+	82, // 41: dreams.DreamServiceService.SetFullscreen:input_type -> dreams.SetFullscreenRequest
+	84, // 42: dreams.DreamServiceService.SetInteractive:input_type -> dreams.SetInteractiveRequest
+	86, // 43: dreams.DreamServiceService.SetScreenBright:input_type -> dreams.SetScreenBrightRequest
+	88, // 44: dreams.DreamServiceService.WakeUp:input_type -> dreams.WakeUpRequest
+	1,  // 45: dreams.DreamServiceService.NewDreamService:output_type -> dreams.NewDreamServiceResponse
+	3,  // 46: dreams.DreamServiceService.AddContentView:output_type -> dreams.AddContentViewResponse
+	5,  // 47: dreams.DreamServiceService.DispatchGenericMotionEvent:output_type -> dreams.DispatchGenericMotionEventResponse
+	7,  // 48: dreams.DreamServiceService.DispatchKeyEvent:output_type -> dreams.DispatchKeyEventResponse
+	9,  // 49: dreams.DreamServiceService.DispatchKeyShortcutEvent:output_type -> dreams.DispatchKeyShortcutEventResponse
+	11, // 50: dreams.DreamServiceService.DispatchPopulateAccessibilityEvent:output_type -> dreams.DispatchPopulateAccessibilityEventResponse
+	13, // 51: dreams.DreamServiceService.DispatchTouchEvent:output_type -> dreams.DispatchTouchEventResponse
+	15, // 52: dreams.DreamServiceService.DispatchTrackballEvent:output_type -> dreams.DispatchTrackballEventResponse
+	17, // 53: dreams.DreamServiceService.Finish:output_type -> dreams.FinishResponse
+	19, // 54: dreams.DreamServiceService.GetWindow:output_type -> dreams.GetWindowResponse
+	21, // 55: dreams.DreamServiceService.GetWindowManager:output_type -> dreams.GetWindowManagerResponse
+	23, // 56: dreams.DreamServiceService.IsFullscreen:output_type -> dreams.IsFullscreenResponse
+	25, // 57: dreams.DreamServiceService.IsInteractive:output_type -> dreams.IsInteractiveResponse
+	27, // 58: dreams.DreamServiceService.IsScreenBright:output_type -> dreams.IsScreenBrightResponse
+	29, // 59: dreams.DreamServiceService.OnActionModeFinished:output_type -> dreams.OnActionModeFinishedResponse
+	31, // 60: dreams.DreamServiceService.OnActionModeStarted:output_type -> dreams.OnActionModeStartedResponse
+	33, // 61: dreams.DreamServiceService.OnAttachedToWindow:output_type -> dreams.OnAttachedToWindowResponse
+	35, // 62: dreams.DreamServiceService.OnBind:output_type -> dreams.OnBindResponse
+	37, // 63: dreams.DreamServiceService.OnContentChanged:output_type -> dreams.OnContentChangedResponse
+	39, // 64: dreams.DreamServiceService.OnCreate:output_type -> dreams.OnCreateResponse
+	41, // 65: dreams.DreamServiceService.OnCreatePanelMenu:output_type -> dreams.OnCreatePanelMenuResponse
+	43, // 66: dreams.DreamServiceService.OnCreatePanelView:output_type -> dreams.OnCreatePanelViewResponse
+	45, // 67: dreams.DreamServiceService.OnDestroy:output_type -> dreams.OnDestroyResponse
+	47, // 68: dreams.DreamServiceService.OnDetachedFromWindow:output_type -> dreams.OnDetachedFromWindowResponse
+	49, // 69: dreams.DreamServiceService.OnDreamingStarted:output_type -> dreams.OnDreamingStartedResponse
+	51, // 70: dreams.DreamServiceService.OnDreamingStopped:output_type -> dreams.OnDreamingStoppedResponse
+	53, // 71: dreams.DreamServiceService.OnMenuItemSelected:output_type -> dreams.OnMenuItemSelectedResponse
+	55, // 72: dreams.DreamServiceService.OnMenuOpened:output_type -> dreams.OnMenuOpenedResponse
+	57, // 73: dreams.DreamServiceService.OnPanelClosed:output_type -> dreams.OnPanelClosedResponse
+	59, // 74: dreams.DreamServiceService.OnPreparePanel:output_type -> dreams.OnPreparePanelResponse
+	61, // 75: dreams.DreamServiceService.OnSearchRequested0:output_type -> dreams.OnSearchRequested0Response
+	63, // 76: dreams.DreamServiceService.OnSearchRequested1_1:output_type -> dreams.OnSearchRequested1_1Response
+	65, // 77: dreams.DreamServiceService.OnUnbind:output_type -> dreams.OnUnbindResponse
+	67, // 78: dreams.DreamServiceService.OnWakeUp:output_type -> dreams.OnWakeUpResponse
+	69, // 79: dreams.DreamServiceService.OnWindowAttributesChanged:output_type -> dreams.OnWindowAttributesChangedResponse
+	71, // 80: dreams.DreamServiceService.OnWindowFocusChanged:output_type -> dreams.OnWindowFocusChangedResponse
+	73, // 81: dreams.DreamServiceService.OnWindowStartingActionMode1:output_type -> dreams.OnWindowStartingActionMode1Response
+	75, // 82: dreams.DreamServiceService.OnWindowStartingActionMode2_1:output_type -> dreams.OnWindowStartingActionMode2_1Response
+	77, // 83: dreams.DreamServiceService.SetContentView1:output_type -> dreams.SetContentView1Response
+	79, // 84: dreams.DreamServiceService.SetContentView2_1:output_type -> dreams.SetContentView2_1Response
+	81, // 85: dreams.DreamServiceService.SetContentView1_2:output_type -> dreams.SetContentView1_2Response
+	83, // 86: dreams.DreamServiceService.SetFullscreen:output_type -> dreams.SetFullscreenResponse
+	85, // 87: dreams.DreamServiceService.SetInteractive:output_type -> dreams.SetInteractiveResponse
+	87, // 88: dreams.DreamServiceService.SetScreenBright:output_type -> dreams.SetScreenBrightResponse
+	89, // 89: dreams.DreamServiceService.WakeUp:output_type -> dreams.WakeUpResponse
+	45, // [45:90] is the sub-list for method output_type
+	0,  // [0:45] is the sub-list for method input_type
+	0,  // [0:0] is the sub-list for extension type_name
+	0,  // [0:0] is the sub-list for extension extendee
+	0,  // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_proto_dreams_dreams_proto_init() }
@@ -48,12 +4555,13 @@ func file_proto_dreams_dreams_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_dreams_dreams_proto_rawDesc), len(file_proto_dreams_dreams_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   90,
 			NumExtensions: 0,
-			NumServices:   0,
+			NumServices:   1,
 		},
 		GoTypes:           file_proto_dreams_dreams_proto_goTypes,
 		DependencyIndexes: file_proto_dreams_dreams_proto_depIdxs,
+		MessageInfos:      file_proto_dreams_dreams_proto_msgTypes,
 	}.Build()
 	File_proto_dreams_dreams_proto = out.File
 	file_proto_dreams_dreams_proto_goTypes = nil

@@ -12,6 +12,7253 @@ var inputmethodCmd = &cobra.Command{
 	Short: "inputmethod service operations",
 }
 
+var inputmethodInsertGestureCmd = &cobra.Command{
+	Use:   "insert-gesture",
+	Short: "InsertGestureService operations",
+}
+
+var inputmethodInsertGestureDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInsertGestureServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInsertGestureEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInsertGestureServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInsertGestureGetInsertionPointCmd = &cobra.Command{
+	Use:   "get-insertion-point",
+	Short: "GetInsertionPoint RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInsertGestureServiceClient(grpcConn)
+		req := &pb.GetInsertionPointRequest{}
+		resp, err := client.GetInsertionPoint(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInsertGestureGetTextToInsertCmd = &cobra.Command{
+	Use:   "get-text-to-insert",
+	Short: "GetTextToInsert RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInsertGestureServiceClient(grpcConn)
+		req := &pb.GetTextToInsertRequest{}
+		resp, err := client.GetTextToInsert(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInsertGestureHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInsertGestureServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInsertGestureWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInsertGestureServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInsertGestureBuilderCmd = &cobra.Command{
+	Use:   "insert-gesture-builder",
+	Short: "InsertGestureBuilderService operations",
+}
+
+var inputmethodInsertGestureBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInsertGestureBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInsertGestureBuilderSetFallbackTextCmd = &cobra.Command{
+	Use:   "set-fallback-text",
+	Short: "SetFallbackText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInsertGestureBuilderServiceClient(grpcConn)
+		req := &pb.SetFallbackTextRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetFallbackText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInsertGestureBuilderSetInsertionPointCmd = &cobra.Command{
+	Use:   "set-insertion-point",
+	Short: "SetInsertionPoint RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInsertGestureBuilderServiceClient(grpcConn)
+		req := &pb.SetInsertionPointRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetInsertionPoint(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInsertGestureBuilderSetTextToInsertCmd = &cobra.Command{
+	Use:   "set-text-to-insert",
+	Short: "SetTextToInsert RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInsertGestureBuilderServiceClient(grpcConn)
+		req := &pb.SetTextToInsertRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetTextToInsert(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextAttributeCmd = &cobra.Command{
+	Use:   "text-attribute",
+	Short: "TextAttributeService operations",
+}
+
+var inputmethodTextAttributeDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextAttributeServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextAttributeGetExtrasCmd = &cobra.Command{
+	Use:   "get-extras",
+	Short: "GetExtras RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextAttributeServiceClient(grpcConn)
+		req := &pb.GetExtrasRequest{}
+		resp, err := client.GetExtras(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextAttributeWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextAttributeServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextAttributeBuilderCmd = &cobra.Command{
+	Use:   "text-attribute-builder",
+	Short: "TextAttributeBuilderService operations",
+}
+
+var inputmethodTextAttributeBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextAttributeBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextAttributeBuilderSetExtrasCmd = &cobra.Command{
+	Use:   "set-extras",
+	Short: "SetExtras RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextAttributeBuilderServiceClient(grpcConn)
+		req := &pb.SetExtrasRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetExtras(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputBindingCmd = &cobra.Command{
+	Use:   "input-binding",
+	Short: "InputBindingService operations",
+}
+
+var inputmethodInputBindingNewInputBindingCmd = &cobra.Command{
+	Use:   "new-input-binding",
+	Short: "NewInputBinding RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputBindingServiceClient(grpcConn)
+		req := &pb.NewInputBindingRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.NewInputBinding(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputBindingDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputBindingServiceClient(grpcConn)
+		req := &pb.InputBindingDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputBindingGetConnectionCmd = &cobra.Command{
+	Use:   "get-connection",
+	Short: "GetConnection RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputBindingServiceClient(grpcConn)
+		req := &pb.GetConnectionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetConnection(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputBindingGetConnectionTokenCmd = &cobra.Command{
+	Use:   "get-connection-token",
+	Short: "GetConnectionToken RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputBindingServiceClient(grpcConn)
+		req := &pb.GetConnectionTokenRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetConnectionToken(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputBindingGetPidCmd = &cobra.Command{
+	Use:   "get-pid",
+	Short: "GetPid RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputBindingServiceClient(grpcConn)
+		req := &pb.GetPidRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetPid(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputBindingGetUidCmd = &cobra.Command{
+	Use:   "get-uid",
+	Short: "GetUid RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputBindingServiceClient(grpcConn)
+		req := &pb.GetUidRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetUid(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputBindingToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputBindingServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputBindingWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputBindingServiceClient(grpcConn)
+		req := &pb.InputBindingWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodSessionCmd = &cobra.Command{
+	Use:   "input-method-session",
+	Short: "InputMethodSessionService operations",
+}
+
+var inputmethodInputMethodSessionAppPrivateCommandCmd = &cobra.Command{
+	Use:   "app-private-command",
+	Short: "AppPrivateCommand RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodSessionServiceClient(grpcConn)
+		req := &pb.AppPrivateCommandRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.AppPrivateCommand(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodSessionDispatchGenericMotionEventCmd = &cobra.Command{
+	Use:   "dispatch-generic-motion-event",
+	Short: "DispatchGenericMotionEvent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodSessionServiceClient(grpcConn)
+		req := &pb.DispatchGenericMotionEventRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.DispatchGenericMotionEvent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodSessionDispatchKeyEventCmd = &cobra.Command{
+	Use:   "dispatch-key-event",
+	Short: "DispatchKeyEvent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodSessionServiceClient(grpcConn)
+		req := &pb.DispatchKeyEventRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.DispatchKeyEvent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodSessionDispatchTrackballEventCmd = &cobra.Command{
+	Use:   "dispatch-trackball-event",
+	Short: "DispatchTrackballEvent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodSessionServiceClient(grpcConn)
+		req := &pb.DispatchTrackballEventRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.DispatchTrackballEvent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodSessionDisplayCompletionsCmd = &cobra.Command{
+	Use:   "display-completions",
+	Short: "DisplayCompletions RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodSessionServiceClient(grpcConn)
+		req := &pb.DisplayCompletionsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.DisplayCompletions(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodSessionFinishInputCmd = &cobra.Command{
+	Use:   "finish-input",
+	Short: "FinishInput RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodSessionServiceClient(grpcConn)
+		req := &pb.FinishInputRequest{}
+		resp, err := client.FinishInput(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodSessionToggleSoftInputCmd = &cobra.Command{
+	Use:   "toggle-soft-input",
+	Short: "ToggleSoftInput RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodSessionServiceClient(grpcConn)
+		req := &pb.ToggleSoftInputRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.ToggleSoftInput(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodSessionUpdateCursorCmd = &cobra.Command{
+	Use:   "update-cursor",
+	Short: "UpdateCursor RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodSessionServiceClient(grpcConn)
+		req := &pb.UpdateCursorRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.UpdateCursor(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodSessionUpdateCursorAnchorInfoCmd = &cobra.Command{
+	Use:   "update-cursor-anchor-info",
+	Short: "UpdateCursorAnchorInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodSessionServiceClient(grpcConn)
+		req := &pb.UpdateCursorAnchorInfoRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.UpdateCursorAnchorInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodSessionUpdateExtractedTextCmd = &cobra.Command{
+	Use:   "update-extracted-text",
+	Short: "UpdateExtractedText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodSessionServiceClient(grpcConn)
+		req := &pb.UpdateExtractedTextRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.UpdateExtractedText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodSessionUpdateSelectionCmd = &cobra.Command{
+	Use:   "update-selection",
+	Short: "UpdateSelection RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodSessionServiceClient(grpcConn)
+		req := &pb.UpdateSelectionRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		resp, err := client.UpdateSelection(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodSessionViewClickedCmd = &cobra.Command{
+	Use:   "view-clicked",
+	Short: "ViewClicked RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodSessionServiceClient(grpcConn)
+		req := &pb.ViewClickedRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ViewClicked(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodSessionEventCallbackCmd = &cobra.Command{
+	Use:   "input-method-session-event-callback",
+	Short: "InputMethodSessionEventCallbackService operations",
+}
+
+var inputmethodInputMethodSessionEventCallbackFinishedEventCmd = &cobra.Command{
+	Use:   "finished-event",
+	Short: "FinishedEvent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodSessionEventCallbackServiceClient(grpcConn)
+		req := &pb.FinishedEventRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.FinishedEvent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInlineSuggestionInfoCmd = &cobra.Command{
+	Use:   "inline-suggestion-info",
+	Short: "InlineSuggestionInfoService operations",
+}
+
+var inputmethodInlineSuggestionInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInlineSuggestionInfoServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInlineSuggestionInfoEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInlineSuggestionInfoServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInlineSuggestionInfoGetAutofillHintsCmd = &cobra.Command{
+	Use:   "get-autofill-hints",
+	Short: "GetAutofillHints RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInlineSuggestionInfoServiceClient(grpcConn)
+		req := &pb.GetAutofillHintsRequest{}
+		resp, err := client.GetAutofillHints(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInlineSuggestionInfoGetInlinePresentationSpecCmd = &cobra.Command{
+	Use:   "get-inline-presentation-spec",
+	Short: "GetInlinePresentationSpec RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInlineSuggestionInfoServiceClient(grpcConn)
+		req := &pb.GetInlinePresentationSpecRequest{}
+		resp, err := client.GetInlinePresentationSpec(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInlineSuggestionInfoGetSourceCmd = &cobra.Command{
+	Use:   "get-source",
+	Short: "GetSource RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInlineSuggestionInfoServiceClient(grpcConn)
+		req := &pb.GetSourceRequest{}
+		resp, err := client.GetSource(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInlineSuggestionInfoGetTypeCmd = &cobra.Command{
+	Use:   "get-type",
+	Short: "GetType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInlineSuggestionInfoServiceClient(grpcConn)
+		req := &pb.GetTypeRequest{}
+		resp, err := client.GetType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInlineSuggestionInfoHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInlineSuggestionInfoServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInlineSuggestionInfoIsPinnedCmd = &cobra.Command{
+	Use:   "is-pinned",
+	Short: "IsPinned RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInlineSuggestionInfoServiceClient(grpcConn)
+		req := &pb.IsPinnedRequest{}
+		resp, err := client.IsPinned(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInlineSuggestionInfoToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInlineSuggestionInfoServiceClient(grpcConn)
+		req := &pb.InlineSuggestionInfoToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInlineSuggestionInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInlineSuggestionInfoServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodSurroundingTextCmd = &cobra.Command{
+	Use:   "surrounding-text",
+	Short: "SurroundingTextService operations",
+}
+
+var inputmethodSurroundingTextNewSurroundingTextCmd = &cobra.Command{
+	Use:   "new-surrounding-text",
+	Short: "NewSurroundingText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSurroundingTextServiceClient(grpcConn)
+		req := &pb.NewSurroundingTextRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.NewSurroundingText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodSurroundingTextDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSurroundingTextServiceClient(grpcConn)
+		req := &pb.SurroundingTextDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodSurroundingTextGetOffsetCmd = &cobra.Command{
+	Use:   "get-offset",
+	Short: "GetOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSurroundingTextServiceClient(grpcConn)
+		req := &pb.GetOffsetRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodSurroundingTextGetSelectionEndCmd = &cobra.Command{
+	Use:   "get-selection-end",
+	Short: "GetSelectionEnd RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSurroundingTextServiceClient(grpcConn)
+		req := &pb.GetSelectionEndRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSelectionEnd(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodSurroundingTextGetSelectionStartCmd = &cobra.Command{
+	Use:   "get-selection-start",
+	Short: "GetSelectionStart RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSurroundingTextServiceClient(grpcConn)
+		req := &pb.GetSelectionStartRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSelectionStart(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodSurroundingTextGetTextCmd = &cobra.Command{
+	Use:   "get-text",
+	Short: "GetText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSurroundingTextServiceClient(grpcConn)
+		req := &pb.GetTextRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodSurroundingTextWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSurroundingTextServiceClient(grpcConn)
+		req := &pb.SurroundingTextWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodCmd = &cobra.Command{
+	Use:   "input-method",
+	Short: "InputMethodService operations",
+}
+
+var inputmethodInputMethodAttachTokenCmd = &cobra.Command{
+	Use:   "attach-token",
+	Short: "AttachToken RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodServiceClient(grpcConn)
+		req := &pb.AttachTokenRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AttachToken(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodBindInputCmd = &cobra.Command{
+	Use:   "bind-input",
+	Short: "BindInput RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodServiceClient(grpcConn)
+		req := &pb.BindInputRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.BindInput(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodChangeInputMethodSubtypeCmd = &cobra.Command{
+	Use:   "change-input-method-subtype",
+	Short: "ChangeInputMethodSubtype RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodServiceClient(grpcConn)
+		req := &pb.ChangeInputMethodSubtypeRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ChangeInputMethodSubtype(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodCreateSessionCmd = &cobra.Command{
+	Use:   "create-session",
+	Short: "CreateSession RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodServiceClient(grpcConn)
+		req := &pb.CreateSessionRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CreateSession(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodHideSoftInputCmd = &cobra.Command{
+	Use:   "hide-soft-input",
+	Short: "HideSoftInput RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodServiceClient(grpcConn)
+		req := &pb.HideSoftInputRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.HideSoftInput(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodRestartInputCmd = &cobra.Command{
+	Use:   "restart-input",
+	Short: "RestartInput RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodServiceClient(grpcConn)
+		req := &pb.RestartInputRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.RestartInput(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodRevokeSessionCmd = &cobra.Command{
+	Use:   "revoke-session",
+	Short: "RevokeSession RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodServiceClient(grpcConn)
+		req := &pb.RevokeSessionRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RevokeSession(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodSetSessionEnabledCmd = &cobra.Command{
+	Use:   "set-session-enabled",
+	Short: "SetSessionEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodServiceClient(grpcConn)
+		req := &pb.SetSessionEnabledRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetSessionEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodShowSoftInputCmd = &cobra.Command{
+	Use:   "show-soft-input",
+	Short: "ShowSoftInput RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodServiceClient(grpcConn)
+		req := &pb.ShowSoftInputRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.ShowSoftInput(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodStartInputCmd = &cobra.Command{
+	Use:   "start-input",
+	Short: "StartInput RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodServiceClient(grpcConn)
+		req := &pb.StartInputRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.StartInput(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodUnbindInputCmd = &cobra.Command{
+	Use:   "unbind-input",
+	Short: "UnbindInput RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodServiceClient(grpcConn)
+		req := &pb.UnbindInputRequest{}
+		resp, err := client.UnbindInput(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodSessionCallbackCmd = &cobra.Command{
+	Use:   "input-method-session-callback",
+	Short: "InputMethodSessionCallbackService operations",
+}
+
+var inputmethodInputMethodSessionCallbackSessionCreatedCmd = &cobra.Command{
+	Use:   "session-created",
+	Short: "SessionCreated RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodSessionCallbackServiceClient(grpcConn)
+		req := &pb.SessionCreatedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SessionCreated(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextBoundsInfoCmd = &cobra.Command{
+	Use:   "text-bounds-info",
+	Short: "TextBoundsInfoService operations",
+}
+
+var inputmethodTextBoundsInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextBoundsInfoServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextBoundsInfoGetCharacterBidiLevelCmd = &cobra.Command{
+	Use:   "get-character-bidi-level",
+	Short: "GetCharacterBidiLevel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextBoundsInfoServiceClient(grpcConn)
+		req := &pb.GetCharacterBidiLevelRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetCharacterBidiLevel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextBoundsInfoGetCharacterBoundsCmd = &cobra.Command{
+	Use:   "get-character-bounds",
+	Short: "GetCharacterBounds RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextBoundsInfoServiceClient(grpcConn)
+		req := &pb.GetCharacterBoundsRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetCharacterBounds(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextBoundsInfoGetCharacterFlagsCmd = &cobra.Command{
+	Use:   "get-character-flags",
+	Short: "GetCharacterFlags RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextBoundsInfoServiceClient(grpcConn)
+		req := &pb.GetCharacterFlagsRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetCharacterFlags(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextBoundsInfoGetEndIndexCmd = &cobra.Command{
+	Use:   "get-end-index",
+	Short: "GetEndIndex RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextBoundsInfoServiceClient(grpcConn)
+		req := &pb.GetEndIndexRequest{}
+		resp, err := client.GetEndIndex(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextBoundsInfoGetGraphemeSegmentFinderCmd = &cobra.Command{
+	Use:   "get-grapheme-segment-finder",
+	Short: "GetGraphemeSegmentFinder RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextBoundsInfoServiceClient(grpcConn)
+		req := &pb.GetGraphemeSegmentFinderRequest{}
+		resp, err := client.GetGraphemeSegmentFinder(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextBoundsInfoGetLineSegmentFinderCmd = &cobra.Command{
+	Use:   "get-line-segment-finder",
+	Short: "GetLineSegmentFinder RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextBoundsInfoServiceClient(grpcConn)
+		req := &pb.GetLineSegmentFinderRequest{}
+		resp, err := client.GetLineSegmentFinder(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextBoundsInfoGetMatrixCmd = &cobra.Command{
+	Use:   "get-matrix",
+	Short: "GetMatrix RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextBoundsInfoServiceClient(grpcConn)
+		req := &pb.GetMatrixRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetMatrix(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextBoundsInfoGetOffsetForPositionCmd = &cobra.Command{
+	Use:   "get-offset-for-position",
+	Short: "GetOffsetForPosition RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextBoundsInfoServiceClient(grpcConn)
+		req := &pb.GetOffsetForPositionRequest{}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetOffsetForPosition(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextBoundsInfoGetRangeForRectCmd = &cobra.Command{
+	Use:   "get-range-for-rect",
+	Short: "GetRangeForRect RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextBoundsInfoServiceClient(grpcConn)
+		req := &pb.GetRangeForRectRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.GetRangeForRect(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextBoundsInfoGetStartIndexCmd = &cobra.Command{
+	Use:   "get-start-index",
+	Short: "GetStartIndex RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextBoundsInfoServiceClient(grpcConn)
+		req := &pb.GetStartIndexRequest{}
+		resp, err := client.GetStartIndex(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextBoundsInfoGetWordSegmentFinderCmd = &cobra.Command{
+	Use:   "get-word-segment-finder",
+	Short: "GetWordSegmentFinder RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextBoundsInfoServiceClient(grpcConn)
+		req := &pb.GetWordSegmentFinderRequest{}
+		resp, err := client.GetWordSegmentFinder(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextBoundsInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextBoundsInfoServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextBoundsInfoBuilderCmd = &cobra.Command{
+	Use:   "text-bounds-info-builder",
+	Short: "TextBoundsInfoBuilderService operations",
+}
+
+var inputmethodTextBoundsInfoBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextBoundsInfoBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextBoundsInfoBuilderClearCmd = &cobra.Command{
+	Use:   "clear",
+	Short: "Clear RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextBoundsInfoBuilderServiceClient(grpcConn)
+		req := &pb.ClearRequest{}
+		resp, err := client.Clear(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextBoundsInfoBuilderSetCharacterBidiLevelCmd = &cobra.Command{
+	Use:   "set-character-bidi-level",
+	Short: "SetCharacterBidiLevel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextBoundsInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetCharacterBidiLevelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetCharacterBidiLevel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextBoundsInfoBuilderSetCharacterBoundsCmd = &cobra.Command{
+	Use:   "set-character-bounds",
+	Short: "SetCharacterBounds RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextBoundsInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetCharacterBoundsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetCharacterBounds(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextBoundsInfoBuilderSetCharacterFlagsCmd = &cobra.Command{
+	Use:   "set-character-flags",
+	Short: "SetCharacterFlags RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextBoundsInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetCharacterFlagsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetCharacterFlags(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextBoundsInfoBuilderSetGraphemeSegmentFinderCmd = &cobra.Command{
+	Use:   "set-grapheme-segment-finder",
+	Short: "SetGraphemeSegmentFinder RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextBoundsInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetGraphemeSegmentFinderRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetGraphemeSegmentFinder(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextBoundsInfoBuilderSetLineSegmentFinderCmd = &cobra.Command{
+	Use:   "set-line-segment-finder",
+	Short: "SetLineSegmentFinder RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextBoundsInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetLineSegmentFinderRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetLineSegmentFinder(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextBoundsInfoBuilderSetMatrixCmd = &cobra.Command{
+	Use:   "set-matrix",
+	Short: "SetMatrix RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextBoundsInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetMatrixRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetMatrix(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextBoundsInfoBuilderSetStartAndEndCmd = &cobra.Command{
+	Use:   "set-start-and-end",
+	Short: "SetStartAndEnd RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextBoundsInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetStartAndEndRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetStartAndEnd(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextBoundsInfoBuilderSetWordSegmentFinderCmd = &cobra.Command{
+	Use:   "set-word-segment-finder",
+	Short: "SetWordSegmentFinder RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextBoundsInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetWordSegmentFinderRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetWordSegmentFinder(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInlineSuggestionsResponseCmd = &cobra.Command{
+	Use:   "inline-suggestions-response",
+	Short: "InlineSuggestionsResponseService operations",
+}
+
+var inputmethodInlineSuggestionsResponseDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInlineSuggestionsResponseServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInlineSuggestionsResponseEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInlineSuggestionsResponseServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInlineSuggestionsResponseHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInlineSuggestionsResponseServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInlineSuggestionsResponseToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInlineSuggestionsResponseServiceClient(grpcConn)
+		req := &pb.InlineSuggestionsResponseToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInlineSuggestionsResponseWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInlineSuggestionsResponseServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodSubtypeCmd = &cobra.Command{
+	Use:   "input-method-subtype",
+	Short: "InputMethodSubtypeService operations",
+}
+
+var inputmethodInputMethodSubtypeNewInputMethodSubtypeCmd = &cobra.Command{
+	Use:   "new-input-method-subtype",
+	Short: "NewInputMethodSubtype RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodSubtypeServiceClient(grpcConn)
+		req := &pb.NewInputMethodSubtypeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetString("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetString("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg6"); err == nil {
+			req.Arg6 = v
+		}
+		resp, err := client.NewInputMethodSubtype(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodSubtypeContainsExtraValueKeyCmd = &cobra.Command{
+	Use:   "contains-extra-value-key",
+	Short: "ContainsExtraValueKey RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodSubtypeServiceClient(grpcConn)
+		req := &pb.ContainsExtraValueKeyRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ContainsExtraValueKey(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodSubtypeDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodSubtypeServiceClient(grpcConn)
+		req := &pb.InputMethodSubtypeDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodSubtypeEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodSubtypeServiceClient(grpcConn)
+		req := &pb.InputMethodSubtypeEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodSubtypeGetDisplayNameCmd = &cobra.Command{
+	Use:   "get-display-name",
+	Short: "GetDisplayName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodSubtypeServiceClient(grpcConn)
+		req := &pb.GetDisplayNameRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.GetDisplayName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodSubtypeGetExtraValueCmd = &cobra.Command{
+	Use:   "get-extra-value",
+	Short: "GetExtraValue RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodSubtypeServiceClient(grpcConn)
+		req := &pb.GetExtraValueRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetExtraValue(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodSubtypeGetExtraValueOfCmd = &cobra.Command{
+	Use:   "get-extra-value-of",
+	Short: "GetExtraValueOf RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodSubtypeServiceClient(grpcConn)
+		req := &pb.GetExtraValueOfRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetExtraValueOf(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodSubtypeGetIconResIdCmd = &cobra.Command{
+	Use:   "get-icon-res-id",
+	Short: "GetIconResId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodSubtypeServiceClient(grpcConn)
+		req := &pb.GetIconResIdRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetIconResId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodSubtypeGetLanguageTagCmd = &cobra.Command{
+	Use:   "get-language-tag",
+	Short: "GetLanguageTag RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodSubtypeServiceClient(grpcConn)
+		req := &pb.GetLanguageTagRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetLanguageTag(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodSubtypeGetLayoutDisplayNameCmd = &cobra.Command{
+	Use:   "get-layout-display-name",
+	Short: "GetLayoutDisplayName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodSubtypeServiceClient(grpcConn)
+		req := &pb.GetLayoutDisplayNameRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetLayoutDisplayName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodSubtypeGetLayoutLabelNonLocalizedCmd = &cobra.Command{
+	Use:   "get-layout-label-non-localized",
+	Short: "GetLayoutLabelNonLocalized RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodSubtypeServiceClient(grpcConn)
+		req := &pb.GetLayoutLabelNonLocalizedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetLayoutLabelNonLocalized(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodSubtypeGetLayoutLabelResourceCmd = &cobra.Command{
+	Use:   "get-layout-label-resource",
+	Short: "GetLayoutLabelResource RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodSubtypeServiceClient(grpcConn)
+		req := &pb.GetLayoutLabelResourceRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetLayoutLabelResource(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodSubtypeGetLocaleCmd = &cobra.Command{
+	Use:   "get-locale",
+	Short: "GetLocale RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodSubtypeServiceClient(grpcConn)
+		req := &pb.GetLocaleRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetLocale(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodSubtypeGetModeCmd = &cobra.Command{
+	Use:   "get-mode",
+	Short: "GetMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodSubtypeServiceClient(grpcConn)
+		req := &pb.GetModeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodSubtypeGetNameOverrideCmd = &cobra.Command{
+	Use:   "get-name-override",
+	Short: "GetNameOverride RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodSubtypeServiceClient(grpcConn)
+		req := &pb.GetNameOverrideRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetNameOverride(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodSubtypeGetNameResIdCmd = &cobra.Command{
+	Use:   "get-name-res-id",
+	Short: "GetNameResId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodSubtypeServiceClient(grpcConn)
+		req := &pb.GetNameResIdRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetNameResId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodSubtypeGetPhysicalKeyboardHintLanguageTagCmd = &cobra.Command{
+	Use:   "get-physical-keyboard-hint-language-tag",
+	Short: "GetPhysicalKeyboardHintLanguageTag RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodSubtypeServiceClient(grpcConn)
+		req := &pb.GetPhysicalKeyboardHintLanguageTagRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetPhysicalKeyboardHintLanguageTag(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodSubtypeGetPhysicalKeyboardHintLayoutTypeCmd = &cobra.Command{
+	Use:   "get-physical-keyboard-hint-layout-type",
+	Short: "GetPhysicalKeyboardHintLayoutType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodSubtypeServiceClient(grpcConn)
+		req := &pb.GetPhysicalKeyboardHintLayoutTypeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetPhysicalKeyboardHintLayoutType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodSubtypeHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodSubtypeServiceClient(grpcConn)
+		req := &pb.InputMethodSubtypeHashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodSubtypeIsAsciiCapableCmd = &cobra.Command{
+	Use:   "is-ascii-capable",
+	Short: "IsAsciiCapable RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodSubtypeServiceClient(grpcConn)
+		req := &pb.IsAsciiCapableRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsAsciiCapable(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodSubtypeIsAuxiliaryCmd = &cobra.Command{
+	Use:   "is-auxiliary",
+	Short: "IsAuxiliary RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodSubtypeServiceClient(grpcConn)
+		req := &pb.IsAuxiliaryRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsAuxiliary(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodSubtypeOverridesImplicitlyEnabledSubtypeCmd = &cobra.Command{
+	Use:   "overrides-implicitly-enabled-subtype",
+	Short: "OverridesImplicitlyEnabledSubtype RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodSubtypeServiceClient(grpcConn)
+		req := &pb.OverridesImplicitlyEnabledSubtypeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.OverridesImplicitlyEnabledSubtype(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodSubtypeWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodSubtypeServiceClient(grpcConn)
+		req := &pb.InputMethodSubtypeWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodSubtypeInputMethodSubtypeBuilderCmd = &cobra.Command{
+	Use:   "input-method-subtype-input-method-subtype-builder",
+	Short: "InputMethodSubtypeInputMethodSubtypeBuilderService operations",
+}
+
+var inputmethodInputMethodSubtypeInputMethodSubtypeBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodSubtypeInputMethodSubtypeBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodSubtypeInputMethodSubtypeBuilderSetIsAsciiCapableCmd = &cobra.Command{
+	Use:   "set-is-ascii-capable",
+	Short: "SetIsAsciiCapable RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodSubtypeInputMethodSubtypeBuilderServiceClient(grpcConn)
+		req := &pb.SetIsAsciiCapableRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetIsAsciiCapable(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodSubtypeInputMethodSubtypeBuilderSetIsAuxiliaryCmd = &cobra.Command{
+	Use:   "set-is-auxiliary",
+	Short: "SetIsAuxiliary RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodSubtypeInputMethodSubtypeBuilderServiceClient(grpcConn)
+		req := &pb.SetIsAuxiliaryRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetIsAuxiliary(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodSubtypeInputMethodSubtypeBuilderSetLanguageTagCmd = &cobra.Command{
+	Use:   "set-language-tag",
+	Short: "SetLanguageTag RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodSubtypeInputMethodSubtypeBuilderServiceClient(grpcConn)
+		req := &pb.SetLanguageTagRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetLanguageTag(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodSubtypeInputMethodSubtypeBuilderSetLayoutLabelNonLocalizedCmd = &cobra.Command{
+	Use:   "set-layout-label-non-localized",
+	Short: "SetLayoutLabelNonLocalized RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodSubtypeInputMethodSubtypeBuilderServiceClient(grpcConn)
+		req := &pb.SetLayoutLabelNonLocalizedRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetLayoutLabelNonLocalized(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodSubtypeInputMethodSubtypeBuilderSetLayoutLabelResourceCmd = &cobra.Command{
+	Use:   "set-layout-label-resource",
+	Short: "SetLayoutLabelResource RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodSubtypeInputMethodSubtypeBuilderServiceClient(grpcConn)
+		req := &pb.SetLayoutLabelResourceRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetLayoutLabelResource(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodSubtypeInputMethodSubtypeBuilderSetOverridesImplicitlyEnabledSubtypeCmd = &cobra.Command{
+	Use:   "set-overrides-implicitly-enabled-subtype",
+	Short: "SetOverridesImplicitlyEnabledSubtype RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodSubtypeInputMethodSubtypeBuilderServiceClient(grpcConn)
+		req := &pb.SetOverridesImplicitlyEnabledSubtypeRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetOverridesImplicitlyEnabledSubtype(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodSubtypeInputMethodSubtypeBuilderSetPhysicalKeyboardHintCmd = &cobra.Command{
+	Use:   "set-physical-keyboard-hint",
+	Short: "SetPhysicalKeyboardHint RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodSubtypeInputMethodSubtypeBuilderServiceClient(grpcConn)
+		req := &pb.SetPhysicalKeyboardHintRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetPhysicalKeyboardHint(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodSubtypeInputMethodSubtypeBuilderSetSubtypeExtraValueCmd = &cobra.Command{
+	Use:   "set-subtype-extra-value",
+	Short: "SetSubtypeExtraValue RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodSubtypeInputMethodSubtypeBuilderServiceClient(grpcConn)
+		req := &pb.SetSubtypeExtraValueRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSubtypeExtraValue(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodSubtypeInputMethodSubtypeBuilderSetSubtypeIconResIdCmd = &cobra.Command{
+	Use:   "set-subtype-icon-res-id",
+	Short: "SetSubtypeIconResId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodSubtypeInputMethodSubtypeBuilderServiceClient(grpcConn)
+		req := &pb.SetSubtypeIconResIdRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSubtypeIconResId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodSubtypeInputMethodSubtypeBuilderSetSubtypeIdCmd = &cobra.Command{
+	Use:   "set-subtype-id",
+	Short: "SetSubtypeId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodSubtypeInputMethodSubtypeBuilderServiceClient(grpcConn)
+		req := &pb.SetSubtypeIdRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSubtypeId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodSubtypeInputMethodSubtypeBuilderSetSubtypeLocaleCmd = &cobra.Command{
+	Use:   "set-subtype-locale",
+	Short: "SetSubtypeLocale RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodSubtypeInputMethodSubtypeBuilderServiceClient(grpcConn)
+		req := &pb.SetSubtypeLocaleRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSubtypeLocale(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodSubtypeInputMethodSubtypeBuilderSetSubtypeModeCmd = &cobra.Command{
+	Use:   "set-subtype-mode",
+	Short: "SetSubtypeMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodSubtypeInputMethodSubtypeBuilderServiceClient(grpcConn)
+		req := &pb.SetSubtypeModeRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSubtypeMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodSubtypeInputMethodSubtypeBuilderSetSubtypeNameOverrideCmd = &cobra.Command{
+	Use:   "set-subtype-name-override",
+	Short: "SetSubtypeNameOverride RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodSubtypeInputMethodSubtypeBuilderServiceClient(grpcConn)
+		req := &pb.SetSubtypeNameOverrideRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSubtypeNameOverride(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodSubtypeInputMethodSubtypeBuilderSetSubtypeNameResIdCmd = &cobra.Command{
+	Use:   "set-subtype-name-res-id",
+	Short: "SetSubtypeNameResId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodSubtypeInputMethodSubtypeBuilderServiceClient(grpcConn)
+		req := &pb.SetSubtypeNameResIdRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSubtypeNameResId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodRemoveSpaceGestureCmd = &cobra.Command{
+	Use:   "remove-space-gesture",
+	Short: "RemoveSpaceGestureService operations",
+}
+
+var inputmethodRemoveSpaceGestureDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRemoveSpaceGestureServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodRemoveSpaceGestureEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRemoveSpaceGestureServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodRemoveSpaceGestureGetEndPointCmd = &cobra.Command{
+	Use:   "get-end-point",
+	Short: "GetEndPoint RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRemoveSpaceGestureServiceClient(grpcConn)
+		req := &pb.GetEndPointRequest{}
+		resp, err := client.GetEndPoint(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodRemoveSpaceGestureGetStartPointCmd = &cobra.Command{
+	Use:   "get-start-point",
+	Short: "GetStartPoint RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRemoveSpaceGestureServiceClient(grpcConn)
+		req := &pb.GetStartPointRequest{}
+		resp, err := client.GetStartPoint(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodRemoveSpaceGestureHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRemoveSpaceGestureServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodRemoveSpaceGestureWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRemoveSpaceGestureServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodRemoveSpaceGestureBuilderCmd = &cobra.Command{
+	Use:   "remove-space-gesture-builder",
+	Short: "RemoveSpaceGestureBuilderService operations",
+}
+
+var inputmethodRemoveSpaceGestureBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRemoveSpaceGestureBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodRemoveSpaceGestureBuilderSetFallbackTextCmd = &cobra.Command{
+	Use:   "set-fallback-text",
+	Short: "SetFallbackText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRemoveSpaceGestureBuilderServiceClient(grpcConn)
+		req := &pb.SetFallbackTextRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetFallbackText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodRemoveSpaceGestureBuilderSetPointsCmd = &cobra.Command{
+	Use:   "set-points",
+	Short: "SetPoints RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRemoveSpaceGestureBuilderServiceClient(grpcConn)
+		req := &pb.SetPointsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetPoints(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodInfoCmd = &cobra.Command{
+	Use:   "input-method-info",
+	Short: "InputMethodInfoService operations",
+}
+
+var inputmethodInputMethodInfoNewInputMethodInfoCmd = &cobra.Command{
+	Use:   "new-input-method-info",
+	Short: "NewInputMethodInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodInfoServiceClient(grpcConn)
+		req := &pb.NewInputMethodInfoRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewInputMethodInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodInfoCreateImeLanguageSettingsActivityIntentCmd = &cobra.Command{
+	Use:   "create-ime-language-settings-activity-intent",
+	Short: "CreateImeLanguageSettingsActivityIntent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodInfoServiceClient(grpcConn)
+		req := &pb.CreateImeLanguageSettingsActivityIntentRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.CreateImeLanguageSettingsActivityIntent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodInfoCreateStylusHandwritingSettingsActivityIntentCmd = &cobra.Command{
+	Use:   "create-stylus-handwriting-settings-activity-intent",
+	Short: "CreateStylusHandwritingSettingsActivityIntent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodInfoServiceClient(grpcConn)
+		req := &pb.CreateStylusHandwritingSettingsActivityIntentRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.CreateStylusHandwritingSettingsActivityIntent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodInfoServiceClient(grpcConn)
+		req := &pb.InputMethodInfoDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodInfoDumpCmd = &cobra.Command{
+	Use:   "dump",
+	Short: "Dump RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodInfoServiceClient(grpcConn)
+		req := &pb.DumpRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Dump(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodInfoEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodInfoServiceClient(grpcConn)
+		req := &pb.InputMethodInfoEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodInfoGetComponentCmd = &cobra.Command{
+	Use:   "get-component",
+	Short: "GetComponent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodInfoServiceClient(grpcConn)
+		req := &pb.GetComponentRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetComponent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodInfoGetConfigChangesCmd = &cobra.Command{
+	Use:   "get-config-changes",
+	Short: "GetConfigChanges RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodInfoServiceClient(grpcConn)
+		req := &pb.GetConfigChangesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetConfigChanges(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodInfoGetIdCmd = &cobra.Command{
+	Use:   "get-id",
+	Short: "GetId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodInfoServiceClient(grpcConn)
+		req := &pb.GetIdRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodInfoGetIsDefaultResourceIdCmd = &cobra.Command{
+	Use:   "get-is-default-resource-id",
+	Short: "GetIsDefaultResourceId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodInfoServiceClient(grpcConn)
+		req := &pb.GetIsDefaultResourceIdRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetIsDefaultResourceId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodInfoGetPackageNameCmd = &cobra.Command{
+	Use:   "get-package-name",
+	Short: "GetPackageName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodInfoServiceClient(grpcConn)
+		req := &pb.GetPackageNameRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetPackageName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodInfoGetServiceInfoCmd = &cobra.Command{
+	Use:   "get-service-info",
+	Short: "GetServiceInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodInfoServiceClient(grpcConn)
+		req := &pb.GetServiceInfoRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetServiceInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodInfoGetServiceNameCmd = &cobra.Command{
+	Use:   "get-service-name",
+	Short: "GetServiceName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodInfoServiceClient(grpcConn)
+		req := &pb.GetServiceNameRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetServiceName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodInfoGetSettingsActivityCmd = &cobra.Command{
+	Use:   "get-settings-activity",
+	Short: "GetSettingsActivity RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodInfoServiceClient(grpcConn)
+		req := &pb.GetSettingsActivityRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSettingsActivity(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodInfoGetSubtypeAtCmd = &cobra.Command{
+	Use:   "get-subtype-at",
+	Short: "GetSubtypeAt RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodInfoServiceClient(grpcConn)
+		req := &pb.GetSubtypeAtRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetSubtypeAt(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodInfoGetSubtypeCountCmd = &cobra.Command{
+	Use:   "get-subtype-count",
+	Short: "GetSubtypeCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodInfoServiceClient(grpcConn)
+		req := &pb.GetSubtypeCountRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSubtypeCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodInfoHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodInfoServiceClient(grpcConn)
+		req := &pb.InputMethodInfoHashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodInfoLoadIconCmd = &cobra.Command{
+	Use:   "load-icon",
+	Short: "LoadIcon RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodInfoServiceClient(grpcConn)
+		req := &pb.LoadIconRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.LoadIcon(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodInfoLoadLabelCmd = &cobra.Command{
+	Use:   "load-label",
+	Short: "LoadLabel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodInfoServiceClient(grpcConn)
+		req := &pb.LoadLabelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.LoadLabel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodInfoShouldShowInInputMethodPickerCmd = &cobra.Command{
+	Use:   "should-show-in-input-method-picker",
+	Short: "ShouldShowInInputMethodPicker RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodInfoServiceClient(grpcConn)
+		req := &pb.ShouldShowInInputMethodPickerRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ShouldShowInInputMethodPicker(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodInfoSupportsConnectionlessStylusHandwritingCmd = &cobra.Command{
+	Use:   "supports-connectionless-stylus-handwriting",
+	Short: "SupportsConnectionlessStylusHandwriting RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodInfoServiceClient(grpcConn)
+		req := &pb.SupportsConnectionlessStylusHandwritingRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.SupportsConnectionlessStylusHandwriting(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodInfoSupportsStylusHandwritingCmd = &cobra.Command{
+	Use:   "supports-stylus-handwriting",
+	Short: "SupportsStylusHandwriting RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodInfoServiceClient(grpcConn)
+		req := &pb.SupportsStylusHandwritingRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.SupportsStylusHandwriting(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodInfoSuppressesSpellCheckerCmd = &cobra.Command{
+	Use:   "suppresses-spell-checker",
+	Short: "SuppressesSpellChecker RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodInfoServiceClient(grpcConn)
+		req := &pb.SuppressesSpellCheckerRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.SuppressesSpellChecker(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodInfoToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodInfoServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputMethodInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputMethodInfoServiceClient(grpcConn)
+		req := &pb.InputMethodInfoWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodConnectionlessHandwritingCallbackCmd = &cobra.Command{
+	Use:   "connectionless-handwriting-callback",
+	Short: "ConnectionlessHandwritingCallbackService operations",
+}
+
+var inputmethodConnectionlessHandwritingCallbackOnErrorCmd = &cobra.Command{
+	Use:   "on-error",
+	Short: "OnError RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConnectionlessHandwritingCallbackServiceClient(grpcConn)
+		req := &pb.OnErrorRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnError(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodConnectionlessHandwritingCallbackOnResultCmd = &cobra.Command{
+	Use:   "on-result",
+	Short: "OnResult RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConnectionlessHandwritingCallbackServiceClient(grpcConn)
+		req := &pb.OnResultRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnResult(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodDeleteRangeGestureCmd = &cobra.Command{
+	Use:   "delete-range-gesture",
+	Short: "DeleteRangeGestureService operations",
+}
+
+var inputmethodDeleteRangeGestureDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeleteRangeGestureServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodDeleteRangeGestureEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeleteRangeGestureServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodDeleteRangeGestureGetDeletionEndAreaCmd = &cobra.Command{
+	Use:   "get-deletion-end-area",
+	Short: "GetDeletionEndArea RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeleteRangeGestureServiceClient(grpcConn)
+		req := &pb.GetDeletionEndAreaRequest{}
+		resp, err := client.GetDeletionEndArea(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodDeleteRangeGestureGetDeletionStartAreaCmd = &cobra.Command{
+	Use:   "get-deletion-start-area",
+	Short: "GetDeletionStartArea RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeleteRangeGestureServiceClient(grpcConn)
+		req := &pb.GetDeletionStartAreaRequest{}
+		resp, err := client.GetDeletionStartArea(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodDeleteRangeGestureGetGranularityCmd = &cobra.Command{
+	Use:   "get-granularity",
+	Short: "GetGranularity RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeleteRangeGestureServiceClient(grpcConn)
+		req := &pb.GetGranularityRequest{}
+		resp, err := client.GetGranularity(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodDeleteRangeGestureHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeleteRangeGestureServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodDeleteRangeGestureWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeleteRangeGestureServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodDeleteRangeGestureBuilderCmd = &cobra.Command{
+	Use:   "delete-range-gesture-builder",
+	Short: "DeleteRangeGestureBuilderService operations",
+}
+
+var inputmethodDeleteRangeGestureBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeleteRangeGestureBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodDeleteRangeGestureBuilderSetDeletionEndAreaCmd = &cobra.Command{
+	Use:   "set-deletion-end-area",
+	Short: "SetDeletionEndArea RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeleteRangeGestureBuilderServiceClient(grpcConn)
+		req := &pb.SetDeletionEndAreaRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDeletionEndArea(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodDeleteRangeGestureBuilderSetDeletionStartAreaCmd = &cobra.Command{
+	Use:   "set-deletion-start-area",
+	Short: "SetDeletionStartArea RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeleteRangeGestureBuilderServiceClient(grpcConn)
+		req := &pb.SetDeletionStartAreaRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDeletionStartArea(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodDeleteRangeGestureBuilderSetFallbackTextCmd = &cobra.Command{
+	Use:   "set-fallback-text",
+	Short: "SetFallbackText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeleteRangeGestureBuilderServiceClient(grpcConn)
+		req := &pb.SetFallbackTextRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetFallbackText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodDeleteRangeGestureBuilderSetGranularityCmd = &cobra.Command{
+	Use:   "set-granularity",
+	Short: "SetGranularity RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeleteRangeGestureBuilderServiceClient(grpcConn)
+		req := &pb.SetGranularityRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetGranularity(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodBaseInputConnectionCmd = &cobra.Command{
+	Use:   "base-input-connection",
+	Short: "BaseInputConnectionService operations",
+}
+
+var inputmethodBaseInputConnectionNewBaseInputConnectionCmd = &cobra.Command{
+	Use:   "new-base-input-connection",
+	Short: "NewBaseInputConnection RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBaseInputConnectionServiceClient(grpcConn)
+		req := &pb.NewBaseInputConnectionRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewBaseInputConnection(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodBaseInputConnectionBeginBatchEditCmd = &cobra.Command{
+	Use:   "begin-batch-edit",
+	Short: "BeginBatchEdit RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBaseInputConnectionServiceClient(grpcConn)
+		req := &pb.BeginBatchEditRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.BeginBatchEdit(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodBaseInputConnectionClearMetaKeyStatesCmd = &cobra.Command{
+	Use:   "clear-meta-key-states",
+	Short: "ClearMetaKeyStates RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBaseInputConnectionServiceClient(grpcConn)
+		req := &pb.ClearMetaKeyStatesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ClearMetaKeyStates(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodBaseInputConnectionCloseConnectionCmd = &cobra.Command{
+	Use:   "close-connection",
+	Short: "CloseConnection RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBaseInputConnectionServiceClient(grpcConn)
+		req := &pb.CloseConnectionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.CloseConnection(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodBaseInputConnectionCommitCompletionCmd = &cobra.Command{
+	Use:   "commit-completion",
+	Short: "CommitCompletion RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBaseInputConnectionServiceClient(grpcConn)
+		req := &pb.CommitCompletionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CommitCompletion(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodBaseInputConnectionCommitContentCmd = &cobra.Command{
+	Use:   "commit-content",
+	Short: "CommitContent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBaseInputConnectionServiceClient(grpcConn)
+		req := &pb.CommitContentRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.CommitContent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodBaseInputConnectionCommitCorrectionCmd = &cobra.Command{
+	Use:   "commit-correction",
+	Short: "CommitCorrection RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBaseInputConnectionServiceClient(grpcConn)
+		req := &pb.CommitCorrectionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CommitCorrection(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodBaseInputConnectionCommitTextCmd = &cobra.Command{
+	Use:   "commit-text",
+	Short: "CommitText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBaseInputConnectionServiceClient(grpcConn)
+		req := &pb.CommitTextRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.CommitText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodBaseInputConnectionDeleteSurroundingTextCmd = &cobra.Command{
+	Use:   "delete-surrounding-text",
+	Short: "DeleteSurroundingText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBaseInputConnectionServiceClient(grpcConn)
+		req := &pb.DeleteSurroundingTextRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.DeleteSurroundingText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodBaseInputConnectionDeleteSurroundingTextInCodePointsCmd = &cobra.Command{
+	Use:   "delete-surrounding-text-in-code-points",
+	Short: "DeleteSurroundingTextInCodePoints RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBaseInputConnectionServiceClient(grpcConn)
+		req := &pb.DeleteSurroundingTextInCodePointsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.DeleteSurroundingTextInCodePoints(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodBaseInputConnectionEndBatchEditCmd = &cobra.Command{
+	Use:   "end-batch-edit",
+	Short: "EndBatchEdit RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBaseInputConnectionServiceClient(grpcConn)
+		req := &pb.EndBatchEditRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.EndBatchEdit(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodBaseInputConnectionFinishComposingTextCmd = &cobra.Command{
+	Use:   "finish-composing-text",
+	Short: "FinishComposingText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBaseInputConnectionServiceClient(grpcConn)
+		req := &pb.FinishComposingTextRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.FinishComposingText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodBaseInputConnectionGetCursorCapsModeCmd = &cobra.Command{
+	Use:   "get-cursor-caps-mode",
+	Short: "GetCursorCapsMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBaseInputConnectionServiceClient(grpcConn)
+		req := &pb.GetCursorCapsModeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetCursorCapsMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodBaseInputConnectionGetEditableCmd = &cobra.Command{
+	Use:   "get-editable",
+	Short: "GetEditable RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBaseInputConnectionServiceClient(grpcConn)
+		req := &pb.GetEditableRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetEditable(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodBaseInputConnectionGetExtractedTextCmd = &cobra.Command{
+	Use:   "get-extracted-text",
+	Short: "GetExtractedText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBaseInputConnectionServiceClient(grpcConn)
+		req := &pb.GetExtractedTextRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetExtractedText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodBaseInputConnectionGetHandlerCmd = &cobra.Command{
+	Use:   "get-handler",
+	Short: "GetHandler RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBaseInputConnectionServiceClient(grpcConn)
+		req := &pb.GetHandlerRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetHandler(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodBaseInputConnectionGetSelectedTextCmd = &cobra.Command{
+	Use:   "get-selected-text",
+	Short: "GetSelectedText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBaseInputConnectionServiceClient(grpcConn)
+		req := &pb.GetSelectedTextRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetSelectedText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodBaseInputConnectionGetSurroundingTextCmd = &cobra.Command{
+	Use:   "get-surrounding-text",
+	Short: "GetSurroundingText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBaseInputConnectionServiceClient(grpcConn)
+		req := &pb.GetSurroundingTextRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.GetSurroundingText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodBaseInputConnectionGetTextAfterCursorCmd = &cobra.Command{
+	Use:   "get-text-after-cursor",
+	Short: "GetTextAfterCursor RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBaseInputConnectionServiceClient(grpcConn)
+		req := &pb.GetTextAfterCursorRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetTextAfterCursor(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodBaseInputConnectionGetTextBeforeCursorCmd = &cobra.Command{
+	Use:   "get-text-before-cursor",
+	Short: "GetTextBeforeCursor RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBaseInputConnectionServiceClient(grpcConn)
+		req := &pb.GetTextBeforeCursorRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetTextBeforeCursor(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodBaseInputConnectionPerformContextMenuActionCmd = &cobra.Command{
+	Use:   "perform-context-menu-action",
+	Short: "PerformContextMenuAction RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBaseInputConnectionServiceClient(grpcConn)
+		req := &pb.PerformContextMenuActionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.PerformContextMenuAction(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodBaseInputConnectionPerformEditorActionCmd = &cobra.Command{
+	Use:   "perform-editor-action",
+	Short: "PerformEditorAction RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBaseInputConnectionServiceClient(grpcConn)
+		req := &pb.PerformEditorActionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.PerformEditorAction(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodBaseInputConnectionPerformPrivateCommandCmd = &cobra.Command{
+	Use:   "perform-private-command",
+	Short: "PerformPrivateCommand RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBaseInputConnectionServiceClient(grpcConn)
+		req := &pb.PerformPrivateCommandRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.PerformPrivateCommand(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodBaseInputConnectionReplaceTextCmd = &cobra.Command{
+	Use:   "replace-text",
+	Short: "ReplaceText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBaseInputConnectionServiceClient(grpcConn)
+		req := &pb.ReplaceTextRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.ReplaceText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodBaseInputConnectionReportFullscreenModeCmd = &cobra.Command{
+	Use:   "report-fullscreen-mode",
+	Short: "ReportFullscreenMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBaseInputConnectionServiceClient(grpcConn)
+		req := &pb.ReportFullscreenModeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ReportFullscreenMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodBaseInputConnectionRequestCursorUpdatesCmd = &cobra.Command{
+	Use:   "request-cursor-updates",
+	Short: "RequestCursorUpdates RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBaseInputConnectionServiceClient(grpcConn)
+		req := &pb.RequestCursorUpdatesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RequestCursorUpdates(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodBaseInputConnectionSendKeyEventCmd = &cobra.Command{
+	Use:   "send-key-event",
+	Short: "SendKeyEvent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBaseInputConnectionServiceClient(grpcConn)
+		req := &pb.SendKeyEventRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SendKeyEvent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodBaseInputConnectionSetComposingRegionCmd = &cobra.Command{
+	Use:   "set-composing-region",
+	Short: "SetComposingRegion RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBaseInputConnectionServiceClient(grpcConn)
+		req := &pb.SetComposingRegionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetComposingRegion(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodBaseInputConnectionSetComposingTextCmd = &cobra.Command{
+	Use:   "set-composing-text",
+	Short: "SetComposingText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBaseInputConnectionServiceClient(grpcConn)
+		req := &pb.SetComposingTextRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetComposingText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodBaseInputConnectionSetSelectionCmd = &cobra.Command{
+	Use:   "set-selection",
+	Short: "SetSelection RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBaseInputConnectionServiceClient(grpcConn)
+		req := &pb.SetSelectionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetSelection(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodBaseInputConnectionTakeSnapshotCmd = &cobra.Command{
+	Use:   "take-snapshot",
+	Short: "TakeSnapshot RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBaseInputConnectionServiceClient(grpcConn)
+		req := &pb.TakeSnapshotRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.TakeSnapshot(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodBaseInputConnectionGetComposingSpanEndCmd = &cobra.Command{
+	Use:   "get-composing-span-end",
+	Short: "GetComposingSpanEnd RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBaseInputConnectionServiceClient(grpcConn)
+		req := &pb.GetComposingSpanEndRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetComposingSpanEnd(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodBaseInputConnectionGetComposingSpanStartCmd = &cobra.Command{
+	Use:   "get-composing-span-start",
+	Short: "GetComposingSpanStart RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBaseInputConnectionServiceClient(grpcConn)
+		req := &pb.GetComposingSpanStartRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetComposingSpanStart(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodBaseInputConnectionRemoveComposingSpansCmd = &cobra.Command{
+	Use:   "remove-composing-spans",
+	Short: "RemoveComposingSpans RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBaseInputConnectionServiceClient(grpcConn)
+		req := &pb.RemoveComposingSpansRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RemoveComposingSpans(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodBaseInputConnectionSetComposingSpansCmd = &cobra.Command{
+	Use:   "set-composing-spans",
+	Short: "SetComposingSpans RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBaseInputConnectionServiceClient(grpcConn)
+		req := &pb.SetComposingSpansRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetComposingSpans(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputContentInfoCmd = &cobra.Command{
+	Use:   "input-content-info",
+	Short: "InputContentInfoService operations",
+}
+
+var inputmethodInputContentInfoNewInputContentInfoCmd = &cobra.Command{
+	Use:   "new-input-content-info",
+	Short: "NewInputContentInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputContentInfoServiceClient(grpcConn)
+		req := &pb.NewInputContentInfoRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewInputContentInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputContentInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputContentInfoServiceClient(grpcConn)
+		req := &pb.InputContentInfoDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputContentInfoGetContentUriCmd = &cobra.Command{
+	Use:   "get-content-uri",
+	Short: "GetContentUri RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputContentInfoServiceClient(grpcConn)
+		req := &pb.GetContentUriRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetContentUri(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputContentInfoGetDescriptionCmd = &cobra.Command{
+	Use:   "get-description",
+	Short: "GetDescription RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputContentInfoServiceClient(grpcConn)
+		req := &pb.GetDescriptionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetDescription(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputContentInfoGetLinkUriCmd = &cobra.Command{
+	Use:   "get-link-uri",
+	Short: "GetLinkUri RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputContentInfoServiceClient(grpcConn)
+		req := &pb.GetLinkUriRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetLinkUri(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputContentInfoReleasePermissionCmd = &cobra.Command{
+	Use:   "release-permission",
+	Short: "ReleasePermission RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputContentInfoServiceClient(grpcConn)
+		req := &pb.ReleasePermissionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ReleasePermission(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputContentInfoRequestPermissionCmd = &cobra.Command{
+	Use:   "request-permission",
+	Short: "RequestPermission RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputContentInfoServiceClient(grpcConn)
+		req := &pb.RequestPermissionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.RequestPermission(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputContentInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputContentInfoServiceClient(grpcConn)
+		req := &pb.InputContentInfoWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodCursorAnchorInfoCmd = &cobra.Command{
+	Use:   "cursor-anchor-info",
+	Short: "CursorAnchorInfoService operations",
+}
+
+var inputmethodCursorAnchorInfoNewCursorAnchorInfoCmd = &cobra.Command{
+	Use:   "new-cursor-anchor-info",
+	Short: "NewCursorAnchorInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorAnchorInfoServiceClient(grpcConn)
+		req := &pb.NewCursorAnchorInfoRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewCursorAnchorInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodCursorAnchorInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorAnchorInfoServiceClient(grpcConn)
+		req := &pb.CursorAnchorInfoDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodCursorAnchorInfoEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorAnchorInfoServiceClient(grpcConn)
+		req := &pb.CursorAnchorInfoEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodCursorAnchorInfoGetCharacterBoundsCmd = &cobra.Command{
+	Use:   "get-character-bounds",
+	Short: "GetCharacterBounds RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorAnchorInfoServiceClient(grpcConn)
+		req := &pb.CursorAnchorInfoGetCharacterBoundsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetCharacterBounds(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodCursorAnchorInfoGetCharacterBoundsFlagsCmd = &cobra.Command{
+	Use:   "get-character-bounds-flags",
+	Short: "GetCharacterBoundsFlags RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorAnchorInfoServiceClient(grpcConn)
+		req := &pb.GetCharacterBoundsFlagsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetCharacterBoundsFlags(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodCursorAnchorInfoGetComposingTextCmd = &cobra.Command{
+	Use:   "get-composing-text",
+	Short: "GetComposingText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorAnchorInfoServiceClient(grpcConn)
+		req := &pb.GetComposingTextRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetComposingText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodCursorAnchorInfoGetComposingTextStartCmd = &cobra.Command{
+	Use:   "get-composing-text-start",
+	Short: "GetComposingTextStart RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorAnchorInfoServiceClient(grpcConn)
+		req := &pb.GetComposingTextStartRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetComposingTextStart(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodCursorAnchorInfoGetEditorBoundsInfoCmd = &cobra.Command{
+	Use:   "get-editor-bounds-info",
+	Short: "GetEditorBoundsInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorAnchorInfoServiceClient(grpcConn)
+		req := &pb.GetEditorBoundsInfoRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetEditorBoundsInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodCursorAnchorInfoGetInsertionMarkerBaselineCmd = &cobra.Command{
+	Use:   "get-insertion-marker-baseline",
+	Short: "GetInsertionMarkerBaseline RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorAnchorInfoServiceClient(grpcConn)
+		req := &pb.GetInsertionMarkerBaselineRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetInsertionMarkerBaseline(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodCursorAnchorInfoGetInsertionMarkerBottomCmd = &cobra.Command{
+	Use:   "get-insertion-marker-bottom",
+	Short: "GetInsertionMarkerBottom RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorAnchorInfoServiceClient(grpcConn)
+		req := &pb.GetInsertionMarkerBottomRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetInsertionMarkerBottom(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodCursorAnchorInfoGetInsertionMarkerFlagsCmd = &cobra.Command{
+	Use:   "get-insertion-marker-flags",
+	Short: "GetInsertionMarkerFlags RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorAnchorInfoServiceClient(grpcConn)
+		req := &pb.GetInsertionMarkerFlagsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetInsertionMarkerFlags(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodCursorAnchorInfoGetInsertionMarkerHorizontalCmd = &cobra.Command{
+	Use:   "get-insertion-marker-horizontal",
+	Short: "GetInsertionMarkerHorizontal RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorAnchorInfoServiceClient(grpcConn)
+		req := &pb.GetInsertionMarkerHorizontalRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetInsertionMarkerHorizontal(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodCursorAnchorInfoGetInsertionMarkerTopCmd = &cobra.Command{
+	Use:   "get-insertion-marker-top",
+	Short: "GetInsertionMarkerTop RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorAnchorInfoServiceClient(grpcConn)
+		req := &pb.GetInsertionMarkerTopRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetInsertionMarkerTop(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodCursorAnchorInfoGetMatrixCmd = &cobra.Command{
+	Use:   "get-matrix",
+	Short: "GetMatrix RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorAnchorInfoServiceClient(grpcConn)
+		req := &pb.CursorAnchorInfoGetMatrixRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetMatrix(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodCursorAnchorInfoGetSelectionEndCmd = &cobra.Command{
+	Use:   "get-selection-end",
+	Short: "GetSelectionEnd RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorAnchorInfoServiceClient(grpcConn)
+		req := &pb.GetSelectionEndRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSelectionEnd(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodCursorAnchorInfoGetSelectionStartCmd = &cobra.Command{
+	Use:   "get-selection-start",
+	Short: "GetSelectionStart RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorAnchorInfoServiceClient(grpcConn)
+		req := &pb.GetSelectionStartRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSelectionStart(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodCursorAnchorInfoGetTextAppearanceInfoCmd = &cobra.Command{
+	Use:   "get-text-appearance-info",
+	Short: "GetTextAppearanceInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorAnchorInfoServiceClient(grpcConn)
+		req := &pb.GetTextAppearanceInfoRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetTextAppearanceInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodCursorAnchorInfoHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorAnchorInfoServiceClient(grpcConn)
+		req := &pb.CursorAnchorInfoHashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodCursorAnchorInfoToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorAnchorInfoServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodCursorAnchorInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorAnchorInfoServiceClient(grpcConn)
+		req := &pb.CursorAnchorInfoWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodCursorAnchorInfoBuilderCmd = &cobra.Command{
+	Use:   "cursor-anchor-info-builder",
+	Short: "CursorAnchorInfoBuilderService operations",
+}
+
+var inputmethodCursorAnchorInfoBuilderAddCharacterBoundsCmd = &cobra.Command{
+	Use:   "add-character-bounds",
+	Short: "AddCharacterBounds RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorAnchorInfoBuilderServiceClient(grpcConn)
+		req := &pb.AddCharacterBoundsRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		resp, err := client.AddCharacterBounds(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodCursorAnchorInfoBuilderAddVisibleLineBoundsCmd = &cobra.Command{
+	Use:   "add-visible-line-bounds",
+	Short: "AddVisibleLineBounds RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorAnchorInfoBuilderServiceClient(grpcConn)
+		req := &pb.AddVisibleLineBoundsRequest{}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.AddVisibleLineBounds(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodCursorAnchorInfoBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorAnchorInfoBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodCursorAnchorInfoBuilderClearVisibleLineBoundsCmd = &cobra.Command{
+	Use:   "clear-visible-line-bounds",
+	Short: "ClearVisibleLineBounds RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorAnchorInfoBuilderServiceClient(grpcConn)
+		req := &pb.ClearVisibleLineBoundsRequest{}
+		resp, err := client.ClearVisibleLineBounds(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodCursorAnchorInfoBuilderResetCmd = &cobra.Command{
+	Use:   "reset",
+	Short: "Reset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorAnchorInfoBuilderServiceClient(grpcConn)
+		req := &pb.ResetRequest{}
+		resp, err := client.Reset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodCursorAnchorInfoBuilderSetComposingTextCmd = &cobra.Command{
+	Use:   "set-composing-text",
+	Short: "SetComposingText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorAnchorInfoBuilderServiceClient(grpcConn)
+		req := &pb.CursorAnchorInfoBuilderSetComposingTextRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetComposingText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodCursorAnchorInfoBuilderSetEditorBoundsInfoCmd = &cobra.Command{
+	Use:   "set-editor-bounds-info",
+	Short: "SetEditorBoundsInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorAnchorInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetEditorBoundsInfoRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetEditorBoundsInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodCursorAnchorInfoBuilderSetInsertionMarkerLocationCmd = &cobra.Command{
+	Use:   "set-insertion-marker-location",
+	Short: "SetInsertionMarkerLocation RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorAnchorInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetInsertionMarkerLocationRequest{}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.SetInsertionMarkerLocation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodCursorAnchorInfoBuilderSetMatrixCmd = &cobra.Command{
+	Use:   "set-matrix",
+	Short: "SetMatrix RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorAnchorInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetMatrixRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetMatrix(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodCursorAnchorInfoBuilderSetSelectionRangeCmd = &cobra.Command{
+	Use:   "set-selection-range",
+	Short: "SetSelectionRange RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorAnchorInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetSelectionRangeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetSelectionRange(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodCursorAnchorInfoBuilderSetTextAppearanceInfoCmd = &cobra.Command{
+	Use:   "set-text-appearance-info",
+	Short: "SetTextAppearanceInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorAnchorInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetTextAppearanceInfoRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetTextAppearanceInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodExtractedTextRequestCmd = &cobra.Command{
+	Use:   "extracted-text-request",
+	Short: "ExtractedTextRequestService operations",
+}
+
+var inputmethodExtractedTextRequestNewExtractedTextRequestOpCmd = &cobra.Command{
+	Use:   "new-extracted-text-request-op",
+	Short: "NewExtractedTextRequestOp RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExtractedTextRequestServiceClient(grpcConn)
+		req := &pb.NewExtractedTextRequestOpRequest{}
+		resp, err := client.NewExtractedTextRequestOp(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodExtractedTextRequestDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExtractedTextRequestServiceClient(grpcConn)
+		req := &pb.ExtractedTextRequestDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodExtractedTextRequestWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExtractedTextRequestServiceClient(grpcConn)
+		req := &pb.ExtractedTextRequestWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodCompletionInfoCmd = &cobra.Command{
+	Use:   "completion-info",
+	Short: "CompletionInfoService operations",
+}
+
+var inputmethodCompletionInfoNewCompletionInfoCmd = &cobra.Command{
+	Use:   "new-completion-info",
+	Short: "NewCompletionInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCompletionInfoServiceClient(grpcConn)
+		req := &pb.NewCompletionInfoRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.NewCompletionInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodCompletionInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCompletionInfoServiceClient(grpcConn)
+		req := &pb.CompletionInfoDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodCompletionInfoGetIdCmd = &cobra.Command{
+	Use:   "get-id",
+	Short: "GetId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCompletionInfoServiceClient(grpcConn)
+		req := &pb.GetIdRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodCompletionInfoGetLabelCmd = &cobra.Command{
+	Use:   "get-label",
+	Short: "GetLabel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCompletionInfoServiceClient(grpcConn)
+		req := &pb.GetLabelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetLabel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodCompletionInfoGetPositionCmd = &cobra.Command{
+	Use:   "get-position",
+	Short: "GetPosition RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCompletionInfoServiceClient(grpcConn)
+		req := &pb.GetPositionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetPosition(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodCompletionInfoGetTextCmd = &cobra.Command{
+	Use:   "get-text",
+	Short: "GetText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCompletionInfoServiceClient(grpcConn)
+		req := &pb.GetTextRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodCompletionInfoToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCompletionInfoServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodCompletionInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCompletionInfoServiceClient(grpcConn)
+		req := &pb.CompletionInfoWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodSelectGestureCmd = &cobra.Command{
+	Use:   "select-gesture",
+	Short: "SelectGestureService operations",
+}
+
+var inputmethodSelectGestureDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSelectGestureServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodSelectGestureEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSelectGestureServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodSelectGestureGetGranularityCmd = &cobra.Command{
+	Use:   "get-granularity",
+	Short: "GetGranularity RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSelectGestureServiceClient(grpcConn)
+		req := &pb.GetGranularityRequest{}
+		resp, err := client.GetGranularity(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodSelectGestureGetSelectionAreaCmd = &cobra.Command{
+	Use:   "get-selection-area",
+	Short: "GetSelectionArea RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSelectGestureServiceClient(grpcConn)
+		req := &pb.GetSelectionAreaRequest{}
+		resp, err := client.GetSelectionArea(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodSelectGestureHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSelectGestureServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodSelectGestureWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSelectGestureServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodSelectGestureBuilderCmd = &cobra.Command{
+	Use:   "select-gesture-builder",
+	Short: "SelectGestureBuilderService operations",
+}
+
+var inputmethodSelectGestureBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSelectGestureBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodSelectGestureBuilderSetFallbackTextCmd = &cobra.Command{
+	Use:   "set-fallback-text",
+	Short: "SetFallbackText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSelectGestureBuilderServiceClient(grpcConn)
+		req := &pb.SetFallbackTextRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetFallbackText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodSelectGestureBuilderSetGranularityCmd = &cobra.Command{
+	Use:   "set-granularity",
+	Short: "SetGranularity RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSelectGestureBuilderServiceClient(grpcConn)
+		req := &pb.SetGranularityRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetGranularity(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodSelectGestureBuilderSetSelectionAreaCmd = &cobra.Command{
+	Use:   "set-selection-area",
+	Short: "SetSelectionArea RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSelectGestureBuilderServiceClient(grpcConn)
+		req := &pb.SetSelectionAreaRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSelectionArea(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInlineSuggestionCmd = &cobra.Command{
+	Use:   "inline-suggestion",
+	Short: "InlineSuggestionService operations",
+}
+
+var inputmethodInlineSuggestionDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInlineSuggestionServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInlineSuggestionEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInlineSuggestionServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInlineSuggestionGetInfoCmd = &cobra.Command{
+	Use:   "get-info",
+	Short: "GetInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInlineSuggestionServiceClient(grpcConn)
+		req := &pb.GetInfoRequest{}
+		resp, err := client.GetInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInlineSuggestionHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInlineSuggestionServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInlineSuggestionToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInlineSuggestionServiceClient(grpcConn)
+		req := &pb.InlineSuggestionToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInlineSuggestionWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInlineSuggestionServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextBoundsInfoResultCmd = &cobra.Command{
+	Use:   "text-bounds-info-result",
+	Short: "TextBoundsInfoResultService operations",
+}
+
+var inputmethodTextBoundsInfoResultNewTextBoundsInfoResultCmd = &cobra.Command{
+	Use:   "new-text-bounds-info-result",
+	Short: "NewTextBoundsInfoResult RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextBoundsInfoResultServiceClient(grpcConn)
+		req := &pb.NewTextBoundsInfoResultRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewTextBoundsInfoResult(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextBoundsInfoResultGetResultCodeCmd = &cobra.Command{
+	Use:   "get-result-code",
+	Short: "GetResultCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextBoundsInfoResultServiceClient(grpcConn)
+		req := &pb.GetResultCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetResultCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextBoundsInfoResultGetTextBoundsInfoCmd = &cobra.Command{
+	Use:   "get-text-bounds-info",
+	Short: "GetTextBoundsInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextBoundsInfoResultServiceClient(grpcConn)
+		req := &pb.GetTextBoundsInfoRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetTextBoundsInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputConnectionCmd = &cobra.Command{
+	Use:   "input-connection",
+	Short: "InputConnectionService operations",
+}
+
+var inputmethodInputConnectionBeginBatchEditCmd = &cobra.Command{
+	Use:   "begin-batch-edit",
+	Short: "BeginBatchEdit RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputConnectionServiceClient(grpcConn)
+		req := &pb.InputConnectionBeginBatchEditRequest{}
+		resp, err := client.BeginBatchEdit(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputConnectionClearMetaKeyStatesCmd = &cobra.Command{
+	Use:   "clear-meta-key-states",
+	Short: "ClearMetaKeyStates RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputConnectionServiceClient(grpcConn)
+		req := &pb.InputConnectionClearMetaKeyStatesRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ClearMetaKeyStates(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputConnectionCloseConnectionCmd = &cobra.Command{
+	Use:   "close-connection",
+	Short: "CloseConnection RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputConnectionServiceClient(grpcConn)
+		req := &pb.InputConnectionCloseConnectionRequest{}
+		resp, err := client.CloseConnection(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputConnectionCommitCompletionCmd = &cobra.Command{
+	Use:   "commit-completion",
+	Short: "CommitCompletion RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputConnectionServiceClient(grpcConn)
+		req := &pb.InputConnectionCommitCompletionRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CommitCompletion(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputConnectionCommitContentCmd = &cobra.Command{
+	Use:   "commit-content",
+	Short: "CommitContent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputConnectionServiceClient(grpcConn)
+		req := &pb.InputConnectionCommitContentRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.CommitContent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputConnectionCommitCorrectionCmd = &cobra.Command{
+	Use:   "commit-correction",
+	Short: "CommitCorrection RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputConnectionServiceClient(grpcConn)
+		req := &pb.InputConnectionCommitCorrectionRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CommitCorrection(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputConnectionCommitTextCmd = &cobra.Command{
+	Use:   "commit-text",
+	Short: "CommitText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputConnectionServiceClient(grpcConn)
+		req := &pb.InputConnectionCommitTextRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.CommitText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputConnectionDeleteSurroundingTextCmd = &cobra.Command{
+	Use:   "delete-surrounding-text",
+	Short: "DeleteSurroundingText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputConnectionServiceClient(grpcConn)
+		req := &pb.InputConnectionDeleteSurroundingTextRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.DeleteSurroundingText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputConnectionDeleteSurroundingTextInCodePointsCmd = &cobra.Command{
+	Use:   "delete-surrounding-text-in-code-points",
+	Short: "DeleteSurroundingTextInCodePoints RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputConnectionServiceClient(grpcConn)
+		req := &pb.InputConnectionDeleteSurroundingTextInCodePointsRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.DeleteSurroundingTextInCodePoints(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputConnectionEndBatchEditCmd = &cobra.Command{
+	Use:   "end-batch-edit",
+	Short: "EndBatchEdit RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputConnectionServiceClient(grpcConn)
+		req := &pb.InputConnectionEndBatchEditRequest{}
+		resp, err := client.EndBatchEdit(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputConnectionFinishComposingTextCmd = &cobra.Command{
+	Use:   "finish-composing-text",
+	Short: "FinishComposingText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputConnectionServiceClient(grpcConn)
+		req := &pb.InputConnectionFinishComposingTextRequest{}
+		resp, err := client.FinishComposingText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputConnectionGetCursorCapsModeCmd = &cobra.Command{
+	Use:   "get-cursor-caps-mode",
+	Short: "GetCursorCapsMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputConnectionServiceClient(grpcConn)
+		req := &pb.InputConnectionGetCursorCapsModeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetCursorCapsMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputConnectionGetExtractedTextCmd = &cobra.Command{
+	Use:   "get-extracted-text",
+	Short: "GetExtractedText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputConnectionServiceClient(grpcConn)
+		req := &pb.InputConnectionGetExtractedTextRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetExtractedText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputConnectionGetHandlerCmd = &cobra.Command{
+	Use:   "get-handler",
+	Short: "GetHandler RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputConnectionServiceClient(grpcConn)
+		req := &pb.InputConnectionGetHandlerRequest{}
+		resp, err := client.GetHandler(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputConnectionGetSelectedTextCmd = &cobra.Command{
+	Use:   "get-selected-text",
+	Short: "GetSelectedText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputConnectionServiceClient(grpcConn)
+		req := &pb.InputConnectionGetSelectedTextRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetSelectedText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputConnectionGetTextAfterCursorCmd = &cobra.Command{
+	Use:   "get-text-after-cursor",
+	Short: "GetTextAfterCursor RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputConnectionServiceClient(grpcConn)
+		req := &pb.InputConnectionGetTextAfterCursorRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetTextAfterCursor(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputConnectionGetTextBeforeCursorCmd = &cobra.Command{
+	Use:   "get-text-before-cursor",
+	Short: "GetTextBeforeCursor RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputConnectionServiceClient(grpcConn)
+		req := &pb.InputConnectionGetTextBeforeCursorRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetTextBeforeCursor(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputConnectionPerformContextMenuActionCmd = &cobra.Command{
+	Use:   "perform-context-menu-action",
+	Short: "PerformContextMenuAction RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputConnectionServiceClient(grpcConn)
+		req := &pb.InputConnectionPerformContextMenuActionRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.PerformContextMenuAction(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputConnectionPerformEditorActionCmd = &cobra.Command{
+	Use:   "perform-editor-action",
+	Short: "PerformEditorAction RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputConnectionServiceClient(grpcConn)
+		req := &pb.InputConnectionPerformEditorActionRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.PerformEditorAction(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputConnectionPerformPrivateCommandCmd = &cobra.Command{
+	Use:   "perform-private-command",
+	Short: "PerformPrivateCommand RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputConnectionServiceClient(grpcConn)
+		req := &pb.InputConnectionPerformPrivateCommandRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.PerformPrivateCommand(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputConnectionReportFullscreenModeCmd = &cobra.Command{
+	Use:   "report-fullscreen-mode",
+	Short: "ReportFullscreenMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputConnectionServiceClient(grpcConn)
+		req := &pb.InputConnectionReportFullscreenModeRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ReportFullscreenMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputConnectionRequestCursorUpdatesCmd = &cobra.Command{
+	Use:   "request-cursor-updates",
+	Short: "RequestCursorUpdates RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputConnectionServiceClient(grpcConn)
+		req := &pb.InputConnectionRequestCursorUpdatesRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RequestCursorUpdates(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputConnectionSendKeyEventCmd = &cobra.Command{
+	Use:   "send-key-event",
+	Short: "SendKeyEvent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputConnectionServiceClient(grpcConn)
+		req := &pb.InputConnectionSendKeyEventRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SendKeyEvent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputConnectionSetComposingRegionCmd = &cobra.Command{
+	Use:   "set-composing-region",
+	Short: "SetComposingRegion RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputConnectionServiceClient(grpcConn)
+		req := &pb.InputConnectionSetComposingRegionRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetComposingRegion(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputConnectionSetComposingTextCmd = &cobra.Command{
+	Use:   "set-composing-text",
+	Short: "SetComposingText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputConnectionServiceClient(grpcConn)
+		req := &pb.InputConnectionSetComposingTextRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetComposingText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputConnectionSetSelectionCmd = &cobra.Command{
+	Use:   "set-selection",
+	Short: "SetSelection RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputConnectionServiceClient(grpcConn)
+		req := &pb.InputConnectionSetSelectionRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetSelection(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodJoinOrSplitGestureCmd = &cobra.Command{
+	Use:   "join-or-split-gesture",
+	Short: "JoinOrSplitGestureService operations",
+}
+
+var inputmethodJoinOrSplitGestureDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewJoinOrSplitGestureServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodJoinOrSplitGestureEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewJoinOrSplitGestureServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodJoinOrSplitGestureGetJoinOrSplitPointCmd = &cobra.Command{
+	Use:   "get-join-or-split-point",
+	Short: "GetJoinOrSplitPoint RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewJoinOrSplitGestureServiceClient(grpcConn)
+		req := &pb.GetJoinOrSplitPointRequest{}
+		resp, err := client.GetJoinOrSplitPoint(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodJoinOrSplitGestureHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewJoinOrSplitGestureServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodJoinOrSplitGestureWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewJoinOrSplitGestureServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodJoinOrSplitGestureBuilderCmd = &cobra.Command{
+	Use:   "join-or-split-gesture-builder",
+	Short: "JoinOrSplitGestureBuilderService operations",
+}
+
+var inputmethodJoinOrSplitGestureBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewJoinOrSplitGestureBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodJoinOrSplitGestureBuilderSetFallbackTextCmd = &cobra.Command{
+	Use:   "set-fallback-text",
+	Short: "SetFallbackText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewJoinOrSplitGestureBuilderServiceClient(grpcConn)
+		req := &pb.SetFallbackTextRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetFallbackText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodJoinOrSplitGestureBuilderSetJoinOrSplitPointCmd = &cobra.Command{
+	Use:   "set-join-or-split-point",
+	Short: "SetJoinOrSplitPoint RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewJoinOrSplitGestureBuilderServiceClient(grpcConn)
+		req := &pb.SetJoinOrSplitPointRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetJoinOrSplitPoint(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodEditorBoundsInfoCmd = &cobra.Command{
+	Use:   "editor-bounds-info",
+	Short: "EditorBoundsInfoService operations",
+}
+
+var inputmethodEditorBoundsInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEditorBoundsInfoServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodEditorBoundsInfoEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEditorBoundsInfoServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodEditorBoundsInfoGetEditorBoundsCmd = &cobra.Command{
+	Use:   "get-editor-bounds",
+	Short: "GetEditorBounds RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEditorBoundsInfoServiceClient(grpcConn)
+		req := &pb.GetEditorBoundsRequest{}
+		resp, err := client.GetEditorBounds(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodEditorBoundsInfoGetHandwritingBoundsCmd = &cobra.Command{
+	Use:   "get-handwriting-bounds",
+	Short: "GetHandwritingBounds RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEditorBoundsInfoServiceClient(grpcConn)
+		req := &pb.GetHandwritingBoundsRequest{}
+		resp, err := client.GetHandwritingBounds(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodEditorBoundsInfoHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEditorBoundsInfoServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodEditorBoundsInfoToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEditorBoundsInfoServiceClient(grpcConn)
+		req := &pb.EditorBoundsInfoToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodEditorBoundsInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEditorBoundsInfoServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodEditorBoundsInfoBuilderCmd = &cobra.Command{
+	Use:   "editor-bounds-info-builder",
+	Short: "EditorBoundsInfoBuilderService operations",
+}
+
+var inputmethodEditorBoundsInfoBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEditorBoundsInfoBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodEditorBoundsInfoBuilderSetEditorBoundsCmd = &cobra.Command{
+	Use:   "set-editor-bounds",
+	Short: "SetEditorBounds RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEditorBoundsInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetEditorBoundsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetEditorBounds(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodEditorBoundsInfoBuilderSetHandwritingBoundsCmd = &cobra.Command{
+	Use:   "set-handwriting-bounds",
+	Short: "SetHandwritingBounds RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEditorBoundsInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetHandwritingBoundsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetHandwritingBounds(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodSelectRangeGestureCmd = &cobra.Command{
+	Use:   "select-range-gesture",
+	Short: "SelectRangeGestureService operations",
+}
+
+var inputmethodSelectRangeGestureDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSelectRangeGestureServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodSelectRangeGestureEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSelectRangeGestureServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodSelectRangeGestureGetGranularityCmd = &cobra.Command{
+	Use:   "get-granularity",
+	Short: "GetGranularity RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSelectRangeGestureServiceClient(grpcConn)
+		req := &pb.GetGranularityRequest{}
+		resp, err := client.GetGranularity(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodSelectRangeGestureGetSelectionEndAreaCmd = &cobra.Command{
+	Use:   "get-selection-end-area",
+	Short: "GetSelectionEndArea RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSelectRangeGestureServiceClient(grpcConn)
+		req := &pb.GetSelectionEndAreaRequest{}
+		resp, err := client.GetSelectionEndArea(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodSelectRangeGestureGetSelectionStartAreaCmd = &cobra.Command{
+	Use:   "get-selection-start-area",
+	Short: "GetSelectionStartArea RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSelectRangeGestureServiceClient(grpcConn)
+		req := &pb.GetSelectionStartAreaRequest{}
+		resp, err := client.GetSelectionStartArea(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodSelectRangeGestureHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSelectRangeGestureServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodSelectRangeGestureWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSelectRangeGestureServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodSelectRangeGestureBuilderCmd = &cobra.Command{
+	Use:   "select-range-gesture-builder",
+	Short: "SelectRangeGestureBuilderService operations",
+}
+
+var inputmethodSelectRangeGestureBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSelectRangeGestureBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodSelectRangeGestureBuilderSetFallbackTextCmd = &cobra.Command{
+	Use:   "set-fallback-text",
+	Short: "SetFallbackText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSelectRangeGestureBuilderServiceClient(grpcConn)
+		req := &pb.SetFallbackTextRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetFallbackText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodSelectRangeGestureBuilderSetGranularityCmd = &cobra.Command{
+	Use:   "set-granularity",
+	Short: "SetGranularity RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSelectRangeGestureBuilderServiceClient(grpcConn)
+		req := &pb.SetGranularityRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetGranularity(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodSelectRangeGestureBuilderSetSelectionEndAreaCmd = &cobra.Command{
+	Use:   "set-selection-end-area",
+	Short: "SetSelectionEndArea RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSelectRangeGestureBuilderServiceClient(grpcConn)
+		req := &pb.SetSelectionEndAreaRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSelectionEndArea(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodSelectRangeGestureBuilderSetSelectionStartAreaCmd = &cobra.Command{
+	Use:   "set-selection-start-area",
+	Short: "SetSelectionStartArea RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSelectRangeGestureBuilderServiceClient(grpcConn)
+		req := &pb.SetSelectionStartAreaRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSelectionStartArea(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodHandwritingGestureCmd = &cobra.Command{
+	Use:   "handwriting-gesture",
+	Short: "HandwritingGestureService operations",
+}
+
+var inputmethodHandwritingGestureGetFallbackTextCmd = &cobra.Command{
+	Use:   "get-fallback-text",
+	Short: "GetFallbackText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewHandwritingGestureServiceClient(grpcConn)
+		req := &pb.GetFallbackTextRequest{}
+		resp, err := client.GetFallbackText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextSnapshotCmd = &cobra.Command{
+	Use:   "text-snapshot",
+	Short: "TextSnapshotService operations",
+}
+
+var inputmethodTextSnapshotNewTextSnapshotCmd = &cobra.Command{
+	Use:   "new-text-snapshot",
+	Short: "NewTextSnapshot RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextSnapshotServiceClient(grpcConn)
+		req := &pb.NewTextSnapshotRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.NewTextSnapshot(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextSnapshotGetCompositionEndCmd = &cobra.Command{
+	Use:   "get-composition-end",
+	Short: "GetCompositionEnd RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextSnapshotServiceClient(grpcConn)
+		req := &pb.GetCompositionEndRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetCompositionEnd(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextSnapshotGetCompositionStartCmd = &cobra.Command{
+	Use:   "get-composition-start",
+	Short: "GetCompositionStart RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextSnapshotServiceClient(grpcConn)
+		req := &pb.GetCompositionStartRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetCompositionStart(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextSnapshotGetCursorCapsModeCmd = &cobra.Command{
+	Use:   "get-cursor-caps-mode",
+	Short: "GetCursorCapsMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextSnapshotServiceClient(grpcConn)
+		req := &pb.TextSnapshotGetCursorCapsModeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetCursorCapsMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextSnapshotGetSelectionEndCmd = &cobra.Command{
+	Use:   "get-selection-end",
+	Short: "GetSelectionEnd RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextSnapshotServiceClient(grpcConn)
+		req := &pb.GetSelectionEndRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSelectionEnd(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextSnapshotGetSelectionStartCmd = &cobra.Command{
+	Use:   "get-selection-start",
+	Short: "GetSelectionStart RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextSnapshotServiceClient(grpcConn)
+		req := &pb.GetSelectionStartRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSelectionStart(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextSnapshotGetSurroundingTextCmd = &cobra.Command{
+	Use:   "get-surrounding-text",
+	Short: "GetSurroundingText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextSnapshotServiceClient(grpcConn)
+		req := &pb.TextSnapshotGetSurroundingTextRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSurroundingText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInsertModeGestureCmd = &cobra.Command{
+	Use:   "insert-mode-gesture",
+	Short: "InsertModeGestureService operations",
+}
+
+var inputmethodInsertModeGestureDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInsertModeGestureServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInsertModeGestureEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInsertModeGestureServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInsertModeGestureGetCancellationSignalCmd = &cobra.Command{
+	Use:   "get-cancellation-signal",
+	Short: "GetCancellationSignal RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInsertModeGestureServiceClient(grpcConn)
+		req := &pb.GetCancellationSignalRequest{}
+		resp, err := client.GetCancellationSignal(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInsertModeGestureGetInsertionPointCmd = &cobra.Command{
+	Use:   "get-insertion-point",
+	Short: "GetInsertionPoint RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInsertModeGestureServiceClient(grpcConn)
+		req := &pb.GetInsertionPointRequest{}
+		resp, err := client.GetInsertionPoint(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInsertModeGestureHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInsertModeGestureServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInsertModeGestureWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInsertModeGestureServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInsertModeGestureBuilderCmd = &cobra.Command{
+	Use:   "insert-mode-gesture-builder",
+	Short: "InsertModeGestureBuilderService operations",
+}
+
+var inputmethodInsertModeGestureBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInsertModeGestureBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInsertModeGestureBuilderSetCancellationSignalCmd = &cobra.Command{
+	Use:   "set-cancellation-signal",
+	Short: "SetCancellationSignal RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInsertModeGestureBuilderServiceClient(grpcConn)
+		req := &pb.SetCancellationSignalRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetCancellationSignal(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInsertModeGestureBuilderSetFallbackTextCmd = &cobra.Command{
+	Use:   "set-fallback-text",
+	Short: "SetFallbackText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInsertModeGestureBuilderServiceClient(grpcConn)
+		req := &pb.SetFallbackTextRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetFallbackText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInsertModeGestureBuilderSetInsertionPointCmd = &cobra.Command{
+	Use:   "set-insertion-point",
+	Short: "SetInsertionPoint RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInsertModeGestureBuilderServiceClient(grpcConn)
+		req := &pb.SetInsertionPointRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetInsertionPoint(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var inputmethodInputMethodManagerCmd = &cobra.Command{
 	Use:   "input-method-manager",
 	Short: "InputMethodManagerService operations",
@@ -87,7 +7334,7 @@ var inputmethodInputMethodManagerDisplayCompletionsCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewInputMethodManagerServiceClient(grpcConn)
-		req := &pb.DisplayCompletionsRequest{}
+		req := &pb.InputMethodManagerDisplayCompletionsRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -439,7 +7686,7 @@ var inputmethodInputMethodManagerRestartInputCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewInputMethodManagerServiceClient(grpcConn)
-		req := &pb.RestartInputRequest{}
+		req := &pb.InputMethodManagerRestartInputRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -935,7 +8182,7 @@ var inputmethodInputMethodManagerUpdateCursorCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewInputMethodManagerServiceClient(grpcConn)
-		req := &pb.UpdateCursorRequest{}
+		req := &pb.InputMethodManagerUpdateCursorRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -966,7 +8213,7 @@ var inputmethodInputMethodManagerUpdateCursorAnchorInfoCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewInputMethodManagerServiceClient(grpcConn)
-		req := &pb.UpdateCursorAnchorInfoRequest{}
+		req := &pb.InputMethodManagerUpdateCursorAnchorInfoRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -988,7 +8235,7 @@ var inputmethodInputMethodManagerUpdateExtractedTextCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewInputMethodManagerServiceClient(grpcConn)
-		req := &pb.UpdateExtractedTextRequest{}
+		req := &pb.InputMethodManagerUpdateExtractedTextRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -1013,7 +8260,7 @@ var inputmethodInputMethodManagerUpdateSelectionCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewInputMethodManagerServiceClient(grpcConn)
-		req := &pb.UpdateSelectionRequest{}
+		req := &pb.InputMethodManagerUpdateSelectionRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -1044,7 +8291,7 @@ var inputmethodInputMethodManagerViewClickedCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewInputMethodManagerServiceClient(grpcConn)
-		req := &pb.ViewClickedRequest{}
+		req := &pb.InputMethodManagerViewClickedRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -1056,7 +8303,3774 @@ var inputmethodInputMethodManagerViewClickedCmd = &cobra.Command{
 	},
 }
 
+var inputmethodInputConnectionWrapperCmd = &cobra.Command{
+	Use:   "input-connection-wrapper",
+	Short: "InputConnectionWrapperService operations",
+}
+
+var inputmethodInputConnectionWrapperNewInputConnectionWrapperCmd = &cobra.Command{
+	Use:   "new-input-connection-wrapper",
+	Short: "NewInputConnectionWrapper RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputConnectionWrapperServiceClient(grpcConn)
+		req := &pb.NewInputConnectionWrapperRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewInputConnectionWrapper(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputConnectionWrapperBeginBatchEditCmd = &cobra.Command{
+	Use:   "begin-batch-edit",
+	Short: "BeginBatchEdit RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputConnectionWrapperServiceClient(grpcConn)
+		req := &pb.BeginBatchEditRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.BeginBatchEdit(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputConnectionWrapperClearMetaKeyStatesCmd = &cobra.Command{
+	Use:   "clear-meta-key-states",
+	Short: "ClearMetaKeyStates RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputConnectionWrapperServiceClient(grpcConn)
+		req := &pb.ClearMetaKeyStatesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ClearMetaKeyStates(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputConnectionWrapperCloseConnectionCmd = &cobra.Command{
+	Use:   "close-connection",
+	Short: "CloseConnection RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputConnectionWrapperServiceClient(grpcConn)
+		req := &pb.CloseConnectionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.CloseConnection(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputConnectionWrapperCommitCompletionCmd = &cobra.Command{
+	Use:   "commit-completion",
+	Short: "CommitCompletion RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputConnectionWrapperServiceClient(grpcConn)
+		req := &pb.CommitCompletionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CommitCompletion(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputConnectionWrapperCommitContentCmd = &cobra.Command{
+	Use:   "commit-content",
+	Short: "CommitContent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputConnectionWrapperServiceClient(grpcConn)
+		req := &pb.CommitContentRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.CommitContent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputConnectionWrapperCommitCorrectionCmd = &cobra.Command{
+	Use:   "commit-correction",
+	Short: "CommitCorrection RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputConnectionWrapperServiceClient(grpcConn)
+		req := &pb.CommitCorrectionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CommitCorrection(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputConnectionWrapperCommitText2Cmd = &cobra.Command{
+	Use:   "commit-text2",
+	Short: "CommitText2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputConnectionWrapperServiceClient(grpcConn)
+		req := &pb.CommitText2Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.CommitText2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputConnectionWrapperCommitText3_1Cmd = &cobra.Command{
+	Use:   "commit-text3_1",
+	Short: "CommitText3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputConnectionWrapperServiceClient(grpcConn)
+		req := &pb.CommitText3_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.CommitText3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputConnectionWrapperDeleteSurroundingTextCmd = &cobra.Command{
+	Use:   "delete-surrounding-text",
+	Short: "DeleteSurroundingText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputConnectionWrapperServiceClient(grpcConn)
+		req := &pb.DeleteSurroundingTextRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.DeleteSurroundingText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputConnectionWrapperDeleteSurroundingTextInCodePointsCmd = &cobra.Command{
+	Use:   "delete-surrounding-text-in-code-points",
+	Short: "DeleteSurroundingTextInCodePoints RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputConnectionWrapperServiceClient(grpcConn)
+		req := &pb.DeleteSurroundingTextInCodePointsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.DeleteSurroundingTextInCodePoints(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputConnectionWrapperEndBatchEditCmd = &cobra.Command{
+	Use:   "end-batch-edit",
+	Short: "EndBatchEdit RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputConnectionWrapperServiceClient(grpcConn)
+		req := &pb.EndBatchEditRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.EndBatchEdit(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputConnectionWrapperFinishComposingTextCmd = &cobra.Command{
+	Use:   "finish-composing-text",
+	Short: "FinishComposingText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputConnectionWrapperServiceClient(grpcConn)
+		req := &pb.FinishComposingTextRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.FinishComposingText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputConnectionWrapperGetCursorCapsModeCmd = &cobra.Command{
+	Use:   "get-cursor-caps-mode",
+	Short: "GetCursorCapsMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputConnectionWrapperServiceClient(grpcConn)
+		req := &pb.GetCursorCapsModeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetCursorCapsMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputConnectionWrapperGetExtractedTextCmd = &cobra.Command{
+	Use:   "get-extracted-text",
+	Short: "GetExtractedText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputConnectionWrapperServiceClient(grpcConn)
+		req := &pb.GetExtractedTextRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetExtractedText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputConnectionWrapperGetHandlerCmd = &cobra.Command{
+	Use:   "get-handler",
+	Short: "GetHandler RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputConnectionWrapperServiceClient(grpcConn)
+		req := &pb.GetHandlerRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetHandler(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputConnectionWrapperGetSelectedTextCmd = &cobra.Command{
+	Use:   "get-selected-text",
+	Short: "GetSelectedText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputConnectionWrapperServiceClient(grpcConn)
+		req := &pb.GetSelectedTextRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetSelectedText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputConnectionWrapperGetSurroundingTextCmd = &cobra.Command{
+	Use:   "get-surrounding-text",
+	Short: "GetSurroundingText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputConnectionWrapperServiceClient(grpcConn)
+		req := &pb.GetSurroundingTextRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.GetSurroundingText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputConnectionWrapperGetTextAfterCursorCmd = &cobra.Command{
+	Use:   "get-text-after-cursor",
+	Short: "GetTextAfterCursor RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputConnectionWrapperServiceClient(grpcConn)
+		req := &pb.GetTextAfterCursorRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetTextAfterCursor(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputConnectionWrapperGetTextBeforeCursorCmd = &cobra.Command{
+	Use:   "get-text-before-cursor",
+	Short: "GetTextBeforeCursor RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputConnectionWrapperServiceClient(grpcConn)
+		req := &pb.GetTextBeforeCursorRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetTextBeforeCursor(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputConnectionWrapperPerformContextMenuActionCmd = &cobra.Command{
+	Use:   "perform-context-menu-action",
+	Short: "PerformContextMenuAction RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputConnectionWrapperServiceClient(grpcConn)
+		req := &pb.PerformContextMenuActionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.PerformContextMenuAction(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputConnectionWrapperPerformEditorActionCmd = &cobra.Command{
+	Use:   "perform-editor-action",
+	Short: "PerformEditorAction RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputConnectionWrapperServiceClient(grpcConn)
+		req := &pb.PerformEditorActionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.PerformEditorAction(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputConnectionWrapperPerformHandwritingGestureCmd = &cobra.Command{
+	Use:   "perform-handwriting-gesture",
+	Short: "PerformHandwritingGesture RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputConnectionWrapperServiceClient(grpcConn)
+		req := &pb.PerformHandwritingGestureRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.PerformHandwritingGesture(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputConnectionWrapperPerformPrivateCommandCmd = &cobra.Command{
+	Use:   "perform-private-command",
+	Short: "PerformPrivateCommand RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputConnectionWrapperServiceClient(grpcConn)
+		req := &pb.PerformPrivateCommandRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.PerformPrivateCommand(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputConnectionWrapperPerformSpellCheckCmd = &cobra.Command{
+	Use:   "perform-spell-check",
+	Short: "PerformSpellCheck RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputConnectionWrapperServiceClient(grpcConn)
+		req := &pb.PerformSpellCheckRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.PerformSpellCheck(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputConnectionWrapperPreviewHandwritingGestureCmd = &cobra.Command{
+	Use:   "preview-handwriting-gesture",
+	Short: "PreviewHandwritingGesture RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputConnectionWrapperServiceClient(grpcConn)
+		req := &pb.PreviewHandwritingGestureRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.PreviewHandwritingGesture(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputConnectionWrapperReplaceTextCmd = &cobra.Command{
+	Use:   "replace-text",
+	Short: "ReplaceText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputConnectionWrapperServiceClient(grpcConn)
+		req := &pb.ReplaceTextRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.ReplaceText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputConnectionWrapperReportFullscreenModeCmd = &cobra.Command{
+	Use:   "report-fullscreen-mode",
+	Short: "ReportFullscreenMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputConnectionWrapperServiceClient(grpcConn)
+		req := &pb.ReportFullscreenModeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ReportFullscreenMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputConnectionWrapperRequestCursorUpdates1Cmd = &cobra.Command{
+	Use:   "request-cursor-updates1",
+	Short: "RequestCursorUpdates1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputConnectionWrapperServiceClient(grpcConn)
+		req := &pb.RequestCursorUpdates1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RequestCursorUpdates1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputConnectionWrapperRequestCursorUpdates2_1Cmd = &cobra.Command{
+	Use:   "request-cursor-updates2_1",
+	Short: "RequestCursorUpdates2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputConnectionWrapperServiceClient(grpcConn)
+		req := &pb.RequestCursorUpdates2_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.RequestCursorUpdates2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputConnectionWrapperSendKeyEventCmd = &cobra.Command{
+	Use:   "send-key-event",
+	Short: "SendKeyEvent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputConnectionWrapperServiceClient(grpcConn)
+		req := &pb.SendKeyEventRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SendKeyEvent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputConnectionWrapperSetComposingRegion2Cmd = &cobra.Command{
+	Use:   "set-composing-region2",
+	Short: "SetComposingRegion2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputConnectionWrapperServiceClient(grpcConn)
+		req := &pb.SetComposingRegion2Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetComposingRegion2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputConnectionWrapperSetComposingRegion3_1Cmd = &cobra.Command{
+	Use:   "set-composing-region3_1",
+	Short: "SetComposingRegion3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputConnectionWrapperServiceClient(grpcConn)
+		req := &pb.SetComposingRegion3_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.SetComposingRegion3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputConnectionWrapperSetComposingText2Cmd = &cobra.Command{
+	Use:   "set-composing-text2",
+	Short: "SetComposingText2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputConnectionWrapperServiceClient(grpcConn)
+		req := &pb.SetComposingText2Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetComposingText2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputConnectionWrapperSetComposingText3_1Cmd = &cobra.Command{
+	Use:   "set-composing-text3_1",
+	Short: "SetComposingText3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputConnectionWrapperServiceClient(grpcConn)
+		req := &pb.SetComposingText3_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.SetComposingText3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputConnectionWrapperSetImeConsumesInputCmd = &cobra.Command{
+	Use:   "set-ime-consumes-input",
+	Short: "SetImeConsumesInput RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputConnectionWrapperServiceClient(grpcConn)
+		req := &pb.SetImeConsumesInputRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetImeConsumesInput(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputConnectionWrapperSetSelectionCmd = &cobra.Command{
+	Use:   "set-selection",
+	Short: "SetSelection RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputConnectionWrapperServiceClient(grpcConn)
+		req := &pb.SetSelectionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetSelection(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputConnectionWrapperSetTargetCmd = &cobra.Command{
+	Use:   "set-target",
+	Short: "SetTarget RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputConnectionWrapperServiceClient(grpcConn)
+		req := &pb.SetTargetRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetTarget(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInputConnectionWrapperTakeSnapshotCmd = &cobra.Command{
+	Use:   "take-snapshot",
+	Short: "TakeSnapshot RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputConnectionWrapperServiceClient(grpcConn)
+		req := &pb.TakeSnapshotRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.TakeSnapshot(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodDeleteGestureCmd = &cobra.Command{
+	Use:   "delete-gesture",
+	Short: "DeleteGestureService operations",
+}
+
+var inputmethodDeleteGestureDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeleteGestureServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodDeleteGestureEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeleteGestureServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodDeleteGestureGetDeletionAreaCmd = &cobra.Command{
+	Use:   "get-deletion-area",
+	Short: "GetDeletionArea RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeleteGestureServiceClient(grpcConn)
+		req := &pb.GetDeletionAreaRequest{}
+		resp, err := client.GetDeletionArea(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodDeleteGestureGetGranularityCmd = &cobra.Command{
+	Use:   "get-granularity",
+	Short: "GetGranularity RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeleteGestureServiceClient(grpcConn)
+		req := &pb.GetGranularityRequest{}
+		resp, err := client.GetGranularity(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodDeleteGestureHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeleteGestureServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodDeleteGestureWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeleteGestureServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodDeleteGestureBuilderCmd = &cobra.Command{
+	Use:   "delete-gesture-builder",
+	Short: "DeleteGestureBuilderService operations",
+}
+
+var inputmethodDeleteGestureBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeleteGestureBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodDeleteGestureBuilderSetDeletionAreaCmd = &cobra.Command{
+	Use:   "set-deletion-area",
+	Short: "SetDeletionArea RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeleteGestureBuilderServiceClient(grpcConn)
+		req := &pb.SetDeletionAreaRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDeletionArea(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodDeleteGestureBuilderSetFallbackTextCmd = &cobra.Command{
+	Use:   "set-fallback-text",
+	Short: "SetFallbackText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeleteGestureBuilderServiceClient(grpcConn)
+		req := &pb.SetFallbackTextRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetFallbackText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodDeleteGestureBuilderSetGranularityCmd = &cobra.Command{
+	Use:   "set-granularity",
+	Short: "SetGranularity RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeleteGestureBuilderServiceClient(grpcConn)
+		req := &pb.SetGranularityRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetGranularity(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextAppearanceInfoCmd = &cobra.Command{
+	Use:   "text-appearance-info",
+	Short: "TextAppearanceInfoService operations",
+}
+
+var inputmethodTextAppearanceInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextAppearanceInfoServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextAppearanceInfoEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextAppearanceInfoServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextAppearanceInfoGetFontFeatureSettingsCmd = &cobra.Command{
+	Use:   "get-font-feature-settings",
+	Short: "GetFontFeatureSettings RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextAppearanceInfoServiceClient(grpcConn)
+		req := &pb.GetFontFeatureSettingsRequest{}
+		resp, err := client.GetFontFeatureSettings(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextAppearanceInfoGetFontVariationSettingsCmd = &cobra.Command{
+	Use:   "get-font-variation-settings",
+	Short: "GetFontVariationSettings RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextAppearanceInfoServiceClient(grpcConn)
+		req := &pb.GetFontVariationSettingsRequest{}
+		resp, err := client.GetFontVariationSettings(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextAppearanceInfoGetHighlightTextColorCmd = &cobra.Command{
+	Use:   "get-highlight-text-color",
+	Short: "GetHighlightTextColor RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextAppearanceInfoServiceClient(grpcConn)
+		req := &pb.GetHighlightTextColorRequest{}
+		resp, err := client.GetHighlightTextColor(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextAppearanceInfoGetHintTextColorCmd = &cobra.Command{
+	Use:   "get-hint-text-color",
+	Short: "GetHintTextColor RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextAppearanceInfoServiceClient(grpcConn)
+		req := &pb.GetHintTextColorRequest{}
+		resp, err := client.GetHintTextColor(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextAppearanceInfoGetLetterSpacingCmd = &cobra.Command{
+	Use:   "get-letter-spacing",
+	Short: "GetLetterSpacing RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextAppearanceInfoServiceClient(grpcConn)
+		req := &pb.GetLetterSpacingRequest{}
+		resp, err := client.GetLetterSpacing(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextAppearanceInfoGetLineBreakStyleCmd = &cobra.Command{
+	Use:   "get-line-break-style",
+	Short: "GetLineBreakStyle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextAppearanceInfoServiceClient(grpcConn)
+		req := &pb.GetLineBreakStyleRequest{}
+		resp, err := client.GetLineBreakStyle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextAppearanceInfoGetLineBreakWordStyleCmd = &cobra.Command{
+	Use:   "get-line-break-word-style",
+	Short: "GetLineBreakWordStyle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextAppearanceInfoServiceClient(grpcConn)
+		req := &pb.GetLineBreakWordStyleRequest{}
+		resp, err := client.GetLineBreakWordStyle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextAppearanceInfoGetLinkTextColorCmd = &cobra.Command{
+	Use:   "get-link-text-color",
+	Short: "GetLinkTextColor RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextAppearanceInfoServiceClient(grpcConn)
+		req := &pb.GetLinkTextColorRequest{}
+		resp, err := client.GetLinkTextColor(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextAppearanceInfoGetShadowColorCmd = &cobra.Command{
+	Use:   "get-shadow-color",
+	Short: "GetShadowColor RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextAppearanceInfoServiceClient(grpcConn)
+		req := &pb.GetShadowColorRequest{}
+		resp, err := client.GetShadowColor(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextAppearanceInfoGetShadowDxCmd = &cobra.Command{
+	Use:   "get-shadow-dx",
+	Short: "GetShadowDx RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextAppearanceInfoServiceClient(grpcConn)
+		req := &pb.GetShadowDxRequest{}
+		resp, err := client.GetShadowDx(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextAppearanceInfoGetShadowDyCmd = &cobra.Command{
+	Use:   "get-shadow-dy",
+	Short: "GetShadowDy RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextAppearanceInfoServiceClient(grpcConn)
+		req := &pb.GetShadowDyRequest{}
+		resp, err := client.GetShadowDy(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextAppearanceInfoGetShadowRadiusCmd = &cobra.Command{
+	Use:   "get-shadow-radius",
+	Short: "GetShadowRadius RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextAppearanceInfoServiceClient(grpcConn)
+		req := &pb.GetShadowRadiusRequest{}
+		resp, err := client.GetShadowRadius(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextAppearanceInfoGetSystemFontFamilyNameCmd = &cobra.Command{
+	Use:   "get-system-font-family-name",
+	Short: "GetSystemFontFamilyName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextAppearanceInfoServiceClient(grpcConn)
+		req := &pb.GetSystemFontFamilyNameRequest{}
+		resp, err := client.GetSystemFontFamilyName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextAppearanceInfoGetTextColorCmd = &cobra.Command{
+	Use:   "get-text-color",
+	Short: "GetTextColor RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextAppearanceInfoServiceClient(grpcConn)
+		req := &pb.GetTextColorRequest{}
+		resp, err := client.GetTextColor(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextAppearanceInfoGetTextFontWeightCmd = &cobra.Command{
+	Use:   "get-text-font-weight",
+	Short: "GetTextFontWeight RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextAppearanceInfoServiceClient(grpcConn)
+		req := &pb.GetTextFontWeightRequest{}
+		resp, err := client.GetTextFontWeight(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextAppearanceInfoGetTextLocalesCmd = &cobra.Command{
+	Use:   "get-text-locales",
+	Short: "GetTextLocales RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextAppearanceInfoServiceClient(grpcConn)
+		req := &pb.GetTextLocalesRequest{}
+		resp, err := client.GetTextLocales(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextAppearanceInfoGetTextScaleXCmd = &cobra.Command{
+	Use:   "get-text-scale-x",
+	Short: "GetTextScaleX RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextAppearanceInfoServiceClient(grpcConn)
+		req := &pb.GetTextScaleXRequest{}
+		resp, err := client.GetTextScaleX(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextAppearanceInfoGetTextSizeCmd = &cobra.Command{
+	Use:   "get-text-size",
+	Short: "GetTextSize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextAppearanceInfoServiceClient(grpcConn)
+		req := &pb.GetTextSizeRequest{}
+		resp, err := client.GetTextSize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextAppearanceInfoGetTextStyleCmd = &cobra.Command{
+	Use:   "get-text-style",
+	Short: "GetTextStyle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextAppearanceInfoServiceClient(grpcConn)
+		req := &pb.GetTextStyleRequest{}
+		resp, err := client.GetTextStyle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextAppearanceInfoHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextAppearanceInfoServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextAppearanceInfoIsAllCapsCmd = &cobra.Command{
+	Use:   "is-all-caps",
+	Short: "IsAllCaps RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextAppearanceInfoServiceClient(grpcConn)
+		req := &pb.IsAllCapsRequest{}
+		resp, err := client.IsAllCaps(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextAppearanceInfoIsElegantTextHeightCmd = &cobra.Command{
+	Use:   "is-elegant-text-height",
+	Short: "IsElegantTextHeight RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextAppearanceInfoServiceClient(grpcConn)
+		req := &pb.IsElegantTextHeightRequest{}
+		resp, err := client.IsElegantTextHeight(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextAppearanceInfoIsFallbackLineSpacingCmd = &cobra.Command{
+	Use:   "is-fallback-line-spacing",
+	Short: "IsFallbackLineSpacing RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextAppearanceInfoServiceClient(grpcConn)
+		req := &pb.IsFallbackLineSpacingRequest{}
+		resp, err := client.IsFallbackLineSpacing(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextAppearanceInfoToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextAppearanceInfoServiceClient(grpcConn)
+		req := &pb.TextAppearanceInfoToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextAppearanceInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextAppearanceInfoServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextAppearanceInfoBuilderCmd = &cobra.Command{
+	Use:   "text-appearance-info-builder",
+	Short: "TextAppearanceInfoBuilderService operations",
+}
+
+var inputmethodTextAppearanceInfoBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextAppearanceInfoBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextAppearanceInfoBuilderSetAllCapsCmd = &cobra.Command{
+	Use:   "set-all-caps",
+	Short: "SetAllCaps RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextAppearanceInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetAllCapsRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetAllCaps(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextAppearanceInfoBuilderSetElegantTextHeightCmd = &cobra.Command{
+	Use:   "set-elegant-text-height",
+	Short: "SetElegantTextHeight RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextAppearanceInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetElegantTextHeightRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetElegantTextHeight(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextAppearanceInfoBuilderSetFallbackLineSpacingCmd = &cobra.Command{
+	Use:   "set-fallback-line-spacing",
+	Short: "SetFallbackLineSpacing RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextAppearanceInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetFallbackLineSpacingRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetFallbackLineSpacing(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextAppearanceInfoBuilderSetFontFeatureSettingsCmd = &cobra.Command{
+	Use:   "set-font-feature-settings",
+	Short: "SetFontFeatureSettings RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextAppearanceInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetFontFeatureSettingsRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetFontFeatureSettings(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextAppearanceInfoBuilderSetFontVariationSettingsCmd = &cobra.Command{
+	Use:   "set-font-variation-settings",
+	Short: "SetFontVariationSettings RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextAppearanceInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetFontVariationSettingsRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetFontVariationSettings(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextAppearanceInfoBuilderSetHighlightTextColorCmd = &cobra.Command{
+	Use:   "set-highlight-text-color",
+	Short: "SetHighlightTextColor RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextAppearanceInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetHighlightTextColorRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetHighlightTextColor(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextAppearanceInfoBuilderSetHintTextColorCmd = &cobra.Command{
+	Use:   "set-hint-text-color",
+	Short: "SetHintTextColor RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextAppearanceInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetHintTextColorRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetHintTextColor(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextAppearanceInfoBuilderSetLetterSpacingCmd = &cobra.Command{
+	Use:   "set-letter-spacing",
+	Short: "SetLetterSpacing RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextAppearanceInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetLetterSpacingRequest{}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetLetterSpacing(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextAppearanceInfoBuilderSetLineBreakStyleCmd = &cobra.Command{
+	Use:   "set-line-break-style",
+	Short: "SetLineBreakStyle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextAppearanceInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetLineBreakStyleRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetLineBreakStyle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextAppearanceInfoBuilderSetLineBreakWordStyleCmd = &cobra.Command{
+	Use:   "set-line-break-word-style",
+	Short: "SetLineBreakWordStyle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextAppearanceInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetLineBreakWordStyleRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetLineBreakWordStyle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextAppearanceInfoBuilderSetLinkTextColorCmd = &cobra.Command{
+	Use:   "set-link-text-color",
+	Short: "SetLinkTextColor RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextAppearanceInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetLinkTextColorRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetLinkTextColor(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextAppearanceInfoBuilderSetShadowColorCmd = &cobra.Command{
+	Use:   "set-shadow-color",
+	Short: "SetShadowColor RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextAppearanceInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetShadowColorRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetShadowColor(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextAppearanceInfoBuilderSetShadowDxCmd = &cobra.Command{
+	Use:   "set-shadow-dx",
+	Short: "SetShadowDx RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextAppearanceInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetShadowDxRequest{}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetShadowDx(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextAppearanceInfoBuilderSetShadowDyCmd = &cobra.Command{
+	Use:   "set-shadow-dy",
+	Short: "SetShadowDy RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextAppearanceInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetShadowDyRequest{}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetShadowDy(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextAppearanceInfoBuilderSetShadowRadiusCmd = &cobra.Command{
+	Use:   "set-shadow-radius",
+	Short: "SetShadowRadius RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextAppearanceInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetShadowRadiusRequest{}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetShadowRadius(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextAppearanceInfoBuilderSetSystemFontFamilyNameCmd = &cobra.Command{
+	Use:   "set-system-font-family-name",
+	Short: "SetSystemFontFamilyName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextAppearanceInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetSystemFontFamilyNameRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSystemFontFamilyName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextAppearanceInfoBuilderSetTextColorCmd = &cobra.Command{
+	Use:   "set-text-color",
+	Short: "SetTextColor RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextAppearanceInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetTextColorRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetTextColor(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextAppearanceInfoBuilderSetTextFontWeightCmd = &cobra.Command{
+	Use:   "set-text-font-weight",
+	Short: "SetTextFontWeight RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextAppearanceInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetTextFontWeightRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetTextFontWeight(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextAppearanceInfoBuilderSetTextLocalesCmd = &cobra.Command{
+	Use:   "set-text-locales",
+	Short: "SetTextLocales RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextAppearanceInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetTextLocalesRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetTextLocales(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextAppearanceInfoBuilderSetTextScaleXCmd = &cobra.Command{
+	Use:   "set-text-scale-x",
+	Short: "SetTextScaleX RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextAppearanceInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetTextScaleXRequest{}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetTextScaleX(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextAppearanceInfoBuilderSetTextSizeCmd = &cobra.Command{
+	Use:   "set-text-size",
+	Short: "SetTextSize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextAppearanceInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetTextSizeRequest{}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetTextSize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodTextAppearanceInfoBuilderSetTextStyleCmd = &cobra.Command{
+	Use:   "set-text-style",
+	Short: "SetTextStyle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextAppearanceInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetTextStyleRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetTextStyle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodExtractedTextCmd = &cobra.Command{
+	Use:   "extracted-text",
+	Short: "ExtractedTextService operations",
+}
+
+var inputmethodExtractedTextNewExtractedTextCmd = &cobra.Command{
+	Use:   "new-extracted-text",
+	Short: "NewExtractedText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExtractedTextServiceClient(grpcConn)
+		req := &pb.NewExtractedTextRequest{}
+		resp, err := client.NewExtractedText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodExtractedTextDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExtractedTextServiceClient(grpcConn)
+		req := &pb.ExtractedTextDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodExtractedTextWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExtractedTextServiceClient(grpcConn)
+		req := &pb.ExtractedTextWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInlineSuggestionsRequestCmd = &cobra.Command{
+	Use:   "inline-suggestions-request",
+	Short: "InlineSuggestionsRequestService operations",
+}
+
+var inputmethodInlineSuggestionsRequestDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInlineSuggestionsRequestServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInlineSuggestionsRequestEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInlineSuggestionsRequestServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInlineSuggestionsRequestGetExtrasCmd = &cobra.Command{
+	Use:   "get-extras",
+	Short: "GetExtras RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInlineSuggestionsRequestServiceClient(grpcConn)
+		req := &pb.GetExtrasRequest{}
+		resp, err := client.GetExtras(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInlineSuggestionsRequestGetHostPackageNameCmd = &cobra.Command{
+	Use:   "get-host-package-name",
+	Short: "GetHostPackageName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInlineSuggestionsRequestServiceClient(grpcConn)
+		req := &pb.GetHostPackageNameRequest{}
+		resp, err := client.GetHostPackageName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInlineSuggestionsRequestGetInlineTooltipPresentationSpecCmd = &cobra.Command{
+	Use:   "get-inline-tooltip-presentation-spec",
+	Short: "GetInlineTooltipPresentationSpec RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInlineSuggestionsRequestServiceClient(grpcConn)
+		req := &pb.GetInlineTooltipPresentationSpecRequest{}
+		resp, err := client.GetInlineTooltipPresentationSpec(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInlineSuggestionsRequestGetMaxSuggestionCountCmd = &cobra.Command{
+	Use:   "get-max-suggestion-count",
+	Short: "GetMaxSuggestionCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInlineSuggestionsRequestServiceClient(grpcConn)
+		req := &pb.GetMaxSuggestionCountRequest{}
+		resp, err := client.GetMaxSuggestionCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInlineSuggestionsRequestGetSupportedLocalesCmd = &cobra.Command{
+	Use:   "get-supported-locales",
+	Short: "GetSupportedLocales RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInlineSuggestionsRequestServiceClient(grpcConn)
+		req := &pb.GetSupportedLocalesRequest{}
+		resp, err := client.GetSupportedLocales(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInlineSuggestionsRequestHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInlineSuggestionsRequestServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInlineSuggestionsRequestToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInlineSuggestionsRequestServiceClient(grpcConn)
+		req := &pb.InlineSuggestionsRequestToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInlineSuggestionsRequestWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInlineSuggestionsRequestServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInlineSuggestionsRequestBuilderCmd = &cobra.Command{
+	Use:   "inline-suggestions-request-builder",
+	Short: "InlineSuggestionsRequestBuilderService operations",
+}
+
+var inputmethodInlineSuggestionsRequestBuilderAddInlinePresentationSpecsCmd = &cobra.Command{
+	Use:   "add-inline-presentation-specs",
+	Short: "AddInlinePresentationSpecs RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInlineSuggestionsRequestBuilderServiceClient(grpcConn)
+		req := &pb.AddInlinePresentationSpecsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddInlinePresentationSpecs(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInlineSuggestionsRequestBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInlineSuggestionsRequestBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInlineSuggestionsRequestBuilderSetExtrasCmd = &cobra.Command{
+	Use:   "set-extras",
+	Short: "SetExtras RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInlineSuggestionsRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetExtrasRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetExtras(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInlineSuggestionsRequestBuilderSetInlineTooltipPresentationSpecCmd = &cobra.Command{
+	Use:   "set-inline-tooltip-presentation-spec",
+	Short: "SetInlineTooltipPresentationSpec RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInlineSuggestionsRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetInlineTooltipPresentationSpecRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetInlineTooltipPresentationSpec(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInlineSuggestionsRequestBuilderSetMaxSuggestionCountCmd = &cobra.Command{
+	Use:   "set-max-suggestion-count",
+	Short: "SetMaxSuggestionCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInlineSuggestionsRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetMaxSuggestionCountRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetMaxSuggestionCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodInlineSuggestionsRequestBuilderSetSupportedLocalesCmd = &cobra.Command{
+	Use:   "set-supported-locales",
+	Short: "SetSupportedLocales RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInlineSuggestionsRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetSupportedLocalesRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSupportedLocales(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodEditorInfoCmd = &cobra.Command{
+	Use:   "editor-info",
+	Short: "EditorInfoService operations",
+}
+
+var inputmethodEditorInfoNewEditorInfoCmd = &cobra.Command{
+	Use:   "new-editor-info",
+	Short: "NewEditorInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEditorInfoServiceClient(grpcConn)
+		req := &pb.NewEditorInfoRequest{}
+		resp, err := client.NewEditorInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodEditorInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEditorInfoServiceClient(grpcConn)
+		req := &pb.EditorInfoDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodEditorInfoDumpCmd = &cobra.Command{
+	Use:   "dump",
+	Short: "Dump RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEditorInfoServiceClient(grpcConn)
+		req := &pb.DumpRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Dump(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodEditorInfoGetAutofillIdCmd = &cobra.Command{
+	Use:   "get-autofill-id",
+	Short: "GetAutofillId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEditorInfoServiceClient(grpcConn)
+		req := &pb.GetAutofillIdRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetAutofillId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodEditorInfoGetInitialSelectedTextCmd = &cobra.Command{
+	Use:   "get-initial-selected-text",
+	Short: "GetInitialSelectedText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEditorInfoServiceClient(grpcConn)
+		req := &pb.GetInitialSelectedTextRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetInitialSelectedText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodEditorInfoGetInitialSurroundingTextCmd = &cobra.Command{
+	Use:   "get-initial-surrounding-text",
+	Short: "GetInitialSurroundingText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEditorInfoServiceClient(grpcConn)
+		req := &pb.GetInitialSurroundingTextRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.GetInitialSurroundingText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodEditorInfoGetInitialTextAfterCursorCmd = &cobra.Command{
+	Use:   "get-initial-text-after-cursor",
+	Short: "GetInitialTextAfterCursor RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEditorInfoServiceClient(grpcConn)
+		req := &pb.GetInitialTextAfterCursorRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetInitialTextAfterCursor(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodEditorInfoGetInitialTextBeforeCursorCmd = &cobra.Command{
+	Use:   "get-initial-text-before-cursor",
+	Short: "GetInitialTextBeforeCursor RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEditorInfoServiceClient(grpcConn)
+		req := &pb.GetInitialTextBeforeCursorRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetInitialTextBeforeCursor(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodEditorInfoGetInitialToolTypeCmd = &cobra.Command{
+	Use:   "get-initial-tool-type",
+	Short: "GetInitialToolType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEditorInfoServiceClient(grpcConn)
+		req := &pb.GetInitialToolTypeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetInitialToolType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodEditorInfoIsStylusHandwritingEnabledCmd = &cobra.Command{
+	Use:   "is-stylus-handwriting-enabled",
+	Short: "IsStylusHandwritingEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEditorInfoServiceClient(grpcConn)
+		req := &pb.IsStylusHandwritingEnabledRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsStylusHandwritingEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodEditorInfoIsWritingToolsEnabledCmd = &cobra.Command{
+	Use:   "is-writing-tools-enabled",
+	Short: "IsWritingToolsEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEditorInfoServiceClient(grpcConn)
+		req := &pb.IsWritingToolsEnabledRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsWritingToolsEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodEditorInfoMakeCompatibleCmd = &cobra.Command{
+	Use:   "make-compatible",
+	Short: "MakeCompatible RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEditorInfoServiceClient(grpcConn)
+		req := &pb.MakeCompatibleRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.MakeCompatible(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodEditorInfoSetAutofillIdCmd = &cobra.Command{
+	Use:   "set-autofill-id",
+	Short: "SetAutofillId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEditorInfoServiceClient(grpcConn)
+		req := &pb.SetAutofillIdRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetAutofillId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodEditorInfoSetInitialSurroundingSubTextCmd = &cobra.Command{
+	Use:   "set-initial-surrounding-sub-text",
+	Short: "SetInitialSurroundingSubText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEditorInfoServiceClient(grpcConn)
+		req := &pb.SetInitialSurroundingSubTextRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetInitialSurroundingSubText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodEditorInfoSetInitialSurroundingTextCmd = &cobra.Command{
+	Use:   "set-initial-surrounding-text",
+	Short: "SetInitialSurroundingText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEditorInfoServiceClient(grpcConn)
+		req := &pb.SetInitialSurroundingTextRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetInitialSurroundingText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodEditorInfoSetInitialToolTypeCmd = &cobra.Command{
+	Use:   "set-initial-tool-type",
+	Short: "SetInitialToolType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEditorInfoServiceClient(grpcConn)
+		req := &pb.SetInitialToolTypeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetInitialToolType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodEditorInfoSetStylusHandwritingEnabledCmd = &cobra.Command{
+	Use:   "set-stylus-handwriting-enabled",
+	Short: "SetStylusHandwritingEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEditorInfoServiceClient(grpcConn)
+		req := &pb.SetStylusHandwritingEnabledRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetStylusHandwritingEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodEditorInfoSetWritingToolsEnabledCmd = &cobra.Command{
+	Use:   "set-writing-tools-enabled",
+	Short: "SetWritingToolsEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEditorInfoServiceClient(grpcConn)
+		req := &pb.SetWritingToolsEnabledRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetWritingToolsEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodEditorInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEditorInfoServiceClient(grpcConn)
+		req := &pb.EditorInfoWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodCorrectionInfoCmd = &cobra.Command{
+	Use:   "correction-info",
+	Short: "CorrectionInfoService operations",
+}
+
+var inputmethodCorrectionInfoNewCorrectionInfoCmd = &cobra.Command{
+	Use:   "new-correction-info",
+	Short: "NewCorrectionInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCorrectionInfoServiceClient(grpcConn)
+		req := &pb.NewCorrectionInfoRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.NewCorrectionInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodCorrectionInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCorrectionInfoServiceClient(grpcConn)
+		req := &pb.CorrectionInfoDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodCorrectionInfoGetNewTextCmd = &cobra.Command{
+	Use:   "get-new-text",
+	Short: "GetNewText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCorrectionInfoServiceClient(grpcConn)
+		req := &pb.GetNewTextRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetNewText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodCorrectionInfoGetOffsetCmd = &cobra.Command{
+	Use:   "get-offset",
+	Short: "GetOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCorrectionInfoServiceClient(grpcConn)
+		req := &pb.GetOffsetRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodCorrectionInfoGetOldTextCmd = &cobra.Command{
+	Use:   "get-old-text",
+	Short: "GetOldText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCorrectionInfoServiceClient(grpcConn)
+		req := &pb.GetOldTextRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetOldText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodCorrectionInfoToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCorrectionInfoServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inputmethodCorrectionInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCorrectionInfoServiceClient(grpcConn)
+		req := &pb.CorrectionInfoWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 func init() {
+	inputmethodInsertGestureCmd.AddCommand(inputmethodInsertGestureDescribeContentsCmd)
+	inputmethodInsertGestureEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodInsertGestureCmd.AddCommand(inputmethodInsertGestureEqualsCmd)
+	inputmethodInsertGestureCmd.AddCommand(inputmethodInsertGestureGetInsertionPointCmd)
+	inputmethodInsertGestureCmd.AddCommand(inputmethodInsertGestureGetTextToInsertCmd)
+	inputmethodInsertGestureCmd.AddCommand(inputmethodInsertGestureHashCodeCmd)
+	inputmethodInsertGestureWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodInsertGestureWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodInsertGestureCmd.AddCommand(inputmethodInsertGestureWriteToParcelCmd)
+	inputmethodCmd.AddCommand(inputmethodInsertGestureCmd)
+	inputmethodInsertGestureBuilderCmd.AddCommand(inputmethodInsertGestureBuilderBuildCmd)
+	inputmethodInsertGestureBuilderSetFallbackTextCmd.Flags().String("arg0", "", "arg0 (string)")
+	inputmethodInsertGestureBuilderCmd.AddCommand(inputmethodInsertGestureBuilderSetFallbackTextCmd)
+	inputmethodInsertGestureBuilderSetInsertionPointCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodInsertGestureBuilderCmd.AddCommand(inputmethodInsertGestureBuilderSetInsertionPointCmd)
+	inputmethodInsertGestureBuilderSetTextToInsertCmd.Flags().String("arg0", "", "arg0 (string)")
+	inputmethodInsertGestureBuilderCmd.AddCommand(inputmethodInsertGestureBuilderSetTextToInsertCmd)
+	inputmethodCmd.AddCommand(inputmethodInsertGestureBuilderCmd)
+	inputmethodTextAttributeCmd.AddCommand(inputmethodTextAttributeDescribeContentsCmd)
+	inputmethodTextAttributeCmd.AddCommand(inputmethodTextAttributeGetExtrasCmd)
+	inputmethodTextAttributeWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodTextAttributeWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodTextAttributeCmd.AddCommand(inputmethodTextAttributeWriteToParcelCmd)
+	inputmethodCmd.AddCommand(inputmethodTextAttributeCmd)
+	inputmethodTextAttributeBuilderCmd.AddCommand(inputmethodTextAttributeBuilderBuildCmd)
+	inputmethodTextAttributeBuilderSetExtrasCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodTextAttributeBuilderCmd.AddCommand(inputmethodTextAttributeBuilderSetExtrasCmd)
+	inputmethodCmd.AddCommand(inputmethodTextAttributeBuilderCmd)
+	inputmethodInputBindingNewInputBindingCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodInputBindingNewInputBindingCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	inputmethodInputBindingNewInputBindingCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	inputmethodInputBindingNewInputBindingCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	inputmethodInputBindingCmd.AddCommand(inputmethodInputBindingNewInputBindingCmd)
+	inputmethodInputBindingDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputBindingCmd.AddCommand(inputmethodInputBindingDescribeContentsCmd)
+	inputmethodInputBindingGetConnectionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputBindingCmd.AddCommand(inputmethodInputBindingGetConnectionCmd)
+	inputmethodInputBindingGetConnectionTokenCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputBindingCmd.AddCommand(inputmethodInputBindingGetConnectionTokenCmd)
+	inputmethodInputBindingGetPidCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputBindingCmd.AddCommand(inputmethodInputBindingGetPidCmd)
+	inputmethodInputBindingGetUidCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputBindingCmd.AddCommand(inputmethodInputBindingGetUidCmd)
+	inputmethodInputBindingToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputBindingCmd.AddCommand(inputmethodInputBindingToStringCmd)
+	inputmethodInputBindingWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputBindingWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodInputBindingWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodInputBindingCmd.AddCommand(inputmethodInputBindingWriteToParcelCmd)
+	inputmethodCmd.AddCommand(inputmethodInputBindingCmd)
+	inputmethodInputMethodSessionAppPrivateCommandCmd.Flags().String("arg0", "", "arg0 (string)")
+	inputmethodInputMethodSessionAppPrivateCommandCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	inputmethodInputMethodSessionCmd.AddCommand(inputmethodInputMethodSessionAppPrivateCommandCmd)
+	inputmethodInputMethodSessionDispatchGenericMotionEventCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodInputMethodSessionDispatchGenericMotionEventCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	inputmethodInputMethodSessionDispatchGenericMotionEventCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	inputmethodInputMethodSessionCmd.AddCommand(inputmethodInputMethodSessionDispatchGenericMotionEventCmd)
+	inputmethodInputMethodSessionDispatchKeyEventCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodInputMethodSessionDispatchKeyEventCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	inputmethodInputMethodSessionDispatchKeyEventCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	inputmethodInputMethodSessionCmd.AddCommand(inputmethodInputMethodSessionDispatchKeyEventCmd)
+	inputmethodInputMethodSessionDispatchTrackballEventCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodInputMethodSessionDispatchTrackballEventCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	inputmethodInputMethodSessionDispatchTrackballEventCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	inputmethodInputMethodSessionCmd.AddCommand(inputmethodInputMethodSessionDispatchTrackballEventCmd)
+	inputmethodInputMethodSessionDisplayCompletionsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodInputMethodSessionCmd.AddCommand(inputmethodInputMethodSessionDisplayCompletionsCmd)
+	inputmethodInputMethodSessionCmd.AddCommand(inputmethodInputMethodSessionFinishInputCmd)
+	inputmethodInputMethodSessionToggleSoftInputCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodInputMethodSessionToggleSoftInputCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodInputMethodSessionCmd.AddCommand(inputmethodInputMethodSessionToggleSoftInputCmd)
+	inputmethodInputMethodSessionUpdateCursorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodInputMethodSessionCmd.AddCommand(inputmethodInputMethodSessionUpdateCursorCmd)
+	inputmethodInputMethodSessionUpdateCursorAnchorInfoCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodInputMethodSessionCmd.AddCommand(inputmethodInputMethodSessionUpdateCursorAnchorInfoCmd)
+	inputmethodInputMethodSessionUpdateExtractedTextCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodInputMethodSessionUpdateExtractedTextCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	inputmethodInputMethodSessionCmd.AddCommand(inputmethodInputMethodSessionUpdateExtractedTextCmd)
+	inputmethodInputMethodSessionUpdateSelectionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodInputMethodSessionUpdateSelectionCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodInputMethodSessionUpdateSelectionCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	inputmethodInputMethodSessionUpdateSelectionCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	inputmethodInputMethodSessionUpdateSelectionCmd.Flags().Int32("arg4", 0, "arg4 (int32)")
+	inputmethodInputMethodSessionUpdateSelectionCmd.Flags().Int32("arg5", 0, "arg5 (int32)")
+	inputmethodInputMethodSessionCmd.AddCommand(inputmethodInputMethodSessionUpdateSelectionCmd)
+	inputmethodInputMethodSessionViewClickedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	inputmethodInputMethodSessionCmd.AddCommand(inputmethodInputMethodSessionViewClickedCmd)
+	inputmethodCmd.AddCommand(inputmethodInputMethodSessionCmd)
+	inputmethodInputMethodSessionEventCallbackFinishedEventCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodInputMethodSessionEventCallbackFinishedEventCmd.Flags().Bool("arg1", false, "arg1 (bool)")
+	inputmethodInputMethodSessionEventCallbackCmd.AddCommand(inputmethodInputMethodSessionEventCallbackFinishedEventCmd)
+	inputmethodCmd.AddCommand(inputmethodInputMethodSessionEventCallbackCmd)
+	inputmethodInlineSuggestionInfoCmd.AddCommand(inputmethodInlineSuggestionInfoDescribeContentsCmd)
+	inputmethodInlineSuggestionInfoEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodInlineSuggestionInfoCmd.AddCommand(inputmethodInlineSuggestionInfoEqualsCmd)
+	inputmethodInlineSuggestionInfoCmd.AddCommand(inputmethodInlineSuggestionInfoGetAutofillHintsCmd)
+	inputmethodInlineSuggestionInfoCmd.AddCommand(inputmethodInlineSuggestionInfoGetInlinePresentationSpecCmd)
+	inputmethodInlineSuggestionInfoCmd.AddCommand(inputmethodInlineSuggestionInfoGetSourceCmd)
+	inputmethodInlineSuggestionInfoCmd.AddCommand(inputmethodInlineSuggestionInfoGetTypeCmd)
+	inputmethodInlineSuggestionInfoCmd.AddCommand(inputmethodInlineSuggestionInfoHashCodeCmd)
+	inputmethodInlineSuggestionInfoCmd.AddCommand(inputmethodInlineSuggestionInfoIsPinnedCmd)
+	inputmethodInlineSuggestionInfoCmd.AddCommand(inputmethodInlineSuggestionInfoToStringCmd)
+	inputmethodInlineSuggestionInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodInlineSuggestionInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodInlineSuggestionInfoCmd.AddCommand(inputmethodInlineSuggestionInfoWriteToParcelCmd)
+	inputmethodCmd.AddCommand(inputmethodInlineSuggestionInfoCmd)
+	inputmethodSurroundingTextNewSurroundingTextCmd.Flags().String("arg0", "", "arg0 (string)")
+	inputmethodSurroundingTextNewSurroundingTextCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodSurroundingTextNewSurroundingTextCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	inputmethodSurroundingTextNewSurroundingTextCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	inputmethodSurroundingTextCmd.AddCommand(inputmethodSurroundingTextNewSurroundingTextCmd)
+	inputmethodSurroundingTextDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodSurroundingTextCmd.AddCommand(inputmethodSurroundingTextDescribeContentsCmd)
+	inputmethodSurroundingTextGetOffsetCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodSurroundingTextCmd.AddCommand(inputmethodSurroundingTextGetOffsetCmd)
+	inputmethodSurroundingTextGetSelectionEndCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodSurroundingTextCmd.AddCommand(inputmethodSurroundingTextGetSelectionEndCmd)
+	inputmethodSurroundingTextGetSelectionStartCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodSurroundingTextCmd.AddCommand(inputmethodSurroundingTextGetSelectionStartCmd)
+	inputmethodSurroundingTextGetTextCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodSurroundingTextCmd.AddCommand(inputmethodSurroundingTextGetTextCmd)
+	inputmethodSurroundingTextWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodSurroundingTextWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodSurroundingTextWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodSurroundingTextCmd.AddCommand(inputmethodSurroundingTextWriteToParcelCmd)
+	inputmethodCmd.AddCommand(inputmethodSurroundingTextCmd)
+	inputmethodInputMethodAttachTokenCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodInputMethodCmd.AddCommand(inputmethodInputMethodAttachTokenCmd)
+	inputmethodInputMethodBindInputCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodInputMethodCmd.AddCommand(inputmethodInputMethodBindInputCmd)
+	inputmethodInputMethodChangeInputMethodSubtypeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodInputMethodCmd.AddCommand(inputmethodInputMethodChangeInputMethodSubtypeCmd)
+	inputmethodInputMethodCreateSessionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodInputMethodCmd.AddCommand(inputmethodInputMethodCreateSessionCmd)
+	inputmethodInputMethodHideSoftInputCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodInputMethodHideSoftInputCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	inputmethodInputMethodCmd.AddCommand(inputmethodInputMethodHideSoftInputCmd)
+	inputmethodInputMethodRestartInputCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodInputMethodRestartInputCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	inputmethodInputMethodCmd.AddCommand(inputmethodInputMethodRestartInputCmd)
+	inputmethodInputMethodRevokeSessionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodInputMethodCmd.AddCommand(inputmethodInputMethodRevokeSessionCmd)
+	inputmethodInputMethodSetSessionEnabledCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodInputMethodSetSessionEnabledCmd.Flags().Bool("arg1", false, "arg1 (bool)")
+	inputmethodInputMethodCmd.AddCommand(inputmethodInputMethodSetSessionEnabledCmd)
+	inputmethodInputMethodShowSoftInputCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodInputMethodShowSoftInputCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	inputmethodInputMethodCmd.AddCommand(inputmethodInputMethodShowSoftInputCmd)
+	inputmethodInputMethodStartInputCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodInputMethodStartInputCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	inputmethodInputMethodCmd.AddCommand(inputmethodInputMethodStartInputCmd)
+	inputmethodInputMethodCmd.AddCommand(inputmethodInputMethodUnbindInputCmd)
+	inputmethodCmd.AddCommand(inputmethodInputMethodCmd)
+	inputmethodInputMethodSessionCallbackSessionCreatedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodInputMethodSessionCallbackCmd.AddCommand(inputmethodInputMethodSessionCallbackSessionCreatedCmd)
+	inputmethodCmd.AddCommand(inputmethodInputMethodSessionCallbackCmd)
+	inputmethodTextBoundsInfoCmd.AddCommand(inputmethodTextBoundsInfoDescribeContentsCmd)
+	inputmethodTextBoundsInfoGetCharacterBidiLevelCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodTextBoundsInfoCmd.AddCommand(inputmethodTextBoundsInfoGetCharacterBidiLevelCmd)
+	inputmethodTextBoundsInfoGetCharacterBoundsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodTextBoundsInfoGetCharacterBoundsCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	inputmethodTextBoundsInfoCmd.AddCommand(inputmethodTextBoundsInfoGetCharacterBoundsCmd)
+	inputmethodTextBoundsInfoGetCharacterFlagsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodTextBoundsInfoCmd.AddCommand(inputmethodTextBoundsInfoGetCharacterFlagsCmd)
+	inputmethodTextBoundsInfoCmd.AddCommand(inputmethodTextBoundsInfoGetEndIndexCmd)
+	inputmethodTextBoundsInfoCmd.AddCommand(inputmethodTextBoundsInfoGetGraphemeSegmentFinderCmd)
+	inputmethodTextBoundsInfoCmd.AddCommand(inputmethodTextBoundsInfoGetLineSegmentFinderCmd)
+	inputmethodTextBoundsInfoGetMatrixCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodTextBoundsInfoCmd.AddCommand(inputmethodTextBoundsInfoGetMatrixCmd)
+	inputmethodTextBoundsInfoGetOffsetForPositionCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	inputmethodTextBoundsInfoGetOffsetForPositionCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	inputmethodTextBoundsInfoCmd.AddCommand(inputmethodTextBoundsInfoGetOffsetForPositionCmd)
+	inputmethodTextBoundsInfoGetRangeForRectCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodTextBoundsInfoGetRangeForRectCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	inputmethodTextBoundsInfoGetRangeForRectCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	inputmethodTextBoundsInfoCmd.AddCommand(inputmethodTextBoundsInfoGetRangeForRectCmd)
+	inputmethodTextBoundsInfoCmd.AddCommand(inputmethodTextBoundsInfoGetStartIndexCmd)
+	inputmethodTextBoundsInfoCmd.AddCommand(inputmethodTextBoundsInfoGetWordSegmentFinderCmd)
+	inputmethodTextBoundsInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodTextBoundsInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodTextBoundsInfoCmd.AddCommand(inputmethodTextBoundsInfoWriteToParcelCmd)
+	inputmethodCmd.AddCommand(inputmethodTextBoundsInfoCmd)
+	inputmethodTextBoundsInfoBuilderCmd.AddCommand(inputmethodTextBoundsInfoBuilderBuildCmd)
+	inputmethodTextBoundsInfoBuilderCmd.AddCommand(inputmethodTextBoundsInfoBuilderClearCmd)
+	inputmethodTextBoundsInfoBuilderSetCharacterBidiLevelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodTextBoundsInfoBuilderCmd.AddCommand(inputmethodTextBoundsInfoBuilderSetCharacterBidiLevelCmd)
+	inputmethodTextBoundsInfoBuilderSetCharacterBoundsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodTextBoundsInfoBuilderCmd.AddCommand(inputmethodTextBoundsInfoBuilderSetCharacterBoundsCmd)
+	inputmethodTextBoundsInfoBuilderSetCharacterFlagsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodTextBoundsInfoBuilderCmd.AddCommand(inputmethodTextBoundsInfoBuilderSetCharacterFlagsCmd)
+	inputmethodTextBoundsInfoBuilderSetGraphemeSegmentFinderCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodTextBoundsInfoBuilderCmd.AddCommand(inputmethodTextBoundsInfoBuilderSetGraphemeSegmentFinderCmd)
+	inputmethodTextBoundsInfoBuilderSetLineSegmentFinderCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodTextBoundsInfoBuilderCmd.AddCommand(inputmethodTextBoundsInfoBuilderSetLineSegmentFinderCmd)
+	inputmethodTextBoundsInfoBuilderSetMatrixCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodTextBoundsInfoBuilderCmd.AddCommand(inputmethodTextBoundsInfoBuilderSetMatrixCmd)
+	inputmethodTextBoundsInfoBuilderSetStartAndEndCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodTextBoundsInfoBuilderSetStartAndEndCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodTextBoundsInfoBuilderCmd.AddCommand(inputmethodTextBoundsInfoBuilderSetStartAndEndCmd)
+	inputmethodTextBoundsInfoBuilderSetWordSegmentFinderCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodTextBoundsInfoBuilderCmd.AddCommand(inputmethodTextBoundsInfoBuilderSetWordSegmentFinderCmd)
+	inputmethodCmd.AddCommand(inputmethodTextBoundsInfoBuilderCmd)
+	inputmethodInlineSuggestionsResponseCmd.AddCommand(inputmethodInlineSuggestionsResponseDescribeContentsCmd)
+	inputmethodInlineSuggestionsResponseEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodInlineSuggestionsResponseCmd.AddCommand(inputmethodInlineSuggestionsResponseEqualsCmd)
+	inputmethodInlineSuggestionsResponseCmd.AddCommand(inputmethodInlineSuggestionsResponseHashCodeCmd)
+	inputmethodInlineSuggestionsResponseCmd.AddCommand(inputmethodInlineSuggestionsResponseToStringCmd)
+	inputmethodInlineSuggestionsResponseWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodInlineSuggestionsResponseWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodInlineSuggestionsResponseCmd.AddCommand(inputmethodInlineSuggestionsResponseWriteToParcelCmd)
+	inputmethodCmd.AddCommand(inputmethodInlineSuggestionsResponseCmd)
+	inputmethodInputMethodSubtypeNewInputMethodSubtypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodInputMethodSubtypeNewInputMethodSubtypeCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodInputMethodSubtypeNewInputMethodSubtypeCmd.Flags().String("arg2", "", "arg2 (string)")
+	inputmethodInputMethodSubtypeNewInputMethodSubtypeCmd.Flags().String("arg3", "", "arg3 (string)")
+	inputmethodInputMethodSubtypeNewInputMethodSubtypeCmd.Flags().String("arg4", "", "arg4 (string)")
+	inputmethodInputMethodSubtypeNewInputMethodSubtypeCmd.Flags().Bool("arg5", false, "arg5 (bool)")
+	inputmethodInputMethodSubtypeNewInputMethodSubtypeCmd.Flags().Bool("arg6", false, "arg6 (bool)")
+	inputmethodInputMethodSubtypeCmd.AddCommand(inputmethodInputMethodSubtypeNewInputMethodSubtypeCmd)
+	inputmethodInputMethodSubtypeContainsExtraValueKeyCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputMethodSubtypeContainsExtraValueKeyCmd.Flags().String("arg0", "", "arg0 (string)")
+	inputmethodInputMethodSubtypeCmd.AddCommand(inputmethodInputMethodSubtypeContainsExtraValueKeyCmd)
+	inputmethodInputMethodSubtypeDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputMethodSubtypeCmd.AddCommand(inputmethodInputMethodSubtypeDescribeContentsCmd)
+	inputmethodInputMethodSubtypeEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputMethodSubtypeEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodInputMethodSubtypeCmd.AddCommand(inputmethodInputMethodSubtypeEqualsCmd)
+	inputmethodInputMethodSubtypeGetDisplayNameCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputMethodSubtypeGetDisplayNameCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodInputMethodSubtypeGetDisplayNameCmd.Flags().String("arg1", "", "arg1 (string)")
+	inputmethodInputMethodSubtypeGetDisplayNameCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	inputmethodInputMethodSubtypeCmd.AddCommand(inputmethodInputMethodSubtypeGetDisplayNameCmd)
+	inputmethodInputMethodSubtypeGetExtraValueCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputMethodSubtypeCmd.AddCommand(inputmethodInputMethodSubtypeGetExtraValueCmd)
+	inputmethodInputMethodSubtypeGetExtraValueOfCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputMethodSubtypeGetExtraValueOfCmd.Flags().String("arg0", "", "arg0 (string)")
+	inputmethodInputMethodSubtypeCmd.AddCommand(inputmethodInputMethodSubtypeGetExtraValueOfCmd)
+	inputmethodInputMethodSubtypeGetIconResIdCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputMethodSubtypeCmd.AddCommand(inputmethodInputMethodSubtypeGetIconResIdCmd)
+	inputmethodInputMethodSubtypeGetLanguageTagCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputMethodSubtypeCmd.AddCommand(inputmethodInputMethodSubtypeGetLanguageTagCmd)
+	inputmethodInputMethodSubtypeGetLayoutDisplayNameCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputMethodSubtypeGetLayoutDisplayNameCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodInputMethodSubtypeGetLayoutDisplayNameCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	inputmethodInputMethodSubtypeCmd.AddCommand(inputmethodInputMethodSubtypeGetLayoutDisplayNameCmd)
+	inputmethodInputMethodSubtypeGetLayoutLabelNonLocalizedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputMethodSubtypeCmd.AddCommand(inputmethodInputMethodSubtypeGetLayoutLabelNonLocalizedCmd)
+	inputmethodInputMethodSubtypeGetLayoutLabelResourceCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputMethodSubtypeCmd.AddCommand(inputmethodInputMethodSubtypeGetLayoutLabelResourceCmd)
+	inputmethodInputMethodSubtypeGetLocaleCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputMethodSubtypeCmd.AddCommand(inputmethodInputMethodSubtypeGetLocaleCmd)
+	inputmethodInputMethodSubtypeGetModeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputMethodSubtypeCmd.AddCommand(inputmethodInputMethodSubtypeGetModeCmd)
+	inputmethodInputMethodSubtypeGetNameOverrideCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputMethodSubtypeCmd.AddCommand(inputmethodInputMethodSubtypeGetNameOverrideCmd)
+	inputmethodInputMethodSubtypeGetNameResIdCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputMethodSubtypeCmd.AddCommand(inputmethodInputMethodSubtypeGetNameResIdCmd)
+	inputmethodInputMethodSubtypeGetPhysicalKeyboardHintLanguageTagCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputMethodSubtypeCmd.AddCommand(inputmethodInputMethodSubtypeGetPhysicalKeyboardHintLanguageTagCmd)
+	inputmethodInputMethodSubtypeGetPhysicalKeyboardHintLayoutTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputMethodSubtypeCmd.AddCommand(inputmethodInputMethodSubtypeGetPhysicalKeyboardHintLayoutTypeCmd)
+	inputmethodInputMethodSubtypeHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputMethodSubtypeCmd.AddCommand(inputmethodInputMethodSubtypeHashCodeCmd)
+	inputmethodInputMethodSubtypeIsAsciiCapableCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputMethodSubtypeCmd.AddCommand(inputmethodInputMethodSubtypeIsAsciiCapableCmd)
+	inputmethodInputMethodSubtypeIsAuxiliaryCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputMethodSubtypeCmd.AddCommand(inputmethodInputMethodSubtypeIsAuxiliaryCmd)
+	inputmethodInputMethodSubtypeOverridesImplicitlyEnabledSubtypeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputMethodSubtypeCmd.AddCommand(inputmethodInputMethodSubtypeOverridesImplicitlyEnabledSubtypeCmd)
+	inputmethodInputMethodSubtypeWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputMethodSubtypeWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodInputMethodSubtypeWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodInputMethodSubtypeCmd.AddCommand(inputmethodInputMethodSubtypeWriteToParcelCmd)
+	inputmethodCmd.AddCommand(inputmethodInputMethodSubtypeCmd)
+	inputmethodInputMethodSubtypeInputMethodSubtypeBuilderCmd.AddCommand(inputmethodInputMethodSubtypeInputMethodSubtypeBuilderBuildCmd)
+	inputmethodInputMethodSubtypeInputMethodSubtypeBuilderSetIsAsciiCapableCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	inputmethodInputMethodSubtypeInputMethodSubtypeBuilderCmd.AddCommand(inputmethodInputMethodSubtypeInputMethodSubtypeBuilderSetIsAsciiCapableCmd)
+	inputmethodInputMethodSubtypeInputMethodSubtypeBuilderSetIsAuxiliaryCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	inputmethodInputMethodSubtypeInputMethodSubtypeBuilderCmd.AddCommand(inputmethodInputMethodSubtypeInputMethodSubtypeBuilderSetIsAuxiliaryCmd)
+	inputmethodInputMethodSubtypeInputMethodSubtypeBuilderSetLanguageTagCmd.Flags().String("arg0", "", "arg0 (string)")
+	inputmethodInputMethodSubtypeInputMethodSubtypeBuilderCmd.AddCommand(inputmethodInputMethodSubtypeInputMethodSubtypeBuilderSetLanguageTagCmd)
+	inputmethodInputMethodSubtypeInputMethodSubtypeBuilderSetLayoutLabelNonLocalizedCmd.Flags().String("arg0", "", "arg0 (string)")
+	inputmethodInputMethodSubtypeInputMethodSubtypeBuilderCmd.AddCommand(inputmethodInputMethodSubtypeInputMethodSubtypeBuilderSetLayoutLabelNonLocalizedCmd)
+	inputmethodInputMethodSubtypeInputMethodSubtypeBuilderSetLayoutLabelResourceCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodInputMethodSubtypeInputMethodSubtypeBuilderCmd.AddCommand(inputmethodInputMethodSubtypeInputMethodSubtypeBuilderSetLayoutLabelResourceCmd)
+	inputmethodInputMethodSubtypeInputMethodSubtypeBuilderSetOverridesImplicitlyEnabledSubtypeCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	inputmethodInputMethodSubtypeInputMethodSubtypeBuilderCmd.AddCommand(inputmethodInputMethodSubtypeInputMethodSubtypeBuilderSetOverridesImplicitlyEnabledSubtypeCmd)
+	inputmethodInputMethodSubtypeInputMethodSubtypeBuilderSetPhysicalKeyboardHintCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodInputMethodSubtypeInputMethodSubtypeBuilderSetPhysicalKeyboardHintCmd.Flags().String("arg1", "", "arg1 (string)")
+	inputmethodInputMethodSubtypeInputMethodSubtypeBuilderCmd.AddCommand(inputmethodInputMethodSubtypeInputMethodSubtypeBuilderSetPhysicalKeyboardHintCmd)
+	inputmethodInputMethodSubtypeInputMethodSubtypeBuilderSetSubtypeExtraValueCmd.Flags().String("arg0", "", "arg0 (string)")
+	inputmethodInputMethodSubtypeInputMethodSubtypeBuilderCmd.AddCommand(inputmethodInputMethodSubtypeInputMethodSubtypeBuilderSetSubtypeExtraValueCmd)
+	inputmethodInputMethodSubtypeInputMethodSubtypeBuilderSetSubtypeIconResIdCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodInputMethodSubtypeInputMethodSubtypeBuilderCmd.AddCommand(inputmethodInputMethodSubtypeInputMethodSubtypeBuilderSetSubtypeIconResIdCmd)
+	inputmethodInputMethodSubtypeInputMethodSubtypeBuilderSetSubtypeIdCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodInputMethodSubtypeInputMethodSubtypeBuilderCmd.AddCommand(inputmethodInputMethodSubtypeInputMethodSubtypeBuilderSetSubtypeIdCmd)
+	inputmethodInputMethodSubtypeInputMethodSubtypeBuilderSetSubtypeLocaleCmd.Flags().String("arg0", "", "arg0 (string)")
+	inputmethodInputMethodSubtypeInputMethodSubtypeBuilderCmd.AddCommand(inputmethodInputMethodSubtypeInputMethodSubtypeBuilderSetSubtypeLocaleCmd)
+	inputmethodInputMethodSubtypeInputMethodSubtypeBuilderSetSubtypeModeCmd.Flags().String("arg0", "", "arg0 (string)")
+	inputmethodInputMethodSubtypeInputMethodSubtypeBuilderCmd.AddCommand(inputmethodInputMethodSubtypeInputMethodSubtypeBuilderSetSubtypeModeCmd)
+	inputmethodInputMethodSubtypeInputMethodSubtypeBuilderSetSubtypeNameOverrideCmd.Flags().String("arg0", "", "arg0 (string)")
+	inputmethodInputMethodSubtypeInputMethodSubtypeBuilderCmd.AddCommand(inputmethodInputMethodSubtypeInputMethodSubtypeBuilderSetSubtypeNameOverrideCmd)
+	inputmethodInputMethodSubtypeInputMethodSubtypeBuilderSetSubtypeNameResIdCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodInputMethodSubtypeInputMethodSubtypeBuilderCmd.AddCommand(inputmethodInputMethodSubtypeInputMethodSubtypeBuilderSetSubtypeNameResIdCmd)
+	inputmethodCmd.AddCommand(inputmethodInputMethodSubtypeInputMethodSubtypeBuilderCmd)
+	inputmethodRemoveSpaceGestureCmd.AddCommand(inputmethodRemoveSpaceGestureDescribeContentsCmd)
+	inputmethodRemoveSpaceGestureEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodRemoveSpaceGestureCmd.AddCommand(inputmethodRemoveSpaceGestureEqualsCmd)
+	inputmethodRemoveSpaceGestureCmd.AddCommand(inputmethodRemoveSpaceGestureGetEndPointCmd)
+	inputmethodRemoveSpaceGestureCmd.AddCommand(inputmethodRemoveSpaceGestureGetStartPointCmd)
+	inputmethodRemoveSpaceGestureCmd.AddCommand(inputmethodRemoveSpaceGestureHashCodeCmd)
+	inputmethodRemoveSpaceGestureWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodRemoveSpaceGestureWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodRemoveSpaceGestureCmd.AddCommand(inputmethodRemoveSpaceGestureWriteToParcelCmd)
+	inputmethodCmd.AddCommand(inputmethodRemoveSpaceGestureCmd)
+	inputmethodRemoveSpaceGestureBuilderCmd.AddCommand(inputmethodRemoveSpaceGestureBuilderBuildCmd)
+	inputmethodRemoveSpaceGestureBuilderSetFallbackTextCmd.Flags().String("arg0", "", "arg0 (string)")
+	inputmethodRemoveSpaceGestureBuilderCmd.AddCommand(inputmethodRemoveSpaceGestureBuilderSetFallbackTextCmd)
+	inputmethodRemoveSpaceGestureBuilderSetPointsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodRemoveSpaceGestureBuilderSetPointsCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	inputmethodRemoveSpaceGestureBuilderCmd.AddCommand(inputmethodRemoveSpaceGestureBuilderSetPointsCmd)
+	inputmethodCmd.AddCommand(inputmethodRemoveSpaceGestureBuilderCmd)
+	inputmethodInputMethodInfoNewInputMethodInfoCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodInputMethodInfoNewInputMethodInfoCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	inputmethodInputMethodInfoCmd.AddCommand(inputmethodInputMethodInfoNewInputMethodInfoCmd)
+	inputmethodInputMethodInfoCreateImeLanguageSettingsActivityIntentCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputMethodInfoCmd.AddCommand(inputmethodInputMethodInfoCreateImeLanguageSettingsActivityIntentCmd)
+	inputmethodInputMethodInfoCreateStylusHandwritingSettingsActivityIntentCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputMethodInfoCmd.AddCommand(inputmethodInputMethodInfoCreateStylusHandwritingSettingsActivityIntentCmd)
+	inputmethodInputMethodInfoDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputMethodInfoCmd.AddCommand(inputmethodInputMethodInfoDescribeContentsCmd)
+	inputmethodInputMethodInfoDumpCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputMethodInfoDumpCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodInputMethodInfoDumpCmd.Flags().String("arg1", "", "arg1 (string)")
+	inputmethodInputMethodInfoCmd.AddCommand(inputmethodInputMethodInfoDumpCmd)
+	inputmethodInputMethodInfoEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputMethodInfoEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodInputMethodInfoCmd.AddCommand(inputmethodInputMethodInfoEqualsCmd)
+	inputmethodInputMethodInfoGetComponentCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputMethodInfoCmd.AddCommand(inputmethodInputMethodInfoGetComponentCmd)
+	inputmethodInputMethodInfoGetConfigChangesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputMethodInfoCmd.AddCommand(inputmethodInputMethodInfoGetConfigChangesCmd)
+	inputmethodInputMethodInfoGetIdCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputMethodInfoCmd.AddCommand(inputmethodInputMethodInfoGetIdCmd)
+	inputmethodInputMethodInfoGetIsDefaultResourceIdCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputMethodInfoCmd.AddCommand(inputmethodInputMethodInfoGetIsDefaultResourceIdCmd)
+	inputmethodInputMethodInfoGetPackageNameCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputMethodInfoCmd.AddCommand(inputmethodInputMethodInfoGetPackageNameCmd)
+	inputmethodInputMethodInfoGetServiceInfoCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputMethodInfoCmd.AddCommand(inputmethodInputMethodInfoGetServiceInfoCmd)
+	inputmethodInputMethodInfoGetServiceNameCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputMethodInfoCmd.AddCommand(inputmethodInputMethodInfoGetServiceNameCmd)
+	inputmethodInputMethodInfoGetSettingsActivityCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputMethodInfoCmd.AddCommand(inputmethodInputMethodInfoGetSettingsActivityCmd)
+	inputmethodInputMethodInfoGetSubtypeAtCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputMethodInfoGetSubtypeAtCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodInputMethodInfoCmd.AddCommand(inputmethodInputMethodInfoGetSubtypeAtCmd)
+	inputmethodInputMethodInfoGetSubtypeCountCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputMethodInfoCmd.AddCommand(inputmethodInputMethodInfoGetSubtypeCountCmd)
+	inputmethodInputMethodInfoHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputMethodInfoCmd.AddCommand(inputmethodInputMethodInfoHashCodeCmd)
+	inputmethodInputMethodInfoLoadIconCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputMethodInfoLoadIconCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodInputMethodInfoCmd.AddCommand(inputmethodInputMethodInfoLoadIconCmd)
+	inputmethodInputMethodInfoLoadLabelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputMethodInfoLoadLabelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodInputMethodInfoCmd.AddCommand(inputmethodInputMethodInfoLoadLabelCmd)
+	inputmethodInputMethodInfoShouldShowInInputMethodPickerCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputMethodInfoCmd.AddCommand(inputmethodInputMethodInfoShouldShowInInputMethodPickerCmd)
+	inputmethodInputMethodInfoSupportsConnectionlessStylusHandwritingCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputMethodInfoCmd.AddCommand(inputmethodInputMethodInfoSupportsConnectionlessStylusHandwritingCmd)
+	inputmethodInputMethodInfoSupportsStylusHandwritingCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputMethodInfoCmd.AddCommand(inputmethodInputMethodInfoSupportsStylusHandwritingCmd)
+	inputmethodInputMethodInfoSuppressesSpellCheckerCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputMethodInfoCmd.AddCommand(inputmethodInputMethodInfoSuppressesSpellCheckerCmd)
+	inputmethodInputMethodInfoToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputMethodInfoCmd.AddCommand(inputmethodInputMethodInfoToStringCmd)
+	inputmethodInputMethodInfoWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputMethodInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodInputMethodInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodInputMethodInfoCmd.AddCommand(inputmethodInputMethodInfoWriteToParcelCmd)
+	inputmethodCmd.AddCommand(inputmethodInputMethodInfoCmd)
+	inputmethodConnectionlessHandwritingCallbackOnErrorCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodConnectionlessHandwritingCallbackCmd.AddCommand(inputmethodConnectionlessHandwritingCallbackOnErrorCmd)
+	inputmethodConnectionlessHandwritingCallbackOnResultCmd.Flags().String("arg0", "", "arg0 (string)")
+	inputmethodConnectionlessHandwritingCallbackCmd.AddCommand(inputmethodConnectionlessHandwritingCallbackOnResultCmd)
+	inputmethodCmd.AddCommand(inputmethodConnectionlessHandwritingCallbackCmd)
+	inputmethodDeleteRangeGestureCmd.AddCommand(inputmethodDeleteRangeGestureDescribeContentsCmd)
+	inputmethodDeleteRangeGestureEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodDeleteRangeGestureCmd.AddCommand(inputmethodDeleteRangeGestureEqualsCmd)
+	inputmethodDeleteRangeGestureCmd.AddCommand(inputmethodDeleteRangeGestureGetDeletionEndAreaCmd)
+	inputmethodDeleteRangeGestureCmd.AddCommand(inputmethodDeleteRangeGestureGetDeletionStartAreaCmd)
+	inputmethodDeleteRangeGestureCmd.AddCommand(inputmethodDeleteRangeGestureGetGranularityCmd)
+	inputmethodDeleteRangeGestureCmd.AddCommand(inputmethodDeleteRangeGestureHashCodeCmd)
+	inputmethodDeleteRangeGestureWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodDeleteRangeGestureWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodDeleteRangeGestureCmd.AddCommand(inputmethodDeleteRangeGestureWriteToParcelCmd)
+	inputmethodCmd.AddCommand(inputmethodDeleteRangeGestureCmd)
+	inputmethodDeleteRangeGestureBuilderCmd.AddCommand(inputmethodDeleteRangeGestureBuilderBuildCmd)
+	inputmethodDeleteRangeGestureBuilderSetDeletionEndAreaCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodDeleteRangeGestureBuilderCmd.AddCommand(inputmethodDeleteRangeGestureBuilderSetDeletionEndAreaCmd)
+	inputmethodDeleteRangeGestureBuilderSetDeletionStartAreaCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodDeleteRangeGestureBuilderCmd.AddCommand(inputmethodDeleteRangeGestureBuilderSetDeletionStartAreaCmd)
+	inputmethodDeleteRangeGestureBuilderSetFallbackTextCmd.Flags().String("arg0", "", "arg0 (string)")
+	inputmethodDeleteRangeGestureBuilderCmd.AddCommand(inputmethodDeleteRangeGestureBuilderSetFallbackTextCmd)
+	inputmethodDeleteRangeGestureBuilderSetGranularityCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodDeleteRangeGestureBuilderCmd.AddCommand(inputmethodDeleteRangeGestureBuilderSetGranularityCmd)
+	inputmethodCmd.AddCommand(inputmethodDeleteRangeGestureBuilderCmd)
+	inputmethodBaseInputConnectionNewBaseInputConnectionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodBaseInputConnectionNewBaseInputConnectionCmd.Flags().Bool("arg1", false, "arg1 (bool)")
+	inputmethodBaseInputConnectionCmd.AddCommand(inputmethodBaseInputConnectionNewBaseInputConnectionCmd)
+	inputmethodBaseInputConnectionBeginBatchEditCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodBaseInputConnectionCmd.AddCommand(inputmethodBaseInputConnectionBeginBatchEditCmd)
+	inputmethodBaseInputConnectionClearMetaKeyStatesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodBaseInputConnectionClearMetaKeyStatesCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodBaseInputConnectionCmd.AddCommand(inputmethodBaseInputConnectionClearMetaKeyStatesCmd)
+	inputmethodBaseInputConnectionCloseConnectionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodBaseInputConnectionCmd.AddCommand(inputmethodBaseInputConnectionCloseConnectionCmd)
+	inputmethodBaseInputConnectionCommitCompletionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodBaseInputConnectionCommitCompletionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodBaseInputConnectionCmd.AddCommand(inputmethodBaseInputConnectionCommitCompletionCmd)
+	inputmethodBaseInputConnectionCommitContentCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodBaseInputConnectionCommitContentCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodBaseInputConnectionCommitContentCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodBaseInputConnectionCommitContentCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	inputmethodBaseInputConnectionCmd.AddCommand(inputmethodBaseInputConnectionCommitContentCmd)
+	inputmethodBaseInputConnectionCommitCorrectionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodBaseInputConnectionCommitCorrectionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodBaseInputConnectionCmd.AddCommand(inputmethodBaseInputConnectionCommitCorrectionCmd)
+	inputmethodBaseInputConnectionCommitTextCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodBaseInputConnectionCommitTextCmd.Flags().String("arg0", "", "arg0 (string)")
+	inputmethodBaseInputConnectionCommitTextCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodBaseInputConnectionCmd.AddCommand(inputmethodBaseInputConnectionCommitTextCmd)
+	inputmethodBaseInputConnectionDeleteSurroundingTextCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodBaseInputConnectionDeleteSurroundingTextCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodBaseInputConnectionDeleteSurroundingTextCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodBaseInputConnectionCmd.AddCommand(inputmethodBaseInputConnectionDeleteSurroundingTextCmd)
+	inputmethodBaseInputConnectionDeleteSurroundingTextInCodePointsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodBaseInputConnectionDeleteSurroundingTextInCodePointsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodBaseInputConnectionDeleteSurroundingTextInCodePointsCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodBaseInputConnectionCmd.AddCommand(inputmethodBaseInputConnectionDeleteSurroundingTextInCodePointsCmd)
+	inputmethodBaseInputConnectionEndBatchEditCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodBaseInputConnectionCmd.AddCommand(inputmethodBaseInputConnectionEndBatchEditCmd)
+	inputmethodBaseInputConnectionFinishComposingTextCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodBaseInputConnectionCmd.AddCommand(inputmethodBaseInputConnectionFinishComposingTextCmd)
+	inputmethodBaseInputConnectionGetCursorCapsModeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodBaseInputConnectionGetCursorCapsModeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodBaseInputConnectionCmd.AddCommand(inputmethodBaseInputConnectionGetCursorCapsModeCmd)
+	inputmethodBaseInputConnectionGetEditableCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodBaseInputConnectionCmd.AddCommand(inputmethodBaseInputConnectionGetEditableCmd)
+	inputmethodBaseInputConnectionGetExtractedTextCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodBaseInputConnectionGetExtractedTextCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodBaseInputConnectionGetExtractedTextCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodBaseInputConnectionCmd.AddCommand(inputmethodBaseInputConnectionGetExtractedTextCmd)
+	inputmethodBaseInputConnectionGetHandlerCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodBaseInputConnectionCmd.AddCommand(inputmethodBaseInputConnectionGetHandlerCmd)
+	inputmethodBaseInputConnectionGetSelectedTextCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodBaseInputConnectionGetSelectedTextCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodBaseInputConnectionCmd.AddCommand(inputmethodBaseInputConnectionGetSelectedTextCmd)
+	inputmethodBaseInputConnectionGetSurroundingTextCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodBaseInputConnectionGetSurroundingTextCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodBaseInputConnectionGetSurroundingTextCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodBaseInputConnectionGetSurroundingTextCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	inputmethodBaseInputConnectionCmd.AddCommand(inputmethodBaseInputConnectionGetSurroundingTextCmd)
+	inputmethodBaseInputConnectionGetTextAfterCursorCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodBaseInputConnectionGetTextAfterCursorCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodBaseInputConnectionGetTextAfterCursorCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodBaseInputConnectionCmd.AddCommand(inputmethodBaseInputConnectionGetTextAfterCursorCmd)
+	inputmethodBaseInputConnectionGetTextBeforeCursorCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodBaseInputConnectionGetTextBeforeCursorCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodBaseInputConnectionGetTextBeforeCursorCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodBaseInputConnectionCmd.AddCommand(inputmethodBaseInputConnectionGetTextBeforeCursorCmd)
+	inputmethodBaseInputConnectionPerformContextMenuActionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodBaseInputConnectionPerformContextMenuActionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodBaseInputConnectionCmd.AddCommand(inputmethodBaseInputConnectionPerformContextMenuActionCmd)
+	inputmethodBaseInputConnectionPerformEditorActionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodBaseInputConnectionPerformEditorActionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodBaseInputConnectionCmd.AddCommand(inputmethodBaseInputConnectionPerformEditorActionCmd)
+	inputmethodBaseInputConnectionPerformPrivateCommandCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodBaseInputConnectionPerformPrivateCommandCmd.Flags().String("arg0", "", "arg0 (string)")
+	inputmethodBaseInputConnectionPerformPrivateCommandCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	inputmethodBaseInputConnectionCmd.AddCommand(inputmethodBaseInputConnectionPerformPrivateCommandCmd)
+	inputmethodBaseInputConnectionReplaceTextCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodBaseInputConnectionReplaceTextCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodBaseInputConnectionReplaceTextCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodBaseInputConnectionReplaceTextCmd.Flags().String("arg2", "", "arg2 (string)")
+	inputmethodBaseInputConnectionReplaceTextCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	inputmethodBaseInputConnectionReplaceTextCmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	inputmethodBaseInputConnectionCmd.AddCommand(inputmethodBaseInputConnectionReplaceTextCmd)
+	inputmethodBaseInputConnectionReportFullscreenModeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodBaseInputConnectionReportFullscreenModeCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	inputmethodBaseInputConnectionCmd.AddCommand(inputmethodBaseInputConnectionReportFullscreenModeCmd)
+	inputmethodBaseInputConnectionRequestCursorUpdatesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodBaseInputConnectionRequestCursorUpdatesCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodBaseInputConnectionCmd.AddCommand(inputmethodBaseInputConnectionRequestCursorUpdatesCmd)
+	inputmethodBaseInputConnectionSendKeyEventCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodBaseInputConnectionSendKeyEventCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodBaseInputConnectionCmd.AddCommand(inputmethodBaseInputConnectionSendKeyEventCmd)
+	inputmethodBaseInputConnectionSetComposingRegionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodBaseInputConnectionSetComposingRegionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodBaseInputConnectionSetComposingRegionCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodBaseInputConnectionCmd.AddCommand(inputmethodBaseInputConnectionSetComposingRegionCmd)
+	inputmethodBaseInputConnectionSetComposingTextCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodBaseInputConnectionSetComposingTextCmd.Flags().String("arg0", "", "arg0 (string)")
+	inputmethodBaseInputConnectionSetComposingTextCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodBaseInputConnectionCmd.AddCommand(inputmethodBaseInputConnectionSetComposingTextCmd)
+	inputmethodBaseInputConnectionSetSelectionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodBaseInputConnectionSetSelectionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodBaseInputConnectionSetSelectionCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodBaseInputConnectionCmd.AddCommand(inputmethodBaseInputConnectionSetSelectionCmd)
+	inputmethodBaseInputConnectionTakeSnapshotCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodBaseInputConnectionCmd.AddCommand(inputmethodBaseInputConnectionTakeSnapshotCmd)
+	inputmethodBaseInputConnectionGetComposingSpanEndCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodBaseInputConnectionGetComposingSpanEndCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodBaseInputConnectionCmd.AddCommand(inputmethodBaseInputConnectionGetComposingSpanEndCmd)
+	inputmethodBaseInputConnectionGetComposingSpanStartCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodBaseInputConnectionGetComposingSpanStartCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodBaseInputConnectionCmd.AddCommand(inputmethodBaseInputConnectionGetComposingSpanStartCmd)
+	inputmethodBaseInputConnectionRemoveComposingSpansCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodBaseInputConnectionRemoveComposingSpansCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodBaseInputConnectionCmd.AddCommand(inputmethodBaseInputConnectionRemoveComposingSpansCmd)
+	inputmethodBaseInputConnectionSetComposingSpansCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodBaseInputConnectionSetComposingSpansCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodBaseInputConnectionCmd.AddCommand(inputmethodBaseInputConnectionSetComposingSpansCmd)
+	inputmethodCmd.AddCommand(inputmethodBaseInputConnectionCmd)
+	inputmethodInputContentInfoNewInputContentInfoCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodInputContentInfoNewInputContentInfoCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	inputmethodInputContentInfoCmd.AddCommand(inputmethodInputContentInfoNewInputContentInfoCmd)
+	inputmethodInputContentInfoDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputContentInfoCmd.AddCommand(inputmethodInputContentInfoDescribeContentsCmd)
+	inputmethodInputContentInfoGetContentUriCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputContentInfoCmd.AddCommand(inputmethodInputContentInfoGetContentUriCmd)
+	inputmethodInputContentInfoGetDescriptionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputContentInfoCmd.AddCommand(inputmethodInputContentInfoGetDescriptionCmd)
+	inputmethodInputContentInfoGetLinkUriCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputContentInfoCmd.AddCommand(inputmethodInputContentInfoGetLinkUriCmd)
+	inputmethodInputContentInfoReleasePermissionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputContentInfoCmd.AddCommand(inputmethodInputContentInfoReleasePermissionCmd)
+	inputmethodInputContentInfoRequestPermissionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputContentInfoCmd.AddCommand(inputmethodInputContentInfoRequestPermissionCmd)
+	inputmethodInputContentInfoWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputContentInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodInputContentInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodInputContentInfoCmd.AddCommand(inputmethodInputContentInfoWriteToParcelCmd)
+	inputmethodCmd.AddCommand(inputmethodInputContentInfoCmd)
+	inputmethodCursorAnchorInfoNewCursorAnchorInfoCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodCursorAnchorInfoCmd.AddCommand(inputmethodCursorAnchorInfoNewCursorAnchorInfoCmd)
+	inputmethodCursorAnchorInfoDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodCursorAnchorInfoCmd.AddCommand(inputmethodCursorAnchorInfoDescribeContentsCmd)
+	inputmethodCursorAnchorInfoEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodCursorAnchorInfoEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodCursorAnchorInfoCmd.AddCommand(inputmethodCursorAnchorInfoEqualsCmd)
+	inputmethodCursorAnchorInfoGetCharacterBoundsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodCursorAnchorInfoGetCharacterBoundsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodCursorAnchorInfoCmd.AddCommand(inputmethodCursorAnchorInfoGetCharacterBoundsCmd)
+	inputmethodCursorAnchorInfoGetCharacterBoundsFlagsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodCursorAnchorInfoGetCharacterBoundsFlagsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodCursorAnchorInfoCmd.AddCommand(inputmethodCursorAnchorInfoGetCharacterBoundsFlagsCmd)
+	inputmethodCursorAnchorInfoGetComposingTextCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodCursorAnchorInfoCmd.AddCommand(inputmethodCursorAnchorInfoGetComposingTextCmd)
+	inputmethodCursorAnchorInfoGetComposingTextStartCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodCursorAnchorInfoCmd.AddCommand(inputmethodCursorAnchorInfoGetComposingTextStartCmd)
+	inputmethodCursorAnchorInfoGetEditorBoundsInfoCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodCursorAnchorInfoCmd.AddCommand(inputmethodCursorAnchorInfoGetEditorBoundsInfoCmd)
+	inputmethodCursorAnchorInfoGetInsertionMarkerBaselineCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodCursorAnchorInfoCmd.AddCommand(inputmethodCursorAnchorInfoGetInsertionMarkerBaselineCmd)
+	inputmethodCursorAnchorInfoGetInsertionMarkerBottomCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodCursorAnchorInfoCmd.AddCommand(inputmethodCursorAnchorInfoGetInsertionMarkerBottomCmd)
+	inputmethodCursorAnchorInfoGetInsertionMarkerFlagsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodCursorAnchorInfoCmd.AddCommand(inputmethodCursorAnchorInfoGetInsertionMarkerFlagsCmd)
+	inputmethodCursorAnchorInfoGetInsertionMarkerHorizontalCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodCursorAnchorInfoCmd.AddCommand(inputmethodCursorAnchorInfoGetInsertionMarkerHorizontalCmd)
+	inputmethodCursorAnchorInfoGetInsertionMarkerTopCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodCursorAnchorInfoCmd.AddCommand(inputmethodCursorAnchorInfoGetInsertionMarkerTopCmd)
+	inputmethodCursorAnchorInfoGetMatrixCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodCursorAnchorInfoCmd.AddCommand(inputmethodCursorAnchorInfoGetMatrixCmd)
+	inputmethodCursorAnchorInfoGetSelectionEndCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodCursorAnchorInfoCmd.AddCommand(inputmethodCursorAnchorInfoGetSelectionEndCmd)
+	inputmethodCursorAnchorInfoGetSelectionStartCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodCursorAnchorInfoCmd.AddCommand(inputmethodCursorAnchorInfoGetSelectionStartCmd)
+	inputmethodCursorAnchorInfoGetTextAppearanceInfoCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodCursorAnchorInfoCmd.AddCommand(inputmethodCursorAnchorInfoGetTextAppearanceInfoCmd)
+	inputmethodCursorAnchorInfoHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodCursorAnchorInfoCmd.AddCommand(inputmethodCursorAnchorInfoHashCodeCmd)
+	inputmethodCursorAnchorInfoToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodCursorAnchorInfoCmd.AddCommand(inputmethodCursorAnchorInfoToStringCmd)
+	inputmethodCursorAnchorInfoWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodCursorAnchorInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodCursorAnchorInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodCursorAnchorInfoCmd.AddCommand(inputmethodCursorAnchorInfoWriteToParcelCmd)
+	inputmethodCmd.AddCommand(inputmethodCursorAnchorInfoCmd)
+	inputmethodCursorAnchorInfoBuilderAddCharacterBoundsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodCursorAnchorInfoBuilderAddCharacterBoundsCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	inputmethodCursorAnchorInfoBuilderAddCharacterBoundsCmd.Flags().Float32("arg2", 0, "arg2 (float32)")
+	inputmethodCursorAnchorInfoBuilderAddCharacterBoundsCmd.Flags().Float32("arg3", 0, "arg3 (float32)")
+	inputmethodCursorAnchorInfoBuilderAddCharacterBoundsCmd.Flags().Float32("arg4", 0, "arg4 (float32)")
+	inputmethodCursorAnchorInfoBuilderAddCharacterBoundsCmd.Flags().Int32("arg5", 0, "arg5 (int32)")
+	inputmethodCursorAnchorInfoBuilderCmd.AddCommand(inputmethodCursorAnchorInfoBuilderAddCharacterBoundsCmd)
+	inputmethodCursorAnchorInfoBuilderAddVisibleLineBoundsCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	inputmethodCursorAnchorInfoBuilderAddVisibleLineBoundsCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	inputmethodCursorAnchorInfoBuilderAddVisibleLineBoundsCmd.Flags().Float32("arg2", 0, "arg2 (float32)")
+	inputmethodCursorAnchorInfoBuilderAddVisibleLineBoundsCmd.Flags().Float32("arg3", 0, "arg3 (float32)")
+	inputmethodCursorAnchorInfoBuilderCmd.AddCommand(inputmethodCursorAnchorInfoBuilderAddVisibleLineBoundsCmd)
+	inputmethodCursorAnchorInfoBuilderCmd.AddCommand(inputmethodCursorAnchorInfoBuilderBuildCmd)
+	inputmethodCursorAnchorInfoBuilderCmd.AddCommand(inputmethodCursorAnchorInfoBuilderClearVisibleLineBoundsCmd)
+	inputmethodCursorAnchorInfoBuilderCmd.AddCommand(inputmethodCursorAnchorInfoBuilderResetCmd)
+	inputmethodCursorAnchorInfoBuilderSetComposingTextCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodCursorAnchorInfoBuilderSetComposingTextCmd.Flags().String("arg1", "", "arg1 (string)")
+	inputmethodCursorAnchorInfoBuilderCmd.AddCommand(inputmethodCursorAnchorInfoBuilderSetComposingTextCmd)
+	inputmethodCursorAnchorInfoBuilderSetEditorBoundsInfoCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodCursorAnchorInfoBuilderCmd.AddCommand(inputmethodCursorAnchorInfoBuilderSetEditorBoundsInfoCmd)
+	inputmethodCursorAnchorInfoBuilderSetInsertionMarkerLocationCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	inputmethodCursorAnchorInfoBuilderSetInsertionMarkerLocationCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	inputmethodCursorAnchorInfoBuilderSetInsertionMarkerLocationCmd.Flags().Float32("arg2", 0, "arg2 (float32)")
+	inputmethodCursorAnchorInfoBuilderSetInsertionMarkerLocationCmd.Flags().Float32("arg3", 0, "arg3 (float32)")
+	inputmethodCursorAnchorInfoBuilderSetInsertionMarkerLocationCmd.Flags().Int32("arg4", 0, "arg4 (int32)")
+	inputmethodCursorAnchorInfoBuilderCmd.AddCommand(inputmethodCursorAnchorInfoBuilderSetInsertionMarkerLocationCmd)
+	inputmethodCursorAnchorInfoBuilderSetMatrixCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodCursorAnchorInfoBuilderCmd.AddCommand(inputmethodCursorAnchorInfoBuilderSetMatrixCmd)
+	inputmethodCursorAnchorInfoBuilderSetSelectionRangeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodCursorAnchorInfoBuilderSetSelectionRangeCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodCursorAnchorInfoBuilderCmd.AddCommand(inputmethodCursorAnchorInfoBuilderSetSelectionRangeCmd)
+	inputmethodCursorAnchorInfoBuilderSetTextAppearanceInfoCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodCursorAnchorInfoBuilderCmd.AddCommand(inputmethodCursorAnchorInfoBuilderSetTextAppearanceInfoCmd)
+	inputmethodCmd.AddCommand(inputmethodCursorAnchorInfoBuilderCmd)
+	inputmethodExtractedTextRequestCmd.AddCommand(inputmethodExtractedTextRequestNewExtractedTextRequestOpCmd)
+	inputmethodExtractedTextRequestDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodExtractedTextRequestCmd.AddCommand(inputmethodExtractedTextRequestDescribeContentsCmd)
+	inputmethodExtractedTextRequestWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodExtractedTextRequestWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodExtractedTextRequestWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodExtractedTextRequestCmd.AddCommand(inputmethodExtractedTextRequestWriteToParcelCmd)
+	inputmethodCmd.AddCommand(inputmethodExtractedTextRequestCmd)
+	inputmethodCompletionInfoNewCompletionInfoCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodCompletionInfoNewCompletionInfoCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodCompletionInfoNewCompletionInfoCmd.Flags().String("arg2", "", "arg2 (string)")
+	inputmethodCompletionInfoCmd.AddCommand(inputmethodCompletionInfoNewCompletionInfoCmd)
+	inputmethodCompletionInfoDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodCompletionInfoCmd.AddCommand(inputmethodCompletionInfoDescribeContentsCmd)
+	inputmethodCompletionInfoGetIdCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodCompletionInfoCmd.AddCommand(inputmethodCompletionInfoGetIdCmd)
+	inputmethodCompletionInfoGetLabelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodCompletionInfoCmd.AddCommand(inputmethodCompletionInfoGetLabelCmd)
+	inputmethodCompletionInfoGetPositionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodCompletionInfoCmd.AddCommand(inputmethodCompletionInfoGetPositionCmd)
+	inputmethodCompletionInfoGetTextCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodCompletionInfoCmd.AddCommand(inputmethodCompletionInfoGetTextCmd)
+	inputmethodCompletionInfoToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodCompletionInfoCmd.AddCommand(inputmethodCompletionInfoToStringCmd)
+	inputmethodCompletionInfoWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodCompletionInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodCompletionInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodCompletionInfoCmd.AddCommand(inputmethodCompletionInfoWriteToParcelCmd)
+	inputmethodCmd.AddCommand(inputmethodCompletionInfoCmd)
+	inputmethodSelectGestureCmd.AddCommand(inputmethodSelectGestureDescribeContentsCmd)
+	inputmethodSelectGestureEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodSelectGestureCmd.AddCommand(inputmethodSelectGestureEqualsCmd)
+	inputmethodSelectGestureCmd.AddCommand(inputmethodSelectGestureGetGranularityCmd)
+	inputmethodSelectGestureCmd.AddCommand(inputmethodSelectGestureGetSelectionAreaCmd)
+	inputmethodSelectGestureCmd.AddCommand(inputmethodSelectGestureHashCodeCmd)
+	inputmethodSelectGestureWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodSelectGestureWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodSelectGestureCmd.AddCommand(inputmethodSelectGestureWriteToParcelCmd)
+	inputmethodCmd.AddCommand(inputmethodSelectGestureCmd)
+	inputmethodSelectGestureBuilderCmd.AddCommand(inputmethodSelectGestureBuilderBuildCmd)
+	inputmethodSelectGestureBuilderSetFallbackTextCmd.Flags().String("arg0", "", "arg0 (string)")
+	inputmethodSelectGestureBuilderCmd.AddCommand(inputmethodSelectGestureBuilderSetFallbackTextCmd)
+	inputmethodSelectGestureBuilderSetGranularityCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodSelectGestureBuilderCmd.AddCommand(inputmethodSelectGestureBuilderSetGranularityCmd)
+	inputmethodSelectGestureBuilderSetSelectionAreaCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodSelectGestureBuilderCmd.AddCommand(inputmethodSelectGestureBuilderSetSelectionAreaCmd)
+	inputmethodCmd.AddCommand(inputmethodSelectGestureBuilderCmd)
+	inputmethodInlineSuggestionCmd.AddCommand(inputmethodInlineSuggestionDescribeContentsCmd)
+	inputmethodInlineSuggestionEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodInlineSuggestionCmd.AddCommand(inputmethodInlineSuggestionEqualsCmd)
+	inputmethodInlineSuggestionCmd.AddCommand(inputmethodInlineSuggestionGetInfoCmd)
+	inputmethodInlineSuggestionCmd.AddCommand(inputmethodInlineSuggestionHashCodeCmd)
+	inputmethodInlineSuggestionCmd.AddCommand(inputmethodInlineSuggestionToStringCmd)
+	inputmethodInlineSuggestionWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodInlineSuggestionWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodInlineSuggestionCmd.AddCommand(inputmethodInlineSuggestionWriteToParcelCmd)
+	inputmethodCmd.AddCommand(inputmethodInlineSuggestionCmd)
+	inputmethodTextBoundsInfoResultNewTextBoundsInfoResultCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodTextBoundsInfoResultCmd.AddCommand(inputmethodTextBoundsInfoResultNewTextBoundsInfoResultCmd)
+	inputmethodTextBoundsInfoResultGetResultCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodTextBoundsInfoResultCmd.AddCommand(inputmethodTextBoundsInfoResultGetResultCodeCmd)
+	inputmethodTextBoundsInfoResultGetTextBoundsInfoCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodTextBoundsInfoResultCmd.AddCommand(inputmethodTextBoundsInfoResultGetTextBoundsInfoCmd)
+	inputmethodCmd.AddCommand(inputmethodTextBoundsInfoResultCmd)
+	inputmethodInputConnectionCmd.AddCommand(inputmethodInputConnectionBeginBatchEditCmd)
+	inputmethodInputConnectionClearMetaKeyStatesCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodInputConnectionCmd.AddCommand(inputmethodInputConnectionClearMetaKeyStatesCmd)
+	inputmethodInputConnectionCmd.AddCommand(inputmethodInputConnectionCloseConnectionCmd)
+	inputmethodInputConnectionCommitCompletionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodInputConnectionCmd.AddCommand(inputmethodInputConnectionCommitCompletionCmd)
+	inputmethodInputConnectionCommitContentCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodInputConnectionCommitContentCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodInputConnectionCommitContentCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	inputmethodInputConnectionCmd.AddCommand(inputmethodInputConnectionCommitContentCmd)
+	inputmethodInputConnectionCommitCorrectionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodInputConnectionCmd.AddCommand(inputmethodInputConnectionCommitCorrectionCmd)
+	inputmethodInputConnectionCommitTextCmd.Flags().String("arg0", "", "arg0 (string)")
+	inputmethodInputConnectionCommitTextCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodInputConnectionCmd.AddCommand(inputmethodInputConnectionCommitTextCmd)
+	inputmethodInputConnectionDeleteSurroundingTextCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodInputConnectionDeleteSurroundingTextCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodInputConnectionCmd.AddCommand(inputmethodInputConnectionDeleteSurroundingTextCmd)
+	inputmethodInputConnectionDeleteSurroundingTextInCodePointsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodInputConnectionDeleteSurroundingTextInCodePointsCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodInputConnectionCmd.AddCommand(inputmethodInputConnectionDeleteSurroundingTextInCodePointsCmd)
+	inputmethodInputConnectionCmd.AddCommand(inputmethodInputConnectionEndBatchEditCmd)
+	inputmethodInputConnectionCmd.AddCommand(inputmethodInputConnectionFinishComposingTextCmd)
+	inputmethodInputConnectionGetCursorCapsModeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodInputConnectionCmd.AddCommand(inputmethodInputConnectionGetCursorCapsModeCmd)
+	inputmethodInputConnectionGetExtractedTextCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodInputConnectionGetExtractedTextCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodInputConnectionCmd.AddCommand(inputmethodInputConnectionGetExtractedTextCmd)
+	inputmethodInputConnectionCmd.AddCommand(inputmethodInputConnectionGetHandlerCmd)
+	inputmethodInputConnectionGetSelectedTextCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodInputConnectionCmd.AddCommand(inputmethodInputConnectionGetSelectedTextCmd)
+	inputmethodInputConnectionGetTextAfterCursorCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodInputConnectionGetTextAfterCursorCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodInputConnectionCmd.AddCommand(inputmethodInputConnectionGetTextAfterCursorCmd)
+	inputmethodInputConnectionGetTextBeforeCursorCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodInputConnectionGetTextBeforeCursorCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodInputConnectionCmd.AddCommand(inputmethodInputConnectionGetTextBeforeCursorCmd)
+	inputmethodInputConnectionPerformContextMenuActionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodInputConnectionCmd.AddCommand(inputmethodInputConnectionPerformContextMenuActionCmd)
+	inputmethodInputConnectionPerformEditorActionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodInputConnectionCmd.AddCommand(inputmethodInputConnectionPerformEditorActionCmd)
+	inputmethodInputConnectionPerformPrivateCommandCmd.Flags().String("arg0", "", "arg0 (string)")
+	inputmethodInputConnectionPerformPrivateCommandCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	inputmethodInputConnectionCmd.AddCommand(inputmethodInputConnectionPerformPrivateCommandCmd)
+	inputmethodInputConnectionReportFullscreenModeCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	inputmethodInputConnectionCmd.AddCommand(inputmethodInputConnectionReportFullscreenModeCmd)
+	inputmethodInputConnectionRequestCursorUpdatesCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodInputConnectionCmd.AddCommand(inputmethodInputConnectionRequestCursorUpdatesCmd)
+	inputmethodInputConnectionSendKeyEventCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodInputConnectionCmd.AddCommand(inputmethodInputConnectionSendKeyEventCmd)
+	inputmethodInputConnectionSetComposingRegionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodInputConnectionSetComposingRegionCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodInputConnectionCmd.AddCommand(inputmethodInputConnectionSetComposingRegionCmd)
+	inputmethodInputConnectionSetComposingTextCmd.Flags().String("arg0", "", "arg0 (string)")
+	inputmethodInputConnectionSetComposingTextCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodInputConnectionCmd.AddCommand(inputmethodInputConnectionSetComposingTextCmd)
+	inputmethodInputConnectionSetSelectionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodInputConnectionSetSelectionCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodInputConnectionCmd.AddCommand(inputmethodInputConnectionSetSelectionCmd)
+	inputmethodCmd.AddCommand(inputmethodInputConnectionCmd)
+	inputmethodJoinOrSplitGestureCmd.AddCommand(inputmethodJoinOrSplitGestureDescribeContentsCmd)
+	inputmethodJoinOrSplitGestureEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodJoinOrSplitGestureCmd.AddCommand(inputmethodJoinOrSplitGestureEqualsCmd)
+	inputmethodJoinOrSplitGestureCmd.AddCommand(inputmethodJoinOrSplitGestureGetJoinOrSplitPointCmd)
+	inputmethodJoinOrSplitGestureCmd.AddCommand(inputmethodJoinOrSplitGestureHashCodeCmd)
+	inputmethodJoinOrSplitGestureWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodJoinOrSplitGestureWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodJoinOrSplitGestureCmd.AddCommand(inputmethodJoinOrSplitGestureWriteToParcelCmd)
+	inputmethodCmd.AddCommand(inputmethodJoinOrSplitGestureCmd)
+	inputmethodJoinOrSplitGestureBuilderCmd.AddCommand(inputmethodJoinOrSplitGestureBuilderBuildCmd)
+	inputmethodJoinOrSplitGestureBuilderSetFallbackTextCmd.Flags().String("arg0", "", "arg0 (string)")
+	inputmethodJoinOrSplitGestureBuilderCmd.AddCommand(inputmethodJoinOrSplitGestureBuilderSetFallbackTextCmd)
+	inputmethodJoinOrSplitGestureBuilderSetJoinOrSplitPointCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodJoinOrSplitGestureBuilderCmd.AddCommand(inputmethodJoinOrSplitGestureBuilderSetJoinOrSplitPointCmd)
+	inputmethodCmd.AddCommand(inputmethodJoinOrSplitGestureBuilderCmd)
+	inputmethodEditorBoundsInfoCmd.AddCommand(inputmethodEditorBoundsInfoDescribeContentsCmd)
+	inputmethodEditorBoundsInfoEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodEditorBoundsInfoCmd.AddCommand(inputmethodEditorBoundsInfoEqualsCmd)
+	inputmethodEditorBoundsInfoCmd.AddCommand(inputmethodEditorBoundsInfoGetEditorBoundsCmd)
+	inputmethodEditorBoundsInfoCmd.AddCommand(inputmethodEditorBoundsInfoGetHandwritingBoundsCmd)
+	inputmethodEditorBoundsInfoCmd.AddCommand(inputmethodEditorBoundsInfoHashCodeCmd)
+	inputmethodEditorBoundsInfoCmd.AddCommand(inputmethodEditorBoundsInfoToStringCmd)
+	inputmethodEditorBoundsInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodEditorBoundsInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodEditorBoundsInfoCmd.AddCommand(inputmethodEditorBoundsInfoWriteToParcelCmd)
+	inputmethodCmd.AddCommand(inputmethodEditorBoundsInfoCmd)
+	inputmethodEditorBoundsInfoBuilderCmd.AddCommand(inputmethodEditorBoundsInfoBuilderBuildCmd)
+	inputmethodEditorBoundsInfoBuilderSetEditorBoundsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodEditorBoundsInfoBuilderCmd.AddCommand(inputmethodEditorBoundsInfoBuilderSetEditorBoundsCmd)
+	inputmethodEditorBoundsInfoBuilderSetHandwritingBoundsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodEditorBoundsInfoBuilderCmd.AddCommand(inputmethodEditorBoundsInfoBuilderSetHandwritingBoundsCmd)
+	inputmethodCmd.AddCommand(inputmethodEditorBoundsInfoBuilderCmd)
+	inputmethodSelectRangeGestureCmd.AddCommand(inputmethodSelectRangeGestureDescribeContentsCmd)
+	inputmethodSelectRangeGestureEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodSelectRangeGestureCmd.AddCommand(inputmethodSelectRangeGestureEqualsCmd)
+	inputmethodSelectRangeGestureCmd.AddCommand(inputmethodSelectRangeGestureGetGranularityCmd)
+	inputmethodSelectRangeGestureCmd.AddCommand(inputmethodSelectRangeGestureGetSelectionEndAreaCmd)
+	inputmethodSelectRangeGestureCmd.AddCommand(inputmethodSelectRangeGestureGetSelectionStartAreaCmd)
+	inputmethodSelectRangeGestureCmd.AddCommand(inputmethodSelectRangeGestureHashCodeCmd)
+	inputmethodSelectRangeGestureWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodSelectRangeGestureWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodSelectRangeGestureCmd.AddCommand(inputmethodSelectRangeGestureWriteToParcelCmd)
+	inputmethodCmd.AddCommand(inputmethodSelectRangeGestureCmd)
+	inputmethodSelectRangeGestureBuilderCmd.AddCommand(inputmethodSelectRangeGestureBuilderBuildCmd)
+	inputmethodSelectRangeGestureBuilderSetFallbackTextCmd.Flags().String("arg0", "", "arg0 (string)")
+	inputmethodSelectRangeGestureBuilderCmd.AddCommand(inputmethodSelectRangeGestureBuilderSetFallbackTextCmd)
+	inputmethodSelectRangeGestureBuilderSetGranularityCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodSelectRangeGestureBuilderCmd.AddCommand(inputmethodSelectRangeGestureBuilderSetGranularityCmd)
+	inputmethodSelectRangeGestureBuilderSetSelectionEndAreaCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodSelectRangeGestureBuilderCmd.AddCommand(inputmethodSelectRangeGestureBuilderSetSelectionEndAreaCmd)
+	inputmethodSelectRangeGestureBuilderSetSelectionStartAreaCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodSelectRangeGestureBuilderCmd.AddCommand(inputmethodSelectRangeGestureBuilderSetSelectionStartAreaCmd)
+	inputmethodCmd.AddCommand(inputmethodSelectRangeGestureBuilderCmd)
+	inputmethodHandwritingGestureCmd.AddCommand(inputmethodHandwritingGestureGetFallbackTextCmd)
+	inputmethodCmd.AddCommand(inputmethodHandwritingGestureCmd)
+	inputmethodTextSnapshotNewTextSnapshotCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodTextSnapshotNewTextSnapshotCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodTextSnapshotNewTextSnapshotCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	inputmethodTextSnapshotNewTextSnapshotCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	inputmethodTextSnapshotCmd.AddCommand(inputmethodTextSnapshotNewTextSnapshotCmd)
+	inputmethodTextSnapshotGetCompositionEndCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodTextSnapshotCmd.AddCommand(inputmethodTextSnapshotGetCompositionEndCmd)
+	inputmethodTextSnapshotGetCompositionStartCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodTextSnapshotCmd.AddCommand(inputmethodTextSnapshotGetCompositionStartCmd)
+	inputmethodTextSnapshotGetCursorCapsModeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodTextSnapshotCmd.AddCommand(inputmethodTextSnapshotGetCursorCapsModeCmd)
+	inputmethodTextSnapshotGetSelectionEndCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodTextSnapshotCmd.AddCommand(inputmethodTextSnapshotGetSelectionEndCmd)
+	inputmethodTextSnapshotGetSelectionStartCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodTextSnapshotCmd.AddCommand(inputmethodTextSnapshotGetSelectionStartCmd)
+	inputmethodTextSnapshotGetSurroundingTextCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodTextSnapshotCmd.AddCommand(inputmethodTextSnapshotGetSurroundingTextCmd)
+	inputmethodCmd.AddCommand(inputmethodTextSnapshotCmd)
+	inputmethodInsertModeGestureCmd.AddCommand(inputmethodInsertModeGestureDescribeContentsCmd)
+	inputmethodInsertModeGestureEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodInsertModeGestureCmd.AddCommand(inputmethodInsertModeGestureEqualsCmd)
+	inputmethodInsertModeGestureCmd.AddCommand(inputmethodInsertModeGestureGetCancellationSignalCmd)
+	inputmethodInsertModeGestureCmd.AddCommand(inputmethodInsertModeGestureGetInsertionPointCmd)
+	inputmethodInsertModeGestureCmd.AddCommand(inputmethodInsertModeGestureHashCodeCmd)
+	inputmethodInsertModeGestureWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodInsertModeGestureWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodInsertModeGestureCmd.AddCommand(inputmethodInsertModeGestureWriteToParcelCmd)
+	inputmethodCmd.AddCommand(inputmethodInsertModeGestureCmd)
+	inputmethodInsertModeGestureBuilderCmd.AddCommand(inputmethodInsertModeGestureBuilderBuildCmd)
+	inputmethodInsertModeGestureBuilderSetCancellationSignalCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodInsertModeGestureBuilderCmd.AddCommand(inputmethodInsertModeGestureBuilderSetCancellationSignalCmd)
+	inputmethodInsertModeGestureBuilderSetFallbackTextCmd.Flags().String("arg0", "", "arg0 (string)")
+	inputmethodInsertModeGestureBuilderCmd.AddCommand(inputmethodInsertModeGestureBuilderSetFallbackTextCmd)
+	inputmethodInsertModeGestureBuilderSetInsertionPointCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodInsertModeGestureBuilderCmd.AddCommand(inputmethodInsertModeGestureBuilderSetInsertionPointCmd)
+	inputmethodCmd.AddCommand(inputmethodInsertModeGestureBuilderCmd)
 	inputmethodInputMethodManagerAcceptStylusHandwritingDelegation1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	inputmethodInputMethodManagerCmd.AddCommand(inputmethodInputMethodManagerAcceptStylusHandwritingDelegation1Cmd)
 	inputmethodInputMethodManagerAcceptStylusHandwritingDelegation2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
@@ -1192,5 +12206,350 @@ func init() {
 	inputmethodInputMethodManagerViewClickedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	inputmethodInputMethodManagerCmd.AddCommand(inputmethodInputMethodManagerViewClickedCmd)
 	inputmethodCmd.AddCommand(inputmethodInputMethodManagerCmd)
+	inputmethodInputConnectionWrapperNewInputConnectionWrapperCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodInputConnectionWrapperNewInputConnectionWrapperCmd.Flags().Bool("arg1", false, "arg1 (bool)")
+	inputmethodInputConnectionWrapperCmd.AddCommand(inputmethodInputConnectionWrapperNewInputConnectionWrapperCmd)
+	inputmethodInputConnectionWrapperBeginBatchEditCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputConnectionWrapperCmd.AddCommand(inputmethodInputConnectionWrapperBeginBatchEditCmd)
+	inputmethodInputConnectionWrapperClearMetaKeyStatesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputConnectionWrapperClearMetaKeyStatesCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodInputConnectionWrapperCmd.AddCommand(inputmethodInputConnectionWrapperClearMetaKeyStatesCmd)
+	inputmethodInputConnectionWrapperCloseConnectionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputConnectionWrapperCmd.AddCommand(inputmethodInputConnectionWrapperCloseConnectionCmd)
+	inputmethodInputConnectionWrapperCommitCompletionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputConnectionWrapperCommitCompletionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodInputConnectionWrapperCmd.AddCommand(inputmethodInputConnectionWrapperCommitCompletionCmd)
+	inputmethodInputConnectionWrapperCommitContentCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputConnectionWrapperCommitContentCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodInputConnectionWrapperCommitContentCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodInputConnectionWrapperCommitContentCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	inputmethodInputConnectionWrapperCmd.AddCommand(inputmethodInputConnectionWrapperCommitContentCmd)
+	inputmethodInputConnectionWrapperCommitCorrectionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputConnectionWrapperCommitCorrectionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodInputConnectionWrapperCmd.AddCommand(inputmethodInputConnectionWrapperCommitCorrectionCmd)
+	inputmethodInputConnectionWrapperCommitText2Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputConnectionWrapperCommitText2Cmd.Flags().String("arg0", "", "arg0 (string)")
+	inputmethodInputConnectionWrapperCommitText2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodInputConnectionWrapperCmd.AddCommand(inputmethodInputConnectionWrapperCommitText2Cmd)
+	inputmethodInputConnectionWrapperCommitText3_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputConnectionWrapperCommitText3_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	inputmethodInputConnectionWrapperCommitText3_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodInputConnectionWrapperCommitText3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	inputmethodInputConnectionWrapperCmd.AddCommand(inputmethodInputConnectionWrapperCommitText3_1Cmd)
+	inputmethodInputConnectionWrapperDeleteSurroundingTextCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputConnectionWrapperDeleteSurroundingTextCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodInputConnectionWrapperDeleteSurroundingTextCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodInputConnectionWrapperCmd.AddCommand(inputmethodInputConnectionWrapperDeleteSurroundingTextCmd)
+	inputmethodInputConnectionWrapperDeleteSurroundingTextInCodePointsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputConnectionWrapperDeleteSurroundingTextInCodePointsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodInputConnectionWrapperDeleteSurroundingTextInCodePointsCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodInputConnectionWrapperCmd.AddCommand(inputmethodInputConnectionWrapperDeleteSurroundingTextInCodePointsCmd)
+	inputmethodInputConnectionWrapperEndBatchEditCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputConnectionWrapperCmd.AddCommand(inputmethodInputConnectionWrapperEndBatchEditCmd)
+	inputmethodInputConnectionWrapperFinishComposingTextCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputConnectionWrapperCmd.AddCommand(inputmethodInputConnectionWrapperFinishComposingTextCmd)
+	inputmethodInputConnectionWrapperGetCursorCapsModeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputConnectionWrapperGetCursorCapsModeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodInputConnectionWrapperCmd.AddCommand(inputmethodInputConnectionWrapperGetCursorCapsModeCmd)
+	inputmethodInputConnectionWrapperGetExtractedTextCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputConnectionWrapperGetExtractedTextCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodInputConnectionWrapperGetExtractedTextCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodInputConnectionWrapperCmd.AddCommand(inputmethodInputConnectionWrapperGetExtractedTextCmd)
+	inputmethodInputConnectionWrapperGetHandlerCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputConnectionWrapperCmd.AddCommand(inputmethodInputConnectionWrapperGetHandlerCmd)
+	inputmethodInputConnectionWrapperGetSelectedTextCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputConnectionWrapperGetSelectedTextCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodInputConnectionWrapperCmd.AddCommand(inputmethodInputConnectionWrapperGetSelectedTextCmd)
+	inputmethodInputConnectionWrapperGetSurroundingTextCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputConnectionWrapperGetSurroundingTextCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodInputConnectionWrapperGetSurroundingTextCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodInputConnectionWrapperGetSurroundingTextCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	inputmethodInputConnectionWrapperCmd.AddCommand(inputmethodInputConnectionWrapperGetSurroundingTextCmd)
+	inputmethodInputConnectionWrapperGetTextAfterCursorCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputConnectionWrapperGetTextAfterCursorCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodInputConnectionWrapperGetTextAfterCursorCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodInputConnectionWrapperCmd.AddCommand(inputmethodInputConnectionWrapperGetTextAfterCursorCmd)
+	inputmethodInputConnectionWrapperGetTextBeforeCursorCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputConnectionWrapperGetTextBeforeCursorCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodInputConnectionWrapperGetTextBeforeCursorCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodInputConnectionWrapperCmd.AddCommand(inputmethodInputConnectionWrapperGetTextBeforeCursorCmd)
+	inputmethodInputConnectionWrapperPerformContextMenuActionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputConnectionWrapperPerformContextMenuActionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodInputConnectionWrapperCmd.AddCommand(inputmethodInputConnectionWrapperPerformContextMenuActionCmd)
+	inputmethodInputConnectionWrapperPerformEditorActionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputConnectionWrapperPerformEditorActionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodInputConnectionWrapperCmd.AddCommand(inputmethodInputConnectionWrapperPerformEditorActionCmd)
+	inputmethodInputConnectionWrapperPerformHandwritingGestureCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputConnectionWrapperPerformHandwritingGestureCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodInputConnectionWrapperPerformHandwritingGestureCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	inputmethodInputConnectionWrapperPerformHandwritingGestureCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	inputmethodInputConnectionWrapperCmd.AddCommand(inputmethodInputConnectionWrapperPerformHandwritingGestureCmd)
+	inputmethodInputConnectionWrapperPerformPrivateCommandCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputConnectionWrapperPerformPrivateCommandCmd.Flags().String("arg0", "", "arg0 (string)")
+	inputmethodInputConnectionWrapperPerformPrivateCommandCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	inputmethodInputConnectionWrapperCmd.AddCommand(inputmethodInputConnectionWrapperPerformPrivateCommandCmd)
+	inputmethodInputConnectionWrapperPerformSpellCheckCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputConnectionWrapperCmd.AddCommand(inputmethodInputConnectionWrapperPerformSpellCheckCmd)
+	inputmethodInputConnectionWrapperPreviewHandwritingGestureCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputConnectionWrapperPreviewHandwritingGestureCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodInputConnectionWrapperPreviewHandwritingGestureCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	inputmethodInputConnectionWrapperCmd.AddCommand(inputmethodInputConnectionWrapperPreviewHandwritingGestureCmd)
+	inputmethodInputConnectionWrapperReplaceTextCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputConnectionWrapperReplaceTextCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodInputConnectionWrapperReplaceTextCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodInputConnectionWrapperReplaceTextCmd.Flags().String("arg2", "", "arg2 (string)")
+	inputmethodInputConnectionWrapperReplaceTextCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	inputmethodInputConnectionWrapperReplaceTextCmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	inputmethodInputConnectionWrapperCmd.AddCommand(inputmethodInputConnectionWrapperReplaceTextCmd)
+	inputmethodInputConnectionWrapperReportFullscreenModeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputConnectionWrapperReportFullscreenModeCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	inputmethodInputConnectionWrapperCmd.AddCommand(inputmethodInputConnectionWrapperReportFullscreenModeCmd)
+	inputmethodInputConnectionWrapperRequestCursorUpdates1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputConnectionWrapperRequestCursorUpdates1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodInputConnectionWrapperCmd.AddCommand(inputmethodInputConnectionWrapperRequestCursorUpdates1Cmd)
+	inputmethodInputConnectionWrapperRequestCursorUpdates2_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputConnectionWrapperRequestCursorUpdates2_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodInputConnectionWrapperRequestCursorUpdates2_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodInputConnectionWrapperCmd.AddCommand(inputmethodInputConnectionWrapperRequestCursorUpdates2_1Cmd)
+	inputmethodInputConnectionWrapperSendKeyEventCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputConnectionWrapperSendKeyEventCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodInputConnectionWrapperCmd.AddCommand(inputmethodInputConnectionWrapperSendKeyEventCmd)
+	inputmethodInputConnectionWrapperSetComposingRegion2Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputConnectionWrapperSetComposingRegion2Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodInputConnectionWrapperSetComposingRegion2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodInputConnectionWrapperCmd.AddCommand(inputmethodInputConnectionWrapperSetComposingRegion2Cmd)
+	inputmethodInputConnectionWrapperSetComposingRegion3_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputConnectionWrapperSetComposingRegion3_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodInputConnectionWrapperSetComposingRegion3_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodInputConnectionWrapperSetComposingRegion3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	inputmethodInputConnectionWrapperCmd.AddCommand(inputmethodInputConnectionWrapperSetComposingRegion3_1Cmd)
+	inputmethodInputConnectionWrapperSetComposingText2Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputConnectionWrapperSetComposingText2Cmd.Flags().String("arg0", "", "arg0 (string)")
+	inputmethodInputConnectionWrapperSetComposingText2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodInputConnectionWrapperCmd.AddCommand(inputmethodInputConnectionWrapperSetComposingText2Cmd)
+	inputmethodInputConnectionWrapperSetComposingText3_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputConnectionWrapperSetComposingText3_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	inputmethodInputConnectionWrapperSetComposingText3_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodInputConnectionWrapperSetComposingText3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	inputmethodInputConnectionWrapperCmd.AddCommand(inputmethodInputConnectionWrapperSetComposingText3_1Cmd)
+	inputmethodInputConnectionWrapperSetImeConsumesInputCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputConnectionWrapperSetImeConsumesInputCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	inputmethodInputConnectionWrapperCmd.AddCommand(inputmethodInputConnectionWrapperSetImeConsumesInputCmd)
+	inputmethodInputConnectionWrapperSetSelectionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputConnectionWrapperSetSelectionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodInputConnectionWrapperSetSelectionCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodInputConnectionWrapperCmd.AddCommand(inputmethodInputConnectionWrapperSetSelectionCmd)
+	inputmethodInputConnectionWrapperSetTargetCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputConnectionWrapperSetTargetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodInputConnectionWrapperCmd.AddCommand(inputmethodInputConnectionWrapperSetTargetCmd)
+	inputmethodInputConnectionWrapperTakeSnapshotCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodInputConnectionWrapperCmd.AddCommand(inputmethodInputConnectionWrapperTakeSnapshotCmd)
+	inputmethodCmd.AddCommand(inputmethodInputConnectionWrapperCmd)
+	inputmethodDeleteGestureCmd.AddCommand(inputmethodDeleteGestureDescribeContentsCmd)
+	inputmethodDeleteGestureEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodDeleteGestureCmd.AddCommand(inputmethodDeleteGestureEqualsCmd)
+	inputmethodDeleteGestureCmd.AddCommand(inputmethodDeleteGestureGetDeletionAreaCmd)
+	inputmethodDeleteGestureCmd.AddCommand(inputmethodDeleteGestureGetGranularityCmd)
+	inputmethodDeleteGestureCmd.AddCommand(inputmethodDeleteGestureHashCodeCmd)
+	inputmethodDeleteGestureWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodDeleteGestureWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodDeleteGestureCmd.AddCommand(inputmethodDeleteGestureWriteToParcelCmd)
+	inputmethodCmd.AddCommand(inputmethodDeleteGestureCmd)
+	inputmethodDeleteGestureBuilderCmd.AddCommand(inputmethodDeleteGestureBuilderBuildCmd)
+	inputmethodDeleteGestureBuilderSetDeletionAreaCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodDeleteGestureBuilderCmd.AddCommand(inputmethodDeleteGestureBuilderSetDeletionAreaCmd)
+	inputmethodDeleteGestureBuilderSetFallbackTextCmd.Flags().String("arg0", "", "arg0 (string)")
+	inputmethodDeleteGestureBuilderCmd.AddCommand(inputmethodDeleteGestureBuilderSetFallbackTextCmd)
+	inputmethodDeleteGestureBuilderSetGranularityCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodDeleteGestureBuilderCmd.AddCommand(inputmethodDeleteGestureBuilderSetGranularityCmd)
+	inputmethodCmd.AddCommand(inputmethodDeleteGestureBuilderCmd)
+	inputmethodTextAppearanceInfoCmd.AddCommand(inputmethodTextAppearanceInfoDescribeContentsCmd)
+	inputmethodTextAppearanceInfoEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodTextAppearanceInfoCmd.AddCommand(inputmethodTextAppearanceInfoEqualsCmd)
+	inputmethodTextAppearanceInfoCmd.AddCommand(inputmethodTextAppearanceInfoGetFontFeatureSettingsCmd)
+	inputmethodTextAppearanceInfoCmd.AddCommand(inputmethodTextAppearanceInfoGetFontVariationSettingsCmd)
+	inputmethodTextAppearanceInfoCmd.AddCommand(inputmethodTextAppearanceInfoGetHighlightTextColorCmd)
+	inputmethodTextAppearanceInfoCmd.AddCommand(inputmethodTextAppearanceInfoGetHintTextColorCmd)
+	inputmethodTextAppearanceInfoCmd.AddCommand(inputmethodTextAppearanceInfoGetLetterSpacingCmd)
+	inputmethodTextAppearanceInfoCmd.AddCommand(inputmethodTextAppearanceInfoGetLineBreakStyleCmd)
+	inputmethodTextAppearanceInfoCmd.AddCommand(inputmethodTextAppearanceInfoGetLineBreakWordStyleCmd)
+	inputmethodTextAppearanceInfoCmd.AddCommand(inputmethodTextAppearanceInfoGetLinkTextColorCmd)
+	inputmethodTextAppearanceInfoCmd.AddCommand(inputmethodTextAppearanceInfoGetShadowColorCmd)
+	inputmethodTextAppearanceInfoCmd.AddCommand(inputmethodTextAppearanceInfoGetShadowDxCmd)
+	inputmethodTextAppearanceInfoCmd.AddCommand(inputmethodTextAppearanceInfoGetShadowDyCmd)
+	inputmethodTextAppearanceInfoCmd.AddCommand(inputmethodTextAppearanceInfoGetShadowRadiusCmd)
+	inputmethodTextAppearanceInfoCmd.AddCommand(inputmethodTextAppearanceInfoGetSystemFontFamilyNameCmd)
+	inputmethodTextAppearanceInfoCmd.AddCommand(inputmethodTextAppearanceInfoGetTextColorCmd)
+	inputmethodTextAppearanceInfoCmd.AddCommand(inputmethodTextAppearanceInfoGetTextFontWeightCmd)
+	inputmethodTextAppearanceInfoCmd.AddCommand(inputmethodTextAppearanceInfoGetTextLocalesCmd)
+	inputmethodTextAppearanceInfoCmd.AddCommand(inputmethodTextAppearanceInfoGetTextScaleXCmd)
+	inputmethodTextAppearanceInfoCmd.AddCommand(inputmethodTextAppearanceInfoGetTextSizeCmd)
+	inputmethodTextAppearanceInfoCmd.AddCommand(inputmethodTextAppearanceInfoGetTextStyleCmd)
+	inputmethodTextAppearanceInfoCmd.AddCommand(inputmethodTextAppearanceInfoHashCodeCmd)
+	inputmethodTextAppearanceInfoCmd.AddCommand(inputmethodTextAppearanceInfoIsAllCapsCmd)
+	inputmethodTextAppearanceInfoCmd.AddCommand(inputmethodTextAppearanceInfoIsElegantTextHeightCmd)
+	inputmethodTextAppearanceInfoCmd.AddCommand(inputmethodTextAppearanceInfoIsFallbackLineSpacingCmd)
+	inputmethodTextAppearanceInfoCmd.AddCommand(inputmethodTextAppearanceInfoToStringCmd)
+	inputmethodTextAppearanceInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodTextAppearanceInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodTextAppearanceInfoCmd.AddCommand(inputmethodTextAppearanceInfoWriteToParcelCmd)
+	inputmethodCmd.AddCommand(inputmethodTextAppearanceInfoCmd)
+	inputmethodTextAppearanceInfoBuilderCmd.AddCommand(inputmethodTextAppearanceInfoBuilderBuildCmd)
+	inputmethodTextAppearanceInfoBuilderSetAllCapsCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	inputmethodTextAppearanceInfoBuilderCmd.AddCommand(inputmethodTextAppearanceInfoBuilderSetAllCapsCmd)
+	inputmethodTextAppearanceInfoBuilderSetElegantTextHeightCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	inputmethodTextAppearanceInfoBuilderCmd.AddCommand(inputmethodTextAppearanceInfoBuilderSetElegantTextHeightCmd)
+	inputmethodTextAppearanceInfoBuilderSetFallbackLineSpacingCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	inputmethodTextAppearanceInfoBuilderCmd.AddCommand(inputmethodTextAppearanceInfoBuilderSetFallbackLineSpacingCmd)
+	inputmethodTextAppearanceInfoBuilderSetFontFeatureSettingsCmd.Flags().String("arg0", "", "arg0 (string)")
+	inputmethodTextAppearanceInfoBuilderCmd.AddCommand(inputmethodTextAppearanceInfoBuilderSetFontFeatureSettingsCmd)
+	inputmethodTextAppearanceInfoBuilderSetFontVariationSettingsCmd.Flags().String("arg0", "", "arg0 (string)")
+	inputmethodTextAppearanceInfoBuilderCmd.AddCommand(inputmethodTextAppearanceInfoBuilderSetFontVariationSettingsCmd)
+	inputmethodTextAppearanceInfoBuilderSetHighlightTextColorCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodTextAppearanceInfoBuilderCmd.AddCommand(inputmethodTextAppearanceInfoBuilderSetHighlightTextColorCmd)
+	inputmethodTextAppearanceInfoBuilderSetHintTextColorCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodTextAppearanceInfoBuilderCmd.AddCommand(inputmethodTextAppearanceInfoBuilderSetHintTextColorCmd)
+	inputmethodTextAppearanceInfoBuilderSetLetterSpacingCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	inputmethodTextAppearanceInfoBuilderCmd.AddCommand(inputmethodTextAppearanceInfoBuilderSetLetterSpacingCmd)
+	inputmethodTextAppearanceInfoBuilderSetLineBreakStyleCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodTextAppearanceInfoBuilderCmd.AddCommand(inputmethodTextAppearanceInfoBuilderSetLineBreakStyleCmd)
+	inputmethodTextAppearanceInfoBuilderSetLineBreakWordStyleCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodTextAppearanceInfoBuilderCmd.AddCommand(inputmethodTextAppearanceInfoBuilderSetLineBreakWordStyleCmd)
+	inputmethodTextAppearanceInfoBuilderSetLinkTextColorCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodTextAppearanceInfoBuilderCmd.AddCommand(inputmethodTextAppearanceInfoBuilderSetLinkTextColorCmd)
+	inputmethodTextAppearanceInfoBuilderSetShadowColorCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodTextAppearanceInfoBuilderCmd.AddCommand(inputmethodTextAppearanceInfoBuilderSetShadowColorCmd)
+	inputmethodTextAppearanceInfoBuilderSetShadowDxCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	inputmethodTextAppearanceInfoBuilderCmd.AddCommand(inputmethodTextAppearanceInfoBuilderSetShadowDxCmd)
+	inputmethodTextAppearanceInfoBuilderSetShadowDyCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	inputmethodTextAppearanceInfoBuilderCmd.AddCommand(inputmethodTextAppearanceInfoBuilderSetShadowDyCmd)
+	inputmethodTextAppearanceInfoBuilderSetShadowRadiusCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	inputmethodTextAppearanceInfoBuilderCmd.AddCommand(inputmethodTextAppearanceInfoBuilderSetShadowRadiusCmd)
+	inputmethodTextAppearanceInfoBuilderSetSystemFontFamilyNameCmd.Flags().String("arg0", "", "arg0 (string)")
+	inputmethodTextAppearanceInfoBuilderCmd.AddCommand(inputmethodTextAppearanceInfoBuilderSetSystemFontFamilyNameCmd)
+	inputmethodTextAppearanceInfoBuilderSetTextColorCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodTextAppearanceInfoBuilderCmd.AddCommand(inputmethodTextAppearanceInfoBuilderSetTextColorCmd)
+	inputmethodTextAppearanceInfoBuilderSetTextFontWeightCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodTextAppearanceInfoBuilderCmd.AddCommand(inputmethodTextAppearanceInfoBuilderSetTextFontWeightCmd)
+	inputmethodTextAppearanceInfoBuilderSetTextLocalesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodTextAppearanceInfoBuilderCmd.AddCommand(inputmethodTextAppearanceInfoBuilderSetTextLocalesCmd)
+	inputmethodTextAppearanceInfoBuilderSetTextScaleXCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	inputmethodTextAppearanceInfoBuilderCmd.AddCommand(inputmethodTextAppearanceInfoBuilderSetTextScaleXCmd)
+	inputmethodTextAppearanceInfoBuilderSetTextSizeCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	inputmethodTextAppearanceInfoBuilderCmd.AddCommand(inputmethodTextAppearanceInfoBuilderSetTextSizeCmd)
+	inputmethodTextAppearanceInfoBuilderSetTextStyleCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodTextAppearanceInfoBuilderCmd.AddCommand(inputmethodTextAppearanceInfoBuilderSetTextStyleCmd)
+	inputmethodCmd.AddCommand(inputmethodTextAppearanceInfoBuilderCmd)
+	inputmethodExtractedTextCmd.AddCommand(inputmethodExtractedTextNewExtractedTextCmd)
+	inputmethodExtractedTextDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodExtractedTextCmd.AddCommand(inputmethodExtractedTextDescribeContentsCmd)
+	inputmethodExtractedTextWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodExtractedTextWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodExtractedTextWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodExtractedTextCmd.AddCommand(inputmethodExtractedTextWriteToParcelCmd)
+	inputmethodCmd.AddCommand(inputmethodExtractedTextCmd)
+	inputmethodInlineSuggestionsRequestCmd.AddCommand(inputmethodInlineSuggestionsRequestDescribeContentsCmd)
+	inputmethodInlineSuggestionsRequestEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodInlineSuggestionsRequestCmd.AddCommand(inputmethodInlineSuggestionsRequestEqualsCmd)
+	inputmethodInlineSuggestionsRequestCmd.AddCommand(inputmethodInlineSuggestionsRequestGetExtrasCmd)
+	inputmethodInlineSuggestionsRequestCmd.AddCommand(inputmethodInlineSuggestionsRequestGetHostPackageNameCmd)
+	inputmethodInlineSuggestionsRequestCmd.AddCommand(inputmethodInlineSuggestionsRequestGetInlineTooltipPresentationSpecCmd)
+	inputmethodInlineSuggestionsRequestCmd.AddCommand(inputmethodInlineSuggestionsRequestGetMaxSuggestionCountCmd)
+	inputmethodInlineSuggestionsRequestCmd.AddCommand(inputmethodInlineSuggestionsRequestGetSupportedLocalesCmd)
+	inputmethodInlineSuggestionsRequestCmd.AddCommand(inputmethodInlineSuggestionsRequestHashCodeCmd)
+	inputmethodInlineSuggestionsRequestCmd.AddCommand(inputmethodInlineSuggestionsRequestToStringCmd)
+	inputmethodInlineSuggestionsRequestWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodInlineSuggestionsRequestWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodInlineSuggestionsRequestCmd.AddCommand(inputmethodInlineSuggestionsRequestWriteToParcelCmd)
+	inputmethodCmd.AddCommand(inputmethodInlineSuggestionsRequestCmd)
+	inputmethodInlineSuggestionsRequestBuilderAddInlinePresentationSpecsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodInlineSuggestionsRequestBuilderCmd.AddCommand(inputmethodInlineSuggestionsRequestBuilderAddInlinePresentationSpecsCmd)
+	inputmethodInlineSuggestionsRequestBuilderCmd.AddCommand(inputmethodInlineSuggestionsRequestBuilderBuildCmd)
+	inputmethodInlineSuggestionsRequestBuilderSetExtrasCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodInlineSuggestionsRequestBuilderCmd.AddCommand(inputmethodInlineSuggestionsRequestBuilderSetExtrasCmd)
+	inputmethodInlineSuggestionsRequestBuilderSetInlineTooltipPresentationSpecCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodInlineSuggestionsRequestBuilderCmd.AddCommand(inputmethodInlineSuggestionsRequestBuilderSetInlineTooltipPresentationSpecCmd)
+	inputmethodInlineSuggestionsRequestBuilderSetMaxSuggestionCountCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodInlineSuggestionsRequestBuilderCmd.AddCommand(inputmethodInlineSuggestionsRequestBuilderSetMaxSuggestionCountCmd)
+	inputmethodInlineSuggestionsRequestBuilderSetSupportedLocalesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodInlineSuggestionsRequestBuilderCmd.AddCommand(inputmethodInlineSuggestionsRequestBuilderSetSupportedLocalesCmd)
+	inputmethodCmd.AddCommand(inputmethodInlineSuggestionsRequestBuilderCmd)
+	inputmethodEditorInfoCmd.AddCommand(inputmethodEditorInfoNewEditorInfoCmd)
+	inputmethodEditorInfoDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodEditorInfoCmd.AddCommand(inputmethodEditorInfoDescribeContentsCmd)
+	inputmethodEditorInfoDumpCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodEditorInfoDumpCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodEditorInfoDumpCmd.Flags().String("arg1", "", "arg1 (string)")
+	inputmethodEditorInfoCmd.AddCommand(inputmethodEditorInfoDumpCmd)
+	inputmethodEditorInfoGetAutofillIdCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodEditorInfoCmd.AddCommand(inputmethodEditorInfoGetAutofillIdCmd)
+	inputmethodEditorInfoGetInitialSelectedTextCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodEditorInfoGetInitialSelectedTextCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodEditorInfoCmd.AddCommand(inputmethodEditorInfoGetInitialSelectedTextCmd)
+	inputmethodEditorInfoGetInitialSurroundingTextCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodEditorInfoGetInitialSurroundingTextCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodEditorInfoGetInitialSurroundingTextCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodEditorInfoGetInitialSurroundingTextCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	inputmethodEditorInfoCmd.AddCommand(inputmethodEditorInfoGetInitialSurroundingTextCmd)
+	inputmethodEditorInfoGetInitialTextAfterCursorCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodEditorInfoGetInitialTextAfterCursorCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodEditorInfoGetInitialTextAfterCursorCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodEditorInfoCmd.AddCommand(inputmethodEditorInfoGetInitialTextAfterCursorCmd)
+	inputmethodEditorInfoGetInitialTextBeforeCursorCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodEditorInfoGetInitialTextBeforeCursorCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodEditorInfoGetInitialTextBeforeCursorCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodEditorInfoCmd.AddCommand(inputmethodEditorInfoGetInitialTextBeforeCursorCmd)
+	inputmethodEditorInfoGetInitialToolTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodEditorInfoCmd.AddCommand(inputmethodEditorInfoGetInitialToolTypeCmd)
+	inputmethodEditorInfoIsStylusHandwritingEnabledCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodEditorInfoCmd.AddCommand(inputmethodEditorInfoIsStylusHandwritingEnabledCmd)
+	inputmethodEditorInfoIsWritingToolsEnabledCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodEditorInfoCmd.AddCommand(inputmethodEditorInfoIsWritingToolsEnabledCmd)
+	inputmethodEditorInfoMakeCompatibleCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodEditorInfoMakeCompatibleCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodEditorInfoCmd.AddCommand(inputmethodEditorInfoMakeCompatibleCmd)
+	inputmethodEditorInfoSetAutofillIdCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodEditorInfoSetAutofillIdCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodEditorInfoCmd.AddCommand(inputmethodEditorInfoSetAutofillIdCmd)
+	inputmethodEditorInfoSetInitialSurroundingSubTextCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodEditorInfoSetInitialSurroundingSubTextCmd.Flags().String("arg0", "", "arg0 (string)")
+	inputmethodEditorInfoSetInitialSurroundingSubTextCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodEditorInfoCmd.AddCommand(inputmethodEditorInfoSetInitialSurroundingSubTextCmd)
+	inputmethodEditorInfoSetInitialSurroundingTextCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodEditorInfoSetInitialSurroundingTextCmd.Flags().String("arg0", "", "arg0 (string)")
+	inputmethodEditorInfoCmd.AddCommand(inputmethodEditorInfoSetInitialSurroundingTextCmd)
+	inputmethodEditorInfoSetInitialToolTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodEditorInfoSetInitialToolTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodEditorInfoCmd.AddCommand(inputmethodEditorInfoSetInitialToolTypeCmd)
+	inputmethodEditorInfoSetStylusHandwritingEnabledCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodEditorInfoSetStylusHandwritingEnabledCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	inputmethodEditorInfoCmd.AddCommand(inputmethodEditorInfoSetStylusHandwritingEnabledCmd)
+	inputmethodEditorInfoSetWritingToolsEnabledCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodEditorInfoSetWritingToolsEnabledCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	inputmethodEditorInfoCmd.AddCommand(inputmethodEditorInfoSetWritingToolsEnabledCmd)
+	inputmethodEditorInfoWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodEditorInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodEditorInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodEditorInfoCmd.AddCommand(inputmethodEditorInfoWriteToParcelCmd)
+	inputmethodCmd.AddCommand(inputmethodEditorInfoCmd)
+	inputmethodCorrectionInfoNewCorrectionInfoCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inputmethodCorrectionInfoNewCorrectionInfoCmd.Flags().String("arg1", "", "arg1 (string)")
+	inputmethodCorrectionInfoNewCorrectionInfoCmd.Flags().String("arg2", "", "arg2 (string)")
+	inputmethodCorrectionInfoCmd.AddCommand(inputmethodCorrectionInfoNewCorrectionInfoCmd)
+	inputmethodCorrectionInfoDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodCorrectionInfoCmd.AddCommand(inputmethodCorrectionInfoDescribeContentsCmd)
+	inputmethodCorrectionInfoGetNewTextCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodCorrectionInfoCmd.AddCommand(inputmethodCorrectionInfoGetNewTextCmd)
+	inputmethodCorrectionInfoGetOffsetCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodCorrectionInfoCmd.AddCommand(inputmethodCorrectionInfoGetOffsetCmd)
+	inputmethodCorrectionInfoGetOldTextCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodCorrectionInfoCmd.AddCommand(inputmethodCorrectionInfoGetOldTextCmd)
+	inputmethodCorrectionInfoToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodCorrectionInfoCmd.AddCommand(inputmethodCorrectionInfoToStringCmd)
+	inputmethodCorrectionInfoWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inputmethodCorrectionInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	inputmethodCorrectionInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inputmethodCorrectionInfoCmd.AddCommand(inputmethodCorrectionInfoWriteToParcelCmd)
+	inputmethodCmd.AddCommand(inputmethodCorrectionInfoCmd)
 	rootCmd.AddCommand(inputmethodCmd)
 }

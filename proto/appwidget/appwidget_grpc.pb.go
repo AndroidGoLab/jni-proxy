@@ -21,6 +21,1531 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
+	AppWidgetProviderService_NewAppWidgetProvider_FullMethodName      = "/appwidget.AppWidgetProviderService/NewAppWidgetProvider"
+	AppWidgetProviderService_OnAppWidgetOptionsChanged_FullMethodName = "/appwidget.AppWidgetProviderService/OnAppWidgetOptionsChanged"
+	AppWidgetProviderService_OnDeleted_FullMethodName                 = "/appwidget.AppWidgetProviderService/OnDeleted"
+	AppWidgetProviderService_OnDisabled_FullMethodName                = "/appwidget.AppWidgetProviderService/OnDisabled"
+	AppWidgetProviderService_OnEnabled_FullMethodName                 = "/appwidget.AppWidgetProviderService/OnEnabled"
+	AppWidgetProviderService_OnReceive_FullMethodName                 = "/appwidget.AppWidgetProviderService/OnReceive"
+	AppWidgetProviderService_OnRestored_FullMethodName                = "/appwidget.AppWidgetProviderService/OnRestored"
+	AppWidgetProviderService_OnUpdate_FullMethodName                  = "/appwidget.AppWidgetProviderService/OnUpdate"
+)
+
+// AppWidgetProviderServiceClient is the client API for AppWidgetProviderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AppWidgetProviderServiceClient interface {
+	NewAppWidgetProvider(ctx context.Context, in *NewAppWidgetProviderRequest, opts ...grpc.CallOption) (*NewAppWidgetProviderResponse, error)
+	OnAppWidgetOptionsChanged(ctx context.Context, in *OnAppWidgetOptionsChangedRequest, opts ...grpc.CallOption) (*OnAppWidgetOptionsChangedResponse, error)
+	OnDeleted(ctx context.Context, in *OnDeletedRequest, opts ...grpc.CallOption) (*OnDeletedResponse, error)
+	OnDisabled(ctx context.Context, in *OnDisabledRequest, opts ...grpc.CallOption) (*OnDisabledResponse, error)
+	OnEnabled(ctx context.Context, in *OnEnabledRequest, opts ...grpc.CallOption) (*OnEnabledResponse, error)
+	OnReceive(ctx context.Context, in *OnReceiveRequest, opts ...grpc.CallOption) (*OnReceiveResponse, error)
+	OnRestored(ctx context.Context, in *OnRestoredRequest, opts ...grpc.CallOption) (*OnRestoredResponse, error)
+	OnUpdate(ctx context.Context, in *OnUpdateRequest, opts ...grpc.CallOption) (*OnUpdateResponse, error)
+}
+
+type appWidgetProviderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAppWidgetProviderServiceClient(cc grpc.ClientConnInterface) AppWidgetProviderServiceClient {
+	return &appWidgetProviderServiceClient{cc}
+}
+
+func (c *appWidgetProviderServiceClient) NewAppWidgetProvider(ctx context.Context, in *NewAppWidgetProviderRequest, opts ...grpc.CallOption) (*NewAppWidgetProviderResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewAppWidgetProviderResponse)
+	err := c.cc.Invoke(ctx, AppWidgetProviderService_NewAppWidgetProvider_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetProviderServiceClient) OnAppWidgetOptionsChanged(ctx context.Context, in *OnAppWidgetOptionsChangedRequest, opts ...grpc.CallOption) (*OnAppWidgetOptionsChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnAppWidgetOptionsChangedResponse)
+	err := c.cc.Invoke(ctx, AppWidgetProviderService_OnAppWidgetOptionsChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetProviderServiceClient) OnDeleted(ctx context.Context, in *OnDeletedRequest, opts ...grpc.CallOption) (*OnDeletedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnDeletedResponse)
+	err := c.cc.Invoke(ctx, AppWidgetProviderService_OnDeleted_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetProviderServiceClient) OnDisabled(ctx context.Context, in *OnDisabledRequest, opts ...grpc.CallOption) (*OnDisabledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnDisabledResponse)
+	err := c.cc.Invoke(ctx, AppWidgetProviderService_OnDisabled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetProviderServiceClient) OnEnabled(ctx context.Context, in *OnEnabledRequest, opts ...grpc.CallOption) (*OnEnabledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnEnabledResponse)
+	err := c.cc.Invoke(ctx, AppWidgetProviderService_OnEnabled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetProviderServiceClient) OnReceive(ctx context.Context, in *OnReceiveRequest, opts ...grpc.CallOption) (*OnReceiveResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnReceiveResponse)
+	err := c.cc.Invoke(ctx, AppWidgetProviderService_OnReceive_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetProviderServiceClient) OnRestored(ctx context.Context, in *OnRestoredRequest, opts ...grpc.CallOption) (*OnRestoredResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnRestoredResponse)
+	err := c.cc.Invoke(ctx, AppWidgetProviderService_OnRestored_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetProviderServiceClient) OnUpdate(ctx context.Context, in *OnUpdateRequest, opts ...grpc.CallOption) (*OnUpdateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnUpdateResponse)
+	err := c.cc.Invoke(ctx, AppWidgetProviderService_OnUpdate_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AppWidgetProviderServiceServer is the server API for AppWidgetProviderService service.
+// All implementations must embed UnimplementedAppWidgetProviderServiceServer
+// for forward compatibility.
+type AppWidgetProviderServiceServer interface {
+	NewAppWidgetProvider(context.Context, *NewAppWidgetProviderRequest) (*NewAppWidgetProviderResponse, error)
+	OnAppWidgetOptionsChanged(context.Context, *OnAppWidgetOptionsChangedRequest) (*OnAppWidgetOptionsChangedResponse, error)
+	OnDeleted(context.Context, *OnDeletedRequest) (*OnDeletedResponse, error)
+	OnDisabled(context.Context, *OnDisabledRequest) (*OnDisabledResponse, error)
+	OnEnabled(context.Context, *OnEnabledRequest) (*OnEnabledResponse, error)
+	OnReceive(context.Context, *OnReceiveRequest) (*OnReceiveResponse, error)
+	OnRestored(context.Context, *OnRestoredRequest) (*OnRestoredResponse, error)
+	OnUpdate(context.Context, *OnUpdateRequest) (*OnUpdateResponse, error)
+	mustEmbedUnimplementedAppWidgetProviderServiceServer()
+}
+
+// UnimplementedAppWidgetProviderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedAppWidgetProviderServiceServer struct{}
+
+func (UnimplementedAppWidgetProviderServiceServer) NewAppWidgetProvider(context.Context, *NewAppWidgetProviderRequest) (*NewAppWidgetProviderResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewAppWidgetProvider not implemented")
+}
+func (UnimplementedAppWidgetProviderServiceServer) OnAppWidgetOptionsChanged(context.Context, *OnAppWidgetOptionsChangedRequest) (*OnAppWidgetOptionsChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnAppWidgetOptionsChanged not implemented")
+}
+func (UnimplementedAppWidgetProviderServiceServer) OnDeleted(context.Context, *OnDeletedRequest) (*OnDeletedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnDeleted not implemented")
+}
+func (UnimplementedAppWidgetProviderServiceServer) OnDisabled(context.Context, *OnDisabledRequest) (*OnDisabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnDisabled not implemented")
+}
+func (UnimplementedAppWidgetProviderServiceServer) OnEnabled(context.Context, *OnEnabledRequest) (*OnEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnEnabled not implemented")
+}
+func (UnimplementedAppWidgetProviderServiceServer) OnReceive(context.Context, *OnReceiveRequest) (*OnReceiveResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnReceive not implemented")
+}
+func (UnimplementedAppWidgetProviderServiceServer) OnRestored(context.Context, *OnRestoredRequest) (*OnRestoredResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnRestored not implemented")
+}
+func (UnimplementedAppWidgetProviderServiceServer) OnUpdate(context.Context, *OnUpdateRequest) (*OnUpdateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnUpdate not implemented")
+}
+func (UnimplementedAppWidgetProviderServiceServer) mustEmbedUnimplementedAppWidgetProviderServiceServer() {
+}
+func (UnimplementedAppWidgetProviderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeAppWidgetProviderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AppWidgetProviderServiceServer will
+// result in compilation errors.
+type UnsafeAppWidgetProviderServiceServer interface {
+	mustEmbedUnimplementedAppWidgetProviderServiceServer()
+}
+
+func RegisterAppWidgetProviderServiceServer(s grpc.ServiceRegistrar, srv AppWidgetProviderServiceServer) {
+	// If the following call panics, it indicates UnimplementedAppWidgetProviderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&AppWidgetProviderService_ServiceDesc, srv)
+}
+
+func _AppWidgetProviderService_NewAppWidgetProvider_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewAppWidgetProviderRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetProviderServiceServer).NewAppWidgetProvider(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetProviderService_NewAppWidgetProvider_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetProviderServiceServer).NewAppWidgetProvider(ctx, req.(*NewAppWidgetProviderRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetProviderService_OnAppWidgetOptionsChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnAppWidgetOptionsChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetProviderServiceServer).OnAppWidgetOptionsChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetProviderService_OnAppWidgetOptionsChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetProviderServiceServer).OnAppWidgetOptionsChanged(ctx, req.(*OnAppWidgetOptionsChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetProviderService_OnDeleted_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnDeletedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetProviderServiceServer).OnDeleted(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetProviderService_OnDeleted_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetProviderServiceServer).OnDeleted(ctx, req.(*OnDeletedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetProviderService_OnDisabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnDisabledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetProviderServiceServer).OnDisabled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetProviderService_OnDisabled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetProviderServiceServer).OnDisabled(ctx, req.(*OnDisabledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetProviderService_OnEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnEnabledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetProviderServiceServer).OnEnabled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetProviderService_OnEnabled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetProviderServiceServer).OnEnabled(ctx, req.(*OnEnabledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetProviderService_OnReceive_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnReceiveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetProviderServiceServer).OnReceive(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetProviderService_OnReceive_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetProviderServiceServer).OnReceive(ctx, req.(*OnReceiveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetProviderService_OnRestored_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnRestoredRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetProviderServiceServer).OnRestored(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetProviderService_OnRestored_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetProviderServiceServer).OnRestored(ctx, req.(*OnRestoredRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetProviderService_OnUpdate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnUpdateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetProviderServiceServer).OnUpdate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetProviderService_OnUpdate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetProviderServiceServer).OnUpdate(ctx, req.(*OnUpdateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AppWidgetProviderService_ServiceDesc is the grpc.ServiceDesc for AppWidgetProviderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AppWidgetProviderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "appwidget.AppWidgetProviderService",
+	HandlerType: (*AppWidgetProviderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewAppWidgetProvider",
+			Handler:    _AppWidgetProviderService_NewAppWidgetProvider_Handler,
+		},
+		{
+			MethodName: "OnAppWidgetOptionsChanged",
+			Handler:    _AppWidgetProviderService_OnAppWidgetOptionsChanged_Handler,
+		},
+		{
+			MethodName: "OnDeleted",
+			Handler:    _AppWidgetProviderService_OnDeleted_Handler,
+		},
+		{
+			MethodName: "OnDisabled",
+			Handler:    _AppWidgetProviderService_OnDisabled_Handler,
+		},
+		{
+			MethodName: "OnEnabled",
+			Handler:    _AppWidgetProviderService_OnEnabled_Handler,
+		},
+		{
+			MethodName: "OnReceive",
+			Handler:    _AppWidgetProviderService_OnReceive_Handler,
+		},
+		{
+			MethodName: "OnRestored",
+			Handler:    _AppWidgetProviderService_OnRestored_Handler,
+		},
+		{
+			MethodName: "OnUpdate",
+			Handler:    _AppWidgetProviderService_OnUpdate_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/appwidget/appwidget.proto",
+}
+
+const (
+	AppWidgetHostViewService_NewAppWidgetHostView_FullMethodName       = "/appwidget.AppWidgetHostViewService/NewAppWidgetHostView"
+	AppWidgetHostViewService_GenerateLayoutParams1_FullMethodName      = "/appwidget.AppWidgetHostViewService/GenerateLayoutParams1"
+	AppWidgetHostViewService_GetAppWidgetId_FullMethodName             = "/appwidget.AppWidgetHostViewService/GetAppWidgetId"
+	AppWidgetHostViewService_GetAppWidgetInfo_FullMethodName           = "/appwidget.AppWidgetHostViewService/GetAppWidgetInfo"
+	AppWidgetHostViewService_OnWindowFocusChanged_FullMethodName       = "/appwidget.AppWidgetHostViewService/OnWindowFocusChanged"
+	AppWidgetHostViewService_ResetColorResources_FullMethodName        = "/appwidget.AppWidgetHostViewService/ResetColorResources"
+	AppWidgetHostViewService_SetAppWidget_FullMethodName               = "/appwidget.AppWidgetHostViewService/SetAppWidget"
+	AppWidgetHostViewService_SetColorResources_FullMethodName          = "/appwidget.AppWidgetHostViewService/SetColorResources"
+	AppWidgetHostViewService_SetExecutor_FullMethodName                = "/appwidget.AppWidgetHostViewService/SetExecutor"
+	AppWidgetHostViewService_SetOnLightBackground_FullMethodName       = "/appwidget.AppWidgetHostViewService/SetOnLightBackground"
+	AppWidgetHostViewService_UpdateAppWidget_FullMethodName            = "/appwidget.AppWidgetHostViewService/UpdateAppWidget"
+	AppWidgetHostViewService_UpdateAppWidgetOptions_FullMethodName     = "/appwidget.AppWidgetHostViewService/UpdateAppWidgetOptions"
+	AppWidgetHostViewService_UpdateAppWidgetSize_FullMethodName        = "/appwidget.AppWidgetHostViewService/UpdateAppWidgetSize"
+	AppWidgetHostViewService_GenerateLayoutParams1_1_FullMethodName    = "/appwidget.AppWidgetHostViewService/GenerateLayoutParams1_1"
+	AppWidgetHostViewService_GetDefaultPaddingForWidget_FullMethodName = "/appwidget.AppWidgetHostViewService/GetDefaultPaddingForWidget"
+)
+
+// AppWidgetHostViewServiceClient is the client API for AppWidgetHostViewService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AppWidgetHostViewServiceClient interface {
+	NewAppWidgetHostView(ctx context.Context, in *NewAppWidgetHostViewRequest, opts ...grpc.CallOption) (*NewAppWidgetHostViewResponse, error)
+	GenerateLayoutParams1(ctx context.Context, in *GenerateLayoutParams1Request, opts ...grpc.CallOption) (*GenerateLayoutParams1Response, error)
+	GetAppWidgetId(ctx context.Context, in *GetAppWidgetIdRequest, opts ...grpc.CallOption) (*GetAppWidgetIdResponse, error)
+	GetAppWidgetInfo(ctx context.Context, in *GetAppWidgetInfoRequest, opts ...grpc.CallOption) (*GetAppWidgetInfoResponse, error)
+	OnWindowFocusChanged(ctx context.Context, in *OnWindowFocusChangedRequest, opts ...grpc.CallOption) (*OnWindowFocusChangedResponse, error)
+	ResetColorResources(ctx context.Context, in *ResetColorResourcesRequest, opts ...grpc.CallOption) (*ResetColorResourcesResponse, error)
+	SetAppWidget(ctx context.Context, in *SetAppWidgetRequest, opts ...grpc.CallOption) (*SetAppWidgetResponse, error)
+	SetColorResources(ctx context.Context, in *SetColorResourcesRequest, opts ...grpc.CallOption) (*SetColorResourcesResponse, error)
+	SetExecutor(ctx context.Context, in *SetExecutorRequest, opts ...grpc.CallOption) (*SetExecutorResponse, error)
+	SetOnLightBackground(ctx context.Context, in *SetOnLightBackgroundRequest, opts ...grpc.CallOption) (*SetOnLightBackgroundResponse, error)
+	UpdateAppWidget(ctx context.Context, in *UpdateAppWidgetRequest, opts ...grpc.CallOption) (*UpdateAppWidgetResponse, error)
+	UpdateAppWidgetOptions(ctx context.Context, in *UpdateAppWidgetOptionsRequest, opts ...grpc.CallOption) (*UpdateAppWidgetOptionsResponse, error)
+	UpdateAppWidgetSize(ctx context.Context, in *UpdateAppWidgetSizeRequest, opts ...grpc.CallOption) (*UpdateAppWidgetSizeResponse, error)
+	GenerateLayoutParams1_1(ctx context.Context, in *GenerateLayoutParams1_1Request, opts ...grpc.CallOption) (*GenerateLayoutParams1_1Response, error)
+	GetDefaultPaddingForWidget(ctx context.Context, in *GetDefaultPaddingForWidgetRequest, opts ...grpc.CallOption) (*GetDefaultPaddingForWidgetResponse, error)
+}
+
+type appWidgetHostViewServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAppWidgetHostViewServiceClient(cc grpc.ClientConnInterface) AppWidgetHostViewServiceClient {
+	return &appWidgetHostViewServiceClient{cc}
+}
+
+func (c *appWidgetHostViewServiceClient) NewAppWidgetHostView(ctx context.Context, in *NewAppWidgetHostViewRequest, opts ...grpc.CallOption) (*NewAppWidgetHostViewResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewAppWidgetHostViewResponse)
+	err := c.cc.Invoke(ctx, AppWidgetHostViewService_NewAppWidgetHostView_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetHostViewServiceClient) GenerateLayoutParams1(ctx context.Context, in *GenerateLayoutParams1Request, opts ...grpc.CallOption) (*GenerateLayoutParams1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GenerateLayoutParams1Response)
+	err := c.cc.Invoke(ctx, AppWidgetHostViewService_GenerateLayoutParams1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetHostViewServiceClient) GetAppWidgetId(ctx context.Context, in *GetAppWidgetIdRequest, opts ...grpc.CallOption) (*GetAppWidgetIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAppWidgetIdResponse)
+	err := c.cc.Invoke(ctx, AppWidgetHostViewService_GetAppWidgetId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetHostViewServiceClient) GetAppWidgetInfo(ctx context.Context, in *GetAppWidgetInfoRequest, opts ...grpc.CallOption) (*GetAppWidgetInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAppWidgetInfoResponse)
+	err := c.cc.Invoke(ctx, AppWidgetHostViewService_GetAppWidgetInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetHostViewServiceClient) OnWindowFocusChanged(ctx context.Context, in *OnWindowFocusChangedRequest, opts ...grpc.CallOption) (*OnWindowFocusChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnWindowFocusChangedResponse)
+	err := c.cc.Invoke(ctx, AppWidgetHostViewService_OnWindowFocusChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetHostViewServiceClient) ResetColorResources(ctx context.Context, in *ResetColorResourcesRequest, opts ...grpc.CallOption) (*ResetColorResourcesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ResetColorResourcesResponse)
+	err := c.cc.Invoke(ctx, AppWidgetHostViewService_ResetColorResources_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetHostViewServiceClient) SetAppWidget(ctx context.Context, in *SetAppWidgetRequest, opts ...grpc.CallOption) (*SetAppWidgetResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetAppWidgetResponse)
+	err := c.cc.Invoke(ctx, AppWidgetHostViewService_SetAppWidget_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetHostViewServiceClient) SetColorResources(ctx context.Context, in *SetColorResourcesRequest, opts ...grpc.CallOption) (*SetColorResourcesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetColorResourcesResponse)
+	err := c.cc.Invoke(ctx, AppWidgetHostViewService_SetColorResources_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetHostViewServiceClient) SetExecutor(ctx context.Context, in *SetExecutorRequest, opts ...grpc.CallOption) (*SetExecutorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetExecutorResponse)
+	err := c.cc.Invoke(ctx, AppWidgetHostViewService_SetExecutor_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetHostViewServiceClient) SetOnLightBackground(ctx context.Context, in *SetOnLightBackgroundRequest, opts ...grpc.CallOption) (*SetOnLightBackgroundResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetOnLightBackgroundResponse)
+	err := c.cc.Invoke(ctx, AppWidgetHostViewService_SetOnLightBackground_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetHostViewServiceClient) UpdateAppWidget(ctx context.Context, in *UpdateAppWidgetRequest, opts ...grpc.CallOption) (*UpdateAppWidgetResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateAppWidgetResponse)
+	err := c.cc.Invoke(ctx, AppWidgetHostViewService_UpdateAppWidget_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetHostViewServiceClient) UpdateAppWidgetOptions(ctx context.Context, in *UpdateAppWidgetOptionsRequest, opts ...grpc.CallOption) (*UpdateAppWidgetOptionsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateAppWidgetOptionsResponse)
+	err := c.cc.Invoke(ctx, AppWidgetHostViewService_UpdateAppWidgetOptions_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetHostViewServiceClient) UpdateAppWidgetSize(ctx context.Context, in *UpdateAppWidgetSizeRequest, opts ...grpc.CallOption) (*UpdateAppWidgetSizeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateAppWidgetSizeResponse)
+	err := c.cc.Invoke(ctx, AppWidgetHostViewService_UpdateAppWidgetSize_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetHostViewServiceClient) GenerateLayoutParams1_1(ctx context.Context, in *GenerateLayoutParams1_1Request, opts ...grpc.CallOption) (*GenerateLayoutParams1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GenerateLayoutParams1_1Response)
+	err := c.cc.Invoke(ctx, AppWidgetHostViewService_GenerateLayoutParams1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetHostViewServiceClient) GetDefaultPaddingForWidget(ctx context.Context, in *GetDefaultPaddingForWidgetRequest, opts ...grpc.CallOption) (*GetDefaultPaddingForWidgetResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDefaultPaddingForWidgetResponse)
+	err := c.cc.Invoke(ctx, AppWidgetHostViewService_GetDefaultPaddingForWidget_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AppWidgetHostViewServiceServer is the server API for AppWidgetHostViewService service.
+// All implementations must embed UnimplementedAppWidgetHostViewServiceServer
+// for forward compatibility.
+type AppWidgetHostViewServiceServer interface {
+	NewAppWidgetHostView(context.Context, *NewAppWidgetHostViewRequest) (*NewAppWidgetHostViewResponse, error)
+	GenerateLayoutParams1(context.Context, *GenerateLayoutParams1Request) (*GenerateLayoutParams1Response, error)
+	GetAppWidgetId(context.Context, *GetAppWidgetIdRequest) (*GetAppWidgetIdResponse, error)
+	GetAppWidgetInfo(context.Context, *GetAppWidgetInfoRequest) (*GetAppWidgetInfoResponse, error)
+	OnWindowFocusChanged(context.Context, *OnWindowFocusChangedRequest) (*OnWindowFocusChangedResponse, error)
+	ResetColorResources(context.Context, *ResetColorResourcesRequest) (*ResetColorResourcesResponse, error)
+	SetAppWidget(context.Context, *SetAppWidgetRequest) (*SetAppWidgetResponse, error)
+	SetColorResources(context.Context, *SetColorResourcesRequest) (*SetColorResourcesResponse, error)
+	SetExecutor(context.Context, *SetExecutorRequest) (*SetExecutorResponse, error)
+	SetOnLightBackground(context.Context, *SetOnLightBackgroundRequest) (*SetOnLightBackgroundResponse, error)
+	UpdateAppWidget(context.Context, *UpdateAppWidgetRequest) (*UpdateAppWidgetResponse, error)
+	UpdateAppWidgetOptions(context.Context, *UpdateAppWidgetOptionsRequest) (*UpdateAppWidgetOptionsResponse, error)
+	UpdateAppWidgetSize(context.Context, *UpdateAppWidgetSizeRequest) (*UpdateAppWidgetSizeResponse, error)
+	GenerateLayoutParams1_1(context.Context, *GenerateLayoutParams1_1Request) (*GenerateLayoutParams1_1Response, error)
+	GetDefaultPaddingForWidget(context.Context, *GetDefaultPaddingForWidgetRequest) (*GetDefaultPaddingForWidgetResponse, error)
+	mustEmbedUnimplementedAppWidgetHostViewServiceServer()
+}
+
+// UnimplementedAppWidgetHostViewServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedAppWidgetHostViewServiceServer struct{}
+
+func (UnimplementedAppWidgetHostViewServiceServer) NewAppWidgetHostView(context.Context, *NewAppWidgetHostViewRequest) (*NewAppWidgetHostViewResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewAppWidgetHostView not implemented")
+}
+func (UnimplementedAppWidgetHostViewServiceServer) GenerateLayoutParams1(context.Context, *GenerateLayoutParams1Request) (*GenerateLayoutParams1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GenerateLayoutParams1 not implemented")
+}
+func (UnimplementedAppWidgetHostViewServiceServer) GetAppWidgetId(context.Context, *GetAppWidgetIdRequest) (*GetAppWidgetIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAppWidgetId not implemented")
+}
+func (UnimplementedAppWidgetHostViewServiceServer) GetAppWidgetInfo(context.Context, *GetAppWidgetInfoRequest) (*GetAppWidgetInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAppWidgetInfo not implemented")
+}
+func (UnimplementedAppWidgetHostViewServiceServer) OnWindowFocusChanged(context.Context, *OnWindowFocusChangedRequest) (*OnWindowFocusChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnWindowFocusChanged not implemented")
+}
+func (UnimplementedAppWidgetHostViewServiceServer) ResetColorResources(context.Context, *ResetColorResourcesRequest) (*ResetColorResourcesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ResetColorResources not implemented")
+}
+func (UnimplementedAppWidgetHostViewServiceServer) SetAppWidget(context.Context, *SetAppWidgetRequest) (*SetAppWidgetResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetAppWidget not implemented")
+}
+func (UnimplementedAppWidgetHostViewServiceServer) SetColorResources(context.Context, *SetColorResourcesRequest) (*SetColorResourcesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetColorResources not implemented")
+}
+func (UnimplementedAppWidgetHostViewServiceServer) SetExecutor(context.Context, *SetExecutorRequest) (*SetExecutorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetExecutor not implemented")
+}
+func (UnimplementedAppWidgetHostViewServiceServer) SetOnLightBackground(context.Context, *SetOnLightBackgroundRequest) (*SetOnLightBackgroundResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetOnLightBackground not implemented")
+}
+func (UnimplementedAppWidgetHostViewServiceServer) UpdateAppWidget(context.Context, *UpdateAppWidgetRequest) (*UpdateAppWidgetResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UpdateAppWidget not implemented")
+}
+func (UnimplementedAppWidgetHostViewServiceServer) UpdateAppWidgetOptions(context.Context, *UpdateAppWidgetOptionsRequest) (*UpdateAppWidgetOptionsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UpdateAppWidgetOptions not implemented")
+}
+func (UnimplementedAppWidgetHostViewServiceServer) UpdateAppWidgetSize(context.Context, *UpdateAppWidgetSizeRequest) (*UpdateAppWidgetSizeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UpdateAppWidgetSize not implemented")
+}
+func (UnimplementedAppWidgetHostViewServiceServer) GenerateLayoutParams1_1(context.Context, *GenerateLayoutParams1_1Request) (*GenerateLayoutParams1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GenerateLayoutParams1_1 not implemented")
+}
+func (UnimplementedAppWidgetHostViewServiceServer) GetDefaultPaddingForWidget(context.Context, *GetDefaultPaddingForWidgetRequest) (*GetDefaultPaddingForWidgetResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDefaultPaddingForWidget not implemented")
+}
+func (UnimplementedAppWidgetHostViewServiceServer) mustEmbedUnimplementedAppWidgetHostViewServiceServer() {
+}
+func (UnimplementedAppWidgetHostViewServiceServer) testEmbeddedByValue() {}
+
+// UnsafeAppWidgetHostViewServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AppWidgetHostViewServiceServer will
+// result in compilation errors.
+type UnsafeAppWidgetHostViewServiceServer interface {
+	mustEmbedUnimplementedAppWidgetHostViewServiceServer()
+}
+
+func RegisterAppWidgetHostViewServiceServer(s grpc.ServiceRegistrar, srv AppWidgetHostViewServiceServer) {
+	// If the following call panics, it indicates UnimplementedAppWidgetHostViewServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&AppWidgetHostViewService_ServiceDesc, srv)
+}
+
+func _AppWidgetHostViewService_NewAppWidgetHostView_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewAppWidgetHostViewRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetHostViewServiceServer).NewAppWidgetHostView(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetHostViewService_NewAppWidgetHostView_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetHostViewServiceServer).NewAppWidgetHostView(ctx, req.(*NewAppWidgetHostViewRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetHostViewService_GenerateLayoutParams1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GenerateLayoutParams1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetHostViewServiceServer).GenerateLayoutParams1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetHostViewService_GenerateLayoutParams1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetHostViewServiceServer).GenerateLayoutParams1(ctx, req.(*GenerateLayoutParams1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetHostViewService_GetAppWidgetId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAppWidgetIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetHostViewServiceServer).GetAppWidgetId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetHostViewService_GetAppWidgetId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetHostViewServiceServer).GetAppWidgetId(ctx, req.(*GetAppWidgetIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetHostViewService_GetAppWidgetInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAppWidgetInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetHostViewServiceServer).GetAppWidgetInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetHostViewService_GetAppWidgetInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetHostViewServiceServer).GetAppWidgetInfo(ctx, req.(*GetAppWidgetInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetHostViewService_OnWindowFocusChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnWindowFocusChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetHostViewServiceServer).OnWindowFocusChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetHostViewService_OnWindowFocusChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetHostViewServiceServer).OnWindowFocusChanged(ctx, req.(*OnWindowFocusChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetHostViewService_ResetColorResources_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ResetColorResourcesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetHostViewServiceServer).ResetColorResources(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetHostViewService_ResetColorResources_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetHostViewServiceServer).ResetColorResources(ctx, req.(*ResetColorResourcesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetHostViewService_SetAppWidget_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetAppWidgetRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetHostViewServiceServer).SetAppWidget(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetHostViewService_SetAppWidget_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetHostViewServiceServer).SetAppWidget(ctx, req.(*SetAppWidgetRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetHostViewService_SetColorResources_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetColorResourcesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetHostViewServiceServer).SetColorResources(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetHostViewService_SetColorResources_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetHostViewServiceServer).SetColorResources(ctx, req.(*SetColorResourcesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetHostViewService_SetExecutor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetExecutorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetHostViewServiceServer).SetExecutor(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetHostViewService_SetExecutor_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetHostViewServiceServer).SetExecutor(ctx, req.(*SetExecutorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetHostViewService_SetOnLightBackground_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetOnLightBackgroundRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetHostViewServiceServer).SetOnLightBackground(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetHostViewService_SetOnLightBackground_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetHostViewServiceServer).SetOnLightBackground(ctx, req.(*SetOnLightBackgroundRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetHostViewService_UpdateAppWidget_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateAppWidgetRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetHostViewServiceServer).UpdateAppWidget(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetHostViewService_UpdateAppWidget_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetHostViewServiceServer).UpdateAppWidget(ctx, req.(*UpdateAppWidgetRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetHostViewService_UpdateAppWidgetOptions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateAppWidgetOptionsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetHostViewServiceServer).UpdateAppWidgetOptions(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetHostViewService_UpdateAppWidgetOptions_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetHostViewServiceServer).UpdateAppWidgetOptions(ctx, req.(*UpdateAppWidgetOptionsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetHostViewService_UpdateAppWidgetSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateAppWidgetSizeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetHostViewServiceServer).UpdateAppWidgetSize(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetHostViewService_UpdateAppWidgetSize_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetHostViewServiceServer).UpdateAppWidgetSize(ctx, req.(*UpdateAppWidgetSizeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetHostViewService_GenerateLayoutParams1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GenerateLayoutParams1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetHostViewServiceServer).GenerateLayoutParams1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetHostViewService_GenerateLayoutParams1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetHostViewServiceServer).GenerateLayoutParams1_1(ctx, req.(*GenerateLayoutParams1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetHostViewService_GetDefaultPaddingForWidget_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDefaultPaddingForWidgetRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetHostViewServiceServer).GetDefaultPaddingForWidget(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetHostViewService_GetDefaultPaddingForWidget_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetHostViewServiceServer).GetDefaultPaddingForWidget(ctx, req.(*GetDefaultPaddingForWidgetRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AppWidgetHostViewService_ServiceDesc is the grpc.ServiceDesc for AppWidgetHostViewService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AppWidgetHostViewService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "appwidget.AppWidgetHostViewService",
+	HandlerType: (*AppWidgetHostViewServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewAppWidgetHostView",
+			Handler:    _AppWidgetHostViewService_NewAppWidgetHostView_Handler,
+		},
+		{
+			MethodName: "GenerateLayoutParams1",
+			Handler:    _AppWidgetHostViewService_GenerateLayoutParams1_Handler,
+		},
+		{
+			MethodName: "GetAppWidgetId",
+			Handler:    _AppWidgetHostViewService_GetAppWidgetId_Handler,
+		},
+		{
+			MethodName: "GetAppWidgetInfo",
+			Handler:    _AppWidgetHostViewService_GetAppWidgetInfo_Handler,
+		},
+		{
+			MethodName: "OnWindowFocusChanged",
+			Handler:    _AppWidgetHostViewService_OnWindowFocusChanged_Handler,
+		},
+		{
+			MethodName: "ResetColorResources",
+			Handler:    _AppWidgetHostViewService_ResetColorResources_Handler,
+		},
+		{
+			MethodName: "SetAppWidget",
+			Handler:    _AppWidgetHostViewService_SetAppWidget_Handler,
+		},
+		{
+			MethodName: "SetColorResources",
+			Handler:    _AppWidgetHostViewService_SetColorResources_Handler,
+		},
+		{
+			MethodName: "SetExecutor",
+			Handler:    _AppWidgetHostViewService_SetExecutor_Handler,
+		},
+		{
+			MethodName: "SetOnLightBackground",
+			Handler:    _AppWidgetHostViewService_SetOnLightBackground_Handler,
+		},
+		{
+			MethodName: "UpdateAppWidget",
+			Handler:    _AppWidgetHostViewService_UpdateAppWidget_Handler,
+		},
+		{
+			MethodName: "UpdateAppWidgetOptions",
+			Handler:    _AppWidgetHostViewService_UpdateAppWidgetOptions_Handler,
+		},
+		{
+			MethodName: "UpdateAppWidgetSize",
+			Handler:    _AppWidgetHostViewService_UpdateAppWidgetSize_Handler,
+		},
+		{
+			MethodName: "GenerateLayoutParams1_1",
+			Handler:    _AppWidgetHostViewService_GenerateLayoutParams1_1_Handler,
+		},
+		{
+			MethodName: "GetDefaultPaddingForWidget",
+			Handler:    _AppWidgetHostViewService_GetDefaultPaddingForWidget_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/appwidget/appwidget.proto",
+}
+
+const (
+	AppWidgetProviderInfoService_NewAppWidgetProviderInfo_FullMethodName = "/appwidget.AppWidgetProviderInfoService/NewAppWidgetProviderInfo"
+	AppWidgetProviderInfoService_Clone0_FullMethodName                   = "/appwidget.AppWidgetProviderInfoService/Clone0"
+	AppWidgetProviderInfoService_DescribeContents_FullMethodName         = "/appwidget.AppWidgetProviderInfoService/DescribeContents"
+	AppWidgetProviderInfoService_GetActivityInfo_FullMethodName          = "/appwidget.AppWidgetProviderInfoService/GetActivityInfo"
+	AppWidgetProviderInfoService_GetProfile_FullMethodName               = "/appwidget.AppWidgetProviderInfoService/GetProfile"
+	AppWidgetProviderInfoService_LoadDescription_FullMethodName          = "/appwidget.AppWidgetProviderInfoService/LoadDescription"
+	AppWidgetProviderInfoService_LoadIcon_FullMethodName                 = "/appwidget.AppWidgetProviderInfoService/LoadIcon"
+	AppWidgetProviderInfoService_LoadLabel_FullMethodName                = "/appwidget.AppWidgetProviderInfoService/LoadLabel"
+	AppWidgetProviderInfoService_LoadPreviewImage_FullMethodName         = "/appwidget.AppWidgetProviderInfoService/LoadPreviewImage"
+	AppWidgetProviderInfoService_ToString_FullMethodName                 = "/appwidget.AppWidgetProviderInfoService/ToString"
+	AppWidgetProviderInfoService_WriteToParcel_FullMethodName            = "/appwidget.AppWidgetProviderInfoService/WriteToParcel"
+	AppWidgetProviderInfoService_Clone0_1_FullMethodName                 = "/appwidget.AppWidgetProviderInfoService/Clone0_1"
+)
+
+// AppWidgetProviderInfoServiceClient is the client API for AppWidgetProviderInfoService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AppWidgetProviderInfoServiceClient interface {
+	NewAppWidgetProviderInfo(ctx context.Context, in *NewAppWidgetProviderInfoRequest, opts ...grpc.CallOption) (*NewAppWidgetProviderInfoResponse, error)
+	Clone0(ctx context.Context, in *Clone0Request, opts ...grpc.CallOption) (*Clone0Response, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetActivityInfo(ctx context.Context, in *GetActivityInfoRequest, opts ...grpc.CallOption) (*GetActivityInfoResponse, error)
+	GetProfile(ctx context.Context, in *GetProfileRequest, opts ...grpc.CallOption) (*GetProfileResponse, error)
+	LoadDescription(ctx context.Context, in *LoadDescriptionRequest, opts ...grpc.CallOption) (*LoadDescriptionResponse, error)
+	LoadIcon(ctx context.Context, in *LoadIconRequest, opts ...grpc.CallOption) (*LoadIconResponse, error)
+	LoadLabel(ctx context.Context, in *LoadLabelRequest, opts ...grpc.CallOption) (*LoadLabelResponse, error)
+	LoadPreviewImage(ctx context.Context, in *LoadPreviewImageRequest, opts ...grpc.CallOption) (*LoadPreviewImageResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+	Clone0_1(ctx context.Context, in *Clone0_1Request, opts ...grpc.CallOption) (*Clone0_1Response, error)
+}
+
+type appWidgetProviderInfoServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAppWidgetProviderInfoServiceClient(cc grpc.ClientConnInterface) AppWidgetProviderInfoServiceClient {
+	return &appWidgetProviderInfoServiceClient{cc}
+}
+
+func (c *appWidgetProviderInfoServiceClient) NewAppWidgetProviderInfo(ctx context.Context, in *NewAppWidgetProviderInfoRequest, opts ...grpc.CallOption) (*NewAppWidgetProviderInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewAppWidgetProviderInfoResponse)
+	err := c.cc.Invoke(ctx, AppWidgetProviderInfoService_NewAppWidgetProviderInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetProviderInfoServiceClient) Clone0(ctx context.Context, in *Clone0Request, opts ...grpc.CallOption) (*Clone0Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Clone0Response)
+	err := c.cc.Invoke(ctx, AppWidgetProviderInfoService_Clone0_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetProviderInfoServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, AppWidgetProviderInfoService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetProviderInfoServiceClient) GetActivityInfo(ctx context.Context, in *GetActivityInfoRequest, opts ...grpc.CallOption) (*GetActivityInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetActivityInfoResponse)
+	err := c.cc.Invoke(ctx, AppWidgetProviderInfoService_GetActivityInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetProviderInfoServiceClient) GetProfile(ctx context.Context, in *GetProfileRequest, opts ...grpc.CallOption) (*GetProfileResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetProfileResponse)
+	err := c.cc.Invoke(ctx, AppWidgetProviderInfoService_GetProfile_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetProviderInfoServiceClient) LoadDescription(ctx context.Context, in *LoadDescriptionRequest, opts ...grpc.CallOption) (*LoadDescriptionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(LoadDescriptionResponse)
+	err := c.cc.Invoke(ctx, AppWidgetProviderInfoService_LoadDescription_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetProviderInfoServiceClient) LoadIcon(ctx context.Context, in *LoadIconRequest, opts ...grpc.CallOption) (*LoadIconResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(LoadIconResponse)
+	err := c.cc.Invoke(ctx, AppWidgetProviderInfoService_LoadIcon_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetProviderInfoServiceClient) LoadLabel(ctx context.Context, in *LoadLabelRequest, opts ...grpc.CallOption) (*LoadLabelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(LoadLabelResponse)
+	err := c.cc.Invoke(ctx, AppWidgetProviderInfoService_LoadLabel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetProviderInfoServiceClient) LoadPreviewImage(ctx context.Context, in *LoadPreviewImageRequest, opts ...grpc.CallOption) (*LoadPreviewImageResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(LoadPreviewImageResponse)
+	err := c.cc.Invoke(ctx, AppWidgetProviderInfoService_LoadPreviewImage_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetProviderInfoServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, AppWidgetProviderInfoService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetProviderInfoServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, AppWidgetProviderInfoService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetProviderInfoServiceClient) Clone0_1(ctx context.Context, in *Clone0_1Request, opts ...grpc.CallOption) (*Clone0_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Clone0_1Response)
+	err := c.cc.Invoke(ctx, AppWidgetProviderInfoService_Clone0_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AppWidgetProviderInfoServiceServer is the server API for AppWidgetProviderInfoService service.
+// All implementations must embed UnimplementedAppWidgetProviderInfoServiceServer
+// for forward compatibility.
+type AppWidgetProviderInfoServiceServer interface {
+	NewAppWidgetProviderInfo(context.Context, *NewAppWidgetProviderInfoRequest) (*NewAppWidgetProviderInfoResponse, error)
+	Clone0(context.Context, *Clone0Request) (*Clone0Response, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetActivityInfo(context.Context, *GetActivityInfoRequest) (*GetActivityInfoResponse, error)
+	GetProfile(context.Context, *GetProfileRequest) (*GetProfileResponse, error)
+	LoadDescription(context.Context, *LoadDescriptionRequest) (*LoadDescriptionResponse, error)
+	LoadIcon(context.Context, *LoadIconRequest) (*LoadIconResponse, error)
+	LoadLabel(context.Context, *LoadLabelRequest) (*LoadLabelResponse, error)
+	LoadPreviewImage(context.Context, *LoadPreviewImageRequest) (*LoadPreviewImageResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	Clone0_1(context.Context, *Clone0_1Request) (*Clone0_1Response, error)
+	mustEmbedUnimplementedAppWidgetProviderInfoServiceServer()
+}
+
+// UnimplementedAppWidgetProviderInfoServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedAppWidgetProviderInfoServiceServer struct{}
+
+func (UnimplementedAppWidgetProviderInfoServiceServer) NewAppWidgetProviderInfo(context.Context, *NewAppWidgetProviderInfoRequest) (*NewAppWidgetProviderInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewAppWidgetProviderInfo not implemented")
+}
+func (UnimplementedAppWidgetProviderInfoServiceServer) Clone0(context.Context, *Clone0Request) (*Clone0Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Clone0 not implemented")
+}
+func (UnimplementedAppWidgetProviderInfoServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedAppWidgetProviderInfoServiceServer) GetActivityInfo(context.Context, *GetActivityInfoRequest) (*GetActivityInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetActivityInfo not implemented")
+}
+func (UnimplementedAppWidgetProviderInfoServiceServer) GetProfile(context.Context, *GetProfileRequest) (*GetProfileResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetProfile not implemented")
+}
+func (UnimplementedAppWidgetProviderInfoServiceServer) LoadDescription(context.Context, *LoadDescriptionRequest) (*LoadDescriptionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method LoadDescription not implemented")
+}
+func (UnimplementedAppWidgetProviderInfoServiceServer) LoadIcon(context.Context, *LoadIconRequest) (*LoadIconResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method LoadIcon not implemented")
+}
+func (UnimplementedAppWidgetProviderInfoServiceServer) LoadLabel(context.Context, *LoadLabelRequest) (*LoadLabelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method LoadLabel not implemented")
+}
+func (UnimplementedAppWidgetProviderInfoServiceServer) LoadPreviewImage(context.Context, *LoadPreviewImageRequest) (*LoadPreviewImageResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method LoadPreviewImage not implemented")
+}
+func (UnimplementedAppWidgetProviderInfoServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedAppWidgetProviderInfoServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedAppWidgetProviderInfoServiceServer) Clone0_1(context.Context, *Clone0_1Request) (*Clone0_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Clone0_1 not implemented")
+}
+func (UnimplementedAppWidgetProviderInfoServiceServer) mustEmbedUnimplementedAppWidgetProviderInfoServiceServer() {
+}
+func (UnimplementedAppWidgetProviderInfoServiceServer) testEmbeddedByValue() {}
+
+// UnsafeAppWidgetProviderInfoServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AppWidgetProviderInfoServiceServer will
+// result in compilation errors.
+type UnsafeAppWidgetProviderInfoServiceServer interface {
+	mustEmbedUnimplementedAppWidgetProviderInfoServiceServer()
+}
+
+func RegisterAppWidgetProviderInfoServiceServer(s grpc.ServiceRegistrar, srv AppWidgetProviderInfoServiceServer) {
+	// If the following call panics, it indicates UnimplementedAppWidgetProviderInfoServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&AppWidgetProviderInfoService_ServiceDesc, srv)
+}
+
+func _AppWidgetProviderInfoService_NewAppWidgetProviderInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewAppWidgetProviderInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetProviderInfoServiceServer).NewAppWidgetProviderInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetProviderInfoService_NewAppWidgetProviderInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetProviderInfoServiceServer).NewAppWidgetProviderInfo(ctx, req.(*NewAppWidgetProviderInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetProviderInfoService_Clone0_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Clone0Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetProviderInfoServiceServer).Clone0(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetProviderInfoService_Clone0_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetProviderInfoServiceServer).Clone0(ctx, req.(*Clone0Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetProviderInfoService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetProviderInfoServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetProviderInfoService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetProviderInfoServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetProviderInfoService_GetActivityInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetActivityInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetProviderInfoServiceServer).GetActivityInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetProviderInfoService_GetActivityInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetProviderInfoServiceServer).GetActivityInfo(ctx, req.(*GetActivityInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetProviderInfoService_GetProfile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetProfileRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetProviderInfoServiceServer).GetProfile(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetProviderInfoService_GetProfile_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetProviderInfoServiceServer).GetProfile(ctx, req.(*GetProfileRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetProviderInfoService_LoadDescription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LoadDescriptionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetProviderInfoServiceServer).LoadDescription(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetProviderInfoService_LoadDescription_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetProviderInfoServiceServer).LoadDescription(ctx, req.(*LoadDescriptionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetProviderInfoService_LoadIcon_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LoadIconRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetProviderInfoServiceServer).LoadIcon(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetProviderInfoService_LoadIcon_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetProviderInfoServiceServer).LoadIcon(ctx, req.(*LoadIconRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetProviderInfoService_LoadLabel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LoadLabelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetProviderInfoServiceServer).LoadLabel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetProviderInfoService_LoadLabel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetProviderInfoServiceServer).LoadLabel(ctx, req.(*LoadLabelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetProviderInfoService_LoadPreviewImage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LoadPreviewImageRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetProviderInfoServiceServer).LoadPreviewImage(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetProviderInfoService_LoadPreviewImage_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetProviderInfoServiceServer).LoadPreviewImage(ctx, req.(*LoadPreviewImageRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetProviderInfoService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetProviderInfoServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetProviderInfoService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetProviderInfoServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetProviderInfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetProviderInfoServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetProviderInfoService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetProviderInfoServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetProviderInfoService_Clone0_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Clone0_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetProviderInfoServiceServer).Clone0_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetProviderInfoService_Clone0_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetProviderInfoServiceServer).Clone0_1(ctx, req.(*Clone0_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AppWidgetProviderInfoService_ServiceDesc is the grpc.ServiceDesc for AppWidgetProviderInfoService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AppWidgetProviderInfoService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "appwidget.AppWidgetProviderInfoService",
+	HandlerType: (*AppWidgetProviderInfoServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewAppWidgetProviderInfo",
+			Handler:    _AppWidgetProviderInfoService_NewAppWidgetProviderInfo_Handler,
+		},
+		{
+			MethodName: "Clone0",
+			Handler:    _AppWidgetProviderInfoService_Clone0_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _AppWidgetProviderInfoService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetActivityInfo",
+			Handler:    _AppWidgetProviderInfoService_GetActivityInfo_Handler,
+		},
+		{
+			MethodName: "GetProfile",
+			Handler:    _AppWidgetProviderInfoService_GetProfile_Handler,
+		},
+		{
+			MethodName: "LoadDescription",
+			Handler:    _AppWidgetProviderInfoService_LoadDescription_Handler,
+		},
+		{
+			MethodName: "LoadIcon",
+			Handler:    _AppWidgetProviderInfoService_LoadIcon_Handler,
+		},
+		{
+			MethodName: "LoadLabel",
+			Handler:    _AppWidgetProviderInfoService_LoadLabel_Handler,
+		},
+		{
+			MethodName: "LoadPreviewImage",
+			Handler:    _AppWidgetProviderInfoService_LoadPreviewImage_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _AppWidgetProviderInfoService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _AppWidgetProviderInfoService_WriteToParcel_Handler,
+		},
+		{
+			MethodName: "Clone0_1",
+			Handler:    _AppWidgetProviderInfoService_Clone0_1_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/appwidget/appwidget.proto",
+}
+
+const (
 	AppWidgetManagerService_BindAppWidgetIdIfAllowed2_FullMethodName         = "/appwidget.AppWidgetManagerService/BindAppWidgetIdIfAllowed2"
 	AppWidgetManagerService_BindAppWidgetIdIfAllowed3_1_FullMethodName       = "/appwidget.AppWidgetManagerService/BindAppWidgetIdIfAllowed3_1"
 	AppWidgetManagerService_BindAppWidgetIdIfAllowed4_2_FullMethodName       = "/appwidget.AppWidgetManagerService/BindAppWidgetIdIfAllowed4_2"
@@ -52,7 +1577,7 @@ type AppWidgetManagerServiceClient interface {
 	BindAppWidgetIdIfAllowed3_1(ctx context.Context, in *BindAppWidgetIdIfAllowed3_1Request, opts ...grpc.CallOption) (*BindAppWidgetIdIfAllowed3_1Response, error)
 	BindAppWidgetIdIfAllowed4_2(ctx context.Context, in *BindAppWidgetIdIfAllowed4_2Request, opts ...grpc.CallOption) (*BindAppWidgetIdIfAllowed4_2Response, error)
 	GetAppWidgetIds(ctx context.Context, in *GetAppWidgetIdsRequest, opts ...grpc.CallOption) (*GetAppWidgetIdsResponse, error)
-	GetAppWidgetInfo(ctx context.Context, in *GetAppWidgetInfoRequest, opts ...grpc.CallOption) (*GetAppWidgetInfoResponse, error)
+	GetAppWidgetInfo(ctx context.Context, in *AppWidgetManagerGetAppWidgetInfoRequest, opts ...grpc.CallOption) (*GetAppWidgetInfoResponse, error)
 	GetAppWidgetOptions(ctx context.Context, in *GetAppWidgetOptionsRequest, opts ...grpc.CallOption) (*GetAppWidgetOptionsResponse, error)
 	GetWidgetPreview(ctx context.Context, in *GetWidgetPreviewRequest, opts ...grpc.CallOption) (*GetWidgetPreviewResponse, error)
 	IsRequestPinAppWidgetSupported(ctx context.Context, in *IsRequestPinAppWidgetSupportedRequest, opts ...grpc.CallOption) (*IsRequestPinAppWidgetSupportedResponse, error)
@@ -66,7 +1591,7 @@ type AppWidgetManagerServiceClient interface {
 	UpdateAppWidget2(ctx context.Context, in *UpdateAppWidget2Request, opts ...grpc.CallOption) (*UpdateAppWidget2Response, error)
 	UpdateAppWidget2_1(ctx context.Context, in *UpdateAppWidget2_1Request, opts ...grpc.CallOption) (*UpdateAppWidget2_1Response, error)
 	UpdateAppWidget2_2(ctx context.Context, in *UpdateAppWidget2_2Request, opts ...grpc.CallOption) (*UpdateAppWidget2_2Response, error)
-	UpdateAppWidgetOptions(ctx context.Context, in *UpdateAppWidgetOptionsRequest, opts ...grpc.CallOption) (*UpdateAppWidgetOptionsResponse, error)
+	UpdateAppWidgetOptions(ctx context.Context, in *AppWidgetManagerUpdateAppWidgetOptionsRequest, opts ...grpc.CallOption) (*UpdateAppWidgetOptionsResponse, error)
 	UpdateAppWidgetProviderInfo(ctx context.Context, in *UpdateAppWidgetProviderInfoRequest, opts ...grpc.CallOption) (*UpdateAppWidgetProviderInfoResponse, error)
 	GetInstance(ctx context.Context, in *GetInstanceRequest, opts ...grpc.CallOption) (*GetInstanceResponse, error)
 }
@@ -119,7 +1644,7 @@ func (c *appWidgetManagerServiceClient) GetAppWidgetIds(ctx context.Context, in 
 	return out, nil
 }
 
-func (c *appWidgetManagerServiceClient) GetAppWidgetInfo(ctx context.Context, in *GetAppWidgetInfoRequest, opts ...grpc.CallOption) (*GetAppWidgetInfoResponse, error) {
+func (c *appWidgetManagerServiceClient) GetAppWidgetInfo(ctx context.Context, in *AppWidgetManagerGetAppWidgetInfoRequest, opts ...grpc.CallOption) (*GetAppWidgetInfoResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetAppWidgetInfoResponse)
 	err := c.cc.Invoke(ctx, AppWidgetManagerService_GetAppWidgetInfo_FullMethodName, in, out, cOpts...)
@@ -259,7 +1784,7 @@ func (c *appWidgetManagerServiceClient) UpdateAppWidget2_2(ctx context.Context, 
 	return out, nil
 }
 
-func (c *appWidgetManagerServiceClient) UpdateAppWidgetOptions(ctx context.Context, in *UpdateAppWidgetOptionsRequest, opts ...grpc.CallOption) (*UpdateAppWidgetOptionsResponse, error) {
+func (c *appWidgetManagerServiceClient) UpdateAppWidgetOptions(ctx context.Context, in *AppWidgetManagerUpdateAppWidgetOptionsRequest, opts ...grpc.CallOption) (*UpdateAppWidgetOptionsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(UpdateAppWidgetOptionsResponse)
 	err := c.cc.Invoke(ctx, AppWidgetManagerService_UpdateAppWidgetOptions_FullMethodName, in, out, cOpts...)
@@ -297,7 +1822,7 @@ type AppWidgetManagerServiceServer interface {
 	BindAppWidgetIdIfAllowed3_1(context.Context, *BindAppWidgetIdIfAllowed3_1Request) (*BindAppWidgetIdIfAllowed3_1Response, error)
 	BindAppWidgetIdIfAllowed4_2(context.Context, *BindAppWidgetIdIfAllowed4_2Request) (*BindAppWidgetIdIfAllowed4_2Response, error)
 	GetAppWidgetIds(context.Context, *GetAppWidgetIdsRequest) (*GetAppWidgetIdsResponse, error)
-	GetAppWidgetInfo(context.Context, *GetAppWidgetInfoRequest) (*GetAppWidgetInfoResponse, error)
+	GetAppWidgetInfo(context.Context, *AppWidgetManagerGetAppWidgetInfoRequest) (*GetAppWidgetInfoResponse, error)
 	GetAppWidgetOptions(context.Context, *GetAppWidgetOptionsRequest) (*GetAppWidgetOptionsResponse, error)
 	GetWidgetPreview(context.Context, *GetWidgetPreviewRequest) (*GetWidgetPreviewResponse, error)
 	IsRequestPinAppWidgetSupported(context.Context, *IsRequestPinAppWidgetSupportedRequest) (*IsRequestPinAppWidgetSupportedResponse, error)
@@ -311,7 +1836,7 @@ type AppWidgetManagerServiceServer interface {
 	UpdateAppWidget2(context.Context, *UpdateAppWidget2Request) (*UpdateAppWidget2Response, error)
 	UpdateAppWidget2_1(context.Context, *UpdateAppWidget2_1Request) (*UpdateAppWidget2_1Response, error)
 	UpdateAppWidget2_2(context.Context, *UpdateAppWidget2_2Request) (*UpdateAppWidget2_2Response, error)
-	UpdateAppWidgetOptions(context.Context, *UpdateAppWidgetOptionsRequest) (*UpdateAppWidgetOptionsResponse, error)
+	UpdateAppWidgetOptions(context.Context, *AppWidgetManagerUpdateAppWidgetOptionsRequest) (*UpdateAppWidgetOptionsResponse, error)
 	UpdateAppWidgetProviderInfo(context.Context, *UpdateAppWidgetProviderInfoRequest) (*UpdateAppWidgetProviderInfoResponse, error)
 	GetInstance(context.Context, *GetInstanceRequest) (*GetInstanceResponse, error)
 	mustEmbedUnimplementedAppWidgetManagerServiceServer()
@@ -336,7 +1861,7 @@ func (UnimplementedAppWidgetManagerServiceServer) BindAppWidgetIdIfAllowed4_2(co
 func (UnimplementedAppWidgetManagerServiceServer) GetAppWidgetIds(context.Context, *GetAppWidgetIdsRequest) (*GetAppWidgetIdsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetAppWidgetIds not implemented")
 }
-func (UnimplementedAppWidgetManagerServiceServer) GetAppWidgetInfo(context.Context, *GetAppWidgetInfoRequest) (*GetAppWidgetInfoResponse, error) {
+func (UnimplementedAppWidgetManagerServiceServer) GetAppWidgetInfo(context.Context, *AppWidgetManagerGetAppWidgetInfoRequest) (*GetAppWidgetInfoResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetAppWidgetInfo not implemented")
 }
 func (UnimplementedAppWidgetManagerServiceServer) GetAppWidgetOptions(context.Context, *GetAppWidgetOptionsRequest) (*GetAppWidgetOptionsResponse, error) {
@@ -378,7 +1903,7 @@ func (UnimplementedAppWidgetManagerServiceServer) UpdateAppWidget2_1(context.Con
 func (UnimplementedAppWidgetManagerServiceServer) UpdateAppWidget2_2(context.Context, *UpdateAppWidget2_2Request) (*UpdateAppWidget2_2Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method UpdateAppWidget2_2 not implemented")
 }
-func (UnimplementedAppWidgetManagerServiceServer) UpdateAppWidgetOptions(context.Context, *UpdateAppWidgetOptionsRequest) (*UpdateAppWidgetOptionsResponse, error) {
+func (UnimplementedAppWidgetManagerServiceServer) UpdateAppWidgetOptions(context.Context, *AppWidgetManagerUpdateAppWidgetOptionsRequest) (*UpdateAppWidgetOptionsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method UpdateAppWidgetOptions not implemented")
 }
 func (UnimplementedAppWidgetManagerServiceServer) UpdateAppWidgetProviderInfo(context.Context, *UpdateAppWidgetProviderInfoRequest) (*UpdateAppWidgetProviderInfoResponse, error) {
@@ -482,7 +2007,7 @@ func _AppWidgetManagerService_GetAppWidgetIds_Handler(srv interface{}, ctx conte
 }
 
 func _AppWidgetManagerService_GetAppWidgetInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAppWidgetInfoRequest)
+	in := new(AppWidgetManagerGetAppWidgetInfoRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -494,7 +2019,7 @@ func _AppWidgetManagerService_GetAppWidgetInfo_Handler(srv interface{}, ctx cont
 		FullMethod: AppWidgetManagerService_GetAppWidgetInfo_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AppWidgetManagerServiceServer).GetAppWidgetInfo(ctx, req.(*GetAppWidgetInfoRequest))
+		return srv.(AppWidgetManagerServiceServer).GetAppWidgetInfo(ctx, req.(*AppWidgetManagerGetAppWidgetInfoRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -734,7 +2259,7 @@ func _AppWidgetManagerService_UpdateAppWidget2_2_Handler(srv interface{}, ctx co
 }
 
 func _AppWidgetManagerService_UpdateAppWidgetOptions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateAppWidgetOptionsRequest)
+	in := new(AppWidgetManagerUpdateAppWidgetOptionsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -746,7 +2271,7 @@ func _AppWidgetManagerService_UpdateAppWidgetOptions_Handler(srv interface{}, ct
 		FullMethod: AppWidgetManagerService_UpdateAppWidgetOptions_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AppWidgetManagerServiceServer).UpdateAppWidgetOptions(ctx, req.(*UpdateAppWidgetOptionsRequest))
+		return srv.(AppWidgetManagerServiceServer).UpdateAppWidgetOptions(ctx, req.(*AppWidgetManagerUpdateAppWidgetOptionsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -877,6 +2402,488 @@ var AppWidgetManagerService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetInstance",
 			Handler:    _AppWidgetManagerService_GetInstance_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/appwidget/appwidget.proto",
+}
+
+const (
+	AppWidgetHostService_NewAppWidgetHost_FullMethodName                         = "/appwidget.AppWidgetHostService/NewAppWidgetHost"
+	AppWidgetHostService_AllocateAppWidgetId_FullMethodName                      = "/appwidget.AppWidgetHostService/AllocateAppWidgetId"
+	AppWidgetHostService_CreateView_FullMethodName                               = "/appwidget.AppWidgetHostService/CreateView"
+	AppWidgetHostService_DeleteAppWidgetId_FullMethodName                        = "/appwidget.AppWidgetHostService/DeleteAppWidgetId"
+	AppWidgetHostService_DeleteHost_FullMethodName                               = "/appwidget.AppWidgetHostService/DeleteHost"
+	AppWidgetHostService_GetAppWidgetIds_FullMethodName                          = "/appwidget.AppWidgetHostService/GetAppWidgetIds"
+	AppWidgetHostService_OnAppWidgetRemoved_FullMethodName                       = "/appwidget.AppWidgetHostService/OnAppWidgetRemoved"
+	AppWidgetHostService_StartAppWidgetConfigureActivityForResult_FullMethodName = "/appwidget.AppWidgetHostService/StartAppWidgetConfigureActivityForResult"
+	AppWidgetHostService_StartListening_FullMethodName                           = "/appwidget.AppWidgetHostService/StartListening"
+	AppWidgetHostService_StopListening_FullMethodName                            = "/appwidget.AppWidgetHostService/StopListening"
+	AppWidgetHostService_DeleteAllHosts_FullMethodName                           = "/appwidget.AppWidgetHostService/DeleteAllHosts"
+)
+
+// AppWidgetHostServiceClient is the client API for AppWidgetHostService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AppWidgetHostServiceClient interface {
+	NewAppWidgetHost(ctx context.Context, in *NewAppWidgetHostRequest, opts ...grpc.CallOption) (*NewAppWidgetHostResponse, error)
+	AllocateAppWidgetId(ctx context.Context, in *AllocateAppWidgetIdRequest, opts ...grpc.CallOption) (*AllocateAppWidgetIdResponse, error)
+	CreateView(ctx context.Context, in *CreateViewRequest, opts ...grpc.CallOption) (*CreateViewResponse, error)
+	DeleteAppWidgetId(ctx context.Context, in *DeleteAppWidgetIdRequest, opts ...grpc.CallOption) (*DeleteAppWidgetIdResponse, error)
+	DeleteHost(ctx context.Context, in *DeleteHostRequest, opts ...grpc.CallOption) (*DeleteHostResponse, error)
+	GetAppWidgetIds(ctx context.Context, in *AppWidgetHostGetAppWidgetIdsRequest, opts ...grpc.CallOption) (*GetAppWidgetIdsResponse, error)
+	OnAppWidgetRemoved(ctx context.Context, in *OnAppWidgetRemovedRequest, opts ...grpc.CallOption) (*OnAppWidgetRemovedResponse, error)
+	StartAppWidgetConfigureActivityForResult(ctx context.Context, in *StartAppWidgetConfigureActivityForResultRequest, opts ...grpc.CallOption) (*StartAppWidgetConfigureActivityForResultResponse, error)
+	StartListening(ctx context.Context, in *StartListeningRequest, opts ...grpc.CallOption) (*StartListeningResponse, error)
+	StopListening(ctx context.Context, in *StopListeningRequest, opts ...grpc.CallOption) (*StopListeningResponse, error)
+	DeleteAllHosts(ctx context.Context, in *DeleteAllHostsRequest, opts ...grpc.CallOption) (*DeleteAllHostsResponse, error)
+}
+
+type appWidgetHostServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAppWidgetHostServiceClient(cc grpc.ClientConnInterface) AppWidgetHostServiceClient {
+	return &appWidgetHostServiceClient{cc}
+}
+
+func (c *appWidgetHostServiceClient) NewAppWidgetHost(ctx context.Context, in *NewAppWidgetHostRequest, opts ...grpc.CallOption) (*NewAppWidgetHostResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewAppWidgetHostResponse)
+	err := c.cc.Invoke(ctx, AppWidgetHostService_NewAppWidgetHost_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetHostServiceClient) AllocateAppWidgetId(ctx context.Context, in *AllocateAppWidgetIdRequest, opts ...grpc.CallOption) (*AllocateAppWidgetIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AllocateAppWidgetIdResponse)
+	err := c.cc.Invoke(ctx, AppWidgetHostService_AllocateAppWidgetId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetHostServiceClient) CreateView(ctx context.Context, in *CreateViewRequest, opts ...grpc.CallOption) (*CreateViewResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateViewResponse)
+	err := c.cc.Invoke(ctx, AppWidgetHostService_CreateView_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetHostServiceClient) DeleteAppWidgetId(ctx context.Context, in *DeleteAppWidgetIdRequest, opts ...grpc.CallOption) (*DeleteAppWidgetIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DeleteAppWidgetIdResponse)
+	err := c.cc.Invoke(ctx, AppWidgetHostService_DeleteAppWidgetId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetHostServiceClient) DeleteHost(ctx context.Context, in *DeleteHostRequest, opts ...grpc.CallOption) (*DeleteHostResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DeleteHostResponse)
+	err := c.cc.Invoke(ctx, AppWidgetHostService_DeleteHost_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetHostServiceClient) GetAppWidgetIds(ctx context.Context, in *AppWidgetHostGetAppWidgetIdsRequest, opts ...grpc.CallOption) (*GetAppWidgetIdsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAppWidgetIdsResponse)
+	err := c.cc.Invoke(ctx, AppWidgetHostService_GetAppWidgetIds_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetHostServiceClient) OnAppWidgetRemoved(ctx context.Context, in *OnAppWidgetRemovedRequest, opts ...grpc.CallOption) (*OnAppWidgetRemovedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnAppWidgetRemovedResponse)
+	err := c.cc.Invoke(ctx, AppWidgetHostService_OnAppWidgetRemoved_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetHostServiceClient) StartAppWidgetConfigureActivityForResult(ctx context.Context, in *StartAppWidgetConfigureActivityForResultRequest, opts ...grpc.CallOption) (*StartAppWidgetConfigureActivityForResultResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(StartAppWidgetConfigureActivityForResultResponse)
+	err := c.cc.Invoke(ctx, AppWidgetHostService_StartAppWidgetConfigureActivityForResult_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetHostServiceClient) StartListening(ctx context.Context, in *StartListeningRequest, opts ...grpc.CallOption) (*StartListeningResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(StartListeningResponse)
+	err := c.cc.Invoke(ctx, AppWidgetHostService_StartListening_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetHostServiceClient) StopListening(ctx context.Context, in *StopListeningRequest, opts ...grpc.CallOption) (*StopListeningResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(StopListeningResponse)
+	err := c.cc.Invoke(ctx, AppWidgetHostService_StopListening_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appWidgetHostServiceClient) DeleteAllHosts(ctx context.Context, in *DeleteAllHostsRequest, opts ...grpc.CallOption) (*DeleteAllHostsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DeleteAllHostsResponse)
+	err := c.cc.Invoke(ctx, AppWidgetHostService_DeleteAllHosts_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AppWidgetHostServiceServer is the server API for AppWidgetHostService service.
+// All implementations must embed UnimplementedAppWidgetHostServiceServer
+// for forward compatibility.
+type AppWidgetHostServiceServer interface {
+	NewAppWidgetHost(context.Context, *NewAppWidgetHostRequest) (*NewAppWidgetHostResponse, error)
+	AllocateAppWidgetId(context.Context, *AllocateAppWidgetIdRequest) (*AllocateAppWidgetIdResponse, error)
+	CreateView(context.Context, *CreateViewRequest) (*CreateViewResponse, error)
+	DeleteAppWidgetId(context.Context, *DeleteAppWidgetIdRequest) (*DeleteAppWidgetIdResponse, error)
+	DeleteHost(context.Context, *DeleteHostRequest) (*DeleteHostResponse, error)
+	GetAppWidgetIds(context.Context, *AppWidgetHostGetAppWidgetIdsRequest) (*GetAppWidgetIdsResponse, error)
+	OnAppWidgetRemoved(context.Context, *OnAppWidgetRemovedRequest) (*OnAppWidgetRemovedResponse, error)
+	StartAppWidgetConfigureActivityForResult(context.Context, *StartAppWidgetConfigureActivityForResultRequest) (*StartAppWidgetConfigureActivityForResultResponse, error)
+	StartListening(context.Context, *StartListeningRequest) (*StartListeningResponse, error)
+	StopListening(context.Context, *StopListeningRequest) (*StopListeningResponse, error)
+	DeleteAllHosts(context.Context, *DeleteAllHostsRequest) (*DeleteAllHostsResponse, error)
+	mustEmbedUnimplementedAppWidgetHostServiceServer()
+}
+
+// UnimplementedAppWidgetHostServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedAppWidgetHostServiceServer struct{}
+
+func (UnimplementedAppWidgetHostServiceServer) NewAppWidgetHost(context.Context, *NewAppWidgetHostRequest) (*NewAppWidgetHostResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewAppWidgetHost not implemented")
+}
+func (UnimplementedAppWidgetHostServiceServer) AllocateAppWidgetId(context.Context, *AllocateAppWidgetIdRequest) (*AllocateAppWidgetIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AllocateAppWidgetId not implemented")
+}
+func (UnimplementedAppWidgetHostServiceServer) CreateView(context.Context, *CreateViewRequest) (*CreateViewResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CreateView not implemented")
+}
+func (UnimplementedAppWidgetHostServiceServer) DeleteAppWidgetId(context.Context, *DeleteAppWidgetIdRequest) (*DeleteAppWidgetIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DeleteAppWidgetId not implemented")
+}
+func (UnimplementedAppWidgetHostServiceServer) DeleteHost(context.Context, *DeleteHostRequest) (*DeleteHostResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DeleteHost not implemented")
+}
+func (UnimplementedAppWidgetHostServiceServer) GetAppWidgetIds(context.Context, *AppWidgetHostGetAppWidgetIdsRequest) (*GetAppWidgetIdsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAppWidgetIds not implemented")
+}
+func (UnimplementedAppWidgetHostServiceServer) OnAppWidgetRemoved(context.Context, *OnAppWidgetRemovedRequest) (*OnAppWidgetRemovedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnAppWidgetRemoved not implemented")
+}
+func (UnimplementedAppWidgetHostServiceServer) StartAppWidgetConfigureActivityForResult(context.Context, *StartAppWidgetConfigureActivityForResultRequest) (*StartAppWidgetConfigureActivityForResultResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method StartAppWidgetConfigureActivityForResult not implemented")
+}
+func (UnimplementedAppWidgetHostServiceServer) StartListening(context.Context, *StartListeningRequest) (*StartListeningResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method StartListening not implemented")
+}
+func (UnimplementedAppWidgetHostServiceServer) StopListening(context.Context, *StopListeningRequest) (*StopListeningResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method StopListening not implemented")
+}
+func (UnimplementedAppWidgetHostServiceServer) DeleteAllHosts(context.Context, *DeleteAllHostsRequest) (*DeleteAllHostsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DeleteAllHosts not implemented")
+}
+func (UnimplementedAppWidgetHostServiceServer) mustEmbedUnimplementedAppWidgetHostServiceServer() {}
+func (UnimplementedAppWidgetHostServiceServer) testEmbeddedByValue()                              {}
+
+// UnsafeAppWidgetHostServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AppWidgetHostServiceServer will
+// result in compilation errors.
+type UnsafeAppWidgetHostServiceServer interface {
+	mustEmbedUnimplementedAppWidgetHostServiceServer()
+}
+
+func RegisterAppWidgetHostServiceServer(s grpc.ServiceRegistrar, srv AppWidgetHostServiceServer) {
+	// If the following call panics, it indicates UnimplementedAppWidgetHostServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&AppWidgetHostService_ServiceDesc, srv)
+}
+
+func _AppWidgetHostService_NewAppWidgetHost_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewAppWidgetHostRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetHostServiceServer).NewAppWidgetHost(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetHostService_NewAppWidgetHost_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetHostServiceServer).NewAppWidgetHost(ctx, req.(*NewAppWidgetHostRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetHostService_AllocateAppWidgetId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AllocateAppWidgetIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetHostServiceServer).AllocateAppWidgetId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetHostService_AllocateAppWidgetId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetHostServiceServer).AllocateAppWidgetId(ctx, req.(*AllocateAppWidgetIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetHostService_CreateView_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateViewRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetHostServiceServer).CreateView(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetHostService_CreateView_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetHostServiceServer).CreateView(ctx, req.(*CreateViewRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetHostService_DeleteAppWidgetId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteAppWidgetIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetHostServiceServer).DeleteAppWidgetId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetHostService_DeleteAppWidgetId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetHostServiceServer).DeleteAppWidgetId(ctx, req.(*DeleteAppWidgetIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetHostService_DeleteHost_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteHostRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetHostServiceServer).DeleteHost(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetHostService_DeleteHost_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetHostServiceServer).DeleteHost(ctx, req.(*DeleteHostRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetHostService_GetAppWidgetIds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AppWidgetHostGetAppWidgetIdsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetHostServiceServer).GetAppWidgetIds(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetHostService_GetAppWidgetIds_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetHostServiceServer).GetAppWidgetIds(ctx, req.(*AppWidgetHostGetAppWidgetIdsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetHostService_OnAppWidgetRemoved_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnAppWidgetRemovedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetHostServiceServer).OnAppWidgetRemoved(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetHostService_OnAppWidgetRemoved_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetHostServiceServer).OnAppWidgetRemoved(ctx, req.(*OnAppWidgetRemovedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetHostService_StartAppWidgetConfigureActivityForResult_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StartAppWidgetConfigureActivityForResultRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetHostServiceServer).StartAppWidgetConfigureActivityForResult(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetHostService_StartAppWidgetConfigureActivityForResult_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetHostServiceServer).StartAppWidgetConfigureActivityForResult(ctx, req.(*StartAppWidgetConfigureActivityForResultRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetHostService_StartListening_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StartListeningRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetHostServiceServer).StartListening(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetHostService_StartListening_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetHostServiceServer).StartListening(ctx, req.(*StartListeningRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetHostService_StopListening_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StopListeningRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetHostServiceServer).StopListening(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetHostService_StopListening_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetHostServiceServer).StopListening(ctx, req.(*StopListeningRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppWidgetHostService_DeleteAllHosts_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteAllHostsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppWidgetHostServiceServer).DeleteAllHosts(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppWidgetHostService_DeleteAllHosts_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppWidgetHostServiceServer).DeleteAllHosts(ctx, req.(*DeleteAllHostsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AppWidgetHostService_ServiceDesc is the grpc.ServiceDesc for AppWidgetHostService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AppWidgetHostService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "appwidget.AppWidgetHostService",
+	HandlerType: (*AppWidgetHostServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewAppWidgetHost",
+			Handler:    _AppWidgetHostService_NewAppWidgetHost_Handler,
+		},
+		{
+			MethodName: "AllocateAppWidgetId",
+			Handler:    _AppWidgetHostService_AllocateAppWidgetId_Handler,
+		},
+		{
+			MethodName: "CreateView",
+			Handler:    _AppWidgetHostService_CreateView_Handler,
+		},
+		{
+			MethodName: "DeleteAppWidgetId",
+			Handler:    _AppWidgetHostService_DeleteAppWidgetId_Handler,
+		},
+		{
+			MethodName: "DeleteHost",
+			Handler:    _AppWidgetHostService_DeleteHost_Handler,
+		},
+		{
+			MethodName: "GetAppWidgetIds",
+			Handler:    _AppWidgetHostService_GetAppWidgetIds_Handler,
+		},
+		{
+			MethodName: "OnAppWidgetRemoved",
+			Handler:    _AppWidgetHostService_OnAppWidgetRemoved_Handler,
+		},
+		{
+			MethodName: "StartAppWidgetConfigureActivityForResult",
+			Handler:    _AppWidgetHostService_StartAppWidgetConfigureActivityForResult_Handler,
+		},
+		{
+			MethodName: "StartListening",
+			Handler:    _AppWidgetHostService_StartListening_Handler,
+		},
+		{
+			MethodName: "StopListening",
+			Handler:    _AppWidgetHostService_StopListening_Handler,
+		},
+		{
+			MethodName: "DeleteAllHosts",
+			Handler:    _AppWidgetHostService_DeleteAllHosts_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

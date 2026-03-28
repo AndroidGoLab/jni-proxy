@@ -943,6 +943,526 @@ func (*RequestDismissKeyguardResponse) Descriptor() ([]byte, []int) {
 	return file_proto_keyguard_keyguard_proto_rawDescGZIP(), []int{21}
 }
 
+type OnDismissCancelledRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnDismissCancelledRequest) Reset() {
+	*x = OnDismissCancelledRequest{}
+	mi := &file_proto_keyguard_keyguard_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnDismissCancelledRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnDismissCancelledRequest) ProtoMessage() {}
+
+func (x *OnDismissCancelledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_keyguard_keyguard_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnDismissCancelledRequest.ProtoReflect.Descriptor instead.
+func (*OnDismissCancelledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_keyguard_keyguard_proto_rawDescGZIP(), []int{22}
+}
+
+type OnDismissCancelledResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnDismissCancelledResponse) Reset() {
+	*x = OnDismissCancelledResponse{}
+	mi := &file_proto_keyguard_keyguard_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnDismissCancelledResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnDismissCancelledResponse) ProtoMessage() {}
+
+func (x *OnDismissCancelledResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_keyguard_keyguard_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnDismissCancelledResponse.ProtoReflect.Descriptor instead.
+func (*OnDismissCancelledResponse) Descriptor() ([]byte, []int) {
+	return file_proto_keyguard_keyguard_proto_rawDescGZIP(), []int{23}
+}
+
+type OnDismissErrorRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnDismissErrorRequest) Reset() {
+	*x = OnDismissErrorRequest{}
+	mi := &file_proto_keyguard_keyguard_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnDismissErrorRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnDismissErrorRequest) ProtoMessage() {}
+
+func (x *OnDismissErrorRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_keyguard_keyguard_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnDismissErrorRequest.ProtoReflect.Descriptor instead.
+func (*OnDismissErrorRequest) Descriptor() ([]byte, []int) {
+	return file_proto_keyguard_keyguard_proto_rawDescGZIP(), []int{24}
+}
+
+type OnDismissErrorResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnDismissErrorResponse) Reset() {
+	*x = OnDismissErrorResponse{}
+	mi := &file_proto_keyguard_keyguard_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnDismissErrorResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnDismissErrorResponse) ProtoMessage() {}
+
+func (x *OnDismissErrorResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_keyguard_keyguard_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnDismissErrorResponse.ProtoReflect.Descriptor instead.
+func (*OnDismissErrorResponse) Descriptor() ([]byte, []int) {
+	return file_proto_keyguard_keyguard_proto_rawDescGZIP(), []int{25}
+}
+
+type OnDismissSucceededRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnDismissSucceededRequest) Reset() {
+	*x = OnDismissSucceededRequest{}
+	mi := &file_proto_keyguard_keyguard_proto_msgTypes[26]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnDismissSucceededRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnDismissSucceededRequest) ProtoMessage() {}
+
+func (x *OnDismissSucceededRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_keyguard_keyguard_proto_msgTypes[26]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnDismissSucceededRequest.ProtoReflect.Descriptor instead.
+func (*OnDismissSucceededRequest) Descriptor() ([]byte, []int) {
+	return file_proto_keyguard_keyguard_proto_rawDescGZIP(), []int{26}
+}
+
+type OnDismissSucceededResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnDismissSucceededResponse) Reset() {
+	*x = OnDismissSucceededResponse{}
+	mi := &file_proto_keyguard_keyguard_proto_msgTypes[27]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnDismissSucceededResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnDismissSucceededResponse) ProtoMessage() {}
+
+func (x *OnDismissSucceededResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_keyguard_keyguard_proto_msgTypes[27]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnDismissSucceededResponse.ProtoReflect.Descriptor instead.
+func (*OnDismissSucceededResponse) Descriptor() ([]byte, []int) {
+	return file_proto_keyguard_keyguard_proto_rawDescGZIP(), []int{27}
+}
+
+type DisableKeyguardRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DisableKeyguardRequest) Reset() {
+	*x = DisableKeyguardRequest{}
+	mi := &file_proto_keyguard_keyguard_proto_msgTypes[28]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DisableKeyguardRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DisableKeyguardRequest) ProtoMessage() {}
+
+func (x *DisableKeyguardRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_keyguard_keyguard_proto_msgTypes[28]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DisableKeyguardRequest.ProtoReflect.Descriptor instead.
+func (*DisableKeyguardRequest) Descriptor() ([]byte, []int) {
+	return file_proto_keyguard_keyguard_proto_rawDescGZIP(), []int{28}
+}
+
+type DisableKeyguardResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DisableKeyguardResponse) Reset() {
+	*x = DisableKeyguardResponse{}
+	mi := &file_proto_keyguard_keyguard_proto_msgTypes[29]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DisableKeyguardResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DisableKeyguardResponse) ProtoMessage() {}
+
+func (x *DisableKeyguardResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_keyguard_keyguard_proto_msgTypes[29]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DisableKeyguardResponse.ProtoReflect.Descriptor instead.
+func (*DisableKeyguardResponse) Descriptor() ([]byte, []int) {
+	return file_proto_keyguard_keyguard_proto_rawDescGZIP(), []int{29}
+}
+
+type ReenableKeyguardRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ReenableKeyguardRequest) Reset() {
+	*x = ReenableKeyguardRequest{}
+	mi := &file_proto_keyguard_keyguard_proto_msgTypes[30]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ReenableKeyguardRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ReenableKeyguardRequest) ProtoMessage() {}
+
+func (x *ReenableKeyguardRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_keyguard_keyguard_proto_msgTypes[30]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ReenableKeyguardRequest.ProtoReflect.Descriptor instead.
+func (*ReenableKeyguardRequest) Descriptor() ([]byte, []int) {
+	return file_proto_keyguard_keyguard_proto_rawDescGZIP(), []int{30}
+}
+
+type ReenableKeyguardResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ReenableKeyguardResponse) Reset() {
+	*x = ReenableKeyguardResponse{}
+	mi := &file_proto_keyguard_keyguard_proto_msgTypes[31]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ReenableKeyguardResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ReenableKeyguardResponse) ProtoMessage() {}
+
+func (x *ReenableKeyguardResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_keyguard_keyguard_proto_msgTypes[31]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ReenableKeyguardResponse.ProtoReflect.Descriptor instead.
+func (*ReenableKeyguardResponse) Descriptor() ([]byte, []int) {
+	return file_proto_keyguard_keyguard_proto_rawDescGZIP(), []int{31}
+}
+
+type OnKeyguardLockedStateChangedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnKeyguardLockedStateChangedRequest) Reset() {
+	*x = OnKeyguardLockedStateChangedRequest{}
+	mi := &file_proto_keyguard_keyguard_proto_msgTypes[32]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnKeyguardLockedStateChangedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnKeyguardLockedStateChangedRequest) ProtoMessage() {}
+
+func (x *OnKeyguardLockedStateChangedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_keyguard_keyguard_proto_msgTypes[32]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnKeyguardLockedStateChangedRequest.ProtoReflect.Descriptor instead.
+func (*OnKeyguardLockedStateChangedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_keyguard_keyguard_proto_rawDescGZIP(), []int{32}
+}
+
+func (x *OnKeyguardLockedStateChangedRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type OnKeyguardLockedStateChangedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnKeyguardLockedStateChangedResponse) Reset() {
+	*x = OnKeyguardLockedStateChangedResponse{}
+	mi := &file_proto_keyguard_keyguard_proto_msgTypes[33]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnKeyguardLockedStateChangedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnKeyguardLockedStateChangedResponse) ProtoMessage() {}
+
+func (x *OnKeyguardLockedStateChangedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_keyguard_keyguard_proto_msgTypes[33]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnKeyguardLockedStateChangedResponse.ProtoReflect.Descriptor instead.
+func (*OnKeyguardLockedStateChangedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_keyguard_keyguard_proto_rawDescGZIP(), []int{33}
+}
+
+type OnKeyguardExitResultRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnKeyguardExitResultRequest) Reset() {
+	*x = OnKeyguardExitResultRequest{}
+	mi := &file_proto_keyguard_keyguard_proto_msgTypes[34]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnKeyguardExitResultRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnKeyguardExitResultRequest) ProtoMessage() {}
+
+func (x *OnKeyguardExitResultRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_keyguard_keyguard_proto_msgTypes[34]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnKeyguardExitResultRequest.ProtoReflect.Descriptor instead.
+func (*OnKeyguardExitResultRequest) Descriptor() ([]byte, []int) {
+	return file_proto_keyguard_keyguard_proto_rawDescGZIP(), []int{34}
+}
+
+func (x *OnKeyguardExitResultRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type OnKeyguardExitResultResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnKeyguardExitResultResponse) Reset() {
+	*x = OnKeyguardExitResultResponse{}
+	mi := &file_proto_keyguard_keyguard_proto_msgTypes[35]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnKeyguardExitResultResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnKeyguardExitResultResponse) ProtoMessage() {}
+
+func (x *OnKeyguardExitResultResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_keyguard_keyguard_proto_msgTypes[35]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnKeyguardExitResultResponse.ProtoReflect.Descriptor instead.
+func (*OnKeyguardExitResultResponse) Descriptor() ([]byte, []int) {
+	return file_proto_keyguard_keyguard_proto_rawDescGZIP(), []int{35}
+}
+
 var File_proto_keyguard_keyguard_proto protoreflect.FileDescriptor
 
 const file_proto_keyguard_keyguard_proto_rawDesc = "" +
@@ -985,7 +1505,23 @@ const file_proto_keyguard_keyguard_proto_rawDesc = "" +
 	"\x1dRequestDismissKeyguardRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\" \n" +
-	"\x1eRequestDismissKeyguardResponse2\xc9\t\n" +
+	"\x1eRequestDismissKeyguardResponse\"\x1b\n" +
+	"\x19OnDismissCancelledRequest\"\x1c\n" +
+	"\x1aOnDismissCancelledResponse\"\x17\n" +
+	"\x15OnDismissErrorRequest\"\x18\n" +
+	"\x16OnDismissErrorResponse\"\x1b\n" +
+	"\x19OnDismissSucceededRequest\"\x1c\n" +
+	"\x1aOnDismissSucceededResponse\"\x18\n" +
+	"\x16DisableKeyguardRequest\"\x19\n" +
+	"\x17DisableKeyguardResponse\"\x19\n" +
+	"\x17ReenableKeyguardRequest\"\x1a\n" +
+	"\x18ReenableKeyguardResponse\"9\n" +
+	"#OnKeyguardLockedStateChangedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"&\n" +
+	"$OnKeyguardLockedStateChangedResponse\"1\n" +
+	"\x1bOnKeyguardExitResultRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"\x1e\n" +
+	"\x1cOnKeyguardExitResultResponse2\xc9\t\n" +
 	"\x0eManagerService\x12\x83\x01\n" +
 	"\x1eAddKeyguardLockedStateListener\x12/.keyguard.AddKeyguardLockedStateListenerRequest\x1a0.keyguard.AddKeyguardLockedStateListenerResponse\x12\x92\x01\n" +
 	"#CreateConfirmDeviceCredentialIntent\x124.keyguard.CreateConfirmDeviceCredentialIntentRequest\x1a5.keyguard.CreateConfirmDeviceCredentialIntentResponse\x12e\n" +
@@ -997,7 +1533,18 @@ const file_proto_keyguard_keyguard_proto_rawDesc = "" +
 	"\x10IsKeyguardSecure\x12!.keyguard.IsKeyguardSecureRequest\x1a\".keyguard.IsKeyguardSecureResponse\x12V\n" +
 	"\x0fNewKeyguardLock\x12 .keyguard.NewKeyguardLockRequest\x1a!.keyguard.NewKeyguardLockResponse\x12\x8c\x01\n" +
 	"!RemoveKeyguardLockedStateListener\x122.keyguard.RemoveKeyguardLockedStateListenerRequest\x1a3.keyguard.RemoveKeyguardLockedStateListenerResponse\x12k\n" +
-	"\x16RequestDismissKeyguard\x12'.keyguard.RequestDismissKeyguardRequest\x1a(.keyguard.RequestDismissKeyguardResponseB2Z0github.com/AndroidGoLab/jni-proxy/proto/keyguardb\x06proto3"
+	"\x16RequestDismissKeyguard\x12'.keyguard.RequestDismissKeyguardRequest\x1a(.keyguard.RequestDismissKeyguardResponse2\xbe\x02\n" +
+	"%ManagerKeyguardDismissCallbackService\x12_\n" +
+	"\x12OnDismissCancelled\x12#.keyguard.OnDismissCancelledRequest\x1a$.keyguard.OnDismissCancelledResponse\x12S\n" +
+	"\x0eOnDismissError\x12\x1f.keyguard.OnDismissErrorRequest\x1a .keyguard.OnDismissErrorResponse\x12_\n" +
+	"\x12OnDismissSucceeded\x12#.keyguard.OnDismissSucceededRequest\x1a$.keyguard.OnDismissSucceededResponse2\xcf\x01\n" +
+	"\x1aManagerKeyguardLockService\x12V\n" +
+	"\x0fDisableKeyguard\x12 .keyguard.DisableKeyguardRequest\x1a!.keyguard.DisableKeyguardResponse\x12Y\n" +
+	"\x10ReenableKeyguard\x12!.keyguard.ReenableKeyguardRequest\x1a\".keyguard.ReenableKeyguardResponse2\xaa\x01\n" +
+	")ManagerKeyguardLockedStateListenerService\x12}\n" +
+	"\x1cOnKeyguardLockedStateChanged\x12-.keyguard.OnKeyguardLockedStateChangedRequest\x1a..keyguard.OnKeyguardLockedStateChangedResponse2\x8b\x01\n" +
+	"\"ManagerOnKeyguardExitResultService\x12e\n" +
+	"\x14OnKeyguardExitResult\x12%.keyguard.OnKeyguardExitResultRequest\x1a&.keyguard.OnKeyguardExitResultResponseB2Z0github.com/AndroidGoLab/jni-proxy/proto/keyguardb\x06proto3"
 
 var (
 	file_proto_keyguard_keyguard_proto_rawDescOnce sync.Once
@@ -1011,7 +1558,7 @@ func file_proto_keyguard_keyguard_proto_rawDescGZIP() []byte {
 	return file_proto_keyguard_keyguard_proto_rawDescData
 }
 
-var file_proto_keyguard_keyguard_proto_msgTypes = make([]protoimpl.MessageInfo, 22)
+var file_proto_keyguard_keyguard_proto_msgTypes = make([]protoimpl.MessageInfo, 36)
 var file_proto_keyguard_keyguard_proto_goTypes = []any{
 	(*AddKeyguardLockedStateListenerRequest)(nil),       // 0: keyguard.AddKeyguardLockedStateListenerRequest
 	(*AddKeyguardLockedStateListenerResponse)(nil),      // 1: keyguard.AddKeyguardLockedStateListenerResponse
@@ -1035,6 +1582,20 @@ var file_proto_keyguard_keyguard_proto_goTypes = []any{
 	(*RemoveKeyguardLockedStateListenerResponse)(nil),   // 19: keyguard.RemoveKeyguardLockedStateListenerResponse
 	(*RequestDismissKeyguardRequest)(nil),               // 20: keyguard.RequestDismissKeyguardRequest
 	(*RequestDismissKeyguardResponse)(nil),              // 21: keyguard.RequestDismissKeyguardResponse
+	(*OnDismissCancelledRequest)(nil),                   // 22: keyguard.OnDismissCancelledRequest
+	(*OnDismissCancelledResponse)(nil),                  // 23: keyguard.OnDismissCancelledResponse
+	(*OnDismissErrorRequest)(nil),                       // 24: keyguard.OnDismissErrorRequest
+	(*OnDismissErrorResponse)(nil),                      // 25: keyguard.OnDismissErrorResponse
+	(*OnDismissSucceededRequest)(nil),                   // 26: keyguard.OnDismissSucceededRequest
+	(*OnDismissSucceededResponse)(nil),                  // 27: keyguard.OnDismissSucceededResponse
+	(*DisableKeyguardRequest)(nil),                      // 28: keyguard.DisableKeyguardRequest
+	(*DisableKeyguardResponse)(nil),                     // 29: keyguard.DisableKeyguardResponse
+	(*ReenableKeyguardRequest)(nil),                     // 30: keyguard.ReenableKeyguardRequest
+	(*ReenableKeyguardResponse)(nil),                    // 31: keyguard.ReenableKeyguardResponse
+	(*OnKeyguardLockedStateChangedRequest)(nil),         // 32: keyguard.OnKeyguardLockedStateChangedRequest
+	(*OnKeyguardLockedStateChangedResponse)(nil),        // 33: keyguard.OnKeyguardLockedStateChangedResponse
+	(*OnKeyguardExitResultRequest)(nil),                 // 34: keyguard.OnKeyguardExitResultRequest
+	(*OnKeyguardExitResultResponse)(nil),                // 35: keyguard.OnKeyguardExitResultResponse
 }
 var file_proto_keyguard_keyguard_proto_depIdxs = []int32{
 	0,  // 0: keyguard.ManagerService.AddKeyguardLockedStateListener:input_type -> keyguard.AddKeyguardLockedStateListenerRequest
@@ -1048,19 +1609,33 @@ var file_proto_keyguard_keyguard_proto_depIdxs = []int32{
 	16, // 8: keyguard.ManagerService.NewKeyguardLock:input_type -> keyguard.NewKeyguardLockRequest
 	18, // 9: keyguard.ManagerService.RemoveKeyguardLockedStateListener:input_type -> keyguard.RemoveKeyguardLockedStateListenerRequest
 	20, // 10: keyguard.ManagerService.RequestDismissKeyguard:input_type -> keyguard.RequestDismissKeyguardRequest
-	1,  // 11: keyguard.ManagerService.AddKeyguardLockedStateListener:output_type -> keyguard.AddKeyguardLockedStateListenerResponse
-	3,  // 12: keyguard.ManagerService.CreateConfirmDeviceCredentialIntent:output_type -> keyguard.CreateConfirmDeviceCredentialIntentResponse
-	5,  // 13: keyguard.ManagerService.ExitKeyguardSecurely:output_type -> keyguard.ExitKeyguardSecurelyResponse
-	7,  // 14: keyguard.ManagerService.InKeyguardRestrictedInputMode:output_type -> keyguard.InKeyguardRestrictedInputModeResponse
-	9,  // 15: keyguard.ManagerService.IsDeviceLocked:output_type -> keyguard.IsDeviceLockedResponse
-	11, // 16: keyguard.ManagerService.IsDeviceSecure:output_type -> keyguard.IsDeviceSecureResponse
-	13, // 17: keyguard.ManagerService.IsKeyguardLocked:output_type -> keyguard.IsKeyguardLockedResponse
-	15, // 18: keyguard.ManagerService.IsKeyguardSecure:output_type -> keyguard.IsKeyguardSecureResponse
-	17, // 19: keyguard.ManagerService.NewKeyguardLock:output_type -> keyguard.NewKeyguardLockResponse
-	19, // 20: keyguard.ManagerService.RemoveKeyguardLockedStateListener:output_type -> keyguard.RemoveKeyguardLockedStateListenerResponse
-	21, // 21: keyguard.ManagerService.RequestDismissKeyguard:output_type -> keyguard.RequestDismissKeyguardResponse
-	11, // [11:22] is the sub-list for method output_type
-	0,  // [0:11] is the sub-list for method input_type
+	22, // 11: keyguard.ManagerKeyguardDismissCallbackService.OnDismissCancelled:input_type -> keyguard.OnDismissCancelledRequest
+	24, // 12: keyguard.ManagerKeyguardDismissCallbackService.OnDismissError:input_type -> keyguard.OnDismissErrorRequest
+	26, // 13: keyguard.ManagerKeyguardDismissCallbackService.OnDismissSucceeded:input_type -> keyguard.OnDismissSucceededRequest
+	28, // 14: keyguard.ManagerKeyguardLockService.DisableKeyguard:input_type -> keyguard.DisableKeyguardRequest
+	30, // 15: keyguard.ManagerKeyguardLockService.ReenableKeyguard:input_type -> keyguard.ReenableKeyguardRequest
+	32, // 16: keyguard.ManagerKeyguardLockedStateListenerService.OnKeyguardLockedStateChanged:input_type -> keyguard.OnKeyguardLockedStateChangedRequest
+	34, // 17: keyguard.ManagerOnKeyguardExitResultService.OnKeyguardExitResult:input_type -> keyguard.OnKeyguardExitResultRequest
+	1,  // 18: keyguard.ManagerService.AddKeyguardLockedStateListener:output_type -> keyguard.AddKeyguardLockedStateListenerResponse
+	3,  // 19: keyguard.ManagerService.CreateConfirmDeviceCredentialIntent:output_type -> keyguard.CreateConfirmDeviceCredentialIntentResponse
+	5,  // 20: keyguard.ManagerService.ExitKeyguardSecurely:output_type -> keyguard.ExitKeyguardSecurelyResponse
+	7,  // 21: keyguard.ManagerService.InKeyguardRestrictedInputMode:output_type -> keyguard.InKeyguardRestrictedInputModeResponse
+	9,  // 22: keyguard.ManagerService.IsDeviceLocked:output_type -> keyguard.IsDeviceLockedResponse
+	11, // 23: keyguard.ManagerService.IsDeviceSecure:output_type -> keyguard.IsDeviceSecureResponse
+	13, // 24: keyguard.ManagerService.IsKeyguardLocked:output_type -> keyguard.IsKeyguardLockedResponse
+	15, // 25: keyguard.ManagerService.IsKeyguardSecure:output_type -> keyguard.IsKeyguardSecureResponse
+	17, // 26: keyguard.ManagerService.NewKeyguardLock:output_type -> keyguard.NewKeyguardLockResponse
+	19, // 27: keyguard.ManagerService.RemoveKeyguardLockedStateListener:output_type -> keyguard.RemoveKeyguardLockedStateListenerResponse
+	21, // 28: keyguard.ManagerService.RequestDismissKeyguard:output_type -> keyguard.RequestDismissKeyguardResponse
+	23, // 29: keyguard.ManagerKeyguardDismissCallbackService.OnDismissCancelled:output_type -> keyguard.OnDismissCancelledResponse
+	25, // 30: keyguard.ManagerKeyguardDismissCallbackService.OnDismissError:output_type -> keyguard.OnDismissErrorResponse
+	27, // 31: keyguard.ManagerKeyguardDismissCallbackService.OnDismissSucceeded:output_type -> keyguard.OnDismissSucceededResponse
+	29, // 32: keyguard.ManagerKeyguardLockService.DisableKeyguard:output_type -> keyguard.DisableKeyguardResponse
+	31, // 33: keyguard.ManagerKeyguardLockService.ReenableKeyguard:output_type -> keyguard.ReenableKeyguardResponse
+	33, // 34: keyguard.ManagerKeyguardLockedStateListenerService.OnKeyguardLockedStateChanged:output_type -> keyguard.OnKeyguardLockedStateChangedResponse
+	35, // 35: keyguard.ManagerOnKeyguardExitResultService.OnKeyguardExitResult:output_type -> keyguard.OnKeyguardExitResultResponse
+	18, // [18:36] is the sub-list for method output_type
+	0,  // [0:18] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name
 	0,  // [0:0] is the sub-list for extension extendee
 	0,  // [0:0] is the sub-list for field type_name
@@ -1077,9 +1652,9 @@ func file_proto_keyguard_keyguard_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_keyguard_keyguard_proto_rawDesc), len(file_proto_keyguard_keyguard_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   22,
+			NumMessages:   36,
 			NumExtensions: 0,
-			NumServices:   1,
+			NumServices:   5,
 		},
 		GoTypes:           file_proto_keyguard_keyguard_proto_goTypes,
 		DependencyIndexes: file_proto_keyguard_keyguard_proto_depIdxs,

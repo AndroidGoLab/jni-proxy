@@ -5,6 +5,8 @@ package om
 import (
 	"context"
 
+	"github.com/AndroidGoLab/jni"
+
 	"github.com/AndroidGoLab/jni-proxy/handlestore"
 	pb "github.com/AndroidGoLab/jni-proxy/proto/om"
 	"github.com/AndroidGoLab/jni/app"
@@ -12,6 +14,129 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )
+
+// FabricatedOverlayServer implements pb.FabricatedOverlayServiceServer.
+type FabricatedOverlayServer struct {
+	pb.UnimplementedFabricatedOverlayServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *FabricatedOverlayServer) NewFabricatedOverlay(_ context.Context, req *pb.NewFabricatedOverlayRequest) (*pb.NewFabricatedOverlayResponse, error) {
+	obj, err := jnipkg.NewFabricatedOverlay(s.Ctx.VM, req.GetArg0(), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewFabricatedOverlayResponse{Result: handle}, nil
+}
+
+func (s *FabricatedOverlayServer) GetIdentifier(_ context.Context, req *pb.GetIdentifierRequest) (*pb.GetIdentifierResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.FabricatedOverlay{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetIdentifier()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetIdentifierResponse{Result: handle}, nil
+}
+
+func (s *FabricatedOverlayServer) SetNinePatchResourceValue(_ context.Context, req *pb.SetNinePatchResourceValueRequest) (*pb.SetNinePatchResourceValueResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.FabricatedOverlay{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetNinePatchResourceValue(req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetNinePatchResourceValueResponse{}, nil
+}
+
+func (s *FabricatedOverlayServer) SetResourceValue3(_ context.Context, req *pb.SetResourceValue3Request) (*pb.SetResourceValue3Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.FabricatedOverlay{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetResourceValue3(req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetResourceValue3Response{}, nil
+}
+
+func (s *FabricatedOverlayServer) SetResourceValue3_1(_ context.Context, req *pb.SetResourceValue3_1Request) (*pb.SetResourceValue3_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.FabricatedOverlay{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetResourceValue3_1(req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetResourceValue3_1Response{}, nil
+}
+
+func (s *FabricatedOverlayServer) SetResourceValue4_2(_ context.Context, req *pb.SetResourceValue4_2Request) (*pb.SetResourceValue4_2Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.FabricatedOverlay{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetResourceValue4_2(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetResourceValue4_2Response{}, nil
+}
+
+func (s *FabricatedOverlayServer) SetResourceValue4_3(_ context.Context, req *pb.SetResourceValue4_3Request) (*pb.SetResourceValue4_3Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.FabricatedOverlay{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetResourceValue4_3(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetResourceValue4_3Response{}, nil
+}
+
+func (s *FabricatedOverlayServer) SetTargetOverlayable(_ context.Context, req *pb.SetTargetOverlayableRequest) (*pb.SetTargetOverlayableResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.FabricatedOverlay{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetTargetOverlayable(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetTargetOverlayableResponse{}, nil
+}
 
 // OverlayManagerServer implements pb.OverlayManagerServiceServer.
 type OverlayManagerServer struct {

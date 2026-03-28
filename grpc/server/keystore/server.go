@@ -117,3 +117,135 @@ func (s *KeyStoreManagerServer) RevokeKeyAccess(_ context.Context, req *pb.Revok
 	}
 	return &pb.RevokeKeyAccessResponse{}, nil
 }
+
+// BackendBusyExceptionServer implements pb.BackendBusyExceptionServiceServer.
+type BackendBusyExceptionServer struct {
+	pb.UnimplementedBackendBusyExceptionServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *BackendBusyExceptionServer) NewBackendBusyException(_ context.Context, req *pb.NewBackendBusyExceptionRequest) (*pb.NewBackendBusyExceptionResponse, error) {
+	obj, err := jnipkg.NewBackendBusyException(s.Ctx.VM, req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewBackendBusyExceptionResponse{Result: handle}, nil
+}
+
+func (s *BackendBusyExceptionServer) GetBackOffHintMillis(_ context.Context, req *pb.GetBackOffHintMillisRequest) (*pb.GetBackOffHintMillisResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.BackendBusyException{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetBackOffHintMillis()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetBackOffHintMillisResponse{Result: result}, nil
+}
+
+// WrappedKeyEntryServer implements pb.WrappedKeyEntryServiceServer.
+type WrappedKeyEntryServer struct {
+	pb.UnimplementedWrappedKeyEntryServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *WrappedKeyEntryServer) NewWrappedKeyEntry(_ context.Context, req *pb.NewWrappedKeyEntryRequest) (*pb.NewWrappedKeyEntryResponse, error) {
+	obj, err := jnipkg.NewWrappedKeyEntry(s.Ctx.VM, s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2(), s.Handles.Get(req.GetArg3()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewWrappedKeyEntryResponse{Result: handle}, nil
+}
+
+func (s *WrappedKeyEntryServer) GetAlgorithmParameterSpec(_ context.Context, req *pb.GetAlgorithmParameterSpecRequest) (*pb.GetAlgorithmParameterSpecResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WrappedKeyEntry{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetAlgorithmParameterSpec()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetAlgorithmParameterSpecResponse{Result: handle}, nil
+}
+
+func (s *WrappedKeyEntryServer) GetTransformation(_ context.Context, req *pb.GetTransformationRequest) (*pb.GetTransformationResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WrappedKeyEntry{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetTransformation()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetTransformationResponse{Result: result}, nil
+}
+
+func (s *WrappedKeyEntryServer) GetWrappedKeyBytes(_ context.Context, req *pb.GetWrappedKeyBytesRequest) (*pb.GetWrappedKeyBytesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WrappedKeyEntry{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetWrappedKeyBytes()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetWrappedKeyBytesResponse{Result: handle}, nil
+}
+
+func (s *WrappedKeyEntryServer) GetWrappingKeyAlias(_ context.Context, req *pb.GetWrappingKeyAliasRequest) (*pb.GetWrappingKeyAliasResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WrappedKeyEntry{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetWrappingKeyAlias()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetWrappingKeyAliasResponse{Result: result}, nil
+}

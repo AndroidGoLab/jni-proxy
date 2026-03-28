@@ -140,6 +140,41 @@ message SetWindow6_1Request {
 message SetWindow6_1Response {
 }
 
+message DescribeContentsRequest {
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message GetShowIntentRequest {
+}
+
+message GetShowIntentResponse {
+  int64 result = 1;
+}
+
+message GetTriggerTimeRequest {
+}
+
+message GetTriggerTimeResponse {
+  int64 result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteToParcelResponse {
+}
+
+message OnAlarmRequest {
+}
+
+message OnAlarmResponse {
+}
+
 service ManagerService {
   rpc CanScheduleExactAlarms (CanScheduleExactAlarmsRequest) returns (CanScheduleExactAlarmsResponse);
   rpc Cancel1 (Cancel1Request) returns (Cancel1Response);
@@ -157,4 +192,15 @@ service ManagerService {
   rpc SetTimeZone (SetTimeZoneRequest) returns (SetTimeZoneResponse);
   rpc SetWindow4 (SetWindow4Request) returns (SetWindow4Response);
   rpc SetWindow6_1 (SetWindow6_1Request) returns (SetWindow6_1Response);
+}
+
+service ManagerAlarmClockInfoService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetShowIntent (GetShowIntentRequest) returns (GetShowIntentResponse);
+  rpc GetTriggerTime (GetTriggerTimeRequest) returns (GetTriggerTimeResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ManagerOnAlarmListenerService {
+  rpc OnAlarm (OnAlarmRequest) returns (OnAlarmResponse);
 }

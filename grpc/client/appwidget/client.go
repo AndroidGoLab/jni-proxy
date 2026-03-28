@@ -9,6 +9,385 @@ import (
 	"google.golang.org/grpc"
 )
 
+// AppWidgetProviderClient wraps the gRPC AppWidgetProviderService client.
+type AppWidgetProviderClient struct {
+	svc pb.AppWidgetProviderServiceClient
+}
+
+// NewAppWidgetProviderClient creates a new AppWidgetProvider client.
+func NewAppWidgetProviderClient(cc grpc.ClientConnInterface) *AppWidgetProviderClient {
+	return &AppWidgetProviderClient{
+		svc: pb.NewAppWidgetProviderServiceClient(cc),
+	}
+}
+
+// OnAppWidgetOptionsChanged calls the OnAppWidgetOptionsChanged RPC.
+func (c *AppWidgetProviderClient) OnAppWidgetOptionsChanged(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32, arg3 int64) error {
+	_, err := c.svc.OnAppWidgetOptionsChanged(ctx, &pb.OnAppWidgetOptionsChangedRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// OnDeleted calls the OnDeleted RPC.
+func (c *AppWidgetProviderClient) OnDeleted(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
+	_, err := c.svc.OnDeleted(ctx, &pb.OnDeletedRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// OnDisabled calls the OnDisabled RPC.
+func (c *AppWidgetProviderClient) OnDisabled(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.OnDisabled(ctx, &pb.OnDisabledRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// OnEnabled calls the OnEnabled RPC.
+func (c *AppWidgetProviderClient) OnEnabled(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.OnEnabled(ctx, &pb.OnEnabledRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// OnReceive calls the OnReceive RPC.
+func (c *AppWidgetProviderClient) OnReceive(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
+	_, err := c.svc.OnReceive(ctx, &pb.OnReceiveRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// OnRestored calls the OnRestored RPC.
+func (c *AppWidgetProviderClient) OnRestored(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.OnRestored(ctx, &pb.OnRestoredRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// OnUpdate calls the OnUpdate RPC.
+func (c *AppWidgetProviderClient) OnUpdate(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.OnUpdate(ctx, &pb.OnUpdateRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// AppWidgetHostViewClient wraps the gRPC AppWidgetHostViewService client.
+type AppWidgetHostViewClient struct {
+	svc pb.AppWidgetHostViewServiceClient
+}
+
+// NewAppWidgetHostViewClient creates a new AppWidgetHostView client.
+func NewAppWidgetHostViewClient(cc grpc.ClientConnInterface) *AppWidgetHostViewClient {
+	return &AppWidgetHostViewClient{
+		svc: pb.NewAppWidgetHostViewServiceClient(cc),
+	}
+}
+
+// GenerateLayoutParams1 calls the GenerateLayoutParams1 RPC.
+func (c *AppWidgetHostViewClient) GenerateLayoutParams1(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.GenerateLayoutParams1(ctx, &pb.GenerateLayoutParams1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAppWidgetId calls the GetAppWidgetId RPC.
+func (c *AppWidgetHostViewClient) GetAppWidgetId(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetAppWidgetId(ctx, &pb.GetAppWidgetIdRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAppWidgetInfo calls the GetAppWidgetInfo RPC.
+func (c *AppWidgetHostViewClient) GetAppWidgetInfo(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetAppWidgetInfo(ctx, &pb.GetAppWidgetInfoRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnWindowFocusChanged calls the OnWindowFocusChanged RPC.
+func (c *AppWidgetHostViewClient) OnWindowFocusChanged(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.OnWindowFocusChanged(ctx, &pb.OnWindowFocusChangedRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// ResetColorResources calls the ResetColorResources RPC.
+func (c *AppWidgetHostViewClient) ResetColorResources(ctx context.Context, handle int64) error {
+	_, err := c.svc.ResetColorResources(ctx, &pb.ResetColorResourcesRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// SetAppWidget calls the SetAppWidget RPC.
+func (c *AppWidgetHostViewClient) SetAppWidget(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
+	_, err := c.svc.SetAppWidget(ctx, &pb.SetAppWidgetRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SetColorResources calls the SetColorResources RPC.
+func (c *AppWidgetHostViewClient) SetColorResources(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetColorResources(ctx, &pb.SetColorResourcesRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetExecutor calls the SetExecutor RPC.
+func (c *AppWidgetHostViewClient) SetExecutor(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetExecutor(ctx, &pb.SetExecutorRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetOnLightBackground calls the SetOnLightBackground RPC.
+func (c *AppWidgetHostViewClient) SetOnLightBackground(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetOnLightBackground(ctx, &pb.SetOnLightBackgroundRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// UpdateAppWidget calls the UpdateAppWidget RPC.
+func (c *AppWidgetHostViewClient) UpdateAppWidget(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.UpdateAppWidget(ctx, &pb.UpdateAppWidgetRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// UpdateAppWidgetOptions calls the UpdateAppWidgetOptions RPC.
+func (c *AppWidgetHostViewClient) UpdateAppWidgetOptions(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.UpdateAppWidgetOptions(ctx, &pb.UpdateAppWidgetOptionsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// UpdateAppWidgetSize calls the UpdateAppWidgetSize RPC.
+func (c *AppWidgetHostViewClient) UpdateAppWidgetSize(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int32, arg3 int32, arg4 int32) error {
+	_, err := c.svc.UpdateAppWidgetSize(ctx, &pb.UpdateAppWidgetSizeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+	})
+	return err
+}
+
+// GenerateLayoutParams1_1 calls the GenerateLayoutParams1_1 RPC.
+func (c *AppWidgetHostViewClient) GenerateLayoutParams1_1(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.GenerateLayoutParams1_1(ctx, &pb.GenerateLayoutParams1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDefaultPaddingForWidget calls the GetDefaultPaddingForWidget RPC.
+func (c *AppWidgetHostViewClient) GetDefaultPaddingForWidget(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.GetDefaultPaddingForWidget(ctx, &pb.GetDefaultPaddingForWidgetRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AppWidgetProviderInfoClient wraps the gRPC AppWidgetProviderInfoService client.
+type AppWidgetProviderInfoClient struct {
+	svc pb.AppWidgetProviderInfoServiceClient
+}
+
+// NewAppWidgetProviderInfoClient creates a new AppWidgetProviderInfo client.
+func NewAppWidgetProviderInfoClient(cc grpc.ClientConnInterface) *AppWidgetProviderInfoClient {
+	return &AppWidgetProviderInfoClient{
+		svc: pb.NewAppWidgetProviderInfoServiceClient(cc),
+	}
+}
+
+// Clone0 calls the Clone0 RPC.
+func (c *AppWidgetProviderInfoClient) Clone0(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.Clone0(ctx, &pb.Clone0Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *AppWidgetProviderInfoClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetActivityInfo calls the GetActivityInfo RPC.
+func (c *AppWidgetProviderInfoClient) GetActivityInfo(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetActivityInfo(ctx, &pb.GetActivityInfoRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetProfile calls the GetProfile RPC.
+func (c *AppWidgetProviderInfoClient) GetProfile(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetProfile(ctx, &pb.GetProfileRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// LoadDescription calls the LoadDescription RPC.
+func (c *AppWidgetProviderInfoClient) LoadDescription(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.LoadDescription(ctx, &pb.LoadDescriptionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// LoadIcon calls the LoadIcon RPC.
+func (c *AppWidgetProviderInfoClient) LoadIcon(ctx context.Context, handle int64, arg0 int64, arg1 int32) (int64, error) {
+	resp, err := c.svc.LoadIcon(ctx, &pb.LoadIconRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// LoadLabel calls the LoadLabel RPC.
+func (c *AppWidgetProviderInfoClient) LoadLabel(ctx context.Context, handle int64, arg0 int64) (string, error) {
+	resp, err := c.svc.LoadLabel(ctx, &pb.LoadLabelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// LoadPreviewImage calls the LoadPreviewImage RPC.
+func (c *AppWidgetProviderInfoClient) LoadPreviewImage(ctx context.Context, handle int64, arg0 int64, arg1 int32) (int64, error) {
+	resp, err := c.svc.LoadPreviewImage(ctx, &pb.LoadPreviewImageRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *AppWidgetProviderInfoClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *AppWidgetProviderInfoClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// Clone0_1 calls the Clone0_1 RPC.
+func (c *AppWidgetProviderInfoClient) Clone0_1(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.Clone0_1(ctx, &pb.Clone0_1Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // AppWidgetManagerClient wraps the gRPC AppWidgetManagerService client.
 type AppWidgetManagerClient struct {
 	svc pb.AppWidgetManagerServiceClient
@@ -73,7 +452,7 @@ func (c *AppWidgetManagerClient) GetAppWidgetIds(ctx context.Context, arg0 int64
 
 // GetAppWidgetInfo calls the GetAppWidgetInfo RPC.
 func (c *AppWidgetManagerClient) GetAppWidgetInfo(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetAppWidgetInfo(ctx, &pb.GetAppWidgetInfoRequest{
+	resp, err := c.svc.GetAppWidgetInfo(ctx, &pb.AppWidgetManagerGetAppWidgetInfoRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -215,7 +594,7 @@ func (c *AppWidgetManagerClient) UpdateAppWidget2_2(ctx context.Context, arg0 in
 
 // UpdateAppWidgetOptions calls the UpdateAppWidgetOptions RPC.
 func (c *AppWidgetManagerClient) UpdateAppWidgetOptions(ctx context.Context, arg0 int32, arg1 int64) error {
-	_, err := c.svc.UpdateAppWidgetOptions(ctx, &pb.UpdateAppWidgetOptionsRequest{
+	_, err := c.svc.UpdateAppWidgetOptions(ctx, &pb.AppWidgetManagerUpdateAppWidgetOptionsRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 	})
@@ -240,4 +619,115 @@ func (c *AppWidgetManagerClient) GetInstance(ctx context.Context, arg0 int64) (i
 		return 0, err
 	}
 	return resp.GetResult(), nil
+}
+
+// AppWidgetHostClient wraps the gRPC AppWidgetHostService client.
+type AppWidgetHostClient struct {
+	svc pb.AppWidgetHostServiceClient
+}
+
+// NewAppWidgetHostClient creates a new AppWidgetHost client.
+func NewAppWidgetHostClient(cc grpc.ClientConnInterface) *AppWidgetHostClient {
+	return &AppWidgetHostClient{
+		svc: pb.NewAppWidgetHostServiceClient(cc),
+	}
+}
+
+// AllocateAppWidgetId calls the AllocateAppWidgetId RPC.
+func (c *AppWidgetHostClient) AllocateAppWidgetId(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.AllocateAppWidgetId(ctx, &pb.AllocateAppWidgetIdRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateView calls the CreateView RPC.
+func (c *AppWidgetHostClient) CreateView(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int64) (int64, error) {
+	resp, err := c.svc.CreateView(ctx, &pb.CreateViewRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DeleteAppWidgetId calls the DeleteAppWidgetId RPC.
+func (c *AppWidgetHostClient) DeleteAppWidgetId(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.DeleteAppWidgetId(ctx, &pb.DeleteAppWidgetIdRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// DeleteHost calls the DeleteHost RPC.
+func (c *AppWidgetHostClient) DeleteHost(ctx context.Context, handle int64) error {
+	_, err := c.svc.DeleteHost(ctx, &pb.DeleteHostRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// GetAppWidgetIds calls the GetAppWidgetIds RPC.
+func (c *AppWidgetHostClient) GetAppWidgetIds(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetAppWidgetIds(ctx, &pb.AppWidgetHostGetAppWidgetIdsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnAppWidgetRemoved calls the OnAppWidgetRemoved RPC.
+func (c *AppWidgetHostClient) OnAppWidgetRemoved(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.OnAppWidgetRemoved(ctx, &pb.OnAppWidgetRemovedRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// StartAppWidgetConfigureActivityForResult calls the StartAppWidgetConfigureActivityForResult RPC.
+func (c *AppWidgetHostClient) StartAppWidgetConfigureActivityForResult(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int32, arg3 int32, arg4 int64) error {
+	_, err := c.svc.StartAppWidgetConfigureActivityForResult(ctx, &pb.StartAppWidgetConfigureActivityForResultRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+	})
+	return err
+}
+
+// StartListening calls the StartListening RPC.
+func (c *AppWidgetHostClient) StartListening(ctx context.Context, handle int64) error {
+	_, err := c.svc.StartListening(ctx, &pb.StartListeningRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// StopListening calls the StopListening RPC.
+func (c *AppWidgetHostClient) StopListening(ctx context.Context, handle int64) error {
+	_, err := c.svc.StopListening(ctx, &pb.StopListeningRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// DeleteAllHosts calls the DeleteAllHosts RPC.
+func (c *AppWidgetHostClient) DeleteAllHosts(ctx context.Context, handle int64) error {
+	_, err := c.svc.DeleteAllHosts(ctx, &pb.DeleteAllHostsRequest{
+		Handle: handle,
+	})
+	return err
 }

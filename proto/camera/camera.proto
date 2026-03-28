@@ -108,6 +108,65 @@ message UnregisterTorchCallbackRequest {
 message UnregisterTorchCallbackResponse {
 }
 
+message OnCameraAccessPrioritiesChangedRequest {
+}
+
+message OnCameraAccessPrioritiesChangedResponse {
+}
+
+message OnCameraAvailableRequest {
+  string arg0 = 1;
+}
+
+message OnCameraAvailableResponse {
+}
+
+message OnCameraUnavailableRequest {
+  string arg0 = 1;
+}
+
+message OnCameraUnavailableResponse {
+}
+
+message OnPhysicalCameraAvailableRequest {
+  string arg0 = 1;
+  string arg1 = 2;
+}
+
+message OnPhysicalCameraAvailableResponse {
+}
+
+message OnPhysicalCameraUnavailableRequest {
+  string arg0 = 1;
+  string arg1 = 2;
+}
+
+message OnPhysicalCameraUnavailableResponse {
+}
+
+message OnTorchModeChangedRequest {
+  string arg0 = 1;
+  bool arg1 = 2;
+}
+
+message OnTorchModeChangedResponse {
+}
+
+message OnTorchModeUnavailableRequest {
+  string arg0 = 1;
+}
+
+message OnTorchModeUnavailableResponse {
+}
+
+message OnTorchStrengthLevelChangedRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message OnTorchStrengthLevelChangedResponse {
+}
+
 service ManagerService {
   rpc GetCameraCharacteristics (GetCameraCharacteristicsRequest) returns (GetCameraCharacteristicsResponse);
   rpc GetCameraDeviceSetup (GetCameraDeviceSetupRequest) returns (GetCameraDeviceSetupResponse);
@@ -122,4 +181,18 @@ service ManagerService {
   rpc TurnOnTorchWithStrengthLevel (TurnOnTorchWithStrengthLevelRequest) returns (TurnOnTorchWithStrengthLevelResponse);
   rpc UnregisterAvailabilityCallback (UnregisterAvailabilityCallbackRequest) returns (UnregisterAvailabilityCallbackResponse);
   rpc UnregisterTorchCallback (UnregisterTorchCallbackRequest) returns (UnregisterTorchCallbackResponse);
+}
+
+service ManagerAvailabilityCallbackService {
+  rpc OnCameraAccessPrioritiesChanged (OnCameraAccessPrioritiesChangedRequest) returns (OnCameraAccessPrioritiesChangedResponse);
+  rpc OnCameraAvailable (OnCameraAvailableRequest) returns (OnCameraAvailableResponse);
+  rpc OnCameraUnavailable (OnCameraUnavailableRequest) returns (OnCameraUnavailableResponse);
+  rpc OnPhysicalCameraAvailable (OnPhysicalCameraAvailableRequest) returns (OnPhysicalCameraAvailableResponse);
+  rpc OnPhysicalCameraUnavailable (OnPhysicalCameraUnavailableRequest) returns (OnPhysicalCameraUnavailableResponse);
+}
+
+service ManagerTorchCallbackService {
+  rpc OnTorchModeChanged (OnTorchModeChangedRequest) returns (OnTorchModeChangedResponse);
+  rpc OnTorchModeUnavailable (OnTorchModeUnavailableRequest) returns (OnTorchModeUnavailableResponse);
+  rpc OnTorchStrengthLevelChanged (OnTorchStrengthLevelChangedRequest) returns (OnTorchStrengthLevelChangedResponse);
 }

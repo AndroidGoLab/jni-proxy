@@ -6,6 +6,1431 @@ package telecom;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/telecom";
 
+message NewPhoneAccountSuggestionRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  bool arg2 = 3;
+}
+
+message NewPhoneAccountSuggestionResponse {
+  int64 result = 1;
+}
+
+message DescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message EqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message GetPhoneAccountHandleRequest {
+  int64 handle = 1;
+}
+
+message GetPhoneAccountHandleResponse {
+  int64 result = 1;
+}
+
+message GetReasonRequest {
+  int64 handle = 1;
+}
+
+message GetReasonResponse {
+  int32 result = 1;
+}
+
+message HashCodeRequest {
+  int64 handle = 1;
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message ShouldAutoSelectRequest {
+  int64 handle = 1;
+}
+
+message ShouldAutoSelectResponse {
+  bool result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message WriteToParcelResponse {
+}
+
+message AddConnectionRequest {
+  int64 arg0 = 1;
+}
+
+message AddConnectionResponse {
+  bool result = 1;
+}
+
+message DestroyRequest {
+}
+
+message DestroyResponse {
+}
+
+message GetCallAudioStateRequest {
+}
+
+message GetCallAudioStateResponse {
+  int64 result = 1;
+}
+
+message GetConnectionCapabilitiesRequest {
+}
+
+message GetConnectionCapabilitiesResponse {
+  int32 result = 1;
+}
+
+message GetConnectionPropertiesRequest {
+}
+
+message GetConnectionPropertiesResponse {
+  int32 result = 1;
+}
+
+message GetConnectionStartElapsedRealtimeMillisRequest {
+}
+
+message GetConnectionStartElapsedRealtimeMillisResponse {
+  int64 result = 1;
+}
+
+message GetConnectionTimeRequest {
+}
+
+message GetConnectionTimeResponse {
+  int64 result = 1;
+}
+
+message GetCurrentCallEndpointRequest {
+}
+
+message GetCurrentCallEndpointResponse {
+  int64 result = 1;
+}
+
+message GetDisconnectCauseRequest {
+}
+
+message GetDisconnectCauseResponse {
+  int64 result = 1;
+}
+
+message GetExtrasRequest {
+}
+
+message GetExtrasResponse {
+  int64 result = 1;
+}
+
+message ConferenceGetPhoneAccountHandleRequest {
+}
+
+message GetStateRequest {
+}
+
+message GetStateResponse {
+  int32 result = 1;
+}
+
+message GetStatusHintsRequest {
+}
+
+message GetStatusHintsResponse {
+  int64 result = 1;
+}
+
+message GetVideoProviderRequest {
+}
+
+message GetVideoProviderResponse {
+  int64 result = 1;
+}
+
+message GetVideoStateRequest {
+}
+
+message GetVideoStateResponse {
+  int32 result = 1;
+}
+
+message IsRingbackRequestedRequest {
+}
+
+message IsRingbackRequestedResponse {
+  bool result = 1;
+}
+
+message OnAnswerRequest {
+  int32 arg0 = 1;
+}
+
+message OnAnswerResponse {
+}
+
+message OnCallAudioStateChangedRequest {
+  int64 arg0 = 1;
+}
+
+message OnCallAudioStateChangedResponse {
+}
+
+message OnCallEndpointChangedRequest {
+  int64 arg0 = 1;
+}
+
+message OnCallEndpointChangedResponse {
+}
+
+message OnConnectionAddedRequest {
+  int64 arg0 = 1;
+}
+
+message OnConnectionAddedResponse {
+}
+
+message OnDisconnectRequest {
+}
+
+message OnDisconnectResponse {
+}
+
+message OnExtrasChangedRequest {
+  int64 arg0 = 1;
+}
+
+message OnExtrasChangedResponse {
+}
+
+message OnHoldRequest {
+}
+
+message OnHoldResponse {
+}
+
+message OnMerge0Request {
+}
+
+message OnMerge0Response {
+}
+
+message OnMerge1_1Request {
+  int64 arg0 = 1;
+}
+
+message OnMerge1_1Response {
+}
+
+message OnMuteStateChangedRequest {
+  bool arg0 = 1;
+}
+
+message OnMuteStateChangedResponse {
+}
+
+message OnPlayDtmfToneRequest {
+  uint32 arg0 = 1;
+}
+
+message OnPlayDtmfToneResponse {
+}
+
+message OnRejectRequest {
+}
+
+message OnRejectResponse {
+}
+
+message OnSeparateRequest {
+  int64 arg0 = 1;
+}
+
+message OnSeparateResponse {
+}
+
+message OnStopDtmfToneRequest {
+}
+
+message OnStopDtmfToneResponse {
+}
+
+message OnSwapRequest {
+}
+
+message OnSwapResponse {
+}
+
+message OnUnholdRequest {
+}
+
+message OnUnholdResponse {
+}
+
+message PutExtrasRequest {
+  int64 arg0 = 1;
+}
+
+message PutExtrasResponse {
+}
+
+message RemoveConnectionRequest {
+  int64 arg0 = 1;
+}
+
+message RemoveConnectionResponse {
+}
+
+message RemoveExtrasRequest {
+  int64 arg0 = 1;
+}
+
+message RemoveExtrasResponse {
+}
+
+message SendConferenceEventRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SendConferenceEventResponse {
+}
+
+message SetActiveRequest {
+}
+
+message SetActiveResponse {
+}
+
+message SetConnectionCapabilitiesRequest {
+  int32 arg0 = 1;
+}
+
+message SetConnectionCapabilitiesResponse {
+}
+
+message SetConnectionPropertiesRequest {
+  int32 arg0 = 1;
+}
+
+message SetConnectionPropertiesResponse {
+}
+
+message SetConnectionStartElapsedRealTimeRequest {
+  int64 arg0 = 1;
+}
+
+message SetConnectionStartElapsedRealTimeResponse {
+}
+
+message SetConnectionStartElapsedRealtimeMillisRequest {
+  int64 arg0 = 1;
+}
+
+message SetConnectionStartElapsedRealtimeMillisResponse {
+}
+
+message SetConnectionTimeRequest {
+  int64 arg0 = 1;
+}
+
+message SetConnectionTimeResponse {
+}
+
+message SetDialingRequest {
+}
+
+message SetDialingResponse {
+}
+
+message SetDisconnectedRequest {
+  int64 arg0 = 1;
+}
+
+message SetDisconnectedResponse {
+}
+
+message SetExtrasRequest {
+  int64 arg0 = 1;
+}
+
+message SetExtrasResponse {
+}
+
+message SetOnHoldRequest {
+}
+
+message SetOnHoldResponse {
+}
+
+message SetRingbackRequestedRequest {
+  bool arg0 = 1;
+}
+
+message SetRingbackRequestedResponse {
+}
+
+message SetRingingRequest {
+}
+
+message SetRingingResponse {
+}
+
+message SetStatusHintsRequest {
+  int64 arg0 = 1;
+}
+
+message SetStatusHintsResponse {
+}
+
+message SetVideoProviderRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SetVideoProviderResponse {
+}
+
+message SetVideoStateRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message SetVideoStateResponse {
+}
+
+message ToStringRequest {
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message CreateFailedConferenceRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message CreateFailedConferenceResponse {
+  int64 result = 1;
+}
+
+message AnswerRequest {
+  int32 arg0 = 1;
+}
+
+message AnswerResponse {
+}
+
+message ConferenceRequest {
+  int64 arg0 = 1;
+}
+
+message ConferenceResponse {
+}
+
+message DeflectRequest {
+  int64 arg0 = 1;
+}
+
+message DeflectResponse {
+}
+
+message DisconnectRequest {
+}
+
+message DisconnectResponse {
+}
+
+message GetDetailsRequest {
+}
+
+message GetDetailsResponse {
+  int64 result = 1;
+}
+
+message GetGenericConferenceActiveChildCallRequest {
+}
+
+message GetGenericConferenceActiveChildCallResponse {
+  int64 result = 1;
+}
+
+message GetParentRequest {
+}
+
+message GetParentResponse {
+  int64 result = 1;
+}
+
+message GetRemainingPostDialSequenceRequest {
+}
+
+message GetRemainingPostDialSequenceResponse {
+  string result = 1;
+}
+
+message GetRttCallRequest {
+}
+
+message GetRttCallResponse {
+  int64 result = 1;
+}
+
+message GetVideoCallRequest {
+}
+
+message GetVideoCallResponse {
+  int64 result = 1;
+}
+
+message HandoverToRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message HandoverToResponse {
+}
+
+message HoldRequest {
+}
+
+message HoldResponse {
+}
+
+message IsRttActiveRequest {
+}
+
+message IsRttActiveResponse {
+  bool result = 1;
+}
+
+message MergeConferenceRequest {
+}
+
+message MergeConferenceResponse {
+}
+
+message PhoneAccountSelectedRequest {
+  int64 arg0 = 1;
+  bool arg1 = 2;
+}
+
+message PhoneAccountSelectedResponse {
+}
+
+message PlayDtmfToneRequest {
+  uint32 arg0 = 1;
+}
+
+message PlayDtmfToneResponse {
+}
+
+message PostDialContinueRequest {
+  bool arg0 = 1;
+}
+
+message PostDialContinueResponse {
+}
+
+message PullExternalCallRequest {
+}
+
+message PullExternalCallResponse {
+}
+
+message RegisterCallbackRequest {
+  int64 arg0 = 1;
+}
+
+message RegisterCallbackResponse {
+}
+
+message Reject2Request {
+  bool arg0 = 1;
+  string arg1 = 2;
+}
+
+message Reject2Response {
+}
+
+message Reject1_1Request {
+  int32 arg0 = 1;
+}
+
+message Reject1_1Response {
+}
+
+message RespondToRttRequestRequest {
+  int32 arg0 = 1;
+  bool arg1 = 2;
+}
+
+message RespondToRttRequestResponse {
+}
+
+message SendCallEventRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SendCallEventResponse {
+}
+
+message SendRttRequestRequest {
+}
+
+message SendRttRequestResponse {
+}
+
+message SplitFromConferenceRequest {
+}
+
+message SplitFromConferenceResponse {
+}
+
+message StopDtmfToneRequest {
+}
+
+message StopDtmfToneResponse {
+}
+
+message StopRttRequest {
+}
+
+message StopRttResponse {
+}
+
+message SwapConferenceRequest {
+}
+
+message SwapConferenceResponse {
+}
+
+message UnholdRequest {
+}
+
+message UnholdResponse {
+}
+
+message UnregisterCallbackRequest {
+  int64 arg0 = 1;
+}
+
+message UnregisterCallbackResponse {
+}
+
+message OnCallDestroyedRequest {
+  int64 arg0 = 1;
+}
+
+message OnCallDestroyedResponse {
+}
+
+message OnConnectionEventRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message OnConnectionEventResponse {
+}
+
+message OnDetailsChangedRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnDetailsChangedResponse {
+}
+
+message OnHandoverCompleteRequest {
+  int64 arg0 = 1;
+}
+
+message OnHandoverCompleteResponse {
+}
+
+message OnHandoverFailedRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message OnHandoverFailedResponse {
+}
+
+message OnParentChangedRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnParentChangedResponse {
+}
+
+message OnPostDialWaitRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+}
+
+message OnPostDialWaitResponse {
+}
+
+message OnRttInitiationFailureRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message OnRttInitiationFailureResponse {
+}
+
+message OnRttModeChangedRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message OnRttModeChangedResponse {
+}
+
+message OnRttRequestRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message OnRttRequestResponse {
+}
+
+message OnRttStatusChangedRequest {
+  int64 arg0 = 1;
+  bool arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message OnRttStatusChangedResponse {
+}
+
+message OnStateChangedRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message OnStateChangedResponse {
+}
+
+message OnVideoCallChangedRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnVideoCallChangedResponse {
+}
+
+message Can1Request {
+  int32 arg0 = 1;
+}
+
+message Can1Response {
+  bool result = 1;
+}
+
+message CallDetailsEqualsRequest {
+  int64 arg0 = 1;
+}
+
+message GetAccountHandleRequest {
+}
+
+message GetAccountHandleResponse {
+  int64 result = 1;
+}
+
+message GetCallCapabilitiesRequest {
+}
+
+message GetCallCapabilitiesResponse {
+  int32 result = 1;
+}
+
+message GetCallDirectionRequest {
+}
+
+message GetCallDirectionResponse {
+  int32 result = 1;
+}
+
+message GetCallPropertiesRequest {
+}
+
+message GetCallPropertiesResponse {
+  int32 result = 1;
+}
+
+message GetCallerDisplayNameRequest {
+}
+
+message GetCallerDisplayNameResponse {
+  string result = 1;
+}
+
+message GetCallerDisplayNamePresentationRequest {
+}
+
+message GetCallerDisplayNamePresentationResponse {
+  int32 result = 1;
+}
+
+message GetCallerNumberVerificationStatusRequest {
+}
+
+message GetCallerNumberVerificationStatusResponse {
+  int32 result = 1;
+}
+
+message GetConnectTimeMillisRequest {
+}
+
+message GetConnectTimeMillisResponse {
+  int64 result = 1;
+}
+
+message GetContactDisplayNameRequest {
+}
+
+message GetContactDisplayNameResponse {
+  string result = 1;
+}
+
+message GetContactPhotoUriRequest {
+}
+
+message GetContactPhotoUriResponse {
+  int64 result = 1;
+}
+
+message GetCreationTimeMillisRequest {
+}
+
+message GetCreationTimeMillisResponse {
+  int64 result = 1;
+}
+
+message GetGatewayInfoRequest {
+}
+
+message GetGatewayInfoResponse {
+  int64 result = 1;
+}
+
+message GetHandleRequest {
+}
+
+message GetHandleResponse {
+  int64 result = 1;
+}
+
+message GetHandlePresentationRequest {
+}
+
+message GetHandlePresentationResponse {
+  int32 result = 1;
+}
+
+message GetIdRequest {
+}
+
+message GetIdResponse {
+  string result = 1;
+}
+
+message GetIntentExtrasRequest {
+}
+
+message GetIntentExtrasResponse {
+  int64 result = 1;
+}
+
+message HasProperty1Request {
+  int32 arg0 = 1;
+}
+
+message HasProperty1Response {
+  bool result = 1;
+}
+
+message CallDetailsHashCodeRequest {
+}
+
+message Can2_1Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message Can2_1Response {
+  bool result = 1;
+}
+
+message CapabilitiesToStringRequest {
+  int32 arg0 = 1;
+}
+
+message CapabilitiesToStringResponse {
+  string result = 1;
+}
+
+message HasProperty2_1Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message HasProperty2_1Response {
+  bool result = 1;
+}
+
+message PropertiesToStringRequest {
+  int32 arg0 = 1;
+}
+
+message PropertiesToStringResponse {
+  string result = 1;
+}
+
+message GetRttAudioModeRequest {
+}
+
+message GetRttAudioModeResponse {
+  int32 result = 1;
+}
+
+message ReadRequest {
+}
+
+message ReadResponse {
+  string result = 1;
+}
+
+message ReadImmediatelyRequest {
+}
+
+message ReadImmediatelyResponse {
+  string result = 1;
+}
+
+message SetRttModeRequest {
+  int32 arg0 = 1;
+}
+
+message SetRttModeResponse {
+}
+
+message WriteRequest {
+  string arg0 = 1;
+}
+
+message WriteResponse {
+}
+
+message NewPhoneAccountHandleRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+}
+
+message NewPhoneAccountHandleResponse {
+  int64 result = 1;
+}
+
+message GetComponentNameRequest {
+  int64 handle = 1;
+}
+
+message GetComponentNameResponse {
+  int64 result = 1;
+}
+
+message PhoneAccountHandleGetIdRequest {
+  int64 handle = 1;
+}
+
+message GetUserHandleRequest {
+  int64 handle = 1;
+}
+
+message GetUserHandleResponse {
+  int64 result = 1;
+}
+
+message PhoneAccountHandleToStringRequest {
+  int64 handle = 1;
+}
+
+message OnBindRequest {
+  int64 arg0 = 1;
+}
+
+message OnBindResponse {
+  int64 result = 1;
+}
+
+message OnScreenCallRequest {
+  int64 arg0 = 1;
+}
+
+message OnScreenCallResponse {
+}
+
+message OnUnbindRequest {
+  int64 arg0 = 1;
+}
+
+message OnUnbindResponse {
+  bool result = 1;
+}
+
+message RespondToCallRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message RespondToCallResponse {
+}
+
+message CallScreeningServiceCallResponseEqualsRequest {
+  int64 arg0 = 1;
+}
+
+message GetCallComposerAttachmentsToShowRequest {
+}
+
+message GetCallComposerAttachmentsToShowResponse {
+  int32 result = 1;
+}
+
+message GetDisallowCallRequest {
+}
+
+message GetDisallowCallResponse {
+  bool result = 1;
+}
+
+message GetRejectCallRequest {
+}
+
+message GetRejectCallResponse {
+  bool result = 1;
+}
+
+message GetSilenceCallRequest {
+}
+
+message GetSilenceCallResponse {
+  bool result = 1;
+}
+
+message GetSkipCallLogRequest {
+}
+
+message GetSkipCallLogResponse {
+  bool result = 1;
+}
+
+message GetSkipNotificationRequest {
+}
+
+message GetSkipNotificationResponse {
+  bool result = 1;
+}
+
+message CallScreeningServiceCallResponseHashCodeRequest {
+}
+
+message NewCallEndpointRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message NewCallEndpointResponse {
+  int64 result = 1;
+}
+
+message GetEndpointNameRequest {
+  int64 handle = 1;
+}
+
+message GetEndpointNameResponse {
+  int64 result = 1;
+}
+
+message GetEndpointTypeRequest {
+  int64 handle = 1;
+}
+
+message GetEndpointTypeResponse {
+  int32 result = 1;
+}
+
+message GetIdentifierRequest {
+  int64 handle = 1;
+}
+
+message GetIdentifierResponse {
+  int64 result = 1;
+}
+
+message CallEndpointToStringRequest {
+  int64 handle = 1;
+}
+
+message CanAddCallRequest {
+}
+
+message CanAddCallResponse {
+  bool result = 1;
+}
+
+message OnBringToForegroundRequest {
+  bool arg0 = 1;
+}
+
+message OnBringToForegroundResponse {
+}
+
+message OnCallAddedRequest {
+  int64 arg0 = 1;
+}
+
+message OnCallAddedResponse {
+}
+
+message OnCallRemovedRequest {
+  int64 arg0 = 1;
+}
+
+message OnCallRemovedResponse {
+}
+
+message OnCanAddCallChangedRequest {
+  bool arg0 = 1;
+}
+
+message OnCanAddCallChangedResponse {
+}
+
+message OnSilenceRingerRequest {
+}
+
+message OnSilenceRingerResponse {
+}
+
+message RequestBluetoothAudioRequest {
+  int64 arg0 = 1;
+}
+
+message RequestBluetoothAudioResponse {
+}
+
+message SetAudioRouteRequest {
+  int32 arg0 = 1;
+}
+
+message SetAudioRouteResponse {
+}
+
+message SetMutedRequest {
+  bool arg0 = 1;
+}
+
+message SetMutedResponse {
+}
+
+message RequestCallDataUsageRequest {
+}
+
+message RequestCallDataUsageResponse {
+}
+
+message RequestCameraCapabilitiesRequest {
+}
+
+message RequestCameraCapabilitiesResponse {
+}
+
+message SendSessionModifyRequestRequest {
+  int64 arg0 = 1;
+}
+
+message SendSessionModifyRequestResponse {
+}
+
+message SendSessionModifyResponseRequest {
+  int64 arg0 = 1;
+}
+
+message SendSessionModifyResponseResponse {
+}
+
+message SetCameraRequest {
+  string arg0 = 1;
+}
+
+message SetCameraResponse {
+}
+
+message SetDeviceOrientationRequest {
+  int32 arg0 = 1;
+}
+
+message SetDeviceOrientationResponse {
+}
+
+message SetDisplaySurfaceRequest {
+  int64 arg0 = 1;
+}
+
+message SetDisplaySurfaceResponse {
+}
+
+message SetPauseImageRequest {
+  int64 arg0 = 1;
+}
+
+message SetPauseImageResponse {
+}
+
+message SetPreviewSurfaceRequest {
+  int64 arg0 = 1;
+}
+
+message SetPreviewSurfaceResponse {
+}
+
+message SetZoomRequest {
+  float arg0 = 1;
+}
+
+message SetZoomResponse {
+}
+
+message PhoneAccountDescribeContentsRequest {
+}
+
+message PhoneAccountEqualsRequest {
+  int64 arg0 = 1;
+}
+
+message GetAddressRequest {
+}
+
+message GetAddressResponse {
+  int64 result = 1;
+}
+
+message GetCapabilitiesRequest {
+}
+
+message GetCapabilitiesResponse {
+  int32 result = 1;
+}
+
+message GetHighlightColorRequest {
+}
+
+message GetHighlightColorResponse {
+  int32 result = 1;
+}
+
+message GetIconRequest {
+}
+
+message GetIconResponse {
+  int64 result = 1;
+}
+
+message GetLabelRequest {
+}
+
+message GetLabelResponse {
+  int64 result = 1;
+}
+
+message GetShortDescriptionRequest {
+}
+
+message GetShortDescriptionResponse {
+  int64 result = 1;
+}
+
+message GetSubscriptionAddressRequest {
+}
+
+message GetSubscriptionAddressResponse {
+  int64 result = 1;
+}
+
+message HasCapabilitiesRequest {
+  int32 arg0 = 1;
+}
+
+message HasCapabilitiesResponse {
+  bool result = 1;
+}
+
+message HasSimultaneousCallingRestrictionRequest {
+}
+
+message HasSimultaneousCallingRestrictionResponse {
+  bool result = 1;
+}
+
+message PhoneAccountHashCodeRequest {
+}
+
+message IsEnabledRequest {
+}
+
+message IsEnabledResponse {
+  bool result = 1;
+}
+
+message SupportsUriSchemeRequest {
+  string arg0 = 1;
+}
+
+message SupportsUriSchemeResponse {
+  bool result = 1;
+}
+
+message ToBuilderRequest {
+}
+
+message ToBuilderResponse {
+  int64 result = 1;
+}
+
+message PhoneAccountWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message BuilderRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+}
+
+message BuilderResponse {
+  int64 result = 1;
+}
+
+message AddSupportedUriSchemeRequest {
+  string arg0 = 1;
+}
+
+message AddSupportedUriSchemeResponse {
+  int64 result = 1;
+}
+
+message BuildRequest {
+}
+
+message BuildResponse {
+  int64 result = 1;
+}
+
+message ClearSimultaneousCallingRestrictionRequest {
+}
+
+message ClearSimultaneousCallingRestrictionResponse {
+  int64 result = 1;
+}
+
+message SetAddressRequest {
+  int64 arg0 = 1;
+}
+
+message SetAddressResponse {
+  int64 result = 1;
+}
+
+message SetCapabilitiesRequest {
+  int32 arg0 = 1;
+}
+
+message SetCapabilitiesResponse {
+  int64 result = 1;
+}
+
+message PhoneAccountBuilderSetExtrasResponse {
+  int64 result = 1;
+}
+
+message SetHighlightColorRequest {
+  int32 arg0 = 1;
+}
+
+message SetHighlightColorResponse {
+  int64 result = 1;
+}
+
+message SetIconRequest {
+  int64 arg0 = 1;
+}
+
+message SetIconResponse {
+  int64 result = 1;
+}
+
+message SetShortDescriptionRequest {
+  string arg0 = 1;
+}
+
+message SetShortDescriptionResponse {
+  int64 result = 1;
+}
+
+message SetSubscriptionAddressRequest {
+  int64 arg0 = 1;
+}
+
+message SetSubscriptionAddressResponse {
+  int64 result = 1;
+}
+
+message NewCallEndpointExceptionRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message NewCallEndpointExceptionResponse {
+  int64 result = 1;
+}
+
+message GetCodeRequest {
+  int64 handle = 1;
+}
+
+message GetCodeResponse {
+  int32 result = 1;
+}
+
 message AcceptHandoverRequest {
   int64 arg0 = 1;
   int32 arg1 = 2;
@@ -245,6 +1670,1530 @@ message UnregisterPhoneAccountRequest {
 message UnregisterPhoneAccountResponse {
 }
 
+message OnCallStreamingFailedRequest {
+  int32 arg0 = 1;
+}
+
+message OnCallStreamingFailedResponse {
+}
+
+message OnEventRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnEventResponse {
+}
+
+message AbortRequest {
+}
+
+message AbortResponse {
+}
+
+message RemoteConnectionAnswerRequest {
+}
+
+message GetAddressPresentationRequest {
+}
+
+message GetAddressPresentationResponse {
+  int32 result = 1;
+}
+
+message RemoteConnectionGetCallerDisplayNameResponse {
+  int64 result = 1;
+}
+
+message GetConferenceRequest {
+}
+
+message GetConferenceResponse {
+  int64 result = 1;
+}
+
+message IsVoipAudioModeRequest {
+}
+
+message IsVoipAudioModeResponse {
+  bool result = 1;
+}
+
+message RejectRequest {
+}
+
+message RejectResponse {
+}
+
+message SetCallAudioStateRequest {
+  int64 arg0 = 1;
+}
+
+message SetCallAudioStateResponse {
+}
+
+message OnAddressChangedRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message OnAddressChangedResponse {
+}
+
+message OnCallerDisplayNameChangedRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message OnCallerDisplayNameChangedResponse {
+}
+
+message OnConferenceChangedRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnConferenceChangedResponse {
+}
+
+message OnConnectionCapabilitiesChangedRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message OnConnectionCapabilitiesChangedResponse {
+}
+
+message OnConnectionPropertiesChangedRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message OnConnectionPropertiesChangedResponse {
+}
+
+message OnDestroyedRequest {
+  int64 arg0 = 1;
+}
+
+message OnDestroyedResponse {
+}
+
+message OnDisconnectedRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnDisconnectedResponse {
+}
+
+message RemoteConnectionCallbackOnExtrasChangedRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnPostDialCharRequest {
+  int64 arg0 = 1;
+  uint32 arg1 = 2;
+}
+
+message OnPostDialCharResponse {
+}
+
+message OnRingbackRequestedRequest {
+  int64 arg0 = 1;
+  bool arg1 = 2;
+}
+
+message OnRingbackRequestedResponse {
+}
+
+message OnStatusHintsChangedRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnStatusHintsChangedResponse {
+}
+
+message OnVideoProviderChangedRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnVideoProviderChangedResponse {
+}
+
+message OnVideoStateChangedRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message OnVideoStateChangedResponse {
+}
+
+message OnVoipAudioChangedRequest {
+  int64 arg0 = 1;
+  bool arg1 = 2;
+}
+
+message OnVoipAudioChangedResponse {
+}
+
+message RemoteConnectionVideoProviderSendSessionModifyRequestRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message GetCallIdRequest {
+}
+
+message GetCallIdResponse {
+  int64 result = 1;
+}
+
+message SendEventRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SendEventResponse {
+}
+
+message NewConnectionRequestRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message NewConnectionRequestResponse {
+  int64 result = 1;
+}
+
+message ConnectionRequestGetAccountHandleRequest {
+  int64 handle = 1;
+}
+
+message ConnectionRequestGetAddressRequest {
+  int64 handle = 1;
+}
+
+message ConnectionRequestGetExtrasRequest {
+  int64 handle = 1;
+}
+
+message GetRttTextStreamRequest {
+  int64 handle = 1;
+}
+
+message GetRttTextStreamResponse {
+  int64 result = 1;
+}
+
+message ConnectionRequestGetVideoStateRequest {
+  int64 handle = 1;
+}
+
+message IsAdhocConferenceCallRequest {
+  int64 handle = 1;
+}
+
+message IsAdhocConferenceCallResponse {
+  bool result = 1;
+}
+
+message IsRequestingRttRequest {
+  int64 handle = 1;
+}
+
+message IsRequestingRttResponse {
+  bool result = 1;
+}
+
+message ConnectionRequestToStringRequest {
+  int64 handle = 1;
+}
+
+message NewStatusHintsRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message NewStatusHintsResponse {
+  int64 result = 1;
+}
+
+message StatusHintsGetExtrasRequest {
+  int64 handle = 1;
+}
+
+message StatusHintsGetIconRequest {
+  int64 handle = 1;
+}
+
+message StatusHintsGetLabelRequest {
+  int64 handle = 1;
+}
+
+message NewCallAudioStateRequest {
+  bool arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message NewCallAudioStateResponse {
+  int64 result = 1;
+}
+
+message GetActiveBluetoothDeviceRequest {
+  int64 handle = 1;
+}
+
+message GetActiveBluetoothDeviceResponse {
+  int64 result = 1;
+}
+
+message GetRouteRequest {
+  int64 handle = 1;
+}
+
+message GetRouteResponse {
+  int32 result = 1;
+}
+
+message GetSupportedRouteMaskRequest {
+  int64 handle = 1;
+}
+
+message GetSupportedRouteMaskResponse {
+  int32 result = 1;
+}
+
+message IsMutedRequest {
+  int64 handle = 1;
+}
+
+message IsMutedResponse {
+  bool result = 1;
+}
+
+message CallAudioStateToStringRequest {
+  int64 handle = 1;
+}
+
+message AudioRouteToStringRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message AudioRouteToStringResponse {
+  string result = 1;
+}
+
+message CallAttributesDescribeContentsRequest {
+}
+
+message CallAttributesEqualsRequest {
+  int64 arg0 = 1;
+}
+
+message GetCallTypeRequest {
+}
+
+message GetCallTypeResponse {
+  int32 result = 1;
+}
+
+message GetDirectionRequest {
+}
+
+message GetDirectionResponse {
+  int32 result = 1;
+}
+
+message GetDisplayNameRequest {
+}
+
+message GetDisplayNameResponse {
+  int64 result = 1;
+}
+
+message CallAttributesGetPhoneAccountHandleRequest {
+}
+
+message CallAttributesHashCodeRequest {
+}
+
+message CallAttributesWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message SetCallCapabilitiesRequest {
+  int32 arg0 = 1;
+}
+
+message SetCallCapabilitiesResponse {
+  int64 result = 1;
+}
+
+message SetCallTypeRequest {
+  int32 arg0 = 1;
+}
+
+message SetCallTypeResponse {
+  int64 result = 1;
+}
+
+message AddConferenceRequest {
+  int64 arg0 = 1;
+}
+
+message AddConferenceResponse {
+}
+
+message AddExistingConnectionRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message AddExistingConnectionResponse {
+}
+
+message ConferenceRemoteConnectionsRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message ConferenceRemoteConnectionsResponse {
+}
+
+message ConnectionServiceFocusReleasedRequest {
+}
+
+message ConnectionServiceFocusReleasedResponse {
+}
+
+message CreateRemoteIncomingConferenceRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message CreateRemoteIncomingConferenceResponse {
+  int64 result = 1;
+}
+
+message CreateRemoteIncomingConnectionRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message CreateRemoteIncomingConnectionResponse {
+  int64 result = 1;
+}
+
+message CreateRemoteOutgoingConferenceRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message CreateRemoteOutgoingConferenceResponse {
+  int64 result = 1;
+}
+
+message CreateRemoteOutgoingConnectionRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message CreateRemoteOutgoingConnectionResponse {
+  int64 result = 1;
+}
+
+message OnConferenceRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnConferenceResponse {
+}
+
+message OnConnectionServiceFocusGainedRequest {
+}
+
+message OnConnectionServiceFocusGainedResponse {
+}
+
+message OnConnectionServiceFocusLostRequest {
+}
+
+message OnConnectionServiceFocusLostResponse {
+}
+
+message OnCreateIncomingConferenceRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnCreateIncomingConferenceResponse {
+  int64 result = 1;
+}
+
+message OnCreateIncomingConferenceFailedRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnCreateIncomingConferenceFailedResponse {
+}
+
+message OnCreateIncomingConnectionRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnCreateIncomingConnectionResponse {
+  int64 result = 1;
+}
+
+message OnCreateIncomingConnectionFailedRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnCreateIncomingConnectionFailedResponse {
+}
+
+message OnCreateIncomingHandoverConnectionRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnCreateIncomingHandoverConnectionResponse {
+  int64 result = 1;
+}
+
+message OnCreateOutgoingConferenceRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnCreateOutgoingConferenceResponse {
+  int64 result = 1;
+}
+
+message OnCreateOutgoingConferenceFailedRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnCreateOutgoingConferenceFailedResponse {
+}
+
+message OnCreateOutgoingConnectionRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnCreateOutgoingConnectionResponse {
+  int64 result = 1;
+}
+
+message OnCreateOutgoingConnectionFailedRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnCreateOutgoingConnectionFailedResponse {
+}
+
+message OnCreateOutgoingHandoverConnectionRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnCreateOutgoingHandoverConnectionResponse {
+  int64 result = 1;
+}
+
+message OnRemoteConferenceAddedRequest {
+  int64 arg0 = 1;
+}
+
+message OnRemoteConferenceAddedResponse {
+}
+
+message OnRemoteExistingConnectionAddedRequest {
+  int64 arg0 = 1;
+}
+
+message OnRemoteExistingConnectionAddedResponse {
+}
+
+message NewGatewayInfoRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message NewGatewayInfoResponse {
+  int64 result = 1;
+}
+
+message GetGatewayAddressRequest {
+  int64 handle = 1;
+}
+
+message GetGatewayAddressResponse {
+  int64 result = 1;
+}
+
+message GetGatewayProviderPackageNameRequest {
+  int64 handle = 1;
+}
+
+message GetGatewayProviderPackageNameResponse {
+  string result = 1;
+}
+
+message GetOriginalAddressRequest {
+  int64 handle = 1;
+}
+
+message GetOriginalAddressResponse {
+  int64 result = 1;
+}
+
+message IsEmptyRequest {
+  int64 handle = 1;
+}
+
+message IsEmptyResponse {
+  bool result = 1;
+}
+
+message NewCallExceptionRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message NewCallExceptionResponse {
+  int64 result = 1;
+}
+
+message CancelCallRequest {
+}
+
+message CancelCallResponse {
+}
+
+message OnPlaceCallRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  bool arg2 = 3;
+}
+
+message OnPlaceCallResponse {
+}
+
+message OnRedirectionTimeoutRequest {
+}
+
+message OnRedirectionTimeoutResponse {
+}
+
+message PlaceCallUnmodifiedRequest {
+}
+
+message PlaceCallUnmodifiedResponse {
+}
+
+message RedirectCallRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  bool arg2 = 3;
+}
+
+message RedirectCallResponse {
+}
+
+message NewQueryLocationExceptionRequest {
+  string arg0 = 1;
+}
+
+message NewQueryLocationExceptionResponse {
+  int64 result = 1;
+}
+
+message MergeRequest {
+}
+
+message MergeResponse {
+}
+
+message SeparateRequest {
+  int64 arg0 = 1;
+}
+
+message SeparateResponse {
+}
+
+message SwapRequest {
+}
+
+message SwapResponse {
+}
+
+message RemoteConferenceCallbackOnConnectionAddedRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnConnectionRemovedRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnConnectionRemovedResponse {
+}
+
+message RemoteConferenceCallbackOnExtrasChangedRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message RemoteConferenceCallbackOnStateChangedRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message NewVideoProfileRequest {
+  int32 arg0 = 1;
+}
+
+message NewVideoProfileResponse {
+  int64 result = 1;
+}
+
+message GetQualityRequest {
+  int64 handle = 1;
+}
+
+message GetQualityResponse {
+  int32 result = 1;
+}
+
+message VideoProfileGetVideoStateRequest {
+  int64 handle = 1;
+}
+
+message VideoProfileToStringRequest {
+  int64 handle = 1;
+}
+
+message IsAudioOnlyRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message IsAudioOnlyResponse {
+  bool result = 1;
+}
+
+message IsBidirectionalRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message IsBidirectionalResponse {
+  bool result = 1;
+}
+
+message IsPausedRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message IsPausedResponse {
+  bool result = 1;
+}
+
+message IsReceptionEnabledRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message IsReceptionEnabledResponse {
+  bool result = 1;
+}
+
+message IsTransmissionEnabledRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message IsTransmissionEnabledResponse {
+  bool result = 1;
+}
+
+message IsVideoRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message IsVideoResponse {
+  bool result = 1;
+}
+
+message VideoStateToStringRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message VideoStateToStringResponse {
+  string result = 1;
+}
+
+message VideoProfileCameraCapabilitiesDescribeContentsRequest {
+}
+
+message GetHeightRequest {
+}
+
+message GetHeightResponse {
+  int32 result = 1;
+}
+
+message GetMaxZoomRequest {
+}
+
+message GetMaxZoomResponse {
+  float result = 1;
+}
+
+message GetWidthRequest {
+}
+
+message GetWidthResponse {
+  int32 result = 1;
+}
+
+message IsZoomSupportedRequest {
+}
+
+message IsZoomSupportedResponse {
+  bool result = 1;
+}
+
+message VideoProfileCameraCapabilitiesWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message GetAudioModeIsVoipRequest {
+}
+
+message GetAudioModeIsVoipResponse {
+  bool result = 1;
+}
+
+message HandleRttUpgradeResponseRequest {
+  int64 arg0 = 1;
+}
+
+message HandleRttUpgradeResponseResponse {
+}
+
+message NotifyConferenceMergeFailedRequest {
+}
+
+message NotifyConferenceMergeFailedResponse {
+}
+
+message OnAbortRequest {
+}
+
+message OnAbortResponse {
+}
+
+message OnAnswer0Request {
+}
+
+message OnAnswer0Response {
+}
+
+message OnAnswer1_1Request {
+  int32 arg0 = 1;
+}
+
+message OnAnswer1_1Response {
+}
+
+message OnCallEventRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnCallEventResponse {
+}
+
+message OnDeflectRequest {
+  int64 arg0 = 1;
+}
+
+message OnDeflectResponse {
+}
+
+message ConnectionOnHandoverCompleteRequest {
+}
+
+message OnPostDialContinueRequest {
+  bool arg0 = 1;
+}
+
+message OnPostDialContinueResponse {
+}
+
+message OnPullExternalCallRequest {
+}
+
+message OnPullExternalCallResponse {
+}
+
+message OnReject0Request {
+}
+
+message OnReject0Response {
+}
+
+message OnReject1_1Request {
+  int32 arg0 = 1;
+}
+
+message OnReject1_1Response {
+}
+
+message OnReject1_2Request {
+  string arg0 = 1;
+}
+
+message OnReject1_2Response {
+}
+
+message ConnectionOnSeparateRequest {
+}
+
+message OnShowIncomingCallUiRequest {
+}
+
+message OnShowIncomingCallUiResponse {
+}
+
+message OnSilenceRequest {
+}
+
+message OnSilenceResponse {
+}
+
+message OnStartRttRequest {
+  int64 arg0 = 1;
+}
+
+message OnStartRttResponse {
+}
+
+message ConnectionOnStateChangedRequest {
+  int32 arg0 = 1;
+}
+
+message OnStopRttRequest {
+}
+
+message OnStopRttResponse {
+}
+
+message OnTrackedByNonUiServiceRequest {
+  bool arg0 = 1;
+}
+
+message OnTrackedByNonUiServiceResponse {
+}
+
+message OnUsingAlternativeUiRequest {
+  bool arg0 = 1;
+}
+
+message OnUsingAlternativeUiResponse {
+}
+
+message SendConnectionEventRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SendConnectionEventResponse {
+}
+
+message SendRemoteRttRequestRequest {
+}
+
+message SendRemoteRttRequestResponse {
+}
+
+message SendRttInitiationFailureRequest {
+  int32 arg0 = 1;
+}
+
+message SendRttInitiationFailureResponse {
+}
+
+message SendRttInitiationSuccessRequest {
+}
+
+message SendRttInitiationSuccessResponse {
+}
+
+message SendRttSessionRemotelyTerminatedRequest {
+}
+
+message SendRttSessionRemotelyTerminatedResponse {
+}
+
+message ConnectionSetAddressRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message ConnectionSetAddressResponse {
+}
+
+message SetAudioModeIsVoipRequest {
+  bool arg0 = 1;
+}
+
+message SetAudioModeIsVoipResponse {
+}
+
+message SetCallerDisplayNameRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message SetCallerDisplayNameResponse {
+}
+
+message SetCallerNumberVerificationStatusRequest {
+  int32 arg0 = 1;
+}
+
+message SetCallerNumberVerificationStatusResponse {
+}
+
+message SetInitializedRequest {
+}
+
+message SetInitializedResponse {
+}
+
+message SetInitializingRequest {
+}
+
+message SetInitializingResponse {
+}
+
+message SetNextPostDialCharRequest {
+  uint32 arg0 = 1;
+}
+
+message SetNextPostDialCharResponse {
+}
+
+message SetPostDialWaitRequest {
+  string arg0 = 1;
+}
+
+message SetPostDialWaitResponse {
+}
+
+message SetPullingRequest {
+}
+
+message SetPullingResponse {
+}
+
+message ConnectionSetVideoProviderRequest {
+  int64 arg0 = 1;
+}
+
+message ConnectionSetVideoStateRequest {
+  int32 arg0 = 1;
+}
+
+message CreateCanceledConnectionRequest {
+}
+
+message CreateCanceledConnectionResponse {
+  int64 result = 1;
+}
+
+message CreateFailedConnectionRequest {
+  int64 arg0 = 1;
+}
+
+message CreateFailedConnectionResponse {
+  int64 result = 1;
+}
+
+message StateToStringRequest {
+  int32 arg0 = 1;
+}
+
+message StateToStringResponse {
+  string result = 1;
+}
+
+message ChangeCameraCapabilitiesRequest {
+  int64 arg0 = 1;
+}
+
+message ChangeCameraCapabilitiesResponse {
+}
+
+message ChangePeerDimensionsRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message ChangePeerDimensionsResponse {
+}
+
+message ChangeVideoQualityRequest {
+  int32 arg0 = 1;
+}
+
+message ChangeVideoQualityResponse {
+}
+
+message HandleCallSessionEventRequest {
+  int32 arg0 = 1;
+}
+
+message HandleCallSessionEventResponse {
+}
+
+message OnRequestCameraCapabilitiesRequest {
+}
+
+message OnRequestCameraCapabilitiesResponse {
+}
+
+message OnRequestConnectionDataUsageRequest {
+}
+
+message OnRequestConnectionDataUsageResponse {
+}
+
+message OnSendSessionModifyRequestRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnSendSessionModifyRequestResponse {
+}
+
+message OnSendSessionModifyResponseRequest {
+  int64 arg0 = 1;
+}
+
+message OnSendSessionModifyResponseResponse {
+}
+
+message OnSetCameraRequest {
+  string arg0 = 1;
+}
+
+message OnSetCameraResponse {
+}
+
+message OnSetDeviceOrientationRequest {
+  int32 arg0 = 1;
+}
+
+message OnSetDeviceOrientationResponse {
+}
+
+message OnSetDisplaySurfaceRequest {
+  int64 arg0 = 1;
+}
+
+message OnSetDisplaySurfaceResponse {
+}
+
+message OnSetPauseImageRequest {
+  int64 arg0 = 1;
+}
+
+message OnSetPauseImageResponse {
+}
+
+message OnSetPreviewSurfaceRequest {
+  int64 arg0 = 1;
+}
+
+message OnSetPreviewSurfaceResponse {
+}
+
+message OnSetZoomRequest {
+  float arg0 = 1;
+}
+
+message OnSetZoomResponse {
+}
+
+message ReceiveSessionModifyRequestRequest {
+  int64 arg0 = 1;
+}
+
+message ReceiveSessionModifyRequestResponse {
+}
+
+message ReceiveSessionModifyResponseRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message ReceiveSessionModifyResponseResponse {
+}
+
+message SetCallDataUsageRequest {
+  int64 arg0 = 1;
+}
+
+message SetCallDataUsageResponse {
+}
+
+message NewDisconnectCauseRequest {
+  int32 arg0 = 1;
+}
+
+message NewDisconnectCauseResponse {
+  int64 result = 1;
+}
+
+message GetDescriptionRequest {
+  int64 handle = 1;
+}
+
+message GetDescriptionResponse {
+  int64 result = 1;
+}
+
+message DisconnectCauseGetLabelRequest {
+  int64 handle = 1;
+}
+
+message DisconnectCauseGetReasonResponse {
+  string result = 1;
+}
+
+message GetToneRequest {
+  int64 handle = 1;
+}
+
+message GetToneResponse {
+  int32 result = 1;
+}
+
+message DisconnectCauseToStringRequest {
+  int64 handle = 1;
+}
+
+service PhoneAccountSuggestionService {
+  rpc NewPhoneAccountSuggestion (NewPhoneAccountSuggestionRequest) returns (NewPhoneAccountSuggestionResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetPhoneAccountHandle (GetPhoneAccountHandleRequest) returns (GetPhoneAccountHandleResponse);
+  rpc GetReason (GetReasonRequest) returns (GetReasonResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ShouldAutoSelect (ShouldAutoSelectRequest) returns (ShouldAutoSelectResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ConferenceService {
+  rpc AddConnection (AddConnectionRequest) returns (AddConnectionResponse);
+  rpc Destroy (DestroyRequest) returns (DestroyResponse);
+  rpc GetCallAudioState (GetCallAudioStateRequest) returns (GetCallAudioStateResponse);
+  rpc GetConnectionCapabilities (GetConnectionCapabilitiesRequest) returns (GetConnectionCapabilitiesResponse);
+  rpc GetConnectionProperties (GetConnectionPropertiesRequest) returns (GetConnectionPropertiesResponse);
+  rpc GetConnectionStartElapsedRealtimeMillis (GetConnectionStartElapsedRealtimeMillisRequest) returns (GetConnectionStartElapsedRealtimeMillisResponse);
+  rpc GetConnectionTime (GetConnectionTimeRequest) returns (GetConnectionTimeResponse);
+  rpc GetCurrentCallEndpoint (GetCurrentCallEndpointRequest) returns (GetCurrentCallEndpointResponse);
+  rpc GetDisconnectCause (GetDisconnectCauseRequest) returns (GetDisconnectCauseResponse);
+  rpc GetExtras (GetExtrasRequest) returns (GetExtrasResponse);
+  rpc GetPhoneAccountHandle (ConferenceGetPhoneAccountHandleRequest) returns (GetPhoneAccountHandleResponse);
+  rpc GetState (GetStateRequest) returns (GetStateResponse);
+  rpc GetStatusHints (GetStatusHintsRequest) returns (GetStatusHintsResponse);
+  rpc GetVideoProvider (GetVideoProviderRequest) returns (GetVideoProviderResponse);
+  rpc GetVideoState (GetVideoStateRequest) returns (GetVideoStateResponse);
+  rpc IsRingbackRequested (IsRingbackRequestedRequest) returns (IsRingbackRequestedResponse);
+  rpc OnAnswer (OnAnswerRequest) returns (OnAnswerResponse);
+  rpc OnCallAudioStateChanged (OnCallAudioStateChangedRequest) returns (OnCallAudioStateChangedResponse);
+  rpc OnCallEndpointChanged (OnCallEndpointChangedRequest) returns (OnCallEndpointChangedResponse);
+  rpc OnConnectionAdded (OnConnectionAddedRequest) returns (OnConnectionAddedResponse);
+  rpc OnDisconnect (OnDisconnectRequest) returns (OnDisconnectResponse);
+  rpc OnExtrasChanged (OnExtrasChangedRequest) returns (OnExtrasChangedResponse);
+  rpc OnHold (OnHoldRequest) returns (OnHoldResponse);
+  rpc OnMerge0 (OnMerge0Request) returns (OnMerge0Response);
+  rpc OnMerge1_1 (OnMerge1_1Request) returns (OnMerge1_1Response);
+  rpc OnMuteStateChanged (OnMuteStateChangedRequest) returns (OnMuteStateChangedResponse);
+  rpc OnPlayDtmfTone (OnPlayDtmfToneRequest) returns (OnPlayDtmfToneResponse);
+  rpc OnReject (OnRejectRequest) returns (OnRejectResponse);
+  rpc OnSeparate (OnSeparateRequest) returns (OnSeparateResponse);
+  rpc OnStopDtmfTone (OnStopDtmfToneRequest) returns (OnStopDtmfToneResponse);
+  rpc OnSwap (OnSwapRequest) returns (OnSwapResponse);
+  rpc OnUnhold (OnUnholdRequest) returns (OnUnholdResponse);
+  rpc PutExtras (PutExtrasRequest) returns (PutExtrasResponse);
+  rpc RemoveConnection (RemoveConnectionRequest) returns (RemoveConnectionResponse);
+  rpc RemoveExtras (RemoveExtrasRequest) returns (RemoveExtrasResponse);
+  rpc SendConferenceEvent (SendConferenceEventRequest) returns (SendConferenceEventResponse);
+  rpc SetActive (SetActiveRequest) returns (SetActiveResponse);
+  rpc SetConnectionCapabilities (SetConnectionCapabilitiesRequest) returns (SetConnectionCapabilitiesResponse);
+  rpc SetConnectionProperties (SetConnectionPropertiesRequest) returns (SetConnectionPropertiesResponse);
+  rpc SetConnectionStartElapsedRealTime (SetConnectionStartElapsedRealTimeRequest) returns (SetConnectionStartElapsedRealTimeResponse);
+  rpc SetConnectionStartElapsedRealtimeMillis (SetConnectionStartElapsedRealtimeMillisRequest) returns (SetConnectionStartElapsedRealtimeMillisResponse);
+  rpc SetConnectionTime (SetConnectionTimeRequest) returns (SetConnectionTimeResponse);
+  rpc SetDialing (SetDialingRequest) returns (SetDialingResponse);
+  rpc SetDisconnected (SetDisconnectedRequest) returns (SetDisconnectedResponse);
+  rpc SetExtras (SetExtrasRequest) returns (SetExtrasResponse);
+  rpc SetOnHold (SetOnHoldRequest) returns (SetOnHoldResponse);
+  rpc SetRingbackRequested (SetRingbackRequestedRequest) returns (SetRingbackRequestedResponse);
+  rpc SetRinging (SetRingingRequest) returns (SetRingingResponse);
+  rpc SetStatusHints (SetStatusHintsRequest) returns (SetStatusHintsResponse);
+  rpc SetVideoProvider (SetVideoProviderRequest) returns (SetVideoProviderResponse);
+  rpc SetVideoState (SetVideoStateRequest) returns (SetVideoStateResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc CreateFailedConference (CreateFailedConferenceRequest) returns (CreateFailedConferenceResponse);
+}
+
+service CallService {
+  rpc Answer (AnswerRequest) returns (AnswerResponse);
+  rpc Conference (ConferenceRequest) returns (ConferenceResponse);
+  rpc Deflect (DeflectRequest) returns (DeflectResponse);
+  rpc Disconnect (DisconnectRequest) returns (DisconnectResponse);
+  rpc GetDetails (GetDetailsRequest) returns (GetDetailsResponse);
+  rpc GetGenericConferenceActiveChildCall (GetGenericConferenceActiveChildCallRequest) returns (GetGenericConferenceActiveChildCallResponse);
+  rpc GetParent (GetParentRequest) returns (GetParentResponse);
+  rpc GetRemainingPostDialSequence (GetRemainingPostDialSequenceRequest) returns (GetRemainingPostDialSequenceResponse);
+  rpc GetRttCall (GetRttCallRequest) returns (GetRttCallResponse);
+  rpc GetState (GetStateRequest) returns (GetStateResponse);
+  rpc GetVideoCall (GetVideoCallRequest) returns (GetVideoCallResponse);
+  rpc HandoverTo (HandoverToRequest) returns (HandoverToResponse);
+  rpc Hold (HoldRequest) returns (HoldResponse);
+  rpc IsRttActive (IsRttActiveRequest) returns (IsRttActiveResponse);
+  rpc MergeConference (MergeConferenceRequest) returns (MergeConferenceResponse);
+  rpc PhoneAccountSelected (PhoneAccountSelectedRequest) returns (PhoneAccountSelectedResponse);
+  rpc PlayDtmfTone (PlayDtmfToneRequest) returns (PlayDtmfToneResponse);
+  rpc PostDialContinue (PostDialContinueRequest) returns (PostDialContinueResponse);
+  rpc PullExternalCall (PullExternalCallRequest) returns (PullExternalCallResponse);
+  rpc PutExtras (PutExtrasRequest) returns (PutExtrasResponse);
+  rpc RegisterCallback (RegisterCallbackRequest) returns (RegisterCallbackResponse);
+  rpc Reject2 (Reject2Request) returns (Reject2Response);
+  rpc Reject1_1 (Reject1_1Request) returns (Reject1_1Response);
+  rpc RemoveExtras (RemoveExtrasRequest) returns (RemoveExtrasResponse);
+  rpc RespondToRttRequest (RespondToRttRequestRequest) returns (RespondToRttRequestResponse);
+  rpc SendCallEvent (SendCallEventRequest) returns (SendCallEventResponse);
+  rpc SendRttRequest (SendRttRequestRequest) returns (SendRttRequestResponse);
+  rpc SplitFromConference (SplitFromConferenceRequest) returns (SplitFromConferenceResponse);
+  rpc StopDtmfTone (StopDtmfToneRequest) returns (StopDtmfToneResponse);
+  rpc StopRtt (StopRttRequest) returns (StopRttResponse);
+  rpc SwapConference (SwapConferenceRequest) returns (SwapConferenceResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc Unhold (UnholdRequest) returns (UnholdResponse);
+  rpc UnregisterCallback (UnregisterCallbackRequest) returns (UnregisterCallbackResponse);
+}
+
+service CallCallbackService {
+  rpc OnCallDestroyed (OnCallDestroyedRequest) returns (OnCallDestroyedResponse);
+  rpc OnConnectionEvent (OnConnectionEventRequest) returns (OnConnectionEventResponse);
+  rpc OnDetailsChanged (OnDetailsChangedRequest) returns (OnDetailsChangedResponse);
+  rpc OnHandoverComplete (OnHandoverCompleteRequest) returns (OnHandoverCompleteResponse);
+  rpc OnHandoverFailed (OnHandoverFailedRequest) returns (OnHandoverFailedResponse);
+  rpc OnParentChanged (OnParentChangedRequest) returns (OnParentChangedResponse);
+  rpc OnPostDialWait (OnPostDialWaitRequest) returns (OnPostDialWaitResponse);
+  rpc OnRttInitiationFailure (OnRttInitiationFailureRequest) returns (OnRttInitiationFailureResponse);
+  rpc OnRttModeChanged (OnRttModeChangedRequest) returns (OnRttModeChangedResponse);
+  rpc OnRttRequest (OnRttRequestRequest) returns (OnRttRequestResponse);
+  rpc OnRttStatusChanged (OnRttStatusChangedRequest) returns (OnRttStatusChangedResponse);
+  rpc OnStateChanged (OnStateChangedRequest) returns (OnStateChangedResponse);
+  rpc OnVideoCallChanged (OnVideoCallChangedRequest) returns (OnVideoCallChangedResponse);
+}
+
+service CallDetailsService {
+  rpc Can1 (Can1Request) returns (Can1Response);
+  rpc Equals (CallDetailsEqualsRequest) returns (EqualsResponse);
+  rpc GetAccountHandle (GetAccountHandleRequest) returns (GetAccountHandleResponse);
+  rpc GetCallCapabilities (GetCallCapabilitiesRequest) returns (GetCallCapabilitiesResponse);
+  rpc GetCallDirection (GetCallDirectionRequest) returns (GetCallDirectionResponse);
+  rpc GetCallProperties (GetCallPropertiesRequest) returns (GetCallPropertiesResponse);
+  rpc GetCallerDisplayName (GetCallerDisplayNameRequest) returns (GetCallerDisplayNameResponse);
+  rpc GetCallerDisplayNamePresentation (GetCallerDisplayNamePresentationRequest) returns (GetCallerDisplayNamePresentationResponse);
+  rpc GetCallerNumberVerificationStatus (GetCallerNumberVerificationStatusRequest) returns (GetCallerNumberVerificationStatusResponse);
+  rpc GetConnectTimeMillis (GetConnectTimeMillisRequest) returns (GetConnectTimeMillisResponse);
+  rpc GetContactDisplayName (GetContactDisplayNameRequest) returns (GetContactDisplayNameResponse);
+  rpc GetContactPhotoUri (GetContactPhotoUriRequest) returns (GetContactPhotoUriResponse);
+  rpc GetCreationTimeMillis (GetCreationTimeMillisRequest) returns (GetCreationTimeMillisResponse);
+  rpc GetDisconnectCause (GetDisconnectCauseRequest) returns (GetDisconnectCauseResponse);
+  rpc GetExtras (GetExtrasRequest) returns (GetExtrasResponse);
+  rpc GetGatewayInfo (GetGatewayInfoRequest) returns (GetGatewayInfoResponse);
+  rpc GetHandle (GetHandleRequest) returns (GetHandleResponse);
+  rpc GetHandlePresentation (GetHandlePresentationRequest) returns (GetHandlePresentationResponse);
+  rpc GetId (GetIdRequest) returns (GetIdResponse);
+  rpc GetIntentExtras (GetIntentExtrasRequest) returns (GetIntentExtrasResponse);
+  rpc GetState (GetStateRequest) returns (GetStateResponse);
+  rpc GetStatusHints (GetStatusHintsRequest) returns (GetStatusHintsResponse);
+  rpc GetVideoState (GetVideoStateRequest) returns (GetVideoStateResponse);
+  rpc HasProperty1 (HasProperty1Request) returns (HasProperty1Response);
+  rpc HashCode (CallDetailsHashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc Can2_1 (Can2_1Request) returns (Can2_1Response);
+  rpc CapabilitiesToString (CapabilitiesToStringRequest) returns (CapabilitiesToStringResponse);
+  rpc HasProperty2_1 (HasProperty2_1Request) returns (HasProperty2_1Response);
+  rpc PropertiesToString (PropertiesToStringRequest) returns (PropertiesToStringResponse);
+}
+
+service CallRttCallService {
+  rpc GetRttAudioMode (GetRttAudioModeRequest) returns (GetRttAudioModeResponse);
+  rpc Read (ReadRequest) returns (ReadResponse);
+  rpc ReadImmediately (ReadImmediatelyRequest) returns (ReadImmediatelyResponse);
+  rpc SetRttMode (SetRttModeRequest) returns (SetRttModeResponse);
+  rpc Write (WriteRequest) returns (WriteResponse);
+}
+
+service PhoneAccountHandleService {
+  rpc NewPhoneAccountHandle (NewPhoneAccountHandleRequest) returns (NewPhoneAccountHandleResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetComponentName (GetComponentNameRequest) returns (GetComponentNameResponse);
+  rpc GetId (PhoneAccountHandleGetIdRequest) returns (GetIdResponse);
+  rpc GetUserHandle (GetUserHandleRequest) returns (GetUserHandleResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (PhoneAccountHandleToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service CallScreeningServiceService {
+  rpc OnBind (OnBindRequest) returns (OnBindResponse);
+  rpc OnScreenCall (OnScreenCallRequest) returns (OnScreenCallResponse);
+  rpc OnUnbind (OnUnbindRequest) returns (OnUnbindResponse);
+  rpc RespondToCall (RespondToCallRequest) returns (RespondToCallResponse);
+}
+
+service CallScreeningServiceCallResponseService {
+  rpc Equals (CallScreeningServiceCallResponseEqualsRequest) returns (EqualsResponse);
+  rpc GetCallComposerAttachmentsToShow (GetCallComposerAttachmentsToShowRequest) returns (GetCallComposerAttachmentsToShowResponse);
+  rpc GetDisallowCall (GetDisallowCallRequest) returns (GetDisallowCallResponse);
+  rpc GetRejectCall (GetRejectCallRequest) returns (GetRejectCallResponse);
+  rpc GetSilenceCall (GetSilenceCallRequest) returns (GetSilenceCallResponse);
+  rpc GetSkipCallLog (GetSkipCallLogRequest) returns (GetSkipCallLogResponse);
+  rpc GetSkipNotification (GetSkipNotificationRequest) returns (GetSkipNotificationResponse);
+  rpc HashCode (CallScreeningServiceCallResponseHashCodeRequest) returns (HashCodeResponse);
+}
+
+service CallEndpointService {
+  rpc NewCallEndpoint (NewCallEndpointRequest) returns (NewCallEndpointResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetEndpointName (GetEndpointNameRequest) returns (GetEndpointNameResponse);
+  rpc GetEndpointType (GetEndpointTypeRequest) returns (GetEndpointTypeResponse);
+  rpc GetIdentifier (GetIdentifierRequest) returns (GetIdentifierResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (CallEndpointToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service InCallServiceService {
+  rpc CanAddCall (CanAddCallRequest) returns (CanAddCallResponse);
+  rpc GetCallAudioState (GetCallAudioStateRequest) returns (GetCallAudioStateResponse);
+  rpc GetCurrentCallEndpoint (GetCurrentCallEndpointRequest) returns (GetCurrentCallEndpointResponse);
+  rpc OnBind (OnBindRequest) returns (OnBindResponse);
+  rpc OnBringToForeground (OnBringToForegroundRequest) returns (OnBringToForegroundResponse);
+  rpc OnCallAdded (OnCallAddedRequest) returns (OnCallAddedResponse);
+  rpc OnCallAudioStateChanged (OnCallAudioStateChangedRequest) returns (OnCallAudioStateChangedResponse);
+  rpc OnCallEndpointChanged (OnCallEndpointChangedRequest) returns (OnCallEndpointChangedResponse);
+  rpc OnCallRemoved (OnCallRemovedRequest) returns (OnCallRemovedResponse);
+  rpc OnCanAddCallChanged (OnCanAddCallChangedRequest) returns (OnCanAddCallChangedResponse);
+  rpc OnConnectionEvent (OnConnectionEventRequest) returns (OnConnectionEventResponse);
+  rpc OnMuteStateChanged (OnMuteStateChangedRequest) returns (OnMuteStateChangedResponse);
+  rpc OnSilenceRinger (OnSilenceRingerRequest) returns (OnSilenceRingerResponse);
+  rpc OnUnbind (OnUnbindRequest) returns (OnUnbindResponse);
+  rpc RequestBluetoothAudio (RequestBluetoothAudioRequest) returns (RequestBluetoothAudioResponse);
+  rpc SetAudioRoute (SetAudioRouteRequest) returns (SetAudioRouteResponse);
+  rpc SetMuted (SetMutedRequest) returns (SetMutedResponse);
+}
+
+service InCallServiceVideoCallService {
+  rpc RegisterCallback (RegisterCallbackRequest) returns (RegisterCallbackResponse);
+  rpc RequestCallDataUsage (RequestCallDataUsageRequest) returns (RequestCallDataUsageResponse);
+  rpc RequestCameraCapabilities (RequestCameraCapabilitiesRequest) returns (RequestCameraCapabilitiesResponse);
+  rpc SendSessionModifyRequest (SendSessionModifyRequestRequest) returns (SendSessionModifyRequestResponse);
+  rpc SendSessionModifyResponse (SendSessionModifyResponseRequest) returns (SendSessionModifyResponseResponse);
+  rpc SetCamera (SetCameraRequest) returns (SetCameraResponse);
+  rpc SetDeviceOrientation (SetDeviceOrientationRequest) returns (SetDeviceOrientationResponse);
+  rpc SetDisplaySurface (SetDisplaySurfaceRequest) returns (SetDisplaySurfaceResponse);
+  rpc SetPauseImage (SetPauseImageRequest) returns (SetPauseImageResponse);
+  rpc SetPreviewSurface (SetPreviewSurfaceRequest) returns (SetPreviewSurfaceResponse);
+  rpc SetZoom (SetZoomRequest) returns (SetZoomResponse);
+  rpc UnregisterCallback (UnregisterCallbackRequest) returns (UnregisterCallbackResponse);
+}
+
+service PhoneAccountService {
+  rpc DescribeContents (PhoneAccountDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (PhoneAccountEqualsRequest) returns (EqualsResponse);
+  rpc GetAccountHandle (GetAccountHandleRequest) returns (GetAccountHandleResponse);
+  rpc GetAddress (GetAddressRequest) returns (GetAddressResponse);
+  rpc GetCapabilities (GetCapabilitiesRequest) returns (GetCapabilitiesResponse);
+  rpc GetExtras (GetExtrasRequest) returns (GetExtrasResponse);
+  rpc GetHighlightColor (GetHighlightColorRequest) returns (GetHighlightColorResponse);
+  rpc GetIcon (GetIconRequest) returns (GetIconResponse);
+  rpc GetLabel (GetLabelRequest) returns (GetLabelResponse);
+  rpc GetShortDescription (GetShortDescriptionRequest) returns (GetShortDescriptionResponse);
+  rpc GetSubscriptionAddress (GetSubscriptionAddressRequest) returns (GetSubscriptionAddressResponse);
+  rpc HasCapabilities (HasCapabilitiesRequest) returns (HasCapabilitiesResponse);
+  rpc HasSimultaneousCallingRestriction (HasSimultaneousCallingRestrictionRequest) returns (HasSimultaneousCallingRestrictionResponse);
+  rpc HashCode (PhoneAccountHashCodeRequest) returns (HashCodeResponse);
+  rpc IsEnabled (IsEnabledRequest) returns (IsEnabledResponse);
+  rpc SupportsUriScheme (SupportsUriSchemeRequest) returns (SupportsUriSchemeResponse);
+  rpc ToBuilder (ToBuilderRequest) returns (ToBuilderResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (PhoneAccountWriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc Builder (BuilderRequest) returns (BuilderResponse);
+}
+
+service PhoneAccountBuilderService {
+  rpc AddSupportedUriScheme (AddSupportedUriSchemeRequest) returns (AddSupportedUriSchemeResponse);
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc ClearSimultaneousCallingRestriction (ClearSimultaneousCallingRestrictionRequest) returns (ClearSimultaneousCallingRestrictionResponse);
+  rpc SetAddress (SetAddressRequest) returns (SetAddressResponse);
+  rpc SetCapabilities (SetCapabilitiesRequest) returns (SetCapabilitiesResponse);
+  rpc SetExtras (SetExtrasRequest) returns (PhoneAccountBuilderSetExtrasResponse);
+  rpc SetHighlightColor (SetHighlightColorRequest) returns (SetHighlightColorResponse);
+  rpc SetIcon (SetIconRequest) returns (SetIconResponse);
+  rpc SetShortDescription (SetShortDescriptionRequest) returns (SetShortDescriptionResponse);
+  rpc SetSubscriptionAddress (SetSubscriptionAddressRequest) returns (SetSubscriptionAddressResponse);
+}
+
+service CallEndpointExceptionService {
+  rpc NewCallEndpointException (NewCallEndpointExceptionRequest) returns (NewCallEndpointExceptionResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetCode (GetCodeRequest) returns (GetCodeResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
 service ManagerService {
   rpc AcceptHandover (AcceptHandoverRequest) returns (AcceptHandoverResponse);
   rpc AcceptRingingCall0 (AcceptRingingCall0Request) returns (AcceptRingingCall0Response);
@@ -278,4 +3227,385 @@ service ManagerService {
   rpc ShowInCallScreen (ShowInCallScreenRequest) returns (ShowInCallScreenResponse);
   rpc SilenceRinger (SilenceRingerRequest) returns (SilenceRingerResponse);
   rpc UnregisterPhoneAccount (UnregisterPhoneAccountRequest) returns (UnregisterPhoneAccountResponse);
+}
+
+service CallEventCallbackService {
+  rpc OnCallEndpointChanged (OnCallEndpointChangedRequest) returns (OnCallEndpointChangedResponse);
+  rpc OnCallStreamingFailed (OnCallStreamingFailedRequest) returns (OnCallStreamingFailedResponse);
+  rpc OnEvent (OnEventRequest) returns (OnEventResponse);
+  rpc OnMuteStateChanged (OnMuteStateChangedRequest) returns (OnMuteStateChangedResponse);
+}
+
+service RemoteConnectionService {
+  rpc Abort (AbortRequest) returns (AbortResponse);
+  rpc Answer (RemoteConnectionAnswerRequest) returns (AnswerResponse);
+  rpc Disconnect (DisconnectRequest) returns (DisconnectResponse);
+  rpc GetAddress (GetAddressRequest) returns (GetAddressResponse);
+  rpc GetAddressPresentation (GetAddressPresentationRequest) returns (GetAddressPresentationResponse);
+  rpc GetCallerDisplayName (GetCallerDisplayNameRequest) returns (RemoteConnectionGetCallerDisplayNameResponse);
+  rpc GetCallerDisplayNamePresentation (GetCallerDisplayNamePresentationRequest) returns (GetCallerDisplayNamePresentationResponse);
+  rpc GetConference (GetConferenceRequest) returns (GetConferenceResponse);
+  rpc GetConnectionCapabilities (GetConnectionCapabilitiesRequest) returns (GetConnectionCapabilitiesResponse);
+  rpc GetConnectionProperties (GetConnectionPropertiesRequest) returns (GetConnectionPropertiesResponse);
+  rpc GetDisconnectCause (GetDisconnectCauseRequest) returns (GetDisconnectCauseResponse);
+  rpc GetExtras (GetExtrasRequest) returns (GetExtrasResponse);
+  rpc GetState (GetStateRequest) returns (GetStateResponse);
+  rpc GetStatusHints (GetStatusHintsRequest) returns (GetStatusHintsResponse);
+  rpc GetVideoProvider (GetVideoProviderRequest) returns (GetVideoProviderResponse);
+  rpc GetVideoState (GetVideoStateRequest) returns (GetVideoStateResponse);
+  rpc Hold (HoldRequest) returns (HoldResponse);
+  rpc IsRingbackRequested (IsRingbackRequestedRequest) returns (IsRingbackRequestedResponse);
+  rpc IsVoipAudioMode (IsVoipAudioModeRequest) returns (IsVoipAudioModeResponse);
+  rpc PlayDtmfTone (PlayDtmfToneRequest) returns (PlayDtmfToneResponse);
+  rpc PostDialContinue (PostDialContinueRequest) returns (PostDialContinueResponse);
+  rpc PullExternalCall (PullExternalCallRequest) returns (PullExternalCallResponse);
+  rpc RegisterCallback (RegisterCallbackRequest) returns (RegisterCallbackResponse);
+  rpc Reject (RejectRequest) returns (RejectResponse);
+  rpc SetCallAudioState (SetCallAudioStateRequest) returns (SetCallAudioStateResponse);
+  rpc StopDtmfTone (StopDtmfToneRequest) returns (StopDtmfToneResponse);
+  rpc Unhold (UnholdRequest) returns (UnholdResponse);
+  rpc UnregisterCallback (UnregisterCallbackRequest) returns (UnregisterCallbackResponse);
+}
+
+service RemoteConnectionCallbackService {
+  rpc OnAddressChanged (OnAddressChangedRequest) returns (OnAddressChangedResponse);
+  rpc OnCallerDisplayNameChanged (OnCallerDisplayNameChangedRequest) returns (OnCallerDisplayNameChangedResponse);
+  rpc OnConferenceChanged (OnConferenceChangedRequest) returns (OnConferenceChangedResponse);
+  rpc OnConnectionCapabilitiesChanged (OnConnectionCapabilitiesChangedRequest) returns (OnConnectionCapabilitiesChangedResponse);
+  rpc OnConnectionEvent (OnConnectionEventRequest) returns (OnConnectionEventResponse);
+  rpc OnConnectionPropertiesChanged (OnConnectionPropertiesChangedRequest) returns (OnConnectionPropertiesChangedResponse);
+  rpc OnDestroyed (OnDestroyedRequest) returns (OnDestroyedResponse);
+  rpc OnDisconnected (OnDisconnectedRequest) returns (OnDisconnectedResponse);
+  rpc OnExtrasChanged (RemoteConnectionCallbackOnExtrasChangedRequest) returns (OnExtrasChangedResponse);
+  rpc OnPostDialChar (OnPostDialCharRequest) returns (OnPostDialCharResponse);
+  rpc OnPostDialWait (OnPostDialWaitRequest) returns (OnPostDialWaitResponse);
+  rpc OnRingbackRequested (OnRingbackRequestedRequest) returns (OnRingbackRequestedResponse);
+  rpc OnStateChanged (OnStateChangedRequest) returns (OnStateChangedResponse);
+  rpc OnStatusHintsChanged (OnStatusHintsChangedRequest) returns (OnStatusHintsChangedResponse);
+  rpc OnVideoProviderChanged (OnVideoProviderChangedRequest) returns (OnVideoProviderChangedResponse);
+  rpc OnVideoStateChanged (OnVideoStateChangedRequest) returns (OnVideoStateChangedResponse);
+  rpc OnVoipAudioChanged (OnVoipAudioChangedRequest) returns (OnVoipAudioChangedResponse);
+}
+
+service RemoteConnectionVideoProviderService {
+  rpc RegisterCallback (RegisterCallbackRequest) returns (RegisterCallbackResponse);
+  rpc RequestCallDataUsage (RequestCallDataUsageRequest) returns (RequestCallDataUsageResponse);
+  rpc RequestCameraCapabilities (RequestCameraCapabilitiesRequest) returns (RequestCameraCapabilitiesResponse);
+  rpc SendSessionModifyRequest (RemoteConnectionVideoProviderSendSessionModifyRequestRequest) returns (SendSessionModifyRequestResponse);
+  rpc SendSessionModifyResponse (SendSessionModifyResponseRequest) returns (SendSessionModifyResponseResponse);
+  rpc SetCamera (SetCameraRequest) returns (SetCameraResponse);
+  rpc SetDeviceOrientation (SetDeviceOrientationRequest) returns (SetDeviceOrientationResponse);
+  rpc SetDisplaySurface (SetDisplaySurfaceRequest) returns (SetDisplaySurfaceResponse);
+  rpc SetPauseImage (SetPauseImageRequest) returns (SetPauseImageResponse);
+  rpc SetPreviewSurface (SetPreviewSurfaceRequest) returns (SetPreviewSurfaceResponse);
+  rpc SetZoom (SetZoomRequest) returns (SetZoomResponse);
+  rpc UnregisterCallback (UnregisterCallbackRequest) returns (UnregisterCallbackResponse);
+}
+
+service CallControlService {
+  rpc GetCallId (GetCallIdRequest) returns (GetCallIdResponse);
+  rpc SendEvent (SendEventRequest) returns (SendEventResponse);
+}
+
+service ConnectionRequestService {
+  rpc NewConnectionRequest (NewConnectionRequestRequest) returns (NewConnectionRequestResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetAccountHandle (ConnectionRequestGetAccountHandleRequest) returns (GetAccountHandleResponse);
+  rpc GetAddress (ConnectionRequestGetAddressRequest) returns (GetAddressResponse);
+  rpc GetExtras (ConnectionRequestGetExtrasRequest) returns (GetExtrasResponse);
+  rpc GetRttTextStream (GetRttTextStreamRequest) returns (GetRttTextStreamResponse);
+  rpc GetVideoState (ConnectionRequestGetVideoStateRequest) returns (GetVideoStateResponse);
+  rpc IsAdhocConferenceCall (IsAdhocConferenceCallRequest) returns (IsAdhocConferenceCallResponse);
+  rpc IsRequestingRtt (IsRequestingRttRequest) returns (IsRequestingRttResponse);
+  rpc ToString (ConnectionRequestToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service StatusHintsService {
+  rpc NewStatusHints (NewStatusHintsRequest) returns (NewStatusHintsResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetExtras (StatusHintsGetExtrasRequest) returns (GetExtrasResponse);
+  rpc GetIcon (StatusHintsGetIconRequest) returns (GetIconResponse);
+  rpc GetLabel (StatusHintsGetLabelRequest) returns (GetLabelResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service CallAudioStateService {
+  rpc NewCallAudioState (NewCallAudioStateRequest) returns (NewCallAudioStateResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetActiveBluetoothDevice (GetActiveBluetoothDeviceRequest) returns (GetActiveBluetoothDeviceResponse);
+  rpc GetRoute (GetRouteRequest) returns (GetRouteResponse);
+  rpc GetSupportedRouteMask (GetSupportedRouteMaskRequest) returns (GetSupportedRouteMaskResponse);
+  rpc IsMuted (IsMutedRequest) returns (IsMutedResponse);
+  rpc ToString (CallAudioStateToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc AudioRouteToString (AudioRouteToStringRequest) returns (AudioRouteToStringResponse);
+}
+
+service CallAttributesService {
+  rpc DescribeContents (CallAttributesDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (CallAttributesEqualsRequest) returns (EqualsResponse);
+  rpc GetAddress (GetAddressRequest) returns (GetAddressResponse);
+  rpc GetCallCapabilities (GetCallCapabilitiesRequest) returns (GetCallCapabilitiesResponse);
+  rpc GetCallType (GetCallTypeRequest) returns (GetCallTypeResponse);
+  rpc GetDirection (GetDirectionRequest) returns (GetDirectionResponse);
+  rpc GetDisplayName (GetDisplayNameRequest) returns (GetDisplayNameResponse);
+  rpc GetPhoneAccountHandle (CallAttributesGetPhoneAccountHandleRequest) returns (GetPhoneAccountHandleResponse);
+  rpc HashCode (CallAttributesHashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (CallAttributesWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service CallAttributesBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetCallCapabilities (SetCallCapabilitiesRequest) returns (SetCallCapabilitiesResponse);
+  rpc SetCallType (SetCallTypeRequest) returns (SetCallTypeResponse);
+}
+
+service ConnectionServiceService {
+  rpc AddConference (AddConferenceRequest) returns (AddConferenceResponse);
+  rpc AddExistingConnection (AddExistingConnectionRequest) returns (AddExistingConnectionResponse);
+  rpc ConferenceRemoteConnections (ConferenceRemoteConnectionsRequest) returns (ConferenceRemoteConnectionsResponse);
+  rpc ConnectionServiceFocusReleased (ConnectionServiceFocusReleasedRequest) returns (ConnectionServiceFocusReleasedResponse);
+  rpc CreateRemoteIncomingConference (CreateRemoteIncomingConferenceRequest) returns (CreateRemoteIncomingConferenceResponse);
+  rpc CreateRemoteIncomingConnection (CreateRemoteIncomingConnectionRequest) returns (CreateRemoteIncomingConnectionResponse);
+  rpc CreateRemoteOutgoingConference (CreateRemoteOutgoingConferenceRequest) returns (CreateRemoteOutgoingConferenceResponse);
+  rpc CreateRemoteOutgoingConnection (CreateRemoteOutgoingConnectionRequest) returns (CreateRemoteOutgoingConnectionResponse);
+  rpc OnBind (OnBindRequest) returns (OnBindResponse);
+  rpc OnConference (OnConferenceRequest) returns (OnConferenceResponse);
+  rpc OnConnectionServiceFocusGained (OnConnectionServiceFocusGainedRequest) returns (OnConnectionServiceFocusGainedResponse);
+  rpc OnConnectionServiceFocusLost (OnConnectionServiceFocusLostRequest) returns (OnConnectionServiceFocusLostResponse);
+  rpc OnCreateIncomingConference (OnCreateIncomingConferenceRequest) returns (OnCreateIncomingConferenceResponse);
+  rpc OnCreateIncomingConferenceFailed (OnCreateIncomingConferenceFailedRequest) returns (OnCreateIncomingConferenceFailedResponse);
+  rpc OnCreateIncomingConnection (OnCreateIncomingConnectionRequest) returns (OnCreateIncomingConnectionResponse);
+  rpc OnCreateIncomingConnectionFailed (OnCreateIncomingConnectionFailedRequest) returns (OnCreateIncomingConnectionFailedResponse);
+  rpc OnCreateIncomingHandoverConnection (OnCreateIncomingHandoverConnectionRequest) returns (OnCreateIncomingHandoverConnectionResponse);
+  rpc OnCreateOutgoingConference (OnCreateOutgoingConferenceRequest) returns (OnCreateOutgoingConferenceResponse);
+  rpc OnCreateOutgoingConferenceFailed (OnCreateOutgoingConferenceFailedRequest) returns (OnCreateOutgoingConferenceFailedResponse);
+  rpc OnCreateOutgoingConnection (OnCreateOutgoingConnectionRequest) returns (OnCreateOutgoingConnectionResponse);
+  rpc OnCreateOutgoingConnectionFailed (OnCreateOutgoingConnectionFailedRequest) returns (OnCreateOutgoingConnectionFailedResponse);
+  rpc OnCreateOutgoingHandoverConnection (OnCreateOutgoingHandoverConnectionRequest) returns (OnCreateOutgoingHandoverConnectionResponse);
+  rpc OnHandoverFailed (OnHandoverFailedRequest) returns (OnHandoverFailedResponse);
+  rpc OnRemoteConferenceAdded (OnRemoteConferenceAddedRequest) returns (OnRemoteConferenceAddedResponse);
+  rpc OnRemoteExistingConnectionAdded (OnRemoteExistingConnectionAddedRequest) returns (OnRemoteExistingConnectionAddedResponse);
+  rpc OnUnbind (OnUnbindRequest) returns (OnUnbindResponse);
+}
+
+service GatewayInfoService {
+  rpc NewGatewayInfo (NewGatewayInfoRequest) returns (NewGatewayInfoResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetGatewayAddress (GetGatewayAddressRequest) returns (GetGatewayAddressResponse);
+  rpc GetGatewayProviderPackageName (GetGatewayProviderPackageNameRequest) returns (GetGatewayProviderPackageNameResponse);
+  rpc GetOriginalAddress (GetOriginalAddressRequest) returns (GetOriginalAddressResponse);
+  rpc IsEmpty (IsEmptyRequest) returns (IsEmptyResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service CallExceptionService {
+  rpc NewCallException (NewCallExceptionRequest) returns (NewCallExceptionResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetCode (GetCodeRequest) returns (GetCodeResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service CallRedirectionServiceService {
+  rpc CancelCall (CancelCallRequest) returns (CancelCallResponse);
+  rpc OnBind (OnBindRequest) returns (OnBindResponse);
+  rpc OnPlaceCall (OnPlaceCallRequest) returns (OnPlaceCallResponse);
+  rpc OnRedirectionTimeout (OnRedirectionTimeoutRequest) returns (OnRedirectionTimeoutResponse);
+  rpc OnUnbind (OnUnbindRequest) returns (OnUnbindResponse);
+  rpc PlaceCallUnmodified (PlaceCallUnmodifiedRequest) returns (PlaceCallUnmodifiedResponse);
+  rpc RedirectCall (RedirectCallRequest) returns (RedirectCallResponse);
+}
+
+service QueryLocationExceptionService {
+  rpc NewQueryLocationException (NewQueryLocationExceptionRequest) returns (NewQueryLocationExceptionResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetCode (GetCodeRequest) returns (GetCodeResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service RemoteConferenceService {
+  rpc Disconnect (DisconnectRequest) returns (DisconnectResponse);
+  rpc GetConnectionCapabilities (GetConnectionCapabilitiesRequest) returns (GetConnectionCapabilitiesResponse);
+  rpc GetConnectionProperties (GetConnectionPropertiesRequest) returns (GetConnectionPropertiesResponse);
+  rpc GetDisconnectCause (GetDisconnectCauseRequest) returns (GetDisconnectCauseResponse);
+  rpc GetExtras (GetExtrasRequest) returns (GetExtrasResponse);
+  rpc GetState (GetStateRequest) returns (GetStateResponse);
+  rpc Hold (HoldRequest) returns (HoldResponse);
+  rpc Merge (MergeRequest) returns (MergeResponse);
+  rpc PlayDtmfTone (PlayDtmfToneRequest) returns (PlayDtmfToneResponse);
+  rpc RegisterCallback (RegisterCallbackRequest) returns (RegisterCallbackResponse);
+  rpc Separate (SeparateRequest) returns (SeparateResponse);
+  rpc SetCallAudioState (SetCallAudioStateRequest) returns (SetCallAudioStateResponse);
+  rpc StopDtmfTone (StopDtmfToneRequest) returns (StopDtmfToneResponse);
+  rpc Swap (SwapRequest) returns (SwapResponse);
+  rpc Unhold (UnholdRequest) returns (UnholdResponse);
+  rpc UnregisterCallback (UnregisterCallbackRequest) returns (UnregisterCallbackResponse);
+}
+
+service RemoteConferenceCallbackService {
+  rpc OnConnectionAdded (RemoteConferenceCallbackOnConnectionAddedRequest) returns (OnConnectionAddedResponse);
+  rpc OnConnectionCapabilitiesChanged (OnConnectionCapabilitiesChangedRequest) returns (OnConnectionCapabilitiesChangedResponse);
+  rpc OnConnectionPropertiesChanged (OnConnectionPropertiesChangedRequest) returns (OnConnectionPropertiesChangedResponse);
+  rpc OnConnectionRemoved (OnConnectionRemovedRequest) returns (OnConnectionRemovedResponse);
+  rpc OnDestroyed (OnDestroyedRequest) returns (OnDestroyedResponse);
+  rpc OnDisconnected (OnDisconnectedRequest) returns (OnDisconnectedResponse);
+  rpc OnExtrasChanged (RemoteConferenceCallbackOnExtrasChangedRequest) returns (OnExtrasChangedResponse);
+  rpc OnStateChanged (RemoteConferenceCallbackOnStateChangedRequest) returns (OnStateChangedResponse);
+}
+
+service VideoProfileService {
+  rpc NewVideoProfile (NewVideoProfileRequest) returns (NewVideoProfileResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetQuality (GetQualityRequest) returns (GetQualityResponse);
+  rpc GetVideoState (VideoProfileGetVideoStateRequest) returns (GetVideoStateResponse);
+  rpc ToString (VideoProfileToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc IsAudioOnly (IsAudioOnlyRequest) returns (IsAudioOnlyResponse);
+  rpc IsBidirectional (IsBidirectionalRequest) returns (IsBidirectionalResponse);
+  rpc IsPaused (IsPausedRequest) returns (IsPausedResponse);
+  rpc IsReceptionEnabled (IsReceptionEnabledRequest) returns (IsReceptionEnabledResponse);
+  rpc IsTransmissionEnabled (IsTransmissionEnabledRequest) returns (IsTransmissionEnabledResponse);
+  rpc IsVideo (IsVideoRequest) returns (IsVideoResponse);
+  rpc VideoStateToString (VideoStateToStringRequest) returns (VideoStateToStringResponse);
+}
+
+service VideoProfileCameraCapabilitiesService {
+  rpc DescribeContents (VideoProfileCameraCapabilitiesDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetHeight (GetHeightRequest) returns (GetHeightResponse);
+  rpc GetMaxZoom (GetMaxZoomRequest) returns (GetMaxZoomResponse);
+  rpc GetWidth (GetWidthRequest) returns (GetWidthResponse);
+  rpc IsZoomSupported (IsZoomSupportedRequest) returns (IsZoomSupportedResponse);
+  rpc WriteToParcel (VideoProfileCameraCapabilitiesWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ConnectionService {
+  rpc Destroy (DestroyRequest) returns (DestroyResponse);
+  rpc GetAddress (GetAddressRequest) returns (GetAddressResponse);
+  rpc GetAddressPresentation (GetAddressPresentationRequest) returns (GetAddressPresentationResponse);
+  rpc GetAudioModeIsVoip (GetAudioModeIsVoipRequest) returns (GetAudioModeIsVoipResponse);
+  rpc GetCallAudioState (GetCallAudioStateRequest) returns (GetCallAudioStateResponse);
+  rpc GetCallerDisplayName (GetCallerDisplayNameRequest) returns (GetCallerDisplayNameResponse);
+  rpc GetCallerDisplayNamePresentation (GetCallerDisplayNamePresentationRequest) returns (GetCallerDisplayNamePresentationResponse);
+  rpc GetCallerNumberVerificationStatus (GetCallerNumberVerificationStatusRequest) returns (GetCallerNumberVerificationStatusResponse);
+  rpc GetConference (GetConferenceRequest) returns (GetConferenceResponse);
+  rpc GetConnectionCapabilities (GetConnectionCapabilitiesRequest) returns (GetConnectionCapabilitiesResponse);
+  rpc GetConnectionProperties (GetConnectionPropertiesRequest) returns (GetConnectionPropertiesResponse);
+  rpc GetCurrentCallEndpoint (GetCurrentCallEndpointRequest) returns (GetCurrentCallEndpointResponse);
+  rpc GetDisconnectCause (GetDisconnectCauseRequest) returns (GetDisconnectCauseResponse);
+  rpc GetExtras (GetExtrasRequest) returns (GetExtrasResponse);
+  rpc GetState (GetStateRequest) returns (GetStateResponse);
+  rpc GetStatusHints (GetStatusHintsRequest) returns (GetStatusHintsResponse);
+  rpc GetVideoProvider (GetVideoProviderRequest) returns (GetVideoProviderResponse);
+  rpc GetVideoState (GetVideoStateRequest) returns (GetVideoStateResponse);
+  rpc HandleRttUpgradeResponse (HandleRttUpgradeResponseRequest) returns (HandleRttUpgradeResponseResponse);
+  rpc IsRingbackRequested (IsRingbackRequestedRequest) returns (IsRingbackRequestedResponse);
+  rpc NotifyConferenceMergeFailed (NotifyConferenceMergeFailedRequest) returns (NotifyConferenceMergeFailedResponse);
+  rpc OnAbort (OnAbortRequest) returns (OnAbortResponse);
+  rpc OnAnswer0 (OnAnswer0Request) returns (OnAnswer0Response);
+  rpc OnAnswer1_1 (OnAnswer1_1Request) returns (OnAnswer1_1Response);
+  rpc OnCallAudioStateChanged (OnCallAudioStateChangedRequest) returns (OnCallAudioStateChangedResponse);
+  rpc OnCallEndpointChanged (OnCallEndpointChangedRequest) returns (OnCallEndpointChangedResponse);
+  rpc OnCallEvent (OnCallEventRequest) returns (OnCallEventResponse);
+  rpc OnDeflect (OnDeflectRequest) returns (OnDeflectResponse);
+  rpc OnDisconnect (OnDisconnectRequest) returns (OnDisconnectResponse);
+  rpc OnExtrasChanged (OnExtrasChangedRequest) returns (OnExtrasChangedResponse);
+  rpc OnHandoverComplete (ConnectionOnHandoverCompleteRequest) returns (OnHandoverCompleteResponse);
+  rpc OnHold (OnHoldRequest) returns (OnHoldResponse);
+  rpc OnMuteStateChanged (OnMuteStateChangedRequest) returns (OnMuteStateChangedResponse);
+  rpc OnPlayDtmfTone (OnPlayDtmfToneRequest) returns (OnPlayDtmfToneResponse);
+  rpc OnPostDialContinue (OnPostDialContinueRequest) returns (OnPostDialContinueResponse);
+  rpc OnPullExternalCall (OnPullExternalCallRequest) returns (OnPullExternalCallResponse);
+  rpc OnReject0 (OnReject0Request) returns (OnReject0Response);
+  rpc OnReject1_1 (OnReject1_1Request) returns (OnReject1_1Response);
+  rpc OnReject1_2 (OnReject1_2Request) returns (OnReject1_2Response);
+  rpc OnSeparate (ConnectionOnSeparateRequest) returns (OnSeparateResponse);
+  rpc OnShowIncomingCallUi (OnShowIncomingCallUiRequest) returns (OnShowIncomingCallUiResponse);
+  rpc OnSilence (OnSilenceRequest) returns (OnSilenceResponse);
+  rpc OnStartRtt (OnStartRttRequest) returns (OnStartRttResponse);
+  rpc OnStateChanged (ConnectionOnStateChangedRequest) returns (OnStateChangedResponse);
+  rpc OnStopDtmfTone (OnStopDtmfToneRequest) returns (OnStopDtmfToneResponse);
+  rpc OnStopRtt (OnStopRttRequest) returns (OnStopRttResponse);
+  rpc OnTrackedByNonUiService (OnTrackedByNonUiServiceRequest) returns (OnTrackedByNonUiServiceResponse);
+  rpc OnUnhold (OnUnholdRequest) returns (OnUnholdResponse);
+  rpc OnUsingAlternativeUi (OnUsingAlternativeUiRequest) returns (OnUsingAlternativeUiResponse);
+  rpc PutExtras (PutExtrasRequest) returns (PutExtrasResponse);
+  rpc RemoveExtras (RemoveExtrasRequest) returns (RemoveExtrasResponse);
+  rpc RequestBluetoothAudio (RequestBluetoothAudioRequest) returns (RequestBluetoothAudioResponse);
+  rpc SendConnectionEvent (SendConnectionEventRequest) returns (SendConnectionEventResponse);
+  rpc SendRemoteRttRequest (SendRemoteRttRequestRequest) returns (SendRemoteRttRequestResponse);
+  rpc SendRttInitiationFailure (SendRttInitiationFailureRequest) returns (SendRttInitiationFailureResponse);
+  rpc SendRttInitiationSuccess (SendRttInitiationSuccessRequest) returns (SendRttInitiationSuccessResponse);
+  rpc SendRttSessionRemotelyTerminated (SendRttSessionRemotelyTerminatedRequest) returns (SendRttSessionRemotelyTerminatedResponse);
+  rpc SetActive (SetActiveRequest) returns (SetActiveResponse);
+  rpc SetAddress (ConnectionSetAddressRequest) returns (ConnectionSetAddressResponse);
+  rpc SetAudioModeIsVoip (SetAudioModeIsVoipRequest) returns (SetAudioModeIsVoipResponse);
+  rpc SetAudioRoute (SetAudioRouteRequest) returns (SetAudioRouteResponse);
+  rpc SetCallerDisplayName (SetCallerDisplayNameRequest) returns (SetCallerDisplayNameResponse);
+  rpc SetCallerNumberVerificationStatus (SetCallerNumberVerificationStatusRequest) returns (SetCallerNumberVerificationStatusResponse);
+  rpc SetConnectionCapabilities (SetConnectionCapabilitiesRequest) returns (SetConnectionCapabilitiesResponse);
+  rpc SetConnectionProperties (SetConnectionPropertiesRequest) returns (SetConnectionPropertiesResponse);
+  rpc SetDialing (SetDialingRequest) returns (SetDialingResponse);
+  rpc SetDisconnected (SetDisconnectedRequest) returns (SetDisconnectedResponse);
+  rpc SetExtras (SetExtrasRequest) returns (SetExtrasResponse);
+  rpc SetInitialized (SetInitializedRequest) returns (SetInitializedResponse);
+  rpc SetInitializing (SetInitializingRequest) returns (SetInitializingResponse);
+  rpc SetNextPostDialChar (SetNextPostDialCharRequest) returns (SetNextPostDialCharResponse);
+  rpc SetOnHold (SetOnHoldRequest) returns (SetOnHoldResponse);
+  rpc SetPostDialWait (SetPostDialWaitRequest) returns (SetPostDialWaitResponse);
+  rpc SetPulling (SetPullingRequest) returns (SetPullingResponse);
+  rpc SetRingbackRequested (SetRingbackRequestedRequest) returns (SetRingbackRequestedResponse);
+  rpc SetRinging (SetRingingRequest) returns (SetRingingResponse);
+  rpc SetStatusHints (SetStatusHintsRequest) returns (SetStatusHintsResponse);
+  rpc SetVideoProvider (ConnectionSetVideoProviderRequest) returns (SetVideoProviderResponse);
+  rpc SetVideoState (ConnectionSetVideoStateRequest) returns (SetVideoStateResponse);
+  rpc CapabilitiesToString (CapabilitiesToStringRequest) returns (CapabilitiesToStringResponse);
+  rpc CreateCanceledConnection (CreateCanceledConnectionRequest) returns (CreateCanceledConnectionResponse);
+  rpc CreateFailedConnection (CreateFailedConnectionRequest) returns (CreateFailedConnectionResponse);
+  rpc PropertiesToString (PropertiesToStringRequest) returns (PropertiesToStringResponse);
+  rpc StateToString (StateToStringRequest) returns (StateToStringResponse);
+}
+
+service ConnectionRttTextStreamService {
+  rpc Read (ReadRequest) returns (ReadResponse);
+  rpc ReadImmediately (ReadImmediatelyRequest) returns (ReadImmediatelyResponse);
+  rpc Write (WriteRequest) returns (WriteResponse);
+}
+
+service ConnectionVideoProviderService {
+  rpc ChangeCameraCapabilities (ChangeCameraCapabilitiesRequest) returns (ChangeCameraCapabilitiesResponse);
+  rpc ChangePeerDimensions (ChangePeerDimensionsRequest) returns (ChangePeerDimensionsResponse);
+  rpc ChangeVideoQuality (ChangeVideoQualityRequest) returns (ChangeVideoQualityResponse);
+  rpc HandleCallSessionEvent (HandleCallSessionEventRequest) returns (HandleCallSessionEventResponse);
+  rpc OnRequestCameraCapabilities (OnRequestCameraCapabilitiesRequest) returns (OnRequestCameraCapabilitiesResponse);
+  rpc OnRequestConnectionDataUsage (OnRequestConnectionDataUsageRequest) returns (OnRequestConnectionDataUsageResponse);
+  rpc OnSendSessionModifyRequest (OnSendSessionModifyRequestRequest) returns (OnSendSessionModifyRequestResponse);
+  rpc OnSendSessionModifyResponse (OnSendSessionModifyResponseRequest) returns (OnSendSessionModifyResponseResponse);
+  rpc OnSetCamera (OnSetCameraRequest) returns (OnSetCameraResponse);
+  rpc OnSetDeviceOrientation (OnSetDeviceOrientationRequest) returns (OnSetDeviceOrientationResponse);
+  rpc OnSetDisplaySurface (OnSetDisplaySurfaceRequest) returns (OnSetDisplaySurfaceResponse);
+  rpc OnSetPauseImage (OnSetPauseImageRequest) returns (OnSetPauseImageResponse);
+  rpc OnSetPreviewSurface (OnSetPreviewSurfaceRequest) returns (OnSetPreviewSurfaceResponse);
+  rpc OnSetZoom (OnSetZoomRequest) returns (OnSetZoomResponse);
+  rpc ReceiveSessionModifyRequest (ReceiveSessionModifyRequestRequest) returns (ReceiveSessionModifyRequestResponse);
+  rpc ReceiveSessionModifyResponse (ReceiveSessionModifyResponseRequest) returns (ReceiveSessionModifyResponseResponse);
+  rpc SetCallDataUsage (SetCallDataUsageRequest) returns (SetCallDataUsageResponse);
+}
+
+service DisconnectCauseService {
+  rpc NewDisconnectCause (NewDisconnectCauseRequest) returns (NewDisconnectCauseResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetCode (GetCodeRequest) returns (GetCodeResponse);
+  rpc GetDescription (GetDescriptionRequest) returns (GetDescriptionResponse);
+  rpc GetLabel (DisconnectCauseGetLabelRequest) returns (GetLabelResponse);
+  rpc GetReason (GetReasonRequest) returns (DisconnectCauseGetReasonResponse);
+  rpc GetTone (GetToneRequest) returns (GetToneResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (DisconnectCauseToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }

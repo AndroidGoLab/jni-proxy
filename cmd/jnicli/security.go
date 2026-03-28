@@ -12,6 +12,803 @@ var securityCmd = &cobra.Command{
 	Short: "security service operations",
 }
 
+var securityConfirmationPromptCmd = &cobra.Command{
+	Use:   "confirmation-prompt",
+	Short: "ConfirmationPromptService operations",
+}
+
+var securityConfirmationPromptCancelPromptCmd = &cobra.Command{
+	Use:   "cancel-prompt",
+	Short: "CancelPrompt RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConfirmationPromptServiceClient(grpcConn)
+		req := &pb.CancelPromptRequest{}
+		resp, err := client.CancelPrompt(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var securityConfirmationPromptPresentPromptCmd = &cobra.Command{
+	Use:   "present-prompt",
+	Short: "PresentPrompt RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConfirmationPromptServiceClient(grpcConn)
+		req := &pb.PresentPromptRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.PresentPrompt(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var securityConfirmationPromptIsSupportedCmd = &cobra.Command{
+	Use:   "is-supported",
+	Short: "IsSupported RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConfirmationPromptServiceClient(grpcConn)
+		req := &pb.IsSupportedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsSupported(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var securityConfirmationPromptBuilderCmd = &cobra.Command{
+	Use:   "confirmation-prompt-builder",
+	Short: "ConfirmationPromptBuilderService operations",
+}
+
+var securityConfirmationPromptBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConfirmationPromptBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var securityConfirmationPromptBuilderSetExtraDataCmd = &cobra.Command{
+	Use:   "set-extra-data",
+	Short: "SetExtraData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConfirmationPromptBuilderServiceClient(grpcConn)
+		req := &pb.SetExtraDataRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetExtraData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var securityConfirmationPromptBuilderSetPromptTextCmd = &cobra.Command{
+	Use:   "set-prompt-text",
+	Short: "SetPromptText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConfirmationPromptBuilderServiceClient(grpcConn)
+		req := &pb.SetPromptTextRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetPromptText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var securityKeyStoreParameterCmd = &cobra.Command{
+	Use:   "key-store-parameter",
+	Short: "KeyStoreParameterService operations",
+}
+
+var securityKeyStoreParameterIsEncryptionRequiredCmd = &cobra.Command{
+	Use:   "is-encryption-required",
+	Short: "IsEncryptionRequired RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyStoreParameterServiceClient(grpcConn)
+		req := &pb.IsEncryptionRequiredRequest{}
+		resp, err := client.IsEncryptionRequired(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var securityKeyStoreParameterBuilderCmd = &cobra.Command{
+	Use:   "key-store-parameter-builder",
+	Short: "KeyStoreParameterBuilderService operations",
+}
+
+var securityKeyStoreParameterBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyStoreParameterBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var securityKeyStoreParameterBuilderSetEncryptionRequiredCmd = &cobra.Command{
+	Use:   "set-encryption-required",
+	Short: "SetEncryptionRequired RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyStoreParameterBuilderServiceClient(grpcConn)
+		req := &pb.SetEncryptionRequiredRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetEncryptionRequired(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var securityAttestedKeyPairCmd = &cobra.Command{
+	Use:   "attested-key-pair",
+	Short: "AttestedKeyPairService operations",
+}
+
+var securityAttestedKeyPairNewAttestedKeyPairCmd = &cobra.Command{
+	Use:   "new-attested-key-pair",
+	Short: "NewAttestedKeyPair RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAttestedKeyPairServiceClient(grpcConn)
+		req := &pb.NewAttestedKeyPairRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewAttestedKeyPair(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var securityAttestedKeyPairGetKeyPairCmd = &cobra.Command{
+	Use:   "get-key-pair",
+	Short: "GetKeyPair RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAttestedKeyPairServiceClient(grpcConn)
+		req := &pb.GetKeyPairRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetKeyPair(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var securityAppUriAuthenticationPolicyCmd = &cobra.Command{
+	Use:   "app-uri-authentication-policy",
+	Short: "AppUriAuthenticationPolicyService operations",
+}
+
+var securityAppUriAuthenticationPolicyDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppUriAuthenticationPolicyServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var securityAppUriAuthenticationPolicyEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppUriAuthenticationPolicyServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var securityAppUriAuthenticationPolicyHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppUriAuthenticationPolicyServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var securityAppUriAuthenticationPolicyToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppUriAuthenticationPolicyServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var securityAppUriAuthenticationPolicyWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppUriAuthenticationPolicyServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var securityAppUriAuthenticationPolicyBuilderCmd = &cobra.Command{
+	Use:   "app-uri-authentication-policy-builder",
+	Short: "AppUriAuthenticationPolicyBuilderService operations",
+}
+
+var securityAppUriAuthenticationPolicyBuilderAddAppAndUriMappingCmd = &cobra.Command{
+	Use:   "add-app-and-uri-mapping",
+	Short: "AddAppAndUriMapping RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppUriAuthenticationPolicyBuilderServiceClient(grpcConn)
+		req := &pb.AddAppAndUriMappingRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.AddAppAndUriMapping(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var securityAppUriAuthenticationPolicyBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppUriAuthenticationPolicyBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var securityKeyPairGeneratorSpecCmd = &cobra.Command{
+	Use:   "key-pair-generator-spec",
+	Short: "KeyPairGeneratorSpecService operations",
+}
+
+var securityKeyPairGeneratorSpecGetAlgorithmParameterSpecCmd = &cobra.Command{
+	Use:   "get-algorithm-parameter-spec",
+	Short: "GetAlgorithmParameterSpec RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyPairGeneratorSpecServiceClient(grpcConn)
+		req := &pb.GetAlgorithmParameterSpecRequest{}
+		resp, err := client.GetAlgorithmParameterSpec(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var securityKeyPairGeneratorSpecGetContextCmd = &cobra.Command{
+	Use:   "get-context",
+	Short: "GetContext RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyPairGeneratorSpecServiceClient(grpcConn)
+		req := &pb.GetContextRequest{}
+		resp, err := client.GetContext(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var securityKeyPairGeneratorSpecGetEndDateCmd = &cobra.Command{
+	Use:   "get-end-date",
+	Short: "GetEndDate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyPairGeneratorSpecServiceClient(grpcConn)
+		req := &pb.GetEndDateRequest{}
+		resp, err := client.GetEndDate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var securityKeyPairGeneratorSpecGetKeySizeCmd = &cobra.Command{
+	Use:   "get-key-size",
+	Short: "GetKeySize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyPairGeneratorSpecServiceClient(grpcConn)
+		req := &pb.GetKeySizeRequest{}
+		resp, err := client.GetKeySize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var securityKeyPairGeneratorSpecGetKeyTypeCmd = &cobra.Command{
+	Use:   "get-key-type",
+	Short: "GetKeyType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyPairGeneratorSpecServiceClient(grpcConn)
+		req := &pb.GetKeyTypeRequest{}
+		resp, err := client.GetKeyType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var securityKeyPairGeneratorSpecGetKeystoreAliasCmd = &cobra.Command{
+	Use:   "get-keystore-alias",
+	Short: "GetKeystoreAlias RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyPairGeneratorSpecServiceClient(grpcConn)
+		req := &pb.GetKeystoreAliasRequest{}
+		resp, err := client.GetKeystoreAlias(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var securityKeyPairGeneratorSpecGetSerialNumberCmd = &cobra.Command{
+	Use:   "get-serial-number",
+	Short: "GetSerialNumber RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyPairGeneratorSpecServiceClient(grpcConn)
+		req := &pb.GetSerialNumberRequest{}
+		resp, err := client.GetSerialNumber(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var securityKeyPairGeneratorSpecGetStartDateCmd = &cobra.Command{
+	Use:   "get-start-date",
+	Short: "GetStartDate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyPairGeneratorSpecServiceClient(grpcConn)
+		req := &pb.GetStartDateRequest{}
+		resp, err := client.GetStartDate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var securityKeyPairGeneratorSpecGetSubjectDNCmd = &cobra.Command{
+	Use:   "get-subject-dn",
+	Short: "GetSubjectDN RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyPairGeneratorSpecServiceClient(grpcConn)
+		req := &pb.GetSubjectDNRequest{}
+		resp, err := client.GetSubjectDN(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var securityKeyPairGeneratorSpecIsEncryptionRequiredCmd = &cobra.Command{
+	Use:   "is-encryption-required",
+	Short: "IsEncryptionRequired RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyPairGeneratorSpecServiceClient(grpcConn)
+		req := &pb.IsEncryptionRequiredRequest{}
+		resp, err := client.IsEncryptionRequired(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var securityKeyPairGeneratorSpecBuilderCmd = &cobra.Command{
+	Use:   "key-pair-generator-spec-builder",
+	Short: "KeyPairGeneratorSpecBuilderService operations",
+}
+
+var securityKeyPairGeneratorSpecBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyPairGeneratorSpecBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var securityKeyPairGeneratorSpecBuilderSetAlgorithmParameterSpecCmd = &cobra.Command{
+	Use:   "set-algorithm-parameter-spec",
+	Short: "SetAlgorithmParameterSpec RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyPairGeneratorSpecBuilderServiceClient(grpcConn)
+		req := &pb.SetAlgorithmParameterSpecRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetAlgorithmParameterSpec(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var securityKeyPairGeneratorSpecBuilderSetAliasCmd = &cobra.Command{
+	Use:   "set-alias",
+	Short: "SetAlias RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyPairGeneratorSpecBuilderServiceClient(grpcConn)
+		req := &pb.SetAliasRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetAlias(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var securityKeyPairGeneratorSpecBuilderSetEncryptionRequiredCmd = &cobra.Command{
+	Use:   "set-encryption-required",
+	Short: "SetEncryptionRequired RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyPairGeneratorSpecBuilderServiceClient(grpcConn)
+		req := &pb.KeyPairGeneratorSpecBuilderSetEncryptionRequiredRequest{}
+		resp, err := client.SetEncryptionRequired(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var securityKeyPairGeneratorSpecBuilderSetEndDateCmd = &cobra.Command{
+	Use:   "set-end-date",
+	Short: "SetEndDate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyPairGeneratorSpecBuilderServiceClient(grpcConn)
+		req := &pb.SetEndDateRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetEndDate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var securityKeyPairGeneratorSpecBuilderSetKeySizeCmd = &cobra.Command{
+	Use:   "set-key-size",
+	Short: "SetKeySize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyPairGeneratorSpecBuilderServiceClient(grpcConn)
+		req := &pb.SetKeySizeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetKeySize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var securityKeyPairGeneratorSpecBuilderSetKeyTypeCmd = &cobra.Command{
+	Use:   "set-key-type",
+	Short: "SetKeyType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyPairGeneratorSpecBuilderServiceClient(grpcConn)
+		req := &pb.SetKeyTypeRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetKeyType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var securityKeyPairGeneratorSpecBuilderSetSerialNumberCmd = &cobra.Command{
+	Use:   "set-serial-number",
+	Short: "SetSerialNumber RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyPairGeneratorSpecBuilderServiceClient(grpcConn)
+		req := &pb.SetSerialNumberRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSerialNumber(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var securityKeyPairGeneratorSpecBuilderSetStartDateCmd = &cobra.Command{
+	Use:   "set-start-date",
+	Short: "SetStartDate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyPairGeneratorSpecBuilderServiceClient(grpcConn)
+		req := &pb.SetStartDateRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetStartDate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var securityKeyPairGeneratorSpecBuilderSetSubjectCmd = &cobra.Command{
+	Use:   "set-subject",
+	Short: "SetSubject RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyPairGeneratorSpecBuilderServiceClient(grpcConn)
+		req := &pb.SetSubjectRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSubject(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var securityConfirmationCallbackCmd = &cobra.Command{
+	Use:   "confirmation-callback",
+	Short: "ConfirmationCallbackService operations",
+}
+
+var securityConfirmationCallbackOnCanceledCmd = &cobra.Command{
+	Use:   "on-canceled",
+	Short: "OnCanceled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConfirmationCallbackServiceClient(grpcConn)
+		req := &pb.OnCanceledRequest{}
+		resp, err := client.OnCanceled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var securityConfirmationCallbackOnConfirmedCmd = &cobra.Command{
+	Use:   "on-confirmed",
+	Short: "OnConfirmed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConfirmationCallbackServiceClient(grpcConn)
+		req := &pb.OnConfirmedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnConfirmed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var securityConfirmationCallbackOnDismissedCmd = &cobra.Command{
+	Use:   "on-dismissed",
+	Short: "OnDismissed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConfirmationCallbackServiceClient(grpcConn)
+		req := &pb.OnDismissedRequest{}
+		resp, err := client.OnDismissed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var securityConfirmationCallbackOnErrorCmd = &cobra.Command{
+	Use:   "on-error",
+	Short: "OnError RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConfirmationCallbackServiceClient(grpcConn)
+		req := &pb.OnErrorRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnError(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var securityFileIntegrityManagerCmd = &cobra.Command{
 	Use:   "file-integrity-manager",
 	Short: "FileIntegrityManagerService operations",
@@ -52,10 +849,650 @@ var securityFileIntegrityManagerIsAppSourceCertificateTrustedCmd = &cobra.Comman
 	},
 }
 
+var securityKeyChainAliasCallbackCmd = &cobra.Command{
+	Use:   "key-chain-alias-callback",
+	Short: "KeyChainAliasCallbackService operations",
+}
+
+var securityKeyChainAliasCallbackAliasCmd = &cobra.Command{
+	Use:   "alias",
+	Short: "Alias RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyChainAliasCallbackServiceClient(grpcConn)
+		req := &pb.AliasRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Alias(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var securityKeyStoreExceptionCmd = &cobra.Command{
+	Use:   "key-store-exception",
+	Short: "KeyStoreExceptionService operations",
+}
+
+var securityKeyStoreExceptionGetNumericErrorCodeCmd = &cobra.Command{
+	Use:   "get-numeric-error-code",
+	Short: "GetNumericErrorCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyStoreExceptionServiceClient(grpcConn)
+		req := &pb.GetNumericErrorCodeRequest{}
+		resp, err := client.GetNumericErrorCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var securityKeyStoreExceptionGetRetryPolicyCmd = &cobra.Command{
+	Use:   "get-retry-policy",
+	Short: "GetRetryPolicy RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyStoreExceptionServiceClient(grpcConn)
+		req := &pb.GetRetryPolicyRequest{}
+		resp, err := client.GetRetryPolicy(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var securityKeyStoreExceptionIsSystemErrorCmd = &cobra.Command{
+	Use:   "is-system-error",
+	Short: "IsSystemError RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyStoreExceptionServiceClient(grpcConn)
+		req := &pb.IsSystemErrorRequest{}
+		resp, err := client.IsSystemError(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var securityKeyStoreExceptionIsTransientFailureCmd = &cobra.Command{
+	Use:   "is-transient-failure",
+	Short: "IsTransientFailure RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyStoreExceptionServiceClient(grpcConn)
+		req := &pb.IsTransientFailureRequest{}
+		resp, err := client.IsTransientFailure(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var securityKeyStoreExceptionRequiresUserAuthenticationCmd = &cobra.Command{
+	Use:   "requires-user-authentication",
+	Short: "RequiresUserAuthentication RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyStoreExceptionServiceClient(grpcConn)
+		req := &pb.RequiresUserAuthenticationRequest{}
+		resp, err := client.RequiresUserAuthentication(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var securityKeyStoreExceptionToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyStoreExceptionServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var securityNetworkSecurityPolicyCmd = &cobra.Command{
+	Use:   "network-security-policy",
+	Short: "NetworkSecurityPolicyService operations",
+}
+
+var securityNetworkSecurityPolicyIsCertificateTransparencyVerificationRequiredCmd = &cobra.Command{
+	Use:   "is-certificate-transparency-verification-required",
+	Short: "IsCertificateTransparencyVerificationRequired RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkSecurityPolicyServiceClient(grpcConn)
+		req := &pb.IsCertificateTransparencyVerificationRequiredRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsCertificateTransparencyVerificationRequired(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var securityNetworkSecurityPolicyIsCleartextTrafficPermitted0Cmd = &cobra.Command{
+	Use:   "is-cleartext-traffic-permitted0",
+	Short: "IsCleartextTrafficPermitted0 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkSecurityPolicyServiceClient(grpcConn)
+		req := &pb.IsCleartextTrafficPermitted0Request{}
+		resp, err := client.IsCleartextTrafficPermitted0(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var securityNetworkSecurityPolicyIsCleartextTrafficPermitted1_1Cmd = &cobra.Command{
+	Use:   "is-cleartext-traffic-permitted1_1",
+	Short: "IsCleartextTrafficPermitted1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkSecurityPolicyServiceClient(grpcConn)
+		req := &pb.IsCleartextTrafficPermitted1_1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsCleartextTrafficPermitted1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var securityNetworkSecurityPolicyGetInstanceCmd = &cobra.Command{
+	Use:   "get-instance",
+	Short: "GetInstance RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkSecurityPolicyServiceClient(grpcConn)
+		req := &pb.GetInstanceRequest{}
+		resp, err := client.GetInstance(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var securityKeyChainCmd = &cobra.Command{
+	Use:   "key-chain",
+	Short: "KeyChainService operations",
+}
+
+var securityKeyChainNewKeyChainCmd = &cobra.Command{
+	Use:   "new-key-chain",
+	Short: "NewKeyChain RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyChainServiceClient(grpcConn)
+		req := &pb.NewKeyChainRequest{}
+		resp, err := client.NewKeyChain(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var securityKeyChainChoosePrivateKeyAlias6Cmd = &cobra.Command{
+	Use:   "choose-private-key-alias6",
+	Short: "ChoosePrivateKeyAlias6 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyChainServiceClient(grpcConn)
+		req := &pb.ChoosePrivateKeyAlias6Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetString("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		resp, err := client.ChoosePrivateKeyAlias6(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var securityKeyChainChoosePrivateKeyAlias7_1Cmd = &cobra.Command{
+	Use:   "choose-private-key-alias7_1",
+	Short: "ChoosePrivateKeyAlias7_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyChainServiceClient(grpcConn)
+		req := &pb.ChoosePrivateKeyAlias7_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetString("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		if v, err := cmd.Flags().GetString("arg6"); err == nil {
+			req.Arg6 = v
+		}
+		resp, err := client.ChoosePrivateKeyAlias7_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var securityKeyChainCreateInstallIntentCmd = &cobra.Command{
+	Use:   "create-install-intent",
+	Short: "CreateInstallIntent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyChainServiceClient(grpcConn)
+		req := &pb.CreateInstallIntentRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.CreateInstallIntent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var securityKeyChainCreateManageCredentialsIntentCmd = &cobra.Command{
+	Use:   "create-manage-credentials-intent",
+	Short: "CreateManageCredentialsIntent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyChainServiceClient(grpcConn)
+		req := &pb.CreateManageCredentialsIntentRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CreateManageCredentialsIntent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var securityKeyChainGetCertificateChainCmd = &cobra.Command{
+	Use:   "get-certificate-chain",
+	Short: "GetCertificateChain RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyChainServiceClient(grpcConn)
+		req := &pb.GetCertificateChainRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetCertificateChain(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var securityKeyChainGetCredentialManagementAppPolicyCmd = &cobra.Command{
+	Use:   "get-credential-management-app-policy",
+	Short: "GetCredentialManagementAppPolicy RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyChainServiceClient(grpcConn)
+		req := &pb.GetCredentialManagementAppPolicyRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetCredentialManagementAppPolicy(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var securityKeyChainGetPrivateKeyCmd = &cobra.Command{
+	Use:   "get-private-key",
+	Short: "GetPrivateKey RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyChainServiceClient(grpcConn)
+		req := &pb.GetPrivateKeyRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetPrivateKey(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var securityKeyChainIsBoundKeyAlgorithmCmd = &cobra.Command{
+	Use:   "is-bound-key-algorithm",
+	Short: "IsBoundKeyAlgorithm RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyChainServiceClient(grpcConn)
+		req := &pb.IsBoundKeyAlgorithmRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsBoundKeyAlgorithm(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var securityKeyChainIsCredentialManagementAppCmd = &cobra.Command{
+	Use:   "is-credential-management-app",
+	Short: "IsCredentialManagementApp RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyChainServiceClient(grpcConn)
+		req := &pb.IsCredentialManagementAppRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsCredentialManagementApp(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var securityKeyChainIsKeyAlgorithmSupportedCmd = &cobra.Command{
+	Use:   "is-key-algorithm-supported",
+	Short: "IsKeyAlgorithmSupported RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyChainServiceClient(grpcConn)
+		req := &pb.IsKeyAlgorithmSupportedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsKeyAlgorithmSupported(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var securityKeyChainRemoveCredentialManagementAppCmd = &cobra.Command{
+	Use:   "remove-credential-management-app",
+	Short: "RemoveCredentialManagementApp RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyChainServiceClient(grpcConn)
+		req := &pb.RemoveCredentialManagementAppRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RemoveCredentialManagementApp(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 func init() {
+	securityConfirmationPromptCmd.AddCommand(securityConfirmationPromptCancelPromptCmd)
+	securityConfirmationPromptPresentPromptCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	securityConfirmationPromptPresentPromptCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	securityConfirmationPromptCmd.AddCommand(securityConfirmationPromptPresentPromptCmd)
+	securityConfirmationPromptIsSupportedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	securityConfirmationPromptCmd.AddCommand(securityConfirmationPromptIsSupportedCmd)
+	securityCmd.AddCommand(securityConfirmationPromptCmd)
+	securityConfirmationPromptBuilderCmd.AddCommand(securityConfirmationPromptBuilderBuildCmd)
+	securityConfirmationPromptBuilderSetExtraDataCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	securityConfirmationPromptBuilderCmd.AddCommand(securityConfirmationPromptBuilderSetExtraDataCmd)
+	securityConfirmationPromptBuilderSetPromptTextCmd.Flags().String("arg0", "", "arg0 (string)")
+	securityConfirmationPromptBuilderCmd.AddCommand(securityConfirmationPromptBuilderSetPromptTextCmd)
+	securityCmd.AddCommand(securityConfirmationPromptBuilderCmd)
+	securityKeyStoreParameterCmd.AddCommand(securityKeyStoreParameterIsEncryptionRequiredCmd)
+	securityCmd.AddCommand(securityKeyStoreParameterCmd)
+	securityKeyStoreParameterBuilderCmd.AddCommand(securityKeyStoreParameterBuilderBuildCmd)
+	securityKeyStoreParameterBuilderSetEncryptionRequiredCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	securityKeyStoreParameterBuilderCmd.AddCommand(securityKeyStoreParameterBuilderSetEncryptionRequiredCmd)
+	securityCmd.AddCommand(securityKeyStoreParameterBuilderCmd)
+	securityAttestedKeyPairNewAttestedKeyPairCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	securityAttestedKeyPairNewAttestedKeyPairCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	securityAttestedKeyPairCmd.AddCommand(securityAttestedKeyPairNewAttestedKeyPairCmd)
+	securityAttestedKeyPairGetKeyPairCmd.Flags().Int64("handle", 0, "handle (int64)")
+	securityAttestedKeyPairCmd.AddCommand(securityAttestedKeyPairGetKeyPairCmd)
+	securityCmd.AddCommand(securityAttestedKeyPairCmd)
+	securityAppUriAuthenticationPolicyCmd.AddCommand(securityAppUriAuthenticationPolicyDescribeContentsCmd)
+	securityAppUriAuthenticationPolicyEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	securityAppUriAuthenticationPolicyCmd.AddCommand(securityAppUriAuthenticationPolicyEqualsCmd)
+	securityAppUriAuthenticationPolicyCmd.AddCommand(securityAppUriAuthenticationPolicyHashCodeCmd)
+	securityAppUriAuthenticationPolicyCmd.AddCommand(securityAppUriAuthenticationPolicyToStringCmd)
+	securityAppUriAuthenticationPolicyWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	securityAppUriAuthenticationPolicyWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	securityAppUriAuthenticationPolicyCmd.AddCommand(securityAppUriAuthenticationPolicyWriteToParcelCmd)
+	securityCmd.AddCommand(securityAppUriAuthenticationPolicyCmd)
+	securityAppUriAuthenticationPolicyBuilderAddAppAndUriMappingCmd.Flags().String("arg0", "", "arg0 (string)")
+	securityAppUriAuthenticationPolicyBuilderAddAppAndUriMappingCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	securityAppUriAuthenticationPolicyBuilderAddAppAndUriMappingCmd.Flags().String("arg2", "", "arg2 (string)")
+	securityAppUriAuthenticationPolicyBuilderCmd.AddCommand(securityAppUriAuthenticationPolicyBuilderAddAppAndUriMappingCmd)
+	securityAppUriAuthenticationPolicyBuilderCmd.AddCommand(securityAppUriAuthenticationPolicyBuilderBuildCmd)
+	securityCmd.AddCommand(securityAppUriAuthenticationPolicyBuilderCmd)
+	securityKeyPairGeneratorSpecCmd.AddCommand(securityKeyPairGeneratorSpecGetAlgorithmParameterSpecCmd)
+	securityKeyPairGeneratorSpecCmd.AddCommand(securityKeyPairGeneratorSpecGetContextCmd)
+	securityKeyPairGeneratorSpecCmd.AddCommand(securityKeyPairGeneratorSpecGetEndDateCmd)
+	securityKeyPairGeneratorSpecCmd.AddCommand(securityKeyPairGeneratorSpecGetKeySizeCmd)
+	securityKeyPairGeneratorSpecCmd.AddCommand(securityKeyPairGeneratorSpecGetKeyTypeCmd)
+	securityKeyPairGeneratorSpecCmd.AddCommand(securityKeyPairGeneratorSpecGetKeystoreAliasCmd)
+	securityKeyPairGeneratorSpecCmd.AddCommand(securityKeyPairGeneratorSpecGetSerialNumberCmd)
+	securityKeyPairGeneratorSpecCmd.AddCommand(securityKeyPairGeneratorSpecGetStartDateCmd)
+	securityKeyPairGeneratorSpecCmd.AddCommand(securityKeyPairGeneratorSpecGetSubjectDNCmd)
+	securityKeyPairGeneratorSpecCmd.AddCommand(securityKeyPairGeneratorSpecIsEncryptionRequiredCmd)
+	securityCmd.AddCommand(securityKeyPairGeneratorSpecCmd)
+	securityKeyPairGeneratorSpecBuilderCmd.AddCommand(securityKeyPairGeneratorSpecBuilderBuildCmd)
+	securityKeyPairGeneratorSpecBuilderSetAlgorithmParameterSpecCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	securityKeyPairGeneratorSpecBuilderCmd.AddCommand(securityKeyPairGeneratorSpecBuilderSetAlgorithmParameterSpecCmd)
+	securityKeyPairGeneratorSpecBuilderSetAliasCmd.Flags().String("arg0", "", "arg0 (string)")
+	securityKeyPairGeneratorSpecBuilderCmd.AddCommand(securityKeyPairGeneratorSpecBuilderSetAliasCmd)
+	securityKeyPairGeneratorSpecBuilderCmd.AddCommand(securityKeyPairGeneratorSpecBuilderSetEncryptionRequiredCmd)
+	securityKeyPairGeneratorSpecBuilderSetEndDateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	securityKeyPairGeneratorSpecBuilderCmd.AddCommand(securityKeyPairGeneratorSpecBuilderSetEndDateCmd)
+	securityKeyPairGeneratorSpecBuilderSetKeySizeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	securityKeyPairGeneratorSpecBuilderCmd.AddCommand(securityKeyPairGeneratorSpecBuilderSetKeySizeCmd)
+	securityKeyPairGeneratorSpecBuilderSetKeyTypeCmd.Flags().String("arg0", "", "arg0 (string)")
+	securityKeyPairGeneratorSpecBuilderCmd.AddCommand(securityKeyPairGeneratorSpecBuilderSetKeyTypeCmd)
+	securityKeyPairGeneratorSpecBuilderSetSerialNumberCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	securityKeyPairGeneratorSpecBuilderCmd.AddCommand(securityKeyPairGeneratorSpecBuilderSetSerialNumberCmd)
+	securityKeyPairGeneratorSpecBuilderSetStartDateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	securityKeyPairGeneratorSpecBuilderCmd.AddCommand(securityKeyPairGeneratorSpecBuilderSetStartDateCmd)
+	securityKeyPairGeneratorSpecBuilderSetSubjectCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	securityKeyPairGeneratorSpecBuilderCmd.AddCommand(securityKeyPairGeneratorSpecBuilderSetSubjectCmd)
+	securityCmd.AddCommand(securityKeyPairGeneratorSpecBuilderCmd)
+	securityConfirmationCallbackCmd.AddCommand(securityConfirmationCallbackOnCanceledCmd)
+	securityConfirmationCallbackOnConfirmedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	securityConfirmationCallbackCmd.AddCommand(securityConfirmationCallbackOnConfirmedCmd)
+	securityConfirmationCallbackCmd.AddCommand(securityConfirmationCallbackOnDismissedCmd)
+	securityConfirmationCallbackOnErrorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	securityConfirmationCallbackCmd.AddCommand(securityConfirmationCallbackOnErrorCmd)
+	securityCmd.AddCommand(securityConfirmationCallbackCmd)
 	securityFileIntegrityManagerCmd.AddCommand(securityFileIntegrityManagerIsApkVeritySupportedCmd)
 	securityFileIntegrityManagerIsAppSourceCertificateTrustedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	securityFileIntegrityManagerCmd.AddCommand(securityFileIntegrityManagerIsAppSourceCertificateTrustedCmd)
 	securityCmd.AddCommand(securityFileIntegrityManagerCmd)
+	securityKeyChainAliasCallbackAliasCmd.Flags().String("arg0", "", "arg0 (string)")
+	securityKeyChainAliasCallbackCmd.AddCommand(securityKeyChainAliasCallbackAliasCmd)
+	securityCmd.AddCommand(securityKeyChainAliasCallbackCmd)
+	securityKeyStoreExceptionCmd.AddCommand(securityKeyStoreExceptionGetNumericErrorCodeCmd)
+	securityKeyStoreExceptionCmd.AddCommand(securityKeyStoreExceptionGetRetryPolicyCmd)
+	securityKeyStoreExceptionCmd.AddCommand(securityKeyStoreExceptionIsSystemErrorCmd)
+	securityKeyStoreExceptionCmd.AddCommand(securityKeyStoreExceptionIsTransientFailureCmd)
+	securityKeyStoreExceptionCmd.AddCommand(securityKeyStoreExceptionRequiresUserAuthenticationCmd)
+	securityKeyStoreExceptionCmd.AddCommand(securityKeyStoreExceptionToStringCmd)
+	securityCmd.AddCommand(securityKeyStoreExceptionCmd)
+	securityNetworkSecurityPolicyIsCertificateTransparencyVerificationRequiredCmd.Flags().String("arg0", "", "arg0 (string)")
+	securityNetworkSecurityPolicyCmd.AddCommand(securityNetworkSecurityPolicyIsCertificateTransparencyVerificationRequiredCmd)
+	securityNetworkSecurityPolicyCmd.AddCommand(securityNetworkSecurityPolicyIsCleartextTrafficPermitted0Cmd)
+	securityNetworkSecurityPolicyIsCleartextTrafficPermitted1_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	securityNetworkSecurityPolicyCmd.AddCommand(securityNetworkSecurityPolicyIsCleartextTrafficPermitted1_1Cmd)
+	securityNetworkSecurityPolicyCmd.AddCommand(securityNetworkSecurityPolicyGetInstanceCmd)
+	securityCmd.AddCommand(securityNetworkSecurityPolicyCmd)
+	securityKeyChainCmd.AddCommand(securityKeyChainNewKeyChainCmd)
+	securityKeyChainChoosePrivateKeyAlias6Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	securityKeyChainChoosePrivateKeyAlias6Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	securityKeyChainChoosePrivateKeyAlias6Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	securityKeyChainChoosePrivateKeyAlias6Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	securityKeyChainChoosePrivateKeyAlias6Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	securityKeyChainChoosePrivateKeyAlias6Cmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	securityKeyChainChoosePrivateKeyAlias6Cmd.Flags().String("arg5", "", "arg5 (string)")
+	securityKeyChainCmd.AddCommand(securityKeyChainChoosePrivateKeyAlias6Cmd)
+	securityKeyChainChoosePrivateKeyAlias7_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	securityKeyChainChoosePrivateKeyAlias7_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	securityKeyChainChoosePrivateKeyAlias7_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	securityKeyChainChoosePrivateKeyAlias7_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	securityKeyChainChoosePrivateKeyAlias7_1Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	securityKeyChainChoosePrivateKeyAlias7_1Cmd.Flags().String("arg4", "", "arg4 (string)")
+	securityKeyChainChoosePrivateKeyAlias7_1Cmd.Flags().Int32("arg5", 0, "arg5 (int32)")
+	securityKeyChainChoosePrivateKeyAlias7_1Cmd.Flags().String("arg6", "", "arg6 (string)")
+	securityKeyChainCmd.AddCommand(securityKeyChainChoosePrivateKeyAlias7_1Cmd)
+	securityKeyChainCreateInstallIntentCmd.Flags().Int64("handle", 0, "handle (int64)")
+	securityKeyChainCmd.AddCommand(securityKeyChainCreateInstallIntentCmd)
+	securityKeyChainCreateManageCredentialsIntentCmd.Flags().Int64("handle", 0, "handle (int64)")
+	securityKeyChainCreateManageCredentialsIntentCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	securityKeyChainCmd.AddCommand(securityKeyChainCreateManageCredentialsIntentCmd)
+	securityKeyChainGetCertificateChainCmd.Flags().Int64("handle", 0, "handle (int64)")
+	securityKeyChainGetCertificateChainCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	securityKeyChainGetCertificateChainCmd.Flags().String("arg1", "", "arg1 (string)")
+	securityKeyChainCmd.AddCommand(securityKeyChainGetCertificateChainCmd)
+	securityKeyChainGetCredentialManagementAppPolicyCmd.Flags().Int64("handle", 0, "handle (int64)")
+	securityKeyChainGetCredentialManagementAppPolicyCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	securityKeyChainCmd.AddCommand(securityKeyChainGetCredentialManagementAppPolicyCmd)
+	securityKeyChainGetPrivateKeyCmd.Flags().Int64("handle", 0, "handle (int64)")
+	securityKeyChainGetPrivateKeyCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	securityKeyChainGetPrivateKeyCmd.Flags().String("arg1", "", "arg1 (string)")
+	securityKeyChainCmd.AddCommand(securityKeyChainGetPrivateKeyCmd)
+	securityKeyChainIsBoundKeyAlgorithmCmd.Flags().Int64("handle", 0, "handle (int64)")
+	securityKeyChainIsBoundKeyAlgorithmCmd.Flags().String("arg0", "", "arg0 (string)")
+	securityKeyChainCmd.AddCommand(securityKeyChainIsBoundKeyAlgorithmCmd)
+	securityKeyChainIsCredentialManagementAppCmd.Flags().Int64("handle", 0, "handle (int64)")
+	securityKeyChainIsCredentialManagementAppCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	securityKeyChainCmd.AddCommand(securityKeyChainIsCredentialManagementAppCmd)
+	securityKeyChainIsKeyAlgorithmSupportedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	securityKeyChainIsKeyAlgorithmSupportedCmd.Flags().String("arg0", "", "arg0 (string)")
+	securityKeyChainCmd.AddCommand(securityKeyChainIsKeyAlgorithmSupportedCmd)
+	securityKeyChainRemoveCredentialManagementAppCmd.Flags().Int64("handle", 0, "handle (int64)")
+	securityKeyChainRemoveCredentialManagementAppCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	securityKeyChainCmd.AddCommand(securityKeyChainRemoveCredentialManagementAppCmd)
+	securityCmd.AddCommand(securityKeyChainCmd)
 	rootCmd.AddCommand(securityCmd)
 }

@@ -49,9 +49,183 @@ var fingerprintManagerIsHardwareDetectedCmd = &cobra.Command{
 	},
 }
 
+var fingerprintManagerAuthenticationCallbackCmd = &cobra.Command{
+	Use:   "manager-authentication-callback",
+	Short: "ManagerAuthenticationCallbackService operations",
+}
+
+var fingerprintManagerAuthenticationCallbackOnAuthenticationErrorCmd = &cobra.Command{
+	Use:   "on-authentication-error",
+	Short: "OnAuthenticationError RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerAuthenticationCallbackServiceClient(grpcConn)
+		req := &pb.OnAuthenticationErrorRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnAuthenticationError(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var fingerprintManagerAuthenticationCallbackOnAuthenticationFailedCmd = &cobra.Command{
+	Use:   "on-authentication-failed",
+	Short: "OnAuthenticationFailed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerAuthenticationCallbackServiceClient(grpcConn)
+		req := &pb.OnAuthenticationFailedRequest{}
+		resp, err := client.OnAuthenticationFailed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var fingerprintManagerAuthenticationCallbackOnAuthenticationHelpCmd = &cobra.Command{
+	Use:   "on-authentication-help",
+	Short: "OnAuthenticationHelp RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerAuthenticationCallbackServiceClient(grpcConn)
+		req := &pb.OnAuthenticationHelpRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnAuthenticationHelp(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var fingerprintManagerAuthenticationCallbackOnAuthenticationSucceededCmd = &cobra.Command{
+	Use:   "on-authentication-succeeded",
+	Short: "OnAuthenticationSucceeded RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerAuthenticationCallbackServiceClient(grpcConn)
+		req := &pb.OnAuthenticationSucceededRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnAuthenticationSucceeded(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var fingerprintManagerAuthenticationResultCmd = &cobra.Command{
+	Use:   "manager-authentication-result",
+	Short: "ManagerAuthenticationResultService operations",
+}
+
+var fingerprintManagerAuthenticationResultGetCryptoObjectCmd = &cobra.Command{
+	Use:   "get-crypto-object",
+	Short: "GetCryptoObject RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerAuthenticationResultServiceClient(grpcConn)
+		req := &pb.GetCryptoObjectRequest{}
+		resp, err := client.GetCryptoObject(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var fingerprintManagerCryptoObjectCmd = &cobra.Command{
+	Use:   "manager-crypto-object",
+	Short: "ManagerCryptoObjectService operations",
+}
+
+var fingerprintManagerCryptoObjectGetCipherCmd = &cobra.Command{
+	Use:   "get-cipher",
+	Short: "GetCipher RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerCryptoObjectServiceClient(grpcConn)
+		req := &pb.GetCipherRequest{}
+		resp, err := client.GetCipher(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var fingerprintManagerCryptoObjectGetMacCmd = &cobra.Command{
+	Use:   "get-mac",
+	Short: "GetMac RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerCryptoObjectServiceClient(grpcConn)
+		req := &pb.GetMacRequest{}
+		resp, err := client.GetMac(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var fingerprintManagerCryptoObjectGetSignatureCmd = &cobra.Command{
+	Use:   "get-signature",
+	Short: "GetSignature RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerCryptoObjectServiceClient(grpcConn)
+		req := &pb.GetSignatureRequest{}
+		resp, err := client.GetSignature(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 func init() {
 	fingerprintManagerCmd.AddCommand(fingerprintManagerHasEnrolledFingerprintsCmd)
 	fingerprintManagerCmd.AddCommand(fingerprintManagerIsHardwareDetectedCmd)
 	fingerprintCmd.AddCommand(fingerprintManagerCmd)
+	fingerprintManagerAuthenticationCallbackOnAuthenticationErrorCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	fingerprintManagerAuthenticationCallbackOnAuthenticationErrorCmd.Flags().String("arg1", "", "arg1 (string)")
+	fingerprintManagerAuthenticationCallbackCmd.AddCommand(fingerprintManagerAuthenticationCallbackOnAuthenticationErrorCmd)
+	fingerprintManagerAuthenticationCallbackCmd.AddCommand(fingerprintManagerAuthenticationCallbackOnAuthenticationFailedCmd)
+	fingerprintManagerAuthenticationCallbackOnAuthenticationHelpCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	fingerprintManagerAuthenticationCallbackOnAuthenticationHelpCmd.Flags().String("arg1", "", "arg1 (string)")
+	fingerprintManagerAuthenticationCallbackCmd.AddCommand(fingerprintManagerAuthenticationCallbackOnAuthenticationHelpCmd)
+	fingerprintManagerAuthenticationCallbackOnAuthenticationSucceededCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	fingerprintManagerAuthenticationCallbackCmd.AddCommand(fingerprintManagerAuthenticationCallbackOnAuthenticationSucceededCmd)
+	fingerprintCmd.AddCommand(fingerprintManagerAuthenticationCallbackCmd)
+	fingerprintManagerAuthenticationResultCmd.AddCommand(fingerprintManagerAuthenticationResultGetCryptoObjectCmd)
+	fingerprintCmd.AddCommand(fingerprintManagerAuthenticationResultCmd)
+	fingerprintManagerCryptoObjectCmd.AddCommand(fingerprintManagerCryptoObjectGetCipherCmd)
+	fingerprintManagerCryptoObjectCmd.AddCommand(fingerprintManagerCryptoObjectGetMacCmd)
+	fingerprintManagerCryptoObjectCmd.AddCommand(fingerprintManagerCryptoObjectGetSignatureCmd)
+	fingerprintCmd.AddCommand(fingerprintManagerCryptoObjectCmd)
 	rootCmd.AddCommand(fingerprintCmd)
 }

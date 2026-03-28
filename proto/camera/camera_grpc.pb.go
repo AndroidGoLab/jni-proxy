@@ -577,3 +577,437 @@ var ManagerService_ServiceDesc = grpc.ServiceDesc{
 	Streams:  []grpc.StreamDesc{},
 	Metadata: "proto/camera/camera.proto",
 }
+
+const (
+	ManagerAvailabilityCallbackService_OnCameraAccessPrioritiesChanged_FullMethodName = "/camera.ManagerAvailabilityCallbackService/OnCameraAccessPrioritiesChanged"
+	ManagerAvailabilityCallbackService_OnCameraAvailable_FullMethodName               = "/camera.ManagerAvailabilityCallbackService/OnCameraAvailable"
+	ManagerAvailabilityCallbackService_OnCameraUnavailable_FullMethodName             = "/camera.ManagerAvailabilityCallbackService/OnCameraUnavailable"
+	ManagerAvailabilityCallbackService_OnPhysicalCameraAvailable_FullMethodName       = "/camera.ManagerAvailabilityCallbackService/OnPhysicalCameraAvailable"
+	ManagerAvailabilityCallbackService_OnPhysicalCameraUnavailable_FullMethodName     = "/camera.ManagerAvailabilityCallbackService/OnPhysicalCameraUnavailable"
+)
+
+// ManagerAvailabilityCallbackServiceClient is the client API for ManagerAvailabilityCallbackService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ManagerAvailabilityCallbackServiceClient interface {
+	OnCameraAccessPrioritiesChanged(ctx context.Context, in *OnCameraAccessPrioritiesChangedRequest, opts ...grpc.CallOption) (*OnCameraAccessPrioritiesChangedResponse, error)
+	OnCameraAvailable(ctx context.Context, in *OnCameraAvailableRequest, opts ...grpc.CallOption) (*OnCameraAvailableResponse, error)
+	OnCameraUnavailable(ctx context.Context, in *OnCameraUnavailableRequest, opts ...grpc.CallOption) (*OnCameraUnavailableResponse, error)
+	OnPhysicalCameraAvailable(ctx context.Context, in *OnPhysicalCameraAvailableRequest, opts ...grpc.CallOption) (*OnPhysicalCameraAvailableResponse, error)
+	OnPhysicalCameraUnavailable(ctx context.Context, in *OnPhysicalCameraUnavailableRequest, opts ...grpc.CallOption) (*OnPhysicalCameraUnavailableResponse, error)
+}
+
+type managerAvailabilityCallbackServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewManagerAvailabilityCallbackServiceClient(cc grpc.ClientConnInterface) ManagerAvailabilityCallbackServiceClient {
+	return &managerAvailabilityCallbackServiceClient{cc}
+}
+
+func (c *managerAvailabilityCallbackServiceClient) OnCameraAccessPrioritiesChanged(ctx context.Context, in *OnCameraAccessPrioritiesChangedRequest, opts ...grpc.CallOption) (*OnCameraAccessPrioritiesChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnCameraAccessPrioritiesChangedResponse)
+	err := c.cc.Invoke(ctx, ManagerAvailabilityCallbackService_OnCameraAccessPrioritiesChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerAvailabilityCallbackServiceClient) OnCameraAvailable(ctx context.Context, in *OnCameraAvailableRequest, opts ...grpc.CallOption) (*OnCameraAvailableResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnCameraAvailableResponse)
+	err := c.cc.Invoke(ctx, ManagerAvailabilityCallbackService_OnCameraAvailable_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerAvailabilityCallbackServiceClient) OnCameraUnavailable(ctx context.Context, in *OnCameraUnavailableRequest, opts ...grpc.CallOption) (*OnCameraUnavailableResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnCameraUnavailableResponse)
+	err := c.cc.Invoke(ctx, ManagerAvailabilityCallbackService_OnCameraUnavailable_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerAvailabilityCallbackServiceClient) OnPhysicalCameraAvailable(ctx context.Context, in *OnPhysicalCameraAvailableRequest, opts ...grpc.CallOption) (*OnPhysicalCameraAvailableResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnPhysicalCameraAvailableResponse)
+	err := c.cc.Invoke(ctx, ManagerAvailabilityCallbackService_OnPhysicalCameraAvailable_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerAvailabilityCallbackServiceClient) OnPhysicalCameraUnavailable(ctx context.Context, in *OnPhysicalCameraUnavailableRequest, opts ...grpc.CallOption) (*OnPhysicalCameraUnavailableResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnPhysicalCameraUnavailableResponse)
+	err := c.cc.Invoke(ctx, ManagerAvailabilityCallbackService_OnPhysicalCameraUnavailable_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ManagerAvailabilityCallbackServiceServer is the server API for ManagerAvailabilityCallbackService service.
+// All implementations must embed UnimplementedManagerAvailabilityCallbackServiceServer
+// for forward compatibility.
+type ManagerAvailabilityCallbackServiceServer interface {
+	OnCameraAccessPrioritiesChanged(context.Context, *OnCameraAccessPrioritiesChangedRequest) (*OnCameraAccessPrioritiesChangedResponse, error)
+	OnCameraAvailable(context.Context, *OnCameraAvailableRequest) (*OnCameraAvailableResponse, error)
+	OnCameraUnavailable(context.Context, *OnCameraUnavailableRequest) (*OnCameraUnavailableResponse, error)
+	OnPhysicalCameraAvailable(context.Context, *OnPhysicalCameraAvailableRequest) (*OnPhysicalCameraAvailableResponse, error)
+	OnPhysicalCameraUnavailable(context.Context, *OnPhysicalCameraUnavailableRequest) (*OnPhysicalCameraUnavailableResponse, error)
+	mustEmbedUnimplementedManagerAvailabilityCallbackServiceServer()
+}
+
+// UnimplementedManagerAvailabilityCallbackServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedManagerAvailabilityCallbackServiceServer struct{}
+
+func (UnimplementedManagerAvailabilityCallbackServiceServer) OnCameraAccessPrioritiesChanged(context.Context, *OnCameraAccessPrioritiesChangedRequest) (*OnCameraAccessPrioritiesChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnCameraAccessPrioritiesChanged not implemented")
+}
+func (UnimplementedManagerAvailabilityCallbackServiceServer) OnCameraAvailable(context.Context, *OnCameraAvailableRequest) (*OnCameraAvailableResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnCameraAvailable not implemented")
+}
+func (UnimplementedManagerAvailabilityCallbackServiceServer) OnCameraUnavailable(context.Context, *OnCameraUnavailableRequest) (*OnCameraUnavailableResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnCameraUnavailable not implemented")
+}
+func (UnimplementedManagerAvailabilityCallbackServiceServer) OnPhysicalCameraAvailable(context.Context, *OnPhysicalCameraAvailableRequest) (*OnPhysicalCameraAvailableResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnPhysicalCameraAvailable not implemented")
+}
+func (UnimplementedManagerAvailabilityCallbackServiceServer) OnPhysicalCameraUnavailable(context.Context, *OnPhysicalCameraUnavailableRequest) (*OnPhysicalCameraUnavailableResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnPhysicalCameraUnavailable not implemented")
+}
+func (UnimplementedManagerAvailabilityCallbackServiceServer) mustEmbedUnimplementedManagerAvailabilityCallbackServiceServer() {
+}
+func (UnimplementedManagerAvailabilityCallbackServiceServer) testEmbeddedByValue() {}
+
+// UnsafeManagerAvailabilityCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ManagerAvailabilityCallbackServiceServer will
+// result in compilation errors.
+type UnsafeManagerAvailabilityCallbackServiceServer interface {
+	mustEmbedUnimplementedManagerAvailabilityCallbackServiceServer()
+}
+
+func RegisterManagerAvailabilityCallbackServiceServer(s grpc.ServiceRegistrar, srv ManagerAvailabilityCallbackServiceServer) {
+	// If the following call panics, it indicates UnimplementedManagerAvailabilityCallbackServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ManagerAvailabilityCallbackService_ServiceDesc, srv)
+}
+
+func _ManagerAvailabilityCallbackService_OnCameraAccessPrioritiesChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnCameraAccessPrioritiesChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerAvailabilityCallbackServiceServer).OnCameraAccessPrioritiesChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerAvailabilityCallbackService_OnCameraAccessPrioritiesChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerAvailabilityCallbackServiceServer).OnCameraAccessPrioritiesChanged(ctx, req.(*OnCameraAccessPrioritiesChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerAvailabilityCallbackService_OnCameraAvailable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnCameraAvailableRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerAvailabilityCallbackServiceServer).OnCameraAvailable(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerAvailabilityCallbackService_OnCameraAvailable_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerAvailabilityCallbackServiceServer).OnCameraAvailable(ctx, req.(*OnCameraAvailableRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerAvailabilityCallbackService_OnCameraUnavailable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnCameraUnavailableRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerAvailabilityCallbackServiceServer).OnCameraUnavailable(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerAvailabilityCallbackService_OnCameraUnavailable_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerAvailabilityCallbackServiceServer).OnCameraUnavailable(ctx, req.(*OnCameraUnavailableRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerAvailabilityCallbackService_OnPhysicalCameraAvailable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnPhysicalCameraAvailableRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerAvailabilityCallbackServiceServer).OnPhysicalCameraAvailable(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerAvailabilityCallbackService_OnPhysicalCameraAvailable_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerAvailabilityCallbackServiceServer).OnPhysicalCameraAvailable(ctx, req.(*OnPhysicalCameraAvailableRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerAvailabilityCallbackService_OnPhysicalCameraUnavailable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnPhysicalCameraUnavailableRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerAvailabilityCallbackServiceServer).OnPhysicalCameraUnavailable(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerAvailabilityCallbackService_OnPhysicalCameraUnavailable_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerAvailabilityCallbackServiceServer).OnPhysicalCameraUnavailable(ctx, req.(*OnPhysicalCameraUnavailableRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ManagerAvailabilityCallbackService_ServiceDesc is the grpc.ServiceDesc for ManagerAvailabilityCallbackService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ManagerAvailabilityCallbackService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "camera.ManagerAvailabilityCallbackService",
+	HandlerType: (*ManagerAvailabilityCallbackServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnCameraAccessPrioritiesChanged",
+			Handler:    _ManagerAvailabilityCallbackService_OnCameraAccessPrioritiesChanged_Handler,
+		},
+		{
+			MethodName: "OnCameraAvailable",
+			Handler:    _ManagerAvailabilityCallbackService_OnCameraAvailable_Handler,
+		},
+		{
+			MethodName: "OnCameraUnavailable",
+			Handler:    _ManagerAvailabilityCallbackService_OnCameraUnavailable_Handler,
+		},
+		{
+			MethodName: "OnPhysicalCameraAvailable",
+			Handler:    _ManagerAvailabilityCallbackService_OnPhysicalCameraAvailable_Handler,
+		},
+		{
+			MethodName: "OnPhysicalCameraUnavailable",
+			Handler:    _ManagerAvailabilityCallbackService_OnPhysicalCameraUnavailable_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/camera/camera.proto",
+}
+
+const (
+	ManagerTorchCallbackService_OnTorchModeChanged_FullMethodName          = "/camera.ManagerTorchCallbackService/OnTorchModeChanged"
+	ManagerTorchCallbackService_OnTorchModeUnavailable_FullMethodName      = "/camera.ManagerTorchCallbackService/OnTorchModeUnavailable"
+	ManagerTorchCallbackService_OnTorchStrengthLevelChanged_FullMethodName = "/camera.ManagerTorchCallbackService/OnTorchStrengthLevelChanged"
+)
+
+// ManagerTorchCallbackServiceClient is the client API for ManagerTorchCallbackService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ManagerTorchCallbackServiceClient interface {
+	OnTorchModeChanged(ctx context.Context, in *OnTorchModeChangedRequest, opts ...grpc.CallOption) (*OnTorchModeChangedResponse, error)
+	OnTorchModeUnavailable(ctx context.Context, in *OnTorchModeUnavailableRequest, opts ...grpc.CallOption) (*OnTorchModeUnavailableResponse, error)
+	OnTorchStrengthLevelChanged(ctx context.Context, in *OnTorchStrengthLevelChangedRequest, opts ...grpc.CallOption) (*OnTorchStrengthLevelChangedResponse, error)
+}
+
+type managerTorchCallbackServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewManagerTorchCallbackServiceClient(cc grpc.ClientConnInterface) ManagerTorchCallbackServiceClient {
+	return &managerTorchCallbackServiceClient{cc}
+}
+
+func (c *managerTorchCallbackServiceClient) OnTorchModeChanged(ctx context.Context, in *OnTorchModeChangedRequest, opts ...grpc.CallOption) (*OnTorchModeChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnTorchModeChangedResponse)
+	err := c.cc.Invoke(ctx, ManagerTorchCallbackService_OnTorchModeChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerTorchCallbackServiceClient) OnTorchModeUnavailable(ctx context.Context, in *OnTorchModeUnavailableRequest, opts ...grpc.CallOption) (*OnTorchModeUnavailableResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnTorchModeUnavailableResponse)
+	err := c.cc.Invoke(ctx, ManagerTorchCallbackService_OnTorchModeUnavailable_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerTorchCallbackServiceClient) OnTorchStrengthLevelChanged(ctx context.Context, in *OnTorchStrengthLevelChangedRequest, opts ...grpc.CallOption) (*OnTorchStrengthLevelChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnTorchStrengthLevelChangedResponse)
+	err := c.cc.Invoke(ctx, ManagerTorchCallbackService_OnTorchStrengthLevelChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ManagerTorchCallbackServiceServer is the server API for ManagerTorchCallbackService service.
+// All implementations must embed UnimplementedManagerTorchCallbackServiceServer
+// for forward compatibility.
+type ManagerTorchCallbackServiceServer interface {
+	OnTorchModeChanged(context.Context, *OnTorchModeChangedRequest) (*OnTorchModeChangedResponse, error)
+	OnTorchModeUnavailable(context.Context, *OnTorchModeUnavailableRequest) (*OnTorchModeUnavailableResponse, error)
+	OnTorchStrengthLevelChanged(context.Context, *OnTorchStrengthLevelChangedRequest) (*OnTorchStrengthLevelChangedResponse, error)
+	mustEmbedUnimplementedManagerTorchCallbackServiceServer()
+}
+
+// UnimplementedManagerTorchCallbackServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedManagerTorchCallbackServiceServer struct{}
+
+func (UnimplementedManagerTorchCallbackServiceServer) OnTorchModeChanged(context.Context, *OnTorchModeChangedRequest) (*OnTorchModeChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnTorchModeChanged not implemented")
+}
+func (UnimplementedManagerTorchCallbackServiceServer) OnTorchModeUnavailable(context.Context, *OnTorchModeUnavailableRequest) (*OnTorchModeUnavailableResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnTorchModeUnavailable not implemented")
+}
+func (UnimplementedManagerTorchCallbackServiceServer) OnTorchStrengthLevelChanged(context.Context, *OnTorchStrengthLevelChangedRequest) (*OnTorchStrengthLevelChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnTorchStrengthLevelChanged not implemented")
+}
+func (UnimplementedManagerTorchCallbackServiceServer) mustEmbedUnimplementedManagerTorchCallbackServiceServer() {
+}
+func (UnimplementedManagerTorchCallbackServiceServer) testEmbeddedByValue() {}
+
+// UnsafeManagerTorchCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ManagerTorchCallbackServiceServer will
+// result in compilation errors.
+type UnsafeManagerTorchCallbackServiceServer interface {
+	mustEmbedUnimplementedManagerTorchCallbackServiceServer()
+}
+
+func RegisterManagerTorchCallbackServiceServer(s grpc.ServiceRegistrar, srv ManagerTorchCallbackServiceServer) {
+	// If the following call panics, it indicates UnimplementedManagerTorchCallbackServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ManagerTorchCallbackService_ServiceDesc, srv)
+}
+
+func _ManagerTorchCallbackService_OnTorchModeChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnTorchModeChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerTorchCallbackServiceServer).OnTorchModeChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerTorchCallbackService_OnTorchModeChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerTorchCallbackServiceServer).OnTorchModeChanged(ctx, req.(*OnTorchModeChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerTorchCallbackService_OnTorchModeUnavailable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnTorchModeUnavailableRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerTorchCallbackServiceServer).OnTorchModeUnavailable(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerTorchCallbackService_OnTorchModeUnavailable_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerTorchCallbackServiceServer).OnTorchModeUnavailable(ctx, req.(*OnTorchModeUnavailableRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerTorchCallbackService_OnTorchStrengthLevelChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnTorchStrengthLevelChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerTorchCallbackServiceServer).OnTorchStrengthLevelChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerTorchCallbackService_OnTorchStrengthLevelChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerTorchCallbackServiceServer).OnTorchStrengthLevelChanged(ctx, req.(*OnTorchStrengthLevelChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ManagerTorchCallbackService_ServiceDesc is the grpc.ServiceDesc for ManagerTorchCallbackService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ManagerTorchCallbackService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "camera.ManagerTorchCallbackService",
+	HandlerType: (*ManagerTorchCallbackServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnTorchModeChanged",
+			Handler:    _ManagerTorchCallbackService_OnTorchModeChanged_Handler,
+		},
+		{
+			MethodName: "OnTorchModeUnavailable",
+			Handler:    _ManagerTorchCallbackService_OnTorchModeUnavailable_Handler,
+		},
+		{
+			MethodName: "OnTorchStrengthLevelChanged",
+			Handler:    _ManagerTorchCallbackService_OnTorchStrengthLevelChanged_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/camera/camera.proto",
+}

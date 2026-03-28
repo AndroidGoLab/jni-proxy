@@ -537,6 +537,167 @@ func TestProtoTypeFromCallSuffix(t *testing.T) {
 	}
 }
 
+func TestBuildProtoData_ConstructorClassHandleField(t *testing.T) {
+	merged := &javagen.MergedSpec{
+		Package: "camera",
+		Classes: []javagen.MergedClass{
+			{
+				GoType:            "Manager",
+				Obtain:            "constructor",
+				ConstructorParams: []javagen.MergedParam{{GoName: "context", GoType: "*jni.Object", IsObject: true}},
+				Methods: []javagen.MergedMethod{
+					{
+						GoName:     "GetCameraIdList",
+						Params:     nil,
+						Returns:    "void",
+						GoReturn:   "",
+						CallSuffix: "Void",
+						ReturnKind: javagen.ReturnVoid,
+					},
+					{
+						GoName:     "SetTorchMode",
+						Params:     []javagen.MergedParam{{GoName: "cameraId", GoType: "string", IsString: true}, {GoName: "enabled", GoType: "bool", IsBool: true}},
+						Returns:    "void",
+						GoReturn:   "",
+						CallSuffix: "Void",
+						ReturnKind: javagen.ReturnVoid,
+					},
+				},
+			},
+		},
+	}
+
+	data := BuildProtoData(merged, "example.com/mod")
+
+	if len(data.Services) != 1 {
+		t.Fatalf("expected 1 service, got %d", len(data.Services))
+	}
+
+	// Find request messages.
+	msgByName := make(map[string]ProtoMessage)
+	for _, msg := range data.Messages {
+		msgByName[msg.Name] = msg
+	}
+
+	// Constructor request (NewManager) should NOT have a handle field
+	// and should NOT get a class prefix.
+	ctorReq, ok := msgByName["NewManagerRequest"]
+	if !ok {
+		t.Fatal("NewManagerRequest message not found")
+	}
+	for _, f := range ctorReq.Fields {
+		if f.Name == "handle" {
+			t.Error("constructor request NewManagerRequest should not have a handle field")
+		}
+	}
+	// Constructor should have its normal params (context → int64) starting at field number 1.
+	if len(ctorReq.Fields) != 1 {
+		t.Fatalf("NewManagerRequest: expected 1 field, got %d", len(ctorReq.Fields))
+	}
+	if ctorReq.Fields[0].Name != "context" {
+		t.Errorf("NewManagerRequest field 0: expected name 'context', got %q", ctorReq.Fields[0].Name)
+	}
+	if ctorReq.Fields[0].Type != "int64" {
+		t.Errorf("NewManagerRequest field 0: expected type 'int64', got %q", ctorReq.Fields[0].Type)
+	}
+	if ctorReq.Fields[0].Number != 1 {
+		t.Errorf("NewManagerRequest field 0: expected number 1, got %d", ctorReq.Fields[0].Number)
+	}
+
+	// Constructor response should have a result int64 field.
+	ctorResp, ok := msgByName["NewManagerResponse"]
+	if !ok {
+		t.Fatal("NewManagerResponse message not found")
+	}
+	if len(ctorResp.Fields) != 1 {
+		t.Fatalf("NewManagerResponse: expected 1 field, got %d", len(ctorResp.Fields))
+	}
+	if ctorResp.Fields[0].Name != "result" || ctorResp.Fields[0].Type != "int64" {
+		t.Errorf("NewManagerResponse field 0: expected result:int64, got %s:%s", ctorResp.Fields[0].Name, ctorResp.Fields[0].Type)
+	}
+
+	// Regular method with no params: gets Manager prefix, should have only the handle field.
+	getReq, ok := msgByName["GetCameraIdListRequest"]
+	if !ok {
+		t.Fatal("GetCameraIdListRequest message not found")
+	}
+	if len(getReq.Fields) != 1 {
+		t.Fatalf("GetCameraIdListRequest: expected 1 field (handle), got %d", len(getReq.Fields))
+	}
+	if getReq.Fields[0].Name != "handle" {
+		t.Errorf("GetCameraIdListRequest field 0: expected name 'handle', got %q", getReq.Fields[0].Name)
+	}
+	if getReq.Fields[0].Type != "int64" {
+		t.Errorf("GetCameraIdListRequest field 0: expected type 'int64', got %q", getReq.Fields[0].Type)
+	}
+	if getReq.Fields[0].Number != 1 {
+		t.Errorf("GetCameraIdListRequest field 0: expected number 1, got %d", getReq.Fields[0].Number)
+	}
+
+	// Regular method with params: gets Manager prefix, handle is field 1, params follow.
+	torchReq, ok := msgByName["SetTorchModeRequest"]
+	if !ok {
+		t.Fatal("SetTorchModeRequest message not found")
+	}
+	if len(torchReq.Fields) != 3 {
+		t.Fatalf("SetTorchModeRequest: expected 3 fields (handle + 2 params), got %d", len(torchReq.Fields))
+	}
+	if torchReq.Fields[0].Name != "handle" || torchReq.Fields[0].Number != 1 {
+		t.Errorf("SetTorchModeRequest field 0: expected handle at number 1, got %q at %d", torchReq.Fields[0].Name, torchReq.Fields[0].Number)
+	}
+	if torchReq.Fields[1].Name != "camera_id" || torchReq.Fields[1].Number != 2 {
+		t.Errorf("SetTorchModeRequest field 1: expected camera_id at number 2, got %q at %d", torchReq.Fields[1].Name, torchReq.Fields[1].Number)
+	}
+	if torchReq.Fields[2].Name != "enabled" || torchReq.Fields[2].Number != 3 {
+		t.Errorf("SetTorchModeRequest field 2: expected enabled at number 3, got %q at %d", torchReq.Fields[2].Name, torchReq.Fields[2].Number)
+	}
+}
+
+func TestBuildProtoData_NonConstructorClassNoHandleField(t *testing.T) {
+	// system_service classes should NOT get handle fields.
+	merged := &javagen.MergedSpec{
+		Package: "location",
+		Classes: []javagen.MergedClass{
+			{
+				GoType: "Manager",
+				Obtain: "system_service",
+				Methods: []javagen.MergedMethod{
+					{
+						GoName:     "IsProviderEnabled",
+						Params:     []javagen.MergedParam{{GoName: "provider", GoType: "string", IsString: true}},
+						Returns:    "boolean",
+						GoReturn:   "bool",
+						CallSuffix: "Boolean",
+						ReturnKind: javagen.ReturnBool,
+					},
+				},
+			},
+		},
+	}
+
+	data := BuildProtoData(merged, "example.com/mod")
+
+	var req *ProtoMessage
+	for _, msg := range data.Messages {
+		if msg.Name == "IsProviderEnabledRequest" {
+			req = &msg
+			break
+		}
+	}
+	if req == nil {
+		t.Fatal("IsProviderEnabledRequest message not found")
+	}
+	if len(req.Fields) != 1 {
+		t.Fatalf("expected 1 field, got %d", len(req.Fields))
+	}
+	if req.Fields[0].Name != "provider" {
+		t.Errorf("expected field name 'provider', got %q", req.Fields[0].Name)
+	}
+	if req.Fields[0].Number != 1 {
+		t.Errorf("expected field number 1, got %d", req.Fields[0].Number)
+	}
+}
+
 func TestProtoTypeFromParam(t *testing.T) {
 	tests := []struct {
 		name     string

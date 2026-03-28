@@ -6,6 +6,163 @@ package print;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/print";
 
+message OnFinishRequest {
+}
+
+message OnFinishResponse {
+}
+
+message OnLayoutRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+}
+
+message OnLayoutResponse {
+}
+
+message OnStartRequest {
+}
+
+message OnStartResponse {
+}
+
+message OnWriteRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message OnWriteResponse {
+}
+
+message OnLayoutCancelledRequest {
+}
+
+message OnLayoutCancelledResponse {
+}
+
+message OnLayoutFailedRequest {
+  string arg0 = 1;
+}
+
+message OnLayoutFailedResponse {
+}
+
+message OnLayoutFinishedRequest {
+  int64 arg0 = 1;
+  bool arg1 = 2;
+}
+
+message OnLayoutFinishedResponse {
+}
+
+message OnWriteCancelledRequest {
+}
+
+message OnWriteCancelledResponse {
+}
+
+message OnWriteFailedRequest {
+  string arg0 = 1;
+}
+
+message OnWriteFailedResponse {
+}
+
+message OnWriteFinishedRequest {
+  int64 arg0 = 1;
+}
+
+message OnWriteFinishedResponse {
+}
+
+message CancelRequest {
+}
+
+message CancelResponse {
+}
+
+message EqualsRequest {
+  int64 arg0 = 1;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message GetIdRequest {
+}
+
+message GetIdResponse {
+  int64 result = 1;
+}
+
+message GetInfoRequest {
+}
+
+message GetInfoResponse {
+  int64 result = 1;
+}
+
+message HashCodeRequest {
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message IsBlockedRequest {
+}
+
+message IsBlockedResponse {
+  bool result = 1;
+}
+
+message IsCancelledRequest {
+}
+
+message IsCancelledResponse {
+  bool result = 1;
+}
+
+message IsCompletedRequest {
+}
+
+message IsCompletedResponse {
+  bool result = 1;
+}
+
+message IsFailedRequest {
+}
+
+message IsFailedResponse {
+  bool result = 1;
+}
+
+message IsQueuedRequest {
+}
+
+message IsQueuedResponse {
+  bool result = 1;
+}
+
+message IsStartedRequest {
+}
+
+message IsStartedResponse {
+  bool result = 1;
+}
+
+message RestartRequest {
+}
+
+message RestartResponse {
+}
+
 message IsPrintServiceEnabledRequest {
   int64 arg0 = 1;
 }
@@ -24,7 +181,772 @@ message PrintResponse {
   int64 result = 1;
 }
 
+message DescribeContentsRequest {
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteToParcelResponse {
+}
+
+message NewPageRangeRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message NewPageRangeResponse {
+  int64 result = 1;
+}
+
+message PageRangeDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message PageRangeEqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetEndRequest {
+  int64 handle = 1;
+}
+
+message GetEndResponse {
+  int32 result = 1;
+}
+
+message GetStartRequest {
+  int64 handle = 1;
+}
+
+message GetStartResponse {
+  int32 result = 1;
+}
+
+message PageRangeHashCodeRequest {
+  int64 handle = 1;
+}
+
+message ToStringRequest {
+  int64 handle = 1;
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message PageRangeWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message GetLocalIdRequest {
+}
+
+message GetLocalIdResponse {
+  string result = 1;
+}
+
+message ErIdToStringRequest {
+}
+
+message GetAdvancedIntOptionRequest {
+  string arg0 = 1;
+}
+
+message GetAdvancedIntOptionResponse {
+  int32 result = 1;
+}
+
+message GetAdvancedStringOptionRequest {
+  string arg0 = 1;
+}
+
+message GetAdvancedStringOptionResponse {
+  string result = 1;
+}
+
+message GetAttributesRequest {
+}
+
+message GetAttributesResponse {
+  int64 result = 1;
+}
+
+message GetCopiesRequest {
+}
+
+message GetCopiesResponse {
+  int32 result = 1;
+}
+
+message GetCreationTimeRequest {
+}
+
+message GetCreationTimeResponse {
+  int64 result = 1;
+}
+
+message GetLabelRequest {
+}
+
+message GetLabelResponse {
+  string result = 1;
+}
+
+message GetPagesRequest {
+}
+
+message GetPagesResponse {
+  int64 result = 1;
+}
+
+message GetPrinterIdRequest {
+}
+
+message GetPrinterIdResponse {
+  int64 result = 1;
+}
+
+message GetStateRequest {
+}
+
+message GetStateResponse {
+  int32 result = 1;
+}
+
+message HasAdvancedOptionRequest {
+  string arg0 = 1;
+}
+
+message HasAdvancedOptionResponse {
+  bool result = 1;
+}
+
+message JobInfoToStringRequest {
+}
+
+message BuildRequest {
+}
+
+message BuildResponse {
+  int64 result = 1;
+}
+
+message PutAdvancedOption2Request {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message PutAdvancedOption2Response {
+}
+
+message PutAdvancedOption2_1Request {
+  string arg0 = 1;
+  string arg1 = 2;
+}
+
+message PutAdvancedOption2_1Response {
+}
+
+message SetAttributesRequest {
+  int64 arg0 = 1;
+}
+
+message SetAttributesResponse {
+}
+
+message SetCopiesRequest {
+  int32 arg0 = 1;
+}
+
+message SetCopiesResponse {
+}
+
+message SetPagesRequest {
+  int64 arg0 = 1;
+}
+
+message SetPagesResponse {
+}
+
+message GetColorModeRequest {
+}
+
+message GetColorModeResponse {
+  int32 result = 1;
+}
+
+message GetDuplexModeRequest {
+}
+
+message GetDuplexModeResponse {
+  int32 result = 1;
+}
+
+message GetMediaSizeRequest {
+}
+
+message GetMediaSizeResponse {
+  int64 result = 1;
+}
+
+message GetMinMarginsRequest {
+}
+
+message GetMinMarginsResponse {
+  int64 result = 1;
+}
+
+message GetResolutionRequest {
+}
+
+message GetResolutionResponse {
+  int64 result = 1;
+}
+
+message AttributesToStringRequest {
+}
+
+message SetColorModeRequest {
+  int32 arg0 = 1;
+}
+
+message SetColorModeResponse {
+  int64 result = 1;
+}
+
+message SetDuplexModeRequest {
+  int32 arg0 = 1;
+}
+
+message SetDuplexModeResponse {
+  int64 result = 1;
+}
+
+message SetMediaSizeRequest {
+  int64 arg0 = 1;
+}
+
+message SetMediaSizeResponse {
+  int64 result = 1;
+}
+
+message SetMinMarginsRequest {
+  int64 arg0 = 1;
+}
+
+message SetMinMarginsResponse {
+  int64 result = 1;
+}
+
+message SetResolutionRequest {
+  int64 arg0 = 1;
+}
+
+message SetResolutionResponse {
+  int64 result = 1;
+}
+
+message GetBottomMilsRequest {
+}
+
+message GetBottomMilsResponse {
+  int32 result = 1;
+}
+
+message GetLeftMilsRequest {
+}
+
+message GetLeftMilsResponse {
+  int32 result = 1;
+}
+
+message GetRightMilsRequest {
+}
+
+message GetRightMilsResponse {
+  int32 result = 1;
+}
+
+message GetTopMilsRequest {
+}
+
+message GetTopMilsResponse {
+  int32 result = 1;
+}
+
+message AttributesMarginsToStringRequest {
+}
+
+message AsLandscapeRequest {
+}
+
+message AsLandscapeResponse {
+  int64 result = 1;
+}
+
+message AsPortraitRequest {
+}
+
+message AsPortraitResponse {
+  int64 result = 1;
+}
+
+message GetHeightMilsRequest {
+}
+
+message GetHeightMilsResponse {
+  int32 result = 1;
+}
+
+message AttributesMediaSizeGetIdResponse {
+  string result = 1;
+}
+
+message AttributesMediaSizeGetLabelRequest {
+  int64 arg0 = 1;
+}
+
+message GetWidthMilsRequest {
+}
+
+message GetWidthMilsResponse {
+  int32 result = 1;
+}
+
+message IsPortraitRequest {
+}
+
+message IsPortraitResponse {
+  bool result = 1;
+}
+
+message AttributesMediaSizeToStringRequest {
+}
+
+message GetHorizontalDpiRequest {
+}
+
+message GetHorizontalDpiResponse {
+  int32 result = 1;
+}
+
+message AttributesResolutionGetIdResponse {
+  string result = 1;
+}
+
+message GetVerticalDpiRequest {
+}
+
+message GetVerticalDpiResponse {
+  int32 result = 1;
+}
+
+message AttributesResolutionToStringRequest {
+}
+
+message GetCapabilitiesRequest {
+}
+
+message GetCapabilitiesResponse {
+  int64 result = 1;
+}
+
+message GetDescriptionRequest {
+}
+
+message GetDescriptionResponse {
+  string result = 1;
+}
+
+message GetNameRequest {
+}
+
+message GetNameResponse {
+  string result = 1;
+}
+
+message GetStatusRequest {
+}
+
+message GetStatusResponse {
+  int32 result = 1;
+}
+
+message ErInfoToStringRequest {
+}
+
+message SetCapabilitiesRequest {
+  int64 arg0 = 1;
+}
+
+message SetCapabilitiesResponse {
+  int64 result = 1;
+}
+
+message SetDescriptionRequest {
+  string arg0 = 1;
+}
+
+message SetDescriptionResponse {
+  int64 result = 1;
+}
+
+message SetHasCustomPrinterIconRequest {
+  bool arg0 = 1;
+}
+
+message SetHasCustomPrinterIconResponse {
+  int64 result = 1;
+}
+
+message SetIconResourceIdRequest {
+  int32 arg0 = 1;
+}
+
+message SetIconResourceIdResponse {
+  int64 result = 1;
+}
+
+message SetInfoIntentRequest {
+  int64 arg0 = 1;
+}
+
+message SetInfoIntentResponse {
+  int64 result = 1;
+}
+
+message SetNameRequest {
+  string arg0 = 1;
+}
+
+message SetNameResponse {
+  int64 result = 1;
+}
+
+message SetStatusRequest {
+  int32 arg0 = 1;
+}
+
+message SetStatusResponse {
+  int64 result = 1;
+}
+
+message GetContentTypeRequest {
+}
+
+message GetContentTypeResponse {
+  int32 result = 1;
+}
+
+message GetDataSizeRequest {
+}
+
+message GetDataSizeResponse {
+  int64 result = 1;
+}
+
+message GetPageCountRequest {
+}
+
+message GetPageCountResponse {
+  int32 result = 1;
+}
+
+message DocumentInfoToStringRequest {
+}
+
+message SetContentTypeRequest {
+  int32 arg0 = 1;
+}
+
+message SetContentTypeResponse {
+  int64 result = 1;
+}
+
+message SetPageCountRequest {
+  int32 arg0 = 1;
+}
+
+message SetPageCountResponse {
+  int64 result = 1;
+}
+
+message GetColorModesRequest {
+}
+
+message GetColorModesResponse {
+  int32 result = 1;
+}
+
+message GetDefaultsRequest {
+}
+
+message GetDefaultsResponse {
+  int64 result = 1;
+}
+
+message GetDuplexModesRequest {
+}
+
+message GetDuplexModesResponse {
+  int32 result = 1;
+}
+
+message ErCapabilitiesInfoToStringRequest {
+}
+
+message AddMediaSizeRequest {
+  int64 arg0 = 1;
+  bool arg1 = 2;
+}
+
+message AddMediaSizeResponse {
+  int64 result = 1;
+}
+
+message AddResolutionRequest {
+  int64 arg0 = 1;
+  bool arg1 = 2;
+}
+
+message AddResolutionResponse {
+  int64 result = 1;
+}
+
+message SetColorModesRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message SetColorModesResponse {
+  int64 result = 1;
+}
+
+message SetDuplexModesRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message SetDuplexModesResponse {
+  int64 result = 1;
+}
+
+service DocumentAdapterService {
+  rpc OnFinish (OnFinishRequest) returns (OnFinishResponse);
+  rpc OnLayout (OnLayoutRequest) returns (OnLayoutResponse);
+  rpc OnStart (OnStartRequest) returns (OnStartResponse);
+  rpc OnWrite (OnWriteRequest) returns (OnWriteResponse);
+}
+
+service DocumentAdapterLayoutResultCallbackService {
+  rpc OnLayoutCancelled (OnLayoutCancelledRequest) returns (OnLayoutCancelledResponse);
+  rpc OnLayoutFailed (OnLayoutFailedRequest) returns (OnLayoutFailedResponse);
+  rpc OnLayoutFinished (OnLayoutFinishedRequest) returns (OnLayoutFinishedResponse);
+}
+
+service DocumentAdapterWriteResultCallbackService {
+  rpc OnWriteCancelled (OnWriteCancelledRequest) returns (OnWriteCancelledResponse);
+  rpc OnWriteFailed (OnWriteFailedRequest) returns (OnWriteFailedResponse);
+  rpc OnWriteFinished (OnWriteFinishedRequest) returns (OnWriteFinishedResponse);
+}
+
+service JobService {
+  rpc Cancel (CancelRequest) returns (CancelResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetId (GetIdRequest) returns (GetIdResponse);
+  rpc GetInfo (GetInfoRequest) returns (GetInfoResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc IsBlocked (IsBlockedRequest) returns (IsBlockedResponse);
+  rpc IsCancelled (IsCancelledRequest) returns (IsCancelledResponse);
+  rpc IsCompleted (IsCompletedRequest) returns (IsCompletedResponse);
+  rpc IsFailed (IsFailedRequest) returns (IsFailedResponse);
+  rpc IsQueued (IsQueuedRequest) returns (IsQueuedResponse);
+  rpc IsStarted (IsStartedRequest) returns (IsStartedResponse);
+  rpc Restart (RestartRequest) returns (RestartResponse);
+}
+
 service ManagerService {
   rpc IsPrintServiceEnabled (IsPrintServiceEnabledRequest) returns (IsPrintServiceEnabledResponse);
   rpc Print (PrintRequest) returns (PrintResponse);
+}
+
+service JobIdService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service PageRangeService {
+  rpc NewPageRange (NewPageRangeRequest) returns (NewPageRangeResponse);
+  rpc DescribeContents (PageRangeDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (PageRangeEqualsRequest) returns (EqualsResponse);
+  rpc GetEnd (GetEndRequest) returns (GetEndResponse);
+  rpc GetStart (GetStartRequest) returns (GetStartResponse);
+  rpc HashCode (PageRangeHashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (PageRangeWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ErIdService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetLocalId (GetLocalIdRequest) returns (GetLocalIdResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ErIdToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service JobInfoService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetAdvancedIntOption (GetAdvancedIntOptionRequest) returns (GetAdvancedIntOptionResponse);
+  rpc GetAdvancedStringOption (GetAdvancedStringOptionRequest) returns (GetAdvancedStringOptionResponse);
+  rpc GetAttributes (GetAttributesRequest) returns (GetAttributesResponse);
+  rpc GetCopies (GetCopiesRequest) returns (GetCopiesResponse);
+  rpc GetCreationTime (GetCreationTimeRequest) returns (GetCreationTimeResponse);
+  rpc GetId (GetIdRequest) returns (GetIdResponse);
+  rpc GetLabel (GetLabelRequest) returns (GetLabelResponse);
+  rpc GetPages (GetPagesRequest) returns (GetPagesResponse);
+  rpc GetPrinterId (GetPrinterIdRequest) returns (GetPrinterIdResponse);
+  rpc GetState (GetStateRequest) returns (GetStateResponse);
+  rpc HasAdvancedOption (HasAdvancedOptionRequest) returns (HasAdvancedOptionResponse);
+  rpc ToString (JobInfoToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service JobInfoBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc PutAdvancedOption2 (PutAdvancedOption2Request) returns (PutAdvancedOption2Response);
+  rpc PutAdvancedOption2_1 (PutAdvancedOption2_1Request) returns (PutAdvancedOption2_1Response);
+  rpc SetAttributes (SetAttributesRequest) returns (SetAttributesResponse);
+  rpc SetCopies (SetCopiesRequest) returns (SetCopiesResponse);
+  rpc SetPages (SetPagesRequest) returns (SetPagesResponse);
+}
+
+service AttributesService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetColorMode (GetColorModeRequest) returns (GetColorModeResponse);
+  rpc GetDuplexMode (GetDuplexModeRequest) returns (GetDuplexModeResponse);
+  rpc GetMediaSize (GetMediaSizeRequest) returns (GetMediaSizeResponse);
+  rpc GetMinMargins (GetMinMarginsRequest) returns (GetMinMarginsResponse);
+  rpc GetResolution (GetResolutionRequest) returns (GetResolutionResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (AttributesToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service AttributesBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetColorMode (SetColorModeRequest) returns (SetColorModeResponse);
+  rpc SetDuplexMode (SetDuplexModeRequest) returns (SetDuplexModeResponse);
+  rpc SetMediaSize (SetMediaSizeRequest) returns (SetMediaSizeResponse);
+  rpc SetMinMargins (SetMinMarginsRequest) returns (SetMinMarginsResponse);
+  rpc SetResolution (SetResolutionRequest) returns (SetResolutionResponse);
+}
+
+service AttributesMarginsService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetBottomMils (GetBottomMilsRequest) returns (GetBottomMilsResponse);
+  rpc GetLeftMils (GetLeftMilsRequest) returns (GetLeftMilsResponse);
+  rpc GetRightMils (GetRightMilsRequest) returns (GetRightMilsResponse);
+  rpc GetTopMils (GetTopMilsRequest) returns (GetTopMilsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (AttributesMarginsToStringRequest) returns (ToStringResponse);
+}
+
+service AttributesMediaSizeService {
+  rpc AsLandscape (AsLandscapeRequest) returns (AsLandscapeResponse);
+  rpc AsPortrait (AsPortraitRequest) returns (AsPortraitResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetHeightMils (GetHeightMilsRequest) returns (GetHeightMilsResponse);
+  rpc GetId (GetIdRequest) returns (AttributesMediaSizeGetIdResponse);
+  rpc GetLabel (AttributesMediaSizeGetLabelRequest) returns (GetLabelResponse);
+  rpc GetWidthMils (GetWidthMilsRequest) returns (GetWidthMilsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc IsPortrait (IsPortraitRequest) returns (IsPortraitResponse);
+  rpc ToString (AttributesMediaSizeToStringRequest) returns (ToStringResponse);
+}
+
+service AttributesResolutionService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetHorizontalDpi (GetHorizontalDpiRequest) returns (GetHorizontalDpiResponse);
+  rpc GetId (GetIdRequest) returns (AttributesResolutionGetIdResponse);
+  rpc GetLabel (GetLabelRequest) returns (GetLabelResponse);
+  rpc GetVerticalDpi (GetVerticalDpiRequest) returns (GetVerticalDpiResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (AttributesResolutionToStringRequest) returns (ToStringResponse);
+}
+
+service ErInfoService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetCapabilities (GetCapabilitiesRequest) returns (GetCapabilitiesResponse);
+  rpc GetDescription (GetDescriptionRequest) returns (GetDescriptionResponse);
+  rpc GetId (GetIdRequest) returns (GetIdResponse);
+  rpc GetName (GetNameRequest) returns (GetNameResponse);
+  rpc GetStatus (GetStatusRequest) returns (GetStatusResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ErInfoToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ErInfoBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetCapabilities (SetCapabilitiesRequest) returns (SetCapabilitiesResponse);
+  rpc SetDescription (SetDescriptionRequest) returns (SetDescriptionResponse);
+  rpc SetHasCustomPrinterIcon (SetHasCustomPrinterIconRequest) returns (SetHasCustomPrinterIconResponse);
+  rpc SetIconResourceId (SetIconResourceIdRequest) returns (SetIconResourceIdResponse);
+  rpc SetInfoIntent (SetInfoIntentRequest) returns (SetInfoIntentResponse);
+  rpc SetName (SetNameRequest) returns (SetNameResponse);
+  rpc SetStatus (SetStatusRequest) returns (SetStatusResponse);
+}
+
+service DocumentInfoService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetContentType (GetContentTypeRequest) returns (GetContentTypeResponse);
+  rpc GetDataSize (GetDataSizeRequest) returns (GetDataSizeResponse);
+  rpc GetName (GetNameRequest) returns (GetNameResponse);
+  rpc GetPageCount (GetPageCountRequest) returns (GetPageCountResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (DocumentInfoToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service DocumentInfoBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetContentType (SetContentTypeRequest) returns (SetContentTypeResponse);
+  rpc SetPageCount (SetPageCountRequest) returns (SetPageCountResponse);
+}
+
+service ErCapabilitiesInfoService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetColorModes (GetColorModesRequest) returns (GetColorModesResponse);
+  rpc GetDefaults (GetDefaultsRequest) returns (GetDefaultsResponse);
+  rpc GetDuplexModes (GetDuplexModesRequest) returns (GetDuplexModesResponse);
+  rpc GetMinMargins (GetMinMarginsRequest) returns (GetMinMarginsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ErCapabilitiesInfoToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ErCapabilitiesInfoBuilderService {
+  rpc AddMediaSize (AddMediaSizeRequest) returns (AddMediaSizeResponse);
+  rpc AddResolution (AddResolutionRequest) returns (AddResolutionResponse);
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetColorModes (SetColorModesRequest) returns (SetColorModesResponse);
+  rpc SetDuplexModes (SetDuplexModesRequest) returns (SetDuplexModesResponse);
+  rpc SetMinMargins (SetMinMarginsRequest) returns (SetMinMarginsResponse);
 }

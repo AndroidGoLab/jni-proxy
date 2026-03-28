@@ -5,3 +5,262 @@ syntax = "proto3";
 package carrier;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/carrier";
+
+message NewMessagePduRequest {
+  int64 arg0 = 1;
+}
+
+message NewMessagePduResponse {
+  int64 result = 1;
+}
+
+message DescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message WriteToParcelResponse {
+}
+
+message OnBindRequest {
+  int64 arg0 = 1;
+}
+
+message OnBindResponse {
+  int64 result = 1;
+}
+
+message GetSendConfPduRequest {
+}
+
+message GetSendConfPduResponse {
+  int64 result = 1;
+}
+
+message GetSendStatusRequest {
+}
+
+message GetSendStatusResponse {
+  int32 result = 1;
+}
+
+message GetMessageRefsRequest {
+}
+
+message GetMessageRefsResponse {
+  int64 result = 1;
+}
+
+message GetMessageRefRequest {
+}
+
+message GetMessageRefResponse {
+  int32 result = 1;
+}
+
+message NewMessagingClientServiceRequest {
+}
+
+message NewMessagingClientServiceResponse {
+  int64 result = 1;
+}
+
+message MessagingClientServiceOnBindRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message NewIdentifierRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  string arg2 = 3;
+}
+
+message NewIdentifierResponse {
+  int64 result = 1;
+}
+
+message EqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message GetCarrierIdRequest {
+  int64 handle = 1;
+}
+
+message GetCarrierIdResponse {
+  int32 result = 1;
+}
+
+message GetGid1Request {
+  int64 handle = 1;
+}
+
+message GetGid1Response {
+  string result = 1;
+}
+
+message GetGid2Request {
+  int64 handle = 1;
+}
+
+message GetGid2Response {
+  string result = 1;
+}
+
+message GetImsiRequest {
+  int64 handle = 1;
+}
+
+message GetImsiResponse {
+  string result = 1;
+}
+
+message GetMccRequest {
+  int64 handle = 1;
+}
+
+message GetMccResponse {
+  string result = 1;
+}
+
+message GetMncRequest {
+  int64 handle = 1;
+}
+
+message GetMncResponse {
+  string result = 1;
+}
+
+message GetSpecificCarrierIdRequest {
+  int64 handle = 1;
+}
+
+message GetSpecificCarrierIdResponse {
+  int32 result = 1;
+}
+
+message GetSpnRequest {
+  int64 handle = 1;
+}
+
+message GetSpnResponse {
+  string result = 1;
+}
+
+message HashCodeRequest {
+  int64 handle = 1;
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message ToStringRequest {
+  int64 handle = 1;
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message NotifyCarrierNetworkChange1Request {
+  bool arg0 = 1;
+}
+
+message NotifyCarrierNetworkChange1Response {
+}
+
+message NotifyCarrierNetworkChange2_1Request {
+  int32 arg0 = 1;
+  bool arg1 = 2;
+}
+
+message NotifyCarrierNetworkChange2_1Response {
+}
+
+message OnLoadConfig1Request {
+  int64 arg0 = 1;
+}
+
+message OnLoadConfig1Response {
+  int64 result = 1;
+}
+
+message OnLoadConfig2_1Request {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnLoadConfig2_1Response {
+  int64 result = 1;
+}
+
+service MessagePduService {
+  rpc NewMessagePdu (NewMessagePduRequest) returns (NewMessagePduResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service MessagingServiceService {
+  rpc OnBind (OnBindRequest) returns (OnBindResponse);
+}
+
+service MessagingServiceSendMmsResultService {
+  rpc GetSendConfPdu (GetSendConfPduRequest) returns (GetSendConfPduResponse);
+  rpc GetSendStatus (GetSendStatusRequest) returns (GetSendStatusResponse);
+}
+
+service MessagingServiceSendMultipartSmsResultService {
+  rpc GetMessageRefs (GetMessageRefsRequest) returns (GetMessageRefsResponse);
+  rpc GetSendStatus (GetSendStatusRequest) returns (GetSendStatusResponse);
+}
+
+service MessagingServiceSendSmsResultService {
+  rpc GetMessageRef (GetMessageRefRequest) returns (GetMessageRefResponse);
+  rpc GetSendStatus (GetSendStatusRequest) returns (GetSendStatusResponse);
+}
+
+service MessagingClientServiceService {
+  rpc NewMessagingClientService (NewMessagingClientServiceRequest) returns (NewMessagingClientServiceResponse);
+  rpc OnBind (MessagingClientServiceOnBindRequest) returns (OnBindResponse);
+}
+
+service IdentifierService {
+  rpc NewIdentifier (NewIdentifierRequest) returns (NewIdentifierResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetCarrierId (GetCarrierIdRequest) returns (GetCarrierIdResponse);
+  rpc GetGid1 (GetGid1Request) returns (GetGid1Response);
+  rpc GetGid2 (GetGid2Request) returns (GetGid2Response);
+  rpc GetImsi (GetImsiRequest) returns (GetImsiResponse);
+  rpc GetMcc (GetMccRequest) returns (GetMccResponse);
+  rpc GetMnc (GetMncRequest) returns (GetMncResponse);
+  rpc GetSpecificCarrierId (GetSpecificCarrierIdRequest) returns (GetSpecificCarrierIdResponse);
+  rpc GetSpn (GetSpnRequest) returns (GetSpnResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ServiceService {
+  rpc NotifyCarrierNetworkChange1 (NotifyCarrierNetworkChange1Request) returns (NotifyCarrierNetworkChange1Response);
+  rpc NotifyCarrierNetworkChange2_1 (NotifyCarrierNetworkChange2_1Request) returns (NotifyCarrierNetworkChange2_1Response);
+  rpc OnBind (OnBindRequest) returns (OnBindResponse);
+  rpc OnLoadConfig1 (OnLoadConfig1Request) returns (OnLoadConfig1Response);
+  rpc OnLoadConfig2_1 (OnLoadConfig2_1Request) returns (OnLoadConfig2_1Response);
+}

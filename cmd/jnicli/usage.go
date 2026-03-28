@@ -12,6 +12,1627 @@ var usageCmd = &cobra.Command{
 	Short: "usage service operations",
 }
 
+var usageStatsCmd = &cobra.Command{
+	Use:   "stats",
+	Short: "StatsService operations",
+}
+
+var usageStatsNewStatsCmd = &cobra.Command{
+	Use:   "new-stats",
+	Short: "NewStats RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStatsServiceClient(grpcConn)
+		req := &pb.NewStatsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewStats(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageStatsAddCmd = &cobra.Command{
+	Use:   "add",
+	Short: "Add RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStatsServiceClient(grpcConn)
+		req := &pb.AddRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Add(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageStatsDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStatsServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageStatsGetFirstTimeStampCmd = &cobra.Command{
+	Use:   "get-first-time-stamp",
+	Short: "GetFirstTimeStamp RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStatsServiceClient(grpcConn)
+		req := &pb.GetFirstTimeStampRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetFirstTimeStamp(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageStatsGetLastTimeForegroundServiceUsedCmd = &cobra.Command{
+	Use:   "get-last-time-foreground-service-used",
+	Short: "GetLastTimeForegroundServiceUsed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStatsServiceClient(grpcConn)
+		req := &pb.GetLastTimeForegroundServiceUsedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetLastTimeForegroundServiceUsed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageStatsGetLastTimeStampCmd = &cobra.Command{
+	Use:   "get-last-time-stamp",
+	Short: "GetLastTimeStamp RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStatsServiceClient(grpcConn)
+		req := &pb.GetLastTimeStampRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetLastTimeStamp(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageStatsGetLastTimeUsedCmd = &cobra.Command{
+	Use:   "get-last-time-used",
+	Short: "GetLastTimeUsed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStatsServiceClient(grpcConn)
+		req := &pb.GetLastTimeUsedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetLastTimeUsed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageStatsGetLastTimeVisibleCmd = &cobra.Command{
+	Use:   "get-last-time-visible",
+	Short: "GetLastTimeVisible RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStatsServiceClient(grpcConn)
+		req := &pb.GetLastTimeVisibleRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetLastTimeVisible(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageStatsGetPackageNameCmd = &cobra.Command{
+	Use:   "get-package-name",
+	Short: "GetPackageName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStatsServiceClient(grpcConn)
+		req := &pb.GetPackageNameRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetPackageName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageStatsGetTotalTimeForegroundServiceUsedCmd = &cobra.Command{
+	Use:   "get-total-time-foreground-service-used",
+	Short: "GetTotalTimeForegroundServiceUsed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStatsServiceClient(grpcConn)
+		req := &pb.GetTotalTimeForegroundServiceUsedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetTotalTimeForegroundServiceUsed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageStatsGetTotalTimeInForegroundCmd = &cobra.Command{
+	Use:   "get-total-time-in-foreground",
+	Short: "GetTotalTimeInForeground RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStatsServiceClient(grpcConn)
+		req := &pb.GetTotalTimeInForegroundRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetTotalTimeInForeground(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageStatsGetTotalTimeVisibleCmd = &cobra.Command{
+	Use:   "get-total-time-visible",
+	Short: "GetTotalTimeVisible RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStatsServiceClient(grpcConn)
+		req := &pb.GetTotalTimeVisibleRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetTotalTimeVisible(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageStatsWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStatsServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageEventsCmd = &cobra.Command{
+	Use:   "events",
+	Short: "EventsService operations",
+}
+
+var usageEventsDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEventsServiceClient(grpcConn)
+		req := &pb.EventsDescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageEventsGetNextEventCmd = &cobra.Command{
+	Use:   "get-next-event",
+	Short: "GetNextEvent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEventsServiceClient(grpcConn)
+		req := &pb.GetNextEventRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetNextEvent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageEventsHasNextEventCmd = &cobra.Command{
+	Use:   "has-next-event",
+	Short: "HasNextEvent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEventsServiceClient(grpcConn)
+		req := &pb.HasNextEventRequest{}
+		resp, err := client.HasNextEvent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageEventsWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEventsServiceClient(grpcConn)
+		req := &pb.EventsWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageEventsEventCmd = &cobra.Command{
+	Use:   "events-event",
+	Short: "EventsEventService operations",
+}
+
+var usageEventsEventGetAppStandbyBucketCmd = &cobra.Command{
+	Use:   "get-app-standby-bucket",
+	Short: "GetAppStandbyBucket RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEventsEventServiceClient(grpcConn)
+		req := &pb.GetAppStandbyBucketRequest{}
+		resp, err := client.GetAppStandbyBucket(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageEventsEventGetClassNameCmd = &cobra.Command{
+	Use:   "get-class-name",
+	Short: "GetClassName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEventsEventServiceClient(grpcConn)
+		req := &pb.GetClassNameRequest{}
+		resp, err := client.GetClassName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageEventsEventGetConfigurationCmd = &cobra.Command{
+	Use:   "get-configuration",
+	Short: "GetConfiguration RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEventsEventServiceClient(grpcConn)
+		req := &pb.GetConfigurationRequest{}
+		resp, err := client.GetConfiguration(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageEventsEventGetEventTypeCmd = &cobra.Command{
+	Use:   "get-event-type",
+	Short: "GetEventType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEventsEventServiceClient(grpcConn)
+		req := &pb.GetEventTypeRequest{}
+		resp, err := client.GetEventType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageEventsEventGetExtrasCmd = &cobra.Command{
+	Use:   "get-extras",
+	Short: "GetExtras RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEventsEventServiceClient(grpcConn)
+		req := &pb.GetExtrasRequest{}
+		resp, err := client.GetExtras(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageEventsEventGetPackageNameCmd = &cobra.Command{
+	Use:   "get-package-name",
+	Short: "GetPackageName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEventsEventServiceClient(grpcConn)
+		req := &pb.EventsEventGetPackageNameRequest{}
+		resp, err := client.GetPackageName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageEventsEventGetShortcutIdCmd = &cobra.Command{
+	Use:   "get-shortcut-id",
+	Short: "GetShortcutId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEventsEventServiceClient(grpcConn)
+		req := &pb.GetShortcutIdRequest{}
+		resp, err := client.GetShortcutId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageEventsEventGetTimeStampCmd = &cobra.Command{
+	Use:   "get-time-stamp",
+	Short: "GetTimeStamp RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEventsEventServiceClient(grpcConn)
+		req := &pb.GetTimeStampRequest{}
+		resp, err := client.GetTimeStamp(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageExternalStorageStatsCmd = &cobra.Command{
+	Use:   "external-storage-stats",
+	Short: "ExternalStorageStatsService operations",
+}
+
+var usageExternalStorageStatsDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExternalStorageStatsServiceClient(grpcConn)
+		req := &pb.ExternalStorageStatsDescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageExternalStorageStatsGetAppBytesCmd = &cobra.Command{
+	Use:   "get-app-bytes",
+	Short: "GetAppBytes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExternalStorageStatsServiceClient(grpcConn)
+		req := &pb.GetAppBytesRequest{}
+		resp, err := client.GetAppBytes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageExternalStorageStatsGetAudioBytesCmd = &cobra.Command{
+	Use:   "get-audio-bytes",
+	Short: "GetAudioBytes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExternalStorageStatsServiceClient(grpcConn)
+		req := &pb.GetAudioBytesRequest{}
+		resp, err := client.GetAudioBytes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageExternalStorageStatsGetImageBytesCmd = &cobra.Command{
+	Use:   "get-image-bytes",
+	Short: "GetImageBytes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExternalStorageStatsServiceClient(grpcConn)
+		req := &pb.GetImageBytesRequest{}
+		resp, err := client.GetImageBytes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageExternalStorageStatsGetTotalBytesCmd = &cobra.Command{
+	Use:   "get-total-bytes",
+	Short: "GetTotalBytes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExternalStorageStatsServiceClient(grpcConn)
+		req := &pb.GetTotalBytesRequest{}
+		resp, err := client.GetTotalBytes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageExternalStorageStatsGetVideoBytesCmd = &cobra.Command{
+	Use:   "get-video-bytes",
+	Short: "GetVideoBytes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExternalStorageStatsServiceClient(grpcConn)
+		req := &pb.GetVideoBytesRequest{}
+		resp, err := client.GetVideoBytes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageExternalStorageStatsWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExternalStorageStatsServiceClient(grpcConn)
+		req := &pb.ExternalStorageStatsWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageStorageStatsManagerCmd = &cobra.Command{
+	Use:   "storage-stats-manager",
+	Short: "StorageStatsManagerService operations",
+}
+
+var usageStorageStatsManagerGetFreeBytesCmd = &cobra.Command{
+	Use:   "get-free-bytes",
+	Short: "GetFreeBytes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStorageStatsManagerServiceClient(grpcConn)
+		req := &pb.GetFreeBytesRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetFreeBytes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageStorageStatsManagerGetTotalBytesCmd = &cobra.Command{
+	Use:   "get-total-bytes",
+	Short: "GetTotalBytes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStorageStatsManagerServiceClient(grpcConn)
+		req := &pb.StorageStatsManagerGetTotalBytesRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetTotalBytes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageStorageStatsManagerQueryExternalStatsForUserCmd = &cobra.Command{
+	Use:   "query-external-stats-for-user",
+	Short: "QueryExternalStatsForUser RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStorageStatsManagerServiceClient(grpcConn)
+		req := &pb.QueryExternalStatsForUserRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.QueryExternalStatsForUser(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageStorageStatsManagerQueryStatsForPackageCmd = &cobra.Command{
+	Use:   "query-stats-for-package",
+	Short: "QueryStatsForPackage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStorageStatsManagerServiceClient(grpcConn)
+		req := &pb.QueryStatsForPackageRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.QueryStatsForPackage(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageStorageStatsManagerQueryStatsForUidCmd = &cobra.Command{
+	Use:   "query-stats-for-uid",
+	Short: "QueryStatsForUid RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStorageStatsManagerServiceClient(grpcConn)
+		req := &pb.QueryStatsForUidRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.QueryStatsForUid(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageStorageStatsManagerQueryStatsForUserCmd = &cobra.Command{
+	Use:   "query-stats-for-user",
+	Short: "QueryStatsForUser RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStorageStatsManagerServiceClient(grpcConn)
+		req := &pb.QueryStatsForUserRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.QueryStatsForUser(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageConfigurationStatsCmd = &cobra.Command{
+	Use:   "configuration-stats",
+	Short: "ConfigurationStatsService operations",
+}
+
+var usageConfigurationStatsNewConfigurationStatsCmd = &cobra.Command{
+	Use:   "new-configuration-stats",
+	Short: "NewConfigurationStats RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConfigurationStatsServiceClient(grpcConn)
+		req := &pb.NewConfigurationStatsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewConfigurationStats(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageConfigurationStatsDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConfigurationStatsServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageConfigurationStatsGetActivationCountCmd = &cobra.Command{
+	Use:   "get-activation-count",
+	Short: "GetActivationCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConfigurationStatsServiceClient(grpcConn)
+		req := &pb.GetActivationCountRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetActivationCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageConfigurationStatsGetConfigurationCmd = &cobra.Command{
+	Use:   "get-configuration",
+	Short: "GetConfiguration RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConfigurationStatsServiceClient(grpcConn)
+		req := &pb.ConfigurationStatsGetConfigurationRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetConfiguration(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageConfigurationStatsGetFirstTimeStampCmd = &cobra.Command{
+	Use:   "get-first-time-stamp",
+	Short: "GetFirstTimeStamp RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConfigurationStatsServiceClient(grpcConn)
+		req := &pb.GetFirstTimeStampRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetFirstTimeStamp(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageConfigurationStatsGetLastTimeActiveCmd = &cobra.Command{
+	Use:   "get-last-time-active",
+	Short: "GetLastTimeActive RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConfigurationStatsServiceClient(grpcConn)
+		req := &pb.GetLastTimeActiveRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetLastTimeActive(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageConfigurationStatsGetLastTimeStampCmd = &cobra.Command{
+	Use:   "get-last-time-stamp",
+	Short: "GetLastTimeStamp RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConfigurationStatsServiceClient(grpcConn)
+		req := &pb.GetLastTimeStampRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetLastTimeStamp(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageConfigurationStatsGetTotalTimeActiveCmd = &cobra.Command{
+	Use:   "get-total-time-active",
+	Short: "GetTotalTimeActive RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConfigurationStatsServiceClient(grpcConn)
+		req := &pb.GetTotalTimeActiveRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetTotalTimeActive(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageConfigurationStatsWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConfigurationStatsServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageNetworkStatsCmd = &cobra.Command{
+	Use:   "network-stats",
+	Short: "NetworkStatsService operations",
+}
+
+var usageNetworkStatsCloseCmd = &cobra.Command{
+	Use:   "close",
+	Short: "Close RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkStatsServiceClient(grpcConn)
+		req := &pb.CloseRequest{}
+		resp, err := client.Close(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageNetworkStatsGetNextBucketCmd = &cobra.Command{
+	Use:   "get-next-bucket",
+	Short: "GetNextBucket RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkStatsServiceClient(grpcConn)
+		req := &pb.GetNextBucketRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetNextBucket(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageNetworkStatsHasNextBucketCmd = &cobra.Command{
+	Use:   "has-next-bucket",
+	Short: "HasNextBucket RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkStatsServiceClient(grpcConn)
+		req := &pb.HasNextBucketRequest{}
+		resp, err := client.HasNextBucket(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageNetworkStatsBucketCmd = &cobra.Command{
+	Use:   "network-stats-bucket",
+	Short: "NetworkStatsBucketService operations",
+}
+
+var usageNetworkStatsBucketGetDefaultNetworkStatusCmd = &cobra.Command{
+	Use:   "get-default-network-status",
+	Short: "GetDefaultNetworkStatus RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkStatsBucketServiceClient(grpcConn)
+		req := &pb.GetDefaultNetworkStatusRequest{}
+		resp, err := client.GetDefaultNetworkStatus(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageNetworkStatsBucketGetEndTimeStampCmd = &cobra.Command{
+	Use:   "get-end-time-stamp",
+	Short: "GetEndTimeStamp RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkStatsBucketServiceClient(grpcConn)
+		req := &pb.GetEndTimeStampRequest{}
+		resp, err := client.GetEndTimeStamp(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageNetworkStatsBucketGetMeteredCmd = &cobra.Command{
+	Use:   "get-metered",
+	Short: "GetMetered RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkStatsBucketServiceClient(grpcConn)
+		req := &pb.GetMeteredRequest{}
+		resp, err := client.GetMetered(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageNetworkStatsBucketGetRoamingCmd = &cobra.Command{
+	Use:   "get-roaming",
+	Short: "GetRoaming RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkStatsBucketServiceClient(grpcConn)
+		req := &pb.GetRoamingRequest{}
+		resp, err := client.GetRoaming(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageNetworkStatsBucketGetRxBytesCmd = &cobra.Command{
+	Use:   "get-rx-bytes",
+	Short: "GetRxBytes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkStatsBucketServiceClient(grpcConn)
+		req := &pb.GetRxBytesRequest{}
+		resp, err := client.GetRxBytes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageNetworkStatsBucketGetRxPacketsCmd = &cobra.Command{
+	Use:   "get-rx-packets",
+	Short: "GetRxPackets RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkStatsBucketServiceClient(grpcConn)
+		req := &pb.GetRxPacketsRequest{}
+		resp, err := client.GetRxPackets(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageNetworkStatsBucketGetStartTimeStampCmd = &cobra.Command{
+	Use:   "get-start-time-stamp",
+	Short: "GetStartTimeStamp RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkStatsBucketServiceClient(grpcConn)
+		req := &pb.GetStartTimeStampRequest{}
+		resp, err := client.GetStartTimeStamp(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageNetworkStatsBucketGetStateCmd = &cobra.Command{
+	Use:   "get-state",
+	Short: "GetState RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkStatsBucketServiceClient(grpcConn)
+		req := &pb.GetStateRequest{}
+		resp, err := client.GetState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageNetworkStatsBucketGetTagCmd = &cobra.Command{
+	Use:   "get-tag",
+	Short: "GetTag RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkStatsBucketServiceClient(grpcConn)
+		req := &pb.GetTagRequest{}
+		resp, err := client.GetTag(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageNetworkStatsBucketGetTxBytesCmd = &cobra.Command{
+	Use:   "get-tx-bytes",
+	Short: "GetTxBytes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkStatsBucketServiceClient(grpcConn)
+		req := &pb.GetTxBytesRequest{}
+		resp, err := client.GetTxBytes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageNetworkStatsBucketGetTxPacketsCmd = &cobra.Command{
+	Use:   "get-tx-packets",
+	Short: "GetTxPackets RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkStatsBucketServiceClient(grpcConn)
+		req := &pb.GetTxPacketsRequest{}
+		resp, err := client.GetTxPackets(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageNetworkStatsBucketGetUidCmd = &cobra.Command{
+	Use:   "get-uid",
+	Short: "GetUid RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkStatsBucketServiceClient(grpcConn)
+		req := &pb.GetUidRequest{}
+		resp, err := client.GetUid(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageStatsManagerCmd = &cobra.Command{
+	Use:   "stats-manager",
+	Short: "StatsManagerService operations",
+}
+
+var usageStatsManagerGetAppStandbyBucketCmd = &cobra.Command{
+	Use:   "get-app-standby-bucket",
+	Short: "GetAppStandbyBucket RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStatsManagerServiceClient(grpcConn)
+		req := &pb.GetAppStandbyBucketRequest{}
+		resp, err := client.GetAppStandbyBucket(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageStatsManagerIsAppInactiveCmd = &cobra.Command{
+	Use:   "is-app-inactive",
+	Short: "IsAppInactive RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStatsManagerServiceClient(grpcConn)
+		req := &pb.IsAppInactiveRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsAppInactive(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageStatsManagerQueryEvents1Cmd = &cobra.Command{
+	Use:   "query-events1",
+	Short: "QueryEvents1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStatsManagerServiceClient(grpcConn)
+		req := &pb.QueryEvents1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.QueryEvents1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageStatsManagerQueryEvents2_1Cmd = &cobra.Command{
+	Use:   "query-events2_1",
+	Short: "QueryEvents2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStatsManagerServiceClient(grpcConn)
+		req := &pb.QueryEvents2_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.QueryEvents2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageStatsManagerQueryEventsForSelfCmd = &cobra.Command{
+	Use:   "query-events-for-self",
+	Short: "QueryEventsForSelf RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStatsManagerServiceClient(grpcConn)
+		req := &pb.QueryEventsForSelfRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.QueryEventsForSelf(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageEventStatsCmd = &cobra.Command{
+	Use:   "event-stats",
+	Short: "EventStatsService operations",
+}
+
+var usageEventStatsNewEventStatsCmd = &cobra.Command{
+	Use:   "new-event-stats",
+	Short: "NewEventStats RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEventStatsServiceClient(grpcConn)
+		req := &pb.NewEventStatsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewEventStats(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageEventStatsAddCmd = &cobra.Command{
+	Use:   "add",
+	Short: "Add RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEventStatsServiceClient(grpcConn)
+		req := &pb.AddRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Add(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageEventStatsDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEventStatsServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageEventStatsGetCountCmd = &cobra.Command{
+	Use:   "get-count",
+	Short: "GetCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEventStatsServiceClient(grpcConn)
+		req := &pb.GetCountRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageEventStatsGetEventTypeCmd = &cobra.Command{
+	Use:   "get-event-type",
+	Short: "GetEventType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEventStatsServiceClient(grpcConn)
+		req := &pb.EventStatsGetEventTypeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetEventType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageEventStatsGetFirstTimeStampCmd = &cobra.Command{
+	Use:   "get-first-time-stamp",
+	Short: "GetFirstTimeStamp RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEventStatsServiceClient(grpcConn)
+		req := &pb.GetFirstTimeStampRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetFirstTimeStamp(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageEventStatsGetLastEventTimeCmd = &cobra.Command{
+	Use:   "get-last-event-time",
+	Short: "GetLastEventTime RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEventStatsServiceClient(grpcConn)
+		req := &pb.GetLastEventTimeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetLastEventTime(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageEventStatsGetLastTimeStampCmd = &cobra.Command{
+	Use:   "get-last-time-stamp",
+	Short: "GetLastTimeStamp RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEventStatsServiceClient(grpcConn)
+		req := &pb.GetLastTimeStampRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetLastTimeStamp(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageEventStatsGetTotalTimeCmd = &cobra.Command{
+	Use:   "get-total-time",
+	Short: "GetTotalTime RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEventStatsServiceClient(grpcConn)
+		req := &pb.GetTotalTimeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetTotalTime(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageEventStatsWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEventStatsServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageEventsQueryCmd = &cobra.Command{
+	Use:   "events-query",
+	Short: "EventsQueryService operations",
+}
+
+var usageEventsQueryDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEventsQueryServiceClient(grpcConn)
+		req := &pb.EventsQueryDescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageEventsQueryGetBeginTimeMillisCmd = &cobra.Command{
+	Use:   "get-begin-time-millis",
+	Short: "GetBeginTimeMillis RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEventsQueryServiceClient(grpcConn)
+		req := &pb.GetBeginTimeMillisRequest{}
+		resp, err := client.GetBeginTimeMillis(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageEventsQueryGetEndTimeMillisCmd = &cobra.Command{
+	Use:   "get-end-time-millis",
+	Short: "GetEndTimeMillis RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEventsQueryServiceClient(grpcConn)
+		req := &pb.GetEndTimeMillisRequest{}
+		resp, err := client.GetEndTimeMillis(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageEventsQueryGetEventTypesCmd = &cobra.Command{
+	Use:   "get-event-types",
+	Short: "GetEventTypes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEventsQueryServiceClient(grpcConn)
+		req := &pb.GetEventTypesRequest{}
+		resp, err := client.GetEventTypes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageEventsQueryWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEventsQueryServiceClient(grpcConn)
+		req := &pb.EventsQueryWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageEventsQueryBuilderCmd = &cobra.Command{
+	Use:   "events-query-builder",
+	Short: "EventsQueryBuilderService operations",
+}
+
+var usageEventsQueryBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEventsQueryBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageEventsQueryBuilderSetEventTypesCmd = &cobra.Command{
+	Use:   "set-event-types",
+	Short: "SetEventTypes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEventsQueryBuilderServiceClient(grpcConn)
+		req := &pb.SetEventTypesRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetEventTypes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageEventsQueryBuilderSetPackageNamesCmd = &cobra.Command{
+	Use:   "set-package-names",
+	Short: "SetPackageNames RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEventsQueryBuilderServiceClient(grpcConn)
+		req := &pb.SetPackageNamesRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetPackageNames(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var usageNetworkStatsManagerCmd = &cobra.Command{
 	Use:   "network-stats-manager",
 	Short: "NetworkStatsManagerService operations",
@@ -278,192 +1899,26 @@ var usageNetworkStatsManagerUnregisterUsageCallbackCmd = &cobra.Command{
 	},
 }
 
-var usageStatsManagerCmd = &cobra.Command{
-	Use:   "stats-manager",
-	Short: "StatsManagerService operations",
+var usageNetworkStatsManagerUsageCallbackCmd = &cobra.Command{
+	Use:   "network-stats-manager-usage-callback",
+	Short: "NetworkStatsManagerUsageCallbackService operations",
 }
 
-var usageStatsManagerGetAppStandbyBucketCmd = &cobra.Command{
-	Use:   "get-app-standby-bucket",
-	Short: "GetAppStandbyBucket RPC",
+var usageNetworkStatsManagerUsageCallbackOnThresholdReachedCmd = &cobra.Command{
+	Use:   "on-threshold-reached",
+	Short: "OnThresholdReached RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewStatsManagerServiceClient(grpcConn)
-		req := &pb.GetAppStandbyBucketRequest{}
-		resp, err := client.GetAppStandbyBucket(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var usageStatsManagerIsAppInactiveCmd = &cobra.Command{
-	Use:   "is-app-inactive",
-	Short: "IsAppInactive RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStatsManagerServiceClient(grpcConn)
-		req := &pb.IsAppInactiveRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.IsAppInactive(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var usageStatsManagerQueryEvents1Cmd = &cobra.Command{
-	Use:   "query-events1",
-	Short: "QueryEvents1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStatsManagerServiceClient(grpcConn)
-		req := &pb.QueryEvents1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.QueryEvents1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var usageStatsManagerQueryEvents2_1Cmd = &cobra.Command{
-	Use:   "query-events2_1",
-	Short: "QueryEvents2_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStatsManagerServiceClient(grpcConn)
-		req := &pb.QueryEvents2_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.QueryEvents2_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var usageStatsManagerQueryEventsForSelfCmd = &cobra.Command{
-	Use:   "query-events-for-self",
-	Short: "QueryEventsForSelf RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStatsManagerServiceClient(grpcConn)
-		req := &pb.QueryEventsForSelfRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.QueryEventsForSelf(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var usageStorageStatsManagerCmd = &cobra.Command{
-	Use:   "storage-stats-manager",
-	Short: "StorageStatsManagerService operations",
-}
-
-var usageStorageStatsManagerGetFreeBytesCmd = &cobra.Command{
-	Use:   "get-free-bytes",
-	Short: "GetFreeBytes RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStorageStatsManagerServiceClient(grpcConn)
-		req := &pb.GetFreeBytesRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetFreeBytes(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var usageStorageStatsManagerGetTotalBytesCmd = &cobra.Command{
-	Use:   "get-total-bytes",
-	Short: "GetTotalBytes RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStorageStatsManagerServiceClient(grpcConn)
-		req := &pb.GetTotalBytesRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetTotalBytes(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var usageStorageStatsManagerQueryExternalStatsForUserCmd = &cobra.Command{
-	Use:   "query-external-stats-for-user",
-	Short: "QueryExternalStatsForUser RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStorageStatsManagerServiceClient(grpcConn)
-		req := &pb.QueryExternalStatsForUserRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.QueryExternalStatsForUser(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var usageStorageStatsManagerQueryStatsForPackageCmd = &cobra.Command{
-	Use:   "query-stats-for-package",
-	Short: "QueryStatsForPackage RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStorageStatsManagerServiceClient(grpcConn)
-		req := &pb.QueryStatsForPackageRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+		client := pb.NewNetworkStatsManagerUsageCallbackServiceClient(grpcConn)
+		req := &pb.OnThresholdReachedRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
 		}
 		if v, err := cmd.Flags().GetString("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.QueryStatsForPackage(ctx, req)
+		resp, err := client.OnThresholdReached(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -471,43 +1926,125 @@ var usageStorageStatsManagerQueryStatsForPackageCmd = &cobra.Command{
 	},
 }
 
-var usageStorageStatsManagerQueryStatsForUidCmd = &cobra.Command{
-	Use:   "query-stats-for-uid",
-	Short: "QueryStatsForUid RPC",
+var usageStorageStatsCmd = &cobra.Command{
+	Use:   "storage-stats",
+	Short: "StorageStatsService operations",
+}
+
+var usageStorageStatsDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewStorageStatsManagerServiceClient(grpcConn)
-		req := &pb.QueryStatsForUidRequest{}
+		client := pb.NewStorageStatsServiceClient(grpcConn)
+		req := &pb.StorageStatsDescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageStorageStatsGetAppBytesCmd = &cobra.Command{
+	Use:   "get-app-bytes",
+	Short: "GetAppBytes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStorageStatsServiceClient(grpcConn)
+		req := &pb.GetAppBytesRequest{}
+		resp, err := client.GetAppBytes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageStorageStatsGetAppBytesByDataTypeCmd = &cobra.Command{
+	Use:   "get-app-bytes-by-data-type",
+	Short: "GetAppBytesByDataType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStorageStatsServiceClient(grpcConn)
+		req := &pb.GetAppBytesByDataTypeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetAppBytesByDataType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageStorageStatsGetCacheBytesCmd = &cobra.Command{
+	Use:   "get-cache-bytes",
+	Short: "GetCacheBytes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStorageStatsServiceClient(grpcConn)
+		req := &pb.GetCacheBytesRequest{}
+		resp, err := client.GetCacheBytes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageStorageStatsGetDataBytesCmd = &cobra.Command{
+	Use:   "get-data-bytes",
+	Short: "GetDataBytes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStorageStatsServiceClient(grpcConn)
+		req := &pb.GetDataBytesRequest{}
+		resp, err := client.GetDataBytes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageStorageStatsGetExternalCacheBytesCmd = &cobra.Command{
+	Use:   "get-external-cache-bytes",
+	Short: "GetExternalCacheBytes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStorageStatsServiceClient(grpcConn)
+		req := &pb.GetExternalCacheBytesRequest{}
+		resp, err := client.GetExternalCacheBytes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageStorageStatsWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStorageStatsServiceClient(grpcConn)
+		req := &pb.StorageStatsWriteToParcelRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
 		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		resp, err := client.QueryStatsForUid(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var usageStorageStatsManagerQueryStatsForUserCmd = &cobra.Command{
-	Use:   "query-stats-for-user",
-	Short: "QueryStatsForUser RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStorageStatsManagerServiceClient(grpcConn)
-		req := &pb.QueryStatsForUserRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.QueryStatsForUser(ctx, req)
+		resp, err := client.WriteToParcel(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -516,6 +2053,170 @@ var usageStorageStatsManagerQueryStatsForUserCmd = &cobra.Command{
 }
 
 func init() {
+	usageStatsNewStatsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	usageStatsCmd.AddCommand(usageStatsNewStatsCmd)
+	usageStatsAddCmd.Flags().Int64("handle", 0, "handle (int64)")
+	usageStatsAddCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	usageStatsCmd.AddCommand(usageStatsAddCmd)
+	usageStatsDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	usageStatsCmd.AddCommand(usageStatsDescribeContentsCmd)
+	usageStatsGetFirstTimeStampCmd.Flags().Int64("handle", 0, "handle (int64)")
+	usageStatsCmd.AddCommand(usageStatsGetFirstTimeStampCmd)
+	usageStatsGetLastTimeForegroundServiceUsedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	usageStatsCmd.AddCommand(usageStatsGetLastTimeForegroundServiceUsedCmd)
+	usageStatsGetLastTimeStampCmd.Flags().Int64("handle", 0, "handle (int64)")
+	usageStatsCmd.AddCommand(usageStatsGetLastTimeStampCmd)
+	usageStatsGetLastTimeUsedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	usageStatsCmd.AddCommand(usageStatsGetLastTimeUsedCmd)
+	usageStatsGetLastTimeVisibleCmd.Flags().Int64("handle", 0, "handle (int64)")
+	usageStatsCmd.AddCommand(usageStatsGetLastTimeVisibleCmd)
+	usageStatsGetPackageNameCmd.Flags().Int64("handle", 0, "handle (int64)")
+	usageStatsCmd.AddCommand(usageStatsGetPackageNameCmd)
+	usageStatsGetTotalTimeForegroundServiceUsedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	usageStatsCmd.AddCommand(usageStatsGetTotalTimeForegroundServiceUsedCmd)
+	usageStatsGetTotalTimeInForegroundCmd.Flags().Int64("handle", 0, "handle (int64)")
+	usageStatsCmd.AddCommand(usageStatsGetTotalTimeInForegroundCmd)
+	usageStatsGetTotalTimeVisibleCmd.Flags().Int64("handle", 0, "handle (int64)")
+	usageStatsCmd.AddCommand(usageStatsGetTotalTimeVisibleCmd)
+	usageStatsWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	usageStatsWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	usageStatsWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	usageStatsCmd.AddCommand(usageStatsWriteToParcelCmd)
+	usageCmd.AddCommand(usageStatsCmd)
+	usageEventsCmd.AddCommand(usageEventsDescribeContentsCmd)
+	usageEventsGetNextEventCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	usageEventsCmd.AddCommand(usageEventsGetNextEventCmd)
+	usageEventsCmd.AddCommand(usageEventsHasNextEventCmd)
+	usageEventsWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	usageEventsWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	usageEventsCmd.AddCommand(usageEventsWriteToParcelCmd)
+	usageCmd.AddCommand(usageEventsCmd)
+	usageEventsEventCmd.AddCommand(usageEventsEventGetAppStandbyBucketCmd)
+	usageEventsEventCmd.AddCommand(usageEventsEventGetClassNameCmd)
+	usageEventsEventCmd.AddCommand(usageEventsEventGetConfigurationCmd)
+	usageEventsEventCmd.AddCommand(usageEventsEventGetEventTypeCmd)
+	usageEventsEventCmd.AddCommand(usageEventsEventGetExtrasCmd)
+	usageEventsEventCmd.AddCommand(usageEventsEventGetPackageNameCmd)
+	usageEventsEventCmd.AddCommand(usageEventsEventGetShortcutIdCmd)
+	usageEventsEventCmd.AddCommand(usageEventsEventGetTimeStampCmd)
+	usageCmd.AddCommand(usageEventsEventCmd)
+	usageExternalStorageStatsCmd.AddCommand(usageExternalStorageStatsDescribeContentsCmd)
+	usageExternalStorageStatsCmd.AddCommand(usageExternalStorageStatsGetAppBytesCmd)
+	usageExternalStorageStatsCmd.AddCommand(usageExternalStorageStatsGetAudioBytesCmd)
+	usageExternalStorageStatsCmd.AddCommand(usageExternalStorageStatsGetImageBytesCmd)
+	usageExternalStorageStatsCmd.AddCommand(usageExternalStorageStatsGetTotalBytesCmd)
+	usageExternalStorageStatsCmd.AddCommand(usageExternalStorageStatsGetVideoBytesCmd)
+	usageExternalStorageStatsWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	usageExternalStorageStatsWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	usageExternalStorageStatsCmd.AddCommand(usageExternalStorageStatsWriteToParcelCmd)
+	usageCmd.AddCommand(usageExternalStorageStatsCmd)
+	usageStorageStatsManagerGetFreeBytesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	usageStorageStatsManagerCmd.AddCommand(usageStorageStatsManagerGetFreeBytesCmd)
+	usageStorageStatsManagerGetTotalBytesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	usageStorageStatsManagerCmd.AddCommand(usageStorageStatsManagerGetTotalBytesCmd)
+	usageStorageStatsManagerQueryExternalStatsForUserCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	usageStorageStatsManagerQueryExternalStatsForUserCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	usageStorageStatsManagerCmd.AddCommand(usageStorageStatsManagerQueryExternalStatsForUserCmd)
+	usageStorageStatsManagerQueryStatsForPackageCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	usageStorageStatsManagerQueryStatsForPackageCmd.Flags().String("arg1", "", "arg1 (string)")
+	usageStorageStatsManagerQueryStatsForPackageCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	usageStorageStatsManagerCmd.AddCommand(usageStorageStatsManagerQueryStatsForPackageCmd)
+	usageStorageStatsManagerQueryStatsForUidCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	usageStorageStatsManagerQueryStatsForUidCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	usageStorageStatsManagerCmd.AddCommand(usageStorageStatsManagerQueryStatsForUidCmd)
+	usageStorageStatsManagerQueryStatsForUserCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	usageStorageStatsManagerQueryStatsForUserCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	usageStorageStatsManagerCmd.AddCommand(usageStorageStatsManagerQueryStatsForUserCmd)
+	usageCmd.AddCommand(usageStorageStatsManagerCmd)
+	usageConfigurationStatsNewConfigurationStatsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	usageConfigurationStatsCmd.AddCommand(usageConfigurationStatsNewConfigurationStatsCmd)
+	usageConfigurationStatsDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	usageConfigurationStatsCmd.AddCommand(usageConfigurationStatsDescribeContentsCmd)
+	usageConfigurationStatsGetActivationCountCmd.Flags().Int64("handle", 0, "handle (int64)")
+	usageConfigurationStatsCmd.AddCommand(usageConfigurationStatsGetActivationCountCmd)
+	usageConfigurationStatsGetConfigurationCmd.Flags().Int64("handle", 0, "handle (int64)")
+	usageConfigurationStatsCmd.AddCommand(usageConfigurationStatsGetConfigurationCmd)
+	usageConfigurationStatsGetFirstTimeStampCmd.Flags().Int64("handle", 0, "handle (int64)")
+	usageConfigurationStatsCmd.AddCommand(usageConfigurationStatsGetFirstTimeStampCmd)
+	usageConfigurationStatsGetLastTimeActiveCmd.Flags().Int64("handle", 0, "handle (int64)")
+	usageConfigurationStatsCmd.AddCommand(usageConfigurationStatsGetLastTimeActiveCmd)
+	usageConfigurationStatsGetLastTimeStampCmd.Flags().Int64("handle", 0, "handle (int64)")
+	usageConfigurationStatsCmd.AddCommand(usageConfigurationStatsGetLastTimeStampCmd)
+	usageConfigurationStatsGetTotalTimeActiveCmd.Flags().Int64("handle", 0, "handle (int64)")
+	usageConfigurationStatsCmd.AddCommand(usageConfigurationStatsGetTotalTimeActiveCmd)
+	usageConfigurationStatsWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	usageConfigurationStatsWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	usageConfigurationStatsWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	usageConfigurationStatsCmd.AddCommand(usageConfigurationStatsWriteToParcelCmd)
+	usageCmd.AddCommand(usageConfigurationStatsCmd)
+	usageNetworkStatsCmd.AddCommand(usageNetworkStatsCloseCmd)
+	usageNetworkStatsGetNextBucketCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	usageNetworkStatsCmd.AddCommand(usageNetworkStatsGetNextBucketCmd)
+	usageNetworkStatsCmd.AddCommand(usageNetworkStatsHasNextBucketCmd)
+	usageCmd.AddCommand(usageNetworkStatsCmd)
+	usageNetworkStatsBucketCmd.AddCommand(usageNetworkStatsBucketGetDefaultNetworkStatusCmd)
+	usageNetworkStatsBucketCmd.AddCommand(usageNetworkStatsBucketGetEndTimeStampCmd)
+	usageNetworkStatsBucketCmd.AddCommand(usageNetworkStatsBucketGetMeteredCmd)
+	usageNetworkStatsBucketCmd.AddCommand(usageNetworkStatsBucketGetRoamingCmd)
+	usageNetworkStatsBucketCmd.AddCommand(usageNetworkStatsBucketGetRxBytesCmd)
+	usageNetworkStatsBucketCmd.AddCommand(usageNetworkStatsBucketGetRxPacketsCmd)
+	usageNetworkStatsBucketCmd.AddCommand(usageNetworkStatsBucketGetStartTimeStampCmd)
+	usageNetworkStatsBucketCmd.AddCommand(usageNetworkStatsBucketGetStateCmd)
+	usageNetworkStatsBucketCmd.AddCommand(usageNetworkStatsBucketGetTagCmd)
+	usageNetworkStatsBucketCmd.AddCommand(usageNetworkStatsBucketGetTxBytesCmd)
+	usageNetworkStatsBucketCmd.AddCommand(usageNetworkStatsBucketGetTxPacketsCmd)
+	usageNetworkStatsBucketCmd.AddCommand(usageNetworkStatsBucketGetUidCmd)
+	usageCmd.AddCommand(usageNetworkStatsBucketCmd)
+	usageStatsManagerCmd.AddCommand(usageStatsManagerGetAppStandbyBucketCmd)
+	usageStatsManagerIsAppInactiveCmd.Flags().String("arg0", "", "arg0 (string)")
+	usageStatsManagerCmd.AddCommand(usageStatsManagerIsAppInactiveCmd)
+	usageStatsManagerQueryEvents1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	usageStatsManagerCmd.AddCommand(usageStatsManagerQueryEvents1Cmd)
+	usageStatsManagerQueryEvents2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	usageStatsManagerQueryEvents2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	usageStatsManagerCmd.AddCommand(usageStatsManagerQueryEvents2_1Cmd)
+	usageStatsManagerQueryEventsForSelfCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	usageStatsManagerQueryEventsForSelfCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	usageStatsManagerCmd.AddCommand(usageStatsManagerQueryEventsForSelfCmd)
+	usageCmd.AddCommand(usageStatsManagerCmd)
+	usageEventStatsNewEventStatsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	usageEventStatsCmd.AddCommand(usageEventStatsNewEventStatsCmd)
+	usageEventStatsAddCmd.Flags().Int64("handle", 0, "handle (int64)")
+	usageEventStatsAddCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	usageEventStatsCmd.AddCommand(usageEventStatsAddCmd)
+	usageEventStatsDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	usageEventStatsCmd.AddCommand(usageEventStatsDescribeContentsCmd)
+	usageEventStatsGetCountCmd.Flags().Int64("handle", 0, "handle (int64)")
+	usageEventStatsCmd.AddCommand(usageEventStatsGetCountCmd)
+	usageEventStatsGetEventTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	usageEventStatsCmd.AddCommand(usageEventStatsGetEventTypeCmd)
+	usageEventStatsGetFirstTimeStampCmd.Flags().Int64("handle", 0, "handle (int64)")
+	usageEventStatsCmd.AddCommand(usageEventStatsGetFirstTimeStampCmd)
+	usageEventStatsGetLastEventTimeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	usageEventStatsCmd.AddCommand(usageEventStatsGetLastEventTimeCmd)
+	usageEventStatsGetLastTimeStampCmd.Flags().Int64("handle", 0, "handle (int64)")
+	usageEventStatsCmd.AddCommand(usageEventStatsGetLastTimeStampCmd)
+	usageEventStatsGetTotalTimeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	usageEventStatsCmd.AddCommand(usageEventStatsGetTotalTimeCmd)
+	usageEventStatsWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	usageEventStatsWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	usageEventStatsWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	usageEventStatsCmd.AddCommand(usageEventStatsWriteToParcelCmd)
+	usageCmd.AddCommand(usageEventStatsCmd)
+	usageEventsQueryCmd.AddCommand(usageEventsQueryDescribeContentsCmd)
+	usageEventsQueryCmd.AddCommand(usageEventsQueryGetBeginTimeMillisCmd)
+	usageEventsQueryCmd.AddCommand(usageEventsQueryGetEndTimeMillisCmd)
+	usageEventsQueryCmd.AddCommand(usageEventsQueryGetEventTypesCmd)
+	usageEventsQueryWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	usageEventsQueryWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	usageEventsQueryCmd.AddCommand(usageEventsQueryWriteToParcelCmd)
+	usageCmd.AddCommand(usageEventsQueryCmd)
+	usageEventsQueryBuilderCmd.AddCommand(usageEventsQueryBuilderBuildCmd)
+	usageEventsQueryBuilderSetEventTypesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	usageEventsQueryBuilderCmd.AddCommand(usageEventsQueryBuilderSetEventTypesCmd)
+	usageEventsQueryBuilderSetPackageNamesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	usageEventsQueryBuilderCmd.AddCommand(usageEventsQueryBuilderSetPackageNamesCmd)
+	usageCmd.AddCommand(usageEventsQueryBuilderCmd)
 	usageNetworkStatsManagerQueryDetailsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	usageNetworkStatsManagerQueryDetailsCmd.Flags().String("arg1", "", "arg1 (string)")
 	usageNetworkStatsManagerQueryDetailsCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
@@ -565,35 +2266,20 @@ func init() {
 	usageNetworkStatsManagerUnregisterUsageCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	usageNetworkStatsManagerCmd.AddCommand(usageNetworkStatsManagerUnregisterUsageCallbackCmd)
 	usageCmd.AddCommand(usageNetworkStatsManagerCmd)
-	usageStatsManagerCmd.AddCommand(usageStatsManagerGetAppStandbyBucketCmd)
-	usageStatsManagerIsAppInactiveCmd.Flags().String("arg0", "", "arg0 (string)")
-	usageStatsManagerCmd.AddCommand(usageStatsManagerIsAppInactiveCmd)
-	usageStatsManagerQueryEvents1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	usageStatsManagerCmd.AddCommand(usageStatsManagerQueryEvents1Cmd)
-	usageStatsManagerQueryEvents2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	usageStatsManagerQueryEvents2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	usageStatsManagerCmd.AddCommand(usageStatsManagerQueryEvents2_1Cmd)
-	usageStatsManagerQueryEventsForSelfCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	usageStatsManagerQueryEventsForSelfCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	usageStatsManagerCmd.AddCommand(usageStatsManagerQueryEventsForSelfCmd)
-	usageCmd.AddCommand(usageStatsManagerCmd)
-	usageStorageStatsManagerGetFreeBytesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	usageStorageStatsManagerCmd.AddCommand(usageStorageStatsManagerGetFreeBytesCmd)
-	usageStorageStatsManagerGetTotalBytesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	usageStorageStatsManagerCmd.AddCommand(usageStorageStatsManagerGetTotalBytesCmd)
-	usageStorageStatsManagerQueryExternalStatsForUserCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	usageStorageStatsManagerQueryExternalStatsForUserCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	usageStorageStatsManagerCmd.AddCommand(usageStorageStatsManagerQueryExternalStatsForUserCmd)
-	usageStorageStatsManagerQueryStatsForPackageCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	usageStorageStatsManagerQueryStatsForPackageCmd.Flags().String("arg1", "", "arg1 (string)")
-	usageStorageStatsManagerQueryStatsForPackageCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	usageStorageStatsManagerCmd.AddCommand(usageStorageStatsManagerQueryStatsForPackageCmd)
-	usageStorageStatsManagerQueryStatsForUidCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	usageStorageStatsManagerQueryStatsForUidCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	usageStorageStatsManagerCmd.AddCommand(usageStorageStatsManagerQueryStatsForUidCmd)
-	usageStorageStatsManagerQueryStatsForUserCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	usageStorageStatsManagerQueryStatsForUserCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	usageStorageStatsManagerCmd.AddCommand(usageStorageStatsManagerQueryStatsForUserCmd)
-	usageCmd.AddCommand(usageStorageStatsManagerCmd)
+	usageNetworkStatsManagerUsageCallbackOnThresholdReachedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	usageNetworkStatsManagerUsageCallbackOnThresholdReachedCmd.Flags().String("arg1", "", "arg1 (string)")
+	usageNetworkStatsManagerUsageCallbackCmd.AddCommand(usageNetworkStatsManagerUsageCallbackOnThresholdReachedCmd)
+	usageCmd.AddCommand(usageNetworkStatsManagerUsageCallbackCmd)
+	usageStorageStatsCmd.AddCommand(usageStorageStatsDescribeContentsCmd)
+	usageStorageStatsCmd.AddCommand(usageStorageStatsGetAppBytesCmd)
+	usageStorageStatsGetAppBytesByDataTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	usageStorageStatsCmd.AddCommand(usageStorageStatsGetAppBytesByDataTypeCmd)
+	usageStorageStatsCmd.AddCommand(usageStorageStatsGetCacheBytesCmd)
+	usageStorageStatsCmd.AddCommand(usageStorageStatsGetDataBytesCmd)
+	usageStorageStatsCmd.AddCommand(usageStorageStatsGetExternalCacheBytesCmd)
+	usageStorageStatsWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	usageStorageStatsWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	usageStorageStatsCmd.AddCommand(usageStorageStatsWriteToParcelCmd)
+	usageCmd.AddCommand(usageStorageStatsCmd)
 	rootCmd.AddCommand(usageCmd)
 }

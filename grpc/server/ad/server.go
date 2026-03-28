@@ -5,6 +5,8 @@ package ad
 import (
 	"context"
 
+	"github.com/AndroidGoLab/jni"
+
 	"github.com/AndroidGoLab/jni-proxy/handlestore"
 	pb "github.com/AndroidGoLab/jni-proxy/proto/ad"
 	"github.com/AndroidGoLab/jni/app"
@@ -57,4 +59,477 @@ func (s *TvAdManagerServer) UnregisterCallback(_ context.Context, req *pb.Unregi
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.UnregisterCallbackResponse{}, nil
+}
+
+// TvAdServiceInfoServer implements pb.TvAdServiceInfoServiceServer.
+type TvAdServiceInfoServer struct {
+	pb.UnimplementedTvAdServiceInfoServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *TvAdServiceInfoServer) NewTvAdServiceInfo(_ context.Context, req *pb.NewTvAdServiceInfoRequest) (*pb.NewTvAdServiceInfoResponse, error) {
+	obj, err := jnipkg.NewTvAdServiceInfo(s.Ctx.VM, s.Ctx.Obj, s.Handles.Get(req.GetArg1()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewTvAdServiceInfoResponse{Result: handle}, nil
+}
+
+func (s *TvAdServiceInfoServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TvAdServiceInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *TvAdServiceInfoServer) GetId(_ context.Context, req *pb.GetIdRequest) (*pb.GetIdResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TvAdServiceInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetId()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetIdResponse{Result: result}, nil
+}
+
+func (s *TvAdServiceInfoServer) GetServiceInfo(_ context.Context, req *pb.GetServiceInfoRequest) (*pb.GetServiceInfoResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TvAdServiceInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetServiceInfo()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetServiceInfoResponse{Result: handle}, nil
+}
+
+func (s *TvAdServiceInfoServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TvAdServiceInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
+// TvAdViewServer implements pb.TvAdViewServiceServer.
+type TvAdViewServer struct {
+	pb.UnimplementedTvAdViewServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *TvAdViewServer) NewTvAdView(_ context.Context, req *pb.NewTvAdViewRequest) (*pb.NewTvAdViewResponse, error) {
+	obj, err := jnipkg.NewTvAdView(s.Ctx.VM, s.Ctx.Obj)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewTvAdViewResponse{Result: handle}, nil
+}
+
+func (s *TvAdViewServer) ClearCallback(_ context.Context, req *pb.ClearCallbackRequest) (*pb.ClearCallbackResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TvAdView{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.ClearCallback(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ClearCallbackResponse{}, nil
+}
+
+func (s *TvAdViewServer) ClearOnUnhandledInputEventListener(_ context.Context, req *pb.ClearOnUnhandledInputEventListenerRequest) (*pb.ClearOnUnhandledInputEventListenerResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TvAdView{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.ClearOnUnhandledInputEventListener(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ClearOnUnhandledInputEventListenerResponse{}, nil
+}
+
+func (s *TvAdViewServer) DispatchKeyEvent(_ context.Context, req *pb.DispatchKeyEventRequest) (*pb.DispatchKeyEventResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TvAdView{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DispatchKeyEvent(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DispatchKeyEventResponse{Result: result}, nil
+}
+
+func (s *TvAdViewServer) DispatchUnhandledInputEvent(_ context.Context, req *pb.DispatchUnhandledInputEventRequest) (*pb.DispatchUnhandledInputEventResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TvAdView{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DispatchUnhandledInputEvent(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DispatchUnhandledInputEventResponse{Result: result}, nil
+}
+
+func (s *TvAdViewServer) GetOnUnhandledInputEventListener(_ context.Context, req *pb.GetOnUnhandledInputEventListenerRequest) (*pb.GetOnUnhandledInputEventListenerResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TvAdView{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetOnUnhandledInputEventListener()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetOnUnhandledInputEventListenerResponse{Result: handle}, nil
+}
+
+func (s *TvAdViewServer) NotifyError(_ context.Context, req *pb.NotifyErrorRequest) (*pb.NotifyErrorResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TvAdView{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.NotifyError(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.NotifyErrorResponse{}, nil
+}
+
+func (s *TvAdViewServer) NotifyTvMessage(_ context.Context, req *pb.NotifyTvMessageRequest) (*pb.NotifyTvMessageResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TvAdView{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.NotifyTvMessage(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.NotifyTvMessageResponse{}, nil
+}
+
+func (s *TvAdViewServer) OnAttachedToWindow(_ context.Context, req *pb.OnAttachedToWindowRequest) (*pb.OnAttachedToWindowResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TvAdView{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnAttachedToWindow(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnAttachedToWindowResponse{}, nil
+}
+
+func (s *TvAdViewServer) OnDetachedFromWindow(_ context.Context, req *pb.OnDetachedFromWindowRequest) (*pb.OnDetachedFromWindowResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TvAdView{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnDetachedFromWindow(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnDetachedFromWindowResponse{}, nil
+}
+
+func (s *TvAdViewServer) OnLayout(_ context.Context, req *pb.OnLayoutRequest) (*pb.OnLayoutResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TvAdView{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnLayout(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnLayoutResponse{}, nil
+}
+
+func (s *TvAdViewServer) OnMeasure(_ context.Context, req *pb.OnMeasureRequest) (*pb.OnMeasureResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TvAdView{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnMeasure(req.GetArg0(), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnMeasureResponse{}, nil
+}
+
+func (s *TvAdViewServer) OnUnhandledInputEvent(_ context.Context, req *pb.OnUnhandledInputEventRequest) (*pb.OnUnhandledInputEventResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TvAdView{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.OnUnhandledInputEvent(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnUnhandledInputEventResponse{Result: result}, nil
+}
+
+func (s *TvAdViewServer) OnVisibilityChanged(_ context.Context, req *pb.OnVisibilityChangedRequest) (*pb.OnVisibilityChangedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TvAdView{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnVisibilityChanged(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnVisibilityChangedResponse{}, nil
+}
+
+func (s *TvAdViewServer) PrepareAdService(_ context.Context, req *pb.PrepareAdServiceRequest) (*pb.PrepareAdServiceResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TvAdView{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.PrepareAdService(req.GetArg0(), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.PrepareAdServiceResponse{}, nil
+}
+
+func (s *TvAdViewServer) Reset(_ context.Context, req *pb.ResetRequest) (*pb.ResetResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TvAdView{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Reset(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ResetResponse{}, nil
+}
+
+func (s *TvAdViewServer) ResetAdService(_ context.Context, req *pb.ResetAdServiceRequest) (*pb.ResetAdServiceResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TvAdView{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.ResetAdService(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ResetAdServiceResponse{}, nil
+}
+
+func (s *TvAdViewServer) SendCurrentChannelUri(_ context.Context, req *pb.SendCurrentChannelUriRequest) (*pb.SendCurrentChannelUriResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TvAdView{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SendCurrentChannelUri(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SendCurrentChannelUriResponse{}, nil
+}
+
+func (s *TvAdViewServer) SendCurrentTvInputId(_ context.Context, req *pb.SendCurrentTvInputIdRequest) (*pb.SendCurrentTvInputIdResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TvAdView{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SendCurrentTvInputId(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SendCurrentTvInputIdResponse{}, nil
+}
+
+func (s *TvAdViewServer) SendCurrentVideoBounds(_ context.Context, req *pb.SendCurrentVideoBoundsRequest) (*pb.SendCurrentVideoBoundsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TvAdView{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SendCurrentVideoBounds(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SendCurrentVideoBoundsResponse{}, nil
+}
+
+func (s *TvAdViewServer) SendSigningResult(_ context.Context, req *pb.SendSigningResultRequest) (*pb.SendSigningResultResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TvAdView{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SendSigningResult(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SendSigningResultResponse{}, nil
+}
+
+func (s *TvAdViewServer) SetCallback(_ context.Context, req *pb.SetCallbackRequest) (*pb.SetCallbackResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TvAdView{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetCallback(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetCallbackResponse{}, nil
+}
+
+func (s *TvAdViewServer) SetOnUnhandledInputEventListener(_ context.Context, req *pb.SetOnUnhandledInputEventListenerRequest) (*pb.SetOnUnhandledInputEventListenerResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TvAdView{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetOnUnhandledInputEventListener(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetOnUnhandledInputEventListenerResponse{}, nil
+}
+
+func (s *TvAdViewServer) SetTvView(_ context.Context, req *pb.SetTvViewRequest) (*pb.SetTvViewResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TvAdView{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.SetTvView(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetTvViewResponse{Result: result}, nil
+}
+
+func (s *TvAdViewServer) SetZOrderMediaOverlay(_ context.Context, req *pb.SetZOrderMediaOverlayRequest) (*pb.SetZOrderMediaOverlayResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TvAdView{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetZOrderMediaOverlay(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetZOrderMediaOverlayResponse{}, nil
+}
+
+func (s *TvAdViewServer) SetZOrderOnTop(_ context.Context, req *pb.SetZOrderOnTopRequest) (*pb.SetZOrderOnTopResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TvAdView{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetZOrderOnTop(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetZOrderOnTopResponse{}, nil
+}
+
+func (s *TvAdViewServer) StartAdService(_ context.Context, req *pb.StartAdServiceRequest) (*pb.StartAdServiceResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TvAdView{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.StartAdService(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.StartAdServiceResponse{}, nil
+}
+
+func (s *TvAdViewServer) StopAdService(_ context.Context, req *pb.StopAdServiceRequest) (*pb.StopAdServiceResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TvAdView{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.StopAdService(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.StopAdServiceResponse{}, nil
 }

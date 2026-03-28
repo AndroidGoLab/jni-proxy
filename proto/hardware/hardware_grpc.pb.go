@@ -1109,3 +1109,9694 @@ var SensorManagerService_ServiceDesc = grpc.ServiceDesc{
 	Streams:  []grpc.StreamDesc{},
 	Metadata: "proto/hardware/hardware.proto",
 }
+
+const (
+	SensorManagerDynamicSensorCallbackService_OnDynamicSensorConnected_FullMethodName    = "/hardware.SensorManagerDynamicSensorCallbackService/OnDynamicSensorConnected"
+	SensorManagerDynamicSensorCallbackService_OnDynamicSensorDisconnected_FullMethodName = "/hardware.SensorManagerDynamicSensorCallbackService/OnDynamicSensorDisconnected"
+)
+
+// SensorManagerDynamicSensorCallbackServiceClient is the client API for SensorManagerDynamicSensorCallbackService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SensorManagerDynamicSensorCallbackServiceClient interface {
+	OnDynamicSensorConnected(ctx context.Context, in *OnDynamicSensorConnectedRequest, opts ...grpc.CallOption) (*OnDynamicSensorConnectedResponse, error)
+	OnDynamicSensorDisconnected(ctx context.Context, in *OnDynamicSensorDisconnectedRequest, opts ...grpc.CallOption) (*OnDynamicSensorDisconnectedResponse, error)
+}
+
+type sensorManagerDynamicSensorCallbackServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSensorManagerDynamicSensorCallbackServiceClient(cc grpc.ClientConnInterface) SensorManagerDynamicSensorCallbackServiceClient {
+	return &sensorManagerDynamicSensorCallbackServiceClient{cc}
+}
+
+func (c *sensorManagerDynamicSensorCallbackServiceClient) OnDynamicSensorConnected(ctx context.Context, in *OnDynamicSensorConnectedRequest, opts ...grpc.CallOption) (*OnDynamicSensorConnectedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnDynamicSensorConnectedResponse)
+	err := c.cc.Invoke(ctx, SensorManagerDynamicSensorCallbackService_OnDynamicSensorConnected_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorManagerDynamicSensorCallbackServiceClient) OnDynamicSensorDisconnected(ctx context.Context, in *OnDynamicSensorDisconnectedRequest, opts ...grpc.CallOption) (*OnDynamicSensorDisconnectedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnDynamicSensorDisconnectedResponse)
+	err := c.cc.Invoke(ctx, SensorManagerDynamicSensorCallbackService_OnDynamicSensorDisconnected_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SensorManagerDynamicSensorCallbackServiceServer is the server API for SensorManagerDynamicSensorCallbackService service.
+// All implementations must embed UnimplementedSensorManagerDynamicSensorCallbackServiceServer
+// for forward compatibility.
+type SensorManagerDynamicSensorCallbackServiceServer interface {
+	OnDynamicSensorConnected(context.Context, *OnDynamicSensorConnectedRequest) (*OnDynamicSensorConnectedResponse, error)
+	OnDynamicSensorDisconnected(context.Context, *OnDynamicSensorDisconnectedRequest) (*OnDynamicSensorDisconnectedResponse, error)
+	mustEmbedUnimplementedSensorManagerDynamicSensorCallbackServiceServer()
+}
+
+// UnimplementedSensorManagerDynamicSensorCallbackServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSensorManagerDynamicSensorCallbackServiceServer struct{}
+
+func (UnimplementedSensorManagerDynamicSensorCallbackServiceServer) OnDynamicSensorConnected(context.Context, *OnDynamicSensorConnectedRequest) (*OnDynamicSensorConnectedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnDynamicSensorConnected not implemented")
+}
+func (UnimplementedSensorManagerDynamicSensorCallbackServiceServer) OnDynamicSensorDisconnected(context.Context, *OnDynamicSensorDisconnectedRequest) (*OnDynamicSensorDisconnectedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnDynamicSensorDisconnected not implemented")
+}
+func (UnimplementedSensorManagerDynamicSensorCallbackServiceServer) mustEmbedUnimplementedSensorManagerDynamicSensorCallbackServiceServer() {
+}
+func (UnimplementedSensorManagerDynamicSensorCallbackServiceServer) testEmbeddedByValue() {}
+
+// UnsafeSensorManagerDynamicSensorCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SensorManagerDynamicSensorCallbackServiceServer will
+// result in compilation errors.
+type UnsafeSensorManagerDynamicSensorCallbackServiceServer interface {
+	mustEmbedUnimplementedSensorManagerDynamicSensorCallbackServiceServer()
+}
+
+func RegisterSensorManagerDynamicSensorCallbackServiceServer(s grpc.ServiceRegistrar, srv SensorManagerDynamicSensorCallbackServiceServer) {
+	// If the following call panics, it indicates UnimplementedSensorManagerDynamicSensorCallbackServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SensorManagerDynamicSensorCallbackService_ServiceDesc, srv)
+}
+
+func _SensorManagerDynamicSensorCallbackService_OnDynamicSensorConnected_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnDynamicSensorConnectedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorManagerDynamicSensorCallbackServiceServer).OnDynamicSensorConnected(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorManagerDynamicSensorCallbackService_OnDynamicSensorConnected_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorManagerDynamicSensorCallbackServiceServer).OnDynamicSensorConnected(ctx, req.(*OnDynamicSensorConnectedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorManagerDynamicSensorCallbackService_OnDynamicSensorDisconnected_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnDynamicSensorDisconnectedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorManagerDynamicSensorCallbackServiceServer).OnDynamicSensorDisconnected(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorManagerDynamicSensorCallbackService_OnDynamicSensorDisconnected_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorManagerDynamicSensorCallbackServiceServer).OnDynamicSensorDisconnected(ctx, req.(*OnDynamicSensorDisconnectedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SensorManagerDynamicSensorCallbackService_ServiceDesc is the grpc.ServiceDesc for SensorManagerDynamicSensorCallbackService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SensorManagerDynamicSensorCallbackService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "hardware.SensorManagerDynamicSensorCallbackService",
+	HandlerType: (*SensorManagerDynamicSensorCallbackServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnDynamicSensorConnected",
+			Handler:    _SensorManagerDynamicSensorCallbackService_OnDynamicSensorConnected_Handler,
+		},
+		{
+			MethodName: "OnDynamicSensorDisconnected",
+			Handler:    _SensorManagerDynamicSensorCallbackService_OnDynamicSensorDisconnected_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/hardware/hardware.proto",
+}
+
+const (
+	SyncFenceService_NewSyncFence_FullMethodName     = "/hardware.SyncFenceService/NewSyncFence"
+	SyncFenceService_Await_FullMethodName            = "/hardware.SyncFenceService/Await"
+	SyncFenceService_AwaitForever_FullMethodName     = "/hardware.SyncFenceService/AwaitForever"
+	SyncFenceService_Close_FullMethodName            = "/hardware.SyncFenceService/Close"
+	SyncFenceService_DescribeContents_FullMethodName = "/hardware.SyncFenceService/DescribeContents"
+	SyncFenceService_GetSignalTime_FullMethodName    = "/hardware.SyncFenceService/GetSignalTime"
+	SyncFenceService_IsValid_FullMethodName          = "/hardware.SyncFenceService/IsValid"
+	SyncFenceService_WriteToParcel_FullMethodName    = "/hardware.SyncFenceService/WriteToParcel"
+)
+
+// SyncFenceServiceClient is the client API for SyncFenceService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SyncFenceServiceClient interface {
+	NewSyncFence(ctx context.Context, in *NewSyncFenceRequest, opts ...grpc.CallOption) (*NewSyncFenceResponse, error)
+	Await(ctx context.Context, in *AwaitRequest, opts ...grpc.CallOption) (*AwaitResponse, error)
+	AwaitForever(ctx context.Context, in *AwaitForeverRequest, opts ...grpc.CallOption) (*AwaitForeverResponse, error)
+	Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetSignalTime(ctx context.Context, in *GetSignalTimeRequest, opts ...grpc.CallOption) (*GetSignalTimeResponse, error)
+	IsValid(ctx context.Context, in *IsValidRequest, opts ...grpc.CallOption) (*IsValidResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type syncFenceServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSyncFenceServiceClient(cc grpc.ClientConnInterface) SyncFenceServiceClient {
+	return &syncFenceServiceClient{cc}
+}
+
+func (c *syncFenceServiceClient) NewSyncFence(ctx context.Context, in *NewSyncFenceRequest, opts ...grpc.CallOption) (*NewSyncFenceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewSyncFenceResponse)
+	err := c.cc.Invoke(ctx, SyncFenceService_NewSyncFence_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *syncFenceServiceClient) Await(ctx context.Context, in *AwaitRequest, opts ...grpc.CallOption) (*AwaitResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AwaitResponse)
+	err := c.cc.Invoke(ctx, SyncFenceService_Await_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *syncFenceServiceClient) AwaitForever(ctx context.Context, in *AwaitForeverRequest, opts ...grpc.CallOption) (*AwaitForeverResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AwaitForeverResponse)
+	err := c.cc.Invoke(ctx, SyncFenceService_AwaitForever_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *syncFenceServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CloseResponse)
+	err := c.cc.Invoke(ctx, SyncFenceService_Close_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *syncFenceServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, SyncFenceService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *syncFenceServiceClient) GetSignalTime(ctx context.Context, in *GetSignalTimeRequest, opts ...grpc.CallOption) (*GetSignalTimeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSignalTimeResponse)
+	err := c.cc.Invoke(ctx, SyncFenceService_GetSignalTime_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *syncFenceServiceClient) IsValid(ctx context.Context, in *IsValidRequest, opts ...grpc.CallOption) (*IsValidResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsValidResponse)
+	err := c.cc.Invoke(ctx, SyncFenceService_IsValid_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *syncFenceServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, SyncFenceService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SyncFenceServiceServer is the server API for SyncFenceService service.
+// All implementations must embed UnimplementedSyncFenceServiceServer
+// for forward compatibility.
+type SyncFenceServiceServer interface {
+	NewSyncFence(context.Context, *NewSyncFenceRequest) (*NewSyncFenceResponse, error)
+	Await(context.Context, *AwaitRequest) (*AwaitResponse, error)
+	AwaitForever(context.Context, *AwaitForeverRequest) (*AwaitForeverResponse, error)
+	Close(context.Context, *CloseRequest) (*CloseResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetSignalTime(context.Context, *GetSignalTimeRequest) (*GetSignalTimeResponse, error)
+	IsValid(context.Context, *IsValidRequest) (*IsValidResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedSyncFenceServiceServer()
+}
+
+// UnimplementedSyncFenceServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSyncFenceServiceServer struct{}
+
+func (UnimplementedSyncFenceServiceServer) NewSyncFence(context.Context, *NewSyncFenceRequest) (*NewSyncFenceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewSyncFence not implemented")
+}
+func (UnimplementedSyncFenceServiceServer) Await(context.Context, *AwaitRequest) (*AwaitResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Await not implemented")
+}
+func (UnimplementedSyncFenceServiceServer) AwaitForever(context.Context, *AwaitForeverRequest) (*AwaitForeverResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AwaitForever not implemented")
+}
+func (UnimplementedSyncFenceServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
+}
+func (UnimplementedSyncFenceServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedSyncFenceServiceServer) GetSignalTime(context.Context, *GetSignalTimeRequest) (*GetSignalTimeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSignalTime not implemented")
+}
+func (UnimplementedSyncFenceServiceServer) IsValid(context.Context, *IsValidRequest) (*IsValidResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsValid not implemented")
+}
+func (UnimplementedSyncFenceServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedSyncFenceServiceServer) mustEmbedUnimplementedSyncFenceServiceServer() {}
+func (UnimplementedSyncFenceServiceServer) testEmbeddedByValue()                          {}
+
+// UnsafeSyncFenceServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SyncFenceServiceServer will
+// result in compilation errors.
+type UnsafeSyncFenceServiceServer interface {
+	mustEmbedUnimplementedSyncFenceServiceServer()
+}
+
+func RegisterSyncFenceServiceServer(s grpc.ServiceRegistrar, srv SyncFenceServiceServer) {
+	// If the following call panics, it indicates UnimplementedSyncFenceServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SyncFenceService_ServiceDesc, srv)
+}
+
+func _SyncFenceService_NewSyncFence_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewSyncFenceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SyncFenceServiceServer).NewSyncFence(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SyncFenceService_NewSyncFence_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SyncFenceServiceServer).NewSyncFence(ctx, req.(*NewSyncFenceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SyncFenceService_Await_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AwaitRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SyncFenceServiceServer).Await(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SyncFenceService_Await_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SyncFenceServiceServer).Await(ctx, req.(*AwaitRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SyncFenceService_AwaitForever_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AwaitForeverRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SyncFenceServiceServer).AwaitForever(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SyncFenceService_AwaitForever_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SyncFenceServiceServer).AwaitForever(ctx, req.(*AwaitForeverRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SyncFenceService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CloseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SyncFenceServiceServer).Close(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SyncFenceService_Close_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SyncFenceServiceServer).Close(ctx, req.(*CloseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SyncFenceService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SyncFenceServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SyncFenceService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SyncFenceServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SyncFenceService_GetSignalTime_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSignalTimeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SyncFenceServiceServer).GetSignalTime(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SyncFenceService_GetSignalTime_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SyncFenceServiceServer).GetSignalTime(ctx, req.(*GetSignalTimeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SyncFenceService_IsValid_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsValidRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SyncFenceServiceServer).IsValid(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SyncFenceService_IsValid_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SyncFenceServiceServer).IsValid(ctx, req.(*IsValidRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SyncFenceService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SyncFenceServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SyncFenceService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SyncFenceServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SyncFenceService_ServiceDesc is the grpc.ServiceDesc for SyncFenceService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SyncFenceService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "hardware.SyncFenceService",
+	HandlerType: (*SyncFenceServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewSyncFence",
+			Handler:    _SyncFenceService_NewSyncFence_Handler,
+		},
+		{
+			MethodName: "Await",
+			Handler:    _SyncFenceService_Await_Handler,
+		},
+		{
+			MethodName: "AwaitForever",
+			Handler:    _SyncFenceService_AwaitForever_Handler,
+		},
+		{
+			MethodName: "Close",
+			Handler:    _SyncFenceService_Close_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _SyncFenceService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetSignalTime",
+			Handler:    _SyncFenceService_GetSignalTime_Handler,
+		},
+		{
+			MethodName: "IsValid",
+			Handler:    _SyncFenceService_IsValid_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _SyncFenceService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/hardware/hardware.proto",
+}
+
+const (
+	SensorListenerService_OnAccuracyChanged_FullMethodName = "/hardware.SensorListenerService/OnAccuracyChanged"
+	SensorListenerService_OnSensorChanged_FullMethodName   = "/hardware.SensorListenerService/OnSensorChanged"
+)
+
+// SensorListenerServiceClient is the client API for SensorListenerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SensorListenerServiceClient interface {
+	OnAccuracyChanged(ctx context.Context, in *OnAccuracyChangedRequest, opts ...grpc.CallOption) (*OnAccuracyChangedResponse, error)
+	OnSensorChanged(ctx context.Context, in *OnSensorChangedRequest, opts ...grpc.CallOption) (*OnSensorChangedResponse, error)
+}
+
+type sensorListenerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSensorListenerServiceClient(cc grpc.ClientConnInterface) SensorListenerServiceClient {
+	return &sensorListenerServiceClient{cc}
+}
+
+func (c *sensorListenerServiceClient) OnAccuracyChanged(ctx context.Context, in *OnAccuracyChangedRequest, opts ...grpc.CallOption) (*OnAccuracyChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnAccuracyChangedResponse)
+	err := c.cc.Invoke(ctx, SensorListenerService_OnAccuracyChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorListenerServiceClient) OnSensorChanged(ctx context.Context, in *OnSensorChangedRequest, opts ...grpc.CallOption) (*OnSensorChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnSensorChangedResponse)
+	err := c.cc.Invoke(ctx, SensorListenerService_OnSensorChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SensorListenerServiceServer is the server API for SensorListenerService service.
+// All implementations must embed UnimplementedSensorListenerServiceServer
+// for forward compatibility.
+type SensorListenerServiceServer interface {
+	OnAccuracyChanged(context.Context, *OnAccuracyChangedRequest) (*OnAccuracyChangedResponse, error)
+	OnSensorChanged(context.Context, *OnSensorChangedRequest) (*OnSensorChangedResponse, error)
+	mustEmbedUnimplementedSensorListenerServiceServer()
+}
+
+// UnimplementedSensorListenerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSensorListenerServiceServer struct{}
+
+func (UnimplementedSensorListenerServiceServer) OnAccuracyChanged(context.Context, *OnAccuracyChangedRequest) (*OnAccuracyChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnAccuracyChanged not implemented")
+}
+func (UnimplementedSensorListenerServiceServer) OnSensorChanged(context.Context, *OnSensorChangedRequest) (*OnSensorChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnSensorChanged not implemented")
+}
+func (UnimplementedSensorListenerServiceServer) mustEmbedUnimplementedSensorListenerServiceServer() {}
+func (UnimplementedSensorListenerServiceServer) testEmbeddedByValue()                               {}
+
+// UnsafeSensorListenerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SensorListenerServiceServer will
+// result in compilation errors.
+type UnsafeSensorListenerServiceServer interface {
+	mustEmbedUnimplementedSensorListenerServiceServer()
+}
+
+func RegisterSensorListenerServiceServer(s grpc.ServiceRegistrar, srv SensorListenerServiceServer) {
+	// If the following call panics, it indicates UnimplementedSensorListenerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SensorListenerService_ServiceDesc, srv)
+}
+
+func _SensorListenerService_OnAccuracyChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnAccuracyChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorListenerServiceServer).OnAccuracyChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorListenerService_OnAccuracyChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorListenerServiceServer).OnAccuracyChanged(ctx, req.(*OnAccuracyChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorListenerService_OnSensorChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnSensorChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorListenerServiceServer).OnSensorChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorListenerService_OnSensorChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorListenerServiceServer).OnSensorChanged(ctx, req.(*OnSensorChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SensorListenerService_ServiceDesc is the grpc.ServiceDesc for SensorListenerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SensorListenerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "hardware.SensorListenerService",
+	HandlerType: (*SensorListenerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnAccuracyChanged",
+			Handler:    _SensorListenerService_OnAccuracyChanged_Handler,
+		},
+		{
+			MethodName: "OnSensorChanged",
+			Handler:    _SensorListenerService_OnSensorChanged_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/hardware/hardware.proto",
+}
+
+const (
+	DisplayLutsService_NewDisplayLuts_FullMethodName = "/hardware.DisplayLutsService/NewDisplayLuts"
+	DisplayLutsService_Set1_FullMethodName           = "/hardware.DisplayLutsService/Set1"
+	DisplayLutsService_Set2_1_FullMethodName         = "/hardware.DisplayLutsService/Set2_1"
+	DisplayLutsService_ToString_FullMethodName       = "/hardware.DisplayLutsService/ToString"
+)
+
+// DisplayLutsServiceClient is the client API for DisplayLutsService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type DisplayLutsServiceClient interface {
+	NewDisplayLuts(ctx context.Context, in *NewDisplayLutsRequest, opts ...grpc.CallOption) (*NewDisplayLutsResponse, error)
+	Set1(ctx context.Context, in *Set1Request, opts ...grpc.CallOption) (*Set1Response, error)
+	Set2_1(ctx context.Context, in *Set2_1Request, opts ...grpc.CallOption) (*Set2_1Response, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+}
+
+type displayLutsServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewDisplayLutsServiceClient(cc grpc.ClientConnInterface) DisplayLutsServiceClient {
+	return &displayLutsServiceClient{cc}
+}
+
+func (c *displayLutsServiceClient) NewDisplayLuts(ctx context.Context, in *NewDisplayLutsRequest, opts ...grpc.CallOption) (*NewDisplayLutsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewDisplayLutsResponse)
+	err := c.cc.Invoke(ctx, DisplayLutsService_NewDisplayLuts_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *displayLutsServiceClient) Set1(ctx context.Context, in *Set1Request, opts ...grpc.CallOption) (*Set1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Set1Response)
+	err := c.cc.Invoke(ctx, DisplayLutsService_Set1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *displayLutsServiceClient) Set2_1(ctx context.Context, in *Set2_1Request, opts ...grpc.CallOption) (*Set2_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Set2_1Response)
+	err := c.cc.Invoke(ctx, DisplayLutsService_Set2_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *displayLutsServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, DisplayLutsService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// DisplayLutsServiceServer is the server API for DisplayLutsService service.
+// All implementations must embed UnimplementedDisplayLutsServiceServer
+// for forward compatibility.
+type DisplayLutsServiceServer interface {
+	NewDisplayLuts(context.Context, *NewDisplayLutsRequest) (*NewDisplayLutsResponse, error)
+	Set1(context.Context, *Set1Request) (*Set1Response, error)
+	Set2_1(context.Context, *Set2_1Request) (*Set2_1Response, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	mustEmbedUnimplementedDisplayLutsServiceServer()
+}
+
+// UnimplementedDisplayLutsServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedDisplayLutsServiceServer struct{}
+
+func (UnimplementedDisplayLutsServiceServer) NewDisplayLuts(context.Context, *NewDisplayLutsRequest) (*NewDisplayLutsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewDisplayLuts not implemented")
+}
+func (UnimplementedDisplayLutsServiceServer) Set1(context.Context, *Set1Request) (*Set1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Set1 not implemented")
+}
+func (UnimplementedDisplayLutsServiceServer) Set2_1(context.Context, *Set2_1Request) (*Set2_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Set2_1 not implemented")
+}
+func (UnimplementedDisplayLutsServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedDisplayLutsServiceServer) mustEmbedUnimplementedDisplayLutsServiceServer() {}
+func (UnimplementedDisplayLutsServiceServer) testEmbeddedByValue()                            {}
+
+// UnsafeDisplayLutsServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to DisplayLutsServiceServer will
+// result in compilation errors.
+type UnsafeDisplayLutsServiceServer interface {
+	mustEmbedUnimplementedDisplayLutsServiceServer()
+}
+
+func RegisterDisplayLutsServiceServer(s grpc.ServiceRegistrar, srv DisplayLutsServiceServer) {
+	// If the following call panics, it indicates UnimplementedDisplayLutsServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&DisplayLutsService_ServiceDesc, srv)
+}
+
+func _DisplayLutsService_NewDisplayLuts_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewDisplayLutsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DisplayLutsServiceServer).NewDisplayLuts(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DisplayLutsService_NewDisplayLuts_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DisplayLutsServiceServer).NewDisplayLuts(ctx, req.(*NewDisplayLutsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DisplayLutsService_Set1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Set1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DisplayLutsServiceServer).Set1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DisplayLutsService_Set1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DisplayLutsServiceServer).Set1(ctx, req.(*Set1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DisplayLutsService_Set2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Set2_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DisplayLutsServiceServer).Set2_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DisplayLutsService_Set2_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DisplayLutsServiceServer).Set2_1(ctx, req.(*Set2_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DisplayLutsService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DisplayLutsServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DisplayLutsService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DisplayLutsServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// DisplayLutsService_ServiceDesc is the grpc.ServiceDesc for DisplayLutsService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var DisplayLutsService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "hardware.DisplayLutsService",
+	HandlerType: (*DisplayLutsServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewDisplayLuts",
+			Handler:    _DisplayLutsService_NewDisplayLuts_Handler,
+		},
+		{
+			MethodName: "Set1",
+			Handler:    _DisplayLutsService_Set1_Handler,
+		},
+		{
+			MethodName: "Set2_1",
+			Handler:    _DisplayLutsService_Set2_1_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _DisplayLutsService_ToString_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/hardware/hardware.proto",
+}
+
+const (
+	DisplayLutsEntryService_GetBuffer_FullMethodName      = "/hardware.DisplayLutsEntryService/GetBuffer"
+	DisplayLutsEntryService_GetDimension_FullMethodName   = "/hardware.DisplayLutsEntryService/GetDimension"
+	DisplayLutsEntryService_GetSamplingKey_FullMethodName = "/hardware.DisplayLutsEntryService/GetSamplingKey"
+	DisplayLutsEntryService_ToString_FullMethodName       = "/hardware.DisplayLutsEntryService/ToString"
+)
+
+// DisplayLutsEntryServiceClient is the client API for DisplayLutsEntryService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type DisplayLutsEntryServiceClient interface {
+	GetBuffer(ctx context.Context, in *GetBufferRequest, opts ...grpc.CallOption) (*GetBufferResponse, error)
+	GetDimension(ctx context.Context, in *GetDimensionRequest, opts ...grpc.CallOption) (*GetDimensionResponse, error)
+	GetSamplingKey(ctx context.Context, in *GetSamplingKeyRequest, opts ...grpc.CallOption) (*GetSamplingKeyResponse, error)
+	ToString(ctx context.Context, in *DisplayLutsEntryToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+}
+
+type displayLutsEntryServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewDisplayLutsEntryServiceClient(cc grpc.ClientConnInterface) DisplayLutsEntryServiceClient {
+	return &displayLutsEntryServiceClient{cc}
+}
+
+func (c *displayLutsEntryServiceClient) GetBuffer(ctx context.Context, in *GetBufferRequest, opts ...grpc.CallOption) (*GetBufferResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetBufferResponse)
+	err := c.cc.Invoke(ctx, DisplayLutsEntryService_GetBuffer_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *displayLutsEntryServiceClient) GetDimension(ctx context.Context, in *GetDimensionRequest, opts ...grpc.CallOption) (*GetDimensionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDimensionResponse)
+	err := c.cc.Invoke(ctx, DisplayLutsEntryService_GetDimension_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *displayLutsEntryServiceClient) GetSamplingKey(ctx context.Context, in *GetSamplingKeyRequest, opts ...grpc.CallOption) (*GetSamplingKeyResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSamplingKeyResponse)
+	err := c.cc.Invoke(ctx, DisplayLutsEntryService_GetSamplingKey_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *displayLutsEntryServiceClient) ToString(ctx context.Context, in *DisplayLutsEntryToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, DisplayLutsEntryService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// DisplayLutsEntryServiceServer is the server API for DisplayLutsEntryService service.
+// All implementations must embed UnimplementedDisplayLutsEntryServiceServer
+// for forward compatibility.
+type DisplayLutsEntryServiceServer interface {
+	GetBuffer(context.Context, *GetBufferRequest) (*GetBufferResponse, error)
+	GetDimension(context.Context, *GetDimensionRequest) (*GetDimensionResponse, error)
+	GetSamplingKey(context.Context, *GetSamplingKeyRequest) (*GetSamplingKeyResponse, error)
+	ToString(context.Context, *DisplayLutsEntryToStringRequest) (*ToStringResponse, error)
+	mustEmbedUnimplementedDisplayLutsEntryServiceServer()
+}
+
+// UnimplementedDisplayLutsEntryServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedDisplayLutsEntryServiceServer struct{}
+
+func (UnimplementedDisplayLutsEntryServiceServer) GetBuffer(context.Context, *GetBufferRequest) (*GetBufferResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetBuffer not implemented")
+}
+func (UnimplementedDisplayLutsEntryServiceServer) GetDimension(context.Context, *GetDimensionRequest) (*GetDimensionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDimension not implemented")
+}
+func (UnimplementedDisplayLutsEntryServiceServer) GetSamplingKey(context.Context, *GetSamplingKeyRequest) (*GetSamplingKeyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSamplingKey not implemented")
+}
+func (UnimplementedDisplayLutsEntryServiceServer) ToString(context.Context, *DisplayLutsEntryToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedDisplayLutsEntryServiceServer) mustEmbedUnimplementedDisplayLutsEntryServiceServer() {
+}
+func (UnimplementedDisplayLutsEntryServiceServer) testEmbeddedByValue() {}
+
+// UnsafeDisplayLutsEntryServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to DisplayLutsEntryServiceServer will
+// result in compilation errors.
+type UnsafeDisplayLutsEntryServiceServer interface {
+	mustEmbedUnimplementedDisplayLutsEntryServiceServer()
+}
+
+func RegisterDisplayLutsEntryServiceServer(s grpc.ServiceRegistrar, srv DisplayLutsEntryServiceServer) {
+	// If the following call panics, it indicates UnimplementedDisplayLutsEntryServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&DisplayLutsEntryService_ServiceDesc, srv)
+}
+
+func _DisplayLutsEntryService_GetBuffer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetBufferRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DisplayLutsEntryServiceServer).GetBuffer(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DisplayLutsEntryService_GetBuffer_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DisplayLutsEntryServiceServer).GetBuffer(ctx, req.(*GetBufferRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DisplayLutsEntryService_GetDimension_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDimensionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DisplayLutsEntryServiceServer).GetDimension(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DisplayLutsEntryService_GetDimension_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DisplayLutsEntryServiceServer).GetDimension(ctx, req.(*GetDimensionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DisplayLutsEntryService_GetSamplingKey_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSamplingKeyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DisplayLutsEntryServiceServer).GetSamplingKey(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DisplayLutsEntryService_GetSamplingKey_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DisplayLutsEntryServiceServer).GetSamplingKey(ctx, req.(*GetSamplingKeyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DisplayLutsEntryService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DisplayLutsEntryToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DisplayLutsEntryServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DisplayLutsEntryService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DisplayLutsEntryServiceServer).ToString(ctx, req.(*DisplayLutsEntryToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// DisplayLutsEntryService_ServiceDesc is the grpc.ServiceDesc for DisplayLutsEntryService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var DisplayLutsEntryService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "hardware.DisplayLutsEntryService",
+	HandlerType: (*DisplayLutsEntryServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetBuffer",
+			Handler:    _DisplayLutsEntryService_GetBuffer_Handler,
+		},
+		{
+			MethodName: "GetDimension",
+			Handler:    _DisplayLutsEntryService_GetDimension_Handler,
+		},
+		{
+			MethodName: "GetSamplingKey",
+			Handler:    _DisplayLutsEntryService_GetSamplingKey_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _DisplayLutsEntryService_ToString_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/hardware/hardware.proto",
+}
+
+const (
+	SensorService_GetFifoMaxEventCount_FullMethodName            = "/hardware.SensorService/GetFifoMaxEventCount"
+	SensorService_GetFifoReservedEventCount_FullMethodName       = "/hardware.SensorService/GetFifoReservedEventCount"
+	SensorService_GetHighestDirectReportRateLevel_FullMethodName = "/hardware.SensorService/GetHighestDirectReportRateLevel"
+	SensorService_GetId_FullMethodName                           = "/hardware.SensorService/GetId"
+	SensorService_GetMaxDelay_FullMethodName                     = "/hardware.SensorService/GetMaxDelay"
+	SensorService_GetMaximumRange_FullMethodName                 = "/hardware.SensorService/GetMaximumRange"
+	SensorService_GetMinDelay_FullMethodName                     = "/hardware.SensorService/GetMinDelay"
+	SensorService_GetName_FullMethodName                         = "/hardware.SensorService/GetName"
+	SensorService_GetPower_FullMethodName                        = "/hardware.SensorService/GetPower"
+	SensorService_GetReportingMode_FullMethodName                = "/hardware.SensorService/GetReportingMode"
+	SensorService_GetResolution_FullMethodName                   = "/hardware.SensorService/GetResolution"
+	SensorService_GetStringType_FullMethodName                   = "/hardware.SensorService/GetStringType"
+	SensorService_GetType_FullMethodName                         = "/hardware.SensorService/GetType"
+	SensorService_GetVendor_FullMethodName                       = "/hardware.SensorService/GetVendor"
+	SensorService_GetVersion_FullMethodName                      = "/hardware.SensorService/GetVersion"
+	SensorService_IsAdditionalInfoSupported_FullMethodName       = "/hardware.SensorService/IsAdditionalInfoSupported"
+	SensorService_IsDirectChannelTypeSupported_FullMethodName    = "/hardware.SensorService/IsDirectChannelTypeSupported"
+	SensorService_IsDynamicSensor_FullMethodName                 = "/hardware.SensorService/IsDynamicSensor"
+	SensorService_IsWakeUpSensor_FullMethodName                  = "/hardware.SensorService/IsWakeUpSensor"
+	SensorService_ToString_FullMethodName                        = "/hardware.SensorService/ToString"
+)
+
+// SensorServiceClient is the client API for SensorService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SensorServiceClient interface {
+	GetFifoMaxEventCount(ctx context.Context, in *GetFifoMaxEventCountRequest, opts ...grpc.CallOption) (*GetFifoMaxEventCountResponse, error)
+	GetFifoReservedEventCount(ctx context.Context, in *GetFifoReservedEventCountRequest, opts ...grpc.CallOption) (*GetFifoReservedEventCountResponse, error)
+	GetHighestDirectReportRateLevel(ctx context.Context, in *GetHighestDirectReportRateLevelRequest, opts ...grpc.CallOption) (*GetHighestDirectReportRateLevelResponse, error)
+	GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error)
+	GetMaxDelay(ctx context.Context, in *GetMaxDelayRequest, opts ...grpc.CallOption) (*GetMaxDelayResponse, error)
+	GetMaximumRange(ctx context.Context, in *GetMaximumRangeRequest, opts ...grpc.CallOption) (*GetMaximumRangeResponse, error)
+	GetMinDelay(ctx context.Context, in *GetMinDelayRequest, opts ...grpc.CallOption) (*GetMinDelayResponse, error)
+	GetName(ctx context.Context, in *GetNameRequest, opts ...grpc.CallOption) (*GetNameResponse, error)
+	GetPower(ctx context.Context, in *GetPowerRequest, opts ...grpc.CallOption) (*GetPowerResponse, error)
+	GetReportingMode(ctx context.Context, in *GetReportingModeRequest, opts ...grpc.CallOption) (*GetReportingModeResponse, error)
+	GetResolution(ctx context.Context, in *GetResolutionRequest, opts ...grpc.CallOption) (*GetResolutionResponse, error)
+	GetStringType(ctx context.Context, in *GetStringTypeRequest, opts ...grpc.CallOption) (*GetStringTypeResponse, error)
+	GetType(ctx context.Context, in *GetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error)
+	GetVendor(ctx context.Context, in *GetVendorRequest, opts ...grpc.CallOption) (*GetVendorResponse, error)
+	GetVersion(ctx context.Context, in *GetVersionRequest, opts ...grpc.CallOption) (*GetVersionResponse, error)
+	IsAdditionalInfoSupported(ctx context.Context, in *IsAdditionalInfoSupportedRequest, opts ...grpc.CallOption) (*IsAdditionalInfoSupportedResponse, error)
+	IsDirectChannelTypeSupported(ctx context.Context, in *IsDirectChannelTypeSupportedRequest, opts ...grpc.CallOption) (*IsDirectChannelTypeSupportedResponse, error)
+	IsDynamicSensor(ctx context.Context, in *IsDynamicSensorRequest, opts ...grpc.CallOption) (*IsDynamicSensorResponse, error)
+	IsWakeUpSensor(ctx context.Context, in *IsWakeUpSensorRequest, opts ...grpc.CallOption) (*IsWakeUpSensorResponse, error)
+	ToString(ctx context.Context, in *SensorToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+}
+
+type sensorServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSensorServiceClient(cc grpc.ClientConnInterface) SensorServiceClient {
+	return &sensorServiceClient{cc}
+}
+
+func (c *sensorServiceClient) GetFifoMaxEventCount(ctx context.Context, in *GetFifoMaxEventCountRequest, opts ...grpc.CallOption) (*GetFifoMaxEventCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFifoMaxEventCountResponse)
+	err := c.cc.Invoke(ctx, SensorService_GetFifoMaxEventCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorServiceClient) GetFifoReservedEventCount(ctx context.Context, in *GetFifoReservedEventCountRequest, opts ...grpc.CallOption) (*GetFifoReservedEventCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFifoReservedEventCountResponse)
+	err := c.cc.Invoke(ctx, SensorService_GetFifoReservedEventCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorServiceClient) GetHighestDirectReportRateLevel(ctx context.Context, in *GetHighestDirectReportRateLevelRequest, opts ...grpc.CallOption) (*GetHighestDirectReportRateLevelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetHighestDirectReportRateLevelResponse)
+	err := c.cc.Invoke(ctx, SensorService_GetHighestDirectReportRateLevel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorServiceClient) GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetIdResponse)
+	err := c.cc.Invoke(ctx, SensorService_GetId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorServiceClient) GetMaxDelay(ctx context.Context, in *GetMaxDelayRequest, opts ...grpc.CallOption) (*GetMaxDelayResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMaxDelayResponse)
+	err := c.cc.Invoke(ctx, SensorService_GetMaxDelay_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorServiceClient) GetMaximumRange(ctx context.Context, in *GetMaximumRangeRequest, opts ...grpc.CallOption) (*GetMaximumRangeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMaximumRangeResponse)
+	err := c.cc.Invoke(ctx, SensorService_GetMaximumRange_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorServiceClient) GetMinDelay(ctx context.Context, in *GetMinDelayRequest, opts ...grpc.CallOption) (*GetMinDelayResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMinDelayResponse)
+	err := c.cc.Invoke(ctx, SensorService_GetMinDelay_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorServiceClient) GetName(ctx context.Context, in *GetNameRequest, opts ...grpc.CallOption) (*GetNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetNameResponse)
+	err := c.cc.Invoke(ctx, SensorService_GetName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorServiceClient) GetPower(ctx context.Context, in *GetPowerRequest, opts ...grpc.CallOption) (*GetPowerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPowerResponse)
+	err := c.cc.Invoke(ctx, SensorService_GetPower_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorServiceClient) GetReportingMode(ctx context.Context, in *GetReportingModeRequest, opts ...grpc.CallOption) (*GetReportingModeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetReportingModeResponse)
+	err := c.cc.Invoke(ctx, SensorService_GetReportingMode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorServiceClient) GetResolution(ctx context.Context, in *GetResolutionRequest, opts ...grpc.CallOption) (*GetResolutionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetResolutionResponse)
+	err := c.cc.Invoke(ctx, SensorService_GetResolution_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorServiceClient) GetStringType(ctx context.Context, in *GetStringTypeRequest, opts ...grpc.CallOption) (*GetStringTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStringTypeResponse)
+	err := c.cc.Invoke(ctx, SensorService_GetStringType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorServiceClient) GetType(ctx context.Context, in *GetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTypeResponse)
+	err := c.cc.Invoke(ctx, SensorService_GetType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorServiceClient) GetVendor(ctx context.Context, in *GetVendorRequest, opts ...grpc.CallOption) (*GetVendorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetVendorResponse)
+	err := c.cc.Invoke(ctx, SensorService_GetVendor_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorServiceClient) GetVersion(ctx context.Context, in *GetVersionRequest, opts ...grpc.CallOption) (*GetVersionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetVersionResponse)
+	err := c.cc.Invoke(ctx, SensorService_GetVersion_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorServiceClient) IsAdditionalInfoSupported(ctx context.Context, in *IsAdditionalInfoSupportedRequest, opts ...grpc.CallOption) (*IsAdditionalInfoSupportedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsAdditionalInfoSupportedResponse)
+	err := c.cc.Invoke(ctx, SensorService_IsAdditionalInfoSupported_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorServiceClient) IsDirectChannelTypeSupported(ctx context.Context, in *IsDirectChannelTypeSupportedRequest, opts ...grpc.CallOption) (*IsDirectChannelTypeSupportedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsDirectChannelTypeSupportedResponse)
+	err := c.cc.Invoke(ctx, SensorService_IsDirectChannelTypeSupported_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorServiceClient) IsDynamicSensor(ctx context.Context, in *IsDynamicSensorRequest, opts ...grpc.CallOption) (*IsDynamicSensorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsDynamicSensorResponse)
+	err := c.cc.Invoke(ctx, SensorService_IsDynamicSensor_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorServiceClient) IsWakeUpSensor(ctx context.Context, in *IsWakeUpSensorRequest, opts ...grpc.CallOption) (*IsWakeUpSensorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsWakeUpSensorResponse)
+	err := c.cc.Invoke(ctx, SensorService_IsWakeUpSensor_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorServiceClient) ToString(ctx context.Context, in *SensorToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, SensorService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SensorServiceServer is the server API for SensorService service.
+// All implementations must embed UnimplementedSensorServiceServer
+// for forward compatibility.
+type SensorServiceServer interface {
+	GetFifoMaxEventCount(context.Context, *GetFifoMaxEventCountRequest) (*GetFifoMaxEventCountResponse, error)
+	GetFifoReservedEventCount(context.Context, *GetFifoReservedEventCountRequest) (*GetFifoReservedEventCountResponse, error)
+	GetHighestDirectReportRateLevel(context.Context, *GetHighestDirectReportRateLevelRequest) (*GetHighestDirectReportRateLevelResponse, error)
+	GetId(context.Context, *GetIdRequest) (*GetIdResponse, error)
+	GetMaxDelay(context.Context, *GetMaxDelayRequest) (*GetMaxDelayResponse, error)
+	GetMaximumRange(context.Context, *GetMaximumRangeRequest) (*GetMaximumRangeResponse, error)
+	GetMinDelay(context.Context, *GetMinDelayRequest) (*GetMinDelayResponse, error)
+	GetName(context.Context, *GetNameRequest) (*GetNameResponse, error)
+	GetPower(context.Context, *GetPowerRequest) (*GetPowerResponse, error)
+	GetReportingMode(context.Context, *GetReportingModeRequest) (*GetReportingModeResponse, error)
+	GetResolution(context.Context, *GetResolutionRequest) (*GetResolutionResponse, error)
+	GetStringType(context.Context, *GetStringTypeRequest) (*GetStringTypeResponse, error)
+	GetType(context.Context, *GetTypeRequest) (*GetTypeResponse, error)
+	GetVendor(context.Context, *GetVendorRequest) (*GetVendorResponse, error)
+	GetVersion(context.Context, *GetVersionRequest) (*GetVersionResponse, error)
+	IsAdditionalInfoSupported(context.Context, *IsAdditionalInfoSupportedRequest) (*IsAdditionalInfoSupportedResponse, error)
+	IsDirectChannelTypeSupported(context.Context, *IsDirectChannelTypeSupportedRequest) (*IsDirectChannelTypeSupportedResponse, error)
+	IsDynamicSensor(context.Context, *IsDynamicSensorRequest) (*IsDynamicSensorResponse, error)
+	IsWakeUpSensor(context.Context, *IsWakeUpSensorRequest) (*IsWakeUpSensorResponse, error)
+	ToString(context.Context, *SensorToStringRequest) (*ToStringResponse, error)
+	mustEmbedUnimplementedSensorServiceServer()
+}
+
+// UnimplementedSensorServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSensorServiceServer struct{}
+
+func (UnimplementedSensorServiceServer) GetFifoMaxEventCount(context.Context, *GetFifoMaxEventCountRequest) (*GetFifoMaxEventCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFifoMaxEventCount not implemented")
+}
+func (UnimplementedSensorServiceServer) GetFifoReservedEventCount(context.Context, *GetFifoReservedEventCountRequest) (*GetFifoReservedEventCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFifoReservedEventCount not implemented")
+}
+func (UnimplementedSensorServiceServer) GetHighestDirectReportRateLevel(context.Context, *GetHighestDirectReportRateLevelRequest) (*GetHighestDirectReportRateLevelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetHighestDirectReportRateLevel not implemented")
+}
+func (UnimplementedSensorServiceServer) GetId(context.Context, *GetIdRequest) (*GetIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetId not implemented")
+}
+func (UnimplementedSensorServiceServer) GetMaxDelay(context.Context, *GetMaxDelayRequest) (*GetMaxDelayResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMaxDelay not implemented")
+}
+func (UnimplementedSensorServiceServer) GetMaximumRange(context.Context, *GetMaximumRangeRequest) (*GetMaximumRangeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMaximumRange not implemented")
+}
+func (UnimplementedSensorServiceServer) GetMinDelay(context.Context, *GetMinDelayRequest) (*GetMinDelayResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMinDelay not implemented")
+}
+func (UnimplementedSensorServiceServer) GetName(context.Context, *GetNameRequest) (*GetNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetName not implemented")
+}
+func (UnimplementedSensorServiceServer) GetPower(context.Context, *GetPowerRequest) (*GetPowerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPower not implemented")
+}
+func (UnimplementedSensorServiceServer) GetReportingMode(context.Context, *GetReportingModeRequest) (*GetReportingModeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetReportingMode not implemented")
+}
+func (UnimplementedSensorServiceServer) GetResolution(context.Context, *GetResolutionRequest) (*GetResolutionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetResolution not implemented")
+}
+func (UnimplementedSensorServiceServer) GetStringType(context.Context, *GetStringTypeRequest) (*GetStringTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetStringType not implemented")
+}
+func (UnimplementedSensorServiceServer) GetType(context.Context, *GetTypeRequest) (*GetTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetType not implemented")
+}
+func (UnimplementedSensorServiceServer) GetVendor(context.Context, *GetVendorRequest) (*GetVendorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetVendor not implemented")
+}
+func (UnimplementedSensorServiceServer) GetVersion(context.Context, *GetVersionRequest) (*GetVersionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetVersion not implemented")
+}
+func (UnimplementedSensorServiceServer) IsAdditionalInfoSupported(context.Context, *IsAdditionalInfoSupportedRequest) (*IsAdditionalInfoSupportedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsAdditionalInfoSupported not implemented")
+}
+func (UnimplementedSensorServiceServer) IsDirectChannelTypeSupported(context.Context, *IsDirectChannelTypeSupportedRequest) (*IsDirectChannelTypeSupportedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsDirectChannelTypeSupported not implemented")
+}
+func (UnimplementedSensorServiceServer) IsDynamicSensor(context.Context, *IsDynamicSensorRequest) (*IsDynamicSensorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsDynamicSensor not implemented")
+}
+func (UnimplementedSensorServiceServer) IsWakeUpSensor(context.Context, *IsWakeUpSensorRequest) (*IsWakeUpSensorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsWakeUpSensor not implemented")
+}
+func (UnimplementedSensorServiceServer) ToString(context.Context, *SensorToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedSensorServiceServer) mustEmbedUnimplementedSensorServiceServer() {}
+func (UnimplementedSensorServiceServer) testEmbeddedByValue()                       {}
+
+// UnsafeSensorServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SensorServiceServer will
+// result in compilation errors.
+type UnsafeSensorServiceServer interface {
+	mustEmbedUnimplementedSensorServiceServer()
+}
+
+func RegisterSensorServiceServer(s grpc.ServiceRegistrar, srv SensorServiceServer) {
+	// If the following call panics, it indicates UnimplementedSensorServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SensorService_ServiceDesc, srv)
+}
+
+func _SensorService_GetFifoMaxEventCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFifoMaxEventCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorServiceServer).GetFifoMaxEventCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorService_GetFifoMaxEventCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorServiceServer).GetFifoMaxEventCount(ctx, req.(*GetFifoMaxEventCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorService_GetFifoReservedEventCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFifoReservedEventCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorServiceServer).GetFifoReservedEventCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorService_GetFifoReservedEventCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorServiceServer).GetFifoReservedEventCount(ctx, req.(*GetFifoReservedEventCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorService_GetHighestDirectReportRateLevel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetHighestDirectReportRateLevelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorServiceServer).GetHighestDirectReportRateLevel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorService_GetHighestDirectReportRateLevel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorServiceServer).GetHighestDirectReportRateLevel(ctx, req.(*GetHighestDirectReportRateLevelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorService_GetId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorServiceServer).GetId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorService_GetId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorServiceServer).GetId(ctx, req.(*GetIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorService_GetMaxDelay_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMaxDelayRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorServiceServer).GetMaxDelay(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorService_GetMaxDelay_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorServiceServer).GetMaxDelay(ctx, req.(*GetMaxDelayRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorService_GetMaximumRange_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMaximumRangeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorServiceServer).GetMaximumRange(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorService_GetMaximumRange_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorServiceServer).GetMaximumRange(ctx, req.(*GetMaximumRangeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorService_GetMinDelay_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMinDelayRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorServiceServer).GetMinDelay(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorService_GetMinDelay_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorServiceServer).GetMinDelay(ctx, req.(*GetMinDelayRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorService_GetName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorServiceServer).GetName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorService_GetName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorServiceServer).GetName(ctx, req.(*GetNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorService_GetPower_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPowerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorServiceServer).GetPower(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorService_GetPower_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorServiceServer).GetPower(ctx, req.(*GetPowerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorService_GetReportingMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetReportingModeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorServiceServer).GetReportingMode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorService_GetReportingMode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorServiceServer).GetReportingMode(ctx, req.(*GetReportingModeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorService_GetResolution_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetResolutionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorServiceServer).GetResolution(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorService_GetResolution_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorServiceServer).GetResolution(ctx, req.(*GetResolutionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorService_GetStringType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStringTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorServiceServer).GetStringType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorService_GetStringType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorServiceServer).GetStringType(ctx, req.(*GetStringTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorService_GetType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorServiceServer).GetType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorService_GetType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorServiceServer).GetType(ctx, req.(*GetTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorService_GetVendor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetVendorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorServiceServer).GetVendor(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorService_GetVendor_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorServiceServer).GetVendor(ctx, req.(*GetVendorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorService_GetVersion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetVersionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorServiceServer).GetVersion(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorService_GetVersion_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorServiceServer).GetVersion(ctx, req.(*GetVersionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorService_IsAdditionalInfoSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsAdditionalInfoSupportedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorServiceServer).IsAdditionalInfoSupported(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorService_IsAdditionalInfoSupported_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorServiceServer).IsAdditionalInfoSupported(ctx, req.(*IsAdditionalInfoSupportedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorService_IsDirectChannelTypeSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsDirectChannelTypeSupportedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorServiceServer).IsDirectChannelTypeSupported(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorService_IsDirectChannelTypeSupported_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorServiceServer).IsDirectChannelTypeSupported(ctx, req.(*IsDirectChannelTypeSupportedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorService_IsDynamicSensor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsDynamicSensorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorServiceServer).IsDynamicSensor(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorService_IsDynamicSensor_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorServiceServer).IsDynamicSensor(ctx, req.(*IsDynamicSensorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorService_IsWakeUpSensor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsWakeUpSensorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorServiceServer).IsWakeUpSensor(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorService_IsWakeUpSensor_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorServiceServer).IsWakeUpSensor(ctx, req.(*IsWakeUpSensorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SensorToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorServiceServer).ToString(ctx, req.(*SensorToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SensorService_ServiceDesc is the grpc.ServiceDesc for SensorService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SensorService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "hardware.SensorService",
+	HandlerType: (*SensorServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetFifoMaxEventCount",
+			Handler:    _SensorService_GetFifoMaxEventCount_Handler,
+		},
+		{
+			MethodName: "GetFifoReservedEventCount",
+			Handler:    _SensorService_GetFifoReservedEventCount_Handler,
+		},
+		{
+			MethodName: "GetHighestDirectReportRateLevel",
+			Handler:    _SensorService_GetHighestDirectReportRateLevel_Handler,
+		},
+		{
+			MethodName: "GetId",
+			Handler:    _SensorService_GetId_Handler,
+		},
+		{
+			MethodName: "GetMaxDelay",
+			Handler:    _SensorService_GetMaxDelay_Handler,
+		},
+		{
+			MethodName: "GetMaximumRange",
+			Handler:    _SensorService_GetMaximumRange_Handler,
+		},
+		{
+			MethodName: "GetMinDelay",
+			Handler:    _SensorService_GetMinDelay_Handler,
+		},
+		{
+			MethodName: "GetName",
+			Handler:    _SensorService_GetName_Handler,
+		},
+		{
+			MethodName: "GetPower",
+			Handler:    _SensorService_GetPower_Handler,
+		},
+		{
+			MethodName: "GetReportingMode",
+			Handler:    _SensorService_GetReportingMode_Handler,
+		},
+		{
+			MethodName: "GetResolution",
+			Handler:    _SensorService_GetResolution_Handler,
+		},
+		{
+			MethodName: "GetStringType",
+			Handler:    _SensorService_GetStringType_Handler,
+		},
+		{
+			MethodName: "GetType",
+			Handler:    _SensorService_GetType_Handler,
+		},
+		{
+			MethodName: "GetVendor",
+			Handler:    _SensorService_GetVendor_Handler,
+		},
+		{
+			MethodName: "GetVersion",
+			Handler:    _SensorService_GetVersion_Handler,
+		},
+		{
+			MethodName: "IsAdditionalInfoSupported",
+			Handler:    _SensorService_IsAdditionalInfoSupported_Handler,
+		},
+		{
+			MethodName: "IsDirectChannelTypeSupported",
+			Handler:    _SensorService_IsDirectChannelTypeSupported_Handler,
+		},
+		{
+			MethodName: "IsDynamicSensor",
+			Handler:    _SensorService_IsDynamicSensor_Handler,
+		},
+		{
+			MethodName: "IsWakeUpSensor",
+			Handler:    _SensorService_IsWakeUpSensor_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _SensorService_ToString_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/hardware/hardware.proto",
+}
+
+const (
+	TriggerEventListenerService_OnTrigger_FullMethodName = "/hardware.TriggerEventListenerService/OnTrigger"
+)
+
+// TriggerEventListenerServiceClient is the client API for TriggerEventListenerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TriggerEventListenerServiceClient interface {
+	OnTrigger(ctx context.Context, in *OnTriggerRequest, opts ...grpc.CallOption) (*OnTriggerResponse, error)
+}
+
+type triggerEventListenerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTriggerEventListenerServiceClient(cc grpc.ClientConnInterface) TriggerEventListenerServiceClient {
+	return &triggerEventListenerServiceClient{cc}
+}
+
+func (c *triggerEventListenerServiceClient) OnTrigger(ctx context.Context, in *OnTriggerRequest, opts ...grpc.CallOption) (*OnTriggerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnTriggerResponse)
+	err := c.cc.Invoke(ctx, TriggerEventListenerService_OnTrigger_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TriggerEventListenerServiceServer is the server API for TriggerEventListenerService service.
+// All implementations must embed UnimplementedTriggerEventListenerServiceServer
+// for forward compatibility.
+type TriggerEventListenerServiceServer interface {
+	OnTrigger(context.Context, *OnTriggerRequest) (*OnTriggerResponse, error)
+	mustEmbedUnimplementedTriggerEventListenerServiceServer()
+}
+
+// UnimplementedTriggerEventListenerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTriggerEventListenerServiceServer struct{}
+
+func (UnimplementedTriggerEventListenerServiceServer) OnTrigger(context.Context, *OnTriggerRequest) (*OnTriggerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnTrigger not implemented")
+}
+func (UnimplementedTriggerEventListenerServiceServer) mustEmbedUnimplementedTriggerEventListenerServiceServer() {
+}
+func (UnimplementedTriggerEventListenerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeTriggerEventListenerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TriggerEventListenerServiceServer will
+// result in compilation errors.
+type UnsafeTriggerEventListenerServiceServer interface {
+	mustEmbedUnimplementedTriggerEventListenerServiceServer()
+}
+
+func RegisterTriggerEventListenerServiceServer(s grpc.ServiceRegistrar, srv TriggerEventListenerServiceServer) {
+	// If the following call panics, it indicates UnimplementedTriggerEventListenerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TriggerEventListenerService_ServiceDesc, srv)
+}
+
+func _TriggerEventListenerService_OnTrigger_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnTriggerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TriggerEventListenerServiceServer).OnTrigger(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TriggerEventListenerService_OnTrigger_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TriggerEventListenerServiceServer).OnTrigger(ctx, req.(*OnTriggerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TriggerEventListenerService_ServiceDesc is the grpc.ServiceDesc for TriggerEventListenerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TriggerEventListenerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "hardware.TriggerEventListenerService",
+	HandlerType: (*TriggerEventListenerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnTrigger",
+			Handler:    _TriggerEventListenerService_OnTrigger_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/hardware/hardware.proto",
+}
+
+const (
+	GeomagneticFieldService_NewGeomagneticField_FullMethodName   = "/hardware.GeomagneticFieldService/NewGeomagneticField"
+	GeomagneticFieldService_GetDeclination_FullMethodName        = "/hardware.GeomagneticFieldService/GetDeclination"
+	GeomagneticFieldService_GetFieldStrength_FullMethodName      = "/hardware.GeomagneticFieldService/GetFieldStrength"
+	GeomagneticFieldService_GetHorizontalStrength_FullMethodName = "/hardware.GeomagneticFieldService/GetHorizontalStrength"
+	GeomagneticFieldService_GetInclination_FullMethodName        = "/hardware.GeomagneticFieldService/GetInclination"
+	GeomagneticFieldService_GetX_FullMethodName                  = "/hardware.GeomagneticFieldService/GetX"
+	GeomagneticFieldService_GetY_FullMethodName                  = "/hardware.GeomagneticFieldService/GetY"
+	GeomagneticFieldService_GetZ_FullMethodName                  = "/hardware.GeomagneticFieldService/GetZ"
+)
+
+// GeomagneticFieldServiceClient is the client API for GeomagneticFieldService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type GeomagneticFieldServiceClient interface {
+	NewGeomagneticField(ctx context.Context, in *NewGeomagneticFieldRequest, opts ...grpc.CallOption) (*NewGeomagneticFieldResponse, error)
+	GetDeclination(ctx context.Context, in *GetDeclinationRequest, opts ...grpc.CallOption) (*GetDeclinationResponse, error)
+	GetFieldStrength(ctx context.Context, in *GetFieldStrengthRequest, opts ...grpc.CallOption) (*GetFieldStrengthResponse, error)
+	GetHorizontalStrength(ctx context.Context, in *GetHorizontalStrengthRequest, opts ...grpc.CallOption) (*GetHorizontalStrengthResponse, error)
+	GetInclination(ctx context.Context, in *GeomagneticFieldGetInclinationRequest, opts ...grpc.CallOption) (*GetInclinationResponse, error)
+	GetX(ctx context.Context, in *GetXRequest, opts ...grpc.CallOption) (*GetXResponse, error)
+	GetY(ctx context.Context, in *GetYRequest, opts ...grpc.CallOption) (*GetYResponse, error)
+	GetZ(ctx context.Context, in *GetZRequest, opts ...grpc.CallOption) (*GetZResponse, error)
+}
+
+type geomagneticFieldServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewGeomagneticFieldServiceClient(cc grpc.ClientConnInterface) GeomagneticFieldServiceClient {
+	return &geomagneticFieldServiceClient{cc}
+}
+
+func (c *geomagneticFieldServiceClient) NewGeomagneticField(ctx context.Context, in *NewGeomagneticFieldRequest, opts ...grpc.CallOption) (*NewGeomagneticFieldResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewGeomagneticFieldResponse)
+	err := c.cc.Invoke(ctx, GeomagneticFieldService_NewGeomagneticField_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *geomagneticFieldServiceClient) GetDeclination(ctx context.Context, in *GetDeclinationRequest, opts ...grpc.CallOption) (*GetDeclinationResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDeclinationResponse)
+	err := c.cc.Invoke(ctx, GeomagneticFieldService_GetDeclination_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *geomagneticFieldServiceClient) GetFieldStrength(ctx context.Context, in *GetFieldStrengthRequest, opts ...grpc.CallOption) (*GetFieldStrengthResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFieldStrengthResponse)
+	err := c.cc.Invoke(ctx, GeomagneticFieldService_GetFieldStrength_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *geomagneticFieldServiceClient) GetHorizontalStrength(ctx context.Context, in *GetHorizontalStrengthRequest, opts ...grpc.CallOption) (*GetHorizontalStrengthResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetHorizontalStrengthResponse)
+	err := c.cc.Invoke(ctx, GeomagneticFieldService_GetHorizontalStrength_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *geomagneticFieldServiceClient) GetInclination(ctx context.Context, in *GeomagneticFieldGetInclinationRequest, opts ...grpc.CallOption) (*GetInclinationResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetInclinationResponse)
+	err := c.cc.Invoke(ctx, GeomagneticFieldService_GetInclination_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *geomagneticFieldServiceClient) GetX(ctx context.Context, in *GetXRequest, opts ...grpc.CallOption) (*GetXResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetXResponse)
+	err := c.cc.Invoke(ctx, GeomagneticFieldService_GetX_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *geomagneticFieldServiceClient) GetY(ctx context.Context, in *GetYRequest, opts ...grpc.CallOption) (*GetYResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetYResponse)
+	err := c.cc.Invoke(ctx, GeomagneticFieldService_GetY_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *geomagneticFieldServiceClient) GetZ(ctx context.Context, in *GetZRequest, opts ...grpc.CallOption) (*GetZResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetZResponse)
+	err := c.cc.Invoke(ctx, GeomagneticFieldService_GetZ_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// GeomagneticFieldServiceServer is the server API for GeomagneticFieldService service.
+// All implementations must embed UnimplementedGeomagneticFieldServiceServer
+// for forward compatibility.
+type GeomagneticFieldServiceServer interface {
+	NewGeomagneticField(context.Context, *NewGeomagneticFieldRequest) (*NewGeomagneticFieldResponse, error)
+	GetDeclination(context.Context, *GetDeclinationRequest) (*GetDeclinationResponse, error)
+	GetFieldStrength(context.Context, *GetFieldStrengthRequest) (*GetFieldStrengthResponse, error)
+	GetHorizontalStrength(context.Context, *GetHorizontalStrengthRequest) (*GetHorizontalStrengthResponse, error)
+	GetInclination(context.Context, *GeomagneticFieldGetInclinationRequest) (*GetInclinationResponse, error)
+	GetX(context.Context, *GetXRequest) (*GetXResponse, error)
+	GetY(context.Context, *GetYRequest) (*GetYResponse, error)
+	GetZ(context.Context, *GetZRequest) (*GetZResponse, error)
+	mustEmbedUnimplementedGeomagneticFieldServiceServer()
+}
+
+// UnimplementedGeomagneticFieldServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedGeomagneticFieldServiceServer struct{}
+
+func (UnimplementedGeomagneticFieldServiceServer) NewGeomagneticField(context.Context, *NewGeomagneticFieldRequest) (*NewGeomagneticFieldResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewGeomagneticField not implemented")
+}
+func (UnimplementedGeomagneticFieldServiceServer) GetDeclination(context.Context, *GetDeclinationRequest) (*GetDeclinationResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDeclination not implemented")
+}
+func (UnimplementedGeomagneticFieldServiceServer) GetFieldStrength(context.Context, *GetFieldStrengthRequest) (*GetFieldStrengthResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFieldStrength not implemented")
+}
+func (UnimplementedGeomagneticFieldServiceServer) GetHorizontalStrength(context.Context, *GetHorizontalStrengthRequest) (*GetHorizontalStrengthResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetHorizontalStrength not implemented")
+}
+func (UnimplementedGeomagneticFieldServiceServer) GetInclination(context.Context, *GeomagneticFieldGetInclinationRequest) (*GetInclinationResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInclination not implemented")
+}
+func (UnimplementedGeomagneticFieldServiceServer) GetX(context.Context, *GetXRequest) (*GetXResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetX not implemented")
+}
+func (UnimplementedGeomagneticFieldServiceServer) GetY(context.Context, *GetYRequest) (*GetYResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetY not implemented")
+}
+func (UnimplementedGeomagneticFieldServiceServer) GetZ(context.Context, *GetZRequest) (*GetZResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetZ not implemented")
+}
+func (UnimplementedGeomagneticFieldServiceServer) mustEmbedUnimplementedGeomagneticFieldServiceServer() {
+}
+func (UnimplementedGeomagneticFieldServiceServer) testEmbeddedByValue() {}
+
+// UnsafeGeomagneticFieldServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to GeomagneticFieldServiceServer will
+// result in compilation errors.
+type UnsafeGeomagneticFieldServiceServer interface {
+	mustEmbedUnimplementedGeomagneticFieldServiceServer()
+}
+
+func RegisterGeomagneticFieldServiceServer(s grpc.ServiceRegistrar, srv GeomagneticFieldServiceServer) {
+	// If the following call panics, it indicates UnimplementedGeomagneticFieldServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&GeomagneticFieldService_ServiceDesc, srv)
+}
+
+func _GeomagneticFieldService_NewGeomagneticField_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewGeomagneticFieldRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GeomagneticFieldServiceServer).NewGeomagneticField(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GeomagneticFieldService_NewGeomagneticField_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GeomagneticFieldServiceServer).NewGeomagneticField(ctx, req.(*NewGeomagneticFieldRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GeomagneticFieldService_GetDeclination_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDeclinationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GeomagneticFieldServiceServer).GetDeclination(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GeomagneticFieldService_GetDeclination_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GeomagneticFieldServiceServer).GetDeclination(ctx, req.(*GetDeclinationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GeomagneticFieldService_GetFieldStrength_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFieldStrengthRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GeomagneticFieldServiceServer).GetFieldStrength(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GeomagneticFieldService_GetFieldStrength_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GeomagneticFieldServiceServer).GetFieldStrength(ctx, req.(*GetFieldStrengthRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GeomagneticFieldService_GetHorizontalStrength_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetHorizontalStrengthRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GeomagneticFieldServiceServer).GetHorizontalStrength(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GeomagneticFieldService_GetHorizontalStrength_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GeomagneticFieldServiceServer).GetHorizontalStrength(ctx, req.(*GetHorizontalStrengthRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GeomagneticFieldService_GetInclination_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GeomagneticFieldGetInclinationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GeomagneticFieldServiceServer).GetInclination(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GeomagneticFieldService_GetInclination_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GeomagneticFieldServiceServer).GetInclination(ctx, req.(*GeomagneticFieldGetInclinationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GeomagneticFieldService_GetX_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetXRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GeomagneticFieldServiceServer).GetX(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GeomagneticFieldService_GetX_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GeomagneticFieldServiceServer).GetX(ctx, req.(*GetXRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GeomagneticFieldService_GetY_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetYRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GeomagneticFieldServiceServer).GetY(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GeomagneticFieldService_GetY_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GeomagneticFieldServiceServer).GetY(ctx, req.(*GetYRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GeomagneticFieldService_GetZ_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetZRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GeomagneticFieldServiceServer).GetZ(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GeomagneticFieldService_GetZ_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GeomagneticFieldServiceServer).GetZ(ctx, req.(*GetZRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// GeomagneticFieldService_ServiceDesc is the grpc.ServiceDesc for GeomagneticFieldService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var GeomagneticFieldService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "hardware.GeomagneticFieldService",
+	HandlerType: (*GeomagneticFieldServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewGeomagneticField",
+			Handler:    _GeomagneticFieldService_NewGeomagneticField_Handler,
+		},
+		{
+			MethodName: "GetDeclination",
+			Handler:    _GeomagneticFieldService_GetDeclination_Handler,
+		},
+		{
+			MethodName: "GetFieldStrength",
+			Handler:    _GeomagneticFieldService_GetFieldStrength_Handler,
+		},
+		{
+			MethodName: "GetHorizontalStrength",
+			Handler:    _GeomagneticFieldService_GetHorizontalStrength_Handler,
+		},
+		{
+			MethodName: "GetInclination",
+			Handler:    _GeomagneticFieldService_GetInclination_Handler,
+		},
+		{
+			MethodName: "GetX",
+			Handler:    _GeomagneticFieldService_GetX_Handler,
+		},
+		{
+			MethodName: "GetY",
+			Handler:    _GeomagneticFieldService_GetY_Handler,
+		},
+		{
+			MethodName: "GetZ",
+			Handler:    _GeomagneticFieldService_GetZ_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/hardware/hardware.proto",
+}
+
+const (
+	BufferService_Close_FullMethodName            = "/hardware.BufferService/Close"
+	BufferService_DescribeContents_FullMethodName = "/hardware.BufferService/DescribeContents"
+	BufferService_GetFormat_FullMethodName        = "/hardware.BufferService/GetFormat"
+	BufferService_GetHeight_FullMethodName        = "/hardware.BufferService/GetHeight"
+	BufferService_GetId_FullMethodName            = "/hardware.BufferService/GetId"
+	BufferService_GetLayers_FullMethodName        = "/hardware.BufferService/GetLayers"
+	BufferService_GetUsage_FullMethodName         = "/hardware.BufferService/GetUsage"
+	BufferService_GetWidth_FullMethodName         = "/hardware.BufferService/GetWidth"
+	BufferService_IsClosed_FullMethodName         = "/hardware.BufferService/IsClosed"
+	BufferService_WriteToParcel_FullMethodName    = "/hardware.BufferService/WriteToParcel"
+	BufferService_Create_FullMethodName           = "/hardware.BufferService/Create"
+	BufferService_IsSupported_FullMethodName      = "/hardware.BufferService/IsSupported"
+)
+
+// BufferServiceClient is the client API for BufferService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type BufferServiceClient interface {
+	Close(ctx context.Context, in *BufferCloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
+	DescribeContents(ctx context.Context, in *BufferDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetFormat(ctx context.Context, in *GetFormatRequest, opts ...grpc.CallOption) (*GetFormatResponse, error)
+	GetHeight(ctx context.Context, in *GetHeightRequest, opts ...grpc.CallOption) (*GetHeightResponse, error)
+	GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*BufferGetIdResponse, error)
+	GetLayers(ctx context.Context, in *GetLayersRequest, opts ...grpc.CallOption) (*GetLayersResponse, error)
+	GetUsage(ctx context.Context, in *GetUsageRequest, opts ...grpc.CallOption) (*GetUsageResponse, error)
+	GetWidth(ctx context.Context, in *GetWidthRequest, opts ...grpc.CallOption) (*GetWidthResponse, error)
+	IsClosed(ctx context.Context, in *IsClosedRequest, opts ...grpc.CallOption) (*IsClosedResponse, error)
+	WriteToParcel(ctx context.Context, in *BufferWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+	Create(ctx context.Context, in *CreateRequest, opts ...grpc.CallOption) (*CreateResponse, error)
+	IsSupported(ctx context.Context, in *IsSupportedRequest, opts ...grpc.CallOption) (*IsSupportedResponse, error)
+}
+
+type bufferServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewBufferServiceClient(cc grpc.ClientConnInterface) BufferServiceClient {
+	return &bufferServiceClient{cc}
+}
+
+func (c *bufferServiceClient) Close(ctx context.Context, in *BufferCloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CloseResponse)
+	err := c.cc.Invoke(ctx, BufferService_Close_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *bufferServiceClient) DescribeContents(ctx context.Context, in *BufferDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, BufferService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *bufferServiceClient) GetFormat(ctx context.Context, in *GetFormatRequest, opts ...grpc.CallOption) (*GetFormatResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFormatResponse)
+	err := c.cc.Invoke(ctx, BufferService_GetFormat_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *bufferServiceClient) GetHeight(ctx context.Context, in *GetHeightRequest, opts ...grpc.CallOption) (*GetHeightResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetHeightResponse)
+	err := c.cc.Invoke(ctx, BufferService_GetHeight_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *bufferServiceClient) GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*BufferGetIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BufferGetIdResponse)
+	err := c.cc.Invoke(ctx, BufferService_GetId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *bufferServiceClient) GetLayers(ctx context.Context, in *GetLayersRequest, opts ...grpc.CallOption) (*GetLayersResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLayersResponse)
+	err := c.cc.Invoke(ctx, BufferService_GetLayers_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *bufferServiceClient) GetUsage(ctx context.Context, in *GetUsageRequest, opts ...grpc.CallOption) (*GetUsageResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetUsageResponse)
+	err := c.cc.Invoke(ctx, BufferService_GetUsage_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *bufferServiceClient) GetWidth(ctx context.Context, in *GetWidthRequest, opts ...grpc.CallOption) (*GetWidthResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetWidthResponse)
+	err := c.cc.Invoke(ctx, BufferService_GetWidth_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *bufferServiceClient) IsClosed(ctx context.Context, in *IsClosedRequest, opts ...grpc.CallOption) (*IsClosedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsClosedResponse)
+	err := c.cc.Invoke(ctx, BufferService_IsClosed_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *bufferServiceClient) WriteToParcel(ctx context.Context, in *BufferWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, BufferService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *bufferServiceClient) Create(ctx context.Context, in *CreateRequest, opts ...grpc.CallOption) (*CreateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateResponse)
+	err := c.cc.Invoke(ctx, BufferService_Create_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *bufferServiceClient) IsSupported(ctx context.Context, in *IsSupportedRequest, opts ...grpc.CallOption) (*IsSupportedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsSupportedResponse)
+	err := c.cc.Invoke(ctx, BufferService_IsSupported_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// BufferServiceServer is the server API for BufferService service.
+// All implementations must embed UnimplementedBufferServiceServer
+// for forward compatibility.
+type BufferServiceServer interface {
+	Close(context.Context, *BufferCloseRequest) (*CloseResponse, error)
+	DescribeContents(context.Context, *BufferDescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetFormat(context.Context, *GetFormatRequest) (*GetFormatResponse, error)
+	GetHeight(context.Context, *GetHeightRequest) (*GetHeightResponse, error)
+	GetId(context.Context, *GetIdRequest) (*BufferGetIdResponse, error)
+	GetLayers(context.Context, *GetLayersRequest) (*GetLayersResponse, error)
+	GetUsage(context.Context, *GetUsageRequest) (*GetUsageResponse, error)
+	GetWidth(context.Context, *GetWidthRequest) (*GetWidthResponse, error)
+	IsClosed(context.Context, *IsClosedRequest) (*IsClosedResponse, error)
+	WriteToParcel(context.Context, *BufferWriteToParcelRequest) (*WriteToParcelResponse, error)
+	Create(context.Context, *CreateRequest) (*CreateResponse, error)
+	IsSupported(context.Context, *IsSupportedRequest) (*IsSupportedResponse, error)
+	mustEmbedUnimplementedBufferServiceServer()
+}
+
+// UnimplementedBufferServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedBufferServiceServer struct{}
+
+func (UnimplementedBufferServiceServer) Close(context.Context, *BufferCloseRequest) (*CloseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
+}
+func (UnimplementedBufferServiceServer) DescribeContents(context.Context, *BufferDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedBufferServiceServer) GetFormat(context.Context, *GetFormatRequest) (*GetFormatResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFormat not implemented")
+}
+func (UnimplementedBufferServiceServer) GetHeight(context.Context, *GetHeightRequest) (*GetHeightResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetHeight not implemented")
+}
+func (UnimplementedBufferServiceServer) GetId(context.Context, *GetIdRequest) (*BufferGetIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetId not implemented")
+}
+func (UnimplementedBufferServiceServer) GetLayers(context.Context, *GetLayersRequest) (*GetLayersResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLayers not implemented")
+}
+func (UnimplementedBufferServiceServer) GetUsage(context.Context, *GetUsageRequest) (*GetUsageResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetUsage not implemented")
+}
+func (UnimplementedBufferServiceServer) GetWidth(context.Context, *GetWidthRequest) (*GetWidthResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetWidth not implemented")
+}
+func (UnimplementedBufferServiceServer) IsClosed(context.Context, *IsClosedRequest) (*IsClosedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsClosed not implemented")
+}
+func (UnimplementedBufferServiceServer) WriteToParcel(context.Context, *BufferWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedBufferServiceServer) Create(context.Context, *CreateRequest) (*CreateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Create not implemented")
+}
+func (UnimplementedBufferServiceServer) IsSupported(context.Context, *IsSupportedRequest) (*IsSupportedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsSupported not implemented")
+}
+func (UnimplementedBufferServiceServer) mustEmbedUnimplementedBufferServiceServer() {}
+func (UnimplementedBufferServiceServer) testEmbeddedByValue()                       {}
+
+// UnsafeBufferServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to BufferServiceServer will
+// result in compilation errors.
+type UnsafeBufferServiceServer interface {
+	mustEmbedUnimplementedBufferServiceServer()
+}
+
+func RegisterBufferServiceServer(s grpc.ServiceRegistrar, srv BufferServiceServer) {
+	// If the following call panics, it indicates UnimplementedBufferServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&BufferService_ServiceDesc, srv)
+}
+
+func _BufferService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BufferCloseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BufferServiceServer).Close(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BufferService_Close_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BufferServiceServer).Close(ctx, req.(*BufferCloseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BufferService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BufferDescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BufferServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BufferService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BufferServiceServer).DescribeContents(ctx, req.(*BufferDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BufferService_GetFormat_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFormatRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BufferServiceServer).GetFormat(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BufferService_GetFormat_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BufferServiceServer).GetFormat(ctx, req.(*GetFormatRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BufferService_GetHeight_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetHeightRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BufferServiceServer).GetHeight(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BufferService_GetHeight_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BufferServiceServer).GetHeight(ctx, req.(*GetHeightRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BufferService_GetId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BufferServiceServer).GetId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BufferService_GetId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BufferServiceServer).GetId(ctx, req.(*GetIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BufferService_GetLayers_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLayersRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BufferServiceServer).GetLayers(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BufferService_GetLayers_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BufferServiceServer).GetLayers(ctx, req.(*GetLayersRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BufferService_GetUsage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUsageRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BufferServiceServer).GetUsage(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BufferService_GetUsage_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BufferServiceServer).GetUsage(ctx, req.(*GetUsageRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BufferService_GetWidth_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetWidthRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BufferServiceServer).GetWidth(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BufferService_GetWidth_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BufferServiceServer).GetWidth(ctx, req.(*GetWidthRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BufferService_IsClosed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsClosedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BufferServiceServer).IsClosed(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BufferService_IsClosed_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BufferServiceServer).IsClosed(ctx, req.(*IsClosedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BufferService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BufferWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BufferServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BufferService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BufferServiceServer).WriteToParcel(ctx, req.(*BufferWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BufferService_Create_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BufferServiceServer).Create(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BufferService_Create_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BufferServiceServer).Create(ctx, req.(*CreateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BufferService_IsSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsSupportedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BufferServiceServer).IsSupported(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BufferService_IsSupported_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BufferServiceServer).IsSupported(ctx, req.(*IsSupportedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// BufferService_ServiceDesc is the grpc.ServiceDesc for BufferService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var BufferService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "hardware.BufferService",
+	HandlerType: (*BufferServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Close",
+			Handler:    _BufferService_Close_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _BufferService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetFormat",
+			Handler:    _BufferService_GetFormat_Handler,
+		},
+		{
+			MethodName: "GetHeight",
+			Handler:    _BufferService_GetHeight_Handler,
+		},
+		{
+			MethodName: "GetId",
+			Handler:    _BufferService_GetId_Handler,
+		},
+		{
+			MethodName: "GetLayers",
+			Handler:    _BufferService_GetLayers_Handler,
+		},
+		{
+			MethodName: "GetUsage",
+			Handler:    _BufferService_GetUsage_Handler,
+		},
+		{
+			MethodName: "GetWidth",
+			Handler:    _BufferService_GetWidth_Handler,
+		},
+		{
+			MethodName: "IsClosed",
+			Handler:    _BufferService_IsClosed_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _BufferService_WriteToParcel_Handler,
+		},
+		{
+			MethodName: "Create",
+			Handler:    _BufferService_Create_Handler,
+		},
+		{
+			MethodName: "IsSupported",
+			Handler:    _BufferService_IsSupported_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/hardware/hardware.proto",
+}
+
+const (
+	SensorEventListenerService_OnAccuracyChanged_FullMethodName = "/hardware.SensorEventListenerService/OnAccuracyChanged"
+	SensorEventListenerService_OnSensorChanged_FullMethodName   = "/hardware.SensorEventListenerService/OnSensorChanged"
+)
+
+// SensorEventListenerServiceClient is the client API for SensorEventListenerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SensorEventListenerServiceClient interface {
+	OnAccuracyChanged(ctx context.Context, in *SensorEventListenerOnAccuracyChangedRequest, opts ...grpc.CallOption) (*OnAccuracyChangedResponse, error)
+	OnSensorChanged(ctx context.Context, in *SensorEventListenerOnSensorChangedRequest, opts ...grpc.CallOption) (*OnSensorChangedResponse, error)
+}
+
+type sensorEventListenerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSensorEventListenerServiceClient(cc grpc.ClientConnInterface) SensorEventListenerServiceClient {
+	return &sensorEventListenerServiceClient{cc}
+}
+
+func (c *sensorEventListenerServiceClient) OnAccuracyChanged(ctx context.Context, in *SensorEventListenerOnAccuracyChangedRequest, opts ...grpc.CallOption) (*OnAccuracyChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnAccuracyChangedResponse)
+	err := c.cc.Invoke(ctx, SensorEventListenerService_OnAccuracyChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorEventListenerServiceClient) OnSensorChanged(ctx context.Context, in *SensorEventListenerOnSensorChangedRequest, opts ...grpc.CallOption) (*OnSensorChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnSensorChangedResponse)
+	err := c.cc.Invoke(ctx, SensorEventListenerService_OnSensorChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SensorEventListenerServiceServer is the server API for SensorEventListenerService service.
+// All implementations must embed UnimplementedSensorEventListenerServiceServer
+// for forward compatibility.
+type SensorEventListenerServiceServer interface {
+	OnAccuracyChanged(context.Context, *SensorEventListenerOnAccuracyChangedRequest) (*OnAccuracyChangedResponse, error)
+	OnSensorChanged(context.Context, *SensorEventListenerOnSensorChangedRequest) (*OnSensorChangedResponse, error)
+	mustEmbedUnimplementedSensorEventListenerServiceServer()
+}
+
+// UnimplementedSensorEventListenerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSensorEventListenerServiceServer struct{}
+
+func (UnimplementedSensorEventListenerServiceServer) OnAccuracyChanged(context.Context, *SensorEventListenerOnAccuracyChangedRequest) (*OnAccuracyChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnAccuracyChanged not implemented")
+}
+func (UnimplementedSensorEventListenerServiceServer) OnSensorChanged(context.Context, *SensorEventListenerOnSensorChangedRequest) (*OnSensorChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnSensorChanged not implemented")
+}
+func (UnimplementedSensorEventListenerServiceServer) mustEmbedUnimplementedSensorEventListenerServiceServer() {
+}
+func (UnimplementedSensorEventListenerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeSensorEventListenerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SensorEventListenerServiceServer will
+// result in compilation errors.
+type UnsafeSensorEventListenerServiceServer interface {
+	mustEmbedUnimplementedSensorEventListenerServiceServer()
+}
+
+func RegisterSensorEventListenerServiceServer(s grpc.ServiceRegistrar, srv SensorEventListenerServiceServer) {
+	// If the following call panics, it indicates UnimplementedSensorEventListenerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SensorEventListenerService_ServiceDesc, srv)
+}
+
+func _SensorEventListenerService_OnAccuracyChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SensorEventListenerOnAccuracyChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorEventListenerServiceServer).OnAccuracyChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorEventListenerService_OnAccuracyChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorEventListenerServiceServer).OnAccuracyChanged(ctx, req.(*SensorEventListenerOnAccuracyChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorEventListenerService_OnSensorChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SensorEventListenerOnSensorChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorEventListenerServiceServer).OnSensorChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorEventListenerService_OnSensorChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorEventListenerServiceServer).OnSensorChanged(ctx, req.(*SensorEventListenerOnSensorChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SensorEventListenerService_ServiceDesc is the grpc.ServiceDesc for SensorEventListenerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SensorEventListenerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "hardware.SensorEventListenerService",
+	HandlerType: (*SensorEventListenerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnAccuracyChanged",
+			Handler:    _SensorEventListenerService_OnAccuracyChanged_Handler,
+		},
+		{
+			MethodName: "OnSensorChanged",
+			Handler:    _SensorEventListenerService_OnSensorChanged_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/hardware/hardware.proto",
+}
+
+const (
+	SensorDirectChannelService_Close_FullMethodName     = "/hardware.SensorDirectChannelService/Close"
+	SensorDirectChannelService_Configure_FullMethodName = "/hardware.SensorDirectChannelService/Configure"
+	SensorDirectChannelService_IsOpen_FullMethodName    = "/hardware.SensorDirectChannelService/IsOpen"
+)
+
+// SensorDirectChannelServiceClient is the client API for SensorDirectChannelService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SensorDirectChannelServiceClient interface {
+	Close(ctx context.Context, in *SensorDirectChannelCloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
+	Configure(ctx context.Context, in *ConfigureRequest, opts ...grpc.CallOption) (*ConfigureResponse, error)
+	IsOpen(ctx context.Context, in *IsOpenRequest, opts ...grpc.CallOption) (*IsOpenResponse, error)
+}
+
+type sensorDirectChannelServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSensorDirectChannelServiceClient(cc grpc.ClientConnInterface) SensorDirectChannelServiceClient {
+	return &sensorDirectChannelServiceClient{cc}
+}
+
+func (c *sensorDirectChannelServiceClient) Close(ctx context.Context, in *SensorDirectChannelCloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CloseResponse)
+	err := c.cc.Invoke(ctx, SensorDirectChannelService_Close_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorDirectChannelServiceClient) Configure(ctx context.Context, in *ConfigureRequest, opts ...grpc.CallOption) (*ConfigureResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ConfigureResponse)
+	err := c.cc.Invoke(ctx, SensorDirectChannelService_Configure_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorDirectChannelServiceClient) IsOpen(ctx context.Context, in *IsOpenRequest, opts ...grpc.CallOption) (*IsOpenResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsOpenResponse)
+	err := c.cc.Invoke(ctx, SensorDirectChannelService_IsOpen_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SensorDirectChannelServiceServer is the server API for SensorDirectChannelService service.
+// All implementations must embed UnimplementedSensorDirectChannelServiceServer
+// for forward compatibility.
+type SensorDirectChannelServiceServer interface {
+	Close(context.Context, *SensorDirectChannelCloseRequest) (*CloseResponse, error)
+	Configure(context.Context, *ConfigureRequest) (*ConfigureResponse, error)
+	IsOpen(context.Context, *IsOpenRequest) (*IsOpenResponse, error)
+	mustEmbedUnimplementedSensorDirectChannelServiceServer()
+}
+
+// UnimplementedSensorDirectChannelServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSensorDirectChannelServiceServer struct{}
+
+func (UnimplementedSensorDirectChannelServiceServer) Close(context.Context, *SensorDirectChannelCloseRequest) (*CloseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
+}
+func (UnimplementedSensorDirectChannelServiceServer) Configure(context.Context, *ConfigureRequest) (*ConfigureResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Configure not implemented")
+}
+func (UnimplementedSensorDirectChannelServiceServer) IsOpen(context.Context, *IsOpenRequest) (*IsOpenResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsOpen not implemented")
+}
+func (UnimplementedSensorDirectChannelServiceServer) mustEmbedUnimplementedSensorDirectChannelServiceServer() {
+}
+func (UnimplementedSensorDirectChannelServiceServer) testEmbeddedByValue() {}
+
+// UnsafeSensorDirectChannelServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SensorDirectChannelServiceServer will
+// result in compilation errors.
+type UnsafeSensorDirectChannelServiceServer interface {
+	mustEmbedUnimplementedSensorDirectChannelServiceServer()
+}
+
+func RegisterSensorDirectChannelServiceServer(s grpc.ServiceRegistrar, srv SensorDirectChannelServiceServer) {
+	// If the following call panics, it indicates UnimplementedSensorDirectChannelServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SensorDirectChannelService_ServiceDesc, srv)
+}
+
+func _SensorDirectChannelService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SensorDirectChannelCloseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorDirectChannelServiceServer).Close(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorDirectChannelService_Close_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorDirectChannelServiceServer).Close(ctx, req.(*SensorDirectChannelCloseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorDirectChannelService_Configure_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ConfigureRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorDirectChannelServiceServer).Configure(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorDirectChannelService_Configure_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorDirectChannelServiceServer).Configure(ctx, req.(*ConfigureRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorDirectChannelService_IsOpen_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsOpenRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorDirectChannelServiceServer).IsOpen(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorDirectChannelService_IsOpen_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorDirectChannelServiceServer).IsOpen(ctx, req.(*IsOpenRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SensorDirectChannelService_ServiceDesc is the grpc.ServiceDesc for SensorDirectChannelService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SensorDirectChannelService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "hardware.SensorDirectChannelService",
+	HandlerType: (*SensorDirectChannelServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Close",
+			Handler:    _SensorDirectChannelService_Close_Handler,
+		},
+		{
+			MethodName: "Configure",
+			Handler:    _SensorDirectChannelService_Configure_Handler,
+		},
+		{
+			MethodName: "IsOpen",
+			Handler:    _SensorDirectChannelService_IsOpen_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/hardware/hardware.proto",
+}
+
+const (
+	LutPropertiesService_GetDimension_FullMethodName    = "/hardware.LutPropertiesService/GetDimension"
+	LutPropertiesService_GetSamplingKeys_FullMethodName = "/hardware.LutPropertiesService/GetSamplingKeys"
+	LutPropertiesService_GetSize_FullMethodName         = "/hardware.LutPropertiesService/GetSize"
+)
+
+// LutPropertiesServiceClient is the client API for LutPropertiesService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type LutPropertiesServiceClient interface {
+	GetDimension(ctx context.Context, in *GetDimensionRequest, opts ...grpc.CallOption) (*GetDimensionResponse, error)
+	GetSamplingKeys(ctx context.Context, in *GetSamplingKeysRequest, opts ...grpc.CallOption) (*GetSamplingKeysResponse, error)
+	GetSize(ctx context.Context, in *GetSizeRequest, opts ...grpc.CallOption) (*GetSizeResponse, error)
+}
+
+type lutPropertiesServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewLutPropertiesServiceClient(cc grpc.ClientConnInterface) LutPropertiesServiceClient {
+	return &lutPropertiesServiceClient{cc}
+}
+
+func (c *lutPropertiesServiceClient) GetDimension(ctx context.Context, in *GetDimensionRequest, opts ...grpc.CallOption) (*GetDimensionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDimensionResponse)
+	err := c.cc.Invoke(ctx, LutPropertiesService_GetDimension_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *lutPropertiesServiceClient) GetSamplingKeys(ctx context.Context, in *GetSamplingKeysRequest, opts ...grpc.CallOption) (*GetSamplingKeysResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSamplingKeysResponse)
+	err := c.cc.Invoke(ctx, LutPropertiesService_GetSamplingKeys_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *lutPropertiesServiceClient) GetSize(ctx context.Context, in *GetSizeRequest, opts ...grpc.CallOption) (*GetSizeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSizeResponse)
+	err := c.cc.Invoke(ctx, LutPropertiesService_GetSize_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// LutPropertiesServiceServer is the server API for LutPropertiesService service.
+// All implementations must embed UnimplementedLutPropertiesServiceServer
+// for forward compatibility.
+type LutPropertiesServiceServer interface {
+	GetDimension(context.Context, *GetDimensionRequest) (*GetDimensionResponse, error)
+	GetSamplingKeys(context.Context, *GetSamplingKeysRequest) (*GetSamplingKeysResponse, error)
+	GetSize(context.Context, *GetSizeRequest) (*GetSizeResponse, error)
+	mustEmbedUnimplementedLutPropertiesServiceServer()
+}
+
+// UnimplementedLutPropertiesServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedLutPropertiesServiceServer struct{}
+
+func (UnimplementedLutPropertiesServiceServer) GetDimension(context.Context, *GetDimensionRequest) (*GetDimensionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDimension not implemented")
+}
+func (UnimplementedLutPropertiesServiceServer) GetSamplingKeys(context.Context, *GetSamplingKeysRequest) (*GetSamplingKeysResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSamplingKeys not implemented")
+}
+func (UnimplementedLutPropertiesServiceServer) GetSize(context.Context, *GetSizeRequest) (*GetSizeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSize not implemented")
+}
+func (UnimplementedLutPropertiesServiceServer) mustEmbedUnimplementedLutPropertiesServiceServer() {}
+func (UnimplementedLutPropertiesServiceServer) testEmbeddedByValue()                              {}
+
+// UnsafeLutPropertiesServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to LutPropertiesServiceServer will
+// result in compilation errors.
+type UnsafeLutPropertiesServiceServer interface {
+	mustEmbedUnimplementedLutPropertiesServiceServer()
+}
+
+func RegisterLutPropertiesServiceServer(s grpc.ServiceRegistrar, srv LutPropertiesServiceServer) {
+	// If the following call panics, it indicates UnimplementedLutPropertiesServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&LutPropertiesService_ServiceDesc, srv)
+}
+
+func _LutPropertiesService_GetDimension_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDimensionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LutPropertiesServiceServer).GetDimension(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LutPropertiesService_GetDimension_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LutPropertiesServiceServer).GetDimension(ctx, req.(*GetDimensionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _LutPropertiesService_GetSamplingKeys_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSamplingKeysRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LutPropertiesServiceServer).GetSamplingKeys(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LutPropertiesService_GetSamplingKeys_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LutPropertiesServiceServer).GetSamplingKeys(ctx, req.(*GetSamplingKeysRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _LutPropertiesService_GetSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSizeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LutPropertiesServiceServer).GetSize(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LutPropertiesService_GetSize_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LutPropertiesServiceServer).GetSize(ctx, req.(*GetSizeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// LutPropertiesService_ServiceDesc is the grpc.ServiceDesc for LutPropertiesService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var LutPropertiesService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "hardware.LutPropertiesService",
+	HandlerType: (*LutPropertiesServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetDimension",
+			Handler:    _LutPropertiesService_GetDimension_Handler,
+		},
+		{
+			MethodName: "GetSamplingKeys",
+			Handler:    _LutPropertiesService_GetSamplingKeys_Handler,
+		},
+		{
+			MethodName: "GetSize",
+			Handler:    _LutPropertiesService_GetSize_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/hardware/hardware.proto",
+}
+
+const (
+	DataSpaceService_GetRange_FullMethodName    = "/hardware.DataSpaceService/GetRange"
+	DataSpaceService_GetStandard_FullMethodName = "/hardware.DataSpaceService/GetStandard"
+	DataSpaceService_GetTransfer_FullMethodName = "/hardware.DataSpaceService/GetTransfer"
+	DataSpaceService_Pack_FullMethodName        = "/hardware.DataSpaceService/Pack"
+)
+
+// DataSpaceServiceClient is the client API for DataSpaceService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type DataSpaceServiceClient interface {
+	GetRange(ctx context.Context, in *GetRangeRequest, opts ...grpc.CallOption) (*GetRangeResponse, error)
+	GetStandard(ctx context.Context, in *GetStandardRequest, opts ...grpc.CallOption) (*GetStandardResponse, error)
+	GetTransfer(ctx context.Context, in *GetTransferRequest, opts ...grpc.CallOption) (*GetTransferResponse, error)
+	Pack(ctx context.Context, in *PackRequest, opts ...grpc.CallOption) (*PackResponse, error)
+}
+
+type dataSpaceServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewDataSpaceServiceClient(cc grpc.ClientConnInterface) DataSpaceServiceClient {
+	return &dataSpaceServiceClient{cc}
+}
+
+func (c *dataSpaceServiceClient) GetRange(ctx context.Context, in *GetRangeRequest, opts ...grpc.CallOption) (*GetRangeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRangeResponse)
+	err := c.cc.Invoke(ctx, DataSpaceService_GetRange_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dataSpaceServiceClient) GetStandard(ctx context.Context, in *GetStandardRequest, opts ...grpc.CallOption) (*GetStandardResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStandardResponse)
+	err := c.cc.Invoke(ctx, DataSpaceService_GetStandard_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dataSpaceServiceClient) GetTransfer(ctx context.Context, in *GetTransferRequest, opts ...grpc.CallOption) (*GetTransferResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTransferResponse)
+	err := c.cc.Invoke(ctx, DataSpaceService_GetTransfer_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dataSpaceServiceClient) Pack(ctx context.Context, in *PackRequest, opts ...grpc.CallOption) (*PackResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(PackResponse)
+	err := c.cc.Invoke(ctx, DataSpaceService_Pack_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// DataSpaceServiceServer is the server API for DataSpaceService service.
+// All implementations must embed UnimplementedDataSpaceServiceServer
+// for forward compatibility.
+type DataSpaceServiceServer interface {
+	GetRange(context.Context, *GetRangeRequest) (*GetRangeResponse, error)
+	GetStandard(context.Context, *GetStandardRequest) (*GetStandardResponse, error)
+	GetTransfer(context.Context, *GetTransferRequest) (*GetTransferResponse, error)
+	Pack(context.Context, *PackRequest) (*PackResponse, error)
+	mustEmbedUnimplementedDataSpaceServiceServer()
+}
+
+// UnimplementedDataSpaceServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedDataSpaceServiceServer struct{}
+
+func (UnimplementedDataSpaceServiceServer) GetRange(context.Context, *GetRangeRequest) (*GetRangeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRange not implemented")
+}
+func (UnimplementedDataSpaceServiceServer) GetStandard(context.Context, *GetStandardRequest) (*GetStandardResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetStandard not implemented")
+}
+func (UnimplementedDataSpaceServiceServer) GetTransfer(context.Context, *GetTransferRequest) (*GetTransferResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTransfer not implemented")
+}
+func (UnimplementedDataSpaceServiceServer) Pack(context.Context, *PackRequest) (*PackResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Pack not implemented")
+}
+func (UnimplementedDataSpaceServiceServer) mustEmbedUnimplementedDataSpaceServiceServer() {}
+func (UnimplementedDataSpaceServiceServer) testEmbeddedByValue()                          {}
+
+// UnsafeDataSpaceServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to DataSpaceServiceServer will
+// result in compilation errors.
+type UnsafeDataSpaceServiceServer interface {
+	mustEmbedUnimplementedDataSpaceServiceServer()
+}
+
+func RegisterDataSpaceServiceServer(s grpc.ServiceRegistrar, srv DataSpaceServiceServer) {
+	// If the following call panics, it indicates UnimplementedDataSpaceServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&DataSpaceService_ServiceDesc, srv)
+}
+
+func _DataSpaceService_GetRange_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRangeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DataSpaceServiceServer).GetRange(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DataSpaceService_GetRange_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DataSpaceServiceServer).GetRange(ctx, req.(*GetRangeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DataSpaceService_GetStandard_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStandardRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DataSpaceServiceServer).GetStandard(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DataSpaceService_GetStandard_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DataSpaceServiceServer).GetStandard(ctx, req.(*GetStandardRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DataSpaceService_GetTransfer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTransferRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DataSpaceServiceServer).GetTransfer(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DataSpaceService_GetTransfer_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DataSpaceServiceServer).GetTransfer(ctx, req.(*GetTransferRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DataSpaceService_Pack_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PackRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DataSpaceServiceServer).Pack(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DataSpaceService_Pack_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DataSpaceServiceServer).Pack(ctx, req.(*PackRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// DataSpaceService_ServiceDesc is the grpc.ServiceDesc for DataSpaceService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var DataSpaceService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "hardware.DataSpaceService",
+	HandlerType: (*DataSpaceServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetRange",
+			Handler:    _DataSpaceService_GetRange_Handler,
+		},
+		{
+			MethodName: "GetStandard",
+			Handler:    _DataSpaceService_GetStandard_Handler,
+		},
+		{
+			MethodName: "GetTransfer",
+			Handler:    _DataSpaceService_GetTransfer_Handler,
+		},
+		{
+			MethodName: "Pack",
+			Handler:    _DataSpaceService_Pack_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/hardware/hardware.proto",
+}
+
+const (
+	CameraService_AddCallbackBuffer_FullMethodName            = "/hardware.CameraService/AddCallbackBuffer"
+	CameraService_AutoFocus_FullMethodName                    = "/hardware.CameraService/AutoFocus"
+	CameraService_CancelAutoFocus_FullMethodName              = "/hardware.CameraService/CancelAutoFocus"
+	CameraService_EnableShutterSound_FullMethodName           = "/hardware.CameraService/EnableShutterSound"
+	CameraService_GetParameters_FullMethodName                = "/hardware.CameraService/GetParameters"
+	CameraService_Lock_FullMethodName                         = "/hardware.CameraService/Lock"
+	CameraService_Reconnect_FullMethodName                    = "/hardware.CameraService/Reconnect"
+	CameraService_Release_FullMethodName                      = "/hardware.CameraService/Release"
+	CameraService_SetAutoFocusMoveCallback_FullMethodName     = "/hardware.CameraService/SetAutoFocusMoveCallback"
+	CameraService_SetDisplayOrientation_FullMethodName        = "/hardware.CameraService/SetDisplayOrientation"
+	CameraService_SetErrorCallback_FullMethodName             = "/hardware.CameraService/SetErrorCallback"
+	CameraService_SetFaceDetectionListener_FullMethodName     = "/hardware.CameraService/SetFaceDetectionListener"
+	CameraService_SetOneShotPreviewCallback_FullMethodName    = "/hardware.CameraService/SetOneShotPreviewCallback"
+	CameraService_SetParameters_FullMethodName                = "/hardware.CameraService/SetParameters"
+	CameraService_SetPreviewCallback_FullMethodName           = "/hardware.CameraService/SetPreviewCallback"
+	CameraService_SetPreviewCallbackWithBuffer_FullMethodName = "/hardware.CameraService/SetPreviewCallbackWithBuffer"
+	CameraService_SetPreviewDisplay_FullMethodName            = "/hardware.CameraService/SetPreviewDisplay"
+	CameraService_SetPreviewTexture_FullMethodName            = "/hardware.CameraService/SetPreviewTexture"
+	CameraService_SetZoomChangeListener_FullMethodName        = "/hardware.CameraService/SetZoomChangeListener"
+	CameraService_StartFaceDetection_FullMethodName           = "/hardware.CameraService/StartFaceDetection"
+	CameraService_StartPreview_FullMethodName                 = "/hardware.CameraService/StartPreview"
+	CameraService_StartSmoothZoom_FullMethodName              = "/hardware.CameraService/StartSmoothZoom"
+	CameraService_StopFaceDetection_FullMethodName            = "/hardware.CameraService/StopFaceDetection"
+	CameraService_StopPreview_FullMethodName                  = "/hardware.CameraService/StopPreview"
+	CameraService_StopSmoothZoom_FullMethodName               = "/hardware.CameraService/StopSmoothZoom"
+	CameraService_TakePicture3_FullMethodName                 = "/hardware.CameraService/TakePicture3"
+	CameraService_TakePicture4_1_FullMethodName               = "/hardware.CameraService/TakePicture4_1"
+	CameraService_Unlock_FullMethodName                       = "/hardware.CameraService/Unlock"
+	CameraService_GetCameraInfo_FullMethodName                = "/hardware.CameraService/GetCameraInfo"
+	CameraService_GetNumberOfCameras_FullMethodName           = "/hardware.CameraService/GetNumberOfCameras"
+	CameraService_Open0_FullMethodName                        = "/hardware.CameraService/Open0"
+	CameraService_Open1_1_FullMethodName                      = "/hardware.CameraService/Open1_1"
+)
+
+// CameraServiceClient is the client API for CameraService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type CameraServiceClient interface {
+	AddCallbackBuffer(ctx context.Context, in *AddCallbackBufferRequest, opts ...grpc.CallOption) (*AddCallbackBufferResponse, error)
+	AutoFocus(ctx context.Context, in *AutoFocusRequest, opts ...grpc.CallOption) (*AutoFocusResponse, error)
+	CancelAutoFocus(ctx context.Context, in *CancelAutoFocusRequest, opts ...grpc.CallOption) (*CancelAutoFocusResponse, error)
+	EnableShutterSound(ctx context.Context, in *EnableShutterSoundRequest, opts ...grpc.CallOption) (*EnableShutterSoundResponse, error)
+	GetParameters(ctx context.Context, in *GetParametersRequest, opts ...grpc.CallOption) (*GetParametersResponse, error)
+	Lock(ctx context.Context, in *LockRequest, opts ...grpc.CallOption) (*LockResponse, error)
+	Reconnect(ctx context.Context, in *ReconnectRequest, opts ...grpc.CallOption) (*ReconnectResponse, error)
+	Release(ctx context.Context, in *ReleaseRequest, opts ...grpc.CallOption) (*ReleaseResponse, error)
+	SetAutoFocusMoveCallback(ctx context.Context, in *SetAutoFocusMoveCallbackRequest, opts ...grpc.CallOption) (*SetAutoFocusMoveCallbackResponse, error)
+	SetDisplayOrientation(ctx context.Context, in *SetDisplayOrientationRequest, opts ...grpc.CallOption) (*SetDisplayOrientationResponse, error)
+	SetErrorCallback(ctx context.Context, in *SetErrorCallbackRequest, opts ...grpc.CallOption) (*SetErrorCallbackResponse, error)
+	SetFaceDetectionListener(ctx context.Context, in *SetFaceDetectionListenerRequest, opts ...grpc.CallOption) (*SetFaceDetectionListenerResponse, error)
+	SetOneShotPreviewCallback(ctx context.Context, in *SetOneShotPreviewCallbackRequest, opts ...grpc.CallOption) (*SetOneShotPreviewCallbackResponse, error)
+	SetParameters(ctx context.Context, in *SetParametersRequest, opts ...grpc.CallOption) (*SetParametersResponse, error)
+	SetPreviewCallback(ctx context.Context, in *SetPreviewCallbackRequest, opts ...grpc.CallOption) (*SetPreviewCallbackResponse, error)
+	SetPreviewCallbackWithBuffer(ctx context.Context, in *SetPreviewCallbackWithBufferRequest, opts ...grpc.CallOption) (*SetPreviewCallbackWithBufferResponse, error)
+	SetPreviewDisplay(ctx context.Context, in *SetPreviewDisplayRequest, opts ...grpc.CallOption) (*SetPreviewDisplayResponse, error)
+	SetPreviewTexture(ctx context.Context, in *SetPreviewTextureRequest, opts ...grpc.CallOption) (*SetPreviewTextureResponse, error)
+	SetZoomChangeListener(ctx context.Context, in *SetZoomChangeListenerRequest, opts ...grpc.CallOption) (*SetZoomChangeListenerResponse, error)
+	StartFaceDetection(ctx context.Context, in *StartFaceDetectionRequest, opts ...grpc.CallOption) (*StartFaceDetectionResponse, error)
+	StartPreview(ctx context.Context, in *StartPreviewRequest, opts ...grpc.CallOption) (*StartPreviewResponse, error)
+	StartSmoothZoom(ctx context.Context, in *StartSmoothZoomRequest, opts ...grpc.CallOption) (*StartSmoothZoomResponse, error)
+	StopFaceDetection(ctx context.Context, in *StopFaceDetectionRequest, opts ...grpc.CallOption) (*StopFaceDetectionResponse, error)
+	StopPreview(ctx context.Context, in *StopPreviewRequest, opts ...grpc.CallOption) (*StopPreviewResponse, error)
+	StopSmoothZoom(ctx context.Context, in *StopSmoothZoomRequest, opts ...grpc.CallOption) (*StopSmoothZoomResponse, error)
+	TakePicture3(ctx context.Context, in *TakePicture3Request, opts ...grpc.CallOption) (*TakePicture3Response, error)
+	TakePicture4_1(ctx context.Context, in *TakePicture4_1Request, opts ...grpc.CallOption) (*TakePicture4_1Response, error)
+	Unlock(ctx context.Context, in *UnlockRequest, opts ...grpc.CallOption) (*UnlockResponse, error)
+	GetCameraInfo(ctx context.Context, in *GetCameraInfoRequest, opts ...grpc.CallOption) (*GetCameraInfoResponse, error)
+	GetNumberOfCameras(ctx context.Context, in *GetNumberOfCamerasRequest, opts ...grpc.CallOption) (*GetNumberOfCamerasResponse, error)
+	Open0(ctx context.Context, in *Open0Request, opts ...grpc.CallOption) (*Open0Response, error)
+	Open1_1(ctx context.Context, in *Open1_1Request, opts ...grpc.CallOption) (*Open1_1Response, error)
+}
+
+type cameraServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewCameraServiceClient(cc grpc.ClientConnInterface) CameraServiceClient {
+	return &cameraServiceClient{cc}
+}
+
+func (c *cameraServiceClient) AddCallbackBuffer(ctx context.Context, in *AddCallbackBufferRequest, opts ...grpc.CallOption) (*AddCallbackBufferResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddCallbackBufferResponse)
+	err := c.cc.Invoke(ctx, CameraService_AddCallbackBuffer_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraServiceClient) AutoFocus(ctx context.Context, in *AutoFocusRequest, opts ...grpc.CallOption) (*AutoFocusResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AutoFocusResponse)
+	err := c.cc.Invoke(ctx, CameraService_AutoFocus_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraServiceClient) CancelAutoFocus(ctx context.Context, in *CancelAutoFocusRequest, opts ...grpc.CallOption) (*CancelAutoFocusResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CancelAutoFocusResponse)
+	err := c.cc.Invoke(ctx, CameraService_CancelAutoFocus_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraServiceClient) EnableShutterSound(ctx context.Context, in *EnableShutterSoundRequest, opts ...grpc.CallOption) (*EnableShutterSoundResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EnableShutterSoundResponse)
+	err := c.cc.Invoke(ctx, CameraService_EnableShutterSound_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraServiceClient) GetParameters(ctx context.Context, in *GetParametersRequest, opts ...grpc.CallOption) (*GetParametersResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetParametersResponse)
+	err := c.cc.Invoke(ctx, CameraService_GetParameters_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraServiceClient) Lock(ctx context.Context, in *LockRequest, opts ...grpc.CallOption) (*LockResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(LockResponse)
+	err := c.cc.Invoke(ctx, CameraService_Lock_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraServiceClient) Reconnect(ctx context.Context, in *ReconnectRequest, opts ...grpc.CallOption) (*ReconnectResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ReconnectResponse)
+	err := c.cc.Invoke(ctx, CameraService_Reconnect_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraServiceClient) Release(ctx context.Context, in *ReleaseRequest, opts ...grpc.CallOption) (*ReleaseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ReleaseResponse)
+	err := c.cc.Invoke(ctx, CameraService_Release_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraServiceClient) SetAutoFocusMoveCallback(ctx context.Context, in *SetAutoFocusMoveCallbackRequest, opts ...grpc.CallOption) (*SetAutoFocusMoveCallbackResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetAutoFocusMoveCallbackResponse)
+	err := c.cc.Invoke(ctx, CameraService_SetAutoFocusMoveCallback_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraServiceClient) SetDisplayOrientation(ctx context.Context, in *SetDisplayOrientationRequest, opts ...grpc.CallOption) (*SetDisplayOrientationResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetDisplayOrientationResponse)
+	err := c.cc.Invoke(ctx, CameraService_SetDisplayOrientation_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraServiceClient) SetErrorCallback(ctx context.Context, in *SetErrorCallbackRequest, opts ...grpc.CallOption) (*SetErrorCallbackResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetErrorCallbackResponse)
+	err := c.cc.Invoke(ctx, CameraService_SetErrorCallback_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraServiceClient) SetFaceDetectionListener(ctx context.Context, in *SetFaceDetectionListenerRequest, opts ...grpc.CallOption) (*SetFaceDetectionListenerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetFaceDetectionListenerResponse)
+	err := c.cc.Invoke(ctx, CameraService_SetFaceDetectionListener_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraServiceClient) SetOneShotPreviewCallback(ctx context.Context, in *SetOneShotPreviewCallbackRequest, opts ...grpc.CallOption) (*SetOneShotPreviewCallbackResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetOneShotPreviewCallbackResponse)
+	err := c.cc.Invoke(ctx, CameraService_SetOneShotPreviewCallback_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraServiceClient) SetParameters(ctx context.Context, in *SetParametersRequest, opts ...grpc.CallOption) (*SetParametersResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetParametersResponse)
+	err := c.cc.Invoke(ctx, CameraService_SetParameters_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraServiceClient) SetPreviewCallback(ctx context.Context, in *SetPreviewCallbackRequest, opts ...grpc.CallOption) (*SetPreviewCallbackResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetPreviewCallbackResponse)
+	err := c.cc.Invoke(ctx, CameraService_SetPreviewCallback_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraServiceClient) SetPreviewCallbackWithBuffer(ctx context.Context, in *SetPreviewCallbackWithBufferRequest, opts ...grpc.CallOption) (*SetPreviewCallbackWithBufferResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetPreviewCallbackWithBufferResponse)
+	err := c.cc.Invoke(ctx, CameraService_SetPreviewCallbackWithBuffer_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraServiceClient) SetPreviewDisplay(ctx context.Context, in *SetPreviewDisplayRequest, opts ...grpc.CallOption) (*SetPreviewDisplayResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetPreviewDisplayResponse)
+	err := c.cc.Invoke(ctx, CameraService_SetPreviewDisplay_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraServiceClient) SetPreviewTexture(ctx context.Context, in *SetPreviewTextureRequest, opts ...grpc.CallOption) (*SetPreviewTextureResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetPreviewTextureResponse)
+	err := c.cc.Invoke(ctx, CameraService_SetPreviewTexture_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraServiceClient) SetZoomChangeListener(ctx context.Context, in *SetZoomChangeListenerRequest, opts ...grpc.CallOption) (*SetZoomChangeListenerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetZoomChangeListenerResponse)
+	err := c.cc.Invoke(ctx, CameraService_SetZoomChangeListener_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraServiceClient) StartFaceDetection(ctx context.Context, in *StartFaceDetectionRequest, opts ...grpc.CallOption) (*StartFaceDetectionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(StartFaceDetectionResponse)
+	err := c.cc.Invoke(ctx, CameraService_StartFaceDetection_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraServiceClient) StartPreview(ctx context.Context, in *StartPreviewRequest, opts ...grpc.CallOption) (*StartPreviewResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(StartPreviewResponse)
+	err := c.cc.Invoke(ctx, CameraService_StartPreview_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraServiceClient) StartSmoothZoom(ctx context.Context, in *StartSmoothZoomRequest, opts ...grpc.CallOption) (*StartSmoothZoomResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(StartSmoothZoomResponse)
+	err := c.cc.Invoke(ctx, CameraService_StartSmoothZoom_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraServiceClient) StopFaceDetection(ctx context.Context, in *StopFaceDetectionRequest, opts ...grpc.CallOption) (*StopFaceDetectionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(StopFaceDetectionResponse)
+	err := c.cc.Invoke(ctx, CameraService_StopFaceDetection_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraServiceClient) StopPreview(ctx context.Context, in *StopPreviewRequest, opts ...grpc.CallOption) (*StopPreviewResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(StopPreviewResponse)
+	err := c.cc.Invoke(ctx, CameraService_StopPreview_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraServiceClient) StopSmoothZoom(ctx context.Context, in *StopSmoothZoomRequest, opts ...grpc.CallOption) (*StopSmoothZoomResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(StopSmoothZoomResponse)
+	err := c.cc.Invoke(ctx, CameraService_StopSmoothZoom_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraServiceClient) TakePicture3(ctx context.Context, in *TakePicture3Request, opts ...grpc.CallOption) (*TakePicture3Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(TakePicture3Response)
+	err := c.cc.Invoke(ctx, CameraService_TakePicture3_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraServiceClient) TakePicture4_1(ctx context.Context, in *TakePicture4_1Request, opts ...grpc.CallOption) (*TakePicture4_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(TakePicture4_1Response)
+	err := c.cc.Invoke(ctx, CameraService_TakePicture4_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraServiceClient) Unlock(ctx context.Context, in *UnlockRequest, opts ...grpc.CallOption) (*UnlockResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UnlockResponse)
+	err := c.cc.Invoke(ctx, CameraService_Unlock_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraServiceClient) GetCameraInfo(ctx context.Context, in *GetCameraInfoRequest, opts ...grpc.CallOption) (*GetCameraInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCameraInfoResponse)
+	err := c.cc.Invoke(ctx, CameraService_GetCameraInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraServiceClient) GetNumberOfCameras(ctx context.Context, in *GetNumberOfCamerasRequest, opts ...grpc.CallOption) (*GetNumberOfCamerasResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetNumberOfCamerasResponse)
+	err := c.cc.Invoke(ctx, CameraService_GetNumberOfCameras_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraServiceClient) Open0(ctx context.Context, in *Open0Request, opts ...grpc.CallOption) (*Open0Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Open0Response)
+	err := c.cc.Invoke(ctx, CameraService_Open0_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraServiceClient) Open1_1(ctx context.Context, in *Open1_1Request, opts ...grpc.CallOption) (*Open1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Open1_1Response)
+	err := c.cc.Invoke(ctx, CameraService_Open1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// CameraServiceServer is the server API for CameraService service.
+// All implementations must embed UnimplementedCameraServiceServer
+// for forward compatibility.
+type CameraServiceServer interface {
+	AddCallbackBuffer(context.Context, *AddCallbackBufferRequest) (*AddCallbackBufferResponse, error)
+	AutoFocus(context.Context, *AutoFocusRequest) (*AutoFocusResponse, error)
+	CancelAutoFocus(context.Context, *CancelAutoFocusRequest) (*CancelAutoFocusResponse, error)
+	EnableShutterSound(context.Context, *EnableShutterSoundRequest) (*EnableShutterSoundResponse, error)
+	GetParameters(context.Context, *GetParametersRequest) (*GetParametersResponse, error)
+	Lock(context.Context, *LockRequest) (*LockResponse, error)
+	Reconnect(context.Context, *ReconnectRequest) (*ReconnectResponse, error)
+	Release(context.Context, *ReleaseRequest) (*ReleaseResponse, error)
+	SetAutoFocusMoveCallback(context.Context, *SetAutoFocusMoveCallbackRequest) (*SetAutoFocusMoveCallbackResponse, error)
+	SetDisplayOrientation(context.Context, *SetDisplayOrientationRequest) (*SetDisplayOrientationResponse, error)
+	SetErrorCallback(context.Context, *SetErrorCallbackRequest) (*SetErrorCallbackResponse, error)
+	SetFaceDetectionListener(context.Context, *SetFaceDetectionListenerRequest) (*SetFaceDetectionListenerResponse, error)
+	SetOneShotPreviewCallback(context.Context, *SetOneShotPreviewCallbackRequest) (*SetOneShotPreviewCallbackResponse, error)
+	SetParameters(context.Context, *SetParametersRequest) (*SetParametersResponse, error)
+	SetPreviewCallback(context.Context, *SetPreviewCallbackRequest) (*SetPreviewCallbackResponse, error)
+	SetPreviewCallbackWithBuffer(context.Context, *SetPreviewCallbackWithBufferRequest) (*SetPreviewCallbackWithBufferResponse, error)
+	SetPreviewDisplay(context.Context, *SetPreviewDisplayRequest) (*SetPreviewDisplayResponse, error)
+	SetPreviewTexture(context.Context, *SetPreviewTextureRequest) (*SetPreviewTextureResponse, error)
+	SetZoomChangeListener(context.Context, *SetZoomChangeListenerRequest) (*SetZoomChangeListenerResponse, error)
+	StartFaceDetection(context.Context, *StartFaceDetectionRequest) (*StartFaceDetectionResponse, error)
+	StartPreview(context.Context, *StartPreviewRequest) (*StartPreviewResponse, error)
+	StartSmoothZoom(context.Context, *StartSmoothZoomRequest) (*StartSmoothZoomResponse, error)
+	StopFaceDetection(context.Context, *StopFaceDetectionRequest) (*StopFaceDetectionResponse, error)
+	StopPreview(context.Context, *StopPreviewRequest) (*StopPreviewResponse, error)
+	StopSmoothZoom(context.Context, *StopSmoothZoomRequest) (*StopSmoothZoomResponse, error)
+	TakePicture3(context.Context, *TakePicture3Request) (*TakePicture3Response, error)
+	TakePicture4_1(context.Context, *TakePicture4_1Request) (*TakePicture4_1Response, error)
+	Unlock(context.Context, *UnlockRequest) (*UnlockResponse, error)
+	GetCameraInfo(context.Context, *GetCameraInfoRequest) (*GetCameraInfoResponse, error)
+	GetNumberOfCameras(context.Context, *GetNumberOfCamerasRequest) (*GetNumberOfCamerasResponse, error)
+	Open0(context.Context, *Open0Request) (*Open0Response, error)
+	Open1_1(context.Context, *Open1_1Request) (*Open1_1Response, error)
+	mustEmbedUnimplementedCameraServiceServer()
+}
+
+// UnimplementedCameraServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedCameraServiceServer struct{}
+
+func (UnimplementedCameraServiceServer) AddCallbackBuffer(context.Context, *AddCallbackBufferRequest) (*AddCallbackBufferResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddCallbackBuffer not implemented")
+}
+func (UnimplementedCameraServiceServer) AutoFocus(context.Context, *AutoFocusRequest) (*AutoFocusResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AutoFocus not implemented")
+}
+func (UnimplementedCameraServiceServer) CancelAutoFocus(context.Context, *CancelAutoFocusRequest) (*CancelAutoFocusResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CancelAutoFocus not implemented")
+}
+func (UnimplementedCameraServiceServer) EnableShutterSound(context.Context, *EnableShutterSoundRequest) (*EnableShutterSoundResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method EnableShutterSound not implemented")
+}
+func (UnimplementedCameraServiceServer) GetParameters(context.Context, *GetParametersRequest) (*GetParametersResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetParameters not implemented")
+}
+func (UnimplementedCameraServiceServer) Lock(context.Context, *LockRequest) (*LockResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Lock not implemented")
+}
+func (UnimplementedCameraServiceServer) Reconnect(context.Context, *ReconnectRequest) (*ReconnectResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Reconnect not implemented")
+}
+func (UnimplementedCameraServiceServer) Release(context.Context, *ReleaseRequest) (*ReleaseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Release not implemented")
+}
+func (UnimplementedCameraServiceServer) SetAutoFocusMoveCallback(context.Context, *SetAutoFocusMoveCallbackRequest) (*SetAutoFocusMoveCallbackResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetAutoFocusMoveCallback not implemented")
+}
+func (UnimplementedCameraServiceServer) SetDisplayOrientation(context.Context, *SetDisplayOrientationRequest) (*SetDisplayOrientationResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetDisplayOrientation not implemented")
+}
+func (UnimplementedCameraServiceServer) SetErrorCallback(context.Context, *SetErrorCallbackRequest) (*SetErrorCallbackResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetErrorCallback not implemented")
+}
+func (UnimplementedCameraServiceServer) SetFaceDetectionListener(context.Context, *SetFaceDetectionListenerRequest) (*SetFaceDetectionListenerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetFaceDetectionListener not implemented")
+}
+func (UnimplementedCameraServiceServer) SetOneShotPreviewCallback(context.Context, *SetOneShotPreviewCallbackRequest) (*SetOneShotPreviewCallbackResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetOneShotPreviewCallback not implemented")
+}
+func (UnimplementedCameraServiceServer) SetParameters(context.Context, *SetParametersRequest) (*SetParametersResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetParameters not implemented")
+}
+func (UnimplementedCameraServiceServer) SetPreviewCallback(context.Context, *SetPreviewCallbackRequest) (*SetPreviewCallbackResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetPreviewCallback not implemented")
+}
+func (UnimplementedCameraServiceServer) SetPreviewCallbackWithBuffer(context.Context, *SetPreviewCallbackWithBufferRequest) (*SetPreviewCallbackWithBufferResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetPreviewCallbackWithBuffer not implemented")
+}
+func (UnimplementedCameraServiceServer) SetPreviewDisplay(context.Context, *SetPreviewDisplayRequest) (*SetPreviewDisplayResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetPreviewDisplay not implemented")
+}
+func (UnimplementedCameraServiceServer) SetPreviewTexture(context.Context, *SetPreviewTextureRequest) (*SetPreviewTextureResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetPreviewTexture not implemented")
+}
+func (UnimplementedCameraServiceServer) SetZoomChangeListener(context.Context, *SetZoomChangeListenerRequest) (*SetZoomChangeListenerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetZoomChangeListener not implemented")
+}
+func (UnimplementedCameraServiceServer) StartFaceDetection(context.Context, *StartFaceDetectionRequest) (*StartFaceDetectionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method StartFaceDetection not implemented")
+}
+func (UnimplementedCameraServiceServer) StartPreview(context.Context, *StartPreviewRequest) (*StartPreviewResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method StartPreview not implemented")
+}
+func (UnimplementedCameraServiceServer) StartSmoothZoom(context.Context, *StartSmoothZoomRequest) (*StartSmoothZoomResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method StartSmoothZoom not implemented")
+}
+func (UnimplementedCameraServiceServer) StopFaceDetection(context.Context, *StopFaceDetectionRequest) (*StopFaceDetectionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method StopFaceDetection not implemented")
+}
+func (UnimplementedCameraServiceServer) StopPreview(context.Context, *StopPreviewRequest) (*StopPreviewResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method StopPreview not implemented")
+}
+func (UnimplementedCameraServiceServer) StopSmoothZoom(context.Context, *StopSmoothZoomRequest) (*StopSmoothZoomResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method StopSmoothZoom not implemented")
+}
+func (UnimplementedCameraServiceServer) TakePicture3(context.Context, *TakePicture3Request) (*TakePicture3Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method TakePicture3 not implemented")
+}
+func (UnimplementedCameraServiceServer) TakePicture4_1(context.Context, *TakePicture4_1Request) (*TakePicture4_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method TakePicture4_1 not implemented")
+}
+func (UnimplementedCameraServiceServer) Unlock(context.Context, *UnlockRequest) (*UnlockResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Unlock not implemented")
+}
+func (UnimplementedCameraServiceServer) GetCameraInfo(context.Context, *GetCameraInfoRequest) (*GetCameraInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCameraInfo not implemented")
+}
+func (UnimplementedCameraServiceServer) GetNumberOfCameras(context.Context, *GetNumberOfCamerasRequest) (*GetNumberOfCamerasResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetNumberOfCameras not implemented")
+}
+func (UnimplementedCameraServiceServer) Open0(context.Context, *Open0Request) (*Open0Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Open0 not implemented")
+}
+func (UnimplementedCameraServiceServer) Open1_1(context.Context, *Open1_1Request) (*Open1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Open1_1 not implemented")
+}
+func (UnimplementedCameraServiceServer) mustEmbedUnimplementedCameraServiceServer() {}
+func (UnimplementedCameraServiceServer) testEmbeddedByValue()                       {}
+
+// UnsafeCameraServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CameraServiceServer will
+// result in compilation errors.
+type UnsafeCameraServiceServer interface {
+	mustEmbedUnimplementedCameraServiceServer()
+}
+
+func RegisterCameraServiceServer(s grpc.ServiceRegistrar, srv CameraServiceServer) {
+	// If the following call panics, it indicates UnimplementedCameraServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&CameraService_ServiceDesc, srv)
+}
+
+func _CameraService_AddCallbackBuffer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddCallbackBufferRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraServiceServer).AddCallbackBuffer(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraService_AddCallbackBuffer_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraServiceServer).AddCallbackBuffer(ctx, req.(*AddCallbackBufferRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraService_AutoFocus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AutoFocusRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraServiceServer).AutoFocus(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraService_AutoFocus_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraServiceServer).AutoFocus(ctx, req.(*AutoFocusRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraService_CancelAutoFocus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CancelAutoFocusRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraServiceServer).CancelAutoFocus(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraService_CancelAutoFocus_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraServiceServer).CancelAutoFocus(ctx, req.(*CancelAutoFocusRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraService_EnableShutterSound_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EnableShutterSoundRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraServiceServer).EnableShutterSound(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraService_EnableShutterSound_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraServiceServer).EnableShutterSound(ctx, req.(*EnableShutterSoundRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraService_GetParameters_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetParametersRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraServiceServer).GetParameters(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraService_GetParameters_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraServiceServer).GetParameters(ctx, req.(*GetParametersRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraService_Lock_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LockRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraServiceServer).Lock(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraService_Lock_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraServiceServer).Lock(ctx, req.(*LockRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraService_Reconnect_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReconnectRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraServiceServer).Reconnect(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraService_Reconnect_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraServiceServer).Reconnect(ctx, req.(*ReconnectRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraService_Release_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReleaseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraServiceServer).Release(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraService_Release_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraServiceServer).Release(ctx, req.(*ReleaseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraService_SetAutoFocusMoveCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetAutoFocusMoveCallbackRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraServiceServer).SetAutoFocusMoveCallback(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraService_SetAutoFocusMoveCallback_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraServiceServer).SetAutoFocusMoveCallback(ctx, req.(*SetAutoFocusMoveCallbackRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraService_SetDisplayOrientation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetDisplayOrientationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraServiceServer).SetDisplayOrientation(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraService_SetDisplayOrientation_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraServiceServer).SetDisplayOrientation(ctx, req.(*SetDisplayOrientationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraService_SetErrorCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetErrorCallbackRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraServiceServer).SetErrorCallback(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraService_SetErrorCallback_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraServiceServer).SetErrorCallback(ctx, req.(*SetErrorCallbackRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraService_SetFaceDetectionListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetFaceDetectionListenerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraServiceServer).SetFaceDetectionListener(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraService_SetFaceDetectionListener_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraServiceServer).SetFaceDetectionListener(ctx, req.(*SetFaceDetectionListenerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraService_SetOneShotPreviewCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetOneShotPreviewCallbackRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraServiceServer).SetOneShotPreviewCallback(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraService_SetOneShotPreviewCallback_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraServiceServer).SetOneShotPreviewCallback(ctx, req.(*SetOneShotPreviewCallbackRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraService_SetParameters_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetParametersRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraServiceServer).SetParameters(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraService_SetParameters_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraServiceServer).SetParameters(ctx, req.(*SetParametersRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraService_SetPreviewCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetPreviewCallbackRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraServiceServer).SetPreviewCallback(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraService_SetPreviewCallback_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraServiceServer).SetPreviewCallback(ctx, req.(*SetPreviewCallbackRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraService_SetPreviewCallbackWithBuffer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetPreviewCallbackWithBufferRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraServiceServer).SetPreviewCallbackWithBuffer(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraService_SetPreviewCallbackWithBuffer_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraServiceServer).SetPreviewCallbackWithBuffer(ctx, req.(*SetPreviewCallbackWithBufferRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraService_SetPreviewDisplay_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetPreviewDisplayRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraServiceServer).SetPreviewDisplay(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraService_SetPreviewDisplay_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraServiceServer).SetPreviewDisplay(ctx, req.(*SetPreviewDisplayRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraService_SetPreviewTexture_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetPreviewTextureRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraServiceServer).SetPreviewTexture(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraService_SetPreviewTexture_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraServiceServer).SetPreviewTexture(ctx, req.(*SetPreviewTextureRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraService_SetZoomChangeListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetZoomChangeListenerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraServiceServer).SetZoomChangeListener(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraService_SetZoomChangeListener_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraServiceServer).SetZoomChangeListener(ctx, req.(*SetZoomChangeListenerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraService_StartFaceDetection_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StartFaceDetectionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraServiceServer).StartFaceDetection(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraService_StartFaceDetection_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraServiceServer).StartFaceDetection(ctx, req.(*StartFaceDetectionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraService_StartPreview_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StartPreviewRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraServiceServer).StartPreview(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraService_StartPreview_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraServiceServer).StartPreview(ctx, req.(*StartPreviewRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraService_StartSmoothZoom_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StartSmoothZoomRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraServiceServer).StartSmoothZoom(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraService_StartSmoothZoom_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraServiceServer).StartSmoothZoom(ctx, req.(*StartSmoothZoomRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraService_StopFaceDetection_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StopFaceDetectionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraServiceServer).StopFaceDetection(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraService_StopFaceDetection_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraServiceServer).StopFaceDetection(ctx, req.(*StopFaceDetectionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraService_StopPreview_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StopPreviewRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraServiceServer).StopPreview(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraService_StopPreview_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraServiceServer).StopPreview(ctx, req.(*StopPreviewRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraService_StopSmoothZoom_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StopSmoothZoomRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraServiceServer).StopSmoothZoom(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraService_StopSmoothZoom_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraServiceServer).StopSmoothZoom(ctx, req.(*StopSmoothZoomRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraService_TakePicture3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TakePicture3Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraServiceServer).TakePicture3(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraService_TakePicture3_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraServiceServer).TakePicture3(ctx, req.(*TakePicture3Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraService_TakePicture4_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TakePicture4_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraServiceServer).TakePicture4_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraService_TakePicture4_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraServiceServer).TakePicture4_1(ctx, req.(*TakePicture4_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraService_Unlock_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnlockRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraServiceServer).Unlock(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraService_Unlock_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraServiceServer).Unlock(ctx, req.(*UnlockRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraService_GetCameraInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCameraInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraServiceServer).GetCameraInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraService_GetCameraInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraServiceServer).GetCameraInfo(ctx, req.(*GetCameraInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraService_GetNumberOfCameras_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetNumberOfCamerasRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraServiceServer).GetNumberOfCameras(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraService_GetNumberOfCameras_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraServiceServer).GetNumberOfCameras(ctx, req.(*GetNumberOfCamerasRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraService_Open0_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Open0Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraServiceServer).Open0(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraService_Open0_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraServiceServer).Open0(ctx, req.(*Open0Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraService_Open1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Open1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraServiceServer).Open1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraService_Open1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraServiceServer).Open1_1(ctx, req.(*Open1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// CameraService_ServiceDesc is the grpc.ServiceDesc for CameraService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var CameraService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "hardware.CameraService",
+	HandlerType: (*CameraServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "AddCallbackBuffer",
+			Handler:    _CameraService_AddCallbackBuffer_Handler,
+		},
+		{
+			MethodName: "AutoFocus",
+			Handler:    _CameraService_AutoFocus_Handler,
+		},
+		{
+			MethodName: "CancelAutoFocus",
+			Handler:    _CameraService_CancelAutoFocus_Handler,
+		},
+		{
+			MethodName: "EnableShutterSound",
+			Handler:    _CameraService_EnableShutterSound_Handler,
+		},
+		{
+			MethodName: "GetParameters",
+			Handler:    _CameraService_GetParameters_Handler,
+		},
+		{
+			MethodName: "Lock",
+			Handler:    _CameraService_Lock_Handler,
+		},
+		{
+			MethodName: "Reconnect",
+			Handler:    _CameraService_Reconnect_Handler,
+		},
+		{
+			MethodName: "Release",
+			Handler:    _CameraService_Release_Handler,
+		},
+		{
+			MethodName: "SetAutoFocusMoveCallback",
+			Handler:    _CameraService_SetAutoFocusMoveCallback_Handler,
+		},
+		{
+			MethodName: "SetDisplayOrientation",
+			Handler:    _CameraService_SetDisplayOrientation_Handler,
+		},
+		{
+			MethodName: "SetErrorCallback",
+			Handler:    _CameraService_SetErrorCallback_Handler,
+		},
+		{
+			MethodName: "SetFaceDetectionListener",
+			Handler:    _CameraService_SetFaceDetectionListener_Handler,
+		},
+		{
+			MethodName: "SetOneShotPreviewCallback",
+			Handler:    _CameraService_SetOneShotPreviewCallback_Handler,
+		},
+		{
+			MethodName: "SetParameters",
+			Handler:    _CameraService_SetParameters_Handler,
+		},
+		{
+			MethodName: "SetPreviewCallback",
+			Handler:    _CameraService_SetPreviewCallback_Handler,
+		},
+		{
+			MethodName: "SetPreviewCallbackWithBuffer",
+			Handler:    _CameraService_SetPreviewCallbackWithBuffer_Handler,
+		},
+		{
+			MethodName: "SetPreviewDisplay",
+			Handler:    _CameraService_SetPreviewDisplay_Handler,
+		},
+		{
+			MethodName: "SetPreviewTexture",
+			Handler:    _CameraService_SetPreviewTexture_Handler,
+		},
+		{
+			MethodName: "SetZoomChangeListener",
+			Handler:    _CameraService_SetZoomChangeListener_Handler,
+		},
+		{
+			MethodName: "StartFaceDetection",
+			Handler:    _CameraService_StartFaceDetection_Handler,
+		},
+		{
+			MethodName: "StartPreview",
+			Handler:    _CameraService_StartPreview_Handler,
+		},
+		{
+			MethodName: "StartSmoothZoom",
+			Handler:    _CameraService_StartSmoothZoom_Handler,
+		},
+		{
+			MethodName: "StopFaceDetection",
+			Handler:    _CameraService_StopFaceDetection_Handler,
+		},
+		{
+			MethodName: "StopPreview",
+			Handler:    _CameraService_StopPreview_Handler,
+		},
+		{
+			MethodName: "StopSmoothZoom",
+			Handler:    _CameraService_StopSmoothZoom_Handler,
+		},
+		{
+			MethodName: "TakePicture3",
+			Handler:    _CameraService_TakePicture3_Handler,
+		},
+		{
+			MethodName: "TakePicture4_1",
+			Handler:    _CameraService_TakePicture4_1_Handler,
+		},
+		{
+			MethodName: "Unlock",
+			Handler:    _CameraService_Unlock_Handler,
+		},
+		{
+			MethodName: "GetCameraInfo",
+			Handler:    _CameraService_GetCameraInfo_Handler,
+		},
+		{
+			MethodName: "GetNumberOfCameras",
+			Handler:    _CameraService_GetNumberOfCameras_Handler,
+		},
+		{
+			MethodName: "Open0",
+			Handler:    _CameraService_Open0_Handler,
+		},
+		{
+			MethodName: "Open1_1",
+			Handler:    _CameraService_Open1_1_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/hardware/hardware.proto",
+}
+
+const (
+	CameraAreaService_Equals_FullMethodName = "/hardware.CameraAreaService/Equals"
+)
+
+// CameraAreaServiceClient is the client API for CameraAreaService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type CameraAreaServiceClient interface {
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+}
+
+type cameraAreaServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewCameraAreaServiceClient(cc grpc.ClientConnInterface) CameraAreaServiceClient {
+	return &cameraAreaServiceClient{cc}
+}
+
+func (c *cameraAreaServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, CameraAreaService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// CameraAreaServiceServer is the server API for CameraAreaService service.
+// All implementations must embed UnimplementedCameraAreaServiceServer
+// for forward compatibility.
+type CameraAreaServiceServer interface {
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	mustEmbedUnimplementedCameraAreaServiceServer()
+}
+
+// UnimplementedCameraAreaServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedCameraAreaServiceServer struct{}
+
+func (UnimplementedCameraAreaServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedCameraAreaServiceServer) mustEmbedUnimplementedCameraAreaServiceServer() {}
+func (UnimplementedCameraAreaServiceServer) testEmbeddedByValue()                           {}
+
+// UnsafeCameraAreaServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CameraAreaServiceServer will
+// result in compilation errors.
+type UnsafeCameraAreaServiceServer interface {
+	mustEmbedUnimplementedCameraAreaServiceServer()
+}
+
+func RegisterCameraAreaServiceServer(s grpc.ServiceRegistrar, srv CameraAreaServiceServer) {
+	// If the following call panics, it indicates UnimplementedCameraAreaServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&CameraAreaService_ServiceDesc, srv)
+}
+
+func _CameraAreaService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraAreaServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraAreaService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraAreaServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// CameraAreaService_ServiceDesc is the grpc.ServiceDesc for CameraAreaService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var CameraAreaService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "hardware.CameraAreaService",
+	HandlerType: (*CameraAreaServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Equals",
+			Handler:    _CameraAreaService_Equals_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/hardware/hardware.proto",
+}
+
+const (
+	CameraAutoFocusCallbackService_OnAutoFocus_FullMethodName = "/hardware.CameraAutoFocusCallbackService/OnAutoFocus"
+)
+
+// CameraAutoFocusCallbackServiceClient is the client API for CameraAutoFocusCallbackService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type CameraAutoFocusCallbackServiceClient interface {
+	OnAutoFocus(ctx context.Context, in *OnAutoFocusRequest, opts ...grpc.CallOption) (*OnAutoFocusResponse, error)
+}
+
+type cameraAutoFocusCallbackServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewCameraAutoFocusCallbackServiceClient(cc grpc.ClientConnInterface) CameraAutoFocusCallbackServiceClient {
+	return &cameraAutoFocusCallbackServiceClient{cc}
+}
+
+func (c *cameraAutoFocusCallbackServiceClient) OnAutoFocus(ctx context.Context, in *OnAutoFocusRequest, opts ...grpc.CallOption) (*OnAutoFocusResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnAutoFocusResponse)
+	err := c.cc.Invoke(ctx, CameraAutoFocusCallbackService_OnAutoFocus_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// CameraAutoFocusCallbackServiceServer is the server API for CameraAutoFocusCallbackService service.
+// All implementations must embed UnimplementedCameraAutoFocusCallbackServiceServer
+// for forward compatibility.
+type CameraAutoFocusCallbackServiceServer interface {
+	OnAutoFocus(context.Context, *OnAutoFocusRequest) (*OnAutoFocusResponse, error)
+	mustEmbedUnimplementedCameraAutoFocusCallbackServiceServer()
+}
+
+// UnimplementedCameraAutoFocusCallbackServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedCameraAutoFocusCallbackServiceServer struct{}
+
+func (UnimplementedCameraAutoFocusCallbackServiceServer) OnAutoFocus(context.Context, *OnAutoFocusRequest) (*OnAutoFocusResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnAutoFocus not implemented")
+}
+func (UnimplementedCameraAutoFocusCallbackServiceServer) mustEmbedUnimplementedCameraAutoFocusCallbackServiceServer() {
+}
+func (UnimplementedCameraAutoFocusCallbackServiceServer) testEmbeddedByValue() {}
+
+// UnsafeCameraAutoFocusCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CameraAutoFocusCallbackServiceServer will
+// result in compilation errors.
+type UnsafeCameraAutoFocusCallbackServiceServer interface {
+	mustEmbedUnimplementedCameraAutoFocusCallbackServiceServer()
+}
+
+func RegisterCameraAutoFocusCallbackServiceServer(s grpc.ServiceRegistrar, srv CameraAutoFocusCallbackServiceServer) {
+	// If the following call panics, it indicates UnimplementedCameraAutoFocusCallbackServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&CameraAutoFocusCallbackService_ServiceDesc, srv)
+}
+
+func _CameraAutoFocusCallbackService_OnAutoFocus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnAutoFocusRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraAutoFocusCallbackServiceServer).OnAutoFocus(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraAutoFocusCallbackService_OnAutoFocus_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraAutoFocusCallbackServiceServer).OnAutoFocus(ctx, req.(*OnAutoFocusRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// CameraAutoFocusCallbackService_ServiceDesc is the grpc.ServiceDesc for CameraAutoFocusCallbackService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var CameraAutoFocusCallbackService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "hardware.CameraAutoFocusCallbackService",
+	HandlerType: (*CameraAutoFocusCallbackServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnAutoFocus",
+			Handler:    _CameraAutoFocusCallbackService_OnAutoFocus_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/hardware/hardware.proto",
+}
+
+const (
+	CameraAutoFocusMoveCallbackService_OnAutoFocusMoving_FullMethodName = "/hardware.CameraAutoFocusMoveCallbackService/OnAutoFocusMoving"
+)
+
+// CameraAutoFocusMoveCallbackServiceClient is the client API for CameraAutoFocusMoveCallbackService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type CameraAutoFocusMoveCallbackServiceClient interface {
+	OnAutoFocusMoving(ctx context.Context, in *OnAutoFocusMovingRequest, opts ...grpc.CallOption) (*OnAutoFocusMovingResponse, error)
+}
+
+type cameraAutoFocusMoveCallbackServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewCameraAutoFocusMoveCallbackServiceClient(cc grpc.ClientConnInterface) CameraAutoFocusMoveCallbackServiceClient {
+	return &cameraAutoFocusMoveCallbackServiceClient{cc}
+}
+
+func (c *cameraAutoFocusMoveCallbackServiceClient) OnAutoFocusMoving(ctx context.Context, in *OnAutoFocusMovingRequest, opts ...grpc.CallOption) (*OnAutoFocusMovingResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnAutoFocusMovingResponse)
+	err := c.cc.Invoke(ctx, CameraAutoFocusMoveCallbackService_OnAutoFocusMoving_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// CameraAutoFocusMoveCallbackServiceServer is the server API for CameraAutoFocusMoveCallbackService service.
+// All implementations must embed UnimplementedCameraAutoFocusMoveCallbackServiceServer
+// for forward compatibility.
+type CameraAutoFocusMoveCallbackServiceServer interface {
+	OnAutoFocusMoving(context.Context, *OnAutoFocusMovingRequest) (*OnAutoFocusMovingResponse, error)
+	mustEmbedUnimplementedCameraAutoFocusMoveCallbackServiceServer()
+}
+
+// UnimplementedCameraAutoFocusMoveCallbackServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedCameraAutoFocusMoveCallbackServiceServer struct{}
+
+func (UnimplementedCameraAutoFocusMoveCallbackServiceServer) OnAutoFocusMoving(context.Context, *OnAutoFocusMovingRequest) (*OnAutoFocusMovingResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnAutoFocusMoving not implemented")
+}
+func (UnimplementedCameraAutoFocusMoveCallbackServiceServer) mustEmbedUnimplementedCameraAutoFocusMoveCallbackServiceServer() {
+}
+func (UnimplementedCameraAutoFocusMoveCallbackServiceServer) testEmbeddedByValue() {}
+
+// UnsafeCameraAutoFocusMoveCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CameraAutoFocusMoveCallbackServiceServer will
+// result in compilation errors.
+type UnsafeCameraAutoFocusMoveCallbackServiceServer interface {
+	mustEmbedUnimplementedCameraAutoFocusMoveCallbackServiceServer()
+}
+
+func RegisterCameraAutoFocusMoveCallbackServiceServer(s grpc.ServiceRegistrar, srv CameraAutoFocusMoveCallbackServiceServer) {
+	// If the following call panics, it indicates UnimplementedCameraAutoFocusMoveCallbackServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&CameraAutoFocusMoveCallbackService_ServiceDesc, srv)
+}
+
+func _CameraAutoFocusMoveCallbackService_OnAutoFocusMoving_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnAutoFocusMovingRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraAutoFocusMoveCallbackServiceServer).OnAutoFocusMoving(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraAutoFocusMoveCallbackService_OnAutoFocusMoving_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraAutoFocusMoveCallbackServiceServer).OnAutoFocusMoving(ctx, req.(*OnAutoFocusMovingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// CameraAutoFocusMoveCallbackService_ServiceDesc is the grpc.ServiceDesc for CameraAutoFocusMoveCallbackService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var CameraAutoFocusMoveCallbackService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "hardware.CameraAutoFocusMoveCallbackService",
+	HandlerType: (*CameraAutoFocusMoveCallbackServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnAutoFocusMoving",
+			Handler:    _CameraAutoFocusMoveCallbackService_OnAutoFocusMoving_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/hardware/hardware.proto",
+}
+
+const (
+	CameraErrorCallbackService_OnError_FullMethodName = "/hardware.CameraErrorCallbackService/OnError"
+)
+
+// CameraErrorCallbackServiceClient is the client API for CameraErrorCallbackService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type CameraErrorCallbackServiceClient interface {
+	OnError(ctx context.Context, in *OnErrorRequest, opts ...grpc.CallOption) (*OnErrorResponse, error)
+}
+
+type cameraErrorCallbackServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewCameraErrorCallbackServiceClient(cc grpc.ClientConnInterface) CameraErrorCallbackServiceClient {
+	return &cameraErrorCallbackServiceClient{cc}
+}
+
+func (c *cameraErrorCallbackServiceClient) OnError(ctx context.Context, in *OnErrorRequest, opts ...grpc.CallOption) (*OnErrorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnErrorResponse)
+	err := c.cc.Invoke(ctx, CameraErrorCallbackService_OnError_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// CameraErrorCallbackServiceServer is the server API for CameraErrorCallbackService service.
+// All implementations must embed UnimplementedCameraErrorCallbackServiceServer
+// for forward compatibility.
+type CameraErrorCallbackServiceServer interface {
+	OnError(context.Context, *OnErrorRequest) (*OnErrorResponse, error)
+	mustEmbedUnimplementedCameraErrorCallbackServiceServer()
+}
+
+// UnimplementedCameraErrorCallbackServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedCameraErrorCallbackServiceServer struct{}
+
+func (UnimplementedCameraErrorCallbackServiceServer) OnError(context.Context, *OnErrorRequest) (*OnErrorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnError not implemented")
+}
+func (UnimplementedCameraErrorCallbackServiceServer) mustEmbedUnimplementedCameraErrorCallbackServiceServer() {
+}
+func (UnimplementedCameraErrorCallbackServiceServer) testEmbeddedByValue() {}
+
+// UnsafeCameraErrorCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CameraErrorCallbackServiceServer will
+// result in compilation errors.
+type UnsafeCameraErrorCallbackServiceServer interface {
+	mustEmbedUnimplementedCameraErrorCallbackServiceServer()
+}
+
+func RegisterCameraErrorCallbackServiceServer(s grpc.ServiceRegistrar, srv CameraErrorCallbackServiceServer) {
+	// If the following call panics, it indicates UnimplementedCameraErrorCallbackServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&CameraErrorCallbackService_ServiceDesc, srv)
+}
+
+func _CameraErrorCallbackService_OnError_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnErrorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraErrorCallbackServiceServer).OnError(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraErrorCallbackService_OnError_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraErrorCallbackServiceServer).OnError(ctx, req.(*OnErrorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// CameraErrorCallbackService_ServiceDesc is the grpc.ServiceDesc for CameraErrorCallbackService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var CameraErrorCallbackService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "hardware.CameraErrorCallbackService",
+	HandlerType: (*CameraErrorCallbackServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnError",
+			Handler:    _CameraErrorCallbackService_OnError_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/hardware/hardware.proto",
+}
+
+const (
+	CameraFaceDetectionListenerService_OnFaceDetection_FullMethodName = "/hardware.CameraFaceDetectionListenerService/OnFaceDetection"
+)
+
+// CameraFaceDetectionListenerServiceClient is the client API for CameraFaceDetectionListenerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type CameraFaceDetectionListenerServiceClient interface {
+	OnFaceDetection(ctx context.Context, in *OnFaceDetectionRequest, opts ...grpc.CallOption) (*OnFaceDetectionResponse, error)
+}
+
+type cameraFaceDetectionListenerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewCameraFaceDetectionListenerServiceClient(cc grpc.ClientConnInterface) CameraFaceDetectionListenerServiceClient {
+	return &cameraFaceDetectionListenerServiceClient{cc}
+}
+
+func (c *cameraFaceDetectionListenerServiceClient) OnFaceDetection(ctx context.Context, in *OnFaceDetectionRequest, opts ...grpc.CallOption) (*OnFaceDetectionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnFaceDetectionResponse)
+	err := c.cc.Invoke(ctx, CameraFaceDetectionListenerService_OnFaceDetection_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// CameraFaceDetectionListenerServiceServer is the server API for CameraFaceDetectionListenerService service.
+// All implementations must embed UnimplementedCameraFaceDetectionListenerServiceServer
+// for forward compatibility.
+type CameraFaceDetectionListenerServiceServer interface {
+	OnFaceDetection(context.Context, *OnFaceDetectionRequest) (*OnFaceDetectionResponse, error)
+	mustEmbedUnimplementedCameraFaceDetectionListenerServiceServer()
+}
+
+// UnimplementedCameraFaceDetectionListenerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedCameraFaceDetectionListenerServiceServer struct{}
+
+func (UnimplementedCameraFaceDetectionListenerServiceServer) OnFaceDetection(context.Context, *OnFaceDetectionRequest) (*OnFaceDetectionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnFaceDetection not implemented")
+}
+func (UnimplementedCameraFaceDetectionListenerServiceServer) mustEmbedUnimplementedCameraFaceDetectionListenerServiceServer() {
+}
+func (UnimplementedCameraFaceDetectionListenerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeCameraFaceDetectionListenerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CameraFaceDetectionListenerServiceServer will
+// result in compilation errors.
+type UnsafeCameraFaceDetectionListenerServiceServer interface {
+	mustEmbedUnimplementedCameraFaceDetectionListenerServiceServer()
+}
+
+func RegisterCameraFaceDetectionListenerServiceServer(s grpc.ServiceRegistrar, srv CameraFaceDetectionListenerServiceServer) {
+	// If the following call panics, it indicates UnimplementedCameraFaceDetectionListenerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&CameraFaceDetectionListenerService_ServiceDesc, srv)
+}
+
+func _CameraFaceDetectionListenerService_OnFaceDetection_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnFaceDetectionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraFaceDetectionListenerServiceServer).OnFaceDetection(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraFaceDetectionListenerService_OnFaceDetection_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraFaceDetectionListenerServiceServer).OnFaceDetection(ctx, req.(*OnFaceDetectionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// CameraFaceDetectionListenerService_ServiceDesc is the grpc.ServiceDesc for CameraFaceDetectionListenerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var CameraFaceDetectionListenerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "hardware.CameraFaceDetectionListenerService",
+	HandlerType: (*CameraFaceDetectionListenerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnFaceDetection",
+			Handler:    _CameraFaceDetectionListenerService_OnFaceDetection_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/hardware/hardware.proto",
+}
+
+const (
+	CameraOnZoomChangeListenerService_OnZoomChange_FullMethodName = "/hardware.CameraOnZoomChangeListenerService/OnZoomChange"
+)
+
+// CameraOnZoomChangeListenerServiceClient is the client API for CameraOnZoomChangeListenerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type CameraOnZoomChangeListenerServiceClient interface {
+	OnZoomChange(ctx context.Context, in *OnZoomChangeRequest, opts ...grpc.CallOption) (*OnZoomChangeResponse, error)
+}
+
+type cameraOnZoomChangeListenerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewCameraOnZoomChangeListenerServiceClient(cc grpc.ClientConnInterface) CameraOnZoomChangeListenerServiceClient {
+	return &cameraOnZoomChangeListenerServiceClient{cc}
+}
+
+func (c *cameraOnZoomChangeListenerServiceClient) OnZoomChange(ctx context.Context, in *OnZoomChangeRequest, opts ...grpc.CallOption) (*OnZoomChangeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnZoomChangeResponse)
+	err := c.cc.Invoke(ctx, CameraOnZoomChangeListenerService_OnZoomChange_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// CameraOnZoomChangeListenerServiceServer is the server API for CameraOnZoomChangeListenerService service.
+// All implementations must embed UnimplementedCameraOnZoomChangeListenerServiceServer
+// for forward compatibility.
+type CameraOnZoomChangeListenerServiceServer interface {
+	OnZoomChange(context.Context, *OnZoomChangeRequest) (*OnZoomChangeResponse, error)
+	mustEmbedUnimplementedCameraOnZoomChangeListenerServiceServer()
+}
+
+// UnimplementedCameraOnZoomChangeListenerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedCameraOnZoomChangeListenerServiceServer struct{}
+
+func (UnimplementedCameraOnZoomChangeListenerServiceServer) OnZoomChange(context.Context, *OnZoomChangeRequest) (*OnZoomChangeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnZoomChange not implemented")
+}
+func (UnimplementedCameraOnZoomChangeListenerServiceServer) mustEmbedUnimplementedCameraOnZoomChangeListenerServiceServer() {
+}
+func (UnimplementedCameraOnZoomChangeListenerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeCameraOnZoomChangeListenerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CameraOnZoomChangeListenerServiceServer will
+// result in compilation errors.
+type UnsafeCameraOnZoomChangeListenerServiceServer interface {
+	mustEmbedUnimplementedCameraOnZoomChangeListenerServiceServer()
+}
+
+func RegisterCameraOnZoomChangeListenerServiceServer(s grpc.ServiceRegistrar, srv CameraOnZoomChangeListenerServiceServer) {
+	// If the following call panics, it indicates UnimplementedCameraOnZoomChangeListenerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&CameraOnZoomChangeListenerService_ServiceDesc, srv)
+}
+
+func _CameraOnZoomChangeListenerService_OnZoomChange_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnZoomChangeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraOnZoomChangeListenerServiceServer).OnZoomChange(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraOnZoomChangeListenerService_OnZoomChange_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraOnZoomChangeListenerServiceServer).OnZoomChange(ctx, req.(*OnZoomChangeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// CameraOnZoomChangeListenerService_ServiceDesc is the grpc.ServiceDesc for CameraOnZoomChangeListenerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var CameraOnZoomChangeListenerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "hardware.CameraOnZoomChangeListenerService",
+	HandlerType: (*CameraOnZoomChangeListenerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnZoomChange",
+			Handler:    _CameraOnZoomChangeListenerService_OnZoomChange_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/hardware/hardware.proto",
+}
+
+const (
+	CameraParametersService_Flatten_FullMethodName                         = "/hardware.CameraParametersService/Flatten"
+	CameraParametersService_Get_FullMethodName                             = "/hardware.CameraParametersService/Get"
+	CameraParametersService_GetAntibanding_FullMethodName                  = "/hardware.CameraParametersService/GetAntibanding"
+	CameraParametersService_GetAutoExposureLock_FullMethodName             = "/hardware.CameraParametersService/GetAutoExposureLock"
+	CameraParametersService_GetAutoWhiteBalanceLock_FullMethodName         = "/hardware.CameraParametersService/GetAutoWhiteBalanceLock"
+	CameraParametersService_GetColorEffect_FullMethodName                  = "/hardware.CameraParametersService/GetColorEffect"
+	CameraParametersService_GetExposureCompensation_FullMethodName         = "/hardware.CameraParametersService/GetExposureCompensation"
+	CameraParametersService_GetExposureCompensationStep_FullMethodName     = "/hardware.CameraParametersService/GetExposureCompensationStep"
+	CameraParametersService_GetFlashMode_FullMethodName                    = "/hardware.CameraParametersService/GetFlashMode"
+	CameraParametersService_GetFocalLength_FullMethodName                  = "/hardware.CameraParametersService/GetFocalLength"
+	CameraParametersService_GetFocusDistances_FullMethodName               = "/hardware.CameraParametersService/GetFocusDistances"
+	CameraParametersService_GetFocusMode_FullMethodName                    = "/hardware.CameraParametersService/GetFocusMode"
+	CameraParametersService_GetHorizontalViewAngle_FullMethodName          = "/hardware.CameraParametersService/GetHorizontalViewAngle"
+	CameraParametersService_GetInt_FullMethodName                          = "/hardware.CameraParametersService/GetInt"
+	CameraParametersService_GetJpegQuality_FullMethodName                  = "/hardware.CameraParametersService/GetJpegQuality"
+	CameraParametersService_GetJpegThumbnailQuality_FullMethodName         = "/hardware.CameraParametersService/GetJpegThumbnailQuality"
+	CameraParametersService_GetJpegThumbnailSize_FullMethodName            = "/hardware.CameraParametersService/GetJpegThumbnailSize"
+	CameraParametersService_GetMaxExposureCompensation_FullMethodName      = "/hardware.CameraParametersService/GetMaxExposureCompensation"
+	CameraParametersService_GetMaxNumDetectedFaces_FullMethodName          = "/hardware.CameraParametersService/GetMaxNumDetectedFaces"
+	CameraParametersService_GetMaxNumFocusAreas_FullMethodName             = "/hardware.CameraParametersService/GetMaxNumFocusAreas"
+	CameraParametersService_GetMaxNumMeteringAreas_FullMethodName          = "/hardware.CameraParametersService/GetMaxNumMeteringAreas"
+	CameraParametersService_GetMaxZoom_FullMethodName                      = "/hardware.CameraParametersService/GetMaxZoom"
+	CameraParametersService_GetMinExposureCompensation_FullMethodName      = "/hardware.CameraParametersService/GetMinExposureCompensation"
+	CameraParametersService_GetPictureFormat_FullMethodName                = "/hardware.CameraParametersService/GetPictureFormat"
+	CameraParametersService_GetPictureSize_FullMethodName                  = "/hardware.CameraParametersService/GetPictureSize"
+	CameraParametersService_GetPreferredPreviewSizeForVideo_FullMethodName = "/hardware.CameraParametersService/GetPreferredPreviewSizeForVideo"
+	CameraParametersService_GetPreviewFormat_FullMethodName                = "/hardware.CameraParametersService/GetPreviewFormat"
+	CameraParametersService_GetPreviewFpsRange_FullMethodName              = "/hardware.CameraParametersService/GetPreviewFpsRange"
+	CameraParametersService_GetPreviewFrameRate_FullMethodName             = "/hardware.CameraParametersService/GetPreviewFrameRate"
+	CameraParametersService_GetPreviewSize_FullMethodName                  = "/hardware.CameraParametersService/GetPreviewSize"
+	CameraParametersService_GetSceneMode_FullMethodName                    = "/hardware.CameraParametersService/GetSceneMode"
+	CameraParametersService_GetVerticalViewAngle_FullMethodName            = "/hardware.CameraParametersService/GetVerticalViewAngle"
+	CameraParametersService_GetVideoStabilization_FullMethodName           = "/hardware.CameraParametersService/GetVideoStabilization"
+	CameraParametersService_GetWhiteBalance_FullMethodName                 = "/hardware.CameraParametersService/GetWhiteBalance"
+	CameraParametersService_GetZoom_FullMethodName                         = "/hardware.CameraParametersService/GetZoom"
+	CameraParametersService_IsAutoExposureLockSupported_FullMethodName     = "/hardware.CameraParametersService/IsAutoExposureLockSupported"
+	CameraParametersService_IsAutoWhiteBalanceLockSupported_FullMethodName = "/hardware.CameraParametersService/IsAutoWhiteBalanceLockSupported"
+	CameraParametersService_IsSmoothZoomSupported_FullMethodName           = "/hardware.CameraParametersService/IsSmoothZoomSupported"
+	CameraParametersService_IsVideoSnapshotSupported_FullMethodName        = "/hardware.CameraParametersService/IsVideoSnapshotSupported"
+	CameraParametersService_IsVideoStabilizationSupported_FullMethodName   = "/hardware.CameraParametersService/IsVideoStabilizationSupported"
+	CameraParametersService_IsZoomSupported_FullMethodName                 = "/hardware.CameraParametersService/IsZoomSupported"
+	CameraParametersService_Remove_FullMethodName                          = "/hardware.CameraParametersService/Remove"
+	CameraParametersService_RemoveGpsData_FullMethodName                   = "/hardware.CameraParametersService/RemoveGpsData"
+	CameraParametersService_Set2_FullMethodName                            = "/hardware.CameraParametersService/Set2"
+	CameraParametersService_Set2_1_FullMethodName                          = "/hardware.CameraParametersService/Set2_1"
+	CameraParametersService_SetAntibanding_FullMethodName                  = "/hardware.CameraParametersService/SetAntibanding"
+	CameraParametersService_SetAutoExposureLock_FullMethodName             = "/hardware.CameraParametersService/SetAutoExposureLock"
+	CameraParametersService_SetAutoWhiteBalanceLock_FullMethodName         = "/hardware.CameraParametersService/SetAutoWhiteBalanceLock"
+	CameraParametersService_SetColorEffect_FullMethodName                  = "/hardware.CameraParametersService/SetColorEffect"
+	CameraParametersService_SetExposureCompensation_FullMethodName         = "/hardware.CameraParametersService/SetExposureCompensation"
+	CameraParametersService_SetFlashMode_FullMethodName                    = "/hardware.CameraParametersService/SetFlashMode"
+	CameraParametersService_SetFocusMode_FullMethodName                    = "/hardware.CameraParametersService/SetFocusMode"
+	CameraParametersService_SetGpsAltitude_FullMethodName                  = "/hardware.CameraParametersService/SetGpsAltitude"
+	CameraParametersService_SetGpsLatitude_FullMethodName                  = "/hardware.CameraParametersService/SetGpsLatitude"
+	CameraParametersService_SetGpsLongitude_FullMethodName                 = "/hardware.CameraParametersService/SetGpsLongitude"
+	CameraParametersService_SetGpsProcessingMethod_FullMethodName          = "/hardware.CameraParametersService/SetGpsProcessingMethod"
+	CameraParametersService_SetGpsTimestamp_FullMethodName                 = "/hardware.CameraParametersService/SetGpsTimestamp"
+	CameraParametersService_SetJpegQuality_FullMethodName                  = "/hardware.CameraParametersService/SetJpegQuality"
+	CameraParametersService_SetJpegThumbnailQuality_FullMethodName         = "/hardware.CameraParametersService/SetJpegThumbnailQuality"
+	CameraParametersService_SetJpegThumbnailSize_FullMethodName            = "/hardware.CameraParametersService/SetJpegThumbnailSize"
+	CameraParametersService_SetPictureFormat_FullMethodName                = "/hardware.CameraParametersService/SetPictureFormat"
+	CameraParametersService_SetPictureSize_FullMethodName                  = "/hardware.CameraParametersService/SetPictureSize"
+	CameraParametersService_SetPreviewFormat_FullMethodName                = "/hardware.CameraParametersService/SetPreviewFormat"
+	CameraParametersService_SetPreviewFpsRange_FullMethodName              = "/hardware.CameraParametersService/SetPreviewFpsRange"
+	CameraParametersService_SetPreviewFrameRate_FullMethodName             = "/hardware.CameraParametersService/SetPreviewFrameRate"
+	CameraParametersService_SetPreviewSize_FullMethodName                  = "/hardware.CameraParametersService/SetPreviewSize"
+	CameraParametersService_SetRecordingHint_FullMethodName                = "/hardware.CameraParametersService/SetRecordingHint"
+	CameraParametersService_SetRotation_FullMethodName                     = "/hardware.CameraParametersService/SetRotation"
+	CameraParametersService_SetSceneMode_FullMethodName                    = "/hardware.CameraParametersService/SetSceneMode"
+	CameraParametersService_SetVideoStabilization_FullMethodName           = "/hardware.CameraParametersService/SetVideoStabilization"
+	CameraParametersService_SetWhiteBalance_FullMethodName                 = "/hardware.CameraParametersService/SetWhiteBalance"
+	CameraParametersService_SetZoom_FullMethodName                         = "/hardware.CameraParametersService/SetZoom"
+	CameraParametersService_Unflatten_FullMethodName                       = "/hardware.CameraParametersService/Unflatten"
+)
+
+// CameraParametersServiceClient is the client API for CameraParametersService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type CameraParametersServiceClient interface {
+	Flatten(ctx context.Context, in *FlattenRequest, opts ...grpc.CallOption) (*FlattenResponse, error)
+	Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error)
+	GetAntibanding(ctx context.Context, in *GetAntibandingRequest, opts ...grpc.CallOption) (*GetAntibandingResponse, error)
+	GetAutoExposureLock(ctx context.Context, in *GetAutoExposureLockRequest, opts ...grpc.CallOption) (*GetAutoExposureLockResponse, error)
+	GetAutoWhiteBalanceLock(ctx context.Context, in *GetAutoWhiteBalanceLockRequest, opts ...grpc.CallOption) (*GetAutoWhiteBalanceLockResponse, error)
+	GetColorEffect(ctx context.Context, in *GetColorEffectRequest, opts ...grpc.CallOption) (*GetColorEffectResponse, error)
+	GetExposureCompensation(ctx context.Context, in *GetExposureCompensationRequest, opts ...grpc.CallOption) (*GetExposureCompensationResponse, error)
+	GetExposureCompensationStep(ctx context.Context, in *GetExposureCompensationStepRequest, opts ...grpc.CallOption) (*GetExposureCompensationStepResponse, error)
+	GetFlashMode(ctx context.Context, in *GetFlashModeRequest, opts ...grpc.CallOption) (*GetFlashModeResponse, error)
+	GetFocalLength(ctx context.Context, in *GetFocalLengthRequest, opts ...grpc.CallOption) (*GetFocalLengthResponse, error)
+	GetFocusDistances(ctx context.Context, in *GetFocusDistancesRequest, opts ...grpc.CallOption) (*GetFocusDistancesResponse, error)
+	GetFocusMode(ctx context.Context, in *GetFocusModeRequest, opts ...grpc.CallOption) (*GetFocusModeResponse, error)
+	GetHorizontalViewAngle(ctx context.Context, in *GetHorizontalViewAngleRequest, opts ...grpc.CallOption) (*GetHorizontalViewAngleResponse, error)
+	GetInt(ctx context.Context, in *GetIntRequest, opts ...grpc.CallOption) (*GetIntResponse, error)
+	GetJpegQuality(ctx context.Context, in *GetJpegQualityRequest, opts ...grpc.CallOption) (*GetJpegQualityResponse, error)
+	GetJpegThumbnailQuality(ctx context.Context, in *GetJpegThumbnailQualityRequest, opts ...grpc.CallOption) (*GetJpegThumbnailQualityResponse, error)
+	GetJpegThumbnailSize(ctx context.Context, in *GetJpegThumbnailSizeRequest, opts ...grpc.CallOption) (*GetJpegThumbnailSizeResponse, error)
+	GetMaxExposureCompensation(ctx context.Context, in *GetMaxExposureCompensationRequest, opts ...grpc.CallOption) (*GetMaxExposureCompensationResponse, error)
+	GetMaxNumDetectedFaces(ctx context.Context, in *GetMaxNumDetectedFacesRequest, opts ...grpc.CallOption) (*GetMaxNumDetectedFacesResponse, error)
+	GetMaxNumFocusAreas(ctx context.Context, in *GetMaxNumFocusAreasRequest, opts ...grpc.CallOption) (*GetMaxNumFocusAreasResponse, error)
+	GetMaxNumMeteringAreas(ctx context.Context, in *GetMaxNumMeteringAreasRequest, opts ...grpc.CallOption) (*GetMaxNumMeteringAreasResponse, error)
+	GetMaxZoom(ctx context.Context, in *GetMaxZoomRequest, opts ...grpc.CallOption) (*GetMaxZoomResponse, error)
+	GetMinExposureCompensation(ctx context.Context, in *GetMinExposureCompensationRequest, opts ...grpc.CallOption) (*GetMinExposureCompensationResponse, error)
+	GetPictureFormat(ctx context.Context, in *GetPictureFormatRequest, opts ...grpc.CallOption) (*GetPictureFormatResponse, error)
+	GetPictureSize(ctx context.Context, in *GetPictureSizeRequest, opts ...grpc.CallOption) (*GetPictureSizeResponse, error)
+	GetPreferredPreviewSizeForVideo(ctx context.Context, in *GetPreferredPreviewSizeForVideoRequest, opts ...grpc.CallOption) (*GetPreferredPreviewSizeForVideoResponse, error)
+	GetPreviewFormat(ctx context.Context, in *GetPreviewFormatRequest, opts ...grpc.CallOption) (*GetPreviewFormatResponse, error)
+	GetPreviewFpsRange(ctx context.Context, in *GetPreviewFpsRangeRequest, opts ...grpc.CallOption) (*GetPreviewFpsRangeResponse, error)
+	GetPreviewFrameRate(ctx context.Context, in *GetPreviewFrameRateRequest, opts ...grpc.CallOption) (*GetPreviewFrameRateResponse, error)
+	GetPreviewSize(ctx context.Context, in *GetPreviewSizeRequest, opts ...grpc.CallOption) (*GetPreviewSizeResponse, error)
+	GetSceneMode(ctx context.Context, in *GetSceneModeRequest, opts ...grpc.CallOption) (*GetSceneModeResponse, error)
+	GetVerticalViewAngle(ctx context.Context, in *GetVerticalViewAngleRequest, opts ...grpc.CallOption) (*GetVerticalViewAngleResponse, error)
+	GetVideoStabilization(ctx context.Context, in *GetVideoStabilizationRequest, opts ...grpc.CallOption) (*GetVideoStabilizationResponse, error)
+	GetWhiteBalance(ctx context.Context, in *GetWhiteBalanceRequest, opts ...grpc.CallOption) (*GetWhiteBalanceResponse, error)
+	GetZoom(ctx context.Context, in *GetZoomRequest, opts ...grpc.CallOption) (*GetZoomResponse, error)
+	IsAutoExposureLockSupported(ctx context.Context, in *IsAutoExposureLockSupportedRequest, opts ...grpc.CallOption) (*IsAutoExposureLockSupportedResponse, error)
+	IsAutoWhiteBalanceLockSupported(ctx context.Context, in *IsAutoWhiteBalanceLockSupportedRequest, opts ...grpc.CallOption) (*IsAutoWhiteBalanceLockSupportedResponse, error)
+	IsSmoothZoomSupported(ctx context.Context, in *IsSmoothZoomSupportedRequest, opts ...grpc.CallOption) (*IsSmoothZoomSupportedResponse, error)
+	IsVideoSnapshotSupported(ctx context.Context, in *IsVideoSnapshotSupportedRequest, opts ...grpc.CallOption) (*IsVideoSnapshotSupportedResponse, error)
+	IsVideoStabilizationSupported(ctx context.Context, in *IsVideoStabilizationSupportedRequest, opts ...grpc.CallOption) (*IsVideoStabilizationSupportedResponse, error)
+	IsZoomSupported(ctx context.Context, in *IsZoomSupportedRequest, opts ...grpc.CallOption) (*IsZoomSupportedResponse, error)
+	Remove(ctx context.Context, in *RemoveRequest, opts ...grpc.CallOption) (*RemoveResponse, error)
+	RemoveGpsData(ctx context.Context, in *RemoveGpsDataRequest, opts ...grpc.CallOption) (*RemoveGpsDataResponse, error)
+	Set2(ctx context.Context, in *Set2Request, opts ...grpc.CallOption) (*Set2Response, error)
+	Set2_1(ctx context.Context, in *CameraParametersSet2_1Request, opts ...grpc.CallOption) (*Set2_1Response, error)
+	SetAntibanding(ctx context.Context, in *SetAntibandingRequest, opts ...grpc.CallOption) (*SetAntibandingResponse, error)
+	SetAutoExposureLock(ctx context.Context, in *SetAutoExposureLockRequest, opts ...grpc.CallOption) (*SetAutoExposureLockResponse, error)
+	SetAutoWhiteBalanceLock(ctx context.Context, in *SetAutoWhiteBalanceLockRequest, opts ...grpc.CallOption) (*SetAutoWhiteBalanceLockResponse, error)
+	SetColorEffect(ctx context.Context, in *SetColorEffectRequest, opts ...grpc.CallOption) (*SetColorEffectResponse, error)
+	SetExposureCompensation(ctx context.Context, in *SetExposureCompensationRequest, opts ...grpc.CallOption) (*SetExposureCompensationResponse, error)
+	SetFlashMode(ctx context.Context, in *SetFlashModeRequest, opts ...grpc.CallOption) (*SetFlashModeResponse, error)
+	SetFocusMode(ctx context.Context, in *SetFocusModeRequest, opts ...grpc.CallOption) (*SetFocusModeResponse, error)
+	SetGpsAltitude(ctx context.Context, in *SetGpsAltitudeRequest, opts ...grpc.CallOption) (*SetGpsAltitudeResponse, error)
+	SetGpsLatitude(ctx context.Context, in *SetGpsLatitudeRequest, opts ...grpc.CallOption) (*SetGpsLatitudeResponse, error)
+	SetGpsLongitude(ctx context.Context, in *SetGpsLongitudeRequest, opts ...grpc.CallOption) (*SetGpsLongitudeResponse, error)
+	SetGpsProcessingMethod(ctx context.Context, in *SetGpsProcessingMethodRequest, opts ...grpc.CallOption) (*SetGpsProcessingMethodResponse, error)
+	SetGpsTimestamp(ctx context.Context, in *SetGpsTimestampRequest, opts ...grpc.CallOption) (*SetGpsTimestampResponse, error)
+	SetJpegQuality(ctx context.Context, in *SetJpegQualityRequest, opts ...grpc.CallOption) (*SetJpegQualityResponse, error)
+	SetJpegThumbnailQuality(ctx context.Context, in *SetJpegThumbnailQualityRequest, opts ...grpc.CallOption) (*SetJpegThumbnailQualityResponse, error)
+	SetJpegThumbnailSize(ctx context.Context, in *SetJpegThumbnailSizeRequest, opts ...grpc.CallOption) (*SetJpegThumbnailSizeResponse, error)
+	SetPictureFormat(ctx context.Context, in *SetPictureFormatRequest, opts ...grpc.CallOption) (*SetPictureFormatResponse, error)
+	SetPictureSize(ctx context.Context, in *SetPictureSizeRequest, opts ...grpc.CallOption) (*SetPictureSizeResponse, error)
+	SetPreviewFormat(ctx context.Context, in *SetPreviewFormatRequest, opts ...grpc.CallOption) (*SetPreviewFormatResponse, error)
+	SetPreviewFpsRange(ctx context.Context, in *SetPreviewFpsRangeRequest, opts ...grpc.CallOption) (*SetPreviewFpsRangeResponse, error)
+	SetPreviewFrameRate(ctx context.Context, in *SetPreviewFrameRateRequest, opts ...grpc.CallOption) (*SetPreviewFrameRateResponse, error)
+	SetPreviewSize(ctx context.Context, in *SetPreviewSizeRequest, opts ...grpc.CallOption) (*SetPreviewSizeResponse, error)
+	SetRecordingHint(ctx context.Context, in *SetRecordingHintRequest, opts ...grpc.CallOption) (*SetRecordingHintResponse, error)
+	SetRotation(ctx context.Context, in *SetRotationRequest, opts ...grpc.CallOption) (*SetRotationResponse, error)
+	SetSceneMode(ctx context.Context, in *SetSceneModeRequest, opts ...grpc.CallOption) (*SetSceneModeResponse, error)
+	SetVideoStabilization(ctx context.Context, in *SetVideoStabilizationRequest, opts ...grpc.CallOption) (*SetVideoStabilizationResponse, error)
+	SetWhiteBalance(ctx context.Context, in *SetWhiteBalanceRequest, opts ...grpc.CallOption) (*SetWhiteBalanceResponse, error)
+	SetZoom(ctx context.Context, in *SetZoomRequest, opts ...grpc.CallOption) (*SetZoomResponse, error)
+	Unflatten(ctx context.Context, in *UnflattenRequest, opts ...grpc.CallOption) (*UnflattenResponse, error)
+}
+
+type cameraParametersServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewCameraParametersServiceClient(cc grpc.ClientConnInterface) CameraParametersServiceClient {
+	return &cameraParametersServiceClient{cc}
+}
+
+func (c *cameraParametersServiceClient) Flatten(ctx context.Context, in *FlattenRequest, opts ...grpc.CallOption) (*FlattenResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(FlattenResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_Flatten_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_Get_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) GetAntibanding(ctx context.Context, in *GetAntibandingRequest, opts ...grpc.CallOption) (*GetAntibandingResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAntibandingResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_GetAntibanding_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) GetAutoExposureLock(ctx context.Context, in *GetAutoExposureLockRequest, opts ...grpc.CallOption) (*GetAutoExposureLockResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAutoExposureLockResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_GetAutoExposureLock_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) GetAutoWhiteBalanceLock(ctx context.Context, in *GetAutoWhiteBalanceLockRequest, opts ...grpc.CallOption) (*GetAutoWhiteBalanceLockResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAutoWhiteBalanceLockResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_GetAutoWhiteBalanceLock_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) GetColorEffect(ctx context.Context, in *GetColorEffectRequest, opts ...grpc.CallOption) (*GetColorEffectResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetColorEffectResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_GetColorEffect_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) GetExposureCompensation(ctx context.Context, in *GetExposureCompensationRequest, opts ...grpc.CallOption) (*GetExposureCompensationResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetExposureCompensationResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_GetExposureCompensation_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) GetExposureCompensationStep(ctx context.Context, in *GetExposureCompensationStepRequest, opts ...grpc.CallOption) (*GetExposureCompensationStepResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetExposureCompensationStepResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_GetExposureCompensationStep_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) GetFlashMode(ctx context.Context, in *GetFlashModeRequest, opts ...grpc.CallOption) (*GetFlashModeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFlashModeResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_GetFlashMode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) GetFocalLength(ctx context.Context, in *GetFocalLengthRequest, opts ...grpc.CallOption) (*GetFocalLengthResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFocalLengthResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_GetFocalLength_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) GetFocusDistances(ctx context.Context, in *GetFocusDistancesRequest, opts ...grpc.CallOption) (*GetFocusDistancesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFocusDistancesResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_GetFocusDistances_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) GetFocusMode(ctx context.Context, in *GetFocusModeRequest, opts ...grpc.CallOption) (*GetFocusModeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFocusModeResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_GetFocusMode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) GetHorizontalViewAngle(ctx context.Context, in *GetHorizontalViewAngleRequest, opts ...grpc.CallOption) (*GetHorizontalViewAngleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetHorizontalViewAngleResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_GetHorizontalViewAngle_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) GetInt(ctx context.Context, in *GetIntRequest, opts ...grpc.CallOption) (*GetIntResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetIntResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_GetInt_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) GetJpegQuality(ctx context.Context, in *GetJpegQualityRequest, opts ...grpc.CallOption) (*GetJpegQualityResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetJpegQualityResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_GetJpegQuality_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) GetJpegThumbnailQuality(ctx context.Context, in *GetJpegThumbnailQualityRequest, opts ...grpc.CallOption) (*GetJpegThumbnailQualityResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetJpegThumbnailQualityResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_GetJpegThumbnailQuality_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) GetJpegThumbnailSize(ctx context.Context, in *GetJpegThumbnailSizeRequest, opts ...grpc.CallOption) (*GetJpegThumbnailSizeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetJpegThumbnailSizeResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_GetJpegThumbnailSize_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) GetMaxExposureCompensation(ctx context.Context, in *GetMaxExposureCompensationRequest, opts ...grpc.CallOption) (*GetMaxExposureCompensationResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMaxExposureCompensationResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_GetMaxExposureCompensation_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) GetMaxNumDetectedFaces(ctx context.Context, in *GetMaxNumDetectedFacesRequest, opts ...grpc.CallOption) (*GetMaxNumDetectedFacesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMaxNumDetectedFacesResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_GetMaxNumDetectedFaces_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) GetMaxNumFocusAreas(ctx context.Context, in *GetMaxNumFocusAreasRequest, opts ...grpc.CallOption) (*GetMaxNumFocusAreasResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMaxNumFocusAreasResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_GetMaxNumFocusAreas_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) GetMaxNumMeteringAreas(ctx context.Context, in *GetMaxNumMeteringAreasRequest, opts ...grpc.CallOption) (*GetMaxNumMeteringAreasResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMaxNumMeteringAreasResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_GetMaxNumMeteringAreas_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) GetMaxZoom(ctx context.Context, in *GetMaxZoomRequest, opts ...grpc.CallOption) (*GetMaxZoomResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMaxZoomResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_GetMaxZoom_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) GetMinExposureCompensation(ctx context.Context, in *GetMinExposureCompensationRequest, opts ...grpc.CallOption) (*GetMinExposureCompensationResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMinExposureCompensationResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_GetMinExposureCompensation_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) GetPictureFormat(ctx context.Context, in *GetPictureFormatRequest, opts ...grpc.CallOption) (*GetPictureFormatResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPictureFormatResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_GetPictureFormat_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) GetPictureSize(ctx context.Context, in *GetPictureSizeRequest, opts ...grpc.CallOption) (*GetPictureSizeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPictureSizeResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_GetPictureSize_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) GetPreferredPreviewSizeForVideo(ctx context.Context, in *GetPreferredPreviewSizeForVideoRequest, opts ...grpc.CallOption) (*GetPreferredPreviewSizeForVideoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPreferredPreviewSizeForVideoResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_GetPreferredPreviewSizeForVideo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) GetPreviewFormat(ctx context.Context, in *GetPreviewFormatRequest, opts ...grpc.CallOption) (*GetPreviewFormatResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPreviewFormatResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_GetPreviewFormat_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) GetPreviewFpsRange(ctx context.Context, in *GetPreviewFpsRangeRequest, opts ...grpc.CallOption) (*GetPreviewFpsRangeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPreviewFpsRangeResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_GetPreviewFpsRange_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) GetPreviewFrameRate(ctx context.Context, in *GetPreviewFrameRateRequest, opts ...grpc.CallOption) (*GetPreviewFrameRateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPreviewFrameRateResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_GetPreviewFrameRate_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) GetPreviewSize(ctx context.Context, in *GetPreviewSizeRequest, opts ...grpc.CallOption) (*GetPreviewSizeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPreviewSizeResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_GetPreviewSize_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) GetSceneMode(ctx context.Context, in *GetSceneModeRequest, opts ...grpc.CallOption) (*GetSceneModeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSceneModeResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_GetSceneMode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) GetVerticalViewAngle(ctx context.Context, in *GetVerticalViewAngleRequest, opts ...grpc.CallOption) (*GetVerticalViewAngleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetVerticalViewAngleResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_GetVerticalViewAngle_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) GetVideoStabilization(ctx context.Context, in *GetVideoStabilizationRequest, opts ...grpc.CallOption) (*GetVideoStabilizationResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetVideoStabilizationResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_GetVideoStabilization_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) GetWhiteBalance(ctx context.Context, in *GetWhiteBalanceRequest, opts ...grpc.CallOption) (*GetWhiteBalanceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetWhiteBalanceResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_GetWhiteBalance_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) GetZoom(ctx context.Context, in *GetZoomRequest, opts ...grpc.CallOption) (*GetZoomResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetZoomResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_GetZoom_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) IsAutoExposureLockSupported(ctx context.Context, in *IsAutoExposureLockSupportedRequest, opts ...grpc.CallOption) (*IsAutoExposureLockSupportedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsAutoExposureLockSupportedResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_IsAutoExposureLockSupported_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) IsAutoWhiteBalanceLockSupported(ctx context.Context, in *IsAutoWhiteBalanceLockSupportedRequest, opts ...grpc.CallOption) (*IsAutoWhiteBalanceLockSupportedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsAutoWhiteBalanceLockSupportedResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_IsAutoWhiteBalanceLockSupported_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) IsSmoothZoomSupported(ctx context.Context, in *IsSmoothZoomSupportedRequest, opts ...grpc.CallOption) (*IsSmoothZoomSupportedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsSmoothZoomSupportedResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_IsSmoothZoomSupported_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) IsVideoSnapshotSupported(ctx context.Context, in *IsVideoSnapshotSupportedRequest, opts ...grpc.CallOption) (*IsVideoSnapshotSupportedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsVideoSnapshotSupportedResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_IsVideoSnapshotSupported_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) IsVideoStabilizationSupported(ctx context.Context, in *IsVideoStabilizationSupportedRequest, opts ...grpc.CallOption) (*IsVideoStabilizationSupportedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsVideoStabilizationSupportedResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_IsVideoStabilizationSupported_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) IsZoomSupported(ctx context.Context, in *IsZoomSupportedRequest, opts ...grpc.CallOption) (*IsZoomSupportedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsZoomSupportedResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_IsZoomSupported_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) Remove(ctx context.Context, in *RemoveRequest, opts ...grpc.CallOption) (*RemoveResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RemoveResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_Remove_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) RemoveGpsData(ctx context.Context, in *RemoveGpsDataRequest, opts ...grpc.CallOption) (*RemoveGpsDataResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RemoveGpsDataResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_RemoveGpsData_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) Set2(ctx context.Context, in *Set2Request, opts ...grpc.CallOption) (*Set2Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Set2Response)
+	err := c.cc.Invoke(ctx, CameraParametersService_Set2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) Set2_1(ctx context.Context, in *CameraParametersSet2_1Request, opts ...grpc.CallOption) (*Set2_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Set2_1Response)
+	err := c.cc.Invoke(ctx, CameraParametersService_Set2_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) SetAntibanding(ctx context.Context, in *SetAntibandingRequest, opts ...grpc.CallOption) (*SetAntibandingResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetAntibandingResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_SetAntibanding_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) SetAutoExposureLock(ctx context.Context, in *SetAutoExposureLockRequest, opts ...grpc.CallOption) (*SetAutoExposureLockResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetAutoExposureLockResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_SetAutoExposureLock_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) SetAutoWhiteBalanceLock(ctx context.Context, in *SetAutoWhiteBalanceLockRequest, opts ...grpc.CallOption) (*SetAutoWhiteBalanceLockResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetAutoWhiteBalanceLockResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_SetAutoWhiteBalanceLock_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) SetColorEffect(ctx context.Context, in *SetColorEffectRequest, opts ...grpc.CallOption) (*SetColorEffectResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetColorEffectResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_SetColorEffect_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) SetExposureCompensation(ctx context.Context, in *SetExposureCompensationRequest, opts ...grpc.CallOption) (*SetExposureCompensationResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetExposureCompensationResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_SetExposureCompensation_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) SetFlashMode(ctx context.Context, in *SetFlashModeRequest, opts ...grpc.CallOption) (*SetFlashModeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetFlashModeResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_SetFlashMode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) SetFocusMode(ctx context.Context, in *SetFocusModeRequest, opts ...grpc.CallOption) (*SetFocusModeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetFocusModeResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_SetFocusMode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) SetGpsAltitude(ctx context.Context, in *SetGpsAltitudeRequest, opts ...grpc.CallOption) (*SetGpsAltitudeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetGpsAltitudeResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_SetGpsAltitude_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) SetGpsLatitude(ctx context.Context, in *SetGpsLatitudeRequest, opts ...grpc.CallOption) (*SetGpsLatitudeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetGpsLatitudeResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_SetGpsLatitude_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) SetGpsLongitude(ctx context.Context, in *SetGpsLongitudeRequest, opts ...grpc.CallOption) (*SetGpsLongitudeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetGpsLongitudeResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_SetGpsLongitude_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) SetGpsProcessingMethod(ctx context.Context, in *SetGpsProcessingMethodRequest, opts ...grpc.CallOption) (*SetGpsProcessingMethodResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetGpsProcessingMethodResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_SetGpsProcessingMethod_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) SetGpsTimestamp(ctx context.Context, in *SetGpsTimestampRequest, opts ...grpc.CallOption) (*SetGpsTimestampResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetGpsTimestampResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_SetGpsTimestamp_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) SetJpegQuality(ctx context.Context, in *SetJpegQualityRequest, opts ...grpc.CallOption) (*SetJpegQualityResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetJpegQualityResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_SetJpegQuality_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) SetJpegThumbnailQuality(ctx context.Context, in *SetJpegThumbnailQualityRequest, opts ...grpc.CallOption) (*SetJpegThumbnailQualityResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetJpegThumbnailQualityResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_SetJpegThumbnailQuality_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) SetJpegThumbnailSize(ctx context.Context, in *SetJpegThumbnailSizeRequest, opts ...grpc.CallOption) (*SetJpegThumbnailSizeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetJpegThumbnailSizeResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_SetJpegThumbnailSize_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) SetPictureFormat(ctx context.Context, in *SetPictureFormatRequest, opts ...grpc.CallOption) (*SetPictureFormatResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetPictureFormatResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_SetPictureFormat_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) SetPictureSize(ctx context.Context, in *SetPictureSizeRequest, opts ...grpc.CallOption) (*SetPictureSizeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetPictureSizeResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_SetPictureSize_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) SetPreviewFormat(ctx context.Context, in *SetPreviewFormatRequest, opts ...grpc.CallOption) (*SetPreviewFormatResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetPreviewFormatResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_SetPreviewFormat_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) SetPreviewFpsRange(ctx context.Context, in *SetPreviewFpsRangeRequest, opts ...grpc.CallOption) (*SetPreviewFpsRangeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetPreviewFpsRangeResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_SetPreviewFpsRange_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) SetPreviewFrameRate(ctx context.Context, in *SetPreviewFrameRateRequest, opts ...grpc.CallOption) (*SetPreviewFrameRateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetPreviewFrameRateResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_SetPreviewFrameRate_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) SetPreviewSize(ctx context.Context, in *SetPreviewSizeRequest, opts ...grpc.CallOption) (*SetPreviewSizeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetPreviewSizeResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_SetPreviewSize_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) SetRecordingHint(ctx context.Context, in *SetRecordingHintRequest, opts ...grpc.CallOption) (*SetRecordingHintResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetRecordingHintResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_SetRecordingHint_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) SetRotation(ctx context.Context, in *SetRotationRequest, opts ...grpc.CallOption) (*SetRotationResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetRotationResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_SetRotation_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) SetSceneMode(ctx context.Context, in *SetSceneModeRequest, opts ...grpc.CallOption) (*SetSceneModeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetSceneModeResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_SetSceneMode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) SetVideoStabilization(ctx context.Context, in *SetVideoStabilizationRequest, opts ...grpc.CallOption) (*SetVideoStabilizationResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetVideoStabilizationResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_SetVideoStabilization_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) SetWhiteBalance(ctx context.Context, in *SetWhiteBalanceRequest, opts ...grpc.CallOption) (*SetWhiteBalanceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetWhiteBalanceResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_SetWhiteBalance_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) SetZoom(ctx context.Context, in *SetZoomRequest, opts ...grpc.CallOption) (*SetZoomResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetZoomResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_SetZoom_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraParametersServiceClient) Unflatten(ctx context.Context, in *UnflattenRequest, opts ...grpc.CallOption) (*UnflattenResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UnflattenResponse)
+	err := c.cc.Invoke(ctx, CameraParametersService_Unflatten_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// CameraParametersServiceServer is the server API for CameraParametersService service.
+// All implementations must embed UnimplementedCameraParametersServiceServer
+// for forward compatibility.
+type CameraParametersServiceServer interface {
+	Flatten(context.Context, *FlattenRequest) (*FlattenResponse, error)
+	Get(context.Context, *GetRequest) (*GetResponse, error)
+	GetAntibanding(context.Context, *GetAntibandingRequest) (*GetAntibandingResponse, error)
+	GetAutoExposureLock(context.Context, *GetAutoExposureLockRequest) (*GetAutoExposureLockResponse, error)
+	GetAutoWhiteBalanceLock(context.Context, *GetAutoWhiteBalanceLockRequest) (*GetAutoWhiteBalanceLockResponse, error)
+	GetColorEffect(context.Context, *GetColorEffectRequest) (*GetColorEffectResponse, error)
+	GetExposureCompensation(context.Context, *GetExposureCompensationRequest) (*GetExposureCompensationResponse, error)
+	GetExposureCompensationStep(context.Context, *GetExposureCompensationStepRequest) (*GetExposureCompensationStepResponse, error)
+	GetFlashMode(context.Context, *GetFlashModeRequest) (*GetFlashModeResponse, error)
+	GetFocalLength(context.Context, *GetFocalLengthRequest) (*GetFocalLengthResponse, error)
+	GetFocusDistances(context.Context, *GetFocusDistancesRequest) (*GetFocusDistancesResponse, error)
+	GetFocusMode(context.Context, *GetFocusModeRequest) (*GetFocusModeResponse, error)
+	GetHorizontalViewAngle(context.Context, *GetHorizontalViewAngleRequest) (*GetHorizontalViewAngleResponse, error)
+	GetInt(context.Context, *GetIntRequest) (*GetIntResponse, error)
+	GetJpegQuality(context.Context, *GetJpegQualityRequest) (*GetJpegQualityResponse, error)
+	GetJpegThumbnailQuality(context.Context, *GetJpegThumbnailQualityRequest) (*GetJpegThumbnailQualityResponse, error)
+	GetJpegThumbnailSize(context.Context, *GetJpegThumbnailSizeRequest) (*GetJpegThumbnailSizeResponse, error)
+	GetMaxExposureCompensation(context.Context, *GetMaxExposureCompensationRequest) (*GetMaxExposureCompensationResponse, error)
+	GetMaxNumDetectedFaces(context.Context, *GetMaxNumDetectedFacesRequest) (*GetMaxNumDetectedFacesResponse, error)
+	GetMaxNumFocusAreas(context.Context, *GetMaxNumFocusAreasRequest) (*GetMaxNumFocusAreasResponse, error)
+	GetMaxNumMeteringAreas(context.Context, *GetMaxNumMeteringAreasRequest) (*GetMaxNumMeteringAreasResponse, error)
+	GetMaxZoom(context.Context, *GetMaxZoomRequest) (*GetMaxZoomResponse, error)
+	GetMinExposureCompensation(context.Context, *GetMinExposureCompensationRequest) (*GetMinExposureCompensationResponse, error)
+	GetPictureFormat(context.Context, *GetPictureFormatRequest) (*GetPictureFormatResponse, error)
+	GetPictureSize(context.Context, *GetPictureSizeRequest) (*GetPictureSizeResponse, error)
+	GetPreferredPreviewSizeForVideo(context.Context, *GetPreferredPreviewSizeForVideoRequest) (*GetPreferredPreviewSizeForVideoResponse, error)
+	GetPreviewFormat(context.Context, *GetPreviewFormatRequest) (*GetPreviewFormatResponse, error)
+	GetPreviewFpsRange(context.Context, *GetPreviewFpsRangeRequest) (*GetPreviewFpsRangeResponse, error)
+	GetPreviewFrameRate(context.Context, *GetPreviewFrameRateRequest) (*GetPreviewFrameRateResponse, error)
+	GetPreviewSize(context.Context, *GetPreviewSizeRequest) (*GetPreviewSizeResponse, error)
+	GetSceneMode(context.Context, *GetSceneModeRequest) (*GetSceneModeResponse, error)
+	GetVerticalViewAngle(context.Context, *GetVerticalViewAngleRequest) (*GetVerticalViewAngleResponse, error)
+	GetVideoStabilization(context.Context, *GetVideoStabilizationRequest) (*GetVideoStabilizationResponse, error)
+	GetWhiteBalance(context.Context, *GetWhiteBalanceRequest) (*GetWhiteBalanceResponse, error)
+	GetZoom(context.Context, *GetZoomRequest) (*GetZoomResponse, error)
+	IsAutoExposureLockSupported(context.Context, *IsAutoExposureLockSupportedRequest) (*IsAutoExposureLockSupportedResponse, error)
+	IsAutoWhiteBalanceLockSupported(context.Context, *IsAutoWhiteBalanceLockSupportedRequest) (*IsAutoWhiteBalanceLockSupportedResponse, error)
+	IsSmoothZoomSupported(context.Context, *IsSmoothZoomSupportedRequest) (*IsSmoothZoomSupportedResponse, error)
+	IsVideoSnapshotSupported(context.Context, *IsVideoSnapshotSupportedRequest) (*IsVideoSnapshotSupportedResponse, error)
+	IsVideoStabilizationSupported(context.Context, *IsVideoStabilizationSupportedRequest) (*IsVideoStabilizationSupportedResponse, error)
+	IsZoomSupported(context.Context, *IsZoomSupportedRequest) (*IsZoomSupportedResponse, error)
+	Remove(context.Context, *RemoveRequest) (*RemoveResponse, error)
+	RemoveGpsData(context.Context, *RemoveGpsDataRequest) (*RemoveGpsDataResponse, error)
+	Set2(context.Context, *Set2Request) (*Set2Response, error)
+	Set2_1(context.Context, *CameraParametersSet2_1Request) (*Set2_1Response, error)
+	SetAntibanding(context.Context, *SetAntibandingRequest) (*SetAntibandingResponse, error)
+	SetAutoExposureLock(context.Context, *SetAutoExposureLockRequest) (*SetAutoExposureLockResponse, error)
+	SetAutoWhiteBalanceLock(context.Context, *SetAutoWhiteBalanceLockRequest) (*SetAutoWhiteBalanceLockResponse, error)
+	SetColorEffect(context.Context, *SetColorEffectRequest) (*SetColorEffectResponse, error)
+	SetExposureCompensation(context.Context, *SetExposureCompensationRequest) (*SetExposureCompensationResponse, error)
+	SetFlashMode(context.Context, *SetFlashModeRequest) (*SetFlashModeResponse, error)
+	SetFocusMode(context.Context, *SetFocusModeRequest) (*SetFocusModeResponse, error)
+	SetGpsAltitude(context.Context, *SetGpsAltitudeRequest) (*SetGpsAltitudeResponse, error)
+	SetGpsLatitude(context.Context, *SetGpsLatitudeRequest) (*SetGpsLatitudeResponse, error)
+	SetGpsLongitude(context.Context, *SetGpsLongitudeRequest) (*SetGpsLongitudeResponse, error)
+	SetGpsProcessingMethod(context.Context, *SetGpsProcessingMethodRequest) (*SetGpsProcessingMethodResponse, error)
+	SetGpsTimestamp(context.Context, *SetGpsTimestampRequest) (*SetGpsTimestampResponse, error)
+	SetJpegQuality(context.Context, *SetJpegQualityRequest) (*SetJpegQualityResponse, error)
+	SetJpegThumbnailQuality(context.Context, *SetJpegThumbnailQualityRequest) (*SetJpegThumbnailQualityResponse, error)
+	SetJpegThumbnailSize(context.Context, *SetJpegThumbnailSizeRequest) (*SetJpegThumbnailSizeResponse, error)
+	SetPictureFormat(context.Context, *SetPictureFormatRequest) (*SetPictureFormatResponse, error)
+	SetPictureSize(context.Context, *SetPictureSizeRequest) (*SetPictureSizeResponse, error)
+	SetPreviewFormat(context.Context, *SetPreviewFormatRequest) (*SetPreviewFormatResponse, error)
+	SetPreviewFpsRange(context.Context, *SetPreviewFpsRangeRequest) (*SetPreviewFpsRangeResponse, error)
+	SetPreviewFrameRate(context.Context, *SetPreviewFrameRateRequest) (*SetPreviewFrameRateResponse, error)
+	SetPreviewSize(context.Context, *SetPreviewSizeRequest) (*SetPreviewSizeResponse, error)
+	SetRecordingHint(context.Context, *SetRecordingHintRequest) (*SetRecordingHintResponse, error)
+	SetRotation(context.Context, *SetRotationRequest) (*SetRotationResponse, error)
+	SetSceneMode(context.Context, *SetSceneModeRequest) (*SetSceneModeResponse, error)
+	SetVideoStabilization(context.Context, *SetVideoStabilizationRequest) (*SetVideoStabilizationResponse, error)
+	SetWhiteBalance(context.Context, *SetWhiteBalanceRequest) (*SetWhiteBalanceResponse, error)
+	SetZoom(context.Context, *SetZoomRequest) (*SetZoomResponse, error)
+	Unflatten(context.Context, *UnflattenRequest) (*UnflattenResponse, error)
+	mustEmbedUnimplementedCameraParametersServiceServer()
+}
+
+// UnimplementedCameraParametersServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedCameraParametersServiceServer struct{}
+
+func (UnimplementedCameraParametersServiceServer) Flatten(context.Context, *FlattenRequest) (*FlattenResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Flatten not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) Get(context.Context, *GetRequest) (*GetResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Get not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) GetAntibanding(context.Context, *GetAntibandingRequest) (*GetAntibandingResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAntibanding not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) GetAutoExposureLock(context.Context, *GetAutoExposureLockRequest) (*GetAutoExposureLockResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAutoExposureLock not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) GetAutoWhiteBalanceLock(context.Context, *GetAutoWhiteBalanceLockRequest) (*GetAutoWhiteBalanceLockResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAutoWhiteBalanceLock not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) GetColorEffect(context.Context, *GetColorEffectRequest) (*GetColorEffectResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetColorEffect not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) GetExposureCompensation(context.Context, *GetExposureCompensationRequest) (*GetExposureCompensationResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetExposureCompensation not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) GetExposureCompensationStep(context.Context, *GetExposureCompensationStepRequest) (*GetExposureCompensationStepResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetExposureCompensationStep not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) GetFlashMode(context.Context, *GetFlashModeRequest) (*GetFlashModeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFlashMode not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) GetFocalLength(context.Context, *GetFocalLengthRequest) (*GetFocalLengthResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFocalLength not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) GetFocusDistances(context.Context, *GetFocusDistancesRequest) (*GetFocusDistancesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFocusDistances not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) GetFocusMode(context.Context, *GetFocusModeRequest) (*GetFocusModeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFocusMode not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) GetHorizontalViewAngle(context.Context, *GetHorizontalViewAngleRequest) (*GetHorizontalViewAngleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetHorizontalViewAngle not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) GetInt(context.Context, *GetIntRequest) (*GetIntResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInt not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) GetJpegQuality(context.Context, *GetJpegQualityRequest) (*GetJpegQualityResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetJpegQuality not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) GetJpegThumbnailQuality(context.Context, *GetJpegThumbnailQualityRequest) (*GetJpegThumbnailQualityResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetJpegThumbnailQuality not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) GetJpegThumbnailSize(context.Context, *GetJpegThumbnailSizeRequest) (*GetJpegThumbnailSizeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetJpegThumbnailSize not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) GetMaxExposureCompensation(context.Context, *GetMaxExposureCompensationRequest) (*GetMaxExposureCompensationResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMaxExposureCompensation not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) GetMaxNumDetectedFaces(context.Context, *GetMaxNumDetectedFacesRequest) (*GetMaxNumDetectedFacesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMaxNumDetectedFaces not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) GetMaxNumFocusAreas(context.Context, *GetMaxNumFocusAreasRequest) (*GetMaxNumFocusAreasResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMaxNumFocusAreas not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) GetMaxNumMeteringAreas(context.Context, *GetMaxNumMeteringAreasRequest) (*GetMaxNumMeteringAreasResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMaxNumMeteringAreas not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) GetMaxZoom(context.Context, *GetMaxZoomRequest) (*GetMaxZoomResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMaxZoom not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) GetMinExposureCompensation(context.Context, *GetMinExposureCompensationRequest) (*GetMinExposureCompensationResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMinExposureCompensation not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) GetPictureFormat(context.Context, *GetPictureFormatRequest) (*GetPictureFormatResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPictureFormat not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) GetPictureSize(context.Context, *GetPictureSizeRequest) (*GetPictureSizeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPictureSize not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) GetPreferredPreviewSizeForVideo(context.Context, *GetPreferredPreviewSizeForVideoRequest) (*GetPreferredPreviewSizeForVideoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPreferredPreviewSizeForVideo not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) GetPreviewFormat(context.Context, *GetPreviewFormatRequest) (*GetPreviewFormatResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPreviewFormat not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) GetPreviewFpsRange(context.Context, *GetPreviewFpsRangeRequest) (*GetPreviewFpsRangeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPreviewFpsRange not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) GetPreviewFrameRate(context.Context, *GetPreviewFrameRateRequest) (*GetPreviewFrameRateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPreviewFrameRate not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) GetPreviewSize(context.Context, *GetPreviewSizeRequest) (*GetPreviewSizeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPreviewSize not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) GetSceneMode(context.Context, *GetSceneModeRequest) (*GetSceneModeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSceneMode not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) GetVerticalViewAngle(context.Context, *GetVerticalViewAngleRequest) (*GetVerticalViewAngleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetVerticalViewAngle not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) GetVideoStabilization(context.Context, *GetVideoStabilizationRequest) (*GetVideoStabilizationResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetVideoStabilization not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) GetWhiteBalance(context.Context, *GetWhiteBalanceRequest) (*GetWhiteBalanceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetWhiteBalance not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) GetZoom(context.Context, *GetZoomRequest) (*GetZoomResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetZoom not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) IsAutoExposureLockSupported(context.Context, *IsAutoExposureLockSupportedRequest) (*IsAutoExposureLockSupportedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsAutoExposureLockSupported not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) IsAutoWhiteBalanceLockSupported(context.Context, *IsAutoWhiteBalanceLockSupportedRequest) (*IsAutoWhiteBalanceLockSupportedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsAutoWhiteBalanceLockSupported not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) IsSmoothZoomSupported(context.Context, *IsSmoothZoomSupportedRequest) (*IsSmoothZoomSupportedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsSmoothZoomSupported not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) IsVideoSnapshotSupported(context.Context, *IsVideoSnapshotSupportedRequest) (*IsVideoSnapshotSupportedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsVideoSnapshotSupported not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) IsVideoStabilizationSupported(context.Context, *IsVideoStabilizationSupportedRequest) (*IsVideoStabilizationSupportedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsVideoStabilizationSupported not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) IsZoomSupported(context.Context, *IsZoomSupportedRequest) (*IsZoomSupportedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsZoomSupported not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) Remove(context.Context, *RemoveRequest) (*RemoveResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Remove not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) RemoveGpsData(context.Context, *RemoveGpsDataRequest) (*RemoveGpsDataResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RemoveGpsData not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) Set2(context.Context, *Set2Request) (*Set2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Set2 not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) Set2_1(context.Context, *CameraParametersSet2_1Request) (*Set2_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Set2_1 not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) SetAntibanding(context.Context, *SetAntibandingRequest) (*SetAntibandingResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetAntibanding not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) SetAutoExposureLock(context.Context, *SetAutoExposureLockRequest) (*SetAutoExposureLockResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetAutoExposureLock not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) SetAutoWhiteBalanceLock(context.Context, *SetAutoWhiteBalanceLockRequest) (*SetAutoWhiteBalanceLockResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetAutoWhiteBalanceLock not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) SetColorEffect(context.Context, *SetColorEffectRequest) (*SetColorEffectResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetColorEffect not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) SetExposureCompensation(context.Context, *SetExposureCompensationRequest) (*SetExposureCompensationResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetExposureCompensation not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) SetFlashMode(context.Context, *SetFlashModeRequest) (*SetFlashModeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetFlashMode not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) SetFocusMode(context.Context, *SetFocusModeRequest) (*SetFocusModeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetFocusMode not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) SetGpsAltitude(context.Context, *SetGpsAltitudeRequest) (*SetGpsAltitudeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetGpsAltitude not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) SetGpsLatitude(context.Context, *SetGpsLatitudeRequest) (*SetGpsLatitudeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetGpsLatitude not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) SetGpsLongitude(context.Context, *SetGpsLongitudeRequest) (*SetGpsLongitudeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetGpsLongitude not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) SetGpsProcessingMethod(context.Context, *SetGpsProcessingMethodRequest) (*SetGpsProcessingMethodResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetGpsProcessingMethod not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) SetGpsTimestamp(context.Context, *SetGpsTimestampRequest) (*SetGpsTimestampResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetGpsTimestamp not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) SetJpegQuality(context.Context, *SetJpegQualityRequest) (*SetJpegQualityResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetJpegQuality not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) SetJpegThumbnailQuality(context.Context, *SetJpegThumbnailQualityRequest) (*SetJpegThumbnailQualityResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetJpegThumbnailQuality not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) SetJpegThumbnailSize(context.Context, *SetJpegThumbnailSizeRequest) (*SetJpegThumbnailSizeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetJpegThumbnailSize not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) SetPictureFormat(context.Context, *SetPictureFormatRequest) (*SetPictureFormatResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetPictureFormat not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) SetPictureSize(context.Context, *SetPictureSizeRequest) (*SetPictureSizeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetPictureSize not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) SetPreviewFormat(context.Context, *SetPreviewFormatRequest) (*SetPreviewFormatResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetPreviewFormat not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) SetPreviewFpsRange(context.Context, *SetPreviewFpsRangeRequest) (*SetPreviewFpsRangeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetPreviewFpsRange not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) SetPreviewFrameRate(context.Context, *SetPreviewFrameRateRequest) (*SetPreviewFrameRateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetPreviewFrameRate not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) SetPreviewSize(context.Context, *SetPreviewSizeRequest) (*SetPreviewSizeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetPreviewSize not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) SetRecordingHint(context.Context, *SetRecordingHintRequest) (*SetRecordingHintResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetRecordingHint not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) SetRotation(context.Context, *SetRotationRequest) (*SetRotationResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetRotation not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) SetSceneMode(context.Context, *SetSceneModeRequest) (*SetSceneModeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetSceneMode not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) SetVideoStabilization(context.Context, *SetVideoStabilizationRequest) (*SetVideoStabilizationResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetVideoStabilization not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) SetWhiteBalance(context.Context, *SetWhiteBalanceRequest) (*SetWhiteBalanceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetWhiteBalance not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) SetZoom(context.Context, *SetZoomRequest) (*SetZoomResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetZoom not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) Unflatten(context.Context, *UnflattenRequest) (*UnflattenResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Unflatten not implemented")
+}
+func (UnimplementedCameraParametersServiceServer) mustEmbedUnimplementedCameraParametersServiceServer() {
+}
+func (UnimplementedCameraParametersServiceServer) testEmbeddedByValue() {}
+
+// UnsafeCameraParametersServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CameraParametersServiceServer will
+// result in compilation errors.
+type UnsafeCameraParametersServiceServer interface {
+	mustEmbedUnimplementedCameraParametersServiceServer()
+}
+
+func RegisterCameraParametersServiceServer(s grpc.ServiceRegistrar, srv CameraParametersServiceServer) {
+	// If the following call panics, it indicates UnimplementedCameraParametersServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&CameraParametersService_ServiceDesc, srv)
+}
+
+func _CameraParametersService_Flatten_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FlattenRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).Flatten(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_Flatten_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).Flatten(ctx, req.(*FlattenRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_Get_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).Get(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_Get_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).Get(ctx, req.(*GetRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_GetAntibanding_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAntibandingRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).GetAntibanding(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_GetAntibanding_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).GetAntibanding(ctx, req.(*GetAntibandingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_GetAutoExposureLock_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAutoExposureLockRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).GetAutoExposureLock(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_GetAutoExposureLock_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).GetAutoExposureLock(ctx, req.(*GetAutoExposureLockRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_GetAutoWhiteBalanceLock_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAutoWhiteBalanceLockRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).GetAutoWhiteBalanceLock(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_GetAutoWhiteBalanceLock_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).GetAutoWhiteBalanceLock(ctx, req.(*GetAutoWhiteBalanceLockRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_GetColorEffect_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetColorEffectRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).GetColorEffect(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_GetColorEffect_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).GetColorEffect(ctx, req.(*GetColorEffectRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_GetExposureCompensation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetExposureCompensationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).GetExposureCompensation(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_GetExposureCompensation_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).GetExposureCompensation(ctx, req.(*GetExposureCompensationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_GetExposureCompensationStep_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetExposureCompensationStepRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).GetExposureCompensationStep(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_GetExposureCompensationStep_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).GetExposureCompensationStep(ctx, req.(*GetExposureCompensationStepRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_GetFlashMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFlashModeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).GetFlashMode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_GetFlashMode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).GetFlashMode(ctx, req.(*GetFlashModeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_GetFocalLength_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFocalLengthRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).GetFocalLength(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_GetFocalLength_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).GetFocalLength(ctx, req.(*GetFocalLengthRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_GetFocusDistances_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFocusDistancesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).GetFocusDistances(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_GetFocusDistances_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).GetFocusDistances(ctx, req.(*GetFocusDistancesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_GetFocusMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFocusModeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).GetFocusMode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_GetFocusMode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).GetFocusMode(ctx, req.(*GetFocusModeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_GetHorizontalViewAngle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetHorizontalViewAngleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).GetHorizontalViewAngle(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_GetHorizontalViewAngle_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).GetHorizontalViewAngle(ctx, req.(*GetHorizontalViewAngleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_GetInt_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIntRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).GetInt(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_GetInt_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).GetInt(ctx, req.(*GetIntRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_GetJpegQuality_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetJpegQualityRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).GetJpegQuality(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_GetJpegQuality_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).GetJpegQuality(ctx, req.(*GetJpegQualityRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_GetJpegThumbnailQuality_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetJpegThumbnailQualityRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).GetJpegThumbnailQuality(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_GetJpegThumbnailQuality_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).GetJpegThumbnailQuality(ctx, req.(*GetJpegThumbnailQualityRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_GetJpegThumbnailSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetJpegThumbnailSizeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).GetJpegThumbnailSize(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_GetJpegThumbnailSize_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).GetJpegThumbnailSize(ctx, req.(*GetJpegThumbnailSizeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_GetMaxExposureCompensation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMaxExposureCompensationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).GetMaxExposureCompensation(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_GetMaxExposureCompensation_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).GetMaxExposureCompensation(ctx, req.(*GetMaxExposureCompensationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_GetMaxNumDetectedFaces_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMaxNumDetectedFacesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).GetMaxNumDetectedFaces(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_GetMaxNumDetectedFaces_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).GetMaxNumDetectedFaces(ctx, req.(*GetMaxNumDetectedFacesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_GetMaxNumFocusAreas_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMaxNumFocusAreasRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).GetMaxNumFocusAreas(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_GetMaxNumFocusAreas_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).GetMaxNumFocusAreas(ctx, req.(*GetMaxNumFocusAreasRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_GetMaxNumMeteringAreas_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMaxNumMeteringAreasRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).GetMaxNumMeteringAreas(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_GetMaxNumMeteringAreas_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).GetMaxNumMeteringAreas(ctx, req.(*GetMaxNumMeteringAreasRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_GetMaxZoom_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMaxZoomRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).GetMaxZoom(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_GetMaxZoom_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).GetMaxZoom(ctx, req.(*GetMaxZoomRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_GetMinExposureCompensation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMinExposureCompensationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).GetMinExposureCompensation(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_GetMinExposureCompensation_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).GetMinExposureCompensation(ctx, req.(*GetMinExposureCompensationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_GetPictureFormat_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPictureFormatRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).GetPictureFormat(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_GetPictureFormat_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).GetPictureFormat(ctx, req.(*GetPictureFormatRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_GetPictureSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPictureSizeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).GetPictureSize(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_GetPictureSize_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).GetPictureSize(ctx, req.(*GetPictureSizeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_GetPreferredPreviewSizeForVideo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPreferredPreviewSizeForVideoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).GetPreferredPreviewSizeForVideo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_GetPreferredPreviewSizeForVideo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).GetPreferredPreviewSizeForVideo(ctx, req.(*GetPreferredPreviewSizeForVideoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_GetPreviewFormat_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPreviewFormatRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).GetPreviewFormat(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_GetPreviewFormat_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).GetPreviewFormat(ctx, req.(*GetPreviewFormatRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_GetPreviewFpsRange_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPreviewFpsRangeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).GetPreviewFpsRange(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_GetPreviewFpsRange_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).GetPreviewFpsRange(ctx, req.(*GetPreviewFpsRangeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_GetPreviewFrameRate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPreviewFrameRateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).GetPreviewFrameRate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_GetPreviewFrameRate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).GetPreviewFrameRate(ctx, req.(*GetPreviewFrameRateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_GetPreviewSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPreviewSizeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).GetPreviewSize(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_GetPreviewSize_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).GetPreviewSize(ctx, req.(*GetPreviewSizeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_GetSceneMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSceneModeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).GetSceneMode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_GetSceneMode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).GetSceneMode(ctx, req.(*GetSceneModeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_GetVerticalViewAngle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetVerticalViewAngleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).GetVerticalViewAngle(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_GetVerticalViewAngle_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).GetVerticalViewAngle(ctx, req.(*GetVerticalViewAngleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_GetVideoStabilization_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetVideoStabilizationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).GetVideoStabilization(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_GetVideoStabilization_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).GetVideoStabilization(ctx, req.(*GetVideoStabilizationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_GetWhiteBalance_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetWhiteBalanceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).GetWhiteBalance(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_GetWhiteBalance_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).GetWhiteBalance(ctx, req.(*GetWhiteBalanceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_GetZoom_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetZoomRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).GetZoom(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_GetZoom_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).GetZoom(ctx, req.(*GetZoomRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_IsAutoExposureLockSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsAutoExposureLockSupportedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).IsAutoExposureLockSupported(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_IsAutoExposureLockSupported_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).IsAutoExposureLockSupported(ctx, req.(*IsAutoExposureLockSupportedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_IsAutoWhiteBalanceLockSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsAutoWhiteBalanceLockSupportedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).IsAutoWhiteBalanceLockSupported(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_IsAutoWhiteBalanceLockSupported_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).IsAutoWhiteBalanceLockSupported(ctx, req.(*IsAutoWhiteBalanceLockSupportedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_IsSmoothZoomSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsSmoothZoomSupportedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).IsSmoothZoomSupported(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_IsSmoothZoomSupported_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).IsSmoothZoomSupported(ctx, req.(*IsSmoothZoomSupportedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_IsVideoSnapshotSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsVideoSnapshotSupportedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).IsVideoSnapshotSupported(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_IsVideoSnapshotSupported_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).IsVideoSnapshotSupported(ctx, req.(*IsVideoSnapshotSupportedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_IsVideoStabilizationSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsVideoStabilizationSupportedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).IsVideoStabilizationSupported(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_IsVideoStabilizationSupported_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).IsVideoStabilizationSupported(ctx, req.(*IsVideoStabilizationSupportedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_IsZoomSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsZoomSupportedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).IsZoomSupported(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_IsZoomSupported_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).IsZoomSupported(ctx, req.(*IsZoomSupportedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_Remove_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RemoveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).Remove(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_Remove_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).Remove(ctx, req.(*RemoveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_RemoveGpsData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RemoveGpsDataRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).RemoveGpsData(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_RemoveGpsData_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).RemoveGpsData(ctx, req.(*RemoveGpsDataRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_Set2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Set2Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).Set2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_Set2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).Set2(ctx, req.(*Set2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_Set2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CameraParametersSet2_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).Set2_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_Set2_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).Set2_1(ctx, req.(*CameraParametersSet2_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_SetAntibanding_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetAntibandingRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).SetAntibanding(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_SetAntibanding_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).SetAntibanding(ctx, req.(*SetAntibandingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_SetAutoExposureLock_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetAutoExposureLockRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).SetAutoExposureLock(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_SetAutoExposureLock_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).SetAutoExposureLock(ctx, req.(*SetAutoExposureLockRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_SetAutoWhiteBalanceLock_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetAutoWhiteBalanceLockRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).SetAutoWhiteBalanceLock(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_SetAutoWhiteBalanceLock_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).SetAutoWhiteBalanceLock(ctx, req.(*SetAutoWhiteBalanceLockRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_SetColorEffect_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetColorEffectRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).SetColorEffect(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_SetColorEffect_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).SetColorEffect(ctx, req.(*SetColorEffectRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_SetExposureCompensation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetExposureCompensationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).SetExposureCompensation(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_SetExposureCompensation_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).SetExposureCompensation(ctx, req.(*SetExposureCompensationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_SetFlashMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetFlashModeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).SetFlashMode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_SetFlashMode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).SetFlashMode(ctx, req.(*SetFlashModeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_SetFocusMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetFocusModeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).SetFocusMode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_SetFocusMode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).SetFocusMode(ctx, req.(*SetFocusModeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_SetGpsAltitude_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetGpsAltitudeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).SetGpsAltitude(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_SetGpsAltitude_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).SetGpsAltitude(ctx, req.(*SetGpsAltitudeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_SetGpsLatitude_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetGpsLatitudeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).SetGpsLatitude(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_SetGpsLatitude_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).SetGpsLatitude(ctx, req.(*SetGpsLatitudeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_SetGpsLongitude_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetGpsLongitudeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).SetGpsLongitude(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_SetGpsLongitude_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).SetGpsLongitude(ctx, req.(*SetGpsLongitudeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_SetGpsProcessingMethod_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetGpsProcessingMethodRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).SetGpsProcessingMethod(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_SetGpsProcessingMethod_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).SetGpsProcessingMethod(ctx, req.(*SetGpsProcessingMethodRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_SetGpsTimestamp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetGpsTimestampRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).SetGpsTimestamp(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_SetGpsTimestamp_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).SetGpsTimestamp(ctx, req.(*SetGpsTimestampRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_SetJpegQuality_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetJpegQualityRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).SetJpegQuality(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_SetJpegQuality_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).SetJpegQuality(ctx, req.(*SetJpegQualityRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_SetJpegThumbnailQuality_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetJpegThumbnailQualityRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).SetJpegThumbnailQuality(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_SetJpegThumbnailQuality_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).SetJpegThumbnailQuality(ctx, req.(*SetJpegThumbnailQualityRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_SetJpegThumbnailSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetJpegThumbnailSizeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).SetJpegThumbnailSize(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_SetJpegThumbnailSize_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).SetJpegThumbnailSize(ctx, req.(*SetJpegThumbnailSizeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_SetPictureFormat_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetPictureFormatRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).SetPictureFormat(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_SetPictureFormat_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).SetPictureFormat(ctx, req.(*SetPictureFormatRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_SetPictureSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetPictureSizeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).SetPictureSize(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_SetPictureSize_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).SetPictureSize(ctx, req.(*SetPictureSizeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_SetPreviewFormat_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetPreviewFormatRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).SetPreviewFormat(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_SetPreviewFormat_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).SetPreviewFormat(ctx, req.(*SetPreviewFormatRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_SetPreviewFpsRange_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetPreviewFpsRangeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).SetPreviewFpsRange(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_SetPreviewFpsRange_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).SetPreviewFpsRange(ctx, req.(*SetPreviewFpsRangeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_SetPreviewFrameRate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetPreviewFrameRateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).SetPreviewFrameRate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_SetPreviewFrameRate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).SetPreviewFrameRate(ctx, req.(*SetPreviewFrameRateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_SetPreviewSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetPreviewSizeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).SetPreviewSize(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_SetPreviewSize_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).SetPreviewSize(ctx, req.(*SetPreviewSizeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_SetRecordingHint_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetRecordingHintRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).SetRecordingHint(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_SetRecordingHint_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).SetRecordingHint(ctx, req.(*SetRecordingHintRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_SetRotation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetRotationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).SetRotation(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_SetRotation_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).SetRotation(ctx, req.(*SetRotationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_SetSceneMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetSceneModeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).SetSceneMode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_SetSceneMode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).SetSceneMode(ctx, req.(*SetSceneModeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_SetVideoStabilization_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetVideoStabilizationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).SetVideoStabilization(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_SetVideoStabilization_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).SetVideoStabilization(ctx, req.(*SetVideoStabilizationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_SetWhiteBalance_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetWhiteBalanceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).SetWhiteBalance(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_SetWhiteBalance_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).SetWhiteBalance(ctx, req.(*SetWhiteBalanceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_SetZoom_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetZoomRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).SetZoom(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_SetZoom_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).SetZoom(ctx, req.(*SetZoomRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraParametersService_Unflatten_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnflattenRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraParametersServiceServer).Unflatten(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraParametersService_Unflatten_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraParametersServiceServer).Unflatten(ctx, req.(*UnflattenRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// CameraParametersService_ServiceDesc is the grpc.ServiceDesc for CameraParametersService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var CameraParametersService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "hardware.CameraParametersService",
+	HandlerType: (*CameraParametersServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Flatten",
+			Handler:    _CameraParametersService_Flatten_Handler,
+		},
+		{
+			MethodName: "Get",
+			Handler:    _CameraParametersService_Get_Handler,
+		},
+		{
+			MethodName: "GetAntibanding",
+			Handler:    _CameraParametersService_GetAntibanding_Handler,
+		},
+		{
+			MethodName: "GetAutoExposureLock",
+			Handler:    _CameraParametersService_GetAutoExposureLock_Handler,
+		},
+		{
+			MethodName: "GetAutoWhiteBalanceLock",
+			Handler:    _CameraParametersService_GetAutoWhiteBalanceLock_Handler,
+		},
+		{
+			MethodName: "GetColorEffect",
+			Handler:    _CameraParametersService_GetColorEffect_Handler,
+		},
+		{
+			MethodName: "GetExposureCompensation",
+			Handler:    _CameraParametersService_GetExposureCompensation_Handler,
+		},
+		{
+			MethodName: "GetExposureCompensationStep",
+			Handler:    _CameraParametersService_GetExposureCompensationStep_Handler,
+		},
+		{
+			MethodName: "GetFlashMode",
+			Handler:    _CameraParametersService_GetFlashMode_Handler,
+		},
+		{
+			MethodName: "GetFocalLength",
+			Handler:    _CameraParametersService_GetFocalLength_Handler,
+		},
+		{
+			MethodName: "GetFocusDistances",
+			Handler:    _CameraParametersService_GetFocusDistances_Handler,
+		},
+		{
+			MethodName: "GetFocusMode",
+			Handler:    _CameraParametersService_GetFocusMode_Handler,
+		},
+		{
+			MethodName: "GetHorizontalViewAngle",
+			Handler:    _CameraParametersService_GetHorizontalViewAngle_Handler,
+		},
+		{
+			MethodName: "GetInt",
+			Handler:    _CameraParametersService_GetInt_Handler,
+		},
+		{
+			MethodName: "GetJpegQuality",
+			Handler:    _CameraParametersService_GetJpegQuality_Handler,
+		},
+		{
+			MethodName: "GetJpegThumbnailQuality",
+			Handler:    _CameraParametersService_GetJpegThumbnailQuality_Handler,
+		},
+		{
+			MethodName: "GetJpegThumbnailSize",
+			Handler:    _CameraParametersService_GetJpegThumbnailSize_Handler,
+		},
+		{
+			MethodName: "GetMaxExposureCompensation",
+			Handler:    _CameraParametersService_GetMaxExposureCompensation_Handler,
+		},
+		{
+			MethodName: "GetMaxNumDetectedFaces",
+			Handler:    _CameraParametersService_GetMaxNumDetectedFaces_Handler,
+		},
+		{
+			MethodName: "GetMaxNumFocusAreas",
+			Handler:    _CameraParametersService_GetMaxNumFocusAreas_Handler,
+		},
+		{
+			MethodName: "GetMaxNumMeteringAreas",
+			Handler:    _CameraParametersService_GetMaxNumMeteringAreas_Handler,
+		},
+		{
+			MethodName: "GetMaxZoom",
+			Handler:    _CameraParametersService_GetMaxZoom_Handler,
+		},
+		{
+			MethodName: "GetMinExposureCompensation",
+			Handler:    _CameraParametersService_GetMinExposureCompensation_Handler,
+		},
+		{
+			MethodName: "GetPictureFormat",
+			Handler:    _CameraParametersService_GetPictureFormat_Handler,
+		},
+		{
+			MethodName: "GetPictureSize",
+			Handler:    _CameraParametersService_GetPictureSize_Handler,
+		},
+		{
+			MethodName: "GetPreferredPreviewSizeForVideo",
+			Handler:    _CameraParametersService_GetPreferredPreviewSizeForVideo_Handler,
+		},
+		{
+			MethodName: "GetPreviewFormat",
+			Handler:    _CameraParametersService_GetPreviewFormat_Handler,
+		},
+		{
+			MethodName: "GetPreviewFpsRange",
+			Handler:    _CameraParametersService_GetPreviewFpsRange_Handler,
+		},
+		{
+			MethodName: "GetPreviewFrameRate",
+			Handler:    _CameraParametersService_GetPreviewFrameRate_Handler,
+		},
+		{
+			MethodName: "GetPreviewSize",
+			Handler:    _CameraParametersService_GetPreviewSize_Handler,
+		},
+		{
+			MethodName: "GetSceneMode",
+			Handler:    _CameraParametersService_GetSceneMode_Handler,
+		},
+		{
+			MethodName: "GetVerticalViewAngle",
+			Handler:    _CameraParametersService_GetVerticalViewAngle_Handler,
+		},
+		{
+			MethodName: "GetVideoStabilization",
+			Handler:    _CameraParametersService_GetVideoStabilization_Handler,
+		},
+		{
+			MethodName: "GetWhiteBalance",
+			Handler:    _CameraParametersService_GetWhiteBalance_Handler,
+		},
+		{
+			MethodName: "GetZoom",
+			Handler:    _CameraParametersService_GetZoom_Handler,
+		},
+		{
+			MethodName: "IsAutoExposureLockSupported",
+			Handler:    _CameraParametersService_IsAutoExposureLockSupported_Handler,
+		},
+		{
+			MethodName: "IsAutoWhiteBalanceLockSupported",
+			Handler:    _CameraParametersService_IsAutoWhiteBalanceLockSupported_Handler,
+		},
+		{
+			MethodName: "IsSmoothZoomSupported",
+			Handler:    _CameraParametersService_IsSmoothZoomSupported_Handler,
+		},
+		{
+			MethodName: "IsVideoSnapshotSupported",
+			Handler:    _CameraParametersService_IsVideoSnapshotSupported_Handler,
+		},
+		{
+			MethodName: "IsVideoStabilizationSupported",
+			Handler:    _CameraParametersService_IsVideoStabilizationSupported_Handler,
+		},
+		{
+			MethodName: "IsZoomSupported",
+			Handler:    _CameraParametersService_IsZoomSupported_Handler,
+		},
+		{
+			MethodName: "Remove",
+			Handler:    _CameraParametersService_Remove_Handler,
+		},
+		{
+			MethodName: "RemoveGpsData",
+			Handler:    _CameraParametersService_RemoveGpsData_Handler,
+		},
+		{
+			MethodName: "Set2",
+			Handler:    _CameraParametersService_Set2_Handler,
+		},
+		{
+			MethodName: "Set2_1",
+			Handler:    _CameraParametersService_Set2_1_Handler,
+		},
+		{
+			MethodName: "SetAntibanding",
+			Handler:    _CameraParametersService_SetAntibanding_Handler,
+		},
+		{
+			MethodName: "SetAutoExposureLock",
+			Handler:    _CameraParametersService_SetAutoExposureLock_Handler,
+		},
+		{
+			MethodName: "SetAutoWhiteBalanceLock",
+			Handler:    _CameraParametersService_SetAutoWhiteBalanceLock_Handler,
+		},
+		{
+			MethodName: "SetColorEffect",
+			Handler:    _CameraParametersService_SetColorEffect_Handler,
+		},
+		{
+			MethodName: "SetExposureCompensation",
+			Handler:    _CameraParametersService_SetExposureCompensation_Handler,
+		},
+		{
+			MethodName: "SetFlashMode",
+			Handler:    _CameraParametersService_SetFlashMode_Handler,
+		},
+		{
+			MethodName: "SetFocusMode",
+			Handler:    _CameraParametersService_SetFocusMode_Handler,
+		},
+		{
+			MethodName: "SetGpsAltitude",
+			Handler:    _CameraParametersService_SetGpsAltitude_Handler,
+		},
+		{
+			MethodName: "SetGpsLatitude",
+			Handler:    _CameraParametersService_SetGpsLatitude_Handler,
+		},
+		{
+			MethodName: "SetGpsLongitude",
+			Handler:    _CameraParametersService_SetGpsLongitude_Handler,
+		},
+		{
+			MethodName: "SetGpsProcessingMethod",
+			Handler:    _CameraParametersService_SetGpsProcessingMethod_Handler,
+		},
+		{
+			MethodName: "SetGpsTimestamp",
+			Handler:    _CameraParametersService_SetGpsTimestamp_Handler,
+		},
+		{
+			MethodName: "SetJpegQuality",
+			Handler:    _CameraParametersService_SetJpegQuality_Handler,
+		},
+		{
+			MethodName: "SetJpegThumbnailQuality",
+			Handler:    _CameraParametersService_SetJpegThumbnailQuality_Handler,
+		},
+		{
+			MethodName: "SetJpegThumbnailSize",
+			Handler:    _CameraParametersService_SetJpegThumbnailSize_Handler,
+		},
+		{
+			MethodName: "SetPictureFormat",
+			Handler:    _CameraParametersService_SetPictureFormat_Handler,
+		},
+		{
+			MethodName: "SetPictureSize",
+			Handler:    _CameraParametersService_SetPictureSize_Handler,
+		},
+		{
+			MethodName: "SetPreviewFormat",
+			Handler:    _CameraParametersService_SetPreviewFormat_Handler,
+		},
+		{
+			MethodName: "SetPreviewFpsRange",
+			Handler:    _CameraParametersService_SetPreviewFpsRange_Handler,
+		},
+		{
+			MethodName: "SetPreviewFrameRate",
+			Handler:    _CameraParametersService_SetPreviewFrameRate_Handler,
+		},
+		{
+			MethodName: "SetPreviewSize",
+			Handler:    _CameraParametersService_SetPreviewSize_Handler,
+		},
+		{
+			MethodName: "SetRecordingHint",
+			Handler:    _CameraParametersService_SetRecordingHint_Handler,
+		},
+		{
+			MethodName: "SetRotation",
+			Handler:    _CameraParametersService_SetRotation_Handler,
+		},
+		{
+			MethodName: "SetSceneMode",
+			Handler:    _CameraParametersService_SetSceneMode_Handler,
+		},
+		{
+			MethodName: "SetVideoStabilization",
+			Handler:    _CameraParametersService_SetVideoStabilization_Handler,
+		},
+		{
+			MethodName: "SetWhiteBalance",
+			Handler:    _CameraParametersService_SetWhiteBalance_Handler,
+		},
+		{
+			MethodName: "SetZoom",
+			Handler:    _CameraParametersService_SetZoom_Handler,
+		},
+		{
+			MethodName: "Unflatten",
+			Handler:    _CameraParametersService_Unflatten_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/hardware/hardware.proto",
+}
+
+const (
+	CameraPictureCallbackService_OnPictureTaken_FullMethodName = "/hardware.CameraPictureCallbackService/OnPictureTaken"
+)
+
+// CameraPictureCallbackServiceClient is the client API for CameraPictureCallbackService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type CameraPictureCallbackServiceClient interface {
+	OnPictureTaken(ctx context.Context, in *OnPictureTakenRequest, opts ...grpc.CallOption) (*OnPictureTakenResponse, error)
+}
+
+type cameraPictureCallbackServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewCameraPictureCallbackServiceClient(cc grpc.ClientConnInterface) CameraPictureCallbackServiceClient {
+	return &cameraPictureCallbackServiceClient{cc}
+}
+
+func (c *cameraPictureCallbackServiceClient) OnPictureTaken(ctx context.Context, in *OnPictureTakenRequest, opts ...grpc.CallOption) (*OnPictureTakenResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnPictureTakenResponse)
+	err := c.cc.Invoke(ctx, CameraPictureCallbackService_OnPictureTaken_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// CameraPictureCallbackServiceServer is the server API for CameraPictureCallbackService service.
+// All implementations must embed UnimplementedCameraPictureCallbackServiceServer
+// for forward compatibility.
+type CameraPictureCallbackServiceServer interface {
+	OnPictureTaken(context.Context, *OnPictureTakenRequest) (*OnPictureTakenResponse, error)
+	mustEmbedUnimplementedCameraPictureCallbackServiceServer()
+}
+
+// UnimplementedCameraPictureCallbackServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedCameraPictureCallbackServiceServer struct{}
+
+func (UnimplementedCameraPictureCallbackServiceServer) OnPictureTaken(context.Context, *OnPictureTakenRequest) (*OnPictureTakenResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnPictureTaken not implemented")
+}
+func (UnimplementedCameraPictureCallbackServiceServer) mustEmbedUnimplementedCameraPictureCallbackServiceServer() {
+}
+func (UnimplementedCameraPictureCallbackServiceServer) testEmbeddedByValue() {}
+
+// UnsafeCameraPictureCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CameraPictureCallbackServiceServer will
+// result in compilation errors.
+type UnsafeCameraPictureCallbackServiceServer interface {
+	mustEmbedUnimplementedCameraPictureCallbackServiceServer()
+}
+
+func RegisterCameraPictureCallbackServiceServer(s grpc.ServiceRegistrar, srv CameraPictureCallbackServiceServer) {
+	// If the following call panics, it indicates UnimplementedCameraPictureCallbackServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&CameraPictureCallbackService_ServiceDesc, srv)
+}
+
+func _CameraPictureCallbackService_OnPictureTaken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnPictureTakenRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraPictureCallbackServiceServer).OnPictureTaken(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraPictureCallbackService_OnPictureTaken_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraPictureCallbackServiceServer).OnPictureTaken(ctx, req.(*OnPictureTakenRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// CameraPictureCallbackService_ServiceDesc is the grpc.ServiceDesc for CameraPictureCallbackService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var CameraPictureCallbackService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "hardware.CameraPictureCallbackService",
+	HandlerType: (*CameraPictureCallbackServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnPictureTaken",
+			Handler:    _CameraPictureCallbackService_OnPictureTaken_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/hardware/hardware.proto",
+}
+
+const (
+	CameraPreviewCallbackService_OnPreviewFrame_FullMethodName = "/hardware.CameraPreviewCallbackService/OnPreviewFrame"
+)
+
+// CameraPreviewCallbackServiceClient is the client API for CameraPreviewCallbackService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type CameraPreviewCallbackServiceClient interface {
+	OnPreviewFrame(ctx context.Context, in *OnPreviewFrameRequest, opts ...grpc.CallOption) (*OnPreviewFrameResponse, error)
+}
+
+type cameraPreviewCallbackServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewCameraPreviewCallbackServiceClient(cc grpc.ClientConnInterface) CameraPreviewCallbackServiceClient {
+	return &cameraPreviewCallbackServiceClient{cc}
+}
+
+func (c *cameraPreviewCallbackServiceClient) OnPreviewFrame(ctx context.Context, in *OnPreviewFrameRequest, opts ...grpc.CallOption) (*OnPreviewFrameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnPreviewFrameResponse)
+	err := c.cc.Invoke(ctx, CameraPreviewCallbackService_OnPreviewFrame_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// CameraPreviewCallbackServiceServer is the server API for CameraPreviewCallbackService service.
+// All implementations must embed UnimplementedCameraPreviewCallbackServiceServer
+// for forward compatibility.
+type CameraPreviewCallbackServiceServer interface {
+	OnPreviewFrame(context.Context, *OnPreviewFrameRequest) (*OnPreviewFrameResponse, error)
+	mustEmbedUnimplementedCameraPreviewCallbackServiceServer()
+}
+
+// UnimplementedCameraPreviewCallbackServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedCameraPreviewCallbackServiceServer struct{}
+
+func (UnimplementedCameraPreviewCallbackServiceServer) OnPreviewFrame(context.Context, *OnPreviewFrameRequest) (*OnPreviewFrameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnPreviewFrame not implemented")
+}
+func (UnimplementedCameraPreviewCallbackServiceServer) mustEmbedUnimplementedCameraPreviewCallbackServiceServer() {
+}
+func (UnimplementedCameraPreviewCallbackServiceServer) testEmbeddedByValue() {}
+
+// UnsafeCameraPreviewCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CameraPreviewCallbackServiceServer will
+// result in compilation errors.
+type UnsafeCameraPreviewCallbackServiceServer interface {
+	mustEmbedUnimplementedCameraPreviewCallbackServiceServer()
+}
+
+func RegisterCameraPreviewCallbackServiceServer(s grpc.ServiceRegistrar, srv CameraPreviewCallbackServiceServer) {
+	// If the following call panics, it indicates UnimplementedCameraPreviewCallbackServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&CameraPreviewCallbackService_ServiceDesc, srv)
+}
+
+func _CameraPreviewCallbackService_OnPreviewFrame_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnPreviewFrameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraPreviewCallbackServiceServer).OnPreviewFrame(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraPreviewCallbackService_OnPreviewFrame_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraPreviewCallbackServiceServer).OnPreviewFrame(ctx, req.(*OnPreviewFrameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// CameraPreviewCallbackService_ServiceDesc is the grpc.ServiceDesc for CameraPreviewCallbackService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var CameraPreviewCallbackService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "hardware.CameraPreviewCallbackService",
+	HandlerType: (*CameraPreviewCallbackServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnPreviewFrame",
+			Handler:    _CameraPreviewCallbackService_OnPreviewFrame_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/hardware/hardware.proto",
+}
+
+const (
+	CameraShutterCallbackService_OnShutter_FullMethodName = "/hardware.CameraShutterCallbackService/OnShutter"
+)
+
+// CameraShutterCallbackServiceClient is the client API for CameraShutterCallbackService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type CameraShutterCallbackServiceClient interface {
+	OnShutter(ctx context.Context, in *OnShutterRequest, opts ...grpc.CallOption) (*OnShutterResponse, error)
+}
+
+type cameraShutterCallbackServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewCameraShutterCallbackServiceClient(cc grpc.ClientConnInterface) CameraShutterCallbackServiceClient {
+	return &cameraShutterCallbackServiceClient{cc}
+}
+
+func (c *cameraShutterCallbackServiceClient) OnShutter(ctx context.Context, in *OnShutterRequest, opts ...grpc.CallOption) (*OnShutterResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnShutterResponse)
+	err := c.cc.Invoke(ctx, CameraShutterCallbackService_OnShutter_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// CameraShutterCallbackServiceServer is the server API for CameraShutterCallbackService service.
+// All implementations must embed UnimplementedCameraShutterCallbackServiceServer
+// for forward compatibility.
+type CameraShutterCallbackServiceServer interface {
+	OnShutter(context.Context, *OnShutterRequest) (*OnShutterResponse, error)
+	mustEmbedUnimplementedCameraShutterCallbackServiceServer()
+}
+
+// UnimplementedCameraShutterCallbackServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedCameraShutterCallbackServiceServer struct{}
+
+func (UnimplementedCameraShutterCallbackServiceServer) OnShutter(context.Context, *OnShutterRequest) (*OnShutterResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnShutter not implemented")
+}
+func (UnimplementedCameraShutterCallbackServiceServer) mustEmbedUnimplementedCameraShutterCallbackServiceServer() {
+}
+func (UnimplementedCameraShutterCallbackServiceServer) testEmbeddedByValue() {}
+
+// UnsafeCameraShutterCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CameraShutterCallbackServiceServer will
+// result in compilation errors.
+type UnsafeCameraShutterCallbackServiceServer interface {
+	mustEmbedUnimplementedCameraShutterCallbackServiceServer()
+}
+
+func RegisterCameraShutterCallbackServiceServer(s grpc.ServiceRegistrar, srv CameraShutterCallbackServiceServer) {
+	// If the following call panics, it indicates UnimplementedCameraShutterCallbackServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&CameraShutterCallbackService_ServiceDesc, srv)
+}
+
+func _CameraShutterCallbackService_OnShutter_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnShutterRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraShutterCallbackServiceServer).OnShutter(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraShutterCallbackService_OnShutter_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraShutterCallbackServiceServer).OnShutter(ctx, req.(*OnShutterRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// CameraShutterCallbackService_ServiceDesc is the grpc.ServiceDesc for CameraShutterCallbackService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var CameraShutterCallbackService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "hardware.CameraShutterCallbackService",
+	HandlerType: (*CameraShutterCallbackServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnShutter",
+			Handler:    _CameraShutterCallbackService_OnShutter_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/hardware/hardware.proto",
+}
+
+const (
+	CameraSizeService_Equals_FullMethodName   = "/hardware.CameraSizeService/Equals"
+	CameraSizeService_HashCode_FullMethodName = "/hardware.CameraSizeService/HashCode"
+)
+
+// CameraSizeServiceClient is the client API for CameraSizeService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type CameraSizeServiceClient interface {
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+}
+
+type cameraSizeServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewCameraSizeServiceClient(cc grpc.ClientConnInterface) CameraSizeServiceClient {
+	return &cameraSizeServiceClient{cc}
+}
+
+func (c *cameraSizeServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, CameraSizeService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraSizeServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, CameraSizeService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// CameraSizeServiceServer is the server API for CameraSizeService service.
+// All implementations must embed UnimplementedCameraSizeServiceServer
+// for forward compatibility.
+type CameraSizeServiceServer interface {
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	mustEmbedUnimplementedCameraSizeServiceServer()
+}
+
+// UnimplementedCameraSizeServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedCameraSizeServiceServer struct{}
+
+func (UnimplementedCameraSizeServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedCameraSizeServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedCameraSizeServiceServer) mustEmbedUnimplementedCameraSizeServiceServer() {}
+func (UnimplementedCameraSizeServiceServer) testEmbeddedByValue()                           {}
+
+// UnsafeCameraSizeServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CameraSizeServiceServer will
+// result in compilation errors.
+type UnsafeCameraSizeServiceServer interface {
+	mustEmbedUnimplementedCameraSizeServiceServer()
+}
+
+func RegisterCameraSizeServiceServer(s grpc.ServiceRegistrar, srv CameraSizeServiceServer) {
+	// If the following call panics, it indicates UnimplementedCameraSizeServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&CameraSizeService_ServiceDesc, srv)
+}
+
+func _CameraSizeService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraSizeServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraSizeService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraSizeServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraSizeService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraSizeServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraSizeService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraSizeServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// CameraSizeService_ServiceDesc is the grpc.ServiceDesc for CameraSizeService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var CameraSizeService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "hardware.CameraSizeService",
+	HandlerType: (*CameraSizeServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Equals",
+			Handler:    _CameraSizeService_Equals_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _CameraSizeService_HashCode_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/hardware/hardware.proto",
+}
+
+const (
+	BatteryStateService_GetCapacity_FullMethodName = "/hardware.BatteryStateService/GetCapacity"
+	BatteryStateService_GetStatus_FullMethodName   = "/hardware.BatteryStateService/GetStatus"
+	BatteryStateService_IsPresent_FullMethodName   = "/hardware.BatteryStateService/IsPresent"
+)
+
+// BatteryStateServiceClient is the client API for BatteryStateService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type BatteryStateServiceClient interface {
+	GetCapacity(ctx context.Context, in *GetCapacityRequest, opts ...grpc.CallOption) (*GetCapacityResponse, error)
+	GetStatus(ctx context.Context, in *GetStatusRequest, opts ...grpc.CallOption) (*GetStatusResponse, error)
+	IsPresent(ctx context.Context, in *IsPresentRequest, opts ...grpc.CallOption) (*IsPresentResponse, error)
+}
+
+type batteryStateServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewBatteryStateServiceClient(cc grpc.ClientConnInterface) BatteryStateServiceClient {
+	return &batteryStateServiceClient{cc}
+}
+
+func (c *batteryStateServiceClient) GetCapacity(ctx context.Context, in *GetCapacityRequest, opts ...grpc.CallOption) (*GetCapacityResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCapacityResponse)
+	err := c.cc.Invoke(ctx, BatteryStateService_GetCapacity_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *batteryStateServiceClient) GetStatus(ctx context.Context, in *GetStatusRequest, opts ...grpc.CallOption) (*GetStatusResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStatusResponse)
+	err := c.cc.Invoke(ctx, BatteryStateService_GetStatus_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *batteryStateServiceClient) IsPresent(ctx context.Context, in *IsPresentRequest, opts ...grpc.CallOption) (*IsPresentResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsPresentResponse)
+	err := c.cc.Invoke(ctx, BatteryStateService_IsPresent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// BatteryStateServiceServer is the server API for BatteryStateService service.
+// All implementations must embed UnimplementedBatteryStateServiceServer
+// for forward compatibility.
+type BatteryStateServiceServer interface {
+	GetCapacity(context.Context, *GetCapacityRequest) (*GetCapacityResponse, error)
+	GetStatus(context.Context, *GetStatusRequest) (*GetStatusResponse, error)
+	IsPresent(context.Context, *IsPresentRequest) (*IsPresentResponse, error)
+	mustEmbedUnimplementedBatteryStateServiceServer()
+}
+
+// UnimplementedBatteryStateServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedBatteryStateServiceServer struct{}
+
+func (UnimplementedBatteryStateServiceServer) GetCapacity(context.Context, *GetCapacityRequest) (*GetCapacityResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCapacity not implemented")
+}
+func (UnimplementedBatteryStateServiceServer) GetStatus(context.Context, *GetStatusRequest) (*GetStatusResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetStatus not implemented")
+}
+func (UnimplementedBatteryStateServiceServer) IsPresent(context.Context, *IsPresentRequest) (*IsPresentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsPresent not implemented")
+}
+func (UnimplementedBatteryStateServiceServer) mustEmbedUnimplementedBatteryStateServiceServer() {}
+func (UnimplementedBatteryStateServiceServer) testEmbeddedByValue()                             {}
+
+// UnsafeBatteryStateServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to BatteryStateServiceServer will
+// result in compilation errors.
+type UnsafeBatteryStateServiceServer interface {
+	mustEmbedUnimplementedBatteryStateServiceServer()
+}
+
+func RegisterBatteryStateServiceServer(s grpc.ServiceRegistrar, srv BatteryStateServiceServer) {
+	// If the following call panics, it indicates UnimplementedBatteryStateServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&BatteryStateService_ServiceDesc, srv)
+}
+
+func _BatteryStateService_GetCapacity_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCapacityRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BatteryStateServiceServer).GetCapacity(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BatteryStateService_GetCapacity_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BatteryStateServiceServer).GetCapacity(ctx, req.(*GetCapacityRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BatteryStateService_GetStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStatusRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BatteryStateServiceServer).GetStatus(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BatteryStateService_GetStatus_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BatteryStateServiceServer).GetStatus(ctx, req.(*GetStatusRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BatteryStateService_IsPresent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsPresentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BatteryStateServiceServer).IsPresent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BatteryStateService_IsPresent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BatteryStateServiceServer).IsPresent(ctx, req.(*IsPresentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// BatteryStateService_ServiceDesc is the grpc.ServiceDesc for BatteryStateService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var BatteryStateService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "hardware.BatteryStateService",
+	HandlerType: (*BatteryStateServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetCapacity",
+			Handler:    _BatteryStateService_GetCapacity_Handler,
+		},
+		{
+			MethodName: "GetStatus",
+			Handler:    _BatteryStateService_GetStatus_Handler,
+		},
+		{
+			MethodName: "IsPresent",
+			Handler:    _BatteryStateService_IsPresent_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/hardware/hardware.proto",
+}
+
+const (
+	OverlayPropertiesService_DescribeContents_FullMethodName            = "/hardware.OverlayPropertiesService/DescribeContents"
+	OverlayPropertiesService_GetLutProperties_FullMethodName            = "/hardware.OverlayPropertiesService/GetLutProperties"
+	OverlayPropertiesService_IsCombinationSupported_FullMethodName      = "/hardware.OverlayPropertiesService/IsCombinationSupported"
+	OverlayPropertiesService_IsMixedColorSpacesSupported_FullMethodName = "/hardware.OverlayPropertiesService/IsMixedColorSpacesSupported"
+	OverlayPropertiesService_WriteToParcel_FullMethodName               = "/hardware.OverlayPropertiesService/WriteToParcel"
+)
+
+// OverlayPropertiesServiceClient is the client API for OverlayPropertiesService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type OverlayPropertiesServiceClient interface {
+	DescribeContents(ctx context.Context, in *OverlayPropertiesDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetLutProperties(ctx context.Context, in *GetLutPropertiesRequest, opts ...grpc.CallOption) (*GetLutPropertiesResponse, error)
+	IsCombinationSupported(ctx context.Context, in *IsCombinationSupportedRequest, opts ...grpc.CallOption) (*IsCombinationSupportedResponse, error)
+	IsMixedColorSpacesSupported(ctx context.Context, in *IsMixedColorSpacesSupportedRequest, opts ...grpc.CallOption) (*IsMixedColorSpacesSupportedResponse, error)
+	WriteToParcel(ctx context.Context, in *OverlayPropertiesWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type overlayPropertiesServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewOverlayPropertiesServiceClient(cc grpc.ClientConnInterface) OverlayPropertiesServiceClient {
+	return &overlayPropertiesServiceClient{cc}
+}
+
+func (c *overlayPropertiesServiceClient) DescribeContents(ctx context.Context, in *OverlayPropertiesDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, OverlayPropertiesService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *overlayPropertiesServiceClient) GetLutProperties(ctx context.Context, in *GetLutPropertiesRequest, opts ...grpc.CallOption) (*GetLutPropertiesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLutPropertiesResponse)
+	err := c.cc.Invoke(ctx, OverlayPropertiesService_GetLutProperties_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *overlayPropertiesServiceClient) IsCombinationSupported(ctx context.Context, in *IsCombinationSupportedRequest, opts ...grpc.CallOption) (*IsCombinationSupportedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsCombinationSupportedResponse)
+	err := c.cc.Invoke(ctx, OverlayPropertiesService_IsCombinationSupported_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *overlayPropertiesServiceClient) IsMixedColorSpacesSupported(ctx context.Context, in *IsMixedColorSpacesSupportedRequest, opts ...grpc.CallOption) (*IsMixedColorSpacesSupportedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsMixedColorSpacesSupportedResponse)
+	err := c.cc.Invoke(ctx, OverlayPropertiesService_IsMixedColorSpacesSupported_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *overlayPropertiesServiceClient) WriteToParcel(ctx context.Context, in *OverlayPropertiesWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, OverlayPropertiesService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// OverlayPropertiesServiceServer is the server API for OverlayPropertiesService service.
+// All implementations must embed UnimplementedOverlayPropertiesServiceServer
+// for forward compatibility.
+type OverlayPropertiesServiceServer interface {
+	DescribeContents(context.Context, *OverlayPropertiesDescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetLutProperties(context.Context, *GetLutPropertiesRequest) (*GetLutPropertiesResponse, error)
+	IsCombinationSupported(context.Context, *IsCombinationSupportedRequest) (*IsCombinationSupportedResponse, error)
+	IsMixedColorSpacesSupported(context.Context, *IsMixedColorSpacesSupportedRequest) (*IsMixedColorSpacesSupportedResponse, error)
+	WriteToParcel(context.Context, *OverlayPropertiesWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedOverlayPropertiesServiceServer()
+}
+
+// UnimplementedOverlayPropertiesServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedOverlayPropertiesServiceServer struct{}
+
+func (UnimplementedOverlayPropertiesServiceServer) DescribeContents(context.Context, *OverlayPropertiesDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedOverlayPropertiesServiceServer) GetLutProperties(context.Context, *GetLutPropertiesRequest) (*GetLutPropertiesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLutProperties not implemented")
+}
+func (UnimplementedOverlayPropertiesServiceServer) IsCombinationSupported(context.Context, *IsCombinationSupportedRequest) (*IsCombinationSupportedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsCombinationSupported not implemented")
+}
+func (UnimplementedOverlayPropertiesServiceServer) IsMixedColorSpacesSupported(context.Context, *IsMixedColorSpacesSupportedRequest) (*IsMixedColorSpacesSupportedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsMixedColorSpacesSupported not implemented")
+}
+func (UnimplementedOverlayPropertiesServiceServer) WriteToParcel(context.Context, *OverlayPropertiesWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedOverlayPropertiesServiceServer) mustEmbedUnimplementedOverlayPropertiesServiceServer() {
+}
+func (UnimplementedOverlayPropertiesServiceServer) testEmbeddedByValue() {}
+
+// UnsafeOverlayPropertiesServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to OverlayPropertiesServiceServer will
+// result in compilation errors.
+type UnsafeOverlayPropertiesServiceServer interface {
+	mustEmbedUnimplementedOverlayPropertiesServiceServer()
+}
+
+func RegisterOverlayPropertiesServiceServer(s grpc.ServiceRegistrar, srv OverlayPropertiesServiceServer) {
+	// If the following call panics, it indicates UnimplementedOverlayPropertiesServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&OverlayPropertiesService_ServiceDesc, srv)
+}
+
+func _OverlayPropertiesService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OverlayPropertiesDescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OverlayPropertiesServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OverlayPropertiesService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OverlayPropertiesServiceServer).DescribeContents(ctx, req.(*OverlayPropertiesDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OverlayPropertiesService_GetLutProperties_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLutPropertiesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OverlayPropertiesServiceServer).GetLutProperties(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OverlayPropertiesService_GetLutProperties_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OverlayPropertiesServiceServer).GetLutProperties(ctx, req.(*GetLutPropertiesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OverlayPropertiesService_IsCombinationSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsCombinationSupportedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OverlayPropertiesServiceServer).IsCombinationSupported(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OverlayPropertiesService_IsCombinationSupported_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OverlayPropertiesServiceServer).IsCombinationSupported(ctx, req.(*IsCombinationSupportedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OverlayPropertiesService_IsMixedColorSpacesSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsMixedColorSpacesSupportedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OverlayPropertiesServiceServer).IsMixedColorSpacesSupported(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OverlayPropertiesService_IsMixedColorSpacesSupported_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OverlayPropertiesServiceServer).IsMixedColorSpacesSupported(ctx, req.(*IsMixedColorSpacesSupportedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OverlayPropertiesService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OverlayPropertiesWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OverlayPropertiesServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OverlayPropertiesService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OverlayPropertiesServiceServer).WriteToParcel(ctx, req.(*OverlayPropertiesWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// OverlayPropertiesService_ServiceDesc is the grpc.ServiceDesc for OverlayPropertiesService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var OverlayPropertiesService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "hardware.OverlayPropertiesService",
+	HandlerType: (*OverlayPropertiesServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _OverlayPropertiesService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetLutProperties",
+			Handler:    _OverlayPropertiesService_GetLutProperties_Handler,
+		},
+		{
+			MethodName: "IsCombinationSupported",
+			Handler:    _OverlayPropertiesService_IsCombinationSupported_Handler,
+		},
+		{
+			MethodName: "IsMixedColorSpacesSupported",
+			Handler:    _OverlayPropertiesService_IsMixedColorSpacesSupported_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _OverlayPropertiesService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/hardware/hardware.proto",
+}
+
+const (
+	SensorEventCallbackService_OnAccuracyChanged_FullMethodName      = "/hardware.SensorEventCallbackService/OnAccuracyChanged"
+	SensorEventCallbackService_OnFlushCompleted_FullMethodName       = "/hardware.SensorEventCallbackService/OnFlushCompleted"
+	SensorEventCallbackService_OnSensorAdditionalInfo_FullMethodName = "/hardware.SensorEventCallbackService/OnSensorAdditionalInfo"
+	SensorEventCallbackService_OnSensorChanged_FullMethodName        = "/hardware.SensorEventCallbackService/OnSensorChanged"
+)
+
+// SensorEventCallbackServiceClient is the client API for SensorEventCallbackService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SensorEventCallbackServiceClient interface {
+	OnAccuracyChanged(ctx context.Context, in *SensorEventCallbackOnAccuracyChangedRequest, opts ...grpc.CallOption) (*OnAccuracyChangedResponse, error)
+	OnFlushCompleted(ctx context.Context, in *OnFlushCompletedRequest, opts ...grpc.CallOption) (*OnFlushCompletedResponse, error)
+	OnSensorAdditionalInfo(ctx context.Context, in *OnSensorAdditionalInfoRequest, opts ...grpc.CallOption) (*OnSensorAdditionalInfoResponse, error)
+	OnSensorChanged(ctx context.Context, in *SensorEventCallbackOnSensorChangedRequest, opts ...grpc.CallOption) (*OnSensorChangedResponse, error)
+}
+
+type sensorEventCallbackServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSensorEventCallbackServiceClient(cc grpc.ClientConnInterface) SensorEventCallbackServiceClient {
+	return &sensorEventCallbackServiceClient{cc}
+}
+
+func (c *sensorEventCallbackServiceClient) OnAccuracyChanged(ctx context.Context, in *SensorEventCallbackOnAccuracyChangedRequest, opts ...grpc.CallOption) (*OnAccuracyChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnAccuracyChangedResponse)
+	err := c.cc.Invoke(ctx, SensorEventCallbackService_OnAccuracyChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorEventCallbackServiceClient) OnFlushCompleted(ctx context.Context, in *OnFlushCompletedRequest, opts ...grpc.CallOption) (*OnFlushCompletedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnFlushCompletedResponse)
+	err := c.cc.Invoke(ctx, SensorEventCallbackService_OnFlushCompleted_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorEventCallbackServiceClient) OnSensorAdditionalInfo(ctx context.Context, in *OnSensorAdditionalInfoRequest, opts ...grpc.CallOption) (*OnSensorAdditionalInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnSensorAdditionalInfoResponse)
+	err := c.cc.Invoke(ctx, SensorEventCallbackService_OnSensorAdditionalInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorEventCallbackServiceClient) OnSensorChanged(ctx context.Context, in *SensorEventCallbackOnSensorChangedRequest, opts ...grpc.CallOption) (*OnSensorChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnSensorChangedResponse)
+	err := c.cc.Invoke(ctx, SensorEventCallbackService_OnSensorChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SensorEventCallbackServiceServer is the server API for SensorEventCallbackService service.
+// All implementations must embed UnimplementedSensorEventCallbackServiceServer
+// for forward compatibility.
+type SensorEventCallbackServiceServer interface {
+	OnAccuracyChanged(context.Context, *SensorEventCallbackOnAccuracyChangedRequest) (*OnAccuracyChangedResponse, error)
+	OnFlushCompleted(context.Context, *OnFlushCompletedRequest) (*OnFlushCompletedResponse, error)
+	OnSensorAdditionalInfo(context.Context, *OnSensorAdditionalInfoRequest) (*OnSensorAdditionalInfoResponse, error)
+	OnSensorChanged(context.Context, *SensorEventCallbackOnSensorChangedRequest) (*OnSensorChangedResponse, error)
+	mustEmbedUnimplementedSensorEventCallbackServiceServer()
+}
+
+// UnimplementedSensorEventCallbackServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSensorEventCallbackServiceServer struct{}
+
+func (UnimplementedSensorEventCallbackServiceServer) OnAccuracyChanged(context.Context, *SensorEventCallbackOnAccuracyChangedRequest) (*OnAccuracyChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnAccuracyChanged not implemented")
+}
+func (UnimplementedSensorEventCallbackServiceServer) OnFlushCompleted(context.Context, *OnFlushCompletedRequest) (*OnFlushCompletedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnFlushCompleted not implemented")
+}
+func (UnimplementedSensorEventCallbackServiceServer) OnSensorAdditionalInfo(context.Context, *OnSensorAdditionalInfoRequest) (*OnSensorAdditionalInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnSensorAdditionalInfo not implemented")
+}
+func (UnimplementedSensorEventCallbackServiceServer) OnSensorChanged(context.Context, *SensorEventCallbackOnSensorChangedRequest) (*OnSensorChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnSensorChanged not implemented")
+}
+func (UnimplementedSensorEventCallbackServiceServer) mustEmbedUnimplementedSensorEventCallbackServiceServer() {
+}
+func (UnimplementedSensorEventCallbackServiceServer) testEmbeddedByValue() {}
+
+// UnsafeSensorEventCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SensorEventCallbackServiceServer will
+// result in compilation errors.
+type UnsafeSensorEventCallbackServiceServer interface {
+	mustEmbedUnimplementedSensorEventCallbackServiceServer()
+}
+
+func RegisterSensorEventCallbackServiceServer(s grpc.ServiceRegistrar, srv SensorEventCallbackServiceServer) {
+	// If the following call panics, it indicates UnimplementedSensorEventCallbackServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SensorEventCallbackService_ServiceDesc, srv)
+}
+
+func _SensorEventCallbackService_OnAccuracyChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SensorEventCallbackOnAccuracyChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorEventCallbackServiceServer).OnAccuracyChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorEventCallbackService_OnAccuracyChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorEventCallbackServiceServer).OnAccuracyChanged(ctx, req.(*SensorEventCallbackOnAccuracyChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorEventCallbackService_OnFlushCompleted_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnFlushCompletedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorEventCallbackServiceServer).OnFlushCompleted(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorEventCallbackService_OnFlushCompleted_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorEventCallbackServiceServer).OnFlushCompleted(ctx, req.(*OnFlushCompletedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorEventCallbackService_OnSensorAdditionalInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnSensorAdditionalInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorEventCallbackServiceServer).OnSensorAdditionalInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorEventCallbackService_OnSensorAdditionalInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorEventCallbackServiceServer).OnSensorAdditionalInfo(ctx, req.(*OnSensorAdditionalInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorEventCallbackService_OnSensorChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SensorEventCallbackOnSensorChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorEventCallbackServiceServer).OnSensorChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorEventCallbackService_OnSensorChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorEventCallbackServiceServer).OnSensorChanged(ctx, req.(*SensorEventCallbackOnSensorChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SensorEventCallbackService_ServiceDesc is the grpc.ServiceDesc for SensorEventCallbackService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SensorEventCallbackService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "hardware.SensorEventCallbackService",
+	HandlerType: (*SensorEventCallbackServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnAccuracyChanged",
+			Handler:    _SensorEventCallbackService_OnAccuracyChanged_Handler,
+		},
+		{
+			MethodName: "OnFlushCompleted",
+			Handler:    _SensorEventCallbackService_OnFlushCompleted_Handler,
+		},
+		{
+			MethodName: "OnSensorAdditionalInfo",
+			Handler:    _SensorEventCallbackService_OnSensorAdditionalInfo_Handler,
+		},
+		{
+			MethodName: "OnSensorChanged",
+			Handler:    _SensorEventCallbackService_OnSensorChanged_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/hardware/hardware.proto",
+}
+
+const (
+	SensorPrivacyManagerService_SupportsSensorToggle1_FullMethodName   = "/hardware.SensorPrivacyManagerService/SupportsSensorToggle1"
+	SensorPrivacyManagerService_SupportsSensorToggle2_1_FullMethodName = "/hardware.SensorPrivacyManagerService/SupportsSensorToggle2_1"
+)
+
+// SensorPrivacyManagerServiceClient is the client API for SensorPrivacyManagerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SensorPrivacyManagerServiceClient interface {
+	SupportsSensorToggle1(ctx context.Context, in *SupportsSensorToggle1Request, opts ...grpc.CallOption) (*SupportsSensorToggle1Response, error)
+	SupportsSensorToggle2_1(ctx context.Context, in *SupportsSensorToggle2_1Request, opts ...grpc.CallOption) (*SupportsSensorToggle2_1Response, error)
+}
+
+type sensorPrivacyManagerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSensorPrivacyManagerServiceClient(cc grpc.ClientConnInterface) SensorPrivacyManagerServiceClient {
+	return &sensorPrivacyManagerServiceClient{cc}
+}
+
+func (c *sensorPrivacyManagerServiceClient) SupportsSensorToggle1(ctx context.Context, in *SupportsSensorToggle1Request, opts ...grpc.CallOption) (*SupportsSensorToggle1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SupportsSensorToggle1Response)
+	err := c.cc.Invoke(ctx, SensorPrivacyManagerService_SupportsSensorToggle1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sensorPrivacyManagerServiceClient) SupportsSensorToggle2_1(ctx context.Context, in *SupportsSensorToggle2_1Request, opts ...grpc.CallOption) (*SupportsSensorToggle2_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SupportsSensorToggle2_1Response)
+	err := c.cc.Invoke(ctx, SensorPrivacyManagerService_SupportsSensorToggle2_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SensorPrivacyManagerServiceServer is the server API for SensorPrivacyManagerService service.
+// All implementations must embed UnimplementedSensorPrivacyManagerServiceServer
+// for forward compatibility.
+type SensorPrivacyManagerServiceServer interface {
+	SupportsSensorToggle1(context.Context, *SupportsSensorToggle1Request) (*SupportsSensorToggle1Response, error)
+	SupportsSensorToggle2_1(context.Context, *SupportsSensorToggle2_1Request) (*SupportsSensorToggle2_1Response, error)
+	mustEmbedUnimplementedSensorPrivacyManagerServiceServer()
+}
+
+// UnimplementedSensorPrivacyManagerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSensorPrivacyManagerServiceServer struct{}
+
+func (UnimplementedSensorPrivacyManagerServiceServer) SupportsSensorToggle1(context.Context, *SupportsSensorToggle1Request) (*SupportsSensorToggle1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method SupportsSensorToggle1 not implemented")
+}
+func (UnimplementedSensorPrivacyManagerServiceServer) SupportsSensorToggle2_1(context.Context, *SupportsSensorToggle2_1Request) (*SupportsSensorToggle2_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method SupportsSensorToggle2_1 not implemented")
+}
+func (UnimplementedSensorPrivacyManagerServiceServer) mustEmbedUnimplementedSensorPrivacyManagerServiceServer() {
+}
+func (UnimplementedSensorPrivacyManagerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeSensorPrivacyManagerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SensorPrivacyManagerServiceServer will
+// result in compilation errors.
+type UnsafeSensorPrivacyManagerServiceServer interface {
+	mustEmbedUnimplementedSensorPrivacyManagerServiceServer()
+}
+
+func RegisterSensorPrivacyManagerServiceServer(s grpc.ServiceRegistrar, srv SensorPrivacyManagerServiceServer) {
+	// If the following call panics, it indicates UnimplementedSensorPrivacyManagerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SensorPrivacyManagerService_ServiceDesc, srv)
+}
+
+func _SensorPrivacyManagerService_SupportsSensorToggle1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SupportsSensorToggle1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorPrivacyManagerServiceServer).SupportsSensorToggle1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorPrivacyManagerService_SupportsSensorToggle1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorPrivacyManagerServiceServer).SupportsSensorToggle1(ctx, req.(*SupportsSensorToggle1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SensorPrivacyManagerService_SupportsSensorToggle2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SupportsSensorToggle2_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorPrivacyManagerServiceServer).SupportsSensorToggle2_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorPrivacyManagerService_SupportsSensorToggle2_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorPrivacyManagerServiceServer).SupportsSensorToggle2_1(ctx, req.(*SupportsSensorToggle2_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SensorPrivacyManagerService_ServiceDesc is the grpc.ServiceDesc for SensorPrivacyManagerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SensorPrivacyManagerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "hardware.SensorPrivacyManagerService",
+	HandlerType: (*SensorPrivacyManagerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "SupportsSensorToggle1",
+			Handler:    _SensorPrivacyManagerService_SupportsSensorToggle1_Handler,
+		},
+		{
+			MethodName: "SupportsSensorToggle2_1",
+			Handler:    _SensorPrivacyManagerService_SupportsSensorToggle2_1_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/hardware/hardware.proto",
+}
+
+const (
+	SensorEventListener2Service_OnFlushCompleted_FullMethodName = "/hardware.SensorEventListener2Service/OnFlushCompleted"
+)
+
+// SensorEventListener2ServiceClient is the client API for SensorEventListener2Service service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SensorEventListener2ServiceClient interface {
+	OnFlushCompleted(ctx context.Context, in *OnFlushCompletedRequest, opts ...grpc.CallOption) (*OnFlushCompletedResponse, error)
+}
+
+type sensorEventListener2ServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSensorEventListener2ServiceClient(cc grpc.ClientConnInterface) SensorEventListener2ServiceClient {
+	return &sensorEventListener2ServiceClient{cc}
+}
+
+func (c *sensorEventListener2ServiceClient) OnFlushCompleted(ctx context.Context, in *OnFlushCompletedRequest, opts ...grpc.CallOption) (*OnFlushCompletedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnFlushCompletedResponse)
+	err := c.cc.Invoke(ctx, SensorEventListener2Service_OnFlushCompleted_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SensorEventListener2ServiceServer is the server API for SensorEventListener2Service service.
+// All implementations must embed UnimplementedSensorEventListener2ServiceServer
+// for forward compatibility.
+type SensorEventListener2ServiceServer interface {
+	OnFlushCompleted(context.Context, *OnFlushCompletedRequest) (*OnFlushCompletedResponse, error)
+	mustEmbedUnimplementedSensorEventListener2ServiceServer()
+}
+
+// UnimplementedSensorEventListener2ServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSensorEventListener2ServiceServer struct{}
+
+func (UnimplementedSensorEventListener2ServiceServer) OnFlushCompleted(context.Context, *OnFlushCompletedRequest) (*OnFlushCompletedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnFlushCompleted not implemented")
+}
+func (UnimplementedSensorEventListener2ServiceServer) mustEmbedUnimplementedSensorEventListener2ServiceServer() {
+}
+func (UnimplementedSensorEventListener2ServiceServer) testEmbeddedByValue() {}
+
+// UnsafeSensorEventListener2ServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SensorEventListener2ServiceServer will
+// result in compilation errors.
+type UnsafeSensorEventListener2ServiceServer interface {
+	mustEmbedUnimplementedSensorEventListener2ServiceServer()
+}
+
+func RegisterSensorEventListener2ServiceServer(s grpc.ServiceRegistrar, srv SensorEventListener2ServiceServer) {
+	// If the following call panics, it indicates UnimplementedSensorEventListener2ServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SensorEventListener2Service_ServiceDesc, srv)
+}
+
+func _SensorEventListener2Service_OnFlushCompleted_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnFlushCompletedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SensorEventListener2ServiceServer).OnFlushCompleted(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SensorEventListener2Service_OnFlushCompleted_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SensorEventListener2ServiceServer).OnFlushCompleted(ctx, req.(*OnFlushCompletedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SensorEventListener2Service_ServiceDesc is the grpc.ServiceDesc for SensorEventListener2Service service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SensorEventListener2Service_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "hardware.SensorEventListener2Service",
+	HandlerType: (*SensorEventListener2ServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnFlushCompleted",
+			Handler:    _SensorEventListener2Service_OnFlushCompleted_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/hardware/hardware.proto",
+}

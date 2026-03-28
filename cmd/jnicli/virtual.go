@@ -12,6 +12,161 @@ var virtualCmd = &cobra.Command{
 	Short: "virtual service operations",
 }
 
+var virtualDeviceCmd = &cobra.Command{
+	Use:   "device",
+	Short: "DeviceService operations",
+}
+
+var virtualDeviceDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var virtualDeviceGetDeviceIdCmd = &cobra.Command{
+	Use:   "get-device-id",
+	Short: "GetDeviceId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceServiceClient(grpcConn)
+		req := &pb.GetDeviceIdRequest{}
+		resp, err := client.GetDeviceId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var virtualDeviceGetDisplayIdsCmd = &cobra.Command{
+	Use:   "get-display-ids",
+	Short: "GetDisplayIds RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceServiceClient(grpcConn)
+		req := &pb.GetDisplayIdsRequest{}
+		resp, err := client.GetDisplayIds(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var virtualDeviceGetDisplayNameCmd = &cobra.Command{
+	Use:   "get-display-name",
+	Short: "GetDisplayName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceServiceClient(grpcConn)
+		req := &pb.GetDisplayNameRequest{}
+		resp, err := client.GetDisplayName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var virtualDeviceGetNameCmd = &cobra.Command{
+	Use:   "get-name",
+	Short: "GetName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceServiceClient(grpcConn)
+		req := &pb.GetNameRequest{}
+		resp, err := client.GetName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var virtualDeviceGetPersistentDeviceIdCmd = &cobra.Command{
+	Use:   "get-persistent-device-id",
+	Short: "GetPersistentDeviceId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceServiceClient(grpcConn)
+		req := &pb.GetPersistentDeviceIdRequest{}
+		resp, err := client.GetPersistentDeviceId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var virtualDeviceHasCustomSensorSupportCmd = &cobra.Command{
+	Use:   "has-custom-sensor-support",
+	Short: "HasCustomSensorSupport RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceServiceClient(grpcConn)
+		req := &pb.HasCustomSensorSupportRequest{}
+		resp, err := client.HasCustomSensorSupport(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var virtualDeviceToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var virtualDeviceWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var virtualDeviceManagerCmd = &cobra.Command{
 	Use:   "device-manager",
 	Short: "DeviceManagerService operations",
@@ -78,6 +233,18 @@ var virtualDeviceManagerUnregisterVirtualDeviceListenerCmd = &cobra.Command{
 }
 
 func init() {
+	virtualDeviceCmd.AddCommand(virtualDeviceDescribeContentsCmd)
+	virtualDeviceCmd.AddCommand(virtualDeviceGetDeviceIdCmd)
+	virtualDeviceCmd.AddCommand(virtualDeviceGetDisplayIdsCmd)
+	virtualDeviceCmd.AddCommand(virtualDeviceGetDisplayNameCmd)
+	virtualDeviceCmd.AddCommand(virtualDeviceGetNameCmd)
+	virtualDeviceCmd.AddCommand(virtualDeviceGetPersistentDeviceIdCmd)
+	virtualDeviceCmd.AddCommand(virtualDeviceHasCustomSensorSupportCmd)
+	virtualDeviceCmd.AddCommand(virtualDeviceToStringCmd)
+	virtualDeviceWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	virtualDeviceWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	virtualDeviceCmd.AddCommand(virtualDeviceWriteToParcelCmd)
+	virtualCmd.AddCommand(virtualDeviceCmd)
 	virtualDeviceManagerGetVirtualDeviceCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	virtualDeviceManagerCmd.AddCommand(virtualDeviceManagerGetVirtualDeviceCmd)
 	virtualDeviceManagerRegisterVirtualDeviceListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")

@@ -5,3 +5,3776 @@ syntax = "proto3";
 package drawable;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/drawable";
+
+message NewAnimatedVectorDrawableRequest {
+}
+
+message NewAnimatedVectorDrawableResponse {
+  int64 result = 1;
+}
+
+message ApplyThemeRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message ApplyThemeResponse {
+}
+
+message CanApplyThemeRequest {
+  int64 handle = 1;
+}
+
+message CanApplyThemeResponse {
+  bool result = 1;
+}
+
+message ClearAnimationCallbacksRequest {
+  int64 handle = 1;
+}
+
+message ClearAnimationCallbacksResponse {
+}
+
+message DrawRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message DrawResponse {
+}
+
+message GetAlphaRequest {
+  int64 handle = 1;
+}
+
+message GetAlphaResponse {
+  int32 result = 1;
+}
+
+message GetChangingConfigurationsRequest {
+  int64 handle = 1;
+}
+
+message GetChangingConfigurationsResponse {
+  int32 result = 1;
+}
+
+message GetColorFilterRequest {
+  int64 handle = 1;
+}
+
+message GetColorFilterResponse {
+  int64 result = 1;
+}
+
+message GetConstantStateRequest {
+  int64 handle = 1;
+}
+
+message GetConstantStateResponse {
+  int64 result = 1;
+}
+
+message GetIntrinsicHeightRequest {
+  int64 handle = 1;
+}
+
+message GetIntrinsicHeightResponse {
+  int32 result = 1;
+}
+
+message GetIntrinsicWidthRequest {
+  int64 handle = 1;
+}
+
+message GetIntrinsicWidthResponse {
+  int32 result = 1;
+}
+
+message GetOpacityRequest {
+  int64 handle = 1;
+}
+
+message GetOpacityResponse {
+  int32 result = 1;
+}
+
+message GetOpticalInsetsRequest {
+  int64 handle = 1;
+}
+
+message GetOpticalInsetsResponse {
+  int64 result = 1;
+}
+
+message GetOutlineRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetOutlineResponse {
+}
+
+message InflateRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int64 arg2 = 4;
+  int64 arg3 = 5;
+}
+
+message InflateResponse {
+}
+
+message IsRunningRequest {
+  int64 handle = 1;
+}
+
+message IsRunningResponse {
+  bool result = 1;
+}
+
+message IsStatefulRequest {
+  int64 handle = 1;
+}
+
+message IsStatefulResponse {
+  bool result = 1;
+}
+
+message MutateRequest {
+  int64 handle = 1;
+}
+
+message MutateResponse {
+  int64 result = 1;
+}
+
+message OnLayoutDirectionChangedRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message OnLayoutDirectionChangedResponse {
+  bool result = 1;
+}
+
+message RegisterAnimationCallbackRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message RegisterAnimationCallbackResponse {
+}
+
+message ResetRequest {
+  int64 handle = 1;
+}
+
+message ResetResponse {
+}
+
+message SetAlphaRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetAlphaResponse {
+}
+
+message SetColorFilterRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetColorFilterResponse {
+}
+
+message SetHotspotRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+}
+
+message SetHotspotResponse {
+}
+
+message SetHotspotBoundsRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
+}
+
+message SetHotspotBoundsResponse {
+}
+
+message SetTintBlendModeRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetTintBlendModeResponse {
+}
+
+message SetTintListRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetTintListResponse {
+}
+
+message SetVisibleRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+  bool arg1 = 3;
+}
+
+message SetVisibleResponse {
+  bool result = 1;
+}
+
+message StartRequest {
+  int64 handle = 1;
+}
+
+message StartResponse {
+}
+
+message StopRequest {
+  int64 handle = 1;
+}
+
+message StopResponse {
+}
+
+message UnregisterAnimationCallbackRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message UnregisterAnimationCallbackResponse {
+  bool result = 1;
+}
+
+message WrapperApplyThemeRequest {
+  int64 arg0 = 1;
+}
+
+message WrapperCanApplyThemeRequest {
+}
+
+message WrapperDrawRequest {
+  int64 arg0 = 1;
+}
+
+message WrapperGetAlphaRequest {
+}
+
+message WrapperGetChangingConfigurationsRequest {
+}
+
+message WrapperGetColorFilterRequest {
+}
+
+message WrapperGetConstantStateRequest {
+}
+
+message GetDrawableRequest {
+}
+
+message GetDrawableResponse {
+  int64 result = 1;
+}
+
+message GetHotspotBoundsRequest {
+  int64 arg0 = 1;
+}
+
+message GetHotspotBoundsResponse {
+}
+
+message WrapperGetIntrinsicHeightRequest {
+}
+
+message WrapperGetIntrinsicWidthRequest {
+}
+
+message WrapperGetOpacityRequest {
+}
+
+message WrapperGetOpticalInsetsRequest {
+}
+
+message WrapperGetOutlineRequest {
+  int64 arg0 = 1;
+}
+
+message GetPaddingRequest {
+  int64 arg0 = 1;
+}
+
+message GetPaddingResponse {
+  bool result = 1;
+}
+
+message HasFocusStateSpecifiedRequest {
+}
+
+message HasFocusStateSpecifiedResponse {
+  bool result = 1;
+}
+
+message WrapperInflateRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message InvalidateDrawableRequest {
+  int64 arg0 = 1;
+}
+
+message InvalidateDrawableResponse {
+}
+
+message WrapperIsStatefulRequest {
+}
+
+message JumpToCurrentStateRequest {
+}
+
+message JumpToCurrentStateResponse {
+}
+
+message WrapperMutateRequest {
+}
+
+message WrapperOnLayoutDirectionChangedRequest {
+  int32 arg0 = 1;
+}
+
+message ScheduleDrawableRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message ScheduleDrawableResponse {
+}
+
+message WrapperSetAlphaRequest {
+  int32 arg0 = 1;
+}
+
+message WrapperSetColorFilterRequest {
+  int64 arg0 = 1;
+}
+
+message SetDrawableRequest {
+  int64 arg0 = 1;
+}
+
+message SetDrawableResponse {
+}
+
+message WrapperSetHotspotRequest {
+  float arg0 = 1;
+  float arg1 = 2;
+}
+
+message WrapperSetHotspotBoundsRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message WrapperSetTintBlendModeRequest {
+  int64 arg0 = 1;
+}
+
+message WrapperSetTintListRequest {
+  int64 arg0 = 1;
+}
+
+message WrapperSetVisibleRequest {
+  bool arg0 = 1;
+  bool arg1 = 2;
+}
+
+message UnscheduleDrawableRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message UnscheduleDrawableResponse {
+}
+
+message NewScaleDrawableRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  float arg2 = 3;
+  float arg3 = 4;
+}
+
+message NewScaleDrawableResponse {
+  int64 result = 1;
+}
+
+message NewBitmapDrawableRequest {
+}
+
+message NewBitmapDrawableResponse {
+  int64 result = 1;
+}
+
+message GetBitmapRequest {
+  int64 handle = 1;
+}
+
+message GetBitmapResponse {
+  int64 result = 1;
+}
+
+message GetGravityRequest {
+  int64 handle = 1;
+}
+
+message GetGravityResponse {
+  int32 result = 1;
+}
+
+message GetPaintRequest {
+  int64 handle = 1;
+}
+
+message GetPaintResponse {
+  int64 result = 1;
+}
+
+message GetTileModeXRequest {
+  int64 handle = 1;
+}
+
+message GetTileModeXResponse {
+  int64 result = 1;
+}
+
+message GetTileModeYRequest {
+  int64 handle = 1;
+}
+
+message GetTileModeYResponse {
+  int64 result = 1;
+}
+
+message HasAntiAliasRequest {
+  int64 handle = 1;
+}
+
+message HasAntiAliasResponse {
+  bool result = 1;
+}
+
+message BitmapDrawableHasFocusStateSpecifiedRequest {
+  int64 handle = 1;
+}
+
+message HasMipMapRequest {
+  int64 handle = 1;
+}
+
+message HasMipMapResponse {
+  bool result = 1;
+}
+
+message IsAutoMirroredRequest {
+  int64 handle = 1;
+}
+
+message IsAutoMirroredResponse {
+  bool result = 1;
+}
+
+message IsFilterBitmapRequest {
+  int64 handle = 1;
+}
+
+message IsFilterBitmapResponse {
+  bool result = 1;
+}
+
+message SetAntiAliasRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetAntiAliasResponse {
+}
+
+message SetAutoMirroredRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetAutoMirroredResponse {
+}
+
+message SetBitmapRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetBitmapResponse {
+}
+
+message SetDitherRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetDitherResponse {
+}
+
+message SetFilterBitmapRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetFilterBitmapResponse {
+}
+
+message SetGravityRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetGravityResponse {
+}
+
+message SetMipMapRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetMipMapResponse {
+}
+
+message SetTargetDensity1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetTargetDensity1Response {
+}
+
+message SetTargetDensity1_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetTargetDensity1_1Response {
+}
+
+message SetTargetDensity1_2Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetTargetDensity1_2Response {
+}
+
+message SetTileModeXRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetTileModeXResponse {
+}
+
+message SetTileModeXYRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message SetTileModeXYResponse {
+}
+
+message SetTileModeYRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetTileModeYResponse {
+}
+
+message NewGradientDrawableRequest {
+}
+
+message NewGradientDrawableResponse {
+  int64 result = 1;
+}
+
+message GetColorRequest {
+  int64 handle = 1;
+}
+
+message GetColorResponse {
+  int64 result = 1;
+}
+
+message GetColorsRequest {
+  int64 handle = 1;
+}
+
+message GetColorsResponse {
+  int64 result = 1;
+}
+
+message GetCornerRadiiRequest {
+  int64 handle = 1;
+}
+
+message GetCornerRadiiResponse {
+  int64 result = 1;
+}
+
+message GetCornerRadiusRequest {
+  int64 handle = 1;
+}
+
+message GetCornerRadiusResponse {
+  float result = 1;
+}
+
+message GetGradientCenterXRequest {
+  int64 handle = 1;
+}
+
+message GetGradientCenterXResponse {
+  float result = 1;
+}
+
+message GetGradientCenterYRequest {
+  int64 handle = 1;
+}
+
+message GetGradientCenterYResponse {
+  float result = 1;
+}
+
+message GetGradientRadiusRequest {
+  int64 handle = 1;
+}
+
+message GetGradientRadiusResponse {
+  float result = 1;
+}
+
+message GetGradientTypeRequest {
+  int64 handle = 1;
+}
+
+message GetGradientTypeResponse {
+  int32 result = 1;
+}
+
+message GetInnerRadiusRequest {
+  int64 handle = 1;
+}
+
+message GetInnerRadiusResponse {
+  int32 result = 1;
+}
+
+message GetInnerRadiusRatioRequest {
+  int64 handle = 1;
+}
+
+message GetInnerRadiusRatioResponse {
+  float result = 1;
+}
+
+message GetOrientationRequest {
+  int64 handle = 1;
+}
+
+message GetOrientationResponse {
+  int64 result = 1;
+}
+
+message GradientDrawableGetPaddingRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetShapeRequest {
+  int64 handle = 1;
+}
+
+message GetShapeResponse {
+  int32 result = 1;
+}
+
+message GetThicknessRequest {
+  int64 handle = 1;
+}
+
+message GetThicknessResponse {
+  int32 result = 1;
+}
+
+message GetThicknessRatioRequest {
+  int64 handle = 1;
+}
+
+message GetThicknessRatioResponse {
+  float result = 1;
+}
+
+message GetUseLevelRequest {
+  int64 handle = 1;
+}
+
+message GetUseLevelResponse {
+  bool result = 1;
+}
+
+message GradientDrawableHasFocusStateSpecifiedRequest {
+  int64 handle = 1;
+}
+
+message SetColor1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetColor1Response {
+}
+
+message SetColor1_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetColor1_1Response {
+}
+
+message SetColors1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetColors1Response {
+}
+
+message SetColors2_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message SetColors2_1Response {
+}
+
+message SetCornerRadiiRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetCornerRadiiResponse {
+}
+
+message SetCornerRadiusRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+}
+
+message SetCornerRadiusResponse {
+}
+
+message SetGradientCenterRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+}
+
+message SetGradientCenterResponse {
+}
+
+message SetGradientRadiusRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+}
+
+message SetGradientRadiusResponse {
+}
+
+message SetGradientTypeRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetGradientTypeResponse {
+}
+
+message SetInnerRadiusRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetInnerRadiusResponse {
+}
+
+message SetInnerRadiusRatioRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+}
+
+message SetInnerRadiusRatioResponse {
+}
+
+message SetOrientationRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetOrientationResponse {
+}
+
+message SetPaddingRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
+}
+
+message SetPaddingResponse {
+}
+
+message SetShapeRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetShapeResponse {
+}
+
+message SetSizeRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message SetSizeResponse {
+}
+
+message SetStroke2Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message SetStroke2Response {
+}
+
+message SetStroke4_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
+  float arg2 = 4;
+  float arg3 = 5;
+}
+
+message SetStroke4_1Response {
+}
+
+message SetStroke2_2Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message SetStroke2_2Response {
+}
+
+message SetStroke4_3Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+  float arg2 = 4;
+  float arg3 = 5;
+}
+
+message SetStroke4_3Response {
+}
+
+message SetThicknessRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetThicknessResponse {
+}
+
+message SetThicknessRatioRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+}
+
+message SetThicknessRatioResponse {
+}
+
+message SetUseLevelRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetUseLevelResponse {
+}
+
+message ValuesRequest {
+}
+
+message ValuesResponse {
+  int64 result = 1;
+}
+
+message ValueOfRequest {
+  string arg0 = 1;
+}
+
+message ValueOfResponse {
+  int64 result = 1;
+}
+
+message NewStateListDrawableRequest {
+}
+
+message NewStateListDrawableResponse {
+  int64 result = 1;
+}
+
+message AddStateRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message AddStateResponse {
+}
+
+message FindStateDrawableIndexRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message FindStateDrawableIndexResponse {
+  int32 result = 1;
+}
+
+message GetStateCountRequest {
+  int64 handle = 1;
+}
+
+message GetStateCountResponse {
+  int32 result = 1;
+}
+
+message GetStateDrawableRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetStateDrawableResponse {
+  int64 result = 1;
+}
+
+message GetStateSetRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetStateSetResponse {
+  int64 result = 1;
+}
+
+message StateListDrawableHasFocusStateSpecifiedRequest {
+  int64 handle = 1;
+}
+
+message NewAnimatedImageDrawableRequest {
+}
+
+message NewAnimatedImageDrawableResponse {
+  int64 result = 1;
+}
+
+message GetRepeatCountRequest {
+  int64 handle = 1;
+}
+
+message GetRepeatCountResponse {
+  int32 result = 1;
+}
+
+message SetRepeatCountRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetRepeatCountResponse {
+}
+
+message NewLayerDrawableRequest {
+  int64 arg0 = 1;
+}
+
+message NewLayerDrawableResponse {
+  int64 result = 1;
+}
+
+message AddLayerRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AddLayerResponse {
+  int32 result = 1;
+}
+
+message FindDrawableByLayerIdRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message FindDrawableByLayerIdResponse {
+  int64 result = 1;
+}
+
+message FindIndexByLayerIdRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message FindIndexByLayerIdResponse {
+  int32 result = 1;
+}
+
+message GetBottomPaddingRequest {
+  int64 handle = 1;
+}
+
+message GetBottomPaddingResponse {
+  int32 result = 1;
+}
+
+message LayerDrawableGetDrawableRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetEndPaddingRequest {
+  int64 handle = 1;
+}
+
+message GetEndPaddingResponse {
+  int32 result = 1;
+}
+
+message LayerDrawableGetHotspotBoundsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetIdRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetIdResponse {
+  int32 result = 1;
+}
+
+message GetLayerGravityRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetLayerGravityResponse {
+  int32 result = 1;
+}
+
+message GetLayerHeightRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetLayerHeightResponse {
+  int32 result = 1;
+}
+
+message GetLayerInsetBottomRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetLayerInsetBottomResponse {
+  int32 result = 1;
+}
+
+message GetLayerInsetEndRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetLayerInsetEndResponse {
+  int32 result = 1;
+}
+
+message GetLayerInsetLeftRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetLayerInsetLeftResponse {
+  int32 result = 1;
+}
+
+message GetLayerInsetRightRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetLayerInsetRightResponse {
+  int32 result = 1;
+}
+
+message GetLayerInsetStartRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetLayerInsetStartResponse {
+  int32 result = 1;
+}
+
+message GetLayerInsetTopRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetLayerInsetTopResponse {
+  int32 result = 1;
+}
+
+message GetLayerWidthRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetLayerWidthResponse {
+  int32 result = 1;
+}
+
+message GetLeftPaddingRequest {
+  int64 handle = 1;
+}
+
+message GetLeftPaddingResponse {
+  int32 result = 1;
+}
+
+message GetNumberOfLayersRequest {
+  int64 handle = 1;
+}
+
+message GetNumberOfLayersResponse {
+  int32 result = 1;
+}
+
+message LayerDrawableGetPaddingRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetPaddingModeRequest {
+  int64 handle = 1;
+}
+
+message GetPaddingModeResponse {
+  int32 result = 1;
+}
+
+message GetRightPaddingRequest {
+  int64 handle = 1;
+}
+
+message GetRightPaddingResponse {
+  int32 result = 1;
+}
+
+message GetStartPaddingRequest {
+  int64 handle = 1;
+}
+
+message GetStartPaddingResponse {
+  int32 result = 1;
+}
+
+message GetTopPaddingRequest {
+  int64 handle = 1;
+}
+
+message GetTopPaddingResponse {
+  int32 result = 1;
+}
+
+message LayerDrawableHasFocusStateSpecifiedRequest {
+  int64 handle = 1;
+}
+
+message LayerDrawableInvalidateDrawableRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message IsProjectedRequest {
+  int64 handle = 1;
+}
+
+message IsProjectedResponse {
+  bool result = 1;
+}
+
+message LayerDrawableJumpToCurrentStateRequest {
+  int64 handle = 1;
+}
+
+message LayerDrawableScheduleDrawableRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message LayerDrawableSetDrawableRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message SetDrawableByLayerIdRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message SetDrawableByLayerIdResponse {
+  bool result = 1;
+}
+
+message SetIdRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message SetIdResponse {
+}
+
+message SetLayerGravityRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message SetLayerGravityResponse {
+}
+
+message SetLayerHeightRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message SetLayerHeightResponse {
+}
+
+message SetLayerInsetRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
+  int32 arg4 = 6;
+}
+
+message SetLayerInsetResponse {
+}
+
+message SetLayerInsetBottomRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message SetLayerInsetBottomResponse {
+}
+
+message SetLayerInsetEndRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message SetLayerInsetEndResponse {
+}
+
+message SetLayerInsetLeftRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message SetLayerInsetLeftResponse {
+}
+
+message SetLayerInsetRelativeRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
+  int32 arg4 = 6;
+}
+
+message SetLayerInsetRelativeResponse {
+}
+
+message SetLayerInsetRightRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message SetLayerInsetRightResponse {
+}
+
+message SetLayerInsetStartRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message SetLayerInsetStartResponse {
+}
+
+message SetLayerInsetTopRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message SetLayerInsetTopResponse {
+}
+
+message SetLayerSizeRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+}
+
+message SetLayerSizeResponse {
+}
+
+message SetLayerWidthRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message SetLayerWidthResponse {
+}
+
+message SetOpacityRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetOpacityResponse {
+}
+
+message SetPaddingModeRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetPaddingModeResponse {
+}
+
+message SetPaddingRelativeRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
+}
+
+message SetPaddingRelativeResponse {
+}
+
+message LayerDrawableUnscheduleDrawableRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message NewColorDrawableRequest {
+}
+
+message NewColorDrawableResponse {
+  int64 result = 1;
+}
+
+message ColorDrawableGetColorResponse {
+  int32 result = 1;
+}
+
+message ColorDrawableHasFocusStateSpecifiedRequest {
+  int64 handle = 1;
+}
+
+message SetColorRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetColorResponse {
+}
+
+message NewRippleDrawableRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message NewRippleDrawableResponse {
+  int64 result = 1;
+}
+
+message GetDirtyBoundsRequest {
+  int64 handle = 1;
+}
+
+message GetDirtyBoundsResponse {
+  int64 result = 1;
+}
+
+message GetEffectColorRequest {
+  int64 handle = 1;
+}
+
+message GetEffectColorResponse {
+  int64 result = 1;
+}
+
+message RippleDrawableGetHotspotBoundsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetRadiusRequest {
+  int64 handle = 1;
+}
+
+message GetRadiusResponse {
+  int32 result = 1;
+}
+
+message RippleDrawableHasFocusStateSpecifiedRequest {
+  int64 handle = 1;
+}
+
+message InvalidateSelfRequest {
+  int64 handle = 1;
+}
+
+message InvalidateSelfResponse {
+}
+
+message RippleDrawableJumpToCurrentStateRequest {
+  int64 handle = 1;
+}
+
+message RippleDrawableSetColorRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetEffectColorRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetEffectColorResponse {
+}
+
+message SetRadiusRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetRadiusResponse {
+}
+
+message NewLevelListDrawableRequest {
+}
+
+message NewLevelListDrawableResponse {
+  int64 result = 1;
+}
+
+message AddLevelRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message AddLevelResponse {
+}
+
+message NewTransitionDrawableRequest {
+  int64 arg0 = 1;
+}
+
+message NewTransitionDrawableResponse {
+  int64 result = 1;
+}
+
+message IsCrossFadeEnabledRequest {
+  int64 handle = 1;
+}
+
+message IsCrossFadeEnabledResponse {
+  bool result = 1;
+}
+
+message ResetTransitionRequest {
+  int64 handle = 1;
+}
+
+message ResetTransitionResponse {
+}
+
+message ReverseTransitionRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message ReverseTransitionResponse {
+}
+
+message SetCrossFadeEnabledRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetCrossFadeEnabledResponse {
+}
+
+message StartTransitionRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message StartTransitionResponse {
+}
+
+message NewNinePatchDrawableRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+  string arg4 = 5;
+}
+
+message NewNinePatchDrawableResponse {
+  int64 result = 1;
+}
+
+message NinePatchDrawableGetPaddingRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetTransparentRegionRequest {
+  int64 handle = 1;
+}
+
+message GetTransparentRegionResponse {
+  int64 result = 1;
+}
+
+message NinePatchDrawableHasFocusStateSpecifiedRequest {
+  int64 handle = 1;
+}
+
+message NewInsetDrawableRequest {
+  int64 arg0 = 1;
+  float arg1 = 2;
+}
+
+message NewInsetDrawableResponse {
+  int64 result = 1;
+}
+
+message InsetDrawableGetPaddingRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message NewPictureDrawableRequest {
+  int64 arg0 = 1;
+}
+
+message NewPictureDrawableResponse {
+  int64 result = 1;
+}
+
+message GetPictureRequest {
+  int64 handle = 1;
+}
+
+message GetPictureResponse {
+  int64 result = 1;
+}
+
+message SetPictureRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetPictureResponse {
+}
+
+message NewPaintDrawableRequest {
+}
+
+message NewPaintDrawableResponse {
+  int64 result = 1;
+}
+
+message NewAdaptiveIconDrawableRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewAdaptiveIconDrawableResponse {
+  int64 result = 1;
+}
+
+message GetBackgroundRequest {
+  int64 handle = 1;
+}
+
+message GetBackgroundResponse {
+  int64 result = 1;
+}
+
+message GetForegroundRequest {
+  int64 handle = 1;
+}
+
+message GetForegroundResponse {
+  int64 result = 1;
+}
+
+message AdaptiveIconDrawableGetHotspotBoundsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetIconMaskRequest {
+  int64 handle = 1;
+}
+
+message GetIconMaskResponse {
+  int64 result = 1;
+}
+
+message GetMonochromeRequest {
+  int64 handle = 1;
+}
+
+message GetMonochromeResponse {
+  int64 result = 1;
+}
+
+message AdaptiveIconDrawableHasFocusStateSpecifiedRequest {
+  int64 handle = 1;
+}
+
+message AdaptiveIconDrawableInvalidateDrawableRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AdaptiveIconDrawableJumpToCurrentStateRequest {
+  int64 handle = 1;
+}
+
+message AdaptiveIconDrawableScheduleDrawableRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message AdaptiveIconDrawableUnscheduleDrawableRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message GetExtraInsetFractionRequest {
+  int64 handle = 1;
+}
+
+message GetExtraInsetFractionResponse {
+  float result = 1;
+}
+
+message NewRotateDrawableRequest {
+}
+
+message NewRotateDrawableResponse {
+  int64 result = 1;
+}
+
+message GetFromDegreesRequest {
+  int64 handle = 1;
+}
+
+message GetFromDegreesResponse {
+  float result = 1;
+}
+
+message GetPivotXRequest {
+  int64 handle = 1;
+}
+
+message GetPivotXResponse {
+  float result = 1;
+}
+
+message GetPivotYRequest {
+  int64 handle = 1;
+}
+
+message GetPivotYResponse {
+  float result = 1;
+}
+
+message GetToDegreesRequest {
+  int64 handle = 1;
+}
+
+message GetToDegreesResponse {
+  float result = 1;
+}
+
+message IsPivotXRelativeRequest {
+  int64 handle = 1;
+}
+
+message IsPivotXRelativeResponse {
+  bool result = 1;
+}
+
+message IsPivotYRelativeRequest {
+  int64 handle = 1;
+}
+
+message IsPivotYRelativeResponse {
+  bool result = 1;
+}
+
+message SetFromDegreesRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+}
+
+message SetFromDegreesResponse {
+}
+
+message SetPivotXRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+}
+
+message SetPivotXResponse {
+}
+
+message SetPivotXRelativeRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetPivotXRelativeResponse {
+}
+
+message SetPivotYRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+}
+
+message SetPivotYResponse {
+}
+
+message SetPivotYRelativeRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetPivotYRelativeResponse {
+}
+
+message SetToDegreesRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+}
+
+message SetToDegreesResponse {
+}
+
+message NewContainerRequest {
+}
+
+message NewContainerResponse {
+  int64 result = 1;
+}
+
+message GetCurrentRequest {
+  int64 handle = 1;
+}
+
+message GetCurrentResponse {
+  int64 result = 1;
+}
+
+message ContainerGetHotspotBoundsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetMinimumHeightRequest {
+  int64 handle = 1;
+}
+
+message GetMinimumHeightResponse {
+  int32 result = 1;
+}
+
+message GetMinimumWidthRequest {
+  int64 handle = 1;
+}
+
+message GetMinimumWidthResponse {
+  int32 result = 1;
+}
+
+message ContainerGetPaddingRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message ContainerHasFocusStateSpecifiedRequest {
+  int64 handle = 1;
+}
+
+message ContainerInvalidateDrawableRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message ContainerJumpToCurrentStateRequest {
+  int64 handle = 1;
+}
+
+message ContainerScheduleDrawableRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message SelectDrawableRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SelectDrawableResponse {
+  bool result = 1;
+}
+
+message SetEnterFadeDurationRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetEnterFadeDurationResponse {
+}
+
+message SetExitFadeDurationRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetExitFadeDurationResponse {
+}
+
+message ContainerUnscheduleDrawableRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message AddChildRequest {
+  int64 arg0 = 1;
+}
+
+message AddChildResponse {
+  int32 result = 1;
+}
+
+message ContainerDrawableContainerStateCanApplyThemeRequest {
+}
+
+message ContainerDrawableContainerStateGetChangingConfigurationsRequest {
+}
+
+message GetChildRequest {
+  int32 arg0 = 1;
+}
+
+message GetChildResponse {
+  int64 result = 1;
+}
+
+message GetChildCountRequest {
+}
+
+message GetChildCountResponse {
+  int32 result = 1;
+}
+
+message GetChildrenRequest {
+}
+
+message GetChildrenResponse {
+  int64 result = 1;
+}
+
+message GetConstantHeightRequest {
+}
+
+message GetConstantHeightResponse {
+  int32 result = 1;
+}
+
+message GetConstantMinimumHeightRequest {
+}
+
+message GetConstantMinimumHeightResponse {
+  int32 result = 1;
+}
+
+message GetConstantMinimumWidthRequest {
+}
+
+message GetConstantMinimumWidthResponse {
+  int32 result = 1;
+}
+
+message GetConstantPaddingRequest {
+}
+
+message GetConstantPaddingResponse {
+  int64 result = 1;
+}
+
+message GetConstantWidthRequest {
+}
+
+message GetConstantWidthResponse {
+  int32 result = 1;
+}
+
+message GetEnterFadeDurationRequest {
+}
+
+message GetEnterFadeDurationResponse {
+  int32 result = 1;
+}
+
+message GetExitFadeDurationRequest {
+}
+
+message GetExitFadeDurationResponse {
+  int32 result = 1;
+}
+
+message ContainerDrawableContainerStateGetOpacityRequest {
+}
+
+message GrowArrayRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message GrowArrayResponse {
+}
+
+message IsConstantSizeRequest {
+}
+
+message IsConstantSizeResponse {
+  bool result = 1;
+}
+
+message ContainerDrawableContainerStateIsStatefulRequest {
+}
+
+message SetConstantSizeRequest {
+  bool arg0 = 1;
+}
+
+message SetConstantSizeResponse {
+}
+
+message ContainerDrawableContainerStateSetEnterFadeDurationRequest {
+  int32 arg0 = 1;
+}
+
+message ContainerDrawableContainerStateSetExitFadeDurationRequest {
+  int32 arg0 = 1;
+}
+
+message SetVariablePaddingRequest {
+  bool arg0 = 1;
+}
+
+message SetVariablePaddingResponse {
+}
+
+message NewAnimationDrawableRequest {
+}
+
+message NewAnimationDrawableResponse {
+  int64 result = 1;
+}
+
+message AddFrameRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message AddFrameResponse {
+}
+
+message GetDurationRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetDurationResponse {
+  int32 result = 1;
+}
+
+message GetFrameRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetFrameResponse {
+  int64 result = 1;
+}
+
+message GetNumberOfFramesRequest {
+  int64 handle = 1;
+}
+
+message GetNumberOfFramesResponse {
+  int32 result = 1;
+}
+
+message IsOneShotRequest {
+  int64 handle = 1;
+}
+
+message IsOneShotResponse {
+  bool result = 1;
+}
+
+message RunRequest {
+  int64 handle = 1;
+}
+
+message RunResponse {
+}
+
+message SetOneShotRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetOneShotResponse {
+}
+
+message UnscheduleSelfRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message UnscheduleSelfResponse {
+}
+
+message NewColorStateListDrawableRequest {
+}
+
+message NewColorStateListDrawableResponse {
+  int64 result = 1;
+}
+
+message ClearAlphaRequest {
+  int64 handle = 1;
+}
+
+message ClearAlphaResponse {
+}
+
+message GetColorStateListRequest {
+  int64 handle = 1;
+}
+
+message GetColorStateListResponse {
+  int64 result = 1;
+}
+
+message ColorStateListDrawableHasFocusStateSpecifiedRequest {
+  int64 handle = 1;
+}
+
+message ColorStateListDrawableInvalidateDrawableRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message ColorStateListDrawableScheduleDrawableRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message SetColorStateListRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetColorStateListResponse {
+}
+
+message ColorStateListDrawableUnscheduleDrawableRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message DrawableApplyThemeRequest {
+  int64 arg0 = 1;
+}
+
+message DrawableCanApplyThemeRequest {
+}
+
+message ClearColorFilterRequest {
+}
+
+message ClearColorFilterResponse {
+}
+
+message CopyBounds0Request {
+}
+
+message CopyBounds0Response {
+  int64 result = 1;
+}
+
+message CopyBounds1_1Request {
+  int64 arg0 = 1;
+}
+
+message CopyBounds1_1Response {
+}
+
+message DrawableDrawRequest {
+  int64 arg0 = 1;
+}
+
+message DrawableGetAlphaRequest {
+}
+
+message GetBoundsRequest {
+}
+
+message GetBoundsResponse {
+  int64 result = 1;
+}
+
+message GetCallbackRequest {
+}
+
+message GetCallbackResponse {
+  int64 result = 1;
+}
+
+message DrawableGetChangingConfigurationsRequest {
+}
+
+message DrawableGetColorFilterRequest {
+}
+
+message DrawableGetConstantStateRequest {
+}
+
+message DrawableGetCurrentRequest {
+}
+
+message DrawableGetDirtyBoundsRequest {
+}
+
+message DrawableGetIntrinsicHeightRequest {
+}
+
+message DrawableGetIntrinsicWidthRequest {
+}
+
+message GetLayoutDirectionRequest {
+}
+
+message GetLayoutDirectionResponse {
+  int32 result = 1;
+}
+
+message GetLevelRequest {
+}
+
+message GetLevelResponse {
+  int32 result = 1;
+}
+
+message DrawableGetMinimumHeightRequest {
+}
+
+message DrawableGetMinimumWidthRequest {
+}
+
+message DrawableGetOpacityRequest {
+}
+
+message DrawableGetOpticalInsetsRequest {
+}
+
+message DrawableGetOutlineRequest {
+  int64 arg0 = 1;
+}
+
+message GetStateRequest {
+}
+
+message GetStateResponse {
+  int64 result = 1;
+}
+
+message DrawableGetTransparentRegionRequest {
+}
+
+message Inflate3Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message Inflate3Response {
+}
+
+message Inflate4_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message Inflate4_1Response {
+}
+
+message DrawableInvalidateSelfRequest {
+}
+
+message DrawableIsAutoMirroredRequest {
+}
+
+message DrawableIsFilterBitmapRequest {
+}
+
+message DrawableIsProjectedRequest {
+}
+
+message DrawableIsStatefulRequest {
+}
+
+message IsVisibleRequest {
+}
+
+message IsVisibleResponse {
+  bool result = 1;
+}
+
+message DrawableMutateRequest {
+}
+
+message DrawableOnLayoutDirectionChangedRequest {
+  int32 arg0 = 1;
+}
+
+message ScheduleSelfRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message ScheduleSelfResponse {
+}
+
+message DrawableSetAlphaRequest {
+  int32 arg0 = 1;
+}
+
+message DrawableSetAutoMirroredRequest {
+  bool arg0 = 1;
+}
+
+message SetBounds1Request {
+  int64 arg0 = 1;
+}
+
+message SetBounds1Response {
+}
+
+message SetBounds4_1Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message SetBounds4_1Response {
+}
+
+message SetCallbackRequest {
+  int64 arg0 = 1;
+}
+
+message SetCallbackResponse {
+}
+
+message SetChangingConfigurationsRequest {
+  int32 arg0 = 1;
+}
+
+message SetChangingConfigurationsResponse {
+}
+
+message SetColorFilter1Request {
+  int64 arg0 = 1;
+}
+
+message SetColorFilter1Response {
+}
+
+message SetColorFilter2_1Request {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SetColorFilter2_1Response {
+}
+
+message DrawableSetDitherRequest {
+  bool arg0 = 1;
+}
+
+message DrawableSetFilterBitmapRequest {
+  bool arg0 = 1;
+}
+
+message DrawableSetHotspotRequest {
+  float arg0 = 1;
+  float arg1 = 2;
+}
+
+message DrawableSetHotspotBoundsRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message SetLayoutDirectionRequest {
+  int32 arg0 = 1;
+}
+
+message SetLayoutDirectionResponse {
+  bool result = 1;
+}
+
+message SetLevelRequest {
+  int32 arg0 = 1;
+}
+
+message SetLevelResponse {
+  bool result = 1;
+}
+
+message SetStateRequest {
+  int64 arg0 = 1;
+}
+
+message SetStateResponse {
+  bool result = 1;
+}
+
+message SetTintRequest {
+  int32 arg0 = 1;
+}
+
+message SetTintResponse {
+}
+
+message DrawableSetTintBlendModeRequest {
+  int64 arg0 = 1;
+}
+
+message DrawableSetTintListRequest {
+  int64 arg0 = 1;
+}
+
+message SetTintModeRequest {
+  int64 arg0 = 1;
+}
+
+message SetTintModeResponse {
+}
+
+message DrawableSetVisibleRequest {
+  bool arg0 = 1;
+  bool arg1 = 2;
+}
+
+message DrawableUnscheduleSelfRequest {
+  int64 arg0 = 1;
+}
+
+message CreateFromPathRequest {
+  string arg0 = 1;
+}
+
+message CreateFromPathResponse {
+  int64 result = 1;
+}
+
+message CreateFromResourceStream4Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  string arg3 = 4;
+}
+
+message CreateFromResourceStream4Response {
+  int64 result = 1;
+}
+
+message CreateFromResourceStream5_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  string arg3 = 4;
+  int64 arg4 = 5;
+}
+
+message CreateFromResourceStream5_1Response {
+  int64 result = 1;
+}
+
+message CreateFromStreamRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+}
+
+message CreateFromStreamResponse {
+  int64 result = 1;
+}
+
+message CreateFromXml2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message CreateFromXml2Response {
+  int64 result = 1;
+}
+
+message CreateFromXml3_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message CreateFromXml3_1Response {
+  int64 result = 1;
+}
+
+message CreateFromXmlInner3Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message CreateFromXmlInner3Response {
+  int64 result = 1;
+}
+
+message CreateFromXmlInner4_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message CreateFromXmlInner4_1Response {
+  int64 result = 1;
+}
+
+message ResolveOpacityRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message ResolveOpacityResponse {
+  int32 result = 1;
+}
+
+message ConstantStateCanApplyThemeRequest {
+}
+
+message ConstantStateGetChangingConfigurationsRequest {
+}
+
+message NewDrawable0Request {
+}
+
+message NewDrawable0Response {
+  int64 result = 1;
+}
+
+message NewDrawable1_1Request {
+  int64 arg0 = 1;
+}
+
+message NewDrawable1_1Response {
+  int64 result = 1;
+}
+
+message NewDrawable2_2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewDrawable2_2Response {
+  int64 result = 1;
+}
+
+message AnimatableIsRunningRequest {
+}
+
+message AnimatableStartRequest {
+}
+
+message AnimatableStopRequest {
+}
+
+message NewAnimatedStateListDrawableRequest {
+}
+
+message NewAnimatedStateListDrawableResponse {
+  int64 result = 1;
+}
+
+message AnimatedStateListDrawableAddStateRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int32 arg2 = 4;
+}
+
+message AnimatedStateListDrawableJumpToCurrentStateRequest {
+  int64 handle = 1;
+}
+
+message NewShapeDrawableRequest {
+}
+
+message NewShapeDrawableResponse {
+  int64 result = 1;
+}
+
+message ShapeDrawableGetPaddingRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetShaderFactoryRequest {
+  int64 handle = 1;
+}
+
+message GetShaderFactoryResponse {
+  int64 result = 1;
+}
+
+message ShapeDrawableGetShapeResponse {
+  int64 result = 1;
+}
+
+message ShapeDrawableHasFocusStateSpecifiedRequest {
+  int64 handle = 1;
+}
+
+message SetIntrinsicHeightRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetIntrinsicHeightResponse {
+}
+
+message SetIntrinsicWidthRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetIntrinsicWidthResponse {
+}
+
+message SetPadding1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetPadding1Response {
+}
+
+message SetPadding4_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
+}
+
+message SetPadding4_1Response {
+}
+
+message SetShaderFactoryRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetShaderFactoryResponse {
+}
+
+message ShapeDrawableSetShapeRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message ResizeRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message ResizeResponse {
+  int64 result = 1;
+}
+
+message NewClipDrawableRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message NewClipDrawableResponse {
+  int64 result = 1;
+}
+
+message DescribeContentsRequest {
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message GetResIdRequest {
+}
+
+message GetResIdResponse {
+  int32 result = 1;
+}
+
+message GetResPackageRequest {
+}
+
+message GetResPackageResponse {
+  string result = 1;
+}
+
+message GetTypeRequest {
+}
+
+message GetTypeResponse {
+  int32 result = 1;
+}
+
+message GetUriRequest {
+}
+
+message GetUriResponse {
+  int64 result = 1;
+}
+
+message LoadDrawableRequest {
+  int64 arg0 = 1;
+}
+
+message LoadDrawableResponse {
+  int64 result = 1;
+}
+
+message LoadDrawableAsyncRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message LoadDrawableAsyncResponse {
+}
+
+message IconSetTintResponse {
+  int64 result = 1;
+}
+
+message IconSetTintBlendModeRequest {
+  int64 arg0 = 1;
+}
+
+message IconSetTintBlendModeResponse {
+  int64 result = 1;
+}
+
+message IconSetTintListRequest {
+  int64 arg0 = 1;
+}
+
+message IconSetTintListResponse {
+  int64 result = 1;
+}
+
+message IconSetTintModeResponse {
+  int64 result = 1;
+}
+
+message ToStringRequest {
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteToParcelResponse {
+}
+
+message CreateWithAdaptiveBitmapRequest {
+  int64 arg0 = 1;
+}
+
+message CreateWithAdaptiveBitmapResponse {
+  int64 result = 1;
+}
+
+message CreateWithAdaptiveBitmapContentUri1Request {
+  int64 arg0 = 1;
+}
+
+message CreateWithAdaptiveBitmapContentUri1Response {
+  int64 result = 1;
+}
+
+message CreateWithAdaptiveBitmapContentUri1_1Request {
+  string arg0 = 1;
+}
+
+message CreateWithAdaptiveBitmapContentUri1_1Response {
+  int64 result = 1;
+}
+
+message CreateWithBitmapRequest {
+  int64 arg0 = 1;
+}
+
+message CreateWithBitmapResponse {
+  int64 result = 1;
+}
+
+message CreateWithContentUri1Request {
+  int64 arg0 = 1;
+}
+
+message CreateWithContentUri1Response {
+  int64 result = 1;
+}
+
+message CreateWithContentUri1_1Request {
+  string arg0 = 1;
+}
+
+message CreateWithContentUri1_1Response {
+  int64 result = 1;
+}
+
+message CreateWithDataRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message CreateWithDataResponse {
+  int64 result = 1;
+}
+
+message CreateWithFilePathRequest {
+  string arg0 = 1;
+}
+
+message CreateWithFilePathResponse {
+  int64 result = 1;
+}
+
+message CreateWithResource2Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message CreateWithResource2Response {
+  int64 result = 1;
+}
+
+message CreateWithResource2_1Request {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message CreateWithResource2_1Response {
+  int64 result = 1;
+}
+
+message OnDrawableLoadedRequest {
+  int64 arg0 = 1;
+}
+
+message OnDrawableLoadedResponse {
+}
+
+message Animatable2ClearAnimationCallbacksRequest {
+}
+
+message Animatable2RegisterAnimationCallbackRequest {
+  int64 arg0 = 1;
+}
+
+message Animatable2UnregisterAnimationCallbackRequest {
+  int64 arg0 = 1;
+}
+
+message OnAnimationEndRequest {
+  int64 arg0 = 1;
+}
+
+message OnAnimationEndResponse {
+}
+
+message OnAnimationStartRequest {
+  int64 arg0 = 1;
+}
+
+message OnAnimationStartResponse {
+}
+
+message NewVectorDrawableRequest {
+}
+
+message NewVectorDrawableResponse {
+  int64 result = 1;
+}
+
+message VectorDrawableHasFocusStateSpecifiedRequest {
+  int64 handle = 1;
+}
+
+service AnimatedVectorDrawableService {
+  rpc NewAnimatedVectorDrawable (NewAnimatedVectorDrawableRequest) returns (NewAnimatedVectorDrawableResponse);
+  rpc ApplyTheme (ApplyThemeRequest) returns (ApplyThemeResponse);
+  rpc CanApplyTheme (CanApplyThemeRequest) returns (CanApplyThemeResponse);
+  rpc ClearAnimationCallbacks (ClearAnimationCallbacksRequest) returns (ClearAnimationCallbacksResponse);
+  rpc Draw (DrawRequest) returns (DrawResponse);
+  rpc GetAlpha (GetAlphaRequest) returns (GetAlphaResponse);
+  rpc GetChangingConfigurations (GetChangingConfigurationsRequest) returns (GetChangingConfigurationsResponse);
+  rpc GetColorFilter (GetColorFilterRequest) returns (GetColorFilterResponse);
+  rpc GetConstantState (GetConstantStateRequest) returns (GetConstantStateResponse);
+  rpc GetIntrinsicHeight (GetIntrinsicHeightRequest) returns (GetIntrinsicHeightResponse);
+  rpc GetIntrinsicWidth (GetIntrinsicWidthRequest) returns (GetIntrinsicWidthResponse);
+  rpc GetOpacity (GetOpacityRequest) returns (GetOpacityResponse);
+  rpc GetOpticalInsets (GetOpticalInsetsRequest) returns (GetOpticalInsetsResponse);
+  rpc GetOutline (GetOutlineRequest) returns (GetOutlineResponse);
+  rpc Inflate (InflateRequest) returns (InflateResponse);
+  rpc IsRunning (IsRunningRequest) returns (IsRunningResponse);
+  rpc IsStateful (IsStatefulRequest) returns (IsStatefulResponse);
+  rpc Mutate (MutateRequest) returns (MutateResponse);
+  rpc OnLayoutDirectionChanged (OnLayoutDirectionChangedRequest) returns (OnLayoutDirectionChangedResponse);
+  rpc RegisterAnimationCallback (RegisterAnimationCallbackRequest) returns (RegisterAnimationCallbackResponse);
+  rpc Reset (ResetRequest) returns (ResetResponse);
+  rpc SetAlpha (SetAlphaRequest) returns (SetAlphaResponse);
+  rpc SetColorFilter (SetColorFilterRequest) returns (SetColorFilterResponse);
+  rpc SetHotspot (SetHotspotRequest) returns (SetHotspotResponse);
+  rpc SetHotspotBounds (SetHotspotBoundsRequest) returns (SetHotspotBoundsResponse);
+  rpc SetTintBlendMode (SetTintBlendModeRequest) returns (SetTintBlendModeResponse);
+  rpc SetTintList (SetTintListRequest) returns (SetTintListResponse);
+  rpc SetVisible (SetVisibleRequest) returns (SetVisibleResponse);
+  rpc Start (StartRequest) returns (StartResponse);
+  rpc Stop (StopRequest) returns (StopResponse);
+  rpc UnregisterAnimationCallback (UnregisterAnimationCallbackRequest) returns (UnregisterAnimationCallbackResponse);
+}
+
+service WrapperService {
+  rpc ApplyTheme (WrapperApplyThemeRequest) returns (ApplyThemeResponse);
+  rpc CanApplyTheme (WrapperCanApplyThemeRequest) returns (CanApplyThemeResponse);
+  rpc Draw (WrapperDrawRequest) returns (DrawResponse);
+  rpc GetAlpha (WrapperGetAlphaRequest) returns (GetAlphaResponse);
+  rpc GetChangingConfigurations (WrapperGetChangingConfigurationsRequest) returns (GetChangingConfigurationsResponse);
+  rpc GetColorFilter (WrapperGetColorFilterRequest) returns (GetColorFilterResponse);
+  rpc GetConstantState (WrapperGetConstantStateRequest) returns (GetConstantStateResponse);
+  rpc GetDrawable (GetDrawableRequest) returns (GetDrawableResponse);
+  rpc GetHotspotBounds (GetHotspotBoundsRequest) returns (GetHotspotBoundsResponse);
+  rpc GetIntrinsicHeight (WrapperGetIntrinsicHeightRequest) returns (GetIntrinsicHeightResponse);
+  rpc GetIntrinsicWidth (WrapperGetIntrinsicWidthRequest) returns (GetIntrinsicWidthResponse);
+  rpc GetOpacity (WrapperGetOpacityRequest) returns (GetOpacityResponse);
+  rpc GetOpticalInsets (WrapperGetOpticalInsetsRequest) returns (GetOpticalInsetsResponse);
+  rpc GetOutline (WrapperGetOutlineRequest) returns (GetOutlineResponse);
+  rpc GetPadding (GetPaddingRequest) returns (GetPaddingResponse);
+  rpc HasFocusStateSpecified (HasFocusStateSpecifiedRequest) returns (HasFocusStateSpecifiedResponse);
+  rpc Inflate (WrapperInflateRequest) returns (InflateResponse);
+  rpc InvalidateDrawable (InvalidateDrawableRequest) returns (InvalidateDrawableResponse);
+  rpc IsStateful (WrapperIsStatefulRequest) returns (IsStatefulResponse);
+  rpc JumpToCurrentState (JumpToCurrentStateRequest) returns (JumpToCurrentStateResponse);
+  rpc Mutate (WrapperMutateRequest) returns (MutateResponse);
+  rpc OnLayoutDirectionChanged (WrapperOnLayoutDirectionChangedRequest) returns (OnLayoutDirectionChangedResponse);
+  rpc ScheduleDrawable (ScheduleDrawableRequest) returns (ScheduleDrawableResponse);
+  rpc SetAlpha (WrapperSetAlphaRequest) returns (SetAlphaResponse);
+  rpc SetColorFilter (WrapperSetColorFilterRequest) returns (SetColorFilterResponse);
+  rpc SetDrawable (SetDrawableRequest) returns (SetDrawableResponse);
+  rpc SetHotspot (WrapperSetHotspotRequest) returns (SetHotspotResponse);
+  rpc SetHotspotBounds (WrapperSetHotspotBoundsRequest) returns (SetHotspotBoundsResponse);
+  rpc SetTintBlendMode (WrapperSetTintBlendModeRequest) returns (SetTintBlendModeResponse);
+  rpc SetTintList (WrapperSetTintListRequest) returns (SetTintListResponse);
+  rpc SetVisible (WrapperSetVisibleRequest) returns (SetVisibleResponse);
+  rpc UnscheduleDrawable (UnscheduleDrawableRequest) returns (UnscheduleDrawableResponse);
+}
+
+service ScaleDrawableService {
+  rpc NewScaleDrawable (NewScaleDrawableRequest) returns (NewScaleDrawableResponse);
+  rpc ApplyTheme (ApplyThemeRequest) returns (ApplyThemeResponse);
+  rpc Draw (DrawRequest) returns (DrawResponse);
+  rpc GetOpacity (GetOpacityRequest) returns (GetOpacityResponse);
+  rpc Inflate (InflateRequest) returns (InflateResponse);
+}
+
+service BitmapDrawableService {
+  rpc NewBitmapDrawable (NewBitmapDrawableRequest) returns (NewBitmapDrawableResponse);
+  rpc ApplyTheme (ApplyThemeRequest) returns (ApplyThemeResponse);
+  rpc CanApplyTheme (CanApplyThemeRequest) returns (CanApplyThemeResponse);
+  rpc Draw (DrawRequest) returns (DrawResponse);
+  rpc GetAlpha (GetAlphaRequest) returns (GetAlphaResponse);
+  rpc GetBitmap (GetBitmapRequest) returns (GetBitmapResponse);
+  rpc GetChangingConfigurations (GetChangingConfigurationsRequest) returns (GetChangingConfigurationsResponse);
+  rpc GetColorFilter (GetColorFilterRequest) returns (GetColorFilterResponse);
+  rpc GetConstantState (GetConstantStateRequest) returns (GetConstantStateResponse);
+  rpc GetGravity (GetGravityRequest) returns (GetGravityResponse);
+  rpc GetIntrinsicHeight (GetIntrinsicHeightRequest) returns (GetIntrinsicHeightResponse);
+  rpc GetIntrinsicWidth (GetIntrinsicWidthRequest) returns (GetIntrinsicWidthResponse);
+  rpc GetOpacity (GetOpacityRequest) returns (GetOpacityResponse);
+  rpc GetOpticalInsets (GetOpticalInsetsRequest) returns (GetOpticalInsetsResponse);
+  rpc GetOutline (GetOutlineRequest) returns (GetOutlineResponse);
+  rpc GetPaint (GetPaintRequest) returns (GetPaintResponse);
+  rpc GetTileModeX (GetTileModeXRequest) returns (GetTileModeXResponse);
+  rpc GetTileModeY (GetTileModeYRequest) returns (GetTileModeYResponse);
+  rpc HasAntiAlias (HasAntiAliasRequest) returns (HasAntiAliasResponse);
+  rpc HasFocusStateSpecified (BitmapDrawableHasFocusStateSpecifiedRequest) returns (HasFocusStateSpecifiedResponse);
+  rpc HasMipMap (HasMipMapRequest) returns (HasMipMapResponse);
+  rpc Inflate (InflateRequest) returns (InflateResponse);
+  rpc IsAutoMirrored (IsAutoMirroredRequest) returns (IsAutoMirroredResponse);
+  rpc IsFilterBitmap (IsFilterBitmapRequest) returns (IsFilterBitmapResponse);
+  rpc IsStateful (IsStatefulRequest) returns (IsStatefulResponse);
+  rpc Mutate (MutateRequest) returns (MutateResponse);
+  rpc SetAlpha (SetAlphaRequest) returns (SetAlphaResponse);
+  rpc SetAntiAlias (SetAntiAliasRequest) returns (SetAntiAliasResponse);
+  rpc SetAutoMirrored (SetAutoMirroredRequest) returns (SetAutoMirroredResponse);
+  rpc SetBitmap (SetBitmapRequest) returns (SetBitmapResponse);
+  rpc SetColorFilter (SetColorFilterRequest) returns (SetColorFilterResponse);
+  rpc SetDither (SetDitherRequest) returns (SetDitherResponse);
+  rpc SetFilterBitmap (SetFilterBitmapRequest) returns (SetFilterBitmapResponse);
+  rpc SetGravity (SetGravityRequest) returns (SetGravityResponse);
+  rpc SetMipMap (SetMipMapRequest) returns (SetMipMapResponse);
+  rpc SetTargetDensity1 (SetTargetDensity1Request) returns (SetTargetDensity1Response);
+  rpc SetTargetDensity1_1 (SetTargetDensity1_1Request) returns (SetTargetDensity1_1Response);
+  rpc SetTargetDensity1_2 (SetTargetDensity1_2Request) returns (SetTargetDensity1_2Response);
+  rpc SetTileModeX (SetTileModeXRequest) returns (SetTileModeXResponse);
+  rpc SetTileModeXY (SetTileModeXYRequest) returns (SetTileModeXYResponse);
+  rpc SetTileModeY (SetTileModeYRequest) returns (SetTileModeYResponse);
+  rpc SetTintBlendMode (SetTintBlendModeRequest) returns (SetTintBlendModeResponse);
+  rpc SetTintList (SetTintListRequest) returns (SetTintListResponse);
+}
+
+service GradientDrawableService {
+  rpc NewGradientDrawable (NewGradientDrawableRequest) returns (NewGradientDrawableResponse);
+  rpc ApplyTheme (ApplyThemeRequest) returns (ApplyThemeResponse);
+  rpc CanApplyTheme (CanApplyThemeRequest) returns (CanApplyThemeResponse);
+  rpc Draw (DrawRequest) returns (DrawResponse);
+  rpc GetAlpha (GetAlphaRequest) returns (GetAlphaResponse);
+  rpc GetChangingConfigurations (GetChangingConfigurationsRequest) returns (GetChangingConfigurationsResponse);
+  rpc GetColor (GetColorRequest) returns (GetColorResponse);
+  rpc GetColorFilter (GetColorFilterRequest) returns (GetColorFilterResponse);
+  rpc GetColors (GetColorsRequest) returns (GetColorsResponse);
+  rpc GetConstantState (GetConstantStateRequest) returns (GetConstantStateResponse);
+  rpc GetCornerRadii (GetCornerRadiiRequest) returns (GetCornerRadiiResponse);
+  rpc GetCornerRadius (GetCornerRadiusRequest) returns (GetCornerRadiusResponse);
+  rpc GetGradientCenterX (GetGradientCenterXRequest) returns (GetGradientCenterXResponse);
+  rpc GetGradientCenterY (GetGradientCenterYRequest) returns (GetGradientCenterYResponse);
+  rpc GetGradientRadius (GetGradientRadiusRequest) returns (GetGradientRadiusResponse);
+  rpc GetGradientType (GetGradientTypeRequest) returns (GetGradientTypeResponse);
+  rpc GetInnerRadius (GetInnerRadiusRequest) returns (GetInnerRadiusResponse);
+  rpc GetInnerRadiusRatio (GetInnerRadiusRatioRequest) returns (GetInnerRadiusRatioResponse);
+  rpc GetIntrinsicHeight (GetIntrinsicHeightRequest) returns (GetIntrinsicHeightResponse);
+  rpc GetIntrinsicWidth (GetIntrinsicWidthRequest) returns (GetIntrinsicWidthResponse);
+  rpc GetOpacity (GetOpacityRequest) returns (GetOpacityResponse);
+  rpc GetOpticalInsets (GetOpticalInsetsRequest) returns (GetOpticalInsetsResponse);
+  rpc GetOrientation (GetOrientationRequest) returns (GetOrientationResponse);
+  rpc GetOutline (GetOutlineRequest) returns (GetOutlineResponse);
+  rpc GetPadding (GradientDrawableGetPaddingRequest) returns (GetPaddingResponse);
+  rpc GetShape (GetShapeRequest) returns (GetShapeResponse);
+  rpc GetThickness (GetThicknessRequest) returns (GetThicknessResponse);
+  rpc GetThicknessRatio (GetThicknessRatioRequest) returns (GetThicknessRatioResponse);
+  rpc GetUseLevel (GetUseLevelRequest) returns (GetUseLevelResponse);
+  rpc HasFocusStateSpecified (GradientDrawableHasFocusStateSpecifiedRequest) returns (HasFocusStateSpecifiedResponse);
+  rpc Inflate (InflateRequest) returns (InflateResponse);
+  rpc IsStateful (IsStatefulRequest) returns (IsStatefulResponse);
+  rpc Mutate (MutateRequest) returns (MutateResponse);
+  rpc SetAlpha (SetAlphaRequest) returns (SetAlphaResponse);
+  rpc SetColor1 (SetColor1Request) returns (SetColor1Response);
+  rpc SetColor1_1 (SetColor1_1Request) returns (SetColor1_1Response);
+  rpc SetColorFilter (SetColorFilterRequest) returns (SetColorFilterResponse);
+  rpc SetColors1 (SetColors1Request) returns (SetColors1Response);
+  rpc SetColors2_1 (SetColors2_1Request) returns (SetColors2_1Response);
+  rpc SetCornerRadii (SetCornerRadiiRequest) returns (SetCornerRadiiResponse);
+  rpc SetCornerRadius (SetCornerRadiusRequest) returns (SetCornerRadiusResponse);
+  rpc SetDither (SetDitherRequest) returns (SetDitherResponse);
+  rpc SetGradientCenter (SetGradientCenterRequest) returns (SetGradientCenterResponse);
+  rpc SetGradientRadius (SetGradientRadiusRequest) returns (SetGradientRadiusResponse);
+  rpc SetGradientType (SetGradientTypeRequest) returns (SetGradientTypeResponse);
+  rpc SetInnerRadius (SetInnerRadiusRequest) returns (SetInnerRadiusResponse);
+  rpc SetInnerRadiusRatio (SetInnerRadiusRatioRequest) returns (SetInnerRadiusRatioResponse);
+  rpc SetOrientation (SetOrientationRequest) returns (SetOrientationResponse);
+  rpc SetPadding (SetPaddingRequest) returns (SetPaddingResponse);
+  rpc SetShape (SetShapeRequest) returns (SetShapeResponse);
+  rpc SetSize (SetSizeRequest) returns (SetSizeResponse);
+  rpc SetStroke2 (SetStroke2Request) returns (SetStroke2Response);
+  rpc SetStroke4_1 (SetStroke4_1Request) returns (SetStroke4_1Response);
+  rpc SetStroke2_2 (SetStroke2_2Request) returns (SetStroke2_2Response);
+  rpc SetStroke4_3 (SetStroke4_3Request) returns (SetStroke4_3Response);
+  rpc SetThickness (SetThicknessRequest) returns (SetThicknessResponse);
+  rpc SetThicknessRatio (SetThicknessRatioRequest) returns (SetThicknessRatioResponse);
+  rpc SetTintBlendMode (SetTintBlendModeRequest) returns (SetTintBlendModeResponse);
+  rpc SetTintList (SetTintListRequest) returns (SetTintListResponse);
+  rpc SetUseLevel (SetUseLevelRequest) returns (SetUseLevelResponse);
+}
+
+service GradientDrawableOrientationService {
+  rpc Values (ValuesRequest) returns (ValuesResponse);
+  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
+}
+
+service StateListDrawableService {
+  rpc NewStateListDrawable (NewStateListDrawableRequest) returns (NewStateListDrawableResponse);
+  rpc AddState (AddStateRequest) returns (AddStateResponse);
+  rpc ApplyTheme (ApplyThemeRequest) returns (ApplyThemeResponse);
+  rpc FindStateDrawableIndex (FindStateDrawableIndexRequest) returns (FindStateDrawableIndexResponse);
+  rpc GetStateCount (GetStateCountRequest) returns (GetStateCountResponse);
+  rpc GetStateDrawable (GetStateDrawableRequest) returns (GetStateDrawableResponse);
+  rpc GetStateSet (GetStateSetRequest) returns (GetStateSetResponse);
+  rpc HasFocusStateSpecified (StateListDrawableHasFocusStateSpecifiedRequest) returns (HasFocusStateSpecifiedResponse);
+  rpc Inflate (InflateRequest) returns (InflateResponse);
+  rpc IsStateful (IsStatefulRequest) returns (IsStatefulResponse);
+  rpc Mutate (MutateRequest) returns (MutateResponse);
+}
+
+service AnimatedImageDrawableService {
+  rpc NewAnimatedImageDrawable (NewAnimatedImageDrawableRequest) returns (NewAnimatedImageDrawableResponse);
+  rpc ClearAnimationCallbacks (ClearAnimationCallbacksRequest) returns (ClearAnimationCallbacksResponse);
+  rpc Draw (DrawRequest) returns (DrawResponse);
+  rpc GetAlpha (GetAlphaRequest) returns (GetAlphaResponse);
+  rpc GetColorFilter (GetColorFilterRequest) returns (GetColorFilterResponse);
+  rpc GetIntrinsicHeight (GetIntrinsicHeightRequest) returns (GetIntrinsicHeightResponse);
+  rpc GetIntrinsicWidth (GetIntrinsicWidthRequest) returns (GetIntrinsicWidthResponse);
+  rpc GetOpacity (GetOpacityRequest) returns (GetOpacityResponse);
+  rpc GetRepeatCount (GetRepeatCountRequest) returns (GetRepeatCountResponse);
+  rpc Inflate (InflateRequest) returns (InflateResponse);
+  rpc IsAutoMirrored (IsAutoMirroredRequest) returns (IsAutoMirroredResponse);
+  rpc IsFilterBitmap (IsFilterBitmapRequest) returns (IsFilterBitmapResponse);
+  rpc IsRunning (IsRunningRequest) returns (IsRunningResponse);
+  rpc OnLayoutDirectionChanged (OnLayoutDirectionChangedRequest) returns (OnLayoutDirectionChangedResponse);
+  rpc RegisterAnimationCallback (RegisterAnimationCallbackRequest) returns (RegisterAnimationCallbackResponse);
+  rpc SetAlpha (SetAlphaRequest) returns (SetAlphaResponse);
+  rpc SetAutoMirrored (SetAutoMirroredRequest) returns (SetAutoMirroredResponse);
+  rpc SetColorFilter (SetColorFilterRequest) returns (SetColorFilterResponse);
+  rpc SetFilterBitmap (SetFilterBitmapRequest) returns (SetFilterBitmapResponse);
+  rpc SetRepeatCount (SetRepeatCountRequest) returns (SetRepeatCountResponse);
+  rpc Start (StartRequest) returns (StartResponse);
+  rpc Stop (StopRequest) returns (StopResponse);
+  rpc UnregisterAnimationCallback (UnregisterAnimationCallbackRequest) returns (UnregisterAnimationCallbackResponse);
+}
+
+service LayerDrawableService {
+  rpc NewLayerDrawable (NewLayerDrawableRequest) returns (NewLayerDrawableResponse);
+  rpc AddLayer (AddLayerRequest) returns (AddLayerResponse);
+  rpc ApplyTheme (ApplyThemeRequest) returns (ApplyThemeResponse);
+  rpc CanApplyTheme (CanApplyThemeRequest) returns (CanApplyThemeResponse);
+  rpc Draw (DrawRequest) returns (DrawResponse);
+  rpc FindDrawableByLayerId (FindDrawableByLayerIdRequest) returns (FindDrawableByLayerIdResponse);
+  rpc FindIndexByLayerId (FindIndexByLayerIdRequest) returns (FindIndexByLayerIdResponse);
+  rpc GetAlpha (GetAlphaRequest) returns (GetAlphaResponse);
+  rpc GetBottomPadding (GetBottomPaddingRequest) returns (GetBottomPaddingResponse);
+  rpc GetChangingConfigurations (GetChangingConfigurationsRequest) returns (GetChangingConfigurationsResponse);
+  rpc GetConstantState (GetConstantStateRequest) returns (GetConstantStateResponse);
+  rpc GetDrawable (LayerDrawableGetDrawableRequest) returns (GetDrawableResponse);
+  rpc GetEndPadding (GetEndPaddingRequest) returns (GetEndPaddingResponse);
+  rpc GetHotspotBounds (LayerDrawableGetHotspotBoundsRequest) returns (GetHotspotBoundsResponse);
+  rpc GetId (GetIdRequest) returns (GetIdResponse);
+  rpc GetIntrinsicHeight (GetIntrinsicHeightRequest) returns (GetIntrinsicHeightResponse);
+  rpc GetIntrinsicWidth (GetIntrinsicWidthRequest) returns (GetIntrinsicWidthResponse);
+  rpc GetLayerGravity (GetLayerGravityRequest) returns (GetLayerGravityResponse);
+  rpc GetLayerHeight (GetLayerHeightRequest) returns (GetLayerHeightResponse);
+  rpc GetLayerInsetBottom (GetLayerInsetBottomRequest) returns (GetLayerInsetBottomResponse);
+  rpc GetLayerInsetEnd (GetLayerInsetEndRequest) returns (GetLayerInsetEndResponse);
+  rpc GetLayerInsetLeft (GetLayerInsetLeftRequest) returns (GetLayerInsetLeftResponse);
+  rpc GetLayerInsetRight (GetLayerInsetRightRequest) returns (GetLayerInsetRightResponse);
+  rpc GetLayerInsetStart (GetLayerInsetStartRequest) returns (GetLayerInsetStartResponse);
+  rpc GetLayerInsetTop (GetLayerInsetTopRequest) returns (GetLayerInsetTopResponse);
+  rpc GetLayerWidth (GetLayerWidthRequest) returns (GetLayerWidthResponse);
+  rpc GetLeftPadding (GetLeftPaddingRequest) returns (GetLeftPaddingResponse);
+  rpc GetNumberOfLayers (GetNumberOfLayersRequest) returns (GetNumberOfLayersResponse);
+  rpc GetOpacity (GetOpacityRequest) returns (GetOpacityResponse);
+  rpc GetOutline (GetOutlineRequest) returns (GetOutlineResponse);
+  rpc GetPadding (LayerDrawableGetPaddingRequest) returns (GetPaddingResponse);
+  rpc GetPaddingMode (GetPaddingModeRequest) returns (GetPaddingModeResponse);
+  rpc GetRightPadding (GetRightPaddingRequest) returns (GetRightPaddingResponse);
+  rpc GetStartPadding (GetStartPaddingRequest) returns (GetStartPaddingResponse);
+  rpc GetTopPadding (GetTopPaddingRequest) returns (GetTopPaddingResponse);
+  rpc HasFocusStateSpecified (LayerDrawableHasFocusStateSpecifiedRequest) returns (HasFocusStateSpecifiedResponse);
+  rpc Inflate (InflateRequest) returns (InflateResponse);
+  rpc InvalidateDrawable (LayerDrawableInvalidateDrawableRequest) returns (InvalidateDrawableResponse);
+  rpc IsAutoMirrored (IsAutoMirroredRequest) returns (IsAutoMirroredResponse);
+  rpc IsProjected (IsProjectedRequest) returns (IsProjectedResponse);
+  rpc IsStateful (IsStatefulRequest) returns (IsStatefulResponse);
+  rpc JumpToCurrentState (LayerDrawableJumpToCurrentStateRequest) returns (JumpToCurrentStateResponse);
+  rpc Mutate (MutateRequest) returns (MutateResponse);
+  rpc OnLayoutDirectionChanged (OnLayoutDirectionChangedRequest) returns (OnLayoutDirectionChangedResponse);
+  rpc ScheduleDrawable (LayerDrawableScheduleDrawableRequest) returns (ScheduleDrawableResponse);
+  rpc SetAlpha (SetAlphaRequest) returns (SetAlphaResponse);
+  rpc SetAutoMirrored (SetAutoMirroredRequest) returns (SetAutoMirroredResponse);
+  rpc SetColorFilter (SetColorFilterRequest) returns (SetColorFilterResponse);
+  rpc SetDither (SetDitherRequest) returns (SetDitherResponse);
+  rpc SetDrawable (LayerDrawableSetDrawableRequest) returns (SetDrawableResponse);
+  rpc SetDrawableByLayerId (SetDrawableByLayerIdRequest) returns (SetDrawableByLayerIdResponse);
+  rpc SetHotspot (SetHotspotRequest) returns (SetHotspotResponse);
+  rpc SetHotspotBounds (SetHotspotBoundsRequest) returns (SetHotspotBoundsResponse);
+  rpc SetId (SetIdRequest) returns (SetIdResponse);
+  rpc SetLayerGravity (SetLayerGravityRequest) returns (SetLayerGravityResponse);
+  rpc SetLayerHeight (SetLayerHeightRequest) returns (SetLayerHeightResponse);
+  rpc SetLayerInset (SetLayerInsetRequest) returns (SetLayerInsetResponse);
+  rpc SetLayerInsetBottom (SetLayerInsetBottomRequest) returns (SetLayerInsetBottomResponse);
+  rpc SetLayerInsetEnd (SetLayerInsetEndRequest) returns (SetLayerInsetEndResponse);
+  rpc SetLayerInsetLeft (SetLayerInsetLeftRequest) returns (SetLayerInsetLeftResponse);
+  rpc SetLayerInsetRelative (SetLayerInsetRelativeRequest) returns (SetLayerInsetRelativeResponse);
+  rpc SetLayerInsetRight (SetLayerInsetRightRequest) returns (SetLayerInsetRightResponse);
+  rpc SetLayerInsetStart (SetLayerInsetStartRequest) returns (SetLayerInsetStartResponse);
+  rpc SetLayerInsetTop (SetLayerInsetTopRequest) returns (SetLayerInsetTopResponse);
+  rpc SetLayerSize (SetLayerSizeRequest) returns (SetLayerSizeResponse);
+  rpc SetLayerWidth (SetLayerWidthRequest) returns (SetLayerWidthResponse);
+  rpc SetOpacity (SetOpacityRequest) returns (SetOpacityResponse);
+  rpc SetPadding (SetPaddingRequest) returns (SetPaddingResponse);
+  rpc SetPaddingMode (SetPaddingModeRequest) returns (SetPaddingModeResponse);
+  rpc SetPaddingRelative (SetPaddingRelativeRequest) returns (SetPaddingRelativeResponse);
+  rpc SetTintBlendMode (SetTintBlendModeRequest) returns (SetTintBlendModeResponse);
+  rpc SetTintList (SetTintListRequest) returns (SetTintListResponse);
+  rpc SetVisible (SetVisibleRequest) returns (SetVisibleResponse);
+  rpc UnscheduleDrawable (LayerDrawableUnscheduleDrawableRequest) returns (UnscheduleDrawableResponse);
+}
+
+service ColorDrawableService {
+  rpc NewColorDrawable (NewColorDrawableRequest) returns (NewColorDrawableResponse);
+  rpc ApplyTheme (ApplyThemeRequest) returns (ApplyThemeResponse);
+  rpc CanApplyTheme (CanApplyThemeRequest) returns (CanApplyThemeResponse);
+  rpc Draw (DrawRequest) returns (DrawResponse);
+  rpc GetAlpha (GetAlphaRequest) returns (GetAlphaResponse);
+  rpc GetChangingConfigurations (GetChangingConfigurationsRequest) returns (GetChangingConfigurationsResponse);
+  rpc GetColor (GetColorRequest) returns (ColorDrawableGetColorResponse);
+  rpc GetColorFilter (GetColorFilterRequest) returns (GetColorFilterResponse);
+  rpc GetConstantState (GetConstantStateRequest) returns (GetConstantStateResponse);
+  rpc GetOpacity (GetOpacityRequest) returns (GetOpacityResponse);
+  rpc GetOutline (GetOutlineRequest) returns (GetOutlineResponse);
+  rpc HasFocusStateSpecified (ColorDrawableHasFocusStateSpecifiedRequest) returns (HasFocusStateSpecifiedResponse);
+  rpc Inflate (InflateRequest) returns (InflateResponse);
+  rpc IsStateful (IsStatefulRequest) returns (IsStatefulResponse);
+  rpc Mutate (MutateRequest) returns (MutateResponse);
+  rpc SetAlpha (SetAlphaRequest) returns (SetAlphaResponse);
+  rpc SetColor (SetColorRequest) returns (SetColorResponse);
+  rpc SetColorFilter (SetColorFilterRequest) returns (SetColorFilterResponse);
+  rpc SetTintBlendMode (SetTintBlendModeRequest) returns (SetTintBlendModeResponse);
+  rpc SetTintList (SetTintListRequest) returns (SetTintListResponse);
+}
+
+service RippleDrawableService {
+  rpc NewRippleDrawable (NewRippleDrawableRequest) returns (NewRippleDrawableResponse);
+  rpc ApplyTheme (ApplyThemeRequest) returns (ApplyThemeResponse);
+  rpc CanApplyTheme (CanApplyThemeRequest) returns (CanApplyThemeResponse);
+  rpc Draw (DrawRequest) returns (DrawResponse);
+  rpc GetConstantState (GetConstantStateRequest) returns (GetConstantStateResponse);
+  rpc GetDirtyBounds (GetDirtyBoundsRequest) returns (GetDirtyBoundsResponse);
+  rpc GetEffectColor (GetEffectColorRequest) returns (GetEffectColorResponse);
+  rpc GetHotspotBounds (RippleDrawableGetHotspotBoundsRequest) returns (GetHotspotBoundsResponse);
+  rpc GetOpacity (GetOpacityRequest) returns (GetOpacityResponse);
+  rpc GetOutline (GetOutlineRequest) returns (GetOutlineResponse);
+  rpc GetRadius (GetRadiusRequest) returns (GetRadiusResponse);
+  rpc HasFocusStateSpecified (RippleDrawableHasFocusStateSpecifiedRequest) returns (HasFocusStateSpecifiedResponse);
+  rpc Inflate (InflateRequest) returns (InflateResponse);
+  rpc InvalidateSelf (InvalidateSelfRequest) returns (InvalidateSelfResponse);
+  rpc IsProjected (IsProjectedRequest) returns (IsProjectedResponse);
+  rpc IsStateful (IsStatefulRequest) returns (IsStatefulResponse);
+  rpc JumpToCurrentState (RippleDrawableJumpToCurrentStateRequest) returns (JumpToCurrentStateResponse);
+  rpc Mutate (MutateRequest) returns (MutateResponse);
+  rpc SetColor (RippleDrawableSetColorRequest) returns (SetColorResponse);
+  rpc SetDrawableByLayerId (SetDrawableByLayerIdRequest) returns (SetDrawableByLayerIdResponse);
+  rpc SetEffectColor (SetEffectColorRequest) returns (SetEffectColorResponse);
+  rpc SetHotspot (SetHotspotRequest) returns (SetHotspotResponse);
+  rpc SetHotspotBounds (SetHotspotBoundsRequest) returns (SetHotspotBoundsResponse);
+  rpc SetPaddingMode (SetPaddingModeRequest) returns (SetPaddingModeResponse);
+  rpc SetRadius (SetRadiusRequest) returns (SetRadiusResponse);
+  rpc SetVisible (SetVisibleRequest) returns (SetVisibleResponse);
+}
+
+service LevelListDrawableService {
+  rpc NewLevelListDrawable (NewLevelListDrawableRequest) returns (NewLevelListDrawableResponse);
+  rpc AddLevel (AddLevelRequest) returns (AddLevelResponse);
+  rpc Inflate (InflateRequest) returns (InflateResponse);
+  rpc Mutate (MutateRequest) returns (MutateResponse);
+}
+
+service TransitionDrawableService {
+  rpc NewTransitionDrawable (NewTransitionDrawableRequest) returns (NewTransitionDrawableResponse);
+  rpc Draw (DrawRequest) returns (DrawResponse);
+  rpc IsCrossFadeEnabled (IsCrossFadeEnabledRequest) returns (IsCrossFadeEnabledResponse);
+  rpc ResetTransition (ResetTransitionRequest) returns (ResetTransitionResponse);
+  rpc ReverseTransition (ReverseTransitionRequest) returns (ReverseTransitionResponse);
+  rpc SetCrossFadeEnabled (SetCrossFadeEnabledRequest) returns (SetCrossFadeEnabledResponse);
+  rpc StartTransition (StartTransitionRequest) returns (StartTransitionResponse);
+}
+
+service NinePatchDrawableService {
+  rpc NewNinePatchDrawable (NewNinePatchDrawableRequest) returns (NewNinePatchDrawableResponse);
+  rpc ApplyTheme (ApplyThemeRequest) returns (ApplyThemeResponse);
+  rpc CanApplyTheme (CanApplyThemeRequest) returns (CanApplyThemeResponse);
+  rpc Draw (DrawRequest) returns (DrawResponse);
+  rpc GetAlpha (GetAlphaRequest) returns (GetAlphaResponse);
+  rpc GetChangingConfigurations (GetChangingConfigurationsRequest) returns (GetChangingConfigurationsResponse);
+  rpc GetConstantState (GetConstantStateRequest) returns (GetConstantStateResponse);
+  rpc GetIntrinsicHeight (GetIntrinsicHeightRequest) returns (GetIntrinsicHeightResponse);
+  rpc GetIntrinsicWidth (GetIntrinsicWidthRequest) returns (GetIntrinsicWidthResponse);
+  rpc GetOpacity (GetOpacityRequest) returns (GetOpacityResponse);
+  rpc GetOpticalInsets (GetOpticalInsetsRequest) returns (GetOpticalInsetsResponse);
+  rpc GetOutline (GetOutlineRequest) returns (GetOutlineResponse);
+  rpc GetPadding (NinePatchDrawableGetPaddingRequest) returns (GetPaddingResponse);
+  rpc GetPaint (GetPaintRequest) returns (GetPaintResponse);
+  rpc GetTransparentRegion (GetTransparentRegionRequest) returns (GetTransparentRegionResponse);
+  rpc HasFocusStateSpecified (NinePatchDrawableHasFocusStateSpecifiedRequest) returns (HasFocusStateSpecifiedResponse);
+  rpc Inflate (InflateRequest) returns (InflateResponse);
+  rpc IsAutoMirrored (IsAutoMirroredRequest) returns (IsAutoMirroredResponse);
+  rpc IsFilterBitmap (IsFilterBitmapRequest) returns (IsFilterBitmapResponse);
+  rpc IsStateful (IsStatefulRequest) returns (IsStatefulResponse);
+  rpc Mutate (MutateRequest) returns (MutateResponse);
+  rpc SetAlpha (SetAlphaRequest) returns (SetAlphaResponse);
+  rpc SetAutoMirrored (SetAutoMirroredRequest) returns (SetAutoMirroredResponse);
+  rpc SetColorFilter (SetColorFilterRequest) returns (SetColorFilterResponse);
+  rpc SetDither (SetDitherRequest) returns (SetDitherResponse);
+  rpc SetFilterBitmap (SetFilterBitmapRequest) returns (SetFilterBitmapResponse);
+  rpc SetTargetDensity1 (SetTargetDensity1Request) returns (SetTargetDensity1Response);
+  rpc SetTargetDensity1_1 (SetTargetDensity1_1Request) returns (SetTargetDensity1_1Response);
+  rpc SetTargetDensity1_2 (SetTargetDensity1_2Request) returns (SetTargetDensity1_2Response);
+  rpc SetTintBlendMode (SetTintBlendModeRequest) returns (SetTintBlendModeResponse);
+  rpc SetTintList (SetTintListRequest) returns (SetTintListResponse);
+}
+
+service InsetDrawableService {
+  rpc NewInsetDrawable (NewInsetDrawableRequest) returns (NewInsetDrawableResponse);
+  rpc ApplyTheme (ApplyThemeRequest) returns (ApplyThemeResponse);
+  rpc GetIntrinsicHeight (GetIntrinsicHeightRequest) returns (GetIntrinsicHeightResponse);
+  rpc GetIntrinsicWidth (GetIntrinsicWidthRequest) returns (GetIntrinsicWidthResponse);
+  rpc GetOpacity (GetOpacityRequest) returns (GetOpacityResponse);
+  rpc GetOpticalInsets (GetOpticalInsetsRequest) returns (GetOpticalInsetsResponse);
+  rpc GetOutline (GetOutlineRequest) returns (GetOutlineResponse);
+  rpc GetPadding (InsetDrawableGetPaddingRequest) returns (GetPaddingResponse);
+  rpc Inflate (InflateRequest) returns (InflateResponse);
+}
+
+service PictureDrawableService {
+  rpc NewPictureDrawable (NewPictureDrawableRequest) returns (NewPictureDrawableResponse);
+  rpc Draw (DrawRequest) returns (DrawResponse);
+  rpc GetIntrinsicHeight (GetIntrinsicHeightRequest) returns (GetIntrinsicHeightResponse);
+  rpc GetIntrinsicWidth (GetIntrinsicWidthRequest) returns (GetIntrinsicWidthResponse);
+  rpc GetOpacity (GetOpacityRequest) returns (GetOpacityResponse);
+  rpc GetPicture (GetPictureRequest) returns (GetPictureResponse);
+  rpc SetAlpha (SetAlphaRequest) returns (SetAlphaResponse);
+  rpc SetColorFilter (SetColorFilterRequest) returns (SetColorFilterResponse);
+  rpc SetPicture (SetPictureRequest) returns (SetPictureResponse);
+}
+
+service PaintDrawableService {
+  rpc NewPaintDrawable (NewPaintDrawableRequest) returns (NewPaintDrawableResponse);
+  rpc SetCornerRadii (SetCornerRadiiRequest) returns (SetCornerRadiiResponse);
+  rpc SetCornerRadius (SetCornerRadiusRequest) returns (SetCornerRadiusResponse);
+}
+
+service AdaptiveIconDrawableService {
+  rpc NewAdaptiveIconDrawable (NewAdaptiveIconDrawableRequest) returns (NewAdaptiveIconDrawableResponse);
+  rpc ApplyTheme (ApplyThemeRequest) returns (ApplyThemeResponse);
+  rpc CanApplyTheme (CanApplyThemeRequest) returns (CanApplyThemeResponse);
+  rpc Draw (DrawRequest) returns (DrawResponse);
+  rpc GetAlpha (GetAlphaRequest) returns (GetAlphaResponse);
+  rpc GetBackground (GetBackgroundRequest) returns (GetBackgroundResponse);
+  rpc GetChangingConfigurations (GetChangingConfigurationsRequest) returns (GetChangingConfigurationsResponse);
+  rpc GetConstantState (GetConstantStateRequest) returns (GetConstantStateResponse);
+  rpc GetForeground (GetForegroundRequest) returns (GetForegroundResponse);
+  rpc GetHotspotBounds (AdaptiveIconDrawableGetHotspotBoundsRequest) returns (GetHotspotBoundsResponse);
+  rpc GetIconMask (GetIconMaskRequest) returns (GetIconMaskResponse);
+  rpc GetIntrinsicHeight (GetIntrinsicHeightRequest) returns (GetIntrinsicHeightResponse);
+  rpc GetIntrinsicWidth (GetIntrinsicWidthRequest) returns (GetIntrinsicWidthResponse);
+  rpc GetMonochrome (GetMonochromeRequest) returns (GetMonochromeResponse);
+  rpc GetOpacity (GetOpacityRequest) returns (GetOpacityResponse);
+  rpc GetOutline (GetOutlineRequest) returns (GetOutlineResponse);
+  rpc GetTransparentRegion (GetTransparentRegionRequest) returns (GetTransparentRegionResponse);
+  rpc HasFocusStateSpecified (AdaptiveIconDrawableHasFocusStateSpecifiedRequest) returns (HasFocusStateSpecifiedResponse);
+  rpc Inflate (InflateRequest) returns (InflateResponse);
+  rpc InvalidateDrawable (AdaptiveIconDrawableInvalidateDrawableRequest) returns (InvalidateDrawableResponse);
+  rpc InvalidateSelf (InvalidateSelfRequest) returns (InvalidateSelfResponse);
+  rpc IsAutoMirrored (IsAutoMirroredRequest) returns (IsAutoMirroredResponse);
+  rpc IsProjected (IsProjectedRequest) returns (IsProjectedResponse);
+  rpc IsStateful (IsStatefulRequest) returns (IsStatefulResponse);
+  rpc JumpToCurrentState (AdaptiveIconDrawableJumpToCurrentStateRequest) returns (JumpToCurrentStateResponse);
+  rpc Mutate (MutateRequest) returns (MutateResponse);
+  rpc ScheduleDrawable (AdaptiveIconDrawableScheduleDrawableRequest) returns (ScheduleDrawableResponse);
+  rpc SetAlpha (SetAlphaRequest) returns (SetAlphaResponse);
+  rpc SetAutoMirrored (SetAutoMirroredRequest) returns (SetAutoMirroredResponse);
+  rpc SetColorFilter (SetColorFilterRequest) returns (SetColorFilterResponse);
+  rpc SetDither (SetDitherRequest) returns (SetDitherResponse);
+  rpc SetHotspot (SetHotspotRequest) returns (SetHotspotResponse);
+  rpc SetHotspotBounds (SetHotspotBoundsRequest) returns (SetHotspotBoundsResponse);
+  rpc SetOpacity (SetOpacityRequest) returns (SetOpacityResponse);
+  rpc SetTintBlendMode (SetTintBlendModeRequest) returns (SetTintBlendModeResponse);
+  rpc SetTintList (SetTintListRequest) returns (SetTintListResponse);
+  rpc SetVisible (SetVisibleRequest) returns (SetVisibleResponse);
+  rpc UnscheduleDrawable (AdaptiveIconDrawableUnscheduleDrawableRequest) returns (UnscheduleDrawableResponse);
+  rpc GetExtraInsetFraction (GetExtraInsetFractionRequest) returns (GetExtraInsetFractionResponse);
+}
+
+service RotateDrawableService {
+  rpc NewRotateDrawable (NewRotateDrawableRequest) returns (NewRotateDrawableResponse);
+  rpc ApplyTheme (ApplyThemeRequest) returns (ApplyThemeResponse);
+  rpc Draw (DrawRequest) returns (DrawResponse);
+  rpc GetFromDegrees (GetFromDegreesRequest) returns (GetFromDegreesResponse);
+  rpc GetPivotX (GetPivotXRequest) returns (GetPivotXResponse);
+  rpc GetPivotY (GetPivotYRequest) returns (GetPivotYResponse);
+  rpc GetToDegrees (GetToDegreesRequest) returns (GetToDegreesResponse);
+  rpc Inflate (InflateRequest) returns (InflateResponse);
+  rpc IsPivotXRelative (IsPivotXRelativeRequest) returns (IsPivotXRelativeResponse);
+  rpc IsPivotYRelative (IsPivotYRelativeRequest) returns (IsPivotYRelativeResponse);
+  rpc SetFromDegrees (SetFromDegreesRequest) returns (SetFromDegreesResponse);
+  rpc SetPivotX (SetPivotXRequest) returns (SetPivotXResponse);
+  rpc SetPivotXRelative (SetPivotXRelativeRequest) returns (SetPivotXRelativeResponse);
+  rpc SetPivotY (SetPivotYRequest) returns (SetPivotYResponse);
+  rpc SetPivotYRelative (SetPivotYRelativeRequest) returns (SetPivotYRelativeResponse);
+  rpc SetToDegrees (SetToDegreesRequest) returns (SetToDegreesResponse);
+}
+
+service ContainerService {
+  rpc NewContainer (NewContainerRequest) returns (NewContainerResponse);
+  rpc ApplyTheme (ApplyThemeRequest) returns (ApplyThemeResponse);
+  rpc CanApplyTheme (CanApplyThemeRequest) returns (CanApplyThemeResponse);
+  rpc Draw (DrawRequest) returns (DrawResponse);
+  rpc GetAlpha (GetAlphaRequest) returns (GetAlphaResponse);
+  rpc GetChangingConfigurations (GetChangingConfigurationsRequest) returns (GetChangingConfigurationsResponse);
+  rpc GetConstantState (GetConstantStateRequest) returns (GetConstantStateResponse);
+  rpc GetCurrent (GetCurrentRequest) returns (GetCurrentResponse);
+  rpc GetHotspotBounds (ContainerGetHotspotBoundsRequest) returns (GetHotspotBoundsResponse);
+  rpc GetIntrinsicHeight (GetIntrinsicHeightRequest) returns (GetIntrinsicHeightResponse);
+  rpc GetIntrinsicWidth (GetIntrinsicWidthRequest) returns (GetIntrinsicWidthResponse);
+  rpc GetMinimumHeight (GetMinimumHeightRequest) returns (GetMinimumHeightResponse);
+  rpc GetMinimumWidth (GetMinimumWidthRequest) returns (GetMinimumWidthResponse);
+  rpc GetOpacity (GetOpacityRequest) returns (GetOpacityResponse);
+  rpc GetOpticalInsets (GetOpticalInsetsRequest) returns (GetOpticalInsetsResponse);
+  rpc GetOutline (GetOutlineRequest) returns (GetOutlineResponse);
+  rpc GetPadding (ContainerGetPaddingRequest) returns (GetPaddingResponse);
+  rpc HasFocusStateSpecified (ContainerHasFocusStateSpecifiedRequest) returns (HasFocusStateSpecifiedResponse);
+  rpc InvalidateDrawable (ContainerInvalidateDrawableRequest) returns (InvalidateDrawableResponse);
+  rpc IsAutoMirrored (IsAutoMirroredRequest) returns (IsAutoMirroredResponse);
+  rpc IsStateful (IsStatefulRequest) returns (IsStatefulResponse);
+  rpc JumpToCurrentState (ContainerJumpToCurrentStateRequest) returns (JumpToCurrentStateResponse);
+  rpc Mutate (MutateRequest) returns (MutateResponse);
+  rpc OnLayoutDirectionChanged (OnLayoutDirectionChangedRequest) returns (OnLayoutDirectionChangedResponse);
+  rpc ScheduleDrawable (ContainerScheduleDrawableRequest) returns (ScheduleDrawableResponse);
+  rpc SelectDrawable (SelectDrawableRequest) returns (SelectDrawableResponse);
+  rpc SetAlpha (SetAlphaRequest) returns (SetAlphaResponse);
+  rpc SetAutoMirrored (SetAutoMirroredRequest) returns (SetAutoMirroredResponse);
+  rpc SetColorFilter (SetColorFilterRequest) returns (SetColorFilterResponse);
+  rpc SetDither (SetDitherRequest) returns (SetDitherResponse);
+  rpc SetEnterFadeDuration (SetEnterFadeDurationRequest) returns (SetEnterFadeDurationResponse);
+  rpc SetExitFadeDuration (SetExitFadeDurationRequest) returns (SetExitFadeDurationResponse);
+  rpc SetHotspot (SetHotspotRequest) returns (SetHotspotResponse);
+  rpc SetHotspotBounds (SetHotspotBoundsRequest) returns (SetHotspotBoundsResponse);
+  rpc SetTintBlendMode (SetTintBlendModeRequest) returns (SetTintBlendModeResponse);
+  rpc SetTintList (SetTintListRequest) returns (SetTintListResponse);
+  rpc SetVisible (SetVisibleRequest) returns (SetVisibleResponse);
+  rpc UnscheduleDrawable (ContainerUnscheduleDrawableRequest) returns (UnscheduleDrawableResponse);
+}
+
+service ContainerDrawableContainerStateService {
+  rpc AddChild (AddChildRequest) returns (AddChildResponse);
+  rpc CanApplyTheme (ContainerDrawableContainerStateCanApplyThemeRequest) returns (CanApplyThemeResponse);
+  rpc GetChangingConfigurations (ContainerDrawableContainerStateGetChangingConfigurationsRequest) returns (GetChangingConfigurationsResponse);
+  rpc GetChild (GetChildRequest) returns (GetChildResponse);
+  rpc GetChildCount (GetChildCountRequest) returns (GetChildCountResponse);
+  rpc GetChildren (GetChildrenRequest) returns (GetChildrenResponse);
+  rpc GetConstantHeight (GetConstantHeightRequest) returns (GetConstantHeightResponse);
+  rpc GetConstantMinimumHeight (GetConstantMinimumHeightRequest) returns (GetConstantMinimumHeightResponse);
+  rpc GetConstantMinimumWidth (GetConstantMinimumWidthRequest) returns (GetConstantMinimumWidthResponse);
+  rpc GetConstantPadding (GetConstantPaddingRequest) returns (GetConstantPaddingResponse);
+  rpc GetConstantWidth (GetConstantWidthRequest) returns (GetConstantWidthResponse);
+  rpc GetEnterFadeDuration (GetEnterFadeDurationRequest) returns (GetEnterFadeDurationResponse);
+  rpc GetExitFadeDuration (GetExitFadeDurationRequest) returns (GetExitFadeDurationResponse);
+  rpc GetOpacity (ContainerDrawableContainerStateGetOpacityRequest) returns (GetOpacityResponse);
+  rpc GrowArray (GrowArrayRequest) returns (GrowArrayResponse);
+  rpc IsConstantSize (IsConstantSizeRequest) returns (IsConstantSizeResponse);
+  rpc IsStateful (ContainerDrawableContainerStateIsStatefulRequest) returns (IsStatefulResponse);
+  rpc SetConstantSize (SetConstantSizeRequest) returns (SetConstantSizeResponse);
+  rpc SetEnterFadeDuration (ContainerDrawableContainerStateSetEnterFadeDurationRequest) returns (SetEnterFadeDurationResponse);
+  rpc SetExitFadeDuration (ContainerDrawableContainerStateSetExitFadeDurationRequest) returns (SetExitFadeDurationResponse);
+  rpc SetVariablePadding (SetVariablePaddingRequest) returns (SetVariablePaddingResponse);
+}
+
+service AnimationDrawableService {
+  rpc NewAnimationDrawable (NewAnimationDrawableRequest) returns (NewAnimationDrawableResponse);
+  rpc AddFrame (AddFrameRequest) returns (AddFrameResponse);
+  rpc GetDuration (GetDurationRequest) returns (GetDurationResponse);
+  rpc GetFrame (GetFrameRequest) returns (GetFrameResponse);
+  rpc GetNumberOfFrames (GetNumberOfFramesRequest) returns (GetNumberOfFramesResponse);
+  rpc Inflate (InflateRequest) returns (InflateResponse);
+  rpc IsOneShot (IsOneShotRequest) returns (IsOneShotResponse);
+  rpc IsRunning (IsRunningRequest) returns (IsRunningResponse);
+  rpc Mutate (MutateRequest) returns (MutateResponse);
+  rpc Run (RunRequest) returns (RunResponse);
+  rpc SetOneShot (SetOneShotRequest) returns (SetOneShotResponse);
+  rpc SetVisible (SetVisibleRequest) returns (SetVisibleResponse);
+  rpc Start (StartRequest) returns (StartResponse);
+  rpc Stop (StopRequest) returns (StopResponse);
+  rpc UnscheduleSelf (UnscheduleSelfRequest) returns (UnscheduleSelfResponse);
+}
+
+service ColorStateListDrawableService {
+  rpc NewColorStateListDrawable (NewColorStateListDrawableRequest) returns (NewColorStateListDrawableResponse);
+  rpc ApplyTheme (ApplyThemeRequest) returns (ApplyThemeResponse);
+  rpc CanApplyTheme (CanApplyThemeRequest) returns (CanApplyThemeResponse);
+  rpc ClearAlpha (ClearAlphaRequest) returns (ClearAlphaResponse);
+  rpc Draw (DrawRequest) returns (DrawResponse);
+  rpc GetAlpha (GetAlphaRequest) returns (GetAlphaResponse);
+  rpc GetChangingConfigurations (GetChangingConfigurationsRequest) returns (GetChangingConfigurationsResponse);
+  rpc GetColorFilter (GetColorFilterRequest) returns (GetColorFilterResponse);
+  rpc GetColorStateList (GetColorStateListRequest) returns (GetColorStateListResponse);
+  rpc GetConstantState (GetConstantStateRequest) returns (GetConstantStateResponse);
+  rpc GetCurrent (GetCurrentRequest) returns (GetCurrentResponse);
+  rpc GetOpacity (GetOpacityRequest) returns (GetOpacityResponse);
+  rpc HasFocusStateSpecified (ColorStateListDrawableHasFocusStateSpecifiedRequest) returns (HasFocusStateSpecifiedResponse);
+  rpc InvalidateDrawable (ColorStateListDrawableInvalidateDrawableRequest) returns (InvalidateDrawableResponse);
+  rpc IsStateful (IsStatefulRequest) returns (IsStatefulResponse);
+  rpc Mutate (MutateRequest) returns (MutateResponse);
+  rpc ScheduleDrawable (ColorStateListDrawableScheduleDrawableRequest) returns (ScheduleDrawableResponse);
+  rpc SetAlpha (SetAlphaRequest) returns (SetAlphaResponse);
+  rpc SetColorFilter (SetColorFilterRequest) returns (SetColorFilterResponse);
+  rpc SetColorStateList (SetColorStateListRequest) returns (SetColorStateListResponse);
+  rpc SetTintBlendMode (SetTintBlendModeRequest) returns (SetTintBlendModeResponse);
+  rpc SetTintList (SetTintListRequest) returns (SetTintListResponse);
+  rpc UnscheduleDrawable (ColorStateListDrawableUnscheduleDrawableRequest) returns (UnscheduleDrawableResponse);
+}
+
+service DrawableService {
+  rpc ApplyTheme (DrawableApplyThemeRequest) returns (ApplyThemeResponse);
+  rpc CanApplyTheme (DrawableCanApplyThemeRequest) returns (CanApplyThemeResponse);
+  rpc ClearColorFilter (ClearColorFilterRequest) returns (ClearColorFilterResponse);
+  rpc CopyBounds0 (CopyBounds0Request) returns (CopyBounds0Response);
+  rpc CopyBounds1_1 (CopyBounds1_1Request) returns (CopyBounds1_1Response);
+  rpc Draw (DrawableDrawRequest) returns (DrawResponse);
+  rpc GetAlpha (DrawableGetAlphaRequest) returns (GetAlphaResponse);
+  rpc GetBounds (GetBoundsRequest) returns (GetBoundsResponse);
+  rpc GetCallback (GetCallbackRequest) returns (GetCallbackResponse);
+  rpc GetChangingConfigurations (DrawableGetChangingConfigurationsRequest) returns (GetChangingConfigurationsResponse);
+  rpc GetColorFilter (DrawableGetColorFilterRequest) returns (GetColorFilterResponse);
+  rpc GetConstantState (DrawableGetConstantStateRequest) returns (GetConstantStateResponse);
+  rpc GetCurrent (DrawableGetCurrentRequest) returns (GetCurrentResponse);
+  rpc GetDirtyBounds (DrawableGetDirtyBoundsRequest) returns (GetDirtyBoundsResponse);
+  rpc GetHotspotBounds (GetHotspotBoundsRequest) returns (GetHotspotBoundsResponse);
+  rpc GetIntrinsicHeight (DrawableGetIntrinsicHeightRequest) returns (GetIntrinsicHeightResponse);
+  rpc GetIntrinsicWidth (DrawableGetIntrinsicWidthRequest) returns (GetIntrinsicWidthResponse);
+  rpc GetLayoutDirection (GetLayoutDirectionRequest) returns (GetLayoutDirectionResponse);
+  rpc GetLevel (GetLevelRequest) returns (GetLevelResponse);
+  rpc GetMinimumHeight (DrawableGetMinimumHeightRequest) returns (GetMinimumHeightResponse);
+  rpc GetMinimumWidth (DrawableGetMinimumWidthRequest) returns (GetMinimumWidthResponse);
+  rpc GetOpacity (DrawableGetOpacityRequest) returns (GetOpacityResponse);
+  rpc GetOpticalInsets (DrawableGetOpticalInsetsRequest) returns (GetOpticalInsetsResponse);
+  rpc GetOutline (DrawableGetOutlineRequest) returns (GetOutlineResponse);
+  rpc GetPadding (GetPaddingRequest) returns (GetPaddingResponse);
+  rpc GetState (GetStateRequest) returns (GetStateResponse);
+  rpc GetTransparentRegion (DrawableGetTransparentRegionRequest) returns (GetTransparentRegionResponse);
+  rpc HasFocusStateSpecified (HasFocusStateSpecifiedRequest) returns (HasFocusStateSpecifiedResponse);
+  rpc Inflate3 (Inflate3Request) returns (Inflate3Response);
+  rpc Inflate4_1 (Inflate4_1Request) returns (Inflate4_1Response);
+  rpc InvalidateSelf (DrawableInvalidateSelfRequest) returns (InvalidateSelfResponse);
+  rpc IsAutoMirrored (DrawableIsAutoMirroredRequest) returns (IsAutoMirroredResponse);
+  rpc IsFilterBitmap (DrawableIsFilterBitmapRequest) returns (IsFilterBitmapResponse);
+  rpc IsProjected (DrawableIsProjectedRequest) returns (IsProjectedResponse);
+  rpc IsStateful (DrawableIsStatefulRequest) returns (IsStatefulResponse);
+  rpc IsVisible (IsVisibleRequest) returns (IsVisibleResponse);
+  rpc JumpToCurrentState (JumpToCurrentStateRequest) returns (JumpToCurrentStateResponse);
+  rpc Mutate (DrawableMutateRequest) returns (MutateResponse);
+  rpc OnLayoutDirectionChanged (DrawableOnLayoutDirectionChangedRequest) returns (OnLayoutDirectionChangedResponse);
+  rpc ScheduleSelf (ScheduleSelfRequest) returns (ScheduleSelfResponse);
+  rpc SetAlpha (DrawableSetAlphaRequest) returns (SetAlphaResponse);
+  rpc SetAutoMirrored (DrawableSetAutoMirroredRequest) returns (SetAutoMirroredResponse);
+  rpc SetBounds1 (SetBounds1Request) returns (SetBounds1Response);
+  rpc SetBounds4_1 (SetBounds4_1Request) returns (SetBounds4_1Response);
+  rpc SetCallback (SetCallbackRequest) returns (SetCallbackResponse);
+  rpc SetChangingConfigurations (SetChangingConfigurationsRequest) returns (SetChangingConfigurationsResponse);
+  rpc SetColorFilter1 (SetColorFilter1Request) returns (SetColorFilter1Response);
+  rpc SetColorFilter2_1 (SetColorFilter2_1Request) returns (SetColorFilter2_1Response);
+  rpc SetDither (DrawableSetDitherRequest) returns (SetDitherResponse);
+  rpc SetFilterBitmap (DrawableSetFilterBitmapRequest) returns (SetFilterBitmapResponse);
+  rpc SetHotspot (DrawableSetHotspotRequest) returns (SetHotspotResponse);
+  rpc SetHotspotBounds (DrawableSetHotspotBoundsRequest) returns (SetHotspotBoundsResponse);
+  rpc SetLayoutDirection (SetLayoutDirectionRequest) returns (SetLayoutDirectionResponse);
+  rpc SetLevel (SetLevelRequest) returns (SetLevelResponse);
+  rpc SetState (SetStateRequest) returns (SetStateResponse);
+  rpc SetTint (SetTintRequest) returns (SetTintResponse);
+  rpc SetTintBlendMode (DrawableSetTintBlendModeRequest) returns (SetTintBlendModeResponse);
+  rpc SetTintList (DrawableSetTintListRequest) returns (SetTintListResponse);
+  rpc SetTintMode (SetTintModeRequest) returns (SetTintModeResponse);
+  rpc SetVisible (DrawableSetVisibleRequest) returns (SetVisibleResponse);
+  rpc UnscheduleSelf (DrawableUnscheduleSelfRequest) returns (UnscheduleSelfResponse);
+  rpc CreateFromPath (CreateFromPathRequest) returns (CreateFromPathResponse);
+  rpc CreateFromResourceStream4 (CreateFromResourceStream4Request) returns (CreateFromResourceStream4Response);
+  rpc CreateFromResourceStream5_1 (CreateFromResourceStream5_1Request) returns (CreateFromResourceStream5_1Response);
+  rpc CreateFromStream (CreateFromStreamRequest) returns (CreateFromStreamResponse);
+  rpc CreateFromXml2 (CreateFromXml2Request) returns (CreateFromXml2Response);
+  rpc CreateFromXml3_1 (CreateFromXml3_1Request) returns (CreateFromXml3_1Response);
+  rpc CreateFromXmlInner3 (CreateFromXmlInner3Request) returns (CreateFromXmlInner3Response);
+  rpc CreateFromXmlInner4_1 (CreateFromXmlInner4_1Request) returns (CreateFromXmlInner4_1Response);
+  rpc ResolveOpacity (ResolveOpacityRequest) returns (ResolveOpacityResponse);
+}
+
+service CallbackService {
+  rpc InvalidateDrawable (InvalidateDrawableRequest) returns (InvalidateDrawableResponse);
+  rpc ScheduleDrawable (ScheduleDrawableRequest) returns (ScheduleDrawableResponse);
+  rpc UnscheduleDrawable (UnscheduleDrawableRequest) returns (UnscheduleDrawableResponse);
+}
+
+service ConstantStateService {
+  rpc CanApplyTheme (ConstantStateCanApplyThemeRequest) returns (CanApplyThemeResponse);
+  rpc GetChangingConfigurations (ConstantStateGetChangingConfigurationsRequest) returns (GetChangingConfigurationsResponse);
+  rpc NewDrawable0 (NewDrawable0Request) returns (NewDrawable0Response);
+  rpc NewDrawable1_1 (NewDrawable1_1Request) returns (NewDrawable1_1Response);
+  rpc NewDrawable2_2 (NewDrawable2_2Request) returns (NewDrawable2_2Response);
+}
+
+service AnimatableService {
+  rpc IsRunning (AnimatableIsRunningRequest) returns (IsRunningResponse);
+  rpc Start (AnimatableStartRequest) returns (StartResponse);
+  rpc Stop (AnimatableStopRequest) returns (StopResponse);
+}
+
+service AnimatedStateListDrawableService {
+  rpc NewAnimatedStateListDrawable (NewAnimatedStateListDrawableRequest) returns (NewAnimatedStateListDrawableResponse);
+  rpc AddState (AnimatedStateListDrawableAddStateRequest) returns (AddStateResponse);
+  rpc ApplyTheme (ApplyThemeRequest) returns (ApplyThemeResponse);
+  rpc Inflate (InflateRequest) returns (InflateResponse);
+  rpc IsStateful (IsStatefulRequest) returns (IsStatefulResponse);
+  rpc JumpToCurrentState (AnimatedStateListDrawableJumpToCurrentStateRequest) returns (JumpToCurrentStateResponse);
+  rpc Mutate (MutateRequest) returns (MutateResponse);
+  rpc SetVisible (SetVisibleRequest) returns (SetVisibleResponse);
+}
+
+service ShapeDrawableService {
+  rpc NewShapeDrawable (NewShapeDrawableRequest) returns (NewShapeDrawableResponse);
+  rpc ApplyTheme (ApplyThemeRequest) returns (ApplyThemeResponse);
+  rpc Draw (DrawRequest) returns (DrawResponse);
+  rpc GetAlpha (GetAlphaRequest) returns (GetAlphaResponse);
+  rpc GetChangingConfigurations (GetChangingConfigurationsRequest) returns (GetChangingConfigurationsResponse);
+  rpc GetConstantState (GetConstantStateRequest) returns (GetConstantStateResponse);
+  rpc GetIntrinsicHeight (GetIntrinsicHeightRequest) returns (GetIntrinsicHeightResponse);
+  rpc GetIntrinsicWidth (GetIntrinsicWidthRequest) returns (GetIntrinsicWidthResponse);
+  rpc GetOpacity (GetOpacityRequest) returns (GetOpacityResponse);
+  rpc GetOutline (GetOutlineRequest) returns (GetOutlineResponse);
+  rpc GetPadding (ShapeDrawableGetPaddingRequest) returns (GetPaddingResponse);
+  rpc GetPaint (GetPaintRequest) returns (GetPaintResponse);
+  rpc GetShaderFactory (GetShaderFactoryRequest) returns (GetShaderFactoryResponse);
+  rpc GetShape (GetShapeRequest) returns (ShapeDrawableGetShapeResponse);
+  rpc HasFocusStateSpecified (ShapeDrawableHasFocusStateSpecifiedRequest) returns (HasFocusStateSpecifiedResponse);
+  rpc Inflate (InflateRequest) returns (InflateResponse);
+  rpc IsStateful (IsStatefulRequest) returns (IsStatefulResponse);
+  rpc Mutate (MutateRequest) returns (MutateResponse);
+  rpc SetAlpha (SetAlphaRequest) returns (SetAlphaResponse);
+  rpc SetColorFilter (SetColorFilterRequest) returns (SetColorFilterResponse);
+  rpc SetDither (SetDitherRequest) returns (SetDitherResponse);
+  rpc SetIntrinsicHeight (SetIntrinsicHeightRequest) returns (SetIntrinsicHeightResponse);
+  rpc SetIntrinsicWidth (SetIntrinsicWidthRequest) returns (SetIntrinsicWidthResponse);
+  rpc SetPadding1 (SetPadding1Request) returns (SetPadding1Response);
+  rpc SetPadding4_1 (SetPadding4_1Request) returns (SetPadding4_1Response);
+  rpc SetShaderFactory (SetShaderFactoryRequest) returns (SetShaderFactoryResponse);
+  rpc SetShape (ShapeDrawableSetShapeRequest) returns (SetShapeResponse);
+  rpc SetTintBlendMode (SetTintBlendModeRequest) returns (SetTintBlendModeResponse);
+  rpc SetTintList (SetTintListRequest) returns (SetTintListResponse);
+}
+
+service ShapeDrawableShaderFactoryService {
+  rpc Resize (ResizeRequest) returns (ResizeResponse);
+}
+
+service ClipDrawableService {
+  rpc NewClipDrawable (NewClipDrawableRequest) returns (NewClipDrawableResponse);
+  rpc ApplyTheme (ApplyThemeRequest) returns (ApplyThemeResponse);
+  rpc Draw (DrawRequest) returns (DrawResponse);
+  rpc GetOpacity (GetOpacityRequest) returns (GetOpacityResponse);
+  rpc Inflate (InflateRequest) returns (InflateResponse);
+}
+
+service IconService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetResId (GetResIdRequest) returns (GetResIdResponse);
+  rpc GetResPackage (GetResPackageRequest) returns (GetResPackageResponse);
+  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
+  rpc GetUri (GetUriRequest) returns (GetUriResponse);
+  rpc LoadDrawable (LoadDrawableRequest) returns (LoadDrawableResponse);
+  rpc LoadDrawableAsync (LoadDrawableAsyncRequest) returns (LoadDrawableAsyncResponse);
+  rpc SetTint (SetTintRequest) returns (IconSetTintResponse);
+  rpc SetTintBlendMode (IconSetTintBlendModeRequest) returns (IconSetTintBlendModeResponse);
+  rpc SetTintList (IconSetTintListRequest) returns (IconSetTintListResponse);
+  rpc SetTintMode (SetTintModeRequest) returns (IconSetTintModeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc CreateWithAdaptiveBitmap (CreateWithAdaptiveBitmapRequest) returns (CreateWithAdaptiveBitmapResponse);
+  rpc CreateWithAdaptiveBitmapContentUri1 (CreateWithAdaptiveBitmapContentUri1Request) returns (CreateWithAdaptiveBitmapContentUri1Response);
+  rpc CreateWithAdaptiveBitmapContentUri1_1 (CreateWithAdaptiveBitmapContentUri1_1Request) returns (CreateWithAdaptiveBitmapContentUri1_1Response);
+  rpc CreateWithBitmap (CreateWithBitmapRequest) returns (CreateWithBitmapResponse);
+  rpc CreateWithContentUri1 (CreateWithContentUri1Request) returns (CreateWithContentUri1Response);
+  rpc CreateWithContentUri1_1 (CreateWithContentUri1_1Request) returns (CreateWithContentUri1_1Response);
+  rpc CreateWithData (CreateWithDataRequest) returns (CreateWithDataResponse);
+  rpc CreateWithFilePath (CreateWithFilePathRequest) returns (CreateWithFilePathResponse);
+  rpc CreateWithResource2 (CreateWithResource2Request) returns (CreateWithResource2Response);
+  rpc CreateWithResource2_1 (CreateWithResource2_1Request) returns (CreateWithResource2_1Response);
+}
+
+service IconOnDrawableLoadedListenerService {
+  rpc OnDrawableLoaded (OnDrawableLoadedRequest) returns (OnDrawableLoadedResponse);
+}
+
+service Animatable2Service {
+  rpc ClearAnimationCallbacks (Animatable2ClearAnimationCallbacksRequest) returns (ClearAnimationCallbacksResponse);
+  rpc RegisterAnimationCallback (Animatable2RegisterAnimationCallbackRequest) returns (RegisterAnimationCallbackResponse);
+  rpc UnregisterAnimationCallback (Animatable2UnregisterAnimationCallbackRequest) returns (UnregisterAnimationCallbackResponse);
+}
+
+service Animatable2AnimationCallbackService {
+  rpc OnAnimationEnd (OnAnimationEndRequest) returns (OnAnimationEndResponse);
+  rpc OnAnimationStart (OnAnimationStartRequest) returns (OnAnimationStartResponse);
+}
+
+service VectorDrawableService {
+  rpc NewVectorDrawable (NewVectorDrawableRequest) returns (NewVectorDrawableResponse);
+  rpc ApplyTheme (ApplyThemeRequest) returns (ApplyThemeResponse);
+  rpc CanApplyTheme (CanApplyThemeRequest) returns (CanApplyThemeResponse);
+  rpc Draw (DrawRequest) returns (DrawResponse);
+  rpc GetAlpha (GetAlphaRequest) returns (GetAlphaResponse);
+  rpc GetChangingConfigurations (GetChangingConfigurationsRequest) returns (GetChangingConfigurationsResponse);
+  rpc GetColorFilter (GetColorFilterRequest) returns (GetColorFilterResponse);
+  rpc GetConstantState (GetConstantStateRequest) returns (GetConstantStateResponse);
+  rpc GetIntrinsicHeight (GetIntrinsicHeightRequest) returns (GetIntrinsicHeightResponse);
+  rpc GetIntrinsicWidth (GetIntrinsicWidthRequest) returns (GetIntrinsicWidthResponse);
+  rpc GetOpacity (GetOpacityRequest) returns (GetOpacityResponse);
+  rpc GetOpticalInsets (GetOpticalInsetsRequest) returns (GetOpticalInsetsResponse);
+  rpc HasFocusStateSpecified (VectorDrawableHasFocusStateSpecifiedRequest) returns (HasFocusStateSpecifiedResponse);
+  rpc Inflate (InflateRequest) returns (InflateResponse);
+  rpc IsAutoMirrored (IsAutoMirroredRequest) returns (IsAutoMirroredResponse);
+  rpc IsStateful (IsStatefulRequest) returns (IsStatefulResponse);
+  rpc Mutate (MutateRequest) returns (MutateResponse);
+  rpc SetAlpha (SetAlphaRequest) returns (SetAlphaResponse);
+  rpc SetAutoMirrored (SetAutoMirroredRequest) returns (SetAutoMirroredResponse);
+  rpc SetColorFilter (SetColorFilterRequest) returns (SetColorFilterResponse);
+  rpc SetTintBlendMode (SetTintBlendModeRequest) returns (SetTintBlendModeResponse);
+  rpc SetTintList (SetTintListRequest) returns (SetTintListResponse);
+}

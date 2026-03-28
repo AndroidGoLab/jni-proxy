@@ -5,3 +5,427 @@ syntax = "proto3";
 package mbms;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/mbms";
+
+message NewStreamingSessionCallbackRequest {
+}
+
+message NewStreamingSessionCallbackResponse {
+  int64 result = 1;
+}
+
+message OnErrorRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  string arg1 = 3;
+}
+
+message OnErrorResponse {
+}
+
+message OnMiddlewareReadyRequest {
+  int64 handle = 1;
+}
+
+message OnMiddlewareReadyResponse {
+}
+
+message NewStreamingServiceCallbackRequest {
+}
+
+message NewStreamingServiceCallbackResponse {
+  int64 result = 1;
+}
+
+message OnBroadcastSignalStrengthUpdatedRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message OnBroadcastSignalStrengthUpdatedResponse {
+}
+
+message OnMediaDescriptionUpdatedRequest {
+  int64 handle = 1;
+}
+
+message OnMediaDescriptionUpdatedResponse {
+}
+
+message OnStreamMethodUpdatedRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message OnStreamMethodUpdatedResponse {
+}
+
+message OnStreamStateUpdatedRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message OnStreamStateUpdatedResponse {
+}
+
+message EqualsRequest {
+  int64 arg0 = 1;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message GetNameForLocaleRequest {
+  int64 arg0 = 1;
+}
+
+message GetNameForLocaleResponse {
+  int64 result = 1;
+}
+
+message GetServiceClassNameRequest {
+}
+
+message GetServiceClassNameResponse {
+  string result = 1;
+}
+
+message GetServiceIdRequest {
+}
+
+message GetServiceIdResponse {
+  string result = 1;
+}
+
+message GetSessionEndTimeRequest {
+}
+
+message GetSessionEndTimeResponse {
+  int64 result = 1;
+}
+
+message GetSessionStartTimeRequest {
+}
+
+message GetSessionStartTimeResponse {
+  int64 result = 1;
+}
+
+message HashCodeRequest {
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message NewDownloadSessionCallbackRequest {
+}
+
+message NewDownloadSessionCallbackResponse {
+  int64 result = 1;
+}
+
+message DescribeContentsRequest {
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message GetDestinationUriRequest {
+}
+
+message GetDestinationUriResponse {
+  int64 result = 1;
+}
+
+message GetFileServiceIdRequest {
+}
+
+message GetFileServiceIdResponse {
+  string result = 1;
+}
+
+message GetSourceUriRequest {
+}
+
+message GetSourceUriResponse {
+  int64 result = 1;
+}
+
+message GetSubscriptionIdRequest {
+}
+
+message GetSubscriptionIdResponse {
+  int32 result = 1;
+}
+
+message ToByteArrayRequest {
+}
+
+message ToByteArrayResponse {
+  int64 result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteToParcelResponse {
+}
+
+message GetMaxAppIntentSizeRequest {
+}
+
+message GetMaxAppIntentSizeResponse {
+  int32 result = 1;
+}
+
+message GetMaxDestinationUriSizeRequest {
+}
+
+message GetMaxDestinationUriSizeResponse {
+  int32 result = 1;
+}
+
+message BuildRequest {
+}
+
+message BuildResponse {
+  int64 result = 1;
+}
+
+message SetAppIntentRequest {
+  int64 arg0 = 1;
+}
+
+message SetAppIntentResponse {
+  int64 result = 1;
+}
+
+message SetServiceInfoRequest {
+  int64 arg0 = 1;
+}
+
+message SetServiceInfoResponse {
+  int64 result = 1;
+}
+
+message SetSubscriptionIdRequest {
+  int32 arg0 = 1;
+}
+
+message SetSubscriptionIdResponse {
+  int64 result = 1;
+}
+
+message FromDownloadRequestRequest {
+  int64 arg0 = 1;
+}
+
+message FromDownloadRequestResponse {
+  int64 result = 1;
+}
+
+message FromSerializedRequestRequest {
+  int64 arg0 = 1;
+}
+
+message FromSerializedRequestResponse {
+  int64 result = 1;
+}
+
+message CloseRequest {
+}
+
+message CloseResponse {
+}
+
+message GetTmgiRequest {
+}
+
+message GetTmgiResponse {
+  int64 result = 1;
+}
+
+message NewDownloadProgressListenerRequest {
+}
+
+message NewDownloadProgressListenerResponse {
+  int64 result = 1;
+}
+
+message OnProgressUpdatedRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
+  int32 arg4 = 6;
+  int32 arg5 = 7;
+}
+
+message OnProgressUpdatedResponse {
+}
+
+message GetInfoRequest {
+}
+
+message GetInfoResponse {
+  int64 result = 1;
+}
+
+message GetPlaybackUriRequest {
+}
+
+message GetPlaybackUriResponse {
+  int64 result = 1;
+}
+
+message NewDownloadStatusListenerRequest {
+}
+
+message NewDownloadStatusListenerResponse {
+  int64 result = 1;
+}
+
+message OnStatusUpdatedRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int32 arg2 = 4;
+}
+
+message OnStatusUpdatedResponse {
+}
+
+message NewDownloadReceiverRequest {
+}
+
+message NewDownloadReceiverResponse {
+  int64 result = 1;
+}
+
+message OnReceiveRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message OnReceiveResponse {
+}
+
+message GetMimeTypeRequest {
+}
+
+message GetMimeTypeResponse {
+  string result = 1;
+}
+
+message GetUriRequest {
+}
+
+message GetUriResponse {
+  int64 result = 1;
+}
+
+service StreamingSessionCallbackService {
+  rpc NewStreamingSessionCallback (NewStreamingSessionCallbackRequest) returns (NewStreamingSessionCallbackResponse);
+  rpc OnError (OnErrorRequest) returns (OnErrorResponse);
+  rpc OnMiddlewareReady (OnMiddlewareReadyRequest) returns (OnMiddlewareReadyResponse);
+}
+
+service StreamingServiceCallbackService {
+  rpc NewStreamingServiceCallback (NewStreamingServiceCallbackRequest) returns (NewStreamingServiceCallbackResponse);
+  rpc OnBroadcastSignalStrengthUpdated (OnBroadcastSignalStrengthUpdatedRequest) returns (OnBroadcastSignalStrengthUpdatedResponse);
+  rpc OnError (OnErrorRequest) returns (OnErrorResponse);
+  rpc OnMediaDescriptionUpdated (OnMediaDescriptionUpdatedRequest) returns (OnMediaDescriptionUpdatedResponse);
+  rpc OnStreamMethodUpdated (OnStreamMethodUpdatedRequest) returns (OnStreamMethodUpdatedResponse);
+  rpc OnStreamStateUpdated (OnStreamStateUpdatedRequest) returns (OnStreamStateUpdatedResponse);
+}
+
+service ServiceInfoService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetNameForLocale (GetNameForLocaleRequest) returns (GetNameForLocaleResponse);
+  rpc GetServiceClassName (GetServiceClassNameRequest) returns (GetServiceClassNameResponse);
+  rpc GetServiceId (GetServiceIdRequest) returns (GetServiceIdResponse);
+  rpc GetSessionEndTime (GetSessionEndTimeRequest) returns (GetSessionEndTimeResponse);
+  rpc GetSessionStartTime (GetSessionStartTimeRequest) returns (GetSessionStartTimeResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service DownloadSessionCallbackService {
+  rpc NewDownloadSessionCallback (NewDownloadSessionCallbackRequest) returns (NewDownloadSessionCallbackResponse);
+  rpc OnError (OnErrorRequest) returns (OnErrorResponse);
+  rpc OnMiddlewareReady (OnMiddlewareReadyRequest) returns (OnMiddlewareReadyResponse);
+}
+
+service DownloadRequestService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetDestinationUri (GetDestinationUriRequest) returns (GetDestinationUriResponse);
+  rpc GetFileServiceId (GetFileServiceIdRequest) returns (GetFileServiceIdResponse);
+  rpc GetSourceUri (GetSourceUriRequest) returns (GetSourceUriResponse);
+  rpc GetSubscriptionId (GetSubscriptionIdRequest) returns (GetSubscriptionIdResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToByteArray (ToByteArrayRequest) returns (ToByteArrayResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc GetMaxAppIntentSize (GetMaxAppIntentSizeRequest) returns (GetMaxAppIntentSizeResponse);
+  rpc GetMaxDestinationUriSize (GetMaxDestinationUriSizeRequest) returns (GetMaxDestinationUriSizeResponse);
+}
+
+service DownloadRequestBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetAppIntent (SetAppIntentRequest) returns (SetAppIntentResponse);
+  rpc SetServiceInfo (SetServiceInfoRequest) returns (SetServiceInfoResponse);
+  rpc SetSubscriptionId (SetSubscriptionIdRequest) returns (SetSubscriptionIdResponse);
+  rpc FromDownloadRequest (FromDownloadRequestRequest) returns (FromDownloadRequestResponse);
+  rpc FromSerializedRequest (FromSerializedRequestRequest) returns (FromSerializedRequestResponse);
+}
+
+service GroupCallService {
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc GetTmgi (GetTmgiRequest) returns (GetTmgiResponse);
+}
+
+service FileServiceInfoService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service DownloadProgressListenerService {
+  rpc NewDownloadProgressListener (NewDownloadProgressListenerRequest) returns (NewDownloadProgressListenerResponse);
+  rpc OnProgressUpdated (OnProgressUpdatedRequest) returns (OnProgressUpdatedResponse);
+}
+
+service StreamingServiceService {
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc GetInfo (GetInfoRequest) returns (GetInfoResponse);
+  rpc GetPlaybackUri (GetPlaybackUriRequest) returns (GetPlaybackUriResponse);
+}
+
+service DownloadStatusListenerService {
+  rpc NewDownloadStatusListener (NewDownloadStatusListenerRequest) returns (NewDownloadStatusListenerResponse);
+  rpc OnStatusUpdated (OnStatusUpdatedRequest) returns (OnStatusUpdatedResponse);
+}
+
+service StreamingServiceInfoService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service DownloadReceiverService {
+  rpc NewDownloadReceiver (NewDownloadReceiverRequest) returns (NewDownloadReceiverResponse);
+  rpc OnReceive (OnReceiveRequest) returns (OnReceiveResponse);
+}
+
+service FileInfoService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetMimeType (GetMimeTypeRequest) returns (GetMimeTypeResponse);
+  rpc GetUri (GetUriRequest) returns (GetUriResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}

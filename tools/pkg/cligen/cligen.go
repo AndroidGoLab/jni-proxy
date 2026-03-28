@@ -56,19 +56,7 @@ func GenerateFromProtoData(
 	// Resolve proto names to actual Go names by scanning compiled proto stubs.
 	goNames := protoscan.Scan(filepath.Join(protoDir, protoData.Package))
 
-	// Build a combined map for name resolution (services + RPCs + messages).
-	goClientNames := make(map[string]string)
-	for k, v := range goNames.ServiceClients {
-		goClientNames[k] = v
-	}
-	for k, v := range goNames.RPCMethods {
-		goClientNames[k] = v
-	}
-	for k, v := range goNames.MessageTypes {
-		goClientNames[k] = v
-	}
-
-	cliPkg := buildCLIPackage(protoData, goModule, goClientNames)
+	cliPkg := buildCLIPackage(protoData, goModule, goNames)
 	if cliPkg == nil {
 		return nil
 	}

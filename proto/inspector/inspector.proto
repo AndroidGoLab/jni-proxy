@@ -5,3 +5,306 @@ syntax = "proto3";
 package inspector;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/inspector";
+
+message MapPropertiesRequest {
+  int64 arg0 = 1;
+}
+
+message MapPropertiesResponse {
+}
+
+message ReadBooleanRequest {
+  int32 arg0 = 1;
+  bool arg1 = 2;
+}
+
+message ReadBooleanResponse {
+}
+
+message ReadByteValueRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message ReadByteValueResponse {
+}
+
+message ReadCharRequest {
+  int32 arg0 = 1;
+  uint32 arg1 = 2;
+}
+
+message ReadCharResponse {
+}
+
+message ReadColor2Request {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message ReadColor2Response {
+}
+
+message ReadColor2_1Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message ReadColor2_1Response {
+}
+
+message ReadColor2_2Request {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message ReadColor2_2Response {
+}
+
+message ReadDoubleRequest {
+  int32 arg0 = 1;
+  double arg1 = 2;
+}
+
+message ReadDoubleResponse {
+}
+
+message ReadFloatRequest {
+  int32 arg0 = 1;
+  float arg1 = 2;
+}
+
+message ReadFloatResponse {
+}
+
+message ReadGravityRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message ReadGravityResponse {
+}
+
+message ReadIntRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message ReadIntResponse {
+}
+
+message ReadIntEnumRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message ReadIntEnumResponse {
+}
+
+message ReadIntFlagRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message ReadIntFlagResponse {
+}
+
+message ReadLongRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message ReadLongResponse {
+}
+
+message ReadObjectRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message ReadObjectResponse {
+}
+
+message ReadResourceIdRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message ReadResourceIdResponse {
+}
+
+message ReadShortRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message ReadShortResponse {
+}
+
+message MapBooleanRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message MapBooleanResponse {
+  int32 result = 1;
+}
+
+message MapByteRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message MapByteResponse {
+  int32 result = 1;
+}
+
+message MapCharRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message MapCharResponse {
+  int32 result = 1;
+}
+
+message MapColorRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message MapColorResponse {
+  int32 result = 1;
+}
+
+message MapDoubleRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message MapDoubleResponse {
+  int32 result = 1;
+}
+
+message MapFloatRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message MapFloatResponse {
+  int32 result = 1;
+}
+
+message MapGravityRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message MapGravityResponse {
+  int32 result = 1;
+}
+
+message MapIntRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message MapIntResponse {
+  int32 result = 1;
+}
+
+message MapLongRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message MapLongResponse {
+  int32 result = 1;
+}
+
+message MapObjectRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message MapObjectResponse {
+  int32 result = 1;
+}
+
+message MapResourceIdRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message MapResourceIdResponse {
+  int32 result = 1;
+}
+
+message MapShortRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message MapShortResponse {
+  int32 result = 1;
+}
+
+message NewIntFlagMappingRequest {
+}
+
+message NewIntFlagMappingResponse {
+  int64 result = 1;
+}
+
+message AddRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+  string arg2 = 4;
+}
+
+message AddResponse {
+}
+
+service InspectionCompanionService {
+  rpc MapProperties (MapPropertiesRequest) returns (MapPropertiesResponse);
+}
+
+service PropertyReaderService {
+  rpc ReadBoolean (ReadBooleanRequest) returns (ReadBooleanResponse);
+  rpc ReadByteValue (ReadByteValueRequest) returns (ReadByteValueResponse);
+  rpc ReadChar (ReadCharRequest) returns (ReadCharResponse);
+  rpc ReadColor2 (ReadColor2Request) returns (ReadColor2Response);
+  rpc ReadColor2_1 (ReadColor2_1Request) returns (ReadColor2_1Response);
+  rpc ReadColor2_2 (ReadColor2_2Request) returns (ReadColor2_2Response);
+  rpc ReadDouble (ReadDoubleRequest) returns (ReadDoubleResponse);
+  rpc ReadFloat (ReadFloatRequest) returns (ReadFloatResponse);
+  rpc ReadGravity (ReadGravityRequest) returns (ReadGravityResponse);
+  rpc ReadInt (ReadIntRequest) returns (ReadIntResponse);
+  rpc ReadIntEnum (ReadIntEnumRequest) returns (ReadIntEnumResponse);
+  rpc ReadIntFlag (ReadIntFlagRequest) returns (ReadIntFlagResponse);
+  rpc ReadLong (ReadLongRequest) returns (ReadLongResponse);
+  rpc ReadObject (ReadObjectRequest) returns (ReadObjectResponse);
+  rpc ReadResourceId (ReadResourceIdRequest) returns (ReadResourceIdResponse);
+  rpc ReadShort (ReadShortRequest) returns (ReadShortResponse);
+}
+
+service PropertyMapperService {
+  rpc MapBoolean (MapBooleanRequest) returns (MapBooleanResponse);
+  rpc MapByte (MapByteRequest) returns (MapByteResponse);
+  rpc MapChar (MapCharRequest) returns (MapCharResponse);
+  rpc MapColor (MapColorRequest) returns (MapColorResponse);
+  rpc MapDouble (MapDoubleRequest) returns (MapDoubleResponse);
+  rpc MapFloat (MapFloatRequest) returns (MapFloatResponse);
+  rpc MapGravity (MapGravityRequest) returns (MapGravityResponse);
+  rpc MapInt (MapIntRequest) returns (MapIntResponse);
+  rpc MapLong (MapLongRequest) returns (MapLongResponse);
+  rpc MapObject (MapObjectRequest) returns (MapObjectResponse);
+  rpc MapResourceId (MapResourceIdRequest) returns (MapResourceIdResponse);
+  rpc MapShort (MapShortRequest) returns (MapShortResponse);
+}
+
+service IntFlagMappingService {
+  rpc NewIntFlagMapping (NewIntFlagMappingRequest) returns (NewIntFlagMappingResponse);
+  rpc Add (AddRequest) returns (AddResponse);
+}

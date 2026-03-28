@@ -21,6 +21,413 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
+	DevicePresenceEventService_NewDevicePresenceEvent_FullMethodName = "/companion.DevicePresenceEventService/NewDevicePresenceEvent"
+	DevicePresenceEventService_DescribeContents_FullMethodName       = "/companion.DevicePresenceEventService/DescribeContents"
+	DevicePresenceEventService_Equals_FullMethodName                 = "/companion.DevicePresenceEventService/Equals"
+	DevicePresenceEventService_GetAssociationId_FullMethodName       = "/companion.DevicePresenceEventService/GetAssociationId"
+	DevicePresenceEventService_GetEvent_FullMethodName               = "/companion.DevicePresenceEventService/GetEvent"
+	DevicePresenceEventService_GetUuid_FullMethodName                = "/companion.DevicePresenceEventService/GetUuid"
+	DevicePresenceEventService_HashCode_FullMethodName               = "/companion.DevicePresenceEventService/HashCode"
+	DevicePresenceEventService_ToString_FullMethodName               = "/companion.DevicePresenceEventService/ToString"
+	DevicePresenceEventService_WriteToParcel_FullMethodName          = "/companion.DevicePresenceEventService/WriteToParcel"
+)
+
+// DevicePresenceEventServiceClient is the client API for DevicePresenceEventService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type DevicePresenceEventServiceClient interface {
+	NewDevicePresenceEvent(ctx context.Context, in *NewDevicePresenceEventRequest, opts ...grpc.CallOption) (*NewDevicePresenceEventResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetAssociationId(ctx context.Context, in *GetAssociationIdRequest, opts ...grpc.CallOption) (*GetAssociationIdResponse, error)
+	GetEvent(ctx context.Context, in *GetEventRequest, opts ...grpc.CallOption) (*GetEventResponse, error)
+	GetUuid(ctx context.Context, in *GetUuidRequest, opts ...grpc.CallOption) (*GetUuidResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type devicePresenceEventServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewDevicePresenceEventServiceClient(cc grpc.ClientConnInterface) DevicePresenceEventServiceClient {
+	return &devicePresenceEventServiceClient{cc}
+}
+
+func (c *devicePresenceEventServiceClient) NewDevicePresenceEvent(ctx context.Context, in *NewDevicePresenceEventRequest, opts ...grpc.CallOption) (*NewDevicePresenceEventResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewDevicePresenceEventResponse)
+	err := c.cc.Invoke(ctx, DevicePresenceEventService_NewDevicePresenceEvent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *devicePresenceEventServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, DevicePresenceEventService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *devicePresenceEventServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, DevicePresenceEventService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *devicePresenceEventServiceClient) GetAssociationId(ctx context.Context, in *GetAssociationIdRequest, opts ...grpc.CallOption) (*GetAssociationIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAssociationIdResponse)
+	err := c.cc.Invoke(ctx, DevicePresenceEventService_GetAssociationId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *devicePresenceEventServiceClient) GetEvent(ctx context.Context, in *GetEventRequest, opts ...grpc.CallOption) (*GetEventResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEventResponse)
+	err := c.cc.Invoke(ctx, DevicePresenceEventService_GetEvent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *devicePresenceEventServiceClient) GetUuid(ctx context.Context, in *GetUuidRequest, opts ...grpc.CallOption) (*GetUuidResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetUuidResponse)
+	err := c.cc.Invoke(ctx, DevicePresenceEventService_GetUuid_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *devicePresenceEventServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, DevicePresenceEventService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *devicePresenceEventServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, DevicePresenceEventService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *devicePresenceEventServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, DevicePresenceEventService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// DevicePresenceEventServiceServer is the server API for DevicePresenceEventService service.
+// All implementations must embed UnimplementedDevicePresenceEventServiceServer
+// for forward compatibility.
+type DevicePresenceEventServiceServer interface {
+	NewDevicePresenceEvent(context.Context, *NewDevicePresenceEventRequest) (*NewDevicePresenceEventResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetAssociationId(context.Context, *GetAssociationIdRequest) (*GetAssociationIdResponse, error)
+	GetEvent(context.Context, *GetEventRequest) (*GetEventResponse, error)
+	GetUuid(context.Context, *GetUuidRequest) (*GetUuidResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedDevicePresenceEventServiceServer()
+}
+
+// UnimplementedDevicePresenceEventServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedDevicePresenceEventServiceServer struct{}
+
+func (UnimplementedDevicePresenceEventServiceServer) NewDevicePresenceEvent(context.Context, *NewDevicePresenceEventRequest) (*NewDevicePresenceEventResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewDevicePresenceEvent not implemented")
+}
+func (UnimplementedDevicePresenceEventServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedDevicePresenceEventServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedDevicePresenceEventServiceServer) GetAssociationId(context.Context, *GetAssociationIdRequest) (*GetAssociationIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAssociationId not implemented")
+}
+func (UnimplementedDevicePresenceEventServiceServer) GetEvent(context.Context, *GetEventRequest) (*GetEventResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEvent not implemented")
+}
+func (UnimplementedDevicePresenceEventServiceServer) GetUuid(context.Context, *GetUuidRequest) (*GetUuidResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetUuid not implemented")
+}
+func (UnimplementedDevicePresenceEventServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedDevicePresenceEventServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedDevicePresenceEventServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedDevicePresenceEventServiceServer) mustEmbedUnimplementedDevicePresenceEventServiceServer() {
+}
+func (UnimplementedDevicePresenceEventServiceServer) testEmbeddedByValue() {}
+
+// UnsafeDevicePresenceEventServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to DevicePresenceEventServiceServer will
+// result in compilation errors.
+type UnsafeDevicePresenceEventServiceServer interface {
+	mustEmbedUnimplementedDevicePresenceEventServiceServer()
+}
+
+func RegisterDevicePresenceEventServiceServer(s grpc.ServiceRegistrar, srv DevicePresenceEventServiceServer) {
+	// If the following call panics, it indicates UnimplementedDevicePresenceEventServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&DevicePresenceEventService_ServiceDesc, srv)
+}
+
+func _DevicePresenceEventService_NewDevicePresenceEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewDevicePresenceEventRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DevicePresenceEventServiceServer).NewDevicePresenceEvent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DevicePresenceEventService_NewDevicePresenceEvent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DevicePresenceEventServiceServer).NewDevicePresenceEvent(ctx, req.(*NewDevicePresenceEventRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DevicePresenceEventService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DevicePresenceEventServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DevicePresenceEventService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DevicePresenceEventServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DevicePresenceEventService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DevicePresenceEventServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DevicePresenceEventService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DevicePresenceEventServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DevicePresenceEventService_GetAssociationId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAssociationIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DevicePresenceEventServiceServer).GetAssociationId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DevicePresenceEventService_GetAssociationId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DevicePresenceEventServiceServer).GetAssociationId(ctx, req.(*GetAssociationIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DevicePresenceEventService_GetEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEventRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DevicePresenceEventServiceServer).GetEvent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DevicePresenceEventService_GetEvent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DevicePresenceEventServiceServer).GetEvent(ctx, req.(*GetEventRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DevicePresenceEventService_GetUuid_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUuidRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DevicePresenceEventServiceServer).GetUuid(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DevicePresenceEventService_GetUuid_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DevicePresenceEventServiceServer).GetUuid(ctx, req.(*GetUuidRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DevicePresenceEventService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DevicePresenceEventServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DevicePresenceEventService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DevicePresenceEventServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DevicePresenceEventService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DevicePresenceEventServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DevicePresenceEventService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DevicePresenceEventServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DevicePresenceEventService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DevicePresenceEventServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DevicePresenceEventService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DevicePresenceEventServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// DevicePresenceEventService_ServiceDesc is the grpc.ServiceDesc for DevicePresenceEventService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var DevicePresenceEventService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "companion.DevicePresenceEventService",
+	HandlerType: (*DevicePresenceEventServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewDevicePresenceEvent",
+			Handler:    _DevicePresenceEventService_NewDevicePresenceEvent_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _DevicePresenceEventService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _DevicePresenceEventService_Equals_Handler,
+		},
+		{
+			MethodName: "GetAssociationId",
+			Handler:    _DevicePresenceEventService_GetAssociationId_Handler,
+		},
+		{
+			MethodName: "GetEvent",
+			Handler:    _DevicePresenceEventService_GetEvent_Handler,
+		},
+		{
+			MethodName: "GetUuid",
+			Handler:    _DevicePresenceEventService_GetUuid_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _DevicePresenceEventService_HashCode_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _DevicePresenceEventService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _DevicePresenceEventService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/companion/companion.proto",
+}
+
+const (
 	DeviceManagerService_Associate_FullMethodName                                = "/companion.DeviceManagerService/Associate"
 	DeviceManagerService_AttachSystemDataTransport_FullMethodName                = "/companion.DeviceManagerService/AttachSystemDataTransport"
 	DeviceManagerService_BuildAssociationCancellationIntent_FullMethodName       = "/companion.DeviceManagerService/BuildAssociationCancellationIntent"
@@ -762,6 +1169,4806 @@ var DeviceManagerService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "StopObservingDevicePresence1_1",
 			Handler:    _DeviceManagerService_StopObservingDevicePresence1_1_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/companion/companion.proto",
+}
+
+const (
+	DeviceManagerCallbackService_OnAssociationCreated_FullMethodName = "/companion.DeviceManagerCallbackService/OnAssociationCreated"
+	DeviceManagerCallbackService_OnAssociationPending_FullMethodName = "/companion.DeviceManagerCallbackService/OnAssociationPending"
+	DeviceManagerCallbackService_OnDeviceFound_FullMethodName        = "/companion.DeviceManagerCallbackService/OnDeviceFound"
+	DeviceManagerCallbackService_OnFailure2_FullMethodName           = "/companion.DeviceManagerCallbackService/OnFailure2"
+	DeviceManagerCallbackService_OnFailure1_1_FullMethodName         = "/companion.DeviceManagerCallbackService/OnFailure1_1"
+)
+
+// DeviceManagerCallbackServiceClient is the client API for DeviceManagerCallbackService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type DeviceManagerCallbackServiceClient interface {
+	OnAssociationCreated(ctx context.Context, in *OnAssociationCreatedRequest, opts ...grpc.CallOption) (*OnAssociationCreatedResponse, error)
+	OnAssociationPending(ctx context.Context, in *OnAssociationPendingRequest, opts ...grpc.CallOption) (*OnAssociationPendingResponse, error)
+	OnDeviceFound(ctx context.Context, in *OnDeviceFoundRequest, opts ...grpc.CallOption) (*OnDeviceFoundResponse, error)
+	OnFailure2(ctx context.Context, in *OnFailure2Request, opts ...grpc.CallOption) (*OnFailure2Response, error)
+	OnFailure1_1(ctx context.Context, in *OnFailure1_1Request, opts ...grpc.CallOption) (*OnFailure1_1Response, error)
+}
+
+type deviceManagerCallbackServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewDeviceManagerCallbackServiceClient(cc grpc.ClientConnInterface) DeviceManagerCallbackServiceClient {
+	return &deviceManagerCallbackServiceClient{cc}
+}
+
+func (c *deviceManagerCallbackServiceClient) OnAssociationCreated(ctx context.Context, in *OnAssociationCreatedRequest, opts ...grpc.CallOption) (*OnAssociationCreatedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnAssociationCreatedResponse)
+	err := c.cc.Invoke(ctx, DeviceManagerCallbackService_OnAssociationCreated_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceManagerCallbackServiceClient) OnAssociationPending(ctx context.Context, in *OnAssociationPendingRequest, opts ...grpc.CallOption) (*OnAssociationPendingResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnAssociationPendingResponse)
+	err := c.cc.Invoke(ctx, DeviceManagerCallbackService_OnAssociationPending_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceManagerCallbackServiceClient) OnDeviceFound(ctx context.Context, in *OnDeviceFoundRequest, opts ...grpc.CallOption) (*OnDeviceFoundResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnDeviceFoundResponse)
+	err := c.cc.Invoke(ctx, DeviceManagerCallbackService_OnDeviceFound_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceManagerCallbackServiceClient) OnFailure2(ctx context.Context, in *OnFailure2Request, opts ...grpc.CallOption) (*OnFailure2Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnFailure2Response)
+	err := c.cc.Invoke(ctx, DeviceManagerCallbackService_OnFailure2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceManagerCallbackServiceClient) OnFailure1_1(ctx context.Context, in *OnFailure1_1Request, opts ...grpc.CallOption) (*OnFailure1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnFailure1_1Response)
+	err := c.cc.Invoke(ctx, DeviceManagerCallbackService_OnFailure1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// DeviceManagerCallbackServiceServer is the server API for DeviceManagerCallbackService service.
+// All implementations must embed UnimplementedDeviceManagerCallbackServiceServer
+// for forward compatibility.
+type DeviceManagerCallbackServiceServer interface {
+	OnAssociationCreated(context.Context, *OnAssociationCreatedRequest) (*OnAssociationCreatedResponse, error)
+	OnAssociationPending(context.Context, *OnAssociationPendingRequest) (*OnAssociationPendingResponse, error)
+	OnDeviceFound(context.Context, *OnDeviceFoundRequest) (*OnDeviceFoundResponse, error)
+	OnFailure2(context.Context, *OnFailure2Request) (*OnFailure2Response, error)
+	OnFailure1_1(context.Context, *OnFailure1_1Request) (*OnFailure1_1Response, error)
+	mustEmbedUnimplementedDeviceManagerCallbackServiceServer()
+}
+
+// UnimplementedDeviceManagerCallbackServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedDeviceManagerCallbackServiceServer struct{}
+
+func (UnimplementedDeviceManagerCallbackServiceServer) OnAssociationCreated(context.Context, *OnAssociationCreatedRequest) (*OnAssociationCreatedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnAssociationCreated not implemented")
+}
+func (UnimplementedDeviceManagerCallbackServiceServer) OnAssociationPending(context.Context, *OnAssociationPendingRequest) (*OnAssociationPendingResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnAssociationPending not implemented")
+}
+func (UnimplementedDeviceManagerCallbackServiceServer) OnDeviceFound(context.Context, *OnDeviceFoundRequest) (*OnDeviceFoundResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnDeviceFound not implemented")
+}
+func (UnimplementedDeviceManagerCallbackServiceServer) OnFailure2(context.Context, *OnFailure2Request) (*OnFailure2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnFailure2 not implemented")
+}
+func (UnimplementedDeviceManagerCallbackServiceServer) OnFailure1_1(context.Context, *OnFailure1_1Request) (*OnFailure1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnFailure1_1 not implemented")
+}
+func (UnimplementedDeviceManagerCallbackServiceServer) mustEmbedUnimplementedDeviceManagerCallbackServiceServer() {
+}
+func (UnimplementedDeviceManagerCallbackServiceServer) testEmbeddedByValue() {}
+
+// UnsafeDeviceManagerCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to DeviceManagerCallbackServiceServer will
+// result in compilation errors.
+type UnsafeDeviceManagerCallbackServiceServer interface {
+	mustEmbedUnimplementedDeviceManagerCallbackServiceServer()
+}
+
+func RegisterDeviceManagerCallbackServiceServer(s grpc.ServiceRegistrar, srv DeviceManagerCallbackServiceServer) {
+	// If the following call panics, it indicates UnimplementedDeviceManagerCallbackServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&DeviceManagerCallbackService_ServiceDesc, srv)
+}
+
+func _DeviceManagerCallbackService_OnAssociationCreated_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnAssociationCreatedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceManagerCallbackServiceServer).OnAssociationCreated(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceManagerCallbackService_OnAssociationCreated_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceManagerCallbackServiceServer).OnAssociationCreated(ctx, req.(*OnAssociationCreatedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceManagerCallbackService_OnAssociationPending_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnAssociationPendingRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceManagerCallbackServiceServer).OnAssociationPending(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceManagerCallbackService_OnAssociationPending_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceManagerCallbackServiceServer).OnAssociationPending(ctx, req.(*OnAssociationPendingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceManagerCallbackService_OnDeviceFound_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnDeviceFoundRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceManagerCallbackServiceServer).OnDeviceFound(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceManagerCallbackService_OnDeviceFound_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceManagerCallbackServiceServer).OnDeviceFound(ctx, req.(*OnDeviceFoundRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceManagerCallbackService_OnFailure2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnFailure2Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceManagerCallbackServiceServer).OnFailure2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceManagerCallbackService_OnFailure2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceManagerCallbackServiceServer).OnFailure2(ctx, req.(*OnFailure2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceManagerCallbackService_OnFailure1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnFailure1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceManagerCallbackServiceServer).OnFailure1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceManagerCallbackService_OnFailure1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceManagerCallbackServiceServer).OnFailure1_1(ctx, req.(*OnFailure1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// DeviceManagerCallbackService_ServiceDesc is the grpc.ServiceDesc for DeviceManagerCallbackService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var DeviceManagerCallbackService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "companion.DeviceManagerCallbackService",
+	HandlerType: (*DeviceManagerCallbackServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnAssociationCreated",
+			Handler:    _DeviceManagerCallbackService_OnAssociationCreated_Handler,
+		},
+		{
+			MethodName: "OnAssociationPending",
+			Handler:    _DeviceManagerCallbackService_OnAssociationPending_Handler,
+		},
+		{
+			MethodName: "OnDeviceFound",
+			Handler:    _DeviceManagerCallbackService_OnDeviceFound_Handler,
+		},
+		{
+			MethodName: "OnFailure2",
+			Handler:    _DeviceManagerCallbackService_OnFailure2_Handler,
+		},
+		{
+			MethodName: "OnFailure1_1",
+			Handler:    _DeviceManagerCallbackService_OnFailure1_1_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/companion/companion.proto",
+}
+
+const (
+	AssociatedDeviceService_DescribeContents_FullMethodName   = "/companion.AssociatedDeviceService/DescribeContents"
+	AssociatedDeviceService_Equals_FullMethodName             = "/companion.AssociatedDeviceService/Equals"
+	AssociatedDeviceService_GetBleDevice_FullMethodName       = "/companion.AssociatedDeviceService/GetBleDevice"
+	AssociatedDeviceService_GetBluetoothDevice_FullMethodName = "/companion.AssociatedDeviceService/GetBluetoothDevice"
+	AssociatedDeviceService_GetWifiDevice_FullMethodName      = "/companion.AssociatedDeviceService/GetWifiDevice"
+	AssociatedDeviceService_HashCode_FullMethodName           = "/companion.AssociatedDeviceService/HashCode"
+	AssociatedDeviceService_ToString_FullMethodName           = "/companion.AssociatedDeviceService/ToString"
+	AssociatedDeviceService_WriteToParcel_FullMethodName      = "/companion.AssociatedDeviceService/WriteToParcel"
+)
+
+// AssociatedDeviceServiceClient is the client API for AssociatedDeviceService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AssociatedDeviceServiceClient interface {
+	DescribeContents(ctx context.Context, in *AssociatedDeviceDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *AssociatedDeviceEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetBleDevice(ctx context.Context, in *GetBleDeviceRequest, opts ...grpc.CallOption) (*GetBleDeviceResponse, error)
+	GetBluetoothDevice(ctx context.Context, in *GetBluetoothDeviceRequest, opts ...grpc.CallOption) (*GetBluetoothDeviceResponse, error)
+	GetWifiDevice(ctx context.Context, in *GetWifiDeviceRequest, opts ...grpc.CallOption) (*GetWifiDeviceResponse, error)
+	HashCode(ctx context.Context, in *AssociatedDeviceHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *AssociatedDeviceToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *AssociatedDeviceWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type associatedDeviceServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAssociatedDeviceServiceClient(cc grpc.ClientConnInterface) AssociatedDeviceServiceClient {
+	return &associatedDeviceServiceClient{cc}
+}
+
+func (c *associatedDeviceServiceClient) DescribeContents(ctx context.Context, in *AssociatedDeviceDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, AssociatedDeviceService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *associatedDeviceServiceClient) Equals(ctx context.Context, in *AssociatedDeviceEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, AssociatedDeviceService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *associatedDeviceServiceClient) GetBleDevice(ctx context.Context, in *GetBleDeviceRequest, opts ...grpc.CallOption) (*GetBleDeviceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetBleDeviceResponse)
+	err := c.cc.Invoke(ctx, AssociatedDeviceService_GetBleDevice_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *associatedDeviceServiceClient) GetBluetoothDevice(ctx context.Context, in *GetBluetoothDeviceRequest, opts ...grpc.CallOption) (*GetBluetoothDeviceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetBluetoothDeviceResponse)
+	err := c.cc.Invoke(ctx, AssociatedDeviceService_GetBluetoothDevice_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *associatedDeviceServiceClient) GetWifiDevice(ctx context.Context, in *GetWifiDeviceRequest, opts ...grpc.CallOption) (*GetWifiDeviceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetWifiDeviceResponse)
+	err := c.cc.Invoke(ctx, AssociatedDeviceService_GetWifiDevice_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *associatedDeviceServiceClient) HashCode(ctx context.Context, in *AssociatedDeviceHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, AssociatedDeviceService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *associatedDeviceServiceClient) ToString(ctx context.Context, in *AssociatedDeviceToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, AssociatedDeviceService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *associatedDeviceServiceClient) WriteToParcel(ctx context.Context, in *AssociatedDeviceWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, AssociatedDeviceService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AssociatedDeviceServiceServer is the server API for AssociatedDeviceService service.
+// All implementations must embed UnimplementedAssociatedDeviceServiceServer
+// for forward compatibility.
+type AssociatedDeviceServiceServer interface {
+	DescribeContents(context.Context, *AssociatedDeviceDescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *AssociatedDeviceEqualsRequest) (*EqualsResponse, error)
+	GetBleDevice(context.Context, *GetBleDeviceRequest) (*GetBleDeviceResponse, error)
+	GetBluetoothDevice(context.Context, *GetBluetoothDeviceRequest) (*GetBluetoothDeviceResponse, error)
+	GetWifiDevice(context.Context, *GetWifiDeviceRequest) (*GetWifiDeviceResponse, error)
+	HashCode(context.Context, *AssociatedDeviceHashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *AssociatedDeviceToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *AssociatedDeviceWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedAssociatedDeviceServiceServer()
+}
+
+// UnimplementedAssociatedDeviceServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedAssociatedDeviceServiceServer struct{}
+
+func (UnimplementedAssociatedDeviceServiceServer) DescribeContents(context.Context, *AssociatedDeviceDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedAssociatedDeviceServiceServer) Equals(context.Context, *AssociatedDeviceEqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedAssociatedDeviceServiceServer) GetBleDevice(context.Context, *GetBleDeviceRequest) (*GetBleDeviceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetBleDevice not implemented")
+}
+func (UnimplementedAssociatedDeviceServiceServer) GetBluetoothDevice(context.Context, *GetBluetoothDeviceRequest) (*GetBluetoothDeviceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetBluetoothDevice not implemented")
+}
+func (UnimplementedAssociatedDeviceServiceServer) GetWifiDevice(context.Context, *GetWifiDeviceRequest) (*GetWifiDeviceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetWifiDevice not implemented")
+}
+func (UnimplementedAssociatedDeviceServiceServer) HashCode(context.Context, *AssociatedDeviceHashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedAssociatedDeviceServiceServer) ToString(context.Context, *AssociatedDeviceToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedAssociatedDeviceServiceServer) WriteToParcel(context.Context, *AssociatedDeviceWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedAssociatedDeviceServiceServer) mustEmbedUnimplementedAssociatedDeviceServiceServer() {
+}
+func (UnimplementedAssociatedDeviceServiceServer) testEmbeddedByValue() {}
+
+// UnsafeAssociatedDeviceServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AssociatedDeviceServiceServer will
+// result in compilation errors.
+type UnsafeAssociatedDeviceServiceServer interface {
+	mustEmbedUnimplementedAssociatedDeviceServiceServer()
+}
+
+func RegisterAssociatedDeviceServiceServer(s grpc.ServiceRegistrar, srv AssociatedDeviceServiceServer) {
+	// If the following call panics, it indicates UnimplementedAssociatedDeviceServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&AssociatedDeviceService_ServiceDesc, srv)
+}
+
+func _AssociatedDeviceService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AssociatedDeviceDescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AssociatedDeviceServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AssociatedDeviceService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AssociatedDeviceServiceServer).DescribeContents(ctx, req.(*AssociatedDeviceDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AssociatedDeviceService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AssociatedDeviceEqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AssociatedDeviceServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AssociatedDeviceService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AssociatedDeviceServiceServer).Equals(ctx, req.(*AssociatedDeviceEqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AssociatedDeviceService_GetBleDevice_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetBleDeviceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AssociatedDeviceServiceServer).GetBleDevice(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AssociatedDeviceService_GetBleDevice_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AssociatedDeviceServiceServer).GetBleDevice(ctx, req.(*GetBleDeviceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AssociatedDeviceService_GetBluetoothDevice_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetBluetoothDeviceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AssociatedDeviceServiceServer).GetBluetoothDevice(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AssociatedDeviceService_GetBluetoothDevice_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AssociatedDeviceServiceServer).GetBluetoothDevice(ctx, req.(*GetBluetoothDeviceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AssociatedDeviceService_GetWifiDevice_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetWifiDeviceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AssociatedDeviceServiceServer).GetWifiDevice(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AssociatedDeviceService_GetWifiDevice_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AssociatedDeviceServiceServer).GetWifiDevice(ctx, req.(*GetWifiDeviceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AssociatedDeviceService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AssociatedDeviceHashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AssociatedDeviceServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AssociatedDeviceService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AssociatedDeviceServiceServer).HashCode(ctx, req.(*AssociatedDeviceHashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AssociatedDeviceService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AssociatedDeviceToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AssociatedDeviceServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AssociatedDeviceService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AssociatedDeviceServiceServer).ToString(ctx, req.(*AssociatedDeviceToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AssociatedDeviceService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AssociatedDeviceWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AssociatedDeviceServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AssociatedDeviceService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AssociatedDeviceServiceServer).WriteToParcel(ctx, req.(*AssociatedDeviceWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AssociatedDeviceService_ServiceDesc is the grpc.ServiceDesc for AssociatedDeviceService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AssociatedDeviceService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "companion.AssociatedDeviceService",
+	HandlerType: (*AssociatedDeviceServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _AssociatedDeviceService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _AssociatedDeviceService_Equals_Handler,
+		},
+		{
+			MethodName: "GetBleDevice",
+			Handler:    _AssociatedDeviceService_GetBleDevice_Handler,
+		},
+		{
+			MethodName: "GetBluetoothDevice",
+			Handler:    _AssociatedDeviceService_GetBluetoothDevice_Handler,
+		},
+		{
+			MethodName: "GetWifiDevice",
+			Handler:    _AssociatedDeviceService_GetWifiDevice_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _AssociatedDeviceService_HashCode_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _AssociatedDeviceService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _AssociatedDeviceService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/companion/companion.proto",
+}
+
+const (
+	BluetoothDeviceFilterService_DescribeContents_FullMethodName = "/companion.BluetoothDeviceFilterService/DescribeContents"
+	BluetoothDeviceFilterService_Equals_FullMethodName           = "/companion.BluetoothDeviceFilterService/Equals"
+	BluetoothDeviceFilterService_HashCode_FullMethodName         = "/companion.BluetoothDeviceFilterService/HashCode"
+	BluetoothDeviceFilterService_ToString_FullMethodName         = "/companion.BluetoothDeviceFilterService/ToString"
+	BluetoothDeviceFilterService_WriteToParcel_FullMethodName    = "/companion.BluetoothDeviceFilterService/WriteToParcel"
+)
+
+// BluetoothDeviceFilterServiceClient is the client API for BluetoothDeviceFilterService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type BluetoothDeviceFilterServiceClient interface {
+	DescribeContents(ctx context.Context, in *BluetoothDeviceFilterDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *BluetoothDeviceFilterEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	HashCode(ctx context.Context, in *BluetoothDeviceFilterHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *BluetoothDeviceFilterToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *BluetoothDeviceFilterWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type bluetoothDeviceFilterServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewBluetoothDeviceFilterServiceClient(cc grpc.ClientConnInterface) BluetoothDeviceFilterServiceClient {
+	return &bluetoothDeviceFilterServiceClient{cc}
+}
+
+func (c *bluetoothDeviceFilterServiceClient) DescribeContents(ctx context.Context, in *BluetoothDeviceFilterDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, BluetoothDeviceFilterService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *bluetoothDeviceFilterServiceClient) Equals(ctx context.Context, in *BluetoothDeviceFilterEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, BluetoothDeviceFilterService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *bluetoothDeviceFilterServiceClient) HashCode(ctx context.Context, in *BluetoothDeviceFilterHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, BluetoothDeviceFilterService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *bluetoothDeviceFilterServiceClient) ToString(ctx context.Context, in *BluetoothDeviceFilterToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, BluetoothDeviceFilterService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *bluetoothDeviceFilterServiceClient) WriteToParcel(ctx context.Context, in *BluetoothDeviceFilterWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, BluetoothDeviceFilterService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// BluetoothDeviceFilterServiceServer is the server API for BluetoothDeviceFilterService service.
+// All implementations must embed UnimplementedBluetoothDeviceFilterServiceServer
+// for forward compatibility.
+type BluetoothDeviceFilterServiceServer interface {
+	DescribeContents(context.Context, *BluetoothDeviceFilterDescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *BluetoothDeviceFilterEqualsRequest) (*EqualsResponse, error)
+	HashCode(context.Context, *BluetoothDeviceFilterHashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *BluetoothDeviceFilterToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *BluetoothDeviceFilterWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedBluetoothDeviceFilterServiceServer()
+}
+
+// UnimplementedBluetoothDeviceFilterServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedBluetoothDeviceFilterServiceServer struct{}
+
+func (UnimplementedBluetoothDeviceFilterServiceServer) DescribeContents(context.Context, *BluetoothDeviceFilterDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedBluetoothDeviceFilterServiceServer) Equals(context.Context, *BluetoothDeviceFilterEqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedBluetoothDeviceFilterServiceServer) HashCode(context.Context, *BluetoothDeviceFilterHashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedBluetoothDeviceFilterServiceServer) ToString(context.Context, *BluetoothDeviceFilterToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedBluetoothDeviceFilterServiceServer) WriteToParcel(context.Context, *BluetoothDeviceFilterWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedBluetoothDeviceFilterServiceServer) mustEmbedUnimplementedBluetoothDeviceFilterServiceServer() {
+}
+func (UnimplementedBluetoothDeviceFilterServiceServer) testEmbeddedByValue() {}
+
+// UnsafeBluetoothDeviceFilterServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to BluetoothDeviceFilterServiceServer will
+// result in compilation errors.
+type UnsafeBluetoothDeviceFilterServiceServer interface {
+	mustEmbedUnimplementedBluetoothDeviceFilterServiceServer()
+}
+
+func RegisterBluetoothDeviceFilterServiceServer(s grpc.ServiceRegistrar, srv BluetoothDeviceFilterServiceServer) {
+	// If the following call panics, it indicates UnimplementedBluetoothDeviceFilterServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&BluetoothDeviceFilterService_ServiceDesc, srv)
+}
+
+func _BluetoothDeviceFilterService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BluetoothDeviceFilterDescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BluetoothDeviceFilterServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BluetoothDeviceFilterService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BluetoothDeviceFilterServiceServer).DescribeContents(ctx, req.(*BluetoothDeviceFilterDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BluetoothDeviceFilterService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BluetoothDeviceFilterEqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BluetoothDeviceFilterServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BluetoothDeviceFilterService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BluetoothDeviceFilterServiceServer).Equals(ctx, req.(*BluetoothDeviceFilterEqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BluetoothDeviceFilterService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BluetoothDeviceFilterHashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BluetoothDeviceFilterServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BluetoothDeviceFilterService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BluetoothDeviceFilterServiceServer).HashCode(ctx, req.(*BluetoothDeviceFilterHashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BluetoothDeviceFilterService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BluetoothDeviceFilterToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BluetoothDeviceFilterServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BluetoothDeviceFilterService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BluetoothDeviceFilterServiceServer).ToString(ctx, req.(*BluetoothDeviceFilterToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BluetoothDeviceFilterService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BluetoothDeviceFilterWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BluetoothDeviceFilterServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BluetoothDeviceFilterService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BluetoothDeviceFilterServiceServer).WriteToParcel(ctx, req.(*BluetoothDeviceFilterWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// BluetoothDeviceFilterService_ServiceDesc is the grpc.ServiceDesc for BluetoothDeviceFilterService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var BluetoothDeviceFilterService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "companion.BluetoothDeviceFilterService",
+	HandlerType: (*BluetoothDeviceFilterServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _BluetoothDeviceFilterService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _BluetoothDeviceFilterService_Equals_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _BluetoothDeviceFilterService_HashCode_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _BluetoothDeviceFilterService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _BluetoothDeviceFilterService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/companion/companion.proto",
+}
+
+const (
+	BluetoothDeviceFilterBuilderService_AddServiceUuid_FullMethodName = "/companion.BluetoothDeviceFilterBuilderService/AddServiceUuid"
+	BluetoothDeviceFilterBuilderService_Build_FullMethodName          = "/companion.BluetoothDeviceFilterBuilderService/Build"
+	BluetoothDeviceFilterBuilderService_SetAddress_FullMethodName     = "/companion.BluetoothDeviceFilterBuilderService/SetAddress"
+	BluetoothDeviceFilterBuilderService_SetNamePattern_FullMethodName = "/companion.BluetoothDeviceFilterBuilderService/SetNamePattern"
+)
+
+// BluetoothDeviceFilterBuilderServiceClient is the client API for BluetoothDeviceFilterBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type BluetoothDeviceFilterBuilderServiceClient interface {
+	AddServiceUuid(ctx context.Context, in *AddServiceUuidRequest, opts ...grpc.CallOption) (*AddServiceUuidResponse, error)
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetAddress(ctx context.Context, in *SetAddressRequest, opts ...grpc.CallOption) (*SetAddressResponse, error)
+	SetNamePattern(ctx context.Context, in *SetNamePatternRequest, opts ...grpc.CallOption) (*SetNamePatternResponse, error)
+}
+
+type bluetoothDeviceFilterBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewBluetoothDeviceFilterBuilderServiceClient(cc grpc.ClientConnInterface) BluetoothDeviceFilterBuilderServiceClient {
+	return &bluetoothDeviceFilterBuilderServiceClient{cc}
+}
+
+func (c *bluetoothDeviceFilterBuilderServiceClient) AddServiceUuid(ctx context.Context, in *AddServiceUuidRequest, opts ...grpc.CallOption) (*AddServiceUuidResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddServiceUuidResponse)
+	err := c.cc.Invoke(ctx, BluetoothDeviceFilterBuilderService_AddServiceUuid_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *bluetoothDeviceFilterBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, BluetoothDeviceFilterBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *bluetoothDeviceFilterBuilderServiceClient) SetAddress(ctx context.Context, in *SetAddressRequest, opts ...grpc.CallOption) (*SetAddressResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetAddressResponse)
+	err := c.cc.Invoke(ctx, BluetoothDeviceFilterBuilderService_SetAddress_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *bluetoothDeviceFilterBuilderServiceClient) SetNamePattern(ctx context.Context, in *SetNamePatternRequest, opts ...grpc.CallOption) (*SetNamePatternResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetNamePatternResponse)
+	err := c.cc.Invoke(ctx, BluetoothDeviceFilterBuilderService_SetNamePattern_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// BluetoothDeviceFilterBuilderServiceServer is the server API for BluetoothDeviceFilterBuilderService service.
+// All implementations must embed UnimplementedBluetoothDeviceFilterBuilderServiceServer
+// for forward compatibility.
+type BluetoothDeviceFilterBuilderServiceServer interface {
+	AddServiceUuid(context.Context, *AddServiceUuidRequest) (*AddServiceUuidResponse, error)
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetAddress(context.Context, *SetAddressRequest) (*SetAddressResponse, error)
+	SetNamePattern(context.Context, *SetNamePatternRequest) (*SetNamePatternResponse, error)
+	mustEmbedUnimplementedBluetoothDeviceFilterBuilderServiceServer()
+}
+
+// UnimplementedBluetoothDeviceFilterBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedBluetoothDeviceFilterBuilderServiceServer struct{}
+
+func (UnimplementedBluetoothDeviceFilterBuilderServiceServer) AddServiceUuid(context.Context, *AddServiceUuidRequest) (*AddServiceUuidResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddServiceUuid not implemented")
+}
+func (UnimplementedBluetoothDeviceFilterBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedBluetoothDeviceFilterBuilderServiceServer) SetAddress(context.Context, *SetAddressRequest) (*SetAddressResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetAddress not implemented")
+}
+func (UnimplementedBluetoothDeviceFilterBuilderServiceServer) SetNamePattern(context.Context, *SetNamePatternRequest) (*SetNamePatternResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetNamePattern not implemented")
+}
+func (UnimplementedBluetoothDeviceFilterBuilderServiceServer) mustEmbedUnimplementedBluetoothDeviceFilterBuilderServiceServer() {
+}
+func (UnimplementedBluetoothDeviceFilterBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeBluetoothDeviceFilterBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to BluetoothDeviceFilterBuilderServiceServer will
+// result in compilation errors.
+type UnsafeBluetoothDeviceFilterBuilderServiceServer interface {
+	mustEmbedUnimplementedBluetoothDeviceFilterBuilderServiceServer()
+}
+
+func RegisterBluetoothDeviceFilterBuilderServiceServer(s grpc.ServiceRegistrar, srv BluetoothDeviceFilterBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedBluetoothDeviceFilterBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&BluetoothDeviceFilterBuilderService_ServiceDesc, srv)
+}
+
+func _BluetoothDeviceFilterBuilderService_AddServiceUuid_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddServiceUuidRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BluetoothDeviceFilterBuilderServiceServer).AddServiceUuid(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BluetoothDeviceFilterBuilderService_AddServiceUuid_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BluetoothDeviceFilterBuilderServiceServer).AddServiceUuid(ctx, req.(*AddServiceUuidRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BluetoothDeviceFilterBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BluetoothDeviceFilterBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BluetoothDeviceFilterBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BluetoothDeviceFilterBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BluetoothDeviceFilterBuilderService_SetAddress_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetAddressRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BluetoothDeviceFilterBuilderServiceServer).SetAddress(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BluetoothDeviceFilterBuilderService_SetAddress_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BluetoothDeviceFilterBuilderServiceServer).SetAddress(ctx, req.(*SetAddressRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BluetoothDeviceFilterBuilderService_SetNamePattern_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetNamePatternRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BluetoothDeviceFilterBuilderServiceServer).SetNamePattern(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BluetoothDeviceFilterBuilderService_SetNamePattern_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BluetoothDeviceFilterBuilderServiceServer).SetNamePattern(ctx, req.(*SetNamePatternRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// BluetoothDeviceFilterBuilderService_ServiceDesc is the grpc.ServiceDesc for BluetoothDeviceFilterBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var BluetoothDeviceFilterBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "companion.BluetoothDeviceFilterBuilderService",
+	HandlerType: (*BluetoothDeviceFilterBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "AddServiceUuid",
+			Handler:    _BluetoothDeviceFilterBuilderService_AddServiceUuid_Handler,
+		},
+		{
+			MethodName: "Build",
+			Handler:    _BluetoothDeviceFilterBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetAddress",
+			Handler:    _BluetoothDeviceFilterBuilderService_SetAddress_Handler,
+		},
+		{
+			MethodName: "SetNamePattern",
+			Handler:    _BluetoothDeviceFilterBuilderService_SetNamePattern_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/companion/companion.proto",
+}
+
+const (
+	DeviceServiceService_AttachSystemDataTransport_FullMethodName = "/companion.DeviceServiceService/AttachSystemDataTransport"
+	DeviceServiceService_DetachSystemDataTransport_FullMethodName = "/companion.DeviceServiceService/DetachSystemDataTransport"
+	DeviceServiceService_OnBind_FullMethodName                    = "/companion.DeviceServiceService/OnBind"
+	DeviceServiceService_OnDeviceAppeared1_FullMethodName         = "/companion.DeviceServiceService/OnDeviceAppeared1"
+	DeviceServiceService_OnDeviceAppeared1_1_FullMethodName       = "/companion.DeviceServiceService/OnDeviceAppeared1_1"
+	DeviceServiceService_OnDeviceDisappeared1_FullMethodName      = "/companion.DeviceServiceService/OnDeviceDisappeared1"
+	DeviceServiceService_OnDeviceDisappeared1_1_FullMethodName    = "/companion.DeviceServiceService/OnDeviceDisappeared1_1"
+	DeviceServiceService_OnDevicePresenceEvent_FullMethodName     = "/companion.DeviceServiceService/OnDevicePresenceEvent"
+)
+
+// DeviceServiceServiceClient is the client API for DeviceServiceService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type DeviceServiceServiceClient interface {
+	AttachSystemDataTransport(ctx context.Context, in *AttachSystemDataTransportRequest, opts ...grpc.CallOption) (*AttachSystemDataTransportResponse, error)
+	DetachSystemDataTransport(ctx context.Context, in *DetachSystemDataTransportRequest, opts ...grpc.CallOption) (*DetachSystemDataTransportResponse, error)
+	OnBind(ctx context.Context, in *OnBindRequest, opts ...grpc.CallOption) (*OnBindResponse, error)
+	OnDeviceAppeared1(ctx context.Context, in *OnDeviceAppeared1Request, opts ...grpc.CallOption) (*OnDeviceAppeared1Response, error)
+	OnDeviceAppeared1_1(ctx context.Context, in *OnDeviceAppeared1_1Request, opts ...grpc.CallOption) (*OnDeviceAppeared1_1Response, error)
+	OnDeviceDisappeared1(ctx context.Context, in *OnDeviceDisappeared1Request, opts ...grpc.CallOption) (*OnDeviceDisappeared1Response, error)
+	OnDeviceDisappeared1_1(ctx context.Context, in *OnDeviceDisappeared1_1Request, opts ...grpc.CallOption) (*OnDeviceDisappeared1_1Response, error)
+	OnDevicePresenceEvent(ctx context.Context, in *OnDevicePresenceEventRequest, opts ...grpc.CallOption) (*OnDevicePresenceEventResponse, error)
+}
+
+type deviceServiceServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewDeviceServiceServiceClient(cc grpc.ClientConnInterface) DeviceServiceServiceClient {
+	return &deviceServiceServiceClient{cc}
+}
+
+func (c *deviceServiceServiceClient) AttachSystemDataTransport(ctx context.Context, in *AttachSystemDataTransportRequest, opts ...grpc.CallOption) (*AttachSystemDataTransportResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AttachSystemDataTransportResponse)
+	err := c.cc.Invoke(ctx, DeviceServiceService_AttachSystemDataTransport_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceServiceServiceClient) DetachSystemDataTransport(ctx context.Context, in *DetachSystemDataTransportRequest, opts ...grpc.CallOption) (*DetachSystemDataTransportResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DetachSystemDataTransportResponse)
+	err := c.cc.Invoke(ctx, DeviceServiceService_DetachSystemDataTransport_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceServiceServiceClient) OnBind(ctx context.Context, in *OnBindRequest, opts ...grpc.CallOption) (*OnBindResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnBindResponse)
+	err := c.cc.Invoke(ctx, DeviceServiceService_OnBind_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceServiceServiceClient) OnDeviceAppeared1(ctx context.Context, in *OnDeviceAppeared1Request, opts ...grpc.CallOption) (*OnDeviceAppeared1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnDeviceAppeared1Response)
+	err := c.cc.Invoke(ctx, DeviceServiceService_OnDeviceAppeared1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceServiceServiceClient) OnDeviceAppeared1_1(ctx context.Context, in *OnDeviceAppeared1_1Request, opts ...grpc.CallOption) (*OnDeviceAppeared1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnDeviceAppeared1_1Response)
+	err := c.cc.Invoke(ctx, DeviceServiceService_OnDeviceAppeared1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceServiceServiceClient) OnDeviceDisappeared1(ctx context.Context, in *OnDeviceDisappeared1Request, opts ...grpc.CallOption) (*OnDeviceDisappeared1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnDeviceDisappeared1Response)
+	err := c.cc.Invoke(ctx, DeviceServiceService_OnDeviceDisappeared1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceServiceServiceClient) OnDeviceDisappeared1_1(ctx context.Context, in *OnDeviceDisappeared1_1Request, opts ...grpc.CallOption) (*OnDeviceDisappeared1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnDeviceDisappeared1_1Response)
+	err := c.cc.Invoke(ctx, DeviceServiceService_OnDeviceDisappeared1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceServiceServiceClient) OnDevicePresenceEvent(ctx context.Context, in *OnDevicePresenceEventRequest, opts ...grpc.CallOption) (*OnDevicePresenceEventResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnDevicePresenceEventResponse)
+	err := c.cc.Invoke(ctx, DeviceServiceService_OnDevicePresenceEvent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// DeviceServiceServiceServer is the server API for DeviceServiceService service.
+// All implementations must embed UnimplementedDeviceServiceServiceServer
+// for forward compatibility.
+type DeviceServiceServiceServer interface {
+	AttachSystemDataTransport(context.Context, *AttachSystemDataTransportRequest) (*AttachSystemDataTransportResponse, error)
+	DetachSystemDataTransport(context.Context, *DetachSystemDataTransportRequest) (*DetachSystemDataTransportResponse, error)
+	OnBind(context.Context, *OnBindRequest) (*OnBindResponse, error)
+	OnDeviceAppeared1(context.Context, *OnDeviceAppeared1Request) (*OnDeviceAppeared1Response, error)
+	OnDeviceAppeared1_1(context.Context, *OnDeviceAppeared1_1Request) (*OnDeviceAppeared1_1Response, error)
+	OnDeviceDisappeared1(context.Context, *OnDeviceDisappeared1Request) (*OnDeviceDisappeared1Response, error)
+	OnDeviceDisappeared1_1(context.Context, *OnDeviceDisappeared1_1Request) (*OnDeviceDisappeared1_1Response, error)
+	OnDevicePresenceEvent(context.Context, *OnDevicePresenceEventRequest) (*OnDevicePresenceEventResponse, error)
+	mustEmbedUnimplementedDeviceServiceServiceServer()
+}
+
+// UnimplementedDeviceServiceServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedDeviceServiceServiceServer struct{}
+
+func (UnimplementedDeviceServiceServiceServer) AttachSystemDataTransport(context.Context, *AttachSystemDataTransportRequest) (*AttachSystemDataTransportResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AttachSystemDataTransport not implemented")
+}
+func (UnimplementedDeviceServiceServiceServer) DetachSystemDataTransport(context.Context, *DetachSystemDataTransportRequest) (*DetachSystemDataTransportResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DetachSystemDataTransport not implemented")
+}
+func (UnimplementedDeviceServiceServiceServer) OnBind(context.Context, *OnBindRequest) (*OnBindResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnBind not implemented")
+}
+func (UnimplementedDeviceServiceServiceServer) OnDeviceAppeared1(context.Context, *OnDeviceAppeared1Request) (*OnDeviceAppeared1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnDeviceAppeared1 not implemented")
+}
+func (UnimplementedDeviceServiceServiceServer) OnDeviceAppeared1_1(context.Context, *OnDeviceAppeared1_1Request) (*OnDeviceAppeared1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnDeviceAppeared1_1 not implemented")
+}
+func (UnimplementedDeviceServiceServiceServer) OnDeviceDisappeared1(context.Context, *OnDeviceDisappeared1Request) (*OnDeviceDisappeared1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnDeviceDisappeared1 not implemented")
+}
+func (UnimplementedDeviceServiceServiceServer) OnDeviceDisappeared1_1(context.Context, *OnDeviceDisappeared1_1Request) (*OnDeviceDisappeared1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnDeviceDisappeared1_1 not implemented")
+}
+func (UnimplementedDeviceServiceServiceServer) OnDevicePresenceEvent(context.Context, *OnDevicePresenceEventRequest) (*OnDevicePresenceEventResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnDevicePresenceEvent not implemented")
+}
+func (UnimplementedDeviceServiceServiceServer) mustEmbedUnimplementedDeviceServiceServiceServer() {}
+func (UnimplementedDeviceServiceServiceServer) testEmbeddedByValue()                              {}
+
+// UnsafeDeviceServiceServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to DeviceServiceServiceServer will
+// result in compilation errors.
+type UnsafeDeviceServiceServiceServer interface {
+	mustEmbedUnimplementedDeviceServiceServiceServer()
+}
+
+func RegisterDeviceServiceServiceServer(s grpc.ServiceRegistrar, srv DeviceServiceServiceServer) {
+	// If the following call panics, it indicates UnimplementedDeviceServiceServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&DeviceServiceService_ServiceDesc, srv)
+}
+
+func _DeviceServiceService_AttachSystemDataTransport_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AttachSystemDataTransportRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceServiceServiceServer).AttachSystemDataTransport(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceServiceService_AttachSystemDataTransport_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceServiceServiceServer).AttachSystemDataTransport(ctx, req.(*AttachSystemDataTransportRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceServiceService_DetachSystemDataTransport_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DetachSystemDataTransportRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceServiceServiceServer).DetachSystemDataTransport(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceServiceService_DetachSystemDataTransport_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceServiceServiceServer).DetachSystemDataTransport(ctx, req.(*DetachSystemDataTransportRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceServiceService_OnBind_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnBindRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceServiceServiceServer).OnBind(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceServiceService_OnBind_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceServiceServiceServer).OnBind(ctx, req.(*OnBindRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceServiceService_OnDeviceAppeared1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnDeviceAppeared1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceServiceServiceServer).OnDeviceAppeared1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceServiceService_OnDeviceAppeared1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceServiceServiceServer).OnDeviceAppeared1(ctx, req.(*OnDeviceAppeared1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceServiceService_OnDeviceAppeared1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnDeviceAppeared1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceServiceServiceServer).OnDeviceAppeared1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceServiceService_OnDeviceAppeared1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceServiceServiceServer).OnDeviceAppeared1_1(ctx, req.(*OnDeviceAppeared1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceServiceService_OnDeviceDisappeared1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnDeviceDisappeared1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceServiceServiceServer).OnDeviceDisappeared1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceServiceService_OnDeviceDisappeared1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceServiceServiceServer).OnDeviceDisappeared1(ctx, req.(*OnDeviceDisappeared1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceServiceService_OnDeviceDisappeared1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnDeviceDisappeared1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceServiceServiceServer).OnDeviceDisappeared1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceServiceService_OnDeviceDisappeared1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceServiceServiceServer).OnDeviceDisappeared1_1(ctx, req.(*OnDeviceDisappeared1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceServiceService_OnDevicePresenceEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnDevicePresenceEventRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceServiceServiceServer).OnDevicePresenceEvent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceServiceService_OnDevicePresenceEvent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceServiceServiceServer).OnDevicePresenceEvent(ctx, req.(*OnDevicePresenceEventRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// DeviceServiceService_ServiceDesc is the grpc.ServiceDesc for DeviceServiceService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var DeviceServiceService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "companion.DeviceServiceService",
+	HandlerType: (*DeviceServiceServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "AttachSystemDataTransport",
+			Handler:    _DeviceServiceService_AttachSystemDataTransport_Handler,
+		},
+		{
+			MethodName: "DetachSystemDataTransport",
+			Handler:    _DeviceServiceService_DetachSystemDataTransport_Handler,
+		},
+		{
+			MethodName: "OnBind",
+			Handler:    _DeviceServiceService_OnBind_Handler,
+		},
+		{
+			MethodName: "OnDeviceAppeared1",
+			Handler:    _DeviceServiceService_OnDeviceAppeared1_Handler,
+		},
+		{
+			MethodName: "OnDeviceAppeared1_1",
+			Handler:    _DeviceServiceService_OnDeviceAppeared1_1_Handler,
+		},
+		{
+			MethodName: "OnDeviceDisappeared1",
+			Handler:    _DeviceServiceService_OnDeviceDisappeared1_Handler,
+		},
+		{
+			MethodName: "OnDeviceDisappeared1_1",
+			Handler:    _DeviceServiceService_OnDeviceDisappeared1_1_Handler,
+		},
+		{
+			MethodName: "OnDevicePresenceEvent",
+			Handler:    _DeviceServiceService_OnDevicePresenceEvent_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/companion/companion.proto",
+}
+
+const (
+	ObservingDevicePresenceRequestService_DescribeContents_FullMethodName = "/companion.ObservingDevicePresenceRequestService/DescribeContents"
+	ObservingDevicePresenceRequestService_Equals_FullMethodName           = "/companion.ObservingDevicePresenceRequestService/Equals"
+	ObservingDevicePresenceRequestService_GetAssociationId_FullMethodName = "/companion.ObservingDevicePresenceRequestService/GetAssociationId"
+	ObservingDevicePresenceRequestService_GetUuid_FullMethodName          = "/companion.ObservingDevicePresenceRequestService/GetUuid"
+	ObservingDevicePresenceRequestService_HashCode_FullMethodName         = "/companion.ObservingDevicePresenceRequestService/HashCode"
+	ObservingDevicePresenceRequestService_ToString_FullMethodName         = "/companion.ObservingDevicePresenceRequestService/ToString"
+	ObservingDevicePresenceRequestService_WriteToParcel_FullMethodName    = "/companion.ObservingDevicePresenceRequestService/WriteToParcel"
+)
+
+// ObservingDevicePresenceRequestServiceClient is the client API for ObservingDevicePresenceRequestService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ObservingDevicePresenceRequestServiceClient interface {
+	DescribeContents(ctx context.Context, in *ObservingDevicePresenceRequestDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *ObservingDevicePresenceRequestEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetAssociationId(ctx context.Context, in *ObservingDevicePresenceRequestGetAssociationIdRequest, opts ...grpc.CallOption) (*GetAssociationIdResponse, error)
+	GetUuid(ctx context.Context, in *ObservingDevicePresenceRequestGetUuidRequest, opts ...grpc.CallOption) (*GetUuidResponse, error)
+	HashCode(ctx context.Context, in *ObservingDevicePresenceRequestHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *ObservingDevicePresenceRequestToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *ObservingDevicePresenceRequestWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type observingDevicePresenceRequestServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewObservingDevicePresenceRequestServiceClient(cc grpc.ClientConnInterface) ObservingDevicePresenceRequestServiceClient {
+	return &observingDevicePresenceRequestServiceClient{cc}
+}
+
+func (c *observingDevicePresenceRequestServiceClient) DescribeContents(ctx context.Context, in *ObservingDevicePresenceRequestDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, ObservingDevicePresenceRequestService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *observingDevicePresenceRequestServiceClient) Equals(ctx context.Context, in *ObservingDevicePresenceRequestEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, ObservingDevicePresenceRequestService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *observingDevicePresenceRequestServiceClient) GetAssociationId(ctx context.Context, in *ObservingDevicePresenceRequestGetAssociationIdRequest, opts ...grpc.CallOption) (*GetAssociationIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAssociationIdResponse)
+	err := c.cc.Invoke(ctx, ObservingDevicePresenceRequestService_GetAssociationId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *observingDevicePresenceRequestServiceClient) GetUuid(ctx context.Context, in *ObservingDevicePresenceRequestGetUuidRequest, opts ...grpc.CallOption) (*GetUuidResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetUuidResponse)
+	err := c.cc.Invoke(ctx, ObservingDevicePresenceRequestService_GetUuid_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *observingDevicePresenceRequestServiceClient) HashCode(ctx context.Context, in *ObservingDevicePresenceRequestHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, ObservingDevicePresenceRequestService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *observingDevicePresenceRequestServiceClient) ToString(ctx context.Context, in *ObservingDevicePresenceRequestToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, ObservingDevicePresenceRequestService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *observingDevicePresenceRequestServiceClient) WriteToParcel(ctx context.Context, in *ObservingDevicePresenceRequestWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, ObservingDevicePresenceRequestService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ObservingDevicePresenceRequestServiceServer is the server API for ObservingDevicePresenceRequestService service.
+// All implementations must embed UnimplementedObservingDevicePresenceRequestServiceServer
+// for forward compatibility.
+type ObservingDevicePresenceRequestServiceServer interface {
+	DescribeContents(context.Context, *ObservingDevicePresenceRequestDescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *ObservingDevicePresenceRequestEqualsRequest) (*EqualsResponse, error)
+	GetAssociationId(context.Context, *ObservingDevicePresenceRequestGetAssociationIdRequest) (*GetAssociationIdResponse, error)
+	GetUuid(context.Context, *ObservingDevicePresenceRequestGetUuidRequest) (*GetUuidResponse, error)
+	HashCode(context.Context, *ObservingDevicePresenceRequestHashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *ObservingDevicePresenceRequestToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *ObservingDevicePresenceRequestWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedObservingDevicePresenceRequestServiceServer()
+}
+
+// UnimplementedObservingDevicePresenceRequestServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedObservingDevicePresenceRequestServiceServer struct{}
+
+func (UnimplementedObservingDevicePresenceRequestServiceServer) DescribeContents(context.Context, *ObservingDevicePresenceRequestDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedObservingDevicePresenceRequestServiceServer) Equals(context.Context, *ObservingDevicePresenceRequestEqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedObservingDevicePresenceRequestServiceServer) GetAssociationId(context.Context, *ObservingDevicePresenceRequestGetAssociationIdRequest) (*GetAssociationIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAssociationId not implemented")
+}
+func (UnimplementedObservingDevicePresenceRequestServiceServer) GetUuid(context.Context, *ObservingDevicePresenceRequestGetUuidRequest) (*GetUuidResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetUuid not implemented")
+}
+func (UnimplementedObservingDevicePresenceRequestServiceServer) HashCode(context.Context, *ObservingDevicePresenceRequestHashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedObservingDevicePresenceRequestServiceServer) ToString(context.Context, *ObservingDevicePresenceRequestToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedObservingDevicePresenceRequestServiceServer) WriteToParcel(context.Context, *ObservingDevicePresenceRequestWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedObservingDevicePresenceRequestServiceServer) mustEmbedUnimplementedObservingDevicePresenceRequestServiceServer() {
+}
+func (UnimplementedObservingDevicePresenceRequestServiceServer) testEmbeddedByValue() {}
+
+// UnsafeObservingDevicePresenceRequestServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ObservingDevicePresenceRequestServiceServer will
+// result in compilation errors.
+type UnsafeObservingDevicePresenceRequestServiceServer interface {
+	mustEmbedUnimplementedObservingDevicePresenceRequestServiceServer()
+}
+
+func RegisterObservingDevicePresenceRequestServiceServer(s grpc.ServiceRegistrar, srv ObservingDevicePresenceRequestServiceServer) {
+	// If the following call panics, it indicates UnimplementedObservingDevicePresenceRequestServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ObservingDevicePresenceRequestService_ServiceDesc, srv)
+}
+
+func _ObservingDevicePresenceRequestService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ObservingDevicePresenceRequestDescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ObservingDevicePresenceRequestServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ObservingDevicePresenceRequestService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ObservingDevicePresenceRequestServiceServer).DescribeContents(ctx, req.(*ObservingDevicePresenceRequestDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ObservingDevicePresenceRequestService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ObservingDevicePresenceRequestEqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ObservingDevicePresenceRequestServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ObservingDevicePresenceRequestService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ObservingDevicePresenceRequestServiceServer).Equals(ctx, req.(*ObservingDevicePresenceRequestEqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ObservingDevicePresenceRequestService_GetAssociationId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ObservingDevicePresenceRequestGetAssociationIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ObservingDevicePresenceRequestServiceServer).GetAssociationId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ObservingDevicePresenceRequestService_GetAssociationId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ObservingDevicePresenceRequestServiceServer).GetAssociationId(ctx, req.(*ObservingDevicePresenceRequestGetAssociationIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ObservingDevicePresenceRequestService_GetUuid_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ObservingDevicePresenceRequestGetUuidRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ObservingDevicePresenceRequestServiceServer).GetUuid(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ObservingDevicePresenceRequestService_GetUuid_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ObservingDevicePresenceRequestServiceServer).GetUuid(ctx, req.(*ObservingDevicePresenceRequestGetUuidRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ObservingDevicePresenceRequestService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ObservingDevicePresenceRequestHashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ObservingDevicePresenceRequestServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ObservingDevicePresenceRequestService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ObservingDevicePresenceRequestServiceServer).HashCode(ctx, req.(*ObservingDevicePresenceRequestHashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ObservingDevicePresenceRequestService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ObservingDevicePresenceRequestToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ObservingDevicePresenceRequestServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ObservingDevicePresenceRequestService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ObservingDevicePresenceRequestServiceServer).ToString(ctx, req.(*ObservingDevicePresenceRequestToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ObservingDevicePresenceRequestService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ObservingDevicePresenceRequestWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ObservingDevicePresenceRequestServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ObservingDevicePresenceRequestService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ObservingDevicePresenceRequestServiceServer).WriteToParcel(ctx, req.(*ObservingDevicePresenceRequestWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ObservingDevicePresenceRequestService_ServiceDesc is the grpc.ServiceDesc for ObservingDevicePresenceRequestService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ObservingDevicePresenceRequestService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "companion.ObservingDevicePresenceRequestService",
+	HandlerType: (*ObservingDevicePresenceRequestServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _ObservingDevicePresenceRequestService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _ObservingDevicePresenceRequestService_Equals_Handler,
+		},
+		{
+			MethodName: "GetAssociationId",
+			Handler:    _ObservingDevicePresenceRequestService_GetAssociationId_Handler,
+		},
+		{
+			MethodName: "GetUuid",
+			Handler:    _ObservingDevicePresenceRequestService_GetUuid_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _ObservingDevicePresenceRequestService_HashCode_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _ObservingDevicePresenceRequestService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _ObservingDevicePresenceRequestService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/companion/companion.proto",
+}
+
+const (
+	ObservingDevicePresenceRequestBuilderService_Build_FullMethodName            = "/companion.ObservingDevicePresenceRequestBuilderService/Build"
+	ObservingDevicePresenceRequestBuilderService_SetAssociationId_FullMethodName = "/companion.ObservingDevicePresenceRequestBuilderService/SetAssociationId"
+	ObservingDevicePresenceRequestBuilderService_SetUuid_FullMethodName          = "/companion.ObservingDevicePresenceRequestBuilderService/SetUuid"
+)
+
+// ObservingDevicePresenceRequestBuilderServiceClient is the client API for ObservingDevicePresenceRequestBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ObservingDevicePresenceRequestBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetAssociationId(ctx context.Context, in *SetAssociationIdRequest, opts ...grpc.CallOption) (*SetAssociationIdResponse, error)
+	SetUuid(ctx context.Context, in *SetUuidRequest, opts ...grpc.CallOption) (*SetUuidResponse, error)
+}
+
+type observingDevicePresenceRequestBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewObservingDevicePresenceRequestBuilderServiceClient(cc grpc.ClientConnInterface) ObservingDevicePresenceRequestBuilderServiceClient {
+	return &observingDevicePresenceRequestBuilderServiceClient{cc}
+}
+
+func (c *observingDevicePresenceRequestBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, ObservingDevicePresenceRequestBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *observingDevicePresenceRequestBuilderServiceClient) SetAssociationId(ctx context.Context, in *SetAssociationIdRequest, opts ...grpc.CallOption) (*SetAssociationIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetAssociationIdResponse)
+	err := c.cc.Invoke(ctx, ObservingDevicePresenceRequestBuilderService_SetAssociationId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *observingDevicePresenceRequestBuilderServiceClient) SetUuid(ctx context.Context, in *SetUuidRequest, opts ...grpc.CallOption) (*SetUuidResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetUuidResponse)
+	err := c.cc.Invoke(ctx, ObservingDevicePresenceRequestBuilderService_SetUuid_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ObservingDevicePresenceRequestBuilderServiceServer is the server API for ObservingDevicePresenceRequestBuilderService service.
+// All implementations must embed UnimplementedObservingDevicePresenceRequestBuilderServiceServer
+// for forward compatibility.
+type ObservingDevicePresenceRequestBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetAssociationId(context.Context, *SetAssociationIdRequest) (*SetAssociationIdResponse, error)
+	SetUuid(context.Context, *SetUuidRequest) (*SetUuidResponse, error)
+	mustEmbedUnimplementedObservingDevicePresenceRequestBuilderServiceServer()
+}
+
+// UnimplementedObservingDevicePresenceRequestBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedObservingDevicePresenceRequestBuilderServiceServer struct{}
+
+func (UnimplementedObservingDevicePresenceRequestBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedObservingDevicePresenceRequestBuilderServiceServer) SetAssociationId(context.Context, *SetAssociationIdRequest) (*SetAssociationIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetAssociationId not implemented")
+}
+func (UnimplementedObservingDevicePresenceRequestBuilderServiceServer) SetUuid(context.Context, *SetUuidRequest) (*SetUuidResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetUuid not implemented")
+}
+func (UnimplementedObservingDevicePresenceRequestBuilderServiceServer) mustEmbedUnimplementedObservingDevicePresenceRequestBuilderServiceServer() {
+}
+func (UnimplementedObservingDevicePresenceRequestBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeObservingDevicePresenceRequestBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ObservingDevicePresenceRequestBuilderServiceServer will
+// result in compilation errors.
+type UnsafeObservingDevicePresenceRequestBuilderServiceServer interface {
+	mustEmbedUnimplementedObservingDevicePresenceRequestBuilderServiceServer()
+}
+
+func RegisterObservingDevicePresenceRequestBuilderServiceServer(s grpc.ServiceRegistrar, srv ObservingDevicePresenceRequestBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedObservingDevicePresenceRequestBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ObservingDevicePresenceRequestBuilderService_ServiceDesc, srv)
+}
+
+func _ObservingDevicePresenceRequestBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ObservingDevicePresenceRequestBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ObservingDevicePresenceRequestBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ObservingDevicePresenceRequestBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ObservingDevicePresenceRequestBuilderService_SetAssociationId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetAssociationIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ObservingDevicePresenceRequestBuilderServiceServer).SetAssociationId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ObservingDevicePresenceRequestBuilderService_SetAssociationId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ObservingDevicePresenceRequestBuilderServiceServer).SetAssociationId(ctx, req.(*SetAssociationIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ObservingDevicePresenceRequestBuilderService_SetUuid_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetUuidRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ObservingDevicePresenceRequestBuilderServiceServer).SetUuid(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ObservingDevicePresenceRequestBuilderService_SetUuid_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ObservingDevicePresenceRequestBuilderServiceServer).SetUuid(ctx, req.(*SetUuidRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ObservingDevicePresenceRequestBuilderService_ServiceDesc is the grpc.ServiceDesc for ObservingDevicePresenceRequestBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ObservingDevicePresenceRequestBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "companion.ObservingDevicePresenceRequestBuilderService",
+	HandlerType: (*ObservingDevicePresenceRequestBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _ObservingDevicePresenceRequestBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetAssociationId",
+			Handler:    _ObservingDevicePresenceRequestBuilderService_SetAssociationId_Handler,
+		},
+		{
+			MethodName: "SetUuid",
+			Handler:    _ObservingDevicePresenceRequestBuilderService_SetUuid_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/companion/companion.proto",
+}
+
+const (
+	AssociationRequestService_DescribeContents_FullMethodName    = "/companion.AssociationRequestService/DescribeContents"
+	AssociationRequestService_Equals_FullMethodName              = "/companion.AssociationRequestService/Equals"
+	AssociationRequestService_GetDeviceProfile_FullMethodName    = "/companion.AssociationRequestService/GetDeviceProfile"
+	AssociationRequestService_GetDisplayName_FullMethodName      = "/companion.AssociationRequestService/GetDisplayName"
+	AssociationRequestService_HashCode_FullMethodName            = "/companion.AssociationRequestService/HashCode"
+	AssociationRequestService_IsForceConfirmation_FullMethodName = "/companion.AssociationRequestService/IsForceConfirmation"
+	AssociationRequestService_IsSelfManaged_FullMethodName       = "/companion.AssociationRequestService/IsSelfManaged"
+	AssociationRequestService_IsSingleDevice_FullMethodName      = "/companion.AssociationRequestService/IsSingleDevice"
+	AssociationRequestService_ToString_FullMethodName            = "/companion.AssociationRequestService/ToString"
+	AssociationRequestService_WriteToParcel_FullMethodName       = "/companion.AssociationRequestService/WriteToParcel"
+)
+
+// AssociationRequestServiceClient is the client API for AssociationRequestService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AssociationRequestServiceClient interface {
+	DescribeContents(ctx context.Context, in *AssociationRequestDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *AssociationRequestEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetDeviceProfile(ctx context.Context, in *GetDeviceProfileRequest, opts ...grpc.CallOption) (*GetDeviceProfileResponse, error)
+	GetDisplayName(ctx context.Context, in *GetDisplayNameRequest, opts ...grpc.CallOption) (*GetDisplayNameResponse, error)
+	HashCode(ctx context.Context, in *AssociationRequestHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	IsForceConfirmation(ctx context.Context, in *IsForceConfirmationRequest, opts ...grpc.CallOption) (*IsForceConfirmationResponse, error)
+	IsSelfManaged(ctx context.Context, in *IsSelfManagedRequest, opts ...grpc.CallOption) (*IsSelfManagedResponse, error)
+	IsSingleDevice(ctx context.Context, in *IsSingleDeviceRequest, opts ...grpc.CallOption) (*IsSingleDeviceResponse, error)
+	ToString(ctx context.Context, in *AssociationRequestToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *AssociationRequestWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type associationRequestServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAssociationRequestServiceClient(cc grpc.ClientConnInterface) AssociationRequestServiceClient {
+	return &associationRequestServiceClient{cc}
+}
+
+func (c *associationRequestServiceClient) DescribeContents(ctx context.Context, in *AssociationRequestDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, AssociationRequestService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *associationRequestServiceClient) Equals(ctx context.Context, in *AssociationRequestEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, AssociationRequestService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *associationRequestServiceClient) GetDeviceProfile(ctx context.Context, in *GetDeviceProfileRequest, opts ...grpc.CallOption) (*GetDeviceProfileResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDeviceProfileResponse)
+	err := c.cc.Invoke(ctx, AssociationRequestService_GetDeviceProfile_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *associationRequestServiceClient) GetDisplayName(ctx context.Context, in *GetDisplayNameRequest, opts ...grpc.CallOption) (*GetDisplayNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDisplayNameResponse)
+	err := c.cc.Invoke(ctx, AssociationRequestService_GetDisplayName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *associationRequestServiceClient) HashCode(ctx context.Context, in *AssociationRequestHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, AssociationRequestService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *associationRequestServiceClient) IsForceConfirmation(ctx context.Context, in *IsForceConfirmationRequest, opts ...grpc.CallOption) (*IsForceConfirmationResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsForceConfirmationResponse)
+	err := c.cc.Invoke(ctx, AssociationRequestService_IsForceConfirmation_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *associationRequestServiceClient) IsSelfManaged(ctx context.Context, in *IsSelfManagedRequest, opts ...grpc.CallOption) (*IsSelfManagedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsSelfManagedResponse)
+	err := c.cc.Invoke(ctx, AssociationRequestService_IsSelfManaged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *associationRequestServiceClient) IsSingleDevice(ctx context.Context, in *IsSingleDeviceRequest, opts ...grpc.CallOption) (*IsSingleDeviceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsSingleDeviceResponse)
+	err := c.cc.Invoke(ctx, AssociationRequestService_IsSingleDevice_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *associationRequestServiceClient) ToString(ctx context.Context, in *AssociationRequestToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, AssociationRequestService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *associationRequestServiceClient) WriteToParcel(ctx context.Context, in *AssociationRequestWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, AssociationRequestService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AssociationRequestServiceServer is the server API for AssociationRequestService service.
+// All implementations must embed UnimplementedAssociationRequestServiceServer
+// for forward compatibility.
+type AssociationRequestServiceServer interface {
+	DescribeContents(context.Context, *AssociationRequestDescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *AssociationRequestEqualsRequest) (*EqualsResponse, error)
+	GetDeviceProfile(context.Context, *GetDeviceProfileRequest) (*GetDeviceProfileResponse, error)
+	GetDisplayName(context.Context, *GetDisplayNameRequest) (*GetDisplayNameResponse, error)
+	HashCode(context.Context, *AssociationRequestHashCodeRequest) (*HashCodeResponse, error)
+	IsForceConfirmation(context.Context, *IsForceConfirmationRequest) (*IsForceConfirmationResponse, error)
+	IsSelfManaged(context.Context, *IsSelfManagedRequest) (*IsSelfManagedResponse, error)
+	IsSingleDevice(context.Context, *IsSingleDeviceRequest) (*IsSingleDeviceResponse, error)
+	ToString(context.Context, *AssociationRequestToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *AssociationRequestWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedAssociationRequestServiceServer()
+}
+
+// UnimplementedAssociationRequestServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedAssociationRequestServiceServer struct{}
+
+func (UnimplementedAssociationRequestServiceServer) DescribeContents(context.Context, *AssociationRequestDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedAssociationRequestServiceServer) Equals(context.Context, *AssociationRequestEqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedAssociationRequestServiceServer) GetDeviceProfile(context.Context, *GetDeviceProfileRequest) (*GetDeviceProfileResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDeviceProfile not implemented")
+}
+func (UnimplementedAssociationRequestServiceServer) GetDisplayName(context.Context, *GetDisplayNameRequest) (*GetDisplayNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDisplayName not implemented")
+}
+func (UnimplementedAssociationRequestServiceServer) HashCode(context.Context, *AssociationRequestHashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedAssociationRequestServiceServer) IsForceConfirmation(context.Context, *IsForceConfirmationRequest) (*IsForceConfirmationResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsForceConfirmation not implemented")
+}
+func (UnimplementedAssociationRequestServiceServer) IsSelfManaged(context.Context, *IsSelfManagedRequest) (*IsSelfManagedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsSelfManaged not implemented")
+}
+func (UnimplementedAssociationRequestServiceServer) IsSingleDevice(context.Context, *IsSingleDeviceRequest) (*IsSingleDeviceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsSingleDevice not implemented")
+}
+func (UnimplementedAssociationRequestServiceServer) ToString(context.Context, *AssociationRequestToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedAssociationRequestServiceServer) WriteToParcel(context.Context, *AssociationRequestWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedAssociationRequestServiceServer) mustEmbedUnimplementedAssociationRequestServiceServer() {
+}
+func (UnimplementedAssociationRequestServiceServer) testEmbeddedByValue() {}
+
+// UnsafeAssociationRequestServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AssociationRequestServiceServer will
+// result in compilation errors.
+type UnsafeAssociationRequestServiceServer interface {
+	mustEmbedUnimplementedAssociationRequestServiceServer()
+}
+
+func RegisterAssociationRequestServiceServer(s grpc.ServiceRegistrar, srv AssociationRequestServiceServer) {
+	// If the following call panics, it indicates UnimplementedAssociationRequestServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&AssociationRequestService_ServiceDesc, srv)
+}
+
+func _AssociationRequestService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AssociationRequestDescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AssociationRequestServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AssociationRequestService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AssociationRequestServiceServer).DescribeContents(ctx, req.(*AssociationRequestDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AssociationRequestService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AssociationRequestEqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AssociationRequestServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AssociationRequestService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AssociationRequestServiceServer).Equals(ctx, req.(*AssociationRequestEqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AssociationRequestService_GetDeviceProfile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDeviceProfileRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AssociationRequestServiceServer).GetDeviceProfile(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AssociationRequestService_GetDeviceProfile_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AssociationRequestServiceServer).GetDeviceProfile(ctx, req.(*GetDeviceProfileRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AssociationRequestService_GetDisplayName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDisplayNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AssociationRequestServiceServer).GetDisplayName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AssociationRequestService_GetDisplayName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AssociationRequestServiceServer).GetDisplayName(ctx, req.(*GetDisplayNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AssociationRequestService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AssociationRequestHashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AssociationRequestServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AssociationRequestService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AssociationRequestServiceServer).HashCode(ctx, req.(*AssociationRequestHashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AssociationRequestService_IsForceConfirmation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsForceConfirmationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AssociationRequestServiceServer).IsForceConfirmation(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AssociationRequestService_IsForceConfirmation_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AssociationRequestServiceServer).IsForceConfirmation(ctx, req.(*IsForceConfirmationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AssociationRequestService_IsSelfManaged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsSelfManagedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AssociationRequestServiceServer).IsSelfManaged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AssociationRequestService_IsSelfManaged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AssociationRequestServiceServer).IsSelfManaged(ctx, req.(*IsSelfManagedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AssociationRequestService_IsSingleDevice_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsSingleDeviceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AssociationRequestServiceServer).IsSingleDevice(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AssociationRequestService_IsSingleDevice_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AssociationRequestServiceServer).IsSingleDevice(ctx, req.(*IsSingleDeviceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AssociationRequestService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AssociationRequestToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AssociationRequestServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AssociationRequestService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AssociationRequestServiceServer).ToString(ctx, req.(*AssociationRequestToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AssociationRequestService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AssociationRequestWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AssociationRequestServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AssociationRequestService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AssociationRequestServiceServer).WriteToParcel(ctx, req.(*AssociationRequestWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AssociationRequestService_ServiceDesc is the grpc.ServiceDesc for AssociationRequestService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AssociationRequestService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "companion.AssociationRequestService",
+	HandlerType: (*AssociationRequestServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _AssociationRequestService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _AssociationRequestService_Equals_Handler,
+		},
+		{
+			MethodName: "GetDeviceProfile",
+			Handler:    _AssociationRequestService_GetDeviceProfile_Handler,
+		},
+		{
+			MethodName: "GetDisplayName",
+			Handler:    _AssociationRequestService_GetDisplayName_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _AssociationRequestService_HashCode_Handler,
+		},
+		{
+			MethodName: "IsForceConfirmation",
+			Handler:    _AssociationRequestService_IsForceConfirmation_Handler,
+		},
+		{
+			MethodName: "IsSelfManaged",
+			Handler:    _AssociationRequestService_IsSelfManaged_Handler,
+		},
+		{
+			MethodName: "IsSingleDevice",
+			Handler:    _AssociationRequestService_IsSingleDevice_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _AssociationRequestService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _AssociationRequestService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/companion/companion.proto",
+}
+
+const (
+	AssociationRequestBuilderService_Build_FullMethodName                = "/companion.AssociationRequestBuilderService/Build"
+	AssociationRequestBuilderService_SetDeviceProfile_FullMethodName     = "/companion.AssociationRequestBuilderService/SetDeviceProfile"
+	AssociationRequestBuilderService_SetDisplayName_FullMethodName       = "/companion.AssociationRequestBuilderService/SetDisplayName"
+	AssociationRequestBuilderService_SetForceConfirmation_FullMethodName = "/companion.AssociationRequestBuilderService/SetForceConfirmation"
+	AssociationRequestBuilderService_SetSelfManaged_FullMethodName       = "/companion.AssociationRequestBuilderService/SetSelfManaged"
+	AssociationRequestBuilderService_SetSingleDevice_FullMethodName      = "/companion.AssociationRequestBuilderService/SetSingleDevice"
+)
+
+// AssociationRequestBuilderServiceClient is the client API for AssociationRequestBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AssociationRequestBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetDeviceProfile(ctx context.Context, in *SetDeviceProfileRequest, opts ...grpc.CallOption) (*SetDeviceProfileResponse, error)
+	SetDisplayName(ctx context.Context, in *SetDisplayNameRequest, opts ...grpc.CallOption) (*SetDisplayNameResponse, error)
+	SetForceConfirmation(ctx context.Context, in *SetForceConfirmationRequest, opts ...grpc.CallOption) (*SetForceConfirmationResponse, error)
+	SetSelfManaged(ctx context.Context, in *SetSelfManagedRequest, opts ...grpc.CallOption) (*SetSelfManagedResponse, error)
+	SetSingleDevice(ctx context.Context, in *SetSingleDeviceRequest, opts ...grpc.CallOption) (*SetSingleDeviceResponse, error)
+}
+
+type associationRequestBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAssociationRequestBuilderServiceClient(cc grpc.ClientConnInterface) AssociationRequestBuilderServiceClient {
+	return &associationRequestBuilderServiceClient{cc}
+}
+
+func (c *associationRequestBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, AssociationRequestBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *associationRequestBuilderServiceClient) SetDeviceProfile(ctx context.Context, in *SetDeviceProfileRequest, opts ...grpc.CallOption) (*SetDeviceProfileResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetDeviceProfileResponse)
+	err := c.cc.Invoke(ctx, AssociationRequestBuilderService_SetDeviceProfile_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *associationRequestBuilderServiceClient) SetDisplayName(ctx context.Context, in *SetDisplayNameRequest, opts ...grpc.CallOption) (*SetDisplayNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetDisplayNameResponse)
+	err := c.cc.Invoke(ctx, AssociationRequestBuilderService_SetDisplayName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *associationRequestBuilderServiceClient) SetForceConfirmation(ctx context.Context, in *SetForceConfirmationRequest, opts ...grpc.CallOption) (*SetForceConfirmationResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetForceConfirmationResponse)
+	err := c.cc.Invoke(ctx, AssociationRequestBuilderService_SetForceConfirmation_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *associationRequestBuilderServiceClient) SetSelfManaged(ctx context.Context, in *SetSelfManagedRequest, opts ...grpc.CallOption) (*SetSelfManagedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetSelfManagedResponse)
+	err := c.cc.Invoke(ctx, AssociationRequestBuilderService_SetSelfManaged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *associationRequestBuilderServiceClient) SetSingleDevice(ctx context.Context, in *SetSingleDeviceRequest, opts ...grpc.CallOption) (*SetSingleDeviceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetSingleDeviceResponse)
+	err := c.cc.Invoke(ctx, AssociationRequestBuilderService_SetSingleDevice_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AssociationRequestBuilderServiceServer is the server API for AssociationRequestBuilderService service.
+// All implementations must embed UnimplementedAssociationRequestBuilderServiceServer
+// for forward compatibility.
+type AssociationRequestBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetDeviceProfile(context.Context, *SetDeviceProfileRequest) (*SetDeviceProfileResponse, error)
+	SetDisplayName(context.Context, *SetDisplayNameRequest) (*SetDisplayNameResponse, error)
+	SetForceConfirmation(context.Context, *SetForceConfirmationRequest) (*SetForceConfirmationResponse, error)
+	SetSelfManaged(context.Context, *SetSelfManagedRequest) (*SetSelfManagedResponse, error)
+	SetSingleDevice(context.Context, *SetSingleDeviceRequest) (*SetSingleDeviceResponse, error)
+	mustEmbedUnimplementedAssociationRequestBuilderServiceServer()
+}
+
+// UnimplementedAssociationRequestBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedAssociationRequestBuilderServiceServer struct{}
+
+func (UnimplementedAssociationRequestBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedAssociationRequestBuilderServiceServer) SetDeviceProfile(context.Context, *SetDeviceProfileRequest) (*SetDeviceProfileResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetDeviceProfile not implemented")
+}
+func (UnimplementedAssociationRequestBuilderServiceServer) SetDisplayName(context.Context, *SetDisplayNameRequest) (*SetDisplayNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetDisplayName not implemented")
+}
+func (UnimplementedAssociationRequestBuilderServiceServer) SetForceConfirmation(context.Context, *SetForceConfirmationRequest) (*SetForceConfirmationResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetForceConfirmation not implemented")
+}
+func (UnimplementedAssociationRequestBuilderServiceServer) SetSelfManaged(context.Context, *SetSelfManagedRequest) (*SetSelfManagedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetSelfManaged not implemented")
+}
+func (UnimplementedAssociationRequestBuilderServiceServer) SetSingleDevice(context.Context, *SetSingleDeviceRequest) (*SetSingleDeviceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetSingleDevice not implemented")
+}
+func (UnimplementedAssociationRequestBuilderServiceServer) mustEmbedUnimplementedAssociationRequestBuilderServiceServer() {
+}
+func (UnimplementedAssociationRequestBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeAssociationRequestBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AssociationRequestBuilderServiceServer will
+// result in compilation errors.
+type UnsafeAssociationRequestBuilderServiceServer interface {
+	mustEmbedUnimplementedAssociationRequestBuilderServiceServer()
+}
+
+func RegisterAssociationRequestBuilderServiceServer(s grpc.ServiceRegistrar, srv AssociationRequestBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedAssociationRequestBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&AssociationRequestBuilderService_ServiceDesc, srv)
+}
+
+func _AssociationRequestBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AssociationRequestBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AssociationRequestBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AssociationRequestBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AssociationRequestBuilderService_SetDeviceProfile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetDeviceProfileRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AssociationRequestBuilderServiceServer).SetDeviceProfile(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AssociationRequestBuilderService_SetDeviceProfile_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AssociationRequestBuilderServiceServer).SetDeviceProfile(ctx, req.(*SetDeviceProfileRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AssociationRequestBuilderService_SetDisplayName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetDisplayNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AssociationRequestBuilderServiceServer).SetDisplayName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AssociationRequestBuilderService_SetDisplayName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AssociationRequestBuilderServiceServer).SetDisplayName(ctx, req.(*SetDisplayNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AssociationRequestBuilderService_SetForceConfirmation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetForceConfirmationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AssociationRequestBuilderServiceServer).SetForceConfirmation(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AssociationRequestBuilderService_SetForceConfirmation_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AssociationRequestBuilderServiceServer).SetForceConfirmation(ctx, req.(*SetForceConfirmationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AssociationRequestBuilderService_SetSelfManaged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetSelfManagedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AssociationRequestBuilderServiceServer).SetSelfManaged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AssociationRequestBuilderService_SetSelfManaged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AssociationRequestBuilderServiceServer).SetSelfManaged(ctx, req.(*SetSelfManagedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AssociationRequestBuilderService_SetSingleDevice_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetSingleDeviceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AssociationRequestBuilderServiceServer).SetSingleDevice(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AssociationRequestBuilderService_SetSingleDevice_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AssociationRequestBuilderServiceServer).SetSingleDevice(ctx, req.(*SetSingleDeviceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AssociationRequestBuilderService_ServiceDesc is the grpc.ServiceDesc for AssociationRequestBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AssociationRequestBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "companion.AssociationRequestBuilderService",
+	HandlerType: (*AssociationRequestBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _AssociationRequestBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetDeviceProfile",
+			Handler:    _AssociationRequestBuilderService_SetDeviceProfile_Handler,
+		},
+		{
+			MethodName: "SetDisplayName",
+			Handler:    _AssociationRequestBuilderService_SetDisplayName_Handler,
+		},
+		{
+			MethodName: "SetForceConfirmation",
+			Handler:    _AssociationRequestBuilderService_SetForceConfirmation_Handler,
+		},
+		{
+			MethodName: "SetSelfManaged",
+			Handler:    _AssociationRequestBuilderService_SetSelfManaged_Handler,
+		},
+		{
+			MethodName: "SetSingleDevice",
+			Handler:    _AssociationRequestBuilderService_SetSingleDevice_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/companion/companion.proto",
+}
+
+const (
+	WifiDeviceFilterService_DescribeContents_FullMethodName = "/companion.WifiDeviceFilterService/DescribeContents"
+	WifiDeviceFilterService_Equals_FullMethodName           = "/companion.WifiDeviceFilterService/Equals"
+	WifiDeviceFilterService_HashCode_FullMethodName         = "/companion.WifiDeviceFilterService/HashCode"
+	WifiDeviceFilterService_WriteToParcel_FullMethodName    = "/companion.WifiDeviceFilterService/WriteToParcel"
+)
+
+// WifiDeviceFilterServiceClient is the client API for WifiDeviceFilterService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type WifiDeviceFilterServiceClient interface {
+	DescribeContents(ctx context.Context, in *WifiDeviceFilterDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *WifiDeviceFilterEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	HashCode(ctx context.Context, in *WifiDeviceFilterHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	WriteToParcel(ctx context.Context, in *WifiDeviceFilterWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type wifiDeviceFilterServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewWifiDeviceFilterServiceClient(cc grpc.ClientConnInterface) WifiDeviceFilterServiceClient {
+	return &wifiDeviceFilterServiceClient{cc}
+}
+
+func (c *wifiDeviceFilterServiceClient) DescribeContents(ctx context.Context, in *WifiDeviceFilterDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, WifiDeviceFilterService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiDeviceFilterServiceClient) Equals(ctx context.Context, in *WifiDeviceFilterEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, WifiDeviceFilterService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiDeviceFilterServiceClient) HashCode(ctx context.Context, in *WifiDeviceFilterHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, WifiDeviceFilterService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiDeviceFilterServiceClient) WriteToParcel(ctx context.Context, in *WifiDeviceFilterWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, WifiDeviceFilterService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// WifiDeviceFilterServiceServer is the server API for WifiDeviceFilterService service.
+// All implementations must embed UnimplementedWifiDeviceFilterServiceServer
+// for forward compatibility.
+type WifiDeviceFilterServiceServer interface {
+	DescribeContents(context.Context, *WifiDeviceFilterDescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *WifiDeviceFilterEqualsRequest) (*EqualsResponse, error)
+	HashCode(context.Context, *WifiDeviceFilterHashCodeRequest) (*HashCodeResponse, error)
+	WriteToParcel(context.Context, *WifiDeviceFilterWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedWifiDeviceFilterServiceServer()
+}
+
+// UnimplementedWifiDeviceFilterServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedWifiDeviceFilterServiceServer struct{}
+
+func (UnimplementedWifiDeviceFilterServiceServer) DescribeContents(context.Context, *WifiDeviceFilterDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedWifiDeviceFilterServiceServer) Equals(context.Context, *WifiDeviceFilterEqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedWifiDeviceFilterServiceServer) HashCode(context.Context, *WifiDeviceFilterHashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedWifiDeviceFilterServiceServer) WriteToParcel(context.Context, *WifiDeviceFilterWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedWifiDeviceFilterServiceServer) mustEmbedUnimplementedWifiDeviceFilterServiceServer() {
+}
+func (UnimplementedWifiDeviceFilterServiceServer) testEmbeddedByValue() {}
+
+// UnsafeWifiDeviceFilterServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to WifiDeviceFilterServiceServer will
+// result in compilation errors.
+type UnsafeWifiDeviceFilterServiceServer interface {
+	mustEmbedUnimplementedWifiDeviceFilterServiceServer()
+}
+
+func RegisterWifiDeviceFilterServiceServer(s grpc.ServiceRegistrar, srv WifiDeviceFilterServiceServer) {
+	// If the following call panics, it indicates UnimplementedWifiDeviceFilterServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&WifiDeviceFilterService_ServiceDesc, srv)
+}
+
+func _WifiDeviceFilterService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WifiDeviceFilterDescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiDeviceFilterServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiDeviceFilterService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiDeviceFilterServiceServer).DescribeContents(ctx, req.(*WifiDeviceFilterDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiDeviceFilterService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WifiDeviceFilterEqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiDeviceFilterServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiDeviceFilterService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiDeviceFilterServiceServer).Equals(ctx, req.(*WifiDeviceFilterEqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiDeviceFilterService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WifiDeviceFilterHashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiDeviceFilterServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiDeviceFilterService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiDeviceFilterServiceServer).HashCode(ctx, req.(*WifiDeviceFilterHashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiDeviceFilterService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WifiDeviceFilterWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiDeviceFilterServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiDeviceFilterService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiDeviceFilterServiceServer).WriteToParcel(ctx, req.(*WifiDeviceFilterWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// WifiDeviceFilterService_ServiceDesc is the grpc.ServiceDesc for WifiDeviceFilterService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var WifiDeviceFilterService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "companion.WifiDeviceFilterService",
+	HandlerType: (*WifiDeviceFilterServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _WifiDeviceFilterService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _WifiDeviceFilterService_Equals_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _WifiDeviceFilterService_HashCode_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _WifiDeviceFilterService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/companion/companion.proto",
+}
+
+const (
+	WifiDeviceFilterBuilderService_Build_FullMethodName          = "/companion.WifiDeviceFilterBuilderService/Build"
+	WifiDeviceFilterBuilderService_SetBssid_FullMethodName       = "/companion.WifiDeviceFilterBuilderService/SetBssid"
+	WifiDeviceFilterBuilderService_SetBssidMask_FullMethodName   = "/companion.WifiDeviceFilterBuilderService/SetBssidMask"
+	WifiDeviceFilterBuilderService_SetNamePattern_FullMethodName = "/companion.WifiDeviceFilterBuilderService/SetNamePattern"
+)
+
+// WifiDeviceFilterBuilderServiceClient is the client API for WifiDeviceFilterBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type WifiDeviceFilterBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetBssid(ctx context.Context, in *SetBssidRequest, opts ...grpc.CallOption) (*SetBssidResponse, error)
+	SetBssidMask(ctx context.Context, in *SetBssidMaskRequest, opts ...grpc.CallOption) (*SetBssidMaskResponse, error)
+	SetNamePattern(ctx context.Context, in *SetNamePatternRequest, opts ...grpc.CallOption) (*SetNamePatternResponse, error)
+}
+
+type wifiDeviceFilterBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewWifiDeviceFilterBuilderServiceClient(cc grpc.ClientConnInterface) WifiDeviceFilterBuilderServiceClient {
+	return &wifiDeviceFilterBuilderServiceClient{cc}
+}
+
+func (c *wifiDeviceFilterBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, WifiDeviceFilterBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiDeviceFilterBuilderServiceClient) SetBssid(ctx context.Context, in *SetBssidRequest, opts ...grpc.CallOption) (*SetBssidResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetBssidResponse)
+	err := c.cc.Invoke(ctx, WifiDeviceFilterBuilderService_SetBssid_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiDeviceFilterBuilderServiceClient) SetBssidMask(ctx context.Context, in *SetBssidMaskRequest, opts ...grpc.CallOption) (*SetBssidMaskResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetBssidMaskResponse)
+	err := c.cc.Invoke(ctx, WifiDeviceFilterBuilderService_SetBssidMask_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiDeviceFilterBuilderServiceClient) SetNamePattern(ctx context.Context, in *SetNamePatternRequest, opts ...grpc.CallOption) (*SetNamePatternResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetNamePatternResponse)
+	err := c.cc.Invoke(ctx, WifiDeviceFilterBuilderService_SetNamePattern_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// WifiDeviceFilterBuilderServiceServer is the server API for WifiDeviceFilterBuilderService service.
+// All implementations must embed UnimplementedWifiDeviceFilterBuilderServiceServer
+// for forward compatibility.
+type WifiDeviceFilterBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetBssid(context.Context, *SetBssidRequest) (*SetBssidResponse, error)
+	SetBssidMask(context.Context, *SetBssidMaskRequest) (*SetBssidMaskResponse, error)
+	SetNamePattern(context.Context, *SetNamePatternRequest) (*SetNamePatternResponse, error)
+	mustEmbedUnimplementedWifiDeviceFilterBuilderServiceServer()
+}
+
+// UnimplementedWifiDeviceFilterBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedWifiDeviceFilterBuilderServiceServer struct{}
+
+func (UnimplementedWifiDeviceFilterBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedWifiDeviceFilterBuilderServiceServer) SetBssid(context.Context, *SetBssidRequest) (*SetBssidResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetBssid not implemented")
+}
+func (UnimplementedWifiDeviceFilterBuilderServiceServer) SetBssidMask(context.Context, *SetBssidMaskRequest) (*SetBssidMaskResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetBssidMask not implemented")
+}
+func (UnimplementedWifiDeviceFilterBuilderServiceServer) SetNamePattern(context.Context, *SetNamePatternRequest) (*SetNamePatternResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetNamePattern not implemented")
+}
+func (UnimplementedWifiDeviceFilterBuilderServiceServer) mustEmbedUnimplementedWifiDeviceFilterBuilderServiceServer() {
+}
+func (UnimplementedWifiDeviceFilterBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeWifiDeviceFilterBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to WifiDeviceFilterBuilderServiceServer will
+// result in compilation errors.
+type UnsafeWifiDeviceFilterBuilderServiceServer interface {
+	mustEmbedUnimplementedWifiDeviceFilterBuilderServiceServer()
+}
+
+func RegisterWifiDeviceFilterBuilderServiceServer(s grpc.ServiceRegistrar, srv WifiDeviceFilterBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedWifiDeviceFilterBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&WifiDeviceFilterBuilderService_ServiceDesc, srv)
+}
+
+func _WifiDeviceFilterBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiDeviceFilterBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiDeviceFilterBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiDeviceFilterBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiDeviceFilterBuilderService_SetBssid_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetBssidRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiDeviceFilterBuilderServiceServer).SetBssid(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiDeviceFilterBuilderService_SetBssid_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiDeviceFilterBuilderServiceServer).SetBssid(ctx, req.(*SetBssidRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiDeviceFilterBuilderService_SetBssidMask_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetBssidMaskRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiDeviceFilterBuilderServiceServer).SetBssidMask(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiDeviceFilterBuilderService_SetBssidMask_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiDeviceFilterBuilderServiceServer).SetBssidMask(ctx, req.(*SetBssidMaskRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiDeviceFilterBuilderService_SetNamePattern_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetNamePatternRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiDeviceFilterBuilderServiceServer).SetNamePattern(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiDeviceFilterBuilderService_SetNamePattern_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiDeviceFilterBuilderServiceServer).SetNamePattern(ctx, req.(*SetNamePatternRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// WifiDeviceFilterBuilderService_ServiceDesc is the grpc.ServiceDesc for WifiDeviceFilterBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var WifiDeviceFilterBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "companion.WifiDeviceFilterBuilderService",
+	HandlerType: (*WifiDeviceFilterBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _WifiDeviceFilterBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetBssid",
+			Handler:    _WifiDeviceFilterBuilderService_SetBssid_Handler,
+		},
+		{
+			MethodName: "SetBssidMask",
+			Handler:    _WifiDeviceFilterBuilderService_SetBssidMask_Handler,
+		},
+		{
+			MethodName: "SetNamePattern",
+			Handler:    _WifiDeviceFilterBuilderService_SetNamePattern_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/companion/companion.proto",
+}
+
+const (
+	DeviceIdService_DescribeContents_FullMethodName = "/companion.DeviceIdService/DescribeContents"
+	DeviceIdService_Equals_FullMethodName           = "/companion.DeviceIdService/Equals"
+	DeviceIdService_GetCustomId_FullMethodName      = "/companion.DeviceIdService/GetCustomId"
+	DeviceIdService_GetMacAddress_FullMethodName    = "/companion.DeviceIdService/GetMacAddress"
+	DeviceIdService_HashCode_FullMethodName         = "/companion.DeviceIdService/HashCode"
+	DeviceIdService_ToString_FullMethodName         = "/companion.DeviceIdService/ToString"
+	DeviceIdService_WriteToParcel_FullMethodName    = "/companion.DeviceIdService/WriteToParcel"
+)
+
+// DeviceIdServiceClient is the client API for DeviceIdService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type DeviceIdServiceClient interface {
+	DescribeContents(ctx context.Context, in *DeviceIdDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *DeviceIdEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetCustomId(ctx context.Context, in *GetCustomIdRequest, opts ...grpc.CallOption) (*GetCustomIdResponse, error)
+	GetMacAddress(ctx context.Context, in *GetMacAddressRequest, opts ...grpc.CallOption) (*GetMacAddressResponse, error)
+	HashCode(ctx context.Context, in *DeviceIdHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *DeviceIdToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *DeviceIdWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type deviceIdServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewDeviceIdServiceClient(cc grpc.ClientConnInterface) DeviceIdServiceClient {
+	return &deviceIdServiceClient{cc}
+}
+
+func (c *deviceIdServiceClient) DescribeContents(ctx context.Context, in *DeviceIdDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, DeviceIdService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceIdServiceClient) Equals(ctx context.Context, in *DeviceIdEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, DeviceIdService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceIdServiceClient) GetCustomId(ctx context.Context, in *GetCustomIdRequest, opts ...grpc.CallOption) (*GetCustomIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCustomIdResponse)
+	err := c.cc.Invoke(ctx, DeviceIdService_GetCustomId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceIdServiceClient) GetMacAddress(ctx context.Context, in *GetMacAddressRequest, opts ...grpc.CallOption) (*GetMacAddressResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMacAddressResponse)
+	err := c.cc.Invoke(ctx, DeviceIdService_GetMacAddress_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceIdServiceClient) HashCode(ctx context.Context, in *DeviceIdHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, DeviceIdService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceIdServiceClient) ToString(ctx context.Context, in *DeviceIdToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, DeviceIdService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceIdServiceClient) WriteToParcel(ctx context.Context, in *DeviceIdWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, DeviceIdService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// DeviceIdServiceServer is the server API for DeviceIdService service.
+// All implementations must embed UnimplementedDeviceIdServiceServer
+// for forward compatibility.
+type DeviceIdServiceServer interface {
+	DescribeContents(context.Context, *DeviceIdDescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *DeviceIdEqualsRequest) (*EqualsResponse, error)
+	GetCustomId(context.Context, *GetCustomIdRequest) (*GetCustomIdResponse, error)
+	GetMacAddress(context.Context, *GetMacAddressRequest) (*GetMacAddressResponse, error)
+	HashCode(context.Context, *DeviceIdHashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *DeviceIdToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *DeviceIdWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedDeviceIdServiceServer()
+}
+
+// UnimplementedDeviceIdServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedDeviceIdServiceServer struct{}
+
+func (UnimplementedDeviceIdServiceServer) DescribeContents(context.Context, *DeviceIdDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedDeviceIdServiceServer) Equals(context.Context, *DeviceIdEqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedDeviceIdServiceServer) GetCustomId(context.Context, *GetCustomIdRequest) (*GetCustomIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCustomId not implemented")
+}
+func (UnimplementedDeviceIdServiceServer) GetMacAddress(context.Context, *GetMacAddressRequest) (*GetMacAddressResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMacAddress not implemented")
+}
+func (UnimplementedDeviceIdServiceServer) HashCode(context.Context, *DeviceIdHashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedDeviceIdServiceServer) ToString(context.Context, *DeviceIdToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedDeviceIdServiceServer) WriteToParcel(context.Context, *DeviceIdWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedDeviceIdServiceServer) mustEmbedUnimplementedDeviceIdServiceServer() {}
+func (UnimplementedDeviceIdServiceServer) testEmbeddedByValue()                         {}
+
+// UnsafeDeviceIdServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to DeviceIdServiceServer will
+// result in compilation errors.
+type UnsafeDeviceIdServiceServer interface {
+	mustEmbedUnimplementedDeviceIdServiceServer()
+}
+
+func RegisterDeviceIdServiceServer(s grpc.ServiceRegistrar, srv DeviceIdServiceServer) {
+	// If the following call panics, it indicates UnimplementedDeviceIdServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&DeviceIdService_ServiceDesc, srv)
+}
+
+func _DeviceIdService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeviceIdDescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceIdServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceIdService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceIdServiceServer).DescribeContents(ctx, req.(*DeviceIdDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceIdService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeviceIdEqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceIdServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceIdService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceIdServiceServer).Equals(ctx, req.(*DeviceIdEqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceIdService_GetCustomId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCustomIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceIdServiceServer).GetCustomId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceIdService_GetCustomId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceIdServiceServer).GetCustomId(ctx, req.(*GetCustomIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceIdService_GetMacAddress_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMacAddressRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceIdServiceServer).GetMacAddress(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceIdService_GetMacAddress_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceIdServiceServer).GetMacAddress(ctx, req.(*GetMacAddressRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceIdService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeviceIdHashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceIdServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceIdService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceIdServiceServer).HashCode(ctx, req.(*DeviceIdHashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceIdService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeviceIdToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceIdServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceIdService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceIdServiceServer).ToString(ctx, req.(*DeviceIdToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceIdService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeviceIdWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceIdServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceIdService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceIdServiceServer).WriteToParcel(ctx, req.(*DeviceIdWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// DeviceIdService_ServiceDesc is the grpc.ServiceDesc for DeviceIdService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var DeviceIdService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "companion.DeviceIdService",
+	HandlerType: (*DeviceIdServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _DeviceIdService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _DeviceIdService_Equals_Handler,
+		},
+		{
+			MethodName: "GetCustomId",
+			Handler:    _DeviceIdService_GetCustomId_Handler,
+		},
+		{
+			MethodName: "GetMacAddress",
+			Handler:    _DeviceIdService_GetMacAddress_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _DeviceIdService_HashCode_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _DeviceIdService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _DeviceIdService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/companion/companion.proto",
+}
+
+const (
+	DeviceIdBuilderService_Build_FullMethodName         = "/companion.DeviceIdBuilderService/Build"
+	DeviceIdBuilderService_SetCustomId_FullMethodName   = "/companion.DeviceIdBuilderService/SetCustomId"
+	DeviceIdBuilderService_SetMacAddress_FullMethodName = "/companion.DeviceIdBuilderService/SetMacAddress"
+)
+
+// DeviceIdBuilderServiceClient is the client API for DeviceIdBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type DeviceIdBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetCustomId(ctx context.Context, in *SetCustomIdRequest, opts ...grpc.CallOption) (*SetCustomIdResponse, error)
+	SetMacAddress(ctx context.Context, in *SetMacAddressRequest, opts ...grpc.CallOption) (*SetMacAddressResponse, error)
+}
+
+type deviceIdBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewDeviceIdBuilderServiceClient(cc grpc.ClientConnInterface) DeviceIdBuilderServiceClient {
+	return &deviceIdBuilderServiceClient{cc}
+}
+
+func (c *deviceIdBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, DeviceIdBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceIdBuilderServiceClient) SetCustomId(ctx context.Context, in *SetCustomIdRequest, opts ...grpc.CallOption) (*SetCustomIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetCustomIdResponse)
+	err := c.cc.Invoke(ctx, DeviceIdBuilderService_SetCustomId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceIdBuilderServiceClient) SetMacAddress(ctx context.Context, in *SetMacAddressRequest, opts ...grpc.CallOption) (*SetMacAddressResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetMacAddressResponse)
+	err := c.cc.Invoke(ctx, DeviceIdBuilderService_SetMacAddress_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// DeviceIdBuilderServiceServer is the server API for DeviceIdBuilderService service.
+// All implementations must embed UnimplementedDeviceIdBuilderServiceServer
+// for forward compatibility.
+type DeviceIdBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetCustomId(context.Context, *SetCustomIdRequest) (*SetCustomIdResponse, error)
+	SetMacAddress(context.Context, *SetMacAddressRequest) (*SetMacAddressResponse, error)
+	mustEmbedUnimplementedDeviceIdBuilderServiceServer()
+}
+
+// UnimplementedDeviceIdBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedDeviceIdBuilderServiceServer struct{}
+
+func (UnimplementedDeviceIdBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedDeviceIdBuilderServiceServer) SetCustomId(context.Context, *SetCustomIdRequest) (*SetCustomIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetCustomId not implemented")
+}
+func (UnimplementedDeviceIdBuilderServiceServer) SetMacAddress(context.Context, *SetMacAddressRequest) (*SetMacAddressResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetMacAddress not implemented")
+}
+func (UnimplementedDeviceIdBuilderServiceServer) mustEmbedUnimplementedDeviceIdBuilderServiceServer() {
+}
+func (UnimplementedDeviceIdBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeDeviceIdBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to DeviceIdBuilderServiceServer will
+// result in compilation errors.
+type UnsafeDeviceIdBuilderServiceServer interface {
+	mustEmbedUnimplementedDeviceIdBuilderServiceServer()
+}
+
+func RegisterDeviceIdBuilderServiceServer(s grpc.ServiceRegistrar, srv DeviceIdBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedDeviceIdBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&DeviceIdBuilderService_ServiceDesc, srv)
+}
+
+func _DeviceIdBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceIdBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceIdBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceIdBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceIdBuilderService_SetCustomId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetCustomIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceIdBuilderServiceServer).SetCustomId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceIdBuilderService_SetCustomId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceIdBuilderServiceServer).SetCustomId(ctx, req.(*SetCustomIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceIdBuilderService_SetMacAddress_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetMacAddressRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceIdBuilderServiceServer).SetMacAddress(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceIdBuilderService_SetMacAddress_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceIdBuilderServiceServer).SetMacAddress(ctx, req.(*SetMacAddressRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// DeviceIdBuilderService_ServiceDesc is the grpc.ServiceDesc for DeviceIdBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var DeviceIdBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "companion.DeviceIdBuilderService",
+	HandlerType: (*DeviceIdBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _DeviceIdBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetCustomId",
+			Handler:    _DeviceIdBuilderService_SetCustomId_Handler,
+		},
+		{
+			MethodName: "SetMacAddress",
+			Handler:    _DeviceIdBuilderService_SetMacAddress_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/companion/companion.proto",
+}
+
+const (
+	AssociationInfoService_DescribeContents_FullMethodName       = "/companion.AssociationInfoService/DescribeContents"
+	AssociationInfoService_Equals_FullMethodName                 = "/companion.AssociationInfoService/Equals"
+	AssociationInfoService_GetAssociatedDevice_FullMethodName    = "/companion.AssociationInfoService/GetAssociatedDevice"
+	AssociationInfoService_GetDeviceId_FullMethodName            = "/companion.AssociationInfoService/GetDeviceId"
+	AssociationInfoService_GetDeviceMacAddress_FullMethodName    = "/companion.AssociationInfoService/GetDeviceMacAddress"
+	AssociationInfoService_GetDeviceProfile_FullMethodName       = "/companion.AssociationInfoService/GetDeviceProfile"
+	AssociationInfoService_GetDisplayName_FullMethodName         = "/companion.AssociationInfoService/GetDisplayName"
+	AssociationInfoService_GetId_FullMethodName                  = "/companion.AssociationInfoService/GetId"
+	AssociationInfoService_GetSystemDataSyncFlags_FullMethodName = "/companion.AssociationInfoService/GetSystemDataSyncFlags"
+	AssociationInfoService_HashCode_FullMethodName               = "/companion.AssociationInfoService/HashCode"
+	AssociationInfoService_IsSelfManaged_FullMethodName          = "/companion.AssociationInfoService/IsSelfManaged"
+	AssociationInfoService_ToString_FullMethodName               = "/companion.AssociationInfoService/ToString"
+	AssociationInfoService_WriteToParcel_FullMethodName          = "/companion.AssociationInfoService/WriteToParcel"
+)
+
+// AssociationInfoServiceClient is the client API for AssociationInfoService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AssociationInfoServiceClient interface {
+	DescribeContents(ctx context.Context, in *AssociationInfoDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *AssociationInfoEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetAssociatedDevice(ctx context.Context, in *GetAssociatedDeviceRequest, opts ...grpc.CallOption) (*GetAssociatedDeviceResponse, error)
+	GetDeviceId(ctx context.Context, in *GetDeviceIdRequest, opts ...grpc.CallOption) (*GetDeviceIdResponse, error)
+	GetDeviceMacAddress(ctx context.Context, in *GetDeviceMacAddressRequest, opts ...grpc.CallOption) (*GetDeviceMacAddressResponse, error)
+	GetDeviceProfile(ctx context.Context, in *GetDeviceProfileRequest, opts ...grpc.CallOption) (*GetDeviceProfileResponse, error)
+	GetDisplayName(ctx context.Context, in *GetDisplayNameRequest, opts ...grpc.CallOption) (*GetDisplayNameResponse, error)
+	GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error)
+	GetSystemDataSyncFlags(ctx context.Context, in *GetSystemDataSyncFlagsRequest, opts ...grpc.CallOption) (*GetSystemDataSyncFlagsResponse, error)
+	HashCode(ctx context.Context, in *AssociationInfoHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	IsSelfManaged(ctx context.Context, in *IsSelfManagedRequest, opts ...grpc.CallOption) (*IsSelfManagedResponse, error)
+	ToString(ctx context.Context, in *AssociationInfoToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *AssociationInfoWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type associationInfoServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAssociationInfoServiceClient(cc grpc.ClientConnInterface) AssociationInfoServiceClient {
+	return &associationInfoServiceClient{cc}
+}
+
+func (c *associationInfoServiceClient) DescribeContents(ctx context.Context, in *AssociationInfoDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, AssociationInfoService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *associationInfoServiceClient) Equals(ctx context.Context, in *AssociationInfoEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, AssociationInfoService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *associationInfoServiceClient) GetAssociatedDevice(ctx context.Context, in *GetAssociatedDeviceRequest, opts ...grpc.CallOption) (*GetAssociatedDeviceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAssociatedDeviceResponse)
+	err := c.cc.Invoke(ctx, AssociationInfoService_GetAssociatedDevice_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *associationInfoServiceClient) GetDeviceId(ctx context.Context, in *GetDeviceIdRequest, opts ...grpc.CallOption) (*GetDeviceIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDeviceIdResponse)
+	err := c.cc.Invoke(ctx, AssociationInfoService_GetDeviceId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *associationInfoServiceClient) GetDeviceMacAddress(ctx context.Context, in *GetDeviceMacAddressRequest, opts ...grpc.CallOption) (*GetDeviceMacAddressResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDeviceMacAddressResponse)
+	err := c.cc.Invoke(ctx, AssociationInfoService_GetDeviceMacAddress_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *associationInfoServiceClient) GetDeviceProfile(ctx context.Context, in *GetDeviceProfileRequest, opts ...grpc.CallOption) (*GetDeviceProfileResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDeviceProfileResponse)
+	err := c.cc.Invoke(ctx, AssociationInfoService_GetDeviceProfile_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *associationInfoServiceClient) GetDisplayName(ctx context.Context, in *GetDisplayNameRequest, opts ...grpc.CallOption) (*GetDisplayNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDisplayNameResponse)
+	err := c.cc.Invoke(ctx, AssociationInfoService_GetDisplayName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *associationInfoServiceClient) GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetIdResponse)
+	err := c.cc.Invoke(ctx, AssociationInfoService_GetId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *associationInfoServiceClient) GetSystemDataSyncFlags(ctx context.Context, in *GetSystemDataSyncFlagsRequest, opts ...grpc.CallOption) (*GetSystemDataSyncFlagsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSystemDataSyncFlagsResponse)
+	err := c.cc.Invoke(ctx, AssociationInfoService_GetSystemDataSyncFlags_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *associationInfoServiceClient) HashCode(ctx context.Context, in *AssociationInfoHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, AssociationInfoService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *associationInfoServiceClient) IsSelfManaged(ctx context.Context, in *IsSelfManagedRequest, opts ...grpc.CallOption) (*IsSelfManagedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsSelfManagedResponse)
+	err := c.cc.Invoke(ctx, AssociationInfoService_IsSelfManaged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *associationInfoServiceClient) ToString(ctx context.Context, in *AssociationInfoToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, AssociationInfoService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *associationInfoServiceClient) WriteToParcel(ctx context.Context, in *AssociationInfoWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, AssociationInfoService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AssociationInfoServiceServer is the server API for AssociationInfoService service.
+// All implementations must embed UnimplementedAssociationInfoServiceServer
+// for forward compatibility.
+type AssociationInfoServiceServer interface {
+	DescribeContents(context.Context, *AssociationInfoDescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *AssociationInfoEqualsRequest) (*EqualsResponse, error)
+	GetAssociatedDevice(context.Context, *GetAssociatedDeviceRequest) (*GetAssociatedDeviceResponse, error)
+	GetDeviceId(context.Context, *GetDeviceIdRequest) (*GetDeviceIdResponse, error)
+	GetDeviceMacAddress(context.Context, *GetDeviceMacAddressRequest) (*GetDeviceMacAddressResponse, error)
+	GetDeviceProfile(context.Context, *GetDeviceProfileRequest) (*GetDeviceProfileResponse, error)
+	GetDisplayName(context.Context, *GetDisplayNameRequest) (*GetDisplayNameResponse, error)
+	GetId(context.Context, *GetIdRequest) (*GetIdResponse, error)
+	GetSystemDataSyncFlags(context.Context, *GetSystemDataSyncFlagsRequest) (*GetSystemDataSyncFlagsResponse, error)
+	HashCode(context.Context, *AssociationInfoHashCodeRequest) (*HashCodeResponse, error)
+	IsSelfManaged(context.Context, *IsSelfManagedRequest) (*IsSelfManagedResponse, error)
+	ToString(context.Context, *AssociationInfoToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *AssociationInfoWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedAssociationInfoServiceServer()
+}
+
+// UnimplementedAssociationInfoServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedAssociationInfoServiceServer struct{}
+
+func (UnimplementedAssociationInfoServiceServer) DescribeContents(context.Context, *AssociationInfoDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedAssociationInfoServiceServer) Equals(context.Context, *AssociationInfoEqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedAssociationInfoServiceServer) GetAssociatedDevice(context.Context, *GetAssociatedDeviceRequest) (*GetAssociatedDeviceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAssociatedDevice not implemented")
+}
+func (UnimplementedAssociationInfoServiceServer) GetDeviceId(context.Context, *GetDeviceIdRequest) (*GetDeviceIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDeviceId not implemented")
+}
+func (UnimplementedAssociationInfoServiceServer) GetDeviceMacAddress(context.Context, *GetDeviceMacAddressRequest) (*GetDeviceMacAddressResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDeviceMacAddress not implemented")
+}
+func (UnimplementedAssociationInfoServiceServer) GetDeviceProfile(context.Context, *GetDeviceProfileRequest) (*GetDeviceProfileResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDeviceProfile not implemented")
+}
+func (UnimplementedAssociationInfoServiceServer) GetDisplayName(context.Context, *GetDisplayNameRequest) (*GetDisplayNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDisplayName not implemented")
+}
+func (UnimplementedAssociationInfoServiceServer) GetId(context.Context, *GetIdRequest) (*GetIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetId not implemented")
+}
+func (UnimplementedAssociationInfoServiceServer) GetSystemDataSyncFlags(context.Context, *GetSystemDataSyncFlagsRequest) (*GetSystemDataSyncFlagsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSystemDataSyncFlags not implemented")
+}
+func (UnimplementedAssociationInfoServiceServer) HashCode(context.Context, *AssociationInfoHashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedAssociationInfoServiceServer) IsSelfManaged(context.Context, *IsSelfManagedRequest) (*IsSelfManagedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsSelfManaged not implemented")
+}
+func (UnimplementedAssociationInfoServiceServer) ToString(context.Context, *AssociationInfoToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedAssociationInfoServiceServer) WriteToParcel(context.Context, *AssociationInfoWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedAssociationInfoServiceServer) mustEmbedUnimplementedAssociationInfoServiceServer() {
+}
+func (UnimplementedAssociationInfoServiceServer) testEmbeddedByValue() {}
+
+// UnsafeAssociationInfoServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AssociationInfoServiceServer will
+// result in compilation errors.
+type UnsafeAssociationInfoServiceServer interface {
+	mustEmbedUnimplementedAssociationInfoServiceServer()
+}
+
+func RegisterAssociationInfoServiceServer(s grpc.ServiceRegistrar, srv AssociationInfoServiceServer) {
+	// If the following call panics, it indicates UnimplementedAssociationInfoServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&AssociationInfoService_ServiceDesc, srv)
+}
+
+func _AssociationInfoService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AssociationInfoDescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AssociationInfoServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AssociationInfoService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AssociationInfoServiceServer).DescribeContents(ctx, req.(*AssociationInfoDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AssociationInfoService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AssociationInfoEqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AssociationInfoServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AssociationInfoService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AssociationInfoServiceServer).Equals(ctx, req.(*AssociationInfoEqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AssociationInfoService_GetAssociatedDevice_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAssociatedDeviceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AssociationInfoServiceServer).GetAssociatedDevice(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AssociationInfoService_GetAssociatedDevice_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AssociationInfoServiceServer).GetAssociatedDevice(ctx, req.(*GetAssociatedDeviceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AssociationInfoService_GetDeviceId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDeviceIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AssociationInfoServiceServer).GetDeviceId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AssociationInfoService_GetDeviceId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AssociationInfoServiceServer).GetDeviceId(ctx, req.(*GetDeviceIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AssociationInfoService_GetDeviceMacAddress_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDeviceMacAddressRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AssociationInfoServiceServer).GetDeviceMacAddress(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AssociationInfoService_GetDeviceMacAddress_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AssociationInfoServiceServer).GetDeviceMacAddress(ctx, req.(*GetDeviceMacAddressRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AssociationInfoService_GetDeviceProfile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDeviceProfileRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AssociationInfoServiceServer).GetDeviceProfile(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AssociationInfoService_GetDeviceProfile_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AssociationInfoServiceServer).GetDeviceProfile(ctx, req.(*GetDeviceProfileRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AssociationInfoService_GetDisplayName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDisplayNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AssociationInfoServiceServer).GetDisplayName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AssociationInfoService_GetDisplayName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AssociationInfoServiceServer).GetDisplayName(ctx, req.(*GetDisplayNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AssociationInfoService_GetId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AssociationInfoServiceServer).GetId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AssociationInfoService_GetId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AssociationInfoServiceServer).GetId(ctx, req.(*GetIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AssociationInfoService_GetSystemDataSyncFlags_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSystemDataSyncFlagsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AssociationInfoServiceServer).GetSystemDataSyncFlags(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AssociationInfoService_GetSystemDataSyncFlags_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AssociationInfoServiceServer).GetSystemDataSyncFlags(ctx, req.(*GetSystemDataSyncFlagsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AssociationInfoService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AssociationInfoHashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AssociationInfoServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AssociationInfoService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AssociationInfoServiceServer).HashCode(ctx, req.(*AssociationInfoHashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AssociationInfoService_IsSelfManaged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsSelfManagedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AssociationInfoServiceServer).IsSelfManaged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AssociationInfoService_IsSelfManaged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AssociationInfoServiceServer).IsSelfManaged(ctx, req.(*IsSelfManagedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AssociationInfoService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AssociationInfoToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AssociationInfoServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AssociationInfoService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AssociationInfoServiceServer).ToString(ctx, req.(*AssociationInfoToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AssociationInfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AssociationInfoWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AssociationInfoServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AssociationInfoService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AssociationInfoServiceServer).WriteToParcel(ctx, req.(*AssociationInfoWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AssociationInfoService_ServiceDesc is the grpc.ServiceDesc for AssociationInfoService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AssociationInfoService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "companion.AssociationInfoService",
+	HandlerType: (*AssociationInfoServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _AssociationInfoService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _AssociationInfoService_Equals_Handler,
+		},
+		{
+			MethodName: "GetAssociatedDevice",
+			Handler:    _AssociationInfoService_GetAssociatedDevice_Handler,
+		},
+		{
+			MethodName: "GetDeviceId",
+			Handler:    _AssociationInfoService_GetDeviceId_Handler,
+		},
+		{
+			MethodName: "GetDeviceMacAddress",
+			Handler:    _AssociationInfoService_GetDeviceMacAddress_Handler,
+		},
+		{
+			MethodName: "GetDeviceProfile",
+			Handler:    _AssociationInfoService_GetDeviceProfile_Handler,
+		},
+		{
+			MethodName: "GetDisplayName",
+			Handler:    _AssociationInfoService_GetDisplayName_Handler,
+		},
+		{
+			MethodName: "GetId",
+			Handler:    _AssociationInfoService_GetId_Handler,
+		},
+		{
+			MethodName: "GetSystemDataSyncFlags",
+			Handler:    _AssociationInfoService_GetSystemDataSyncFlags_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _AssociationInfoService_HashCode_Handler,
+		},
+		{
+			MethodName: "IsSelfManaged",
+			Handler:    _AssociationInfoService_IsSelfManaged_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _AssociationInfoService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _AssociationInfoService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/companion/companion.proto",
+}
+
+const (
+	BluetoothLeDeviceFilterService_DescribeContents_FullMethodName           = "/companion.BluetoothLeDeviceFilterService/DescribeContents"
+	BluetoothLeDeviceFilterService_Equals_FullMethodName                     = "/companion.BluetoothLeDeviceFilterService/Equals"
+	BluetoothLeDeviceFilterService_HashCode_FullMethodName                   = "/companion.BluetoothLeDeviceFilterService/HashCode"
+	BluetoothLeDeviceFilterService_ToString_FullMethodName                   = "/companion.BluetoothLeDeviceFilterService/ToString"
+	BluetoothLeDeviceFilterService_WriteToParcel_FullMethodName              = "/companion.BluetoothLeDeviceFilterService/WriteToParcel"
+	BluetoothLeDeviceFilterService_GetRenamePrefixLengthLimit_FullMethodName = "/companion.BluetoothLeDeviceFilterService/GetRenamePrefixLengthLimit"
+)
+
+// BluetoothLeDeviceFilterServiceClient is the client API for BluetoothLeDeviceFilterService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type BluetoothLeDeviceFilterServiceClient interface {
+	DescribeContents(ctx context.Context, in *BluetoothLeDeviceFilterDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *BluetoothLeDeviceFilterEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	HashCode(ctx context.Context, in *BluetoothLeDeviceFilterHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *BluetoothLeDeviceFilterToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *BluetoothLeDeviceFilterWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+	GetRenamePrefixLengthLimit(ctx context.Context, in *GetRenamePrefixLengthLimitRequest, opts ...grpc.CallOption) (*GetRenamePrefixLengthLimitResponse, error)
+}
+
+type bluetoothLeDeviceFilterServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewBluetoothLeDeviceFilterServiceClient(cc grpc.ClientConnInterface) BluetoothLeDeviceFilterServiceClient {
+	return &bluetoothLeDeviceFilterServiceClient{cc}
+}
+
+func (c *bluetoothLeDeviceFilterServiceClient) DescribeContents(ctx context.Context, in *BluetoothLeDeviceFilterDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, BluetoothLeDeviceFilterService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *bluetoothLeDeviceFilterServiceClient) Equals(ctx context.Context, in *BluetoothLeDeviceFilterEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, BluetoothLeDeviceFilterService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *bluetoothLeDeviceFilterServiceClient) HashCode(ctx context.Context, in *BluetoothLeDeviceFilterHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, BluetoothLeDeviceFilterService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *bluetoothLeDeviceFilterServiceClient) ToString(ctx context.Context, in *BluetoothLeDeviceFilterToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, BluetoothLeDeviceFilterService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *bluetoothLeDeviceFilterServiceClient) WriteToParcel(ctx context.Context, in *BluetoothLeDeviceFilterWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, BluetoothLeDeviceFilterService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *bluetoothLeDeviceFilterServiceClient) GetRenamePrefixLengthLimit(ctx context.Context, in *GetRenamePrefixLengthLimitRequest, opts ...grpc.CallOption) (*GetRenamePrefixLengthLimitResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRenamePrefixLengthLimitResponse)
+	err := c.cc.Invoke(ctx, BluetoothLeDeviceFilterService_GetRenamePrefixLengthLimit_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// BluetoothLeDeviceFilterServiceServer is the server API for BluetoothLeDeviceFilterService service.
+// All implementations must embed UnimplementedBluetoothLeDeviceFilterServiceServer
+// for forward compatibility.
+type BluetoothLeDeviceFilterServiceServer interface {
+	DescribeContents(context.Context, *BluetoothLeDeviceFilterDescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *BluetoothLeDeviceFilterEqualsRequest) (*EqualsResponse, error)
+	HashCode(context.Context, *BluetoothLeDeviceFilterHashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *BluetoothLeDeviceFilterToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *BluetoothLeDeviceFilterWriteToParcelRequest) (*WriteToParcelResponse, error)
+	GetRenamePrefixLengthLimit(context.Context, *GetRenamePrefixLengthLimitRequest) (*GetRenamePrefixLengthLimitResponse, error)
+	mustEmbedUnimplementedBluetoothLeDeviceFilterServiceServer()
+}
+
+// UnimplementedBluetoothLeDeviceFilterServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedBluetoothLeDeviceFilterServiceServer struct{}
+
+func (UnimplementedBluetoothLeDeviceFilterServiceServer) DescribeContents(context.Context, *BluetoothLeDeviceFilterDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedBluetoothLeDeviceFilterServiceServer) Equals(context.Context, *BluetoothLeDeviceFilterEqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedBluetoothLeDeviceFilterServiceServer) HashCode(context.Context, *BluetoothLeDeviceFilterHashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedBluetoothLeDeviceFilterServiceServer) ToString(context.Context, *BluetoothLeDeviceFilterToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedBluetoothLeDeviceFilterServiceServer) WriteToParcel(context.Context, *BluetoothLeDeviceFilterWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedBluetoothLeDeviceFilterServiceServer) GetRenamePrefixLengthLimit(context.Context, *GetRenamePrefixLengthLimitRequest) (*GetRenamePrefixLengthLimitResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRenamePrefixLengthLimit not implemented")
+}
+func (UnimplementedBluetoothLeDeviceFilterServiceServer) mustEmbedUnimplementedBluetoothLeDeviceFilterServiceServer() {
+}
+func (UnimplementedBluetoothLeDeviceFilterServiceServer) testEmbeddedByValue() {}
+
+// UnsafeBluetoothLeDeviceFilterServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to BluetoothLeDeviceFilterServiceServer will
+// result in compilation errors.
+type UnsafeBluetoothLeDeviceFilterServiceServer interface {
+	mustEmbedUnimplementedBluetoothLeDeviceFilterServiceServer()
+}
+
+func RegisterBluetoothLeDeviceFilterServiceServer(s grpc.ServiceRegistrar, srv BluetoothLeDeviceFilterServiceServer) {
+	// If the following call panics, it indicates UnimplementedBluetoothLeDeviceFilterServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&BluetoothLeDeviceFilterService_ServiceDesc, srv)
+}
+
+func _BluetoothLeDeviceFilterService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BluetoothLeDeviceFilterDescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BluetoothLeDeviceFilterServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BluetoothLeDeviceFilterService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BluetoothLeDeviceFilterServiceServer).DescribeContents(ctx, req.(*BluetoothLeDeviceFilterDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BluetoothLeDeviceFilterService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BluetoothLeDeviceFilterEqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BluetoothLeDeviceFilterServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BluetoothLeDeviceFilterService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BluetoothLeDeviceFilterServiceServer).Equals(ctx, req.(*BluetoothLeDeviceFilterEqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BluetoothLeDeviceFilterService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BluetoothLeDeviceFilterHashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BluetoothLeDeviceFilterServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BluetoothLeDeviceFilterService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BluetoothLeDeviceFilterServiceServer).HashCode(ctx, req.(*BluetoothLeDeviceFilterHashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BluetoothLeDeviceFilterService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BluetoothLeDeviceFilterToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BluetoothLeDeviceFilterServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BluetoothLeDeviceFilterService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BluetoothLeDeviceFilterServiceServer).ToString(ctx, req.(*BluetoothLeDeviceFilterToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BluetoothLeDeviceFilterService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BluetoothLeDeviceFilterWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BluetoothLeDeviceFilterServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BluetoothLeDeviceFilterService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BluetoothLeDeviceFilterServiceServer).WriteToParcel(ctx, req.(*BluetoothLeDeviceFilterWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BluetoothLeDeviceFilterService_GetRenamePrefixLengthLimit_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRenamePrefixLengthLimitRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BluetoothLeDeviceFilterServiceServer).GetRenamePrefixLengthLimit(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BluetoothLeDeviceFilterService_GetRenamePrefixLengthLimit_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BluetoothLeDeviceFilterServiceServer).GetRenamePrefixLengthLimit(ctx, req.(*GetRenamePrefixLengthLimitRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// BluetoothLeDeviceFilterService_ServiceDesc is the grpc.ServiceDesc for BluetoothLeDeviceFilterService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var BluetoothLeDeviceFilterService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "companion.BluetoothLeDeviceFilterService",
+	HandlerType: (*BluetoothLeDeviceFilterServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _BluetoothLeDeviceFilterService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _BluetoothLeDeviceFilterService_Equals_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _BluetoothLeDeviceFilterService_HashCode_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _BluetoothLeDeviceFilterService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _BluetoothLeDeviceFilterService_WriteToParcel_Handler,
+		},
+		{
+			MethodName: "GetRenamePrefixLengthLimit",
+			Handler:    _BluetoothLeDeviceFilterService_GetRenamePrefixLengthLimit_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/companion/companion.proto",
+}
+
+const (
+	BluetoothLeDeviceFilterBuilderService_Build_FullMethodName              = "/companion.BluetoothLeDeviceFilterBuilderService/Build"
+	BluetoothLeDeviceFilterBuilderService_SetNamePattern_FullMethodName     = "/companion.BluetoothLeDeviceFilterBuilderService/SetNamePattern"
+	BluetoothLeDeviceFilterBuilderService_SetRawDataFilter_FullMethodName   = "/companion.BluetoothLeDeviceFilterBuilderService/SetRawDataFilter"
+	BluetoothLeDeviceFilterBuilderService_SetRenameFromBytes_FullMethodName = "/companion.BluetoothLeDeviceFilterBuilderService/SetRenameFromBytes"
+	BluetoothLeDeviceFilterBuilderService_SetRenameFromName_FullMethodName  = "/companion.BluetoothLeDeviceFilterBuilderService/SetRenameFromName"
+	BluetoothLeDeviceFilterBuilderService_SetScanFilter_FullMethodName      = "/companion.BluetoothLeDeviceFilterBuilderService/SetScanFilter"
+)
+
+// BluetoothLeDeviceFilterBuilderServiceClient is the client API for BluetoothLeDeviceFilterBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type BluetoothLeDeviceFilterBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetNamePattern(ctx context.Context, in *SetNamePatternRequest, opts ...grpc.CallOption) (*SetNamePatternResponse, error)
+	SetRawDataFilter(ctx context.Context, in *SetRawDataFilterRequest, opts ...grpc.CallOption) (*SetRawDataFilterResponse, error)
+	SetRenameFromBytes(ctx context.Context, in *SetRenameFromBytesRequest, opts ...grpc.CallOption) (*SetRenameFromBytesResponse, error)
+	SetRenameFromName(ctx context.Context, in *SetRenameFromNameRequest, opts ...grpc.CallOption) (*SetRenameFromNameResponse, error)
+	SetScanFilter(ctx context.Context, in *SetScanFilterRequest, opts ...grpc.CallOption) (*SetScanFilterResponse, error)
+}
+
+type bluetoothLeDeviceFilterBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewBluetoothLeDeviceFilterBuilderServiceClient(cc grpc.ClientConnInterface) BluetoothLeDeviceFilterBuilderServiceClient {
+	return &bluetoothLeDeviceFilterBuilderServiceClient{cc}
+}
+
+func (c *bluetoothLeDeviceFilterBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, BluetoothLeDeviceFilterBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *bluetoothLeDeviceFilterBuilderServiceClient) SetNamePattern(ctx context.Context, in *SetNamePatternRequest, opts ...grpc.CallOption) (*SetNamePatternResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetNamePatternResponse)
+	err := c.cc.Invoke(ctx, BluetoothLeDeviceFilterBuilderService_SetNamePattern_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *bluetoothLeDeviceFilterBuilderServiceClient) SetRawDataFilter(ctx context.Context, in *SetRawDataFilterRequest, opts ...grpc.CallOption) (*SetRawDataFilterResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetRawDataFilterResponse)
+	err := c.cc.Invoke(ctx, BluetoothLeDeviceFilterBuilderService_SetRawDataFilter_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *bluetoothLeDeviceFilterBuilderServiceClient) SetRenameFromBytes(ctx context.Context, in *SetRenameFromBytesRequest, opts ...grpc.CallOption) (*SetRenameFromBytesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetRenameFromBytesResponse)
+	err := c.cc.Invoke(ctx, BluetoothLeDeviceFilterBuilderService_SetRenameFromBytes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *bluetoothLeDeviceFilterBuilderServiceClient) SetRenameFromName(ctx context.Context, in *SetRenameFromNameRequest, opts ...grpc.CallOption) (*SetRenameFromNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetRenameFromNameResponse)
+	err := c.cc.Invoke(ctx, BluetoothLeDeviceFilterBuilderService_SetRenameFromName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *bluetoothLeDeviceFilterBuilderServiceClient) SetScanFilter(ctx context.Context, in *SetScanFilterRequest, opts ...grpc.CallOption) (*SetScanFilterResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetScanFilterResponse)
+	err := c.cc.Invoke(ctx, BluetoothLeDeviceFilterBuilderService_SetScanFilter_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// BluetoothLeDeviceFilterBuilderServiceServer is the server API for BluetoothLeDeviceFilterBuilderService service.
+// All implementations must embed UnimplementedBluetoothLeDeviceFilterBuilderServiceServer
+// for forward compatibility.
+type BluetoothLeDeviceFilterBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetNamePattern(context.Context, *SetNamePatternRequest) (*SetNamePatternResponse, error)
+	SetRawDataFilter(context.Context, *SetRawDataFilterRequest) (*SetRawDataFilterResponse, error)
+	SetRenameFromBytes(context.Context, *SetRenameFromBytesRequest) (*SetRenameFromBytesResponse, error)
+	SetRenameFromName(context.Context, *SetRenameFromNameRequest) (*SetRenameFromNameResponse, error)
+	SetScanFilter(context.Context, *SetScanFilterRequest) (*SetScanFilterResponse, error)
+	mustEmbedUnimplementedBluetoothLeDeviceFilterBuilderServiceServer()
+}
+
+// UnimplementedBluetoothLeDeviceFilterBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedBluetoothLeDeviceFilterBuilderServiceServer struct{}
+
+func (UnimplementedBluetoothLeDeviceFilterBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedBluetoothLeDeviceFilterBuilderServiceServer) SetNamePattern(context.Context, *SetNamePatternRequest) (*SetNamePatternResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetNamePattern not implemented")
+}
+func (UnimplementedBluetoothLeDeviceFilterBuilderServiceServer) SetRawDataFilter(context.Context, *SetRawDataFilterRequest) (*SetRawDataFilterResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetRawDataFilter not implemented")
+}
+func (UnimplementedBluetoothLeDeviceFilterBuilderServiceServer) SetRenameFromBytes(context.Context, *SetRenameFromBytesRequest) (*SetRenameFromBytesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetRenameFromBytes not implemented")
+}
+func (UnimplementedBluetoothLeDeviceFilterBuilderServiceServer) SetRenameFromName(context.Context, *SetRenameFromNameRequest) (*SetRenameFromNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetRenameFromName not implemented")
+}
+func (UnimplementedBluetoothLeDeviceFilterBuilderServiceServer) SetScanFilter(context.Context, *SetScanFilterRequest) (*SetScanFilterResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetScanFilter not implemented")
+}
+func (UnimplementedBluetoothLeDeviceFilterBuilderServiceServer) mustEmbedUnimplementedBluetoothLeDeviceFilterBuilderServiceServer() {
+}
+func (UnimplementedBluetoothLeDeviceFilterBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeBluetoothLeDeviceFilterBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to BluetoothLeDeviceFilterBuilderServiceServer will
+// result in compilation errors.
+type UnsafeBluetoothLeDeviceFilterBuilderServiceServer interface {
+	mustEmbedUnimplementedBluetoothLeDeviceFilterBuilderServiceServer()
+}
+
+func RegisterBluetoothLeDeviceFilterBuilderServiceServer(s grpc.ServiceRegistrar, srv BluetoothLeDeviceFilterBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedBluetoothLeDeviceFilterBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&BluetoothLeDeviceFilterBuilderService_ServiceDesc, srv)
+}
+
+func _BluetoothLeDeviceFilterBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BluetoothLeDeviceFilterBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BluetoothLeDeviceFilterBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BluetoothLeDeviceFilterBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BluetoothLeDeviceFilterBuilderService_SetNamePattern_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetNamePatternRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BluetoothLeDeviceFilterBuilderServiceServer).SetNamePattern(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BluetoothLeDeviceFilterBuilderService_SetNamePattern_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BluetoothLeDeviceFilterBuilderServiceServer).SetNamePattern(ctx, req.(*SetNamePatternRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BluetoothLeDeviceFilterBuilderService_SetRawDataFilter_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetRawDataFilterRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BluetoothLeDeviceFilterBuilderServiceServer).SetRawDataFilter(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BluetoothLeDeviceFilterBuilderService_SetRawDataFilter_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BluetoothLeDeviceFilterBuilderServiceServer).SetRawDataFilter(ctx, req.(*SetRawDataFilterRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BluetoothLeDeviceFilterBuilderService_SetRenameFromBytes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetRenameFromBytesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BluetoothLeDeviceFilterBuilderServiceServer).SetRenameFromBytes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BluetoothLeDeviceFilterBuilderService_SetRenameFromBytes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BluetoothLeDeviceFilterBuilderServiceServer).SetRenameFromBytes(ctx, req.(*SetRenameFromBytesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BluetoothLeDeviceFilterBuilderService_SetRenameFromName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetRenameFromNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BluetoothLeDeviceFilterBuilderServiceServer).SetRenameFromName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BluetoothLeDeviceFilterBuilderService_SetRenameFromName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BluetoothLeDeviceFilterBuilderServiceServer).SetRenameFromName(ctx, req.(*SetRenameFromNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BluetoothLeDeviceFilterBuilderService_SetScanFilter_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetScanFilterRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BluetoothLeDeviceFilterBuilderServiceServer).SetScanFilter(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BluetoothLeDeviceFilterBuilderService_SetScanFilter_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BluetoothLeDeviceFilterBuilderServiceServer).SetScanFilter(ctx, req.(*SetScanFilterRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// BluetoothLeDeviceFilterBuilderService_ServiceDesc is the grpc.ServiceDesc for BluetoothLeDeviceFilterBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var BluetoothLeDeviceFilterBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "companion.BluetoothLeDeviceFilterBuilderService",
+	HandlerType: (*BluetoothLeDeviceFilterBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _BluetoothLeDeviceFilterBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetNamePattern",
+			Handler:    _BluetoothLeDeviceFilterBuilderService_SetNamePattern_Handler,
+		},
+		{
+			MethodName: "SetRawDataFilter",
+			Handler:    _BluetoothLeDeviceFilterBuilderService_SetRawDataFilter_Handler,
+		},
+		{
+			MethodName: "SetRenameFromBytes",
+			Handler:    _BluetoothLeDeviceFilterBuilderService_SetRenameFromBytes_Handler,
+		},
+		{
+			MethodName: "SetRenameFromName",
+			Handler:    _BluetoothLeDeviceFilterBuilderService_SetRenameFromName_Handler,
+		},
+		{
+			MethodName: "SetScanFilter",
+			Handler:    _BluetoothLeDeviceFilterBuilderService_SetScanFilter_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

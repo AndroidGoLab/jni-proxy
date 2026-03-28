@@ -6,6 +6,541 @@ package usage;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/usage";
 
+message NewStatsRequest {
+  int64 arg0 = 1;
+}
+
+message NewStatsResponse {
+  int64 result = 1;
+}
+
+message AddRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AddResponse {
+}
+
+message DescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message GetFirstTimeStampRequest {
+  int64 handle = 1;
+}
+
+message GetFirstTimeStampResponse {
+  int64 result = 1;
+}
+
+message GetLastTimeForegroundServiceUsedRequest {
+  int64 handle = 1;
+}
+
+message GetLastTimeForegroundServiceUsedResponse {
+  int64 result = 1;
+}
+
+message GetLastTimeStampRequest {
+  int64 handle = 1;
+}
+
+message GetLastTimeStampResponse {
+  int64 result = 1;
+}
+
+message GetLastTimeUsedRequest {
+  int64 handle = 1;
+}
+
+message GetLastTimeUsedResponse {
+  int64 result = 1;
+}
+
+message GetLastTimeVisibleRequest {
+  int64 handle = 1;
+}
+
+message GetLastTimeVisibleResponse {
+  int64 result = 1;
+}
+
+message GetPackageNameRequest {
+  int64 handle = 1;
+}
+
+message GetPackageNameResponse {
+  string result = 1;
+}
+
+message GetTotalTimeForegroundServiceUsedRequest {
+  int64 handle = 1;
+}
+
+message GetTotalTimeForegroundServiceUsedResponse {
+  int64 result = 1;
+}
+
+message GetTotalTimeInForegroundRequest {
+  int64 handle = 1;
+}
+
+message GetTotalTimeInForegroundResponse {
+  int64 result = 1;
+}
+
+message GetTotalTimeVisibleRequest {
+  int64 handle = 1;
+}
+
+message GetTotalTimeVisibleResponse {
+  int64 result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message WriteToParcelResponse {
+}
+
+message EventsDescribeContentsRequest {
+}
+
+message GetNextEventRequest {
+  int64 arg0 = 1;
+}
+
+message GetNextEventResponse {
+  bool result = 1;
+}
+
+message HasNextEventRequest {
+}
+
+message HasNextEventResponse {
+  bool result = 1;
+}
+
+message EventsWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message GetAppStandbyBucketRequest {
+}
+
+message GetAppStandbyBucketResponse {
+  int32 result = 1;
+}
+
+message GetClassNameRequest {
+}
+
+message GetClassNameResponse {
+  string result = 1;
+}
+
+message GetConfigurationRequest {
+}
+
+message GetConfigurationResponse {
+  int64 result = 1;
+}
+
+message GetEventTypeRequest {
+}
+
+message GetEventTypeResponse {
+  int32 result = 1;
+}
+
+message GetExtrasRequest {
+}
+
+message GetExtrasResponse {
+  int64 result = 1;
+}
+
+message EventsEventGetPackageNameRequest {
+}
+
+message GetShortcutIdRequest {
+}
+
+message GetShortcutIdResponse {
+  string result = 1;
+}
+
+message GetTimeStampRequest {
+}
+
+message GetTimeStampResponse {
+  int64 result = 1;
+}
+
+message ExternalStorageStatsDescribeContentsRequest {
+}
+
+message GetAppBytesRequest {
+}
+
+message GetAppBytesResponse {
+  int64 result = 1;
+}
+
+message GetAudioBytesRequest {
+}
+
+message GetAudioBytesResponse {
+  int64 result = 1;
+}
+
+message GetImageBytesRequest {
+}
+
+message GetImageBytesResponse {
+  int64 result = 1;
+}
+
+message GetTotalBytesRequest {
+}
+
+message GetTotalBytesResponse {
+  int64 result = 1;
+}
+
+message GetVideoBytesRequest {
+}
+
+message GetVideoBytesResponse {
+  int64 result = 1;
+}
+
+message ExternalStorageStatsWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message GetFreeBytesRequest {
+  int64 arg0 = 1;
+}
+
+message GetFreeBytesResponse {
+  int64 result = 1;
+}
+
+message StorageStatsManagerGetTotalBytesRequest {
+  int64 arg0 = 1;
+}
+
+message QueryExternalStatsForUserRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message QueryExternalStatsForUserResponse {
+  int64 result = 1;
+}
+
+message QueryStatsForPackageRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message QueryStatsForPackageResponse {
+  int64 result = 1;
+}
+
+message QueryStatsForUidRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message QueryStatsForUidResponse {
+  int64 result = 1;
+}
+
+message QueryStatsForUserRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message QueryStatsForUserResponse {
+  int64 result = 1;
+}
+
+message NewConfigurationStatsRequest {
+  int64 arg0 = 1;
+}
+
+message NewConfigurationStatsResponse {
+  int64 result = 1;
+}
+
+message GetActivationCountRequest {
+  int64 handle = 1;
+}
+
+message GetActivationCountResponse {
+  int32 result = 1;
+}
+
+message ConfigurationStatsGetConfigurationRequest {
+  int64 handle = 1;
+}
+
+message GetLastTimeActiveRequest {
+  int64 handle = 1;
+}
+
+message GetLastTimeActiveResponse {
+  int64 result = 1;
+}
+
+message GetTotalTimeActiveRequest {
+  int64 handle = 1;
+}
+
+message GetTotalTimeActiveResponse {
+  int64 result = 1;
+}
+
+message CloseRequest {
+}
+
+message CloseResponse {
+}
+
+message GetNextBucketRequest {
+  int64 arg0 = 1;
+}
+
+message GetNextBucketResponse {
+  bool result = 1;
+}
+
+message HasNextBucketRequest {
+}
+
+message HasNextBucketResponse {
+  bool result = 1;
+}
+
+message GetDefaultNetworkStatusRequest {
+}
+
+message GetDefaultNetworkStatusResponse {
+  int32 result = 1;
+}
+
+message GetEndTimeStampRequest {
+}
+
+message GetEndTimeStampResponse {
+  int64 result = 1;
+}
+
+message GetMeteredRequest {
+}
+
+message GetMeteredResponse {
+  int32 result = 1;
+}
+
+message GetRoamingRequest {
+}
+
+message GetRoamingResponse {
+  int32 result = 1;
+}
+
+message GetRxBytesRequest {
+}
+
+message GetRxBytesResponse {
+  int64 result = 1;
+}
+
+message GetRxPacketsRequest {
+}
+
+message GetRxPacketsResponse {
+  int64 result = 1;
+}
+
+message GetStartTimeStampRequest {
+}
+
+message GetStartTimeStampResponse {
+  int64 result = 1;
+}
+
+message GetStateRequest {
+}
+
+message GetStateResponse {
+  int32 result = 1;
+}
+
+message GetTagRequest {
+}
+
+message GetTagResponse {
+  int32 result = 1;
+}
+
+message GetTxBytesRequest {
+}
+
+message GetTxBytesResponse {
+  int64 result = 1;
+}
+
+message GetTxPacketsRequest {
+}
+
+message GetTxPacketsResponse {
+  int64 result = 1;
+}
+
+message GetUidRequest {
+}
+
+message GetUidResponse {
+  int32 result = 1;
+}
+
+message IsAppInactiveRequest {
+  string arg0 = 1;
+}
+
+message IsAppInactiveResponse {
+  bool result = 1;
+}
+
+message QueryEvents1Request {
+  int64 arg0 = 1;
+}
+
+message QueryEvents1Response {
+  int64 result = 1;
+}
+
+message QueryEvents2_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message QueryEvents2_1Response {
+  int64 result = 1;
+}
+
+message QueryEventsForSelfRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message QueryEventsForSelfResponse {
+  int64 result = 1;
+}
+
+message NewEventStatsRequest {
+  int64 arg0 = 1;
+}
+
+message NewEventStatsResponse {
+  int64 result = 1;
+}
+
+message GetCountRequest {
+  int64 handle = 1;
+}
+
+message GetCountResponse {
+  int32 result = 1;
+}
+
+message EventStatsGetEventTypeRequest {
+  int64 handle = 1;
+}
+
+message GetLastEventTimeRequest {
+  int64 handle = 1;
+}
+
+message GetLastEventTimeResponse {
+  int64 result = 1;
+}
+
+message GetTotalTimeRequest {
+  int64 handle = 1;
+}
+
+message GetTotalTimeResponse {
+  int64 result = 1;
+}
+
+message EventsQueryDescribeContentsRequest {
+}
+
+message GetBeginTimeMillisRequest {
+}
+
+message GetBeginTimeMillisResponse {
+  int64 result = 1;
+}
+
+message GetEndTimeMillisRequest {
+}
+
+message GetEndTimeMillisResponse {
+  int64 result = 1;
+}
+
+message GetEventTypesRequest {
+}
+
+message GetEventTypesResponse {
+  int64 result = 1;
+}
+
+message EventsQueryWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message BuildRequest {
+}
+
+message BuildResponse {
+  int64 result = 1;
+}
+
+message SetEventTypesRequest {
+  int64 arg0 = 1;
+}
+
+message SetEventTypesResponse {
+  int64 result = 1;
+}
+
+message SetPackageNamesRequest {
+  int64 arg0 = 1;
+}
+
+message SetPackageNamesResponse {
+  int64 result = 1;
+}
+
 message QueryDetailsRequest {
   int32 arg0 = 1;
   string arg1 = 2;
@@ -106,98 +641,170 @@ message UnregisterUsageCallbackRequest {
 message UnregisterUsageCallbackResponse {
 }
 
-message GetAppStandbyBucketRequest {
-}
-
-message GetAppStandbyBucketResponse {
-  int32 result = 1;
-}
-
-message IsAppInactiveRequest {
-  string arg0 = 1;
-}
-
-message IsAppInactiveResponse {
-  bool result = 1;
-}
-
-message QueryEvents1Request {
-  int64 arg0 = 1;
-}
-
-message QueryEvents1Response {
-  int64 result = 1;
-}
-
-message QueryEvents2_1Request {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message QueryEvents2_1Response {
-  int64 result = 1;
-}
-
-message QueryEventsForSelfRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message QueryEventsForSelfResponse {
-  int64 result = 1;
-}
-
-message GetFreeBytesRequest {
-  int64 arg0 = 1;
-}
-
-message GetFreeBytesResponse {
-  int64 result = 1;
-}
-
-message GetTotalBytesRequest {
-  int64 arg0 = 1;
-}
-
-message GetTotalBytesResponse {
-  int64 result = 1;
-}
-
-message QueryExternalStatsForUserRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message QueryExternalStatsForUserResponse {
-  int64 result = 1;
-}
-
-message QueryStatsForPackageRequest {
-  int64 arg0 = 1;
+message OnThresholdReachedRequest {
+  int32 arg0 = 1;
   string arg1 = 2;
-  int64 arg2 = 3;
 }
 
-message QueryStatsForPackageResponse {
+message OnThresholdReachedResponse {
+}
+
+message StorageStatsDescribeContentsRequest {
+}
+
+message GetAppBytesByDataTypeRequest {
+  int32 arg0 = 1;
+}
+
+message GetAppBytesByDataTypeResponse {
   int64 result = 1;
 }
 
-message QueryStatsForUidRequest {
+message GetCacheBytesRequest {
+}
+
+message GetCacheBytesResponse {
+  int64 result = 1;
+}
+
+message GetDataBytesRequest {
+}
+
+message GetDataBytesResponse {
+  int64 result = 1;
+}
+
+message GetExternalCacheBytesRequest {
+}
+
+message GetExternalCacheBytesResponse {
+  int64 result = 1;
+}
+
+message StorageStatsWriteToParcelRequest {
   int64 arg0 = 1;
   int32 arg1 = 2;
 }
 
-message QueryStatsForUidResponse {
-  int64 result = 1;
+service StatsService {
+  rpc NewStats (NewStatsRequest) returns (NewStatsResponse);
+  rpc Add (AddRequest) returns (AddResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetFirstTimeStamp (GetFirstTimeStampRequest) returns (GetFirstTimeStampResponse);
+  rpc GetLastTimeForegroundServiceUsed (GetLastTimeForegroundServiceUsedRequest) returns (GetLastTimeForegroundServiceUsedResponse);
+  rpc GetLastTimeStamp (GetLastTimeStampRequest) returns (GetLastTimeStampResponse);
+  rpc GetLastTimeUsed (GetLastTimeUsedRequest) returns (GetLastTimeUsedResponse);
+  rpc GetLastTimeVisible (GetLastTimeVisibleRequest) returns (GetLastTimeVisibleResponse);
+  rpc GetPackageName (GetPackageNameRequest) returns (GetPackageNameResponse);
+  rpc GetTotalTimeForegroundServiceUsed (GetTotalTimeForegroundServiceUsedRequest) returns (GetTotalTimeForegroundServiceUsedResponse);
+  rpc GetTotalTimeInForeground (GetTotalTimeInForegroundRequest) returns (GetTotalTimeInForegroundResponse);
+  rpc GetTotalTimeVisible (GetTotalTimeVisibleRequest) returns (GetTotalTimeVisibleResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
-message QueryStatsForUserRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
+service EventsService {
+  rpc DescribeContents (EventsDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetNextEvent (GetNextEventRequest) returns (GetNextEventResponse);
+  rpc HasNextEvent (HasNextEventRequest) returns (HasNextEventResponse);
+  rpc WriteToParcel (EventsWriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
-message QueryStatsForUserResponse {
-  int64 result = 1;
+service EventsEventService {
+  rpc GetAppStandbyBucket (GetAppStandbyBucketRequest) returns (GetAppStandbyBucketResponse);
+  rpc GetClassName (GetClassNameRequest) returns (GetClassNameResponse);
+  rpc GetConfiguration (GetConfigurationRequest) returns (GetConfigurationResponse);
+  rpc GetEventType (GetEventTypeRequest) returns (GetEventTypeResponse);
+  rpc GetExtras (GetExtrasRequest) returns (GetExtrasResponse);
+  rpc GetPackageName (EventsEventGetPackageNameRequest) returns (GetPackageNameResponse);
+  rpc GetShortcutId (GetShortcutIdRequest) returns (GetShortcutIdResponse);
+  rpc GetTimeStamp (GetTimeStampRequest) returns (GetTimeStampResponse);
+}
+
+service ExternalStorageStatsService {
+  rpc DescribeContents (ExternalStorageStatsDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetAppBytes (GetAppBytesRequest) returns (GetAppBytesResponse);
+  rpc GetAudioBytes (GetAudioBytesRequest) returns (GetAudioBytesResponse);
+  rpc GetImageBytes (GetImageBytesRequest) returns (GetImageBytesResponse);
+  rpc GetTotalBytes (GetTotalBytesRequest) returns (GetTotalBytesResponse);
+  rpc GetVideoBytes (GetVideoBytesRequest) returns (GetVideoBytesResponse);
+  rpc WriteToParcel (ExternalStorageStatsWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service StorageStatsManagerService {
+  rpc GetFreeBytes (GetFreeBytesRequest) returns (GetFreeBytesResponse);
+  rpc GetTotalBytes (StorageStatsManagerGetTotalBytesRequest) returns (GetTotalBytesResponse);
+  rpc QueryExternalStatsForUser (QueryExternalStatsForUserRequest) returns (QueryExternalStatsForUserResponse);
+  rpc QueryStatsForPackage (QueryStatsForPackageRequest) returns (QueryStatsForPackageResponse);
+  rpc QueryStatsForUid (QueryStatsForUidRequest) returns (QueryStatsForUidResponse);
+  rpc QueryStatsForUser (QueryStatsForUserRequest) returns (QueryStatsForUserResponse);
+}
+
+service ConfigurationStatsService {
+  rpc NewConfigurationStats (NewConfigurationStatsRequest) returns (NewConfigurationStatsResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetActivationCount (GetActivationCountRequest) returns (GetActivationCountResponse);
+  rpc GetConfiguration (ConfigurationStatsGetConfigurationRequest) returns (GetConfigurationResponse);
+  rpc GetFirstTimeStamp (GetFirstTimeStampRequest) returns (GetFirstTimeStampResponse);
+  rpc GetLastTimeActive (GetLastTimeActiveRequest) returns (GetLastTimeActiveResponse);
+  rpc GetLastTimeStamp (GetLastTimeStampRequest) returns (GetLastTimeStampResponse);
+  rpc GetTotalTimeActive (GetTotalTimeActiveRequest) returns (GetTotalTimeActiveResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service NetworkStatsService {
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc GetNextBucket (GetNextBucketRequest) returns (GetNextBucketResponse);
+  rpc HasNextBucket (HasNextBucketRequest) returns (HasNextBucketResponse);
+}
+
+service NetworkStatsBucketService {
+  rpc GetDefaultNetworkStatus (GetDefaultNetworkStatusRequest) returns (GetDefaultNetworkStatusResponse);
+  rpc GetEndTimeStamp (GetEndTimeStampRequest) returns (GetEndTimeStampResponse);
+  rpc GetMetered (GetMeteredRequest) returns (GetMeteredResponse);
+  rpc GetRoaming (GetRoamingRequest) returns (GetRoamingResponse);
+  rpc GetRxBytes (GetRxBytesRequest) returns (GetRxBytesResponse);
+  rpc GetRxPackets (GetRxPacketsRequest) returns (GetRxPacketsResponse);
+  rpc GetStartTimeStamp (GetStartTimeStampRequest) returns (GetStartTimeStampResponse);
+  rpc GetState (GetStateRequest) returns (GetStateResponse);
+  rpc GetTag (GetTagRequest) returns (GetTagResponse);
+  rpc GetTxBytes (GetTxBytesRequest) returns (GetTxBytesResponse);
+  rpc GetTxPackets (GetTxPacketsRequest) returns (GetTxPacketsResponse);
+  rpc GetUid (GetUidRequest) returns (GetUidResponse);
+}
+
+service StatsManagerService {
+  rpc GetAppStandbyBucket (GetAppStandbyBucketRequest) returns (GetAppStandbyBucketResponse);
+  rpc IsAppInactive (IsAppInactiveRequest) returns (IsAppInactiveResponse);
+  rpc QueryEvents1 (QueryEvents1Request) returns (QueryEvents1Response);
+  rpc QueryEvents2_1 (QueryEvents2_1Request) returns (QueryEvents2_1Response);
+  rpc QueryEventsForSelf (QueryEventsForSelfRequest) returns (QueryEventsForSelfResponse);
+}
+
+service EventStatsService {
+  rpc NewEventStats (NewEventStatsRequest) returns (NewEventStatsResponse);
+  rpc Add (AddRequest) returns (AddResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetCount (GetCountRequest) returns (GetCountResponse);
+  rpc GetEventType (EventStatsGetEventTypeRequest) returns (GetEventTypeResponse);
+  rpc GetFirstTimeStamp (GetFirstTimeStampRequest) returns (GetFirstTimeStampResponse);
+  rpc GetLastEventTime (GetLastEventTimeRequest) returns (GetLastEventTimeResponse);
+  rpc GetLastTimeStamp (GetLastTimeStampRequest) returns (GetLastTimeStampResponse);
+  rpc GetTotalTime (GetTotalTimeRequest) returns (GetTotalTimeResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service EventsQueryService {
+  rpc DescribeContents (EventsQueryDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetBeginTimeMillis (GetBeginTimeMillisRequest) returns (GetBeginTimeMillisResponse);
+  rpc GetEndTimeMillis (GetEndTimeMillisRequest) returns (GetEndTimeMillisResponse);
+  rpc GetEventTypes (GetEventTypesRequest) returns (GetEventTypesResponse);
+  rpc WriteToParcel (EventsQueryWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service EventsQueryBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetEventTypes (SetEventTypesRequest) returns (SetEventTypesResponse);
+  rpc SetPackageNames (SetPackageNamesRequest) returns (SetPackageNamesResponse);
 }
 
 service NetworkStatsManagerService {
@@ -212,19 +819,16 @@ service NetworkStatsManagerService {
   rpc UnregisterUsageCallback (UnregisterUsageCallbackRequest) returns (UnregisterUsageCallbackResponse);
 }
 
-service StatsManagerService {
-  rpc GetAppStandbyBucket (GetAppStandbyBucketRequest) returns (GetAppStandbyBucketResponse);
-  rpc IsAppInactive (IsAppInactiveRequest) returns (IsAppInactiveResponse);
-  rpc QueryEvents1 (QueryEvents1Request) returns (QueryEvents1Response);
-  rpc QueryEvents2_1 (QueryEvents2_1Request) returns (QueryEvents2_1Response);
-  rpc QueryEventsForSelf (QueryEventsForSelfRequest) returns (QueryEventsForSelfResponse);
+service NetworkStatsManagerUsageCallbackService {
+  rpc OnThresholdReached (OnThresholdReachedRequest) returns (OnThresholdReachedResponse);
 }
 
-service StorageStatsManagerService {
-  rpc GetFreeBytes (GetFreeBytesRequest) returns (GetFreeBytesResponse);
-  rpc GetTotalBytes (GetTotalBytesRequest) returns (GetTotalBytesResponse);
-  rpc QueryExternalStatsForUser (QueryExternalStatsForUserRequest) returns (QueryExternalStatsForUserResponse);
-  rpc QueryStatsForPackage (QueryStatsForPackageRequest) returns (QueryStatsForPackageResponse);
-  rpc QueryStatsForUid (QueryStatsForUidRequest) returns (QueryStatsForUidResponse);
-  rpc QueryStatsForUser (QueryStatsForUserRequest) returns (QueryStatsForUserResponse);
+service StorageStatsService {
+  rpc DescribeContents (StorageStatsDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetAppBytes (GetAppBytesRequest) returns (GetAppBytesResponse);
+  rpc GetAppBytesByDataType (GetAppBytesByDataTypeRequest) returns (GetAppBytesByDataTypeResponse);
+  rpc GetCacheBytes (GetCacheBytesRequest) returns (GetCacheBytesResponse);
+  rpc GetDataBytes (GetDataBytesRequest) returns (GetDataBytesResponse);
+  rpc GetExternalCacheBytes (GetExternalCacheBytesRequest) returns (GetExternalCacheBytesResponse);
+  rpc WriteToParcel (StorageStatsWriteToParcelRequest) returns (WriteToParcelResponse);
 }

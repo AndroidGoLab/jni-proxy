@@ -1151,6 +1151,670 @@ func (*UnregisterTorchCallbackResponse) Descriptor() ([]byte, []int) {
 	return file_proto_camera_camera_proto_rawDescGZIP(), []int{25}
 }
 
+type OnCameraAccessPrioritiesChangedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnCameraAccessPrioritiesChangedRequest) Reset() {
+	*x = OnCameraAccessPrioritiesChangedRequest{}
+	mi := &file_proto_camera_camera_proto_msgTypes[26]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnCameraAccessPrioritiesChangedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnCameraAccessPrioritiesChangedRequest) ProtoMessage() {}
+
+func (x *OnCameraAccessPrioritiesChangedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera_camera_proto_msgTypes[26]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnCameraAccessPrioritiesChangedRequest.ProtoReflect.Descriptor instead.
+func (*OnCameraAccessPrioritiesChangedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera_camera_proto_rawDescGZIP(), []int{26}
+}
+
+type OnCameraAccessPrioritiesChangedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnCameraAccessPrioritiesChangedResponse) Reset() {
+	*x = OnCameraAccessPrioritiesChangedResponse{}
+	mi := &file_proto_camera_camera_proto_msgTypes[27]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnCameraAccessPrioritiesChangedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnCameraAccessPrioritiesChangedResponse) ProtoMessage() {}
+
+func (x *OnCameraAccessPrioritiesChangedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera_camera_proto_msgTypes[27]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnCameraAccessPrioritiesChangedResponse.ProtoReflect.Descriptor instead.
+func (*OnCameraAccessPrioritiesChangedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_camera_camera_proto_rawDescGZIP(), []int{27}
+}
+
+type OnCameraAvailableRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnCameraAvailableRequest) Reset() {
+	*x = OnCameraAvailableRequest{}
+	mi := &file_proto_camera_camera_proto_msgTypes[28]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnCameraAvailableRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnCameraAvailableRequest) ProtoMessage() {}
+
+func (x *OnCameraAvailableRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera_camera_proto_msgTypes[28]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnCameraAvailableRequest.ProtoReflect.Descriptor instead.
+func (*OnCameraAvailableRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera_camera_proto_rawDescGZIP(), []int{28}
+}
+
+func (x *OnCameraAvailableRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type OnCameraAvailableResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnCameraAvailableResponse) Reset() {
+	*x = OnCameraAvailableResponse{}
+	mi := &file_proto_camera_camera_proto_msgTypes[29]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnCameraAvailableResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnCameraAvailableResponse) ProtoMessage() {}
+
+func (x *OnCameraAvailableResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera_camera_proto_msgTypes[29]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnCameraAvailableResponse.ProtoReflect.Descriptor instead.
+func (*OnCameraAvailableResponse) Descriptor() ([]byte, []int) {
+	return file_proto_camera_camera_proto_rawDescGZIP(), []int{29}
+}
+
+type OnCameraUnavailableRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnCameraUnavailableRequest) Reset() {
+	*x = OnCameraUnavailableRequest{}
+	mi := &file_proto_camera_camera_proto_msgTypes[30]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnCameraUnavailableRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnCameraUnavailableRequest) ProtoMessage() {}
+
+func (x *OnCameraUnavailableRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera_camera_proto_msgTypes[30]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnCameraUnavailableRequest.ProtoReflect.Descriptor instead.
+func (*OnCameraUnavailableRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera_camera_proto_rawDescGZIP(), []int{30}
+}
+
+func (x *OnCameraUnavailableRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type OnCameraUnavailableResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnCameraUnavailableResponse) Reset() {
+	*x = OnCameraUnavailableResponse{}
+	mi := &file_proto_camera_camera_proto_msgTypes[31]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnCameraUnavailableResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnCameraUnavailableResponse) ProtoMessage() {}
+
+func (x *OnCameraUnavailableResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera_camera_proto_msgTypes[31]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnCameraUnavailableResponse.ProtoReflect.Descriptor instead.
+func (*OnCameraUnavailableResponse) Descriptor() ([]byte, []int) {
+	return file_proto_camera_camera_proto_rawDescGZIP(), []int{31}
+}
+
+type OnPhysicalCameraAvailableRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnPhysicalCameraAvailableRequest) Reset() {
+	*x = OnPhysicalCameraAvailableRequest{}
+	mi := &file_proto_camera_camera_proto_msgTypes[32]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnPhysicalCameraAvailableRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnPhysicalCameraAvailableRequest) ProtoMessage() {}
+
+func (x *OnPhysicalCameraAvailableRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera_camera_proto_msgTypes[32]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnPhysicalCameraAvailableRequest.ProtoReflect.Descriptor instead.
+func (*OnPhysicalCameraAvailableRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera_camera_proto_rawDescGZIP(), []int{32}
+}
+
+func (x *OnPhysicalCameraAvailableRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *OnPhysicalCameraAvailableRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+type OnPhysicalCameraAvailableResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnPhysicalCameraAvailableResponse) Reset() {
+	*x = OnPhysicalCameraAvailableResponse{}
+	mi := &file_proto_camera_camera_proto_msgTypes[33]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnPhysicalCameraAvailableResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnPhysicalCameraAvailableResponse) ProtoMessage() {}
+
+func (x *OnPhysicalCameraAvailableResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera_camera_proto_msgTypes[33]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnPhysicalCameraAvailableResponse.ProtoReflect.Descriptor instead.
+func (*OnPhysicalCameraAvailableResponse) Descriptor() ([]byte, []int) {
+	return file_proto_camera_camera_proto_rawDescGZIP(), []int{33}
+}
+
+type OnPhysicalCameraUnavailableRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnPhysicalCameraUnavailableRequest) Reset() {
+	*x = OnPhysicalCameraUnavailableRequest{}
+	mi := &file_proto_camera_camera_proto_msgTypes[34]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnPhysicalCameraUnavailableRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnPhysicalCameraUnavailableRequest) ProtoMessage() {}
+
+func (x *OnPhysicalCameraUnavailableRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera_camera_proto_msgTypes[34]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnPhysicalCameraUnavailableRequest.ProtoReflect.Descriptor instead.
+func (*OnPhysicalCameraUnavailableRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera_camera_proto_rawDescGZIP(), []int{34}
+}
+
+func (x *OnPhysicalCameraUnavailableRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *OnPhysicalCameraUnavailableRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+type OnPhysicalCameraUnavailableResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnPhysicalCameraUnavailableResponse) Reset() {
+	*x = OnPhysicalCameraUnavailableResponse{}
+	mi := &file_proto_camera_camera_proto_msgTypes[35]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnPhysicalCameraUnavailableResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnPhysicalCameraUnavailableResponse) ProtoMessage() {}
+
+func (x *OnPhysicalCameraUnavailableResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera_camera_proto_msgTypes[35]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnPhysicalCameraUnavailableResponse.ProtoReflect.Descriptor instead.
+func (*OnPhysicalCameraUnavailableResponse) Descriptor() ([]byte, []int) {
+	return file_proto_camera_camera_proto_rawDescGZIP(), []int{35}
+}
+
+type OnTorchModeChangedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          bool                   `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnTorchModeChangedRequest) Reset() {
+	*x = OnTorchModeChangedRequest{}
+	mi := &file_proto_camera_camera_proto_msgTypes[36]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnTorchModeChangedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnTorchModeChangedRequest) ProtoMessage() {}
+
+func (x *OnTorchModeChangedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera_camera_proto_msgTypes[36]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnTorchModeChangedRequest.ProtoReflect.Descriptor instead.
+func (*OnTorchModeChangedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera_camera_proto_rawDescGZIP(), []int{36}
+}
+
+func (x *OnTorchModeChangedRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *OnTorchModeChangedRequest) GetArg1() bool {
+	if x != nil {
+		return x.Arg1
+	}
+	return false
+}
+
+type OnTorchModeChangedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnTorchModeChangedResponse) Reset() {
+	*x = OnTorchModeChangedResponse{}
+	mi := &file_proto_camera_camera_proto_msgTypes[37]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnTorchModeChangedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnTorchModeChangedResponse) ProtoMessage() {}
+
+func (x *OnTorchModeChangedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera_camera_proto_msgTypes[37]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnTorchModeChangedResponse.ProtoReflect.Descriptor instead.
+func (*OnTorchModeChangedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_camera_camera_proto_rawDescGZIP(), []int{37}
+}
+
+type OnTorchModeUnavailableRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnTorchModeUnavailableRequest) Reset() {
+	*x = OnTorchModeUnavailableRequest{}
+	mi := &file_proto_camera_camera_proto_msgTypes[38]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnTorchModeUnavailableRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnTorchModeUnavailableRequest) ProtoMessage() {}
+
+func (x *OnTorchModeUnavailableRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera_camera_proto_msgTypes[38]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnTorchModeUnavailableRequest.ProtoReflect.Descriptor instead.
+func (*OnTorchModeUnavailableRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera_camera_proto_rawDescGZIP(), []int{38}
+}
+
+func (x *OnTorchModeUnavailableRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type OnTorchModeUnavailableResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnTorchModeUnavailableResponse) Reset() {
+	*x = OnTorchModeUnavailableResponse{}
+	mi := &file_proto_camera_camera_proto_msgTypes[39]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnTorchModeUnavailableResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnTorchModeUnavailableResponse) ProtoMessage() {}
+
+func (x *OnTorchModeUnavailableResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera_camera_proto_msgTypes[39]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnTorchModeUnavailableResponse.ProtoReflect.Descriptor instead.
+func (*OnTorchModeUnavailableResponse) Descriptor() ([]byte, []int) {
+	return file_proto_camera_camera_proto_rawDescGZIP(), []int{39}
+}
+
+type OnTorchStrengthLevelChangedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnTorchStrengthLevelChangedRequest) Reset() {
+	*x = OnTorchStrengthLevelChangedRequest{}
+	mi := &file_proto_camera_camera_proto_msgTypes[40]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnTorchStrengthLevelChangedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnTorchStrengthLevelChangedRequest) ProtoMessage() {}
+
+func (x *OnTorchStrengthLevelChangedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera_camera_proto_msgTypes[40]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnTorchStrengthLevelChangedRequest.ProtoReflect.Descriptor instead.
+func (*OnTorchStrengthLevelChangedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_camera_camera_proto_rawDescGZIP(), []int{40}
+}
+
+func (x *OnTorchStrengthLevelChangedRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *OnTorchStrengthLevelChangedRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type OnTorchStrengthLevelChangedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnTorchStrengthLevelChangedResponse) Reset() {
+	*x = OnTorchStrengthLevelChangedResponse{}
+	mi := &file_proto_camera_camera_proto_msgTypes[41]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnTorchStrengthLevelChangedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnTorchStrengthLevelChangedResponse) ProtoMessage() {}
+
+func (x *OnTorchStrengthLevelChangedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_camera_camera_proto_msgTypes[41]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnTorchStrengthLevelChangedResponse.ProtoReflect.Descriptor instead.
+func (*OnTorchStrengthLevelChangedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_camera_camera_proto_rawDescGZIP(), []int{41}
+}
+
 var File_proto_camera_camera_proto protoreflect.FileDescriptor
 
 const file_proto_camera_camera_proto_rawDesc = "" +
@@ -1205,7 +1869,34 @@ const file_proto_camera_camera_proto_rawDesc = "" +
 	"&UnregisterAvailabilityCallbackResponse\"4\n" +
 	"\x1eUnregisterTorchCallbackRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"!\n" +
-	"\x1fUnregisterTorchCallbackResponse2\xfb\n" +
+	"\x1fUnregisterTorchCallbackResponse\"(\n" +
+	"&OnCameraAccessPrioritiesChangedRequest\")\n" +
+	"'OnCameraAccessPrioritiesChangedResponse\".\n" +
+	"\x18OnCameraAvailableRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"\x1b\n" +
+	"\x19OnCameraAvailableResponse\"0\n" +
+	"\x1aOnCameraUnavailableRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"\x1d\n" +
+	"\x1bOnCameraUnavailableResponse\"J\n" +
+	" OnPhysicalCameraAvailableRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\"#\n" +
+	"!OnPhysicalCameraAvailableResponse\"L\n" +
+	"\"OnPhysicalCameraUnavailableRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\"%\n" +
+	"#OnPhysicalCameraUnavailableResponse\"C\n" +
+	"\x19OnTorchModeChangedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\bR\x04arg1\"\x1c\n" +
+	"\x1aOnTorchModeChangedResponse\"3\n" +
+	"\x1dOnTorchModeUnavailableRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\" \n" +
+	"\x1eOnTorchModeUnavailableResponse\"L\n" +
+	"\"OnTorchStrengthLevelChangedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"%\n" +
+	"#OnTorchStrengthLevelChangedResponse2\xfb\n" +
 	"\n" +
 	"\x0eManagerService\x12m\n" +
 	"\x18GetCameraCharacteristics\x12'.camera.GetCameraCharacteristicsRequest\x1a(.camera.GetCameraCharacteristicsResponse\x12a\n" +
@@ -1221,7 +1912,17 @@ const file_proto_camera_camera_proto_rawDesc = "" +
 	"\fSetTorchMode\x12\x1b.camera.SetTorchModeRequest\x1a\x1c.camera.SetTorchModeResponse\x12y\n" +
 	"\x1cTurnOnTorchWithStrengthLevel\x12+.camera.TurnOnTorchWithStrengthLevelRequest\x1a,.camera.TurnOnTorchWithStrengthLevelResponse\x12\x7f\n" +
 	"\x1eUnregisterAvailabilityCallback\x12-.camera.UnregisterAvailabilityCallbackRequest\x1a..camera.UnregisterAvailabilityCallbackResponse\x12j\n" +
-	"\x17UnregisterTorchCallback\x12&.camera.UnregisterTorchCallbackRequest\x1a'.camera.UnregisterTorchCallbackResponseB0Z.github.com/AndroidGoLab/jni-proxy/proto/camerab\x06proto3"
+	"\x17UnregisterTorchCallback\x12&.camera.UnregisterTorchCallbackRequest\x1a'.camera.UnregisterTorchCallbackResponse2\xcd\x04\n" +
+	"\"ManagerAvailabilityCallbackService\x12\x82\x01\n" +
+	"\x1fOnCameraAccessPrioritiesChanged\x12..camera.OnCameraAccessPrioritiesChangedRequest\x1a/.camera.OnCameraAccessPrioritiesChangedResponse\x12X\n" +
+	"\x11OnCameraAvailable\x12 .camera.OnCameraAvailableRequest\x1a!.camera.OnCameraAvailableResponse\x12^\n" +
+	"\x13OnCameraUnavailable\x12\".camera.OnCameraUnavailableRequest\x1a#.camera.OnCameraUnavailableResponse\x12p\n" +
+	"\x19OnPhysicalCameraAvailable\x12(.camera.OnPhysicalCameraAvailableRequest\x1a).camera.OnPhysicalCameraAvailableResponse\x12v\n" +
+	"\x1bOnPhysicalCameraUnavailable\x12*.camera.OnPhysicalCameraUnavailableRequest\x1a+.camera.OnPhysicalCameraUnavailableResponse2\xdb\x02\n" +
+	"\x1bManagerTorchCallbackService\x12[\n" +
+	"\x12OnTorchModeChanged\x12!.camera.OnTorchModeChangedRequest\x1a\".camera.OnTorchModeChangedResponse\x12g\n" +
+	"\x16OnTorchModeUnavailable\x12%.camera.OnTorchModeUnavailableRequest\x1a&.camera.OnTorchModeUnavailableResponse\x12v\n" +
+	"\x1bOnTorchStrengthLevelChanged\x12*.camera.OnTorchStrengthLevelChangedRequest\x1a+.camera.OnTorchStrengthLevelChangedResponseB0Z.github.com/AndroidGoLab/jni-proxy/proto/camerab\x06proto3"
 
 var (
 	file_proto_camera_camera_proto_rawDescOnce sync.Once
@@ -1235,7 +1936,7 @@ func file_proto_camera_camera_proto_rawDescGZIP() []byte {
 	return file_proto_camera_camera_proto_rawDescData
 }
 
-var file_proto_camera_camera_proto_msgTypes = make([]protoimpl.MessageInfo, 26)
+var file_proto_camera_camera_proto_msgTypes = make([]protoimpl.MessageInfo, 42)
 var file_proto_camera_camera_proto_goTypes = []any{
 	(*GetCameraCharacteristicsRequest)(nil),           // 0: camera.GetCameraCharacteristicsRequest
 	(*GetCameraCharacteristicsResponse)(nil),          // 1: camera.GetCameraCharacteristicsResponse
@@ -1263,6 +1964,22 @@ var file_proto_camera_camera_proto_goTypes = []any{
 	(*UnregisterAvailabilityCallbackResponse)(nil),    // 23: camera.UnregisterAvailabilityCallbackResponse
 	(*UnregisterTorchCallbackRequest)(nil),            // 24: camera.UnregisterTorchCallbackRequest
 	(*UnregisterTorchCallbackResponse)(nil),           // 25: camera.UnregisterTorchCallbackResponse
+	(*OnCameraAccessPrioritiesChangedRequest)(nil),    // 26: camera.OnCameraAccessPrioritiesChangedRequest
+	(*OnCameraAccessPrioritiesChangedResponse)(nil),   // 27: camera.OnCameraAccessPrioritiesChangedResponse
+	(*OnCameraAvailableRequest)(nil),                  // 28: camera.OnCameraAvailableRequest
+	(*OnCameraAvailableResponse)(nil),                 // 29: camera.OnCameraAvailableResponse
+	(*OnCameraUnavailableRequest)(nil),                // 30: camera.OnCameraUnavailableRequest
+	(*OnCameraUnavailableResponse)(nil),               // 31: camera.OnCameraUnavailableResponse
+	(*OnPhysicalCameraAvailableRequest)(nil),          // 32: camera.OnPhysicalCameraAvailableRequest
+	(*OnPhysicalCameraAvailableResponse)(nil),         // 33: camera.OnPhysicalCameraAvailableResponse
+	(*OnPhysicalCameraUnavailableRequest)(nil),        // 34: camera.OnPhysicalCameraUnavailableRequest
+	(*OnPhysicalCameraUnavailableResponse)(nil),       // 35: camera.OnPhysicalCameraUnavailableResponse
+	(*OnTorchModeChangedRequest)(nil),                 // 36: camera.OnTorchModeChangedRequest
+	(*OnTorchModeChangedResponse)(nil),                // 37: camera.OnTorchModeChangedResponse
+	(*OnTorchModeUnavailableRequest)(nil),             // 38: camera.OnTorchModeUnavailableRequest
+	(*OnTorchModeUnavailableResponse)(nil),            // 39: camera.OnTorchModeUnavailableResponse
+	(*OnTorchStrengthLevelChangedRequest)(nil),        // 40: camera.OnTorchStrengthLevelChangedRequest
+	(*OnTorchStrengthLevelChangedResponse)(nil),       // 41: camera.OnTorchStrengthLevelChangedResponse
 }
 var file_proto_camera_camera_proto_depIdxs = []int32{
 	0,  // 0: camera.ManagerService.GetCameraCharacteristics:input_type -> camera.GetCameraCharacteristicsRequest
@@ -1278,21 +1995,37 @@ var file_proto_camera_camera_proto_depIdxs = []int32{
 	20, // 10: camera.ManagerService.TurnOnTorchWithStrengthLevel:input_type -> camera.TurnOnTorchWithStrengthLevelRequest
 	22, // 11: camera.ManagerService.UnregisterAvailabilityCallback:input_type -> camera.UnregisterAvailabilityCallbackRequest
 	24, // 12: camera.ManagerService.UnregisterTorchCallback:input_type -> camera.UnregisterTorchCallbackRequest
-	1,  // 13: camera.ManagerService.GetCameraCharacteristics:output_type -> camera.GetCameraCharacteristicsResponse
-	3,  // 14: camera.ManagerService.GetCameraDeviceSetup:output_type -> camera.GetCameraDeviceSetupResponse
-	5,  // 15: camera.ManagerService.GetCameraExtensionCharacteristics:output_type -> camera.GetCameraExtensionCharacteristicsResponse
-	7,  // 16: camera.ManagerService.GetCameraIdList:output_type -> camera.GetCameraIdListResponse
-	9,  // 17: camera.ManagerService.GetTorchStrengthLevel:output_type -> camera.GetTorchStrengthLevelResponse
-	11, // 18: camera.ManagerService.IsCameraDeviceSetupSupported:output_type -> camera.IsCameraDeviceSetupSupportedResponse
-	13, // 19: camera.ManagerService.OpenCamera:output_type -> camera.OpenCameraResponse
-	15, // 20: camera.ManagerService.RegisterAvailabilityCallback:output_type -> camera.RegisterAvailabilityCallbackResponse
-	17, // 21: camera.ManagerService.RegisterTorchCallback:output_type -> camera.RegisterTorchCallbackResponse
-	19, // 22: camera.ManagerService.SetTorchMode:output_type -> camera.SetTorchModeResponse
-	21, // 23: camera.ManagerService.TurnOnTorchWithStrengthLevel:output_type -> camera.TurnOnTorchWithStrengthLevelResponse
-	23, // 24: camera.ManagerService.UnregisterAvailabilityCallback:output_type -> camera.UnregisterAvailabilityCallbackResponse
-	25, // 25: camera.ManagerService.UnregisterTorchCallback:output_type -> camera.UnregisterTorchCallbackResponse
-	13, // [13:26] is the sub-list for method output_type
-	0,  // [0:13] is the sub-list for method input_type
+	26, // 13: camera.ManagerAvailabilityCallbackService.OnCameraAccessPrioritiesChanged:input_type -> camera.OnCameraAccessPrioritiesChangedRequest
+	28, // 14: camera.ManagerAvailabilityCallbackService.OnCameraAvailable:input_type -> camera.OnCameraAvailableRequest
+	30, // 15: camera.ManagerAvailabilityCallbackService.OnCameraUnavailable:input_type -> camera.OnCameraUnavailableRequest
+	32, // 16: camera.ManagerAvailabilityCallbackService.OnPhysicalCameraAvailable:input_type -> camera.OnPhysicalCameraAvailableRequest
+	34, // 17: camera.ManagerAvailabilityCallbackService.OnPhysicalCameraUnavailable:input_type -> camera.OnPhysicalCameraUnavailableRequest
+	36, // 18: camera.ManagerTorchCallbackService.OnTorchModeChanged:input_type -> camera.OnTorchModeChangedRequest
+	38, // 19: camera.ManagerTorchCallbackService.OnTorchModeUnavailable:input_type -> camera.OnTorchModeUnavailableRequest
+	40, // 20: camera.ManagerTorchCallbackService.OnTorchStrengthLevelChanged:input_type -> camera.OnTorchStrengthLevelChangedRequest
+	1,  // 21: camera.ManagerService.GetCameraCharacteristics:output_type -> camera.GetCameraCharacteristicsResponse
+	3,  // 22: camera.ManagerService.GetCameraDeviceSetup:output_type -> camera.GetCameraDeviceSetupResponse
+	5,  // 23: camera.ManagerService.GetCameraExtensionCharacteristics:output_type -> camera.GetCameraExtensionCharacteristicsResponse
+	7,  // 24: camera.ManagerService.GetCameraIdList:output_type -> camera.GetCameraIdListResponse
+	9,  // 25: camera.ManagerService.GetTorchStrengthLevel:output_type -> camera.GetTorchStrengthLevelResponse
+	11, // 26: camera.ManagerService.IsCameraDeviceSetupSupported:output_type -> camera.IsCameraDeviceSetupSupportedResponse
+	13, // 27: camera.ManagerService.OpenCamera:output_type -> camera.OpenCameraResponse
+	15, // 28: camera.ManagerService.RegisterAvailabilityCallback:output_type -> camera.RegisterAvailabilityCallbackResponse
+	17, // 29: camera.ManagerService.RegisterTorchCallback:output_type -> camera.RegisterTorchCallbackResponse
+	19, // 30: camera.ManagerService.SetTorchMode:output_type -> camera.SetTorchModeResponse
+	21, // 31: camera.ManagerService.TurnOnTorchWithStrengthLevel:output_type -> camera.TurnOnTorchWithStrengthLevelResponse
+	23, // 32: camera.ManagerService.UnregisterAvailabilityCallback:output_type -> camera.UnregisterAvailabilityCallbackResponse
+	25, // 33: camera.ManagerService.UnregisterTorchCallback:output_type -> camera.UnregisterTorchCallbackResponse
+	27, // 34: camera.ManagerAvailabilityCallbackService.OnCameraAccessPrioritiesChanged:output_type -> camera.OnCameraAccessPrioritiesChangedResponse
+	29, // 35: camera.ManagerAvailabilityCallbackService.OnCameraAvailable:output_type -> camera.OnCameraAvailableResponse
+	31, // 36: camera.ManagerAvailabilityCallbackService.OnCameraUnavailable:output_type -> camera.OnCameraUnavailableResponse
+	33, // 37: camera.ManagerAvailabilityCallbackService.OnPhysicalCameraAvailable:output_type -> camera.OnPhysicalCameraAvailableResponse
+	35, // 38: camera.ManagerAvailabilityCallbackService.OnPhysicalCameraUnavailable:output_type -> camera.OnPhysicalCameraUnavailableResponse
+	37, // 39: camera.ManagerTorchCallbackService.OnTorchModeChanged:output_type -> camera.OnTorchModeChangedResponse
+	39, // 40: camera.ManagerTorchCallbackService.OnTorchModeUnavailable:output_type -> camera.OnTorchModeUnavailableResponse
+	41, // 41: camera.ManagerTorchCallbackService.OnTorchStrengthLevelChanged:output_type -> camera.OnTorchStrengthLevelChangedResponse
+	21, // [21:42] is the sub-list for method output_type
+	0,  // [0:21] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name
 	0,  // [0:0] is the sub-list for extension extendee
 	0,  // [0:0] is the sub-list for field type_name
@@ -1309,9 +2042,9 @@ func file_proto_camera_camera_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_camera_camera_proto_rawDesc), len(file_proto_camera_camera_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   26,
+			NumMessages:   42,
 			NumExtensions: 0,
-			NumServices:   1,
+			NumServices:   3,
 		},
 		GoTypes:           file_proto_camera_camera_proto_goTypes,
 		DependencyIndexes: file_proto_camera_camera_proto_depIdxs,

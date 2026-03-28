@@ -5,3 +5,307 @@ syntax = "proto3";
 package eap;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/eap";
+
+message GetEapMethodTypeRequest {
+}
+
+message GetEapMethodTypeResponse {
+  int32 result = 1;
+}
+
+message GetReauthIdRequest {
+}
+
+message GetReauthIdResponse {
+  int64 result = 1;
+}
+
+message BuildRequest {
+}
+
+message BuildResponse {
+  int64 result = 1;
+}
+
+message SetReauthIdRequest {
+  int64 arg0 = 1;
+}
+
+message SetReauthIdResponse {
+  int64 result = 1;
+}
+
+message EqualsRequest {
+  int64 arg0 = 1;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message GetEapAkaConfigRequest {
+}
+
+message GetEapAkaConfigResponse {
+  int64 result = 1;
+}
+
+message GetEapAkaPrimeConfigRequest {
+}
+
+message GetEapAkaPrimeConfigResponse {
+  int64 result = 1;
+}
+
+message GetEapIdentityRequest {
+}
+
+message GetEapIdentityResponse {
+  int64 result = 1;
+}
+
+message GetEapMsChapV2ConfigRequest {
+}
+
+message GetEapMsChapV2ConfigResponse {
+  int64 result = 1;
+}
+
+message GetEapSimConfigRequest {
+}
+
+message GetEapSimConfigResponse {
+  int64 result = 1;
+}
+
+message GetEapTtlsConfigRequest {
+}
+
+message GetEapTtlsConfigResponse {
+  int64 result = 1;
+}
+
+message HashCodeRequest {
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message SetEapAkaConfig2Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message SetEapAkaConfig2Response {
+  int64 result = 1;
+}
+
+message SetEapAkaConfig3_1Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message SetEapAkaConfig3_1Response {
+  int64 result = 1;
+}
+
+message SetEapAkaPrimeConfigRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  string arg2 = 3;
+  bool arg3 = 4;
+}
+
+message SetEapAkaPrimeConfigResponse {
+  int64 result = 1;
+}
+
+message SetEapIdentityRequest {
+  int64 arg0 = 1;
+}
+
+message SetEapIdentityResponse {
+  int64 result = 1;
+}
+
+message SetEapMsChapV2ConfigRequest {
+  string arg0 = 1;
+  string arg1 = 2;
+}
+
+message SetEapMsChapV2ConfigResponse {
+  int64 result = 1;
+}
+
+message SetEapSimConfigRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message SetEapSimConfigResponse {
+  int64 result = 1;
+}
+
+message SetEapTtlsConfigRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SetEapTtlsConfigResponse {
+  int64 result = 1;
+}
+
+message GetAppTypeRequest {
+}
+
+message GetAppTypeResponse {
+  int32 result = 1;
+}
+
+message GetEapAkaOptionRequest {
+}
+
+message GetEapAkaOptionResponse {
+  int64 result = 1;
+}
+
+message GetSubIdRequest {
+}
+
+message GetSubIdResponse {
+  int32 result = 1;
+}
+
+message AllowsMismatchedNetworkNamesRequest {
+}
+
+message AllowsMismatchedNetworkNamesResponse {
+  bool result = 1;
+}
+
+message GetNetworkNameRequest {
+}
+
+message GetNetworkNameResponse {
+  string result = 1;
+}
+
+message GetMethodTypeRequest {
+}
+
+message GetMethodTypeResponse {
+  int32 result = 1;
+}
+
+message GetPasswordRequest {
+}
+
+message GetPasswordResponse {
+  string result = 1;
+}
+
+message GetUsernameRequest {
+}
+
+message GetUsernameResponse {
+  string result = 1;
+}
+
+message GetInnerEapSessionConfigRequest {
+}
+
+message GetInnerEapSessionConfigResponse {
+  int64 result = 1;
+}
+
+message GetServerCaCertRequest {
+}
+
+message GetServerCaCertResponse {
+  int64 result = 1;
+}
+
+service InfoService {
+  rpc GetEapMethodType (GetEapMethodTypeRequest) returns (GetEapMethodTypeResponse);
+}
+
+service AkaInfoService {
+  rpc GetReauthId (GetReauthIdRequest) returns (GetReauthIdResponse);
+}
+
+service AkaInfoBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetReauthId (SetReauthIdRequest) returns (SetReauthIdResponse);
+}
+
+service SessionConfigService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetEapAkaConfig (GetEapAkaConfigRequest) returns (GetEapAkaConfigResponse);
+  rpc GetEapAkaPrimeConfig (GetEapAkaPrimeConfigRequest) returns (GetEapAkaPrimeConfigResponse);
+  rpc GetEapIdentity (GetEapIdentityRequest) returns (GetEapIdentityResponse);
+  rpc GetEapMsChapV2Config (GetEapMsChapV2ConfigRequest) returns (GetEapMsChapV2ConfigResponse);
+  rpc GetEapSimConfig (GetEapSimConfigRequest) returns (GetEapSimConfigResponse);
+  rpc GetEapTtlsConfig (GetEapTtlsConfigRequest) returns (GetEapTtlsConfigResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service SessionConfigBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetEapAkaConfig2 (SetEapAkaConfig2Request) returns (SetEapAkaConfig2Response);
+  rpc SetEapAkaConfig3_1 (SetEapAkaConfig3_1Request) returns (SetEapAkaConfig3_1Response);
+  rpc SetEapAkaPrimeConfig (SetEapAkaPrimeConfigRequest) returns (SetEapAkaPrimeConfigResponse);
+  rpc SetEapIdentity (SetEapIdentityRequest) returns (SetEapIdentityResponse);
+  rpc SetEapMsChapV2Config (SetEapMsChapV2ConfigRequest) returns (SetEapMsChapV2ConfigResponse);
+  rpc SetEapSimConfig (SetEapSimConfigRequest) returns (SetEapSimConfigResponse);
+  rpc SetEapTtlsConfig (SetEapTtlsConfigRequest) returns (SetEapTtlsConfigResponse);
+}
+
+service SessionConfigEapAkaConfigService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetAppType (GetAppTypeRequest) returns (GetAppTypeResponse);
+  rpc GetEapAkaOption (GetEapAkaOptionRequest) returns (GetEapAkaOptionResponse);
+  rpc GetSubId (GetSubIdRequest) returns (GetSubIdResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service SessionConfigEapAkaOptionService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetReauthId (GetReauthIdRequest) returns (GetReauthIdResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service SessionConfigEapAkaPrimeConfigService {
+  rpc AllowsMismatchedNetworkNames (AllowsMismatchedNetworkNamesRequest) returns (AllowsMismatchedNetworkNamesResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetNetworkName (GetNetworkNameRequest) returns (GetNetworkNameResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service SessionConfigEapMethodConfigService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetMethodType (GetMethodTypeRequest) returns (GetMethodTypeResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service SessionConfigEapMsChapV2ConfigService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetPassword (GetPasswordRequest) returns (GetPasswordResponse);
+  rpc GetUsername (GetUsernameRequest) returns (GetUsernameResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service SessionConfigEapSimConfigService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetAppType (GetAppTypeRequest) returns (GetAppTypeResponse);
+  rpc GetSubId (GetSubIdRequest) returns (GetSubIdResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service SessionConfigEapTtlsConfigService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetInnerEapSessionConfig (GetInnerEapSessionConfigRequest) returns (GetInnerEapSessionConfigResponse);
+  rpc GetServerCaCert (GetServerCaCertRequest) returns (GetServerCaCertResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}

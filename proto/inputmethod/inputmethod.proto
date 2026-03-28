@@ -6,6 +6,2104 @@ package inputmethod;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/inputmethod";
 
+message DescribeContentsRequest {
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message EqualsRequest {
+  int64 arg0 = 1;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message GetInsertionPointRequest {
+}
+
+message GetInsertionPointResponse {
+  int64 result = 1;
+}
+
+message GetTextToInsertRequest {
+}
+
+message GetTextToInsertResponse {
+  string result = 1;
+}
+
+message HashCodeRequest {
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteToParcelResponse {
+}
+
+message BuildRequest {
+}
+
+message BuildResponse {
+  int64 result = 1;
+}
+
+message SetFallbackTextRequest {
+  string arg0 = 1;
+}
+
+message SetFallbackTextResponse {
+  int64 result = 1;
+}
+
+message SetInsertionPointRequest {
+  int64 arg0 = 1;
+}
+
+message SetInsertionPointResponse {
+  int64 result = 1;
+}
+
+message SetTextToInsertRequest {
+  string arg0 = 1;
+}
+
+message SetTextToInsertResponse {
+  int64 result = 1;
+}
+
+message GetExtrasRequest {
+}
+
+message GetExtrasResponse {
+  int64 result = 1;
+}
+
+message SetExtrasRequest {
+  int64 arg0 = 1;
+}
+
+message SetExtrasResponse {
+  int64 result = 1;
+}
+
+message NewInputBindingRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message NewInputBindingResponse {
+  int64 result = 1;
+}
+
+message InputBindingDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message GetConnectionRequest {
+  int64 handle = 1;
+}
+
+message GetConnectionResponse {
+  int64 result = 1;
+}
+
+message GetConnectionTokenRequest {
+  int64 handle = 1;
+}
+
+message GetConnectionTokenResponse {
+  int64 result = 1;
+}
+
+message GetPidRequest {
+  int64 handle = 1;
+}
+
+message GetPidResponse {
+  int32 result = 1;
+}
+
+message GetUidRequest {
+  int64 handle = 1;
+}
+
+message GetUidResponse {
+  int32 result = 1;
+}
+
+message ToStringRequest {
+  int64 handle = 1;
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message InputBindingWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message AppPrivateCommandRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message AppPrivateCommandResponse {
+}
+
+message DispatchGenericMotionEventRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message DispatchGenericMotionEventResponse {
+}
+
+message DispatchKeyEventRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message DispatchKeyEventResponse {
+}
+
+message DispatchTrackballEventRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message DispatchTrackballEventResponse {
+}
+
+message DisplayCompletionsRequest {
+  int64 arg0 = 1;
+}
+
+message DisplayCompletionsResponse {
+}
+
+message FinishInputRequest {
+}
+
+message FinishInputResponse {
+}
+
+message ToggleSoftInputRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message ToggleSoftInputResponse {
+}
+
+message UpdateCursorRequest {
+  int64 arg0 = 1;
+}
+
+message UpdateCursorResponse {
+}
+
+message UpdateCursorAnchorInfoRequest {
+  int64 arg0 = 1;
+}
+
+message UpdateCursorAnchorInfoResponse {
+}
+
+message UpdateExtractedTextRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message UpdateExtractedTextResponse {
+}
+
+message UpdateSelectionRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int32 arg4 = 5;
+  int32 arg5 = 6;
+}
+
+message UpdateSelectionResponse {
+}
+
+message ViewClickedRequest {
+  bool arg0 = 1;
+}
+
+message ViewClickedResponse {
+}
+
+message FinishedEventRequest {
+  int32 arg0 = 1;
+  bool arg1 = 2;
+}
+
+message FinishedEventResponse {
+}
+
+message GetAutofillHintsRequest {
+}
+
+message GetAutofillHintsResponse {
+  int64 result = 1;
+}
+
+message GetInlinePresentationSpecRequest {
+}
+
+message GetInlinePresentationSpecResponse {
+  int64 result = 1;
+}
+
+message GetSourceRequest {
+}
+
+message GetSourceResponse {
+  string result = 1;
+}
+
+message GetTypeRequest {
+}
+
+message GetTypeResponse {
+  string result = 1;
+}
+
+message IsPinnedRequest {
+}
+
+message IsPinnedResponse {
+  bool result = 1;
+}
+
+message InlineSuggestionInfoToStringRequest {
+}
+
+message NewSurroundingTextRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message NewSurroundingTextResponse {
+  int64 result = 1;
+}
+
+message SurroundingTextDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message GetOffsetRequest {
+  int64 handle = 1;
+}
+
+message GetOffsetResponse {
+  int32 result = 1;
+}
+
+message GetSelectionEndRequest {
+  int64 handle = 1;
+}
+
+message GetSelectionEndResponse {
+  int32 result = 1;
+}
+
+message GetSelectionStartRequest {
+  int64 handle = 1;
+}
+
+message GetSelectionStartResponse {
+  int32 result = 1;
+}
+
+message GetTextRequest {
+  int64 handle = 1;
+}
+
+message GetTextResponse {
+  int64 result = 1;
+}
+
+message SurroundingTextWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message AttachTokenRequest {
+  int64 arg0 = 1;
+}
+
+message AttachTokenResponse {
+}
+
+message BindInputRequest {
+  int64 arg0 = 1;
+}
+
+message BindInputResponse {
+}
+
+message ChangeInputMethodSubtypeRequest {
+  int64 arg0 = 1;
+}
+
+message ChangeInputMethodSubtypeResponse {
+}
+
+message CreateSessionRequest {
+  int64 arg0 = 1;
+}
+
+message CreateSessionResponse {
+}
+
+message HideSoftInputRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message HideSoftInputResponse {
+}
+
+message RestartInputRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message RestartInputResponse {
+}
+
+message RevokeSessionRequest {
+  int64 arg0 = 1;
+}
+
+message RevokeSessionResponse {
+}
+
+message SetSessionEnabledRequest {
+  int64 arg0 = 1;
+  bool arg1 = 2;
+}
+
+message SetSessionEnabledResponse {
+}
+
+message ShowSoftInputRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message ShowSoftInputResponse {
+}
+
+message StartInputRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message StartInputResponse {
+}
+
+message UnbindInputRequest {
+}
+
+message UnbindInputResponse {
+}
+
+message SessionCreatedRequest {
+  int64 arg0 = 1;
+}
+
+message SessionCreatedResponse {
+}
+
+message GetCharacterBidiLevelRequest {
+  int32 arg0 = 1;
+}
+
+message GetCharacterBidiLevelResponse {
+  int32 result = 1;
+}
+
+message GetCharacterBoundsRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message GetCharacterBoundsResponse {
+}
+
+message GetCharacterFlagsRequest {
+  int32 arg0 = 1;
+}
+
+message GetCharacterFlagsResponse {
+  int32 result = 1;
+}
+
+message GetEndIndexRequest {
+}
+
+message GetEndIndexResponse {
+  int32 result = 1;
+}
+
+message GetGraphemeSegmentFinderRequest {
+}
+
+message GetGraphemeSegmentFinderResponse {
+  int64 result = 1;
+}
+
+message GetLineSegmentFinderRequest {
+}
+
+message GetLineSegmentFinderResponse {
+  int64 result = 1;
+}
+
+message GetMatrixRequest {
+  int64 arg0 = 1;
+}
+
+message GetMatrixResponse {
+}
+
+message GetOffsetForPositionRequest {
+  float arg0 = 1;
+  float arg1 = 2;
+}
+
+message GetOffsetForPositionResponse {
+  int32 result = 1;
+}
+
+message GetRangeForRectRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message GetRangeForRectResponse {
+  int64 result = 1;
+}
+
+message GetStartIndexRequest {
+}
+
+message GetStartIndexResponse {
+  int32 result = 1;
+}
+
+message GetWordSegmentFinderRequest {
+}
+
+message GetWordSegmentFinderResponse {
+  int64 result = 1;
+}
+
+message ClearRequest {
+}
+
+message ClearResponse {
+  int64 result = 1;
+}
+
+message SetCharacterBidiLevelRequest {
+  int64 arg0 = 1;
+}
+
+message SetCharacterBidiLevelResponse {
+  int64 result = 1;
+}
+
+message SetCharacterBoundsRequest {
+  int64 arg0 = 1;
+}
+
+message SetCharacterBoundsResponse {
+  int64 result = 1;
+}
+
+message SetCharacterFlagsRequest {
+  int64 arg0 = 1;
+}
+
+message SetCharacterFlagsResponse {
+  int64 result = 1;
+}
+
+message SetGraphemeSegmentFinderRequest {
+  int64 arg0 = 1;
+}
+
+message SetGraphemeSegmentFinderResponse {
+  int64 result = 1;
+}
+
+message SetLineSegmentFinderRequest {
+  int64 arg0 = 1;
+}
+
+message SetLineSegmentFinderResponse {
+  int64 result = 1;
+}
+
+message SetMatrixRequest {
+  int64 arg0 = 1;
+}
+
+message SetMatrixResponse {
+  int64 result = 1;
+}
+
+message SetStartAndEndRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message SetStartAndEndResponse {
+  int64 result = 1;
+}
+
+message SetWordSegmentFinderRequest {
+  int64 arg0 = 1;
+}
+
+message SetWordSegmentFinderResponse {
+  int64 result = 1;
+}
+
+message InlineSuggestionsResponseToStringRequest {
+}
+
+message NewInputMethodSubtypeRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  string arg2 = 3;
+  string arg3 = 4;
+  string arg4 = 5;
+  bool arg5 = 6;
+  bool arg6 = 7;
+}
+
+message NewInputMethodSubtypeResponse {
+  int64 result = 1;
+}
+
+message ContainsExtraValueKeyRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message ContainsExtraValueKeyResponse {
+  bool result = 1;
+}
+
+message InputMethodSubtypeDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message InputMethodSubtypeEqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetDisplayNameRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message GetDisplayNameResponse {
+  int64 result = 1;
+}
+
+message GetExtraValueRequest {
+  int64 handle = 1;
+}
+
+message GetExtraValueResponse {
+  string result = 1;
+}
+
+message GetExtraValueOfRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message GetExtraValueOfResponse {
+  string result = 1;
+}
+
+message GetIconResIdRequest {
+  int64 handle = 1;
+}
+
+message GetIconResIdResponse {
+  int32 result = 1;
+}
+
+message GetLanguageTagRequest {
+  int64 handle = 1;
+}
+
+message GetLanguageTagResponse {
+  string result = 1;
+}
+
+message GetLayoutDisplayNameRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message GetLayoutDisplayNameResponse {
+  int64 result = 1;
+}
+
+message GetLayoutLabelNonLocalizedRequest {
+  int64 handle = 1;
+}
+
+message GetLayoutLabelNonLocalizedResponse {
+  int64 result = 1;
+}
+
+message GetLayoutLabelResourceRequest {
+  int64 handle = 1;
+}
+
+message GetLayoutLabelResourceResponse {
+  int32 result = 1;
+}
+
+message GetLocaleRequest {
+  int64 handle = 1;
+}
+
+message GetLocaleResponse {
+  string result = 1;
+}
+
+message GetModeRequest {
+  int64 handle = 1;
+}
+
+message GetModeResponse {
+  string result = 1;
+}
+
+message GetNameOverrideRequest {
+  int64 handle = 1;
+}
+
+message GetNameOverrideResponse {
+  int64 result = 1;
+}
+
+message GetNameResIdRequest {
+  int64 handle = 1;
+}
+
+message GetNameResIdResponse {
+  int32 result = 1;
+}
+
+message GetPhysicalKeyboardHintLanguageTagRequest {
+  int64 handle = 1;
+}
+
+message GetPhysicalKeyboardHintLanguageTagResponse {
+  int64 result = 1;
+}
+
+message GetPhysicalKeyboardHintLayoutTypeRequest {
+  int64 handle = 1;
+}
+
+message GetPhysicalKeyboardHintLayoutTypeResponse {
+  string result = 1;
+}
+
+message InputMethodSubtypeHashCodeRequest {
+  int64 handle = 1;
+}
+
+message IsAsciiCapableRequest {
+  int64 handle = 1;
+}
+
+message IsAsciiCapableResponse {
+  bool result = 1;
+}
+
+message IsAuxiliaryRequest {
+  int64 handle = 1;
+}
+
+message IsAuxiliaryResponse {
+  bool result = 1;
+}
+
+message OverridesImplicitlyEnabledSubtypeRequest {
+  int64 handle = 1;
+}
+
+message OverridesImplicitlyEnabledSubtypeResponse {
+  bool result = 1;
+}
+
+message InputMethodSubtypeWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message SetIsAsciiCapableRequest {
+  bool arg0 = 1;
+}
+
+message SetIsAsciiCapableResponse {
+  int64 result = 1;
+}
+
+message SetIsAuxiliaryRequest {
+  bool arg0 = 1;
+}
+
+message SetIsAuxiliaryResponse {
+  int64 result = 1;
+}
+
+message SetLanguageTagRequest {
+  string arg0 = 1;
+}
+
+message SetLanguageTagResponse {
+  int64 result = 1;
+}
+
+message SetLayoutLabelNonLocalizedRequest {
+  string arg0 = 1;
+}
+
+message SetLayoutLabelNonLocalizedResponse {
+  int64 result = 1;
+}
+
+message SetLayoutLabelResourceRequest {
+  int32 arg0 = 1;
+}
+
+message SetLayoutLabelResourceResponse {
+  int64 result = 1;
+}
+
+message SetOverridesImplicitlyEnabledSubtypeRequest {
+  bool arg0 = 1;
+}
+
+message SetOverridesImplicitlyEnabledSubtypeResponse {
+  int64 result = 1;
+}
+
+message SetPhysicalKeyboardHintRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+}
+
+message SetPhysicalKeyboardHintResponse {
+  int64 result = 1;
+}
+
+message SetSubtypeExtraValueRequest {
+  string arg0 = 1;
+}
+
+message SetSubtypeExtraValueResponse {
+  int64 result = 1;
+}
+
+message SetSubtypeIconResIdRequest {
+  int32 arg0 = 1;
+}
+
+message SetSubtypeIconResIdResponse {
+  int64 result = 1;
+}
+
+message SetSubtypeIdRequest {
+  int32 arg0 = 1;
+}
+
+message SetSubtypeIdResponse {
+  int64 result = 1;
+}
+
+message SetSubtypeLocaleRequest {
+  string arg0 = 1;
+}
+
+message SetSubtypeLocaleResponse {
+  int64 result = 1;
+}
+
+message SetSubtypeModeRequest {
+  string arg0 = 1;
+}
+
+message SetSubtypeModeResponse {
+  int64 result = 1;
+}
+
+message SetSubtypeNameOverrideRequest {
+  string arg0 = 1;
+}
+
+message SetSubtypeNameOverrideResponse {
+  int64 result = 1;
+}
+
+message SetSubtypeNameResIdRequest {
+  int32 arg0 = 1;
+}
+
+message SetSubtypeNameResIdResponse {
+  int64 result = 1;
+}
+
+message GetEndPointRequest {
+}
+
+message GetEndPointResponse {
+  int64 result = 1;
+}
+
+message GetStartPointRequest {
+}
+
+message GetStartPointResponse {
+  int64 result = 1;
+}
+
+message SetPointsRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SetPointsResponse {
+  int64 result = 1;
+}
+
+message NewInputMethodInfoRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewInputMethodInfoResponse {
+  int64 result = 1;
+}
+
+message CreateImeLanguageSettingsActivityIntentRequest {
+  int64 handle = 1;
+}
+
+message CreateImeLanguageSettingsActivityIntentResponse {
+  int64 result = 1;
+}
+
+message CreateStylusHandwritingSettingsActivityIntentRequest {
+  int64 handle = 1;
+}
+
+message CreateStylusHandwritingSettingsActivityIntentResponse {
+  int64 result = 1;
+}
+
+message InputMethodInfoDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message DumpRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+}
+
+message DumpResponse {
+}
+
+message InputMethodInfoEqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetComponentRequest {
+  int64 handle = 1;
+}
+
+message GetComponentResponse {
+  int64 result = 1;
+}
+
+message GetConfigChangesRequest {
+  int64 handle = 1;
+}
+
+message GetConfigChangesResponse {
+  int32 result = 1;
+}
+
+message GetIdRequest {
+  int64 handle = 1;
+}
+
+message GetIdResponse {
+  string result = 1;
+}
+
+message GetIsDefaultResourceIdRequest {
+  int64 handle = 1;
+}
+
+message GetIsDefaultResourceIdResponse {
+  int32 result = 1;
+}
+
+message GetPackageNameRequest {
+  int64 handle = 1;
+}
+
+message GetPackageNameResponse {
+  string result = 1;
+}
+
+message GetServiceInfoRequest {
+  int64 handle = 1;
+}
+
+message GetServiceInfoResponse {
+  int64 result = 1;
+}
+
+message GetServiceNameRequest {
+  int64 handle = 1;
+}
+
+message GetServiceNameResponse {
+  string result = 1;
+}
+
+message GetSettingsActivityRequest {
+  int64 handle = 1;
+}
+
+message GetSettingsActivityResponse {
+  string result = 1;
+}
+
+message GetSubtypeAtRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetSubtypeAtResponse {
+  int64 result = 1;
+}
+
+message GetSubtypeCountRequest {
+  int64 handle = 1;
+}
+
+message GetSubtypeCountResponse {
+  int32 result = 1;
+}
+
+message InputMethodInfoHashCodeRequest {
+  int64 handle = 1;
+}
+
+message LoadIconRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message LoadIconResponse {
+  int64 result = 1;
+}
+
+message LoadLabelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message LoadLabelResponse {
+  int64 result = 1;
+}
+
+message ShouldShowInInputMethodPickerRequest {
+  int64 handle = 1;
+}
+
+message ShouldShowInInputMethodPickerResponse {
+  bool result = 1;
+}
+
+message SupportsConnectionlessStylusHandwritingRequest {
+  int64 handle = 1;
+}
+
+message SupportsConnectionlessStylusHandwritingResponse {
+  bool result = 1;
+}
+
+message SupportsStylusHandwritingRequest {
+  int64 handle = 1;
+}
+
+message SupportsStylusHandwritingResponse {
+  bool result = 1;
+}
+
+message SuppressesSpellCheckerRequest {
+  int64 handle = 1;
+}
+
+message SuppressesSpellCheckerResponse {
+  bool result = 1;
+}
+
+message InputMethodInfoWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message OnErrorRequest {
+  int32 arg0 = 1;
+}
+
+message OnErrorResponse {
+}
+
+message OnResultRequest {
+  string arg0 = 1;
+}
+
+message OnResultResponse {
+}
+
+message GetDeletionEndAreaRequest {
+}
+
+message GetDeletionEndAreaResponse {
+  int64 result = 1;
+}
+
+message GetDeletionStartAreaRequest {
+}
+
+message GetDeletionStartAreaResponse {
+  int64 result = 1;
+}
+
+message GetGranularityRequest {
+}
+
+message GetGranularityResponse {
+  int32 result = 1;
+}
+
+message SetDeletionEndAreaRequest {
+  int64 arg0 = 1;
+}
+
+message SetDeletionEndAreaResponse {
+  int64 result = 1;
+}
+
+message SetDeletionStartAreaRequest {
+  int64 arg0 = 1;
+}
+
+message SetDeletionStartAreaResponse {
+  int64 result = 1;
+}
+
+message SetGranularityRequest {
+  int32 arg0 = 1;
+}
+
+message SetGranularityResponse {
+  int64 result = 1;
+}
+
+message NewBaseInputConnectionRequest {
+  int64 arg0 = 1;
+  bool arg1 = 2;
+}
+
+message NewBaseInputConnectionResponse {
+  int64 result = 1;
+}
+
+message BeginBatchEditRequest {
+  int64 handle = 1;
+}
+
+message BeginBatchEditResponse {
+  bool result = 1;
+}
+
+message ClearMetaKeyStatesRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message ClearMetaKeyStatesResponse {
+  bool result = 1;
+}
+
+message CloseConnectionRequest {
+  int64 handle = 1;
+}
+
+message CloseConnectionResponse {
+}
+
+message CommitCompletionRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message CommitCompletionResponse {
+  bool result = 1;
+}
+
+message CommitContentRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message CommitContentResponse {
+  bool result = 1;
+}
+
+message CommitCorrectionRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message CommitCorrectionResponse {
+  bool result = 1;
+}
+
+message CommitTextRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message CommitTextResponse {
+  bool result = 1;
+}
+
+message DeleteSurroundingTextRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message DeleteSurroundingTextResponse {
+  bool result = 1;
+}
+
+message DeleteSurroundingTextInCodePointsRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message DeleteSurroundingTextInCodePointsResponse {
+  bool result = 1;
+}
+
+message EndBatchEditRequest {
+  int64 handle = 1;
+}
+
+message EndBatchEditResponse {
+  bool result = 1;
+}
+
+message FinishComposingTextRequest {
+  int64 handle = 1;
+}
+
+message FinishComposingTextResponse {
+  bool result = 1;
+}
+
+message GetCursorCapsModeRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetCursorCapsModeResponse {
+  int32 result = 1;
+}
+
+message GetEditableRequest {
+  int64 handle = 1;
+}
+
+message GetEditableResponse {
+  int64 result = 1;
+}
+
+message GetExtractedTextRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message GetExtractedTextResponse {
+  int64 result = 1;
+}
+
+message GetHandlerRequest {
+  int64 handle = 1;
+}
+
+message GetHandlerResponse {
+  int64 result = 1;
+}
+
+message GetSelectedTextRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetSelectedTextResponse {
+  int64 result = 1;
+}
+
+message GetSurroundingTextRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+}
+
+message GetSurroundingTextResponse {
+  int64 result = 1;
+}
+
+message GetTextAfterCursorRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message GetTextAfterCursorResponse {
+  int64 result = 1;
+}
+
+message GetTextBeforeCursorRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message GetTextBeforeCursorResponse {
+  int64 result = 1;
+}
+
+message PerformContextMenuActionRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message PerformContextMenuActionResponse {
+  bool result = 1;
+}
+
+message PerformEditorActionRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message PerformEditorActionResponse {
+  bool result = 1;
+}
+
+message PerformPrivateCommandRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message PerformPrivateCommandResponse {
+  bool result = 1;
+}
+
+message ReplaceTextRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+  string arg2 = 4;
+  int32 arg3 = 5;
+  int64 arg4 = 6;
+}
+
+message ReplaceTextResponse {
+  bool result = 1;
+}
+
+message ReportFullscreenModeRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message ReportFullscreenModeResponse {
+  bool result = 1;
+}
+
+message RequestCursorUpdatesRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message RequestCursorUpdatesResponse {
+  bool result = 1;
+}
+
+message SendKeyEventRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SendKeyEventResponse {
+  bool result = 1;
+}
+
+message SetComposingRegionRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message SetComposingRegionResponse {
+  bool result = 1;
+}
+
+message SetComposingTextRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message SetComposingTextResponse {
+  bool result = 1;
+}
+
+message SetSelectionRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message SetSelectionResponse {
+  bool result = 1;
+}
+
+message TakeSnapshotRequest {
+  int64 handle = 1;
+}
+
+message TakeSnapshotResponse {
+  int64 result = 1;
+}
+
+message GetComposingSpanEndRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetComposingSpanEndResponse {
+  int32 result = 1;
+}
+
+message GetComposingSpanStartRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetComposingSpanStartResponse {
+  int32 result = 1;
+}
+
+message RemoveComposingSpansRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message RemoveComposingSpansResponse {
+}
+
+message SetComposingSpansRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetComposingSpansResponse {
+}
+
+message NewInputContentInfoRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewInputContentInfoResponse {
+  int64 result = 1;
+}
+
+message InputContentInfoDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message GetContentUriRequest {
+  int64 handle = 1;
+}
+
+message GetContentUriResponse {
+  int64 result = 1;
+}
+
+message GetDescriptionRequest {
+  int64 handle = 1;
+}
+
+message GetDescriptionResponse {
+  int64 result = 1;
+}
+
+message GetLinkUriRequest {
+  int64 handle = 1;
+}
+
+message GetLinkUriResponse {
+  int64 result = 1;
+}
+
+message ReleasePermissionRequest {
+  int64 handle = 1;
+}
+
+message ReleasePermissionResponse {
+}
+
+message RequestPermissionRequest {
+  int64 handle = 1;
+}
+
+message RequestPermissionResponse {
+}
+
+message InputContentInfoWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message NewCursorAnchorInfoRequest {
+  int64 arg0 = 1;
+}
+
+message NewCursorAnchorInfoResponse {
+  int64 result = 1;
+}
+
+message CursorAnchorInfoDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message CursorAnchorInfoEqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message CursorAnchorInfoGetCharacterBoundsRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message CursorAnchorInfoGetCharacterBoundsResponse {
+  int64 result = 1;
+}
+
+message GetCharacterBoundsFlagsRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetCharacterBoundsFlagsResponse {
+  int32 result = 1;
+}
+
+message GetComposingTextRequest {
+  int64 handle = 1;
+}
+
+message GetComposingTextResponse {
+  int64 result = 1;
+}
+
+message GetComposingTextStartRequest {
+  int64 handle = 1;
+}
+
+message GetComposingTextStartResponse {
+  int32 result = 1;
+}
+
+message GetEditorBoundsInfoRequest {
+  int64 handle = 1;
+}
+
+message GetEditorBoundsInfoResponse {
+  int64 result = 1;
+}
+
+message GetInsertionMarkerBaselineRequest {
+  int64 handle = 1;
+}
+
+message GetInsertionMarkerBaselineResponse {
+  float result = 1;
+}
+
+message GetInsertionMarkerBottomRequest {
+  int64 handle = 1;
+}
+
+message GetInsertionMarkerBottomResponse {
+  float result = 1;
+}
+
+message GetInsertionMarkerFlagsRequest {
+  int64 handle = 1;
+}
+
+message GetInsertionMarkerFlagsResponse {
+  int32 result = 1;
+}
+
+message GetInsertionMarkerHorizontalRequest {
+  int64 handle = 1;
+}
+
+message GetInsertionMarkerHorizontalResponse {
+  float result = 1;
+}
+
+message GetInsertionMarkerTopRequest {
+  int64 handle = 1;
+}
+
+message GetInsertionMarkerTopResponse {
+  float result = 1;
+}
+
+message CursorAnchorInfoGetMatrixRequest {
+  int64 handle = 1;
+}
+
+message CursorAnchorInfoGetMatrixResponse {
+  int64 result = 1;
+}
+
+message GetTextAppearanceInfoRequest {
+  int64 handle = 1;
+}
+
+message GetTextAppearanceInfoResponse {
+  int64 result = 1;
+}
+
+message CursorAnchorInfoHashCodeRequest {
+  int64 handle = 1;
+}
+
+message CursorAnchorInfoWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message AddCharacterBoundsRequest {
+  int32 arg0 = 1;
+  float arg1 = 2;
+  float arg2 = 3;
+  float arg3 = 4;
+  float arg4 = 5;
+  int32 arg5 = 6;
+}
+
+message AddCharacterBoundsResponse {
+  int64 result = 1;
+}
+
+message AddVisibleLineBoundsRequest {
+  float arg0 = 1;
+  float arg1 = 2;
+  float arg2 = 3;
+  float arg3 = 4;
+}
+
+message AddVisibleLineBoundsResponse {
+  int64 result = 1;
+}
+
+message ClearVisibleLineBoundsRequest {
+}
+
+message ClearVisibleLineBoundsResponse {
+  int64 result = 1;
+}
+
+message ResetRequest {
+}
+
+message ResetResponse {
+}
+
+message CursorAnchorInfoBuilderSetComposingTextRequest {
+  int32 arg0 = 1;
+  string arg1 = 2;
+}
+
+message CursorAnchorInfoBuilderSetComposingTextResponse {
+  int64 result = 1;
+}
+
+message SetEditorBoundsInfoRequest {
+  int64 arg0 = 1;
+}
+
+message SetEditorBoundsInfoResponse {
+  int64 result = 1;
+}
+
+message SetInsertionMarkerLocationRequest {
+  float arg0 = 1;
+  float arg1 = 2;
+  float arg2 = 3;
+  float arg3 = 4;
+  int32 arg4 = 5;
+}
+
+message SetInsertionMarkerLocationResponse {
+  int64 result = 1;
+}
+
+message SetSelectionRangeRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message SetSelectionRangeResponse {
+  int64 result = 1;
+}
+
+message SetTextAppearanceInfoRequest {
+  int64 arg0 = 1;
+}
+
+message SetTextAppearanceInfoResponse {
+  int64 result = 1;
+}
+
+message NewExtractedTextRequestRequest {
+}
+
+message NewExtractedTextRequestResponse {
+  int64 result = 1;
+}
+
+message ExtractedTextRequestDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message ExtractedTextRequestWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message NewCompletionInfoRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  string arg2 = 3;
+}
+
+message NewCompletionInfoResponse {
+  int64 result = 1;
+}
+
+message CompletionInfoDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message CompletionInfoGetIdResponse {
+  int64 result = 1;
+}
+
+message GetLabelRequest {
+  int64 handle = 1;
+}
+
+message GetLabelResponse {
+  int64 result = 1;
+}
+
+message GetPositionRequest {
+  int64 handle = 1;
+}
+
+message GetPositionResponse {
+  int32 result = 1;
+}
+
+message CompletionInfoWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message GetSelectionAreaRequest {
+}
+
+message GetSelectionAreaResponse {
+  int64 result = 1;
+}
+
+message SetSelectionAreaRequest {
+  int64 arg0 = 1;
+}
+
+message SetSelectionAreaResponse {
+  int64 result = 1;
+}
+
+message GetInfoRequest {
+}
+
+message GetInfoResponse {
+  int64 result = 1;
+}
+
+message InlineSuggestionToStringRequest {
+}
+
+message NewTextBoundsInfoResultRequest {
+  int32 arg0 = 1;
+}
+
+message NewTextBoundsInfoResultResponse {
+  int64 result = 1;
+}
+
+message GetResultCodeRequest {
+  int64 handle = 1;
+}
+
+message GetResultCodeResponse {
+  int32 result = 1;
+}
+
+message GetTextBoundsInfoRequest {
+  int64 handle = 1;
+}
+
+message GetTextBoundsInfoResponse {
+  int64 result = 1;
+}
+
+message InputConnectionBeginBatchEditRequest {
+}
+
+message InputConnectionClearMetaKeyStatesRequest {
+  int32 arg0 = 1;
+}
+
+message InputConnectionCloseConnectionRequest {
+}
+
+message InputConnectionCommitCompletionRequest {
+  int64 arg0 = 1;
+}
+
+message InputConnectionCommitContentRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message InputConnectionCommitCorrectionRequest {
+  int64 arg0 = 1;
+}
+
+message InputConnectionCommitTextRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message InputConnectionDeleteSurroundingTextRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message InputConnectionDeleteSurroundingTextInCodePointsRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message InputConnectionEndBatchEditRequest {
+}
+
+message InputConnectionFinishComposingTextRequest {
+}
+
+message InputConnectionGetCursorCapsModeRequest {
+  int32 arg0 = 1;
+}
+
+message InputConnectionGetExtractedTextRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message InputConnectionGetHandlerRequest {
+}
+
+message InputConnectionGetSelectedTextRequest {
+  int32 arg0 = 1;
+}
+
+message InputConnectionGetTextAfterCursorRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message InputConnectionGetTextBeforeCursorRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message InputConnectionPerformContextMenuActionRequest {
+  int32 arg0 = 1;
+}
+
+message InputConnectionPerformEditorActionRequest {
+  int32 arg0 = 1;
+}
+
+message InputConnectionPerformPrivateCommandRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message InputConnectionReportFullscreenModeRequest {
+  bool arg0 = 1;
+}
+
+message InputConnectionRequestCursorUpdatesRequest {
+  int32 arg0 = 1;
+}
+
+message InputConnectionSendKeyEventRequest {
+  int64 arg0 = 1;
+}
+
+message InputConnectionSetComposingRegionRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message InputConnectionSetComposingTextRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message InputConnectionSetSelectionRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message GetJoinOrSplitPointRequest {
+}
+
+message GetJoinOrSplitPointResponse {
+  int64 result = 1;
+}
+
+message SetJoinOrSplitPointRequest {
+  int64 arg0 = 1;
+}
+
+message SetJoinOrSplitPointResponse {
+  int64 result = 1;
+}
+
+message GetEditorBoundsRequest {
+}
+
+message GetEditorBoundsResponse {
+  int64 result = 1;
+}
+
+message GetHandwritingBoundsRequest {
+}
+
+message GetHandwritingBoundsResponse {
+  int64 result = 1;
+}
+
+message EditorBoundsInfoToStringRequest {
+}
+
+message SetEditorBoundsRequest {
+  int64 arg0 = 1;
+}
+
+message SetEditorBoundsResponse {
+  int64 result = 1;
+}
+
+message SetHandwritingBoundsRequest {
+  int64 arg0 = 1;
+}
+
+message SetHandwritingBoundsResponse {
+  int64 result = 1;
+}
+
+message GetSelectionEndAreaRequest {
+}
+
+message GetSelectionEndAreaResponse {
+  int64 result = 1;
+}
+
+message GetSelectionStartAreaRequest {
+}
+
+message GetSelectionStartAreaResponse {
+  int64 result = 1;
+}
+
+message SetSelectionEndAreaRequest {
+  int64 arg0 = 1;
+}
+
+message SetSelectionEndAreaResponse {
+  int64 result = 1;
+}
+
+message SetSelectionStartAreaRequest {
+  int64 arg0 = 1;
+}
+
+message SetSelectionStartAreaResponse {
+  int64 result = 1;
+}
+
+message GetFallbackTextRequest {
+}
+
+message GetFallbackTextResponse {
+  string result = 1;
+}
+
+message NewTextSnapshotRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message NewTextSnapshotResponse {
+  int64 result = 1;
+}
+
+message GetCompositionEndRequest {
+  int64 handle = 1;
+}
+
+message GetCompositionEndResponse {
+  int32 result = 1;
+}
+
+message GetCompositionStartRequest {
+  int64 handle = 1;
+}
+
+message GetCompositionStartResponse {
+  int32 result = 1;
+}
+
+message TextSnapshotGetCursorCapsModeRequest {
+  int64 handle = 1;
+}
+
+message TextSnapshotGetSurroundingTextRequest {
+  int64 handle = 1;
+}
+
+message GetCancellationSignalRequest {
+}
+
+message GetCancellationSignalResponse {
+  int64 result = 1;
+}
+
+message SetCancellationSignalRequest {
+  int64 arg0 = 1;
+}
+
+message SetCancellationSignalResponse {
+  int64 result = 1;
+}
+
 message AcceptStylusHandwritingDelegation1Request {
   int64 arg0 = 1;
 }
@@ -31,12 +2129,9 @@ message DispatchKeyEventFromInputMethodRequest {
 message DispatchKeyEventFromInputMethodResponse {
 }
 
-message DisplayCompletionsRequest {
+message InputMethodManagerDisplayCompletionsRequest {
   int64 arg0 = 1;
   int64 arg1 = 2;
-}
-
-message DisplayCompletionsResponse {
 }
 
 message GetCurrentInputMethodInfoRequest {
@@ -174,11 +2269,8 @@ message PrepareStylusHandwritingDelegation2_1Request {
 message PrepareStylusHandwritingDelegation2_1Response {
 }
 
-message RestartInputRequest {
+message InputMethodManagerRestartInputRequest {
   int64 arg0 = 1;
-}
-
-message RestartInputResponse {
 }
 
 message SendAppPrivateCommandRequest {
@@ -343,14 +2435,6 @@ message SwitchToNextInputMethodResponse {
   bool result = 1;
 }
 
-message ToggleSoftInputRequest {
-  int32 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message ToggleSoftInputResponse {
-}
-
 message ToggleSoftInputFromWindowRequest {
   int64 arg0 = 1;
   int32 arg1 = 2;
@@ -360,7 +2444,7 @@ message ToggleSoftInputFromWindowRequest {
 message ToggleSoftInputFromWindowResponse {
 }
 
-message UpdateCursorRequest {
+message InputMethodManagerUpdateCursorRequest {
   int64 arg0 = 1;
   int32 arg1 = 2;
   int32 arg2 = 3;
@@ -368,27 +2452,18 @@ message UpdateCursorRequest {
   int32 arg4 = 5;
 }
 
-message UpdateCursorResponse {
-}
-
-message UpdateCursorAnchorInfoRequest {
+message InputMethodManagerUpdateCursorAnchorInfoRequest {
   int64 arg0 = 1;
   int64 arg1 = 2;
 }
 
-message UpdateCursorAnchorInfoResponse {
-}
-
-message UpdateExtractedTextRequest {
+message InputMethodManagerUpdateExtractedTextRequest {
   int64 arg0 = 1;
   int32 arg1 = 2;
   int64 arg2 = 3;
 }
 
-message UpdateExtractedTextResponse {
-}
-
-message UpdateSelectionRequest {
+message InputMethodManagerUpdateSelectionRequest {
   int64 arg0 = 1;
   int32 arg1 = 2;
   int32 arg2 = 3;
@@ -396,21 +2471,1254 @@ message UpdateSelectionRequest {
   int32 arg4 = 5;
 }
 
-message UpdateSelectionResponse {
-}
-
-message ViewClickedRequest {
+message InputMethodManagerViewClickedRequest {
   int64 arg0 = 1;
 }
 
-message ViewClickedResponse {
+message NewInputConnectionWrapperRequest {
+  int64 arg0 = 1;
+  bool arg1 = 2;
+}
+
+message NewInputConnectionWrapperResponse {
+  int64 result = 1;
+}
+
+message CommitText2Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message CommitText2Response {
+  bool result = 1;
+}
+
+message CommitText3_1Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  int32 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message CommitText3_1Response {
+  bool result = 1;
+}
+
+message PerformHandwritingGestureRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message PerformHandwritingGestureResponse {
+}
+
+message PerformSpellCheckRequest {
+  int64 handle = 1;
+}
+
+message PerformSpellCheckResponse {
+  bool result = 1;
+}
+
+message PreviewHandwritingGestureRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message PreviewHandwritingGestureResponse {
+  bool result = 1;
+}
+
+message RequestCursorUpdates1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message RequestCursorUpdates1Response {
+  bool result = 1;
+}
+
+message RequestCursorUpdates2_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message RequestCursorUpdates2_1Response {
+  bool result = 1;
+}
+
+message SetComposingRegion2Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message SetComposingRegion2Response {
+  bool result = 1;
+}
+
+message SetComposingRegion3_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message SetComposingRegion3_1Response {
+  bool result = 1;
+}
+
+message SetComposingText2Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message SetComposingText2Response {
+  bool result = 1;
+}
+
+message SetComposingText3_1Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  int32 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message SetComposingText3_1Response {
+  bool result = 1;
+}
+
+message SetImeConsumesInputRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetImeConsumesInputResponse {
+  bool result = 1;
+}
+
+message SetTargetRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetTargetResponse {
+}
+
+message GetDeletionAreaRequest {
+}
+
+message GetDeletionAreaResponse {
+  int64 result = 1;
+}
+
+message SetDeletionAreaRequest {
+  int64 arg0 = 1;
+}
+
+message SetDeletionAreaResponse {
+  int64 result = 1;
+}
+
+message GetFontFeatureSettingsRequest {
+}
+
+message GetFontFeatureSettingsResponse {
+  string result = 1;
+}
+
+message GetFontVariationSettingsRequest {
+}
+
+message GetFontVariationSettingsResponse {
+  string result = 1;
+}
+
+message GetHighlightTextColorRequest {
+}
+
+message GetHighlightTextColorResponse {
+  int32 result = 1;
+}
+
+message GetHintTextColorRequest {
+}
+
+message GetHintTextColorResponse {
+  int32 result = 1;
+}
+
+message GetLetterSpacingRequest {
+}
+
+message GetLetterSpacingResponse {
+  float result = 1;
+}
+
+message GetLineBreakStyleRequest {
+}
+
+message GetLineBreakStyleResponse {
+  int32 result = 1;
+}
+
+message GetLineBreakWordStyleRequest {
+}
+
+message GetLineBreakWordStyleResponse {
+  int32 result = 1;
+}
+
+message GetLinkTextColorRequest {
+}
+
+message GetLinkTextColorResponse {
+  int32 result = 1;
+}
+
+message GetShadowColorRequest {
+}
+
+message GetShadowColorResponse {
+  int32 result = 1;
+}
+
+message GetShadowDxRequest {
+}
+
+message GetShadowDxResponse {
+  float result = 1;
+}
+
+message GetShadowDyRequest {
+}
+
+message GetShadowDyResponse {
+  float result = 1;
+}
+
+message GetShadowRadiusRequest {
+}
+
+message GetShadowRadiusResponse {
+  float result = 1;
+}
+
+message GetSystemFontFamilyNameRequest {
+}
+
+message GetSystemFontFamilyNameResponse {
+  string result = 1;
+}
+
+message GetTextColorRequest {
+}
+
+message GetTextColorResponse {
+  int32 result = 1;
+}
+
+message GetTextFontWeightRequest {
+}
+
+message GetTextFontWeightResponse {
+  int32 result = 1;
+}
+
+message GetTextLocalesRequest {
+}
+
+message GetTextLocalesResponse {
+  int64 result = 1;
+}
+
+message GetTextScaleXRequest {
+}
+
+message GetTextScaleXResponse {
+  float result = 1;
+}
+
+message GetTextSizeRequest {
+}
+
+message GetTextSizeResponse {
+  float result = 1;
+}
+
+message GetTextStyleRequest {
+}
+
+message GetTextStyleResponse {
+  int32 result = 1;
+}
+
+message IsAllCapsRequest {
+}
+
+message IsAllCapsResponse {
+  bool result = 1;
+}
+
+message IsElegantTextHeightRequest {
+}
+
+message IsElegantTextHeightResponse {
+  bool result = 1;
+}
+
+message IsFallbackLineSpacingRequest {
+}
+
+message IsFallbackLineSpacingResponse {
+  bool result = 1;
+}
+
+message TextAppearanceInfoToStringRequest {
+}
+
+message SetAllCapsRequest {
+  bool arg0 = 1;
+}
+
+message SetAllCapsResponse {
+  int64 result = 1;
+}
+
+message SetElegantTextHeightRequest {
+  bool arg0 = 1;
+}
+
+message SetElegantTextHeightResponse {
+  int64 result = 1;
+}
+
+message SetFallbackLineSpacingRequest {
+  bool arg0 = 1;
+}
+
+message SetFallbackLineSpacingResponse {
+  int64 result = 1;
+}
+
+message SetFontFeatureSettingsRequest {
+  string arg0 = 1;
+}
+
+message SetFontFeatureSettingsResponse {
+  int64 result = 1;
+}
+
+message SetFontVariationSettingsRequest {
+  string arg0 = 1;
+}
+
+message SetFontVariationSettingsResponse {
+  int64 result = 1;
+}
+
+message SetHighlightTextColorRequest {
+  int32 arg0 = 1;
+}
+
+message SetHighlightTextColorResponse {
+  int64 result = 1;
+}
+
+message SetHintTextColorRequest {
+  int32 arg0 = 1;
+}
+
+message SetHintTextColorResponse {
+  int64 result = 1;
+}
+
+message SetLetterSpacingRequest {
+  float arg0 = 1;
+}
+
+message SetLetterSpacingResponse {
+  int64 result = 1;
+}
+
+message SetLineBreakStyleRequest {
+  int32 arg0 = 1;
+}
+
+message SetLineBreakStyleResponse {
+  int64 result = 1;
+}
+
+message SetLineBreakWordStyleRequest {
+  int32 arg0 = 1;
+}
+
+message SetLineBreakWordStyleResponse {
+  int64 result = 1;
+}
+
+message SetLinkTextColorRequest {
+  int32 arg0 = 1;
+}
+
+message SetLinkTextColorResponse {
+  int64 result = 1;
+}
+
+message SetShadowColorRequest {
+  int32 arg0 = 1;
+}
+
+message SetShadowColorResponse {
+  int64 result = 1;
+}
+
+message SetShadowDxRequest {
+  float arg0 = 1;
+}
+
+message SetShadowDxResponse {
+  int64 result = 1;
+}
+
+message SetShadowDyRequest {
+  float arg0 = 1;
+}
+
+message SetShadowDyResponse {
+  int64 result = 1;
+}
+
+message SetShadowRadiusRequest {
+  float arg0 = 1;
+}
+
+message SetShadowRadiusResponse {
+  int64 result = 1;
+}
+
+message SetSystemFontFamilyNameRequest {
+  string arg0 = 1;
+}
+
+message SetSystemFontFamilyNameResponse {
+  int64 result = 1;
+}
+
+message SetTextColorRequest {
+  int32 arg0 = 1;
+}
+
+message SetTextColorResponse {
+  int64 result = 1;
+}
+
+message SetTextFontWeightRequest {
+  int32 arg0 = 1;
+}
+
+message SetTextFontWeightResponse {
+  int64 result = 1;
+}
+
+message SetTextLocalesRequest {
+  int64 arg0 = 1;
+}
+
+message SetTextLocalesResponse {
+  int64 result = 1;
+}
+
+message SetTextScaleXRequest {
+  float arg0 = 1;
+}
+
+message SetTextScaleXResponse {
+  int64 result = 1;
+}
+
+message SetTextSizeRequest {
+  float arg0 = 1;
+}
+
+message SetTextSizeResponse {
+  int64 result = 1;
+}
+
+message SetTextStyleRequest {
+  int32 arg0 = 1;
+}
+
+message SetTextStyleResponse {
+  int64 result = 1;
+}
+
+message NewExtractedTextRequest {
+}
+
+message NewExtractedTextResponse {
+  int64 result = 1;
+}
+
+message ExtractedTextDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message ExtractedTextWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message GetHostPackageNameRequest {
+}
+
+message GetHostPackageNameResponse {
+  string result = 1;
+}
+
+message GetInlineTooltipPresentationSpecRequest {
+}
+
+message GetInlineTooltipPresentationSpecResponse {
+  int64 result = 1;
+}
+
+message GetMaxSuggestionCountRequest {
+}
+
+message GetMaxSuggestionCountResponse {
+  int32 result = 1;
+}
+
+message GetSupportedLocalesRequest {
+}
+
+message GetSupportedLocalesResponse {
+  int64 result = 1;
+}
+
+message InlineSuggestionsRequestToStringRequest {
+}
+
+message AddInlinePresentationSpecsRequest {
+  int64 arg0 = 1;
+}
+
+message AddInlinePresentationSpecsResponse {
+  int64 result = 1;
+}
+
+message SetInlineTooltipPresentationSpecRequest {
+  int64 arg0 = 1;
+}
+
+message SetInlineTooltipPresentationSpecResponse {
+  int64 result = 1;
+}
+
+message SetMaxSuggestionCountRequest {
+  int32 arg0 = 1;
+}
+
+message SetMaxSuggestionCountResponse {
+  int64 result = 1;
+}
+
+message SetSupportedLocalesRequest {
+  int64 arg0 = 1;
+}
+
+message SetSupportedLocalesResponse {
+  int64 result = 1;
+}
+
+message NewEditorInfoRequest {
+}
+
+message NewEditorInfoResponse {
+  int64 result = 1;
+}
+
+message EditorInfoDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message GetAutofillIdRequest {
+  int64 handle = 1;
+}
+
+message GetAutofillIdResponse {
+  int64 result = 1;
+}
+
+message GetInitialSelectedTextRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetInitialSelectedTextResponse {
+  int64 result = 1;
+}
+
+message GetInitialSurroundingTextRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+}
+
+message GetInitialSurroundingTextResponse {
+  int64 result = 1;
+}
+
+message GetInitialTextAfterCursorRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message GetInitialTextAfterCursorResponse {
+  int64 result = 1;
+}
+
+message GetInitialTextBeforeCursorRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message GetInitialTextBeforeCursorResponse {
+  int64 result = 1;
+}
+
+message GetInitialToolTypeRequest {
+  int64 handle = 1;
+}
+
+message GetInitialToolTypeResponse {
+  int32 result = 1;
+}
+
+message IsStylusHandwritingEnabledRequest {
+  int64 handle = 1;
+}
+
+message IsStylusHandwritingEnabledResponse {
+  bool result = 1;
+}
+
+message IsWritingToolsEnabledRequest {
+  int64 handle = 1;
+}
+
+message IsWritingToolsEnabledResponse {
+  bool result = 1;
+}
+
+message MakeCompatibleRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message MakeCompatibleResponse {
+}
+
+message SetAutofillIdRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetAutofillIdResponse {
+}
+
+message SetInitialSurroundingSubTextRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message SetInitialSurroundingSubTextResponse {
+}
+
+message SetInitialSurroundingTextRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetInitialSurroundingTextResponse {
+}
+
+message SetInitialToolTypeRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetInitialToolTypeResponse {
+}
+
+message SetStylusHandwritingEnabledRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetStylusHandwritingEnabledResponse {
+}
+
+message SetWritingToolsEnabledRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetWritingToolsEnabledResponse {
+}
+
+message EditorInfoWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message NewCorrectionInfoRequest {
+  int32 arg0 = 1;
+  string arg1 = 2;
+  string arg2 = 3;
+}
+
+message NewCorrectionInfoResponse {
+  int64 result = 1;
+}
+
+message CorrectionInfoDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message GetNewTextRequest {
+  int64 handle = 1;
+}
+
+message GetNewTextResponse {
+  int64 result = 1;
+}
+
+message GetOldTextRequest {
+  int64 handle = 1;
+}
+
+message GetOldTextResponse {
+  int64 result = 1;
+}
+
+message CorrectionInfoWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message NewExtractedTextRequestOpRequest {
+}
+
+message NewExtractedTextRequestOpResponse {
+  int64 result = 1;
+}
+
+service InsertGestureService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetInsertionPoint (GetInsertionPointRequest) returns (GetInsertionPointResponse);
+  rpc GetTextToInsert (GetTextToInsertRequest) returns (GetTextToInsertResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service InsertGestureBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetFallbackText (SetFallbackTextRequest) returns (SetFallbackTextResponse);
+  rpc SetInsertionPoint (SetInsertionPointRequest) returns (SetInsertionPointResponse);
+  rpc SetTextToInsert (SetTextToInsertRequest) returns (SetTextToInsertResponse);
+}
+
+service TextAttributeService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetExtras (GetExtrasRequest) returns (GetExtrasResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service TextAttributeBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetExtras (SetExtrasRequest) returns (SetExtrasResponse);
+}
+
+service InputBindingService {
+  rpc NewInputBinding (NewInputBindingRequest) returns (NewInputBindingResponse);
+  rpc DescribeContents (InputBindingDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetConnection (GetConnectionRequest) returns (GetConnectionResponse);
+  rpc GetConnectionToken (GetConnectionTokenRequest) returns (GetConnectionTokenResponse);
+  rpc GetPid (GetPidRequest) returns (GetPidResponse);
+  rpc GetUid (GetUidRequest) returns (GetUidResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (InputBindingWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service InputMethodSessionService {
+  rpc AppPrivateCommand (AppPrivateCommandRequest) returns (AppPrivateCommandResponse);
+  rpc DispatchGenericMotionEvent (DispatchGenericMotionEventRequest) returns (DispatchGenericMotionEventResponse);
+  rpc DispatchKeyEvent (DispatchKeyEventRequest) returns (DispatchKeyEventResponse);
+  rpc DispatchTrackballEvent (DispatchTrackballEventRequest) returns (DispatchTrackballEventResponse);
+  rpc DisplayCompletions (DisplayCompletionsRequest) returns (DisplayCompletionsResponse);
+  rpc FinishInput (FinishInputRequest) returns (FinishInputResponse);
+  rpc ToggleSoftInput (ToggleSoftInputRequest) returns (ToggleSoftInputResponse);
+  rpc UpdateCursor (UpdateCursorRequest) returns (UpdateCursorResponse);
+  rpc UpdateCursorAnchorInfo (UpdateCursorAnchorInfoRequest) returns (UpdateCursorAnchorInfoResponse);
+  rpc UpdateExtractedText (UpdateExtractedTextRequest) returns (UpdateExtractedTextResponse);
+  rpc UpdateSelection (UpdateSelectionRequest) returns (UpdateSelectionResponse);
+  rpc ViewClicked (ViewClickedRequest) returns (ViewClickedResponse);
+}
+
+service InputMethodSessionEventCallbackService {
+  rpc FinishedEvent (FinishedEventRequest) returns (FinishedEventResponse);
+}
+
+service InlineSuggestionInfoService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetAutofillHints (GetAutofillHintsRequest) returns (GetAutofillHintsResponse);
+  rpc GetInlinePresentationSpec (GetInlinePresentationSpecRequest) returns (GetInlinePresentationSpecResponse);
+  rpc GetSource (GetSourceRequest) returns (GetSourceResponse);
+  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc IsPinned (IsPinnedRequest) returns (IsPinnedResponse);
+  rpc ToString (InlineSuggestionInfoToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service SurroundingTextService {
+  rpc NewSurroundingText (NewSurroundingTextRequest) returns (NewSurroundingTextResponse);
+  rpc DescribeContents (SurroundingTextDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetOffset (GetOffsetRequest) returns (GetOffsetResponse);
+  rpc GetSelectionEnd (GetSelectionEndRequest) returns (GetSelectionEndResponse);
+  rpc GetSelectionStart (GetSelectionStartRequest) returns (GetSelectionStartResponse);
+  rpc GetText (GetTextRequest) returns (GetTextResponse);
+  rpc WriteToParcel (SurroundingTextWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service InputMethodService {
+  rpc AttachToken (AttachTokenRequest) returns (AttachTokenResponse);
+  rpc BindInput (BindInputRequest) returns (BindInputResponse);
+  rpc ChangeInputMethodSubtype (ChangeInputMethodSubtypeRequest) returns (ChangeInputMethodSubtypeResponse);
+  rpc CreateSession (CreateSessionRequest) returns (CreateSessionResponse);
+  rpc HideSoftInput (HideSoftInputRequest) returns (HideSoftInputResponse);
+  rpc RestartInput (RestartInputRequest) returns (RestartInputResponse);
+  rpc RevokeSession (RevokeSessionRequest) returns (RevokeSessionResponse);
+  rpc SetSessionEnabled (SetSessionEnabledRequest) returns (SetSessionEnabledResponse);
+  rpc ShowSoftInput (ShowSoftInputRequest) returns (ShowSoftInputResponse);
+  rpc StartInput (StartInputRequest) returns (StartInputResponse);
+  rpc UnbindInput (UnbindInputRequest) returns (UnbindInputResponse);
+}
+
+service InputMethodSessionCallbackService {
+  rpc SessionCreated (SessionCreatedRequest) returns (SessionCreatedResponse);
+}
+
+service TextBoundsInfoService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetCharacterBidiLevel (GetCharacterBidiLevelRequest) returns (GetCharacterBidiLevelResponse);
+  rpc GetCharacterBounds (GetCharacterBoundsRequest) returns (GetCharacterBoundsResponse);
+  rpc GetCharacterFlags (GetCharacterFlagsRequest) returns (GetCharacterFlagsResponse);
+  rpc GetEndIndex (GetEndIndexRequest) returns (GetEndIndexResponse);
+  rpc GetGraphemeSegmentFinder (GetGraphemeSegmentFinderRequest) returns (GetGraphemeSegmentFinderResponse);
+  rpc GetLineSegmentFinder (GetLineSegmentFinderRequest) returns (GetLineSegmentFinderResponse);
+  rpc GetMatrix (GetMatrixRequest) returns (GetMatrixResponse);
+  rpc GetOffsetForPosition (GetOffsetForPositionRequest) returns (GetOffsetForPositionResponse);
+  rpc GetRangeForRect (GetRangeForRectRequest) returns (GetRangeForRectResponse);
+  rpc GetStartIndex (GetStartIndexRequest) returns (GetStartIndexResponse);
+  rpc GetWordSegmentFinder (GetWordSegmentFinderRequest) returns (GetWordSegmentFinderResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service TextBoundsInfoBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc Clear (ClearRequest) returns (ClearResponse);
+  rpc SetCharacterBidiLevel (SetCharacterBidiLevelRequest) returns (SetCharacterBidiLevelResponse);
+  rpc SetCharacterBounds (SetCharacterBoundsRequest) returns (SetCharacterBoundsResponse);
+  rpc SetCharacterFlags (SetCharacterFlagsRequest) returns (SetCharacterFlagsResponse);
+  rpc SetGraphemeSegmentFinder (SetGraphemeSegmentFinderRequest) returns (SetGraphemeSegmentFinderResponse);
+  rpc SetLineSegmentFinder (SetLineSegmentFinderRequest) returns (SetLineSegmentFinderResponse);
+  rpc SetMatrix (SetMatrixRequest) returns (SetMatrixResponse);
+  rpc SetStartAndEnd (SetStartAndEndRequest) returns (SetStartAndEndResponse);
+  rpc SetWordSegmentFinder (SetWordSegmentFinderRequest) returns (SetWordSegmentFinderResponse);
+}
+
+service InlineSuggestionsResponseService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (InlineSuggestionsResponseToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service InputMethodSubtypeService {
+  rpc NewInputMethodSubtype (NewInputMethodSubtypeRequest) returns (NewInputMethodSubtypeResponse);
+  rpc ContainsExtraValueKey (ContainsExtraValueKeyRequest) returns (ContainsExtraValueKeyResponse);
+  rpc DescribeContents (InputMethodSubtypeDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (InputMethodSubtypeEqualsRequest) returns (EqualsResponse);
+  rpc GetDisplayName (GetDisplayNameRequest) returns (GetDisplayNameResponse);
+  rpc GetExtraValue (GetExtraValueRequest) returns (GetExtraValueResponse);
+  rpc GetExtraValueOf (GetExtraValueOfRequest) returns (GetExtraValueOfResponse);
+  rpc GetIconResId (GetIconResIdRequest) returns (GetIconResIdResponse);
+  rpc GetLanguageTag (GetLanguageTagRequest) returns (GetLanguageTagResponse);
+  rpc GetLayoutDisplayName (GetLayoutDisplayNameRequest) returns (GetLayoutDisplayNameResponse);
+  rpc GetLayoutLabelNonLocalized (GetLayoutLabelNonLocalizedRequest) returns (GetLayoutLabelNonLocalizedResponse);
+  rpc GetLayoutLabelResource (GetLayoutLabelResourceRequest) returns (GetLayoutLabelResourceResponse);
+  rpc GetLocale (GetLocaleRequest) returns (GetLocaleResponse);
+  rpc GetMode (GetModeRequest) returns (GetModeResponse);
+  rpc GetNameOverride (GetNameOverrideRequest) returns (GetNameOverrideResponse);
+  rpc GetNameResId (GetNameResIdRequest) returns (GetNameResIdResponse);
+  rpc GetPhysicalKeyboardHintLanguageTag (GetPhysicalKeyboardHintLanguageTagRequest) returns (GetPhysicalKeyboardHintLanguageTagResponse);
+  rpc GetPhysicalKeyboardHintLayoutType (GetPhysicalKeyboardHintLayoutTypeRequest) returns (GetPhysicalKeyboardHintLayoutTypeResponse);
+  rpc HashCode (InputMethodSubtypeHashCodeRequest) returns (HashCodeResponse);
+  rpc IsAsciiCapable (IsAsciiCapableRequest) returns (IsAsciiCapableResponse);
+  rpc IsAuxiliary (IsAuxiliaryRequest) returns (IsAuxiliaryResponse);
+  rpc OverridesImplicitlyEnabledSubtype (OverridesImplicitlyEnabledSubtypeRequest) returns (OverridesImplicitlyEnabledSubtypeResponse);
+  rpc WriteToParcel (InputMethodSubtypeWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service InputMethodSubtypeInputMethodSubtypeBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetIsAsciiCapable (SetIsAsciiCapableRequest) returns (SetIsAsciiCapableResponse);
+  rpc SetIsAuxiliary (SetIsAuxiliaryRequest) returns (SetIsAuxiliaryResponse);
+  rpc SetLanguageTag (SetLanguageTagRequest) returns (SetLanguageTagResponse);
+  rpc SetLayoutLabelNonLocalized (SetLayoutLabelNonLocalizedRequest) returns (SetLayoutLabelNonLocalizedResponse);
+  rpc SetLayoutLabelResource (SetLayoutLabelResourceRequest) returns (SetLayoutLabelResourceResponse);
+  rpc SetOverridesImplicitlyEnabledSubtype (SetOverridesImplicitlyEnabledSubtypeRequest) returns (SetOverridesImplicitlyEnabledSubtypeResponse);
+  rpc SetPhysicalKeyboardHint (SetPhysicalKeyboardHintRequest) returns (SetPhysicalKeyboardHintResponse);
+  rpc SetSubtypeExtraValue (SetSubtypeExtraValueRequest) returns (SetSubtypeExtraValueResponse);
+  rpc SetSubtypeIconResId (SetSubtypeIconResIdRequest) returns (SetSubtypeIconResIdResponse);
+  rpc SetSubtypeId (SetSubtypeIdRequest) returns (SetSubtypeIdResponse);
+  rpc SetSubtypeLocale (SetSubtypeLocaleRequest) returns (SetSubtypeLocaleResponse);
+  rpc SetSubtypeMode (SetSubtypeModeRequest) returns (SetSubtypeModeResponse);
+  rpc SetSubtypeNameOverride (SetSubtypeNameOverrideRequest) returns (SetSubtypeNameOverrideResponse);
+  rpc SetSubtypeNameResId (SetSubtypeNameResIdRequest) returns (SetSubtypeNameResIdResponse);
+}
+
+service RemoveSpaceGestureService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetEndPoint (GetEndPointRequest) returns (GetEndPointResponse);
+  rpc GetStartPoint (GetStartPointRequest) returns (GetStartPointResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service RemoveSpaceGestureBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetFallbackText (SetFallbackTextRequest) returns (SetFallbackTextResponse);
+  rpc SetPoints (SetPointsRequest) returns (SetPointsResponse);
+}
+
+service InputMethodInfoService {
+  rpc NewInputMethodInfo (NewInputMethodInfoRequest) returns (NewInputMethodInfoResponse);
+  rpc CreateImeLanguageSettingsActivityIntent (CreateImeLanguageSettingsActivityIntentRequest) returns (CreateImeLanguageSettingsActivityIntentResponse);
+  rpc CreateStylusHandwritingSettingsActivityIntent (CreateStylusHandwritingSettingsActivityIntentRequest) returns (CreateStylusHandwritingSettingsActivityIntentResponse);
+  rpc DescribeContents (InputMethodInfoDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Dump (DumpRequest) returns (DumpResponse);
+  rpc Equals (InputMethodInfoEqualsRequest) returns (EqualsResponse);
+  rpc GetComponent (GetComponentRequest) returns (GetComponentResponse);
+  rpc GetConfigChanges (GetConfigChangesRequest) returns (GetConfigChangesResponse);
+  rpc GetId (GetIdRequest) returns (GetIdResponse);
+  rpc GetIsDefaultResourceId (GetIsDefaultResourceIdRequest) returns (GetIsDefaultResourceIdResponse);
+  rpc GetPackageName (GetPackageNameRequest) returns (GetPackageNameResponse);
+  rpc GetServiceInfo (GetServiceInfoRequest) returns (GetServiceInfoResponse);
+  rpc GetServiceName (GetServiceNameRequest) returns (GetServiceNameResponse);
+  rpc GetSettingsActivity (GetSettingsActivityRequest) returns (GetSettingsActivityResponse);
+  rpc GetSubtypeAt (GetSubtypeAtRequest) returns (GetSubtypeAtResponse);
+  rpc GetSubtypeCount (GetSubtypeCountRequest) returns (GetSubtypeCountResponse);
+  rpc HashCode (InputMethodInfoHashCodeRequest) returns (HashCodeResponse);
+  rpc LoadIcon (LoadIconRequest) returns (LoadIconResponse);
+  rpc LoadLabel (LoadLabelRequest) returns (LoadLabelResponse);
+  rpc ShouldShowInInputMethodPicker (ShouldShowInInputMethodPickerRequest) returns (ShouldShowInInputMethodPickerResponse);
+  rpc SupportsConnectionlessStylusHandwriting (SupportsConnectionlessStylusHandwritingRequest) returns (SupportsConnectionlessStylusHandwritingResponse);
+  rpc SupportsStylusHandwriting (SupportsStylusHandwritingRequest) returns (SupportsStylusHandwritingResponse);
+  rpc SuppressesSpellChecker (SuppressesSpellCheckerRequest) returns (SuppressesSpellCheckerResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (InputMethodInfoWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ConnectionlessHandwritingCallbackService {
+  rpc OnError (OnErrorRequest) returns (OnErrorResponse);
+  rpc OnResult (OnResultRequest) returns (OnResultResponse);
+}
+
+service DeleteRangeGestureService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetDeletionEndArea (GetDeletionEndAreaRequest) returns (GetDeletionEndAreaResponse);
+  rpc GetDeletionStartArea (GetDeletionStartAreaRequest) returns (GetDeletionStartAreaResponse);
+  rpc GetGranularity (GetGranularityRequest) returns (GetGranularityResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service DeleteRangeGestureBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetDeletionEndArea (SetDeletionEndAreaRequest) returns (SetDeletionEndAreaResponse);
+  rpc SetDeletionStartArea (SetDeletionStartAreaRequest) returns (SetDeletionStartAreaResponse);
+  rpc SetFallbackText (SetFallbackTextRequest) returns (SetFallbackTextResponse);
+  rpc SetGranularity (SetGranularityRequest) returns (SetGranularityResponse);
+}
+
+service BaseInputConnectionService {
+  rpc NewBaseInputConnection (NewBaseInputConnectionRequest) returns (NewBaseInputConnectionResponse);
+  rpc BeginBatchEdit (BeginBatchEditRequest) returns (BeginBatchEditResponse);
+  rpc ClearMetaKeyStates (ClearMetaKeyStatesRequest) returns (ClearMetaKeyStatesResponse);
+  rpc CloseConnection (CloseConnectionRequest) returns (CloseConnectionResponse);
+  rpc CommitCompletion (CommitCompletionRequest) returns (CommitCompletionResponse);
+  rpc CommitContent (CommitContentRequest) returns (CommitContentResponse);
+  rpc CommitCorrection (CommitCorrectionRequest) returns (CommitCorrectionResponse);
+  rpc CommitText (CommitTextRequest) returns (CommitTextResponse);
+  rpc DeleteSurroundingText (DeleteSurroundingTextRequest) returns (DeleteSurroundingTextResponse);
+  rpc DeleteSurroundingTextInCodePoints (DeleteSurroundingTextInCodePointsRequest) returns (DeleteSurroundingTextInCodePointsResponse);
+  rpc EndBatchEdit (EndBatchEditRequest) returns (EndBatchEditResponse);
+  rpc FinishComposingText (FinishComposingTextRequest) returns (FinishComposingTextResponse);
+  rpc GetCursorCapsMode (GetCursorCapsModeRequest) returns (GetCursorCapsModeResponse);
+  rpc GetEditable (GetEditableRequest) returns (GetEditableResponse);
+  rpc GetExtractedText (GetExtractedTextRequest) returns (GetExtractedTextResponse);
+  rpc GetHandler (GetHandlerRequest) returns (GetHandlerResponse);
+  rpc GetSelectedText (GetSelectedTextRequest) returns (GetSelectedTextResponse);
+  rpc GetSurroundingText (GetSurroundingTextRequest) returns (GetSurroundingTextResponse);
+  rpc GetTextAfterCursor (GetTextAfterCursorRequest) returns (GetTextAfterCursorResponse);
+  rpc GetTextBeforeCursor (GetTextBeforeCursorRequest) returns (GetTextBeforeCursorResponse);
+  rpc PerformContextMenuAction (PerformContextMenuActionRequest) returns (PerformContextMenuActionResponse);
+  rpc PerformEditorAction (PerformEditorActionRequest) returns (PerformEditorActionResponse);
+  rpc PerformPrivateCommand (PerformPrivateCommandRequest) returns (PerformPrivateCommandResponse);
+  rpc ReplaceText (ReplaceTextRequest) returns (ReplaceTextResponse);
+  rpc ReportFullscreenMode (ReportFullscreenModeRequest) returns (ReportFullscreenModeResponse);
+  rpc RequestCursorUpdates (RequestCursorUpdatesRequest) returns (RequestCursorUpdatesResponse);
+  rpc SendKeyEvent (SendKeyEventRequest) returns (SendKeyEventResponse);
+  rpc SetComposingRegion (SetComposingRegionRequest) returns (SetComposingRegionResponse);
+  rpc SetComposingText (SetComposingTextRequest) returns (SetComposingTextResponse);
+  rpc SetSelection (SetSelectionRequest) returns (SetSelectionResponse);
+  rpc TakeSnapshot (TakeSnapshotRequest) returns (TakeSnapshotResponse);
+  rpc GetComposingSpanEnd (GetComposingSpanEndRequest) returns (GetComposingSpanEndResponse);
+  rpc GetComposingSpanStart (GetComposingSpanStartRequest) returns (GetComposingSpanStartResponse);
+  rpc RemoveComposingSpans (RemoveComposingSpansRequest) returns (RemoveComposingSpansResponse);
+  rpc SetComposingSpans (SetComposingSpansRequest) returns (SetComposingSpansResponse);
+}
+
+service InputContentInfoService {
+  rpc NewInputContentInfo (NewInputContentInfoRequest) returns (NewInputContentInfoResponse);
+  rpc DescribeContents (InputContentInfoDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetContentUri (GetContentUriRequest) returns (GetContentUriResponse);
+  rpc GetDescription (GetDescriptionRequest) returns (GetDescriptionResponse);
+  rpc GetLinkUri (GetLinkUriRequest) returns (GetLinkUriResponse);
+  rpc ReleasePermission (ReleasePermissionRequest) returns (ReleasePermissionResponse);
+  rpc RequestPermission (RequestPermissionRequest) returns (RequestPermissionResponse);
+  rpc WriteToParcel (InputContentInfoWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service CursorAnchorInfoService {
+  rpc NewCursorAnchorInfo (NewCursorAnchorInfoRequest) returns (NewCursorAnchorInfoResponse);
+  rpc DescribeContents (CursorAnchorInfoDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (CursorAnchorInfoEqualsRequest) returns (EqualsResponse);
+  rpc GetCharacterBounds (CursorAnchorInfoGetCharacterBoundsRequest) returns (CursorAnchorInfoGetCharacterBoundsResponse);
+  rpc GetCharacterBoundsFlags (GetCharacterBoundsFlagsRequest) returns (GetCharacterBoundsFlagsResponse);
+  rpc GetComposingText (GetComposingTextRequest) returns (GetComposingTextResponse);
+  rpc GetComposingTextStart (GetComposingTextStartRequest) returns (GetComposingTextStartResponse);
+  rpc GetEditorBoundsInfo (GetEditorBoundsInfoRequest) returns (GetEditorBoundsInfoResponse);
+  rpc GetInsertionMarkerBaseline (GetInsertionMarkerBaselineRequest) returns (GetInsertionMarkerBaselineResponse);
+  rpc GetInsertionMarkerBottom (GetInsertionMarkerBottomRequest) returns (GetInsertionMarkerBottomResponse);
+  rpc GetInsertionMarkerFlags (GetInsertionMarkerFlagsRequest) returns (GetInsertionMarkerFlagsResponse);
+  rpc GetInsertionMarkerHorizontal (GetInsertionMarkerHorizontalRequest) returns (GetInsertionMarkerHorizontalResponse);
+  rpc GetInsertionMarkerTop (GetInsertionMarkerTopRequest) returns (GetInsertionMarkerTopResponse);
+  rpc GetMatrix (CursorAnchorInfoGetMatrixRequest) returns (CursorAnchorInfoGetMatrixResponse);
+  rpc GetSelectionEnd (GetSelectionEndRequest) returns (GetSelectionEndResponse);
+  rpc GetSelectionStart (GetSelectionStartRequest) returns (GetSelectionStartResponse);
+  rpc GetTextAppearanceInfo (GetTextAppearanceInfoRequest) returns (GetTextAppearanceInfoResponse);
+  rpc HashCode (CursorAnchorInfoHashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (CursorAnchorInfoWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service CursorAnchorInfoBuilderService {
+  rpc AddCharacterBounds (AddCharacterBoundsRequest) returns (AddCharacterBoundsResponse);
+  rpc AddVisibleLineBounds (AddVisibleLineBoundsRequest) returns (AddVisibleLineBoundsResponse);
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc ClearVisibleLineBounds (ClearVisibleLineBoundsRequest) returns (ClearVisibleLineBoundsResponse);
+  rpc Reset (ResetRequest) returns (ResetResponse);
+  rpc SetComposingText (CursorAnchorInfoBuilderSetComposingTextRequest) returns (CursorAnchorInfoBuilderSetComposingTextResponse);
+  rpc SetEditorBoundsInfo (SetEditorBoundsInfoRequest) returns (SetEditorBoundsInfoResponse);
+  rpc SetInsertionMarkerLocation (SetInsertionMarkerLocationRequest) returns (SetInsertionMarkerLocationResponse);
+  rpc SetMatrix (SetMatrixRequest) returns (SetMatrixResponse);
+  rpc SetSelectionRange (SetSelectionRangeRequest) returns (SetSelectionRangeResponse);
+  rpc SetTextAppearanceInfo (SetTextAppearanceInfoRequest) returns (SetTextAppearanceInfoResponse);
+}
+
+service ExtractedTextRequestService {
+  rpc NewExtractedTextRequestOp (NewExtractedTextRequestOpRequest) returns (NewExtractedTextRequestOpResponse);
+  rpc DescribeContents (ExtractedTextRequestDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc WriteToParcel (ExtractedTextRequestWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service CompletionInfoService {
+  rpc NewCompletionInfo (NewCompletionInfoRequest) returns (NewCompletionInfoResponse);
+  rpc DescribeContents (CompletionInfoDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetId (GetIdRequest) returns (CompletionInfoGetIdResponse);
+  rpc GetLabel (GetLabelRequest) returns (GetLabelResponse);
+  rpc GetPosition (GetPositionRequest) returns (GetPositionResponse);
+  rpc GetText (GetTextRequest) returns (GetTextResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (CompletionInfoWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service SelectGestureService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetGranularity (GetGranularityRequest) returns (GetGranularityResponse);
+  rpc GetSelectionArea (GetSelectionAreaRequest) returns (GetSelectionAreaResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service SelectGestureBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetFallbackText (SetFallbackTextRequest) returns (SetFallbackTextResponse);
+  rpc SetGranularity (SetGranularityRequest) returns (SetGranularityResponse);
+  rpc SetSelectionArea (SetSelectionAreaRequest) returns (SetSelectionAreaResponse);
+}
+
+service InlineSuggestionService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetInfo (GetInfoRequest) returns (GetInfoResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (InlineSuggestionToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service TextBoundsInfoResultService {
+  rpc NewTextBoundsInfoResult (NewTextBoundsInfoResultRequest) returns (NewTextBoundsInfoResultResponse);
+  rpc GetResultCode (GetResultCodeRequest) returns (GetResultCodeResponse);
+  rpc GetTextBoundsInfo (GetTextBoundsInfoRequest) returns (GetTextBoundsInfoResponse);
+}
+
+service InputConnectionService {
+  rpc BeginBatchEdit (InputConnectionBeginBatchEditRequest) returns (BeginBatchEditResponse);
+  rpc ClearMetaKeyStates (InputConnectionClearMetaKeyStatesRequest) returns (ClearMetaKeyStatesResponse);
+  rpc CloseConnection (InputConnectionCloseConnectionRequest) returns (CloseConnectionResponse);
+  rpc CommitCompletion (InputConnectionCommitCompletionRequest) returns (CommitCompletionResponse);
+  rpc CommitContent (InputConnectionCommitContentRequest) returns (CommitContentResponse);
+  rpc CommitCorrection (InputConnectionCommitCorrectionRequest) returns (CommitCorrectionResponse);
+  rpc CommitText (InputConnectionCommitTextRequest) returns (CommitTextResponse);
+  rpc DeleteSurroundingText (InputConnectionDeleteSurroundingTextRequest) returns (DeleteSurroundingTextResponse);
+  rpc DeleteSurroundingTextInCodePoints (InputConnectionDeleteSurroundingTextInCodePointsRequest) returns (DeleteSurroundingTextInCodePointsResponse);
+  rpc EndBatchEdit (InputConnectionEndBatchEditRequest) returns (EndBatchEditResponse);
+  rpc FinishComposingText (InputConnectionFinishComposingTextRequest) returns (FinishComposingTextResponse);
+  rpc GetCursorCapsMode (InputConnectionGetCursorCapsModeRequest) returns (GetCursorCapsModeResponse);
+  rpc GetExtractedText (InputConnectionGetExtractedTextRequest) returns (GetExtractedTextResponse);
+  rpc GetHandler (InputConnectionGetHandlerRequest) returns (GetHandlerResponse);
+  rpc GetSelectedText (InputConnectionGetSelectedTextRequest) returns (GetSelectedTextResponse);
+  rpc GetTextAfterCursor (InputConnectionGetTextAfterCursorRequest) returns (GetTextAfterCursorResponse);
+  rpc GetTextBeforeCursor (InputConnectionGetTextBeforeCursorRequest) returns (GetTextBeforeCursorResponse);
+  rpc PerformContextMenuAction (InputConnectionPerformContextMenuActionRequest) returns (PerformContextMenuActionResponse);
+  rpc PerformEditorAction (InputConnectionPerformEditorActionRequest) returns (PerformEditorActionResponse);
+  rpc PerformPrivateCommand (InputConnectionPerformPrivateCommandRequest) returns (PerformPrivateCommandResponse);
+  rpc ReportFullscreenMode (InputConnectionReportFullscreenModeRequest) returns (ReportFullscreenModeResponse);
+  rpc RequestCursorUpdates (InputConnectionRequestCursorUpdatesRequest) returns (RequestCursorUpdatesResponse);
+  rpc SendKeyEvent (InputConnectionSendKeyEventRequest) returns (SendKeyEventResponse);
+  rpc SetComposingRegion (InputConnectionSetComposingRegionRequest) returns (SetComposingRegionResponse);
+  rpc SetComposingText (InputConnectionSetComposingTextRequest) returns (SetComposingTextResponse);
+  rpc SetSelection (InputConnectionSetSelectionRequest) returns (SetSelectionResponse);
+}
+
+service JoinOrSplitGestureService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetJoinOrSplitPoint (GetJoinOrSplitPointRequest) returns (GetJoinOrSplitPointResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service JoinOrSplitGestureBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetFallbackText (SetFallbackTextRequest) returns (SetFallbackTextResponse);
+  rpc SetJoinOrSplitPoint (SetJoinOrSplitPointRequest) returns (SetJoinOrSplitPointResponse);
+}
+
+service EditorBoundsInfoService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetEditorBounds (GetEditorBoundsRequest) returns (GetEditorBoundsResponse);
+  rpc GetHandwritingBounds (GetHandwritingBoundsRequest) returns (GetHandwritingBoundsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (EditorBoundsInfoToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service EditorBoundsInfoBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetEditorBounds (SetEditorBoundsRequest) returns (SetEditorBoundsResponse);
+  rpc SetHandwritingBounds (SetHandwritingBoundsRequest) returns (SetHandwritingBoundsResponse);
+}
+
+service SelectRangeGestureService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetGranularity (GetGranularityRequest) returns (GetGranularityResponse);
+  rpc GetSelectionEndArea (GetSelectionEndAreaRequest) returns (GetSelectionEndAreaResponse);
+  rpc GetSelectionStartArea (GetSelectionStartAreaRequest) returns (GetSelectionStartAreaResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service SelectRangeGestureBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetFallbackText (SetFallbackTextRequest) returns (SetFallbackTextResponse);
+  rpc SetGranularity (SetGranularityRequest) returns (SetGranularityResponse);
+  rpc SetSelectionEndArea (SetSelectionEndAreaRequest) returns (SetSelectionEndAreaResponse);
+  rpc SetSelectionStartArea (SetSelectionStartAreaRequest) returns (SetSelectionStartAreaResponse);
+}
+
+service HandwritingGestureService {
+  rpc GetFallbackText (GetFallbackTextRequest) returns (GetFallbackTextResponse);
+}
+
+service TextSnapshotService {
+  rpc NewTextSnapshot (NewTextSnapshotRequest) returns (NewTextSnapshotResponse);
+  rpc GetCompositionEnd (GetCompositionEndRequest) returns (GetCompositionEndResponse);
+  rpc GetCompositionStart (GetCompositionStartRequest) returns (GetCompositionStartResponse);
+  rpc GetCursorCapsMode (TextSnapshotGetCursorCapsModeRequest) returns (GetCursorCapsModeResponse);
+  rpc GetSelectionEnd (GetSelectionEndRequest) returns (GetSelectionEndResponse);
+  rpc GetSelectionStart (GetSelectionStartRequest) returns (GetSelectionStartResponse);
+  rpc GetSurroundingText (TextSnapshotGetSurroundingTextRequest) returns (GetSurroundingTextResponse);
+}
+
+service InsertModeGestureService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetCancellationSignal (GetCancellationSignalRequest) returns (GetCancellationSignalResponse);
+  rpc GetInsertionPoint (GetInsertionPointRequest) returns (GetInsertionPointResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service InsertModeGestureBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetCancellationSignal (SetCancellationSignalRequest) returns (SetCancellationSignalResponse);
+  rpc SetFallbackText (SetFallbackTextRequest) returns (SetFallbackTextResponse);
+  rpc SetInsertionPoint (SetInsertionPointRequest) returns (SetInsertionPointResponse);
 }
 
 service InputMethodManagerService {
   rpc AcceptStylusHandwritingDelegation1 (AcceptStylusHandwritingDelegation1Request) returns (AcceptStylusHandwritingDelegation1Response);
   rpc AcceptStylusHandwritingDelegation2_1 (AcceptStylusHandwritingDelegation2_1Request) returns (AcceptStylusHandwritingDelegation2_1Response);
   rpc DispatchKeyEventFromInputMethod (DispatchKeyEventFromInputMethodRequest) returns (DispatchKeyEventFromInputMethodResponse);
-  rpc DisplayCompletions (DisplayCompletionsRequest) returns (DisplayCompletionsResponse);
+  rpc DisplayCompletions (InputMethodManagerDisplayCompletionsRequest) returns (DisplayCompletionsResponse);
   rpc GetCurrentInputMethodInfo (GetCurrentInputMethodInfoRequest) returns (GetCurrentInputMethodInfoResponse);
   rpc GetCurrentInputMethodSubtype (GetCurrentInputMethodSubtypeRequest) returns (GetCurrentInputMethodSubtypeResponse);
   rpc GetLastInputMethodSubtype (GetLastInputMethodSubtypeRequest) returns (GetLastInputMethodSubtypeResponse);
@@ -429,7 +3737,7 @@ service InputMethodManagerService {
   rpc IsWatchingCursor (IsWatchingCursorRequest) returns (IsWatchingCursorResponse);
   rpc PrepareStylusHandwritingDelegation1 (PrepareStylusHandwritingDelegation1Request) returns (PrepareStylusHandwritingDelegation1Response);
   rpc PrepareStylusHandwritingDelegation2_1 (PrepareStylusHandwritingDelegation2_1Request) returns (PrepareStylusHandwritingDelegation2_1Response);
-  rpc RestartInput (RestartInputRequest) returns (RestartInputResponse);
+  rpc RestartInput (InputMethodManagerRestartInputRequest) returns (RestartInputResponse);
   rpc SendAppPrivateCommand (SendAppPrivateCommandRequest) returns (SendAppPrivateCommandResponse);
   rpc SetAdditionalInputMethodSubtypes (SetAdditionalInputMethodSubtypesRequest) returns (SetAdditionalInputMethodSubtypesResponse);
   rpc SetCurrentInputMethodSubtype (SetCurrentInputMethodSubtypeRequest) returns (SetCurrentInputMethodSubtypeResponse);
@@ -451,9 +3759,183 @@ service InputMethodManagerService {
   rpc SwitchToNextInputMethod (SwitchToNextInputMethodRequest) returns (SwitchToNextInputMethodResponse);
   rpc ToggleSoftInput (ToggleSoftInputRequest) returns (ToggleSoftInputResponse);
   rpc ToggleSoftInputFromWindow (ToggleSoftInputFromWindowRequest) returns (ToggleSoftInputFromWindowResponse);
-  rpc UpdateCursor (UpdateCursorRequest) returns (UpdateCursorResponse);
-  rpc UpdateCursorAnchorInfo (UpdateCursorAnchorInfoRequest) returns (UpdateCursorAnchorInfoResponse);
-  rpc UpdateExtractedText (UpdateExtractedTextRequest) returns (UpdateExtractedTextResponse);
-  rpc UpdateSelection (UpdateSelectionRequest) returns (UpdateSelectionResponse);
-  rpc ViewClicked (ViewClickedRequest) returns (ViewClickedResponse);
+  rpc UpdateCursor (InputMethodManagerUpdateCursorRequest) returns (UpdateCursorResponse);
+  rpc UpdateCursorAnchorInfo (InputMethodManagerUpdateCursorAnchorInfoRequest) returns (UpdateCursorAnchorInfoResponse);
+  rpc UpdateExtractedText (InputMethodManagerUpdateExtractedTextRequest) returns (UpdateExtractedTextResponse);
+  rpc UpdateSelection (InputMethodManagerUpdateSelectionRequest) returns (UpdateSelectionResponse);
+  rpc ViewClicked (InputMethodManagerViewClickedRequest) returns (ViewClickedResponse);
+}
+
+service InputConnectionWrapperService {
+  rpc NewInputConnectionWrapper (NewInputConnectionWrapperRequest) returns (NewInputConnectionWrapperResponse);
+  rpc BeginBatchEdit (BeginBatchEditRequest) returns (BeginBatchEditResponse);
+  rpc ClearMetaKeyStates (ClearMetaKeyStatesRequest) returns (ClearMetaKeyStatesResponse);
+  rpc CloseConnection (CloseConnectionRequest) returns (CloseConnectionResponse);
+  rpc CommitCompletion (CommitCompletionRequest) returns (CommitCompletionResponse);
+  rpc CommitContent (CommitContentRequest) returns (CommitContentResponse);
+  rpc CommitCorrection (CommitCorrectionRequest) returns (CommitCorrectionResponse);
+  rpc CommitText2 (CommitText2Request) returns (CommitText2Response);
+  rpc CommitText3_1 (CommitText3_1Request) returns (CommitText3_1Response);
+  rpc DeleteSurroundingText (DeleteSurroundingTextRequest) returns (DeleteSurroundingTextResponse);
+  rpc DeleteSurroundingTextInCodePoints (DeleteSurroundingTextInCodePointsRequest) returns (DeleteSurroundingTextInCodePointsResponse);
+  rpc EndBatchEdit (EndBatchEditRequest) returns (EndBatchEditResponse);
+  rpc FinishComposingText (FinishComposingTextRequest) returns (FinishComposingTextResponse);
+  rpc GetCursorCapsMode (GetCursorCapsModeRequest) returns (GetCursorCapsModeResponse);
+  rpc GetExtractedText (GetExtractedTextRequest) returns (GetExtractedTextResponse);
+  rpc GetHandler (GetHandlerRequest) returns (GetHandlerResponse);
+  rpc GetSelectedText (GetSelectedTextRequest) returns (GetSelectedTextResponse);
+  rpc GetSurroundingText (GetSurroundingTextRequest) returns (GetSurroundingTextResponse);
+  rpc GetTextAfterCursor (GetTextAfterCursorRequest) returns (GetTextAfterCursorResponse);
+  rpc GetTextBeforeCursor (GetTextBeforeCursorRequest) returns (GetTextBeforeCursorResponse);
+  rpc PerformContextMenuAction (PerformContextMenuActionRequest) returns (PerformContextMenuActionResponse);
+  rpc PerformEditorAction (PerformEditorActionRequest) returns (PerformEditorActionResponse);
+  rpc PerformHandwritingGesture (PerformHandwritingGestureRequest) returns (PerformHandwritingGestureResponse);
+  rpc PerformPrivateCommand (PerformPrivateCommandRequest) returns (PerformPrivateCommandResponse);
+  rpc PerformSpellCheck (PerformSpellCheckRequest) returns (PerformSpellCheckResponse);
+  rpc PreviewHandwritingGesture (PreviewHandwritingGestureRequest) returns (PreviewHandwritingGestureResponse);
+  rpc ReplaceText (ReplaceTextRequest) returns (ReplaceTextResponse);
+  rpc ReportFullscreenMode (ReportFullscreenModeRequest) returns (ReportFullscreenModeResponse);
+  rpc RequestCursorUpdates1 (RequestCursorUpdates1Request) returns (RequestCursorUpdates1Response);
+  rpc RequestCursorUpdates2_1 (RequestCursorUpdates2_1Request) returns (RequestCursorUpdates2_1Response);
+  rpc SendKeyEvent (SendKeyEventRequest) returns (SendKeyEventResponse);
+  rpc SetComposingRegion2 (SetComposingRegion2Request) returns (SetComposingRegion2Response);
+  rpc SetComposingRegion3_1 (SetComposingRegion3_1Request) returns (SetComposingRegion3_1Response);
+  rpc SetComposingText2 (SetComposingText2Request) returns (SetComposingText2Response);
+  rpc SetComposingText3_1 (SetComposingText3_1Request) returns (SetComposingText3_1Response);
+  rpc SetImeConsumesInput (SetImeConsumesInputRequest) returns (SetImeConsumesInputResponse);
+  rpc SetSelection (SetSelectionRequest) returns (SetSelectionResponse);
+  rpc SetTarget (SetTargetRequest) returns (SetTargetResponse);
+  rpc TakeSnapshot (TakeSnapshotRequest) returns (TakeSnapshotResponse);
+}
+
+service DeleteGestureService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetDeletionArea (GetDeletionAreaRequest) returns (GetDeletionAreaResponse);
+  rpc GetGranularity (GetGranularityRequest) returns (GetGranularityResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service DeleteGestureBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetDeletionArea (SetDeletionAreaRequest) returns (SetDeletionAreaResponse);
+  rpc SetFallbackText (SetFallbackTextRequest) returns (SetFallbackTextResponse);
+  rpc SetGranularity (SetGranularityRequest) returns (SetGranularityResponse);
+}
+
+service TextAppearanceInfoService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetFontFeatureSettings (GetFontFeatureSettingsRequest) returns (GetFontFeatureSettingsResponse);
+  rpc GetFontVariationSettings (GetFontVariationSettingsRequest) returns (GetFontVariationSettingsResponse);
+  rpc GetHighlightTextColor (GetHighlightTextColorRequest) returns (GetHighlightTextColorResponse);
+  rpc GetHintTextColor (GetHintTextColorRequest) returns (GetHintTextColorResponse);
+  rpc GetLetterSpacing (GetLetterSpacingRequest) returns (GetLetterSpacingResponse);
+  rpc GetLineBreakStyle (GetLineBreakStyleRequest) returns (GetLineBreakStyleResponse);
+  rpc GetLineBreakWordStyle (GetLineBreakWordStyleRequest) returns (GetLineBreakWordStyleResponse);
+  rpc GetLinkTextColor (GetLinkTextColorRequest) returns (GetLinkTextColorResponse);
+  rpc GetShadowColor (GetShadowColorRequest) returns (GetShadowColorResponse);
+  rpc GetShadowDx (GetShadowDxRequest) returns (GetShadowDxResponse);
+  rpc GetShadowDy (GetShadowDyRequest) returns (GetShadowDyResponse);
+  rpc GetShadowRadius (GetShadowRadiusRequest) returns (GetShadowRadiusResponse);
+  rpc GetSystemFontFamilyName (GetSystemFontFamilyNameRequest) returns (GetSystemFontFamilyNameResponse);
+  rpc GetTextColor (GetTextColorRequest) returns (GetTextColorResponse);
+  rpc GetTextFontWeight (GetTextFontWeightRequest) returns (GetTextFontWeightResponse);
+  rpc GetTextLocales (GetTextLocalesRequest) returns (GetTextLocalesResponse);
+  rpc GetTextScaleX (GetTextScaleXRequest) returns (GetTextScaleXResponse);
+  rpc GetTextSize (GetTextSizeRequest) returns (GetTextSizeResponse);
+  rpc GetTextStyle (GetTextStyleRequest) returns (GetTextStyleResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc IsAllCaps (IsAllCapsRequest) returns (IsAllCapsResponse);
+  rpc IsElegantTextHeight (IsElegantTextHeightRequest) returns (IsElegantTextHeightResponse);
+  rpc IsFallbackLineSpacing (IsFallbackLineSpacingRequest) returns (IsFallbackLineSpacingResponse);
+  rpc ToString (TextAppearanceInfoToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service TextAppearanceInfoBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetAllCaps (SetAllCapsRequest) returns (SetAllCapsResponse);
+  rpc SetElegantTextHeight (SetElegantTextHeightRequest) returns (SetElegantTextHeightResponse);
+  rpc SetFallbackLineSpacing (SetFallbackLineSpacingRequest) returns (SetFallbackLineSpacingResponse);
+  rpc SetFontFeatureSettings (SetFontFeatureSettingsRequest) returns (SetFontFeatureSettingsResponse);
+  rpc SetFontVariationSettings (SetFontVariationSettingsRequest) returns (SetFontVariationSettingsResponse);
+  rpc SetHighlightTextColor (SetHighlightTextColorRequest) returns (SetHighlightTextColorResponse);
+  rpc SetHintTextColor (SetHintTextColorRequest) returns (SetHintTextColorResponse);
+  rpc SetLetterSpacing (SetLetterSpacingRequest) returns (SetLetterSpacingResponse);
+  rpc SetLineBreakStyle (SetLineBreakStyleRequest) returns (SetLineBreakStyleResponse);
+  rpc SetLineBreakWordStyle (SetLineBreakWordStyleRequest) returns (SetLineBreakWordStyleResponse);
+  rpc SetLinkTextColor (SetLinkTextColorRequest) returns (SetLinkTextColorResponse);
+  rpc SetShadowColor (SetShadowColorRequest) returns (SetShadowColorResponse);
+  rpc SetShadowDx (SetShadowDxRequest) returns (SetShadowDxResponse);
+  rpc SetShadowDy (SetShadowDyRequest) returns (SetShadowDyResponse);
+  rpc SetShadowRadius (SetShadowRadiusRequest) returns (SetShadowRadiusResponse);
+  rpc SetSystemFontFamilyName (SetSystemFontFamilyNameRequest) returns (SetSystemFontFamilyNameResponse);
+  rpc SetTextColor (SetTextColorRequest) returns (SetTextColorResponse);
+  rpc SetTextFontWeight (SetTextFontWeightRequest) returns (SetTextFontWeightResponse);
+  rpc SetTextLocales (SetTextLocalesRequest) returns (SetTextLocalesResponse);
+  rpc SetTextScaleX (SetTextScaleXRequest) returns (SetTextScaleXResponse);
+  rpc SetTextSize (SetTextSizeRequest) returns (SetTextSizeResponse);
+  rpc SetTextStyle (SetTextStyleRequest) returns (SetTextStyleResponse);
+}
+
+service ExtractedTextService {
+  rpc NewExtractedText (NewExtractedTextRequest) returns (NewExtractedTextResponse);
+  rpc DescribeContents (ExtractedTextDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc WriteToParcel (ExtractedTextWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service InlineSuggestionsRequestService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetExtras (GetExtrasRequest) returns (GetExtrasResponse);
+  rpc GetHostPackageName (GetHostPackageNameRequest) returns (GetHostPackageNameResponse);
+  rpc GetInlineTooltipPresentationSpec (GetInlineTooltipPresentationSpecRequest) returns (GetInlineTooltipPresentationSpecResponse);
+  rpc GetMaxSuggestionCount (GetMaxSuggestionCountRequest) returns (GetMaxSuggestionCountResponse);
+  rpc GetSupportedLocales (GetSupportedLocalesRequest) returns (GetSupportedLocalesResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (InlineSuggestionsRequestToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service InlineSuggestionsRequestBuilderService {
+  rpc AddInlinePresentationSpecs (AddInlinePresentationSpecsRequest) returns (AddInlinePresentationSpecsResponse);
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetExtras (SetExtrasRequest) returns (SetExtrasResponse);
+  rpc SetInlineTooltipPresentationSpec (SetInlineTooltipPresentationSpecRequest) returns (SetInlineTooltipPresentationSpecResponse);
+  rpc SetMaxSuggestionCount (SetMaxSuggestionCountRequest) returns (SetMaxSuggestionCountResponse);
+  rpc SetSupportedLocales (SetSupportedLocalesRequest) returns (SetSupportedLocalesResponse);
+}
+
+service EditorInfoService {
+  rpc NewEditorInfo (NewEditorInfoRequest) returns (NewEditorInfoResponse);
+  rpc DescribeContents (EditorInfoDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Dump (DumpRequest) returns (DumpResponse);
+  rpc GetAutofillId (GetAutofillIdRequest) returns (GetAutofillIdResponse);
+  rpc GetInitialSelectedText (GetInitialSelectedTextRequest) returns (GetInitialSelectedTextResponse);
+  rpc GetInitialSurroundingText (GetInitialSurroundingTextRequest) returns (GetInitialSurroundingTextResponse);
+  rpc GetInitialTextAfterCursor (GetInitialTextAfterCursorRequest) returns (GetInitialTextAfterCursorResponse);
+  rpc GetInitialTextBeforeCursor (GetInitialTextBeforeCursorRequest) returns (GetInitialTextBeforeCursorResponse);
+  rpc GetInitialToolType (GetInitialToolTypeRequest) returns (GetInitialToolTypeResponse);
+  rpc IsStylusHandwritingEnabled (IsStylusHandwritingEnabledRequest) returns (IsStylusHandwritingEnabledResponse);
+  rpc IsWritingToolsEnabled (IsWritingToolsEnabledRequest) returns (IsWritingToolsEnabledResponse);
+  rpc MakeCompatible (MakeCompatibleRequest) returns (MakeCompatibleResponse);
+  rpc SetAutofillId (SetAutofillIdRequest) returns (SetAutofillIdResponse);
+  rpc SetInitialSurroundingSubText (SetInitialSurroundingSubTextRequest) returns (SetInitialSurroundingSubTextResponse);
+  rpc SetInitialSurroundingText (SetInitialSurroundingTextRequest) returns (SetInitialSurroundingTextResponse);
+  rpc SetInitialToolType (SetInitialToolTypeRequest) returns (SetInitialToolTypeResponse);
+  rpc SetStylusHandwritingEnabled (SetStylusHandwritingEnabledRequest) returns (SetStylusHandwritingEnabledResponse);
+  rpc SetWritingToolsEnabled (SetWritingToolsEnabledRequest) returns (SetWritingToolsEnabledResponse);
+  rpc WriteToParcel (EditorInfoWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service CorrectionInfoService {
+  rpc NewCorrectionInfo (NewCorrectionInfoRequest) returns (NewCorrectionInfoResponse);
+  rpc DescribeContents (CorrectionInfoDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetNewText (GetNewTextRequest) returns (GetNewTextResponse);
+  rpc GetOffset (GetOffsetRequest) returns (GetOffsetResponse);
+  rpc GetOldText (GetOldTextRequest) returns (GetOldTextResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (CorrectionInfoWriteToParcelRequest) returns (WriteToParcelResponse);
 }

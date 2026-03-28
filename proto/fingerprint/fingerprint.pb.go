@@ -183,6 +183,654 @@ func (x *IsHardwareDetectedResponse) GetResult() bool {
 	return false
 }
 
+type OnAuthenticationErrorRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnAuthenticationErrorRequest) Reset() {
+	*x = OnAuthenticationErrorRequest{}
+	mi := &file_proto_fingerprint_fingerprint_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnAuthenticationErrorRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnAuthenticationErrorRequest) ProtoMessage() {}
+
+func (x *OnAuthenticationErrorRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_fingerprint_fingerprint_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnAuthenticationErrorRequest.ProtoReflect.Descriptor instead.
+func (*OnAuthenticationErrorRequest) Descriptor() ([]byte, []int) {
+	return file_proto_fingerprint_fingerprint_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *OnAuthenticationErrorRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnAuthenticationErrorRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+type OnAuthenticationErrorResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnAuthenticationErrorResponse) Reset() {
+	*x = OnAuthenticationErrorResponse{}
+	mi := &file_proto_fingerprint_fingerprint_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnAuthenticationErrorResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnAuthenticationErrorResponse) ProtoMessage() {}
+
+func (x *OnAuthenticationErrorResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_fingerprint_fingerprint_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnAuthenticationErrorResponse.ProtoReflect.Descriptor instead.
+func (*OnAuthenticationErrorResponse) Descriptor() ([]byte, []int) {
+	return file_proto_fingerprint_fingerprint_proto_rawDescGZIP(), []int{5}
+}
+
+type OnAuthenticationFailedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnAuthenticationFailedRequest) Reset() {
+	*x = OnAuthenticationFailedRequest{}
+	mi := &file_proto_fingerprint_fingerprint_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnAuthenticationFailedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnAuthenticationFailedRequest) ProtoMessage() {}
+
+func (x *OnAuthenticationFailedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_fingerprint_fingerprint_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnAuthenticationFailedRequest.ProtoReflect.Descriptor instead.
+func (*OnAuthenticationFailedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_fingerprint_fingerprint_proto_rawDescGZIP(), []int{6}
+}
+
+type OnAuthenticationFailedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnAuthenticationFailedResponse) Reset() {
+	*x = OnAuthenticationFailedResponse{}
+	mi := &file_proto_fingerprint_fingerprint_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnAuthenticationFailedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnAuthenticationFailedResponse) ProtoMessage() {}
+
+func (x *OnAuthenticationFailedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_fingerprint_fingerprint_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnAuthenticationFailedResponse.ProtoReflect.Descriptor instead.
+func (*OnAuthenticationFailedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_fingerprint_fingerprint_proto_rawDescGZIP(), []int{7}
+}
+
+type OnAuthenticationHelpRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnAuthenticationHelpRequest) Reset() {
+	*x = OnAuthenticationHelpRequest{}
+	mi := &file_proto_fingerprint_fingerprint_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnAuthenticationHelpRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnAuthenticationHelpRequest) ProtoMessage() {}
+
+func (x *OnAuthenticationHelpRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_fingerprint_fingerprint_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnAuthenticationHelpRequest.ProtoReflect.Descriptor instead.
+func (*OnAuthenticationHelpRequest) Descriptor() ([]byte, []int) {
+	return file_proto_fingerprint_fingerprint_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *OnAuthenticationHelpRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnAuthenticationHelpRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+type OnAuthenticationHelpResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnAuthenticationHelpResponse) Reset() {
+	*x = OnAuthenticationHelpResponse{}
+	mi := &file_proto_fingerprint_fingerprint_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnAuthenticationHelpResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnAuthenticationHelpResponse) ProtoMessage() {}
+
+func (x *OnAuthenticationHelpResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_fingerprint_fingerprint_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnAuthenticationHelpResponse.ProtoReflect.Descriptor instead.
+func (*OnAuthenticationHelpResponse) Descriptor() ([]byte, []int) {
+	return file_proto_fingerprint_fingerprint_proto_rawDescGZIP(), []int{9}
+}
+
+type OnAuthenticationSucceededRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnAuthenticationSucceededRequest) Reset() {
+	*x = OnAuthenticationSucceededRequest{}
+	mi := &file_proto_fingerprint_fingerprint_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnAuthenticationSucceededRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnAuthenticationSucceededRequest) ProtoMessage() {}
+
+func (x *OnAuthenticationSucceededRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_fingerprint_fingerprint_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnAuthenticationSucceededRequest.ProtoReflect.Descriptor instead.
+func (*OnAuthenticationSucceededRequest) Descriptor() ([]byte, []int) {
+	return file_proto_fingerprint_fingerprint_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *OnAuthenticationSucceededRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnAuthenticationSucceededResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnAuthenticationSucceededResponse) Reset() {
+	*x = OnAuthenticationSucceededResponse{}
+	mi := &file_proto_fingerprint_fingerprint_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnAuthenticationSucceededResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnAuthenticationSucceededResponse) ProtoMessage() {}
+
+func (x *OnAuthenticationSucceededResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_fingerprint_fingerprint_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnAuthenticationSucceededResponse.ProtoReflect.Descriptor instead.
+func (*OnAuthenticationSucceededResponse) Descriptor() ([]byte, []int) {
+	return file_proto_fingerprint_fingerprint_proto_rawDescGZIP(), []int{11}
+}
+
+type GetCryptoObjectRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCryptoObjectRequest) Reset() {
+	*x = GetCryptoObjectRequest{}
+	mi := &file_proto_fingerprint_fingerprint_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCryptoObjectRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCryptoObjectRequest) ProtoMessage() {}
+
+func (x *GetCryptoObjectRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_fingerprint_fingerprint_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCryptoObjectRequest.ProtoReflect.Descriptor instead.
+func (*GetCryptoObjectRequest) Descriptor() ([]byte, []int) {
+	return file_proto_fingerprint_fingerprint_proto_rawDescGZIP(), []int{12}
+}
+
+type GetCryptoObjectResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCryptoObjectResponse) Reset() {
+	*x = GetCryptoObjectResponse{}
+	mi := &file_proto_fingerprint_fingerprint_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCryptoObjectResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCryptoObjectResponse) ProtoMessage() {}
+
+func (x *GetCryptoObjectResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_fingerprint_fingerprint_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCryptoObjectResponse.ProtoReflect.Descriptor instead.
+func (*GetCryptoObjectResponse) Descriptor() ([]byte, []int) {
+	return file_proto_fingerprint_fingerprint_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *GetCryptoObjectResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetCipherRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCipherRequest) Reset() {
+	*x = GetCipherRequest{}
+	mi := &file_proto_fingerprint_fingerprint_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCipherRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCipherRequest) ProtoMessage() {}
+
+func (x *GetCipherRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_fingerprint_fingerprint_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCipherRequest.ProtoReflect.Descriptor instead.
+func (*GetCipherRequest) Descriptor() ([]byte, []int) {
+	return file_proto_fingerprint_fingerprint_proto_rawDescGZIP(), []int{14}
+}
+
+type GetCipherResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCipherResponse) Reset() {
+	*x = GetCipherResponse{}
+	mi := &file_proto_fingerprint_fingerprint_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCipherResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCipherResponse) ProtoMessage() {}
+
+func (x *GetCipherResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_fingerprint_fingerprint_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCipherResponse.ProtoReflect.Descriptor instead.
+func (*GetCipherResponse) Descriptor() ([]byte, []int) {
+	return file_proto_fingerprint_fingerprint_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *GetCipherResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetMacRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMacRequest) Reset() {
+	*x = GetMacRequest{}
+	mi := &file_proto_fingerprint_fingerprint_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMacRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMacRequest) ProtoMessage() {}
+
+func (x *GetMacRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_fingerprint_fingerprint_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMacRequest.ProtoReflect.Descriptor instead.
+func (*GetMacRequest) Descriptor() ([]byte, []int) {
+	return file_proto_fingerprint_fingerprint_proto_rawDescGZIP(), []int{16}
+}
+
+type GetMacResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMacResponse) Reset() {
+	*x = GetMacResponse{}
+	mi := &file_proto_fingerprint_fingerprint_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMacResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMacResponse) ProtoMessage() {}
+
+func (x *GetMacResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_fingerprint_fingerprint_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMacResponse.ProtoReflect.Descriptor instead.
+func (*GetMacResponse) Descriptor() ([]byte, []int) {
+	return file_proto_fingerprint_fingerprint_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *GetMacResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSignatureRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSignatureRequest) Reset() {
+	*x = GetSignatureRequest{}
+	mi := &file_proto_fingerprint_fingerprint_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSignatureRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSignatureRequest) ProtoMessage() {}
+
+func (x *GetSignatureRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_fingerprint_fingerprint_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSignatureRequest.ProtoReflect.Descriptor instead.
+func (*GetSignatureRequest) Descriptor() ([]byte, []int) {
+	return file_proto_fingerprint_fingerprint_proto_rawDescGZIP(), []int{18}
+}
+
+type GetSignatureResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSignatureResponse) Reset() {
+	*x = GetSignatureResponse{}
+	mi := &file_proto_fingerprint_fingerprint_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSignatureResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSignatureResponse) ProtoMessage() {}
+
+func (x *GetSignatureResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_fingerprint_fingerprint_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSignatureResponse.ProtoReflect.Descriptor instead.
+func (*GetSignatureResponse) Descriptor() ([]byte, []int) {
+	return file_proto_fingerprint_fingerprint_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *GetSignatureResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
 var File_proto_fingerprint_fingerprint_proto protoreflect.FileDescriptor
 
 const file_proto_fingerprint_fingerprint_proto_rawDesc = "" +
@@ -193,10 +841,46 @@ const file_proto_fingerprint_fingerprint_proto_rawDesc = "" +
 	"\x06result\x18\x01 \x01(\bR\x06result\"\x1b\n" +
 	"\x19IsHardwareDetectedRequest\"4\n" +
 	"\x1aIsHardwareDetectedResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result2\xed\x01\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"F\n" +
+	"\x1cOnAuthenticationErrorRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\"\x1f\n" +
+	"\x1dOnAuthenticationErrorResponse\"\x1f\n" +
+	"\x1dOnAuthenticationFailedRequest\" \n" +
+	"\x1eOnAuthenticationFailedResponse\"E\n" +
+	"\x1bOnAuthenticationHelpRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\"\x1e\n" +
+	"\x1cOnAuthenticationHelpResponse\"6\n" +
+	" OnAuthenticationSucceededRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"#\n" +
+	"!OnAuthenticationSucceededResponse\"\x18\n" +
+	"\x16GetCryptoObjectRequest\"1\n" +
+	"\x17GetCryptoObjectResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x12\n" +
+	"\x10GetCipherRequest\"+\n" +
+	"\x11GetCipherResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x0f\n" +
+	"\rGetMacRequest\"(\n" +
+	"\x0eGetMacResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x15\n" +
+	"\x13GetSignatureRequest\".\n" +
+	"\x14GetSignatureResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result2\xed\x01\n" +
 	"\x0eManagerService\x12t\n" +
 	"\x17HasEnrolledFingerprints\x12+.fingerprint.HasEnrolledFingerprintsRequest\x1a,.fingerprint.HasEnrolledFingerprintsResponse\x12e\n" +
-	"\x12IsHardwareDetected\x12&.fingerprint.IsHardwareDetectedRequest\x1a'.fingerprint.IsHardwareDetectedResponseB5Z3github.com/AndroidGoLab/jni-proxy/proto/fingerprintb\x06proto3"
+	"\x12IsHardwareDetected\x12&.fingerprint.IsHardwareDetectedRequest\x1a'.fingerprint.IsHardwareDetectedResponse2\xf2\x03\n" +
+	"$ManagerAuthenticationCallbackService\x12n\n" +
+	"\x15OnAuthenticationError\x12).fingerprint.OnAuthenticationErrorRequest\x1a*.fingerprint.OnAuthenticationErrorResponse\x12q\n" +
+	"\x16OnAuthenticationFailed\x12*.fingerprint.OnAuthenticationFailedRequest\x1a+.fingerprint.OnAuthenticationFailedResponse\x12k\n" +
+	"\x14OnAuthenticationHelp\x12(.fingerprint.OnAuthenticationHelpRequest\x1a).fingerprint.OnAuthenticationHelpResponse\x12z\n" +
+	"\x19OnAuthenticationSucceeded\x12-.fingerprint.OnAuthenticationSucceededRequest\x1a..fingerprint.OnAuthenticationSucceededResponse2\x82\x01\n" +
+	"\"ManagerAuthenticationResultService\x12\\\n" +
+	"\x0fGetCryptoObject\x12#.fingerprint.GetCryptoObjectRequest\x1a$.fingerprint.GetCryptoObjectResponse2\x80\x02\n" +
+	"\x1aManagerCryptoObjectService\x12J\n" +
+	"\tGetCipher\x12\x1d.fingerprint.GetCipherRequest\x1a\x1e.fingerprint.GetCipherResponse\x12A\n" +
+	"\x06GetMac\x12\x1a.fingerprint.GetMacRequest\x1a\x1b.fingerprint.GetMacResponse\x12S\n" +
+	"\fGetSignature\x12 .fingerprint.GetSignatureRequest\x1a!.fingerprint.GetSignatureResponseB5Z3github.com/AndroidGoLab/jni-proxy/proto/fingerprintb\x06proto3"
 
 var (
 	file_proto_fingerprint_fingerprint_proto_rawDescOnce sync.Once
@@ -210,23 +894,55 @@ func file_proto_fingerprint_fingerprint_proto_rawDescGZIP() []byte {
 	return file_proto_fingerprint_fingerprint_proto_rawDescData
 }
 
-var file_proto_fingerprint_fingerprint_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
+var file_proto_fingerprint_fingerprint_proto_msgTypes = make([]protoimpl.MessageInfo, 20)
 var file_proto_fingerprint_fingerprint_proto_goTypes = []any{
-	(*HasEnrolledFingerprintsRequest)(nil),  // 0: fingerprint.HasEnrolledFingerprintsRequest
-	(*HasEnrolledFingerprintsResponse)(nil), // 1: fingerprint.HasEnrolledFingerprintsResponse
-	(*IsHardwareDetectedRequest)(nil),       // 2: fingerprint.IsHardwareDetectedRequest
-	(*IsHardwareDetectedResponse)(nil),      // 3: fingerprint.IsHardwareDetectedResponse
+	(*HasEnrolledFingerprintsRequest)(nil),    // 0: fingerprint.HasEnrolledFingerprintsRequest
+	(*HasEnrolledFingerprintsResponse)(nil),   // 1: fingerprint.HasEnrolledFingerprintsResponse
+	(*IsHardwareDetectedRequest)(nil),         // 2: fingerprint.IsHardwareDetectedRequest
+	(*IsHardwareDetectedResponse)(nil),        // 3: fingerprint.IsHardwareDetectedResponse
+	(*OnAuthenticationErrorRequest)(nil),      // 4: fingerprint.OnAuthenticationErrorRequest
+	(*OnAuthenticationErrorResponse)(nil),     // 5: fingerprint.OnAuthenticationErrorResponse
+	(*OnAuthenticationFailedRequest)(nil),     // 6: fingerprint.OnAuthenticationFailedRequest
+	(*OnAuthenticationFailedResponse)(nil),    // 7: fingerprint.OnAuthenticationFailedResponse
+	(*OnAuthenticationHelpRequest)(nil),       // 8: fingerprint.OnAuthenticationHelpRequest
+	(*OnAuthenticationHelpResponse)(nil),      // 9: fingerprint.OnAuthenticationHelpResponse
+	(*OnAuthenticationSucceededRequest)(nil),  // 10: fingerprint.OnAuthenticationSucceededRequest
+	(*OnAuthenticationSucceededResponse)(nil), // 11: fingerprint.OnAuthenticationSucceededResponse
+	(*GetCryptoObjectRequest)(nil),            // 12: fingerprint.GetCryptoObjectRequest
+	(*GetCryptoObjectResponse)(nil),           // 13: fingerprint.GetCryptoObjectResponse
+	(*GetCipherRequest)(nil),                  // 14: fingerprint.GetCipherRequest
+	(*GetCipherResponse)(nil),                 // 15: fingerprint.GetCipherResponse
+	(*GetMacRequest)(nil),                     // 16: fingerprint.GetMacRequest
+	(*GetMacResponse)(nil),                    // 17: fingerprint.GetMacResponse
+	(*GetSignatureRequest)(nil),               // 18: fingerprint.GetSignatureRequest
+	(*GetSignatureResponse)(nil),              // 19: fingerprint.GetSignatureResponse
 }
 var file_proto_fingerprint_fingerprint_proto_depIdxs = []int32{
-	0, // 0: fingerprint.ManagerService.HasEnrolledFingerprints:input_type -> fingerprint.HasEnrolledFingerprintsRequest
-	2, // 1: fingerprint.ManagerService.IsHardwareDetected:input_type -> fingerprint.IsHardwareDetectedRequest
-	1, // 2: fingerprint.ManagerService.HasEnrolledFingerprints:output_type -> fingerprint.HasEnrolledFingerprintsResponse
-	3, // 3: fingerprint.ManagerService.IsHardwareDetected:output_type -> fingerprint.IsHardwareDetectedResponse
-	2, // [2:4] is the sub-list for method output_type
-	0, // [0:2] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	0,  // 0: fingerprint.ManagerService.HasEnrolledFingerprints:input_type -> fingerprint.HasEnrolledFingerprintsRequest
+	2,  // 1: fingerprint.ManagerService.IsHardwareDetected:input_type -> fingerprint.IsHardwareDetectedRequest
+	4,  // 2: fingerprint.ManagerAuthenticationCallbackService.OnAuthenticationError:input_type -> fingerprint.OnAuthenticationErrorRequest
+	6,  // 3: fingerprint.ManagerAuthenticationCallbackService.OnAuthenticationFailed:input_type -> fingerprint.OnAuthenticationFailedRequest
+	8,  // 4: fingerprint.ManagerAuthenticationCallbackService.OnAuthenticationHelp:input_type -> fingerprint.OnAuthenticationHelpRequest
+	10, // 5: fingerprint.ManagerAuthenticationCallbackService.OnAuthenticationSucceeded:input_type -> fingerprint.OnAuthenticationSucceededRequest
+	12, // 6: fingerprint.ManagerAuthenticationResultService.GetCryptoObject:input_type -> fingerprint.GetCryptoObjectRequest
+	14, // 7: fingerprint.ManagerCryptoObjectService.GetCipher:input_type -> fingerprint.GetCipherRequest
+	16, // 8: fingerprint.ManagerCryptoObjectService.GetMac:input_type -> fingerprint.GetMacRequest
+	18, // 9: fingerprint.ManagerCryptoObjectService.GetSignature:input_type -> fingerprint.GetSignatureRequest
+	1,  // 10: fingerprint.ManagerService.HasEnrolledFingerprints:output_type -> fingerprint.HasEnrolledFingerprintsResponse
+	3,  // 11: fingerprint.ManagerService.IsHardwareDetected:output_type -> fingerprint.IsHardwareDetectedResponse
+	5,  // 12: fingerprint.ManagerAuthenticationCallbackService.OnAuthenticationError:output_type -> fingerprint.OnAuthenticationErrorResponse
+	7,  // 13: fingerprint.ManagerAuthenticationCallbackService.OnAuthenticationFailed:output_type -> fingerprint.OnAuthenticationFailedResponse
+	9,  // 14: fingerprint.ManagerAuthenticationCallbackService.OnAuthenticationHelp:output_type -> fingerprint.OnAuthenticationHelpResponse
+	11, // 15: fingerprint.ManagerAuthenticationCallbackService.OnAuthenticationSucceeded:output_type -> fingerprint.OnAuthenticationSucceededResponse
+	13, // 16: fingerprint.ManagerAuthenticationResultService.GetCryptoObject:output_type -> fingerprint.GetCryptoObjectResponse
+	15, // 17: fingerprint.ManagerCryptoObjectService.GetCipher:output_type -> fingerprint.GetCipherResponse
+	17, // 18: fingerprint.ManagerCryptoObjectService.GetMac:output_type -> fingerprint.GetMacResponse
+	19, // 19: fingerprint.ManagerCryptoObjectService.GetSignature:output_type -> fingerprint.GetSignatureResponse
+	10, // [10:20] is the sub-list for method output_type
+	0,  // [0:10] is the sub-list for method input_type
+	0,  // [0:0] is the sub-list for extension type_name
+	0,  // [0:0] is the sub-list for extension extendee
+	0,  // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_proto_fingerprint_fingerprint_proto_init() }
@@ -240,9 +956,9 @@ func file_proto_fingerprint_fingerprint_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_fingerprint_fingerprint_proto_rawDesc), len(file_proto_fingerprint_fingerprint_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   4,
+			NumMessages:   20,
 			NumExtensions: 0,
-			NumServices:   1,
+			NumServices:   4,
 		},
 		GoTypes:           file_proto_fingerprint_fingerprint_proto_goTypes,
 		DependencyIndexes: file_proto_fingerprint_fingerprint_proto_depIdxs,

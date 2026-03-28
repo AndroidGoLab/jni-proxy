@@ -5,3 +5,420 @@ syntax = "proto3";
 package backup;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/backup";
+
+message GetQuotaRequest {
+}
+
+message GetQuotaResponse {
+  int64 result = 1;
+}
+
+message GetTransportFlagsRequest {
+}
+
+message GetTransportFlagsResponse {
+  int32 result = 1;
+}
+
+message WriteEntityDataRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteEntityDataResponse {
+  int32 result = 1;
+}
+
+message WriteEntityHeaderRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteEntityHeaderResponse {
+  int32 result = 1;
+}
+
+message GetDataSizeRequest {
+}
+
+message GetDataSizeResponse {
+  int32 result = 1;
+}
+
+message GetKeyRequest {
+}
+
+message GetKeyResponse {
+  string result = 1;
+}
+
+message ReadEntityDataRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message ReadEntityDataResponse {
+  int32 result = 1;
+}
+
+message ReadNextHeaderRequest {
+}
+
+message ReadNextHeaderResponse {
+  bool result = 1;
+}
+
+message SkipEntityDataRequest {
+}
+
+message SkipEntityDataResponse {
+}
+
+message Read0Request {
+}
+
+message Read0Response {
+  int32 result = 1;
+}
+
+message Read1_1Request {
+  int64 arg0 = 1;
+}
+
+message Read1_1Response {
+  int32 result = 1;
+}
+
+message Read3_2Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message Read3_2Response {
+  int32 result = 1;
+}
+
+message SizeRequest {
+}
+
+message SizeResponse {
+  int32 result = 1;
+}
+
+message NewManagerRequest {
+  int64 arg0 = 1;
+}
+
+message NewManagerResponse {
+  int64 result = 1;
+}
+
+message DataChanged0Request {
+  int64 handle = 1;
+}
+
+message DataChanged0Response {
+}
+
+message GetUserForAncestralSerialNumberRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetUserForAncestralSerialNumberResponse {
+  int64 result = 1;
+}
+
+message RequestRestoreRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message RequestRestoreResponse {
+  int32 result = 1;
+}
+
+message DataChanged1_1Request {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message DataChanged1_1Response {
+}
+
+message NewFileBackupHelperRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewFileBackupHelperResponse {
+  int64 result = 1;
+}
+
+message PerformBackupRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message PerformBackupResponse {
+}
+
+message RestoreEntityRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message RestoreEntityResponse {
+}
+
+message WriteNewStateDescriptionRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message WriteNewStateDescriptionResponse {
+}
+
+message FullBackupFileRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message FullBackupFileResponse {
+}
+
+message OnBackupRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message OnBackupResponse {
+}
+
+message OnCreateRequest {
+}
+
+message OnCreateResponse {
+}
+
+message OnDestroyRequest {
+}
+
+message OnDestroyResponse {
+}
+
+message OnFullBackupRequest {
+  int64 arg0 = 1;
+}
+
+message OnFullBackupResponse {
+}
+
+message OnQuotaExceededRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnQuotaExceededResponse {
+}
+
+message OnRestore3Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message OnRestore3Response {
+}
+
+message OnRestore3_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message OnRestore3_1Response {
+}
+
+message OnRestoreFileRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int32 arg3 = 4;
+  int64 arg4 = 5;
+  int64 arg5 = 6;
+}
+
+message OnRestoreFileResponse {
+}
+
+message OnRestoreFinishedRequest {
+}
+
+message OnRestoreFinishedResponse {
+}
+
+message HelperPerformBackupRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message HelperRestoreEntityRequest {
+  int64 arg0 = 1;
+}
+
+message HelperWriteNewStateDescriptionRequest {
+  int64 arg0 = 1;
+}
+
+message NewSharedPreferencesBackupHelperRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewSharedPreferencesBackupHelperResponse {
+  int64 result = 1;
+}
+
+message OnUpdateRequest {
+  int32 arg0 = 1;
+  string arg1 = 2;
+}
+
+message OnUpdateResponse {
+}
+
+message RestoreFinishedRequest {
+  int32 arg0 = 1;
+}
+
+message RestoreFinishedResponse {
+}
+
+message RestoreStartingRequest {
+  int32 arg0 = 1;
+}
+
+message RestoreStartingResponse {
+}
+
+message NewAgentHelperRequest {
+}
+
+message NewAgentHelperResponse {
+  int64 result = 1;
+}
+
+message AddHelperRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message AddHelperResponse {
+}
+
+message AgentHelperOnBackupRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message OnRestoreRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message OnRestoreResponse {
+}
+
+service DataOutputService {
+  rpc GetQuota (GetQuotaRequest) returns (GetQuotaResponse);
+  rpc GetTransportFlags (GetTransportFlagsRequest) returns (GetTransportFlagsResponse);
+  rpc WriteEntityData (WriteEntityDataRequest) returns (WriteEntityDataResponse);
+  rpc WriteEntityHeader (WriteEntityHeaderRequest) returns (WriteEntityHeaderResponse);
+}
+
+service DataInputService {
+  rpc GetDataSize (GetDataSizeRequest) returns (GetDataSizeResponse);
+  rpc GetKey (GetKeyRequest) returns (GetKeyResponse);
+  rpc ReadEntityData (ReadEntityDataRequest) returns (ReadEntityDataResponse);
+  rpc ReadNextHeader (ReadNextHeaderRequest) returns (ReadNextHeaderResponse);
+  rpc SkipEntityData (SkipEntityDataRequest) returns (SkipEntityDataResponse);
+}
+
+service DataInputStreamService {
+  rpc GetKey (GetKeyRequest) returns (GetKeyResponse);
+  rpc Read0 (Read0Request) returns (Read0Response);
+  rpc Read1_1 (Read1_1Request) returns (Read1_1Response);
+  rpc Read3_2 (Read3_2Request) returns (Read3_2Response);
+  rpc Size (SizeRequest) returns (SizeResponse);
+}
+
+service ManagerService {
+  rpc NewManager (NewManagerRequest) returns (NewManagerResponse);
+  rpc DataChanged0 (DataChanged0Request) returns (DataChanged0Response);
+  rpc GetUserForAncestralSerialNumber (GetUserForAncestralSerialNumberRequest) returns (GetUserForAncestralSerialNumberResponse);
+  rpc RequestRestore (RequestRestoreRequest) returns (RequestRestoreResponse);
+  rpc DataChanged1_1 (DataChanged1_1Request) returns (DataChanged1_1Response);
+}
+
+service FileBackupHelperService {
+  rpc NewFileBackupHelper (NewFileBackupHelperRequest) returns (NewFileBackupHelperResponse);
+  rpc PerformBackup (PerformBackupRequest) returns (PerformBackupResponse);
+  rpc RestoreEntity (RestoreEntityRequest) returns (RestoreEntityResponse);
+  rpc WriteNewStateDescription (WriteNewStateDescriptionRequest) returns (WriteNewStateDescriptionResponse);
+}
+
+service AgentService {
+  rpc FullBackupFile (FullBackupFileRequest) returns (FullBackupFileResponse);
+  rpc OnBackup (OnBackupRequest) returns (OnBackupResponse);
+  rpc OnCreate (OnCreateRequest) returns (OnCreateResponse);
+  rpc OnDestroy (OnDestroyRequest) returns (OnDestroyResponse);
+  rpc OnFullBackup (OnFullBackupRequest) returns (OnFullBackupResponse);
+  rpc OnQuotaExceeded (OnQuotaExceededRequest) returns (OnQuotaExceededResponse);
+  rpc OnRestore3 (OnRestore3Request) returns (OnRestore3Response);
+  rpc OnRestore3_1 (OnRestore3_1Request) returns (OnRestore3_1Response);
+  rpc OnRestoreFile (OnRestoreFileRequest) returns (OnRestoreFileResponse);
+  rpc OnRestoreFinished (OnRestoreFinishedRequest) returns (OnRestoreFinishedResponse);
+}
+
+service FullBackupDataOutputService {
+  rpc GetQuota (GetQuotaRequest) returns (GetQuotaResponse);
+  rpc GetTransportFlags (GetTransportFlagsRequest) returns (GetTransportFlagsResponse);
+}
+
+service HelperService {
+  rpc PerformBackup (HelperPerformBackupRequest) returns (PerformBackupResponse);
+  rpc RestoreEntity (HelperRestoreEntityRequest) returns (RestoreEntityResponse);
+  rpc WriteNewStateDescription (HelperWriteNewStateDescriptionRequest) returns (WriteNewStateDescriptionResponse);
+}
+
+service SharedPreferencesBackupHelperService {
+  rpc NewSharedPreferencesBackupHelper (NewSharedPreferencesBackupHelperRequest) returns (NewSharedPreferencesBackupHelperResponse);
+  rpc PerformBackup (PerformBackupRequest) returns (PerformBackupResponse);
+  rpc RestoreEntity (RestoreEntityRequest) returns (RestoreEntityResponse);
+  rpc WriteNewStateDescription (WriteNewStateDescriptionRequest) returns (WriteNewStateDescriptionResponse);
+}
+
+service RestoreObserverService {
+  rpc OnUpdate (OnUpdateRequest) returns (OnUpdateResponse);
+  rpc RestoreFinished (RestoreFinishedRequest) returns (RestoreFinishedResponse);
+  rpc RestoreStarting (RestoreStartingRequest) returns (RestoreStartingResponse);
+}
+
+service AgentHelperService {
+  rpc NewAgentHelper (NewAgentHelperRequest) returns (NewAgentHelperResponse);
+  rpc AddHelper (AddHelperRequest) returns (AddHelperResponse);
+  rpc OnBackup (AgentHelperOnBackupRequest) returns (OnBackupResponse);
+  rpc OnRestore (OnRestoreRequest) returns (OnRestoreResponse);
+}

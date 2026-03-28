@@ -9,6 +9,1685 @@ import (
 	"google.golang.org/grpc"
 )
 
+// ResponderConfigClient wraps the gRPC ResponderConfigService client.
+type ResponderConfigClient struct {
+	svc pb.ResponderConfigServiceClient
+}
+
+// NewResponderConfigClient creates a new ResponderConfig client.
+func NewResponderConfigClient(cc grpc.ClientConnInterface) *ResponderConfigClient {
+	return &ResponderConfigClient{
+		svc: pb.NewResponderConfigServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ResponderConfigClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *ResponderConfigClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCenterFreq0Mhz calls the GetCenterFreq0Mhz RPC.
+func (c *ResponderConfigClient) GetCenterFreq0Mhz(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetCenterFreq0Mhz(ctx, &pb.GetCenterFreq0MhzRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCenterFreq1Mhz calls the GetCenterFreq1Mhz RPC.
+func (c *ResponderConfigClient) GetCenterFreq1Mhz(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetCenterFreq1Mhz(ctx, &pb.GetCenterFreq1MhzRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetChannelWidth calls the GetChannelWidth RPC.
+func (c *ResponderConfigClient) GetChannelWidth(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetChannelWidth(ctx, &pb.GetChannelWidthRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFrequencyMhz calls the GetFrequencyMhz RPC.
+func (c *ResponderConfigClient) GetFrequencyMhz(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetFrequencyMhz(ctx, &pb.GetFrequencyMhzRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMacAddress calls the GetMacAddress RPC.
+func (c *ResponderConfigClient) GetMacAddress(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetMacAddress(ctx, &pb.GetMacAddressRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPreamble calls the GetPreamble RPC.
+func (c *ResponderConfigClient) GetPreamble(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetPreamble(ctx, &pb.GetPreambleRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetResponderType calls the GetResponderType RPC.
+func (c *ResponderConfigClient) GetResponderType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetResponderType(ctx, &pb.GetResponderTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSecureRangingConfig calls the GetSecureRangingConfig RPC.
+func (c *ResponderConfigClient) GetSecureRangingConfig(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSecureRangingConfig(ctx, &pb.GetSecureRangingConfigRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *ResponderConfigClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Is80211AzNtbSupported calls the Is80211AzNtbSupported RPC.
+func (c *ResponderConfigClient) Is80211AzNtbSupported(ctx context.Context) (bool, error) {
+	resp, err := c.svc.Is80211AzNtbSupported(ctx, &pb.Is80211AzNtbSupportedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Is80211McSupported calls the Is80211McSupported RPC.
+func (c *ResponderConfigClient) Is80211McSupported(ctx context.Context) (bool, error) {
+	resp, err := c.svc.Is80211McSupported(ctx, &pb.Is80211McSupportedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *ResponderConfigClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ResponderConfigClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// FromScanResult calls the FromScanResult RPC.
+func (c *ResponderConfigClient) FromScanResult(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.FromScanResult(ctx, &pb.FromScanResultRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ResponderConfigBuilderClient wraps the gRPC ResponderConfigBuilderService client.
+type ResponderConfigBuilderClient struct {
+	svc pb.ResponderConfigBuilderServiceClient
+}
+
+// NewResponderConfigBuilderClient creates a new ResponderConfigBuilder client.
+func NewResponderConfigBuilderClient(cc grpc.ClientConnInterface) *ResponderConfigBuilderClient {
+	return &ResponderConfigBuilderClient{
+		svc: pb.NewResponderConfigBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *ResponderConfigBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Set80211AzNtbSupported calls the Set80211AzNtbSupported RPC.
+func (c *ResponderConfigBuilderClient) Set80211AzNtbSupported(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.Set80211AzNtbSupported(ctx, &pb.Set80211AzNtbSupportedRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Set80211McSupported calls the Set80211McSupported RPC.
+func (c *ResponderConfigBuilderClient) Set80211McSupported(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.Set80211McSupported(ctx, &pb.Set80211McSupportedRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetCenterFreq0Mhz calls the SetCenterFreq0Mhz RPC.
+func (c *ResponderConfigBuilderClient) SetCenterFreq0Mhz(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetCenterFreq0Mhz(ctx, &pb.SetCenterFreq0MhzRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetCenterFreq1Mhz calls the SetCenterFreq1Mhz RPC.
+func (c *ResponderConfigBuilderClient) SetCenterFreq1Mhz(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetCenterFreq1Mhz(ctx, &pb.SetCenterFreq1MhzRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetChannelWidth calls the SetChannelWidth RPC.
+func (c *ResponderConfigBuilderClient) SetChannelWidth(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetChannelWidth(ctx, &pb.SetChannelWidthRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetFrequencyMhz calls the SetFrequencyMhz RPC.
+func (c *ResponderConfigBuilderClient) SetFrequencyMhz(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetFrequencyMhz(ctx, &pb.SetFrequencyMhzRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetMacAddress calls the SetMacAddress RPC.
+func (c *ResponderConfigBuilderClient) SetMacAddress(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetMacAddress(ctx, &pb.SetMacAddressRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPreamble calls the SetPreamble RPC.
+func (c *ResponderConfigBuilderClient) SetPreamble(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetPreamble(ctx, &pb.SetPreambleRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetResponderType calls the SetResponderType RPC.
+func (c *ResponderConfigBuilderClient) SetResponderType(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetResponderType(ctx, &pb.SetResponderTypeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSecureRangingConfig calls the SetSecureRangingConfig RPC.
+func (c *ResponderConfigBuilderClient) SetSecureRangingConfig(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetSecureRangingConfig(ctx, &pb.SetSecureRangingConfigRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RangingRequestClient wraps the gRPC RangingRequestService client.
+type RangingRequestClient struct {
+	svc pb.RangingRequestServiceClient
+}
+
+// NewRangingRequestClient creates a new RangingRequest client.
+func NewRangingRequestClient(cc grpc.ClientConnInterface) *RangingRequestClient {
+	return &RangingRequestClient{
+		svc: pb.NewRangingRequestServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *RangingRequestClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *RangingRequestClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRttBurstSize calls the GetRttBurstSize RPC.
+func (c *RangingRequestClient) GetRttBurstSize(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetRttBurstSize(ctx, &pb.GetRttBurstSizeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSecurityMode calls the GetSecurityMode RPC.
+func (c *RangingRequestClient) GetSecurityMode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetSecurityMode(ctx, &pb.GetSecurityModeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *RangingRequestClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *RangingRequestClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *RangingRequestClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// GetDefaultRttBurstSize calls the GetDefaultRttBurstSize RPC.
+func (c *RangingRequestClient) GetDefaultRttBurstSize(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetDefaultRttBurstSize(ctx, &pb.GetDefaultRttBurstSizeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMaxPeers calls the GetMaxPeers RPC.
+func (c *RangingRequestClient) GetMaxPeers(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMaxPeers(ctx, &pb.GetMaxPeersRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMaxRttBurstSize calls the GetMaxRttBurstSize RPC.
+func (c *RangingRequestClient) GetMaxRttBurstSize(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMaxRttBurstSize(ctx, &pb.GetMaxRttBurstSizeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMinRttBurstSize calls the GetMinRttBurstSize RPC.
+func (c *RangingRequestClient) GetMinRttBurstSize(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMinRttBurstSize(ctx, &pb.GetMinRttBurstSizeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RangingRequestBuilderClient wraps the gRPC RangingRequestBuilderService client.
+type RangingRequestBuilderClient struct {
+	svc pb.RangingRequestBuilderServiceClient
+}
+
+// NewRangingRequestBuilderClient creates a new RangingRequestBuilder client.
+func NewRangingRequestBuilderClient(cc grpc.ClientConnInterface) *RangingRequestBuilderClient {
+	return &RangingRequestBuilderClient{
+		svc: pb.NewRangingRequestBuilderServiceClient(cc),
+	}
+}
+
+// AddAccessPoint calls the AddAccessPoint RPC.
+func (c *RangingRequestBuilderClient) AddAccessPoint(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.AddAccessPoint(ctx, &pb.AddAccessPointRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddNon80211McCapableAccessPoint calls the AddNon80211McCapableAccessPoint RPC.
+func (c *RangingRequestBuilderClient) AddNon80211McCapableAccessPoint(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.AddNon80211McCapableAccessPoint(ctx, &pb.AddNon80211McCapableAccessPointRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddResponder calls the AddResponder RPC.
+func (c *RangingRequestBuilderClient) AddResponder(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.AddResponder(ctx, &pb.AddResponderRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddWifiAwarePeer1 calls the AddWifiAwarePeer1 RPC.
+func (c *RangingRequestBuilderClient) AddWifiAwarePeer1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.AddWifiAwarePeer1(ctx, &pb.AddWifiAwarePeer1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddWifiAwarePeer1_1 calls the AddWifiAwarePeer1_1 RPC.
+func (c *RangingRequestBuilderClient) AddWifiAwarePeer1_1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.AddWifiAwarePeer1_1(ctx, &pb.AddWifiAwarePeer1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Build calls the Build RPC.
+func (c *RangingRequestBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetRttBurstSize calls the SetRttBurstSize RPC.
+func (c *RangingRequestBuilderClient) SetRttBurstSize(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetRttBurstSize(ctx, &pb.SetRttBurstSizeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSecurityMode calls the SetSecurityMode RPC.
+func (c *RangingRequestBuilderClient) SetSecurityMode(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetSecurityMode(ctx, &pb.SetSecurityModeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RangingResultCallbackClient wraps the gRPC RangingResultCallbackService client.
+type RangingResultCallbackClient struct {
+	svc pb.RangingResultCallbackServiceClient
+}
+
+// NewRangingResultCallbackClient creates a new RangingResultCallback client.
+func NewRangingResultCallbackClient(cc grpc.ClientConnInterface) *RangingResultCallbackClient {
+	return &RangingResultCallbackClient{
+		svc: pb.NewRangingResultCallbackServiceClient(cc),
+	}
+}
+
+// OnRangingFailure calls the OnRangingFailure RPC.
+func (c *RangingResultCallbackClient) OnRangingFailure(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.OnRangingFailure(ctx, &pb.OnRangingFailureRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// PasnConfigClient wraps the gRPC PasnConfigService client.
+type PasnConfigClient struct {
+	svc pb.PasnConfigServiceClient
+}
+
+// NewPasnConfigClient creates a new PasnConfig client.
+func NewPasnConfigClient(cc grpc.ClientConnInterface) *PasnConfigClient {
+	return &PasnConfigClient{
+		svc: pb.NewPasnConfigServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *PasnConfigClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *PasnConfigClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBaseAkms calls the GetBaseAkms RPC.
+func (c *PasnConfigClient) GetBaseAkms(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetBaseAkms(ctx, &pb.GetBaseAkmsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCiphers calls the GetCiphers RPC.
+func (c *PasnConfigClient) GetCiphers(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetCiphers(ctx, &pb.GetCiphersRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPasnComebackCookie calls the GetPasnComebackCookie RPC.
+func (c *PasnConfigClient) GetPasnComebackCookie(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPasnComebackCookie(ctx, &pb.GetPasnComebackCookieRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPassword calls the GetPassword RPC.
+func (c *PasnConfigClient) GetPassword(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetPassword(ctx, &pb.GetPasswordRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWifiSsid calls the GetWifiSsid RPC.
+func (c *PasnConfigClient) GetWifiSsid(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetWifiSsid(ctx, &pb.GetWifiSsidRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *PasnConfigClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *PasnConfigClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *PasnConfigClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// PasnConfigBuilderClient wraps the gRPC PasnConfigBuilderService client.
+type PasnConfigBuilderClient struct {
+	svc pb.PasnConfigBuilderServiceClient
+}
+
+// NewPasnConfigBuilderClient creates a new PasnConfigBuilder client.
+func NewPasnConfigBuilderClient(cc grpc.ClientConnInterface) *PasnConfigBuilderClient {
+	return &PasnConfigBuilderClient{
+		svc: pb.NewPasnConfigBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *PasnConfigBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPasnComebackCookie calls the SetPasnComebackCookie RPC.
+func (c *PasnConfigBuilderClient) SetPasnComebackCookie(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetPasnComebackCookie(ctx, &pb.SetPasnComebackCookieRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPassword calls the SetPassword RPC.
+func (c *PasnConfigBuilderClient) SetPassword(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetPassword(ctx, &pb.SetPasswordRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetWifiSsid calls the SetWifiSsid RPC.
+func (c *PasnConfigBuilderClient) SetWifiSsid(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetWifiSsid(ctx, &pb.SetWifiSsidRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RangingResultClient wraps the gRPC RangingResultService client.
+type RangingResultClient struct {
+	svc pb.RangingResultServiceClient
+}
+
+// NewRangingResultClient creates a new RangingResult client.
+func NewRangingResultClient(cc grpc.ClientConnInterface) *RangingResultClient {
+	return &RangingResultClient{
+		svc: pb.NewRangingResultServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *RangingResultClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *RangingResultClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Get80211AzInitiatorTxLtfRepetitionsCount calls the Get80211AzInitiatorTxLtfRepetitionsCount RPC.
+func (c *RangingResultClient) Get80211AzInitiatorTxLtfRepetitionsCount(ctx context.Context) (int32, error) {
+	resp, err := c.svc.Get80211AzInitiatorTxLtfRepetitionsCount(ctx, &pb.Get80211AzInitiatorTxLtfRepetitionsCountRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Get80211AzNumberOfRxSpatialStreams calls the Get80211AzNumberOfRxSpatialStreams RPC.
+func (c *RangingResultClient) Get80211AzNumberOfRxSpatialStreams(ctx context.Context) (int32, error) {
+	resp, err := c.svc.Get80211AzNumberOfRxSpatialStreams(ctx, &pb.Get80211AzNumberOfRxSpatialStreamsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Get80211AzNumberOfTxSpatialStreams calls the Get80211AzNumberOfTxSpatialStreams RPC.
+func (c *RangingResultClient) Get80211AzNumberOfTxSpatialStreams(ctx context.Context) (int32, error) {
+	resp, err := c.svc.Get80211AzNumberOfTxSpatialStreams(ctx, &pb.Get80211AzNumberOfTxSpatialStreamsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Get80211AzResponderTxLtfRepetitionsCount calls the Get80211AzResponderTxLtfRepetitionsCount RPC.
+func (c *RangingResultClient) Get80211AzResponderTxLtfRepetitionsCount(ctx context.Context) (int32, error) {
+	resp, err := c.svc.Get80211AzResponderTxLtfRepetitionsCount(ctx, &pb.Get80211AzResponderTxLtfRepetitionsCountRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDistanceMm calls the GetDistanceMm RPC.
+func (c *RangingResultClient) GetDistanceMm(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetDistanceMm(ctx, &pb.GetDistanceMmRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDistanceStdDevMm calls the GetDistanceStdDevMm RPC.
+func (c *RangingResultClient) GetDistanceStdDevMm(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetDistanceStdDevMm(ctx, &pb.GetDistanceStdDevMmRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLci calls the GetLci RPC.
+func (c *RangingResultClient) GetLci(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetLci(ctx, &pb.GetLciRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLcr calls the GetLcr RPC.
+func (c *RangingResultClient) GetLcr(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetLcr(ctx, &pb.GetLcrRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMacAddress calls the GetMacAddress RPC.
+func (c *RangingResultClient) GetMacAddress(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetMacAddress(ctx, &pb.GetMacAddressRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMaxTimeBetweenNtbMeasurementsMicros calls the GetMaxTimeBetweenNtbMeasurementsMicros RPC.
+func (c *RangingResultClient) GetMaxTimeBetweenNtbMeasurementsMicros(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetMaxTimeBetweenNtbMeasurementsMicros(ctx, &pb.GetMaxTimeBetweenNtbMeasurementsMicrosRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMeasurementBandwidth calls the GetMeasurementBandwidth RPC.
+func (c *RangingResultClient) GetMeasurementBandwidth(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMeasurementBandwidth(ctx, &pb.GetMeasurementBandwidthRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMeasurementChannelFrequencyMHz calls the GetMeasurementChannelFrequencyMHz RPC.
+func (c *RangingResultClient) GetMeasurementChannelFrequencyMHz(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMeasurementChannelFrequencyMHz(ctx, &pb.GetMeasurementChannelFrequencyMHzRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMinTimeBetweenNtbMeasurementsMicros calls the GetMinTimeBetweenNtbMeasurementsMicros RPC.
+func (c *RangingResultClient) GetMinTimeBetweenNtbMeasurementsMicros(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetMinTimeBetweenNtbMeasurementsMicros(ctx, &pb.GetMinTimeBetweenNtbMeasurementsMicrosRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNumAttemptedMeasurements calls the GetNumAttemptedMeasurements RPC.
+func (c *RangingResultClient) GetNumAttemptedMeasurements(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetNumAttemptedMeasurements(ctx, &pb.GetNumAttemptedMeasurementsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNumSuccessfulMeasurements calls the GetNumSuccessfulMeasurements RPC.
+func (c *RangingResultClient) GetNumSuccessfulMeasurements(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetNumSuccessfulMeasurements(ctx, &pb.GetNumSuccessfulMeasurementsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPasnComebackAfterMillis calls the GetPasnComebackAfterMillis RPC.
+func (c *RangingResultClient) GetPasnComebackAfterMillis(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPasnComebackAfterMillis(ctx, &pb.GetPasnComebackAfterMillisRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPasnComebackCookie calls the GetPasnComebackCookie RPC.
+func (c *RangingResultClient) GetPasnComebackCookie(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPasnComebackCookie(ctx, &pb.GetPasnComebackCookieRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPeerHandle calls the GetPeerHandle RPC.
+func (c *RangingResultClient) GetPeerHandle(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPeerHandle(ctx, &pb.GetPeerHandleRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRangingTimestampMillis calls the GetRangingTimestampMillis RPC.
+func (c *RangingResultClient) GetRangingTimestampMillis(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetRangingTimestampMillis(ctx, &pb.GetRangingTimestampMillisRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRssi calls the GetRssi RPC.
+func (c *RangingResultClient) GetRssi(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetRssi(ctx, &pb.GetRssiRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSecureHeLtfProtocolVersion calls the GetSecureHeLtfProtocolVersion RPC.
+func (c *RangingResultClient) GetSecureHeLtfProtocolVersion(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetSecureHeLtfProtocolVersion(ctx, &pb.GetSecureHeLtfProtocolVersionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStatus calls the GetStatus RPC.
+func (c *RangingResultClient) GetStatus(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetStatus(ctx, &pb.GetStatusRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUnverifiedResponderLocation calls the GetUnverifiedResponderLocation RPC.
+func (c *RangingResultClient) GetUnverifiedResponderLocation(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetUnverifiedResponderLocation(ctx, &pb.GetUnverifiedResponderLocationRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *RangingResultClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Is80211AzNtbMeasurement calls the Is80211AzNtbMeasurement RPC.
+func (c *RangingResultClient) Is80211AzNtbMeasurement(ctx context.Context) (bool, error) {
+	resp, err := c.svc.Is80211AzNtbMeasurement(ctx, &pb.Is80211AzNtbMeasurementRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Is80211McMeasurement calls the Is80211McMeasurement RPC.
+func (c *RangingResultClient) Is80211McMeasurement(ctx context.Context) (bool, error) {
+	resp, err := c.svc.Is80211McMeasurement(ctx, &pb.Is80211McMeasurementRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsRangingAuthenticated calls the IsRangingAuthenticated RPC.
+func (c *RangingResultClient) IsRangingAuthenticated(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsRangingAuthenticated(ctx, &pb.IsRangingAuthenticatedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsRangingFrameProtected calls the IsRangingFrameProtected RPC.
+func (c *RangingResultClient) IsRangingFrameProtected(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsRangingFrameProtected(ctx, &pb.IsRangingFrameProtectedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsSecureHeLtfEnabled calls the IsSecureHeLtfEnabled RPC.
+func (c *RangingResultClient) IsSecureHeLtfEnabled(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsSecureHeLtfEnabled(ctx, &pb.IsSecureHeLtfEnabledRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *RangingResultClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *RangingResultClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// RangingResultBuilderClient wraps the gRPC RangingResultBuilderService client.
+type RangingResultBuilderClient struct {
+	svc pb.RangingResultBuilderServiceClient
+}
+
+// NewRangingResultBuilderClient creates a new RangingResultBuilder client.
+func NewRangingResultBuilderClient(cc grpc.ClientConnInterface) *RangingResultBuilderClient {
+	return &RangingResultBuilderClient{
+		svc: pb.NewRangingResultBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *RangingResultBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Set80211AzInitiatorTxLtfRepetitionsCount calls the Set80211AzInitiatorTxLtfRepetitionsCount RPC.
+func (c *RangingResultBuilderClient) Set80211AzInitiatorTxLtfRepetitionsCount(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.Set80211AzInitiatorTxLtfRepetitionsCount(ctx, &pb.Set80211AzInitiatorTxLtfRepetitionsCountRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Set80211AzNtbMeasurement calls the Set80211AzNtbMeasurement RPC.
+func (c *RangingResultBuilderClient) Set80211AzNtbMeasurement(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.Set80211AzNtbMeasurement(ctx, &pb.Set80211AzNtbMeasurementRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Set80211AzNumberOfRxSpatialStreams calls the Set80211AzNumberOfRxSpatialStreams RPC.
+func (c *RangingResultBuilderClient) Set80211AzNumberOfRxSpatialStreams(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.Set80211AzNumberOfRxSpatialStreams(ctx, &pb.Set80211AzNumberOfRxSpatialStreamsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Set80211AzNumberOfTxSpatialStreams calls the Set80211AzNumberOfTxSpatialStreams RPC.
+func (c *RangingResultBuilderClient) Set80211AzNumberOfTxSpatialStreams(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.Set80211AzNumberOfTxSpatialStreams(ctx, &pb.Set80211AzNumberOfTxSpatialStreamsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Set80211AzResponderTxLtfRepetitionsCount calls the Set80211AzResponderTxLtfRepetitionsCount RPC.
+func (c *RangingResultBuilderClient) Set80211AzResponderTxLtfRepetitionsCount(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.Set80211AzResponderTxLtfRepetitionsCount(ctx, &pb.Set80211AzResponderTxLtfRepetitionsCountRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Set80211McMeasurement calls the Set80211McMeasurement RPC.
+func (c *RangingResultBuilderClient) Set80211McMeasurement(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.Set80211McMeasurement(ctx, &pb.Set80211McMeasurementRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetDistanceMm calls the SetDistanceMm RPC.
+func (c *RangingResultBuilderClient) SetDistanceMm(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetDistanceMm(ctx, &pb.SetDistanceMmRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetDistanceStdDevMm calls the SetDistanceStdDevMm RPC.
+func (c *RangingResultBuilderClient) SetDistanceStdDevMm(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetDistanceStdDevMm(ctx, &pb.SetDistanceStdDevMmRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetLci calls the SetLci RPC.
+func (c *RangingResultBuilderClient) SetLci(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetLci(ctx, &pb.SetLciRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetLcr calls the SetLcr RPC.
+func (c *RangingResultBuilderClient) SetLcr(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetLcr(ctx, &pb.SetLcrRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetMacAddress calls the SetMacAddress RPC.
+func (c *RangingResultBuilderClient) SetMacAddress(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetMacAddress(ctx, &pb.SetMacAddressRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetMaxTimeBetweenNtbMeasurementsMicros calls the SetMaxTimeBetweenNtbMeasurementsMicros RPC.
+func (c *RangingResultBuilderClient) SetMaxTimeBetweenNtbMeasurementsMicros(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetMaxTimeBetweenNtbMeasurementsMicros(ctx, &pb.SetMaxTimeBetweenNtbMeasurementsMicrosRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetMeasurementBandwidth calls the SetMeasurementBandwidth RPC.
+func (c *RangingResultBuilderClient) SetMeasurementBandwidth(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetMeasurementBandwidth(ctx, &pb.SetMeasurementBandwidthRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetMeasurementChannelFrequencyMHz calls the SetMeasurementChannelFrequencyMHz RPC.
+func (c *RangingResultBuilderClient) SetMeasurementChannelFrequencyMHz(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetMeasurementChannelFrequencyMHz(ctx, &pb.SetMeasurementChannelFrequencyMHzRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetMinTimeBetweenNtbMeasurementsMicros calls the SetMinTimeBetweenNtbMeasurementsMicros RPC.
+func (c *RangingResultBuilderClient) SetMinTimeBetweenNtbMeasurementsMicros(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetMinTimeBetweenNtbMeasurementsMicros(ctx, &pb.SetMinTimeBetweenNtbMeasurementsMicrosRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetNumAttemptedMeasurements calls the SetNumAttemptedMeasurements RPC.
+func (c *RangingResultBuilderClient) SetNumAttemptedMeasurements(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetNumAttemptedMeasurements(ctx, &pb.SetNumAttemptedMeasurementsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetNumSuccessfulMeasurements calls the SetNumSuccessfulMeasurements RPC.
+func (c *RangingResultBuilderClient) SetNumSuccessfulMeasurements(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetNumSuccessfulMeasurements(ctx, &pb.SetNumSuccessfulMeasurementsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPasnComebackAfterMillis calls the SetPasnComebackAfterMillis RPC.
+func (c *RangingResultBuilderClient) SetPasnComebackAfterMillis(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetPasnComebackAfterMillis(ctx, &pb.SetPasnComebackAfterMillisRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPasnComebackCookie calls the SetPasnComebackCookie RPC.
+func (c *RangingResultBuilderClient) SetPasnComebackCookie(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetPasnComebackCookie(ctx, &pb.SetPasnComebackCookieRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPeerHandle calls the SetPeerHandle RPC.
+func (c *RangingResultBuilderClient) SetPeerHandle(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetPeerHandle(ctx, &pb.SetPeerHandleRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetRangingAuthenticated calls the SetRangingAuthenticated RPC.
+func (c *RangingResultBuilderClient) SetRangingAuthenticated(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetRangingAuthenticated(ctx, &pb.SetRangingAuthenticatedRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetRangingFrameProtected calls the SetRangingFrameProtected RPC.
+func (c *RangingResultBuilderClient) SetRangingFrameProtected(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetRangingFrameProtected(ctx, &pb.SetRangingFrameProtectedRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetRangingTimestampMillis calls the SetRangingTimestampMillis RPC.
+func (c *RangingResultBuilderClient) SetRangingTimestampMillis(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetRangingTimestampMillis(ctx, &pb.SetRangingTimestampMillisRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetRssi calls the SetRssi RPC.
+func (c *RangingResultBuilderClient) SetRssi(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetRssi(ctx, &pb.SetRssiRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSecureHeLtfEnabled calls the SetSecureHeLtfEnabled RPC.
+func (c *RangingResultBuilderClient) SetSecureHeLtfEnabled(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetSecureHeLtfEnabled(ctx, &pb.SetSecureHeLtfEnabledRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSecureHeLtfProtocolVersion calls the SetSecureHeLtfProtocolVersion RPC.
+func (c *RangingResultBuilderClient) SetSecureHeLtfProtocolVersion(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetSecureHeLtfProtocolVersion(ctx, &pb.SetSecureHeLtfProtocolVersionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetStatus calls the SetStatus RPC.
+func (c *RangingResultBuilderClient) SetStatus(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetStatus(ctx, &pb.SetStatusRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetUnverifiedResponderLocation calls the SetUnverifiedResponderLocation RPC.
+func (c *RangingResultBuilderClient) SetUnverifiedResponderLocation(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetUnverifiedResponderLocation(ctx, &pb.SetUnverifiedResponderLocationRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SecureRangingConfigClient wraps the gRPC SecureRangingConfigService client.
+type SecureRangingConfigClient struct {
+	svc pb.SecureRangingConfigServiceClient
+}
+
+// NewSecureRangingConfigClient creates a new SecureRangingConfig client.
+func NewSecureRangingConfigClient(cc grpc.ClientConnInterface) *SecureRangingConfigClient {
+	return &SecureRangingConfigClient{
+		svc: pb.NewSecureRangingConfigServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *SecureRangingConfigClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *SecureRangingConfigClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPasnConfig calls the GetPasnConfig RPC.
+func (c *SecureRangingConfigClient) GetPasnConfig(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPasnConfig(ctx, &pb.GetPasnConfigRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *SecureRangingConfigClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsRangingFrameProtectionEnabled calls the IsRangingFrameProtectionEnabled RPC.
+func (c *SecureRangingConfigClient) IsRangingFrameProtectionEnabled(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsRangingFrameProtectionEnabled(ctx, &pb.IsRangingFrameProtectionEnabledRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsSecureHeLtfEnabled calls the IsSecureHeLtfEnabled RPC.
+func (c *SecureRangingConfigClient) IsSecureHeLtfEnabled(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsSecureHeLtfEnabled(ctx, &pb.IsSecureHeLtfEnabledRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *SecureRangingConfigClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *SecureRangingConfigClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// SecureRangingConfigBuilderClient wraps the gRPC SecureRangingConfigBuilderService client.
+type SecureRangingConfigBuilderClient struct {
+	svc pb.SecureRangingConfigBuilderServiceClient
+}
+
+// NewSecureRangingConfigBuilderClient creates a new SecureRangingConfigBuilder client.
+func NewSecureRangingConfigBuilderClient(cc grpc.ClientConnInterface) *SecureRangingConfigBuilderClient {
+	return &SecureRangingConfigBuilderClient{
+		svc: pb.NewSecureRangingConfigBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *SecureRangingConfigBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetRangingFrameProtectionEnabled calls the SetRangingFrameProtectionEnabled RPC.
+func (c *SecureRangingConfigBuilderClient) SetRangingFrameProtectionEnabled(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetRangingFrameProtectionEnabled(ctx, &pb.SetRangingFrameProtectionEnabledRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSecureHeLtfEnabled calls the SetSecureHeLtfEnabled RPC.
+func (c *SecureRangingConfigBuilderClient) SetSecureHeLtfEnabled(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetSecureHeLtfEnabled(ctx, &pb.SetSecureHeLtfEnabledRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ResponderLocationClient wraps the gRPC ResponderLocationService client.
+type ResponderLocationClient struct {
+	svc pb.ResponderLocationServiceClient
+}
+
+// NewResponderLocationClient creates a new ResponderLocation client.
+func NewResponderLocationClient(cc grpc.ClientConnInterface) *ResponderLocationClient {
+	return &ResponderLocationClient{
+		svc: pb.NewResponderLocationServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ResponderLocationClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *ResponderLocationClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAltitude calls the GetAltitude RPC.
+func (c *ResponderLocationClient) GetAltitude(ctx context.Context) (float64, error) {
+	resp, err := c.svc.GetAltitude(ctx, &pb.GetAltitudeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAltitudeType calls the GetAltitudeType RPC.
+func (c *ResponderLocationClient) GetAltitudeType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetAltitudeType(ctx, &pb.GetAltitudeTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAltitudeUncertainty calls the GetAltitudeUncertainty RPC.
+func (c *ResponderLocationClient) GetAltitudeUncertainty(ctx context.Context) (float64, error) {
+	resp, err := c.svc.GetAltitudeUncertainty(ctx, &pb.GetAltitudeUncertaintyRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDatum calls the GetDatum RPC.
+func (c *ResponderLocationClient) GetDatum(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetDatum(ctx, &pb.GetDatumRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExpectedToMove calls the GetExpectedToMove RPC.
+func (c *ResponderLocationClient) GetExpectedToMove(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetExpectedToMove(ctx, &pb.GetExpectedToMoveRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFloorNumber calls the GetFloorNumber RPC.
+func (c *ResponderLocationClient) GetFloorNumber(ctx context.Context) (float64, error) {
+	resp, err := c.svc.GetFloorNumber(ctx, &pb.GetFloorNumberRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHeightAboveFloorMeters calls the GetHeightAboveFloorMeters RPC.
+func (c *ResponderLocationClient) GetHeightAboveFloorMeters(ctx context.Context) (float64, error) {
+	resp, err := c.svc.GetHeightAboveFloorMeters(ctx, &pb.GetHeightAboveFloorMetersRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHeightAboveFloorUncertaintyMeters calls the GetHeightAboveFloorUncertaintyMeters RPC.
+func (c *ResponderLocationClient) GetHeightAboveFloorUncertaintyMeters(ctx context.Context) (float64, error) {
+	resp, err := c.svc.GetHeightAboveFloorUncertaintyMeters(ctx, &pb.GetHeightAboveFloorUncertaintyMetersRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLatitude calls the GetLatitude RPC.
+func (c *ResponderLocationClient) GetLatitude(ctx context.Context) (float64, error) {
+	resp, err := c.svc.GetLatitude(ctx, &pb.GetLatitudeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLatitudeUncertainty calls the GetLatitudeUncertainty RPC.
+func (c *ResponderLocationClient) GetLatitudeUncertainty(ctx context.Context) (float64, error) {
+	resp, err := c.svc.GetLatitudeUncertainty(ctx, &pb.GetLatitudeUncertaintyRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLciVersion calls the GetLciVersion RPC.
+func (c *ResponderLocationClient) GetLciVersion(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetLciVersion(ctx, &pb.GetLciVersionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLongitude calls the GetLongitude RPC.
+func (c *ResponderLocationClient) GetLongitude(ctx context.Context) (float64, error) {
+	resp, err := c.svc.GetLongitude(ctx, &pb.GetLongitudeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLongitudeUncertainty calls the GetLongitudeUncertainty RPC.
+func (c *ResponderLocationClient) GetLongitudeUncertainty(ctx context.Context) (float64, error) {
+	resp, err := c.svc.GetLongitudeUncertainty(ctx, &pb.GetLongitudeUncertaintyRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMapImageMimeType calls the GetMapImageMimeType RPC.
+func (c *ResponderLocationClient) GetMapImageMimeType(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetMapImageMimeType(ctx, &pb.GetMapImageMimeTypeRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMapImageUri calls the GetMapImageUri RPC.
+func (c *ResponderLocationClient) GetMapImageUri(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetMapImageUri(ctx, &pb.GetMapImageUriRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRegisteredLocationAgreementIndication calls the GetRegisteredLocationAgreementIndication RPC.
+func (c *ResponderLocationClient) GetRegisteredLocationAgreementIndication(ctx context.Context) (bool, error) {
+	resp, err := c.svc.GetRegisteredLocationAgreementIndication(ctx, &pb.GetRegisteredLocationAgreementIndicationRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *ResponderLocationClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsLciSubelementValid calls the IsLciSubelementValid RPC.
+func (c *ResponderLocationClient) IsLciSubelementValid(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsLciSubelementValid(ctx, &pb.IsLciSubelementValidRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsZaxisSubelementValid calls the IsZaxisSubelementValid RPC.
+func (c *ResponderLocationClient) IsZaxisSubelementValid(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsZaxisSubelementValid(ctx, &pb.IsZaxisSubelementValidRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToCivicLocationAddress calls the ToCivicLocationAddress RPC.
+func (c *ResponderLocationClient) ToCivicLocationAddress(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ToCivicLocationAddress(ctx, &pb.ToCivicLocationAddressRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToLocation calls the ToLocation RPC.
+func (c *ResponderLocationClient) ToLocation(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ToLocation(ctx, &pb.ToLocationRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ResponderLocationClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
 // WifiRttManagerClient wraps the gRPC WifiRttManagerService client.
 type WifiRttManagerClient struct {
 	svc pb.WifiRttManagerServiceClient

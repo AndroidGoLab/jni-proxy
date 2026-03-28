@@ -5,3 +5,500 @@ syntax = "proto3";
 package audiorecord;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/audiorecord";
+
+message NewAudioRecordRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int32 arg4 = 5;
+}
+
+message NewAudioRecordResponse {
+  int64 result = 1;
+}
+
+message GetActiveRecordingConfigurationRequest {
+  int64 handle = 1;
+}
+
+message GetActiveRecordingConfigurationResponse {
+  int64 result = 1;
+}
+
+message GetAudioFormatRequest {
+  int64 handle = 1;
+}
+
+message GetAudioFormatResponse {
+  int32 result = 1;
+}
+
+message GetAudioSessionIdRequest {
+  int64 handle = 1;
+}
+
+message GetAudioSessionIdResponse {
+  int32 result = 1;
+}
+
+message GetAudioSourceRequest {
+  int64 handle = 1;
+}
+
+message GetAudioSourceResponse {
+  int32 result = 1;
+}
+
+message GetBufferSizeInFramesRequest {
+  int64 handle = 1;
+}
+
+message GetBufferSizeInFramesResponse {
+  int32 result = 1;
+}
+
+message GetChannelConfigurationRequest {
+  int64 handle = 1;
+}
+
+message GetChannelConfigurationResponse {
+  int32 result = 1;
+}
+
+message GetChannelCountRequest {
+  int64 handle = 1;
+}
+
+message GetChannelCountResponse {
+  int32 result = 1;
+}
+
+message GetFormatRequest {
+  int64 handle = 1;
+}
+
+message GetFormatResponse {
+  int64 result = 1;
+}
+
+message GetLogSessionIdRequest {
+  int64 handle = 1;
+}
+
+message GetLogSessionIdResponse {
+  int64 result = 1;
+}
+
+message GetMetricsRequest {
+  int64 handle = 1;
+}
+
+message GetMetricsResponse {
+  int64 result = 1;
+}
+
+message GetNotificationMarkerPositionRequest {
+  int64 handle = 1;
+}
+
+message GetNotificationMarkerPositionResponse {
+  int32 result = 1;
+}
+
+message GetPositionNotificationPeriodRequest {
+  int64 handle = 1;
+}
+
+message GetPositionNotificationPeriodResponse {
+  int32 result = 1;
+}
+
+message GetPreferredDeviceRequest {
+  int64 handle = 1;
+}
+
+message GetPreferredDeviceResponse {
+  int64 result = 1;
+}
+
+message GetRecordingStateRequest {
+  int64 handle = 1;
+}
+
+message GetRecordingStateResponse {
+  int32 result = 1;
+}
+
+message GetRoutedDeviceRequest {
+  int64 handle = 1;
+}
+
+message GetRoutedDeviceResponse {
+  int64 result = 1;
+}
+
+message GetSampleRateRequest {
+  int64 handle = 1;
+}
+
+message GetSampleRateResponse {
+  int32 result = 1;
+}
+
+message GetStateRequest {
+  int64 handle = 1;
+}
+
+message GetStateResponse {
+  int32 result = 1;
+}
+
+message GetTimestampRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message GetTimestampResponse {
+  int32 result = 1;
+}
+
+message IsPrivacySensitiveRequest {
+  int64 handle = 1;
+}
+
+message IsPrivacySensitiveResponse {
+  bool result = 1;
+}
+
+message Read3Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+}
+
+message Read3Response {
+  int32 result = 1;
+}
+
+message Read4_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
+}
+
+message Read4_1Response {
+  int32 result = 1;
+}
+
+message Read4_2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
+}
+
+message Read4_2Response {
+  int32 result = 1;
+}
+
+message Read3_3Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+}
+
+message Read3_3Response {
+  int32 result = 1;
+}
+
+message Read4_4Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
+}
+
+message Read4_4Response {
+  int32 result = 1;
+}
+
+message RegisterAudioRecordingCallbackRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message RegisterAudioRecordingCallbackResponse {
+}
+
+message ReleaseRequest {
+  int64 handle = 1;
+}
+
+message ReleaseResponse {
+}
+
+message RemoveOnRoutingChangedListener1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message RemoveOnRoutingChangedListener1Response {
+}
+
+message RemoveOnRoutingChangedListener1_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message RemoveOnRoutingChangedListener1_1Response {
+}
+
+message SetLogSessionIdRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetLogSessionIdResponse {
+}
+
+message SetNotificationMarkerPositionRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetNotificationMarkerPositionResponse {
+  int32 result = 1;
+}
+
+message SetPositionNotificationPeriodRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetPositionNotificationPeriodResponse {
+  int32 result = 1;
+}
+
+message SetPreferredDeviceRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetPreferredDeviceResponse {
+  bool result = 1;
+}
+
+message SetPreferredMicrophoneDirectionRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetPreferredMicrophoneDirectionResponse {
+  bool result = 1;
+}
+
+message SetPreferredMicrophoneFieldDimensionRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+}
+
+message SetPreferredMicrophoneFieldDimensionResponse {
+  bool result = 1;
+}
+
+message SetRecordPositionUpdateListenerRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetRecordPositionUpdateListenerResponse {
+}
+
+message StartRecording0Request {
+  int64 handle = 1;
+}
+
+message StartRecording0Response {
+}
+
+message StartRecording1_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message StartRecording1_1Response {
+}
+
+message StopRequest {
+  int64 handle = 1;
+}
+
+message StopResponse {
+}
+
+message UnregisterAudioRecordingCallbackRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message UnregisterAudioRecordingCallbackResponse {
+}
+
+message GetMinBufferSizeRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+}
+
+message GetMinBufferSizeResponse {
+  int32 result = 1;
+}
+
+message BuildRequest {
+}
+
+message BuildResponse {
+  int64 result = 1;
+}
+
+message SetAudioFormatRequest {
+  int64 arg0 = 1;
+}
+
+message SetAudioFormatResponse {
+  int64 result = 1;
+}
+
+message SetAudioPlaybackCaptureConfigRequest {
+  int64 arg0 = 1;
+}
+
+message SetAudioPlaybackCaptureConfigResponse {
+  int64 result = 1;
+}
+
+message SetAudioSourceRequest {
+  int32 arg0 = 1;
+}
+
+message SetAudioSourceResponse {
+  int64 result = 1;
+}
+
+message SetBufferSizeInBytesRequest {
+  int32 arg0 = 1;
+}
+
+message SetBufferSizeInBytesResponse {
+  int64 result = 1;
+}
+
+message SetContextRequest {
+  int64 arg0 = 1;
+}
+
+message SetContextResponse {
+  int64 result = 1;
+}
+
+message SetPrivacySensitiveRequest {
+  bool arg0 = 1;
+}
+
+message SetPrivacySensitiveResponse {
+  int64 result = 1;
+}
+
+message OnMarkerReachedRequest {
+  int64 arg0 = 1;
+}
+
+message OnMarkerReachedResponse {
+}
+
+message OnPeriodicNotificationRequest {
+  int64 arg0 = 1;
+}
+
+message OnPeriodicNotificationResponse {
+}
+
+message OnRoutingChangedRequest {
+  int64 arg0 = 1;
+}
+
+message OnRoutingChangedResponse {
+}
+
+service AudioRecordService {
+  rpc NewAudioRecord (NewAudioRecordRequest) returns (NewAudioRecordResponse);
+  rpc GetActiveRecordingConfiguration (GetActiveRecordingConfigurationRequest) returns (GetActiveRecordingConfigurationResponse);
+  rpc GetAudioFormat (GetAudioFormatRequest) returns (GetAudioFormatResponse);
+  rpc GetAudioSessionId (GetAudioSessionIdRequest) returns (GetAudioSessionIdResponse);
+  rpc GetAudioSource (GetAudioSourceRequest) returns (GetAudioSourceResponse);
+  rpc GetBufferSizeInFrames (GetBufferSizeInFramesRequest) returns (GetBufferSizeInFramesResponse);
+  rpc GetChannelConfiguration (GetChannelConfigurationRequest) returns (GetChannelConfigurationResponse);
+  rpc GetChannelCount (GetChannelCountRequest) returns (GetChannelCountResponse);
+  rpc GetFormat (GetFormatRequest) returns (GetFormatResponse);
+  rpc GetLogSessionId (GetLogSessionIdRequest) returns (GetLogSessionIdResponse);
+  rpc GetMetrics (GetMetricsRequest) returns (GetMetricsResponse);
+  rpc GetNotificationMarkerPosition (GetNotificationMarkerPositionRequest) returns (GetNotificationMarkerPositionResponse);
+  rpc GetPositionNotificationPeriod (GetPositionNotificationPeriodRequest) returns (GetPositionNotificationPeriodResponse);
+  rpc GetPreferredDevice (GetPreferredDeviceRequest) returns (GetPreferredDeviceResponse);
+  rpc GetRecordingState (GetRecordingStateRequest) returns (GetRecordingStateResponse);
+  rpc GetRoutedDevice (GetRoutedDeviceRequest) returns (GetRoutedDeviceResponse);
+  rpc GetSampleRate (GetSampleRateRequest) returns (GetSampleRateResponse);
+  rpc GetState (GetStateRequest) returns (GetStateResponse);
+  rpc GetTimestamp (GetTimestampRequest) returns (GetTimestampResponse);
+  rpc IsPrivacySensitive (IsPrivacySensitiveRequest) returns (IsPrivacySensitiveResponse);
+  rpc Read3 (Read3Request) returns (Read3Response);
+  rpc Read4_1 (Read4_1Request) returns (Read4_1Response);
+  rpc Read4_2 (Read4_2Request) returns (Read4_2Response);
+  rpc Read3_3 (Read3_3Request) returns (Read3_3Response);
+  rpc Read4_4 (Read4_4Request) returns (Read4_4Response);
+  rpc RegisterAudioRecordingCallback (RegisterAudioRecordingCallbackRequest) returns (RegisterAudioRecordingCallbackResponse);
+  rpc Release (ReleaseRequest) returns (ReleaseResponse);
+  rpc RemoveOnRoutingChangedListener1 (RemoveOnRoutingChangedListener1Request) returns (RemoveOnRoutingChangedListener1Response);
+  rpc RemoveOnRoutingChangedListener1_1 (RemoveOnRoutingChangedListener1_1Request) returns (RemoveOnRoutingChangedListener1_1Response);
+  rpc SetLogSessionId (SetLogSessionIdRequest) returns (SetLogSessionIdResponse);
+  rpc SetNotificationMarkerPosition (SetNotificationMarkerPositionRequest) returns (SetNotificationMarkerPositionResponse);
+  rpc SetPositionNotificationPeriod (SetPositionNotificationPeriodRequest) returns (SetPositionNotificationPeriodResponse);
+  rpc SetPreferredDevice (SetPreferredDeviceRequest) returns (SetPreferredDeviceResponse);
+  rpc SetPreferredMicrophoneDirection (SetPreferredMicrophoneDirectionRequest) returns (SetPreferredMicrophoneDirectionResponse);
+  rpc SetPreferredMicrophoneFieldDimension (SetPreferredMicrophoneFieldDimensionRequest) returns (SetPreferredMicrophoneFieldDimensionResponse);
+  rpc SetRecordPositionUpdateListener (SetRecordPositionUpdateListenerRequest) returns (SetRecordPositionUpdateListenerResponse);
+  rpc StartRecording0 (StartRecording0Request) returns (StartRecording0Response);
+  rpc StartRecording1_1 (StartRecording1_1Request) returns (StartRecording1_1Response);
+  rpc Stop (StopRequest) returns (StopResponse);
+  rpc UnregisterAudioRecordingCallback (UnregisterAudioRecordingCallbackRequest) returns (UnregisterAudioRecordingCallbackResponse);
+  rpc GetMinBufferSize (GetMinBufferSizeRequest) returns (GetMinBufferSizeResponse);
+}
+
+service AudioRecordBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetAudioFormat (SetAudioFormatRequest) returns (SetAudioFormatResponse);
+  rpc SetAudioPlaybackCaptureConfig (SetAudioPlaybackCaptureConfigRequest) returns (SetAudioPlaybackCaptureConfigResponse);
+  rpc SetAudioSource (SetAudioSourceRequest) returns (SetAudioSourceResponse);
+  rpc SetBufferSizeInBytes (SetBufferSizeInBytesRequest) returns (SetBufferSizeInBytesResponse);
+  rpc SetContext (SetContextRequest) returns (SetContextResponse);
+  rpc SetPrivacySensitive (SetPrivacySensitiveRequest) returns (SetPrivacySensitiveResponse);
+}
+
+service AudioRecordOnRecordPositionUpdateListenerService {
+  rpc OnMarkerReached (OnMarkerReachedRequest) returns (OnMarkerReachedResponse);
+  rpc OnPeriodicNotification (OnPeriodicNotificationRequest) returns (OnPeriodicNotificationResponse);
+}
+
+service AudioRecordOnRoutingChangedListenerService {
+  rpc OnRoutingChanged (OnRoutingChangedRequest) returns (OnRoutingChangedResponse);
+}

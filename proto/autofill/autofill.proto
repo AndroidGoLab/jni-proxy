@@ -5,3 +5,1918 @@ syntax = "proto3";
 package autofill;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/autofill";
+
+message GetFillEventHistoryRequest {
+}
+
+message GetFillEventHistoryResponse {
+  int64 result = 1;
+}
+
+message OnBindRequest {
+  int64 arg0 = 1;
+}
+
+message OnBindResponse {
+  int64 result = 1;
+}
+
+message OnConnectedRequest {
+}
+
+message OnConnectedResponse {
+}
+
+message OnCreateRequest {
+}
+
+message OnCreateResponse {
+}
+
+message OnDisconnectedRequest {
+}
+
+message OnDisconnectedResponse {
+}
+
+message OnFillRequestRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message OnFillRequestResponse {
+}
+
+message OnSaveRequestRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnSaveRequestResponse {
+}
+
+message OnSavedDatasetsInfoRequestRequest {
+  int64 arg0 = 1;
+}
+
+message OnSavedDatasetsInfoRequestResponse {
+}
+
+message OnSessionDestroyedRequest {
+  int64 arg0 = 1;
+}
+
+message OnSessionDestroyedResponse {
+}
+
+message DescribeContentsRequest {
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message GetClientStateRequest {
+}
+
+message GetClientStateResponse {
+  int64 result = 1;
+}
+
+message GetDelayedFillIntentSenderRequest {
+}
+
+message GetDelayedFillIntentSenderResponse {
+  int64 result = 1;
+}
+
+message GetFlagsRequest {
+}
+
+message GetFlagsResponse {
+  int32 result = 1;
+}
+
+message GetIdRequest {
+}
+
+message GetIdResponse {
+  int32 result = 1;
+}
+
+message GetInlineSuggestionsRequestRequest {
+}
+
+message GetInlineSuggestionsRequestResponse {
+  int64 result = 1;
+}
+
+message ToStringRequest {
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteToParcelResponse {
+}
+
+message GetFocusedIdRequest {
+}
+
+message GetFocusedIdResponse {
+  int64 result = 1;
+}
+
+message GetRequestIdRequest {
+}
+
+message GetRequestIdResponse {
+  int32 result = 1;
+}
+
+message GetStructureRequest {
+}
+
+message GetStructureResponse {
+  int64 result = 1;
+}
+
+message BuildRequest {
+}
+
+message BuildResponse {
+  int64 result = 1;
+}
+
+message SetVisibilityRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message SetVisibilityResponse {
+  int64 result = 1;
+}
+
+message SetAuthenticationRequest {
+  int64 arg0 = 1;
+}
+
+message SetAuthenticationResponse {
+  int64 result = 1;
+}
+
+message SetField2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SetField2Response {
+  int64 result = 1;
+}
+
+message SetField2_1Request {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SetField2_1Response {
+  int64 result = 1;
+}
+
+message SetFieldForAllHintsRequest {
+  int64 arg0 = 1;
+}
+
+message SetFieldForAllHintsResponse {
+  int64 result = 1;
+}
+
+message SetIdRequest {
+  string arg0 = 1;
+}
+
+message SetIdResponse {
+  int64 result = 1;
+}
+
+message SetInlinePresentation1Request {
+  int64 arg0 = 1;
+}
+
+message SetInlinePresentation1Response {
+  int64 result = 1;
+}
+
+message SetInlinePresentation2_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SetInlinePresentation2_1Response {
+  int64 result = 1;
+}
+
+message SetValue2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SetValue2Response {
+  int64 result = 1;
+}
+
+message SetValue3_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message SetValue3_1Response {
+  int64 result = 1;
+}
+
+message SetValue4_2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message SetValue4_2Response {
+  int64 result = 1;
+}
+
+message SetValue5_3Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+}
+
+message SetValue5_3Response {
+  int64 result = 1;
+}
+
+message SetValue3_4Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message SetValue3_4Response {
+  int64 result = 1;
+}
+
+message SetValue4_5Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message SetValue4_5Response {
+  int64 result = 1;
+}
+
+message SetValue5_6Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+}
+
+message SetValue5_6Response {
+  int64 result = 1;
+}
+
+message SetValue6_7Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+  int64 arg5 = 6;
+}
+
+message SetValue6_7Response {
+  int64 result = 1;
+}
+
+message NewLuhnChecksumValidatorRequest {
+  int64 arg0 = 1;
+}
+
+message NewLuhnChecksumValidatorResponse {
+  int64 result = 1;
+}
+
+message LuhnChecksumValidatorDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message LuhnChecksumValidatorToStringRequest {
+  int64 handle = 1;
+}
+
+message LuhnChecksumValidatorWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message AddOption2Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message AddOption2Response {
+  int64 result = 1;
+}
+
+message AddOption3_1Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  string arg2 = 3;
+}
+
+message AddOption3_1Response {
+  int64 result = 1;
+}
+
+message NewTextValueSanitizerRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+}
+
+message NewTextValueSanitizerResponse {
+  int64 result = 1;
+}
+
+message TextValueSanitizerDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message TextValueSanitizerToStringRequest {
+  int64 handle = 1;
+}
+
+message TextValueSanitizerWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message OnFailureRequest {
+  string arg0 = 1;
+}
+
+message OnFailureResponse {
+}
+
+message OnSuccess0Request {
+}
+
+message OnSuccess0Response {
+}
+
+message OnSuccess1_1Request {
+  int64 arg0 = 1;
+}
+
+message OnSuccess1_1Response {
+}
+
+message AddFieldRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  string arg2 = 3;
+}
+
+message AddFieldResponse {
+  int64 result = 1;
+}
+
+message GetSessionIdRequest {
+}
+
+message GetSessionIdResponse {
+  int32 result = 1;
+}
+
+message GetDatasetIdRequest {
+}
+
+message GetDatasetIdResponse {
+  string result = 1;
+}
+
+message GetNoSaveUiReasonRequest {
+}
+
+message GetNoSaveUiReasonResponse {
+  int32 result = 1;
+}
+
+message GetTypeRequest {
+}
+
+message GetTypeResponse {
+  int32 result = 1;
+}
+
+message GetUiTypeRequest {
+}
+
+message GetUiTypeResponse {
+  int32 result = 1;
+}
+
+message GetDialogPresentationRequest {
+}
+
+message GetDialogPresentationResponse {
+  int64 result = 1;
+}
+
+message GetInlinePresentationRequest {
+}
+
+message GetInlinePresentationResponse {
+  int64 result = 1;
+}
+
+message GetInlineTooltipPresentationRequest {
+}
+
+message GetInlineTooltipPresentationResponse {
+  int64 result = 1;
+}
+
+message GetMenuPresentationRequest {
+}
+
+message GetMenuPresentationResponse {
+  int64 result = 1;
+}
+
+message SetDialogPresentationRequest {
+  int64 arg0 = 1;
+}
+
+message SetDialogPresentationResponse {
+  int64 result = 1;
+}
+
+message SetInlinePresentationRequest {
+  int64 arg0 = 1;
+}
+
+message SetInlinePresentationResponse {
+  int64 result = 1;
+}
+
+message SetInlineTooltipPresentationRequest {
+  int64 arg0 = 1;
+}
+
+message SetInlineTooltipPresentationResponse {
+  int64 result = 1;
+}
+
+message SetMenuPresentationRequest {
+  int64 arg0 = 1;
+}
+
+message SetMenuPresentationResponse {
+  int64 result = 1;
+}
+
+message OnSuccessRequest {
+  int64 arg0 = 1;
+}
+
+message OnSuccessResponse {
+}
+
+message GetFilterRequest {
+}
+
+message GetFilterResponse {
+  int64 result = 1;
+}
+
+message GetPresentationsRequest {
+}
+
+message GetPresentationsResponse {
+  int64 result = 1;
+}
+
+message GetValueRequest {
+}
+
+message GetValueResponse {
+  int64 result = 1;
+}
+
+message SetFilterRequest {
+  int64 arg0 = 1;
+}
+
+message SetFilterResponse {
+  int64 result = 1;
+}
+
+message SetPresentationsRequest {
+  int64 arg0 = 1;
+}
+
+message SetPresentationsResponse {
+  int64 result = 1;
+}
+
+message SetValueRequest {
+  int64 arg0 = 1;
+}
+
+message SetValueResponse {
+  int64 result = 1;
+}
+
+message AddDatasetRequest {
+  int64 arg0 = 1;
+}
+
+message AddDatasetResponse {
+  int64 result = 1;
+}
+
+message DisableAutofillRequest {
+  int64 arg0 = 1;
+}
+
+message DisableAutofillResponse {
+  int64 result = 1;
+}
+
+message SetAuthentication3Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message SetAuthentication3Response {
+  int64 result = 1;
+}
+
+message SetAuthentication3_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message SetAuthentication3_1Response {
+  int64 result = 1;
+}
+
+message SetAuthentication4_2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message SetAuthentication4_2Response {
+  int64 result = 1;
+}
+
+message SetAuthentication5_3Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+}
+
+message SetAuthentication5_3Response {
+  int64 result = 1;
+}
+
+message SetClientStateRequest {
+  int64 arg0 = 1;
+}
+
+message SetClientStateResponse {
+  int64 result = 1;
+}
+
+message SetDialogHeaderRequest {
+  int64 arg0 = 1;
+}
+
+message SetDialogHeaderResponse {
+  int64 result = 1;
+}
+
+message SetFieldClassificationIdsRequest {
+  int64 arg0 = 1;
+}
+
+message SetFieldClassificationIdsResponse {
+  int64 result = 1;
+}
+
+message SetFillDialogTriggerIdsRequest {
+  int64 arg0 = 1;
+}
+
+message SetFillDialogTriggerIdsResponse {
+  int64 result = 1;
+}
+
+message SetFlagsRequest {
+  int32 arg0 = 1;
+}
+
+message SetFlagsResponse {
+  int64 result = 1;
+}
+
+message SetFooterRequest {
+  int64 arg0 = 1;
+}
+
+message SetFooterResponse {
+  int64 result = 1;
+}
+
+message SetHeaderRequest {
+  int64 arg0 = 1;
+}
+
+message SetHeaderResponse {
+  int64 result = 1;
+}
+
+message SetIconResourceIdRequest {
+  int32 arg0 = 1;
+}
+
+message SetIconResourceIdResponse {
+  int64 result = 1;
+}
+
+message SetIgnoredIdsRequest {
+  int64 arg0 = 1;
+}
+
+message SetIgnoredIdsResponse {
+  int64 result = 1;
+}
+
+message SetPresentationCancelIdsRequest {
+  int64 arg0 = 1;
+}
+
+message SetPresentationCancelIdsResponse {
+  int64 result = 1;
+}
+
+message SetSaveInfoRequest {
+  int64 arg0 = 1;
+}
+
+message SetSaveInfoResponse {
+  int64 result = 1;
+}
+
+message SetServiceDisplayNameResourceIdRequest {
+  int32 arg0 = 1;
+}
+
+message SetServiceDisplayNameResourceIdResponse {
+  int64 result = 1;
+}
+
+message SetShowFillDialogIconRequest {
+  bool arg0 = 1;
+}
+
+message SetShowFillDialogIconResponse {
+  int64 result = 1;
+}
+
+message SetShowSaveDialogIconRequest {
+  bool arg0 = 1;
+}
+
+message SetShowSaveDialogIconResponse {
+  int64 result = 1;
+}
+
+message SetUserDataRequest {
+  int64 arg0 = 1;
+}
+
+message SetUserDataResponse {
+  int64 result = 1;
+}
+
+message NewSavedDatasetsInfoRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message NewSavedDatasetsInfoResponse {
+  int64 result = 1;
+}
+
+message EqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message GetCountRequest {
+  int64 handle = 1;
+}
+
+message GetCountResponse {
+  int32 result = 1;
+}
+
+message SavedDatasetsInfoGetTypeRequest {
+  int64 handle = 1;
+}
+
+message SavedDatasetsInfoGetTypeResponse {
+  string result = 1;
+}
+
+message HashCodeRequest {
+  int64 handle = 1;
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message SavedDatasetsInfoToStringRequest {
+  int64 handle = 1;
+}
+
+message NewDateTransformationRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewDateTransformationResponse {
+  int64 result = 1;
+}
+
+message DateTransformationDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message DateTransformationToStringRequest {
+  int64 handle = 1;
+}
+
+message DateTransformationWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message AddSanitizerRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message AddSanitizerResponse {
+  int64 result = 1;
+}
+
+message SetCustomDescriptionRequest {
+  int64 arg0 = 1;
+}
+
+message SetCustomDescriptionResponse {
+  int64 result = 1;
+}
+
+message SetDescriptionRequest {
+  string arg0 = 1;
+}
+
+message SetDescriptionResponse {
+  int64 result = 1;
+}
+
+message SetNegativeActionRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SetNegativeActionResponse {
+  int64 result = 1;
+}
+
+message SetOptionalIdsRequest {
+  int64 arg0 = 1;
+}
+
+message SetOptionalIdsResponse {
+  int64 result = 1;
+}
+
+message SetPositiveActionRequest {
+  int32 arg0 = 1;
+}
+
+message SetPositiveActionResponse {
+  int64 result = 1;
+}
+
+message SetTriggerIdRequest {
+  int64 arg0 = 1;
+}
+
+message SetTriggerIdResponse {
+  int64 result = 1;
+}
+
+message SetValidatorRequest {
+  int64 arg0 = 1;
+}
+
+message SetValidatorResponse {
+  int64 result = 1;
+}
+
+message TransformChildRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message TransformChildResponse {
+  int64 result = 1;
+}
+
+message UpdateTemplateRequest {
+  int64 arg0 = 1;
+}
+
+message UpdateTemplateResponse {
+  int64 result = 1;
+}
+
+message AddChildRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message AddChildResponse {
+  int64 result = 1;
+}
+
+message AddOnClickActionRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message AddOnClickActionResponse {
+  int64 result = 1;
+}
+
+message BatchUpdateRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message BatchUpdateResponse {
+  int64 result = 1;
+}
+
+message NewRegexValidatorRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewRegexValidatorResponse {
+  int64 result = 1;
+}
+
+message RegexValidatorDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message RegexValidatorToStringRequest {
+  int64 handle = 1;
+}
+
+message RegexValidatorWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message NewInlinePresentationRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  bool arg2 = 3;
+}
+
+message NewInlinePresentationResponse {
+  int64 result = 1;
+}
+
+message InlinePresentationDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message GetInlinePresentationSpecRequest {
+  int64 handle = 1;
+}
+
+message GetInlinePresentationSpecResponse {
+  int64 result = 1;
+}
+
+message GetSliceRequest {
+  int64 handle = 1;
+}
+
+message GetSliceResponse {
+  int64 result = 1;
+}
+
+message IsPinnedRequest {
+  int64 handle = 1;
+}
+
+message IsPinnedResponse {
+  bool result = 1;
+}
+
+message InlinePresentationToStringRequest {
+  int64 handle = 1;
+}
+
+message InlinePresentationWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message CreateTooltipPresentationRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message CreateTooltipPresentationResponse {
+  int64 result = 1;
+}
+
+message GetCategoryIdRequest {
+}
+
+message GetCategoryIdResponse {
+  string result = 1;
+}
+
+message GetScoreRequest {
+}
+
+message GetScoreResponse {
+  float result = 1;
+}
+
+message OnErrorRequest {
+  int32 arg0 = 1;
+}
+
+message OnErrorResponse {
+}
+
+message GetFieldClassificationAlgorithmRequest {
+}
+
+message GetFieldClassificationAlgorithmResponse {
+  string result = 1;
+}
+
+message GetFieldClassificationAlgorithmForCategoryRequest {
+  string arg0 = 1;
+}
+
+message GetFieldClassificationAlgorithmForCategoryResponse {
+  string result = 1;
+}
+
+message UserDataGetIdResponse {
+  string result = 1;
+}
+
+message GetMaxCategoryCountRequest {
+}
+
+message GetMaxCategoryCountResponse {
+  int32 result = 1;
+}
+
+message GetMaxFieldClassificationIdsSizeRequest {
+}
+
+message GetMaxFieldClassificationIdsSizeResponse {
+  int32 result = 1;
+}
+
+message GetMaxUserDataSizeRequest {
+}
+
+message GetMaxUserDataSizeResponse {
+  int32 result = 1;
+}
+
+message GetMaxValueLengthRequest {
+}
+
+message GetMaxValueLengthResponse {
+  int32 result = 1;
+}
+
+message GetMinValueLengthRequest {
+}
+
+message GetMinValueLengthResponse {
+  int32 result = 1;
+}
+
+message AddRequest {
+  string arg0 = 1;
+  string arg1 = 2;
+}
+
+message AddResponse {
+  int64 result = 1;
+}
+
+message SetFieldClassificationAlgorithmRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SetFieldClassificationAlgorithmResponse {
+  int64 result = 1;
+}
+
+message SetFieldClassificationAlgorithmForCategoryRequest {
+  string arg0 = 1;
+  string arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message SetFieldClassificationAlgorithmForCategoryResponse {
+  int64 result = 1;
+}
+
+message NewDateValueSanitizerRequest {
+  int64 arg0 = 1;
+}
+
+message NewDateValueSanitizerResponse {
+  int64 result = 1;
+}
+
+message DateValueSanitizerDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message DateValueSanitizerToStringRequest {
+  int64 handle = 1;
+}
+
+message DateValueSanitizerWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message AndRequest {
+  int64 arg0 = 1;
+}
+
+message AndResponse {
+  int64 result = 1;
+}
+
+message NotRequest {
+  int64 arg0 = 1;
+}
+
+message NotResponse {
+  int64 result = 1;
+}
+
+message OrRequest {
+  int64 arg0 = 1;
+}
+
+message OrResponse {
+  int64 result = 1;
+}
+
+message GetAutofillHintsRequest {
+}
+
+message GetAutofillHintsResponse {
+  int64 result = 1;
+}
+
+message SetAutofillHintsRequest {
+  int64 arg0 = 1;
+}
+
+message SetAutofillHintsResponse {
+  int64 result = 1;
+}
+
+message ValueEqualsRequest {
+  int64 arg0 = 1;
+}
+
+message GetDateValueRequest {
+}
+
+message GetDateValueResponse {
+  int64 result = 1;
+}
+
+message GetListValueRequest {
+}
+
+message GetListValueResponse {
+  int32 result = 1;
+}
+
+message GetTextValueRequest {
+}
+
+message GetTextValueResponse {
+  int64 result = 1;
+}
+
+message GetToggleValueRequest {
+}
+
+message GetToggleValueResponse {
+  bool result = 1;
+}
+
+message ValueHashCodeRequest {
+}
+
+message IsDateRequest {
+}
+
+message IsDateResponse {
+  bool result = 1;
+}
+
+message IsListRequest {
+}
+
+message IsListResponse {
+  bool result = 1;
+}
+
+message IsTextRequest {
+}
+
+message IsTextResponse {
+  bool result = 1;
+}
+
+message IsToggleRequest {
+}
+
+message IsToggleResponse {
+  bool result = 1;
+}
+
+message ForDateRequest {
+  int64 arg0 = 1;
+}
+
+message ForDateResponse {
+  int64 result = 1;
+}
+
+message ForListRequest {
+  int32 arg0 = 1;
+}
+
+message ForListResponse {
+  int64 result = 1;
+}
+
+message ForTextRequest {
+  string arg0 = 1;
+}
+
+message ForTextResponse {
+  int64 result = 1;
+}
+
+message ForToggleRequest {
+  bool arg0 = 1;
+}
+
+message ForToggleResponse {
+  int64 result = 1;
+}
+
+message GetAutofillVirtualIdRequest {
+}
+
+message GetAutofillVirtualIdResponse {
+  int32 result = 1;
+}
+
+message GetViewIdRequest {
+}
+
+message GetViewIdResponse {
+  int32 result = 1;
+}
+
+message IsInAutofillSessionRequest {
+}
+
+message IsInAutofillSessionResponse {
+  bool result = 1;
+}
+
+message IsVirtualRequest {
+}
+
+message IsVirtualResponse {
+  bool result = 1;
+}
+
+message CreateRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message CreateResponse {
+  int64 result = 1;
+}
+
+message CancelRequest {
+}
+
+message CancelResponse {
+}
+
+message CommitRequest {
+}
+
+message CommitResponse {
+}
+
+message DisableAutofillServicesRequest {
+}
+
+message DisableAutofillServicesResponse {
+}
+
+message GetAutofillServiceComponentNameRequest {
+}
+
+message GetAutofillServiceComponentNameResponse {
+  int64 result = 1;
+}
+
+message GetDefaultFieldClassificationAlgorithmRequest {
+}
+
+message GetDefaultFieldClassificationAlgorithmResponse {
+  string result = 1;
+}
+
+message GetNextAutofillIdRequest {
+}
+
+message GetNextAutofillIdResponse {
+  int64 result = 1;
+}
+
+message GetUserDataRequest {
+}
+
+message GetUserDataResponse {
+  int64 result = 1;
+}
+
+message GetUserDataIdRequest {
+}
+
+message GetUserDataIdResponse {
+  string result = 1;
+}
+
+message HasEnabledAutofillServicesRequest {
+}
+
+message HasEnabledAutofillServicesResponse {
+  bool result = 1;
+}
+
+message IsAutofillSupportedRequest {
+}
+
+message IsAutofillSupportedResponse {
+  bool result = 1;
+}
+
+message IsEnabledRequest {
+}
+
+message IsEnabledResponse {
+  bool result = 1;
+}
+
+message IsFieldClassificationEnabledRequest {
+}
+
+message IsFieldClassificationEnabledResponse {
+  bool result = 1;
+}
+
+message NotifyValueChanged1Request {
+  int64 arg0 = 1;
+}
+
+message NotifyValueChanged1Response {
+}
+
+message NotifyValueChanged3_1Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message NotifyValueChanged3_1Response {
+}
+
+message NotifyViewClicked1Request {
+  int64 arg0 = 1;
+}
+
+message NotifyViewClicked1Response {
+}
+
+message NotifyViewClicked2_1Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message NotifyViewClicked2_1Response {
+}
+
+message NotifyViewEntered1Request {
+  int64 arg0 = 1;
+}
+
+message NotifyViewEntered1Response {
+}
+
+message NotifyViewEntered3_1Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message NotifyViewEntered3_1Response {
+}
+
+message NotifyViewExited1Request {
+  int64 arg0 = 1;
+}
+
+message NotifyViewExited1Response {
+}
+
+message NotifyViewExited2_1Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message NotifyViewExited2_1Response {
+}
+
+message NotifyViewVisibilityChanged2Request {
+  int64 arg0 = 1;
+  bool arg1 = 2;
+}
+
+message NotifyViewVisibilityChanged2Response {
+}
+
+message NotifyViewVisibilityChanged3_1Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  bool arg2 = 3;
+}
+
+message NotifyViewVisibilityChanged3_1Response {
+}
+
+message RegisterCallbackRequest {
+  int64 arg0 = 1;
+}
+
+message RegisterCallbackResponse {
+}
+
+message RequestAutofill1Request {
+  int64 arg0 = 1;
+}
+
+message RequestAutofill1Response {
+}
+
+message RequestAutofill3_1Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message RequestAutofill3_1Response {
+}
+
+message ManagerSetUserDataResponse {
+}
+
+message ShowAutofillDialog1Request {
+  int64 arg0 = 1;
+}
+
+message ShowAutofillDialog1Response {
+  bool result = 1;
+}
+
+message ShowAutofillDialog2_1Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message ShowAutofillDialog2_1Response {
+  bool result = 1;
+}
+
+message UnregisterCallbackRequest {
+  int64 arg0 = 1;
+}
+
+message UnregisterCallbackResponse {
+}
+
+message OnAutofillEvent2Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message OnAutofillEvent2Response {
+}
+
+message OnAutofillEvent3_1Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message OnAutofillEvent3_1Response {
+}
+
+service ServiceService {
+  rpc GetFillEventHistory (GetFillEventHistoryRequest) returns (GetFillEventHistoryResponse);
+  rpc OnBind (OnBindRequest) returns (OnBindResponse);
+  rpc OnConnected (OnConnectedRequest) returns (OnConnectedResponse);
+  rpc OnCreate (OnCreateRequest) returns (OnCreateResponse);
+  rpc OnDisconnected (OnDisconnectedRequest) returns (OnDisconnectedResponse);
+  rpc OnFillRequest (OnFillRequestRequest) returns (OnFillRequestResponse);
+  rpc OnSaveRequest (OnSaveRequestRequest) returns (OnSaveRequestResponse);
+  rpc OnSavedDatasetsInfoRequest (OnSavedDatasetsInfoRequestRequest) returns (OnSavedDatasetsInfoRequestResponse);
+  rpc OnSessionDestroyed (OnSessionDestroyedRequest) returns (OnSessionDestroyedResponse);
+}
+
+service FillRequestService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetClientState (GetClientStateRequest) returns (GetClientStateResponse);
+  rpc GetDelayedFillIntentSender (GetDelayedFillIntentSenderRequest) returns (GetDelayedFillIntentSenderResponse);
+  rpc GetFlags (GetFlagsRequest) returns (GetFlagsResponse);
+  rpc GetId (GetIdRequest) returns (GetIdResponse);
+  rpc GetInlineSuggestionsRequest (GetInlineSuggestionsRequestRequest) returns (GetInlineSuggestionsRequestResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service FillContextService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetFocusedId (GetFocusedIdRequest) returns (GetFocusedIdResponse);
+  rpc GetRequestId (GetRequestIdRequest) returns (GetRequestIdResponse);
+  rpc GetStructure (GetStructureRequest) returns (GetStructureResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service VisibilitySetterActionService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service VisibilitySetterActionBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetVisibility (SetVisibilityRequest) returns (SetVisibilityResponse);
+}
+
+service DatasetService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service DatasetBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetAuthentication (SetAuthenticationRequest) returns (SetAuthenticationResponse);
+  rpc SetField2 (SetField2Request) returns (SetField2Response);
+  rpc SetField2_1 (SetField2_1Request) returns (SetField2_1Response);
+  rpc SetFieldForAllHints (SetFieldForAllHintsRequest) returns (SetFieldForAllHintsResponse);
+  rpc SetId (SetIdRequest) returns (SetIdResponse);
+  rpc SetInlinePresentation1 (SetInlinePresentation1Request) returns (SetInlinePresentation1Response);
+  rpc SetInlinePresentation2_1 (SetInlinePresentation2_1Request) returns (SetInlinePresentation2_1Response);
+  rpc SetValue2 (SetValue2Request) returns (SetValue2Response);
+  rpc SetValue3_1 (SetValue3_1Request) returns (SetValue3_1Response);
+  rpc SetValue4_2 (SetValue4_2Request) returns (SetValue4_2Response);
+  rpc SetValue5_3 (SetValue5_3Request) returns (SetValue5_3Response);
+  rpc SetValue3_4 (SetValue3_4Request) returns (SetValue3_4Response);
+  rpc SetValue4_5 (SetValue4_5Request) returns (SetValue4_5Response);
+  rpc SetValue5_6 (SetValue5_6Request) returns (SetValue5_6Response);
+  rpc SetValue6_7 (SetValue6_7Request) returns (SetValue6_7Response);
+}
+
+service LuhnChecksumValidatorService {
+  rpc NewLuhnChecksumValidator (NewLuhnChecksumValidatorRequest) returns (NewLuhnChecksumValidatorResponse);
+  rpc DescribeContents (LuhnChecksumValidatorDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc ToString (LuhnChecksumValidatorToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (LuhnChecksumValidatorWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ImageTransformationService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ImageTransformationBuilderService {
+  rpc AddOption2 (AddOption2Request) returns (AddOption2Response);
+  rpc AddOption3_1 (AddOption3_1Request) returns (AddOption3_1Response);
+  rpc Build (BuildRequest) returns (BuildResponse);
+}
+
+service TextValueSanitizerService {
+  rpc NewTextValueSanitizer (NewTextValueSanitizerRequest) returns (NewTextValueSanitizerResponse);
+  rpc DescribeContents (TextValueSanitizerDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc ToString (TextValueSanitizerToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (TextValueSanitizerWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service SaveCallbackService {
+  rpc OnFailure (OnFailureRequest) returns (OnFailureResponse);
+  rpc OnSuccess0 (OnSuccess0Request) returns (OnSuccess0Response);
+  rpc OnSuccess1_1 (OnSuccess1_1Request) returns (OnSuccess1_1Response);
+}
+
+service CharSequenceTransformationService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service CharSequenceTransformationBuilderService {
+  rpc AddField (AddFieldRequest) returns (AddFieldResponse);
+  rpc Build (BuildRequest) returns (BuildResponse);
+}
+
+service FillEventHistoryService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetClientState (GetClientStateRequest) returns (GetClientStateResponse);
+  rpc GetSessionId (GetSessionIdRequest) returns (GetSessionIdResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service FillEventHistoryEventService {
+  rpc GetClientState (GetClientStateRequest) returns (GetClientStateResponse);
+  rpc GetDatasetId (GetDatasetIdRequest) returns (GetDatasetIdResponse);
+  rpc GetFocusedId (GetFocusedIdRequest) returns (GetFocusedIdResponse);
+  rpc GetNoSaveUiReason (GetNoSaveUiReasonRequest) returns (GetNoSaveUiReasonResponse);
+  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
+  rpc GetUiType (GetUiTypeRequest) returns (GetUiTypeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service PresentationsService {
+  rpc GetDialogPresentation (GetDialogPresentationRequest) returns (GetDialogPresentationResponse);
+  rpc GetInlinePresentation (GetInlinePresentationRequest) returns (GetInlinePresentationResponse);
+  rpc GetInlineTooltipPresentation (GetInlineTooltipPresentationRequest) returns (GetInlineTooltipPresentationResponse);
+  rpc GetMenuPresentation (GetMenuPresentationRequest) returns (GetMenuPresentationResponse);
+}
+
+service PresentationsBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetDialogPresentation (SetDialogPresentationRequest) returns (SetDialogPresentationResponse);
+  rpc SetInlinePresentation (SetInlinePresentationRequest) returns (SetInlinePresentationResponse);
+  rpc SetInlineTooltipPresentation (SetInlineTooltipPresentationRequest) returns (SetInlineTooltipPresentationResponse);
+  rpc SetMenuPresentation (SetMenuPresentationRequest) returns (SetMenuPresentationResponse);
+}
+
+service FillCallbackService {
+  rpc OnFailure (OnFailureRequest) returns (OnFailureResponse);
+  rpc OnSuccess (OnSuccessRequest) returns (OnSuccessResponse);
+}
+
+service FieldService {
+  rpc GetFilter (GetFilterRequest) returns (GetFilterResponse);
+  rpc GetPresentations (GetPresentationsRequest) returns (GetPresentationsResponse);
+  rpc GetValue (GetValueRequest) returns (GetValueResponse);
+}
+
+service FieldBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetFilter (SetFilterRequest) returns (SetFilterResponse);
+  rpc SetPresentations (SetPresentationsRequest) returns (SetPresentationsResponse);
+  rpc SetValue (SetValueRequest) returns (SetValueResponse);
+}
+
+service SaveRequestService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetClientState (GetClientStateRequest) returns (GetClientStateResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service FillResponseService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service FillResponseBuilderService {
+  rpc AddDataset (AddDatasetRequest) returns (AddDatasetResponse);
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc DisableAutofill (DisableAutofillRequest) returns (DisableAutofillResponse);
+  rpc SetAuthentication3 (SetAuthentication3Request) returns (SetAuthentication3Response);
+  rpc SetAuthentication3_1 (SetAuthentication3_1Request) returns (SetAuthentication3_1Response);
+  rpc SetAuthentication4_2 (SetAuthentication4_2Request) returns (SetAuthentication4_2Response);
+  rpc SetAuthentication5_3 (SetAuthentication5_3Request) returns (SetAuthentication5_3Response);
+  rpc SetClientState (SetClientStateRequest) returns (SetClientStateResponse);
+  rpc SetDialogHeader (SetDialogHeaderRequest) returns (SetDialogHeaderResponse);
+  rpc SetFieldClassificationIds (SetFieldClassificationIdsRequest) returns (SetFieldClassificationIdsResponse);
+  rpc SetFillDialogTriggerIds (SetFillDialogTriggerIdsRequest) returns (SetFillDialogTriggerIdsResponse);
+  rpc SetFlags (SetFlagsRequest) returns (SetFlagsResponse);
+  rpc SetFooter (SetFooterRequest) returns (SetFooterResponse);
+  rpc SetHeader (SetHeaderRequest) returns (SetHeaderResponse);
+  rpc SetIconResourceId (SetIconResourceIdRequest) returns (SetIconResourceIdResponse);
+  rpc SetIgnoredIds (SetIgnoredIdsRequest) returns (SetIgnoredIdsResponse);
+  rpc SetPresentationCancelIds (SetPresentationCancelIdsRequest) returns (SetPresentationCancelIdsResponse);
+  rpc SetSaveInfo (SetSaveInfoRequest) returns (SetSaveInfoResponse);
+  rpc SetServiceDisplayNameResourceId (SetServiceDisplayNameResourceIdRequest) returns (SetServiceDisplayNameResourceIdResponse);
+  rpc SetShowFillDialogIcon (SetShowFillDialogIconRequest) returns (SetShowFillDialogIconResponse);
+  rpc SetShowSaveDialogIcon (SetShowSaveDialogIconRequest) returns (SetShowSaveDialogIconResponse);
+  rpc SetUserData (SetUserDataRequest) returns (SetUserDataResponse);
+}
+
+service SavedDatasetsInfoService {
+  rpc NewSavedDatasetsInfo (NewSavedDatasetsInfoRequest) returns (NewSavedDatasetsInfoResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetCount (GetCountRequest) returns (GetCountResponse);
+  rpc GetType (SavedDatasetsInfoGetTypeRequest) returns (SavedDatasetsInfoGetTypeResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (SavedDatasetsInfoToStringRequest) returns (ToStringResponse);
+}
+
+service DateTransformationService {
+  rpc NewDateTransformation (NewDateTransformationRequest) returns (NewDateTransformationResponse);
+  rpc DescribeContents (DateTransformationDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc ToString (DateTransformationToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (DateTransformationWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service SaveInfoService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service SaveInfoBuilderService {
+  rpc AddSanitizer (AddSanitizerRequest) returns (AddSanitizerResponse);
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetCustomDescription (SetCustomDescriptionRequest) returns (SetCustomDescriptionResponse);
+  rpc SetDescription (SetDescriptionRequest) returns (SetDescriptionResponse);
+  rpc SetFlags (SetFlagsRequest) returns (SetFlagsResponse);
+  rpc SetNegativeAction (SetNegativeActionRequest) returns (SetNegativeActionResponse);
+  rpc SetOptionalIds (SetOptionalIdsRequest) returns (SetOptionalIdsResponse);
+  rpc SetPositiveAction (SetPositiveActionRequest) returns (SetPositiveActionResponse);
+  rpc SetTriggerId (SetTriggerIdRequest) returns (SetTriggerIdResponse);
+  rpc SetValidator (SetValidatorRequest) returns (SetValidatorResponse);
+}
+
+service BatchUpdatesService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service BatchUpdatesBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc TransformChild (TransformChildRequest) returns (TransformChildResponse);
+  rpc UpdateTemplate (UpdateTemplateRequest) returns (UpdateTemplateResponse);
+}
+
+service CustomDescriptionService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service CustomDescriptionBuilderService {
+  rpc AddChild (AddChildRequest) returns (AddChildResponse);
+  rpc AddOnClickAction (AddOnClickActionRequest) returns (AddOnClickActionResponse);
+  rpc BatchUpdate (BatchUpdateRequest) returns (BatchUpdateResponse);
+  rpc Build (BuildRequest) returns (BuildResponse);
+}
+
+service RegexValidatorService {
+  rpc NewRegexValidator (NewRegexValidatorRequest) returns (NewRegexValidatorResponse);
+  rpc DescribeContents (RegexValidatorDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc ToString (RegexValidatorToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (RegexValidatorWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service InlinePresentationService {
+  rpc NewInlinePresentation (NewInlinePresentationRequest) returns (NewInlinePresentationResponse);
+  rpc DescribeContents (InlinePresentationDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetInlinePresentationSpec (GetInlinePresentationSpecRequest) returns (GetInlinePresentationSpecResponse);
+  rpc GetSlice (GetSliceRequest) returns (GetSliceResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc IsPinned (IsPinnedRequest) returns (IsPinnedResponse);
+  rpc ToString (InlinePresentationToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (InlinePresentationWriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc CreateTooltipPresentation (CreateTooltipPresentationRequest) returns (CreateTooltipPresentationResponse);
+}
+
+service FieldClassificationService {
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service FieldClassificationMatchService {
+  rpc GetCategoryId (GetCategoryIdRequest) returns (GetCategoryIdResponse);
+  rpc GetScore (GetScoreRequest) returns (GetScoreResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service SavedDatasetsInfoCallbackService {
+  rpc OnError (OnErrorRequest) returns (OnErrorResponse);
+}
+
+service UserDataService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetFieldClassificationAlgorithm (GetFieldClassificationAlgorithmRequest) returns (GetFieldClassificationAlgorithmResponse);
+  rpc GetFieldClassificationAlgorithmForCategory (GetFieldClassificationAlgorithmForCategoryRequest) returns (GetFieldClassificationAlgorithmForCategoryResponse);
+  rpc GetId (GetIdRequest) returns (UserDataGetIdResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc GetMaxCategoryCount (GetMaxCategoryCountRequest) returns (GetMaxCategoryCountResponse);
+  rpc GetMaxFieldClassificationIdsSize (GetMaxFieldClassificationIdsSizeRequest) returns (GetMaxFieldClassificationIdsSizeResponse);
+  rpc GetMaxUserDataSize (GetMaxUserDataSizeRequest) returns (GetMaxUserDataSizeResponse);
+  rpc GetMaxValueLength (GetMaxValueLengthRequest) returns (GetMaxValueLengthResponse);
+  rpc GetMinValueLength (GetMinValueLengthRequest) returns (GetMinValueLengthResponse);
+}
+
+service UserDataBuilderService {
+  rpc Add (AddRequest) returns (AddResponse);
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetFieldClassificationAlgorithm (SetFieldClassificationAlgorithmRequest) returns (SetFieldClassificationAlgorithmResponse);
+  rpc SetFieldClassificationAlgorithmForCategory (SetFieldClassificationAlgorithmForCategoryRequest) returns (SetFieldClassificationAlgorithmForCategoryResponse);
+}
+
+service DateValueSanitizerService {
+  rpc NewDateValueSanitizer (NewDateValueSanitizerRequest) returns (NewDateValueSanitizerResponse);
+  rpc DescribeContents (DateValueSanitizerDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc ToString (DateValueSanitizerToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (DateValueSanitizerWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ValidatorsService {
+  rpc And (AndRequest) returns (AndResponse);
+  rpc Not (NotRequest) returns (NotResponse);
+  rpc Or (OrRequest) returns (OrResponse);
+}
+
+service VirtualViewFillInfoService {
+  rpc GetAutofillHints (GetAutofillHintsRequest) returns (GetAutofillHintsResponse);
+}
+
+service VirtualViewFillInfoBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetAutofillHints (SetAutofillHintsRequest) returns (SetAutofillHintsResponse);
+}
+
+service ValueService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (ValueEqualsRequest) returns (EqualsResponse);
+  rpc GetDateValue (GetDateValueRequest) returns (GetDateValueResponse);
+  rpc GetListValue (GetListValueRequest) returns (GetListValueResponse);
+  rpc GetTextValue (GetTextValueRequest) returns (GetTextValueResponse);
+  rpc GetToggleValue (GetToggleValueRequest) returns (GetToggleValueResponse);
+  rpc HashCode (ValueHashCodeRequest) returns (HashCodeResponse);
+  rpc IsDate (IsDateRequest) returns (IsDateResponse);
+  rpc IsList (IsListRequest) returns (IsListResponse);
+  rpc IsText (IsTextRequest) returns (IsTextResponse);
+  rpc IsToggle (IsToggleRequest) returns (IsToggleResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc ForDate (ForDateRequest) returns (ForDateResponse);
+  rpc ForList (ForListRequest) returns (ForListResponse);
+  rpc ForText (ForTextRequest) returns (ForTextResponse);
+  rpc ForToggle (ForToggleRequest) returns (ForToggleResponse);
+}
+
+service IdService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (ValueEqualsRequest) returns (EqualsResponse);
+  rpc GetAutofillVirtualId (GetAutofillVirtualIdRequest) returns (GetAutofillVirtualIdResponse);
+  rpc GetSessionId (GetSessionIdRequest) returns (GetSessionIdResponse);
+  rpc GetViewId (GetViewIdRequest) returns (GetViewIdResponse);
+  rpc HashCode (ValueHashCodeRequest) returns (HashCodeResponse);
+  rpc IsInAutofillSession (IsInAutofillSessionRequest) returns (IsInAutofillSessionResponse);
+  rpc IsVirtual (IsVirtualRequest) returns (IsVirtualResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc Create (CreateRequest) returns (CreateResponse);
+}
+
+service ManagerService {
+  rpc Cancel (CancelRequest) returns (CancelResponse);
+  rpc Commit (CommitRequest) returns (CommitResponse);
+  rpc DisableAutofillServices (DisableAutofillServicesRequest) returns (DisableAutofillServicesResponse);
+  rpc GetAutofillServiceComponentName (GetAutofillServiceComponentNameRequest) returns (GetAutofillServiceComponentNameResponse);
+  rpc GetDefaultFieldClassificationAlgorithm (GetDefaultFieldClassificationAlgorithmRequest) returns (GetDefaultFieldClassificationAlgorithmResponse);
+  rpc GetNextAutofillId (GetNextAutofillIdRequest) returns (GetNextAutofillIdResponse);
+  rpc GetUserData (GetUserDataRequest) returns (GetUserDataResponse);
+  rpc GetUserDataId (GetUserDataIdRequest) returns (GetUserDataIdResponse);
+  rpc HasEnabledAutofillServices (HasEnabledAutofillServicesRequest) returns (HasEnabledAutofillServicesResponse);
+  rpc IsAutofillSupported (IsAutofillSupportedRequest) returns (IsAutofillSupportedResponse);
+  rpc IsEnabled (IsEnabledRequest) returns (IsEnabledResponse);
+  rpc IsFieldClassificationEnabled (IsFieldClassificationEnabledRequest) returns (IsFieldClassificationEnabledResponse);
+  rpc NotifyValueChanged1 (NotifyValueChanged1Request) returns (NotifyValueChanged1Response);
+  rpc NotifyValueChanged3_1 (NotifyValueChanged3_1Request) returns (NotifyValueChanged3_1Response);
+  rpc NotifyViewClicked1 (NotifyViewClicked1Request) returns (NotifyViewClicked1Response);
+  rpc NotifyViewClicked2_1 (NotifyViewClicked2_1Request) returns (NotifyViewClicked2_1Response);
+  rpc NotifyViewEntered1 (NotifyViewEntered1Request) returns (NotifyViewEntered1Response);
+  rpc NotifyViewEntered3_1 (NotifyViewEntered3_1Request) returns (NotifyViewEntered3_1Response);
+  rpc NotifyViewExited1 (NotifyViewExited1Request) returns (NotifyViewExited1Response);
+  rpc NotifyViewExited2_1 (NotifyViewExited2_1Request) returns (NotifyViewExited2_1Response);
+  rpc NotifyViewVisibilityChanged2 (NotifyViewVisibilityChanged2Request) returns (NotifyViewVisibilityChanged2Response);
+  rpc NotifyViewVisibilityChanged3_1 (NotifyViewVisibilityChanged3_1Request) returns (NotifyViewVisibilityChanged3_1Response);
+  rpc RegisterCallback (RegisterCallbackRequest) returns (RegisterCallbackResponse);
+  rpc RequestAutofill1 (RequestAutofill1Request) returns (RequestAutofill1Response);
+  rpc RequestAutofill3_1 (RequestAutofill3_1Request) returns (RequestAutofill3_1Response);
+  rpc SetUserData (SetUserDataRequest) returns (ManagerSetUserDataResponse);
+  rpc ShowAutofillDialog1 (ShowAutofillDialog1Request) returns (ShowAutofillDialog1Response);
+  rpc ShowAutofillDialog2_1 (ShowAutofillDialog2_1Request) returns (ShowAutofillDialog2_1Response);
+  rpc UnregisterCallback (UnregisterCallbackRequest) returns (UnregisterCallbackResponse);
+}
+
+service ManagerAutofillCallbackService {
+  rpc OnAutofillEvent2 (OnAutofillEvent2Request) returns (OnAutofillEvent2Response);
+  rpc OnAutofillEvent3_1 (OnAutofillEvent3_1Request) returns (OnAutofillEvent3_1Response);
+}

@@ -5,3 +5,33 @@ syntax = "proto3";
 package vr;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/vr";
+
+message OnBindRequest {
+  int64 arg0 = 1;
+}
+
+message OnBindResponse {
+  int64 result = 1;
+}
+
+message OnCurrentVrActivityChangedRequest {
+  int64 arg0 = 1;
+}
+
+message OnCurrentVrActivityChangedResponse {
+}
+
+message IsVrModePackageEnabledRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message IsVrModePackageEnabledResponse {
+  bool result = 1;
+}
+
+service ListenerServiceService {
+  rpc OnBind (OnBindRequest) returns (OnBindResponse);
+  rpc OnCurrentVrActivityChanged (OnCurrentVrActivityChangedRequest) returns (OnCurrentVrActivityChangedResponse);
+  rpc IsVrModePackageEnabled (IsVrModePackageEnabledRequest) returns (IsVrModePackageEnabledResponse);
+}

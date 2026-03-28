@@ -12,6 +12,7 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -22,19 +23,2162 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type OnSelectionCompleteRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnSelectionCompleteRequest) Reset() {
+	*x = OnSelectionCompleteRequest{}
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnSelectionCompleteRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnSelectionCompleteRequest) ProtoMessage() {}
+
+func (x *OnSelectionCompleteRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnSelectionCompleteRequest.ProtoReflect.Descriptor instead.
+func (*OnSelectionCompleteRequest) Descriptor() ([]byte, []int) {
+	return file_proto_photopicker_photopicker_proto_rawDescGZIP(), []int{0}
+}
+
+type OnSelectionCompleteResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnSelectionCompleteResponse) Reset() {
+	*x = OnSelectionCompleteResponse{}
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnSelectionCompleteResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnSelectionCompleteResponse) ProtoMessage() {}
+
+func (x *OnSelectionCompleteResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnSelectionCompleteResponse.ProtoReflect.Descriptor instead.
+func (*OnSelectionCompleteResponse) Descriptor() ([]byte, []int) {
+	return file_proto_photopicker_photopicker_proto_rawDescGZIP(), []int{1}
+}
+
+type OnSessionErrorRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnSessionErrorRequest) Reset() {
+	*x = OnSessionErrorRequest{}
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnSessionErrorRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnSessionErrorRequest) ProtoMessage() {}
+
+func (x *OnSessionErrorRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnSessionErrorRequest.ProtoReflect.Descriptor instead.
+func (*OnSessionErrorRequest) Descriptor() ([]byte, []int) {
+	return file_proto_photopicker_photopicker_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *OnSessionErrorRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnSessionErrorResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnSessionErrorResponse) Reset() {
+	*x = OnSessionErrorResponse{}
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnSessionErrorResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnSessionErrorResponse) ProtoMessage() {}
+
+func (x *OnSessionErrorResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnSessionErrorResponse.ProtoReflect.Descriptor instead.
+func (*OnSessionErrorResponse) Descriptor() ([]byte, []int) {
+	return file_proto_photopicker_photopicker_proto_rawDescGZIP(), []int{3}
+}
+
+type OnSessionOpenedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnSessionOpenedRequest) Reset() {
+	*x = OnSessionOpenedRequest{}
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnSessionOpenedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnSessionOpenedRequest) ProtoMessage() {}
+
+func (x *OnSessionOpenedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnSessionOpenedRequest.ProtoReflect.Descriptor instead.
+func (*OnSessionOpenedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_photopicker_photopicker_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *OnSessionOpenedRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnSessionOpenedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnSessionOpenedResponse) Reset() {
+	*x = OnSessionOpenedResponse{}
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnSessionOpenedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnSessionOpenedResponse) ProtoMessage() {}
+
+func (x *OnSessionOpenedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnSessionOpenedResponse.ProtoReflect.Descriptor instead.
+func (*OnSessionOpenedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_photopicker_photopicker_proto_rawDescGZIP(), []int{5}
+}
+
+type CloseRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CloseRequest) Reset() {
+	*x = CloseRequest{}
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CloseRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CloseRequest) ProtoMessage() {}
+
+func (x *CloseRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CloseRequest.ProtoReflect.Descriptor instead.
+func (*CloseRequest) Descriptor() ([]byte, []int) {
+	return file_proto_photopicker_photopicker_proto_rawDescGZIP(), []int{6}
+}
+
+type CloseResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CloseResponse) Reset() {
+	*x = CloseResponse{}
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CloseResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CloseResponse) ProtoMessage() {}
+
+func (x *CloseResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CloseResponse.ProtoReflect.Descriptor instead.
+func (*CloseResponse) Descriptor() ([]byte, []int) {
+	return file_proto_photopicker_photopicker_proto_rawDescGZIP(), []int{7}
+}
+
+type GetSurfacePackageRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSurfacePackageRequest) Reset() {
+	*x = GetSurfacePackageRequest{}
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSurfacePackageRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSurfacePackageRequest) ProtoMessage() {}
+
+func (x *GetSurfacePackageRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSurfacePackageRequest.ProtoReflect.Descriptor instead.
+func (*GetSurfacePackageRequest) Descriptor() ([]byte, []int) {
+	return file_proto_photopicker_photopicker_proto_rawDescGZIP(), []int{8}
+}
+
+type GetSurfacePackageResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSurfacePackageResponse) Reset() {
+	*x = GetSurfacePackageResponse{}
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSurfacePackageResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSurfacePackageResponse) ProtoMessage() {}
+
+func (x *GetSurfacePackageResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSurfacePackageResponse.ProtoReflect.Descriptor instead.
+func (*GetSurfacePackageResponse) Descriptor() ([]byte, []int) {
+	return file_proto_photopicker_photopicker_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *GetSurfacePackageResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type NotifyConfigurationChangedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NotifyConfigurationChangedRequest) Reset() {
+	*x = NotifyConfigurationChangedRequest{}
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NotifyConfigurationChangedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NotifyConfigurationChangedRequest) ProtoMessage() {}
+
+func (x *NotifyConfigurationChangedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NotifyConfigurationChangedRequest.ProtoReflect.Descriptor instead.
+func (*NotifyConfigurationChangedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_photopicker_photopicker_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *NotifyConfigurationChangedRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type NotifyConfigurationChangedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NotifyConfigurationChangedResponse) Reset() {
+	*x = NotifyConfigurationChangedResponse{}
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NotifyConfigurationChangedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NotifyConfigurationChangedResponse) ProtoMessage() {}
+
+func (x *NotifyConfigurationChangedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NotifyConfigurationChangedResponse.ProtoReflect.Descriptor instead.
+func (*NotifyConfigurationChangedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_photopicker_photopicker_proto_rawDescGZIP(), []int{11}
+}
+
+type NotifyPhotoPickerExpandedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NotifyPhotoPickerExpandedRequest) Reset() {
+	*x = NotifyPhotoPickerExpandedRequest{}
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NotifyPhotoPickerExpandedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NotifyPhotoPickerExpandedRequest) ProtoMessage() {}
+
+func (x *NotifyPhotoPickerExpandedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NotifyPhotoPickerExpandedRequest.ProtoReflect.Descriptor instead.
+func (*NotifyPhotoPickerExpandedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_photopicker_photopicker_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *NotifyPhotoPickerExpandedRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type NotifyPhotoPickerExpandedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NotifyPhotoPickerExpandedResponse) Reset() {
+	*x = NotifyPhotoPickerExpandedResponse{}
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NotifyPhotoPickerExpandedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NotifyPhotoPickerExpandedResponse) ProtoMessage() {}
+
+func (x *NotifyPhotoPickerExpandedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NotifyPhotoPickerExpandedResponse.ProtoReflect.Descriptor instead.
+func (*NotifyPhotoPickerExpandedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_photopicker_photopicker_proto_rawDescGZIP(), []int{13}
+}
+
+type NotifyResizedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NotifyResizedRequest) Reset() {
+	*x = NotifyResizedRequest{}
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NotifyResizedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NotifyResizedRequest) ProtoMessage() {}
+
+func (x *NotifyResizedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NotifyResizedRequest.ProtoReflect.Descriptor instead.
+func (*NotifyResizedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_photopicker_photopicker_proto_rawDescGZIP(), []int{14}
+}
+
+func (x *NotifyResizedRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *NotifyResizedRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type NotifyResizedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NotifyResizedResponse) Reset() {
+	*x = NotifyResizedResponse{}
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NotifyResizedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NotifyResizedResponse) ProtoMessage() {}
+
+func (x *NotifyResizedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NotifyResizedResponse.ProtoReflect.Descriptor instead.
+func (*NotifyResizedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_photopicker_photopicker_proto_rawDescGZIP(), []int{15}
+}
+
+type NotifyVisibilityChangedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NotifyVisibilityChangedRequest) Reset() {
+	*x = NotifyVisibilityChangedRequest{}
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NotifyVisibilityChangedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NotifyVisibilityChangedRequest) ProtoMessage() {}
+
+func (x *NotifyVisibilityChangedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NotifyVisibilityChangedRequest.ProtoReflect.Descriptor instead.
+func (*NotifyVisibilityChangedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_photopicker_photopicker_proto_rawDescGZIP(), []int{16}
+}
+
+func (x *NotifyVisibilityChangedRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type NotifyVisibilityChangedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NotifyVisibilityChangedResponse) Reset() {
+	*x = NotifyVisibilityChangedResponse{}
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NotifyVisibilityChangedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NotifyVisibilityChangedResponse) ProtoMessage() {}
+
+func (x *NotifyVisibilityChangedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NotifyVisibilityChangedResponse.ProtoReflect.Descriptor instead.
+func (*NotifyVisibilityChangedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_photopicker_photopicker_proto_rawDescGZIP(), []int{17}
+}
+
+type DescribeContentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DescribeContentsRequest) Reset() {
+	*x = DescribeContentsRequest{}
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DescribeContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DescribeContentsRequest) ProtoMessage() {}
+
+func (x *DescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*DescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_photopicker_photopicker_proto_rawDescGZIP(), []int{18}
+}
+
+type DescribeContentsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DescribeContentsResponse) Reset() {
+	*x = DescribeContentsResponse{}
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DescribeContentsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DescribeContentsResponse) ProtoMessage() {}
+
+func (x *DescribeContentsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DescribeContentsResponse.ProtoReflect.Descriptor instead.
+func (*DescribeContentsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_photopicker_photopicker_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *DescribeContentsResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetAccentColorRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAccentColorRequest) Reset() {
+	*x = GetAccentColorRequest{}
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAccentColorRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAccentColorRequest) ProtoMessage() {}
+
+func (x *GetAccentColorRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAccentColorRequest.ProtoReflect.Descriptor instead.
+func (*GetAccentColorRequest) Descriptor() ([]byte, []int) {
+	return file_proto_photopicker_photopicker_proto_rawDescGZIP(), []int{20}
+}
+
+type GetAccentColorResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAccentColorResponse) Reset() {
+	*x = GetAccentColorResponse{}
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAccentColorResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAccentColorResponse) ProtoMessage() {}
+
+func (x *GetAccentColorResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAccentColorResponse.ProtoReflect.Descriptor instead.
+func (*GetAccentColorResponse) Descriptor() ([]byte, []int) {
+	return file_proto_photopicker_photopicker_proto_rawDescGZIP(), []int{21}
+}
+
+func (x *GetAccentColorResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetMaxSelectionLimitRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMaxSelectionLimitRequest) Reset() {
+	*x = GetMaxSelectionLimitRequest{}
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMaxSelectionLimitRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMaxSelectionLimitRequest) ProtoMessage() {}
+
+func (x *GetMaxSelectionLimitRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMaxSelectionLimitRequest.ProtoReflect.Descriptor instead.
+func (*GetMaxSelectionLimitRequest) Descriptor() ([]byte, []int) {
+	return file_proto_photopicker_photopicker_proto_rawDescGZIP(), []int{22}
+}
+
+type GetMaxSelectionLimitResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMaxSelectionLimitResponse) Reset() {
+	*x = GetMaxSelectionLimitResponse{}
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMaxSelectionLimitResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMaxSelectionLimitResponse) ProtoMessage() {}
+
+func (x *GetMaxSelectionLimitResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMaxSelectionLimitResponse.ProtoReflect.Descriptor instead.
+func (*GetMaxSelectionLimitResponse) Descriptor() ([]byte, []int) {
+	return file_proto_photopicker_photopicker_proto_rawDescGZIP(), []int{23}
+}
+
+func (x *GetMaxSelectionLimitResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetThemeNightModeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetThemeNightModeRequest) Reset() {
+	*x = GetThemeNightModeRequest{}
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetThemeNightModeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetThemeNightModeRequest) ProtoMessage() {}
+
+func (x *GetThemeNightModeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetThemeNightModeRequest.ProtoReflect.Descriptor instead.
+func (*GetThemeNightModeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_photopicker_photopicker_proto_rawDescGZIP(), []int{24}
+}
+
+type GetThemeNightModeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetThemeNightModeResponse) Reset() {
+	*x = GetThemeNightModeResponse{}
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetThemeNightModeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetThemeNightModeResponse) ProtoMessage() {}
+
+func (x *GetThemeNightModeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetThemeNightModeResponse.ProtoReflect.Descriptor instead.
+func (*GetThemeNightModeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_photopicker_photopicker_proto_rawDescGZIP(), []int{25}
+}
+
+func (x *GetThemeNightModeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type IsOrderedSelectionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsOrderedSelectionRequest) Reset() {
+	*x = IsOrderedSelectionRequest{}
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[26]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsOrderedSelectionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsOrderedSelectionRequest) ProtoMessage() {}
+
+func (x *IsOrderedSelectionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[26]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsOrderedSelectionRequest.ProtoReflect.Descriptor instead.
+func (*IsOrderedSelectionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_photopicker_photopicker_proto_rawDescGZIP(), []int{26}
+}
+
+type IsOrderedSelectionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsOrderedSelectionResponse) Reset() {
+	*x = IsOrderedSelectionResponse{}
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[27]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsOrderedSelectionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsOrderedSelectionResponse) ProtoMessage() {}
+
+func (x *IsOrderedSelectionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[27]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsOrderedSelectionResponse.ProtoReflect.Descriptor instead.
+func (*IsOrderedSelectionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_photopicker_photopicker_proto_rawDescGZIP(), []int{27}
+}
+
+func (x *IsOrderedSelectionResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type ToStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringRequest) Reset() {
+	*x = ToStringRequest{}
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[28]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringRequest) ProtoMessage() {}
+
+func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[28]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringRequest.ProtoReflect.Descriptor instead.
+func (*ToStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_photopicker_photopicker_proto_rawDescGZIP(), []int{28}
+}
+
+type ToStringResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringResponse) Reset() {
+	*x = ToStringResponse{}
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[29]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringResponse) ProtoMessage() {}
+
+func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[29]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringResponse.ProtoReflect.Descriptor instead.
+func (*ToStringResponse) Descriptor() ([]byte, []int) {
+	return file_proto_photopicker_photopicker_proto_rawDescGZIP(), []int{29}
+}
+
+func (x *ToStringResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type WriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WriteToParcelRequest) Reset() {
+	*x = WriteToParcelRequest{}
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[30]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WriteToParcelRequest) ProtoMessage() {}
+
+func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[30]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*WriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_photopicker_photopicker_proto_rawDescGZIP(), []int{30}
+}
+
+func (x *WriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *WriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type WriteToParcelResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WriteToParcelResponse) Reset() {
+	*x = WriteToParcelResponse{}
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[31]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WriteToParcelResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WriteToParcelResponse) ProtoMessage() {}
+
+func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[31]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WriteToParcelResponse.ProtoReflect.Descriptor instead.
+func (*WriteToParcelResponse) Descriptor() ([]byte, []int) {
+	return file_proto_photopicker_photopicker_proto_rawDescGZIP(), []int{31}
+}
+
+type BuildRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BuildRequest) Reset() {
+	*x = BuildRequest{}
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[32]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BuildRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BuildRequest) ProtoMessage() {}
+
+func (x *BuildRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[32]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BuildRequest.ProtoReflect.Descriptor instead.
+func (*BuildRequest) Descriptor() ([]byte, []int) {
+	return file_proto_photopicker_photopicker_proto_rawDescGZIP(), []int{32}
+}
+
+type BuildResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BuildResponse) Reset() {
+	*x = BuildResponse{}
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[33]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BuildResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BuildResponse) ProtoMessage() {}
+
+func (x *BuildResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[33]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BuildResponse.ProtoReflect.Descriptor instead.
+func (*BuildResponse) Descriptor() ([]byte, []int) {
+	return file_proto_photopicker_photopicker_proto_rawDescGZIP(), []int{33}
+}
+
+func (x *BuildResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetAccentColorRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetAccentColorRequest) Reset() {
+	*x = SetAccentColorRequest{}
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[34]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetAccentColorRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetAccentColorRequest) ProtoMessage() {}
+
+func (x *SetAccentColorRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[34]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetAccentColorRequest.ProtoReflect.Descriptor instead.
+func (*SetAccentColorRequest) Descriptor() ([]byte, []int) {
+	return file_proto_photopicker_photopicker_proto_rawDescGZIP(), []int{34}
+}
+
+func (x *SetAccentColorRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetAccentColorResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetAccentColorResponse) Reset() {
+	*x = SetAccentColorResponse{}
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[35]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetAccentColorResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetAccentColorResponse) ProtoMessage() {}
+
+func (x *SetAccentColorResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[35]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetAccentColorResponse.ProtoReflect.Descriptor instead.
+func (*SetAccentColorResponse) Descriptor() ([]byte, []int) {
+	return file_proto_photopicker_photopicker_proto_rawDescGZIP(), []int{35}
+}
+
+func (x *SetAccentColorResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetMaxSelectionLimitRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetMaxSelectionLimitRequest) Reset() {
+	*x = SetMaxSelectionLimitRequest{}
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[36]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetMaxSelectionLimitRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetMaxSelectionLimitRequest) ProtoMessage() {}
+
+func (x *SetMaxSelectionLimitRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[36]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetMaxSelectionLimitRequest.ProtoReflect.Descriptor instead.
+func (*SetMaxSelectionLimitRequest) Descriptor() ([]byte, []int) {
+	return file_proto_photopicker_photopicker_proto_rawDescGZIP(), []int{36}
+}
+
+func (x *SetMaxSelectionLimitRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetMaxSelectionLimitResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetMaxSelectionLimitResponse) Reset() {
+	*x = SetMaxSelectionLimitResponse{}
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[37]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetMaxSelectionLimitResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetMaxSelectionLimitResponse) ProtoMessage() {}
+
+func (x *SetMaxSelectionLimitResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[37]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetMaxSelectionLimitResponse.ProtoReflect.Descriptor instead.
+func (*SetMaxSelectionLimitResponse) Descriptor() ([]byte, []int) {
+	return file_proto_photopicker_photopicker_proto_rawDescGZIP(), []int{37}
+}
+
+func (x *SetMaxSelectionLimitResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetOrderedSelectionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetOrderedSelectionRequest) Reset() {
+	*x = SetOrderedSelectionRequest{}
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[38]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetOrderedSelectionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetOrderedSelectionRequest) ProtoMessage() {}
+
+func (x *SetOrderedSelectionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[38]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetOrderedSelectionRequest.ProtoReflect.Descriptor instead.
+func (*SetOrderedSelectionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_photopicker_photopicker_proto_rawDescGZIP(), []int{38}
+}
+
+func (x *SetOrderedSelectionRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetOrderedSelectionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetOrderedSelectionResponse) Reset() {
+	*x = SetOrderedSelectionResponse{}
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[39]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetOrderedSelectionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetOrderedSelectionResponse) ProtoMessage() {}
+
+func (x *SetOrderedSelectionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[39]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetOrderedSelectionResponse.ProtoReflect.Descriptor instead.
+func (*SetOrderedSelectionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_photopicker_photopicker_proto_rawDescGZIP(), []int{39}
+}
+
+func (x *SetOrderedSelectionResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetThemeNightModeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetThemeNightModeRequest) Reset() {
+	*x = SetThemeNightModeRequest{}
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[40]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetThemeNightModeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetThemeNightModeRequest) ProtoMessage() {}
+
+func (x *SetThemeNightModeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[40]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetThemeNightModeRequest.ProtoReflect.Descriptor instead.
+func (*SetThemeNightModeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_photopicker_photopicker_proto_rawDescGZIP(), []int{40}
+}
+
+func (x *SetThemeNightModeRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetThemeNightModeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetThemeNightModeResponse) Reset() {
+	*x = SetThemeNightModeResponse{}
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[41]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetThemeNightModeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetThemeNightModeResponse) ProtoMessage() {}
+
+func (x *SetThemeNightModeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[41]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetThemeNightModeResponse.ProtoReflect.Descriptor instead.
+func (*SetThemeNightModeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_photopicker_photopicker_proto_rawDescGZIP(), []int{41}
+}
+
+func (x *SetThemeNightModeResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type CreateRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateRequest) Reset() {
+	*x = CreateRequest{}
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[42]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateRequest) ProtoMessage() {}
+
+func (x *CreateRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[42]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateRequest.ProtoReflect.Descriptor instead.
+func (*CreateRequest) Descriptor() ([]byte, []int) {
+	return file_proto_photopicker_photopicker_proto_rawDescGZIP(), []int{42}
+}
+
+func (x *CreateRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type CreateResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateResponse) Reset() {
+	*x = CreateResponse{}
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[43]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateResponse) ProtoMessage() {}
+
+func (x *CreateResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[43]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateResponse.ProtoReflect.Descriptor instead.
+func (*CreateResponse) Descriptor() ([]byte, []int) {
+	return file_proto_photopicker_photopicker_proto_rawDescGZIP(), []int{43}
+}
+
+func (x *CreateResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OpenSessionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int32                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	Arg4          int64                  `protobuf:"varint,5,opt,name=arg4,proto3" json:"arg4,omitempty"`
+	Arg5          int64                  `protobuf:"varint,6,opt,name=arg5,proto3" json:"arg5,omitempty"`
+	Arg6          int64                  `protobuf:"varint,7,opt,name=arg6,proto3" json:"arg6,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OpenSessionRequest) Reset() {
+	*x = OpenSessionRequest{}
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[44]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OpenSessionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OpenSessionRequest) ProtoMessage() {}
+
+func (x *OpenSessionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[44]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OpenSessionRequest.ProtoReflect.Descriptor instead.
+func (*OpenSessionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_photopicker_photopicker_proto_rawDescGZIP(), []int{44}
+}
+
+func (x *OpenSessionRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OpenSessionRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *OpenSessionRequest) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *OpenSessionRequest) GetArg3() int32 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+func (x *OpenSessionRequest) GetArg4() int64 {
+	if x != nil {
+		return x.Arg4
+	}
+	return 0
+}
+
+func (x *OpenSessionRequest) GetArg5() int64 {
+	if x != nil {
+		return x.Arg5
+	}
+	return 0
+}
+
+func (x *OpenSessionRequest) GetArg6() int64 {
+	if x != nil {
+		return x.Arg6
+	}
+	return 0
+}
+
+type OpenSessionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OpenSessionResponse) Reset() {
+	*x = OpenSessionResponse{}
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[45]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OpenSessionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OpenSessionResponse) ProtoMessage() {}
+
+func (x *OpenSessionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_photopicker_photopicker_proto_msgTypes[45]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OpenSessionResponse.ProtoReflect.Descriptor instead.
+func (*OpenSessionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_photopicker_photopicker_proto_rawDescGZIP(), []int{45}
+}
+
 var File_proto_photopicker_photopicker_proto protoreflect.FileDescriptor
 
 const file_proto_photopicker_photopicker_proto_rawDesc = "" +
 	"\n" +
-	"#proto/photopicker/photopicker.proto\x12\vphotopickerB5Z3github.com/AndroidGoLab/jni-proxy/proto/photopickerb\x06proto3"
+	"#proto/photopicker/photopicker.proto\x12\vphotopicker\"\x1c\n" +
+	"\x1aOnSelectionCompleteRequest\"\x1d\n" +
+	"\x1bOnSelectionCompleteResponse\"+\n" +
+	"\x15OnSessionErrorRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x18\n" +
+	"\x16OnSessionErrorResponse\",\n" +
+	"\x16OnSessionOpenedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x19\n" +
+	"\x17OnSessionOpenedResponse\"\x0e\n" +
+	"\fCloseRequest\"\x0f\n" +
+	"\rCloseResponse\"\x1a\n" +
+	"\x18GetSurfacePackageRequest\"3\n" +
+	"\x19GetSurfacePackageResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"7\n" +
+	"!NotifyConfigurationChangedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"$\n" +
+	"\"NotifyConfigurationChangedResponse\"6\n" +
+	" NotifyPhotoPickerExpandedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"#\n" +
+	"!NotifyPhotoPickerExpandedResponse\">\n" +
+	"\x14NotifyResizedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x17\n" +
+	"\x15NotifyResizedResponse\"4\n" +
+	"\x1eNotifyVisibilityChangedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"!\n" +
+	"\x1fNotifyVisibilityChangedResponse\"\x19\n" +
+	"\x17DescribeContentsRequest\"2\n" +
+	"\x18DescribeContentsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x17\n" +
+	"\x15GetAccentColorRequest\"0\n" +
+	"\x16GetAccentColorResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1d\n" +
+	"\x1bGetMaxSelectionLimitRequest\"6\n" +
+	"\x1cGetMaxSelectionLimitResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1a\n" +
+	"\x18GetThemeNightModeRequest\"3\n" +
+	"\x19GetThemeNightModeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1b\n" +
+	"\x19IsOrderedSelectionRequest\"4\n" +
+	"\x1aIsOrderedSelectionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x11\n" +
+	"\x0fToStringRequest\"*\n" +
+	"\x10ToStringResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\">\n" +
+	"\x14WriteToParcelRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x17\n" +
+	"\x15WriteToParcelResponse\"\x0e\n" +
+	"\fBuildRequest\"'\n" +
+	"\rBuildResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"+\n" +
+	"\x15SetAccentColorRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"0\n" +
+	"\x16SetAccentColorResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"1\n" +
+	"\x1bSetMaxSelectionLimitRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"6\n" +
+	"\x1cSetMaxSelectionLimitResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"0\n" +
+	"\x1aSetOrderedSelectionRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"5\n" +
+	"\x1bSetOrderedSelectionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\".\n" +
+	"\x18SetThemeNightModeRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"3\n" +
+	"\x19SetThemeNightModeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"#\n" +
+	"\rCreateRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"(\n" +
+	"\x0eCreateResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\xa0\x01\n" +
+	"\x12OpenSessionRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x05R\x04arg3\x12\x12\n" +
+	"\x04arg4\x18\x05 \x01(\x03R\x04arg4\x12\x12\n" +
+	"\x04arg5\x18\x06 \x01(\x03R\x04arg5\x12\x12\n" +
+	"\x04arg6\x18\a \x01(\x03R\x04arg6\"\x15\n" +
+	"\x13OpenSessionResponse2\xc5\x02\n" +
+	" EmbeddedPhotoPickerClientService\x12h\n" +
+	"\x13OnSelectionComplete\x12'.photopicker.OnSelectionCompleteRequest\x1a(.photopicker.OnSelectionCompleteResponse\x12Y\n" +
+	"\x0eOnSessionError\x12\".photopicker.OnSessionErrorRequest\x1a#.photopicker.OnSessionErrorResponse\x12\\\n" +
+	"\x0fOnSessionOpened\x12#.photopicker.OnSessionOpenedRequest\x1a$.photopicker.OnSessionOpenedResponse2\x90\x05\n" +
+	"!EmbeddedPhotoPickerSessionService\x12>\n" +
+	"\x05Close\x12\x19.photopicker.CloseRequest\x1a\x1a.photopicker.CloseResponse\x12b\n" +
+	"\x11GetSurfacePackage\x12%.photopicker.GetSurfacePackageRequest\x1a&.photopicker.GetSurfacePackageResponse\x12}\n" +
+	"\x1aNotifyConfigurationChanged\x12..photopicker.NotifyConfigurationChangedRequest\x1a/.photopicker.NotifyConfigurationChangedResponse\x12z\n" +
+	"\x19NotifyPhotoPickerExpanded\x12-.photopicker.NotifyPhotoPickerExpandedRequest\x1a..photopicker.NotifyPhotoPickerExpandedResponse\x12V\n" +
+	"\rNotifyResized\x12!.photopicker.NotifyResizedRequest\x1a\".photopicker.NotifyResizedResponse\x12t\n" +
+	"\x17NotifyVisibilityChanged\x12+.photopicker.NotifyVisibilityChangedRequest\x1a,.photopicker.NotifyVisibilityChangedResponse2\xbc\x05\n" +
+	"%EmbeddedPhotoPickerFeatureInfoService\x12_\n" +
+	"\x10DescribeContents\x12$.photopicker.DescribeContentsRequest\x1a%.photopicker.DescribeContentsResponse\x12Y\n" +
+	"\x0eGetAccentColor\x12\".photopicker.GetAccentColorRequest\x1a#.photopicker.GetAccentColorResponse\x12k\n" +
+	"\x14GetMaxSelectionLimit\x12(.photopicker.GetMaxSelectionLimitRequest\x1a).photopicker.GetMaxSelectionLimitResponse\x12b\n" +
+	"\x11GetThemeNightMode\x12%.photopicker.GetThemeNightModeRequest\x1a&.photopicker.GetThemeNightModeResponse\x12e\n" +
+	"\x12IsOrderedSelection\x12&.photopicker.IsOrderedSelectionRequest\x1a'.photopicker.IsOrderedSelectionResponse\x12G\n" +
+	"\bToString\x12\x1c.photopicker.ToStringRequest\x1a\x1d.photopicker.ToStringResponse\x12V\n" +
+	"\rWriteToParcel\x12!.photopicker.WriteToParcelRequest\x1a\".photopicker.WriteToParcelResponse2\x84\x04\n" +
+	",EmbeddedPhotoPickerFeatureInfoBuilderService\x12>\n" +
+	"\x05Build\x12\x19.photopicker.BuildRequest\x1a\x1a.photopicker.BuildResponse\x12Y\n" +
+	"\x0eSetAccentColor\x12\".photopicker.SetAccentColorRequest\x1a#.photopicker.SetAccentColorResponse\x12k\n" +
+	"\x14SetMaxSelectionLimit\x12(.photopicker.SetMaxSelectionLimitRequest\x1a).photopicker.SetMaxSelectionLimitResponse\x12h\n" +
+	"\x13SetOrderedSelection\x12'.photopicker.SetOrderedSelectionRequest\x1a(.photopicker.SetOrderedSelectionResponse\x12b\n" +
+	"\x11SetThemeNightMode\x12%.photopicker.SetThemeNightModeRequest\x1a&.photopicker.SetThemeNightModeResponse2n\n" +
+	")EmbeddedPhotoPickerProviderFactoryService\x12A\n" +
+	"\x06Create\x12\x1a.photopicker.CreateRequest\x1a\x1b.photopicker.CreateResponse2v\n" +
+	"\"EmbeddedPhotoPickerProviderService\x12P\n" +
+	"\vOpenSession\x12\x1f.photopicker.OpenSessionRequest\x1a .photopicker.OpenSessionResponseB5Z3github.com/AndroidGoLab/jni-proxy/proto/photopickerb\x06proto3"
 
-var file_proto_photopicker_photopicker_proto_goTypes = []any{}
+var (
+	file_proto_photopicker_photopicker_proto_rawDescOnce sync.Once
+	file_proto_photopicker_photopicker_proto_rawDescData []byte
+)
+
+func file_proto_photopicker_photopicker_proto_rawDescGZIP() []byte {
+	file_proto_photopicker_photopicker_proto_rawDescOnce.Do(func() {
+		file_proto_photopicker_photopicker_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_proto_photopicker_photopicker_proto_rawDesc), len(file_proto_photopicker_photopicker_proto_rawDesc)))
+	})
+	return file_proto_photopicker_photopicker_proto_rawDescData
+}
+
+var file_proto_photopicker_photopicker_proto_msgTypes = make([]protoimpl.MessageInfo, 46)
+var file_proto_photopicker_photopicker_proto_goTypes = []any{
+	(*OnSelectionCompleteRequest)(nil),         // 0: photopicker.OnSelectionCompleteRequest
+	(*OnSelectionCompleteResponse)(nil),        // 1: photopicker.OnSelectionCompleteResponse
+	(*OnSessionErrorRequest)(nil),              // 2: photopicker.OnSessionErrorRequest
+	(*OnSessionErrorResponse)(nil),             // 3: photopicker.OnSessionErrorResponse
+	(*OnSessionOpenedRequest)(nil),             // 4: photopicker.OnSessionOpenedRequest
+	(*OnSessionOpenedResponse)(nil),            // 5: photopicker.OnSessionOpenedResponse
+	(*CloseRequest)(nil),                       // 6: photopicker.CloseRequest
+	(*CloseResponse)(nil),                      // 7: photopicker.CloseResponse
+	(*GetSurfacePackageRequest)(nil),           // 8: photopicker.GetSurfacePackageRequest
+	(*GetSurfacePackageResponse)(nil),          // 9: photopicker.GetSurfacePackageResponse
+	(*NotifyConfigurationChangedRequest)(nil),  // 10: photopicker.NotifyConfigurationChangedRequest
+	(*NotifyConfigurationChangedResponse)(nil), // 11: photopicker.NotifyConfigurationChangedResponse
+	(*NotifyPhotoPickerExpandedRequest)(nil),   // 12: photopicker.NotifyPhotoPickerExpandedRequest
+	(*NotifyPhotoPickerExpandedResponse)(nil),  // 13: photopicker.NotifyPhotoPickerExpandedResponse
+	(*NotifyResizedRequest)(nil),               // 14: photopicker.NotifyResizedRequest
+	(*NotifyResizedResponse)(nil),              // 15: photopicker.NotifyResizedResponse
+	(*NotifyVisibilityChangedRequest)(nil),     // 16: photopicker.NotifyVisibilityChangedRequest
+	(*NotifyVisibilityChangedResponse)(nil),    // 17: photopicker.NotifyVisibilityChangedResponse
+	(*DescribeContentsRequest)(nil),            // 18: photopicker.DescribeContentsRequest
+	(*DescribeContentsResponse)(nil),           // 19: photopicker.DescribeContentsResponse
+	(*GetAccentColorRequest)(nil),              // 20: photopicker.GetAccentColorRequest
+	(*GetAccentColorResponse)(nil),             // 21: photopicker.GetAccentColorResponse
+	(*GetMaxSelectionLimitRequest)(nil),        // 22: photopicker.GetMaxSelectionLimitRequest
+	(*GetMaxSelectionLimitResponse)(nil),       // 23: photopicker.GetMaxSelectionLimitResponse
+	(*GetThemeNightModeRequest)(nil),           // 24: photopicker.GetThemeNightModeRequest
+	(*GetThemeNightModeResponse)(nil),          // 25: photopicker.GetThemeNightModeResponse
+	(*IsOrderedSelectionRequest)(nil),          // 26: photopicker.IsOrderedSelectionRequest
+	(*IsOrderedSelectionResponse)(nil),         // 27: photopicker.IsOrderedSelectionResponse
+	(*ToStringRequest)(nil),                    // 28: photopicker.ToStringRequest
+	(*ToStringResponse)(nil),                   // 29: photopicker.ToStringResponse
+	(*WriteToParcelRequest)(nil),               // 30: photopicker.WriteToParcelRequest
+	(*WriteToParcelResponse)(nil),              // 31: photopicker.WriteToParcelResponse
+	(*BuildRequest)(nil),                       // 32: photopicker.BuildRequest
+	(*BuildResponse)(nil),                      // 33: photopicker.BuildResponse
+	(*SetAccentColorRequest)(nil),              // 34: photopicker.SetAccentColorRequest
+	(*SetAccentColorResponse)(nil),             // 35: photopicker.SetAccentColorResponse
+	(*SetMaxSelectionLimitRequest)(nil),        // 36: photopicker.SetMaxSelectionLimitRequest
+	(*SetMaxSelectionLimitResponse)(nil),       // 37: photopicker.SetMaxSelectionLimitResponse
+	(*SetOrderedSelectionRequest)(nil),         // 38: photopicker.SetOrderedSelectionRequest
+	(*SetOrderedSelectionResponse)(nil),        // 39: photopicker.SetOrderedSelectionResponse
+	(*SetThemeNightModeRequest)(nil),           // 40: photopicker.SetThemeNightModeRequest
+	(*SetThemeNightModeResponse)(nil),          // 41: photopicker.SetThemeNightModeResponse
+	(*CreateRequest)(nil),                      // 42: photopicker.CreateRequest
+	(*CreateResponse)(nil),                     // 43: photopicker.CreateResponse
+	(*OpenSessionRequest)(nil),                 // 44: photopicker.OpenSessionRequest
+	(*OpenSessionResponse)(nil),                // 45: photopicker.OpenSessionResponse
+}
 var file_proto_photopicker_photopicker_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	0,  // 0: photopicker.EmbeddedPhotoPickerClientService.OnSelectionComplete:input_type -> photopicker.OnSelectionCompleteRequest
+	2,  // 1: photopicker.EmbeddedPhotoPickerClientService.OnSessionError:input_type -> photopicker.OnSessionErrorRequest
+	4,  // 2: photopicker.EmbeddedPhotoPickerClientService.OnSessionOpened:input_type -> photopicker.OnSessionOpenedRequest
+	6,  // 3: photopicker.EmbeddedPhotoPickerSessionService.Close:input_type -> photopicker.CloseRequest
+	8,  // 4: photopicker.EmbeddedPhotoPickerSessionService.GetSurfacePackage:input_type -> photopicker.GetSurfacePackageRequest
+	10, // 5: photopicker.EmbeddedPhotoPickerSessionService.NotifyConfigurationChanged:input_type -> photopicker.NotifyConfigurationChangedRequest
+	12, // 6: photopicker.EmbeddedPhotoPickerSessionService.NotifyPhotoPickerExpanded:input_type -> photopicker.NotifyPhotoPickerExpandedRequest
+	14, // 7: photopicker.EmbeddedPhotoPickerSessionService.NotifyResized:input_type -> photopicker.NotifyResizedRequest
+	16, // 8: photopicker.EmbeddedPhotoPickerSessionService.NotifyVisibilityChanged:input_type -> photopicker.NotifyVisibilityChangedRequest
+	18, // 9: photopicker.EmbeddedPhotoPickerFeatureInfoService.DescribeContents:input_type -> photopicker.DescribeContentsRequest
+	20, // 10: photopicker.EmbeddedPhotoPickerFeatureInfoService.GetAccentColor:input_type -> photopicker.GetAccentColorRequest
+	22, // 11: photopicker.EmbeddedPhotoPickerFeatureInfoService.GetMaxSelectionLimit:input_type -> photopicker.GetMaxSelectionLimitRequest
+	24, // 12: photopicker.EmbeddedPhotoPickerFeatureInfoService.GetThemeNightMode:input_type -> photopicker.GetThemeNightModeRequest
+	26, // 13: photopicker.EmbeddedPhotoPickerFeatureInfoService.IsOrderedSelection:input_type -> photopicker.IsOrderedSelectionRequest
+	28, // 14: photopicker.EmbeddedPhotoPickerFeatureInfoService.ToString:input_type -> photopicker.ToStringRequest
+	30, // 15: photopicker.EmbeddedPhotoPickerFeatureInfoService.WriteToParcel:input_type -> photopicker.WriteToParcelRequest
+	32, // 16: photopicker.EmbeddedPhotoPickerFeatureInfoBuilderService.Build:input_type -> photopicker.BuildRequest
+	34, // 17: photopicker.EmbeddedPhotoPickerFeatureInfoBuilderService.SetAccentColor:input_type -> photopicker.SetAccentColorRequest
+	36, // 18: photopicker.EmbeddedPhotoPickerFeatureInfoBuilderService.SetMaxSelectionLimit:input_type -> photopicker.SetMaxSelectionLimitRequest
+	38, // 19: photopicker.EmbeddedPhotoPickerFeatureInfoBuilderService.SetOrderedSelection:input_type -> photopicker.SetOrderedSelectionRequest
+	40, // 20: photopicker.EmbeddedPhotoPickerFeatureInfoBuilderService.SetThemeNightMode:input_type -> photopicker.SetThemeNightModeRequest
+	42, // 21: photopicker.EmbeddedPhotoPickerProviderFactoryService.Create:input_type -> photopicker.CreateRequest
+	44, // 22: photopicker.EmbeddedPhotoPickerProviderService.OpenSession:input_type -> photopicker.OpenSessionRequest
+	1,  // 23: photopicker.EmbeddedPhotoPickerClientService.OnSelectionComplete:output_type -> photopicker.OnSelectionCompleteResponse
+	3,  // 24: photopicker.EmbeddedPhotoPickerClientService.OnSessionError:output_type -> photopicker.OnSessionErrorResponse
+	5,  // 25: photopicker.EmbeddedPhotoPickerClientService.OnSessionOpened:output_type -> photopicker.OnSessionOpenedResponse
+	7,  // 26: photopicker.EmbeddedPhotoPickerSessionService.Close:output_type -> photopicker.CloseResponse
+	9,  // 27: photopicker.EmbeddedPhotoPickerSessionService.GetSurfacePackage:output_type -> photopicker.GetSurfacePackageResponse
+	11, // 28: photopicker.EmbeddedPhotoPickerSessionService.NotifyConfigurationChanged:output_type -> photopicker.NotifyConfigurationChangedResponse
+	13, // 29: photopicker.EmbeddedPhotoPickerSessionService.NotifyPhotoPickerExpanded:output_type -> photopicker.NotifyPhotoPickerExpandedResponse
+	15, // 30: photopicker.EmbeddedPhotoPickerSessionService.NotifyResized:output_type -> photopicker.NotifyResizedResponse
+	17, // 31: photopicker.EmbeddedPhotoPickerSessionService.NotifyVisibilityChanged:output_type -> photopicker.NotifyVisibilityChangedResponse
+	19, // 32: photopicker.EmbeddedPhotoPickerFeatureInfoService.DescribeContents:output_type -> photopicker.DescribeContentsResponse
+	21, // 33: photopicker.EmbeddedPhotoPickerFeatureInfoService.GetAccentColor:output_type -> photopicker.GetAccentColorResponse
+	23, // 34: photopicker.EmbeddedPhotoPickerFeatureInfoService.GetMaxSelectionLimit:output_type -> photopicker.GetMaxSelectionLimitResponse
+	25, // 35: photopicker.EmbeddedPhotoPickerFeatureInfoService.GetThemeNightMode:output_type -> photopicker.GetThemeNightModeResponse
+	27, // 36: photopicker.EmbeddedPhotoPickerFeatureInfoService.IsOrderedSelection:output_type -> photopicker.IsOrderedSelectionResponse
+	29, // 37: photopicker.EmbeddedPhotoPickerFeatureInfoService.ToString:output_type -> photopicker.ToStringResponse
+	31, // 38: photopicker.EmbeddedPhotoPickerFeatureInfoService.WriteToParcel:output_type -> photopicker.WriteToParcelResponse
+	33, // 39: photopicker.EmbeddedPhotoPickerFeatureInfoBuilderService.Build:output_type -> photopicker.BuildResponse
+	35, // 40: photopicker.EmbeddedPhotoPickerFeatureInfoBuilderService.SetAccentColor:output_type -> photopicker.SetAccentColorResponse
+	37, // 41: photopicker.EmbeddedPhotoPickerFeatureInfoBuilderService.SetMaxSelectionLimit:output_type -> photopicker.SetMaxSelectionLimitResponse
+	39, // 42: photopicker.EmbeddedPhotoPickerFeatureInfoBuilderService.SetOrderedSelection:output_type -> photopicker.SetOrderedSelectionResponse
+	41, // 43: photopicker.EmbeddedPhotoPickerFeatureInfoBuilderService.SetThemeNightMode:output_type -> photopicker.SetThemeNightModeResponse
+	43, // 44: photopicker.EmbeddedPhotoPickerProviderFactoryService.Create:output_type -> photopicker.CreateResponse
+	45, // 45: photopicker.EmbeddedPhotoPickerProviderService.OpenSession:output_type -> photopicker.OpenSessionResponse
+	23, // [23:46] is the sub-list for method output_type
+	0,  // [0:23] is the sub-list for method input_type
+	0,  // [0:0] is the sub-list for extension type_name
+	0,  // [0:0] is the sub-list for extension extendee
+	0,  // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_proto_photopicker_photopicker_proto_init() }
@@ -48,12 +2192,13 @@ func file_proto_photopicker_photopicker_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_photopicker_photopicker_proto_rawDesc), len(file_proto_photopicker_photopicker_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   46,
 			NumExtensions: 0,
-			NumServices:   0,
+			NumServices:   6,
 		},
 		GoTypes:           file_proto_photopicker_photopicker_proto_goTypes,
 		DependencyIndexes: file_proto_photopicker_photopicker_proto_depIdxs,
+		MessageInfos:      file_proto_photopicker_photopicker_proto_msgTypes,
 	}.Build()
 	File_proto_photopicker_photopicker_proto = out.File
 	file_proto_photopicker_photopicker_proto_goTypes = nil

@@ -21,6 +21,375 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
+	VerificationUserStateService_DescribeContents_FullMethodName      = "/domain.VerificationUserStateService/DescribeContents"
+	VerificationUserStateService_Equals_FullMethodName                = "/domain.VerificationUserStateService/Equals"
+	VerificationUserStateService_GetPackageName_FullMethodName        = "/domain.VerificationUserStateService/GetPackageName"
+	VerificationUserStateService_GetUser_FullMethodName               = "/domain.VerificationUserStateService/GetUser"
+	VerificationUserStateService_HashCode_FullMethodName              = "/domain.VerificationUserStateService/HashCode"
+	VerificationUserStateService_IsLinkHandlingAllowed_FullMethodName = "/domain.VerificationUserStateService/IsLinkHandlingAllowed"
+	VerificationUserStateService_ToString_FullMethodName              = "/domain.VerificationUserStateService/ToString"
+	VerificationUserStateService_WriteToParcel_FullMethodName         = "/domain.VerificationUserStateService/WriteToParcel"
+)
+
+// VerificationUserStateServiceClient is the client API for VerificationUserStateService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type VerificationUserStateServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetPackageName(ctx context.Context, in *GetPackageNameRequest, opts ...grpc.CallOption) (*GetPackageNameResponse, error)
+	GetUser(ctx context.Context, in *GetUserRequest, opts ...grpc.CallOption) (*GetUserResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	IsLinkHandlingAllowed(ctx context.Context, in *IsLinkHandlingAllowedRequest, opts ...grpc.CallOption) (*IsLinkHandlingAllowedResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type verificationUserStateServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewVerificationUserStateServiceClient(cc grpc.ClientConnInterface) VerificationUserStateServiceClient {
+	return &verificationUserStateServiceClient{cc}
+}
+
+func (c *verificationUserStateServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, VerificationUserStateService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *verificationUserStateServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, VerificationUserStateService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *verificationUserStateServiceClient) GetPackageName(ctx context.Context, in *GetPackageNameRequest, opts ...grpc.CallOption) (*GetPackageNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPackageNameResponse)
+	err := c.cc.Invoke(ctx, VerificationUserStateService_GetPackageName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *verificationUserStateServiceClient) GetUser(ctx context.Context, in *GetUserRequest, opts ...grpc.CallOption) (*GetUserResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetUserResponse)
+	err := c.cc.Invoke(ctx, VerificationUserStateService_GetUser_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *verificationUserStateServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, VerificationUserStateService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *verificationUserStateServiceClient) IsLinkHandlingAllowed(ctx context.Context, in *IsLinkHandlingAllowedRequest, opts ...grpc.CallOption) (*IsLinkHandlingAllowedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsLinkHandlingAllowedResponse)
+	err := c.cc.Invoke(ctx, VerificationUserStateService_IsLinkHandlingAllowed_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *verificationUserStateServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, VerificationUserStateService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *verificationUserStateServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, VerificationUserStateService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// VerificationUserStateServiceServer is the server API for VerificationUserStateService service.
+// All implementations must embed UnimplementedVerificationUserStateServiceServer
+// for forward compatibility.
+type VerificationUserStateServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetPackageName(context.Context, *GetPackageNameRequest) (*GetPackageNameResponse, error)
+	GetUser(context.Context, *GetUserRequest) (*GetUserResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	IsLinkHandlingAllowed(context.Context, *IsLinkHandlingAllowedRequest) (*IsLinkHandlingAllowedResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedVerificationUserStateServiceServer()
+}
+
+// UnimplementedVerificationUserStateServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedVerificationUserStateServiceServer struct{}
+
+func (UnimplementedVerificationUserStateServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedVerificationUserStateServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedVerificationUserStateServiceServer) GetPackageName(context.Context, *GetPackageNameRequest) (*GetPackageNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPackageName not implemented")
+}
+func (UnimplementedVerificationUserStateServiceServer) GetUser(context.Context, *GetUserRequest) (*GetUserResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetUser not implemented")
+}
+func (UnimplementedVerificationUserStateServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedVerificationUserStateServiceServer) IsLinkHandlingAllowed(context.Context, *IsLinkHandlingAllowedRequest) (*IsLinkHandlingAllowedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsLinkHandlingAllowed not implemented")
+}
+func (UnimplementedVerificationUserStateServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedVerificationUserStateServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedVerificationUserStateServiceServer) mustEmbedUnimplementedVerificationUserStateServiceServer() {
+}
+func (UnimplementedVerificationUserStateServiceServer) testEmbeddedByValue() {}
+
+// UnsafeVerificationUserStateServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to VerificationUserStateServiceServer will
+// result in compilation errors.
+type UnsafeVerificationUserStateServiceServer interface {
+	mustEmbedUnimplementedVerificationUserStateServiceServer()
+}
+
+func RegisterVerificationUserStateServiceServer(s grpc.ServiceRegistrar, srv VerificationUserStateServiceServer) {
+	// If the following call panics, it indicates UnimplementedVerificationUserStateServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&VerificationUserStateService_ServiceDesc, srv)
+}
+
+func _VerificationUserStateService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VerificationUserStateServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VerificationUserStateService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VerificationUserStateServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VerificationUserStateService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VerificationUserStateServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VerificationUserStateService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VerificationUserStateServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VerificationUserStateService_GetPackageName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPackageNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VerificationUserStateServiceServer).GetPackageName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VerificationUserStateService_GetPackageName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VerificationUserStateServiceServer).GetPackageName(ctx, req.(*GetPackageNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VerificationUserStateService_GetUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUserRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VerificationUserStateServiceServer).GetUser(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VerificationUserStateService_GetUser_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VerificationUserStateServiceServer).GetUser(ctx, req.(*GetUserRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VerificationUserStateService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VerificationUserStateServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VerificationUserStateService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VerificationUserStateServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VerificationUserStateService_IsLinkHandlingAllowed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsLinkHandlingAllowedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VerificationUserStateServiceServer).IsLinkHandlingAllowed(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VerificationUserStateService_IsLinkHandlingAllowed_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VerificationUserStateServiceServer).IsLinkHandlingAllowed(ctx, req.(*IsLinkHandlingAllowedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VerificationUserStateService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VerificationUserStateServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VerificationUserStateService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VerificationUserStateServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VerificationUserStateService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VerificationUserStateServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VerificationUserStateService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VerificationUserStateServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// VerificationUserStateService_ServiceDesc is the grpc.ServiceDesc for VerificationUserStateService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var VerificationUserStateService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "domain.VerificationUserStateService",
+	HandlerType: (*VerificationUserStateServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _VerificationUserStateService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _VerificationUserStateService_Equals_Handler,
+		},
+		{
+			MethodName: "GetPackageName",
+			Handler:    _VerificationUserStateService_GetPackageName_Handler,
+		},
+		{
+			MethodName: "GetUser",
+			Handler:    _VerificationUserStateService_GetUser_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _VerificationUserStateService_HashCode_Handler,
+		},
+		{
+			MethodName: "IsLinkHandlingAllowed",
+			Handler:    _VerificationUserStateService_IsLinkHandlingAllowed_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _VerificationUserStateService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _VerificationUserStateService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/domain/domain.proto",
+}
+
+const (
 	VerificationManagerService_GetDomainVerificationUserState_FullMethodName = "/domain.VerificationManagerService/GetDomainVerificationUserState"
 )
 

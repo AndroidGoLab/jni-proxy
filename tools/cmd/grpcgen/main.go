@@ -7,7 +7,14 @@ import (
 	"strings"
 
 	"github.com/AndroidGoLab/jni-proxy/tools/pkg/grpcgen"
+	"github.com/AndroidGoLab/jni-proxy/tools/pkg/protogen"
+	"github.com/AndroidGoLab/jni-proxy/tools/pkg/protoscan"
 )
+
+type specEntry struct {
+	specPath    string
+	overlayPath string
+}
 
 func main() {
 	specsDir := flag.String("specs", "spec/java", "directory containing per-package YAML specs")
@@ -26,36 +33,61 @@ func main() {
 		log.Fatalf("no spec files found in %s", *specsDir)
 	}
 
-	// Accumulate server and client data per package so multiple specs
-	// targeting the same package are merged instead of overwriting.
-	serverByPkg := make(map[string]*grpcgen.ServerData)
-	clientByPkg := make(map[string]*grpcgen.ClientData)
+	// Pass 1: Build merged ProtoData per package.
+	// This ensures message collision renames are visible when building
+	// server/client data in pass 2.
+	protoByPkg := make(map[string]*protogen.ProtoData)
+	specsByPkg := make(map[string][]specEntry)
 
 	for _, specPath := range specs {
 		baseName := strings.TrimSuffix(filepath.Base(specPath), ".yaml")
 		overlayPath := filepath.Join(*overlaysDir, baseName+".yaml")
 
-		srvData, err := grpcgen.BuildServerFromSpec(specPath, overlayPath, *goModule, *jniModule, *protoDir)
+		pd, err := protogen.BuildFromSpec(specPath, overlayPath, *goModule)
 		if err != nil {
-			log.Fatalf("build server %s: %v", baseName, err)
-		}
-		if srvData != nil {
-			if existing, ok := serverByPkg[srvData.Package]; ok {
-				grpcgen.MergeServerData(existing, srvData)
-			} else {
-				serverByPkg[srvData.Package] = srvData
-			}
+			log.Fatalf("build proto %s: %v", baseName, err)
 		}
 
-		cliData, err := grpcgen.BuildClientFromSpec(specPath, overlayPath, *goModule, *protoDir)
-		if err != nil {
-			log.Fatalf("build client %s: %v", baseName, err)
+		if existing, ok := protoByPkg[pd.Package]; ok {
+			protogen.MergeProtoData(existing, pd)
+		} else {
+			protoByPkg[pd.Package] = pd
 		}
-		if cliData != nil {
-			if existing, ok := clientByPkg[cliData.Package]; ok {
-				grpcgen.MergeClientData(existing, cliData)
-			} else {
-				clientByPkg[cliData.Package] = cliData
+		specsByPkg[pd.Package] = append(specsByPkg[pd.Package], specEntry{specPath, overlayPath})
+	}
+
+	// Pass 2: Build server and client data per spec, using the merged
+	// ProtoData for RPC lookups (so message collision renames are reflected).
+	serverByPkg := make(map[string]*grpcgen.ServerData)
+	clientByPkg := make(map[string]*grpcgen.ClientData)
+
+	for pkg, entries := range specsByPkg {
+		mergedProto := protoByPkg[pkg]
+		goNames := protoscan.Scan(filepath.Join(*protoDir, pkg))
+
+		for _, e := range entries {
+			srvData, err := grpcgen.BuildServerFromMergedProto(e.specPath, e.overlayPath, *goModule, *jniModule, mergedProto, goNames)
+			if err != nil {
+				log.Fatalf("build server %s: %v", e.specPath, err)
+			}
+			if srvData != nil {
+				if existing, ok := serverByPkg[pkg]; ok {
+					grpcgen.MergeServerData(existing, srvData)
+				} else {
+					serverByPkg[pkg] = srvData
+				}
+			}
+
+			cliData, err := grpcgen.BuildClientFromMergedProto(e.specPath, e.overlayPath, *goModule, mergedProto, goNames)
+			if err != nil {
+				log.Fatalf("build client %s: %v", e.specPath, err)
+			}
+			if cliData != nil {
+				if existing, ok := clientByPkg[pkg]; ok {
+					grpcgen.MergeClientData(existing, cliData)
+				} else {
+					clientByPkg[pkg] = cliData
+				}
 			}
 		}
 	}

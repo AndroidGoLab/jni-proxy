@@ -160,3 +160,106 @@ func (s *SystemHealthManagerServer) TakeUidSnapshots(_ context.Context, req *pb.
 	}
 	return &pb.TakeUidSnapshotsResponse{Result: handle}, nil
 }
+
+// TimerStatServer implements pb.TimerStatServiceServer.
+type TimerStatServer struct {
+	pb.UnimplementedTimerStatServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *TimerStatServer) NewTimerStat(_ context.Context, req *pb.NewTimerStatRequest) (*pb.NewTimerStatResponse, error) {
+	obj, err := jnipkg.NewTimerStat(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewTimerStatResponse{Result: handle}, nil
+}
+
+func (s *TimerStatServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TimerStat{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *TimerStatServer) GetCount(_ context.Context, req *pb.GetCountRequest) (*pb.GetCountResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TimerStat{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetCount()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetCountResponse{Result: result}, nil
+}
+
+func (s *TimerStatServer) GetTime(_ context.Context, req *pb.GetTimeRequest) (*pb.GetTimeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TimerStat{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetTime()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetTimeResponse{Result: result}, nil
+}
+
+func (s *TimerStatServer) SetCount(_ context.Context, req *pb.SetCountRequest) (*pb.SetCountResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TimerStat{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetCount(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetCountResponse{}, nil
+}
+
+func (s *TimerStatServer) SetTime(_ context.Context, req *pb.SetTimeRequest) (*pb.SetTimeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TimerStat{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetTime(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetTimeResponse{}, nil
+}
+
+func (s *TimerStatServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TimerStat{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}

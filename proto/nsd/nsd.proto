@@ -6,6 +6,87 @@ package nsd;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/nsd";
 
+message DescribeContentsRequest {
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message EqualsRequest {
+  int64 arg0 = 1;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message GetNetworkRequest {
+}
+
+message GetNetworkResponse {
+  int64 result = 1;
+}
+
+message GetServiceTypeRequest {
+}
+
+message GetServiceTypeResponse {
+  string result = 1;
+}
+
+message GetSubtypeRequest {
+}
+
+message GetSubtypeResponse {
+  string result = 1;
+}
+
+message HashCodeRequest {
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message ToStringRequest {
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteToParcelResponse {
+}
+
+message BuildRequest {
+}
+
+message BuildResponse {
+  int64 result = 1;
+}
+
+message SetNetworkRequest {
+  int64 arg0 = 1;
+}
+
+message SetNetworkResponse {
+  int64 result = 1;
+}
+
+message SetSubtypeRequest {
+  string arg0 = 1;
+}
+
+message SetSubtypeResponse {
+  int64 result = 1;
+}
+
 message DiscoverServices3Request {
   int64 arg0 = 1;
   int64 arg1 = 2;
@@ -119,6 +200,509 @@ message UnregisterServiceInfoCallbackRequest {
 message UnregisterServiceInfoCallbackResponse {
 }
 
+message OnDiscoveryStartedRequest {
+  string arg0 = 1;
+}
+
+message OnDiscoveryStartedResponse {
+}
+
+message OnDiscoveryStoppedRequest {
+  string arg0 = 1;
+}
+
+message OnDiscoveryStoppedResponse {
+}
+
+message OnServiceFoundRequest {
+  int64 arg0 = 1;
+}
+
+message OnServiceFoundResponse {
+}
+
+message OnServiceLostRequest {
+  int64 arg0 = 1;
+}
+
+message OnServiceLostResponse {
+}
+
+message OnStartDiscoveryFailedRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message OnStartDiscoveryFailedResponse {
+}
+
+message OnStopDiscoveryFailedRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message OnStopDiscoveryFailedResponse {
+}
+
+message OnRegistrationFailedRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message OnRegistrationFailedResponse {
+}
+
+message OnServiceRegisteredRequest {
+  int64 arg0 = 1;
+}
+
+message OnServiceRegisteredResponse {
+}
+
+message OnServiceUnregisteredRequest {
+  int64 arg0 = 1;
+}
+
+message OnServiceUnregisteredResponse {
+}
+
+message OnUnregistrationFailedRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message OnUnregistrationFailedResponse {
+}
+
+message OnResolveFailedRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message OnResolveFailedResponse {
+}
+
+message OnServiceResolvedRequest {
+  int64 arg0 = 1;
+}
+
+message OnServiceResolvedResponse {
+}
+
+message OnServiceInfoCallbackRegistrationFailedRequest {
+  int32 arg0 = 1;
+}
+
+message OnServiceInfoCallbackRegistrationFailedResponse {
+}
+
+message OnServiceInfoCallbackUnregisteredRequest {
+}
+
+message OnServiceInfoCallbackUnregisteredResponse {
+}
+
+message ManagerServiceInfoCallbackOnServiceLostRequest {
+}
+
+message OnServiceUpdatedRequest {
+  int64 arg0 = 1;
+}
+
+message OnServiceUpdatedResponse {
+}
+
+message NewServiceInfoRequest {
+}
+
+message NewServiceInfoResponse {
+  int64 result = 1;
+}
+
+message ServiceInfoDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message GetHostRequest {
+  int64 handle = 1;
+}
+
+message GetHostResponse {
+  int64 result = 1;
+}
+
+message GetHostnameRequest {
+  int64 handle = 1;
+}
+
+message GetHostnameResponse {
+  string result = 1;
+}
+
+message ServiceInfoGetNetworkRequest {
+  int64 handle = 1;
+}
+
+message GetPortRequest {
+  int64 handle = 1;
+}
+
+message GetPortResponse {
+  int32 result = 1;
+}
+
+message GetServiceNameRequest {
+  int64 handle = 1;
+}
+
+message GetServiceNameResponse {
+  string result = 1;
+}
+
+message ServiceInfoGetServiceTypeRequest {
+  int64 handle = 1;
+}
+
+message RemoveAttributeRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message RemoveAttributeResponse {
+}
+
+message SetAttributeRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  string arg1 = 3;
+}
+
+message SetAttributeResponse {
+}
+
+message SetHostRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetHostResponse {
+}
+
+message ServiceInfoSetNetworkRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message ServiceInfoSetNetworkResponse {
+}
+
+message SetPortRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetPortResponse {
+}
+
+message SetServiceNameRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetServiceNameResponse {
+}
+
+message SetServiceTypeRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetServiceTypeResponse {
+}
+
+message ServiceInfoToStringRequest {
+  int64 handle = 1;
+}
+
+message ServiceInfoWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message GetFlagsRequest {
+}
+
+message GetFlagsResponse {
+  int64 result = 1;
+}
+
+message GetProtocolTypeRequest {
+}
+
+message GetProtocolTypeResponse {
+  int32 result = 1;
+}
+
+message GetServiceInfoRequest {
+}
+
+message GetServiceInfoResponse {
+  int64 result = 1;
+}
+
+message SetFlagsRequest {
+  int64 arg0 = 1;
+}
+
+message SetFlagsResponse {
+  int64 result = 1;
+}
+
+message SetProtocolTypeRequest {
+  int32 arg0 = 1;
+}
+
+message SetProtocolTypeResponse {
+  int64 result = 1;
+}
+
+message NewWifiP2pServiceInfoRequest {
+  int64 arg0 = 1;
+}
+
+message NewWifiP2pServiceInfoResponse {
+  int64 result = 1;
+}
+
+message WifiP2pServiceInfoDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message WifiP2pServiceInfoEqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetWifiP2pUsdBasedServiceConfigRequest {
+  int64 handle = 1;
+}
+
+message GetWifiP2pUsdBasedServiceConfigResponse {
+  int64 result = 1;
+}
+
+message WifiP2pServiceInfoHashCodeRequest {
+  int64 handle = 1;
+}
+
+message WifiP2pServiceInfoWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message WifiP2pUsdBasedServiceResponseDescribeContentsRequest {
+}
+
+message GetServiceProtocolTypeRequest {
+}
+
+message GetServiceProtocolTypeResponse {
+  int32 result = 1;
+}
+
+message GetServiceSpecificInfoRequest {
+}
+
+message GetServiceSpecificInfoResponse {
+  int64 result = 1;
+}
+
+message WifiP2pUsdBasedServiceResponseWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message NewInstance0Request {
+}
+
+message NewInstance0Response {
+  int64 result = 1;
+}
+
+message NewInstance1_1Request {
+  string arg0 = 1;
+}
+
+message NewInstance1_1Response {
+  int64 result = 1;
+}
+
+message NewWifiP2pServiceRequestRequest {
+  int64 arg0 = 1;
+}
+
+message NewWifiP2pServiceRequestResponse {
+  int64 result = 1;
+}
+
+message NewInstance1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message NewInstance1Response {
+  int64 result = 1;
+}
+
+message NewInstance2_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  string arg1 = 3;
+}
+
+message NewInstance2_1Response {
+  int64 result = 1;
+}
+
+message NewInstance2_2Request {
+  string arg0 = 1;
+  string arg1 = 2;
+}
+
+message NewInstance2_2Response {
+  int64 result = 1;
+}
+
+message NewWifiP2pUsdBasedServiceConfigRequest {
+}
+
+message NewWifiP2pUsdBasedServiceConfigResponse {
+  int64 result = 1;
+}
+
+message WifiP2pUsdBasedServiceConfigGetServiceProtocolTypeRequest {
+  int64 handle = 1;
+}
+
+message WifiP2pUsdBasedServiceConfigGetServiceSpecificInfoRequest {
+  int64 handle = 1;
+}
+
+message WifiP2pUsdBasedServiceConfigToStringRequest {
+  int64 handle = 1;
+}
+
+message GetMaxAllowedServiceSpecificInfoLengthRequest {
+  int64 handle = 1;
+}
+
+message GetMaxAllowedServiceSpecificInfoLengthResponse {
+  int32 result = 1;
+}
+
+message SetServiceProtocolTypeRequest {
+  int32 arg0 = 1;
+}
+
+message SetServiceProtocolTypeResponse {
+  int64 result = 1;
+}
+
+message SetServiceSpecificInfoRequest {
+  int64 arg0 = 1;
+}
+
+message SetServiceSpecificInfoResponse {
+  int64 result = 1;
+}
+
+message ServiceInfoGetHostRequest {
+}
+
+message GetHostAddressesRequest {
+}
+
+message GetHostAddressesResponse {
+  int64 result = 1;
+}
+
+message ServiceInfoGetHostnameRequest {
+}
+
+message ServiceInfoGetPortRequest {
+}
+
+message ServiceInfoGetServiceNameRequest {
+}
+
+message GetSubtypesRequest {
+}
+
+message GetSubtypesResponse {
+  int64 result = 1;
+}
+
+message ServiceInfoRemoveAttributeRequest {
+  string arg0 = 1;
+}
+
+message ServiceInfoSetAttributeRequest {
+  string arg0 = 1;
+  string arg1 = 2;
+}
+
+message ServiceInfoSetHostRequest {
+  int64 arg0 = 1;
+}
+
+message SetHostAddressesRequest {
+  int64 arg0 = 1;
+}
+
+message SetHostAddressesResponse {
+}
+
+message SetNetworkResponse2 {
+}
+
+message ServiceInfoSetPortRequest {
+  int32 arg0 = 1;
+}
+
+message ServiceInfoSetServiceNameRequest {
+  string arg0 = 1;
+}
+
+message ServiceInfoSetServiceTypeRequest {
+  string arg0 = 1;
+}
+
+message SetSubtypesRequest {
+  int64 arg0 = 1;
+}
+
+message SetSubtypesResponse {
+}
+
+service DiscoveryRequestService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetNetwork (GetNetworkRequest) returns (GetNetworkResponse);
+  rpc GetServiceType (GetServiceTypeRequest) returns (GetServiceTypeResponse);
+  rpc GetSubtype (GetSubtypeRequest) returns (GetSubtypeResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service DiscoveryRequestBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetNetwork (SetNetworkRequest) returns (SetNetworkResponse);
+  rpc SetSubtype (SetSubtypeRequest) returns (SetSubtypeResponse);
+}
+
 service ManagerService {
   rpc DiscoverServices3 (DiscoverServices3Request) returns (DiscoverServices3Response);
   rpc DiscoverServices5_1 (DiscoverServices5_1Request) returns (DiscoverServices5_1Response);
@@ -133,4 +717,129 @@ service ManagerService {
   rpc StopServiceResolution (StopServiceResolutionRequest) returns (StopServiceResolutionResponse);
   rpc UnregisterService (UnregisterServiceRequest) returns (UnregisterServiceResponse);
   rpc UnregisterServiceInfoCallback (UnregisterServiceInfoCallbackRequest) returns (UnregisterServiceInfoCallbackResponse);
+}
+
+service ManagerDiscoveryListenerService {
+  rpc OnDiscoveryStarted (OnDiscoveryStartedRequest) returns (OnDiscoveryStartedResponse);
+  rpc OnDiscoveryStopped (OnDiscoveryStoppedRequest) returns (OnDiscoveryStoppedResponse);
+  rpc OnServiceFound (OnServiceFoundRequest) returns (OnServiceFoundResponse);
+  rpc OnServiceLost (OnServiceLostRequest) returns (OnServiceLostResponse);
+  rpc OnStartDiscoveryFailed (OnStartDiscoveryFailedRequest) returns (OnStartDiscoveryFailedResponse);
+  rpc OnStopDiscoveryFailed (OnStopDiscoveryFailedRequest) returns (OnStopDiscoveryFailedResponse);
+}
+
+service ManagerRegistrationListenerService {
+  rpc OnRegistrationFailed (OnRegistrationFailedRequest) returns (OnRegistrationFailedResponse);
+  rpc OnServiceRegistered (OnServiceRegisteredRequest) returns (OnServiceRegisteredResponse);
+  rpc OnServiceUnregistered (OnServiceUnregisteredRequest) returns (OnServiceUnregisteredResponse);
+  rpc OnUnregistrationFailed (OnUnregistrationFailedRequest) returns (OnUnregistrationFailedResponse);
+}
+
+service ManagerResolveListenerService {
+  rpc OnResolveFailed (OnResolveFailedRequest) returns (OnResolveFailedResponse);
+  rpc OnServiceResolved (OnServiceResolvedRequest) returns (OnServiceResolvedResponse);
+}
+
+service ManagerServiceInfoCallbackService {
+  rpc OnServiceInfoCallbackRegistrationFailed (OnServiceInfoCallbackRegistrationFailedRequest) returns (OnServiceInfoCallbackRegistrationFailedResponse);
+  rpc OnServiceInfoCallbackUnregistered (OnServiceInfoCallbackUnregisteredRequest) returns (OnServiceInfoCallbackUnregisteredResponse);
+  rpc OnServiceLost (ManagerServiceInfoCallbackOnServiceLostRequest) returns (OnServiceLostResponse);
+  rpc OnServiceUpdated (OnServiceUpdatedRequest) returns (OnServiceUpdatedResponse);
+}
+
+service ServiceInfoService {
+  rpc NewServiceInfo (NewServiceInfoRequest) returns (NewServiceInfoResponse);
+  rpc DescribeContents (ServiceInfoDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetHost (GetHostRequest) returns (GetHostResponse);
+  rpc GetHostname (GetHostnameRequest) returns (GetHostnameResponse);
+  rpc GetNetwork (ServiceInfoGetNetworkRequest) returns (GetNetworkResponse);
+  rpc GetPort (GetPortRequest) returns (GetPortResponse);
+  rpc GetServiceName (GetServiceNameRequest) returns (GetServiceNameResponse);
+  rpc GetServiceType (ServiceInfoGetServiceTypeRequest) returns (GetServiceTypeResponse);
+  rpc RemoveAttribute (RemoveAttributeRequest) returns (RemoveAttributeResponse);
+  rpc SetAttribute (SetAttributeRequest) returns (SetAttributeResponse);
+  rpc SetHost (SetHostRequest) returns (SetHostResponse);
+  rpc SetNetwork (ServiceInfoSetNetworkRequest) returns (ServiceInfoSetNetworkResponse);
+  rpc SetPort (SetPortRequest) returns (SetPortResponse);
+  rpc SetServiceName (SetServiceNameRequest) returns (SetServiceNameResponse);
+  rpc SetServiceType (SetServiceTypeRequest) returns (SetServiceTypeResponse);
+  rpc ToString (ServiceInfoToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (ServiceInfoWriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc GetHostAddresses (GetHostAddressesRequest) returns (GetHostAddressesResponse);
+  rpc GetSubtypes (GetSubtypesRequest) returns (GetSubtypesResponse);
+  rpc SetHostAddresses (SetHostAddressesRequest) returns (SetHostAddressesResponse);
+  rpc SetSubtypes (SetSubtypesRequest) returns (SetSubtypesResponse);
+}
+
+service AdvertisingRequestService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetFlags (GetFlagsRequest) returns (GetFlagsResponse);
+  rpc GetProtocolType (GetProtocolTypeRequest) returns (GetProtocolTypeResponse);
+  rpc GetServiceInfo (GetServiceInfoRequest) returns (GetServiceInfoResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service AdvertisingRequestBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetFlags (SetFlagsRequest) returns (SetFlagsResponse);
+  rpc SetProtocolType (SetProtocolTypeRequest) returns (SetProtocolTypeResponse);
+}
+
+service WifiP2pServiceInfoService {
+  rpc NewWifiP2pServiceInfo (NewWifiP2pServiceInfoRequest) returns (NewWifiP2pServiceInfoResponse);
+  rpc DescribeContents (WifiP2pServiceInfoDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (WifiP2pServiceInfoEqualsRequest) returns (EqualsResponse);
+  rpc GetWifiP2pUsdBasedServiceConfig (GetWifiP2pUsdBasedServiceConfigRequest) returns (GetWifiP2pUsdBasedServiceConfigResponse);
+  rpc HashCode (WifiP2pServiceInfoHashCodeRequest) returns (HashCodeResponse);
+  rpc WriteToParcel (WifiP2pServiceInfoWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service WifiP2pUsdBasedServiceResponseService {
+  rpc DescribeContents (WifiP2pUsdBasedServiceResponseDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetServiceProtocolType (GetServiceProtocolTypeRequest) returns (GetServiceProtocolTypeResponse);
+  rpc GetServiceSpecificInfo (GetServiceSpecificInfoRequest) returns (GetServiceSpecificInfoResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WifiP2pUsdBasedServiceResponseWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service WifiP2pUpnpServiceRequestService {
+  rpc NewInstance0 (NewInstance0Request) returns (NewInstance0Response);
+  rpc NewInstance1_1 (NewInstance1_1Request) returns (NewInstance1_1Response);
+}
+
+service WifiP2pServiceRequestService {
+  rpc NewWifiP2pServiceRequest (NewWifiP2pServiceRequestRequest) returns (NewWifiP2pServiceRequestResponse);
+  rpc DescribeContents (WifiP2pServiceInfoDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (WifiP2pServiceInfoEqualsRequest) returns (EqualsResponse);
+  rpc GetWifiP2pUsdBasedServiceConfig (GetWifiP2pUsdBasedServiceConfigRequest) returns (GetWifiP2pUsdBasedServiceConfigResponse);
+  rpc HashCode (WifiP2pServiceInfoHashCodeRequest) returns (HashCodeResponse);
+  rpc WriteToParcel (WifiP2pServiceInfoWriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc NewInstance1 (NewInstance1Request) returns (NewInstance1Response);
+  rpc NewInstance2_1 (NewInstance2_1Request) returns (NewInstance2_1Response);
+}
+
+service WifiP2pDnsSdServiceRequestService {
+  rpc NewInstance0 (NewInstance0Request) returns (NewInstance0Response);
+  rpc NewInstance1_1 (NewInstance1_1Request) returns (NewInstance1_1Response);
+  rpc NewInstance2_2 (NewInstance2_2Request) returns (NewInstance2_2Response);
+}
+
+service WifiP2pUsdBasedServiceConfigService {
+  rpc NewWifiP2pUsdBasedServiceConfig (NewWifiP2pUsdBasedServiceConfigRequest) returns (NewWifiP2pUsdBasedServiceConfigResponse);
+  rpc DescribeContents (WifiP2pServiceInfoDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetServiceName (GetServiceNameRequest) returns (GetServiceNameResponse);
+  rpc GetServiceProtocolType (WifiP2pUsdBasedServiceConfigGetServiceProtocolTypeRequest) returns (GetServiceProtocolTypeResponse);
+  rpc GetServiceSpecificInfo (WifiP2pUsdBasedServiceConfigGetServiceSpecificInfoRequest) returns (GetServiceSpecificInfoResponse);
+  rpc ToString (WifiP2pUsdBasedServiceConfigToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WifiP2pServiceInfoWriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc GetMaxAllowedServiceSpecificInfoLength (GetMaxAllowedServiceSpecificInfoLengthRequest) returns (GetMaxAllowedServiceSpecificInfoLengthResponse);
+}
+
+service WifiP2pUsdBasedServiceConfigBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetServiceProtocolType (SetServiceProtocolTypeRequest) returns (SetServiceProtocolTypeResponse);
+  rpc SetServiceSpecificInfo (SetServiceSpecificInfoRequest) returns (SetServiceSpecificInfoResponse);
 }

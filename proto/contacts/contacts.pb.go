@@ -12,6 +12,7 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -22,19 +23,3700 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type NewContractRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewContractRequest) Reset() {
+	*x = NewContractRequest{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewContractRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewContractRequest) ProtoMessage() {}
+
+func (x *NewContractRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewContractRequest.ProtoReflect.Descriptor instead.
+func (*NewContractRequest) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{0}
+}
+
+type NewContractResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewContractResponse) Reset() {
+	*x = NewContractResponse{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewContractResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewContractResponse) ProtoMessage() {}
+
+func (x *NewContractResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewContractResponse.ProtoReflect.Descriptor instead.
+func (*NewContractResponse) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *NewContractResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type IsProfileIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsProfileIdRequest) Reset() {
+	*x = IsProfileIdRequest{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsProfileIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsProfileIdRequest) ProtoMessage() {}
+
+func (x *IsProfileIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsProfileIdRequest.ProtoReflect.Descriptor instead.
+func (*IsProfileIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *IsProfileIdRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *IsProfileIdRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type IsProfileIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsProfileIdResponse) Reset() {
+	*x = IsProfileIdResponse{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsProfileIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsProfileIdResponse) ProtoMessage() {}
+
+func (x *IsProfileIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsProfileIdResponse.ProtoReflect.Descriptor instead.
+func (*IsProfileIdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *IsProfileIdResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type GetLookupUri2Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLookupUri2Request) Reset() {
+	*x = GetLookupUri2Request{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLookupUri2Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLookupUri2Request) ProtoMessage() {}
+
+func (x *GetLookupUri2Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLookupUri2Request.ProtoReflect.Descriptor instead.
+func (*GetLookupUri2Request) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *GetLookupUri2Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *GetLookupUri2Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type GetLookupUri2Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLookupUri2Response) Reset() {
+	*x = GetLookupUri2Response{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLookupUri2Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLookupUri2Response) ProtoMessage() {}
+
+func (x *GetLookupUri2Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLookupUri2Response.ProtoReflect.Descriptor instead.
+func (*GetLookupUri2Response) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *GetLookupUri2Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetLookupUri2_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLookupUri2_1Request) Reset() {
+	*x = GetLookupUri2_1Request{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLookupUri2_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLookupUri2_1Request) ProtoMessage() {}
+
+func (x *GetLookupUri2_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLookupUri2_1Request.ProtoReflect.Descriptor instead.
+func (*GetLookupUri2_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *GetLookupUri2_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *GetLookupUri2_1Request) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+type GetLookupUri2_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLookupUri2_1Response) Reset() {
+	*x = GetLookupUri2_1Response{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLookupUri2_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLookupUri2_1Response) ProtoMessage() {}
+
+func (x *GetLookupUri2_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLookupUri2_1Response.ProtoReflect.Descriptor instead.
+func (*GetLookupUri2_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *GetLookupUri2_1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type IsEnterpriseContactIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsEnterpriseContactIdRequest) Reset() {
+	*x = IsEnterpriseContactIdRequest{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsEnterpriseContactIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsEnterpriseContactIdRequest) ProtoMessage() {}
+
+func (x *IsEnterpriseContactIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsEnterpriseContactIdRequest.ProtoReflect.Descriptor instead.
+func (*IsEnterpriseContactIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *IsEnterpriseContactIdRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type IsEnterpriseContactIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsEnterpriseContactIdResponse) Reset() {
+	*x = IsEnterpriseContactIdResponse{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsEnterpriseContactIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsEnterpriseContactIdResponse) ProtoMessage() {}
+
+func (x *IsEnterpriseContactIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsEnterpriseContactIdResponse.ProtoReflect.Descriptor instead.
+func (*IsEnterpriseContactIdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *IsEnterpriseContactIdResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type LookupContactRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *LookupContactRequest) Reset() {
+	*x = LookupContactRequest{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *LookupContactRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*LookupContactRequest) ProtoMessage() {}
+
+func (x *LookupContactRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use LookupContactRequest.ProtoReflect.Descriptor instead.
+func (*LookupContactRequest) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *LookupContactRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *LookupContactRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type LookupContactResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *LookupContactResponse) Reset() {
+	*x = LookupContactResponse{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *LookupContactResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*LookupContactResponse) ProtoMessage() {}
+
+func (x *LookupContactResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use LookupContactResponse.ProtoReflect.Descriptor instead.
+func (*LookupContactResponse) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *LookupContactResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type MarkAsContactedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *MarkAsContactedRequest) Reset() {
+	*x = MarkAsContactedRequest{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *MarkAsContactedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MarkAsContactedRequest) ProtoMessage() {}
+
+func (x *MarkAsContactedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MarkAsContactedRequest.ProtoReflect.Descriptor instead.
+func (*MarkAsContactedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *MarkAsContactedRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *MarkAsContactedRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type MarkAsContactedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *MarkAsContactedResponse) Reset() {
+	*x = MarkAsContactedResponse{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *MarkAsContactedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MarkAsContactedResponse) ProtoMessage() {}
+
+func (x *MarkAsContactedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MarkAsContactedResponse.ProtoReflect.Descriptor instead.
+func (*MarkAsContactedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{13}
+}
+
+type OpenContactPhotoInputStream2Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OpenContactPhotoInputStream2Request) Reset() {
+	*x = OpenContactPhotoInputStream2Request{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OpenContactPhotoInputStream2Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OpenContactPhotoInputStream2Request) ProtoMessage() {}
+
+func (x *OpenContactPhotoInputStream2Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OpenContactPhotoInputStream2Request.ProtoReflect.Descriptor instead.
+func (*OpenContactPhotoInputStream2Request) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{14}
+}
+
+func (x *OpenContactPhotoInputStream2Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OpenContactPhotoInputStream2Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type OpenContactPhotoInputStream2Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OpenContactPhotoInputStream2Response) Reset() {
+	*x = OpenContactPhotoInputStream2Response{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OpenContactPhotoInputStream2Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OpenContactPhotoInputStream2Response) ProtoMessage() {}
+
+func (x *OpenContactPhotoInputStream2Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OpenContactPhotoInputStream2Response.ProtoReflect.Descriptor instead.
+func (*OpenContactPhotoInputStream2Response) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *OpenContactPhotoInputStream2Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OpenContactPhotoInputStream3_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          bool                   `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OpenContactPhotoInputStream3_1Request) Reset() {
+	*x = OpenContactPhotoInputStream3_1Request{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OpenContactPhotoInputStream3_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OpenContactPhotoInputStream3_1Request) ProtoMessage() {}
+
+func (x *OpenContactPhotoInputStream3_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OpenContactPhotoInputStream3_1Request.ProtoReflect.Descriptor instead.
+func (*OpenContactPhotoInputStream3_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{16}
+}
+
+func (x *OpenContactPhotoInputStream3_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OpenContactPhotoInputStream3_1Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *OpenContactPhotoInputStream3_1Request) GetArg2() bool {
+	if x != nil {
+		return x.Arg2
+	}
+	return false
+}
+
+type OpenContactPhotoInputStream3_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OpenContactPhotoInputStream3_1Response) Reset() {
+	*x = OpenContactPhotoInputStream3_1Response{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OpenContactPhotoInputStream3_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OpenContactPhotoInputStream3_1Response) ProtoMessage() {}
+
+func (x *OpenContactPhotoInputStream3_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OpenContactPhotoInputStream3_1Response.ProtoReflect.Descriptor instead.
+func (*OpenContactPhotoInputStream3_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *OpenContactPhotoInputStream3_1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetContactLookupUriRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetContactLookupUriRequest) Reset() {
+	*x = GetContactLookupUriRequest{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetContactLookupUriRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetContactLookupUriRequest) ProtoMessage() {}
+
+func (x *GetContactLookupUriRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetContactLookupUriRequest.ProtoReflect.Descriptor instead.
+func (*GetContactLookupUriRequest) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{18}
+}
+
+func (x *GetContactLookupUriRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *GetContactLookupUriRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type GetContactLookupUriResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetContactLookupUriResponse) Reset() {
+	*x = GetContactLookupUriResponse{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetContactLookupUriResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetContactLookupUriResponse) ProtoMessage() {}
+
+func (x *GetContactLookupUriResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetContactLookupUriResponse.ProtoReflect.Descriptor instead.
+func (*GetContactLookupUriResponse) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *GetContactLookupUriResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type IsEnterpriseDirectoryIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsEnterpriseDirectoryIdRequest) Reset() {
+	*x = IsEnterpriseDirectoryIdRequest{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsEnterpriseDirectoryIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsEnterpriseDirectoryIdRequest) ProtoMessage() {}
+
+func (x *IsEnterpriseDirectoryIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsEnterpriseDirectoryIdRequest.ProtoReflect.Descriptor instead.
+func (*IsEnterpriseDirectoryIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{20}
+}
+
+func (x *IsEnterpriseDirectoryIdRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type IsEnterpriseDirectoryIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsEnterpriseDirectoryIdResponse) Reset() {
+	*x = IsEnterpriseDirectoryIdResponse{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsEnterpriseDirectoryIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsEnterpriseDirectoryIdResponse) ProtoMessage() {}
+
+func (x *IsEnterpriseDirectoryIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsEnterpriseDirectoryIdResponse.ProtoReflect.Descriptor instead.
+func (*IsEnterpriseDirectoryIdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{21}
+}
+
+func (x *IsEnterpriseDirectoryIdResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsRemoteDirectoryIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsRemoteDirectoryIdRequest) Reset() {
+	*x = IsRemoteDirectoryIdRequest{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsRemoteDirectoryIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsRemoteDirectoryIdRequest) ProtoMessage() {}
+
+func (x *IsRemoteDirectoryIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsRemoteDirectoryIdRequest.ProtoReflect.Descriptor instead.
+func (*IsRemoteDirectoryIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{22}
+}
+
+func (x *IsRemoteDirectoryIdRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type IsRemoteDirectoryIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsRemoteDirectoryIdResponse) Reset() {
+	*x = IsRemoteDirectoryIdResponse{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsRemoteDirectoryIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsRemoteDirectoryIdResponse) ProtoMessage() {}
+
+func (x *IsRemoteDirectoryIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsRemoteDirectoryIdResponse.ProtoReflect.Descriptor instead.
+func (*IsRemoteDirectoryIdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{23}
+}
+
+func (x *IsRemoteDirectoryIdResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type NotifyDirectoryChangeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NotifyDirectoryChangeRequest) Reset() {
+	*x = NotifyDirectoryChangeRequest{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NotifyDirectoryChangeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NotifyDirectoryChangeRequest) ProtoMessage() {}
+
+func (x *NotifyDirectoryChangeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NotifyDirectoryChangeRequest.ProtoReflect.Descriptor instead.
+func (*NotifyDirectoryChangeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{24}
+}
+
+func (x *NotifyDirectoryChangeRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type NotifyDirectoryChangeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NotifyDirectoryChangeResponse) Reset() {
+	*x = NotifyDirectoryChangeResponse{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NotifyDirectoryChangeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NotifyDirectoryChangeResponse) ProtoMessage() {}
+
+func (x *NotifyDirectoryChangeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NotifyDirectoryChangeResponse.ProtoReflect.Descriptor instead.
+func (*NotifyDirectoryChangeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{25}
+}
+
+type NewEntityIteratorRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewEntityIteratorRequest) Reset() {
+	*x = NewEntityIteratorRequest{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[26]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewEntityIteratorRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewEntityIteratorRequest) ProtoMessage() {}
+
+func (x *NewEntityIteratorRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[26]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewEntityIteratorRequest.ProtoReflect.Descriptor instead.
+func (*NewEntityIteratorRequest) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{26}
+}
+
+func (x *NewEntityIteratorRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type NewEntityIteratorResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewEntityIteratorResponse) Reset() {
+	*x = NewEntityIteratorResponse{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[27]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewEntityIteratorResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewEntityIteratorResponse) ProtoMessage() {}
+
+func (x *NewEntityIteratorResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[27]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewEntityIteratorResponse.ProtoReflect.Descriptor instead.
+func (*NewEntityIteratorResponse) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{27}
+}
+
+func (x *NewEntityIteratorResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type PinRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PinRequest) Reset() {
+	*x = PinRequest{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[28]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PinRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PinRequest) ProtoMessage() {}
+
+func (x *PinRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[28]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PinRequest.ProtoReflect.Descriptor instead.
+func (*PinRequest) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{28}
+}
+
+func (x *PinRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *PinRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *PinRequest) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type PinResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PinResponse) Reset() {
+	*x = PinResponse{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[29]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PinResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PinResponse) ProtoMessage() {}
+
+func (x *PinResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[29]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PinResponse.ProtoReflect.Descriptor instead.
+func (*PinResponse) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{29}
+}
+
+type UndemoteRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UndemoteRequest) Reset() {
+	*x = UndemoteRequest{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[30]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UndemoteRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UndemoteRequest) ProtoMessage() {}
+
+func (x *UndemoteRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[30]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UndemoteRequest.ProtoReflect.Descriptor instead.
+func (*UndemoteRequest) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{30}
+}
+
+func (x *UndemoteRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *UndemoteRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type UndemoteResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UndemoteResponse) Reset() {
+	*x = UndemoteResponse{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[31]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UndemoteResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UndemoteResponse) ProtoMessage() {}
+
+func (x *UndemoteResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[31]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UndemoteResponse.ProtoReflect.Descriptor instead.
+func (*UndemoteResponse) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{31}
+}
+
+type GetRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRequest) Reset() {
+	*x = GetRequest{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[32]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRequest) ProtoMessage() {}
+
+func (x *GetRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[32]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRequest.ProtoReflect.Descriptor instead.
+func (*GetRequest) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{32}
+}
+
+func (x *GetRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *GetRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type GetResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetResponse) Reset() {
+	*x = GetResponse{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[33]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetResponse) ProtoMessage() {}
+
+func (x *GetResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[33]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetResponse.ProtoReflect.Descriptor instead.
+func (*GetResponse) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{33}
+}
+
+func (x *GetResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type NewSetOperationRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewSetOperationRequest) Reset() {
+	*x = NewSetOperationRequest{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[34]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewSetOperationRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewSetOperationRequest) ProtoMessage() {}
+
+func (x *NewSetOperationRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[34]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewSetOperationRequest.ProtoReflect.Descriptor instead.
+func (*NewSetOperationRequest) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{34}
+}
+
+func (x *NewSetOperationRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *NewSetOperationRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type NewSetOperationResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewSetOperationResponse) Reset() {
+	*x = NewSetOperationResponse{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[35]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewSetOperationResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewSetOperationResponse) ProtoMessage() {}
+
+func (x *NewSetOperationResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[35]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewSetOperationResponse.ProtoReflect.Descriptor instead.
+func (*NewSetOperationResponse) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{35}
+}
+
+func (x *NewSetOperationResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetRequest) Reset() {
+	*x = SetRequest{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[36]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetRequest) ProtoMessage() {}
+
+func (x *SetRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[36]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetRequest.ProtoReflect.Descriptor instead.
+func (*SetRequest) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{36}
+}
+
+func (x *SetRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SetRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *SetRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type SetResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetResponse) Reset() {
+	*x = SetResponse{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[37]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetResponse) ProtoMessage() {}
+
+func (x *SetResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[37]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetResponse.ProtoReflect.Descriptor instead.
+func (*SetResponse) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{37}
+}
+
+type ShowQuickContact5Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int32                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	Arg4          int64                  `protobuf:"varint,5,opt,name=arg4,proto3" json:"arg4,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ShowQuickContact5Request) Reset() {
+	*x = ShowQuickContact5Request{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[38]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ShowQuickContact5Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ShowQuickContact5Request) ProtoMessage() {}
+
+func (x *ShowQuickContact5Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[38]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ShowQuickContact5Request.ProtoReflect.Descriptor instead.
+func (*ShowQuickContact5Request) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{38}
+}
+
+func (x *ShowQuickContact5Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *ShowQuickContact5Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *ShowQuickContact5Request) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *ShowQuickContact5Request) GetArg3() int32 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+func (x *ShowQuickContact5Request) GetArg4() int64 {
+	if x != nil {
+		return x.Arg4
+	}
+	return 0
+}
+
+type ShowQuickContact5Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ShowQuickContact5Response) Reset() {
+	*x = ShowQuickContact5Response{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[39]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ShowQuickContact5Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ShowQuickContact5Response) ProtoMessage() {}
+
+func (x *ShowQuickContact5Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[39]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ShowQuickContact5Response.ProtoReflect.Descriptor instead.
+func (*ShowQuickContact5Response) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{39}
+}
+
+type ShowQuickContact5_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int64                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	Arg4          string                 `protobuf:"bytes,5,opt,name=arg4,proto3" json:"arg4,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ShowQuickContact5_1Request) Reset() {
+	*x = ShowQuickContact5_1Request{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[40]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ShowQuickContact5_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ShowQuickContact5_1Request) ProtoMessage() {}
+
+func (x *ShowQuickContact5_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[40]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ShowQuickContact5_1Request.ProtoReflect.Descriptor instead.
+func (*ShowQuickContact5_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{40}
+}
+
+func (x *ShowQuickContact5_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *ShowQuickContact5_1Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *ShowQuickContact5_1Request) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *ShowQuickContact5_1Request) GetArg3() int64 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+func (x *ShowQuickContact5_1Request) GetArg4() string {
+	if x != nil {
+		return x.Arg4
+	}
+	return ""
+}
+
+type ShowQuickContact5_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ShowQuickContact5_1Response) Reset() {
+	*x = ShowQuickContact5_1Response{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[41]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ShowQuickContact5_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ShowQuickContact5_1Response) ProtoMessage() {}
+
+func (x *ShowQuickContact5_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[41]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ShowQuickContact5_1Response.ProtoReflect.Descriptor instead.
+func (*ShowQuickContact5_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{41}
+}
+
+type ShowQuickContact5_2Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int32                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	Arg4          int64                  `protobuf:"varint,5,opt,name=arg4,proto3" json:"arg4,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ShowQuickContact5_2Request) Reset() {
+	*x = ShowQuickContact5_2Request{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[42]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ShowQuickContact5_2Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ShowQuickContact5_2Request) ProtoMessage() {}
+
+func (x *ShowQuickContact5_2Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[42]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ShowQuickContact5_2Request.ProtoReflect.Descriptor instead.
+func (*ShowQuickContact5_2Request) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{42}
+}
+
+func (x *ShowQuickContact5_2Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *ShowQuickContact5_2Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *ShowQuickContact5_2Request) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *ShowQuickContact5_2Request) GetArg3() int32 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+func (x *ShowQuickContact5_2Request) GetArg4() int64 {
+	if x != nil {
+		return x.Arg4
+	}
+	return 0
+}
+
+type ShowQuickContact5_2Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ShowQuickContact5_2Response) Reset() {
+	*x = ShowQuickContact5_2Response{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[43]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ShowQuickContact5_2Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ShowQuickContact5_2Response) ProtoMessage() {}
+
+func (x *ShowQuickContact5_2Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[43]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ShowQuickContact5_2Response.ProtoReflect.Descriptor instead.
+func (*ShowQuickContact5_2Response) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{43}
+}
+
+type ShowQuickContact5_3Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int64                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	Arg4          string                 `protobuf:"bytes,5,opt,name=arg4,proto3" json:"arg4,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ShowQuickContact5_3Request) Reset() {
+	*x = ShowQuickContact5_3Request{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[44]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ShowQuickContact5_3Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ShowQuickContact5_3Request) ProtoMessage() {}
+
+func (x *ShowQuickContact5_3Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[44]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ShowQuickContact5_3Request.ProtoReflect.Descriptor instead.
+func (*ShowQuickContact5_3Request) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{44}
+}
+
+func (x *ShowQuickContact5_3Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *ShowQuickContact5_3Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *ShowQuickContact5_3Request) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *ShowQuickContact5_3Request) GetArg3() int64 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+func (x *ShowQuickContact5_3Request) GetArg4() string {
+	if x != nil {
+		return x.Arg4
+	}
+	return ""
+}
+
+type ShowQuickContact5_3Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ShowQuickContact5_3Response) Reset() {
+	*x = ShowQuickContact5_3Response{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[45]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ShowQuickContact5_3Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ShowQuickContact5_3Response) ProtoMessage() {}
+
+func (x *ShowQuickContact5_3Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[45]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ShowQuickContact5_3Response.ProtoReflect.Descriptor instead.
+func (*ShowQuickContact5_3Response) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{45}
+}
+
+type GetLocalAccountNameRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLocalAccountNameRequest) Reset() {
+	*x = GetLocalAccountNameRequest{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[46]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLocalAccountNameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLocalAccountNameRequest) ProtoMessage() {}
+
+func (x *GetLocalAccountNameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[46]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLocalAccountNameRequest.ProtoReflect.Descriptor instead.
+func (*GetLocalAccountNameRequest) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{46}
+}
+
+func (x *GetLocalAccountNameRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetLocalAccountNameResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLocalAccountNameResponse) Reset() {
+	*x = GetLocalAccountNameResponse{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[47]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLocalAccountNameResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLocalAccountNameResponse) ProtoMessage() {}
+
+func (x *GetLocalAccountNameResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[47]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLocalAccountNameResponse.ProtoReflect.Descriptor instead.
+func (*GetLocalAccountNameResponse) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{47}
+}
+
+func (x *GetLocalAccountNameResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetLocalAccountTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLocalAccountTypeRequest) Reset() {
+	*x = GetLocalAccountTypeRequest{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[48]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLocalAccountTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLocalAccountTypeRequest) ProtoMessage() {}
+
+func (x *GetLocalAccountTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[48]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLocalAccountTypeRequest.ProtoReflect.Descriptor instead.
+func (*GetLocalAccountTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{48}
+}
+
+func (x *GetLocalAccountTypeRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetLocalAccountTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLocalAccountTypeResponse) Reset() {
+	*x = GetLocalAccountTypeResponse{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[49]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLocalAccountTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLocalAccountTypeResponse) ProtoMessage() {}
+
+func (x *GetLocalAccountTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[49]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLocalAccountTypeResponse.ProtoReflect.Descriptor instead.
+func (*GetLocalAccountTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{49}
+}
+
+func (x *GetLocalAccountTypeResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetDefaultAccountRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDefaultAccountRequest) Reset() {
+	*x = GetDefaultAccountRequest{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[50]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDefaultAccountRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDefaultAccountRequest) ProtoMessage() {}
+
+func (x *GetDefaultAccountRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[50]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDefaultAccountRequest.ProtoReflect.Descriptor instead.
+func (*GetDefaultAccountRequest) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{50}
+}
+
+func (x *GetDefaultAccountRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetDefaultAccountResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDefaultAccountResponse) Reset() {
+	*x = GetDefaultAccountResponse{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[51]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDefaultAccountResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDefaultAccountResponse) ProtoMessage() {}
+
+func (x *GetDefaultAccountResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[51]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDefaultAccountResponse.ProtoReflect.Descriptor instead.
+func (*GetDefaultAccountResponse) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{51}
+}
+
+func (x *GetDefaultAccountResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type DescribeContentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DescribeContentsRequest) Reset() {
+	*x = DescribeContentsRequest{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[52]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DescribeContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DescribeContentsRequest) ProtoMessage() {}
+
+func (x *DescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[52]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*DescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{52}
+}
+
+type DescribeContentsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DescribeContentsResponse) Reset() {
+	*x = DescribeContentsResponse{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[53]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DescribeContentsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DescribeContentsResponse) ProtoMessage() {}
+
+func (x *DescribeContentsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[53]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DescribeContentsResponse.ProtoReflect.Descriptor instead.
+func (*DescribeContentsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{53}
+}
+
+func (x *DescribeContentsResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type EqualsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EqualsRequest) Reset() {
+	*x = EqualsRequest{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[54]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EqualsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EqualsRequest) ProtoMessage() {}
+
+func (x *EqualsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[54]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EqualsRequest.ProtoReflect.Descriptor instead.
+func (*EqualsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{54}
+}
+
+func (x *EqualsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type EqualsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EqualsResponse) Reset() {
+	*x = EqualsResponse{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[55]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EqualsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EqualsResponse) ProtoMessage() {}
+
+func (x *EqualsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[55]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EqualsResponse.ProtoReflect.Descriptor instead.
+func (*EqualsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{55}
+}
+
+func (x *EqualsResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type GetAccountNameRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAccountNameRequest) Reset() {
+	*x = GetAccountNameRequest{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[56]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAccountNameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAccountNameRequest) ProtoMessage() {}
+
+func (x *GetAccountNameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[56]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAccountNameRequest.ProtoReflect.Descriptor instead.
+func (*GetAccountNameRequest) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{56}
+}
+
+type GetAccountNameResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAccountNameResponse) Reset() {
+	*x = GetAccountNameResponse{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[57]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAccountNameResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAccountNameResponse) ProtoMessage() {}
+
+func (x *GetAccountNameResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[57]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAccountNameResponse.ProtoReflect.Descriptor instead.
+func (*GetAccountNameResponse) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{57}
+}
+
+func (x *GetAccountNameResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetAccountTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAccountTypeRequest) Reset() {
+	*x = GetAccountTypeRequest{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[58]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAccountTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAccountTypeRequest) ProtoMessage() {}
+
+func (x *GetAccountTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[58]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAccountTypeRequest.ProtoReflect.Descriptor instead.
+func (*GetAccountTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{58}
+}
+
+type GetAccountTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAccountTypeResponse) Reset() {
+	*x = GetAccountTypeResponse{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[59]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAccountTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAccountTypeResponse) ProtoMessage() {}
+
+func (x *GetAccountTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[59]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAccountTypeResponse.ProtoReflect.Descriptor instead.
+func (*GetAccountTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{59}
+}
+
+func (x *GetAccountTypeResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetEfTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEfTypeRequest) Reset() {
+	*x = GetEfTypeRequest{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[60]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEfTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEfTypeRequest) ProtoMessage() {}
+
+func (x *GetEfTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[60]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEfTypeRequest.ProtoReflect.Descriptor instead.
+func (*GetEfTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{60}
+}
+
+type GetEfTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEfTypeResponse) Reset() {
+	*x = GetEfTypeResponse{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[61]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEfTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEfTypeResponse) ProtoMessage() {}
+
+func (x *GetEfTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[61]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEfTypeResponse.ProtoReflect.Descriptor instead.
+func (*GetEfTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{61}
+}
+
+func (x *GetEfTypeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSimSlotIndexRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSimSlotIndexRequest) Reset() {
+	*x = GetSimSlotIndexRequest{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[62]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSimSlotIndexRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSimSlotIndexRequest) ProtoMessage() {}
+
+func (x *GetSimSlotIndexRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[62]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSimSlotIndexRequest.ProtoReflect.Descriptor instead.
+func (*GetSimSlotIndexRequest) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{62}
+}
+
+type GetSimSlotIndexResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSimSlotIndexResponse) Reset() {
+	*x = GetSimSlotIndexResponse{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[63]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSimSlotIndexResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSimSlotIndexResponse) ProtoMessage() {}
+
+func (x *GetSimSlotIndexResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[63]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSimSlotIndexResponse.ProtoReflect.Descriptor instead.
+func (*GetSimSlotIndexResponse) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{63}
+}
+
+func (x *GetSimSlotIndexResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type HashCodeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HashCodeRequest) Reset() {
+	*x = HashCodeRequest{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[64]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HashCodeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HashCodeRequest) ProtoMessage() {}
+
+func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[64]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HashCodeRequest.ProtoReflect.Descriptor instead.
+func (*HashCodeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{64}
+}
+
+type HashCodeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HashCodeResponse) Reset() {
+	*x = HashCodeResponse{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[65]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HashCodeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HashCodeResponse) ProtoMessage() {}
+
+func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[65]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HashCodeResponse.ProtoReflect.Descriptor instead.
+func (*HashCodeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{65}
+}
+
+func (x *HashCodeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type WriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WriteToParcelRequest) Reset() {
+	*x = WriteToParcelRequest{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[66]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WriteToParcelRequest) ProtoMessage() {}
+
+func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[66]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*WriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{66}
+}
+
+func (x *WriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *WriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type WriteToParcelResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WriteToParcelResponse) Reset() {
+	*x = WriteToParcelResponse{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[67]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WriteToParcelResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WriteToParcelResponse) ProtoMessage() {}
+
+func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[67]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WriteToParcelResponse.ProtoReflect.Descriptor instead.
+func (*WriteToParcelResponse) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{67}
+}
+
+type GetPresenceIconResourceIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPresenceIconResourceIdRequest) Reset() {
+	*x = GetPresenceIconResourceIdRequest{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[68]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPresenceIconResourceIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPresenceIconResourceIdRequest) ProtoMessage() {}
+
+func (x *GetPresenceIconResourceIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[68]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPresenceIconResourceIdRequest.ProtoReflect.Descriptor instead.
+func (*GetPresenceIconResourceIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{68}
+}
+
+func (x *GetPresenceIconResourceIdRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetPresenceIconResourceIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPresenceIconResourceIdResponse) Reset() {
+	*x = GetPresenceIconResourceIdResponse{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[69]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPresenceIconResourceIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPresenceIconResourceIdResponse) ProtoMessage() {}
+
+func (x *GetPresenceIconResourceIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[69]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPresenceIconResourceIdResponse.ProtoReflect.Descriptor instead.
+func (*GetPresenceIconResourceIdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{69}
+}
+
+func (x *GetPresenceIconResourceIdResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPresencePrecedenceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPresencePrecedenceRequest) Reset() {
+	*x = GetPresencePrecedenceRequest{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[70]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPresencePrecedenceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPresencePrecedenceRequest) ProtoMessage() {}
+
+func (x *GetPresencePrecedenceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[70]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPresencePrecedenceRequest.ProtoReflect.Descriptor instead.
+func (*GetPresencePrecedenceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{70}
+}
+
+func (x *GetPresencePrecedenceRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetPresencePrecedenceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPresencePrecedenceResponse) Reset() {
+	*x = GetPresencePrecedenceResponse{}
+	mi := &file_proto_contacts_contacts_proto_msgTypes[71]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPresencePrecedenceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPresencePrecedenceResponse) ProtoMessage() {}
+
+func (x *GetPresencePrecedenceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_contacts_contacts_proto_msgTypes[71]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPresencePrecedenceResponse.ProtoReflect.Descriptor instead.
+func (*GetPresencePrecedenceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_contacts_contacts_proto_rawDescGZIP(), []int{71}
+}
+
+func (x *GetPresencePrecedenceResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
 var File_proto_contacts_contacts_proto protoreflect.FileDescriptor
 
 const file_proto_contacts_contacts_proto_rawDesc = "" +
 	"\n" +
-	"\x1dproto/contacts/contacts.proto\x12\bcontactsB2Z0github.com/AndroidGoLab/jni-proxy/proto/contactsb\x06proto3"
+	"\x1dproto/contacts/contacts.proto\x12\bcontacts\"\x14\n" +
+	"\x12NewContractRequest\"-\n" +
+	"\x13NewContractResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"@\n" +
+	"\x12IsProfileIdRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"-\n" +
+	"\x13IsProfileIdResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\">\n" +
+	"\x14GetLookupUri2Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"/\n" +
+	"\x15GetLookupUri2Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"@\n" +
+	"\x16GetLookupUri2_1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\"1\n" +
+	"\x17GetLookupUri2_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"2\n" +
+	"\x1cIsEnterpriseContactIdRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"7\n" +
+	"\x1dIsEnterpriseContactIdResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\">\n" +
+	"\x14LookupContactRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"/\n" +
+	"\x15LookupContactResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"@\n" +
+	"\x16MarkAsContactedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x19\n" +
+	"\x17MarkAsContactedResponse\"M\n" +
+	"#OpenContactPhotoInputStream2Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\">\n" +
+	"$OpenContactPhotoInputStream2Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"c\n" +
+	"%OpenContactPhotoInputStream3_1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\bR\x04arg2\"@\n" +
+	"&OpenContactPhotoInputStream3_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"D\n" +
+	"\x1aGetContactLookupUriRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"5\n" +
+	"\x1bGetContactLookupUriResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"4\n" +
+	"\x1eIsEnterpriseDirectoryIdRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"9\n" +
+	"\x1fIsEnterpriseDirectoryIdResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"0\n" +
+	"\x1aIsRemoteDirectoryIdRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"5\n" +
+	"\x1bIsRemoteDirectoryIdResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"2\n" +
+	"\x1cNotifyDirectoryChangeRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x1f\n" +
+	"\x1dNotifyDirectoryChangeResponse\".\n" +
+	"\x18NewEntityIteratorRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"3\n" +
+	"\x19NewEntityIteratorResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"H\n" +
+	"\n" +
+	"PinRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\"\r\n" +
+	"\vPinResponse\"9\n" +
+	"\x0fUndemoteRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x12\n" +
+	"\x10UndemoteResponse\"4\n" +
+	"\n" +
+	"GetRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"%\n" +
+	"\vGetResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"@\n" +
+	"\x16NewSetOperationRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"1\n" +
+	"\x17NewSetOperationResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"H\n" +
+	"\n" +
+	"SetRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"\r\n" +
+	"\vSetResponse\"~\n" +
+	"\x18ShowQuickContact5Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x05R\x04arg3\x12\x12\n" +
+	"\x04arg4\x18\x05 \x01(\x03R\x04arg4\"\x1b\n" +
+	"\x19ShowQuickContact5Response\"\x80\x01\n" +
+	"\x1aShowQuickContact5_1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\x12\x12\n" +
+	"\x04arg4\x18\x05 \x01(\tR\x04arg4\"\x1d\n" +
+	"\x1bShowQuickContact5_1Response\"\x80\x01\n" +
+	"\x1aShowQuickContact5_2Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x05R\x04arg3\x12\x12\n" +
+	"\x04arg4\x18\x05 \x01(\x03R\x04arg4\"\x1d\n" +
+	"\x1bShowQuickContact5_2Response\"\x80\x01\n" +
+	"\x1aShowQuickContact5_3Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\x12\x12\n" +
+	"\x04arg4\x18\x05 \x01(\tR\x04arg4\"\x1d\n" +
+	"\x1bShowQuickContact5_3Response\"0\n" +
+	"\x1aGetLocalAccountNameRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"5\n" +
+	"\x1bGetLocalAccountNameResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"0\n" +
+	"\x1aGetLocalAccountTypeRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"5\n" +
+	"\x1bGetLocalAccountTypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\".\n" +
+	"\x18GetDefaultAccountRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"3\n" +
+	"\x19GetDefaultAccountResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x19\n" +
+	"\x17DescribeContentsRequest\"2\n" +
+	"\x18DescribeContentsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"#\n" +
+	"\rEqualsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"(\n" +
+	"\x0eEqualsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x17\n" +
+	"\x15GetAccountNameRequest\"0\n" +
+	"\x16GetAccountNameResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x17\n" +
+	"\x15GetAccountTypeRequest\"0\n" +
+	"\x16GetAccountTypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x12\n" +
+	"\x10GetEfTypeRequest\"+\n" +
+	"\x11GetEfTypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x18\n" +
+	"\x16GetSimSlotIndexRequest\"1\n" +
+	"\x17GetSimSlotIndexResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x11\n" +
+	"\x0fHashCodeRequest\"*\n" +
+	"\x10HashCodeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\">\n" +
+	"\x14WriteToParcelRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x17\n" +
+	"\x15WriteToParcelResponse\"6\n" +
+	" GetPresenceIconResourceIdRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\";\n" +
+	"!GetPresenceIconResourceIdResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"2\n" +
+	"\x1cGetPresencePrecedenceRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"7\n" +
+	"\x1dGetPresencePrecedenceResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result2\xa9\x01\n" +
+	"\x0fContractService\x12J\n" +
+	"\vNewContract\x12\x1c.contacts.NewContractRequest\x1a\x1d.contacts.NewContractResponse\x12J\n" +
+	"\vIsProfileId\x12\x1c.contacts.IsProfileIdRequest\x1a\x1d.contacts.IsProfileIdResponse2\xdc\x05\n" +
+	"\x17ContractContactsService\x12P\n" +
+	"\rGetLookupUri2\x12\x1e.contacts.GetLookupUri2Request\x1a\x1f.contacts.GetLookupUri2Response\x12V\n" +
+	"\x0fGetLookupUri2_1\x12 .contacts.GetLookupUri2_1Request\x1a!.contacts.GetLookupUri2_1Response\x12h\n" +
+	"\x15IsEnterpriseContactId\x12&.contacts.IsEnterpriseContactIdRequest\x1a'.contacts.IsEnterpriseContactIdResponse\x12P\n" +
+	"\rLookupContact\x12\x1e.contacts.LookupContactRequest\x1a\x1f.contacts.LookupContactResponse\x12V\n" +
+	"\x0fMarkAsContacted\x12 .contacts.MarkAsContactedRequest\x1a!.contacts.MarkAsContactedResponse\x12}\n" +
+	"\x1cOpenContactPhotoInputStream2\x12-.contacts.OpenContactPhotoInputStream2Request\x1a..contacts.OpenContactPhotoInputStream2Response\x12\x83\x01\n" +
+	"\x1eOpenContactPhotoInputStream3_1\x12/.contacts.OpenContactPhotoInputStream3_1Request\x1a0.contacts.OpenContactPhotoInputStream3_1Response2y\n" +
+	"\x13ContractDataService\x12b\n" +
+	"\x13GetContactLookupUri\x12$.contacts.GetContactLookupUriRequest\x1a%.contacts.GetContactLookupUriResponse2\xd8\x02\n" +
+	"\x18ContractDirectoryService\x12n\n" +
+	"\x17IsEnterpriseDirectoryId\x12(.contacts.IsEnterpriseDirectoryIdRequest\x1a).contacts.IsEnterpriseDirectoryIdResponse\x12b\n" +
+	"\x13IsRemoteDirectoryId\x12$.contacts.IsRemoteDirectoryIdRequest\x1a%.contacts.IsRemoteDirectoryIdResponse\x12h\n" +
+	"\x15NotifyDirectoryChange\x12&.contacts.NotifyDirectoryChangeRequest\x1a'.contacts.NotifyDirectoryChangeResponse2u\n" +
+	"\x15ContractGroupsService\x12\\\n" +
+	"\x11NewEntityIterator\x12\".contacts.NewEntityIteratorRequest\x1a#.contacts.NewEntityIteratorResponse2\x97\x01\n" +
+	"\x1eContractPinnedPositionsService\x122\n" +
+	"\x03Pin\x12\x14.contacts.PinRequest\x1a\x15.contacts.PinResponse\x12A\n" +
+	"\bUndemote\x12\x19.contacts.UndemoteRequest\x1a\x1a.contacts.UndemoteResponse2\xe1\x01\n" +
+	"\x1fContractProfileSyncStateService\x122\n" +
+	"\x03Get\x12\x14.contacts.GetRequest\x1a\x15.contacts.GetResponse\x12V\n" +
+	"\x0fNewSetOperation\x12 .contacts.NewSetOperationRequest\x1a!.contacts.NewSetOperationResponse\x122\n" +
+	"\x03Set\x12\x14.contacts.SetRequest\x1a\x15.contacts.SetResponse2\xa7\x03\n" +
+	"\x1bContractQuickContactService\x12\\\n" +
+	"\x11ShowQuickContact5\x12\".contacts.ShowQuickContact5Request\x1a#.contacts.ShowQuickContact5Response\x12b\n" +
+	"\x13ShowQuickContact5_1\x12$.contacts.ShowQuickContact5_1Request\x1a%.contacts.ShowQuickContact5_1Response\x12b\n" +
+	"\x13ShowQuickContact5_2\x12$.contacts.ShowQuickContact5_2Request\x1a%.contacts.ShowQuickContact5_2Response\x12b\n" +
+	"\x13ShowQuickContact5_3\x12$.contacts.ShowQuickContact5_3Request\x1a%.contacts.ShowQuickContact5_3Response2\xa6\x03\n" +
+	"\x1aContractRawContactsService\x12b\n" +
+	"\x13GetContactLookupUri\x12$.contacts.GetContactLookupUriRequest\x1a%.contacts.GetContactLookupUriResponse\x12b\n" +
+	"\x13GetLocalAccountName\x12$.contacts.GetLocalAccountNameRequest\x1a%.contacts.GetLocalAccountNameResponse\x12b\n" +
+	"\x13GetLocalAccountType\x12$.contacts.GetLocalAccountTypeRequest\x1a%.contacts.GetLocalAccountTypeResponse\x12\\\n" +
+	"\x11NewEntityIterator\x12\".contacts.NewEntityIteratorRequest\x1a#.contacts.NewEntityIteratorResponse2w\n" +
+	"\x17ContractSettingsService\x12\\\n" +
+	"\x11GetDefaultAccount\x12\".contacts.GetDefaultAccountRequest\x1a#.contacts.GetDefaultAccountResponse2\x90\x05\n" +
+	"\x19ContractSimAccountService\x12Y\n" +
+	"\x10DescribeContents\x12!.contacts.DescribeContentsRequest\x1a\".contacts.DescribeContentsResponse\x12;\n" +
+	"\x06Equals\x12\x17.contacts.EqualsRequest\x1a\x18.contacts.EqualsResponse\x12S\n" +
+	"\x0eGetAccountName\x12\x1f.contacts.GetAccountNameRequest\x1a .contacts.GetAccountNameResponse\x12S\n" +
+	"\x0eGetAccountType\x12\x1f.contacts.GetAccountTypeRequest\x1a .contacts.GetAccountTypeResponse\x12D\n" +
+	"\tGetEfType\x12\x1a.contacts.GetEfTypeRequest\x1a\x1b.contacts.GetEfTypeResponse\x12V\n" +
+	"\x0fGetSimSlotIndex\x12 .contacts.GetSimSlotIndexRequest\x1a!.contacts.GetSimSlotIndexResponse\x12A\n" +
+	"\bHashCode\x12\x19.contacts.HashCodeRequest\x1a\x1a.contacts.HashCodeResponse\x12P\n" +
+	"\rWriteToParcel\x12\x1e.contacts.WriteToParcelRequest\x1a\x1f.contacts.WriteToParcelResponse2\xfe\x01\n" +
+	"\x1cContractStatusUpdatesService\x12t\n" +
+	"\x19GetPresenceIconResourceId\x12*.contacts.GetPresenceIconResourceIdRequest\x1a+.contacts.GetPresenceIconResourceIdResponse\x12h\n" +
+	"\x15GetPresencePrecedence\x12&.contacts.GetPresencePrecedenceRequest\x1a'.contacts.GetPresencePrecedenceResponse2\xda\x01\n" +
+	"\x18ContractSyncStateService\x122\n" +
+	"\x03Get\x12\x14.contacts.GetRequest\x1a\x15.contacts.GetResponse\x12V\n" +
+	"\x0fNewSetOperation\x12 .contacts.NewSetOperationRequest\x1a!.contacts.NewSetOperationResponse\x122\n" +
+	"\x03Set\x12\x14.contacts.SetRequest\x1a\x15.contacts.SetResponseB2Z0github.com/AndroidGoLab/jni-proxy/proto/contactsb\x06proto3"
 
-var file_proto_contacts_contacts_proto_goTypes = []any{}
+var (
+	file_proto_contacts_contacts_proto_rawDescOnce sync.Once
+	file_proto_contacts_contacts_proto_rawDescData []byte
+)
+
+func file_proto_contacts_contacts_proto_rawDescGZIP() []byte {
+	file_proto_contacts_contacts_proto_rawDescOnce.Do(func() {
+		file_proto_contacts_contacts_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_proto_contacts_contacts_proto_rawDesc), len(file_proto_contacts_contacts_proto_rawDesc)))
+	})
+	return file_proto_contacts_contacts_proto_rawDescData
+}
+
+var file_proto_contacts_contacts_proto_msgTypes = make([]protoimpl.MessageInfo, 72)
+var file_proto_contacts_contacts_proto_goTypes = []any{
+	(*NewContractRequest)(nil),                     // 0: contacts.NewContractRequest
+	(*NewContractResponse)(nil),                    // 1: contacts.NewContractResponse
+	(*IsProfileIdRequest)(nil),                     // 2: contacts.IsProfileIdRequest
+	(*IsProfileIdResponse)(nil),                    // 3: contacts.IsProfileIdResponse
+	(*GetLookupUri2Request)(nil),                   // 4: contacts.GetLookupUri2Request
+	(*GetLookupUri2Response)(nil),                  // 5: contacts.GetLookupUri2Response
+	(*GetLookupUri2_1Request)(nil),                 // 6: contacts.GetLookupUri2_1Request
+	(*GetLookupUri2_1Response)(nil),                // 7: contacts.GetLookupUri2_1Response
+	(*IsEnterpriseContactIdRequest)(nil),           // 8: contacts.IsEnterpriseContactIdRequest
+	(*IsEnterpriseContactIdResponse)(nil),          // 9: contacts.IsEnterpriseContactIdResponse
+	(*LookupContactRequest)(nil),                   // 10: contacts.LookupContactRequest
+	(*LookupContactResponse)(nil),                  // 11: contacts.LookupContactResponse
+	(*MarkAsContactedRequest)(nil),                 // 12: contacts.MarkAsContactedRequest
+	(*MarkAsContactedResponse)(nil),                // 13: contacts.MarkAsContactedResponse
+	(*OpenContactPhotoInputStream2Request)(nil),    // 14: contacts.OpenContactPhotoInputStream2Request
+	(*OpenContactPhotoInputStream2Response)(nil),   // 15: contacts.OpenContactPhotoInputStream2Response
+	(*OpenContactPhotoInputStream3_1Request)(nil),  // 16: contacts.OpenContactPhotoInputStream3_1Request
+	(*OpenContactPhotoInputStream3_1Response)(nil), // 17: contacts.OpenContactPhotoInputStream3_1Response
+	(*GetContactLookupUriRequest)(nil),             // 18: contacts.GetContactLookupUriRequest
+	(*GetContactLookupUriResponse)(nil),            // 19: contacts.GetContactLookupUriResponse
+	(*IsEnterpriseDirectoryIdRequest)(nil),         // 20: contacts.IsEnterpriseDirectoryIdRequest
+	(*IsEnterpriseDirectoryIdResponse)(nil),        // 21: contacts.IsEnterpriseDirectoryIdResponse
+	(*IsRemoteDirectoryIdRequest)(nil),             // 22: contacts.IsRemoteDirectoryIdRequest
+	(*IsRemoteDirectoryIdResponse)(nil),            // 23: contacts.IsRemoteDirectoryIdResponse
+	(*NotifyDirectoryChangeRequest)(nil),           // 24: contacts.NotifyDirectoryChangeRequest
+	(*NotifyDirectoryChangeResponse)(nil),          // 25: contacts.NotifyDirectoryChangeResponse
+	(*NewEntityIteratorRequest)(nil),               // 26: contacts.NewEntityIteratorRequest
+	(*NewEntityIteratorResponse)(nil),              // 27: contacts.NewEntityIteratorResponse
+	(*PinRequest)(nil),                             // 28: contacts.PinRequest
+	(*PinResponse)(nil),                            // 29: contacts.PinResponse
+	(*UndemoteRequest)(nil),                        // 30: contacts.UndemoteRequest
+	(*UndemoteResponse)(nil),                       // 31: contacts.UndemoteResponse
+	(*GetRequest)(nil),                             // 32: contacts.GetRequest
+	(*GetResponse)(nil),                            // 33: contacts.GetResponse
+	(*NewSetOperationRequest)(nil),                 // 34: contacts.NewSetOperationRequest
+	(*NewSetOperationResponse)(nil),                // 35: contacts.NewSetOperationResponse
+	(*SetRequest)(nil),                             // 36: contacts.SetRequest
+	(*SetResponse)(nil),                            // 37: contacts.SetResponse
+	(*ShowQuickContact5Request)(nil),               // 38: contacts.ShowQuickContact5Request
+	(*ShowQuickContact5Response)(nil),              // 39: contacts.ShowQuickContact5Response
+	(*ShowQuickContact5_1Request)(nil),             // 40: contacts.ShowQuickContact5_1Request
+	(*ShowQuickContact5_1Response)(nil),            // 41: contacts.ShowQuickContact5_1Response
+	(*ShowQuickContact5_2Request)(nil),             // 42: contacts.ShowQuickContact5_2Request
+	(*ShowQuickContact5_2Response)(nil),            // 43: contacts.ShowQuickContact5_2Response
+	(*ShowQuickContact5_3Request)(nil),             // 44: contacts.ShowQuickContact5_3Request
+	(*ShowQuickContact5_3Response)(nil),            // 45: contacts.ShowQuickContact5_3Response
+	(*GetLocalAccountNameRequest)(nil),             // 46: contacts.GetLocalAccountNameRequest
+	(*GetLocalAccountNameResponse)(nil),            // 47: contacts.GetLocalAccountNameResponse
+	(*GetLocalAccountTypeRequest)(nil),             // 48: contacts.GetLocalAccountTypeRequest
+	(*GetLocalAccountTypeResponse)(nil),            // 49: contacts.GetLocalAccountTypeResponse
+	(*GetDefaultAccountRequest)(nil),               // 50: contacts.GetDefaultAccountRequest
+	(*GetDefaultAccountResponse)(nil),              // 51: contacts.GetDefaultAccountResponse
+	(*DescribeContentsRequest)(nil),                // 52: contacts.DescribeContentsRequest
+	(*DescribeContentsResponse)(nil),               // 53: contacts.DescribeContentsResponse
+	(*EqualsRequest)(nil),                          // 54: contacts.EqualsRequest
+	(*EqualsResponse)(nil),                         // 55: contacts.EqualsResponse
+	(*GetAccountNameRequest)(nil),                  // 56: contacts.GetAccountNameRequest
+	(*GetAccountNameResponse)(nil),                 // 57: contacts.GetAccountNameResponse
+	(*GetAccountTypeRequest)(nil),                  // 58: contacts.GetAccountTypeRequest
+	(*GetAccountTypeResponse)(nil),                 // 59: contacts.GetAccountTypeResponse
+	(*GetEfTypeRequest)(nil),                       // 60: contacts.GetEfTypeRequest
+	(*GetEfTypeResponse)(nil),                      // 61: contacts.GetEfTypeResponse
+	(*GetSimSlotIndexRequest)(nil),                 // 62: contacts.GetSimSlotIndexRequest
+	(*GetSimSlotIndexResponse)(nil),                // 63: contacts.GetSimSlotIndexResponse
+	(*HashCodeRequest)(nil),                        // 64: contacts.HashCodeRequest
+	(*HashCodeResponse)(nil),                       // 65: contacts.HashCodeResponse
+	(*WriteToParcelRequest)(nil),                   // 66: contacts.WriteToParcelRequest
+	(*WriteToParcelResponse)(nil),                  // 67: contacts.WriteToParcelResponse
+	(*GetPresenceIconResourceIdRequest)(nil),       // 68: contacts.GetPresenceIconResourceIdRequest
+	(*GetPresenceIconResourceIdResponse)(nil),      // 69: contacts.GetPresenceIconResourceIdResponse
+	(*GetPresencePrecedenceRequest)(nil),           // 70: contacts.GetPresencePrecedenceRequest
+	(*GetPresencePrecedenceResponse)(nil),          // 71: contacts.GetPresencePrecedenceResponse
+}
 var file_proto_contacts_contacts_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	0,  // 0: contacts.ContractService.NewContract:input_type -> contacts.NewContractRequest
+	2,  // 1: contacts.ContractService.IsProfileId:input_type -> contacts.IsProfileIdRequest
+	4,  // 2: contacts.ContractContactsService.GetLookupUri2:input_type -> contacts.GetLookupUri2Request
+	6,  // 3: contacts.ContractContactsService.GetLookupUri2_1:input_type -> contacts.GetLookupUri2_1Request
+	8,  // 4: contacts.ContractContactsService.IsEnterpriseContactId:input_type -> contacts.IsEnterpriseContactIdRequest
+	10, // 5: contacts.ContractContactsService.LookupContact:input_type -> contacts.LookupContactRequest
+	12, // 6: contacts.ContractContactsService.MarkAsContacted:input_type -> contacts.MarkAsContactedRequest
+	14, // 7: contacts.ContractContactsService.OpenContactPhotoInputStream2:input_type -> contacts.OpenContactPhotoInputStream2Request
+	16, // 8: contacts.ContractContactsService.OpenContactPhotoInputStream3_1:input_type -> contacts.OpenContactPhotoInputStream3_1Request
+	18, // 9: contacts.ContractDataService.GetContactLookupUri:input_type -> contacts.GetContactLookupUriRequest
+	20, // 10: contacts.ContractDirectoryService.IsEnterpriseDirectoryId:input_type -> contacts.IsEnterpriseDirectoryIdRequest
+	22, // 11: contacts.ContractDirectoryService.IsRemoteDirectoryId:input_type -> contacts.IsRemoteDirectoryIdRequest
+	24, // 12: contacts.ContractDirectoryService.NotifyDirectoryChange:input_type -> contacts.NotifyDirectoryChangeRequest
+	26, // 13: contacts.ContractGroupsService.NewEntityIterator:input_type -> contacts.NewEntityIteratorRequest
+	28, // 14: contacts.ContractPinnedPositionsService.Pin:input_type -> contacts.PinRequest
+	30, // 15: contacts.ContractPinnedPositionsService.Undemote:input_type -> contacts.UndemoteRequest
+	32, // 16: contacts.ContractProfileSyncStateService.Get:input_type -> contacts.GetRequest
+	34, // 17: contacts.ContractProfileSyncStateService.NewSetOperation:input_type -> contacts.NewSetOperationRequest
+	36, // 18: contacts.ContractProfileSyncStateService.Set:input_type -> contacts.SetRequest
+	38, // 19: contacts.ContractQuickContactService.ShowQuickContact5:input_type -> contacts.ShowQuickContact5Request
+	40, // 20: contacts.ContractQuickContactService.ShowQuickContact5_1:input_type -> contacts.ShowQuickContact5_1Request
+	42, // 21: contacts.ContractQuickContactService.ShowQuickContact5_2:input_type -> contacts.ShowQuickContact5_2Request
+	44, // 22: contacts.ContractQuickContactService.ShowQuickContact5_3:input_type -> contacts.ShowQuickContact5_3Request
+	18, // 23: contacts.ContractRawContactsService.GetContactLookupUri:input_type -> contacts.GetContactLookupUriRequest
+	46, // 24: contacts.ContractRawContactsService.GetLocalAccountName:input_type -> contacts.GetLocalAccountNameRequest
+	48, // 25: contacts.ContractRawContactsService.GetLocalAccountType:input_type -> contacts.GetLocalAccountTypeRequest
+	26, // 26: contacts.ContractRawContactsService.NewEntityIterator:input_type -> contacts.NewEntityIteratorRequest
+	50, // 27: contacts.ContractSettingsService.GetDefaultAccount:input_type -> contacts.GetDefaultAccountRequest
+	52, // 28: contacts.ContractSimAccountService.DescribeContents:input_type -> contacts.DescribeContentsRequest
+	54, // 29: contacts.ContractSimAccountService.Equals:input_type -> contacts.EqualsRequest
+	56, // 30: contacts.ContractSimAccountService.GetAccountName:input_type -> contacts.GetAccountNameRequest
+	58, // 31: contacts.ContractSimAccountService.GetAccountType:input_type -> contacts.GetAccountTypeRequest
+	60, // 32: contacts.ContractSimAccountService.GetEfType:input_type -> contacts.GetEfTypeRequest
+	62, // 33: contacts.ContractSimAccountService.GetSimSlotIndex:input_type -> contacts.GetSimSlotIndexRequest
+	64, // 34: contacts.ContractSimAccountService.HashCode:input_type -> contacts.HashCodeRequest
+	66, // 35: contacts.ContractSimAccountService.WriteToParcel:input_type -> contacts.WriteToParcelRequest
+	68, // 36: contacts.ContractStatusUpdatesService.GetPresenceIconResourceId:input_type -> contacts.GetPresenceIconResourceIdRequest
+	70, // 37: contacts.ContractStatusUpdatesService.GetPresencePrecedence:input_type -> contacts.GetPresencePrecedenceRequest
+	32, // 38: contacts.ContractSyncStateService.Get:input_type -> contacts.GetRequest
+	34, // 39: contacts.ContractSyncStateService.NewSetOperation:input_type -> contacts.NewSetOperationRequest
+	36, // 40: contacts.ContractSyncStateService.Set:input_type -> contacts.SetRequest
+	1,  // 41: contacts.ContractService.NewContract:output_type -> contacts.NewContractResponse
+	3,  // 42: contacts.ContractService.IsProfileId:output_type -> contacts.IsProfileIdResponse
+	5,  // 43: contacts.ContractContactsService.GetLookupUri2:output_type -> contacts.GetLookupUri2Response
+	7,  // 44: contacts.ContractContactsService.GetLookupUri2_1:output_type -> contacts.GetLookupUri2_1Response
+	9,  // 45: contacts.ContractContactsService.IsEnterpriseContactId:output_type -> contacts.IsEnterpriseContactIdResponse
+	11, // 46: contacts.ContractContactsService.LookupContact:output_type -> contacts.LookupContactResponse
+	13, // 47: contacts.ContractContactsService.MarkAsContacted:output_type -> contacts.MarkAsContactedResponse
+	15, // 48: contacts.ContractContactsService.OpenContactPhotoInputStream2:output_type -> contacts.OpenContactPhotoInputStream2Response
+	17, // 49: contacts.ContractContactsService.OpenContactPhotoInputStream3_1:output_type -> contacts.OpenContactPhotoInputStream3_1Response
+	19, // 50: contacts.ContractDataService.GetContactLookupUri:output_type -> contacts.GetContactLookupUriResponse
+	21, // 51: contacts.ContractDirectoryService.IsEnterpriseDirectoryId:output_type -> contacts.IsEnterpriseDirectoryIdResponse
+	23, // 52: contacts.ContractDirectoryService.IsRemoteDirectoryId:output_type -> contacts.IsRemoteDirectoryIdResponse
+	25, // 53: contacts.ContractDirectoryService.NotifyDirectoryChange:output_type -> contacts.NotifyDirectoryChangeResponse
+	27, // 54: contacts.ContractGroupsService.NewEntityIterator:output_type -> contacts.NewEntityIteratorResponse
+	29, // 55: contacts.ContractPinnedPositionsService.Pin:output_type -> contacts.PinResponse
+	31, // 56: contacts.ContractPinnedPositionsService.Undemote:output_type -> contacts.UndemoteResponse
+	33, // 57: contacts.ContractProfileSyncStateService.Get:output_type -> contacts.GetResponse
+	35, // 58: contacts.ContractProfileSyncStateService.NewSetOperation:output_type -> contacts.NewSetOperationResponse
+	37, // 59: contacts.ContractProfileSyncStateService.Set:output_type -> contacts.SetResponse
+	39, // 60: contacts.ContractQuickContactService.ShowQuickContact5:output_type -> contacts.ShowQuickContact5Response
+	41, // 61: contacts.ContractQuickContactService.ShowQuickContact5_1:output_type -> contacts.ShowQuickContact5_1Response
+	43, // 62: contacts.ContractQuickContactService.ShowQuickContact5_2:output_type -> contacts.ShowQuickContact5_2Response
+	45, // 63: contacts.ContractQuickContactService.ShowQuickContact5_3:output_type -> contacts.ShowQuickContact5_3Response
+	19, // 64: contacts.ContractRawContactsService.GetContactLookupUri:output_type -> contacts.GetContactLookupUriResponse
+	47, // 65: contacts.ContractRawContactsService.GetLocalAccountName:output_type -> contacts.GetLocalAccountNameResponse
+	49, // 66: contacts.ContractRawContactsService.GetLocalAccountType:output_type -> contacts.GetLocalAccountTypeResponse
+	27, // 67: contacts.ContractRawContactsService.NewEntityIterator:output_type -> contacts.NewEntityIteratorResponse
+	51, // 68: contacts.ContractSettingsService.GetDefaultAccount:output_type -> contacts.GetDefaultAccountResponse
+	53, // 69: contacts.ContractSimAccountService.DescribeContents:output_type -> contacts.DescribeContentsResponse
+	55, // 70: contacts.ContractSimAccountService.Equals:output_type -> contacts.EqualsResponse
+	57, // 71: contacts.ContractSimAccountService.GetAccountName:output_type -> contacts.GetAccountNameResponse
+	59, // 72: contacts.ContractSimAccountService.GetAccountType:output_type -> contacts.GetAccountTypeResponse
+	61, // 73: contacts.ContractSimAccountService.GetEfType:output_type -> contacts.GetEfTypeResponse
+	63, // 74: contacts.ContractSimAccountService.GetSimSlotIndex:output_type -> contacts.GetSimSlotIndexResponse
+	65, // 75: contacts.ContractSimAccountService.HashCode:output_type -> contacts.HashCodeResponse
+	67, // 76: contacts.ContractSimAccountService.WriteToParcel:output_type -> contacts.WriteToParcelResponse
+	69, // 77: contacts.ContractStatusUpdatesService.GetPresenceIconResourceId:output_type -> contacts.GetPresenceIconResourceIdResponse
+	71, // 78: contacts.ContractStatusUpdatesService.GetPresencePrecedence:output_type -> contacts.GetPresencePrecedenceResponse
+	33, // 79: contacts.ContractSyncStateService.Get:output_type -> contacts.GetResponse
+	35, // 80: contacts.ContractSyncStateService.NewSetOperation:output_type -> contacts.NewSetOperationResponse
+	37, // 81: contacts.ContractSyncStateService.Set:output_type -> contacts.SetResponse
+	41, // [41:82] is the sub-list for method output_type
+	0,  // [0:41] is the sub-list for method input_type
+	0,  // [0:0] is the sub-list for extension type_name
+	0,  // [0:0] is the sub-list for extension extendee
+	0,  // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_proto_contacts_contacts_proto_init() }
@@ -48,12 +3730,13 @@ func file_proto_contacts_contacts_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_contacts_contacts_proto_rawDesc), len(file_proto_contacts_contacts_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   72,
 			NumExtensions: 0,
-			NumServices:   0,
+			NumServices:   13,
 		},
 		GoTypes:           file_proto_contacts_contacts_proto_goTypes,
 		DependencyIndexes: file_proto_contacts_contacts_proto_depIdxs,
+		MessageInfos:      file_proto_contacts_contacts_proto_msgTypes,
 	}.Build()
 	File_proto_contacts_contacts_proto = out.File
 	file_proto_contacts_contacts_proto_goTypes = nil

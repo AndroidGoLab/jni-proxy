@@ -12,6 +12,7 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -22,16 +23,453 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type ExportKeyingMaterialRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int32                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ExportKeyingMaterialRequest) Reset() {
+	*x = ExportKeyingMaterialRequest{}
+	mi := &file_proto_ssl_ssl_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ExportKeyingMaterialRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ExportKeyingMaterialRequest) ProtoMessage() {}
+
+func (x *ExportKeyingMaterialRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ssl_ssl_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ExportKeyingMaterialRequest.ProtoReflect.Descriptor instead.
+func (*ExportKeyingMaterialRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ssl_ssl_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *ExportKeyingMaterialRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *ExportKeyingMaterialRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *ExportKeyingMaterialRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *ExportKeyingMaterialRequest) GetArg3() int32 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+type ExportKeyingMaterialResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ExportKeyingMaterialResponse) Reset() {
+	*x = ExportKeyingMaterialResponse{}
+	mi := &file_proto_ssl_ssl_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ExportKeyingMaterialResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ExportKeyingMaterialResponse) ProtoMessage() {}
+
+func (x *ExportKeyingMaterialResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ssl_ssl_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ExportKeyingMaterialResponse.ProtoReflect.Descriptor instead.
+func (*ExportKeyingMaterialResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ssl_ssl_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *ExportKeyingMaterialResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type IsSupportedSocketRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsSupportedSocketRequest) Reset() {
+	*x = IsSupportedSocketRequest{}
+	mi := &file_proto_ssl_ssl_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsSupportedSocketRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsSupportedSocketRequest) ProtoMessage() {}
+
+func (x *IsSupportedSocketRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ssl_ssl_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsSupportedSocketRequest.ProtoReflect.Descriptor instead.
+func (*IsSupportedSocketRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ssl_ssl_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *IsSupportedSocketRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type IsSupportedSocketResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsSupportedSocketResponse) Reset() {
+	*x = IsSupportedSocketResponse{}
+	mi := &file_proto_ssl_ssl_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsSupportedSocketResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsSupportedSocketResponse) ProtoMessage() {}
+
+func (x *IsSupportedSocketResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ssl_ssl_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsSupportedSocketResponse.ProtoReflect.Descriptor instead.
+func (*IsSupportedSocketResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ssl_ssl_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *IsSupportedSocketResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type SetUseSessionTicketsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          bool                   `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetUseSessionTicketsRequest) Reset() {
+	*x = SetUseSessionTicketsRequest{}
+	mi := &file_proto_ssl_ssl_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetUseSessionTicketsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetUseSessionTicketsRequest) ProtoMessage() {}
+
+func (x *SetUseSessionTicketsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ssl_ssl_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetUseSessionTicketsRequest.ProtoReflect.Descriptor instead.
+func (*SetUseSessionTicketsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ssl_ssl_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *SetUseSessionTicketsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SetUseSessionTicketsRequest) GetArg1() bool {
+	if x != nil {
+		return x.Arg1
+	}
+	return false
+}
+
+type SetUseSessionTicketsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetUseSessionTicketsResponse) Reset() {
+	*x = SetUseSessionTicketsResponse{}
+	mi := &file_proto_ssl_ssl_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetUseSessionTicketsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetUseSessionTicketsResponse) ProtoMessage() {}
+
+func (x *SetUseSessionTicketsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ssl_ssl_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetUseSessionTicketsResponse.ProtoReflect.Descriptor instead.
+func (*SetUseSessionTicketsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ssl_ssl_proto_rawDescGZIP(), []int{5}
+}
+
+type IsSupportedEngineRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsSupportedEngineRequest) Reset() {
+	*x = IsSupportedEngineRequest{}
+	mi := &file_proto_ssl_ssl_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsSupportedEngineRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsSupportedEngineRequest) ProtoMessage() {}
+
+func (x *IsSupportedEngineRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ssl_ssl_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsSupportedEngineRequest.ProtoReflect.Descriptor instead.
+func (*IsSupportedEngineRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ssl_ssl_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *IsSupportedEngineRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type IsSupportedEngineResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsSupportedEngineResponse) Reset() {
+	*x = IsSupportedEngineResponse{}
+	mi := &file_proto_ssl_ssl_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsSupportedEngineResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsSupportedEngineResponse) ProtoMessage() {}
+
+func (x *IsSupportedEngineResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ssl_ssl_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsSupportedEngineResponse.ProtoReflect.Descriptor instead.
+func (*IsSupportedEngineResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ssl_ssl_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *IsSupportedEngineResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
 var File_proto_ssl_ssl_proto protoreflect.FileDescriptor
 
 const file_proto_ssl_ssl_proto_rawDesc = "" +
 	"\n" +
-	"\x13proto/ssl/ssl.proto\x12\x03sslB-Z+github.com/AndroidGoLab/jni-proxy/proto/sslb\x06proto3"
+	"\x13proto/ssl/ssl.proto\x12\x03ssl\"m\n" +
+	"\x1bExportKeyingMaterialRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x05R\x04arg3\"6\n" +
+	"\x1cExportKeyingMaterialResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\".\n" +
+	"\x18IsSupportedSocketRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"3\n" +
+	"\x19IsSupportedSocketResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"E\n" +
+	"\x1bSetUseSessionTicketsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\bR\x04arg1\"\x1e\n" +
+	"\x1cSetUseSessionTicketsResponse\".\n" +
+	"\x18IsSupportedEngineRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"3\n" +
+	"\x19IsSupportedEngineResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result2\xa1\x02\n" +
+	"\x11SSLSocketsService\x12[\n" +
+	"\x14ExportKeyingMaterial\x12 .ssl.ExportKeyingMaterialRequest\x1a!.ssl.ExportKeyingMaterialResponse\x12R\n" +
+	"\x11IsSupportedSocket\x12\x1d.ssl.IsSupportedSocketRequest\x1a\x1e.ssl.IsSupportedSocketResponse\x12[\n" +
+	"\x14SetUseSessionTickets\x12 .ssl.SetUseSessionTicketsRequest\x1a!.ssl.SetUseSessionTicketsResponse2\xa1\x02\n" +
+	"\x11SSLEnginesService\x12[\n" +
+	"\x14ExportKeyingMaterial\x12 .ssl.ExportKeyingMaterialRequest\x1a!.ssl.ExportKeyingMaterialResponse\x12R\n" +
+	"\x11IsSupportedEngine\x12\x1d.ssl.IsSupportedEngineRequest\x1a\x1e.ssl.IsSupportedEngineResponse\x12[\n" +
+	"\x14SetUseSessionTickets\x12 .ssl.SetUseSessionTicketsRequest\x1a!.ssl.SetUseSessionTicketsResponseB-Z+github.com/AndroidGoLab/jni-proxy/proto/sslb\x06proto3"
 
-var file_proto_ssl_ssl_proto_goTypes = []any{}
+var (
+	file_proto_ssl_ssl_proto_rawDescOnce sync.Once
+	file_proto_ssl_ssl_proto_rawDescData []byte
+)
+
+func file_proto_ssl_ssl_proto_rawDescGZIP() []byte {
+	file_proto_ssl_ssl_proto_rawDescOnce.Do(func() {
+		file_proto_ssl_ssl_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_proto_ssl_ssl_proto_rawDesc), len(file_proto_ssl_ssl_proto_rawDesc)))
+	})
+	return file_proto_ssl_ssl_proto_rawDescData
+}
+
+var file_proto_ssl_ssl_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
+var file_proto_ssl_ssl_proto_goTypes = []any{
+	(*ExportKeyingMaterialRequest)(nil),  // 0: ssl.ExportKeyingMaterialRequest
+	(*ExportKeyingMaterialResponse)(nil), // 1: ssl.ExportKeyingMaterialResponse
+	(*IsSupportedSocketRequest)(nil),     // 2: ssl.IsSupportedSocketRequest
+	(*IsSupportedSocketResponse)(nil),    // 3: ssl.IsSupportedSocketResponse
+	(*SetUseSessionTicketsRequest)(nil),  // 4: ssl.SetUseSessionTicketsRequest
+	(*SetUseSessionTicketsResponse)(nil), // 5: ssl.SetUseSessionTicketsResponse
+	(*IsSupportedEngineRequest)(nil),     // 6: ssl.IsSupportedEngineRequest
+	(*IsSupportedEngineResponse)(nil),    // 7: ssl.IsSupportedEngineResponse
+}
 var file_proto_ssl_ssl_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
+	0, // 0: ssl.SSLSocketsService.ExportKeyingMaterial:input_type -> ssl.ExportKeyingMaterialRequest
+	2, // 1: ssl.SSLSocketsService.IsSupportedSocket:input_type -> ssl.IsSupportedSocketRequest
+	4, // 2: ssl.SSLSocketsService.SetUseSessionTickets:input_type -> ssl.SetUseSessionTicketsRequest
+	0, // 3: ssl.SSLEnginesService.ExportKeyingMaterial:input_type -> ssl.ExportKeyingMaterialRequest
+	6, // 4: ssl.SSLEnginesService.IsSupportedEngine:input_type -> ssl.IsSupportedEngineRequest
+	4, // 5: ssl.SSLEnginesService.SetUseSessionTickets:input_type -> ssl.SetUseSessionTicketsRequest
+	1, // 6: ssl.SSLSocketsService.ExportKeyingMaterial:output_type -> ssl.ExportKeyingMaterialResponse
+	3, // 7: ssl.SSLSocketsService.IsSupportedSocket:output_type -> ssl.IsSupportedSocketResponse
+	5, // 8: ssl.SSLSocketsService.SetUseSessionTickets:output_type -> ssl.SetUseSessionTicketsResponse
+	1, // 9: ssl.SSLEnginesService.ExportKeyingMaterial:output_type -> ssl.ExportKeyingMaterialResponse
+	7, // 10: ssl.SSLEnginesService.IsSupportedEngine:output_type -> ssl.IsSupportedEngineResponse
+	5, // 11: ssl.SSLEnginesService.SetUseSessionTickets:output_type -> ssl.SetUseSessionTicketsResponse
+	6, // [6:12] is the sub-list for method output_type
+	0, // [0:6] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
 	0, // [0:0] is the sub-list for extension extendee
 	0, // [0:0] is the sub-list for field type_name
@@ -48,12 +486,13 @@ func file_proto_ssl_ssl_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_ssl_ssl_proto_rawDesc), len(file_proto_ssl_ssl_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   8,
 			NumExtensions: 0,
-			NumServices:   0,
+			NumServices:   2,
 		},
 		GoTypes:           file_proto_ssl_ssl_proto_goTypes,
 		DependencyIndexes: file_proto_ssl_ssl_proto_depIdxs,
+		MessageInfos:      file_proto_ssl_ssl_proto_msgTypes,
 	}.Build()
 	File_proto_ssl_ssl_proto = out.File
 	file_proto_ssl_ssl_proto_goTypes = nil

@@ -5,3 +5,509 @@ syntax = "proto3";
 package identity;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/identity";
+
+message GetDeviceMacRequest {
+}
+
+message GetDeviceMacResponse {
+  int64 result = 1;
+}
+
+message GetDeviceNameSpacesRequest {
+}
+
+message GetDeviceNameSpacesResponse {
+  int64 result = 1;
+}
+
+message GetDeviceSignatureRequest {
+}
+
+message GetDeviceSignatureResponse {
+  int64 result = 1;
+}
+
+message GetDeviceSignedEntriesRequest {
+}
+
+message GetDeviceSignedEntriesResponse {
+  int64 result = 1;
+}
+
+message GetIssuerSignedEntriesRequest {
+}
+
+message GetIssuerSignedEntriesResponse {
+  int64 result = 1;
+}
+
+message GetStaticAuthenticationDataRequest {
+}
+
+message GetStaticAuthenticationDataResponse {
+  int64 result = 1;
+}
+
+message GetEntryRequest {
+  string arg0 = 1;
+  string arg1 = 2;
+}
+
+message GetEntryResponse {
+  int64 result = 1;
+}
+
+message GetStatusRequest {
+  string arg0 = 1;
+  string arg1 = 2;
+}
+
+message GetStatusResponse {
+  int32 result = 1;
+}
+
+message GetAuthenticatedDataRequest {
+}
+
+message GetAuthenticatedDataResponse {
+  int64 result = 1;
+}
+
+message GetMessageAuthenticationCodeRequest {
+}
+
+message GetMessageAuthenticationCodeResponse {
+  int64 result = 1;
+}
+
+message AddAccessControlProfileRequest {
+  int64 arg0 = 1;
+}
+
+message AddAccessControlProfileResponse {
+  int64 result = 1;
+}
+
+message BuildRequest {
+}
+
+message BuildResponse {
+  int64 result = 1;
+}
+
+message GetCredentialDataRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message GetCredentialDataResponse {
+  int64 result = 1;
+}
+
+message GetEphemeralKeyPairRequest {
+}
+
+message GetEphemeralKeyPairResponse {
+  int64 result = 1;
+}
+
+message SetReaderEphemeralPublicKeyRequest {
+  int64 arg0 = 1;
+}
+
+message SetReaderEphemeralPublicKeyResponse {
+}
+
+message SetSessionTranscriptRequest {
+  int64 arg0 = 1;
+}
+
+message SetSessionTranscriptResponse {
+}
+
+message SetReaderCertificateRequest {
+  int64 arg0 = 1;
+}
+
+message SetReaderCertificateResponse {
+  int64 result = 1;
+}
+
+message SetUserAuthenticationRequiredRequest {
+  bool arg0 = 1;
+}
+
+message SetUserAuthenticationRequiredResponse {
+  int64 result = 1;
+}
+
+message SetUserAuthenticationTimeoutRequest {
+  int64 arg0 = 1;
+}
+
+message SetUserAuthenticationTimeoutResponse {
+  int64 result = 1;
+}
+
+message GetReaderSignatureRequest {
+}
+
+message GetReaderSignatureResponse {
+  int64 result = 1;
+}
+
+message GetRequestMessageRequest {
+}
+
+message GetRequestMessageResponse {
+  int64 result = 1;
+}
+
+message IsAllowUsingExhaustedKeysRequest {
+}
+
+message IsAllowUsingExhaustedKeysResponse {
+  bool result = 1;
+}
+
+message IsAllowUsingExpiredKeysRequest {
+}
+
+message IsAllowUsingExpiredKeysResponse {
+  bool result = 1;
+}
+
+message IsIncrementUseCountRequest {
+}
+
+message IsIncrementUseCountResponse {
+  bool result = 1;
+}
+
+message SetAllowUsingExhaustedKeysRequest {
+  bool arg0 = 1;
+}
+
+message SetAllowUsingExhaustedKeysResponse {
+  int64 result = 1;
+}
+
+message SetAllowUsingExpiredKeysRequest {
+  bool arg0 = 1;
+}
+
+message SetAllowUsingExpiredKeysResponse {
+  int64 result = 1;
+}
+
+message SetIncrementUseCountRequest {
+  bool arg0 = 1;
+}
+
+message SetIncrementUseCountResponse {
+  int64 result = 1;
+}
+
+message SetReaderSignatureRequest {
+  int64 arg0 = 1;
+}
+
+message SetReaderSignatureResponse {
+  int64 result = 1;
+}
+
+message SetRequestMessageRequest {
+  int64 arg0 = 1;
+}
+
+message SetRequestMessageResponse {
+  int64 result = 1;
+}
+
+message PersonalizeRequest {
+  int64 arg0 = 1;
+}
+
+message PersonalizeResponse {
+  int64 result = 1;
+}
+
+message CreateEphemeralKeyPairRequest {
+}
+
+message CreateEphemeralKeyPairResponse {
+  int64 result = 1;
+}
+
+message DecryptMessageFromReaderRequest {
+  int64 arg0 = 1;
+}
+
+message DecryptMessageFromReaderResponse {
+  int64 result = 1;
+}
+
+message DeleteRequest {
+  int64 arg0 = 1;
+}
+
+message DeleteResponse {
+  int64 result = 1;
+}
+
+message EncryptMessageToReaderRequest {
+  int64 arg0 = 1;
+}
+
+message EncryptMessageToReaderResponse {
+  int64 result = 1;
+}
+
+message GetAuthenticationDataUsageCountRequest {
+}
+
+message GetAuthenticationDataUsageCountResponse {
+  int64 result = 1;
+}
+
+message ProveOwnershipRequest {
+  int64 arg0 = 1;
+}
+
+message ProveOwnershipResponse {
+  int64 result = 1;
+}
+
+message CredentialSetAllowUsingExhaustedKeysResponse {
+}
+
+message CredentialSetAllowUsingExpiredKeysResponse {
+}
+
+message SetAvailableAuthenticationKeys2Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message SetAvailableAuthenticationKeys2Response {
+}
+
+message SetAvailableAuthenticationKeys3_1Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message SetAvailableAuthenticationKeys3_1Response {
+}
+
+message StoreStaticAuthenticationData2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message StoreStaticAuthenticationData2Response {
+}
+
+message StoreStaticAuthenticationData3_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message StoreStaticAuthenticationData3_1Response {
+}
+
+message UpdateRequest {
+  int64 arg0 = 1;
+}
+
+message UpdateResponse {
+  int64 result = 1;
+}
+
+message CreateCredentialRequest {
+  string arg0 = 1;
+  string arg1 = 2;
+}
+
+message CreateCredentialResponse {
+  int64 result = 1;
+}
+
+message CreatePresentationSessionRequest {
+  int32 arg0 = 1;
+}
+
+message CreatePresentationSessionResponse {
+  int64 result = 1;
+}
+
+message DeleteCredentialByNameRequest {
+  string arg0 = 1;
+}
+
+message DeleteCredentialByNameResponse {
+  int64 result = 1;
+}
+
+message GetCredentialByNameRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message GetCredentialByNameResponse {
+  int64 result = 1;
+}
+
+message GetSupportedDocTypesRequest {
+}
+
+message GetSupportedDocTypesResponse {
+  int64 result = 1;
+}
+
+message GetDirectAccessInstanceRequest {
+  int64 arg0 = 1;
+}
+
+message GetDirectAccessInstanceResponse {
+  int64 result = 1;
+}
+
+message GetInstanceRequest {
+  int64 arg0 = 1;
+}
+
+message GetInstanceResponse {
+  int64 result = 1;
+}
+
+message GetExpirationDateRequest {
+}
+
+message GetExpirationDateResponse {
+  int64 result = 1;
+}
+
+message GetUsageCountRequest {
+}
+
+message GetUsageCountResponse {
+  int32 result = 1;
+}
+
+message NewAccessControlProfileIdRequest {
+  int32 arg0 = 1;
+}
+
+message NewAccessControlProfileIdResponse {
+  int64 result = 1;
+}
+
+message GetIdRequest {
+  int64 handle = 1;
+}
+
+message GetIdResponse {
+  int32 result = 1;
+}
+
+service CredentialDataResultService {
+  rpc GetDeviceMac (GetDeviceMacRequest) returns (GetDeviceMacResponse);
+  rpc GetDeviceNameSpaces (GetDeviceNameSpacesRequest) returns (GetDeviceNameSpacesResponse);
+  rpc GetDeviceSignature (GetDeviceSignatureRequest) returns (GetDeviceSignatureResponse);
+  rpc GetDeviceSignedEntries (GetDeviceSignedEntriesRequest) returns (GetDeviceSignedEntriesResponse);
+  rpc GetIssuerSignedEntries (GetIssuerSignedEntriesRequest) returns (GetIssuerSignedEntriesResponse);
+  rpc GetStaticAuthenticationData (GetStaticAuthenticationDataRequest) returns (GetStaticAuthenticationDataResponse);
+}
+
+service CredentialDataResultEntriesService {
+  rpc GetEntry (GetEntryRequest) returns (GetEntryResponse);
+  rpc GetStatus (GetStatusRequest) returns (GetStatusResponse);
+}
+
+service ResultDataService {
+  rpc GetAuthenticatedData (GetAuthenticatedDataRequest) returns (GetAuthenticatedDataResponse);
+  rpc GetEntry (GetEntryRequest) returns (GetEntryResponse);
+  rpc GetMessageAuthenticationCode (GetMessageAuthenticationCodeRequest) returns (GetMessageAuthenticationCodeResponse);
+  rpc GetStaticAuthenticationData (GetStaticAuthenticationDataRequest) returns (GetStaticAuthenticationDataResponse);
+  rpc GetStatus (GetStatusRequest) returns (GetStatusResponse);
+}
+
+service PersonalizationDataBuilderService {
+  rpc AddAccessControlProfile (AddAccessControlProfileRequest) returns (AddAccessControlProfileResponse);
+  rpc Build (BuildRequest) returns (BuildResponse);
+}
+
+service PresentationSessionService {
+  rpc GetCredentialData (GetCredentialDataRequest) returns (GetCredentialDataResponse);
+  rpc GetEphemeralKeyPair (GetEphemeralKeyPairRequest) returns (GetEphemeralKeyPairResponse);
+  rpc SetReaderEphemeralPublicKey (SetReaderEphemeralPublicKeyRequest) returns (SetReaderEphemeralPublicKeyResponse);
+  rpc SetSessionTranscript (SetSessionTranscriptRequest) returns (SetSessionTranscriptResponse);
+}
+
+service AccessControlProfileBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetReaderCertificate (SetReaderCertificateRequest) returns (SetReaderCertificateResponse);
+  rpc SetUserAuthenticationRequired (SetUserAuthenticationRequiredRequest) returns (SetUserAuthenticationRequiredResponse);
+  rpc SetUserAuthenticationTimeout (SetUserAuthenticationTimeoutRequest) returns (SetUserAuthenticationTimeoutResponse);
+}
+
+service CredentialDataRequestService {
+  rpc GetReaderSignature (GetReaderSignatureRequest) returns (GetReaderSignatureResponse);
+  rpc GetRequestMessage (GetRequestMessageRequest) returns (GetRequestMessageResponse);
+  rpc IsAllowUsingExhaustedKeys (IsAllowUsingExhaustedKeysRequest) returns (IsAllowUsingExhaustedKeysResponse);
+  rpc IsAllowUsingExpiredKeys (IsAllowUsingExpiredKeysRequest) returns (IsAllowUsingExpiredKeysResponse);
+  rpc IsIncrementUseCount (IsIncrementUseCountRequest) returns (IsIncrementUseCountResponse);
+}
+
+service CredentialDataRequestBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetAllowUsingExhaustedKeys (SetAllowUsingExhaustedKeysRequest) returns (SetAllowUsingExhaustedKeysResponse);
+  rpc SetAllowUsingExpiredKeys (SetAllowUsingExpiredKeysRequest) returns (SetAllowUsingExpiredKeysResponse);
+  rpc SetIncrementUseCount (SetIncrementUseCountRequest) returns (SetIncrementUseCountResponse);
+  rpc SetReaderSignature (SetReaderSignatureRequest) returns (SetReaderSignatureResponse);
+  rpc SetRequestMessage (SetRequestMessageRequest) returns (SetRequestMessageResponse);
+}
+
+service WritableIdentityCredentialService {
+  rpc Personalize (PersonalizeRequest) returns (PersonalizeResponse);
+}
+
+service CredentialService {
+  rpc CreateEphemeralKeyPair (CreateEphemeralKeyPairRequest) returns (CreateEphemeralKeyPairResponse);
+  rpc DecryptMessageFromReader (DecryptMessageFromReaderRequest) returns (DecryptMessageFromReaderResponse);
+  rpc Delete (DeleteRequest) returns (DeleteResponse);
+  rpc EncryptMessageToReader (EncryptMessageToReaderRequest) returns (EncryptMessageToReaderResponse);
+  rpc GetAuthenticationDataUsageCount (GetAuthenticationDataUsageCountRequest) returns (GetAuthenticationDataUsageCountResponse);
+  rpc ProveOwnership (ProveOwnershipRequest) returns (ProveOwnershipResponse);
+  rpc SetAllowUsingExhaustedKeys (SetAllowUsingExhaustedKeysRequest) returns (CredentialSetAllowUsingExhaustedKeysResponse);
+  rpc SetAllowUsingExpiredKeys (SetAllowUsingExpiredKeysRequest) returns (CredentialSetAllowUsingExpiredKeysResponse);
+  rpc SetAvailableAuthenticationKeys2 (SetAvailableAuthenticationKeys2Request) returns (SetAvailableAuthenticationKeys2Response);
+  rpc SetAvailableAuthenticationKeys3_1 (SetAvailableAuthenticationKeys3_1Request) returns (SetAvailableAuthenticationKeys3_1Response);
+  rpc SetReaderEphemeralPublicKey (SetReaderEphemeralPublicKeyRequest) returns (SetReaderEphemeralPublicKeyResponse);
+  rpc StoreStaticAuthenticationData2 (StoreStaticAuthenticationData2Request) returns (StoreStaticAuthenticationData2Response);
+  rpc StoreStaticAuthenticationData3_1 (StoreStaticAuthenticationData3_1Request) returns (StoreStaticAuthenticationData3_1Response);
+  rpc Update (UpdateRequest) returns (UpdateResponse);
+}
+
+service CredentialStoreService {
+  rpc CreateCredential (CreateCredentialRequest) returns (CreateCredentialResponse);
+  rpc CreatePresentationSession (CreatePresentationSessionRequest) returns (CreatePresentationSessionResponse);
+  rpc DeleteCredentialByName (DeleteCredentialByNameRequest) returns (DeleteCredentialByNameResponse);
+  rpc GetCredentialByName (GetCredentialByNameRequest) returns (GetCredentialByNameResponse);
+  rpc GetSupportedDocTypes (GetSupportedDocTypesRequest) returns (GetSupportedDocTypesResponse);
+  rpc GetDirectAccessInstance (GetDirectAccessInstanceRequest) returns (GetDirectAccessInstanceResponse);
+  rpc GetInstance (GetInstanceRequest) returns (GetInstanceResponse);
+}
+
+service AuthenticationKeyMetadataService {
+  rpc GetExpirationDate (GetExpirationDateRequest) returns (GetExpirationDateResponse);
+  rpc GetUsageCount (GetUsageCountRequest) returns (GetUsageCountResponse);
+}
+
+service AccessControlProfileIdService {
+  rpc NewAccessControlProfileId (NewAccessControlProfileIdRequest) returns (NewAccessControlProfileIdResponse);
+  rpc GetId (GetIdRequest) returns (GetIdResponse);
+}

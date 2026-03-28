@@ -5,3 +5,294 @@ syntax = "proto3";
 package vpn;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/vpn";
+
+message NewServiceRequest {
+}
+
+message NewServiceResponse {
+  int64 result = 1;
+}
+
+message IsAlwaysOnRequest {
+  int64 handle = 1;
+}
+
+message IsAlwaysOnResponse {
+  bool result = 1;
+}
+
+message IsLockdownEnabledRequest {
+  int64 handle = 1;
+}
+
+message IsLockdownEnabledResponse {
+  bool result = 1;
+}
+
+message OnBindRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OnBindResponse {
+  int64 result = 1;
+}
+
+message OnRevokeRequest {
+  int64 handle = 1;
+}
+
+message OnRevokeResponse {
+}
+
+message Protect1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message Protect1Response {
+  bool result = 1;
+}
+
+message Protect1_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message Protect1_1Response {
+  bool result = 1;
+}
+
+message Protect1_2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message Protect1_2Response {
+  bool result = 1;
+}
+
+message SetUnderlyingNetworksRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetUnderlyingNetworksResponse {
+  bool result = 1;
+}
+
+message PrepareRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message PrepareResponse {
+  int64 result = 1;
+}
+
+message AddAddress2Request {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message AddAddress2Response {
+  int64 result = 1;
+}
+
+message AddAddress2_1Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message AddAddress2_1Response {
+  int64 result = 1;
+}
+
+message AddAllowedApplicationRequest {
+  string arg0 = 1;
+}
+
+message AddAllowedApplicationResponse {
+  int64 result = 1;
+}
+
+message AddDisallowedApplicationRequest {
+  string arg0 = 1;
+}
+
+message AddDisallowedApplicationResponse {
+  int64 result = 1;
+}
+
+message AddDnsServer1Request {
+  string arg0 = 1;
+}
+
+message AddDnsServer1Response {
+  int64 result = 1;
+}
+
+message AddDnsServer1_1Request {
+  int64 arg0 = 1;
+}
+
+message AddDnsServer1_1Response {
+  int64 result = 1;
+}
+
+message AddRoute1Request {
+  int64 arg0 = 1;
+}
+
+message AddRoute1Response {
+  int64 result = 1;
+}
+
+message AddRoute2_1Request {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message AddRoute2_1Response {
+  int64 result = 1;
+}
+
+message AddRoute2_2Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message AddRoute2_2Response {
+  int64 result = 1;
+}
+
+message AddSearchDomainRequest {
+  string arg0 = 1;
+}
+
+message AddSearchDomainResponse {
+  int64 result = 1;
+}
+
+message AllowBypassRequest {
+}
+
+message AllowBypassResponse {
+  int64 result = 1;
+}
+
+message AllowFamilyRequest {
+  int32 arg0 = 1;
+}
+
+message AllowFamilyResponse {
+  int64 result = 1;
+}
+
+message EstablishRequest {
+}
+
+message EstablishResponse {
+  int64 result = 1;
+}
+
+message ExcludeRouteRequest {
+  int64 arg0 = 1;
+}
+
+message ExcludeRouteResponse {
+  int64 result = 1;
+}
+
+message SetBlockingRequest {
+  bool arg0 = 1;
+}
+
+message SetBlockingResponse {
+  int64 result = 1;
+}
+
+message SetConfigureIntentRequest {
+  int64 arg0 = 1;
+}
+
+message SetConfigureIntentResponse {
+  int64 result = 1;
+}
+
+message SetHttpProxyRequest {
+  int64 arg0 = 1;
+}
+
+message SetHttpProxyResponse {
+  int64 result = 1;
+}
+
+message SetMeteredRequest {
+  bool arg0 = 1;
+}
+
+message SetMeteredResponse {
+  int64 result = 1;
+}
+
+message SetMtuRequest {
+  int32 arg0 = 1;
+}
+
+message SetMtuResponse {
+  int64 result = 1;
+}
+
+message SetSessionRequest {
+  string arg0 = 1;
+}
+
+message SetSessionResponse {
+  int64 result = 1;
+}
+
+message ServiceBuilderSetUnderlyingNetworksRequest {
+  int64 arg0 = 1;
+}
+
+message ServiceBuilderSetUnderlyingNetworksResponse {
+  int64 result = 1;
+}
+
+service ServiceService {
+  rpc NewService (NewServiceRequest) returns (NewServiceResponse);
+  rpc IsAlwaysOn (IsAlwaysOnRequest) returns (IsAlwaysOnResponse);
+  rpc IsLockdownEnabled (IsLockdownEnabledRequest) returns (IsLockdownEnabledResponse);
+  rpc OnBind (OnBindRequest) returns (OnBindResponse);
+  rpc OnRevoke (OnRevokeRequest) returns (OnRevokeResponse);
+  rpc Protect1 (Protect1Request) returns (Protect1Response);
+  rpc Protect1_1 (Protect1_1Request) returns (Protect1_1Response);
+  rpc Protect1_2 (Protect1_2Request) returns (Protect1_2Response);
+  rpc SetUnderlyingNetworks (SetUnderlyingNetworksRequest) returns (SetUnderlyingNetworksResponse);
+  rpc Prepare (PrepareRequest) returns (PrepareResponse);
+}
+
+service ServiceBuilderService {
+  rpc AddAddress2 (AddAddress2Request) returns (AddAddress2Response);
+  rpc AddAddress2_1 (AddAddress2_1Request) returns (AddAddress2_1Response);
+  rpc AddAllowedApplication (AddAllowedApplicationRequest) returns (AddAllowedApplicationResponse);
+  rpc AddDisallowedApplication (AddDisallowedApplicationRequest) returns (AddDisallowedApplicationResponse);
+  rpc AddDnsServer1 (AddDnsServer1Request) returns (AddDnsServer1Response);
+  rpc AddDnsServer1_1 (AddDnsServer1_1Request) returns (AddDnsServer1_1Response);
+  rpc AddRoute1 (AddRoute1Request) returns (AddRoute1Response);
+  rpc AddRoute2_1 (AddRoute2_1Request) returns (AddRoute2_1Response);
+  rpc AddRoute2_2 (AddRoute2_2Request) returns (AddRoute2_2Response);
+  rpc AddSearchDomain (AddSearchDomainRequest) returns (AddSearchDomainResponse);
+  rpc AllowBypass (AllowBypassRequest) returns (AllowBypassResponse);
+  rpc AllowFamily (AllowFamilyRequest) returns (AllowFamilyResponse);
+  rpc Establish (EstablishRequest) returns (EstablishResponse);
+  rpc ExcludeRoute (ExcludeRouteRequest) returns (ExcludeRouteResponse);
+  rpc SetBlocking (SetBlockingRequest) returns (SetBlockingResponse);
+  rpc SetConfigureIntent (SetConfigureIntentRequest) returns (SetConfigureIntentResponse);
+  rpc SetHttpProxy (SetHttpProxyRequest) returns (SetHttpProxyResponse);
+  rpc SetMetered (SetMeteredRequest) returns (SetMeteredResponse);
+  rpc SetMtu (SetMtuRequest) returns (SetMtuResponse);
+  rpc SetSession (SetSessionRequest) returns (SetSessionResponse);
+  rpc SetUnderlyingNetworks (ServiceBuilderSetUnderlyingNetworksRequest) returns (ServiceBuilderSetUnderlyingNetworksResponse);
+}

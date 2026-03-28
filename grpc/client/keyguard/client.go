@@ -122,3 +122,97 @@ func (c *ManagerClient) RequestDismissKeyguard(ctx context.Context, arg0 int64, 
 	})
 	return err
 }
+
+// ManagerKeyguardDismissCallbackClient wraps the gRPC ManagerKeyguardDismissCallbackService client.
+type ManagerKeyguardDismissCallbackClient struct {
+	svc pb.ManagerKeyguardDismissCallbackServiceClient
+}
+
+// NewManagerKeyguardDismissCallbackClient creates a new ManagerKeyguardDismissCallback client.
+func NewManagerKeyguardDismissCallbackClient(cc grpc.ClientConnInterface) *ManagerKeyguardDismissCallbackClient {
+	return &ManagerKeyguardDismissCallbackClient{
+		svc: pb.NewManagerKeyguardDismissCallbackServiceClient(cc),
+	}
+}
+
+// OnDismissCancelled calls the OnDismissCancelled RPC.
+func (c *ManagerKeyguardDismissCallbackClient) OnDismissCancelled(ctx context.Context) error {
+	_, err := c.svc.OnDismissCancelled(ctx, &pb.OnDismissCancelledRequest{})
+	return err
+}
+
+// OnDismissError calls the OnDismissError RPC.
+func (c *ManagerKeyguardDismissCallbackClient) OnDismissError(ctx context.Context) error {
+	_, err := c.svc.OnDismissError(ctx, &pb.OnDismissErrorRequest{})
+	return err
+}
+
+// OnDismissSucceeded calls the OnDismissSucceeded RPC.
+func (c *ManagerKeyguardDismissCallbackClient) OnDismissSucceeded(ctx context.Context) error {
+	_, err := c.svc.OnDismissSucceeded(ctx, &pb.OnDismissSucceededRequest{})
+	return err
+}
+
+// ManagerKeyguardLockClient wraps the gRPC ManagerKeyguardLockService client.
+type ManagerKeyguardLockClient struct {
+	svc pb.ManagerKeyguardLockServiceClient
+}
+
+// NewManagerKeyguardLockClient creates a new ManagerKeyguardLock client.
+func NewManagerKeyguardLockClient(cc grpc.ClientConnInterface) *ManagerKeyguardLockClient {
+	return &ManagerKeyguardLockClient{
+		svc: pb.NewManagerKeyguardLockServiceClient(cc),
+	}
+}
+
+// DisableKeyguard calls the DisableKeyguard RPC.
+func (c *ManagerKeyguardLockClient) DisableKeyguard(ctx context.Context) error {
+	_, err := c.svc.DisableKeyguard(ctx, &pb.DisableKeyguardRequest{})
+	return err
+}
+
+// ReenableKeyguard calls the ReenableKeyguard RPC.
+func (c *ManagerKeyguardLockClient) ReenableKeyguard(ctx context.Context) error {
+	_, err := c.svc.ReenableKeyguard(ctx, &pb.ReenableKeyguardRequest{})
+	return err
+}
+
+// ManagerKeyguardLockedStateListenerClient wraps the gRPC ManagerKeyguardLockedStateListenerService client.
+type ManagerKeyguardLockedStateListenerClient struct {
+	svc pb.ManagerKeyguardLockedStateListenerServiceClient
+}
+
+// NewManagerKeyguardLockedStateListenerClient creates a new ManagerKeyguardLockedStateListener client.
+func NewManagerKeyguardLockedStateListenerClient(cc grpc.ClientConnInterface) *ManagerKeyguardLockedStateListenerClient {
+	return &ManagerKeyguardLockedStateListenerClient{
+		svc: pb.NewManagerKeyguardLockedStateListenerServiceClient(cc),
+	}
+}
+
+// OnKeyguardLockedStateChanged calls the OnKeyguardLockedStateChanged RPC.
+func (c *ManagerKeyguardLockedStateListenerClient) OnKeyguardLockedStateChanged(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.OnKeyguardLockedStateChanged(ctx, &pb.OnKeyguardLockedStateChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ManagerOnKeyguardExitResultClient wraps the gRPC ManagerOnKeyguardExitResultService client.
+type ManagerOnKeyguardExitResultClient struct {
+	svc pb.ManagerOnKeyguardExitResultServiceClient
+}
+
+// NewManagerOnKeyguardExitResultClient creates a new ManagerOnKeyguardExitResult client.
+func NewManagerOnKeyguardExitResultClient(cc grpc.ClientConnInterface) *ManagerOnKeyguardExitResultClient {
+	return &ManagerOnKeyguardExitResultClient{
+		svc: pb.NewManagerOnKeyguardExitResultServiceClient(cc),
+	}
+}
+
+// OnKeyguardExitResult calls the OnKeyguardExitResult RPC.
+func (c *ManagerOnKeyguardExitResultClient) OnKeyguardExitResult(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.OnKeyguardExitResult(ctx, &pb.OnKeyguardExitResultRequest{
+		Arg0: arg0,
+	})
+	return err
+}

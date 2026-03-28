@@ -37,3 +37,23 @@ func (c *ManagerClient) UnregisterStateChangeListener(ctx context.Context, arg0 
 	})
 	return err
 }
+
+// StateChangeListenerClient wraps the gRPC StateChangeListenerService client.
+type StateChangeListenerClient struct {
+	svc pb.StateChangeListenerServiceClient
+}
+
+// NewStateChangeListenerClient creates a new StateChangeListener client.
+func NewStateChangeListenerClient(cc grpc.ClientConnInterface) *StateChangeListenerClient {
+	return &StateChangeListenerClient{
+		svc: pb.NewStateChangeListenerServiceClient(cc),
+	}
+}
+
+// OnEnabledStateChanged calls the OnEnabledStateChanged RPC.
+func (c *StateChangeListenerClient) OnEnabledStateChanged(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.OnEnabledStateChanged(ctx, &pb.OnEnabledStateChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}

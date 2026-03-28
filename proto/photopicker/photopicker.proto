@@ -5,3 +5,216 @@ syntax = "proto3";
 package photopicker;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/photopicker";
+
+message OnSelectionCompleteRequest {
+}
+
+message OnSelectionCompleteResponse {
+}
+
+message OnSessionErrorRequest {
+  int64 arg0 = 1;
+}
+
+message OnSessionErrorResponse {
+}
+
+message OnSessionOpenedRequest {
+  int64 arg0 = 1;
+}
+
+message OnSessionOpenedResponse {
+}
+
+message CloseRequest {
+}
+
+message CloseResponse {
+}
+
+message GetSurfacePackageRequest {
+}
+
+message GetSurfacePackageResponse {
+  int64 result = 1;
+}
+
+message NotifyConfigurationChangedRequest {
+  int64 arg0 = 1;
+}
+
+message NotifyConfigurationChangedResponse {
+}
+
+message NotifyPhotoPickerExpandedRequest {
+  bool arg0 = 1;
+}
+
+message NotifyPhotoPickerExpandedResponse {
+}
+
+message NotifyResizedRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message NotifyResizedResponse {
+}
+
+message NotifyVisibilityChangedRequest {
+  bool arg0 = 1;
+}
+
+message NotifyVisibilityChangedResponse {
+}
+
+message DescribeContentsRequest {
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message GetAccentColorRequest {
+}
+
+message GetAccentColorResponse {
+  int64 result = 1;
+}
+
+message GetMaxSelectionLimitRequest {
+}
+
+message GetMaxSelectionLimitResponse {
+  int32 result = 1;
+}
+
+message GetThemeNightModeRequest {
+}
+
+message GetThemeNightModeResponse {
+  int32 result = 1;
+}
+
+message IsOrderedSelectionRequest {
+}
+
+message IsOrderedSelectionResponse {
+  bool result = 1;
+}
+
+message ToStringRequest {
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteToParcelResponse {
+}
+
+message BuildRequest {
+}
+
+message BuildResponse {
+  int64 result = 1;
+}
+
+message SetAccentColorRequest {
+  int64 arg0 = 1;
+}
+
+message SetAccentColorResponse {
+  int64 result = 1;
+}
+
+message SetMaxSelectionLimitRequest {
+  int32 arg0 = 1;
+}
+
+message SetMaxSelectionLimitResponse {
+  int64 result = 1;
+}
+
+message SetOrderedSelectionRequest {
+  bool arg0 = 1;
+}
+
+message SetOrderedSelectionResponse {
+  int64 result = 1;
+}
+
+message SetThemeNightModeRequest {
+  int32 arg0 = 1;
+}
+
+message SetThemeNightModeResponse {
+  int64 result = 1;
+}
+
+message CreateRequest {
+  int64 arg0 = 1;
+}
+
+message CreateResponse {
+  int64 result = 1;
+}
+
+message OpenSessionRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int64 arg4 = 5;
+  int64 arg5 = 6;
+  int64 arg6 = 7;
+}
+
+message OpenSessionResponse {
+}
+
+service EmbeddedPhotoPickerClientService {
+  rpc OnSelectionComplete (OnSelectionCompleteRequest) returns (OnSelectionCompleteResponse);
+  rpc OnSessionError (OnSessionErrorRequest) returns (OnSessionErrorResponse);
+  rpc OnSessionOpened (OnSessionOpenedRequest) returns (OnSessionOpenedResponse);
+}
+
+service EmbeddedPhotoPickerSessionService {
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc GetSurfacePackage (GetSurfacePackageRequest) returns (GetSurfacePackageResponse);
+  rpc NotifyConfigurationChanged (NotifyConfigurationChangedRequest) returns (NotifyConfigurationChangedResponse);
+  rpc NotifyPhotoPickerExpanded (NotifyPhotoPickerExpandedRequest) returns (NotifyPhotoPickerExpandedResponse);
+  rpc NotifyResized (NotifyResizedRequest) returns (NotifyResizedResponse);
+  rpc NotifyVisibilityChanged (NotifyVisibilityChangedRequest) returns (NotifyVisibilityChangedResponse);
+}
+
+service EmbeddedPhotoPickerFeatureInfoService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetAccentColor (GetAccentColorRequest) returns (GetAccentColorResponse);
+  rpc GetMaxSelectionLimit (GetMaxSelectionLimitRequest) returns (GetMaxSelectionLimitResponse);
+  rpc GetThemeNightMode (GetThemeNightModeRequest) returns (GetThemeNightModeResponse);
+  rpc IsOrderedSelection (IsOrderedSelectionRequest) returns (IsOrderedSelectionResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service EmbeddedPhotoPickerFeatureInfoBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetAccentColor (SetAccentColorRequest) returns (SetAccentColorResponse);
+  rpc SetMaxSelectionLimit (SetMaxSelectionLimitRequest) returns (SetMaxSelectionLimitResponse);
+  rpc SetOrderedSelection (SetOrderedSelectionRequest) returns (SetOrderedSelectionResponse);
+  rpc SetThemeNightMode (SetThemeNightModeRequest) returns (SetThemeNightModeResponse);
+}
+
+service EmbeddedPhotoPickerProviderFactoryService {
+  rpc Create (CreateRequest) returns (CreateResponse);
+}
+
+service EmbeddedPhotoPickerProviderService {
+  rpc OpenSession (OpenSessionRequest) returns (OpenSessionResponse);
+}

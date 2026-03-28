@@ -7,7 +7,7 @@ import (
 	"time"
 
 	"github.com/spf13/cobra"
-	appconsts "github.com/AndroidGoLab/jni/app/consts"
+	camera "github.com/AndroidGoLab/jni-proxy/grpc/client/camera"
 	pb "github.com/AndroidGoLab/jni-proxy/proto/jni_raw"
 	"google.golang.org/grpc"
 )
@@ -98,8 +98,12 @@ func recordVideo(
 		return nil, fmt.Errorf("creating handler thread: %w", err)
 	}
 
-	// Step 2: Get CameraManager and camera ID.
-	cameraID, cameraManager, err := getCameraID(ctx, j, appContextHandle, cameraIndex)
+	// Step 2: Get camera ID via the typed CameraManager API.
+	// The typed API creates CameraManager from the server's shell-attributed
+	// context (s.Ctx), which has the correct package identity
+	// ("com.android.shell") for camera permission checks.
+	camClient := camera.NewManagerClient(conn)
+	cameraID, err := getCameraID(ctx, j, camClient, cameraIndex)
 	if err != nil {
 		return nil, fmt.Errorf("getting camera ID: %w", err)
 	}
@@ -139,25 +143,33 @@ func recordVideo(
 		return nil, fmt.Errorf("got null proxy handle for StateCallback")
 	}
 
-	// Step 4: Open camera.
-	cameraIDStr, err := j.newString(ctx, cameraID)
+	// Step 4: Open camera via raw JNI using the Handler-based overload.
+	// The typed CameraManager API resolves the Executor-based overload
+	// openCamera(String, Executor, StateCallback), but we have a Handler
+	// (not an Executor). Use raw JNI to call the Handler-based overload
+	// openCamera(String, StateCallback, Handler) instead.
+	//
+	// We obtain CameraManager from the app context (which has the correct
+	// package identity, e.g. "com.android.shell" for non-root or system
+	// identity for root), so permission checks succeed.
+	cameraManager, err := getSystemService(ctx, j, appContextHandle, "camera")
 	if err != nil {
-		return nil, fmt.Errorf("creating camera ID string: %w", err)
+		return nil, fmt.Errorf("getting CameraManager: %w", err)
 	}
-
 	cameraMgrCls, err := j.findClass(ctx, "android/hardware/camera2/CameraManager")
 	if err != nil {
 		return nil, fmt.Errorf("finding CameraManager class: %w", err)
 	}
-	openCameraMid, err := j.getMethodID(ctx, 
-		cameraMgrCls,
-		"openCamera",
+	openCameraMid, err := j.getMethodID(ctx, cameraMgrCls, "openCamera",
 		"(Ljava/lang/String;Landroid/hardware/camera2/CameraDevice$StateCallback;Landroid/os/Handler;)V",
 	)
 	if err != nil {
-		return nil, fmt.Errorf("getting openCamera method: %w", err)
+		return nil, fmt.Errorf("getting openCamera(String,StateCallback,Handler) method: %w", err)
 	}
-
+	cameraIDStr, err := j.newString(ctx, cameraID)
+	if err != nil {
+		return nil, fmt.Errorf("creating cameraID string: %w", err)
+	}
 	if err := j.callVoidMethod(ctx, cameraManager, openCameraMid,
 		objVal(cameraIDStr), objVal(stateCallbackHandle), objVal(handler),
 	); err != nil {
@@ -457,68 +469,40 @@ func createHandlerThread(ctx context.Context, j *jniCaller) (handlerThread, hand
 }
 
 // getCameraID retrieves the camera ID string at the given index from CameraManager.
+// It uses the typed CameraManager API which creates the manager from the
+// server's shell-attributed context (correct package identity).
 func getCameraID(
 	ctx context.Context,
 	j *jniCaller,
-	appContextHandle int64,
+	camClient *camera.ManagerClient,
 	index int,
-) (string, int64, error) {
-	contextCls, err := j.findClass(ctx, "android/content/Context")
+) (string, error) {
+	// GetCameraIdList returns a handle to the String[] array stored in the
+	// server's HandleStore. The CameraManager is created from s.Ctx (the
+	// shell-attributed context) on the server side.
+	cameraIdArrayHandle, err := camClient.GetCameraIdList(ctx)
 	if err != nil {
-		return "", 0, fmt.Errorf("finding Context class: %w", err)
+		return "", fmt.Errorf("calling GetCameraIdList: %w", err)
 	}
-	getSystemServiceMid, err := j.getMethodID(ctx, 
-		contextCls,
-		"getSystemService",
-		"(Ljava/lang/String;)Ljava/lang/Object;",
-	)
-	if err != nil {
-		return "", 0, fmt.Errorf("getting getSystemService method: %w", err)
+	if cameraIdArrayHandle == 0 {
+		return "", fmt.Errorf("GetCameraIdList returned null")
 	}
 
-	cameraServiceStr, err := j.newString(ctx, appconsts.CameraService)
+	cameraIdHandle, err := j.getObjectArrayElement(ctx, cameraIdArrayHandle, int32(index))
 	if err != nil {
-		return "", 0, fmt.Errorf("creating camera service string: %w", err)
-	}
-	cameraManager, err := j.callObjectMethod(ctx, appContextHandle, getSystemServiceMid, objVal(cameraServiceStr))
-	if err != nil {
-		return "", 0, fmt.Errorf("calling getSystemService(%q): %w", appconsts.CameraService, err)
-	}
-	if cameraManager == 0 {
-		return "", 0, fmt.Errorf("getSystemService(%q) returned null", appconsts.CameraService)
-	}
-
-	cameraMgrCls, err := j.findClass(ctx, "android/hardware/camera2/CameraManager")
-	if err != nil {
-		return "", 0, fmt.Errorf("finding CameraManager class: %w", err)
-	}
-	getCameraIdListMid, err := j.getMethodID(ctx, cameraMgrCls, "getCameraIdList", "()[Ljava/lang/String;")
-	if err != nil {
-		return "", 0, fmt.Errorf("getting getCameraIdList method: %w", err)
-	}
-	cameraIdArray, err := j.callObjectMethod(ctx, cameraManager, getCameraIdListMid)
-	if err != nil {
-		return "", 0, fmt.Errorf("calling getCameraIdList: %w", err)
-	}
-	if cameraIdArray == 0 {
-		return "", 0, fmt.Errorf("getCameraIdList returned null")
-	}
-
-	cameraIdHandle, err := j.getObjectArrayElement(ctx, cameraIdArray, int32(index))
-	if err != nil {
-		return "", 0, fmt.Errorf("getting camera ID at index %d: %w", index, err)
+		return "", fmt.Errorf("getting camera ID at index %d: %w", index, err)
 	}
 	cameraID, err := j.getStringUTFChars(ctx, cameraIdHandle)
 	if err != nil {
-		return "", 0, fmt.Errorf("reading camera ID string: %w", err)
+		return "", fmt.Errorf("reading camera ID string: %w", err)
 	}
 
-	return cameraID, cameraManager, nil
+	return cameraID, nil
 }
 
-// videoRecordingFallbackDir is used when getCacheDir fails (e.g. when
-// running as the "android" package which has no data directory).
-const videoRecordingFallbackDir = "/data/local/tmp"
+// videoRecordingFallbackDir is used when getCacheDir fails. Using /sdcard/
+// because the mediaserver process needs write access to the output file.
+const videoRecordingFallbackDir = "/sdcard"
 
 // getOutputPath returns a device-side path for the camera recording.
 // It tries the app's cache directory first and falls back to
@@ -576,16 +560,23 @@ func setupMediaRecorder(
 		return 0, fmt.Errorf("creating output path string: %w", err)
 	}
 
+	// The call order follows the Android MediaRecorder state machine:
+	// 1. setAudioSource/setVideoSource  (Initial -> Initialized)
+	// 2. setOutputFormat                 (Initialized -> DataSourceConfigured)
+	// 3. setVideoEncoder/setAudioEncoder (must be after setOutputFormat)
+	// 4. setVideoSize/bitrate/framerate  (encoder configuration)
+	// 5. setOutputFile                   (must be after encoders)
+	// 6. prepare                         (DataSourceConfigured -> Prepared)
 	calls := []methodCall{
 		{"setAudioSource", "(I)V", []*pb.JValue{intVal(audioSourceMIC)}},
 		{"setVideoSource", "(I)V", []*pb.JValue{intVal(videoSourceSurface)}},
 		{"setOutputFormat", "(I)V", []*pb.JValue{intVal(outputFormatMPEG4)}},
-		{"setOutputFile", "(Ljava/lang/String;)V", []*pb.JValue{objVal(outputPathStr)}},
+		{"setVideoEncoder", "(I)V", []*pb.JValue{intVal(videoEncoderH264)}},
+		{"setAudioEncoder", "(I)V", []*pb.JValue{intVal(audioEncoderAAC)}},
 		{"setVideoEncodingBitRate", "(I)V", []*pb.JValue{intVal(defaultVideoBitRate)}},
 		{"setVideoFrameRate", "(I)V", []*pb.JValue{intVal(defaultVideoFrameRate)}},
 		{"setVideoSize", "(II)V", []*pb.JValue{intVal(int32(width)), intVal(int32(height))}},
-		{"setVideoEncoder", "(I)V", []*pb.JValue{intVal(videoEncoderH264)}},
-		{"setAudioEncoder", "(I)V", []*pb.JValue{intVal(audioEncoderAAC)}},
+		{"setOutputFile", "(Ljava/lang/String;)V", []*pb.JValue{objVal(outputPathStr)}},
 		{"prepare", "()V", nil},
 	}
 
@@ -761,4 +752,29 @@ func releaseMediaRecorder(ctx context.Context, j *jniCaller, recorder int64) err
 		return err
 	}
 	return j.callVoidMethod(ctx, recorder, releaseMid)
+}
+
+// getSystemService calls Context.getSystemService(name) and returns the
+// resulting object handle.
+func getSystemService(ctx context.Context, j *jniCaller, contextHandle int64, serviceName string) (int64, error) {
+	contextCls, err := j.findClass(ctx, "android/content/Context")
+	if err != nil {
+		return 0, fmt.Errorf("finding Context class: %w", err)
+	}
+	getServiceMid, err := j.getMethodID(ctx, contextCls, "getSystemService", "(Ljava/lang/String;)Ljava/lang/Object;")
+	if err != nil {
+		return 0, fmt.Errorf("getting getSystemService method: %w", err)
+	}
+	nameStr, err := j.newString(ctx, serviceName)
+	if err != nil {
+		return 0, fmt.Errorf("creating service name string: %w", err)
+	}
+	svc, err := j.callObjectMethod(ctx, contextHandle, getServiceMid, objVal(nameStr))
+	if err != nil {
+		return 0, fmt.Errorf("calling getSystemService(%q): %w", serviceName, err)
+	}
+	if svc == 0 {
+		return 0, fmt.Errorf("getSystemService(%q) returned null", serviceName)
+	}
+	return svc, nil
 }

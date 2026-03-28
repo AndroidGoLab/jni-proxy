@@ -5,3 +5,258 @@ syntax = "proto3";
 package settings;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/settings";
+
+message NewSettingsRequest {
+}
+
+message NewSettingsResponse {
+  int64 result = 1;
+}
+
+message CanDrawOverlaysRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message CanDrawOverlaysResponse {
+  bool result = 1;
+}
+
+message GetFloat2Request {
+  int64 arg0 = 1;
+  string arg1 = 2;
+}
+
+message GetFloat2Response {
+  float result = 1;
+}
+
+message GetFloat3_1Request {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  float arg2 = 3;
+}
+
+message GetFloat3_1Response {
+  float result = 1;
+}
+
+message GetInt2Request {
+  int64 arg0 = 1;
+  string arg1 = 2;
+}
+
+message GetInt2Response {
+  int32 result = 1;
+}
+
+message GetInt3_1Request {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message GetInt3_1Response {
+  int32 result = 1;
+}
+
+message GetLong2Request {
+  int64 arg0 = 1;
+  string arg1 = 2;
+}
+
+message GetLong2Response {
+  int64 result = 1;
+}
+
+message GetLong3_1Request {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message GetLong3_1Response {
+  int64 result = 1;
+}
+
+message GetStringRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+}
+
+message GetStringResponse {
+  string result = 1;
+}
+
+message GetUriForRequest {
+  string arg0 = 1;
+}
+
+message GetUriForResponse {
+  int64 result = 1;
+}
+
+message PutFloatRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  float arg2 = 3;
+}
+
+message PutFloatResponse {
+  bool result = 1;
+}
+
+message PutIntRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message PutIntResponse {
+  bool result = 1;
+}
+
+message PutLongRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message PutLongResponse {
+  bool result = 1;
+}
+
+message PutStringRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  string arg2 = 3;
+}
+
+message PutStringResponse {
+  bool result = 1;
+}
+
+message NameValueTableGetUriForRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+}
+
+message IsLocationProviderEnabledRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+}
+
+message IsLocationProviderEnabledResponse {
+  bool result = 1;
+}
+
+message SetLocationProviderEnabledRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  bool arg2 = 3;
+}
+
+message SetLocationProviderEnabledResponse {
+}
+
+message CanWriteRequest {
+  int64 arg0 = 1;
+}
+
+message CanWriteResponse {
+  bool result = 1;
+}
+
+message GetConfigurationRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message GetConfigurationResponse {
+}
+
+message GetShowGTalkServiceStatusRequest {
+  int64 arg0 = 1;
+}
+
+message GetShowGTalkServiceStatusResponse {
+  bool result = 1;
+}
+
+message PutConfigurationRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message PutConfigurationResponse {
+  bool result = 1;
+}
+
+message SetShowGTalkServiceStatusRequest {
+  int64 arg0 = 1;
+  bool arg1 = 2;
+}
+
+message SetShowGTalkServiceStatusResponse {
+}
+
+service SettingsService {
+  rpc NewSettings (NewSettingsRequest) returns (NewSettingsResponse);
+  rpc CanDrawOverlays (CanDrawOverlaysRequest) returns (CanDrawOverlaysResponse);
+}
+
+service GlobalService {
+  rpc GetFloat2 (GetFloat2Request) returns (GetFloat2Response);
+  rpc GetFloat3_1 (GetFloat3_1Request) returns (GetFloat3_1Response);
+  rpc GetInt2 (GetInt2Request) returns (GetInt2Response);
+  rpc GetInt3_1 (GetInt3_1Request) returns (GetInt3_1Response);
+  rpc GetLong2 (GetLong2Request) returns (GetLong2Response);
+  rpc GetLong3_1 (GetLong3_1Request) returns (GetLong3_1Response);
+  rpc GetString (GetStringRequest) returns (GetStringResponse);
+  rpc GetUriFor (GetUriForRequest) returns (GetUriForResponse);
+  rpc PutFloat (PutFloatRequest) returns (PutFloatResponse);
+  rpc PutInt (PutIntRequest) returns (PutIntResponse);
+  rpc PutLong (PutLongRequest) returns (PutLongResponse);
+  rpc PutString (PutStringRequest) returns (PutStringResponse);
+}
+
+service NameValueTableService {
+  rpc GetUriFor (NameValueTableGetUriForRequest) returns (GetUriForResponse);
+}
+
+service SecureService {
+  rpc GetFloat2 (GetFloat2Request) returns (GetFloat2Response);
+  rpc GetFloat3_1 (GetFloat3_1Request) returns (GetFloat3_1Response);
+  rpc GetInt2 (GetInt2Request) returns (GetInt2Response);
+  rpc GetInt3_1 (GetInt3_1Request) returns (GetInt3_1Response);
+  rpc GetLong2 (GetLong2Request) returns (GetLong2Response);
+  rpc GetLong3_1 (GetLong3_1Request) returns (GetLong3_1Response);
+  rpc GetString (GetStringRequest) returns (GetStringResponse);
+  rpc GetUriFor (GetUriForRequest) returns (GetUriForResponse);
+  rpc IsLocationProviderEnabled (IsLocationProviderEnabledRequest) returns (IsLocationProviderEnabledResponse);
+  rpc PutFloat (PutFloatRequest) returns (PutFloatResponse);
+  rpc PutInt (PutIntRequest) returns (PutIntResponse);
+  rpc PutLong (PutLongRequest) returns (PutLongResponse);
+  rpc PutString (PutStringRequest) returns (PutStringResponse);
+  rpc SetLocationProviderEnabled (SetLocationProviderEnabledRequest) returns (SetLocationProviderEnabledResponse);
+}
+
+service SystemService {
+  rpc CanWrite (CanWriteRequest) returns (CanWriteResponse);
+  rpc GetConfiguration (GetConfigurationRequest) returns (GetConfigurationResponse);
+  rpc GetFloat2 (GetFloat2Request) returns (GetFloat2Response);
+  rpc GetFloat3_1 (GetFloat3_1Request) returns (GetFloat3_1Response);
+  rpc GetInt2 (GetInt2Request) returns (GetInt2Response);
+  rpc GetInt3_1 (GetInt3_1Request) returns (GetInt3_1Response);
+  rpc GetLong2 (GetLong2Request) returns (GetLong2Response);
+  rpc GetLong3_1 (GetLong3_1Request) returns (GetLong3_1Response);
+  rpc GetShowGTalkServiceStatus (GetShowGTalkServiceStatusRequest) returns (GetShowGTalkServiceStatusResponse);
+  rpc GetString (GetStringRequest) returns (GetStringResponse);
+  rpc GetUriFor (GetUriForRequest) returns (GetUriForResponse);
+  rpc PutConfiguration (PutConfigurationRequest) returns (PutConfigurationResponse);
+  rpc PutFloat (PutFloatRequest) returns (PutFloatResponse);
+  rpc PutInt (PutIntRequest) returns (PutIntResponse);
+  rpc PutLong (PutLongRequest) returns (PutLongResponse);
+  rpc PutString (PutStringRequest) returns (PutStringResponse);
+  rpc SetShowGTalkServiceStatus (SetShowGTalkServiceStatusRequest) returns (SetShowGTalkServiceStatusResponse);
+}

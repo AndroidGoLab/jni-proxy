@@ -5,3 +5,123 @@ syntax = "proto3";
 package changelog;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/changelog";
+
+message DescribeContentsRequest {
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message GetPageSizeRequest {
+}
+
+message GetPageSizeResponse {
+  int32 result = 1;
+}
+
+message GetTokenRequest {
+}
+
+message GetTokenResponse {
+  string result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteToParcelResponse {
+}
+
+message BuildRequest {
+}
+
+message BuildResponse {
+  int64 result = 1;
+}
+
+message SetPageSizeRequest {
+  int32 arg0 = 1;
+}
+
+message SetPageSizeResponse {
+  int64 result = 1;
+}
+
+message AddDataOriginFilterRequest {
+  int64 arg0 = 1;
+}
+
+message AddDataOriginFilterResponse {
+  int64 result = 1;
+}
+
+message GetNextChangesTokenRequest {
+}
+
+message GetNextChangesTokenResponse {
+  string result = 1;
+}
+
+message HasMorePagesRequest {
+}
+
+message HasMorePagesResponse {
+  bool result = 1;
+}
+
+message GetDeletedRecordIdRequest {
+}
+
+message GetDeletedRecordIdResponse {
+  string result = 1;
+}
+
+message GetDeletedTimeRequest {
+}
+
+message GetDeletedTimeResponse {
+  int64 result = 1;
+}
+
+service ChangeLogsRequestService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetPageSize (GetPageSizeRequest) returns (GetPageSizeResponse);
+  rpc GetToken (GetTokenRequest) returns (GetTokenResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ChangeLogsRequestBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetPageSize (SetPageSizeRequest) returns (SetPageSizeResponse);
+}
+
+service ChangeLogTokenRequestService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ChangeLogTokenRequestBuilderService {
+  rpc AddDataOriginFilter (AddDataOriginFilterRequest) returns (AddDataOriginFilterResponse);
+  rpc Build (BuildRequest) returns (BuildResponse);
+}
+
+service ChangeLogsResponseService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetNextChangesToken (GetNextChangesTokenRequest) returns (GetNextChangesTokenResponse);
+  rpc HasMorePages (HasMorePagesRequest) returns (HasMorePagesResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ChangeLogsResponseDeletedLogService {
+  rpc GetDeletedRecordId (GetDeletedRecordIdRequest) returns (GetDeletedRecordIdResponse);
+  rpc GetDeletedTime (GetDeletedTimeRequest) returns (GetDeletedTimeResponse);
+}
+
+service ChangeLogTokenResponseService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetToken (GetTokenRequest) returns (GetTokenResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}

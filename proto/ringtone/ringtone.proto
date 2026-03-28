@@ -5,3 +5,346 @@ syntax = "proto3";
 package ringtone;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/ringtone";
+
+message NewManagerRequest {
+  int64 arg0 = 1;
+}
+
+message NewManagerResponse {
+  int64 result = 1;
+}
+
+message GetCursorRequest {
+  int64 handle = 1;
+}
+
+message GetCursorResponse {
+  int64 result = 1;
+}
+
+message GetIncludeDrmRequest {
+  int64 handle = 1;
+}
+
+message GetIncludeDrmResponse {
+  bool result = 1;
+}
+
+message GetRingtone1_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetRingtone1_1Response {
+  int64 result = 1;
+}
+
+message GetRingtonePositionRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetRingtonePositionResponse {
+  int32 result = 1;
+}
+
+message GetRingtoneUriRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetRingtoneUriResponse {
+  int64 result = 1;
+}
+
+message GetStopPreviousRingtoneRequest {
+  int64 handle = 1;
+}
+
+message GetStopPreviousRingtoneResponse {
+  bool result = 1;
+}
+
+message HasHapticChannels1_2Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message HasHapticChannels1_2Response {
+  bool result = 1;
+}
+
+message InferStreamTypeRequest {
+  int64 handle = 1;
+}
+
+message InferStreamTypeResponse {
+  int32 result = 1;
+}
+
+message SetIncludeDrmRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetIncludeDrmResponse {
+}
+
+message SetStopPreviousRingtoneRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetStopPreviousRingtoneResponse {
+}
+
+message SetTypeRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetTypeResponse {
+}
+
+message StopPreviousRingtoneRequest {
+  int64 handle = 1;
+}
+
+message StopPreviousRingtoneResponse {
+}
+
+message GetActualDefaultRingtoneUriRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message GetActualDefaultRingtoneUriResponse {
+  int64 result = 1;
+}
+
+message GetDefaultTypeRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetDefaultTypeResponse {
+  int32 result = 1;
+}
+
+message GetDefaultUriRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetDefaultUriResponse {
+  int64 result = 1;
+}
+
+message GetRingtone2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message GetRingtone2Response {
+  int64 result = 1;
+}
+
+message GetValidRingtoneUriRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetValidRingtoneUriResponse {
+  int64 result = 1;
+}
+
+message HasHapticChannels2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message HasHapticChannels2Response {
+  bool result = 1;
+}
+
+message HasHapticChannels1_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message HasHapticChannels1_1Response {
+  bool result = 1;
+}
+
+message IsDefaultRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message IsDefaultResponse {
+  bool result = 1;
+}
+
+message OpenDefaultRingtoneUriRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message OpenDefaultRingtoneUriResponse {
+  int64 result = 1;
+}
+
+message SetActualDefaultRingtoneUriRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message SetActualDefaultRingtoneUriResponse {
+}
+
+message GetAudioAttributesRequest {
+}
+
+message GetAudioAttributesResponse {
+  int64 result = 1;
+}
+
+message GetStreamTypeRequest {
+}
+
+message GetStreamTypeResponse {
+  int32 result = 1;
+}
+
+message GetTitleRequest {
+  int64 arg0 = 1;
+}
+
+message GetTitleResponse {
+  string result = 1;
+}
+
+message GetVolumeRequest {
+}
+
+message GetVolumeResponse {
+  float result = 1;
+}
+
+message IsHapticGeneratorEnabledRequest {
+}
+
+message IsHapticGeneratorEnabledResponse {
+  bool result = 1;
+}
+
+message IsLoopingRequest {
+}
+
+message IsLoopingResponse {
+  bool result = 1;
+}
+
+message IsPlayingRequest {
+}
+
+message IsPlayingResponse {
+  bool result = 1;
+}
+
+message PlayRequest {
+}
+
+message PlayResponse {
+}
+
+message SetAudioAttributesRequest {
+  int64 arg0 = 1;
+}
+
+message SetAudioAttributesResponse {
+}
+
+message SetHapticGeneratorEnabledRequest {
+  bool arg0 = 1;
+}
+
+message SetHapticGeneratorEnabledResponse {
+  bool result = 1;
+}
+
+message SetLoopingRequest {
+  bool arg0 = 1;
+}
+
+message SetLoopingResponse {
+}
+
+message SetStreamTypeRequest {
+  int32 arg0 = 1;
+}
+
+message SetStreamTypeResponse {
+}
+
+message SetVolumeRequest {
+  float arg0 = 1;
+}
+
+message SetVolumeResponse {
+}
+
+message StopRequest {
+}
+
+message StopResponse {
+}
+
+service ManagerService {
+  rpc NewManager (NewManagerRequest) returns (NewManagerResponse);
+  rpc GetCursor (GetCursorRequest) returns (GetCursorResponse);
+  rpc GetIncludeDrm (GetIncludeDrmRequest) returns (GetIncludeDrmResponse);
+  rpc GetRingtone1_1 (GetRingtone1_1Request) returns (GetRingtone1_1Response);
+  rpc GetRingtonePosition (GetRingtonePositionRequest) returns (GetRingtonePositionResponse);
+  rpc GetRingtoneUri (GetRingtoneUriRequest) returns (GetRingtoneUriResponse);
+  rpc GetStopPreviousRingtone (GetStopPreviousRingtoneRequest) returns (GetStopPreviousRingtoneResponse);
+  rpc HasHapticChannels1_2 (HasHapticChannels1_2Request) returns (HasHapticChannels1_2Response);
+  rpc InferStreamType (InferStreamTypeRequest) returns (InferStreamTypeResponse);
+  rpc SetIncludeDrm (SetIncludeDrmRequest) returns (SetIncludeDrmResponse);
+  rpc SetStopPreviousRingtone (SetStopPreviousRingtoneRequest) returns (SetStopPreviousRingtoneResponse);
+  rpc SetType (SetTypeRequest) returns (SetTypeResponse);
+  rpc StopPreviousRingtone (StopPreviousRingtoneRequest) returns (StopPreviousRingtoneResponse);
+  rpc GetActualDefaultRingtoneUri (GetActualDefaultRingtoneUriRequest) returns (GetActualDefaultRingtoneUriResponse);
+  rpc GetDefaultType (GetDefaultTypeRequest) returns (GetDefaultTypeResponse);
+  rpc GetDefaultUri (GetDefaultUriRequest) returns (GetDefaultUriResponse);
+  rpc GetRingtone2 (GetRingtone2Request) returns (GetRingtone2Response);
+  rpc GetValidRingtoneUri (GetValidRingtoneUriRequest) returns (GetValidRingtoneUriResponse);
+  rpc HasHapticChannels2 (HasHapticChannels2Request) returns (HasHapticChannels2Response);
+  rpc HasHapticChannels1_1 (HasHapticChannels1_1Request) returns (HasHapticChannels1_1Response);
+  rpc IsDefault (IsDefaultRequest) returns (IsDefaultResponse);
+  rpc OpenDefaultRingtoneUri (OpenDefaultRingtoneUriRequest) returns (OpenDefaultRingtoneUriResponse);
+  rpc SetActualDefaultRingtoneUri (SetActualDefaultRingtoneUriRequest) returns (SetActualDefaultRingtoneUriResponse);
+}
+
+service RingtoneService {
+  rpc GetAudioAttributes (GetAudioAttributesRequest) returns (GetAudioAttributesResponse);
+  rpc GetStreamType (GetStreamTypeRequest) returns (GetStreamTypeResponse);
+  rpc GetTitle (GetTitleRequest) returns (GetTitleResponse);
+  rpc GetVolume (GetVolumeRequest) returns (GetVolumeResponse);
+  rpc IsHapticGeneratorEnabled (IsHapticGeneratorEnabledRequest) returns (IsHapticGeneratorEnabledResponse);
+  rpc IsLooping (IsLoopingRequest) returns (IsLoopingResponse);
+  rpc IsPlaying (IsPlayingRequest) returns (IsPlayingResponse);
+  rpc Play (PlayRequest) returns (PlayResponse);
+  rpc SetAudioAttributes (SetAudioAttributesRequest) returns (SetAudioAttributesResponse);
+  rpc SetHapticGeneratorEnabled (SetHapticGeneratorEnabledRequest) returns (SetHapticGeneratorEnabledResponse);
+  rpc SetLooping (SetLoopingRequest) returns (SetLoopingResponse);
+  rpc SetStreamType (SetStreamTypeRequest) returns (SetStreamTypeResponse);
+  rpc SetVolume (SetVolumeRequest) returns (SetVolumeResponse);
+  rpc Stop (StopRequest) returns (StopResponse);
+}

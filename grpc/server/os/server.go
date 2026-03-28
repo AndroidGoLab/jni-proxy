@@ -15,6 +15,4161 @@ import (
 	"google.golang.org/grpc/status"
 )
 
+// HandlerThreadServer implements pb.HandlerThreadServiceServer.
+type HandlerThreadServer struct {
+	pb.UnimplementedHandlerThreadServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *HandlerThreadServer) NewHandlerThread(_ context.Context, req *pb.NewHandlerThreadRequest) (*pb.NewHandlerThreadResponse, error) {
+	obj, err := jnipkg.NewHandlerThread(s.Ctx.VM, req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewHandlerThreadResponse{Result: handle}, nil
+}
+
+func (s *HandlerThreadServer) GetLooper(_ context.Context, req *pb.GetLooperRequest) (*pb.GetLooperResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.HandlerThread{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetLooper()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetLooperResponse{Result: handle}, nil
+}
+
+func (s *HandlerThreadServer) GetThreadId(_ context.Context, req *pb.GetThreadIdRequest) (*pb.GetThreadIdResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.HandlerThread{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetThreadId()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetThreadIdResponse{Result: result}, nil
+}
+
+func (s *HandlerThreadServer) Quit(_ context.Context, req *pb.QuitRequest) (*pb.QuitResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.HandlerThread{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Quit()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.QuitResponse{Result: result}, nil
+}
+
+func (s *HandlerThreadServer) QuitSafely(_ context.Context, req *pb.QuitSafelyRequest) (*pb.QuitSafelyResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.HandlerThread{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.QuitSafely()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.QuitSafelyResponse{Result: result}, nil
+}
+
+func (s *HandlerThreadServer) Run(_ context.Context, req *pb.RunRequest) (*pb.RunResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.HandlerThread{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Run(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.RunResponse{}, nil
+}
+
+// PerformanceHintManagerServer implements pb.PerformanceHintManagerServiceServer.
+type PerformanceHintManagerServer struct {
+	pb.UnimplementedPerformanceHintManagerServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *PerformanceHintManagerServer) CreateHintSession(_ context.Context, req *pb.CreateHintSessionRequest) (*pb.CreateHintSessionResponse, error) {
+	mgr, err := jnipkg.NewPerformanceHintManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.CreateHintSession(s.Handles.Get(req.GetArg0()), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.CreateHintSessionResponse{Result: handle}, nil
+}
+
+func (s *PerformanceHintManagerServer) GetPreferredUpdateRateNanos(_ context.Context, req *pb.GetPreferredUpdateRateNanosRequest) (*pb.GetPreferredUpdateRateNanosResponse, error) {
+	mgr, err := jnipkg.NewPerformanceHintManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetPreferredUpdateRateNanos()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetPreferredUpdateRateNanosResponse{Result: result}, nil
+}
+
+// WorkDurationServer implements pb.WorkDurationServiceServer.
+type WorkDurationServer struct {
+	pb.UnimplementedWorkDurationServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *WorkDurationServer) NewWorkDuration(_ context.Context, req *pb.NewWorkDurationRequest) (*pb.NewWorkDurationResponse, error) {
+	obj, err := jnipkg.NewWorkDuration(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewWorkDurationResponse{Result: handle}, nil
+}
+
+func (s *WorkDurationServer) Equals(_ context.Context, req *pb.EqualsRequest) (*pb.EqualsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WorkDuration{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Equals(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EqualsResponse{Result: result}, nil
+}
+
+func (s *WorkDurationServer) GetActualCpuDurationNanos(_ context.Context, req *pb.GetActualCpuDurationNanosRequest) (*pb.GetActualCpuDurationNanosResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WorkDuration{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetActualCpuDurationNanos()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetActualCpuDurationNanosResponse{Result: result}, nil
+}
+
+func (s *WorkDurationServer) GetActualGpuDurationNanos(_ context.Context, req *pb.GetActualGpuDurationNanosRequest) (*pb.GetActualGpuDurationNanosResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WorkDuration{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetActualGpuDurationNanos()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetActualGpuDurationNanosResponse{Result: result}, nil
+}
+
+func (s *WorkDurationServer) GetActualTotalDurationNanos(_ context.Context, req *pb.GetActualTotalDurationNanosRequest) (*pb.GetActualTotalDurationNanosResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WorkDuration{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetActualTotalDurationNanos()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetActualTotalDurationNanosResponse{Result: result}, nil
+}
+
+func (s *WorkDurationServer) GetWorkPeriodStartTimestampNanos(_ context.Context, req *pb.GetWorkPeriodStartTimestampNanosRequest) (*pb.GetWorkPeriodStartTimestampNanosResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WorkDuration{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetWorkPeriodStartTimestampNanos()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetWorkPeriodStartTimestampNanosResponse{Result: result}, nil
+}
+
+func (s *WorkDurationServer) HashCode(_ context.Context, req *pb.HashCodeRequest) (*pb.HashCodeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WorkDuration{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.HashCode()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.HashCodeResponse{Result: result}, nil
+}
+
+func (s *WorkDurationServer) SetActualCpuDurationNanos(_ context.Context, req *pb.SetActualCpuDurationNanosRequest) (*pb.SetActualCpuDurationNanosResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WorkDuration{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetActualCpuDurationNanos(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetActualCpuDurationNanosResponse{}, nil
+}
+
+func (s *WorkDurationServer) SetActualGpuDurationNanos(_ context.Context, req *pb.SetActualGpuDurationNanosRequest) (*pb.SetActualGpuDurationNanosResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WorkDuration{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetActualGpuDurationNanos(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetActualGpuDurationNanosResponse{}, nil
+}
+
+func (s *WorkDurationServer) SetActualTotalDurationNanos(_ context.Context, req *pb.SetActualTotalDurationNanosRequest) (*pb.SetActualTotalDurationNanosResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WorkDuration{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetActualTotalDurationNanos(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetActualTotalDurationNanosResponse{}, nil
+}
+
+func (s *WorkDurationServer) SetWorkPeriodStartTimestampNanos(_ context.Context, req *pb.SetWorkPeriodStartTimestampNanosRequest) (*pb.SetWorkPeriodStartTimestampNanosResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WorkDuration{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetWorkPeriodStartTimestampNanos(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetWorkPeriodStartTimestampNanosResponse{}, nil
+}
+
+// PatternMatcherServer implements pb.PatternMatcherServiceServer.
+type PatternMatcherServer struct {
+	pb.UnimplementedPatternMatcherServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *PatternMatcherServer) NewPatternMatcher(_ context.Context, req *pb.NewPatternMatcherRequest) (*pb.NewPatternMatcherResponse, error) {
+	obj, err := jnipkg.NewPatternMatcher(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewPatternMatcherResponse{Result: handle}, nil
+}
+
+func (s *PatternMatcherServer) DescribeContents(_ context.Context, req *pb.PatternMatcherDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PatternMatcher{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *PatternMatcherServer) GetPath(_ context.Context, req *pb.GetPathRequest) (*pb.GetPathResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PatternMatcher{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetPath()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetPathResponse{Result: result}, nil
+}
+
+func (s *PatternMatcherServer) GetType(_ context.Context, req *pb.GetTypeRequest) (*pb.GetTypeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PatternMatcher{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetType()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetTypeResponse{Result: result}, nil
+}
+
+func (s *PatternMatcherServer) Match(_ context.Context, req *pb.MatchRequest) (*pb.MatchResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PatternMatcher{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Match(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.MatchResponse{Result: result}, nil
+}
+
+func (s *PatternMatcherServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PatternMatcher{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *PatternMatcherServer) WriteToParcel(_ context.Context, req *pb.PatternMatcherWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PatternMatcher{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
+// MessengerServer implements pb.MessengerServiceServer.
+type MessengerServer struct {
+	pb.UnimplementedMessengerServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *MessengerServer) NewMessenger(_ context.Context, req *pb.NewMessengerRequest) (*pb.NewMessengerResponse, error) {
+	obj, err := jnipkg.NewMessenger(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewMessengerResponse{Result: handle}, nil
+}
+
+func (s *MessengerServer) DescribeContents(_ context.Context, req *pb.MessengerDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Messenger{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *MessengerServer) Equals(_ context.Context, req *pb.EqualsRequest) (*pb.EqualsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Messenger{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Equals(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EqualsResponse{Result: result}, nil
+}
+
+func (s *MessengerServer) GetBinder(_ context.Context, req *pb.GetBinderRequest) (*pb.GetBinderResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Messenger{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetBinder()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetBinderResponse{Result: handle}, nil
+}
+
+func (s *MessengerServer) HashCode(_ context.Context, req *pb.HashCodeRequest) (*pb.HashCodeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Messenger{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.HashCode()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.HashCodeResponse{Result: result}, nil
+}
+
+func (s *MessengerServer) Send(_ context.Context, req *pb.SendRequest) (*pb.SendResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Messenger{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Send(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SendResponse{}, nil
+}
+
+func (s *MessengerServer) WriteToParcel(_ context.Context, req *pb.MessengerWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Messenger{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
+func (s *MessengerServer) ReadMessengerOrNullFromParcel(_ context.Context, req *pb.ReadMessengerOrNullFromParcelRequest) (*pb.ReadMessengerOrNullFromParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Messenger{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ReadMessengerOrNullFromParcel(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.ReadMessengerOrNullFromParcelResponse{Result: handle}, nil
+}
+
+func (s *MessengerServer) WriteMessengerOrNullToParcel(_ context.Context, req *pb.WriteMessengerOrNullToParcelRequest) (*pb.WriteMessengerOrNullToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Messenger{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteMessengerOrNullToParcel(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteMessengerOrNullToParcelResponse{}, nil
+}
+
+// UserHandleServer implements pb.UserHandleServiceServer.
+type UserHandleServer struct {
+	pb.UnimplementedUserHandleServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *UserHandleServer) NewUserHandle(_ context.Context, req *pb.NewUserHandleRequest) (*pb.NewUserHandleResponse, error) {
+	obj, err := jnipkg.NewUserHandle(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewUserHandleResponse{Result: handle}, nil
+}
+
+func (s *UserHandleServer) DescribeContents(_ context.Context, req *pb.UserHandleDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.UserHandle{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *UserHandleServer) Equals(_ context.Context, req *pb.EqualsRequest) (*pb.EqualsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.UserHandle{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Equals(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EqualsResponse{Result: result}, nil
+}
+
+func (s *UserHandleServer) HashCode(_ context.Context, req *pb.HashCodeRequest) (*pb.HashCodeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.UserHandle{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.HashCode()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.HashCodeResponse{Result: result}, nil
+}
+
+func (s *UserHandleServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.UserHandle{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *UserHandleServer) WriteToParcel2(_ context.Context, req *pb.WriteToParcel2Request) (*pb.WriteToParcel2Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.UserHandle{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel2(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcel2Response{}, nil
+}
+
+func (s *UserHandleServer) GetUserHandleForUid(_ context.Context, req *pb.GetUserHandleForUidRequest) (*pb.GetUserHandleForUidResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.UserHandle{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetUserHandleForUid(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetUserHandleForUidResponse{Result: handle}, nil
+}
+
+func (s *UserHandleServer) ReadFromParcel(_ context.Context, req *pb.UserHandleReadFromParcelRequest) (*pb.UserHandleReadFromParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.UserHandle{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ReadFromParcel(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.UserHandleReadFromParcelResponse{Result: handle}, nil
+}
+
+func (s *UserHandleServer) WriteToParcel2_1(_ context.Context, req *pb.WriteToParcel2_1Request) (*pb.WriteToParcel2_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.UserHandle{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel2_1(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcel2_1Response{}, nil
+}
+
+// MessageServer implements pb.MessageServiceServer.
+type MessageServer struct {
+	pb.UnimplementedMessageServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *MessageServer) NewMessage(_ context.Context, req *pb.NewMessageRequest) (*pb.NewMessageResponse, error) {
+	obj, err := jnipkg.NewMessage(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewMessageResponse{Result: handle}, nil
+}
+
+func (s *MessageServer) CopyFrom(_ context.Context, req *pb.CopyFromRequest) (*pb.CopyFromResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Message{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.CopyFrom(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.CopyFromResponse{}, nil
+}
+
+func (s *MessageServer) DescribeContents(_ context.Context, req *pb.MessageDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Message{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *MessageServer) GetCallback(_ context.Context, req *pb.GetCallbackRequest) (*pb.GetCallbackResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Message{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetCallback()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetCallbackResponse{Result: handle}, nil
+}
+
+func (s *MessageServer) GetData(_ context.Context, req *pb.GetDataRequest) (*pb.GetDataResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Message{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetData()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetDataResponse{Result: handle}, nil
+}
+
+func (s *MessageServer) GetTarget(_ context.Context, req *pb.GetTargetRequest) (*pb.GetTargetResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Message{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetTarget()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetTargetResponse{Result: handle}, nil
+}
+
+func (s *MessageServer) GetWhen(_ context.Context, req *pb.GetWhenRequest) (*pb.GetWhenResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Message{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetWhen()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetWhenResponse{Result: result}, nil
+}
+
+func (s *MessageServer) IsAsynchronous(_ context.Context, req *pb.IsAsynchronousRequest) (*pb.IsAsynchronousResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Message{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsAsynchronous()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsAsynchronousResponse{Result: result}, nil
+}
+
+func (s *MessageServer) PeekData(_ context.Context, req *pb.PeekDataRequest) (*pb.PeekDataResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Message{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.PeekData()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.PeekDataResponse{Result: handle}, nil
+}
+
+func (s *MessageServer) Recycle(_ context.Context, req *pb.RecycleRequest) (*pb.RecycleResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Message{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Recycle(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.RecycleResponse{}, nil
+}
+
+func (s *MessageServer) SendToTarget(_ context.Context, req *pb.SendToTargetRequest) (*pb.SendToTargetResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Message{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SendToTarget(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SendToTargetResponse{}, nil
+}
+
+func (s *MessageServer) SetAsynchronous(_ context.Context, req *pb.SetAsynchronousRequest) (*pb.SetAsynchronousResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Message{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetAsynchronous(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetAsynchronousResponse{}, nil
+}
+
+func (s *MessageServer) SetData(_ context.Context, req *pb.SetDataRequest) (*pb.SetDataResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Message{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetData(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetDataResponse{}, nil
+}
+
+func (s *MessageServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Message{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *MessageServer) WriteToParcel(_ context.Context, req *pb.MessageWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Message{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
+func (s *MessageServer) Obtain0(_ context.Context, req *pb.Obtain0Request) (*pb.Obtain0Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Message{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Obtain0()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.Obtain0Response{Result: handle}, nil
+}
+
+func (s *MessageServer) Obtain1_1(_ context.Context, req *pb.Obtain1_1Request) (*pb.Obtain1_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Message{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Obtain1_1(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.Obtain1_1Response{Result: handle}, nil
+}
+
+// ParcelUuidServer implements pb.ParcelUuidServiceServer.
+type ParcelUuidServer struct {
+	pb.UnimplementedParcelUuidServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *ParcelUuidServer) NewParcelUuid(_ context.Context, req *pb.NewParcelUuidRequest) (*pb.NewParcelUuidResponse, error) {
+	obj, err := jnipkg.NewParcelUuid(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewParcelUuidResponse{Result: handle}, nil
+}
+
+func (s *ParcelUuidServer) DescribeContents(_ context.Context, req *pb.ParcelUuidDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ParcelUuid{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *ParcelUuidServer) Equals(_ context.Context, req *pb.EqualsRequest) (*pb.EqualsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ParcelUuid{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Equals(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EqualsResponse{Result: result}, nil
+}
+
+func (s *ParcelUuidServer) GetUuid(_ context.Context, req *pb.GetUuidRequest) (*pb.GetUuidResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ParcelUuid{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetUuid()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetUuidResponse{Result: handle}, nil
+}
+
+func (s *ParcelUuidServer) HashCode(_ context.Context, req *pb.HashCodeRequest) (*pb.HashCodeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ParcelUuid{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.HashCode()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.HashCodeResponse{Result: result}, nil
+}
+
+func (s *ParcelUuidServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ParcelUuid{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *ParcelUuidServer) WriteToParcel(_ context.Context, req *pb.ParcelUuidWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ParcelUuid{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
+func (s *ParcelUuidServer) FromString(_ context.Context, req *pb.FromStringRequest) (*pb.FromStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ParcelUuid{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.FromString(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.FromStringResponse{Result: handle}, nil
+}
+
+// WorkSourceServer implements pb.WorkSourceServiceServer.
+type WorkSourceServer struct {
+	pb.UnimplementedWorkSourceServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *WorkSourceServer) NewWorkSource(_ context.Context, req *pb.NewWorkSourceRequest) (*pb.NewWorkSourceResponse, error) {
+	obj, err := jnipkg.NewWorkSource(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewWorkSourceResponse{Result: handle}, nil
+}
+
+func (s *WorkSourceServer) Add(_ context.Context, req *pb.AddRequest) (*pb.AddResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WorkSource{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Add(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.AddResponse{Result: result}, nil
+}
+
+func (s *WorkSourceServer) Clear(_ context.Context, req *pb.ClearRequest) (*pb.ClearResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WorkSource{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Clear(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ClearResponse{}, nil
+}
+
+func (s *WorkSourceServer) DescribeContents(_ context.Context, req *pb.WorkSourceDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WorkSource{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *WorkSourceServer) Diff(_ context.Context, req *pb.DiffRequest) (*pb.DiffResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WorkSource{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Diff(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DiffResponse{Result: result}, nil
+}
+
+func (s *WorkSourceServer) Equals(_ context.Context, req *pb.EqualsRequest) (*pb.EqualsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WorkSource{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Equals(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EqualsResponse{Result: result}, nil
+}
+
+func (s *WorkSourceServer) HashCode(_ context.Context, req *pb.HashCodeRequest) (*pb.HashCodeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WorkSource{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.HashCode()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.HashCodeResponse{Result: result}, nil
+}
+
+func (s *WorkSourceServer) Remove(_ context.Context, req *pb.RemoveRequest) (*pb.RemoveResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WorkSource{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Remove(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.RemoveResponse{Result: result}, nil
+}
+
+func (s *WorkSourceServer) Set(_ context.Context, req *pb.SetRequest) (*pb.SetResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WorkSource{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Set(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetResponse{}, nil
+}
+
+func (s *WorkSourceServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WorkSource{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *WorkSourceServer) WriteToParcel(_ context.Context, req *pb.WorkSourceWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WorkSource{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
+// HardwarePropertiesManagerServer implements pb.HardwarePropertiesManagerServiceServer.
+type HardwarePropertiesManagerServer struct {
+	pb.UnimplementedHardwarePropertiesManagerServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *HardwarePropertiesManagerServer) GetCpuUsages(_ context.Context, req *pb.GetCpuUsagesRequest) (*pb.GetCpuUsagesResponse, error) {
+	mgr, err := jnipkg.NewHardwarePropertiesManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetCpuUsages()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetCpuUsagesResponse{Result: handle}, nil
+}
+
+func (s *HardwarePropertiesManagerServer) GetDeviceTemperatures(_ context.Context, req *pb.GetDeviceTemperaturesRequest) (*pb.GetDeviceTemperaturesResponse, error) {
+	mgr, err := jnipkg.NewHardwarePropertiesManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetDeviceTemperatures(req.GetArg0(), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetDeviceTemperaturesResponse{Result: handle}, nil
+}
+
+func (s *HardwarePropertiesManagerServer) GetFanSpeeds(_ context.Context, req *pb.GetFanSpeedsRequest) (*pb.GetFanSpeedsResponse, error) {
+	mgr, err := jnipkg.NewHardwarePropertiesManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetFanSpeeds()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetFanSpeedsResponse{Result: handle}, nil
+}
+
+// ResultReceiverServer implements pb.ResultReceiverServiceServer.
+type ResultReceiverServer struct {
+	pb.UnimplementedResultReceiverServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *ResultReceiverServer) NewResultReceiver(_ context.Context, req *pb.NewResultReceiverRequest) (*pb.NewResultReceiverResponse, error) {
+	obj, err := jnipkg.NewResultReceiver(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewResultReceiverResponse{Result: handle}, nil
+}
+
+func (s *ResultReceiverServer) DescribeContents(_ context.Context, req *pb.ResultReceiverDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ResultReceiver{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *ResultReceiverServer) Send(_ context.Context, req *pb.ResultReceiverSendRequest) (*pb.SendResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ResultReceiver{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Send(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SendResponse{}, nil
+}
+
+func (s *ResultReceiverServer) WriteToParcel(_ context.Context, req *pb.ResultReceiverWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ResultReceiver{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
+// BinderServer implements pb.BinderServiceServer.
+type BinderServer struct {
+	pb.UnimplementedBinderServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *BinderServer) NewBinder(_ context.Context, req *pb.NewBinderRequest) (*pb.NewBinderResponse, error) {
+	obj, err := jnipkg.NewBinder(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewBinderResponse{Result: handle}, nil
+}
+
+func (s *BinderServer) AttachInterface(_ context.Context, req *pb.AttachInterfaceRequest) (*pb.AttachInterfaceResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Binder{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.AttachInterface(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.AttachInterfaceResponse{}, nil
+}
+
+func (s *BinderServer) Dump(_ context.Context, req *pb.DumpRequest) (*pb.DumpResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Binder{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Dump(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DumpResponse{}, nil
+}
+
+func (s *BinderServer) DumpAsync(_ context.Context, req *pb.DumpAsyncRequest) (*pb.DumpAsyncResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Binder{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.DumpAsync(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DumpAsyncResponse{}, nil
+}
+
+func (s *BinderServer) GetInterfaceDescriptor(_ context.Context, req *pb.GetInterfaceDescriptorRequest) (*pb.GetInterfaceDescriptorResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Binder{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetInterfaceDescriptor()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetInterfaceDescriptorResponse{Result: result}, nil
+}
+
+func (s *BinderServer) IsBinderAlive(_ context.Context, req *pb.IsBinderAliveRequest) (*pb.IsBinderAliveResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Binder{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsBinderAlive()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsBinderAliveResponse{Result: result}, nil
+}
+
+func (s *BinderServer) LinkToDeath(_ context.Context, req *pb.LinkToDeathRequest) (*pb.LinkToDeathResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Binder{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.LinkToDeath(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.LinkToDeathResponse{}, nil
+}
+
+func (s *BinderServer) PingBinder(_ context.Context, req *pb.PingBinderRequest) (*pb.PingBinderResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Binder{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.PingBinder()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.PingBinderResponse{Result: result}, nil
+}
+
+func (s *BinderServer) QueryLocalInterface(_ context.Context, req *pb.QueryLocalInterfaceRequest) (*pb.QueryLocalInterfaceResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Binder{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.QueryLocalInterface(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.QueryLocalInterfaceResponse{Result: handle}, nil
+}
+
+func (s *BinderServer) Transact(_ context.Context, req *pb.TransactRequest) (*pb.TransactResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Binder{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Transact(req.GetArg0(), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()), req.GetArg3())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.TransactResponse{Result: result}, nil
+}
+
+func (s *BinderServer) UnlinkToDeath(_ context.Context, req *pb.UnlinkToDeathRequest) (*pb.UnlinkToDeathResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Binder{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.UnlinkToDeath(s.Handles.Get(req.GetArg0()), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.UnlinkToDeathResponse{Result: result}, nil
+}
+
+func (s *BinderServer) ClearCallingIdentity(_ context.Context, req *pb.ClearCallingIdentityRequest) (*pb.ClearCallingIdentityResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Binder{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ClearCallingIdentity()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ClearCallingIdentityResponse{Result: result}, nil
+}
+
+func (s *BinderServer) ClearCallingWorkSource(_ context.Context, req *pb.ClearCallingWorkSourceRequest) (*pb.ClearCallingWorkSourceResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Binder{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ClearCallingWorkSource()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ClearCallingWorkSourceResponse{Result: result}, nil
+}
+
+func (s *BinderServer) FlushPendingCommands(_ context.Context, req *pb.FlushPendingCommandsRequest) (*pb.FlushPendingCommandsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Binder{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.FlushPendingCommands(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.FlushPendingCommandsResponse{}, nil
+}
+
+func (s *BinderServer) GetCallingPid(_ context.Context, req *pb.GetCallingPidRequest) (*pb.GetCallingPidResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Binder{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetCallingPid()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetCallingPidResponse{Result: result}, nil
+}
+
+func (s *BinderServer) GetCallingUid(_ context.Context, req *pb.GetCallingUidRequest) (*pb.GetCallingUidResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Binder{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetCallingUid()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetCallingUidResponse{Result: result}, nil
+}
+
+func (s *BinderServer) GetCallingUidOrThrow(_ context.Context, req *pb.GetCallingUidOrThrowRequest) (*pb.GetCallingUidOrThrowResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Binder{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetCallingUidOrThrow()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetCallingUidOrThrowResponse{Result: result}, nil
+}
+
+func (s *BinderServer) GetCallingUserHandle(_ context.Context, req *pb.GetCallingUserHandleRequest) (*pb.GetCallingUserHandleResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Binder{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetCallingUserHandle()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetCallingUserHandleResponse{Result: handle}, nil
+}
+
+func (s *BinderServer) GetCallingWorkSourceUid(_ context.Context, req *pb.GetCallingWorkSourceUidRequest) (*pb.GetCallingWorkSourceUidResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Binder{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetCallingWorkSourceUid()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetCallingWorkSourceUidResponse{Result: result}, nil
+}
+
+func (s *BinderServer) JoinThreadPool(_ context.Context, req *pb.JoinThreadPoolRequest) (*pb.JoinThreadPoolResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Binder{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.JoinThreadPool(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.JoinThreadPoolResponse{}, nil
+}
+
+func (s *BinderServer) RestoreCallingIdentity(_ context.Context, req *pb.RestoreCallingIdentityRequest) (*pb.RestoreCallingIdentityResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Binder{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.RestoreCallingIdentity(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.RestoreCallingIdentityResponse{}, nil
+}
+
+func (s *BinderServer) RestoreCallingWorkSource(_ context.Context, req *pb.RestoreCallingWorkSourceRequest) (*pb.RestoreCallingWorkSourceResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Binder{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.RestoreCallingWorkSource(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.RestoreCallingWorkSourceResponse{}, nil
+}
+
+func (s *BinderServer) SetCallingWorkSourceUid(_ context.Context, req *pb.SetCallingWorkSourceUidRequest) (*pb.SetCallingWorkSourceUidResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Binder{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.SetCallingWorkSourceUid(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetCallingWorkSourceUidResponse{Result: result}, nil
+}
+
+// ProcessServer implements pb.ProcessServiceServer.
+type ProcessServer struct {
+	pb.UnimplementedProcessServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *ProcessServer) NewProcess(_ context.Context, req *pb.NewProcessRequest) (*pb.NewProcessResponse, error) {
+	obj, err := jnipkg.NewProcess(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewProcessResponse{Result: handle}, nil
+}
+
+func (s *ProcessServer) GetAppUidForSdkSandboxUid(_ context.Context, req *pb.GetAppUidForSdkSandboxUidRequest) (*pb.GetAppUidForSdkSandboxUidResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Process{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetAppUidForSdkSandboxUid(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetAppUidForSdkSandboxUidResponse{Result: result}, nil
+}
+
+func (s *ProcessServer) GetElapsedCpuTime(_ context.Context, req *pb.GetElapsedCpuTimeRequest) (*pb.GetElapsedCpuTimeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Process{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetElapsedCpuTime()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetElapsedCpuTimeResponse{Result: result}, nil
+}
+
+func (s *ProcessServer) GetExclusiveCores(_ context.Context, req *pb.GetExclusiveCoresRequest) (*pb.GetExclusiveCoresResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Process{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetExclusiveCores()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetExclusiveCoresResponse{Result: handle}, nil
+}
+
+func (s *ProcessServer) GetGidForName(_ context.Context, req *pb.GetGidForNameRequest) (*pb.GetGidForNameResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Process{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetGidForName(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetGidForNameResponse{Result: result}, nil
+}
+
+func (s *ProcessServer) GetSdkSandboxUidForAppUid(_ context.Context, req *pb.GetSdkSandboxUidForAppUidRequest) (*pb.GetSdkSandboxUidForAppUidResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Process{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetSdkSandboxUidForAppUid(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetSdkSandboxUidForAppUidResponse{Result: result}, nil
+}
+
+func (s *ProcessServer) GetStartElapsedRealtime(_ context.Context, req *pb.GetStartElapsedRealtimeRequest) (*pb.GetStartElapsedRealtimeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Process{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetStartElapsedRealtime()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetStartElapsedRealtimeResponse{Result: result}, nil
+}
+
+func (s *ProcessServer) GetStartRequestedElapsedRealtime(_ context.Context, req *pb.GetStartRequestedElapsedRealtimeRequest) (*pb.GetStartRequestedElapsedRealtimeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Process{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetStartRequestedElapsedRealtime()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetStartRequestedElapsedRealtimeResponse{Result: result}, nil
+}
+
+func (s *ProcessServer) GetStartRequestedUptimeMillis(_ context.Context, req *pb.GetStartRequestedUptimeMillisRequest) (*pb.GetStartRequestedUptimeMillisResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Process{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetStartRequestedUptimeMillis()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetStartRequestedUptimeMillisResponse{Result: result}, nil
+}
+
+func (s *ProcessServer) GetStartUptimeMillis(_ context.Context, req *pb.GetStartUptimeMillisRequest) (*pb.GetStartUptimeMillisResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Process{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetStartUptimeMillis()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetStartUptimeMillisResponse{Result: result}, nil
+}
+
+func (s *ProcessServer) GetThreadPriority(_ context.Context, req *pb.GetThreadPriorityRequest) (*pb.GetThreadPriorityResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Process{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetThreadPriority(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetThreadPriorityResponse{Result: result}, nil
+}
+
+func (s *ProcessServer) GetUidForName(_ context.Context, req *pb.GetUidForNameRequest) (*pb.GetUidForNameResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Process{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetUidForName(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetUidForNameResponse{Result: result}, nil
+}
+
+func (s *ProcessServer) Is64Bit(_ context.Context, req *pb.Is64BitRequest) (*pb.Is64BitResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Process{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Is64Bit()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.Is64BitResponse{Result: result}, nil
+}
+
+func (s *ProcessServer) IsApplicationUid(_ context.Context, req *pb.IsApplicationUidRequest) (*pb.IsApplicationUidResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Process{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsApplicationUid(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsApplicationUidResponse{Result: result}, nil
+}
+
+func (s *ProcessServer) IsIsolated(_ context.Context, req *pb.IsIsolatedRequest) (*pb.IsIsolatedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Process{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsIsolated()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsIsolatedResponse{Result: result}, nil
+}
+
+func (s *ProcessServer) IsIsolatedUid(_ context.Context, req *pb.IsIsolatedUidRequest) (*pb.IsIsolatedUidResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Process{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsIsolatedUid(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsIsolatedUidResponse{Result: result}, nil
+}
+
+func (s *ProcessServer) IsSdkSandbox(_ context.Context, req *pb.IsSdkSandboxRequest) (*pb.IsSdkSandboxResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Process{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsSdkSandbox()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsSdkSandboxResponse{Result: result}, nil
+}
+
+func (s *ProcessServer) IsSdkSandboxUid(_ context.Context, req *pb.IsSdkSandboxUidRequest) (*pb.IsSdkSandboxUidResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Process{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsSdkSandboxUid(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsSdkSandboxUidResponse{Result: result}, nil
+}
+
+func (s *ProcessServer) KillProcess(_ context.Context, req *pb.KillProcessRequest) (*pb.KillProcessResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Process{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.KillProcess(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.KillProcessResponse{}, nil
+}
+
+func (s *ProcessServer) MyPid(_ context.Context, req *pb.MyPidRequest) (*pb.MyPidResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Process{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.MyPid()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.MyPidResponse{Result: result}, nil
+}
+
+func (s *ProcessServer) MyProcessName(_ context.Context, req *pb.MyProcessNameRequest) (*pb.MyProcessNameResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Process{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.MyProcessName()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.MyProcessNameResponse{Result: result}, nil
+}
+
+func (s *ProcessServer) MyTid(_ context.Context, req *pb.MyTidRequest) (*pb.MyTidResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Process{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.MyTid()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.MyTidResponse{Result: result}, nil
+}
+
+func (s *ProcessServer) MyUid(_ context.Context, req *pb.MyUidRequest) (*pb.MyUidResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Process{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.MyUid()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.MyUidResponse{Result: result}, nil
+}
+
+func (s *ProcessServer) MyUserHandle(_ context.Context, req *pb.MyUserHandleRequest) (*pb.MyUserHandleResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Process{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.MyUserHandle()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.MyUserHandleResponse{Result: handle}, nil
+}
+
+func (s *ProcessServer) SendSignal(_ context.Context, req *pb.SendSignalRequest) (*pb.SendSignalResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Process{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SendSignal(req.GetArg0(), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SendSignalResponse{}, nil
+}
+
+func (s *ProcessServer) SetThreadPriority1(_ context.Context, req *pb.SetThreadPriority1Request) (*pb.SetThreadPriority1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Process{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetThreadPriority1(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetThreadPriority1Response{}, nil
+}
+
+func (s *ProcessServer) SetThreadPriority2_1(_ context.Context, req *pb.SetThreadPriority2_1Request) (*pb.SetThreadPriority2_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Process{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetThreadPriority2_1(req.GetArg0(), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetThreadPriority2_1Response{}, nil
+}
+
+func (s *ProcessServer) SupportsProcesses(_ context.Context, req *pb.SupportsProcessesRequest) (*pb.SupportsProcessesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Process{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.SupportsProcesses()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SupportsProcessesResponse{Result: result}, nil
+}
+
+// RemoteExceptionServer implements pb.RemoteExceptionServiceServer.
+type RemoteExceptionServer struct {
+	pb.UnimplementedRemoteExceptionServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *RemoteExceptionServer) NewRemoteException(_ context.Context, req *pb.NewRemoteExceptionRequest) (*pb.NewRemoteExceptionResponse, error) {
+	obj, err := jnipkg.NewRemoteException(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewRemoteExceptionResponse{Result: handle}, nil
+}
+
+func (s *RemoteExceptionServer) RethrowAsRuntimeException(_ context.Context, req *pb.RethrowAsRuntimeExceptionRequest) (*pb.RethrowAsRuntimeExceptionResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.RemoteException{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.RethrowAsRuntimeException()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.RethrowAsRuntimeExceptionResponse{Result: handle}, nil
+}
+
+func (s *RemoteExceptionServer) RethrowFromSystemServer(_ context.Context, req *pb.RethrowFromSystemServerRequest) (*pb.RethrowFromSystemServerResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.RemoteException{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.RethrowFromSystemServer()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.RethrowFromSystemServerResponse{Result: handle}, nil
+}
+
+// PersistableBundleServer implements pb.PersistableBundleServiceServer.
+type PersistableBundleServer struct {
+	pb.UnimplementedPersistableBundleServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *PersistableBundleServer) NewPersistableBundle(_ context.Context, req *pb.NewPersistableBundleRequest) (*pb.NewPersistableBundleResponse, error) {
+	obj, err := jnipkg.NewPersistableBundle(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewPersistableBundleResponse{Result: handle}, nil
+}
+
+func (s *PersistableBundleServer) Clone(_ context.Context, req *pb.CloneRequest) (*pb.CloneResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PersistableBundle{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Clone()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.CloneResponse{Result: handle}, nil
+}
+
+func (s *PersistableBundleServer) DeepCopy(_ context.Context, req *pb.DeepCopyRequest) (*pb.DeepCopyResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PersistableBundle{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DeepCopy()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.DeepCopyResponse{Result: handle}, nil
+}
+
+func (s *PersistableBundleServer) DescribeContents(_ context.Context, req *pb.PersistableBundleDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PersistableBundle{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *PersistableBundleServer) GetPersistableBundle(_ context.Context, req *pb.GetPersistableBundleRequest) (*pb.GetPersistableBundleResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PersistableBundle{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetPersistableBundle(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetPersistableBundleResponse{Result: handle}, nil
+}
+
+func (s *PersistableBundleServer) PutPersistableBundle(_ context.Context, req *pb.PutPersistableBundleRequest) (*pb.PutPersistableBundleResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PersistableBundle{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.PutPersistableBundle(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.PutPersistableBundleResponse{}, nil
+}
+
+func (s *PersistableBundleServer) WriteToParcel(_ context.Context, req *pb.PersistableBundleWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PersistableBundle{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
+func (s *PersistableBundleServer) WriteToStream(_ context.Context, req *pb.WriteToStreamRequest) (*pb.WriteToStreamResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PersistableBundle{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToStream(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToStreamResponse{}, nil
+}
+
+func (s *PersistableBundleServer) ReadFromStream(_ context.Context, req *pb.ReadFromStreamRequest) (*pb.ReadFromStreamResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PersistableBundle{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ReadFromStream(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.ReadFromStreamResponse{Result: handle}, nil
+}
+
+// BugreportManagerServer implements pb.BugreportManagerServiceServer.
+type BugreportManagerServer struct {
+	pb.UnimplementedBugreportManagerServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *BugreportManagerServer) CancelBugreport(_ context.Context, req *pb.CancelBugreportRequest) (*pb.CancelBugreportResponse, error) {
+	mgr, err := jnipkg.NewBugreportManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.CancelBugreport(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.CancelBugreportResponse{}, nil
+}
+
+func (s *BugreportManagerServer) StartConnectivityBugreport(_ context.Context, req *pb.StartConnectivityBugreportRequest) (*pb.StartConnectivityBugreportResponse, error) {
+	mgr, err := jnipkg.NewBugreportManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.StartConnectivityBugreport(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.StartConnectivityBugreportResponse{}, nil
+}
+
+// LocaleListServer implements pb.LocaleListServiceServer.
+type LocaleListServer struct {
+	pb.UnimplementedLocaleListServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *LocaleListServer) NewLocaleList(_ context.Context, req *pb.NewLocaleListRequest) (*pb.NewLocaleListResponse, error) {
+	obj, err := jnipkg.NewLocaleList(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewLocaleListResponse{Result: handle}, nil
+}
+
+func (s *LocaleListServer) DescribeContents(_ context.Context, req *pb.LocaleListDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LocaleList{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *LocaleListServer) Equals(_ context.Context, req *pb.EqualsRequest) (*pb.EqualsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LocaleList{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Equals(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EqualsResponse{Result: result}, nil
+}
+
+func (s *LocaleListServer) Get(_ context.Context, req *pb.LocaleListGetRequest) (*pb.GetResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LocaleList{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Get(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetResponse{Result: handle}, nil
+}
+
+func (s *LocaleListServer) GetFirstMatch(_ context.Context, req *pb.GetFirstMatchRequest) (*pb.GetFirstMatchResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LocaleList{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetFirstMatch(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetFirstMatchResponse{Result: handle}, nil
+}
+
+func (s *LocaleListServer) HashCode(_ context.Context, req *pb.HashCodeRequest) (*pb.HashCodeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LocaleList{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.HashCode()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.HashCodeResponse{Result: result}, nil
+}
+
+func (s *LocaleListServer) IndexOf(_ context.Context, req *pb.IndexOfRequest) (*pb.IndexOfResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LocaleList{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IndexOf(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IndexOfResponse{Result: result}, nil
+}
+
+func (s *LocaleListServer) IsEmpty(_ context.Context, req *pb.LocaleListIsEmptyRequest) (*pb.IsEmptyResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LocaleList{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsEmpty()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsEmptyResponse{Result: result}, nil
+}
+
+func (s *LocaleListServer) Size(_ context.Context, req *pb.LocaleListSizeRequest) (*pb.SizeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LocaleList{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Size()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SizeResponse{Result: result}, nil
+}
+
+func (s *LocaleListServer) ToLanguageTags(_ context.Context, req *pb.ToLanguageTagsRequest) (*pb.ToLanguageTagsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LocaleList{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToLanguageTags()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToLanguageTagsResponse{Result: result}, nil
+}
+
+func (s *LocaleListServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LocaleList{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *LocaleListServer) WriteToParcel(_ context.Context, req *pb.LocaleListWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LocaleList{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
+func (s *LocaleListServer) ForLanguageTags(_ context.Context, req *pb.ForLanguageTagsRequest) (*pb.ForLanguageTagsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LocaleList{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ForLanguageTags(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.ForLanguageTagsResponse{Result: handle}, nil
+}
+
+func (s *LocaleListServer) GetAdjustedDefault(_ context.Context, req *pb.GetAdjustedDefaultRequest) (*pb.GetAdjustedDefaultResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LocaleList{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetAdjustedDefault()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetAdjustedDefaultResponse{Result: handle}, nil
+}
+
+func (s *LocaleListServer) GetDefault(_ context.Context, req *pb.GetDefaultRequest) (*pb.GetDefaultResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LocaleList{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetDefault()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetDefaultResponse{Result: handle}, nil
+}
+
+func (s *LocaleListServer) GetEmptyLocaleList(_ context.Context, req *pb.GetEmptyLocaleListRequest) (*pb.GetEmptyLocaleListResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LocaleList{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetEmptyLocaleList()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetEmptyLocaleListResponse{Result: handle}, nil
+}
+
+func (s *LocaleListServer) IsPseudoLocale(_ context.Context, req *pb.IsPseudoLocaleRequest) (*pb.IsPseudoLocaleResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LocaleList{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsPseudoLocale(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsPseudoLocaleResponse{Result: result}, nil
+}
+
+func (s *LocaleListServer) MatchesLanguageAndScript(_ context.Context, req *pb.MatchesLanguageAndScriptRequest) (*pb.MatchesLanguageAndScriptResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LocaleList{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.MatchesLanguageAndScript(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.MatchesLanguageAndScriptResponse{Result: result}, nil
+}
+
+func (s *LocaleListServer) SetDefault(_ context.Context, req *pb.SetDefaultRequest) (*pb.SetDefaultResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LocaleList{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetDefault(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetDefaultResponse{}, nil
+}
+
+// MemoryFileServer implements pb.MemoryFileServiceServer.
+type MemoryFileServer struct {
+	pb.UnimplementedMemoryFileServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *MemoryFileServer) NewMemoryFile(_ context.Context, req *pb.NewMemoryFileRequest) (*pb.NewMemoryFileResponse, error) {
+	obj, err := jnipkg.NewMemoryFile(s.Ctx.VM, req.GetArg0(), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewMemoryFileResponse{Result: handle}, nil
+}
+
+func (s *MemoryFileServer) Close(_ context.Context, req *pb.MemoryFileCloseRequest) (*pb.CloseResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MemoryFile{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Close(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.CloseResponse{}, nil
+}
+
+func (s *MemoryFileServer) GetInputStream(_ context.Context, req *pb.GetInputStreamRequest) (*pb.GetInputStreamResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MemoryFile{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetInputStream()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetInputStreamResponse{Result: handle}, nil
+}
+
+func (s *MemoryFileServer) GetOutputStream(_ context.Context, req *pb.GetOutputStreamRequest) (*pb.GetOutputStreamResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MemoryFile{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetOutputStream()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetOutputStreamResponse{Result: handle}, nil
+}
+
+func (s *MemoryFileServer) IsPurgingAllowed(_ context.Context, req *pb.IsPurgingAllowedRequest) (*pb.IsPurgingAllowedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MemoryFile{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsPurgingAllowed()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsPurgingAllowedResponse{Result: result}, nil
+}
+
+func (s *MemoryFileServer) Length(_ context.Context, req *pb.LengthRequest) (*pb.LengthResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MemoryFile{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Length()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.LengthResponse{Result: result}, nil
+}
+
+func (s *MemoryFileServer) ReadBytes(_ context.Context, req *pb.ReadBytesRequest) (*pb.ReadBytesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MemoryFile{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ReadBytes(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2(), req.GetArg3())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ReadBytesResponse{Result: result}, nil
+}
+
+func (s *MemoryFileServer) WriteBytes(_ context.Context, req *pb.WriteBytesRequest) (*pb.WriteBytesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MemoryFile{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteBytes(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2(), req.GetArg3()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteBytesResponse{}, nil
+}
+
+// StatFsServer implements pb.StatFsServiceServer.
+type StatFsServer struct {
+	pb.UnimplementedStatFsServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *StatFsServer) NewStatFs(_ context.Context, req *pb.NewStatFsRequest) (*pb.NewStatFsResponse, error) {
+	obj, err := jnipkg.NewStatFs(s.Ctx.VM, req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewStatFsResponse{Result: handle}, nil
+}
+
+func (s *StatFsServer) GetAvailableBlocks(_ context.Context, req *pb.GetAvailableBlocksRequest) (*pb.GetAvailableBlocksResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.StatFs{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetAvailableBlocks()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetAvailableBlocksResponse{Result: result}, nil
+}
+
+func (s *StatFsServer) GetAvailableBlocksLong(_ context.Context, req *pb.GetAvailableBlocksLongRequest) (*pb.GetAvailableBlocksLongResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.StatFs{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetAvailableBlocksLong()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetAvailableBlocksLongResponse{Result: result}, nil
+}
+
+func (s *StatFsServer) GetAvailableBytes(_ context.Context, req *pb.GetAvailableBytesRequest) (*pb.GetAvailableBytesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.StatFs{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetAvailableBytes()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetAvailableBytesResponse{Result: result}, nil
+}
+
+func (s *StatFsServer) GetBlockCount(_ context.Context, req *pb.GetBlockCountRequest) (*pb.GetBlockCountResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.StatFs{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetBlockCount()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetBlockCountResponse{Result: result}, nil
+}
+
+func (s *StatFsServer) GetBlockCountLong(_ context.Context, req *pb.GetBlockCountLongRequest) (*pb.GetBlockCountLongResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.StatFs{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetBlockCountLong()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetBlockCountLongResponse{Result: result}, nil
+}
+
+func (s *StatFsServer) GetBlockSize(_ context.Context, req *pb.GetBlockSizeRequest) (*pb.GetBlockSizeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.StatFs{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetBlockSize()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetBlockSizeResponse{Result: result}, nil
+}
+
+func (s *StatFsServer) GetBlockSizeLong(_ context.Context, req *pb.GetBlockSizeLongRequest) (*pb.GetBlockSizeLongResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.StatFs{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetBlockSizeLong()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetBlockSizeLongResponse{Result: result}, nil
+}
+
+func (s *StatFsServer) GetFreeBlocks(_ context.Context, req *pb.GetFreeBlocksRequest) (*pb.GetFreeBlocksResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.StatFs{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetFreeBlocks()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetFreeBlocksResponse{Result: result}, nil
+}
+
+func (s *StatFsServer) GetFreeBlocksLong(_ context.Context, req *pb.GetFreeBlocksLongRequest) (*pb.GetFreeBlocksLongResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.StatFs{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetFreeBlocksLong()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetFreeBlocksLongResponse{Result: result}, nil
+}
+
+func (s *StatFsServer) GetFreeBytes(_ context.Context, req *pb.GetFreeBytesRequest) (*pb.GetFreeBytesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.StatFs{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetFreeBytes()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetFreeBytesResponse{Result: result}, nil
+}
+
+func (s *StatFsServer) GetTotalBytes(_ context.Context, req *pb.GetTotalBytesRequest) (*pb.GetTotalBytesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.StatFs{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetTotalBytes()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetTotalBytesResponse{Result: result}, nil
+}
+
+func (s *StatFsServer) Restat(_ context.Context, req *pb.RestatRequest) (*pb.RestatResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.StatFs{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Restat(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.RestatResponse{}, nil
+}
+
+// DropBoxManagerServer implements pb.DropBoxManagerServiceServer.
+type DropBoxManagerServer struct {
+	pb.UnimplementedDropBoxManagerServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *DropBoxManagerServer) AddData(_ context.Context, req *pb.AddDataRequest) (*pb.AddDataResponse, error) {
+	mgr, err := jnipkg.NewDropBoxManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.AddData(req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.AddDataResponse{}, nil
+}
+
+func (s *DropBoxManagerServer) AddFile(_ context.Context, req *pb.AddFileRequest) (*pb.AddFileResponse, error) {
+	mgr, err := jnipkg.NewDropBoxManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.AddFile(req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.AddFileResponse{}, nil
+}
+
+func (s *DropBoxManagerServer) AddText(_ context.Context, req *pb.AddTextRequest) (*pb.AddTextResponse, error) {
+	mgr, err := jnipkg.NewDropBoxManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.AddText(req.GetArg0(), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.AddTextResponse{}, nil
+}
+
+func (s *DropBoxManagerServer) GetNextEntry(_ context.Context, req *pb.GetNextEntryRequest) (*pb.GetNextEntryResponse, error) {
+	mgr, err := jnipkg.NewDropBoxManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetNextEntry(req.GetArg0(), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetNextEntryResponse{Result: handle}, nil
+}
+
+func (s *DropBoxManagerServer) IsTagEnabled(_ context.Context, req *pb.IsTagEnabledRequest) (*pb.IsTagEnabledResponse, error) {
+	mgr, err := jnipkg.NewDropBoxManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.IsTagEnabled(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsTagEnabledResponse{Result: result}, nil
+}
+
+// RemoteCallbackListServer implements pb.RemoteCallbackListServiceServer.
+type RemoteCallbackListServer struct {
+	pb.UnimplementedRemoteCallbackListServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *RemoteCallbackListServer) NewRemoteCallbackList(_ context.Context, req *pb.NewRemoteCallbackListRequest) (*pb.NewRemoteCallbackListResponse, error) {
+	obj, err := jnipkg.NewRemoteCallbackList(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewRemoteCallbackListResponse{Result: handle}, nil
+}
+
+func (s *RemoteCallbackListServer) BeginBroadcast(_ context.Context, req *pb.BeginBroadcastRequest) (*pb.BeginBroadcastResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.RemoteCallbackList{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.BeginBroadcast()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.BeginBroadcastResponse{Result: result}, nil
+}
+
+func (s *RemoteCallbackListServer) FinishBroadcast(_ context.Context, req *pb.FinishBroadcastRequest) (*pb.FinishBroadcastResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.RemoteCallbackList{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.FinishBroadcast(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.FinishBroadcastResponse{}, nil
+}
+
+func (s *RemoteCallbackListServer) GetBroadcastCookie(_ context.Context, req *pb.GetBroadcastCookieRequest) (*pb.GetBroadcastCookieResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.RemoteCallbackList{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetBroadcastCookie(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetBroadcastCookieResponse{Result: handle}, nil
+}
+
+func (s *RemoteCallbackListServer) GetExecutor(_ context.Context, req *pb.GetExecutorRequest) (*pb.GetExecutorResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.RemoteCallbackList{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetExecutor()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetExecutorResponse{Result: handle}, nil
+}
+
+func (s *RemoteCallbackListServer) GetFrozenCalleePolicy(_ context.Context, req *pb.GetFrozenCalleePolicyRequest) (*pb.GetFrozenCalleePolicyResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.RemoteCallbackList{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetFrozenCalleePolicy()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetFrozenCalleePolicyResponse{Result: result}, nil
+}
+
+func (s *RemoteCallbackListServer) GetMaxQueueSize(_ context.Context, req *pb.GetMaxQueueSizeRequest) (*pb.GetMaxQueueSizeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.RemoteCallbackList{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetMaxQueueSize()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetMaxQueueSizeResponse{Result: result}, nil
+}
+
+func (s *RemoteCallbackListServer) GetRegisteredCallbackCookie(_ context.Context, req *pb.GetRegisteredCallbackCookieRequest) (*pb.GetRegisteredCallbackCookieResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.RemoteCallbackList{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetRegisteredCallbackCookie(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetRegisteredCallbackCookieResponse{Result: handle}, nil
+}
+
+func (s *RemoteCallbackListServer) GetRegisteredCallbackCount(_ context.Context, req *pb.GetRegisteredCallbackCountRequest) (*pb.GetRegisteredCallbackCountResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.RemoteCallbackList{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetRegisteredCallbackCount()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetRegisteredCallbackCountResponse{Result: result}, nil
+}
+
+func (s *RemoteCallbackListServer) Kill(_ context.Context, req *pb.KillRequest) (*pb.KillResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.RemoteCallbackList{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Kill(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.KillResponse{}, nil
+}
+
+// ProfilingManagerServer implements pb.ProfilingManagerServiceServer.
+type ProfilingManagerServer struct {
+	pb.UnimplementedProfilingManagerServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *ProfilingManagerServer) ClearProfilingTriggers(_ context.Context, req *pb.ClearProfilingTriggersRequest) (*pb.ClearProfilingTriggersResponse, error) {
+	mgr, err := jnipkg.NewProfilingManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.ClearProfilingTriggers(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ClearProfilingTriggersResponse{}, nil
+}
+
+func (s *ProfilingManagerServer) RemoveProfilingTriggersByType(_ context.Context, req *pb.RemoveProfilingTriggersByTypeRequest) (*pb.RemoveProfilingTriggersByTypeResponse, error) {
+	mgr, err := jnipkg.NewProfilingManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.RemoveProfilingTriggersByType(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.RemoveProfilingTriggersByTypeResponse{}, nil
+}
+
+// ConditionVariableServer implements pb.ConditionVariableServiceServer.
+type ConditionVariableServer struct {
+	pb.UnimplementedConditionVariableServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *ConditionVariableServer) NewConditionVariable(_ context.Context, req *pb.NewConditionVariableRequest) (*pb.NewConditionVariableResponse, error) {
+	obj, err := jnipkg.NewConditionVariable(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewConditionVariableResponse{Result: handle}, nil
+}
+
+func (s *ConditionVariableServer) Block0(_ context.Context, req *pb.Block0Request) (*pb.Block0Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ConditionVariable{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Block0(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.Block0Response{}, nil
+}
+
+func (s *ConditionVariableServer) Block1_1(_ context.Context, req *pb.Block1_1Request) (*pb.Block1_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ConditionVariable{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Block1_1(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.Block1_1Response{Result: result}, nil
+}
+
+func (s *ConditionVariableServer) Close(_ context.Context, req *pb.ConditionVariableCloseRequest) (*pb.CloseResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ConditionVariable{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Close(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.CloseResponse{}, nil
+}
+
+func (s *ConditionVariableServer) Open(_ context.Context, req *pb.OpenRequest) (*pb.OpenResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ConditionVariable{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Open(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OpenResponse{}, nil
+}
+
+// VibratorManagerServer implements pb.VibratorManagerServiceServer.
+type VibratorManagerServer struct {
+	pb.UnimplementedVibratorManagerServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *VibratorManagerServer) Cancel(_ context.Context, req *pb.VibratorManagerCancelRequest) (*pb.VibratorManagerCancelResponse, error) {
+	mgr, err := jnipkg.NewVibratorManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.Cancel(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.VibratorManagerCancelResponse{}, nil
+}
+
+func (s *VibratorManagerServer) GetDefaultVibrator(_ context.Context, req *pb.GetDefaultVibratorRequest) (*pb.GetDefaultVibratorResponse, error) {
+	mgr, err := jnipkg.NewVibratorManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetDefaultVibrator()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetDefaultVibratorResponse{Result: handle}, nil
+}
+
+func (s *VibratorManagerServer) GetVibrator(_ context.Context, req *pb.GetVibratorRequest) (*pb.GetVibratorResponse, error) {
+	mgr, err := jnipkg.NewVibratorManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetVibrator(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetVibratorResponse{Result: handle}, nil
+}
+
+func (s *VibratorManagerServer) GetVibratorIds(_ context.Context, req *pb.GetVibratorIdsRequest) (*pb.GetVibratorIdsResponse, error) {
+	mgr, err := jnipkg.NewVibratorManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetVibratorIds()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetVibratorIdsResponse{Result: handle}, nil
+}
+
+func (s *VibratorManagerServer) Vibrate1(_ context.Context, req *pb.Vibrate1Request) (*pb.Vibrate1Response, error) {
+	mgr, err := jnipkg.NewVibratorManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.Vibrate1(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.Vibrate1Response{}, nil
+}
+
+func (s *VibratorManagerServer) Vibrate2_1(_ context.Context, req *pb.Vibrate2_1Request) (*pb.Vibrate2_1Response, error) {
+	mgr, err := jnipkg.NewVibratorManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.Vibrate2_1(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.Vibrate2_1Response{}, nil
+}
+
+// SecurityStateManagerServer implements pb.SecurityStateManagerServiceServer.
+type SecurityStateManagerServer struct {
+	pb.UnimplementedSecurityStateManagerServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *SecurityStateManagerServer) GetGlobalSecurityState(_ context.Context, req *pb.GetGlobalSecurityStateRequest) (*pb.GetGlobalSecurityStateResponse, error) {
+	mgr, err := jnipkg.NewSecurityStateManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetGlobalSecurityState()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetGlobalSecurityStateResponse{Result: handle}, nil
+}
+
+// HandlerServer implements pb.HandlerServiceServer.
+type HandlerServer struct {
+	pb.UnimplementedHandlerServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *HandlerServer) NewHandler(_ context.Context, req *pb.NewHandlerRequest) (*pb.NewHandlerResponse, error) {
+	obj, err := jnipkg.NewHandler(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewHandlerResponse{Result: handle}, nil
+}
+
+func (s *HandlerServer) DispatchMessage(_ context.Context, req *pb.DispatchMessageRequest) (*pb.DispatchMessageResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Handler{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.DispatchMessage(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DispatchMessageResponse{}, nil
+}
+
+func (s *HandlerServer) Dump(_ context.Context, req *pb.HandlerDumpRequest) (*pb.DumpResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Handler{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Dump(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DumpResponse{}, nil
+}
+
+func (s *HandlerServer) GetLooper(_ context.Context, req *pb.GetLooperRequest) (*pb.GetLooperResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Handler{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetLooper()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetLooperResponse{Result: handle}, nil
+}
+
+func (s *HandlerServer) GetMessageName(_ context.Context, req *pb.GetMessageNameRequest) (*pb.GetMessageNameResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Handler{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetMessageName(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetMessageNameResponse{Result: result}, nil
+}
+
+func (s *HandlerServer) HandleMessage(_ context.Context, req *pb.HandleMessageRequest) (*pb.HandleMessageResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Handler{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.HandleMessage(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.HandleMessageResponse{}, nil
+}
+
+func (s *HandlerServer) HasCallbacks(_ context.Context, req *pb.HasCallbacksRequest) (*pb.HasCallbacksResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Handler{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.HasCallbacks(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.HasCallbacksResponse{Result: result}, nil
+}
+
+func (s *HandlerServer) HasMessages1(_ context.Context, req *pb.HasMessages1Request) (*pb.HasMessages1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Handler{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.HasMessages1(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.HasMessages1Response{Result: result}, nil
+}
+
+func (s *HandlerServer) HasMessages2_1(_ context.Context, req *pb.HasMessages2_1Request) (*pb.HasMessages2_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Handler{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.HasMessages2_1(req.GetArg0(), s.Handles.Get(req.GetArg1()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.HasMessages2_1Response{Result: result}, nil
+}
+
+func (s *HandlerServer) ObtainMessage0(_ context.Context, req *pb.ObtainMessage0Request) (*pb.ObtainMessage0Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Handler{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ObtainMessage0()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.ObtainMessage0Response{Result: handle}, nil
+}
+
+func (s *HandlerServer) ObtainMessage1_1(_ context.Context, req *pb.ObtainMessage1_1Request) (*pb.ObtainMessage1_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Handler{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ObtainMessage1_1(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.ObtainMessage1_1Response{Result: handle}, nil
+}
+
+func (s *HandlerServer) ObtainMessage3_2(_ context.Context, req *pb.ObtainMessage3_2Request) (*pb.ObtainMessage3_2Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Handler{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ObtainMessage3_2(req.GetArg0(), req.GetArg1(), req.GetArg2())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.ObtainMessage3_2Response{Result: handle}, nil
+}
+
+func (s *HandlerServer) ObtainMessage4_3(_ context.Context, req *pb.ObtainMessage4_3Request) (*pb.ObtainMessage4_3Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Handler{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ObtainMessage4_3(req.GetArg0(), req.GetArg1(), req.GetArg2(), s.Handles.Get(req.GetArg3()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.ObtainMessage4_3Response{Result: handle}, nil
+}
+
+func (s *HandlerServer) ObtainMessage2_4(_ context.Context, req *pb.ObtainMessage2_4Request) (*pb.ObtainMessage2_4Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Handler{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ObtainMessage2_4(req.GetArg0(), s.Handles.Get(req.GetArg1()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.ObtainMessage2_4Response{Result: handle}, nil
+}
+
+func (s *HandlerServer) Post(_ context.Context, req *pb.PostRequest) (*pb.PostResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Handler{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Post(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.PostResponse{Result: result}, nil
+}
+
+func (s *HandlerServer) PostAtFrontOfQueue(_ context.Context, req *pb.PostAtFrontOfQueueRequest) (*pb.PostAtFrontOfQueueResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Handler{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.PostAtFrontOfQueue(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.PostAtFrontOfQueueResponse{Result: result}, nil
+}
+
+func (s *HandlerServer) PostAtTime3(_ context.Context, req *pb.PostAtTime3Request) (*pb.PostAtTime3Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Handler{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.PostAtTime3(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.PostAtTime3Response{Result: result}, nil
+}
+
+func (s *HandlerServer) PostAtTime2_1(_ context.Context, req *pb.PostAtTime2_1Request) (*pb.PostAtTime2_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Handler{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.PostAtTime2_1(s.Handles.Get(req.GetArg0()), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.PostAtTime2_1Response{Result: result}, nil
+}
+
+func (s *HandlerServer) PostDelayed3(_ context.Context, req *pb.PostDelayed3Request) (*pb.PostDelayed3Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Handler{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.PostDelayed3(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.PostDelayed3Response{Result: result}, nil
+}
+
+func (s *HandlerServer) PostDelayed2_1(_ context.Context, req *pb.PostDelayed2_1Request) (*pb.PostDelayed2_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Handler{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.PostDelayed2_1(s.Handles.Get(req.GetArg0()), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.PostDelayed2_1Response{Result: result}, nil
+}
+
+func (s *HandlerServer) RemoveCallbacks1(_ context.Context, req *pb.RemoveCallbacks1Request) (*pb.RemoveCallbacks1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Handler{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.RemoveCallbacks1(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.RemoveCallbacks1Response{}, nil
+}
+
+func (s *HandlerServer) RemoveCallbacks2_1(_ context.Context, req *pb.RemoveCallbacks2_1Request) (*pb.RemoveCallbacks2_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Handler{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.RemoveCallbacks2_1(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.RemoveCallbacks2_1Response{}, nil
+}
+
+func (s *HandlerServer) RemoveCallbacksAndMessages(_ context.Context, req *pb.RemoveCallbacksAndMessagesRequest) (*pb.RemoveCallbacksAndMessagesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Handler{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.RemoveCallbacksAndMessages(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.RemoveCallbacksAndMessagesResponse{}, nil
+}
+
+func (s *HandlerServer) RemoveMessages1(_ context.Context, req *pb.RemoveMessages1Request) (*pb.RemoveMessages1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Handler{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.RemoveMessages1(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.RemoveMessages1Response{}, nil
+}
+
+func (s *HandlerServer) RemoveMessages2_1(_ context.Context, req *pb.RemoveMessages2_1Request) (*pb.RemoveMessages2_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Handler{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.RemoveMessages2_1(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.RemoveMessages2_1Response{}, nil
+}
+
+func (s *HandlerServer) SendEmptyMessage(_ context.Context, req *pb.SendEmptyMessageRequest) (*pb.SendEmptyMessageResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Handler{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.SendEmptyMessage(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SendEmptyMessageResponse{Result: result}, nil
+}
+
+func (s *HandlerServer) SendEmptyMessageAtTime(_ context.Context, req *pb.SendEmptyMessageAtTimeRequest) (*pb.SendEmptyMessageAtTimeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Handler{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.SendEmptyMessageAtTime(req.GetArg0(), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SendEmptyMessageAtTimeResponse{Result: result}, nil
+}
+
+func (s *HandlerServer) SendEmptyMessageDelayed(_ context.Context, req *pb.SendEmptyMessageDelayedRequest) (*pb.SendEmptyMessageDelayedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Handler{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.SendEmptyMessageDelayed(req.GetArg0(), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SendEmptyMessageDelayedResponse{Result: result}, nil
+}
+
+func (s *HandlerServer) SendMessage(_ context.Context, req *pb.SendMessageRequest) (*pb.SendMessageResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Handler{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.SendMessage(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SendMessageResponse{Result: result}, nil
+}
+
+func (s *HandlerServer) SendMessageAtFrontOfQueue(_ context.Context, req *pb.SendMessageAtFrontOfQueueRequest) (*pb.SendMessageAtFrontOfQueueResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Handler{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.SendMessageAtFrontOfQueue(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SendMessageAtFrontOfQueueResponse{Result: result}, nil
+}
+
+func (s *HandlerServer) SendMessageAtTime(_ context.Context, req *pb.SendMessageAtTimeRequest) (*pb.SendMessageAtTimeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Handler{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.SendMessageAtTime(s.Handles.Get(req.GetArg0()), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SendMessageAtTimeResponse{Result: result}, nil
+}
+
+func (s *HandlerServer) SendMessageDelayed(_ context.Context, req *pb.SendMessageDelayedRequest) (*pb.SendMessageDelayedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Handler{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.SendMessageDelayed(s.Handles.Get(req.GetArg0()), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SendMessageDelayedResponse{Result: result}, nil
+}
+
+func (s *HandlerServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Handler{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *HandlerServer) CreateAsync(_ context.Context, req *pb.CreateAsyncRequest) (*pb.CreateAsyncResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Handler{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.CreateAsync(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.CreateAsyncResponse{Result: handle}, nil
+}
+
 // UserManagerServer implements pb.UserManagerServiceServer.
 type UserManagerServer struct {
 	pb.UnimplementedUserManagerServiceServer
@@ -482,418 +4637,4 @@ func (s *UserManagerServer) SupportsMultipleUsers(_ context.Context, req *pb.Sup
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.SupportsMultipleUsersResponse{Result: result}, nil
-}
-
-// HardwarePropertiesManagerServer implements pb.HardwarePropertiesManagerServiceServer.
-type HardwarePropertiesManagerServer struct {
-	pb.UnimplementedHardwarePropertiesManagerServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *HardwarePropertiesManagerServer) GetCpuUsages(_ context.Context, req *pb.GetCpuUsagesRequest) (*pb.GetCpuUsagesResponse, error) {
-	mgr, err := jnipkg.NewHardwarePropertiesManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetCpuUsages()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetCpuUsagesResponse{Result: handle}, nil
-}
-
-func (s *HardwarePropertiesManagerServer) GetDeviceTemperatures(_ context.Context, req *pb.GetDeviceTemperaturesRequest) (*pb.GetDeviceTemperaturesResponse, error) {
-	mgr, err := jnipkg.NewHardwarePropertiesManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetDeviceTemperatures(req.GetArg0(), req.GetArg1())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetDeviceTemperaturesResponse{Result: handle}, nil
-}
-
-func (s *HardwarePropertiesManagerServer) GetFanSpeeds(_ context.Context, req *pb.GetFanSpeedsRequest) (*pb.GetFanSpeedsResponse, error) {
-	mgr, err := jnipkg.NewHardwarePropertiesManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetFanSpeeds()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetFanSpeedsResponse{Result: handle}, nil
-}
-
-// ProfilingManagerServer implements pb.ProfilingManagerServiceServer.
-type ProfilingManagerServer struct {
-	pb.UnimplementedProfilingManagerServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *ProfilingManagerServer) ClearProfilingTriggers(_ context.Context, req *pb.ClearProfilingTriggersRequest) (*pb.ClearProfilingTriggersResponse, error) {
-	mgr, err := jnipkg.NewProfilingManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.ClearProfilingTriggers(); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ClearProfilingTriggersResponse{}, nil
-}
-
-func (s *ProfilingManagerServer) RemoveProfilingTriggersByType(_ context.Context, req *pb.RemoveProfilingTriggersByTypeRequest) (*pb.RemoveProfilingTriggersByTypeResponse, error) {
-	mgr, err := jnipkg.NewProfilingManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.RemoveProfilingTriggersByType(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.RemoveProfilingTriggersByTypeResponse{}, nil
-}
-
-// SecurityStateManagerServer implements pb.SecurityStateManagerServiceServer.
-type SecurityStateManagerServer struct {
-	pb.UnimplementedSecurityStateManagerServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *SecurityStateManagerServer) GetGlobalSecurityState(_ context.Context, req *pb.GetGlobalSecurityStateRequest) (*pb.GetGlobalSecurityStateResponse, error) {
-	mgr, err := jnipkg.NewSecurityStateManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetGlobalSecurityState()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetGlobalSecurityStateResponse{Result: handle}, nil
-}
-
-// PerformanceHintManagerServer implements pb.PerformanceHintManagerServiceServer.
-type PerformanceHintManagerServer struct {
-	pb.UnimplementedPerformanceHintManagerServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *PerformanceHintManagerServer) CreateHintSession(_ context.Context, req *pb.CreateHintSessionRequest) (*pb.CreateHintSessionResponse, error) {
-	mgr, err := jnipkg.NewPerformanceHintManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.CreateHintSession(s.Handles.Get(req.GetArg0()), req.GetArg1())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.CreateHintSessionResponse{Result: handle}, nil
-}
-
-func (s *PerformanceHintManagerServer) GetPreferredUpdateRateNanos(_ context.Context, req *pb.GetPreferredUpdateRateNanosRequest) (*pb.GetPreferredUpdateRateNanosResponse, error) {
-	mgr, err := jnipkg.NewPerformanceHintManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetPreferredUpdateRateNanos()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetPreferredUpdateRateNanosResponse{Result: result}, nil
-}
-
-// BugreportManagerServer implements pb.BugreportManagerServiceServer.
-type BugreportManagerServer struct {
-	pb.UnimplementedBugreportManagerServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *BugreportManagerServer) CancelBugreport(_ context.Context, req *pb.CancelBugreportRequest) (*pb.CancelBugreportResponse, error) {
-	mgr, err := jnipkg.NewBugreportManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.CancelBugreport(); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.CancelBugreportResponse{}, nil
-}
-
-func (s *BugreportManagerServer) StartConnectivityBugreport(_ context.Context, req *pb.StartConnectivityBugreportRequest) (*pb.StartConnectivityBugreportResponse, error) {
-	mgr, err := jnipkg.NewBugreportManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.StartConnectivityBugreport(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.StartConnectivityBugreportResponse{}, nil
-}
-
-// DropBoxManagerServer implements pb.DropBoxManagerServiceServer.
-type DropBoxManagerServer struct {
-	pb.UnimplementedDropBoxManagerServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *DropBoxManagerServer) AddData(_ context.Context, req *pb.AddDataRequest) (*pb.AddDataResponse, error) {
-	mgr, err := jnipkg.NewDropBoxManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.AddData(req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.AddDataResponse{}, nil
-}
-
-func (s *DropBoxManagerServer) AddFile(_ context.Context, req *pb.AddFileRequest) (*pb.AddFileResponse, error) {
-	mgr, err := jnipkg.NewDropBoxManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.AddFile(req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.AddFileResponse{}, nil
-}
-
-func (s *DropBoxManagerServer) AddText(_ context.Context, req *pb.AddTextRequest) (*pb.AddTextResponse, error) {
-	mgr, err := jnipkg.NewDropBoxManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.AddText(req.GetArg0(), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.AddTextResponse{}, nil
-}
-
-func (s *DropBoxManagerServer) GetNextEntry(_ context.Context, req *pb.GetNextEntryRequest) (*pb.GetNextEntryResponse, error) {
-	mgr, err := jnipkg.NewDropBoxManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetNextEntry(req.GetArg0(), req.GetArg1())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetNextEntryResponse{Result: handle}, nil
-}
-
-func (s *DropBoxManagerServer) IsTagEnabled(_ context.Context, req *pb.IsTagEnabledRequest) (*pb.IsTagEnabledResponse, error) {
-	mgr, err := jnipkg.NewDropBoxManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.IsTagEnabled(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsTagEnabledResponse{Result: result}, nil
-}
-
-// VibratorManagerServer implements pb.VibratorManagerServiceServer.
-type VibratorManagerServer struct {
-	pb.UnimplementedVibratorManagerServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *VibratorManagerServer) Cancel(_ context.Context, req *pb.CancelRequest) (*pb.CancelResponse, error) {
-	mgr, err := jnipkg.NewVibratorManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.Cancel(); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.CancelResponse{}, nil
-}
-
-func (s *VibratorManagerServer) GetDefaultVibrator(_ context.Context, req *pb.GetDefaultVibratorRequest) (*pb.GetDefaultVibratorResponse, error) {
-	mgr, err := jnipkg.NewVibratorManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetDefaultVibrator()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetDefaultVibratorResponse{Result: handle}, nil
-}
-
-func (s *VibratorManagerServer) GetVibrator(_ context.Context, req *pb.GetVibratorRequest) (*pb.GetVibratorResponse, error) {
-	mgr, err := jnipkg.NewVibratorManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetVibrator(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetVibratorResponse{Result: handle}, nil
-}
-
-func (s *VibratorManagerServer) GetVibratorIds(_ context.Context, req *pb.GetVibratorIdsRequest) (*pb.GetVibratorIdsResponse, error) {
-	mgr, err := jnipkg.NewVibratorManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetVibratorIds()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetVibratorIdsResponse{Result: handle}, nil
-}
-
-func (s *VibratorManagerServer) Vibrate1(_ context.Context, req *pb.Vibrate1Request) (*pb.Vibrate1Response, error) {
-	mgr, err := jnipkg.NewVibratorManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.Vibrate1(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.Vibrate1Response{}, nil
-}
-
-func (s *VibratorManagerServer) Vibrate2_1(_ context.Context, req *pb.Vibrate2_1Request) (*pb.Vibrate2_1Response, error) {
-	mgr, err := jnipkg.NewVibratorManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.Vibrate2_1(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.Vibrate2_1Response{}, nil
 }

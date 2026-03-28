@@ -21,6 +21,12105 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
+	RequestPreparerService_GetView_FullMethodName            = "/accessibility.RequestPreparerService/GetView"
+	RequestPreparerService_OnPrepareExtraData_FullMethodName = "/accessibility.RequestPreparerService/OnPrepareExtraData"
+)
+
+// RequestPreparerServiceClient is the client API for RequestPreparerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type RequestPreparerServiceClient interface {
+	GetView(ctx context.Context, in *GetViewRequest, opts ...grpc.CallOption) (*GetViewResponse, error)
+	OnPrepareExtraData(ctx context.Context, in *OnPrepareExtraDataRequest, opts ...grpc.CallOption) (*OnPrepareExtraDataResponse, error)
+}
+
+type requestPreparerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewRequestPreparerServiceClient(cc grpc.ClientConnInterface) RequestPreparerServiceClient {
+	return &requestPreparerServiceClient{cc}
+}
+
+func (c *requestPreparerServiceClient) GetView(ctx context.Context, in *GetViewRequest, opts ...grpc.CallOption) (*GetViewResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetViewResponse)
+	err := c.cc.Invoke(ctx, RequestPreparerService_GetView_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *requestPreparerServiceClient) OnPrepareExtraData(ctx context.Context, in *OnPrepareExtraDataRequest, opts ...grpc.CallOption) (*OnPrepareExtraDataResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnPrepareExtraDataResponse)
+	err := c.cc.Invoke(ctx, RequestPreparerService_OnPrepareExtraData_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// RequestPreparerServiceServer is the server API for RequestPreparerService service.
+// All implementations must embed UnimplementedRequestPreparerServiceServer
+// for forward compatibility.
+type RequestPreparerServiceServer interface {
+	GetView(context.Context, *GetViewRequest) (*GetViewResponse, error)
+	OnPrepareExtraData(context.Context, *OnPrepareExtraDataRequest) (*OnPrepareExtraDataResponse, error)
+	mustEmbedUnimplementedRequestPreparerServiceServer()
+}
+
+// UnimplementedRequestPreparerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedRequestPreparerServiceServer struct{}
+
+func (UnimplementedRequestPreparerServiceServer) GetView(context.Context, *GetViewRequest) (*GetViewResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetView not implemented")
+}
+func (UnimplementedRequestPreparerServiceServer) OnPrepareExtraData(context.Context, *OnPrepareExtraDataRequest) (*OnPrepareExtraDataResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnPrepareExtraData not implemented")
+}
+func (UnimplementedRequestPreparerServiceServer) mustEmbedUnimplementedRequestPreparerServiceServer() {
+}
+func (UnimplementedRequestPreparerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeRequestPreparerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to RequestPreparerServiceServer will
+// result in compilation errors.
+type UnsafeRequestPreparerServiceServer interface {
+	mustEmbedUnimplementedRequestPreparerServiceServer()
+}
+
+func RegisterRequestPreparerServiceServer(s grpc.ServiceRegistrar, srv RequestPreparerServiceServer) {
+	// If the following call panics, it indicates UnimplementedRequestPreparerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&RequestPreparerService_ServiceDesc, srv)
+}
+
+func _RequestPreparerService_GetView_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetViewRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RequestPreparerServiceServer).GetView(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RequestPreparerService_GetView_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RequestPreparerServiceServer).GetView(ctx, req.(*GetViewRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RequestPreparerService_OnPrepareExtraData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnPrepareExtraDataRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RequestPreparerServiceServer).OnPrepareExtraData(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RequestPreparerService_OnPrepareExtraData_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RequestPreparerServiceServer).OnPrepareExtraData(ctx, req.(*OnPrepareExtraDataRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// RequestPreparerService_ServiceDesc is the grpc.ServiceDesc for RequestPreparerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var RequestPreparerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "accessibility.RequestPreparerService",
+	HandlerType: (*RequestPreparerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetView",
+			Handler:    _RequestPreparerService_GetView_Handler,
+		},
+		{
+			MethodName: "OnPrepareExtraData",
+			Handler:    _RequestPreparerService_OnPrepareExtraData_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/accessibility/accessibility.proto",
+}
+
+const (
+	EventSourceService_SendAccessibilityEvent_FullMethodName          = "/accessibility.EventSourceService/SendAccessibilityEvent"
+	EventSourceService_SendAccessibilityEventUnchecked_FullMethodName = "/accessibility.EventSourceService/SendAccessibilityEventUnchecked"
+)
+
+// EventSourceServiceClient is the client API for EventSourceService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type EventSourceServiceClient interface {
+	SendAccessibilityEvent(ctx context.Context, in *SendAccessibilityEventRequest, opts ...grpc.CallOption) (*SendAccessibilityEventResponse, error)
+	SendAccessibilityEventUnchecked(ctx context.Context, in *SendAccessibilityEventUncheckedRequest, opts ...grpc.CallOption) (*SendAccessibilityEventUncheckedResponse, error)
+}
+
+type eventSourceServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewEventSourceServiceClient(cc grpc.ClientConnInterface) EventSourceServiceClient {
+	return &eventSourceServiceClient{cc}
+}
+
+func (c *eventSourceServiceClient) SendAccessibilityEvent(ctx context.Context, in *SendAccessibilityEventRequest, opts ...grpc.CallOption) (*SendAccessibilityEventResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SendAccessibilityEventResponse)
+	err := c.cc.Invoke(ctx, EventSourceService_SendAccessibilityEvent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *eventSourceServiceClient) SendAccessibilityEventUnchecked(ctx context.Context, in *SendAccessibilityEventUncheckedRequest, opts ...grpc.CallOption) (*SendAccessibilityEventUncheckedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SendAccessibilityEventUncheckedResponse)
+	err := c.cc.Invoke(ctx, EventSourceService_SendAccessibilityEventUnchecked_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// EventSourceServiceServer is the server API for EventSourceService service.
+// All implementations must embed UnimplementedEventSourceServiceServer
+// for forward compatibility.
+type EventSourceServiceServer interface {
+	SendAccessibilityEvent(context.Context, *SendAccessibilityEventRequest) (*SendAccessibilityEventResponse, error)
+	SendAccessibilityEventUnchecked(context.Context, *SendAccessibilityEventUncheckedRequest) (*SendAccessibilityEventUncheckedResponse, error)
+	mustEmbedUnimplementedEventSourceServiceServer()
+}
+
+// UnimplementedEventSourceServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedEventSourceServiceServer struct{}
+
+func (UnimplementedEventSourceServiceServer) SendAccessibilityEvent(context.Context, *SendAccessibilityEventRequest) (*SendAccessibilityEventResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SendAccessibilityEvent not implemented")
+}
+func (UnimplementedEventSourceServiceServer) SendAccessibilityEventUnchecked(context.Context, *SendAccessibilityEventUncheckedRequest) (*SendAccessibilityEventUncheckedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SendAccessibilityEventUnchecked not implemented")
+}
+func (UnimplementedEventSourceServiceServer) mustEmbedUnimplementedEventSourceServiceServer() {}
+func (UnimplementedEventSourceServiceServer) testEmbeddedByValue()                            {}
+
+// UnsafeEventSourceServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to EventSourceServiceServer will
+// result in compilation errors.
+type UnsafeEventSourceServiceServer interface {
+	mustEmbedUnimplementedEventSourceServiceServer()
+}
+
+func RegisterEventSourceServiceServer(s grpc.ServiceRegistrar, srv EventSourceServiceServer) {
+	// If the following call panics, it indicates UnimplementedEventSourceServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&EventSourceService_ServiceDesc, srv)
+}
+
+func _EventSourceService_SendAccessibilityEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SendAccessibilityEventRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EventSourceServiceServer).SendAccessibilityEvent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EventSourceService_SendAccessibilityEvent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EventSourceServiceServer).SendAccessibilityEvent(ctx, req.(*SendAccessibilityEventRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EventSourceService_SendAccessibilityEventUnchecked_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SendAccessibilityEventUncheckedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EventSourceServiceServer).SendAccessibilityEventUnchecked(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EventSourceService_SendAccessibilityEventUnchecked_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EventSourceServiceServer).SendAccessibilityEventUnchecked(ctx, req.(*SendAccessibilityEventUncheckedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// EventSourceService_ServiceDesc is the grpc.ServiceDesc for EventSourceService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var EventSourceService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "accessibility.EventSourceService",
+	HandlerType: (*EventSourceServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "SendAccessibilityEvent",
+			Handler:    _EventSourceService_SendAccessibilityEvent_Handler,
+		},
+		{
+			MethodName: "SendAccessibilityEventUnchecked",
+			Handler:    _EventSourceService_SendAccessibilityEventUnchecked_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/accessibility/accessibility.proto",
+}
+
+const (
+	RecordService_NewRecord_FullMethodName             = "/accessibility.RecordService/NewRecord"
+	RecordService_GetAddedCount_FullMethodName         = "/accessibility.RecordService/GetAddedCount"
+	RecordService_GetBeforeText_FullMethodName         = "/accessibility.RecordService/GetBeforeText"
+	RecordService_GetClassName_FullMethodName          = "/accessibility.RecordService/GetClassName"
+	RecordService_GetContentDescription_FullMethodName = "/accessibility.RecordService/GetContentDescription"
+	RecordService_GetCurrentItemIndex_FullMethodName   = "/accessibility.RecordService/GetCurrentItemIndex"
+	RecordService_GetDisplayId_FullMethodName          = "/accessibility.RecordService/GetDisplayId"
+	RecordService_GetFromIndex_FullMethodName          = "/accessibility.RecordService/GetFromIndex"
+	RecordService_GetItemCount_FullMethodName          = "/accessibility.RecordService/GetItemCount"
+	RecordService_GetMaxScrollX_FullMethodName         = "/accessibility.RecordService/GetMaxScrollX"
+	RecordService_GetMaxScrollY_FullMethodName         = "/accessibility.RecordService/GetMaxScrollY"
+	RecordService_GetParcelableData_FullMethodName     = "/accessibility.RecordService/GetParcelableData"
+	RecordService_GetRemovedCount_FullMethodName       = "/accessibility.RecordService/GetRemovedCount"
+	RecordService_GetScrollDeltaX_FullMethodName       = "/accessibility.RecordService/GetScrollDeltaX"
+	RecordService_GetScrollDeltaY_FullMethodName       = "/accessibility.RecordService/GetScrollDeltaY"
+	RecordService_GetScrollX_FullMethodName            = "/accessibility.RecordService/GetScrollX"
+	RecordService_GetScrollY_FullMethodName            = "/accessibility.RecordService/GetScrollY"
+	RecordService_GetSource0_FullMethodName            = "/accessibility.RecordService/GetSource0"
+	RecordService_GetSource1_1_FullMethodName          = "/accessibility.RecordService/GetSource1_1"
+	RecordService_GetToIndex_FullMethodName            = "/accessibility.RecordService/GetToIndex"
+	RecordService_GetWindowId_FullMethodName           = "/accessibility.RecordService/GetWindowId"
+	RecordService_IsChecked_FullMethodName             = "/accessibility.RecordService/IsChecked"
+	RecordService_IsEnabled_FullMethodName             = "/accessibility.RecordService/IsEnabled"
+	RecordService_IsFullScreen_FullMethodName          = "/accessibility.RecordService/IsFullScreen"
+	RecordService_IsPassword_FullMethodName            = "/accessibility.RecordService/IsPassword"
+	RecordService_IsScrollable_FullMethodName          = "/accessibility.RecordService/IsScrollable"
+	RecordService_Recycle_FullMethodName               = "/accessibility.RecordService/Recycle"
+	RecordService_SetAddedCount_FullMethodName         = "/accessibility.RecordService/SetAddedCount"
+	RecordService_SetBeforeText_FullMethodName         = "/accessibility.RecordService/SetBeforeText"
+	RecordService_SetChecked_FullMethodName            = "/accessibility.RecordService/SetChecked"
+	RecordService_SetClassName_FullMethodName          = "/accessibility.RecordService/SetClassName"
+	RecordService_SetContentDescription_FullMethodName = "/accessibility.RecordService/SetContentDescription"
+	RecordService_SetCurrentItemIndex_FullMethodName   = "/accessibility.RecordService/SetCurrentItemIndex"
+	RecordService_SetEnabled_FullMethodName            = "/accessibility.RecordService/SetEnabled"
+	RecordService_SetFromIndex_FullMethodName          = "/accessibility.RecordService/SetFromIndex"
+	RecordService_SetFullScreen_FullMethodName         = "/accessibility.RecordService/SetFullScreen"
+	RecordService_SetItemCount_FullMethodName          = "/accessibility.RecordService/SetItemCount"
+	RecordService_SetMaxScrollX_FullMethodName         = "/accessibility.RecordService/SetMaxScrollX"
+	RecordService_SetMaxScrollY_FullMethodName         = "/accessibility.RecordService/SetMaxScrollY"
+	RecordService_SetParcelableData_FullMethodName     = "/accessibility.RecordService/SetParcelableData"
+	RecordService_SetPassword_FullMethodName           = "/accessibility.RecordService/SetPassword"
+	RecordService_SetRemovedCount_FullMethodName       = "/accessibility.RecordService/SetRemovedCount"
+	RecordService_SetScrollDeltaX_FullMethodName       = "/accessibility.RecordService/SetScrollDeltaX"
+	RecordService_SetScrollDeltaY_FullMethodName       = "/accessibility.RecordService/SetScrollDeltaY"
+	RecordService_SetScrollX_FullMethodName            = "/accessibility.RecordService/SetScrollX"
+	RecordService_SetScrollY_FullMethodName            = "/accessibility.RecordService/SetScrollY"
+	RecordService_SetScrollable_FullMethodName         = "/accessibility.RecordService/SetScrollable"
+	RecordService_SetSource1_FullMethodName            = "/accessibility.RecordService/SetSource1"
+	RecordService_SetSource2_1_FullMethodName          = "/accessibility.RecordService/SetSource2_1"
+	RecordService_SetToIndex_FullMethodName            = "/accessibility.RecordService/SetToIndex"
+	RecordService_ToString_FullMethodName              = "/accessibility.RecordService/ToString"
+	RecordService_Obtain0_FullMethodName               = "/accessibility.RecordService/Obtain0"
+	RecordService_Obtain1_1_FullMethodName             = "/accessibility.RecordService/Obtain1_1"
+)
+
+// RecordServiceClient is the client API for RecordService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type RecordServiceClient interface {
+	NewRecord(ctx context.Context, in *NewRecordRequest, opts ...grpc.CallOption) (*NewRecordResponse, error)
+	GetAddedCount(ctx context.Context, in *GetAddedCountRequest, opts ...grpc.CallOption) (*GetAddedCountResponse, error)
+	GetBeforeText(ctx context.Context, in *GetBeforeTextRequest, opts ...grpc.CallOption) (*GetBeforeTextResponse, error)
+	GetClassName(ctx context.Context, in *GetClassNameRequest, opts ...grpc.CallOption) (*GetClassNameResponse, error)
+	GetContentDescription(ctx context.Context, in *GetContentDescriptionRequest, opts ...grpc.CallOption) (*GetContentDescriptionResponse, error)
+	GetCurrentItemIndex(ctx context.Context, in *GetCurrentItemIndexRequest, opts ...grpc.CallOption) (*GetCurrentItemIndexResponse, error)
+	GetDisplayId(ctx context.Context, in *GetDisplayIdRequest, opts ...grpc.CallOption) (*GetDisplayIdResponse, error)
+	GetFromIndex(ctx context.Context, in *GetFromIndexRequest, opts ...grpc.CallOption) (*GetFromIndexResponse, error)
+	GetItemCount(ctx context.Context, in *GetItemCountRequest, opts ...grpc.CallOption) (*GetItemCountResponse, error)
+	GetMaxScrollX(ctx context.Context, in *GetMaxScrollXRequest, opts ...grpc.CallOption) (*GetMaxScrollXResponse, error)
+	GetMaxScrollY(ctx context.Context, in *GetMaxScrollYRequest, opts ...grpc.CallOption) (*GetMaxScrollYResponse, error)
+	GetParcelableData(ctx context.Context, in *GetParcelableDataRequest, opts ...grpc.CallOption) (*GetParcelableDataResponse, error)
+	GetRemovedCount(ctx context.Context, in *GetRemovedCountRequest, opts ...grpc.CallOption) (*GetRemovedCountResponse, error)
+	GetScrollDeltaX(ctx context.Context, in *GetScrollDeltaXRequest, opts ...grpc.CallOption) (*GetScrollDeltaXResponse, error)
+	GetScrollDeltaY(ctx context.Context, in *GetScrollDeltaYRequest, opts ...grpc.CallOption) (*GetScrollDeltaYResponse, error)
+	GetScrollX(ctx context.Context, in *GetScrollXRequest, opts ...grpc.CallOption) (*GetScrollXResponse, error)
+	GetScrollY(ctx context.Context, in *GetScrollYRequest, opts ...grpc.CallOption) (*GetScrollYResponse, error)
+	GetSource0(ctx context.Context, in *GetSource0Request, opts ...grpc.CallOption) (*GetSource0Response, error)
+	GetSource1_1(ctx context.Context, in *GetSource1_1Request, opts ...grpc.CallOption) (*GetSource1_1Response, error)
+	GetToIndex(ctx context.Context, in *GetToIndexRequest, opts ...grpc.CallOption) (*GetToIndexResponse, error)
+	GetWindowId(ctx context.Context, in *GetWindowIdRequest, opts ...grpc.CallOption) (*GetWindowIdResponse, error)
+	IsChecked(ctx context.Context, in *IsCheckedRequest, opts ...grpc.CallOption) (*IsCheckedResponse, error)
+	IsEnabled(ctx context.Context, in *IsEnabledRequest, opts ...grpc.CallOption) (*IsEnabledResponse, error)
+	IsFullScreen(ctx context.Context, in *IsFullScreenRequest, opts ...grpc.CallOption) (*IsFullScreenResponse, error)
+	IsPassword(ctx context.Context, in *IsPasswordRequest, opts ...grpc.CallOption) (*IsPasswordResponse, error)
+	IsScrollable(ctx context.Context, in *IsScrollableRequest, opts ...grpc.CallOption) (*IsScrollableResponse, error)
+	Recycle(ctx context.Context, in *RecycleRequest, opts ...grpc.CallOption) (*RecycleResponse, error)
+	SetAddedCount(ctx context.Context, in *SetAddedCountRequest, opts ...grpc.CallOption) (*SetAddedCountResponse, error)
+	SetBeforeText(ctx context.Context, in *SetBeforeTextRequest, opts ...grpc.CallOption) (*SetBeforeTextResponse, error)
+	SetChecked(ctx context.Context, in *SetCheckedRequest, opts ...grpc.CallOption) (*SetCheckedResponse, error)
+	SetClassName(ctx context.Context, in *SetClassNameRequest, opts ...grpc.CallOption) (*SetClassNameResponse, error)
+	SetContentDescription(ctx context.Context, in *SetContentDescriptionRequest, opts ...grpc.CallOption) (*SetContentDescriptionResponse, error)
+	SetCurrentItemIndex(ctx context.Context, in *SetCurrentItemIndexRequest, opts ...grpc.CallOption) (*SetCurrentItemIndexResponse, error)
+	SetEnabled(ctx context.Context, in *SetEnabledRequest, opts ...grpc.CallOption) (*SetEnabledResponse, error)
+	SetFromIndex(ctx context.Context, in *SetFromIndexRequest, opts ...grpc.CallOption) (*SetFromIndexResponse, error)
+	SetFullScreen(ctx context.Context, in *SetFullScreenRequest, opts ...grpc.CallOption) (*SetFullScreenResponse, error)
+	SetItemCount(ctx context.Context, in *SetItemCountRequest, opts ...grpc.CallOption) (*SetItemCountResponse, error)
+	SetMaxScrollX(ctx context.Context, in *SetMaxScrollXRequest, opts ...grpc.CallOption) (*SetMaxScrollXResponse, error)
+	SetMaxScrollY(ctx context.Context, in *SetMaxScrollYRequest, opts ...grpc.CallOption) (*SetMaxScrollYResponse, error)
+	SetParcelableData(ctx context.Context, in *SetParcelableDataRequest, opts ...grpc.CallOption) (*SetParcelableDataResponse, error)
+	SetPassword(ctx context.Context, in *SetPasswordRequest, opts ...grpc.CallOption) (*SetPasswordResponse, error)
+	SetRemovedCount(ctx context.Context, in *SetRemovedCountRequest, opts ...grpc.CallOption) (*SetRemovedCountResponse, error)
+	SetScrollDeltaX(ctx context.Context, in *SetScrollDeltaXRequest, opts ...grpc.CallOption) (*SetScrollDeltaXResponse, error)
+	SetScrollDeltaY(ctx context.Context, in *SetScrollDeltaYRequest, opts ...grpc.CallOption) (*SetScrollDeltaYResponse, error)
+	SetScrollX(ctx context.Context, in *SetScrollXRequest, opts ...grpc.CallOption) (*SetScrollXResponse, error)
+	SetScrollY(ctx context.Context, in *SetScrollYRequest, opts ...grpc.CallOption) (*SetScrollYResponse, error)
+	SetScrollable(ctx context.Context, in *SetScrollableRequest, opts ...grpc.CallOption) (*SetScrollableResponse, error)
+	SetSource1(ctx context.Context, in *SetSource1Request, opts ...grpc.CallOption) (*SetSource1Response, error)
+	SetSource2_1(ctx context.Context, in *SetSource2_1Request, opts ...grpc.CallOption) (*SetSource2_1Response, error)
+	SetToIndex(ctx context.Context, in *SetToIndexRequest, opts ...grpc.CallOption) (*SetToIndexResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	Obtain0(ctx context.Context, in *Obtain0Request, opts ...grpc.CallOption) (*Obtain0Response, error)
+	Obtain1_1(ctx context.Context, in *Obtain1_1Request, opts ...grpc.CallOption) (*Obtain1_1Response, error)
+}
+
+type recordServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewRecordServiceClient(cc grpc.ClientConnInterface) RecordServiceClient {
+	return &recordServiceClient{cc}
+}
+
+func (c *recordServiceClient) NewRecord(ctx context.Context, in *NewRecordRequest, opts ...grpc.CallOption) (*NewRecordResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewRecordResponse)
+	err := c.cc.Invoke(ctx, RecordService_NewRecord_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordServiceClient) GetAddedCount(ctx context.Context, in *GetAddedCountRequest, opts ...grpc.CallOption) (*GetAddedCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAddedCountResponse)
+	err := c.cc.Invoke(ctx, RecordService_GetAddedCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordServiceClient) GetBeforeText(ctx context.Context, in *GetBeforeTextRequest, opts ...grpc.CallOption) (*GetBeforeTextResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetBeforeTextResponse)
+	err := c.cc.Invoke(ctx, RecordService_GetBeforeText_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordServiceClient) GetClassName(ctx context.Context, in *GetClassNameRequest, opts ...grpc.CallOption) (*GetClassNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetClassNameResponse)
+	err := c.cc.Invoke(ctx, RecordService_GetClassName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordServiceClient) GetContentDescription(ctx context.Context, in *GetContentDescriptionRequest, opts ...grpc.CallOption) (*GetContentDescriptionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetContentDescriptionResponse)
+	err := c.cc.Invoke(ctx, RecordService_GetContentDescription_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordServiceClient) GetCurrentItemIndex(ctx context.Context, in *GetCurrentItemIndexRequest, opts ...grpc.CallOption) (*GetCurrentItemIndexResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCurrentItemIndexResponse)
+	err := c.cc.Invoke(ctx, RecordService_GetCurrentItemIndex_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordServiceClient) GetDisplayId(ctx context.Context, in *GetDisplayIdRequest, opts ...grpc.CallOption) (*GetDisplayIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDisplayIdResponse)
+	err := c.cc.Invoke(ctx, RecordService_GetDisplayId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordServiceClient) GetFromIndex(ctx context.Context, in *GetFromIndexRequest, opts ...grpc.CallOption) (*GetFromIndexResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFromIndexResponse)
+	err := c.cc.Invoke(ctx, RecordService_GetFromIndex_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordServiceClient) GetItemCount(ctx context.Context, in *GetItemCountRequest, opts ...grpc.CallOption) (*GetItemCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetItemCountResponse)
+	err := c.cc.Invoke(ctx, RecordService_GetItemCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordServiceClient) GetMaxScrollX(ctx context.Context, in *GetMaxScrollXRequest, opts ...grpc.CallOption) (*GetMaxScrollXResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMaxScrollXResponse)
+	err := c.cc.Invoke(ctx, RecordService_GetMaxScrollX_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordServiceClient) GetMaxScrollY(ctx context.Context, in *GetMaxScrollYRequest, opts ...grpc.CallOption) (*GetMaxScrollYResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMaxScrollYResponse)
+	err := c.cc.Invoke(ctx, RecordService_GetMaxScrollY_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordServiceClient) GetParcelableData(ctx context.Context, in *GetParcelableDataRequest, opts ...grpc.CallOption) (*GetParcelableDataResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetParcelableDataResponse)
+	err := c.cc.Invoke(ctx, RecordService_GetParcelableData_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordServiceClient) GetRemovedCount(ctx context.Context, in *GetRemovedCountRequest, opts ...grpc.CallOption) (*GetRemovedCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRemovedCountResponse)
+	err := c.cc.Invoke(ctx, RecordService_GetRemovedCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordServiceClient) GetScrollDeltaX(ctx context.Context, in *GetScrollDeltaXRequest, opts ...grpc.CallOption) (*GetScrollDeltaXResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetScrollDeltaXResponse)
+	err := c.cc.Invoke(ctx, RecordService_GetScrollDeltaX_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordServiceClient) GetScrollDeltaY(ctx context.Context, in *GetScrollDeltaYRequest, opts ...grpc.CallOption) (*GetScrollDeltaYResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetScrollDeltaYResponse)
+	err := c.cc.Invoke(ctx, RecordService_GetScrollDeltaY_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordServiceClient) GetScrollX(ctx context.Context, in *GetScrollXRequest, opts ...grpc.CallOption) (*GetScrollXResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetScrollXResponse)
+	err := c.cc.Invoke(ctx, RecordService_GetScrollX_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordServiceClient) GetScrollY(ctx context.Context, in *GetScrollYRequest, opts ...grpc.CallOption) (*GetScrollYResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetScrollYResponse)
+	err := c.cc.Invoke(ctx, RecordService_GetScrollY_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordServiceClient) GetSource0(ctx context.Context, in *GetSource0Request, opts ...grpc.CallOption) (*GetSource0Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSource0Response)
+	err := c.cc.Invoke(ctx, RecordService_GetSource0_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordServiceClient) GetSource1_1(ctx context.Context, in *GetSource1_1Request, opts ...grpc.CallOption) (*GetSource1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSource1_1Response)
+	err := c.cc.Invoke(ctx, RecordService_GetSource1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordServiceClient) GetToIndex(ctx context.Context, in *GetToIndexRequest, opts ...grpc.CallOption) (*GetToIndexResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetToIndexResponse)
+	err := c.cc.Invoke(ctx, RecordService_GetToIndex_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordServiceClient) GetWindowId(ctx context.Context, in *GetWindowIdRequest, opts ...grpc.CallOption) (*GetWindowIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetWindowIdResponse)
+	err := c.cc.Invoke(ctx, RecordService_GetWindowId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordServiceClient) IsChecked(ctx context.Context, in *IsCheckedRequest, opts ...grpc.CallOption) (*IsCheckedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsCheckedResponse)
+	err := c.cc.Invoke(ctx, RecordService_IsChecked_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordServiceClient) IsEnabled(ctx context.Context, in *IsEnabledRequest, opts ...grpc.CallOption) (*IsEnabledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsEnabledResponse)
+	err := c.cc.Invoke(ctx, RecordService_IsEnabled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordServiceClient) IsFullScreen(ctx context.Context, in *IsFullScreenRequest, opts ...grpc.CallOption) (*IsFullScreenResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsFullScreenResponse)
+	err := c.cc.Invoke(ctx, RecordService_IsFullScreen_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordServiceClient) IsPassword(ctx context.Context, in *IsPasswordRequest, opts ...grpc.CallOption) (*IsPasswordResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsPasswordResponse)
+	err := c.cc.Invoke(ctx, RecordService_IsPassword_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordServiceClient) IsScrollable(ctx context.Context, in *IsScrollableRequest, opts ...grpc.CallOption) (*IsScrollableResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsScrollableResponse)
+	err := c.cc.Invoke(ctx, RecordService_IsScrollable_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordServiceClient) Recycle(ctx context.Context, in *RecycleRequest, opts ...grpc.CallOption) (*RecycleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RecycleResponse)
+	err := c.cc.Invoke(ctx, RecordService_Recycle_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordServiceClient) SetAddedCount(ctx context.Context, in *SetAddedCountRequest, opts ...grpc.CallOption) (*SetAddedCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetAddedCountResponse)
+	err := c.cc.Invoke(ctx, RecordService_SetAddedCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordServiceClient) SetBeforeText(ctx context.Context, in *SetBeforeTextRequest, opts ...grpc.CallOption) (*SetBeforeTextResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetBeforeTextResponse)
+	err := c.cc.Invoke(ctx, RecordService_SetBeforeText_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordServiceClient) SetChecked(ctx context.Context, in *SetCheckedRequest, opts ...grpc.CallOption) (*SetCheckedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetCheckedResponse)
+	err := c.cc.Invoke(ctx, RecordService_SetChecked_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordServiceClient) SetClassName(ctx context.Context, in *SetClassNameRequest, opts ...grpc.CallOption) (*SetClassNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetClassNameResponse)
+	err := c.cc.Invoke(ctx, RecordService_SetClassName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordServiceClient) SetContentDescription(ctx context.Context, in *SetContentDescriptionRequest, opts ...grpc.CallOption) (*SetContentDescriptionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetContentDescriptionResponse)
+	err := c.cc.Invoke(ctx, RecordService_SetContentDescription_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordServiceClient) SetCurrentItemIndex(ctx context.Context, in *SetCurrentItemIndexRequest, opts ...grpc.CallOption) (*SetCurrentItemIndexResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetCurrentItemIndexResponse)
+	err := c.cc.Invoke(ctx, RecordService_SetCurrentItemIndex_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordServiceClient) SetEnabled(ctx context.Context, in *SetEnabledRequest, opts ...grpc.CallOption) (*SetEnabledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetEnabledResponse)
+	err := c.cc.Invoke(ctx, RecordService_SetEnabled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordServiceClient) SetFromIndex(ctx context.Context, in *SetFromIndexRequest, opts ...grpc.CallOption) (*SetFromIndexResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetFromIndexResponse)
+	err := c.cc.Invoke(ctx, RecordService_SetFromIndex_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordServiceClient) SetFullScreen(ctx context.Context, in *SetFullScreenRequest, opts ...grpc.CallOption) (*SetFullScreenResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetFullScreenResponse)
+	err := c.cc.Invoke(ctx, RecordService_SetFullScreen_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordServiceClient) SetItemCount(ctx context.Context, in *SetItemCountRequest, opts ...grpc.CallOption) (*SetItemCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetItemCountResponse)
+	err := c.cc.Invoke(ctx, RecordService_SetItemCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordServiceClient) SetMaxScrollX(ctx context.Context, in *SetMaxScrollXRequest, opts ...grpc.CallOption) (*SetMaxScrollXResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetMaxScrollXResponse)
+	err := c.cc.Invoke(ctx, RecordService_SetMaxScrollX_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordServiceClient) SetMaxScrollY(ctx context.Context, in *SetMaxScrollYRequest, opts ...grpc.CallOption) (*SetMaxScrollYResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetMaxScrollYResponse)
+	err := c.cc.Invoke(ctx, RecordService_SetMaxScrollY_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordServiceClient) SetParcelableData(ctx context.Context, in *SetParcelableDataRequest, opts ...grpc.CallOption) (*SetParcelableDataResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetParcelableDataResponse)
+	err := c.cc.Invoke(ctx, RecordService_SetParcelableData_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordServiceClient) SetPassword(ctx context.Context, in *SetPasswordRequest, opts ...grpc.CallOption) (*SetPasswordResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetPasswordResponse)
+	err := c.cc.Invoke(ctx, RecordService_SetPassword_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordServiceClient) SetRemovedCount(ctx context.Context, in *SetRemovedCountRequest, opts ...grpc.CallOption) (*SetRemovedCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetRemovedCountResponse)
+	err := c.cc.Invoke(ctx, RecordService_SetRemovedCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordServiceClient) SetScrollDeltaX(ctx context.Context, in *SetScrollDeltaXRequest, opts ...grpc.CallOption) (*SetScrollDeltaXResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetScrollDeltaXResponse)
+	err := c.cc.Invoke(ctx, RecordService_SetScrollDeltaX_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordServiceClient) SetScrollDeltaY(ctx context.Context, in *SetScrollDeltaYRequest, opts ...grpc.CallOption) (*SetScrollDeltaYResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetScrollDeltaYResponse)
+	err := c.cc.Invoke(ctx, RecordService_SetScrollDeltaY_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordServiceClient) SetScrollX(ctx context.Context, in *SetScrollXRequest, opts ...grpc.CallOption) (*SetScrollXResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetScrollXResponse)
+	err := c.cc.Invoke(ctx, RecordService_SetScrollX_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordServiceClient) SetScrollY(ctx context.Context, in *SetScrollYRequest, opts ...grpc.CallOption) (*SetScrollYResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetScrollYResponse)
+	err := c.cc.Invoke(ctx, RecordService_SetScrollY_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordServiceClient) SetScrollable(ctx context.Context, in *SetScrollableRequest, opts ...grpc.CallOption) (*SetScrollableResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetScrollableResponse)
+	err := c.cc.Invoke(ctx, RecordService_SetScrollable_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordServiceClient) SetSource1(ctx context.Context, in *SetSource1Request, opts ...grpc.CallOption) (*SetSource1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetSource1Response)
+	err := c.cc.Invoke(ctx, RecordService_SetSource1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordServiceClient) SetSource2_1(ctx context.Context, in *SetSource2_1Request, opts ...grpc.CallOption) (*SetSource2_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetSource2_1Response)
+	err := c.cc.Invoke(ctx, RecordService_SetSource2_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordServiceClient) SetToIndex(ctx context.Context, in *SetToIndexRequest, opts ...grpc.CallOption) (*SetToIndexResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetToIndexResponse)
+	err := c.cc.Invoke(ctx, RecordService_SetToIndex_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, RecordService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordServiceClient) Obtain0(ctx context.Context, in *Obtain0Request, opts ...grpc.CallOption) (*Obtain0Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Obtain0Response)
+	err := c.cc.Invoke(ctx, RecordService_Obtain0_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recordServiceClient) Obtain1_1(ctx context.Context, in *Obtain1_1Request, opts ...grpc.CallOption) (*Obtain1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Obtain1_1Response)
+	err := c.cc.Invoke(ctx, RecordService_Obtain1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// RecordServiceServer is the server API for RecordService service.
+// All implementations must embed UnimplementedRecordServiceServer
+// for forward compatibility.
+type RecordServiceServer interface {
+	NewRecord(context.Context, *NewRecordRequest) (*NewRecordResponse, error)
+	GetAddedCount(context.Context, *GetAddedCountRequest) (*GetAddedCountResponse, error)
+	GetBeforeText(context.Context, *GetBeforeTextRequest) (*GetBeforeTextResponse, error)
+	GetClassName(context.Context, *GetClassNameRequest) (*GetClassNameResponse, error)
+	GetContentDescription(context.Context, *GetContentDescriptionRequest) (*GetContentDescriptionResponse, error)
+	GetCurrentItemIndex(context.Context, *GetCurrentItemIndexRequest) (*GetCurrentItemIndexResponse, error)
+	GetDisplayId(context.Context, *GetDisplayIdRequest) (*GetDisplayIdResponse, error)
+	GetFromIndex(context.Context, *GetFromIndexRequest) (*GetFromIndexResponse, error)
+	GetItemCount(context.Context, *GetItemCountRequest) (*GetItemCountResponse, error)
+	GetMaxScrollX(context.Context, *GetMaxScrollXRequest) (*GetMaxScrollXResponse, error)
+	GetMaxScrollY(context.Context, *GetMaxScrollYRequest) (*GetMaxScrollYResponse, error)
+	GetParcelableData(context.Context, *GetParcelableDataRequest) (*GetParcelableDataResponse, error)
+	GetRemovedCount(context.Context, *GetRemovedCountRequest) (*GetRemovedCountResponse, error)
+	GetScrollDeltaX(context.Context, *GetScrollDeltaXRequest) (*GetScrollDeltaXResponse, error)
+	GetScrollDeltaY(context.Context, *GetScrollDeltaYRequest) (*GetScrollDeltaYResponse, error)
+	GetScrollX(context.Context, *GetScrollXRequest) (*GetScrollXResponse, error)
+	GetScrollY(context.Context, *GetScrollYRequest) (*GetScrollYResponse, error)
+	GetSource0(context.Context, *GetSource0Request) (*GetSource0Response, error)
+	GetSource1_1(context.Context, *GetSource1_1Request) (*GetSource1_1Response, error)
+	GetToIndex(context.Context, *GetToIndexRequest) (*GetToIndexResponse, error)
+	GetWindowId(context.Context, *GetWindowIdRequest) (*GetWindowIdResponse, error)
+	IsChecked(context.Context, *IsCheckedRequest) (*IsCheckedResponse, error)
+	IsEnabled(context.Context, *IsEnabledRequest) (*IsEnabledResponse, error)
+	IsFullScreen(context.Context, *IsFullScreenRequest) (*IsFullScreenResponse, error)
+	IsPassword(context.Context, *IsPasswordRequest) (*IsPasswordResponse, error)
+	IsScrollable(context.Context, *IsScrollableRequest) (*IsScrollableResponse, error)
+	Recycle(context.Context, *RecycleRequest) (*RecycleResponse, error)
+	SetAddedCount(context.Context, *SetAddedCountRequest) (*SetAddedCountResponse, error)
+	SetBeforeText(context.Context, *SetBeforeTextRequest) (*SetBeforeTextResponse, error)
+	SetChecked(context.Context, *SetCheckedRequest) (*SetCheckedResponse, error)
+	SetClassName(context.Context, *SetClassNameRequest) (*SetClassNameResponse, error)
+	SetContentDescription(context.Context, *SetContentDescriptionRequest) (*SetContentDescriptionResponse, error)
+	SetCurrentItemIndex(context.Context, *SetCurrentItemIndexRequest) (*SetCurrentItemIndexResponse, error)
+	SetEnabled(context.Context, *SetEnabledRequest) (*SetEnabledResponse, error)
+	SetFromIndex(context.Context, *SetFromIndexRequest) (*SetFromIndexResponse, error)
+	SetFullScreen(context.Context, *SetFullScreenRequest) (*SetFullScreenResponse, error)
+	SetItemCount(context.Context, *SetItemCountRequest) (*SetItemCountResponse, error)
+	SetMaxScrollX(context.Context, *SetMaxScrollXRequest) (*SetMaxScrollXResponse, error)
+	SetMaxScrollY(context.Context, *SetMaxScrollYRequest) (*SetMaxScrollYResponse, error)
+	SetParcelableData(context.Context, *SetParcelableDataRequest) (*SetParcelableDataResponse, error)
+	SetPassword(context.Context, *SetPasswordRequest) (*SetPasswordResponse, error)
+	SetRemovedCount(context.Context, *SetRemovedCountRequest) (*SetRemovedCountResponse, error)
+	SetScrollDeltaX(context.Context, *SetScrollDeltaXRequest) (*SetScrollDeltaXResponse, error)
+	SetScrollDeltaY(context.Context, *SetScrollDeltaYRequest) (*SetScrollDeltaYResponse, error)
+	SetScrollX(context.Context, *SetScrollXRequest) (*SetScrollXResponse, error)
+	SetScrollY(context.Context, *SetScrollYRequest) (*SetScrollYResponse, error)
+	SetScrollable(context.Context, *SetScrollableRequest) (*SetScrollableResponse, error)
+	SetSource1(context.Context, *SetSource1Request) (*SetSource1Response, error)
+	SetSource2_1(context.Context, *SetSource2_1Request) (*SetSource2_1Response, error)
+	SetToIndex(context.Context, *SetToIndexRequest) (*SetToIndexResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	Obtain0(context.Context, *Obtain0Request) (*Obtain0Response, error)
+	Obtain1_1(context.Context, *Obtain1_1Request) (*Obtain1_1Response, error)
+	mustEmbedUnimplementedRecordServiceServer()
+}
+
+// UnimplementedRecordServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedRecordServiceServer struct{}
+
+func (UnimplementedRecordServiceServer) NewRecord(context.Context, *NewRecordRequest) (*NewRecordResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewRecord not implemented")
+}
+func (UnimplementedRecordServiceServer) GetAddedCount(context.Context, *GetAddedCountRequest) (*GetAddedCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAddedCount not implemented")
+}
+func (UnimplementedRecordServiceServer) GetBeforeText(context.Context, *GetBeforeTextRequest) (*GetBeforeTextResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetBeforeText not implemented")
+}
+func (UnimplementedRecordServiceServer) GetClassName(context.Context, *GetClassNameRequest) (*GetClassNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetClassName not implemented")
+}
+func (UnimplementedRecordServiceServer) GetContentDescription(context.Context, *GetContentDescriptionRequest) (*GetContentDescriptionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetContentDescription not implemented")
+}
+func (UnimplementedRecordServiceServer) GetCurrentItemIndex(context.Context, *GetCurrentItemIndexRequest) (*GetCurrentItemIndexResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCurrentItemIndex not implemented")
+}
+func (UnimplementedRecordServiceServer) GetDisplayId(context.Context, *GetDisplayIdRequest) (*GetDisplayIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDisplayId not implemented")
+}
+func (UnimplementedRecordServiceServer) GetFromIndex(context.Context, *GetFromIndexRequest) (*GetFromIndexResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFromIndex not implemented")
+}
+func (UnimplementedRecordServiceServer) GetItemCount(context.Context, *GetItemCountRequest) (*GetItemCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetItemCount not implemented")
+}
+func (UnimplementedRecordServiceServer) GetMaxScrollX(context.Context, *GetMaxScrollXRequest) (*GetMaxScrollXResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMaxScrollX not implemented")
+}
+func (UnimplementedRecordServiceServer) GetMaxScrollY(context.Context, *GetMaxScrollYRequest) (*GetMaxScrollYResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMaxScrollY not implemented")
+}
+func (UnimplementedRecordServiceServer) GetParcelableData(context.Context, *GetParcelableDataRequest) (*GetParcelableDataResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetParcelableData not implemented")
+}
+func (UnimplementedRecordServiceServer) GetRemovedCount(context.Context, *GetRemovedCountRequest) (*GetRemovedCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRemovedCount not implemented")
+}
+func (UnimplementedRecordServiceServer) GetScrollDeltaX(context.Context, *GetScrollDeltaXRequest) (*GetScrollDeltaXResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetScrollDeltaX not implemented")
+}
+func (UnimplementedRecordServiceServer) GetScrollDeltaY(context.Context, *GetScrollDeltaYRequest) (*GetScrollDeltaYResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetScrollDeltaY not implemented")
+}
+func (UnimplementedRecordServiceServer) GetScrollX(context.Context, *GetScrollXRequest) (*GetScrollXResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetScrollX not implemented")
+}
+func (UnimplementedRecordServiceServer) GetScrollY(context.Context, *GetScrollYRequest) (*GetScrollYResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetScrollY not implemented")
+}
+func (UnimplementedRecordServiceServer) GetSource0(context.Context, *GetSource0Request) (*GetSource0Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSource0 not implemented")
+}
+func (UnimplementedRecordServiceServer) GetSource1_1(context.Context, *GetSource1_1Request) (*GetSource1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSource1_1 not implemented")
+}
+func (UnimplementedRecordServiceServer) GetToIndex(context.Context, *GetToIndexRequest) (*GetToIndexResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetToIndex not implemented")
+}
+func (UnimplementedRecordServiceServer) GetWindowId(context.Context, *GetWindowIdRequest) (*GetWindowIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetWindowId not implemented")
+}
+func (UnimplementedRecordServiceServer) IsChecked(context.Context, *IsCheckedRequest) (*IsCheckedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsChecked not implemented")
+}
+func (UnimplementedRecordServiceServer) IsEnabled(context.Context, *IsEnabledRequest) (*IsEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsEnabled not implemented")
+}
+func (UnimplementedRecordServiceServer) IsFullScreen(context.Context, *IsFullScreenRequest) (*IsFullScreenResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsFullScreen not implemented")
+}
+func (UnimplementedRecordServiceServer) IsPassword(context.Context, *IsPasswordRequest) (*IsPasswordResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsPassword not implemented")
+}
+func (UnimplementedRecordServiceServer) IsScrollable(context.Context, *IsScrollableRequest) (*IsScrollableResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsScrollable not implemented")
+}
+func (UnimplementedRecordServiceServer) Recycle(context.Context, *RecycleRequest) (*RecycleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Recycle not implemented")
+}
+func (UnimplementedRecordServiceServer) SetAddedCount(context.Context, *SetAddedCountRequest) (*SetAddedCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetAddedCount not implemented")
+}
+func (UnimplementedRecordServiceServer) SetBeforeText(context.Context, *SetBeforeTextRequest) (*SetBeforeTextResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetBeforeText not implemented")
+}
+func (UnimplementedRecordServiceServer) SetChecked(context.Context, *SetCheckedRequest) (*SetCheckedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetChecked not implemented")
+}
+func (UnimplementedRecordServiceServer) SetClassName(context.Context, *SetClassNameRequest) (*SetClassNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetClassName not implemented")
+}
+func (UnimplementedRecordServiceServer) SetContentDescription(context.Context, *SetContentDescriptionRequest) (*SetContentDescriptionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetContentDescription not implemented")
+}
+func (UnimplementedRecordServiceServer) SetCurrentItemIndex(context.Context, *SetCurrentItemIndexRequest) (*SetCurrentItemIndexResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetCurrentItemIndex not implemented")
+}
+func (UnimplementedRecordServiceServer) SetEnabled(context.Context, *SetEnabledRequest) (*SetEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetEnabled not implemented")
+}
+func (UnimplementedRecordServiceServer) SetFromIndex(context.Context, *SetFromIndexRequest) (*SetFromIndexResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetFromIndex not implemented")
+}
+func (UnimplementedRecordServiceServer) SetFullScreen(context.Context, *SetFullScreenRequest) (*SetFullScreenResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetFullScreen not implemented")
+}
+func (UnimplementedRecordServiceServer) SetItemCount(context.Context, *SetItemCountRequest) (*SetItemCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetItemCount not implemented")
+}
+func (UnimplementedRecordServiceServer) SetMaxScrollX(context.Context, *SetMaxScrollXRequest) (*SetMaxScrollXResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetMaxScrollX not implemented")
+}
+func (UnimplementedRecordServiceServer) SetMaxScrollY(context.Context, *SetMaxScrollYRequest) (*SetMaxScrollYResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetMaxScrollY not implemented")
+}
+func (UnimplementedRecordServiceServer) SetParcelableData(context.Context, *SetParcelableDataRequest) (*SetParcelableDataResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetParcelableData not implemented")
+}
+func (UnimplementedRecordServiceServer) SetPassword(context.Context, *SetPasswordRequest) (*SetPasswordResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetPassword not implemented")
+}
+func (UnimplementedRecordServiceServer) SetRemovedCount(context.Context, *SetRemovedCountRequest) (*SetRemovedCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetRemovedCount not implemented")
+}
+func (UnimplementedRecordServiceServer) SetScrollDeltaX(context.Context, *SetScrollDeltaXRequest) (*SetScrollDeltaXResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetScrollDeltaX not implemented")
+}
+func (UnimplementedRecordServiceServer) SetScrollDeltaY(context.Context, *SetScrollDeltaYRequest) (*SetScrollDeltaYResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetScrollDeltaY not implemented")
+}
+func (UnimplementedRecordServiceServer) SetScrollX(context.Context, *SetScrollXRequest) (*SetScrollXResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetScrollX not implemented")
+}
+func (UnimplementedRecordServiceServer) SetScrollY(context.Context, *SetScrollYRequest) (*SetScrollYResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetScrollY not implemented")
+}
+func (UnimplementedRecordServiceServer) SetScrollable(context.Context, *SetScrollableRequest) (*SetScrollableResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetScrollable not implemented")
+}
+func (UnimplementedRecordServiceServer) SetSource1(context.Context, *SetSource1Request) (*SetSource1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetSource1 not implemented")
+}
+func (UnimplementedRecordServiceServer) SetSource2_1(context.Context, *SetSource2_1Request) (*SetSource2_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetSource2_1 not implemented")
+}
+func (UnimplementedRecordServiceServer) SetToIndex(context.Context, *SetToIndexRequest) (*SetToIndexResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetToIndex not implemented")
+}
+func (UnimplementedRecordServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedRecordServiceServer) Obtain0(context.Context, *Obtain0Request) (*Obtain0Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Obtain0 not implemented")
+}
+func (UnimplementedRecordServiceServer) Obtain1_1(context.Context, *Obtain1_1Request) (*Obtain1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Obtain1_1 not implemented")
+}
+func (UnimplementedRecordServiceServer) mustEmbedUnimplementedRecordServiceServer() {}
+func (UnimplementedRecordServiceServer) testEmbeddedByValue()                       {}
+
+// UnsafeRecordServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to RecordServiceServer will
+// result in compilation errors.
+type UnsafeRecordServiceServer interface {
+	mustEmbedUnimplementedRecordServiceServer()
+}
+
+func RegisterRecordServiceServer(s grpc.ServiceRegistrar, srv RecordServiceServer) {
+	// If the following call panics, it indicates UnimplementedRecordServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&RecordService_ServiceDesc, srv)
+}
+
+func _RecordService_NewRecord_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewRecordRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordServiceServer).NewRecord(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordService_NewRecord_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordServiceServer).NewRecord(ctx, req.(*NewRecordRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordService_GetAddedCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAddedCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordServiceServer).GetAddedCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordService_GetAddedCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordServiceServer).GetAddedCount(ctx, req.(*GetAddedCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordService_GetBeforeText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetBeforeTextRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordServiceServer).GetBeforeText(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordService_GetBeforeText_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordServiceServer).GetBeforeText(ctx, req.(*GetBeforeTextRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordService_GetClassName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetClassNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordServiceServer).GetClassName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordService_GetClassName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordServiceServer).GetClassName(ctx, req.(*GetClassNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordService_GetContentDescription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetContentDescriptionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordServiceServer).GetContentDescription(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordService_GetContentDescription_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordServiceServer).GetContentDescription(ctx, req.(*GetContentDescriptionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordService_GetCurrentItemIndex_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCurrentItemIndexRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordServiceServer).GetCurrentItemIndex(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordService_GetCurrentItemIndex_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordServiceServer).GetCurrentItemIndex(ctx, req.(*GetCurrentItemIndexRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordService_GetDisplayId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDisplayIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordServiceServer).GetDisplayId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordService_GetDisplayId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordServiceServer).GetDisplayId(ctx, req.(*GetDisplayIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordService_GetFromIndex_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFromIndexRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordServiceServer).GetFromIndex(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordService_GetFromIndex_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordServiceServer).GetFromIndex(ctx, req.(*GetFromIndexRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordService_GetItemCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetItemCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordServiceServer).GetItemCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordService_GetItemCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordServiceServer).GetItemCount(ctx, req.(*GetItemCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordService_GetMaxScrollX_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMaxScrollXRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordServiceServer).GetMaxScrollX(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordService_GetMaxScrollX_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordServiceServer).GetMaxScrollX(ctx, req.(*GetMaxScrollXRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordService_GetMaxScrollY_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMaxScrollYRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordServiceServer).GetMaxScrollY(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordService_GetMaxScrollY_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordServiceServer).GetMaxScrollY(ctx, req.(*GetMaxScrollYRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordService_GetParcelableData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetParcelableDataRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordServiceServer).GetParcelableData(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordService_GetParcelableData_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordServiceServer).GetParcelableData(ctx, req.(*GetParcelableDataRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordService_GetRemovedCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRemovedCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordServiceServer).GetRemovedCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordService_GetRemovedCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordServiceServer).GetRemovedCount(ctx, req.(*GetRemovedCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordService_GetScrollDeltaX_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetScrollDeltaXRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordServiceServer).GetScrollDeltaX(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordService_GetScrollDeltaX_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordServiceServer).GetScrollDeltaX(ctx, req.(*GetScrollDeltaXRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordService_GetScrollDeltaY_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetScrollDeltaYRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordServiceServer).GetScrollDeltaY(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordService_GetScrollDeltaY_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordServiceServer).GetScrollDeltaY(ctx, req.(*GetScrollDeltaYRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordService_GetScrollX_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetScrollXRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordServiceServer).GetScrollX(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordService_GetScrollX_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordServiceServer).GetScrollX(ctx, req.(*GetScrollXRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordService_GetScrollY_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetScrollYRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordServiceServer).GetScrollY(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordService_GetScrollY_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordServiceServer).GetScrollY(ctx, req.(*GetScrollYRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordService_GetSource0_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSource0Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordServiceServer).GetSource0(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordService_GetSource0_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordServiceServer).GetSource0(ctx, req.(*GetSource0Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordService_GetSource1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSource1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordServiceServer).GetSource1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordService_GetSource1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordServiceServer).GetSource1_1(ctx, req.(*GetSource1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordService_GetToIndex_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetToIndexRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordServiceServer).GetToIndex(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordService_GetToIndex_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordServiceServer).GetToIndex(ctx, req.(*GetToIndexRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordService_GetWindowId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetWindowIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordServiceServer).GetWindowId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordService_GetWindowId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordServiceServer).GetWindowId(ctx, req.(*GetWindowIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordService_IsChecked_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsCheckedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordServiceServer).IsChecked(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordService_IsChecked_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordServiceServer).IsChecked(ctx, req.(*IsCheckedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordService_IsEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsEnabledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordServiceServer).IsEnabled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordService_IsEnabled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordServiceServer).IsEnabled(ctx, req.(*IsEnabledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordService_IsFullScreen_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsFullScreenRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordServiceServer).IsFullScreen(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordService_IsFullScreen_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordServiceServer).IsFullScreen(ctx, req.(*IsFullScreenRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordService_IsPassword_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsPasswordRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordServiceServer).IsPassword(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordService_IsPassword_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordServiceServer).IsPassword(ctx, req.(*IsPasswordRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordService_IsScrollable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsScrollableRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordServiceServer).IsScrollable(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordService_IsScrollable_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordServiceServer).IsScrollable(ctx, req.(*IsScrollableRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordService_Recycle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RecycleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordServiceServer).Recycle(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordService_Recycle_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordServiceServer).Recycle(ctx, req.(*RecycleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordService_SetAddedCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetAddedCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordServiceServer).SetAddedCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordService_SetAddedCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordServiceServer).SetAddedCount(ctx, req.(*SetAddedCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordService_SetBeforeText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetBeforeTextRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordServiceServer).SetBeforeText(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordService_SetBeforeText_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordServiceServer).SetBeforeText(ctx, req.(*SetBeforeTextRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordService_SetChecked_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetCheckedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordServiceServer).SetChecked(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordService_SetChecked_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordServiceServer).SetChecked(ctx, req.(*SetCheckedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordService_SetClassName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetClassNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordServiceServer).SetClassName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordService_SetClassName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordServiceServer).SetClassName(ctx, req.(*SetClassNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordService_SetContentDescription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetContentDescriptionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordServiceServer).SetContentDescription(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordService_SetContentDescription_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordServiceServer).SetContentDescription(ctx, req.(*SetContentDescriptionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordService_SetCurrentItemIndex_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetCurrentItemIndexRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordServiceServer).SetCurrentItemIndex(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordService_SetCurrentItemIndex_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordServiceServer).SetCurrentItemIndex(ctx, req.(*SetCurrentItemIndexRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordService_SetEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetEnabledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordServiceServer).SetEnabled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordService_SetEnabled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordServiceServer).SetEnabled(ctx, req.(*SetEnabledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordService_SetFromIndex_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetFromIndexRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordServiceServer).SetFromIndex(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordService_SetFromIndex_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordServiceServer).SetFromIndex(ctx, req.(*SetFromIndexRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordService_SetFullScreen_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetFullScreenRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordServiceServer).SetFullScreen(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordService_SetFullScreen_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordServiceServer).SetFullScreen(ctx, req.(*SetFullScreenRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordService_SetItemCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetItemCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordServiceServer).SetItemCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordService_SetItemCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordServiceServer).SetItemCount(ctx, req.(*SetItemCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordService_SetMaxScrollX_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetMaxScrollXRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordServiceServer).SetMaxScrollX(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordService_SetMaxScrollX_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordServiceServer).SetMaxScrollX(ctx, req.(*SetMaxScrollXRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordService_SetMaxScrollY_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetMaxScrollYRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordServiceServer).SetMaxScrollY(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordService_SetMaxScrollY_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordServiceServer).SetMaxScrollY(ctx, req.(*SetMaxScrollYRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordService_SetParcelableData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetParcelableDataRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordServiceServer).SetParcelableData(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordService_SetParcelableData_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordServiceServer).SetParcelableData(ctx, req.(*SetParcelableDataRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordService_SetPassword_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetPasswordRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordServiceServer).SetPassword(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordService_SetPassword_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordServiceServer).SetPassword(ctx, req.(*SetPasswordRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordService_SetRemovedCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetRemovedCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordServiceServer).SetRemovedCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordService_SetRemovedCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordServiceServer).SetRemovedCount(ctx, req.(*SetRemovedCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordService_SetScrollDeltaX_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetScrollDeltaXRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordServiceServer).SetScrollDeltaX(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordService_SetScrollDeltaX_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordServiceServer).SetScrollDeltaX(ctx, req.(*SetScrollDeltaXRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordService_SetScrollDeltaY_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetScrollDeltaYRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordServiceServer).SetScrollDeltaY(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordService_SetScrollDeltaY_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordServiceServer).SetScrollDeltaY(ctx, req.(*SetScrollDeltaYRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordService_SetScrollX_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetScrollXRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordServiceServer).SetScrollX(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordService_SetScrollX_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordServiceServer).SetScrollX(ctx, req.(*SetScrollXRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordService_SetScrollY_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetScrollYRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordServiceServer).SetScrollY(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordService_SetScrollY_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordServiceServer).SetScrollY(ctx, req.(*SetScrollYRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordService_SetScrollable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetScrollableRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordServiceServer).SetScrollable(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordService_SetScrollable_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordServiceServer).SetScrollable(ctx, req.(*SetScrollableRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordService_SetSource1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetSource1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordServiceServer).SetSource1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordService_SetSource1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordServiceServer).SetSource1(ctx, req.(*SetSource1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordService_SetSource2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetSource2_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordServiceServer).SetSource2_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordService_SetSource2_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordServiceServer).SetSource2_1(ctx, req.(*SetSource2_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordService_SetToIndex_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetToIndexRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordServiceServer).SetToIndex(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordService_SetToIndex_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordServiceServer).SetToIndex(ctx, req.(*SetToIndexRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordService_Obtain0_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Obtain0Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordServiceServer).Obtain0(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordService_Obtain0_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordServiceServer).Obtain0(ctx, req.(*Obtain0Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecordService_Obtain1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Obtain1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecordServiceServer).Obtain1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecordService_Obtain1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecordServiceServer).Obtain1_1(ctx, req.(*Obtain1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// RecordService_ServiceDesc is the grpc.ServiceDesc for RecordService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var RecordService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "accessibility.RecordService",
+	HandlerType: (*RecordServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewRecord",
+			Handler:    _RecordService_NewRecord_Handler,
+		},
+		{
+			MethodName: "GetAddedCount",
+			Handler:    _RecordService_GetAddedCount_Handler,
+		},
+		{
+			MethodName: "GetBeforeText",
+			Handler:    _RecordService_GetBeforeText_Handler,
+		},
+		{
+			MethodName: "GetClassName",
+			Handler:    _RecordService_GetClassName_Handler,
+		},
+		{
+			MethodName: "GetContentDescription",
+			Handler:    _RecordService_GetContentDescription_Handler,
+		},
+		{
+			MethodName: "GetCurrentItemIndex",
+			Handler:    _RecordService_GetCurrentItemIndex_Handler,
+		},
+		{
+			MethodName: "GetDisplayId",
+			Handler:    _RecordService_GetDisplayId_Handler,
+		},
+		{
+			MethodName: "GetFromIndex",
+			Handler:    _RecordService_GetFromIndex_Handler,
+		},
+		{
+			MethodName: "GetItemCount",
+			Handler:    _RecordService_GetItemCount_Handler,
+		},
+		{
+			MethodName: "GetMaxScrollX",
+			Handler:    _RecordService_GetMaxScrollX_Handler,
+		},
+		{
+			MethodName: "GetMaxScrollY",
+			Handler:    _RecordService_GetMaxScrollY_Handler,
+		},
+		{
+			MethodName: "GetParcelableData",
+			Handler:    _RecordService_GetParcelableData_Handler,
+		},
+		{
+			MethodName: "GetRemovedCount",
+			Handler:    _RecordService_GetRemovedCount_Handler,
+		},
+		{
+			MethodName: "GetScrollDeltaX",
+			Handler:    _RecordService_GetScrollDeltaX_Handler,
+		},
+		{
+			MethodName: "GetScrollDeltaY",
+			Handler:    _RecordService_GetScrollDeltaY_Handler,
+		},
+		{
+			MethodName: "GetScrollX",
+			Handler:    _RecordService_GetScrollX_Handler,
+		},
+		{
+			MethodName: "GetScrollY",
+			Handler:    _RecordService_GetScrollY_Handler,
+		},
+		{
+			MethodName: "GetSource0",
+			Handler:    _RecordService_GetSource0_Handler,
+		},
+		{
+			MethodName: "GetSource1_1",
+			Handler:    _RecordService_GetSource1_1_Handler,
+		},
+		{
+			MethodName: "GetToIndex",
+			Handler:    _RecordService_GetToIndex_Handler,
+		},
+		{
+			MethodName: "GetWindowId",
+			Handler:    _RecordService_GetWindowId_Handler,
+		},
+		{
+			MethodName: "IsChecked",
+			Handler:    _RecordService_IsChecked_Handler,
+		},
+		{
+			MethodName: "IsEnabled",
+			Handler:    _RecordService_IsEnabled_Handler,
+		},
+		{
+			MethodName: "IsFullScreen",
+			Handler:    _RecordService_IsFullScreen_Handler,
+		},
+		{
+			MethodName: "IsPassword",
+			Handler:    _RecordService_IsPassword_Handler,
+		},
+		{
+			MethodName: "IsScrollable",
+			Handler:    _RecordService_IsScrollable_Handler,
+		},
+		{
+			MethodName: "Recycle",
+			Handler:    _RecordService_Recycle_Handler,
+		},
+		{
+			MethodName: "SetAddedCount",
+			Handler:    _RecordService_SetAddedCount_Handler,
+		},
+		{
+			MethodName: "SetBeforeText",
+			Handler:    _RecordService_SetBeforeText_Handler,
+		},
+		{
+			MethodName: "SetChecked",
+			Handler:    _RecordService_SetChecked_Handler,
+		},
+		{
+			MethodName: "SetClassName",
+			Handler:    _RecordService_SetClassName_Handler,
+		},
+		{
+			MethodName: "SetContentDescription",
+			Handler:    _RecordService_SetContentDescription_Handler,
+		},
+		{
+			MethodName: "SetCurrentItemIndex",
+			Handler:    _RecordService_SetCurrentItemIndex_Handler,
+		},
+		{
+			MethodName: "SetEnabled",
+			Handler:    _RecordService_SetEnabled_Handler,
+		},
+		{
+			MethodName: "SetFromIndex",
+			Handler:    _RecordService_SetFromIndex_Handler,
+		},
+		{
+			MethodName: "SetFullScreen",
+			Handler:    _RecordService_SetFullScreen_Handler,
+		},
+		{
+			MethodName: "SetItemCount",
+			Handler:    _RecordService_SetItemCount_Handler,
+		},
+		{
+			MethodName: "SetMaxScrollX",
+			Handler:    _RecordService_SetMaxScrollX_Handler,
+		},
+		{
+			MethodName: "SetMaxScrollY",
+			Handler:    _RecordService_SetMaxScrollY_Handler,
+		},
+		{
+			MethodName: "SetParcelableData",
+			Handler:    _RecordService_SetParcelableData_Handler,
+		},
+		{
+			MethodName: "SetPassword",
+			Handler:    _RecordService_SetPassword_Handler,
+		},
+		{
+			MethodName: "SetRemovedCount",
+			Handler:    _RecordService_SetRemovedCount_Handler,
+		},
+		{
+			MethodName: "SetScrollDeltaX",
+			Handler:    _RecordService_SetScrollDeltaX_Handler,
+		},
+		{
+			MethodName: "SetScrollDeltaY",
+			Handler:    _RecordService_SetScrollDeltaY_Handler,
+		},
+		{
+			MethodName: "SetScrollX",
+			Handler:    _RecordService_SetScrollX_Handler,
+		},
+		{
+			MethodName: "SetScrollY",
+			Handler:    _RecordService_SetScrollY_Handler,
+		},
+		{
+			MethodName: "SetScrollable",
+			Handler:    _RecordService_SetScrollable_Handler,
+		},
+		{
+			MethodName: "SetSource1",
+			Handler:    _RecordService_SetSource1_Handler,
+		},
+		{
+			MethodName: "SetSource2_1",
+			Handler:    _RecordService_SetSource2_1_Handler,
+		},
+		{
+			MethodName: "SetToIndex",
+			Handler:    _RecordService_SetToIndex_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _RecordService_ToString_Handler,
+		},
+		{
+			MethodName: "Obtain0",
+			Handler:    _RecordService_Obtain0_Handler,
+		},
+		{
+			MethodName: "Obtain1_1",
+			Handler:    _RecordService_Obtain1_1_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/accessibility/accessibility.proto",
+}
+
+const (
+	NodeInfoService_NewNodeInfo_FullMethodName                         = "/accessibility.NodeInfoService/NewNodeInfo"
+	NodeInfoService_AddAction1_FullMethodName                          = "/accessibility.NodeInfoService/AddAction1"
+	NodeInfoService_AddAction1_1_FullMethodName                        = "/accessibility.NodeInfoService/AddAction1_1"
+	NodeInfoService_AddChild1_FullMethodName                           = "/accessibility.NodeInfoService/AddChild1"
+	NodeInfoService_AddChild2_1_FullMethodName                         = "/accessibility.NodeInfoService/AddChild2_1"
+	NodeInfoService_AddLabeledBy1_FullMethodName                       = "/accessibility.NodeInfoService/AddLabeledBy1"
+	NodeInfoService_AddLabeledBy2_1_FullMethodName                     = "/accessibility.NodeInfoService/AddLabeledBy2_1"
+	NodeInfoService_CanOpenPopup_FullMethodName                        = "/accessibility.NodeInfoService/CanOpenPopup"
+	NodeInfoService_DescribeContents_FullMethodName                    = "/accessibility.NodeInfoService/DescribeContents"
+	NodeInfoService_Equals_FullMethodName                              = "/accessibility.NodeInfoService/Equals"
+	NodeInfoService_FindFocus_FullMethodName                           = "/accessibility.NodeInfoService/FindFocus"
+	NodeInfoService_FocusSearch_FullMethodName                         = "/accessibility.NodeInfoService/FocusSearch"
+	NodeInfoService_GetActions_FullMethodName                          = "/accessibility.NodeInfoService/GetActions"
+	NodeInfoService_GetBoundsInParent_FullMethodName                   = "/accessibility.NodeInfoService/GetBoundsInParent"
+	NodeInfoService_GetBoundsInScreen_FullMethodName                   = "/accessibility.NodeInfoService/GetBoundsInScreen"
+	NodeInfoService_GetBoundsInWindow_FullMethodName                   = "/accessibility.NodeInfoService/GetBoundsInWindow"
+	NodeInfoService_GetChecked_FullMethodName                          = "/accessibility.NodeInfoService/GetChecked"
+	NodeInfoService_GetChild1_FullMethodName                           = "/accessibility.NodeInfoService/GetChild1"
+	NodeInfoService_GetChild2_1_FullMethodName                         = "/accessibility.NodeInfoService/GetChild2_1"
+	NodeInfoService_GetChildCount_FullMethodName                       = "/accessibility.NodeInfoService/GetChildCount"
+	NodeInfoService_GetClassName_FullMethodName                        = "/accessibility.NodeInfoService/GetClassName"
+	NodeInfoService_GetCollectionInfo_FullMethodName                   = "/accessibility.NodeInfoService/GetCollectionInfo"
+	NodeInfoService_GetCollectionItemInfo_FullMethodName               = "/accessibility.NodeInfoService/GetCollectionItemInfo"
+	NodeInfoService_GetContainerTitle_FullMethodName                   = "/accessibility.NodeInfoService/GetContainerTitle"
+	NodeInfoService_GetContentDescription_FullMethodName               = "/accessibility.NodeInfoService/GetContentDescription"
+	NodeInfoService_GetDrawingOrder_FullMethodName                     = "/accessibility.NodeInfoService/GetDrawingOrder"
+	NodeInfoService_GetError_FullMethodName                            = "/accessibility.NodeInfoService/GetError"
+	NodeInfoService_GetExpandedState_FullMethodName                    = "/accessibility.NodeInfoService/GetExpandedState"
+	NodeInfoService_GetExtraRenderingInfo_FullMethodName               = "/accessibility.NodeInfoService/GetExtraRenderingInfo"
+	NodeInfoService_GetExtras_FullMethodName                           = "/accessibility.NodeInfoService/GetExtras"
+	NodeInfoService_GetHintText_FullMethodName                         = "/accessibility.NodeInfoService/GetHintText"
+	NodeInfoService_GetInputType_FullMethodName                        = "/accessibility.NodeInfoService/GetInputType"
+	NodeInfoService_GetLabelFor_FullMethodName                         = "/accessibility.NodeInfoService/GetLabelFor"
+	NodeInfoService_GetLabeledBy_FullMethodName                        = "/accessibility.NodeInfoService/GetLabeledBy"
+	NodeInfoService_GetLiveRegion_FullMethodName                       = "/accessibility.NodeInfoService/GetLiveRegion"
+	NodeInfoService_GetMaxTextLength_FullMethodName                    = "/accessibility.NodeInfoService/GetMaxTextLength"
+	NodeInfoService_GetMinDurationBetweenContentChanges_FullMethodName = "/accessibility.NodeInfoService/GetMinDurationBetweenContentChanges"
+	NodeInfoService_GetMovementGranularities_FullMethodName            = "/accessibility.NodeInfoService/GetMovementGranularities"
+	NodeInfoService_GetPackageName_FullMethodName                      = "/accessibility.NodeInfoService/GetPackageName"
+	NodeInfoService_GetPaneTitle_FullMethodName                        = "/accessibility.NodeInfoService/GetPaneTitle"
+	NodeInfoService_GetParent0_FullMethodName                          = "/accessibility.NodeInfoService/GetParent0"
+	NodeInfoService_GetParent1_1_FullMethodName                        = "/accessibility.NodeInfoService/GetParent1_1"
+	NodeInfoService_GetRangeInfo_FullMethodName                        = "/accessibility.NodeInfoService/GetRangeInfo"
+	NodeInfoService_GetStateDescription_FullMethodName                 = "/accessibility.NodeInfoService/GetStateDescription"
+	NodeInfoService_GetSupplementalDescription_FullMethodName          = "/accessibility.NodeInfoService/GetSupplementalDescription"
+	NodeInfoService_GetText_FullMethodName                             = "/accessibility.NodeInfoService/GetText"
+	NodeInfoService_GetTextSelectionEnd_FullMethodName                 = "/accessibility.NodeInfoService/GetTextSelectionEnd"
+	NodeInfoService_GetTextSelectionStart_FullMethodName               = "/accessibility.NodeInfoService/GetTextSelectionStart"
+	NodeInfoService_GetTooltipText_FullMethodName                      = "/accessibility.NodeInfoService/GetTooltipText"
+	NodeInfoService_GetTouchDelegateInfo_FullMethodName                = "/accessibility.NodeInfoService/GetTouchDelegateInfo"
+	NodeInfoService_GetTraversalAfter_FullMethodName                   = "/accessibility.NodeInfoService/GetTraversalAfter"
+	NodeInfoService_GetTraversalBefore_FullMethodName                  = "/accessibility.NodeInfoService/GetTraversalBefore"
+	NodeInfoService_GetUniqueId_FullMethodName                         = "/accessibility.NodeInfoService/GetUniqueId"
+	NodeInfoService_GetViewIdResourceName_FullMethodName               = "/accessibility.NodeInfoService/GetViewIdResourceName"
+	NodeInfoService_GetWindow_FullMethodName                           = "/accessibility.NodeInfoService/GetWindow"
+	NodeInfoService_GetWindowId_FullMethodName                         = "/accessibility.NodeInfoService/GetWindowId"
+	NodeInfoService_HasRequestInitialAccessibilityFocus_FullMethodName = "/accessibility.NodeInfoService/HasRequestInitialAccessibilityFocus"
+	NodeInfoService_HashCode_FullMethodName                            = "/accessibility.NodeInfoService/HashCode"
+	NodeInfoService_IsAccessibilityDataSensitive_FullMethodName        = "/accessibility.NodeInfoService/IsAccessibilityDataSensitive"
+	NodeInfoService_IsAccessibilityFocused_FullMethodName              = "/accessibility.NodeInfoService/IsAccessibilityFocused"
+	NodeInfoService_IsCheckable_FullMethodName                         = "/accessibility.NodeInfoService/IsCheckable"
+	NodeInfoService_IsChecked_FullMethodName                           = "/accessibility.NodeInfoService/IsChecked"
+	NodeInfoService_IsClickable_FullMethodName                         = "/accessibility.NodeInfoService/IsClickable"
+	NodeInfoService_IsContentInvalid_FullMethodName                    = "/accessibility.NodeInfoService/IsContentInvalid"
+	NodeInfoService_IsContextClickable_FullMethodName                  = "/accessibility.NodeInfoService/IsContextClickable"
+	NodeInfoService_IsDismissable_FullMethodName                       = "/accessibility.NodeInfoService/IsDismissable"
+	NodeInfoService_IsEditable_FullMethodName                          = "/accessibility.NodeInfoService/IsEditable"
+	NodeInfoService_IsEnabled_FullMethodName                           = "/accessibility.NodeInfoService/IsEnabled"
+	NodeInfoService_IsFieldRequired_FullMethodName                     = "/accessibility.NodeInfoService/IsFieldRequired"
+	NodeInfoService_IsFocusable_FullMethodName                         = "/accessibility.NodeInfoService/IsFocusable"
+	NodeInfoService_IsFocused_FullMethodName                           = "/accessibility.NodeInfoService/IsFocused"
+	NodeInfoService_IsGranularScrollingSupported_FullMethodName        = "/accessibility.NodeInfoService/IsGranularScrollingSupported"
+	NodeInfoService_IsHeading_FullMethodName                           = "/accessibility.NodeInfoService/IsHeading"
+	NodeInfoService_IsImportantForAccessibility_FullMethodName         = "/accessibility.NodeInfoService/IsImportantForAccessibility"
+	NodeInfoService_IsLongClickable_FullMethodName                     = "/accessibility.NodeInfoService/IsLongClickable"
+	NodeInfoService_IsMultiLine_FullMethodName                         = "/accessibility.NodeInfoService/IsMultiLine"
+	NodeInfoService_IsPassword_FullMethodName                          = "/accessibility.NodeInfoService/IsPassword"
+	NodeInfoService_IsScreenReaderFocusable_FullMethodName             = "/accessibility.NodeInfoService/IsScreenReaderFocusable"
+	NodeInfoService_IsScrollable_FullMethodName                        = "/accessibility.NodeInfoService/IsScrollable"
+	NodeInfoService_IsSelected_FullMethodName                          = "/accessibility.NodeInfoService/IsSelected"
+	NodeInfoService_IsShowingHintText_FullMethodName                   = "/accessibility.NodeInfoService/IsShowingHintText"
+	NodeInfoService_IsTextEntryKey_FullMethodName                      = "/accessibility.NodeInfoService/IsTextEntryKey"
+	NodeInfoService_IsTextSelectable_FullMethodName                    = "/accessibility.NodeInfoService/IsTextSelectable"
+	NodeInfoService_IsVisibleToUser_FullMethodName                     = "/accessibility.NodeInfoService/IsVisibleToUser"
+	NodeInfoService_PerformAction1_FullMethodName                      = "/accessibility.NodeInfoService/PerformAction1"
+	NodeInfoService_PerformAction2_1_FullMethodName                    = "/accessibility.NodeInfoService/PerformAction2_1"
+	NodeInfoService_Recycle_FullMethodName                             = "/accessibility.NodeInfoService/Recycle"
+	NodeInfoService_Refresh_FullMethodName                             = "/accessibility.NodeInfoService/Refresh"
+	NodeInfoService_RefreshWithExtraData_FullMethodName                = "/accessibility.NodeInfoService/RefreshWithExtraData"
+	NodeInfoService_RemoveAction1_FullMethodName                       = "/accessibility.NodeInfoService/RemoveAction1"
+	NodeInfoService_RemoveAction1_1_FullMethodName                     = "/accessibility.NodeInfoService/RemoveAction1_1"
+	NodeInfoService_RemoveChild1_FullMethodName                        = "/accessibility.NodeInfoService/RemoveChild1"
+	NodeInfoService_RemoveChild2_1_FullMethodName                      = "/accessibility.NodeInfoService/RemoveChild2_1"
+	NodeInfoService_RemoveLabeledBy1_FullMethodName                    = "/accessibility.NodeInfoService/RemoveLabeledBy1"
+	NodeInfoService_RemoveLabeledBy2_1_FullMethodName                  = "/accessibility.NodeInfoService/RemoveLabeledBy2_1"
+	NodeInfoService_SetAccessibilityDataSensitive_FullMethodName       = "/accessibility.NodeInfoService/SetAccessibilityDataSensitive"
+	NodeInfoService_SetAccessibilityFocused_FullMethodName             = "/accessibility.NodeInfoService/SetAccessibilityFocused"
+	NodeInfoService_SetBoundsInParent_FullMethodName                   = "/accessibility.NodeInfoService/SetBoundsInParent"
+	NodeInfoService_SetBoundsInScreen_FullMethodName                   = "/accessibility.NodeInfoService/SetBoundsInScreen"
+	NodeInfoService_SetBoundsInWindow_FullMethodName                   = "/accessibility.NodeInfoService/SetBoundsInWindow"
+	NodeInfoService_SetCanOpenPopup_FullMethodName                     = "/accessibility.NodeInfoService/SetCanOpenPopup"
+	NodeInfoService_SetCheckable_FullMethodName                        = "/accessibility.NodeInfoService/SetCheckable"
+	NodeInfoService_SetChecked1_FullMethodName                         = "/accessibility.NodeInfoService/SetChecked1"
+	NodeInfoService_SetChecked1_1_FullMethodName                       = "/accessibility.NodeInfoService/SetChecked1_1"
+	NodeInfoService_SetClassName_FullMethodName                        = "/accessibility.NodeInfoService/SetClassName"
+	NodeInfoService_SetClickable_FullMethodName                        = "/accessibility.NodeInfoService/SetClickable"
+	NodeInfoService_SetCollectionInfo_FullMethodName                   = "/accessibility.NodeInfoService/SetCollectionInfo"
+	NodeInfoService_SetCollectionItemInfo_FullMethodName               = "/accessibility.NodeInfoService/SetCollectionItemInfo"
+	NodeInfoService_SetContainerTitle_FullMethodName                   = "/accessibility.NodeInfoService/SetContainerTitle"
+	NodeInfoService_SetContentDescription_FullMethodName               = "/accessibility.NodeInfoService/SetContentDescription"
+	NodeInfoService_SetContentInvalid_FullMethodName                   = "/accessibility.NodeInfoService/SetContentInvalid"
+	NodeInfoService_SetContextClickable_FullMethodName                 = "/accessibility.NodeInfoService/SetContextClickable"
+	NodeInfoService_SetDismissable_FullMethodName                      = "/accessibility.NodeInfoService/SetDismissable"
+	NodeInfoService_SetDrawingOrder_FullMethodName                     = "/accessibility.NodeInfoService/SetDrawingOrder"
+	NodeInfoService_SetEditable_FullMethodName                         = "/accessibility.NodeInfoService/SetEditable"
+	NodeInfoService_SetEnabled_FullMethodName                          = "/accessibility.NodeInfoService/SetEnabled"
+	NodeInfoService_SetError_FullMethodName                            = "/accessibility.NodeInfoService/SetError"
+	NodeInfoService_SetExpandedState_FullMethodName                    = "/accessibility.NodeInfoService/SetExpandedState"
+	NodeInfoService_SetFieldRequired_FullMethodName                    = "/accessibility.NodeInfoService/SetFieldRequired"
+	NodeInfoService_SetFocusable_FullMethodName                        = "/accessibility.NodeInfoService/SetFocusable"
+	NodeInfoService_SetFocused_FullMethodName                          = "/accessibility.NodeInfoService/SetFocused"
+	NodeInfoService_SetGranularScrollingSupported_FullMethodName       = "/accessibility.NodeInfoService/SetGranularScrollingSupported"
+	NodeInfoService_SetHeading_FullMethodName                          = "/accessibility.NodeInfoService/SetHeading"
+	NodeInfoService_SetHintText_FullMethodName                         = "/accessibility.NodeInfoService/SetHintText"
+	NodeInfoService_SetImportantForAccessibility_FullMethodName        = "/accessibility.NodeInfoService/SetImportantForAccessibility"
+	NodeInfoService_SetInputType_FullMethodName                        = "/accessibility.NodeInfoService/SetInputType"
+	NodeInfoService_SetLabelFor1_FullMethodName                        = "/accessibility.NodeInfoService/SetLabelFor1"
+	NodeInfoService_SetLabelFor2_1_FullMethodName                      = "/accessibility.NodeInfoService/SetLabelFor2_1"
+	NodeInfoService_SetLabeledBy1_FullMethodName                       = "/accessibility.NodeInfoService/SetLabeledBy1"
+	NodeInfoService_SetLabeledBy2_1_FullMethodName                     = "/accessibility.NodeInfoService/SetLabeledBy2_1"
+	NodeInfoService_SetLiveRegion_FullMethodName                       = "/accessibility.NodeInfoService/SetLiveRegion"
+	NodeInfoService_SetLongClickable_FullMethodName                    = "/accessibility.NodeInfoService/SetLongClickable"
+	NodeInfoService_SetMaxTextLength_FullMethodName                    = "/accessibility.NodeInfoService/SetMaxTextLength"
+	NodeInfoService_SetMinDurationBetweenContentChanges_FullMethodName = "/accessibility.NodeInfoService/SetMinDurationBetweenContentChanges"
+	NodeInfoService_SetMovementGranularities_FullMethodName            = "/accessibility.NodeInfoService/SetMovementGranularities"
+	NodeInfoService_SetMultiLine_FullMethodName                        = "/accessibility.NodeInfoService/SetMultiLine"
+	NodeInfoService_SetPackageName_FullMethodName                      = "/accessibility.NodeInfoService/SetPackageName"
+	NodeInfoService_SetPaneTitle_FullMethodName                        = "/accessibility.NodeInfoService/SetPaneTitle"
+	NodeInfoService_SetParent1_FullMethodName                          = "/accessibility.NodeInfoService/SetParent1"
+	NodeInfoService_SetParent2_1_FullMethodName                        = "/accessibility.NodeInfoService/SetParent2_1"
+	NodeInfoService_SetPassword_FullMethodName                         = "/accessibility.NodeInfoService/SetPassword"
+	NodeInfoService_SetQueryFromAppProcessEnabled_FullMethodName       = "/accessibility.NodeInfoService/SetQueryFromAppProcessEnabled"
+	NodeInfoService_SetRangeInfo_FullMethodName                        = "/accessibility.NodeInfoService/SetRangeInfo"
+	NodeInfoService_SetRequestInitialAccessibilityFocus_FullMethodName = "/accessibility.NodeInfoService/SetRequestInitialAccessibilityFocus"
+	NodeInfoService_SetScreenReaderFocusable_FullMethodName            = "/accessibility.NodeInfoService/SetScreenReaderFocusable"
+	NodeInfoService_SetScrollable_FullMethodName                       = "/accessibility.NodeInfoService/SetScrollable"
+	NodeInfoService_SetSelected_FullMethodName                         = "/accessibility.NodeInfoService/SetSelected"
+	NodeInfoService_SetShowingHintText_FullMethodName                  = "/accessibility.NodeInfoService/SetShowingHintText"
+	NodeInfoService_SetSource1_FullMethodName                          = "/accessibility.NodeInfoService/SetSource1"
+	NodeInfoService_SetSource2_1_FullMethodName                        = "/accessibility.NodeInfoService/SetSource2_1"
+	NodeInfoService_SetStateDescription_FullMethodName                 = "/accessibility.NodeInfoService/SetStateDescription"
+	NodeInfoService_SetSupplementalDescription_FullMethodName          = "/accessibility.NodeInfoService/SetSupplementalDescription"
+	NodeInfoService_SetText_FullMethodName                             = "/accessibility.NodeInfoService/SetText"
+	NodeInfoService_SetTextEntryKey_FullMethodName                     = "/accessibility.NodeInfoService/SetTextEntryKey"
+	NodeInfoService_SetTextSelectable_FullMethodName                   = "/accessibility.NodeInfoService/SetTextSelectable"
+	NodeInfoService_SetTextSelection_FullMethodName                    = "/accessibility.NodeInfoService/SetTextSelection"
+	NodeInfoService_SetTooltipText_FullMethodName                      = "/accessibility.NodeInfoService/SetTooltipText"
+	NodeInfoService_SetTouchDelegateInfo_FullMethodName                = "/accessibility.NodeInfoService/SetTouchDelegateInfo"
+	NodeInfoService_SetTraversalAfter1_FullMethodName                  = "/accessibility.NodeInfoService/SetTraversalAfter1"
+	NodeInfoService_SetTraversalAfter2_1_FullMethodName                = "/accessibility.NodeInfoService/SetTraversalAfter2_1"
+	NodeInfoService_SetTraversalBefore1_FullMethodName                 = "/accessibility.NodeInfoService/SetTraversalBefore1"
+	NodeInfoService_SetTraversalBefore2_1_FullMethodName               = "/accessibility.NodeInfoService/SetTraversalBefore2_1"
+	NodeInfoService_SetUniqueId_FullMethodName                         = "/accessibility.NodeInfoService/SetUniqueId"
+	NodeInfoService_SetViewIdResourceName_FullMethodName               = "/accessibility.NodeInfoService/SetViewIdResourceName"
+	NodeInfoService_SetVisibleToUser_FullMethodName                    = "/accessibility.NodeInfoService/SetVisibleToUser"
+	NodeInfoService_ToString_FullMethodName                            = "/accessibility.NodeInfoService/ToString"
+	NodeInfoService_WriteToParcel_FullMethodName                       = "/accessibility.NodeInfoService/WriteToParcel"
+	NodeInfoService_Obtain0_FullMethodName                             = "/accessibility.NodeInfoService/Obtain0"
+	NodeInfoService_Obtain1_1_FullMethodName                           = "/accessibility.NodeInfoService/Obtain1_1"
+	NodeInfoService_Obtain1_2_FullMethodName                           = "/accessibility.NodeInfoService/Obtain1_2"
+	NodeInfoService_Obtain2_3_FullMethodName                           = "/accessibility.NodeInfoService/Obtain2_3"
+)
+
+// NodeInfoServiceClient is the client API for NodeInfoService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type NodeInfoServiceClient interface {
+	NewNodeInfo(ctx context.Context, in *NewNodeInfoRequest, opts ...grpc.CallOption) (*NewNodeInfoResponse, error)
+	AddAction1(ctx context.Context, in *AddAction1Request, opts ...grpc.CallOption) (*AddAction1Response, error)
+	AddAction1_1(ctx context.Context, in *AddAction1_1Request, opts ...grpc.CallOption) (*AddAction1_1Response, error)
+	AddChild1(ctx context.Context, in *AddChild1Request, opts ...grpc.CallOption) (*AddChild1Response, error)
+	AddChild2_1(ctx context.Context, in *AddChild2_1Request, opts ...grpc.CallOption) (*AddChild2_1Response, error)
+	AddLabeledBy1(ctx context.Context, in *AddLabeledBy1Request, opts ...grpc.CallOption) (*AddLabeledBy1Response, error)
+	AddLabeledBy2_1(ctx context.Context, in *AddLabeledBy2_1Request, opts ...grpc.CallOption) (*AddLabeledBy2_1Response, error)
+	CanOpenPopup(ctx context.Context, in *CanOpenPopupRequest, opts ...grpc.CallOption) (*CanOpenPopupResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	FindFocus(ctx context.Context, in *FindFocusRequest, opts ...grpc.CallOption) (*FindFocusResponse, error)
+	FocusSearch(ctx context.Context, in *FocusSearchRequest, opts ...grpc.CallOption) (*FocusSearchResponse, error)
+	GetActions(ctx context.Context, in *GetActionsRequest, opts ...grpc.CallOption) (*GetActionsResponse, error)
+	GetBoundsInParent(ctx context.Context, in *GetBoundsInParentRequest, opts ...grpc.CallOption) (*GetBoundsInParentResponse, error)
+	GetBoundsInScreen(ctx context.Context, in *GetBoundsInScreenRequest, opts ...grpc.CallOption) (*GetBoundsInScreenResponse, error)
+	GetBoundsInWindow(ctx context.Context, in *GetBoundsInWindowRequest, opts ...grpc.CallOption) (*GetBoundsInWindowResponse, error)
+	GetChecked(ctx context.Context, in *GetCheckedRequest, opts ...grpc.CallOption) (*GetCheckedResponse, error)
+	GetChild1(ctx context.Context, in *GetChild1Request, opts ...grpc.CallOption) (*GetChild1Response, error)
+	GetChild2_1(ctx context.Context, in *GetChild2_1Request, opts ...grpc.CallOption) (*GetChild2_1Response, error)
+	GetChildCount(ctx context.Context, in *GetChildCountRequest, opts ...grpc.CallOption) (*GetChildCountResponse, error)
+	GetClassName(ctx context.Context, in *GetClassNameRequest, opts ...grpc.CallOption) (*GetClassNameResponse, error)
+	GetCollectionInfo(ctx context.Context, in *GetCollectionInfoRequest, opts ...grpc.CallOption) (*GetCollectionInfoResponse, error)
+	GetCollectionItemInfo(ctx context.Context, in *GetCollectionItemInfoRequest, opts ...grpc.CallOption) (*GetCollectionItemInfoResponse, error)
+	GetContainerTitle(ctx context.Context, in *GetContainerTitleRequest, opts ...grpc.CallOption) (*GetContainerTitleResponse, error)
+	GetContentDescription(ctx context.Context, in *GetContentDescriptionRequest, opts ...grpc.CallOption) (*GetContentDescriptionResponse, error)
+	GetDrawingOrder(ctx context.Context, in *GetDrawingOrderRequest, opts ...grpc.CallOption) (*GetDrawingOrderResponse, error)
+	GetError(ctx context.Context, in *GetErrorRequest, opts ...grpc.CallOption) (*GetErrorResponse, error)
+	GetExpandedState(ctx context.Context, in *GetExpandedStateRequest, opts ...grpc.CallOption) (*GetExpandedStateResponse, error)
+	GetExtraRenderingInfo(ctx context.Context, in *GetExtraRenderingInfoRequest, opts ...grpc.CallOption) (*GetExtraRenderingInfoResponse, error)
+	GetExtras(ctx context.Context, in *GetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error)
+	GetHintText(ctx context.Context, in *GetHintTextRequest, opts ...grpc.CallOption) (*GetHintTextResponse, error)
+	GetInputType(ctx context.Context, in *GetInputTypeRequest, opts ...grpc.CallOption) (*GetInputTypeResponse, error)
+	GetLabelFor(ctx context.Context, in *GetLabelForRequest, opts ...grpc.CallOption) (*GetLabelForResponse, error)
+	GetLabeledBy(ctx context.Context, in *GetLabeledByRequest, opts ...grpc.CallOption) (*GetLabeledByResponse, error)
+	GetLiveRegion(ctx context.Context, in *GetLiveRegionRequest, opts ...grpc.CallOption) (*GetLiveRegionResponse, error)
+	GetMaxTextLength(ctx context.Context, in *GetMaxTextLengthRequest, opts ...grpc.CallOption) (*GetMaxTextLengthResponse, error)
+	GetMinDurationBetweenContentChanges(ctx context.Context, in *GetMinDurationBetweenContentChangesRequest, opts ...grpc.CallOption) (*GetMinDurationBetweenContentChangesResponse, error)
+	GetMovementGranularities(ctx context.Context, in *GetMovementGranularitiesRequest, opts ...grpc.CallOption) (*GetMovementGranularitiesResponse, error)
+	GetPackageName(ctx context.Context, in *GetPackageNameRequest, opts ...grpc.CallOption) (*GetPackageNameResponse, error)
+	GetPaneTitle(ctx context.Context, in *GetPaneTitleRequest, opts ...grpc.CallOption) (*GetPaneTitleResponse, error)
+	GetParent0(ctx context.Context, in *GetParent0Request, opts ...grpc.CallOption) (*GetParent0Response, error)
+	GetParent1_1(ctx context.Context, in *GetParent1_1Request, opts ...grpc.CallOption) (*GetParent1_1Response, error)
+	GetRangeInfo(ctx context.Context, in *GetRangeInfoRequest, opts ...grpc.CallOption) (*GetRangeInfoResponse, error)
+	GetStateDescription(ctx context.Context, in *GetStateDescriptionRequest, opts ...grpc.CallOption) (*GetStateDescriptionResponse, error)
+	GetSupplementalDescription(ctx context.Context, in *GetSupplementalDescriptionRequest, opts ...grpc.CallOption) (*GetSupplementalDescriptionResponse, error)
+	GetText(ctx context.Context, in *GetTextRequest, opts ...grpc.CallOption) (*GetTextResponse, error)
+	GetTextSelectionEnd(ctx context.Context, in *GetTextSelectionEndRequest, opts ...grpc.CallOption) (*GetTextSelectionEndResponse, error)
+	GetTextSelectionStart(ctx context.Context, in *GetTextSelectionStartRequest, opts ...grpc.CallOption) (*GetTextSelectionStartResponse, error)
+	GetTooltipText(ctx context.Context, in *GetTooltipTextRequest, opts ...grpc.CallOption) (*GetTooltipTextResponse, error)
+	GetTouchDelegateInfo(ctx context.Context, in *GetTouchDelegateInfoRequest, opts ...grpc.CallOption) (*GetTouchDelegateInfoResponse, error)
+	GetTraversalAfter(ctx context.Context, in *GetTraversalAfterRequest, opts ...grpc.CallOption) (*GetTraversalAfterResponse, error)
+	GetTraversalBefore(ctx context.Context, in *GetTraversalBeforeRequest, opts ...grpc.CallOption) (*GetTraversalBeforeResponse, error)
+	GetUniqueId(ctx context.Context, in *GetUniqueIdRequest, opts ...grpc.CallOption) (*GetUniqueIdResponse, error)
+	GetViewIdResourceName(ctx context.Context, in *GetViewIdResourceNameRequest, opts ...grpc.CallOption) (*GetViewIdResourceNameResponse, error)
+	GetWindow(ctx context.Context, in *GetWindowRequest, opts ...grpc.CallOption) (*GetWindowResponse, error)
+	GetWindowId(ctx context.Context, in *GetWindowIdRequest, opts ...grpc.CallOption) (*GetWindowIdResponse, error)
+	HasRequestInitialAccessibilityFocus(ctx context.Context, in *HasRequestInitialAccessibilityFocusRequest, opts ...grpc.CallOption) (*HasRequestInitialAccessibilityFocusResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	IsAccessibilityDataSensitive(ctx context.Context, in *IsAccessibilityDataSensitiveRequest, opts ...grpc.CallOption) (*IsAccessibilityDataSensitiveResponse, error)
+	IsAccessibilityFocused(ctx context.Context, in *IsAccessibilityFocusedRequest, opts ...grpc.CallOption) (*IsAccessibilityFocusedResponse, error)
+	IsCheckable(ctx context.Context, in *IsCheckableRequest, opts ...grpc.CallOption) (*IsCheckableResponse, error)
+	IsChecked(ctx context.Context, in *IsCheckedRequest, opts ...grpc.CallOption) (*IsCheckedResponse, error)
+	IsClickable(ctx context.Context, in *IsClickableRequest, opts ...grpc.CallOption) (*IsClickableResponse, error)
+	IsContentInvalid(ctx context.Context, in *IsContentInvalidRequest, opts ...grpc.CallOption) (*IsContentInvalidResponse, error)
+	IsContextClickable(ctx context.Context, in *IsContextClickableRequest, opts ...grpc.CallOption) (*IsContextClickableResponse, error)
+	IsDismissable(ctx context.Context, in *IsDismissableRequest, opts ...grpc.CallOption) (*IsDismissableResponse, error)
+	IsEditable(ctx context.Context, in *IsEditableRequest, opts ...grpc.CallOption) (*IsEditableResponse, error)
+	IsEnabled(ctx context.Context, in *IsEnabledRequest, opts ...grpc.CallOption) (*IsEnabledResponse, error)
+	IsFieldRequired(ctx context.Context, in *IsFieldRequiredRequest, opts ...grpc.CallOption) (*IsFieldRequiredResponse, error)
+	IsFocusable(ctx context.Context, in *IsFocusableRequest, opts ...grpc.CallOption) (*IsFocusableResponse, error)
+	IsFocused(ctx context.Context, in *IsFocusedRequest, opts ...grpc.CallOption) (*IsFocusedResponse, error)
+	IsGranularScrollingSupported(ctx context.Context, in *IsGranularScrollingSupportedRequest, opts ...grpc.CallOption) (*IsGranularScrollingSupportedResponse, error)
+	IsHeading(ctx context.Context, in *IsHeadingRequest, opts ...grpc.CallOption) (*IsHeadingResponse, error)
+	IsImportantForAccessibility(ctx context.Context, in *IsImportantForAccessibilityRequest, opts ...grpc.CallOption) (*IsImportantForAccessibilityResponse, error)
+	IsLongClickable(ctx context.Context, in *IsLongClickableRequest, opts ...grpc.CallOption) (*IsLongClickableResponse, error)
+	IsMultiLine(ctx context.Context, in *IsMultiLineRequest, opts ...grpc.CallOption) (*IsMultiLineResponse, error)
+	IsPassword(ctx context.Context, in *IsPasswordRequest, opts ...grpc.CallOption) (*IsPasswordResponse, error)
+	IsScreenReaderFocusable(ctx context.Context, in *IsScreenReaderFocusableRequest, opts ...grpc.CallOption) (*IsScreenReaderFocusableResponse, error)
+	IsScrollable(ctx context.Context, in *IsScrollableRequest, opts ...grpc.CallOption) (*IsScrollableResponse, error)
+	IsSelected(ctx context.Context, in *IsSelectedRequest, opts ...grpc.CallOption) (*IsSelectedResponse, error)
+	IsShowingHintText(ctx context.Context, in *IsShowingHintTextRequest, opts ...grpc.CallOption) (*IsShowingHintTextResponse, error)
+	IsTextEntryKey(ctx context.Context, in *IsTextEntryKeyRequest, opts ...grpc.CallOption) (*IsTextEntryKeyResponse, error)
+	IsTextSelectable(ctx context.Context, in *IsTextSelectableRequest, opts ...grpc.CallOption) (*IsTextSelectableResponse, error)
+	IsVisibleToUser(ctx context.Context, in *IsVisibleToUserRequest, opts ...grpc.CallOption) (*IsVisibleToUserResponse, error)
+	PerformAction1(ctx context.Context, in *PerformAction1Request, opts ...grpc.CallOption) (*PerformAction1Response, error)
+	PerformAction2_1(ctx context.Context, in *PerformAction2_1Request, opts ...grpc.CallOption) (*PerformAction2_1Response, error)
+	Recycle(ctx context.Context, in *RecycleRequest, opts ...grpc.CallOption) (*RecycleResponse, error)
+	Refresh(ctx context.Context, in *RefreshRequest, opts ...grpc.CallOption) (*RefreshResponse, error)
+	RefreshWithExtraData(ctx context.Context, in *RefreshWithExtraDataRequest, opts ...grpc.CallOption) (*RefreshWithExtraDataResponse, error)
+	RemoveAction1(ctx context.Context, in *RemoveAction1Request, opts ...grpc.CallOption) (*RemoveAction1Response, error)
+	RemoveAction1_1(ctx context.Context, in *RemoveAction1_1Request, opts ...grpc.CallOption) (*RemoveAction1_1Response, error)
+	RemoveChild1(ctx context.Context, in *RemoveChild1Request, opts ...grpc.CallOption) (*RemoveChild1Response, error)
+	RemoveChild2_1(ctx context.Context, in *RemoveChild2_1Request, opts ...grpc.CallOption) (*RemoveChild2_1Response, error)
+	RemoveLabeledBy1(ctx context.Context, in *RemoveLabeledBy1Request, opts ...grpc.CallOption) (*RemoveLabeledBy1Response, error)
+	RemoveLabeledBy2_1(ctx context.Context, in *RemoveLabeledBy2_1Request, opts ...grpc.CallOption) (*RemoveLabeledBy2_1Response, error)
+	SetAccessibilityDataSensitive(ctx context.Context, in *SetAccessibilityDataSensitiveRequest, opts ...grpc.CallOption) (*SetAccessibilityDataSensitiveResponse, error)
+	SetAccessibilityFocused(ctx context.Context, in *SetAccessibilityFocusedRequest, opts ...grpc.CallOption) (*SetAccessibilityFocusedResponse, error)
+	SetBoundsInParent(ctx context.Context, in *SetBoundsInParentRequest, opts ...grpc.CallOption) (*SetBoundsInParentResponse, error)
+	SetBoundsInScreen(ctx context.Context, in *SetBoundsInScreenRequest, opts ...grpc.CallOption) (*SetBoundsInScreenResponse, error)
+	SetBoundsInWindow(ctx context.Context, in *SetBoundsInWindowRequest, opts ...grpc.CallOption) (*SetBoundsInWindowResponse, error)
+	SetCanOpenPopup(ctx context.Context, in *SetCanOpenPopupRequest, opts ...grpc.CallOption) (*SetCanOpenPopupResponse, error)
+	SetCheckable(ctx context.Context, in *SetCheckableRequest, opts ...grpc.CallOption) (*SetCheckableResponse, error)
+	SetChecked1(ctx context.Context, in *SetChecked1Request, opts ...grpc.CallOption) (*SetChecked1Response, error)
+	SetChecked1_1(ctx context.Context, in *SetChecked1_1Request, opts ...grpc.CallOption) (*SetChecked1_1Response, error)
+	SetClassName(ctx context.Context, in *SetClassNameRequest, opts ...grpc.CallOption) (*SetClassNameResponse, error)
+	SetClickable(ctx context.Context, in *SetClickableRequest, opts ...grpc.CallOption) (*SetClickableResponse, error)
+	SetCollectionInfo(ctx context.Context, in *SetCollectionInfoRequest, opts ...grpc.CallOption) (*SetCollectionInfoResponse, error)
+	SetCollectionItemInfo(ctx context.Context, in *SetCollectionItemInfoRequest, opts ...grpc.CallOption) (*SetCollectionItemInfoResponse, error)
+	SetContainerTitle(ctx context.Context, in *SetContainerTitleRequest, opts ...grpc.CallOption) (*SetContainerTitleResponse, error)
+	SetContentDescription(ctx context.Context, in *SetContentDescriptionRequest, opts ...grpc.CallOption) (*SetContentDescriptionResponse, error)
+	SetContentInvalid(ctx context.Context, in *SetContentInvalidRequest, opts ...grpc.CallOption) (*SetContentInvalidResponse, error)
+	SetContextClickable(ctx context.Context, in *SetContextClickableRequest, opts ...grpc.CallOption) (*SetContextClickableResponse, error)
+	SetDismissable(ctx context.Context, in *SetDismissableRequest, opts ...grpc.CallOption) (*SetDismissableResponse, error)
+	SetDrawingOrder(ctx context.Context, in *SetDrawingOrderRequest, opts ...grpc.CallOption) (*SetDrawingOrderResponse, error)
+	SetEditable(ctx context.Context, in *SetEditableRequest, opts ...grpc.CallOption) (*SetEditableResponse, error)
+	SetEnabled(ctx context.Context, in *SetEnabledRequest, opts ...grpc.CallOption) (*SetEnabledResponse, error)
+	SetError(ctx context.Context, in *SetErrorRequest, opts ...grpc.CallOption) (*SetErrorResponse, error)
+	SetExpandedState(ctx context.Context, in *SetExpandedStateRequest, opts ...grpc.CallOption) (*SetExpandedStateResponse, error)
+	SetFieldRequired(ctx context.Context, in *SetFieldRequiredRequest, opts ...grpc.CallOption) (*SetFieldRequiredResponse, error)
+	SetFocusable(ctx context.Context, in *SetFocusableRequest, opts ...grpc.CallOption) (*SetFocusableResponse, error)
+	SetFocused(ctx context.Context, in *SetFocusedRequest, opts ...grpc.CallOption) (*SetFocusedResponse, error)
+	SetGranularScrollingSupported(ctx context.Context, in *SetGranularScrollingSupportedRequest, opts ...grpc.CallOption) (*SetGranularScrollingSupportedResponse, error)
+	SetHeading(ctx context.Context, in *SetHeadingRequest, opts ...grpc.CallOption) (*SetHeadingResponse, error)
+	SetHintText(ctx context.Context, in *SetHintTextRequest, opts ...grpc.CallOption) (*SetHintTextResponse, error)
+	SetImportantForAccessibility(ctx context.Context, in *SetImportantForAccessibilityRequest, opts ...grpc.CallOption) (*SetImportantForAccessibilityResponse, error)
+	SetInputType(ctx context.Context, in *SetInputTypeRequest, opts ...grpc.CallOption) (*SetInputTypeResponse, error)
+	SetLabelFor1(ctx context.Context, in *SetLabelFor1Request, opts ...grpc.CallOption) (*SetLabelFor1Response, error)
+	SetLabelFor2_1(ctx context.Context, in *SetLabelFor2_1Request, opts ...grpc.CallOption) (*SetLabelFor2_1Response, error)
+	SetLabeledBy1(ctx context.Context, in *SetLabeledBy1Request, opts ...grpc.CallOption) (*SetLabeledBy1Response, error)
+	SetLabeledBy2_1(ctx context.Context, in *SetLabeledBy2_1Request, opts ...grpc.CallOption) (*SetLabeledBy2_1Response, error)
+	SetLiveRegion(ctx context.Context, in *SetLiveRegionRequest, opts ...grpc.CallOption) (*SetLiveRegionResponse, error)
+	SetLongClickable(ctx context.Context, in *SetLongClickableRequest, opts ...grpc.CallOption) (*SetLongClickableResponse, error)
+	SetMaxTextLength(ctx context.Context, in *SetMaxTextLengthRequest, opts ...grpc.CallOption) (*SetMaxTextLengthResponse, error)
+	SetMinDurationBetweenContentChanges(ctx context.Context, in *SetMinDurationBetweenContentChangesRequest, opts ...grpc.CallOption) (*SetMinDurationBetweenContentChangesResponse, error)
+	SetMovementGranularities(ctx context.Context, in *SetMovementGranularitiesRequest, opts ...grpc.CallOption) (*SetMovementGranularitiesResponse, error)
+	SetMultiLine(ctx context.Context, in *SetMultiLineRequest, opts ...grpc.CallOption) (*SetMultiLineResponse, error)
+	SetPackageName(ctx context.Context, in *SetPackageNameRequest, opts ...grpc.CallOption) (*SetPackageNameResponse, error)
+	SetPaneTitle(ctx context.Context, in *SetPaneTitleRequest, opts ...grpc.CallOption) (*SetPaneTitleResponse, error)
+	SetParent1(ctx context.Context, in *SetParent1Request, opts ...grpc.CallOption) (*SetParent1Response, error)
+	SetParent2_1(ctx context.Context, in *SetParent2_1Request, opts ...grpc.CallOption) (*SetParent2_1Response, error)
+	SetPassword(ctx context.Context, in *SetPasswordRequest, opts ...grpc.CallOption) (*SetPasswordResponse, error)
+	SetQueryFromAppProcessEnabled(ctx context.Context, in *SetQueryFromAppProcessEnabledRequest, opts ...grpc.CallOption) (*SetQueryFromAppProcessEnabledResponse, error)
+	SetRangeInfo(ctx context.Context, in *SetRangeInfoRequest, opts ...grpc.CallOption) (*SetRangeInfoResponse, error)
+	SetRequestInitialAccessibilityFocus(ctx context.Context, in *SetRequestInitialAccessibilityFocusRequest, opts ...grpc.CallOption) (*SetRequestInitialAccessibilityFocusResponse, error)
+	SetScreenReaderFocusable(ctx context.Context, in *SetScreenReaderFocusableRequest, opts ...grpc.CallOption) (*SetScreenReaderFocusableResponse, error)
+	SetScrollable(ctx context.Context, in *SetScrollableRequest, opts ...grpc.CallOption) (*SetScrollableResponse, error)
+	SetSelected(ctx context.Context, in *SetSelectedRequest, opts ...grpc.CallOption) (*SetSelectedResponse, error)
+	SetShowingHintText(ctx context.Context, in *SetShowingHintTextRequest, opts ...grpc.CallOption) (*SetShowingHintTextResponse, error)
+	SetSource1(ctx context.Context, in *SetSource1Request, opts ...grpc.CallOption) (*SetSource1Response, error)
+	SetSource2_1(ctx context.Context, in *SetSource2_1Request, opts ...grpc.CallOption) (*SetSource2_1Response, error)
+	SetStateDescription(ctx context.Context, in *SetStateDescriptionRequest, opts ...grpc.CallOption) (*SetStateDescriptionResponse, error)
+	SetSupplementalDescription(ctx context.Context, in *SetSupplementalDescriptionRequest, opts ...grpc.CallOption) (*SetSupplementalDescriptionResponse, error)
+	SetText(ctx context.Context, in *SetTextRequest, opts ...grpc.CallOption) (*SetTextResponse, error)
+	SetTextEntryKey(ctx context.Context, in *SetTextEntryKeyRequest, opts ...grpc.CallOption) (*SetTextEntryKeyResponse, error)
+	SetTextSelectable(ctx context.Context, in *SetTextSelectableRequest, opts ...grpc.CallOption) (*SetTextSelectableResponse, error)
+	SetTextSelection(ctx context.Context, in *SetTextSelectionRequest, opts ...grpc.CallOption) (*SetTextSelectionResponse, error)
+	SetTooltipText(ctx context.Context, in *SetTooltipTextRequest, opts ...grpc.CallOption) (*SetTooltipTextResponse, error)
+	SetTouchDelegateInfo(ctx context.Context, in *SetTouchDelegateInfoRequest, opts ...grpc.CallOption) (*SetTouchDelegateInfoResponse, error)
+	SetTraversalAfter1(ctx context.Context, in *SetTraversalAfter1Request, opts ...grpc.CallOption) (*SetTraversalAfter1Response, error)
+	SetTraversalAfter2_1(ctx context.Context, in *SetTraversalAfter2_1Request, opts ...grpc.CallOption) (*SetTraversalAfter2_1Response, error)
+	SetTraversalBefore1(ctx context.Context, in *SetTraversalBefore1Request, opts ...grpc.CallOption) (*SetTraversalBefore1Response, error)
+	SetTraversalBefore2_1(ctx context.Context, in *SetTraversalBefore2_1Request, opts ...grpc.CallOption) (*SetTraversalBefore2_1Response, error)
+	SetUniqueId(ctx context.Context, in *SetUniqueIdRequest, opts ...grpc.CallOption) (*SetUniqueIdResponse, error)
+	SetViewIdResourceName(ctx context.Context, in *SetViewIdResourceNameRequest, opts ...grpc.CallOption) (*SetViewIdResourceNameResponse, error)
+	SetVisibleToUser(ctx context.Context, in *SetVisibleToUserRequest, opts ...grpc.CallOption) (*SetVisibleToUserResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+	Obtain0(ctx context.Context, in *Obtain0Request, opts ...grpc.CallOption) (*Obtain0Response, error)
+	Obtain1_1(ctx context.Context, in *Obtain1_1Request, opts ...grpc.CallOption) (*Obtain1_1Response, error)
+	Obtain1_2(ctx context.Context, in *Obtain1_2Request, opts ...grpc.CallOption) (*Obtain1_2Response, error)
+	Obtain2_3(ctx context.Context, in *Obtain2_3Request, opts ...grpc.CallOption) (*Obtain2_3Response, error)
+}
+
+type nodeInfoServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewNodeInfoServiceClient(cc grpc.ClientConnInterface) NodeInfoServiceClient {
+	return &nodeInfoServiceClient{cc}
+}
+
+func (c *nodeInfoServiceClient) NewNodeInfo(ctx context.Context, in *NewNodeInfoRequest, opts ...grpc.CallOption) (*NewNodeInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewNodeInfoResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_NewNodeInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) AddAction1(ctx context.Context, in *AddAction1Request, opts ...grpc.CallOption) (*AddAction1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddAction1Response)
+	err := c.cc.Invoke(ctx, NodeInfoService_AddAction1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) AddAction1_1(ctx context.Context, in *AddAction1_1Request, opts ...grpc.CallOption) (*AddAction1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddAction1_1Response)
+	err := c.cc.Invoke(ctx, NodeInfoService_AddAction1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) AddChild1(ctx context.Context, in *AddChild1Request, opts ...grpc.CallOption) (*AddChild1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddChild1Response)
+	err := c.cc.Invoke(ctx, NodeInfoService_AddChild1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) AddChild2_1(ctx context.Context, in *AddChild2_1Request, opts ...grpc.CallOption) (*AddChild2_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddChild2_1Response)
+	err := c.cc.Invoke(ctx, NodeInfoService_AddChild2_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) AddLabeledBy1(ctx context.Context, in *AddLabeledBy1Request, opts ...grpc.CallOption) (*AddLabeledBy1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddLabeledBy1Response)
+	err := c.cc.Invoke(ctx, NodeInfoService_AddLabeledBy1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) AddLabeledBy2_1(ctx context.Context, in *AddLabeledBy2_1Request, opts ...grpc.CallOption) (*AddLabeledBy2_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddLabeledBy2_1Response)
+	err := c.cc.Invoke(ctx, NodeInfoService_AddLabeledBy2_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) CanOpenPopup(ctx context.Context, in *CanOpenPopupRequest, opts ...grpc.CallOption) (*CanOpenPopupResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CanOpenPopupResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_CanOpenPopup_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) FindFocus(ctx context.Context, in *FindFocusRequest, opts ...grpc.CallOption) (*FindFocusResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(FindFocusResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_FindFocus_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) FocusSearch(ctx context.Context, in *FocusSearchRequest, opts ...grpc.CallOption) (*FocusSearchResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(FocusSearchResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_FocusSearch_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) GetActions(ctx context.Context, in *GetActionsRequest, opts ...grpc.CallOption) (*GetActionsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetActionsResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_GetActions_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) GetBoundsInParent(ctx context.Context, in *GetBoundsInParentRequest, opts ...grpc.CallOption) (*GetBoundsInParentResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetBoundsInParentResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_GetBoundsInParent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) GetBoundsInScreen(ctx context.Context, in *GetBoundsInScreenRequest, opts ...grpc.CallOption) (*GetBoundsInScreenResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetBoundsInScreenResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_GetBoundsInScreen_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) GetBoundsInWindow(ctx context.Context, in *GetBoundsInWindowRequest, opts ...grpc.CallOption) (*GetBoundsInWindowResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetBoundsInWindowResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_GetBoundsInWindow_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) GetChecked(ctx context.Context, in *GetCheckedRequest, opts ...grpc.CallOption) (*GetCheckedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCheckedResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_GetChecked_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) GetChild1(ctx context.Context, in *GetChild1Request, opts ...grpc.CallOption) (*GetChild1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetChild1Response)
+	err := c.cc.Invoke(ctx, NodeInfoService_GetChild1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) GetChild2_1(ctx context.Context, in *GetChild2_1Request, opts ...grpc.CallOption) (*GetChild2_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetChild2_1Response)
+	err := c.cc.Invoke(ctx, NodeInfoService_GetChild2_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) GetChildCount(ctx context.Context, in *GetChildCountRequest, opts ...grpc.CallOption) (*GetChildCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetChildCountResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_GetChildCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) GetClassName(ctx context.Context, in *GetClassNameRequest, opts ...grpc.CallOption) (*GetClassNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetClassNameResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_GetClassName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) GetCollectionInfo(ctx context.Context, in *GetCollectionInfoRequest, opts ...grpc.CallOption) (*GetCollectionInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCollectionInfoResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_GetCollectionInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) GetCollectionItemInfo(ctx context.Context, in *GetCollectionItemInfoRequest, opts ...grpc.CallOption) (*GetCollectionItemInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCollectionItemInfoResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_GetCollectionItemInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) GetContainerTitle(ctx context.Context, in *GetContainerTitleRequest, opts ...grpc.CallOption) (*GetContainerTitleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetContainerTitleResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_GetContainerTitle_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) GetContentDescription(ctx context.Context, in *GetContentDescriptionRequest, opts ...grpc.CallOption) (*GetContentDescriptionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetContentDescriptionResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_GetContentDescription_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) GetDrawingOrder(ctx context.Context, in *GetDrawingOrderRequest, opts ...grpc.CallOption) (*GetDrawingOrderResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDrawingOrderResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_GetDrawingOrder_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) GetError(ctx context.Context, in *GetErrorRequest, opts ...grpc.CallOption) (*GetErrorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetErrorResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_GetError_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) GetExpandedState(ctx context.Context, in *GetExpandedStateRequest, opts ...grpc.CallOption) (*GetExpandedStateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetExpandedStateResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_GetExpandedState_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) GetExtraRenderingInfo(ctx context.Context, in *GetExtraRenderingInfoRequest, opts ...grpc.CallOption) (*GetExtraRenderingInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetExtraRenderingInfoResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_GetExtraRenderingInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) GetExtras(ctx context.Context, in *GetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetExtrasResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_GetExtras_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) GetHintText(ctx context.Context, in *GetHintTextRequest, opts ...grpc.CallOption) (*GetHintTextResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetHintTextResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_GetHintText_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) GetInputType(ctx context.Context, in *GetInputTypeRequest, opts ...grpc.CallOption) (*GetInputTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetInputTypeResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_GetInputType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) GetLabelFor(ctx context.Context, in *GetLabelForRequest, opts ...grpc.CallOption) (*GetLabelForResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLabelForResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_GetLabelFor_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) GetLabeledBy(ctx context.Context, in *GetLabeledByRequest, opts ...grpc.CallOption) (*GetLabeledByResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLabeledByResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_GetLabeledBy_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) GetLiveRegion(ctx context.Context, in *GetLiveRegionRequest, opts ...grpc.CallOption) (*GetLiveRegionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLiveRegionResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_GetLiveRegion_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) GetMaxTextLength(ctx context.Context, in *GetMaxTextLengthRequest, opts ...grpc.CallOption) (*GetMaxTextLengthResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMaxTextLengthResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_GetMaxTextLength_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) GetMinDurationBetweenContentChanges(ctx context.Context, in *GetMinDurationBetweenContentChangesRequest, opts ...grpc.CallOption) (*GetMinDurationBetweenContentChangesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMinDurationBetweenContentChangesResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_GetMinDurationBetweenContentChanges_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) GetMovementGranularities(ctx context.Context, in *GetMovementGranularitiesRequest, opts ...grpc.CallOption) (*GetMovementGranularitiesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMovementGranularitiesResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_GetMovementGranularities_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) GetPackageName(ctx context.Context, in *GetPackageNameRequest, opts ...grpc.CallOption) (*GetPackageNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPackageNameResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_GetPackageName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) GetPaneTitle(ctx context.Context, in *GetPaneTitleRequest, opts ...grpc.CallOption) (*GetPaneTitleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPaneTitleResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_GetPaneTitle_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) GetParent0(ctx context.Context, in *GetParent0Request, opts ...grpc.CallOption) (*GetParent0Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetParent0Response)
+	err := c.cc.Invoke(ctx, NodeInfoService_GetParent0_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) GetParent1_1(ctx context.Context, in *GetParent1_1Request, opts ...grpc.CallOption) (*GetParent1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetParent1_1Response)
+	err := c.cc.Invoke(ctx, NodeInfoService_GetParent1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) GetRangeInfo(ctx context.Context, in *GetRangeInfoRequest, opts ...grpc.CallOption) (*GetRangeInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRangeInfoResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_GetRangeInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) GetStateDescription(ctx context.Context, in *GetStateDescriptionRequest, opts ...grpc.CallOption) (*GetStateDescriptionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStateDescriptionResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_GetStateDescription_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) GetSupplementalDescription(ctx context.Context, in *GetSupplementalDescriptionRequest, opts ...grpc.CallOption) (*GetSupplementalDescriptionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSupplementalDescriptionResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_GetSupplementalDescription_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) GetText(ctx context.Context, in *GetTextRequest, opts ...grpc.CallOption) (*GetTextResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTextResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_GetText_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) GetTextSelectionEnd(ctx context.Context, in *GetTextSelectionEndRequest, opts ...grpc.CallOption) (*GetTextSelectionEndResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTextSelectionEndResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_GetTextSelectionEnd_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) GetTextSelectionStart(ctx context.Context, in *GetTextSelectionStartRequest, opts ...grpc.CallOption) (*GetTextSelectionStartResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTextSelectionStartResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_GetTextSelectionStart_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) GetTooltipText(ctx context.Context, in *GetTooltipTextRequest, opts ...grpc.CallOption) (*GetTooltipTextResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTooltipTextResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_GetTooltipText_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) GetTouchDelegateInfo(ctx context.Context, in *GetTouchDelegateInfoRequest, opts ...grpc.CallOption) (*GetTouchDelegateInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTouchDelegateInfoResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_GetTouchDelegateInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) GetTraversalAfter(ctx context.Context, in *GetTraversalAfterRequest, opts ...grpc.CallOption) (*GetTraversalAfterResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTraversalAfterResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_GetTraversalAfter_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) GetTraversalBefore(ctx context.Context, in *GetTraversalBeforeRequest, opts ...grpc.CallOption) (*GetTraversalBeforeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTraversalBeforeResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_GetTraversalBefore_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) GetUniqueId(ctx context.Context, in *GetUniqueIdRequest, opts ...grpc.CallOption) (*GetUniqueIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetUniqueIdResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_GetUniqueId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) GetViewIdResourceName(ctx context.Context, in *GetViewIdResourceNameRequest, opts ...grpc.CallOption) (*GetViewIdResourceNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetViewIdResourceNameResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_GetViewIdResourceName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) GetWindow(ctx context.Context, in *GetWindowRequest, opts ...grpc.CallOption) (*GetWindowResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetWindowResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_GetWindow_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) GetWindowId(ctx context.Context, in *GetWindowIdRequest, opts ...grpc.CallOption) (*GetWindowIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetWindowIdResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_GetWindowId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) HasRequestInitialAccessibilityFocus(ctx context.Context, in *HasRequestInitialAccessibilityFocusRequest, opts ...grpc.CallOption) (*HasRequestInitialAccessibilityFocusResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HasRequestInitialAccessibilityFocusResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_HasRequestInitialAccessibilityFocus_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) IsAccessibilityDataSensitive(ctx context.Context, in *IsAccessibilityDataSensitiveRequest, opts ...grpc.CallOption) (*IsAccessibilityDataSensitiveResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsAccessibilityDataSensitiveResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_IsAccessibilityDataSensitive_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) IsAccessibilityFocused(ctx context.Context, in *IsAccessibilityFocusedRequest, opts ...grpc.CallOption) (*IsAccessibilityFocusedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsAccessibilityFocusedResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_IsAccessibilityFocused_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) IsCheckable(ctx context.Context, in *IsCheckableRequest, opts ...grpc.CallOption) (*IsCheckableResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsCheckableResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_IsCheckable_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) IsChecked(ctx context.Context, in *IsCheckedRequest, opts ...grpc.CallOption) (*IsCheckedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsCheckedResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_IsChecked_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) IsClickable(ctx context.Context, in *IsClickableRequest, opts ...grpc.CallOption) (*IsClickableResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsClickableResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_IsClickable_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) IsContentInvalid(ctx context.Context, in *IsContentInvalidRequest, opts ...grpc.CallOption) (*IsContentInvalidResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsContentInvalidResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_IsContentInvalid_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) IsContextClickable(ctx context.Context, in *IsContextClickableRequest, opts ...grpc.CallOption) (*IsContextClickableResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsContextClickableResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_IsContextClickable_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) IsDismissable(ctx context.Context, in *IsDismissableRequest, opts ...grpc.CallOption) (*IsDismissableResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsDismissableResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_IsDismissable_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) IsEditable(ctx context.Context, in *IsEditableRequest, opts ...grpc.CallOption) (*IsEditableResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsEditableResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_IsEditable_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) IsEnabled(ctx context.Context, in *IsEnabledRequest, opts ...grpc.CallOption) (*IsEnabledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsEnabledResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_IsEnabled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) IsFieldRequired(ctx context.Context, in *IsFieldRequiredRequest, opts ...grpc.CallOption) (*IsFieldRequiredResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsFieldRequiredResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_IsFieldRequired_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) IsFocusable(ctx context.Context, in *IsFocusableRequest, opts ...grpc.CallOption) (*IsFocusableResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsFocusableResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_IsFocusable_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) IsFocused(ctx context.Context, in *IsFocusedRequest, opts ...grpc.CallOption) (*IsFocusedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsFocusedResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_IsFocused_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) IsGranularScrollingSupported(ctx context.Context, in *IsGranularScrollingSupportedRequest, opts ...grpc.CallOption) (*IsGranularScrollingSupportedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsGranularScrollingSupportedResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_IsGranularScrollingSupported_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) IsHeading(ctx context.Context, in *IsHeadingRequest, opts ...grpc.CallOption) (*IsHeadingResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsHeadingResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_IsHeading_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) IsImportantForAccessibility(ctx context.Context, in *IsImportantForAccessibilityRequest, opts ...grpc.CallOption) (*IsImportantForAccessibilityResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsImportantForAccessibilityResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_IsImportantForAccessibility_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) IsLongClickable(ctx context.Context, in *IsLongClickableRequest, opts ...grpc.CallOption) (*IsLongClickableResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsLongClickableResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_IsLongClickable_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) IsMultiLine(ctx context.Context, in *IsMultiLineRequest, opts ...grpc.CallOption) (*IsMultiLineResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsMultiLineResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_IsMultiLine_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) IsPassword(ctx context.Context, in *IsPasswordRequest, opts ...grpc.CallOption) (*IsPasswordResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsPasswordResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_IsPassword_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) IsScreenReaderFocusable(ctx context.Context, in *IsScreenReaderFocusableRequest, opts ...grpc.CallOption) (*IsScreenReaderFocusableResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsScreenReaderFocusableResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_IsScreenReaderFocusable_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) IsScrollable(ctx context.Context, in *IsScrollableRequest, opts ...grpc.CallOption) (*IsScrollableResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsScrollableResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_IsScrollable_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) IsSelected(ctx context.Context, in *IsSelectedRequest, opts ...grpc.CallOption) (*IsSelectedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsSelectedResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_IsSelected_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) IsShowingHintText(ctx context.Context, in *IsShowingHintTextRequest, opts ...grpc.CallOption) (*IsShowingHintTextResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsShowingHintTextResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_IsShowingHintText_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) IsTextEntryKey(ctx context.Context, in *IsTextEntryKeyRequest, opts ...grpc.CallOption) (*IsTextEntryKeyResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsTextEntryKeyResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_IsTextEntryKey_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) IsTextSelectable(ctx context.Context, in *IsTextSelectableRequest, opts ...grpc.CallOption) (*IsTextSelectableResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsTextSelectableResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_IsTextSelectable_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) IsVisibleToUser(ctx context.Context, in *IsVisibleToUserRequest, opts ...grpc.CallOption) (*IsVisibleToUserResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsVisibleToUserResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_IsVisibleToUser_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) PerformAction1(ctx context.Context, in *PerformAction1Request, opts ...grpc.CallOption) (*PerformAction1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(PerformAction1Response)
+	err := c.cc.Invoke(ctx, NodeInfoService_PerformAction1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) PerformAction2_1(ctx context.Context, in *PerformAction2_1Request, opts ...grpc.CallOption) (*PerformAction2_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(PerformAction2_1Response)
+	err := c.cc.Invoke(ctx, NodeInfoService_PerformAction2_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) Recycle(ctx context.Context, in *RecycleRequest, opts ...grpc.CallOption) (*RecycleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RecycleResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_Recycle_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) Refresh(ctx context.Context, in *RefreshRequest, opts ...grpc.CallOption) (*RefreshResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RefreshResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_Refresh_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) RefreshWithExtraData(ctx context.Context, in *RefreshWithExtraDataRequest, opts ...grpc.CallOption) (*RefreshWithExtraDataResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RefreshWithExtraDataResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_RefreshWithExtraData_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) RemoveAction1(ctx context.Context, in *RemoveAction1Request, opts ...grpc.CallOption) (*RemoveAction1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RemoveAction1Response)
+	err := c.cc.Invoke(ctx, NodeInfoService_RemoveAction1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) RemoveAction1_1(ctx context.Context, in *RemoveAction1_1Request, opts ...grpc.CallOption) (*RemoveAction1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RemoveAction1_1Response)
+	err := c.cc.Invoke(ctx, NodeInfoService_RemoveAction1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) RemoveChild1(ctx context.Context, in *RemoveChild1Request, opts ...grpc.CallOption) (*RemoveChild1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RemoveChild1Response)
+	err := c.cc.Invoke(ctx, NodeInfoService_RemoveChild1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) RemoveChild2_1(ctx context.Context, in *RemoveChild2_1Request, opts ...grpc.CallOption) (*RemoveChild2_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RemoveChild2_1Response)
+	err := c.cc.Invoke(ctx, NodeInfoService_RemoveChild2_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) RemoveLabeledBy1(ctx context.Context, in *RemoveLabeledBy1Request, opts ...grpc.CallOption) (*RemoveLabeledBy1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RemoveLabeledBy1Response)
+	err := c.cc.Invoke(ctx, NodeInfoService_RemoveLabeledBy1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) RemoveLabeledBy2_1(ctx context.Context, in *RemoveLabeledBy2_1Request, opts ...grpc.CallOption) (*RemoveLabeledBy2_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RemoveLabeledBy2_1Response)
+	err := c.cc.Invoke(ctx, NodeInfoService_RemoveLabeledBy2_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetAccessibilityDataSensitive(ctx context.Context, in *SetAccessibilityDataSensitiveRequest, opts ...grpc.CallOption) (*SetAccessibilityDataSensitiveResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetAccessibilityDataSensitiveResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetAccessibilityDataSensitive_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetAccessibilityFocused(ctx context.Context, in *SetAccessibilityFocusedRequest, opts ...grpc.CallOption) (*SetAccessibilityFocusedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetAccessibilityFocusedResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetAccessibilityFocused_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetBoundsInParent(ctx context.Context, in *SetBoundsInParentRequest, opts ...grpc.CallOption) (*SetBoundsInParentResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetBoundsInParentResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetBoundsInParent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetBoundsInScreen(ctx context.Context, in *SetBoundsInScreenRequest, opts ...grpc.CallOption) (*SetBoundsInScreenResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetBoundsInScreenResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetBoundsInScreen_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetBoundsInWindow(ctx context.Context, in *SetBoundsInWindowRequest, opts ...grpc.CallOption) (*SetBoundsInWindowResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetBoundsInWindowResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetBoundsInWindow_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetCanOpenPopup(ctx context.Context, in *SetCanOpenPopupRequest, opts ...grpc.CallOption) (*SetCanOpenPopupResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetCanOpenPopupResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetCanOpenPopup_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetCheckable(ctx context.Context, in *SetCheckableRequest, opts ...grpc.CallOption) (*SetCheckableResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetCheckableResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetCheckable_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetChecked1(ctx context.Context, in *SetChecked1Request, opts ...grpc.CallOption) (*SetChecked1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetChecked1Response)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetChecked1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetChecked1_1(ctx context.Context, in *SetChecked1_1Request, opts ...grpc.CallOption) (*SetChecked1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetChecked1_1Response)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetChecked1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetClassName(ctx context.Context, in *SetClassNameRequest, opts ...grpc.CallOption) (*SetClassNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetClassNameResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetClassName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetClickable(ctx context.Context, in *SetClickableRequest, opts ...grpc.CallOption) (*SetClickableResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetClickableResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetClickable_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetCollectionInfo(ctx context.Context, in *SetCollectionInfoRequest, opts ...grpc.CallOption) (*SetCollectionInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetCollectionInfoResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetCollectionInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetCollectionItemInfo(ctx context.Context, in *SetCollectionItemInfoRequest, opts ...grpc.CallOption) (*SetCollectionItemInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetCollectionItemInfoResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetCollectionItemInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetContainerTitle(ctx context.Context, in *SetContainerTitleRequest, opts ...grpc.CallOption) (*SetContainerTitleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetContainerTitleResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetContainerTitle_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetContentDescription(ctx context.Context, in *SetContentDescriptionRequest, opts ...grpc.CallOption) (*SetContentDescriptionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetContentDescriptionResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetContentDescription_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetContentInvalid(ctx context.Context, in *SetContentInvalidRequest, opts ...grpc.CallOption) (*SetContentInvalidResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetContentInvalidResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetContentInvalid_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetContextClickable(ctx context.Context, in *SetContextClickableRequest, opts ...grpc.CallOption) (*SetContextClickableResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetContextClickableResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetContextClickable_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetDismissable(ctx context.Context, in *SetDismissableRequest, opts ...grpc.CallOption) (*SetDismissableResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetDismissableResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetDismissable_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetDrawingOrder(ctx context.Context, in *SetDrawingOrderRequest, opts ...grpc.CallOption) (*SetDrawingOrderResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetDrawingOrderResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetDrawingOrder_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetEditable(ctx context.Context, in *SetEditableRequest, opts ...grpc.CallOption) (*SetEditableResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetEditableResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetEditable_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetEnabled(ctx context.Context, in *SetEnabledRequest, opts ...grpc.CallOption) (*SetEnabledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetEnabledResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetEnabled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetError(ctx context.Context, in *SetErrorRequest, opts ...grpc.CallOption) (*SetErrorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetErrorResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetError_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetExpandedState(ctx context.Context, in *SetExpandedStateRequest, opts ...grpc.CallOption) (*SetExpandedStateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetExpandedStateResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetExpandedState_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetFieldRequired(ctx context.Context, in *SetFieldRequiredRequest, opts ...grpc.CallOption) (*SetFieldRequiredResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetFieldRequiredResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetFieldRequired_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetFocusable(ctx context.Context, in *SetFocusableRequest, opts ...grpc.CallOption) (*SetFocusableResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetFocusableResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetFocusable_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetFocused(ctx context.Context, in *SetFocusedRequest, opts ...grpc.CallOption) (*SetFocusedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetFocusedResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetFocused_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetGranularScrollingSupported(ctx context.Context, in *SetGranularScrollingSupportedRequest, opts ...grpc.CallOption) (*SetGranularScrollingSupportedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetGranularScrollingSupportedResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetGranularScrollingSupported_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetHeading(ctx context.Context, in *SetHeadingRequest, opts ...grpc.CallOption) (*SetHeadingResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetHeadingResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetHeading_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetHintText(ctx context.Context, in *SetHintTextRequest, opts ...grpc.CallOption) (*SetHintTextResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetHintTextResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetHintText_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetImportantForAccessibility(ctx context.Context, in *SetImportantForAccessibilityRequest, opts ...grpc.CallOption) (*SetImportantForAccessibilityResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetImportantForAccessibilityResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetImportantForAccessibility_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetInputType(ctx context.Context, in *SetInputTypeRequest, opts ...grpc.CallOption) (*SetInputTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetInputTypeResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetInputType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetLabelFor1(ctx context.Context, in *SetLabelFor1Request, opts ...grpc.CallOption) (*SetLabelFor1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetLabelFor1Response)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetLabelFor1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetLabelFor2_1(ctx context.Context, in *SetLabelFor2_1Request, opts ...grpc.CallOption) (*SetLabelFor2_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetLabelFor2_1Response)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetLabelFor2_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetLabeledBy1(ctx context.Context, in *SetLabeledBy1Request, opts ...grpc.CallOption) (*SetLabeledBy1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetLabeledBy1Response)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetLabeledBy1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetLabeledBy2_1(ctx context.Context, in *SetLabeledBy2_1Request, opts ...grpc.CallOption) (*SetLabeledBy2_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetLabeledBy2_1Response)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetLabeledBy2_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetLiveRegion(ctx context.Context, in *SetLiveRegionRequest, opts ...grpc.CallOption) (*SetLiveRegionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetLiveRegionResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetLiveRegion_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetLongClickable(ctx context.Context, in *SetLongClickableRequest, opts ...grpc.CallOption) (*SetLongClickableResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetLongClickableResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetLongClickable_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetMaxTextLength(ctx context.Context, in *SetMaxTextLengthRequest, opts ...grpc.CallOption) (*SetMaxTextLengthResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetMaxTextLengthResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetMaxTextLength_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetMinDurationBetweenContentChanges(ctx context.Context, in *SetMinDurationBetweenContentChangesRequest, opts ...grpc.CallOption) (*SetMinDurationBetweenContentChangesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetMinDurationBetweenContentChangesResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetMinDurationBetweenContentChanges_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetMovementGranularities(ctx context.Context, in *SetMovementGranularitiesRequest, opts ...grpc.CallOption) (*SetMovementGranularitiesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetMovementGranularitiesResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetMovementGranularities_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetMultiLine(ctx context.Context, in *SetMultiLineRequest, opts ...grpc.CallOption) (*SetMultiLineResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetMultiLineResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetMultiLine_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetPackageName(ctx context.Context, in *SetPackageNameRequest, opts ...grpc.CallOption) (*SetPackageNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetPackageNameResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetPackageName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetPaneTitle(ctx context.Context, in *SetPaneTitleRequest, opts ...grpc.CallOption) (*SetPaneTitleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetPaneTitleResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetPaneTitle_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetParent1(ctx context.Context, in *SetParent1Request, opts ...grpc.CallOption) (*SetParent1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetParent1Response)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetParent1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetParent2_1(ctx context.Context, in *SetParent2_1Request, opts ...grpc.CallOption) (*SetParent2_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetParent2_1Response)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetParent2_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetPassword(ctx context.Context, in *SetPasswordRequest, opts ...grpc.CallOption) (*SetPasswordResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetPasswordResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetPassword_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetQueryFromAppProcessEnabled(ctx context.Context, in *SetQueryFromAppProcessEnabledRequest, opts ...grpc.CallOption) (*SetQueryFromAppProcessEnabledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetQueryFromAppProcessEnabledResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetQueryFromAppProcessEnabled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetRangeInfo(ctx context.Context, in *SetRangeInfoRequest, opts ...grpc.CallOption) (*SetRangeInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetRangeInfoResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetRangeInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetRequestInitialAccessibilityFocus(ctx context.Context, in *SetRequestInitialAccessibilityFocusRequest, opts ...grpc.CallOption) (*SetRequestInitialAccessibilityFocusResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetRequestInitialAccessibilityFocusResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetRequestInitialAccessibilityFocus_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetScreenReaderFocusable(ctx context.Context, in *SetScreenReaderFocusableRequest, opts ...grpc.CallOption) (*SetScreenReaderFocusableResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetScreenReaderFocusableResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetScreenReaderFocusable_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetScrollable(ctx context.Context, in *SetScrollableRequest, opts ...grpc.CallOption) (*SetScrollableResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetScrollableResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetScrollable_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetSelected(ctx context.Context, in *SetSelectedRequest, opts ...grpc.CallOption) (*SetSelectedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetSelectedResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetSelected_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetShowingHintText(ctx context.Context, in *SetShowingHintTextRequest, opts ...grpc.CallOption) (*SetShowingHintTextResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetShowingHintTextResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetShowingHintText_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetSource1(ctx context.Context, in *SetSource1Request, opts ...grpc.CallOption) (*SetSource1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetSource1Response)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetSource1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetSource2_1(ctx context.Context, in *SetSource2_1Request, opts ...grpc.CallOption) (*SetSource2_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetSource2_1Response)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetSource2_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetStateDescription(ctx context.Context, in *SetStateDescriptionRequest, opts ...grpc.CallOption) (*SetStateDescriptionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetStateDescriptionResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetStateDescription_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetSupplementalDescription(ctx context.Context, in *SetSupplementalDescriptionRequest, opts ...grpc.CallOption) (*SetSupplementalDescriptionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetSupplementalDescriptionResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetSupplementalDescription_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetText(ctx context.Context, in *SetTextRequest, opts ...grpc.CallOption) (*SetTextResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetTextResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetText_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetTextEntryKey(ctx context.Context, in *SetTextEntryKeyRequest, opts ...grpc.CallOption) (*SetTextEntryKeyResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetTextEntryKeyResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetTextEntryKey_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetTextSelectable(ctx context.Context, in *SetTextSelectableRequest, opts ...grpc.CallOption) (*SetTextSelectableResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetTextSelectableResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetTextSelectable_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetTextSelection(ctx context.Context, in *SetTextSelectionRequest, opts ...grpc.CallOption) (*SetTextSelectionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetTextSelectionResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetTextSelection_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetTooltipText(ctx context.Context, in *SetTooltipTextRequest, opts ...grpc.CallOption) (*SetTooltipTextResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetTooltipTextResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetTooltipText_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetTouchDelegateInfo(ctx context.Context, in *SetTouchDelegateInfoRequest, opts ...grpc.CallOption) (*SetTouchDelegateInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetTouchDelegateInfoResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetTouchDelegateInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetTraversalAfter1(ctx context.Context, in *SetTraversalAfter1Request, opts ...grpc.CallOption) (*SetTraversalAfter1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetTraversalAfter1Response)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetTraversalAfter1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetTraversalAfter2_1(ctx context.Context, in *SetTraversalAfter2_1Request, opts ...grpc.CallOption) (*SetTraversalAfter2_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetTraversalAfter2_1Response)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetTraversalAfter2_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetTraversalBefore1(ctx context.Context, in *SetTraversalBefore1Request, opts ...grpc.CallOption) (*SetTraversalBefore1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetTraversalBefore1Response)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetTraversalBefore1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetTraversalBefore2_1(ctx context.Context, in *SetTraversalBefore2_1Request, opts ...grpc.CallOption) (*SetTraversalBefore2_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetTraversalBefore2_1Response)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetTraversalBefore2_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetUniqueId(ctx context.Context, in *SetUniqueIdRequest, opts ...grpc.CallOption) (*SetUniqueIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetUniqueIdResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetUniqueId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetViewIdResourceName(ctx context.Context, in *SetViewIdResourceNameRequest, opts ...grpc.CallOption) (*SetViewIdResourceNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetViewIdResourceNameResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetViewIdResourceName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) SetVisibleToUser(ctx context.Context, in *SetVisibleToUserRequest, opts ...grpc.CallOption) (*SetVisibleToUserResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetVisibleToUserResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_SetVisibleToUser_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, NodeInfoService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) Obtain0(ctx context.Context, in *Obtain0Request, opts ...grpc.CallOption) (*Obtain0Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Obtain0Response)
+	err := c.cc.Invoke(ctx, NodeInfoService_Obtain0_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) Obtain1_1(ctx context.Context, in *Obtain1_1Request, opts ...grpc.CallOption) (*Obtain1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Obtain1_1Response)
+	err := c.cc.Invoke(ctx, NodeInfoService_Obtain1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) Obtain1_2(ctx context.Context, in *Obtain1_2Request, opts ...grpc.CallOption) (*Obtain1_2Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Obtain1_2Response)
+	err := c.cc.Invoke(ctx, NodeInfoService_Obtain1_2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoServiceClient) Obtain2_3(ctx context.Context, in *Obtain2_3Request, opts ...grpc.CallOption) (*Obtain2_3Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Obtain2_3Response)
+	err := c.cc.Invoke(ctx, NodeInfoService_Obtain2_3_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// NodeInfoServiceServer is the server API for NodeInfoService service.
+// All implementations must embed UnimplementedNodeInfoServiceServer
+// for forward compatibility.
+type NodeInfoServiceServer interface {
+	NewNodeInfo(context.Context, *NewNodeInfoRequest) (*NewNodeInfoResponse, error)
+	AddAction1(context.Context, *AddAction1Request) (*AddAction1Response, error)
+	AddAction1_1(context.Context, *AddAction1_1Request) (*AddAction1_1Response, error)
+	AddChild1(context.Context, *AddChild1Request) (*AddChild1Response, error)
+	AddChild2_1(context.Context, *AddChild2_1Request) (*AddChild2_1Response, error)
+	AddLabeledBy1(context.Context, *AddLabeledBy1Request) (*AddLabeledBy1Response, error)
+	AddLabeledBy2_1(context.Context, *AddLabeledBy2_1Request) (*AddLabeledBy2_1Response, error)
+	CanOpenPopup(context.Context, *CanOpenPopupRequest) (*CanOpenPopupResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	FindFocus(context.Context, *FindFocusRequest) (*FindFocusResponse, error)
+	FocusSearch(context.Context, *FocusSearchRequest) (*FocusSearchResponse, error)
+	GetActions(context.Context, *GetActionsRequest) (*GetActionsResponse, error)
+	GetBoundsInParent(context.Context, *GetBoundsInParentRequest) (*GetBoundsInParentResponse, error)
+	GetBoundsInScreen(context.Context, *GetBoundsInScreenRequest) (*GetBoundsInScreenResponse, error)
+	GetBoundsInWindow(context.Context, *GetBoundsInWindowRequest) (*GetBoundsInWindowResponse, error)
+	GetChecked(context.Context, *GetCheckedRequest) (*GetCheckedResponse, error)
+	GetChild1(context.Context, *GetChild1Request) (*GetChild1Response, error)
+	GetChild2_1(context.Context, *GetChild2_1Request) (*GetChild2_1Response, error)
+	GetChildCount(context.Context, *GetChildCountRequest) (*GetChildCountResponse, error)
+	GetClassName(context.Context, *GetClassNameRequest) (*GetClassNameResponse, error)
+	GetCollectionInfo(context.Context, *GetCollectionInfoRequest) (*GetCollectionInfoResponse, error)
+	GetCollectionItemInfo(context.Context, *GetCollectionItemInfoRequest) (*GetCollectionItemInfoResponse, error)
+	GetContainerTitle(context.Context, *GetContainerTitleRequest) (*GetContainerTitleResponse, error)
+	GetContentDescription(context.Context, *GetContentDescriptionRequest) (*GetContentDescriptionResponse, error)
+	GetDrawingOrder(context.Context, *GetDrawingOrderRequest) (*GetDrawingOrderResponse, error)
+	GetError(context.Context, *GetErrorRequest) (*GetErrorResponse, error)
+	GetExpandedState(context.Context, *GetExpandedStateRequest) (*GetExpandedStateResponse, error)
+	GetExtraRenderingInfo(context.Context, *GetExtraRenderingInfoRequest) (*GetExtraRenderingInfoResponse, error)
+	GetExtras(context.Context, *GetExtrasRequest) (*GetExtrasResponse, error)
+	GetHintText(context.Context, *GetHintTextRequest) (*GetHintTextResponse, error)
+	GetInputType(context.Context, *GetInputTypeRequest) (*GetInputTypeResponse, error)
+	GetLabelFor(context.Context, *GetLabelForRequest) (*GetLabelForResponse, error)
+	GetLabeledBy(context.Context, *GetLabeledByRequest) (*GetLabeledByResponse, error)
+	GetLiveRegion(context.Context, *GetLiveRegionRequest) (*GetLiveRegionResponse, error)
+	GetMaxTextLength(context.Context, *GetMaxTextLengthRequest) (*GetMaxTextLengthResponse, error)
+	GetMinDurationBetweenContentChanges(context.Context, *GetMinDurationBetweenContentChangesRequest) (*GetMinDurationBetweenContentChangesResponse, error)
+	GetMovementGranularities(context.Context, *GetMovementGranularitiesRequest) (*GetMovementGranularitiesResponse, error)
+	GetPackageName(context.Context, *GetPackageNameRequest) (*GetPackageNameResponse, error)
+	GetPaneTitle(context.Context, *GetPaneTitleRequest) (*GetPaneTitleResponse, error)
+	GetParent0(context.Context, *GetParent0Request) (*GetParent0Response, error)
+	GetParent1_1(context.Context, *GetParent1_1Request) (*GetParent1_1Response, error)
+	GetRangeInfo(context.Context, *GetRangeInfoRequest) (*GetRangeInfoResponse, error)
+	GetStateDescription(context.Context, *GetStateDescriptionRequest) (*GetStateDescriptionResponse, error)
+	GetSupplementalDescription(context.Context, *GetSupplementalDescriptionRequest) (*GetSupplementalDescriptionResponse, error)
+	GetText(context.Context, *GetTextRequest) (*GetTextResponse, error)
+	GetTextSelectionEnd(context.Context, *GetTextSelectionEndRequest) (*GetTextSelectionEndResponse, error)
+	GetTextSelectionStart(context.Context, *GetTextSelectionStartRequest) (*GetTextSelectionStartResponse, error)
+	GetTooltipText(context.Context, *GetTooltipTextRequest) (*GetTooltipTextResponse, error)
+	GetTouchDelegateInfo(context.Context, *GetTouchDelegateInfoRequest) (*GetTouchDelegateInfoResponse, error)
+	GetTraversalAfter(context.Context, *GetTraversalAfterRequest) (*GetTraversalAfterResponse, error)
+	GetTraversalBefore(context.Context, *GetTraversalBeforeRequest) (*GetTraversalBeforeResponse, error)
+	GetUniqueId(context.Context, *GetUniqueIdRequest) (*GetUniqueIdResponse, error)
+	GetViewIdResourceName(context.Context, *GetViewIdResourceNameRequest) (*GetViewIdResourceNameResponse, error)
+	GetWindow(context.Context, *GetWindowRequest) (*GetWindowResponse, error)
+	GetWindowId(context.Context, *GetWindowIdRequest) (*GetWindowIdResponse, error)
+	HasRequestInitialAccessibilityFocus(context.Context, *HasRequestInitialAccessibilityFocusRequest) (*HasRequestInitialAccessibilityFocusResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	IsAccessibilityDataSensitive(context.Context, *IsAccessibilityDataSensitiveRequest) (*IsAccessibilityDataSensitiveResponse, error)
+	IsAccessibilityFocused(context.Context, *IsAccessibilityFocusedRequest) (*IsAccessibilityFocusedResponse, error)
+	IsCheckable(context.Context, *IsCheckableRequest) (*IsCheckableResponse, error)
+	IsChecked(context.Context, *IsCheckedRequest) (*IsCheckedResponse, error)
+	IsClickable(context.Context, *IsClickableRequest) (*IsClickableResponse, error)
+	IsContentInvalid(context.Context, *IsContentInvalidRequest) (*IsContentInvalidResponse, error)
+	IsContextClickable(context.Context, *IsContextClickableRequest) (*IsContextClickableResponse, error)
+	IsDismissable(context.Context, *IsDismissableRequest) (*IsDismissableResponse, error)
+	IsEditable(context.Context, *IsEditableRequest) (*IsEditableResponse, error)
+	IsEnabled(context.Context, *IsEnabledRequest) (*IsEnabledResponse, error)
+	IsFieldRequired(context.Context, *IsFieldRequiredRequest) (*IsFieldRequiredResponse, error)
+	IsFocusable(context.Context, *IsFocusableRequest) (*IsFocusableResponse, error)
+	IsFocused(context.Context, *IsFocusedRequest) (*IsFocusedResponse, error)
+	IsGranularScrollingSupported(context.Context, *IsGranularScrollingSupportedRequest) (*IsGranularScrollingSupportedResponse, error)
+	IsHeading(context.Context, *IsHeadingRequest) (*IsHeadingResponse, error)
+	IsImportantForAccessibility(context.Context, *IsImportantForAccessibilityRequest) (*IsImportantForAccessibilityResponse, error)
+	IsLongClickable(context.Context, *IsLongClickableRequest) (*IsLongClickableResponse, error)
+	IsMultiLine(context.Context, *IsMultiLineRequest) (*IsMultiLineResponse, error)
+	IsPassword(context.Context, *IsPasswordRequest) (*IsPasswordResponse, error)
+	IsScreenReaderFocusable(context.Context, *IsScreenReaderFocusableRequest) (*IsScreenReaderFocusableResponse, error)
+	IsScrollable(context.Context, *IsScrollableRequest) (*IsScrollableResponse, error)
+	IsSelected(context.Context, *IsSelectedRequest) (*IsSelectedResponse, error)
+	IsShowingHintText(context.Context, *IsShowingHintTextRequest) (*IsShowingHintTextResponse, error)
+	IsTextEntryKey(context.Context, *IsTextEntryKeyRequest) (*IsTextEntryKeyResponse, error)
+	IsTextSelectable(context.Context, *IsTextSelectableRequest) (*IsTextSelectableResponse, error)
+	IsVisibleToUser(context.Context, *IsVisibleToUserRequest) (*IsVisibleToUserResponse, error)
+	PerformAction1(context.Context, *PerformAction1Request) (*PerformAction1Response, error)
+	PerformAction2_1(context.Context, *PerformAction2_1Request) (*PerformAction2_1Response, error)
+	Recycle(context.Context, *RecycleRequest) (*RecycleResponse, error)
+	Refresh(context.Context, *RefreshRequest) (*RefreshResponse, error)
+	RefreshWithExtraData(context.Context, *RefreshWithExtraDataRequest) (*RefreshWithExtraDataResponse, error)
+	RemoveAction1(context.Context, *RemoveAction1Request) (*RemoveAction1Response, error)
+	RemoveAction1_1(context.Context, *RemoveAction1_1Request) (*RemoveAction1_1Response, error)
+	RemoveChild1(context.Context, *RemoveChild1Request) (*RemoveChild1Response, error)
+	RemoveChild2_1(context.Context, *RemoveChild2_1Request) (*RemoveChild2_1Response, error)
+	RemoveLabeledBy1(context.Context, *RemoveLabeledBy1Request) (*RemoveLabeledBy1Response, error)
+	RemoveLabeledBy2_1(context.Context, *RemoveLabeledBy2_1Request) (*RemoveLabeledBy2_1Response, error)
+	SetAccessibilityDataSensitive(context.Context, *SetAccessibilityDataSensitiveRequest) (*SetAccessibilityDataSensitiveResponse, error)
+	SetAccessibilityFocused(context.Context, *SetAccessibilityFocusedRequest) (*SetAccessibilityFocusedResponse, error)
+	SetBoundsInParent(context.Context, *SetBoundsInParentRequest) (*SetBoundsInParentResponse, error)
+	SetBoundsInScreen(context.Context, *SetBoundsInScreenRequest) (*SetBoundsInScreenResponse, error)
+	SetBoundsInWindow(context.Context, *SetBoundsInWindowRequest) (*SetBoundsInWindowResponse, error)
+	SetCanOpenPopup(context.Context, *SetCanOpenPopupRequest) (*SetCanOpenPopupResponse, error)
+	SetCheckable(context.Context, *SetCheckableRequest) (*SetCheckableResponse, error)
+	SetChecked1(context.Context, *SetChecked1Request) (*SetChecked1Response, error)
+	SetChecked1_1(context.Context, *SetChecked1_1Request) (*SetChecked1_1Response, error)
+	SetClassName(context.Context, *SetClassNameRequest) (*SetClassNameResponse, error)
+	SetClickable(context.Context, *SetClickableRequest) (*SetClickableResponse, error)
+	SetCollectionInfo(context.Context, *SetCollectionInfoRequest) (*SetCollectionInfoResponse, error)
+	SetCollectionItemInfo(context.Context, *SetCollectionItemInfoRequest) (*SetCollectionItemInfoResponse, error)
+	SetContainerTitle(context.Context, *SetContainerTitleRequest) (*SetContainerTitleResponse, error)
+	SetContentDescription(context.Context, *SetContentDescriptionRequest) (*SetContentDescriptionResponse, error)
+	SetContentInvalid(context.Context, *SetContentInvalidRequest) (*SetContentInvalidResponse, error)
+	SetContextClickable(context.Context, *SetContextClickableRequest) (*SetContextClickableResponse, error)
+	SetDismissable(context.Context, *SetDismissableRequest) (*SetDismissableResponse, error)
+	SetDrawingOrder(context.Context, *SetDrawingOrderRequest) (*SetDrawingOrderResponse, error)
+	SetEditable(context.Context, *SetEditableRequest) (*SetEditableResponse, error)
+	SetEnabled(context.Context, *SetEnabledRequest) (*SetEnabledResponse, error)
+	SetError(context.Context, *SetErrorRequest) (*SetErrorResponse, error)
+	SetExpandedState(context.Context, *SetExpandedStateRequest) (*SetExpandedStateResponse, error)
+	SetFieldRequired(context.Context, *SetFieldRequiredRequest) (*SetFieldRequiredResponse, error)
+	SetFocusable(context.Context, *SetFocusableRequest) (*SetFocusableResponse, error)
+	SetFocused(context.Context, *SetFocusedRequest) (*SetFocusedResponse, error)
+	SetGranularScrollingSupported(context.Context, *SetGranularScrollingSupportedRequest) (*SetGranularScrollingSupportedResponse, error)
+	SetHeading(context.Context, *SetHeadingRequest) (*SetHeadingResponse, error)
+	SetHintText(context.Context, *SetHintTextRequest) (*SetHintTextResponse, error)
+	SetImportantForAccessibility(context.Context, *SetImportantForAccessibilityRequest) (*SetImportantForAccessibilityResponse, error)
+	SetInputType(context.Context, *SetInputTypeRequest) (*SetInputTypeResponse, error)
+	SetLabelFor1(context.Context, *SetLabelFor1Request) (*SetLabelFor1Response, error)
+	SetLabelFor2_1(context.Context, *SetLabelFor2_1Request) (*SetLabelFor2_1Response, error)
+	SetLabeledBy1(context.Context, *SetLabeledBy1Request) (*SetLabeledBy1Response, error)
+	SetLabeledBy2_1(context.Context, *SetLabeledBy2_1Request) (*SetLabeledBy2_1Response, error)
+	SetLiveRegion(context.Context, *SetLiveRegionRequest) (*SetLiveRegionResponse, error)
+	SetLongClickable(context.Context, *SetLongClickableRequest) (*SetLongClickableResponse, error)
+	SetMaxTextLength(context.Context, *SetMaxTextLengthRequest) (*SetMaxTextLengthResponse, error)
+	SetMinDurationBetweenContentChanges(context.Context, *SetMinDurationBetweenContentChangesRequest) (*SetMinDurationBetweenContentChangesResponse, error)
+	SetMovementGranularities(context.Context, *SetMovementGranularitiesRequest) (*SetMovementGranularitiesResponse, error)
+	SetMultiLine(context.Context, *SetMultiLineRequest) (*SetMultiLineResponse, error)
+	SetPackageName(context.Context, *SetPackageNameRequest) (*SetPackageNameResponse, error)
+	SetPaneTitle(context.Context, *SetPaneTitleRequest) (*SetPaneTitleResponse, error)
+	SetParent1(context.Context, *SetParent1Request) (*SetParent1Response, error)
+	SetParent2_1(context.Context, *SetParent2_1Request) (*SetParent2_1Response, error)
+	SetPassword(context.Context, *SetPasswordRequest) (*SetPasswordResponse, error)
+	SetQueryFromAppProcessEnabled(context.Context, *SetQueryFromAppProcessEnabledRequest) (*SetQueryFromAppProcessEnabledResponse, error)
+	SetRangeInfo(context.Context, *SetRangeInfoRequest) (*SetRangeInfoResponse, error)
+	SetRequestInitialAccessibilityFocus(context.Context, *SetRequestInitialAccessibilityFocusRequest) (*SetRequestInitialAccessibilityFocusResponse, error)
+	SetScreenReaderFocusable(context.Context, *SetScreenReaderFocusableRequest) (*SetScreenReaderFocusableResponse, error)
+	SetScrollable(context.Context, *SetScrollableRequest) (*SetScrollableResponse, error)
+	SetSelected(context.Context, *SetSelectedRequest) (*SetSelectedResponse, error)
+	SetShowingHintText(context.Context, *SetShowingHintTextRequest) (*SetShowingHintTextResponse, error)
+	SetSource1(context.Context, *SetSource1Request) (*SetSource1Response, error)
+	SetSource2_1(context.Context, *SetSource2_1Request) (*SetSource2_1Response, error)
+	SetStateDescription(context.Context, *SetStateDescriptionRequest) (*SetStateDescriptionResponse, error)
+	SetSupplementalDescription(context.Context, *SetSupplementalDescriptionRequest) (*SetSupplementalDescriptionResponse, error)
+	SetText(context.Context, *SetTextRequest) (*SetTextResponse, error)
+	SetTextEntryKey(context.Context, *SetTextEntryKeyRequest) (*SetTextEntryKeyResponse, error)
+	SetTextSelectable(context.Context, *SetTextSelectableRequest) (*SetTextSelectableResponse, error)
+	SetTextSelection(context.Context, *SetTextSelectionRequest) (*SetTextSelectionResponse, error)
+	SetTooltipText(context.Context, *SetTooltipTextRequest) (*SetTooltipTextResponse, error)
+	SetTouchDelegateInfo(context.Context, *SetTouchDelegateInfoRequest) (*SetTouchDelegateInfoResponse, error)
+	SetTraversalAfter1(context.Context, *SetTraversalAfter1Request) (*SetTraversalAfter1Response, error)
+	SetTraversalAfter2_1(context.Context, *SetTraversalAfter2_1Request) (*SetTraversalAfter2_1Response, error)
+	SetTraversalBefore1(context.Context, *SetTraversalBefore1Request) (*SetTraversalBefore1Response, error)
+	SetTraversalBefore2_1(context.Context, *SetTraversalBefore2_1Request) (*SetTraversalBefore2_1Response, error)
+	SetUniqueId(context.Context, *SetUniqueIdRequest) (*SetUniqueIdResponse, error)
+	SetViewIdResourceName(context.Context, *SetViewIdResourceNameRequest) (*SetViewIdResourceNameResponse, error)
+	SetVisibleToUser(context.Context, *SetVisibleToUserRequest) (*SetVisibleToUserResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	Obtain0(context.Context, *Obtain0Request) (*Obtain0Response, error)
+	Obtain1_1(context.Context, *Obtain1_1Request) (*Obtain1_1Response, error)
+	Obtain1_2(context.Context, *Obtain1_2Request) (*Obtain1_2Response, error)
+	Obtain2_3(context.Context, *Obtain2_3Request) (*Obtain2_3Response, error)
+	mustEmbedUnimplementedNodeInfoServiceServer()
+}
+
+// UnimplementedNodeInfoServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedNodeInfoServiceServer struct{}
+
+func (UnimplementedNodeInfoServiceServer) NewNodeInfo(context.Context, *NewNodeInfoRequest) (*NewNodeInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewNodeInfo not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) AddAction1(context.Context, *AddAction1Request) (*AddAction1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddAction1 not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) AddAction1_1(context.Context, *AddAction1_1Request) (*AddAction1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddAction1_1 not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) AddChild1(context.Context, *AddChild1Request) (*AddChild1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddChild1 not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) AddChild2_1(context.Context, *AddChild2_1Request) (*AddChild2_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddChild2_1 not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) AddLabeledBy1(context.Context, *AddLabeledBy1Request) (*AddLabeledBy1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddLabeledBy1 not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) AddLabeledBy2_1(context.Context, *AddLabeledBy2_1Request) (*AddLabeledBy2_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddLabeledBy2_1 not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) CanOpenPopup(context.Context, *CanOpenPopupRequest) (*CanOpenPopupResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CanOpenPopup not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) FindFocus(context.Context, *FindFocusRequest) (*FindFocusResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method FindFocus not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) FocusSearch(context.Context, *FocusSearchRequest) (*FocusSearchResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method FocusSearch not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) GetActions(context.Context, *GetActionsRequest) (*GetActionsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetActions not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) GetBoundsInParent(context.Context, *GetBoundsInParentRequest) (*GetBoundsInParentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetBoundsInParent not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) GetBoundsInScreen(context.Context, *GetBoundsInScreenRequest) (*GetBoundsInScreenResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetBoundsInScreen not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) GetBoundsInWindow(context.Context, *GetBoundsInWindowRequest) (*GetBoundsInWindowResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetBoundsInWindow not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) GetChecked(context.Context, *GetCheckedRequest) (*GetCheckedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetChecked not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) GetChild1(context.Context, *GetChild1Request) (*GetChild1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetChild1 not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) GetChild2_1(context.Context, *GetChild2_1Request) (*GetChild2_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetChild2_1 not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) GetChildCount(context.Context, *GetChildCountRequest) (*GetChildCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetChildCount not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) GetClassName(context.Context, *GetClassNameRequest) (*GetClassNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetClassName not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) GetCollectionInfo(context.Context, *GetCollectionInfoRequest) (*GetCollectionInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCollectionInfo not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) GetCollectionItemInfo(context.Context, *GetCollectionItemInfoRequest) (*GetCollectionItemInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCollectionItemInfo not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) GetContainerTitle(context.Context, *GetContainerTitleRequest) (*GetContainerTitleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetContainerTitle not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) GetContentDescription(context.Context, *GetContentDescriptionRequest) (*GetContentDescriptionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetContentDescription not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) GetDrawingOrder(context.Context, *GetDrawingOrderRequest) (*GetDrawingOrderResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDrawingOrder not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) GetError(context.Context, *GetErrorRequest) (*GetErrorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetError not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) GetExpandedState(context.Context, *GetExpandedStateRequest) (*GetExpandedStateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetExpandedState not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) GetExtraRenderingInfo(context.Context, *GetExtraRenderingInfoRequest) (*GetExtraRenderingInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetExtraRenderingInfo not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) GetExtras(context.Context, *GetExtrasRequest) (*GetExtrasResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetExtras not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) GetHintText(context.Context, *GetHintTextRequest) (*GetHintTextResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetHintText not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) GetInputType(context.Context, *GetInputTypeRequest) (*GetInputTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInputType not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) GetLabelFor(context.Context, *GetLabelForRequest) (*GetLabelForResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLabelFor not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) GetLabeledBy(context.Context, *GetLabeledByRequest) (*GetLabeledByResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLabeledBy not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) GetLiveRegion(context.Context, *GetLiveRegionRequest) (*GetLiveRegionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLiveRegion not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) GetMaxTextLength(context.Context, *GetMaxTextLengthRequest) (*GetMaxTextLengthResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMaxTextLength not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) GetMinDurationBetweenContentChanges(context.Context, *GetMinDurationBetweenContentChangesRequest) (*GetMinDurationBetweenContentChangesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMinDurationBetweenContentChanges not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) GetMovementGranularities(context.Context, *GetMovementGranularitiesRequest) (*GetMovementGranularitiesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMovementGranularities not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) GetPackageName(context.Context, *GetPackageNameRequest) (*GetPackageNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPackageName not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) GetPaneTitle(context.Context, *GetPaneTitleRequest) (*GetPaneTitleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPaneTitle not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) GetParent0(context.Context, *GetParent0Request) (*GetParent0Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetParent0 not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) GetParent1_1(context.Context, *GetParent1_1Request) (*GetParent1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetParent1_1 not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) GetRangeInfo(context.Context, *GetRangeInfoRequest) (*GetRangeInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRangeInfo not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) GetStateDescription(context.Context, *GetStateDescriptionRequest) (*GetStateDescriptionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetStateDescription not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) GetSupplementalDescription(context.Context, *GetSupplementalDescriptionRequest) (*GetSupplementalDescriptionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSupplementalDescription not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) GetText(context.Context, *GetTextRequest) (*GetTextResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetText not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) GetTextSelectionEnd(context.Context, *GetTextSelectionEndRequest) (*GetTextSelectionEndResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTextSelectionEnd not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) GetTextSelectionStart(context.Context, *GetTextSelectionStartRequest) (*GetTextSelectionStartResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTextSelectionStart not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) GetTooltipText(context.Context, *GetTooltipTextRequest) (*GetTooltipTextResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTooltipText not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) GetTouchDelegateInfo(context.Context, *GetTouchDelegateInfoRequest) (*GetTouchDelegateInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTouchDelegateInfo not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) GetTraversalAfter(context.Context, *GetTraversalAfterRequest) (*GetTraversalAfterResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTraversalAfter not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) GetTraversalBefore(context.Context, *GetTraversalBeforeRequest) (*GetTraversalBeforeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTraversalBefore not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) GetUniqueId(context.Context, *GetUniqueIdRequest) (*GetUniqueIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetUniqueId not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) GetViewIdResourceName(context.Context, *GetViewIdResourceNameRequest) (*GetViewIdResourceNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetViewIdResourceName not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) GetWindow(context.Context, *GetWindowRequest) (*GetWindowResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetWindow not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) GetWindowId(context.Context, *GetWindowIdRequest) (*GetWindowIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetWindowId not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) HasRequestInitialAccessibilityFocus(context.Context, *HasRequestInitialAccessibilityFocusRequest) (*HasRequestInitialAccessibilityFocusResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HasRequestInitialAccessibilityFocus not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) IsAccessibilityDataSensitive(context.Context, *IsAccessibilityDataSensitiveRequest) (*IsAccessibilityDataSensitiveResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsAccessibilityDataSensitive not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) IsAccessibilityFocused(context.Context, *IsAccessibilityFocusedRequest) (*IsAccessibilityFocusedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsAccessibilityFocused not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) IsCheckable(context.Context, *IsCheckableRequest) (*IsCheckableResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsCheckable not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) IsChecked(context.Context, *IsCheckedRequest) (*IsCheckedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsChecked not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) IsClickable(context.Context, *IsClickableRequest) (*IsClickableResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsClickable not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) IsContentInvalid(context.Context, *IsContentInvalidRequest) (*IsContentInvalidResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsContentInvalid not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) IsContextClickable(context.Context, *IsContextClickableRequest) (*IsContextClickableResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsContextClickable not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) IsDismissable(context.Context, *IsDismissableRequest) (*IsDismissableResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsDismissable not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) IsEditable(context.Context, *IsEditableRequest) (*IsEditableResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsEditable not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) IsEnabled(context.Context, *IsEnabledRequest) (*IsEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsEnabled not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) IsFieldRequired(context.Context, *IsFieldRequiredRequest) (*IsFieldRequiredResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsFieldRequired not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) IsFocusable(context.Context, *IsFocusableRequest) (*IsFocusableResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsFocusable not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) IsFocused(context.Context, *IsFocusedRequest) (*IsFocusedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsFocused not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) IsGranularScrollingSupported(context.Context, *IsGranularScrollingSupportedRequest) (*IsGranularScrollingSupportedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsGranularScrollingSupported not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) IsHeading(context.Context, *IsHeadingRequest) (*IsHeadingResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsHeading not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) IsImportantForAccessibility(context.Context, *IsImportantForAccessibilityRequest) (*IsImportantForAccessibilityResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsImportantForAccessibility not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) IsLongClickable(context.Context, *IsLongClickableRequest) (*IsLongClickableResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsLongClickable not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) IsMultiLine(context.Context, *IsMultiLineRequest) (*IsMultiLineResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsMultiLine not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) IsPassword(context.Context, *IsPasswordRequest) (*IsPasswordResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsPassword not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) IsScreenReaderFocusable(context.Context, *IsScreenReaderFocusableRequest) (*IsScreenReaderFocusableResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsScreenReaderFocusable not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) IsScrollable(context.Context, *IsScrollableRequest) (*IsScrollableResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsScrollable not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) IsSelected(context.Context, *IsSelectedRequest) (*IsSelectedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsSelected not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) IsShowingHintText(context.Context, *IsShowingHintTextRequest) (*IsShowingHintTextResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsShowingHintText not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) IsTextEntryKey(context.Context, *IsTextEntryKeyRequest) (*IsTextEntryKeyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsTextEntryKey not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) IsTextSelectable(context.Context, *IsTextSelectableRequest) (*IsTextSelectableResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsTextSelectable not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) IsVisibleToUser(context.Context, *IsVisibleToUserRequest) (*IsVisibleToUserResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsVisibleToUser not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) PerformAction1(context.Context, *PerformAction1Request) (*PerformAction1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method PerformAction1 not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) PerformAction2_1(context.Context, *PerformAction2_1Request) (*PerformAction2_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method PerformAction2_1 not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) Recycle(context.Context, *RecycleRequest) (*RecycleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Recycle not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) Refresh(context.Context, *RefreshRequest) (*RefreshResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Refresh not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) RefreshWithExtraData(context.Context, *RefreshWithExtraDataRequest) (*RefreshWithExtraDataResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RefreshWithExtraData not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) RemoveAction1(context.Context, *RemoveAction1Request) (*RemoveAction1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method RemoveAction1 not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) RemoveAction1_1(context.Context, *RemoveAction1_1Request) (*RemoveAction1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method RemoveAction1_1 not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) RemoveChild1(context.Context, *RemoveChild1Request) (*RemoveChild1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method RemoveChild1 not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) RemoveChild2_1(context.Context, *RemoveChild2_1Request) (*RemoveChild2_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method RemoveChild2_1 not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) RemoveLabeledBy1(context.Context, *RemoveLabeledBy1Request) (*RemoveLabeledBy1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method RemoveLabeledBy1 not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) RemoveLabeledBy2_1(context.Context, *RemoveLabeledBy2_1Request) (*RemoveLabeledBy2_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method RemoveLabeledBy2_1 not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetAccessibilityDataSensitive(context.Context, *SetAccessibilityDataSensitiveRequest) (*SetAccessibilityDataSensitiveResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetAccessibilityDataSensitive not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetAccessibilityFocused(context.Context, *SetAccessibilityFocusedRequest) (*SetAccessibilityFocusedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetAccessibilityFocused not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetBoundsInParent(context.Context, *SetBoundsInParentRequest) (*SetBoundsInParentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetBoundsInParent not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetBoundsInScreen(context.Context, *SetBoundsInScreenRequest) (*SetBoundsInScreenResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetBoundsInScreen not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetBoundsInWindow(context.Context, *SetBoundsInWindowRequest) (*SetBoundsInWindowResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetBoundsInWindow not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetCanOpenPopup(context.Context, *SetCanOpenPopupRequest) (*SetCanOpenPopupResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetCanOpenPopup not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetCheckable(context.Context, *SetCheckableRequest) (*SetCheckableResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetCheckable not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetChecked1(context.Context, *SetChecked1Request) (*SetChecked1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetChecked1 not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetChecked1_1(context.Context, *SetChecked1_1Request) (*SetChecked1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetChecked1_1 not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetClassName(context.Context, *SetClassNameRequest) (*SetClassNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetClassName not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetClickable(context.Context, *SetClickableRequest) (*SetClickableResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetClickable not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetCollectionInfo(context.Context, *SetCollectionInfoRequest) (*SetCollectionInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetCollectionInfo not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetCollectionItemInfo(context.Context, *SetCollectionItemInfoRequest) (*SetCollectionItemInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetCollectionItemInfo not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetContainerTitle(context.Context, *SetContainerTitleRequest) (*SetContainerTitleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetContainerTitle not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetContentDescription(context.Context, *SetContentDescriptionRequest) (*SetContentDescriptionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetContentDescription not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetContentInvalid(context.Context, *SetContentInvalidRequest) (*SetContentInvalidResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetContentInvalid not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetContextClickable(context.Context, *SetContextClickableRequest) (*SetContextClickableResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetContextClickable not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetDismissable(context.Context, *SetDismissableRequest) (*SetDismissableResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetDismissable not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetDrawingOrder(context.Context, *SetDrawingOrderRequest) (*SetDrawingOrderResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetDrawingOrder not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetEditable(context.Context, *SetEditableRequest) (*SetEditableResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetEditable not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetEnabled(context.Context, *SetEnabledRequest) (*SetEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetEnabled not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetError(context.Context, *SetErrorRequest) (*SetErrorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetError not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetExpandedState(context.Context, *SetExpandedStateRequest) (*SetExpandedStateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetExpandedState not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetFieldRequired(context.Context, *SetFieldRequiredRequest) (*SetFieldRequiredResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetFieldRequired not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetFocusable(context.Context, *SetFocusableRequest) (*SetFocusableResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetFocusable not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetFocused(context.Context, *SetFocusedRequest) (*SetFocusedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetFocused not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetGranularScrollingSupported(context.Context, *SetGranularScrollingSupportedRequest) (*SetGranularScrollingSupportedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetGranularScrollingSupported not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetHeading(context.Context, *SetHeadingRequest) (*SetHeadingResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetHeading not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetHintText(context.Context, *SetHintTextRequest) (*SetHintTextResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetHintText not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetImportantForAccessibility(context.Context, *SetImportantForAccessibilityRequest) (*SetImportantForAccessibilityResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetImportantForAccessibility not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetInputType(context.Context, *SetInputTypeRequest) (*SetInputTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetInputType not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetLabelFor1(context.Context, *SetLabelFor1Request) (*SetLabelFor1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetLabelFor1 not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetLabelFor2_1(context.Context, *SetLabelFor2_1Request) (*SetLabelFor2_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetLabelFor2_1 not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetLabeledBy1(context.Context, *SetLabeledBy1Request) (*SetLabeledBy1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetLabeledBy1 not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetLabeledBy2_1(context.Context, *SetLabeledBy2_1Request) (*SetLabeledBy2_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetLabeledBy2_1 not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetLiveRegion(context.Context, *SetLiveRegionRequest) (*SetLiveRegionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetLiveRegion not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetLongClickable(context.Context, *SetLongClickableRequest) (*SetLongClickableResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetLongClickable not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetMaxTextLength(context.Context, *SetMaxTextLengthRequest) (*SetMaxTextLengthResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetMaxTextLength not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetMinDurationBetweenContentChanges(context.Context, *SetMinDurationBetweenContentChangesRequest) (*SetMinDurationBetweenContentChangesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetMinDurationBetweenContentChanges not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetMovementGranularities(context.Context, *SetMovementGranularitiesRequest) (*SetMovementGranularitiesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetMovementGranularities not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetMultiLine(context.Context, *SetMultiLineRequest) (*SetMultiLineResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetMultiLine not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetPackageName(context.Context, *SetPackageNameRequest) (*SetPackageNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetPackageName not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetPaneTitle(context.Context, *SetPaneTitleRequest) (*SetPaneTitleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetPaneTitle not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetParent1(context.Context, *SetParent1Request) (*SetParent1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetParent1 not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetParent2_1(context.Context, *SetParent2_1Request) (*SetParent2_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetParent2_1 not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetPassword(context.Context, *SetPasswordRequest) (*SetPasswordResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetPassword not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetQueryFromAppProcessEnabled(context.Context, *SetQueryFromAppProcessEnabledRequest) (*SetQueryFromAppProcessEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetQueryFromAppProcessEnabled not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetRangeInfo(context.Context, *SetRangeInfoRequest) (*SetRangeInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetRangeInfo not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetRequestInitialAccessibilityFocus(context.Context, *SetRequestInitialAccessibilityFocusRequest) (*SetRequestInitialAccessibilityFocusResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetRequestInitialAccessibilityFocus not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetScreenReaderFocusable(context.Context, *SetScreenReaderFocusableRequest) (*SetScreenReaderFocusableResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetScreenReaderFocusable not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetScrollable(context.Context, *SetScrollableRequest) (*SetScrollableResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetScrollable not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetSelected(context.Context, *SetSelectedRequest) (*SetSelectedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetSelected not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetShowingHintText(context.Context, *SetShowingHintTextRequest) (*SetShowingHintTextResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetShowingHintText not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetSource1(context.Context, *SetSource1Request) (*SetSource1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetSource1 not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetSource2_1(context.Context, *SetSource2_1Request) (*SetSource2_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetSource2_1 not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetStateDescription(context.Context, *SetStateDescriptionRequest) (*SetStateDescriptionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetStateDescription not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetSupplementalDescription(context.Context, *SetSupplementalDescriptionRequest) (*SetSupplementalDescriptionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetSupplementalDescription not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetText(context.Context, *SetTextRequest) (*SetTextResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetText not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetTextEntryKey(context.Context, *SetTextEntryKeyRequest) (*SetTextEntryKeyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetTextEntryKey not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetTextSelectable(context.Context, *SetTextSelectableRequest) (*SetTextSelectableResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetTextSelectable not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetTextSelection(context.Context, *SetTextSelectionRequest) (*SetTextSelectionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetTextSelection not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetTooltipText(context.Context, *SetTooltipTextRequest) (*SetTooltipTextResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetTooltipText not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetTouchDelegateInfo(context.Context, *SetTouchDelegateInfoRequest) (*SetTouchDelegateInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetTouchDelegateInfo not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetTraversalAfter1(context.Context, *SetTraversalAfter1Request) (*SetTraversalAfter1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetTraversalAfter1 not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetTraversalAfter2_1(context.Context, *SetTraversalAfter2_1Request) (*SetTraversalAfter2_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetTraversalAfter2_1 not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetTraversalBefore1(context.Context, *SetTraversalBefore1Request) (*SetTraversalBefore1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetTraversalBefore1 not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetTraversalBefore2_1(context.Context, *SetTraversalBefore2_1Request) (*SetTraversalBefore2_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetTraversalBefore2_1 not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetUniqueId(context.Context, *SetUniqueIdRequest) (*SetUniqueIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetUniqueId not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetViewIdResourceName(context.Context, *SetViewIdResourceNameRequest) (*SetViewIdResourceNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetViewIdResourceName not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) SetVisibleToUser(context.Context, *SetVisibleToUserRequest) (*SetVisibleToUserResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetVisibleToUser not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) Obtain0(context.Context, *Obtain0Request) (*Obtain0Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Obtain0 not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) Obtain1_1(context.Context, *Obtain1_1Request) (*Obtain1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Obtain1_1 not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) Obtain1_2(context.Context, *Obtain1_2Request) (*Obtain1_2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Obtain1_2 not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) Obtain2_3(context.Context, *Obtain2_3Request) (*Obtain2_3Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Obtain2_3 not implemented")
+}
+func (UnimplementedNodeInfoServiceServer) mustEmbedUnimplementedNodeInfoServiceServer() {}
+func (UnimplementedNodeInfoServiceServer) testEmbeddedByValue()                         {}
+
+// UnsafeNodeInfoServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to NodeInfoServiceServer will
+// result in compilation errors.
+type UnsafeNodeInfoServiceServer interface {
+	mustEmbedUnimplementedNodeInfoServiceServer()
+}
+
+func RegisterNodeInfoServiceServer(s grpc.ServiceRegistrar, srv NodeInfoServiceServer) {
+	// If the following call panics, it indicates UnimplementedNodeInfoServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&NodeInfoService_ServiceDesc, srv)
+}
+
+func _NodeInfoService_NewNodeInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewNodeInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).NewNodeInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_NewNodeInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).NewNodeInfo(ctx, req.(*NewNodeInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_AddAction1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddAction1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).AddAction1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_AddAction1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).AddAction1(ctx, req.(*AddAction1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_AddAction1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddAction1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).AddAction1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_AddAction1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).AddAction1_1(ctx, req.(*AddAction1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_AddChild1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddChild1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).AddChild1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_AddChild1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).AddChild1(ctx, req.(*AddChild1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_AddChild2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddChild2_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).AddChild2_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_AddChild2_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).AddChild2_1(ctx, req.(*AddChild2_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_AddLabeledBy1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddLabeledBy1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).AddLabeledBy1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_AddLabeledBy1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).AddLabeledBy1(ctx, req.(*AddLabeledBy1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_AddLabeledBy2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddLabeledBy2_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).AddLabeledBy2_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_AddLabeledBy2_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).AddLabeledBy2_1(ctx, req.(*AddLabeledBy2_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_CanOpenPopup_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CanOpenPopupRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).CanOpenPopup(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_CanOpenPopup_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).CanOpenPopup(ctx, req.(*CanOpenPopupRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_FindFocus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FindFocusRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).FindFocus(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_FindFocus_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).FindFocus(ctx, req.(*FindFocusRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_FocusSearch_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FocusSearchRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).FocusSearch(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_FocusSearch_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).FocusSearch(ctx, req.(*FocusSearchRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_GetActions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetActionsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).GetActions(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_GetActions_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).GetActions(ctx, req.(*GetActionsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_GetBoundsInParent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetBoundsInParentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).GetBoundsInParent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_GetBoundsInParent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).GetBoundsInParent(ctx, req.(*GetBoundsInParentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_GetBoundsInScreen_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetBoundsInScreenRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).GetBoundsInScreen(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_GetBoundsInScreen_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).GetBoundsInScreen(ctx, req.(*GetBoundsInScreenRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_GetBoundsInWindow_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetBoundsInWindowRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).GetBoundsInWindow(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_GetBoundsInWindow_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).GetBoundsInWindow(ctx, req.(*GetBoundsInWindowRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_GetChecked_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCheckedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).GetChecked(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_GetChecked_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).GetChecked(ctx, req.(*GetCheckedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_GetChild1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetChild1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).GetChild1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_GetChild1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).GetChild1(ctx, req.(*GetChild1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_GetChild2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetChild2_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).GetChild2_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_GetChild2_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).GetChild2_1(ctx, req.(*GetChild2_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_GetChildCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetChildCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).GetChildCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_GetChildCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).GetChildCount(ctx, req.(*GetChildCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_GetClassName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetClassNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).GetClassName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_GetClassName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).GetClassName(ctx, req.(*GetClassNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_GetCollectionInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCollectionInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).GetCollectionInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_GetCollectionInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).GetCollectionInfo(ctx, req.(*GetCollectionInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_GetCollectionItemInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCollectionItemInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).GetCollectionItemInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_GetCollectionItemInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).GetCollectionItemInfo(ctx, req.(*GetCollectionItemInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_GetContainerTitle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetContainerTitleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).GetContainerTitle(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_GetContainerTitle_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).GetContainerTitle(ctx, req.(*GetContainerTitleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_GetContentDescription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetContentDescriptionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).GetContentDescription(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_GetContentDescription_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).GetContentDescription(ctx, req.(*GetContentDescriptionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_GetDrawingOrder_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDrawingOrderRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).GetDrawingOrder(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_GetDrawingOrder_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).GetDrawingOrder(ctx, req.(*GetDrawingOrderRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_GetError_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetErrorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).GetError(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_GetError_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).GetError(ctx, req.(*GetErrorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_GetExpandedState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetExpandedStateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).GetExpandedState(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_GetExpandedState_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).GetExpandedState(ctx, req.(*GetExpandedStateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_GetExtraRenderingInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetExtraRenderingInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).GetExtraRenderingInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_GetExtraRenderingInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).GetExtraRenderingInfo(ctx, req.(*GetExtraRenderingInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_GetExtras_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetExtrasRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).GetExtras(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_GetExtras_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).GetExtras(ctx, req.(*GetExtrasRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_GetHintText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetHintTextRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).GetHintText(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_GetHintText_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).GetHintText(ctx, req.(*GetHintTextRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_GetInputType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetInputTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).GetInputType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_GetInputType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).GetInputType(ctx, req.(*GetInputTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_GetLabelFor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLabelForRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).GetLabelFor(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_GetLabelFor_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).GetLabelFor(ctx, req.(*GetLabelForRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_GetLabeledBy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLabeledByRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).GetLabeledBy(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_GetLabeledBy_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).GetLabeledBy(ctx, req.(*GetLabeledByRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_GetLiveRegion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLiveRegionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).GetLiveRegion(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_GetLiveRegion_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).GetLiveRegion(ctx, req.(*GetLiveRegionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_GetMaxTextLength_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMaxTextLengthRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).GetMaxTextLength(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_GetMaxTextLength_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).GetMaxTextLength(ctx, req.(*GetMaxTextLengthRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_GetMinDurationBetweenContentChanges_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMinDurationBetweenContentChangesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).GetMinDurationBetweenContentChanges(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_GetMinDurationBetweenContentChanges_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).GetMinDurationBetweenContentChanges(ctx, req.(*GetMinDurationBetweenContentChangesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_GetMovementGranularities_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMovementGranularitiesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).GetMovementGranularities(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_GetMovementGranularities_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).GetMovementGranularities(ctx, req.(*GetMovementGranularitiesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_GetPackageName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPackageNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).GetPackageName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_GetPackageName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).GetPackageName(ctx, req.(*GetPackageNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_GetPaneTitle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPaneTitleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).GetPaneTitle(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_GetPaneTitle_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).GetPaneTitle(ctx, req.(*GetPaneTitleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_GetParent0_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetParent0Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).GetParent0(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_GetParent0_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).GetParent0(ctx, req.(*GetParent0Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_GetParent1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetParent1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).GetParent1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_GetParent1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).GetParent1_1(ctx, req.(*GetParent1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_GetRangeInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRangeInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).GetRangeInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_GetRangeInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).GetRangeInfo(ctx, req.(*GetRangeInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_GetStateDescription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStateDescriptionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).GetStateDescription(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_GetStateDescription_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).GetStateDescription(ctx, req.(*GetStateDescriptionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_GetSupplementalDescription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSupplementalDescriptionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).GetSupplementalDescription(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_GetSupplementalDescription_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).GetSupplementalDescription(ctx, req.(*GetSupplementalDescriptionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_GetText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTextRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).GetText(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_GetText_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).GetText(ctx, req.(*GetTextRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_GetTextSelectionEnd_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTextSelectionEndRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).GetTextSelectionEnd(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_GetTextSelectionEnd_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).GetTextSelectionEnd(ctx, req.(*GetTextSelectionEndRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_GetTextSelectionStart_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTextSelectionStartRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).GetTextSelectionStart(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_GetTextSelectionStart_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).GetTextSelectionStart(ctx, req.(*GetTextSelectionStartRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_GetTooltipText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTooltipTextRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).GetTooltipText(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_GetTooltipText_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).GetTooltipText(ctx, req.(*GetTooltipTextRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_GetTouchDelegateInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTouchDelegateInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).GetTouchDelegateInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_GetTouchDelegateInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).GetTouchDelegateInfo(ctx, req.(*GetTouchDelegateInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_GetTraversalAfter_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTraversalAfterRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).GetTraversalAfter(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_GetTraversalAfter_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).GetTraversalAfter(ctx, req.(*GetTraversalAfterRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_GetTraversalBefore_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTraversalBeforeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).GetTraversalBefore(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_GetTraversalBefore_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).GetTraversalBefore(ctx, req.(*GetTraversalBeforeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_GetUniqueId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUniqueIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).GetUniqueId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_GetUniqueId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).GetUniqueId(ctx, req.(*GetUniqueIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_GetViewIdResourceName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetViewIdResourceNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).GetViewIdResourceName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_GetViewIdResourceName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).GetViewIdResourceName(ctx, req.(*GetViewIdResourceNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_GetWindow_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetWindowRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).GetWindow(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_GetWindow_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).GetWindow(ctx, req.(*GetWindowRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_GetWindowId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetWindowIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).GetWindowId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_GetWindowId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).GetWindowId(ctx, req.(*GetWindowIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_HasRequestInitialAccessibilityFocus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HasRequestInitialAccessibilityFocusRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).HasRequestInitialAccessibilityFocus(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_HasRequestInitialAccessibilityFocus_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).HasRequestInitialAccessibilityFocus(ctx, req.(*HasRequestInitialAccessibilityFocusRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_IsAccessibilityDataSensitive_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsAccessibilityDataSensitiveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).IsAccessibilityDataSensitive(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_IsAccessibilityDataSensitive_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).IsAccessibilityDataSensitive(ctx, req.(*IsAccessibilityDataSensitiveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_IsAccessibilityFocused_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsAccessibilityFocusedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).IsAccessibilityFocused(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_IsAccessibilityFocused_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).IsAccessibilityFocused(ctx, req.(*IsAccessibilityFocusedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_IsCheckable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsCheckableRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).IsCheckable(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_IsCheckable_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).IsCheckable(ctx, req.(*IsCheckableRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_IsChecked_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsCheckedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).IsChecked(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_IsChecked_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).IsChecked(ctx, req.(*IsCheckedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_IsClickable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsClickableRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).IsClickable(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_IsClickable_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).IsClickable(ctx, req.(*IsClickableRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_IsContentInvalid_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsContentInvalidRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).IsContentInvalid(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_IsContentInvalid_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).IsContentInvalid(ctx, req.(*IsContentInvalidRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_IsContextClickable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsContextClickableRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).IsContextClickable(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_IsContextClickable_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).IsContextClickable(ctx, req.(*IsContextClickableRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_IsDismissable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsDismissableRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).IsDismissable(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_IsDismissable_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).IsDismissable(ctx, req.(*IsDismissableRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_IsEditable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsEditableRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).IsEditable(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_IsEditable_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).IsEditable(ctx, req.(*IsEditableRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_IsEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsEnabledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).IsEnabled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_IsEnabled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).IsEnabled(ctx, req.(*IsEnabledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_IsFieldRequired_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsFieldRequiredRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).IsFieldRequired(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_IsFieldRequired_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).IsFieldRequired(ctx, req.(*IsFieldRequiredRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_IsFocusable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsFocusableRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).IsFocusable(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_IsFocusable_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).IsFocusable(ctx, req.(*IsFocusableRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_IsFocused_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsFocusedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).IsFocused(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_IsFocused_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).IsFocused(ctx, req.(*IsFocusedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_IsGranularScrollingSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsGranularScrollingSupportedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).IsGranularScrollingSupported(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_IsGranularScrollingSupported_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).IsGranularScrollingSupported(ctx, req.(*IsGranularScrollingSupportedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_IsHeading_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsHeadingRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).IsHeading(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_IsHeading_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).IsHeading(ctx, req.(*IsHeadingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_IsImportantForAccessibility_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsImportantForAccessibilityRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).IsImportantForAccessibility(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_IsImportantForAccessibility_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).IsImportantForAccessibility(ctx, req.(*IsImportantForAccessibilityRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_IsLongClickable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsLongClickableRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).IsLongClickable(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_IsLongClickable_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).IsLongClickable(ctx, req.(*IsLongClickableRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_IsMultiLine_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsMultiLineRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).IsMultiLine(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_IsMultiLine_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).IsMultiLine(ctx, req.(*IsMultiLineRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_IsPassword_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsPasswordRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).IsPassword(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_IsPassword_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).IsPassword(ctx, req.(*IsPasswordRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_IsScreenReaderFocusable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsScreenReaderFocusableRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).IsScreenReaderFocusable(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_IsScreenReaderFocusable_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).IsScreenReaderFocusable(ctx, req.(*IsScreenReaderFocusableRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_IsScrollable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsScrollableRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).IsScrollable(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_IsScrollable_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).IsScrollable(ctx, req.(*IsScrollableRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_IsSelected_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsSelectedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).IsSelected(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_IsSelected_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).IsSelected(ctx, req.(*IsSelectedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_IsShowingHintText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsShowingHintTextRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).IsShowingHintText(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_IsShowingHintText_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).IsShowingHintText(ctx, req.(*IsShowingHintTextRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_IsTextEntryKey_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsTextEntryKeyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).IsTextEntryKey(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_IsTextEntryKey_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).IsTextEntryKey(ctx, req.(*IsTextEntryKeyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_IsTextSelectable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsTextSelectableRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).IsTextSelectable(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_IsTextSelectable_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).IsTextSelectable(ctx, req.(*IsTextSelectableRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_IsVisibleToUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsVisibleToUserRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).IsVisibleToUser(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_IsVisibleToUser_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).IsVisibleToUser(ctx, req.(*IsVisibleToUserRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_PerformAction1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PerformAction1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).PerformAction1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_PerformAction1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).PerformAction1(ctx, req.(*PerformAction1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_PerformAction2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PerformAction2_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).PerformAction2_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_PerformAction2_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).PerformAction2_1(ctx, req.(*PerformAction2_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_Recycle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RecycleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).Recycle(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_Recycle_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).Recycle(ctx, req.(*RecycleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_Refresh_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RefreshRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).Refresh(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_Refresh_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).Refresh(ctx, req.(*RefreshRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_RefreshWithExtraData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RefreshWithExtraDataRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).RefreshWithExtraData(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_RefreshWithExtraData_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).RefreshWithExtraData(ctx, req.(*RefreshWithExtraDataRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_RemoveAction1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RemoveAction1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).RemoveAction1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_RemoveAction1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).RemoveAction1(ctx, req.(*RemoveAction1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_RemoveAction1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RemoveAction1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).RemoveAction1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_RemoveAction1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).RemoveAction1_1(ctx, req.(*RemoveAction1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_RemoveChild1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RemoveChild1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).RemoveChild1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_RemoveChild1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).RemoveChild1(ctx, req.(*RemoveChild1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_RemoveChild2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RemoveChild2_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).RemoveChild2_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_RemoveChild2_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).RemoveChild2_1(ctx, req.(*RemoveChild2_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_RemoveLabeledBy1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RemoveLabeledBy1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).RemoveLabeledBy1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_RemoveLabeledBy1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).RemoveLabeledBy1(ctx, req.(*RemoveLabeledBy1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_RemoveLabeledBy2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RemoveLabeledBy2_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).RemoveLabeledBy2_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_RemoveLabeledBy2_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).RemoveLabeledBy2_1(ctx, req.(*RemoveLabeledBy2_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetAccessibilityDataSensitive_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetAccessibilityDataSensitiveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetAccessibilityDataSensitive(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetAccessibilityDataSensitive_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetAccessibilityDataSensitive(ctx, req.(*SetAccessibilityDataSensitiveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetAccessibilityFocused_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetAccessibilityFocusedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetAccessibilityFocused(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetAccessibilityFocused_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetAccessibilityFocused(ctx, req.(*SetAccessibilityFocusedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetBoundsInParent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetBoundsInParentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetBoundsInParent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetBoundsInParent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetBoundsInParent(ctx, req.(*SetBoundsInParentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetBoundsInScreen_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetBoundsInScreenRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetBoundsInScreen(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetBoundsInScreen_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetBoundsInScreen(ctx, req.(*SetBoundsInScreenRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetBoundsInWindow_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetBoundsInWindowRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetBoundsInWindow(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetBoundsInWindow_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetBoundsInWindow(ctx, req.(*SetBoundsInWindowRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetCanOpenPopup_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetCanOpenPopupRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetCanOpenPopup(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetCanOpenPopup_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetCanOpenPopup(ctx, req.(*SetCanOpenPopupRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetCheckable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetCheckableRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetCheckable(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetCheckable_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetCheckable(ctx, req.(*SetCheckableRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetChecked1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetChecked1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetChecked1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetChecked1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetChecked1(ctx, req.(*SetChecked1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetChecked1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetChecked1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetChecked1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetChecked1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetChecked1_1(ctx, req.(*SetChecked1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetClassName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetClassNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetClassName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetClassName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetClassName(ctx, req.(*SetClassNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetClickable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetClickableRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetClickable(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetClickable_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetClickable(ctx, req.(*SetClickableRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetCollectionInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetCollectionInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetCollectionInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetCollectionInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetCollectionInfo(ctx, req.(*SetCollectionInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetCollectionItemInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetCollectionItemInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetCollectionItemInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetCollectionItemInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetCollectionItemInfo(ctx, req.(*SetCollectionItemInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetContainerTitle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetContainerTitleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetContainerTitle(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetContainerTitle_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetContainerTitle(ctx, req.(*SetContainerTitleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetContentDescription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetContentDescriptionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetContentDescription(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetContentDescription_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetContentDescription(ctx, req.(*SetContentDescriptionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetContentInvalid_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetContentInvalidRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetContentInvalid(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetContentInvalid_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetContentInvalid(ctx, req.(*SetContentInvalidRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetContextClickable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetContextClickableRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetContextClickable(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetContextClickable_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetContextClickable(ctx, req.(*SetContextClickableRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetDismissable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetDismissableRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetDismissable(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetDismissable_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetDismissable(ctx, req.(*SetDismissableRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetDrawingOrder_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetDrawingOrderRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetDrawingOrder(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetDrawingOrder_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetDrawingOrder(ctx, req.(*SetDrawingOrderRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetEditable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetEditableRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetEditable(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetEditable_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetEditable(ctx, req.(*SetEditableRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetEnabledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetEnabled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetEnabled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetEnabled(ctx, req.(*SetEnabledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetError_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetErrorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetError(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetError_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetError(ctx, req.(*SetErrorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetExpandedState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetExpandedStateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetExpandedState(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetExpandedState_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetExpandedState(ctx, req.(*SetExpandedStateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetFieldRequired_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetFieldRequiredRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetFieldRequired(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetFieldRequired_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetFieldRequired(ctx, req.(*SetFieldRequiredRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetFocusable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetFocusableRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetFocusable(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetFocusable_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetFocusable(ctx, req.(*SetFocusableRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetFocused_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetFocusedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetFocused(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetFocused_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetFocused(ctx, req.(*SetFocusedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetGranularScrollingSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetGranularScrollingSupportedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetGranularScrollingSupported(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetGranularScrollingSupported_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetGranularScrollingSupported(ctx, req.(*SetGranularScrollingSupportedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetHeading_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetHeadingRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetHeading(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetHeading_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetHeading(ctx, req.(*SetHeadingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetHintText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetHintTextRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetHintText(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetHintText_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetHintText(ctx, req.(*SetHintTextRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetImportantForAccessibility_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetImportantForAccessibilityRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetImportantForAccessibility(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetImportantForAccessibility_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetImportantForAccessibility(ctx, req.(*SetImportantForAccessibilityRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetInputType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetInputTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetInputType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetInputType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetInputType(ctx, req.(*SetInputTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetLabelFor1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetLabelFor1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetLabelFor1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetLabelFor1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetLabelFor1(ctx, req.(*SetLabelFor1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetLabelFor2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetLabelFor2_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetLabelFor2_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetLabelFor2_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetLabelFor2_1(ctx, req.(*SetLabelFor2_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetLabeledBy1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetLabeledBy1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetLabeledBy1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetLabeledBy1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetLabeledBy1(ctx, req.(*SetLabeledBy1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetLabeledBy2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetLabeledBy2_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetLabeledBy2_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetLabeledBy2_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetLabeledBy2_1(ctx, req.(*SetLabeledBy2_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetLiveRegion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetLiveRegionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetLiveRegion(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetLiveRegion_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetLiveRegion(ctx, req.(*SetLiveRegionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetLongClickable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetLongClickableRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetLongClickable(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetLongClickable_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetLongClickable(ctx, req.(*SetLongClickableRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetMaxTextLength_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetMaxTextLengthRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetMaxTextLength(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetMaxTextLength_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetMaxTextLength(ctx, req.(*SetMaxTextLengthRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetMinDurationBetweenContentChanges_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetMinDurationBetweenContentChangesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetMinDurationBetweenContentChanges(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetMinDurationBetweenContentChanges_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetMinDurationBetweenContentChanges(ctx, req.(*SetMinDurationBetweenContentChangesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetMovementGranularities_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetMovementGranularitiesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetMovementGranularities(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetMovementGranularities_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetMovementGranularities(ctx, req.(*SetMovementGranularitiesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetMultiLine_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetMultiLineRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetMultiLine(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetMultiLine_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetMultiLine(ctx, req.(*SetMultiLineRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetPackageName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetPackageNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetPackageName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetPackageName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetPackageName(ctx, req.(*SetPackageNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetPaneTitle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetPaneTitleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetPaneTitle(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetPaneTitle_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetPaneTitle(ctx, req.(*SetPaneTitleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetParent1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetParent1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetParent1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetParent1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetParent1(ctx, req.(*SetParent1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetParent2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetParent2_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetParent2_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetParent2_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetParent2_1(ctx, req.(*SetParent2_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetPassword_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetPasswordRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetPassword(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetPassword_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetPassword(ctx, req.(*SetPasswordRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetQueryFromAppProcessEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetQueryFromAppProcessEnabledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetQueryFromAppProcessEnabled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetQueryFromAppProcessEnabled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetQueryFromAppProcessEnabled(ctx, req.(*SetQueryFromAppProcessEnabledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetRangeInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetRangeInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetRangeInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetRangeInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetRangeInfo(ctx, req.(*SetRangeInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetRequestInitialAccessibilityFocus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetRequestInitialAccessibilityFocusRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetRequestInitialAccessibilityFocus(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetRequestInitialAccessibilityFocus_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetRequestInitialAccessibilityFocus(ctx, req.(*SetRequestInitialAccessibilityFocusRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetScreenReaderFocusable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetScreenReaderFocusableRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetScreenReaderFocusable(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetScreenReaderFocusable_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetScreenReaderFocusable(ctx, req.(*SetScreenReaderFocusableRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetScrollable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetScrollableRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetScrollable(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetScrollable_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetScrollable(ctx, req.(*SetScrollableRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetSelected_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetSelectedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetSelected(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetSelected_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetSelected(ctx, req.(*SetSelectedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetShowingHintText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetShowingHintTextRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetShowingHintText(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetShowingHintText_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetShowingHintText(ctx, req.(*SetShowingHintTextRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetSource1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetSource1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetSource1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetSource1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetSource1(ctx, req.(*SetSource1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetSource2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetSource2_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetSource2_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetSource2_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetSource2_1(ctx, req.(*SetSource2_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetStateDescription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetStateDescriptionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetStateDescription(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetStateDescription_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetStateDescription(ctx, req.(*SetStateDescriptionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetSupplementalDescription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetSupplementalDescriptionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetSupplementalDescription(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetSupplementalDescription_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetSupplementalDescription(ctx, req.(*SetSupplementalDescriptionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetTextRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetText(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetText_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetText(ctx, req.(*SetTextRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetTextEntryKey_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetTextEntryKeyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetTextEntryKey(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetTextEntryKey_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetTextEntryKey(ctx, req.(*SetTextEntryKeyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetTextSelectable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetTextSelectableRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetTextSelectable(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetTextSelectable_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetTextSelectable(ctx, req.(*SetTextSelectableRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetTextSelection_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetTextSelectionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetTextSelection(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetTextSelection_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetTextSelection(ctx, req.(*SetTextSelectionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetTooltipText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetTooltipTextRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetTooltipText(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetTooltipText_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetTooltipText(ctx, req.(*SetTooltipTextRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetTouchDelegateInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetTouchDelegateInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetTouchDelegateInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetTouchDelegateInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetTouchDelegateInfo(ctx, req.(*SetTouchDelegateInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetTraversalAfter1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetTraversalAfter1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetTraversalAfter1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetTraversalAfter1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetTraversalAfter1(ctx, req.(*SetTraversalAfter1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetTraversalAfter2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetTraversalAfter2_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetTraversalAfter2_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetTraversalAfter2_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetTraversalAfter2_1(ctx, req.(*SetTraversalAfter2_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetTraversalBefore1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetTraversalBefore1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetTraversalBefore1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetTraversalBefore1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetTraversalBefore1(ctx, req.(*SetTraversalBefore1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetTraversalBefore2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetTraversalBefore2_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetTraversalBefore2_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetTraversalBefore2_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetTraversalBefore2_1(ctx, req.(*SetTraversalBefore2_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetUniqueId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetUniqueIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetUniqueId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetUniqueId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetUniqueId(ctx, req.(*SetUniqueIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetViewIdResourceName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetViewIdResourceNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetViewIdResourceName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetViewIdResourceName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetViewIdResourceName(ctx, req.(*SetViewIdResourceNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_SetVisibleToUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetVisibleToUserRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).SetVisibleToUser(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_SetVisibleToUser_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).SetVisibleToUser(ctx, req.(*SetVisibleToUserRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_Obtain0_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Obtain0Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).Obtain0(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_Obtain0_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).Obtain0(ctx, req.(*Obtain0Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_Obtain1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Obtain1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).Obtain1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_Obtain1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).Obtain1_1(ctx, req.(*Obtain1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_Obtain1_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Obtain1_2Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).Obtain1_2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_Obtain1_2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).Obtain1_2(ctx, req.(*Obtain1_2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoService_Obtain2_3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Obtain2_3Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoServiceServer).Obtain2_3(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoService_Obtain2_3_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoServiceServer).Obtain2_3(ctx, req.(*Obtain2_3Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// NodeInfoService_ServiceDesc is the grpc.ServiceDesc for NodeInfoService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var NodeInfoService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "accessibility.NodeInfoService",
+	HandlerType: (*NodeInfoServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewNodeInfo",
+			Handler:    _NodeInfoService_NewNodeInfo_Handler,
+		},
+		{
+			MethodName: "AddAction1",
+			Handler:    _NodeInfoService_AddAction1_Handler,
+		},
+		{
+			MethodName: "AddAction1_1",
+			Handler:    _NodeInfoService_AddAction1_1_Handler,
+		},
+		{
+			MethodName: "AddChild1",
+			Handler:    _NodeInfoService_AddChild1_Handler,
+		},
+		{
+			MethodName: "AddChild2_1",
+			Handler:    _NodeInfoService_AddChild2_1_Handler,
+		},
+		{
+			MethodName: "AddLabeledBy1",
+			Handler:    _NodeInfoService_AddLabeledBy1_Handler,
+		},
+		{
+			MethodName: "AddLabeledBy2_1",
+			Handler:    _NodeInfoService_AddLabeledBy2_1_Handler,
+		},
+		{
+			MethodName: "CanOpenPopup",
+			Handler:    _NodeInfoService_CanOpenPopup_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _NodeInfoService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _NodeInfoService_Equals_Handler,
+		},
+		{
+			MethodName: "FindFocus",
+			Handler:    _NodeInfoService_FindFocus_Handler,
+		},
+		{
+			MethodName: "FocusSearch",
+			Handler:    _NodeInfoService_FocusSearch_Handler,
+		},
+		{
+			MethodName: "GetActions",
+			Handler:    _NodeInfoService_GetActions_Handler,
+		},
+		{
+			MethodName: "GetBoundsInParent",
+			Handler:    _NodeInfoService_GetBoundsInParent_Handler,
+		},
+		{
+			MethodName: "GetBoundsInScreen",
+			Handler:    _NodeInfoService_GetBoundsInScreen_Handler,
+		},
+		{
+			MethodName: "GetBoundsInWindow",
+			Handler:    _NodeInfoService_GetBoundsInWindow_Handler,
+		},
+		{
+			MethodName: "GetChecked",
+			Handler:    _NodeInfoService_GetChecked_Handler,
+		},
+		{
+			MethodName: "GetChild1",
+			Handler:    _NodeInfoService_GetChild1_Handler,
+		},
+		{
+			MethodName: "GetChild2_1",
+			Handler:    _NodeInfoService_GetChild2_1_Handler,
+		},
+		{
+			MethodName: "GetChildCount",
+			Handler:    _NodeInfoService_GetChildCount_Handler,
+		},
+		{
+			MethodName: "GetClassName",
+			Handler:    _NodeInfoService_GetClassName_Handler,
+		},
+		{
+			MethodName: "GetCollectionInfo",
+			Handler:    _NodeInfoService_GetCollectionInfo_Handler,
+		},
+		{
+			MethodName: "GetCollectionItemInfo",
+			Handler:    _NodeInfoService_GetCollectionItemInfo_Handler,
+		},
+		{
+			MethodName: "GetContainerTitle",
+			Handler:    _NodeInfoService_GetContainerTitle_Handler,
+		},
+		{
+			MethodName: "GetContentDescription",
+			Handler:    _NodeInfoService_GetContentDescription_Handler,
+		},
+		{
+			MethodName: "GetDrawingOrder",
+			Handler:    _NodeInfoService_GetDrawingOrder_Handler,
+		},
+		{
+			MethodName: "GetError",
+			Handler:    _NodeInfoService_GetError_Handler,
+		},
+		{
+			MethodName: "GetExpandedState",
+			Handler:    _NodeInfoService_GetExpandedState_Handler,
+		},
+		{
+			MethodName: "GetExtraRenderingInfo",
+			Handler:    _NodeInfoService_GetExtraRenderingInfo_Handler,
+		},
+		{
+			MethodName: "GetExtras",
+			Handler:    _NodeInfoService_GetExtras_Handler,
+		},
+		{
+			MethodName: "GetHintText",
+			Handler:    _NodeInfoService_GetHintText_Handler,
+		},
+		{
+			MethodName: "GetInputType",
+			Handler:    _NodeInfoService_GetInputType_Handler,
+		},
+		{
+			MethodName: "GetLabelFor",
+			Handler:    _NodeInfoService_GetLabelFor_Handler,
+		},
+		{
+			MethodName: "GetLabeledBy",
+			Handler:    _NodeInfoService_GetLabeledBy_Handler,
+		},
+		{
+			MethodName: "GetLiveRegion",
+			Handler:    _NodeInfoService_GetLiveRegion_Handler,
+		},
+		{
+			MethodName: "GetMaxTextLength",
+			Handler:    _NodeInfoService_GetMaxTextLength_Handler,
+		},
+		{
+			MethodName: "GetMinDurationBetweenContentChanges",
+			Handler:    _NodeInfoService_GetMinDurationBetweenContentChanges_Handler,
+		},
+		{
+			MethodName: "GetMovementGranularities",
+			Handler:    _NodeInfoService_GetMovementGranularities_Handler,
+		},
+		{
+			MethodName: "GetPackageName",
+			Handler:    _NodeInfoService_GetPackageName_Handler,
+		},
+		{
+			MethodName: "GetPaneTitle",
+			Handler:    _NodeInfoService_GetPaneTitle_Handler,
+		},
+		{
+			MethodName: "GetParent0",
+			Handler:    _NodeInfoService_GetParent0_Handler,
+		},
+		{
+			MethodName: "GetParent1_1",
+			Handler:    _NodeInfoService_GetParent1_1_Handler,
+		},
+		{
+			MethodName: "GetRangeInfo",
+			Handler:    _NodeInfoService_GetRangeInfo_Handler,
+		},
+		{
+			MethodName: "GetStateDescription",
+			Handler:    _NodeInfoService_GetStateDescription_Handler,
+		},
+		{
+			MethodName: "GetSupplementalDescription",
+			Handler:    _NodeInfoService_GetSupplementalDescription_Handler,
+		},
+		{
+			MethodName: "GetText",
+			Handler:    _NodeInfoService_GetText_Handler,
+		},
+		{
+			MethodName: "GetTextSelectionEnd",
+			Handler:    _NodeInfoService_GetTextSelectionEnd_Handler,
+		},
+		{
+			MethodName: "GetTextSelectionStart",
+			Handler:    _NodeInfoService_GetTextSelectionStart_Handler,
+		},
+		{
+			MethodName: "GetTooltipText",
+			Handler:    _NodeInfoService_GetTooltipText_Handler,
+		},
+		{
+			MethodName: "GetTouchDelegateInfo",
+			Handler:    _NodeInfoService_GetTouchDelegateInfo_Handler,
+		},
+		{
+			MethodName: "GetTraversalAfter",
+			Handler:    _NodeInfoService_GetTraversalAfter_Handler,
+		},
+		{
+			MethodName: "GetTraversalBefore",
+			Handler:    _NodeInfoService_GetTraversalBefore_Handler,
+		},
+		{
+			MethodName: "GetUniqueId",
+			Handler:    _NodeInfoService_GetUniqueId_Handler,
+		},
+		{
+			MethodName: "GetViewIdResourceName",
+			Handler:    _NodeInfoService_GetViewIdResourceName_Handler,
+		},
+		{
+			MethodName: "GetWindow",
+			Handler:    _NodeInfoService_GetWindow_Handler,
+		},
+		{
+			MethodName: "GetWindowId",
+			Handler:    _NodeInfoService_GetWindowId_Handler,
+		},
+		{
+			MethodName: "HasRequestInitialAccessibilityFocus",
+			Handler:    _NodeInfoService_HasRequestInitialAccessibilityFocus_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _NodeInfoService_HashCode_Handler,
+		},
+		{
+			MethodName: "IsAccessibilityDataSensitive",
+			Handler:    _NodeInfoService_IsAccessibilityDataSensitive_Handler,
+		},
+		{
+			MethodName: "IsAccessibilityFocused",
+			Handler:    _NodeInfoService_IsAccessibilityFocused_Handler,
+		},
+		{
+			MethodName: "IsCheckable",
+			Handler:    _NodeInfoService_IsCheckable_Handler,
+		},
+		{
+			MethodName: "IsChecked",
+			Handler:    _NodeInfoService_IsChecked_Handler,
+		},
+		{
+			MethodName: "IsClickable",
+			Handler:    _NodeInfoService_IsClickable_Handler,
+		},
+		{
+			MethodName: "IsContentInvalid",
+			Handler:    _NodeInfoService_IsContentInvalid_Handler,
+		},
+		{
+			MethodName: "IsContextClickable",
+			Handler:    _NodeInfoService_IsContextClickable_Handler,
+		},
+		{
+			MethodName: "IsDismissable",
+			Handler:    _NodeInfoService_IsDismissable_Handler,
+		},
+		{
+			MethodName: "IsEditable",
+			Handler:    _NodeInfoService_IsEditable_Handler,
+		},
+		{
+			MethodName: "IsEnabled",
+			Handler:    _NodeInfoService_IsEnabled_Handler,
+		},
+		{
+			MethodName: "IsFieldRequired",
+			Handler:    _NodeInfoService_IsFieldRequired_Handler,
+		},
+		{
+			MethodName: "IsFocusable",
+			Handler:    _NodeInfoService_IsFocusable_Handler,
+		},
+		{
+			MethodName: "IsFocused",
+			Handler:    _NodeInfoService_IsFocused_Handler,
+		},
+		{
+			MethodName: "IsGranularScrollingSupported",
+			Handler:    _NodeInfoService_IsGranularScrollingSupported_Handler,
+		},
+		{
+			MethodName: "IsHeading",
+			Handler:    _NodeInfoService_IsHeading_Handler,
+		},
+		{
+			MethodName: "IsImportantForAccessibility",
+			Handler:    _NodeInfoService_IsImportantForAccessibility_Handler,
+		},
+		{
+			MethodName: "IsLongClickable",
+			Handler:    _NodeInfoService_IsLongClickable_Handler,
+		},
+		{
+			MethodName: "IsMultiLine",
+			Handler:    _NodeInfoService_IsMultiLine_Handler,
+		},
+		{
+			MethodName: "IsPassword",
+			Handler:    _NodeInfoService_IsPassword_Handler,
+		},
+		{
+			MethodName: "IsScreenReaderFocusable",
+			Handler:    _NodeInfoService_IsScreenReaderFocusable_Handler,
+		},
+		{
+			MethodName: "IsScrollable",
+			Handler:    _NodeInfoService_IsScrollable_Handler,
+		},
+		{
+			MethodName: "IsSelected",
+			Handler:    _NodeInfoService_IsSelected_Handler,
+		},
+		{
+			MethodName: "IsShowingHintText",
+			Handler:    _NodeInfoService_IsShowingHintText_Handler,
+		},
+		{
+			MethodName: "IsTextEntryKey",
+			Handler:    _NodeInfoService_IsTextEntryKey_Handler,
+		},
+		{
+			MethodName: "IsTextSelectable",
+			Handler:    _NodeInfoService_IsTextSelectable_Handler,
+		},
+		{
+			MethodName: "IsVisibleToUser",
+			Handler:    _NodeInfoService_IsVisibleToUser_Handler,
+		},
+		{
+			MethodName: "PerformAction1",
+			Handler:    _NodeInfoService_PerformAction1_Handler,
+		},
+		{
+			MethodName: "PerformAction2_1",
+			Handler:    _NodeInfoService_PerformAction2_1_Handler,
+		},
+		{
+			MethodName: "Recycle",
+			Handler:    _NodeInfoService_Recycle_Handler,
+		},
+		{
+			MethodName: "Refresh",
+			Handler:    _NodeInfoService_Refresh_Handler,
+		},
+		{
+			MethodName: "RefreshWithExtraData",
+			Handler:    _NodeInfoService_RefreshWithExtraData_Handler,
+		},
+		{
+			MethodName: "RemoveAction1",
+			Handler:    _NodeInfoService_RemoveAction1_Handler,
+		},
+		{
+			MethodName: "RemoveAction1_1",
+			Handler:    _NodeInfoService_RemoveAction1_1_Handler,
+		},
+		{
+			MethodName: "RemoveChild1",
+			Handler:    _NodeInfoService_RemoveChild1_Handler,
+		},
+		{
+			MethodName: "RemoveChild2_1",
+			Handler:    _NodeInfoService_RemoveChild2_1_Handler,
+		},
+		{
+			MethodName: "RemoveLabeledBy1",
+			Handler:    _NodeInfoService_RemoveLabeledBy1_Handler,
+		},
+		{
+			MethodName: "RemoveLabeledBy2_1",
+			Handler:    _NodeInfoService_RemoveLabeledBy2_1_Handler,
+		},
+		{
+			MethodName: "SetAccessibilityDataSensitive",
+			Handler:    _NodeInfoService_SetAccessibilityDataSensitive_Handler,
+		},
+		{
+			MethodName: "SetAccessibilityFocused",
+			Handler:    _NodeInfoService_SetAccessibilityFocused_Handler,
+		},
+		{
+			MethodName: "SetBoundsInParent",
+			Handler:    _NodeInfoService_SetBoundsInParent_Handler,
+		},
+		{
+			MethodName: "SetBoundsInScreen",
+			Handler:    _NodeInfoService_SetBoundsInScreen_Handler,
+		},
+		{
+			MethodName: "SetBoundsInWindow",
+			Handler:    _NodeInfoService_SetBoundsInWindow_Handler,
+		},
+		{
+			MethodName: "SetCanOpenPopup",
+			Handler:    _NodeInfoService_SetCanOpenPopup_Handler,
+		},
+		{
+			MethodName: "SetCheckable",
+			Handler:    _NodeInfoService_SetCheckable_Handler,
+		},
+		{
+			MethodName: "SetChecked1",
+			Handler:    _NodeInfoService_SetChecked1_Handler,
+		},
+		{
+			MethodName: "SetChecked1_1",
+			Handler:    _NodeInfoService_SetChecked1_1_Handler,
+		},
+		{
+			MethodName: "SetClassName",
+			Handler:    _NodeInfoService_SetClassName_Handler,
+		},
+		{
+			MethodName: "SetClickable",
+			Handler:    _NodeInfoService_SetClickable_Handler,
+		},
+		{
+			MethodName: "SetCollectionInfo",
+			Handler:    _NodeInfoService_SetCollectionInfo_Handler,
+		},
+		{
+			MethodName: "SetCollectionItemInfo",
+			Handler:    _NodeInfoService_SetCollectionItemInfo_Handler,
+		},
+		{
+			MethodName: "SetContainerTitle",
+			Handler:    _NodeInfoService_SetContainerTitle_Handler,
+		},
+		{
+			MethodName: "SetContentDescription",
+			Handler:    _NodeInfoService_SetContentDescription_Handler,
+		},
+		{
+			MethodName: "SetContentInvalid",
+			Handler:    _NodeInfoService_SetContentInvalid_Handler,
+		},
+		{
+			MethodName: "SetContextClickable",
+			Handler:    _NodeInfoService_SetContextClickable_Handler,
+		},
+		{
+			MethodName: "SetDismissable",
+			Handler:    _NodeInfoService_SetDismissable_Handler,
+		},
+		{
+			MethodName: "SetDrawingOrder",
+			Handler:    _NodeInfoService_SetDrawingOrder_Handler,
+		},
+		{
+			MethodName: "SetEditable",
+			Handler:    _NodeInfoService_SetEditable_Handler,
+		},
+		{
+			MethodName: "SetEnabled",
+			Handler:    _NodeInfoService_SetEnabled_Handler,
+		},
+		{
+			MethodName: "SetError",
+			Handler:    _NodeInfoService_SetError_Handler,
+		},
+		{
+			MethodName: "SetExpandedState",
+			Handler:    _NodeInfoService_SetExpandedState_Handler,
+		},
+		{
+			MethodName: "SetFieldRequired",
+			Handler:    _NodeInfoService_SetFieldRequired_Handler,
+		},
+		{
+			MethodName: "SetFocusable",
+			Handler:    _NodeInfoService_SetFocusable_Handler,
+		},
+		{
+			MethodName: "SetFocused",
+			Handler:    _NodeInfoService_SetFocused_Handler,
+		},
+		{
+			MethodName: "SetGranularScrollingSupported",
+			Handler:    _NodeInfoService_SetGranularScrollingSupported_Handler,
+		},
+		{
+			MethodName: "SetHeading",
+			Handler:    _NodeInfoService_SetHeading_Handler,
+		},
+		{
+			MethodName: "SetHintText",
+			Handler:    _NodeInfoService_SetHintText_Handler,
+		},
+		{
+			MethodName: "SetImportantForAccessibility",
+			Handler:    _NodeInfoService_SetImportantForAccessibility_Handler,
+		},
+		{
+			MethodName: "SetInputType",
+			Handler:    _NodeInfoService_SetInputType_Handler,
+		},
+		{
+			MethodName: "SetLabelFor1",
+			Handler:    _NodeInfoService_SetLabelFor1_Handler,
+		},
+		{
+			MethodName: "SetLabelFor2_1",
+			Handler:    _NodeInfoService_SetLabelFor2_1_Handler,
+		},
+		{
+			MethodName: "SetLabeledBy1",
+			Handler:    _NodeInfoService_SetLabeledBy1_Handler,
+		},
+		{
+			MethodName: "SetLabeledBy2_1",
+			Handler:    _NodeInfoService_SetLabeledBy2_1_Handler,
+		},
+		{
+			MethodName: "SetLiveRegion",
+			Handler:    _NodeInfoService_SetLiveRegion_Handler,
+		},
+		{
+			MethodName: "SetLongClickable",
+			Handler:    _NodeInfoService_SetLongClickable_Handler,
+		},
+		{
+			MethodName: "SetMaxTextLength",
+			Handler:    _NodeInfoService_SetMaxTextLength_Handler,
+		},
+		{
+			MethodName: "SetMinDurationBetweenContentChanges",
+			Handler:    _NodeInfoService_SetMinDurationBetweenContentChanges_Handler,
+		},
+		{
+			MethodName: "SetMovementGranularities",
+			Handler:    _NodeInfoService_SetMovementGranularities_Handler,
+		},
+		{
+			MethodName: "SetMultiLine",
+			Handler:    _NodeInfoService_SetMultiLine_Handler,
+		},
+		{
+			MethodName: "SetPackageName",
+			Handler:    _NodeInfoService_SetPackageName_Handler,
+		},
+		{
+			MethodName: "SetPaneTitle",
+			Handler:    _NodeInfoService_SetPaneTitle_Handler,
+		},
+		{
+			MethodName: "SetParent1",
+			Handler:    _NodeInfoService_SetParent1_Handler,
+		},
+		{
+			MethodName: "SetParent2_1",
+			Handler:    _NodeInfoService_SetParent2_1_Handler,
+		},
+		{
+			MethodName: "SetPassword",
+			Handler:    _NodeInfoService_SetPassword_Handler,
+		},
+		{
+			MethodName: "SetQueryFromAppProcessEnabled",
+			Handler:    _NodeInfoService_SetQueryFromAppProcessEnabled_Handler,
+		},
+		{
+			MethodName: "SetRangeInfo",
+			Handler:    _NodeInfoService_SetRangeInfo_Handler,
+		},
+		{
+			MethodName: "SetRequestInitialAccessibilityFocus",
+			Handler:    _NodeInfoService_SetRequestInitialAccessibilityFocus_Handler,
+		},
+		{
+			MethodName: "SetScreenReaderFocusable",
+			Handler:    _NodeInfoService_SetScreenReaderFocusable_Handler,
+		},
+		{
+			MethodName: "SetScrollable",
+			Handler:    _NodeInfoService_SetScrollable_Handler,
+		},
+		{
+			MethodName: "SetSelected",
+			Handler:    _NodeInfoService_SetSelected_Handler,
+		},
+		{
+			MethodName: "SetShowingHintText",
+			Handler:    _NodeInfoService_SetShowingHintText_Handler,
+		},
+		{
+			MethodName: "SetSource1",
+			Handler:    _NodeInfoService_SetSource1_Handler,
+		},
+		{
+			MethodName: "SetSource2_1",
+			Handler:    _NodeInfoService_SetSource2_1_Handler,
+		},
+		{
+			MethodName: "SetStateDescription",
+			Handler:    _NodeInfoService_SetStateDescription_Handler,
+		},
+		{
+			MethodName: "SetSupplementalDescription",
+			Handler:    _NodeInfoService_SetSupplementalDescription_Handler,
+		},
+		{
+			MethodName: "SetText",
+			Handler:    _NodeInfoService_SetText_Handler,
+		},
+		{
+			MethodName: "SetTextEntryKey",
+			Handler:    _NodeInfoService_SetTextEntryKey_Handler,
+		},
+		{
+			MethodName: "SetTextSelectable",
+			Handler:    _NodeInfoService_SetTextSelectable_Handler,
+		},
+		{
+			MethodName: "SetTextSelection",
+			Handler:    _NodeInfoService_SetTextSelection_Handler,
+		},
+		{
+			MethodName: "SetTooltipText",
+			Handler:    _NodeInfoService_SetTooltipText_Handler,
+		},
+		{
+			MethodName: "SetTouchDelegateInfo",
+			Handler:    _NodeInfoService_SetTouchDelegateInfo_Handler,
+		},
+		{
+			MethodName: "SetTraversalAfter1",
+			Handler:    _NodeInfoService_SetTraversalAfter1_Handler,
+		},
+		{
+			MethodName: "SetTraversalAfter2_1",
+			Handler:    _NodeInfoService_SetTraversalAfter2_1_Handler,
+		},
+		{
+			MethodName: "SetTraversalBefore1",
+			Handler:    _NodeInfoService_SetTraversalBefore1_Handler,
+		},
+		{
+			MethodName: "SetTraversalBefore2_1",
+			Handler:    _NodeInfoService_SetTraversalBefore2_1_Handler,
+		},
+		{
+			MethodName: "SetUniqueId",
+			Handler:    _NodeInfoService_SetUniqueId_Handler,
+		},
+		{
+			MethodName: "SetViewIdResourceName",
+			Handler:    _NodeInfoService_SetViewIdResourceName_Handler,
+		},
+		{
+			MethodName: "SetVisibleToUser",
+			Handler:    _NodeInfoService_SetVisibleToUser_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _NodeInfoService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _NodeInfoService_WriteToParcel_Handler,
+		},
+		{
+			MethodName: "Obtain0",
+			Handler:    _NodeInfoService_Obtain0_Handler,
+		},
+		{
+			MethodName: "Obtain1_1",
+			Handler:    _NodeInfoService_Obtain1_1_Handler,
+		},
+		{
+			MethodName: "Obtain1_2",
+			Handler:    _NodeInfoService_Obtain1_2_Handler,
+		},
+		{
+			MethodName: "Obtain2_3",
+			Handler:    _NodeInfoService_Obtain2_3_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/accessibility/accessibility.proto",
+}
+
+const (
+	NodeInfoAccessibilityActionService_DescribeContents_FullMethodName = "/accessibility.NodeInfoAccessibilityActionService/DescribeContents"
+	NodeInfoAccessibilityActionService_Equals_FullMethodName           = "/accessibility.NodeInfoAccessibilityActionService/Equals"
+	NodeInfoAccessibilityActionService_GetId_FullMethodName            = "/accessibility.NodeInfoAccessibilityActionService/GetId"
+	NodeInfoAccessibilityActionService_GetLabel_FullMethodName         = "/accessibility.NodeInfoAccessibilityActionService/GetLabel"
+	NodeInfoAccessibilityActionService_HashCode_FullMethodName         = "/accessibility.NodeInfoAccessibilityActionService/HashCode"
+	NodeInfoAccessibilityActionService_ToString_FullMethodName         = "/accessibility.NodeInfoAccessibilityActionService/ToString"
+	NodeInfoAccessibilityActionService_WriteToParcel_FullMethodName    = "/accessibility.NodeInfoAccessibilityActionService/WriteToParcel"
+)
+
+// NodeInfoAccessibilityActionServiceClient is the client API for NodeInfoAccessibilityActionService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type NodeInfoAccessibilityActionServiceClient interface {
+	DescribeContents(ctx context.Context, in *NodeInfoAccessibilityActionDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *NodeInfoAccessibilityActionEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error)
+	GetLabel(ctx context.Context, in *GetLabelRequest, opts ...grpc.CallOption) (*GetLabelResponse, error)
+	HashCode(ctx context.Context, in *NodeInfoAccessibilityActionHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *NodeInfoAccessibilityActionToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *NodeInfoAccessibilityActionWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type nodeInfoAccessibilityActionServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewNodeInfoAccessibilityActionServiceClient(cc grpc.ClientConnInterface) NodeInfoAccessibilityActionServiceClient {
+	return &nodeInfoAccessibilityActionServiceClient{cc}
+}
+
+func (c *nodeInfoAccessibilityActionServiceClient) DescribeContents(ctx context.Context, in *NodeInfoAccessibilityActionDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, NodeInfoAccessibilityActionService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoAccessibilityActionServiceClient) Equals(ctx context.Context, in *NodeInfoAccessibilityActionEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, NodeInfoAccessibilityActionService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoAccessibilityActionServiceClient) GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetIdResponse)
+	err := c.cc.Invoke(ctx, NodeInfoAccessibilityActionService_GetId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoAccessibilityActionServiceClient) GetLabel(ctx context.Context, in *GetLabelRequest, opts ...grpc.CallOption) (*GetLabelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLabelResponse)
+	err := c.cc.Invoke(ctx, NodeInfoAccessibilityActionService_GetLabel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoAccessibilityActionServiceClient) HashCode(ctx context.Context, in *NodeInfoAccessibilityActionHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, NodeInfoAccessibilityActionService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoAccessibilityActionServiceClient) ToString(ctx context.Context, in *NodeInfoAccessibilityActionToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, NodeInfoAccessibilityActionService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoAccessibilityActionServiceClient) WriteToParcel(ctx context.Context, in *NodeInfoAccessibilityActionWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, NodeInfoAccessibilityActionService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// NodeInfoAccessibilityActionServiceServer is the server API for NodeInfoAccessibilityActionService service.
+// All implementations must embed UnimplementedNodeInfoAccessibilityActionServiceServer
+// for forward compatibility.
+type NodeInfoAccessibilityActionServiceServer interface {
+	DescribeContents(context.Context, *NodeInfoAccessibilityActionDescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *NodeInfoAccessibilityActionEqualsRequest) (*EqualsResponse, error)
+	GetId(context.Context, *GetIdRequest) (*GetIdResponse, error)
+	GetLabel(context.Context, *GetLabelRequest) (*GetLabelResponse, error)
+	HashCode(context.Context, *NodeInfoAccessibilityActionHashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *NodeInfoAccessibilityActionToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *NodeInfoAccessibilityActionWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedNodeInfoAccessibilityActionServiceServer()
+}
+
+// UnimplementedNodeInfoAccessibilityActionServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedNodeInfoAccessibilityActionServiceServer struct{}
+
+func (UnimplementedNodeInfoAccessibilityActionServiceServer) DescribeContents(context.Context, *NodeInfoAccessibilityActionDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedNodeInfoAccessibilityActionServiceServer) Equals(context.Context, *NodeInfoAccessibilityActionEqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedNodeInfoAccessibilityActionServiceServer) GetId(context.Context, *GetIdRequest) (*GetIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetId not implemented")
+}
+func (UnimplementedNodeInfoAccessibilityActionServiceServer) GetLabel(context.Context, *GetLabelRequest) (*GetLabelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLabel not implemented")
+}
+func (UnimplementedNodeInfoAccessibilityActionServiceServer) HashCode(context.Context, *NodeInfoAccessibilityActionHashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedNodeInfoAccessibilityActionServiceServer) ToString(context.Context, *NodeInfoAccessibilityActionToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedNodeInfoAccessibilityActionServiceServer) WriteToParcel(context.Context, *NodeInfoAccessibilityActionWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedNodeInfoAccessibilityActionServiceServer) mustEmbedUnimplementedNodeInfoAccessibilityActionServiceServer() {
+}
+func (UnimplementedNodeInfoAccessibilityActionServiceServer) testEmbeddedByValue() {}
+
+// UnsafeNodeInfoAccessibilityActionServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to NodeInfoAccessibilityActionServiceServer will
+// result in compilation errors.
+type UnsafeNodeInfoAccessibilityActionServiceServer interface {
+	mustEmbedUnimplementedNodeInfoAccessibilityActionServiceServer()
+}
+
+func RegisterNodeInfoAccessibilityActionServiceServer(s grpc.ServiceRegistrar, srv NodeInfoAccessibilityActionServiceServer) {
+	// If the following call panics, it indicates UnimplementedNodeInfoAccessibilityActionServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&NodeInfoAccessibilityActionService_ServiceDesc, srv)
+}
+
+func _NodeInfoAccessibilityActionService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NodeInfoAccessibilityActionDescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoAccessibilityActionServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoAccessibilityActionService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoAccessibilityActionServiceServer).DescribeContents(ctx, req.(*NodeInfoAccessibilityActionDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoAccessibilityActionService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NodeInfoAccessibilityActionEqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoAccessibilityActionServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoAccessibilityActionService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoAccessibilityActionServiceServer).Equals(ctx, req.(*NodeInfoAccessibilityActionEqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoAccessibilityActionService_GetId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoAccessibilityActionServiceServer).GetId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoAccessibilityActionService_GetId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoAccessibilityActionServiceServer).GetId(ctx, req.(*GetIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoAccessibilityActionService_GetLabel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLabelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoAccessibilityActionServiceServer).GetLabel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoAccessibilityActionService_GetLabel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoAccessibilityActionServiceServer).GetLabel(ctx, req.(*GetLabelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoAccessibilityActionService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NodeInfoAccessibilityActionHashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoAccessibilityActionServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoAccessibilityActionService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoAccessibilityActionServiceServer).HashCode(ctx, req.(*NodeInfoAccessibilityActionHashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoAccessibilityActionService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NodeInfoAccessibilityActionToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoAccessibilityActionServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoAccessibilityActionService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoAccessibilityActionServiceServer).ToString(ctx, req.(*NodeInfoAccessibilityActionToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoAccessibilityActionService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NodeInfoAccessibilityActionWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoAccessibilityActionServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoAccessibilityActionService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoAccessibilityActionServiceServer).WriteToParcel(ctx, req.(*NodeInfoAccessibilityActionWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// NodeInfoAccessibilityActionService_ServiceDesc is the grpc.ServiceDesc for NodeInfoAccessibilityActionService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var NodeInfoAccessibilityActionService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "accessibility.NodeInfoAccessibilityActionService",
+	HandlerType: (*NodeInfoAccessibilityActionServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _NodeInfoAccessibilityActionService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _NodeInfoAccessibilityActionService_Equals_Handler,
+		},
+		{
+			MethodName: "GetId",
+			Handler:    _NodeInfoAccessibilityActionService_GetId_Handler,
+		},
+		{
+			MethodName: "GetLabel",
+			Handler:    _NodeInfoAccessibilityActionService_GetLabel_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _NodeInfoAccessibilityActionService_HashCode_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _NodeInfoAccessibilityActionService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _NodeInfoAccessibilityActionService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/accessibility/accessibility.proto",
+}
+
+const (
+	NodeInfoCollectionInfoService_GetColumnCount_FullMethodName                        = "/accessibility.NodeInfoCollectionInfoService/GetColumnCount"
+	NodeInfoCollectionInfoService_GetImportantForAccessibilityItemCount_FullMethodName = "/accessibility.NodeInfoCollectionInfoService/GetImportantForAccessibilityItemCount"
+	NodeInfoCollectionInfoService_GetItemCount_FullMethodName                          = "/accessibility.NodeInfoCollectionInfoService/GetItemCount"
+	NodeInfoCollectionInfoService_GetRowCount_FullMethodName                           = "/accessibility.NodeInfoCollectionInfoService/GetRowCount"
+	NodeInfoCollectionInfoService_GetSelectionMode_FullMethodName                      = "/accessibility.NodeInfoCollectionInfoService/GetSelectionMode"
+	NodeInfoCollectionInfoService_IsHierarchical_FullMethodName                        = "/accessibility.NodeInfoCollectionInfoService/IsHierarchical"
+	NodeInfoCollectionInfoService_Obtain3_FullMethodName                               = "/accessibility.NodeInfoCollectionInfoService/Obtain3"
+	NodeInfoCollectionInfoService_Obtain4_1_FullMethodName                             = "/accessibility.NodeInfoCollectionInfoService/Obtain4_1"
+)
+
+// NodeInfoCollectionInfoServiceClient is the client API for NodeInfoCollectionInfoService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type NodeInfoCollectionInfoServiceClient interface {
+	GetColumnCount(ctx context.Context, in *GetColumnCountRequest, opts ...grpc.CallOption) (*GetColumnCountResponse, error)
+	GetImportantForAccessibilityItemCount(ctx context.Context, in *GetImportantForAccessibilityItemCountRequest, opts ...grpc.CallOption) (*GetImportantForAccessibilityItemCountResponse, error)
+	GetItemCount(ctx context.Context, in *NodeInfoCollectionInfoGetItemCountRequest, opts ...grpc.CallOption) (*GetItemCountResponse, error)
+	GetRowCount(ctx context.Context, in *GetRowCountRequest, opts ...grpc.CallOption) (*GetRowCountResponse, error)
+	GetSelectionMode(ctx context.Context, in *GetSelectionModeRequest, opts ...grpc.CallOption) (*GetSelectionModeResponse, error)
+	IsHierarchical(ctx context.Context, in *IsHierarchicalRequest, opts ...grpc.CallOption) (*IsHierarchicalResponse, error)
+	Obtain3(ctx context.Context, in *Obtain3Request, opts ...grpc.CallOption) (*Obtain3Response, error)
+	Obtain4_1(ctx context.Context, in *Obtain4_1Request, opts ...grpc.CallOption) (*Obtain4_1Response, error)
+}
+
+type nodeInfoCollectionInfoServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewNodeInfoCollectionInfoServiceClient(cc grpc.ClientConnInterface) NodeInfoCollectionInfoServiceClient {
+	return &nodeInfoCollectionInfoServiceClient{cc}
+}
+
+func (c *nodeInfoCollectionInfoServiceClient) GetColumnCount(ctx context.Context, in *GetColumnCountRequest, opts ...grpc.CallOption) (*GetColumnCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetColumnCountResponse)
+	err := c.cc.Invoke(ctx, NodeInfoCollectionInfoService_GetColumnCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoCollectionInfoServiceClient) GetImportantForAccessibilityItemCount(ctx context.Context, in *GetImportantForAccessibilityItemCountRequest, opts ...grpc.CallOption) (*GetImportantForAccessibilityItemCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetImportantForAccessibilityItemCountResponse)
+	err := c.cc.Invoke(ctx, NodeInfoCollectionInfoService_GetImportantForAccessibilityItemCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoCollectionInfoServiceClient) GetItemCount(ctx context.Context, in *NodeInfoCollectionInfoGetItemCountRequest, opts ...grpc.CallOption) (*GetItemCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetItemCountResponse)
+	err := c.cc.Invoke(ctx, NodeInfoCollectionInfoService_GetItemCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoCollectionInfoServiceClient) GetRowCount(ctx context.Context, in *GetRowCountRequest, opts ...grpc.CallOption) (*GetRowCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRowCountResponse)
+	err := c.cc.Invoke(ctx, NodeInfoCollectionInfoService_GetRowCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoCollectionInfoServiceClient) GetSelectionMode(ctx context.Context, in *GetSelectionModeRequest, opts ...grpc.CallOption) (*GetSelectionModeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSelectionModeResponse)
+	err := c.cc.Invoke(ctx, NodeInfoCollectionInfoService_GetSelectionMode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoCollectionInfoServiceClient) IsHierarchical(ctx context.Context, in *IsHierarchicalRequest, opts ...grpc.CallOption) (*IsHierarchicalResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsHierarchicalResponse)
+	err := c.cc.Invoke(ctx, NodeInfoCollectionInfoService_IsHierarchical_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoCollectionInfoServiceClient) Obtain3(ctx context.Context, in *Obtain3Request, opts ...grpc.CallOption) (*Obtain3Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Obtain3Response)
+	err := c.cc.Invoke(ctx, NodeInfoCollectionInfoService_Obtain3_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoCollectionInfoServiceClient) Obtain4_1(ctx context.Context, in *Obtain4_1Request, opts ...grpc.CallOption) (*Obtain4_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Obtain4_1Response)
+	err := c.cc.Invoke(ctx, NodeInfoCollectionInfoService_Obtain4_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// NodeInfoCollectionInfoServiceServer is the server API for NodeInfoCollectionInfoService service.
+// All implementations must embed UnimplementedNodeInfoCollectionInfoServiceServer
+// for forward compatibility.
+type NodeInfoCollectionInfoServiceServer interface {
+	GetColumnCount(context.Context, *GetColumnCountRequest) (*GetColumnCountResponse, error)
+	GetImportantForAccessibilityItemCount(context.Context, *GetImportantForAccessibilityItemCountRequest) (*GetImportantForAccessibilityItemCountResponse, error)
+	GetItemCount(context.Context, *NodeInfoCollectionInfoGetItemCountRequest) (*GetItemCountResponse, error)
+	GetRowCount(context.Context, *GetRowCountRequest) (*GetRowCountResponse, error)
+	GetSelectionMode(context.Context, *GetSelectionModeRequest) (*GetSelectionModeResponse, error)
+	IsHierarchical(context.Context, *IsHierarchicalRequest) (*IsHierarchicalResponse, error)
+	Obtain3(context.Context, *Obtain3Request) (*Obtain3Response, error)
+	Obtain4_1(context.Context, *Obtain4_1Request) (*Obtain4_1Response, error)
+	mustEmbedUnimplementedNodeInfoCollectionInfoServiceServer()
+}
+
+// UnimplementedNodeInfoCollectionInfoServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedNodeInfoCollectionInfoServiceServer struct{}
+
+func (UnimplementedNodeInfoCollectionInfoServiceServer) GetColumnCount(context.Context, *GetColumnCountRequest) (*GetColumnCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetColumnCount not implemented")
+}
+func (UnimplementedNodeInfoCollectionInfoServiceServer) GetImportantForAccessibilityItemCount(context.Context, *GetImportantForAccessibilityItemCountRequest) (*GetImportantForAccessibilityItemCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetImportantForAccessibilityItemCount not implemented")
+}
+func (UnimplementedNodeInfoCollectionInfoServiceServer) GetItemCount(context.Context, *NodeInfoCollectionInfoGetItemCountRequest) (*GetItemCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetItemCount not implemented")
+}
+func (UnimplementedNodeInfoCollectionInfoServiceServer) GetRowCount(context.Context, *GetRowCountRequest) (*GetRowCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRowCount not implemented")
+}
+func (UnimplementedNodeInfoCollectionInfoServiceServer) GetSelectionMode(context.Context, *GetSelectionModeRequest) (*GetSelectionModeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSelectionMode not implemented")
+}
+func (UnimplementedNodeInfoCollectionInfoServiceServer) IsHierarchical(context.Context, *IsHierarchicalRequest) (*IsHierarchicalResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsHierarchical not implemented")
+}
+func (UnimplementedNodeInfoCollectionInfoServiceServer) Obtain3(context.Context, *Obtain3Request) (*Obtain3Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Obtain3 not implemented")
+}
+func (UnimplementedNodeInfoCollectionInfoServiceServer) Obtain4_1(context.Context, *Obtain4_1Request) (*Obtain4_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Obtain4_1 not implemented")
+}
+func (UnimplementedNodeInfoCollectionInfoServiceServer) mustEmbedUnimplementedNodeInfoCollectionInfoServiceServer() {
+}
+func (UnimplementedNodeInfoCollectionInfoServiceServer) testEmbeddedByValue() {}
+
+// UnsafeNodeInfoCollectionInfoServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to NodeInfoCollectionInfoServiceServer will
+// result in compilation errors.
+type UnsafeNodeInfoCollectionInfoServiceServer interface {
+	mustEmbedUnimplementedNodeInfoCollectionInfoServiceServer()
+}
+
+func RegisterNodeInfoCollectionInfoServiceServer(s grpc.ServiceRegistrar, srv NodeInfoCollectionInfoServiceServer) {
+	// If the following call panics, it indicates UnimplementedNodeInfoCollectionInfoServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&NodeInfoCollectionInfoService_ServiceDesc, srv)
+}
+
+func _NodeInfoCollectionInfoService_GetColumnCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetColumnCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoCollectionInfoServiceServer).GetColumnCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoCollectionInfoService_GetColumnCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoCollectionInfoServiceServer).GetColumnCount(ctx, req.(*GetColumnCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoCollectionInfoService_GetImportantForAccessibilityItemCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetImportantForAccessibilityItemCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoCollectionInfoServiceServer).GetImportantForAccessibilityItemCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoCollectionInfoService_GetImportantForAccessibilityItemCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoCollectionInfoServiceServer).GetImportantForAccessibilityItemCount(ctx, req.(*GetImportantForAccessibilityItemCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoCollectionInfoService_GetItemCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NodeInfoCollectionInfoGetItemCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoCollectionInfoServiceServer).GetItemCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoCollectionInfoService_GetItemCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoCollectionInfoServiceServer).GetItemCount(ctx, req.(*NodeInfoCollectionInfoGetItemCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoCollectionInfoService_GetRowCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRowCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoCollectionInfoServiceServer).GetRowCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoCollectionInfoService_GetRowCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoCollectionInfoServiceServer).GetRowCount(ctx, req.(*GetRowCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoCollectionInfoService_GetSelectionMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSelectionModeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoCollectionInfoServiceServer).GetSelectionMode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoCollectionInfoService_GetSelectionMode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoCollectionInfoServiceServer).GetSelectionMode(ctx, req.(*GetSelectionModeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoCollectionInfoService_IsHierarchical_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsHierarchicalRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoCollectionInfoServiceServer).IsHierarchical(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoCollectionInfoService_IsHierarchical_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoCollectionInfoServiceServer).IsHierarchical(ctx, req.(*IsHierarchicalRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoCollectionInfoService_Obtain3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Obtain3Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoCollectionInfoServiceServer).Obtain3(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoCollectionInfoService_Obtain3_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoCollectionInfoServiceServer).Obtain3(ctx, req.(*Obtain3Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoCollectionInfoService_Obtain4_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Obtain4_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoCollectionInfoServiceServer).Obtain4_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoCollectionInfoService_Obtain4_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoCollectionInfoServiceServer).Obtain4_1(ctx, req.(*Obtain4_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// NodeInfoCollectionInfoService_ServiceDesc is the grpc.ServiceDesc for NodeInfoCollectionInfoService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var NodeInfoCollectionInfoService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "accessibility.NodeInfoCollectionInfoService",
+	HandlerType: (*NodeInfoCollectionInfoServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetColumnCount",
+			Handler:    _NodeInfoCollectionInfoService_GetColumnCount_Handler,
+		},
+		{
+			MethodName: "GetImportantForAccessibilityItemCount",
+			Handler:    _NodeInfoCollectionInfoService_GetImportantForAccessibilityItemCount_Handler,
+		},
+		{
+			MethodName: "GetItemCount",
+			Handler:    _NodeInfoCollectionInfoService_GetItemCount_Handler,
+		},
+		{
+			MethodName: "GetRowCount",
+			Handler:    _NodeInfoCollectionInfoService_GetRowCount_Handler,
+		},
+		{
+			MethodName: "GetSelectionMode",
+			Handler:    _NodeInfoCollectionInfoService_GetSelectionMode_Handler,
+		},
+		{
+			MethodName: "IsHierarchical",
+			Handler:    _NodeInfoCollectionInfoService_IsHierarchical_Handler,
+		},
+		{
+			MethodName: "Obtain3",
+			Handler:    _NodeInfoCollectionInfoService_Obtain3_Handler,
+		},
+		{
+			MethodName: "Obtain4_1",
+			Handler:    _NodeInfoCollectionInfoService_Obtain4_1_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/accessibility/accessibility.proto",
+}
+
+const (
+	NodeInfoCollectionItemInfoService_GetColumnIndex_FullMethodName = "/accessibility.NodeInfoCollectionItemInfoService/GetColumnIndex"
+	NodeInfoCollectionItemInfoService_GetColumnSpan_FullMethodName  = "/accessibility.NodeInfoCollectionItemInfoService/GetColumnSpan"
+	NodeInfoCollectionItemInfoService_GetColumnTitle_FullMethodName = "/accessibility.NodeInfoCollectionItemInfoService/GetColumnTitle"
+	NodeInfoCollectionItemInfoService_GetRowIndex_FullMethodName    = "/accessibility.NodeInfoCollectionItemInfoService/GetRowIndex"
+	NodeInfoCollectionItemInfoService_GetRowSpan_FullMethodName     = "/accessibility.NodeInfoCollectionItemInfoService/GetRowSpan"
+	NodeInfoCollectionItemInfoService_GetRowTitle_FullMethodName    = "/accessibility.NodeInfoCollectionItemInfoService/GetRowTitle"
+	NodeInfoCollectionItemInfoService_IsHeading_FullMethodName      = "/accessibility.NodeInfoCollectionItemInfoService/IsHeading"
+	NodeInfoCollectionItemInfoService_IsSelected_FullMethodName     = "/accessibility.NodeInfoCollectionItemInfoService/IsSelected"
+	NodeInfoCollectionItemInfoService_Obtain5_FullMethodName        = "/accessibility.NodeInfoCollectionItemInfoService/Obtain5"
+	NodeInfoCollectionItemInfoService_Obtain6_1_FullMethodName      = "/accessibility.NodeInfoCollectionItemInfoService/Obtain6_1"
+)
+
+// NodeInfoCollectionItemInfoServiceClient is the client API for NodeInfoCollectionItemInfoService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type NodeInfoCollectionItemInfoServiceClient interface {
+	GetColumnIndex(ctx context.Context, in *GetColumnIndexRequest, opts ...grpc.CallOption) (*GetColumnIndexResponse, error)
+	GetColumnSpan(ctx context.Context, in *GetColumnSpanRequest, opts ...grpc.CallOption) (*GetColumnSpanResponse, error)
+	GetColumnTitle(ctx context.Context, in *GetColumnTitleRequest, opts ...grpc.CallOption) (*GetColumnTitleResponse, error)
+	GetRowIndex(ctx context.Context, in *GetRowIndexRequest, opts ...grpc.CallOption) (*GetRowIndexResponse, error)
+	GetRowSpan(ctx context.Context, in *GetRowSpanRequest, opts ...grpc.CallOption) (*GetRowSpanResponse, error)
+	GetRowTitle(ctx context.Context, in *GetRowTitleRequest, opts ...grpc.CallOption) (*GetRowTitleResponse, error)
+	IsHeading(ctx context.Context, in *NodeInfoCollectionItemInfoIsHeadingRequest, opts ...grpc.CallOption) (*IsHeadingResponse, error)
+	IsSelected(ctx context.Context, in *NodeInfoCollectionItemInfoIsSelectedRequest, opts ...grpc.CallOption) (*IsSelectedResponse, error)
+	Obtain5(ctx context.Context, in *Obtain5Request, opts ...grpc.CallOption) (*Obtain5Response, error)
+	Obtain6_1(ctx context.Context, in *Obtain6_1Request, opts ...grpc.CallOption) (*Obtain6_1Response, error)
+}
+
+type nodeInfoCollectionItemInfoServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewNodeInfoCollectionItemInfoServiceClient(cc grpc.ClientConnInterface) NodeInfoCollectionItemInfoServiceClient {
+	return &nodeInfoCollectionItemInfoServiceClient{cc}
+}
+
+func (c *nodeInfoCollectionItemInfoServiceClient) GetColumnIndex(ctx context.Context, in *GetColumnIndexRequest, opts ...grpc.CallOption) (*GetColumnIndexResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetColumnIndexResponse)
+	err := c.cc.Invoke(ctx, NodeInfoCollectionItemInfoService_GetColumnIndex_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoCollectionItemInfoServiceClient) GetColumnSpan(ctx context.Context, in *GetColumnSpanRequest, opts ...grpc.CallOption) (*GetColumnSpanResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetColumnSpanResponse)
+	err := c.cc.Invoke(ctx, NodeInfoCollectionItemInfoService_GetColumnSpan_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoCollectionItemInfoServiceClient) GetColumnTitle(ctx context.Context, in *GetColumnTitleRequest, opts ...grpc.CallOption) (*GetColumnTitleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetColumnTitleResponse)
+	err := c.cc.Invoke(ctx, NodeInfoCollectionItemInfoService_GetColumnTitle_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoCollectionItemInfoServiceClient) GetRowIndex(ctx context.Context, in *GetRowIndexRequest, opts ...grpc.CallOption) (*GetRowIndexResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRowIndexResponse)
+	err := c.cc.Invoke(ctx, NodeInfoCollectionItemInfoService_GetRowIndex_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoCollectionItemInfoServiceClient) GetRowSpan(ctx context.Context, in *GetRowSpanRequest, opts ...grpc.CallOption) (*GetRowSpanResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRowSpanResponse)
+	err := c.cc.Invoke(ctx, NodeInfoCollectionItemInfoService_GetRowSpan_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoCollectionItemInfoServiceClient) GetRowTitle(ctx context.Context, in *GetRowTitleRequest, opts ...grpc.CallOption) (*GetRowTitleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRowTitleResponse)
+	err := c.cc.Invoke(ctx, NodeInfoCollectionItemInfoService_GetRowTitle_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoCollectionItemInfoServiceClient) IsHeading(ctx context.Context, in *NodeInfoCollectionItemInfoIsHeadingRequest, opts ...grpc.CallOption) (*IsHeadingResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsHeadingResponse)
+	err := c.cc.Invoke(ctx, NodeInfoCollectionItemInfoService_IsHeading_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoCollectionItemInfoServiceClient) IsSelected(ctx context.Context, in *NodeInfoCollectionItemInfoIsSelectedRequest, opts ...grpc.CallOption) (*IsSelectedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsSelectedResponse)
+	err := c.cc.Invoke(ctx, NodeInfoCollectionItemInfoService_IsSelected_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoCollectionItemInfoServiceClient) Obtain5(ctx context.Context, in *Obtain5Request, opts ...grpc.CallOption) (*Obtain5Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Obtain5Response)
+	err := c.cc.Invoke(ctx, NodeInfoCollectionItemInfoService_Obtain5_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoCollectionItemInfoServiceClient) Obtain6_1(ctx context.Context, in *Obtain6_1Request, opts ...grpc.CallOption) (*Obtain6_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Obtain6_1Response)
+	err := c.cc.Invoke(ctx, NodeInfoCollectionItemInfoService_Obtain6_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// NodeInfoCollectionItemInfoServiceServer is the server API for NodeInfoCollectionItemInfoService service.
+// All implementations must embed UnimplementedNodeInfoCollectionItemInfoServiceServer
+// for forward compatibility.
+type NodeInfoCollectionItemInfoServiceServer interface {
+	GetColumnIndex(context.Context, *GetColumnIndexRequest) (*GetColumnIndexResponse, error)
+	GetColumnSpan(context.Context, *GetColumnSpanRequest) (*GetColumnSpanResponse, error)
+	GetColumnTitle(context.Context, *GetColumnTitleRequest) (*GetColumnTitleResponse, error)
+	GetRowIndex(context.Context, *GetRowIndexRequest) (*GetRowIndexResponse, error)
+	GetRowSpan(context.Context, *GetRowSpanRequest) (*GetRowSpanResponse, error)
+	GetRowTitle(context.Context, *GetRowTitleRequest) (*GetRowTitleResponse, error)
+	IsHeading(context.Context, *NodeInfoCollectionItemInfoIsHeadingRequest) (*IsHeadingResponse, error)
+	IsSelected(context.Context, *NodeInfoCollectionItemInfoIsSelectedRequest) (*IsSelectedResponse, error)
+	Obtain5(context.Context, *Obtain5Request) (*Obtain5Response, error)
+	Obtain6_1(context.Context, *Obtain6_1Request) (*Obtain6_1Response, error)
+	mustEmbedUnimplementedNodeInfoCollectionItemInfoServiceServer()
+}
+
+// UnimplementedNodeInfoCollectionItemInfoServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedNodeInfoCollectionItemInfoServiceServer struct{}
+
+func (UnimplementedNodeInfoCollectionItemInfoServiceServer) GetColumnIndex(context.Context, *GetColumnIndexRequest) (*GetColumnIndexResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetColumnIndex not implemented")
+}
+func (UnimplementedNodeInfoCollectionItemInfoServiceServer) GetColumnSpan(context.Context, *GetColumnSpanRequest) (*GetColumnSpanResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetColumnSpan not implemented")
+}
+func (UnimplementedNodeInfoCollectionItemInfoServiceServer) GetColumnTitle(context.Context, *GetColumnTitleRequest) (*GetColumnTitleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetColumnTitle not implemented")
+}
+func (UnimplementedNodeInfoCollectionItemInfoServiceServer) GetRowIndex(context.Context, *GetRowIndexRequest) (*GetRowIndexResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRowIndex not implemented")
+}
+func (UnimplementedNodeInfoCollectionItemInfoServiceServer) GetRowSpan(context.Context, *GetRowSpanRequest) (*GetRowSpanResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRowSpan not implemented")
+}
+func (UnimplementedNodeInfoCollectionItemInfoServiceServer) GetRowTitle(context.Context, *GetRowTitleRequest) (*GetRowTitleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRowTitle not implemented")
+}
+func (UnimplementedNodeInfoCollectionItemInfoServiceServer) IsHeading(context.Context, *NodeInfoCollectionItemInfoIsHeadingRequest) (*IsHeadingResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsHeading not implemented")
+}
+func (UnimplementedNodeInfoCollectionItemInfoServiceServer) IsSelected(context.Context, *NodeInfoCollectionItemInfoIsSelectedRequest) (*IsSelectedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsSelected not implemented")
+}
+func (UnimplementedNodeInfoCollectionItemInfoServiceServer) Obtain5(context.Context, *Obtain5Request) (*Obtain5Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Obtain5 not implemented")
+}
+func (UnimplementedNodeInfoCollectionItemInfoServiceServer) Obtain6_1(context.Context, *Obtain6_1Request) (*Obtain6_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Obtain6_1 not implemented")
+}
+func (UnimplementedNodeInfoCollectionItemInfoServiceServer) mustEmbedUnimplementedNodeInfoCollectionItemInfoServiceServer() {
+}
+func (UnimplementedNodeInfoCollectionItemInfoServiceServer) testEmbeddedByValue() {}
+
+// UnsafeNodeInfoCollectionItemInfoServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to NodeInfoCollectionItemInfoServiceServer will
+// result in compilation errors.
+type UnsafeNodeInfoCollectionItemInfoServiceServer interface {
+	mustEmbedUnimplementedNodeInfoCollectionItemInfoServiceServer()
+}
+
+func RegisterNodeInfoCollectionItemInfoServiceServer(s grpc.ServiceRegistrar, srv NodeInfoCollectionItemInfoServiceServer) {
+	// If the following call panics, it indicates UnimplementedNodeInfoCollectionItemInfoServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&NodeInfoCollectionItemInfoService_ServiceDesc, srv)
+}
+
+func _NodeInfoCollectionItemInfoService_GetColumnIndex_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetColumnIndexRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoCollectionItemInfoServiceServer).GetColumnIndex(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoCollectionItemInfoService_GetColumnIndex_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoCollectionItemInfoServiceServer).GetColumnIndex(ctx, req.(*GetColumnIndexRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoCollectionItemInfoService_GetColumnSpan_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetColumnSpanRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoCollectionItemInfoServiceServer).GetColumnSpan(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoCollectionItemInfoService_GetColumnSpan_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoCollectionItemInfoServiceServer).GetColumnSpan(ctx, req.(*GetColumnSpanRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoCollectionItemInfoService_GetColumnTitle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetColumnTitleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoCollectionItemInfoServiceServer).GetColumnTitle(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoCollectionItemInfoService_GetColumnTitle_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoCollectionItemInfoServiceServer).GetColumnTitle(ctx, req.(*GetColumnTitleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoCollectionItemInfoService_GetRowIndex_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRowIndexRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoCollectionItemInfoServiceServer).GetRowIndex(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoCollectionItemInfoService_GetRowIndex_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoCollectionItemInfoServiceServer).GetRowIndex(ctx, req.(*GetRowIndexRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoCollectionItemInfoService_GetRowSpan_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRowSpanRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoCollectionItemInfoServiceServer).GetRowSpan(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoCollectionItemInfoService_GetRowSpan_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoCollectionItemInfoServiceServer).GetRowSpan(ctx, req.(*GetRowSpanRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoCollectionItemInfoService_GetRowTitle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRowTitleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoCollectionItemInfoServiceServer).GetRowTitle(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoCollectionItemInfoService_GetRowTitle_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoCollectionItemInfoServiceServer).GetRowTitle(ctx, req.(*GetRowTitleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoCollectionItemInfoService_IsHeading_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NodeInfoCollectionItemInfoIsHeadingRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoCollectionItemInfoServiceServer).IsHeading(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoCollectionItemInfoService_IsHeading_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoCollectionItemInfoServiceServer).IsHeading(ctx, req.(*NodeInfoCollectionItemInfoIsHeadingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoCollectionItemInfoService_IsSelected_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NodeInfoCollectionItemInfoIsSelectedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoCollectionItemInfoServiceServer).IsSelected(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoCollectionItemInfoService_IsSelected_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoCollectionItemInfoServiceServer).IsSelected(ctx, req.(*NodeInfoCollectionItemInfoIsSelectedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoCollectionItemInfoService_Obtain5_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Obtain5Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoCollectionItemInfoServiceServer).Obtain5(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoCollectionItemInfoService_Obtain5_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoCollectionItemInfoServiceServer).Obtain5(ctx, req.(*Obtain5Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoCollectionItemInfoService_Obtain6_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Obtain6_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoCollectionItemInfoServiceServer).Obtain6_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoCollectionItemInfoService_Obtain6_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoCollectionItemInfoServiceServer).Obtain6_1(ctx, req.(*Obtain6_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// NodeInfoCollectionItemInfoService_ServiceDesc is the grpc.ServiceDesc for NodeInfoCollectionItemInfoService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var NodeInfoCollectionItemInfoService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "accessibility.NodeInfoCollectionItemInfoService",
+	HandlerType: (*NodeInfoCollectionItemInfoServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetColumnIndex",
+			Handler:    _NodeInfoCollectionItemInfoService_GetColumnIndex_Handler,
+		},
+		{
+			MethodName: "GetColumnSpan",
+			Handler:    _NodeInfoCollectionItemInfoService_GetColumnSpan_Handler,
+		},
+		{
+			MethodName: "GetColumnTitle",
+			Handler:    _NodeInfoCollectionItemInfoService_GetColumnTitle_Handler,
+		},
+		{
+			MethodName: "GetRowIndex",
+			Handler:    _NodeInfoCollectionItemInfoService_GetRowIndex_Handler,
+		},
+		{
+			MethodName: "GetRowSpan",
+			Handler:    _NodeInfoCollectionItemInfoService_GetRowSpan_Handler,
+		},
+		{
+			MethodName: "GetRowTitle",
+			Handler:    _NodeInfoCollectionItemInfoService_GetRowTitle_Handler,
+		},
+		{
+			MethodName: "IsHeading",
+			Handler:    _NodeInfoCollectionItemInfoService_IsHeading_Handler,
+		},
+		{
+			MethodName: "IsSelected",
+			Handler:    _NodeInfoCollectionItemInfoService_IsSelected_Handler,
+		},
+		{
+			MethodName: "Obtain5",
+			Handler:    _NodeInfoCollectionItemInfoService_Obtain5_Handler,
+		},
+		{
+			MethodName: "Obtain6_1",
+			Handler:    _NodeInfoCollectionItemInfoService_Obtain6_1_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/accessibility/accessibility.proto",
+}
+
+const (
+	NodeInfoExtraRenderingInfoService_GetLayoutSize_FullMethodName   = "/accessibility.NodeInfoExtraRenderingInfoService/GetLayoutSize"
+	NodeInfoExtraRenderingInfoService_GetTextSizeInPx_FullMethodName = "/accessibility.NodeInfoExtraRenderingInfoService/GetTextSizeInPx"
+	NodeInfoExtraRenderingInfoService_GetTextSizeUnit_FullMethodName = "/accessibility.NodeInfoExtraRenderingInfoService/GetTextSizeUnit"
+)
+
+// NodeInfoExtraRenderingInfoServiceClient is the client API for NodeInfoExtraRenderingInfoService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type NodeInfoExtraRenderingInfoServiceClient interface {
+	GetLayoutSize(ctx context.Context, in *GetLayoutSizeRequest, opts ...grpc.CallOption) (*GetLayoutSizeResponse, error)
+	GetTextSizeInPx(ctx context.Context, in *GetTextSizeInPxRequest, opts ...grpc.CallOption) (*GetTextSizeInPxResponse, error)
+	GetTextSizeUnit(ctx context.Context, in *GetTextSizeUnitRequest, opts ...grpc.CallOption) (*GetTextSizeUnitResponse, error)
+}
+
+type nodeInfoExtraRenderingInfoServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewNodeInfoExtraRenderingInfoServiceClient(cc grpc.ClientConnInterface) NodeInfoExtraRenderingInfoServiceClient {
+	return &nodeInfoExtraRenderingInfoServiceClient{cc}
+}
+
+func (c *nodeInfoExtraRenderingInfoServiceClient) GetLayoutSize(ctx context.Context, in *GetLayoutSizeRequest, opts ...grpc.CallOption) (*GetLayoutSizeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLayoutSizeResponse)
+	err := c.cc.Invoke(ctx, NodeInfoExtraRenderingInfoService_GetLayoutSize_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoExtraRenderingInfoServiceClient) GetTextSizeInPx(ctx context.Context, in *GetTextSizeInPxRequest, opts ...grpc.CallOption) (*GetTextSizeInPxResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTextSizeInPxResponse)
+	err := c.cc.Invoke(ctx, NodeInfoExtraRenderingInfoService_GetTextSizeInPx_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoExtraRenderingInfoServiceClient) GetTextSizeUnit(ctx context.Context, in *GetTextSizeUnitRequest, opts ...grpc.CallOption) (*GetTextSizeUnitResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTextSizeUnitResponse)
+	err := c.cc.Invoke(ctx, NodeInfoExtraRenderingInfoService_GetTextSizeUnit_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// NodeInfoExtraRenderingInfoServiceServer is the server API for NodeInfoExtraRenderingInfoService service.
+// All implementations must embed UnimplementedNodeInfoExtraRenderingInfoServiceServer
+// for forward compatibility.
+type NodeInfoExtraRenderingInfoServiceServer interface {
+	GetLayoutSize(context.Context, *GetLayoutSizeRequest) (*GetLayoutSizeResponse, error)
+	GetTextSizeInPx(context.Context, *GetTextSizeInPxRequest) (*GetTextSizeInPxResponse, error)
+	GetTextSizeUnit(context.Context, *GetTextSizeUnitRequest) (*GetTextSizeUnitResponse, error)
+	mustEmbedUnimplementedNodeInfoExtraRenderingInfoServiceServer()
+}
+
+// UnimplementedNodeInfoExtraRenderingInfoServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedNodeInfoExtraRenderingInfoServiceServer struct{}
+
+func (UnimplementedNodeInfoExtraRenderingInfoServiceServer) GetLayoutSize(context.Context, *GetLayoutSizeRequest) (*GetLayoutSizeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLayoutSize not implemented")
+}
+func (UnimplementedNodeInfoExtraRenderingInfoServiceServer) GetTextSizeInPx(context.Context, *GetTextSizeInPxRequest) (*GetTextSizeInPxResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTextSizeInPx not implemented")
+}
+func (UnimplementedNodeInfoExtraRenderingInfoServiceServer) GetTextSizeUnit(context.Context, *GetTextSizeUnitRequest) (*GetTextSizeUnitResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTextSizeUnit not implemented")
+}
+func (UnimplementedNodeInfoExtraRenderingInfoServiceServer) mustEmbedUnimplementedNodeInfoExtraRenderingInfoServiceServer() {
+}
+func (UnimplementedNodeInfoExtraRenderingInfoServiceServer) testEmbeddedByValue() {}
+
+// UnsafeNodeInfoExtraRenderingInfoServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to NodeInfoExtraRenderingInfoServiceServer will
+// result in compilation errors.
+type UnsafeNodeInfoExtraRenderingInfoServiceServer interface {
+	mustEmbedUnimplementedNodeInfoExtraRenderingInfoServiceServer()
+}
+
+func RegisterNodeInfoExtraRenderingInfoServiceServer(s grpc.ServiceRegistrar, srv NodeInfoExtraRenderingInfoServiceServer) {
+	// If the following call panics, it indicates UnimplementedNodeInfoExtraRenderingInfoServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&NodeInfoExtraRenderingInfoService_ServiceDesc, srv)
+}
+
+func _NodeInfoExtraRenderingInfoService_GetLayoutSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLayoutSizeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoExtraRenderingInfoServiceServer).GetLayoutSize(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoExtraRenderingInfoService_GetLayoutSize_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoExtraRenderingInfoServiceServer).GetLayoutSize(ctx, req.(*GetLayoutSizeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoExtraRenderingInfoService_GetTextSizeInPx_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTextSizeInPxRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoExtraRenderingInfoServiceServer).GetTextSizeInPx(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoExtraRenderingInfoService_GetTextSizeInPx_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoExtraRenderingInfoServiceServer).GetTextSizeInPx(ctx, req.(*GetTextSizeInPxRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoExtraRenderingInfoService_GetTextSizeUnit_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTextSizeUnitRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoExtraRenderingInfoServiceServer).GetTextSizeUnit(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoExtraRenderingInfoService_GetTextSizeUnit_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoExtraRenderingInfoServiceServer).GetTextSizeUnit(ctx, req.(*GetTextSizeUnitRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// NodeInfoExtraRenderingInfoService_ServiceDesc is the grpc.ServiceDesc for NodeInfoExtraRenderingInfoService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var NodeInfoExtraRenderingInfoService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "accessibility.NodeInfoExtraRenderingInfoService",
+	HandlerType: (*NodeInfoExtraRenderingInfoServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetLayoutSize",
+			Handler:    _NodeInfoExtraRenderingInfoService_GetLayoutSize_Handler,
+		},
+		{
+			MethodName: "GetTextSizeInPx",
+			Handler:    _NodeInfoExtraRenderingInfoService_GetTextSizeInPx_Handler,
+		},
+		{
+			MethodName: "GetTextSizeUnit",
+			Handler:    _NodeInfoExtraRenderingInfoService_GetTextSizeUnit_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/accessibility/accessibility.proto",
+}
+
+const (
+	NodeInfoRangeInfoService_GetCurrent_FullMethodName = "/accessibility.NodeInfoRangeInfoService/GetCurrent"
+	NodeInfoRangeInfoService_GetMax_FullMethodName     = "/accessibility.NodeInfoRangeInfoService/GetMax"
+	NodeInfoRangeInfoService_GetMin_FullMethodName     = "/accessibility.NodeInfoRangeInfoService/GetMin"
+	NodeInfoRangeInfoService_GetType_FullMethodName    = "/accessibility.NodeInfoRangeInfoService/GetType"
+	NodeInfoRangeInfoService_Obtain_FullMethodName     = "/accessibility.NodeInfoRangeInfoService/Obtain"
+)
+
+// NodeInfoRangeInfoServiceClient is the client API for NodeInfoRangeInfoService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type NodeInfoRangeInfoServiceClient interface {
+	GetCurrent(ctx context.Context, in *GetCurrentRequest, opts ...grpc.CallOption) (*GetCurrentResponse, error)
+	GetMax(ctx context.Context, in *GetMaxRequest, opts ...grpc.CallOption) (*GetMaxResponse, error)
+	GetMin(ctx context.Context, in *GetMinRequest, opts ...grpc.CallOption) (*GetMinResponse, error)
+	GetType(ctx context.Context, in *GetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error)
+	Obtain(ctx context.Context, in *ObtainRequest, opts ...grpc.CallOption) (*ObtainResponse, error)
+}
+
+type nodeInfoRangeInfoServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewNodeInfoRangeInfoServiceClient(cc grpc.ClientConnInterface) NodeInfoRangeInfoServiceClient {
+	return &nodeInfoRangeInfoServiceClient{cc}
+}
+
+func (c *nodeInfoRangeInfoServiceClient) GetCurrent(ctx context.Context, in *GetCurrentRequest, opts ...grpc.CallOption) (*GetCurrentResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCurrentResponse)
+	err := c.cc.Invoke(ctx, NodeInfoRangeInfoService_GetCurrent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoRangeInfoServiceClient) GetMax(ctx context.Context, in *GetMaxRequest, opts ...grpc.CallOption) (*GetMaxResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMaxResponse)
+	err := c.cc.Invoke(ctx, NodeInfoRangeInfoService_GetMax_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoRangeInfoServiceClient) GetMin(ctx context.Context, in *GetMinRequest, opts ...grpc.CallOption) (*GetMinResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMinResponse)
+	err := c.cc.Invoke(ctx, NodeInfoRangeInfoService_GetMin_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoRangeInfoServiceClient) GetType(ctx context.Context, in *GetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTypeResponse)
+	err := c.cc.Invoke(ctx, NodeInfoRangeInfoService_GetType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoRangeInfoServiceClient) Obtain(ctx context.Context, in *ObtainRequest, opts ...grpc.CallOption) (*ObtainResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ObtainResponse)
+	err := c.cc.Invoke(ctx, NodeInfoRangeInfoService_Obtain_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// NodeInfoRangeInfoServiceServer is the server API for NodeInfoRangeInfoService service.
+// All implementations must embed UnimplementedNodeInfoRangeInfoServiceServer
+// for forward compatibility.
+type NodeInfoRangeInfoServiceServer interface {
+	GetCurrent(context.Context, *GetCurrentRequest) (*GetCurrentResponse, error)
+	GetMax(context.Context, *GetMaxRequest) (*GetMaxResponse, error)
+	GetMin(context.Context, *GetMinRequest) (*GetMinResponse, error)
+	GetType(context.Context, *GetTypeRequest) (*GetTypeResponse, error)
+	Obtain(context.Context, *ObtainRequest) (*ObtainResponse, error)
+	mustEmbedUnimplementedNodeInfoRangeInfoServiceServer()
+}
+
+// UnimplementedNodeInfoRangeInfoServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedNodeInfoRangeInfoServiceServer struct{}
+
+func (UnimplementedNodeInfoRangeInfoServiceServer) GetCurrent(context.Context, *GetCurrentRequest) (*GetCurrentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCurrent not implemented")
+}
+func (UnimplementedNodeInfoRangeInfoServiceServer) GetMax(context.Context, *GetMaxRequest) (*GetMaxResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMax not implemented")
+}
+func (UnimplementedNodeInfoRangeInfoServiceServer) GetMin(context.Context, *GetMinRequest) (*GetMinResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMin not implemented")
+}
+func (UnimplementedNodeInfoRangeInfoServiceServer) GetType(context.Context, *GetTypeRequest) (*GetTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetType not implemented")
+}
+func (UnimplementedNodeInfoRangeInfoServiceServer) Obtain(context.Context, *ObtainRequest) (*ObtainResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Obtain not implemented")
+}
+func (UnimplementedNodeInfoRangeInfoServiceServer) mustEmbedUnimplementedNodeInfoRangeInfoServiceServer() {
+}
+func (UnimplementedNodeInfoRangeInfoServiceServer) testEmbeddedByValue() {}
+
+// UnsafeNodeInfoRangeInfoServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to NodeInfoRangeInfoServiceServer will
+// result in compilation errors.
+type UnsafeNodeInfoRangeInfoServiceServer interface {
+	mustEmbedUnimplementedNodeInfoRangeInfoServiceServer()
+}
+
+func RegisterNodeInfoRangeInfoServiceServer(s grpc.ServiceRegistrar, srv NodeInfoRangeInfoServiceServer) {
+	// If the following call panics, it indicates UnimplementedNodeInfoRangeInfoServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&NodeInfoRangeInfoService_ServiceDesc, srv)
+}
+
+func _NodeInfoRangeInfoService_GetCurrent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCurrentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoRangeInfoServiceServer).GetCurrent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoRangeInfoService_GetCurrent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoRangeInfoServiceServer).GetCurrent(ctx, req.(*GetCurrentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoRangeInfoService_GetMax_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMaxRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoRangeInfoServiceServer).GetMax(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoRangeInfoService_GetMax_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoRangeInfoServiceServer).GetMax(ctx, req.(*GetMaxRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoRangeInfoService_GetMin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMinRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoRangeInfoServiceServer).GetMin(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoRangeInfoService_GetMin_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoRangeInfoServiceServer).GetMin(ctx, req.(*GetMinRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoRangeInfoService_GetType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoRangeInfoServiceServer).GetType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoRangeInfoService_GetType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoRangeInfoServiceServer).GetType(ctx, req.(*GetTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoRangeInfoService_Obtain_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ObtainRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoRangeInfoServiceServer).Obtain(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoRangeInfoService_Obtain_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoRangeInfoServiceServer).Obtain(ctx, req.(*ObtainRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// NodeInfoRangeInfoService_ServiceDesc is the grpc.ServiceDesc for NodeInfoRangeInfoService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var NodeInfoRangeInfoService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "accessibility.NodeInfoRangeInfoService",
+	HandlerType: (*NodeInfoRangeInfoServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetCurrent",
+			Handler:    _NodeInfoRangeInfoService_GetCurrent_Handler,
+		},
+		{
+			MethodName: "GetMax",
+			Handler:    _NodeInfoRangeInfoService_GetMax_Handler,
+		},
+		{
+			MethodName: "GetMin",
+			Handler:    _NodeInfoRangeInfoService_GetMin_Handler,
+		},
+		{
+			MethodName: "GetType",
+			Handler:    _NodeInfoRangeInfoService_GetType_Handler,
+		},
+		{
+			MethodName: "Obtain",
+			Handler:    _NodeInfoRangeInfoService_Obtain_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/accessibility/accessibility.proto",
+}
+
+const (
+	NodeInfoTouchDelegateInfoService_DescribeContents_FullMethodName   = "/accessibility.NodeInfoTouchDelegateInfoService/DescribeContents"
+	NodeInfoTouchDelegateInfoService_GetRegionAt_FullMethodName        = "/accessibility.NodeInfoTouchDelegateInfoService/GetRegionAt"
+	NodeInfoTouchDelegateInfoService_GetRegionCount_FullMethodName     = "/accessibility.NodeInfoTouchDelegateInfoService/GetRegionCount"
+	NodeInfoTouchDelegateInfoService_GetTargetForRegion_FullMethodName = "/accessibility.NodeInfoTouchDelegateInfoService/GetTargetForRegion"
+	NodeInfoTouchDelegateInfoService_WriteToParcel_FullMethodName      = "/accessibility.NodeInfoTouchDelegateInfoService/WriteToParcel"
+)
+
+// NodeInfoTouchDelegateInfoServiceClient is the client API for NodeInfoTouchDelegateInfoService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type NodeInfoTouchDelegateInfoServiceClient interface {
+	DescribeContents(ctx context.Context, in *NodeInfoTouchDelegateInfoDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetRegionAt(ctx context.Context, in *GetRegionAtRequest, opts ...grpc.CallOption) (*GetRegionAtResponse, error)
+	GetRegionCount(ctx context.Context, in *GetRegionCountRequest, opts ...grpc.CallOption) (*GetRegionCountResponse, error)
+	GetTargetForRegion(ctx context.Context, in *GetTargetForRegionRequest, opts ...grpc.CallOption) (*GetTargetForRegionResponse, error)
+	WriteToParcel(ctx context.Context, in *NodeInfoTouchDelegateInfoWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type nodeInfoTouchDelegateInfoServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewNodeInfoTouchDelegateInfoServiceClient(cc grpc.ClientConnInterface) NodeInfoTouchDelegateInfoServiceClient {
+	return &nodeInfoTouchDelegateInfoServiceClient{cc}
+}
+
+func (c *nodeInfoTouchDelegateInfoServiceClient) DescribeContents(ctx context.Context, in *NodeInfoTouchDelegateInfoDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, NodeInfoTouchDelegateInfoService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoTouchDelegateInfoServiceClient) GetRegionAt(ctx context.Context, in *GetRegionAtRequest, opts ...grpc.CallOption) (*GetRegionAtResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRegionAtResponse)
+	err := c.cc.Invoke(ctx, NodeInfoTouchDelegateInfoService_GetRegionAt_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoTouchDelegateInfoServiceClient) GetRegionCount(ctx context.Context, in *GetRegionCountRequest, opts ...grpc.CallOption) (*GetRegionCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRegionCountResponse)
+	err := c.cc.Invoke(ctx, NodeInfoTouchDelegateInfoService_GetRegionCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoTouchDelegateInfoServiceClient) GetTargetForRegion(ctx context.Context, in *GetTargetForRegionRequest, opts ...grpc.CallOption) (*GetTargetForRegionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTargetForRegionResponse)
+	err := c.cc.Invoke(ctx, NodeInfoTouchDelegateInfoService_GetTargetForRegion_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeInfoTouchDelegateInfoServiceClient) WriteToParcel(ctx context.Context, in *NodeInfoTouchDelegateInfoWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, NodeInfoTouchDelegateInfoService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// NodeInfoTouchDelegateInfoServiceServer is the server API for NodeInfoTouchDelegateInfoService service.
+// All implementations must embed UnimplementedNodeInfoTouchDelegateInfoServiceServer
+// for forward compatibility.
+type NodeInfoTouchDelegateInfoServiceServer interface {
+	DescribeContents(context.Context, *NodeInfoTouchDelegateInfoDescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetRegionAt(context.Context, *GetRegionAtRequest) (*GetRegionAtResponse, error)
+	GetRegionCount(context.Context, *GetRegionCountRequest) (*GetRegionCountResponse, error)
+	GetTargetForRegion(context.Context, *GetTargetForRegionRequest) (*GetTargetForRegionResponse, error)
+	WriteToParcel(context.Context, *NodeInfoTouchDelegateInfoWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedNodeInfoTouchDelegateInfoServiceServer()
+}
+
+// UnimplementedNodeInfoTouchDelegateInfoServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedNodeInfoTouchDelegateInfoServiceServer struct{}
+
+func (UnimplementedNodeInfoTouchDelegateInfoServiceServer) DescribeContents(context.Context, *NodeInfoTouchDelegateInfoDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedNodeInfoTouchDelegateInfoServiceServer) GetRegionAt(context.Context, *GetRegionAtRequest) (*GetRegionAtResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRegionAt not implemented")
+}
+func (UnimplementedNodeInfoTouchDelegateInfoServiceServer) GetRegionCount(context.Context, *GetRegionCountRequest) (*GetRegionCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRegionCount not implemented")
+}
+func (UnimplementedNodeInfoTouchDelegateInfoServiceServer) GetTargetForRegion(context.Context, *GetTargetForRegionRequest) (*GetTargetForRegionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTargetForRegion not implemented")
+}
+func (UnimplementedNodeInfoTouchDelegateInfoServiceServer) WriteToParcel(context.Context, *NodeInfoTouchDelegateInfoWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedNodeInfoTouchDelegateInfoServiceServer) mustEmbedUnimplementedNodeInfoTouchDelegateInfoServiceServer() {
+}
+func (UnimplementedNodeInfoTouchDelegateInfoServiceServer) testEmbeddedByValue() {}
+
+// UnsafeNodeInfoTouchDelegateInfoServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to NodeInfoTouchDelegateInfoServiceServer will
+// result in compilation errors.
+type UnsafeNodeInfoTouchDelegateInfoServiceServer interface {
+	mustEmbedUnimplementedNodeInfoTouchDelegateInfoServiceServer()
+}
+
+func RegisterNodeInfoTouchDelegateInfoServiceServer(s grpc.ServiceRegistrar, srv NodeInfoTouchDelegateInfoServiceServer) {
+	// If the following call panics, it indicates UnimplementedNodeInfoTouchDelegateInfoServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&NodeInfoTouchDelegateInfoService_ServiceDesc, srv)
+}
+
+func _NodeInfoTouchDelegateInfoService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NodeInfoTouchDelegateInfoDescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoTouchDelegateInfoServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoTouchDelegateInfoService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoTouchDelegateInfoServiceServer).DescribeContents(ctx, req.(*NodeInfoTouchDelegateInfoDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoTouchDelegateInfoService_GetRegionAt_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRegionAtRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoTouchDelegateInfoServiceServer).GetRegionAt(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoTouchDelegateInfoService_GetRegionAt_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoTouchDelegateInfoServiceServer).GetRegionAt(ctx, req.(*GetRegionAtRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoTouchDelegateInfoService_GetRegionCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRegionCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoTouchDelegateInfoServiceServer).GetRegionCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoTouchDelegateInfoService_GetRegionCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoTouchDelegateInfoServiceServer).GetRegionCount(ctx, req.(*GetRegionCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoTouchDelegateInfoService_GetTargetForRegion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTargetForRegionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoTouchDelegateInfoServiceServer).GetTargetForRegion(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoTouchDelegateInfoService_GetTargetForRegion_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoTouchDelegateInfoServiceServer).GetTargetForRegion(ctx, req.(*GetTargetForRegionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeInfoTouchDelegateInfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NodeInfoTouchDelegateInfoWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeInfoTouchDelegateInfoServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeInfoTouchDelegateInfoService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeInfoTouchDelegateInfoServiceServer).WriteToParcel(ctx, req.(*NodeInfoTouchDelegateInfoWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// NodeInfoTouchDelegateInfoService_ServiceDesc is the grpc.ServiceDesc for NodeInfoTouchDelegateInfoService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var NodeInfoTouchDelegateInfoService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "accessibility.NodeInfoTouchDelegateInfoService",
+	HandlerType: (*NodeInfoTouchDelegateInfoServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _NodeInfoTouchDelegateInfoService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetRegionAt",
+			Handler:    _NodeInfoTouchDelegateInfoService_GetRegionAt_Handler,
+		},
+		{
+			MethodName: "GetRegionCount",
+			Handler:    _NodeInfoTouchDelegateInfoService_GetRegionCount_Handler,
+		},
+		{
+			MethodName: "GetTargetForRegion",
+			Handler:    _NodeInfoTouchDelegateInfoService_GetTargetForRegion_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _NodeInfoTouchDelegateInfoService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/accessibility/accessibility.proto",
+}
+
+const (
+	WindowInfoService_NewWindowInfo_FullMethodName            = "/accessibility.WindowInfoService/NewWindowInfo"
+	WindowInfoService_DescribeContents_FullMethodName         = "/accessibility.WindowInfoService/DescribeContents"
+	WindowInfoService_Equals_FullMethodName                   = "/accessibility.WindowInfoService/Equals"
+	WindowInfoService_GetAnchor_FullMethodName                = "/accessibility.WindowInfoService/GetAnchor"
+	WindowInfoService_GetBoundsInScreen_FullMethodName        = "/accessibility.WindowInfoService/GetBoundsInScreen"
+	WindowInfoService_GetChild_FullMethodName                 = "/accessibility.WindowInfoService/GetChild"
+	WindowInfoService_GetChildCount_FullMethodName            = "/accessibility.WindowInfoService/GetChildCount"
+	WindowInfoService_GetDisplayId_FullMethodName             = "/accessibility.WindowInfoService/GetDisplayId"
+	WindowInfoService_GetId_FullMethodName                    = "/accessibility.WindowInfoService/GetId"
+	WindowInfoService_GetLayer_FullMethodName                 = "/accessibility.WindowInfoService/GetLayer"
+	WindowInfoService_GetLocales_FullMethodName               = "/accessibility.WindowInfoService/GetLocales"
+	WindowInfoService_GetParent_FullMethodName                = "/accessibility.WindowInfoService/GetParent"
+	WindowInfoService_GetRegionInScreen_FullMethodName        = "/accessibility.WindowInfoService/GetRegionInScreen"
+	WindowInfoService_GetRoot0_FullMethodName                 = "/accessibility.WindowInfoService/GetRoot0"
+	WindowInfoService_GetRoot1_1_FullMethodName               = "/accessibility.WindowInfoService/GetRoot1_1"
+	WindowInfoService_GetTitle_FullMethodName                 = "/accessibility.WindowInfoService/GetTitle"
+	WindowInfoService_GetTransitionTimeMillis_FullMethodName  = "/accessibility.WindowInfoService/GetTransitionTimeMillis"
+	WindowInfoService_GetType_FullMethodName                  = "/accessibility.WindowInfoService/GetType"
+	WindowInfoService_HashCode_FullMethodName                 = "/accessibility.WindowInfoService/HashCode"
+	WindowInfoService_IsAccessibilityFocused_FullMethodName   = "/accessibility.WindowInfoService/IsAccessibilityFocused"
+	WindowInfoService_IsActive_FullMethodName                 = "/accessibility.WindowInfoService/IsActive"
+	WindowInfoService_IsFocused_FullMethodName                = "/accessibility.WindowInfoService/IsFocused"
+	WindowInfoService_IsInPictureInPictureMode_FullMethodName = "/accessibility.WindowInfoService/IsInPictureInPictureMode"
+	WindowInfoService_Recycle_FullMethodName                  = "/accessibility.WindowInfoService/Recycle"
+	WindowInfoService_ToString_FullMethodName                 = "/accessibility.WindowInfoService/ToString"
+	WindowInfoService_WriteToParcel_FullMethodName            = "/accessibility.WindowInfoService/WriteToParcel"
+	WindowInfoService_Obtain0_FullMethodName                  = "/accessibility.WindowInfoService/Obtain0"
+	WindowInfoService_Obtain1_1_FullMethodName                = "/accessibility.WindowInfoService/Obtain1_1"
+)
+
+// WindowInfoServiceClient is the client API for WindowInfoService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type WindowInfoServiceClient interface {
+	NewWindowInfo(ctx context.Context, in *NewWindowInfoRequest, opts ...grpc.CallOption) (*NewWindowInfoResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetAnchor(ctx context.Context, in *GetAnchorRequest, opts ...grpc.CallOption) (*GetAnchorResponse, error)
+	GetBoundsInScreen(ctx context.Context, in *GetBoundsInScreenRequest, opts ...grpc.CallOption) (*GetBoundsInScreenResponse, error)
+	GetChild(ctx context.Context, in *GetChildRequest, opts ...grpc.CallOption) (*GetChildResponse, error)
+	GetChildCount(ctx context.Context, in *GetChildCountRequest, opts ...grpc.CallOption) (*GetChildCountResponse, error)
+	GetDisplayId(ctx context.Context, in *GetDisplayIdRequest, opts ...grpc.CallOption) (*GetDisplayIdResponse, error)
+	GetId(ctx context.Context, in *WindowInfoGetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error)
+	GetLayer(ctx context.Context, in *GetLayerRequest, opts ...grpc.CallOption) (*GetLayerResponse, error)
+	GetLocales(ctx context.Context, in *GetLocalesRequest, opts ...grpc.CallOption) (*GetLocalesResponse, error)
+	GetParent(ctx context.Context, in *GetParentRequest, opts ...grpc.CallOption) (*GetParentResponse, error)
+	GetRegionInScreen(ctx context.Context, in *GetRegionInScreenRequest, opts ...grpc.CallOption) (*GetRegionInScreenResponse, error)
+	GetRoot0(ctx context.Context, in *GetRoot0Request, opts ...grpc.CallOption) (*GetRoot0Response, error)
+	GetRoot1_1(ctx context.Context, in *GetRoot1_1Request, opts ...grpc.CallOption) (*GetRoot1_1Response, error)
+	GetTitle(ctx context.Context, in *GetTitleRequest, opts ...grpc.CallOption) (*GetTitleResponse, error)
+	GetTransitionTimeMillis(ctx context.Context, in *GetTransitionTimeMillisRequest, opts ...grpc.CallOption) (*GetTransitionTimeMillisResponse, error)
+	GetType(ctx context.Context, in *WindowInfoGetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	IsAccessibilityFocused(ctx context.Context, in *IsAccessibilityFocusedRequest, opts ...grpc.CallOption) (*IsAccessibilityFocusedResponse, error)
+	IsActive(ctx context.Context, in *IsActiveRequest, opts ...grpc.CallOption) (*IsActiveResponse, error)
+	IsFocused(ctx context.Context, in *IsFocusedRequest, opts ...grpc.CallOption) (*IsFocusedResponse, error)
+	IsInPictureInPictureMode(ctx context.Context, in *IsInPictureInPictureModeRequest, opts ...grpc.CallOption) (*IsInPictureInPictureModeResponse, error)
+	Recycle(ctx context.Context, in *RecycleRequest, opts ...grpc.CallOption) (*RecycleResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+	Obtain0(ctx context.Context, in *Obtain0Request, opts ...grpc.CallOption) (*Obtain0Response, error)
+	Obtain1_1(ctx context.Context, in *Obtain1_1Request, opts ...grpc.CallOption) (*Obtain1_1Response, error)
+}
+
+type windowInfoServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewWindowInfoServiceClient(cc grpc.ClientConnInterface) WindowInfoServiceClient {
+	return &windowInfoServiceClient{cc}
+}
+
+func (c *windowInfoServiceClient) NewWindowInfo(ctx context.Context, in *NewWindowInfoRequest, opts ...grpc.CallOption) (*NewWindowInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewWindowInfoResponse)
+	err := c.cc.Invoke(ctx, WindowInfoService_NewWindowInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *windowInfoServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, WindowInfoService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *windowInfoServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, WindowInfoService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *windowInfoServiceClient) GetAnchor(ctx context.Context, in *GetAnchorRequest, opts ...grpc.CallOption) (*GetAnchorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAnchorResponse)
+	err := c.cc.Invoke(ctx, WindowInfoService_GetAnchor_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *windowInfoServiceClient) GetBoundsInScreen(ctx context.Context, in *GetBoundsInScreenRequest, opts ...grpc.CallOption) (*GetBoundsInScreenResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetBoundsInScreenResponse)
+	err := c.cc.Invoke(ctx, WindowInfoService_GetBoundsInScreen_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *windowInfoServiceClient) GetChild(ctx context.Context, in *GetChildRequest, opts ...grpc.CallOption) (*GetChildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetChildResponse)
+	err := c.cc.Invoke(ctx, WindowInfoService_GetChild_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *windowInfoServiceClient) GetChildCount(ctx context.Context, in *GetChildCountRequest, opts ...grpc.CallOption) (*GetChildCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetChildCountResponse)
+	err := c.cc.Invoke(ctx, WindowInfoService_GetChildCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *windowInfoServiceClient) GetDisplayId(ctx context.Context, in *GetDisplayIdRequest, opts ...grpc.CallOption) (*GetDisplayIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDisplayIdResponse)
+	err := c.cc.Invoke(ctx, WindowInfoService_GetDisplayId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *windowInfoServiceClient) GetId(ctx context.Context, in *WindowInfoGetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetIdResponse)
+	err := c.cc.Invoke(ctx, WindowInfoService_GetId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *windowInfoServiceClient) GetLayer(ctx context.Context, in *GetLayerRequest, opts ...grpc.CallOption) (*GetLayerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLayerResponse)
+	err := c.cc.Invoke(ctx, WindowInfoService_GetLayer_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *windowInfoServiceClient) GetLocales(ctx context.Context, in *GetLocalesRequest, opts ...grpc.CallOption) (*GetLocalesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLocalesResponse)
+	err := c.cc.Invoke(ctx, WindowInfoService_GetLocales_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *windowInfoServiceClient) GetParent(ctx context.Context, in *GetParentRequest, opts ...grpc.CallOption) (*GetParentResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetParentResponse)
+	err := c.cc.Invoke(ctx, WindowInfoService_GetParent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *windowInfoServiceClient) GetRegionInScreen(ctx context.Context, in *GetRegionInScreenRequest, opts ...grpc.CallOption) (*GetRegionInScreenResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRegionInScreenResponse)
+	err := c.cc.Invoke(ctx, WindowInfoService_GetRegionInScreen_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *windowInfoServiceClient) GetRoot0(ctx context.Context, in *GetRoot0Request, opts ...grpc.CallOption) (*GetRoot0Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRoot0Response)
+	err := c.cc.Invoke(ctx, WindowInfoService_GetRoot0_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *windowInfoServiceClient) GetRoot1_1(ctx context.Context, in *GetRoot1_1Request, opts ...grpc.CallOption) (*GetRoot1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRoot1_1Response)
+	err := c.cc.Invoke(ctx, WindowInfoService_GetRoot1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *windowInfoServiceClient) GetTitle(ctx context.Context, in *GetTitleRequest, opts ...grpc.CallOption) (*GetTitleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTitleResponse)
+	err := c.cc.Invoke(ctx, WindowInfoService_GetTitle_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *windowInfoServiceClient) GetTransitionTimeMillis(ctx context.Context, in *GetTransitionTimeMillisRequest, opts ...grpc.CallOption) (*GetTransitionTimeMillisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTransitionTimeMillisResponse)
+	err := c.cc.Invoke(ctx, WindowInfoService_GetTransitionTimeMillis_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *windowInfoServiceClient) GetType(ctx context.Context, in *WindowInfoGetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTypeResponse)
+	err := c.cc.Invoke(ctx, WindowInfoService_GetType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *windowInfoServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, WindowInfoService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *windowInfoServiceClient) IsAccessibilityFocused(ctx context.Context, in *IsAccessibilityFocusedRequest, opts ...grpc.CallOption) (*IsAccessibilityFocusedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsAccessibilityFocusedResponse)
+	err := c.cc.Invoke(ctx, WindowInfoService_IsAccessibilityFocused_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *windowInfoServiceClient) IsActive(ctx context.Context, in *IsActiveRequest, opts ...grpc.CallOption) (*IsActiveResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsActiveResponse)
+	err := c.cc.Invoke(ctx, WindowInfoService_IsActive_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *windowInfoServiceClient) IsFocused(ctx context.Context, in *IsFocusedRequest, opts ...grpc.CallOption) (*IsFocusedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsFocusedResponse)
+	err := c.cc.Invoke(ctx, WindowInfoService_IsFocused_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *windowInfoServiceClient) IsInPictureInPictureMode(ctx context.Context, in *IsInPictureInPictureModeRequest, opts ...grpc.CallOption) (*IsInPictureInPictureModeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsInPictureInPictureModeResponse)
+	err := c.cc.Invoke(ctx, WindowInfoService_IsInPictureInPictureMode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *windowInfoServiceClient) Recycle(ctx context.Context, in *RecycleRequest, opts ...grpc.CallOption) (*RecycleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RecycleResponse)
+	err := c.cc.Invoke(ctx, WindowInfoService_Recycle_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *windowInfoServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, WindowInfoService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *windowInfoServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, WindowInfoService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *windowInfoServiceClient) Obtain0(ctx context.Context, in *Obtain0Request, opts ...grpc.CallOption) (*Obtain0Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Obtain0Response)
+	err := c.cc.Invoke(ctx, WindowInfoService_Obtain0_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *windowInfoServiceClient) Obtain1_1(ctx context.Context, in *Obtain1_1Request, opts ...grpc.CallOption) (*Obtain1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Obtain1_1Response)
+	err := c.cc.Invoke(ctx, WindowInfoService_Obtain1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// WindowInfoServiceServer is the server API for WindowInfoService service.
+// All implementations must embed UnimplementedWindowInfoServiceServer
+// for forward compatibility.
+type WindowInfoServiceServer interface {
+	NewWindowInfo(context.Context, *NewWindowInfoRequest) (*NewWindowInfoResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetAnchor(context.Context, *GetAnchorRequest) (*GetAnchorResponse, error)
+	GetBoundsInScreen(context.Context, *GetBoundsInScreenRequest) (*GetBoundsInScreenResponse, error)
+	GetChild(context.Context, *GetChildRequest) (*GetChildResponse, error)
+	GetChildCount(context.Context, *GetChildCountRequest) (*GetChildCountResponse, error)
+	GetDisplayId(context.Context, *GetDisplayIdRequest) (*GetDisplayIdResponse, error)
+	GetId(context.Context, *WindowInfoGetIdRequest) (*GetIdResponse, error)
+	GetLayer(context.Context, *GetLayerRequest) (*GetLayerResponse, error)
+	GetLocales(context.Context, *GetLocalesRequest) (*GetLocalesResponse, error)
+	GetParent(context.Context, *GetParentRequest) (*GetParentResponse, error)
+	GetRegionInScreen(context.Context, *GetRegionInScreenRequest) (*GetRegionInScreenResponse, error)
+	GetRoot0(context.Context, *GetRoot0Request) (*GetRoot0Response, error)
+	GetRoot1_1(context.Context, *GetRoot1_1Request) (*GetRoot1_1Response, error)
+	GetTitle(context.Context, *GetTitleRequest) (*GetTitleResponse, error)
+	GetTransitionTimeMillis(context.Context, *GetTransitionTimeMillisRequest) (*GetTransitionTimeMillisResponse, error)
+	GetType(context.Context, *WindowInfoGetTypeRequest) (*GetTypeResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	IsAccessibilityFocused(context.Context, *IsAccessibilityFocusedRequest) (*IsAccessibilityFocusedResponse, error)
+	IsActive(context.Context, *IsActiveRequest) (*IsActiveResponse, error)
+	IsFocused(context.Context, *IsFocusedRequest) (*IsFocusedResponse, error)
+	IsInPictureInPictureMode(context.Context, *IsInPictureInPictureModeRequest) (*IsInPictureInPictureModeResponse, error)
+	Recycle(context.Context, *RecycleRequest) (*RecycleResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	Obtain0(context.Context, *Obtain0Request) (*Obtain0Response, error)
+	Obtain1_1(context.Context, *Obtain1_1Request) (*Obtain1_1Response, error)
+	mustEmbedUnimplementedWindowInfoServiceServer()
+}
+
+// UnimplementedWindowInfoServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedWindowInfoServiceServer struct{}
+
+func (UnimplementedWindowInfoServiceServer) NewWindowInfo(context.Context, *NewWindowInfoRequest) (*NewWindowInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewWindowInfo not implemented")
+}
+func (UnimplementedWindowInfoServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedWindowInfoServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedWindowInfoServiceServer) GetAnchor(context.Context, *GetAnchorRequest) (*GetAnchorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAnchor not implemented")
+}
+func (UnimplementedWindowInfoServiceServer) GetBoundsInScreen(context.Context, *GetBoundsInScreenRequest) (*GetBoundsInScreenResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetBoundsInScreen not implemented")
+}
+func (UnimplementedWindowInfoServiceServer) GetChild(context.Context, *GetChildRequest) (*GetChildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetChild not implemented")
+}
+func (UnimplementedWindowInfoServiceServer) GetChildCount(context.Context, *GetChildCountRequest) (*GetChildCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetChildCount not implemented")
+}
+func (UnimplementedWindowInfoServiceServer) GetDisplayId(context.Context, *GetDisplayIdRequest) (*GetDisplayIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDisplayId not implemented")
+}
+func (UnimplementedWindowInfoServiceServer) GetId(context.Context, *WindowInfoGetIdRequest) (*GetIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetId not implemented")
+}
+func (UnimplementedWindowInfoServiceServer) GetLayer(context.Context, *GetLayerRequest) (*GetLayerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLayer not implemented")
+}
+func (UnimplementedWindowInfoServiceServer) GetLocales(context.Context, *GetLocalesRequest) (*GetLocalesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLocales not implemented")
+}
+func (UnimplementedWindowInfoServiceServer) GetParent(context.Context, *GetParentRequest) (*GetParentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetParent not implemented")
+}
+func (UnimplementedWindowInfoServiceServer) GetRegionInScreen(context.Context, *GetRegionInScreenRequest) (*GetRegionInScreenResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRegionInScreen not implemented")
+}
+func (UnimplementedWindowInfoServiceServer) GetRoot0(context.Context, *GetRoot0Request) (*GetRoot0Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRoot0 not implemented")
+}
+func (UnimplementedWindowInfoServiceServer) GetRoot1_1(context.Context, *GetRoot1_1Request) (*GetRoot1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRoot1_1 not implemented")
+}
+func (UnimplementedWindowInfoServiceServer) GetTitle(context.Context, *GetTitleRequest) (*GetTitleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTitle not implemented")
+}
+func (UnimplementedWindowInfoServiceServer) GetTransitionTimeMillis(context.Context, *GetTransitionTimeMillisRequest) (*GetTransitionTimeMillisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTransitionTimeMillis not implemented")
+}
+func (UnimplementedWindowInfoServiceServer) GetType(context.Context, *WindowInfoGetTypeRequest) (*GetTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetType not implemented")
+}
+func (UnimplementedWindowInfoServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedWindowInfoServiceServer) IsAccessibilityFocused(context.Context, *IsAccessibilityFocusedRequest) (*IsAccessibilityFocusedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsAccessibilityFocused not implemented")
+}
+func (UnimplementedWindowInfoServiceServer) IsActive(context.Context, *IsActiveRequest) (*IsActiveResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsActive not implemented")
+}
+func (UnimplementedWindowInfoServiceServer) IsFocused(context.Context, *IsFocusedRequest) (*IsFocusedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsFocused not implemented")
+}
+func (UnimplementedWindowInfoServiceServer) IsInPictureInPictureMode(context.Context, *IsInPictureInPictureModeRequest) (*IsInPictureInPictureModeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsInPictureInPictureMode not implemented")
+}
+func (UnimplementedWindowInfoServiceServer) Recycle(context.Context, *RecycleRequest) (*RecycleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Recycle not implemented")
+}
+func (UnimplementedWindowInfoServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedWindowInfoServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedWindowInfoServiceServer) Obtain0(context.Context, *Obtain0Request) (*Obtain0Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Obtain0 not implemented")
+}
+func (UnimplementedWindowInfoServiceServer) Obtain1_1(context.Context, *Obtain1_1Request) (*Obtain1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Obtain1_1 not implemented")
+}
+func (UnimplementedWindowInfoServiceServer) mustEmbedUnimplementedWindowInfoServiceServer() {}
+func (UnimplementedWindowInfoServiceServer) testEmbeddedByValue()                           {}
+
+// UnsafeWindowInfoServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to WindowInfoServiceServer will
+// result in compilation errors.
+type UnsafeWindowInfoServiceServer interface {
+	mustEmbedUnimplementedWindowInfoServiceServer()
+}
+
+func RegisterWindowInfoServiceServer(s grpc.ServiceRegistrar, srv WindowInfoServiceServer) {
+	// If the following call panics, it indicates UnimplementedWindowInfoServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&WindowInfoService_ServiceDesc, srv)
+}
+
+func _WindowInfoService_NewWindowInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewWindowInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WindowInfoServiceServer).NewWindowInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WindowInfoService_NewWindowInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WindowInfoServiceServer).NewWindowInfo(ctx, req.(*NewWindowInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WindowInfoService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WindowInfoServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WindowInfoService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WindowInfoServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WindowInfoService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WindowInfoServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WindowInfoService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WindowInfoServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WindowInfoService_GetAnchor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAnchorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WindowInfoServiceServer).GetAnchor(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WindowInfoService_GetAnchor_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WindowInfoServiceServer).GetAnchor(ctx, req.(*GetAnchorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WindowInfoService_GetBoundsInScreen_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetBoundsInScreenRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WindowInfoServiceServer).GetBoundsInScreen(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WindowInfoService_GetBoundsInScreen_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WindowInfoServiceServer).GetBoundsInScreen(ctx, req.(*GetBoundsInScreenRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WindowInfoService_GetChild_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetChildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WindowInfoServiceServer).GetChild(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WindowInfoService_GetChild_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WindowInfoServiceServer).GetChild(ctx, req.(*GetChildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WindowInfoService_GetChildCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetChildCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WindowInfoServiceServer).GetChildCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WindowInfoService_GetChildCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WindowInfoServiceServer).GetChildCount(ctx, req.(*GetChildCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WindowInfoService_GetDisplayId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDisplayIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WindowInfoServiceServer).GetDisplayId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WindowInfoService_GetDisplayId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WindowInfoServiceServer).GetDisplayId(ctx, req.(*GetDisplayIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WindowInfoService_GetId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WindowInfoGetIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WindowInfoServiceServer).GetId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WindowInfoService_GetId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WindowInfoServiceServer).GetId(ctx, req.(*WindowInfoGetIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WindowInfoService_GetLayer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLayerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WindowInfoServiceServer).GetLayer(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WindowInfoService_GetLayer_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WindowInfoServiceServer).GetLayer(ctx, req.(*GetLayerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WindowInfoService_GetLocales_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLocalesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WindowInfoServiceServer).GetLocales(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WindowInfoService_GetLocales_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WindowInfoServiceServer).GetLocales(ctx, req.(*GetLocalesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WindowInfoService_GetParent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetParentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WindowInfoServiceServer).GetParent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WindowInfoService_GetParent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WindowInfoServiceServer).GetParent(ctx, req.(*GetParentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WindowInfoService_GetRegionInScreen_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRegionInScreenRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WindowInfoServiceServer).GetRegionInScreen(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WindowInfoService_GetRegionInScreen_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WindowInfoServiceServer).GetRegionInScreen(ctx, req.(*GetRegionInScreenRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WindowInfoService_GetRoot0_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRoot0Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WindowInfoServiceServer).GetRoot0(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WindowInfoService_GetRoot0_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WindowInfoServiceServer).GetRoot0(ctx, req.(*GetRoot0Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WindowInfoService_GetRoot1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRoot1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WindowInfoServiceServer).GetRoot1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WindowInfoService_GetRoot1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WindowInfoServiceServer).GetRoot1_1(ctx, req.(*GetRoot1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WindowInfoService_GetTitle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTitleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WindowInfoServiceServer).GetTitle(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WindowInfoService_GetTitle_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WindowInfoServiceServer).GetTitle(ctx, req.(*GetTitleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WindowInfoService_GetTransitionTimeMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTransitionTimeMillisRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WindowInfoServiceServer).GetTransitionTimeMillis(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WindowInfoService_GetTransitionTimeMillis_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WindowInfoServiceServer).GetTransitionTimeMillis(ctx, req.(*GetTransitionTimeMillisRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WindowInfoService_GetType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WindowInfoGetTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WindowInfoServiceServer).GetType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WindowInfoService_GetType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WindowInfoServiceServer).GetType(ctx, req.(*WindowInfoGetTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WindowInfoService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WindowInfoServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WindowInfoService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WindowInfoServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WindowInfoService_IsAccessibilityFocused_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsAccessibilityFocusedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WindowInfoServiceServer).IsAccessibilityFocused(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WindowInfoService_IsAccessibilityFocused_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WindowInfoServiceServer).IsAccessibilityFocused(ctx, req.(*IsAccessibilityFocusedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WindowInfoService_IsActive_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsActiveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WindowInfoServiceServer).IsActive(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WindowInfoService_IsActive_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WindowInfoServiceServer).IsActive(ctx, req.(*IsActiveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WindowInfoService_IsFocused_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsFocusedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WindowInfoServiceServer).IsFocused(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WindowInfoService_IsFocused_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WindowInfoServiceServer).IsFocused(ctx, req.(*IsFocusedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WindowInfoService_IsInPictureInPictureMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsInPictureInPictureModeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WindowInfoServiceServer).IsInPictureInPictureMode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WindowInfoService_IsInPictureInPictureMode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WindowInfoServiceServer).IsInPictureInPictureMode(ctx, req.(*IsInPictureInPictureModeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WindowInfoService_Recycle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RecycleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WindowInfoServiceServer).Recycle(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WindowInfoService_Recycle_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WindowInfoServiceServer).Recycle(ctx, req.(*RecycleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WindowInfoService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WindowInfoServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WindowInfoService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WindowInfoServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WindowInfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WindowInfoServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WindowInfoService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WindowInfoServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WindowInfoService_Obtain0_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Obtain0Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WindowInfoServiceServer).Obtain0(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WindowInfoService_Obtain0_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WindowInfoServiceServer).Obtain0(ctx, req.(*Obtain0Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WindowInfoService_Obtain1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Obtain1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WindowInfoServiceServer).Obtain1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WindowInfoService_Obtain1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WindowInfoServiceServer).Obtain1_1(ctx, req.(*Obtain1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// WindowInfoService_ServiceDesc is the grpc.ServiceDesc for WindowInfoService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var WindowInfoService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "accessibility.WindowInfoService",
+	HandlerType: (*WindowInfoServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewWindowInfo",
+			Handler:    _WindowInfoService_NewWindowInfo_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _WindowInfoService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _WindowInfoService_Equals_Handler,
+		},
+		{
+			MethodName: "GetAnchor",
+			Handler:    _WindowInfoService_GetAnchor_Handler,
+		},
+		{
+			MethodName: "GetBoundsInScreen",
+			Handler:    _WindowInfoService_GetBoundsInScreen_Handler,
+		},
+		{
+			MethodName: "GetChild",
+			Handler:    _WindowInfoService_GetChild_Handler,
+		},
+		{
+			MethodName: "GetChildCount",
+			Handler:    _WindowInfoService_GetChildCount_Handler,
+		},
+		{
+			MethodName: "GetDisplayId",
+			Handler:    _WindowInfoService_GetDisplayId_Handler,
+		},
+		{
+			MethodName: "GetId",
+			Handler:    _WindowInfoService_GetId_Handler,
+		},
+		{
+			MethodName: "GetLayer",
+			Handler:    _WindowInfoService_GetLayer_Handler,
+		},
+		{
+			MethodName: "GetLocales",
+			Handler:    _WindowInfoService_GetLocales_Handler,
+		},
+		{
+			MethodName: "GetParent",
+			Handler:    _WindowInfoService_GetParent_Handler,
+		},
+		{
+			MethodName: "GetRegionInScreen",
+			Handler:    _WindowInfoService_GetRegionInScreen_Handler,
+		},
+		{
+			MethodName: "GetRoot0",
+			Handler:    _WindowInfoService_GetRoot0_Handler,
+		},
+		{
+			MethodName: "GetRoot1_1",
+			Handler:    _WindowInfoService_GetRoot1_1_Handler,
+		},
+		{
+			MethodName: "GetTitle",
+			Handler:    _WindowInfoService_GetTitle_Handler,
+		},
+		{
+			MethodName: "GetTransitionTimeMillis",
+			Handler:    _WindowInfoService_GetTransitionTimeMillis_Handler,
+		},
+		{
+			MethodName: "GetType",
+			Handler:    _WindowInfoService_GetType_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _WindowInfoService_HashCode_Handler,
+		},
+		{
+			MethodName: "IsAccessibilityFocused",
+			Handler:    _WindowInfoService_IsAccessibilityFocused_Handler,
+		},
+		{
+			MethodName: "IsActive",
+			Handler:    _WindowInfoService_IsActive_Handler,
+		},
+		{
+			MethodName: "IsFocused",
+			Handler:    _WindowInfoService_IsFocused_Handler,
+		},
+		{
+			MethodName: "IsInPictureInPictureMode",
+			Handler:    _WindowInfoService_IsInPictureInPictureMode_Handler,
+		},
+		{
+			MethodName: "Recycle",
+			Handler:    _WindowInfoService_Recycle_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _WindowInfoService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _WindowInfoService_WriteToParcel_Handler,
+		},
+		{
+			MethodName: "Obtain0",
+			Handler:    _WindowInfoService_Obtain0_Handler,
+		},
+		{
+			MethodName: "Obtain1_1",
+			Handler:    _WindowInfoService_Obtain1_1_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/accessibility/accessibility.proto",
+}
+
+const (
+	NodeProviderService_AddExtraDataToAccessibilityNodeInfo_FullMethodName = "/accessibility.NodeProviderService/AddExtraDataToAccessibilityNodeInfo"
+	NodeProviderService_CreateAccessibilityNodeInfo_FullMethodName         = "/accessibility.NodeProviderService/CreateAccessibilityNodeInfo"
+	NodeProviderService_FindFocus_FullMethodName                           = "/accessibility.NodeProviderService/FindFocus"
+	NodeProviderService_PerformAction_FullMethodName                       = "/accessibility.NodeProviderService/PerformAction"
+)
+
+// NodeProviderServiceClient is the client API for NodeProviderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type NodeProviderServiceClient interface {
+	AddExtraDataToAccessibilityNodeInfo(ctx context.Context, in *AddExtraDataToAccessibilityNodeInfoRequest, opts ...grpc.CallOption) (*AddExtraDataToAccessibilityNodeInfoResponse, error)
+	CreateAccessibilityNodeInfo(ctx context.Context, in *CreateAccessibilityNodeInfoRequest, opts ...grpc.CallOption) (*CreateAccessibilityNodeInfoResponse, error)
+	FindFocus(ctx context.Context, in *NodeProviderFindFocusRequest, opts ...grpc.CallOption) (*FindFocusResponse, error)
+	PerformAction(ctx context.Context, in *PerformActionRequest, opts ...grpc.CallOption) (*PerformActionResponse, error)
+}
+
+type nodeProviderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewNodeProviderServiceClient(cc grpc.ClientConnInterface) NodeProviderServiceClient {
+	return &nodeProviderServiceClient{cc}
+}
+
+func (c *nodeProviderServiceClient) AddExtraDataToAccessibilityNodeInfo(ctx context.Context, in *AddExtraDataToAccessibilityNodeInfoRequest, opts ...grpc.CallOption) (*AddExtraDataToAccessibilityNodeInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddExtraDataToAccessibilityNodeInfoResponse)
+	err := c.cc.Invoke(ctx, NodeProviderService_AddExtraDataToAccessibilityNodeInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeProviderServiceClient) CreateAccessibilityNodeInfo(ctx context.Context, in *CreateAccessibilityNodeInfoRequest, opts ...grpc.CallOption) (*CreateAccessibilityNodeInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateAccessibilityNodeInfoResponse)
+	err := c.cc.Invoke(ctx, NodeProviderService_CreateAccessibilityNodeInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeProviderServiceClient) FindFocus(ctx context.Context, in *NodeProviderFindFocusRequest, opts ...grpc.CallOption) (*FindFocusResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(FindFocusResponse)
+	err := c.cc.Invoke(ctx, NodeProviderService_FindFocus_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nodeProviderServiceClient) PerformAction(ctx context.Context, in *PerformActionRequest, opts ...grpc.CallOption) (*PerformActionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(PerformActionResponse)
+	err := c.cc.Invoke(ctx, NodeProviderService_PerformAction_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// NodeProviderServiceServer is the server API for NodeProviderService service.
+// All implementations must embed UnimplementedNodeProviderServiceServer
+// for forward compatibility.
+type NodeProviderServiceServer interface {
+	AddExtraDataToAccessibilityNodeInfo(context.Context, *AddExtraDataToAccessibilityNodeInfoRequest) (*AddExtraDataToAccessibilityNodeInfoResponse, error)
+	CreateAccessibilityNodeInfo(context.Context, *CreateAccessibilityNodeInfoRequest) (*CreateAccessibilityNodeInfoResponse, error)
+	FindFocus(context.Context, *NodeProviderFindFocusRequest) (*FindFocusResponse, error)
+	PerformAction(context.Context, *PerformActionRequest) (*PerformActionResponse, error)
+	mustEmbedUnimplementedNodeProviderServiceServer()
+}
+
+// UnimplementedNodeProviderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedNodeProviderServiceServer struct{}
+
+func (UnimplementedNodeProviderServiceServer) AddExtraDataToAccessibilityNodeInfo(context.Context, *AddExtraDataToAccessibilityNodeInfoRequest) (*AddExtraDataToAccessibilityNodeInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddExtraDataToAccessibilityNodeInfo not implemented")
+}
+func (UnimplementedNodeProviderServiceServer) CreateAccessibilityNodeInfo(context.Context, *CreateAccessibilityNodeInfoRequest) (*CreateAccessibilityNodeInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CreateAccessibilityNodeInfo not implemented")
+}
+func (UnimplementedNodeProviderServiceServer) FindFocus(context.Context, *NodeProviderFindFocusRequest) (*FindFocusResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method FindFocus not implemented")
+}
+func (UnimplementedNodeProviderServiceServer) PerformAction(context.Context, *PerformActionRequest) (*PerformActionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method PerformAction not implemented")
+}
+func (UnimplementedNodeProviderServiceServer) mustEmbedUnimplementedNodeProviderServiceServer() {}
+func (UnimplementedNodeProviderServiceServer) testEmbeddedByValue()                             {}
+
+// UnsafeNodeProviderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to NodeProviderServiceServer will
+// result in compilation errors.
+type UnsafeNodeProviderServiceServer interface {
+	mustEmbedUnimplementedNodeProviderServiceServer()
+}
+
+func RegisterNodeProviderServiceServer(s grpc.ServiceRegistrar, srv NodeProviderServiceServer) {
+	// If the following call panics, it indicates UnimplementedNodeProviderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&NodeProviderService_ServiceDesc, srv)
+}
+
+func _NodeProviderService_AddExtraDataToAccessibilityNodeInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddExtraDataToAccessibilityNodeInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeProviderServiceServer).AddExtraDataToAccessibilityNodeInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeProviderService_AddExtraDataToAccessibilityNodeInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeProviderServiceServer).AddExtraDataToAccessibilityNodeInfo(ctx, req.(*AddExtraDataToAccessibilityNodeInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeProviderService_CreateAccessibilityNodeInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateAccessibilityNodeInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeProviderServiceServer).CreateAccessibilityNodeInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeProviderService_CreateAccessibilityNodeInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeProviderServiceServer).CreateAccessibilityNodeInfo(ctx, req.(*CreateAccessibilityNodeInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeProviderService_FindFocus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NodeProviderFindFocusRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeProviderServiceServer).FindFocus(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeProviderService_FindFocus_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeProviderServiceServer).FindFocus(ctx, req.(*NodeProviderFindFocusRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NodeProviderService_PerformAction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PerformActionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeProviderServiceServer).PerformAction(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NodeProviderService_PerformAction_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeProviderServiceServer).PerformAction(ctx, req.(*PerformActionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// NodeProviderService_ServiceDesc is the grpc.ServiceDesc for NodeProviderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var NodeProviderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "accessibility.NodeProviderService",
+	HandlerType: (*NodeProviderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "AddExtraDataToAccessibilityNodeInfo",
+			Handler:    _NodeProviderService_AddExtraDataToAccessibilityNodeInfo_Handler,
+		},
+		{
+			MethodName: "CreateAccessibilityNodeInfo",
+			Handler:    _NodeProviderService_CreateAccessibilityNodeInfo_Handler,
+		},
+		{
+			MethodName: "FindFocus",
+			Handler:    _NodeProviderService_FindFocus_Handler,
+		},
+		{
+			MethodName: "PerformAction",
+			Handler:    _NodeProviderService_PerformAction_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/accessibility/accessibility.proto",
+}
+
+const (
 	CaptioningManagerService_AddCaptioningChangeListener_FullMethodName      = "/accessibility.CaptioningManagerService/AddCaptioningChangeListener"
 	CaptioningManagerService_GetFontScale_FullMethodName                     = "/accessibility.CaptioningManagerService/GetFontScale"
 	CaptioningManagerService_GetLocale_FullMethodName                        = "/accessibility.CaptioningManagerService/GetLocale"
@@ -41,7 +12140,7 @@ type CaptioningManagerServiceClient interface {
 	GetLocale(ctx context.Context, in *GetLocaleRequest, opts ...grpc.CallOption) (*GetLocaleResponse, error)
 	GetUserStyle(ctx context.Context, in *GetUserStyleRequest, opts ...grpc.CallOption) (*GetUserStyleResponse, error)
 	IsCallCaptioningEnabled(ctx context.Context, in *IsCallCaptioningEnabledRequest, opts ...grpc.CallOption) (*IsCallCaptioningEnabledResponse, error)
-	IsEnabled(ctx context.Context, in *IsEnabledRequest, opts ...grpc.CallOption) (*IsEnabledResponse, error)
+	IsEnabled(ctx context.Context, in *CaptioningManagerIsEnabledRequest, opts ...grpc.CallOption) (*IsEnabledResponse, error)
 	IsSystemAudioCaptioningEnabled(ctx context.Context, in *IsSystemAudioCaptioningEnabledRequest, opts ...grpc.CallOption) (*IsSystemAudioCaptioningEnabledResponse, error)
 	IsSystemAudioCaptioningUiEnabled(ctx context.Context, in *IsSystemAudioCaptioningUiEnabledRequest, opts ...grpc.CallOption) (*IsSystemAudioCaptioningUiEnabledResponse, error)
 	RemoveCaptioningChangeListener(ctx context.Context, in *RemoveCaptioningChangeListenerRequest, opts ...grpc.CallOption) (*RemoveCaptioningChangeListenerResponse, error)
@@ -105,7 +12204,7 @@ func (c *captioningManagerServiceClient) IsCallCaptioningEnabled(ctx context.Con
 	return out, nil
 }
 
-func (c *captioningManagerServiceClient) IsEnabled(ctx context.Context, in *IsEnabledRequest, opts ...grpc.CallOption) (*IsEnabledResponse, error) {
+func (c *captioningManagerServiceClient) IsEnabled(ctx context.Context, in *CaptioningManagerIsEnabledRequest, opts ...grpc.CallOption) (*IsEnabledResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsEnabledResponse)
 	err := c.cc.Invoke(ctx, CaptioningManagerService_IsEnabled_FullMethodName, in, out, cOpts...)
@@ -154,7 +12253,7 @@ type CaptioningManagerServiceServer interface {
 	GetLocale(context.Context, *GetLocaleRequest) (*GetLocaleResponse, error)
 	GetUserStyle(context.Context, *GetUserStyleRequest) (*GetUserStyleResponse, error)
 	IsCallCaptioningEnabled(context.Context, *IsCallCaptioningEnabledRequest) (*IsCallCaptioningEnabledResponse, error)
-	IsEnabled(context.Context, *IsEnabledRequest) (*IsEnabledResponse, error)
+	IsEnabled(context.Context, *CaptioningManagerIsEnabledRequest) (*IsEnabledResponse, error)
 	IsSystemAudioCaptioningEnabled(context.Context, *IsSystemAudioCaptioningEnabledRequest) (*IsSystemAudioCaptioningEnabledResponse, error)
 	IsSystemAudioCaptioningUiEnabled(context.Context, *IsSystemAudioCaptioningUiEnabledRequest) (*IsSystemAudioCaptioningUiEnabledResponse, error)
 	RemoveCaptioningChangeListener(context.Context, *RemoveCaptioningChangeListenerRequest) (*RemoveCaptioningChangeListenerResponse, error)
@@ -183,7 +12282,7 @@ func (UnimplementedCaptioningManagerServiceServer) GetUserStyle(context.Context,
 func (UnimplementedCaptioningManagerServiceServer) IsCallCaptioningEnabled(context.Context, *IsCallCaptioningEnabledRequest) (*IsCallCaptioningEnabledResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsCallCaptioningEnabled not implemented")
 }
-func (UnimplementedCaptioningManagerServiceServer) IsEnabled(context.Context, *IsEnabledRequest) (*IsEnabledResponse, error) {
+func (UnimplementedCaptioningManagerServiceServer) IsEnabled(context.Context, *CaptioningManagerIsEnabledRequest) (*IsEnabledResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsEnabled not implemented")
 }
 func (UnimplementedCaptioningManagerServiceServer) IsSystemAudioCaptioningEnabled(context.Context, *IsSystemAudioCaptioningEnabledRequest) (*IsSystemAudioCaptioningEnabledResponse, error) {
@@ -308,7 +12407,7 @@ func _CaptioningManagerService_IsCallCaptioningEnabled_Handler(srv interface{}, 
 }
 
 func _CaptioningManagerService_IsEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsEnabledRequest)
+	in := new(CaptioningManagerIsEnabledRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -320,7 +12419,7 @@ func _CaptioningManagerService_IsEnabled_Handler(srv interface{}, ctx context.Co
 		FullMethod: CaptioningManagerService_IsEnabled_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CaptioningManagerServiceServer).IsEnabled(ctx, req.(*IsEnabledRequest))
+		return srv.(CaptioningManagerServiceServer).IsEnabled(ctx, req.(*CaptioningManagerIsEnabledRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -428,6 +12527,592 @@ var CaptioningManagerService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
+	CaptioningManagerCaptionStyleService_GetTypeface_FullMethodName        = "/accessibility.CaptioningManagerCaptionStyleService/GetTypeface"
+	CaptioningManagerCaptionStyleService_HasBackgroundColor_FullMethodName = "/accessibility.CaptioningManagerCaptionStyleService/HasBackgroundColor"
+	CaptioningManagerCaptionStyleService_HasEdgeColor_FullMethodName       = "/accessibility.CaptioningManagerCaptionStyleService/HasEdgeColor"
+	CaptioningManagerCaptionStyleService_HasEdgeType_FullMethodName        = "/accessibility.CaptioningManagerCaptionStyleService/HasEdgeType"
+	CaptioningManagerCaptionStyleService_HasForegroundColor_FullMethodName = "/accessibility.CaptioningManagerCaptionStyleService/HasForegroundColor"
+	CaptioningManagerCaptionStyleService_HasWindowColor_FullMethodName     = "/accessibility.CaptioningManagerCaptionStyleService/HasWindowColor"
+)
+
+// CaptioningManagerCaptionStyleServiceClient is the client API for CaptioningManagerCaptionStyleService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type CaptioningManagerCaptionStyleServiceClient interface {
+	GetTypeface(ctx context.Context, in *GetTypefaceRequest, opts ...grpc.CallOption) (*GetTypefaceResponse, error)
+	HasBackgroundColor(ctx context.Context, in *HasBackgroundColorRequest, opts ...grpc.CallOption) (*HasBackgroundColorResponse, error)
+	HasEdgeColor(ctx context.Context, in *HasEdgeColorRequest, opts ...grpc.CallOption) (*HasEdgeColorResponse, error)
+	HasEdgeType(ctx context.Context, in *HasEdgeTypeRequest, opts ...grpc.CallOption) (*HasEdgeTypeResponse, error)
+	HasForegroundColor(ctx context.Context, in *HasForegroundColorRequest, opts ...grpc.CallOption) (*HasForegroundColorResponse, error)
+	HasWindowColor(ctx context.Context, in *HasWindowColorRequest, opts ...grpc.CallOption) (*HasWindowColorResponse, error)
+}
+
+type captioningManagerCaptionStyleServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewCaptioningManagerCaptionStyleServiceClient(cc grpc.ClientConnInterface) CaptioningManagerCaptionStyleServiceClient {
+	return &captioningManagerCaptionStyleServiceClient{cc}
+}
+
+func (c *captioningManagerCaptionStyleServiceClient) GetTypeface(ctx context.Context, in *GetTypefaceRequest, opts ...grpc.CallOption) (*GetTypefaceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTypefaceResponse)
+	err := c.cc.Invoke(ctx, CaptioningManagerCaptionStyleService_GetTypeface_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *captioningManagerCaptionStyleServiceClient) HasBackgroundColor(ctx context.Context, in *HasBackgroundColorRequest, opts ...grpc.CallOption) (*HasBackgroundColorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HasBackgroundColorResponse)
+	err := c.cc.Invoke(ctx, CaptioningManagerCaptionStyleService_HasBackgroundColor_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *captioningManagerCaptionStyleServiceClient) HasEdgeColor(ctx context.Context, in *HasEdgeColorRequest, opts ...grpc.CallOption) (*HasEdgeColorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HasEdgeColorResponse)
+	err := c.cc.Invoke(ctx, CaptioningManagerCaptionStyleService_HasEdgeColor_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *captioningManagerCaptionStyleServiceClient) HasEdgeType(ctx context.Context, in *HasEdgeTypeRequest, opts ...grpc.CallOption) (*HasEdgeTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HasEdgeTypeResponse)
+	err := c.cc.Invoke(ctx, CaptioningManagerCaptionStyleService_HasEdgeType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *captioningManagerCaptionStyleServiceClient) HasForegroundColor(ctx context.Context, in *HasForegroundColorRequest, opts ...grpc.CallOption) (*HasForegroundColorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HasForegroundColorResponse)
+	err := c.cc.Invoke(ctx, CaptioningManagerCaptionStyleService_HasForegroundColor_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *captioningManagerCaptionStyleServiceClient) HasWindowColor(ctx context.Context, in *HasWindowColorRequest, opts ...grpc.CallOption) (*HasWindowColorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HasWindowColorResponse)
+	err := c.cc.Invoke(ctx, CaptioningManagerCaptionStyleService_HasWindowColor_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// CaptioningManagerCaptionStyleServiceServer is the server API for CaptioningManagerCaptionStyleService service.
+// All implementations must embed UnimplementedCaptioningManagerCaptionStyleServiceServer
+// for forward compatibility.
+type CaptioningManagerCaptionStyleServiceServer interface {
+	GetTypeface(context.Context, *GetTypefaceRequest) (*GetTypefaceResponse, error)
+	HasBackgroundColor(context.Context, *HasBackgroundColorRequest) (*HasBackgroundColorResponse, error)
+	HasEdgeColor(context.Context, *HasEdgeColorRequest) (*HasEdgeColorResponse, error)
+	HasEdgeType(context.Context, *HasEdgeTypeRequest) (*HasEdgeTypeResponse, error)
+	HasForegroundColor(context.Context, *HasForegroundColorRequest) (*HasForegroundColorResponse, error)
+	HasWindowColor(context.Context, *HasWindowColorRequest) (*HasWindowColorResponse, error)
+	mustEmbedUnimplementedCaptioningManagerCaptionStyleServiceServer()
+}
+
+// UnimplementedCaptioningManagerCaptionStyleServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedCaptioningManagerCaptionStyleServiceServer struct{}
+
+func (UnimplementedCaptioningManagerCaptionStyleServiceServer) GetTypeface(context.Context, *GetTypefaceRequest) (*GetTypefaceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTypeface not implemented")
+}
+func (UnimplementedCaptioningManagerCaptionStyleServiceServer) HasBackgroundColor(context.Context, *HasBackgroundColorRequest) (*HasBackgroundColorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HasBackgroundColor not implemented")
+}
+func (UnimplementedCaptioningManagerCaptionStyleServiceServer) HasEdgeColor(context.Context, *HasEdgeColorRequest) (*HasEdgeColorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HasEdgeColor not implemented")
+}
+func (UnimplementedCaptioningManagerCaptionStyleServiceServer) HasEdgeType(context.Context, *HasEdgeTypeRequest) (*HasEdgeTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HasEdgeType not implemented")
+}
+func (UnimplementedCaptioningManagerCaptionStyleServiceServer) HasForegroundColor(context.Context, *HasForegroundColorRequest) (*HasForegroundColorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HasForegroundColor not implemented")
+}
+func (UnimplementedCaptioningManagerCaptionStyleServiceServer) HasWindowColor(context.Context, *HasWindowColorRequest) (*HasWindowColorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HasWindowColor not implemented")
+}
+func (UnimplementedCaptioningManagerCaptionStyleServiceServer) mustEmbedUnimplementedCaptioningManagerCaptionStyleServiceServer() {
+}
+func (UnimplementedCaptioningManagerCaptionStyleServiceServer) testEmbeddedByValue() {}
+
+// UnsafeCaptioningManagerCaptionStyleServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CaptioningManagerCaptionStyleServiceServer will
+// result in compilation errors.
+type UnsafeCaptioningManagerCaptionStyleServiceServer interface {
+	mustEmbedUnimplementedCaptioningManagerCaptionStyleServiceServer()
+}
+
+func RegisterCaptioningManagerCaptionStyleServiceServer(s grpc.ServiceRegistrar, srv CaptioningManagerCaptionStyleServiceServer) {
+	// If the following call panics, it indicates UnimplementedCaptioningManagerCaptionStyleServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&CaptioningManagerCaptionStyleService_ServiceDesc, srv)
+}
+
+func _CaptioningManagerCaptionStyleService_GetTypeface_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTypefaceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CaptioningManagerCaptionStyleServiceServer).GetTypeface(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CaptioningManagerCaptionStyleService_GetTypeface_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CaptioningManagerCaptionStyleServiceServer).GetTypeface(ctx, req.(*GetTypefaceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CaptioningManagerCaptionStyleService_HasBackgroundColor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HasBackgroundColorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CaptioningManagerCaptionStyleServiceServer).HasBackgroundColor(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CaptioningManagerCaptionStyleService_HasBackgroundColor_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CaptioningManagerCaptionStyleServiceServer).HasBackgroundColor(ctx, req.(*HasBackgroundColorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CaptioningManagerCaptionStyleService_HasEdgeColor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HasEdgeColorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CaptioningManagerCaptionStyleServiceServer).HasEdgeColor(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CaptioningManagerCaptionStyleService_HasEdgeColor_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CaptioningManagerCaptionStyleServiceServer).HasEdgeColor(ctx, req.(*HasEdgeColorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CaptioningManagerCaptionStyleService_HasEdgeType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HasEdgeTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CaptioningManagerCaptionStyleServiceServer).HasEdgeType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CaptioningManagerCaptionStyleService_HasEdgeType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CaptioningManagerCaptionStyleServiceServer).HasEdgeType(ctx, req.(*HasEdgeTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CaptioningManagerCaptionStyleService_HasForegroundColor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HasForegroundColorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CaptioningManagerCaptionStyleServiceServer).HasForegroundColor(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CaptioningManagerCaptionStyleService_HasForegroundColor_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CaptioningManagerCaptionStyleServiceServer).HasForegroundColor(ctx, req.(*HasForegroundColorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CaptioningManagerCaptionStyleService_HasWindowColor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HasWindowColorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CaptioningManagerCaptionStyleServiceServer).HasWindowColor(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CaptioningManagerCaptionStyleService_HasWindowColor_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CaptioningManagerCaptionStyleServiceServer).HasWindowColor(ctx, req.(*HasWindowColorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// CaptioningManagerCaptionStyleService_ServiceDesc is the grpc.ServiceDesc for CaptioningManagerCaptionStyleService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var CaptioningManagerCaptionStyleService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "accessibility.CaptioningManagerCaptionStyleService",
+	HandlerType: (*CaptioningManagerCaptionStyleServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetTypeface",
+			Handler:    _CaptioningManagerCaptionStyleService_GetTypeface_Handler,
+		},
+		{
+			MethodName: "HasBackgroundColor",
+			Handler:    _CaptioningManagerCaptionStyleService_HasBackgroundColor_Handler,
+		},
+		{
+			MethodName: "HasEdgeColor",
+			Handler:    _CaptioningManagerCaptionStyleService_HasEdgeColor_Handler,
+		},
+		{
+			MethodName: "HasEdgeType",
+			Handler:    _CaptioningManagerCaptionStyleService_HasEdgeType_Handler,
+		},
+		{
+			MethodName: "HasForegroundColor",
+			Handler:    _CaptioningManagerCaptionStyleService_HasForegroundColor_Handler,
+		},
+		{
+			MethodName: "HasWindowColor",
+			Handler:    _CaptioningManagerCaptionStyleService_HasWindowColor_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/accessibility/accessibility.proto",
+}
+
+const (
+	CaptioningManagerCaptioningChangeListenerService_OnEnabledChanged_FullMethodName                 = "/accessibility.CaptioningManagerCaptioningChangeListenerService/OnEnabledChanged"
+	CaptioningManagerCaptioningChangeListenerService_OnFontScaleChanged_FullMethodName               = "/accessibility.CaptioningManagerCaptioningChangeListenerService/OnFontScaleChanged"
+	CaptioningManagerCaptioningChangeListenerService_OnLocaleChanged_FullMethodName                  = "/accessibility.CaptioningManagerCaptioningChangeListenerService/OnLocaleChanged"
+	CaptioningManagerCaptioningChangeListenerService_OnSystemAudioCaptioningChanged_FullMethodName   = "/accessibility.CaptioningManagerCaptioningChangeListenerService/OnSystemAudioCaptioningChanged"
+	CaptioningManagerCaptioningChangeListenerService_OnSystemAudioCaptioningUiChanged_FullMethodName = "/accessibility.CaptioningManagerCaptioningChangeListenerService/OnSystemAudioCaptioningUiChanged"
+	CaptioningManagerCaptioningChangeListenerService_OnUserStyleChanged_FullMethodName               = "/accessibility.CaptioningManagerCaptioningChangeListenerService/OnUserStyleChanged"
+)
+
+// CaptioningManagerCaptioningChangeListenerServiceClient is the client API for CaptioningManagerCaptioningChangeListenerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type CaptioningManagerCaptioningChangeListenerServiceClient interface {
+	OnEnabledChanged(ctx context.Context, in *OnEnabledChangedRequest, opts ...grpc.CallOption) (*OnEnabledChangedResponse, error)
+	OnFontScaleChanged(ctx context.Context, in *OnFontScaleChangedRequest, opts ...grpc.CallOption) (*OnFontScaleChangedResponse, error)
+	OnLocaleChanged(ctx context.Context, in *OnLocaleChangedRequest, opts ...grpc.CallOption) (*OnLocaleChangedResponse, error)
+	OnSystemAudioCaptioningChanged(ctx context.Context, in *OnSystemAudioCaptioningChangedRequest, opts ...grpc.CallOption) (*OnSystemAudioCaptioningChangedResponse, error)
+	OnSystemAudioCaptioningUiChanged(ctx context.Context, in *OnSystemAudioCaptioningUiChangedRequest, opts ...grpc.CallOption) (*OnSystemAudioCaptioningUiChangedResponse, error)
+	OnUserStyleChanged(ctx context.Context, in *OnUserStyleChangedRequest, opts ...grpc.CallOption) (*OnUserStyleChangedResponse, error)
+}
+
+type captioningManagerCaptioningChangeListenerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewCaptioningManagerCaptioningChangeListenerServiceClient(cc grpc.ClientConnInterface) CaptioningManagerCaptioningChangeListenerServiceClient {
+	return &captioningManagerCaptioningChangeListenerServiceClient{cc}
+}
+
+func (c *captioningManagerCaptioningChangeListenerServiceClient) OnEnabledChanged(ctx context.Context, in *OnEnabledChangedRequest, opts ...grpc.CallOption) (*OnEnabledChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnEnabledChangedResponse)
+	err := c.cc.Invoke(ctx, CaptioningManagerCaptioningChangeListenerService_OnEnabledChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *captioningManagerCaptioningChangeListenerServiceClient) OnFontScaleChanged(ctx context.Context, in *OnFontScaleChangedRequest, opts ...grpc.CallOption) (*OnFontScaleChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnFontScaleChangedResponse)
+	err := c.cc.Invoke(ctx, CaptioningManagerCaptioningChangeListenerService_OnFontScaleChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *captioningManagerCaptioningChangeListenerServiceClient) OnLocaleChanged(ctx context.Context, in *OnLocaleChangedRequest, opts ...grpc.CallOption) (*OnLocaleChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnLocaleChangedResponse)
+	err := c.cc.Invoke(ctx, CaptioningManagerCaptioningChangeListenerService_OnLocaleChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *captioningManagerCaptioningChangeListenerServiceClient) OnSystemAudioCaptioningChanged(ctx context.Context, in *OnSystemAudioCaptioningChangedRequest, opts ...grpc.CallOption) (*OnSystemAudioCaptioningChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnSystemAudioCaptioningChangedResponse)
+	err := c.cc.Invoke(ctx, CaptioningManagerCaptioningChangeListenerService_OnSystemAudioCaptioningChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *captioningManagerCaptioningChangeListenerServiceClient) OnSystemAudioCaptioningUiChanged(ctx context.Context, in *OnSystemAudioCaptioningUiChangedRequest, opts ...grpc.CallOption) (*OnSystemAudioCaptioningUiChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnSystemAudioCaptioningUiChangedResponse)
+	err := c.cc.Invoke(ctx, CaptioningManagerCaptioningChangeListenerService_OnSystemAudioCaptioningUiChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *captioningManagerCaptioningChangeListenerServiceClient) OnUserStyleChanged(ctx context.Context, in *OnUserStyleChangedRequest, opts ...grpc.CallOption) (*OnUserStyleChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnUserStyleChangedResponse)
+	err := c.cc.Invoke(ctx, CaptioningManagerCaptioningChangeListenerService_OnUserStyleChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// CaptioningManagerCaptioningChangeListenerServiceServer is the server API for CaptioningManagerCaptioningChangeListenerService service.
+// All implementations must embed UnimplementedCaptioningManagerCaptioningChangeListenerServiceServer
+// for forward compatibility.
+type CaptioningManagerCaptioningChangeListenerServiceServer interface {
+	OnEnabledChanged(context.Context, *OnEnabledChangedRequest) (*OnEnabledChangedResponse, error)
+	OnFontScaleChanged(context.Context, *OnFontScaleChangedRequest) (*OnFontScaleChangedResponse, error)
+	OnLocaleChanged(context.Context, *OnLocaleChangedRequest) (*OnLocaleChangedResponse, error)
+	OnSystemAudioCaptioningChanged(context.Context, *OnSystemAudioCaptioningChangedRequest) (*OnSystemAudioCaptioningChangedResponse, error)
+	OnSystemAudioCaptioningUiChanged(context.Context, *OnSystemAudioCaptioningUiChangedRequest) (*OnSystemAudioCaptioningUiChangedResponse, error)
+	OnUserStyleChanged(context.Context, *OnUserStyleChangedRequest) (*OnUserStyleChangedResponse, error)
+	mustEmbedUnimplementedCaptioningManagerCaptioningChangeListenerServiceServer()
+}
+
+// UnimplementedCaptioningManagerCaptioningChangeListenerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedCaptioningManagerCaptioningChangeListenerServiceServer struct{}
+
+func (UnimplementedCaptioningManagerCaptioningChangeListenerServiceServer) OnEnabledChanged(context.Context, *OnEnabledChangedRequest) (*OnEnabledChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnEnabledChanged not implemented")
+}
+func (UnimplementedCaptioningManagerCaptioningChangeListenerServiceServer) OnFontScaleChanged(context.Context, *OnFontScaleChangedRequest) (*OnFontScaleChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnFontScaleChanged not implemented")
+}
+func (UnimplementedCaptioningManagerCaptioningChangeListenerServiceServer) OnLocaleChanged(context.Context, *OnLocaleChangedRequest) (*OnLocaleChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnLocaleChanged not implemented")
+}
+func (UnimplementedCaptioningManagerCaptioningChangeListenerServiceServer) OnSystemAudioCaptioningChanged(context.Context, *OnSystemAudioCaptioningChangedRequest) (*OnSystemAudioCaptioningChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnSystemAudioCaptioningChanged not implemented")
+}
+func (UnimplementedCaptioningManagerCaptioningChangeListenerServiceServer) OnSystemAudioCaptioningUiChanged(context.Context, *OnSystemAudioCaptioningUiChangedRequest) (*OnSystemAudioCaptioningUiChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnSystemAudioCaptioningUiChanged not implemented")
+}
+func (UnimplementedCaptioningManagerCaptioningChangeListenerServiceServer) OnUserStyleChanged(context.Context, *OnUserStyleChangedRequest) (*OnUserStyleChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnUserStyleChanged not implemented")
+}
+func (UnimplementedCaptioningManagerCaptioningChangeListenerServiceServer) mustEmbedUnimplementedCaptioningManagerCaptioningChangeListenerServiceServer() {
+}
+func (UnimplementedCaptioningManagerCaptioningChangeListenerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeCaptioningManagerCaptioningChangeListenerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CaptioningManagerCaptioningChangeListenerServiceServer will
+// result in compilation errors.
+type UnsafeCaptioningManagerCaptioningChangeListenerServiceServer interface {
+	mustEmbedUnimplementedCaptioningManagerCaptioningChangeListenerServiceServer()
+}
+
+func RegisterCaptioningManagerCaptioningChangeListenerServiceServer(s grpc.ServiceRegistrar, srv CaptioningManagerCaptioningChangeListenerServiceServer) {
+	// If the following call panics, it indicates UnimplementedCaptioningManagerCaptioningChangeListenerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&CaptioningManagerCaptioningChangeListenerService_ServiceDesc, srv)
+}
+
+func _CaptioningManagerCaptioningChangeListenerService_OnEnabledChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnEnabledChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CaptioningManagerCaptioningChangeListenerServiceServer).OnEnabledChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CaptioningManagerCaptioningChangeListenerService_OnEnabledChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CaptioningManagerCaptioningChangeListenerServiceServer).OnEnabledChanged(ctx, req.(*OnEnabledChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CaptioningManagerCaptioningChangeListenerService_OnFontScaleChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnFontScaleChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CaptioningManagerCaptioningChangeListenerServiceServer).OnFontScaleChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CaptioningManagerCaptioningChangeListenerService_OnFontScaleChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CaptioningManagerCaptioningChangeListenerServiceServer).OnFontScaleChanged(ctx, req.(*OnFontScaleChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CaptioningManagerCaptioningChangeListenerService_OnLocaleChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnLocaleChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CaptioningManagerCaptioningChangeListenerServiceServer).OnLocaleChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CaptioningManagerCaptioningChangeListenerService_OnLocaleChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CaptioningManagerCaptioningChangeListenerServiceServer).OnLocaleChanged(ctx, req.(*OnLocaleChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CaptioningManagerCaptioningChangeListenerService_OnSystemAudioCaptioningChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnSystemAudioCaptioningChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CaptioningManagerCaptioningChangeListenerServiceServer).OnSystemAudioCaptioningChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CaptioningManagerCaptioningChangeListenerService_OnSystemAudioCaptioningChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CaptioningManagerCaptioningChangeListenerServiceServer).OnSystemAudioCaptioningChanged(ctx, req.(*OnSystemAudioCaptioningChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CaptioningManagerCaptioningChangeListenerService_OnSystemAudioCaptioningUiChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnSystemAudioCaptioningUiChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CaptioningManagerCaptioningChangeListenerServiceServer).OnSystemAudioCaptioningUiChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CaptioningManagerCaptioningChangeListenerService_OnSystemAudioCaptioningUiChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CaptioningManagerCaptioningChangeListenerServiceServer).OnSystemAudioCaptioningUiChanged(ctx, req.(*OnSystemAudioCaptioningUiChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CaptioningManagerCaptioningChangeListenerService_OnUserStyleChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnUserStyleChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CaptioningManagerCaptioningChangeListenerServiceServer).OnUserStyleChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CaptioningManagerCaptioningChangeListenerService_OnUserStyleChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CaptioningManagerCaptioningChangeListenerServiceServer).OnUserStyleChanged(ctx, req.(*OnUserStyleChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// CaptioningManagerCaptioningChangeListenerService_ServiceDesc is the grpc.ServiceDesc for CaptioningManagerCaptioningChangeListenerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var CaptioningManagerCaptioningChangeListenerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "accessibility.CaptioningManagerCaptioningChangeListenerService",
+	HandlerType: (*CaptioningManagerCaptioningChangeListenerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnEnabledChanged",
+			Handler:    _CaptioningManagerCaptioningChangeListenerService_OnEnabledChanged_Handler,
+		},
+		{
+			MethodName: "OnFontScaleChanged",
+			Handler:    _CaptioningManagerCaptioningChangeListenerService_OnFontScaleChanged_Handler,
+		},
+		{
+			MethodName: "OnLocaleChanged",
+			Handler:    _CaptioningManagerCaptioningChangeListenerService_OnLocaleChanged_Handler,
+		},
+		{
+			MethodName: "OnSystemAudioCaptioningChanged",
+			Handler:    _CaptioningManagerCaptioningChangeListenerService_OnSystemAudioCaptioningChanged_Handler,
+		},
+		{
+			MethodName: "OnSystemAudioCaptioningUiChanged",
+			Handler:    _CaptioningManagerCaptioningChangeListenerService_OnSystemAudioCaptioningUiChanged_Handler,
+		},
+		{
+			MethodName: "OnUserStyleChanged",
+			Handler:    _CaptioningManagerCaptioningChangeListenerService_OnUserStyleChanged_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/accessibility/accessibility.proto",
+}
+
+const (
 	ManagerService_AddAccessibilityRequestPreparer_FullMethodName                = "/accessibility.ManagerService/AddAccessibilityRequestPreparer"
 	ManagerService_AddAccessibilityServicesStateChangeListener1_FullMethodName   = "/accessibility.ManagerService/AddAccessibilityServicesStateChangeListener1"
 	ManagerService_AddAccessibilityServicesStateChangeListener2_1_FullMethodName = "/accessibility.ManagerService/AddAccessibilityServicesStateChangeListener2_1"
@@ -470,7 +13155,7 @@ type ManagerServiceClient interface {
 	GetRecommendedTimeoutMillis(ctx context.Context, in *GetRecommendedTimeoutMillisRequest, opts ...grpc.CallOption) (*GetRecommendedTimeoutMillisResponse, error)
 	Interrupt(ctx context.Context, in *InterruptRequest, opts ...grpc.CallOption) (*InterruptResponse, error)
 	IsAudioDescriptionRequested(ctx context.Context, in *IsAudioDescriptionRequestedRequest, opts ...grpc.CallOption) (*IsAudioDescriptionRequestedResponse, error)
-	IsEnabled(ctx context.Context, in *IsEnabledRequest, opts ...grpc.CallOption) (*IsEnabledResponse, error)
+	IsEnabled(ctx context.Context, in *ManagerIsEnabledRequest, opts ...grpc.CallOption) (*IsEnabledResponse, error)
 	IsHighContrastTextEnabled(ctx context.Context, in *IsHighContrastTextEnabledRequest, opts ...grpc.CallOption) (*IsHighContrastTextEnabledResponse, error)
 	IsRequestFromAccessibilityTool(ctx context.Context, in *IsRequestFromAccessibilityToolRequest, opts ...grpc.CallOption) (*IsRequestFromAccessibilityToolResponse, error)
 	IsTouchExplorationEnabled(ctx context.Context, in *IsTouchExplorationEnabledRequest, opts ...grpc.CallOption) (*IsTouchExplorationEnabledResponse, error)
@@ -480,7 +13165,7 @@ type ManagerServiceClient interface {
 	RemoveAudioDescriptionRequestedChangeListener(ctx context.Context, in *RemoveAudioDescriptionRequestedChangeListenerRequest, opts ...grpc.CallOption) (*RemoveAudioDescriptionRequestedChangeListenerResponse, error)
 	RemoveHighContrastTextStateChangeListener(ctx context.Context, in *RemoveHighContrastTextStateChangeListenerRequest, opts ...grpc.CallOption) (*RemoveHighContrastTextStateChangeListenerResponse, error)
 	RemoveTouchExplorationStateChangeListener(ctx context.Context, in *RemoveTouchExplorationStateChangeListenerRequest, opts ...grpc.CallOption) (*RemoveTouchExplorationStateChangeListenerResponse, error)
-	SendAccessibilityEvent(ctx context.Context, in *SendAccessibilityEventRequest, opts ...grpc.CallOption) (*SendAccessibilityEventResponse, error)
+	SendAccessibilityEvent(ctx context.Context, in *ManagerSendAccessibilityEventRequest, opts ...grpc.CallOption) (*SendAccessibilityEventResponse, error)
 	IsAccessibilityButtonSupported(ctx context.Context, in *IsAccessibilityButtonSupportedRequest, opts ...grpc.CallOption) (*IsAccessibilityButtonSupportedResponse, error)
 }
 
@@ -612,7 +13297,7 @@ func (c *managerServiceClient) IsAudioDescriptionRequested(ctx context.Context, 
 	return out, nil
 }
 
-func (c *managerServiceClient) IsEnabled(ctx context.Context, in *IsEnabledRequest, opts ...grpc.CallOption) (*IsEnabledResponse, error) {
+func (c *managerServiceClient) IsEnabled(ctx context.Context, in *ManagerIsEnabledRequest, opts ...grpc.CallOption) (*IsEnabledResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsEnabledResponse)
 	err := c.cc.Invoke(ctx, ManagerService_IsEnabled_FullMethodName, in, out, cOpts...)
@@ -712,7 +13397,7 @@ func (c *managerServiceClient) RemoveTouchExplorationStateChangeListener(ctx con
 	return out, nil
 }
 
-func (c *managerServiceClient) SendAccessibilityEvent(ctx context.Context, in *SendAccessibilityEventRequest, opts ...grpc.CallOption) (*SendAccessibilityEventResponse, error) {
+func (c *managerServiceClient) SendAccessibilityEvent(ctx context.Context, in *ManagerSendAccessibilityEventRequest, opts ...grpc.CallOption) (*SendAccessibilityEventResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(SendAccessibilityEventResponse)
 	err := c.cc.Invoke(ctx, ManagerService_SendAccessibilityEvent_FullMethodName, in, out, cOpts...)
@@ -748,7 +13433,7 @@ type ManagerServiceServer interface {
 	GetRecommendedTimeoutMillis(context.Context, *GetRecommendedTimeoutMillisRequest) (*GetRecommendedTimeoutMillisResponse, error)
 	Interrupt(context.Context, *InterruptRequest) (*InterruptResponse, error)
 	IsAudioDescriptionRequested(context.Context, *IsAudioDescriptionRequestedRequest) (*IsAudioDescriptionRequestedResponse, error)
-	IsEnabled(context.Context, *IsEnabledRequest) (*IsEnabledResponse, error)
+	IsEnabled(context.Context, *ManagerIsEnabledRequest) (*IsEnabledResponse, error)
 	IsHighContrastTextEnabled(context.Context, *IsHighContrastTextEnabledRequest) (*IsHighContrastTextEnabledResponse, error)
 	IsRequestFromAccessibilityTool(context.Context, *IsRequestFromAccessibilityToolRequest) (*IsRequestFromAccessibilityToolResponse, error)
 	IsTouchExplorationEnabled(context.Context, *IsTouchExplorationEnabledRequest) (*IsTouchExplorationEnabledResponse, error)
@@ -758,7 +13443,7 @@ type ManagerServiceServer interface {
 	RemoveAudioDescriptionRequestedChangeListener(context.Context, *RemoveAudioDescriptionRequestedChangeListenerRequest) (*RemoveAudioDescriptionRequestedChangeListenerResponse, error)
 	RemoveHighContrastTextStateChangeListener(context.Context, *RemoveHighContrastTextStateChangeListenerRequest) (*RemoveHighContrastTextStateChangeListenerResponse, error)
 	RemoveTouchExplorationStateChangeListener(context.Context, *RemoveTouchExplorationStateChangeListenerRequest) (*RemoveTouchExplorationStateChangeListenerResponse, error)
-	SendAccessibilityEvent(context.Context, *SendAccessibilityEventRequest) (*SendAccessibilityEventResponse, error)
+	SendAccessibilityEvent(context.Context, *ManagerSendAccessibilityEventRequest) (*SendAccessibilityEventResponse, error)
 	IsAccessibilityButtonSupported(context.Context, *IsAccessibilityButtonSupportedRequest) (*IsAccessibilityButtonSupportedResponse, error)
 	mustEmbedUnimplementedManagerServiceServer()
 }
@@ -806,7 +13491,7 @@ func (UnimplementedManagerServiceServer) Interrupt(context.Context, *InterruptRe
 func (UnimplementedManagerServiceServer) IsAudioDescriptionRequested(context.Context, *IsAudioDescriptionRequestedRequest) (*IsAudioDescriptionRequestedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsAudioDescriptionRequested not implemented")
 }
-func (UnimplementedManagerServiceServer) IsEnabled(context.Context, *IsEnabledRequest) (*IsEnabledResponse, error) {
+func (UnimplementedManagerServiceServer) IsEnabled(context.Context, *ManagerIsEnabledRequest) (*IsEnabledResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsEnabled not implemented")
 }
 func (UnimplementedManagerServiceServer) IsHighContrastTextEnabled(context.Context, *IsHighContrastTextEnabledRequest) (*IsHighContrastTextEnabledResponse, error) {
@@ -836,7 +13521,7 @@ func (UnimplementedManagerServiceServer) RemoveHighContrastTextStateChangeListen
 func (UnimplementedManagerServiceServer) RemoveTouchExplorationStateChangeListener(context.Context, *RemoveTouchExplorationStateChangeListenerRequest) (*RemoveTouchExplorationStateChangeListenerResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method RemoveTouchExplorationStateChangeListener not implemented")
 }
-func (UnimplementedManagerServiceServer) SendAccessibilityEvent(context.Context, *SendAccessibilityEventRequest) (*SendAccessibilityEventResponse, error) {
+func (UnimplementedManagerServiceServer) SendAccessibilityEvent(context.Context, *ManagerSendAccessibilityEventRequest) (*SendAccessibilityEventResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method SendAccessibilityEvent not implemented")
 }
 func (UnimplementedManagerServiceServer) IsAccessibilityButtonSupported(context.Context, *IsAccessibilityButtonSupportedRequest) (*IsAccessibilityButtonSupportedResponse, error) {
@@ -1080,7 +13765,7 @@ func _ManagerService_IsAudioDescriptionRequested_Handler(srv interface{}, ctx co
 }
 
 func _ManagerService_IsEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsEnabledRequest)
+	in := new(ManagerIsEnabledRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -1092,7 +13777,7 @@ func _ManagerService_IsEnabled_Handler(srv interface{}, ctx context.Context, dec
 		FullMethod: ManagerService_IsEnabled_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).IsEnabled(ctx, req.(*IsEnabledRequest))
+		return srv.(ManagerServiceServer).IsEnabled(ctx, req.(*ManagerIsEnabledRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1260,7 +13945,7 @@ func _ManagerService_RemoveTouchExplorationStateChangeListener_Handler(srv inter
 }
 
 func _ManagerService_SendAccessibilityEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SendAccessibilityEventRequest)
+	in := new(ManagerSendAccessibilityEventRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -1272,7 +13957,7 @@ func _ManagerService_SendAccessibilityEvent_Handler(srv interface{}, ctx context
 		FullMethod: ManagerService_SendAccessibilityEvent_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).SendAccessibilityEvent(ctx, req.(*SendAccessibilityEventRequest))
+		return srv.(ManagerServiceServer).SendAccessibilityEvent(ctx, req.(*ManagerSendAccessibilityEventRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1397,6 +14082,1727 @@ var ManagerService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "IsAccessibilityButtonSupported",
 			Handler:    _ManagerService_IsAccessibilityButtonSupported_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/accessibility/accessibility.proto",
+}
+
+const (
+	ManagerAccessibilityServicesStateChangeListenerService_OnAccessibilityServicesStateChanged_FullMethodName = "/accessibility.ManagerAccessibilityServicesStateChangeListenerService/OnAccessibilityServicesStateChanged"
+)
+
+// ManagerAccessibilityServicesStateChangeListenerServiceClient is the client API for ManagerAccessibilityServicesStateChangeListenerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ManagerAccessibilityServicesStateChangeListenerServiceClient interface {
+	OnAccessibilityServicesStateChanged(ctx context.Context, in *OnAccessibilityServicesStateChangedRequest, opts ...grpc.CallOption) (*OnAccessibilityServicesStateChangedResponse, error)
+}
+
+type managerAccessibilityServicesStateChangeListenerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewManagerAccessibilityServicesStateChangeListenerServiceClient(cc grpc.ClientConnInterface) ManagerAccessibilityServicesStateChangeListenerServiceClient {
+	return &managerAccessibilityServicesStateChangeListenerServiceClient{cc}
+}
+
+func (c *managerAccessibilityServicesStateChangeListenerServiceClient) OnAccessibilityServicesStateChanged(ctx context.Context, in *OnAccessibilityServicesStateChangedRequest, opts ...grpc.CallOption) (*OnAccessibilityServicesStateChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnAccessibilityServicesStateChangedResponse)
+	err := c.cc.Invoke(ctx, ManagerAccessibilityServicesStateChangeListenerService_OnAccessibilityServicesStateChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ManagerAccessibilityServicesStateChangeListenerServiceServer is the server API for ManagerAccessibilityServicesStateChangeListenerService service.
+// All implementations must embed UnimplementedManagerAccessibilityServicesStateChangeListenerServiceServer
+// for forward compatibility.
+type ManagerAccessibilityServicesStateChangeListenerServiceServer interface {
+	OnAccessibilityServicesStateChanged(context.Context, *OnAccessibilityServicesStateChangedRequest) (*OnAccessibilityServicesStateChangedResponse, error)
+	mustEmbedUnimplementedManagerAccessibilityServicesStateChangeListenerServiceServer()
+}
+
+// UnimplementedManagerAccessibilityServicesStateChangeListenerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedManagerAccessibilityServicesStateChangeListenerServiceServer struct{}
+
+func (UnimplementedManagerAccessibilityServicesStateChangeListenerServiceServer) OnAccessibilityServicesStateChanged(context.Context, *OnAccessibilityServicesStateChangedRequest) (*OnAccessibilityServicesStateChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnAccessibilityServicesStateChanged not implemented")
+}
+func (UnimplementedManagerAccessibilityServicesStateChangeListenerServiceServer) mustEmbedUnimplementedManagerAccessibilityServicesStateChangeListenerServiceServer() {
+}
+func (UnimplementedManagerAccessibilityServicesStateChangeListenerServiceServer) testEmbeddedByValue() {
+}
+
+// UnsafeManagerAccessibilityServicesStateChangeListenerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ManagerAccessibilityServicesStateChangeListenerServiceServer will
+// result in compilation errors.
+type UnsafeManagerAccessibilityServicesStateChangeListenerServiceServer interface {
+	mustEmbedUnimplementedManagerAccessibilityServicesStateChangeListenerServiceServer()
+}
+
+func RegisterManagerAccessibilityServicesStateChangeListenerServiceServer(s grpc.ServiceRegistrar, srv ManagerAccessibilityServicesStateChangeListenerServiceServer) {
+	// If the following call panics, it indicates UnimplementedManagerAccessibilityServicesStateChangeListenerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ManagerAccessibilityServicesStateChangeListenerService_ServiceDesc, srv)
+}
+
+func _ManagerAccessibilityServicesStateChangeListenerService_OnAccessibilityServicesStateChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnAccessibilityServicesStateChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerAccessibilityServicesStateChangeListenerServiceServer).OnAccessibilityServicesStateChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerAccessibilityServicesStateChangeListenerService_OnAccessibilityServicesStateChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerAccessibilityServicesStateChangeListenerServiceServer).OnAccessibilityServicesStateChanged(ctx, req.(*OnAccessibilityServicesStateChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ManagerAccessibilityServicesStateChangeListenerService_ServiceDesc is the grpc.ServiceDesc for ManagerAccessibilityServicesStateChangeListenerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ManagerAccessibilityServicesStateChangeListenerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "accessibility.ManagerAccessibilityServicesStateChangeListenerService",
+	HandlerType: (*ManagerAccessibilityServicesStateChangeListenerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnAccessibilityServicesStateChanged",
+			Handler:    _ManagerAccessibilityServicesStateChangeListenerService_OnAccessibilityServicesStateChanged_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/accessibility/accessibility.proto",
+}
+
+const (
+	ManagerAccessibilityStateChangeListenerService_OnAccessibilityStateChanged_FullMethodName = "/accessibility.ManagerAccessibilityStateChangeListenerService/OnAccessibilityStateChanged"
+)
+
+// ManagerAccessibilityStateChangeListenerServiceClient is the client API for ManagerAccessibilityStateChangeListenerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ManagerAccessibilityStateChangeListenerServiceClient interface {
+	OnAccessibilityStateChanged(ctx context.Context, in *OnAccessibilityStateChangedRequest, opts ...grpc.CallOption) (*OnAccessibilityStateChangedResponse, error)
+}
+
+type managerAccessibilityStateChangeListenerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewManagerAccessibilityStateChangeListenerServiceClient(cc grpc.ClientConnInterface) ManagerAccessibilityStateChangeListenerServiceClient {
+	return &managerAccessibilityStateChangeListenerServiceClient{cc}
+}
+
+func (c *managerAccessibilityStateChangeListenerServiceClient) OnAccessibilityStateChanged(ctx context.Context, in *OnAccessibilityStateChangedRequest, opts ...grpc.CallOption) (*OnAccessibilityStateChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnAccessibilityStateChangedResponse)
+	err := c.cc.Invoke(ctx, ManagerAccessibilityStateChangeListenerService_OnAccessibilityStateChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ManagerAccessibilityStateChangeListenerServiceServer is the server API for ManagerAccessibilityStateChangeListenerService service.
+// All implementations must embed UnimplementedManagerAccessibilityStateChangeListenerServiceServer
+// for forward compatibility.
+type ManagerAccessibilityStateChangeListenerServiceServer interface {
+	OnAccessibilityStateChanged(context.Context, *OnAccessibilityStateChangedRequest) (*OnAccessibilityStateChangedResponse, error)
+	mustEmbedUnimplementedManagerAccessibilityStateChangeListenerServiceServer()
+}
+
+// UnimplementedManagerAccessibilityStateChangeListenerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedManagerAccessibilityStateChangeListenerServiceServer struct{}
+
+func (UnimplementedManagerAccessibilityStateChangeListenerServiceServer) OnAccessibilityStateChanged(context.Context, *OnAccessibilityStateChangedRequest) (*OnAccessibilityStateChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnAccessibilityStateChanged not implemented")
+}
+func (UnimplementedManagerAccessibilityStateChangeListenerServiceServer) mustEmbedUnimplementedManagerAccessibilityStateChangeListenerServiceServer() {
+}
+func (UnimplementedManagerAccessibilityStateChangeListenerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeManagerAccessibilityStateChangeListenerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ManagerAccessibilityStateChangeListenerServiceServer will
+// result in compilation errors.
+type UnsafeManagerAccessibilityStateChangeListenerServiceServer interface {
+	mustEmbedUnimplementedManagerAccessibilityStateChangeListenerServiceServer()
+}
+
+func RegisterManagerAccessibilityStateChangeListenerServiceServer(s grpc.ServiceRegistrar, srv ManagerAccessibilityStateChangeListenerServiceServer) {
+	// If the following call panics, it indicates UnimplementedManagerAccessibilityStateChangeListenerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ManagerAccessibilityStateChangeListenerService_ServiceDesc, srv)
+}
+
+func _ManagerAccessibilityStateChangeListenerService_OnAccessibilityStateChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnAccessibilityStateChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerAccessibilityStateChangeListenerServiceServer).OnAccessibilityStateChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerAccessibilityStateChangeListenerService_OnAccessibilityStateChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerAccessibilityStateChangeListenerServiceServer).OnAccessibilityStateChanged(ctx, req.(*OnAccessibilityStateChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ManagerAccessibilityStateChangeListenerService_ServiceDesc is the grpc.ServiceDesc for ManagerAccessibilityStateChangeListenerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ManagerAccessibilityStateChangeListenerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "accessibility.ManagerAccessibilityStateChangeListenerService",
+	HandlerType: (*ManagerAccessibilityStateChangeListenerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnAccessibilityStateChanged",
+			Handler:    _ManagerAccessibilityStateChangeListenerService_OnAccessibilityStateChanged_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/accessibility/accessibility.proto",
+}
+
+const (
+	ManagerAudioDescriptionRequestedChangeListenerService_OnAudioDescriptionRequestedChanged_FullMethodName = "/accessibility.ManagerAudioDescriptionRequestedChangeListenerService/OnAudioDescriptionRequestedChanged"
+)
+
+// ManagerAudioDescriptionRequestedChangeListenerServiceClient is the client API for ManagerAudioDescriptionRequestedChangeListenerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ManagerAudioDescriptionRequestedChangeListenerServiceClient interface {
+	OnAudioDescriptionRequestedChanged(ctx context.Context, in *OnAudioDescriptionRequestedChangedRequest, opts ...grpc.CallOption) (*OnAudioDescriptionRequestedChangedResponse, error)
+}
+
+type managerAudioDescriptionRequestedChangeListenerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewManagerAudioDescriptionRequestedChangeListenerServiceClient(cc grpc.ClientConnInterface) ManagerAudioDescriptionRequestedChangeListenerServiceClient {
+	return &managerAudioDescriptionRequestedChangeListenerServiceClient{cc}
+}
+
+func (c *managerAudioDescriptionRequestedChangeListenerServiceClient) OnAudioDescriptionRequestedChanged(ctx context.Context, in *OnAudioDescriptionRequestedChangedRequest, opts ...grpc.CallOption) (*OnAudioDescriptionRequestedChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnAudioDescriptionRequestedChangedResponse)
+	err := c.cc.Invoke(ctx, ManagerAudioDescriptionRequestedChangeListenerService_OnAudioDescriptionRequestedChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ManagerAudioDescriptionRequestedChangeListenerServiceServer is the server API for ManagerAudioDescriptionRequestedChangeListenerService service.
+// All implementations must embed UnimplementedManagerAudioDescriptionRequestedChangeListenerServiceServer
+// for forward compatibility.
+type ManagerAudioDescriptionRequestedChangeListenerServiceServer interface {
+	OnAudioDescriptionRequestedChanged(context.Context, *OnAudioDescriptionRequestedChangedRequest) (*OnAudioDescriptionRequestedChangedResponse, error)
+	mustEmbedUnimplementedManagerAudioDescriptionRequestedChangeListenerServiceServer()
+}
+
+// UnimplementedManagerAudioDescriptionRequestedChangeListenerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedManagerAudioDescriptionRequestedChangeListenerServiceServer struct{}
+
+func (UnimplementedManagerAudioDescriptionRequestedChangeListenerServiceServer) OnAudioDescriptionRequestedChanged(context.Context, *OnAudioDescriptionRequestedChangedRequest) (*OnAudioDescriptionRequestedChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnAudioDescriptionRequestedChanged not implemented")
+}
+func (UnimplementedManagerAudioDescriptionRequestedChangeListenerServiceServer) mustEmbedUnimplementedManagerAudioDescriptionRequestedChangeListenerServiceServer() {
+}
+func (UnimplementedManagerAudioDescriptionRequestedChangeListenerServiceServer) testEmbeddedByValue() {
+}
+
+// UnsafeManagerAudioDescriptionRequestedChangeListenerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ManagerAudioDescriptionRequestedChangeListenerServiceServer will
+// result in compilation errors.
+type UnsafeManagerAudioDescriptionRequestedChangeListenerServiceServer interface {
+	mustEmbedUnimplementedManagerAudioDescriptionRequestedChangeListenerServiceServer()
+}
+
+func RegisterManagerAudioDescriptionRequestedChangeListenerServiceServer(s grpc.ServiceRegistrar, srv ManagerAudioDescriptionRequestedChangeListenerServiceServer) {
+	// If the following call panics, it indicates UnimplementedManagerAudioDescriptionRequestedChangeListenerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ManagerAudioDescriptionRequestedChangeListenerService_ServiceDesc, srv)
+}
+
+func _ManagerAudioDescriptionRequestedChangeListenerService_OnAudioDescriptionRequestedChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnAudioDescriptionRequestedChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerAudioDescriptionRequestedChangeListenerServiceServer).OnAudioDescriptionRequestedChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerAudioDescriptionRequestedChangeListenerService_OnAudioDescriptionRequestedChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerAudioDescriptionRequestedChangeListenerServiceServer).OnAudioDescriptionRequestedChanged(ctx, req.(*OnAudioDescriptionRequestedChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ManagerAudioDescriptionRequestedChangeListenerService_ServiceDesc is the grpc.ServiceDesc for ManagerAudioDescriptionRequestedChangeListenerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ManagerAudioDescriptionRequestedChangeListenerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "accessibility.ManagerAudioDescriptionRequestedChangeListenerService",
+	HandlerType: (*ManagerAudioDescriptionRequestedChangeListenerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnAudioDescriptionRequestedChanged",
+			Handler:    _ManagerAudioDescriptionRequestedChangeListenerService_OnAudioDescriptionRequestedChanged_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/accessibility/accessibility.proto",
+}
+
+const (
+	ManagerHighContrastTextStateChangeListenerService_OnHighContrastTextStateChanged_FullMethodName = "/accessibility.ManagerHighContrastTextStateChangeListenerService/OnHighContrastTextStateChanged"
+)
+
+// ManagerHighContrastTextStateChangeListenerServiceClient is the client API for ManagerHighContrastTextStateChangeListenerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ManagerHighContrastTextStateChangeListenerServiceClient interface {
+	OnHighContrastTextStateChanged(ctx context.Context, in *OnHighContrastTextStateChangedRequest, opts ...grpc.CallOption) (*OnHighContrastTextStateChangedResponse, error)
+}
+
+type managerHighContrastTextStateChangeListenerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewManagerHighContrastTextStateChangeListenerServiceClient(cc grpc.ClientConnInterface) ManagerHighContrastTextStateChangeListenerServiceClient {
+	return &managerHighContrastTextStateChangeListenerServiceClient{cc}
+}
+
+func (c *managerHighContrastTextStateChangeListenerServiceClient) OnHighContrastTextStateChanged(ctx context.Context, in *OnHighContrastTextStateChangedRequest, opts ...grpc.CallOption) (*OnHighContrastTextStateChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnHighContrastTextStateChangedResponse)
+	err := c.cc.Invoke(ctx, ManagerHighContrastTextStateChangeListenerService_OnHighContrastTextStateChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ManagerHighContrastTextStateChangeListenerServiceServer is the server API for ManagerHighContrastTextStateChangeListenerService service.
+// All implementations must embed UnimplementedManagerHighContrastTextStateChangeListenerServiceServer
+// for forward compatibility.
+type ManagerHighContrastTextStateChangeListenerServiceServer interface {
+	OnHighContrastTextStateChanged(context.Context, *OnHighContrastTextStateChangedRequest) (*OnHighContrastTextStateChangedResponse, error)
+	mustEmbedUnimplementedManagerHighContrastTextStateChangeListenerServiceServer()
+}
+
+// UnimplementedManagerHighContrastTextStateChangeListenerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedManagerHighContrastTextStateChangeListenerServiceServer struct{}
+
+func (UnimplementedManagerHighContrastTextStateChangeListenerServiceServer) OnHighContrastTextStateChanged(context.Context, *OnHighContrastTextStateChangedRequest) (*OnHighContrastTextStateChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnHighContrastTextStateChanged not implemented")
+}
+func (UnimplementedManagerHighContrastTextStateChangeListenerServiceServer) mustEmbedUnimplementedManagerHighContrastTextStateChangeListenerServiceServer() {
+}
+func (UnimplementedManagerHighContrastTextStateChangeListenerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeManagerHighContrastTextStateChangeListenerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ManagerHighContrastTextStateChangeListenerServiceServer will
+// result in compilation errors.
+type UnsafeManagerHighContrastTextStateChangeListenerServiceServer interface {
+	mustEmbedUnimplementedManagerHighContrastTextStateChangeListenerServiceServer()
+}
+
+func RegisterManagerHighContrastTextStateChangeListenerServiceServer(s grpc.ServiceRegistrar, srv ManagerHighContrastTextStateChangeListenerServiceServer) {
+	// If the following call panics, it indicates UnimplementedManagerHighContrastTextStateChangeListenerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ManagerHighContrastTextStateChangeListenerService_ServiceDesc, srv)
+}
+
+func _ManagerHighContrastTextStateChangeListenerService_OnHighContrastTextStateChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnHighContrastTextStateChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerHighContrastTextStateChangeListenerServiceServer).OnHighContrastTextStateChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerHighContrastTextStateChangeListenerService_OnHighContrastTextStateChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerHighContrastTextStateChangeListenerServiceServer).OnHighContrastTextStateChanged(ctx, req.(*OnHighContrastTextStateChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ManagerHighContrastTextStateChangeListenerService_ServiceDesc is the grpc.ServiceDesc for ManagerHighContrastTextStateChangeListenerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ManagerHighContrastTextStateChangeListenerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "accessibility.ManagerHighContrastTextStateChangeListenerService",
+	HandlerType: (*ManagerHighContrastTextStateChangeListenerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnHighContrastTextStateChanged",
+			Handler:    _ManagerHighContrastTextStateChangeListenerService_OnHighContrastTextStateChanged_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/accessibility/accessibility.proto",
+}
+
+const (
+	ManagerTouchExplorationStateChangeListenerService_OnTouchExplorationStateChanged_FullMethodName = "/accessibility.ManagerTouchExplorationStateChangeListenerService/OnTouchExplorationStateChanged"
+)
+
+// ManagerTouchExplorationStateChangeListenerServiceClient is the client API for ManagerTouchExplorationStateChangeListenerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ManagerTouchExplorationStateChangeListenerServiceClient interface {
+	OnTouchExplorationStateChanged(ctx context.Context, in *OnTouchExplorationStateChangedRequest, opts ...grpc.CallOption) (*OnTouchExplorationStateChangedResponse, error)
+}
+
+type managerTouchExplorationStateChangeListenerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewManagerTouchExplorationStateChangeListenerServiceClient(cc grpc.ClientConnInterface) ManagerTouchExplorationStateChangeListenerServiceClient {
+	return &managerTouchExplorationStateChangeListenerServiceClient{cc}
+}
+
+func (c *managerTouchExplorationStateChangeListenerServiceClient) OnTouchExplorationStateChanged(ctx context.Context, in *OnTouchExplorationStateChangedRequest, opts ...grpc.CallOption) (*OnTouchExplorationStateChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnTouchExplorationStateChangedResponse)
+	err := c.cc.Invoke(ctx, ManagerTouchExplorationStateChangeListenerService_OnTouchExplorationStateChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ManagerTouchExplorationStateChangeListenerServiceServer is the server API for ManagerTouchExplorationStateChangeListenerService service.
+// All implementations must embed UnimplementedManagerTouchExplorationStateChangeListenerServiceServer
+// for forward compatibility.
+type ManagerTouchExplorationStateChangeListenerServiceServer interface {
+	OnTouchExplorationStateChanged(context.Context, *OnTouchExplorationStateChangedRequest) (*OnTouchExplorationStateChangedResponse, error)
+	mustEmbedUnimplementedManagerTouchExplorationStateChangeListenerServiceServer()
+}
+
+// UnimplementedManagerTouchExplorationStateChangeListenerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedManagerTouchExplorationStateChangeListenerServiceServer struct{}
+
+func (UnimplementedManagerTouchExplorationStateChangeListenerServiceServer) OnTouchExplorationStateChanged(context.Context, *OnTouchExplorationStateChangedRequest) (*OnTouchExplorationStateChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnTouchExplorationStateChanged not implemented")
+}
+func (UnimplementedManagerTouchExplorationStateChangeListenerServiceServer) mustEmbedUnimplementedManagerTouchExplorationStateChangeListenerServiceServer() {
+}
+func (UnimplementedManagerTouchExplorationStateChangeListenerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeManagerTouchExplorationStateChangeListenerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ManagerTouchExplorationStateChangeListenerServiceServer will
+// result in compilation errors.
+type UnsafeManagerTouchExplorationStateChangeListenerServiceServer interface {
+	mustEmbedUnimplementedManagerTouchExplorationStateChangeListenerServiceServer()
+}
+
+func RegisterManagerTouchExplorationStateChangeListenerServiceServer(s grpc.ServiceRegistrar, srv ManagerTouchExplorationStateChangeListenerServiceServer) {
+	// If the following call panics, it indicates UnimplementedManagerTouchExplorationStateChangeListenerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ManagerTouchExplorationStateChangeListenerService_ServiceDesc, srv)
+}
+
+func _ManagerTouchExplorationStateChangeListenerService_OnTouchExplorationStateChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnTouchExplorationStateChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerTouchExplorationStateChangeListenerServiceServer).OnTouchExplorationStateChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerTouchExplorationStateChangeListenerService_OnTouchExplorationStateChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerTouchExplorationStateChangeListenerServiceServer).OnTouchExplorationStateChanged(ctx, req.(*OnTouchExplorationStateChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ManagerTouchExplorationStateChangeListenerService_ServiceDesc is the grpc.ServiceDesc for ManagerTouchExplorationStateChangeListenerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ManagerTouchExplorationStateChangeListenerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "accessibility.ManagerTouchExplorationStateChangeListenerService",
+	HandlerType: (*ManagerTouchExplorationStateChangeListenerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnTouchExplorationStateChanged",
+			Handler:    _ManagerTouchExplorationStateChangeListenerService_OnTouchExplorationStateChanged_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/accessibility/accessibility.proto",
+}
+
+const (
+	EventService_NewEvent_FullMethodName                      = "/accessibility.EventService/NewEvent"
+	EventService_AppendRecord_FullMethodName                  = "/accessibility.EventService/AppendRecord"
+	EventService_DescribeContents_FullMethodName              = "/accessibility.EventService/DescribeContents"
+	EventService_GetAction_FullMethodName                     = "/accessibility.EventService/GetAction"
+	EventService_GetContentChangeTypes_FullMethodName         = "/accessibility.EventService/GetContentChangeTypes"
+	EventService_GetEventTime_FullMethodName                  = "/accessibility.EventService/GetEventTime"
+	EventService_GetEventType_FullMethodName                  = "/accessibility.EventService/GetEventType"
+	EventService_GetMovementGranularity_FullMethodName        = "/accessibility.EventService/GetMovementGranularity"
+	EventService_GetPackageName_FullMethodName                = "/accessibility.EventService/GetPackageName"
+	EventService_GetRecord_FullMethodName                     = "/accessibility.EventService/GetRecord"
+	EventService_GetRecordCount_FullMethodName                = "/accessibility.EventService/GetRecordCount"
+	EventService_GetSpeechStateChangeTypes_FullMethodName     = "/accessibility.EventService/GetSpeechStateChangeTypes"
+	EventService_GetWindowChanges_FullMethodName              = "/accessibility.EventService/GetWindowChanges"
+	EventService_InitFromParcel_FullMethodName                = "/accessibility.EventService/InitFromParcel"
+	EventService_IsAccessibilityDataSensitive_FullMethodName  = "/accessibility.EventService/IsAccessibilityDataSensitive"
+	EventService_Recycle_FullMethodName                       = "/accessibility.EventService/Recycle"
+	EventService_SetAccessibilityDataSensitive_FullMethodName = "/accessibility.EventService/SetAccessibilityDataSensitive"
+	EventService_SetAction_FullMethodName                     = "/accessibility.EventService/SetAction"
+	EventService_SetContentChangeTypes_FullMethodName         = "/accessibility.EventService/SetContentChangeTypes"
+	EventService_SetEventTime_FullMethodName                  = "/accessibility.EventService/SetEventTime"
+	EventService_SetEventType_FullMethodName                  = "/accessibility.EventService/SetEventType"
+	EventService_SetMovementGranularity_FullMethodName        = "/accessibility.EventService/SetMovementGranularity"
+	EventService_SetPackageName_FullMethodName                = "/accessibility.EventService/SetPackageName"
+	EventService_SetSpeechStateChangeTypes_FullMethodName     = "/accessibility.EventService/SetSpeechStateChangeTypes"
+	EventService_ToString_FullMethodName                      = "/accessibility.EventService/ToString"
+	EventService_WriteToParcel_FullMethodName                 = "/accessibility.EventService/WriteToParcel"
+	EventService_EventTypeToString_FullMethodName             = "/accessibility.EventService/EventTypeToString"
+	EventService_Obtain0_FullMethodName                       = "/accessibility.EventService/Obtain0"
+	EventService_Obtain1_1_FullMethodName                     = "/accessibility.EventService/Obtain1_1"
+	EventService_Obtain1_2_FullMethodName                     = "/accessibility.EventService/Obtain1_2"
+)
+
+// EventServiceClient is the client API for EventService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type EventServiceClient interface {
+	NewEvent(ctx context.Context, in *NewEventRequest, opts ...grpc.CallOption) (*NewEventResponse, error)
+	AppendRecord(ctx context.Context, in *AppendRecordRequest, opts ...grpc.CallOption) (*AppendRecordResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetAction(ctx context.Context, in *GetActionRequest, opts ...grpc.CallOption) (*GetActionResponse, error)
+	GetContentChangeTypes(ctx context.Context, in *GetContentChangeTypesRequest, opts ...grpc.CallOption) (*GetContentChangeTypesResponse, error)
+	GetEventTime(ctx context.Context, in *GetEventTimeRequest, opts ...grpc.CallOption) (*GetEventTimeResponse, error)
+	GetEventType(ctx context.Context, in *GetEventTypeRequest, opts ...grpc.CallOption) (*GetEventTypeResponse, error)
+	GetMovementGranularity(ctx context.Context, in *GetMovementGranularityRequest, opts ...grpc.CallOption) (*GetMovementGranularityResponse, error)
+	GetPackageName(ctx context.Context, in *GetPackageNameRequest, opts ...grpc.CallOption) (*GetPackageNameResponse, error)
+	GetRecord(ctx context.Context, in *GetRecordRequest, opts ...grpc.CallOption) (*GetRecordResponse, error)
+	GetRecordCount(ctx context.Context, in *GetRecordCountRequest, opts ...grpc.CallOption) (*GetRecordCountResponse, error)
+	GetSpeechStateChangeTypes(ctx context.Context, in *GetSpeechStateChangeTypesRequest, opts ...grpc.CallOption) (*GetSpeechStateChangeTypesResponse, error)
+	GetWindowChanges(ctx context.Context, in *GetWindowChangesRequest, opts ...grpc.CallOption) (*GetWindowChangesResponse, error)
+	InitFromParcel(ctx context.Context, in *InitFromParcelRequest, opts ...grpc.CallOption) (*InitFromParcelResponse, error)
+	IsAccessibilityDataSensitive(ctx context.Context, in *IsAccessibilityDataSensitiveRequest, opts ...grpc.CallOption) (*IsAccessibilityDataSensitiveResponse, error)
+	Recycle(ctx context.Context, in *RecycleRequest, opts ...grpc.CallOption) (*RecycleResponse, error)
+	SetAccessibilityDataSensitive(ctx context.Context, in *SetAccessibilityDataSensitiveRequest, opts ...grpc.CallOption) (*SetAccessibilityDataSensitiveResponse, error)
+	SetAction(ctx context.Context, in *SetActionRequest, opts ...grpc.CallOption) (*SetActionResponse, error)
+	SetContentChangeTypes(ctx context.Context, in *SetContentChangeTypesRequest, opts ...grpc.CallOption) (*SetContentChangeTypesResponse, error)
+	SetEventTime(ctx context.Context, in *SetEventTimeRequest, opts ...grpc.CallOption) (*SetEventTimeResponse, error)
+	SetEventType(ctx context.Context, in *SetEventTypeRequest, opts ...grpc.CallOption) (*SetEventTypeResponse, error)
+	SetMovementGranularity(ctx context.Context, in *SetMovementGranularityRequest, opts ...grpc.CallOption) (*SetMovementGranularityResponse, error)
+	SetPackageName(ctx context.Context, in *SetPackageNameRequest, opts ...grpc.CallOption) (*SetPackageNameResponse, error)
+	SetSpeechStateChangeTypes(ctx context.Context, in *SetSpeechStateChangeTypesRequest, opts ...grpc.CallOption) (*SetSpeechStateChangeTypesResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+	EventTypeToString(ctx context.Context, in *EventTypeToStringRequest, opts ...grpc.CallOption) (*EventTypeToStringResponse, error)
+	Obtain0(ctx context.Context, in *Obtain0Request, opts ...grpc.CallOption) (*Obtain0Response, error)
+	Obtain1_1(ctx context.Context, in *Obtain1_1Request, opts ...grpc.CallOption) (*Obtain1_1Response, error)
+	Obtain1_2(ctx context.Context, in *EventObtain1_2Request, opts ...grpc.CallOption) (*Obtain1_2Response, error)
+}
+
+type eventServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewEventServiceClient(cc grpc.ClientConnInterface) EventServiceClient {
+	return &eventServiceClient{cc}
+}
+
+func (c *eventServiceClient) NewEvent(ctx context.Context, in *NewEventRequest, opts ...grpc.CallOption) (*NewEventResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewEventResponse)
+	err := c.cc.Invoke(ctx, EventService_NewEvent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *eventServiceClient) AppendRecord(ctx context.Context, in *AppendRecordRequest, opts ...grpc.CallOption) (*AppendRecordResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AppendRecordResponse)
+	err := c.cc.Invoke(ctx, EventService_AppendRecord_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *eventServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, EventService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *eventServiceClient) GetAction(ctx context.Context, in *GetActionRequest, opts ...grpc.CallOption) (*GetActionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetActionResponse)
+	err := c.cc.Invoke(ctx, EventService_GetAction_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *eventServiceClient) GetContentChangeTypes(ctx context.Context, in *GetContentChangeTypesRequest, opts ...grpc.CallOption) (*GetContentChangeTypesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetContentChangeTypesResponse)
+	err := c.cc.Invoke(ctx, EventService_GetContentChangeTypes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *eventServiceClient) GetEventTime(ctx context.Context, in *GetEventTimeRequest, opts ...grpc.CallOption) (*GetEventTimeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEventTimeResponse)
+	err := c.cc.Invoke(ctx, EventService_GetEventTime_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *eventServiceClient) GetEventType(ctx context.Context, in *GetEventTypeRequest, opts ...grpc.CallOption) (*GetEventTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEventTypeResponse)
+	err := c.cc.Invoke(ctx, EventService_GetEventType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *eventServiceClient) GetMovementGranularity(ctx context.Context, in *GetMovementGranularityRequest, opts ...grpc.CallOption) (*GetMovementGranularityResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMovementGranularityResponse)
+	err := c.cc.Invoke(ctx, EventService_GetMovementGranularity_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *eventServiceClient) GetPackageName(ctx context.Context, in *GetPackageNameRequest, opts ...grpc.CallOption) (*GetPackageNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPackageNameResponse)
+	err := c.cc.Invoke(ctx, EventService_GetPackageName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *eventServiceClient) GetRecord(ctx context.Context, in *GetRecordRequest, opts ...grpc.CallOption) (*GetRecordResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRecordResponse)
+	err := c.cc.Invoke(ctx, EventService_GetRecord_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *eventServiceClient) GetRecordCount(ctx context.Context, in *GetRecordCountRequest, opts ...grpc.CallOption) (*GetRecordCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRecordCountResponse)
+	err := c.cc.Invoke(ctx, EventService_GetRecordCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *eventServiceClient) GetSpeechStateChangeTypes(ctx context.Context, in *GetSpeechStateChangeTypesRequest, opts ...grpc.CallOption) (*GetSpeechStateChangeTypesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSpeechStateChangeTypesResponse)
+	err := c.cc.Invoke(ctx, EventService_GetSpeechStateChangeTypes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *eventServiceClient) GetWindowChanges(ctx context.Context, in *GetWindowChangesRequest, opts ...grpc.CallOption) (*GetWindowChangesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetWindowChangesResponse)
+	err := c.cc.Invoke(ctx, EventService_GetWindowChanges_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *eventServiceClient) InitFromParcel(ctx context.Context, in *InitFromParcelRequest, opts ...grpc.CallOption) (*InitFromParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(InitFromParcelResponse)
+	err := c.cc.Invoke(ctx, EventService_InitFromParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *eventServiceClient) IsAccessibilityDataSensitive(ctx context.Context, in *IsAccessibilityDataSensitiveRequest, opts ...grpc.CallOption) (*IsAccessibilityDataSensitiveResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsAccessibilityDataSensitiveResponse)
+	err := c.cc.Invoke(ctx, EventService_IsAccessibilityDataSensitive_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *eventServiceClient) Recycle(ctx context.Context, in *RecycleRequest, opts ...grpc.CallOption) (*RecycleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RecycleResponse)
+	err := c.cc.Invoke(ctx, EventService_Recycle_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *eventServiceClient) SetAccessibilityDataSensitive(ctx context.Context, in *SetAccessibilityDataSensitiveRequest, opts ...grpc.CallOption) (*SetAccessibilityDataSensitiveResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetAccessibilityDataSensitiveResponse)
+	err := c.cc.Invoke(ctx, EventService_SetAccessibilityDataSensitive_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *eventServiceClient) SetAction(ctx context.Context, in *SetActionRequest, opts ...grpc.CallOption) (*SetActionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetActionResponse)
+	err := c.cc.Invoke(ctx, EventService_SetAction_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *eventServiceClient) SetContentChangeTypes(ctx context.Context, in *SetContentChangeTypesRequest, opts ...grpc.CallOption) (*SetContentChangeTypesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetContentChangeTypesResponse)
+	err := c.cc.Invoke(ctx, EventService_SetContentChangeTypes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *eventServiceClient) SetEventTime(ctx context.Context, in *SetEventTimeRequest, opts ...grpc.CallOption) (*SetEventTimeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetEventTimeResponse)
+	err := c.cc.Invoke(ctx, EventService_SetEventTime_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *eventServiceClient) SetEventType(ctx context.Context, in *SetEventTypeRequest, opts ...grpc.CallOption) (*SetEventTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetEventTypeResponse)
+	err := c.cc.Invoke(ctx, EventService_SetEventType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *eventServiceClient) SetMovementGranularity(ctx context.Context, in *SetMovementGranularityRequest, opts ...grpc.CallOption) (*SetMovementGranularityResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetMovementGranularityResponse)
+	err := c.cc.Invoke(ctx, EventService_SetMovementGranularity_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *eventServiceClient) SetPackageName(ctx context.Context, in *SetPackageNameRequest, opts ...grpc.CallOption) (*SetPackageNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetPackageNameResponse)
+	err := c.cc.Invoke(ctx, EventService_SetPackageName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *eventServiceClient) SetSpeechStateChangeTypes(ctx context.Context, in *SetSpeechStateChangeTypesRequest, opts ...grpc.CallOption) (*SetSpeechStateChangeTypesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetSpeechStateChangeTypesResponse)
+	err := c.cc.Invoke(ctx, EventService_SetSpeechStateChangeTypes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *eventServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, EventService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *eventServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, EventService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *eventServiceClient) EventTypeToString(ctx context.Context, in *EventTypeToStringRequest, opts ...grpc.CallOption) (*EventTypeToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EventTypeToStringResponse)
+	err := c.cc.Invoke(ctx, EventService_EventTypeToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *eventServiceClient) Obtain0(ctx context.Context, in *Obtain0Request, opts ...grpc.CallOption) (*Obtain0Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Obtain0Response)
+	err := c.cc.Invoke(ctx, EventService_Obtain0_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *eventServiceClient) Obtain1_1(ctx context.Context, in *Obtain1_1Request, opts ...grpc.CallOption) (*Obtain1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Obtain1_1Response)
+	err := c.cc.Invoke(ctx, EventService_Obtain1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *eventServiceClient) Obtain1_2(ctx context.Context, in *EventObtain1_2Request, opts ...grpc.CallOption) (*Obtain1_2Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Obtain1_2Response)
+	err := c.cc.Invoke(ctx, EventService_Obtain1_2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// EventServiceServer is the server API for EventService service.
+// All implementations must embed UnimplementedEventServiceServer
+// for forward compatibility.
+type EventServiceServer interface {
+	NewEvent(context.Context, *NewEventRequest) (*NewEventResponse, error)
+	AppendRecord(context.Context, *AppendRecordRequest) (*AppendRecordResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetAction(context.Context, *GetActionRequest) (*GetActionResponse, error)
+	GetContentChangeTypes(context.Context, *GetContentChangeTypesRequest) (*GetContentChangeTypesResponse, error)
+	GetEventTime(context.Context, *GetEventTimeRequest) (*GetEventTimeResponse, error)
+	GetEventType(context.Context, *GetEventTypeRequest) (*GetEventTypeResponse, error)
+	GetMovementGranularity(context.Context, *GetMovementGranularityRequest) (*GetMovementGranularityResponse, error)
+	GetPackageName(context.Context, *GetPackageNameRequest) (*GetPackageNameResponse, error)
+	GetRecord(context.Context, *GetRecordRequest) (*GetRecordResponse, error)
+	GetRecordCount(context.Context, *GetRecordCountRequest) (*GetRecordCountResponse, error)
+	GetSpeechStateChangeTypes(context.Context, *GetSpeechStateChangeTypesRequest) (*GetSpeechStateChangeTypesResponse, error)
+	GetWindowChanges(context.Context, *GetWindowChangesRequest) (*GetWindowChangesResponse, error)
+	InitFromParcel(context.Context, *InitFromParcelRequest) (*InitFromParcelResponse, error)
+	IsAccessibilityDataSensitive(context.Context, *IsAccessibilityDataSensitiveRequest) (*IsAccessibilityDataSensitiveResponse, error)
+	Recycle(context.Context, *RecycleRequest) (*RecycleResponse, error)
+	SetAccessibilityDataSensitive(context.Context, *SetAccessibilityDataSensitiveRequest) (*SetAccessibilityDataSensitiveResponse, error)
+	SetAction(context.Context, *SetActionRequest) (*SetActionResponse, error)
+	SetContentChangeTypes(context.Context, *SetContentChangeTypesRequest) (*SetContentChangeTypesResponse, error)
+	SetEventTime(context.Context, *SetEventTimeRequest) (*SetEventTimeResponse, error)
+	SetEventType(context.Context, *SetEventTypeRequest) (*SetEventTypeResponse, error)
+	SetMovementGranularity(context.Context, *SetMovementGranularityRequest) (*SetMovementGranularityResponse, error)
+	SetPackageName(context.Context, *SetPackageNameRequest) (*SetPackageNameResponse, error)
+	SetSpeechStateChangeTypes(context.Context, *SetSpeechStateChangeTypesRequest) (*SetSpeechStateChangeTypesResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	EventTypeToString(context.Context, *EventTypeToStringRequest) (*EventTypeToStringResponse, error)
+	Obtain0(context.Context, *Obtain0Request) (*Obtain0Response, error)
+	Obtain1_1(context.Context, *Obtain1_1Request) (*Obtain1_1Response, error)
+	Obtain1_2(context.Context, *EventObtain1_2Request) (*Obtain1_2Response, error)
+	mustEmbedUnimplementedEventServiceServer()
+}
+
+// UnimplementedEventServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedEventServiceServer struct{}
+
+func (UnimplementedEventServiceServer) NewEvent(context.Context, *NewEventRequest) (*NewEventResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewEvent not implemented")
+}
+func (UnimplementedEventServiceServer) AppendRecord(context.Context, *AppendRecordRequest) (*AppendRecordResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AppendRecord not implemented")
+}
+func (UnimplementedEventServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedEventServiceServer) GetAction(context.Context, *GetActionRequest) (*GetActionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAction not implemented")
+}
+func (UnimplementedEventServiceServer) GetContentChangeTypes(context.Context, *GetContentChangeTypesRequest) (*GetContentChangeTypesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetContentChangeTypes not implemented")
+}
+func (UnimplementedEventServiceServer) GetEventTime(context.Context, *GetEventTimeRequest) (*GetEventTimeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEventTime not implemented")
+}
+func (UnimplementedEventServiceServer) GetEventType(context.Context, *GetEventTypeRequest) (*GetEventTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEventType not implemented")
+}
+func (UnimplementedEventServiceServer) GetMovementGranularity(context.Context, *GetMovementGranularityRequest) (*GetMovementGranularityResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMovementGranularity not implemented")
+}
+func (UnimplementedEventServiceServer) GetPackageName(context.Context, *GetPackageNameRequest) (*GetPackageNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPackageName not implemented")
+}
+func (UnimplementedEventServiceServer) GetRecord(context.Context, *GetRecordRequest) (*GetRecordResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRecord not implemented")
+}
+func (UnimplementedEventServiceServer) GetRecordCount(context.Context, *GetRecordCountRequest) (*GetRecordCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRecordCount not implemented")
+}
+func (UnimplementedEventServiceServer) GetSpeechStateChangeTypes(context.Context, *GetSpeechStateChangeTypesRequest) (*GetSpeechStateChangeTypesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSpeechStateChangeTypes not implemented")
+}
+func (UnimplementedEventServiceServer) GetWindowChanges(context.Context, *GetWindowChangesRequest) (*GetWindowChangesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetWindowChanges not implemented")
+}
+func (UnimplementedEventServiceServer) InitFromParcel(context.Context, *InitFromParcelRequest) (*InitFromParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method InitFromParcel not implemented")
+}
+func (UnimplementedEventServiceServer) IsAccessibilityDataSensitive(context.Context, *IsAccessibilityDataSensitiveRequest) (*IsAccessibilityDataSensitiveResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsAccessibilityDataSensitive not implemented")
+}
+func (UnimplementedEventServiceServer) Recycle(context.Context, *RecycleRequest) (*RecycleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Recycle not implemented")
+}
+func (UnimplementedEventServiceServer) SetAccessibilityDataSensitive(context.Context, *SetAccessibilityDataSensitiveRequest) (*SetAccessibilityDataSensitiveResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetAccessibilityDataSensitive not implemented")
+}
+func (UnimplementedEventServiceServer) SetAction(context.Context, *SetActionRequest) (*SetActionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetAction not implemented")
+}
+func (UnimplementedEventServiceServer) SetContentChangeTypes(context.Context, *SetContentChangeTypesRequest) (*SetContentChangeTypesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetContentChangeTypes not implemented")
+}
+func (UnimplementedEventServiceServer) SetEventTime(context.Context, *SetEventTimeRequest) (*SetEventTimeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetEventTime not implemented")
+}
+func (UnimplementedEventServiceServer) SetEventType(context.Context, *SetEventTypeRequest) (*SetEventTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetEventType not implemented")
+}
+func (UnimplementedEventServiceServer) SetMovementGranularity(context.Context, *SetMovementGranularityRequest) (*SetMovementGranularityResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetMovementGranularity not implemented")
+}
+func (UnimplementedEventServiceServer) SetPackageName(context.Context, *SetPackageNameRequest) (*SetPackageNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetPackageName not implemented")
+}
+func (UnimplementedEventServiceServer) SetSpeechStateChangeTypes(context.Context, *SetSpeechStateChangeTypesRequest) (*SetSpeechStateChangeTypesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetSpeechStateChangeTypes not implemented")
+}
+func (UnimplementedEventServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedEventServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedEventServiceServer) EventTypeToString(context.Context, *EventTypeToStringRequest) (*EventTypeToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method EventTypeToString not implemented")
+}
+func (UnimplementedEventServiceServer) Obtain0(context.Context, *Obtain0Request) (*Obtain0Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Obtain0 not implemented")
+}
+func (UnimplementedEventServiceServer) Obtain1_1(context.Context, *Obtain1_1Request) (*Obtain1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Obtain1_1 not implemented")
+}
+func (UnimplementedEventServiceServer) Obtain1_2(context.Context, *EventObtain1_2Request) (*Obtain1_2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Obtain1_2 not implemented")
+}
+func (UnimplementedEventServiceServer) mustEmbedUnimplementedEventServiceServer() {}
+func (UnimplementedEventServiceServer) testEmbeddedByValue()                      {}
+
+// UnsafeEventServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to EventServiceServer will
+// result in compilation errors.
+type UnsafeEventServiceServer interface {
+	mustEmbedUnimplementedEventServiceServer()
+}
+
+func RegisterEventServiceServer(s grpc.ServiceRegistrar, srv EventServiceServer) {
+	// If the following call panics, it indicates UnimplementedEventServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&EventService_ServiceDesc, srv)
+}
+
+func _EventService_NewEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewEventRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EventServiceServer).NewEvent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EventService_NewEvent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EventServiceServer).NewEvent(ctx, req.(*NewEventRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EventService_AppendRecord_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AppendRecordRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EventServiceServer).AppendRecord(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EventService_AppendRecord_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EventServiceServer).AppendRecord(ctx, req.(*AppendRecordRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EventService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EventServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EventService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EventServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EventService_GetAction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetActionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EventServiceServer).GetAction(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EventService_GetAction_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EventServiceServer).GetAction(ctx, req.(*GetActionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EventService_GetContentChangeTypes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetContentChangeTypesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EventServiceServer).GetContentChangeTypes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EventService_GetContentChangeTypes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EventServiceServer).GetContentChangeTypes(ctx, req.(*GetContentChangeTypesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EventService_GetEventTime_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEventTimeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EventServiceServer).GetEventTime(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EventService_GetEventTime_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EventServiceServer).GetEventTime(ctx, req.(*GetEventTimeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EventService_GetEventType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEventTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EventServiceServer).GetEventType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EventService_GetEventType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EventServiceServer).GetEventType(ctx, req.(*GetEventTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EventService_GetMovementGranularity_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMovementGranularityRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EventServiceServer).GetMovementGranularity(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EventService_GetMovementGranularity_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EventServiceServer).GetMovementGranularity(ctx, req.(*GetMovementGranularityRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EventService_GetPackageName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPackageNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EventServiceServer).GetPackageName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EventService_GetPackageName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EventServiceServer).GetPackageName(ctx, req.(*GetPackageNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EventService_GetRecord_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRecordRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EventServiceServer).GetRecord(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EventService_GetRecord_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EventServiceServer).GetRecord(ctx, req.(*GetRecordRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EventService_GetRecordCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRecordCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EventServiceServer).GetRecordCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EventService_GetRecordCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EventServiceServer).GetRecordCount(ctx, req.(*GetRecordCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EventService_GetSpeechStateChangeTypes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSpeechStateChangeTypesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EventServiceServer).GetSpeechStateChangeTypes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EventService_GetSpeechStateChangeTypes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EventServiceServer).GetSpeechStateChangeTypes(ctx, req.(*GetSpeechStateChangeTypesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EventService_GetWindowChanges_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetWindowChangesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EventServiceServer).GetWindowChanges(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EventService_GetWindowChanges_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EventServiceServer).GetWindowChanges(ctx, req.(*GetWindowChangesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EventService_InitFromParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(InitFromParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EventServiceServer).InitFromParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EventService_InitFromParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EventServiceServer).InitFromParcel(ctx, req.(*InitFromParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EventService_IsAccessibilityDataSensitive_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsAccessibilityDataSensitiveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EventServiceServer).IsAccessibilityDataSensitive(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EventService_IsAccessibilityDataSensitive_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EventServiceServer).IsAccessibilityDataSensitive(ctx, req.(*IsAccessibilityDataSensitiveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EventService_Recycle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RecycleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EventServiceServer).Recycle(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EventService_Recycle_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EventServiceServer).Recycle(ctx, req.(*RecycleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EventService_SetAccessibilityDataSensitive_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetAccessibilityDataSensitiveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EventServiceServer).SetAccessibilityDataSensitive(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EventService_SetAccessibilityDataSensitive_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EventServiceServer).SetAccessibilityDataSensitive(ctx, req.(*SetAccessibilityDataSensitiveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EventService_SetAction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetActionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EventServiceServer).SetAction(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EventService_SetAction_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EventServiceServer).SetAction(ctx, req.(*SetActionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EventService_SetContentChangeTypes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetContentChangeTypesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EventServiceServer).SetContentChangeTypes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EventService_SetContentChangeTypes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EventServiceServer).SetContentChangeTypes(ctx, req.(*SetContentChangeTypesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EventService_SetEventTime_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetEventTimeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EventServiceServer).SetEventTime(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EventService_SetEventTime_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EventServiceServer).SetEventTime(ctx, req.(*SetEventTimeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EventService_SetEventType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetEventTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EventServiceServer).SetEventType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EventService_SetEventType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EventServiceServer).SetEventType(ctx, req.(*SetEventTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EventService_SetMovementGranularity_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetMovementGranularityRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EventServiceServer).SetMovementGranularity(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EventService_SetMovementGranularity_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EventServiceServer).SetMovementGranularity(ctx, req.(*SetMovementGranularityRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EventService_SetPackageName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetPackageNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EventServiceServer).SetPackageName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EventService_SetPackageName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EventServiceServer).SetPackageName(ctx, req.(*SetPackageNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EventService_SetSpeechStateChangeTypes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetSpeechStateChangeTypesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EventServiceServer).SetSpeechStateChangeTypes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EventService_SetSpeechStateChangeTypes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EventServiceServer).SetSpeechStateChangeTypes(ctx, req.(*SetSpeechStateChangeTypesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EventService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EventServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EventService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EventServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EventService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EventServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EventService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EventServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EventService_EventTypeToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EventTypeToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EventServiceServer).EventTypeToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EventService_EventTypeToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EventServiceServer).EventTypeToString(ctx, req.(*EventTypeToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EventService_Obtain0_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Obtain0Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EventServiceServer).Obtain0(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EventService_Obtain0_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EventServiceServer).Obtain0(ctx, req.(*Obtain0Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EventService_Obtain1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Obtain1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EventServiceServer).Obtain1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EventService_Obtain1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EventServiceServer).Obtain1_1(ctx, req.(*Obtain1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EventService_Obtain1_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EventObtain1_2Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EventServiceServer).Obtain1_2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EventService_Obtain1_2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EventServiceServer).Obtain1_2(ctx, req.(*EventObtain1_2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// EventService_ServiceDesc is the grpc.ServiceDesc for EventService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var EventService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "accessibility.EventService",
+	HandlerType: (*EventServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewEvent",
+			Handler:    _EventService_NewEvent_Handler,
+		},
+		{
+			MethodName: "AppendRecord",
+			Handler:    _EventService_AppendRecord_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _EventService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetAction",
+			Handler:    _EventService_GetAction_Handler,
+		},
+		{
+			MethodName: "GetContentChangeTypes",
+			Handler:    _EventService_GetContentChangeTypes_Handler,
+		},
+		{
+			MethodName: "GetEventTime",
+			Handler:    _EventService_GetEventTime_Handler,
+		},
+		{
+			MethodName: "GetEventType",
+			Handler:    _EventService_GetEventType_Handler,
+		},
+		{
+			MethodName: "GetMovementGranularity",
+			Handler:    _EventService_GetMovementGranularity_Handler,
+		},
+		{
+			MethodName: "GetPackageName",
+			Handler:    _EventService_GetPackageName_Handler,
+		},
+		{
+			MethodName: "GetRecord",
+			Handler:    _EventService_GetRecord_Handler,
+		},
+		{
+			MethodName: "GetRecordCount",
+			Handler:    _EventService_GetRecordCount_Handler,
+		},
+		{
+			MethodName: "GetSpeechStateChangeTypes",
+			Handler:    _EventService_GetSpeechStateChangeTypes_Handler,
+		},
+		{
+			MethodName: "GetWindowChanges",
+			Handler:    _EventService_GetWindowChanges_Handler,
+		},
+		{
+			MethodName: "InitFromParcel",
+			Handler:    _EventService_InitFromParcel_Handler,
+		},
+		{
+			MethodName: "IsAccessibilityDataSensitive",
+			Handler:    _EventService_IsAccessibilityDataSensitive_Handler,
+		},
+		{
+			MethodName: "Recycle",
+			Handler:    _EventService_Recycle_Handler,
+		},
+		{
+			MethodName: "SetAccessibilityDataSensitive",
+			Handler:    _EventService_SetAccessibilityDataSensitive_Handler,
+		},
+		{
+			MethodName: "SetAction",
+			Handler:    _EventService_SetAction_Handler,
+		},
+		{
+			MethodName: "SetContentChangeTypes",
+			Handler:    _EventService_SetContentChangeTypes_Handler,
+		},
+		{
+			MethodName: "SetEventTime",
+			Handler:    _EventService_SetEventTime_Handler,
+		},
+		{
+			MethodName: "SetEventType",
+			Handler:    _EventService_SetEventType_Handler,
+		},
+		{
+			MethodName: "SetMovementGranularity",
+			Handler:    _EventService_SetMovementGranularity_Handler,
+		},
+		{
+			MethodName: "SetPackageName",
+			Handler:    _EventService_SetPackageName_Handler,
+		},
+		{
+			MethodName: "SetSpeechStateChangeTypes",
+			Handler:    _EventService_SetSpeechStateChangeTypes_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _EventService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _EventService_WriteToParcel_Handler,
+		},
+		{
+			MethodName: "EventTypeToString",
+			Handler:    _EventService_EventTypeToString_Handler,
+		},
+		{
+			MethodName: "Obtain0",
+			Handler:    _EventService_Obtain0_Handler,
+		},
+		{
+			MethodName: "Obtain1_1",
+			Handler:    _EventService_Obtain1_1_Handler,
+		},
+		{
+			MethodName: "Obtain1_2",
+			Handler:    _EventService_Obtain1_2_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

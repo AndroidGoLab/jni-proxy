@@ -279,6 +279,177 @@ var cameraManagerUnregisterTorchCallbackCmd = &cobra.Command{
 	},
 }
 
+var cameraManagerAvailabilityCallbackCmd = &cobra.Command{
+	Use:   "manager-availability-callback",
+	Short: "ManagerAvailabilityCallbackService operations",
+}
+
+var cameraManagerAvailabilityCallbackOnCameraAccessPrioritiesChangedCmd = &cobra.Command{
+	Use:   "on-camera-access-priorities-changed",
+	Short: "OnCameraAccessPrioritiesChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerAvailabilityCallbackServiceClient(grpcConn)
+		req := &pb.OnCameraAccessPrioritiesChangedRequest{}
+		resp, err := client.OnCameraAccessPrioritiesChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var cameraManagerAvailabilityCallbackOnCameraAvailableCmd = &cobra.Command{
+	Use:   "on-camera-available",
+	Short: "OnCameraAvailable RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerAvailabilityCallbackServiceClient(grpcConn)
+		req := &pb.OnCameraAvailableRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnCameraAvailable(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var cameraManagerAvailabilityCallbackOnCameraUnavailableCmd = &cobra.Command{
+	Use:   "on-camera-unavailable",
+	Short: "OnCameraUnavailable RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerAvailabilityCallbackServiceClient(grpcConn)
+		req := &pb.OnCameraUnavailableRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnCameraUnavailable(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var cameraManagerAvailabilityCallbackOnPhysicalCameraAvailableCmd = &cobra.Command{
+	Use:   "on-physical-camera-available",
+	Short: "OnPhysicalCameraAvailable RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerAvailabilityCallbackServiceClient(grpcConn)
+		req := &pb.OnPhysicalCameraAvailableRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnPhysicalCameraAvailable(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var cameraManagerAvailabilityCallbackOnPhysicalCameraUnavailableCmd = &cobra.Command{
+	Use:   "on-physical-camera-unavailable",
+	Short: "OnPhysicalCameraUnavailable RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerAvailabilityCallbackServiceClient(grpcConn)
+		req := &pb.OnPhysicalCameraUnavailableRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnPhysicalCameraUnavailable(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var cameraManagerTorchCallbackCmd = &cobra.Command{
+	Use:   "manager-torch-callback",
+	Short: "ManagerTorchCallbackService operations",
+}
+
+var cameraManagerTorchCallbackOnTorchModeChangedCmd = &cobra.Command{
+	Use:   "on-torch-mode-changed",
+	Short: "OnTorchModeChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerTorchCallbackServiceClient(grpcConn)
+		req := &pb.OnTorchModeChangedRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnTorchModeChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var cameraManagerTorchCallbackOnTorchModeUnavailableCmd = &cobra.Command{
+	Use:   "on-torch-mode-unavailable",
+	Short: "OnTorchModeUnavailable RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerTorchCallbackServiceClient(grpcConn)
+		req := &pb.OnTorchModeUnavailableRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnTorchModeUnavailable(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var cameraManagerTorchCallbackOnTorchStrengthLevelChangedCmd = &cobra.Command{
+	Use:   "on-torch-strength-level-changed",
+	Short: "OnTorchStrengthLevelChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerTorchCallbackServiceClient(grpcConn)
+		req := &pb.OnTorchStrengthLevelChangedRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnTorchStrengthLevelChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 func init() {
 	cameraManagerGetCameraCharacteristicsCmd.Flags().String("arg0", "", "arg0 (string)")
 	cameraManagerCmd.AddCommand(cameraManagerGetCameraCharacteristicsCmd)
@@ -312,5 +483,26 @@ func init() {
 	cameraManagerUnregisterTorchCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	cameraManagerCmd.AddCommand(cameraManagerUnregisterTorchCallbackCmd)
 	cameraCmd.AddCommand(cameraManagerCmd)
+	cameraManagerAvailabilityCallbackCmd.AddCommand(cameraManagerAvailabilityCallbackOnCameraAccessPrioritiesChangedCmd)
+	cameraManagerAvailabilityCallbackOnCameraAvailableCmd.Flags().String("arg0", "", "arg0 (string)")
+	cameraManagerAvailabilityCallbackCmd.AddCommand(cameraManagerAvailabilityCallbackOnCameraAvailableCmd)
+	cameraManagerAvailabilityCallbackOnCameraUnavailableCmd.Flags().String("arg0", "", "arg0 (string)")
+	cameraManagerAvailabilityCallbackCmd.AddCommand(cameraManagerAvailabilityCallbackOnCameraUnavailableCmd)
+	cameraManagerAvailabilityCallbackOnPhysicalCameraAvailableCmd.Flags().String("arg0", "", "arg0 (string)")
+	cameraManagerAvailabilityCallbackOnPhysicalCameraAvailableCmd.Flags().String("arg1", "", "arg1 (string)")
+	cameraManagerAvailabilityCallbackCmd.AddCommand(cameraManagerAvailabilityCallbackOnPhysicalCameraAvailableCmd)
+	cameraManagerAvailabilityCallbackOnPhysicalCameraUnavailableCmd.Flags().String("arg0", "", "arg0 (string)")
+	cameraManagerAvailabilityCallbackOnPhysicalCameraUnavailableCmd.Flags().String("arg1", "", "arg1 (string)")
+	cameraManagerAvailabilityCallbackCmd.AddCommand(cameraManagerAvailabilityCallbackOnPhysicalCameraUnavailableCmd)
+	cameraCmd.AddCommand(cameraManagerAvailabilityCallbackCmd)
+	cameraManagerTorchCallbackOnTorchModeChangedCmd.Flags().String("arg0", "", "arg0 (string)")
+	cameraManagerTorchCallbackOnTorchModeChangedCmd.Flags().Bool("arg1", false, "arg1 (bool)")
+	cameraManagerTorchCallbackCmd.AddCommand(cameraManagerTorchCallbackOnTorchModeChangedCmd)
+	cameraManagerTorchCallbackOnTorchModeUnavailableCmd.Flags().String("arg0", "", "arg0 (string)")
+	cameraManagerTorchCallbackCmd.AddCommand(cameraManagerTorchCallbackOnTorchModeUnavailableCmd)
+	cameraManagerTorchCallbackOnTorchStrengthLevelChangedCmd.Flags().String("arg0", "", "arg0 (string)")
+	cameraManagerTorchCallbackOnTorchStrengthLevelChangedCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	cameraManagerTorchCallbackCmd.AddCommand(cameraManagerTorchCallbackOnTorchStrengthLevelChangedCmd)
+	cameraCmd.AddCommand(cameraManagerTorchCallbackCmd)
 	rootCmd.AddCommand(cameraCmd)
 }

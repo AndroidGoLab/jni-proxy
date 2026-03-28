@@ -5,3 +5,53 @@ syntax = "proto3";
 package classification;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/classification";
+
+message NewFieldClassificationRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewFieldClassificationResponse {
+  int64 result = 1;
+}
+
+message DescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message GetAutofillIdRequest {
+  int64 handle = 1;
+}
+
+message GetAutofillIdResponse {
+  int64 result = 1;
+}
+
+message ToStringRequest {
+  int64 handle = 1;
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message WriteToParcelResponse {
+}
+
+service FieldClassificationService {
+  rpc NewFieldClassification (NewFieldClassificationRequest) returns (NewFieldClassificationResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetAutofillId (GetAutofillIdRequest) returns (GetAutofillIdResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}

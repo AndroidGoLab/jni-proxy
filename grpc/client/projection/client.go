@@ -9,6 +9,83 @@ import (
 	"google.golang.org/grpc"
 )
 
+// MediaProjectionConfigClient wraps the gRPC MediaProjectionConfigService client.
+type MediaProjectionConfigClient struct {
+	svc pb.MediaProjectionConfigServiceClient
+}
+
+// NewMediaProjectionConfigClient creates a new MediaProjectionConfig client.
+func NewMediaProjectionConfigClient(cc grpc.ClientConnInterface) *MediaProjectionConfigClient {
+	return &MediaProjectionConfigClient{
+		svc: pb.NewMediaProjectionConfigServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *MediaProjectionConfigClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *MediaProjectionConfigClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *MediaProjectionConfigClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *MediaProjectionConfigClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *MediaProjectionConfigClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// CreateConfigForDefaultDisplay calls the CreateConfigForDefaultDisplay RPC.
+func (c *MediaProjectionConfigClient) CreateConfigForDefaultDisplay(ctx context.Context) (int64, error) {
+	resp, err := c.svc.CreateConfigForDefaultDisplay(ctx, &pb.CreateConfigForDefaultDisplayRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateConfigForUserChoice calls the CreateConfigForUserChoice RPC.
+func (c *MediaProjectionConfigClient) CreateConfigForUserChoice(ctx context.Context) (int64, error) {
+	resp, err := c.svc.CreateConfigForUserChoice(ctx, &pb.CreateConfigForUserChoiceRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // MediaProjectionManagerClient wraps the gRPC MediaProjectionManagerService client.
 type MediaProjectionManagerClient struct {
 	svc pb.MediaProjectionManagerServiceClient
@@ -51,4 +128,166 @@ func (c *MediaProjectionManagerClient) GetMediaProjection(ctx context.Context, a
 		return 0, err
 	}
 	return resp.GetResult(), nil
+}
+
+// MediaProjectionClient wraps the gRPC MediaProjectionService client.
+type MediaProjectionClient struct {
+	svc pb.MediaProjectionServiceClient
+}
+
+// NewMediaProjectionClient creates a new MediaProjection client.
+func NewMediaProjectionClient(cc grpc.ClientConnInterface) *MediaProjectionClient {
+	return &MediaProjectionClient{
+		svc: pb.NewMediaProjectionServiceClient(cc),
+	}
+}
+
+// Stop calls the Stop RPC.
+func (c *MediaProjectionClient) Stop(ctx context.Context) error {
+	_, err := c.svc.Stop(ctx, &pb.StopRequest{})
+	return err
+}
+
+// UnregisterCallback calls the UnregisterCallback RPC.
+func (c *MediaProjectionClient) UnregisterCallback(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.UnregisterCallback(ctx, &pb.UnregisterCallbackRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// MediaProjectionCallbackClient wraps the gRPC MediaProjectionCallbackService client.
+type MediaProjectionCallbackClient struct {
+	svc pb.MediaProjectionCallbackServiceClient
+}
+
+// NewMediaProjectionCallbackClient creates a new MediaProjectionCallback client.
+func NewMediaProjectionCallbackClient(cc grpc.ClientConnInterface) *MediaProjectionCallbackClient {
+	return &MediaProjectionCallbackClient{
+		svc: pb.NewMediaProjectionCallbackServiceClient(cc),
+	}
+}
+
+// OnCapturedContentResize calls the OnCapturedContentResize RPC.
+func (c *MediaProjectionCallbackClient) OnCapturedContentResize(ctx context.Context, arg0 int32, arg1 int32) error {
+	_, err := c.svc.OnCapturedContentResize(ctx, &pb.OnCapturedContentResizeRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnCapturedContentVisibilityChanged calls the OnCapturedContentVisibilityChanged RPC.
+func (c *MediaProjectionCallbackClient) OnCapturedContentVisibilityChanged(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.OnCapturedContentVisibilityChanged(ctx, &pb.OnCapturedContentVisibilityChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnStop calls the OnStop RPC.
+func (c *MediaProjectionCallbackClient) OnStop(ctx context.Context) error {
+	_, err := c.svc.OnStop(ctx, &pb.OnStopRequest{})
+	return err
+}
+
+// VirtualDisplayClient wraps the gRPC VirtualDisplayService client.
+type VirtualDisplayClient struct {
+	svc pb.VirtualDisplayServiceClient
+}
+
+// NewVirtualDisplayClient creates a new VirtualDisplay client.
+func NewVirtualDisplayClient(cc grpc.ClientConnInterface) *VirtualDisplayClient {
+	return &VirtualDisplayClient{
+		svc: pb.NewVirtualDisplayServiceClient(cc),
+	}
+}
+
+// GetDisplay calls the GetDisplay RPC.
+func (c *VirtualDisplayClient) GetDisplay(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDisplay(ctx, &pb.GetDisplayRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSurface calls the GetSurface RPC.
+func (c *VirtualDisplayClient) GetSurface(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSurface(ctx, &pb.GetSurfaceRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Release calls the Release RPC.
+func (c *VirtualDisplayClient) Release(ctx context.Context) error {
+	_, err := c.svc.Release(ctx, &pb.ReleaseRequest{})
+	return err
+}
+
+// Resize calls the Resize RPC.
+func (c *VirtualDisplayClient) Resize(ctx context.Context, arg0 int32, arg1 int32, arg2 int32) error {
+	_, err := c.svc.Resize(ctx, &pb.ResizeRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// SetRotation calls the SetRotation RPC.
+func (c *VirtualDisplayClient) SetRotation(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetRotation(ctx, &pb.SetRotationRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetSurface calls the SetSurface RPC.
+func (c *VirtualDisplayClient) SetSurface(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetSurface(ctx, &pb.SetSurfaceRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ToString calls the ToString RPC.
+func (c *VirtualDisplayClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// VirtualDisplayCallbackClient wraps the gRPC VirtualDisplayCallbackService client.
+type VirtualDisplayCallbackClient struct {
+	svc pb.VirtualDisplayCallbackServiceClient
+}
+
+// NewVirtualDisplayCallbackClient creates a new VirtualDisplayCallback client.
+func NewVirtualDisplayCallbackClient(cc grpc.ClientConnInterface) *VirtualDisplayCallbackClient {
+	return &VirtualDisplayCallbackClient{
+		svc: pb.NewVirtualDisplayCallbackServiceClient(cc),
+	}
+}
+
+// OnPaused calls the OnPaused RPC.
+func (c *VirtualDisplayCallbackClient) OnPaused(ctx context.Context) error {
+	_, err := c.svc.OnPaused(ctx, &pb.OnPausedRequest{})
+	return err
+}
+
+// OnResumed calls the OnResumed RPC.
+func (c *VirtualDisplayCallbackClient) OnResumed(ctx context.Context) error {
+	_, err := c.svc.OnResumed(ctx, &pb.OnResumedRequest{})
+	return err
+}
+
+// OnStopped calls the OnStopped RPC.
+func (c *VirtualDisplayCallbackClient) OnStopped(ctx context.Context) error {
+	_, err := c.svc.OnStopped(ctx, &pb.OnStoppedRequest{})
+	return err
 }

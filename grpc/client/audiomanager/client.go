@@ -9,6 +9,164 @@ import (
 	"google.golang.org/grpc"
 )
 
+// AudioDeviceInfoClient wraps the gRPC AudioDeviceInfoService client.
+type AudioDeviceInfoClient struct {
+	svc pb.AudioDeviceInfoServiceClient
+}
+
+// NewAudioDeviceInfoClient creates a new AudioDeviceInfo client.
+func NewAudioDeviceInfoClient(cc grpc.ClientConnInterface) *AudioDeviceInfoClient {
+	return &AudioDeviceInfoClient{
+		svc: pb.NewAudioDeviceInfoServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *AudioDeviceInfoClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAddress calls the GetAddress RPC.
+func (c *AudioDeviceInfoClient) GetAddress(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetAddress(ctx, &pb.GetAddressRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetChannelCounts calls the GetChannelCounts RPC.
+func (c *AudioDeviceInfoClient) GetChannelCounts(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetChannelCounts(ctx, &pb.GetChannelCountsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetChannelIndexMasks calls the GetChannelIndexMasks RPC.
+func (c *AudioDeviceInfoClient) GetChannelIndexMasks(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetChannelIndexMasks(ctx, &pb.GetChannelIndexMasksRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetChannelMasks calls the GetChannelMasks RPC.
+func (c *AudioDeviceInfoClient) GetChannelMasks(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetChannelMasks(ctx, &pb.GetChannelMasksRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEncapsulationMetadataTypes calls the GetEncapsulationMetadataTypes RPC.
+func (c *AudioDeviceInfoClient) GetEncapsulationMetadataTypes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetEncapsulationMetadataTypes(ctx, &pb.GetEncapsulationMetadataTypesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEncapsulationModes calls the GetEncapsulationModes RPC.
+func (c *AudioDeviceInfoClient) GetEncapsulationModes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetEncapsulationModes(ctx, &pb.GetEncapsulationModesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEncodings calls the GetEncodings RPC.
+func (c *AudioDeviceInfoClient) GetEncodings(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetEncodings(ctx, &pb.GetEncodingsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetId calls the GetId RPC.
+func (c *AudioDeviceInfoClient) GetId(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetProductName calls the GetProductName RPC.
+func (c *AudioDeviceInfoClient) GetProductName(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetProductName(ctx, &pb.GetProductNameRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSampleRates calls the GetSampleRates RPC.
+func (c *AudioDeviceInfoClient) GetSampleRates(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSampleRates(ctx, &pb.GetSampleRatesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSpeakerLayoutChannelMask calls the GetSpeakerLayoutChannelMask RPC.
+func (c *AudioDeviceInfoClient) GetSpeakerLayoutChannelMask(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetSpeakerLayoutChannelMask(ctx, &pb.GetSpeakerLayoutChannelMaskRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetType calls the GetType RPC.
+func (c *AudioDeviceInfoClient) GetType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetType(ctx, &pb.GetTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *AudioDeviceInfoClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsSink calls the IsSink RPC.
+func (c *AudioDeviceInfoClient) IsSink(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsSink(ctx, &pb.IsSinkRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsSource calls the IsSource RPC.
+func (c *AudioDeviceInfoClient) IsSource(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsSource(ctx, &pb.IsSourceRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
 // AudioManagerClient wraps the gRPC AudioManagerService client.
 type AudioManagerClient struct {
 	svc pb.AudioManagerServiceClient
@@ -856,4 +1014,86 @@ func (c *AudioManagerClient) IsOffloadedPlaybackSupported(ctx context.Context, a
 		return false, err
 	}
 	return resp.GetResult(), nil
+}
+
+// AudioManagerOnAudioFocusChangeListenerClient wraps the gRPC AudioManagerOnAudioFocusChangeListenerService client.
+type AudioManagerOnAudioFocusChangeListenerClient struct {
+	svc pb.AudioManagerOnAudioFocusChangeListenerServiceClient
+}
+
+// NewAudioManagerOnAudioFocusChangeListenerClient creates a new AudioManagerOnAudioFocusChangeListener client.
+func NewAudioManagerOnAudioFocusChangeListenerClient(cc grpc.ClientConnInterface) *AudioManagerOnAudioFocusChangeListenerClient {
+	return &AudioManagerOnAudioFocusChangeListenerClient{
+		svc: pb.NewAudioManagerOnAudioFocusChangeListenerServiceClient(cc),
+	}
+}
+
+// OnAudioFocusChange calls the OnAudioFocusChange RPC.
+func (c *AudioManagerOnAudioFocusChangeListenerClient) OnAudioFocusChange(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.OnAudioFocusChange(ctx, &pb.OnAudioFocusChangeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// AudioManagerOnCommunicationDeviceChangedListenerClient wraps the gRPC AudioManagerOnCommunicationDeviceChangedListenerService client.
+type AudioManagerOnCommunicationDeviceChangedListenerClient struct {
+	svc pb.AudioManagerOnCommunicationDeviceChangedListenerServiceClient
+}
+
+// NewAudioManagerOnCommunicationDeviceChangedListenerClient creates a new AudioManagerOnCommunicationDeviceChangedListener client.
+func NewAudioManagerOnCommunicationDeviceChangedListenerClient(cc grpc.ClientConnInterface) *AudioManagerOnCommunicationDeviceChangedListenerClient {
+	return &AudioManagerOnCommunicationDeviceChangedListenerClient{
+		svc: pb.NewAudioManagerOnCommunicationDeviceChangedListenerServiceClient(cc),
+	}
+}
+
+// OnCommunicationDeviceChanged calls the OnCommunicationDeviceChanged RPC.
+func (c *AudioManagerOnCommunicationDeviceChangedListenerClient) OnCommunicationDeviceChanged(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnCommunicationDeviceChanged(ctx, &pb.OnCommunicationDeviceChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// AudioManagerOnModeChangedListenerClient wraps the gRPC AudioManagerOnModeChangedListenerService client.
+type AudioManagerOnModeChangedListenerClient struct {
+	svc pb.AudioManagerOnModeChangedListenerServiceClient
+}
+
+// NewAudioManagerOnModeChangedListenerClient creates a new AudioManagerOnModeChangedListener client.
+func NewAudioManagerOnModeChangedListenerClient(cc grpc.ClientConnInterface) *AudioManagerOnModeChangedListenerClient {
+	return &AudioManagerOnModeChangedListenerClient{
+		svc: pb.NewAudioManagerOnModeChangedListenerServiceClient(cc),
+	}
+}
+
+// OnModeChanged calls the OnModeChanged RPC.
+func (c *AudioManagerOnModeChangedListenerClient) OnModeChanged(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.OnModeChanged(ctx, &pb.OnModeChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// AudioManagerOnPreferredMixerAttributesChangedListenerClient wraps the gRPC AudioManagerOnPreferredMixerAttributesChangedListenerService client.
+type AudioManagerOnPreferredMixerAttributesChangedListenerClient struct {
+	svc pb.AudioManagerOnPreferredMixerAttributesChangedListenerServiceClient
+}
+
+// NewAudioManagerOnPreferredMixerAttributesChangedListenerClient creates a new AudioManagerOnPreferredMixerAttributesChangedListener client.
+func NewAudioManagerOnPreferredMixerAttributesChangedListenerClient(cc grpc.ClientConnInterface) *AudioManagerOnPreferredMixerAttributesChangedListenerClient {
+	return &AudioManagerOnPreferredMixerAttributesChangedListenerClient{
+		svc: pb.NewAudioManagerOnPreferredMixerAttributesChangedListenerServiceClient(cc),
+	}
+}
+
+// OnPreferredMixerAttributesChanged calls the OnPreferredMixerAttributesChanged RPC.
+func (c *AudioManagerOnPreferredMixerAttributesChangedListenerClient) OnPreferredMixerAttributesChanged(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.OnPreferredMixerAttributesChanged(ctx, &pb.OnPreferredMixerAttributesChangedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
 }

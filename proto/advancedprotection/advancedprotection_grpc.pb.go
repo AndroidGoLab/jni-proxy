@@ -198,3 +198,106 @@ var AdvancedProtectionManagerService_ServiceDesc = grpc.ServiceDesc{
 	Streams:  []grpc.StreamDesc{},
 	Metadata: "proto/advancedprotection/advancedprotection.proto",
 }
+
+const (
+	AdvancedProtectionManagerCallbackService_OnAdvancedProtectionChanged_FullMethodName = "/advancedprotection.AdvancedProtectionManagerCallbackService/OnAdvancedProtectionChanged"
+)
+
+// AdvancedProtectionManagerCallbackServiceClient is the client API for AdvancedProtectionManagerCallbackService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AdvancedProtectionManagerCallbackServiceClient interface {
+	OnAdvancedProtectionChanged(ctx context.Context, in *OnAdvancedProtectionChangedRequest, opts ...grpc.CallOption) (*OnAdvancedProtectionChangedResponse, error)
+}
+
+type advancedProtectionManagerCallbackServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAdvancedProtectionManagerCallbackServiceClient(cc grpc.ClientConnInterface) AdvancedProtectionManagerCallbackServiceClient {
+	return &advancedProtectionManagerCallbackServiceClient{cc}
+}
+
+func (c *advancedProtectionManagerCallbackServiceClient) OnAdvancedProtectionChanged(ctx context.Context, in *OnAdvancedProtectionChangedRequest, opts ...grpc.CallOption) (*OnAdvancedProtectionChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnAdvancedProtectionChangedResponse)
+	err := c.cc.Invoke(ctx, AdvancedProtectionManagerCallbackService_OnAdvancedProtectionChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AdvancedProtectionManagerCallbackServiceServer is the server API for AdvancedProtectionManagerCallbackService service.
+// All implementations must embed UnimplementedAdvancedProtectionManagerCallbackServiceServer
+// for forward compatibility.
+type AdvancedProtectionManagerCallbackServiceServer interface {
+	OnAdvancedProtectionChanged(context.Context, *OnAdvancedProtectionChangedRequest) (*OnAdvancedProtectionChangedResponse, error)
+	mustEmbedUnimplementedAdvancedProtectionManagerCallbackServiceServer()
+}
+
+// UnimplementedAdvancedProtectionManagerCallbackServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedAdvancedProtectionManagerCallbackServiceServer struct{}
+
+func (UnimplementedAdvancedProtectionManagerCallbackServiceServer) OnAdvancedProtectionChanged(context.Context, *OnAdvancedProtectionChangedRequest) (*OnAdvancedProtectionChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnAdvancedProtectionChanged not implemented")
+}
+func (UnimplementedAdvancedProtectionManagerCallbackServiceServer) mustEmbedUnimplementedAdvancedProtectionManagerCallbackServiceServer() {
+}
+func (UnimplementedAdvancedProtectionManagerCallbackServiceServer) testEmbeddedByValue() {}
+
+// UnsafeAdvancedProtectionManagerCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AdvancedProtectionManagerCallbackServiceServer will
+// result in compilation errors.
+type UnsafeAdvancedProtectionManagerCallbackServiceServer interface {
+	mustEmbedUnimplementedAdvancedProtectionManagerCallbackServiceServer()
+}
+
+func RegisterAdvancedProtectionManagerCallbackServiceServer(s grpc.ServiceRegistrar, srv AdvancedProtectionManagerCallbackServiceServer) {
+	// If the following call panics, it indicates UnimplementedAdvancedProtectionManagerCallbackServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&AdvancedProtectionManagerCallbackService_ServiceDesc, srv)
+}
+
+func _AdvancedProtectionManagerCallbackService_OnAdvancedProtectionChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnAdvancedProtectionChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdvancedProtectionManagerCallbackServiceServer).OnAdvancedProtectionChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdvancedProtectionManagerCallbackService_OnAdvancedProtectionChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdvancedProtectionManagerCallbackServiceServer).OnAdvancedProtectionChanged(ctx, req.(*OnAdvancedProtectionChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AdvancedProtectionManagerCallbackService_ServiceDesc is the grpc.ServiceDesc for AdvancedProtectionManagerCallbackService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AdvancedProtectionManagerCallbackService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "advancedprotection.AdvancedProtectionManagerCallbackService",
+	HandlerType: (*AdvancedProtectionManagerCallbackServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnAdvancedProtectionChanged",
+			Handler:    _AdvancedProtectionManagerCallbackService_OnAdvancedProtectionChanged_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/advancedprotection/advancedprotection.proto",
+}

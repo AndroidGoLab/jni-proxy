@@ -6,6 +6,2117 @@ package accessibility;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/accessibility";
 
+message GetViewRequest {
+}
+
+message GetViewResponse {
+  int64 result = 1;
+}
+
+message OnPrepareExtraDataRequest {
+  int32 arg0 = 1;
+  string arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message OnPrepareExtraDataResponse {
+}
+
+message SendAccessibilityEventRequest {
+  int32 arg0 = 1;
+}
+
+message SendAccessibilityEventResponse {
+}
+
+message SendAccessibilityEventUncheckedRequest {
+  int64 arg0 = 1;
+}
+
+message SendAccessibilityEventUncheckedResponse {
+}
+
+message NewRecordRequest {
+}
+
+message NewRecordResponse {
+  int64 result = 1;
+}
+
+message GetAddedCountRequest {
+  int64 handle = 1;
+}
+
+message GetAddedCountResponse {
+  int32 result = 1;
+}
+
+message GetBeforeTextRequest {
+  int64 handle = 1;
+}
+
+message GetBeforeTextResponse {
+  int64 result = 1;
+}
+
+message GetClassNameRequest {
+  int64 handle = 1;
+}
+
+message GetClassNameResponse {
+  int64 result = 1;
+}
+
+message GetContentDescriptionRequest {
+  int64 handle = 1;
+}
+
+message GetContentDescriptionResponse {
+  int64 result = 1;
+}
+
+message GetCurrentItemIndexRequest {
+  int64 handle = 1;
+}
+
+message GetCurrentItemIndexResponse {
+  int32 result = 1;
+}
+
+message GetDisplayIdRequest {
+  int64 handle = 1;
+}
+
+message GetDisplayIdResponse {
+  int32 result = 1;
+}
+
+message GetFromIndexRequest {
+  int64 handle = 1;
+}
+
+message GetFromIndexResponse {
+  int32 result = 1;
+}
+
+message GetItemCountRequest {
+  int64 handle = 1;
+}
+
+message GetItemCountResponse {
+  int32 result = 1;
+}
+
+message GetMaxScrollXRequest {
+  int64 handle = 1;
+}
+
+message GetMaxScrollXResponse {
+  int32 result = 1;
+}
+
+message GetMaxScrollYRequest {
+  int64 handle = 1;
+}
+
+message GetMaxScrollYResponse {
+  int32 result = 1;
+}
+
+message GetParcelableDataRequest {
+  int64 handle = 1;
+}
+
+message GetParcelableDataResponse {
+  int64 result = 1;
+}
+
+message GetRemovedCountRequest {
+  int64 handle = 1;
+}
+
+message GetRemovedCountResponse {
+  int32 result = 1;
+}
+
+message GetScrollDeltaXRequest {
+  int64 handle = 1;
+}
+
+message GetScrollDeltaXResponse {
+  int32 result = 1;
+}
+
+message GetScrollDeltaYRequest {
+  int64 handle = 1;
+}
+
+message GetScrollDeltaYResponse {
+  int32 result = 1;
+}
+
+message GetScrollXRequest {
+  int64 handle = 1;
+}
+
+message GetScrollXResponse {
+  int32 result = 1;
+}
+
+message GetScrollYRequest {
+  int64 handle = 1;
+}
+
+message GetScrollYResponse {
+  int32 result = 1;
+}
+
+message GetSource0Request {
+  int64 handle = 1;
+}
+
+message GetSource0Response {
+  int64 result = 1;
+}
+
+message GetSource1_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetSource1_1Response {
+  int64 result = 1;
+}
+
+message GetToIndexRequest {
+  int64 handle = 1;
+}
+
+message GetToIndexResponse {
+  int32 result = 1;
+}
+
+message GetWindowIdRequest {
+  int64 handle = 1;
+}
+
+message GetWindowIdResponse {
+  int32 result = 1;
+}
+
+message IsCheckedRequest {
+  int64 handle = 1;
+}
+
+message IsCheckedResponse {
+  bool result = 1;
+}
+
+message IsEnabledRequest {
+  int64 handle = 1;
+}
+
+message IsEnabledResponse {
+  bool result = 1;
+}
+
+message IsFullScreenRequest {
+  int64 handle = 1;
+}
+
+message IsFullScreenResponse {
+  bool result = 1;
+}
+
+message IsPasswordRequest {
+  int64 handle = 1;
+}
+
+message IsPasswordResponse {
+  bool result = 1;
+}
+
+message IsScrollableRequest {
+  int64 handle = 1;
+}
+
+message IsScrollableResponse {
+  bool result = 1;
+}
+
+message RecycleRequest {
+  int64 handle = 1;
+}
+
+message RecycleResponse {
+}
+
+message SetAddedCountRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetAddedCountResponse {
+}
+
+message SetBeforeTextRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetBeforeTextResponse {
+}
+
+message SetCheckedRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetCheckedResponse {
+}
+
+message SetClassNameRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetClassNameResponse {
+}
+
+message SetContentDescriptionRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetContentDescriptionResponse {
+}
+
+message SetCurrentItemIndexRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetCurrentItemIndexResponse {
+}
+
+message SetEnabledRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetEnabledResponse {
+}
+
+message SetFromIndexRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetFromIndexResponse {
+}
+
+message SetFullScreenRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetFullScreenResponse {
+}
+
+message SetItemCountRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetItemCountResponse {
+}
+
+message SetMaxScrollXRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetMaxScrollXResponse {
+}
+
+message SetMaxScrollYRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetMaxScrollYResponse {
+}
+
+message SetParcelableDataRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetParcelableDataResponse {
+}
+
+message SetPasswordRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetPasswordResponse {
+}
+
+message SetRemovedCountRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetRemovedCountResponse {
+}
+
+message SetScrollDeltaXRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetScrollDeltaXResponse {
+}
+
+message SetScrollDeltaYRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetScrollDeltaYResponse {
+}
+
+message SetScrollXRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetScrollXResponse {
+}
+
+message SetScrollYRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetScrollYResponse {
+}
+
+message SetScrollableRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetScrollableResponse {
+}
+
+message SetSource1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetSource1Response {
+}
+
+message SetSource2_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message SetSource2_1Response {
+}
+
+message SetToIndexRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetToIndexResponse {
+}
+
+message ToStringRequest {
+  int64 handle = 1;
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message Obtain0Request {
+  int64 handle = 1;
+}
+
+message Obtain0Response {
+  int64 result = 1;
+}
+
+message Obtain1_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message Obtain1_1Response {
+  int64 result = 1;
+}
+
+message NewNodeInfoRequest {
+}
+
+message NewNodeInfoResponse {
+  int64 result = 1;
+}
+
+message AddAction1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AddAction1Response {
+}
+
+message AddAction1_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message AddAction1_1Response {
+}
+
+message AddChild1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AddChild1Response {
+}
+
+message AddChild2_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message AddChild2_1Response {
+}
+
+message AddLabeledBy1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AddLabeledBy1Response {
+}
+
+message AddLabeledBy2_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message AddLabeledBy2_1Response {
+}
+
+message CanOpenPopupRequest {
+  int64 handle = 1;
+}
+
+message CanOpenPopupResponse {
+  bool result = 1;
+}
+
+message DescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message EqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message FindFocusRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message FindFocusResponse {
+  int64 result = 1;
+}
+
+message FocusSearchRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message FocusSearchResponse {
+  int64 result = 1;
+}
+
+message GetActionsRequest {
+  int64 handle = 1;
+}
+
+message GetActionsResponse {
+  int32 result = 1;
+}
+
+message GetBoundsInParentRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetBoundsInParentResponse {
+}
+
+message GetBoundsInScreenRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetBoundsInScreenResponse {
+}
+
+message GetBoundsInWindowRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetBoundsInWindowResponse {
+}
+
+message GetCheckedRequest {
+  int64 handle = 1;
+}
+
+message GetCheckedResponse {
+  int32 result = 1;
+}
+
+message GetChild1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetChild1Response {
+  int64 result = 1;
+}
+
+message GetChild2_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message GetChild2_1Response {
+  int64 result = 1;
+}
+
+message GetChildCountRequest {
+  int64 handle = 1;
+}
+
+message GetChildCountResponse {
+  int32 result = 1;
+}
+
+message GetCollectionInfoRequest {
+  int64 handle = 1;
+}
+
+message GetCollectionInfoResponse {
+  int64 result = 1;
+}
+
+message GetCollectionItemInfoRequest {
+  int64 handle = 1;
+}
+
+message GetCollectionItemInfoResponse {
+  int64 result = 1;
+}
+
+message GetContainerTitleRequest {
+  int64 handle = 1;
+}
+
+message GetContainerTitleResponse {
+  int64 result = 1;
+}
+
+message GetDrawingOrderRequest {
+  int64 handle = 1;
+}
+
+message GetDrawingOrderResponse {
+  int32 result = 1;
+}
+
+message GetErrorRequest {
+  int64 handle = 1;
+}
+
+message GetErrorResponse {
+  int64 result = 1;
+}
+
+message GetExpandedStateRequest {
+  int64 handle = 1;
+}
+
+message GetExpandedStateResponse {
+  int32 result = 1;
+}
+
+message GetExtraRenderingInfoRequest {
+  int64 handle = 1;
+}
+
+message GetExtraRenderingInfoResponse {
+  int64 result = 1;
+}
+
+message GetExtrasRequest {
+  int64 handle = 1;
+}
+
+message GetExtrasResponse {
+  int64 result = 1;
+}
+
+message GetHintTextRequest {
+  int64 handle = 1;
+}
+
+message GetHintTextResponse {
+  int64 result = 1;
+}
+
+message GetInputTypeRequest {
+  int64 handle = 1;
+}
+
+message GetInputTypeResponse {
+  int32 result = 1;
+}
+
+message GetLabelForRequest {
+  int64 handle = 1;
+}
+
+message GetLabelForResponse {
+  int64 result = 1;
+}
+
+message GetLabeledByRequest {
+  int64 handle = 1;
+}
+
+message GetLabeledByResponse {
+  int64 result = 1;
+}
+
+message GetLiveRegionRequest {
+  int64 handle = 1;
+}
+
+message GetLiveRegionResponse {
+  int32 result = 1;
+}
+
+message GetMaxTextLengthRequest {
+  int64 handle = 1;
+}
+
+message GetMaxTextLengthResponse {
+  int32 result = 1;
+}
+
+message GetMinDurationBetweenContentChangesRequest {
+  int64 handle = 1;
+}
+
+message GetMinDurationBetweenContentChangesResponse {
+  int64 result = 1;
+}
+
+message GetMovementGranularitiesRequest {
+  int64 handle = 1;
+}
+
+message GetMovementGranularitiesResponse {
+  int32 result = 1;
+}
+
+message GetPackageNameRequest {
+  int64 handle = 1;
+}
+
+message GetPackageNameResponse {
+  int64 result = 1;
+}
+
+message GetPaneTitleRequest {
+  int64 handle = 1;
+}
+
+message GetPaneTitleResponse {
+  int64 result = 1;
+}
+
+message GetParent0Request {
+  int64 handle = 1;
+}
+
+message GetParent0Response {
+  int64 result = 1;
+}
+
+message GetParent1_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetParent1_1Response {
+  int64 result = 1;
+}
+
+message GetRangeInfoRequest {
+  int64 handle = 1;
+}
+
+message GetRangeInfoResponse {
+  int64 result = 1;
+}
+
+message GetStateDescriptionRequest {
+  int64 handle = 1;
+}
+
+message GetStateDescriptionResponse {
+  int64 result = 1;
+}
+
+message GetSupplementalDescriptionRequest {
+  int64 handle = 1;
+}
+
+message GetSupplementalDescriptionResponse {
+  int64 result = 1;
+}
+
+message GetTextRequest {
+  int64 handle = 1;
+}
+
+message GetTextResponse {
+  int64 result = 1;
+}
+
+message GetTextSelectionEndRequest {
+  int64 handle = 1;
+}
+
+message GetTextSelectionEndResponse {
+  int32 result = 1;
+}
+
+message GetTextSelectionStartRequest {
+  int64 handle = 1;
+}
+
+message GetTextSelectionStartResponse {
+  int32 result = 1;
+}
+
+message GetTooltipTextRequest {
+  int64 handle = 1;
+}
+
+message GetTooltipTextResponse {
+  int64 result = 1;
+}
+
+message GetTouchDelegateInfoRequest {
+  int64 handle = 1;
+}
+
+message GetTouchDelegateInfoResponse {
+  int64 result = 1;
+}
+
+message GetTraversalAfterRequest {
+  int64 handle = 1;
+}
+
+message GetTraversalAfterResponse {
+  int64 result = 1;
+}
+
+message GetTraversalBeforeRequest {
+  int64 handle = 1;
+}
+
+message GetTraversalBeforeResponse {
+  int64 result = 1;
+}
+
+message GetUniqueIdRequest {
+  int64 handle = 1;
+}
+
+message GetUniqueIdResponse {
+  string result = 1;
+}
+
+message GetViewIdResourceNameRequest {
+  int64 handle = 1;
+}
+
+message GetViewIdResourceNameResponse {
+  string result = 1;
+}
+
+message GetWindowRequest {
+  int64 handle = 1;
+}
+
+message GetWindowResponse {
+  int64 result = 1;
+}
+
+message HasRequestInitialAccessibilityFocusRequest {
+  int64 handle = 1;
+}
+
+message HasRequestInitialAccessibilityFocusResponse {
+  bool result = 1;
+}
+
+message HashCodeRequest {
+  int64 handle = 1;
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message IsAccessibilityDataSensitiveRequest {
+  int64 handle = 1;
+}
+
+message IsAccessibilityDataSensitiveResponse {
+  bool result = 1;
+}
+
+message IsAccessibilityFocusedRequest {
+  int64 handle = 1;
+}
+
+message IsAccessibilityFocusedResponse {
+  bool result = 1;
+}
+
+message IsCheckableRequest {
+  int64 handle = 1;
+}
+
+message IsCheckableResponse {
+  bool result = 1;
+}
+
+message IsClickableRequest {
+  int64 handle = 1;
+}
+
+message IsClickableResponse {
+  bool result = 1;
+}
+
+message IsContentInvalidRequest {
+  int64 handle = 1;
+}
+
+message IsContentInvalidResponse {
+  bool result = 1;
+}
+
+message IsContextClickableRequest {
+  int64 handle = 1;
+}
+
+message IsContextClickableResponse {
+  bool result = 1;
+}
+
+message IsDismissableRequest {
+  int64 handle = 1;
+}
+
+message IsDismissableResponse {
+  bool result = 1;
+}
+
+message IsEditableRequest {
+  int64 handle = 1;
+}
+
+message IsEditableResponse {
+  bool result = 1;
+}
+
+message IsFieldRequiredRequest {
+  int64 handle = 1;
+}
+
+message IsFieldRequiredResponse {
+  bool result = 1;
+}
+
+message IsFocusableRequest {
+  int64 handle = 1;
+}
+
+message IsFocusableResponse {
+  bool result = 1;
+}
+
+message IsFocusedRequest {
+  int64 handle = 1;
+}
+
+message IsFocusedResponse {
+  bool result = 1;
+}
+
+message IsGranularScrollingSupportedRequest {
+  int64 handle = 1;
+}
+
+message IsGranularScrollingSupportedResponse {
+  bool result = 1;
+}
+
+message IsHeadingRequest {
+  int64 handle = 1;
+}
+
+message IsHeadingResponse {
+  bool result = 1;
+}
+
+message IsImportantForAccessibilityRequest {
+  int64 handle = 1;
+}
+
+message IsImportantForAccessibilityResponse {
+  bool result = 1;
+}
+
+message IsLongClickableRequest {
+  int64 handle = 1;
+}
+
+message IsLongClickableResponse {
+  bool result = 1;
+}
+
+message IsMultiLineRequest {
+  int64 handle = 1;
+}
+
+message IsMultiLineResponse {
+  bool result = 1;
+}
+
+message IsScreenReaderFocusableRequest {
+  int64 handle = 1;
+}
+
+message IsScreenReaderFocusableResponse {
+  bool result = 1;
+}
+
+message IsSelectedRequest {
+  int64 handle = 1;
+}
+
+message IsSelectedResponse {
+  bool result = 1;
+}
+
+message IsShowingHintTextRequest {
+  int64 handle = 1;
+}
+
+message IsShowingHintTextResponse {
+  bool result = 1;
+}
+
+message IsTextEntryKeyRequest {
+  int64 handle = 1;
+}
+
+message IsTextEntryKeyResponse {
+  bool result = 1;
+}
+
+message IsTextSelectableRequest {
+  int64 handle = 1;
+}
+
+message IsTextSelectableResponse {
+  bool result = 1;
+}
+
+message IsVisibleToUserRequest {
+  int64 handle = 1;
+}
+
+message IsVisibleToUserResponse {
+  bool result = 1;
+}
+
+message PerformAction1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message PerformAction1Response {
+  bool result = 1;
+}
+
+message PerformAction2_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message PerformAction2_1Response {
+  bool result = 1;
+}
+
+message RefreshRequest {
+  int64 handle = 1;
+}
+
+message RefreshResponse {
+  bool result = 1;
+}
+
+message RefreshWithExtraDataRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message RefreshWithExtraDataResponse {
+  bool result = 1;
+}
+
+message RemoveAction1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message RemoveAction1Response {
+  bool result = 1;
+}
+
+message RemoveAction1_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message RemoveAction1_1Response {
+}
+
+message RemoveChild1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message RemoveChild1Response {
+  bool result = 1;
+}
+
+message RemoveChild2_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message RemoveChild2_1Response {
+  bool result = 1;
+}
+
+message RemoveLabeledBy1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message RemoveLabeledBy1Response {
+  bool result = 1;
+}
+
+message RemoveLabeledBy2_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message RemoveLabeledBy2_1Response {
+  bool result = 1;
+}
+
+message SetAccessibilityDataSensitiveRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetAccessibilityDataSensitiveResponse {
+}
+
+message SetAccessibilityFocusedRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetAccessibilityFocusedResponse {
+}
+
+message SetBoundsInParentRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetBoundsInParentResponse {
+}
+
+message SetBoundsInScreenRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetBoundsInScreenResponse {
+}
+
+message SetBoundsInWindowRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetBoundsInWindowResponse {
+}
+
+message SetCanOpenPopupRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetCanOpenPopupResponse {
+}
+
+message SetCheckableRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetCheckableResponse {
+}
+
+message SetChecked1Request {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetChecked1Response {
+}
+
+message SetChecked1_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetChecked1_1Response {
+}
+
+message SetClickableRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetClickableResponse {
+}
+
+message SetCollectionInfoRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetCollectionInfoResponse {
+}
+
+message SetCollectionItemInfoRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetCollectionItemInfoResponse {
+}
+
+message SetContainerTitleRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetContainerTitleResponse {
+}
+
+message SetContentInvalidRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetContentInvalidResponse {
+}
+
+message SetContextClickableRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetContextClickableResponse {
+}
+
+message SetDismissableRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetDismissableResponse {
+}
+
+message SetDrawingOrderRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetDrawingOrderResponse {
+}
+
+message SetEditableRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetEditableResponse {
+}
+
+message SetErrorRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetErrorResponse {
+}
+
+message SetExpandedStateRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetExpandedStateResponse {
+}
+
+message SetFieldRequiredRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetFieldRequiredResponse {
+}
+
+message SetFocusableRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetFocusableResponse {
+}
+
+message SetFocusedRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetFocusedResponse {
+}
+
+message SetGranularScrollingSupportedRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetGranularScrollingSupportedResponse {
+}
+
+message SetHeadingRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetHeadingResponse {
+}
+
+message SetHintTextRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetHintTextResponse {
+}
+
+message SetImportantForAccessibilityRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetImportantForAccessibilityResponse {
+}
+
+message SetInputTypeRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetInputTypeResponse {
+}
+
+message SetLabelFor1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetLabelFor1Response {
+}
+
+message SetLabelFor2_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message SetLabelFor2_1Response {
+}
+
+message SetLabeledBy1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetLabeledBy1Response {
+}
+
+message SetLabeledBy2_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message SetLabeledBy2_1Response {
+}
+
+message SetLiveRegionRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetLiveRegionResponse {
+}
+
+message SetLongClickableRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetLongClickableResponse {
+}
+
+message SetMaxTextLengthRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetMaxTextLengthResponse {
+}
+
+message SetMinDurationBetweenContentChangesRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetMinDurationBetweenContentChangesResponse {
+}
+
+message SetMovementGranularitiesRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetMovementGranularitiesResponse {
+}
+
+message SetMultiLineRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetMultiLineResponse {
+}
+
+message SetPackageNameRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetPackageNameResponse {
+}
+
+message SetPaneTitleRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetPaneTitleResponse {
+}
+
+message SetParent1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetParent1Response {
+}
+
+message SetParent2_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message SetParent2_1Response {
+}
+
+message SetQueryFromAppProcessEnabledRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  bool arg1 = 3;
+}
+
+message SetQueryFromAppProcessEnabledResponse {
+}
+
+message SetRangeInfoRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetRangeInfoResponse {
+}
+
+message SetRequestInitialAccessibilityFocusRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetRequestInitialAccessibilityFocusResponse {
+}
+
+message SetScreenReaderFocusableRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetScreenReaderFocusableResponse {
+}
+
+message SetSelectedRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetSelectedResponse {
+}
+
+message SetShowingHintTextRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetShowingHintTextResponse {
+}
+
+message SetStateDescriptionRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetStateDescriptionResponse {
+}
+
+message SetSupplementalDescriptionRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetSupplementalDescriptionResponse {
+}
+
+message SetTextRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetTextResponse {
+}
+
+message SetTextEntryKeyRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetTextEntryKeyResponse {
+}
+
+message SetTextSelectableRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetTextSelectableResponse {
+}
+
+message SetTextSelectionRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message SetTextSelectionResponse {
+}
+
+message SetTooltipTextRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetTooltipTextResponse {
+}
+
+message SetTouchDelegateInfoRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetTouchDelegateInfoResponse {
+}
+
+message SetTraversalAfter1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetTraversalAfter1Response {
+}
+
+message SetTraversalAfter2_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message SetTraversalAfter2_1Response {
+}
+
+message SetTraversalBefore1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetTraversalBefore1Response {
+}
+
+message SetTraversalBefore2_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message SetTraversalBefore2_1Response {
+}
+
+message SetUniqueIdRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetUniqueIdResponse {
+}
+
+message SetViewIdResourceNameRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetViewIdResourceNameResponse {
+}
+
+message SetVisibleToUserRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetVisibleToUserResponse {
+}
+
+message WriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message WriteToParcelResponse {
+}
+
+message Obtain1_2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message Obtain1_2Response {
+  int64 result = 1;
+}
+
+message Obtain2_3Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message Obtain2_3Response {
+  int64 result = 1;
+}
+
+message NodeInfoAccessibilityActionDescribeContentsRequest {
+}
+
+message NodeInfoAccessibilityActionEqualsRequest {
+  int64 arg0 = 1;
+}
+
+message GetIdRequest {
+}
+
+message GetIdResponse {
+  int32 result = 1;
+}
+
+message GetLabelRequest {
+}
+
+message GetLabelResponse {
+  int64 result = 1;
+}
+
+message NodeInfoAccessibilityActionHashCodeRequest {
+}
+
+message NodeInfoAccessibilityActionToStringRequest {
+}
+
+message NodeInfoAccessibilityActionWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message GetColumnCountRequest {
+}
+
+message GetColumnCountResponse {
+  int32 result = 1;
+}
+
+message GetImportantForAccessibilityItemCountRequest {
+}
+
+message GetImportantForAccessibilityItemCountResponse {
+  int32 result = 1;
+}
+
+message NodeInfoCollectionInfoGetItemCountRequest {
+}
+
+message GetRowCountRequest {
+}
+
+message GetRowCountResponse {
+  int32 result = 1;
+}
+
+message GetSelectionModeRequest {
+}
+
+message GetSelectionModeResponse {
+  int32 result = 1;
+}
+
+message IsHierarchicalRequest {
+}
+
+message IsHierarchicalResponse {
+  bool result = 1;
+}
+
+message Obtain3Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  bool arg2 = 3;
+}
+
+message Obtain3Response {
+  int64 result = 1;
+}
+
+message Obtain4_1Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  bool arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message Obtain4_1Response {
+  int64 result = 1;
+}
+
+message GetColumnIndexRequest {
+}
+
+message GetColumnIndexResponse {
+  int32 result = 1;
+}
+
+message GetColumnSpanRequest {
+}
+
+message GetColumnSpanResponse {
+  int32 result = 1;
+}
+
+message GetColumnTitleRequest {
+}
+
+message GetColumnTitleResponse {
+  string result = 1;
+}
+
+message GetRowIndexRequest {
+}
+
+message GetRowIndexResponse {
+  int32 result = 1;
+}
+
+message GetRowSpanRequest {
+}
+
+message GetRowSpanResponse {
+  int32 result = 1;
+}
+
+message GetRowTitleRequest {
+}
+
+message GetRowTitleResponse {
+  string result = 1;
+}
+
+message NodeInfoCollectionItemInfoIsHeadingRequest {
+}
+
+message NodeInfoCollectionItemInfoIsSelectedRequest {
+}
+
+message Obtain5Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  bool arg4 = 5;
+}
+
+message Obtain5Response {
+  int64 result = 1;
+}
+
+message Obtain6_1Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  bool arg4 = 5;
+  bool arg5 = 6;
+}
+
+message Obtain6_1Response {
+  int64 result = 1;
+}
+
+message GetLayoutSizeRequest {
+}
+
+message GetLayoutSizeResponse {
+  int64 result = 1;
+}
+
+message GetTextSizeInPxRequest {
+}
+
+message GetTextSizeInPxResponse {
+  float result = 1;
+}
+
+message GetTextSizeUnitRequest {
+}
+
+message GetTextSizeUnitResponse {
+  int32 result = 1;
+}
+
+message GetCurrentRequest {
+}
+
+message GetCurrentResponse {
+  float result = 1;
+}
+
+message GetMaxRequest {
+}
+
+message GetMaxResponse {
+  float result = 1;
+}
+
+message GetMinRequest {
+}
+
+message GetMinResponse {
+  float result = 1;
+}
+
+message GetTypeRequest {
+}
+
+message GetTypeResponse {
+  int32 result = 1;
+}
+
+message ObtainRequest {
+  int32 arg0 = 1;
+  float arg1 = 2;
+  float arg2 = 3;
+  float arg3 = 4;
+}
+
+message ObtainResponse {
+  int64 result = 1;
+}
+
+message NodeInfoTouchDelegateInfoDescribeContentsRequest {
+}
+
+message GetRegionAtRequest {
+  int32 arg0 = 1;
+}
+
+message GetRegionAtResponse {
+  int64 result = 1;
+}
+
+message GetRegionCountRequest {
+}
+
+message GetRegionCountResponse {
+  int32 result = 1;
+}
+
+message GetTargetForRegionRequest {
+  int64 arg0 = 1;
+}
+
+message GetTargetForRegionResponse {
+  int64 result = 1;
+}
+
+message NodeInfoTouchDelegateInfoWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message NewWindowInfoRequest {
+}
+
+message NewWindowInfoResponse {
+  int64 result = 1;
+}
+
+message GetAnchorRequest {
+  int64 handle = 1;
+}
+
+message GetAnchorResponse {
+  int64 result = 1;
+}
+
+message GetChildRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetChildResponse {
+  int64 result = 1;
+}
+
+message WindowInfoGetIdRequest {
+  int64 handle = 1;
+}
+
+message GetLayerRequest {
+  int64 handle = 1;
+}
+
+message GetLayerResponse {
+  int32 result = 1;
+}
+
+message GetLocalesRequest {
+  int64 handle = 1;
+}
+
+message GetLocalesResponse {
+  int64 result = 1;
+}
+
+message GetParentRequest {
+  int64 handle = 1;
+}
+
+message GetParentResponse {
+  int64 result = 1;
+}
+
+message GetRegionInScreenRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetRegionInScreenResponse {
+}
+
+message GetRoot0Request {
+  int64 handle = 1;
+}
+
+message GetRoot0Response {
+  int64 result = 1;
+}
+
+message GetRoot1_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetRoot1_1Response {
+  int64 result = 1;
+}
+
+message GetTitleRequest {
+  int64 handle = 1;
+}
+
+message GetTitleResponse {
+  int64 result = 1;
+}
+
+message GetTransitionTimeMillisRequest {
+  int64 handle = 1;
+}
+
+message GetTransitionTimeMillisResponse {
+  int64 result = 1;
+}
+
+message WindowInfoGetTypeRequest {
+  int64 handle = 1;
+}
+
+message IsActiveRequest {
+  int64 handle = 1;
+}
+
+message IsActiveResponse {
+  bool result = 1;
+}
+
+message IsInPictureInPictureModeRequest {
+  int64 handle = 1;
+}
+
+message IsInPictureInPictureModeResponse {
+  bool result = 1;
+}
+
+message AddExtraDataToAccessibilityNodeInfoRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+  string arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message AddExtraDataToAccessibilityNodeInfoResponse {
+}
+
+message CreateAccessibilityNodeInfoRequest {
+  int32 arg0 = 1;
+}
+
+message CreateAccessibilityNodeInfoResponse {
+  int64 result = 1;
+}
+
+message NodeProviderFindFocusRequest {
+  int32 arg0 = 1;
+}
+
+message PerformActionRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message PerformActionResponse {
+  bool result = 1;
+}
+
 message AddCaptioningChangeListenerRequest {
   int64 arg0 = 1;
 }
@@ -41,11 +2152,7 @@ message IsCallCaptioningEnabledResponse {
   bool result = 1;
 }
 
-message IsEnabledRequest {
-}
-
-message IsEnabledResponse {
-  bool result = 1;
+message CaptioningManagerIsEnabledRequest {
 }
 
 message IsSystemAudioCaptioningEnabledRequest {
@@ -67,6 +2174,90 @@ message RemoveCaptioningChangeListenerRequest {
 }
 
 message RemoveCaptioningChangeListenerResponse {
+}
+
+message GetTypefaceRequest {
+}
+
+message GetTypefaceResponse {
+  int64 result = 1;
+}
+
+message HasBackgroundColorRequest {
+}
+
+message HasBackgroundColorResponse {
+  bool result = 1;
+}
+
+message HasEdgeColorRequest {
+}
+
+message HasEdgeColorResponse {
+  bool result = 1;
+}
+
+message HasEdgeTypeRequest {
+}
+
+message HasEdgeTypeResponse {
+  bool result = 1;
+}
+
+message HasForegroundColorRequest {
+}
+
+message HasForegroundColorResponse {
+  bool result = 1;
+}
+
+message HasWindowColorRequest {
+}
+
+message HasWindowColorResponse {
+  bool result = 1;
+}
+
+message OnEnabledChangedRequest {
+  bool arg0 = 1;
+}
+
+message OnEnabledChangedResponse {
+}
+
+message OnFontScaleChangedRequest {
+  float arg0 = 1;
+}
+
+message OnFontScaleChangedResponse {
+}
+
+message OnLocaleChangedRequest {
+  int64 arg0 = 1;
+}
+
+message OnLocaleChangedResponse {
+}
+
+message OnSystemAudioCaptioningChangedRequest {
+  bool arg0 = 1;
+}
+
+message OnSystemAudioCaptioningChangedResponse {
+}
+
+message OnSystemAudioCaptioningUiChangedRequest {
+  bool arg0 = 1;
+}
+
+message OnSystemAudioCaptioningUiChangedResponse {
+}
+
+message OnUserStyleChangedRequest {
+  int64 arg0 = 1;
+}
+
+message OnUserStyleChangedResponse {
 }
 
 message AddAccessibilityRequestPreparerRequest {
@@ -159,6 +2350,9 @@ message IsAudioDescriptionRequestedResponse {
   bool result = 1;
 }
 
+message ManagerIsEnabledRequest {
+}
+
 message IsHighContrastTextEnabledRequest {
 }
 
@@ -226,11 +2420,8 @@ message RemoveTouchExplorationStateChangeListenerResponse {
   bool result = 1;
 }
 
-message SendAccessibilityEventRequest {
+message ManagerSendAccessibilityEventRequest {
   int64 arg0 = 1;
-}
-
-message SendAccessibilityEventResponse {
 }
 
 message IsAccessibilityButtonSupportedRequest {
@@ -240,16 +2431,561 @@ message IsAccessibilityButtonSupportedResponse {
   bool result = 1;
 }
 
+message OnAccessibilityServicesStateChangedRequest {
+  int64 arg0 = 1;
+}
+
+message OnAccessibilityServicesStateChangedResponse {
+}
+
+message OnAccessibilityStateChangedRequest {
+  bool arg0 = 1;
+}
+
+message OnAccessibilityStateChangedResponse {
+}
+
+message OnAudioDescriptionRequestedChangedRequest {
+  bool arg0 = 1;
+}
+
+message OnAudioDescriptionRequestedChangedResponse {
+}
+
+message OnHighContrastTextStateChangedRequest {
+  bool arg0 = 1;
+}
+
+message OnHighContrastTextStateChangedResponse {
+}
+
+message OnTouchExplorationStateChangedRequest {
+  bool arg0 = 1;
+}
+
+message OnTouchExplorationStateChangedResponse {
+}
+
+message NewEventRequest {
+}
+
+message NewEventResponse {
+  int64 result = 1;
+}
+
+message AppendRecordRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AppendRecordResponse {
+}
+
+message GetActionRequest {
+  int64 handle = 1;
+}
+
+message GetActionResponse {
+  int32 result = 1;
+}
+
+message GetContentChangeTypesRequest {
+  int64 handle = 1;
+}
+
+message GetContentChangeTypesResponse {
+  int32 result = 1;
+}
+
+message GetEventTimeRequest {
+  int64 handle = 1;
+}
+
+message GetEventTimeResponse {
+  int64 result = 1;
+}
+
+message GetEventTypeRequest {
+  int64 handle = 1;
+}
+
+message GetEventTypeResponse {
+  int32 result = 1;
+}
+
+message GetMovementGranularityRequest {
+  int64 handle = 1;
+}
+
+message GetMovementGranularityResponse {
+  int32 result = 1;
+}
+
+message GetRecordRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetRecordResponse {
+  int64 result = 1;
+}
+
+message GetRecordCountRequest {
+  int64 handle = 1;
+}
+
+message GetRecordCountResponse {
+  int32 result = 1;
+}
+
+message GetSpeechStateChangeTypesRequest {
+  int64 handle = 1;
+}
+
+message GetSpeechStateChangeTypesResponse {
+  int32 result = 1;
+}
+
+message GetWindowChangesRequest {
+  int64 handle = 1;
+}
+
+message GetWindowChangesResponse {
+  int32 result = 1;
+}
+
+message InitFromParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message InitFromParcelResponse {
+}
+
+message SetActionRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetActionResponse {
+}
+
+message SetContentChangeTypesRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetContentChangeTypesResponse {
+}
+
+message SetEventTimeRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetEventTimeResponse {
+}
+
+message SetEventTypeRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetEventTypeResponse {
+}
+
+message SetMovementGranularityRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetMovementGranularityResponse {
+}
+
+message SetSpeechStateChangeTypesRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetSpeechStateChangeTypesResponse {
+}
+
+message EventTypeToStringRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message EventTypeToStringResponse {
+  string result = 1;
+}
+
+message EventObtain1_2Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+service RequestPreparerService {
+  rpc GetView (GetViewRequest) returns (GetViewResponse);
+  rpc OnPrepareExtraData (OnPrepareExtraDataRequest) returns (OnPrepareExtraDataResponse);
+}
+
+service EventSourceService {
+  rpc SendAccessibilityEvent (SendAccessibilityEventRequest) returns (SendAccessibilityEventResponse);
+  rpc SendAccessibilityEventUnchecked (SendAccessibilityEventUncheckedRequest) returns (SendAccessibilityEventUncheckedResponse);
+}
+
+service RecordService {
+  rpc NewRecord (NewRecordRequest) returns (NewRecordResponse);
+  rpc GetAddedCount (GetAddedCountRequest) returns (GetAddedCountResponse);
+  rpc GetBeforeText (GetBeforeTextRequest) returns (GetBeforeTextResponse);
+  rpc GetClassName (GetClassNameRequest) returns (GetClassNameResponse);
+  rpc GetContentDescription (GetContentDescriptionRequest) returns (GetContentDescriptionResponse);
+  rpc GetCurrentItemIndex (GetCurrentItemIndexRequest) returns (GetCurrentItemIndexResponse);
+  rpc GetDisplayId (GetDisplayIdRequest) returns (GetDisplayIdResponse);
+  rpc GetFromIndex (GetFromIndexRequest) returns (GetFromIndexResponse);
+  rpc GetItemCount (GetItemCountRequest) returns (GetItemCountResponse);
+  rpc GetMaxScrollX (GetMaxScrollXRequest) returns (GetMaxScrollXResponse);
+  rpc GetMaxScrollY (GetMaxScrollYRequest) returns (GetMaxScrollYResponse);
+  rpc GetParcelableData (GetParcelableDataRequest) returns (GetParcelableDataResponse);
+  rpc GetRemovedCount (GetRemovedCountRequest) returns (GetRemovedCountResponse);
+  rpc GetScrollDeltaX (GetScrollDeltaXRequest) returns (GetScrollDeltaXResponse);
+  rpc GetScrollDeltaY (GetScrollDeltaYRequest) returns (GetScrollDeltaYResponse);
+  rpc GetScrollX (GetScrollXRequest) returns (GetScrollXResponse);
+  rpc GetScrollY (GetScrollYRequest) returns (GetScrollYResponse);
+  rpc GetSource0 (GetSource0Request) returns (GetSource0Response);
+  rpc GetSource1_1 (GetSource1_1Request) returns (GetSource1_1Response);
+  rpc GetToIndex (GetToIndexRequest) returns (GetToIndexResponse);
+  rpc GetWindowId (GetWindowIdRequest) returns (GetWindowIdResponse);
+  rpc IsChecked (IsCheckedRequest) returns (IsCheckedResponse);
+  rpc IsEnabled (IsEnabledRequest) returns (IsEnabledResponse);
+  rpc IsFullScreen (IsFullScreenRequest) returns (IsFullScreenResponse);
+  rpc IsPassword (IsPasswordRequest) returns (IsPasswordResponse);
+  rpc IsScrollable (IsScrollableRequest) returns (IsScrollableResponse);
+  rpc Recycle (RecycleRequest) returns (RecycleResponse);
+  rpc SetAddedCount (SetAddedCountRequest) returns (SetAddedCountResponse);
+  rpc SetBeforeText (SetBeforeTextRequest) returns (SetBeforeTextResponse);
+  rpc SetChecked (SetCheckedRequest) returns (SetCheckedResponse);
+  rpc SetClassName (SetClassNameRequest) returns (SetClassNameResponse);
+  rpc SetContentDescription (SetContentDescriptionRequest) returns (SetContentDescriptionResponse);
+  rpc SetCurrentItemIndex (SetCurrentItemIndexRequest) returns (SetCurrentItemIndexResponse);
+  rpc SetEnabled (SetEnabledRequest) returns (SetEnabledResponse);
+  rpc SetFromIndex (SetFromIndexRequest) returns (SetFromIndexResponse);
+  rpc SetFullScreen (SetFullScreenRequest) returns (SetFullScreenResponse);
+  rpc SetItemCount (SetItemCountRequest) returns (SetItemCountResponse);
+  rpc SetMaxScrollX (SetMaxScrollXRequest) returns (SetMaxScrollXResponse);
+  rpc SetMaxScrollY (SetMaxScrollYRequest) returns (SetMaxScrollYResponse);
+  rpc SetParcelableData (SetParcelableDataRequest) returns (SetParcelableDataResponse);
+  rpc SetPassword (SetPasswordRequest) returns (SetPasswordResponse);
+  rpc SetRemovedCount (SetRemovedCountRequest) returns (SetRemovedCountResponse);
+  rpc SetScrollDeltaX (SetScrollDeltaXRequest) returns (SetScrollDeltaXResponse);
+  rpc SetScrollDeltaY (SetScrollDeltaYRequest) returns (SetScrollDeltaYResponse);
+  rpc SetScrollX (SetScrollXRequest) returns (SetScrollXResponse);
+  rpc SetScrollY (SetScrollYRequest) returns (SetScrollYResponse);
+  rpc SetScrollable (SetScrollableRequest) returns (SetScrollableResponse);
+  rpc SetSource1 (SetSource1Request) returns (SetSource1Response);
+  rpc SetSource2_1 (SetSource2_1Request) returns (SetSource2_1Response);
+  rpc SetToIndex (SetToIndexRequest) returns (SetToIndexResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc Obtain0 (Obtain0Request) returns (Obtain0Response);
+  rpc Obtain1_1 (Obtain1_1Request) returns (Obtain1_1Response);
+}
+
+service NodeInfoService {
+  rpc NewNodeInfo (NewNodeInfoRequest) returns (NewNodeInfoResponse);
+  rpc AddAction1 (AddAction1Request) returns (AddAction1Response);
+  rpc AddAction1_1 (AddAction1_1Request) returns (AddAction1_1Response);
+  rpc AddChild1 (AddChild1Request) returns (AddChild1Response);
+  rpc AddChild2_1 (AddChild2_1Request) returns (AddChild2_1Response);
+  rpc AddLabeledBy1 (AddLabeledBy1Request) returns (AddLabeledBy1Response);
+  rpc AddLabeledBy2_1 (AddLabeledBy2_1Request) returns (AddLabeledBy2_1Response);
+  rpc CanOpenPopup (CanOpenPopupRequest) returns (CanOpenPopupResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc FindFocus (FindFocusRequest) returns (FindFocusResponse);
+  rpc FocusSearch (FocusSearchRequest) returns (FocusSearchResponse);
+  rpc GetActions (GetActionsRequest) returns (GetActionsResponse);
+  rpc GetBoundsInParent (GetBoundsInParentRequest) returns (GetBoundsInParentResponse);
+  rpc GetBoundsInScreen (GetBoundsInScreenRequest) returns (GetBoundsInScreenResponse);
+  rpc GetBoundsInWindow (GetBoundsInWindowRequest) returns (GetBoundsInWindowResponse);
+  rpc GetChecked (GetCheckedRequest) returns (GetCheckedResponse);
+  rpc GetChild1 (GetChild1Request) returns (GetChild1Response);
+  rpc GetChild2_1 (GetChild2_1Request) returns (GetChild2_1Response);
+  rpc GetChildCount (GetChildCountRequest) returns (GetChildCountResponse);
+  rpc GetClassName (GetClassNameRequest) returns (GetClassNameResponse);
+  rpc GetCollectionInfo (GetCollectionInfoRequest) returns (GetCollectionInfoResponse);
+  rpc GetCollectionItemInfo (GetCollectionItemInfoRequest) returns (GetCollectionItemInfoResponse);
+  rpc GetContainerTitle (GetContainerTitleRequest) returns (GetContainerTitleResponse);
+  rpc GetContentDescription (GetContentDescriptionRequest) returns (GetContentDescriptionResponse);
+  rpc GetDrawingOrder (GetDrawingOrderRequest) returns (GetDrawingOrderResponse);
+  rpc GetError (GetErrorRequest) returns (GetErrorResponse);
+  rpc GetExpandedState (GetExpandedStateRequest) returns (GetExpandedStateResponse);
+  rpc GetExtraRenderingInfo (GetExtraRenderingInfoRequest) returns (GetExtraRenderingInfoResponse);
+  rpc GetExtras (GetExtrasRequest) returns (GetExtrasResponse);
+  rpc GetHintText (GetHintTextRequest) returns (GetHintTextResponse);
+  rpc GetInputType (GetInputTypeRequest) returns (GetInputTypeResponse);
+  rpc GetLabelFor (GetLabelForRequest) returns (GetLabelForResponse);
+  rpc GetLabeledBy (GetLabeledByRequest) returns (GetLabeledByResponse);
+  rpc GetLiveRegion (GetLiveRegionRequest) returns (GetLiveRegionResponse);
+  rpc GetMaxTextLength (GetMaxTextLengthRequest) returns (GetMaxTextLengthResponse);
+  rpc GetMinDurationBetweenContentChanges (GetMinDurationBetweenContentChangesRequest) returns (GetMinDurationBetweenContentChangesResponse);
+  rpc GetMovementGranularities (GetMovementGranularitiesRequest) returns (GetMovementGranularitiesResponse);
+  rpc GetPackageName (GetPackageNameRequest) returns (GetPackageNameResponse);
+  rpc GetPaneTitle (GetPaneTitleRequest) returns (GetPaneTitleResponse);
+  rpc GetParent0 (GetParent0Request) returns (GetParent0Response);
+  rpc GetParent1_1 (GetParent1_1Request) returns (GetParent1_1Response);
+  rpc GetRangeInfo (GetRangeInfoRequest) returns (GetRangeInfoResponse);
+  rpc GetStateDescription (GetStateDescriptionRequest) returns (GetStateDescriptionResponse);
+  rpc GetSupplementalDescription (GetSupplementalDescriptionRequest) returns (GetSupplementalDescriptionResponse);
+  rpc GetText (GetTextRequest) returns (GetTextResponse);
+  rpc GetTextSelectionEnd (GetTextSelectionEndRequest) returns (GetTextSelectionEndResponse);
+  rpc GetTextSelectionStart (GetTextSelectionStartRequest) returns (GetTextSelectionStartResponse);
+  rpc GetTooltipText (GetTooltipTextRequest) returns (GetTooltipTextResponse);
+  rpc GetTouchDelegateInfo (GetTouchDelegateInfoRequest) returns (GetTouchDelegateInfoResponse);
+  rpc GetTraversalAfter (GetTraversalAfterRequest) returns (GetTraversalAfterResponse);
+  rpc GetTraversalBefore (GetTraversalBeforeRequest) returns (GetTraversalBeforeResponse);
+  rpc GetUniqueId (GetUniqueIdRequest) returns (GetUniqueIdResponse);
+  rpc GetViewIdResourceName (GetViewIdResourceNameRequest) returns (GetViewIdResourceNameResponse);
+  rpc GetWindow (GetWindowRequest) returns (GetWindowResponse);
+  rpc GetWindowId (GetWindowIdRequest) returns (GetWindowIdResponse);
+  rpc HasRequestInitialAccessibilityFocus (HasRequestInitialAccessibilityFocusRequest) returns (HasRequestInitialAccessibilityFocusResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc IsAccessibilityDataSensitive (IsAccessibilityDataSensitiveRequest) returns (IsAccessibilityDataSensitiveResponse);
+  rpc IsAccessibilityFocused (IsAccessibilityFocusedRequest) returns (IsAccessibilityFocusedResponse);
+  rpc IsCheckable (IsCheckableRequest) returns (IsCheckableResponse);
+  rpc IsChecked (IsCheckedRequest) returns (IsCheckedResponse);
+  rpc IsClickable (IsClickableRequest) returns (IsClickableResponse);
+  rpc IsContentInvalid (IsContentInvalidRequest) returns (IsContentInvalidResponse);
+  rpc IsContextClickable (IsContextClickableRequest) returns (IsContextClickableResponse);
+  rpc IsDismissable (IsDismissableRequest) returns (IsDismissableResponse);
+  rpc IsEditable (IsEditableRequest) returns (IsEditableResponse);
+  rpc IsEnabled (IsEnabledRequest) returns (IsEnabledResponse);
+  rpc IsFieldRequired (IsFieldRequiredRequest) returns (IsFieldRequiredResponse);
+  rpc IsFocusable (IsFocusableRequest) returns (IsFocusableResponse);
+  rpc IsFocused (IsFocusedRequest) returns (IsFocusedResponse);
+  rpc IsGranularScrollingSupported (IsGranularScrollingSupportedRequest) returns (IsGranularScrollingSupportedResponse);
+  rpc IsHeading (IsHeadingRequest) returns (IsHeadingResponse);
+  rpc IsImportantForAccessibility (IsImportantForAccessibilityRequest) returns (IsImportantForAccessibilityResponse);
+  rpc IsLongClickable (IsLongClickableRequest) returns (IsLongClickableResponse);
+  rpc IsMultiLine (IsMultiLineRequest) returns (IsMultiLineResponse);
+  rpc IsPassword (IsPasswordRequest) returns (IsPasswordResponse);
+  rpc IsScreenReaderFocusable (IsScreenReaderFocusableRequest) returns (IsScreenReaderFocusableResponse);
+  rpc IsScrollable (IsScrollableRequest) returns (IsScrollableResponse);
+  rpc IsSelected (IsSelectedRequest) returns (IsSelectedResponse);
+  rpc IsShowingHintText (IsShowingHintTextRequest) returns (IsShowingHintTextResponse);
+  rpc IsTextEntryKey (IsTextEntryKeyRequest) returns (IsTextEntryKeyResponse);
+  rpc IsTextSelectable (IsTextSelectableRequest) returns (IsTextSelectableResponse);
+  rpc IsVisibleToUser (IsVisibleToUserRequest) returns (IsVisibleToUserResponse);
+  rpc PerformAction1 (PerformAction1Request) returns (PerformAction1Response);
+  rpc PerformAction2_1 (PerformAction2_1Request) returns (PerformAction2_1Response);
+  rpc Recycle (RecycleRequest) returns (RecycleResponse);
+  rpc Refresh (RefreshRequest) returns (RefreshResponse);
+  rpc RefreshWithExtraData (RefreshWithExtraDataRequest) returns (RefreshWithExtraDataResponse);
+  rpc RemoveAction1 (RemoveAction1Request) returns (RemoveAction1Response);
+  rpc RemoveAction1_1 (RemoveAction1_1Request) returns (RemoveAction1_1Response);
+  rpc RemoveChild1 (RemoveChild1Request) returns (RemoveChild1Response);
+  rpc RemoveChild2_1 (RemoveChild2_1Request) returns (RemoveChild2_1Response);
+  rpc RemoveLabeledBy1 (RemoveLabeledBy1Request) returns (RemoveLabeledBy1Response);
+  rpc RemoveLabeledBy2_1 (RemoveLabeledBy2_1Request) returns (RemoveLabeledBy2_1Response);
+  rpc SetAccessibilityDataSensitive (SetAccessibilityDataSensitiveRequest) returns (SetAccessibilityDataSensitiveResponse);
+  rpc SetAccessibilityFocused (SetAccessibilityFocusedRequest) returns (SetAccessibilityFocusedResponse);
+  rpc SetBoundsInParent (SetBoundsInParentRequest) returns (SetBoundsInParentResponse);
+  rpc SetBoundsInScreen (SetBoundsInScreenRequest) returns (SetBoundsInScreenResponse);
+  rpc SetBoundsInWindow (SetBoundsInWindowRequest) returns (SetBoundsInWindowResponse);
+  rpc SetCanOpenPopup (SetCanOpenPopupRequest) returns (SetCanOpenPopupResponse);
+  rpc SetCheckable (SetCheckableRequest) returns (SetCheckableResponse);
+  rpc SetChecked1 (SetChecked1Request) returns (SetChecked1Response);
+  rpc SetChecked1_1 (SetChecked1_1Request) returns (SetChecked1_1Response);
+  rpc SetClassName (SetClassNameRequest) returns (SetClassNameResponse);
+  rpc SetClickable (SetClickableRequest) returns (SetClickableResponse);
+  rpc SetCollectionInfo (SetCollectionInfoRequest) returns (SetCollectionInfoResponse);
+  rpc SetCollectionItemInfo (SetCollectionItemInfoRequest) returns (SetCollectionItemInfoResponse);
+  rpc SetContainerTitle (SetContainerTitleRequest) returns (SetContainerTitleResponse);
+  rpc SetContentDescription (SetContentDescriptionRequest) returns (SetContentDescriptionResponse);
+  rpc SetContentInvalid (SetContentInvalidRequest) returns (SetContentInvalidResponse);
+  rpc SetContextClickable (SetContextClickableRequest) returns (SetContextClickableResponse);
+  rpc SetDismissable (SetDismissableRequest) returns (SetDismissableResponse);
+  rpc SetDrawingOrder (SetDrawingOrderRequest) returns (SetDrawingOrderResponse);
+  rpc SetEditable (SetEditableRequest) returns (SetEditableResponse);
+  rpc SetEnabled (SetEnabledRequest) returns (SetEnabledResponse);
+  rpc SetError (SetErrorRequest) returns (SetErrorResponse);
+  rpc SetExpandedState (SetExpandedStateRequest) returns (SetExpandedStateResponse);
+  rpc SetFieldRequired (SetFieldRequiredRequest) returns (SetFieldRequiredResponse);
+  rpc SetFocusable (SetFocusableRequest) returns (SetFocusableResponse);
+  rpc SetFocused (SetFocusedRequest) returns (SetFocusedResponse);
+  rpc SetGranularScrollingSupported (SetGranularScrollingSupportedRequest) returns (SetGranularScrollingSupportedResponse);
+  rpc SetHeading (SetHeadingRequest) returns (SetHeadingResponse);
+  rpc SetHintText (SetHintTextRequest) returns (SetHintTextResponse);
+  rpc SetImportantForAccessibility (SetImportantForAccessibilityRequest) returns (SetImportantForAccessibilityResponse);
+  rpc SetInputType (SetInputTypeRequest) returns (SetInputTypeResponse);
+  rpc SetLabelFor1 (SetLabelFor1Request) returns (SetLabelFor1Response);
+  rpc SetLabelFor2_1 (SetLabelFor2_1Request) returns (SetLabelFor2_1Response);
+  rpc SetLabeledBy1 (SetLabeledBy1Request) returns (SetLabeledBy1Response);
+  rpc SetLabeledBy2_1 (SetLabeledBy2_1Request) returns (SetLabeledBy2_1Response);
+  rpc SetLiveRegion (SetLiveRegionRequest) returns (SetLiveRegionResponse);
+  rpc SetLongClickable (SetLongClickableRequest) returns (SetLongClickableResponse);
+  rpc SetMaxTextLength (SetMaxTextLengthRequest) returns (SetMaxTextLengthResponse);
+  rpc SetMinDurationBetweenContentChanges (SetMinDurationBetweenContentChangesRequest) returns (SetMinDurationBetweenContentChangesResponse);
+  rpc SetMovementGranularities (SetMovementGranularitiesRequest) returns (SetMovementGranularitiesResponse);
+  rpc SetMultiLine (SetMultiLineRequest) returns (SetMultiLineResponse);
+  rpc SetPackageName (SetPackageNameRequest) returns (SetPackageNameResponse);
+  rpc SetPaneTitle (SetPaneTitleRequest) returns (SetPaneTitleResponse);
+  rpc SetParent1 (SetParent1Request) returns (SetParent1Response);
+  rpc SetParent2_1 (SetParent2_1Request) returns (SetParent2_1Response);
+  rpc SetPassword (SetPasswordRequest) returns (SetPasswordResponse);
+  rpc SetQueryFromAppProcessEnabled (SetQueryFromAppProcessEnabledRequest) returns (SetQueryFromAppProcessEnabledResponse);
+  rpc SetRangeInfo (SetRangeInfoRequest) returns (SetRangeInfoResponse);
+  rpc SetRequestInitialAccessibilityFocus (SetRequestInitialAccessibilityFocusRequest) returns (SetRequestInitialAccessibilityFocusResponse);
+  rpc SetScreenReaderFocusable (SetScreenReaderFocusableRequest) returns (SetScreenReaderFocusableResponse);
+  rpc SetScrollable (SetScrollableRequest) returns (SetScrollableResponse);
+  rpc SetSelected (SetSelectedRequest) returns (SetSelectedResponse);
+  rpc SetShowingHintText (SetShowingHintTextRequest) returns (SetShowingHintTextResponse);
+  rpc SetSource1 (SetSource1Request) returns (SetSource1Response);
+  rpc SetSource2_1 (SetSource2_1Request) returns (SetSource2_1Response);
+  rpc SetStateDescription (SetStateDescriptionRequest) returns (SetStateDescriptionResponse);
+  rpc SetSupplementalDescription (SetSupplementalDescriptionRequest) returns (SetSupplementalDescriptionResponse);
+  rpc SetText (SetTextRequest) returns (SetTextResponse);
+  rpc SetTextEntryKey (SetTextEntryKeyRequest) returns (SetTextEntryKeyResponse);
+  rpc SetTextSelectable (SetTextSelectableRequest) returns (SetTextSelectableResponse);
+  rpc SetTextSelection (SetTextSelectionRequest) returns (SetTextSelectionResponse);
+  rpc SetTooltipText (SetTooltipTextRequest) returns (SetTooltipTextResponse);
+  rpc SetTouchDelegateInfo (SetTouchDelegateInfoRequest) returns (SetTouchDelegateInfoResponse);
+  rpc SetTraversalAfter1 (SetTraversalAfter1Request) returns (SetTraversalAfter1Response);
+  rpc SetTraversalAfter2_1 (SetTraversalAfter2_1Request) returns (SetTraversalAfter2_1Response);
+  rpc SetTraversalBefore1 (SetTraversalBefore1Request) returns (SetTraversalBefore1Response);
+  rpc SetTraversalBefore2_1 (SetTraversalBefore2_1Request) returns (SetTraversalBefore2_1Response);
+  rpc SetUniqueId (SetUniqueIdRequest) returns (SetUniqueIdResponse);
+  rpc SetViewIdResourceName (SetViewIdResourceNameRequest) returns (SetViewIdResourceNameResponse);
+  rpc SetVisibleToUser (SetVisibleToUserRequest) returns (SetVisibleToUserResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc Obtain0 (Obtain0Request) returns (Obtain0Response);
+  rpc Obtain1_1 (Obtain1_1Request) returns (Obtain1_1Response);
+  rpc Obtain1_2 (Obtain1_2Request) returns (Obtain1_2Response);
+  rpc Obtain2_3 (Obtain2_3Request) returns (Obtain2_3Response);
+}
+
+service NodeInfoAccessibilityActionService {
+  rpc DescribeContents (NodeInfoAccessibilityActionDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (NodeInfoAccessibilityActionEqualsRequest) returns (EqualsResponse);
+  rpc GetId (GetIdRequest) returns (GetIdResponse);
+  rpc GetLabel (GetLabelRequest) returns (GetLabelResponse);
+  rpc HashCode (NodeInfoAccessibilityActionHashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (NodeInfoAccessibilityActionToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (NodeInfoAccessibilityActionWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service NodeInfoCollectionInfoService {
+  rpc GetColumnCount (GetColumnCountRequest) returns (GetColumnCountResponse);
+  rpc GetImportantForAccessibilityItemCount (GetImportantForAccessibilityItemCountRequest) returns (GetImportantForAccessibilityItemCountResponse);
+  rpc GetItemCount (NodeInfoCollectionInfoGetItemCountRequest) returns (GetItemCountResponse);
+  rpc GetRowCount (GetRowCountRequest) returns (GetRowCountResponse);
+  rpc GetSelectionMode (GetSelectionModeRequest) returns (GetSelectionModeResponse);
+  rpc IsHierarchical (IsHierarchicalRequest) returns (IsHierarchicalResponse);
+  rpc Obtain3 (Obtain3Request) returns (Obtain3Response);
+  rpc Obtain4_1 (Obtain4_1Request) returns (Obtain4_1Response);
+}
+
+service NodeInfoCollectionItemInfoService {
+  rpc GetColumnIndex (GetColumnIndexRequest) returns (GetColumnIndexResponse);
+  rpc GetColumnSpan (GetColumnSpanRequest) returns (GetColumnSpanResponse);
+  rpc GetColumnTitle (GetColumnTitleRequest) returns (GetColumnTitleResponse);
+  rpc GetRowIndex (GetRowIndexRequest) returns (GetRowIndexResponse);
+  rpc GetRowSpan (GetRowSpanRequest) returns (GetRowSpanResponse);
+  rpc GetRowTitle (GetRowTitleRequest) returns (GetRowTitleResponse);
+  rpc IsHeading (NodeInfoCollectionItemInfoIsHeadingRequest) returns (IsHeadingResponse);
+  rpc IsSelected (NodeInfoCollectionItemInfoIsSelectedRequest) returns (IsSelectedResponse);
+  rpc Obtain5 (Obtain5Request) returns (Obtain5Response);
+  rpc Obtain6_1 (Obtain6_1Request) returns (Obtain6_1Response);
+}
+
+service NodeInfoExtraRenderingInfoService {
+  rpc GetLayoutSize (GetLayoutSizeRequest) returns (GetLayoutSizeResponse);
+  rpc GetTextSizeInPx (GetTextSizeInPxRequest) returns (GetTextSizeInPxResponse);
+  rpc GetTextSizeUnit (GetTextSizeUnitRequest) returns (GetTextSizeUnitResponse);
+}
+
+service NodeInfoRangeInfoService {
+  rpc GetCurrent (GetCurrentRequest) returns (GetCurrentResponse);
+  rpc GetMax (GetMaxRequest) returns (GetMaxResponse);
+  rpc GetMin (GetMinRequest) returns (GetMinResponse);
+  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
+  rpc Obtain (ObtainRequest) returns (ObtainResponse);
+}
+
+service NodeInfoTouchDelegateInfoService {
+  rpc DescribeContents (NodeInfoTouchDelegateInfoDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetRegionAt (GetRegionAtRequest) returns (GetRegionAtResponse);
+  rpc GetRegionCount (GetRegionCountRequest) returns (GetRegionCountResponse);
+  rpc GetTargetForRegion (GetTargetForRegionRequest) returns (GetTargetForRegionResponse);
+  rpc WriteToParcel (NodeInfoTouchDelegateInfoWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service WindowInfoService {
+  rpc NewWindowInfo (NewWindowInfoRequest) returns (NewWindowInfoResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetAnchor (GetAnchorRequest) returns (GetAnchorResponse);
+  rpc GetBoundsInScreen (GetBoundsInScreenRequest) returns (GetBoundsInScreenResponse);
+  rpc GetChild (GetChildRequest) returns (GetChildResponse);
+  rpc GetChildCount (GetChildCountRequest) returns (GetChildCountResponse);
+  rpc GetDisplayId (GetDisplayIdRequest) returns (GetDisplayIdResponse);
+  rpc GetId (WindowInfoGetIdRequest) returns (GetIdResponse);
+  rpc GetLayer (GetLayerRequest) returns (GetLayerResponse);
+  rpc GetLocales (GetLocalesRequest) returns (GetLocalesResponse);
+  rpc GetParent (GetParentRequest) returns (GetParentResponse);
+  rpc GetRegionInScreen (GetRegionInScreenRequest) returns (GetRegionInScreenResponse);
+  rpc GetRoot0 (GetRoot0Request) returns (GetRoot0Response);
+  rpc GetRoot1_1 (GetRoot1_1Request) returns (GetRoot1_1Response);
+  rpc GetTitle (GetTitleRequest) returns (GetTitleResponse);
+  rpc GetTransitionTimeMillis (GetTransitionTimeMillisRequest) returns (GetTransitionTimeMillisResponse);
+  rpc GetType (WindowInfoGetTypeRequest) returns (GetTypeResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc IsAccessibilityFocused (IsAccessibilityFocusedRequest) returns (IsAccessibilityFocusedResponse);
+  rpc IsActive (IsActiveRequest) returns (IsActiveResponse);
+  rpc IsFocused (IsFocusedRequest) returns (IsFocusedResponse);
+  rpc IsInPictureInPictureMode (IsInPictureInPictureModeRequest) returns (IsInPictureInPictureModeResponse);
+  rpc Recycle (RecycleRequest) returns (RecycleResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc Obtain0 (Obtain0Request) returns (Obtain0Response);
+  rpc Obtain1_1 (Obtain1_1Request) returns (Obtain1_1Response);
+}
+
+service NodeProviderService {
+  rpc AddExtraDataToAccessibilityNodeInfo (AddExtraDataToAccessibilityNodeInfoRequest) returns (AddExtraDataToAccessibilityNodeInfoResponse);
+  rpc CreateAccessibilityNodeInfo (CreateAccessibilityNodeInfoRequest) returns (CreateAccessibilityNodeInfoResponse);
+  rpc FindFocus (NodeProviderFindFocusRequest) returns (FindFocusResponse);
+  rpc PerformAction (PerformActionRequest) returns (PerformActionResponse);
+}
+
 service CaptioningManagerService {
   rpc AddCaptioningChangeListener (AddCaptioningChangeListenerRequest) returns (AddCaptioningChangeListenerResponse);
   rpc GetFontScale (GetFontScaleRequest) returns (GetFontScaleResponse);
   rpc GetLocale (GetLocaleRequest) returns (GetLocaleResponse);
   rpc GetUserStyle (GetUserStyleRequest) returns (GetUserStyleResponse);
   rpc IsCallCaptioningEnabled (IsCallCaptioningEnabledRequest) returns (IsCallCaptioningEnabledResponse);
-  rpc IsEnabled (IsEnabledRequest) returns (IsEnabledResponse);
+  rpc IsEnabled (CaptioningManagerIsEnabledRequest) returns (IsEnabledResponse);
   rpc IsSystemAudioCaptioningEnabled (IsSystemAudioCaptioningEnabledRequest) returns (IsSystemAudioCaptioningEnabledResponse);
   rpc IsSystemAudioCaptioningUiEnabled (IsSystemAudioCaptioningUiEnabledRequest) returns (IsSystemAudioCaptioningUiEnabledResponse);
   rpc RemoveCaptioningChangeListener (RemoveCaptioningChangeListenerRequest) returns (RemoveCaptioningChangeListenerResponse);
+}
+
+service CaptioningManagerCaptionStyleService {
+  rpc GetTypeface (GetTypefaceRequest) returns (GetTypefaceResponse);
+  rpc HasBackgroundColor (HasBackgroundColorRequest) returns (HasBackgroundColorResponse);
+  rpc HasEdgeColor (HasEdgeColorRequest) returns (HasEdgeColorResponse);
+  rpc HasEdgeType (HasEdgeTypeRequest) returns (HasEdgeTypeResponse);
+  rpc HasForegroundColor (HasForegroundColorRequest) returns (HasForegroundColorResponse);
+  rpc HasWindowColor (HasWindowColorRequest) returns (HasWindowColorResponse);
+}
+
+service CaptioningManagerCaptioningChangeListenerService {
+  rpc OnEnabledChanged (OnEnabledChangedRequest) returns (OnEnabledChangedResponse);
+  rpc OnFontScaleChanged (OnFontScaleChangedRequest) returns (OnFontScaleChangedResponse);
+  rpc OnLocaleChanged (OnLocaleChangedRequest) returns (OnLocaleChangedResponse);
+  rpc OnSystemAudioCaptioningChanged (OnSystemAudioCaptioningChangedRequest) returns (OnSystemAudioCaptioningChangedResponse);
+  rpc OnSystemAudioCaptioningUiChanged (OnSystemAudioCaptioningUiChangedRequest) returns (OnSystemAudioCaptioningUiChangedResponse);
+  rpc OnUserStyleChanged (OnUserStyleChangedRequest) returns (OnUserStyleChangedResponse);
 }
 
 service ManagerService {
@@ -265,7 +3001,7 @@ service ManagerService {
   rpc GetRecommendedTimeoutMillis (GetRecommendedTimeoutMillisRequest) returns (GetRecommendedTimeoutMillisResponse);
   rpc Interrupt (InterruptRequest) returns (InterruptResponse);
   rpc IsAudioDescriptionRequested (IsAudioDescriptionRequestedRequest) returns (IsAudioDescriptionRequestedResponse);
-  rpc IsEnabled (IsEnabledRequest) returns (IsEnabledResponse);
+  rpc IsEnabled (ManagerIsEnabledRequest) returns (IsEnabledResponse);
   rpc IsHighContrastTextEnabled (IsHighContrastTextEnabledRequest) returns (IsHighContrastTextEnabledResponse);
   rpc IsRequestFromAccessibilityTool (IsRequestFromAccessibilityToolRequest) returns (IsRequestFromAccessibilityToolResponse);
   rpc IsTouchExplorationEnabled (IsTouchExplorationEnabledRequest) returns (IsTouchExplorationEnabledResponse);
@@ -275,6 +3011,59 @@ service ManagerService {
   rpc RemoveAudioDescriptionRequestedChangeListener (RemoveAudioDescriptionRequestedChangeListenerRequest) returns (RemoveAudioDescriptionRequestedChangeListenerResponse);
   rpc RemoveHighContrastTextStateChangeListener (RemoveHighContrastTextStateChangeListenerRequest) returns (RemoveHighContrastTextStateChangeListenerResponse);
   rpc RemoveTouchExplorationStateChangeListener (RemoveTouchExplorationStateChangeListenerRequest) returns (RemoveTouchExplorationStateChangeListenerResponse);
-  rpc SendAccessibilityEvent (SendAccessibilityEventRequest) returns (SendAccessibilityEventResponse);
+  rpc SendAccessibilityEvent (ManagerSendAccessibilityEventRequest) returns (SendAccessibilityEventResponse);
   rpc IsAccessibilityButtonSupported (IsAccessibilityButtonSupportedRequest) returns (IsAccessibilityButtonSupportedResponse);
+}
+
+service ManagerAccessibilityServicesStateChangeListenerService {
+  rpc OnAccessibilityServicesStateChanged (OnAccessibilityServicesStateChangedRequest) returns (OnAccessibilityServicesStateChangedResponse);
+}
+
+service ManagerAccessibilityStateChangeListenerService {
+  rpc OnAccessibilityStateChanged (OnAccessibilityStateChangedRequest) returns (OnAccessibilityStateChangedResponse);
+}
+
+service ManagerAudioDescriptionRequestedChangeListenerService {
+  rpc OnAudioDescriptionRequestedChanged (OnAudioDescriptionRequestedChangedRequest) returns (OnAudioDescriptionRequestedChangedResponse);
+}
+
+service ManagerHighContrastTextStateChangeListenerService {
+  rpc OnHighContrastTextStateChanged (OnHighContrastTextStateChangedRequest) returns (OnHighContrastTextStateChangedResponse);
+}
+
+service ManagerTouchExplorationStateChangeListenerService {
+  rpc OnTouchExplorationStateChanged (OnTouchExplorationStateChangedRequest) returns (OnTouchExplorationStateChangedResponse);
+}
+
+service EventService {
+  rpc NewEvent (NewEventRequest) returns (NewEventResponse);
+  rpc AppendRecord (AppendRecordRequest) returns (AppendRecordResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetAction (GetActionRequest) returns (GetActionResponse);
+  rpc GetContentChangeTypes (GetContentChangeTypesRequest) returns (GetContentChangeTypesResponse);
+  rpc GetEventTime (GetEventTimeRequest) returns (GetEventTimeResponse);
+  rpc GetEventType (GetEventTypeRequest) returns (GetEventTypeResponse);
+  rpc GetMovementGranularity (GetMovementGranularityRequest) returns (GetMovementGranularityResponse);
+  rpc GetPackageName (GetPackageNameRequest) returns (GetPackageNameResponse);
+  rpc GetRecord (GetRecordRequest) returns (GetRecordResponse);
+  rpc GetRecordCount (GetRecordCountRequest) returns (GetRecordCountResponse);
+  rpc GetSpeechStateChangeTypes (GetSpeechStateChangeTypesRequest) returns (GetSpeechStateChangeTypesResponse);
+  rpc GetWindowChanges (GetWindowChangesRequest) returns (GetWindowChangesResponse);
+  rpc InitFromParcel (InitFromParcelRequest) returns (InitFromParcelResponse);
+  rpc IsAccessibilityDataSensitive (IsAccessibilityDataSensitiveRequest) returns (IsAccessibilityDataSensitiveResponse);
+  rpc Recycle (RecycleRequest) returns (RecycleResponse);
+  rpc SetAccessibilityDataSensitive (SetAccessibilityDataSensitiveRequest) returns (SetAccessibilityDataSensitiveResponse);
+  rpc SetAction (SetActionRequest) returns (SetActionResponse);
+  rpc SetContentChangeTypes (SetContentChangeTypesRequest) returns (SetContentChangeTypesResponse);
+  rpc SetEventTime (SetEventTimeRequest) returns (SetEventTimeResponse);
+  rpc SetEventType (SetEventTypeRequest) returns (SetEventTypeResponse);
+  rpc SetMovementGranularity (SetMovementGranularityRequest) returns (SetMovementGranularityResponse);
+  rpc SetPackageName (SetPackageNameRequest) returns (SetPackageNameResponse);
+  rpc SetSpeechStateChangeTypes (SetSpeechStateChangeTypesRequest) returns (SetSpeechStateChangeTypesResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc EventTypeToString (EventTypeToStringRequest) returns (EventTypeToStringResponse);
+  rpc Obtain0 (Obtain0Request) returns (Obtain0Response);
+  rpc Obtain1_1 (Obtain1_1Request) returns (Obtain1_1Response);
+  rpc Obtain1_2 (EventObtain1_2Request) returns (Obtain1_2Response);
 }

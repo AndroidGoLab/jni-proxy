@@ -112,7 +112,7 @@ func (s *ManagerServer) CreateVirtualDisplay6_1(_ context.Context, req *pb.Creat
 	return &pb.CreateVirtualDisplay6_1Response{Result: handle}, nil
 }
 
-func (s *ManagerServer) GetDisplay(_ context.Context, req *pb.GetDisplayRequest) (*pb.GetDisplayResponse, error) {
+func (s *ManagerServer) GetDisplay(_ context.Context, req *pb.ManagerGetDisplayRequest) (*pb.GetDisplayResponse, error) {
 	mgr, err := jnipkg2.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)

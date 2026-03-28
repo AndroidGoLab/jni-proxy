@@ -5,3 +5,311 @@ syntax = "proto3";
 package controls;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/controls";
+
+message ValidDeviceTypeRequest {
+  int32 arg0 = 1;
+}
+
+message ValidDeviceTypeResponse {
+  bool result = 1;
+}
+
+message DescribeContentsRequest {
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message GetAppIntentRequest {
+}
+
+message GetAppIntentResponse {
+  int64 result = 1;
+}
+
+message GetControlIdRequest {
+}
+
+message GetControlIdResponse {
+  string result = 1;
+}
+
+message GetControlTemplateRequest {
+}
+
+message GetControlTemplateResponse {
+  int64 result = 1;
+}
+
+message GetCustomColorRequest {
+}
+
+message GetCustomColorResponse {
+  int64 result = 1;
+}
+
+message GetCustomIconRequest {
+}
+
+message GetCustomIconResponse {
+  int64 result = 1;
+}
+
+message GetDeviceTypeRequest {
+}
+
+message GetDeviceTypeResponse {
+  int32 result = 1;
+}
+
+message GetStatusRequest {
+}
+
+message GetStatusResponse {
+  int32 result = 1;
+}
+
+message GetStatusTextRequest {
+}
+
+message GetStatusTextResponse {
+  int64 result = 1;
+}
+
+message GetStructureRequest {
+}
+
+message GetStructureResponse {
+  int64 result = 1;
+}
+
+message GetSubtitleRequest {
+}
+
+message GetSubtitleResponse {
+  int64 result = 1;
+}
+
+message GetTitleRequest {
+}
+
+message GetTitleResponse {
+  int64 result = 1;
+}
+
+message GetZoneRequest {
+}
+
+message GetZoneResponse {
+  int64 result = 1;
+}
+
+message IsAuthRequiredRequest {
+}
+
+message IsAuthRequiredResponse {
+  bool result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteToParcelResponse {
+}
+
+message BuildRequest {
+}
+
+message BuildResponse {
+  int64 result = 1;
+}
+
+message SetAppIntentRequest {
+  int64 arg0 = 1;
+}
+
+message SetAppIntentResponse {
+  int64 result = 1;
+}
+
+message SetAuthRequiredRequest {
+  bool arg0 = 1;
+}
+
+message SetAuthRequiredResponse {
+  int64 result = 1;
+}
+
+message SetControlIdRequest {
+  string arg0 = 1;
+}
+
+message SetControlIdResponse {
+  int64 result = 1;
+}
+
+message SetControlTemplateRequest {
+  int64 arg0 = 1;
+}
+
+message SetControlTemplateResponse {
+  int64 result = 1;
+}
+
+message SetCustomColorRequest {
+  int64 arg0 = 1;
+}
+
+message SetCustomColorResponse {
+  int64 result = 1;
+}
+
+message SetCustomIconRequest {
+  int64 arg0 = 1;
+}
+
+message SetCustomIconResponse {
+  int64 result = 1;
+}
+
+message SetDeviceTypeRequest {
+  int32 arg0 = 1;
+}
+
+message SetDeviceTypeResponse {
+  int64 result = 1;
+}
+
+message SetStatusRequest {
+  int32 arg0 = 1;
+}
+
+message SetStatusResponse {
+  int64 result = 1;
+}
+
+message SetStatusTextRequest {
+  string arg0 = 1;
+}
+
+message SetStatusTextResponse {
+  int64 result = 1;
+}
+
+message SetStructureRequest {
+  string arg0 = 1;
+}
+
+message SetStructureResponse {
+  int64 result = 1;
+}
+
+message SetSubtitleRequest {
+  string arg0 = 1;
+}
+
+message SetSubtitleResponse {
+  int64 result = 1;
+}
+
+message SetTitleRequest {
+  string arg0 = 1;
+}
+
+message SetTitleResponse {
+  int64 result = 1;
+}
+
+message SetZoneRequest {
+  string arg0 = 1;
+}
+
+message SetZoneResponse {
+  int64 result = 1;
+}
+
+message OnBindRequest {
+  int64 arg0 = 1;
+}
+
+message OnBindResponse {
+  int64 result = 1;
+}
+
+message OnUnbindRequest {
+  int64 arg0 = 1;
+}
+
+message OnUnbindResponse {
+  bool result = 1;
+}
+
+message RequestAddControlRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message RequestAddControlResponse {
+}
+
+service DeviceTypesService {
+  rpc ValidDeviceType (ValidDeviceTypeRequest) returns (ValidDeviceTypeResponse);
+}
+
+service ControlService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetAppIntent (GetAppIntentRequest) returns (GetAppIntentResponse);
+  rpc GetControlId (GetControlIdRequest) returns (GetControlIdResponse);
+  rpc GetControlTemplate (GetControlTemplateRequest) returns (GetControlTemplateResponse);
+  rpc GetCustomColor (GetCustomColorRequest) returns (GetCustomColorResponse);
+  rpc GetCustomIcon (GetCustomIconRequest) returns (GetCustomIconResponse);
+  rpc GetDeviceType (GetDeviceTypeRequest) returns (GetDeviceTypeResponse);
+  rpc GetStatus (GetStatusRequest) returns (GetStatusResponse);
+  rpc GetStatusText (GetStatusTextRequest) returns (GetStatusTextResponse);
+  rpc GetStructure (GetStructureRequest) returns (GetStructureResponse);
+  rpc GetSubtitle (GetSubtitleRequest) returns (GetSubtitleResponse);
+  rpc GetTitle (GetTitleRequest) returns (GetTitleResponse);
+  rpc GetZone (GetZoneRequest) returns (GetZoneResponse);
+  rpc IsAuthRequired (IsAuthRequiredRequest) returns (IsAuthRequiredResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ControlStatefulBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetAppIntent (SetAppIntentRequest) returns (SetAppIntentResponse);
+  rpc SetAuthRequired (SetAuthRequiredRequest) returns (SetAuthRequiredResponse);
+  rpc SetControlId (SetControlIdRequest) returns (SetControlIdResponse);
+  rpc SetControlTemplate (SetControlTemplateRequest) returns (SetControlTemplateResponse);
+  rpc SetCustomColor (SetCustomColorRequest) returns (SetCustomColorResponse);
+  rpc SetCustomIcon (SetCustomIconRequest) returns (SetCustomIconResponse);
+  rpc SetDeviceType (SetDeviceTypeRequest) returns (SetDeviceTypeResponse);
+  rpc SetStatus (SetStatusRequest) returns (SetStatusResponse);
+  rpc SetStatusText (SetStatusTextRequest) returns (SetStatusTextResponse);
+  rpc SetStructure (SetStructureRequest) returns (SetStructureResponse);
+  rpc SetSubtitle (SetSubtitleRequest) returns (SetSubtitleResponse);
+  rpc SetTitle (SetTitleRequest) returns (SetTitleResponse);
+  rpc SetZone (SetZoneRequest) returns (SetZoneResponse);
+}
+
+service ControlStatelessBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetAppIntent (SetAppIntentRequest) returns (SetAppIntentResponse);
+  rpc SetControlId (SetControlIdRequest) returns (SetControlIdResponse);
+  rpc SetCustomColor (SetCustomColorRequest) returns (SetCustomColorResponse);
+  rpc SetCustomIcon (SetCustomIconRequest) returns (SetCustomIconResponse);
+  rpc SetDeviceType (SetDeviceTypeRequest) returns (SetDeviceTypeResponse);
+  rpc SetStructure (SetStructureRequest) returns (SetStructureResponse);
+  rpc SetSubtitle (SetSubtitleRequest) returns (SetSubtitleResponse);
+  rpc SetTitle (SetTitleRequest) returns (SetTitleResponse);
+  rpc SetZone (SetZoneRequest) returns (SetZoneResponse);
+}
+
+service ProviderServiceService {
+  rpc OnBind (OnBindRequest) returns (OnBindResponse);
+  rpc OnUnbind (OnUnbindRequest) returns (OnUnbindResponse);
+  rpc RequestAddControl (RequestAddControlRequest) returns (RequestAddControlResponse);
+}

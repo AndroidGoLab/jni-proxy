@@ -501,3 +501,529 @@ var ManagerService_ServiceDesc = grpc.ServiceDesc{
 	Streams:  []grpc.StreamDesc{},
 	Metadata: "proto/keyguard/keyguard.proto",
 }
+
+const (
+	ManagerKeyguardDismissCallbackService_OnDismissCancelled_FullMethodName = "/keyguard.ManagerKeyguardDismissCallbackService/OnDismissCancelled"
+	ManagerKeyguardDismissCallbackService_OnDismissError_FullMethodName     = "/keyguard.ManagerKeyguardDismissCallbackService/OnDismissError"
+	ManagerKeyguardDismissCallbackService_OnDismissSucceeded_FullMethodName = "/keyguard.ManagerKeyguardDismissCallbackService/OnDismissSucceeded"
+)
+
+// ManagerKeyguardDismissCallbackServiceClient is the client API for ManagerKeyguardDismissCallbackService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ManagerKeyguardDismissCallbackServiceClient interface {
+	OnDismissCancelled(ctx context.Context, in *OnDismissCancelledRequest, opts ...grpc.CallOption) (*OnDismissCancelledResponse, error)
+	OnDismissError(ctx context.Context, in *OnDismissErrorRequest, opts ...grpc.CallOption) (*OnDismissErrorResponse, error)
+	OnDismissSucceeded(ctx context.Context, in *OnDismissSucceededRequest, opts ...grpc.CallOption) (*OnDismissSucceededResponse, error)
+}
+
+type managerKeyguardDismissCallbackServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewManagerKeyguardDismissCallbackServiceClient(cc grpc.ClientConnInterface) ManagerKeyguardDismissCallbackServiceClient {
+	return &managerKeyguardDismissCallbackServiceClient{cc}
+}
+
+func (c *managerKeyguardDismissCallbackServiceClient) OnDismissCancelled(ctx context.Context, in *OnDismissCancelledRequest, opts ...grpc.CallOption) (*OnDismissCancelledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnDismissCancelledResponse)
+	err := c.cc.Invoke(ctx, ManagerKeyguardDismissCallbackService_OnDismissCancelled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerKeyguardDismissCallbackServiceClient) OnDismissError(ctx context.Context, in *OnDismissErrorRequest, opts ...grpc.CallOption) (*OnDismissErrorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnDismissErrorResponse)
+	err := c.cc.Invoke(ctx, ManagerKeyguardDismissCallbackService_OnDismissError_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerKeyguardDismissCallbackServiceClient) OnDismissSucceeded(ctx context.Context, in *OnDismissSucceededRequest, opts ...grpc.CallOption) (*OnDismissSucceededResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnDismissSucceededResponse)
+	err := c.cc.Invoke(ctx, ManagerKeyguardDismissCallbackService_OnDismissSucceeded_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ManagerKeyguardDismissCallbackServiceServer is the server API for ManagerKeyguardDismissCallbackService service.
+// All implementations must embed UnimplementedManagerKeyguardDismissCallbackServiceServer
+// for forward compatibility.
+type ManagerKeyguardDismissCallbackServiceServer interface {
+	OnDismissCancelled(context.Context, *OnDismissCancelledRequest) (*OnDismissCancelledResponse, error)
+	OnDismissError(context.Context, *OnDismissErrorRequest) (*OnDismissErrorResponse, error)
+	OnDismissSucceeded(context.Context, *OnDismissSucceededRequest) (*OnDismissSucceededResponse, error)
+	mustEmbedUnimplementedManagerKeyguardDismissCallbackServiceServer()
+}
+
+// UnimplementedManagerKeyguardDismissCallbackServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedManagerKeyguardDismissCallbackServiceServer struct{}
+
+func (UnimplementedManagerKeyguardDismissCallbackServiceServer) OnDismissCancelled(context.Context, *OnDismissCancelledRequest) (*OnDismissCancelledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnDismissCancelled not implemented")
+}
+func (UnimplementedManagerKeyguardDismissCallbackServiceServer) OnDismissError(context.Context, *OnDismissErrorRequest) (*OnDismissErrorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnDismissError not implemented")
+}
+func (UnimplementedManagerKeyguardDismissCallbackServiceServer) OnDismissSucceeded(context.Context, *OnDismissSucceededRequest) (*OnDismissSucceededResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnDismissSucceeded not implemented")
+}
+func (UnimplementedManagerKeyguardDismissCallbackServiceServer) mustEmbedUnimplementedManagerKeyguardDismissCallbackServiceServer() {
+}
+func (UnimplementedManagerKeyguardDismissCallbackServiceServer) testEmbeddedByValue() {}
+
+// UnsafeManagerKeyguardDismissCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ManagerKeyguardDismissCallbackServiceServer will
+// result in compilation errors.
+type UnsafeManagerKeyguardDismissCallbackServiceServer interface {
+	mustEmbedUnimplementedManagerKeyguardDismissCallbackServiceServer()
+}
+
+func RegisterManagerKeyguardDismissCallbackServiceServer(s grpc.ServiceRegistrar, srv ManagerKeyguardDismissCallbackServiceServer) {
+	// If the following call panics, it indicates UnimplementedManagerKeyguardDismissCallbackServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ManagerKeyguardDismissCallbackService_ServiceDesc, srv)
+}
+
+func _ManagerKeyguardDismissCallbackService_OnDismissCancelled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnDismissCancelledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerKeyguardDismissCallbackServiceServer).OnDismissCancelled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerKeyguardDismissCallbackService_OnDismissCancelled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerKeyguardDismissCallbackServiceServer).OnDismissCancelled(ctx, req.(*OnDismissCancelledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerKeyguardDismissCallbackService_OnDismissError_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnDismissErrorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerKeyguardDismissCallbackServiceServer).OnDismissError(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerKeyguardDismissCallbackService_OnDismissError_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerKeyguardDismissCallbackServiceServer).OnDismissError(ctx, req.(*OnDismissErrorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerKeyguardDismissCallbackService_OnDismissSucceeded_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnDismissSucceededRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerKeyguardDismissCallbackServiceServer).OnDismissSucceeded(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerKeyguardDismissCallbackService_OnDismissSucceeded_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerKeyguardDismissCallbackServiceServer).OnDismissSucceeded(ctx, req.(*OnDismissSucceededRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ManagerKeyguardDismissCallbackService_ServiceDesc is the grpc.ServiceDesc for ManagerKeyguardDismissCallbackService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ManagerKeyguardDismissCallbackService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "keyguard.ManagerKeyguardDismissCallbackService",
+	HandlerType: (*ManagerKeyguardDismissCallbackServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnDismissCancelled",
+			Handler:    _ManagerKeyguardDismissCallbackService_OnDismissCancelled_Handler,
+		},
+		{
+			MethodName: "OnDismissError",
+			Handler:    _ManagerKeyguardDismissCallbackService_OnDismissError_Handler,
+		},
+		{
+			MethodName: "OnDismissSucceeded",
+			Handler:    _ManagerKeyguardDismissCallbackService_OnDismissSucceeded_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/keyguard/keyguard.proto",
+}
+
+const (
+	ManagerKeyguardLockService_DisableKeyguard_FullMethodName  = "/keyguard.ManagerKeyguardLockService/DisableKeyguard"
+	ManagerKeyguardLockService_ReenableKeyguard_FullMethodName = "/keyguard.ManagerKeyguardLockService/ReenableKeyguard"
+)
+
+// ManagerKeyguardLockServiceClient is the client API for ManagerKeyguardLockService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ManagerKeyguardLockServiceClient interface {
+	DisableKeyguard(ctx context.Context, in *DisableKeyguardRequest, opts ...grpc.CallOption) (*DisableKeyguardResponse, error)
+	ReenableKeyguard(ctx context.Context, in *ReenableKeyguardRequest, opts ...grpc.CallOption) (*ReenableKeyguardResponse, error)
+}
+
+type managerKeyguardLockServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewManagerKeyguardLockServiceClient(cc grpc.ClientConnInterface) ManagerKeyguardLockServiceClient {
+	return &managerKeyguardLockServiceClient{cc}
+}
+
+func (c *managerKeyguardLockServiceClient) DisableKeyguard(ctx context.Context, in *DisableKeyguardRequest, opts ...grpc.CallOption) (*DisableKeyguardResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DisableKeyguardResponse)
+	err := c.cc.Invoke(ctx, ManagerKeyguardLockService_DisableKeyguard_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerKeyguardLockServiceClient) ReenableKeyguard(ctx context.Context, in *ReenableKeyguardRequest, opts ...grpc.CallOption) (*ReenableKeyguardResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ReenableKeyguardResponse)
+	err := c.cc.Invoke(ctx, ManagerKeyguardLockService_ReenableKeyguard_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ManagerKeyguardLockServiceServer is the server API for ManagerKeyguardLockService service.
+// All implementations must embed UnimplementedManagerKeyguardLockServiceServer
+// for forward compatibility.
+type ManagerKeyguardLockServiceServer interface {
+	DisableKeyguard(context.Context, *DisableKeyguardRequest) (*DisableKeyguardResponse, error)
+	ReenableKeyguard(context.Context, *ReenableKeyguardRequest) (*ReenableKeyguardResponse, error)
+	mustEmbedUnimplementedManagerKeyguardLockServiceServer()
+}
+
+// UnimplementedManagerKeyguardLockServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedManagerKeyguardLockServiceServer struct{}
+
+func (UnimplementedManagerKeyguardLockServiceServer) DisableKeyguard(context.Context, *DisableKeyguardRequest) (*DisableKeyguardResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DisableKeyguard not implemented")
+}
+func (UnimplementedManagerKeyguardLockServiceServer) ReenableKeyguard(context.Context, *ReenableKeyguardRequest) (*ReenableKeyguardResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ReenableKeyguard not implemented")
+}
+func (UnimplementedManagerKeyguardLockServiceServer) mustEmbedUnimplementedManagerKeyguardLockServiceServer() {
+}
+func (UnimplementedManagerKeyguardLockServiceServer) testEmbeddedByValue() {}
+
+// UnsafeManagerKeyguardLockServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ManagerKeyguardLockServiceServer will
+// result in compilation errors.
+type UnsafeManagerKeyguardLockServiceServer interface {
+	mustEmbedUnimplementedManagerKeyguardLockServiceServer()
+}
+
+func RegisterManagerKeyguardLockServiceServer(s grpc.ServiceRegistrar, srv ManagerKeyguardLockServiceServer) {
+	// If the following call panics, it indicates UnimplementedManagerKeyguardLockServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ManagerKeyguardLockService_ServiceDesc, srv)
+}
+
+func _ManagerKeyguardLockService_DisableKeyguard_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DisableKeyguardRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerKeyguardLockServiceServer).DisableKeyguard(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerKeyguardLockService_DisableKeyguard_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerKeyguardLockServiceServer).DisableKeyguard(ctx, req.(*DisableKeyguardRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerKeyguardLockService_ReenableKeyguard_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReenableKeyguardRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerKeyguardLockServiceServer).ReenableKeyguard(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerKeyguardLockService_ReenableKeyguard_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerKeyguardLockServiceServer).ReenableKeyguard(ctx, req.(*ReenableKeyguardRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ManagerKeyguardLockService_ServiceDesc is the grpc.ServiceDesc for ManagerKeyguardLockService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ManagerKeyguardLockService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "keyguard.ManagerKeyguardLockService",
+	HandlerType: (*ManagerKeyguardLockServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DisableKeyguard",
+			Handler:    _ManagerKeyguardLockService_DisableKeyguard_Handler,
+		},
+		{
+			MethodName: "ReenableKeyguard",
+			Handler:    _ManagerKeyguardLockService_ReenableKeyguard_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/keyguard/keyguard.proto",
+}
+
+const (
+	ManagerKeyguardLockedStateListenerService_OnKeyguardLockedStateChanged_FullMethodName = "/keyguard.ManagerKeyguardLockedStateListenerService/OnKeyguardLockedStateChanged"
+)
+
+// ManagerKeyguardLockedStateListenerServiceClient is the client API for ManagerKeyguardLockedStateListenerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ManagerKeyguardLockedStateListenerServiceClient interface {
+	OnKeyguardLockedStateChanged(ctx context.Context, in *OnKeyguardLockedStateChangedRequest, opts ...grpc.CallOption) (*OnKeyguardLockedStateChangedResponse, error)
+}
+
+type managerKeyguardLockedStateListenerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewManagerKeyguardLockedStateListenerServiceClient(cc grpc.ClientConnInterface) ManagerKeyguardLockedStateListenerServiceClient {
+	return &managerKeyguardLockedStateListenerServiceClient{cc}
+}
+
+func (c *managerKeyguardLockedStateListenerServiceClient) OnKeyguardLockedStateChanged(ctx context.Context, in *OnKeyguardLockedStateChangedRequest, opts ...grpc.CallOption) (*OnKeyguardLockedStateChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnKeyguardLockedStateChangedResponse)
+	err := c.cc.Invoke(ctx, ManagerKeyguardLockedStateListenerService_OnKeyguardLockedStateChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ManagerKeyguardLockedStateListenerServiceServer is the server API for ManagerKeyguardLockedStateListenerService service.
+// All implementations must embed UnimplementedManagerKeyguardLockedStateListenerServiceServer
+// for forward compatibility.
+type ManagerKeyguardLockedStateListenerServiceServer interface {
+	OnKeyguardLockedStateChanged(context.Context, *OnKeyguardLockedStateChangedRequest) (*OnKeyguardLockedStateChangedResponse, error)
+	mustEmbedUnimplementedManagerKeyguardLockedStateListenerServiceServer()
+}
+
+// UnimplementedManagerKeyguardLockedStateListenerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedManagerKeyguardLockedStateListenerServiceServer struct{}
+
+func (UnimplementedManagerKeyguardLockedStateListenerServiceServer) OnKeyguardLockedStateChanged(context.Context, *OnKeyguardLockedStateChangedRequest) (*OnKeyguardLockedStateChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnKeyguardLockedStateChanged not implemented")
+}
+func (UnimplementedManagerKeyguardLockedStateListenerServiceServer) mustEmbedUnimplementedManagerKeyguardLockedStateListenerServiceServer() {
+}
+func (UnimplementedManagerKeyguardLockedStateListenerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeManagerKeyguardLockedStateListenerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ManagerKeyguardLockedStateListenerServiceServer will
+// result in compilation errors.
+type UnsafeManagerKeyguardLockedStateListenerServiceServer interface {
+	mustEmbedUnimplementedManagerKeyguardLockedStateListenerServiceServer()
+}
+
+func RegisterManagerKeyguardLockedStateListenerServiceServer(s grpc.ServiceRegistrar, srv ManagerKeyguardLockedStateListenerServiceServer) {
+	// If the following call panics, it indicates UnimplementedManagerKeyguardLockedStateListenerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ManagerKeyguardLockedStateListenerService_ServiceDesc, srv)
+}
+
+func _ManagerKeyguardLockedStateListenerService_OnKeyguardLockedStateChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnKeyguardLockedStateChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerKeyguardLockedStateListenerServiceServer).OnKeyguardLockedStateChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerKeyguardLockedStateListenerService_OnKeyguardLockedStateChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerKeyguardLockedStateListenerServiceServer).OnKeyguardLockedStateChanged(ctx, req.(*OnKeyguardLockedStateChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ManagerKeyguardLockedStateListenerService_ServiceDesc is the grpc.ServiceDesc for ManagerKeyguardLockedStateListenerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ManagerKeyguardLockedStateListenerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "keyguard.ManagerKeyguardLockedStateListenerService",
+	HandlerType: (*ManagerKeyguardLockedStateListenerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnKeyguardLockedStateChanged",
+			Handler:    _ManagerKeyguardLockedStateListenerService_OnKeyguardLockedStateChanged_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/keyguard/keyguard.proto",
+}
+
+const (
+	ManagerOnKeyguardExitResultService_OnKeyguardExitResult_FullMethodName = "/keyguard.ManagerOnKeyguardExitResultService/OnKeyguardExitResult"
+)
+
+// ManagerOnKeyguardExitResultServiceClient is the client API for ManagerOnKeyguardExitResultService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ManagerOnKeyguardExitResultServiceClient interface {
+	OnKeyguardExitResult(ctx context.Context, in *OnKeyguardExitResultRequest, opts ...grpc.CallOption) (*OnKeyguardExitResultResponse, error)
+}
+
+type managerOnKeyguardExitResultServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewManagerOnKeyguardExitResultServiceClient(cc grpc.ClientConnInterface) ManagerOnKeyguardExitResultServiceClient {
+	return &managerOnKeyguardExitResultServiceClient{cc}
+}
+
+func (c *managerOnKeyguardExitResultServiceClient) OnKeyguardExitResult(ctx context.Context, in *OnKeyguardExitResultRequest, opts ...grpc.CallOption) (*OnKeyguardExitResultResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnKeyguardExitResultResponse)
+	err := c.cc.Invoke(ctx, ManagerOnKeyguardExitResultService_OnKeyguardExitResult_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ManagerOnKeyguardExitResultServiceServer is the server API for ManagerOnKeyguardExitResultService service.
+// All implementations must embed UnimplementedManagerOnKeyguardExitResultServiceServer
+// for forward compatibility.
+type ManagerOnKeyguardExitResultServiceServer interface {
+	OnKeyguardExitResult(context.Context, *OnKeyguardExitResultRequest) (*OnKeyguardExitResultResponse, error)
+	mustEmbedUnimplementedManagerOnKeyguardExitResultServiceServer()
+}
+
+// UnimplementedManagerOnKeyguardExitResultServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedManagerOnKeyguardExitResultServiceServer struct{}
+
+func (UnimplementedManagerOnKeyguardExitResultServiceServer) OnKeyguardExitResult(context.Context, *OnKeyguardExitResultRequest) (*OnKeyguardExitResultResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnKeyguardExitResult not implemented")
+}
+func (UnimplementedManagerOnKeyguardExitResultServiceServer) mustEmbedUnimplementedManagerOnKeyguardExitResultServiceServer() {
+}
+func (UnimplementedManagerOnKeyguardExitResultServiceServer) testEmbeddedByValue() {}
+
+// UnsafeManagerOnKeyguardExitResultServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ManagerOnKeyguardExitResultServiceServer will
+// result in compilation errors.
+type UnsafeManagerOnKeyguardExitResultServiceServer interface {
+	mustEmbedUnimplementedManagerOnKeyguardExitResultServiceServer()
+}
+
+func RegisterManagerOnKeyguardExitResultServiceServer(s grpc.ServiceRegistrar, srv ManagerOnKeyguardExitResultServiceServer) {
+	// If the following call panics, it indicates UnimplementedManagerOnKeyguardExitResultServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ManagerOnKeyguardExitResultService_ServiceDesc, srv)
+}
+
+func _ManagerOnKeyguardExitResultService_OnKeyguardExitResult_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnKeyguardExitResultRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerOnKeyguardExitResultServiceServer).OnKeyguardExitResult(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerOnKeyguardExitResultService_OnKeyguardExitResult_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerOnKeyguardExitResultServiceServer).OnKeyguardExitResult(ctx, req.(*OnKeyguardExitResultRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ManagerOnKeyguardExitResultService_ServiceDesc is the grpc.ServiceDesc for ManagerOnKeyguardExitResultService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ManagerOnKeyguardExitResultService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "keyguard.ManagerOnKeyguardExitResultService",
+	HandlerType: (*ManagerOnKeyguardExitResultServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnKeyguardExitResult",
+			Handler:    _ManagerOnKeyguardExitResultService_OnKeyguardExitResult_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/keyguard/keyguard.proto",
+}

@@ -6,6 +6,1984 @@ package location;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/location";
 
+message DescribeContentsRequest {
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message EqualsRequest {
+  int64 arg0 = 1;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message GetCarrierFrequencyMHzRequest {
+}
+
+message GetCarrierFrequencyMHzResponse {
+  double result = 1;
+}
+
+message GetPhaseCenterOffsetRequest {
+}
+
+message GetPhaseCenterOffsetResponse {
+  int64 result = 1;
+}
+
+message GetPhaseCenterVariationCorrectionsRequest {
+}
+
+message GetPhaseCenterVariationCorrectionsResponse {
+  int64 result = 1;
+}
+
+message GetSignalGainCorrectionsRequest {
+}
+
+message GetSignalGainCorrectionsResponse {
+  int64 result = 1;
+}
+
+message HashCodeRequest {
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message ToStringRequest {
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteToParcelResponse {
+}
+
+message BuildRequest {
+}
+
+message BuildResponse {
+  int64 result = 1;
+}
+
+message SetCarrierFrequencyMHzRequest {
+  double arg0 = 1;
+}
+
+message SetCarrierFrequencyMHzResponse {
+  int64 result = 1;
+}
+
+message SetPhaseCenterOffsetRequest {
+  int64 arg0 = 1;
+}
+
+message SetPhaseCenterOffsetResponse {
+  int64 result = 1;
+}
+
+message SetPhaseCenterVariationCorrectionsRequest {
+  int64 arg0 = 1;
+}
+
+message SetPhaseCenterVariationCorrectionsResponse {
+  int64 result = 1;
+}
+
+message SetSignalGainCorrectionsRequest {
+  int64 arg0 = 1;
+}
+
+message SetSignalGainCorrectionsResponse {
+  int64 result = 1;
+}
+
+message GetXOffsetMmRequest {
+}
+
+message GetXOffsetMmResponse {
+  double result = 1;
+}
+
+message GetXOffsetUncertaintyMmRequest {
+}
+
+message GetXOffsetUncertaintyMmResponse {
+  double result = 1;
+}
+
+message GetYOffsetMmRequest {
+}
+
+message GetYOffsetMmResponse {
+  double result = 1;
+}
+
+message GetYOffsetUncertaintyMmRequest {
+}
+
+message GetYOffsetUncertaintyMmResponse {
+  double result = 1;
+}
+
+message GetZOffsetMmRequest {
+}
+
+message GetZOffsetMmResponse {
+  double result = 1;
+}
+
+message GetZOffsetUncertaintyMmRequest {
+}
+
+message GetZOffsetUncertaintyMmResponse {
+  double result = 1;
+}
+
+message GetCorrectionUncertaintiesArrayRequest {
+}
+
+message GetCorrectionUncertaintiesArrayResponse {
+  int64 result = 1;
+}
+
+message GetCorrectionsArrayRequest {
+}
+
+message GetCorrectionsArrayResponse {
+  int64 result = 1;
+}
+
+message GetDeltaPhiRequest {
+}
+
+message GetDeltaPhiResponse {
+  double result = 1;
+}
+
+message GetDeltaThetaRequest {
+}
+
+message GetDeltaThetaResponse {
+  double result = 1;
+}
+
+message OnLocationChangedRequest {
+  int64 arg0 = 1;
+}
+
+message OnLocationChangedResponse {
+}
+
+message GetIntervalMillisRequest {
+}
+
+message GetIntervalMillisResponse {
+  int32 result = 1;
+}
+
+message IsFullTrackingRequest {
+}
+
+message IsFullTrackingResponse {
+  bool result = 1;
+}
+
+message SetFullTrackingRequest {
+  bool arg0 = 1;
+}
+
+message SetFullTrackingResponse {
+  int64 result = 1;
+}
+
+message SetIntervalMillisRequest {
+  int32 arg0 = 1;
+}
+
+message SetIntervalMillisResponse {
+  int64 result = 1;
+}
+
+message NewAddressRequest {
+  int64 arg0 = 1;
+}
+
+message NewAddressResponse {
+  int64 result = 1;
+}
+
+message ClearLatitudeRequest {
+  int64 handle = 1;
+}
+
+message ClearLatitudeResponse {
+}
+
+message ClearLongitudeRequest {
+  int64 handle = 1;
+}
+
+message ClearLongitudeResponse {
+}
+
+message AddressDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message GetAddressLineRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetAddressLineResponse {
+  string result = 1;
+}
+
+message GetAdminAreaRequest {
+  int64 handle = 1;
+}
+
+message GetAdminAreaResponse {
+  string result = 1;
+}
+
+message GetCountryCodeRequest {
+  int64 handle = 1;
+}
+
+message GetCountryCodeResponse {
+  string result = 1;
+}
+
+message GetCountryNameRequest {
+  int64 handle = 1;
+}
+
+message GetCountryNameResponse {
+  string result = 1;
+}
+
+message GetExtrasRequest {
+  int64 handle = 1;
+}
+
+message GetExtrasResponse {
+  int64 result = 1;
+}
+
+message GetFeatureNameRequest {
+  int64 handle = 1;
+}
+
+message GetFeatureNameResponse {
+  string result = 1;
+}
+
+message GetLatitudeRequest {
+  int64 handle = 1;
+}
+
+message GetLatitudeResponse {
+  double result = 1;
+}
+
+message GetLocaleRequest {
+  int64 handle = 1;
+}
+
+message GetLocaleResponse {
+  int64 result = 1;
+}
+
+message GetLocalityRequest {
+  int64 handle = 1;
+}
+
+message GetLocalityResponse {
+  string result = 1;
+}
+
+message GetLongitudeRequest {
+  int64 handle = 1;
+}
+
+message GetLongitudeResponse {
+  double result = 1;
+}
+
+message GetMaxAddressLineIndexRequest {
+  int64 handle = 1;
+}
+
+message GetMaxAddressLineIndexResponse {
+  int32 result = 1;
+}
+
+message GetPhoneRequest {
+  int64 handle = 1;
+}
+
+message GetPhoneResponse {
+  string result = 1;
+}
+
+message GetPostalCodeRequest {
+  int64 handle = 1;
+}
+
+message GetPostalCodeResponse {
+  string result = 1;
+}
+
+message GetPremisesRequest {
+  int64 handle = 1;
+}
+
+message GetPremisesResponse {
+  string result = 1;
+}
+
+message GetSubAdminAreaRequest {
+  int64 handle = 1;
+}
+
+message GetSubAdminAreaResponse {
+  string result = 1;
+}
+
+message GetSubLocalityRequest {
+  int64 handle = 1;
+}
+
+message GetSubLocalityResponse {
+  string result = 1;
+}
+
+message GetSubThoroughfareRequest {
+  int64 handle = 1;
+}
+
+message GetSubThoroughfareResponse {
+  string result = 1;
+}
+
+message GetThoroughfareRequest {
+  int64 handle = 1;
+}
+
+message GetThoroughfareResponse {
+  string result = 1;
+}
+
+message GetUrlRequest {
+  int64 handle = 1;
+}
+
+message GetUrlResponse {
+  string result = 1;
+}
+
+message HasLatitudeRequest {
+  int64 handle = 1;
+}
+
+message HasLatitudeResponse {
+  bool result = 1;
+}
+
+message HasLongitudeRequest {
+  int64 handle = 1;
+}
+
+message HasLongitudeResponse {
+  bool result = 1;
+}
+
+message SetAddressLineRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  string arg1 = 3;
+}
+
+message SetAddressLineResponse {
+}
+
+message SetAdminAreaRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetAdminAreaResponse {
+}
+
+message SetCountryCodeRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetCountryCodeResponse {
+}
+
+message SetCountryNameRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetCountryNameResponse {
+}
+
+message SetExtrasRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetExtrasResponse {
+}
+
+message SetFeatureNameRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetFeatureNameResponse {
+}
+
+message SetLatitudeRequest {
+  int64 handle = 1;
+  double arg0 = 2;
+}
+
+message SetLatitudeResponse {
+}
+
+message SetLocalityRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetLocalityResponse {
+}
+
+message SetLongitudeRequest {
+  int64 handle = 1;
+  double arg0 = 2;
+}
+
+message SetLongitudeResponse {
+}
+
+message SetPhoneRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetPhoneResponse {
+}
+
+message SetPostalCodeRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetPostalCodeResponse {
+}
+
+message SetPremisesRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetPremisesResponse {
+}
+
+message SetSubAdminAreaRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetSubAdminAreaResponse {
+}
+
+message SetSubLocalityRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetSubLocalityResponse {
+}
+
+message SetSubThoroughfareRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetSubThoroughfareResponse {
+}
+
+message SetThoroughfareRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetThoroughfareResponse {
+}
+
+message SetUrlRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetUrlResponse {
+}
+
+message AddressToStringRequest {
+  int64 handle = 1;
+}
+
+message AddressWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message NewCriteriaRequest {
+}
+
+message NewCriteriaResponse {
+  int64 result = 1;
+}
+
+message CriteriaDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message GetAccuracyRequest {
+  int64 handle = 1;
+}
+
+message GetAccuracyResponse {
+  int32 result = 1;
+}
+
+message GetBearingAccuracyRequest {
+  int64 handle = 1;
+}
+
+message GetBearingAccuracyResponse {
+  int32 result = 1;
+}
+
+message GetHorizontalAccuracyRequest {
+  int64 handle = 1;
+}
+
+message GetHorizontalAccuracyResponse {
+  int32 result = 1;
+}
+
+message GetPowerRequirementRequest {
+  int64 handle = 1;
+}
+
+message GetPowerRequirementResponse {
+  int32 result = 1;
+}
+
+message GetSpeedAccuracyRequest {
+  int64 handle = 1;
+}
+
+message GetSpeedAccuracyResponse {
+  int32 result = 1;
+}
+
+message GetVerticalAccuracyRequest {
+  int64 handle = 1;
+}
+
+message GetVerticalAccuracyResponse {
+  int32 result = 1;
+}
+
+message IsAltitudeRequiredRequest {
+  int64 handle = 1;
+}
+
+message IsAltitudeRequiredResponse {
+  bool result = 1;
+}
+
+message IsBearingRequiredRequest {
+  int64 handle = 1;
+}
+
+message IsBearingRequiredResponse {
+  bool result = 1;
+}
+
+message IsCostAllowedRequest {
+  int64 handle = 1;
+}
+
+message IsCostAllowedResponse {
+  bool result = 1;
+}
+
+message IsSpeedRequiredRequest {
+  int64 handle = 1;
+}
+
+message IsSpeedRequiredResponse {
+  bool result = 1;
+}
+
+message SetAccuracyRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetAccuracyResponse {
+}
+
+message SetAltitudeRequiredRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetAltitudeRequiredResponse {
+}
+
+message SetBearingAccuracyRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetBearingAccuracyResponse {
+}
+
+message SetBearingRequiredRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetBearingRequiredResponse {
+}
+
+message SetCostAllowedRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetCostAllowedResponse {
+}
+
+message SetHorizontalAccuracyRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetHorizontalAccuracyResponse {
+}
+
+message SetPowerRequirementRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetPowerRequirementResponse {
+}
+
+message SetSpeedAccuracyRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetSpeedAccuracyResponse {
+}
+
+message SetSpeedRequiredRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetSpeedRequiredResponse {
+}
+
+message SetVerticalAccuracyRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetVerticalAccuracyResponse {
+}
+
+message CriteriaToStringRequest {
+  int64 handle = 1;
+}
+
+message CriteriaWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message GetAzimuthRequest {
+}
+
+message GetAzimuthResponse {
+  float result = 1;
+}
+
+message GetElevationRequest {
+}
+
+message GetElevationResponse {
+  float result = 1;
+}
+
+message GetPrnRequest {
+}
+
+message GetPrnResponse {
+  int32 result = 1;
+}
+
+message GetSnrRequest {
+}
+
+message GetSnrResponse {
+  float result = 1;
+}
+
+message HasAlmanacRequest {
+}
+
+message HasAlmanacResponse {
+  bool result = 1;
+}
+
+message HasEphemerisRequest {
+}
+
+message HasEphemerisResponse {
+  bool result = 1;
+}
+
+message UsedInFixRequest {
+}
+
+message UsedInFixResponse {
+  bool result = 1;
+}
+
+message GetCarrierFrequencyHzRequest {
+}
+
+message GetCarrierFrequencyHzResponse {
+  int64 result = 1;
+}
+
+message GetConstellationTypeRequest {
+}
+
+message GetConstellationTypeResponse {
+  int32 result = 1;
+}
+
+message GetLevelDbRequest {
+}
+
+message GetLevelDbResponse {
+  double result = 1;
+}
+
+message SetCarrierFrequencyHzRequest {
+  int64 arg0 = 1;
+}
+
+message SetCarrierFrequencyHzResponse {
+  int64 result = 1;
+}
+
+message SetConstellationTypeRequest {
+  int32 arg0 = 1;
+}
+
+message SetConstellationTypeResponse {
+  int64 result = 1;
+}
+
+message SetLevelDbRequest {
+  double arg0 = 1;
+}
+
+message SetLevelDbResponse {
+  int64 result = 1;
+}
+
+message HasAccumulatedDeltaRangeRequest {
+}
+
+message HasAccumulatedDeltaRangeResponse {
+  int32 result = 1;
+}
+
+message HasAntennaInfoRequest {
+}
+
+message HasAntennaInfoResponse {
+  bool result = 1;
+}
+
+message HasGeofencingRequest {
+}
+
+message HasGeofencingResponse {
+  bool result = 1;
+}
+
+message HasGnssAntennaInfoRequest {
+}
+
+message HasGnssAntennaInfoResponse {
+  bool result = 1;
+}
+
+message HasLowPowerModeRequest {
+}
+
+message HasLowPowerModeResponse {
+  bool result = 1;
+}
+
+message HasMeasurementCorrectionsRequest {
+}
+
+message HasMeasurementCorrectionsResponse {
+  bool result = 1;
+}
+
+message HasMeasurementCorrectionsExcessPathLengthRequest {
+}
+
+message HasMeasurementCorrectionsExcessPathLengthResponse {
+  bool result = 1;
+}
+
+message HasMeasurementCorrectionsForDrivingRequest {
+}
+
+message HasMeasurementCorrectionsForDrivingResponse {
+  bool result = 1;
+}
+
+message HasMeasurementCorrectionsLosSatsRequest {
+}
+
+message HasMeasurementCorrectionsLosSatsResponse {
+  bool result = 1;
+}
+
+message HasMeasurementCorrectionsReflectingPlaneRequest {
+}
+
+message HasMeasurementCorrectionsReflectingPlaneResponse {
+  bool result = 1;
+}
+
+message HasMeasurementCorrelationVectorsRequest {
+}
+
+message HasMeasurementCorrelationVectorsResponse {
+  bool result = 1;
+}
+
+message HasMeasurementsRequest {
+}
+
+message HasMeasurementsResponse {
+  bool result = 1;
+}
+
+message HasMsaRequest {
+}
+
+message HasMsaResponse {
+  bool result = 1;
+}
+
+message HasMsbRequest {
+}
+
+message HasMsbResponse {
+  bool result = 1;
+}
+
+message HasNavigationMessagesRequest {
+}
+
+message HasNavigationMessagesResponse {
+  bool result = 1;
+}
+
+message HasOnDemandTimeRequest {
+}
+
+message HasOnDemandTimeResponse {
+  bool result = 1;
+}
+
+message HasPowerMultibandAcquisitionRequest {
+}
+
+message HasPowerMultibandAcquisitionResponse {
+  bool result = 1;
+}
+
+message HasPowerMultibandTrackingRequest {
+}
+
+message HasPowerMultibandTrackingResponse {
+  bool result = 1;
+}
+
+message HasPowerOtherModesRequest {
+}
+
+message HasPowerOtherModesResponse {
+  bool result = 1;
+}
+
+message HasPowerSinglebandAcquisitionRequest {
+}
+
+message HasPowerSinglebandAcquisitionResponse {
+  bool result = 1;
+}
+
+message HasPowerSinglebandTrackingRequest {
+}
+
+message HasPowerSinglebandTrackingResponse {
+  bool result = 1;
+}
+
+message HasPowerTotalRequest {
+}
+
+message HasPowerTotalResponse {
+  bool result = 1;
+}
+
+message HasSatelliteBlocklistRequest {
+}
+
+message HasSatelliteBlocklistResponse {
+  bool result = 1;
+}
+
+message HasSatellitePvtRequest {
+}
+
+message HasSatellitePvtResponse {
+  bool result = 1;
+}
+
+message HasSchedulingRequest {
+}
+
+message HasSchedulingResponse {
+  bool result = 1;
+}
+
+message HasSingleShotFixRequest {
+}
+
+message HasSingleShotFixResponse {
+  bool result = 1;
+}
+
+message SetHasAccumulatedDeltaRangeRequest {
+  int32 arg0 = 1;
+}
+
+message SetHasAccumulatedDeltaRangeResponse {
+  int64 result = 1;
+}
+
+message SetHasAntennaInfoRequest {
+  bool arg0 = 1;
+}
+
+message SetHasAntennaInfoResponse {
+  int64 result = 1;
+}
+
+message SetHasGeofencingRequest {
+  bool arg0 = 1;
+}
+
+message SetHasGeofencingResponse {
+  int64 result = 1;
+}
+
+message SetHasLowPowerModeRequest {
+  bool arg0 = 1;
+}
+
+message SetHasLowPowerModeResponse {
+  int64 result = 1;
+}
+
+message SetHasMeasurementCorrectionsRequest {
+  bool arg0 = 1;
+}
+
+message SetHasMeasurementCorrectionsResponse {
+  int64 result = 1;
+}
+
+message SetHasMeasurementCorrectionsExcessPathLengthRequest {
+  bool arg0 = 1;
+}
+
+message SetHasMeasurementCorrectionsExcessPathLengthResponse {
+  int64 result = 1;
+}
+
+message SetHasMeasurementCorrectionsForDrivingRequest {
+  bool arg0 = 1;
+}
+
+message SetHasMeasurementCorrectionsForDrivingResponse {
+  int64 result = 1;
+}
+
+message SetHasMeasurementCorrectionsLosSatsRequest {
+  bool arg0 = 1;
+}
+
+message SetHasMeasurementCorrectionsLosSatsResponse {
+  int64 result = 1;
+}
+
+message SetHasMeasurementCorrectionsReflectingPlaneRequest {
+  bool arg0 = 1;
+}
+
+message SetHasMeasurementCorrectionsReflectingPlaneResponse {
+  int64 result = 1;
+}
+
+message SetHasMeasurementCorrelationVectorsRequest {
+  bool arg0 = 1;
+}
+
+message SetHasMeasurementCorrelationVectorsResponse {
+  int64 result = 1;
+}
+
+message SetHasMeasurementsRequest {
+  bool arg0 = 1;
+}
+
+message SetHasMeasurementsResponse {
+  int64 result = 1;
+}
+
+message SetHasMsaRequest {
+  bool arg0 = 1;
+}
+
+message SetHasMsaResponse {
+  int64 result = 1;
+}
+
+message SetHasMsbRequest {
+  bool arg0 = 1;
+}
+
+message SetHasMsbResponse {
+  int64 result = 1;
+}
+
+message SetHasNavigationMessagesRequest {
+  bool arg0 = 1;
+}
+
+message SetHasNavigationMessagesResponse {
+  int64 result = 1;
+}
+
+message SetHasOnDemandTimeRequest {
+  bool arg0 = 1;
+}
+
+message SetHasOnDemandTimeResponse {
+  int64 result = 1;
+}
+
+message SetHasPowerMultibandAcquisitionRequest {
+  bool arg0 = 1;
+}
+
+message SetHasPowerMultibandAcquisitionResponse {
+  int64 result = 1;
+}
+
+message SetHasPowerMultibandTrackingRequest {
+  bool arg0 = 1;
+}
+
+message SetHasPowerMultibandTrackingResponse {
+  int64 result = 1;
+}
+
+message SetHasPowerOtherModesRequest {
+  bool arg0 = 1;
+}
+
+message SetHasPowerOtherModesResponse {
+  int64 result = 1;
+}
+
+message SetHasPowerSinglebandAcquisitionRequest {
+  bool arg0 = 1;
+}
+
+message SetHasPowerSinglebandAcquisitionResponse {
+  int64 result = 1;
+}
+
+message SetHasPowerSinglebandTrackingRequest {
+  bool arg0 = 1;
+}
+
+message SetHasPowerSinglebandTrackingResponse {
+  int64 result = 1;
+}
+
+message SetHasPowerTotalRequest {
+  bool arg0 = 1;
+}
+
+message SetHasPowerTotalResponse {
+  int64 result = 1;
+}
+
+message SetHasSatelliteBlocklistRequest {
+  bool arg0 = 1;
+}
+
+message SetHasSatelliteBlocklistResponse {
+  int64 result = 1;
+}
+
+message SetHasSatellitePvtRequest {
+  bool arg0 = 1;
+}
+
+message SetHasSatellitePvtResponse {
+  int64 result = 1;
+}
+
+message SetHasSchedulingRequest {
+  bool arg0 = 1;
+}
+
+message SetHasSchedulingResponse {
+  int64 result = 1;
+}
+
+message SetHasSingleShotFixRequest {
+  bool arg0 = 1;
+}
+
+message SetHasSingleShotFixResponse {
+  int64 result = 1;
+}
+
+message GetAzimuthDegreesRequest {
+  int32 arg0 = 1;
+}
+
+message GetAzimuthDegreesResponse {
+  float result = 1;
+}
+
+message GetBasebandCn0DbHzRequest {
+  int32 arg0 = 1;
+}
+
+message GetBasebandCn0DbHzResponse {
+  float result = 1;
+}
+
+message GnssStatusGetCarrierFrequencyHzRequest {
+  int32 arg0 = 1;
+}
+
+message GnssStatusGetCarrierFrequencyHzResponse {
+  float result = 1;
+}
+
+message GetCn0DbHzRequest {
+  int32 arg0 = 1;
+}
+
+message GetCn0DbHzResponse {
+  float result = 1;
+}
+
+message GnssStatusGetConstellationTypeRequest {
+  int32 arg0 = 1;
+}
+
+message GetElevationDegreesRequest {
+  int32 arg0 = 1;
+}
+
+message GetElevationDegreesResponse {
+  float result = 1;
+}
+
+message GetSatelliteCountRequest {
+}
+
+message GetSatelliteCountResponse {
+  int32 result = 1;
+}
+
+message GetSvidRequest {
+  int32 arg0 = 1;
+}
+
+message GetSvidResponse {
+  int32 result = 1;
+}
+
+message HasAlmanacDataRequest {
+  int32 arg0 = 1;
+}
+
+message HasAlmanacDataResponse {
+  bool result = 1;
+}
+
+message HasBasebandCn0DbHzRequest {
+  int32 arg0 = 1;
+}
+
+message HasBasebandCn0DbHzResponse {
+  bool result = 1;
+}
+
+message HasCarrierFrequencyHzRequest {
+  int32 arg0 = 1;
+}
+
+message HasCarrierFrequencyHzResponse {
+  bool result = 1;
+}
+
+message HasEphemerisDataRequest {
+  int32 arg0 = 1;
+}
+
+message HasEphemerisDataResponse {
+  bool result = 1;
+}
+
+message GnssStatusUsedInFixRequest {
+  int32 arg0 = 1;
+}
+
+message AddSatelliteRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  float arg2 = 3;
+  float arg3 = 4;
+  float arg4 = 5;
+  bool arg5 = 6;
+  bool arg6 = 7;
+  bool arg7 = 8;
+  bool arg8 = 9;
+  float arg9 = 10;
+  bool arg10 = 11;
+  float arg11 = 12;
+}
+
+message AddSatelliteResponse {
+  int64 result = 1;
+}
+
+message ClearSatellitesRequest {
+}
+
+message ClearSatellitesResponse {
+  int64 result = 1;
+}
+
+message OnFirstFixRequest {
+  int32 arg0 = 1;
+}
+
+message OnFirstFixResponse {
+}
+
+message OnSatelliteStatusChangedRequest {
+  int64 arg0 = 1;
+}
+
+message OnSatelliteStatusChangedResponse {
+}
+
+message OnStartedRequest {
+}
+
+message OnStartedResponse {
+}
+
+message OnStoppedRequest {
+}
+
+message OnStoppedResponse {
+}
+
+message GetBiasNanosRequest {
+}
+
+message GetBiasNanosResponse {
+  double result = 1;
+}
+
+message GetBiasUncertaintyNanosRequest {
+}
+
+message GetBiasUncertaintyNanosResponse {
+  double result = 1;
+}
+
+message GetDriftNanosPerSecondRequest {
+}
+
+message GetDriftNanosPerSecondResponse {
+  double result = 1;
+}
+
+message GetDriftUncertaintyNanosPerSecondRequest {
+}
+
+message GetDriftUncertaintyNanosPerSecondResponse {
+  double result = 1;
+}
+
+message GetElapsedRealtimeNanosRequest {
+}
+
+message GetElapsedRealtimeNanosResponse {
+  int64 result = 1;
+}
+
+message GetElapsedRealtimeUncertaintyNanosRequest {
+}
+
+message GetElapsedRealtimeUncertaintyNanosResponse {
+  double result = 1;
+}
+
+message GetFullBiasNanosRequest {
+}
+
+message GetFullBiasNanosResponse {
+  int64 result = 1;
+}
+
+message GetHardwareClockDiscontinuityCountRequest {
+}
+
+message GetHardwareClockDiscontinuityCountResponse {
+  int32 result = 1;
+}
+
+message GetLeapSecondRequest {
+}
+
+message GetLeapSecondResponse {
+  int32 result = 1;
+}
+
+message GetReferenceCarrierFrequencyHzForIsbRequest {
+}
+
+message GetReferenceCarrierFrequencyHzForIsbResponse {
+  double result = 1;
+}
+
+message GetReferenceCodeTypeForIsbRequest {
+}
+
+message GetReferenceCodeTypeForIsbResponse {
+  string result = 1;
+}
+
+message GetReferenceConstellationTypeForIsbRequest {
+}
+
+message GetReferenceConstellationTypeForIsbResponse {
+  int32 result = 1;
+}
+
+message GetTimeNanosRequest {
+}
+
+message GetTimeNanosResponse {
+  int64 result = 1;
+}
+
+message GetTimeUncertaintyNanosRequest {
+}
+
+message GetTimeUncertaintyNanosResponse {
+  double result = 1;
+}
+
+message HasBiasNanosRequest {
+}
+
+message HasBiasNanosResponse {
+  bool result = 1;
+}
+
+message HasBiasUncertaintyNanosRequest {
+}
+
+message HasBiasUncertaintyNanosResponse {
+  bool result = 1;
+}
+
+message HasDriftNanosPerSecondRequest {
+}
+
+message HasDriftNanosPerSecondResponse {
+  bool result = 1;
+}
+
+message HasDriftUncertaintyNanosPerSecondRequest {
+}
+
+message HasDriftUncertaintyNanosPerSecondResponse {
+  bool result = 1;
+}
+
+message HasElapsedRealtimeNanosRequest {
+}
+
+message HasElapsedRealtimeNanosResponse {
+  bool result = 1;
+}
+
+message HasElapsedRealtimeUncertaintyNanosRequest {
+}
+
+message HasElapsedRealtimeUncertaintyNanosResponse {
+  bool result = 1;
+}
+
+message HasFullBiasNanosRequest {
+}
+
+message HasFullBiasNanosResponse {
+  bool result = 1;
+}
+
+message HasLeapSecondRequest {
+}
+
+message HasLeapSecondResponse {
+  bool result = 1;
+}
+
+message HasReferenceCarrierFrequencyHzForIsbRequest {
+}
+
+message HasReferenceCarrierFrequencyHzForIsbResponse {
+  bool result = 1;
+}
+
+message HasReferenceCodeTypeForIsbRequest {
+}
+
+message HasReferenceCodeTypeForIsbResponse {
+  bool result = 1;
+}
+
+message HasReferenceConstellationTypeForIsbRequest {
+}
+
+message HasReferenceConstellationTypeForIsbResponse {
+  bool result = 1;
+}
+
+message HasTimeUncertaintyNanosRequest {
+}
+
+message HasTimeUncertaintyNanosResponse {
+  bool result = 1;
+}
+
+message GnssSignalTypeGetCarrierFrequencyHzResponse {
+  double result = 1;
+}
+
+message GetCodeTypeRequest {
+}
+
+message GetCodeTypeResponse {
+  string result = 1;
+}
+
+message CreateRequest {
+  int32 arg0 = 1;
+  double arg1 = 2;
+  string arg2 = 3;
+}
+
+message CreateResponse {
+  int64 result = 1;
+}
+
+message GetAccumulatedDeltaRangeMetersRequest {
+}
+
+message GetAccumulatedDeltaRangeMetersResponse {
+  double result = 1;
+}
+
+message GetAccumulatedDeltaRangeStateRequest {
+}
+
+message GetAccumulatedDeltaRangeStateResponse {
+  int32 result = 1;
+}
+
+message GetAccumulatedDeltaRangeUncertaintyMetersRequest {
+}
+
+message GetAccumulatedDeltaRangeUncertaintyMetersResponse {
+  double result = 1;
+}
+
+message GetAutomaticGainControlLevelDbRequest {
+}
+
+message GetAutomaticGainControlLevelDbResponse {
+  double result = 1;
+}
+
+message GnssMeasurementGetBasebandCn0DbHzRequest {
+}
+
+message GnssMeasurementGetBasebandCn0DbHzResponse {
+  double result = 1;
+}
+
+message GetCarrierCyclesRequest {
+}
+
+message GetCarrierCyclesResponse {
+  int64 result = 1;
+}
+
+message GnssMeasurementGetCarrierFrequencyHzResponse {
+  float result = 1;
+}
+
+message GetCarrierPhaseRequest {
+}
+
+message GetCarrierPhaseResponse {
+  double result = 1;
+}
+
+message GetCarrierPhaseUncertaintyRequest {
+}
+
+message GetCarrierPhaseUncertaintyResponse {
+  double result = 1;
+}
+
+message GnssMeasurementGetCn0DbHzRequest {
+}
+
+message GnssMeasurementGetCn0DbHzResponse {
+  double result = 1;
+}
+
+message GetFullInterSignalBiasNanosRequest {
+}
+
+message GetFullInterSignalBiasNanosResponse {
+  double result = 1;
+}
+
+message GetFullInterSignalBiasUncertaintyNanosRequest {
+}
+
+message GetFullInterSignalBiasUncertaintyNanosResponse {
+  double result = 1;
+}
+
+message GetMultipathIndicatorRequest {
+}
+
+message GetMultipathIndicatorResponse {
+  int32 result = 1;
+}
+
+message GetPseudorangeRateMetersPerSecondRequest {
+}
+
+message GetPseudorangeRateMetersPerSecondResponse {
+  double result = 1;
+}
+
+message GetPseudorangeRateUncertaintyMetersPerSecondRequest {
+}
+
+message GetPseudorangeRateUncertaintyMetersPerSecondResponse {
+  double result = 1;
+}
+
+message GetReceivedSvTimeNanosRequest {
+}
+
+message GetReceivedSvTimeNanosResponse {
+  int64 result = 1;
+}
+
+message GetReceivedSvTimeUncertaintyNanosRequest {
+}
+
+message GetReceivedSvTimeUncertaintyNanosResponse {
+  int64 result = 1;
+}
+
+message GetSatelliteInterSignalBiasNanosRequest {
+}
+
+message GetSatelliteInterSignalBiasNanosResponse {
+  double result = 1;
+}
+
+message GetSatelliteInterSignalBiasUncertaintyNanosRequest {
+}
+
+message GetSatelliteInterSignalBiasUncertaintyNanosResponse {
+  double result = 1;
+}
+
+message GetSnrInDbRequest {
+}
+
+message GetSnrInDbResponse {
+  double result = 1;
+}
+
+message GetStateRequest {
+}
+
+message GetStateResponse {
+  int32 result = 1;
+}
+
+message GnssMeasurementGetSvidRequest {
+}
+
+message GetTimeOffsetNanosRequest {
+}
+
+message GetTimeOffsetNanosResponse {
+  double result = 1;
+}
+
+message HasAutomaticGainControlLevelDbRequest {
+}
+
+message HasAutomaticGainControlLevelDbResponse {
+  bool result = 1;
+}
+
+message GnssMeasurementHasBasebandCn0DbHzRequest {
+}
+
+message HasCarrierCyclesRequest {
+}
+
+message HasCarrierCyclesResponse {
+  bool result = 1;
+}
+
+message GnssMeasurementHasCarrierFrequencyHzRequest {
+}
+
+message HasCarrierPhaseRequest {
+}
+
+message HasCarrierPhaseResponse {
+  bool result = 1;
+}
+
+message HasCarrierPhaseUncertaintyRequest {
+}
+
+message HasCarrierPhaseUncertaintyResponse {
+  bool result = 1;
+}
+
+message HasCodeTypeRequest {
+}
+
+message HasCodeTypeResponse {
+  bool result = 1;
+}
+
+message HasFullInterSignalBiasNanosRequest {
+}
+
+message HasFullInterSignalBiasNanosResponse {
+  bool result = 1;
+}
+
+message HasFullInterSignalBiasUncertaintyNanosRequest {
+}
+
+message HasFullInterSignalBiasUncertaintyNanosResponse {
+  bool result = 1;
+}
+
+message HasSatelliteInterSignalBiasNanosRequest {
+}
+
+message HasSatelliteInterSignalBiasNanosResponse {
+  bool result = 1;
+}
+
+message HasSatelliteInterSignalBiasUncertaintyNanosRequest {
+}
+
+message HasSatelliteInterSignalBiasUncertaintyNanosResponse {
+  bool result = 1;
+}
+
+message HasSnrInDbRequest {
+}
+
+message HasSnrInDbResponse {
+  bool result = 1;
+}
+
+message GetClockRequest {
+}
+
+message GetClockResponse {
+  int64 result = 1;
+}
+
+message HasIsFullTrackingRequest {
+}
+
+message HasIsFullTrackingResponse {
+  bool result = 1;
+}
+
+message ClearIsFullTrackingRequest {
+}
+
+message ClearIsFullTrackingResponse {
+  int64 result = 1;
+}
+
+message SetClockRequest {
+  int64 arg0 = 1;
+}
+
+message SetClockResponse {
+  int64 result = 1;
+}
+
+message SetIsFullTrackingRequest {
+  bool arg0 = 1;
+}
+
+message SetIsFullTrackingResponse {
+  int64 result = 1;
+}
+
+message OnGnssMeasurementsReceivedRequest {
+  int64 arg0 = 1;
+}
+
+message OnGnssMeasurementsReceivedResponse {
+}
+
+message OnStatusChangedRequest {
+  int32 arg0 = 1;
+}
+
+message OnStatusChangedResponse {
+}
+
+message OnNmeaMessageRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnNmeaMessageResponse {
+}
+
+message NewGeocoderRequest {
+  int64 arg0 = 1;
+}
+
+message NewGeocoderResponse {
+  int64 result = 1;
+}
+
+message GetFromLocationRequest {
+  int64 handle = 1;
+  double arg0 = 2;
+  double arg1 = 3;
+  int32 arg2 = 4;
+  int64 arg3 = 5;
+}
+
+message GetFromLocationResponse {
+}
+
+message GetFromLocationName3Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  int32 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message GetFromLocationName3Response {
+}
+
+message GetFromLocationName7_1Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  int32 arg1 = 3;
+  double arg2 = 4;
+  double arg3 = 5;
+  double arg4 = 6;
+  double arg5 = 7;
+  int64 arg6 = 8;
+}
+
+message GetFromLocationName7_1Response {
+}
+
+message IsPresentRequest {
+  int64 handle = 1;
+}
+
+message IsPresentResponse {
+  bool result = 1;
+}
+
+message GetDataRequest {
+}
+
+message GetDataResponse {
+  int64 result = 1;
+}
+
+message GetMessageIdRequest {
+}
+
+message GetMessageIdResponse {
+  int32 result = 1;
+}
+
+message GetStatusRequest {
+}
+
+message GetStatusResponse {
+  int32 result = 1;
+}
+
+message GetSubmessageIdRequest {
+}
+
+message GetSubmessageIdResponse {
+  int32 result = 1;
+}
+
+message GnssNavigationMessageGetSvidRequest {
+}
+
+message GetTypeRequest {
+}
+
+message GetTypeResponse {
+  int32 result = 1;
+}
+
+message OnGnssNavigationMessageReceivedRequest {
+  int64 arg0 = 1;
+}
+
+message OnGnssNavigationMessageReceivedResponse {
+}
+
+message OnBindRequest {
+  int64 arg0 = 1;
+}
+
+message OnBindResponse {
+  int64 result = 1;
+}
+
+message OnStartRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message OnStartResponse {
+}
+
+message OnStartCommandRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message OnStartCommandResponse {
+  int32 result = 1;
+}
+
+message RefreshSettingsRequest {
+  int64 arg0 = 1;
+}
+
+message RefreshSettingsResponse {
+}
+
 message AddGpsStatusListenerRequest {
   int64 arg0 = 1;
 }
@@ -508,6 +2486,1123 @@ message UnregisterGnssStatusCallbackRequest {
 message UnregisterGnssStatusCallbackResponse {
 }
 
+message NewLocationRequest {
+  int64 arg0 = 1;
+}
+
+message NewLocationResponse {
+  int64 result = 1;
+}
+
+message BearingToRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message BearingToResponse {
+  float result = 1;
+}
+
+message LocationDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message DistanceToRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message DistanceToResponse {
+  float result = 1;
+}
+
+message DumpRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+}
+
+message DumpResponse {
+}
+
+message LocationEqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message LocationGetAccuracyResponse {
+  float result = 1;
+}
+
+message GetAltitudeRequest {
+  int64 handle = 1;
+}
+
+message GetAltitudeResponse {
+  double result = 1;
+}
+
+message GetBearingRequest {
+  int64 handle = 1;
+}
+
+message GetBearingResponse {
+  float result = 1;
+}
+
+message GetBearingAccuracyDegreesRequest {
+  int64 handle = 1;
+}
+
+message GetBearingAccuracyDegreesResponse {
+  float result = 1;
+}
+
+message GetElapsedRealtimeAgeMillis0Request {
+  int64 handle = 1;
+}
+
+message GetElapsedRealtimeAgeMillis0Response {
+  int64 result = 1;
+}
+
+message GetElapsedRealtimeAgeMillis1_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetElapsedRealtimeAgeMillis1_1Response {
+  int64 result = 1;
+}
+
+message GetElapsedRealtimeMillisRequest {
+  int64 handle = 1;
+}
+
+message GetElapsedRealtimeMillisResponse {
+  int64 result = 1;
+}
+
+message LocationGetElapsedRealtimeNanosRequest {
+  int64 handle = 1;
+}
+
+message LocationGetElapsedRealtimeUncertaintyNanosRequest {
+  int64 handle = 1;
+}
+
+message GetMslAltitudeAccuracyMetersRequest {
+  int64 handle = 1;
+}
+
+message GetMslAltitudeAccuracyMetersResponse {
+  float result = 1;
+}
+
+message GetMslAltitudeMetersRequest {
+  int64 handle = 1;
+}
+
+message GetMslAltitudeMetersResponse {
+  double result = 1;
+}
+
+message LocationGetProviderRequest {
+  int64 handle = 1;
+}
+
+message LocationGetProviderResponse {
+  string result = 1;
+}
+
+message GetSpeedRequest {
+  int64 handle = 1;
+}
+
+message GetSpeedResponse {
+  float result = 1;
+}
+
+message GetSpeedAccuracyMetersPerSecondRequest {
+  int64 handle = 1;
+}
+
+message GetSpeedAccuracyMetersPerSecondResponse {
+  float result = 1;
+}
+
+message GetTimeRequest {
+  int64 handle = 1;
+}
+
+message GetTimeResponse {
+  int64 result = 1;
+}
+
+message GetVerticalAccuracyMetersRequest {
+  int64 handle = 1;
+}
+
+message GetVerticalAccuracyMetersResponse {
+  float result = 1;
+}
+
+message HasAccuracyRequest {
+  int64 handle = 1;
+}
+
+message HasAccuracyResponse {
+  bool result = 1;
+}
+
+message HasAltitudeRequest {
+  int64 handle = 1;
+}
+
+message HasAltitudeResponse {
+  bool result = 1;
+}
+
+message HasBearingRequest {
+  int64 handle = 1;
+}
+
+message HasBearingResponse {
+  bool result = 1;
+}
+
+message HasBearingAccuracyRequest {
+  int64 handle = 1;
+}
+
+message HasBearingAccuracyResponse {
+  bool result = 1;
+}
+
+message LocationHasElapsedRealtimeUncertaintyNanosRequest {
+  int64 handle = 1;
+}
+
+message HasMslAltitudeRequest {
+  int64 handle = 1;
+}
+
+message HasMslAltitudeResponse {
+  bool result = 1;
+}
+
+message HasMslAltitudeAccuracyRequest {
+  int64 handle = 1;
+}
+
+message HasMslAltitudeAccuracyResponse {
+  bool result = 1;
+}
+
+message HasSpeedRequest {
+  int64 handle = 1;
+}
+
+message HasSpeedResponse {
+  bool result = 1;
+}
+
+message HasSpeedAccuracyRequest {
+  int64 handle = 1;
+}
+
+message HasSpeedAccuracyResponse {
+  bool result = 1;
+}
+
+message HasVerticalAccuracyRequest {
+  int64 handle = 1;
+}
+
+message HasVerticalAccuracyResponse {
+  bool result = 1;
+}
+
+message LocationHashCodeRequest {
+  int64 handle = 1;
+}
+
+message IsCompleteRequest {
+  int64 handle = 1;
+}
+
+message IsCompleteResponse {
+  bool result = 1;
+}
+
+message IsFromMockProviderRequest {
+  int64 handle = 1;
+}
+
+message IsFromMockProviderResponse {
+  bool result = 1;
+}
+
+message IsMockRequest {
+  int64 handle = 1;
+}
+
+message IsMockResponse {
+  bool result = 1;
+}
+
+message RemoveAccuracyRequest {
+  int64 handle = 1;
+}
+
+message RemoveAccuracyResponse {
+}
+
+message RemoveAltitudeRequest {
+  int64 handle = 1;
+}
+
+message RemoveAltitudeResponse {
+}
+
+message RemoveBearingRequest {
+  int64 handle = 1;
+}
+
+message RemoveBearingResponse {
+}
+
+message RemoveBearingAccuracyRequest {
+  int64 handle = 1;
+}
+
+message RemoveBearingAccuracyResponse {
+}
+
+message RemoveElapsedRealtimeUncertaintyNanosRequest {
+  int64 handle = 1;
+}
+
+message RemoveElapsedRealtimeUncertaintyNanosResponse {
+}
+
+message RemoveMslAltitudeRequest {
+  int64 handle = 1;
+}
+
+message RemoveMslAltitudeResponse {
+}
+
+message RemoveMslAltitudeAccuracyRequest {
+  int64 handle = 1;
+}
+
+message RemoveMslAltitudeAccuracyResponse {
+}
+
+message RemoveSpeedRequest {
+  int64 handle = 1;
+}
+
+message RemoveSpeedResponse {
+}
+
+message RemoveSpeedAccuracyRequest {
+  int64 handle = 1;
+}
+
+message RemoveSpeedAccuracyResponse {
+}
+
+message RemoveVerticalAccuracyRequest {
+  int64 handle = 1;
+}
+
+message RemoveVerticalAccuracyResponse {
+}
+
+message ResetRequest {
+  int64 handle = 1;
+}
+
+message ResetResponse {
+}
+
+message SetRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetResponse {
+}
+
+message LocationSetAccuracyRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+}
+
+message SetAltitudeRequest {
+  int64 handle = 1;
+  double arg0 = 2;
+}
+
+message SetAltitudeResponse {
+}
+
+message SetBearingRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+}
+
+message SetBearingResponse {
+}
+
+message SetBearingAccuracyDegreesRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+}
+
+message SetBearingAccuracyDegreesResponse {
+}
+
+message SetElapsedRealtimeNanosRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetElapsedRealtimeNanosResponse {
+}
+
+message SetElapsedRealtimeUncertaintyNanosRequest {
+  int64 handle = 1;
+  double arg0 = 2;
+}
+
+message SetElapsedRealtimeUncertaintyNanosResponse {
+}
+
+message SetMockRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetMockResponse {
+}
+
+message SetMslAltitudeAccuracyMetersRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+}
+
+message SetMslAltitudeAccuracyMetersResponse {
+}
+
+message SetMslAltitudeMetersRequest {
+  int64 handle = 1;
+  double arg0 = 2;
+}
+
+message SetMslAltitudeMetersResponse {
+}
+
+message SetProviderRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetProviderResponse {
+}
+
+message SetSpeedRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+}
+
+message SetSpeedResponse {
+}
+
+message SetSpeedAccuracyMetersPerSecondRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+}
+
+message SetSpeedAccuracyMetersPerSecondResponse {
+}
+
+message SetTimeRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetTimeResponse {
+}
+
+message SetVerticalAccuracyMetersRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+}
+
+message SetVerticalAccuracyMetersResponse {
+}
+
+message LocationToStringRequest {
+  int64 handle = 1;
+}
+
+message LocationWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message Convert2Request {
+  int64 handle = 1;
+  double arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message Convert2Response {
+  string result = 1;
+}
+
+message Convert1_1Request {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message Convert1_1Response {
+  double result = 1;
+}
+
+message DistanceBetweenRequest {
+  int64 handle = 1;
+  double arg0 = 2;
+  double arg1 = 3;
+  double arg2 = 4;
+  double arg3 = 5;
+  int64 arg4 = 6;
+}
+
+message DistanceBetweenResponse {
+}
+
+message GetDurationMillisRequest {
+}
+
+message GetDurationMillisResponse {
+  int64 result = 1;
+}
+
+message RequestGetIntervalMillisResponse {
+  int64 result = 1;
+}
+
+message GetMaxUpdateDelayMillisRequest {
+}
+
+message GetMaxUpdateDelayMillisResponse {
+  int64 result = 1;
+}
+
+message GetMaxUpdatesRequest {
+}
+
+message GetMaxUpdatesResponse {
+  int32 result = 1;
+}
+
+message GetMinUpdateDistanceMetersRequest {
+}
+
+message GetMinUpdateDistanceMetersResponse {
+  float result = 1;
+}
+
+message GetMinUpdateIntervalMillisRequest {
+}
+
+message GetMinUpdateIntervalMillisResponse {
+  int64 result = 1;
+}
+
+message GetQualityRequest {
+}
+
+message GetQualityResponse {
+  int32 result = 1;
+}
+
+message ClearMinUpdateIntervalMillisRequest {
+}
+
+message ClearMinUpdateIntervalMillisResponse {
+  int64 result = 1;
+}
+
+message SetDurationMillisRequest {
+  int64 arg0 = 1;
+}
+
+message SetDurationMillisResponse {
+  int64 result = 1;
+}
+
+message RequestBuilderSetIntervalMillisRequest {
+  int64 arg0 = 1;
+}
+
+message SetMaxUpdateDelayMillisRequest {
+  int64 arg0 = 1;
+}
+
+message SetMaxUpdateDelayMillisResponse {
+  int64 result = 1;
+}
+
+message SetMaxUpdatesRequest {
+  int32 arg0 = 1;
+}
+
+message SetMaxUpdatesResponse {
+  int64 result = 1;
+}
+
+message SetMinUpdateDistanceMetersRequest {
+  float arg0 = 1;
+}
+
+message SetMinUpdateDistanceMetersResponse {
+  int64 result = 1;
+}
+
+message SetMinUpdateIntervalMillisRequest {
+  int64 arg0 = 1;
+}
+
+message SetMinUpdateIntervalMillisResponse {
+  int64 result = 1;
+}
+
+message SetQualityRequest {
+  int32 arg0 = 1;
+}
+
+message SetQualityResponse {
+  int64 result = 1;
+}
+
+message GetMaxSatellitesRequest {
+}
+
+message GetMaxSatellitesResponse {
+  int32 result = 1;
+}
+
+message GetTimeToFirstFixRequest {
+}
+
+message GetTimeToFirstFixResponse {
+  int32 result = 1;
+}
+
+message GpsStatusCreateRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message OnGpsStatusChangedRequest {
+  int32 arg0 = 1;
+}
+
+message OnGpsStatusChangedResponse {
+}
+
+message OnNmeaReceivedRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+}
+
+message OnNmeaReceivedResponse {
+}
+
+message ProviderGetAccuracyRequest {
+}
+
+message GetNameRequest {
+}
+
+message GetNameResponse {
+  string result = 1;
+}
+
+message ProviderGetPowerRequirementRequest {
+}
+
+message HasMonetaryCostRequest {
+}
+
+message HasMonetaryCostResponse {
+  bool result = 1;
+}
+
+message MeetsCriteriaRequest {
+  int64 arg0 = 1;
+}
+
+message MeetsCriteriaResponse {
+  bool result = 1;
+}
+
+message RequiresCellRequest {
+}
+
+message RequiresCellResponse {
+  bool result = 1;
+}
+
+message RequiresNetworkRequest {
+}
+
+message RequiresNetworkResponse {
+  bool result = 1;
+}
+
+message RequiresSatelliteRequest {
+}
+
+message RequiresSatelliteResponse {
+  bool result = 1;
+}
+
+message SupportsAltitudeRequest {
+}
+
+message SupportsAltitudeResponse {
+  bool result = 1;
+}
+
+message SupportsBearingRequest {
+}
+
+message SupportsBearingResponse {
+  bool result = 1;
+}
+
+message SupportsSpeedRequest {
+}
+
+message SupportsSpeedResponse {
+  bool result = 1;
+}
+
+service GnssAntennaInfoService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetCarrierFrequencyMHz (GetCarrierFrequencyMHzRequest) returns (GetCarrierFrequencyMHzResponse);
+  rpc GetPhaseCenterOffset (GetPhaseCenterOffsetRequest) returns (GetPhaseCenterOffsetResponse);
+  rpc GetPhaseCenterVariationCorrections (GetPhaseCenterVariationCorrectionsRequest) returns (GetPhaseCenterVariationCorrectionsResponse);
+  rpc GetSignalGainCorrections (GetSignalGainCorrectionsRequest) returns (GetSignalGainCorrectionsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service GnssAntennaInfoBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetCarrierFrequencyMHz (SetCarrierFrequencyMHzRequest) returns (SetCarrierFrequencyMHzResponse);
+  rpc SetPhaseCenterOffset (SetPhaseCenterOffsetRequest) returns (SetPhaseCenterOffsetResponse);
+  rpc SetPhaseCenterVariationCorrections (SetPhaseCenterVariationCorrectionsRequest) returns (SetPhaseCenterVariationCorrectionsResponse);
+  rpc SetSignalGainCorrections (SetSignalGainCorrectionsRequest) returns (SetSignalGainCorrectionsResponse);
+}
+
+service GnssAntennaInfoPhaseCenterOffsetService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetXOffsetMm (GetXOffsetMmRequest) returns (GetXOffsetMmResponse);
+  rpc GetXOffsetUncertaintyMm (GetXOffsetUncertaintyMmRequest) returns (GetXOffsetUncertaintyMmResponse);
+  rpc GetYOffsetMm (GetYOffsetMmRequest) returns (GetYOffsetMmResponse);
+  rpc GetYOffsetUncertaintyMm (GetYOffsetUncertaintyMmRequest) returns (GetYOffsetUncertaintyMmResponse);
+  rpc GetZOffsetMm (GetZOffsetMmRequest) returns (GetZOffsetMmResponse);
+  rpc GetZOffsetUncertaintyMm (GetZOffsetUncertaintyMmRequest) returns (GetZOffsetUncertaintyMmResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service GnssAntennaInfoSphericalCorrectionsService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetCorrectionUncertaintiesArray (GetCorrectionUncertaintiesArrayRequest) returns (GetCorrectionUncertaintiesArrayResponse);
+  rpc GetCorrectionsArray (GetCorrectionsArrayRequest) returns (GetCorrectionsArrayResponse);
+  rpc GetDeltaPhi (GetDeltaPhiRequest) returns (GetDeltaPhiResponse);
+  rpc GetDeltaTheta (GetDeltaThetaRequest) returns (GetDeltaThetaResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ListenerService {
+  rpc OnLocationChanged (OnLocationChangedRequest) returns (OnLocationChangedResponse);
+}
+
+service GnssMeasurementRequestService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetIntervalMillis (GetIntervalMillisRequest) returns (GetIntervalMillisResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc IsFullTracking (IsFullTrackingRequest) returns (IsFullTrackingResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service GnssMeasurementRequestBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetFullTracking (SetFullTrackingRequest) returns (SetFullTrackingResponse);
+  rpc SetIntervalMillis (SetIntervalMillisRequest) returns (SetIntervalMillisResponse);
+}
+
+service AddressService {
+  rpc NewAddress (NewAddressRequest) returns (NewAddressResponse);
+  rpc ClearLatitude (ClearLatitudeRequest) returns (ClearLatitudeResponse);
+  rpc ClearLongitude (ClearLongitudeRequest) returns (ClearLongitudeResponse);
+  rpc DescribeContents (AddressDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetAddressLine (GetAddressLineRequest) returns (GetAddressLineResponse);
+  rpc GetAdminArea (GetAdminAreaRequest) returns (GetAdminAreaResponse);
+  rpc GetCountryCode (GetCountryCodeRequest) returns (GetCountryCodeResponse);
+  rpc GetCountryName (GetCountryNameRequest) returns (GetCountryNameResponse);
+  rpc GetExtras (GetExtrasRequest) returns (GetExtrasResponse);
+  rpc GetFeatureName (GetFeatureNameRequest) returns (GetFeatureNameResponse);
+  rpc GetLatitude (GetLatitudeRequest) returns (GetLatitudeResponse);
+  rpc GetLocale (GetLocaleRequest) returns (GetLocaleResponse);
+  rpc GetLocality (GetLocalityRequest) returns (GetLocalityResponse);
+  rpc GetLongitude (GetLongitudeRequest) returns (GetLongitudeResponse);
+  rpc GetMaxAddressLineIndex (GetMaxAddressLineIndexRequest) returns (GetMaxAddressLineIndexResponse);
+  rpc GetPhone (GetPhoneRequest) returns (GetPhoneResponse);
+  rpc GetPostalCode (GetPostalCodeRequest) returns (GetPostalCodeResponse);
+  rpc GetPremises (GetPremisesRequest) returns (GetPremisesResponse);
+  rpc GetSubAdminArea (GetSubAdminAreaRequest) returns (GetSubAdminAreaResponse);
+  rpc GetSubLocality (GetSubLocalityRequest) returns (GetSubLocalityResponse);
+  rpc GetSubThoroughfare (GetSubThoroughfareRequest) returns (GetSubThoroughfareResponse);
+  rpc GetThoroughfare (GetThoroughfareRequest) returns (GetThoroughfareResponse);
+  rpc GetUrl (GetUrlRequest) returns (GetUrlResponse);
+  rpc HasLatitude (HasLatitudeRequest) returns (HasLatitudeResponse);
+  rpc HasLongitude (HasLongitudeRequest) returns (HasLongitudeResponse);
+  rpc SetAddressLine (SetAddressLineRequest) returns (SetAddressLineResponse);
+  rpc SetAdminArea (SetAdminAreaRequest) returns (SetAdminAreaResponse);
+  rpc SetCountryCode (SetCountryCodeRequest) returns (SetCountryCodeResponse);
+  rpc SetCountryName (SetCountryNameRequest) returns (SetCountryNameResponse);
+  rpc SetExtras (SetExtrasRequest) returns (SetExtrasResponse);
+  rpc SetFeatureName (SetFeatureNameRequest) returns (SetFeatureNameResponse);
+  rpc SetLatitude (SetLatitudeRequest) returns (SetLatitudeResponse);
+  rpc SetLocality (SetLocalityRequest) returns (SetLocalityResponse);
+  rpc SetLongitude (SetLongitudeRequest) returns (SetLongitudeResponse);
+  rpc SetPhone (SetPhoneRequest) returns (SetPhoneResponse);
+  rpc SetPostalCode (SetPostalCodeRequest) returns (SetPostalCodeResponse);
+  rpc SetPremises (SetPremisesRequest) returns (SetPremisesResponse);
+  rpc SetSubAdminArea (SetSubAdminAreaRequest) returns (SetSubAdminAreaResponse);
+  rpc SetSubLocality (SetSubLocalityRequest) returns (SetSubLocalityResponse);
+  rpc SetSubThoroughfare (SetSubThoroughfareRequest) returns (SetSubThoroughfareResponse);
+  rpc SetThoroughfare (SetThoroughfareRequest) returns (SetThoroughfareResponse);
+  rpc SetUrl (SetUrlRequest) returns (SetUrlResponse);
+  rpc ToString (AddressToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (AddressWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service CriteriaService {
+  rpc NewCriteria (NewCriteriaRequest) returns (NewCriteriaResponse);
+  rpc DescribeContents (CriteriaDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetAccuracy (GetAccuracyRequest) returns (GetAccuracyResponse);
+  rpc GetBearingAccuracy (GetBearingAccuracyRequest) returns (GetBearingAccuracyResponse);
+  rpc GetHorizontalAccuracy (GetHorizontalAccuracyRequest) returns (GetHorizontalAccuracyResponse);
+  rpc GetPowerRequirement (GetPowerRequirementRequest) returns (GetPowerRequirementResponse);
+  rpc GetSpeedAccuracy (GetSpeedAccuracyRequest) returns (GetSpeedAccuracyResponse);
+  rpc GetVerticalAccuracy (GetVerticalAccuracyRequest) returns (GetVerticalAccuracyResponse);
+  rpc IsAltitudeRequired (IsAltitudeRequiredRequest) returns (IsAltitudeRequiredResponse);
+  rpc IsBearingRequired (IsBearingRequiredRequest) returns (IsBearingRequiredResponse);
+  rpc IsCostAllowed (IsCostAllowedRequest) returns (IsCostAllowedResponse);
+  rpc IsSpeedRequired (IsSpeedRequiredRequest) returns (IsSpeedRequiredResponse);
+  rpc SetAccuracy (SetAccuracyRequest) returns (SetAccuracyResponse);
+  rpc SetAltitudeRequired (SetAltitudeRequiredRequest) returns (SetAltitudeRequiredResponse);
+  rpc SetBearingAccuracy (SetBearingAccuracyRequest) returns (SetBearingAccuracyResponse);
+  rpc SetBearingRequired (SetBearingRequiredRequest) returns (SetBearingRequiredResponse);
+  rpc SetCostAllowed (SetCostAllowedRequest) returns (SetCostAllowedResponse);
+  rpc SetHorizontalAccuracy (SetHorizontalAccuracyRequest) returns (SetHorizontalAccuracyResponse);
+  rpc SetPowerRequirement (SetPowerRequirementRequest) returns (SetPowerRequirementResponse);
+  rpc SetSpeedAccuracy (SetSpeedAccuracyRequest) returns (SetSpeedAccuracyResponse);
+  rpc SetSpeedRequired (SetSpeedRequiredRequest) returns (SetSpeedRequiredResponse);
+  rpc SetVerticalAccuracy (SetVerticalAccuracyRequest) returns (SetVerticalAccuracyResponse);
+  rpc ToString (CriteriaToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (CriteriaWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service GpsSatelliteService {
+  rpc GetAzimuth (GetAzimuthRequest) returns (GetAzimuthResponse);
+  rpc GetElevation (GetElevationRequest) returns (GetElevationResponse);
+  rpc GetPrn (GetPrnRequest) returns (GetPrnResponse);
+  rpc GetSnr (GetSnrRequest) returns (GetSnrResponse);
+  rpc HasAlmanac (HasAlmanacRequest) returns (HasAlmanacResponse);
+  rpc HasEphemeris (HasEphemerisRequest) returns (HasEphemerisResponse);
+  rpc UsedInFix (UsedInFixRequest) returns (UsedInFixResponse);
+}
+
+service GnssAutomaticGainControlService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetCarrierFrequencyHz (GetCarrierFrequencyHzRequest) returns (GetCarrierFrequencyHzResponse);
+  rpc GetConstellationType (GetConstellationTypeRequest) returns (GetConstellationTypeResponse);
+  rpc GetLevelDb (GetLevelDbRequest) returns (GetLevelDbResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service GnssAutomaticGainControlBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetCarrierFrequencyHz (SetCarrierFrequencyHzRequest) returns (SetCarrierFrequencyHzResponse);
+  rpc SetConstellationType (SetConstellationTypeRequest) returns (SetConstellationTypeResponse);
+  rpc SetLevelDb (SetLevelDbRequest) returns (SetLevelDbResponse);
+}
+
+service GnssCapabilitiesService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc HasAccumulatedDeltaRange (HasAccumulatedDeltaRangeRequest) returns (HasAccumulatedDeltaRangeResponse);
+  rpc HasAntennaInfo (HasAntennaInfoRequest) returns (HasAntennaInfoResponse);
+  rpc HasGeofencing (HasGeofencingRequest) returns (HasGeofencingResponse);
+  rpc HasGnssAntennaInfo (HasGnssAntennaInfoRequest) returns (HasGnssAntennaInfoResponse);
+  rpc HasLowPowerMode (HasLowPowerModeRequest) returns (HasLowPowerModeResponse);
+  rpc HasMeasurementCorrections (HasMeasurementCorrectionsRequest) returns (HasMeasurementCorrectionsResponse);
+  rpc HasMeasurementCorrectionsExcessPathLength (HasMeasurementCorrectionsExcessPathLengthRequest) returns (HasMeasurementCorrectionsExcessPathLengthResponse);
+  rpc HasMeasurementCorrectionsForDriving (HasMeasurementCorrectionsForDrivingRequest) returns (HasMeasurementCorrectionsForDrivingResponse);
+  rpc HasMeasurementCorrectionsLosSats (HasMeasurementCorrectionsLosSatsRequest) returns (HasMeasurementCorrectionsLosSatsResponse);
+  rpc HasMeasurementCorrectionsReflectingPlane (HasMeasurementCorrectionsReflectingPlaneRequest) returns (HasMeasurementCorrectionsReflectingPlaneResponse);
+  rpc HasMeasurementCorrelationVectors (HasMeasurementCorrelationVectorsRequest) returns (HasMeasurementCorrelationVectorsResponse);
+  rpc HasMeasurements (HasMeasurementsRequest) returns (HasMeasurementsResponse);
+  rpc HasMsa (HasMsaRequest) returns (HasMsaResponse);
+  rpc HasMsb (HasMsbRequest) returns (HasMsbResponse);
+  rpc HasNavigationMessages (HasNavigationMessagesRequest) returns (HasNavigationMessagesResponse);
+  rpc HasOnDemandTime (HasOnDemandTimeRequest) returns (HasOnDemandTimeResponse);
+  rpc HasPowerMultibandAcquisition (HasPowerMultibandAcquisitionRequest) returns (HasPowerMultibandAcquisitionResponse);
+  rpc HasPowerMultibandTracking (HasPowerMultibandTrackingRequest) returns (HasPowerMultibandTrackingResponse);
+  rpc HasPowerOtherModes (HasPowerOtherModesRequest) returns (HasPowerOtherModesResponse);
+  rpc HasPowerSinglebandAcquisition (HasPowerSinglebandAcquisitionRequest) returns (HasPowerSinglebandAcquisitionResponse);
+  rpc HasPowerSinglebandTracking (HasPowerSinglebandTrackingRequest) returns (HasPowerSinglebandTrackingResponse);
+  rpc HasPowerTotal (HasPowerTotalRequest) returns (HasPowerTotalResponse);
+  rpc HasSatelliteBlocklist (HasSatelliteBlocklistRequest) returns (HasSatelliteBlocklistResponse);
+  rpc HasSatellitePvt (HasSatellitePvtRequest) returns (HasSatellitePvtResponse);
+  rpc HasScheduling (HasSchedulingRequest) returns (HasSchedulingResponse);
+  rpc HasSingleShotFix (HasSingleShotFixRequest) returns (HasSingleShotFixResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service GnssCapabilitiesBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetHasAccumulatedDeltaRange (SetHasAccumulatedDeltaRangeRequest) returns (SetHasAccumulatedDeltaRangeResponse);
+  rpc SetHasAntennaInfo (SetHasAntennaInfoRequest) returns (SetHasAntennaInfoResponse);
+  rpc SetHasGeofencing (SetHasGeofencingRequest) returns (SetHasGeofencingResponse);
+  rpc SetHasLowPowerMode (SetHasLowPowerModeRequest) returns (SetHasLowPowerModeResponse);
+  rpc SetHasMeasurementCorrections (SetHasMeasurementCorrectionsRequest) returns (SetHasMeasurementCorrectionsResponse);
+  rpc SetHasMeasurementCorrectionsExcessPathLength (SetHasMeasurementCorrectionsExcessPathLengthRequest) returns (SetHasMeasurementCorrectionsExcessPathLengthResponse);
+  rpc SetHasMeasurementCorrectionsForDriving (SetHasMeasurementCorrectionsForDrivingRequest) returns (SetHasMeasurementCorrectionsForDrivingResponse);
+  rpc SetHasMeasurementCorrectionsLosSats (SetHasMeasurementCorrectionsLosSatsRequest) returns (SetHasMeasurementCorrectionsLosSatsResponse);
+  rpc SetHasMeasurementCorrectionsReflectingPlane (SetHasMeasurementCorrectionsReflectingPlaneRequest) returns (SetHasMeasurementCorrectionsReflectingPlaneResponse);
+  rpc SetHasMeasurementCorrelationVectors (SetHasMeasurementCorrelationVectorsRequest) returns (SetHasMeasurementCorrelationVectorsResponse);
+  rpc SetHasMeasurements (SetHasMeasurementsRequest) returns (SetHasMeasurementsResponse);
+  rpc SetHasMsa (SetHasMsaRequest) returns (SetHasMsaResponse);
+  rpc SetHasMsb (SetHasMsbRequest) returns (SetHasMsbResponse);
+  rpc SetHasNavigationMessages (SetHasNavigationMessagesRequest) returns (SetHasNavigationMessagesResponse);
+  rpc SetHasOnDemandTime (SetHasOnDemandTimeRequest) returns (SetHasOnDemandTimeResponse);
+  rpc SetHasPowerMultibandAcquisition (SetHasPowerMultibandAcquisitionRequest) returns (SetHasPowerMultibandAcquisitionResponse);
+  rpc SetHasPowerMultibandTracking (SetHasPowerMultibandTrackingRequest) returns (SetHasPowerMultibandTrackingResponse);
+  rpc SetHasPowerOtherModes (SetHasPowerOtherModesRequest) returns (SetHasPowerOtherModesResponse);
+  rpc SetHasPowerSinglebandAcquisition (SetHasPowerSinglebandAcquisitionRequest) returns (SetHasPowerSinglebandAcquisitionResponse);
+  rpc SetHasPowerSinglebandTracking (SetHasPowerSinglebandTrackingRequest) returns (SetHasPowerSinglebandTrackingResponse);
+  rpc SetHasPowerTotal (SetHasPowerTotalRequest) returns (SetHasPowerTotalResponse);
+  rpc SetHasSatelliteBlocklist (SetHasSatelliteBlocklistRequest) returns (SetHasSatelliteBlocklistResponse);
+  rpc SetHasSatellitePvt (SetHasSatellitePvtRequest) returns (SetHasSatellitePvtResponse);
+  rpc SetHasScheduling (SetHasSchedulingRequest) returns (SetHasSchedulingResponse);
+  rpc SetHasSingleShotFix (SetHasSingleShotFixRequest) returns (SetHasSingleShotFixResponse);
+}
+
+service GnssStatusService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetAzimuthDegrees (GetAzimuthDegreesRequest) returns (GetAzimuthDegreesResponse);
+  rpc GetBasebandCn0DbHz (GetBasebandCn0DbHzRequest) returns (GetBasebandCn0DbHzResponse);
+  rpc GetCarrierFrequencyHz (GnssStatusGetCarrierFrequencyHzRequest) returns (GnssStatusGetCarrierFrequencyHzResponse);
+  rpc GetCn0DbHz (GetCn0DbHzRequest) returns (GetCn0DbHzResponse);
+  rpc GetConstellationType (GnssStatusGetConstellationTypeRequest) returns (GetConstellationTypeResponse);
+  rpc GetElevationDegrees (GetElevationDegreesRequest) returns (GetElevationDegreesResponse);
+  rpc GetSatelliteCount (GetSatelliteCountRequest) returns (GetSatelliteCountResponse);
+  rpc GetSvid (GetSvidRequest) returns (GetSvidResponse);
+  rpc HasAlmanacData (HasAlmanacDataRequest) returns (HasAlmanacDataResponse);
+  rpc HasBasebandCn0DbHz (HasBasebandCn0DbHzRequest) returns (HasBasebandCn0DbHzResponse);
+  rpc HasCarrierFrequencyHz (HasCarrierFrequencyHzRequest) returns (HasCarrierFrequencyHzResponse);
+  rpc HasEphemerisData (HasEphemerisDataRequest) returns (HasEphemerisDataResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc UsedInFix (GnssStatusUsedInFixRequest) returns (UsedInFixResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service GnssStatusBuilderService {
+  rpc AddSatellite (AddSatelliteRequest) returns (AddSatelliteResponse);
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc ClearSatellites (ClearSatellitesRequest) returns (ClearSatellitesResponse);
+}
+
+service GnssStatusCallbackService {
+  rpc OnFirstFix (OnFirstFixRequest) returns (OnFirstFixResponse);
+  rpc OnSatelliteStatusChanged (OnSatelliteStatusChangedRequest) returns (OnSatelliteStatusChangedResponse);
+  rpc OnStarted (OnStartedRequest) returns (OnStartedResponse);
+  rpc OnStopped (OnStoppedRequest) returns (OnStoppedResponse);
+}
+
+service GnssClockService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetBiasNanos (GetBiasNanosRequest) returns (GetBiasNanosResponse);
+  rpc GetBiasUncertaintyNanos (GetBiasUncertaintyNanosRequest) returns (GetBiasUncertaintyNanosResponse);
+  rpc GetDriftNanosPerSecond (GetDriftNanosPerSecondRequest) returns (GetDriftNanosPerSecondResponse);
+  rpc GetDriftUncertaintyNanosPerSecond (GetDriftUncertaintyNanosPerSecondRequest) returns (GetDriftUncertaintyNanosPerSecondResponse);
+  rpc GetElapsedRealtimeNanos (GetElapsedRealtimeNanosRequest) returns (GetElapsedRealtimeNanosResponse);
+  rpc GetElapsedRealtimeUncertaintyNanos (GetElapsedRealtimeUncertaintyNanosRequest) returns (GetElapsedRealtimeUncertaintyNanosResponse);
+  rpc GetFullBiasNanos (GetFullBiasNanosRequest) returns (GetFullBiasNanosResponse);
+  rpc GetHardwareClockDiscontinuityCount (GetHardwareClockDiscontinuityCountRequest) returns (GetHardwareClockDiscontinuityCountResponse);
+  rpc GetLeapSecond (GetLeapSecondRequest) returns (GetLeapSecondResponse);
+  rpc GetReferenceCarrierFrequencyHzForIsb (GetReferenceCarrierFrequencyHzForIsbRequest) returns (GetReferenceCarrierFrequencyHzForIsbResponse);
+  rpc GetReferenceCodeTypeForIsb (GetReferenceCodeTypeForIsbRequest) returns (GetReferenceCodeTypeForIsbResponse);
+  rpc GetReferenceConstellationTypeForIsb (GetReferenceConstellationTypeForIsbRequest) returns (GetReferenceConstellationTypeForIsbResponse);
+  rpc GetTimeNanos (GetTimeNanosRequest) returns (GetTimeNanosResponse);
+  rpc GetTimeUncertaintyNanos (GetTimeUncertaintyNanosRequest) returns (GetTimeUncertaintyNanosResponse);
+  rpc HasBiasNanos (HasBiasNanosRequest) returns (HasBiasNanosResponse);
+  rpc HasBiasUncertaintyNanos (HasBiasUncertaintyNanosRequest) returns (HasBiasUncertaintyNanosResponse);
+  rpc HasDriftNanosPerSecond (HasDriftNanosPerSecondRequest) returns (HasDriftNanosPerSecondResponse);
+  rpc HasDriftUncertaintyNanosPerSecond (HasDriftUncertaintyNanosPerSecondRequest) returns (HasDriftUncertaintyNanosPerSecondResponse);
+  rpc HasElapsedRealtimeNanos (HasElapsedRealtimeNanosRequest) returns (HasElapsedRealtimeNanosResponse);
+  rpc HasElapsedRealtimeUncertaintyNanos (HasElapsedRealtimeUncertaintyNanosRequest) returns (HasElapsedRealtimeUncertaintyNanosResponse);
+  rpc HasFullBiasNanos (HasFullBiasNanosRequest) returns (HasFullBiasNanosResponse);
+  rpc HasLeapSecond (HasLeapSecondRequest) returns (HasLeapSecondResponse);
+  rpc HasReferenceCarrierFrequencyHzForIsb (HasReferenceCarrierFrequencyHzForIsbRequest) returns (HasReferenceCarrierFrequencyHzForIsbResponse);
+  rpc HasReferenceCodeTypeForIsb (HasReferenceCodeTypeForIsbRequest) returns (HasReferenceCodeTypeForIsbResponse);
+  rpc HasReferenceConstellationTypeForIsb (HasReferenceConstellationTypeForIsbRequest) returns (HasReferenceConstellationTypeForIsbResponse);
+  rpc HasTimeUncertaintyNanos (HasTimeUncertaintyNanosRequest) returns (HasTimeUncertaintyNanosResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service GnssSignalTypeService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetCarrierFrequencyHz (GetCarrierFrequencyHzRequest) returns (GnssSignalTypeGetCarrierFrequencyHzResponse);
+  rpc GetCodeType (GetCodeTypeRequest) returns (GetCodeTypeResponse);
+  rpc GetConstellationType (GetConstellationTypeRequest) returns (GetConstellationTypeResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc Create (CreateRequest) returns (CreateResponse);
+}
+
+service GnssMeasurementService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetAccumulatedDeltaRangeMeters (GetAccumulatedDeltaRangeMetersRequest) returns (GetAccumulatedDeltaRangeMetersResponse);
+  rpc GetAccumulatedDeltaRangeState (GetAccumulatedDeltaRangeStateRequest) returns (GetAccumulatedDeltaRangeStateResponse);
+  rpc GetAccumulatedDeltaRangeUncertaintyMeters (GetAccumulatedDeltaRangeUncertaintyMetersRequest) returns (GetAccumulatedDeltaRangeUncertaintyMetersResponse);
+  rpc GetAutomaticGainControlLevelDb (GetAutomaticGainControlLevelDbRequest) returns (GetAutomaticGainControlLevelDbResponse);
+  rpc GetBasebandCn0DbHz (GnssMeasurementGetBasebandCn0DbHzRequest) returns (GnssMeasurementGetBasebandCn0DbHzResponse);
+  rpc GetCarrierCycles (GetCarrierCyclesRequest) returns (GetCarrierCyclesResponse);
+  rpc GetCarrierFrequencyHz (GetCarrierFrequencyHzRequest) returns (GnssMeasurementGetCarrierFrequencyHzResponse);
+  rpc GetCarrierPhase (GetCarrierPhaseRequest) returns (GetCarrierPhaseResponse);
+  rpc GetCarrierPhaseUncertainty (GetCarrierPhaseUncertaintyRequest) returns (GetCarrierPhaseUncertaintyResponse);
+  rpc GetCn0DbHz (GnssMeasurementGetCn0DbHzRequest) returns (GnssMeasurementGetCn0DbHzResponse);
+  rpc GetCodeType (GetCodeTypeRequest) returns (GetCodeTypeResponse);
+  rpc GetConstellationType (GetConstellationTypeRequest) returns (GetConstellationTypeResponse);
+  rpc GetFullInterSignalBiasNanos (GetFullInterSignalBiasNanosRequest) returns (GetFullInterSignalBiasNanosResponse);
+  rpc GetFullInterSignalBiasUncertaintyNanos (GetFullInterSignalBiasUncertaintyNanosRequest) returns (GetFullInterSignalBiasUncertaintyNanosResponse);
+  rpc GetMultipathIndicator (GetMultipathIndicatorRequest) returns (GetMultipathIndicatorResponse);
+  rpc GetPseudorangeRateMetersPerSecond (GetPseudorangeRateMetersPerSecondRequest) returns (GetPseudorangeRateMetersPerSecondResponse);
+  rpc GetPseudorangeRateUncertaintyMetersPerSecond (GetPseudorangeRateUncertaintyMetersPerSecondRequest) returns (GetPseudorangeRateUncertaintyMetersPerSecondResponse);
+  rpc GetReceivedSvTimeNanos (GetReceivedSvTimeNanosRequest) returns (GetReceivedSvTimeNanosResponse);
+  rpc GetReceivedSvTimeUncertaintyNanos (GetReceivedSvTimeUncertaintyNanosRequest) returns (GetReceivedSvTimeUncertaintyNanosResponse);
+  rpc GetSatelliteInterSignalBiasNanos (GetSatelliteInterSignalBiasNanosRequest) returns (GetSatelliteInterSignalBiasNanosResponse);
+  rpc GetSatelliteInterSignalBiasUncertaintyNanos (GetSatelliteInterSignalBiasUncertaintyNanosRequest) returns (GetSatelliteInterSignalBiasUncertaintyNanosResponse);
+  rpc GetSnrInDb (GetSnrInDbRequest) returns (GetSnrInDbResponse);
+  rpc GetState (GetStateRequest) returns (GetStateResponse);
+  rpc GetSvid (GnssMeasurementGetSvidRequest) returns (GetSvidResponse);
+  rpc GetTimeOffsetNanos (GetTimeOffsetNanosRequest) returns (GetTimeOffsetNanosResponse);
+  rpc HasAutomaticGainControlLevelDb (HasAutomaticGainControlLevelDbRequest) returns (HasAutomaticGainControlLevelDbResponse);
+  rpc HasBasebandCn0DbHz (GnssMeasurementHasBasebandCn0DbHzRequest) returns (HasBasebandCn0DbHzResponse);
+  rpc HasCarrierCycles (HasCarrierCyclesRequest) returns (HasCarrierCyclesResponse);
+  rpc HasCarrierFrequencyHz (GnssMeasurementHasCarrierFrequencyHzRequest) returns (HasCarrierFrequencyHzResponse);
+  rpc HasCarrierPhase (HasCarrierPhaseRequest) returns (HasCarrierPhaseResponse);
+  rpc HasCarrierPhaseUncertainty (HasCarrierPhaseUncertaintyRequest) returns (HasCarrierPhaseUncertaintyResponse);
+  rpc HasCodeType (HasCodeTypeRequest) returns (HasCodeTypeResponse);
+  rpc HasFullInterSignalBiasNanos (HasFullInterSignalBiasNanosRequest) returns (HasFullInterSignalBiasNanosResponse);
+  rpc HasFullInterSignalBiasUncertaintyNanos (HasFullInterSignalBiasUncertaintyNanosRequest) returns (HasFullInterSignalBiasUncertaintyNanosResponse);
+  rpc HasSatelliteInterSignalBiasNanos (HasSatelliteInterSignalBiasNanosRequest) returns (HasSatelliteInterSignalBiasNanosResponse);
+  rpc HasSatelliteInterSignalBiasUncertaintyNanos (HasSatelliteInterSignalBiasUncertaintyNanosRequest) returns (HasSatelliteInterSignalBiasUncertaintyNanosResponse);
+  rpc HasSnrInDb (HasSnrInDbRequest) returns (HasSnrInDbResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service GnssMeasurementsEventService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetClock (GetClockRequest) returns (GetClockResponse);
+  rpc HasIsFullTracking (HasIsFullTrackingRequest) returns (HasIsFullTrackingResponse);
+  rpc IsFullTracking (IsFullTrackingRequest) returns (IsFullTrackingResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service GnssMeasurementsEventBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc ClearIsFullTracking (ClearIsFullTrackingRequest) returns (ClearIsFullTrackingResponse);
+  rpc SetClock (SetClockRequest) returns (SetClockResponse);
+  rpc SetIsFullTracking (SetIsFullTrackingRequest) returns (SetIsFullTrackingResponse);
+}
+
+service GnssMeasurementsEventCallbackService {
+  rpc OnGnssMeasurementsReceived (OnGnssMeasurementsReceivedRequest) returns (OnGnssMeasurementsReceivedResponse);
+  rpc OnStatusChanged (OnStatusChangedRequest) returns (OnStatusChangedResponse);
+}
+
+service OnNmeaMessageListenerService {
+  rpc OnNmeaMessage (OnNmeaMessageRequest) returns (OnNmeaMessageResponse);
+}
+
+service GeocoderService {
+  rpc NewGeocoder (NewGeocoderRequest) returns (NewGeocoderResponse);
+  rpc GetFromLocation (GetFromLocationRequest) returns (GetFromLocationResponse);
+  rpc GetFromLocationName3 (GetFromLocationName3Request) returns (GetFromLocationName3Response);
+  rpc GetFromLocationName7_1 (GetFromLocationName7_1Request) returns (GetFromLocationName7_1Response);
+  rpc IsPresent (IsPresentRequest) returns (IsPresentResponse);
+}
+
+service GnssNavigationMessageService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetData (GetDataRequest) returns (GetDataResponse);
+  rpc GetMessageId (GetMessageIdRequest) returns (GetMessageIdResponse);
+  rpc GetStatus (GetStatusRequest) returns (GetStatusResponse);
+  rpc GetSubmessageId (GetSubmessageIdRequest) returns (GetSubmessageIdResponse);
+  rpc GetSvid (GnssNavigationMessageGetSvidRequest) returns (GetSvidResponse);
+  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service GnssNavigationMessageCallbackService {
+  rpc OnGnssNavigationMessageReceived (OnGnssNavigationMessageReceivedRequest) returns (OnGnssNavigationMessageReceivedResponse);
+  rpc OnStatusChanged (OnStatusChangedRequest) returns (OnStatusChangedResponse);
+}
+
+service SettingInjectorServiceService {
+  rpc OnBind (OnBindRequest) returns (OnBindResponse);
+  rpc OnStart (OnStartRequest) returns (OnStartResponse);
+  rpc OnStartCommand (OnStartCommandRequest) returns (OnStartCommandResponse);
+  rpc RefreshSettings (RefreshSettingsRequest) returns (RefreshSettingsResponse);
+}
+
 service ManagerService {
   rpc AddGpsStatusListener (AddGpsStatusListenerRequest) returns (AddGpsStatusListenerResponse);
   rpc AddNmeaListener1 (AddNmeaListener1Request) returns (AddNmeaListener1Response);
@@ -568,4 +3663,135 @@ service ManagerService {
   rpc UnregisterGnssMeasurementsCallback (UnregisterGnssMeasurementsCallbackRequest) returns (UnregisterGnssMeasurementsCallbackResponse);
   rpc UnregisterGnssNavigationMessageCallback (UnregisterGnssNavigationMessageCallbackRequest) returns (UnregisterGnssNavigationMessageCallbackResponse);
   rpc UnregisterGnssStatusCallback (UnregisterGnssStatusCallbackRequest) returns (UnregisterGnssStatusCallbackResponse);
+}
+
+service LocationService {
+  rpc NewLocation (NewLocationRequest) returns (NewLocationResponse);
+  rpc BearingTo (BearingToRequest) returns (BearingToResponse);
+  rpc DescribeContents (LocationDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc DistanceTo (DistanceToRequest) returns (DistanceToResponse);
+  rpc Dump (DumpRequest) returns (DumpResponse);
+  rpc Equals (LocationEqualsRequest) returns (EqualsResponse);
+  rpc GetAccuracy (GetAccuracyRequest) returns (LocationGetAccuracyResponse);
+  rpc GetAltitude (GetAltitudeRequest) returns (GetAltitudeResponse);
+  rpc GetBearing (GetBearingRequest) returns (GetBearingResponse);
+  rpc GetBearingAccuracyDegrees (GetBearingAccuracyDegreesRequest) returns (GetBearingAccuracyDegreesResponse);
+  rpc GetElapsedRealtimeAgeMillis0 (GetElapsedRealtimeAgeMillis0Request) returns (GetElapsedRealtimeAgeMillis0Response);
+  rpc GetElapsedRealtimeAgeMillis1_1 (GetElapsedRealtimeAgeMillis1_1Request) returns (GetElapsedRealtimeAgeMillis1_1Response);
+  rpc GetElapsedRealtimeMillis (GetElapsedRealtimeMillisRequest) returns (GetElapsedRealtimeMillisResponse);
+  rpc GetElapsedRealtimeNanos (LocationGetElapsedRealtimeNanosRequest) returns (GetElapsedRealtimeNanosResponse);
+  rpc GetElapsedRealtimeUncertaintyNanos (LocationGetElapsedRealtimeUncertaintyNanosRequest) returns (GetElapsedRealtimeUncertaintyNanosResponse);
+  rpc GetExtras (GetExtrasRequest) returns (GetExtrasResponse);
+  rpc GetLatitude (GetLatitudeRequest) returns (GetLatitudeResponse);
+  rpc GetLongitude (GetLongitudeRequest) returns (GetLongitudeResponse);
+  rpc GetMslAltitudeAccuracyMeters (GetMslAltitudeAccuracyMetersRequest) returns (GetMslAltitudeAccuracyMetersResponse);
+  rpc GetMslAltitudeMeters (GetMslAltitudeMetersRequest) returns (GetMslAltitudeMetersResponse);
+  rpc GetProvider (LocationGetProviderRequest) returns (LocationGetProviderResponse);
+  rpc GetSpeed (GetSpeedRequest) returns (GetSpeedResponse);
+  rpc GetSpeedAccuracyMetersPerSecond (GetSpeedAccuracyMetersPerSecondRequest) returns (GetSpeedAccuracyMetersPerSecondResponse);
+  rpc GetTime (GetTimeRequest) returns (GetTimeResponse);
+  rpc GetVerticalAccuracyMeters (GetVerticalAccuracyMetersRequest) returns (GetVerticalAccuracyMetersResponse);
+  rpc HasAccuracy (HasAccuracyRequest) returns (HasAccuracyResponse);
+  rpc HasAltitude (HasAltitudeRequest) returns (HasAltitudeResponse);
+  rpc HasBearing (HasBearingRequest) returns (HasBearingResponse);
+  rpc HasBearingAccuracy (HasBearingAccuracyRequest) returns (HasBearingAccuracyResponse);
+  rpc HasElapsedRealtimeUncertaintyNanos (LocationHasElapsedRealtimeUncertaintyNanosRequest) returns (HasElapsedRealtimeUncertaintyNanosResponse);
+  rpc HasMslAltitude (HasMslAltitudeRequest) returns (HasMslAltitudeResponse);
+  rpc HasMslAltitudeAccuracy (HasMslAltitudeAccuracyRequest) returns (HasMslAltitudeAccuracyResponse);
+  rpc HasSpeed (HasSpeedRequest) returns (HasSpeedResponse);
+  rpc HasSpeedAccuracy (HasSpeedAccuracyRequest) returns (HasSpeedAccuracyResponse);
+  rpc HasVerticalAccuracy (HasVerticalAccuracyRequest) returns (HasVerticalAccuracyResponse);
+  rpc HashCode (LocationHashCodeRequest) returns (HashCodeResponse);
+  rpc IsComplete (IsCompleteRequest) returns (IsCompleteResponse);
+  rpc IsFromMockProvider (IsFromMockProviderRequest) returns (IsFromMockProviderResponse);
+  rpc IsMock (IsMockRequest) returns (IsMockResponse);
+  rpc RemoveAccuracy (RemoveAccuracyRequest) returns (RemoveAccuracyResponse);
+  rpc RemoveAltitude (RemoveAltitudeRequest) returns (RemoveAltitudeResponse);
+  rpc RemoveBearing (RemoveBearingRequest) returns (RemoveBearingResponse);
+  rpc RemoveBearingAccuracy (RemoveBearingAccuracyRequest) returns (RemoveBearingAccuracyResponse);
+  rpc RemoveElapsedRealtimeUncertaintyNanos (RemoveElapsedRealtimeUncertaintyNanosRequest) returns (RemoveElapsedRealtimeUncertaintyNanosResponse);
+  rpc RemoveMslAltitude (RemoveMslAltitudeRequest) returns (RemoveMslAltitudeResponse);
+  rpc RemoveMslAltitudeAccuracy (RemoveMslAltitudeAccuracyRequest) returns (RemoveMslAltitudeAccuracyResponse);
+  rpc RemoveSpeed (RemoveSpeedRequest) returns (RemoveSpeedResponse);
+  rpc RemoveSpeedAccuracy (RemoveSpeedAccuracyRequest) returns (RemoveSpeedAccuracyResponse);
+  rpc RemoveVerticalAccuracy (RemoveVerticalAccuracyRequest) returns (RemoveVerticalAccuracyResponse);
+  rpc Reset (ResetRequest) returns (ResetResponse);
+  rpc Set (SetRequest) returns (SetResponse);
+  rpc SetAccuracy (LocationSetAccuracyRequest) returns (SetAccuracyResponse);
+  rpc SetAltitude (SetAltitudeRequest) returns (SetAltitudeResponse);
+  rpc SetBearing (SetBearingRequest) returns (SetBearingResponse);
+  rpc SetBearingAccuracyDegrees (SetBearingAccuracyDegreesRequest) returns (SetBearingAccuracyDegreesResponse);
+  rpc SetElapsedRealtimeNanos (SetElapsedRealtimeNanosRequest) returns (SetElapsedRealtimeNanosResponse);
+  rpc SetElapsedRealtimeUncertaintyNanos (SetElapsedRealtimeUncertaintyNanosRequest) returns (SetElapsedRealtimeUncertaintyNanosResponse);
+  rpc SetExtras (SetExtrasRequest) returns (SetExtrasResponse);
+  rpc SetLatitude (SetLatitudeRequest) returns (SetLatitudeResponse);
+  rpc SetLongitude (SetLongitudeRequest) returns (SetLongitudeResponse);
+  rpc SetMock (SetMockRequest) returns (SetMockResponse);
+  rpc SetMslAltitudeAccuracyMeters (SetMslAltitudeAccuracyMetersRequest) returns (SetMslAltitudeAccuracyMetersResponse);
+  rpc SetMslAltitudeMeters (SetMslAltitudeMetersRequest) returns (SetMslAltitudeMetersResponse);
+  rpc SetProvider (SetProviderRequest) returns (SetProviderResponse);
+  rpc SetSpeed (SetSpeedRequest) returns (SetSpeedResponse);
+  rpc SetSpeedAccuracyMetersPerSecond (SetSpeedAccuracyMetersPerSecondRequest) returns (SetSpeedAccuracyMetersPerSecondResponse);
+  rpc SetTime (SetTimeRequest) returns (SetTimeResponse);
+  rpc SetVerticalAccuracyMeters (SetVerticalAccuracyMetersRequest) returns (SetVerticalAccuracyMetersResponse);
+  rpc ToString (LocationToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (LocationWriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc Convert2 (Convert2Request) returns (Convert2Response);
+  rpc Convert1_1 (Convert1_1Request) returns (Convert1_1Response);
+  rpc DistanceBetween (DistanceBetweenRequest) returns (DistanceBetweenResponse);
+}
+
+service RequestService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetDurationMillis (GetDurationMillisRequest) returns (GetDurationMillisResponse);
+  rpc GetIntervalMillis (GetIntervalMillisRequest) returns (RequestGetIntervalMillisResponse);
+  rpc GetMaxUpdateDelayMillis (GetMaxUpdateDelayMillisRequest) returns (GetMaxUpdateDelayMillisResponse);
+  rpc GetMaxUpdates (GetMaxUpdatesRequest) returns (GetMaxUpdatesResponse);
+  rpc GetMinUpdateDistanceMeters (GetMinUpdateDistanceMetersRequest) returns (GetMinUpdateDistanceMetersResponse);
+  rpc GetMinUpdateIntervalMillis (GetMinUpdateIntervalMillisRequest) returns (GetMinUpdateIntervalMillisResponse);
+  rpc GetQuality (GetQualityRequest) returns (GetQualityResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service RequestBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc ClearMinUpdateIntervalMillis (ClearMinUpdateIntervalMillisRequest) returns (ClearMinUpdateIntervalMillisResponse);
+  rpc SetDurationMillis (SetDurationMillisRequest) returns (SetDurationMillisResponse);
+  rpc SetIntervalMillis (RequestBuilderSetIntervalMillisRequest) returns (SetIntervalMillisResponse);
+  rpc SetMaxUpdateDelayMillis (SetMaxUpdateDelayMillisRequest) returns (SetMaxUpdateDelayMillisResponse);
+  rpc SetMaxUpdates (SetMaxUpdatesRequest) returns (SetMaxUpdatesResponse);
+  rpc SetMinUpdateDistanceMeters (SetMinUpdateDistanceMetersRequest) returns (SetMinUpdateDistanceMetersResponse);
+  rpc SetMinUpdateIntervalMillis (SetMinUpdateIntervalMillisRequest) returns (SetMinUpdateIntervalMillisResponse);
+  rpc SetQuality (SetQualityRequest) returns (SetQualityResponse);
+}
+
+service GpsStatusService {
+  rpc GetMaxSatellites (GetMaxSatellitesRequest) returns (GetMaxSatellitesResponse);
+  rpc GetTimeToFirstFix (GetTimeToFirstFixRequest) returns (GetTimeToFirstFixResponse);
+  rpc Create (GpsStatusCreateRequest) returns (CreateResponse);
+}
+
+service GpsStatusListenerService {
+  rpc OnGpsStatusChanged (OnGpsStatusChangedRequest) returns (OnGpsStatusChangedResponse);
+}
+
+service GpsStatusNmeaListenerService {
+  rpc OnNmeaReceived (OnNmeaReceivedRequest) returns (OnNmeaReceivedResponse);
+}
+
+service ProviderService {
+  rpc GetAccuracy (ProviderGetAccuracyRequest) returns (GetAccuracyResponse);
+  rpc GetName (GetNameRequest) returns (GetNameResponse);
+  rpc GetPowerRequirement (ProviderGetPowerRequirementRequest) returns (GetPowerRequirementResponse);
+  rpc HasMonetaryCost (HasMonetaryCostRequest) returns (HasMonetaryCostResponse);
+  rpc MeetsCriteria (MeetsCriteriaRequest) returns (MeetsCriteriaResponse);
+  rpc RequiresCell (RequiresCellRequest) returns (RequiresCellResponse);
+  rpc RequiresNetwork (RequiresNetworkRequest) returns (RequiresNetworkResponse);
+  rpc RequiresSatellite (RequiresSatelliteRequest) returns (RequiresSatelliteResponse);
+  rpc SupportsAltitude (SupportsAltitudeRequest) returns (SupportsAltitudeResponse);
+  rpc SupportsBearing (SupportsBearingRequest) returns (SupportsBearingResponse);
+  rpc SupportsSpeed (SupportsSpeedRequest) returns (SupportsSpeedResponse);
 }

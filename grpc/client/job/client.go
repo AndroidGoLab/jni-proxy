@@ -9,6 +9,182 @@ import (
 	"google.golang.org/grpc"
 )
 
+// WorkItemClient wraps the gRPC WorkItemService client.
+type WorkItemClient struct {
+	svc pb.WorkItemServiceClient
+}
+
+// NewWorkItemClient creates a new WorkItem client.
+func NewWorkItemClient(cc grpc.ClientConnInterface) *WorkItemClient {
+	return &WorkItemClient{
+		svc: pb.NewWorkItemServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *WorkItemClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDeliveryCount calls the GetDeliveryCount RPC.
+func (c *WorkItemClient) GetDeliveryCount(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetDeliveryCount(ctx, &pb.GetDeliveryCountRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEstimatedNetworkDownloadBytes calls the GetEstimatedNetworkDownloadBytes RPC.
+func (c *WorkItemClient) GetEstimatedNetworkDownloadBytes(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetEstimatedNetworkDownloadBytes(ctx, &pb.GetEstimatedNetworkDownloadBytesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEstimatedNetworkUploadBytes calls the GetEstimatedNetworkUploadBytes RPC.
+func (c *WorkItemClient) GetEstimatedNetworkUploadBytes(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetEstimatedNetworkUploadBytes(ctx, &pb.GetEstimatedNetworkUploadBytesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExtras calls the GetExtras RPC.
+func (c *WorkItemClient) GetExtras(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetExtras(ctx, &pb.GetExtrasRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIntent calls the GetIntent RPC.
+func (c *WorkItemClient) GetIntent(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetIntent(ctx, &pb.GetIntentRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMinimumNetworkChunkBytes calls the GetMinimumNetworkChunkBytes RPC.
+func (c *WorkItemClient) GetMinimumNetworkChunkBytes(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetMinimumNetworkChunkBytes(ctx, &pb.GetMinimumNetworkChunkBytesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *WorkItemClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *WorkItemClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// WorkItemBuilderClient wraps the gRPC WorkItemBuilderService client.
+type WorkItemBuilderClient struct {
+	svc pb.WorkItemBuilderServiceClient
+}
+
+// NewWorkItemBuilderClient creates a new WorkItemBuilder client.
+func NewWorkItemBuilderClient(cc grpc.ClientConnInterface) *WorkItemBuilderClient {
+	return &WorkItemBuilderClient{
+		svc: pb.NewWorkItemBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *WorkItemBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetEstimatedNetworkBytes calls the SetEstimatedNetworkBytes RPC.
+func (c *WorkItemBuilderClient) SetEstimatedNetworkBytes(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.SetEstimatedNetworkBytes(ctx, &pb.SetEstimatedNetworkBytesRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetExtras calls the SetExtras RPC.
+func (c *WorkItemBuilderClient) SetExtras(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetExtras(ctx, &pb.SetExtrasRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetIntent calls the SetIntent RPC.
+func (c *WorkItemBuilderClient) SetIntent(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetIntent(ctx, &pb.SetIntentRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetMinimumNetworkChunkBytes calls the SetMinimumNetworkChunkBytes RPC.
+func (c *WorkItemBuilderClient) SetMinimumNetworkChunkBytes(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetMinimumNetworkChunkBytes(ctx, &pb.SetMinimumNetworkChunkBytesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // SchedulerClient wraps the gRPC SchedulerService client.
 type SchedulerClient struct {
 	svc pb.SchedulerServiceClient
@@ -124,4 +300,1197 @@ func (c *SchedulerClient) Schedule(ctx context.Context, arg0 int64) (int32, erro
 		return 0, err
 	}
 	return resp.GetResult(), nil
+}
+
+// ServiceClient wraps the gRPC ServiceService client.
+type ServiceClient struct {
+	svc pb.ServiceServiceClient
+}
+
+// NewServiceClient creates a new Service client.
+func NewServiceClient(cc grpc.ClientConnInterface) *ServiceClient {
+	return &ServiceClient{
+		svc: pb.NewServiceServiceClient(cc),
+	}
+}
+
+// JobFinished calls the JobFinished RPC.
+func (c *ServiceClient) JobFinished(ctx context.Context, arg0 int64, arg1 bool) error {
+	_, err := c.svc.JobFinished(ctx, &pb.JobFinishedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnBind calls the OnBind RPC.
+func (c *ServiceClient) OnBind(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.OnBind(ctx, &pb.OnBindRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnNetworkChanged calls the OnNetworkChanged RPC.
+func (c *ServiceClient) OnNetworkChanged(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnNetworkChanged(ctx, &pb.OnNetworkChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnStartJob calls the OnStartJob RPC.
+func (c *ServiceClient) OnStartJob(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.OnStartJob(ctx, &pb.OnStartJobRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnStopJob calls the OnStopJob RPC.
+func (c *ServiceClient) OnStopJob(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.OnStopJob(ctx, &pb.OnStopJobRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetNotification calls the SetNotification RPC.
+func (c *ServiceClient) SetNotification(ctx context.Context, arg0 int64, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.SetNotification(ctx, &pb.SetNotificationRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// UpdateEstimatedNetworkBytes4 calls the UpdateEstimatedNetworkBytes4 RPC.
+func (c *ServiceClient) UpdateEstimatedNetworkBytes4(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
+	_, err := c.svc.UpdateEstimatedNetworkBytes4(ctx, &pb.UpdateEstimatedNetworkBytes4Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// UpdateEstimatedNetworkBytes3_1 calls the UpdateEstimatedNetworkBytes3_1 RPC.
+func (c *ServiceClient) UpdateEstimatedNetworkBytes3_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.UpdateEstimatedNetworkBytes3_1(ctx, &pb.UpdateEstimatedNetworkBytes3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// UpdateTransferredNetworkBytes4 calls the UpdateTransferredNetworkBytes4 RPC.
+func (c *ServiceClient) UpdateTransferredNetworkBytes4(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
+	_, err := c.svc.UpdateTransferredNetworkBytes4(ctx, &pb.UpdateTransferredNetworkBytes4Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// UpdateTransferredNetworkBytes3_1 calls the UpdateTransferredNetworkBytes3_1 RPC.
+func (c *ServiceClient) UpdateTransferredNetworkBytes3_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.UpdateTransferredNetworkBytes3_1(ctx, &pb.UpdateTransferredNetworkBytes3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// PendingJobReasonsInfoClient wraps the gRPC PendingJobReasonsInfoService client.
+type PendingJobReasonsInfoClient struct {
+	svc pb.PendingJobReasonsInfoServiceClient
+}
+
+// NewPendingJobReasonsInfoClient creates a new PendingJobReasonsInfo client.
+func NewPendingJobReasonsInfoClient(cc grpc.ClientConnInterface) *PendingJobReasonsInfoClient {
+	return &PendingJobReasonsInfoClient{
+		svc: pb.NewPendingJobReasonsInfoServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *PendingJobReasonsInfoClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPendingJobReasons calls the GetPendingJobReasons RPC.
+func (c *PendingJobReasonsInfoClient) GetPendingJobReasons(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetPendingJobReasons(ctx, &pb.PendingJobReasonsInfoGetPendingJobReasonsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTimestampMillis calls the GetTimestampMillis RPC.
+func (c *PendingJobReasonsInfoClient) GetTimestampMillis(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetTimestampMillis(ctx, &pb.GetTimestampMillisRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *PendingJobReasonsInfoClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// ServiceEngineClient wraps the gRPC ServiceEngineService client.
+type ServiceEngineClient struct {
+	svc pb.ServiceEngineServiceClient
+}
+
+// NewServiceEngineClient creates a new ServiceEngine client.
+func NewServiceEngineClient(cc grpc.ClientConnInterface) *ServiceEngineClient {
+	return &ServiceEngineClient{
+		svc: pb.NewServiceEngineServiceClient(cc),
+	}
+}
+
+// GetBinder calls the GetBinder RPC.
+func (c *ServiceEngineClient) GetBinder(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetBinder(ctx, &pb.GetBinderRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// JobFinished calls the JobFinished RPC.
+func (c *ServiceEngineClient) JobFinished(ctx context.Context, arg0 int64, arg1 bool) error {
+	_, err := c.svc.JobFinished(ctx, &pb.JobFinishedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnNetworkChanged calls the OnNetworkChanged RPC.
+func (c *ServiceEngineClient) OnNetworkChanged(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnNetworkChanged(ctx, &pb.OnNetworkChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnStartJob calls the OnStartJob RPC.
+func (c *ServiceEngineClient) OnStartJob(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.OnStartJob(ctx, &pb.OnStartJobRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnStopJob calls the OnStopJob RPC.
+func (c *ServiceEngineClient) OnStopJob(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.OnStopJob(ctx, &pb.OnStopJobRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetNotification calls the SetNotification RPC.
+func (c *ServiceEngineClient) SetNotification(ctx context.Context, arg0 int64, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.SetNotification(ctx, &pb.SetNotificationRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// UpdateEstimatedNetworkBytes calls the UpdateEstimatedNetworkBytes RPC.
+func (c *ServiceEngineClient) UpdateEstimatedNetworkBytes(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
+	_, err := c.svc.UpdateEstimatedNetworkBytes(ctx, &pb.UpdateEstimatedNetworkBytesRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// UpdateTransferredNetworkBytes calls the UpdateTransferredNetworkBytes RPC.
+func (c *ServiceEngineClient) UpdateTransferredNetworkBytes(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
+	_, err := c.svc.UpdateTransferredNetworkBytes(ctx, &pb.UpdateTransferredNetworkBytesRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// InfoClient wraps the gRPC InfoService client.
+type InfoClient struct {
+	svc pb.InfoServiceClient
+}
+
+// NewInfoClient creates a new Info client.
+func NewInfoClient(cc grpc.ClientConnInterface) *InfoClient {
+	return &InfoClient{
+		svc: pb.NewInfoServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *InfoClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.InfoDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *InfoClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBackoffPolicy calls the GetBackoffPolicy RPC.
+func (c *InfoClient) GetBackoffPolicy(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetBackoffPolicy(ctx, &pb.GetBackoffPolicyRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetClipData calls the GetClipData RPC.
+func (c *InfoClient) GetClipData(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetClipData(ctx, &pb.GetClipDataRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetClipGrantFlags calls the GetClipGrantFlags RPC.
+func (c *InfoClient) GetClipGrantFlags(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetClipGrantFlags(ctx, &pb.GetClipGrantFlagsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEstimatedNetworkDownloadBytes calls the GetEstimatedNetworkDownloadBytes RPC.
+func (c *InfoClient) GetEstimatedNetworkDownloadBytes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetEstimatedNetworkDownloadBytes(ctx, &pb.InfoGetEstimatedNetworkDownloadBytesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEstimatedNetworkUploadBytes calls the GetEstimatedNetworkUploadBytes RPC.
+func (c *InfoClient) GetEstimatedNetworkUploadBytes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetEstimatedNetworkUploadBytes(ctx, &pb.InfoGetEstimatedNetworkUploadBytesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExtras calls the GetExtras RPC.
+func (c *InfoClient) GetExtras(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetExtras(ctx, &pb.InfoGetExtrasRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFlexMillis calls the GetFlexMillis RPC.
+func (c *InfoClient) GetFlexMillis(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetFlexMillis(ctx, &pb.GetFlexMillisRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetId calls the GetId RPC.
+func (c *InfoClient) GetId(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInitialBackoffMillis calls the GetInitialBackoffMillis RPC.
+func (c *InfoClient) GetInitialBackoffMillis(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetInitialBackoffMillis(ctx, &pb.GetInitialBackoffMillisRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIntervalMillis calls the GetIntervalMillis RPC.
+func (c *InfoClient) GetIntervalMillis(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetIntervalMillis(ctx, &pb.GetIntervalMillisRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMaxExecutionDelayMillis calls the GetMaxExecutionDelayMillis RPC.
+func (c *InfoClient) GetMaxExecutionDelayMillis(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetMaxExecutionDelayMillis(ctx, &pb.GetMaxExecutionDelayMillisRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMinLatencyMillis calls the GetMinLatencyMillis RPC.
+func (c *InfoClient) GetMinLatencyMillis(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetMinLatencyMillis(ctx, &pb.GetMinLatencyMillisRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMinimumNetworkChunkBytes calls the GetMinimumNetworkChunkBytes RPC.
+func (c *InfoClient) GetMinimumNetworkChunkBytes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetMinimumNetworkChunkBytes(ctx, &pb.InfoGetMinimumNetworkChunkBytesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNetworkType calls the GetNetworkType RPC.
+func (c *InfoClient) GetNetworkType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetNetworkType(ctx, &pb.GetNetworkTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPriority calls the GetPriority RPC.
+func (c *InfoClient) GetPriority(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetPriority(ctx, &pb.GetPriorityRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRequiredNetwork calls the GetRequiredNetwork RPC.
+func (c *InfoClient) GetRequiredNetwork(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetRequiredNetwork(ctx, &pb.GetRequiredNetworkRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetService calls the GetService RPC.
+func (c *InfoClient) GetService(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetService(ctx, &pb.GetServiceRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTraceTag calls the GetTraceTag RPC.
+func (c *InfoClient) GetTraceTag(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetTraceTag(ctx, &pb.GetTraceTagRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTransientExtras calls the GetTransientExtras RPC.
+func (c *InfoClient) GetTransientExtras(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTransientExtras(ctx, &pb.GetTransientExtrasRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTriggerContentMaxDelay calls the GetTriggerContentMaxDelay RPC.
+func (c *InfoClient) GetTriggerContentMaxDelay(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTriggerContentMaxDelay(ctx, &pb.GetTriggerContentMaxDelayRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTriggerContentUpdateDelay calls the GetTriggerContentUpdateDelay RPC.
+func (c *InfoClient) GetTriggerContentUpdateDelay(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTriggerContentUpdateDelay(ctx, &pb.GetTriggerContentUpdateDelayRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTriggerContentUris calls the GetTriggerContentUris RPC.
+func (c *InfoClient) GetTriggerContentUris(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTriggerContentUris(ctx, &pb.GetTriggerContentUrisRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *InfoClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsExpedited calls the IsExpedited RPC.
+func (c *InfoClient) IsExpedited(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsExpedited(ctx, &pb.IsExpeditedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsImportantWhileForeground calls the IsImportantWhileForeground RPC.
+func (c *InfoClient) IsImportantWhileForeground(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsImportantWhileForeground(ctx, &pb.IsImportantWhileForegroundRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsPeriodic calls the IsPeriodic RPC.
+func (c *InfoClient) IsPeriodic(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsPeriodic(ctx, &pb.IsPeriodicRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsPersisted calls the IsPersisted RPC.
+func (c *InfoClient) IsPersisted(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsPersisted(ctx, &pb.IsPersistedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsPrefetch calls the IsPrefetch RPC.
+func (c *InfoClient) IsPrefetch(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsPrefetch(ctx, &pb.IsPrefetchRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsRequireBatteryNotLow calls the IsRequireBatteryNotLow RPC.
+func (c *InfoClient) IsRequireBatteryNotLow(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsRequireBatteryNotLow(ctx, &pb.IsRequireBatteryNotLowRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsRequireCharging calls the IsRequireCharging RPC.
+func (c *InfoClient) IsRequireCharging(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsRequireCharging(ctx, &pb.IsRequireChargingRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsRequireDeviceIdle calls the IsRequireDeviceIdle RPC.
+func (c *InfoClient) IsRequireDeviceIdle(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsRequireDeviceIdle(ctx, &pb.IsRequireDeviceIdleRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsRequireStorageNotLow calls the IsRequireStorageNotLow RPC.
+func (c *InfoClient) IsRequireStorageNotLow(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsRequireStorageNotLow(ctx, &pb.IsRequireStorageNotLowRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsUserInitiated calls the IsUserInitiated RPC.
+func (c *InfoClient) IsUserInitiated(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsUserInitiated(ctx, &pb.IsUserInitiatedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *InfoClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.InfoToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *InfoClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.InfoWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// GetMinFlexMillis calls the GetMinFlexMillis RPC.
+func (c *InfoClient) GetMinFlexMillis(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetMinFlexMillis(ctx, &pb.GetMinFlexMillisRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMinPeriodMillis calls the GetMinPeriodMillis RPC.
+func (c *InfoClient) GetMinPeriodMillis(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetMinPeriodMillis(ctx, &pb.GetMinPeriodMillisRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// InfoBuilderClient wraps the gRPC InfoBuilderService client.
+type InfoBuilderClient struct {
+	svc pb.InfoBuilderServiceClient
+}
+
+// NewInfoBuilderClient creates a new InfoBuilder client.
+func NewInfoBuilderClient(cc grpc.ClientConnInterface) *InfoBuilderClient {
+	return &InfoBuilderClient{
+		svc: pb.NewInfoBuilderServiceClient(cc),
+	}
+}
+
+// AddDebugTag calls the AddDebugTag RPC.
+func (c *InfoBuilderClient) AddDebugTag(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.AddDebugTag(ctx, &pb.AddDebugTagRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddTriggerContentUri calls the AddTriggerContentUri RPC.
+func (c *InfoBuilderClient) AddTriggerContentUri(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.AddTriggerContentUri(ctx, &pb.AddTriggerContentUriRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Build calls the Build RPC.
+func (c *InfoBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RemoveDebugTag calls the RemoveDebugTag RPC.
+func (c *InfoBuilderClient) RemoveDebugTag(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.RemoveDebugTag(ctx, &pb.RemoveDebugTagRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetBackoffCriteria calls the SetBackoffCriteria RPC.
+func (c *InfoBuilderClient) SetBackoffCriteria(ctx context.Context, arg0 int64, arg1 int32) (int64, error) {
+	resp, err := c.svc.SetBackoffCriteria(ctx, &pb.SetBackoffCriteriaRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetClipData calls the SetClipData RPC.
+func (c *InfoBuilderClient) SetClipData(ctx context.Context, arg0 int64, arg1 int32) (int64, error) {
+	resp, err := c.svc.SetClipData(ctx, &pb.SetClipDataRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetEstimatedNetworkBytes calls the SetEstimatedNetworkBytes RPC.
+func (c *InfoBuilderClient) SetEstimatedNetworkBytes(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.SetEstimatedNetworkBytes(ctx, &pb.SetEstimatedNetworkBytesRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetExpedited calls the SetExpedited RPC.
+func (c *InfoBuilderClient) SetExpedited(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetExpedited(ctx, &pb.SetExpeditedRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetExtras calls the SetExtras RPC.
+func (c *InfoBuilderClient) SetExtras(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetExtras(ctx, &pb.SetExtrasRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetImportantWhileForeground calls the SetImportantWhileForeground RPC.
+func (c *InfoBuilderClient) SetImportantWhileForeground(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetImportantWhileForeground(ctx, &pb.SetImportantWhileForegroundRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetMinimumLatency calls the SetMinimumLatency RPC.
+func (c *InfoBuilderClient) SetMinimumLatency(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetMinimumLatency(ctx, &pb.SetMinimumLatencyRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetMinimumNetworkChunkBytes calls the SetMinimumNetworkChunkBytes RPC.
+func (c *InfoBuilderClient) SetMinimumNetworkChunkBytes(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetMinimumNetworkChunkBytes(ctx, &pb.SetMinimumNetworkChunkBytesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetOverrideDeadline calls the SetOverrideDeadline RPC.
+func (c *InfoBuilderClient) SetOverrideDeadline(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetOverrideDeadline(ctx, &pb.SetOverrideDeadlineRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPeriodic1 calls the SetPeriodic1 RPC.
+func (c *InfoBuilderClient) SetPeriodic1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetPeriodic1(ctx, &pb.SetPeriodic1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPeriodic2_1 calls the SetPeriodic2_1 RPC.
+func (c *InfoBuilderClient) SetPeriodic2_1(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.SetPeriodic2_1(ctx, &pb.SetPeriodic2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPersisted calls the SetPersisted RPC.
+func (c *InfoBuilderClient) SetPersisted(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetPersisted(ctx, &pb.SetPersistedRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPrefetch calls the SetPrefetch RPC.
+func (c *InfoBuilderClient) SetPrefetch(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetPrefetch(ctx, &pb.SetPrefetchRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPriority calls the SetPriority RPC.
+func (c *InfoBuilderClient) SetPriority(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetPriority(ctx, &pb.SetPriorityRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetRequiredNetwork calls the SetRequiredNetwork RPC.
+func (c *InfoBuilderClient) SetRequiredNetwork(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetRequiredNetwork(ctx, &pb.SetRequiredNetworkRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetRequiredNetworkType calls the SetRequiredNetworkType RPC.
+func (c *InfoBuilderClient) SetRequiredNetworkType(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetRequiredNetworkType(ctx, &pb.SetRequiredNetworkTypeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetRequiresBatteryNotLow calls the SetRequiresBatteryNotLow RPC.
+func (c *InfoBuilderClient) SetRequiresBatteryNotLow(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetRequiresBatteryNotLow(ctx, &pb.SetRequiresBatteryNotLowRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetRequiresCharging calls the SetRequiresCharging RPC.
+func (c *InfoBuilderClient) SetRequiresCharging(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetRequiresCharging(ctx, &pb.SetRequiresChargingRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetRequiresDeviceIdle calls the SetRequiresDeviceIdle RPC.
+func (c *InfoBuilderClient) SetRequiresDeviceIdle(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetRequiresDeviceIdle(ctx, &pb.SetRequiresDeviceIdleRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetRequiresStorageNotLow calls the SetRequiresStorageNotLow RPC.
+func (c *InfoBuilderClient) SetRequiresStorageNotLow(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetRequiresStorageNotLow(ctx, &pb.SetRequiresStorageNotLowRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetTraceTag calls the SetTraceTag RPC.
+func (c *InfoBuilderClient) SetTraceTag(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetTraceTag(ctx, &pb.SetTraceTagRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetTransientExtras calls the SetTransientExtras RPC.
+func (c *InfoBuilderClient) SetTransientExtras(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetTransientExtras(ctx, &pb.SetTransientExtrasRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetTriggerContentMaxDelay calls the SetTriggerContentMaxDelay RPC.
+func (c *InfoBuilderClient) SetTriggerContentMaxDelay(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetTriggerContentMaxDelay(ctx, &pb.SetTriggerContentMaxDelayRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetTriggerContentUpdateDelay calls the SetTriggerContentUpdateDelay RPC.
+func (c *InfoBuilderClient) SetTriggerContentUpdateDelay(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetTriggerContentUpdateDelay(ctx, &pb.SetTriggerContentUpdateDelayRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetUserInitiated calls the SetUserInitiated RPC.
+func (c *InfoBuilderClient) SetUserInitiated(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetUserInitiated(ctx, &pb.SetUserInitiatedRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// InfoTriggerContentUriClient wraps the gRPC InfoTriggerContentUriService client.
+type InfoTriggerContentUriClient struct {
+	svc pb.InfoTriggerContentUriServiceClient
+}
+
+// NewInfoTriggerContentUriClient creates a new InfoTriggerContentUri client.
+func NewInfoTriggerContentUriClient(cc grpc.ClientConnInterface) *InfoTriggerContentUriClient {
+	return &InfoTriggerContentUriClient{
+		svc: pb.NewInfoTriggerContentUriServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *InfoTriggerContentUriClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.InfoTriggerContentUriDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *InfoTriggerContentUriClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFlags calls the GetFlags RPC.
+func (c *InfoTriggerContentUriClient) GetFlags(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetFlags(ctx, &pb.GetFlagsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUri calls the GetUri RPC.
+func (c *InfoTriggerContentUriClient) GetUri(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetUri(ctx, &pb.GetUriRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *InfoTriggerContentUriClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *InfoTriggerContentUriClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.InfoTriggerContentUriWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ParametersClient wraps the gRPC ParametersService client.
+type ParametersClient struct {
+	svc pb.ParametersServiceClient
+}
+
+// NewParametersClient creates a new Parameters client.
+func NewParametersClient(cc grpc.ClientConnInterface) *ParametersClient {
+	return &ParametersClient{
+		svc: pb.NewParametersServiceClient(cc),
+	}
+}
+
+// CompleteWork calls the CompleteWork RPC.
+func (c *ParametersClient) CompleteWork(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.CompleteWork(ctx, &pb.CompleteWorkRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// DequeueWork calls the DequeueWork RPC.
+func (c *ParametersClient) DequeueWork(ctx context.Context) (int64, error) {
+	resp, err := c.svc.DequeueWork(ctx, &pb.DequeueWorkRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ParametersClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.ParametersDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetClipData calls the GetClipData RPC.
+func (c *ParametersClient) GetClipData(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetClipData(ctx, &pb.GetClipDataRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetClipGrantFlags calls the GetClipGrantFlags RPC.
+func (c *ParametersClient) GetClipGrantFlags(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetClipGrantFlags(ctx, &pb.GetClipGrantFlagsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExtras calls the GetExtras RPC.
+func (c *ParametersClient) GetExtras(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetExtras(ctx, &pb.ParametersGetExtrasRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetJobId calls the GetJobId RPC.
+func (c *ParametersClient) GetJobId(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetJobId(ctx, &pb.GetJobIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetJobNamespace calls the GetJobNamespace RPC.
+func (c *ParametersClient) GetJobNamespace(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetJobNamespace(ctx, &pb.GetJobNamespaceRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNetwork calls the GetNetwork RPC.
+func (c *ParametersClient) GetNetwork(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetNetwork(ctx, &pb.GetNetworkRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStopReason calls the GetStopReason RPC.
+func (c *ParametersClient) GetStopReason(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetStopReason(ctx, &pb.GetStopReasonRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTransientExtras calls the GetTransientExtras RPC.
+func (c *ParametersClient) GetTransientExtras(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTransientExtras(ctx, &pb.GetTransientExtrasRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTriggeredContentAuthorities calls the GetTriggeredContentAuthorities RPC.
+func (c *ParametersClient) GetTriggeredContentAuthorities(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTriggeredContentAuthorities(ctx, &pb.GetTriggeredContentAuthoritiesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTriggeredContentUris calls the GetTriggeredContentUris RPC.
+func (c *ParametersClient) GetTriggeredContentUris(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTriggeredContentUris(ctx, &pb.GetTriggeredContentUrisRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsExpeditedJob calls the IsExpeditedJob RPC.
+func (c *ParametersClient) IsExpeditedJob(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsExpeditedJob(ctx, &pb.IsExpeditedJobRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsOverrideDeadlineExpired calls the IsOverrideDeadlineExpired RPC.
+func (c *ParametersClient) IsOverrideDeadlineExpired(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsOverrideDeadlineExpired(ctx, &pb.IsOverrideDeadlineExpiredRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsUserInitiatedJob calls the IsUserInitiatedJob RPC.
+func (c *ParametersClient) IsUserInitiatedJob(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsUserInitiatedJob(ctx, &pb.IsUserInitiatedJobRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ParametersClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.ParametersWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
 }

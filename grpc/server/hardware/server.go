@@ -435,3 +435,303 @@ func (s *SensorManagerServer) RemapCoordinateSystem(_ context.Context, req *pb.R
 	}
 	return &pb.RemapCoordinateSystemResponse{Result: result}, nil
 }
+
+// SyncFenceServer implements pb.SyncFenceServiceServer.
+type SyncFenceServer struct {
+	pb.UnimplementedSyncFenceServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *SyncFenceServer) NewSyncFence(_ context.Context, req *pb.NewSyncFenceRequest) (*pb.NewSyncFenceResponse, error) {
+	obj, err := jnipkg.NewSyncFence(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewSyncFenceResponse{Result: handle}, nil
+}
+
+func (s *SyncFenceServer) Await(_ context.Context, req *pb.AwaitRequest) (*pb.AwaitResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SyncFence{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Await(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.AwaitResponse{Result: result}, nil
+}
+
+func (s *SyncFenceServer) AwaitForever(_ context.Context, req *pb.AwaitForeverRequest) (*pb.AwaitForeverResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SyncFence{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.AwaitForever()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.AwaitForeverResponse{Result: result}, nil
+}
+
+func (s *SyncFenceServer) Close(_ context.Context, req *pb.CloseRequest) (*pb.CloseResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SyncFence{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Close(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.CloseResponse{}, nil
+}
+
+func (s *SyncFenceServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SyncFence{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *SyncFenceServer) GetSignalTime(_ context.Context, req *pb.GetSignalTimeRequest) (*pb.GetSignalTimeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SyncFence{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetSignalTime()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetSignalTimeResponse{Result: result}, nil
+}
+
+func (s *SyncFenceServer) IsValid(_ context.Context, req *pb.IsValidRequest) (*pb.IsValidResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SyncFence{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsValid()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsValidResponse{Result: result}, nil
+}
+
+func (s *SyncFenceServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SyncFence{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
+// DisplayLutsServer implements pb.DisplayLutsServiceServer.
+type DisplayLutsServer struct {
+	pb.UnimplementedDisplayLutsServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *DisplayLutsServer) NewDisplayLuts(_ context.Context, req *pb.NewDisplayLutsRequest) (*pb.NewDisplayLutsResponse, error) {
+	obj, err := jnipkg.NewDisplayLuts(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewDisplayLutsResponse{Result: handle}, nil
+}
+
+func (s *DisplayLutsServer) Set1(_ context.Context, req *pb.Set1Request) (*pb.Set1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.DisplayLuts{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Set1(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.Set1Response{}, nil
+}
+
+func (s *DisplayLutsServer) Set2_1(_ context.Context, req *pb.Set2_1Request) (*pb.Set2_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.DisplayLuts{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Set2_1(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.Set2_1Response{}, nil
+}
+
+func (s *DisplayLutsServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.DisplayLuts{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+// GeomagneticFieldServer implements pb.GeomagneticFieldServiceServer.
+type GeomagneticFieldServer struct {
+	pb.UnimplementedGeomagneticFieldServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *GeomagneticFieldServer) NewGeomagneticField(_ context.Context, req *pb.NewGeomagneticFieldRequest) (*pb.NewGeomagneticFieldResponse, error) {
+	obj, err := jnipkg.NewGeomagneticField(s.Ctx.VM, req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewGeomagneticFieldResponse{Result: handle}, nil
+}
+
+func (s *GeomagneticFieldServer) GetDeclination(_ context.Context, req *pb.GetDeclinationRequest) (*pb.GetDeclinationResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GeomagneticField{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetDeclination()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetDeclinationResponse{Result: result}, nil
+}
+
+func (s *GeomagneticFieldServer) GetFieldStrength(_ context.Context, req *pb.GetFieldStrengthRequest) (*pb.GetFieldStrengthResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GeomagneticField{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetFieldStrength()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetFieldStrengthResponse{Result: result}, nil
+}
+
+func (s *GeomagneticFieldServer) GetHorizontalStrength(_ context.Context, req *pb.GetHorizontalStrengthRequest) (*pb.GetHorizontalStrengthResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GeomagneticField{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetHorizontalStrength()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetHorizontalStrengthResponse{Result: result}, nil
+}
+
+func (s *GeomagneticFieldServer) GetInclination(_ context.Context, req *pb.GeomagneticFieldGetInclinationRequest) (*pb.GetInclinationResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GeomagneticField{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetInclination()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetInclinationResponse{Result: result}, nil
+}
+
+func (s *GeomagneticFieldServer) GetX(_ context.Context, req *pb.GetXRequest) (*pb.GetXResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GeomagneticField{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetX()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetXResponse{Result: result}, nil
+}
+
+func (s *GeomagneticFieldServer) GetY(_ context.Context, req *pb.GetYRequest) (*pb.GetYResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GeomagneticField{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetY()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetYResponse{Result: result}, nil
+}
+
+func (s *GeomagneticFieldServer) GetZ(_ context.Context, req *pb.GetZRequest) (*pb.GetZResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.GeomagneticField{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetZ()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetZResponse{Result: result}, nil
+}

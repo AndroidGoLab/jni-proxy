@@ -12,6 +12,7 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -22,19 +23,1812 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type NewEncryptedTopicRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewEncryptedTopicRequest) Reset() {
+	*x = NewEncryptedTopicRequest{}
+	mi := &file_proto_topics_topics_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewEncryptedTopicRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewEncryptedTopicRequest) ProtoMessage() {}
+
+func (x *NewEncryptedTopicRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_topics_topics_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewEncryptedTopicRequest.ProtoReflect.Descriptor instead.
+func (*NewEncryptedTopicRequest) Descriptor() ([]byte, []int) {
+	return file_proto_topics_topics_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *NewEncryptedTopicRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *NewEncryptedTopicRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *NewEncryptedTopicRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type NewEncryptedTopicResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewEncryptedTopicResponse) Reset() {
+	*x = NewEncryptedTopicResponse{}
+	mi := &file_proto_topics_topics_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewEncryptedTopicResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewEncryptedTopicResponse) ProtoMessage() {}
+
+func (x *NewEncryptedTopicResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_topics_topics_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewEncryptedTopicResponse.ProtoReflect.Descriptor instead.
+func (*NewEncryptedTopicResponse) Descriptor() ([]byte, []int) {
+	return file_proto_topics_topics_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *NewEncryptedTopicResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type EqualsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EqualsRequest) Reset() {
+	*x = EqualsRequest{}
+	mi := &file_proto_topics_topics_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EqualsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EqualsRequest) ProtoMessage() {}
+
+func (x *EqualsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_topics_topics_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EqualsRequest.ProtoReflect.Descriptor instead.
+func (*EqualsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_topics_topics_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *EqualsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *EqualsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type EqualsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EqualsResponse) Reset() {
+	*x = EqualsResponse{}
+	mi := &file_proto_topics_topics_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EqualsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EqualsResponse) ProtoMessage() {}
+
+func (x *EqualsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_topics_topics_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EqualsResponse.ProtoReflect.Descriptor instead.
+func (*EqualsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_topics_topics_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *EqualsResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type GetEncapsulatedKeyRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEncapsulatedKeyRequest) Reset() {
+	*x = GetEncapsulatedKeyRequest{}
+	mi := &file_proto_topics_topics_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEncapsulatedKeyRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEncapsulatedKeyRequest) ProtoMessage() {}
+
+func (x *GetEncapsulatedKeyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_topics_topics_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEncapsulatedKeyRequest.ProtoReflect.Descriptor instead.
+func (*GetEncapsulatedKeyRequest) Descriptor() ([]byte, []int) {
+	return file_proto_topics_topics_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *GetEncapsulatedKeyRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetEncapsulatedKeyResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEncapsulatedKeyResponse) Reset() {
+	*x = GetEncapsulatedKeyResponse{}
+	mi := &file_proto_topics_topics_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEncapsulatedKeyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEncapsulatedKeyResponse) ProtoMessage() {}
+
+func (x *GetEncapsulatedKeyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_topics_topics_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEncapsulatedKeyResponse.ProtoReflect.Descriptor instead.
+func (*GetEncapsulatedKeyResponse) Descriptor() ([]byte, []int) {
+	return file_proto_topics_topics_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *GetEncapsulatedKeyResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetEncryptedTopicRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEncryptedTopicRequest) Reset() {
+	*x = GetEncryptedTopicRequest{}
+	mi := &file_proto_topics_topics_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEncryptedTopicRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEncryptedTopicRequest) ProtoMessage() {}
+
+func (x *GetEncryptedTopicRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_topics_topics_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEncryptedTopicRequest.ProtoReflect.Descriptor instead.
+func (*GetEncryptedTopicRequest) Descriptor() ([]byte, []int) {
+	return file_proto_topics_topics_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *GetEncryptedTopicRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetEncryptedTopicResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEncryptedTopicResponse) Reset() {
+	*x = GetEncryptedTopicResponse{}
+	mi := &file_proto_topics_topics_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEncryptedTopicResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEncryptedTopicResponse) ProtoMessage() {}
+
+func (x *GetEncryptedTopicResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_topics_topics_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEncryptedTopicResponse.ProtoReflect.Descriptor instead.
+func (*GetEncryptedTopicResponse) Descriptor() ([]byte, []int) {
+	return file_proto_topics_topics_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *GetEncryptedTopicResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetKeyIdentifierRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetKeyIdentifierRequest) Reset() {
+	*x = GetKeyIdentifierRequest{}
+	mi := &file_proto_topics_topics_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetKeyIdentifierRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetKeyIdentifierRequest) ProtoMessage() {}
+
+func (x *GetKeyIdentifierRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_topics_topics_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetKeyIdentifierRequest.ProtoReflect.Descriptor instead.
+func (*GetKeyIdentifierRequest) Descriptor() ([]byte, []int) {
+	return file_proto_topics_topics_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *GetKeyIdentifierRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetKeyIdentifierResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetKeyIdentifierResponse) Reset() {
+	*x = GetKeyIdentifierResponse{}
+	mi := &file_proto_topics_topics_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetKeyIdentifierResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetKeyIdentifierResponse) ProtoMessage() {}
+
+func (x *GetKeyIdentifierResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_topics_topics_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetKeyIdentifierResponse.ProtoReflect.Descriptor instead.
+func (*GetKeyIdentifierResponse) Descriptor() ([]byte, []int) {
+	return file_proto_topics_topics_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *GetKeyIdentifierResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type HashCodeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HashCodeRequest) Reset() {
+	*x = HashCodeRequest{}
+	mi := &file_proto_topics_topics_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HashCodeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HashCodeRequest) ProtoMessage() {}
+
+func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_topics_topics_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HashCodeRequest.ProtoReflect.Descriptor instead.
+func (*HashCodeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_topics_topics_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *HashCodeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type HashCodeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HashCodeResponse) Reset() {
+	*x = HashCodeResponse{}
+	mi := &file_proto_topics_topics_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HashCodeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HashCodeResponse) ProtoMessage() {}
+
+func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_topics_topics_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HashCodeResponse.ProtoReflect.Descriptor instead.
+func (*HashCodeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_topics_topics_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *HashCodeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ToStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringRequest) Reset() {
+	*x = ToStringRequest{}
+	mi := &file_proto_topics_topics_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringRequest) ProtoMessage() {}
+
+func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_topics_topics_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringRequest.ProtoReflect.Descriptor instead.
+func (*ToStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_topics_topics_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *ToStringRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type ToStringResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringResponse) Reset() {
+	*x = ToStringResponse{}
+	mi := &file_proto_topics_topics_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringResponse) ProtoMessage() {}
+
+func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_topics_topics_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringResponse.ProtoReflect.Descriptor instead.
+func (*ToStringResponse) Descriptor() ([]byte, []int) {
+	return file_proto_topics_topics_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *ToStringResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetAdsSdkNameRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAdsSdkNameRequest) Reset() {
+	*x = GetAdsSdkNameRequest{}
+	mi := &file_proto_topics_topics_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAdsSdkNameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAdsSdkNameRequest) ProtoMessage() {}
+
+func (x *GetAdsSdkNameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_topics_topics_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAdsSdkNameRequest.ProtoReflect.Descriptor instead.
+func (*GetAdsSdkNameRequest) Descriptor() ([]byte, []int) {
+	return file_proto_topics_topics_proto_rawDescGZIP(), []int{14}
+}
+
+type GetAdsSdkNameResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAdsSdkNameResponse) Reset() {
+	*x = GetAdsSdkNameResponse{}
+	mi := &file_proto_topics_topics_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAdsSdkNameResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAdsSdkNameResponse) ProtoMessage() {}
+
+func (x *GetAdsSdkNameResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_topics_topics_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAdsSdkNameResponse.ProtoReflect.Descriptor instead.
+func (*GetAdsSdkNameResponse) Descriptor() ([]byte, []int) {
+	return file_proto_topics_topics_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *GetAdsSdkNameResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type ShouldRecordObservationRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ShouldRecordObservationRequest) Reset() {
+	*x = ShouldRecordObservationRequest{}
+	mi := &file_proto_topics_topics_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ShouldRecordObservationRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ShouldRecordObservationRequest) ProtoMessage() {}
+
+func (x *ShouldRecordObservationRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_topics_topics_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ShouldRecordObservationRequest.ProtoReflect.Descriptor instead.
+func (*ShouldRecordObservationRequest) Descriptor() ([]byte, []int) {
+	return file_proto_topics_topics_proto_rawDescGZIP(), []int{16}
+}
+
+type ShouldRecordObservationResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ShouldRecordObservationResponse) Reset() {
+	*x = ShouldRecordObservationResponse{}
+	mi := &file_proto_topics_topics_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ShouldRecordObservationResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ShouldRecordObservationResponse) ProtoMessage() {}
+
+func (x *ShouldRecordObservationResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_topics_topics_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ShouldRecordObservationResponse.ProtoReflect.Descriptor instead.
+func (*ShouldRecordObservationResponse) Descriptor() ([]byte, []int) {
+	return file_proto_topics_topics_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *ShouldRecordObservationResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type BuildRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BuildRequest) Reset() {
+	*x = BuildRequest{}
+	mi := &file_proto_topics_topics_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BuildRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BuildRequest) ProtoMessage() {}
+
+func (x *BuildRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_topics_topics_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BuildRequest.ProtoReflect.Descriptor instead.
+func (*BuildRequest) Descriptor() ([]byte, []int) {
+	return file_proto_topics_topics_proto_rawDescGZIP(), []int{18}
+}
+
+type BuildResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BuildResponse) Reset() {
+	*x = BuildResponse{}
+	mi := &file_proto_topics_topics_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BuildResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BuildResponse) ProtoMessage() {}
+
+func (x *BuildResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_topics_topics_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BuildResponse.ProtoReflect.Descriptor instead.
+func (*BuildResponse) Descriptor() ([]byte, []int) {
+	return file_proto_topics_topics_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *BuildResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetAdsSdkNameRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetAdsSdkNameRequest) Reset() {
+	*x = SetAdsSdkNameRequest{}
+	mi := &file_proto_topics_topics_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetAdsSdkNameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetAdsSdkNameRequest) ProtoMessage() {}
+
+func (x *SetAdsSdkNameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_topics_topics_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetAdsSdkNameRequest.ProtoReflect.Descriptor instead.
+func (*SetAdsSdkNameRequest) Descriptor() ([]byte, []int) {
+	return file_proto_topics_topics_proto_rawDescGZIP(), []int{20}
+}
+
+func (x *SetAdsSdkNameRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type SetAdsSdkNameResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetAdsSdkNameResponse) Reset() {
+	*x = SetAdsSdkNameResponse{}
+	mi := &file_proto_topics_topics_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetAdsSdkNameResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetAdsSdkNameResponse) ProtoMessage() {}
+
+func (x *SetAdsSdkNameResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_topics_topics_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetAdsSdkNameResponse.ProtoReflect.Descriptor instead.
+func (*SetAdsSdkNameResponse) Descriptor() ([]byte, []int) {
+	return file_proto_topics_topics_proto_rawDescGZIP(), []int{21}
+}
+
+func (x *SetAdsSdkNameResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetShouldRecordObservationRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetShouldRecordObservationRequest) Reset() {
+	*x = SetShouldRecordObservationRequest{}
+	mi := &file_proto_topics_topics_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetShouldRecordObservationRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetShouldRecordObservationRequest) ProtoMessage() {}
+
+func (x *SetShouldRecordObservationRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_topics_topics_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetShouldRecordObservationRequest.ProtoReflect.Descriptor instead.
+func (*SetShouldRecordObservationRequest) Descriptor() ([]byte, []int) {
+	return file_proto_topics_topics_proto_rawDescGZIP(), []int{22}
+}
+
+func (x *SetShouldRecordObservationRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetShouldRecordObservationResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetShouldRecordObservationResponse) Reset() {
+	*x = SetShouldRecordObservationResponse{}
+	mi := &file_proto_topics_topics_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetShouldRecordObservationResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetShouldRecordObservationResponse) ProtoMessage() {}
+
+func (x *SetShouldRecordObservationResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_topics_topics_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetShouldRecordObservationResponse.ProtoReflect.Descriptor instead.
+func (*SetShouldRecordObservationResponse) Descriptor() ([]byte, []int) {
+	return file_proto_topics_topics_proto_rawDescGZIP(), []int{23}
+}
+
+func (x *SetShouldRecordObservationResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRequest) Reset() {
+	*x = GetRequest{}
+	mi := &file_proto_topics_topics_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRequest) ProtoMessage() {}
+
+func (x *GetRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_topics_topics_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRequest.ProtoReflect.Descriptor instead.
+func (*GetRequest) Descriptor() ([]byte, []int) {
+	return file_proto_topics_topics_proto_rawDescGZIP(), []int{24}
+}
+
+func (x *GetRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetResponse) Reset() {
+	*x = GetResponse{}
+	mi := &file_proto_topics_topics_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetResponse) ProtoMessage() {}
+
+func (x *GetResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_topics_topics_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetResponse.ProtoReflect.Descriptor instead.
+func (*GetResponse) Descriptor() ([]byte, []int) {
+	return file_proto_topics_topics_proto_rawDescGZIP(), []int{25}
+}
+
+func (x *GetResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type NewTopicRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewTopicRequest) Reset() {
+	*x = NewTopicRequest{}
+	mi := &file_proto_topics_topics_proto_msgTypes[26]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewTopicRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewTopicRequest) ProtoMessage() {}
+
+func (x *NewTopicRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_topics_topics_proto_msgTypes[26]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewTopicRequest.ProtoReflect.Descriptor instead.
+func (*NewTopicRequest) Descriptor() ([]byte, []int) {
+	return file_proto_topics_topics_proto_rawDescGZIP(), []int{26}
+}
+
+func (x *NewTopicRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *NewTopicRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *NewTopicRequest) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type NewTopicResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewTopicResponse) Reset() {
+	*x = NewTopicResponse{}
+	mi := &file_proto_topics_topics_proto_msgTypes[27]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewTopicResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewTopicResponse) ProtoMessage() {}
+
+func (x *NewTopicResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_topics_topics_proto_msgTypes[27]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewTopicResponse.ProtoReflect.Descriptor instead.
+func (*NewTopicResponse) Descriptor() ([]byte, []int) {
+	return file_proto_topics_topics_proto_rawDescGZIP(), []int{27}
+}
+
+func (x *NewTopicResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetModelVersionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetModelVersionRequest) Reset() {
+	*x = GetModelVersionRequest{}
+	mi := &file_proto_topics_topics_proto_msgTypes[28]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetModelVersionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetModelVersionRequest) ProtoMessage() {}
+
+func (x *GetModelVersionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_topics_topics_proto_msgTypes[28]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetModelVersionRequest.ProtoReflect.Descriptor instead.
+func (*GetModelVersionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_topics_topics_proto_rawDescGZIP(), []int{28}
+}
+
+func (x *GetModelVersionRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetModelVersionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetModelVersionResponse) Reset() {
+	*x = GetModelVersionResponse{}
+	mi := &file_proto_topics_topics_proto_msgTypes[29]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetModelVersionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetModelVersionResponse) ProtoMessage() {}
+
+func (x *GetModelVersionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_topics_topics_proto_msgTypes[29]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetModelVersionResponse.ProtoReflect.Descriptor instead.
+func (*GetModelVersionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_topics_topics_proto_rawDescGZIP(), []int{29}
+}
+
+func (x *GetModelVersionResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetTaxonomyVersionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTaxonomyVersionRequest) Reset() {
+	*x = GetTaxonomyVersionRequest{}
+	mi := &file_proto_topics_topics_proto_msgTypes[30]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTaxonomyVersionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTaxonomyVersionRequest) ProtoMessage() {}
+
+func (x *GetTaxonomyVersionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_topics_topics_proto_msgTypes[30]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTaxonomyVersionRequest.ProtoReflect.Descriptor instead.
+func (*GetTaxonomyVersionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_topics_topics_proto_rawDescGZIP(), []int{30}
+}
+
+func (x *GetTaxonomyVersionRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetTaxonomyVersionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTaxonomyVersionResponse) Reset() {
+	*x = GetTaxonomyVersionResponse{}
+	mi := &file_proto_topics_topics_proto_msgTypes[31]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTaxonomyVersionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTaxonomyVersionResponse) ProtoMessage() {}
+
+func (x *GetTaxonomyVersionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_topics_topics_proto_msgTypes[31]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTaxonomyVersionResponse.ProtoReflect.Descriptor instead.
+func (*GetTaxonomyVersionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_topics_topics_proto_rawDescGZIP(), []int{31}
+}
+
+func (x *GetTaxonomyVersionResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetTopicIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTopicIdRequest) Reset() {
+	*x = GetTopicIdRequest{}
+	mi := &file_proto_topics_topics_proto_msgTypes[32]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTopicIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTopicIdRequest) ProtoMessage() {}
+
+func (x *GetTopicIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_topics_topics_proto_msgTypes[32]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTopicIdRequest.ProtoReflect.Descriptor instead.
+func (*GetTopicIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_topics_topics_proto_rawDescGZIP(), []int{32}
+}
+
+func (x *GetTopicIdRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetTopicIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTopicIdResponse) Reset() {
+	*x = GetTopicIdResponse{}
+	mi := &file_proto_topics_topics_proto_msgTypes[33]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTopicIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTopicIdResponse) ProtoMessage() {}
+
+func (x *GetTopicIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_topics_topics_proto_msgTypes[33]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTopicIdResponse.ProtoReflect.Descriptor instead.
+func (*GetTopicIdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_topics_topics_proto_rawDescGZIP(), []int{33}
+}
+
+func (x *GetTopicIdResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetTopicsResponseEqualsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTopicsResponseEqualsRequest) Reset() {
+	*x = GetTopicsResponseEqualsRequest{}
+	mi := &file_proto_topics_topics_proto_msgTypes[34]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTopicsResponseEqualsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTopicsResponseEqualsRequest) ProtoMessage() {}
+
+func (x *GetTopicsResponseEqualsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_topics_topics_proto_msgTypes[34]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTopicsResponseEqualsRequest.ProtoReflect.Descriptor instead.
+func (*GetTopicsResponseEqualsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_topics_topics_proto_rawDescGZIP(), []int{34}
+}
+
+func (x *GetTopicsResponseEqualsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetTopicsResponseHashCodeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTopicsResponseHashCodeRequest) Reset() {
+	*x = GetTopicsResponseHashCodeRequest{}
+	mi := &file_proto_topics_topics_proto_msgTypes[35]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTopicsResponseHashCodeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTopicsResponseHashCodeRequest) ProtoMessage() {}
+
+func (x *GetTopicsResponseHashCodeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_topics_topics_proto_msgTypes[35]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTopicsResponseHashCodeRequest.ProtoReflect.Descriptor instead.
+func (*GetTopicsResponseHashCodeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_topics_topics_proto_rawDescGZIP(), []int{35}
+}
+
 var File_proto_topics_topics_proto protoreflect.FileDescriptor
 
 const file_proto_topics_topics_proto_rawDesc = "" +
 	"\n" +
-	"\x19proto/topics/topics.proto\x12\x06topicsB0Z.github.com/AndroidGoLab/jni-proxy/proto/topicsb\x06proto3"
+	"\x19proto/topics/topics.proto\x12\x06topics\"V\n" +
+	"\x18NewEncryptedTopicRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"3\n" +
+	"\x19NewEncryptedTopicResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\";\n" +
+	"\rEqualsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"(\n" +
+	"\x0eEqualsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"3\n" +
+	"\x19GetEncapsulatedKeyRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"4\n" +
+	"\x1aGetEncapsulatedKeyResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"2\n" +
+	"\x18GetEncryptedTopicRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"3\n" +
+	"\x19GetEncryptedTopicResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"1\n" +
+	"\x17GetKeyIdentifierRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"2\n" +
+	"\x18GetKeyIdentifierResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\")\n" +
+	"\x0fHashCodeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
+	"\x10HashCodeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\")\n" +
+	"\x0fToStringRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
+	"\x10ToStringResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x16\n" +
+	"\x14GetAdsSdkNameRequest\"/\n" +
+	"\x15GetAdsSdkNameResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\" \n" +
+	"\x1eShouldRecordObservationRequest\"9\n" +
+	"\x1fShouldRecordObservationResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x0e\n" +
+	"\fBuildRequest\"'\n" +
+	"\rBuildResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"*\n" +
+	"\x14SetAdsSdkNameRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"/\n" +
+	"\x15SetAdsSdkNameResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"7\n" +
+	"!SetShouldRecordObservationRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"<\n" +
+	"\"SetShouldRecordObservationResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\" \n" +
+	"\n" +
+	"GetRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"%\n" +
+	"\vGetResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"M\n" +
+	"\x0fNewTopicRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\"*\n" +
+	"\x10NewTopicResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"0\n" +
+	"\x16GetModelVersionRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"1\n" +
+	"\x17GetModelVersionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"3\n" +
+	"\x19GetTaxonomyVersionRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"4\n" +
+	"\x1aGetTaxonomyVersionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"+\n" +
+	"\x11GetTopicIdRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\",\n" +
+	"\x12GetTopicIdResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"4\n" +
+	"\x1eGetTopicsResponseEqualsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\"\n" +
+	" GetTopicsResponseHashCodeRequest2\xb6\x04\n" +
+	"\x15EncryptedTopicService\x12X\n" +
+	"\x11NewEncryptedTopic\x12 .topics.NewEncryptedTopicRequest\x1a!.topics.NewEncryptedTopicResponse\x127\n" +
+	"\x06Equals\x12\x15.topics.EqualsRequest\x1a\x16.topics.EqualsResponse\x12[\n" +
+	"\x12GetEncapsulatedKey\x12!.topics.GetEncapsulatedKeyRequest\x1a\".topics.GetEncapsulatedKeyResponse\x12X\n" +
+	"\x11GetEncryptedTopic\x12 .topics.GetEncryptedTopicRequest\x1a!.topics.GetEncryptedTopicResponse\x12U\n" +
+	"\x10GetKeyIdentifier\x12\x1f.topics.GetKeyIdentifierRequest\x1a .topics.GetKeyIdentifierResponse\x12=\n" +
+	"\bHashCode\x12\x17.topics.HashCodeRequest\x1a\x18.topics.HashCodeResponse\x12=\n" +
+	"\bToString\x12\x17.topics.ToStringRequest\x1a\x18.topics.ToStringResponse2\xd3\x01\n" +
+	"\x17GetTopicsRequestService\x12L\n" +
+	"\rGetAdsSdkName\x12\x1c.topics.GetAdsSdkNameRequest\x1a\x1d.topics.GetAdsSdkNameResponse\x12j\n" +
+	"\x17ShouldRecordObservation\x12&.topics.ShouldRecordObservationRequest\x1a'.topics.ShouldRecordObservationResponse2\x99\x02\n" +
+	"\x1eGetTopicsRequestBuilderService\x124\n" +
+	"\x05Build\x12\x14.topics.BuildRequest\x1a\x15.topics.BuildResponse\x12L\n" +
+	"\rSetAdsSdkName\x12\x1c.topics.SetAdsSdkNameRequest\x1a\x1d.topics.SetAdsSdkNameResponse\x12s\n" +
+	"\x1aSetShouldRecordObservation\x12).topics.SetShouldRecordObservationRequest\x1a*.topics.SetShouldRecordObservationResponse2@\n" +
+	"\x0eManagerService\x12.\n" +
+	"\x03Get\x12\x12.topics.GetRequest\x1a\x13.topics.GetResponse2\xfa\x03\n" +
+	"\fTopicService\x12=\n" +
+	"\bNewTopic\x12\x17.topics.NewTopicRequest\x1a\x18.topics.NewTopicResponse\x127\n" +
+	"\x06Equals\x12\x15.topics.EqualsRequest\x1a\x16.topics.EqualsResponse\x12R\n" +
+	"\x0fGetModelVersion\x12\x1e.topics.GetModelVersionRequest\x1a\x1f.topics.GetModelVersionResponse\x12[\n" +
+	"\x12GetTaxonomyVersion\x12!.topics.GetTaxonomyVersionRequest\x1a\".topics.GetTaxonomyVersionResponse\x12C\n" +
+	"\n" +
+	"GetTopicId\x12\x19.topics.GetTopicIdRequest\x1a\x1a.topics.GetTopicIdResponse\x12=\n" +
+	"\bHashCode\x12\x17.topics.HashCodeRequest\x1a\x18.topics.HashCodeResponse\x12=\n" +
+	"\bToString\x12\x17.topics.ToStringRequest\x1a\x18.topics.ToStringResponse2\xb4\x01\n" +
+	"\x18GetTopicsResponseService\x12H\n" +
+	"\x06Equals\x12&.topics.GetTopicsResponseEqualsRequest\x1a\x16.topics.EqualsResponse\x12N\n" +
+	"\bHashCode\x12(.topics.GetTopicsResponseHashCodeRequest\x1a\x18.topics.HashCodeResponse2W\n" +
+	"\x1fGetTopicsResponseBuilderService\x124\n" +
+	"\x05Build\x12\x14.topics.BuildRequest\x1a\x15.topics.BuildResponseB0Z.github.com/AndroidGoLab/jni-proxy/proto/topicsb\x06proto3"
 
-var file_proto_topics_topics_proto_goTypes = []any{}
+var (
+	file_proto_topics_topics_proto_rawDescOnce sync.Once
+	file_proto_topics_topics_proto_rawDescData []byte
+)
+
+func file_proto_topics_topics_proto_rawDescGZIP() []byte {
+	file_proto_topics_topics_proto_rawDescOnce.Do(func() {
+		file_proto_topics_topics_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_proto_topics_topics_proto_rawDesc), len(file_proto_topics_topics_proto_rawDesc)))
+	})
+	return file_proto_topics_topics_proto_rawDescData
+}
+
+var file_proto_topics_topics_proto_msgTypes = make([]protoimpl.MessageInfo, 36)
+var file_proto_topics_topics_proto_goTypes = []any{
+	(*NewEncryptedTopicRequest)(nil),           // 0: topics.NewEncryptedTopicRequest
+	(*NewEncryptedTopicResponse)(nil),          // 1: topics.NewEncryptedTopicResponse
+	(*EqualsRequest)(nil),                      // 2: topics.EqualsRequest
+	(*EqualsResponse)(nil),                     // 3: topics.EqualsResponse
+	(*GetEncapsulatedKeyRequest)(nil),          // 4: topics.GetEncapsulatedKeyRequest
+	(*GetEncapsulatedKeyResponse)(nil),         // 5: topics.GetEncapsulatedKeyResponse
+	(*GetEncryptedTopicRequest)(nil),           // 6: topics.GetEncryptedTopicRequest
+	(*GetEncryptedTopicResponse)(nil),          // 7: topics.GetEncryptedTopicResponse
+	(*GetKeyIdentifierRequest)(nil),            // 8: topics.GetKeyIdentifierRequest
+	(*GetKeyIdentifierResponse)(nil),           // 9: topics.GetKeyIdentifierResponse
+	(*HashCodeRequest)(nil),                    // 10: topics.HashCodeRequest
+	(*HashCodeResponse)(nil),                   // 11: topics.HashCodeResponse
+	(*ToStringRequest)(nil),                    // 12: topics.ToStringRequest
+	(*ToStringResponse)(nil),                   // 13: topics.ToStringResponse
+	(*GetAdsSdkNameRequest)(nil),               // 14: topics.GetAdsSdkNameRequest
+	(*GetAdsSdkNameResponse)(nil),              // 15: topics.GetAdsSdkNameResponse
+	(*ShouldRecordObservationRequest)(nil),     // 16: topics.ShouldRecordObservationRequest
+	(*ShouldRecordObservationResponse)(nil),    // 17: topics.ShouldRecordObservationResponse
+	(*BuildRequest)(nil),                       // 18: topics.BuildRequest
+	(*BuildResponse)(nil),                      // 19: topics.BuildResponse
+	(*SetAdsSdkNameRequest)(nil),               // 20: topics.SetAdsSdkNameRequest
+	(*SetAdsSdkNameResponse)(nil),              // 21: topics.SetAdsSdkNameResponse
+	(*SetShouldRecordObservationRequest)(nil),  // 22: topics.SetShouldRecordObservationRequest
+	(*SetShouldRecordObservationResponse)(nil), // 23: topics.SetShouldRecordObservationResponse
+	(*GetRequest)(nil),                         // 24: topics.GetRequest
+	(*GetResponse)(nil),                        // 25: topics.GetResponse
+	(*NewTopicRequest)(nil),                    // 26: topics.NewTopicRequest
+	(*NewTopicResponse)(nil),                   // 27: topics.NewTopicResponse
+	(*GetModelVersionRequest)(nil),             // 28: topics.GetModelVersionRequest
+	(*GetModelVersionResponse)(nil),            // 29: topics.GetModelVersionResponse
+	(*GetTaxonomyVersionRequest)(nil),          // 30: topics.GetTaxonomyVersionRequest
+	(*GetTaxonomyVersionResponse)(nil),         // 31: topics.GetTaxonomyVersionResponse
+	(*GetTopicIdRequest)(nil),                  // 32: topics.GetTopicIdRequest
+	(*GetTopicIdResponse)(nil),                 // 33: topics.GetTopicIdResponse
+	(*GetTopicsResponseEqualsRequest)(nil),     // 34: topics.GetTopicsResponseEqualsRequest
+	(*GetTopicsResponseHashCodeRequest)(nil),   // 35: topics.GetTopicsResponseHashCodeRequest
+}
 var file_proto_topics_topics_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	0,  // 0: topics.EncryptedTopicService.NewEncryptedTopic:input_type -> topics.NewEncryptedTopicRequest
+	2,  // 1: topics.EncryptedTopicService.Equals:input_type -> topics.EqualsRequest
+	4,  // 2: topics.EncryptedTopicService.GetEncapsulatedKey:input_type -> topics.GetEncapsulatedKeyRequest
+	6,  // 3: topics.EncryptedTopicService.GetEncryptedTopic:input_type -> topics.GetEncryptedTopicRequest
+	8,  // 4: topics.EncryptedTopicService.GetKeyIdentifier:input_type -> topics.GetKeyIdentifierRequest
+	10, // 5: topics.EncryptedTopicService.HashCode:input_type -> topics.HashCodeRequest
+	12, // 6: topics.EncryptedTopicService.ToString:input_type -> topics.ToStringRequest
+	14, // 7: topics.GetTopicsRequestService.GetAdsSdkName:input_type -> topics.GetAdsSdkNameRequest
+	16, // 8: topics.GetTopicsRequestService.ShouldRecordObservation:input_type -> topics.ShouldRecordObservationRequest
+	18, // 9: topics.GetTopicsRequestBuilderService.Build:input_type -> topics.BuildRequest
+	20, // 10: topics.GetTopicsRequestBuilderService.SetAdsSdkName:input_type -> topics.SetAdsSdkNameRequest
+	22, // 11: topics.GetTopicsRequestBuilderService.SetShouldRecordObservation:input_type -> topics.SetShouldRecordObservationRequest
+	24, // 12: topics.ManagerService.Get:input_type -> topics.GetRequest
+	26, // 13: topics.TopicService.NewTopic:input_type -> topics.NewTopicRequest
+	2,  // 14: topics.TopicService.Equals:input_type -> topics.EqualsRequest
+	28, // 15: topics.TopicService.GetModelVersion:input_type -> topics.GetModelVersionRequest
+	30, // 16: topics.TopicService.GetTaxonomyVersion:input_type -> topics.GetTaxonomyVersionRequest
+	32, // 17: topics.TopicService.GetTopicId:input_type -> topics.GetTopicIdRequest
+	10, // 18: topics.TopicService.HashCode:input_type -> topics.HashCodeRequest
+	12, // 19: topics.TopicService.ToString:input_type -> topics.ToStringRequest
+	34, // 20: topics.GetTopicsResponseService.Equals:input_type -> topics.GetTopicsResponseEqualsRequest
+	35, // 21: topics.GetTopicsResponseService.HashCode:input_type -> topics.GetTopicsResponseHashCodeRequest
+	18, // 22: topics.GetTopicsResponseBuilderService.Build:input_type -> topics.BuildRequest
+	1,  // 23: topics.EncryptedTopicService.NewEncryptedTopic:output_type -> topics.NewEncryptedTopicResponse
+	3,  // 24: topics.EncryptedTopicService.Equals:output_type -> topics.EqualsResponse
+	5,  // 25: topics.EncryptedTopicService.GetEncapsulatedKey:output_type -> topics.GetEncapsulatedKeyResponse
+	7,  // 26: topics.EncryptedTopicService.GetEncryptedTopic:output_type -> topics.GetEncryptedTopicResponse
+	9,  // 27: topics.EncryptedTopicService.GetKeyIdentifier:output_type -> topics.GetKeyIdentifierResponse
+	11, // 28: topics.EncryptedTopicService.HashCode:output_type -> topics.HashCodeResponse
+	13, // 29: topics.EncryptedTopicService.ToString:output_type -> topics.ToStringResponse
+	15, // 30: topics.GetTopicsRequestService.GetAdsSdkName:output_type -> topics.GetAdsSdkNameResponse
+	17, // 31: topics.GetTopicsRequestService.ShouldRecordObservation:output_type -> topics.ShouldRecordObservationResponse
+	19, // 32: topics.GetTopicsRequestBuilderService.Build:output_type -> topics.BuildResponse
+	21, // 33: topics.GetTopicsRequestBuilderService.SetAdsSdkName:output_type -> topics.SetAdsSdkNameResponse
+	23, // 34: topics.GetTopicsRequestBuilderService.SetShouldRecordObservation:output_type -> topics.SetShouldRecordObservationResponse
+	25, // 35: topics.ManagerService.Get:output_type -> topics.GetResponse
+	27, // 36: topics.TopicService.NewTopic:output_type -> topics.NewTopicResponse
+	3,  // 37: topics.TopicService.Equals:output_type -> topics.EqualsResponse
+	29, // 38: topics.TopicService.GetModelVersion:output_type -> topics.GetModelVersionResponse
+	31, // 39: topics.TopicService.GetTaxonomyVersion:output_type -> topics.GetTaxonomyVersionResponse
+	33, // 40: topics.TopicService.GetTopicId:output_type -> topics.GetTopicIdResponse
+	11, // 41: topics.TopicService.HashCode:output_type -> topics.HashCodeResponse
+	13, // 42: topics.TopicService.ToString:output_type -> topics.ToStringResponse
+	3,  // 43: topics.GetTopicsResponseService.Equals:output_type -> topics.EqualsResponse
+	11, // 44: topics.GetTopicsResponseService.HashCode:output_type -> topics.HashCodeResponse
+	19, // 45: topics.GetTopicsResponseBuilderService.Build:output_type -> topics.BuildResponse
+	23, // [23:46] is the sub-list for method output_type
+	0,  // [0:23] is the sub-list for method input_type
+	0,  // [0:0] is the sub-list for extension type_name
+	0,  // [0:0] is the sub-list for extension extendee
+	0,  // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_proto_topics_topics_proto_init() }
@@ -48,12 +1842,13 @@ func file_proto_topics_topics_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_topics_topics_proto_rawDesc), len(file_proto_topics_topics_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   36,
 			NumExtensions: 0,
-			NumServices:   0,
+			NumServices:   7,
 		},
 		GoTypes:           file_proto_topics_topics_proto_goTypes,
 		DependencyIndexes: file_proto_topics_topics_proto_depIdxs,
+		MessageInfos:      file_proto_topics_topics_proto_msgTypes,
 	}.Build()
 	File_proto_topics_topics_proto = out.File
 	file_proto_topics_topics_proto_goTypes = nil

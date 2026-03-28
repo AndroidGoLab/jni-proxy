@@ -5,3 +5,105 @@ syntax = "proto3";
 package selection;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/selection";
+
+message NewPageSelectionRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message NewPageSelectionResponse {
+  int64 result = 1;
+}
+
+message DescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message GetPageRequest {
+  int64 handle = 1;
+}
+
+message GetPageResponse {
+  int32 result = 1;
+}
+
+message GetStartRequest {
+  int64 handle = 1;
+}
+
+message GetStartResponse {
+  int64 result = 1;
+}
+
+message GetStopRequest {
+  int64 handle = 1;
+}
+
+message GetStopResponse {
+  int64 result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message WriteToParcelResponse {
+}
+
+message NewBoundaryRequest {
+  int64 arg0 = 1;
+}
+
+message NewBoundaryResponse {
+  int64 result = 1;
+}
+
+message GetIndexRequest {
+  int64 handle = 1;
+}
+
+message GetIndexResponse {
+  int32 result = 1;
+}
+
+message GetIsRtlRequest {
+  int64 handle = 1;
+}
+
+message GetIsRtlResponse {
+  bool result = 1;
+}
+
+message GetPointRequest {
+  int64 handle = 1;
+}
+
+message GetPointResponse {
+  int64 result = 1;
+}
+
+service PageSelectionService {
+  rpc NewPageSelection (NewPageSelectionRequest) returns (NewPageSelectionResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetPage (GetPageRequest) returns (GetPageResponse);
+  rpc GetStart (GetStartRequest) returns (GetStartResponse);
+  rpc GetStop (GetStopRequest) returns (GetStopResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service BoundaryService {
+  rpc NewBoundary (NewBoundaryRequest) returns (NewBoundaryResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetIndex (GetIndexRequest) returns (GetIndexResponse);
+  rpc GetIsRtl (GetIsRtlRequest) returns (GetIsRtlResponse);
+  rpc GetPoint (GetPointRequest) returns (GetPointResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}

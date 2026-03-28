@@ -5,3 +5,406 @@ syntax = "proto3";
 package quickaccesswallet;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/quickaccesswallet";
+
+message GetGestureTargetActivityPendingIntentRequest {
+}
+
+message GetGestureTargetActivityPendingIntentResponse {
+  int64 result = 1;
+}
+
+message GetTargetActivityPendingIntentRequest {
+}
+
+message GetTargetActivityPendingIntentResponse {
+  int64 result = 1;
+}
+
+message OnBindRequest {
+  int64 arg0 = 1;
+}
+
+message OnBindResponse {
+  int64 result = 1;
+}
+
+message OnWalletCardSelectedRequest {
+  int64 arg0 = 1;
+}
+
+message OnWalletCardSelectedResponse {
+}
+
+message OnWalletCardsRequestedRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnWalletCardsRequestedResponse {
+}
+
+message OnWalletDismissedRequest {
+}
+
+message OnWalletDismissedResponse {
+}
+
+message SendWalletServiceEventRequest {
+  int64 arg0 = 1;
+}
+
+message SendWalletServiceEventResponse {
+}
+
+message DescribeContentsRequest {
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message GetCardIconRequest {
+}
+
+message GetCardIconResponse {
+  int64 result = 1;
+}
+
+message GetCardIdRequest {
+}
+
+message GetCardIdResponse {
+  string result = 1;
+}
+
+message GetCardImageRequest {
+}
+
+message GetCardImageResponse {
+  int64 result = 1;
+}
+
+message GetCardLabelRequest {
+}
+
+message GetCardLabelResponse {
+  int64 result = 1;
+}
+
+message GetCardTypeRequest {
+}
+
+message GetCardTypeResponse {
+  int32 result = 1;
+}
+
+message GetContentDescriptionRequest {
+}
+
+message GetContentDescriptionResponse {
+  int64 result = 1;
+}
+
+message GetNonPaymentCardSecondaryImageRequest {
+}
+
+message GetNonPaymentCardSecondaryImageResponse {
+  int64 result = 1;
+}
+
+message GetPendingIntentRequest {
+}
+
+message GetPendingIntentResponse {
+  int64 result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteToParcelResponse {
+}
+
+message BuildRequest {
+}
+
+message BuildResponse {
+  int64 result = 1;
+}
+
+message SetCardIconRequest {
+  int64 arg0 = 1;
+}
+
+message SetCardIconResponse {
+  int64 result = 1;
+}
+
+message SetCardLabelRequest {
+  string arg0 = 1;
+}
+
+message SetCardLabelResponse {
+  int64 result = 1;
+}
+
+message SetNonPaymentCardSecondaryImageRequest {
+  int64 arg0 = 1;
+}
+
+message SetNonPaymentCardSecondaryImageResponse {
+  int64 result = 1;
+}
+
+message NewSelectWalletCardRequestRequest {
+  string arg0 = 1;
+}
+
+message NewSelectWalletCardRequestResponse {
+  int64 result = 1;
+}
+
+message SelectWalletCardRequestDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message SelectWalletCardRequestGetCardIdRequest {
+  int64 handle = 1;
+}
+
+message SelectWalletCardRequestWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message NewGetWalletCardsErrorRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+}
+
+message NewGetWalletCardsErrorResponse {
+  int64 result = 1;
+}
+
+message GetWalletCardsErrorDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message GetIconRequest {
+  int64 handle = 1;
+}
+
+message GetIconResponse {
+  int64 result = 1;
+}
+
+message GetMessageRequest {
+  int64 handle = 1;
+}
+
+message GetMessageResponse {
+  int64 result = 1;
+}
+
+message GetWalletCardsErrorWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message NewWalletServiceEventRequest {
+  int32 arg0 = 1;
+}
+
+message NewWalletServiceEventResponse {
+  int64 result = 1;
+}
+
+message WalletServiceEventDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message GetEventTypeRequest {
+  int64 handle = 1;
+}
+
+message GetEventTypeResponse {
+  int32 result = 1;
+}
+
+message WalletServiceEventWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message OnFailureRequest {
+  int64 arg0 = 1;
+}
+
+message OnFailureResponse {
+}
+
+message OnSuccessRequest {
+  int64 arg0 = 1;
+}
+
+message OnSuccessResponse {
+}
+
+message NewGetWalletCardsResponseRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message NewGetWalletCardsResponseResponse {
+  int64 result = 1;
+}
+
+message GetWalletCardsResponseDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message GetSelectedIndexRequest {
+  int64 handle = 1;
+}
+
+message GetSelectedIndexResponse {
+  int32 result = 1;
+}
+
+message GetWalletCardsResponseWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message NewGetWalletCardsRequestRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message NewGetWalletCardsRequestResponse {
+  int64 result = 1;
+}
+
+message GetWalletCardsRequestDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message GetCardHeightPxRequest {
+  int64 handle = 1;
+}
+
+message GetCardHeightPxResponse {
+  int32 result = 1;
+}
+
+message GetCardWidthPxRequest {
+  int64 handle = 1;
+}
+
+message GetCardWidthPxResponse {
+  int32 result = 1;
+}
+
+message GetIconSizePxRequest {
+  int64 handle = 1;
+}
+
+message GetIconSizePxResponse {
+  int32 result = 1;
+}
+
+message GetMaxCardsRequest {
+  int64 handle = 1;
+}
+
+message GetMaxCardsResponse {
+  int32 result = 1;
+}
+
+message GetWalletCardsRequestWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+service QuickAccessWalletServiceService {
+  rpc GetGestureTargetActivityPendingIntent (GetGestureTargetActivityPendingIntentRequest) returns (GetGestureTargetActivityPendingIntentResponse);
+  rpc GetTargetActivityPendingIntent (GetTargetActivityPendingIntentRequest) returns (GetTargetActivityPendingIntentResponse);
+  rpc OnBind (OnBindRequest) returns (OnBindResponse);
+  rpc OnWalletCardSelected (OnWalletCardSelectedRequest) returns (OnWalletCardSelectedResponse);
+  rpc OnWalletCardsRequested (OnWalletCardsRequestedRequest) returns (OnWalletCardsRequestedResponse);
+  rpc OnWalletDismissed (OnWalletDismissedRequest) returns (OnWalletDismissedResponse);
+  rpc SendWalletServiceEvent (SendWalletServiceEventRequest) returns (SendWalletServiceEventResponse);
+}
+
+service WalletCardService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetCardIcon (GetCardIconRequest) returns (GetCardIconResponse);
+  rpc GetCardId (GetCardIdRequest) returns (GetCardIdResponse);
+  rpc GetCardImage (GetCardImageRequest) returns (GetCardImageResponse);
+  rpc GetCardLabel (GetCardLabelRequest) returns (GetCardLabelResponse);
+  rpc GetCardType (GetCardTypeRequest) returns (GetCardTypeResponse);
+  rpc GetContentDescription (GetContentDescriptionRequest) returns (GetContentDescriptionResponse);
+  rpc GetNonPaymentCardSecondaryImage (GetNonPaymentCardSecondaryImageRequest) returns (GetNonPaymentCardSecondaryImageResponse);
+  rpc GetPendingIntent (GetPendingIntentRequest) returns (GetPendingIntentResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service WalletCardBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetCardIcon (SetCardIconRequest) returns (SetCardIconResponse);
+  rpc SetCardLabel (SetCardLabelRequest) returns (SetCardLabelResponse);
+  rpc SetNonPaymentCardSecondaryImage (SetNonPaymentCardSecondaryImageRequest) returns (SetNonPaymentCardSecondaryImageResponse);
+}
+
+service SelectWalletCardRequestService {
+  rpc NewSelectWalletCardRequest (NewSelectWalletCardRequestRequest) returns (NewSelectWalletCardRequestResponse);
+  rpc DescribeContents (SelectWalletCardRequestDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetCardId (SelectWalletCardRequestGetCardIdRequest) returns (GetCardIdResponse);
+  rpc WriteToParcel (SelectWalletCardRequestWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service GetWalletCardsErrorService {
+  rpc NewGetWalletCardsError (NewGetWalletCardsErrorRequest) returns (NewGetWalletCardsErrorResponse);
+  rpc DescribeContents (GetWalletCardsErrorDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetIcon (GetIconRequest) returns (GetIconResponse);
+  rpc GetMessage (GetMessageRequest) returns (GetMessageResponse);
+  rpc WriteToParcel (GetWalletCardsErrorWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service WalletServiceEventService {
+  rpc NewWalletServiceEvent (NewWalletServiceEventRequest) returns (NewWalletServiceEventResponse);
+  rpc DescribeContents (WalletServiceEventDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetEventType (GetEventTypeRequest) returns (GetEventTypeResponse);
+  rpc WriteToParcel (WalletServiceEventWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service GetWalletCardsCallbackService {
+  rpc OnFailure (OnFailureRequest) returns (OnFailureResponse);
+  rpc OnSuccess (OnSuccessRequest) returns (OnSuccessResponse);
+}
+
+service GetWalletCardsResponseService {
+  rpc NewGetWalletCardsResponse (NewGetWalletCardsResponseRequest) returns (NewGetWalletCardsResponseResponse);
+  rpc DescribeContents (GetWalletCardsResponseDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetSelectedIndex (GetSelectedIndexRequest) returns (GetSelectedIndexResponse);
+  rpc WriteToParcel (GetWalletCardsResponseWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service GetWalletCardsRequestService {
+  rpc NewGetWalletCardsRequest (NewGetWalletCardsRequestRequest) returns (NewGetWalletCardsRequestResponse);
+  rpc DescribeContents (GetWalletCardsRequestDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetCardHeightPx (GetCardHeightPxRequest) returns (GetCardHeightPxResponse);
+  rpc GetCardWidthPx (GetCardWidthPxRequest) returns (GetCardWidthPxResponse);
+  rpc GetIconSizePx (GetIconSizePxRequest) returns (GetIconSizePxResponse);
+  rpc GetMaxCards (GetMaxCardsRequest) returns (GetMaxCardsResponse);
+  rpc WriteToParcel (GetWalletCardsRequestWriteToParcelRequest) returns (WriteToParcelResponse);
+}

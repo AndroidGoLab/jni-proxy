@@ -6,6 +6,78 @@ package pm;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/pm";
 
+message NewComponentInfoRequest {
+}
+
+message NewComponentInfoResponse {
+  int64 result = 1;
+}
+
+message GetBannerResourceRequest {
+  int64 handle = 1;
+}
+
+message GetBannerResourceResponse {
+  int32 result = 1;
+}
+
+message GetIconResourceRequest {
+  int64 handle = 1;
+}
+
+message GetIconResourceResponse {
+  int32 result = 1;
+}
+
+message GetLogoResourceRequest {
+  int64 handle = 1;
+}
+
+message GetLogoResourceResponse {
+  int32 result = 1;
+}
+
+message IsEnabledRequest {
+  int64 handle = 1;
+}
+
+message IsEnabledResponse {
+  bool result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message WriteToParcelResponse {
+}
+
+message NewPathPermissionRequest {
+  int64 arg0 = 1;
+}
+
+message NewPathPermissionResponse {
+  int64 result = 1;
+}
+
+message GetReadPermissionRequest {
+  int64 handle = 1;
+}
+
+message GetReadPermissionResponse {
+  string result = 1;
+}
+
+message GetWritePermissionRequest {
+  int64 handle = 1;
+}
+
+message GetWritePermissionResponse {
+  string result = 1;
+}
+
 message CanInteractAcrossProfilesRequest {
 }
 
@@ -96,76 +168,472 @@ message StartMainActivity4_1Request {
 message StartMainActivity4_1Response {
 }
 
-message CreateShortcutResultIntentRequest {
-  int64 arg0 = 1;
+message NewResolveInfoRequest {
 }
 
-message CreateShortcutResultIntentResponse {
+message NewResolveInfoResponse {
   int64 result = 1;
 }
 
-message GetIconMaxHeightRequest {
+message DescribeContentsRequest {
+  int64 handle = 1;
 }
 
-message GetIconMaxHeightResponse {
+message DescribeContentsResponse {
   int32 result = 1;
 }
 
-message GetIconMaxWidthRequest {
+message DumpRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
 }
 
-message GetIconMaxWidthResponse {
-  int32 result = 1;
+message DumpResponse {
 }
 
-message GetMaxShortcutCountPerActivityRequest {
+message IsCrossProfileIntentForwarderActivityRequest {
+  int64 handle = 1;
 }
 
-message GetMaxShortcutCountPerActivityResponse {
-  int32 result = 1;
-}
-
-message IsRateLimitingActiveRequest {
-}
-
-message IsRateLimitingActiveResponse {
+message IsCrossProfileIntentForwarderActivityResponse {
   bool result = 1;
 }
 
-message IsRequestPinShortcutSupportedRequest {
+message LoadIconRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
 }
 
-message IsRequestPinShortcutSupportedResponse {
-  bool result = 1;
+message LoadIconResponse {
+  int64 result = 1;
 }
 
-message PushDynamicShortcutRequest {
-  int64 arg0 = 1;
+message LoadLabelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
 }
 
-message PushDynamicShortcutResponse {
+message LoadLabelResponse {
+  int64 result = 1;
 }
 
-message RemoveAllDynamicShortcutsRequest {
+message ToStringRequest {
+  int64 handle = 1;
 }
 
-message RemoveAllDynamicShortcutsResponse {
+message ToStringResponse {
+  string result = 1;
 }
 
-message ReportShortcutUsedRequest {
-  string arg0 = 1;
-}
-
-message ReportShortcutUsedResponse {
-}
-
-message RequestPinShortcutRequest {
+message Compare2Request {
   int64 arg0 = 1;
   int64 arg1 = 2;
 }
 
-message RequestPinShortcutResponse {
+message Compare2Response {
+  int32 result = 1;
+}
+
+message Compare2_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message Compare2_1Response {
+  int32 result = 1;
+}
+
+message SharedLibraryInfoDescribeContentsRequest {
+}
+
+message GetDeclaringPackageRequest {
+}
+
+message GetDeclaringPackageResponse {
+  int64 result = 1;
+}
+
+message GetLongVersionRequest {
+}
+
+message GetLongVersionResponse {
+  int64 result = 1;
+}
+
+message GetNameRequest {
+}
+
+message GetNameResponse {
+  string result = 1;
+}
+
+message GetTypeRequest {
+}
+
+message GetTypeResponse {
+  int32 result = 1;
+}
+
+message GetVersionRequest {
+}
+
+message GetVersionResponse {
+  int32 result = 1;
+}
+
+message SharedLibraryInfoToStringRequest {
+}
+
+message SharedLibraryInfoWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message NewPermissionInfoRequest {
+}
+
+message NewPermissionInfoResponse {
+  int64 result = 1;
+}
+
+message GetProtectionRequest {
+  int64 handle = 1;
+}
+
+message GetProtectionResponse {
+  int32 result = 1;
+}
+
+message GetProtectionFlagsRequest {
+  int64 handle = 1;
+}
+
+message GetProtectionFlagsResponse {
+  int32 result = 1;
+}
+
+message LoadDescriptionRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message LoadDescriptionResponse {
+  int64 result = 1;
+}
+
+message ShortcutInfoDescribeContentsRequest {
+}
+
+message GetActivityRequest {
+}
+
+message GetActivityResponse {
+  int64 result = 1;
+}
+
+message GetDisabledMessageRequest {
+}
+
+message GetDisabledMessageResponse {
+  int64 result = 1;
+}
+
+message GetDisabledReasonRequest {
+}
+
+message GetDisabledReasonResponse {
+  int32 result = 1;
+}
+
+message GetExcludedFromSurfacesRequest {
+}
+
+message GetExcludedFromSurfacesResponse {
+  int32 result = 1;
+}
+
+message GetExtrasRequest {
+}
+
+message GetExtrasResponse {
+  int64 result = 1;
+}
+
+message GetIdRequest {
+}
+
+message GetIdResponse {
+  string result = 1;
+}
+
+message GetIntentRequest {
+}
+
+message GetIntentResponse {
+  int64 result = 1;
+}
+
+message GetIntentsRequest {
+}
+
+message GetIntentsResponse {
+  int64 result = 1;
+}
+
+message GetLastChangedTimestampRequest {
+}
+
+message GetLastChangedTimestampResponse {
+  int64 result = 1;
+}
+
+message GetLocusIdRequest {
+}
+
+message GetLocusIdResponse {
+  int64 result = 1;
+}
+
+message GetLongLabelRequest {
+}
+
+message GetLongLabelResponse {
+  int64 result = 1;
+}
+
+message GetPackageRequest {
+}
+
+message GetPackageResponse {
+  string result = 1;
+}
+
+message GetRankRequest {
+}
+
+message GetRankResponse {
+  int32 result = 1;
+}
+
+message GetShortLabelRequest {
+}
+
+message GetShortLabelResponse {
+  int64 result = 1;
+}
+
+message GetUserHandleRequest {
+}
+
+message GetUserHandleResponse {
+  int64 result = 1;
+}
+
+message HasKeyFieldsOnlyRequest {
+}
+
+message HasKeyFieldsOnlyResponse {
   bool result = 1;
+}
+
+message IsCachedRequest {
+}
+
+message IsCachedResponse {
+  bool result = 1;
+}
+
+message IsDeclaredInManifestRequest {
+}
+
+message IsDeclaredInManifestResponse {
+  bool result = 1;
+}
+
+message IsDynamicRequest {
+}
+
+message IsDynamicResponse {
+  bool result = 1;
+}
+
+message ShortcutInfoIsEnabledRequest {
+}
+
+message IsExcludedFromSurfacesRequest {
+  int32 arg0 = 1;
+}
+
+message IsExcludedFromSurfacesResponse {
+  bool result = 1;
+}
+
+message IsImmutableRequest {
+}
+
+message IsImmutableResponse {
+  bool result = 1;
+}
+
+message IsPinnedRequest {
+}
+
+message IsPinnedResponse {
+  bool result = 1;
+}
+
+message ShortcutInfoToStringRequest {
+}
+
+message ShortcutInfoWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message CreateFromGenericDocumentRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message CreateFromGenericDocumentResponse {
+  int64 result = 1;
+}
+
+message AddCapabilityBindingRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message AddCapabilityBindingResponse {
+  int64 result = 1;
+}
+
+message BuildRequest {
+}
+
+message BuildResponse {
+  int64 result = 1;
+}
+
+message SetActivityRequest {
+  int64 arg0 = 1;
+}
+
+message SetActivityResponse {
+  int64 result = 1;
+}
+
+message SetDisabledMessageRequest {
+  string arg0 = 1;
+}
+
+message SetDisabledMessageResponse {
+  int64 result = 1;
+}
+
+message SetExcludedFromSurfacesRequest {
+  int32 arg0 = 1;
+}
+
+message SetExcludedFromSurfacesResponse {
+  int64 result = 1;
+}
+
+message SetExtrasRequest {
+  int64 arg0 = 1;
+}
+
+message SetExtrasResponse {
+  int64 result = 1;
+}
+
+message SetIconRequest {
+  int64 arg0 = 1;
+}
+
+message SetIconResponse {
+  int64 result = 1;
+}
+
+message SetIntentRequest {
+  int64 arg0 = 1;
+}
+
+message SetIntentResponse {
+  int64 result = 1;
+}
+
+message SetIntentsRequest {
+  int64 arg0 = 1;
+}
+
+message SetIntentsResponse {
+  int64 result = 1;
+}
+
+message SetLocusIdRequest {
+  int64 arg0 = 1;
+}
+
+message SetLocusIdResponse {
+  int64 result = 1;
+}
+
+message SetLongLabelRequest {
+  string arg0 = 1;
+}
+
+message SetLongLabelResponse {
+  int64 result = 1;
+}
+
+message SetLongLivedRequest {
+  bool arg0 = 1;
+}
+
+message SetLongLivedResponse {
+  int64 result = 1;
+}
+
+message SetPersonRequest {
+  int64 arg0 = 1;
+}
+
+message SetPersonResponse {
+  int64 result = 1;
+}
+
+message SetPersonsRequest {
+  int64 arg0 = 1;
+}
+
+message SetPersonsResponse {
+  int64 result = 1;
+}
+
+message SetRankRequest {
+  int32 arg0 = 1;
+}
+
+message SetRankResponse {
+  int64 result = 1;
+}
+
+message SetShortLabelRequest {
+  string arg0 = 1;
+}
+
+message SetShortLabelResponse {
+  int64 result = 1;
+}
+
+message SetStartingThemeRequest {
+  int32 arg0 = 1;
+}
+
+message SetStartingThemeResponse {
+  int64 result = 1;
 }
 
 message GetAppMarketActivityIntentRequest {
@@ -384,6 +852,3231 @@ message UnregisterPackageInstallerSessionCallbackRequest {
 message UnregisterPackageInstallerSessionCallbackResponse {
 }
 
+message SetEnableIconOverlayRequest {
+  bool arg0 = 1;
+}
+
+message SetEnableIconOverlayResponse {
+}
+
+message SetEnableUnarchivalConfirmationRequest {
+  bool arg0 = 1;
+}
+
+message SetEnableUnarchivalConfirmationResponse {
+}
+
+message OnPackageAddedRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnPackageAddedResponse {
+}
+
+message OnPackageChangedRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnPackageChangedResponse {
+}
+
+message OnPackageLoadingProgressChangedRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+  float arg2 = 3;
+}
+
+message OnPackageLoadingProgressChangedResponse {
+}
+
+message OnPackageRemovedRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnPackageRemovedResponse {
+}
+
+message OnPackagesAvailableRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  bool arg2 = 3;
+}
+
+message OnPackagesAvailableResponse {
+}
+
+message OnPackagesSuspended2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnPackagesSuspended2Response {
+}
+
+message OnPackagesSuspended3_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message OnPackagesSuspended3_1Response {
+}
+
+message OnPackagesUnavailableRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  bool arg2 = 3;
+}
+
+message OnPackagesUnavailableResponse {
+}
+
+message OnPackagesUnsuspendedRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnPackagesUnsuspendedResponse {
+}
+
+message OnUserConfigChangedRequest {
+  int64 arg0 = 1;
+}
+
+message OnUserConfigChangedResponse {
+}
+
+message Accept0Request {
+}
+
+message Accept0Response {
+  bool result = 1;
+}
+
+message Accept1_1Request {
+  int64 arg0 = 1;
+}
+
+message Accept1_1Response {
+  bool result = 1;
+}
+
+message LauncherAppsPinItemRequestDescribeContentsRequest {
+}
+
+message GetAppWidgetProviderInfoRequest {
+  int64 arg0 = 1;
+}
+
+message GetAppWidgetProviderInfoResponse {
+  int64 result = 1;
+}
+
+message GetRequestTypeRequest {
+}
+
+message GetRequestTypeResponse {
+  int32 result = 1;
+}
+
+message GetShortcutInfoRequest {
+}
+
+message GetShortcutInfoResponse {
+  int64 result = 1;
+}
+
+message IsValidRequest {
+}
+
+message IsValidResponse {
+  bool result = 1;
+}
+
+message LauncherAppsPinItemRequestWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message SetChangedSinceRequest {
+  int64 arg0 = 1;
+}
+
+message SetChangedSinceResponse {
+  int64 result = 1;
+}
+
+message SetPackageRequest {
+  string arg0 = 1;
+}
+
+message SetPackageResponse {
+  int64 result = 1;
+}
+
+message SetQueryFlagsRequest {
+  int32 arg0 = 1;
+}
+
+message SetQueryFlagsResponse {
+  int64 result = 1;
+}
+
+message InstallSourceInfoDescribeContentsRequest {
+}
+
+message GetInitiatingPackageNameRequest {
+}
+
+message GetInitiatingPackageNameResponse {
+  string result = 1;
+}
+
+message GetInitiatingPackageSigningInfoRequest {
+}
+
+message GetInitiatingPackageSigningInfoResponse {
+  int64 result = 1;
+}
+
+message GetInstallingPackageNameRequest {
+}
+
+message GetInstallingPackageNameResponse {
+  string result = 1;
+}
+
+message GetOriginatingPackageNameRequest {
+}
+
+message GetOriginatingPackageNameResponse {
+  string result = 1;
+}
+
+message GetPackageSourceRequest {
+}
+
+message GetPackageSourceResponse {
+  int32 result = 1;
+}
+
+message GetUpdateOwnerPackageNameRequest {
+}
+
+message GetUpdateOwnerPackageNameResponse {
+  string result = 1;
+}
+
+message InstallSourceInfoWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message NewFeatureGroupInfoRequest {
+}
+
+message NewFeatureGroupInfoResponse {
+  int64 result = 1;
+}
+
+message NewPackageStatsRequest {
+  int64 arg0 = 1;
+}
+
+message NewPackageStatsResponse {
+  int64 result = 1;
+}
+
+message EqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message HashCodeRequest {
+  int64 handle = 1;
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message NewConfigurationInfoRequest {
+}
+
+message NewConfigurationInfoResponse {
+  int64 result = 1;
+}
+
+message GetGlEsVersionRequest {
+  int64 handle = 1;
+}
+
+message GetGlEsVersionResponse {
+  string result = 1;
+}
+
+message NewSignatureRequest {
+  int64 arg0 = 1;
+}
+
+message NewSignatureResponse {
+  int64 result = 1;
+}
+
+message ToByteArrayRequest {
+  int64 handle = 1;
+}
+
+message ToByteArrayResponse {
+  int64 result = 1;
+}
+
+message ToChars0Request {
+  int64 handle = 1;
+}
+
+message ToChars0Response {
+  int64 result = 1;
+}
+
+message ToChars2_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message ToChars2_1Response {
+  int64 result = 1;
+}
+
+message ToCharsStringRequest {
+  int64 handle = 1;
+}
+
+message ToCharsStringResponse {
+  string result = 1;
+}
+
+message NewLabeledIntentRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message NewLabeledIntentResponse {
+  int64 result = 1;
+}
+
+message GetLabelResourceRequest {
+  int64 handle = 1;
+}
+
+message GetLabelResourceResponse {
+  int32 result = 1;
+}
+
+message GetNonLocalizedLabelRequest {
+  int64 handle = 1;
+}
+
+message GetNonLocalizedLabelResponse {
+  int64 result = 1;
+}
+
+message GetSourcePackageRequest {
+  int64 handle = 1;
+}
+
+message GetSourcePackageResponse {
+  string result = 1;
+}
+
+message ReadFromParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message ReadFromParcelResponse {
+}
+
+message NewChecksumRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewChecksumResponse {
+  int64 result = 1;
+}
+
+message ChecksumGetTypeRequest {
+  int64 handle = 1;
+}
+
+message GetValueRequest {
+  int64 handle = 1;
+}
+
+message GetValueResponse {
+  int64 result = 1;
+}
+
+message NewPackageItemInfoRequest {
+}
+
+message NewPackageItemInfoResponse {
+  int64 result = 1;
+}
+
+message LoadBannerRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message LoadBannerResponse {
+  int64 result = 1;
+}
+
+message LoadLogoRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message LoadLogoResponse {
+  int64 result = 1;
+}
+
+message LoadUnbadgedIconRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message LoadUnbadgedIconResponse {
+  int64 result = 1;
+}
+
+message LoadXmlMetaDataRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+}
+
+message LoadXmlMetaDataResponse {
+  int64 result = 1;
+}
+
+message CapabilityDescribeContentsRequest {
+}
+
+message CapabilityEqualsRequest {
+  int64 arg0 = 1;
+}
+
+message CapabilityHashCodeRequest {
+}
+
+message CapabilityWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message NewServiceInfoRequest {
+}
+
+message NewServiceInfoResponse {
+  int64 result = 1;
+}
+
+message GetForegroundServiceTypeRequest {
+  int64 handle = 1;
+}
+
+message GetForegroundServiceTypeResponse {
+  int32 result = 1;
+}
+
+message NewInstrumentationInfoRequest {
+}
+
+message NewInstrumentationInfoResponse {
+  int64 result = 1;
+}
+
+message NewPermissionGroupInfoRequest {
+}
+
+message NewPermissionGroupInfoResponse {
+  int64 result = 1;
+}
+
+message NewApplicationInfoRequest {
+}
+
+message NewApplicationInfoResponse {
+  int64 result = 1;
+}
+
+message AreAttributionsUserVisibleRequest {
+  int64 handle = 1;
+}
+
+message AreAttributionsUserVisibleResponse {
+  bool result = 1;
+}
+
+message GetGwpAsanModeRequest {
+  int64 handle = 1;
+}
+
+message GetGwpAsanModeResponse {
+  int32 result = 1;
+}
+
+message GetMemtagModeRequest {
+  int64 handle = 1;
+}
+
+message GetMemtagModeResponse {
+  int32 result = 1;
+}
+
+message GetNativeHeapZeroInitializedRequest {
+  int64 handle = 1;
+}
+
+message GetNativeHeapZeroInitializedResponse {
+  int32 result = 1;
+}
+
+message GetRequestRawExternalStorageAccessRequest {
+  int64 handle = 1;
+}
+
+message GetRequestRawExternalStorageAccessResponse {
+  int32 result = 1;
+}
+
+message IsProfileableRequest {
+  int64 handle = 1;
+}
+
+message IsProfileableResponse {
+  bool result = 1;
+}
+
+message IsProfileableByShellRequest {
+  int64 handle = 1;
+}
+
+message IsProfileableByShellResponse {
+  bool result = 1;
+}
+
+message IsResourceOverlayRequest {
+  int64 handle = 1;
+}
+
+message IsResourceOverlayResponse {
+  bool result = 1;
+}
+
+message IsVirtualPreloadRequest {
+  int64 handle = 1;
+}
+
+message IsVirtualPreloadResponse {
+  bool result = 1;
+}
+
+message GetCategoryTitleRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message GetCategoryTitleResponse {
+  int64 result = 1;
+}
+
+message NewArchivedActivityInfoRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewArchivedActivityInfoResponse {
+  int64 result = 1;
+}
+
+message GetComponentNameRequest {
+  int64 handle = 1;
+}
+
+message GetComponentNameResponse {
+  int64 result = 1;
+}
+
+message GetIconRequest {
+  int64 handle = 1;
+}
+
+message GetIconResponse {
+  int64 result = 1;
+}
+
+message GetLabelRequest {
+  int64 handle = 1;
+}
+
+message GetLabelResponse {
+  int64 result = 1;
+}
+
+message GetMonochromeIconRequest {
+  int64 handle = 1;
+}
+
+message GetMonochromeIconResponse {
+  int64 result = 1;
+}
+
+message SetComponentNameRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetComponentNameResponse {
+  int64 result = 1;
+}
+
+message ArchivedActivityInfoSetIconRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetLabelRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetLabelResponse {
+  int64 result = 1;
+}
+
+message SetMonochromeIconRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetMonochromeIconResponse {
+  int64 result = 1;
+}
+
+message GetCodeRequest {
+}
+
+message GetCodeResponse {
+  int32 result = 1;
+}
+
+message CreateShortcutResultIntentRequest {
+  int64 arg0 = 1;
+}
+
+message CreateShortcutResultIntentResponse {
+  int64 result = 1;
+}
+
+message GetIconMaxHeightRequest {
+}
+
+message GetIconMaxHeightResponse {
+  int32 result = 1;
+}
+
+message GetIconMaxWidthRequest {
+}
+
+message GetIconMaxWidthResponse {
+  int32 result = 1;
+}
+
+message GetMaxShortcutCountPerActivityRequest {
+}
+
+message GetMaxShortcutCountPerActivityResponse {
+  int32 result = 1;
+}
+
+message IsRateLimitingActiveRequest {
+}
+
+message IsRateLimitingActiveResponse {
+  bool result = 1;
+}
+
+message IsRequestPinShortcutSupportedRequest {
+}
+
+message IsRequestPinShortcutSupportedResponse {
+  bool result = 1;
+}
+
+message PushDynamicShortcutRequest {
+  int64 arg0 = 1;
+}
+
+message PushDynamicShortcutResponse {
+}
+
+message RemoveAllDynamicShortcutsRequest {
+}
+
+message RemoveAllDynamicShortcutsResponse {
+}
+
+message ReportShortcutUsedRequest {
+  string arg0 = 1;
+}
+
+message ReportShortcutUsedResponse {
+}
+
+message RequestPinShortcutRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message RequestPinShortcutResponse {
+  bool result = 1;
+}
+
+message AttributionDescribeContentsRequest {
+}
+
+message AttributionGetLabelRequest {
+}
+
+message AttributionGetLabelResponse {
+  int32 result = 1;
+}
+
+message GetTagRequest {
+}
+
+message GetTagResponse {
+  string result = 1;
+}
+
+message AttributionWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message CapabilityParamsDescribeContentsRequest {
+}
+
+message CapabilityParamsEqualsRequest {
+  int64 arg0 = 1;
+}
+
+message CapabilityParamsGetValueRequest {
+}
+
+message CapabilityParamsGetValueResponse {
+  string result = 1;
+}
+
+message CapabilityParamsHashCodeRequest {
+}
+
+message CapabilityParamsWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message AddAliasRequest {
+  string arg0 = 1;
+}
+
+message AddAliasResponse {
+  int64 result = 1;
+}
+
+message NewProviderInfoRequest {
+}
+
+message NewProviderInfoResponse {
+  int64 result = 1;
+}
+
+message GetActivityInfoRequest {
+}
+
+message GetActivityInfoResponse {
+  int64 result = 1;
+}
+
+message LauncherActivityInfoGetApplicationInfoRequest {
+}
+
+message GetBadgedIconRequest {
+  int32 arg0 = 1;
+}
+
+message GetBadgedIconResponse {
+  int64 result = 1;
+}
+
+message LauncherActivityInfoGetComponentNameRequest {
+}
+
+message GetFirstInstallTimeRequest {
+}
+
+message GetFirstInstallTimeResponse {
+  int64 result = 1;
+}
+
+message LauncherActivityInfoGetIconRequest {
+  int32 arg0 = 1;
+}
+
+message LauncherActivityInfoGetLabelRequest {
+}
+
+message GetLoadingProgressRequest {
+}
+
+message GetLoadingProgressResponse {
+  float result = 1;
+}
+
+message GetUserRequest {
+}
+
+message GetUserResponse {
+  int64 result = 1;
+}
+
+message LauncherUserInfoDescribeContentsRequest {
+}
+
+message GetUserConfigRequest {
+}
+
+message GetUserConfigResponse {
+  int64 result = 1;
+}
+
+message GetUserSerialNumberRequest {
+}
+
+message GetUserSerialNumberResponse {
+  int32 result = 1;
+}
+
+message GetUserTypeRequest {
+}
+
+message GetUserTypeResponse {
+  string result = 1;
+}
+
+message LauncherUserInfoWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message NewActivityInfoRequest {
+}
+
+message NewActivityInfoResponse {
+  int64 result = 1;
+}
+
+message GetThemeResourceRequest {
+  int64 handle = 1;
+}
+
+message GetThemeResourceResponse {
+  int32 result = 1;
+}
+
+message AbandonSessionRequest {
+  int32 arg0 = 1;
+}
+
+message AbandonSessionResponse {
+}
+
+message CommitSessionAfterInstallConstraintsAreMetRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message CommitSessionAfterInstallConstraintsAreMetResponse {
+}
+
+message CreateSessionRequest {
+  int64 arg0 = 1;
+}
+
+message CreateSessionResponse {
+  int32 result = 1;
+}
+
+message GetActiveStagedSessionRequest {
+}
+
+message GetActiveStagedSessionResponse {
+  int64 result = 1;
+}
+
+message GetSessionInfoRequest {
+  int32 arg0 = 1;
+}
+
+message GetSessionInfoResponse {
+  int64 result = 1;
+}
+
+message InstallExistingPackageRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message InstallExistingPackageResponse {
+}
+
+message InstallPackageArchivedRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message InstallPackageArchivedResponse {
+}
+
+message OpenSessionRequest {
+  int32 arg0 = 1;
+}
+
+message OpenSessionResponse {
+  int64 result = 1;
+}
+
+message RegisterSessionCallbackRequest {
+  int64 arg0 = 1;
+}
+
+message RegisterSessionCallbackResponse {
+}
+
+message ReportUnarchivalStateRequest {
+  int64 arg0 = 1;
+}
+
+message ReportUnarchivalStateResponse {
+}
+
+message ReportUnarchivalStatusRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message ReportUnarchivalStatusResponse {
+}
+
+message RequestArchiveRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message RequestArchiveResponse {
+}
+
+message RequestUnarchiveRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message RequestUnarchiveResponse {
+}
+
+message Uninstall2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message Uninstall2Response {
+}
+
+message Uninstall3_1Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message Uninstall3_1Response {
+}
+
+message Uninstall2_2Request {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message Uninstall2_2Response {
+}
+
+message UninstallExistingPackageRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message UninstallExistingPackageResponse {
+}
+
+message UnregisterSessionCallbackRequest {
+  int64 arg0 = 1;
+}
+
+message UnregisterSessionCallbackResponse {
+}
+
+message UpdateSessionAppIconRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message UpdateSessionAppIconResponse {
+}
+
+message UpdateSessionAppLabelRequest {
+  int32 arg0 = 1;
+  string arg1 = 2;
+}
+
+message UpdateSessionAppLabelResponse {
+}
+
+message PackageInstallerInstallConstraintsDescribeContentsRequest {
+}
+
+message PackageInstallerInstallConstraintsEqualsRequest {
+  int64 arg0 = 1;
+}
+
+message PackageInstallerInstallConstraintsHashCodeRequest {
+}
+
+message IsAppNotForegroundRequiredRequest {
+}
+
+message IsAppNotForegroundRequiredResponse {
+  bool result = 1;
+}
+
+message IsAppNotInteractingRequiredRequest {
+}
+
+message IsAppNotInteractingRequiredResponse {
+  bool result = 1;
+}
+
+message IsAppNotTopVisibleRequiredRequest {
+}
+
+message IsAppNotTopVisibleRequiredResponse {
+  bool result = 1;
+}
+
+message IsDeviceIdleRequiredRequest {
+}
+
+message IsDeviceIdleRequiredResponse {
+  bool result = 1;
+}
+
+message IsNotInCallRequiredRequest {
+}
+
+message IsNotInCallRequiredResponse {
+  bool result = 1;
+}
+
+message PackageInstallerInstallConstraintsWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message AreAllConstraintsSatisfiedRequest {
+}
+
+message AreAllConstraintsSatisfiedResponse {
+  bool result = 1;
+}
+
+message PackageInstallerInstallConstraintsResultDescribeContentsRequest {
+}
+
+message PackageInstallerInstallConstraintsResultWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message PackageInstallerPreapprovalDetailsDescribeContentsRequest {
+}
+
+message PackageInstallerPreapprovalDetailsGetIconRequest {
+}
+
+message PackageInstallerPreapprovalDetailsGetLabelRequest {
+}
+
+message GetLocaleRequest {
+}
+
+message GetLocaleResponse {
+  int64 result = 1;
+}
+
+message GetPackageNameRequest {
+}
+
+message GetPackageNameResponse {
+  string result = 1;
+}
+
+message PackageInstallerPreapprovalDetailsToStringRequest {
+}
+
+message PackageInstallerPreapprovalDetailsWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message AbandonRequest {
+}
+
+message AbandonResponse {
+}
+
+message AddChildSessionIdRequest {
+  int32 arg0 = 1;
+}
+
+message AddChildSessionIdResponse {
+}
+
+message CloseRequest {
+}
+
+message CloseResponse {
+}
+
+message CommitRequest {
+  int64 arg0 = 1;
+}
+
+message CommitResponse {
+}
+
+message FsyncRequest {
+  int64 arg0 = 1;
+}
+
+message FsyncResponse {
+}
+
+message GetAppMetadataRequest {
+}
+
+message GetAppMetadataResponse {
+  int64 result = 1;
+}
+
+message GetChildSessionIdsRequest {
+}
+
+message GetChildSessionIdsResponse {
+  int64 result = 1;
+}
+
+message GetNamesRequest {
+}
+
+message GetNamesResponse {
+  int64 result = 1;
+}
+
+message GetParentSessionIdRequest {
+}
+
+message GetParentSessionIdResponse {
+  int32 result = 1;
+}
+
+message IsApplicationEnabledSettingPersistentRequest {
+}
+
+message IsApplicationEnabledSettingPersistentResponse {
+  bool result = 1;
+}
+
+message IsMultiPackageRequest {
+}
+
+message IsMultiPackageResponse {
+  bool result = 1;
+}
+
+message IsRequestUpdateOwnershipRequest {
+}
+
+message IsRequestUpdateOwnershipResponse {
+  bool result = 1;
+}
+
+message IsStagedRequest {
+}
+
+message IsStagedResponse {
+  bool result = 1;
+}
+
+message OpenReadRequest {
+  string arg0 = 1;
+}
+
+message OpenReadResponse {
+  int64 result = 1;
+}
+
+message OpenWriteRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message OpenWriteResponse {
+  int64 result = 1;
+}
+
+message RemoveChildSessionIdRequest {
+  int32 arg0 = 1;
+}
+
+message RemoveChildSessionIdResponse {
+}
+
+message RemoveSplitRequest {
+  string arg0 = 1;
+}
+
+message RemoveSplitResponse {
+}
+
+message RequestUserPreapprovalRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message RequestUserPreapprovalResponse {
+}
+
+message SetAppMetadataRequest {
+  int64 arg0 = 1;
+}
+
+message SetAppMetadataResponse {
+}
+
+message SetStagingProgressRequest {
+  float arg0 = 1;
+}
+
+message SetStagingProgressResponse {
+}
+
+message TransferRequest {
+  string arg0 = 1;
+}
+
+message TransferResponse {
+}
+
+message OnActiveChangedRequest {
+  int32 arg0 = 1;
+  bool arg1 = 2;
+}
+
+message OnActiveChangedResponse {
+}
+
+message OnBadgingChangedRequest {
+  int32 arg0 = 1;
+}
+
+message OnBadgingChangedResponse {
+}
+
+message OnCreatedRequest {
+  int32 arg0 = 1;
+}
+
+message OnCreatedResponse {
+}
+
+message OnFinishedRequest {
+  int32 arg0 = 1;
+  bool arg1 = 2;
+}
+
+message OnFinishedResponse {
+}
+
+message OnProgressChangedRequest {
+  int32 arg0 = 1;
+  float arg1 = 2;
+}
+
+message OnProgressChangedResponse {
+}
+
+message CreateDetailsIntentRequest {
+}
+
+message CreateDetailsIntentResponse {
+  int64 result = 1;
+}
+
+message PackageInstallerSessionInfoDescribeContentsRequest {
+}
+
+message GetAppIconRequest {
+}
+
+message GetAppIconResponse {
+  int64 result = 1;
+}
+
+message GetAppLabelRequest {
+}
+
+message GetAppLabelResponse {
+  int64 result = 1;
+}
+
+message GetAppPackageNameRequest {
+}
+
+message GetAppPackageNameResponse {
+  string result = 1;
+}
+
+message GetCreatedMillisRequest {
+}
+
+message GetCreatedMillisResponse {
+  int64 result = 1;
+}
+
+message GetDontKillAppRequest {
+}
+
+message GetDontKillAppResponse {
+  bool result = 1;
+}
+
+message GetInstallLocationRequest {
+}
+
+message GetInstallLocationResponse {
+  int32 result = 1;
+}
+
+message GetInstallReasonRequest {
+}
+
+message GetInstallReasonResponse {
+  int32 result = 1;
+}
+
+message GetInstallerAttributionTagRequest {
+}
+
+message GetInstallerAttributionTagResponse {
+  string result = 1;
+}
+
+message GetInstallerPackageNameRequest {
+}
+
+message GetInstallerPackageNameResponse {
+  string result = 1;
+}
+
+message GetInstallerUidRequest {
+}
+
+message GetInstallerUidResponse {
+  int32 result = 1;
+}
+
+message GetModeRequest {
+}
+
+message GetModeResponse {
+  int32 result = 1;
+}
+
+message GetOriginatingUidRequest {
+}
+
+message GetOriginatingUidResponse {
+  int32 result = 1;
+}
+
+message GetOriginatingUriRequest {
+}
+
+message GetOriginatingUriResponse {
+  int64 result = 1;
+}
+
+message GetProgressRequest {
+}
+
+message GetProgressResponse {
+  float result = 1;
+}
+
+message GetReferrerUriRequest {
+}
+
+message GetReferrerUriResponse {
+  int64 result = 1;
+}
+
+message GetRequireUserActionRequest {
+}
+
+message GetRequireUserActionResponse {
+  int32 result = 1;
+}
+
+message GetSessionIdRequest {
+}
+
+message GetSessionIdResponse {
+  int32 result = 1;
+}
+
+message GetSizeRequest {
+}
+
+message GetSizeResponse {
+  int64 result = 1;
+}
+
+message GetStagedSessionErrorCodeRequest {
+}
+
+message GetStagedSessionErrorCodeResponse {
+  int32 result = 1;
+}
+
+message GetStagedSessionErrorMessageRequest {
+}
+
+message GetStagedSessionErrorMessageResponse {
+  string result = 1;
+}
+
+message GetUpdatedMillisRequest {
+}
+
+message GetUpdatedMillisResponse {
+  int64 result = 1;
+}
+
+message HasParentSessionIdRequest {
+}
+
+message HasParentSessionIdResponse {
+  bool result = 1;
+}
+
+message IsActiveRequest {
+}
+
+message IsActiveResponse {
+  bool result = 1;
+}
+
+message IsAutoInstallDependenciesEnabledRequest {
+}
+
+message IsAutoInstallDependenciesEnabledResponse {
+  bool result = 1;
+}
+
+message IsCommittedRequest {
+}
+
+message IsCommittedResponse {
+  bool result = 1;
+}
+
+message IsPreApprovalRequestedRequest {
+}
+
+message IsPreApprovalRequestedResponse {
+  bool result = 1;
+}
+
+message IsSealedRequest {
+}
+
+message IsSealedResponse {
+  bool result = 1;
+}
+
+message IsStagedSessionActiveRequest {
+}
+
+message IsStagedSessionActiveResponse {
+  bool result = 1;
+}
+
+message IsStagedSessionAppliedRequest {
+}
+
+message IsStagedSessionAppliedResponse {
+  bool result = 1;
+}
+
+message IsStagedSessionFailedRequest {
+}
+
+message IsStagedSessionFailedResponse {
+  bool result = 1;
+}
+
+message IsStagedSessionReadyRequest {
+}
+
+message IsStagedSessionReadyResponse {
+  bool result = 1;
+}
+
+message IsUnarchivalRequest {
+}
+
+message IsUnarchivalResponse {
+  bool result = 1;
+}
+
+message PackageInstallerSessionInfoWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message PackageInstallerSessionParamsDescribeContentsRequest {
+}
+
+message SetAppIconRequest {
+  int64 arg0 = 1;
+}
+
+message SetAppIconResponse {
+}
+
+message SetAppLabelRequest {
+  string arg0 = 1;
+}
+
+message SetAppLabelResponse {
+}
+
+message SetAppPackageNameRequest {
+  string arg0 = 1;
+}
+
+message SetAppPackageNameResponse {
+}
+
+message SetApplicationEnabledSettingPersistentRequest {
+}
+
+message SetApplicationEnabledSettingPersistentResponse {
+}
+
+message SetAutoInstallDependenciesEnabledRequest {
+  bool arg0 = 1;
+}
+
+message SetAutoInstallDependenciesEnabledResponse {
+}
+
+message SetAutoRevokePermissionsModeRequest {
+  bool arg0 = 1;
+}
+
+message SetAutoRevokePermissionsModeResponse {
+}
+
+message SetDontKillAppRequest {
+  bool arg0 = 1;
+}
+
+message SetDontKillAppResponse {
+}
+
+message SetInstallLocationRequest {
+  int32 arg0 = 1;
+}
+
+message SetInstallLocationResponse {
+}
+
+message SetInstallReasonRequest {
+  int32 arg0 = 1;
+}
+
+message SetInstallReasonResponse {
+}
+
+message SetInstallScenarioRequest {
+  int32 arg0 = 1;
+}
+
+message SetInstallScenarioResponse {
+}
+
+message SetInstallerPackageNameRequest {
+  string arg0 = 1;
+}
+
+message SetInstallerPackageNameResponse {
+}
+
+message SetMultiPackageRequest {
+}
+
+message SetMultiPackageResponse {
+}
+
+message SetOriginatingUidRequest {
+  int32 arg0 = 1;
+}
+
+message SetOriginatingUidResponse {
+}
+
+message SetOriginatingUriRequest {
+  int64 arg0 = 1;
+}
+
+message SetOriginatingUriResponse {
+}
+
+message SetPackageSourceRequest {
+  int32 arg0 = 1;
+}
+
+message SetPackageSourceResponse {
+}
+
+message SetPermissionStateRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message SetPermissionStateResponse {
+  int64 result = 1;
+}
+
+message SetReferrerUriRequest {
+  int64 arg0 = 1;
+}
+
+message SetReferrerUriResponse {
+}
+
+message SetRequestUpdateOwnershipRequest {
+  bool arg0 = 1;
+}
+
+message SetRequestUpdateOwnershipResponse {
+}
+
+message SetRequireUserActionRequest {
+  int32 arg0 = 1;
+}
+
+message SetRequireUserActionResponse {
+}
+
+message SetSizeRequest {
+  int64 arg0 = 1;
+}
+
+message SetSizeResponse {
+}
+
+message SetUnarchiveIdRequest {
+  int32 arg0 = 1;
+}
+
+message SetUnarchiveIdResponse {
+}
+
+message PackageInstallerSessionParamsWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message CreateGenericErrorStateRequest {
+  int32 arg0 = 1;
+}
+
+message CreateGenericErrorStateResponse {
+  int64 result = 1;
+}
+
+message CreateInsufficientStorageStateRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message CreateInsufficientStorageStateResponse {
+  int64 result = 1;
+}
+
+message CreateNoConnectivityStateRequest {
+  int32 arg0 = 1;
+}
+
+message CreateNoConnectivityStateResponse {
+  int64 result = 1;
+}
+
+message CreateOkStateRequest {
+  int32 arg0 = 1;
+}
+
+message CreateOkStateResponse {
+  int64 result = 1;
+}
+
+message CreateUserActionRequiredStateRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message CreateUserActionRequiredStateResponse {
+  int64 result = 1;
+}
+
+message NewVersionedPackageRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message NewVersionedPackageResponse {
+  int64 result = 1;
+}
+
+message GetLongVersionCodeRequest {
+  int64 handle = 1;
+}
+
+message GetLongVersionCodeResponse {
+  int64 result = 1;
+}
+
+message VersionedPackageGetPackageNameRequest {
+  int64 handle = 1;
+}
+
+message GetVersionCodeRequest {
+  int64 handle = 1;
+}
+
+message GetVersionCodeResponse {
+  int32 result = 1;
+}
+
+message NewFeatureInfoRequest {
+}
+
+message NewFeatureInfoResponse {
+  int64 result = 1;
+}
+
+message NewArchivedPackageInfoRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message NewArchivedPackageInfoResponse {
+  int64 result = 1;
+}
+
+message GetDefaultToDeviceProtectedStorageRequest {
+  int64 handle = 1;
+}
+
+message GetDefaultToDeviceProtectedStorageResponse {
+  string result = 1;
+}
+
+message ArchivedPackageInfoGetPackageNameRequest {
+  int64 handle = 1;
+}
+
+message GetRequestLegacyExternalStorageRequest {
+  int64 handle = 1;
+}
+
+message GetRequestLegacyExternalStorageResponse {
+  string result = 1;
+}
+
+message GetSigningInfoRequest {
+  int64 handle = 1;
+}
+
+message GetSigningInfoResponse {
+  int64 result = 1;
+}
+
+message GetTargetSdkVersionRequest {
+  int64 handle = 1;
+}
+
+message GetTargetSdkVersionResponse {
+  int32 result = 1;
+}
+
+message GetUserDataFragileRequest {
+  int64 handle = 1;
+}
+
+message GetUserDataFragileResponse {
+  string result = 1;
+}
+
+message GetVersionCodeMajorRequest {
+  int64 handle = 1;
+}
+
+message GetVersionCodeMajorResponse {
+  int32 result = 1;
+}
+
+message SetDefaultToDeviceProtectedStorageRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetDefaultToDeviceProtectedStorageResponse {
+  int64 result = 1;
+}
+
+message SetPackageNameRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetPackageNameResponse {
+  int64 result = 1;
+}
+
+message SetRequestLegacyExternalStorageRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetRequestLegacyExternalStorageResponse {
+  int64 result = 1;
+}
+
+message SetSigningInfoRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetSigningInfoResponse {
+  int64 result = 1;
+}
+
+message SetTargetSdkVersionRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetTargetSdkVersionResponse {
+  int64 result = 1;
+}
+
+message SetUserDataFragileRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetUserDataFragileResponse {
+  int64 result = 1;
+}
+
+message SetVersionCodeRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetVersionCodeResponse {
+  int64 result = 1;
+}
+
+message SetVersionCodeMajorRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetVersionCodeMajorResponse {
+  int64 result = 1;
+}
+
+message NewPackageInfoRequest {
+}
+
+message NewPackageInfoResponse {
+  int64 result = 1;
+}
+
+message GetApexPackageNameRequest {
+  int64 handle = 1;
+}
+
+message GetApexPackageNameResponse {
+  string result = 1;
+}
+
+message GetArchiveTimeMillisRequest {
+  int64 handle = 1;
+}
+
+message GetArchiveTimeMillisResponse {
+  int64 result = 1;
+}
+
+message SetLongVersionCodeRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetLongVersionCodeResponse {
+}
+
+message AddPackageToPreferredRequest {
+  string arg0 = 1;
+}
+
+message AddPackageToPreferredResponse {
+}
+
+message AddPermissionRequest {
+  int64 arg0 = 1;
+}
+
+message AddPermissionResponse {
+  bool result = 1;
+}
+
+message AddPermissionAsyncRequest {
+  int64 arg0 = 1;
+}
+
+message AddPermissionAsyncResponse {
+  bool result = 1;
+}
+
+message AddPreferredActivityRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message AddPreferredActivityResponse {
+}
+
+message AddWhitelistedRestrictedPermissionRequest {
+  string arg0 = 1;
+  string arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message AddWhitelistedRestrictedPermissionResponse {
+  bool result = 1;
+}
+
+message CanPackageQuery2Request {
+  string arg0 = 1;
+  string arg1 = 2;
+}
+
+message CanPackageQuery2Response {
+  bool result = 1;
+}
+
+message CanPackageQuery2_1Request {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message CanPackageQuery2_1Response {
+  int64 result = 1;
+}
+
+message CanRequestPackageInstallsRequest {
+}
+
+message CanRequestPackageInstallsResponse {
+  bool result = 1;
+}
+
+message CanonicalToCurrentPackageNamesRequest {
+  int64 arg0 = 1;
+}
+
+message CanonicalToCurrentPackageNamesResponse {
+  int64 result = 1;
+}
+
+message CheckPermissionRequest {
+  string arg0 = 1;
+  string arg1 = 2;
+}
+
+message CheckPermissionResponse {
+  int32 result = 1;
+}
+
+message CheckSignatures2Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message CheckSignatures2Response {
+  int32 result = 1;
+}
+
+message CheckSignatures2_1Request {
+  string arg0 = 1;
+  string arg1 = 2;
+}
+
+message CheckSignatures2_1Response {
+  int32 result = 1;
+}
+
+message ClearInstantAppCookieRequest {
+}
+
+message ClearInstantAppCookieResponse {
+}
+
+message ClearPackagePreferredActivitiesRequest {
+  string arg0 = 1;
+}
+
+message ClearPackagePreferredActivitiesResponse {
+}
+
+message CurrentToCanonicalPackageNamesRequest {
+  int64 arg0 = 1;
+}
+
+message CurrentToCanonicalPackageNamesResponse {
+  int64 result = 1;
+}
+
+message ExtendVerificationTimeoutRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message ExtendVerificationTimeoutResponse {
+}
+
+message GetActivityBanner1Request {
+  int64 arg0 = 1;
+}
+
+message GetActivityBanner1Response {
+  int64 result = 1;
+}
+
+message GetActivityBanner1_1Request {
+  int64 arg0 = 1;
+}
+
+message GetActivityBanner1_1Response {
+  int64 result = 1;
+}
+
+message GetActivityIcon1Request {
+  int64 arg0 = 1;
+}
+
+message GetActivityIcon1Response {
+  int64 result = 1;
+}
+
+message GetActivityIcon1_1Request {
+  int64 arg0 = 1;
+}
+
+message GetActivityIcon1_1Response {
+  int64 result = 1;
+}
+
+message GetActivityInfo2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message GetActivityInfo2Response {
+  int64 result = 1;
+}
+
+message GetActivityInfo2_1Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message GetActivityInfo2_1Response {
+  int64 result = 1;
+}
+
+message GetActivityLogo1Request {
+  int64 arg0 = 1;
+}
+
+message GetActivityLogo1Response {
+  int64 result = 1;
+}
+
+message GetActivityLogo1_1Request {
+  int64 arg0 = 1;
+}
+
+message GetActivityLogo1_1Response {
+  int64 result = 1;
+}
+
+message GetApplicationBanner1Request {
+  int64 arg0 = 1;
+}
+
+message GetApplicationBanner1Response {
+  int64 result = 1;
+}
+
+message GetApplicationBanner1_1Request {
+  string arg0 = 1;
+}
+
+message GetApplicationBanner1_1Response {
+  int64 result = 1;
+}
+
+message GetApplicationEnabledSettingRequest {
+  string arg0 = 1;
+}
+
+message GetApplicationEnabledSettingResponse {
+  int32 result = 1;
+}
+
+message GetApplicationIcon1Request {
+  int64 arg0 = 1;
+}
+
+message GetApplicationIcon1Response {
+  int64 result = 1;
+}
+
+message GetApplicationIcon1_1Request {
+  string arg0 = 1;
+}
+
+message GetApplicationIcon1_1Response {
+  int64 result = 1;
+}
+
+message GetApplicationInfo2Request {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message GetApplicationInfo2Response {
+  int64 result = 1;
+}
+
+message GetApplicationInfo2_1Request {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message GetApplicationInfo2_1Response {
+  int64 result = 1;
+}
+
+message GetApplicationLabelRequest {
+  int64 arg0 = 1;
+}
+
+message GetApplicationLabelResponse {
+  int64 result = 1;
+}
+
+message GetApplicationLogo1Request {
+  int64 arg0 = 1;
+}
+
+message GetApplicationLogo1Response {
+  int64 result = 1;
+}
+
+message GetApplicationLogo1_1Request {
+  string arg0 = 1;
+}
+
+message GetApplicationLogo1_1Response {
+  int64 result = 1;
+}
+
+message GetArchivedPackageRequest {
+  string arg0 = 1;
+}
+
+message GetArchivedPackageResponse {
+  int64 result = 1;
+}
+
+message GetBackgroundPermissionOptionLabelRequest {
+}
+
+message GetBackgroundPermissionOptionLabelResponse {
+  int64 result = 1;
+}
+
+message GetChangedPackagesRequest {
+  int32 arg0 = 1;
+}
+
+message GetChangedPackagesResponse {
+  int64 result = 1;
+}
+
+message GetComponentEnabledSettingRequest {
+  int64 arg0 = 1;
+}
+
+message GetComponentEnabledSettingResponse {
+  int32 result = 1;
+}
+
+message GetDefaultActivityIconRequest {
+}
+
+message GetDefaultActivityIconResponse {
+  int64 result = 1;
+}
+
+message GetDrawableRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message GetDrawableResponse {
+  int64 result = 1;
+}
+
+message GetInstallSourceInfoRequest {
+  string arg0 = 1;
+}
+
+message GetInstallSourceInfoResponse {
+  int64 result = 1;
+}
+
+message PackageManagerGetInstallerPackageNameRequest {
+  string arg0 = 1;
+}
+
+message GetInstantAppCookieRequest {
+}
+
+message GetInstantAppCookieResponse {
+  int64 result = 1;
+}
+
+message GetInstantAppCookieMaxBytesRequest {
+}
+
+message GetInstantAppCookieMaxBytesResponse {
+  int32 result = 1;
+}
+
+message GetInstrumentationInfoRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message GetInstrumentationInfoResponse {
+  int64 result = 1;
+}
+
+message GetLaunchIntentForPackageRequest {
+  string arg0 = 1;
+}
+
+message GetLaunchIntentForPackageResponse {
+  int64 result = 1;
+}
+
+message GetLaunchIntentSenderForPackageRequest {
+  string arg0 = 1;
+}
+
+message GetLaunchIntentSenderForPackageResponse {
+  int64 result = 1;
+}
+
+message GetLeanbackLaunchIntentForPackageRequest {
+  string arg0 = 1;
+}
+
+message GetLeanbackLaunchIntentForPackageResponse {
+  int64 result = 1;
+}
+
+message GetModuleInfoRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message GetModuleInfoResponse {
+  int64 result = 1;
+}
+
+message GetNameForUidRequest {
+  int32 arg0 = 1;
+}
+
+message GetNameForUidResponse {
+  string result = 1;
+}
+
+message GetPackageArchiveInfo2Request {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message GetPackageArchiveInfo2Response {
+  int64 result = 1;
+}
+
+message GetPackageArchiveInfo2_1Request {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message GetPackageArchiveInfo2_1Response {
+  int64 result = 1;
+}
+
+message GetPackageGids1Request {
+  string arg0 = 1;
+}
+
+message GetPackageGids1Response {
+  int64 result = 1;
+}
+
+message GetPackageGids2_1Request {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message GetPackageGids2_1Response {
+  int64 result = 1;
+}
+
+message GetPackageGids2_2Request {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message GetPackageGids2_2Response {
+  int64 result = 1;
+}
+
+message GetPackageInfo2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message GetPackageInfo2Response {
+  int64 result = 1;
+}
+
+message GetPackageInfo2_1Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message GetPackageInfo2_1Response {
+  int64 result = 1;
+}
+
+message GetPackageInfo2_2Request {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message GetPackageInfo2_2Response {
+  int64 result = 1;
+}
+
+message GetPackageInfo2_3Request {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message GetPackageInfo2_3Response {
+  int64 result = 1;
+}
+
+message GetPackageInstallerRequest {
+}
+
+message GetPackageInstallerResponse {
+  int64 result = 1;
+}
+
+message GetPackageUid2Request {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message GetPackageUid2Response {
+  int32 result = 1;
+}
+
+message GetPackageUid2_1Request {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message GetPackageUid2_1Response {
+  int32 result = 1;
+}
+
+message GetPackagesForUidRequest {
+  int32 arg0 = 1;
+}
+
+message GetPackagesForUidResponse {
+  int64 result = 1;
+}
+
+message GetPermissionGroupInfoRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message GetPermissionGroupInfoResponse {
+  int64 result = 1;
+}
+
+message GetPermissionInfoRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message GetPermissionInfoResponse {
+  int64 result = 1;
+}
+
+message GetProperty2Request {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message GetProperty2Response {
+  int64 result = 1;
+}
+
+message GetProperty2_1Request {
+  string arg0 = 1;
+  string arg1 = 2;
+}
+
+message GetProperty2_1Response {
+  int64 result = 1;
+}
+
+message GetProviderInfo2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message GetProviderInfo2Response {
+  int64 result = 1;
+}
+
+message GetProviderInfo2_1Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message GetProviderInfo2_1Response {
+  int64 result = 1;
+}
+
+message GetReceiverInfo2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message GetReceiverInfo2Response {
+  int64 result = 1;
+}
+
+message GetReceiverInfo2_1Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message GetReceiverInfo2_1Response {
+  int64 result = 1;
+}
+
+message GetResourcesForActivityRequest {
+  int64 arg0 = 1;
+}
+
+message GetResourcesForActivityResponse {
+  int64 result = 1;
+}
+
+message GetResourcesForApplication1Request {
+  int64 arg0 = 1;
+}
+
+message GetResourcesForApplication1Response {
+  int64 result = 1;
+}
+
+message GetResourcesForApplication2_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message GetResourcesForApplication2_1Response {
+  int64 result = 1;
+}
+
+message GetResourcesForApplication1_2Request {
+  string arg0 = 1;
+}
+
+message GetResourcesForApplication1_2Response {
+  int64 result = 1;
+}
+
+message GetServiceInfo2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message GetServiceInfo2Response {
+  int64 result = 1;
+}
+
+message GetServiceInfo2_1Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message GetServiceInfo2_1Response {
+  int64 result = 1;
+}
+
+message GetSuspendedPackageAppExtrasRequest {
+}
+
+message GetSuspendedPackageAppExtrasResponse {
+  int64 result = 1;
+}
+
+message GetSyntheticAppDetailsActivityEnabledRequest {
+  string arg0 = 1;
+}
+
+message GetSyntheticAppDetailsActivityEnabledResponse {
+  bool result = 1;
+}
+
+message GetSystemAvailableFeaturesRequest {
+}
+
+message GetSystemAvailableFeaturesResponse {
+  int64 result = 1;
+}
+
+message GetSystemSharedLibraryNamesRequest {
+}
+
+message GetSystemSharedLibraryNamesResponse {
+  int64 result = 1;
+}
+
+message PackageManagerGetTargetSdkVersionRequest {
+  string arg0 = 1;
+}
+
+message GetTextRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message GetTextResponse {
+  int64 result = 1;
+}
+
+message GetUserBadgedDrawableForDensityRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message GetUserBadgedDrawableForDensityResponse {
+  int64 result = 1;
+}
+
+message GetUserBadgedIconRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message GetUserBadgedIconResponse {
+  int64 result = 1;
+}
+
+message GetUserBadgedLabelRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message GetUserBadgedLabelResponse {
+  int64 result = 1;
+}
+
+message GetXmlRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message GetXmlResponse {
+  int64 result = 1;
+}
+
+message HasSigningCertificate3Request {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message HasSigningCertificate3Response {
+  bool result = 1;
+}
+
+message HasSigningCertificate3_1Request {
+  string arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message HasSigningCertificate3_1Response {
+  bool result = 1;
+}
+
+message HasSystemFeature1Request {
+  string arg0 = 1;
+}
+
+message HasSystemFeature1Response {
+  bool result = 1;
+}
+
+message HasSystemFeature2_1Request {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message HasSystemFeature2_1Response {
+  bool result = 1;
+}
+
+message IsAppArchivableRequest {
+  string arg0 = 1;
+}
+
+message IsAppArchivableResponse {
+  bool result = 1;
+}
+
+message IsAutoRevokeWhitelisted0Request {
+}
+
+message IsAutoRevokeWhitelisted0Response {
+  bool result = 1;
+}
+
+message IsAutoRevokeWhitelisted1_1Request {
+  string arg0 = 1;
+}
+
+message IsAutoRevokeWhitelisted1_1Response {
+  bool result = 1;
+}
+
+message IsDefaultApplicationIconRequest {
+  int64 arg0 = 1;
+}
+
+message IsDefaultApplicationIconResponse {
+  bool result = 1;
+}
+
+message IsDeviceUpgradingRequest {
+}
+
+message IsDeviceUpgradingResponse {
+  bool result = 1;
+}
+
+message IsInstantApp0Request {
+}
+
+message IsInstantApp0Response {
+  bool result = 1;
+}
+
+message IsInstantApp1_1Request {
+  string arg0 = 1;
+}
+
+message IsInstantApp1_1Response {
+  bool result = 1;
+}
+
+message IsPackageStoppedRequest {
+  string arg0 = 1;
+}
+
+message IsPackageStoppedResponse {
+  bool result = 1;
+}
+
+message IsPackageSuspended0Request {
+}
+
+message IsPackageSuspended0Response {
+  bool result = 1;
+}
+
+message IsPackageSuspended1_1Request {
+  string arg0 = 1;
+}
+
+message IsPackageSuspended1_1Response {
+  bool result = 1;
+}
+
+message IsPermissionRevokedByPolicyRequest {
+  string arg0 = 1;
+  string arg1 = 2;
+}
+
+message IsPermissionRevokedByPolicyResponse {
+  bool result = 1;
+}
+
+message IsSafeModeRequest {
+}
+
+message IsSafeModeResponse {
+  bool result = 1;
+}
+
+message RelinquishUpdateOwnershipRequest {
+  string arg0 = 1;
+}
+
+message RelinquishUpdateOwnershipResponse {
+}
+
+message RemovePackageFromPreferredRequest {
+  string arg0 = 1;
+}
+
+message RemovePackageFromPreferredResponse {
+}
+
+message RemovePermissionRequest {
+  string arg0 = 1;
+}
+
+message RemovePermissionResponse {
+}
+
+message RemoveWhitelistedRestrictedPermissionRequest {
+  string arg0 = 1;
+  string arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message RemoveWhitelistedRestrictedPermissionResponse {
+  bool result = 1;
+}
+
+message ResolveActivity2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message ResolveActivity2Response {
+  int64 result = 1;
+}
+
+message ResolveActivity2_1Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message ResolveActivity2_1Response {
+  int64 result = 1;
+}
+
+message ResolveContentProvider2Request {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message ResolveContentProvider2Response {
+  int64 result = 1;
+}
+
+message ResolveContentProvider2_1Request {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message ResolveContentProvider2_1Response {
+  int64 result = 1;
+}
+
+message ResolveService2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message ResolveService2Response {
+  int64 result = 1;
+}
+
+message ResolveService2_1Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message ResolveService2_1Response {
+  int64 result = 1;
+}
+
+message SetApplicationCategoryHintRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message SetApplicationCategoryHintResponse {
+}
+
+message SetApplicationEnabledSettingRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message SetApplicationEnabledSettingResponse {
+}
+
+message SetAutoRevokeWhitelistedRequest {
+  string arg0 = 1;
+  bool arg1 = 2;
+}
+
+message SetAutoRevokeWhitelistedResponse {
+  bool result = 1;
+}
+
+message SetComponentEnabledSettingRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message SetComponentEnabledSettingResponse {
+}
+
+message PackageManagerSetInstallerPackageNameRequest {
+  string arg0 = 1;
+  string arg1 = 2;
+}
+
+message UpdateInstantAppCookieRequest {
+  int64 arg0 = 1;
+}
+
+message UpdateInstantAppCookieResponse {
+}
+
+message VerifyPendingInstallRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message VerifyPendingInstallResponse {
+}
+
+message GetVerifiedSigningInfoRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message GetVerifiedSigningInfoResponse {
+  int64 result = 1;
+}
+
+message PackageManagerApplicationInfoFlagsGetValueRequest {
+}
+
+message OfRequest {
+  int64 arg0 = 1;
+}
+
+message OfResponse {
+  int64 result = 1;
+}
+
+message PackageManagerComponentEnabledSettingDescribeContentsRequest {
+}
+
+message PackageManagerComponentEnabledSettingGetComponentNameRequest {
+}
+
+message GetEnabledFlagsRequest {
+}
+
+message GetEnabledFlagsResponse {
+  int32 result = 1;
+}
+
+message GetEnabledStateRequest {
+}
+
+message GetEnabledStateResponse {
+  int32 result = 1;
+}
+
+message PackageManagerComponentEnabledSettingWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message PackageManagerComponentInfoFlagsGetValueRequest {
+}
+
+message PackageManagerPackageInfoFlagsGetValueRequest {
+}
+
+message PackageManagerPropertyDescribeContentsRequest {
+}
+
+message PackageManagerPropertyEqualsRequest {
+  int64 arg0 = 1;
+}
+
+message GetBooleanRequest {
+}
+
+message GetBooleanResponse {
+  bool result = 1;
+}
+
+message GetClassNameRequest {
+}
+
+message GetClassNameResponse {
+  string result = 1;
+}
+
+message GetFloatRequest {
+}
+
+message GetFloatResponse {
+  float result = 1;
+}
+
+message GetIntegerRequest {
+}
+
+message GetIntegerResponse {
+  int32 result = 1;
+}
+
+message GetResourceIdRequest {
+}
+
+message GetResourceIdResponse {
+  int32 result = 1;
+}
+
+message GetStringRequest {
+}
+
+message GetStringResponse {
+  string result = 1;
+}
+
+message PackageManagerPropertyHashCodeRequest {
+}
+
+message IsBooleanRequest {
+}
+
+message IsBooleanResponse {
+  bool result = 1;
+}
+
+message IsFloatRequest {
+}
+
+message IsFloatResponse {
+  bool result = 1;
+}
+
+message IsIntegerRequest {
+}
+
+message IsIntegerResponse {
+  bool result = 1;
+}
+
+message IsResourceIdRequest {
+}
+
+message IsResourceIdResponse {
+  bool result = 1;
+}
+
+message IsStringRequest {
+}
+
+message IsStringResponse {
+  bool result = 1;
+}
+
+message PackageManagerPropertyWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message PackageManagerResolveInfoFlagsGetValueRequest {
+}
+
+message ModuleInfoDescribeContentsRequest {
+}
+
+message ModuleInfoEqualsRequest {
+  int64 arg0 = 1;
+}
+
+message ModuleInfoGetNameResponse {
+  int64 result = 1;
+}
+
+message ModuleInfoHashCodeRequest {
+}
+
+message IsHiddenRequest {
+}
+
+message IsHiddenResponse {
+  bool result = 1;
+}
+
+message ModuleInfoToStringRequest {
+}
+
+message ModuleInfoWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message ApkChecksumDescribeContentsRequest {
+}
+
+message GetInstallerCertificateRequest {
+}
+
+message GetInstallerCertificateResponse {
+  int64 result = 1;
+}
+
+message GetSplitNameRequest {
+}
+
+message GetSplitNameResponse {
+  string result = 1;
+}
+
+message ApkChecksumGetValueRequest {
+}
+
+message ApkChecksumToStringRequest {
+}
+
+message ApkChecksumWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message NewChangedPackagesRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewChangedPackagesResponse {
+  int64 result = 1;
+}
+
+message GetSequenceNumberRequest {
+  int64 handle = 1;
+}
+
+message GetSequenceNumberResponse {
+  int32 result = 1;
+}
+
+message NewSigningInfoRequest {
+}
+
+message NewSigningInfoResponse {
+  int64 result = 1;
+}
+
+message GetApkContentsSignersRequest {
+  int64 handle = 1;
+}
+
+message GetApkContentsSignersResponse {
+  int64 result = 1;
+}
+
+message GetSchemeVersionRequest {
+  int64 handle = 1;
+}
+
+message GetSchemeVersionResponse {
+  int32 result = 1;
+}
+
+message GetSigningCertificateHistoryRequest {
+  int64 handle = 1;
+}
+
+message GetSigningCertificateHistoryResponse {
+  int64 result = 1;
+}
+
+message HasMultipleSignersRequest {
+  int64 handle = 1;
+}
+
+message HasMultipleSignersResponse {
+  bool result = 1;
+}
+
+message HasPastSigningCertificatesRequest {
+  int64 handle = 1;
+}
+
+message HasPastSigningCertificatesResponse {
+  bool result = 1;
+}
+
+message SignersMatchExactlyRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SignersMatchExactlyResponse {
+  bool result = 1;
+}
+
+service ComponentInfoService {
+  rpc NewComponentInfo (NewComponentInfoRequest) returns (NewComponentInfoResponse);
+  rpc GetBannerResource (GetBannerResourceRequest) returns (GetBannerResourceResponse);
+  rpc GetIconResource (GetIconResourceRequest) returns (GetIconResourceResponse);
+  rpc GetLogoResource (GetLogoResourceRequest) returns (GetLogoResourceResponse);
+  rpc IsEnabled (IsEnabledRequest) returns (IsEnabledResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service PathPermissionService {
+  rpc NewPathPermission (NewPathPermissionRequest) returns (NewPathPermissionResponse);
+  rpc GetReadPermission (GetReadPermissionRequest) returns (GetReadPermissionResponse);
+  rpc GetWritePermission (GetWritePermissionRequest) returns (GetWritePermissionResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
 service CrossProfileAppsService {
   rpc CanInteractAcrossProfiles (CanInteractAcrossProfilesRequest) returns (CanInteractAcrossProfilesResponse);
   rpc CanRequestInteractAcrossProfiles (CanRequestInteractAcrossProfilesRequest) returns (CanRequestInteractAcrossProfilesResponse);
@@ -398,17 +4091,92 @@ service CrossProfileAppsService {
   rpc StartMainActivity4_1 (StartMainActivity4_1Request) returns (StartMainActivity4_1Response);
 }
 
-service ShortcutManagerService {
-  rpc CreateShortcutResultIntent (CreateShortcutResultIntentRequest) returns (CreateShortcutResultIntentResponse);
-  rpc GetIconMaxHeight (GetIconMaxHeightRequest) returns (GetIconMaxHeightResponse);
-  rpc GetIconMaxWidth (GetIconMaxWidthRequest) returns (GetIconMaxWidthResponse);
-  rpc GetMaxShortcutCountPerActivity (GetMaxShortcutCountPerActivityRequest) returns (GetMaxShortcutCountPerActivityResponse);
-  rpc IsRateLimitingActive (IsRateLimitingActiveRequest) returns (IsRateLimitingActiveResponse);
-  rpc IsRequestPinShortcutSupported (IsRequestPinShortcutSupportedRequest) returns (IsRequestPinShortcutSupportedResponse);
-  rpc PushDynamicShortcut (PushDynamicShortcutRequest) returns (PushDynamicShortcutResponse);
-  rpc RemoveAllDynamicShortcuts (RemoveAllDynamicShortcutsRequest) returns (RemoveAllDynamicShortcutsResponse);
-  rpc ReportShortcutUsed (ReportShortcutUsedRequest) returns (ReportShortcutUsedResponse);
-  rpc RequestPinShortcut (RequestPinShortcutRequest) returns (RequestPinShortcutResponse);
+service ResolveInfoService {
+  rpc NewResolveInfo (NewResolveInfoRequest) returns (NewResolveInfoResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Dump (DumpRequest) returns (DumpResponse);
+  rpc GetIconResource (GetIconResourceRequest) returns (GetIconResourceResponse);
+  rpc IsCrossProfileIntentForwarderActivity (IsCrossProfileIntentForwarderActivityRequest) returns (IsCrossProfileIntentForwarderActivityResponse);
+  rpc LoadIcon (LoadIconRequest) returns (LoadIconResponse);
+  rpc LoadLabel (LoadLabelRequest) returns (LoadLabelResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ResolveInfoDisplayNameComparatorService {
+  rpc Compare2 (Compare2Request) returns (Compare2Response);
+  rpc Compare2_1 (Compare2_1Request) returns (Compare2_1Response);
+}
+
+service SharedLibraryInfoService {
+  rpc DescribeContents (SharedLibraryInfoDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetDeclaringPackage (GetDeclaringPackageRequest) returns (GetDeclaringPackageResponse);
+  rpc GetLongVersion (GetLongVersionRequest) returns (GetLongVersionResponse);
+  rpc GetName (GetNameRequest) returns (GetNameResponse);
+  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
+  rpc GetVersion (GetVersionRequest) returns (GetVersionResponse);
+  rpc ToString (SharedLibraryInfoToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (SharedLibraryInfoWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service PermissionInfoService {
+  rpc NewPermissionInfo (NewPermissionInfoRequest) returns (NewPermissionInfoResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetProtection (GetProtectionRequest) returns (GetProtectionResponse);
+  rpc GetProtectionFlags (GetProtectionFlagsRequest) returns (GetProtectionFlagsResponse);
+  rpc LoadDescription (LoadDescriptionRequest) returns (LoadDescriptionResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ShortcutInfoService {
+  rpc DescribeContents (ShortcutInfoDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetActivity (GetActivityRequest) returns (GetActivityResponse);
+  rpc GetDisabledMessage (GetDisabledMessageRequest) returns (GetDisabledMessageResponse);
+  rpc GetDisabledReason (GetDisabledReasonRequest) returns (GetDisabledReasonResponse);
+  rpc GetExcludedFromSurfaces (GetExcludedFromSurfacesRequest) returns (GetExcludedFromSurfacesResponse);
+  rpc GetExtras (GetExtrasRequest) returns (GetExtrasResponse);
+  rpc GetId (GetIdRequest) returns (GetIdResponse);
+  rpc GetIntent (GetIntentRequest) returns (GetIntentResponse);
+  rpc GetIntents (GetIntentsRequest) returns (GetIntentsResponse);
+  rpc GetLastChangedTimestamp (GetLastChangedTimestampRequest) returns (GetLastChangedTimestampResponse);
+  rpc GetLocusId (GetLocusIdRequest) returns (GetLocusIdResponse);
+  rpc GetLongLabel (GetLongLabelRequest) returns (GetLongLabelResponse);
+  rpc GetPackage (GetPackageRequest) returns (GetPackageResponse);
+  rpc GetRank (GetRankRequest) returns (GetRankResponse);
+  rpc GetShortLabel (GetShortLabelRequest) returns (GetShortLabelResponse);
+  rpc GetUserHandle (GetUserHandleRequest) returns (GetUserHandleResponse);
+  rpc HasKeyFieldsOnly (HasKeyFieldsOnlyRequest) returns (HasKeyFieldsOnlyResponse);
+  rpc IsCached (IsCachedRequest) returns (IsCachedResponse);
+  rpc IsDeclaredInManifest (IsDeclaredInManifestRequest) returns (IsDeclaredInManifestResponse);
+  rpc IsDynamic (IsDynamicRequest) returns (IsDynamicResponse);
+  rpc IsEnabled (ShortcutInfoIsEnabledRequest) returns (IsEnabledResponse);
+  rpc IsExcludedFromSurfaces (IsExcludedFromSurfacesRequest) returns (IsExcludedFromSurfacesResponse);
+  rpc IsImmutable (IsImmutableRequest) returns (IsImmutableResponse);
+  rpc IsPinned (IsPinnedRequest) returns (IsPinnedResponse);
+  rpc ToString (ShortcutInfoToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (ShortcutInfoWriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc CreateFromGenericDocument (CreateFromGenericDocumentRequest) returns (CreateFromGenericDocumentResponse);
+}
+
+service ShortcutInfoBuilderService {
+  rpc AddCapabilityBinding (AddCapabilityBindingRequest) returns (AddCapabilityBindingResponse);
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetActivity (SetActivityRequest) returns (SetActivityResponse);
+  rpc SetDisabledMessage (SetDisabledMessageRequest) returns (SetDisabledMessageResponse);
+  rpc SetExcludedFromSurfaces (SetExcludedFromSurfacesRequest) returns (SetExcludedFromSurfacesResponse);
+  rpc SetExtras (SetExtrasRequest) returns (SetExtrasResponse);
+  rpc SetIcon (SetIconRequest) returns (SetIconResponse);
+  rpc SetIntent (SetIntentRequest) returns (SetIntentResponse);
+  rpc SetIntents (SetIntentsRequest) returns (SetIntentsResponse);
+  rpc SetLocusId (SetLocusIdRequest) returns (SetLocusIdResponse);
+  rpc SetLongLabel (SetLongLabelRequest) returns (SetLongLabelResponse);
+  rpc SetLongLived (SetLongLivedRequest) returns (SetLongLivedResponse);
+  rpc SetPerson (SetPersonRequest) returns (SetPersonResponse);
+  rpc SetPersons (SetPersonsRequest) returns (SetPersonsResponse);
+  rpc SetRank (SetRankRequest) returns (SetRankResponse);
+  rpc SetShortLabel (SetShortLabelRequest) returns (SetShortLabelResponse);
+  rpc SetStartingTheme (SetStartingThemeRequest) returns (SetStartingThemeResponse);
 }
 
 service LauncherAppsService {
@@ -437,4 +4205,698 @@ service LauncherAppsService {
   rpc StartShortcut5_1 (StartShortcut5_1Request) returns (StartShortcut5_1Response);
   rpc UnregisterCallback (UnregisterCallbackRequest) returns (UnregisterCallbackResponse);
   rpc UnregisterPackageInstallerSessionCallback (UnregisterPackageInstallerSessionCallbackRequest) returns (UnregisterPackageInstallerSessionCallbackResponse);
+}
+
+service LauncherAppsArchiveCompatibilityParamsService {
+  rpc SetEnableIconOverlay (SetEnableIconOverlayRequest) returns (SetEnableIconOverlayResponse);
+  rpc SetEnableUnarchivalConfirmation (SetEnableUnarchivalConfirmationRequest) returns (SetEnableUnarchivalConfirmationResponse);
+}
+
+service LauncherAppsCallbackService {
+  rpc OnPackageAdded (OnPackageAddedRequest) returns (OnPackageAddedResponse);
+  rpc OnPackageChanged (OnPackageChangedRequest) returns (OnPackageChangedResponse);
+  rpc OnPackageLoadingProgressChanged (OnPackageLoadingProgressChangedRequest) returns (OnPackageLoadingProgressChangedResponse);
+  rpc OnPackageRemoved (OnPackageRemovedRequest) returns (OnPackageRemovedResponse);
+  rpc OnPackagesAvailable (OnPackagesAvailableRequest) returns (OnPackagesAvailableResponse);
+  rpc OnPackagesSuspended2 (OnPackagesSuspended2Request) returns (OnPackagesSuspended2Response);
+  rpc OnPackagesSuspended3_1 (OnPackagesSuspended3_1Request) returns (OnPackagesSuspended3_1Response);
+  rpc OnPackagesUnavailable (OnPackagesUnavailableRequest) returns (OnPackagesUnavailableResponse);
+  rpc OnPackagesUnsuspended (OnPackagesUnsuspendedRequest) returns (OnPackagesUnsuspendedResponse);
+  rpc OnUserConfigChanged (OnUserConfigChangedRequest) returns (OnUserConfigChangedResponse);
+}
+
+service LauncherAppsPinItemRequestService {
+  rpc Accept0 (Accept0Request) returns (Accept0Response);
+  rpc Accept1_1 (Accept1_1Request) returns (Accept1_1Response);
+  rpc DescribeContents (LauncherAppsPinItemRequestDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetAppWidgetProviderInfo (GetAppWidgetProviderInfoRequest) returns (GetAppWidgetProviderInfoResponse);
+  rpc GetExtras (GetExtrasRequest) returns (GetExtrasResponse);
+  rpc GetRequestType (GetRequestTypeRequest) returns (GetRequestTypeResponse);
+  rpc GetShortcutInfo (GetShortcutInfoRequest) returns (GetShortcutInfoResponse);
+  rpc IsValid (IsValidRequest) returns (IsValidResponse);
+  rpc WriteToParcel (LauncherAppsPinItemRequestWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service LauncherAppsShortcutQueryService {
+  rpc SetActivity (SetActivityRequest) returns (SetActivityResponse);
+  rpc SetChangedSince (SetChangedSinceRequest) returns (SetChangedSinceResponse);
+  rpc SetPackage (SetPackageRequest) returns (SetPackageResponse);
+  rpc SetQueryFlags (SetQueryFlagsRequest) returns (SetQueryFlagsResponse);
+}
+
+service InstallSourceInfoService {
+  rpc DescribeContents (InstallSourceInfoDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetInitiatingPackageName (GetInitiatingPackageNameRequest) returns (GetInitiatingPackageNameResponse);
+  rpc GetInitiatingPackageSigningInfo (GetInitiatingPackageSigningInfoRequest) returns (GetInitiatingPackageSigningInfoResponse);
+  rpc GetInstallingPackageName (GetInstallingPackageNameRequest) returns (GetInstallingPackageNameResponse);
+  rpc GetOriginatingPackageName (GetOriginatingPackageNameRequest) returns (GetOriginatingPackageNameResponse);
+  rpc GetPackageSource (GetPackageSourceRequest) returns (GetPackageSourceResponse);
+  rpc GetUpdateOwnerPackageName (GetUpdateOwnerPackageNameRequest) returns (GetUpdateOwnerPackageNameResponse);
+  rpc WriteToParcel (InstallSourceInfoWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service FeatureGroupInfoService {
+  rpc NewFeatureGroupInfo (NewFeatureGroupInfoRequest) returns (NewFeatureGroupInfoResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service PackageStatsService {
+  rpc NewPackageStats (NewPackageStatsRequest) returns (NewPackageStatsResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ConfigurationInfoService {
+  rpc NewConfigurationInfo (NewConfigurationInfoRequest) returns (NewConfigurationInfoResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetGlEsVersion (GetGlEsVersionRequest) returns (GetGlEsVersionResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service SignatureService {
+  rpc NewSignature (NewSignatureRequest) returns (NewSignatureResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToByteArray (ToByteArrayRequest) returns (ToByteArrayResponse);
+  rpc ToChars0 (ToChars0Request) returns (ToChars0Response);
+  rpc ToChars2_1 (ToChars2_1Request) returns (ToChars2_1Response);
+  rpc ToCharsString (ToCharsStringRequest) returns (ToCharsStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service LabeledIntentService {
+  rpc NewLabeledIntent (NewLabeledIntentRequest) returns (NewLabeledIntentResponse);
+  rpc GetIconResource (GetIconResourceRequest) returns (GetIconResourceResponse);
+  rpc GetLabelResource (GetLabelResourceRequest) returns (GetLabelResourceResponse);
+  rpc GetNonLocalizedLabel (GetNonLocalizedLabelRequest) returns (GetNonLocalizedLabelResponse);
+  rpc GetSourcePackage (GetSourcePackageRequest) returns (GetSourcePackageResponse);
+  rpc LoadIcon (LoadIconRequest) returns (LoadIconResponse);
+  rpc LoadLabel (LoadLabelRequest) returns (LoadLabelResponse);
+  rpc ReadFromParcel (ReadFromParcelRequest) returns (ReadFromParcelResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ChecksumService {
+  rpc NewChecksum (NewChecksumRequest) returns (NewChecksumResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetType (ChecksumGetTypeRequest) returns (GetTypeResponse);
+  rpc GetValue (GetValueRequest) returns (GetValueResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service PackageItemInfoService {
+  rpc NewPackageItemInfo (NewPackageItemInfoRequest) returns (NewPackageItemInfoResponse);
+  rpc LoadBanner (LoadBannerRequest) returns (LoadBannerResponse);
+  rpc LoadIcon (LoadIconRequest) returns (LoadIconResponse);
+  rpc LoadLabel (LoadLabelRequest) returns (LoadLabelResponse);
+  rpc LoadLogo (LoadLogoRequest) returns (LoadLogoResponse);
+  rpc LoadUnbadgedIcon (LoadUnbadgedIconRequest) returns (LoadUnbadgedIconResponse);
+  rpc LoadXmlMetaData (LoadXmlMetaDataRequest) returns (LoadXmlMetaDataResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service PackageItemInfoDisplayNameComparatorService {
+  rpc Compare2 (Compare2Request) returns (Compare2Response);
+  rpc Compare2_1 (Compare2_1Request) returns (Compare2_1Response);
+}
+
+service CapabilityService {
+  rpc DescribeContents (CapabilityDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (CapabilityEqualsRequest) returns (EqualsResponse);
+  rpc GetName (GetNameRequest) returns (GetNameResponse);
+  rpc HashCode (CapabilityHashCodeRequest) returns (HashCodeResponse);
+  rpc WriteToParcel (CapabilityWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service CapabilityBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+}
+
+service ServiceInfoService {
+  rpc NewServiceInfo (NewServiceInfoRequest) returns (NewServiceInfoResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Dump (DumpRequest) returns (DumpResponse);
+  rpc GetForegroundServiceType (GetForegroundServiceTypeRequest) returns (GetForegroundServiceTypeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service InstrumentationInfoService {
+  rpc NewInstrumentationInfo (NewInstrumentationInfoRequest) returns (NewInstrumentationInfoResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service PermissionGroupInfoService {
+  rpc NewPermissionGroupInfo (NewPermissionGroupInfoRequest) returns (NewPermissionGroupInfoResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc LoadDescription (LoadDescriptionRequest) returns (LoadDescriptionResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ApplicationInfoService {
+  rpc NewApplicationInfo (NewApplicationInfoRequest) returns (NewApplicationInfoResponse);
+  rpc AreAttributionsUserVisible (AreAttributionsUserVisibleRequest) returns (AreAttributionsUserVisibleResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Dump (DumpRequest) returns (DumpResponse);
+  rpc GetGwpAsanMode (GetGwpAsanModeRequest) returns (GetGwpAsanModeResponse);
+  rpc GetMemtagMode (GetMemtagModeRequest) returns (GetMemtagModeResponse);
+  rpc GetNativeHeapZeroInitialized (GetNativeHeapZeroInitializedRequest) returns (GetNativeHeapZeroInitializedResponse);
+  rpc GetRequestRawExternalStorageAccess (GetRequestRawExternalStorageAccessRequest) returns (GetRequestRawExternalStorageAccessResponse);
+  rpc IsProfileable (IsProfileableRequest) returns (IsProfileableResponse);
+  rpc IsProfileableByShell (IsProfileableByShellRequest) returns (IsProfileableByShellResponse);
+  rpc IsResourceOverlay (IsResourceOverlayRequest) returns (IsResourceOverlayResponse);
+  rpc IsVirtualPreload (IsVirtualPreloadRequest) returns (IsVirtualPreloadResponse);
+  rpc LoadDescription (LoadDescriptionRequest) returns (LoadDescriptionResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc GetCategoryTitle (GetCategoryTitleRequest) returns (GetCategoryTitleResponse);
+}
+
+service ApplicationInfoDisplayNameComparatorService {
+  rpc Compare2 (Compare2Request) returns (Compare2Response);
+  rpc Compare2_1 (Compare2_1Request) returns (Compare2_1Response);
+}
+
+service ArchivedActivityInfoService {
+  rpc NewArchivedActivityInfo (NewArchivedActivityInfoRequest) returns (NewArchivedActivityInfoResponse);
+  rpc GetComponentName (GetComponentNameRequest) returns (GetComponentNameResponse);
+  rpc GetIcon (GetIconRequest) returns (GetIconResponse);
+  rpc GetLabel (GetLabelRequest) returns (GetLabelResponse);
+  rpc GetMonochromeIcon (GetMonochromeIconRequest) returns (GetMonochromeIconResponse);
+  rpc SetComponentName (SetComponentNameRequest) returns (SetComponentNameResponse);
+  rpc SetIcon (ArchivedActivityInfoSetIconRequest) returns (SetIconResponse);
+  rpc SetLabel (SetLabelRequest) returns (SetLabelResponse);
+  rpc SetMonochromeIcon (SetMonochromeIconRequest) returns (SetMonochromeIconResponse);
+}
+
+service SigningInfoExceptionService {
+  rpc GetCode (GetCodeRequest) returns (GetCodeResponse);
+}
+
+service ShortcutManagerService {
+  rpc CreateShortcutResultIntent (CreateShortcutResultIntentRequest) returns (CreateShortcutResultIntentResponse);
+  rpc GetIconMaxHeight (GetIconMaxHeightRequest) returns (GetIconMaxHeightResponse);
+  rpc GetIconMaxWidth (GetIconMaxWidthRequest) returns (GetIconMaxWidthResponse);
+  rpc GetMaxShortcutCountPerActivity (GetMaxShortcutCountPerActivityRequest) returns (GetMaxShortcutCountPerActivityResponse);
+  rpc IsRateLimitingActive (IsRateLimitingActiveRequest) returns (IsRateLimitingActiveResponse);
+  rpc IsRequestPinShortcutSupported (IsRequestPinShortcutSupportedRequest) returns (IsRequestPinShortcutSupportedResponse);
+  rpc PushDynamicShortcut (PushDynamicShortcutRequest) returns (PushDynamicShortcutResponse);
+  rpc RemoveAllDynamicShortcuts (RemoveAllDynamicShortcutsRequest) returns (RemoveAllDynamicShortcutsResponse);
+  rpc ReportShortcutUsed (ReportShortcutUsedRequest) returns (ReportShortcutUsedResponse);
+  rpc RequestPinShortcut (RequestPinShortcutRequest) returns (RequestPinShortcutResponse);
+}
+
+service AttributionService {
+  rpc DescribeContents (AttributionDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetLabel (AttributionGetLabelRequest) returns (AttributionGetLabelResponse);
+  rpc GetTag (GetTagRequest) returns (GetTagResponse);
+  rpc WriteToParcel (AttributionWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service CapabilityParamsService {
+  rpc DescribeContents (CapabilityParamsDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (CapabilityParamsEqualsRequest) returns (EqualsResponse);
+  rpc GetName (GetNameRequest) returns (GetNameResponse);
+  rpc GetValue (CapabilityParamsGetValueRequest) returns (CapabilityParamsGetValueResponse);
+  rpc HashCode (CapabilityParamsHashCodeRequest) returns (HashCodeResponse);
+  rpc WriteToParcel (CapabilityParamsWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service CapabilityParamsBuilderService {
+  rpc AddAlias (AddAliasRequest) returns (AddAliasResponse);
+  rpc Build (BuildRequest) returns (BuildResponse);
+}
+
+service ProviderInfoService {
+  rpc NewProviderInfo (NewProviderInfoRequest) returns (NewProviderInfoResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Dump (DumpRequest) returns (DumpResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service LauncherActivityInfoService {
+  rpc GetActivityInfo (GetActivityInfoRequest) returns (GetActivityInfoResponse);
+  rpc GetApplicationInfo (LauncherActivityInfoGetApplicationInfoRequest) returns (GetApplicationInfoResponse);
+  rpc GetBadgedIcon (GetBadgedIconRequest) returns (GetBadgedIconResponse);
+  rpc GetComponentName (LauncherActivityInfoGetComponentNameRequest) returns (GetComponentNameResponse);
+  rpc GetFirstInstallTime (GetFirstInstallTimeRequest) returns (GetFirstInstallTimeResponse);
+  rpc GetIcon (LauncherActivityInfoGetIconRequest) returns (GetIconResponse);
+  rpc GetLabel (LauncherActivityInfoGetLabelRequest) returns (GetLabelResponse);
+  rpc GetLoadingProgress (GetLoadingProgressRequest) returns (GetLoadingProgressResponse);
+  rpc GetName (GetNameRequest) returns (GetNameResponse);
+  rpc GetUser (GetUserRequest) returns (GetUserResponse);
+}
+
+service LauncherUserInfoService {
+  rpc DescribeContents (LauncherUserInfoDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetUserConfig (GetUserConfigRequest) returns (GetUserConfigResponse);
+  rpc GetUserSerialNumber (GetUserSerialNumberRequest) returns (GetUserSerialNumberResponse);
+  rpc GetUserType (GetUserTypeRequest) returns (GetUserTypeResponse);
+  rpc WriteToParcel (LauncherUserInfoWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ActivityInfoService {
+  rpc NewActivityInfo (NewActivityInfoRequest) returns (NewActivityInfoResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Dump (DumpRequest) returns (DumpResponse);
+  rpc GetThemeResource (GetThemeResourceRequest) returns (GetThemeResourceResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service PackageInstallerService {
+  rpc AbandonSession (AbandonSessionRequest) returns (AbandonSessionResponse);
+  rpc CommitSessionAfterInstallConstraintsAreMet (CommitSessionAfterInstallConstraintsAreMetRequest) returns (CommitSessionAfterInstallConstraintsAreMetResponse);
+  rpc CreateSession (CreateSessionRequest) returns (CreateSessionResponse);
+  rpc GetActiveStagedSession (GetActiveStagedSessionRequest) returns (GetActiveStagedSessionResponse);
+  rpc GetSessionInfo (GetSessionInfoRequest) returns (GetSessionInfoResponse);
+  rpc InstallExistingPackage (InstallExistingPackageRequest) returns (InstallExistingPackageResponse);
+  rpc InstallPackageArchived (InstallPackageArchivedRequest) returns (InstallPackageArchivedResponse);
+  rpc OpenSession (OpenSessionRequest) returns (OpenSessionResponse);
+  rpc RegisterSessionCallback (RegisterSessionCallbackRequest) returns (RegisterSessionCallbackResponse);
+  rpc ReportUnarchivalState (ReportUnarchivalStateRequest) returns (ReportUnarchivalStateResponse);
+  rpc ReportUnarchivalStatus (ReportUnarchivalStatusRequest) returns (ReportUnarchivalStatusResponse);
+  rpc RequestArchive (RequestArchiveRequest) returns (RequestArchiveResponse);
+  rpc RequestUnarchive (RequestUnarchiveRequest) returns (RequestUnarchiveResponse);
+  rpc Uninstall2 (Uninstall2Request) returns (Uninstall2Response);
+  rpc Uninstall3_1 (Uninstall3_1Request) returns (Uninstall3_1Response);
+  rpc Uninstall2_2 (Uninstall2_2Request) returns (Uninstall2_2Response);
+  rpc UninstallExistingPackage (UninstallExistingPackageRequest) returns (UninstallExistingPackageResponse);
+  rpc UnregisterSessionCallback (UnregisterSessionCallbackRequest) returns (UnregisterSessionCallbackResponse);
+  rpc UpdateSessionAppIcon (UpdateSessionAppIconRequest) returns (UpdateSessionAppIconResponse);
+  rpc UpdateSessionAppLabel (UpdateSessionAppLabelRequest) returns (UpdateSessionAppLabelResponse);
+}
+
+service PackageInstallerInstallConstraintsService {
+  rpc DescribeContents (PackageInstallerInstallConstraintsDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (PackageInstallerInstallConstraintsEqualsRequest) returns (EqualsResponse);
+  rpc HashCode (PackageInstallerInstallConstraintsHashCodeRequest) returns (HashCodeResponse);
+  rpc IsAppNotForegroundRequired (IsAppNotForegroundRequiredRequest) returns (IsAppNotForegroundRequiredResponse);
+  rpc IsAppNotInteractingRequired (IsAppNotInteractingRequiredRequest) returns (IsAppNotInteractingRequiredResponse);
+  rpc IsAppNotTopVisibleRequired (IsAppNotTopVisibleRequiredRequest) returns (IsAppNotTopVisibleRequiredResponse);
+  rpc IsDeviceIdleRequired (IsDeviceIdleRequiredRequest) returns (IsDeviceIdleRequiredResponse);
+  rpc IsNotInCallRequired (IsNotInCallRequiredRequest) returns (IsNotInCallRequiredResponse);
+  rpc WriteToParcel (PackageInstallerInstallConstraintsWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service PackageInstallerInstallConstraintsResultService {
+  rpc AreAllConstraintsSatisfied (AreAllConstraintsSatisfiedRequest) returns (AreAllConstraintsSatisfiedResponse);
+  rpc DescribeContents (PackageInstallerInstallConstraintsResultDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc WriteToParcel (PackageInstallerInstallConstraintsResultWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service PackageInstallerPreapprovalDetailsService {
+  rpc DescribeContents (PackageInstallerPreapprovalDetailsDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetIcon (PackageInstallerPreapprovalDetailsGetIconRequest) returns (GetIconResponse);
+  rpc GetLabel (PackageInstallerPreapprovalDetailsGetLabelRequest) returns (GetLabelResponse);
+  rpc GetLocale (GetLocaleRequest) returns (GetLocaleResponse);
+  rpc GetPackageName (GetPackageNameRequest) returns (GetPackageNameResponse);
+  rpc ToString (PackageInstallerPreapprovalDetailsToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (PackageInstallerPreapprovalDetailsWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service PackageInstallerSessionService {
+  rpc Abandon (AbandonRequest) returns (AbandonResponse);
+  rpc AddChildSessionId (AddChildSessionIdRequest) returns (AddChildSessionIdResponse);
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc Commit (CommitRequest) returns (CommitResponse);
+  rpc Fsync (FsyncRequest) returns (FsyncResponse);
+  rpc GetAppMetadata (GetAppMetadataRequest) returns (GetAppMetadataResponse);
+  rpc GetChildSessionIds (GetChildSessionIdsRequest) returns (GetChildSessionIdsResponse);
+  rpc GetNames (GetNamesRequest) returns (GetNamesResponse);
+  rpc GetParentSessionId (GetParentSessionIdRequest) returns (GetParentSessionIdResponse);
+  rpc IsApplicationEnabledSettingPersistent (IsApplicationEnabledSettingPersistentRequest) returns (IsApplicationEnabledSettingPersistentResponse);
+  rpc IsMultiPackage (IsMultiPackageRequest) returns (IsMultiPackageResponse);
+  rpc IsRequestUpdateOwnership (IsRequestUpdateOwnershipRequest) returns (IsRequestUpdateOwnershipResponse);
+  rpc IsStaged (IsStagedRequest) returns (IsStagedResponse);
+  rpc OpenRead (OpenReadRequest) returns (OpenReadResponse);
+  rpc OpenWrite (OpenWriteRequest) returns (OpenWriteResponse);
+  rpc RemoveChildSessionId (RemoveChildSessionIdRequest) returns (RemoveChildSessionIdResponse);
+  rpc RemoveSplit (RemoveSplitRequest) returns (RemoveSplitResponse);
+  rpc RequestUserPreapproval (RequestUserPreapprovalRequest) returns (RequestUserPreapprovalResponse);
+  rpc SetAppMetadata (SetAppMetadataRequest) returns (SetAppMetadataResponse);
+  rpc SetStagingProgress (SetStagingProgressRequest) returns (SetStagingProgressResponse);
+  rpc Transfer (TransferRequest) returns (TransferResponse);
+}
+
+service PackageInstallerSessionCallbackService {
+  rpc OnActiveChanged (OnActiveChangedRequest) returns (OnActiveChangedResponse);
+  rpc OnBadgingChanged (OnBadgingChangedRequest) returns (OnBadgingChangedResponse);
+  rpc OnCreated (OnCreatedRequest) returns (OnCreatedResponse);
+  rpc OnFinished (OnFinishedRequest) returns (OnFinishedResponse);
+  rpc OnProgressChanged (OnProgressChangedRequest) returns (OnProgressChangedResponse);
+}
+
+service PackageInstallerSessionInfoService {
+  rpc CreateDetailsIntent (CreateDetailsIntentRequest) returns (CreateDetailsIntentResponse);
+  rpc DescribeContents (PackageInstallerSessionInfoDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetAppIcon (GetAppIconRequest) returns (GetAppIconResponse);
+  rpc GetAppLabel (GetAppLabelRequest) returns (GetAppLabelResponse);
+  rpc GetAppPackageName (GetAppPackageNameRequest) returns (GetAppPackageNameResponse);
+  rpc GetChildSessionIds (GetChildSessionIdsRequest) returns (GetChildSessionIdsResponse);
+  rpc GetCreatedMillis (GetCreatedMillisRequest) returns (GetCreatedMillisResponse);
+  rpc GetDontKillApp (GetDontKillAppRequest) returns (GetDontKillAppResponse);
+  rpc GetInstallLocation (GetInstallLocationRequest) returns (GetInstallLocationResponse);
+  rpc GetInstallReason (GetInstallReasonRequest) returns (GetInstallReasonResponse);
+  rpc GetInstallerAttributionTag (GetInstallerAttributionTagRequest) returns (GetInstallerAttributionTagResponse);
+  rpc GetInstallerPackageName (GetInstallerPackageNameRequest) returns (GetInstallerPackageNameResponse);
+  rpc GetInstallerUid (GetInstallerUidRequest) returns (GetInstallerUidResponse);
+  rpc GetMode (GetModeRequest) returns (GetModeResponse);
+  rpc GetOriginatingUid (GetOriginatingUidRequest) returns (GetOriginatingUidResponse);
+  rpc GetOriginatingUri (GetOriginatingUriRequest) returns (GetOriginatingUriResponse);
+  rpc GetPackageSource (GetPackageSourceRequest) returns (GetPackageSourceResponse);
+  rpc GetParentSessionId (GetParentSessionIdRequest) returns (GetParentSessionIdResponse);
+  rpc GetProgress (GetProgressRequest) returns (GetProgressResponse);
+  rpc GetReferrerUri (GetReferrerUriRequest) returns (GetReferrerUriResponse);
+  rpc GetRequireUserAction (GetRequireUserActionRequest) returns (GetRequireUserActionResponse);
+  rpc GetSessionId (GetSessionIdRequest) returns (GetSessionIdResponse);
+  rpc GetSize (GetSizeRequest) returns (GetSizeResponse);
+  rpc GetStagedSessionErrorCode (GetStagedSessionErrorCodeRequest) returns (GetStagedSessionErrorCodeResponse);
+  rpc GetStagedSessionErrorMessage (GetStagedSessionErrorMessageRequest) returns (GetStagedSessionErrorMessageResponse);
+  rpc GetUpdatedMillis (GetUpdatedMillisRequest) returns (GetUpdatedMillisResponse);
+  rpc GetUser (GetUserRequest) returns (GetUserResponse);
+  rpc HasParentSessionId (HasParentSessionIdRequest) returns (HasParentSessionIdResponse);
+  rpc IsActive (IsActiveRequest) returns (IsActiveResponse);
+  rpc IsApplicationEnabledSettingPersistent (IsApplicationEnabledSettingPersistentRequest) returns (IsApplicationEnabledSettingPersistentResponse);
+  rpc IsAutoInstallDependenciesEnabled (IsAutoInstallDependenciesEnabledRequest) returns (IsAutoInstallDependenciesEnabledResponse);
+  rpc IsCommitted (IsCommittedRequest) returns (IsCommittedResponse);
+  rpc IsMultiPackage (IsMultiPackageRequest) returns (IsMultiPackageResponse);
+  rpc IsPreApprovalRequested (IsPreApprovalRequestedRequest) returns (IsPreApprovalRequestedResponse);
+  rpc IsRequestUpdateOwnership (IsRequestUpdateOwnershipRequest) returns (IsRequestUpdateOwnershipResponse);
+  rpc IsSealed (IsSealedRequest) returns (IsSealedResponse);
+  rpc IsStaged (IsStagedRequest) returns (IsStagedResponse);
+  rpc IsStagedSessionActive (IsStagedSessionActiveRequest) returns (IsStagedSessionActiveResponse);
+  rpc IsStagedSessionApplied (IsStagedSessionAppliedRequest) returns (IsStagedSessionAppliedResponse);
+  rpc IsStagedSessionFailed (IsStagedSessionFailedRequest) returns (IsStagedSessionFailedResponse);
+  rpc IsStagedSessionReady (IsStagedSessionReadyRequest) returns (IsStagedSessionReadyResponse);
+  rpc IsUnarchival (IsUnarchivalRequest) returns (IsUnarchivalResponse);
+  rpc WriteToParcel (PackageInstallerSessionInfoWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service PackageInstallerSessionParamsService {
+  rpc DescribeContents (PackageInstallerSessionParamsDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc SetAppIcon (SetAppIconRequest) returns (SetAppIconResponse);
+  rpc SetAppLabel (SetAppLabelRequest) returns (SetAppLabelResponse);
+  rpc SetAppPackageName (SetAppPackageNameRequest) returns (SetAppPackageNameResponse);
+  rpc SetApplicationEnabledSettingPersistent (SetApplicationEnabledSettingPersistentRequest) returns (SetApplicationEnabledSettingPersistentResponse);
+  rpc SetAutoInstallDependenciesEnabled (SetAutoInstallDependenciesEnabledRequest) returns (SetAutoInstallDependenciesEnabledResponse);
+  rpc SetAutoRevokePermissionsMode (SetAutoRevokePermissionsModeRequest) returns (SetAutoRevokePermissionsModeResponse);
+  rpc SetDontKillApp (SetDontKillAppRequest) returns (SetDontKillAppResponse);
+  rpc SetInstallLocation (SetInstallLocationRequest) returns (SetInstallLocationResponse);
+  rpc SetInstallReason (SetInstallReasonRequest) returns (SetInstallReasonResponse);
+  rpc SetInstallScenario (SetInstallScenarioRequest) returns (SetInstallScenarioResponse);
+  rpc SetInstallerPackageName (SetInstallerPackageNameRequest) returns (SetInstallerPackageNameResponse);
+  rpc SetMultiPackage (SetMultiPackageRequest) returns (SetMultiPackageResponse);
+  rpc SetOriginatingUid (SetOriginatingUidRequest) returns (SetOriginatingUidResponse);
+  rpc SetOriginatingUri (SetOriginatingUriRequest) returns (SetOriginatingUriResponse);
+  rpc SetPackageSource (SetPackageSourceRequest) returns (SetPackageSourceResponse);
+  rpc SetPermissionState (SetPermissionStateRequest) returns (SetPermissionStateResponse);
+  rpc SetReferrerUri (SetReferrerUriRequest) returns (SetReferrerUriResponse);
+  rpc SetRequestUpdateOwnership (SetRequestUpdateOwnershipRequest) returns (SetRequestUpdateOwnershipResponse);
+  rpc SetRequireUserAction (SetRequireUserActionRequest) returns (SetRequireUserActionResponse);
+  rpc SetSize (SetSizeRequest) returns (SetSizeResponse);
+  rpc SetUnarchiveId (SetUnarchiveIdRequest) returns (SetUnarchiveIdResponse);
+  rpc WriteToParcel (PackageInstallerSessionParamsWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service PackageInstallerUnarchivalStateService {
+  rpc CreateGenericErrorState (CreateGenericErrorStateRequest) returns (CreateGenericErrorStateResponse);
+  rpc CreateInsufficientStorageState (CreateInsufficientStorageStateRequest) returns (CreateInsufficientStorageStateResponse);
+  rpc CreateNoConnectivityState (CreateNoConnectivityStateRequest) returns (CreateNoConnectivityStateResponse);
+  rpc CreateOkState (CreateOkStateRequest) returns (CreateOkStateResponse);
+  rpc CreateUserActionRequiredState (CreateUserActionRequiredStateRequest) returns (CreateUserActionRequiredStateResponse);
+}
+
+service VersionedPackageService {
+  rpc NewVersionedPackage (NewVersionedPackageRequest) returns (NewVersionedPackageResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetLongVersionCode (GetLongVersionCodeRequest) returns (GetLongVersionCodeResponse);
+  rpc GetPackageName (VersionedPackageGetPackageNameRequest) returns (GetPackageNameResponse);
+  rpc GetVersionCode (GetVersionCodeRequest) returns (GetVersionCodeResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service FeatureInfoService {
+  rpc NewFeatureInfo (NewFeatureInfoRequest) returns (NewFeatureInfoResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetGlEsVersion (GetGlEsVersionRequest) returns (GetGlEsVersionResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ArchivedPackageInfoService {
+  rpc NewArchivedPackageInfo (NewArchivedPackageInfoRequest) returns (NewArchivedPackageInfoResponse);
+  rpc GetDefaultToDeviceProtectedStorage (GetDefaultToDeviceProtectedStorageRequest) returns (GetDefaultToDeviceProtectedStorageResponse);
+  rpc GetPackageName (ArchivedPackageInfoGetPackageNameRequest) returns (GetPackageNameResponse);
+  rpc GetRequestLegacyExternalStorage (GetRequestLegacyExternalStorageRequest) returns (GetRequestLegacyExternalStorageResponse);
+  rpc GetSigningInfo (GetSigningInfoRequest) returns (GetSigningInfoResponse);
+  rpc GetTargetSdkVersion (GetTargetSdkVersionRequest) returns (GetTargetSdkVersionResponse);
+  rpc GetUserDataFragile (GetUserDataFragileRequest) returns (GetUserDataFragileResponse);
+  rpc GetVersionCode (GetVersionCodeRequest) returns (GetVersionCodeResponse);
+  rpc GetVersionCodeMajor (GetVersionCodeMajorRequest) returns (GetVersionCodeMajorResponse);
+  rpc SetDefaultToDeviceProtectedStorage (SetDefaultToDeviceProtectedStorageRequest) returns (SetDefaultToDeviceProtectedStorageResponse);
+  rpc SetPackageName (SetPackageNameRequest) returns (SetPackageNameResponse);
+  rpc SetRequestLegacyExternalStorage (SetRequestLegacyExternalStorageRequest) returns (SetRequestLegacyExternalStorageResponse);
+  rpc SetSigningInfo (SetSigningInfoRequest) returns (SetSigningInfoResponse);
+  rpc SetTargetSdkVersion (SetTargetSdkVersionRequest) returns (SetTargetSdkVersionResponse);
+  rpc SetUserDataFragile (SetUserDataFragileRequest) returns (SetUserDataFragileResponse);
+  rpc SetVersionCode (SetVersionCodeRequest) returns (SetVersionCodeResponse);
+  rpc SetVersionCodeMajor (SetVersionCodeMajorRequest) returns (SetVersionCodeMajorResponse);
+}
+
+service PackageInfoService {
+  rpc NewPackageInfo (NewPackageInfoRequest) returns (NewPackageInfoResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetApexPackageName (GetApexPackageNameRequest) returns (GetApexPackageNameResponse);
+  rpc GetArchiveTimeMillis (GetArchiveTimeMillisRequest) returns (GetArchiveTimeMillisResponse);
+  rpc GetLongVersionCode (GetLongVersionCodeRequest) returns (GetLongVersionCodeResponse);
+  rpc SetLongVersionCode (SetLongVersionCodeRequest) returns (SetLongVersionCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service PackageManagerService {
+  rpc AddPackageToPreferred (AddPackageToPreferredRequest) returns (AddPackageToPreferredResponse);
+  rpc AddPermission (AddPermissionRequest) returns (AddPermissionResponse);
+  rpc AddPermissionAsync (AddPermissionAsyncRequest) returns (AddPermissionAsyncResponse);
+  rpc AddPreferredActivity (AddPreferredActivityRequest) returns (AddPreferredActivityResponse);
+  rpc AddWhitelistedRestrictedPermission (AddWhitelistedRestrictedPermissionRequest) returns (AddWhitelistedRestrictedPermissionResponse);
+  rpc CanPackageQuery2 (CanPackageQuery2Request) returns (CanPackageQuery2Response);
+  rpc CanPackageQuery2_1 (CanPackageQuery2_1Request) returns (CanPackageQuery2_1Response);
+  rpc CanRequestPackageInstalls (CanRequestPackageInstallsRequest) returns (CanRequestPackageInstallsResponse);
+  rpc CanonicalToCurrentPackageNames (CanonicalToCurrentPackageNamesRequest) returns (CanonicalToCurrentPackageNamesResponse);
+  rpc CheckPermission (CheckPermissionRequest) returns (CheckPermissionResponse);
+  rpc CheckSignatures2 (CheckSignatures2Request) returns (CheckSignatures2Response);
+  rpc CheckSignatures2_1 (CheckSignatures2_1Request) returns (CheckSignatures2_1Response);
+  rpc ClearInstantAppCookie (ClearInstantAppCookieRequest) returns (ClearInstantAppCookieResponse);
+  rpc ClearPackagePreferredActivities (ClearPackagePreferredActivitiesRequest) returns (ClearPackagePreferredActivitiesResponse);
+  rpc CurrentToCanonicalPackageNames (CurrentToCanonicalPackageNamesRequest) returns (CurrentToCanonicalPackageNamesResponse);
+  rpc ExtendVerificationTimeout (ExtendVerificationTimeoutRequest) returns (ExtendVerificationTimeoutResponse);
+  rpc GetActivityBanner1 (GetActivityBanner1Request) returns (GetActivityBanner1Response);
+  rpc GetActivityBanner1_1 (GetActivityBanner1_1Request) returns (GetActivityBanner1_1Response);
+  rpc GetActivityIcon1 (GetActivityIcon1Request) returns (GetActivityIcon1Response);
+  rpc GetActivityIcon1_1 (GetActivityIcon1_1Request) returns (GetActivityIcon1_1Response);
+  rpc GetActivityInfo2 (GetActivityInfo2Request) returns (GetActivityInfo2Response);
+  rpc GetActivityInfo2_1 (GetActivityInfo2_1Request) returns (GetActivityInfo2_1Response);
+  rpc GetActivityLogo1 (GetActivityLogo1Request) returns (GetActivityLogo1Response);
+  rpc GetActivityLogo1_1 (GetActivityLogo1_1Request) returns (GetActivityLogo1_1Response);
+  rpc GetApplicationBanner1 (GetApplicationBanner1Request) returns (GetApplicationBanner1Response);
+  rpc GetApplicationBanner1_1 (GetApplicationBanner1_1Request) returns (GetApplicationBanner1_1Response);
+  rpc GetApplicationEnabledSetting (GetApplicationEnabledSettingRequest) returns (GetApplicationEnabledSettingResponse);
+  rpc GetApplicationIcon1 (GetApplicationIcon1Request) returns (GetApplicationIcon1Response);
+  rpc GetApplicationIcon1_1 (GetApplicationIcon1_1Request) returns (GetApplicationIcon1_1Response);
+  rpc GetApplicationInfo2 (GetApplicationInfo2Request) returns (GetApplicationInfo2Response);
+  rpc GetApplicationInfo2_1 (GetApplicationInfo2_1Request) returns (GetApplicationInfo2_1Response);
+  rpc GetApplicationLabel (GetApplicationLabelRequest) returns (GetApplicationLabelResponse);
+  rpc GetApplicationLogo1 (GetApplicationLogo1Request) returns (GetApplicationLogo1Response);
+  rpc GetApplicationLogo1_1 (GetApplicationLogo1_1Request) returns (GetApplicationLogo1_1Response);
+  rpc GetArchivedPackage (GetArchivedPackageRequest) returns (GetArchivedPackageResponse);
+  rpc GetBackgroundPermissionOptionLabel (GetBackgroundPermissionOptionLabelRequest) returns (GetBackgroundPermissionOptionLabelResponse);
+  rpc GetChangedPackages (GetChangedPackagesRequest) returns (GetChangedPackagesResponse);
+  rpc GetComponentEnabledSetting (GetComponentEnabledSettingRequest) returns (GetComponentEnabledSettingResponse);
+  rpc GetDefaultActivityIcon (GetDefaultActivityIconRequest) returns (GetDefaultActivityIconResponse);
+  rpc GetDrawable (GetDrawableRequest) returns (GetDrawableResponse);
+  rpc GetInstallSourceInfo (GetInstallSourceInfoRequest) returns (GetInstallSourceInfoResponse);
+  rpc GetInstallerPackageName (PackageManagerGetInstallerPackageNameRequest) returns (GetInstallerPackageNameResponse);
+  rpc GetInstantAppCookie (GetInstantAppCookieRequest) returns (GetInstantAppCookieResponse);
+  rpc GetInstantAppCookieMaxBytes (GetInstantAppCookieMaxBytesRequest) returns (GetInstantAppCookieMaxBytesResponse);
+  rpc GetInstrumentationInfo (GetInstrumentationInfoRequest) returns (GetInstrumentationInfoResponse);
+  rpc GetLaunchIntentForPackage (GetLaunchIntentForPackageRequest) returns (GetLaunchIntentForPackageResponse);
+  rpc GetLaunchIntentSenderForPackage (GetLaunchIntentSenderForPackageRequest) returns (GetLaunchIntentSenderForPackageResponse);
+  rpc GetLeanbackLaunchIntentForPackage (GetLeanbackLaunchIntentForPackageRequest) returns (GetLeanbackLaunchIntentForPackageResponse);
+  rpc GetModuleInfo (GetModuleInfoRequest) returns (GetModuleInfoResponse);
+  rpc GetNameForUid (GetNameForUidRequest) returns (GetNameForUidResponse);
+  rpc GetPackageArchiveInfo2 (GetPackageArchiveInfo2Request) returns (GetPackageArchiveInfo2Response);
+  rpc GetPackageArchiveInfo2_1 (GetPackageArchiveInfo2_1Request) returns (GetPackageArchiveInfo2_1Response);
+  rpc GetPackageGids1 (GetPackageGids1Request) returns (GetPackageGids1Response);
+  rpc GetPackageGids2_1 (GetPackageGids2_1Request) returns (GetPackageGids2_1Response);
+  rpc GetPackageGids2_2 (GetPackageGids2_2Request) returns (GetPackageGids2_2Response);
+  rpc GetPackageInfo2 (GetPackageInfo2Request) returns (GetPackageInfo2Response);
+  rpc GetPackageInfo2_1 (GetPackageInfo2_1Request) returns (GetPackageInfo2_1Response);
+  rpc GetPackageInfo2_2 (GetPackageInfo2_2Request) returns (GetPackageInfo2_2Response);
+  rpc GetPackageInfo2_3 (GetPackageInfo2_3Request) returns (GetPackageInfo2_3Response);
+  rpc GetPackageInstaller (GetPackageInstallerRequest) returns (GetPackageInstallerResponse);
+  rpc GetPackageUid2 (GetPackageUid2Request) returns (GetPackageUid2Response);
+  rpc GetPackageUid2_1 (GetPackageUid2_1Request) returns (GetPackageUid2_1Response);
+  rpc GetPackagesForUid (GetPackagesForUidRequest) returns (GetPackagesForUidResponse);
+  rpc GetPermissionGroupInfo (GetPermissionGroupInfoRequest) returns (GetPermissionGroupInfoResponse);
+  rpc GetPermissionInfo (GetPermissionInfoRequest) returns (GetPermissionInfoResponse);
+  rpc GetProperty2 (GetProperty2Request) returns (GetProperty2Response);
+  rpc GetProperty2_1 (GetProperty2_1Request) returns (GetProperty2_1Response);
+  rpc GetProviderInfo2 (GetProviderInfo2Request) returns (GetProviderInfo2Response);
+  rpc GetProviderInfo2_1 (GetProviderInfo2_1Request) returns (GetProviderInfo2_1Response);
+  rpc GetReceiverInfo2 (GetReceiverInfo2Request) returns (GetReceiverInfo2Response);
+  rpc GetReceiverInfo2_1 (GetReceiverInfo2_1Request) returns (GetReceiverInfo2_1Response);
+  rpc GetResourcesForActivity (GetResourcesForActivityRequest) returns (GetResourcesForActivityResponse);
+  rpc GetResourcesForApplication1 (GetResourcesForApplication1Request) returns (GetResourcesForApplication1Response);
+  rpc GetResourcesForApplication2_1 (GetResourcesForApplication2_1Request) returns (GetResourcesForApplication2_1Response);
+  rpc GetResourcesForApplication1_2 (GetResourcesForApplication1_2Request) returns (GetResourcesForApplication1_2Response);
+  rpc GetServiceInfo2 (GetServiceInfo2Request) returns (GetServiceInfo2Response);
+  rpc GetServiceInfo2_1 (GetServiceInfo2_1Request) returns (GetServiceInfo2_1Response);
+  rpc GetSuspendedPackageAppExtras (GetSuspendedPackageAppExtrasRequest) returns (GetSuspendedPackageAppExtrasResponse);
+  rpc GetSyntheticAppDetailsActivityEnabled (GetSyntheticAppDetailsActivityEnabledRequest) returns (GetSyntheticAppDetailsActivityEnabledResponse);
+  rpc GetSystemAvailableFeatures (GetSystemAvailableFeaturesRequest) returns (GetSystemAvailableFeaturesResponse);
+  rpc GetSystemSharedLibraryNames (GetSystemSharedLibraryNamesRequest) returns (GetSystemSharedLibraryNamesResponse);
+  rpc GetTargetSdkVersion (PackageManagerGetTargetSdkVersionRequest) returns (GetTargetSdkVersionResponse);
+  rpc GetText (GetTextRequest) returns (GetTextResponse);
+  rpc GetUserBadgedDrawableForDensity (GetUserBadgedDrawableForDensityRequest) returns (GetUserBadgedDrawableForDensityResponse);
+  rpc GetUserBadgedIcon (GetUserBadgedIconRequest) returns (GetUserBadgedIconResponse);
+  rpc GetUserBadgedLabel (GetUserBadgedLabelRequest) returns (GetUserBadgedLabelResponse);
+  rpc GetXml (GetXmlRequest) returns (GetXmlResponse);
+  rpc HasSigningCertificate3 (HasSigningCertificate3Request) returns (HasSigningCertificate3Response);
+  rpc HasSigningCertificate3_1 (HasSigningCertificate3_1Request) returns (HasSigningCertificate3_1Response);
+  rpc HasSystemFeature1 (HasSystemFeature1Request) returns (HasSystemFeature1Response);
+  rpc HasSystemFeature2_1 (HasSystemFeature2_1Request) returns (HasSystemFeature2_1Response);
+  rpc IsAppArchivable (IsAppArchivableRequest) returns (IsAppArchivableResponse);
+  rpc IsAutoRevokeWhitelisted0 (IsAutoRevokeWhitelisted0Request) returns (IsAutoRevokeWhitelisted0Response);
+  rpc IsAutoRevokeWhitelisted1_1 (IsAutoRevokeWhitelisted1_1Request) returns (IsAutoRevokeWhitelisted1_1Response);
+  rpc IsDefaultApplicationIcon (IsDefaultApplicationIconRequest) returns (IsDefaultApplicationIconResponse);
+  rpc IsDeviceUpgrading (IsDeviceUpgradingRequest) returns (IsDeviceUpgradingResponse);
+  rpc IsInstantApp0 (IsInstantApp0Request) returns (IsInstantApp0Response);
+  rpc IsInstantApp1_1 (IsInstantApp1_1Request) returns (IsInstantApp1_1Response);
+  rpc IsPackageStopped (IsPackageStoppedRequest) returns (IsPackageStoppedResponse);
+  rpc IsPackageSuspended0 (IsPackageSuspended0Request) returns (IsPackageSuspended0Response);
+  rpc IsPackageSuspended1_1 (IsPackageSuspended1_1Request) returns (IsPackageSuspended1_1Response);
+  rpc IsPermissionRevokedByPolicy (IsPermissionRevokedByPolicyRequest) returns (IsPermissionRevokedByPolicyResponse);
+  rpc IsSafeMode (IsSafeModeRequest) returns (IsSafeModeResponse);
+  rpc RelinquishUpdateOwnership (RelinquishUpdateOwnershipRequest) returns (RelinquishUpdateOwnershipResponse);
+  rpc RemovePackageFromPreferred (RemovePackageFromPreferredRequest) returns (RemovePackageFromPreferredResponse);
+  rpc RemovePermission (RemovePermissionRequest) returns (RemovePermissionResponse);
+  rpc RemoveWhitelistedRestrictedPermission (RemoveWhitelistedRestrictedPermissionRequest) returns (RemoveWhitelistedRestrictedPermissionResponse);
+  rpc ResolveActivity2 (ResolveActivity2Request) returns (ResolveActivity2Response);
+  rpc ResolveActivity2_1 (ResolveActivity2_1Request) returns (ResolveActivity2_1Response);
+  rpc ResolveContentProvider2 (ResolveContentProvider2Request) returns (ResolveContentProvider2Response);
+  rpc ResolveContentProvider2_1 (ResolveContentProvider2_1Request) returns (ResolveContentProvider2_1Response);
+  rpc ResolveService2 (ResolveService2Request) returns (ResolveService2Response);
+  rpc ResolveService2_1 (ResolveService2_1Request) returns (ResolveService2_1Response);
+  rpc SetApplicationCategoryHint (SetApplicationCategoryHintRequest) returns (SetApplicationCategoryHintResponse);
+  rpc SetApplicationEnabledSetting (SetApplicationEnabledSettingRequest) returns (SetApplicationEnabledSettingResponse);
+  rpc SetAutoRevokeWhitelisted (SetAutoRevokeWhitelistedRequest) returns (SetAutoRevokeWhitelistedResponse);
+  rpc SetComponentEnabledSetting (SetComponentEnabledSettingRequest) returns (SetComponentEnabledSettingResponse);
+  rpc SetInstallerPackageName (PackageManagerSetInstallerPackageNameRequest) returns (SetInstallerPackageNameResponse);
+  rpc UpdateInstantAppCookie (UpdateInstantAppCookieRequest) returns (UpdateInstantAppCookieResponse);
+  rpc VerifyPendingInstall (VerifyPendingInstallRequest) returns (VerifyPendingInstallResponse);
+  rpc GetVerifiedSigningInfo (GetVerifiedSigningInfoRequest) returns (GetVerifiedSigningInfoResponse);
+}
+
+service PackageManagerApplicationInfoFlagsService {
+  rpc GetValue (PackageManagerApplicationInfoFlagsGetValueRequest) returns (GetValueResponse);
+  rpc Of (OfRequest) returns (OfResponse);
+}
+
+service PackageManagerComponentEnabledSettingService {
+  rpc DescribeContents (PackageManagerComponentEnabledSettingDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetComponentName (PackageManagerComponentEnabledSettingGetComponentNameRequest) returns (GetComponentNameResponse);
+  rpc GetEnabledFlags (GetEnabledFlagsRequest) returns (GetEnabledFlagsResponse);
+  rpc GetEnabledState (GetEnabledStateRequest) returns (GetEnabledStateResponse);
+  rpc WriteToParcel (PackageManagerComponentEnabledSettingWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service PackageManagerComponentInfoFlagsService {
+  rpc GetValue (PackageManagerComponentInfoFlagsGetValueRequest) returns (GetValueResponse);
+  rpc Of (OfRequest) returns (OfResponse);
+}
+
+service PackageManagerPackageInfoFlagsService {
+  rpc GetValue (PackageManagerPackageInfoFlagsGetValueRequest) returns (GetValueResponse);
+  rpc Of (OfRequest) returns (OfResponse);
+}
+
+service PackageManagerPropertyService {
+  rpc DescribeContents (PackageManagerPropertyDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (PackageManagerPropertyEqualsRequest) returns (EqualsResponse);
+  rpc GetBoolean (GetBooleanRequest) returns (GetBooleanResponse);
+  rpc GetClassName (GetClassNameRequest) returns (GetClassNameResponse);
+  rpc GetFloat (GetFloatRequest) returns (GetFloatResponse);
+  rpc GetInteger (GetIntegerRequest) returns (GetIntegerResponse);
+  rpc GetName (GetNameRequest) returns (GetNameResponse);
+  rpc GetPackageName (GetPackageNameRequest) returns (GetPackageNameResponse);
+  rpc GetResourceId (GetResourceIdRequest) returns (GetResourceIdResponse);
+  rpc GetString (GetStringRequest) returns (GetStringResponse);
+  rpc HashCode (PackageManagerPropertyHashCodeRequest) returns (HashCodeResponse);
+  rpc IsBoolean (IsBooleanRequest) returns (IsBooleanResponse);
+  rpc IsFloat (IsFloatRequest) returns (IsFloatResponse);
+  rpc IsInteger (IsIntegerRequest) returns (IsIntegerResponse);
+  rpc IsResourceId (IsResourceIdRequest) returns (IsResourceIdResponse);
+  rpc IsString (IsStringRequest) returns (IsStringResponse);
+  rpc WriteToParcel (PackageManagerPropertyWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service PackageManagerResolveInfoFlagsService {
+  rpc GetValue (PackageManagerResolveInfoFlagsGetValueRequest) returns (GetValueResponse);
+  rpc Of (OfRequest) returns (OfResponse);
+}
+
+service ModuleInfoService {
+  rpc DescribeContents (ModuleInfoDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (ModuleInfoEqualsRequest) returns (EqualsResponse);
+  rpc GetName (GetNameRequest) returns (ModuleInfoGetNameResponse);
+  rpc GetPackageName (GetPackageNameRequest) returns (GetPackageNameResponse);
+  rpc HashCode (ModuleInfoHashCodeRequest) returns (HashCodeResponse);
+  rpc IsHidden (IsHiddenRequest) returns (IsHiddenResponse);
+  rpc ToString (ModuleInfoToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (ModuleInfoWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ApkChecksumService {
+  rpc DescribeContents (ApkChecksumDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetInstallerCertificate (GetInstallerCertificateRequest) returns (GetInstallerCertificateResponse);
+  rpc GetInstallerPackageName (GetInstallerPackageNameRequest) returns (GetInstallerPackageNameResponse);
+  rpc GetSplitName (GetSplitNameRequest) returns (GetSplitNameResponse);
+  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
+  rpc GetValue (ApkChecksumGetValueRequest) returns (GetValueResponse);
+  rpc ToString (ApkChecksumToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (ApkChecksumWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ChangedPackagesService {
+  rpc NewChangedPackages (NewChangedPackagesRequest) returns (NewChangedPackagesResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetSequenceNumber (GetSequenceNumberRequest) returns (GetSequenceNumberResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service SigningInfoService {
+  rpc NewSigningInfo (NewSigningInfoRequest) returns (NewSigningInfoResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetApkContentsSigners (GetApkContentsSignersRequest) returns (GetApkContentsSignersResponse);
+  rpc GetSchemeVersion (GetSchemeVersionRequest) returns (GetSchemeVersionResponse);
+  rpc GetSigningCertificateHistory (GetSigningCertificateHistoryRequest) returns (GetSigningCertificateHistoryResponse);
+  rpc HasMultipleSigners (HasMultipleSignersRequest) returns (HasMultipleSignersResponse);
+  rpc HasPastSigningCertificates (HasPastSigningCertificatesRequest) returns (HasPastSigningCertificatesResponse);
+  rpc SignersMatchExactly (SignersMatchExactlyRequest) returns (SignersMatchExactlyResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }

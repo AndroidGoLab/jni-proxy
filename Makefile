@@ -207,7 +207,7 @@ dist-dex:
 	rm -f build/JNIService.class
 
 # ---- Magisk module ----
-magisk: dist-jniservice dist-dex
+magisk: dist-jniservice dist-dex apk
 	@rm -rf build/magisk-staging
 	@mkdir -p build/magisk-staging/jniservice
 	@mkdir -p build/magisk-staging/META-INF/com/google/android
@@ -216,6 +216,7 @@ magisk: dist-jniservice dist-dex
 	cp cmd/jniservice/magisk/customize.sh build/magisk-staging/
 	cp build/libjniservice-$(DIST_ANDROID_ABI).so build/magisk-staging/jniservice/libjniservice.so
 	cp build/classes.dex build/magisk-staging/jniservice/jniservice.dex
+	cp build/jniservice-$(DIST_ANDROID_ABI).apk build/magisk-staging/jniservice.apk
 	@printf '#!/sbin/sh\n. "$$MODPATH/customize.sh"\n' > build/magisk-staging/META-INF/com/google/android/update-binary
 	@chmod 755 build/magisk-staging/META-INF/com/google/android/update-binary
 	@touch build/magisk-staging/META-INF/com/google/android/updater-script

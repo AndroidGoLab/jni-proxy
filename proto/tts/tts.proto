@@ -5,3 +5,418 @@ syntax = "proto3";
 package tts;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/tts";
+
+message AudioAvailableRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message AudioAvailableResponse {
+  int32 result = 1;
+}
+
+message DoneRequest {
+}
+
+message DoneResponse {
+  int32 result = 1;
+}
+
+message Error0Request {
+}
+
+message Error0Response {
+}
+
+message Error1_1Request {
+  int32 arg0 = 1;
+}
+
+message Error1_1Response {
+}
+
+message GetMaxBufferSizeRequest {
+}
+
+message GetMaxBufferSizeResponse {
+  int32 result = 1;
+}
+
+message HasFinishedRequest {
+}
+
+message HasFinishedResponse {
+  bool result = 1;
+}
+
+message HasStartedRequest {
+}
+
+message HasStartedResponse {
+  bool result = 1;
+}
+
+message StartRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message StartResponse {
+  int32 result = 1;
+}
+
+message NewSynthesisRequestRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewSynthesisRequestResponse {
+  int64 result = 1;
+}
+
+message GetCallerUidRequest {
+  int64 handle = 1;
+}
+
+message GetCallerUidResponse {
+  int32 result = 1;
+}
+
+message GetCharSequenceTextRequest {
+  int64 handle = 1;
+}
+
+message GetCharSequenceTextResponse {
+  int64 result = 1;
+}
+
+message GetCountryRequest {
+  int64 handle = 1;
+}
+
+message GetCountryResponse {
+  string result = 1;
+}
+
+message GetLanguageRequest {
+  int64 handle = 1;
+}
+
+message GetLanguageResponse {
+  string result = 1;
+}
+
+message GetParamsRequest {
+  int64 handle = 1;
+}
+
+message GetParamsResponse {
+  int64 result = 1;
+}
+
+message GetPitchRequest {
+  int64 handle = 1;
+}
+
+message GetPitchResponse {
+  int32 result = 1;
+}
+
+message GetSpeechRateRequest {
+  int64 handle = 1;
+}
+
+message GetSpeechRateResponse {
+  int32 result = 1;
+}
+
+message GetTextRequest {
+  int64 handle = 1;
+}
+
+message GetTextResponse {
+  string result = 1;
+}
+
+message GetVariantRequest {
+  int64 handle = 1;
+}
+
+message GetVariantResponse {
+  string result = 1;
+}
+
+message GetVoiceNameRequest {
+  int64 handle = 1;
+}
+
+message GetVoiceNameResponse {
+  string result = 1;
+}
+
+message OnAudioAvailableRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnAudioAvailableResponse {
+}
+
+message OnBeginSynthesisRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message OnBeginSynthesisResponse {
+}
+
+message OnDoneRequest {
+  string arg0 = 1;
+}
+
+message OnDoneResponse {
+}
+
+message OnError1Request {
+  string arg0 = 1;
+}
+
+message OnError1Response {
+}
+
+message OnError2_1Request {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message OnError2_1Response {
+}
+
+message OnRangeStartRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message OnRangeStartResponse {
+}
+
+message OnStartRequest {
+  string arg0 = 1;
+}
+
+message OnStartResponse {
+}
+
+message OnStopRequest {
+  string arg0 = 1;
+  bool arg1 = 2;
+}
+
+message OnStopResponse {
+}
+
+message OnBindRequest {
+  int64 arg0 = 1;
+}
+
+message OnBindResponse {
+  int64 result = 1;
+}
+
+message OnCreateRequest {
+}
+
+message OnCreateResponse {
+}
+
+message OnDestroyRequest {
+}
+
+message OnDestroyResponse {
+}
+
+message OnGetDefaultVoiceNameForRequest {
+  string arg0 = 1;
+  string arg1 = 2;
+  string arg2 = 3;
+}
+
+message OnGetDefaultVoiceNameForResponse {
+  string result = 1;
+}
+
+message OnIsValidVoiceNameRequest {
+  string arg0 = 1;
+}
+
+message OnIsValidVoiceNameResponse {
+  int32 result = 1;
+}
+
+message OnLoadVoiceRequest {
+  string arg0 = 1;
+}
+
+message OnLoadVoiceResponse {
+  int32 result = 1;
+}
+
+message NewVoiceRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  bool arg4 = 5;
+  int64 arg5 = 6;
+}
+
+message NewVoiceResponse {
+  int64 result = 1;
+}
+
+message DescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message EqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message GetLatencyRequest {
+  int64 handle = 1;
+}
+
+message GetLatencyResponse {
+  int32 result = 1;
+}
+
+message GetLocaleRequest {
+  int64 handle = 1;
+}
+
+message GetLocaleResponse {
+  int64 result = 1;
+}
+
+message GetNameRequest {
+  int64 handle = 1;
+}
+
+message GetNameResponse {
+  string result = 1;
+}
+
+message GetQualityRequest {
+  int64 handle = 1;
+}
+
+message GetQualityResponse {
+  int32 result = 1;
+}
+
+message HashCodeRequest {
+  int64 handle = 1;
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message IsNetworkConnectionRequiredRequest {
+  int64 handle = 1;
+}
+
+message IsNetworkConnectionRequiredResponse {
+  bool result = 1;
+}
+
+message ToStringRequest {
+  int64 handle = 1;
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message WriteToParcelResponse {
+}
+
+service SynthesisCallbackService {
+  rpc AudioAvailable (AudioAvailableRequest) returns (AudioAvailableResponse);
+  rpc Done (DoneRequest) returns (DoneResponse);
+  rpc Error0 (Error0Request) returns (Error0Response);
+  rpc Error1_1 (Error1_1Request) returns (Error1_1Response);
+  rpc GetMaxBufferSize (GetMaxBufferSizeRequest) returns (GetMaxBufferSizeResponse);
+  rpc HasFinished (HasFinishedRequest) returns (HasFinishedResponse);
+  rpc HasStarted (HasStartedRequest) returns (HasStartedResponse);
+  rpc Start (StartRequest) returns (StartResponse);
+}
+
+service SynthesisRequestService {
+  rpc NewSynthesisRequest (NewSynthesisRequestRequest) returns (NewSynthesisRequestResponse);
+  rpc GetCallerUid (GetCallerUidRequest) returns (GetCallerUidResponse);
+  rpc GetCharSequenceText (GetCharSequenceTextRequest) returns (GetCharSequenceTextResponse);
+  rpc GetCountry (GetCountryRequest) returns (GetCountryResponse);
+  rpc GetLanguage (GetLanguageRequest) returns (GetLanguageResponse);
+  rpc GetParams (GetParamsRequest) returns (GetParamsResponse);
+  rpc GetPitch (GetPitchRequest) returns (GetPitchResponse);
+  rpc GetSpeechRate (GetSpeechRateRequest) returns (GetSpeechRateResponse);
+  rpc GetText (GetTextRequest) returns (GetTextResponse);
+  rpc GetVariant (GetVariantRequest) returns (GetVariantResponse);
+  rpc GetVoiceName (GetVoiceNameRequest) returns (GetVoiceNameResponse);
+}
+
+service UtteranceProgressListenerService {
+  rpc OnAudioAvailable (OnAudioAvailableRequest) returns (OnAudioAvailableResponse);
+  rpc OnBeginSynthesis (OnBeginSynthesisRequest) returns (OnBeginSynthesisResponse);
+  rpc OnDone (OnDoneRequest) returns (OnDoneResponse);
+  rpc OnError1 (OnError1Request) returns (OnError1Response);
+  rpc OnError2_1 (OnError2_1Request) returns (OnError2_1Response);
+  rpc OnRangeStart (OnRangeStartRequest) returns (OnRangeStartResponse);
+  rpc OnStart (OnStartRequest) returns (OnStartResponse);
+  rpc OnStop (OnStopRequest) returns (OnStopResponse);
+}
+
+service TextToSpeechServiceService {
+  rpc OnBind (OnBindRequest) returns (OnBindResponse);
+  rpc OnCreate (OnCreateRequest) returns (OnCreateResponse);
+  rpc OnDestroy (OnDestroyRequest) returns (OnDestroyResponse);
+  rpc OnGetDefaultVoiceNameFor (OnGetDefaultVoiceNameForRequest) returns (OnGetDefaultVoiceNameForResponse);
+  rpc OnIsValidVoiceName (OnIsValidVoiceNameRequest) returns (OnIsValidVoiceNameResponse);
+  rpc OnLoadVoice (OnLoadVoiceRequest) returns (OnLoadVoiceResponse);
+}
+
+service VoiceService {
+  rpc NewVoice (NewVoiceRequest) returns (NewVoiceResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetLatency (GetLatencyRequest) returns (GetLatencyResponse);
+  rpc GetLocale (GetLocaleRequest) returns (GetLocaleResponse);
+  rpc GetName (GetNameRequest) returns (GetNameResponse);
+  rpc GetQuality (GetQualityRequest) returns (GetQualityResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc IsNetworkConnectionRequired (IsNetworkConnectionRequiredRequest) returns (IsNetworkConnectionRequiredResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}

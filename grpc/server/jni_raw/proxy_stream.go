@@ -77,19 +77,11 @@ func (s *Server) Proxy(stream pb.JNIService_ProxyServer) error {
 			}
 		}
 
-		// Release callback argument handles when the callback is done,
-		// regardless of which exit path is taken (send error, void
-		// fire-and-forget, or normal response).
-		defer func() {
-			for _, h := range argHandles {
-				if h != 0 {
-					_ = s.VM.Do(func(env *jni.Env) error {
-						s.Handles.Release(env, h)
-						return nil
-					})
-				}
-			}
-		}()
+		// NOTE: callback argument handles are NOT released here.
+		// The client is responsible for releasing them via the
+		// HandleStoreService.ReleaseHandle RPC when done. Releasing
+		// them here would invalidate the handles (e.g. CameraDevice)
+		// before the client has a chance to use them.
 
 		// Send callback event to client.
 		event := &pb.ProxyServerMessage{

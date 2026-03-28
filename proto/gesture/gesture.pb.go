@@ -12,6 +12,7 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -22,19 +23,10074 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type NewGestureRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewGestureRequest) Reset() {
+	*x = NewGestureRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewGestureRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewGestureRequest) ProtoMessage() {}
+
+func (x *NewGestureRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewGestureRequest.ProtoReflect.Descriptor instead.
+func (*NewGestureRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{0}
+}
+
+type NewGestureResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewGestureResponse) Reset() {
+	*x = NewGestureResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewGestureResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewGestureResponse) ProtoMessage() {}
+
+func (x *NewGestureResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewGestureResponse.ProtoReflect.Descriptor instead.
+func (*NewGestureResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *NewGestureResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddStrokeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddStrokeRequest) Reset() {
+	*x = AddStrokeRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddStrokeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddStrokeRequest) ProtoMessage() {}
+
+func (x *AddStrokeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddStrokeRequest.ProtoReflect.Descriptor instead.
+func (*AddStrokeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *AddStrokeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *AddStrokeRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AddStrokeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddStrokeResponse) Reset() {
+	*x = AddStrokeResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddStrokeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddStrokeResponse) ProtoMessage() {}
+
+func (x *AddStrokeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddStrokeResponse.ProtoReflect.Descriptor instead.
+func (*AddStrokeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{3}
+}
+
+type CloneRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CloneRequest) Reset() {
+	*x = CloneRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CloneRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CloneRequest) ProtoMessage() {}
+
+func (x *CloneRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CloneRequest.ProtoReflect.Descriptor instead.
+func (*CloneRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *CloneRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type CloneResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CloneResponse) Reset() {
+	*x = CloneResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CloneResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CloneResponse) ProtoMessage() {}
+
+func (x *CloneResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CloneResponse.ProtoReflect.Descriptor instead.
+func (*CloneResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *CloneResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type DescribeContentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DescribeContentsRequest) Reset() {
+	*x = DescribeContentsRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DescribeContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DescribeContentsRequest) ProtoMessage() {}
+
+func (x *DescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*DescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *DescribeContentsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type DescribeContentsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DescribeContentsResponse) Reset() {
+	*x = DescribeContentsResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DescribeContentsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DescribeContentsResponse) ProtoMessage() {}
+
+func (x *DescribeContentsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DescribeContentsResponse.ProtoReflect.Descriptor instead.
+func (*DescribeContentsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *DescribeContentsResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetBoundingBoxRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBoundingBoxRequest) Reset() {
+	*x = GetBoundingBoxRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBoundingBoxRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBoundingBoxRequest) ProtoMessage() {}
+
+func (x *GetBoundingBoxRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBoundingBoxRequest.ProtoReflect.Descriptor instead.
+func (*GetBoundingBoxRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *GetBoundingBoxRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetBoundingBoxResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBoundingBoxResponse) Reset() {
+	*x = GetBoundingBoxResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBoundingBoxResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBoundingBoxResponse) ProtoMessage() {}
+
+func (x *GetBoundingBoxResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBoundingBoxResponse.ProtoReflect.Descriptor instead.
+func (*GetBoundingBoxResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *GetBoundingBoxResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetIDRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetIDRequest) Reset() {
+	*x = GetIDRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetIDRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetIDRequest) ProtoMessage() {}
+
+func (x *GetIDRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetIDRequest.ProtoReflect.Descriptor instead.
+func (*GetIDRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *GetIDRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetIDResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetIDResponse) Reset() {
+	*x = GetIDResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetIDResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetIDResponse) ProtoMessage() {}
+
+func (x *GetIDResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetIDResponse.ProtoReflect.Descriptor instead.
+func (*GetIDResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *GetIDResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetLengthRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLengthRequest) Reset() {
+	*x = GetLengthRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLengthRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLengthRequest) ProtoMessage() {}
+
+func (x *GetLengthRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLengthRequest.ProtoReflect.Descriptor instead.
+func (*GetLengthRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *GetLengthRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetLengthResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        float32                `protobuf:"fixed32,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLengthResponse) Reset() {
+	*x = GetLengthResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLengthResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLengthResponse) ProtoMessage() {}
+
+func (x *GetLengthResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLengthResponse.ProtoReflect.Descriptor instead.
+func (*GetLengthResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *GetLengthResponse) GetResult() float32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetStrokesCountRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetStrokesCountRequest) Reset() {
+	*x = GetStrokesCountRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetStrokesCountRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetStrokesCountRequest) ProtoMessage() {}
+
+func (x *GetStrokesCountRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetStrokesCountRequest.ProtoReflect.Descriptor instead.
+func (*GetStrokesCountRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{14}
+}
+
+func (x *GetStrokesCountRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetStrokesCountResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetStrokesCountResponse) Reset() {
+	*x = GetStrokesCountResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetStrokesCountResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetStrokesCountResponse) ProtoMessage() {}
+
+func (x *GetStrokesCountResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetStrokesCountResponse.ProtoReflect.Descriptor instead.
+func (*GetStrokesCountResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *GetStrokesCountResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ToBitmap4Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int32                  `protobuf:"varint,5,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToBitmap4Request) Reset() {
+	*x = ToBitmap4Request{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToBitmap4Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToBitmap4Request) ProtoMessage() {}
+
+func (x *ToBitmap4Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToBitmap4Request.ProtoReflect.Descriptor instead.
+func (*ToBitmap4Request) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{16}
+}
+
+func (x *ToBitmap4Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *ToBitmap4Request) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *ToBitmap4Request) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *ToBitmap4Request) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *ToBitmap4Request) GetArg3() int32 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+type ToBitmap4Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToBitmap4Response) Reset() {
+	*x = ToBitmap4Response{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToBitmap4Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToBitmap4Response) ProtoMessage() {}
+
+func (x *ToBitmap4Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToBitmap4Response.ProtoReflect.Descriptor instead.
+func (*ToBitmap4Response) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *ToBitmap4Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ToBitmap5_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int32                  `protobuf:"varint,5,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	Arg4          int32                  `protobuf:"varint,6,opt,name=arg4,proto3" json:"arg4,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToBitmap5_1Request) Reset() {
+	*x = ToBitmap5_1Request{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToBitmap5_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToBitmap5_1Request) ProtoMessage() {}
+
+func (x *ToBitmap5_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToBitmap5_1Request.ProtoReflect.Descriptor instead.
+func (*ToBitmap5_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{18}
+}
+
+func (x *ToBitmap5_1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *ToBitmap5_1Request) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *ToBitmap5_1Request) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *ToBitmap5_1Request) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *ToBitmap5_1Request) GetArg3() int32 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+func (x *ToBitmap5_1Request) GetArg4() int32 {
+	if x != nil {
+		return x.Arg4
+	}
+	return 0
+}
+
+type ToBitmap5_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToBitmap5_1Response) Reset() {
+	*x = ToBitmap5_1Response{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToBitmap5_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToBitmap5_1Response) ProtoMessage() {}
+
+func (x *ToBitmap5_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToBitmap5_1Response.ProtoReflect.Descriptor instead.
+func (*ToBitmap5_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *ToBitmap5_1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ToPath0Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToPath0Request) Reset() {
+	*x = ToPath0Request{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToPath0Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToPath0Request) ProtoMessage() {}
+
+func (x *ToPath0Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToPath0Request.ProtoReflect.Descriptor instead.
+func (*ToPath0Request) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{20}
+}
+
+func (x *ToPath0Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type ToPath0Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToPath0Response) Reset() {
+	*x = ToPath0Response{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToPath0Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToPath0Response) ProtoMessage() {}
+
+func (x *ToPath0Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToPath0Response.ProtoReflect.Descriptor instead.
+func (*ToPath0Response) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{21}
+}
+
+func (x *ToPath0Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ToPath1_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToPath1_1Request) Reset() {
+	*x = ToPath1_1Request{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToPath1_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToPath1_1Request) ProtoMessage() {}
+
+func (x *ToPath1_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToPath1_1Request.ProtoReflect.Descriptor instead.
+func (*ToPath1_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{22}
+}
+
+func (x *ToPath1_1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *ToPath1_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type ToPath1_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToPath1_1Response) Reset() {
+	*x = ToPath1_1Response{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToPath1_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToPath1_1Response) ProtoMessage() {}
+
+func (x *ToPath1_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToPath1_1Response.ProtoReflect.Descriptor instead.
+func (*ToPath1_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{23}
+}
+
+func (x *ToPath1_1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ToPath5_2Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int32                  `protobuf:"varint,5,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	Arg4          int32                  `protobuf:"varint,6,opt,name=arg4,proto3" json:"arg4,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToPath5_2Request) Reset() {
+	*x = ToPath5_2Request{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToPath5_2Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToPath5_2Request) ProtoMessage() {}
+
+func (x *ToPath5_2Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToPath5_2Request.ProtoReflect.Descriptor instead.
+func (*ToPath5_2Request) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{24}
+}
+
+func (x *ToPath5_2Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *ToPath5_2Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *ToPath5_2Request) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *ToPath5_2Request) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *ToPath5_2Request) GetArg3() int32 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+func (x *ToPath5_2Request) GetArg4() int32 {
+	if x != nil {
+		return x.Arg4
+	}
+	return 0
+}
+
+type ToPath5_2Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToPath5_2Response) Reset() {
+	*x = ToPath5_2Response{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToPath5_2Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToPath5_2Response) ProtoMessage() {}
+
+func (x *ToPath5_2Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToPath5_2Response.ProtoReflect.Descriptor instead.
+func (*ToPath5_2Response) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{25}
+}
+
+func (x *ToPath5_2Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ToPath4_3Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int32                  `protobuf:"varint,5,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToPath4_3Request) Reset() {
+	*x = ToPath4_3Request{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[26]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToPath4_3Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToPath4_3Request) ProtoMessage() {}
+
+func (x *ToPath4_3Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[26]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToPath4_3Request.ProtoReflect.Descriptor instead.
+func (*ToPath4_3Request) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{26}
+}
+
+func (x *ToPath4_3Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *ToPath4_3Request) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *ToPath4_3Request) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *ToPath4_3Request) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *ToPath4_3Request) GetArg3() int32 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+type ToPath4_3Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToPath4_3Response) Reset() {
+	*x = ToPath4_3Response{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[27]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToPath4_3Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToPath4_3Response) ProtoMessage() {}
+
+func (x *ToPath4_3Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[27]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToPath4_3Response.ProtoReflect.Descriptor instead.
+func (*ToPath4_3Response) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{27}
+}
+
+func (x *ToPath4_3Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type WriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WriteToParcelRequest) Reset() {
+	*x = WriteToParcelRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[28]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WriteToParcelRequest) ProtoMessage() {}
+
+func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[28]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*WriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{28}
+}
+
+func (x *WriteToParcelRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *WriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *WriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type WriteToParcelResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WriteToParcelResponse) Reset() {
+	*x = WriteToParcelResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[29]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WriteToParcelResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WriteToParcelResponse) ProtoMessage() {}
+
+func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[29]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WriteToParcelResponse.ProtoReflect.Descriptor instead.
+func (*WriteToParcelResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{29}
+}
+
+type NewStoreRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewStoreRequest) Reset() {
+	*x = NewStoreRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[30]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewStoreRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewStoreRequest) ProtoMessage() {}
+
+func (x *NewStoreRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[30]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewStoreRequest.ProtoReflect.Descriptor instead.
+func (*NewStoreRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{30}
+}
+
+type NewStoreResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewStoreResponse) Reset() {
+	*x = NewStoreResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[31]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewStoreResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewStoreResponse) ProtoMessage() {}
+
+func (x *NewStoreResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[31]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewStoreResponse.ProtoReflect.Descriptor instead.
+func (*NewStoreResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{31}
+}
+
+func (x *NewStoreResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddGestureRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          string                 `protobuf:"bytes,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddGestureRequest) Reset() {
+	*x = AddGestureRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[32]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddGestureRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddGestureRequest) ProtoMessage() {}
+
+func (x *AddGestureRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[32]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddGestureRequest.ProtoReflect.Descriptor instead.
+func (*AddGestureRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{32}
+}
+
+func (x *AddGestureRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *AddGestureRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *AddGestureRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type AddGestureResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddGestureResponse) Reset() {
+	*x = AddGestureResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[33]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddGestureResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddGestureResponse) ProtoMessage() {}
+
+func (x *AddGestureResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[33]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddGestureResponse.ProtoReflect.Descriptor instead.
+func (*AddGestureResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{33}
+}
+
+type GetOrientationStyleRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetOrientationStyleRequest) Reset() {
+	*x = GetOrientationStyleRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[34]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetOrientationStyleRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetOrientationStyleRequest) ProtoMessage() {}
+
+func (x *GetOrientationStyleRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[34]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetOrientationStyleRequest.ProtoReflect.Descriptor instead.
+func (*GetOrientationStyleRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{34}
+}
+
+func (x *GetOrientationStyleRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetOrientationStyleResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetOrientationStyleResponse) Reset() {
+	*x = GetOrientationStyleResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[35]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetOrientationStyleResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetOrientationStyleResponse) ProtoMessage() {}
+
+func (x *GetOrientationStyleResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[35]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetOrientationStyleResponse.ProtoReflect.Descriptor instead.
+func (*GetOrientationStyleResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{35}
+}
+
+func (x *GetOrientationStyleResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSequenceTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSequenceTypeRequest) Reset() {
+	*x = GetSequenceTypeRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[36]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSequenceTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSequenceTypeRequest) ProtoMessage() {}
+
+func (x *GetSequenceTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[36]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSequenceTypeRequest.ProtoReflect.Descriptor instead.
+func (*GetSequenceTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{36}
+}
+
+func (x *GetSequenceTypeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetSequenceTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSequenceTypeResponse) Reset() {
+	*x = GetSequenceTypeResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[37]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSequenceTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSequenceTypeResponse) ProtoMessage() {}
+
+func (x *GetSequenceTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[37]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSequenceTypeResponse.ProtoReflect.Descriptor instead.
+func (*GetSequenceTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{37}
+}
+
+func (x *GetSequenceTypeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type HasChangedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HasChangedRequest) Reset() {
+	*x = HasChangedRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[38]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HasChangedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HasChangedRequest) ProtoMessage() {}
+
+func (x *HasChangedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[38]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HasChangedRequest.ProtoReflect.Descriptor instead.
+func (*HasChangedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{38}
+}
+
+func (x *HasChangedRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type HasChangedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HasChangedResponse) Reset() {
+	*x = HasChangedResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[39]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HasChangedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HasChangedResponse) ProtoMessage() {}
+
+func (x *HasChangedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[39]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HasChangedResponse.ProtoReflect.Descriptor instead.
+func (*HasChangedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{39}
+}
+
+func (x *HasChangedResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type Load1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Load1Request) Reset() {
+	*x = Load1Request{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[40]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Load1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Load1Request) ProtoMessage() {}
+
+func (x *Load1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[40]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Load1Request.ProtoReflect.Descriptor instead.
+func (*Load1Request) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{40}
+}
+
+func (x *Load1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *Load1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type Load1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Load1Response) Reset() {
+	*x = Load1Response{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[41]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Load1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Load1Response) ProtoMessage() {}
+
+func (x *Load1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[41]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Load1Response.ProtoReflect.Descriptor instead.
+func (*Load1Response) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{41}
+}
+
+type Load2_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          bool                   `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Load2_1Request) Reset() {
+	*x = Load2_1Request{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[42]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Load2_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Load2_1Request) ProtoMessage() {}
+
+func (x *Load2_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[42]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Load2_1Request.ProtoReflect.Descriptor instead.
+func (*Load2_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{42}
+}
+
+func (x *Load2_1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *Load2_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *Load2_1Request) GetArg1() bool {
+	if x != nil {
+		return x.Arg1
+	}
+	return false
+}
+
+type Load2_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Load2_1Response) Reset() {
+	*x = Load2_1Response{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[43]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Load2_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Load2_1Response) ProtoMessage() {}
+
+func (x *Load2_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[43]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Load2_1Response.ProtoReflect.Descriptor instead.
+func (*Load2_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{43}
+}
+
+type RemoveEntryRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          string                 `protobuf:"bytes,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RemoveEntryRequest) Reset() {
+	*x = RemoveEntryRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[44]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RemoveEntryRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemoveEntryRequest) ProtoMessage() {}
+
+func (x *RemoveEntryRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[44]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemoveEntryRequest.ProtoReflect.Descriptor instead.
+func (*RemoveEntryRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{44}
+}
+
+func (x *RemoveEntryRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *RemoveEntryRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type RemoveEntryResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RemoveEntryResponse) Reset() {
+	*x = RemoveEntryResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[45]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RemoveEntryResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemoveEntryResponse) ProtoMessage() {}
+
+func (x *RemoveEntryResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[45]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemoveEntryResponse.ProtoReflect.Descriptor instead.
+func (*RemoveEntryResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{45}
+}
+
+type RemoveGestureRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          string                 `protobuf:"bytes,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RemoveGestureRequest) Reset() {
+	*x = RemoveGestureRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[46]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RemoveGestureRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemoveGestureRequest) ProtoMessage() {}
+
+func (x *RemoveGestureRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[46]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemoveGestureRequest.ProtoReflect.Descriptor instead.
+func (*RemoveGestureRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{46}
+}
+
+func (x *RemoveGestureRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *RemoveGestureRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *RemoveGestureRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type RemoveGestureResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RemoveGestureResponse) Reset() {
+	*x = RemoveGestureResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[47]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RemoveGestureResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemoveGestureResponse) ProtoMessage() {}
+
+func (x *RemoveGestureResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[47]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemoveGestureResponse.ProtoReflect.Descriptor instead.
+func (*RemoveGestureResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{47}
+}
+
+type Save1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Save1Request) Reset() {
+	*x = Save1Request{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[48]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Save1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Save1Request) ProtoMessage() {}
+
+func (x *Save1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[48]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Save1Request.ProtoReflect.Descriptor instead.
+func (*Save1Request) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{48}
+}
+
+func (x *Save1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *Save1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type Save1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Save1Response) Reset() {
+	*x = Save1Response{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[49]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Save1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Save1Response) ProtoMessage() {}
+
+func (x *Save1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[49]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Save1Response.ProtoReflect.Descriptor instead.
+func (*Save1Response) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{49}
+}
+
+type Save2_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          bool                   `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Save2_1Request) Reset() {
+	*x = Save2_1Request{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[50]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Save2_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Save2_1Request) ProtoMessage() {}
+
+func (x *Save2_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[50]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Save2_1Request.ProtoReflect.Descriptor instead.
+func (*Save2_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{50}
+}
+
+func (x *Save2_1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *Save2_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *Save2_1Request) GetArg1() bool {
+	if x != nil {
+		return x.Arg1
+	}
+	return false
+}
+
+type Save2_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Save2_1Response) Reset() {
+	*x = Save2_1Response{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[51]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Save2_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Save2_1Response) ProtoMessage() {}
+
+func (x *Save2_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[51]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Save2_1Response.ProtoReflect.Descriptor instead.
+func (*Save2_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{51}
+}
+
+type SetOrientationStyleRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetOrientationStyleRequest) Reset() {
+	*x = SetOrientationStyleRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[52]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetOrientationStyleRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetOrientationStyleRequest) ProtoMessage() {}
+
+func (x *SetOrientationStyleRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[52]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetOrientationStyleRequest.ProtoReflect.Descriptor instead.
+func (*SetOrientationStyleRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{52}
+}
+
+func (x *SetOrientationStyleRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetOrientationStyleRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetOrientationStyleResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetOrientationStyleResponse) Reset() {
+	*x = SetOrientationStyleResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[53]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetOrientationStyleResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetOrientationStyleResponse) ProtoMessage() {}
+
+func (x *SetOrientationStyleResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[53]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetOrientationStyleResponse.ProtoReflect.Descriptor instead.
+func (*SetOrientationStyleResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{53}
+}
+
+type SetSequenceTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetSequenceTypeRequest) Reset() {
+	*x = SetSequenceTypeRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[54]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetSequenceTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetSequenceTypeRequest) ProtoMessage() {}
+
+func (x *SetSequenceTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[54]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetSequenceTypeRequest.ProtoReflect.Descriptor instead.
+func (*SetSequenceTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{54}
+}
+
+func (x *SetSequenceTypeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetSequenceTypeRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetSequenceTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetSequenceTypeResponse) Reset() {
+	*x = SetSequenceTypeResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[55]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetSequenceTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetSequenceTypeResponse) ProtoMessage() {}
+
+func (x *SetSequenceTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[55]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetSequenceTypeResponse.ProtoReflect.Descriptor instead.
+func (*SetSequenceTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{55}
+}
+
+type NewOverlayViewRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewOverlayViewRequest) Reset() {
+	*x = NewOverlayViewRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[56]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewOverlayViewRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewOverlayViewRequest) ProtoMessage() {}
+
+func (x *NewOverlayViewRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[56]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewOverlayViewRequest.ProtoReflect.Descriptor instead.
+func (*NewOverlayViewRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{56}
+}
+
+func (x *NewOverlayViewRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type NewOverlayViewResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewOverlayViewResponse) Reset() {
+	*x = NewOverlayViewResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[57]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewOverlayViewResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewOverlayViewResponse) ProtoMessage() {}
+
+func (x *NewOverlayViewResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[57]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewOverlayViewResponse.ProtoReflect.Descriptor instead.
+func (*NewOverlayViewResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{57}
+}
+
+func (x *NewOverlayViewResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddOnGestureListenerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddOnGestureListenerRequest) Reset() {
+	*x = AddOnGestureListenerRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[58]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddOnGestureListenerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddOnGestureListenerRequest) ProtoMessage() {}
+
+func (x *AddOnGestureListenerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[58]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddOnGestureListenerRequest.ProtoReflect.Descriptor instead.
+func (*AddOnGestureListenerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{58}
+}
+
+func (x *AddOnGestureListenerRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *AddOnGestureListenerRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AddOnGestureListenerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddOnGestureListenerResponse) Reset() {
+	*x = AddOnGestureListenerResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[59]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddOnGestureListenerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddOnGestureListenerResponse) ProtoMessage() {}
+
+func (x *AddOnGestureListenerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[59]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddOnGestureListenerResponse.ProtoReflect.Descriptor instead.
+func (*AddOnGestureListenerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{59}
+}
+
+type AddOnGesturePerformedListenerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddOnGesturePerformedListenerRequest) Reset() {
+	*x = AddOnGesturePerformedListenerRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[60]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddOnGesturePerformedListenerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddOnGesturePerformedListenerRequest) ProtoMessage() {}
+
+func (x *AddOnGesturePerformedListenerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[60]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddOnGesturePerformedListenerRequest.ProtoReflect.Descriptor instead.
+func (*AddOnGesturePerformedListenerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{60}
+}
+
+func (x *AddOnGesturePerformedListenerRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *AddOnGesturePerformedListenerRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AddOnGesturePerformedListenerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddOnGesturePerformedListenerResponse) Reset() {
+	*x = AddOnGesturePerformedListenerResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[61]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddOnGesturePerformedListenerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddOnGesturePerformedListenerResponse) ProtoMessage() {}
+
+func (x *AddOnGesturePerformedListenerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[61]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddOnGesturePerformedListenerResponse.ProtoReflect.Descriptor instead.
+func (*AddOnGesturePerformedListenerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{61}
+}
+
+type AddOnGesturingListenerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddOnGesturingListenerRequest) Reset() {
+	*x = AddOnGesturingListenerRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[62]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddOnGesturingListenerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddOnGesturingListenerRequest) ProtoMessage() {}
+
+func (x *AddOnGesturingListenerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[62]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddOnGesturingListenerRequest.ProtoReflect.Descriptor instead.
+func (*AddOnGesturingListenerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{62}
+}
+
+func (x *AddOnGesturingListenerRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *AddOnGesturingListenerRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AddOnGesturingListenerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddOnGesturingListenerResponse) Reset() {
+	*x = AddOnGesturingListenerResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[63]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddOnGesturingListenerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddOnGesturingListenerResponse) ProtoMessage() {}
+
+func (x *AddOnGesturingListenerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[63]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddOnGesturingListenerResponse.ProtoReflect.Descriptor instead.
+func (*AddOnGesturingListenerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{63}
+}
+
+type CancelClearAnimationRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CancelClearAnimationRequest) Reset() {
+	*x = CancelClearAnimationRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[64]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CancelClearAnimationRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CancelClearAnimationRequest) ProtoMessage() {}
+
+func (x *CancelClearAnimationRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[64]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CancelClearAnimationRequest.ProtoReflect.Descriptor instead.
+func (*CancelClearAnimationRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{64}
+}
+
+func (x *CancelClearAnimationRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type CancelClearAnimationResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CancelClearAnimationResponse) Reset() {
+	*x = CancelClearAnimationResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[65]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CancelClearAnimationResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CancelClearAnimationResponse) ProtoMessage() {}
+
+func (x *CancelClearAnimationResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[65]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CancelClearAnimationResponse.ProtoReflect.Descriptor instead.
+func (*CancelClearAnimationResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{65}
+}
+
+type CancelGestureRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CancelGestureRequest) Reset() {
+	*x = CancelGestureRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[66]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CancelGestureRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CancelGestureRequest) ProtoMessage() {}
+
+func (x *CancelGestureRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[66]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CancelGestureRequest.ProtoReflect.Descriptor instead.
+func (*CancelGestureRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{66}
+}
+
+func (x *CancelGestureRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type CancelGestureResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CancelGestureResponse) Reset() {
+	*x = CancelGestureResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[67]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CancelGestureResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CancelGestureResponse) ProtoMessage() {}
+
+func (x *CancelGestureResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[67]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CancelGestureResponse.ProtoReflect.Descriptor instead.
+func (*CancelGestureResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{67}
+}
+
+type ClearRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          bool                   `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearRequest) Reset() {
+	*x = ClearRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[68]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearRequest) ProtoMessage() {}
+
+func (x *ClearRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[68]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearRequest.ProtoReflect.Descriptor instead.
+func (*ClearRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{68}
+}
+
+func (x *ClearRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *ClearRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type ClearResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearResponse) Reset() {
+	*x = ClearResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[69]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearResponse) ProtoMessage() {}
+
+func (x *ClearResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[69]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearResponse.ProtoReflect.Descriptor instead.
+func (*ClearResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{69}
+}
+
+type DispatchTouchEventRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DispatchTouchEventRequest) Reset() {
+	*x = DispatchTouchEventRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[70]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DispatchTouchEventRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DispatchTouchEventRequest) ProtoMessage() {}
+
+func (x *DispatchTouchEventRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[70]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DispatchTouchEventRequest.ProtoReflect.Descriptor instead.
+func (*DispatchTouchEventRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{70}
+}
+
+func (x *DispatchTouchEventRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *DispatchTouchEventRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type DispatchTouchEventResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DispatchTouchEventResponse) Reset() {
+	*x = DispatchTouchEventResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[71]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DispatchTouchEventResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DispatchTouchEventResponse) ProtoMessage() {}
+
+func (x *DispatchTouchEventResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[71]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DispatchTouchEventResponse.ProtoReflect.Descriptor instead.
+func (*DispatchTouchEventResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{71}
+}
+
+func (x *DispatchTouchEventResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type DrawRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DrawRequest) Reset() {
+	*x = DrawRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[72]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DrawRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DrawRequest) ProtoMessage() {}
+
+func (x *DrawRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[72]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DrawRequest.ProtoReflect.Descriptor instead.
+func (*DrawRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{72}
+}
+
+func (x *DrawRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *DrawRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type DrawResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DrawResponse) Reset() {
+	*x = DrawResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[73]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DrawResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DrawResponse) ProtoMessage() {}
+
+func (x *DrawResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[73]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DrawResponse.ProtoReflect.Descriptor instead.
+func (*DrawResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{73}
+}
+
+type GetFadeOffsetRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetFadeOffsetRequest) Reset() {
+	*x = GetFadeOffsetRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[74]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetFadeOffsetRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetFadeOffsetRequest) ProtoMessage() {}
+
+func (x *GetFadeOffsetRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[74]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetFadeOffsetRequest.ProtoReflect.Descriptor instead.
+func (*GetFadeOffsetRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{74}
+}
+
+func (x *GetFadeOffsetRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetFadeOffsetResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetFadeOffsetResponse) Reset() {
+	*x = GetFadeOffsetResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[75]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetFadeOffsetResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetFadeOffsetResponse) ProtoMessage() {}
+
+func (x *GetFadeOffsetResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[75]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetFadeOffsetResponse.ProtoReflect.Descriptor instead.
+func (*GetFadeOffsetResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{75}
+}
+
+func (x *GetFadeOffsetResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetGestureRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetGestureRequest) Reset() {
+	*x = GetGestureRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[76]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetGestureRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetGestureRequest) ProtoMessage() {}
+
+func (x *GetGestureRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[76]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetGestureRequest.ProtoReflect.Descriptor instead.
+func (*GetGestureRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{76}
+}
+
+func (x *GetGestureRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetGestureResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetGestureResponse) Reset() {
+	*x = GetGestureResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[77]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetGestureResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetGestureResponse) ProtoMessage() {}
+
+func (x *GetGestureResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[77]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetGestureResponse.ProtoReflect.Descriptor instead.
+func (*GetGestureResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{77}
+}
+
+func (x *GetGestureResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetGestureColorRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetGestureColorRequest) Reset() {
+	*x = GetGestureColorRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[78]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetGestureColorRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetGestureColorRequest) ProtoMessage() {}
+
+func (x *GetGestureColorRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[78]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetGestureColorRequest.ProtoReflect.Descriptor instead.
+func (*GetGestureColorRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{78}
+}
+
+func (x *GetGestureColorRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetGestureColorResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetGestureColorResponse) Reset() {
+	*x = GetGestureColorResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[79]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetGestureColorResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetGestureColorResponse) ProtoMessage() {}
+
+func (x *GetGestureColorResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[79]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetGestureColorResponse.ProtoReflect.Descriptor instead.
+func (*GetGestureColorResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{79}
+}
+
+func (x *GetGestureColorResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetGesturePath0Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetGesturePath0Request) Reset() {
+	*x = GetGesturePath0Request{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[80]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetGesturePath0Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetGesturePath0Request) ProtoMessage() {}
+
+func (x *GetGesturePath0Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[80]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetGesturePath0Request.ProtoReflect.Descriptor instead.
+func (*GetGesturePath0Request) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{80}
+}
+
+func (x *GetGesturePath0Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetGesturePath0Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetGesturePath0Response) Reset() {
+	*x = GetGesturePath0Response{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[81]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetGesturePath0Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetGesturePath0Response) ProtoMessage() {}
+
+func (x *GetGesturePath0Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[81]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetGesturePath0Response.ProtoReflect.Descriptor instead.
+func (*GetGesturePath0Response) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{81}
+}
+
+func (x *GetGesturePath0Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetGesturePath1_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetGesturePath1_1Request) Reset() {
+	*x = GetGesturePath1_1Request{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[82]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetGesturePath1_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetGesturePath1_1Request) ProtoMessage() {}
+
+func (x *GetGesturePath1_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[82]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetGesturePath1_1Request.ProtoReflect.Descriptor instead.
+func (*GetGesturePath1_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{82}
+}
+
+func (x *GetGesturePath1_1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetGesturePath1_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetGesturePath1_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetGesturePath1_1Response) Reset() {
+	*x = GetGesturePath1_1Response{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[83]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetGesturePath1_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetGesturePath1_1Response) ProtoMessage() {}
+
+func (x *GetGesturePath1_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[83]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetGesturePath1_1Response.ProtoReflect.Descriptor instead.
+func (*GetGesturePath1_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{83}
+}
+
+func (x *GetGesturePath1_1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetGestureStrokeAngleThresholdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetGestureStrokeAngleThresholdRequest) Reset() {
+	*x = GetGestureStrokeAngleThresholdRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[84]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetGestureStrokeAngleThresholdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetGestureStrokeAngleThresholdRequest) ProtoMessage() {}
+
+func (x *GetGestureStrokeAngleThresholdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[84]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetGestureStrokeAngleThresholdRequest.ProtoReflect.Descriptor instead.
+func (*GetGestureStrokeAngleThresholdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{84}
+}
+
+func (x *GetGestureStrokeAngleThresholdRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetGestureStrokeAngleThresholdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        float32                `protobuf:"fixed32,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetGestureStrokeAngleThresholdResponse) Reset() {
+	*x = GetGestureStrokeAngleThresholdResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[85]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetGestureStrokeAngleThresholdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetGestureStrokeAngleThresholdResponse) ProtoMessage() {}
+
+func (x *GetGestureStrokeAngleThresholdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[85]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetGestureStrokeAngleThresholdResponse.ProtoReflect.Descriptor instead.
+func (*GetGestureStrokeAngleThresholdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{85}
+}
+
+func (x *GetGestureStrokeAngleThresholdResponse) GetResult() float32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetGestureStrokeLengthThresholdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetGestureStrokeLengthThresholdRequest) Reset() {
+	*x = GetGestureStrokeLengthThresholdRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[86]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetGestureStrokeLengthThresholdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetGestureStrokeLengthThresholdRequest) ProtoMessage() {}
+
+func (x *GetGestureStrokeLengthThresholdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[86]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetGestureStrokeLengthThresholdRequest.ProtoReflect.Descriptor instead.
+func (*GetGestureStrokeLengthThresholdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{86}
+}
+
+func (x *GetGestureStrokeLengthThresholdRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetGestureStrokeLengthThresholdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        float32                `protobuf:"fixed32,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetGestureStrokeLengthThresholdResponse) Reset() {
+	*x = GetGestureStrokeLengthThresholdResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[87]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetGestureStrokeLengthThresholdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetGestureStrokeLengthThresholdResponse) ProtoMessage() {}
+
+func (x *GetGestureStrokeLengthThresholdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[87]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetGestureStrokeLengthThresholdResponse.ProtoReflect.Descriptor instead.
+func (*GetGestureStrokeLengthThresholdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{87}
+}
+
+func (x *GetGestureStrokeLengthThresholdResponse) GetResult() float32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetGestureStrokeSquarenessTresholdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetGestureStrokeSquarenessTresholdRequest) Reset() {
+	*x = GetGestureStrokeSquarenessTresholdRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[88]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetGestureStrokeSquarenessTresholdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetGestureStrokeSquarenessTresholdRequest) ProtoMessage() {}
+
+func (x *GetGestureStrokeSquarenessTresholdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[88]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetGestureStrokeSquarenessTresholdRequest.ProtoReflect.Descriptor instead.
+func (*GetGestureStrokeSquarenessTresholdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{88}
+}
+
+func (x *GetGestureStrokeSquarenessTresholdRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetGestureStrokeSquarenessTresholdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        float32                `protobuf:"fixed32,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetGestureStrokeSquarenessTresholdResponse) Reset() {
+	*x = GetGestureStrokeSquarenessTresholdResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[89]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetGestureStrokeSquarenessTresholdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetGestureStrokeSquarenessTresholdResponse) ProtoMessage() {}
+
+func (x *GetGestureStrokeSquarenessTresholdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[89]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetGestureStrokeSquarenessTresholdResponse.ProtoReflect.Descriptor instead.
+func (*GetGestureStrokeSquarenessTresholdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{89}
+}
+
+func (x *GetGestureStrokeSquarenessTresholdResponse) GetResult() float32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetGestureStrokeTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetGestureStrokeTypeRequest) Reset() {
+	*x = GetGestureStrokeTypeRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[90]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetGestureStrokeTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetGestureStrokeTypeRequest) ProtoMessage() {}
+
+func (x *GetGestureStrokeTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[90]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetGestureStrokeTypeRequest.ProtoReflect.Descriptor instead.
+func (*GetGestureStrokeTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{90}
+}
+
+func (x *GetGestureStrokeTypeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetGestureStrokeTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetGestureStrokeTypeResponse) Reset() {
+	*x = GetGestureStrokeTypeResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[91]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetGestureStrokeTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetGestureStrokeTypeResponse) ProtoMessage() {}
+
+func (x *GetGestureStrokeTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[91]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetGestureStrokeTypeResponse.ProtoReflect.Descriptor instead.
+func (*GetGestureStrokeTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{91}
+}
+
+func (x *GetGestureStrokeTypeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetGestureStrokeWidthRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetGestureStrokeWidthRequest) Reset() {
+	*x = GetGestureStrokeWidthRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[92]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetGestureStrokeWidthRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetGestureStrokeWidthRequest) ProtoMessage() {}
+
+func (x *GetGestureStrokeWidthRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[92]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetGestureStrokeWidthRequest.ProtoReflect.Descriptor instead.
+func (*GetGestureStrokeWidthRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{92}
+}
+
+func (x *GetGestureStrokeWidthRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetGestureStrokeWidthResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        float32                `protobuf:"fixed32,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetGestureStrokeWidthResponse) Reset() {
+	*x = GetGestureStrokeWidthResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[93]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetGestureStrokeWidthResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetGestureStrokeWidthResponse) ProtoMessage() {}
+
+func (x *GetGestureStrokeWidthResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[93]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetGestureStrokeWidthResponse.ProtoReflect.Descriptor instead.
+func (*GetGestureStrokeWidthResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{93}
+}
+
+func (x *GetGestureStrokeWidthResponse) GetResult() float32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetOrientationRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetOrientationRequest) Reset() {
+	*x = GetOrientationRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[94]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetOrientationRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetOrientationRequest) ProtoMessage() {}
+
+func (x *GetOrientationRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[94]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetOrientationRequest.ProtoReflect.Descriptor instead.
+func (*GetOrientationRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{94}
+}
+
+func (x *GetOrientationRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetOrientationResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetOrientationResponse) Reset() {
+	*x = GetOrientationResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[95]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetOrientationResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetOrientationResponse) ProtoMessage() {}
+
+func (x *GetOrientationResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[95]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetOrientationResponse.ProtoReflect.Descriptor instead.
+func (*GetOrientationResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{95}
+}
+
+func (x *GetOrientationResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetUncertainGestureColorRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetUncertainGestureColorRequest) Reset() {
+	*x = GetUncertainGestureColorRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[96]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetUncertainGestureColorRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetUncertainGestureColorRequest) ProtoMessage() {}
+
+func (x *GetUncertainGestureColorRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[96]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetUncertainGestureColorRequest.ProtoReflect.Descriptor instead.
+func (*GetUncertainGestureColorRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{96}
+}
+
+func (x *GetUncertainGestureColorRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetUncertainGestureColorResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetUncertainGestureColorResponse) Reset() {
+	*x = GetUncertainGestureColorResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[97]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetUncertainGestureColorResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetUncertainGestureColorResponse) ProtoMessage() {}
+
+func (x *GetUncertainGestureColorResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[97]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetUncertainGestureColorResponse.ProtoReflect.Descriptor instead.
+func (*GetUncertainGestureColorResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{97}
+}
+
+func (x *GetUncertainGestureColorResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type IsEventsInterceptionEnabledRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsEventsInterceptionEnabledRequest) Reset() {
+	*x = IsEventsInterceptionEnabledRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[98]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsEventsInterceptionEnabledRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsEventsInterceptionEnabledRequest) ProtoMessage() {}
+
+func (x *IsEventsInterceptionEnabledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[98]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsEventsInterceptionEnabledRequest.ProtoReflect.Descriptor instead.
+func (*IsEventsInterceptionEnabledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{98}
+}
+
+func (x *IsEventsInterceptionEnabledRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type IsEventsInterceptionEnabledResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsEventsInterceptionEnabledResponse) Reset() {
+	*x = IsEventsInterceptionEnabledResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[99]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsEventsInterceptionEnabledResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsEventsInterceptionEnabledResponse) ProtoMessage() {}
+
+func (x *IsEventsInterceptionEnabledResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[99]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsEventsInterceptionEnabledResponse.ProtoReflect.Descriptor instead.
+func (*IsEventsInterceptionEnabledResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{99}
+}
+
+func (x *IsEventsInterceptionEnabledResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsFadeEnabledRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsFadeEnabledRequest) Reset() {
+	*x = IsFadeEnabledRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[100]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsFadeEnabledRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsFadeEnabledRequest) ProtoMessage() {}
+
+func (x *IsFadeEnabledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[100]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsFadeEnabledRequest.ProtoReflect.Descriptor instead.
+func (*IsFadeEnabledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{100}
+}
+
+func (x *IsFadeEnabledRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type IsFadeEnabledResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsFadeEnabledResponse) Reset() {
+	*x = IsFadeEnabledResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[101]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsFadeEnabledResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsFadeEnabledResponse) ProtoMessage() {}
+
+func (x *IsFadeEnabledResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[101]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsFadeEnabledResponse.ProtoReflect.Descriptor instead.
+func (*IsFadeEnabledResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{101}
+}
+
+func (x *IsFadeEnabledResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsGestureVisibleRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsGestureVisibleRequest) Reset() {
+	*x = IsGestureVisibleRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[102]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsGestureVisibleRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsGestureVisibleRequest) ProtoMessage() {}
+
+func (x *IsGestureVisibleRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[102]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsGestureVisibleRequest.ProtoReflect.Descriptor instead.
+func (*IsGestureVisibleRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{102}
+}
+
+func (x *IsGestureVisibleRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type IsGestureVisibleResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsGestureVisibleResponse) Reset() {
+	*x = IsGestureVisibleResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[103]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsGestureVisibleResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsGestureVisibleResponse) ProtoMessage() {}
+
+func (x *IsGestureVisibleResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[103]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsGestureVisibleResponse.ProtoReflect.Descriptor instead.
+func (*IsGestureVisibleResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{103}
+}
+
+func (x *IsGestureVisibleResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsGesturingRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsGesturingRequest) Reset() {
+	*x = IsGesturingRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[104]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsGesturingRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsGesturingRequest) ProtoMessage() {}
+
+func (x *IsGesturingRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[104]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsGesturingRequest.ProtoReflect.Descriptor instead.
+func (*IsGesturingRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{104}
+}
+
+func (x *IsGesturingRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type IsGesturingResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsGesturingResponse) Reset() {
+	*x = IsGesturingResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[105]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsGesturingResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsGesturingResponse) ProtoMessage() {}
+
+func (x *IsGesturingResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[105]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsGesturingResponse.ProtoReflect.Descriptor instead.
+func (*IsGesturingResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{105}
+}
+
+func (x *IsGesturingResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type RemoveAllOnGestureListenersRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RemoveAllOnGestureListenersRequest) Reset() {
+	*x = RemoveAllOnGestureListenersRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[106]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RemoveAllOnGestureListenersRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemoveAllOnGestureListenersRequest) ProtoMessage() {}
+
+func (x *RemoveAllOnGestureListenersRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[106]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemoveAllOnGestureListenersRequest.ProtoReflect.Descriptor instead.
+func (*RemoveAllOnGestureListenersRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{106}
+}
+
+func (x *RemoveAllOnGestureListenersRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type RemoveAllOnGestureListenersResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RemoveAllOnGestureListenersResponse) Reset() {
+	*x = RemoveAllOnGestureListenersResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[107]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RemoveAllOnGestureListenersResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemoveAllOnGestureListenersResponse) ProtoMessage() {}
+
+func (x *RemoveAllOnGestureListenersResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[107]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemoveAllOnGestureListenersResponse.ProtoReflect.Descriptor instead.
+func (*RemoveAllOnGestureListenersResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{107}
+}
+
+type RemoveAllOnGesturePerformedListenersRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RemoveAllOnGesturePerformedListenersRequest) Reset() {
+	*x = RemoveAllOnGesturePerformedListenersRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[108]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RemoveAllOnGesturePerformedListenersRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemoveAllOnGesturePerformedListenersRequest) ProtoMessage() {}
+
+func (x *RemoveAllOnGesturePerformedListenersRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[108]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemoveAllOnGesturePerformedListenersRequest.ProtoReflect.Descriptor instead.
+func (*RemoveAllOnGesturePerformedListenersRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{108}
+}
+
+func (x *RemoveAllOnGesturePerformedListenersRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type RemoveAllOnGesturePerformedListenersResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RemoveAllOnGesturePerformedListenersResponse) Reset() {
+	*x = RemoveAllOnGesturePerformedListenersResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[109]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RemoveAllOnGesturePerformedListenersResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemoveAllOnGesturePerformedListenersResponse) ProtoMessage() {}
+
+func (x *RemoveAllOnGesturePerformedListenersResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[109]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemoveAllOnGesturePerformedListenersResponse.ProtoReflect.Descriptor instead.
+func (*RemoveAllOnGesturePerformedListenersResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{109}
+}
+
+type RemoveAllOnGesturingListenersRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RemoveAllOnGesturingListenersRequest) Reset() {
+	*x = RemoveAllOnGesturingListenersRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[110]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RemoveAllOnGesturingListenersRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemoveAllOnGesturingListenersRequest) ProtoMessage() {}
+
+func (x *RemoveAllOnGesturingListenersRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[110]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemoveAllOnGesturingListenersRequest.ProtoReflect.Descriptor instead.
+func (*RemoveAllOnGesturingListenersRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{110}
+}
+
+func (x *RemoveAllOnGesturingListenersRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type RemoveAllOnGesturingListenersResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RemoveAllOnGesturingListenersResponse) Reset() {
+	*x = RemoveAllOnGesturingListenersResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[111]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RemoveAllOnGesturingListenersResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemoveAllOnGesturingListenersResponse) ProtoMessage() {}
+
+func (x *RemoveAllOnGesturingListenersResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[111]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemoveAllOnGesturingListenersResponse.ProtoReflect.Descriptor instead.
+func (*RemoveAllOnGesturingListenersResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{111}
+}
+
+type RemoveOnGestureListenerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RemoveOnGestureListenerRequest) Reset() {
+	*x = RemoveOnGestureListenerRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[112]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RemoveOnGestureListenerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemoveOnGestureListenerRequest) ProtoMessage() {}
+
+func (x *RemoveOnGestureListenerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[112]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemoveOnGestureListenerRequest.ProtoReflect.Descriptor instead.
+func (*RemoveOnGestureListenerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{112}
+}
+
+func (x *RemoveOnGestureListenerRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *RemoveOnGestureListenerRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type RemoveOnGestureListenerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RemoveOnGestureListenerResponse) Reset() {
+	*x = RemoveOnGestureListenerResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[113]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RemoveOnGestureListenerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemoveOnGestureListenerResponse) ProtoMessage() {}
+
+func (x *RemoveOnGestureListenerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[113]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemoveOnGestureListenerResponse.ProtoReflect.Descriptor instead.
+func (*RemoveOnGestureListenerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{113}
+}
+
+type RemoveOnGesturePerformedListenerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RemoveOnGesturePerformedListenerRequest) Reset() {
+	*x = RemoveOnGesturePerformedListenerRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[114]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RemoveOnGesturePerformedListenerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemoveOnGesturePerformedListenerRequest) ProtoMessage() {}
+
+func (x *RemoveOnGesturePerformedListenerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[114]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemoveOnGesturePerformedListenerRequest.ProtoReflect.Descriptor instead.
+func (*RemoveOnGesturePerformedListenerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{114}
+}
+
+func (x *RemoveOnGesturePerformedListenerRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *RemoveOnGesturePerformedListenerRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type RemoveOnGesturePerformedListenerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RemoveOnGesturePerformedListenerResponse) Reset() {
+	*x = RemoveOnGesturePerformedListenerResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[115]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RemoveOnGesturePerformedListenerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemoveOnGesturePerformedListenerResponse) ProtoMessage() {}
+
+func (x *RemoveOnGesturePerformedListenerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[115]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemoveOnGesturePerformedListenerResponse.ProtoReflect.Descriptor instead.
+func (*RemoveOnGesturePerformedListenerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{115}
+}
+
+type RemoveOnGesturingListenerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RemoveOnGesturingListenerRequest) Reset() {
+	*x = RemoveOnGesturingListenerRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[116]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RemoveOnGesturingListenerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemoveOnGesturingListenerRequest) ProtoMessage() {}
+
+func (x *RemoveOnGesturingListenerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[116]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemoveOnGesturingListenerRequest.ProtoReflect.Descriptor instead.
+func (*RemoveOnGesturingListenerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{116}
+}
+
+func (x *RemoveOnGesturingListenerRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *RemoveOnGesturingListenerRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type RemoveOnGesturingListenerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RemoveOnGesturingListenerResponse) Reset() {
+	*x = RemoveOnGesturingListenerResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[117]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RemoveOnGesturingListenerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemoveOnGesturingListenerResponse) ProtoMessage() {}
+
+func (x *RemoveOnGesturingListenerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[117]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemoveOnGesturingListenerResponse.ProtoReflect.Descriptor instead.
+func (*RemoveOnGesturingListenerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{117}
+}
+
+type SetEventsInterceptionEnabledRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          bool                   `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetEventsInterceptionEnabledRequest) Reset() {
+	*x = SetEventsInterceptionEnabledRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[118]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetEventsInterceptionEnabledRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetEventsInterceptionEnabledRequest) ProtoMessage() {}
+
+func (x *SetEventsInterceptionEnabledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[118]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetEventsInterceptionEnabledRequest.ProtoReflect.Descriptor instead.
+func (*SetEventsInterceptionEnabledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{118}
+}
+
+func (x *SetEventsInterceptionEnabledRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetEventsInterceptionEnabledRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetEventsInterceptionEnabledResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetEventsInterceptionEnabledResponse) Reset() {
+	*x = SetEventsInterceptionEnabledResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[119]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetEventsInterceptionEnabledResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetEventsInterceptionEnabledResponse) ProtoMessage() {}
+
+func (x *SetEventsInterceptionEnabledResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[119]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetEventsInterceptionEnabledResponse.ProtoReflect.Descriptor instead.
+func (*SetEventsInterceptionEnabledResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{119}
+}
+
+type SetFadeEnabledRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          bool                   `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetFadeEnabledRequest) Reset() {
+	*x = SetFadeEnabledRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[120]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetFadeEnabledRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetFadeEnabledRequest) ProtoMessage() {}
+
+func (x *SetFadeEnabledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[120]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetFadeEnabledRequest.ProtoReflect.Descriptor instead.
+func (*SetFadeEnabledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{120}
+}
+
+func (x *SetFadeEnabledRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetFadeEnabledRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetFadeEnabledResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetFadeEnabledResponse) Reset() {
+	*x = SetFadeEnabledResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[121]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetFadeEnabledResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetFadeEnabledResponse) ProtoMessage() {}
+
+func (x *SetFadeEnabledResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[121]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetFadeEnabledResponse.ProtoReflect.Descriptor instead.
+func (*SetFadeEnabledResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{121}
+}
+
+type SetFadeOffsetRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetFadeOffsetRequest) Reset() {
+	*x = SetFadeOffsetRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[122]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetFadeOffsetRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetFadeOffsetRequest) ProtoMessage() {}
+
+func (x *SetFadeOffsetRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[122]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetFadeOffsetRequest.ProtoReflect.Descriptor instead.
+func (*SetFadeOffsetRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{122}
+}
+
+func (x *SetFadeOffsetRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetFadeOffsetRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetFadeOffsetResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetFadeOffsetResponse) Reset() {
+	*x = SetFadeOffsetResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[123]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetFadeOffsetResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetFadeOffsetResponse) ProtoMessage() {}
+
+func (x *SetFadeOffsetResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[123]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetFadeOffsetResponse.ProtoReflect.Descriptor instead.
+func (*SetFadeOffsetResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{123}
+}
+
+type SetGestureRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetGestureRequest) Reset() {
+	*x = SetGestureRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[124]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetGestureRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetGestureRequest) ProtoMessage() {}
+
+func (x *SetGestureRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[124]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetGestureRequest.ProtoReflect.Descriptor instead.
+func (*SetGestureRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{124}
+}
+
+func (x *SetGestureRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetGestureRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetGestureResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetGestureResponse) Reset() {
+	*x = SetGestureResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[125]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetGestureResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetGestureResponse) ProtoMessage() {}
+
+func (x *SetGestureResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[125]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetGestureResponse.ProtoReflect.Descriptor instead.
+func (*SetGestureResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{125}
+}
+
+type SetGestureColorRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetGestureColorRequest) Reset() {
+	*x = SetGestureColorRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[126]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetGestureColorRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetGestureColorRequest) ProtoMessage() {}
+
+func (x *SetGestureColorRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[126]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetGestureColorRequest.ProtoReflect.Descriptor instead.
+func (*SetGestureColorRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{126}
+}
+
+func (x *SetGestureColorRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetGestureColorRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetGestureColorResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetGestureColorResponse) Reset() {
+	*x = SetGestureColorResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[127]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetGestureColorResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetGestureColorResponse) ProtoMessage() {}
+
+func (x *SetGestureColorResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[127]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetGestureColorResponse.ProtoReflect.Descriptor instead.
+func (*SetGestureColorResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{127}
+}
+
+type SetGestureStrokeAngleThresholdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          float32                `protobuf:"fixed32,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetGestureStrokeAngleThresholdRequest) Reset() {
+	*x = SetGestureStrokeAngleThresholdRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[128]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetGestureStrokeAngleThresholdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetGestureStrokeAngleThresholdRequest) ProtoMessage() {}
+
+func (x *SetGestureStrokeAngleThresholdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[128]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetGestureStrokeAngleThresholdRequest.ProtoReflect.Descriptor instead.
+func (*SetGestureStrokeAngleThresholdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{128}
+}
+
+func (x *SetGestureStrokeAngleThresholdRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetGestureStrokeAngleThresholdRequest) GetArg0() float32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetGestureStrokeAngleThresholdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetGestureStrokeAngleThresholdResponse) Reset() {
+	*x = SetGestureStrokeAngleThresholdResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[129]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetGestureStrokeAngleThresholdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetGestureStrokeAngleThresholdResponse) ProtoMessage() {}
+
+func (x *SetGestureStrokeAngleThresholdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[129]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetGestureStrokeAngleThresholdResponse.ProtoReflect.Descriptor instead.
+func (*SetGestureStrokeAngleThresholdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{129}
+}
+
+type SetGestureStrokeLengthThresholdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          float32                `protobuf:"fixed32,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetGestureStrokeLengthThresholdRequest) Reset() {
+	*x = SetGestureStrokeLengthThresholdRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[130]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetGestureStrokeLengthThresholdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetGestureStrokeLengthThresholdRequest) ProtoMessage() {}
+
+func (x *SetGestureStrokeLengthThresholdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[130]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetGestureStrokeLengthThresholdRequest.ProtoReflect.Descriptor instead.
+func (*SetGestureStrokeLengthThresholdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{130}
+}
+
+func (x *SetGestureStrokeLengthThresholdRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetGestureStrokeLengthThresholdRequest) GetArg0() float32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetGestureStrokeLengthThresholdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetGestureStrokeLengthThresholdResponse) Reset() {
+	*x = SetGestureStrokeLengthThresholdResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[131]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetGestureStrokeLengthThresholdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetGestureStrokeLengthThresholdResponse) ProtoMessage() {}
+
+func (x *SetGestureStrokeLengthThresholdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[131]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetGestureStrokeLengthThresholdResponse.ProtoReflect.Descriptor instead.
+func (*SetGestureStrokeLengthThresholdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{131}
+}
+
+type SetGestureStrokeSquarenessTresholdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          float32                `protobuf:"fixed32,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetGestureStrokeSquarenessTresholdRequest) Reset() {
+	*x = SetGestureStrokeSquarenessTresholdRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[132]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetGestureStrokeSquarenessTresholdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetGestureStrokeSquarenessTresholdRequest) ProtoMessage() {}
+
+func (x *SetGestureStrokeSquarenessTresholdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[132]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetGestureStrokeSquarenessTresholdRequest.ProtoReflect.Descriptor instead.
+func (*SetGestureStrokeSquarenessTresholdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{132}
+}
+
+func (x *SetGestureStrokeSquarenessTresholdRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetGestureStrokeSquarenessTresholdRequest) GetArg0() float32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetGestureStrokeSquarenessTresholdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetGestureStrokeSquarenessTresholdResponse) Reset() {
+	*x = SetGestureStrokeSquarenessTresholdResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[133]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetGestureStrokeSquarenessTresholdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetGestureStrokeSquarenessTresholdResponse) ProtoMessage() {}
+
+func (x *SetGestureStrokeSquarenessTresholdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[133]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetGestureStrokeSquarenessTresholdResponse.ProtoReflect.Descriptor instead.
+func (*SetGestureStrokeSquarenessTresholdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{133}
+}
+
+type SetGestureStrokeTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetGestureStrokeTypeRequest) Reset() {
+	*x = SetGestureStrokeTypeRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[134]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetGestureStrokeTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetGestureStrokeTypeRequest) ProtoMessage() {}
+
+func (x *SetGestureStrokeTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[134]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetGestureStrokeTypeRequest.ProtoReflect.Descriptor instead.
+func (*SetGestureStrokeTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{134}
+}
+
+func (x *SetGestureStrokeTypeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetGestureStrokeTypeRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetGestureStrokeTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetGestureStrokeTypeResponse) Reset() {
+	*x = SetGestureStrokeTypeResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[135]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetGestureStrokeTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetGestureStrokeTypeResponse) ProtoMessage() {}
+
+func (x *SetGestureStrokeTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[135]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetGestureStrokeTypeResponse.ProtoReflect.Descriptor instead.
+func (*SetGestureStrokeTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{135}
+}
+
+type SetGestureStrokeWidthRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          float32                `protobuf:"fixed32,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetGestureStrokeWidthRequest) Reset() {
+	*x = SetGestureStrokeWidthRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[136]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetGestureStrokeWidthRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetGestureStrokeWidthRequest) ProtoMessage() {}
+
+func (x *SetGestureStrokeWidthRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[136]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetGestureStrokeWidthRequest.ProtoReflect.Descriptor instead.
+func (*SetGestureStrokeWidthRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{136}
+}
+
+func (x *SetGestureStrokeWidthRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetGestureStrokeWidthRequest) GetArg0() float32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetGestureStrokeWidthResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetGestureStrokeWidthResponse) Reset() {
+	*x = SetGestureStrokeWidthResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[137]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetGestureStrokeWidthResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetGestureStrokeWidthResponse) ProtoMessage() {}
+
+func (x *SetGestureStrokeWidthResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[137]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetGestureStrokeWidthResponse.ProtoReflect.Descriptor instead.
+func (*SetGestureStrokeWidthResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{137}
+}
+
+type SetGestureVisibleRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          bool                   `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetGestureVisibleRequest) Reset() {
+	*x = SetGestureVisibleRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[138]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetGestureVisibleRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetGestureVisibleRequest) ProtoMessage() {}
+
+func (x *SetGestureVisibleRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[138]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetGestureVisibleRequest.ProtoReflect.Descriptor instead.
+func (*SetGestureVisibleRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{138}
+}
+
+func (x *SetGestureVisibleRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetGestureVisibleRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetGestureVisibleResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetGestureVisibleResponse) Reset() {
+	*x = SetGestureVisibleResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[139]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetGestureVisibleResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetGestureVisibleResponse) ProtoMessage() {}
+
+func (x *SetGestureVisibleResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[139]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetGestureVisibleResponse.ProtoReflect.Descriptor instead.
+func (*SetGestureVisibleResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{139}
+}
+
+type SetOrientationRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetOrientationRequest) Reset() {
+	*x = SetOrientationRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[140]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetOrientationRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetOrientationRequest) ProtoMessage() {}
+
+func (x *SetOrientationRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[140]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetOrientationRequest.ProtoReflect.Descriptor instead.
+func (*SetOrientationRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{140}
+}
+
+func (x *SetOrientationRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetOrientationRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetOrientationResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetOrientationResponse) Reset() {
+	*x = SetOrientationResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[141]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetOrientationResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetOrientationResponse) ProtoMessage() {}
+
+func (x *SetOrientationResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[141]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetOrientationResponse.ProtoReflect.Descriptor instead.
+func (*SetOrientationResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{141}
+}
+
+type SetUncertainGestureColorRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetUncertainGestureColorRequest) Reset() {
+	*x = SetUncertainGestureColorRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[142]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetUncertainGestureColorRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetUncertainGestureColorRequest) ProtoMessage() {}
+
+func (x *SetUncertainGestureColorRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[142]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetUncertainGestureColorRequest.ProtoReflect.Descriptor instead.
+func (*SetUncertainGestureColorRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{142}
+}
+
+func (x *SetUncertainGestureColorRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetUncertainGestureColorRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetUncertainGestureColorResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetUncertainGestureColorResponse) Reset() {
+	*x = SetUncertainGestureColorResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[143]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetUncertainGestureColorResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetUncertainGestureColorResponse) ProtoMessage() {}
+
+func (x *SetUncertainGestureColorResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[143]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetUncertainGestureColorResponse.ProtoReflect.Descriptor instead.
+func (*SetUncertainGestureColorResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{143}
+}
+
+type OnGestureRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnGestureRequest) Reset() {
+	*x = OnGestureRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[144]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnGestureRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnGestureRequest) ProtoMessage() {}
+
+func (x *OnGestureRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[144]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnGestureRequest.ProtoReflect.Descriptor instead.
+func (*OnGestureRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{144}
+}
+
+func (x *OnGestureRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnGestureRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type OnGestureResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnGestureResponse) Reset() {
+	*x = OnGestureResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[145]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnGestureResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnGestureResponse) ProtoMessage() {}
+
+func (x *OnGestureResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[145]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnGestureResponse.ProtoReflect.Descriptor instead.
+func (*OnGestureResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{145}
+}
+
+type OnGestureCancelledRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnGestureCancelledRequest) Reset() {
+	*x = OnGestureCancelledRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[146]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnGestureCancelledRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnGestureCancelledRequest) ProtoMessage() {}
+
+func (x *OnGestureCancelledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[146]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnGestureCancelledRequest.ProtoReflect.Descriptor instead.
+func (*OnGestureCancelledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{146}
+}
+
+func (x *OnGestureCancelledRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnGestureCancelledRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type OnGestureCancelledResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnGestureCancelledResponse) Reset() {
+	*x = OnGestureCancelledResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[147]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnGestureCancelledResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnGestureCancelledResponse) ProtoMessage() {}
+
+func (x *OnGestureCancelledResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[147]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnGestureCancelledResponse.ProtoReflect.Descriptor instead.
+func (*OnGestureCancelledResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{147}
+}
+
+type OnGestureEndedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnGestureEndedRequest) Reset() {
+	*x = OnGestureEndedRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[148]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnGestureEndedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnGestureEndedRequest) ProtoMessage() {}
+
+func (x *OnGestureEndedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[148]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnGestureEndedRequest.ProtoReflect.Descriptor instead.
+func (*OnGestureEndedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{148}
+}
+
+func (x *OnGestureEndedRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnGestureEndedRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type OnGestureEndedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnGestureEndedResponse) Reset() {
+	*x = OnGestureEndedResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[149]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnGestureEndedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnGestureEndedResponse) ProtoMessage() {}
+
+func (x *OnGestureEndedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[149]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnGestureEndedResponse.ProtoReflect.Descriptor instead.
+func (*OnGestureEndedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{149}
+}
+
+type OnGestureStartedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnGestureStartedRequest) Reset() {
+	*x = OnGestureStartedRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[150]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnGestureStartedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnGestureStartedRequest) ProtoMessage() {}
+
+func (x *OnGestureStartedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[150]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnGestureStartedRequest.ProtoReflect.Descriptor instead.
+func (*OnGestureStartedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{150}
+}
+
+func (x *OnGestureStartedRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnGestureStartedRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type OnGestureStartedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnGestureStartedResponse) Reset() {
+	*x = OnGestureStartedResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[151]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnGestureStartedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnGestureStartedResponse) ProtoMessage() {}
+
+func (x *OnGestureStartedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[151]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnGestureStartedResponse.ProtoReflect.Descriptor instead.
+func (*OnGestureStartedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{151}
+}
+
+type OnGesturePerformedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnGesturePerformedRequest) Reset() {
+	*x = OnGesturePerformedRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[152]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnGesturePerformedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnGesturePerformedRequest) ProtoMessage() {}
+
+func (x *OnGesturePerformedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[152]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnGesturePerformedRequest.ProtoReflect.Descriptor instead.
+func (*OnGesturePerformedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{152}
+}
+
+func (x *OnGesturePerformedRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnGesturePerformedRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type OnGesturePerformedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnGesturePerformedResponse) Reset() {
+	*x = OnGesturePerformedResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[153]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnGesturePerformedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnGesturePerformedResponse) ProtoMessage() {}
+
+func (x *OnGesturePerformedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[153]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnGesturePerformedResponse.ProtoReflect.Descriptor instead.
+func (*OnGesturePerformedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{153}
+}
+
+type OnGesturingEndedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnGesturingEndedRequest) Reset() {
+	*x = OnGesturingEndedRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[154]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnGesturingEndedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnGesturingEndedRequest) ProtoMessage() {}
+
+func (x *OnGesturingEndedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[154]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnGesturingEndedRequest.ProtoReflect.Descriptor instead.
+func (*OnGesturingEndedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{154}
+}
+
+func (x *OnGesturingEndedRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnGesturingEndedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnGesturingEndedResponse) Reset() {
+	*x = OnGesturingEndedResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[155]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnGesturingEndedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnGesturingEndedResponse) ProtoMessage() {}
+
+func (x *OnGesturingEndedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[155]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnGesturingEndedResponse.ProtoReflect.Descriptor instead.
+func (*OnGesturingEndedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{155}
+}
+
+type OnGesturingStartedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnGesturingStartedRequest) Reset() {
+	*x = OnGesturingStartedRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[156]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnGesturingStartedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnGesturingStartedRequest) ProtoMessage() {}
+
+func (x *OnGesturingStartedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[156]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnGesturingStartedRequest.ProtoReflect.Descriptor instead.
+func (*OnGesturingStartedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{156}
+}
+
+func (x *OnGesturingStartedRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnGesturingStartedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnGesturingStartedResponse) Reset() {
+	*x = OnGesturingStartedResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[157]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnGesturingStartedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnGesturingStartedResponse) ProtoMessage() {}
+
+func (x *OnGesturingStartedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[157]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnGesturingStartedResponse.ProtoReflect.Descriptor instead.
+func (*OnGesturingStartedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{157}
+}
+
+type LibraryAddGestureRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *LibraryAddGestureRequest) Reset() {
+	*x = LibraryAddGestureRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[158]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *LibraryAddGestureRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*LibraryAddGestureRequest) ProtoMessage() {}
+
+func (x *LibraryAddGestureRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[158]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use LibraryAddGestureRequest.ProtoReflect.Descriptor instead.
+func (*LibraryAddGestureRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{158}
+}
+
+func (x *LibraryAddGestureRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *LibraryAddGestureRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type LibraryGetOrientationStyleRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *LibraryGetOrientationStyleRequest) Reset() {
+	*x = LibraryGetOrientationStyleRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[159]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *LibraryGetOrientationStyleRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*LibraryGetOrientationStyleRequest) ProtoMessage() {}
+
+func (x *LibraryGetOrientationStyleRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[159]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use LibraryGetOrientationStyleRequest.ProtoReflect.Descriptor instead.
+func (*LibraryGetOrientationStyleRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{159}
+}
+
+type LibraryGetSequenceTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *LibraryGetSequenceTypeRequest) Reset() {
+	*x = LibraryGetSequenceTypeRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[160]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *LibraryGetSequenceTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*LibraryGetSequenceTypeRequest) ProtoMessage() {}
+
+func (x *LibraryGetSequenceTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[160]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use LibraryGetSequenceTypeRequest.ProtoReflect.Descriptor instead.
+func (*LibraryGetSequenceTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{160}
+}
+
+type IsReadOnlyRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsReadOnlyRequest) Reset() {
+	*x = IsReadOnlyRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[161]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsReadOnlyRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsReadOnlyRequest) ProtoMessage() {}
+
+func (x *IsReadOnlyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[161]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsReadOnlyRequest.ProtoReflect.Descriptor instead.
+func (*IsReadOnlyRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{161}
+}
+
+type IsReadOnlyResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsReadOnlyResponse) Reset() {
+	*x = IsReadOnlyResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[162]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsReadOnlyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsReadOnlyResponse) ProtoMessage() {}
+
+func (x *IsReadOnlyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[162]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsReadOnlyResponse.ProtoReflect.Descriptor instead.
+func (*IsReadOnlyResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{162}
+}
+
+func (x *IsReadOnlyResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type LoadRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *LoadRequest) Reset() {
+	*x = LoadRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[163]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *LoadRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*LoadRequest) ProtoMessage() {}
+
+func (x *LoadRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[163]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use LoadRequest.ProtoReflect.Descriptor instead.
+func (*LoadRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{163}
+}
+
+type LoadResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *LoadResponse) Reset() {
+	*x = LoadResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[164]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *LoadResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*LoadResponse) ProtoMessage() {}
+
+func (x *LoadResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[164]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use LoadResponse.ProtoReflect.Descriptor instead.
+func (*LoadResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{164}
+}
+
+func (x *LoadResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type LibraryRemoveEntryRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *LibraryRemoveEntryRequest) Reset() {
+	*x = LibraryRemoveEntryRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[165]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *LibraryRemoveEntryRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*LibraryRemoveEntryRequest) ProtoMessage() {}
+
+func (x *LibraryRemoveEntryRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[165]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use LibraryRemoveEntryRequest.ProtoReflect.Descriptor instead.
+func (*LibraryRemoveEntryRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{165}
+}
+
+func (x *LibraryRemoveEntryRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type LibraryRemoveGestureRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *LibraryRemoveGestureRequest) Reset() {
+	*x = LibraryRemoveGestureRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[166]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *LibraryRemoveGestureRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*LibraryRemoveGestureRequest) ProtoMessage() {}
+
+func (x *LibraryRemoveGestureRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[166]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use LibraryRemoveGestureRequest.ProtoReflect.Descriptor instead.
+func (*LibraryRemoveGestureRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{166}
+}
+
+func (x *LibraryRemoveGestureRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *LibraryRemoveGestureRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type SaveRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SaveRequest) Reset() {
+	*x = SaveRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[167]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SaveRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SaveRequest) ProtoMessage() {}
+
+func (x *SaveRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[167]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SaveRequest.ProtoReflect.Descriptor instead.
+func (*SaveRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{167}
+}
+
+type SaveResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SaveResponse) Reset() {
+	*x = SaveResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[168]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SaveResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SaveResponse) ProtoMessage() {}
+
+func (x *SaveResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[168]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SaveResponse.ProtoReflect.Descriptor instead.
+func (*SaveResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{168}
+}
+
+func (x *SaveResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type LibrarySetOrientationStyleRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *LibrarySetOrientationStyleRequest) Reset() {
+	*x = LibrarySetOrientationStyleRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[169]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *LibrarySetOrientationStyleRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*LibrarySetOrientationStyleRequest) ProtoMessage() {}
+
+func (x *LibrarySetOrientationStyleRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[169]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use LibrarySetOrientationStyleRequest.ProtoReflect.Descriptor instead.
+func (*LibrarySetOrientationStyleRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{169}
+}
+
+func (x *LibrarySetOrientationStyleRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type LibrarySetSequenceTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *LibrarySetSequenceTypeRequest) Reset() {
+	*x = LibrarySetSequenceTypeRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[170]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *LibrarySetSequenceTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*LibrarySetSequenceTypeRequest) ProtoMessage() {}
+
+func (x *LibrarySetSequenceTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[170]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use LibrarySetSequenceTypeRequest.ProtoReflect.Descriptor instead.
+func (*LibrarySetSequenceTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{170}
+}
+
+func (x *LibrarySetSequenceTypeRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type ToStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringRequest) Reset() {
+	*x = ToStringRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[171]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringRequest) ProtoMessage() {}
+
+func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[171]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringRequest.ProtoReflect.Descriptor instead.
+func (*ToStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{171}
+}
+
+type ToStringResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringResponse) Reset() {
+	*x = ToStringResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[172]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringResponse) ProtoMessage() {}
+
+func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[172]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringResponse.ProtoReflect.Descriptor instead.
+func (*ToStringResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{172}
+}
+
+func (x *ToStringResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type NewStrokeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewStrokeRequest) Reset() {
+	*x = NewStrokeRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[173]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewStrokeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewStrokeRequest) ProtoMessage() {}
+
+func (x *NewStrokeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[173]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewStrokeRequest.ProtoReflect.Descriptor instead.
+func (*NewStrokeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{173}
+}
+
+func (x *NewStrokeRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type NewStrokeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewStrokeResponse) Reset() {
+	*x = NewStrokeResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[174]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewStrokeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewStrokeResponse) ProtoMessage() {}
+
+func (x *NewStrokeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[174]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewStrokeResponse.ProtoReflect.Descriptor instead.
+func (*NewStrokeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{174}
+}
+
+func (x *NewStrokeResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ClearPathRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearPathRequest) Reset() {
+	*x = ClearPathRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[175]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearPathRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearPathRequest) ProtoMessage() {}
+
+func (x *ClearPathRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[175]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearPathRequest.ProtoReflect.Descriptor instead.
+func (*ClearPathRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{175}
+}
+
+func (x *ClearPathRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type ClearPathResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearPathResponse) Reset() {
+	*x = ClearPathResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[176]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearPathResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearPathResponse) ProtoMessage() {}
+
+func (x *ClearPathResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[176]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearPathResponse.ProtoReflect.Descriptor instead.
+func (*ClearPathResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{176}
+}
+
+type ComputeOrientedBoundingBoxRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ComputeOrientedBoundingBoxRequest) Reset() {
+	*x = ComputeOrientedBoundingBoxRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[177]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ComputeOrientedBoundingBoxRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ComputeOrientedBoundingBoxRequest) ProtoMessage() {}
+
+func (x *ComputeOrientedBoundingBoxRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[177]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ComputeOrientedBoundingBoxRequest.ProtoReflect.Descriptor instead.
+func (*ComputeOrientedBoundingBoxRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{177}
+}
+
+func (x *ComputeOrientedBoundingBoxRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type ComputeOrientedBoundingBoxResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ComputeOrientedBoundingBoxResponse) Reset() {
+	*x = ComputeOrientedBoundingBoxResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[178]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ComputeOrientedBoundingBoxResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ComputeOrientedBoundingBoxResponse) ProtoMessage() {}
+
+func (x *ComputeOrientedBoundingBoxResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[178]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ComputeOrientedBoundingBoxResponse.ProtoReflect.Descriptor instead.
+func (*ComputeOrientedBoundingBoxResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{178}
+}
+
+func (x *ComputeOrientedBoundingBoxResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPathRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPathRequest) Reset() {
+	*x = GetPathRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[179]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPathRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPathRequest) ProtoMessage() {}
+
+func (x *GetPathRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[179]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPathRequest.ProtoReflect.Descriptor instead.
+func (*GetPathRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{179}
+}
+
+func (x *GetPathRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetPathResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPathResponse) Reset() {
+	*x = GetPathResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[180]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPathResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPathResponse) ProtoMessage() {}
+
+func (x *GetPathResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[180]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPathResponse.ProtoReflect.Descriptor instead.
+func (*GetPathResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{180}
+}
+
+func (x *GetPathResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ToPathRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          float32                `protobuf:"fixed32,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          float32                `protobuf:"fixed32,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToPathRequest) Reset() {
+	*x = ToPathRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[181]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToPathRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToPathRequest) ProtoMessage() {}
+
+func (x *ToPathRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[181]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToPathRequest.ProtoReflect.Descriptor instead.
+func (*ToPathRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{181}
+}
+
+func (x *ToPathRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *ToPathRequest) GetArg0() float32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *ToPathRequest) GetArg1() float32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *ToPathRequest) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type ToPathResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToPathResponse) Reset() {
+	*x = ToPathResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[182]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToPathResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToPathResponse) ProtoMessage() {}
+
+func (x *ToPathResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[182]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToPathResponse.ProtoReflect.Descriptor instead.
+func (*ToPathResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{182}
+}
+
+func (x *ToPathResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type NewPointRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          float32                `protobuf:"fixed32,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          float32                `protobuf:"fixed32,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewPointRequest) Reset() {
+	*x = NewPointRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[183]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewPointRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewPointRequest) ProtoMessage() {}
+
+func (x *NewPointRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[183]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewPointRequest.ProtoReflect.Descriptor instead.
+func (*NewPointRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{183}
+}
+
+func (x *NewPointRequest) GetArg0() float32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *NewPointRequest) GetArg1() float32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *NewPointRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type NewPointResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewPointResponse) Reset() {
+	*x = NewPointResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[184]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewPointResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewPointResponse) ProtoMessage() {}
+
+func (x *NewPointResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[184]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewPointResponse.ProtoReflect.Descriptor instead.
+func (*NewPointResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{184}
+}
+
+func (x *NewPointResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type UtilsComputeOrientedBoundingBoxRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UtilsComputeOrientedBoundingBoxRequest) Reset() {
+	*x = UtilsComputeOrientedBoundingBoxRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[185]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UtilsComputeOrientedBoundingBoxRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UtilsComputeOrientedBoundingBoxRequest) ProtoMessage() {}
+
+func (x *UtilsComputeOrientedBoundingBoxRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[185]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UtilsComputeOrientedBoundingBoxRequest.ProtoReflect.Descriptor instead.
+func (*UtilsComputeOrientedBoundingBoxRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{185}
+}
+
+func (x *UtilsComputeOrientedBoundingBoxRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SpatialSampling2Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SpatialSampling2Request) Reset() {
+	*x = SpatialSampling2Request{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[186]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SpatialSampling2Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SpatialSampling2Request) ProtoMessage() {}
+
+func (x *SpatialSampling2Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[186]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SpatialSampling2Request.ProtoReflect.Descriptor instead.
+func (*SpatialSampling2Request) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{186}
+}
+
+func (x *SpatialSampling2Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SpatialSampling2Request) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type SpatialSampling2Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SpatialSampling2Response) Reset() {
+	*x = SpatialSampling2Response{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[187]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SpatialSampling2Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SpatialSampling2Response) ProtoMessage() {}
+
+func (x *SpatialSampling2Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[187]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SpatialSampling2Response.ProtoReflect.Descriptor instead.
+func (*SpatialSampling2Response) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{187}
+}
+
+func (x *SpatialSampling2Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SpatialSampling3_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          bool                   `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SpatialSampling3_1Request) Reset() {
+	*x = SpatialSampling3_1Request{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[188]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SpatialSampling3_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SpatialSampling3_1Request) ProtoMessage() {}
+
+func (x *SpatialSampling3_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[188]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SpatialSampling3_1Request.ProtoReflect.Descriptor instead.
+func (*SpatialSampling3_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{188}
+}
+
+func (x *SpatialSampling3_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SpatialSampling3_1Request) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *SpatialSampling3_1Request) GetArg2() bool {
+	if x != nil {
+		return x.Arg2
+	}
+	return false
+}
+
+type SpatialSampling3_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SpatialSampling3_1Response) Reset() {
+	*x = SpatialSampling3_1Response{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[189]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SpatialSampling3_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SpatialSampling3_1Response) ProtoMessage() {}
+
+func (x *SpatialSampling3_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[189]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SpatialSampling3_1Response.ProtoReflect.Descriptor instead.
+func (*SpatialSampling3_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{189}
+}
+
+func (x *SpatialSampling3_1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type TemporalSamplingRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *TemporalSamplingRequest) Reset() {
+	*x = TemporalSamplingRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[190]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *TemporalSamplingRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TemporalSamplingRequest) ProtoMessage() {}
+
+func (x *TemporalSamplingRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[190]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TemporalSamplingRequest.ProtoReflect.Descriptor instead.
+func (*TemporalSamplingRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{190}
+}
+
+func (x *TemporalSamplingRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *TemporalSamplingRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type TemporalSamplingResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *TemporalSamplingResponse) Reset() {
+	*x = TemporalSamplingResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[191]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *TemporalSamplingResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TemporalSamplingResponse) ProtoMessage() {}
+
+func (x *TemporalSamplingResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[191]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TemporalSamplingResponse.ProtoReflect.Descriptor instead.
+func (*TemporalSamplingResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{191}
+}
+
+func (x *TemporalSamplingResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type FromFile1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FromFile1Request) Reset() {
+	*x = FromFile1Request{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[192]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FromFile1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FromFile1Request) ProtoMessage() {}
+
+func (x *FromFile1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[192]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FromFile1Request.ProtoReflect.Descriptor instead.
+func (*FromFile1Request) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{192}
+}
+
+func (x *FromFile1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type FromFile1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FromFile1Response) Reset() {
+	*x = FromFile1Response{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[193]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FromFile1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FromFile1Response) ProtoMessage() {}
+
+func (x *FromFile1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[193]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FromFile1Response.ProtoReflect.Descriptor instead.
+func (*FromFile1Response) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{193}
+}
+
+func (x *FromFile1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type FromFile1_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FromFile1_1Request) Reset() {
+	*x = FromFile1_1Request{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[194]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FromFile1_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FromFile1_1Request) ProtoMessage() {}
+
+func (x *FromFile1_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[194]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FromFile1_1Request.ProtoReflect.Descriptor instead.
+func (*FromFile1_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{194}
+}
+
+func (x *FromFile1_1Request) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type FromFile1_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FromFile1_1Response) Reset() {
+	*x = FromFile1_1Response{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[195]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FromFile1_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FromFile1_1Response) ProtoMessage() {}
+
+func (x *FromFile1_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[195]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FromFile1_1Response.ProtoReflect.Descriptor instead.
+func (*FromFile1_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{195}
+}
+
+func (x *FromFile1_1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type FromFileDescriptorRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FromFileDescriptorRequest) Reset() {
+	*x = FromFileDescriptorRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[196]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FromFileDescriptorRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FromFileDescriptorRequest) ProtoMessage() {}
+
+func (x *FromFileDescriptorRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[196]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FromFileDescriptorRequest.ProtoReflect.Descriptor instead.
+func (*FromFileDescriptorRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{196}
+}
+
+func (x *FromFileDescriptorRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type FromFileDescriptorResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FromFileDescriptorResponse) Reset() {
+	*x = FromFileDescriptorResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[197]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FromFileDescriptorResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FromFileDescriptorResponse) ProtoMessage() {}
+
+func (x *FromFileDescriptorResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[197]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FromFileDescriptorResponse.ProtoReflect.Descriptor instead.
+func (*FromFileDescriptorResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{197}
+}
+
+func (x *FromFileDescriptorResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type FromPrivateFileRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FromPrivateFileRequest) Reset() {
+	*x = FromPrivateFileRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[198]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FromPrivateFileRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FromPrivateFileRequest) ProtoMessage() {}
+
+func (x *FromPrivateFileRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[198]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FromPrivateFileRequest.ProtoReflect.Descriptor instead.
+func (*FromPrivateFileRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{198}
+}
+
+func (x *FromPrivateFileRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *FromPrivateFileRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+type FromPrivateFileResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FromPrivateFileResponse) Reset() {
+	*x = FromPrivateFileResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[199]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FromPrivateFileResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FromPrivateFileResponse) ProtoMessage() {}
+
+func (x *FromPrivateFileResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[199]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FromPrivateFileResponse.ProtoReflect.Descriptor instead.
+func (*FromPrivateFileResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{199}
+}
+
+func (x *FromPrivateFileResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type FromRawResourceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FromRawResourceRequest) Reset() {
+	*x = FromRawResourceRequest{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[200]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FromRawResourceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FromRawResourceRequest) ProtoMessage() {}
+
+func (x *FromRawResourceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[200]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FromRawResourceRequest.ProtoReflect.Descriptor instead.
+func (*FromRawResourceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{200}
+}
+
+func (x *FromRawResourceRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *FromRawResourceRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type FromRawResourceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FromRawResourceResponse) Reset() {
+	*x = FromRawResourceResponse{}
+	mi := &file_proto_gesture_gesture_proto_msgTypes[201]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FromRawResourceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FromRawResourceResponse) ProtoMessage() {}
+
+func (x *FromRawResourceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gesture_gesture_proto_msgTypes[201]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FromRawResourceResponse.ProtoReflect.Descriptor instead.
+func (*FromRawResourceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gesture_gesture_proto_rawDescGZIP(), []int{201}
+}
+
+func (x *FromRawResourceResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
 var File_proto_gesture_gesture_proto protoreflect.FileDescriptor
 
 const file_proto_gesture_gesture_proto_rawDesc = "" +
 	"\n" +
-	"\x1bproto/gesture/gesture.proto\x12\agestureB1Z/github.com/AndroidGoLab/jni-proxy/proto/gestureb\x06proto3"
+	"\x1bproto/gesture/gesture.proto\x12\agesture\"\x13\n" +
+	"\x11NewGestureRequest\",\n" +
+	"\x12NewGestureResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\">\n" +
+	"\x10AddStrokeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x13\n" +
+	"\x11AddStrokeResponse\"&\n" +
+	"\fCloneRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"'\n" +
+	"\rCloneResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"1\n" +
+	"\x17DescribeContentsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"2\n" +
+	"\x18DescribeContentsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"/\n" +
+	"\x15GetBoundingBoxRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"0\n" +
+	"\x16GetBoundingBoxResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"&\n" +
+	"\fGetIDRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"'\n" +
+	"\rGetIDResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"*\n" +
+	"\x10GetLengthRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"+\n" +
+	"\x11GetLengthResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x02R\x06result\"0\n" +
+	"\x16GetStrokesCountRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"1\n" +
+	"\x17GetStrokesCountResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"z\n" +
+	"\x10ToBitmap4Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x05R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x05 \x01(\x05R\x04arg3\"+\n" +
+	"\x11ToBitmap4Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x90\x01\n" +
+	"\x12ToBitmap5_1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x05R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x05 \x01(\x05R\x04arg3\x12\x12\n" +
+	"\x04arg4\x18\x06 \x01(\x05R\x04arg4\"-\n" +
+	"\x13ToBitmap5_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"(\n" +
+	"\x0eToPath0Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\")\n" +
+	"\x0fToPath0Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\">\n" +
+	"\x10ToPath1_1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"+\n" +
+	"\x11ToPath1_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x8e\x01\n" +
+	"\x10ToPath5_2Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x05R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x05 \x01(\x05R\x04arg3\x12\x12\n" +
+	"\x04arg4\x18\x06 \x01(\x05R\x04arg4\"+\n" +
+	"\x11ToPath5_2Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"z\n" +
+	"\x10ToPath4_3Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x05R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x05 \x01(\x05R\x04arg3\"+\n" +
+	"\x11ToPath4_3Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"V\n" +
+	"\x14WriteToParcelRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"\x17\n" +
+	"\x15WriteToParcelResponse\"\x11\n" +
+	"\x0fNewStoreRequest\"*\n" +
+	"\x10NewStoreResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"S\n" +
+	"\x11AddGestureRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"\x14\n" +
+	"\x12AddGestureResponse\"4\n" +
+	"\x1aGetOrientationStyleRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"5\n" +
+	"\x1bGetOrientationStyleResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"0\n" +
+	"\x16GetSequenceTypeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"1\n" +
+	"\x17GetSequenceTypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"+\n" +
+	"\x11HasChangedRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\",\n" +
+	"\x12HasChangedResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\":\n" +
+	"\fLoad1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x0f\n" +
+	"\rLoad1Response\"P\n" +
+	"\x0eLoad2_1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\bR\x04arg1\"\x11\n" +
+	"\x0fLoad2_1Response\"@\n" +
+	"\x12RemoveEntryRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\tR\x04arg0\"\x15\n" +
+	"\x13RemoveEntryResponse\"V\n" +
+	"\x14RemoveGestureRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"\x17\n" +
+	"\x15RemoveGestureResponse\":\n" +
+	"\fSave1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x0f\n" +
+	"\rSave1Response\"P\n" +
+	"\x0eSave2_1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\bR\x04arg1\"\x11\n" +
+	"\x0fSave2_1Response\"H\n" +
+	"\x1aSetOrientationStyleRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"\x1d\n" +
+	"\x1bSetOrientationStyleResponse\"D\n" +
+	"\x16SetSequenceTypeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"\x19\n" +
+	"\x17SetSequenceTypeResponse\"+\n" +
+	"\x15NewOverlayViewRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"0\n" +
+	"\x16NewOverlayViewResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"I\n" +
+	"\x1bAddOnGestureListenerRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x1e\n" +
+	"\x1cAddOnGestureListenerResponse\"R\n" +
+	"$AddOnGesturePerformedListenerRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"'\n" +
+	"%AddOnGesturePerformedListenerResponse\"K\n" +
+	"\x1dAddOnGesturingListenerRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\" \n" +
+	"\x1eAddOnGesturingListenerResponse\"5\n" +
+	"\x1bCancelClearAnimationRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x1e\n" +
+	"\x1cCancelClearAnimationResponse\".\n" +
+	"\x14CancelGestureRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x17\n" +
+	"\x15CancelGestureResponse\":\n" +
+	"\fClearRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\bR\x04arg0\"\x0f\n" +
+	"\rClearResponse\"G\n" +
+	"\x19DispatchTouchEventRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"4\n" +
+	"\x1aDispatchTouchEventResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"9\n" +
+	"\vDrawRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x0e\n" +
+	"\fDrawResponse\".\n" +
+	"\x14GetFadeOffsetRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"/\n" +
+	"\x15GetFadeOffsetResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"+\n" +
+	"\x11GetGestureRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\",\n" +
+	"\x12GetGestureResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"0\n" +
+	"\x16GetGestureColorRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"1\n" +
+	"\x17GetGestureColorResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"0\n" +
+	"\x16GetGesturePath0Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"1\n" +
+	"\x17GetGesturePath0Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"F\n" +
+	"\x18GetGesturePath1_1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"3\n" +
+	"\x19GetGesturePath1_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"?\n" +
+	"%GetGestureStrokeAngleThresholdRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"@\n" +
+	"&GetGestureStrokeAngleThresholdResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x02R\x06result\"@\n" +
+	"&GetGestureStrokeLengthThresholdRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"A\n" +
+	"'GetGestureStrokeLengthThresholdResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x02R\x06result\"C\n" +
+	")GetGestureStrokeSquarenessTresholdRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"D\n" +
+	"*GetGestureStrokeSquarenessTresholdResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x02R\x06result\"5\n" +
+	"\x1bGetGestureStrokeTypeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"6\n" +
+	"\x1cGetGestureStrokeTypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"6\n" +
+	"\x1cGetGestureStrokeWidthRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"7\n" +
+	"\x1dGetGestureStrokeWidthResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x02R\x06result\"/\n" +
+	"\x15GetOrientationRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"0\n" +
+	"\x16GetOrientationResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"9\n" +
+	"\x1fGetUncertainGestureColorRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\":\n" +
+	" GetUncertainGestureColorResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"<\n" +
+	"\"IsEventsInterceptionEnabledRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"=\n" +
+	"#IsEventsInterceptionEnabledResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\".\n" +
+	"\x14IsFadeEnabledRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"/\n" +
+	"\x15IsFadeEnabledResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"1\n" +
+	"\x17IsGestureVisibleRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"2\n" +
+	"\x18IsGestureVisibleResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\",\n" +
+	"\x12IsGesturingRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"-\n" +
+	"\x13IsGesturingResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"<\n" +
+	"\"RemoveAllOnGestureListenersRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"%\n" +
+	"#RemoveAllOnGestureListenersResponse\"E\n" +
+	"+RemoveAllOnGesturePerformedListenersRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\".\n" +
+	",RemoveAllOnGesturePerformedListenersResponse\">\n" +
+	"$RemoveAllOnGesturingListenersRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"'\n" +
+	"%RemoveAllOnGesturingListenersResponse\"L\n" +
+	"\x1eRemoveOnGestureListenerRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"!\n" +
+	"\x1fRemoveOnGestureListenerResponse\"U\n" +
+	"'RemoveOnGesturePerformedListenerRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"*\n" +
+	"(RemoveOnGesturePerformedListenerResponse\"N\n" +
+	" RemoveOnGesturingListenerRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"#\n" +
+	"!RemoveOnGesturingListenerResponse\"Q\n" +
+	"#SetEventsInterceptionEnabledRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\bR\x04arg0\"&\n" +
+	"$SetEventsInterceptionEnabledResponse\"C\n" +
+	"\x15SetFadeEnabledRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\bR\x04arg0\"\x18\n" +
+	"\x16SetFadeEnabledResponse\"B\n" +
+	"\x14SetFadeOffsetRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x17\n" +
+	"\x15SetFadeOffsetResponse\"?\n" +
+	"\x11SetGestureRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x14\n" +
+	"\x12SetGestureResponse\"D\n" +
+	"\x16SetGestureColorRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"\x19\n" +
+	"\x17SetGestureColorResponse\"S\n" +
+	"%SetGestureStrokeAngleThresholdRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x02R\x04arg0\"(\n" +
+	"&SetGestureStrokeAngleThresholdResponse\"T\n" +
+	"&SetGestureStrokeLengthThresholdRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x02R\x04arg0\")\n" +
+	"'SetGestureStrokeLengthThresholdResponse\"W\n" +
+	")SetGestureStrokeSquarenessTresholdRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x02R\x04arg0\",\n" +
+	"*SetGestureStrokeSquarenessTresholdResponse\"I\n" +
+	"\x1bSetGestureStrokeTypeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"\x1e\n" +
+	"\x1cSetGestureStrokeTypeResponse\"J\n" +
+	"\x1cSetGestureStrokeWidthRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x02R\x04arg0\"\x1f\n" +
+	"\x1dSetGestureStrokeWidthResponse\"F\n" +
+	"\x18SetGestureVisibleRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\bR\x04arg0\"\x1b\n" +
+	"\x19SetGestureVisibleResponse\"C\n" +
+	"\x15SetOrientationRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"\x18\n" +
+	"\x16SetOrientationResponse\"M\n" +
+	"\x1fSetUncertainGestureColorRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"\"\n" +
+	" SetUncertainGestureColorResponse\":\n" +
+	"\x10OnGestureRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x13\n" +
+	"\x11OnGestureResponse\"C\n" +
+	"\x19OnGestureCancelledRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x1c\n" +
+	"\x1aOnGestureCancelledResponse\"?\n" +
+	"\x15OnGestureEndedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x18\n" +
+	"\x16OnGestureEndedResponse\"A\n" +
+	"\x17OnGestureStartedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x1a\n" +
+	"\x18OnGestureStartedResponse\"C\n" +
+	"\x19OnGesturePerformedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x1c\n" +
+	"\x1aOnGesturePerformedResponse\"-\n" +
+	"\x17OnGesturingEndedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x1a\n" +
+	"\x18OnGesturingEndedResponse\"/\n" +
+	"\x19OnGesturingStartedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x1c\n" +
+	"\x1aOnGesturingStartedResponse\"B\n" +
+	"\x18LibraryAddGestureRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"#\n" +
+	"!LibraryGetOrientationStyleRequest\"\x1f\n" +
+	"\x1dLibraryGetSequenceTypeRequest\"\x13\n" +
+	"\x11IsReadOnlyRequest\",\n" +
+	"\x12IsReadOnlyResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\r\n" +
+	"\vLoadRequest\"&\n" +
+	"\fLoadResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"/\n" +
+	"\x19LibraryRemoveEntryRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"E\n" +
+	"\x1bLibraryRemoveGestureRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\r\n" +
+	"\vSaveRequest\"&\n" +
+	"\fSaveResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"7\n" +
+	"!LibrarySetOrientationStyleRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"3\n" +
+	"\x1dLibrarySetSequenceTypeRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"\x11\n" +
+	"\x0fToStringRequest\"*\n" +
+	"\x10ToStringResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"&\n" +
+	"\x10NewStrokeRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"+\n" +
+	"\x11NewStrokeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"*\n" +
+	"\x10ClearPathRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x13\n" +
+	"\x11ClearPathResponse\";\n" +
+	"!ComputeOrientedBoundingBoxRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"<\n" +
+	"\"ComputeOrientedBoundingBoxResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"(\n" +
+	"\x0eGetPathRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\")\n" +
+	"\x0fGetPathResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"c\n" +
+	"\rToPathRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x02R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x02R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x05R\x04arg2\"(\n" +
+	"\x0eToPathResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"M\n" +
+	"\x0fNewPointRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x02R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x02R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"*\n" +
+	"\x10NewPointResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"<\n" +
+	"&UtilsComputeOrientedBoundingBoxRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"A\n" +
+	"\x17SpatialSampling2Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"2\n" +
+	"\x18SpatialSampling2Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"W\n" +
+	"\x19SpatialSampling3_1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\bR\x04arg2\"4\n" +
+	"\x1aSpatialSampling3_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"A\n" +
+	"\x17TemporalSamplingRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"2\n" +
+	"\x18TemporalSamplingResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"&\n" +
+	"\x10FromFile1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"+\n" +
+	"\x11FromFile1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"(\n" +
+	"\x12FromFile1_1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"-\n" +
+	"\x13FromFile1_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"/\n" +
+	"\x19FromFileDescriptorRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"4\n" +
+	"\x1aFromFileDescriptorResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"@\n" +
+	"\x16FromPrivateFileRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\"1\n" +
+	"\x17FromPrivateFileResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"@\n" +
+	"\x16FromRawResourceRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"1\n" +
+	"\x17FromRawResourceResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result2\xb9\b\n" +
+	"\x0eGestureService\x12E\n" +
+	"\n" +
+	"NewGesture\x12\x1a.gesture.NewGestureRequest\x1a\x1b.gesture.NewGestureResponse\x12B\n" +
+	"\tAddStroke\x12\x19.gesture.AddStrokeRequest\x1a\x1a.gesture.AddStrokeResponse\x126\n" +
+	"\x05Clone\x12\x15.gesture.CloneRequest\x1a\x16.gesture.CloneResponse\x12W\n" +
+	"\x10DescribeContents\x12 .gesture.DescribeContentsRequest\x1a!.gesture.DescribeContentsResponse\x12Q\n" +
+	"\x0eGetBoundingBox\x12\x1e.gesture.GetBoundingBoxRequest\x1a\x1f.gesture.GetBoundingBoxResponse\x126\n" +
+	"\x05GetID\x12\x15.gesture.GetIDRequest\x1a\x16.gesture.GetIDResponse\x12B\n" +
+	"\tGetLength\x12\x19.gesture.GetLengthRequest\x1a\x1a.gesture.GetLengthResponse\x12T\n" +
+	"\x0fGetStrokesCount\x12\x1f.gesture.GetStrokesCountRequest\x1a .gesture.GetStrokesCountResponse\x12B\n" +
+	"\tToBitmap4\x12\x19.gesture.ToBitmap4Request\x1a\x1a.gesture.ToBitmap4Response\x12H\n" +
+	"\vToBitmap5_1\x12\x1b.gesture.ToBitmap5_1Request\x1a\x1c.gesture.ToBitmap5_1Response\x12<\n" +
+	"\aToPath0\x12\x17.gesture.ToPath0Request\x1a\x18.gesture.ToPath0Response\x12B\n" +
+	"\tToPath1_1\x12\x19.gesture.ToPath1_1Request\x1a\x1a.gesture.ToPath1_1Response\x12B\n" +
+	"\tToPath5_2\x12\x19.gesture.ToPath5_2Request\x1a\x1a.gesture.ToPath5_2Response\x12B\n" +
+	"\tToPath4_3\x12\x19.gesture.ToPath4_3Request\x1a\x1a.gesture.ToPath4_3Response\x12N\n" +
+	"\rWriteToParcel\x12\x1d.gesture.WriteToParcelRequest\x1a\x1e.gesture.WriteToParcelResponse2\xd3\a\n" +
+	"\fStoreService\x12?\n" +
+	"\bNewStore\x12\x18.gesture.NewStoreRequest\x1a\x19.gesture.NewStoreResponse\x12E\n" +
+	"\n" +
+	"AddGesture\x12\x1a.gesture.AddGestureRequest\x1a\x1b.gesture.AddGestureResponse\x12`\n" +
+	"\x13GetOrientationStyle\x12#.gesture.GetOrientationStyleRequest\x1a$.gesture.GetOrientationStyleResponse\x12T\n" +
+	"\x0fGetSequenceType\x12\x1f.gesture.GetSequenceTypeRequest\x1a .gesture.GetSequenceTypeResponse\x12E\n" +
+	"\n" +
+	"HasChanged\x12\x1a.gesture.HasChangedRequest\x1a\x1b.gesture.HasChangedResponse\x126\n" +
+	"\x05Load1\x12\x15.gesture.Load1Request\x1a\x16.gesture.Load1Response\x12<\n" +
+	"\aLoad2_1\x12\x17.gesture.Load2_1Request\x1a\x18.gesture.Load2_1Response\x12H\n" +
+	"\vRemoveEntry\x12\x1b.gesture.RemoveEntryRequest\x1a\x1c.gesture.RemoveEntryResponse\x12N\n" +
+	"\rRemoveGesture\x12\x1d.gesture.RemoveGestureRequest\x1a\x1e.gesture.RemoveGestureResponse\x126\n" +
+	"\x05Save1\x12\x15.gesture.Save1Request\x1a\x16.gesture.Save1Response\x12<\n" +
+	"\aSave2_1\x12\x17.gesture.Save2_1Request\x1a\x18.gesture.Save2_1Response\x12`\n" +
+	"\x13SetOrientationStyle\x12#.gesture.SetOrientationStyleRequest\x1a$.gesture.SetOrientationStyleResponse\x12T\n" +
+	"\x0fSetSequenceType\x12\x1f.gesture.SetSequenceTypeRequest\x1a .gesture.SetSequenceTypeResponse2\xb1#\n" +
+	"\x12OverlayViewService\x12Q\n" +
+	"\x0eNewOverlayView\x12\x1e.gesture.NewOverlayViewRequest\x1a\x1f.gesture.NewOverlayViewResponse\x12c\n" +
+	"\x14AddOnGestureListener\x12$.gesture.AddOnGestureListenerRequest\x1a%.gesture.AddOnGestureListenerResponse\x12~\n" +
+	"\x1dAddOnGesturePerformedListener\x12-.gesture.AddOnGesturePerformedListenerRequest\x1a..gesture.AddOnGesturePerformedListenerResponse\x12i\n" +
+	"\x16AddOnGesturingListener\x12&.gesture.AddOnGesturingListenerRequest\x1a'.gesture.AddOnGesturingListenerResponse\x12c\n" +
+	"\x14CancelClearAnimation\x12$.gesture.CancelClearAnimationRequest\x1a%.gesture.CancelClearAnimationResponse\x12N\n" +
+	"\rCancelGesture\x12\x1d.gesture.CancelGestureRequest\x1a\x1e.gesture.CancelGestureResponse\x126\n" +
+	"\x05Clear\x12\x15.gesture.ClearRequest\x1a\x16.gesture.ClearResponse\x12]\n" +
+	"\x12DispatchTouchEvent\x12\".gesture.DispatchTouchEventRequest\x1a#.gesture.DispatchTouchEventResponse\x123\n" +
+	"\x04Draw\x12\x14.gesture.DrawRequest\x1a\x15.gesture.DrawResponse\x12N\n" +
+	"\rGetFadeOffset\x12\x1d.gesture.GetFadeOffsetRequest\x1a\x1e.gesture.GetFadeOffsetResponse\x12E\n" +
+	"\n" +
+	"GetGesture\x12\x1a.gesture.GetGestureRequest\x1a\x1b.gesture.GetGestureResponse\x12T\n" +
+	"\x0fGetGestureColor\x12\x1f.gesture.GetGestureColorRequest\x1a .gesture.GetGestureColorResponse\x12T\n" +
+	"\x0fGetGesturePath0\x12\x1f.gesture.GetGesturePath0Request\x1a .gesture.GetGesturePath0Response\x12Z\n" +
+	"\x11GetGesturePath1_1\x12!.gesture.GetGesturePath1_1Request\x1a\".gesture.GetGesturePath1_1Response\x12\x81\x01\n" +
+	"\x1eGetGestureStrokeAngleThreshold\x12..gesture.GetGestureStrokeAngleThresholdRequest\x1a/.gesture.GetGestureStrokeAngleThresholdResponse\x12\x84\x01\n" +
+	"\x1fGetGestureStrokeLengthThreshold\x12/.gesture.GetGestureStrokeLengthThresholdRequest\x1a0.gesture.GetGestureStrokeLengthThresholdResponse\x12\x8d\x01\n" +
+	"\"GetGestureStrokeSquarenessTreshold\x122.gesture.GetGestureStrokeSquarenessTresholdRequest\x1a3.gesture.GetGestureStrokeSquarenessTresholdResponse\x12c\n" +
+	"\x14GetGestureStrokeType\x12$.gesture.GetGestureStrokeTypeRequest\x1a%.gesture.GetGestureStrokeTypeResponse\x12f\n" +
+	"\x15GetGestureStrokeWidth\x12%.gesture.GetGestureStrokeWidthRequest\x1a&.gesture.GetGestureStrokeWidthResponse\x12Q\n" +
+	"\x0eGetOrientation\x12\x1e.gesture.GetOrientationRequest\x1a\x1f.gesture.GetOrientationResponse\x12o\n" +
+	"\x18GetUncertainGestureColor\x12(.gesture.GetUncertainGestureColorRequest\x1a).gesture.GetUncertainGestureColorResponse\x12x\n" +
+	"\x1bIsEventsInterceptionEnabled\x12+.gesture.IsEventsInterceptionEnabledRequest\x1a,.gesture.IsEventsInterceptionEnabledResponse\x12N\n" +
+	"\rIsFadeEnabled\x12\x1d.gesture.IsFadeEnabledRequest\x1a\x1e.gesture.IsFadeEnabledResponse\x12W\n" +
+	"\x10IsGestureVisible\x12 .gesture.IsGestureVisibleRequest\x1a!.gesture.IsGestureVisibleResponse\x12H\n" +
+	"\vIsGesturing\x12\x1b.gesture.IsGesturingRequest\x1a\x1c.gesture.IsGesturingResponse\x12x\n" +
+	"\x1bRemoveAllOnGestureListeners\x12+.gesture.RemoveAllOnGestureListenersRequest\x1a,.gesture.RemoveAllOnGestureListenersResponse\x12\x93\x01\n" +
+	"$RemoveAllOnGesturePerformedListeners\x124.gesture.RemoveAllOnGesturePerformedListenersRequest\x1a5.gesture.RemoveAllOnGesturePerformedListenersResponse\x12~\n" +
+	"\x1dRemoveAllOnGesturingListeners\x12-.gesture.RemoveAllOnGesturingListenersRequest\x1a..gesture.RemoveAllOnGesturingListenersResponse\x12l\n" +
+	"\x17RemoveOnGestureListener\x12'.gesture.RemoveOnGestureListenerRequest\x1a(.gesture.RemoveOnGestureListenerResponse\x12\x87\x01\n" +
+	" RemoveOnGesturePerformedListener\x120.gesture.RemoveOnGesturePerformedListenerRequest\x1a1.gesture.RemoveOnGesturePerformedListenerResponse\x12r\n" +
+	"\x19RemoveOnGesturingListener\x12).gesture.RemoveOnGesturingListenerRequest\x1a*.gesture.RemoveOnGesturingListenerResponse\x12{\n" +
+	"\x1cSetEventsInterceptionEnabled\x12,.gesture.SetEventsInterceptionEnabledRequest\x1a-.gesture.SetEventsInterceptionEnabledResponse\x12Q\n" +
+	"\x0eSetFadeEnabled\x12\x1e.gesture.SetFadeEnabledRequest\x1a\x1f.gesture.SetFadeEnabledResponse\x12N\n" +
+	"\rSetFadeOffset\x12\x1d.gesture.SetFadeOffsetRequest\x1a\x1e.gesture.SetFadeOffsetResponse\x12E\n" +
+	"\n" +
+	"SetGesture\x12\x1a.gesture.SetGestureRequest\x1a\x1b.gesture.SetGestureResponse\x12T\n" +
+	"\x0fSetGestureColor\x12\x1f.gesture.SetGestureColorRequest\x1a .gesture.SetGestureColorResponse\x12\x81\x01\n" +
+	"\x1eSetGestureStrokeAngleThreshold\x12..gesture.SetGestureStrokeAngleThresholdRequest\x1a/.gesture.SetGestureStrokeAngleThresholdResponse\x12\x84\x01\n" +
+	"\x1fSetGestureStrokeLengthThreshold\x12/.gesture.SetGestureStrokeLengthThresholdRequest\x1a0.gesture.SetGestureStrokeLengthThresholdResponse\x12\x8d\x01\n" +
+	"\"SetGestureStrokeSquarenessTreshold\x122.gesture.SetGestureStrokeSquarenessTresholdRequest\x1a3.gesture.SetGestureStrokeSquarenessTresholdResponse\x12c\n" +
+	"\x14SetGestureStrokeType\x12$.gesture.SetGestureStrokeTypeRequest\x1a%.gesture.SetGestureStrokeTypeResponse\x12f\n" +
+	"\x15SetGestureStrokeWidth\x12%.gesture.SetGestureStrokeWidthRequest\x1a&.gesture.SetGestureStrokeWidthResponse\x12Z\n" +
+	"\x11SetGestureVisible\x12!.gesture.SetGestureVisibleRequest\x1a\".gesture.SetGestureVisibleResponse\x12Q\n" +
+	"\x0eSetOrientation\x12\x1e.gesture.SetOrientationRequest\x1a\x1f.gesture.SetOrientationResponse\x12o\n" +
+	"\x18SetUncertainGestureColor\x12(.gesture.SetUncertainGestureColorRequest\x1a).gesture.SetUncertainGestureColorResponse2\xf4\x02\n" +
+	"#OverlayViewOnGestureListenerService\x12B\n" +
+	"\tOnGesture\x12\x19.gesture.OnGestureRequest\x1a\x1a.gesture.OnGestureResponse\x12]\n" +
+	"\x12OnGestureCancelled\x12\".gesture.OnGestureCancelledRequest\x1a#.gesture.OnGestureCancelledResponse\x12Q\n" +
+	"\x0eOnGestureEnded\x12\x1e.gesture.OnGestureEndedRequest\x1a\x1f.gesture.OnGestureEndedResponse\x12W\n" +
+	"\x10OnGestureStarted\x12 .gesture.OnGestureStartedRequest\x1a!.gesture.OnGestureStartedResponse2\x8d\x01\n" +
+	",OverlayViewOnGesturePerformedListenerService\x12]\n" +
+	"\x12OnGesturePerformed\x12\".gesture.OnGesturePerformedRequest\x1a#.gesture.OnGesturePerformedResponse2\xdf\x01\n" +
+	"%OverlayViewOnGesturingListenerService\x12W\n" +
+	"\x10OnGesturingEnded\x12 .gesture.OnGesturingEndedRequest\x1a!.gesture.OnGesturingEndedResponse\x12]\n" +
+	"\x12OnGesturingStarted\x12\".gesture.OnGesturingStartedRequest\x1a#.gesture.OnGesturingStartedResponse2\xc3\x06\n" +
+	"\x0eLibraryService\x12L\n" +
+	"\n" +
+	"AddGesture\x12!.gesture.LibraryAddGestureRequest\x1a\x1b.gesture.AddGestureResponse\x12g\n" +
+	"\x13GetOrientationStyle\x12*.gesture.LibraryGetOrientationStyleRequest\x1a$.gesture.GetOrientationStyleResponse\x12[\n" +
+	"\x0fGetSequenceType\x12&.gesture.LibraryGetSequenceTypeRequest\x1a .gesture.GetSequenceTypeResponse\x12E\n" +
+	"\n" +
+	"IsReadOnly\x12\x1a.gesture.IsReadOnlyRequest\x1a\x1b.gesture.IsReadOnlyResponse\x123\n" +
+	"\x04Load\x12\x14.gesture.LoadRequest\x1a\x15.gesture.LoadResponse\x12O\n" +
+	"\vRemoveEntry\x12\".gesture.LibraryRemoveEntryRequest\x1a\x1c.gesture.RemoveEntryResponse\x12U\n" +
+	"\rRemoveGesture\x12$.gesture.LibraryRemoveGestureRequest\x1a\x1e.gesture.RemoveGestureResponse\x123\n" +
+	"\x04Save\x12\x14.gesture.SaveRequest\x1a\x15.gesture.SaveResponse\x12g\n" +
+	"\x13SetOrientationStyle\x12*.gesture.LibrarySetOrientationStyleRequest\x1a$.gesture.SetOrientationStyleResponse\x12[\n" +
+	"\x0fSetSequenceType\x12&.gesture.LibrarySetSequenceTypeRequest\x1a .gesture.SetSequenceTypeResponse2T\n" +
+	"\x11PredictionService\x12?\n" +
+	"\bToString\x12\x18.gesture.ToStringRequest\x1a\x19.gesture.ToStringResponse2\xbf\x03\n" +
+	"\rStrokeService\x12B\n" +
+	"\tNewStroke\x12\x19.gesture.NewStrokeRequest\x1a\x1a.gesture.NewStrokeResponse\x12B\n" +
+	"\tClearPath\x12\x19.gesture.ClearPathRequest\x1a\x1a.gesture.ClearPathResponse\x126\n" +
+	"\x05Clone\x12\x15.gesture.CloneRequest\x1a\x16.gesture.CloneResponse\x12u\n" +
+	"\x1aComputeOrientedBoundingBox\x12*.gesture.ComputeOrientedBoundingBoxRequest\x1a+.gesture.ComputeOrientedBoundingBoxResponse\x12<\n" +
+	"\aGetPath\x12\x17.gesture.GetPathRequest\x1a\x18.gesture.GetPathResponse\x129\n" +
+	"\x06ToPath\x12\x16.gesture.ToPathRequest\x1a\x17.gesture.ToPathResponse2\x87\x01\n" +
+	"\fPointService\x12?\n" +
+	"\bNewPoint\x12\x18.gesture.NewPointRequest\x1a\x19.gesture.NewPointResponse\x126\n" +
+	"\x05Clone\x12\x15.gesture.CloneRequest\x1a\x16.gesture.CloneResponse2\x9b\x03\n" +
+	"\fUtilsService\x12z\n" +
+	"\x1aComputeOrientedBoundingBox\x12/.gesture.UtilsComputeOrientedBoundingBoxRequest\x1a+.gesture.ComputeOrientedBoundingBoxResponse\x12W\n" +
+	"\x10SpatialSampling2\x12 .gesture.SpatialSampling2Request\x1a!.gesture.SpatialSampling2Response\x12]\n" +
+	"\x12SpatialSampling3_1\x12\".gesture.SpatialSampling3_1Request\x1a#.gesture.SpatialSampling3_1Response\x12W\n" +
+	"\x10TemporalSampling\x12 .gesture.TemporalSamplingRequest\x1a!.gesture.TemporalSamplingResponse2\xab\x03\n" +
+	"\x10LibrariesService\x12B\n" +
+	"\tFromFile1\x12\x19.gesture.FromFile1Request\x1a\x1a.gesture.FromFile1Response\x12H\n" +
+	"\vFromFile1_1\x12\x1b.gesture.FromFile1_1Request\x1a\x1c.gesture.FromFile1_1Response\x12]\n" +
+	"\x12FromFileDescriptor\x12\".gesture.FromFileDescriptorRequest\x1a#.gesture.FromFileDescriptorResponse\x12T\n" +
+	"\x0fFromPrivateFile\x12\x1f.gesture.FromPrivateFileRequest\x1a .gesture.FromPrivateFileResponse\x12T\n" +
+	"\x0fFromRawResource\x12\x1f.gesture.FromRawResourceRequest\x1a .gesture.FromRawResourceResponseB1Z/github.com/AndroidGoLab/jni-proxy/proto/gestureb\x06proto3"
 
-var file_proto_gesture_gesture_proto_goTypes = []any{}
+var (
+	file_proto_gesture_gesture_proto_rawDescOnce sync.Once
+	file_proto_gesture_gesture_proto_rawDescData []byte
+)
+
+func file_proto_gesture_gesture_proto_rawDescGZIP() []byte {
+	file_proto_gesture_gesture_proto_rawDescOnce.Do(func() {
+		file_proto_gesture_gesture_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_proto_gesture_gesture_proto_rawDesc), len(file_proto_gesture_gesture_proto_rawDesc)))
+	})
+	return file_proto_gesture_gesture_proto_rawDescData
+}
+
+var file_proto_gesture_gesture_proto_msgTypes = make([]protoimpl.MessageInfo, 202)
+var file_proto_gesture_gesture_proto_goTypes = []any{
+	(*NewGestureRequest)(nil),                            // 0: gesture.NewGestureRequest
+	(*NewGestureResponse)(nil),                           // 1: gesture.NewGestureResponse
+	(*AddStrokeRequest)(nil),                             // 2: gesture.AddStrokeRequest
+	(*AddStrokeResponse)(nil),                            // 3: gesture.AddStrokeResponse
+	(*CloneRequest)(nil),                                 // 4: gesture.CloneRequest
+	(*CloneResponse)(nil),                                // 5: gesture.CloneResponse
+	(*DescribeContentsRequest)(nil),                      // 6: gesture.DescribeContentsRequest
+	(*DescribeContentsResponse)(nil),                     // 7: gesture.DescribeContentsResponse
+	(*GetBoundingBoxRequest)(nil),                        // 8: gesture.GetBoundingBoxRequest
+	(*GetBoundingBoxResponse)(nil),                       // 9: gesture.GetBoundingBoxResponse
+	(*GetIDRequest)(nil),                                 // 10: gesture.GetIDRequest
+	(*GetIDResponse)(nil),                                // 11: gesture.GetIDResponse
+	(*GetLengthRequest)(nil),                             // 12: gesture.GetLengthRequest
+	(*GetLengthResponse)(nil),                            // 13: gesture.GetLengthResponse
+	(*GetStrokesCountRequest)(nil),                       // 14: gesture.GetStrokesCountRequest
+	(*GetStrokesCountResponse)(nil),                      // 15: gesture.GetStrokesCountResponse
+	(*ToBitmap4Request)(nil),                             // 16: gesture.ToBitmap4Request
+	(*ToBitmap4Response)(nil),                            // 17: gesture.ToBitmap4Response
+	(*ToBitmap5_1Request)(nil),                           // 18: gesture.ToBitmap5_1Request
+	(*ToBitmap5_1Response)(nil),                          // 19: gesture.ToBitmap5_1Response
+	(*ToPath0Request)(nil),                               // 20: gesture.ToPath0Request
+	(*ToPath0Response)(nil),                              // 21: gesture.ToPath0Response
+	(*ToPath1_1Request)(nil),                             // 22: gesture.ToPath1_1Request
+	(*ToPath1_1Response)(nil),                            // 23: gesture.ToPath1_1Response
+	(*ToPath5_2Request)(nil),                             // 24: gesture.ToPath5_2Request
+	(*ToPath5_2Response)(nil),                            // 25: gesture.ToPath5_2Response
+	(*ToPath4_3Request)(nil),                             // 26: gesture.ToPath4_3Request
+	(*ToPath4_3Response)(nil),                            // 27: gesture.ToPath4_3Response
+	(*WriteToParcelRequest)(nil),                         // 28: gesture.WriteToParcelRequest
+	(*WriteToParcelResponse)(nil),                        // 29: gesture.WriteToParcelResponse
+	(*NewStoreRequest)(nil),                              // 30: gesture.NewStoreRequest
+	(*NewStoreResponse)(nil),                             // 31: gesture.NewStoreResponse
+	(*AddGestureRequest)(nil),                            // 32: gesture.AddGestureRequest
+	(*AddGestureResponse)(nil),                           // 33: gesture.AddGestureResponse
+	(*GetOrientationStyleRequest)(nil),                   // 34: gesture.GetOrientationStyleRequest
+	(*GetOrientationStyleResponse)(nil),                  // 35: gesture.GetOrientationStyleResponse
+	(*GetSequenceTypeRequest)(nil),                       // 36: gesture.GetSequenceTypeRequest
+	(*GetSequenceTypeResponse)(nil),                      // 37: gesture.GetSequenceTypeResponse
+	(*HasChangedRequest)(nil),                            // 38: gesture.HasChangedRequest
+	(*HasChangedResponse)(nil),                           // 39: gesture.HasChangedResponse
+	(*Load1Request)(nil),                                 // 40: gesture.Load1Request
+	(*Load1Response)(nil),                                // 41: gesture.Load1Response
+	(*Load2_1Request)(nil),                               // 42: gesture.Load2_1Request
+	(*Load2_1Response)(nil),                              // 43: gesture.Load2_1Response
+	(*RemoveEntryRequest)(nil),                           // 44: gesture.RemoveEntryRequest
+	(*RemoveEntryResponse)(nil),                          // 45: gesture.RemoveEntryResponse
+	(*RemoveGestureRequest)(nil),                         // 46: gesture.RemoveGestureRequest
+	(*RemoveGestureResponse)(nil),                        // 47: gesture.RemoveGestureResponse
+	(*Save1Request)(nil),                                 // 48: gesture.Save1Request
+	(*Save1Response)(nil),                                // 49: gesture.Save1Response
+	(*Save2_1Request)(nil),                               // 50: gesture.Save2_1Request
+	(*Save2_1Response)(nil),                              // 51: gesture.Save2_1Response
+	(*SetOrientationStyleRequest)(nil),                   // 52: gesture.SetOrientationStyleRequest
+	(*SetOrientationStyleResponse)(nil),                  // 53: gesture.SetOrientationStyleResponse
+	(*SetSequenceTypeRequest)(nil),                       // 54: gesture.SetSequenceTypeRequest
+	(*SetSequenceTypeResponse)(nil),                      // 55: gesture.SetSequenceTypeResponse
+	(*NewOverlayViewRequest)(nil),                        // 56: gesture.NewOverlayViewRequest
+	(*NewOverlayViewResponse)(nil),                       // 57: gesture.NewOverlayViewResponse
+	(*AddOnGestureListenerRequest)(nil),                  // 58: gesture.AddOnGestureListenerRequest
+	(*AddOnGestureListenerResponse)(nil),                 // 59: gesture.AddOnGestureListenerResponse
+	(*AddOnGesturePerformedListenerRequest)(nil),         // 60: gesture.AddOnGesturePerformedListenerRequest
+	(*AddOnGesturePerformedListenerResponse)(nil),        // 61: gesture.AddOnGesturePerformedListenerResponse
+	(*AddOnGesturingListenerRequest)(nil),                // 62: gesture.AddOnGesturingListenerRequest
+	(*AddOnGesturingListenerResponse)(nil),               // 63: gesture.AddOnGesturingListenerResponse
+	(*CancelClearAnimationRequest)(nil),                  // 64: gesture.CancelClearAnimationRequest
+	(*CancelClearAnimationResponse)(nil),                 // 65: gesture.CancelClearAnimationResponse
+	(*CancelGestureRequest)(nil),                         // 66: gesture.CancelGestureRequest
+	(*CancelGestureResponse)(nil),                        // 67: gesture.CancelGestureResponse
+	(*ClearRequest)(nil),                                 // 68: gesture.ClearRequest
+	(*ClearResponse)(nil),                                // 69: gesture.ClearResponse
+	(*DispatchTouchEventRequest)(nil),                    // 70: gesture.DispatchTouchEventRequest
+	(*DispatchTouchEventResponse)(nil),                   // 71: gesture.DispatchTouchEventResponse
+	(*DrawRequest)(nil),                                  // 72: gesture.DrawRequest
+	(*DrawResponse)(nil),                                 // 73: gesture.DrawResponse
+	(*GetFadeOffsetRequest)(nil),                         // 74: gesture.GetFadeOffsetRequest
+	(*GetFadeOffsetResponse)(nil),                        // 75: gesture.GetFadeOffsetResponse
+	(*GetGestureRequest)(nil),                            // 76: gesture.GetGestureRequest
+	(*GetGestureResponse)(nil),                           // 77: gesture.GetGestureResponse
+	(*GetGestureColorRequest)(nil),                       // 78: gesture.GetGestureColorRequest
+	(*GetGestureColorResponse)(nil),                      // 79: gesture.GetGestureColorResponse
+	(*GetGesturePath0Request)(nil),                       // 80: gesture.GetGesturePath0Request
+	(*GetGesturePath0Response)(nil),                      // 81: gesture.GetGesturePath0Response
+	(*GetGesturePath1_1Request)(nil),                     // 82: gesture.GetGesturePath1_1Request
+	(*GetGesturePath1_1Response)(nil),                    // 83: gesture.GetGesturePath1_1Response
+	(*GetGestureStrokeAngleThresholdRequest)(nil),        // 84: gesture.GetGestureStrokeAngleThresholdRequest
+	(*GetGestureStrokeAngleThresholdResponse)(nil),       // 85: gesture.GetGestureStrokeAngleThresholdResponse
+	(*GetGestureStrokeLengthThresholdRequest)(nil),       // 86: gesture.GetGestureStrokeLengthThresholdRequest
+	(*GetGestureStrokeLengthThresholdResponse)(nil),      // 87: gesture.GetGestureStrokeLengthThresholdResponse
+	(*GetGestureStrokeSquarenessTresholdRequest)(nil),    // 88: gesture.GetGestureStrokeSquarenessTresholdRequest
+	(*GetGestureStrokeSquarenessTresholdResponse)(nil),   // 89: gesture.GetGestureStrokeSquarenessTresholdResponse
+	(*GetGestureStrokeTypeRequest)(nil),                  // 90: gesture.GetGestureStrokeTypeRequest
+	(*GetGestureStrokeTypeResponse)(nil),                 // 91: gesture.GetGestureStrokeTypeResponse
+	(*GetGestureStrokeWidthRequest)(nil),                 // 92: gesture.GetGestureStrokeWidthRequest
+	(*GetGestureStrokeWidthResponse)(nil),                // 93: gesture.GetGestureStrokeWidthResponse
+	(*GetOrientationRequest)(nil),                        // 94: gesture.GetOrientationRequest
+	(*GetOrientationResponse)(nil),                       // 95: gesture.GetOrientationResponse
+	(*GetUncertainGestureColorRequest)(nil),              // 96: gesture.GetUncertainGestureColorRequest
+	(*GetUncertainGestureColorResponse)(nil),             // 97: gesture.GetUncertainGestureColorResponse
+	(*IsEventsInterceptionEnabledRequest)(nil),           // 98: gesture.IsEventsInterceptionEnabledRequest
+	(*IsEventsInterceptionEnabledResponse)(nil),          // 99: gesture.IsEventsInterceptionEnabledResponse
+	(*IsFadeEnabledRequest)(nil),                         // 100: gesture.IsFadeEnabledRequest
+	(*IsFadeEnabledResponse)(nil),                        // 101: gesture.IsFadeEnabledResponse
+	(*IsGestureVisibleRequest)(nil),                      // 102: gesture.IsGestureVisibleRequest
+	(*IsGestureVisibleResponse)(nil),                     // 103: gesture.IsGestureVisibleResponse
+	(*IsGesturingRequest)(nil),                           // 104: gesture.IsGesturingRequest
+	(*IsGesturingResponse)(nil),                          // 105: gesture.IsGesturingResponse
+	(*RemoveAllOnGestureListenersRequest)(nil),           // 106: gesture.RemoveAllOnGestureListenersRequest
+	(*RemoveAllOnGestureListenersResponse)(nil),          // 107: gesture.RemoveAllOnGestureListenersResponse
+	(*RemoveAllOnGesturePerformedListenersRequest)(nil),  // 108: gesture.RemoveAllOnGesturePerformedListenersRequest
+	(*RemoveAllOnGesturePerformedListenersResponse)(nil), // 109: gesture.RemoveAllOnGesturePerformedListenersResponse
+	(*RemoveAllOnGesturingListenersRequest)(nil),         // 110: gesture.RemoveAllOnGesturingListenersRequest
+	(*RemoveAllOnGesturingListenersResponse)(nil),        // 111: gesture.RemoveAllOnGesturingListenersResponse
+	(*RemoveOnGestureListenerRequest)(nil),               // 112: gesture.RemoveOnGestureListenerRequest
+	(*RemoveOnGestureListenerResponse)(nil),              // 113: gesture.RemoveOnGestureListenerResponse
+	(*RemoveOnGesturePerformedListenerRequest)(nil),      // 114: gesture.RemoveOnGesturePerformedListenerRequest
+	(*RemoveOnGesturePerformedListenerResponse)(nil),     // 115: gesture.RemoveOnGesturePerformedListenerResponse
+	(*RemoveOnGesturingListenerRequest)(nil),             // 116: gesture.RemoveOnGesturingListenerRequest
+	(*RemoveOnGesturingListenerResponse)(nil),            // 117: gesture.RemoveOnGesturingListenerResponse
+	(*SetEventsInterceptionEnabledRequest)(nil),          // 118: gesture.SetEventsInterceptionEnabledRequest
+	(*SetEventsInterceptionEnabledResponse)(nil),         // 119: gesture.SetEventsInterceptionEnabledResponse
+	(*SetFadeEnabledRequest)(nil),                        // 120: gesture.SetFadeEnabledRequest
+	(*SetFadeEnabledResponse)(nil),                       // 121: gesture.SetFadeEnabledResponse
+	(*SetFadeOffsetRequest)(nil),                         // 122: gesture.SetFadeOffsetRequest
+	(*SetFadeOffsetResponse)(nil),                        // 123: gesture.SetFadeOffsetResponse
+	(*SetGestureRequest)(nil),                            // 124: gesture.SetGestureRequest
+	(*SetGestureResponse)(nil),                           // 125: gesture.SetGestureResponse
+	(*SetGestureColorRequest)(nil),                       // 126: gesture.SetGestureColorRequest
+	(*SetGestureColorResponse)(nil),                      // 127: gesture.SetGestureColorResponse
+	(*SetGestureStrokeAngleThresholdRequest)(nil),        // 128: gesture.SetGestureStrokeAngleThresholdRequest
+	(*SetGestureStrokeAngleThresholdResponse)(nil),       // 129: gesture.SetGestureStrokeAngleThresholdResponse
+	(*SetGestureStrokeLengthThresholdRequest)(nil),       // 130: gesture.SetGestureStrokeLengthThresholdRequest
+	(*SetGestureStrokeLengthThresholdResponse)(nil),      // 131: gesture.SetGestureStrokeLengthThresholdResponse
+	(*SetGestureStrokeSquarenessTresholdRequest)(nil),    // 132: gesture.SetGestureStrokeSquarenessTresholdRequest
+	(*SetGestureStrokeSquarenessTresholdResponse)(nil),   // 133: gesture.SetGestureStrokeSquarenessTresholdResponse
+	(*SetGestureStrokeTypeRequest)(nil),                  // 134: gesture.SetGestureStrokeTypeRequest
+	(*SetGestureStrokeTypeResponse)(nil),                 // 135: gesture.SetGestureStrokeTypeResponse
+	(*SetGestureStrokeWidthRequest)(nil),                 // 136: gesture.SetGestureStrokeWidthRequest
+	(*SetGestureStrokeWidthResponse)(nil),                // 137: gesture.SetGestureStrokeWidthResponse
+	(*SetGestureVisibleRequest)(nil),                     // 138: gesture.SetGestureVisibleRequest
+	(*SetGestureVisibleResponse)(nil),                    // 139: gesture.SetGestureVisibleResponse
+	(*SetOrientationRequest)(nil),                        // 140: gesture.SetOrientationRequest
+	(*SetOrientationResponse)(nil),                       // 141: gesture.SetOrientationResponse
+	(*SetUncertainGestureColorRequest)(nil),              // 142: gesture.SetUncertainGestureColorRequest
+	(*SetUncertainGestureColorResponse)(nil),             // 143: gesture.SetUncertainGestureColorResponse
+	(*OnGestureRequest)(nil),                             // 144: gesture.OnGestureRequest
+	(*OnGestureResponse)(nil),                            // 145: gesture.OnGestureResponse
+	(*OnGestureCancelledRequest)(nil),                    // 146: gesture.OnGestureCancelledRequest
+	(*OnGestureCancelledResponse)(nil),                   // 147: gesture.OnGestureCancelledResponse
+	(*OnGestureEndedRequest)(nil),                        // 148: gesture.OnGestureEndedRequest
+	(*OnGestureEndedResponse)(nil),                       // 149: gesture.OnGestureEndedResponse
+	(*OnGestureStartedRequest)(nil),                      // 150: gesture.OnGestureStartedRequest
+	(*OnGestureStartedResponse)(nil),                     // 151: gesture.OnGestureStartedResponse
+	(*OnGesturePerformedRequest)(nil),                    // 152: gesture.OnGesturePerformedRequest
+	(*OnGesturePerformedResponse)(nil),                   // 153: gesture.OnGesturePerformedResponse
+	(*OnGesturingEndedRequest)(nil),                      // 154: gesture.OnGesturingEndedRequest
+	(*OnGesturingEndedResponse)(nil),                     // 155: gesture.OnGesturingEndedResponse
+	(*OnGesturingStartedRequest)(nil),                    // 156: gesture.OnGesturingStartedRequest
+	(*OnGesturingStartedResponse)(nil),                   // 157: gesture.OnGesturingStartedResponse
+	(*LibraryAddGestureRequest)(nil),                     // 158: gesture.LibraryAddGestureRequest
+	(*LibraryGetOrientationStyleRequest)(nil),            // 159: gesture.LibraryGetOrientationStyleRequest
+	(*LibraryGetSequenceTypeRequest)(nil),                // 160: gesture.LibraryGetSequenceTypeRequest
+	(*IsReadOnlyRequest)(nil),                            // 161: gesture.IsReadOnlyRequest
+	(*IsReadOnlyResponse)(nil),                           // 162: gesture.IsReadOnlyResponse
+	(*LoadRequest)(nil),                                  // 163: gesture.LoadRequest
+	(*LoadResponse)(nil),                                 // 164: gesture.LoadResponse
+	(*LibraryRemoveEntryRequest)(nil),                    // 165: gesture.LibraryRemoveEntryRequest
+	(*LibraryRemoveGestureRequest)(nil),                  // 166: gesture.LibraryRemoveGestureRequest
+	(*SaveRequest)(nil),                                  // 167: gesture.SaveRequest
+	(*SaveResponse)(nil),                                 // 168: gesture.SaveResponse
+	(*LibrarySetOrientationStyleRequest)(nil),            // 169: gesture.LibrarySetOrientationStyleRequest
+	(*LibrarySetSequenceTypeRequest)(nil),                // 170: gesture.LibrarySetSequenceTypeRequest
+	(*ToStringRequest)(nil),                              // 171: gesture.ToStringRequest
+	(*ToStringResponse)(nil),                             // 172: gesture.ToStringResponse
+	(*NewStrokeRequest)(nil),                             // 173: gesture.NewStrokeRequest
+	(*NewStrokeResponse)(nil),                            // 174: gesture.NewStrokeResponse
+	(*ClearPathRequest)(nil),                             // 175: gesture.ClearPathRequest
+	(*ClearPathResponse)(nil),                            // 176: gesture.ClearPathResponse
+	(*ComputeOrientedBoundingBoxRequest)(nil),            // 177: gesture.ComputeOrientedBoundingBoxRequest
+	(*ComputeOrientedBoundingBoxResponse)(nil),           // 178: gesture.ComputeOrientedBoundingBoxResponse
+	(*GetPathRequest)(nil),                               // 179: gesture.GetPathRequest
+	(*GetPathResponse)(nil),                              // 180: gesture.GetPathResponse
+	(*ToPathRequest)(nil),                                // 181: gesture.ToPathRequest
+	(*ToPathResponse)(nil),                               // 182: gesture.ToPathResponse
+	(*NewPointRequest)(nil),                              // 183: gesture.NewPointRequest
+	(*NewPointResponse)(nil),                             // 184: gesture.NewPointResponse
+	(*UtilsComputeOrientedBoundingBoxRequest)(nil),       // 185: gesture.UtilsComputeOrientedBoundingBoxRequest
+	(*SpatialSampling2Request)(nil),                      // 186: gesture.SpatialSampling2Request
+	(*SpatialSampling2Response)(nil),                     // 187: gesture.SpatialSampling2Response
+	(*SpatialSampling3_1Request)(nil),                    // 188: gesture.SpatialSampling3_1Request
+	(*SpatialSampling3_1Response)(nil),                   // 189: gesture.SpatialSampling3_1Response
+	(*TemporalSamplingRequest)(nil),                      // 190: gesture.TemporalSamplingRequest
+	(*TemporalSamplingResponse)(nil),                     // 191: gesture.TemporalSamplingResponse
+	(*FromFile1Request)(nil),                             // 192: gesture.FromFile1Request
+	(*FromFile1Response)(nil),                            // 193: gesture.FromFile1Response
+	(*FromFile1_1Request)(nil),                           // 194: gesture.FromFile1_1Request
+	(*FromFile1_1Response)(nil),                          // 195: gesture.FromFile1_1Response
+	(*FromFileDescriptorRequest)(nil),                    // 196: gesture.FromFileDescriptorRequest
+	(*FromFileDescriptorResponse)(nil),                   // 197: gesture.FromFileDescriptorResponse
+	(*FromPrivateFileRequest)(nil),                       // 198: gesture.FromPrivateFileRequest
+	(*FromPrivateFileResponse)(nil),                      // 199: gesture.FromPrivateFileResponse
+	(*FromRawResourceRequest)(nil),                       // 200: gesture.FromRawResourceRequest
+	(*FromRawResourceResponse)(nil),                      // 201: gesture.FromRawResourceResponse
+}
 var file_proto_gesture_gesture_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	0,   // 0: gesture.GestureService.NewGesture:input_type -> gesture.NewGestureRequest
+	2,   // 1: gesture.GestureService.AddStroke:input_type -> gesture.AddStrokeRequest
+	4,   // 2: gesture.GestureService.Clone:input_type -> gesture.CloneRequest
+	6,   // 3: gesture.GestureService.DescribeContents:input_type -> gesture.DescribeContentsRequest
+	8,   // 4: gesture.GestureService.GetBoundingBox:input_type -> gesture.GetBoundingBoxRequest
+	10,  // 5: gesture.GestureService.GetID:input_type -> gesture.GetIDRequest
+	12,  // 6: gesture.GestureService.GetLength:input_type -> gesture.GetLengthRequest
+	14,  // 7: gesture.GestureService.GetStrokesCount:input_type -> gesture.GetStrokesCountRequest
+	16,  // 8: gesture.GestureService.ToBitmap4:input_type -> gesture.ToBitmap4Request
+	18,  // 9: gesture.GestureService.ToBitmap5_1:input_type -> gesture.ToBitmap5_1Request
+	20,  // 10: gesture.GestureService.ToPath0:input_type -> gesture.ToPath0Request
+	22,  // 11: gesture.GestureService.ToPath1_1:input_type -> gesture.ToPath1_1Request
+	24,  // 12: gesture.GestureService.ToPath5_2:input_type -> gesture.ToPath5_2Request
+	26,  // 13: gesture.GestureService.ToPath4_3:input_type -> gesture.ToPath4_3Request
+	28,  // 14: gesture.GestureService.WriteToParcel:input_type -> gesture.WriteToParcelRequest
+	30,  // 15: gesture.StoreService.NewStore:input_type -> gesture.NewStoreRequest
+	32,  // 16: gesture.StoreService.AddGesture:input_type -> gesture.AddGestureRequest
+	34,  // 17: gesture.StoreService.GetOrientationStyle:input_type -> gesture.GetOrientationStyleRequest
+	36,  // 18: gesture.StoreService.GetSequenceType:input_type -> gesture.GetSequenceTypeRequest
+	38,  // 19: gesture.StoreService.HasChanged:input_type -> gesture.HasChangedRequest
+	40,  // 20: gesture.StoreService.Load1:input_type -> gesture.Load1Request
+	42,  // 21: gesture.StoreService.Load2_1:input_type -> gesture.Load2_1Request
+	44,  // 22: gesture.StoreService.RemoveEntry:input_type -> gesture.RemoveEntryRequest
+	46,  // 23: gesture.StoreService.RemoveGesture:input_type -> gesture.RemoveGestureRequest
+	48,  // 24: gesture.StoreService.Save1:input_type -> gesture.Save1Request
+	50,  // 25: gesture.StoreService.Save2_1:input_type -> gesture.Save2_1Request
+	52,  // 26: gesture.StoreService.SetOrientationStyle:input_type -> gesture.SetOrientationStyleRequest
+	54,  // 27: gesture.StoreService.SetSequenceType:input_type -> gesture.SetSequenceTypeRequest
+	56,  // 28: gesture.OverlayViewService.NewOverlayView:input_type -> gesture.NewOverlayViewRequest
+	58,  // 29: gesture.OverlayViewService.AddOnGestureListener:input_type -> gesture.AddOnGestureListenerRequest
+	60,  // 30: gesture.OverlayViewService.AddOnGesturePerformedListener:input_type -> gesture.AddOnGesturePerformedListenerRequest
+	62,  // 31: gesture.OverlayViewService.AddOnGesturingListener:input_type -> gesture.AddOnGesturingListenerRequest
+	64,  // 32: gesture.OverlayViewService.CancelClearAnimation:input_type -> gesture.CancelClearAnimationRequest
+	66,  // 33: gesture.OverlayViewService.CancelGesture:input_type -> gesture.CancelGestureRequest
+	68,  // 34: gesture.OverlayViewService.Clear:input_type -> gesture.ClearRequest
+	70,  // 35: gesture.OverlayViewService.DispatchTouchEvent:input_type -> gesture.DispatchTouchEventRequest
+	72,  // 36: gesture.OverlayViewService.Draw:input_type -> gesture.DrawRequest
+	74,  // 37: gesture.OverlayViewService.GetFadeOffset:input_type -> gesture.GetFadeOffsetRequest
+	76,  // 38: gesture.OverlayViewService.GetGesture:input_type -> gesture.GetGestureRequest
+	78,  // 39: gesture.OverlayViewService.GetGestureColor:input_type -> gesture.GetGestureColorRequest
+	80,  // 40: gesture.OverlayViewService.GetGesturePath0:input_type -> gesture.GetGesturePath0Request
+	82,  // 41: gesture.OverlayViewService.GetGesturePath1_1:input_type -> gesture.GetGesturePath1_1Request
+	84,  // 42: gesture.OverlayViewService.GetGestureStrokeAngleThreshold:input_type -> gesture.GetGestureStrokeAngleThresholdRequest
+	86,  // 43: gesture.OverlayViewService.GetGestureStrokeLengthThreshold:input_type -> gesture.GetGestureStrokeLengthThresholdRequest
+	88,  // 44: gesture.OverlayViewService.GetGestureStrokeSquarenessTreshold:input_type -> gesture.GetGestureStrokeSquarenessTresholdRequest
+	90,  // 45: gesture.OverlayViewService.GetGestureStrokeType:input_type -> gesture.GetGestureStrokeTypeRequest
+	92,  // 46: gesture.OverlayViewService.GetGestureStrokeWidth:input_type -> gesture.GetGestureStrokeWidthRequest
+	94,  // 47: gesture.OverlayViewService.GetOrientation:input_type -> gesture.GetOrientationRequest
+	96,  // 48: gesture.OverlayViewService.GetUncertainGestureColor:input_type -> gesture.GetUncertainGestureColorRequest
+	98,  // 49: gesture.OverlayViewService.IsEventsInterceptionEnabled:input_type -> gesture.IsEventsInterceptionEnabledRequest
+	100, // 50: gesture.OverlayViewService.IsFadeEnabled:input_type -> gesture.IsFadeEnabledRequest
+	102, // 51: gesture.OverlayViewService.IsGestureVisible:input_type -> gesture.IsGestureVisibleRequest
+	104, // 52: gesture.OverlayViewService.IsGesturing:input_type -> gesture.IsGesturingRequest
+	106, // 53: gesture.OverlayViewService.RemoveAllOnGestureListeners:input_type -> gesture.RemoveAllOnGestureListenersRequest
+	108, // 54: gesture.OverlayViewService.RemoveAllOnGesturePerformedListeners:input_type -> gesture.RemoveAllOnGesturePerformedListenersRequest
+	110, // 55: gesture.OverlayViewService.RemoveAllOnGesturingListeners:input_type -> gesture.RemoveAllOnGesturingListenersRequest
+	112, // 56: gesture.OverlayViewService.RemoveOnGestureListener:input_type -> gesture.RemoveOnGestureListenerRequest
+	114, // 57: gesture.OverlayViewService.RemoveOnGesturePerformedListener:input_type -> gesture.RemoveOnGesturePerformedListenerRequest
+	116, // 58: gesture.OverlayViewService.RemoveOnGesturingListener:input_type -> gesture.RemoveOnGesturingListenerRequest
+	118, // 59: gesture.OverlayViewService.SetEventsInterceptionEnabled:input_type -> gesture.SetEventsInterceptionEnabledRequest
+	120, // 60: gesture.OverlayViewService.SetFadeEnabled:input_type -> gesture.SetFadeEnabledRequest
+	122, // 61: gesture.OverlayViewService.SetFadeOffset:input_type -> gesture.SetFadeOffsetRequest
+	124, // 62: gesture.OverlayViewService.SetGesture:input_type -> gesture.SetGestureRequest
+	126, // 63: gesture.OverlayViewService.SetGestureColor:input_type -> gesture.SetGestureColorRequest
+	128, // 64: gesture.OverlayViewService.SetGestureStrokeAngleThreshold:input_type -> gesture.SetGestureStrokeAngleThresholdRequest
+	130, // 65: gesture.OverlayViewService.SetGestureStrokeLengthThreshold:input_type -> gesture.SetGestureStrokeLengthThresholdRequest
+	132, // 66: gesture.OverlayViewService.SetGestureStrokeSquarenessTreshold:input_type -> gesture.SetGestureStrokeSquarenessTresholdRequest
+	134, // 67: gesture.OverlayViewService.SetGestureStrokeType:input_type -> gesture.SetGestureStrokeTypeRequest
+	136, // 68: gesture.OverlayViewService.SetGestureStrokeWidth:input_type -> gesture.SetGestureStrokeWidthRequest
+	138, // 69: gesture.OverlayViewService.SetGestureVisible:input_type -> gesture.SetGestureVisibleRequest
+	140, // 70: gesture.OverlayViewService.SetOrientation:input_type -> gesture.SetOrientationRequest
+	142, // 71: gesture.OverlayViewService.SetUncertainGestureColor:input_type -> gesture.SetUncertainGestureColorRequest
+	144, // 72: gesture.OverlayViewOnGestureListenerService.OnGesture:input_type -> gesture.OnGestureRequest
+	146, // 73: gesture.OverlayViewOnGestureListenerService.OnGestureCancelled:input_type -> gesture.OnGestureCancelledRequest
+	148, // 74: gesture.OverlayViewOnGestureListenerService.OnGestureEnded:input_type -> gesture.OnGestureEndedRequest
+	150, // 75: gesture.OverlayViewOnGestureListenerService.OnGestureStarted:input_type -> gesture.OnGestureStartedRequest
+	152, // 76: gesture.OverlayViewOnGesturePerformedListenerService.OnGesturePerformed:input_type -> gesture.OnGesturePerformedRequest
+	154, // 77: gesture.OverlayViewOnGesturingListenerService.OnGesturingEnded:input_type -> gesture.OnGesturingEndedRequest
+	156, // 78: gesture.OverlayViewOnGesturingListenerService.OnGesturingStarted:input_type -> gesture.OnGesturingStartedRequest
+	158, // 79: gesture.LibraryService.AddGesture:input_type -> gesture.LibraryAddGestureRequest
+	159, // 80: gesture.LibraryService.GetOrientationStyle:input_type -> gesture.LibraryGetOrientationStyleRequest
+	160, // 81: gesture.LibraryService.GetSequenceType:input_type -> gesture.LibraryGetSequenceTypeRequest
+	161, // 82: gesture.LibraryService.IsReadOnly:input_type -> gesture.IsReadOnlyRequest
+	163, // 83: gesture.LibraryService.Load:input_type -> gesture.LoadRequest
+	165, // 84: gesture.LibraryService.RemoveEntry:input_type -> gesture.LibraryRemoveEntryRequest
+	166, // 85: gesture.LibraryService.RemoveGesture:input_type -> gesture.LibraryRemoveGestureRequest
+	167, // 86: gesture.LibraryService.Save:input_type -> gesture.SaveRequest
+	169, // 87: gesture.LibraryService.SetOrientationStyle:input_type -> gesture.LibrarySetOrientationStyleRequest
+	170, // 88: gesture.LibraryService.SetSequenceType:input_type -> gesture.LibrarySetSequenceTypeRequest
+	171, // 89: gesture.PredictionService.ToString:input_type -> gesture.ToStringRequest
+	173, // 90: gesture.StrokeService.NewStroke:input_type -> gesture.NewStrokeRequest
+	175, // 91: gesture.StrokeService.ClearPath:input_type -> gesture.ClearPathRequest
+	4,   // 92: gesture.StrokeService.Clone:input_type -> gesture.CloneRequest
+	177, // 93: gesture.StrokeService.ComputeOrientedBoundingBox:input_type -> gesture.ComputeOrientedBoundingBoxRequest
+	179, // 94: gesture.StrokeService.GetPath:input_type -> gesture.GetPathRequest
+	181, // 95: gesture.StrokeService.ToPath:input_type -> gesture.ToPathRequest
+	183, // 96: gesture.PointService.NewPoint:input_type -> gesture.NewPointRequest
+	4,   // 97: gesture.PointService.Clone:input_type -> gesture.CloneRequest
+	185, // 98: gesture.UtilsService.ComputeOrientedBoundingBox:input_type -> gesture.UtilsComputeOrientedBoundingBoxRequest
+	186, // 99: gesture.UtilsService.SpatialSampling2:input_type -> gesture.SpatialSampling2Request
+	188, // 100: gesture.UtilsService.SpatialSampling3_1:input_type -> gesture.SpatialSampling3_1Request
+	190, // 101: gesture.UtilsService.TemporalSampling:input_type -> gesture.TemporalSamplingRequest
+	192, // 102: gesture.LibrariesService.FromFile1:input_type -> gesture.FromFile1Request
+	194, // 103: gesture.LibrariesService.FromFile1_1:input_type -> gesture.FromFile1_1Request
+	196, // 104: gesture.LibrariesService.FromFileDescriptor:input_type -> gesture.FromFileDescriptorRequest
+	198, // 105: gesture.LibrariesService.FromPrivateFile:input_type -> gesture.FromPrivateFileRequest
+	200, // 106: gesture.LibrariesService.FromRawResource:input_type -> gesture.FromRawResourceRequest
+	1,   // 107: gesture.GestureService.NewGesture:output_type -> gesture.NewGestureResponse
+	3,   // 108: gesture.GestureService.AddStroke:output_type -> gesture.AddStrokeResponse
+	5,   // 109: gesture.GestureService.Clone:output_type -> gesture.CloneResponse
+	7,   // 110: gesture.GestureService.DescribeContents:output_type -> gesture.DescribeContentsResponse
+	9,   // 111: gesture.GestureService.GetBoundingBox:output_type -> gesture.GetBoundingBoxResponse
+	11,  // 112: gesture.GestureService.GetID:output_type -> gesture.GetIDResponse
+	13,  // 113: gesture.GestureService.GetLength:output_type -> gesture.GetLengthResponse
+	15,  // 114: gesture.GestureService.GetStrokesCount:output_type -> gesture.GetStrokesCountResponse
+	17,  // 115: gesture.GestureService.ToBitmap4:output_type -> gesture.ToBitmap4Response
+	19,  // 116: gesture.GestureService.ToBitmap5_1:output_type -> gesture.ToBitmap5_1Response
+	21,  // 117: gesture.GestureService.ToPath0:output_type -> gesture.ToPath0Response
+	23,  // 118: gesture.GestureService.ToPath1_1:output_type -> gesture.ToPath1_1Response
+	25,  // 119: gesture.GestureService.ToPath5_2:output_type -> gesture.ToPath5_2Response
+	27,  // 120: gesture.GestureService.ToPath4_3:output_type -> gesture.ToPath4_3Response
+	29,  // 121: gesture.GestureService.WriteToParcel:output_type -> gesture.WriteToParcelResponse
+	31,  // 122: gesture.StoreService.NewStore:output_type -> gesture.NewStoreResponse
+	33,  // 123: gesture.StoreService.AddGesture:output_type -> gesture.AddGestureResponse
+	35,  // 124: gesture.StoreService.GetOrientationStyle:output_type -> gesture.GetOrientationStyleResponse
+	37,  // 125: gesture.StoreService.GetSequenceType:output_type -> gesture.GetSequenceTypeResponse
+	39,  // 126: gesture.StoreService.HasChanged:output_type -> gesture.HasChangedResponse
+	41,  // 127: gesture.StoreService.Load1:output_type -> gesture.Load1Response
+	43,  // 128: gesture.StoreService.Load2_1:output_type -> gesture.Load2_1Response
+	45,  // 129: gesture.StoreService.RemoveEntry:output_type -> gesture.RemoveEntryResponse
+	47,  // 130: gesture.StoreService.RemoveGesture:output_type -> gesture.RemoveGestureResponse
+	49,  // 131: gesture.StoreService.Save1:output_type -> gesture.Save1Response
+	51,  // 132: gesture.StoreService.Save2_1:output_type -> gesture.Save2_1Response
+	53,  // 133: gesture.StoreService.SetOrientationStyle:output_type -> gesture.SetOrientationStyleResponse
+	55,  // 134: gesture.StoreService.SetSequenceType:output_type -> gesture.SetSequenceTypeResponse
+	57,  // 135: gesture.OverlayViewService.NewOverlayView:output_type -> gesture.NewOverlayViewResponse
+	59,  // 136: gesture.OverlayViewService.AddOnGestureListener:output_type -> gesture.AddOnGestureListenerResponse
+	61,  // 137: gesture.OverlayViewService.AddOnGesturePerformedListener:output_type -> gesture.AddOnGesturePerformedListenerResponse
+	63,  // 138: gesture.OverlayViewService.AddOnGesturingListener:output_type -> gesture.AddOnGesturingListenerResponse
+	65,  // 139: gesture.OverlayViewService.CancelClearAnimation:output_type -> gesture.CancelClearAnimationResponse
+	67,  // 140: gesture.OverlayViewService.CancelGesture:output_type -> gesture.CancelGestureResponse
+	69,  // 141: gesture.OverlayViewService.Clear:output_type -> gesture.ClearResponse
+	71,  // 142: gesture.OverlayViewService.DispatchTouchEvent:output_type -> gesture.DispatchTouchEventResponse
+	73,  // 143: gesture.OverlayViewService.Draw:output_type -> gesture.DrawResponse
+	75,  // 144: gesture.OverlayViewService.GetFadeOffset:output_type -> gesture.GetFadeOffsetResponse
+	77,  // 145: gesture.OverlayViewService.GetGesture:output_type -> gesture.GetGestureResponse
+	79,  // 146: gesture.OverlayViewService.GetGestureColor:output_type -> gesture.GetGestureColorResponse
+	81,  // 147: gesture.OverlayViewService.GetGesturePath0:output_type -> gesture.GetGesturePath0Response
+	83,  // 148: gesture.OverlayViewService.GetGesturePath1_1:output_type -> gesture.GetGesturePath1_1Response
+	85,  // 149: gesture.OverlayViewService.GetGestureStrokeAngleThreshold:output_type -> gesture.GetGestureStrokeAngleThresholdResponse
+	87,  // 150: gesture.OverlayViewService.GetGestureStrokeLengthThreshold:output_type -> gesture.GetGestureStrokeLengthThresholdResponse
+	89,  // 151: gesture.OverlayViewService.GetGestureStrokeSquarenessTreshold:output_type -> gesture.GetGestureStrokeSquarenessTresholdResponse
+	91,  // 152: gesture.OverlayViewService.GetGestureStrokeType:output_type -> gesture.GetGestureStrokeTypeResponse
+	93,  // 153: gesture.OverlayViewService.GetGestureStrokeWidth:output_type -> gesture.GetGestureStrokeWidthResponse
+	95,  // 154: gesture.OverlayViewService.GetOrientation:output_type -> gesture.GetOrientationResponse
+	97,  // 155: gesture.OverlayViewService.GetUncertainGestureColor:output_type -> gesture.GetUncertainGestureColorResponse
+	99,  // 156: gesture.OverlayViewService.IsEventsInterceptionEnabled:output_type -> gesture.IsEventsInterceptionEnabledResponse
+	101, // 157: gesture.OverlayViewService.IsFadeEnabled:output_type -> gesture.IsFadeEnabledResponse
+	103, // 158: gesture.OverlayViewService.IsGestureVisible:output_type -> gesture.IsGestureVisibleResponse
+	105, // 159: gesture.OverlayViewService.IsGesturing:output_type -> gesture.IsGesturingResponse
+	107, // 160: gesture.OverlayViewService.RemoveAllOnGestureListeners:output_type -> gesture.RemoveAllOnGestureListenersResponse
+	109, // 161: gesture.OverlayViewService.RemoveAllOnGesturePerformedListeners:output_type -> gesture.RemoveAllOnGesturePerformedListenersResponse
+	111, // 162: gesture.OverlayViewService.RemoveAllOnGesturingListeners:output_type -> gesture.RemoveAllOnGesturingListenersResponse
+	113, // 163: gesture.OverlayViewService.RemoveOnGestureListener:output_type -> gesture.RemoveOnGestureListenerResponse
+	115, // 164: gesture.OverlayViewService.RemoveOnGesturePerformedListener:output_type -> gesture.RemoveOnGesturePerformedListenerResponse
+	117, // 165: gesture.OverlayViewService.RemoveOnGesturingListener:output_type -> gesture.RemoveOnGesturingListenerResponse
+	119, // 166: gesture.OverlayViewService.SetEventsInterceptionEnabled:output_type -> gesture.SetEventsInterceptionEnabledResponse
+	121, // 167: gesture.OverlayViewService.SetFadeEnabled:output_type -> gesture.SetFadeEnabledResponse
+	123, // 168: gesture.OverlayViewService.SetFadeOffset:output_type -> gesture.SetFadeOffsetResponse
+	125, // 169: gesture.OverlayViewService.SetGesture:output_type -> gesture.SetGestureResponse
+	127, // 170: gesture.OverlayViewService.SetGestureColor:output_type -> gesture.SetGestureColorResponse
+	129, // 171: gesture.OverlayViewService.SetGestureStrokeAngleThreshold:output_type -> gesture.SetGestureStrokeAngleThresholdResponse
+	131, // 172: gesture.OverlayViewService.SetGestureStrokeLengthThreshold:output_type -> gesture.SetGestureStrokeLengthThresholdResponse
+	133, // 173: gesture.OverlayViewService.SetGestureStrokeSquarenessTreshold:output_type -> gesture.SetGestureStrokeSquarenessTresholdResponse
+	135, // 174: gesture.OverlayViewService.SetGestureStrokeType:output_type -> gesture.SetGestureStrokeTypeResponse
+	137, // 175: gesture.OverlayViewService.SetGestureStrokeWidth:output_type -> gesture.SetGestureStrokeWidthResponse
+	139, // 176: gesture.OverlayViewService.SetGestureVisible:output_type -> gesture.SetGestureVisibleResponse
+	141, // 177: gesture.OverlayViewService.SetOrientation:output_type -> gesture.SetOrientationResponse
+	143, // 178: gesture.OverlayViewService.SetUncertainGestureColor:output_type -> gesture.SetUncertainGestureColorResponse
+	145, // 179: gesture.OverlayViewOnGestureListenerService.OnGesture:output_type -> gesture.OnGestureResponse
+	147, // 180: gesture.OverlayViewOnGestureListenerService.OnGestureCancelled:output_type -> gesture.OnGestureCancelledResponse
+	149, // 181: gesture.OverlayViewOnGestureListenerService.OnGestureEnded:output_type -> gesture.OnGestureEndedResponse
+	151, // 182: gesture.OverlayViewOnGestureListenerService.OnGestureStarted:output_type -> gesture.OnGestureStartedResponse
+	153, // 183: gesture.OverlayViewOnGesturePerformedListenerService.OnGesturePerformed:output_type -> gesture.OnGesturePerformedResponse
+	155, // 184: gesture.OverlayViewOnGesturingListenerService.OnGesturingEnded:output_type -> gesture.OnGesturingEndedResponse
+	157, // 185: gesture.OverlayViewOnGesturingListenerService.OnGesturingStarted:output_type -> gesture.OnGesturingStartedResponse
+	33,  // 186: gesture.LibraryService.AddGesture:output_type -> gesture.AddGestureResponse
+	35,  // 187: gesture.LibraryService.GetOrientationStyle:output_type -> gesture.GetOrientationStyleResponse
+	37,  // 188: gesture.LibraryService.GetSequenceType:output_type -> gesture.GetSequenceTypeResponse
+	162, // 189: gesture.LibraryService.IsReadOnly:output_type -> gesture.IsReadOnlyResponse
+	164, // 190: gesture.LibraryService.Load:output_type -> gesture.LoadResponse
+	45,  // 191: gesture.LibraryService.RemoveEntry:output_type -> gesture.RemoveEntryResponse
+	47,  // 192: gesture.LibraryService.RemoveGesture:output_type -> gesture.RemoveGestureResponse
+	168, // 193: gesture.LibraryService.Save:output_type -> gesture.SaveResponse
+	53,  // 194: gesture.LibraryService.SetOrientationStyle:output_type -> gesture.SetOrientationStyleResponse
+	55,  // 195: gesture.LibraryService.SetSequenceType:output_type -> gesture.SetSequenceTypeResponse
+	172, // 196: gesture.PredictionService.ToString:output_type -> gesture.ToStringResponse
+	174, // 197: gesture.StrokeService.NewStroke:output_type -> gesture.NewStrokeResponse
+	176, // 198: gesture.StrokeService.ClearPath:output_type -> gesture.ClearPathResponse
+	5,   // 199: gesture.StrokeService.Clone:output_type -> gesture.CloneResponse
+	178, // 200: gesture.StrokeService.ComputeOrientedBoundingBox:output_type -> gesture.ComputeOrientedBoundingBoxResponse
+	180, // 201: gesture.StrokeService.GetPath:output_type -> gesture.GetPathResponse
+	182, // 202: gesture.StrokeService.ToPath:output_type -> gesture.ToPathResponse
+	184, // 203: gesture.PointService.NewPoint:output_type -> gesture.NewPointResponse
+	5,   // 204: gesture.PointService.Clone:output_type -> gesture.CloneResponse
+	178, // 205: gesture.UtilsService.ComputeOrientedBoundingBox:output_type -> gesture.ComputeOrientedBoundingBoxResponse
+	187, // 206: gesture.UtilsService.SpatialSampling2:output_type -> gesture.SpatialSampling2Response
+	189, // 207: gesture.UtilsService.SpatialSampling3_1:output_type -> gesture.SpatialSampling3_1Response
+	191, // 208: gesture.UtilsService.TemporalSampling:output_type -> gesture.TemporalSamplingResponse
+	193, // 209: gesture.LibrariesService.FromFile1:output_type -> gesture.FromFile1Response
+	195, // 210: gesture.LibrariesService.FromFile1_1:output_type -> gesture.FromFile1_1Response
+	197, // 211: gesture.LibrariesService.FromFileDescriptor:output_type -> gesture.FromFileDescriptorResponse
+	199, // 212: gesture.LibrariesService.FromPrivateFile:output_type -> gesture.FromPrivateFileResponse
+	201, // 213: gesture.LibrariesService.FromRawResource:output_type -> gesture.FromRawResourceResponse
+	107, // [107:214] is the sub-list for method output_type
+	0,   // [0:107] is the sub-list for method input_type
+	0,   // [0:0] is the sub-list for extension type_name
+	0,   // [0:0] is the sub-list for extension extendee
+	0,   // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_proto_gesture_gesture_proto_init() }
@@ -48,12 +10104,13 @@ func file_proto_gesture_gesture_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_gesture_gesture_proto_rawDesc), len(file_proto_gesture_gesture_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   202,
 			NumExtensions: 0,
-			NumServices:   0,
+			NumServices:   12,
 		},
 		GoTypes:           file_proto_gesture_gesture_proto_goTypes,
 		DependencyIndexes: file_proto_gesture_gesture_proto_depIdxs,
+		MessageInfos:      file_proto_gesture_gesture_proto_msgTypes,
 	}.Build()
 	File_proto_gesture_gesture_proto = out.File
 	file_proto_gesture_gesture_proto_goTypes = nil

@@ -12,6 +12,7 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -22,17 +23,171 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type ValueRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ValueRequest) Reset() {
+	*x = ValueRequest{}
+	mi := &file_proto_annotation_annotation_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ValueRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ValueRequest) ProtoMessage() {}
+
+func (x *ValueRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_annotation_annotation_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ValueRequest.ProtoReflect.Descriptor instead.
+func (*ValueRequest) Descriptor() ([]byte, []int) {
+	return file_proto_annotation_annotation_proto_rawDescGZIP(), []int{0}
+}
+
+type ValueResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ValueResponse) Reset() {
+	*x = ValueResponse{}
+	mi := &file_proto_annotation_annotation_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ValueResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ValueResponse) ProtoMessage() {}
+
+func (x *ValueResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_annotation_annotation_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ValueResponse.ProtoReflect.Descriptor instead.
+func (*ValueResponse) Descriptor() ([]byte, []int) {
+	return file_proto_annotation_annotation_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *ValueResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SuppressLintValueResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SuppressLintValueResponse) Reset() {
+	*x = SuppressLintValueResponse{}
+	mi := &file_proto_annotation_annotation_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SuppressLintValueResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SuppressLintValueResponse) ProtoMessage() {}
+
+func (x *SuppressLintValueResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_annotation_annotation_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SuppressLintValueResponse.ProtoReflect.Descriptor instead.
+func (*SuppressLintValueResponse) Descriptor() ([]byte, []int) {
+	return file_proto_annotation_annotation_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *SuppressLintValueResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
 var File_proto_annotation_annotation_proto protoreflect.FileDescriptor
 
 const file_proto_annotation_annotation_proto_rawDesc = "" +
 	"\n" +
 	"!proto/annotation/annotation.proto\x12\n" +
-	"annotationB4Z2github.com/AndroidGoLab/jni-proxy/proto/annotationb\x06proto3"
+	"annotation\"\x0e\n" +
+	"\fValueRequest\"'\n" +
+	"\rValueResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"3\n" +
+	"\x19SuppressLintValueResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result2P\n" +
+	"\x10TargetApiService\x12<\n" +
+	"\x05Value\x12\x18.annotation.ValueRequest\x1a\x19.annotation.ValueResponse2_\n" +
+	"\x13SuppressLintService\x12H\n" +
+	"\x05Value\x12\x18.annotation.ValueRequest\x1a%.annotation.SuppressLintValueResponseB4Z2github.com/AndroidGoLab/jni-proxy/proto/annotationb\x06proto3"
 
-var file_proto_annotation_annotation_proto_goTypes = []any{}
+var (
+	file_proto_annotation_annotation_proto_rawDescOnce sync.Once
+	file_proto_annotation_annotation_proto_rawDescData []byte
+)
+
+func file_proto_annotation_annotation_proto_rawDescGZIP() []byte {
+	file_proto_annotation_annotation_proto_rawDescOnce.Do(func() {
+		file_proto_annotation_annotation_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_proto_annotation_annotation_proto_rawDesc), len(file_proto_annotation_annotation_proto_rawDesc)))
+	})
+	return file_proto_annotation_annotation_proto_rawDescData
+}
+
+var file_proto_annotation_annotation_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
+var file_proto_annotation_annotation_proto_goTypes = []any{
+	(*ValueRequest)(nil),              // 0: annotation.ValueRequest
+	(*ValueResponse)(nil),             // 1: annotation.ValueResponse
+	(*SuppressLintValueResponse)(nil), // 2: annotation.SuppressLintValueResponse
+}
 var file_proto_annotation_annotation_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
+	0, // 0: annotation.TargetApiService.Value:input_type -> annotation.ValueRequest
+	0, // 1: annotation.SuppressLintService.Value:input_type -> annotation.ValueRequest
+	1, // 2: annotation.TargetApiService.Value:output_type -> annotation.ValueResponse
+	2, // 3: annotation.SuppressLintService.Value:output_type -> annotation.SuppressLintValueResponse
+	2, // [2:4] is the sub-list for method output_type
+	0, // [0:2] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
 	0, // [0:0] is the sub-list for extension extendee
 	0, // [0:0] is the sub-list for field type_name
@@ -49,12 +204,13 @@ func file_proto_annotation_annotation_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_annotation_annotation_proto_rawDesc), len(file_proto_annotation_annotation_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   3,
 			NumExtensions: 0,
-			NumServices:   0,
+			NumServices:   2,
 		},
 		GoTypes:           file_proto_annotation_annotation_proto_goTypes,
 		DependencyIndexes: file_proto_annotation_annotation_proto_depIdxs,
+		MessageInfos:      file_proto_annotation_annotation_proto_msgTypes,
 	}.Build()
 	File_proto_annotation_annotation_proto = out.File
 	file_proto_annotation_annotation_proto_goTypes = nil

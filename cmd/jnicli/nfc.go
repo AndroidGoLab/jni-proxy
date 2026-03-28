@@ -12,6 +12,231 @@ var nfcCmd = &cobra.Command{
 	Short: "nfc service operations",
 }
 
+var nfcTagCmd = &cobra.Command{
+	Use:   "tag",
+	Short: "TagService operations",
+}
+
+var nfcTagDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTagServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcTagGetIdCmd = &cobra.Command{
+	Use:   "get-id",
+	Short: "GetId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTagServiceClient(grpcConn)
+		req := &pb.GetIdRequest{}
+		resp, err := client.GetId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcTagGetTechListCmd = &cobra.Command{
+	Use:   "get-tech-list",
+	Short: "GetTechList RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTagServiceClient(grpcConn)
+		req := &pb.GetTechListRequest{}
+		resp, err := client.GetTechList(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcTagToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTagServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcTagWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTagServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcAntennaInfoCmd = &cobra.Command{
+	Use:   "antenna-info",
+	Short: "AntennaInfoService operations",
+}
+
+var nfcAntennaInfoNewAntennaInfoCmd = &cobra.Command{
+	Use:   "new-antenna-info",
+	Short: "NewAntennaInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAntennaInfoServiceClient(grpcConn)
+		req := &pb.NewAntennaInfoRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.NewAntennaInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcAntennaInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAntennaInfoServiceClient(grpcConn)
+		req := &pb.AntennaInfoDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcAntennaInfoGetDeviceHeightCmd = &cobra.Command{
+	Use:   "get-device-height",
+	Short: "GetDeviceHeight RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAntennaInfoServiceClient(grpcConn)
+		req := &pb.GetDeviceHeightRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetDeviceHeight(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcAntennaInfoGetDeviceWidthCmd = &cobra.Command{
+	Use:   "get-device-width",
+	Short: "GetDeviceWidth RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAntennaInfoServiceClient(grpcConn)
+		req := &pb.GetDeviceWidthRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetDeviceWidth(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcAntennaInfoIsDeviceFoldableCmd = &cobra.Command{
+	Use:   "is-device-foldable",
+	Short: "IsDeviceFoldable RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAntennaInfoServiceClient(grpcConn)
+		req := &pb.IsDeviceFoldableRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsDeviceFoldable(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcAntennaInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAntennaInfoServiceClient(grpcConn)
+		req := &pb.AntennaInfoWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var nfcManagerCmd = &cobra.Command{
 	Use:   "manager",
 	Short: "ManagerService operations",
@@ -33,8 +258,1890 @@ var nfcManagerGetDefaultAdapterCmd = &cobra.Command{
 	},
 }
 
+var nfcNdefMessageCmd = &cobra.Command{
+	Use:   "ndef-message",
+	Short: "NdefMessageService operations",
+}
+
+var nfcNdefMessageNewNdefMessageCmd = &cobra.Command{
+	Use:   "new-ndef-message",
+	Short: "NewNdefMessage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNdefMessageServiceClient(grpcConn)
+		req := &pb.NewNdefMessageRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewNdefMessage(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcNdefMessageDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNdefMessageServiceClient(grpcConn)
+		req := &pb.NdefMessageDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcNdefMessageEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNdefMessageServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcNdefMessageGetByteArrayLengthCmd = &cobra.Command{
+	Use:   "get-byte-array-length",
+	Short: "GetByteArrayLength RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNdefMessageServiceClient(grpcConn)
+		req := &pb.GetByteArrayLengthRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetByteArrayLength(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcNdefMessageGetRecordsCmd = &cobra.Command{
+	Use:   "get-records",
+	Short: "GetRecords RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNdefMessageServiceClient(grpcConn)
+		req := &pb.GetRecordsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetRecords(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcNdefMessageHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNdefMessageServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcNdefMessageToByteArrayCmd = &cobra.Command{
+	Use:   "to-byte-array",
+	Short: "ToByteArray RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNdefMessageServiceClient(grpcConn)
+		req := &pb.ToByteArrayRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToByteArray(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcNdefMessageToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNdefMessageServiceClient(grpcConn)
+		req := &pb.NdefMessageToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcNdefMessageWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNdefMessageServiceClient(grpcConn)
+		req := &pb.NdefMessageWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcAdapterCmd = &cobra.Command{
+	Use:   "adapter",
+	Short: "AdapterService operations",
+}
+
+var nfcAdapterDisableCmd = &cobra.Command{
+	Use:   "disable",
+	Short: "Disable RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdapterServiceClient(grpcConn)
+		req := &pb.DisableRequest{}
+		resp, err := client.Disable(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcAdapterDisableForegroundDispatchCmd = &cobra.Command{
+	Use:   "disable-foreground-dispatch",
+	Short: "DisableForegroundDispatch RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdapterServiceClient(grpcConn)
+		req := &pb.DisableForegroundDispatchRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.DisableForegroundDispatch(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcAdapterDisableReaderModeCmd = &cobra.Command{
+	Use:   "disable-reader-mode",
+	Short: "DisableReaderMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdapterServiceClient(grpcConn)
+		req := &pb.DisableReaderModeRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.DisableReaderMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcAdapterEnableCmd = &cobra.Command{
+	Use:   "enable",
+	Short: "Enable RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdapterServiceClient(grpcConn)
+		req := &pb.EnableRequest{}
+		resp, err := client.Enable(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcAdapterEnableForegroundDispatchCmd = &cobra.Command{
+	Use:   "enable-foreground-dispatch",
+	Short: "EnableForegroundDispatch RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdapterServiceClient(grpcConn)
+		req := &pb.EnableForegroundDispatchRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.EnableForegroundDispatch(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcAdapterEnableReaderModeCmd = &cobra.Command{
+	Use:   "enable-reader-mode",
+	Short: "EnableReaderMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdapterServiceClient(grpcConn)
+		req := &pb.EnableReaderModeRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.EnableReaderMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcAdapterGetNfcAntennaInfoCmd = &cobra.Command{
+	Use:   "get-nfc-antenna-info",
+	Short: "GetNfcAntennaInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdapterServiceClient(grpcConn)
+		req := &pb.GetNfcAntennaInfoRequest{}
+		resp, err := client.GetNfcAntennaInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcAdapterIsEnabledCmd = &cobra.Command{
+	Use:   "is-enabled",
+	Short: "IsEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdapterServiceClient(grpcConn)
+		req := &pb.IsEnabledRequest{}
+		resp, err := client.IsEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcAdapterIsObserveModeEnabledCmd = &cobra.Command{
+	Use:   "is-observe-mode-enabled",
+	Short: "IsObserveModeEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdapterServiceClient(grpcConn)
+		req := &pb.IsObserveModeEnabledRequest{}
+		resp, err := client.IsObserveModeEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcAdapterIsObserveModeSupportedCmd = &cobra.Command{
+	Use:   "is-observe-mode-supported",
+	Short: "IsObserveModeSupported RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdapterServiceClient(grpcConn)
+		req := &pb.IsObserveModeSupportedRequest{}
+		resp, err := client.IsObserveModeSupported(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcAdapterIsReaderOptionEnabledCmd = &cobra.Command{
+	Use:   "is-reader-option-enabled",
+	Short: "IsReaderOptionEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdapterServiceClient(grpcConn)
+		req := &pb.IsReaderOptionEnabledRequest{}
+		resp, err := client.IsReaderOptionEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcAdapterIsReaderOptionSupportedCmd = &cobra.Command{
+	Use:   "is-reader-option-supported",
+	Short: "IsReaderOptionSupported RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdapterServiceClient(grpcConn)
+		req := &pb.IsReaderOptionSupportedRequest{}
+		resp, err := client.IsReaderOptionSupported(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcAdapterIsSecureNfcEnabledCmd = &cobra.Command{
+	Use:   "is-secure-nfc-enabled",
+	Short: "IsSecureNfcEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdapterServiceClient(grpcConn)
+		req := &pb.IsSecureNfcEnabledRequest{}
+		resp, err := client.IsSecureNfcEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcAdapterIsSecureNfcSupportedCmd = &cobra.Command{
+	Use:   "is-secure-nfc-supported",
+	Short: "IsSecureNfcSupported RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdapterServiceClient(grpcConn)
+		req := &pb.IsSecureNfcSupportedRequest{}
+		resp, err := client.IsSecureNfcSupported(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcAdapterIsTagIntentAllowedCmd = &cobra.Command{
+	Use:   "is-tag-intent-allowed",
+	Short: "IsTagIntentAllowed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdapterServiceClient(grpcConn)
+		req := &pb.IsTagIntentAllowedRequest{}
+		resp, err := client.IsTagIntentAllowed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcAdapterIsTagIntentAppPreferenceSupportedCmd = &cobra.Command{
+	Use:   "is-tag-intent-app-preference-supported",
+	Short: "IsTagIntentAppPreferenceSupported RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdapterServiceClient(grpcConn)
+		req := &pb.IsTagIntentAppPreferenceSupportedRequest{}
+		resp, err := client.IsTagIntentAppPreferenceSupported(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcAdapterResetDiscoveryTechnologyCmd = &cobra.Command{
+	Use:   "reset-discovery-technology",
+	Short: "ResetDiscoveryTechnology RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdapterServiceClient(grpcConn)
+		req := &pb.ResetDiscoveryTechnologyRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ResetDiscoveryTechnology(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcAdapterSetDiscoveryTechnologyCmd = &cobra.Command{
+	Use:   "set-discovery-technology",
+	Short: "SetDiscoveryTechnology RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdapterServiceClient(grpcConn)
+		req := &pb.SetDiscoveryTechnologyRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.SetDiscoveryTechnology(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcAdapterSetObserveModeEnabledCmd = &cobra.Command{
+	Use:   "set-observe-mode-enabled",
+	Short: "SetObserveModeEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdapterServiceClient(grpcConn)
+		req := &pb.SetObserveModeEnabledRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetObserveModeEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcAdapterGetDefaultAdapterCmd = &cobra.Command{
+	Use:   "get-default-adapter",
+	Short: "GetDefaultAdapter RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdapterServiceClient(grpcConn)
+		req := &pb.AdapterGetDefaultAdapterRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetDefaultAdapter(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcAdapterCreateBeamUrisCallbackCmd = &cobra.Command{
+	Use:   "adapter-create-beam-uris-callback",
+	Short: "AdapterCreateBeamUrisCallbackService operations",
+}
+
+var nfcAdapterCreateBeamUrisCallbackCreateBeamUrisCmd = &cobra.Command{
+	Use:   "create-beam-uris",
+	Short: "CreateBeamUris RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdapterCreateBeamUrisCallbackServiceClient(grpcConn)
+		req := &pb.CreateBeamUrisRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CreateBeamUris(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcAdapterCreateNdefMessageCallbackCmd = &cobra.Command{
+	Use:   "adapter-create-ndef-message-callback",
+	Short: "AdapterCreateNdefMessageCallbackService operations",
+}
+
+var nfcAdapterCreateNdefMessageCallbackCreateNdefMessageCmd = &cobra.Command{
+	Use:   "create-ndef-message",
+	Short: "CreateNdefMessage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdapterCreateNdefMessageCallbackServiceClient(grpcConn)
+		req := &pb.CreateNdefMessageRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CreateNdefMessage(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcAdapterOnNdefPushCompleteCallbackCmd = &cobra.Command{
+	Use:   "adapter-on-ndef-push-complete-callback",
+	Short: "AdapterOnNdefPushCompleteCallbackService operations",
+}
+
+var nfcAdapterOnNdefPushCompleteCallbackOnNdefPushCompleteCmd = &cobra.Command{
+	Use:   "on-ndef-push-complete",
+	Short: "OnNdefPushComplete RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdapterOnNdefPushCompleteCallbackServiceClient(grpcConn)
+		req := &pb.OnNdefPushCompleteRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnNdefPushComplete(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcAdapterOnTagRemovedListenerCmd = &cobra.Command{
+	Use:   "adapter-on-tag-removed-listener",
+	Short: "AdapterOnTagRemovedListenerService operations",
+}
+
+var nfcAdapterOnTagRemovedListenerOnTagRemovedCmd = &cobra.Command{
+	Use:   "on-tag-removed",
+	Short: "OnTagRemoved RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdapterOnTagRemovedListenerServiceClient(grpcConn)
+		req := &pb.OnTagRemovedRequest{}
+		resp, err := client.OnTagRemoved(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcAdapterReaderCallbackCmd = &cobra.Command{
+	Use:   "adapter-reader-callback",
+	Short: "AdapterReaderCallbackService operations",
+}
+
+var nfcAdapterReaderCallbackOnTagDiscoveredCmd = &cobra.Command{
+	Use:   "on-tag-discovered",
+	Short: "OnTagDiscovered RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdapterReaderCallbackServiceClient(grpcConn)
+		req := &pb.OnTagDiscoveredRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnTagDiscovered(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcAvailableNfcAntennaCmd = &cobra.Command{
+	Use:   "available-nfc-antenna",
+	Short: "AvailableNfcAntennaService operations",
+}
+
+var nfcAvailableNfcAntennaNewAvailableNfcAntennaCmd = &cobra.Command{
+	Use:   "new-available-nfc-antenna",
+	Short: "NewAvailableNfcAntenna RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAvailableNfcAntennaServiceClient(grpcConn)
+		req := &pb.NewAvailableNfcAntennaRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewAvailableNfcAntenna(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcAvailableNfcAntennaDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAvailableNfcAntennaServiceClient(grpcConn)
+		req := &pb.AvailableNfcAntennaDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcAvailableNfcAntennaEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAvailableNfcAntennaServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcAvailableNfcAntennaGetLocationXCmd = &cobra.Command{
+	Use:   "get-location-x",
+	Short: "GetLocationX RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAvailableNfcAntennaServiceClient(grpcConn)
+		req := &pb.GetLocationXRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetLocationX(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcAvailableNfcAntennaGetLocationYCmd = &cobra.Command{
+	Use:   "get-location-y",
+	Short: "GetLocationY RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAvailableNfcAntennaServiceClient(grpcConn)
+		req := &pb.GetLocationYRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetLocationY(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcAvailableNfcAntennaHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAvailableNfcAntennaServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcAvailableNfcAntennaToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAvailableNfcAntennaServiceClient(grpcConn)
+		req := &pb.AvailableNfcAntennaToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcAvailableNfcAntennaWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAvailableNfcAntennaServiceClient(grpcConn)
+		req := &pb.AvailableNfcAntennaWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcNdefRecordCmd = &cobra.Command{
+	Use:   "ndef-record",
+	Short: "NdefRecordService operations",
+}
+
+var nfcNdefRecordNewNdefRecordCmd = &cobra.Command{
+	Use:   "new-ndef-record",
+	Short: "NewNdefRecord RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNdefRecordServiceClient(grpcConn)
+		req := &pb.NewNdefRecordRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewNdefRecord(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcNdefRecordDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNdefRecordServiceClient(grpcConn)
+		req := &pb.NdefRecordDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcNdefRecordEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNdefRecordServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcNdefRecordGetIdCmd = &cobra.Command{
+	Use:   "get-id",
+	Short: "GetId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNdefRecordServiceClient(grpcConn)
+		req := &pb.NdefRecordGetIdRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcNdefRecordGetPayloadCmd = &cobra.Command{
+	Use:   "get-payload",
+	Short: "GetPayload RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNdefRecordServiceClient(grpcConn)
+		req := &pb.GetPayloadRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetPayload(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcNdefRecordGetTnfCmd = &cobra.Command{
+	Use:   "get-tnf",
+	Short: "GetTnf RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNdefRecordServiceClient(grpcConn)
+		req := &pb.GetTnfRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetTnf(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcNdefRecordGetTypeCmd = &cobra.Command{
+	Use:   "get-type",
+	Short: "GetType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNdefRecordServiceClient(grpcConn)
+		req := &pb.GetTypeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcNdefRecordHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNdefRecordServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcNdefRecordToByteArrayCmd = &cobra.Command{
+	Use:   "to-byte-array",
+	Short: "ToByteArray RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNdefRecordServiceClient(grpcConn)
+		req := &pb.ToByteArrayRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToByteArray(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcNdefRecordToMimeTypeCmd = &cobra.Command{
+	Use:   "to-mime-type",
+	Short: "ToMimeType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNdefRecordServiceClient(grpcConn)
+		req := &pb.ToMimeTypeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToMimeType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcNdefRecordToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNdefRecordServiceClient(grpcConn)
+		req := &pb.NdefRecordToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcNdefRecordToUriCmd = &cobra.Command{
+	Use:   "to-uri",
+	Short: "ToUri RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNdefRecordServiceClient(grpcConn)
+		req := &pb.ToUriRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToUri(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcNdefRecordWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNdefRecordServiceClient(grpcConn)
+		req := &pb.NdefRecordWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcNdefRecordCreateApplicationRecordCmd = &cobra.Command{
+	Use:   "create-application-record",
+	Short: "CreateApplicationRecord RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNdefRecordServiceClient(grpcConn)
+		req := &pb.CreateApplicationRecordRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CreateApplicationRecord(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcNdefRecordCreateExternalCmd = &cobra.Command{
+	Use:   "create-external",
+	Short: "CreateExternal RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNdefRecordServiceClient(grpcConn)
+		req := &pb.CreateExternalRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.CreateExternal(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcNdefRecordCreateMimeCmd = &cobra.Command{
+	Use:   "create-mime",
+	Short: "CreateMime RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNdefRecordServiceClient(grpcConn)
+		req := &pb.CreateMimeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.CreateMime(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcNdefRecordCreateTextRecordCmd = &cobra.Command{
+	Use:   "create-text-record",
+	Short: "CreateTextRecord RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNdefRecordServiceClient(grpcConn)
+		req := &pb.CreateTextRecordRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.CreateTextRecord(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcNdefRecordCreateUri1Cmd = &cobra.Command{
+	Use:   "create-uri1",
+	Short: "CreateUri1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNdefRecordServiceClient(grpcConn)
+		req := &pb.CreateUri1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CreateUri1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcNdefRecordCreateUri1_1Cmd = &cobra.Command{
+	Use:   "create-uri1_1",
+	Short: "CreateUri1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNdefRecordServiceClient(grpcConn)
+		req := &pb.CreateUri1_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CreateUri1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcIsoDepCmd = &cobra.Command{
+	Use:   "iso-dep",
+	Short: "IsoDepService operations",
+}
+
+var nfcIsoDepCloseCmd = &cobra.Command{
+	Use:   "close",
+	Short: "Close RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIsoDepServiceClient(grpcConn)
+		req := &pb.CloseRequest{}
+		resp, err := client.Close(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcIsoDepConnectCmd = &cobra.Command{
+	Use:   "connect",
+	Short: "Connect RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIsoDepServiceClient(grpcConn)
+		req := &pb.ConnectRequest{}
+		resp, err := client.Connect(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcIsoDepGetHiLayerResponseCmd = &cobra.Command{
+	Use:   "get-hi-layer-response",
+	Short: "GetHiLayerResponse RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIsoDepServiceClient(grpcConn)
+		req := &pb.GetHiLayerResponseRequest{}
+		resp, err := client.GetHiLayerResponse(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcIsoDepGetHistoricalBytesCmd = &cobra.Command{
+	Use:   "get-historical-bytes",
+	Short: "GetHistoricalBytes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIsoDepServiceClient(grpcConn)
+		req := &pb.GetHistoricalBytesRequest{}
+		resp, err := client.GetHistoricalBytes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcIsoDepGetMaxTransceiveLengthCmd = &cobra.Command{
+	Use:   "get-max-transceive-length",
+	Short: "GetMaxTransceiveLength RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIsoDepServiceClient(grpcConn)
+		req := &pb.GetMaxTransceiveLengthRequest{}
+		resp, err := client.GetMaxTransceiveLength(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcIsoDepGetTagCmd = &cobra.Command{
+	Use:   "get-tag",
+	Short: "GetTag RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIsoDepServiceClient(grpcConn)
+		req := &pb.GetTagRequest{}
+		resp, err := client.GetTag(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcIsoDepGetTimeoutCmd = &cobra.Command{
+	Use:   "get-timeout",
+	Short: "GetTimeout RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIsoDepServiceClient(grpcConn)
+		req := &pb.GetTimeoutRequest{}
+		resp, err := client.GetTimeout(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcIsoDepIsConnectedCmd = &cobra.Command{
+	Use:   "is-connected",
+	Short: "IsConnected RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIsoDepServiceClient(grpcConn)
+		req := &pb.IsConnectedRequest{}
+		resp, err := client.IsConnected(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcIsoDepIsExtendedLengthApduSupportedCmd = &cobra.Command{
+	Use:   "is-extended-length-apdu-supported",
+	Short: "IsExtendedLengthApduSupported RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIsoDepServiceClient(grpcConn)
+		req := &pb.IsExtendedLengthApduSupportedRequest{}
+		resp, err := client.IsExtendedLengthApduSupported(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcIsoDepSetTimeoutCmd = &cobra.Command{
+	Use:   "set-timeout",
+	Short: "SetTimeout RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIsoDepServiceClient(grpcConn)
+		req := &pb.SetTimeoutRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetTimeout(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcIsoDepTransceiveCmd = &cobra.Command{
+	Use:   "transceive",
+	Short: "Transceive RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIsoDepServiceClient(grpcConn)
+		req := &pb.TransceiveRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Transceive(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcIsoDepGetCmd = &cobra.Command{
+	Use:   "get",
+	Short: "Get RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIsoDepServiceClient(grpcConn)
+		req := &pb.GetRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Get(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcNdefCmd = &cobra.Command{
+	Use:   "ndef",
+	Short: "NdefService operations",
+}
+
+var nfcNdefCanMakeReadOnlyCmd = &cobra.Command{
+	Use:   "can-make-read-only",
+	Short: "CanMakeReadOnly RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNdefServiceClient(grpcConn)
+		req := &pb.CanMakeReadOnlyRequest{}
+		resp, err := client.CanMakeReadOnly(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcNdefCloseCmd = &cobra.Command{
+	Use:   "close",
+	Short: "Close RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNdefServiceClient(grpcConn)
+		req := &pb.CloseRequest{}
+		resp, err := client.Close(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcNdefConnectCmd = &cobra.Command{
+	Use:   "connect",
+	Short: "Connect RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNdefServiceClient(grpcConn)
+		req := &pb.ConnectRequest{}
+		resp, err := client.Connect(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcNdefGetCachedNdefMessageCmd = &cobra.Command{
+	Use:   "get-cached-ndef-message",
+	Short: "GetCachedNdefMessage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNdefServiceClient(grpcConn)
+		req := &pb.GetCachedNdefMessageRequest{}
+		resp, err := client.GetCachedNdefMessage(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcNdefGetMaxSizeCmd = &cobra.Command{
+	Use:   "get-max-size",
+	Short: "GetMaxSize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNdefServiceClient(grpcConn)
+		req := &pb.GetMaxSizeRequest{}
+		resp, err := client.GetMaxSize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcNdefGetNdefMessageCmd = &cobra.Command{
+	Use:   "get-ndef-message",
+	Short: "GetNdefMessage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNdefServiceClient(grpcConn)
+		req := &pb.GetNdefMessageRequest{}
+		resp, err := client.GetNdefMessage(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcNdefGetTagCmd = &cobra.Command{
+	Use:   "get-tag",
+	Short: "GetTag RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNdefServiceClient(grpcConn)
+		req := &pb.GetTagRequest{}
+		resp, err := client.GetTag(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcNdefGetTypeCmd = &cobra.Command{
+	Use:   "get-type",
+	Short: "GetType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNdefServiceClient(grpcConn)
+		req := &pb.NdefGetTypeRequest{}
+		resp, err := client.GetType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcNdefIsConnectedCmd = &cobra.Command{
+	Use:   "is-connected",
+	Short: "IsConnected RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNdefServiceClient(grpcConn)
+		req := &pb.IsConnectedRequest{}
+		resp, err := client.IsConnected(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcNdefIsWritableCmd = &cobra.Command{
+	Use:   "is-writable",
+	Short: "IsWritable RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNdefServiceClient(grpcConn)
+		req := &pb.IsWritableRequest{}
+		resp, err := client.IsWritable(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcNdefMakeReadOnlyCmd = &cobra.Command{
+	Use:   "make-read-only",
+	Short: "MakeReadOnly RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNdefServiceClient(grpcConn)
+		req := &pb.MakeReadOnlyRequest{}
+		resp, err := client.MakeReadOnly(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcNdefWriteNdefMessageCmd = &cobra.Command{
+	Use:   "write-ndef-message",
+	Short: "WriteNdefMessage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNdefServiceClient(grpcConn)
+		req := &pb.WriteNdefMessageRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.WriteNdefMessage(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var nfcNdefGetCmd = &cobra.Command{
+	Use:   "get",
+	Short: "Get RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNdefServiceClient(grpcConn)
+		req := &pb.GetRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Get(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 func init() {
+	nfcTagCmd.AddCommand(nfcTagDescribeContentsCmd)
+	nfcTagCmd.AddCommand(nfcTagGetIdCmd)
+	nfcTagCmd.AddCommand(nfcTagGetTechListCmd)
+	nfcTagCmd.AddCommand(nfcTagToStringCmd)
+	nfcTagWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	nfcTagWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	nfcTagCmd.AddCommand(nfcTagWriteToParcelCmd)
+	nfcCmd.AddCommand(nfcTagCmd)
+	nfcAntennaInfoNewAntennaInfoCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	nfcAntennaInfoNewAntennaInfoCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	nfcAntennaInfoNewAntennaInfoCmd.Flags().Bool("arg2", false, "arg2 (bool)")
+	nfcAntennaInfoNewAntennaInfoCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	nfcAntennaInfoCmd.AddCommand(nfcAntennaInfoNewAntennaInfoCmd)
+	nfcAntennaInfoDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	nfcAntennaInfoCmd.AddCommand(nfcAntennaInfoDescribeContentsCmd)
+	nfcAntennaInfoGetDeviceHeightCmd.Flags().Int64("handle", 0, "handle (int64)")
+	nfcAntennaInfoCmd.AddCommand(nfcAntennaInfoGetDeviceHeightCmd)
+	nfcAntennaInfoGetDeviceWidthCmd.Flags().Int64("handle", 0, "handle (int64)")
+	nfcAntennaInfoCmd.AddCommand(nfcAntennaInfoGetDeviceWidthCmd)
+	nfcAntennaInfoIsDeviceFoldableCmd.Flags().Int64("handle", 0, "handle (int64)")
+	nfcAntennaInfoCmd.AddCommand(nfcAntennaInfoIsDeviceFoldableCmd)
+	nfcAntennaInfoWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	nfcAntennaInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	nfcAntennaInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	nfcAntennaInfoCmd.AddCommand(nfcAntennaInfoWriteToParcelCmd)
+	nfcCmd.AddCommand(nfcAntennaInfoCmd)
 	nfcManagerCmd.AddCommand(nfcManagerGetDefaultAdapterCmd)
 	nfcCmd.AddCommand(nfcManagerCmd)
+	nfcNdefMessageNewNdefMessageCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	nfcNdefMessageNewNdefMessageCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	nfcNdefMessageCmd.AddCommand(nfcNdefMessageNewNdefMessageCmd)
+	nfcNdefMessageDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	nfcNdefMessageCmd.AddCommand(nfcNdefMessageDescribeContentsCmd)
+	nfcNdefMessageEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	nfcNdefMessageEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	nfcNdefMessageCmd.AddCommand(nfcNdefMessageEqualsCmd)
+	nfcNdefMessageGetByteArrayLengthCmd.Flags().Int64("handle", 0, "handle (int64)")
+	nfcNdefMessageCmd.AddCommand(nfcNdefMessageGetByteArrayLengthCmd)
+	nfcNdefMessageGetRecordsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	nfcNdefMessageCmd.AddCommand(nfcNdefMessageGetRecordsCmd)
+	nfcNdefMessageHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	nfcNdefMessageCmd.AddCommand(nfcNdefMessageHashCodeCmd)
+	nfcNdefMessageToByteArrayCmd.Flags().Int64("handle", 0, "handle (int64)")
+	nfcNdefMessageCmd.AddCommand(nfcNdefMessageToByteArrayCmd)
+	nfcNdefMessageToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	nfcNdefMessageCmd.AddCommand(nfcNdefMessageToStringCmd)
+	nfcNdefMessageWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	nfcNdefMessageWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	nfcNdefMessageWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	nfcNdefMessageCmd.AddCommand(nfcNdefMessageWriteToParcelCmd)
+	nfcCmd.AddCommand(nfcNdefMessageCmd)
+	nfcAdapterCmd.AddCommand(nfcAdapterDisableCmd)
+	nfcAdapterDisableForegroundDispatchCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	nfcAdapterCmd.AddCommand(nfcAdapterDisableForegroundDispatchCmd)
+	nfcAdapterDisableReaderModeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	nfcAdapterCmd.AddCommand(nfcAdapterDisableReaderModeCmd)
+	nfcAdapterCmd.AddCommand(nfcAdapterEnableCmd)
+	nfcAdapterEnableForegroundDispatchCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	nfcAdapterEnableForegroundDispatchCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	nfcAdapterEnableForegroundDispatchCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	nfcAdapterEnableForegroundDispatchCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	nfcAdapterCmd.AddCommand(nfcAdapterEnableForegroundDispatchCmd)
+	nfcAdapterEnableReaderModeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	nfcAdapterEnableReaderModeCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	nfcAdapterEnableReaderModeCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	nfcAdapterEnableReaderModeCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	nfcAdapterCmd.AddCommand(nfcAdapterEnableReaderModeCmd)
+	nfcAdapterCmd.AddCommand(nfcAdapterGetNfcAntennaInfoCmd)
+	nfcAdapterCmd.AddCommand(nfcAdapterIsEnabledCmd)
+	nfcAdapterCmd.AddCommand(nfcAdapterIsObserveModeEnabledCmd)
+	nfcAdapterCmd.AddCommand(nfcAdapterIsObserveModeSupportedCmd)
+	nfcAdapterCmd.AddCommand(nfcAdapterIsReaderOptionEnabledCmd)
+	nfcAdapterCmd.AddCommand(nfcAdapterIsReaderOptionSupportedCmd)
+	nfcAdapterCmd.AddCommand(nfcAdapterIsSecureNfcEnabledCmd)
+	nfcAdapterCmd.AddCommand(nfcAdapterIsSecureNfcSupportedCmd)
+	nfcAdapterCmd.AddCommand(nfcAdapterIsTagIntentAllowedCmd)
+	nfcAdapterCmd.AddCommand(nfcAdapterIsTagIntentAppPreferenceSupportedCmd)
+	nfcAdapterResetDiscoveryTechnologyCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	nfcAdapterCmd.AddCommand(nfcAdapterResetDiscoveryTechnologyCmd)
+	nfcAdapterSetDiscoveryTechnologyCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	nfcAdapterSetDiscoveryTechnologyCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	nfcAdapterSetDiscoveryTechnologyCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	nfcAdapterCmd.AddCommand(nfcAdapterSetDiscoveryTechnologyCmd)
+	nfcAdapterSetObserveModeEnabledCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	nfcAdapterCmd.AddCommand(nfcAdapterSetObserveModeEnabledCmd)
+	nfcAdapterGetDefaultAdapterCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	nfcAdapterCmd.AddCommand(nfcAdapterGetDefaultAdapterCmd)
+	nfcCmd.AddCommand(nfcAdapterCmd)
+	nfcAdapterCreateBeamUrisCallbackCreateBeamUrisCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	nfcAdapterCreateBeamUrisCallbackCmd.AddCommand(nfcAdapterCreateBeamUrisCallbackCreateBeamUrisCmd)
+	nfcCmd.AddCommand(nfcAdapterCreateBeamUrisCallbackCmd)
+	nfcAdapterCreateNdefMessageCallbackCreateNdefMessageCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	nfcAdapterCreateNdefMessageCallbackCmd.AddCommand(nfcAdapterCreateNdefMessageCallbackCreateNdefMessageCmd)
+	nfcCmd.AddCommand(nfcAdapterCreateNdefMessageCallbackCmd)
+	nfcAdapterOnNdefPushCompleteCallbackOnNdefPushCompleteCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	nfcAdapterOnNdefPushCompleteCallbackCmd.AddCommand(nfcAdapterOnNdefPushCompleteCallbackOnNdefPushCompleteCmd)
+	nfcCmd.AddCommand(nfcAdapterOnNdefPushCompleteCallbackCmd)
+	nfcAdapterOnTagRemovedListenerCmd.AddCommand(nfcAdapterOnTagRemovedListenerOnTagRemovedCmd)
+	nfcCmd.AddCommand(nfcAdapterOnTagRemovedListenerCmd)
+	nfcAdapterReaderCallbackOnTagDiscoveredCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	nfcAdapterReaderCallbackCmd.AddCommand(nfcAdapterReaderCallbackOnTagDiscoveredCmd)
+	nfcCmd.AddCommand(nfcAdapterReaderCallbackCmd)
+	nfcAvailableNfcAntennaNewAvailableNfcAntennaCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	nfcAvailableNfcAntennaNewAvailableNfcAntennaCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	nfcAvailableNfcAntennaCmd.AddCommand(nfcAvailableNfcAntennaNewAvailableNfcAntennaCmd)
+	nfcAvailableNfcAntennaDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	nfcAvailableNfcAntennaCmd.AddCommand(nfcAvailableNfcAntennaDescribeContentsCmd)
+	nfcAvailableNfcAntennaEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	nfcAvailableNfcAntennaEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	nfcAvailableNfcAntennaCmd.AddCommand(nfcAvailableNfcAntennaEqualsCmd)
+	nfcAvailableNfcAntennaGetLocationXCmd.Flags().Int64("handle", 0, "handle (int64)")
+	nfcAvailableNfcAntennaCmd.AddCommand(nfcAvailableNfcAntennaGetLocationXCmd)
+	nfcAvailableNfcAntennaGetLocationYCmd.Flags().Int64("handle", 0, "handle (int64)")
+	nfcAvailableNfcAntennaCmd.AddCommand(nfcAvailableNfcAntennaGetLocationYCmd)
+	nfcAvailableNfcAntennaHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	nfcAvailableNfcAntennaCmd.AddCommand(nfcAvailableNfcAntennaHashCodeCmd)
+	nfcAvailableNfcAntennaToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	nfcAvailableNfcAntennaCmd.AddCommand(nfcAvailableNfcAntennaToStringCmd)
+	nfcAvailableNfcAntennaWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	nfcAvailableNfcAntennaWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	nfcAvailableNfcAntennaWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	nfcAvailableNfcAntennaCmd.AddCommand(nfcAvailableNfcAntennaWriteToParcelCmd)
+	nfcCmd.AddCommand(nfcAvailableNfcAntennaCmd)
+	nfcNdefRecordNewNdefRecordCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	nfcNdefRecordCmd.AddCommand(nfcNdefRecordNewNdefRecordCmd)
+	nfcNdefRecordDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	nfcNdefRecordCmd.AddCommand(nfcNdefRecordDescribeContentsCmd)
+	nfcNdefRecordEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	nfcNdefRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	nfcNdefRecordCmd.AddCommand(nfcNdefRecordEqualsCmd)
+	nfcNdefRecordGetIdCmd.Flags().Int64("handle", 0, "handle (int64)")
+	nfcNdefRecordCmd.AddCommand(nfcNdefRecordGetIdCmd)
+	nfcNdefRecordGetPayloadCmd.Flags().Int64("handle", 0, "handle (int64)")
+	nfcNdefRecordCmd.AddCommand(nfcNdefRecordGetPayloadCmd)
+	nfcNdefRecordGetTnfCmd.Flags().Int64("handle", 0, "handle (int64)")
+	nfcNdefRecordCmd.AddCommand(nfcNdefRecordGetTnfCmd)
+	nfcNdefRecordGetTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	nfcNdefRecordCmd.AddCommand(nfcNdefRecordGetTypeCmd)
+	nfcNdefRecordHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	nfcNdefRecordCmd.AddCommand(nfcNdefRecordHashCodeCmd)
+	nfcNdefRecordToByteArrayCmd.Flags().Int64("handle", 0, "handle (int64)")
+	nfcNdefRecordCmd.AddCommand(nfcNdefRecordToByteArrayCmd)
+	nfcNdefRecordToMimeTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	nfcNdefRecordCmd.AddCommand(nfcNdefRecordToMimeTypeCmd)
+	nfcNdefRecordToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	nfcNdefRecordCmd.AddCommand(nfcNdefRecordToStringCmd)
+	nfcNdefRecordToUriCmd.Flags().Int64("handle", 0, "handle (int64)")
+	nfcNdefRecordCmd.AddCommand(nfcNdefRecordToUriCmd)
+	nfcNdefRecordWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	nfcNdefRecordWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	nfcNdefRecordWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	nfcNdefRecordCmd.AddCommand(nfcNdefRecordWriteToParcelCmd)
+	nfcNdefRecordCreateApplicationRecordCmd.Flags().Int64("handle", 0, "handle (int64)")
+	nfcNdefRecordCreateApplicationRecordCmd.Flags().String("arg0", "", "arg0 (string)")
+	nfcNdefRecordCmd.AddCommand(nfcNdefRecordCreateApplicationRecordCmd)
+	nfcNdefRecordCreateExternalCmd.Flags().Int64("handle", 0, "handle (int64)")
+	nfcNdefRecordCreateExternalCmd.Flags().String("arg0", "", "arg0 (string)")
+	nfcNdefRecordCreateExternalCmd.Flags().String("arg1", "", "arg1 (string)")
+	nfcNdefRecordCreateExternalCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	nfcNdefRecordCmd.AddCommand(nfcNdefRecordCreateExternalCmd)
+	nfcNdefRecordCreateMimeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	nfcNdefRecordCreateMimeCmd.Flags().String("arg0", "", "arg0 (string)")
+	nfcNdefRecordCreateMimeCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	nfcNdefRecordCmd.AddCommand(nfcNdefRecordCreateMimeCmd)
+	nfcNdefRecordCreateTextRecordCmd.Flags().Int64("handle", 0, "handle (int64)")
+	nfcNdefRecordCreateTextRecordCmd.Flags().String("arg0", "", "arg0 (string)")
+	nfcNdefRecordCreateTextRecordCmd.Flags().String("arg1", "", "arg1 (string)")
+	nfcNdefRecordCmd.AddCommand(nfcNdefRecordCreateTextRecordCmd)
+	nfcNdefRecordCreateUri1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	nfcNdefRecordCreateUri1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	nfcNdefRecordCmd.AddCommand(nfcNdefRecordCreateUri1Cmd)
+	nfcNdefRecordCreateUri1_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	nfcNdefRecordCreateUri1_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	nfcNdefRecordCmd.AddCommand(nfcNdefRecordCreateUri1_1Cmd)
+	nfcCmd.AddCommand(nfcNdefRecordCmd)
+	nfcIsoDepCmd.AddCommand(nfcIsoDepCloseCmd)
+	nfcIsoDepCmd.AddCommand(nfcIsoDepConnectCmd)
+	nfcIsoDepCmd.AddCommand(nfcIsoDepGetHiLayerResponseCmd)
+	nfcIsoDepCmd.AddCommand(nfcIsoDepGetHistoricalBytesCmd)
+	nfcIsoDepCmd.AddCommand(nfcIsoDepGetMaxTransceiveLengthCmd)
+	nfcIsoDepCmd.AddCommand(nfcIsoDepGetTagCmd)
+	nfcIsoDepCmd.AddCommand(nfcIsoDepGetTimeoutCmd)
+	nfcIsoDepCmd.AddCommand(nfcIsoDepIsConnectedCmd)
+	nfcIsoDepCmd.AddCommand(nfcIsoDepIsExtendedLengthApduSupportedCmd)
+	nfcIsoDepSetTimeoutCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	nfcIsoDepCmd.AddCommand(nfcIsoDepSetTimeoutCmd)
+	nfcIsoDepTransceiveCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	nfcIsoDepCmd.AddCommand(nfcIsoDepTransceiveCmd)
+	nfcIsoDepGetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	nfcIsoDepCmd.AddCommand(nfcIsoDepGetCmd)
+	nfcCmd.AddCommand(nfcIsoDepCmd)
+	nfcNdefCmd.AddCommand(nfcNdefCanMakeReadOnlyCmd)
+	nfcNdefCmd.AddCommand(nfcNdefCloseCmd)
+	nfcNdefCmd.AddCommand(nfcNdefConnectCmd)
+	nfcNdefCmd.AddCommand(nfcNdefGetCachedNdefMessageCmd)
+	nfcNdefCmd.AddCommand(nfcNdefGetMaxSizeCmd)
+	nfcNdefCmd.AddCommand(nfcNdefGetNdefMessageCmd)
+	nfcNdefCmd.AddCommand(nfcNdefGetTagCmd)
+	nfcNdefCmd.AddCommand(nfcNdefGetTypeCmd)
+	nfcNdefCmd.AddCommand(nfcNdefIsConnectedCmd)
+	nfcNdefCmd.AddCommand(nfcNdefIsWritableCmd)
+	nfcNdefCmd.AddCommand(nfcNdefMakeReadOnlyCmd)
+	nfcNdefWriteNdefMessageCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	nfcNdefCmd.AddCommand(nfcNdefWriteNdefMessageCmd)
+	nfcNdefGetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	nfcNdefCmd.AddCommand(nfcNdefGetCmd)
+	nfcCmd.AddCommand(nfcNdefCmd)
 	rootCmd.AddCommand(nfcCmd)
 }

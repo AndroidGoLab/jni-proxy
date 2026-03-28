@@ -5,3 +5,102 @@ syntax = "proto3";
 package effect;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/effect";
+
+message ApplyRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message ApplyResponse {
+}
+
+message GetNameRequest {
+}
+
+message GetNameResponse {
+  string result = 1;
+}
+
+message ReleaseRequest {
+}
+
+message ReleaseResponse {
+}
+
+message SetParameterRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SetParameterResponse {
+}
+
+message SetUpdateListenerRequest {
+  int64 arg0 = 1;
+}
+
+message SetUpdateListenerResponse {
+}
+
+message OnEffectUpdatedRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnEffectUpdatedResponse {
+}
+
+message CreateEffectRequest {
+  string arg0 = 1;
+}
+
+message CreateEffectResponse {
+  int64 result = 1;
+}
+
+message IsEffectSupportedRequest {
+  string arg0 = 1;
+}
+
+message IsEffectSupportedResponse {
+  bool result = 1;
+}
+
+message GetFactoryRequest {
+}
+
+message GetFactoryResponse {
+  int64 result = 1;
+}
+
+message CreateWithCurrentGlContextRequest {
+}
+
+message CreateWithCurrentGlContextResponse {
+  int64 result = 1;
+}
+
+service EffectService {
+  rpc Apply (ApplyRequest) returns (ApplyResponse);
+  rpc GetName (GetNameRequest) returns (GetNameResponse);
+  rpc Release (ReleaseRequest) returns (ReleaseResponse);
+  rpc SetParameter (SetParameterRequest) returns (SetParameterResponse);
+  rpc SetUpdateListener (SetUpdateListenerRequest) returns (SetUpdateListenerResponse);
+}
+
+service UpdateListenerService {
+  rpc OnEffectUpdated (OnEffectUpdatedRequest) returns (OnEffectUpdatedResponse);
+}
+
+service FactoryService {
+  rpc CreateEffect (CreateEffectRequest) returns (CreateEffectResponse);
+  rpc IsEffectSupported (IsEffectSupportedRequest) returns (IsEffectSupportedResponse);
+}
+
+service ContextService {
+  rpc GetFactory (GetFactoryRequest) returns (GetFactoryResponse);
+  rpc Release (ReleaseRequest) returns (ReleaseResponse);
+  rpc CreateWithCurrentGlContext (CreateWithCurrentGlContextRequest) returns (CreateWithCurrentGlContextResponse);
+}

@@ -5,3 +5,1767 @@ syntax = "proto3";
 package inputmethodservice;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/inputmethodservice";
+
+message NewKeyboardRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message NewKeyboardResponse {
+  int64 result = 1;
+}
+
+message GetHeightRequest {
+  int64 handle = 1;
+}
+
+message GetHeightResponse {
+  int32 result = 1;
+}
+
+message GetMinWidthRequest {
+  int64 handle = 1;
+}
+
+message GetMinWidthResponse {
+  int32 result = 1;
+}
+
+message GetNearestKeysRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message GetNearestKeysResponse {
+  int64 result = 1;
+}
+
+message GetShiftKeyIndexRequest {
+  int64 handle = 1;
+}
+
+message GetShiftKeyIndexResponse {
+  int32 result = 1;
+}
+
+message IsShiftedRequest {
+  int64 handle = 1;
+}
+
+message IsShiftedResponse {
+  bool result = 1;
+}
+
+message SetShiftedRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetShiftedResponse {
+  bool result = 1;
+}
+
+message GetCurrentDrawableStateRequest {
+}
+
+message GetCurrentDrawableStateResponse {
+  int64 result = 1;
+}
+
+message IsInsideRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message IsInsideResponse {
+  bool result = 1;
+}
+
+message OnPressedRequest {
+}
+
+message OnPressedResponse {
+}
+
+message OnReleasedRequest {
+  bool arg0 = 1;
+}
+
+message OnReleasedResponse {
+}
+
+message SquaredDistanceFromRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message SquaredDistanceFromResponse {
+  int32 result = 1;
+}
+
+message GetKeyDispatcherStateRequest {
+}
+
+message GetKeyDispatcherStateResponse {
+  int64 result = 1;
+}
+
+message GetSystemServiceRequest {
+  string arg0 = 1;
+}
+
+message GetSystemServiceResponse {
+  int64 result = 1;
+}
+
+message OnBindRequest {
+  int64 arg0 = 1;
+}
+
+message OnBindResponse {
+  int64 result = 1;
+}
+
+message OnConfigurationChangedRequest {
+  int64 arg0 = 1;
+}
+
+message OnConfigurationChangedResponse {
+}
+
+message OnCreateInputMethodInterfaceRequest {
+}
+
+message OnCreateInputMethodInterfaceResponse {
+  int64 result = 1;
+}
+
+message OnCreateInputMethodSessionInterfaceRequest {
+}
+
+message OnCreateInputMethodSessionInterfaceResponse {
+  int64 result = 1;
+}
+
+message OnDestroyRequest {
+}
+
+message OnDestroyResponse {
+}
+
+message OnGenericMotionEventRequest {
+  int64 arg0 = 1;
+}
+
+message OnGenericMotionEventResponse {
+  bool result = 1;
+}
+
+message OnLowMemoryRequest {
+}
+
+message OnLowMemoryResponse {
+}
+
+message OnShouldVerifyKeyEventRequest {
+  int64 arg0 = 1;
+}
+
+message OnShouldVerifyKeyEventResponse {
+  bool result = 1;
+}
+
+message OnTrackballEventRequest {
+  int64 arg0 = 1;
+}
+
+message OnTrackballEventResponse {
+  bool result = 1;
+}
+
+message OnTrimMemoryRequest {
+  int32 arg0 = 1;
+}
+
+message OnTrimMemoryResponse {
+}
+
+message RegisterComponentCallbacksRequest {
+  int64 arg0 = 1;
+}
+
+message RegisterComponentCallbacksResponse {
+}
+
+message UnregisterComponentCallbacksRequest {
+  int64 arg0 = 1;
+}
+
+message UnregisterComponentCallbacksResponse {
+}
+
+message CreateSessionRequest {
+  int64 arg0 = 1;
+}
+
+message CreateSessionResponse {
+}
+
+message RevokeSessionRequest {
+  int64 arg0 = 1;
+}
+
+message RevokeSessionResponse {
+}
+
+message SetSessionEnabledRequest {
+  int64 arg0 = 1;
+  bool arg1 = 2;
+}
+
+message SetSessionEnabledResponse {
+}
+
+message DispatchGenericMotionEventRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message DispatchGenericMotionEventResponse {
+}
+
+message DispatchKeyEventRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message DispatchKeyEventResponse {
+}
+
+message DispatchTrackballEventRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message DispatchTrackballEventResponse {
+}
+
+message IsEnabledRequest {
+}
+
+message IsEnabledResponse {
+  bool result = 1;
+}
+
+message IsRevokedRequest {
+}
+
+message IsRevokedResponse {
+  bool result = 1;
+}
+
+message RevokeSelfRequest {
+}
+
+message RevokeSelfResponse {
+}
+
+message SetEnabledRequest {
+  bool arg0 = 1;
+}
+
+message SetEnabledResponse {
+}
+
+message NewInputMethodServiceRequest {
+}
+
+message NewInputMethodServiceResponse {
+  int64 result = 1;
+}
+
+message EnableHardwareAccelerationRequest {
+  int64 handle = 1;
+}
+
+message EnableHardwareAccelerationResponse {
+  bool result = 1;
+}
+
+message FinishConnectionlessStylusHandwritingRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message FinishConnectionlessStylusHandwritingResponse {
+}
+
+message FinishStylusHandwritingRequest {
+  int64 handle = 1;
+}
+
+message FinishStylusHandwritingResponse {
+}
+
+message GetBackDispositionRequest {
+  int64 handle = 1;
+}
+
+message GetBackDispositionResponse {
+  int32 result = 1;
+}
+
+message GetCandidatesHiddenVisibilityRequest {
+  int64 handle = 1;
+}
+
+message GetCandidatesHiddenVisibilityResponse {
+  int32 result = 1;
+}
+
+message GetCurrentInputBindingRequest {
+  int64 handle = 1;
+}
+
+message GetCurrentInputBindingResponse {
+  int64 result = 1;
+}
+
+message GetCurrentInputConnectionRequest {
+  int64 handle = 1;
+}
+
+message GetCurrentInputConnectionResponse {
+  int64 result = 1;
+}
+
+message GetCurrentInputEditorInfoRequest {
+  int64 handle = 1;
+}
+
+message GetCurrentInputEditorInfoResponse {
+  int64 result = 1;
+}
+
+message GetCurrentInputStartedRequest {
+  int64 handle = 1;
+}
+
+message GetCurrentInputStartedResponse {
+  bool result = 1;
+}
+
+message GetInputMethodWindowRecommendedHeightRequest {
+  int64 handle = 1;
+}
+
+message GetInputMethodWindowRecommendedHeightResponse {
+  int32 result = 1;
+}
+
+message GetLayoutInflaterRequest {
+  int64 handle = 1;
+}
+
+message GetLayoutInflaterResponse {
+  int64 result = 1;
+}
+
+message GetMaxWidthRequest {
+  int64 handle = 1;
+}
+
+message GetMaxWidthResponse {
+  int32 result = 1;
+}
+
+message GetStylusHandwritingSessionTimeoutRequest {
+  int64 handle = 1;
+}
+
+message GetStylusHandwritingSessionTimeoutResponse {
+  int64 result = 1;
+}
+
+message GetStylusHandwritingWindowRequest {
+  int64 handle = 1;
+}
+
+message GetStylusHandwritingWindowResponse {
+  int64 result = 1;
+}
+
+message InputMethodServiceGetSystemServiceRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message GetTextForImeActionRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetTextForImeActionResponse {
+  int64 result = 1;
+}
+
+message GetWindowRequest {
+  int64 handle = 1;
+}
+
+message GetWindowResponse {
+  int64 result = 1;
+}
+
+message HideStatusIconRequest {
+  int64 handle = 1;
+}
+
+message HideStatusIconResponse {
+}
+
+message HideWindowRequest {
+  int64 handle = 1;
+}
+
+message HideWindowResponse {
+}
+
+message IsExtractViewShownRequest {
+  int64 handle = 1;
+}
+
+message IsExtractViewShownResponse {
+  bool result = 1;
+}
+
+message IsFullscreenModeRequest {
+  int64 handle = 1;
+}
+
+message IsFullscreenModeResponse {
+  bool result = 1;
+}
+
+message IsInputViewShownRequest {
+  int64 handle = 1;
+}
+
+message IsInputViewShownResponse {
+  bool result = 1;
+}
+
+message IsShowInputRequestedRequest {
+  int64 handle = 1;
+}
+
+message IsShowInputRequestedResponse {
+  bool result = 1;
+}
+
+message OnAppPrivateCommandRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message OnAppPrivateCommandResponse {
+}
+
+message OnBindInputRequest {
+  int64 handle = 1;
+}
+
+message OnBindInputResponse {
+}
+
+message OnComputeInsetsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OnComputeInsetsResponse {
+}
+
+message InputMethodServiceOnConfigurationChangedRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OnConfigureWindowRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  bool arg1 = 3;
+  bool arg2 = 4;
+}
+
+message OnConfigureWindowResponse {
+}
+
+message OnCreateRequest {
+  int64 handle = 1;
+}
+
+message OnCreateResponse {
+}
+
+message OnCreateCandidatesViewRequest {
+  int64 handle = 1;
+}
+
+message OnCreateCandidatesViewResponse {
+  int64 result = 1;
+}
+
+message OnCreateExtractTextViewRequest {
+  int64 handle = 1;
+}
+
+message OnCreateExtractTextViewResponse {
+  int64 result = 1;
+}
+
+message OnCreateInlineSuggestionsRequestRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OnCreateInlineSuggestionsRequestResponse {
+  int64 result = 1;
+}
+
+message InputMethodServiceOnCreateInputMethodInterfaceRequest {
+  int64 handle = 1;
+}
+
+message InputMethodServiceOnCreateInputMethodSessionInterfaceRequest {
+  int64 handle = 1;
+}
+
+message OnCreateInputViewRequest {
+  int64 handle = 1;
+}
+
+message OnCreateInputViewResponse {
+  int64 result = 1;
+}
+
+message OnCustomImeSwitcherButtonRequestedVisibleRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message OnCustomImeSwitcherButtonRequestedVisibleResponse {
+}
+
+message InputMethodServiceOnDestroyRequest {
+  int64 handle = 1;
+}
+
+message OnDisplayCompletionsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OnDisplayCompletionsResponse {
+}
+
+message OnEvaluateFullscreenModeRequest {
+  int64 handle = 1;
+}
+
+message OnEvaluateFullscreenModeResponse {
+  bool result = 1;
+}
+
+message OnEvaluateInputViewShownRequest {
+  int64 handle = 1;
+}
+
+message OnEvaluateInputViewShownResponse {
+  bool result = 1;
+}
+
+message OnExtractTextContextMenuItemRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message OnExtractTextContextMenuItemResponse {
+  bool result = 1;
+}
+
+message OnExtractedCursorMovementRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message OnExtractedCursorMovementResponse {
+}
+
+message OnExtractedSelectionChangedRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message OnExtractedSelectionChangedResponse {
+}
+
+message OnExtractedTextClickedRequest {
+  int64 handle = 1;
+}
+
+message OnExtractedTextClickedResponse {
+}
+
+message OnExtractingInputChangedRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OnExtractingInputChangedResponse {
+}
+
+message OnFinishCandidatesViewRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message OnFinishCandidatesViewResponse {
+}
+
+message OnFinishInputRequest {
+  int64 handle = 1;
+}
+
+message OnFinishInputResponse {
+}
+
+message OnFinishInputViewRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message OnFinishInputViewResponse {
+}
+
+message OnFinishStylusHandwritingRequest {
+  int64 handle = 1;
+}
+
+message OnFinishStylusHandwritingResponse {
+}
+
+message InputMethodServiceOnGenericMotionEventRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OnInitializeInterfaceRequest {
+  int64 handle = 1;
+}
+
+message OnInitializeInterfaceResponse {
+}
+
+message OnInlineSuggestionsResponseRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OnInlineSuggestionsResponseResponse {
+  bool result = 1;
+}
+
+message OnKeyDownRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message OnKeyDownResponse {
+  bool result = 1;
+}
+
+message OnKeyLongPressRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message OnKeyLongPressResponse {
+  bool result = 1;
+}
+
+message OnKeyMultipleRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message OnKeyMultipleResponse {
+  bool result = 1;
+}
+
+message OnKeyUpRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message OnKeyUpResponse {
+  bool result = 1;
+}
+
+message OnPrepareStylusHandwritingRequest {
+  int64 handle = 1;
+}
+
+message OnPrepareStylusHandwritingResponse {
+}
+
+message InputMethodServiceOnShouldVerifyKeyEventRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OnShowInputRequestedRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  bool arg1 = 3;
+}
+
+message OnShowInputRequestedResponse {
+  bool result = 1;
+}
+
+message OnStartCandidatesViewRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  bool arg1 = 3;
+}
+
+message OnStartCandidatesViewResponse {
+}
+
+message OnStartConnectionlessStylusHandwritingRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message OnStartConnectionlessStylusHandwritingResponse {
+  bool result = 1;
+}
+
+message OnStartInputRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  bool arg1 = 3;
+}
+
+message OnStartInputResponse {
+}
+
+message OnStartInputViewRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  bool arg1 = 3;
+}
+
+message OnStartInputViewResponse {
+}
+
+message OnStartStylusHandwritingRequest {
+  int64 handle = 1;
+}
+
+message OnStartStylusHandwritingResponse {
+  bool result = 1;
+}
+
+message OnStylusHandwritingMotionEventRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OnStylusHandwritingMotionEventResponse {
+}
+
+message InputMethodServiceOnTrackballEventRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OnUnbindInputRequest {
+  int64 handle = 1;
+}
+
+message OnUnbindInputResponse {
+}
+
+message OnUpdateCursorRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OnUpdateCursorResponse {
+}
+
+message OnUpdateCursorAnchorInfoRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OnUpdateCursorAnchorInfoResponse {
+}
+
+message OnUpdateEditorToolTypeRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message OnUpdateEditorToolTypeResponse {
+}
+
+message OnUpdateExtractedTextRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message OnUpdateExtractedTextResponse {
+}
+
+message OnUpdateExtractingViewsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OnUpdateExtractingViewsResponse {
+}
+
+message OnUpdateExtractingVisibilityRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OnUpdateExtractingVisibilityResponse {
+}
+
+message OnUpdateSelectionRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
+  int32 arg4 = 6;
+  int32 arg5 = 7;
+}
+
+message OnUpdateSelectionResponse {
+}
+
+message OnViewClickedRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message OnViewClickedResponse {
+}
+
+message OnWindowHiddenRequest {
+  int64 handle = 1;
+}
+
+message OnWindowHiddenResponse {
+}
+
+message OnWindowShownRequest {
+  int64 handle = 1;
+}
+
+message OnWindowShownResponse {
+}
+
+message RequestHideSelfRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message RequestHideSelfResponse {
+}
+
+message RequestShowSelfRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message RequestShowSelfResponse {
+}
+
+message SendDefaultEditorActionRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SendDefaultEditorActionResponse {
+  bool result = 1;
+}
+
+message SendDownUpKeyEventsRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SendDownUpKeyEventsResponse {
+}
+
+message SendKeyCharRequest {
+  int64 handle = 1;
+  uint32 arg0 = 2;
+}
+
+message SendKeyCharResponse {
+}
+
+message SetBackDispositionRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetBackDispositionResponse {
+}
+
+message SetCandidatesViewRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetCandidatesViewResponse {
+}
+
+message SetCandidatesViewShownRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetCandidatesViewShownResponse {
+}
+
+message SetExtractViewRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetExtractViewResponse {
+}
+
+message SetExtractViewShownRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetExtractViewShownResponse {
+}
+
+message SetInputViewRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetInputViewResponse {
+}
+
+message SetStylusHandwritingRegionRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetStylusHandwritingRegionResponse {
+}
+
+message SetStylusHandwritingSessionTimeoutRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetStylusHandwritingSessionTimeoutResponse {
+}
+
+message SetThemeRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetThemeResponse {
+}
+
+message ShouldOfferSwitchingToNextInputMethodRequest {
+  int64 handle = 1;
+}
+
+message ShouldOfferSwitchingToNextInputMethodResponse {
+  bool result = 1;
+}
+
+message ShowStatusIconRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message ShowStatusIconResponse {
+}
+
+message ShowWindowRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message ShowWindowResponse {
+}
+
+message SwitchInputMethod1Request {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SwitchInputMethod1Response {
+}
+
+message SwitchInputMethod2_1Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message SwitchInputMethod2_1Response {
+}
+
+message SwitchToNextInputMethodRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SwitchToNextInputMethodResponse {
+  bool result = 1;
+}
+
+message SwitchToPreviousInputMethodRequest {
+  int64 handle = 1;
+}
+
+message SwitchToPreviousInputMethodResponse {
+  bool result = 1;
+}
+
+message UpdateFullscreenModeRequest {
+  int64 handle = 1;
+}
+
+message UpdateFullscreenModeResponse {
+}
+
+message UpdateInputViewShownRequest {
+  int64 handle = 1;
+}
+
+message UpdateInputViewShownResponse {
+}
+
+message GetStylusHandwritingIdleTimeoutMaxRequest {
+  int64 handle = 1;
+}
+
+message GetStylusHandwritingIdleTimeoutMaxResponse {
+  int64 result = 1;
+}
+
+message AttachTokenRequest {
+  int64 arg0 = 1;
+}
+
+message AttachTokenResponse {
+}
+
+message BindInputRequest {
+  int64 arg0 = 1;
+}
+
+message BindInputResponse {
+}
+
+message ChangeInputMethodSubtypeRequest {
+  int64 arg0 = 1;
+}
+
+message ChangeInputMethodSubtypeResponse {
+}
+
+message HideSoftInputRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message HideSoftInputResponse {
+}
+
+message RestartInputRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message RestartInputResponse {
+}
+
+message ShowSoftInputRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message ShowSoftInputResponse {
+}
+
+message StartInputRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message StartInputResponse {
+}
+
+message UnbindInputRequest {
+}
+
+message UnbindInputResponse {
+}
+
+message AppPrivateCommandRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message AppPrivateCommandResponse {
+}
+
+message DisplayCompletionsRequest {
+  int64 arg0 = 1;
+}
+
+message DisplayCompletionsResponse {
+}
+
+message FinishInputRequest {
+}
+
+message FinishInputResponse {
+}
+
+message ToggleSoftInputRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message ToggleSoftInputResponse {
+}
+
+message UpdateCursorRequest {
+  int64 arg0 = 1;
+}
+
+message UpdateCursorResponse {
+}
+
+message UpdateCursorAnchorInfoRequest {
+  int64 arg0 = 1;
+}
+
+message UpdateCursorAnchorInfoResponse {
+}
+
+message UpdateExtractedTextRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message UpdateExtractedTextResponse {
+}
+
+message UpdateSelectionRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int32 arg4 = 5;
+  int32 arg5 = 6;
+}
+
+message UpdateSelectionResponse {
+}
+
+message ViewClickedRequest {
+  bool arg0 = 1;
+}
+
+message ViewClickedResponse {
+}
+
+message NewExtractEditTextRequest {
+  int64 arg0 = 1;
+}
+
+message NewExtractEditTextResponse {
+  int64 result = 1;
+}
+
+message FinishInternalChangesRequest {
+  int64 handle = 1;
+}
+
+message FinishInternalChangesResponse {
+}
+
+message HasFocusRequest {
+  int64 handle = 1;
+}
+
+message HasFocusResponse {
+  bool result = 1;
+}
+
+message HasVerticalScrollBarRequest {
+  int64 handle = 1;
+}
+
+message HasVerticalScrollBarResponse {
+  bool result = 1;
+}
+
+message HasWindowFocusRequest {
+  int64 handle = 1;
+}
+
+message HasWindowFocusResponse {
+  bool result = 1;
+}
+
+message IsFocusedRequest {
+  int64 handle = 1;
+}
+
+message IsFocusedResponse {
+  bool result = 1;
+}
+
+message IsInputMethodTargetRequest {
+  int64 handle = 1;
+}
+
+message IsInputMethodTargetResponse {
+  bool result = 1;
+}
+
+message OnTextContextMenuItemRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message OnTextContextMenuItemResponse {
+  bool result = 1;
+}
+
+message PerformClickRequest {
+  int64 handle = 1;
+}
+
+message PerformClickResponse {
+  bool result = 1;
+}
+
+message SetExtractedTextRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetExtractedTextResponse {
+}
+
+message StartInternalChangesRequest {
+  int64 handle = 1;
+}
+
+message StartInternalChangesResponse {
+}
+
+message NewKeyboardViewRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewKeyboardViewResponse {
+  int64 result = 1;
+}
+
+message ClosingRequest {
+  int64 handle = 1;
+}
+
+message ClosingResponse {
+}
+
+message GetKeyboardRequest {
+  int64 handle = 1;
+}
+
+message GetKeyboardResponse {
+  int64 result = 1;
+}
+
+message HandleBackRequest {
+  int64 handle = 1;
+}
+
+message HandleBackResponse {
+  bool result = 1;
+}
+
+message InvalidateAllKeysRequest {
+  int64 handle = 1;
+}
+
+message InvalidateAllKeysResponse {
+}
+
+message InvalidateKeyRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message InvalidateKeyResponse {
+}
+
+message IsPreviewEnabledRequest {
+  int64 handle = 1;
+}
+
+message IsPreviewEnabledResponse {
+  bool result = 1;
+}
+
+message IsProximityCorrectionEnabledRequest {
+  int64 handle = 1;
+}
+
+message IsProximityCorrectionEnabledResponse {
+  bool result = 1;
+}
+
+message OnClickRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OnClickResponse {
+}
+
+message OnDetachedFromWindowRequest {
+  int64 handle = 1;
+}
+
+message OnDetachedFromWindowResponse {
+}
+
+message OnDrawRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OnDrawResponse {
+}
+
+message OnHoverEventRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OnHoverEventResponse {
+  bool result = 1;
+}
+
+message OnMeasureRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message OnMeasureResponse {
+}
+
+message OnSizeChangedRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
+}
+
+message OnSizeChangedResponse {
+}
+
+message OnTouchEventRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OnTouchEventResponse {
+  bool result = 1;
+}
+
+message SetKeyboardRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetKeyboardResponse {
+}
+
+message SetOnKeyboardActionListenerRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetOnKeyboardActionListenerResponse {
+}
+
+message SetPopupOffsetRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message SetPopupOffsetResponse {
+}
+
+message SetPopupParentRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetPopupParentResponse {
+}
+
+message SetPreviewEnabledRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetPreviewEnabledResponse {
+}
+
+message SetProximityCorrectionEnabledRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetProximityCorrectionEnabledResponse {
+}
+
+message SetVerticalCorrectionRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetVerticalCorrectionResponse {
+}
+
+message OnKeyRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnKeyResponse {
+}
+
+message OnPressRequest {
+  int32 arg0 = 1;
+}
+
+message OnPressResponse {
+}
+
+message OnReleaseRequest {
+  int32 arg0 = 1;
+}
+
+message OnReleaseResponse {
+}
+
+message OnTextRequest {
+  string arg0 = 1;
+}
+
+message OnTextResponse {
+}
+
+message SwipeDownRequest {
+}
+
+message SwipeDownResponse {
+}
+
+message SwipeLeftRequest {
+}
+
+message SwipeLeftResponse {
+}
+
+message SwipeRightRequest {
+}
+
+message SwipeRightResponse {
+}
+
+message SwipeUpRequest {
+}
+
+message SwipeUpResponse {
+}
+
+service KeyboardService {
+  rpc NewKeyboard (NewKeyboardRequest) returns (NewKeyboardResponse);
+  rpc GetHeight (GetHeightRequest) returns (GetHeightResponse);
+  rpc GetMinWidth (GetMinWidthRequest) returns (GetMinWidthResponse);
+  rpc GetNearestKeys (GetNearestKeysRequest) returns (GetNearestKeysResponse);
+  rpc GetShiftKeyIndex (GetShiftKeyIndexRequest) returns (GetShiftKeyIndexResponse);
+  rpc IsShifted (IsShiftedRequest) returns (IsShiftedResponse);
+  rpc SetShifted (SetShiftedRequest) returns (SetShiftedResponse);
+}
+
+service KeyboardKeyService {
+  rpc GetCurrentDrawableState (GetCurrentDrawableStateRequest) returns (GetCurrentDrawableStateResponse);
+  rpc IsInside (IsInsideRequest) returns (IsInsideResponse);
+  rpc OnPressed (OnPressedRequest) returns (OnPressedResponse);
+  rpc OnReleased (OnReleasedRequest) returns (OnReleasedResponse);
+  rpc SquaredDistanceFrom (SquaredDistanceFromRequest) returns (SquaredDistanceFromResponse);
+}
+
+service AbstractInputMethodServiceService {
+  rpc GetKeyDispatcherState (GetKeyDispatcherStateRequest) returns (GetKeyDispatcherStateResponse);
+  rpc GetSystemService (GetSystemServiceRequest) returns (GetSystemServiceResponse);
+  rpc OnBind (OnBindRequest) returns (OnBindResponse);
+  rpc OnConfigurationChanged (OnConfigurationChangedRequest) returns (OnConfigurationChangedResponse);
+  rpc OnCreateInputMethodInterface (OnCreateInputMethodInterfaceRequest) returns (OnCreateInputMethodInterfaceResponse);
+  rpc OnCreateInputMethodSessionInterface (OnCreateInputMethodSessionInterfaceRequest) returns (OnCreateInputMethodSessionInterfaceResponse);
+  rpc OnDestroy (OnDestroyRequest) returns (OnDestroyResponse);
+  rpc OnGenericMotionEvent (OnGenericMotionEventRequest) returns (OnGenericMotionEventResponse);
+  rpc OnLowMemory (OnLowMemoryRequest) returns (OnLowMemoryResponse);
+  rpc OnShouldVerifyKeyEvent (OnShouldVerifyKeyEventRequest) returns (OnShouldVerifyKeyEventResponse);
+  rpc OnTrackballEvent (OnTrackballEventRequest) returns (OnTrackballEventResponse);
+  rpc OnTrimMemory (OnTrimMemoryRequest) returns (OnTrimMemoryResponse);
+  rpc RegisterComponentCallbacks (RegisterComponentCallbacksRequest) returns (RegisterComponentCallbacksResponse);
+  rpc UnregisterComponentCallbacks (UnregisterComponentCallbacksRequest) returns (UnregisterComponentCallbacksResponse);
+}
+
+service AbstractInputMethodServiceAbstractInputMethodImplService {
+  rpc CreateSession (CreateSessionRequest) returns (CreateSessionResponse);
+  rpc RevokeSession (RevokeSessionRequest) returns (RevokeSessionResponse);
+  rpc SetSessionEnabled (SetSessionEnabledRequest) returns (SetSessionEnabledResponse);
+}
+
+service AbstractInputMethodServiceAbstractInputMethodSessionImplService {
+  rpc DispatchGenericMotionEvent (DispatchGenericMotionEventRequest) returns (DispatchGenericMotionEventResponse);
+  rpc DispatchKeyEvent (DispatchKeyEventRequest) returns (DispatchKeyEventResponse);
+  rpc DispatchTrackballEvent (DispatchTrackballEventRequest) returns (DispatchTrackballEventResponse);
+  rpc IsEnabled (IsEnabledRequest) returns (IsEnabledResponse);
+  rpc IsRevoked (IsRevokedRequest) returns (IsRevokedResponse);
+  rpc OnShouldVerifyKeyEvent (OnShouldVerifyKeyEventRequest) returns (OnShouldVerifyKeyEventResponse);
+  rpc RevokeSelf (RevokeSelfRequest) returns (RevokeSelfResponse);
+  rpc SetEnabled (SetEnabledRequest) returns (SetEnabledResponse);
+}
+
+service InputMethodServiceService {
+  rpc NewInputMethodService (NewInputMethodServiceRequest) returns (NewInputMethodServiceResponse);
+  rpc EnableHardwareAcceleration (EnableHardwareAccelerationRequest) returns (EnableHardwareAccelerationResponse);
+  rpc FinishConnectionlessStylusHandwriting (FinishConnectionlessStylusHandwritingRequest) returns (FinishConnectionlessStylusHandwritingResponse);
+  rpc FinishStylusHandwriting (FinishStylusHandwritingRequest) returns (FinishStylusHandwritingResponse);
+  rpc GetBackDisposition (GetBackDispositionRequest) returns (GetBackDispositionResponse);
+  rpc GetCandidatesHiddenVisibility (GetCandidatesHiddenVisibilityRequest) returns (GetCandidatesHiddenVisibilityResponse);
+  rpc GetCurrentInputBinding (GetCurrentInputBindingRequest) returns (GetCurrentInputBindingResponse);
+  rpc GetCurrentInputConnection (GetCurrentInputConnectionRequest) returns (GetCurrentInputConnectionResponse);
+  rpc GetCurrentInputEditorInfo (GetCurrentInputEditorInfoRequest) returns (GetCurrentInputEditorInfoResponse);
+  rpc GetCurrentInputStarted (GetCurrentInputStartedRequest) returns (GetCurrentInputStartedResponse);
+  rpc GetInputMethodWindowRecommendedHeight (GetInputMethodWindowRecommendedHeightRequest) returns (GetInputMethodWindowRecommendedHeightResponse);
+  rpc GetLayoutInflater (GetLayoutInflaterRequest) returns (GetLayoutInflaterResponse);
+  rpc GetMaxWidth (GetMaxWidthRequest) returns (GetMaxWidthResponse);
+  rpc GetStylusHandwritingSessionTimeout (GetStylusHandwritingSessionTimeoutRequest) returns (GetStylusHandwritingSessionTimeoutResponse);
+  rpc GetStylusHandwritingWindow (GetStylusHandwritingWindowRequest) returns (GetStylusHandwritingWindowResponse);
+  rpc GetSystemService (InputMethodServiceGetSystemServiceRequest) returns (GetSystemServiceResponse);
+  rpc GetTextForImeAction (GetTextForImeActionRequest) returns (GetTextForImeActionResponse);
+  rpc GetWindow (GetWindowRequest) returns (GetWindowResponse);
+  rpc HideStatusIcon (HideStatusIconRequest) returns (HideStatusIconResponse);
+  rpc HideWindow (HideWindowRequest) returns (HideWindowResponse);
+  rpc IsExtractViewShown (IsExtractViewShownRequest) returns (IsExtractViewShownResponse);
+  rpc IsFullscreenMode (IsFullscreenModeRequest) returns (IsFullscreenModeResponse);
+  rpc IsInputViewShown (IsInputViewShownRequest) returns (IsInputViewShownResponse);
+  rpc IsShowInputRequested (IsShowInputRequestedRequest) returns (IsShowInputRequestedResponse);
+  rpc OnAppPrivateCommand (OnAppPrivateCommandRequest) returns (OnAppPrivateCommandResponse);
+  rpc OnBindInput (OnBindInputRequest) returns (OnBindInputResponse);
+  rpc OnComputeInsets (OnComputeInsetsRequest) returns (OnComputeInsetsResponse);
+  rpc OnConfigurationChanged (InputMethodServiceOnConfigurationChangedRequest) returns (OnConfigurationChangedResponse);
+  rpc OnConfigureWindow (OnConfigureWindowRequest) returns (OnConfigureWindowResponse);
+  rpc OnCreate (OnCreateRequest) returns (OnCreateResponse);
+  rpc OnCreateCandidatesView (OnCreateCandidatesViewRequest) returns (OnCreateCandidatesViewResponse);
+  rpc OnCreateExtractTextView (OnCreateExtractTextViewRequest) returns (OnCreateExtractTextViewResponse);
+  rpc OnCreateInlineSuggestionsRequest (OnCreateInlineSuggestionsRequestRequest) returns (OnCreateInlineSuggestionsRequestResponse);
+  rpc OnCreateInputMethodInterface (InputMethodServiceOnCreateInputMethodInterfaceRequest) returns (OnCreateInputMethodInterfaceResponse);
+  rpc OnCreateInputMethodSessionInterface (InputMethodServiceOnCreateInputMethodSessionInterfaceRequest) returns (OnCreateInputMethodSessionInterfaceResponse);
+  rpc OnCreateInputView (OnCreateInputViewRequest) returns (OnCreateInputViewResponse);
+  rpc OnCustomImeSwitcherButtonRequestedVisible (OnCustomImeSwitcherButtonRequestedVisibleRequest) returns (OnCustomImeSwitcherButtonRequestedVisibleResponse);
+  rpc OnDestroy (InputMethodServiceOnDestroyRequest) returns (OnDestroyResponse);
+  rpc OnDisplayCompletions (OnDisplayCompletionsRequest) returns (OnDisplayCompletionsResponse);
+  rpc OnEvaluateFullscreenMode (OnEvaluateFullscreenModeRequest) returns (OnEvaluateFullscreenModeResponse);
+  rpc OnEvaluateInputViewShown (OnEvaluateInputViewShownRequest) returns (OnEvaluateInputViewShownResponse);
+  rpc OnExtractTextContextMenuItem (OnExtractTextContextMenuItemRequest) returns (OnExtractTextContextMenuItemResponse);
+  rpc OnExtractedCursorMovement (OnExtractedCursorMovementRequest) returns (OnExtractedCursorMovementResponse);
+  rpc OnExtractedSelectionChanged (OnExtractedSelectionChangedRequest) returns (OnExtractedSelectionChangedResponse);
+  rpc OnExtractedTextClicked (OnExtractedTextClickedRequest) returns (OnExtractedTextClickedResponse);
+  rpc OnExtractingInputChanged (OnExtractingInputChangedRequest) returns (OnExtractingInputChangedResponse);
+  rpc OnFinishCandidatesView (OnFinishCandidatesViewRequest) returns (OnFinishCandidatesViewResponse);
+  rpc OnFinishInput (OnFinishInputRequest) returns (OnFinishInputResponse);
+  rpc OnFinishInputView (OnFinishInputViewRequest) returns (OnFinishInputViewResponse);
+  rpc OnFinishStylusHandwriting (OnFinishStylusHandwritingRequest) returns (OnFinishStylusHandwritingResponse);
+  rpc OnGenericMotionEvent (InputMethodServiceOnGenericMotionEventRequest) returns (OnGenericMotionEventResponse);
+  rpc OnInitializeInterface (OnInitializeInterfaceRequest) returns (OnInitializeInterfaceResponse);
+  rpc OnInlineSuggestionsResponse (OnInlineSuggestionsResponseRequest) returns (OnInlineSuggestionsResponseResponse);
+  rpc OnKeyDown (OnKeyDownRequest) returns (OnKeyDownResponse);
+  rpc OnKeyLongPress (OnKeyLongPressRequest) returns (OnKeyLongPressResponse);
+  rpc OnKeyMultiple (OnKeyMultipleRequest) returns (OnKeyMultipleResponse);
+  rpc OnKeyUp (OnKeyUpRequest) returns (OnKeyUpResponse);
+  rpc OnPrepareStylusHandwriting (OnPrepareStylusHandwritingRequest) returns (OnPrepareStylusHandwritingResponse);
+  rpc OnShouldVerifyKeyEvent (InputMethodServiceOnShouldVerifyKeyEventRequest) returns (OnShouldVerifyKeyEventResponse);
+  rpc OnShowInputRequested (OnShowInputRequestedRequest) returns (OnShowInputRequestedResponse);
+  rpc OnStartCandidatesView (OnStartCandidatesViewRequest) returns (OnStartCandidatesViewResponse);
+  rpc OnStartConnectionlessStylusHandwriting (OnStartConnectionlessStylusHandwritingRequest) returns (OnStartConnectionlessStylusHandwritingResponse);
+  rpc OnStartInput (OnStartInputRequest) returns (OnStartInputResponse);
+  rpc OnStartInputView (OnStartInputViewRequest) returns (OnStartInputViewResponse);
+  rpc OnStartStylusHandwriting (OnStartStylusHandwritingRequest) returns (OnStartStylusHandwritingResponse);
+  rpc OnStylusHandwritingMotionEvent (OnStylusHandwritingMotionEventRequest) returns (OnStylusHandwritingMotionEventResponse);
+  rpc OnTrackballEvent (InputMethodServiceOnTrackballEventRequest) returns (OnTrackballEventResponse);
+  rpc OnUnbindInput (OnUnbindInputRequest) returns (OnUnbindInputResponse);
+  rpc OnUpdateCursor (OnUpdateCursorRequest) returns (OnUpdateCursorResponse);
+  rpc OnUpdateCursorAnchorInfo (OnUpdateCursorAnchorInfoRequest) returns (OnUpdateCursorAnchorInfoResponse);
+  rpc OnUpdateEditorToolType (OnUpdateEditorToolTypeRequest) returns (OnUpdateEditorToolTypeResponse);
+  rpc OnUpdateExtractedText (OnUpdateExtractedTextRequest) returns (OnUpdateExtractedTextResponse);
+  rpc OnUpdateExtractingViews (OnUpdateExtractingViewsRequest) returns (OnUpdateExtractingViewsResponse);
+  rpc OnUpdateExtractingVisibility (OnUpdateExtractingVisibilityRequest) returns (OnUpdateExtractingVisibilityResponse);
+  rpc OnUpdateSelection (OnUpdateSelectionRequest) returns (OnUpdateSelectionResponse);
+  rpc OnViewClicked (OnViewClickedRequest) returns (OnViewClickedResponse);
+  rpc OnWindowHidden (OnWindowHiddenRequest) returns (OnWindowHiddenResponse);
+  rpc OnWindowShown (OnWindowShownRequest) returns (OnWindowShownResponse);
+  rpc RequestHideSelf (RequestHideSelfRequest) returns (RequestHideSelfResponse);
+  rpc RequestShowSelf (RequestShowSelfRequest) returns (RequestShowSelfResponse);
+  rpc SendDefaultEditorAction (SendDefaultEditorActionRequest) returns (SendDefaultEditorActionResponse);
+  rpc SendDownUpKeyEvents (SendDownUpKeyEventsRequest) returns (SendDownUpKeyEventsResponse);
+  rpc SendKeyChar (SendKeyCharRequest) returns (SendKeyCharResponse);
+  rpc SetBackDisposition (SetBackDispositionRequest) returns (SetBackDispositionResponse);
+  rpc SetCandidatesView (SetCandidatesViewRequest) returns (SetCandidatesViewResponse);
+  rpc SetCandidatesViewShown (SetCandidatesViewShownRequest) returns (SetCandidatesViewShownResponse);
+  rpc SetExtractView (SetExtractViewRequest) returns (SetExtractViewResponse);
+  rpc SetExtractViewShown (SetExtractViewShownRequest) returns (SetExtractViewShownResponse);
+  rpc SetInputView (SetInputViewRequest) returns (SetInputViewResponse);
+  rpc SetStylusHandwritingRegion (SetStylusHandwritingRegionRequest) returns (SetStylusHandwritingRegionResponse);
+  rpc SetStylusHandwritingSessionTimeout (SetStylusHandwritingSessionTimeoutRequest) returns (SetStylusHandwritingSessionTimeoutResponse);
+  rpc SetTheme (SetThemeRequest) returns (SetThemeResponse);
+  rpc ShouldOfferSwitchingToNextInputMethod (ShouldOfferSwitchingToNextInputMethodRequest) returns (ShouldOfferSwitchingToNextInputMethodResponse);
+  rpc ShowStatusIcon (ShowStatusIconRequest) returns (ShowStatusIconResponse);
+  rpc ShowWindow (ShowWindowRequest) returns (ShowWindowResponse);
+  rpc SwitchInputMethod1 (SwitchInputMethod1Request) returns (SwitchInputMethod1Response);
+  rpc SwitchInputMethod2_1 (SwitchInputMethod2_1Request) returns (SwitchInputMethod2_1Response);
+  rpc SwitchToNextInputMethod (SwitchToNextInputMethodRequest) returns (SwitchToNextInputMethodResponse);
+  rpc SwitchToPreviousInputMethod (SwitchToPreviousInputMethodRequest) returns (SwitchToPreviousInputMethodResponse);
+  rpc UpdateFullscreenMode (UpdateFullscreenModeRequest) returns (UpdateFullscreenModeResponse);
+  rpc UpdateInputViewShown (UpdateInputViewShownRequest) returns (UpdateInputViewShownResponse);
+  rpc GetStylusHandwritingIdleTimeoutMax (GetStylusHandwritingIdleTimeoutMaxRequest) returns (GetStylusHandwritingIdleTimeoutMaxResponse);
+}
+
+service InputMethodServiceInputMethodImplService {
+  rpc AttachToken (AttachTokenRequest) returns (AttachTokenResponse);
+  rpc BindInput (BindInputRequest) returns (BindInputResponse);
+  rpc ChangeInputMethodSubtype (ChangeInputMethodSubtypeRequest) returns (ChangeInputMethodSubtypeResponse);
+  rpc HideSoftInput (HideSoftInputRequest) returns (HideSoftInputResponse);
+  rpc RestartInput (RestartInputRequest) returns (RestartInputResponse);
+  rpc ShowSoftInput (ShowSoftInputRequest) returns (ShowSoftInputResponse);
+  rpc StartInput (StartInputRequest) returns (StartInputResponse);
+  rpc UnbindInput (UnbindInputRequest) returns (UnbindInputResponse);
+}
+
+service InputMethodServiceInputMethodSessionImplService {
+  rpc AppPrivateCommand (AppPrivateCommandRequest) returns (AppPrivateCommandResponse);
+  rpc DisplayCompletions (DisplayCompletionsRequest) returns (DisplayCompletionsResponse);
+  rpc FinishInput (FinishInputRequest) returns (FinishInputResponse);
+  rpc ToggleSoftInput (ToggleSoftInputRequest) returns (ToggleSoftInputResponse);
+  rpc UpdateCursor (UpdateCursorRequest) returns (UpdateCursorResponse);
+  rpc UpdateCursorAnchorInfo (UpdateCursorAnchorInfoRequest) returns (UpdateCursorAnchorInfoResponse);
+  rpc UpdateExtractedText (UpdateExtractedTextRequest) returns (UpdateExtractedTextResponse);
+  rpc UpdateSelection (UpdateSelectionRequest) returns (UpdateSelectionResponse);
+  rpc ViewClicked (ViewClickedRequest) returns (ViewClickedResponse);
+}
+
+service ExtractEditTextService {
+  rpc NewExtractEditText (NewExtractEditTextRequest) returns (NewExtractEditTextResponse);
+  rpc FinishInternalChanges (FinishInternalChangesRequest) returns (FinishInternalChangesResponse);
+  rpc HasFocus (HasFocusRequest) returns (HasFocusResponse);
+  rpc HasVerticalScrollBar (HasVerticalScrollBarRequest) returns (HasVerticalScrollBarResponse);
+  rpc HasWindowFocus (HasWindowFocusRequest) returns (HasWindowFocusResponse);
+  rpc IsFocused (IsFocusedRequest) returns (IsFocusedResponse);
+  rpc IsInputMethodTarget (IsInputMethodTargetRequest) returns (IsInputMethodTargetResponse);
+  rpc OnTextContextMenuItem (OnTextContextMenuItemRequest) returns (OnTextContextMenuItemResponse);
+  rpc PerformClick (PerformClickRequest) returns (PerformClickResponse);
+  rpc SetExtractedText (SetExtractedTextRequest) returns (SetExtractedTextResponse);
+  rpc StartInternalChanges (StartInternalChangesRequest) returns (StartInternalChangesResponse);
+}
+
+service KeyboardViewService {
+  rpc NewKeyboardView (NewKeyboardViewRequest) returns (NewKeyboardViewResponse);
+  rpc Closing (ClosingRequest) returns (ClosingResponse);
+  rpc GetKeyboard (GetKeyboardRequest) returns (GetKeyboardResponse);
+  rpc HandleBack (HandleBackRequest) returns (HandleBackResponse);
+  rpc InvalidateAllKeys (InvalidateAllKeysRequest) returns (InvalidateAllKeysResponse);
+  rpc InvalidateKey (InvalidateKeyRequest) returns (InvalidateKeyResponse);
+  rpc IsPreviewEnabled (IsPreviewEnabledRequest) returns (IsPreviewEnabledResponse);
+  rpc IsProximityCorrectionEnabled (IsProximityCorrectionEnabledRequest) returns (IsProximityCorrectionEnabledResponse);
+  rpc IsShifted (IsShiftedRequest) returns (IsShiftedResponse);
+  rpc OnClick (OnClickRequest) returns (OnClickResponse);
+  rpc OnDetachedFromWindow (OnDetachedFromWindowRequest) returns (OnDetachedFromWindowResponse);
+  rpc OnDraw (OnDrawRequest) returns (OnDrawResponse);
+  rpc OnHoverEvent (OnHoverEventRequest) returns (OnHoverEventResponse);
+  rpc OnMeasure (OnMeasureRequest) returns (OnMeasureResponse);
+  rpc OnSizeChanged (OnSizeChangedRequest) returns (OnSizeChangedResponse);
+  rpc OnTouchEvent (OnTouchEventRequest) returns (OnTouchEventResponse);
+  rpc SetKeyboard (SetKeyboardRequest) returns (SetKeyboardResponse);
+  rpc SetOnKeyboardActionListener (SetOnKeyboardActionListenerRequest) returns (SetOnKeyboardActionListenerResponse);
+  rpc SetPopupOffset (SetPopupOffsetRequest) returns (SetPopupOffsetResponse);
+  rpc SetPopupParent (SetPopupParentRequest) returns (SetPopupParentResponse);
+  rpc SetPreviewEnabled (SetPreviewEnabledRequest) returns (SetPreviewEnabledResponse);
+  rpc SetProximityCorrectionEnabled (SetProximityCorrectionEnabledRequest) returns (SetProximityCorrectionEnabledResponse);
+  rpc SetShifted (SetShiftedRequest) returns (SetShiftedResponse);
+  rpc SetVerticalCorrection (SetVerticalCorrectionRequest) returns (SetVerticalCorrectionResponse);
+}
+
+service KeyboardViewOnKeyboardActionListenerService {
+  rpc OnKey (OnKeyRequest) returns (OnKeyResponse);
+  rpc OnPress (OnPressRequest) returns (OnPressResponse);
+  rpc OnRelease (OnReleaseRequest) returns (OnReleaseResponse);
+  rpc OnText (OnTextRequest) returns (OnTextResponse);
+  rpc SwipeDown (SwipeDownRequest) returns (SwipeDownResponse);
+  rpc SwipeLeft (SwipeLeftRequest) returns (SwipeLeftResponse);
+  rpc SwipeRight (SwipeRightRequest) returns (SwipeRightResponse);
+  rpc SwipeUp (SwipeUpRequest) returns (SwipeUpResponse);
+}

@@ -249,6 +249,367 @@ var downloadManagerGetRecommendedMaxBytesOverMobileCmd = &cobra.Command{
 	},
 }
 
+var downloadManagerQuerySvcCmd = &cobra.Command{
+	Use:   "manager-query",
+	Short: "ManagerQueryService operations",
+}
+
+var downloadManagerQuerySvcSetFilterByIdCmd = &cobra.Command{
+	Use:   "set-filter-by-id",
+	Short: "SetFilterById RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerQueryServiceClient(grpcConn)
+		req := &pb.SetFilterByIdRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetFilterById(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var downloadManagerQuerySvcSetFilterByStatusCmd = &cobra.Command{
+	Use:   "set-filter-by-status",
+	Short: "SetFilterByStatus RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerQueryServiceClient(grpcConn)
+		req := &pb.SetFilterByStatusRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetFilterByStatus(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var downloadManagerRequestCmd = &cobra.Command{
+	Use:   "manager-request",
+	Short: "ManagerRequestService operations",
+}
+
+var downloadManagerRequestAddRequestHeaderCmd = &cobra.Command{
+	Use:   "add-request-header",
+	Short: "AddRequestHeader RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerRequestServiceClient(grpcConn)
+		req := &pb.AddRequestHeaderRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.AddRequestHeader(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var downloadManagerRequestAllowScanningByMediaScannerCmd = &cobra.Command{
+	Use:   "allow-scanning-by-media-scanner",
+	Short: "AllowScanningByMediaScanner RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerRequestServiceClient(grpcConn)
+		req := &pb.AllowScanningByMediaScannerRequest{}
+		resp, err := client.AllowScanningByMediaScanner(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var downloadManagerRequestSetAllowedNetworkTypesCmd = &cobra.Command{
+	Use:   "set-allowed-network-types",
+	Short: "SetAllowedNetworkTypes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerRequestServiceClient(grpcConn)
+		req := &pb.SetAllowedNetworkTypesRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetAllowedNetworkTypes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var downloadManagerRequestSetAllowedOverMeteredCmd = &cobra.Command{
+	Use:   "set-allowed-over-metered",
+	Short: "SetAllowedOverMetered RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerRequestServiceClient(grpcConn)
+		req := &pb.SetAllowedOverMeteredRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetAllowedOverMetered(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var downloadManagerRequestSetAllowedOverRoamingCmd = &cobra.Command{
+	Use:   "set-allowed-over-roaming",
+	Short: "SetAllowedOverRoaming RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerRequestServiceClient(grpcConn)
+		req := &pb.SetAllowedOverRoamingRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetAllowedOverRoaming(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var downloadManagerRequestSetDescriptionCmd = &cobra.Command{
+	Use:   "set-description",
+	Short: "SetDescription RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerRequestServiceClient(grpcConn)
+		req := &pb.SetDescriptionRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDescription(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var downloadManagerRequestSetDestinationInExternalFilesDirCmd = &cobra.Command{
+	Use:   "set-destination-in-external-files-dir",
+	Short: "SetDestinationInExternalFilesDir RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerRequestServiceClient(grpcConn)
+		req := &pb.SetDestinationInExternalFilesDirRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.SetDestinationInExternalFilesDir(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var downloadManagerRequestSetDestinationInExternalPublicDirCmd = &cobra.Command{
+	Use:   "set-destination-in-external-public-dir",
+	Short: "SetDestinationInExternalPublicDir RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerRequestServiceClient(grpcConn)
+		req := &pb.SetDestinationInExternalPublicDirRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetDestinationInExternalPublicDir(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var downloadManagerRequestSetDestinationUriCmd = &cobra.Command{
+	Use:   "set-destination-uri",
+	Short: "SetDestinationUri RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerRequestServiceClient(grpcConn)
+		req := &pb.SetDestinationUriRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDestinationUri(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var downloadManagerRequestSetMimeTypeCmd = &cobra.Command{
+	Use:   "set-mime-type",
+	Short: "SetMimeType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerRequestServiceClient(grpcConn)
+		req := &pb.SetMimeTypeRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetMimeType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var downloadManagerRequestSetNotificationVisibilityCmd = &cobra.Command{
+	Use:   "set-notification-visibility",
+	Short: "SetNotificationVisibility RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerRequestServiceClient(grpcConn)
+		req := &pb.SetNotificationVisibilityRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetNotificationVisibility(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var downloadManagerRequestSetRequiresChargingCmd = &cobra.Command{
+	Use:   "set-requires-charging",
+	Short: "SetRequiresCharging RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerRequestServiceClient(grpcConn)
+		req := &pb.SetRequiresChargingRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetRequiresCharging(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var downloadManagerRequestSetRequiresDeviceIdleCmd = &cobra.Command{
+	Use:   "set-requires-device-idle",
+	Short: "SetRequiresDeviceIdle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerRequestServiceClient(grpcConn)
+		req := &pb.SetRequiresDeviceIdleRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetRequiresDeviceIdle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var downloadManagerRequestSetShowRunningNotificationCmd = &cobra.Command{
+	Use:   "set-show-running-notification",
+	Short: "SetShowRunningNotification RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerRequestServiceClient(grpcConn)
+		req := &pb.SetShowRunningNotificationRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetShowRunningNotification(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var downloadManagerRequestSetTitleCmd = &cobra.Command{
+	Use:   "set-title",
+	Short: "SetTitle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerRequestServiceClient(grpcConn)
+		req := &pb.SetTitleRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetTitle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var downloadManagerRequestSetVisibleInDownloadsUiCmd = &cobra.Command{
+	Use:   "set-visible-in-downloads-ui",
+	Short: "SetVisibleInDownloadsUi RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerRequestServiceClient(grpcConn)
+		req := &pb.SetVisibleInDownloadsUiRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetVisibleInDownloadsUi(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 func init() {
 	downloadManagerAddCompletedDownload7Cmd.Flags().String("arg0", "", "arg0 (string)")
 	downloadManagerAddCompletedDownload7Cmd.Flags().String("arg1", "", "arg1 (string)")
@@ -285,5 +646,46 @@ func init() {
 	downloadManagerGetRecommendedMaxBytesOverMobileCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	downloadManagerCmd.AddCommand(downloadManagerGetRecommendedMaxBytesOverMobileCmd)
 	downloadCmd.AddCommand(downloadManagerCmd)
+	downloadManagerQuerySvcSetFilterByIdCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	downloadManagerQuerySvcCmd.AddCommand(downloadManagerQuerySvcSetFilterByIdCmd)
+	downloadManagerQuerySvcSetFilterByStatusCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	downloadManagerQuerySvcCmd.AddCommand(downloadManagerQuerySvcSetFilterByStatusCmd)
+	downloadCmd.AddCommand(downloadManagerQuerySvcCmd)
+	downloadManagerRequestAddRequestHeaderCmd.Flags().String("arg0", "", "arg0 (string)")
+	downloadManagerRequestAddRequestHeaderCmd.Flags().String("arg1", "", "arg1 (string)")
+	downloadManagerRequestCmd.AddCommand(downloadManagerRequestAddRequestHeaderCmd)
+	downloadManagerRequestCmd.AddCommand(downloadManagerRequestAllowScanningByMediaScannerCmd)
+	downloadManagerRequestSetAllowedNetworkTypesCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	downloadManagerRequestCmd.AddCommand(downloadManagerRequestSetAllowedNetworkTypesCmd)
+	downloadManagerRequestSetAllowedOverMeteredCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	downloadManagerRequestCmd.AddCommand(downloadManagerRequestSetAllowedOverMeteredCmd)
+	downloadManagerRequestSetAllowedOverRoamingCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	downloadManagerRequestCmd.AddCommand(downloadManagerRequestSetAllowedOverRoamingCmd)
+	downloadManagerRequestSetDescriptionCmd.Flags().String("arg0", "", "arg0 (string)")
+	downloadManagerRequestCmd.AddCommand(downloadManagerRequestSetDescriptionCmd)
+	downloadManagerRequestSetDestinationInExternalFilesDirCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	downloadManagerRequestSetDestinationInExternalFilesDirCmd.Flags().String("arg1", "", "arg1 (string)")
+	downloadManagerRequestSetDestinationInExternalFilesDirCmd.Flags().String("arg2", "", "arg2 (string)")
+	downloadManagerRequestCmd.AddCommand(downloadManagerRequestSetDestinationInExternalFilesDirCmd)
+	downloadManagerRequestSetDestinationInExternalPublicDirCmd.Flags().String("arg0", "", "arg0 (string)")
+	downloadManagerRequestSetDestinationInExternalPublicDirCmd.Flags().String("arg1", "", "arg1 (string)")
+	downloadManagerRequestCmd.AddCommand(downloadManagerRequestSetDestinationInExternalPublicDirCmd)
+	downloadManagerRequestSetDestinationUriCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	downloadManagerRequestCmd.AddCommand(downloadManagerRequestSetDestinationUriCmd)
+	downloadManagerRequestSetMimeTypeCmd.Flags().String("arg0", "", "arg0 (string)")
+	downloadManagerRequestCmd.AddCommand(downloadManagerRequestSetMimeTypeCmd)
+	downloadManagerRequestSetNotificationVisibilityCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	downloadManagerRequestCmd.AddCommand(downloadManagerRequestSetNotificationVisibilityCmd)
+	downloadManagerRequestSetRequiresChargingCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	downloadManagerRequestCmd.AddCommand(downloadManagerRequestSetRequiresChargingCmd)
+	downloadManagerRequestSetRequiresDeviceIdleCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	downloadManagerRequestCmd.AddCommand(downloadManagerRequestSetRequiresDeviceIdleCmd)
+	downloadManagerRequestSetShowRunningNotificationCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	downloadManagerRequestCmd.AddCommand(downloadManagerRequestSetShowRunningNotificationCmd)
+	downloadManagerRequestSetTitleCmd.Flags().String("arg0", "", "arg0 (string)")
+	downloadManagerRequestCmd.AddCommand(downloadManagerRequestSetTitleCmd)
+	downloadManagerRequestSetVisibleInDownloadsUiCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	downloadManagerRequestCmd.AddCommand(downloadManagerRequestSetVisibleInDownloadsUiCmd)
+	downloadCmd.AddCommand(downloadManagerRequestCmd)
 	rootCmd.AddCommand(downloadCmd)
 }

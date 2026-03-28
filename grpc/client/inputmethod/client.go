@@ -9,6 +9,4138 @@ import (
 	"google.golang.org/grpc"
 )
 
+// InsertGestureClient wraps the gRPC InsertGestureService client.
+type InsertGestureClient struct {
+	svc pb.InsertGestureServiceClient
+}
+
+// NewInsertGestureClient creates a new InsertGesture client.
+func NewInsertGestureClient(cc grpc.ClientConnInterface) *InsertGestureClient {
+	return &InsertGestureClient{
+		svc: pb.NewInsertGestureServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *InsertGestureClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *InsertGestureClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInsertionPoint calls the GetInsertionPoint RPC.
+func (c *InsertGestureClient) GetInsertionPoint(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetInsertionPoint(ctx, &pb.GetInsertionPointRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTextToInsert calls the GetTextToInsert RPC.
+func (c *InsertGestureClient) GetTextToInsert(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetTextToInsert(ctx, &pb.GetTextToInsertRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *InsertGestureClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *InsertGestureClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// InsertGestureBuilderClient wraps the gRPC InsertGestureBuilderService client.
+type InsertGestureBuilderClient struct {
+	svc pb.InsertGestureBuilderServiceClient
+}
+
+// NewInsertGestureBuilderClient creates a new InsertGestureBuilder client.
+func NewInsertGestureBuilderClient(cc grpc.ClientConnInterface) *InsertGestureBuilderClient {
+	return &InsertGestureBuilderClient{
+		svc: pb.NewInsertGestureBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *InsertGestureBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetFallbackText calls the SetFallbackText RPC.
+func (c *InsertGestureBuilderClient) SetFallbackText(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetFallbackText(ctx, &pb.SetFallbackTextRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetInsertionPoint calls the SetInsertionPoint RPC.
+func (c *InsertGestureBuilderClient) SetInsertionPoint(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetInsertionPoint(ctx, &pb.SetInsertionPointRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetTextToInsert calls the SetTextToInsert RPC.
+func (c *InsertGestureBuilderClient) SetTextToInsert(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetTextToInsert(ctx, &pb.SetTextToInsertRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// TextAttributeClient wraps the gRPC TextAttributeService client.
+type TextAttributeClient struct {
+	svc pb.TextAttributeServiceClient
+}
+
+// NewTextAttributeClient creates a new TextAttribute client.
+func NewTextAttributeClient(cc grpc.ClientConnInterface) *TextAttributeClient {
+	return &TextAttributeClient{
+		svc: pb.NewTextAttributeServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *TextAttributeClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExtras calls the GetExtras RPC.
+func (c *TextAttributeClient) GetExtras(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetExtras(ctx, &pb.GetExtrasRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *TextAttributeClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// TextAttributeBuilderClient wraps the gRPC TextAttributeBuilderService client.
+type TextAttributeBuilderClient struct {
+	svc pb.TextAttributeBuilderServiceClient
+}
+
+// NewTextAttributeBuilderClient creates a new TextAttributeBuilder client.
+func NewTextAttributeBuilderClient(cc grpc.ClientConnInterface) *TextAttributeBuilderClient {
+	return &TextAttributeBuilderClient{
+		svc: pb.NewTextAttributeBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *TextAttributeBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetExtras calls the SetExtras RPC.
+func (c *TextAttributeBuilderClient) SetExtras(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetExtras(ctx, &pb.SetExtrasRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// InputBindingClient wraps the gRPC InputBindingService client.
+type InputBindingClient struct {
+	svc pb.InputBindingServiceClient
+}
+
+// NewInputBindingClient creates a new InputBinding client.
+func NewInputBindingClient(cc grpc.ClientConnInterface) *InputBindingClient {
+	return &InputBindingClient{
+		svc: pb.NewInputBindingServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *InputBindingClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.InputBindingDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetConnection calls the GetConnection RPC.
+func (c *InputBindingClient) GetConnection(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetConnection(ctx, &pb.GetConnectionRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetConnectionToken calls the GetConnectionToken RPC.
+func (c *InputBindingClient) GetConnectionToken(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetConnectionToken(ctx, &pb.GetConnectionTokenRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPid calls the GetPid RPC.
+func (c *InputBindingClient) GetPid(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetPid(ctx, &pb.GetPidRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUid calls the GetUid RPC.
+func (c *InputBindingClient) GetUid(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetUid(ctx, &pb.GetUidRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *InputBindingClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *InputBindingClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.InputBindingWriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// InputMethodSessionClient wraps the gRPC InputMethodSessionService client.
+type InputMethodSessionClient struct {
+	svc pb.InputMethodSessionServiceClient
+}
+
+// NewInputMethodSessionClient creates a new InputMethodSession client.
+func NewInputMethodSessionClient(cc grpc.ClientConnInterface) *InputMethodSessionClient {
+	return &InputMethodSessionClient{
+		svc: pb.NewInputMethodSessionServiceClient(cc),
+	}
+}
+
+// AppPrivateCommand calls the AppPrivateCommand RPC.
+func (c *InputMethodSessionClient) AppPrivateCommand(ctx context.Context, arg0 string, arg1 int64) error {
+	_, err := c.svc.AppPrivateCommand(ctx, &pb.AppPrivateCommandRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// DispatchGenericMotionEvent calls the DispatchGenericMotionEvent RPC.
+func (c *InputMethodSessionClient) DispatchGenericMotionEvent(ctx context.Context, arg0 int32, arg1 int64, arg2 int64) error {
+	_, err := c.svc.DispatchGenericMotionEvent(ctx, &pb.DispatchGenericMotionEventRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// DispatchKeyEvent calls the DispatchKeyEvent RPC.
+func (c *InputMethodSessionClient) DispatchKeyEvent(ctx context.Context, arg0 int32, arg1 int64, arg2 int64) error {
+	_, err := c.svc.DispatchKeyEvent(ctx, &pb.DispatchKeyEventRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// DispatchTrackballEvent calls the DispatchTrackballEvent RPC.
+func (c *InputMethodSessionClient) DispatchTrackballEvent(ctx context.Context, arg0 int32, arg1 int64, arg2 int64) error {
+	_, err := c.svc.DispatchTrackballEvent(ctx, &pb.DispatchTrackballEventRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// DisplayCompletions calls the DisplayCompletions RPC.
+func (c *InputMethodSessionClient) DisplayCompletions(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.DisplayCompletions(ctx, &pb.DisplayCompletionsRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// FinishInput calls the FinishInput RPC.
+func (c *InputMethodSessionClient) FinishInput(ctx context.Context) error {
+	_, err := c.svc.FinishInput(ctx, &pb.FinishInputRequest{})
+	return err
+}
+
+// ToggleSoftInput calls the ToggleSoftInput RPC.
+func (c *InputMethodSessionClient) ToggleSoftInput(ctx context.Context, arg0 int32, arg1 int32) error {
+	_, err := c.svc.ToggleSoftInput(ctx, &pb.ToggleSoftInputRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// UpdateCursor calls the UpdateCursor RPC.
+func (c *InputMethodSessionClient) UpdateCursor(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.UpdateCursor(ctx, &pb.UpdateCursorRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// UpdateCursorAnchorInfo calls the UpdateCursorAnchorInfo RPC.
+func (c *InputMethodSessionClient) UpdateCursorAnchorInfo(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.UpdateCursorAnchorInfo(ctx, &pb.UpdateCursorAnchorInfoRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// UpdateExtractedText calls the UpdateExtractedText RPC.
+func (c *InputMethodSessionClient) UpdateExtractedText(ctx context.Context, arg0 int32, arg1 int64) error {
+	_, err := c.svc.UpdateExtractedText(ctx, &pb.UpdateExtractedTextRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// UpdateSelection calls the UpdateSelection RPC.
+func (c *InputMethodSessionClient) UpdateSelection(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int32) error {
+	_, err := c.svc.UpdateSelection(ctx, &pb.UpdateSelectionRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+	})
+	return err
+}
+
+// ViewClicked calls the ViewClicked RPC.
+func (c *InputMethodSessionClient) ViewClicked(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.ViewClicked(ctx, &pb.ViewClickedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// InputMethodSessionEventCallbackClient wraps the gRPC InputMethodSessionEventCallbackService client.
+type InputMethodSessionEventCallbackClient struct {
+	svc pb.InputMethodSessionEventCallbackServiceClient
+}
+
+// NewInputMethodSessionEventCallbackClient creates a new InputMethodSessionEventCallback client.
+func NewInputMethodSessionEventCallbackClient(cc grpc.ClientConnInterface) *InputMethodSessionEventCallbackClient {
+	return &InputMethodSessionEventCallbackClient{
+		svc: pb.NewInputMethodSessionEventCallbackServiceClient(cc),
+	}
+}
+
+// FinishedEvent calls the FinishedEvent RPC.
+func (c *InputMethodSessionEventCallbackClient) FinishedEvent(ctx context.Context, arg0 int32, arg1 bool) error {
+	_, err := c.svc.FinishedEvent(ctx, &pb.FinishedEventRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// InlineSuggestionInfoClient wraps the gRPC InlineSuggestionInfoService client.
+type InlineSuggestionInfoClient struct {
+	svc pb.InlineSuggestionInfoServiceClient
+}
+
+// NewInlineSuggestionInfoClient creates a new InlineSuggestionInfo client.
+func NewInlineSuggestionInfoClient(cc grpc.ClientConnInterface) *InlineSuggestionInfoClient {
+	return &InlineSuggestionInfoClient{
+		svc: pb.NewInlineSuggestionInfoServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *InlineSuggestionInfoClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *InlineSuggestionInfoClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAutofillHints calls the GetAutofillHints RPC.
+func (c *InlineSuggestionInfoClient) GetAutofillHints(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAutofillHints(ctx, &pb.GetAutofillHintsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInlinePresentationSpec calls the GetInlinePresentationSpec RPC.
+func (c *InlineSuggestionInfoClient) GetInlinePresentationSpec(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetInlinePresentationSpec(ctx, &pb.GetInlinePresentationSpecRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSource calls the GetSource RPC.
+func (c *InlineSuggestionInfoClient) GetSource(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetSource(ctx, &pb.GetSourceRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetType calls the GetType RPC.
+func (c *InlineSuggestionInfoClient) GetType(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetType(ctx, &pb.GetTypeRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *InlineSuggestionInfoClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsPinned calls the IsPinned RPC.
+func (c *InlineSuggestionInfoClient) IsPinned(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsPinned(ctx, &pb.IsPinnedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *InlineSuggestionInfoClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.InlineSuggestionInfoToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *InlineSuggestionInfoClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// SurroundingTextClient wraps the gRPC SurroundingTextService client.
+type SurroundingTextClient struct {
+	svc pb.SurroundingTextServiceClient
+}
+
+// NewSurroundingTextClient creates a new SurroundingText client.
+func NewSurroundingTextClient(cc grpc.ClientConnInterface) *SurroundingTextClient {
+	return &SurroundingTextClient{
+		svc: pb.NewSurroundingTextServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *SurroundingTextClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.SurroundingTextDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOffset calls the GetOffset RPC.
+func (c *SurroundingTextClient) GetOffset(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetOffset(ctx, &pb.GetOffsetRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSelectionEnd calls the GetSelectionEnd RPC.
+func (c *SurroundingTextClient) GetSelectionEnd(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetSelectionEnd(ctx, &pb.GetSelectionEndRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSelectionStart calls the GetSelectionStart RPC.
+func (c *SurroundingTextClient) GetSelectionStart(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetSelectionStart(ctx, &pb.GetSelectionStartRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetText calls the GetText RPC.
+func (c *SurroundingTextClient) GetText(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetText(ctx, &pb.GetTextRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *SurroundingTextClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.SurroundingTextWriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// InputMethodClient wraps the gRPC InputMethodService client.
+type InputMethodClient struct {
+	svc pb.InputMethodServiceClient
+}
+
+// NewInputMethodClient creates a new InputMethod client.
+func NewInputMethodClient(cc grpc.ClientConnInterface) *InputMethodClient {
+	return &InputMethodClient{
+		svc: pb.NewInputMethodServiceClient(cc),
+	}
+}
+
+// AttachToken calls the AttachToken RPC.
+func (c *InputMethodClient) AttachToken(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.AttachToken(ctx, &pb.AttachTokenRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// BindInput calls the BindInput RPC.
+func (c *InputMethodClient) BindInput(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.BindInput(ctx, &pb.BindInputRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ChangeInputMethodSubtype calls the ChangeInputMethodSubtype RPC.
+func (c *InputMethodClient) ChangeInputMethodSubtype(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.ChangeInputMethodSubtype(ctx, &pb.ChangeInputMethodSubtypeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// CreateSession calls the CreateSession RPC.
+func (c *InputMethodClient) CreateSession(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.CreateSession(ctx, &pb.CreateSessionRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// HideSoftInput calls the HideSoftInput RPC.
+func (c *InputMethodClient) HideSoftInput(ctx context.Context, arg0 int32, arg1 int64) error {
+	_, err := c.svc.HideSoftInput(ctx, &pb.HideSoftInputRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// RestartInput calls the RestartInput RPC.
+func (c *InputMethodClient) RestartInput(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.RestartInput(ctx, &pb.RestartInputRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// RevokeSession calls the RevokeSession RPC.
+func (c *InputMethodClient) RevokeSession(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.RevokeSession(ctx, &pb.RevokeSessionRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetSessionEnabled calls the SetSessionEnabled RPC.
+func (c *InputMethodClient) SetSessionEnabled(ctx context.Context, arg0 int64, arg1 bool) error {
+	_, err := c.svc.SetSessionEnabled(ctx, &pb.SetSessionEnabledRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ShowSoftInput calls the ShowSoftInput RPC.
+func (c *InputMethodClient) ShowSoftInput(ctx context.Context, arg0 int32, arg1 int64) error {
+	_, err := c.svc.ShowSoftInput(ctx, &pb.ShowSoftInputRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// StartInput calls the StartInput RPC.
+func (c *InputMethodClient) StartInput(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.StartInput(ctx, &pb.StartInputRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// UnbindInput calls the UnbindInput RPC.
+func (c *InputMethodClient) UnbindInput(ctx context.Context) error {
+	_, err := c.svc.UnbindInput(ctx, &pb.UnbindInputRequest{})
+	return err
+}
+
+// InputMethodSessionCallbackClient wraps the gRPC InputMethodSessionCallbackService client.
+type InputMethodSessionCallbackClient struct {
+	svc pb.InputMethodSessionCallbackServiceClient
+}
+
+// NewInputMethodSessionCallbackClient creates a new InputMethodSessionCallback client.
+func NewInputMethodSessionCallbackClient(cc grpc.ClientConnInterface) *InputMethodSessionCallbackClient {
+	return &InputMethodSessionCallbackClient{
+		svc: pb.NewInputMethodSessionCallbackServiceClient(cc),
+	}
+}
+
+// SessionCreated calls the SessionCreated RPC.
+func (c *InputMethodSessionCallbackClient) SessionCreated(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SessionCreated(ctx, &pb.SessionCreatedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// TextBoundsInfoClient wraps the gRPC TextBoundsInfoService client.
+type TextBoundsInfoClient struct {
+	svc pb.TextBoundsInfoServiceClient
+}
+
+// NewTextBoundsInfoClient creates a new TextBoundsInfo client.
+func NewTextBoundsInfoClient(cc grpc.ClientConnInterface) *TextBoundsInfoClient {
+	return &TextBoundsInfoClient{
+		svc: pb.NewTextBoundsInfoServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *TextBoundsInfoClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCharacterBidiLevel calls the GetCharacterBidiLevel RPC.
+func (c *TextBoundsInfoClient) GetCharacterBidiLevel(ctx context.Context, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetCharacterBidiLevel(ctx, &pb.GetCharacterBidiLevelRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCharacterBounds calls the GetCharacterBounds RPC.
+func (c *TextBoundsInfoClient) GetCharacterBounds(ctx context.Context, arg0 int32, arg1 int64) error {
+	_, err := c.svc.GetCharacterBounds(ctx, &pb.GetCharacterBoundsRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// GetCharacterFlags calls the GetCharacterFlags RPC.
+func (c *TextBoundsInfoClient) GetCharacterFlags(ctx context.Context, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetCharacterFlags(ctx, &pb.GetCharacterFlagsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEndIndex calls the GetEndIndex RPC.
+func (c *TextBoundsInfoClient) GetEndIndex(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetEndIndex(ctx, &pb.GetEndIndexRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetGraphemeSegmentFinder calls the GetGraphemeSegmentFinder RPC.
+func (c *TextBoundsInfoClient) GetGraphemeSegmentFinder(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetGraphemeSegmentFinder(ctx, &pb.GetGraphemeSegmentFinderRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLineSegmentFinder calls the GetLineSegmentFinder RPC.
+func (c *TextBoundsInfoClient) GetLineSegmentFinder(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetLineSegmentFinder(ctx, &pb.GetLineSegmentFinderRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMatrix calls the GetMatrix RPC.
+func (c *TextBoundsInfoClient) GetMatrix(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.GetMatrix(ctx, &pb.GetMatrixRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// GetOffsetForPosition calls the GetOffsetForPosition RPC.
+func (c *TextBoundsInfoClient) GetOffsetForPosition(ctx context.Context, arg0 float32, arg1 float32) (int32, error) {
+	resp, err := c.svc.GetOffsetForPosition(ctx, &pb.GetOffsetForPositionRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRangeForRect calls the GetRangeForRect RPC.
+func (c *TextBoundsInfoClient) GetRangeForRect(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.GetRangeForRect(ctx, &pb.GetRangeForRectRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStartIndex calls the GetStartIndex RPC.
+func (c *TextBoundsInfoClient) GetStartIndex(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetStartIndex(ctx, &pb.GetStartIndexRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWordSegmentFinder calls the GetWordSegmentFinder RPC.
+func (c *TextBoundsInfoClient) GetWordSegmentFinder(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetWordSegmentFinder(ctx, &pb.GetWordSegmentFinderRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *TextBoundsInfoClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// TextBoundsInfoBuilderClient wraps the gRPC TextBoundsInfoBuilderService client.
+type TextBoundsInfoBuilderClient struct {
+	svc pb.TextBoundsInfoBuilderServiceClient
+}
+
+// NewTextBoundsInfoBuilderClient creates a new TextBoundsInfoBuilder client.
+func NewTextBoundsInfoBuilderClient(cc grpc.ClientConnInterface) *TextBoundsInfoBuilderClient {
+	return &TextBoundsInfoBuilderClient{
+		svc: pb.NewTextBoundsInfoBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *TextBoundsInfoBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Clear calls the Clear RPC.
+func (c *TextBoundsInfoBuilderClient) Clear(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Clear(ctx, &pb.ClearRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetCharacterBidiLevel calls the SetCharacterBidiLevel RPC.
+func (c *TextBoundsInfoBuilderClient) SetCharacterBidiLevel(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetCharacterBidiLevel(ctx, &pb.SetCharacterBidiLevelRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetCharacterBounds calls the SetCharacterBounds RPC.
+func (c *TextBoundsInfoBuilderClient) SetCharacterBounds(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetCharacterBounds(ctx, &pb.SetCharacterBoundsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetCharacterFlags calls the SetCharacterFlags RPC.
+func (c *TextBoundsInfoBuilderClient) SetCharacterFlags(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetCharacterFlags(ctx, &pb.SetCharacterFlagsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetGraphemeSegmentFinder calls the SetGraphemeSegmentFinder RPC.
+func (c *TextBoundsInfoBuilderClient) SetGraphemeSegmentFinder(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetGraphemeSegmentFinder(ctx, &pb.SetGraphemeSegmentFinderRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetLineSegmentFinder calls the SetLineSegmentFinder RPC.
+func (c *TextBoundsInfoBuilderClient) SetLineSegmentFinder(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetLineSegmentFinder(ctx, &pb.SetLineSegmentFinderRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetMatrix calls the SetMatrix RPC.
+func (c *TextBoundsInfoBuilderClient) SetMatrix(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetMatrix(ctx, &pb.SetMatrixRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetStartAndEnd calls the SetStartAndEnd RPC.
+func (c *TextBoundsInfoBuilderClient) SetStartAndEnd(ctx context.Context, arg0 int32, arg1 int32) (int64, error) {
+	resp, err := c.svc.SetStartAndEnd(ctx, &pb.SetStartAndEndRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetWordSegmentFinder calls the SetWordSegmentFinder RPC.
+func (c *TextBoundsInfoBuilderClient) SetWordSegmentFinder(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetWordSegmentFinder(ctx, &pb.SetWordSegmentFinderRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// InlineSuggestionsResponseClient wraps the gRPC InlineSuggestionsResponseService client.
+type InlineSuggestionsResponseClient struct {
+	svc pb.InlineSuggestionsResponseServiceClient
+}
+
+// NewInlineSuggestionsResponseClient creates a new InlineSuggestionsResponse client.
+func NewInlineSuggestionsResponseClient(cc grpc.ClientConnInterface) *InlineSuggestionsResponseClient {
+	return &InlineSuggestionsResponseClient{
+		svc: pb.NewInlineSuggestionsResponseServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *InlineSuggestionsResponseClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *InlineSuggestionsResponseClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *InlineSuggestionsResponseClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *InlineSuggestionsResponseClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.InlineSuggestionsResponseToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *InlineSuggestionsResponseClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// InputMethodSubtypeClient wraps the gRPC InputMethodSubtypeService client.
+type InputMethodSubtypeClient struct {
+	svc pb.InputMethodSubtypeServiceClient
+}
+
+// NewInputMethodSubtypeClient creates a new InputMethodSubtype client.
+func NewInputMethodSubtypeClient(cc grpc.ClientConnInterface) *InputMethodSubtypeClient {
+	return &InputMethodSubtypeClient{
+		svc: pb.NewInputMethodSubtypeServiceClient(cc),
+	}
+}
+
+// ContainsExtraValueKey calls the ContainsExtraValueKey RPC.
+func (c *InputMethodSubtypeClient) ContainsExtraValueKey(ctx context.Context, handle int64, arg0 string) (bool, error) {
+	resp, err := c.svc.ContainsExtraValueKey(ctx, &pb.ContainsExtraValueKeyRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *InputMethodSubtypeClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.InputMethodSubtypeDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *InputMethodSubtypeClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.InputMethodSubtypeEqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDisplayName calls the GetDisplayName RPC.
+func (c *InputMethodSubtypeClient) GetDisplayName(ctx context.Context, handle int64, arg0 int64, arg1 string, arg2 int64) (int64, error) {
+	resp, err := c.svc.GetDisplayName(ctx, &pb.GetDisplayNameRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExtraValue calls the GetExtraValue RPC.
+func (c *InputMethodSubtypeClient) GetExtraValue(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetExtraValue(ctx, &pb.GetExtraValueRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExtraValueOf calls the GetExtraValueOf RPC.
+func (c *InputMethodSubtypeClient) GetExtraValueOf(ctx context.Context, handle int64, arg0 string) (string, error) {
+	resp, err := c.svc.GetExtraValueOf(ctx, &pb.GetExtraValueOfRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIconResId calls the GetIconResId RPC.
+func (c *InputMethodSubtypeClient) GetIconResId(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetIconResId(ctx, &pb.GetIconResIdRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLanguageTag calls the GetLanguageTag RPC.
+func (c *InputMethodSubtypeClient) GetLanguageTag(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetLanguageTag(ctx, &pb.GetLanguageTagRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLayoutDisplayName calls the GetLayoutDisplayName RPC.
+func (c *InputMethodSubtypeClient) GetLayoutDisplayName(ctx context.Context, handle int64, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.GetLayoutDisplayName(ctx, &pb.GetLayoutDisplayNameRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLayoutLabelNonLocalized calls the GetLayoutLabelNonLocalized RPC.
+func (c *InputMethodSubtypeClient) GetLayoutLabelNonLocalized(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetLayoutLabelNonLocalized(ctx, &pb.GetLayoutLabelNonLocalizedRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLayoutLabelResource calls the GetLayoutLabelResource RPC.
+func (c *InputMethodSubtypeClient) GetLayoutLabelResource(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetLayoutLabelResource(ctx, &pb.GetLayoutLabelResourceRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLocale calls the GetLocale RPC.
+func (c *InputMethodSubtypeClient) GetLocale(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetLocale(ctx, &pb.GetLocaleRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMode calls the GetMode RPC.
+func (c *InputMethodSubtypeClient) GetMode(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetMode(ctx, &pb.GetModeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNameOverride calls the GetNameOverride RPC.
+func (c *InputMethodSubtypeClient) GetNameOverride(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetNameOverride(ctx, &pb.GetNameOverrideRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNameResId calls the GetNameResId RPC.
+func (c *InputMethodSubtypeClient) GetNameResId(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetNameResId(ctx, &pb.GetNameResIdRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPhysicalKeyboardHintLanguageTag calls the GetPhysicalKeyboardHintLanguageTag RPC.
+func (c *InputMethodSubtypeClient) GetPhysicalKeyboardHintLanguageTag(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetPhysicalKeyboardHintLanguageTag(ctx, &pb.GetPhysicalKeyboardHintLanguageTagRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPhysicalKeyboardHintLayoutType calls the GetPhysicalKeyboardHintLayoutType RPC.
+func (c *InputMethodSubtypeClient) GetPhysicalKeyboardHintLayoutType(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetPhysicalKeyboardHintLayoutType(ctx, &pb.GetPhysicalKeyboardHintLayoutTypeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *InputMethodSubtypeClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.InputMethodSubtypeHashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsAsciiCapable calls the IsAsciiCapable RPC.
+func (c *InputMethodSubtypeClient) IsAsciiCapable(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsAsciiCapable(ctx, &pb.IsAsciiCapableRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsAuxiliary calls the IsAuxiliary RPC.
+func (c *InputMethodSubtypeClient) IsAuxiliary(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsAuxiliary(ctx, &pb.IsAuxiliaryRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OverridesImplicitlyEnabledSubtype calls the OverridesImplicitlyEnabledSubtype RPC.
+func (c *InputMethodSubtypeClient) OverridesImplicitlyEnabledSubtype(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.OverridesImplicitlyEnabledSubtype(ctx, &pb.OverridesImplicitlyEnabledSubtypeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *InputMethodSubtypeClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.InputMethodSubtypeWriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// InputMethodSubtypeInputMethodSubtypeBuilderClient wraps the gRPC InputMethodSubtypeInputMethodSubtypeBuilderService client.
+type InputMethodSubtypeInputMethodSubtypeBuilderClient struct {
+	svc pb.InputMethodSubtypeInputMethodSubtypeBuilderServiceClient
+}
+
+// NewInputMethodSubtypeInputMethodSubtypeBuilderClient creates a new InputMethodSubtypeInputMethodSubtypeBuilder client.
+func NewInputMethodSubtypeInputMethodSubtypeBuilderClient(cc grpc.ClientConnInterface) *InputMethodSubtypeInputMethodSubtypeBuilderClient {
+	return &InputMethodSubtypeInputMethodSubtypeBuilderClient{
+		svc: pb.NewInputMethodSubtypeInputMethodSubtypeBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *InputMethodSubtypeInputMethodSubtypeBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetIsAsciiCapable calls the SetIsAsciiCapable RPC.
+func (c *InputMethodSubtypeInputMethodSubtypeBuilderClient) SetIsAsciiCapable(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetIsAsciiCapable(ctx, &pb.SetIsAsciiCapableRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetIsAuxiliary calls the SetIsAuxiliary RPC.
+func (c *InputMethodSubtypeInputMethodSubtypeBuilderClient) SetIsAuxiliary(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetIsAuxiliary(ctx, &pb.SetIsAuxiliaryRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetLanguageTag calls the SetLanguageTag RPC.
+func (c *InputMethodSubtypeInputMethodSubtypeBuilderClient) SetLanguageTag(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetLanguageTag(ctx, &pb.SetLanguageTagRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetLayoutLabelNonLocalized calls the SetLayoutLabelNonLocalized RPC.
+func (c *InputMethodSubtypeInputMethodSubtypeBuilderClient) SetLayoutLabelNonLocalized(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetLayoutLabelNonLocalized(ctx, &pb.SetLayoutLabelNonLocalizedRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetLayoutLabelResource calls the SetLayoutLabelResource RPC.
+func (c *InputMethodSubtypeInputMethodSubtypeBuilderClient) SetLayoutLabelResource(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetLayoutLabelResource(ctx, &pb.SetLayoutLabelResourceRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetOverridesImplicitlyEnabledSubtype calls the SetOverridesImplicitlyEnabledSubtype RPC.
+func (c *InputMethodSubtypeInputMethodSubtypeBuilderClient) SetOverridesImplicitlyEnabledSubtype(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetOverridesImplicitlyEnabledSubtype(ctx, &pb.SetOverridesImplicitlyEnabledSubtypeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPhysicalKeyboardHint calls the SetPhysicalKeyboardHint RPC.
+func (c *InputMethodSubtypeInputMethodSubtypeBuilderClient) SetPhysicalKeyboardHint(ctx context.Context, arg0 int64, arg1 string) (int64, error) {
+	resp, err := c.svc.SetPhysicalKeyboardHint(ctx, &pb.SetPhysicalKeyboardHintRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSubtypeExtraValue calls the SetSubtypeExtraValue RPC.
+func (c *InputMethodSubtypeInputMethodSubtypeBuilderClient) SetSubtypeExtraValue(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetSubtypeExtraValue(ctx, &pb.SetSubtypeExtraValueRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSubtypeIconResId calls the SetSubtypeIconResId RPC.
+func (c *InputMethodSubtypeInputMethodSubtypeBuilderClient) SetSubtypeIconResId(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetSubtypeIconResId(ctx, &pb.SetSubtypeIconResIdRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSubtypeId calls the SetSubtypeId RPC.
+func (c *InputMethodSubtypeInputMethodSubtypeBuilderClient) SetSubtypeId(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetSubtypeId(ctx, &pb.SetSubtypeIdRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSubtypeLocale calls the SetSubtypeLocale RPC.
+func (c *InputMethodSubtypeInputMethodSubtypeBuilderClient) SetSubtypeLocale(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetSubtypeLocale(ctx, &pb.SetSubtypeLocaleRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSubtypeMode calls the SetSubtypeMode RPC.
+func (c *InputMethodSubtypeInputMethodSubtypeBuilderClient) SetSubtypeMode(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetSubtypeMode(ctx, &pb.SetSubtypeModeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSubtypeNameOverride calls the SetSubtypeNameOverride RPC.
+func (c *InputMethodSubtypeInputMethodSubtypeBuilderClient) SetSubtypeNameOverride(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetSubtypeNameOverride(ctx, &pb.SetSubtypeNameOverrideRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSubtypeNameResId calls the SetSubtypeNameResId RPC.
+func (c *InputMethodSubtypeInputMethodSubtypeBuilderClient) SetSubtypeNameResId(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetSubtypeNameResId(ctx, &pb.SetSubtypeNameResIdRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RemoveSpaceGestureClient wraps the gRPC RemoveSpaceGestureService client.
+type RemoveSpaceGestureClient struct {
+	svc pb.RemoveSpaceGestureServiceClient
+}
+
+// NewRemoveSpaceGestureClient creates a new RemoveSpaceGesture client.
+func NewRemoveSpaceGestureClient(cc grpc.ClientConnInterface) *RemoveSpaceGestureClient {
+	return &RemoveSpaceGestureClient{
+		svc: pb.NewRemoveSpaceGestureServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *RemoveSpaceGestureClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *RemoveSpaceGestureClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEndPoint calls the GetEndPoint RPC.
+func (c *RemoveSpaceGestureClient) GetEndPoint(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetEndPoint(ctx, &pb.GetEndPointRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStartPoint calls the GetStartPoint RPC.
+func (c *RemoveSpaceGestureClient) GetStartPoint(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetStartPoint(ctx, &pb.GetStartPointRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *RemoveSpaceGestureClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *RemoveSpaceGestureClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// RemoveSpaceGestureBuilderClient wraps the gRPC RemoveSpaceGestureBuilderService client.
+type RemoveSpaceGestureBuilderClient struct {
+	svc pb.RemoveSpaceGestureBuilderServiceClient
+}
+
+// NewRemoveSpaceGestureBuilderClient creates a new RemoveSpaceGestureBuilder client.
+func NewRemoveSpaceGestureBuilderClient(cc grpc.ClientConnInterface) *RemoveSpaceGestureBuilderClient {
+	return &RemoveSpaceGestureBuilderClient{
+		svc: pb.NewRemoveSpaceGestureBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *RemoveSpaceGestureBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetFallbackText calls the SetFallbackText RPC.
+func (c *RemoveSpaceGestureBuilderClient) SetFallbackText(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetFallbackText(ctx, &pb.SetFallbackTextRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPoints calls the SetPoints RPC.
+func (c *RemoveSpaceGestureBuilderClient) SetPoints(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.SetPoints(ctx, &pb.SetPointsRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// InputMethodInfoClient wraps the gRPC InputMethodInfoService client.
+type InputMethodInfoClient struct {
+	svc pb.InputMethodInfoServiceClient
+}
+
+// NewInputMethodInfoClient creates a new InputMethodInfo client.
+func NewInputMethodInfoClient(cc grpc.ClientConnInterface) *InputMethodInfoClient {
+	return &InputMethodInfoClient{
+		svc: pb.NewInputMethodInfoServiceClient(cc),
+	}
+}
+
+// CreateImeLanguageSettingsActivityIntent calls the CreateImeLanguageSettingsActivityIntent RPC.
+func (c *InputMethodInfoClient) CreateImeLanguageSettingsActivityIntent(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.CreateImeLanguageSettingsActivityIntent(ctx, &pb.CreateImeLanguageSettingsActivityIntentRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateStylusHandwritingSettingsActivityIntent calls the CreateStylusHandwritingSettingsActivityIntent RPC.
+func (c *InputMethodInfoClient) CreateStylusHandwritingSettingsActivityIntent(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.CreateStylusHandwritingSettingsActivityIntent(ctx, &pb.CreateStylusHandwritingSettingsActivityIntentRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *InputMethodInfoClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.InputMethodInfoDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Dump calls the Dump RPC.
+func (c *InputMethodInfoClient) Dump(ctx context.Context, handle int64, arg0 int64, arg1 string) error {
+	_, err := c.svc.Dump(ctx, &pb.DumpRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// Equals calls the Equals RPC.
+func (c *InputMethodInfoClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.InputMethodInfoEqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetComponent calls the GetComponent RPC.
+func (c *InputMethodInfoClient) GetComponent(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetComponent(ctx, &pb.GetComponentRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetConfigChanges calls the GetConfigChanges RPC.
+func (c *InputMethodInfoClient) GetConfigChanges(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetConfigChanges(ctx, &pb.GetConfigChangesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetId calls the GetId RPC.
+func (c *InputMethodInfoClient) GetId(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIsDefaultResourceId calls the GetIsDefaultResourceId RPC.
+func (c *InputMethodInfoClient) GetIsDefaultResourceId(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetIsDefaultResourceId(ctx, &pb.GetIsDefaultResourceIdRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPackageName calls the GetPackageName RPC.
+func (c *InputMethodInfoClient) GetPackageName(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetPackageName(ctx, &pb.GetPackageNameRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetServiceInfo calls the GetServiceInfo RPC.
+func (c *InputMethodInfoClient) GetServiceInfo(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetServiceInfo(ctx, &pb.GetServiceInfoRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetServiceName calls the GetServiceName RPC.
+func (c *InputMethodInfoClient) GetServiceName(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetServiceName(ctx, &pb.GetServiceNameRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSettingsActivity calls the GetSettingsActivity RPC.
+func (c *InputMethodInfoClient) GetSettingsActivity(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetSettingsActivity(ctx, &pb.GetSettingsActivityRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSubtypeAt calls the GetSubtypeAt RPC.
+func (c *InputMethodInfoClient) GetSubtypeAt(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetSubtypeAt(ctx, &pb.GetSubtypeAtRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSubtypeCount calls the GetSubtypeCount RPC.
+func (c *InputMethodInfoClient) GetSubtypeCount(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetSubtypeCount(ctx, &pb.GetSubtypeCountRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *InputMethodInfoClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.InputMethodInfoHashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// LoadIcon calls the LoadIcon RPC.
+func (c *InputMethodInfoClient) LoadIcon(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.LoadIcon(ctx, &pb.LoadIconRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// LoadLabel calls the LoadLabel RPC.
+func (c *InputMethodInfoClient) LoadLabel(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.LoadLabel(ctx, &pb.LoadLabelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ShouldShowInInputMethodPicker calls the ShouldShowInInputMethodPicker RPC.
+func (c *InputMethodInfoClient) ShouldShowInInputMethodPicker(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.ShouldShowInInputMethodPicker(ctx, &pb.ShouldShowInInputMethodPickerRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SupportsConnectionlessStylusHandwriting calls the SupportsConnectionlessStylusHandwriting RPC.
+func (c *InputMethodInfoClient) SupportsConnectionlessStylusHandwriting(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.SupportsConnectionlessStylusHandwriting(ctx, &pb.SupportsConnectionlessStylusHandwritingRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SupportsStylusHandwriting calls the SupportsStylusHandwriting RPC.
+func (c *InputMethodInfoClient) SupportsStylusHandwriting(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.SupportsStylusHandwriting(ctx, &pb.SupportsStylusHandwritingRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SuppressesSpellChecker calls the SuppressesSpellChecker RPC.
+func (c *InputMethodInfoClient) SuppressesSpellChecker(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.SuppressesSpellChecker(ctx, &pb.SuppressesSpellCheckerRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *InputMethodInfoClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *InputMethodInfoClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.InputMethodInfoWriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// ConnectionlessHandwritingCallbackClient wraps the gRPC ConnectionlessHandwritingCallbackService client.
+type ConnectionlessHandwritingCallbackClient struct {
+	svc pb.ConnectionlessHandwritingCallbackServiceClient
+}
+
+// NewConnectionlessHandwritingCallbackClient creates a new ConnectionlessHandwritingCallback client.
+func NewConnectionlessHandwritingCallbackClient(cc grpc.ClientConnInterface) *ConnectionlessHandwritingCallbackClient {
+	return &ConnectionlessHandwritingCallbackClient{
+		svc: pb.NewConnectionlessHandwritingCallbackServiceClient(cc),
+	}
+}
+
+// OnError calls the OnError RPC.
+func (c *ConnectionlessHandwritingCallbackClient) OnError(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.OnError(ctx, &pb.OnErrorRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnResult calls the OnResult RPC.
+func (c *ConnectionlessHandwritingCallbackClient) OnResult(ctx context.Context, arg0 string) error {
+	_, err := c.svc.OnResult(ctx, &pb.OnResultRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// DeleteRangeGestureClient wraps the gRPC DeleteRangeGestureService client.
+type DeleteRangeGestureClient struct {
+	svc pb.DeleteRangeGestureServiceClient
+}
+
+// NewDeleteRangeGestureClient creates a new DeleteRangeGesture client.
+func NewDeleteRangeGestureClient(cc grpc.ClientConnInterface) *DeleteRangeGestureClient {
+	return &DeleteRangeGestureClient{
+		svc: pb.NewDeleteRangeGestureServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *DeleteRangeGestureClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *DeleteRangeGestureClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDeletionEndArea calls the GetDeletionEndArea RPC.
+func (c *DeleteRangeGestureClient) GetDeletionEndArea(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDeletionEndArea(ctx, &pb.GetDeletionEndAreaRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDeletionStartArea calls the GetDeletionStartArea RPC.
+func (c *DeleteRangeGestureClient) GetDeletionStartArea(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDeletionStartArea(ctx, &pb.GetDeletionStartAreaRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetGranularity calls the GetGranularity RPC.
+func (c *DeleteRangeGestureClient) GetGranularity(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetGranularity(ctx, &pb.GetGranularityRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *DeleteRangeGestureClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *DeleteRangeGestureClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// DeleteRangeGestureBuilderClient wraps the gRPC DeleteRangeGestureBuilderService client.
+type DeleteRangeGestureBuilderClient struct {
+	svc pb.DeleteRangeGestureBuilderServiceClient
+}
+
+// NewDeleteRangeGestureBuilderClient creates a new DeleteRangeGestureBuilder client.
+func NewDeleteRangeGestureBuilderClient(cc grpc.ClientConnInterface) *DeleteRangeGestureBuilderClient {
+	return &DeleteRangeGestureBuilderClient{
+		svc: pb.NewDeleteRangeGestureBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *DeleteRangeGestureBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetDeletionEndArea calls the SetDeletionEndArea RPC.
+func (c *DeleteRangeGestureBuilderClient) SetDeletionEndArea(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetDeletionEndArea(ctx, &pb.SetDeletionEndAreaRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetDeletionStartArea calls the SetDeletionStartArea RPC.
+func (c *DeleteRangeGestureBuilderClient) SetDeletionStartArea(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetDeletionStartArea(ctx, &pb.SetDeletionStartAreaRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetFallbackText calls the SetFallbackText RPC.
+func (c *DeleteRangeGestureBuilderClient) SetFallbackText(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetFallbackText(ctx, &pb.SetFallbackTextRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetGranularity calls the SetGranularity RPC.
+func (c *DeleteRangeGestureBuilderClient) SetGranularity(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetGranularity(ctx, &pb.SetGranularityRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// BaseInputConnectionClient wraps the gRPC BaseInputConnectionService client.
+type BaseInputConnectionClient struct {
+	svc pb.BaseInputConnectionServiceClient
+}
+
+// NewBaseInputConnectionClient creates a new BaseInputConnection client.
+func NewBaseInputConnectionClient(cc grpc.ClientConnInterface) *BaseInputConnectionClient {
+	return &BaseInputConnectionClient{
+		svc: pb.NewBaseInputConnectionServiceClient(cc),
+	}
+}
+
+// BeginBatchEdit calls the BeginBatchEdit RPC.
+func (c *BaseInputConnectionClient) BeginBatchEdit(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.BeginBatchEdit(ctx, &pb.BeginBatchEditRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearMetaKeyStates calls the ClearMetaKeyStates RPC.
+func (c *BaseInputConnectionClient) ClearMetaKeyStates(ctx context.Context, handle int64, arg0 int32) (bool, error) {
+	resp, err := c.svc.ClearMetaKeyStates(ctx, &pb.ClearMetaKeyStatesRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CloseConnection calls the CloseConnection RPC.
+func (c *BaseInputConnectionClient) CloseConnection(ctx context.Context, handle int64) error {
+	_, err := c.svc.CloseConnection(ctx, &pb.CloseConnectionRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// CommitCompletion calls the CommitCompletion RPC.
+func (c *BaseInputConnectionClient) CommitCompletion(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.CommitCompletion(ctx, &pb.CommitCompletionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CommitContent calls the CommitContent RPC.
+func (c *BaseInputConnectionClient) CommitContent(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int64) (bool, error) {
+	resp, err := c.svc.CommitContent(ctx, &pb.CommitContentRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CommitCorrection calls the CommitCorrection RPC.
+func (c *BaseInputConnectionClient) CommitCorrection(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.CommitCorrection(ctx, &pb.CommitCorrectionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CommitText calls the CommitText RPC.
+func (c *BaseInputConnectionClient) CommitText(ctx context.Context, handle int64, arg0 string, arg1 int32) (bool, error) {
+	resp, err := c.svc.CommitText(ctx, &pb.CommitTextRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DeleteSurroundingText calls the DeleteSurroundingText RPC.
+func (c *BaseInputConnectionClient) DeleteSurroundingText(ctx context.Context, handle int64, arg0 int32, arg1 int32) (bool, error) {
+	resp, err := c.svc.DeleteSurroundingText(ctx, &pb.DeleteSurroundingTextRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DeleteSurroundingTextInCodePoints calls the DeleteSurroundingTextInCodePoints RPC.
+func (c *BaseInputConnectionClient) DeleteSurroundingTextInCodePoints(ctx context.Context, handle int64, arg0 int32, arg1 int32) (bool, error) {
+	resp, err := c.svc.DeleteSurroundingTextInCodePoints(ctx, &pb.DeleteSurroundingTextInCodePointsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// EndBatchEdit calls the EndBatchEdit RPC.
+func (c *BaseInputConnectionClient) EndBatchEdit(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.EndBatchEdit(ctx, &pb.EndBatchEditRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// FinishComposingText calls the FinishComposingText RPC.
+func (c *BaseInputConnectionClient) FinishComposingText(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.FinishComposingText(ctx, &pb.FinishComposingTextRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCursorCapsMode calls the GetCursorCapsMode RPC.
+func (c *BaseInputConnectionClient) GetCursorCapsMode(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetCursorCapsMode(ctx, &pb.GetCursorCapsModeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEditable calls the GetEditable RPC.
+func (c *BaseInputConnectionClient) GetEditable(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetEditable(ctx, &pb.GetEditableRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExtractedText calls the GetExtractedText RPC.
+func (c *BaseInputConnectionClient) GetExtractedText(ctx context.Context, handle int64, arg0 int64, arg1 int32) (int64, error) {
+	resp, err := c.svc.GetExtractedText(ctx, &pb.GetExtractedTextRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHandler calls the GetHandler RPC.
+func (c *BaseInputConnectionClient) GetHandler(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetHandler(ctx, &pb.GetHandlerRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSelectedText calls the GetSelectedText RPC.
+func (c *BaseInputConnectionClient) GetSelectedText(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetSelectedText(ctx, &pb.GetSelectedTextRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSurroundingText calls the GetSurroundingText RPC.
+func (c *BaseInputConnectionClient) GetSurroundingText(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32) (int64, error) {
+	resp, err := c.svc.GetSurroundingText(ctx, &pb.GetSurroundingTextRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTextAfterCursor calls the GetTextAfterCursor RPC.
+func (c *BaseInputConnectionClient) GetTextAfterCursor(ctx context.Context, handle int64, arg0 int32, arg1 int32) (int64, error) {
+	resp, err := c.svc.GetTextAfterCursor(ctx, &pb.GetTextAfterCursorRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTextBeforeCursor calls the GetTextBeforeCursor RPC.
+func (c *BaseInputConnectionClient) GetTextBeforeCursor(ctx context.Context, handle int64, arg0 int32, arg1 int32) (int64, error) {
+	resp, err := c.svc.GetTextBeforeCursor(ctx, &pb.GetTextBeforeCursorRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PerformContextMenuAction calls the PerformContextMenuAction RPC.
+func (c *BaseInputConnectionClient) PerformContextMenuAction(ctx context.Context, handle int64, arg0 int32) (bool, error) {
+	resp, err := c.svc.PerformContextMenuAction(ctx, &pb.PerformContextMenuActionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PerformEditorAction calls the PerformEditorAction RPC.
+func (c *BaseInputConnectionClient) PerformEditorAction(ctx context.Context, handle int64, arg0 int32) (bool, error) {
+	resp, err := c.svc.PerformEditorAction(ctx, &pb.PerformEditorActionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PerformPrivateCommand calls the PerformPrivateCommand RPC.
+func (c *BaseInputConnectionClient) PerformPrivateCommand(ctx context.Context, handle int64, arg0 string, arg1 int64) (bool, error) {
+	resp, err := c.svc.PerformPrivateCommand(ctx, &pb.PerformPrivateCommandRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ReplaceText calls the ReplaceText RPC.
+func (c *BaseInputConnectionClient) ReplaceText(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 string, arg3 int32, arg4 int64) (bool, error) {
+	resp, err := c.svc.ReplaceText(ctx, &pb.ReplaceTextRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ReportFullscreenMode calls the ReportFullscreenMode RPC.
+func (c *BaseInputConnectionClient) ReportFullscreenMode(ctx context.Context, handle int64, arg0 bool) (bool, error) {
+	resp, err := c.svc.ReportFullscreenMode(ctx, &pb.ReportFullscreenModeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RequestCursorUpdates calls the RequestCursorUpdates RPC.
+func (c *BaseInputConnectionClient) RequestCursorUpdates(ctx context.Context, handle int64, arg0 int32) (bool, error) {
+	resp, err := c.svc.RequestCursorUpdates(ctx, &pb.RequestCursorUpdatesRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SendKeyEvent calls the SendKeyEvent RPC.
+func (c *BaseInputConnectionClient) SendKeyEvent(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.SendKeyEvent(ctx, &pb.SendKeyEventRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetComposingRegion calls the SetComposingRegion RPC.
+func (c *BaseInputConnectionClient) SetComposingRegion(ctx context.Context, handle int64, arg0 int32, arg1 int32) (bool, error) {
+	resp, err := c.svc.SetComposingRegion(ctx, &pb.SetComposingRegionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetComposingText calls the SetComposingText RPC.
+func (c *BaseInputConnectionClient) SetComposingText(ctx context.Context, handle int64, arg0 string, arg1 int32) (bool, error) {
+	resp, err := c.svc.SetComposingText(ctx, &pb.SetComposingTextRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSelection calls the SetSelection RPC.
+func (c *BaseInputConnectionClient) SetSelection(ctx context.Context, handle int64, arg0 int32, arg1 int32) (bool, error) {
+	resp, err := c.svc.SetSelection(ctx, &pb.SetSelectionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// TakeSnapshot calls the TakeSnapshot RPC.
+func (c *BaseInputConnectionClient) TakeSnapshot(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.TakeSnapshot(ctx, &pb.TakeSnapshotRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetComposingSpanEnd calls the GetComposingSpanEnd RPC.
+func (c *BaseInputConnectionClient) GetComposingSpanEnd(ctx context.Context, handle int64, arg0 int64) (int32, error) {
+	resp, err := c.svc.GetComposingSpanEnd(ctx, &pb.GetComposingSpanEndRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetComposingSpanStart calls the GetComposingSpanStart RPC.
+func (c *BaseInputConnectionClient) GetComposingSpanStart(ctx context.Context, handle int64, arg0 int64) (int32, error) {
+	resp, err := c.svc.GetComposingSpanStart(ctx, &pb.GetComposingSpanStartRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RemoveComposingSpans calls the RemoveComposingSpans RPC.
+func (c *BaseInputConnectionClient) RemoveComposingSpans(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.RemoveComposingSpans(ctx, &pb.RemoveComposingSpansRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetComposingSpans calls the SetComposingSpans RPC.
+func (c *BaseInputConnectionClient) SetComposingSpans(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetComposingSpans(ctx, &pb.SetComposingSpansRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// InputContentInfoClient wraps the gRPC InputContentInfoService client.
+type InputContentInfoClient struct {
+	svc pb.InputContentInfoServiceClient
+}
+
+// NewInputContentInfoClient creates a new InputContentInfo client.
+func NewInputContentInfoClient(cc grpc.ClientConnInterface) *InputContentInfoClient {
+	return &InputContentInfoClient{
+		svc: pb.NewInputContentInfoServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *InputContentInfoClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.InputContentInfoDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetContentUri calls the GetContentUri RPC.
+func (c *InputContentInfoClient) GetContentUri(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetContentUri(ctx, &pb.GetContentUriRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDescription calls the GetDescription RPC.
+func (c *InputContentInfoClient) GetDescription(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetDescription(ctx, &pb.GetDescriptionRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLinkUri calls the GetLinkUri RPC.
+func (c *InputContentInfoClient) GetLinkUri(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetLinkUri(ctx, &pb.GetLinkUriRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ReleasePermission calls the ReleasePermission RPC.
+func (c *InputContentInfoClient) ReleasePermission(ctx context.Context, handle int64) error {
+	_, err := c.svc.ReleasePermission(ctx, &pb.ReleasePermissionRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// RequestPermission calls the RequestPermission RPC.
+func (c *InputContentInfoClient) RequestPermission(ctx context.Context, handle int64) error {
+	_, err := c.svc.RequestPermission(ctx, &pb.RequestPermissionRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *InputContentInfoClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.InputContentInfoWriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// CursorAnchorInfoClient wraps the gRPC CursorAnchorInfoService client.
+type CursorAnchorInfoClient struct {
+	svc pb.CursorAnchorInfoServiceClient
+}
+
+// NewCursorAnchorInfoClient creates a new CursorAnchorInfo client.
+func NewCursorAnchorInfoClient(cc grpc.ClientConnInterface) *CursorAnchorInfoClient {
+	return &CursorAnchorInfoClient{
+		svc: pb.NewCursorAnchorInfoServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *CursorAnchorInfoClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.CursorAnchorInfoDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *CursorAnchorInfoClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.CursorAnchorInfoEqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCharacterBounds calls the GetCharacterBounds RPC.
+func (c *CursorAnchorInfoClient) GetCharacterBounds(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetCharacterBounds(ctx, &pb.CursorAnchorInfoGetCharacterBoundsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCharacterBoundsFlags calls the GetCharacterBoundsFlags RPC.
+func (c *CursorAnchorInfoClient) GetCharacterBoundsFlags(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetCharacterBoundsFlags(ctx, &pb.GetCharacterBoundsFlagsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetComposingText calls the GetComposingText RPC.
+func (c *CursorAnchorInfoClient) GetComposingText(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetComposingText(ctx, &pb.GetComposingTextRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetComposingTextStart calls the GetComposingTextStart RPC.
+func (c *CursorAnchorInfoClient) GetComposingTextStart(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetComposingTextStart(ctx, &pb.GetComposingTextStartRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEditorBoundsInfo calls the GetEditorBoundsInfo RPC.
+func (c *CursorAnchorInfoClient) GetEditorBoundsInfo(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetEditorBoundsInfo(ctx, &pb.GetEditorBoundsInfoRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInsertionMarkerBaseline calls the GetInsertionMarkerBaseline RPC.
+func (c *CursorAnchorInfoClient) GetInsertionMarkerBaseline(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetInsertionMarkerBaseline(ctx, &pb.GetInsertionMarkerBaselineRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInsertionMarkerBottom calls the GetInsertionMarkerBottom RPC.
+func (c *CursorAnchorInfoClient) GetInsertionMarkerBottom(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetInsertionMarkerBottom(ctx, &pb.GetInsertionMarkerBottomRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInsertionMarkerFlags calls the GetInsertionMarkerFlags RPC.
+func (c *CursorAnchorInfoClient) GetInsertionMarkerFlags(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetInsertionMarkerFlags(ctx, &pb.GetInsertionMarkerFlagsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInsertionMarkerHorizontal calls the GetInsertionMarkerHorizontal RPC.
+func (c *CursorAnchorInfoClient) GetInsertionMarkerHorizontal(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetInsertionMarkerHorizontal(ctx, &pb.GetInsertionMarkerHorizontalRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInsertionMarkerTop calls the GetInsertionMarkerTop RPC.
+func (c *CursorAnchorInfoClient) GetInsertionMarkerTop(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetInsertionMarkerTop(ctx, &pb.GetInsertionMarkerTopRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMatrix calls the GetMatrix RPC.
+func (c *CursorAnchorInfoClient) GetMatrix(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetMatrix(ctx, &pb.CursorAnchorInfoGetMatrixRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSelectionEnd calls the GetSelectionEnd RPC.
+func (c *CursorAnchorInfoClient) GetSelectionEnd(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetSelectionEnd(ctx, &pb.GetSelectionEndRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSelectionStart calls the GetSelectionStart RPC.
+func (c *CursorAnchorInfoClient) GetSelectionStart(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetSelectionStart(ctx, &pb.GetSelectionStartRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTextAppearanceInfo calls the GetTextAppearanceInfo RPC.
+func (c *CursorAnchorInfoClient) GetTextAppearanceInfo(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetTextAppearanceInfo(ctx, &pb.GetTextAppearanceInfoRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *CursorAnchorInfoClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.CursorAnchorInfoHashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *CursorAnchorInfoClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *CursorAnchorInfoClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.CursorAnchorInfoWriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// CursorAnchorInfoBuilderClient wraps the gRPC CursorAnchorInfoBuilderService client.
+type CursorAnchorInfoBuilderClient struct {
+	svc pb.CursorAnchorInfoBuilderServiceClient
+}
+
+// NewCursorAnchorInfoBuilderClient creates a new CursorAnchorInfoBuilder client.
+func NewCursorAnchorInfoBuilderClient(cc grpc.ClientConnInterface) *CursorAnchorInfoBuilderClient {
+	return &CursorAnchorInfoBuilderClient{
+		svc: pb.NewCursorAnchorInfoBuilderServiceClient(cc),
+	}
+}
+
+// AddCharacterBounds calls the AddCharacterBounds RPC.
+func (c *CursorAnchorInfoBuilderClient) AddCharacterBounds(ctx context.Context, arg0 int32, arg1 float32, arg2 float32, arg3 float32, arg4 float32, arg5 int32) (int64, error) {
+	resp, err := c.svc.AddCharacterBounds(ctx, &pb.AddCharacterBoundsRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddVisibleLineBounds calls the AddVisibleLineBounds RPC.
+func (c *CursorAnchorInfoBuilderClient) AddVisibleLineBounds(ctx context.Context, arg0 float32, arg1 float32, arg2 float32, arg3 float32) (int64, error) {
+	resp, err := c.svc.AddVisibleLineBounds(ctx, &pb.AddVisibleLineBoundsRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Build calls the Build RPC.
+func (c *CursorAnchorInfoBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearVisibleLineBounds calls the ClearVisibleLineBounds RPC.
+func (c *CursorAnchorInfoBuilderClient) ClearVisibleLineBounds(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearVisibleLineBounds(ctx, &pb.ClearVisibleLineBoundsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Reset calls the Reset RPC.
+func (c *CursorAnchorInfoBuilderClient) Reset(ctx context.Context) error {
+	_, err := c.svc.Reset(ctx, &pb.ResetRequest{})
+	return err
+}
+
+// SetComposingText calls the SetComposingText RPC.
+func (c *CursorAnchorInfoBuilderClient) SetComposingText(ctx context.Context, arg0 int32, arg1 string) (int64, error) {
+	resp, err := c.svc.SetComposingText(ctx, &pb.CursorAnchorInfoBuilderSetComposingTextRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetEditorBoundsInfo calls the SetEditorBoundsInfo RPC.
+func (c *CursorAnchorInfoBuilderClient) SetEditorBoundsInfo(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetEditorBoundsInfo(ctx, &pb.SetEditorBoundsInfoRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetInsertionMarkerLocation calls the SetInsertionMarkerLocation RPC.
+func (c *CursorAnchorInfoBuilderClient) SetInsertionMarkerLocation(ctx context.Context, arg0 float32, arg1 float32, arg2 float32, arg3 float32, arg4 int32) (int64, error) {
+	resp, err := c.svc.SetInsertionMarkerLocation(ctx, &pb.SetInsertionMarkerLocationRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetMatrix calls the SetMatrix RPC.
+func (c *CursorAnchorInfoBuilderClient) SetMatrix(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetMatrix(ctx, &pb.SetMatrixRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSelectionRange calls the SetSelectionRange RPC.
+func (c *CursorAnchorInfoBuilderClient) SetSelectionRange(ctx context.Context, arg0 int32, arg1 int32) (int64, error) {
+	resp, err := c.svc.SetSelectionRange(ctx, &pb.SetSelectionRangeRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetTextAppearanceInfo calls the SetTextAppearanceInfo RPC.
+func (c *CursorAnchorInfoBuilderClient) SetTextAppearanceInfo(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetTextAppearanceInfo(ctx, &pb.SetTextAppearanceInfoRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ExtractedTextRequestClient wraps the gRPC ExtractedTextRequestService client.
+type ExtractedTextRequestClient struct {
+	svc pb.ExtractedTextRequestServiceClient
+}
+
+// NewExtractedTextRequestClient creates a new ExtractedTextRequest client.
+func NewExtractedTextRequestClient(cc grpc.ClientConnInterface) *ExtractedTextRequestClient {
+	return &ExtractedTextRequestClient{
+		svc: pb.NewExtractedTextRequestServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ExtractedTextRequestClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.ExtractedTextRequestDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ExtractedTextRequestClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.ExtractedTextRequestWriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// CompletionInfoClient wraps the gRPC CompletionInfoService client.
+type CompletionInfoClient struct {
+	svc pb.CompletionInfoServiceClient
+}
+
+// NewCompletionInfoClient creates a new CompletionInfo client.
+func NewCompletionInfoClient(cc grpc.ClientConnInterface) *CompletionInfoClient {
+	return &CompletionInfoClient{
+		svc: pb.NewCompletionInfoServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *CompletionInfoClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.CompletionInfoDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetId calls the GetId RPC.
+func (c *CompletionInfoClient) GetId(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLabel calls the GetLabel RPC.
+func (c *CompletionInfoClient) GetLabel(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetLabel(ctx, &pb.GetLabelRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPosition calls the GetPosition RPC.
+func (c *CompletionInfoClient) GetPosition(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetPosition(ctx, &pb.GetPositionRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetText calls the GetText RPC.
+func (c *CompletionInfoClient) GetText(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetText(ctx, &pb.GetTextRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *CompletionInfoClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *CompletionInfoClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.CompletionInfoWriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SelectGestureClient wraps the gRPC SelectGestureService client.
+type SelectGestureClient struct {
+	svc pb.SelectGestureServiceClient
+}
+
+// NewSelectGestureClient creates a new SelectGesture client.
+func NewSelectGestureClient(cc grpc.ClientConnInterface) *SelectGestureClient {
+	return &SelectGestureClient{
+		svc: pb.NewSelectGestureServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *SelectGestureClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *SelectGestureClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetGranularity calls the GetGranularity RPC.
+func (c *SelectGestureClient) GetGranularity(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetGranularity(ctx, &pb.GetGranularityRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSelectionArea calls the GetSelectionArea RPC.
+func (c *SelectGestureClient) GetSelectionArea(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSelectionArea(ctx, &pb.GetSelectionAreaRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *SelectGestureClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *SelectGestureClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// SelectGestureBuilderClient wraps the gRPC SelectGestureBuilderService client.
+type SelectGestureBuilderClient struct {
+	svc pb.SelectGestureBuilderServiceClient
+}
+
+// NewSelectGestureBuilderClient creates a new SelectGestureBuilder client.
+func NewSelectGestureBuilderClient(cc grpc.ClientConnInterface) *SelectGestureBuilderClient {
+	return &SelectGestureBuilderClient{
+		svc: pb.NewSelectGestureBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *SelectGestureBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetFallbackText calls the SetFallbackText RPC.
+func (c *SelectGestureBuilderClient) SetFallbackText(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetFallbackText(ctx, &pb.SetFallbackTextRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetGranularity calls the SetGranularity RPC.
+func (c *SelectGestureBuilderClient) SetGranularity(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetGranularity(ctx, &pb.SetGranularityRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSelectionArea calls the SetSelectionArea RPC.
+func (c *SelectGestureBuilderClient) SetSelectionArea(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetSelectionArea(ctx, &pb.SetSelectionAreaRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// InlineSuggestionClient wraps the gRPC InlineSuggestionService client.
+type InlineSuggestionClient struct {
+	svc pb.InlineSuggestionServiceClient
+}
+
+// NewInlineSuggestionClient creates a new InlineSuggestion client.
+func NewInlineSuggestionClient(cc grpc.ClientConnInterface) *InlineSuggestionClient {
+	return &InlineSuggestionClient{
+		svc: pb.NewInlineSuggestionServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *InlineSuggestionClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *InlineSuggestionClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInfo calls the GetInfo RPC.
+func (c *InlineSuggestionClient) GetInfo(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetInfo(ctx, &pb.GetInfoRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *InlineSuggestionClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *InlineSuggestionClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.InlineSuggestionToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *InlineSuggestionClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// TextBoundsInfoResultClient wraps the gRPC TextBoundsInfoResultService client.
+type TextBoundsInfoResultClient struct {
+	svc pb.TextBoundsInfoResultServiceClient
+}
+
+// NewTextBoundsInfoResultClient creates a new TextBoundsInfoResult client.
+func NewTextBoundsInfoResultClient(cc grpc.ClientConnInterface) *TextBoundsInfoResultClient {
+	return &TextBoundsInfoResultClient{
+		svc: pb.NewTextBoundsInfoResultServiceClient(cc),
+	}
+}
+
+// GetResultCode calls the GetResultCode RPC.
+func (c *TextBoundsInfoResultClient) GetResultCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetResultCode(ctx, &pb.GetResultCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTextBoundsInfo calls the GetTextBoundsInfo RPC.
+func (c *TextBoundsInfoResultClient) GetTextBoundsInfo(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetTextBoundsInfo(ctx, &pb.GetTextBoundsInfoRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// InputConnectionClient wraps the gRPC InputConnectionService client.
+type InputConnectionClient struct {
+	svc pb.InputConnectionServiceClient
+}
+
+// NewInputConnectionClient creates a new InputConnection client.
+func NewInputConnectionClient(cc grpc.ClientConnInterface) *InputConnectionClient {
+	return &InputConnectionClient{
+		svc: pb.NewInputConnectionServiceClient(cc),
+	}
+}
+
+// BeginBatchEdit calls the BeginBatchEdit RPC.
+func (c *InputConnectionClient) BeginBatchEdit(ctx context.Context) (bool, error) {
+	resp, err := c.svc.BeginBatchEdit(ctx, &pb.InputConnectionBeginBatchEditRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearMetaKeyStates calls the ClearMetaKeyStates RPC.
+func (c *InputConnectionClient) ClearMetaKeyStates(ctx context.Context, arg0 int32) (bool, error) {
+	resp, err := c.svc.ClearMetaKeyStates(ctx, &pb.InputConnectionClearMetaKeyStatesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CloseConnection calls the CloseConnection RPC.
+func (c *InputConnectionClient) CloseConnection(ctx context.Context) error {
+	_, err := c.svc.CloseConnection(ctx, &pb.InputConnectionCloseConnectionRequest{})
+	return err
+}
+
+// CommitCompletion calls the CommitCompletion RPC.
+func (c *InputConnectionClient) CommitCompletion(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.CommitCompletion(ctx, &pb.InputConnectionCommitCompletionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CommitContent calls the CommitContent RPC.
+func (c *InputConnectionClient) CommitContent(ctx context.Context, arg0 int64, arg1 int32, arg2 int64) (bool, error) {
+	resp, err := c.svc.CommitContent(ctx, &pb.InputConnectionCommitContentRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CommitCorrection calls the CommitCorrection RPC.
+func (c *InputConnectionClient) CommitCorrection(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.CommitCorrection(ctx, &pb.InputConnectionCommitCorrectionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CommitText calls the CommitText RPC.
+func (c *InputConnectionClient) CommitText(ctx context.Context, arg0 string, arg1 int32) (bool, error) {
+	resp, err := c.svc.CommitText(ctx, &pb.InputConnectionCommitTextRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DeleteSurroundingText calls the DeleteSurroundingText RPC.
+func (c *InputConnectionClient) DeleteSurroundingText(ctx context.Context, arg0 int32, arg1 int32) (bool, error) {
+	resp, err := c.svc.DeleteSurroundingText(ctx, &pb.InputConnectionDeleteSurroundingTextRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DeleteSurroundingTextInCodePoints calls the DeleteSurroundingTextInCodePoints RPC.
+func (c *InputConnectionClient) DeleteSurroundingTextInCodePoints(ctx context.Context, arg0 int32, arg1 int32) (bool, error) {
+	resp, err := c.svc.DeleteSurroundingTextInCodePoints(ctx, &pb.InputConnectionDeleteSurroundingTextInCodePointsRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// EndBatchEdit calls the EndBatchEdit RPC.
+func (c *InputConnectionClient) EndBatchEdit(ctx context.Context) (bool, error) {
+	resp, err := c.svc.EndBatchEdit(ctx, &pb.InputConnectionEndBatchEditRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// FinishComposingText calls the FinishComposingText RPC.
+func (c *InputConnectionClient) FinishComposingText(ctx context.Context) (bool, error) {
+	resp, err := c.svc.FinishComposingText(ctx, &pb.InputConnectionFinishComposingTextRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCursorCapsMode calls the GetCursorCapsMode RPC.
+func (c *InputConnectionClient) GetCursorCapsMode(ctx context.Context, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetCursorCapsMode(ctx, &pb.InputConnectionGetCursorCapsModeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExtractedText calls the GetExtractedText RPC.
+func (c *InputConnectionClient) GetExtractedText(ctx context.Context, arg0 int64, arg1 int32) (int64, error) {
+	resp, err := c.svc.GetExtractedText(ctx, &pb.InputConnectionGetExtractedTextRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHandler calls the GetHandler RPC.
+func (c *InputConnectionClient) GetHandler(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetHandler(ctx, &pb.InputConnectionGetHandlerRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSelectedText calls the GetSelectedText RPC.
+func (c *InputConnectionClient) GetSelectedText(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetSelectedText(ctx, &pb.InputConnectionGetSelectedTextRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTextAfterCursor calls the GetTextAfterCursor RPC.
+func (c *InputConnectionClient) GetTextAfterCursor(ctx context.Context, arg0 int32, arg1 int32) (int64, error) {
+	resp, err := c.svc.GetTextAfterCursor(ctx, &pb.InputConnectionGetTextAfterCursorRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTextBeforeCursor calls the GetTextBeforeCursor RPC.
+func (c *InputConnectionClient) GetTextBeforeCursor(ctx context.Context, arg0 int32, arg1 int32) (int64, error) {
+	resp, err := c.svc.GetTextBeforeCursor(ctx, &pb.InputConnectionGetTextBeforeCursorRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PerformContextMenuAction calls the PerformContextMenuAction RPC.
+func (c *InputConnectionClient) PerformContextMenuAction(ctx context.Context, arg0 int32) (bool, error) {
+	resp, err := c.svc.PerformContextMenuAction(ctx, &pb.InputConnectionPerformContextMenuActionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PerformEditorAction calls the PerformEditorAction RPC.
+func (c *InputConnectionClient) PerformEditorAction(ctx context.Context, arg0 int32) (bool, error) {
+	resp, err := c.svc.PerformEditorAction(ctx, &pb.InputConnectionPerformEditorActionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PerformPrivateCommand calls the PerformPrivateCommand RPC.
+func (c *InputConnectionClient) PerformPrivateCommand(ctx context.Context, arg0 string, arg1 int64) (bool, error) {
+	resp, err := c.svc.PerformPrivateCommand(ctx, &pb.InputConnectionPerformPrivateCommandRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ReportFullscreenMode calls the ReportFullscreenMode RPC.
+func (c *InputConnectionClient) ReportFullscreenMode(ctx context.Context, arg0 bool) (bool, error) {
+	resp, err := c.svc.ReportFullscreenMode(ctx, &pb.InputConnectionReportFullscreenModeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RequestCursorUpdates calls the RequestCursorUpdates RPC.
+func (c *InputConnectionClient) RequestCursorUpdates(ctx context.Context, arg0 int32) (bool, error) {
+	resp, err := c.svc.RequestCursorUpdates(ctx, &pb.InputConnectionRequestCursorUpdatesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SendKeyEvent calls the SendKeyEvent RPC.
+func (c *InputConnectionClient) SendKeyEvent(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.SendKeyEvent(ctx, &pb.InputConnectionSendKeyEventRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetComposingRegion calls the SetComposingRegion RPC.
+func (c *InputConnectionClient) SetComposingRegion(ctx context.Context, arg0 int32, arg1 int32) (bool, error) {
+	resp, err := c.svc.SetComposingRegion(ctx, &pb.InputConnectionSetComposingRegionRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetComposingText calls the SetComposingText RPC.
+func (c *InputConnectionClient) SetComposingText(ctx context.Context, arg0 string, arg1 int32) (bool, error) {
+	resp, err := c.svc.SetComposingText(ctx, &pb.InputConnectionSetComposingTextRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSelection calls the SetSelection RPC.
+func (c *InputConnectionClient) SetSelection(ctx context.Context, arg0 int32, arg1 int32) (bool, error) {
+	resp, err := c.svc.SetSelection(ctx, &pb.InputConnectionSetSelectionRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// JoinOrSplitGestureClient wraps the gRPC JoinOrSplitGestureService client.
+type JoinOrSplitGestureClient struct {
+	svc pb.JoinOrSplitGestureServiceClient
+}
+
+// NewJoinOrSplitGestureClient creates a new JoinOrSplitGesture client.
+func NewJoinOrSplitGestureClient(cc grpc.ClientConnInterface) *JoinOrSplitGestureClient {
+	return &JoinOrSplitGestureClient{
+		svc: pb.NewJoinOrSplitGestureServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *JoinOrSplitGestureClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *JoinOrSplitGestureClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetJoinOrSplitPoint calls the GetJoinOrSplitPoint RPC.
+func (c *JoinOrSplitGestureClient) GetJoinOrSplitPoint(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetJoinOrSplitPoint(ctx, &pb.GetJoinOrSplitPointRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *JoinOrSplitGestureClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *JoinOrSplitGestureClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// JoinOrSplitGestureBuilderClient wraps the gRPC JoinOrSplitGestureBuilderService client.
+type JoinOrSplitGestureBuilderClient struct {
+	svc pb.JoinOrSplitGestureBuilderServiceClient
+}
+
+// NewJoinOrSplitGestureBuilderClient creates a new JoinOrSplitGestureBuilder client.
+func NewJoinOrSplitGestureBuilderClient(cc grpc.ClientConnInterface) *JoinOrSplitGestureBuilderClient {
+	return &JoinOrSplitGestureBuilderClient{
+		svc: pb.NewJoinOrSplitGestureBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *JoinOrSplitGestureBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetFallbackText calls the SetFallbackText RPC.
+func (c *JoinOrSplitGestureBuilderClient) SetFallbackText(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetFallbackText(ctx, &pb.SetFallbackTextRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetJoinOrSplitPoint calls the SetJoinOrSplitPoint RPC.
+func (c *JoinOrSplitGestureBuilderClient) SetJoinOrSplitPoint(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetJoinOrSplitPoint(ctx, &pb.SetJoinOrSplitPointRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// EditorBoundsInfoClient wraps the gRPC EditorBoundsInfoService client.
+type EditorBoundsInfoClient struct {
+	svc pb.EditorBoundsInfoServiceClient
+}
+
+// NewEditorBoundsInfoClient creates a new EditorBoundsInfo client.
+func NewEditorBoundsInfoClient(cc grpc.ClientConnInterface) *EditorBoundsInfoClient {
+	return &EditorBoundsInfoClient{
+		svc: pb.NewEditorBoundsInfoServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *EditorBoundsInfoClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *EditorBoundsInfoClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEditorBounds calls the GetEditorBounds RPC.
+func (c *EditorBoundsInfoClient) GetEditorBounds(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetEditorBounds(ctx, &pb.GetEditorBoundsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHandwritingBounds calls the GetHandwritingBounds RPC.
+func (c *EditorBoundsInfoClient) GetHandwritingBounds(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetHandwritingBounds(ctx, &pb.GetHandwritingBoundsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *EditorBoundsInfoClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *EditorBoundsInfoClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.EditorBoundsInfoToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *EditorBoundsInfoClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// EditorBoundsInfoBuilderClient wraps the gRPC EditorBoundsInfoBuilderService client.
+type EditorBoundsInfoBuilderClient struct {
+	svc pb.EditorBoundsInfoBuilderServiceClient
+}
+
+// NewEditorBoundsInfoBuilderClient creates a new EditorBoundsInfoBuilder client.
+func NewEditorBoundsInfoBuilderClient(cc grpc.ClientConnInterface) *EditorBoundsInfoBuilderClient {
+	return &EditorBoundsInfoBuilderClient{
+		svc: pb.NewEditorBoundsInfoBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *EditorBoundsInfoBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetEditorBounds calls the SetEditorBounds RPC.
+func (c *EditorBoundsInfoBuilderClient) SetEditorBounds(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetEditorBounds(ctx, &pb.SetEditorBoundsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetHandwritingBounds calls the SetHandwritingBounds RPC.
+func (c *EditorBoundsInfoBuilderClient) SetHandwritingBounds(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetHandwritingBounds(ctx, &pb.SetHandwritingBoundsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SelectRangeGestureClient wraps the gRPC SelectRangeGestureService client.
+type SelectRangeGestureClient struct {
+	svc pb.SelectRangeGestureServiceClient
+}
+
+// NewSelectRangeGestureClient creates a new SelectRangeGesture client.
+func NewSelectRangeGestureClient(cc grpc.ClientConnInterface) *SelectRangeGestureClient {
+	return &SelectRangeGestureClient{
+		svc: pb.NewSelectRangeGestureServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *SelectRangeGestureClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *SelectRangeGestureClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetGranularity calls the GetGranularity RPC.
+func (c *SelectRangeGestureClient) GetGranularity(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetGranularity(ctx, &pb.GetGranularityRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSelectionEndArea calls the GetSelectionEndArea RPC.
+func (c *SelectRangeGestureClient) GetSelectionEndArea(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSelectionEndArea(ctx, &pb.GetSelectionEndAreaRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSelectionStartArea calls the GetSelectionStartArea RPC.
+func (c *SelectRangeGestureClient) GetSelectionStartArea(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSelectionStartArea(ctx, &pb.GetSelectionStartAreaRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *SelectRangeGestureClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *SelectRangeGestureClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// SelectRangeGestureBuilderClient wraps the gRPC SelectRangeGestureBuilderService client.
+type SelectRangeGestureBuilderClient struct {
+	svc pb.SelectRangeGestureBuilderServiceClient
+}
+
+// NewSelectRangeGestureBuilderClient creates a new SelectRangeGestureBuilder client.
+func NewSelectRangeGestureBuilderClient(cc grpc.ClientConnInterface) *SelectRangeGestureBuilderClient {
+	return &SelectRangeGestureBuilderClient{
+		svc: pb.NewSelectRangeGestureBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *SelectRangeGestureBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetFallbackText calls the SetFallbackText RPC.
+func (c *SelectRangeGestureBuilderClient) SetFallbackText(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetFallbackText(ctx, &pb.SetFallbackTextRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetGranularity calls the SetGranularity RPC.
+func (c *SelectRangeGestureBuilderClient) SetGranularity(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetGranularity(ctx, &pb.SetGranularityRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSelectionEndArea calls the SetSelectionEndArea RPC.
+func (c *SelectRangeGestureBuilderClient) SetSelectionEndArea(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetSelectionEndArea(ctx, &pb.SetSelectionEndAreaRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSelectionStartArea calls the SetSelectionStartArea RPC.
+func (c *SelectRangeGestureBuilderClient) SetSelectionStartArea(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetSelectionStartArea(ctx, &pb.SetSelectionStartAreaRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HandwritingGestureClient wraps the gRPC HandwritingGestureService client.
+type HandwritingGestureClient struct {
+	svc pb.HandwritingGestureServiceClient
+}
+
+// NewHandwritingGestureClient creates a new HandwritingGesture client.
+func NewHandwritingGestureClient(cc grpc.ClientConnInterface) *HandwritingGestureClient {
+	return &HandwritingGestureClient{
+		svc: pb.NewHandwritingGestureServiceClient(cc),
+	}
+}
+
+// GetFallbackText calls the GetFallbackText RPC.
+func (c *HandwritingGestureClient) GetFallbackText(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetFallbackText(ctx, &pb.GetFallbackTextRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// TextSnapshotClient wraps the gRPC TextSnapshotService client.
+type TextSnapshotClient struct {
+	svc pb.TextSnapshotServiceClient
+}
+
+// NewTextSnapshotClient creates a new TextSnapshot client.
+func NewTextSnapshotClient(cc grpc.ClientConnInterface) *TextSnapshotClient {
+	return &TextSnapshotClient{
+		svc: pb.NewTextSnapshotServiceClient(cc),
+	}
+}
+
+// GetCompositionEnd calls the GetCompositionEnd RPC.
+func (c *TextSnapshotClient) GetCompositionEnd(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetCompositionEnd(ctx, &pb.GetCompositionEndRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCompositionStart calls the GetCompositionStart RPC.
+func (c *TextSnapshotClient) GetCompositionStart(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetCompositionStart(ctx, &pb.GetCompositionStartRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCursorCapsMode calls the GetCursorCapsMode RPC.
+func (c *TextSnapshotClient) GetCursorCapsMode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetCursorCapsMode(ctx, &pb.TextSnapshotGetCursorCapsModeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSelectionEnd calls the GetSelectionEnd RPC.
+func (c *TextSnapshotClient) GetSelectionEnd(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetSelectionEnd(ctx, &pb.GetSelectionEndRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSelectionStart calls the GetSelectionStart RPC.
+func (c *TextSnapshotClient) GetSelectionStart(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetSelectionStart(ctx, &pb.GetSelectionStartRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSurroundingText calls the GetSurroundingText RPC.
+func (c *TextSnapshotClient) GetSurroundingText(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetSurroundingText(ctx, &pb.TextSnapshotGetSurroundingTextRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// InsertModeGestureClient wraps the gRPC InsertModeGestureService client.
+type InsertModeGestureClient struct {
+	svc pb.InsertModeGestureServiceClient
+}
+
+// NewInsertModeGestureClient creates a new InsertModeGesture client.
+func NewInsertModeGestureClient(cc grpc.ClientConnInterface) *InsertModeGestureClient {
+	return &InsertModeGestureClient{
+		svc: pb.NewInsertModeGestureServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *InsertModeGestureClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *InsertModeGestureClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCancellationSignal calls the GetCancellationSignal RPC.
+func (c *InsertModeGestureClient) GetCancellationSignal(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetCancellationSignal(ctx, &pb.GetCancellationSignalRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInsertionPoint calls the GetInsertionPoint RPC.
+func (c *InsertModeGestureClient) GetInsertionPoint(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetInsertionPoint(ctx, &pb.GetInsertionPointRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *InsertModeGestureClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *InsertModeGestureClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// InsertModeGestureBuilderClient wraps the gRPC InsertModeGestureBuilderService client.
+type InsertModeGestureBuilderClient struct {
+	svc pb.InsertModeGestureBuilderServiceClient
+}
+
+// NewInsertModeGestureBuilderClient creates a new InsertModeGestureBuilder client.
+func NewInsertModeGestureBuilderClient(cc grpc.ClientConnInterface) *InsertModeGestureBuilderClient {
+	return &InsertModeGestureBuilderClient{
+		svc: pb.NewInsertModeGestureBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *InsertModeGestureBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetCancellationSignal calls the SetCancellationSignal RPC.
+func (c *InsertModeGestureBuilderClient) SetCancellationSignal(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetCancellationSignal(ctx, &pb.SetCancellationSignalRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetFallbackText calls the SetFallbackText RPC.
+func (c *InsertModeGestureBuilderClient) SetFallbackText(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetFallbackText(ctx, &pb.SetFallbackTextRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetInsertionPoint calls the SetInsertionPoint RPC.
+func (c *InsertModeGestureBuilderClient) SetInsertionPoint(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetInsertionPoint(ctx, &pb.SetInsertionPointRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // InputMethodManagerClient wraps the gRPC InputMethodManagerService client.
 type InputMethodManagerClient struct {
 	svc pb.InputMethodManagerServiceClient
@@ -55,7 +4187,7 @@ func (c *InputMethodManagerClient) DispatchKeyEventFromInputMethod(ctx context.C
 
 // DisplayCompletions calls the DisplayCompletions RPC.
 func (c *InputMethodManagerClient) DisplayCompletions(ctx context.Context, arg0 int64, arg1 int64) error {
-	_, err := c.svc.DisplayCompletions(ctx, &pb.DisplayCompletionsRequest{
+	_, err := c.svc.DisplayCompletions(ctx, &pb.InputMethodManagerDisplayCompletionsRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 	})
@@ -234,7 +4366,7 @@ func (c *InputMethodManagerClient) PrepareStylusHandwritingDelegation2_1(ctx con
 
 // RestartInput calls the RestartInput RPC.
 func (c *InputMethodManagerClient) RestartInput(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.RestartInput(ctx, &pb.RestartInputRequest{
+	_, err := c.svc.RestartInput(ctx, &pb.InputMethodManagerRestartInputRequest{
 		Arg0: arg0,
 	})
 	return err
@@ -453,7 +4585,7 @@ func (c *InputMethodManagerClient) ToggleSoftInputFromWindow(ctx context.Context
 
 // UpdateCursor calls the UpdateCursor RPC.
 func (c *InputMethodManagerClient) UpdateCursor(ctx context.Context, arg0 int64, arg1 int32, arg2 int32, arg3 int32, arg4 int32) error {
-	_, err := c.svc.UpdateCursor(ctx, &pb.UpdateCursorRequest{
+	_, err := c.svc.UpdateCursor(ctx, &pb.InputMethodManagerUpdateCursorRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 		Arg2: arg2,
@@ -465,7 +4597,7 @@ func (c *InputMethodManagerClient) UpdateCursor(ctx context.Context, arg0 int64,
 
 // UpdateCursorAnchorInfo calls the UpdateCursorAnchorInfo RPC.
 func (c *InputMethodManagerClient) UpdateCursorAnchorInfo(ctx context.Context, arg0 int64, arg1 int64) error {
-	_, err := c.svc.UpdateCursorAnchorInfo(ctx, &pb.UpdateCursorAnchorInfoRequest{
+	_, err := c.svc.UpdateCursorAnchorInfo(ctx, &pb.InputMethodManagerUpdateCursorAnchorInfoRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 	})
@@ -474,7 +4606,7 @@ func (c *InputMethodManagerClient) UpdateCursorAnchorInfo(ctx context.Context, a
 
 // UpdateExtractedText calls the UpdateExtractedText RPC.
 func (c *InputMethodManagerClient) UpdateExtractedText(ctx context.Context, arg0 int64, arg1 int32, arg2 int64) error {
-	_, err := c.svc.UpdateExtractedText(ctx, &pb.UpdateExtractedTextRequest{
+	_, err := c.svc.UpdateExtractedText(ctx, &pb.InputMethodManagerUpdateExtractedTextRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 		Arg2: arg2,
@@ -484,7 +4616,7 @@ func (c *InputMethodManagerClient) UpdateExtractedText(ctx context.Context, arg0
 
 // UpdateSelection calls the UpdateSelection RPC.
 func (c *InputMethodManagerClient) UpdateSelection(ctx context.Context, arg0 int64, arg1 int32, arg2 int32, arg3 int32, arg4 int32) error {
-	_, err := c.svc.UpdateSelection(ctx, &pb.UpdateSelectionRequest{
+	_, err := c.svc.UpdateSelection(ctx, &pb.InputMethodManagerUpdateSelectionRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 		Arg2: arg2,
@@ -496,8 +4628,1623 @@ func (c *InputMethodManagerClient) UpdateSelection(ctx context.Context, arg0 int
 
 // ViewClicked calls the ViewClicked RPC.
 func (c *InputMethodManagerClient) ViewClicked(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.ViewClicked(ctx, &pb.ViewClickedRequest{
+	_, err := c.svc.ViewClicked(ctx, &pb.InputMethodManagerViewClickedRequest{
 		Arg0: arg0,
+	})
+	return err
+}
+
+// InputConnectionWrapperClient wraps the gRPC InputConnectionWrapperService client.
+type InputConnectionWrapperClient struct {
+	svc pb.InputConnectionWrapperServiceClient
+}
+
+// NewInputConnectionWrapperClient creates a new InputConnectionWrapper client.
+func NewInputConnectionWrapperClient(cc grpc.ClientConnInterface) *InputConnectionWrapperClient {
+	return &InputConnectionWrapperClient{
+		svc: pb.NewInputConnectionWrapperServiceClient(cc),
+	}
+}
+
+// BeginBatchEdit calls the BeginBatchEdit RPC.
+func (c *InputConnectionWrapperClient) BeginBatchEdit(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.BeginBatchEdit(ctx, &pb.BeginBatchEditRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearMetaKeyStates calls the ClearMetaKeyStates RPC.
+func (c *InputConnectionWrapperClient) ClearMetaKeyStates(ctx context.Context, handle int64, arg0 int32) (bool, error) {
+	resp, err := c.svc.ClearMetaKeyStates(ctx, &pb.ClearMetaKeyStatesRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CloseConnection calls the CloseConnection RPC.
+func (c *InputConnectionWrapperClient) CloseConnection(ctx context.Context, handle int64) error {
+	_, err := c.svc.CloseConnection(ctx, &pb.CloseConnectionRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// CommitCompletion calls the CommitCompletion RPC.
+func (c *InputConnectionWrapperClient) CommitCompletion(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.CommitCompletion(ctx, &pb.CommitCompletionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CommitContent calls the CommitContent RPC.
+func (c *InputConnectionWrapperClient) CommitContent(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int64) (bool, error) {
+	resp, err := c.svc.CommitContent(ctx, &pb.CommitContentRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CommitCorrection calls the CommitCorrection RPC.
+func (c *InputConnectionWrapperClient) CommitCorrection(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.CommitCorrection(ctx, &pb.CommitCorrectionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CommitText2 calls the CommitText2 RPC.
+func (c *InputConnectionWrapperClient) CommitText2(ctx context.Context, handle int64, arg0 string, arg1 int32) (bool, error) {
+	resp, err := c.svc.CommitText2(ctx, &pb.CommitText2Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CommitText3_1 calls the CommitText3_1 RPC.
+func (c *InputConnectionWrapperClient) CommitText3_1(ctx context.Context, handle int64, arg0 string, arg1 int32, arg2 int64) (bool, error) {
+	resp, err := c.svc.CommitText3_1(ctx, &pb.CommitText3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DeleteSurroundingText calls the DeleteSurroundingText RPC.
+func (c *InputConnectionWrapperClient) DeleteSurroundingText(ctx context.Context, handle int64, arg0 int32, arg1 int32) (bool, error) {
+	resp, err := c.svc.DeleteSurroundingText(ctx, &pb.DeleteSurroundingTextRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DeleteSurroundingTextInCodePoints calls the DeleteSurroundingTextInCodePoints RPC.
+func (c *InputConnectionWrapperClient) DeleteSurroundingTextInCodePoints(ctx context.Context, handle int64, arg0 int32, arg1 int32) (bool, error) {
+	resp, err := c.svc.DeleteSurroundingTextInCodePoints(ctx, &pb.DeleteSurroundingTextInCodePointsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// EndBatchEdit calls the EndBatchEdit RPC.
+func (c *InputConnectionWrapperClient) EndBatchEdit(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.EndBatchEdit(ctx, &pb.EndBatchEditRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// FinishComposingText calls the FinishComposingText RPC.
+func (c *InputConnectionWrapperClient) FinishComposingText(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.FinishComposingText(ctx, &pb.FinishComposingTextRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCursorCapsMode calls the GetCursorCapsMode RPC.
+func (c *InputConnectionWrapperClient) GetCursorCapsMode(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetCursorCapsMode(ctx, &pb.GetCursorCapsModeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExtractedText calls the GetExtractedText RPC.
+func (c *InputConnectionWrapperClient) GetExtractedText(ctx context.Context, handle int64, arg0 int64, arg1 int32) (int64, error) {
+	resp, err := c.svc.GetExtractedText(ctx, &pb.GetExtractedTextRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHandler calls the GetHandler RPC.
+func (c *InputConnectionWrapperClient) GetHandler(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetHandler(ctx, &pb.GetHandlerRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSelectedText calls the GetSelectedText RPC.
+func (c *InputConnectionWrapperClient) GetSelectedText(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetSelectedText(ctx, &pb.GetSelectedTextRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSurroundingText calls the GetSurroundingText RPC.
+func (c *InputConnectionWrapperClient) GetSurroundingText(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32) (int64, error) {
+	resp, err := c.svc.GetSurroundingText(ctx, &pb.GetSurroundingTextRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTextAfterCursor calls the GetTextAfterCursor RPC.
+func (c *InputConnectionWrapperClient) GetTextAfterCursor(ctx context.Context, handle int64, arg0 int32, arg1 int32) (int64, error) {
+	resp, err := c.svc.GetTextAfterCursor(ctx, &pb.GetTextAfterCursorRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTextBeforeCursor calls the GetTextBeforeCursor RPC.
+func (c *InputConnectionWrapperClient) GetTextBeforeCursor(ctx context.Context, handle int64, arg0 int32, arg1 int32) (int64, error) {
+	resp, err := c.svc.GetTextBeforeCursor(ctx, &pb.GetTextBeforeCursorRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PerformContextMenuAction calls the PerformContextMenuAction RPC.
+func (c *InputConnectionWrapperClient) PerformContextMenuAction(ctx context.Context, handle int64, arg0 int32) (bool, error) {
+	resp, err := c.svc.PerformContextMenuAction(ctx, &pb.PerformContextMenuActionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PerformEditorAction calls the PerformEditorAction RPC.
+func (c *InputConnectionWrapperClient) PerformEditorAction(ctx context.Context, handle int64, arg0 int32) (bool, error) {
+	resp, err := c.svc.PerformEditorAction(ctx, &pb.PerformEditorActionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PerformHandwritingGesture calls the PerformHandwritingGesture RPC.
+func (c *InputConnectionWrapperClient) PerformHandwritingGesture(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.PerformHandwritingGesture(ctx, &pb.PerformHandwritingGestureRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// PerformPrivateCommand calls the PerformPrivateCommand RPC.
+func (c *InputConnectionWrapperClient) PerformPrivateCommand(ctx context.Context, handle int64, arg0 string, arg1 int64) (bool, error) {
+	resp, err := c.svc.PerformPrivateCommand(ctx, &pb.PerformPrivateCommandRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PerformSpellCheck calls the PerformSpellCheck RPC.
+func (c *InputConnectionWrapperClient) PerformSpellCheck(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.PerformSpellCheck(ctx, &pb.PerformSpellCheckRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PreviewHandwritingGesture calls the PreviewHandwritingGesture RPC.
+func (c *InputConnectionWrapperClient) PreviewHandwritingGesture(ctx context.Context, handle int64, arg0 int64, arg1 int64) (bool, error) {
+	resp, err := c.svc.PreviewHandwritingGesture(ctx, &pb.PreviewHandwritingGestureRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ReplaceText calls the ReplaceText RPC.
+func (c *InputConnectionWrapperClient) ReplaceText(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 string, arg3 int32, arg4 int64) (bool, error) {
+	resp, err := c.svc.ReplaceText(ctx, &pb.ReplaceTextRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ReportFullscreenMode calls the ReportFullscreenMode RPC.
+func (c *InputConnectionWrapperClient) ReportFullscreenMode(ctx context.Context, handle int64, arg0 bool) (bool, error) {
+	resp, err := c.svc.ReportFullscreenMode(ctx, &pb.ReportFullscreenModeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RequestCursorUpdates1 calls the RequestCursorUpdates1 RPC.
+func (c *InputConnectionWrapperClient) RequestCursorUpdates1(ctx context.Context, handle int64, arg0 int32) (bool, error) {
+	resp, err := c.svc.RequestCursorUpdates1(ctx, &pb.RequestCursorUpdates1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RequestCursorUpdates2_1 calls the RequestCursorUpdates2_1 RPC.
+func (c *InputConnectionWrapperClient) RequestCursorUpdates2_1(ctx context.Context, handle int64, arg0 int32, arg1 int32) (bool, error) {
+	resp, err := c.svc.RequestCursorUpdates2_1(ctx, &pb.RequestCursorUpdates2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SendKeyEvent calls the SendKeyEvent RPC.
+func (c *InputConnectionWrapperClient) SendKeyEvent(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.SendKeyEvent(ctx, &pb.SendKeyEventRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetComposingRegion2 calls the SetComposingRegion2 RPC.
+func (c *InputConnectionWrapperClient) SetComposingRegion2(ctx context.Context, handle int64, arg0 int32, arg1 int32) (bool, error) {
+	resp, err := c.svc.SetComposingRegion2(ctx, &pb.SetComposingRegion2Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetComposingRegion3_1 calls the SetComposingRegion3_1 RPC.
+func (c *InputConnectionWrapperClient) SetComposingRegion3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) (bool, error) {
+	resp, err := c.svc.SetComposingRegion3_1(ctx, &pb.SetComposingRegion3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetComposingText2 calls the SetComposingText2 RPC.
+func (c *InputConnectionWrapperClient) SetComposingText2(ctx context.Context, handle int64, arg0 string, arg1 int32) (bool, error) {
+	resp, err := c.svc.SetComposingText2(ctx, &pb.SetComposingText2Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetComposingText3_1 calls the SetComposingText3_1 RPC.
+func (c *InputConnectionWrapperClient) SetComposingText3_1(ctx context.Context, handle int64, arg0 string, arg1 int32, arg2 int64) (bool, error) {
+	resp, err := c.svc.SetComposingText3_1(ctx, &pb.SetComposingText3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetImeConsumesInput calls the SetImeConsumesInput RPC.
+func (c *InputConnectionWrapperClient) SetImeConsumesInput(ctx context.Context, handle int64, arg0 bool) (bool, error) {
+	resp, err := c.svc.SetImeConsumesInput(ctx, &pb.SetImeConsumesInputRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSelection calls the SetSelection RPC.
+func (c *InputConnectionWrapperClient) SetSelection(ctx context.Context, handle int64, arg0 int32, arg1 int32) (bool, error) {
+	resp, err := c.svc.SetSelection(ctx, &pb.SetSelectionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetTarget calls the SetTarget RPC.
+func (c *InputConnectionWrapperClient) SetTarget(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetTarget(ctx, &pb.SetTargetRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// TakeSnapshot calls the TakeSnapshot RPC.
+func (c *InputConnectionWrapperClient) TakeSnapshot(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.TakeSnapshot(ctx, &pb.TakeSnapshotRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DeleteGestureClient wraps the gRPC DeleteGestureService client.
+type DeleteGestureClient struct {
+	svc pb.DeleteGestureServiceClient
+}
+
+// NewDeleteGestureClient creates a new DeleteGesture client.
+func NewDeleteGestureClient(cc grpc.ClientConnInterface) *DeleteGestureClient {
+	return &DeleteGestureClient{
+		svc: pb.NewDeleteGestureServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *DeleteGestureClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *DeleteGestureClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDeletionArea calls the GetDeletionArea RPC.
+func (c *DeleteGestureClient) GetDeletionArea(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDeletionArea(ctx, &pb.GetDeletionAreaRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetGranularity calls the GetGranularity RPC.
+func (c *DeleteGestureClient) GetGranularity(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetGranularity(ctx, &pb.GetGranularityRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *DeleteGestureClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *DeleteGestureClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// DeleteGestureBuilderClient wraps the gRPC DeleteGestureBuilderService client.
+type DeleteGestureBuilderClient struct {
+	svc pb.DeleteGestureBuilderServiceClient
+}
+
+// NewDeleteGestureBuilderClient creates a new DeleteGestureBuilder client.
+func NewDeleteGestureBuilderClient(cc grpc.ClientConnInterface) *DeleteGestureBuilderClient {
+	return &DeleteGestureBuilderClient{
+		svc: pb.NewDeleteGestureBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *DeleteGestureBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetDeletionArea calls the SetDeletionArea RPC.
+func (c *DeleteGestureBuilderClient) SetDeletionArea(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetDeletionArea(ctx, &pb.SetDeletionAreaRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetFallbackText calls the SetFallbackText RPC.
+func (c *DeleteGestureBuilderClient) SetFallbackText(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetFallbackText(ctx, &pb.SetFallbackTextRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetGranularity calls the SetGranularity RPC.
+func (c *DeleteGestureBuilderClient) SetGranularity(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetGranularity(ctx, &pb.SetGranularityRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// TextAppearanceInfoClient wraps the gRPC TextAppearanceInfoService client.
+type TextAppearanceInfoClient struct {
+	svc pb.TextAppearanceInfoServiceClient
+}
+
+// NewTextAppearanceInfoClient creates a new TextAppearanceInfo client.
+func NewTextAppearanceInfoClient(cc grpc.ClientConnInterface) *TextAppearanceInfoClient {
+	return &TextAppearanceInfoClient{
+		svc: pb.NewTextAppearanceInfoServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *TextAppearanceInfoClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *TextAppearanceInfoClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFontFeatureSettings calls the GetFontFeatureSettings RPC.
+func (c *TextAppearanceInfoClient) GetFontFeatureSettings(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetFontFeatureSettings(ctx, &pb.GetFontFeatureSettingsRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFontVariationSettings calls the GetFontVariationSettings RPC.
+func (c *TextAppearanceInfoClient) GetFontVariationSettings(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetFontVariationSettings(ctx, &pb.GetFontVariationSettingsRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHighlightTextColor calls the GetHighlightTextColor RPC.
+func (c *TextAppearanceInfoClient) GetHighlightTextColor(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetHighlightTextColor(ctx, &pb.GetHighlightTextColorRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHintTextColor calls the GetHintTextColor RPC.
+func (c *TextAppearanceInfoClient) GetHintTextColor(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetHintTextColor(ctx, &pb.GetHintTextColorRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLetterSpacing calls the GetLetterSpacing RPC.
+func (c *TextAppearanceInfoClient) GetLetterSpacing(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetLetterSpacing(ctx, &pb.GetLetterSpacingRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLineBreakStyle calls the GetLineBreakStyle RPC.
+func (c *TextAppearanceInfoClient) GetLineBreakStyle(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetLineBreakStyle(ctx, &pb.GetLineBreakStyleRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLineBreakWordStyle calls the GetLineBreakWordStyle RPC.
+func (c *TextAppearanceInfoClient) GetLineBreakWordStyle(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetLineBreakWordStyle(ctx, &pb.GetLineBreakWordStyleRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLinkTextColor calls the GetLinkTextColor RPC.
+func (c *TextAppearanceInfoClient) GetLinkTextColor(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetLinkTextColor(ctx, &pb.GetLinkTextColorRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetShadowColor calls the GetShadowColor RPC.
+func (c *TextAppearanceInfoClient) GetShadowColor(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetShadowColor(ctx, &pb.GetShadowColorRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetShadowDx calls the GetShadowDx RPC.
+func (c *TextAppearanceInfoClient) GetShadowDx(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetShadowDx(ctx, &pb.GetShadowDxRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetShadowDy calls the GetShadowDy RPC.
+func (c *TextAppearanceInfoClient) GetShadowDy(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetShadowDy(ctx, &pb.GetShadowDyRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetShadowRadius calls the GetShadowRadius RPC.
+func (c *TextAppearanceInfoClient) GetShadowRadius(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetShadowRadius(ctx, &pb.GetShadowRadiusRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSystemFontFamilyName calls the GetSystemFontFamilyName RPC.
+func (c *TextAppearanceInfoClient) GetSystemFontFamilyName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetSystemFontFamilyName(ctx, &pb.GetSystemFontFamilyNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTextColor calls the GetTextColor RPC.
+func (c *TextAppearanceInfoClient) GetTextColor(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetTextColor(ctx, &pb.GetTextColorRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTextFontWeight calls the GetTextFontWeight RPC.
+func (c *TextAppearanceInfoClient) GetTextFontWeight(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetTextFontWeight(ctx, &pb.GetTextFontWeightRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTextLocales calls the GetTextLocales RPC.
+func (c *TextAppearanceInfoClient) GetTextLocales(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTextLocales(ctx, &pb.GetTextLocalesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTextScaleX calls the GetTextScaleX RPC.
+func (c *TextAppearanceInfoClient) GetTextScaleX(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetTextScaleX(ctx, &pb.GetTextScaleXRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTextSize calls the GetTextSize RPC.
+func (c *TextAppearanceInfoClient) GetTextSize(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetTextSize(ctx, &pb.GetTextSizeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTextStyle calls the GetTextStyle RPC.
+func (c *TextAppearanceInfoClient) GetTextStyle(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetTextStyle(ctx, &pb.GetTextStyleRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *TextAppearanceInfoClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsAllCaps calls the IsAllCaps RPC.
+func (c *TextAppearanceInfoClient) IsAllCaps(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsAllCaps(ctx, &pb.IsAllCapsRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsElegantTextHeight calls the IsElegantTextHeight RPC.
+func (c *TextAppearanceInfoClient) IsElegantTextHeight(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsElegantTextHeight(ctx, &pb.IsElegantTextHeightRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsFallbackLineSpacing calls the IsFallbackLineSpacing RPC.
+func (c *TextAppearanceInfoClient) IsFallbackLineSpacing(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsFallbackLineSpacing(ctx, &pb.IsFallbackLineSpacingRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *TextAppearanceInfoClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.TextAppearanceInfoToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *TextAppearanceInfoClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// TextAppearanceInfoBuilderClient wraps the gRPC TextAppearanceInfoBuilderService client.
+type TextAppearanceInfoBuilderClient struct {
+	svc pb.TextAppearanceInfoBuilderServiceClient
+}
+
+// NewTextAppearanceInfoBuilderClient creates a new TextAppearanceInfoBuilder client.
+func NewTextAppearanceInfoBuilderClient(cc grpc.ClientConnInterface) *TextAppearanceInfoBuilderClient {
+	return &TextAppearanceInfoBuilderClient{
+		svc: pb.NewTextAppearanceInfoBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *TextAppearanceInfoBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetAllCaps calls the SetAllCaps RPC.
+func (c *TextAppearanceInfoBuilderClient) SetAllCaps(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetAllCaps(ctx, &pb.SetAllCapsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetElegantTextHeight calls the SetElegantTextHeight RPC.
+func (c *TextAppearanceInfoBuilderClient) SetElegantTextHeight(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetElegantTextHeight(ctx, &pb.SetElegantTextHeightRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetFallbackLineSpacing calls the SetFallbackLineSpacing RPC.
+func (c *TextAppearanceInfoBuilderClient) SetFallbackLineSpacing(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetFallbackLineSpacing(ctx, &pb.SetFallbackLineSpacingRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetFontFeatureSettings calls the SetFontFeatureSettings RPC.
+func (c *TextAppearanceInfoBuilderClient) SetFontFeatureSettings(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetFontFeatureSettings(ctx, &pb.SetFontFeatureSettingsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetFontVariationSettings calls the SetFontVariationSettings RPC.
+func (c *TextAppearanceInfoBuilderClient) SetFontVariationSettings(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetFontVariationSettings(ctx, &pb.SetFontVariationSettingsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetHighlightTextColor calls the SetHighlightTextColor RPC.
+func (c *TextAppearanceInfoBuilderClient) SetHighlightTextColor(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetHighlightTextColor(ctx, &pb.SetHighlightTextColorRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetHintTextColor calls the SetHintTextColor RPC.
+func (c *TextAppearanceInfoBuilderClient) SetHintTextColor(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetHintTextColor(ctx, &pb.SetHintTextColorRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetLetterSpacing calls the SetLetterSpacing RPC.
+func (c *TextAppearanceInfoBuilderClient) SetLetterSpacing(ctx context.Context, arg0 float32) (int64, error) {
+	resp, err := c.svc.SetLetterSpacing(ctx, &pb.SetLetterSpacingRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetLineBreakStyle calls the SetLineBreakStyle RPC.
+func (c *TextAppearanceInfoBuilderClient) SetLineBreakStyle(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetLineBreakStyle(ctx, &pb.SetLineBreakStyleRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetLineBreakWordStyle calls the SetLineBreakWordStyle RPC.
+func (c *TextAppearanceInfoBuilderClient) SetLineBreakWordStyle(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetLineBreakWordStyle(ctx, &pb.SetLineBreakWordStyleRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetLinkTextColor calls the SetLinkTextColor RPC.
+func (c *TextAppearanceInfoBuilderClient) SetLinkTextColor(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetLinkTextColor(ctx, &pb.SetLinkTextColorRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetShadowColor calls the SetShadowColor RPC.
+func (c *TextAppearanceInfoBuilderClient) SetShadowColor(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetShadowColor(ctx, &pb.SetShadowColorRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetShadowDx calls the SetShadowDx RPC.
+func (c *TextAppearanceInfoBuilderClient) SetShadowDx(ctx context.Context, arg0 float32) (int64, error) {
+	resp, err := c.svc.SetShadowDx(ctx, &pb.SetShadowDxRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetShadowDy calls the SetShadowDy RPC.
+func (c *TextAppearanceInfoBuilderClient) SetShadowDy(ctx context.Context, arg0 float32) (int64, error) {
+	resp, err := c.svc.SetShadowDy(ctx, &pb.SetShadowDyRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetShadowRadius calls the SetShadowRadius RPC.
+func (c *TextAppearanceInfoBuilderClient) SetShadowRadius(ctx context.Context, arg0 float32) (int64, error) {
+	resp, err := c.svc.SetShadowRadius(ctx, &pb.SetShadowRadiusRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSystemFontFamilyName calls the SetSystemFontFamilyName RPC.
+func (c *TextAppearanceInfoBuilderClient) SetSystemFontFamilyName(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetSystemFontFamilyName(ctx, &pb.SetSystemFontFamilyNameRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetTextColor calls the SetTextColor RPC.
+func (c *TextAppearanceInfoBuilderClient) SetTextColor(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetTextColor(ctx, &pb.SetTextColorRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetTextFontWeight calls the SetTextFontWeight RPC.
+func (c *TextAppearanceInfoBuilderClient) SetTextFontWeight(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetTextFontWeight(ctx, &pb.SetTextFontWeightRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetTextLocales calls the SetTextLocales RPC.
+func (c *TextAppearanceInfoBuilderClient) SetTextLocales(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetTextLocales(ctx, &pb.SetTextLocalesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetTextScaleX calls the SetTextScaleX RPC.
+func (c *TextAppearanceInfoBuilderClient) SetTextScaleX(ctx context.Context, arg0 float32) (int64, error) {
+	resp, err := c.svc.SetTextScaleX(ctx, &pb.SetTextScaleXRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetTextSize calls the SetTextSize RPC.
+func (c *TextAppearanceInfoBuilderClient) SetTextSize(ctx context.Context, arg0 float32) (int64, error) {
+	resp, err := c.svc.SetTextSize(ctx, &pb.SetTextSizeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetTextStyle calls the SetTextStyle RPC.
+func (c *TextAppearanceInfoBuilderClient) SetTextStyle(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetTextStyle(ctx, &pb.SetTextStyleRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ExtractedTextClient wraps the gRPC ExtractedTextService client.
+type ExtractedTextClient struct {
+	svc pb.ExtractedTextServiceClient
+}
+
+// NewExtractedTextClient creates a new ExtractedText client.
+func NewExtractedTextClient(cc grpc.ClientConnInterface) *ExtractedTextClient {
+	return &ExtractedTextClient{
+		svc: pb.NewExtractedTextServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ExtractedTextClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.ExtractedTextDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ExtractedTextClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.ExtractedTextWriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// InlineSuggestionsRequestClient wraps the gRPC InlineSuggestionsRequestService client.
+type InlineSuggestionsRequestClient struct {
+	svc pb.InlineSuggestionsRequestServiceClient
+}
+
+// NewInlineSuggestionsRequestClient creates a new InlineSuggestionsRequest client.
+func NewInlineSuggestionsRequestClient(cc grpc.ClientConnInterface) *InlineSuggestionsRequestClient {
+	return &InlineSuggestionsRequestClient{
+		svc: pb.NewInlineSuggestionsRequestServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *InlineSuggestionsRequestClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *InlineSuggestionsRequestClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExtras calls the GetExtras RPC.
+func (c *InlineSuggestionsRequestClient) GetExtras(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetExtras(ctx, &pb.GetExtrasRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHostPackageName calls the GetHostPackageName RPC.
+func (c *InlineSuggestionsRequestClient) GetHostPackageName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetHostPackageName(ctx, &pb.GetHostPackageNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInlineTooltipPresentationSpec calls the GetInlineTooltipPresentationSpec RPC.
+func (c *InlineSuggestionsRequestClient) GetInlineTooltipPresentationSpec(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetInlineTooltipPresentationSpec(ctx, &pb.GetInlineTooltipPresentationSpecRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMaxSuggestionCount calls the GetMaxSuggestionCount RPC.
+func (c *InlineSuggestionsRequestClient) GetMaxSuggestionCount(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMaxSuggestionCount(ctx, &pb.GetMaxSuggestionCountRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSupportedLocales calls the GetSupportedLocales RPC.
+func (c *InlineSuggestionsRequestClient) GetSupportedLocales(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSupportedLocales(ctx, &pb.GetSupportedLocalesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *InlineSuggestionsRequestClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *InlineSuggestionsRequestClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.InlineSuggestionsRequestToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *InlineSuggestionsRequestClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// InlineSuggestionsRequestBuilderClient wraps the gRPC InlineSuggestionsRequestBuilderService client.
+type InlineSuggestionsRequestBuilderClient struct {
+	svc pb.InlineSuggestionsRequestBuilderServiceClient
+}
+
+// NewInlineSuggestionsRequestBuilderClient creates a new InlineSuggestionsRequestBuilder client.
+func NewInlineSuggestionsRequestBuilderClient(cc grpc.ClientConnInterface) *InlineSuggestionsRequestBuilderClient {
+	return &InlineSuggestionsRequestBuilderClient{
+		svc: pb.NewInlineSuggestionsRequestBuilderServiceClient(cc),
+	}
+}
+
+// AddInlinePresentationSpecs calls the AddInlinePresentationSpecs RPC.
+func (c *InlineSuggestionsRequestBuilderClient) AddInlinePresentationSpecs(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.AddInlinePresentationSpecs(ctx, &pb.AddInlinePresentationSpecsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Build calls the Build RPC.
+func (c *InlineSuggestionsRequestBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetExtras calls the SetExtras RPC.
+func (c *InlineSuggestionsRequestBuilderClient) SetExtras(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetExtras(ctx, &pb.SetExtrasRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetInlineTooltipPresentationSpec calls the SetInlineTooltipPresentationSpec RPC.
+func (c *InlineSuggestionsRequestBuilderClient) SetInlineTooltipPresentationSpec(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetInlineTooltipPresentationSpec(ctx, &pb.SetInlineTooltipPresentationSpecRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetMaxSuggestionCount calls the SetMaxSuggestionCount RPC.
+func (c *InlineSuggestionsRequestBuilderClient) SetMaxSuggestionCount(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetMaxSuggestionCount(ctx, &pb.SetMaxSuggestionCountRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSupportedLocales calls the SetSupportedLocales RPC.
+func (c *InlineSuggestionsRequestBuilderClient) SetSupportedLocales(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetSupportedLocales(ctx, &pb.SetSupportedLocalesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// EditorInfoClient wraps the gRPC EditorInfoService client.
+type EditorInfoClient struct {
+	svc pb.EditorInfoServiceClient
+}
+
+// NewEditorInfoClient creates a new EditorInfo client.
+func NewEditorInfoClient(cc grpc.ClientConnInterface) *EditorInfoClient {
+	return &EditorInfoClient{
+		svc: pb.NewEditorInfoServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *EditorInfoClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.EditorInfoDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Dump calls the Dump RPC.
+func (c *EditorInfoClient) Dump(ctx context.Context, handle int64, arg0 int64, arg1 string) error {
+	_, err := c.svc.Dump(ctx, &pb.DumpRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GetAutofillId calls the GetAutofillId RPC.
+func (c *EditorInfoClient) GetAutofillId(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetAutofillId(ctx, &pb.GetAutofillIdRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInitialSelectedText calls the GetInitialSelectedText RPC.
+func (c *EditorInfoClient) GetInitialSelectedText(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetInitialSelectedText(ctx, &pb.GetInitialSelectedTextRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInitialSurroundingText calls the GetInitialSurroundingText RPC.
+func (c *EditorInfoClient) GetInitialSurroundingText(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32) (int64, error) {
+	resp, err := c.svc.GetInitialSurroundingText(ctx, &pb.GetInitialSurroundingTextRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInitialTextAfterCursor calls the GetInitialTextAfterCursor RPC.
+func (c *EditorInfoClient) GetInitialTextAfterCursor(ctx context.Context, handle int64, arg0 int32, arg1 int32) (int64, error) {
+	resp, err := c.svc.GetInitialTextAfterCursor(ctx, &pb.GetInitialTextAfterCursorRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInitialTextBeforeCursor calls the GetInitialTextBeforeCursor RPC.
+func (c *EditorInfoClient) GetInitialTextBeforeCursor(ctx context.Context, handle int64, arg0 int32, arg1 int32) (int64, error) {
+	resp, err := c.svc.GetInitialTextBeforeCursor(ctx, &pb.GetInitialTextBeforeCursorRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInitialToolType calls the GetInitialToolType RPC.
+func (c *EditorInfoClient) GetInitialToolType(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetInitialToolType(ctx, &pb.GetInitialToolTypeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsStylusHandwritingEnabled calls the IsStylusHandwritingEnabled RPC.
+func (c *EditorInfoClient) IsStylusHandwritingEnabled(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsStylusHandwritingEnabled(ctx, &pb.IsStylusHandwritingEnabledRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsWritingToolsEnabled calls the IsWritingToolsEnabled RPC.
+func (c *EditorInfoClient) IsWritingToolsEnabled(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsWritingToolsEnabled(ctx, &pb.IsWritingToolsEnabledRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MakeCompatible calls the MakeCompatible RPC.
+func (c *EditorInfoClient) MakeCompatible(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.MakeCompatible(ctx, &pb.MakeCompatibleRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetAutofillId calls the SetAutofillId RPC.
+func (c *EditorInfoClient) SetAutofillId(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetAutofillId(ctx, &pb.SetAutofillIdRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetInitialSurroundingSubText calls the SetInitialSurroundingSubText RPC.
+func (c *EditorInfoClient) SetInitialSurroundingSubText(ctx context.Context, handle int64, arg0 string, arg1 int32) error {
+	_, err := c.svc.SetInitialSurroundingSubText(ctx, &pb.SetInitialSurroundingSubTextRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SetInitialSurroundingText calls the SetInitialSurroundingText RPC.
+func (c *EditorInfoClient) SetInitialSurroundingText(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.SetInitialSurroundingText(ctx, &pb.SetInitialSurroundingTextRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetInitialToolType calls the SetInitialToolType RPC.
+func (c *EditorInfoClient) SetInitialToolType(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetInitialToolType(ctx, &pb.SetInitialToolTypeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetStylusHandwritingEnabled calls the SetStylusHandwritingEnabled RPC.
+func (c *EditorInfoClient) SetStylusHandwritingEnabled(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetStylusHandwritingEnabled(ctx, &pb.SetStylusHandwritingEnabledRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetWritingToolsEnabled calls the SetWritingToolsEnabled RPC.
+func (c *EditorInfoClient) SetWritingToolsEnabled(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetWritingToolsEnabled(ctx, &pb.SetWritingToolsEnabledRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *EditorInfoClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.EditorInfoWriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// CorrectionInfoClient wraps the gRPC CorrectionInfoService client.
+type CorrectionInfoClient struct {
+	svc pb.CorrectionInfoServiceClient
+}
+
+// NewCorrectionInfoClient creates a new CorrectionInfo client.
+func NewCorrectionInfoClient(cc grpc.ClientConnInterface) *CorrectionInfoClient {
+	return &CorrectionInfoClient{
+		svc: pb.NewCorrectionInfoServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *CorrectionInfoClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.CorrectionInfoDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNewText calls the GetNewText RPC.
+func (c *CorrectionInfoClient) GetNewText(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetNewText(ctx, &pb.GetNewTextRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOffset calls the GetOffset RPC.
+func (c *CorrectionInfoClient) GetOffset(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetOffset(ctx, &pb.GetOffsetRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOldText calls the GetOldText RPC.
+func (c *CorrectionInfoClient) GetOldText(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetOldText(ctx, &pb.GetOldTextRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *CorrectionInfoClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *CorrectionInfoClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.CorrectionInfoWriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
 	})
 	return err
 }

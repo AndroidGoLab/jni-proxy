@@ -1407,3 +1407,1587 @@ func (s *ManagerServer) CompareSignalLevel(_ context.Context, req *pb.CompareSig
 	}
 	return &pb.CompareSignalLevelResponse{Result: result}, nil
 }
+
+// EnterpriseConfigServer implements pb.EnterpriseConfigServiceServer.
+type EnterpriseConfigServer struct {
+	pb.UnimplementedEnterpriseConfigServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *EnterpriseConfigServer) NewEnterpriseConfig(_ context.Context, req *pb.NewEnterpriseConfigRequest) (*pb.NewEnterpriseConfigResponse, error) {
+	obj, err := jnipkg.NewEnterpriseConfig(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewEnterpriseConfigResponse{Result: handle}, nil
+}
+
+func (s *EnterpriseConfigServer) DescribeContents(_ context.Context, req *pb.EnterpriseConfigDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EnterpriseConfig{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *EnterpriseConfigServer) EnableTrustOnFirstUse(_ context.Context, req *pb.EnableTrustOnFirstUseRequest) (*pb.EnableTrustOnFirstUseResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EnterpriseConfig{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.EnableTrustOnFirstUse(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EnableTrustOnFirstUseResponse{}, nil
+}
+
+func (s *EnterpriseConfigServer) GetAltSubjectMatch(_ context.Context, req *pb.GetAltSubjectMatchRequest) (*pb.GetAltSubjectMatchResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EnterpriseConfig{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetAltSubjectMatch()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetAltSubjectMatchResponse{Result: result}, nil
+}
+
+func (s *EnterpriseConfigServer) GetAnonymousIdentity(_ context.Context, req *pb.GetAnonymousIdentityRequest) (*pb.GetAnonymousIdentityResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EnterpriseConfig{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetAnonymousIdentity()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetAnonymousIdentityResponse{Result: result}, nil
+}
+
+func (s *EnterpriseConfigServer) GetCaCertificate(_ context.Context, req *pb.GetCaCertificateRequest) (*pb.GetCaCertificateResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EnterpriseConfig{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetCaCertificate()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetCaCertificateResponse{Result: handle}, nil
+}
+
+func (s *EnterpriseConfigServer) GetCaCertificates(_ context.Context, req *pb.GetCaCertificatesRequest) (*pb.GetCaCertificatesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EnterpriseConfig{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetCaCertificates()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetCaCertificatesResponse{Result: handle}, nil
+}
+
+func (s *EnterpriseConfigServer) GetClientCertificate(_ context.Context, req *pb.GetClientCertificateRequest) (*pb.GetClientCertificateResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EnterpriseConfig{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetClientCertificate()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetClientCertificateResponse{Result: handle}, nil
+}
+
+func (s *EnterpriseConfigServer) GetClientCertificateChain(_ context.Context, req *pb.GetClientCertificateChainRequest) (*pb.GetClientCertificateChainResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EnterpriseConfig{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetClientCertificateChain()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetClientCertificateChainResponse{Result: handle}, nil
+}
+
+func (s *EnterpriseConfigServer) GetClientKeyPairAlias(_ context.Context, req *pb.GetClientKeyPairAliasRequest) (*pb.GetClientKeyPairAliasResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EnterpriseConfig{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetClientKeyPairAlias()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetClientKeyPairAliasResponse{Result: result}, nil
+}
+
+func (s *EnterpriseConfigServer) GetClientPrivateKey(_ context.Context, req *pb.GetClientPrivateKeyRequest) (*pb.GetClientPrivateKeyResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EnterpriseConfig{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetClientPrivateKey()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetClientPrivateKeyResponse{Result: handle}, nil
+}
+
+func (s *EnterpriseConfigServer) GetDecoratedIdentityPrefix(_ context.Context, req *pb.GetDecoratedIdentityPrefixRequest) (*pb.GetDecoratedIdentityPrefixResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EnterpriseConfig{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetDecoratedIdentityPrefix()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetDecoratedIdentityPrefixResponse{Result: result}, nil
+}
+
+func (s *EnterpriseConfigServer) GetDomainSuffixMatch(_ context.Context, req *pb.GetDomainSuffixMatchRequest) (*pb.GetDomainSuffixMatchResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EnterpriseConfig{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetDomainSuffixMatch()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetDomainSuffixMatchResponse{Result: result}, nil
+}
+
+func (s *EnterpriseConfigServer) GetEapMethod(_ context.Context, req *pb.GetEapMethodRequest) (*pb.GetEapMethodResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EnterpriseConfig{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetEapMethod()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetEapMethodResponse{Result: result}, nil
+}
+
+func (s *EnterpriseConfigServer) GetIdentity(_ context.Context, req *pb.GetIdentityRequest) (*pb.GetIdentityResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EnterpriseConfig{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetIdentity()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetIdentityResponse{Result: result}, nil
+}
+
+func (s *EnterpriseConfigServer) GetMinimumTlsVersion(_ context.Context, req *pb.GetMinimumTlsVersionRequest) (*pb.GetMinimumTlsVersionResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EnterpriseConfig{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetMinimumTlsVersion()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetMinimumTlsVersionResponse{Result: result}, nil
+}
+
+func (s *EnterpriseConfigServer) GetPassword(_ context.Context, req *pb.GetPasswordRequest) (*pb.GetPasswordResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EnterpriseConfig{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetPassword()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetPasswordResponse{Result: result}, nil
+}
+
+func (s *EnterpriseConfigServer) GetPhase2Method(_ context.Context, req *pb.GetPhase2MethodRequest) (*pb.GetPhase2MethodResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EnterpriseConfig{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetPhase2Method()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetPhase2MethodResponse{Result: result}, nil
+}
+
+func (s *EnterpriseConfigServer) GetPlmn(_ context.Context, req *pb.GetPlmnRequest) (*pb.GetPlmnResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EnterpriseConfig{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetPlmn()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetPlmnResponse{Result: result}, nil
+}
+
+func (s *EnterpriseConfigServer) GetRealm(_ context.Context, req *pb.GetRealmRequest) (*pb.GetRealmResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EnterpriseConfig{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetRealm()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetRealmResponse{Result: result}, nil
+}
+
+func (s *EnterpriseConfigServer) GetSubjectMatch(_ context.Context, req *pb.GetSubjectMatchRequest) (*pb.GetSubjectMatchResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EnterpriseConfig{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetSubjectMatch()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetSubjectMatchResponse{Result: result}, nil
+}
+
+func (s *EnterpriseConfigServer) HasCaCertificate(_ context.Context, req *pb.HasCaCertificateRequest) (*pb.HasCaCertificateResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EnterpriseConfig{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.HasCaCertificate()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.HasCaCertificateResponse{Result: result}, nil
+}
+
+func (s *EnterpriseConfigServer) IsAuthenticationSimBased(_ context.Context, req *pb.IsAuthenticationSimBasedRequest) (*pb.IsAuthenticationSimBasedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EnterpriseConfig{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsAuthenticationSimBased()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsAuthenticationSimBasedResponse{Result: result}, nil
+}
+
+func (s *EnterpriseConfigServer) IsEapMethodServerCertUsed(_ context.Context, req *pb.IsEapMethodServerCertUsedRequest) (*pb.IsEapMethodServerCertUsedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EnterpriseConfig{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsEapMethodServerCertUsed()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsEapMethodServerCertUsedResponse{Result: result}, nil
+}
+
+func (s *EnterpriseConfigServer) IsServerCertValidationEnabled(_ context.Context, req *pb.IsServerCertValidationEnabledRequest) (*pb.IsServerCertValidationEnabledResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EnterpriseConfig{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsServerCertValidationEnabled()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsServerCertValidationEnabledResponse{Result: result}, nil
+}
+
+func (s *EnterpriseConfigServer) IsTrustOnFirstUseEnabled(_ context.Context, req *pb.IsTrustOnFirstUseEnabledRequest) (*pb.IsTrustOnFirstUseEnabledResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EnterpriseConfig{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsTrustOnFirstUseEnabled()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsTrustOnFirstUseEnabledResponse{Result: result}, nil
+}
+
+func (s *EnterpriseConfigServer) SetAltSubjectMatch(_ context.Context, req *pb.SetAltSubjectMatchRequest) (*pb.SetAltSubjectMatchResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EnterpriseConfig{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetAltSubjectMatch(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetAltSubjectMatchResponse{}, nil
+}
+
+func (s *EnterpriseConfigServer) SetAnonymousIdentity(_ context.Context, req *pb.SetAnonymousIdentityRequest) (*pb.SetAnonymousIdentityResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EnterpriseConfig{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetAnonymousIdentity(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetAnonymousIdentityResponse{}, nil
+}
+
+func (s *EnterpriseConfigServer) SetCaCertificate(_ context.Context, req *pb.SetCaCertificateRequest) (*pb.SetCaCertificateResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EnterpriseConfig{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetCaCertificate(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetCaCertificateResponse{}, nil
+}
+
+func (s *EnterpriseConfigServer) SetCaCertificates(_ context.Context, req *pb.SetCaCertificatesRequest) (*pb.SetCaCertificatesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EnterpriseConfig{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetCaCertificates(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetCaCertificatesResponse{}, nil
+}
+
+func (s *EnterpriseConfigServer) SetClientKeyEntry(_ context.Context, req *pb.SetClientKeyEntryRequest) (*pb.SetClientKeyEntryResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EnterpriseConfig{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetClientKeyEntry(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetClientKeyEntryResponse{}, nil
+}
+
+func (s *EnterpriseConfigServer) SetClientKeyEntryWithCertificateChain(_ context.Context, req *pb.SetClientKeyEntryWithCertificateChainRequest) (*pb.SetClientKeyEntryWithCertificateChainResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EnterpriseConfig{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetClientKeyEntryWithCertificateChain(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetClientKeyEntryWithCertificateChainResponse{}, nil
+}
+
+func (s *EnterpriseConfigServer) SetClientKeyPairAlias(_ context.Context, req *pb.SetClientKeyPairAliasRequest) (*pb.SetClientKeyPairAliasResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EnterpriseConfig{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetClientKeyPairAlias(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetClientKeyPairAliasResponse{}, nil
+}
+
+func (s *EnterpriseConfigServer) SetDecoratedIdentityPrefix(_ context.Context, req *pb.SetDecoratedIdentityPrefixRequest) (*pb.SetDecoratedIdentityPrefixResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EnterpriseConfig{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetDecoratedIdentityPrefix(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetDecoratedIdentityPrefixResponse{}, nil
+}
+
+func (s *EnterpriseConfigServer) SetDomainSuffixMatch(_ context.Context, req *pb.SetDomainSuffixMatchRequest) (*pb.SetDomainSuffixMatchResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EnterpriseConfig{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetDomainSuffixMatch(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetDomainSuffixMatchResponse{}, nil
+}
+
+func (s *EnterpriseConfigServer) SetEapMethod(_ context.Context, req *pb.SetEapMethodRequest) (*pb.SetEapMethodResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EnterpriseConfig{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetEapMethod(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetEapMethodResponse{}, nil
+}
+
+func (s *EnterpriseConfigServer) SetIdentity(_ context.Context, req *pb.SetIdentityRequest) (*pb.SetIdentityResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EnterpriseConfig{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetIdentity(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetIdentityResponse{}, nil
+}
+
+func (s *EnterpriseConfigServer) SetMinimumTlsVersion(_ context.Context, req *pb.SetMinimumTlsVersionRequest) (*pb.SetMinimumTlsVersionResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EnterpriseConfig{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetMinimumTlsVersion(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetMinimumTlsVersionResponse{}, nil
+}
+
+func (s *EnterpriseConfigServer) SetPassword(_ context.Context, req *pb.SetPasswordRequest) (*pb.SetPasswordResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EnterpriseConfig{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetPassword(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetPasswordResponse{}, nil
+}
+
+func (s *EnterpriseConfigServer) SetPhase2Method(_ context.Context, req *pb.SetPhase2MethodRequest) (*pb.SetPhase2MethodResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EnterpriseConfig{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetPhase2Method(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetPhase2MethodResponse{}, nil
+}
+
+func (s *EnterpriseConfigServer) SetPlmn(_ context.Context, req *pb.SetPlmnRequest) (*pb.SetPlmnResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EnterpriseConfig{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetPlmn(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetPlmnResponse{}, nil
+}
+
+func (s *EnterpriseConfigServer) SetRealm(_ context.Context, req *pb.SetRealmRequest) (*pb.SetRealmResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EnterpriseConfig{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetRealm(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetRealmResponse{}, nil
+}
+
+func (s *EnterpriseConfigServer) SetSubjectMatch(_ context.Context, req *pb.SetSubjectMatchRequest) (*pb.SetSubjectMatchResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EnterpriseConfig{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetSubjectMatch(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetSubjectMatchResponse{}, nil
+}
+
+func (s *EnterpriseConfigServer) ToString(_ context.Context, req *pb.EnterpriseConfigToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EnterpriseConfig{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *EnterpriseConfigServer) WriteToParcel(_ context.Context, req *pb.EnterpriseConfigWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EnterpriseConfig{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
+// ConfigurationServer implements pb.ConfigurationServiceServer.
+type ConfigurationServer struct {
+	pb.UnimplementedConfigurationServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *ConfigurationServer) NewConfiguration(_ context.Context, req *pb.NewConfigurationRequest) (*pb.NewConfigurationResponse, error) {
+	obj, err := jnipkg.NewConfiguration(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewConfigurationResponse{Result: handle}, nil
+}
+
+func (s *ConfigurationServer) DescribeContents(_ context.Context, req *pb.ConfigurationDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Configuration{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *ConfigurationServer) GetHttpProxy(_ context.Context, req *pb.GetHttpProxyRequest) (*pb.GetHttpProxyResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Configuration{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetHttpProxy()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetHttpProxyResponse{Result: handle}, nil
+}
+
+func (s *ConfigurationServer) GetKey(_ context.Context, req *pb.GetKeyRequest) (*pb.GetKeyResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Configuration{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetKey()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetKeyResponse{Result: result}, nil
+}
+
+func (s *ConfigurationServer) GetMacRandomizationSetting(_ context.Context, req *pb.ConfigurationGetMacRandomizationSettingRequest) (*pb.GetMacRandomizationSettingResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Configuration{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetMacRandomizationSetting()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetMacRandomizationSettingResponse{Result: result}, nil
+}
+
+func (s *ConfigurationServer) GetRandomizedMacAddress(_ context.Context, req *pb.GetRandomizedMacAddressRequest) (*pb.GetRandomizedMacAddressResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Configuration{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetRandomizedMacAddress()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetRandomizedMacAddressResponse{Result: handle}, nil
+}
+
+func (s *ConfigurationServer) IsDppConfigurator(_ context.Context, req *pb.IsDppConfiguratorRequest) (*pb.IsDppConfiguratorResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Configuration{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsDppConfigurator()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsDppConfiguratorResponse{Result: result}, nil
+}
+
+func (s *ConfigurationServer) IsPasspoint(_ context.Context, req *pb.IsPasspointRequest) (*pb.IsPasspointResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Configuration{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsPasspoint()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsPasspointResponse{Result: result}, nil
+}
+
+func (s *ConfigurationServer) SetHttpProxy(_ context.Context, req *pb.SetHttpProxyRequest) (*pb.SetHttpProxyResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Configuration{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetHttpProxy(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetHttpProxyResponse{}, nil
+}
+
+func (s *ConfigurationServer) SetIpConfiguration(_ context.Context, req *pb.SetIpConfigurationRequest) (*pb.SetIpConfigurationResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Configuration{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetIpConfiguration(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetIpConfigurationResponse{}, nil
+}
+
+func (s *ConfigurationServer) SetMacRandomizationSetting(_ context.Context, req *pb.ConfigurationSetMacRandomizationSettingRequest) (*pb.ConfigurationSetMacRandomizationSettingResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Configuration{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetMacRandomizationSetting(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ConfigurationSetMacRandomizationSettingResponse{}, nil
+}
+
+func (s *ConfigurationServer) SetSecurityParams(_ context.Context, req *pb.SetSecurityParamsRequest) (*pb.SetSecurityParamsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Configuration{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetSecurityParams(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetSecurityParamsResponse{}, nil
+}
+
+func (s *ConfigurationServer) ToString(_ context.Context, req *pb.ConfigurationToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Configuration{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *ConfigurationServer) WriteToParcel(_ context.Context, req *pb.ConfigurationWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Configuration{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
+// WpsInfoServer implements pb.WpsInfoServiceServer.
+type WpsInfoServer struct {
+	pb.UnimplementedWpsInfoServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *WpsInfoServer) NewWpsInfo(_ context.Context, req *pb.NewWpsInfoRequest) (*pb.NewWpsInfoResponse, error) {
+	obj, err := jnipkg.NewWpsInfo(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewWpsInfoResponse{Result: handle}, nil
+}
+
+func (s *WpsInfoServer) DescribeContents(_ context.Context, req *pb.WpsInfoDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WpsInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *WpsInfoServer) ToString(_ context.Context, req *pb.WpsInfoToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WpsInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *WpsInfoServer) WriteToParcel(_ context.Context, req *pb.WpsInfoWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WpsInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
+// ScanResultServer implements pb.ScanResultServiceServer.
+type ScanResultServer struct {
+	pb.UnimplementedScanResultServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *ScanResultServer) NewScanResult(_ context.Context, req *pb.NewScanResultRequest) (*pb.NewScanResultResponse, error) {
+	obj, err := jnipkg.NewScanResult(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewScanResultResponse{Result: handle}, nil
+}
+
+func (s *ScanResultServer) DescribeContents(_ context.Context, req *pb.ScanResultDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ScanResult{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *ScanResultServer) GetApMldMacAddress(_ context.Context, req *pb.ScanResultGetApMldMacAddressRequest) (*pb.GetApMldMacAddressResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ScanResult{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetApMldMacAddress()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetApMldMacAddressResponse{Result: handle}, nil
+}
+
+func (s *ScanResultServer) GetApMloLinkId(_ context.Context, req *pb.ScanResultGetApMloLinkIdRequest) (*pb.GetApMloLinkIdResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ScanResult{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetApMloLinkId()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetApMloLinkIdResponse{Result: result}, nil
+}
+
+func (s *ScanResultServer) GetSecurityTypes(_ context.Context, req *pb.GetSecurityTypesRequest) (*pb.GetSecurityTypesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ScanResult{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetSecurityTypes()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetSecurityTypesResponse{Result: handle}, nil
+}
+
+func (s *ScanResultServer) GetWifiSsid(_ context.Context, req *pb.ScanResultGetWifiSsidRequest) (*pb.GetWifiSsidResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ScanResult{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetWifiSsid()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetWifiSsidResponse{Result: handle}, nil
+}
+
+func (s *ScanResultServer) GetWifiStandard(_ context.Context, req *pb.ScanResultGetWifiStandardRequest) (*pb.GetWifiStandardResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ScanResult{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetWifiStandard()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetWifiStandardResponse{Result: result}, nil
+}
+
+func (s *ScanResultServer) Is80211AzNtbResponder(_ context.Context, req *pb.Is80211AzNtbResponderRequest) (*pb.Is80211AzNtbResponderResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ScanResult{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Is80211azNtbResponder()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.Is80211AzNtbResponderResponse{Result: result}, nil
+}
+
+func (s *ScanResultServer) Is80211McResponder(_ context.Context, req *pb.Is80211McResponderRequest) (*pb.Is80211McResponderResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ScanResult{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Is80211mcResponder()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.Is80211McResponderResponse{Result: result}, nil
+}
+
+func (s *ScanResultServer) IsPasspointNetwork(_ context.Context, req *pb.IsPasspointNetworkRequest) (*pb.IsPasspointNetworkResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ScanResult{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsPasspointNetwork()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsPasspointNetworkResponse{Result: result}, nil
+}
+
+func (s *ScanResultServer) IsRangingFrameProtectionRequired(_ context.Context, req *pb.IsRangingFrameProtectionRequiredRequest) (*pb.IsRangingFrameProtectionRequiredResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ScanResult{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsRangingFrameProtectionRequired()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsRangingFrameProtectionRequiredResponse{Result: result}, nil
+}
+
+func (s *ScanResultServer) IsSecureHeLtfSupported(_ context.Context, req *pb.IsSecureHeLtfSupportedRequest) (*pb.IsSecureHeLtfSupportedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ScanResult{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsSecureHeLtfSupported()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsSecureHeLtfSupportedResponse{Result: result}, nil
+}
+
+func (s *ScanResultServer) IsTwtResponder(_ context.Context, req *pb.IsTwtResponderRequest) (*pb.IsTwtResponderResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ScanResult{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsTwtResponder()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsTwtResponderResponse{Result: result}, nil
+}
+
+func (s *ScanResultServer) ToString(_ context.Context, req *pb.ScanResultToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ScanResult{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *ScanResultServer) WriteToParcel(_ context.Context, req *pb.ScanResultWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ScanResult{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
+func (s *ScanResultServer) ConvertChannelToFrequencyMhzIfSupported(_ context.Context, req *pb.ConvertChannelToFrequencyMhzIfSupportedRequest) (*pb.ConvertChannelToFrequencyMhzIfSupportedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ScanResult{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ConvertChannelToFrequencyMhzIfSupported(req.GetArg0(), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ConvertChannelToFrequencyMhzIfSupportedResponse{Result: result}, nil
+}
+
+func (s *ScanResultServer) ConvertFrequencyMhzToChannelIfSupported(_ context.Context, req *pb.ConvertFrequencyMhzToChannelIfSupportedRequest) (*pb.ConvertFrequencyMhzToChannelIfSupportedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ScanResult{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ConvertFrequencyMhzToChannelIfSupported(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ConvertFrequencyMhzToChannelIfSupportedResponse{Result: result}, nil
+}
+
+// MloLinkServer implements pb.MloLinkServiceServer.
+type MloLinkServer struct {
+	pb.UnimplementedMloLinkServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *MloLinkServer) NewMloLink(_ context.Context, req *pb.NewMloLinkRequest) (*pb.NewMloLinkResponse, error) {
+	obj, err := jnipkg.NewMloLink(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewMloLinkResponse{Result: handle}, nil
+}
+
+func (s *MloLinkServer) DescribeContents(_ context.Context, req *pb.MloLinkDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MloLink{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *MloLinkServer) Equals(_ context.Context, req *pb.MloLinkEqualsRequest) (*pb.EqualsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MloLink{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Equals(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EqualsResponse{Result: result}, nil
+}
+
+func (s *MloLinkServer) GetApMacAddress(_ context.Context, req *pb.GetApMacAddressRequest) (*pb.GetApMacAddressResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MloLink{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetApMacAddress()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetApMacAddressResponse{Result: handle}, nil
+}
+
+func (s *MloLinkServer) GetBand(_ context.Context, req *pb.MloLinkGetBandRequest) (*pb.GetBandResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MloLink{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetBand()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetBandResponse{Result: result}, nil
+}
+
+func (s *MloLinkServer) GetChannel(_ context.Context, req *pb.GetChannelRequest) (*pb.GetChannelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MloLink{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetChannel()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetChannelResponse{Result: result}, nil
+}
+
+func (s *MloLinkServer) GetLinkId(_ context.Context, req *pb.GetLinkIdRequest) (*pb.GetLinkIdResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MloLink{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetLinkId()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetLinkIdResponse{Result: result}, nil
+}
+
+func (s *MloLinkServer) GetRssi(_ context.Context, req *pb.MloLinkGetRssiRequest) (*pb.GetRssiResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MloLink{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetRssi()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetRssiResponse{Result: result}, nil
+}
+
+func (s *MloLinkServer) GetRxLinkSpeedMbps(_ context.Context, req *pb.MloLinkGetRxLinkSpeedMbpsRequest) (*pb.GetRxLinkSpeedMbpsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MloLink{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetRxLinkSpeedMbps()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetRxLinkSpeedMbpsResponse{Result: result}, nil
+}
+
+func (s *MloLinkServer) GetStaMacAddress(_ context.Context, req *pb.GetStaMacAddressRequest) (*pb.GetStaMacAddressResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MloLink{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetStaMacAddress()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetStaMacAddressResponse{Result: handle}, nil
+}
+
+func (s *MloLinkServer) GetState(_ context.Context, req *pb.GetStateRequest) (*pb.GetStateResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MloLink{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetState()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetStateResponse{Result: result}, nil
+}
+
+func (s *MloLinkServer) GetTxLinkSpeedMbps(_ context.Context, req *pb.MloLinkGetTxLinkSpeedMbpsRequest) (*pb.GetTxLinkSpeedMbpsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MloLink{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetTxLinkSpeedMbps()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetTxLinkSpeedMbpsResponse{Result: result}, nil
+}
+
+func (s *MloLinkServer) HashCode(_ context.Context, req *pb.MloLinkHashCodeRequest) (*pb.HashCodeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MloLink{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.HashCode()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.HashCodeResponse{Result: result}, nil
+}
+
+func (s *MloLinkServer) ToString(_ context.Context, req *pb.MloLinkToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MloLink{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *MloLinkServer) WriteToParcel(_ context.Context, req *pb.MloLinkWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MloLink{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
+// AvailableChannelServer implements pb.AvailableChannelServiceServer.
+type AvailableChannelServer struct {
+	pb.UnimplementedAvailableChannelServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *AvailableChannelServer) NewAvailableChannel(_ context.Context, req *pb.NewAvailableChannelRequest) (*pb.NewAvailableChannelResponse, error) {
+	obj, err := jnipkg.NewAvailableChannel(s.Ctx.VM, req.GetArg0(), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewAvailableChannelResponse{Result: handle}, nil
+}
+
+func (s *AvailableChannelServer) DescribeContents(_ context.Context, req *pb.AvailableChannelDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AvailableChannel{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *AvailableChannelServer) Equals(_ context.Context, req *pb.AvailableChannelEqualsRequest) (*pb.EqualsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AvailableChannel{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Equals(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EqualsResponse{Result: result}, nil
+}
+
+func (s *AvailableChannelServer) GetChannelWidth(_ context.Context, req *pb.GetChannelWidthRequest) (*pb.GetChannelWidthResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AvailableChannel{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetChannelWidth()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetChannelWidthResponse{Result: result}, nil
+}
+
+func (s *AvailableChannelServer) GetFrequencyMhz(_ context.Context, req *pb.GetFrequencyMhzRequest) (*pb.GetFrequencyMhzResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AvailableChannel{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetFrequencyMhz()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetFrequencyMhzResponse{Result: result}, nil
+}
+
+func (s *AvailableChannelServer) GetOperationalModes(_ context.Context, req *pb.GetOperationalModesRequest) (*pb.GetOperationalModesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AvailableChannel{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetOperationalModes()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetOperationalModesResponse{Result: result}, nil
+}
+
+func (s *AvailableChannelServer) HashCode(_ context.Context, req *pb.AvailableChannelHashCodeRequest) (*pb.HashCodeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AvailableChannel{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.HashCode()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.HashCodeResponse{Result: result}, nil
+}
+
+func (s *AvailableChannelServer) ToString(_ context.Context, req *pb.AvailableChannelToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AvailableChannel{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *AvailableChannelServer) WriteToParcel(_ context.Context, req *pb.AvailableChannelWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AvailableChannel{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}

@@ -5,3 +5,65 @@ syntax = "proto3";
 package appsetid;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/appsetid";
+
+message NewAppSetIdRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message NewAppSetIdResponse {
+  int64 result = 1;
+}
+
+message EqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message GetIdRequest {
+  int64 handle = 1;
+}
+
+message GetIdResponse {
+  string result = 1;
+}
+
+message GetScopeRequest {
+  int64 handle = 1;
+}
+
+message GetScopeResponse {
+  int32 result = 1;
+}
+
+message HashCodeRequest {
+  int64 handle = 1;
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message GetRequest {
+  int64 arg0 = 1;
+}
+
+message GetResponse {
+  int64 result = 1;
+}
+
+service AppSetIdService {
+  rpc NewAppSetId (NewAppSetIdRequest) returns (NewAppSetIdResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetId (GetIdRequest) returns (GetIdResponse);
+  rpc GetScope (GetScopeRequest) returns (GetScopeResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service AppSetIdManagerService {
+  rpc Get (GetRequest) returns (GetResponse);
+}

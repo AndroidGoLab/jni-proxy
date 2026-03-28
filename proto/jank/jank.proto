@@ -5,3 +5,132 @@ syntax = "proto3";
 package jank;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/jank";
+
+message NewRelativeFrameTimeHistogramRequest {
+}
+
+message NewRelativeFrameTimeHistogramResponse {
+  int64 result = 1;
+}
+
+message AddRelativeFrameTimeMillisRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message AddRelativeFrameTimeMillisResponse {
+}
+
+message GetBucketCountersRequest {
+  int64 handle = 1;
+}
+
+message GetBucketCountersResponse {
+  int64 result = 1;
+}
+
+message GetBucketEndpointsMillisRequest {
+  int64 handle = 1;
+}
+
+message GetBucketEndpointsMillisResponse {
+  int64 result = 1;
+}
+
+message NewAppJankStatsRequest {
+  int32 arg0 = 1;
+  string arg1 = 2;
+  string arg2 = 3;
+  string arg3 = 4;
+  string arg4 = 5;
+  int64 arg5 = 6;
+  int64 arg6 = 7;
+  int64 arg7 = 8;
+}
+
+message NewAppJankStatsResponse {
+  int64 result = 1;
+}
+
+message GetJankyFrameCountRequest {
+  int64 handle = 1;
+}
+
+message GetJankyFrameCountResponse {
+  int64 result = 1;
+}
+
+message GetNavigationComponentRequest {
+  int64 handle = 1;
+}
+
+message GetNavigationComponentResponse {
+  string result = 1;
+}
+
+message GetRelativeFrameTimeHistogramRequest {
+  int64 handle = 1;
+}
+
+message GetRelativeFrameTimeHistogramResponse {
+  int64 result = 1;
+}
+
+message GetTotalFrameCountRequest {
+  int64 handle = 1;
+}
+
+message GetTotalFrameCountResponse {
+  int64 result = 1;
+}
+
+message GetUidRequest {
+  int64 handle = 1;
+}
+
+message GetUidResponse {
+  int32 result = 1;
+}
+
+message GetWidgetCategoryRequest {
+  int64 handle = 1;
+}
+
+message GetWidgetCategoryResponse {
+  string result = 1;
+}
+
+message GetWidgetIdRequest {
+  int64 handle = 1;
+}
+
+message GetWidgetIdResponse {
+  string result = 1;
+}
+
+message GetWidgetStateRequest {
+  int64 handle = 1;
+}
+
+message GetWidgetStateResponse {
+  string result = 1;
+}
+
+service RelativeFrameTimeHistogramService {
+  rpc NewRelativeFrameTimeHistogram (NewRelativeFrameTimeHistogramRequest) returns (NewRelativeFrameTimeHistogramResponse);
+  rpc AddRelativeFrameTimeMillis (AddRelativeFrameTimeMillisRequest) returns (AddRelativeFrameTimeMillisResponse);
+  rpc GetBucketCounters (GetBucketCountersRequest) returns (GetBucketCountersResponse);
+  rpc GetBucketEndpointsMillis (GetBucketEndpointsMillisRequest) returns (GetBucketEndpointsMillisResponse);
+}
+
+service AppJankStatsService {
+  rpc NewAppJankStats (NewAppJankStatsRequest) returns (NewAppJankStatsResponse);
+  rpc GetJankyFrameCount (GetJankyFrameCountRequest) returns (GetJankyFrameCountResponse);
+  rpc GetNavigationComponent (GetNavigationComponentRequest) returns (GetNavigationComponentResponse);
+  rpc GetRelativeFrameTimeHistogram (GetRelativeFrameTimeHistogramRequest) returns (GetRelativeFrameTimeHistogramResponse);
+  rpc GetTotalFrameCount (GetTotalFrameCountRequest) returns (GetTotalFrameCountResponse);
+  rpc GetUid (GetUidRequest) returns (GetUidResponse);
+  rpc GetWidgetCategory (GetWidgetCategoryRequest) returns (GetWidgetCategoryResponse);
+  rpc GetWidgetId (GetWidgetIdRequest) returns (GetWidgetIdResponse);
+  rpc GetWidgetState (GetWidgetStateRequest) returns (GetWidgetStateResponse);
+}

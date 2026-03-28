@@ -6,6 +6,66 @@ package euicc;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/euicc";
 
+message DescribeContentsRequest {
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message GetConfirmationCodeRequest {
+}
+
+message GetConfirmationCodeResponse {
+  string result = 1;
+}
+
+message GetEncodedActivationCodeRequest {
+}
+
+message GetEncodedActivationCodeResponse {
+  string result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteToParcelResponse {
+}
+
+message ForActivationCodeRequest {
+  string arg0 = 1;
+}
+
+message ForActivationCodeResponse {
+  int64 result = 1;
+}
+
+message BuildRequest {
+}
+
+message BuildResponse {
+  int64 result = 1;
+}
+
+message SetConfirmationCodeRequest {
+  string arg0 = 1;
+}
+
+message SetConfirmationCodeResponse {
+  int64 result = 1;
+}
+
+message SetEncodedActivationCodeRequest {
+  string arg0 = 1;
+}
+
+message SetEncodedActivationCodeResponse {
+  int64 result = 1;
+}
+
 message CreateForCardIdRequest {
   int32 arg0 = 1;
 }
@@ -103,6 +163,46 @@ message UpdateSubscriptionNicknameRequest {
 message UpdateSubscriptionNicknameResponse {
 }
 
+message NewInfoRequest {
+  string arg0 = 1;
+}
+
+message NewInfoResponse {
+  int64 result = 1;
+}
+
+message InfoDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message GetOsVersionRequest {
+  int64 handle = 1;
+}
+
+message GetOsVersionResponse {
+  string result = 1;
+}
+
+message InfoWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+service DownloadableSubscriptionService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetConfirmationCode (GetConfirmationCodeRequest) returns (GetConfirmationCodeResponse);
+  rpc GetEncodedActivationCode (GetEncodedActivationCodeRequest) returns (GetEncodedActivationCodeResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc ForActivationCode (ForActivationCodeRequest) returns (ForActivationCodeResponse);
+}
+
+service DownloadableSubscriptionBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetConfirmationCode (SetConfirmationCodeRequest) returns (SetConfirmationCodeResponse);
+  rpc SetEncodedActivationCode (SetEncodedActivationCodeRequest) returns (SetEncodedActivationCodeResponse);
+}
+
 service ManagerService {
   rpc CreateForCardId (CreateForCardIdRequest) returns (CreateForCardIdResponse);
   rpc DeleteSubscription (DeleteSubscriptionRequest) returns (DeleteSubscriptionResponse);
@@ -116,4 +216,11 @@ service ManagerService {
   rpc SwitchToSubscription2 (SwitchToSubscription2Request) returns (SwitchToSubscription2Response);
   rpc SwitchToSubscription3_1 (SwitchToSubscription3_1Request) returns (SwitchToSubscription3_1Response);
   rpc UpdateSubscriptionNickname (UpdateSubscriptionNicknameRequest) returns (UpdateSubscriptionNicknameResponse);
+}
+
+service InfoService {
+  rpc NewInfo (NewInfoRequest) returns (NewInfoResponse);
+  rpc DescribeContents (InfoDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetOsVersion (GetOsVersionRequest) returns (GetOsVersionResponse);
+  rpc WriteToParcel (InfoWriteToParcelRequest) returns (WriteToParcelResponse);
 }

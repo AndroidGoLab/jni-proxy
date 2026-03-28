@@ -6,6 +6,925 @@ package session;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/session";
 
+message NewMediaSessionRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+}
+
+message NewMediaSessionResponse {
+  int64 result = 1;
+}
+
+message GetControllerRequest {
+  int64 handle = 1;
+}
+
+message GetControllerResponse {
+  int64 result = 1;
+}
+
+message GetCurrentControllerInfoRequest {
+  int64 handle = 1;
+}
+
+message GetCurrentControllerInfoResponse {
+  int64 result = 1;
+}
+
+message GetSessionTokenRequest {
+  int64 handle = 1;
+}
+
+message GetSessionTokenResponse {
+  int64 result = 1;
+}
+
+message IsActiveRequest {
+  int64 handle = 1;
+}
+
+message IsActiveResponse {
+  bool result = 1;
+}
+
+message ReleaseRequest {
+  int64 handle = 1;
+}
+
+message ReleaseResponse {
+}
+
+message SendSessionEventRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message SendSessionEventResponse {
+}
+
+message SetActiveRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetActiveResponse {
+}
+
+message SetCallbackRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetCallbackResponse {
+}
+
+message SetExtrasRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetExtrasResponse {
+}
+
+message SetFlagsRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetFlagsResponse {
+}
+
+message SetMediaButtonBroadcastReceiverRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetMediaButtonBroadcastReceiverResponse {
+}
+
+message SetMediaButtonReceiverRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetMediaButtonReceiverResponse {
+}
+
+message SetMetadataRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetMetadataResponse {
+}
+
+message SetPlaybackStateRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetPlaybackStateResponse {
+}
+
+message SetPlaybackToLocalRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetPlaybackToLocalResponse {
+}
+
+message SetPlaybackToRemoteRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetPlaybackToRemoteResponse {
+}
+
+message SetQueueTitleRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetQueueTitleResponse {
+}
+
+message SetRatingTypeRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetRatingTypeResponse {
+}
+
+message SetSessionActivityRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetSessionActivityResponse {
+}
+
+message OnCommandRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message OnCommandResponse {
+}
+
+message OnCustomActionRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnCustomActionResponse {
+}
+
+message OnFastForwardRequest {
+}
+
+message OnFastForwardResponse {
+}
+
+message OnMediaButtonEventRequest {
+  int64 arg0 = 1;
+}
+
+message OnMediaButtonEventResponse {
+  bool result = 1;
+}
+
+message OnPauseRequest {
+}
+
+message OnPauseResponse {
+}
+
+message OnPlayRequest {
+}
+
+message OnPlayResponse {
+}
+
+message OnPlayFromMediaIdRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnPlayFromMediaIdResponse {
+}
+
+message OnPlayFromSearchRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnPlayFromSearchResponse {
+}
+
+message OnPlayFromUriRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnPlayFromUriResponse {
+}
+
+message OnPrepareRequest {
+}
+
+message OnPrepareResponse {
+}
+
+message OnPrepareFromMediaIdRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnPrepareFromMediaIdResponse {
+}
+
+message OnPrepareFromSearchRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnPrepareFromSearchResponse {
+}
+
+message OnPrepareFromUriRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnPrepareFromUriResponse {
+}
+
+message OnRewindRequest {
+}
+
+message OnRewindResponse {
+}
+
+message OnSeekToRequest {
+  int64 arg0 = 1;
+}
+
+message OnSeekToResponse {
+}
+
+message OnSetPlaybackSpeedRequest {
+  float arg0 = 1;
+}
+
+message OnSetPlaybackSpeedResponse {
+}
+
+message OnSetRatingRequest {
+  int64 arg0 = 1;
+}
+
+message OnSetRatingResponse {
+}
+
+message OnSkipToNextRequest {
+}
+
+message OnSkipToNextResponse {
+}
+
+message OnSkipToPreviousRequest {
+}
+
+message OnSkipToPreviousResponse {
+}
+
+message OnSkipToQueueItemRequest {
+  int64 arg0 = 1;
+}
+
+message OnSkipToQueueItemResponse {
+}
+
+message OnStopRequest {
+}
+
+message OnStopResponse {
+}
+
+message DescribeContentsRequest {
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message EqualsRequest {
+  int64 arg0 = 1;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message GetDescriptionRequest {
+}
+
+message GetDescriptionResponse {
+  int64 result = 1;
+}
+
+message GetQueueIdRequest {
+}
+
+message GetQueueIdResponse {
+  int64 result = 1;
+}
+
+message ToStringRequest {
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteToParcelResponse {
+}
+
+message HashCodeRequest {
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message GetActionsRequest {
+}
+
+message GetActionsResponse {
+  int64 result = 1;
+}
+
+message GetActiveQueueItemIdRequest {
+}
+
+message GetActiveQueueItemIdResponse {
+  int64 result = 1;
+}
+
+message GetBufferedPositionRequest {
+}
+
+message GetBufferedPositionResponse {
+  int64 result = 1;
+}
+
+message GetErrorMessageRequest {
+}
+
+message GetErrorMessageResponse {
+  int64 result = 1;
+}
+
+message GetExtrasRequest {
+}
+
+message GetExtrasResponse {
+  int64 result = 1;
+}
+
+message GetLastPositionUpdateTimeRequest {
+}
+
+message GetLastPositionUpdateTimeResponse {
+  int64 result = 1;
+}
+
+message GetPlaybackSpeedRequest {
+}
+
+message GetPlaybackSpeedResponse {
+  float result = 1;
+}
+
+message GetPositionRequest {
+}
+
+message GetPositionResponse {
+  int64 result = 1;
+}
+
+message GetStateRequest {
+}
+
+message GetStateResponse {
+  int32 result = 1;
+}
+
+message PlaybackStateIsActiveRequest {
+}
+
+message AddCustomAction1Request {
+  int64 arg0 = 1;
+}
+
+message AddCustomAction1Response {
+  int64 result = 1;
+}
+
+message AddCustomAction3_1Request {
+  string arg0 = 1;
+  string arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message AddCustomAction3_1Response {
+  int64 result = 1;
+}
+
+message BuildRequest {
+}
+
+message BuildResponse {
+  int64 result = 1;
+}
+
+message SetActionsRequest {
+  int64 arg0 = 1;
+}
+
+message SetActionsResponse {
+  int64 result = 1;
+}
+
+message SetActiveQueueItemIdRequest {
+  int64 arg0 = 1;
+}
+
+message SetActiveQueueItemIdResponse {
+  int64 result = 1;
+}
+
+message SetBufferedPositionRequest {
+  int64 arg0 = 1;
+}
+
+message SetBufferedPositionResponse {
+  int64 result = 1;
+}
+
+message SetErrorMessageRequest {
+  string arg0 = 1;
+}
+
+message SetErrorMessageResponse {
+  int64 result = 1;
+}
+
+message PlaybackStateBuilderSetExtrasRequest {
+  int64 arg0 = 1;
+}
+
+message PlaybackStateBuilderSetExtrasResponse {
+  int64 result = 1;
+}
+
+message SetState3Request {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+  float arg2 = 3;
+}
+
+message SetState3Response {
+  int64 result = 1;
+}
+
+message SetState4_1Request {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+  float arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message SetState4_1Response {
+  int64 result = 1;
+}
+
+message GetActionRequest {
+}
+
+message GetActionResponse {
+  string result = 1;
+}
+
+message GetIconRequest {
+}
+
+message GetIconResponse {
+  int32 result = 1;
+}
+
+message GetNameRequest {
+}
+
+message GetNameResponse {
+  int64 result = 1;
+}
+
+message NewMediaControllerRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewMediaControllerResponse {
+  int64 result = 1;
+}
+
+message AdjustVolumeRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message AdjustVolumeResponse {
+}
+
+message DispatchMediaButtonEventRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message DispatchMediaButtonEventResponse {
+  bool result = 1;
+}
+
+message MediaControllerGetExtrasRequest {
+  int64 handle = 1;
+}
+
+message GetFlagsRequest {
+  int64 handle = 1;
+}
+
+message GetFlagsResponse {
+  int64 result = 1;
+}
+
+message GetMetadataRequest {
+  int64 handle = 1;
+}
+
+message GetMetadataResponse {
+  int64 result = 1;
+}
+
+message GetPackageNameRequest {
+  int64 handle = 1;
+}
+
+message GetPackageNameResponse {
+  string result = 1;
+}
+
+message GetPlaybackInfoRequest {
+  int64 handle = 1;
+}
+
+message GetPlaybackInfoResponse {
+  int64 result = 1;
+}
+
+message GetPlaybackStateRequest {
+  int64 handle = 1;
+}
+
+message GetPlaybackStateResponse {
+  int64 result = 1;
+}
+
+message GetQueueTitleRequest {
+  int64 handle = 1;
+}
+
+message GetQueueTitleResponse {
+  int64 result = 1;
+}
+
+message GetRatingTypeRequest {
+  int64 handle = 1;
+}
+
+message GetRatingTypeResponse {
+  int32 result = 1;
+}
+
+message GetSessionActivityRequest {
+  int64 handle = 1;
+}
+
+message GetSessionActivityResponse {
+  int64 result = 1;
+}
+
+message GetSessionInfoRequest {
+  int64 handle = 1;
+}
+
+message GetSessionInfoResponse {
+  int64 result = 1;
+}
+
+message GetTagRequest {
+  int64 handle = 1;
+}
+
+message GetTagResponse {
+  string result = 1;
+}
+
+message GetTransportControlsRequest {
+  int64 handle = 1;
+}
+
+message GetTransportControlsResponse {
+  int64 result = 1;
+}
+
+message RegisterCallbackRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message RegisterCallbackResponse {
+}
+
+message SendCommandRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  int64 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message SendCommandResponse {
+}
+
+message SetVolumeToRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message SetVolumeToResponse {
+}
+
+message UnregisterCallbackRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message UnregisterCallbackResponse {
+}
+
+message OnAudioInfoChangedRequest {
+  int64 arg0 = 1;
+}
+
+message OnAudioInfoChangedResponse {
+}
+
+message OnExtrasChangedRequest {
+  int64 arg0 = 1;
+}
+
+message OnExtrasChangedResponse {
+}
+
+message OnMetadataChangedRequest {
+  int64 arg0 = 1;
+}
+
+message OnMetadataChangedResponse {
+}
+
+message OnPlaybackStateChangedRequest {
+  int64 arg0 = 1;
+}
+
+message OnPlaybackStateChangedResponse {
+}
+
+message OnQueueTitleChangedRequest {
+  string arg0 = 1;
+}
+
+message OnQueueTitleChangedResponse {
+}
+
+message OnSessionDestroyedRequest {
+}
+
+message OnSessionDestroyedResponse {
+}
+
+message OnSessionEventRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnSessionEventResponse {
+}
+
+message GetAudioAttributesRequest {
+}
+
+message GetAudioAttributesResponse {
+  int64 result = 1;
+}
+
+message GetCurrentVolumeRequest {
+}
+
+message GetCurrentVolumeResponse {
+  int32 result = 1;
+}
+
+message GetMaxVolumeRequest {
+}
+
+message GetMaxVolumeResponse {
+  int32 result = 1;
+}
+
+message GetPlaybackTypeRequest {
+}
+
+message GetPlaybackTypeResponse {
+  int32 result = 1;
+}
+
+message GetVolumeControlRequest {
+}
+
+message GetVolumeControlResponse {
+  int32 result = 1;
+}
+
+message GetVolumeControlIdRequest {
+}
+
+message GetVolumeControlIdResponse {
+  string result = 1;
+}
+
+message FastForwardRequest {
+}
+
+message FastForwardResponse {
+}
+
+message PauseRequest {
+}
+
+message PauseResponse {
+}
+
+message PlayRequest {
+}
+
+message PlayResponse {
+}
+
+message PlayFromMediaIdRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message PlayFromMediaIdResponse {
+}
+
+message PlayFromSearchRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message PlayFromSearchResponse {
+}
+
+message PlayFromUriRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message PlayFromUriResponse {
+}
+
+message PrepareRequest {
+}
+
+message PrepareResponse {
+}
+
+message PrepareFromMediaIdRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message PrepareFromMediaIdResponse {
+}
+
+message PrepareFromSearchRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message PrepareFromSearchResponse {
+}
+
+message PrepareFromUriRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message PrepareFromUriResponse {
+}
+
+message RewindRequest {
+}
+
+message RewindResponse {
+}
+
+message SeekToRequest {
+  int64 arg0 = 1;
+}
+
+message SeekToResponse {
+}
+
+message SendCustomAction2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SendCustomAction2Response {
+}
+
+message SendCustomAction2_1Request {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SendCustomAction2_1Response {
+}
+
+message SetPlaybackSpeedRequest {
+  float arg0 = 1;
+}
+
+message SetPlaybackSpeedResponse {
+}
+
+message SetRatingRequest {
+  int64 arg0 = 1;
+}
+
+message SetRatingResponse {
+}
+
+message SkipToNextRequest {
+}
+
+message SkipToNextResponse {
+}
+
+message SkipToPreviousRequest {
+}
+
+message SkipToPreviousResponse {
+}
+
+message SkipToQueueItemRequest {
+  int64 arg0 = 1;
+}
+
+message SkipToQueueItemResponse {
+}
+
+message StopRequest {
+}
+
+message StopResponse {
+}
+
 message AddOnActiveSessionsChangedListenerRequest {
   int64 arg0 = 1;
   int64 arg1 = 2;
@@ -79,6 +998,201 @@ message RemoveOnSession2TokensChangedListenerRequest {
 message RemoveOnSession2TokensChangedListenerResponse {
 }
 
+message OnMediaKeyEventSessionChangedRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnMediaKeyEventSessionChangedResponse {
+}
+
+message MediaSessionManagerRemoteUserInfoGetPackageNameRequest {
+}
+
+message GetPidRequest {
+}
+
+message GetPidResponse {
+  int32 result = 1;
+}
+
+message GetUidRequest {
+}
+
+message GetUidResponse {
+  int32 result = 1;
+}
+
+service MediaSessionService {
+  rpc NewMediaSession (NewMediaSessionRequest) returns (NewMediaSessionResponse);
+  rpc GetController (GetControllerRequest) returns (GetControllerResponse);
+  rpc GetCurrentControllerInfo (GetCurrentControllerInfoRequest) returns (GetCurrentControllerInfoResponse);
+  rpc GetSessionToken (GetSessionTokenRequest) returns (GetSessionTokenResponse);
+  rpc IsActive (IsActiveRequest) returns (IsActiveResponse);
+  rpc Release (ReleaseRequest) returns (ReleaseResponse);
+  rpc SendSessionEvent (SendSessionEventRequest) returns (SendSessionEventResponse);
+  rpc SetActive (SetActiveRequest) returns (SetActiveResponse);
+  rpc SetCallback (SetCallbackRequest) returns (SetCallbackResponse);
+  rpc SetExtras (SetExtrasRequest) returns (SetExtrasResponse);
+  rpc SetFlags (SetFlagsRequest) returns (SetFlagsResponse);
+  rpc SetMediaButtonBroadcastReceiver (SetMediaButtonBroadcastReceiverRequest) returns (SetMediaButtonBroadcastReceiverResponse);
+  rpc SetMediaButtonReceiver (SetMediaButtonReceiverRequest) returns (SetMediaButtonReceiverResponse);
+  rpc SetMetadata (SetMetadataRequest) returns (SetMetadataResponse);
+  rpc SetPlaybackState (SetPlaybackStateRequest) returns (SetPlaybackStateResponse);
+  rpc SetPlaybackToLocal (SetPlaybackToLocalRequest) returns (SetPlaybackToLocalResponse);
+  rpc SetPlaybackToRemote (SetPlaybackToRemoteRequest) returns (SetPlaybackToRemoteResponse);
+  rpc SetQueueTitle (SetQueueTitleRequest) returns (SetQueueTitleResponse);
+  rpc SetRatingType (SetRatingTypeRequest) returns (SetRatingTypeResponse);
+  rpc SetSessionActivity (SetSessionActivityRequest) returns (SetSessionActivityResponse);
+}
+
+service MediaSessionCallbackService {
+  rpc OnCommand (OnCommandRequest) returns (OnCommandResponse);
+  rpc OnCustomAction (OnCustomActionRequest) returns (OnCustomActionResponse);
+  rpc OnFastForward (OnFastForwardRequest) returns (OnFastForwardResponse);
+  rpc OnMediaButtonEvent (OnMediaButtonEventRequest) returns (OnMediaButtonEventResponse);
+  rpc OnPause (OnPauseRequest) returns (OnPauseResponse);
+  rpc OnPlay (OnPlayRequest) returns (OnPlayResponse);
+  rpc OnPlayFromMediaId (OnPlayFromMediaIdRequest) returns (OnPlayFromMediaIdResponse);
+  rpc OnPlayFromSearch (OnPlayFromSearchRequest) returns (OnPlayFromSearchResponse);
+  rpc OnPlayFromUri (OnPlayFromUriRequest) returns (OnPlayFromUriResponse);
+  rpc OnPrepare (OnPrepareRequest) returns (OnPrepareResponse);
+  rpc OnPrepareFromMediaId (OnPrepareFromMediaIdRequest) returns (OnPrepareFromMediaIdResponse);
+  rpc OnPrepareFromSearch (OnPrepareFromSearchRequest) returns (OnPrepareFromSearchResponse);
+  rpc OnPrepareFromUri (OnPrepareFromUriRequest) returns (OnPrepareFromUriResponse);
+  rpc OnRewind (OnRewindRequest) returns (OnRewindResponse);
+  rpc OnSeekTo (OnSeekToRequest) returns (OnSeekToResponse);
+  rpc OnSetPlaybackSpeed (OnSetPlaybackSpeedRequest) returns (OnSetPlaybackSpeedResponse);
+  rpc OnSetRating (OnSetRatingRequest) returns (OnSetRatingResponse);
+  rpc OnSkipToNext (OnSkipToNextRequest) returns (OnSkipToNextResponse);
+  rpc OnSkipToPrevious (OnSkipToPreviousRequest) returns (OnSkipToPreviousResponse);
+  rpc OnSkipToQueueItem (OnSkipToQueueItemRequest) returns (OnSkipToQueueItemResponse);
+  rpc OnStop (OnStopRequest) returns (OnStopResponse);
+}
+
+service MediaSessionQueueItemService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetDescription (GetDescriptionRequest) returns (GetDescriptionResponse);
+  rpc GetQueueId (GetQueueIdRequest) returns (GetQueueIdResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service MediaSessionTokenService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service PlaybackStateService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetActions (GetActionsRequest) returns (GetActionsResponse);
+  rpc GetActiveQueueItemId (GetActiveQueueItemIdRequest) returns (GetActiveQueueItemIdResponse);
+  rpc GetBufferedPosition (GetBufferedPositionRequest) returns (GetBufferedPositionResponse);
+  rpc GetErrorMessage (GetErrorMessageRequest) returns (GetErrorMessageResponse);
+  rpc GetExtras (GetExtrasRequest) returns (GetExtrasResponse);
+  rpc GetLastPositionUpdateTime (GetLastPositionUpdateTimeRequest) returns (GetLastPositionUpdateTimeResponse);
+  rpc GetPlaybackSpeed (GetPlaybackSpeedRequest) returns (GetPlaybackSpeedResponse);
+  rpc GetPosition (GetPositionRequest) returns (GetPositionResponse);
+  rpc GetState (GetStateRequest) returns (GetStateResponse);
+  rpc IsActive (PlaybackStateIsActiveRequest) returns (IsActiveResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service PlaybackStateBuilderService {
+  rpc AddCustomAction1 (AddCustomAction1Request) returns (AddCustomAction1Response);
+  rpc AddCustomAction3_1 (AddCustomAction3_1Request) returns (AddCustomAction3_1Response);
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetActions (SetActionsRequest) returns (SetActionsResponse);
+  rpc SetActiveQueueItemId (SetActiveQueueItemIdRequest) returns (SetActiveQueueItemIdResponse);
+  rpc SetBufferedPosition (SetBufferedPositionRequest) returns (SetBufferedPositionResponse);
+  rpc SetErrorMessage (SetErrorMessageRequest) returns (SetErrorMessageResponse);
+  rpc SetExtras (PlaybackStateBuilderSetExtrasRequest) returns (PlaybackStateBuilderSetExtrasResponse);
+  rpc SetState3 (SetState3Request) returns (SetState3Response);
+  rpc SetState4_1 (SetState4_1Request) returns (SetState4_1Response);
+}
+
+service PlaybackStateCustomActionService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetAction (GetActionRequest) returns (GetActionResponse);
+  rpc GetExtras (GetExtrasRequest) returns (GetExtrasResponse);
+  rpc GetIcon (GetIconRequest) returns (GetIconResponse);
+  rpc GetName (GetNameRequest) returns (GetNameResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service MediaControllerService {
+  rpc NewMediaController (NewMediaControllerRequest) returns (NewMediaControllerResponse);
+  rpc AdjustVolume (AdjustVolumeRequest) returns (AdjustVolumeResponse);
+  rpc DispatchMediaButtonEvent (DispatchMediaButtonEventRequest) returns (DispatchMediaButtonEventResponse);
+  rpc GetExtras (MediaControllerGetExtrasRequest) returns (GetExtrasResponse);
+  rpc GetFlags (GetFlagsRequest) returns (GetFlagsResponse);
+  rpc GetMetadata (GetMetadataRequest) returns (GetMetadataResponse);
+  rpc GetPackageName (GetPackageNameRequest) returns (GetPackageNameResponse);
+  rpc GetPlaybackInfo (GetPlaybackInfoRequest) returns (GetPlaybackInfoResponse);
+  rpc GetPlaybackState (GetPlaybackStateRequest) returns (GetPlaybackStateResponse);
+  rpc GetQueueTitle (GetQueueTitleRequest) returns (GetQueueTitleResponse);
+  rpc GetRatingType (GetRatingTypeRequest) returns (GetRatingTypeResponse);
+  rpc GetSessionActivity (GetSessionActivityRequest) returns (GetSessionActivityResponse);
+  rpc GetSessionInfo (GetSessionInfoRequest) returns (GetSessionInfoResponse);
+  rpc GetSessionToken (GetSessionTokenRequest) returns (GetSessionTokenResponse);
+  rpc GetTag (GetTagRequest) returns (GetTagResponse);
+  rpc GetTransportControls (GetTransportControlsRequest) returns (GetTransportControlsResponse);
+  rpc RegisterCallback (RegisterCallbackRequest) returns (RegisterCallbackResponse);
+  rpc SendCommand (SendCommandRequest) returns (SendCommandResponse);
+  rpc SetVolumeTo (SetVolumeToRequest) returns (SetVolumeToResponse);
+  rpc UnregisterCallback (UnregisterCallbackRequest) returns (UnregisterCallbackResponse);
+}
+
+service MediaControllerCallbackService {
+  rpc OnAudioInfoChanged (OnAudioInfoChangedRequest) returns (OnAudioInfoChangedResponse);
+  rpc OnExtrasChanged (OnExtrasChangedRequest) returns (OnExtrasChangedResponse);
+  rpc OnMetadataChanged (OnMetadataChangedRequest) returns (OnMetadataChangedResponse);
+  rpc OnPlaybackStateChanged (OnPlaybackStateChangedRequest) returns (OnPlaybackStateChangedResponse);
+  rpc OnQueueTitleChanged (OnQueueTitleChangedRequest) returns (OnQueueTitleChangedResponse);
+  rpc OnSessionDestroyed (OnSessionDestroyedRequest) returns (OnSessionDestroyedResponse);
+  rpc OnSessionEvent (OnSessionEventRequest) returns (OnSessionEventResponse);
+}
+
+service MediaControllerPlaybackInfoService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetAudioAttributes (GetAudioAttributesRequest) returns (GetAudioAttributesResponse);
+  rpc GetCurrentVolume (GetCurrentVolumeRequest) returns (GetCurrentVolumeResponse);
+  rpc GetMaxVolume (GetMaxVolumeRequest) returns (GetMaxVolumeResponse);
+  rpc GetPlaybackType (GetPlaybackTypeRequest) returns (GetPlaybackTypeResponse);
+  rpc GetVolumeControl (GetVolumeControlRequest) returns (GetVolumeControlResponse);
+  rpc GetVolumeControlId (GetVolumeControlIdRequest) returns (GetVolumeControlIdResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service MediaControllerTransportControlsService {
+  rpc FastForward (FastForwardRequest) returns (FastForwardResponse);
+  rpc Pause (PauseRequest) returns (PauseResponse);
+  rpc Play (PlayRequest) returns (PlayResponse);
+  rpc PlayFromMediaId (PlayFromMediaIdRequest) returns (PlayFromMediaIdResponse);
+  rpc PlayFromSearch (PlayFromSearchRequest) returns (PlayFromSearchResponse);
+  rpc PlayFromUri (PlayFromUriRequest) returns (PlayFromUriResponse);
+  rpc Prepare (PrepareRequest) returns (PrepareResponse);
+  rpc PrepareFromMediaId (PrepareFromMediaIdRequest) returns (PrepareFromMediaIdResponse);
+  rpc PrepareFromSearch (PrepareFromSearchRequest) returns (PrepareFromSearchResponse);
+  rpc PrepareFromUri (PrepareFromUriRequest) returns (PrepareFromUriResponse);
+  rpc Rewind (RewindRequest) returns (RewindResponse);
+  rpc SeekTo (SeekToRequest) returns (SeekToResponse);
+  rpc SendCustomAction2 (SendCustomAction2Request) returns (SendCustomAction2Response);
+  rpc SendCustomAction2_1 (SendCustomAction2_1Request) returns (SendCustomAction2_1Response);
+  rpc SetPlaybackSpeed (SetPlaybackSpeedRequest) returns (SetPlaybackSpeedResponse);
+  rpc SetRating (SetRatingRequest) returns (SetRatingResponse);
+  rpc SkipToNext (SkipToNextRequest) returns (SkipToNextResponse);
+  rpc SkipToPrevious (SkipToPreviousRequest) returns (SkipToPreviousResponse);
+  rpc SkipToQueueItem (SkipToQueueItemRequest) returns (SkipToQueueItemResponse);
+  rpc Stop (StopRequest) returns (StopResponse);
+}
+
 service MediaSessionManagerService {
   rpc AddOnActiveSessionsChangedListener (AddOnActiveSessionsChangedListenerRequest) returns (AddOnActiveSessionsChangedListenerResponse);
   rpc AddOnMediaKeyEventSessionChangedListener (AddOnMediaKeyEventSessionChangedListenerRequest) returns (AddOnMediaKeyEventSessionChangedListenerResponse);
@@ -90,4 +1204,16 @@ service MediaSessionManagerService {
   rpc RemoveOnActiveSessionsChangedListener (RemoveOnActiveSessionsChangedListenerRequest) returns (RemoveOnActiveSessionsChangedListenerResponse);
   rpc RemoveOnMediaKeyEventSessionChangedListener (RemoveOnMediaKeyEventSessionChangedListenerRequest) returns (RemoveOnMediaKeyEventSessionChangedListenerResponse);
   rpc RemoveOnSession2TokensChangedListener (RemoveOnSession2TokensChangedListenerRequest) returns (RemoveOnSession2TokensChangedListenerResponse);
+}
+
+service MediaSessionManagerOnMediaKeyEventSessionChangedListenerService {
+  rpc OnMediaKeyEventSessionChanged (OnMediaKeyEventSessionChangedRequest) returns (OnMediaKeyEventSessionChangedResponse);
+}
+
+service MediaSessionManagerRemoteUserInfoService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetPackageName (MediaSessionManagerRemoteUserInfoGetPackageNameRequest) returns (GetPackageNameResponse);
+  rpc GetPid (GetPidRequest) returns (GetPidResponse);
+  rpc GetUid (GetUidRequest) returns (GetUidResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
 }

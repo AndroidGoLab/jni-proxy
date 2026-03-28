@@ -21,6 +21,552 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
+	TagService_DescribeContents_FullMethodName = "/nfc.TagService/DescribeContents"
+	TagService_GetId_FullMethodName            = "/nfc.TagService/GetId"
+	TagService_GetTechList_FullMethodName      = "/nfc.TagService/GetTechList"
+	TagService_ToString_FullMethodName         = "/nfc.TagService/ToString"
+	TagService_WriteToParcel_FullMethodName    = "/nfc.TagService/WriteToParcel"
+)
+
+// TagServiceClient is the client API for TagService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TagServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error)
+	GetTechList(ctx context.Context, in *GetTechListRequest, opts ...grpc.CallOption) (*GetTechListResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type tagServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTagServiceClient(cc grpc.ClientConnInterface) TagServiceClient {
+	return &tagServiceClient{cc}
+}
+
+func (c *tagServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, TagService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tagServiceClient) GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetIdResponse)
+	err := c.cc.Invoke(ctx, TagService_GetId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tagServiceClient) GetTechList(ctx context.Context, in *GetTechListRequest, opts ...grpc.CallOption) (*GetTechListResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTechListResponse)
+	err := c.cc.Invoke(ctx, TagService_GetTechList_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tagServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, TagService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tagServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, TagService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TagServiceServer is the server API for TagService service.
+// All implementations must embed UnimplementedTagServiceServer
+// for forward compatibility.
+type TagServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetId(context.Context, *GetIdRequest) (*GetIdResponse, error)
+	GetTechList(context.Context, *GetTechListRequest) (*GetTechListResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedTagServiceServer()
+}
+
+// UnimplementedTagServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTagServiceServer struct{}
+
+func (UnimplementedTagServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedTagServiceServer) GetId(context.Context, *GetIdRequest) (*GetIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetId not implemented")
+}
+func (UnimplementedTagServiceServer) GetTechList(context.Context, *GetTechListRequest) (*GetTechListResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTechList not implemented")
+}
+func (UnimplementedTagServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedTagServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedTagServiceServer) mustEmbedUnimplementedTagServiceServer() {}
+func (UnimplementedTagServiceServer) testEmbeddedByValue()                    {}
+
+// UnsafeTagServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TagServiceServer will
+// result in compilation errors.
+type UnsafeTagServiceServer interface {
+	mustEmbedUnimplementedTagServiceServer()
+}
+
+func RegisterTagServiceServer(s grpc.ServiceRegistrar, srv TagServiceServer) {
+	// If the following call panics, it indicates UnimplementedTagServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TagService_ServiceDesc, srv)
+}
+
+func _TagService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TagServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TagService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TagServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TagService_GetId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TagServiceServer).GetId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TagService_GetId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TagServiceServer).GetId(ctx, req.(*GetIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TagService_GetTechList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTechListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TagServiceServer).GetTechList(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TagService_GetTechList_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TagServiceServer).GetTechList(ctx, req.(*GetTechListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TagService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TagServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TagService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TagServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TagService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TagServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TagService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TagServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TagService_ServiceDesc is the grpc.ServiceDesc for TagService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TagService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "nfc.TagService",
+	HandlerType: (*TagServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _TagService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetId",
+			Handler:    _TagService_GetId_Handler,
+		},
+		{
+			MethodName: "GetTechList",
+			Handler:    _TagService_GetTechList_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _TagService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _TagService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/nfc/nfc.proto",
+}
+
+const (
+	AntennaInfoService_NewAntennaInfo_FullMethodName   = "/nfc.AntennaInfoService/NewAntennaInfo"
+	AntennaInfoService_DescribeContents_FullMethodName = "/nfc.AntennaInfoService/DescribeContents"
+	AntennaInfoService_GetDeviceHeight_FullMethodName  = "/nfc.AntennaInfoService/GetDeviceHeight"
+	AntennaInfoService_GetDeviceWidth_FullMethodName   = "/nfc.AntennaInfoService/GetDeviceWidth"
+	AntennaInfoService_IsDeviceFoldable_FullMethodName = "/nfc.AntennaInfoService/IsDeviceFoldable"
+	AntennaInfoService_WriteToParcel_FullMethodName    = "/nfc.AntennaInfoService/WriteToParcel"
+)
+
+// AntennaInfoServiceClient is the client API for AntennaInfoService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AntennaInfoServiceClient interface {
+	NewAntennaInfo(ctx context.Context, in *NewAntennaInfoRequest, opts ...grpc.CallOption) (*NewAntennaInfoResponse, error)
+	DescribeContents(ctx context.Context, in *AntennaInfoDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetDeviceHeight(ctx context.Context, in *GetDeviceHeightRequest, opts ...grpc.CallOption) (*GetDeviceHeightResponse, error)
+	GetDeviceWidth(ctx context.Context, in *GetDeviceWidthRequest, opts ...grpc.CallOption) (*GetDeviceWidthResponse, error)
+	IsDeviceFoldable(ctx context.Context, in *IsDeviceFoldableRequest, opts ...grpc.CallOption) (*IsDeviceFoldableResponse, error)
+	WriteToParcel(ctx context.Context, in *AntennaInfoWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type antennaInfoServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAntennaInfoServiceClient(cc grpc.ClientConnInterface) AntennaInfoServiceClient {
+	return &antennaInfoServiceClient{cc}
+}
+
+func (c *antennaInfoServiceClient) NewAntennaInfo(ctx context.Context, in *NewAntennaInfoRequest, opts ...grpc.CallOption) (*NewAntennaInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewAntennaInfoResponse)
+	err := c.cc.Invoke(ctx, AntennaInfoService_NewAntennaInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *antennaInfoServiceClient) DescribeContents(ctx context.Context, in *AntennaInfoDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, AntennaInfoService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *antennaInfoServiceClient) GetDeviceHeight(ctx context.Context, in *GetDeviceHeightRequest, opts ...grpc.CallOption) (*GetDeviceHeightResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDeviceHeightResponse)
+	err := c.cc.Invoke(ctx, AntennaInfoService_GetDeviceHeight_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *antennaInfoServiceClient) GetDeviceWidth(ctx context.Context, in *GetDeviceWidthRequest, opts ...grpc.CallOption) (*GetDeviceWidthResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDeviceWidthResponse)
+	err := c.cc.Invoke(ctx, AntennaInfoService_GetDeviceWidth_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *antennaInfoServiceClient) IsDeviceFoldable(ctx context.Context, in *IsDeviceFoldableRequest, opts ...grpc.CallOption) (*IsDeviceFoldableResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsDeviceFoldableResponse)
+	err := c.cc.Invoke(ctx, AntennaInfoService_IsDeviceFoldable_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *antennaInfoServiceClient) WriteToParcel(ctx context.Context, in *AntennaInfoWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, AntennaInfoService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AntennaInfoServiceServer is the server API for AntennaInfoService service.
+// All implementations must embed UnimplementedAntennaInfoServiceServer
+// for forward compatibility.
+type AntennaInfoServiceServer interface {
+	NewAntennaInfo(context.Context, *NewAntennaInfoRequest) (*NewAntennaInfoResponse, error)
+	DescribeContents(context.Context, *AntennaInfoDescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetDeviceHeight(context.Context, *GetDeviceHeightRequest) (*GetDeviceHeightResponse, error)
+	GetDeviceWidth(context.Context, *GetDeviceWidthRequest) (*GetDeviceWidthResponse, error)
+	IsDeviceFoldable(context.Context, *IsDeviceFoldableRequest) (*IsDeviceFoldableResponse, error)
+	WriteToParcel(context.Context, *AntennaInfoWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedAntennaInfoServiceServer()
+}
+
+// UnimplementedAntennaInfoServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedAntennaInfoServiceServer struct{}
+
+func (UnimplementedAntennaInfoServiceServer) NewAntennaInfo(context.Context, *NewAntennaInfoRequest) (*NewAntennaInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewAntennaInfo not implemented")
+}
+func (UnimplementedAntennaInfoServiceServer) DescribeContents(context.Context, *AntennaInfoDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedAntennaInfoServiceServer) GetDeviceHeight(context.Context, *GetDeviceHeightRequest) (*GetDeviceHeightResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDeviceHeight not implemented")
+}
+func (UnimplementedAntennaInfoServiceServer) GetDeviceWidth(context.Context, *GetDeviceWidthRequest) (*GetDeviceWidthResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDeviceWidth not implemented")
+}
+func (UnimplementedAntennaInfoServiceServer) IsDeviceFoldable(context.Context, *IsDeviceFoldableRequest) (*IsDeviceFoldableResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsDeviceFoldable not implemented")
+}
+func (UnimplementedAntennaInfoServiceServer) WriteToParcel(context.Context, *AntennaInfoWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedAntennaInfoServiceServer) mustEmbedUnimplementedAntennaInfoServiceServer() {}
+func (UnimplementedAntennaInfoServiceServer) testEmbeddedByValue()                            {}
+
+// UnsafeAntennaInfoServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AntennaInfoServiceServer will
+// result in compilation errors.
+type UnsafeAntennaInfoServiceServer interface {
+	mustEmbedUnimplementedAntennaInfoServiceServer()
+}
+
+func RegisterAntennaInfoServiceServer(s grpc.ServiceRegistrar, srv AntennaInfoServiceServer) {
+	// If the following call panics, it indicates UnimplementedAntennaInfoServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&AntennaInfoService_ServiceDesc, srv)
+}
+
+func _AntennaInfoService_NewAntennaInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewAntennaInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AntennaInfoServiceServer).NewAntennaInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AntennaInfoService_NewAntennaInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AntennaInfoServiceServer).NewAntennaInfo(ctx, req.(*NewAntennaInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AntennaInfoService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AntennaInfoDescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AntennaInfoServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AntennaInfoService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AntennaInfoServiceServer).DescribeContents(ctx, req.(*AntennaInfoDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AntennaInfoService_GetDeviceHeight_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDeviceHeightRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AntennaInfoServiceServer).GetDeviceHeight(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AntennaInfoService_GetDeviceHeight_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AntennaInfoServiceServer).GetDeviceHeight(ctx, req.(*GetDeviceHeightRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AntennaInfoService_GetDeviceWidth_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDeviceWidthRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AntennaInfoServiceServer).GetDeviceWidth(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AntennaInfoService_GetDeviceWidth_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AntennaInfoServiceServer).GetDeviceWidth(ctx, req.(*GetDeviceWidthRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AntennaInfoService_IsDeviceFoldable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsDeviceFoldableRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AntennaInfoServiceServer).IsDeviceFoldable(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AntennaInfoService_IsDeviceFoldable_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AntennaInfoServiceServer).IsDeviceFoldable(ctx, req.(*IsDeviceFoldableRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AntennaInfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AntennaInfoWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AntennaInfoServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AntennaInfoService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AntennaInfoServiceServer).WriteToParcel(ctx, req.(*AntennaInfoWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AntennaInfoService_ServiceDesc is the grpc.ServiceDesc for AntennaInfoService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AntennaInfoService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "nfc.AntennaInfoService",
+	HandlerType: (*AntennaInfoServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewAntennaInfo",
+			Handler:    _AntennaInfoService_NewAntennaInfo_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _AntennaInfoService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetDeviceHeight",
+			Handler:    _AntennaInfoService_GetDeviceHeight_Handler,
+		},
+		{
+			MethodName: "GetDeviceWidth",
+			Handler:    _AntennaInfoService_GetDeviceWidth_Handler,
+		},
+		{
+			MethodName: "IsDeviceFoldable",
+			Handler:    _AntennaInfoService_IsDeviceFoldable_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _AntennaInfoService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/nfc/nfc.proto",
+}
+
+const (
 	ManagerService_GetDefaultAdapter_FullMethodName = "/nfc.ManagerService/GetDefaultAdapter"
 )
 
@@ -116,6 +662,3984 @@ var ManagerService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetDefaultAdapter",
 			Handler:    _ManagerService_GetDefaultAdapter_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/nfc/nfc.proto",
+}
+
+const (
+	NdefMessageService_NewNdefMessage_FullMethodName     = "/nfc.NdefMessageService/NewNdefMessage"
+	NdefMessageService_DescribeContents_FullMethodName   = "/nfc.NdefMessageService/DescribeContents"
+	NdefMessageService_Equals_FullMethodName             = "/nfc.NdefMessageService/Equals"
+	NdefMessageService_GetByteArrayLength_FullMethodName = "/nfc.NdefMessageService/GetByteArrayLength"
+	NdefMessageService_GetRecords_FullMethodName         = "/nfc.NdefMessageService/GetRecords"
+	NdefMessageService_HashCode_FullMethodName           = "/nfc.NdefMessageService/HashCode"
+	NdefMessageService_ToByteArray_FullMethodName        = "/nfc.NdefMessageService/ToByteArray"
+	NdefMessageService_ToString_FullMethodName           = "/nfc.NdefMessageService/ToString"
+	NdefMessageService_WriteToParcel_FullMethodName      = "/nfc.NdefMessageService/WriteToParcel"
+)
+
+// NdefMessageServiceClient is the client API for NdefMessageService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type NdefMessageServiceClient interface {
+	NewNdefMessage(ctx context.Context, in *NewNdefMessageRequest, opts ...grpc.CallOption) (*NewNdefMessageResponse, error)
+	DescribeContents(ctx context.Context, in *NdefMessageDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetByteArrayLength(ctx context.Context, in *GetByteArrayLengthRequest, opts ...grpc.CallOption) (*GetByteArrayLengthResponse, error)
+	GetRecords(ctx context.Context, in *GetRecordsRequest, opts ...grpc.CallOption) (*GetRecordsResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToByteArray(ctx context.Context, in *ToByteArrayRequest, opts ...grpc.CallOption) (*ToByteArrayResponse, error)
+	ToString(ctx context.Context, in *NdefMessageToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *NdefMessageWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type ndefMessageServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewNdefMessageServiceClient(cc grpc.ClientConnInterface) NdefMessageServiceClient {
+	return &ndefMessageServiceClient{cc}
+}
+
+func (c *ndefMessageServiceClient) NewNdefMessage(ctx context.Context, in *NewNdefMessageRequest, opts ...grpc.CallOption) (*NewNdefMessageResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewNdefMessageResponse)
+	err := c.cc.Invoke(ctx, NdefMessageService_NewNdefMessage_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ndefMessageServiceClient) DescribeContents(ctx context.Context, in *NdefMessageDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, NdefMessageService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ndefMessageServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, NdefMessageService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ndefMessageServiceClient) GetByteArrayLength(ctx context.Context, in *GetByteArrayLengthRequest, opts ...grpc.CallOption) (*GetByteArrayLengthResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetByteArrayLengthResponse)
+	err := c.cc.Invoke(ctx, NdefMessageService_GetByteArrayLength_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ndefMessageServiceClient) GetRecords(ctx context.Context, in *GetRecordsRequest, opts ...grpc.CallOption) (*GetRecordsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRecordsResponse)
+	err := c.cc.Invoke(ctx, NdefMessageService_GetRecords_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ndefMessageServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, NdefMessageService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ndefMessageServiceClient) ToByteArray(ctx context.Context, in *ToByteArrayRequest, opts ...grpc.CallOption) (*ToByteArrayResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToByteArrayResponse)
+	err := c.cc.Invoke(ctx, NdefMessageService_ToByteArray_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ndefMessageServiceClient) ToString(ctx context.Context, in *NdefMessageToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, NdefMessageService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ndefMessageServiceClient) WriteToParcel(ctx context.Context, in *NdefMessageWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, NdefMessageService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// NdefMessageServiceServer is the server API for NdefMessageService service.
+// All implementations must embed UnimplementedNdefMessageServiceServer
+// for forward compatibility.
+type NdefMessageServiceServer interface {
+	NewNdefMessage(context.Context, *NewNdefMessageRequest) (*NewNdefMessageResponse, error)
+	DescribeContents(context.Context, *NdefMessageDescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetByteArrayLength(context.Context, *GetByteArrayLengthRequest) (*GetByteArrayLengthResponse, error)
+	GetRecords(context.Context, *GetRecordsRequest) (*GetRecordsResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	ToByteArray(context.Context, *ToByteArrayRequest) (*ToByteArrayResponse, error)
+	ToString(context.Context, *NdefMessageToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *NdefMessageWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedNdefMessageServiceServer()
+}
+
+// UnimplementedNdefMessageServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedNdefMessageServiceServer struct{}
+
+func (UnimplementedNdefMessageServiceServer) NewNdefMessage(context.Context, *NewNdefMessageRequest) (*NewNdefMessageResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewNdefMessage not implemented")
+}
+func (UnimplementedNdefMessageServiceServer) DescribeContents(context.Context, *NdefMessageDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedNdefMessageServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedNdefMessageServiceServer) GetByteArrayLength(context.Context, *GetByteArrayLengthRequest) (*GetByteArrayLengthResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetByteArrayLength not implemented")
+}
+func (UnimplementedNdefMessageServiceServer) GetRecords(context.Context, *GetRecordsRequest) (*GetRecordsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRecords not implemented")
+}
+func (UnimplementedNdefMessageServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedNdefMessageServiceServer) ToByteArray(context.Context, *ToByteArrayRequest) (*ToByteArrayResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToByteArray not implemented")
+}
+func (UnimplementedNdefMessageServiceServer) ToString(context.Context, *NdefMessageToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedNdefMessageServiceServer) WriteToParcel(context.Context, *NdefMessageWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedNdefMessageServiceServer) mustEmbedUnimplementedNdefMessageServiceServer() {}
+func (UnimplementedNdefMessageServiceServer) testEmbeddedByValue()                            {}
+
+// UnsafeNdefMessageServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to NdefMessageServiceServer will
+// result in compilation errors.
+type UnsafeNdefMessageServiceServer interface {
+	mustEmbedUnimplementedNdefMessageServiceServer()
+}
+
+func RegisterNdefMessageServiceServer(s grpc.ServiceRegistrar, srv NdefMessageServiceServer) {
+	// If the following call panics, it indicates UnimplementedNdefMessageServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&NdefMessageService_ServiceDesc, srv)
+}
+
+func _NdefMessageService_NewNdefMessage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewNdefMessageRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NdefMessageServiceServer).NewNdefMessage(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NdefMessageService_NewNdefMessage_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NdefMessageServiceServer).NewNdefMessage(ctx, req.(*NewNdefMessageRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NdefMessageService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NdefMessageDescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NdefMessageServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NdefMessageService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NdefMessageServiceServer).DescribeContents(ctx, req.(*NdefMessageDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NdefMessageService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NdefMessageServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NdefMessageService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NdefMessageServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NdefMessageService_GetByteArrayLength_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetByteArrayLengthRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NdefMessageServiceServer).GetByteArrayLength(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NdefMessageService_GetByteArrayLength_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NdefMessageServiceServer).GetByteArrayLength(ctx, req.(*GetByteArrayLengthRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NdefMessageService_GetRecords_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRecordsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NdefMessageServiceServer).GetRecords(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NdefMessageService_GetRecords_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NdefMessageServiceServer).GetRecords(ctx, req.(*GetRecordsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NdefMessageService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NdefMessageServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NdefMessageService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NdefMessageServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NdefMessageService_ToByteArray_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToByteArrayRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NdefMessageServiceServer).ToByteArray(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NdefMessageService_ToByteArray_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NdefMessageServiceServer).ToByteArray(ctx, req.(*ToByteArrayRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NdefMessageService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NdefMessageToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NdefMessageServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NdefMessageService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NdefMessageServiceServer).ToString(ctx, req.(*NdefMessageToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NdefMessageService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NdefMessageWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NdefMessageServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NdefMessageService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NdefMessageServiceServer).WriteToParcel(ctx, req.(*NdefMessageWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// NdefMessageService_ServiceDesc is the grpc.ServiceDesc for NdefMessageService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var NdefMessageService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "nfc.NdefMessageService",
+	HandlerType: (*NdefMessageServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewNdefMessage",
+			Handler:    _NdefMessageService_NewNdefMessage_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _NdefMessageService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _NdefMessageService_Equals_Handler,
+		},
+		{
+			MethodName: "GetByteArrayLength",
+			Handler:    _NdefMessageService_GetByteArrayLength_Handler,
+		},
+		{
+			MethodName: "GetRecords",
+			Handler:    _NdefMessageService_GetRecords_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _NdefMessageService_HashCode_Handler,
+		},
+		{
+			MethodName: "ToByteArray",
+			Handler:    _NdefMessageService_ToByteArray_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _NdefMessageService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _NdefMessageService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/nfc/nfc.proto",
+}
+
+const (
+	AdapterService_Disable_FullMethodName                           = "/nfc.AdapterService/Disable"
+	AdapterService_DisableForegroundDispatch_FullMethodName         = "/nfc.AdapterService/DisableForegroundDispatch"
+	AdapterService_DisableReaderMode_FullMethodName                 = "/nfc.AdapterService/DisableReaderMode"
+	AdapterService_Enable_FullMethodName                            = "/nfc.AdapterService/Enable"
+	AdapterService_EnableForegroundDispatch_FullMethodName          = "/nfc.AdapterService/EnableForegroundDispatch"
+	AdapterService_EnableReaderMode_FullMethodName                  = "/nfc.AdapterService/EnableReaderMode"
+	AdapterService_GetNfcAntennaInfo_FullMethodName                 = "/nfc.AdapterService/GetNfcAntennaInfo"
+	AdapterService_IsEnabled_FullMethodName                         = "/nfc.AdapterService/IsEnabled"
+	AdapterService_IsObserveModeEnabled_FullMethodName              = "/nfc.AdapterService/IsObserveModeEnabled"
+	AdapterService_IsObserveModeSupported_FullMethodName            = "/nfc.AdapterService/IsObserveModeSupported"
+	AdapterService_IsReaderOptionEnabled_FullMethodName             = "/nfc.AdapterService/IsReaderOptionEnabled"
+	AdapterService_IsReaderOptionSupported_FullMethodName           = "/nfc.AdapterService/IsReaderOptionSupported"
+	AdapterService_IsSecureNfcEnabled_FullMethodName                = "/nfc.AdapterService/IsSecureNfcEnabled"
+	AdapterService_IsSecureNfcSupported_FullMethodName              = "/nfc.AdapterService/IsSecureNfcSupported"
+	AdapterService_IsTagIntentAllowed_FullMethodName                = "/nfc.AdapterService/IsTagIntentAllowed"
+	AdapterService_IsTagIntentAppPreferenceSupported_FullMethodName = "/nfc.AdapterService/IsTagIntentAppPreferenceSupported"
+	AdapterService_ResetDiscoveryTechnology_FullMethodName          = "/nfc.AdapterService/ResetDiscoveryTechnology"
+	AdapterService_SetDiscoveryTechnology_FullMethodName            = "/nfc.AdapterService/SetDiscoveryTechnology"
+	AdapterService_SetObserveModeEnabled_FullMethodName             = "/nfc.AdapterService/SetObserveModeEnabled"
+	AdapterService_GetDefaultAdapter_FullMethodName                 = "/nfc.AdapterService/GetDefaultAdapter"
+)
+
+// AdapterServiceClient is the client API for AdapterService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AdapterServiceClient interface {
+	Disable(ctx context.Context, in *DisableRequest, opts ...grpc.CallOption) (*DisableResponse, error)
+	DisableForegroundDispatch(ctx context.Context, in *DisableForegroundDispatchRequest, opts ...grpc.CallOption) (*DisableForegroundDispatchResponse, error)
+	DisableReaderMode(ctx context.Context, in *DisableReaderModeRequest, opts ...grpc.CallOption) (*DisableReaderModeResponse, error)
+	Enable(ctx context.Context, in *EnableRequest, opts ...grpc.CallOption) (*EnableResponse, error)
+	EnableForegroundDispatch(ctx context.Context, in *EnableForegroundDispatchRequest, opts ...grpc.CallOption) (*EnableForegroundDispatchResponse, error)
+	EnableReaderMode(ctx context.Context, in *EnableReaderModeRequest, opts ...grpc.CallOption) (*EnableReaderModeResponse, error)
+	GetNfcAntennaInfo(ctx context.Context, in *GetNfcAntennaInfoRequest, opts ...grpc.CallOption) (*GetNfcAntennaInfoResponse, error)
+	IsEnabled(ctx context.Context, in *IsEnabledRequest, opts ...grpc.CallOption) (*IsEnabledResponse, error)
+	IsObserveModeEnabled(ctx context.Context, in *IsObserveModeEnabledRequest, opts ...grpc.CallOption) (*IsObserveModeEnabledResponse, error)
+	IsObserveModeSupported(ctx context.Context, in *IsObserveModeSupportedRequest, opts ...grpc.CallOption) (*IsObserveModeSupportedResponse, error)
+	IsReaderOptionEnabled(ctx context.Context, in *IsReaderOptionEnabledRequest, opts ...grpc.CallOption) (*IsReaderOptionEnabledResponse, error)
+	IsReaderOptionSupported(ctx context.Context, in *IsReaderOptionSupportedRequest, opts ...grpc.CallOption) (*IsReaderOptionSupportedResponse, error)
+	IsSecureNfcEnabled(ctx context.Context, in *IsSecureNfcEnabledRequest, opts ...grpc.CallOption) (*IsSecureNfcEnabledResponse, error)
+	IsSecureNfcSupported(ctx context.Context, in *IsSecureNfcSupportedRequest, opts ...grpc.CallOption) (*IsSecureNfcSupportedResponse, error)
+	IsTagIntentAllowed(ctx context.Context, in *IsTagIntentAllowedRequest, opts ...grpc.CallOption) (*IsTagIntentAllowedResponse, error)
+	IsTagIntentAppPreferenceSupported(ctx context.Context, in *IsTagIntentAppPreferenceSupportedRequest, opts ...grpc.CallOption) (*IsTagIntentAppPreferenceSupportedResponse, error)
+	ResetDiscoveryTechnology(ctx context.Context, in *ResetDiscoveryTechnologyRequest, opts ...grpc.CallOption) (*ResetDiscoveryTechnologyResponse, error)
+	SetDiscoveryTechnology(ctx context.Context, in *SetDiscoveryTechnologyRequest, opts ...grpc.CallOption) (*SetDiscoveryTechnologyResponse, error)
+	SetObserveModeEnabled(ctx context.Context, in *SetObserveModeEnabledRequest, opts ...grpc.CallOption) (*SetObserveModeEnabledResponse, error)
+	GetDefaultAdapter(ctx context.Context, in *AdapterGetDefaultAdapterRequest, opts ...grpc.CallOption) (*GetDefaultAdapterResponse, error)
+}
+
+type adapterServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAdapterServiceClient(cc grpc.ClientConnInterface) AdapterServiceClient {
+	return &adapterServiceClient{cc}
+}
+
+func (c *adapterServiceClient) Disable(ctx context.Context, in *DisableRequest, opts ...grpc.CallOption) (*DisableResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DisableResponse)
+	err := c.cc.Invoke(ctx, AdapterService_Disable_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adapterServiceClient) DisableForegroundDispatch(ctx context.Context, in *DisableForegroundDispatchRequest, opts ...grpc.CallOption) (*DisableForegroundDispatchResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DisableForegroundDispatchResponse)
+	err := c.cc.Invoke(ctx, AdapterService_DisableForegroundDispatch_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adapterServiceClient) DisableReaderMode(ctx context.Context, in *DisableReaderModeRequest, opts ...grpc.CallOption) (*DisableReaderModeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DisableReaderModeResponse)
+	err := c.cc.Invoke(ctx, AdapterService_DisableReaderMode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adapterServiceClient) Enable(ctx context.Context, in *EnableRequest, opts ...grpc.CallOption) (*EnableResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EnableResponse)
+	err := c.cc.Invoke(ctx, AdapterService_Enable_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adapterServiceClient) EnableForegroundDispatch(ctx context.Context, in *EnableForegroundDispatchRequest, opts ...grpc.CallOption) (*EnableForegroundDispatchResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EnableForegroundDispatchResponse)
+	err := c.cc.Invoke(ctx, AdapterService_EnableForegroundDispatch_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adapterServiceClient) EnableReaderMode(ctx context.Context, in *EnableReaderModeRequest, opts ...grpc.CallOption) (*EnableReaderModeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EnableReaderModeResponse)
+	err := c.cc.Invoke(ctx, AdapterService_EnableReaderMode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adapterServiceClient) GetNfcAntennaInfo(ctx context.Context, in *GetNfcAntennaInfoRequest, opts ...grpc.CallOption) (*GetNfcAntennaInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetNfcAntennaInfoResponse)
+	err := c.cc.Invoke(ctx, AdapterService_GetNfcAntennaInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adapterServiceClient) IsEnabled(ctx context.Context, in *IsEnabledRequest, opts ...grpc.CallOption) (*IsEnabledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsEnabledResponse)
+	err := c.cc.Invoke(ctx, AdapterService_IsEnabled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adapterServiceClient) IsObserveModeEnabled(ctx context.Context, in *IsObserveModeEnabledRequest, opts ...grpc.CallOption) (*IsObserveModeEnabledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsObserveModeEnabledResponse)
+	err := c.cc.Invoke(ctx, AdapterService_IsObserveModeEnabled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adapterServiceClient) IsObserveModeSupported(ctx context.Context, in *IsObserveModeSupportedRequest, opts ...grpc.CallOption) (*IsObserveModeSupportedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsObserveModeSupportedResponse)
+	err := c.cc.Invoke(ctx, AdapterService_IsObserveModeSupported_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adapterServiceClient) IsReaderOptionEnabled(ctx context.Context, in *IsReaderOptionEnabledRequest, opts ...grpc.CallOption) (*IsReaderOptionEnabledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsReaderOptionEnabledResponse)
+	err := c.cc.Invoke(ctx, AdapterService_IsReaderOptionEnabled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adapterServiceClient) IsReaderOptionSupported(ctx context.Context, in *IsReaderOptionSupportedRequest, opts ...grpc.CallOption) (*IsReaderOptionSupportedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsReaderOptionSupportedResponse)
+	err := c.cc.Invoke(ctx, AdapterService_IsReaderOptionSupported_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adapterServiceClient) IsSecureNfcEnabled(ctx context.Context, in *IsSecureNfcEnabledRequest, opts ...grpc.CallOption) (*IsSecureNfcEnabledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsSecureNfcEnabledResponse)
+	err := c.cc.Invoke(ctx, AdapterService_IsSecureNfcEnabled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adapterServiceClient) IsSecureNfcSupported(ctx context.Context, in *IsSecureNfcSupportedRequest, opts ...grpc.CallOption) (*IsSecureNfcSupportedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsSecureNfcSupportedResponse)
+	err := c.cc.Invoke(ctx, AdapterService_IsSecureNfcSupported_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adapterServiceClient) IsTagIntentAllowed(ctx context.Context, in *IsTagIntentAllowedRequest, opts ...grpc.CallOption) (*IsTagIntentAllowedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsTagIntentAllowedResponse)
+	err := c.cc.Invoke(ctx, AdapterService_IsTagIntentAllowed_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adapterServiceClient) IsTagIntentAppPreferenceSupported(ctx context.Context, in *IsTagIntentAppPreferenceSupportedRequest, opts ...grpc.CallOption) (*IsTagIntentAppPreferenceSupportedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsTagIntentAppPreferenceSupportedResponse)
+	err := c.cc.Invoke(ctx, AdapterService_IsTagIntentAppPreferenceSupported_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adapterServiceClient) ResetDiscoveryTechnology(ctx context.Context, in *ResetDiscoveryTechnologyRequest, opts ...grpc.CallOption) (*ResetDiscoveryTechnologyResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ResetDiscoveryTechnologyResponse)
+	err := c.cc.Invoke(ctx, AdapterService_ResetDiscoveryTechnology_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adapterServiceClient) SetDiscoveryTechnology(ctx context.Context, in *SetDiscoveryTechnologyRequest, opts ...grpc.CallOption) (*SetDiscoveryTechnologyResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetDiscoveryTechnologyResponse)
+	err := c.cc.Invoke(ctx, AdapterService_SetDiscoveryTechnology_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adapterServiceClient) SetObserveModeEnabled(ctx context.Context, in *SetObserveModeEnabledRequest, opts ...grpc.CallOption) (*SetObserveModeEnabledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetObserveModeEnabledResponse)
+	err := c.cc.Invoke(ctx, AdapterService_SetObserveModeEnabled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adapterServiceClient) GetDefaultAdapter(ctx context.Context, in *AdapterGetDefaultAdapterRequest, opts ...grpc.CallOption) (*GetDefaultAdapterResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDefaultAdapterResponse)
+	err := c.cc.Invoke(ctx, AdapterService_GetDefaultAdapter_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AdapterServiceServer is the server API for AdapterService service.
+// All implementations must embed UnimplementedAdapterServiceServer
+// for forward compatibility.
+type AdapterServiceServer interface {
+	Disable(context.Context, *DisableRequest) (*DisableResponse, error)
+	DisableForegroundDispatch(context.Context, *DisableForegroundDispatchRequest) (*DisableForegroundDispatchResponse, error)
+	DisableReaderMode(context.Context, *DisableReaderModeRequest) (*DisableReaderModeResponse, error)
+	Enable(context.Context, *EnableRequest) (*EnableResponse, error)
+	EnableForegroundDispatch(context.Context, *EnableForegroundDispatchRequest) (*EnableForegroundDispatchResponse, error)
+	EnableReaderMode(context.Context, *EnableReaderModeRequest) (*EnableReaderModeResponse, error)
+	GetNfcAntennaInfo(context.Context, *GetNfcAntennaInfoRequest) (*GetNfcAntennaInfoResponse, error)
+	IsEnabled(context.Context, *IsEnabledRequest) (*IsEnabledResponse, error)
+	IsObserveModeEnabled(context.Context, *IsObserveModeEnabledRequest) (*IsObserveModeEnabledResponse, error)
+	IsObserveModeSupported(context.Context, *IsObserveModeSupportedRequest) (*IsObserveModeSupportedResponse, error)
+	IsReaderOptionEnabled(context.Context, *IsReaderOptionEnabledRequest) (*IsReaderOptionEnabledResponse, error)
+	IsReaderOptionSupported(context.Context, *IsReaderOptionSupportedRequest) (*IsReaderOptionSupportedResponse, error)
+	IsSecureNfcEnabled(context.Context, *IsSecureNfcEnabledRequest) (*IsSecureNfcEnabledResponse, error)
+	IsSecureNfcSupported(context.Context, *IsSecureNfcSupportedRequest) (*IsSecureNfcSupportedResponse, error)
+	IsTagIntentAllowed(context.Context, *IsTagIntentAllowedRequest) (*IsTagIntentAllowedResponse, error)
+	IsTagIntentAppPreferenceSupported(context.Context, *IsTagIntentAppPreferenceSupportedRequest) (*IsTagIntentAppPreferenceSupportedResponse, error)
+	ResetDiscoveryTechnology(context.Context, *ResetDiscoveryTechnologyRequest) (*ResetDiscoveryTechnologyResponse, error)
+	SetDiscoveryTechnology(context.Context, *SetDiscoveryTechnologyRequest) (*SetDiscoveryTechnologyResponse, error)
+	SetObserveModeEnabled(context.Context, *SetObserveModeEnabledRequest) (*SetObserveModeEnabledResponse, error)
+	GetDefaultAdapter(context.Context, *AdapterGetDefaultAdapterRequest) (*GetDefaultAdapterResponse, error)
+	mustEmbedUnimplementedAdapterServiceServer()
+}
+
+// UnimplementedAdapterServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedAdapterServiceServer struct{}
+
+func (UnimplementedAdapterServiceServer) Disable(context.Context, *DisableRequest) (*DisableResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Disable not implemented")
+}
+func (UnimplementedAdapterServiceServer) DisableForegroundDispatch(context.Context, *DisableForegroundDispatchRequest) (*DisableForegroundDispatchResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DisableForegroundDispatch not implemented")
+}
+func (UnimplementedAdapterServiceServer) DisableReaderMode(context.Context, *DisableReaderModeRequest) (*DisableReaderModeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DisableReaderMode not implemented")
+}
+func (UnimplementedAdapterServiceServer) Enable(context.Context, *EnableRequest) (*EnableResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Enable not implemented")
+}
+func (UnimplementedAdapterServiceServer) EnableForegroundDispatch(context.Context, *EnableForegroundDispatchRequest) (*EnableForegroundDispatchResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method EnableForegroundDispatch not implemented")
+}
+func (UnimplementedAdapterServiceServer) EnableReaderMode(context.Context, *EnableReaderModeRequest) (*EnableReaderModeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method EnableReaderMode not implemented")
+}
+func (UnimplementedAdapterServiceServer) GetNfcAntennaInfo(context.Context, *GetNfcAntennaInfoRequest) (*GetNfcAntennaInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetNfcAntennaInfo not implemented")
+}
+func (UnimplementedAdapterServiceServer) IsEnabled(context.Context, *IsEnabledRequest) (*IsEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsEnabled not implemented")
+}
+func (UnimplementedAdapterServiceServer) IsObserveModeEnabled(context.Context, *IsObserveModeEnabledRequest) (*IsObserveModeEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsObserveModeEnabled not implemented")
+}
+func (UnimplementedAdapterServiceServer) IsObserveModeSupported(context.Context, *IsObserveModeSupportedRequest) (*IsObserveModeSupportedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsObserveModeSupported not implemented")
+}
+func (UnimplementedAdapterServiceServer) IsReaderOptionEnabled(context.Context, *IsReaderOptionEnabledRequest) (*IsReaderOptionEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsReaderOptionEnabled not implemented")
+}
+func (UnimplementedAdapterServiceServer) IsReaderOptionSupported(context.Context, *IsReaderOptionSupportedRequest) (*IsReaderOptionSupportedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsReaderOptionSupported not implemented")
+}
+func (UnimplementedAdapterServiceServer) IsSecureNfcEnabled(context.Context, *IsSecureNfcEnabledRequest) (*IsSecureNfcEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsSecureNfcEnabled not implemented")
+}
+func (UnimplementedAdapterServiceServer) IsSecureNfcSupported(context.Context, *IsSecureNfcSupportedRequest) (*IsSecureNfcSupportedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsSecureNfcSupported not implemented")
+}
+func (UnimplementedAdapterServiceServer) IsTagIntentAllowed(context.Context, *IsTagIntentAllowedRequest) (*IsTagIntentAllowedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsTagIntentAllowed not implemented")
+}
+func (UnimplementedAdapterServiceServer) IsTagIntentAppPreferenceSupported(context.Context, *IsTagIntentAppPreferenceSupportedRequest) (*IsTagIntentAppPreferenceSupportedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsTagIntentAppPreferenceSupported not implemented")
+}
+func (UnimplementedAdapterServiceServer) ResetDiscoveryTechnology(context.Context, *ResetDiscoveryTechnologyRequest) (*ResetDiscoveryTechnologyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ResetDiscoveryTechnology not implemented")
+}
+func (UnimplementedAdapterServiceServer) SetDiscoveryTechnology(context.Context, *SetDiscoveryTechnologyRequest) (*SetDiscoveryTechnologyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetDiscoveryTechnology not implemented")
+}
+func (UnimplementedAdapterServiceServer) SetObserveModeEnabled(context.Context, *SetObserveModeEnabledRequest) (*SetObserveModeEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetObserveModeEnabled not implemented")
+}
+func (UnimplementedAdapterServiceServer) GetDefaultAdapter(context.Context, *AdapterGetDefaultAdapterRequest) (*GetDefaultAdapterResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDefaultAdapter not implemented")
+}
+func (UnimplementedAdapterServiceServer) mustEmbedUnimplementedAdapterServiceServer() {}
+func (UnimplementedAdapterServiceServer) testEmbeddedByValue()                        {}
+
+// UnsafeAdapterServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AdapterServiceServer will
+// result in compilation errors.
+type UnsafeAdapterServiceServer interface {
+	mustEmbedUnimplementedAdapterServiceServer()
+}
+
+func RegisterAdapterServiceServer(s grpc.ServiceRegistrar, srv AdapterServiceServer) {
+	// If the following call panics, it indicates UnimplementedAdapterServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&AdapterService_ServiceDesc, srv)
+}
+
+func _AdapterService_Disable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DisableRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdapterServiceServer).Disable(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdapterService_Disable_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdapterServiceServer).Disable(ctx, req.(*DisableRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdapterService_DisableForegroundDispatch_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DisableForegroundDispatchRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdapterServiceServer).DisableForegroundDispatch(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdapterService_DisableForegroundDispatch_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdapterServiceServer).DisableForegroundDispatch(ctx, req.(*DisableForegroundDispatchRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdapterService_DisableReaderMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DisableReaderModeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdapterServiceServer).DisableReaderMode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdapterService_DisableReaderMode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdapterServiceServer).DisableReaderMode(ctx, req.(*DisableReaderModeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdapterService_Enable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EnableRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdapterServiceServer).Enable(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdapterService_Enable_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdapterServiceServer).Enable(ctx, req.(*EnableRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdapterService_EnableForegroundDispatch_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EnableForegroundDispatchRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdapterServiceServer).EnableForegroundDispatch(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdapterService_EnableForegroundDispatch_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdapterServiceServer).EnableForegroundDispatch(ctx, req.(*EnableForegroundDispatchRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdapterService_EnableReaderMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EnableReaderModeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdapterServiceServer).EnableReaderMode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdapterService_EnableReaderMode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdapterServiceServer).EnableReaderMode(ctx, req.(*EnableReaderModeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdapterService_GetNfcAntennaInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetNfcAntennaInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdapterServiceServer).GetNfcAntennaInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdapterService_GetNfcAntennaInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdapterServiceServer).GetNfcAntennaInfo(ctx, req.(*GetNfcAntennaInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdapterService_IsEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsEnabledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdapterServiceServer).IsEnabled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdapterService_IsEnabled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdapterServiceServer).IsEnabled(ctx, req.(*IsEnabledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdapterService_IsObserveModeEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsObserveModeEnabledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdapterServiceServer).IsObserveModeEnabled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdapterService_IsObserveModeEnabled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdapterServiceServer).IsObserveModeEnabled(ctx, req.(*IsObserveModeEnabledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdapterService_IsObserveModeSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsObserveModeSupportedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdapterServiceServer).IsObserveModeSupported(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdapterService_IsObserveModeSupported_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdapterServiceServer).IsObserveModeSupported(ctx, req.(*IsObserveModeSupportedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdapterService_IsReaderOptionEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsReaderOptionEnabledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdapterServiceServer).IsReaderOptionEnabled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdapterService_IsReaderOptionEnabled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdapterServiceServer).IsReaderOptionEnabled(ctx, req.(*IsReaderOptionEnabledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdapterService_IsReaderOptionSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsReaderOptionSupportedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdapterServiceServer).IsReaderOptionSupported(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdapterService_IsReaderOptionSupported_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdapterServiceServer).IsReaderOptionSupported(ctx, req.(*IsReaderOptionSupportedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdapterService_IsSecureNfcEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsSecureNfcEnabledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdapterServiceServer).IsSecureNfcEnabled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdapterService_IsSecureNfcEnabled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdapterServiceServer).IsSecureNfcEnabled(ctx, req.(*IsSecureNfcEnabledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdapterService_IsSecureNfcSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsSecureNfcSupportedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdapterServiceServer).IsSecureNfcSupported(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdapterService_IsSecureNfcSupported_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdapterServiceServer).IsSecureNfcSupported(ctx, req.(*IsSecureNfcSupportedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdapterService_IsTagIntentAllowed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsTagIntentAllowedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdapterServiceServer).IsTagIntentAllowed(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdapterService_IsTagIntentAllowed_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdapterServiceServer).IsTagIntentAllowed(ctx, req.(*IsTagIntentAllowedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdapterService_IsTagIntentAppPreferenceSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsTagIntentAppPreferenceSupportedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdapterServiceServer).IsTagIntentAppPreferenceSupported(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdapterService_IsTagIntentAppPreferenceSupported_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdapterServiceServer).IsTagIntentAppPreferenceSupported(ctx, req.(*IsTagIntentAppPreferenceSupportedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdapterService_ResetDiscoveryTechnology_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ResetDiscoveryTechnologyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdapterServiceServer).ResetDiscoveryTechnology(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdapterService_ResetDiscoveryTechnology_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdapterServiceServer).ResetDiscoveryTechnology(ctx, req.(*ResetDiscoveryTechnologyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdapterService_SetDiscoveryTechnology_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetDiscoveryTechnologyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdapterServiceServer).SetDiscoveryTechnology(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdapterService_SetDiscoveryTechnology_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdapterServiceServer).SetDiscoveryTechnology(ctx, req.(*SetDiscoveryTechnologyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdapterService_SetObserveModeEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetObserveModeEnabledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdapterServiceServer).SetObserveModeEnabled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdapterService_SetObserveModeEnabled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdapterServiceServer).SetObserveModeEnabled(ctx, req.(*SetObserveModeEnabledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdapterService_GetDefaultAdapter_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AdapterGetDefaultAdapterRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdapterServiceServer).GetDefaultAdapter(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdapterService_GetDefaultAdapter_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdapterServiceServer).GetDefaultAdapter(ctx, req.(*AdapterGetDefaultAdapterRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AdapterService_ServiceDesc is the grpc.ServiceDesc for AdapterService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AdapterService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "nfc.AdapterService",
+	HandlerType: (*AdapterServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Disable",
+			Handler:    _AdapterService_Disable_Handler,
+		},
+		{
+			MethodName: "DisableForegroundDispatch",
+			Handler:    _AdapterService_DisableForegroundDispatch_Handler,
+		},
+		{
+			MethodName: "DisableReaderMode",
+			Handler:    _AdapterService_DisableReaderMode_Handler,
+		},
+		{
+			MethodName: "Enable",
+			Handler:    _AdapterService_Enable_Handler,
+		},
+		{
+			MethodName: "EnableForegroundDispatch",
+			Handler:    _AdapterService_EnableForegroundDispatch_Handler,
+		},
+		{
+			MethodName: "EnableReaderMode",
+			Handler:    _AdapterService_EnableReaderMode_Handler,
+		},
+		{
+			MethodName: "GetNfcAntennaInfo",
+			Handler:    _AdapterService_GetNfcAntennaInfo_Handler,
+		},
+		{
+			MethodName: "IsEnabled",
+			Handler:    _AdapterService_IsEnabled_Handler,
+		},
+		{
+			MethodName: "IsObserveModeEnabled",
+			Handler:    _AdapterService_IsObserveModeEnabled_Handler,
+		},
+		{
+			MethodName: "IsObserveModeSupported",
+			Handler:    _AdapterService_IsObserveModeSupported_Handler,
+		},
+		{
+			MethodName: "IsReaderOptionEnabled",
+			Handler:    _AdapterService_IsReaderOptionEnabled_Handler,
+		},
+		{
+			MethodName: "IsReaderOptionSupported",
+			Handler:    _AdapterService_IsReaderOptionSupported_Handler,
+		},
+		{
+			MethodName: "IsSecureNfcEnabled",
+			Handler:    _AdapterService_IsSecureNfcEnabled_Handler,
+		},
+		{
+			MethodName: "IsSecureNfcSupported",
+			Handler:    _AdapterService_IsSecureNfcSupported_Handler,
+		},
+		{
+			MethodName: "IsTagIntentAllowed",
+			Handler:    _AdapterService_IsTagIntentAllowed_Handler,
+		},
+		{
+			MethodName: "IsTagIntentAppPreferenceSupported",
+			Handler:    _AdapterService_IsTagIntentAppPreferenceSupported_Handler,
+		},
+		{
+			MethodName: "ResetDiscoveryTechnology",
+			Handler:    _AdapterService_ResetDiscoveryTechnology_Handler,
+		},
+		{
+			MethodName: "SetDiscoveryTechnology",
+			Handler:    _AdapterService_SetDiscoveryTechnology_Handler,
+		},
+		{
+			MethodName: "SetObserveModeEnabled",
+			Handler:    _AdapterService_SetObserveModeEnabled_Handler,
+		},
+		{
+			MethodName: "GetDefaultAdapter",
+			Handler:    _AdapterService_GetDefaultAdapter_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/nfc/nfc.proto",
+}
+
+const (
+	AdapterCreateBeamUrisCallbackService_CreateBeamUris_FullMethodName = "/nfc.AdapterCreateBeamUrisCallbackService/CreateBeamUris"
+)
+
+// AdapterCreateBeamUrisCallbackServiceClient is the client API for AdapterCreateBeamUrisCallbackService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AdapterCreateBeamUrisCallbackServiceClient interface {
+	CreateBeamUris(ctx context.Context, in *CreateBeamUrisRequest, opts ...grpc.CallOption) (*CreateBeamUrisResponse, error)
+}
+
+type adapterCreateBeamUrisCallbackServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAdapterCreateBeamUrisCallbackServiceClient(cc grpc.ClientConnInterface) AdapterCreateBeamUrisCallbackServiceClient {
+	return &adapterCreateBeamUrisCallbackServiceClient{cc}
+}
+
+func (c *adapterCreateBeamUrisCallbackServiceClient) CreateBeamUris(ctx context.Context, in *CreateBeamUrisRequest, opts ...grpc.CallOption) (*CreateBeamUrisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateBeamUrisResponse)
+	err := c.cc.Invoke(ctx, AdapterCreateBeamUrisCallbackService_CreateBeamUris_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AdapterCreateBeamUrisCallbackServiceServer is the server API for AdapterCreateBeamUrisCallbackService service.
+// All implementations must embed UnimplementedAdapterCreateBeamUrisCallbackServiceServer
+// for forward compatibility.
+type AdapterCreateBeamUrisCallbackServiceServer interface {
+	CreateBeamUris(context.Context, *CreateBeamUrisRequest) (*CreateBeamUrisResponse, error)
+	mustEmbedUnimplementedAdapterCreateBeamUrisCallbackServiceServer()
+}
+
+// UnimplementedAdapterCreateBeamUrisCallbackServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedAdapterCreateBeamUrisCallbackServiceServer struct{}
+
+func (UnimplementedAdapterCreateBeamUrisCallbackServiceServer) CreateBeamUris(context.Context, *CreateBeamUrisRequest) (*CreateBeamUrisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CreateBeamUris not implemented")
+}
+func (UnimplementedAdapterCreateBeamUrisCallbackServiceServer) mustEmbedUnimplementedAdapterCreateBeamUrisCallbackServiceServer() {
+}
+func (UnimplementedAdapterCreateBeamUrisCallbackServiceServer) testEmbeddedByValue() {}
+
+// UnsafeAdapterCreateBeamUrisCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AdapterCreateBeamUrisCallbackServiceServer will
+// result in compilation errors.
+type UnsafeAdapterCreateBeamUrisCallbackServiceServer interface {
+	mustEmbedUnimplementedAdapterCreateBeamUrisCallbackServiceServer()
+}
+
+func RegisterAdapterCreateBeamUrisCallbackServiceServer(s grpc.ServiceRegistrar, srv AdapterCreateBeamUrisCallbackServiceServer) {
+	// If the following call panics, it indicates UnimplementedAdapterCreateBeamUrisCallbackServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&AdapterCreateBeamUrisCallbackService_ServiceDesc, srv)
+}
+
+func _AdapterCreateBeamUrisCallbackService_CreateBeamUris_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateBeamUrisRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdapterCreateBeamUrisCallbackServiceServer).CreateBeamUris(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdapterCreateBeamUrisCallbackService_CreateBeamUris_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdapterCreateBeamUrisCallbackServiceServer).CreateBeamUris(ctx, req.(*CreateBeamUrisRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AdapterCreateBeamUrisCallbackService_ServiceDesc is the grpc.ServiceDesc for AdapterCreateBeamUrisCallbackService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AdapterCreateBeamUrisCallbackService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "nfc.AdapterCreateBeamUrisCallbackService",
+	HandlerType: (*AdapterCreateBeamUrisCallbackServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "CreateBeamUris",
+			Handler:    _AdapterCreateBeamUrisCallbackService_CreateBeamUris_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/nfc/nfc.proto",
+}
+
+const (
+	AdapterCreateNdefMessageCallbackService_CreateNdefMessage_FullMethodName = "/nfc.AdapterCreateNdefMessageCallbackService/CreateNdefMessage"
+)
+
+// AdapterCreateNdefMessageCallbackServiceClient is the client API for AdapterCreateNdefMessageCallbackService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AdapterCreateNdefMessageCallbackServiceClient interface {
+	CreateNdefMessage(ctx context.Context, in *CreateNdefMessageRequest, opts ...grpc.CallOption) (*CreateNdefMessageResponse, error)
+}
+
+type adapterCreateNdefMessageCallbackServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAdapterCreateNdefMessageCallbackServiceClient(cc grpc.ClientConnInterface) AdapterCreateNdefMessageCallbackServiceClient {
+	return &adapterCreateNdefMessageCallbackServiceClient{cc}
+}
+
+func (c *adapterCreateNdefMessageCallbackServiceClient) CreateNdefMessage(ctx context.Context, in *CreateNdefMessageRequest, opts ...grpc.CallOption) (*CreateNdefMessageResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateNdefMessageResponse)
+	err := c.cc.Invoke(ctx, AdapterCreateNdefMessageCallbackService_CreateNdefMessage_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AdapterCreateNdefMessageCallbackServiceServer is the server API for AdapterCreateNdefMessageCallbackService service.
+// All implementations must embed UnimplementedAdapterCreateNdefMessageCallbackServiceServer
+// for forward compatibility.
+type AdapterCreateNdefMessageCallbackServiceServer interface {
+	CreateNdefMessage(context.Context, *CreateNdefMessageRequest) (*CreateNdefMessageResponse, error)
+	mustEmbedUnimplementedAdapterCreateNdefMessageCallbackServiceServer()
+}
+
+// UnimplementedAdapterCreateNdefMessageCallbackServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedAdapterCreateNdefMessageCallbackServiceServer struct{}
+
+func (UnimplementedAdapterCreateNdefMessageCallbackServiceServer) CreateNdefMessage(context.Context, *CreateNdefMessageRequest) (*CreateNdefMessageResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CreateNdefMessage not implemented")
+}
+func (UnimplementedAdapterCreateNdefMessageCallbackServiceServer) mustEmbedUnimplementedAdapterCreateNdefMessageCallbackServiceServer() {
+}
+func (UnimplementedAdapterCreateNdefMessageCallbackServiceServer) testEmbeddedByValue() {}
+
+// UnsafeAdapterCreateNdefMessageCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AdapterCreateNdefMessageCallbackServiceServer will
+// result in compilation errors.
+type UnsafeAdapterCreateNdefMessageCallbackServiceServer interface {
+	mustEmbedUnimplementedAdapterCreateNdefMessageCallbackServiceServer()
+}
+
+func RegisterAdapterCreateNdefMessageCallbackServiceServer(s grpc.ServiceRegistrar, srv AdapterCreateNdefMessageCallbackServiceServer) {
+	// If the following call panics, it indicates UnimplementedAdapterCreateNdefMessageCallbackServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&AdapterCreateNdefMessageCallbackService_ServiceDesc, srv)
+}
+
+func _AdapterCreateNdefMessageCallbackService_CreateNdefMessage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateNdefMessageRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdapterCreateNdefMessageCallbackServiceServer).CreateNdefMessage(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdapterCreateNdefMessageCallbackService_CreateNdefMessage_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdapterCreateNdefMessageCallbackServiceServer).CreateNdefMessage(ctx, req.(*CreateNdefMessageRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AdapterCreateNdefMessageCallbackService_ServiceDesc is the grpc.ServiceDesc for AdapterCreateNdefMessageCallbackService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AdapterCreateNdefMessageCallbackService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "nfc.AdapterCreateNdefMessageCallbackService",
+	HandlerType: (*AdapterCreateNdefMessageCallbackServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "CreateNdefMessage",
+			Handler:    _AdapterCreateNdefMessageCallbackService_CreateNdefMessage_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/nfc/nfc.proto",
+}
+
+const (
+	AdapterOnNdefPushCompleteCallbackService_OnNdefPushComplete_FullMethodName = "/nfc.AdapterOnNdefPushCompleteCallbackService/OnNdefPushComplete"
+)
+
+// AdapterOnNdefPushCompleteCallbackServiceClient is the client API for AdapterOnNdefPushCompleteCallbackService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AdapterOnNdefPushCompleteCallbackServiceClient interface {
+	OnNdefPushComplete(ctx context.Context, in *OnNdefPushCompleteRequest, opts ...grpc.CallOption) (*OnNdefPushCompleteResponse, error)
+}
+
+type adapterOnNdefPushCompleteCallbackServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAdapterOnNdefPushCompleteCallbackServiceClient(cc grpc.ClientConnInterface) AdapterOnNdefPushCompleteCallbackServiceClient {
+	return &adapterOnNdefPushCompleteCallbackServiceClient{cc}
+}
+
+func (c *adapterOnNdefPushCompleteCallbackServiceClient) OnNdefPushComplete(ctx context.Context, in *OnNdefPushCompleteRequest, opts ...grpc.CallOption) (*OnNdefPushCompleteResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnNdefPushCompleteResponse)
+	err := c.cc.Invoke(ctx, AdapterOnNdefPushCompleteCallbackService_OnNdefPushComplete_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AdapterOnNdefPushCompleteCallbackServiceServer is the server API for AdapterOnNdefPushCompleteCallbackService service.
+// All implementations must embed UnimplementedAdapterOnNdefPushCompleteCallbackServiceServer
+// for forward compatibility.
+type AdapterOnNdefPushCompleteCallbackServiceServer interface {
+	OnNdefPushComplete(context.Context, *OnNdefPushCompleteRequest) (*OnNdefPushCompleteResponse, error)
+	mustEmbedUnimplementedAdapterOnNdefPushCompleteCallbackServiceServer()
+}
+
+// UnimplementedAdapterOnNdefPushCompleteCallbackServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedAdapterOnNdefPushCompleteCallbackServiceServer struct{}
+
+func (UnimplementedAdapterOnNdefPushCompleteCallbackServiceServer) OnNdefPushComplete(context.Context, *OnNdefPushCompleteRequest) (*OnNdefPushCompleteResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnNdefPushComplete not implemented")
+}
+func (UnimplementedAdapterOnNdefPushCompleteCallbackServiceServer) mustEmbedUnimplementedAdapterOnNdefPushCompleteCallbackServiceServer() {
+}
+func (UnimplementedAdapterOnNdefPushCompleteCallbackServiceServer) testEmbeddedByValue() {}
+
+// UnsafeAdapterOnNdefPushCompleteCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AdapterOnNdefPushCompleteCallbackServiceServer will
+// result in compilation errors.
+type UnsafeAdapterOnNdefPushCompleteCallbackServiceServer interface {
+	mustEmbedUnimplementedAdapterOnNdefPushCompleteCallbackServiceServer()
+}
+
+func RegisterAdapterOnNdefPushCompleteCallbackServiceServer(s grpc.ServiceRegistrar, srv AdapterOnNdefPushCompleteCallbackServiceServer) {
+	// If the following call panics, it indicates UnimplementedAdapterOnNdefPushCompleteCallbackServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&AdapterOnNdefPushCompleteCallbackService_ServiceDesc, srv)
+}
+
+func _AdapterOnNdefPushCompleteCallbackService_OnNdefPushComplete_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnNdefPushCompleteRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdapterOnNdefPushCompleteCallbackServiceServer).OnNdefPushComplete(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdapterOnNdefPushCompleteCallbackService_OnNdefPushComplete_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdapterOnNdefPushCompleteCallbackServiceServer).OnNdefPushComplete(ctx, req.(*OnNdefPushCompleteRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AdapterOnNdefPushCompleteCallbackService_ServiceDesc is the grpc.ServiceDesc for AdapterOnNdefPushCompleteCallbackService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AdapterOnNdefPushCompleteCallbackService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "nfc.AdapterOnNdefPushCompleteCallbackService",
+	HandlerType: (*AdapterOnNdefPushCompleteCallbackServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnNdefPushComplete",
+			Handler:    _AdapterOnNdefPushCompleteCallbackService_OnNdefPushComplete_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/nfc/nfc.proto",
+}
+
+const (
+	AdapterOnTagRemovedListenerService_OnTagRemoved_FullMethodName = "/nfc.AdapterOnTagRemovedListenerService/OnTagRemoved"
+)
+
+// AdapterOnTagRemovedListenerServiceClient is the client API for AdapterOnTagRemovedListenerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AdapterOnTagRemovedListenerServiceClient interface {
+	OnTagRemoved(ctx context.Context, in *OnTagRemovedRequest, opts ...grpc.CallOption) (*OnTagRemovedResponse, error)
+}
+
+type adapterOnTagRemovedListenerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAdapterOnTagRemovedListenerServiceClient(cc grpc.ClientConnInterface) AdapterOnTagRemovedListenerServiceClient {
+	return &adapterOnTagRemovedListenerServiceClient{cc}
+}
+
+func (c *adapterOnTagRemovedListenerServiceClient) OnTagRemoved(ctx context.Context, in *OnTagRemovedRequest, opts ...grpc.CallOption) (*OnTagRemovedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnTagRemovedResponse)
+	err := c.cc.Invoke(ctx, AdapterOnTagRemovedListenerService_OnTagRemoved_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AdapterOnTagRemovedListenerServiceServer is the server API for AdapterOnTagRemovedListenerService service.
+// All implementations must embed UnimplementedAdapterOnTagRemovedListenerServiceServer
+// for forward compatibility.
+type AdapterOnTagRemovedListenerServiceServer interface {
+	OnTagRemoved(context.Context, *OnTagRemovedRequest) (*OnTagRemovedResponse, error)
+	mustEmbedUnimplementedAdapterOnTagRemovedListenerServiceServer()
+}
+
+// UnimplementedAdapterOnTagRemovedListenerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedAdapterOnTagRemovedListenerServiceServer struct{}
+
+func (UnimplementedAdapterOnTagRemovedListenerServiceServer) OnTagRemoved(context.Context, *OnTagRemovedRequest) (*OnTagRemovedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnTagRemoved not implemented")
+}
+func (UnimplementedAdapterOnTagRemovedListenerServiceServer) mustEmbedUnimplementedAdapterOnTagRemovedListenerServiceServer() {
+}
+func (UnimplementedAdapterOnTagRemovedListenerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeAdapterOnTagRemovedListenerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AdapterOnTagRemovedListenerServiceServer will
+// result in compilation errors.
+type UnsafeAdapterOnTagRemovedListenerServiceServer interface {
+	mustEmbedUnimplementedAdapterOnTagRemovedListenerServiceServer()
+}
+
+func RegisterAdapterOnTagRemovedListenerServiceServer(s grpc.ServiceRegistrar, srv AdapterOnTagRemovedListenerServiceServer) {
+	// If the following call panics, it indicates UnimplementedAdapterOnTagRemovedListenerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&AdapterOnTagRemovedListenerService_ServiceDesc, srv)
+}
+
+func _AdapterOnTagRemovedListenerService_OnTagRemoved_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnTagRemovedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdapterOnTagRemovedListenerServiceServer).OnTagRemoved(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdapterOnTagRemovedListenerService_OnTagRemoved_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdapterOnTagRemovedListenerServiceServer).OnTagRemoved(ctx, req.(*OnTagRemovedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AdapterOnTagRemovedListenerService_ServiceDesc is the grpc.ServiceDesc for AdapterOnTagRemovedListenerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AdapterOnTagRemovedListenerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "nfc.AdapterOnTagRemovedListenerService",
+	HandlerType: (*AdapterOnTagRemovedListenerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnTagRemoved",
+			Handler:    _AdapterOnTagRemovedListenerService_OnTagRemoved_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/nfc/nfc.proto",
+}
+
+const (
+	AdapterReaderCallbackService_OnTagDiscovered_FullMethodName = "/nfc.AdapterReaderCallbackService/OnTagDiscovered"
+)
+
+// AdapterReaderCallbackServiceClient is the client API for AdapterReaderCallbackService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AdapterReaderCallbackServiceClient interface {
+	OnTagDiscovered(ctx context.Context, in *OnTagDiscoveredRequest, opts ...grpc.CallOption) (*OnTagDiscoveredResponse, error)
+}
+
+type adapterReaderCallbackServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAdapterReaderCallbackServiceClient(cc grpc.ClientConnInterface) AdapterReaderCallbackServiceClient {
+	return &adapterReaderCallbackServiceClient{cc}
+}
+
+func (c *adapterReaderCallbackServiceClient) OnTagDiscovered(ctx context.Context, in *OnTagDiscoveredRequest, opts ...grpc.CallOption) (*OnTagDiscoveredResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnTagDiscoveredResponse)
+	err := c.cc.Invoke(ctx, AdapterReaderCallbackService_OnTagDiscovered_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AdapterReaderCallbackServiceServer is the server API for AdapterReaderCallbackService service.
+// All implementations must embed UnimplementedAdapterReaderCallbackServiceServer
+// for forward compatibility.
+type AdapterReaderCallbackServiceServer interface {
+	OnTagDiscovered(context.Context, *OnTagDiscoveredRequest) (*OnTagDiscoveredResponse, error)
+	mustEmbedUnimplementedAdapterReaderCallbackServiceServer()
+}
+
+// UnimplementedAdapterReaderCallbackServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedAdapterReaderCallbackServiceServer struct{}
+
+func (UnimplementedAdapterReaderCallbackServiceServer) OnTagDiscovered(context.Context, *OnTagDiscoveredRequest) (*OnTagDiscoveredResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnTagDiscovered not implemented")
+}
+func (UnimplementedAdapterReaderCallbackServiceServer) mustEmbedUnimplementedAdapterReaderCallbackServiceServer() {
+}
+func (UnimplementedAdapterReaderCallbackServiceServer) testEmbeddedByValue() {}
+
+// UnsafeAdapterReaderCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AdapterReaderCallbackServiceServer will
+// result in compilation errors.
+type UnsafeAdapterReaderCallbackServiceServer interface {
+	mustEmbedUnimplementedAdapterReaderCallbackServiceServer()
+}
+
+func RegisterAdapterReaderCallbackServiceServer(s grpc.ServiceRegistrar, srv AdapterReaderCallbackServiceServer) {
+	// If the following call panics, it indicates UnimplementedAdapterReaderCallbackServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&AdapterReaderCallbackService_ServiceDesc, srv)
+}
+
+func _AdapterReaderCallbackService_OnTagDiscovered_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnTagDiscoveredRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdapterReaderCallbackServiceServer).OnTagDiscovered(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdapterReaderCallbackService_OnTagDiscovered_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdapterReaderCallbackServiceServer).OnTagDiscovered(ctx, req.(*OnTagDiscoveredRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AdapterReaderCallbackService_ServiceDesc is the grpc.ServiceDesc for AdapterReaderCallbackService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AdapterReaderCallbackService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "nfc.AdapterReaderCallbackService",
+	HandlerType: (*AdapterReaderCallbackServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnTagDiscovered",
+			Handler:    _AdapterReaderCallbackService_OnTagDiscovered_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/nfc/nfc.proto",
+}
+
+const (
+	AvailableNfcAntennaService_NewAvailableNfcAntenna_FullMethodName = "/nfc.AvailableNfcAntennaService/NewAvailableNfcAntenna"
+	AvailableNfcAntennaService_DescribeContents_FullMethodName       = "/nfc.AvailableNfcAntennaService/DescribeContents"
+	AvailableNfcAntennaService_Equals_FullMethodName                 = "/nfc.AvailableNfcAntennaService/Equals"
+	AvailableNfcAntennaService_GetLocationX_FullMethodName           = "/nfc.AvailableNfcAntennaService/GetLocationX"
+	AvailableNfcAntennaService_GetLocationY_FullMethodName           = "/nfc.AvailableNfcAntennaService/GetLocationY"
+	AvailableNfcAntennaService_HashCode_FullMethodName               = "/nfc.AvailableNfcAntennaService/HashCode"
+	AvailableNfcAntennaService_ToString_FullMethodName               = "/nfc.AvailableNfcAntennaService/ToString"
+	AvailableNfcAntennaService_WriteToParcel_FullMethodName          = "/nfc.AvailableNfcAntennaService/WriteToParcel"
+)
+
+// AvailableNfcAntennaServiceClient is the client API for AvailableNfcAntennaService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AvailableNfcAntennaServiceClient interface {
+	NewAvailableNfcAntenna(ctx context.Context, in *NewAvailableNfcAntennaRequest, opts ...grpc.CallOption) (*NewAvailableNfcAntennaResponse, error)
+	DescribeContents(ctx context.Context, in *AvailableNfcAntennaDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetLocationX(ctx context.Context, in *GetLocationXRequest, opts ...grpc.CallOption) (*GetLocationXResponse, error)
+	GetLocationY(ctx context.Context, in *GetLocationYRequest, opts ...grpc.CallOption) (*GetLocationYResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *AvailableNfcAntennaToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *AvailableNfcAntennaWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type availableNfcAntennaServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAvailableNfcAntennaServiceClient(cc grpc.ClientConnInterface) AvailableNfcAntennaServiceClient {
+	return &availableNfcAntennaServiceClient{cc}
+}
+
+func (c *availableNfcAntennaServiceClient) NewAvailableNfcAntenna(ctx context.Context, in *NewAvailableNfcAntennaRequest, opts ...grpc.CallOption) (*NewAvailableNfcAntennaResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewAvailableNfcAntennaResponse)
+	err := c.cc.Invoke(ctx, AvailableNfcAntennaService_NewAvailableNfcAntenna_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *availableNfcAntennaServiceClient) DescribeContents(ctx context.Context, in *AvailableNfcAntennaDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, AvailableNfcAntennaService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *availableNfcAntennaServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, AvailableNfcAntennaService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *availableNfcAntennaServiceClient) GetLocationX(ctx context.Context, in *GetLocationXRequest, opts ...grpc.CallOption) (*GetLocationXResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLocationXResponse)
+	err := c.cc.Invoke(ctx, AvailableNfcAntennaService_GetLocationX_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *availableNfcAntennaServiceClient) GetLocationY(ctx context.Context, in *GetLocationYRequest, opts ...grpc.CallOption) (*GetLocationYResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLocationYResponse)
+	err := c.cc.Invoke(ctx, AvailableNfcAntennaService_GetLocationY_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *availableNfcAntennaServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, AvailableNfcAntennaService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *availableNfcAntennaServiceClient) ToString(ctx context.Context, in *AvailableNfcAntennaToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, AvailableNfcAntennaService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *availableNfcAntennaServiceClient) WriteToParcel(ctx context.Context, in *AvailableNfcAntennaWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, AvailableNfcAntennaService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AvailableNfcAntennaServiceServer is the server API for AvailableNfcAntennaService service.
+// All implementations must embed UnimplementedAvailableNfcAntennaServiceServer
+// for forward compatibility.
+type AvailableNfcAntennaServiceServer interface {
+	NewAvailableNfcAntenna(context.Context, *NewAvailableNfcAntennaRequest) (*NewAvailableNfcAntennaResponse, error)
+	DescribeContents(context.Context, *AvailableNfcAntennaDescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetLocationX(context.Context, *GetLocationXRequest) (*GetLocationXResponse, error)
+	GetLocationY(context.Context, *GetLocationYRequest) (*GetLocationYResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *AvailableNfcAntennaToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *AvailableNfcAntennaWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedAvailableNfcAntennaServiceServer()
+}
+
+// UnimplementedAvailableNfcAntennaServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedAvailableNfcAntennaServiceServer struct{}
+
+func (UnimplementedAvailableNfcAntennaServiceServer) NewAvailableNfcAntenna(context.Context, *NewAvailableNfcAntennaRequest) (*NewAvailableNfcAntennaResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewAvailableNfcAntenna not implemented")
+}
+func (UnimplementedAvailableNfcAntennaServiceServer) DescribeContents(context.Context, *AvailableNfcAntennaDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedAvailableNfcAntennaServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedAvailableNfcAntennaServiceServer) GetLocationX(context.Context, *GetLocationXRequest) (*GetLocationXResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLocationX not implemented")
+}
+func (UnimplementedAvailableNfcAntennaServiceServer) GetLocationY(context.Context, *GetLocationYRequest) (*GetLocationYResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLocationY not implemented")
+}
+func (UnimplementedAvailableNfcAntennaServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedAvailableNfcAntennaServiceServer) ToString(context.Context, *AvailableNfcAntennaToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedAvailableNfcAntennaServiceServer) WriteToParcel(context.Context, *AvailableNfcAntennaWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedAvailableNfcAntennaServiceServer) mustEmbedUnimplementedAvailableNfcAntennaServiceServer() {
+}
+func (UnimplementedAvailableNfcAntennaServiceServer) testEmbeddedByValue() {}
+
+// UnsafeAvailableNfcAntennaServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AvailableNfcAntennaServiceServer will
+// result in compilation errors.
+type UnsafeAvailableNfcAntennaServiceServer interface {
+	mustEmbedUnimplementedAvailableNfcAntennaServiceServer()
+}
+
+func RegisterAvailableNfcAntennaServiceServer(s grpc.ServiceRegistrar, srv AvailableNfcAntennaServiceServer) {
+	// If the following call panics, it indicates UnimplementedAvailableNfcAntennaServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&AvailableNfcAntennaService_ServiceDesc, srv)
+}
+
+func _AvailableNfcAntennaService_NewAvailableNfcAntenna_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewAvailableNfcAntennaRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AvailableNfcAntennaServiceServer).NewAvailableNfcAntenna(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AvailableNfcAntennaService_NewAvailableNfcAntenna_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AvailableNfcAntennaServiceServer).NewAvailableNfcAntenna(ctx, req.(*NewAvailableNfcAntennaRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AvailableNfcAntennaService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AvailableNfcAntennaDescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AvailableNfcAntennaServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AvailableNfcAntennaService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AvailableNfcAntennaServiceServer).DescribeContents(ctx, req.(*AvailableNfcAntennaDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AvailableNfcAntennaService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AvailableNfcAntennaServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AvailableNfcAntennaService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AvailableNfcAntennaServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AvailableNfcAntennaService_GetLocationX_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLocationXRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AvailableNfcAntennaServiceServer).GetLocationX(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AvailableNfcAntennaService_GetLocationX_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AvailableNfcAntennaServiceServer).GetLocationX(ctx, req.(*GetLocationXRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AvailableNfcAntennaService_GetLocationY_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLocationYRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AvailableNfcAntennaServiceServer).GetLocationY(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AvailableNfcAntennaService_GetLocationY_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AvailableNfcAntennaServiceServer).GetLocationY(ctx, req.(*GetLocationYRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AvailableNfcAntennaService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AvailableNfcAntennaServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AvailableNfcAntennaService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AvailableNfcAntennaServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AvailableNfcAntennaService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AvailableNfcAntennaToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AvailableNfcAntennaServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AvailableNfcAntennaService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AvailableNfcAntennaServiceServer).ToString(ctx, req.(*AvailableNfcAntennaToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AvailableNfcAntennaService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AvailableNfcAntennaWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AvailableNfcAntennaServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AvailableNfcAntennaService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AvailableNfcAntennaServiceServer).WriteToParcel(ctx, req.(*AvailableNfcAntennaWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AvailableNfcAntennaService_ServiceDesc is the grpc.ServiceDesc for AvailableNfcAntennaService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AvailableNfcAntennaService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "nfc.AvailableNfcAntennaService",
+	HandlerType: (*AvailableNfcAntennaServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewAvailableNfcAntenna",
+			Handler:    _AvailableNfcAntennaService_NewAvailableNfcAntenna_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _AvailableNfcAntennaService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _AvailableNfcAntennaService_Equals_Handler,
+		},
+		{
+			MethodName: "GetLocationX",
+			Handler:    _AvailableNfcAntennaService_GetLocationX_Handler,
+		},
+		{
+			MethodName: "GetLocationY",
+			Handler:    _AvailableNfcAntennaService_GetLocationY_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _AvailableNfcAntennaService_HashCode_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _AvailableNfcAntennaService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _AvailableNfcAntennaService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/nfc/nfc.proto",
+}
+
+const (
+	NdefRecordService_NewNdefRecord_FullMethodName           = "/nfc.NdefRecordService/NewNdefRecord"
+	NdefRecordService_DescribeContents_FullMethodName        = "/nfc.NdefRecordService/DescribeContents"
+	NdefRecordService_Equals_FullMethodName                  = "/nfc.NdefRecordService/Equals"
+	NdefRecordService_GetId_FullMethodName                   = "/nfc.NdefRecordService/GetId"
+	NdefRecordService_GetPayload_FullMethodName              = "/nfc.NdefRecordService/GetPayload"
+	NdefRecordService_GetTnf_FullMethodName                  = "/nfc.NdefRecordService/GetTnf"
+	NdefRecordService_GetType_FullMethodName                 = "/nfc.NdefRecordService/GetType"
+	NdefRecordService_HashCode_FullMethodName                = "/nfc.NdefRecordService/HashCode"
+	NdefRecordService_ToByteArray_FullMethodName             = "/nfc.NdefRecordService/ToByteArray"
+	NdefRecordService_ToMimeType_FullMethodName              = "/nfc.NdefRecordService/ToMimeType"
+	NdefRecordService_ToString_FullMethodName                = "/nfc.NdefRecordService/ToString"
+	NdefRecordService_ToUri_FullMethodName                   = "/nfc.NdefRecordService/ToUri"
+	NdefRecordService_WriteToParcel_FullMethodName           = "/nfc.NdefRecordService/WriteToParcel"
+	NdefRecordService_CreateApplicationRecord_FullMethodName = "/nfc.NdefRecordService/CreateApplicationRecord"
+	NdefRecordService_CreateExternal_FullMethodName          = "/nfc.NdefRecordService/CreateExternal"
+	NdefRecordService_CreateMime_FullMethodName              = "/nfc.NdefRecordService/CreateMime"
+	NdefRecordService_CreateTextRecord_FullMethodName        = "/nfc.NdefRecordService/CreateTextRecord"
+	NdefRecordService_CreateUri1_FullMethodName              = "/nfc.NdefRecordService/CreateUri1"
+	NdefRecordService_CreateUri1_1_FullMethodName            = "/nfc.NdefRecordService/CreateUri1_1"
+)
+
+// NdefRecordServiceClient is the client API for NdefRecordService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type NdefRecordServiceClient interface {
+	NewNdefRecord(ctx context.Context, in *NewNdefRecordRequest, opts ...grpc.CallOption) (*NewNdefRecordResponse, error)
+	DescribeContents(ctx context.Context, in *NdefRecordDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetId(ctx context.Context, in *NdefRecordGetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error)
+	GetPayload(ctx context.Context, in *GetPayloadRequest, opts ...grpc.CallOption) (*GetPayloadResponse, error)
+	GetTnf(ctx context.Context, in *GetTnfRequest, opts ...grpc.CallOption) (*GetTnfResponse, error)
+	GetType(ctx context.Context, in *GetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToByteArray(ctx context.Context, in *ToByteArrayRequest, opts ...grpc.CallOption) (*ToByteArrayResponse, error)
+	ToMimeType(ctx context.Context, in *ToMimeTypeRequest, opts ...grpc.CallOption) (*ToMimeTypeResponse, error)
+	ToString(ctx context.Context, in *NdefRecordToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	ToUri(ctx context.Context, in *ToUriRequest, opts ...grpc.CallOption) (*ToUriResponse, error)
+	WriteToParcel(ctx context.Context, in *NdefRecordWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+	CreateApplicationRecord(ctx context.Context, in *CreateApplicationRecordRequest, opts ...grpc.CallOption) (*CreateApplicationRecordResponse, error)
+	CreateExternal(ctx context.Context, in *CreateExternalRequest, opts ...grpc.CallOption) (*CreateExternalResponse, error)
+	CreateMime(ctx context.Context, in *CreateMimeRequest, opts ...grpc.CallOption) (*CreateMimeResponse, error)
+	CreateTextRecord(ctx context.Context, in *CreateTextRecordRequest, opts ...grpc.CallOption) (*CreateTextRecordResponse, error)
+	CreateUri1(ctx context.Context, in *CreateUri1Request, opts ...grpc.CallOption) (*CreateUri1Response, error)
+	CreateUri1_1(ctx context.Context, in *CreateUri1_1Request, opts ...grpc.CallOption) (*CreateUri1_1Response, error)
+}
+
+type ndefRecordServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewNdefRecordServiceClient(cc grpc.ClientConnInterface) NdefRecordServiceClient {
+	return &ndefRecordServiceClient{cc}
+}
+
+func (c *ndefRecordServiceClient) NewNdefRecord(ctx context.Context, in *NewNdefRecordRequest, opts ...grpc.CallOption) (*NewNdefRecordResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewNdefRecordResponse)
+	err := c.cc.Invoke(ctx, NdefRecordService_NewNdefRecord_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ndefRecordServiceClient) DescribeContents(ctx context.Context, in *NdefRecordDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, NdefRecordService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ndefRecordServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, NdefRecordService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ndefRecordServiceClient) GetId(ctx context.Context, in *NdefRecordGetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetIdResponse)
+	err := c.cc.Invoke(ctx, NdefRecordService_GetId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ndefRecordServiceClient) GetPayload(ctx context.Context, in *GetPayloadRequest, opts ...grpc.CallOption) (*GetPayloadResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPayloadResponse)
+	err := c.cc.Invoke(ctx, NdefRecordService_GetPayload_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ndefRecordServiceClient) GetTnf(ctx context.Context, in *GetTnfRequest, opts ...grpc.CallOption) (*GetTnfResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTnfResponse)
+	err := c.cc.Invoke(ctx, NdefRecordService_GetTnf_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ndefRecordServiceClient) GetType(ctx context.Context, in *GetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTypeResponse)
+	err := c.cc.Invoke(ctx, NdefRecordService_GetType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ndefRecordServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, NdefRecordService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ndefRecordServiceClient) ToByteArray(ctx context.Context, in *ToByteArrayRequest, opts ...grpc.CallOption) (*ToByteArrayResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToByteArrayResponse)
+	err := c.cc.Invoke(ctx, NdefRecordService_ToByteArray_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ndefRecordServiceClient) ToMimeType(ctx context.Context, in *ToMimeTypeRequest, opts ...grpc.CallOption) (*ToMimeTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToMimeTypeResponse)
+	err := c.cc.Invoke(ctx, NdefRecordService_ToMimeType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ndefRecordServiceClient) ToString(ctx context.Context, in *NdefRecordToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, NdefRecordService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ndefRecordServiceClient) ToUri(ctx context.Context, in *ToUriRequest, opts ...grpc.CallOption) (*ToUriResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToUriResponse)
+	err := c.cc.Invoke(ctx, NdefRecordService_ToUri_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ndefRecordServiceClient) WriteToParcel(ctx context.Context, in *NdefRecordWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, NdefRecordService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ndefRecordServiceClient) CreateApplicationRecord(ctx context.Context, in *CreateApplicationRecordRequest, opts ...grpc.CallOption) (*CreateApplicationRecordResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateApplicationRecordResponse)
+	err := c.cc.Invoke(ctx, NdefRecordService_CreateApplicationRecord_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ndefRecordServiceClient) CreateExternal(ctx context.Context, in *CreateExternalRequest, opts ...grpc.CallOption) (*CreateExternalResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateExternalResponse)
+	err := c.cc.Invoke(ctx, NdefRecordService_CreateExternal_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ndefRecordServiceClient) CreateMime(ctx context.Context, in *CreateMimeRequest, opts ...grpc.CallOption) (*CreateMimeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateMimeResponse)
+	err := c.cc.Invoke(ctx, NdefRecordService_CreateMime_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ndefRecordServiceClient) CreateTextRecord(ctx context.Context, in *CreateTextRecordRequest, opts ...grpc.CallOption) (*CreateTextRecordResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateTextRecordResponse)
+	err := c.cc.Invoke(ctx, NdefRecordService_CreateTextRecord_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ndefRecordServiceClient) CreateUri1(ctx context.Context, in *CreateUri1Request, opts ...grpc.CallOption) (*CreateUri1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateUri1Response)
+	err := c.cc.Invoke(ctx, NdefRecordService_CreateUri1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ndefRecordServiceClient) CreateUri1_1(ctx context.Context, in *CreateUri1_1Request, opts ...grpc.CallOption) (*CreateUri1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateUri1_1Response)
+	err := c.cc.Invoke(ctx, NdefRecordService_CreateUri1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// NdefRecordServiceServer is the server API for NdefRecordService service.
+// All implementations must embed UnimplementedNdefRecordServiceServer
+// for forward compatibility.
+type NdefRecordServiceServer interface {
+	NewNdefRecord(context.Context, *NewNdefRecordRequest) (*NewNdefRecordResponse, error)
+	DescribeContents(context.Context, *NdefRecordDescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetId(context.Context, *NdefRecordGetIdRequest) (*GetIdResponse, error)
+	GetPayload(context.Context, *GetPayloadRequest) (*GetPayloadResponse, error)
+	GetTnf(context.Context, *GetTnfRequest) (*GetTnfResponse, error)
+	GetType(context.Context, *GetTypeRequest) (*GetTypeResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	ToByteArray(context.Context, *ToByteArrayRequest) (*ToByteArrayResponse, error)
+	ToMimeType(context.Context, *ToMimeTypeRequest) (*ToMimeTypeResponse, error)
+	ToString(context.Context, *NdefRecordToStringRequest) (*ToStringResponse, error)
+	ToUri(context.Context, *ToUriRequest) (*ToUriResponse, error)
+	WriteToParcel(context.Context, *NdefRecordWriteToParcelRequest) (*WriteToParcelResponse, error)
+	CreateApplicationRecord(context.Context, *CreateApplicationRecordRequest) (*CreateApplicationRecordResponse, error)
+	CreateExternal(context.Context, *CreateExternalRequest) (*CreateExternalResponse, error)
+	CreateMime(context.Context, *CreateMimeRequest) (*CreateMimeResponse, error)
+	CreateTextRecord(context.Context, *CreateTextRecordRequest) (*CreateTextRecordResponse, error)
+	CreateUri1(context.Context, *CreateUri1Request) (*CreateUri1Response, error)
+	CreateUri1_1(context.Context, *CreateUri1_1Request) (*CreateUri1_1Response, error)
+	mustEmbedUnimplementedNdefRecordServiceServer()
+}
+
+// UnimplementedNdefRecordServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedNdefRecordServiceServer struct{}
+
+func (UnimplementedNdefRecordServiceServer) NewNdefRecord(context.Context, *NewNdefRecordRequest) (*NewNdefRecordResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewNdefRecord not implemented")
+}
+func (UnimplementedNdefRecordServiceServer) DescribeContents(context.Context, *NdefRecordDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedNdefRecordServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedNdefRecordServiceServer) GetId(context.Context, *NdefRecordGetIdRequest) (*GetIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetId not implemented")
+}
+func (UnimplementedNdefRecordServiceServer) GetPayload(context.Context, *GetPayloadRequest) (*GetPayloadResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPayload not implemented")
+}
+func (UnimplementedNdefRecordServiceServer) GetTnf(context.Context, *GetTnfRequest) (*GetTnfResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTnf not implemented")
+}
+func (UnimplementedNdefRecordServiceServer) GetType(context.Context, *GetTypeRequest) (*GetTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetType not implemented")
+}
+func (UnimplementedNdefRecordServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedNdefRecordServiceServer) ToByteArray(context.Context, *ToByteArrayRequest) (*ToByteArrayResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToByteArray not implemented")
+}
+func (UnimplementedNdefRecordServiceServer) ToMimeType(context.Context, *ToMimeTypeRequest) (*ToMimeTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToMimeType not implemented")
+}
+func (UnimplementedNdefRecordServiceServer) ToString(context.Context, *NdefRecordToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedNdefRecordServiceServer) ToUri(context.Context, *ToUriRequest) (*ToUriResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToUri not implemented")
+}
+func (UnimplementedNdefRecordServiceServer) WriteToParcel(context.Context, *NdefRecordWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedNdefRecordServiceServer) CreateApplicationRecord(context.Context, *CreateApplicationRecordRequest) (*CreateApplicationRecordResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CreateApplicationRecord not implemented")
+}
+func (UnimplementedNdefRecordServiceServer) CreateExternal(context.Context, *CreateExternalRequest) (*CreateExternalResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CreateExternal not implemented")
+}
+func (UnimplementedNdefRecordServiceServer) CreateMime(context.Context, *CreateMimeRequest) (*CreateMimeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CreateMime not implemented")
+}
+func (UnimplementedNdefRecordServiceServer) CreateTextRecord(context.Context, *CreateTextRecordRequest) (*CreateTextRecordResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CreateTextRecord not implemented")
+}
+func (UnimplementedNdefRecordServiceServer) CreateUri1(context.Context, *CreateUri1Request) (*CreateUri1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method CreateUri1 not implemented")
+}
+func (UnimplementedNdefRecordServiceServer) CreateUri1_1(context.Context, *CreateUri1_1Request) (*CreateUri1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method CreateUri1_1 not implemented")
+}
+func (UnimplementedNdefRecordServiceServer) mustEmbedUnimplementedNdefRecordServiceServer() {}
+func (UnimplementedNdefRecordServiceServer) testEmbeddedByValue()                           {}
+
+// UnsafeNdefRecordServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to NdefRecordServiceServer will
+// result in compilation errors.
+type UnsafeNdefRecordServiceServer interface {
+	mustEmbedUnimplementedNdefRecordServiceServer()
+}
+
+func RegisterNdefRecordServiceServer(s grpc.ServiceRegistrar, srv NdefRecordServiceServer) {
+	// If the following call panics, it indicates UnimplementedNdefRecordServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&NdefRecordService_ServiceDesc, srv)
+}
+
+func _NdefRecordService_NewNdefRecord_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewNdefRecordRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NdefRecordServiceServer).NewNdefRecord(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NdefRecordService_NewNdefRecord_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NdefRecordServiceServer).NewNdefRecord(ctx, req.(*NewNdefRecordRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NdefRecordService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NdefRecordDescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NdefRecordServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NdefRecordService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NdefRecordServiceServer).DescribeContents(ctx, req.(*NdefRecordDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NdefRecordService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NdefRecordServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NdefRecordService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NdefRecordServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NdefRecordService_GetId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NdefRecordGetIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NdefRecordServiceServer).GetId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NdefRecordService_GetId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NdefRecordServiceServer).GetId(ctx, req.(*NdefRecordGetIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NdefRecordService_GetPayload_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPayloadRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NdefRecordServiceServer).GetPayload(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NdefRecordService_GetPayload_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NdefRecordServiceServer).GetPayload(ctx, req.(*GetPayloadRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NdefRecordService_GetTnf_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTnfRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NdefRecordServiceServer).GetTnf(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NdefRecordService_GetTnf_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NdefRecordServiceServer).GetTnf(ctx, req.(*GetTnfRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NdefRecordService_GetType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NdefRecordServiceServer).GetType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NdefRecordService_GetType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NdefRecordServiceServer).GetType(ctx, req.(*GetTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NdefRecordService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NdefRecordServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NdefRecordService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NdefRecordServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NdefRecordService_ToByteArray_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToByteArrayRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NdefRecordServiceServer).ToByteArray(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NdefRecordService_ToByteArray_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NdefRecordServiceServer).ToByteArray(ctx, req.(*ToByteArrayRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NdefRecordService_ToMimeType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToMimeTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NdefRecordServiceServer).ToMimeType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NdefRecordService_ToMimeType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NdefRecordServiceServer).ToMimeType(ctx, req.(*ToMimeTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NdefRecordService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NdefRecordToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NdefRecordServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NdefRecordService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NdefRecordServiceServer).ToString(ctx, req.(*NdefRecordToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NdefRecordService_ToUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToUriRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NdefRecordServiceServer).ToUri(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NdefRecordService_ToUri_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NdefRecordServiceServer).ToUri(ctx, req.(*ToUriRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NdefRecordService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NdefRecordWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NdefRecordServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NdefRecordService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NdefRecordServiceServer).WriteToParcel(ctx, req.(*NdefRecordWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NdefRecordService_CreateApplicationRecord_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateApplicationRecordRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NdefRecordServiceServer).CreateApplicationRecord(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NdefRecordService_CreateApplicationRecord_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NdefRecordServiceServer).CreateApplicationRecord(ctx, req.(*CreateApplicationRecordRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NdefRecordService_CreateExternal_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateExternalRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NdefRecordServiceServer).CreateExternal(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NdefRecordService_CreateExternal_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NdefRecordServiceServer).CreateExternal(ctx, req.(*CreateExternalRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NdefRecordService_CreateMime_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateMimeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NdefRecordServiceServer).CreateMime(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NdefRecordService_CreateMime_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NdefRecordServiceServer).CreateMime(ctx, req.(*CreateMimeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NdefRecordService_CreateTextRecord_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateTextRecordRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NdefRecordServiceServer).CreateTextRecord(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NdefRecordService_CreateTextRecord_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NdefRecordServiceServer).CreateTextRecord(ctx, req.(*CreateTextRecordRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NdefRecordService_CreateUri1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateUri1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NdefRecordServiceServer).CreateUri1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NdefRecordService_CreateUri1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NdefRecordServiceServer).CreateUri1(ctx, req.(*CreateUri1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NdefRecordService_CreateUri1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateUri1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NdefRecordServiceServer).CreateUri1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NdefRecordService_CreateUri1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NdefRecordServiceServer).CreateUri1_1(ctx, req.(*CreateUri1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// NdefRecordService_ServiceDesc is the grpc.ServiceDesc for NdefRecordService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var NdefRecordService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "nfc.NdefRecordService",
+	HandlerType: (*NdefRecordServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewNdefRecord",
+			Handler:    _NdefRecordService_NewNdefRecord_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _NdefRecordService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _NdefRecordService_Equals_Handler,
+		},
+		{
+			MethodName: "GetId",
+			Handler:    _NdefRecordService_GetId_Handler,
+		},
+		{
+			MethodName: "GetPayload",
+			Handler:    _NdefRecordService_GetPayload_Handler,
+		},
+		{
+			MethodName: "GetTnf",
+			Handler:    _NdefRecordService_GetTnf_Handler,
+		},
+		{
+			MethodName: "GetType",
+			Handler:    _NdefRecordService_GetType_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _NdefRecordService_HashCode_Handler,
+		},
+		{
+			MethodName: "ToByteArray",
+			Handler:    _NdefRecordService_ToByteArray_Handler,
+		},
+		{
+			MethodName: "ToMimeType",
+			Handler:    _NdefRecordService_ToMimeType_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _NdefRecordService_ToString_Handler,
+		},
+		{
+			MethodName: "ToUri",
+			Handler:    _NdefRecordService_ToUri_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _NdefRecordService_WriteToParcel_Handler,
+		},
+		{
+			MethodName: "CreateApplicationRecord",
+			Handler:    _NdefRecordService_CreateApplicationRecord_Handler,
+		},
+		{
+			MethodName: "CreateExternal",
+			Handler:    _NdefRecordService_CreateExternal_Handler,
+		},
+		{
+			MethodName: "CreateMime",
+			Handler:    _NdefRecordService_CreateMime_Handler,
+		},
+		{
+			MethodName: "CreateTextRecord",
+			Handler:    _NdefRecordService_CreateTextRecord_Handler,
+		},
+		{
+			MethodName: "CreateUri1",
+			Handler:    _NdefRecordService_CreateUri1_Handler,
+		},
+		{
+			MethodName: "CreateUri1_1",
+			Handler:    _NdefRecordService_CreateUri1_1_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/nfc/nfc.proto",
+}
+
+const (
+	IsoDepService_Close_FullMethodName                         = "/nfc.IsoDepService/Close"
+	IsoDepService_Connect_FullMethodName                       = "/nfc.IsoDepService/Connect"
+	IsoDepService_GetHiLayerResponse_FullMethodName            = "/nfc.IsoDepService/GetHiLayerResponse"
+	IsoDepService_GetHistoricalBytes_FullMethodName            = "/nfc.IsoDepService/GetHistoricalBytes"
+	IsoDepService_GetMaxTransceiveLength_FullMethodName        = "/nfc.IsoDepService/GetMaxTransceiveLength"
+	IsoDepService_GetTag_FullMethodName                        = "/nfc.IsoDepService/GetTag"
+	IsoDepService_GetTimeout_FullMethodName                    = "/nfc.IsoDepService/GetTimeout"
+	IsoDepService_IsConnected_FullMethodName                   = "/nfc.IsoDepService/IsConnected"
+	IsoDepService_IsExtendedLengthApduSupported_FullMethodName = "/nfc.IsoDepService/IsExtendedLengthApduSupported"
+	IsoDepService_SetTimeout_FullMethodName                    = "/nfc.IsoDepService/SetTimeout"
+	IsoDepService_Transceive_FullMethodName                    = "/nfc.IsoDepService/Transceive"
+	IsoDepService_Get_FullMethodName                           = "/nfc.IsoDepService/Get"
+)
+
+// IsoDepServiceClient is the client API for IsoDepService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type IsoDepServiceClient interface {
+	Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
+	Connect(ctx context.Context, in *ConnectRequest, opts ...grpc.CallOption) (*ConnectResponse, error)
+	GetHiLayerResponse(ctx context.Context, in *GetHiLayerResponseRequest, opts ...grpc.CallOption) (*GetHiLayerResponseResponse, error)
+	GetHistoricalBytes(ctx context.Context, in *GetHistoricalBytesRequest, opts ...grpc.CallOption) (*GetHistoricalBytesResponse, error)
+	GetMaxTransceiveLength(ctx context.Context, in *GetMaxTransceiveLengthRequest, opts ...grpc.CallOption) (*GetMaxTransceiveLengthResponse, error)
+	GetTag(ctx context.Context, in *GetTagRequest, opts ...grpc.CallOption) (*GetTagResponse, error)
+	GetTimeout(ctx context.Context, in *GetTimeoutRequest, opts ...grpc.CallOption) (*GetTimeoutResponse, error)
+	IsConnected(ctx context.Context, in *IsConnectedRequest, opts ...grpc.CallOption) (*IsConnectedResponse, error)
+	IsExtendedLengthApduSupported(ctx context.Context, in *IsExtendedLengthApduSupportedRequest, opts ...grpc.CallOption) (*IsExtendedLengthApduSupportedResponse, error)
+	SetTimeout(ctx context.Context, in *SetTimeoutRequest, opts ...grpc.CallOption) (*SetTimeoutResponse, error)
+	Transceive(ctx context.Context, in *TransceiveRequest, opts ...grpc.CallOption) (*TransceiveResponse, error)
+	Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error)
+}
+
+type isoDepServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewIsoDepServiceClient(cc grpc.ClientConnInterface) IsoDepServiceClient {
+	return &isoDepServiceClient{cc}
+}
+
+func (c *isoDepServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CloseResponse)
+	err := c.cc.Invoke(ctx, IsoDepService_Close_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *isoDepServiceClient) Connect(ctx context.Context, in *ConnectRequest, opts ...grpc.CallOption) (*ConnectResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ConnectResponse)
+	err := c.cc.Invoke(ctx, IsoDepService_Connect_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *isoDepServiceClient) GetHiLayerResponse(ctx context.Context, in *GetHiLayerResponseRequest, opts ...grpc.CallOption) (*GetHiLayerResponseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetHiLayerResponseResponse)
+	err := c.cc.Invoke(ctx, IsoDepService_GetHiLayerResponse_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *isoDepServiceClient) GetHistoricalBytes(ctx context.Context, in *GetHistoricalBytesRequest, opts ...grpc.CallOption) (*GetHistoricalBytesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetHistoricalBytesResponse)
+	err := c.cc.Invoke(ctx, IsoDepService_GetHistoricalBytes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *isoDepServiceClient) GetMaxTransceiveLength(ctx context.Context, in *GetMaxTransceiveLengthRequest, opts ...grpc.CallOption) (*GetMaxTransceiveLengthResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMaxTransceiveLengthResponse)
+	err := c.cc.Invoke(ctx, IsoDepService_GetMaxTransceiveLength_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *isoDepServiceClient) GetTag(ctx context.Context, in *GetTagRequest, opts ...grpc.CallOption) (*GetTagResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTagResponse)
+	err := c.cc.Invoke(ctx, IsoDepService_GetTag_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *isoDepServiceClient) GetTimeout(ctx context.Context, in *GetTimeoutRequest, opts ...grpc.CallOption) (*GetTimeoutResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTimeoutResponse)
+	err := c.cc.Invoke(ctx, IsoDepService_GetTimeout_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *isoDepServiceClient) IsConnected(ctx context.Context, in *IsConnectedRequest, opts ...grpc.CallOption) (*IsConnectedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsConnectedResponse)
+	err := c.cc.Invoke(ctx, IsoDepService_IsConnected_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *isoDepServiceClient) IsExtendedLengthApduSupported(ctx context.Context, in *IsExtendedLengthApduSupportedRequest, opts ...grpc.CallOption) (*IsExtendedLengthApduSupportedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsExtendedLengthApduSupportedResponse)
+	err := c.cc.Invoke(ctx, IsoDepService_IsExtendedLengthApduSupported_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *isoDepServiceClient) SetTimeout(ctx context.Context, in *SetTimeoutRequest, opts ...grpc.CallOption) (*SetTimeoutResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetTimeoutResponse)
+	err := c.cc.Invoke(ctx, IsoDepService_SetTimeout_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *isoDepServiceClient) Transceive(ctx context.Context, in *TransceiveRequest, opts ...grpc.CallOption) (*TransceiveResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(TransceiveResponse)
+	err := c.cc.Invoke(ctx, IsoDepService_Transceive_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *isoDepServiceClient) Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetResponse)
+	err := c.cc.Invoke(ctx, IsoDepService_Get_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// IsoDepServiceServer is the server API for IsoDepService service.
+// All implementations must embed UnimplementedIsoDepServiceServer
+// for forward compatibility.
+type IsoDepServiceServer interface {
+	Close(context.Context, *CloseRequest) (*CloseResponse, error)
+	Connect(context.Context, *ConnectRequest) (*ConnectResponse, error)
+	GetHiLayerResponse(context.Context, *GetHiLayerResponseRequest) (*GetHiLayerResponseResponse, error)
+	GetHistoricalBytes(context.Context, *GetHistoricalBytesRequest) (*GetHistoricalBytesResponse, error)
+	GetMaxTransceiveLength(context.Context, *GetMaxTransceiveLengthRequest) (*GetMaxTransceiveLengthResponse, error)
+	GetTag(context.Context, *GetTagRequest) (*GetTagResponse, error)
+	GetTimeout(context.Context, *GetTimeoutRequest) (*GetTimeoutResponse, error)
+	IsConnected(context.Context, *IsConnectedRequest) (*IsConnectedResponse, error)
+	IsExtendedLengthApduSupported(context.Context, *IsExtendedLengthApduSupportedRequest) (*IsExtendedLengthApduSupportedResponse, error)
+	SetTimeout(context.Context, *SetTimeoutRequest) (*SetTimeoutResponse, error)
+	Transceive(context.Context, *TransceiveRequest) (*TransceiveResponse, error)
+	Get(context.Context, *GetRequest) (*GetResponse, error)
+	mustEmbedUnimplementedIsoDepServiceServer()
+}
+
+// UnimplementedIsoDepServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedIsoDepServiceServer struct{}
+
+func (UnimplementedIsoDepServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
+}
+func (UnimplementedIsoDepServiceServer) Connect(context.Context, *ConnectRequest) (*ConnectResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Connect not implemented")
+}
+func (UnimplementedIsoDepServiceServer) GetHiLayerResponse(context.Context, *GetHiLayerResponseRequest) (*GetHiLayerResponseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetHiLayerResponse not implemented")
+}
+func (UnimplementedIsoDepServiceServer) GetHistoricalBytes(context.Context, *GetHistoricalBytesRequest) (*GetHistoricalBytesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetHistoricalBytes not implemented")
+}
+func (UnimplementedIsoDepServiceServer) GetMaxTransceiveLength(context.Context, *GetMaxTransceiveLengthRequest) (*GetMaxTransceiveLengthResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMaxTransceiveLength not implemented")
+}
+func (UnimplementedIsoDepServiceServer) GetTag(context.Context, *GetTagRequest) (*GetTagResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTag not implemented")
+}
+func (UnimplementedIsoDepServiceServer) GetTimeout(context.Context, *GetTimeoutRequest) (*GetTimeoutResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTimeout not implemented")
+}
+func (UnimplementedIsoDepServiceServer) IsConnected(context.Context, *IsConnectedRequest) (*IsConnectedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsConnected not implemented")
+}
+func (UnimplementedIsoDepServiceServer) IsExtendedLengthApduSupported(context.Context, *IsExtendedLengthApduSupportedRequest) (*IsExtendedLengthApduSupportedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsExtendedLengthApduSupported not implemented")
+}
+func (UnimplementedIsoDepServiceServer) SetTimeout(context.Context, *SetTimeoutRequest) (*SetTimeoutResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetTimeout not implemented")
+}
+func (UnimplementedIsoDepServiceServer) Transceive(context.Context, *TransceiveRequest) (*TransceiveResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Transceive not implemented")
+}
+func (UnimplementedIsoDepServiceServer) Get(context.Context, *GetRequest) (*GetResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Get not implemented")
+}
+func (UnimplementedIsoDepServiceServer) mustEmbedUnimplementedIsoDepServiceServer() {}
+func (UnimplementedIsoDepServiceServer) testEmbeddedByValue()                       {}
+
+// UnsafeIsoDepServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to IsoDepServiceServer will
+// result in compilation errors.
+type UnsafeIsoDepServiceServer interface {
+	mustEmbedUnimplementedIsoDepServiceServer()
+}
+
+func RegisterIsoDepServiceServer(s grpc.ServiceRegistrar, srv IsoDepServiceServer) {
+	// If the following call panics, it indicates UnimplementedIsoDepServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&IsoDepService_ServiceDesc, srv)
+}
+
+func _IsoDepService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CloseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(IsoDepServiceServer).Close(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: IsoDepService_Close_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(IsoDepServiceServer).Close(ctx, req.(*CloseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _IsoDepService_Connect_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ConnectRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(IsoDepServiceServer).Connect(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: IsoDepService_Connect_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(IsoDepServiceServer).Connect(ctx, req.(*ConnectRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _IsoDepService_GetHiLayerResponse_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetHiLayerResponseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(IsoDepServiceServer).GetHiLayerResponse(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: IsoDepService_GetHiLayerResponse_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(IsoDepServiceServer).GetHiLayerResponse(ctx, req.(*GetHiLayerResponseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _IsoDepService_GetHistoricalBytes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetHistoricalBytesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(IsoDepServiceServer).GetHistoricalBytes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: IsoDepService_GetHistoricalBytes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(IsoDepServiceServer).GetHistoricalBytes(ctx, req.(*GetHistoricalBytesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _IsoDepService_GetMaxTransceiveLength_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMaxTransceiveLengthRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(IsoDepServiceServer).GetMaxTransceiveLength(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: IsoDepService_GetMaxTransceiveLength_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(IsoDepServiceServer).GetMaxTransceiveLength(ctx, req.(*GetMaxTransceiveLengthRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _IsoDepService_GetTag_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTagRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(IsoDepServiceServer).GetTag(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: IsoDepService_GetTag_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(IsoDepServiceServer).GetTag(ctx, req.(*GetTagRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _IsoDepService_GetTimeout_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTimeoutRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(IsoDepServiceServer).GetTimeout(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: IsoDepService_GetTimeout_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(IsoDepServiceServer).GetTimeout(ctx, req.(*GetTimeoutRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _IsoDepService_IsConnected_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsConnectedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(IsoDepServiceServer).IsConnected(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: IsoDepService_IsConnected_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(IsoDepServiceServer).IsConnected(ctx, req.(*IsConnectedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _IsoDepService_IsExtendedLengthApduSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsExtendedLengthApduSupportedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(IsoDepServiceServer).IsExtendedLengthApduSupported(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: IsoDepService_IsExtendedLengthApduSupported_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(IsoDepServiceServer).IsExtendedLengthApduSupported(ctx, req.(*IsExtendedLengthApduSupportedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _IsoDepService_SetTimeout_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetTimeoutRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(IsoDepServiceServer).SetTimeout(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: IsoDepService_SetTimeout_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(IsoDepServiceServer).SetTimeout(ctx, req.(*SetTimeoutRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _IsoDepService_Transceive_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TransceiveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(IsoDepServiceServer).Transceive(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: IsoDepService_Transceive_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(IsoDepServiceServer).Transceive(ctx, req.(*TransceiveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _IsoDepService_Get_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(IsoDepServiceServer).Get(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: IsoDepService_Get_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(IsoDepServiceServer).Get(ctx, req.(*GetRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// IsoDepService_ServiceDesc is the grpc.ServiceDesc for IsoDepService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var IsoDepService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "nfc.IsoDepService",
+	HandlerType: (*IsoDepServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Close",
+			Handler:    _IsoDepService_Close_Handler,
+		},
+		{
+			MethodName: "Connect",
+			Handler:    _IsoDepService_Connect_Handler,
+		},
+		{
+			MethodName: "GetHiLayerResponse",
+			Handler:    _IsoDepService_GetHiLayerResponse_Handler,
+		},
+		{
+			MethodName: "GetHistoricalBytes",
+			Handler:    _IsoDepService_GetHistoricalBytes_Handler,
+		},
+		{
+			MethodName: "GetMaxTransceiveLength",
+			Handler:    _IsoDepService_GetMaxTransceiveLength_Handler,
+		},
+		{
+			MethodName: "GetTag",
+			Handler:    _IsoDepService_GetTag_Handler,
+		},
+		{
+			MethodName: "GetTimeout",
+			Handler:    _IsoDepService_GetTimeout_Handler,
+		},
+		{
+			MethodName: "IsConnected",
+			Handler:    _IsoDepService_IsConnected_Handler,
+		},
+		{
+			MethodName: "IsExtendedLengthApduSupported",
+			Handler:    _IsoDepService_IsExtendedLengthApduSupported_Handler,
+		},
+		{
+			MethodName: "SetTimeout",
+			Handler:    _IsoDepService_SetTimeout_Handler,
+		},
+		{
+			MethodName: "Transceive",
+			Handler:    _IsoDepService_Transceive_Handler,
+		},
+		{
+			MethodName: "Get",
+			Handler:    _IsoDepService_Get_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/nfc/nfc.proto",
+}
+
+const (
+	NdefService_CanMakeReadOnly_FullMethodName      = "/nfc.NdefService/CanMakeReadOnly"
+	NdefService_Close_FullMethodName                = "/nfc.NdefService/Close"
+	NdefService_Connect_FullMethodName              = "/nfc.NdefService/Connect"
+	NdefService_GetCachedNdefMessage_FullMethodName = "/nfc.NdefService/GetCachedNdefMessage"
+	NdefService_GetMaxSize_FullMethodName           = "/nfc.NdefService/GetMaxSize"
+	NdefService_GetNdefMessage_FullMethodName       = "/nfc.NdefService/GetNdefMessage"
+	NdefService_GetTag_FullMethodName               = "/nfc.NdefService/GetTag"
+	NdefService_GetType_FullMethodName              = "/nfc.NdefService/GetType"
+	NdefService_IsConnected_FullMethodName          = "/nfc.NdefService/IsConnected"
+	NdefService_IsWritable_FullMethodName           = "/nfc.NdefService/IsWritable"
+	NdefService_MakeReadOnly_FullMethodName         = "/nfc.NdefService/MakeReadOnly"
+	NdefService_WriteNdefMessage_FullMethodName     = "/nfc.NdefService/WriteNdefMessage"
+	NdefService_Get_FullMethodName                  = "/nfc.NdefService/Get"
+)
+
+// NdefServiceClient is the client API for NdefService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type NdefServiceClient interface {
+	CanMakeReadOnly(ctx context.Context, in *CanMakeReadOnlyRequest, opts ...grpc.CallOption) (*CanMakeReadOnlyResponse, error)
+	Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
+	Connect(ctx context.Context, in *ConnectRequest, opts ...grpc.CallOption) (*ConnectResponse, error)
+	GetCachedNdefMessage(ctx context.Context, in *GetCachedNdefMessageRequest, opts ...grpc.CallOption) (*GetCachedNdefMessageResponse, error)
+	GetMaxSize(ctx context.Context, in *GetMaxSizeRequest, opts ...grpc.CallOption) (*GetMaxSizeResponse, error)
+	GetNdefMessage(ctx context.Context, in *GetNdefMessageRequest, opts ...grpc.CallOption) (*GetNdefMessageResponse, error)
+	GetTag(ctx context.Context, in *GetTagRequest, opts ...grpc.CallOption) (*GetTagResponse, error)
+	GetType(ctx context.Context, in *NdefGetTypeRequest, opts ...grpc.CallOption) (*NdefGetTypeResponse, error)
+	IsConnected(ctx context.Context, in *IsConnectedRequest, opts ...grpc.CallOption) (*IsConnectedResponse, error)
+	IsWritable(ctx context.Context, in *IsWritableRequest, opts ...grpc.CallOption) (*IsWritableResponse, error)
+	MakeReadOnly(ctx context.Context, in *MakeReadOnlyRequest, opts ...grpc.CallOption) (*MakeReadOnlyResponse, error)
+	WriteNdefMessage(ctx context.Context, in *WriteNdefMessageRequest, opts ...grpc.CallOption) (*WriteNdefMessageResponse, error)
+	Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error)
+}
+
+type ndefServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewNdefServiceClient(cc grpc.ClientConnInterface) NdefServiceClient {
+	return &ndefServiceClient{cc}
+}
+
+func (c *ndefServiceClient) CanMakeReadOnly(ctx context.Context, in *CanMakeReadOnlyRequest, opts ...grpc.CallOption) (*CanMakeReadOnlyResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CanMakeReadOnlyResponse)
+	err := c.cc.Invoke(ctx, NdefService_CanMakeReadOnly_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ndefServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CloseResponse)
+	err := c.cc.Invoke(ctx, NdefService_Close_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ndefServiceClient) Connect(ctx context.Context, in *ConnectRequest, opts ...grpc.CallOption) (*ConnectResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ConnectResponse)
+	err := c.cc.Invoke(ctx, NdefService_Connect_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ndefServiceClient) GetCachedNdefMessage(ctx context.Context, in *GetCachedNdefMessageRequest, opts ...grpc.CallOption) (*GetCachedNdefMessageResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCachedNdefMessageResponse)
+	err := c.cc.Invoke(ctx, NdefService_GetCachedNdefMessage_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ndefServiceClient) GetMaxSize(ctx context.Context, in *GetMaxSizeRequest, opts ...grpc.CallOption) (*GetMaxSizeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMaxSizeResponse)
+	err := c.cc.Invoke(ctx, NdefService_GetMaxSize_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ndefServiceClient) GetNdefMessage(ctx context.Context, in *GetNdefMessageRequest, opts ...grpc.CallOption) (*GetNdefMessageResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetNdefMessageResponse)
+	err := c.cc.Invoke(ctx, NdefService_GetNdefMessage_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ndefServiceClient) GetTag(ctx context.Context, in *GetTagRequest, opts ...grpc.CallOption) (*GetTagResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTagResponse)
+	err := c.cc.Invoke(ctx, NdefService_GetTag_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ndefServiceClient) GetType(ctx context.Context, in *NdefGetTypeRequest, opts ...grpc.CallOption) (*NdefGetTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NdefGetTypeResponse)
+	err := c.cc.Invoke(ctx, NdefService_GetType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ndefServiceClient) IsConnected(ctx context.Context, in *IsConnectedRequest, opts ...grpc.CallOption) (*IsConnectedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsConnectedResponse)
+	err := c.cc.Invoke(ctx, NdefService_IsConnected_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ndefServiceClient) IsWritable(ctx context.Context, in *IsWritableRequest, opts ...grpc.CallOption) (*IsWritableResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsWritableResponse)
+	err := c.cc.Invoke(ctx, NdefService_IsWritable_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ndefServiceClient) MakeReadOnly(ctx context.Context, in *MakeReadOnlyRequest, opts ...grpc.CallOption) (*MakeReadOnlyResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(MakeReadOnlyResponse)
+	err := c.cc.Invoke(ctx, NdefService_MakeReadOnly_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ndefServiceClient) WriteNdefMessage(ctx context.Context, in *WriteNdefMessageRequest, opts ...grpc.CallOption) (*WriteNdefMessageResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteNdefMessageResponse)
+	err := c.cc.Invoke(ctx, NdefService_WriteNdefMessage_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ndefServiceClient) Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetResponse)
+	err := c.cc.Invoke(ctx, NdefService_Get_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// NdefServiceServer is the server API for NdefService service.
+// All implementations must embed UnimplementedNdefServiceServer
+// for forward compatibility.
+type NdefServiceServer interface {
+	CanMakeReadOnly(context.Context, *CanMakeReadOnlyRequest) (*CanMakeReadOnlyResponse, error)
+	Close(context.Context, *CloseRequest) (*CloseResponse, error)
+	Connect(context.Context, *ConnectRequest) (*ConnectResponse, error)
+	GetCachedNdefMessage(context.Context, *GetCachedNdefMessageRequest) (*GetCachedNdefMessageResponse, error)
+	GetMaxSize(context.Context, *GetMaxSizeRequest) (*GetMaxSizeResponse, error)
+	GetNdefMessage(context.Context, *GetNdefMessageRequest) (*GetNdefMessageResponse, error)
+	GetTag(context.Context, *GetTagRequest) (*GetTagResponse, error)
+	GetType(context.Context, *NdefGetTypeRequest) (*NdefGetTypeResponse, error)
+	IsConnected(context.Context, *IsConnectedRequest) (*IsConnectedResponse, error)
+	IsWritable(context.Context, *IsWritableRequest) (*IsWritableResponse, error)
+	MakeReadOnly(context.Context, *MakeReadOnlyRequest) (*MakeReadOnlyResponse, error)
+	WriteNdefMessage(context.Context, *WriteNdefMessageRequest) (*WriteNdefMessageResponse, error)
+	Get(context.Context, *GetRequest) (*GetResponse, error)
+	mustEmbedUnimplementedNdefServiceServer()
+}
+
+// UnimplementedNdefServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedNdefServiceServer struct{}
+
+func (UnimplementedNdefServiceServer) CanMakeReadOnly(context.Context, *CanMakeReadOnlyRequest) (*CanMakeReadOnlyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CanMakeReadOnly not implemented")
+}
+func (UnimplementedNdefServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
+}
+func (UnimplementedNdefServiceServer) Connect(context.Context, *ConnectRequest) (*ConnectResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Connect not implemented")
+}
+func (UnimplementedNdefServiceServer) GetCachedNdefMessage(context.Context, *GetCachedNdefMessageRequest) (*GetCachedNdefMessageResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCachedNdefMessage not implemented")
+}
+func (UnimplementedNdefServiceServer) GetMaxSize(context.Context, *GetMaxSizeRequest) (*GetMaxSizeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMaxSize not implemented")
+}
+func (UnimplementedNdefServiceServer) GetNdefMessage(context.Context, *GetNdefMessageRequest) (*GetNdefMessageResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetNdefMessage not implemented")
+}
+func (UnimplementedNdefServiceServer) GetTag(context.Context, *GetTagRequest) (*GetTagResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTag not implemented")
+}
+func (UnimplementedNdefServiceServer) GetType(context.Context, *NdefGetTypeRequest) (*NdefGetTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetType not implemented")
+}
+func (UnimplementedNdefServiceServer) IsConnected(context.Context, *IsConnectedRequest) (*IsConnectedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsConnected not implemented")
+}
+func (UnimplementedNdefServiceServer) IsWritable(context.Context, *IsWritableRequest) (*IsWritableResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsWritable not implemented")
+}
+func (UnimplementedNdefServiceServer) MakeReadOnly(context.Context, *MakeReadOnlyRequest) (*MakeReadOnlyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method MakeReadOnly not implemented")
+}
+func (UnimplementedNdefServiceServer) WriteNdefMessage(context.Context, *WriteNdefMessageRequest) (*WriteNdefMessageResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteNdefMessage not implemented")
+}
+func (UnimplementedNdefServiceServer) Get(context.Context, *GetRequest) (*GetResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Get not implemented")
+}
+func (UnimplementedNdefServiceServer) mustEmbedUnimplementedNdefServiceServer() {}
+func (UnimplementedNdefServiceServer) testEmbeddedByValue()                     {}
+
+// UnsafeNdefServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to NdefServiceServer will
+// result in compilation errors.
+type UnsafeNdefServiceServer interface {
+	mustEmbedUnimplementedNdefServiceServer()
+}
+
+func RegisterNdefServiceServer(s grpc.ServiceRegistrar, srv NdefServiceServer) {
+	// If the following call panics, it indicates UnimplementedNdefServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&NdefService_ServiceDesc, srv)
+}
+
+func _NdefService_CanMakeReadOnly_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CanMakeReadOnlyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NdefServiceServer).CanMakeReadOnly(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NdefService_CanMakeReadOnly_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NdefServiceServer).CanMakeReadOnly(ctx, req.(*CanMakeReadOnlyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NdefService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CloseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NdefServiceServer).Close(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NdefService_Close_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NdefServiceServer).Close(ctx, req.(*CloseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NdefService_Connect_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ConnectRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NdefServiceServer).Connect(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NdefService_Connect_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NdefServiceServer).Connect(ctx, req.(*ConnectRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NdefService_GetCachedNdefMessage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCachedNdefMessageRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NdefServiceServer).GetCachedNdefMessage(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NdefService_GetCachedNdefMessage_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NdefServiceServer).GetCachedNdefMessage(ctx, req.(*GetCachedNdefMessageRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NdefService_GetMaxSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMaxSizeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NdefServiceServer).GetMaxSize(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NdefService_GetMaxSize_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NdefServiceServer).GetMaxSize(ctx, req.(*GetMaxSizeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NdefService_GetNdefMessage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetNdefMessageRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NdefServiceServer).GetNdefMessage(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NdefService_GetNdefMessage_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NdefServiceServer).GetNdefMessage(ctx, req.(*GetNdefMessageRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NdefService_GetTag_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTagRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NdefServiceServer).GetTag(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NdefService_GetTag_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NdefServiceServer).GetTag(ctx, req.(*GetTagRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NdefService_GetType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NdefGetTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NdefServiceServer).GetType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NdefService_GetType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NdefServiceServer).GetType(ctx, req.(*NdefGetTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NdefService_IsConnected_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsConnectedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NdefServiceServer).IsConnected(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NdefService_IsConnected_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NdefServiceServer).IsConnected(ctx, req.(*IsConnectedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NdefService_IsWritable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsWritableRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NdefServiceServer).IsWritable(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NdefService_IsWritable_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NdefServiceServer).IsWritable(ctx, req.(*IsWritableRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NdefService_MakeReadOnly_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MakeReadOnlyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NdefServiceServer).MakeReadOnly(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NdefService_MakeReadOnly_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NdefServiceServer).MakeReadOnly(ctx, req.(*MakeReadOnlyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NdefService_WriteNdefMessage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteNdefMessageRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NdefServiceServer).WriteNdefMessage(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NdefService_WriteNdefMessage_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NdefServiceServer).WriteNdefMessage(ctx, req.(*WriteNdefMessageRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NdefService_Get_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NdefServiceServer).Get(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NdefService_Get_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NdefServiceServer).Get(ctx, req.(*GetRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// NdefService_ServiceDesc is the grpc.ServiceDesc for NdefService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var NdefService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "nfc.NdefService",
+	HandlerType: (*NdefServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "CanMakeReadOnly",
+			Handler:    _NdefService_CanMakeReadOnly_Handler,
+		},
+		{
+			MethodName: "Close",
+			Handler:    _NdefService_Close_Handler,
+		},
+		{
+			MethodName: "Connect",
+			Handler:    _NdefService_Connect_Handler,
+		},
+		{
+			MethodName: "GetCachedNdefMessage",
+			Handler:    _NdefService_GetCachedNdefMessage_Handler,
+		},
+		{
+			MethodName: "GetMaxSize",
+			Handler:    _NdefService_GetMaxSize_Handler,
+		},
+		{
+			MethodName: "GetNdefMessage",
+			Handler:    _NdefService_GetNdefMessage_Handler,
+		},
+		{
+			MethodName: "GetTag",
+			Handler:    _NdefService_GetTag_Handler,
+		},
+		{
+			MethodName: "GetType",
+			Handler:    _NdefService_GetType_Handler,
+		},
+		{
+			MethodName: "IsConnected",
+			Handler:    _NdefService_IsConnected_Handler,
+		},
+		{
+			MethodName: "IsWritable",
+			Handler:    _NdefService_IsWritable_Handler,
+		},
+		{
+			MethodName: "MakeReadOnly",
+			Handler:    _NdefService_MakeReadOnly_Handler,
+		},
+		{
+			MethodName: "WriteNdefMessage",
+			Handler:    _NdefService_WriteNdefMessage_Handler,
+		},
+		{
+			MethodName: "Get",
+			Handler:    _NdefService_Get_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

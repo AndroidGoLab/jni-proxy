@@ -116,3 +116,217 @@ func (c *StoreManagerClient) ReleaseLease(ctx context.Context, arg0 int64) error
 	})
 	return err
 }
+
+// StoreManagerSessionClient wraps the gRPC StoreManagerSessionService client.
+type StoreManagerSessionClient struct {
+	svc pb.StoreManagerSessionServiceClient
+}
+
+// NewStoreManagerSessionClient creates a new StoreManagerSession client.
+func NewStoreManagerSessionClient(cc grpc.ClientConnInterface) *StoreManagerSessionClient {
+	return &StoreManagerSessionClient{
+		svc: pb.NewStoreManagerSessionServiceClient(cc),
+	}
+}
+
+// Abandon calls the Abandon RPC.
+func (c *StoreManagerSessionClient) Abandon(ctx context.Context) error {
+	_, err := c.svc.Abandon(ctx, &pb.AbandonRequest{})
+	return err
+}
+
+// AllowPackageAccess calls the AllowPackageAccess RPC.
+func (c *StoreManagerSessionClient) AllowPackageAccess(ctx context.Context, arg0 string, arg1 int64) error {
+	_, err := c.svc.AllowPackageAccess(ctx, &pb.AllowPackageAccessRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// AllowPublicAccess calls the AllowPublicAccess RPC.
+func (c *StoreManagerSessionClient) AllowPublicAccess(ctx context.Context) error {
+	_, err := c.svc.AllowPublicAccess(ctx, &pb.AllowPublicAccessRequest{})
+	return err
+}
+
+// AllowSameSignatureAccess calls the AllowSameSignatureAccess RPC.
+func (c *StoreManagerSessionClient) AllowSameSignatureAccess(ctx context.Context) error {
+	_, err := c.svc.AllowSameSignatureAccess(ctx, &pb.AllowSameSignatureAccessRequest{})
+	return err
+}
+
+// Close calls the Close RPC.
+func (c *StoreManagerSessionClient) Close(ctx context.Context) error {
+	_, err := c.svc.Close(ctx, &pb.CloseRequest{})
+	return err
+}
+
+// GetSize calls the GetSize RPC.
+func (c *StoreManagerSessionClient) GetSize(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSize(ctx, &pb.GetSizeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsPackageAccessAllowed calls the IsPackageAccessAllowed RPC.
+func (c *StoreManagerSessionClient) IsPackageAccessAllowed(ctx context.Context, arg0 string, arg1 int64) (bool, error) {
+	resp, err := c.svc.IsPackageAccessAllowed(ctx, &pb.IsPackageAccessAllowedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsPublicAccessAllowed calls the IsPublicAccessAllowed RPC.
+func (c *StoreManagerSessionClient) IsPublicAccessAllowed(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsPublicAccessAllowed(ctx, &pb.IsPublicAccessAllowedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsSameSignatureAccessAllowed calls the IsSameSignatureAccessAllowed RPC.
+func (c *StoreManagerSessionClient) IsSameSignatureAccessAllowed(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsSameSignatureAccessAllowed(ctx, &pb.IsSameSignatureAccessAllowedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OpenRead calls the OpenRead RPC.
+func (c *StoreManagerSessionClient) OpenRead(ctx context.Context) (int64, error) {
+	resp, err := c.svc.OpenRead(ctx, &pb.OpenReadRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OpenWrite calls the OpenWrite RPC.
+func (c *StoreManagerSessionClient) OpenWrite(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.OpenWrite(ctx, &pb.OpenWriteRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HandleClient wraps the gRPC HandleService client.
+type HandleClient struct {
+	svc pb.HandleServiceClient
+}
+
+// NewHandleClient creates a new Handle client.
+func NewHandleClient(cc grpc.ClientConnInterface) *HandleClient {
+	return &HandleClient{
+		svc: pb.NewHandleServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *HandleClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *HandleClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExpiryTimeMillis calls the GetExpiryTimeMillis RPC.
+func (c *HandleClient) GetExpiryTimeMillis(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetExpiryTimeMillis(ctx, &pb.GetExpiryTimeMillisRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLabel calls the GetLabel RPC.
+func (c *HandleClient) GetLabel(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetLabel(ctx, &pb.GetLabelRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSha256Digest calls the GetSha256Digest RPC.
+func (c *HandleClient) GetSha256Digest(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSha256Digest(ctx, &pb.GetSha256DigestRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTag calls the GetTag RPC.
+func (c *HandleClient) GetTag(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetTag(ctx, &pb.GetTagRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *HandleClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *HandleClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *HandleClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// CreateWithSha256 calls the CreateWithSha256 RPC.
+func (c *HandleClient) CreateWithSha256(ctx context.Context, arg0 int64, arg1 string, arg2 int64, arg3 string) (int64, error) {
+	resp, err := c.svc.CreateWithSha256(ctx, &pb.CreateWithSha256Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}

@@ -23,6 +23,1742 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type CreateSessionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateSessionRequest) Reset() {
+	*x = CreateSessionRequest{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateSessionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateSessionRequest) ProtoMessage() {}
+
+func (x *CreateSessionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateSessionRequest.ProtoReflect.Descriptor instead.
+func (*CreateSessionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{0}
+}
+
+type CreateSessionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateSessionResponse) Reset() {
+	*x = CreateSessionResponse{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateSessionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateSessionResponse) ProtoMessage() {}
+
+func (x *CreateSessionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateSessionResponse.ProtoReflect.Descriptor instead.
+func (*CreateSessionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *CreateSessionResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OnBindRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnBindRequest) Reset() {
+	*x = OnBindRequest{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnBindRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnBindRequest) ProtoMessage() {}
+
+func (x *OnBindRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnBindRequest.ProtoReflect.Descriptor instead.
+func (*OnBindRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *OnBindRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnBindResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnBindResponse) Reset() {
+	*x = OnBindResponse{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnBindResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnBindResponse) ProtoMessage() {}
+
+func (x *OnBindResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnBindResponse.ProtoReflect.Descriptor instead.
+func (*OnBindResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *OnBindResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetBundleRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBundleRequest) Reset() {
+	*x = GetBundleRequest{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBundleRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBundleRequest) ProtoMessage() {}
+
+func (x *GetBundleRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBundleRequest.ProtoReflect.Descriptor instead.
+func (*GetBundleRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{4}
+}
+
+type GetBundleResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBundleResponse) Reset() {
+	*x = GetBundleResponse{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBundleResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBundleResponse) ProtoMessage() {}
+
+func (x *GetBundleResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBundleResponse.ProtoReflect.Descriptor instead.
+func (*GetBundleResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *GetBundleResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetLocaleRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLocaleRequest) Reset() {
+	*x = GetLocaleRequest{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLocaleRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLocaleRequest) ProtoMessage() {}
+
+func (x *GetLocaleRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLocaleRequest.ProtoReflect.Descriptor instead.
+func (*GetLocaleRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{6}
+}
+
+type GetLocaleResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLocaleResponse) Reset() {
+	*x = GetLocaleResponse{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLocaleResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLocaleResponse) ProtoMessage() {}
+
+func (x *GetLocaleResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLocaleResponse.ProtoReflect.Descriptor instead.
+func (*GetLocaleResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *GetLocaleResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetSupportedAttributesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSupportedAttributesRequest) Reset() {
+	*x = GetSupportedAttributesRequest{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSupportedAttributesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSupportedAttributesRequest) ProtoMessage() {}
+
+func (x *GetSupportedAttributesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSupportedAttributesRequest.ProtoReflect.Descriptor instead.
+func (*GetSupportedAttributesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{8}
+}
+
+type GetSupportedAttributesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSupportedAttributesResponse) Reset() {
+	*x = GetSupportedAttributesResponse{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSupportedAttributesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSupportedAttributesResponse) ProtoMessage() {}
+
+func (x *GetSupportedAttributesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSupportedAttributesResponse.ProtoReflect.Descriptor instead.
+func (*GetSupportedAttributesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *GetSupportedAttributesResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OnCancelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnCancelRequest) Reset() {
+	*x = OnCancelRequest{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnCancelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnCancelRequest) ProtoMessage() {}
+
+func (x *OnCancelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnCancelRequest.ProtoReflect.Descriptor instead.
+func (*OnCancelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{10}
+}
+
+type OnCancelResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnCancelResponse) Reset() {
+	*x = OnCancelResponse{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnCancelResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnCancelResponse) ProtoMessage() {}
+
+func (x *OnCancelResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnCancelResponse.ProtoReflect.Descriptor instead.
+func (*OnCancelResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{11}
+}
+
+type OnCloseRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnCloseRequest) Reset() {
+	*x = OnCloseRequest{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnCloseRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnCloseRequest) ProtoMessage() {}
+
+func (x *OnCloseRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnCloseRequest.ProtoReflect.Descriptor instead.
+func (*OnCloseRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{12}
+}
+
+type OnCloseResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnCloseResponse) Reset() {
+	*x = OnCloseResponse{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnCloseResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnCloseResponse) ProtoMessage() {}
+
+func (x *OnCloseResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnCloseResponse.ProtoReflect.Descriptor instead.
+func (*OnCloseResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{13}
+}
+
+type OnCreateRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnCreateRequest) Reset() {
+	*x = OnCreateRequest{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnCreateRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnCreateRequest) ProtoMessage() {}
+
+func (x *OnCreateRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnCreateRequest.ProtoReflect.Descriptor instead.
+func (*OnCreateRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{14}
+}
+
+type OnCreateResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnCreateResponse) Reset() {
+	*x = OnCreateResponse{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnCreateResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnCreateResponse) ProtoMessage() {}
+
+func (x *OnCreateResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnCreateResponse.ProtoReflect.Descriptor instead.
+func (*OnCreateResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{15}
+}
+
+type OnGetSentenceSuggestionsMultipleRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnGetSentenceSuggestionsMultipleRequest) Reset() {
+	*x = OnGetSentenceSuggestionsMultipleRequest{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnGetSentenceSuggestionsMultipleRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnGetSentenceSuggestionsMultipleRequest) ProtoMessage() {}
+
+func (x *OnGetSentenceSuggestionsMultipleRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnGetSentenceSuggestionsMultipleRequest.ProtoReflect.Descriptor instead.
+func (*OnGetSentenceSuggestionsMultipleRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{16}
+}
+
+func (x *OnGetSentenceSuggestionsMultipleRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnGetSentenceSuggestionsMultipleRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type OnGetSentenceSuggestionsMultipleResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnGetSentenceSuggestionsMultipleResponse) Reset() {
+	*x = OnGetSentenceSuggestionsMultipleResponse{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnGetSentenceSuggestionsMultipleResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnGetSentenceSuggestionsMultipleResponse) ProtoMessage() {}
+
+func (x *OnGetSentenceSuggestionsMultipleResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnGetSentenceSuggestionsMultipleResponse.ProtoReflect.Descriptor instead.
+func (*OnGetSentenceSuggestionsMultipleResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *OnGetSentenceSuggestionsMultipleResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OnGetSuggestionsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnGetSuggestionsRequest) Reset() {
+	*x = OnGetSuggestionsRequest{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnGetSuggestionsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnGetSuggestionsRequest) ProtoMessage() {}
+
+func (x *OnGetSuggestionsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnGetSuggestionsRequest.ProtoReflect.Descriptor instead.
+func (*OnGetSuggestionsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{18}
+}
+
+func (x *OnGetSuggestionsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnGetSuggestionsRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type OnGetSuggestionsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnGetSuggestionsResponse) Reset() {
+	*x = OnGetSuggestionsResponse{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnGetSuggestionsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnGetSuggestionsResponse) ProtoMessage() {}
+
+func (x *OnGetSuggestionsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnGetSuggestionsResponse.ProtoReflect.Descriptor instead.
+func (*OnGetSuggestionsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *OnGetSuggestionsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OnGetSuggestionsMultipleRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          bool                   `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnGetSuggestionsMultipleRequest) Reset() {
+	*x = OnGetSuggestionsMultipleRequest{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnGetSuggestionsMultipleRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnGetSuggestionsMultipleRequest) ProtoMessage() {}
+
+func (x *OnGetSuggestionsMultipleRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnGetSuggestionsMultipleRequest.ProtoReflect.Descriptor instead.
+func (*OnGetSuggestionsMultipleRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{20}
+}
+
+func (x *OnGetSuggestionsMultipleRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnGetSuggestionsMultipleRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *OnGetSuggestionsMultipleRequest) GetArg2() bool {
+	if x != nil {
+		return x.Arg2
+	}
+	return false
+}
+
+type OnGetSuggestionsMultipleResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnGetSuggestionsMultipleResponse) Reset() {
+	*x = OnGetSuggestionsMultipleResponse{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnGetSuggestionsMultipleResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnGetSuggestionsMultipleResponse) ProtoMessage() {}
+
+func (x *OnGetSuggestionsMultipleResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnGetSuggestionsMultipleResponse.ProtoReflect.Descriptor instead.
+func (*OnGetSuggestionsMultipleResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{21}
+}
+
+func (x *OnGetSuggestionsMultipleResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type NewSuggestionsInfoRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewSuggestionsInfoRequest) Reset() {
+	*x = NewSuggestionsInfoRequest{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewSuggestionsInfoRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewSuggestionsInfoRequest) ProtoMessage() {}
+
+func (x *NewSuggestionsInfoRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewSuggestionsInfoRequest.ProtoReflect.Descriptor instead.
+func (*NewSuggestionsInfoRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{22}
+}
+
+func (x *NewSuggestionsInfoRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type NewSuggestionsInfoResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewSuggestionsInfoResponse) Reset() {
+	*x = NewSuggestionsInfoResponse{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewSuggestionsInfoResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewSuggestionsInfoResponse) ProtoMessage() {}
+
+func (x *NewSuggestionsInfoResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewSuggestionsInfoResponse.ProtoReflect.Descriptor instead.
+func (*NewSuggestionsInfoResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{23}
+}
+
+func (x *NewSuggestionsInfoResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type DescribeContentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DescribeContentsRequest) Reset() {
+	*x = DescribeContentsRequest{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DescribeContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DescribeContentsRequest) ProtoMessage() {}
+
+func (x *DescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*DescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{24}
+}
+
+func (x *DescribeContentsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type DescribeContentsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DescribeContentsResponse) Reset() {
+	*x = DescribeContentsResponse{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DescribeContentsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DescribeContentsResponse) ProtoMessage() {}
+
+func (x *DescribeContentsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DescribeContentsResponse.ProtoReflect.Descriptor instead.
+func (*DescribeContentsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{25}
+}
+
+func (x *DescribeContentsResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetCookieRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCookieRequest) Reset() {
+	*x = GetCookieRequest{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[26]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCookieRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCookieRequest) ProtoMessage() {}
+
+func (x *GetCookieRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[26]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCookieRequest.ProtoReflect.Descriptor instead.
+func (*GetCookieRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{26}
+}
+
+func (x *GetCookieRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetCookieResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCookieResponse) Reset() {
+	*x = GetCookieResponse{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[27]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCookieResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCookieResponse) ProtoMessage() {}
+
+func (x *GetCookieResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[27]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCookieResponse.ProtoReflect.Descriptor instead.
+func (*GetCookieResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{27}
+}
+
+func (x *GetCookieResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSequenceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSequenceRequest) Reset() {
+	*x = GetSequenceRequest{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[28]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSequenceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSequenceRequest) ProtoMessage() {}
+
+func (x *GetSequenceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[28]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSequenceRequest.ProtoReflect.Descriptor instead.
+func (*GetSequenceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{28}
+}
+
+func (x *GetSequenceRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetSequenceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSequenceResponse) Reset() {
+	*x = GetSequenceResponse{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[29]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSequenceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSequenceResponse) ProtoMessage() {}
+
+func (x *GetSequenceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[29]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSequenceResponse.ProtoReflect.Descriptor instead.
+func (*GetSequenceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{29}
+}
+
+func (x *GetSequenceResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSuggestionAtRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSuggestionAtRequest) Reset() {
+	*x = GetSuggestionAtRequest{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[30]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSuggestionAtRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSuggestionAtRequest) ProtoMessage() {}
+
+func (x *GetSuggestionAtRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[30]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSuggestionAtRequest.ProtoReflect.Descriptor instead.
+func (*GetSuggestionAtRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{30}
+}
+
+func (x *GetSuggestionAtRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetSuggestionAtRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetSuggestionAtResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSuggestionAtResponse) Reset() {
+	*x = GetSuggestionAtResponse{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[31]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSuggestionAtResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSuggestionAtResponse) ProtoMessage() {}
+
+func (x *GetSuggestionAtResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[31]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSuggestionAtResponse.ProtoReflect.Descriptor instead.
+func (*GetSuggestionAtResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{31}
+}
+
+func (x *GetSuggestionAtResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetSuggestionsAttributesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSuggestionsAttributesRequest) Reset() {
+	*x = GetSuggestionsAttributesRequest{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[32]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSuggestionsAttributesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSuggestionsAttributesRequest) ProtoMessage() {}
+
+func (x *GetSuggestionsAttributesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[32]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSuggestionsAttributesRequest.ProtoReflect.Descriptor instead.
+func (*GetSuggestionsAttributesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{32}
+}
+
+func (x *GetSuggestionsAttributesRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetSuggestionsAttributesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSuggestionsAttributesResponse) Reset() {
+	*x = GetSuggestionsAttributesResponse{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[33]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSuggestionsAttributesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSuggestionsAttributesResponse) ProtoMessage() {}
+
+func (x *GetSuggestionsAttributesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[33]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSuggestionsAttributesResponse.ProtoReflect.Descriptor instead.
+func (*GetSuggestionsAttributesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{33}
+}
+
+func (x *GetSuggestionsAttributesResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSuggestionsCountRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSuggestionsCountRequest) Reset() {
+	*x = GetSuggestionsCountRequest{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[34]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSuggestionsCountRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSuggestionsCountRequest) ProtoMessage() {}
+
+func (x *GetSuggestionsCountRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[34]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSuggestionsCountRequest.ProtoReflect.Descriptor instead.
+func (*GetSuggestionsCountRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{34}
+}
+
+func (x *GetSuggestionsCountRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetSuggestionsCountResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSuggestionsCountResponse) Reset() {
+	*x = GetSuggestionsCountResponse{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[35]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSuggestionsCountResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSuggestionsCountResponse) ProtoMessage() {}
+
+func (x *GetSuggestionsCountResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[35]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSuggestionsCountResponse.ProtoReflect.Descriptor instead.
+func (*GetSuggestionsCountResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{35}
+}
+
+func (x *GetSuggestionsCountResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetCookieAndSequenceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetCookieAndSequenceRequest) Reset() {
+	*x = SetCookieAndSequenceRequest{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[36]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetCookieAndSequenceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetCookieAndSequenceRequest) ProtoMessage() {}
+
+func (x *SetCookieAndSequenceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[36]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetCookieAndSequenceRequest.ProtoReflect.Descriptor instead.
+func (*SetCookieAndSequenceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{36}
+}
+
+func (x *SetCookieAndSequenceRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetCookieAndSequenceRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SetCookieAndSequenceRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type SetCookieAndSequenceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetCookieAndSequenceResponse) Reset() {
+	*x = SetCookieAndSequenceResponse{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[37]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetCookieAndSequenceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetCookieAndSequenceResponse) ProtoMessage() {}
+
+func (x *SetCookieAndSequenceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[37]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetCookieAndSequenceResponse.ProtoReflect.Descriptor instead.
+func (*SetCookieAndSequenceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{37}
+}
+
+type WriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WriteToParcelRequest) Reset() {
+	*x = WriteToParcelRequest{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[38]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WriteToParcelRequest) ProtoMessage() {}
+
+func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[38]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*WriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{38}
+}
+
+func (x *WriteToParcelRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *WriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *WriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type WriteToParcelResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WriteToParcelResponse) Reset() {
+	*x = WriteToParcelResponse{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[39]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WriteToParcelResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WriteToParcelResponse) ProtoMessage() {}
+
+func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[39]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WriteToParcelResponse.ProtoReflect.Descriptor instead.
+func (*WriteToParcelResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{39}
+}
+
 type GetCurrentSpellCheckerInfoRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
@@ -31,7 +1767,7 @@ type GetCurrentSpellCheckerInfoRequest struct {
 
 func (x *GetCurrentSpellCheckerInfoRequest) Reset() {
 	*x = GetCurrentSpellCheckerInfoRequest{}
-	mi := &file_proto_textservice_textservice_proto_msgTypes[0]
+	mi := &file_proto_textservice_textservice_proto_msgTypes[40]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -43,7 +1779,7 @@ func (x *GetCurrentSpellCheckerInfoRequest) String() string {
 func (*GetCurrentSpellCheckerInfoRequest) ProtoMessage() {}
 
 func (x *GetCurrentSpellCheckerInfoRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textservice_textservice_proto_msgTypes[0]
+	mi := &file_proto_textservice_textservice_proto_msgTypes[40]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -56,7 +1792,7 @@ func (x *GetCurrentSpellCheckerInfoRequest) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use GetCurrentSpellCheckerInfoRequest.ProtoReflect.Descriptor instead.
 func (*GetCurrentSpellCheckerInfoRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{0}
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{40}
 }
 
 type GetCurrentSpellCheckerInfoResponse struct {
@@ -68,7 +1804,7 @@ type GetCurrentSpellCheckerInfoResponse struct {
 
 func (x *GetCurrentSpellCheckerInfoResponse) Reset() {
 	*x = GetCurrentSpellCheckerInfoResponse{}
-	mi := &file_proto_textservice_textservice_proto_msgTypes[1]
+	mi := &file_proto_textservice_textservice_proto_msgTypes[41]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -80,7 +1816,7 @@ func (x *GetCurrentSpellCheckerInfoResponse) String() string {
 func (*GetCurrentSpellCheckerInfoResponse) ProtoMessage() {}
 
 func (x *GetCurrentSpellCheckerInfoResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textservice_textservice_proto_msgTypes[1]
+	mi := &file_proto_textservice_textservice_proto_msgTypes[41]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -93,7 +1829,7 @@ func (x *GetCurrentSpellCheckerInfoResponse) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use GetCurrentSpellCheckerInfoResponse.ProtoReflect.Descriptor instead.
 func (*GetCurrentSpellCheckerInfoResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{1}
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{41}
 }
 
 func (x *GetCurrentSpellCheckerInfoResponse) GetResult() int64 {
@@ -111,7 +1847,7 @@ type IsSpellCheckerEnabledRequest struct {
 
 func (x *IsSpellCheckerEnabledRequest) Reset() {
 	*x = IsSpellCheckerEnabledRequest{}
-	mi := &file_proto_textservice_textservice_proto_msgTypes[2]
+	mi := &file_proto_textservice_textservice_proto_msgTypes[42]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -123,7 +1859,7 @@ func (x *IsSpellCheckerEnabledRequest) String() string {
 func (*IsSpellCheckerEnabledRequest) ProtoMessage() {}
 
 func (x *IsSpellCheckerEnabledRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textservice_textservice_proto_msgTypes[2]
+	mi := &file_proto_textservice_textservice_proto_msgTypes[42]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -136,7 +1872,7 @@ func (x *IsSpellCheckerEnabledRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsSpellCheckerEnabledRequest.ProtoReflect.Descriptor instead.
 func (*IsSpellCheckerEnabledRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{2}
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{42}
 }
 
 type IsSpellCheckerEnabledResponse struct {
@@ -148,7 +1884,7 @@ type IsSpellCheckerEnabledResponse struct {
 
 func (x *IsSpellCheckerEnabledResponse) Reset() {
 	*x = IsSpellCheckerEnabledResponse{}
-	mi := &file_proto_textservice_textservice_proto_msgTypes[3]
+	mi := &file_proto_textservice_textservice_proto_msgTypes[43]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -160,7 +1896,7 @@ func (x *IsSpellCheckerEnabledResponse) String() string {
 func (*IsSpellCheckerEnabledResponse) ProtoMessage() {}
 
 func (x *IsSpellCheckerEnabledResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textservice_textservice_proto_msgTypes[3]
+	mi := &file_proto_textservice_textservice_proto_msgTypes[43]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -173,7 +1909,7 @@ func (x *IsSpellCheckerEnabledResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsSpellCheckerEnabledResponse.ProtoReflect.Descriptor instead.
 func (*IsSpellCheckerEnabledResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{3}
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{43}
 }
 
 func (x *IsSpellCheckerEnabledResponse) GetResult() bool {
@@ -195,7 +1931,7 @@ type NewSpellCheckerSession4Request struct {
 
 func (x *NewSpellCheckerSession4Request) Reset() {
 	*x = NewSpellCheckerSession4Request{}
-	mi := &file_proto_textservice_textservice_proto_msgTypes[4]
+	mi := &file_proto_textservice_textservice_proto_msgTypes[44]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -207,7 +1943,7 @@ func (x *NewSpellCheckerSession4Request) String() string {
 func (*NewSpellCheckerSession4Request) ProtoMessage() {}
 
 func (x *NewSpellCheckerSession4Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textservice_textservice_proto_msgTypes[4]
+	mi := &file_proto_textservice_textservice_proto_msgTypes[44]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -220,7 +1956,7 @@ func (x *NewSpellCheckerSession4Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewSpellCheckerSession4Request.ProtoReflect.Descriptor instead.
 func (*NewSpellCheckerSession4Request) Descriptor() ([]byte, []int) {
-	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{4}
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{44}
 }
 
 func (x *NewSpellCheckerSession4Request) GetArg0() int64 {
@@ -260,7 +1996,7 @@ type NewSpellCheckerSession4Response struct {
 
 func (x *NewSpellCheckerSession4Response) Reset() {
 	*x = NewSpellCheckerSession4Response{}
-	mi := &file_proto_textservice_textservice_proto_msgTypes[5]
+	mi := &file_proto_textservice_textservice_proto_msgTypes[45]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -272,7 +2008,7 @@ func (x *NewSpellCheckerSession4Response) String() string {
 func (*NewSpellCheckerSession4Response) ProtoMessage() {}
 
 func (x *NewSpellCheckerSession4Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textservice_textservice_proto_msgTypes[5]
+	mi := &file_proto_textservice_textservice_proto_msgTypes[45]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -285,7 +2021,7 @@ func (x *NewSpellCheckerSession4Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewSpellCheckerSession4Response.ProtoReflect.Descriptor instead.
 func (*NewSpellCheckerSession4Response) Descriptor() ([]byte, []int) {
-	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{5}
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{45}
 }
 
 func (x *NewSpellCheckerSession4Response) GetResult() int64 {
@@ -306,7 +2042,7 @@ type NewSpellCheckerSession3_1Request struct {
 
 func (x *NewSpellCheckerSession3_1Request) Reset() {
 	*x = NewSpellCheckerSession3_1Request{}
-	mi := &file_proto_textservice_textservice_proto_msgTypes[6]
+	mi := &file_proto_textservice_textservice_proto_msgTypes[46]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -318,7 +2054,7 @@ func (x *NewSpellCheckerSession3_1Request) String() string {
 func (*NewSpellCheckerSession3_1Request) ProtoMessage() {}
 
 func (x *NewSpellCheckerSession3_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textservice_textservice_proto_msgTypes[6]
+	mi := &file_proto_textservice_textservice_proto_msgTypes[46]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -331,7 +2067,7 @@ func (x *NewSpellCheckerSession3_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewSpellCheckerSession3_1Request.ProtoReflect.Descriptor instead.
 func (*NewSpellCheckerSession3_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{6}
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{46}
 }
 
 func (x *NewSpellCheckerSession3_1Request) GetArg0() int64 {
@@ -364,7 +2100,7 @@ type NewSpellCheckerSession3_1Response struct {
 
 func (x *NewSpellCheckerSession3_1Response) Reset() {
 	*x = NewSpellCheckerSession3_1Response{}
-	mi := &file_proto_textservice_textservice_proto_msgTypes[7]
+	mi := &file_proto_textservice_textservice_proto_msgTypes[47]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -376,7 +2112,7 @@ func (x *NewSpellCheckerSession3_1Response) String() string {
 func (*NewSpellCheckerSession3_1Response) ProtoMessage() {}
 
 func (x *NewSpellCheckerSession3_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textservice_textservice_proto_msgTypes[7]
+	mi := &file_proto_textservice_textservice_proto_msgTypes[47]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -389,7 +2125,7 @@ func (x *NewSpellCheckerSession3_1Response) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use NewSpellCheckerSession3_1Response.ProtoReflect.Descriptor instead.
 func (*NewSpellCheckerSession3_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{7}
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{47}
 }
 
 func (x *NewSpellCheckerSession3_1Response) GetResult() int64 {
@@ -399,11 +2135,3436 @@ func (x *NewSpellCheckerSession3_1Response) GetResult() int64 {
 	return 0
 }
 
+type NewSentenceSuggestionsInfoRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewSentenceSuggestionsInfoRequest) Reset() {
+	*x = NewSentenceSuggestionsInfoRequest{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[48]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewSentenceSuggestionsInfoRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewSentenceSuggestionsInfoRequest) ProtoMessage() {}
+
+func (x *NewSentenceSuggestionsInfoRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[48]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewSentenceSuggestionsInfoRequest.ProtoReflect.Descriptor instead.
+func (*NewSentenceSuggestionsInfoRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{48}
+}
+
+func (x *NewSentenceSuggestionsInfoRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type NewSentenceSuggestionsInfoResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewSentenceSuggestionsInfoResponse) Reset() {
+	*x = NewSentenceSuggestionsInfoResponse{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[49]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewSentenceSuggestionsInfoResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewSentenceSuggestionsInfoResponse) ProtoMessage() {}
+
+func (x *NewSentenceSuggestionsInfoResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[49]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewSentenceSuggestionsInfoResponse.ProtoReflect.Descriptor instead.
+func (*NewSentenceSuggestionsInfoResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{49}
+}
+
+func (x *NewSentenceSuggestionsInfoResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetLengthAtRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLengthAtRequest) Reset() {
+	*x = GetLengthAtRequest{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[50]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLengthAtRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLengthAtRequest) ProtoMessage() {}
+
+func (x *GetLengthAtRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[50]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLengthAtRequest.ProtoReflect.Descriptor instead.
+func (*GetLengthAtRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{50}
+}
+
+func (x *GetLengthAtRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetLengthAtRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetLengthAtResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLengthAtResponse) Reset() {
+	*x = GetLengthAtResponse{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[51]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLengthAtResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLengthAtResponse) ProtoMessage() {}
+
+func (x *GetLengthAtResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[51]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLengthAtResponse.ProtoReflect.Descriptor instead.
+func (*GetLengthAtResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{51}
+}
+
+func (x *GetLengthAtResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetOffsetAtRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetOffsetAtRequest) Reset() {
+	*x = GetOffsetAtRequest{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[52]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetOffsetAtRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetOffsetAtRequest) ProtoMessage() {}
+
+func (x *GetOffsetAtRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[52]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetOffsetAtRequest.ProtoReflect.Descriptor instead.
+func (*GetOffsetAtRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{52}
+}
+
+func (x *GetOffsetAtRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetOffsetAtRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetOffsetAtResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetOffsetAtResponse) Reset() {
+	*x = GetOffsetAtResponse{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[53]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetOffsetAtResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetOffsetAtResponse) ProtoMessage() {}
+
+func (x *GetOffsetAtResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[53]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetOffsetAtResponse.ProtoReflect.Descriptor instead.
+func (*GetOffsetAtResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{53}
+}
+
+func (x *GetOffsetAtResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSuggestionsInfoAtRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSuggestionsInfoAtRequest) Reset() {
+	*x = GetSuggestionsInfoAtRequest{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[54]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSuggestionsInfoAtRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSuggestionsInfoAtRequest) ProtoMessage() {}
+
+func (x *GetSuggestionsInfoAtRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[54]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSuggestionsInfoAtRequest.ProtoReflect.Descriptor instead.
+func (*GetSuggestionsInfoAtRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{54}
+}
+
+func (x *GetSuggestionsInfoAtRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetSuggestionsInfoAtRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetSuggestionsInfoAtResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSuggestionsInfoAtResponse) Reset() {
+	*x = GetSuggestionsInfoAtResponse{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[55]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSuggestionsInfoAtResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSuggestionsInfoAtResponse) ProtoMessage() {}
+
+func (x *GetSuggestionsInfoAtResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[55]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSuggestionsInfoAtResponse.ProtoReflect.Descriptor instead.
+func (*GetSuggestionsInfoAtResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{55}
+}
+
+func (x *GetSuggestionsInfoAtResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type NewTextInfoRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewTextInfoRequest) Reset() {
+	*x = NewTextInfoRequest{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[56]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewTextInfoRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewTextInfoRequest) ProtoMessage() {}
+
+func (x *NewTextInfoRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[56]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewTextInfoRequest.ProtoReflect.Descriptor instead.
+func (*NewTextInfoRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{56}
+}
+
+func (x *NewTextInfoRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type NewTextInfoResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewTextInfoResponse) Reset() {
+	*x = NewTextInfoResponse{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[57]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewTextInfoResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewTextInfoResponse) ProtoMessage() {}
+
+func (x *NewTextInfoResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[57]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewTextInfoResponse.ProtoReflect.Descriptor instead.
+func (*NewTextInfoResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{57}
+}
+
+func (x *NewTextInfoResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetCharSequenceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCharSequenceRequest) Reset() {
+	*x = GetCharSequenceRequest{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[58]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCharSequenceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCharSequenceRequest) ProtoMessage() {}
+
+func (x *GetCharSequenceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[58]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCharSequenceRequest.ProtoReflect.Descriptor instead.
+func (*GetCharSequenceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{58}
+}
+
+func (x *GetCharSequenceRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetCharSequenceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCharSequenceResponse) Reset() {
+	*x = GetCharSequenceResponse{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[59]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCharSequenceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCharSequenceResponse) ProtoMessage() {}
+
+func (x *GetCharSequenceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[59]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCharSequenceResponse.ProtoReflect.Descriptor instead.
+func (*GetCharSequenceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{59}
+}
+
+func (x *GetCharSequenceResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetTextRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTextRequest) Reset() {
+	*x = GetTextRequest{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[60]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTextRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTextRequest) ProtoMessage() {}
+
+func (x *GetTextRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[60]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTextRequest.ProtoReflect.Descriptor instead.
+func (*GetTextRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{60}
+}
+
+func (x *GetTextRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetTextResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTextResponse) Reset() {
+	*x = GetTextResponse{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[61]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTextResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTextResponse) ProtoMessage() {}
+
+func (x *GetTextResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[61]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTextResponse.ProtoReflect.Descriptor instead.
+func (*GetTextResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{61}
+}
+
+func (x *GetTextResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type NewSpellCheckerSubtypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          string                 `protobuf:"bytes,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewSpellCheckerSubtypeRequest) Reset() {
+	*x = NewSpellCheckerSubtypeRequest{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[62]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewSpellCheckerSubtypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewSpellCheckerSubtypeRequest) ProtoMessage() {}
+
+func (x *NewSpellCheckerSubtypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[62]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewSpellCheckerSubtypeRequest.ProtoReflect.Descriptor instead.
+func (*NewSpellCheckerSubtypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{62}
+}
+
+func (x *NewSpellCheckerSubtypeRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *NewSpellCheckerSubtypeRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *NewSpellCheckerSubtypeRequest) GetArg2() string {
+	if x != nil {
+		return x.Arg2
+	}
+	return ""
+}
+
+type NewSpellCheckerSubtypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewSpellCheckerSubtypeResponse) Reset() {
+	*x = NewSpellCheckerSubtypeResponse{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[63]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewSpellCheckerSubtypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewSpellCheckerSubtypeResponse) ProtoMessage() {}
+
+func (x *NewSpellCheckerSubtypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[63]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewSpellCheckerSubtypeResponse.ProtoReflect.Descriptor instead.
+func (*NewSpellCheckerSubtypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{63}
+}
+
+func (x *NewSpellCheckerSubtypeResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ContainsExtraValueKeyRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          string                 `protobuf:"bytes,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ContainsExtraValueKeyRequest) Reset() {
+	*x = ContainsExtraValueKeyRequest{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[64]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ContainsExtraValueKeyRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ContainsExtraValueKeyRequest) ProtoMessage() {}
+
+func (x *ContainsExtraValueKeyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[64]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ContainsExtraValueKeyRequest.ProtoReflect.Descriptor instead.
+func (*ContainsExtraValueKeyRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{64}
+}
+
+func (x *ContainsExtraValueKeyRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *ContainsExtraValueKeyRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type ContainsExtraValueKeyResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ContainsExtraValueKeyResponse) Reset() {
+	*x = ContainsExtraValueKeyResponse{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[65]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ContainsExtraValueKeyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ContainsExtraValueKeyResponse) ProtoMessage() {}
+
+func (x *ContainsExtraValueKeyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[65]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ContainsExtraValueKeyResponse.ProtoReflect.Descriptor instead.
+func (*ContainsExtraValueKeyResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{65}
+}
+
+func (x *ContainsExtraValueKeyResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type EqualsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EqualsRequest) Reset() {
+	*x = EqualsRequest{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[66]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EqualsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EqualsRequest) ProtoMessage() {}
+
+func (x *EqualsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[66]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EqualsRequest.ProtoReflect.Descriptor instead.
+func (*EqualsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{66}
+}
+
+func (x *EqualsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *EqualsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type EqualsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EqualsResponse) Reset() {
+	*x = EqualsResponse{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[67]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EqualsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EqualsResponse) ProtoMessage() {}
+
+func (x *EqualsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[67]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EqualsResponse.ProtoReflect.Descriptor instead.
+func (*EqualsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{67}
+}
+
+func (x *EqualsResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type GetDisplayNameRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDisplayNameRequest) Reset() {
+	*x = GetDisplayNameRequest{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[68]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDisplayNameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDisplayNameRequest) ProtoMessage() {}
+
+func (x *GetDisplayNameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[68]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDisplayNameRequest.ProtoReflect.Descriptor instead.
+func (*GetDisplayNameRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{68}
+}
+
+func (x *GetDisplayNameRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetDisplayNameRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *GetDisplayNameRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *GetDisplayNameRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type GetDisplayNameResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDisplayNameResponse) Reset() {
+	*x = GetDisplayNameResponse{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[69]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDisplayNameResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDisplayNameResponse) ProtoMessage() {}
+
+func (x *GetDisplayNameResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[69]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDisplayNameResponse.ProtoReflect.Descriptor instead.
+func (*GetDisplayNameResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{69}
+}
+
+func (x *GetDisplayNameResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetExtraValueRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetExtraValueRequest) Reset() {
+	*x = GetExtraValueRequest{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[70]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetExtraValueRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetExtraValueRequest) ProtoMessage() {}
+
+func (x *GetExtraValueRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[70]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetExtraValueRequest.ProtoReflect.Descriptor instead.
+func (*GetExtraValueRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{70}
+}
+
+func (x *GetExtraValueRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetExtraValueResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetExtraValueResponse) Reset() {
+	*x = GetExtraValueResponse{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[71]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetExtraValueResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetExtraValueResponse) ProtoMessage() {}
+
+func (x *GetExtraValueResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[71]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetExtraValueResponse.ProtoReflect.Descriptor instead.
+func (*GetExtraValueResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{71}
+}
+
+func (x *GetExtraValueResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetExtraValueOfRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          string                 `protobuf:"bytes,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetExtraValueOfRequest) Reset() {
+	*x = GetExtraValueOfRequest{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[72]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetExtraValueOfRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetExtraValueOfRequest) ProtoMessage() {}
+
+func (x *GetExtraValueOfRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[72]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetExtraValueOfRequest.ProtoReflect.Descriptor instead.
+func (*GetExtraValueOfRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{72}
+}
+
+func (x *GetExtraValueOfRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetExtraValueOfRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type GetExtraValueOfResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetExtraValueOfResponse) Reset() {
+	*x = GetExtraValueOfResponse{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[73]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetExtraValueOfResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetExtraValueOfResponse) ProtoMessage() {}
+
+func (x *GetExtraValueOfResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[73]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetExtraValueOfResponse.ProtoReflect.Descriptor instead.
+func (*GetExtraValueOfResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{73}
+}
+
+func (x *GetExtraValueOfResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetLanguageTagRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLanguageTagRequest) Reset() {
+	*x = GetLanguageTagRequest{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[74]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLanguageTagRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLanguageTagRequest) ProtoMessage() {}
+
+func (x *GetLanguageTagRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[74]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLanguageTagRequest.ProtoReflect.Descriptor instead.
+func (*GetLanguageTagRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{74}
+}
+
+func (x *GetLanguageTagRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetLanguageTagResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLanguageTagResponse) Reset() {
+	*x = GetLanguageTagResponse{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[75]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLanguageTagResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLanguageTagResponse) ProtoMessage() {}
+
+func (x *GetLanguageTagResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[75]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLanguageTagResponse.ProtoReflect.Descriptor instead.
+func (*GetLanguageTagResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{75}
+}
+
+func (x *GetLanguageTagResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type SpellCheckerSubtypeGetLocaleRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SpellCheckerSubtypeGetLocaleRequest) Reset() {
+	*x = SpellCheckerSubtypeGetLocaleRequest{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[76]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SpellCheckerSubtypeGetLocaleRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SpellCheckerSubtypeGetLocaleRequest) ProtoMessage() {}
+
+func (x *SpellCheckerSubtypeGetLocaleRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[76]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SpellCheckerSubtypeGetLocaleRequest.ProtoReflect.Descriptor instead.
+func (*SpellCheckerSubtypeGetLocaleRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{76}
+}
+
+func (x *SpellCheckerSubtypeGetLocaleRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetNameResIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNameResIdRequest) Reset() {
+	*x = GetNameResIdRequest{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[77]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNameResIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNameResIdRequest) ProtoMessage() {}
+
+func (x *GetNameResIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[77]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNameResIdRequest.ProtoReflect.Descriptor instead.
+func (*GetNameResIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{77}
+}
+
+func (x *GetNameResIdRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetNameResIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNameResIdResponse) Reset() {
+	*x = GetNameResIdResponse{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[78]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNameResIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNameResIdResponse) ProtoMessage() {}
+
+func (x *GetNameResIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[78]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNameResIdResponse.ProtoReflect.Descriptor instead.
+func (*GetNameResIdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{78}
+}
+
+func (x *GetNameResIdResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type HashCodeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HashCodeRequest) Reset() {
+	*x = HashCodeRequest{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[79]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HashCodeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HashCodeRequest) ProtoMessage() {}
+
+func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[79]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HashCodeRequest.ProtoReflect.Descriptor instead.
+func (*HashCodeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{79}
+}
+
+func (x *HashCodeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type HashCodeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HashCodeResponse) Reset() {
+	*x = HashCodeResponse{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[80]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HashCodeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HashCodeResponse) ProtoMessage() {}
+
+func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[80]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HashCodeResponse.ProtoReflect.Descriptor instead.
+func (*HashCodeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{80}
+}
+
+func (x *HashCodeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SpellCheckerInfoDescribeContentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SpellCheckerInfoDescribeContentsRequest) Reset() {
+	*x = SpellCheckerInfoDescribeContentsRequest{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[81]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SpellCheckerInfoDescribeContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SpellCheckerInfoDescribeContentsRequest) ProtoMessage() {}
+
+func (x *SpellCheckerInfoDescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[81]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SpellCheckerInfoDescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*SpellCheckerInfoDescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{81}
+}
+
+type GetComponentRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetComponentRequest) Reset() {
+	*x = GetComponentRequest{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[82]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetComponentRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetComponentRequest) ProtoMessage() {}
+
+func (x *GetComponentRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[82]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetComponentRequest.ProtoReflect.Descriptor instead.
+func (*GetComponentRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{82}
+}
+
+type GetComponentResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetComponentResponse) Reset() {
+	*x = GetComponentResponse{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[83]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetComponentResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetComponentResponse) ProtoMessage() {}
+
+func (x *GetComponentResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[83]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetComponentResponse.ProtoReflect.Descriptor instead.
+func (*GetComponentResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{83}
+}
+
+func (x *GetComponentResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetIdRequest) Reset() {
+	*x = GetIdRequest{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[84]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetIdRequest) ProtoMessage() {}
+
+func (x *GetIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[84]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetIdRequest.ProtoReflect.Descriptor instead.
+func (*GetIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{84}
+}
+
+type GetIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetIdResponse) Reset() {
+	*x = GetIdResponse{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[85]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetIdResponse) ProtoMessage() {}
+
+func (x *GetIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[85]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetIdResponse.ProtoReflect.Descriptor instead.
+func (*GetIdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{85}
+}
+
+func (x *GetIdResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetPackageNameRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPackageNameRequest) Reset() {
+	*x = GetPackageNameRequest{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[86]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPackageNameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPackageNameRequest) ProtoMessage() {}
+
+func (x *GetPackageNameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[86]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPackageNameRequest.ProtoReflect.Descriptor instead.
+func (*GetPackageNameRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{86}
+}
+
+type GetPackageNameResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPackageNameResponse) Reset() {
+	*x = GetPackageNameResponse{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[87]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPackageNameResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPackageNameResponse) ProtoMessage() {}
+
+func (x *GetPackageNameResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[87]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPackageNameResponse.ProtoReflect.Descriptor instead.
+func (*GetPackageNameResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{87}
+}
+
+func (x *GetPackageNameResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetServiceInfoRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetServiceInfoRequest) Reset() {
+	*x = GetServiceInfoRequest{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[88]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetServiceInfoRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetServiceInfoRequest) ProtoMessage() {}
+
+func (x *GetServiceInfoRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[88]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetServiceInfoRequest.ProtoReflect.Descriptor instead.
+func (*GetServiceInfoRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{88}
+}
+
+type GetServiceInfoResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetServiceInfoResponse) Reset() {
+	*x = GetServiceInfoResponse{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[89]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetServiceInfoResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetServiceInfoResponse) ProtoMessage() {}
+
+func (x *GetServiceInfoResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[89]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetServiceInfoResponse.ProtoReflect.Descriptor instead.
+func (*GetServiceInfoResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{89}
+}
+
+func (x *GetServiceInfoResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSettingsActivityRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSettingsActivityRequest) Reset() {
+	*x = GetSettingsActivityRequest{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[90]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSettingsActivityRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSettingsActivityRequest) ProtoMessage() {}
+
+func (x *GetSettingsActivityRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[90]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSettingsActivityRequest.ProtoReflect.Descriptor instead.
+func (*GetSettingsActivityRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{90}
+}
+
+type GetSettingsActivityResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSettingsActivityResponse) Reset() {
+	*x = GetSettingsActivityResponse{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[91]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSettingsActivityResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSettingsActivityResponse) ProtoMessage() {}
+
+func (x *GetSettingsActivityResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[91]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSettingsActivityResponse.ProtoReflect.Descriptor instead.
+func (*GetSettingsActivityResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{91}
+}
+
+func (x *GetSettingsActivityResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetSubtypeAtRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSubtypeAtRequest) Reset() {
+	*x = GetSubtypeAtRequest{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[92]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSubtypeAtRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSubtypeAtRequest) ProtoMessage() {}
+
+func (x *GetSubtypeAtRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[92]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSubtypeAtRequest.ProtoReflect.Descriptor instead.
+func (*GetSubtypeAtRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{92}
+}
+
+func (x *GetSubtypeAtRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetSubtypeAtResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSubtypeAtResponse) Reset() {
+	*x = GetSubtypeAtResponse{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[93]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSubtypeAtResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSubtypeAtResponse) ProtoMessage() {}
+
+func (x *GetSubtypeAtResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[93]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSubtypeAtResponse.ProtoReflect.Descriptor instead.
+func (*GetSubtypeAtResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{93}
+}
+
+func (x *GetSubtypeAtResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSubtypeCountRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSubtypeCountRequest) Reset() {
+	*x = GetSubtypeCountRequest{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[94]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSubtypeCountRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSubtypeCountRequest) ProtoMessage() {}
+
+func (x *GetSubtypeCountRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[94]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSubtypeCountRequest.ProtoReflect.Descriptor instead.
+func (*GetSubtypeCountRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{94}
+}
+
+type GetSubtypeCountResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSubtypeCountResponse) Reset() {
+	*x = GetSubtypeCountResponse{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[95]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSubtypeCountResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSubtypeCountResponse) ProtoMessage() {}
+
+func (x *GetSubtypeCountResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[95]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSubtypeCountResponse.ProtoReflect.Descriptor instead.
+func (*GetSubtypeCountResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{95}
+}
+
+func (x *GetSubtypeCountResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type LoadIconRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *LoadIconRequest) Reset() {
+	*x = LoadIconRequest{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[96]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *LoadIconRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*LoadIconRequest) ProtoMessage() {}
+
+func (x *LoadIconRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[96]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use LoadIconRequest.ProtoReflect.Descriptor instead.
+func (*LoadIconRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{96}
+}
+
+func (x *LoadIconRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type LoadIconResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *LoadIconResponse) Reset() {
+	*x = LoadIconResponse{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[97]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *LoadIconResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*LoadIconResponse) ProtoMessage() {}
+
+func (x *LoadIconResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[97]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use LoadIconResponse.ProtoReflect.Descriptor instead.
+func (*LoadIconResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{97}
+}
+
+func (x *LoadIconResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type LoadLabelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *LoadLabelRequest) Reset() {
+	*x = LoadLabelRequest{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[98]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *LoadLabelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*LoadLabelRequest) ProtoMessage() {}
+
+func (x *LoadLabelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[98]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use LoadLabelRequest.ProtoReflect.Descriptor instead.
+func (*LoadLabelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{98}
+}
+
+func (x *LoadLabelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type LoadLabelResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *LoadLabelResponse) Reset() {
+	*x = LoadLabelResponse{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[99]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *LoadLabelResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*LoadLabelResponse) ProtoMessage() {}
+
+func (x *LoadLabelResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[99]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use LoadLabelResponse.ProtoReflect.Descriptor instead.
+func (*LoadLabelResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{99}
+}
+
+func (x *LoadLabelResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SpellCheckerInfoWriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SpellCheckerInfoWriteToParcelRequest) Reset() {
+	*x = SpellCheckerInfoWriteToParcelRequest{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[100]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SpellCheckerInfoWriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SpellCheckerInfoWriteToParcelRequest) ProtoMessage() {}
+
+func (x *SpellCheckerInfoWriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[100]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SpellCheckerInfoWriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*SpellCheckerInfoWriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{100}
+}
+
+func (x *SpellCheckerInfoWriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SpellCheckerInfoWriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type CancelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CancelRequest) Reset() {
+	*x = CancelRequest{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[101]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CancelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CancelRequest) ProtoMessage() {}
+
+func (x *CancelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[101]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CancelRequest.ProtoReflect.Descriptor instead.
+func (*CancelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{101}
+}
+
+type CancelResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CancelResponse) Reset() {
+	*x = CancelResponse{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[102]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CancelResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CancelResponse) ProtoMessage() {}
+
+func (x *CancelResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[102]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CancelResponse.ProtoReflect.Descriptor instead.
+func (*CancelResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{102}
+}
+
+type CloseRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CloseRequest) Reset() {
+	*x = CloseRequest{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[103]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CloseRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CloseRequest) ProtoMessage() {}
+
+func (x *CloseRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[103]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CloseRequest.ProtoReflect.Descriptor instead.
+func (*CloseRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{103}
+}
+
+type CloseResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CloseResponse) Reset() {
+	*x = CloseResponse{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[104]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CloseResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CloseResponse) ProtoMessage() {}
+
+func (x *CloseResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[104]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CloseResponse.ProtoReflect.Descriptor instead.
+func (*CloseResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{104}
+}
+
+type GetSentenceSuggestionsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSentenceSuggestionsRequest) Reset() {
+	*x = GetSentenceSuggestionsRequest{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[105]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSentenceSuggestionsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSentenceSuggestionsRequest) ProtoMessage() {}
+
+func (x *GetSentenceSuggestionsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[105]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSentenceSuggestionsRequest.ProtoReflect.Descriptor instead.
+func (*GetSentenceSuggestionsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{105}
+}
+
+func (x *GetSentenceSuggestionsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *GetSentenceSuggestionsRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type GetSentenceSuggestionsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSentenceSuggestionsResponse) Reset() {
+	*x = GetSentenceSuggestionsResponse{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[106]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSentenceSuggestionsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSentenceSuggestionsResponse) ProtoMessage() {}
+
+func (x *GetSentenceSuggestionsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[106]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSentenceSuggestionsResponse.ProtoReflect.Descriptor instead.
+func (*GetSentenceSuggestionsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{106}
+}
+
+type GetSpellCheckerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSpellCheckerRequest) Reset() {
+	*x = GetSpellCheckerRequest{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[107]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSpellCheckerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSpellCheckerRequest) ProtoMessage() {}
+
+func (x *GetSpellCheckerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[107]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSpellCheckerRequest.ProtoReflect.Descriptor instead.
+func (*GetSpellCheckerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{107}
+}
+
+type GetSpellCheckerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSpellCheckerResponse) Reset() {
+	*x = GetSpellCheckerResponse{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[108]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSpellCheckerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSpellCheckerResponse) ProtoMessage() {}
+
+func (x *GetSpellCheckerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[108]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSpellCheckerResponse.ProtoReflect.Descriptor instead.
+func (*GetSpellCheckerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{108}
+}
+
+func (x *GetSpellCheckerResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSuggestions2Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSuggestions2Request) Reset() {
+	*x = GetSuggestions2Request{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[109]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSuggestions2Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSuggestions2Request) ProtoMessage() {}
+
+func (x *GetSuggestions2Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[109]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSuggestions2Request.ProtoReflect.Descriptor instead.
+func (*GetSuggestions2Request) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{109}
+}
+
+func (x *GetSuggestions2Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *GetSuggestions2Request) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type GetSuggestions2Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSuggestions2Response) Reset() {
+	*x = GetSuggestions2Response{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[110]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSuggestions2Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSuggestions2Response) ProtoMessage() {}
+
+func (x *GetSuggestions2Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[110]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSuggestions2Response.ProtoReflect.Descriptor instead.
+func (*GetSuggestions2Response) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{110}
+}
+
+type GetSuggestions3_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          bool                   `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSuggestions3_1Request) Reset() {
+	*x = GetSuggestions3_1Request{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[111]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSuggestions3_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSuggestions3_1Request) ProtoMessage() {}
+
+func (x *GetSuggestions3_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[111]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSuggestions3_1Request.ProtoReflect.Descriptor instead.
+func (*GetSuggestions3_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{111}
+}
+
+func (x *GetSuggestions3_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *GetSuggestions3_1Request) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *GetSuggestions3_1Request) GetArg2() bool {
+	if x != nil {
+		return x.Arg2
+	}
+	return false
+}
+
+type GetSuggestions3_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSuggestions3_1Response) Reset() {
+	*x = GetSuggestions3_1Response{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[112]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSuggestions3_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSuggestions3_1Response) ProtoMessage() {}
+
+func (x *GetSuggestions3_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[112]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSuggestions3_1Response.ProtoReflect.Descriptor instead.
+func (*GetSuggestions3_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{112}
+}
+
+type IsSessionDisconnectedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsSessionDisconnectedRequest) Reset() {
+	*x = IsSessionDisconnectedRequest{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[113]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsSessionDisconnectedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsSessionDisconnectedRequest) ProtoMessage() {}
+
+func (x *IsSessionDisconnectedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[113]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsSessionDisconnectedRequest.ProtoReflect.Descriptor instead.
+func (*IsSessionDisconnectedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{113}
+}
+
+type IsSessionDisconnectedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsSessionDisconnectedResponse) Reset() {
+	*x = IsSessionDisconnectedResponse{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[114]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsSessionDisconnectedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsSessionDisconnectedResponse) ProtoMessage() {}
+
+func (x *IsSessionDisconnectedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[114]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsSessionDisconnectedResponse.ProtoReflect.Descriptor instead.
+func (*IsSessionDisconnectedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{114}
+}
+
+func (x *IsSessionDisconnectedResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type OnGetSentenceSuggestionsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnGetSentenceSuggestionsRequest) Reset() {
+	*x = OnGetSentenceSuggestionsRequest{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[115]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnGetSentenceSuggestionsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnGetSentenceSuggestionsRequest) ProtoMessage() {}
+
+func (x *OnGetSentenceSuggestionsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[115]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnGetSentenceSuggestionsRequest.ProtoReflect.Descriptor instead.
+func (*OnGetSentenceSuggestionsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{115}
+}
+
+func (x *OnGetSentenceSuggestionsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnGetSentenceSuggestionsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnGetSentenceSuggestionsResponse) Reset() {
+	*x = OnGetSentenceSuggestionsResponse{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[116]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnGetSentenceSuggestionsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnGetSentenceSuggestionsResponse) ProtoMessage() {}
+
+func (x *OnGetSentenceSuggestionsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[116]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnGetSentenceSuggestionsResponse.ProtoReflect.Descriptor instead.
+func (*OnGetSentenceSuggestionsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{116}
+}
+
+type SpellCheckerSessionSpellCheckerSessionListenerOnGetSuggestionsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SpellCheckerSessionSpellCheckerSessionListenerOnGetSuggestionsRequest) Reset() {
+	*x = SpellCheckerSessionSpellCheckerSessionListenerOnGetSuggestionsRequest{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[117]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SpellCheckerSessionSpellCheckerSessionListenerOnGetSuggestionsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SpellCheckerSessionSpellCheckerSessionListenerOnGetSuggestionsRequest) ProtoMessage() {}
+
+func (x *SpellCheckerSessionSpellCheckerSessionListenerOnGetSuggestionsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[117]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SpellCheckerSessionSpellCheckerSessionListenerOnGetSuggestionsRequest.ProtoReflect.Descriptor instead.
+func (*SpellCheckerSessionSpellCheckerSessionListenerOnGetSuggestionsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{117}
+}
+
+func (x *SpellCheckerSessionSpellCheckerSessionListenerOnGetSuggestionsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SpellCheckerSessionSpellCheckerSessionListenerOnGetSuggestionsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SpellCheckerSessionSpellCheckerSessionListenerOnGetSuggestionsResponse) Reset() {
+	*x = SpellCheckerSessionSpellCheckerSessionListenerOnGetSuggestionsResponse{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[118]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SpellCheckerSessionSpellCheckerSessionListenerOnGetSuggestionsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SpellCheckerSessionSpellCheckerSessionListenerOnGetSuggestionsResponse) ProtoMessage() {}
+
+func (x *SpellCheckerSessionSpellCheckerSessionListenerOnGetSuggestionsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[118]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SpellCheckerSessionSpellCheckerSessionListenerOnGetSuggestionsResponse.ProtoReflect.Descriptor instead.
+func (*SpellCheckerSessionSpellCheckerSessionListenerOnGetSuggestionsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{118}
+}
+
+type GetExtrasRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetExtrasRequest) Reset() {
+	*x = GetExtrasRequest{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[119]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetExtrasRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetExtrasRequest) ProtoMessage() {}
+
+func (x *GetExtrasRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[119]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetExtrasRequest.ProtoReflect.Descriptor instead.
+func (*GetExtrasRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{119}
+}
+
+type GetExtrasResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetExtrasResponse) Reset() {
+	*x = GetExtrasResponse{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[120]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetExtrasResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetExtrasResponse) ProtoMessage() {}
+
+func (x *GetExtrasResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[120]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetExtrasResponse.ProtoReflect.Descriptor instead.
+func (*GetExtrasResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{120}
+}
+
+func (x *GetExtrasResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SpellCheckerSessionSpellCheckerSessionParamsGetLocaleRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SpellCheckerSessionSpellCheckerSessionParamsGetLocaleRequest) Reset() {
+	*x = SpellCheckerSessionSpellCheckerSessionParamsGetLocaleRequest{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[121]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SpellCheckerSessionSpellCheckerSessionParamsGetLocaleRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SpellCheckerSessionSpellCheckerSessionParamsGetLocaleRequest) ProtoMessage() {}
+
+func (x *SpellCheckerSessionSpellCheckerSessionParamsGetLocaleRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[121]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SpellCheckerSessionSpellCheckerSessionParamsGetLocaleRequest.ProtoReflect.Descriptor instead.
+func (*SpellCheckerSessionSpellCheckerSessionParamsGetLocaleRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{121}
+}
+
+type SpellCheckerSessionSpellCheckerSessionParamsGetLocaleResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SpellCheckerSessionSpellCheckerSessionParamsGetLocaleResponse) Reset() {
+	*x = SpellCheckerSessionSpellCheckerSessionParamsGetLocaleResponse{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[122]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SpellCheckerSessionSpellCheckerSessionParamsGetLocaleResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SpellCheckerSessionSpellCheckerSessionParamsGetLocaleResponse) ProtoMessage() {}
+
+func (x *SpellCheckerSessionSpellCheckerSessionParamsGetLocaleResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[122]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SpellCheckerSessionSpellCheckerSessionParamsGetLocaleResponse.ProtoReflect.Descriptor instead.
+func (*SpellCheckerSessionSpellCheckerSessionParamsGetLocaleResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{122}
+}
+
+func (x *SpellCheckerSessionSpellCheckerSessionParamsGetLocaleResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ShouldReferToSpellCheckerLanguageSettingsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ShouldReferToSpellCheckerLanguageSettingsRequest) Reset() {
+	*x = ShouldReferToSpellCheckerLanguageSettingsRequest{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[123]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ShouldReferToSpellCheckerLanguageSettingsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ShouldReferToSpellCheckerLanguageSettingsRequest) ProtoMessage() {}
+
+func (x *ShouldReferToSpellCheckerLanguageSettingsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[123]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ShouldReferToSpellCheckerLanguageSettingsRequest.ProtoReflect.Descriptor instead.
+func (*ShouldReferToSpellCheckerLanguageSettingsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{123}
+}
+
+type ShouldReferToSpellCheckerLanguageSettingsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ShouldReferToSpellCheckerLanguageSettingsResponse) Reset() {
+	*x = ShouldReferToSpellCheckerLanguageSettingsResponse{}
+	mi := &file_proto_textservice_textservice_proto_msgTypes[124]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ShouldReferToSpellCheckerLanguageSettingsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ShouldReferToSpellCheckerLanguageSettingsResponse) ProtoMessage() {}
+
+func (x *ShouldReferToSpellCheckerLanguageSettingsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textservice_textservice_proto_msgTypes[124]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ShouldReferToSpellCheckerLanguageSettingsResponse.ProtoReflect.Descriptor instead.
+func (*ShouldReferToSpellCheckerLanguageSettingsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textservice_textservice_proto_rawDescGZIP(), []int{124}
+}
+
+func (x *ShouldReferToSpellCheckerLanguageSettingsResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
 var File_proto_textservice_textservice_proto protoreflect.FileDescriptor
 
 const file_proto_textservice_textservice_proto_rawDesc = "" +
 	"\n" +
-	"#proto/textservice/textservice.proto\x12\vtextservice\"#\n" +
+	"#proto/textservice/textservice.proto\x12\vtextservice\"\x16\n" +
+	"\x14CreateSessionRequest\"/\n" +
+	"\x15CreateSessionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"#\n" +
+	"\rOnBindRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"(\n" +
+	"\x0eOnBindResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x12\n" +
+	"\x10GetBundleRequest\"+\n" +
+	"\x11GetBundleResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x12\n" +
+	"\x10GetLocaleRequest\"+\n" +
+	"\x11GetLocaleResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x1f\n" +
+	"\x1dGetSupportedAttributesRequest\"8\n" +
+	"\x1eGetSupportedAttributesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x11\n" +
+	"\x0fOnCancelRequest\"\x12\n" +
+	"\x10OnCancelResponse\"\x10\n" +
+	"\x0eOnCloseRequest\"\x11\n" +
+	"\x0fOnCloseResponse\"\x11\n" +
+	"\x0fOnCreateRequest\"\x12\n" +
+	"\x10OnCreateResponse\"Q\n" +
+	"'OnGetSentenceSuggestionsMultipleRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"B\n" +
+	"(OnGetSentenceSuggestionsMultipleResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"A\n" +
+	"\x17OnGetSuggestionsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"2\n" +
+	"\x18OnGetSuggestionsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"]\n" +
+	"\x1fOnGetSuggestionsMultipleRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\bR\x04arg2\":\n" +
+	" OnGetSuggestionsMultipleResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"/\n" +
+	"\x19NewSuggestionsInfoRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"4\n" +
+	"\x1aNewSuggestionsInfoResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"1\n" +
+	"\x17DescribeContentsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"2\n" +
+	"\x18DescribeContentsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"*\n" +
+	"\x10GetCookieRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"+\n" +
+	"\x11GetCookieResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\",\n" +
+	"\x12GetSequenceRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"-\n" +
+	"\x13GetSequenceResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"D\n" +
+	"\x16GetSuggestionAtRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"1\n" +
+	"\x17GetSuggestionAtResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"9\n" +
+	"\x1fGetSuggestionsAttributesRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\":\n" +
+	" GetSuggestionsAttributesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"4\n" +
+	"\x1aGetSuggestionsCountRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"5\n" +
+	"\x1bGetSuggestionsCountResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"]\n" +
+	"\x1bSetCookieAndSequenceRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"\x1e\n" +
+	"\x1cSetCookieAndSequenceResponse\"V\n" +
+	"\x14WriteToParcelRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"\x17\n" +
+	"\x15WriteToParcelResponse\"#\n" +
 	"!GetCurrentSpellCheckerInfoRequest\"<\n" +
 	"\"GetCurrentSpellCheckerInfoResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1e\n" +
@@ -422,12 +5583,241 @@ const file_proto_textservice_textservice_proto_rawDesc = "" +
 	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
 	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\";\n" +
 	"!NewSpellCheckerSession3_1Response\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result2\xfd\x03\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"7\n" +
+	"!NewSentenceSuggestionsInfoRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"<\n" +
+	"\"NewSentenceSuggestionsInfoResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"@\n" +
+	"\x12GetLengthAtRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"-\n" +
+	"\x13GetLengthAtResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"@\n" +
+	"\x12GetOffsetAtRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"-\n" +
+	"\x13GetOffsetAtResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"I\n" +
+	"\x1bGetSuggestionsInfoAtRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"6\n" +
+	"\x1cGetSuggestionsInfoAtResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"(\n" +
+	"\x12NewTextInfoRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"-\n" +
+	"\x13NewTextInfoResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"0\n" +
+	"\x16GetCharSequenceRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"1\n" +
+	"\x17GetCharSequenceResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"(\n" +
+	"\x0eGetTextRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\")\n" +
+	"\x0fGetTextResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"[\n" +
+	"\x1dNewSpellCheckerSubtypeRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\tR\x04arg2\"8\n" +
+	"\x1eNewSpellCheckerSubtypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"J\n" +
+	"\x1cContainsExtraValueKeyRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\tR\x04arg0\"7\n" +
+	"\x1dContainsExtraValueKeyResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\";\n" +
+	"\rEqualsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"(\n" +
+	"\x0eEqualsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"k\n" +
+	"\x15GetDisplayNameRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x03R\x04arg2\"0\n" +
+	"\x16GetDisplayNameResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\".\n" +
+	"\x14GetExtraValueRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"/\n" +
+	"\x15GetExtraValueResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"D\n" +
+	"\x16GetExtraValueOfRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\tR\x04arg0\"1\n" +
+	"\x17GetExtraValueOfResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"/\n" +
+	"\x15GetLanguageTagRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"0\n" +
+	"\x16GetLanguageTagResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"=\n" +
+	"#SpellCheckerSubtypeGetLocaleRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"-\n" +
+	"\x13GetNameResIdRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\".\n" +
+	"\x14GetNameResIdResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\")\n" +
+	"\x0fHashCodeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
+	"\x10HashCodeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\")\n" +
+	"'SpellCheckerInfoDescribeContentsRequest\"\x15\n" +
+	"\x13GetComponentRequest\".\n" +
+	"\x14GetComponentResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x0e\n" +
+	"\fGetIdRequest\"'\n" +
+	"\rGetIdResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x17\n" +
+	"\x15GetPackageNameRequest\"0\n" +
+	"\x16GetPackageNameResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x17\n" +
+	"\x15GetServiceInfoRequest\"0\n" +
+	"\x16GetServiceInfoResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1c\n" +
+	"\x1aGetSettingsActivityRequest\"5\n" +
+	"\x1bGetSettingsActivityResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\")\n" +
+	"\x13GetSubtypeAtRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\".\n" +
+	"\x14GetSubtypeAtResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x18\n" +
+	"\x16GetSubtypeCountRequest\"1\n" +
+	"\x17GetSubtypeCountResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"%\n" +
+	"\x0fLoadIconRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"*\n" +
+	"\x10LoadIconResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"&\n" +
+	"\x10LoadLabelRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"+\n" +
+	"\x11LoadLabelResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"N\n" +
+	"$SpellCheckerInfoWriteToParcelRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x0f\n" +
+	"\rCancelRequest\"\x10\n" +
+	"\x0eCancelResponse\"\x0e\n" +
+	"\fCloseRequest\"\x0f\n" +
+	"\rCloseResponse\"G\n" +
+	"\x1dGetSentenceSuggestionsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\" \n" +
+	"\x1eGetSentenceSuggestionsResponse\"\x18\n" +
+	"\x16GetSpellCheckerRequest\"1\n" +
+	"\x17GetSpellCheckerResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"@\n" +
+	"\x16GetSuggestions2Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x19\n" +
+	"\x17GetSuggestions2Response\"V\n" +
+	"\x18GetSuggestions3_1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\bR\x04arg2\"\x1b\n" +
+	"\x19GetSuggestions3_1Response\"\x1e\n" +
+	"\x1cIsSessionDisconnectedRequest\"7\n" +
+	"\x1dIsSessionDisconnectedResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"5\n" +
+	"\x1fOnGetSentenceSuggestionsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\"\n" +
+	" OnGetSentenceSuggestionsResponse\"[\n" +
+	"ESpellCheckerSessionSpellCheckerSessionListenerOnGetSuggestionsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"H\n" +
+	"FSpellCheckerSessionSpellCheckerSessionListenerOnGetSuggestionsResponse\"\x12\n" +
+	"\x10GetExtrasRequest\"+\n" +
+	"\x11GetExtrasResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\">\n" +
+	"<SpellCheckerSessionSpellCheckerSessionParamsGetLocaleRequest\"W\n" +
+	"=SpellCheckerSessionSpellCheckerSessionParamsGetLocaleResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"2\n" +
+	"0ShouldReferToSpellCheckerLanguageSettingsRequest\"K\n" +
+	"1ShouldReferToSpellCheckerLanguageSettingsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result2\xb7\x01\n" +
+	"\x1aSpellCheckerServiceService\x12V\n" +
+	"\rCreateSession\x12!.textservice.CreateSessionRequest\x1a\".textservice.CreateSessionResponse\x12A\n" +
+	"\x06OnBind\x12\x1a.textservice.OnBindRequest\x1a\x1b.textservice.OnBindResponse2\xf2\x06\n" +
+	"!SpellCheckerServiceSessionService\x12J\n" +
+	"\tGetBundle\x12\x1d.textservice.GetBundleRequest\x1a\x1e.textservice.GetBundleResponse\x12J\n" +
+	"\tGetLocale\x12\x1d.textservice.GetLocaleRequest\x1a\x1e.textservice.GetLocaleResponse\x12q\n" +
+	"\x16GetSupportedAttributes\x12*.textservice.GetSupportedAttributesRequest\x1a+.textservice.GetSupportedAttributesResponse\x12G\n" +
+	"\bOnCancel\x12\x1c.textservice.OnCancelRequest\x1a\x1d.textservice.OnCancelResponse\x12D\n" +
+	"\aOnClose\x12\x1b.textservice.OnCloseRequest\x1a\x1c.textservice.OnCloseResponse\x12G\n" +
+	"\bOnCreate\x12\x1c.textservice.OnCreateRequest\x1a\x1d.textservice.OnCreateResponse\x12\x8f\x01\n" +
+	" OnGetSentenceSuggestionsMultiple\x124.textservice.OnGetSentenceSuggestionsMultipleRequest\x1a5.textservice.OnGetSentenceSuggestionsMultipleResponse\x12_\n" +
+	"\x10OnGetSuggestions\x12$.textservice.OnGetSuggestionsRequest\x1a%.textservice.OnGetSuggestionsResponse\x12w\n" +
+	"\x18OnGetSuggestionsMultiple\x12,.textservice.OnGetSuggestionsMultipleRequest\x1a-.textservice.OnGetSuggestionsMultipleResponse2\x84\a\n" +
+	"\x16SuggestionsInfoService\x12e\n" +
+	"\x12NewSuggestionsInfo\x12&.textservice.NewSuggestionsInfoRequest\x1a'.textservice.NewSuggestionsInfoResponse\x12_\n" +
+	"\x10DescribeContents\x12$.textservice.DescribeContentsRequest\x1a%.textservice.DescribeContentsResponse\x12J\n" +
+	"\tGetCookie\x12\x1d.textservice.GetCookieRequest\x1a\x1e.textservice.GetCookieResponse\x12P\n" +
+	"\vGetSequence\x12\x1f.textservice.GetSequenceRequest\x1a .textservice.GetSequenceResponse\x12\\\n" +
+	"\x0fGetSuggestionAt\x12#.textservice.GetSuggestionAtRequest\x1a$.textservice.GetSuggestionAtResponse\x12w\n" +
+	"\x18GetSuggestionsAttributes\x12,.textservice.GetSuggestionsAttributesRequest\x1a-.textservice.GetSuggestionsAttributesResponse\x12h\n" +
+	"\x13GetSuggestionsCount\x12'.textservice.GetSuggestionsCountRequest\x1a(.textservice.GetSuggestionsCountResponse\x12k\n" +
+	"\x14SetCookieAndSequence\x12(.textservice.SetCookieAndSequenceRequest\x1a).textservice.SetCookieAndSequenceResponse\x12V\n" +
+	"\rWriteToParcel\x12!.textservice.WriteToParcelRequest\x1a\".textservice.WriteToParcelResponse2\xfd\x03\n" +
 	"\x1aTextServicesManagerService\x12}\n" +
 	"\x1aGetCurrentSpellCheckerInfo\x12..textservice.GetCurrentSpellCheckerInfoRequest\x1a/.textservice.GetCurrentSpellCheckerInfoResponse\x12n\n" +
 	"\x15IsSpellCheckerEnabled\x12).textservice.IsSpellCheckerEnabledRequest\x1a*.textservice.IsSpellCheckerEnabledResponse\x12t\n" +
 	"\x17NewSpellCheckerSession4\x12+.textservice.NewSpellCheckerSession4Request\x1a,.textservice.NewSpellCheckerSession4Response\x12z\n" +
-	"\x19NewSpellCheckerSession3_1\x12-.textservice.NewSpellCheckerSession3_1Request\x1a..textservice.NewSpellCheckerSession3_1ResponseB5Z3github.com/AndroidGoLab/jni-proxy/proto/textserviceb\x06proto3"
+	"\x19NewSpellCheckerSession3_1\x12-.textservice.NewSpellCheckerSession3_1Request\x1a..textservice.NewSpellCheckerSession3_1Response2\xd3\x05\n" +
+	"\x1eSentenceSuggestionsInfoService\x12}\n" +
+	"\x1aNewSentenceSuggestionsInfo\x12..textservice.NewSentenceSuggestionsInfoRequest\x1a/.textservice.NewSentenceSuggestionsInfoResponse\x12_\n" +
+	"\x10DescribeContents\x12$.textservice.DescribeContentsRequest\x1a%.textservice.DescribeContentsResponse\x12P\n" +
+	"\vGetLengthAt\x12\x1f.textservice.GetLengthAtRequest\x1a .textservice.GetLengthAtResponse\x12P\n" +
+	"\vGetOffsetAt\x12\x1f.textservice.GetOffsetAtRequest\x1a .textservice.GetOffsetAtResponse\x12h\n" +
+	"\x13GetSuggestionsCount\x12'.textservice.GetSuggestionsCountRequest\x1a(.textservice.GetSuggestionsCountResponse\x12k\n" +
+	"\x14GetSuggestionsInfoAt\x12(.textservice.GetSuggestionsInfoAtRequest\x1a).textservice.GetSuggestionsInfoAtResponse\x12V\n" +
+	"\rWriteToParcel\x12!.textservice.WriteToParcelRequest\x1a\".textservice.WriteToParcelResponse2\xde\x04\n" +
+	"\x0fTextInfoService\x12P\n" +
+	"\vNewTextInfo\x12\x1f.textservice.NewTextInfoRequest\x1a .textservice.NewTextInfoResponse\x12_\n" +
+	"\x10DescribeContents\x12$.textservice.DescribeContentsRequest\x1a%.textservice.DescribeContentsResponse\x12\\\n" +
+	"\x0fGetCharSequence\x12#.textservice.GetCharSequenceRequest\x1a$.textservice.GetCharSequenceResponse\x12J\n" +
+	"\tGetCookie\x12\x1d.textservice.GetCookieRequest\x1a\x1e.textservice.GetCookieResponse\x12P\n" +
+	"\vGetSequence\x12\x1f.textservice.GetSequenceRequest\x1a .textservice.GetSequenceResponse\x12D\n" +
+	"\aGetText\x12\x1b.textservice.GetTextRequest\x1a\x1c.textservice.GetTextResponse\x12V\n" +
+	"\rWriteToParcel\x12!.textservice.WriteToParcelRequest\x1a\".textservice.WriteToParcelResponse2\xe4\b\n" +
+	"\x1aSpellCheckerSubtypeService\x12q\n" +
+	"\x16NewSpellCheckerSubtype\x12*.textservice.NewSpellCheckerSubtypeRequest\x1a+.textservice.NewSpellCheckerSubtypeResponse\x12n\n" +
+	"\x15ContainsExtraValueKey\x12).textservice.ContainsExtraValueKeyRequest\x1a*.textservice.ContainsExtraValueKeyResponse\x12_\n" +
+	"\x10DescribeContents\x12$.textservice.DescribeContentsRequest\x1a%.textservice.DescribeContentsResponse\x12A\n" +
+	"\x06Equals\x12\x1a.textservice.EqualsRequest\x1a\x1b.textservice.EqualsResponse\x12Y\n" +
+	"\x0eGetDisplayName\x12\".textservice.GetDisplayNameRequest\x1a#.textservice.GetDisplayNameResponse\x12V\n" +
+	"\rGetExtraValue\x12!.textservice.GetExtraValueRequest\x1a\".textservice.GetExtraValueResponse\x12\\\n" +
+	"\x0fGetExtraValueOf\x12#.textservice.GetExtraValueOfRequest\x1a$.textservice.GetExtraValueOfResponse\x12Y\n" +
+	"\x0eGetLanguageTag\x12\".textservice.GetLanguageTagRequest\x1a#.textservice.GetLanguageTagResponse\x12]\n" +
+	"\tGetLocale\x120.textservice.SpellCheckerSubtypeGetLocaleRequest\x1a\x1e.textservice.GetLocaleResponse\x12S\n" +
+	"\fGetNameResId\x12 .textservice.GetNameResIdRequest\x1a!.textservice.GetNameResIdResponse\x12G\n" +
+	"\bHashCode\x12\x1c.textservice.HashCodeRequest\x1a\x1d.textservice.HashCodeResponse\x12V\n" +
+	"\rWriteToParcel\x12!.textservice.WriteToParcelRequest\x1a\".textservice.WriteToParcelResponse2\xef\a\n" +
+	"\x17SpellCheckerInfoService\x12o\n" +
+	"\x10DescribeContents\x124.textservice.SpellCheckerInfoDescribeContentsRequest\x1a%.textservice.DescribeContentsResponse\x12S\n" +
+	"\fGetComponent\x12 .textservice.GetComponentRequest\x1a!.textservice.GetComponentResponse\x12>\n" +
+	"\x05GetId\x12\x19.textservice.GetIdRequest\x1a\x1a.textservice.GetIdResponse\x12Y\n" +
+	"\x0eGetPackageName\x12\".textservice.GetPackageNameRequest\x1a#.textservice.GetPackageNameResponse\x12Y\n" +
+	"\x0eGetServiceInfo\x12\".textservice.GetServiceInfoRequest\x1a#.textservice.GetServiceInfoResponse\x12h\n" +
+	"\x13GetSettingsActivity\x12'.textservice.GetSettingsActivityRequest\x1a(.textservice.GetSettingsActivityResponse\x12S\n" +
+	"\fGetSubtypeAt\x12 .textservice.GetSubtypeAtRequest\x1a!.textservice.GetSubtypeAtResponse\x12\\\n" +
+	"\x0fGetSubtypeCount\x12#.textservice.GetSubtypeCountRequest\x1a$.textservice.GetSubtypeCountResponse\x12G\n" +
+	"\bLoadIcon\x12\x1c.textservice.LoadIconRequest\x1a\x1d.textservice.LoadIconResponse\x12J\n" +
+	"\tLoadLabel\x12\x1d.textservice.LoadLabelRequest\x1a\x1e.textservice.LoadLabelResponse\x12f\n" +
+	"\rWriteToParcel\x121.textservice.SpellCheckerInfoWriteToParcelRequest\x1a\".textservice.WriteToParcelResponse2\xa2\x05\n" +
+	"\x1aSpellCheckerSessionService\x12A\n" +
+	"\x06Cancel\x12\x1a.textservice.CancelRequest\x1a\x1b.textservice.CancelResponse\x12>\n" +
+	"\x05Close\x12\x19.textservice.CloseRequest\x1a\x1a.textservice.CloseResponse\x12q\n" +
+	"\x16GetSentenceSuggestions\x12*.textservice.GetSentenceSuggestionsRequest\x1a+.textservice.GetSentenceSuggestionsResponse\x12\\\n" +
+	"\x0fGetSpellChecker\x12#.textservice.GetSpellCheckerRequest\x1a$.textservice.GetSpellCheckerResponse\x12\\\n" +
+	"\x0fGetSuggestions2\x12#.textservice.GetSuggestions2Request\x1a$.textservice.GetSuggestions2Response\x12b\n" +
+	"\x11GetSuggestions3_1\x12%.textservice.GetSuggestions3_1Request\x1a&.textservice.GetSuggestions3_1Response\x12n\n" +
+	"\x15IsSessionDisconnected\x12).textservice.IsSessionDisconnectedRequest\x1a*.textservice.IsSessionDisconnectedResponse2\xee\x02\n" +
+	"5SpellCheckerSessionSpellCheckerSessionListenerService\x12w\n" +
+	"\x18OnGetSentenceSuggestions\x12,.textservice.OnGetSentenceSuggestionsRequest\x1a-.textservice.OnGetSentenceSuggestionsResponse\x12\xbb\x01\n" +
+	"\x10OnGetSuggestions\x12R.textservice.SpellCheckerSessionSpellCheckerSessionListenerOnGetSuggestionsRequest\x1aS.textservice.SpellCheckerSessionSpellCheckerSessionListenerOnGetSuggestionsResponse2\xc6\x04\n" +
+	"3SpellCheckerSessionSpellCheckerSessionParamsService\x12J\n" +
+	"\tGetExtras\x12\x1d.textservice.GetExtrasRequest\x1a\x1e.textservice.GetExtrasResponse\x12\xa2\x01\n" +
+	"\tGetLocale\x12I.textservice.SpellCheckerSessionSpellCheckerSessionParamsGetLocaleRequest\x1aJ.textservice.SpellCheckerSessionSpellCheckerSessionParamsGetLocaleResponse\x12q\n" +
+	"\x16GetSupportedAttributes\x12*.textservice.GetSupportedAttributesRequest\x1a+.textservice.GetSupportedAttributesResponse\x12\xaa\x01\n" +
+	")ShouldReferToSpellCheckerLanguageSettings\x12=.textservice.ShouldReferToSpellCheckerLanguageSettingsRequest\x1a>.textservice.ShouldReferToSpellCheckerLanguageSettingsResponseB5Z3github.com/AndroidGoLab/jni-proxy/proto/textserviceb\x06proto3"
 
 var (
 	file_proto_textservice_textservice_proto_rawDescOnce sync.Once
@@ -441,31 +5831,288 @@ func file_proto_textservice_textservice_proto_rawDescGZIP() []byte {
 	return file_proto_textservice_textservice_proto_rawDescData
 }
 
-var file_proto_textservice_textservice_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
+var file_proto_textservice_textservice_proto_msgTypes = make([]protoimpl.MessageInfo, 125)
 var file_proto_textservice_textservice_proto_goTypes = []any{
-	(*GetCurrentSpellCheckerInfoRequest)(nil),  // 0: textservice.GetCurrentSpellCheckerInfoRequest
-	(*GetCurrentSpellCheckerInfoResponse)(nil), // 1: textservice.GetCurrentSpellCheckerInfoResponse
-	(*IsSpellCheckerEnabledRequest)(nil),       // 2: textservice.IsSpellCheckerEnabledRequest
-	(*IsSpellCheckerEnabledResponse)(nil),      // 3: textservice.IsSpellCheckerEnabledResponse
-	(*NewSpellCheckerSession4Request)(nil),     // 4: textservice.NewSpellCheckerSession4Request
-	(*NewSpellCheckerSession4Response)(nil),    // 5: textservice.NewSpellCheckerSession4Response
-	(*NewSpellCheckerSession3_1Request)(nil),   // 6: textservice.NewSpellCheckerSession3_1Request
-	(*NewSpellCheckerSession3_1Response)(nil),  // 7: textservice.NewSpellCheckerSession3_1Response
+	(*CreateSessionRequest)(nil),                     // 0: textservice.CreateSessionRequest
+	(*CreateSessionResponse)(nil),                    // 1: textservice.CreateSessionResponse
+	(*OnBindRequest)(nil),                            // 2: textservice.OnBindRequest
+	(*OnBindResponse)(nil),                           // 3: textservice.OnBindResponse
+	(*GetBundleRequest)(nil),                         // 4: textservice.GetBundleRequest
+	(*GetBundleResponse)(nil),                        // 5: textservice.GetBundleResponse
+	(*GetLocaleRequest)(nil),                         // 6: textservice.GetLocaleRequest
+	(*GetLocaleResponse)(nil),                        // 7: textservice.GetLocaleResponse
+	(*GetSupportedAttributesRequest)(nil),            // 8: textservice.GetSupportedAttributesRequest
+	(*GetSupportedAttributesResponse)(nil),           // 9: textservice.GetSupportedAttributesResponse
+	(*OnCancelRequest)(nil),                          // 10: textservice.OnCancelRequest
+	(*OnCancelResponse)(nil),                         // 11: textservice.OnCancelResponse
+	(*OnCloseRequest)(nil),                           // 12: textservice.OnCloseRequest
+	(*OnCloseResponse)(nil),                          // 13: textservice.OnCloseResponse
+	(*OnCreateRequest)(nil),                          // 14: textservice.OnCreateRequest
+	(*OnCreateResponse)(nil),                         // 15: textservice.OnCreateResponse
+	(*OnGetSentenceSuggestionsMultipleRequest)(nil),  // 16: textservice.OnGetSentenceSuggestionsMultipleRequest
+	(*OnGetSentenceSuggestionsMultipleResponse)(nil), // 17: textservice.OnGetSentenceSuggestionsMultipleResponse
+	(*OnGetSuggestionsRequest)(nil),                  // 18: textservice.OnGetSuggestionsRequest
+	(*OnGetSuggestionsResponse)(nil),                 // 19: textservice.OnGetSuggestionsResponse
+	(*OnGetSuggestionsMultipleRequest)(nil),          // 20: textservice.OnGetSuggestionsMultipleRequest
+	(*OnGetSuggestionsMultipleResponse)(nil),         // 21: textservice.OnGetSuggestionsMultipleResponse
+	(*NewSuggestionsInfoRequest)(nil),                // 22: textservice.NewSuggestionsInfoRequest
+	(*NewSuggestionsInfoResponse)(nil),               // 23: textservice.NewSuggestionsInfoResponse
+	(*DescribeContentsRequest)(nil),                  // 24: textservice.DescribeContentsRequest
+	(*DescribeContentsResponse)(nil),                 // 25: textservice.DescribeContentsResponse
+	(*GetCookieRequest)(nil),                         // 26: textservice.GetCookieRequest
+	(*GetCookieResponse)(nil),                        // 27: textservice.GetCookieResponse
+	(*GetSequenceRequest)(nil),                       // 28: textservice.GetSequenceRequest
+	(*GetSequenceResponse)(nil),                      // 29: textservice.GetSequenceResponse
+	(*GetSuggestionAtRequest)(nil),                   // 30: textservice.GetSuggestionAtRequest
+	(*GetSuggestionAtResponse)(nil),                  // 31: textservice.GetSuggestionAtResponse
+	(*GetSuggestionsAttributesRequest)(nil),          // 32: textservice.GetSuggestionsAttributesRequest
+	(*GetSuggestionsAttributesResponse)(nil),         // 33: textservice.GetSuggestionsAttributesResponse
+	(*GetSuggestionsCountRequest)(nil),               // 34: textservice.GetSuggestionsCountRequest
+	(*GetSuggestionsCountResponse)(nil),              // 35: textservice.GetSuggestionsCountResponse
+	(*SetCookieAndSequenceRequest)(nil),              // 36: textservice.SetCookieAndSequenceRequest
+	(*SetCookieAndSequenceResponse)(nil),             // 37: textservice.SetCookieAndSequenceResponse
+	(*WriteToParcelRequest)(nil),                     // 38: textservice.WriteToParcelRequest
+	(*WriteToParcelResponse)(nil),                    // 39: textservice.WriteToParcelResponse
+	(*GetCurrentSpellCheckerInfoRequest)(nil),        // 40: textservice.GetCurrentSpellCheckerInfoRequest
+	(*GetCurrentSpellCheckerInfoResponse)(nil),       // 41: textservice.GetCurrentSpellCheckerInfoResponse
+	(*IsSpellCheckerEnabledRequest)(nil),             // 42: textservice.IsSpellCheckerEnabledRequest
+	(*IsSpellCheckerEnabledResponse)(nil),            // 43: textservice.IsSpellCheckerEnabledResponse
+	(*NewSpellCheckerSession4Request)(nil),           // 44: textservice.NewSpellCheckerSession4Request
+	(*NewSpellCheckerSession4Response)(nil),          // 45: textservice.NewSpellCheckerSession4Response
+	(*NewSpellCheckerSession3_1Request)(nil),         // 46: textservice.NewSpellCheckerSession3_1Request
+	(*NewSpellCheckerSession3_1Response)(nil),        // 47: textservice.NewSpellCheckerSession3_1Response
+	(*NewSentenceSuggestionsInfoRequest)(nil),        // 48: textservice.NewSentenceSuggestionsInfoRequest
+	(*NewSentenceSuggestionsInfoResponse)(nil),       // 49: textservice.NewSentenceSuggestionsInfoResponse
+	(*GetLengthAtRequest)(nil),                       // 50: textservice.GetLengthAtRequest
+	(*GetLengthAtResponse)(nil),                      // 51: textservice.GetLengthAtResponse
+	(*GetOffsetAtRequest)(nil),                       // 52: textservice.GetOffsetAtRequest
+	(*GetOffsetAtResponse)(nil),                      // 53: textservice.GetOffsetAtResponse
+	(*GetSuggestionsInfoAtRequest)(nil),              // 54: textservice.GetSuggestionsInfoAtRequest
+	(*GetSuggestionsInfoAtResponse)(nil),             // 55: textservice.GetSuggestionsInfoAtResponse
+	(*NewTextInfoRequest)(nil),                       // 56: textservice.NewTextInfoRequest
+	(*NewTextInfoResponse)(nil),                      // 57: textservice.NewTextInfoResponse
+	(*GetCharSequenceRequest)(nil),                   // 58: textservice.GetCharSequenceRequest
+	(*GetCharSequenceResponse)(nil),                  // 59: textservice.GetCharSequenceResponse
+	(*GetTextRequest)(nil),                           // 60: textservice.GetTextRequest
+	(*GetTextResponse)(nil),                          // 61: textservice.GetTextResponse
+	(*NewSpellCheckerSubtypeRequest)(nil),            // 62: textservice.NewSpellCheckerSubtypeRequest
+	(*NewSpellCheckerSubtypeResponse)(nil),           // 63: textservice.NewSpellCheckerSubtypeResponse
+	(*ContainsExtraValueKeyRequest)(nil),             // 64: textservice.ContainsExtraValueKeyRequest
+	(*ContainsExtraValueKeyResponse)(nil),            // 65: textservice.ContainsExtraValueKeyResponse
+	(*EqualsRequest)(nil),                            // 66: textservice.EqualsRequest
+	(*EqualsResponse)(nil),                           // 67: textservice.EqualsResponse
+	(*GetDisplayNameRequest)(nil),                    // 68: textservice.GetDisplayNameRequest
+	(*GetDisplayNameResponse)(nil),                   // 69: textservice.GetDisplayNameResponse
+	(*GetExtraValueRequest)(nil),                     // 70: textservice.GetExtraValueRequest
+	(*GetExtraValueResponse)(nil),                    // 71: textservice.GetExtraValueResponse
+	(*GetExtraValueOfRequest)(nil),                   // 72: textservice.GetExtraValueOfRequest
+	(*GetExtraValueOfResponse)(nil),                  // 73: textservice.GetExtraValueOfResponse
+	(*GetLanguageTagRequest)(nil),                    // 74: textservice.GetLanguageTagRequest
+	(*GetLanguageTagResponse)(nil),                   // 75: textservice.GetLanguageTagResponse
+	(*SpellCheckerSubtypeGetLocaleRequest)(nil),      // 76: textservice.SpellCheckerSubtypeGetLocaleRequest
+	(*GetNameResIdRequest)(nil),                      // 77: textservice.GetNameResIdRequest
+	(*GetNameResIdResponse)(nil),                     // 78: textservice.GetNameResIdResponse
+	(*HashCodeRequest)(nil),                          // 79: textservice.HashCodeRequest
+	(*HashCodeResponse)(nil),                         // 80: textservice.HashCodeResponse
+	(*SpellCheckerInfoDescribeContentsRequest)(nil),  // 81: textservice.SpellCheckerInfoDescribeContentsRequest
+	(*GetComponentRequest)(nil),                      // 82: textservice.GetComponentRequest
+	(*GetComponentResponse)(nil),                     // 83: textservice.GetComponentResponse
+	(*GetIdRequest)(nil),                             // 84: textservice.GetIdRequest
+	(*GetIdResponse)(nil),                            // 85: textservice.GetIdResponse
+	(*GetPackageNameRequest)(nil),                    // 86: textservice.GetPackageNameRequest
+	(*GetPackageNameResponse)(nil),                   // 87: textservice.GetPackageNameResponse
+	(*GetServiceInfoRequest)(nil),                    // 88: textservice.GetServiceInfoRequest
+	(*GetServiceInfoResponse)(nil),                   // 89: textservice.GetServiceInfoResponse
+	(*GetSettingsActivityRequest)(nil),               // 90: textservice.GetSettingsActivityRequest
+	(*GetSettingsActivityResponse)(nil),              // 91: textservice.GetSettingsActivityResponse
+	(*GetSubtypeAtRequest)(nil),                      // 92: textservice.GetSubtypeAtRequest
+	(*GetSubtypeAtResponse)(nil),                     // 93: textservice.GetSubtypeAtResponse
+	(*GetSubtypeCountRequest)(nil),                   // 94: textservice.GetSubtypeCountRequest
+	(*GetSubtypeCountResponse)(nil),                  // 95: textservice.GetSubtypeCountResponse
+	(*LoadIconRequest)(nil),                          // 96: textservice.LoadIconRequest
+	(*LoadIconResponse)(nil),                         // 97: textservice.LoadIconResponse
+	(*LoadLabelRequest)(nil),                         // 98: textservice.LoadLabelRequest
+	(*LoadLabelResponse)(nil),                        // 99: textservice.LoadLabelResponse
+	(*SpellCheckerInfoWriteToParcelRequest)(nil),     // 100: textservice.SpellCheckerInfoWriteToParcelRequest
+	(*CancelRequest)(nil),                            // 101: textservice.CancelRequest
+	(*CancelResponse)(nil),                           // 102: textservice.CancelResponse
+	(*CloseRequest)(nil),                             // 103: textservice.CloseRequest
+	(*CloseResponse)(nil),                            // 104: textservice.CloseResponse
+	(*GetSentenceSuggestionsRequest)(nil),            // 105: textservice.GetSentenceSuggestionsRequest
+	(*GetSentenceSuggestionsResponse)(nil),           // 106: textservice.GetSentenceSuggestionsResponse
+	(*GetSpellCheckerRequest)(nil),                   // 107: textservice.GetSpellCheckerRequest
+	(*GetSpellCheckerResponse)(nil),                  // 108: textservice.GetSpellCheckerResponse
+	(*GetSuggestions2Request)(nil),                   // 109: textservice.GetSuggestions2Request
+	(*GetSuggestions2Response)(nil),                  // 110: textservice.GetSuggestions2Response
+	(*GetSuggestions3_1Request)(nil),                 // 111: textservice.GetSuggestions3_1Request
+	(*GetSuggestions3_1Response)(nil),                // 112: textservice.GetSuggestions3_1Response
+	(*IsSessionDisconnectedRequest)(nil),             // 113: textservice.IsSessionDisconnectedRequest
+	(*IsSessionDisconnectedResponse)(nil),            // 114: textservice.IsSessionDisconnectedResponse
+	(*OnGetSentenceSuggestionsRequest)(nil),          // 115: textservice.OnGetSentenceSuggestionsRequest
+	(*OnGetSentenceSuggestionsResponse)(nil),         // 116: textservice.OnGetSentenceSuggestionsResponse
+	(*SpellCheckerSessionSpellCheckerSessionListenerOnGetSuggestionsRequest)(nil),  // 117: textservice.SpellCheckerSessionSpellCheckerSessionListenerOnGetSuggestionsRequest
+	(*SpellCheckerSessionSpellCheckerSessionListenerOnGetSuggestionsResponse)(nil), // 118: textservice.SpellCheckerSessionSpellCheckerSessionListenerOnGetSuggestionsResponse
+	(*GetExtrasRequest)(nil),  // 119: textservice.GetExtrasRequest
+	(*GetExtrasResponse)(nil), // 120: textservice.GetExtrasResponse
+	(*SpellCheckerSessionSpellCheckerSessionParamsGetLocaleRequest)(nil),  // 121: textservice.SpellCheckerSessionSpellCheckerSessionParamsGetLocaleRequest
+	(*SpellCheckerSessionSpellCheckerSessionParamsGetLocaleResponse)(nil), // 122: textservice.SpellCheckerSessionSpellCheckerSessionParamsGetLocaleResponse
+	(*ShouldReferToSpellCheckerLanguageSettingsRequest)(nil),              // 123: textservice.ShouldReferToSpellCheckerLanguageSettingsRequest
+	(*ShouldReferToSpellCheckerLanguageSettingsResponse)(nil),             // 124: textservice.ShouldReferToSpellCheckerLanguageSettingsResponse
 }
 var file_proto_textservice_textservice_proto_depIdxs = []int32{
-	0, // 0: textservice.TextServicesManagerService.GetCurrentSpellCheckerInfo:input_type -> textservice.GetCurrentSpellCheckerInfoRequest
-	2, // 1: textservice.TextServicesManagerService.IsSpellCheckerEnabled:input_type -> textservice.IsSpellCheckerEnabledRequest
-	4, // 2: textservice.TextServicesManagerService.NewSpellCheckerSession4:input_type -> textservice.NewSpellCheckerSession4Request
-	6, // 3: textservice.TextServicesManagerService.NewSpellCheckerSession3_1:input_type -> textservice.NewSpellCheckerSession3_1Request
-	1, // 4: textservice.TextServicesManagerService.GetCurrentSpellCheckerInfo:output_type -> textservice.GetCurrentSpellCheckerInfoResponse
-	3, // 5: textservice.TextServicesManagerService.IsSpellCheckerEnabled:output_type -> textservice.IsSpellCheckerEnabledResponse
-	5, // 6: textservice.TextServicesManagerService.NewSpellCheckerSession4:output_type -> textservice.NewSpellCheckerSession4Response
-	7, // 7: textservice.TextServicesManagerService.NewSpellCheckerSession3_1:output_type -> textservice.NewSpellCheckerSession3_1Response
-	4, // [4:8] is the sub-list for method output_type
-	0, // [0:4] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	0,   // 0: textservice.SpellCheckerServiceService.CreateSession:input_type -> textservice.CreateSessionRequest
+	2,   // 1: textservice.SpellCheckerServiceService.OnBind:input_type -> textservice.OnBindRequest
+	4,   // 2: textservice.SpellCheckerServiceSessionService.GetBundle:input_type -> textservice.GetBundleRequest
+	6,   // 3: textservice.SpellCheckerServiceSessionService.GetLocale:input_type -> textservice.GetLocaleRequest
+	8,   // 4: textservice.SpellCheckerServiceSessionService.GetSupportedAttributes:input_type -> textservice.GetSupportedAttributesRequest
+	10,  // 5: textservice.SpellCheckerServiceSessionService.OnCancel:input_type -> textservice.OnCancelRequest
+	12,  // 6: textservice.SpellCheckerServiceSessionService.OnClose:input_type -> textservice.OnCloseRequest
+	14,  // 7: textservice.SpellCheckerServiceSessionService.OnCreate:input_type -> textservice.OnCreateRequest
+	16,  // 8: textservice.SpellCheckerServiceSessionService.OnGetSentenceSuggestionsMultiple:input_type -> textservice.OnGetSentenceSuggestionsMultipleRequest
+	18,  // 9: textservice.SpellCheckerServiceSessionService.OnGetSuggestions:input_type -> textservice.OnGetSuggestionsRequest
+	20,  // 10: textservice.SpellCheckerServiceSessionService.OnGetSuggestionsMultiple:input_type -> textservice.OnGetSuggestionsMultipleRequest
+	22,  // 11: textservice.SuggestionsInfoService.NewSuggestionsInfo:input_type -> textservice.NewSuggestionsInfoRequest
+	24,  // 12: textservice.SuggestionsInfoService.DescribeContents:input_type -> textservice.DescribeContentsRequest
+	26,  // 13: textservice.SuggestionsInfoService.GetCookie:input_type -> textservice.GetCookieRequest
+	28,  // 14: textservice.SuggestionsInfoService.GetSequence:input_type -> textservice.GetSequenceRequest
+	30,  // 15: textservice.SuggestionsInfoService.GetSuggestionAt:input_type -> textservice.GetSuggestionAtRequest
+	32,  // 16: textservice.SuggestionsInfoService.GetSuggestionsAttributes:input_type -> textservice.GetSuggestionsAttributesRequest
+	34,  // 17: textservice.SuggestionsInfoService.GetSuggestionsCount:input_type -> textservice.GetSuggestionsCountRequest
+	36,  // 18: textservice.SuggestionsInfoService.SetCookieAndSequence:input_type -> textservice.SetCookieAndSequenceRequest
+	38,  // 19: textservice.SuggestionsInfoService.WriteToParcel:input_type -> textservice.WriteToParcelRequest
+	40,  // 20: textservice.TextServicesManagerService.GetCurrentSpellCheckerInfo:input_type -> textservice.GetCurrentSpellCheckerInfoRequest
+	42,  // 21: textservice.TextServicesManagerService.IsSpellCheckerEnabled:input_type -> textservice.IsSpellCheckerEnabledRequest
+	44,  // 22: textservice.TextServicesManagerService.NewSpellCheckerSession4:input_type -> textservice.NewSpellCheckerSession4Request
+	46,  // 23: textservice.TextServicesManagerService.NewSpellCheckerSession3_1:input_type -> textservice.NewSpellCheckerSession3_1Request
+	48,  // 24: textservice.SentenceSuggestionsInfoService.NewSentenceSuggestionsInfo:input_type -> textservice.NewSentenceSuggestionsInfoRequest
+	24,  // 25: textservice.SentenceSuggestionsInfoService.DescribeContents:input_type -> textservice.DescribeContentsRequest
+	50,  // 26: textservice.SentenceSuggestionsInfoService.GetLengthAt:input_type -> textservice.GetLengthAtRequest
+	52,  // 27: textservice.SentenceSuggestionsInfoService.GetOffsetAt:input_type -> textservice.GetOffsetAtRequest
+	34,  // 28: textservice.SentenceSuggestionsInfoService.GetSuggestionsCount:input_type -> textservice.GetSuggestionsCountRequest
+	54,  // 29: textservice.SentenceSuggestionsInfoService.GetSuggestionsInfoAt:input_type -> textservice.GetSuggestionsInfoAtRequest
+	38,  // 30: textservice.SentenceSuggestionsInfoService.WriteToParcel:input_type -> textservice.WriteToParcelRequest
+	56,  // 31: textservice.TextInfoService.NewTextInfo:input_type -> textservice.NewTextInfoRequest
+	24,  // 32: textservice.TextInfoService.DescribeContents:input_type -> textservice.DescribeContentsRequest
+	58,  // 33: textservice.TextInfoService.GetCharSequence:input_type -> textservice.GetCharSequenceRequest
+	26,  // 34: textservice.TextInfoService.GetCookie:input_type -> textservice.GetCookieRequest
+	28,  // 35: textservice.TextInfoService.GetSequence:input_type -> textservice.GetSequenceRequest
+	60,  // 36: textservice.TextInfoService.GetText:input_type -> textservice.GetTextRequest
+	38,  // 37: textservice.TextInfoService.WriteToParcel:input_type -> textservice.WriteToParcelRequest
+	62,  // 38: textservice.SpellCheckerSubtypeService.NewSpellCheckerSubtype:input_type -> textservice.NewSpellCheckerSubtypeRequest
+	64,  // 39: textservice.SpellCheckerSubtypeService.ContainsExtraValueKey:input_type -> textservice.ContainsExtraValueKeyRequest
+	24,  // 40: textservice.SpellCheckerSubtypeService.DescribeContents:input_type -> textservice.DescribeContentsRequest
+	66,  // 41: textservice.SpellCheckerSubtypeService.Equals:input_type -> textservice.EqualsRequest
+	68,  // 42: textservice.SpellCheckerSubtypeService.GetDisplayName:input_type -> textservice.GetDisplayNameRequest
+	70,  // 43: textservice.SpellCheckerSubtypeService.GetExtraValue:input_type -> textservice.GetExtraValueRequest
+	72,  // 44: textservice.SpellCheckerSubtypeService.GetExtraValueOf:input_type -> textservice.GetExtraValueOfRequest
+	74,  // 45: textservice.SpellCheckerSubtypeService.GetLanguageTag:input_type -> textservice.GetLanguageTagRequest
+	76,  // 46: textservice.SpellCheckerSubtypeService.GetLocale:input_type -> textservice.SpellCheckerSubtypeGetLocaleRequest
+	77,  // 47: textservice.SpellCheckerSubtypeService.GetNameResId:input_type -> textservice.GetNameResIdRequest
+	79,  // 48: textservice.SpellCheckerSubtypeService.HashCode:input_type -> textservice.HashCodeRequest
+	38,  // 49: textservice.SpellCheckerSubtypeService.WriteToParcel:input_type -> textservice.WriteToParcelRequest
+	81,  // 50: textservice.SpellCheckerInfoService.DescribeContents:input_type -> textservice.SpellCheckerInfoDescribeContentsRequest
+	82,  // 51: textservice.SpellCheckerInfoService.GetComponent:input_type -> textservice.GetComponentRequest
+	84,  // 52: textservice.SpellCheckerInfoService.GetId:input_type -> textservice.GetIdRequest
+	86,  // 53: textservice.SpellCheckerInfoService.GetPackageName:input_type -> textservice.GetPackageNameRequest
+	88,  // 54: textservice.SpellCheckerInfoService.GetServiceInfo:input_type -> textservice.GetServiceInfoRequest
+	90,  // 55: textservice.SpellCheckerInfoService.GetSettingsActivity:input_type -> textservice.GetSettingsActivityRequest
+	92,  // 56: textservice.SpellCheckerInfoService.GetSubtypeAt:input_type -> textservice.GetSubtypeAtRequest
+	94,  // 57: textservice.SpellCheckerInfoService.GetSubtypeCount:input_type -> textservice.GetSubtypeCountRequest
+	96,  // 58: textservice.SpellCheckerInfoService.LoadIcon:input_type -> textservice.LoadIconRequest
+	98,  // 59: textservice.SpellCheckerInfoService.LoadLabel:input_type -> textservice.LoadLabelRequest
+	100, // 60: textservice.SpellCheckerInfoService.WriteToParcel:input_type -> textservice.SpellCheckerInfoWriteToParcelRequest
+	101, // 61: textservice.SpellCheckerSessionService.Cancel:input_type -> textservice.CancelRequest
+	103, // 62: textservice.SpellCheckerSessionService.Close:input_type -> textservice.CloseRequest
+	105, // 63: textservice.SpellCheckerSessionService.GetSentenceSuggestions:input_type -> textservice.GetSentenceSuggestionsRequest
+	107, // 64: textservice.SpellCheckerSessionService.GetSpellChecker:input_type -> textservice.GetSpellCheckerRequest
+	109, // 65: textservice.SpellCheckerSessionService.GetSuggestions2:input_type -> textservice.GetSuggestions2Request
+	111, // 66: textservice.SpellCheckerSessionService.GetSuggestions3_1:input_type -> textservice.GetSuggestions3_1Request
+	113, // 67: textservice.SpellCheckerSessionService.IsSessionDisconnected:input_type -> textservice.IsSessionDisconnectedRequest
+	115, // 68: textservice.SpellCheckerSessionSpellCheckerSessionListenerService.OnGetSentenceSuggestions:input_type -> textservice.OnGetSentenceSuggestionsRequest
+	117, // 69: textservice.SpellCheckerSessionSpellCheckerSessionListenerService.OnGetSuggestions:input_type -> textservice.SpellCheckerSessionSpellCheckerSessionListenerOnGetSuggestionsRequest
+	119, // 70: textservice.SpellCheckerSessionSpellCheckerSessionParamsService.GetExtras:input_type -> textservice.GetExtrasRequest
+	121, // 71: textservice.SpellCheckerSessionSpellCheckerSessionParamsService.GetLocale:input_type -> textservice.SpellCheckerSessionSpellCheckerSessionParamsGetLocaleRequest
+	8,   // 72: textservice.SpellCheckerSessionSpellCheckerSessionParamsService.GetSupportedAttributes:input_type -> textservice.GetSupportedAttributesRequest
+	123, // 73: textservice.SpellCheckerSessionSpellCheckerSessionParamsService.ShouldReferToSpellCheckerLanguageSettings:input_type -> textservice.ShouldReferToSpellCheckerLanguageSettingsRequest
+	1,   // 74: textservice.SpellCheckerServiceService.CreateSession:output_type -> textservice.CreateSessionResponse
+	3,   // 75: textservice.SpellCheckerServiceService.OnBind:output_type -> textservice.OnBindResponse
+	5,   // 76: textservice.SpellCheckerServiceSessionService.GetBundle:output_type -> textservice.GetBundleResponse
+	7,   // 77: textservice.SpellCheckerServiceSessionService.GetLocale:output_type -> textservice.GetLocaleResponse
+	9,   // 78: textservice.SpellCheckerServiceSessionService.GetSupportedAttributes:output_type -> textservice.GetSupportedAttributesResponse
+	11,  // 79: textservice.SpellCheckerServiceSessionService.OnCancel:output_type -> textservice.OnCancelResponse
+	13,  // 80: textservice.SpellCheckerServiceSessionService.OnClose:output_type -> textservice.OnCloseResponse
+	15,  // 81: textservice.SpellCheckerServiceSessionService.OnCreate:output_type -> textservice.OnCreateResponse
+	17,  // 82: textservice.SpellCheckerServiceSessionService.OnGetSentenceSuggestionsMultiple:output_type -> textservice.OnGetSentenceSuggestionsMultipleResponse
+	19,  // 83: textservice.SpellCheckerServiceSessionService.OnGetSuggestions:output_type -> textservice.OnGetSuggestionsResponse
+	21,  // 84: textservice.SpellCheckerServiceSessionService.OnGetSuggestionsMultiple:output_type -> textservice.OnGetSuggestionsMultipleResponse
+	23,  // 85: textservice.SuggestionsInfoService.NewSuggestionsInfo:output_type -> textservice.NewSuggestionsInfoResponse
+	25,  // 86: textservice.SuggestionsInfoService.DescribeContents:output_type -> textservice.DescribeContentsResponse
+	27,  // 87: textservice.SuggestionsInfoService.GetCookie:output_type -> textservice.GetCookieResponse
+	29,  // 88: textservice.SuggestionsInfoService.GetSequence:output_type -> textservice.GetSequenceResponse
+	31,  // 89: textservice.SuggestionsInfoService.GetSuggestionAt:output_type -> textservice.GetSuggestionAtResponse
+	33,  // 90: textservice.SuggestionsInfoService.GetSuggestionsAttributes:output_type -> textservice.GetSuggestionsAttributesResponse
+	35,  // 91: textservice.SuggestionsInfoService.GetSuggestionsCount:output_type -> textservice.GetSuggestionsCountResponse
+	37,  // 92: textservice.SuggestionsInfoService.SetCookieAndSequence:output_type -> textservice.SetCookieAndSequenceResponse
+	39,  // 93: textservice.SuggestionsInfoService.WriteToParcel:output_type -> textservice.WriteToParcelResponse
+	41,  // 94: textservice.TextServicesManagerService.GetCurrentSpellCheckerInfo:output_type -> textservice.GetCurrentSpellCheckerInfoResponse
+	43,  // 95: textservice.TextServicesManagerService.IsSpellCheckerEnabled:output_type -> textservice.IsSpellCheckerEnabledResponse
+	45,  // 96: textservice.TextServicesManagerService.NewSpellCheckerSession4:output_type -> textservice.NewSpellCheckerSession4Response
+	47,  // 97: textservice.TextServicesManagerService.NewSpellCheckerSession3_1:output_type -> textservice.NewSpellCheckerSession3_1Response
+	49,  // 98: textservice.SentenceSuggestionsInfoService.NewSentenceSuggestionsInfo:output_type -> textservice.NewSentenceSuggestionsInfoResponse
+	25,  // 99: textservice.SentenceSuggestionsInfoService.DescribeContents:output_type -> textservice.DescribeContentsResponse
+	51,  // 100: textservice.SentenceSuggestionsInfoService.GetLengthAt:output_type -> textservice.GetLengthAtResponse
+	53,  // 101: textservice.SentenceSuggestionsInfoService.GetOffsetAt:output_type -> textservice.GetOffsetAtResponse
+	35,  // 102: textservice.SentenceSuggestionsInfoService.GetSuggestionsCount:output_type -> textservice.GetSuggestionsCountResponse
+	55,  // 103: textservice.SentenceSuggestionsInfoService.GetSuggestionsInfoAt:output_type -> textservice.GetSuggestionsInfoAtResponse
+	39,  // 104: textservice.SentenceSuggestionsInfoService.WriteToParcel:output_type -> textservice.WriteToParcelResponse
+	57,  // 105: textservice.TextInfoService.NewTextInfo:output_type -> textservice.NewTextInfoResponse
+	25,  // 106: textservice.TextInfoService.DescribeContents:output_type -> textservice.DescribeContentsResponse
+	59,  // 107: textservice.TextInfoService.GetCharSequence:output_type -> textservice.GetCharSequenceResponse
+	27,  // 108: textservice.TextInfoService.GetCookie:output_type -> textservice.GetCookieResponse
+	29,  // 109: textservice.TextInfoService.GetSequence:output_type -> textservice.GetSequenceResponse
+	61,  // 110: textservice.TextInfoService.GetText:output_type -> textservice.GetTextResponse
+	39,  // 111: textservice.TextInfoService.WriteToParcel:output_type -> textservice.WriteToParcelResponse
+	63,  // 112: textservice.SpellCheckerSubtypeService.NewSpellCheckerSubtype:output_type -> textservice.NewSpellCheckerSubtypeResponse
+	65,  // 113: textservice.SpellCheckerSubtypeService.ContainsExtraValueKey:output_type -> textservice.ContainsExtraValueKeyResponse
+	25,  // 114: textservice.SpellCheckerSubtypeService.DescribeContents:output_type -> textservice.DescribeContentsResponse
+	67,  // 115: textservice.SpellCheckerSubtypeService.Equals:output_type -> textservice.EqualsResponse
+	69,  // 116: textservice.SpellCheckerSubtypeService.GetDisplayName:output_type -> textservice.GetDisplayNameResponse
+	71,  // 117: textservice.SpellCheckerSubtypeService.GetExtraValue:output_type -> textservice.GetExtraValueResponse
+	73,  // 118: textservice.SpellCheckerSubtypeService.GetExtraValueOf:output_type -> textservice.GetExtraValueOfResponse
+	75,  // 119: textservice.SpellCheckerSubtypeService.GetLanguageTag:output_type -> textservice.GetLanguageTagResponse
+	7,   // 120: textservice.SpellCheckerSubtypeService.GetLocale:output_type -> textservice.GetLocaleResponse
+	78,  // 121: textservice.SpellCheckerSubtypeService.GetNameResId:output_type -> textservice.GetNameResIdResponse
+	80,  // 122: textservice.SpellCheckerSubtypeService.HashCode:output_type -> textservice.HashCodeResponse
+	39,  // 123: textservice.SpellCheckerSubtypeService.WriteToParcel:output_type -> textservice.WriteToParcelResponse
+	25,  // 124: textservice.SpellCheckerInfoService.DescribeContents:output_type -> textservice.DescribeContentsResponse
+	83,  // 125: textservice.SpellCheckerInfoService.GetComponent:output_type -> textservice.GetComponentResponse
+	85,  // 126: textservice.SpellCheckerInfoService.GetId:output_type -> textservice.GetIdResponse
+	87,  // 127: textservice.SpellCheckerInfoService.GetPackageName:output_type -> textservice.GetPackageNameResponse
+	89,  // 128: textservice.SpellCheckerInfoService.GetServiceInfo:output_type -> textservice.GetServiceInfoResponse
+	91,  // 129: textservice.SpellCheckerInfoService.GetSettingsActivity:output_type -> textservice.GetSettingsActivityResponse
+	93,  // 130: textservice.SpellCheckerInfoService.GetSubtypeAt:output_type -> textservice.GetSubtypeAtResponse
+	95,  // 131: textservice.SpellCheckerInfoService.GetSubtypeCount:output_type -> textservice.GetSubtypeCountResponse
+	97,  // 132: textservice.SpellCheckerInfoService.LoadIcon:output_type -> textservice.LoadIconResponse
+	99,  // 133: textservice.SpellCheckerInfoService.LoadLabel:output_type -> textservice.LoadLabelResponse
+	39,  // 134: textservice.SpellCheckerInfoService.WriteToParcel:output_type -> textservice.WriteToParcelResponse
+	102, // 135: textservice.SpellCheckerSessionService.Cancel:output_type -> textservice.CancelResponse
+	104, // 136: textservice.SpellCheckerSessionService.Close:output_type -> textservice.CloseResponse
+	106, // 137: textservice.SpellCheckerSessionService.GetSentenceSuggestions:output_type -> textservice.GetSentenceSuggestionsResponse
+	108, // 138: textservice.SpellCheckerSessionService.GetSpellChecker:output_type -> textservice.GetSpellCheckerResponse
+	110, // 139: textservice.SpellCheckerSessionService.GetSuggestions2:output_type -> textservice.GetSuggestions2Response
+	112, // 140: textservice.SpellCheckerSessionService.GetSuggestions3_1:output_type -> textservice.GetSuggestions3_1Response
+	114, // 141: textservice.SpellCheckerSessionService.IsSessionDisconnected:output_type -> textservice.IsSessionDisconnectedResponse
+	116, // 142: textservice.SpellCheckerSessionSpellCheckerSessionListenerService.OnGetSentenceSuggestions:output_type -> textservice.OnGetSentenceSuggestionsResponse
+	118, // 143: textservice.SpellCheckerSessionSpellCheckerSessionListenerService.OnGetSuggestions:output_type -> textservice.SpellCheckerSessionSpellCheckerSessionListenerOnGetSuggestionsResponse
+	120, // 144: textservice.SpellCheckerSessionSpellCheckerSessionParamsService.GetExtras:output_type -> textservice.GetExtrasResponse
+	122, // 145: textservice.SpellCheckerSessionSpellCheckerSessionParamsService.GetLocale:output_type -> textservice.SpellCheckerSessionSpellCheckerSessionParamsGetLocaleResponse
+	9,   // 146: textservice.SpellCheckerSessionSpellCheckerSessionParamsService.GetSupportedAttributes:output_type -> textservice.GetSupportedAttributesResponse
+	124, // 147: textservice.SpellCheckerSessionSpellCheckerSessionParamsService.ShouldReferToSpellCheckerLanguageSettings:output_type -> textservice.ShouldReferToSpellCheckerLanguageSettingsResponse
+	74,  // [74:148] is the sub-list for method output_type
+	0,   // [0:74] is the sub-list for method input_type
+	0,   // [0:0] is the sub-list for extension type_name
+	0,   // [0:0] is the sub-list for extension extendee
+	0,   // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_proto_textservice_textservice_proto_init() }
@@ -479,9 +6126,9 @@ func file_proto_textservice_textservice_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_textservice_textservice_proto_rawDesc), len(file_proto_textservice_textservice_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   8,
+			NumMessages:   125,
 			NumExtensions: 0,
-			NumServices:   1,
+			NumServices:   11,
 		},
 		GoTypes:           file_proto_textservice_textservice_proto_goTypes,
 		DependencyIndexes: file_proto_textservice_textservice_proto_depIdxs,

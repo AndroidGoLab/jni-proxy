@@ -9,6 +9,3437 @@ import (
 	"google.golang.org/grpc"
 )
 
+// GnssAntennaInfoClient wraps the gRPC GnssAntennaInfoService client.
+type GnssAntennaInfoClient struct {
+	svc pb.GnssAntennaInfoServiceClient
+}
+
+// NewGnssAntennaInfoClient creates a new GnssAntennaInfo client.
+func NewGnssAntennaInfoClient(cc grpc.ClientConnInterface) *GnssAntennaInfoClient {
+	return &GnssAntennaInfoClient{
+		svc: pb.NewGnssAntennaInfoServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *GnssAntennaInfoClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *GnssAntennaInfoClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCarrierFrequencyMHz calls the GetCarrierFrequencyMHz RPC.
+func (c *GnssAntennaInfoClient) GetCarrierFrequencyMHz(ctx context.Context) (float64, error) {
+	resp, err := c.svc.GetCarrierFrequencyMHz(ctx, &pb.GetCarrierFrequencyMHzRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPhaseCenterOffset calls the GetPhaseCenterOffset RPC.
+func (c *GnssAntennaInfoClient) GetPhaseCenterOffset(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPhaseCenterOffset(ctx, &pb.GetPhaseCenterOffsetRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPhaseCenterVariationCorrections calls the GetPhaseCenterVariationCorrections RPC.
+func (c *GnssAntennaInfoClient) GetPhaseCenterVariationCorrections(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPhaseCenterVariationCorrections(ctx, &pb.GetPhaseCenterVariationCorrectionsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSignalGainCorrections calls the GetSignalGainCorrections RPC.
+func (c *GnssAntennaInfoClient) GetSignalGainCorrections(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSignalGainCorrections(ctx, &pb.GetSignalGainCorrectionsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *GnssAntennaInfoClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *GnssAntennaInfoClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *GnssAntennaInfoClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// GnssAntennaInfoBuilderClient wraps the gRPC GnssAntennaInfoBuilderService client.
+type GnssAntennaInfoBuilderClient struct {
+	svc pb.GnssAntennaInfoBuilderServiceClient
+}
+
+// NewGnssAntennaInfoBuilderClient creates a new GnssAntennaInfoBuilder client.
+func NewGnssAntennaInfoBuilderClient(cc grpc.ClientConnInterface) *GnssAntennaInfoBuilderClient {
+	return &GnssAntennaInfoBuilderClient{
+		svc: pb.NewGnssAntennaInfoBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *GnssAntennaInfoBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetCarrierFrequencyMHz calls the SetCarrierFrequencyMHz RPC.
+func (c *GnssAntennaInfoBuilderClient) SetCarrierFrequencyMHz(ctx context.Context, arg0 float64) (int64, error) {
+	resp, err := c.svc.SetCarrierFrequencyMHz(ctx, &pb.SetCarrierFrequencyMHzRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPhaseCenterOffset calls the SetPhaseCenterOffset RPC.
+func (c *GnssAntennaInfoBuilderClient) SetPhaseCenterOffset(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetPhaseCenterOffset(ctx, &pb.SetPhaseCenterOffsetRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPhaseCenterVariationCorrections calls the SetPhaseCenterVariationCorrections RPC.
+func (c *GnssAntennaInfoBuilderClient) SetPhaseCenterVariationCorrections(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetPhaseCenterVariationCorrections(ctx, &pb.SetPhaseCenterVariationCorrectionsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSignalGainCorrections calls the SetSignalGainCorrections RPC.
+func (c *GnssAntennaInfoBuilderClient) SetSignalGainCorrections(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetSignalGainCorrections(ctx, &pb.SetSignalGainCorrectionsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GnssAntennaInfoPhaseCenterOffsetClient wraps the gRPC GnssAntennaInfoPhaseCenterOffsetService client.
+type GnssAntennaInfoPhaseCenterOffsetClient struct {
+	svc pb.GnssAntennaInfoPhaseCenterOffsetServiceClient
+}
+
+// NewGnssAntennaInfoPhaseCenterOffsetClient creates a new GnssAntennaInfoPhaseCenterOffset client.
+func NewGnssAntennaInfoPhaseCenterOffsetClient(cc grpc.ClientConnInterface) *GnssAntennaInfoPhaseCenterOffsetClient {
+	return &GnssAntennaInfoPhaseCenterOffsetClient{
+		svc: pb.NewGnssAntennaInfoPhaseCenterOffsetServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *GnssAntennaInfoPhaseCenterOffsetClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *GnssAntennaInfoPhaseCenterOffsetClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetXOffsetMm calls the GetXOffsetMm RPC.
+func (c *GnssAntennaInfoPhaseCenterOffsetClient) GetXOffsetMm(ctx context.Context) (float64, error) {
+	resp, err := c.svc.GetXOffsetMm(ctx, &pb.GetXOffsetMmRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetXOffsetUncertaintyMm calls the GetXOffsetUncertaintyMm RPC.
+func (c *GnssAntennaInfoPhaseCenterOffsetClient) GetXOffsetUncertaintyMm(ctx context.Context) (float64, error) {
+	resp, err := c.svc.GetXOffsetUncertaintyMm(ctx, &pb.GetXOffsetUncertaintyMmRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetYOffsetMm calls the GetYOffsetMm RPC.
+func (c *GnssAntennaInfoPhaseCenterOffsetClient) GetYOffsetMm(ctx context.Context) (float64, error) {
+	resp, err := c.svc.GetYOffsetMm(ctx, &pb.GetYOffsetMmRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetYOffsetUncertaintyMm calls the GetYOffsetUncertaintyMm RPC.
+func (c *GnssAntennaInfoPhaseCenterOffsetClient) GetYOffsetUncertaintyMm(ctx context.Context) (float64, error) {
+	resp, err := c.svc.GetYOffsetUncertaintyMm(ctx, &pb.GetYOffsetUncertaintyMmRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetZOffsetMm calls the GetZOffsetMm RPC.
+func (c *GnssAntennaInfoPhaseCenterOffsetClient) GetZOffsetMm(ctx context.Context) (float64, error) {
+	resp, err := c.svc.GetZOffsetMm(ctx, &pb.GetZOffsetMmRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetZOffsetUncertaintyMm calls the GetZOffsetUncertaintyMm RPC.
+func (c *GnssAntennaInfoPhaseCenterOffsetClient) GetZOffsetUncertaintyMm(ctx context.Context) (float64, error) {
+	resp, err := c.svc.GetZOffsetUncertaintyMm(ctx, &pb.GetZOffsetUncertaintyMmRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *GnssAntennaInfoPhaseCenterOffsetClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *GnssAntennaInfoPhaseCenterOffsetClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *GnssAntennaInfoPhaseCenterOffsetClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// GnssAntennaInfoSphericalCorrectionsClient wraps the gRPC GnssAntennaInfoSphericalCorrectionsService client.
+type GnssAntennaInfoSphericalCorrectionsClient struct {
+	svc pb.GnssAntennaInfoSphericalCorrectionsServiceClient
+}
+
+// NewGnssAntennaInfoSphericalCorrectionsClient creates a new GnssAntennaInfoSphericalCorrections client.
+func NewGnssAntennaInfoSphericalCorrectionsClient(cc grpc.ClientConnInterface) *GnssAntennaInfoSphericalCorrectionsClient {
+	return &GnssAntennaInfoSphericalCorrectionsClient{
+		svc: pb.NewGnssAntennaInfoSphericalCorrectionsServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *GnssAntennaInfoSphericalCorrectionsClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *GnssAntennaInfoSphericalCorrectionsClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCorrectionUncertaintiesArray calls the GetCorrectionUncertaintiesArray RPC.
+func (c *GnssAntennaInfoSphericalCorrectionsClient) GetCorrectionUncertaintiesArray(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetCorrectionUncertaintiesArray(ctx, &pb.GetCorrectionUncertaintiesArrayRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCorrectionsArray calls the GetCorrectionsArray RPC.
+func (c *GnssAntennaInfoSphericalCorrectionsClient) GetCorrectionsArray(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetCorrectionsArray(ctx, &pb.GetCorrectionsArrayRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDeltaPhi calls the GetDeltaPhi RPC.
+func (c *GnssAntennaInfoSphericalCorrectionsClient) GetDeltaPhi(ctx context.Context) (float64, error) {
+	resp, err := c.svc.GetDeltaPhi(ctx, &pb.GetDeltaPhiRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDeltaTheta calls the GetDeltaTheta RPC.
+func (c *GnssAntennaInfoSphericalCorrectionsClient) GetDeltaTheta(ctx context.Context) (float64, error) {
+	resp, err := c.svc.GetDeltaTheta(ctx, &pb.GetDeltaThetaRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *GnssAntennaInfoSphericalCorrectionsClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *GnssAntennaInfoSphericalCorrectionsClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *GnssAntennaInfoSphericalCorrectionsClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ListenerClient wraps the gRPC ListenerService client.
+type ListenerClient struct {
+	svc pb.ListenerServiceClient
+}
+
+// NewListenerClient creates a new Listener client.
+func NewListenerClient(cc grpc.ClientConnInterface) *ListenerClient {
+	return &ListenerClient{
+		svc: pb.NewListenerServiceClient(cc),
+	}
+}
+
+// OnLocationChanged calls the OnLocationChanged RPC.
+func (c *ListenerClient) OnLocationChanged(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnLocationChanged(ctx, &pb.OnLocationChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// GnssMeasurementRequestClient wraps the gRPC GnssMeasurementRequestService client.
+type GnssMeasurementRequestClient struct {
+	svc pb.GnssMeasurementRequestServiceClient
+}
+
+// NewGnssMeasurementRequestClient creates a new GnssMeasurementRequest client.
+func NewGnssMeasurementRequestClient(cc grpc.ClientConnInterface) *GnssMeasurementRequestClient {
+	return &GnssMeasurementRequestClient{
+		svc: pb.NewGnssMeasurementRequestServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *GnssMeasurementRequestClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *GnssMeasurementRequestClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIntervalMillis calls the GetIntervalMillis RPC.
+func (c *GnssMeasurementRequestClient) GetIntervalMillis(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetIntervalMillis(ctx, &pb.GetIntervalMillisRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *GnssMeasurementRequestClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsFullTracking calls the IsFullTracking RPC.
+func (c *GnssMeasurementRequestClient) IsFullTracking(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsFullTracking(ctx, &pb.IsFullTrackingRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *GnssMeasurementRequestClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *GnssMeasurementRequestClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// GnssMeasurementRequestBuilderClient wraps the gRPC GnssMeasurementRequestBuilderService client.
+type GnssMeasurementRequestBuilderClient struct {
+	svc pb.GnssMeasurementRequestBuilderServiceClient
+}
+
+// NewGnssMeasurementRequestBuilderClient creates a new GnssMeasurementRequestBuilder client.
+func NewGnssMeasurementRequestBuilderClient(cc grpc.ClientConnInterface) *GnssMeasurementRequestBuilderClient {
+	return &GnssMeasurementRequestBuilderClient{
+		svc: pb.NewGnssMeasurementRequestBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *GnssMeasurementRequestBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetFullTracking calls the SetFullTracking RPC.
+func (c *GnssMeasurementRequestBuilderClient) SetFullTracking(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetFullTracking(ctx, &pb.SetFullTrackingRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetIntervalMillis calls the SetIntervalMillis RPC.
+func (c *GnssMeasurementRequestBuilderClient) SetIntervalMillis(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetIntervalMillis(ctx, &pb.SetIntervalMillisRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddressClient wraps the gRPC AddressService client.
+type AddressClient struct {
+	svc pb.AddressServiceClient
+}
+
+// NewAddressClient creates a new Address client.
+func NewAddressClient(cc grpc.ClientConnInterface) *AddressClient {
+	return &AddressClient{
+		svc: pb.NewAddressServiceClient(cc),
+	}
+}
+
+// ClearLatitude calls the ClearLatitude RPC.
+func (c *AddressClient) ClearLatitude(ctx context.Context, handle int64) error {
+	_, err := c.svc.ClearLatitude(ctx, &pb.ClearLatitudeRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// ClearLongitude calls the ClearLongitude RPC.
+func (c *AddressClient) ClearLongitude(ctx context.Context, handle int64) error {
+	_, err := c.svc.ClearLongitude(ctx, &pb.ClearLongitudeRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *AddressClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.AddressDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAddressLine calls the GetAddressLine RPC.
+func (c *AddressClient) GetAddressLine(ctx context.Context, handle int64, arg0 int32) (string, error) {
+	resp, err := c.svc.GetAddressLine(ctx, &pb.GetAddressLineRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAdminArea calls the GetAdminArea RPC.
+func (c *AddressClient) GetAdminArea(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetAdminArea(ctx, &pb.GetAdminAreaRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCountryCode calls the GetCountryCode RPC.
+func (c *AddressClient) GetCountryCode(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetCountryCode(ctx, &pb.GetCountryCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCountryName calls the GetCountryName RPC.
+func (c *AddressClient) GetCountryName(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetCountryName(ctx, &pb.GetCountryNameRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExtras calls the GetExtras RPC.
+func (c *AddressClient) GetExtras(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetExtras(ctx, &pb.GetExtrasRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFeatureName calls the GetFeatureName RPC.
+func (c *AddressClient) GetFeatureName(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetFeatureName(ctx, &pb.GetFeatureNameRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLatitude calls the GetLatitude RPC.
+func (c *AddressClient) GetLatitude(ctx context.Context, handle int64) (float64, error) {
+	resp, err := c.svc.GetLatitude(ctx, &pb.GetLatitudeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLocale calls the GetLocale RPC.
+func (c *AddressClient) GetLocale(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetLocale(ctx, &pb.GetLocaleRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLocality calls the GetLocality RPC.
+func (c *AddressClient) GetLocality(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetLocality(ctx, &pb.GetLocalityRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLongitude calls the GetLongitude RPC.
+func (c *AddressClient) GetLongitude(ctx context.Context, handle int64) (float64, error) {
+	resp, err := c.svc.GetLongitude(ctx, &pb.GetLongitudeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMaxAddressLineIndex calls the GetMaxAddressLineIndex RPC.
+func (c *AddressClient) GetMaxAddressLineIndex(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetMaxAddressLineIndex(ctx, &pb.GetMaxAddressLineIndexRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPhone calls the GetPhone RPC.
+func (c *AddressClient) GetPhone(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetPhone(ctx, &pb.GetPhoneRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPostalCode calls the GetPostalCode RPC.
+func (c *AddressClient) GetPostalCode(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetPostalCode(ctx, &pb.GetPostalCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPremises calls the GetPremises RPC.
+func (c *AddressClient) GetPremises(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetPremises(ctx, &pb.GetPremisesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSubAdminArea calls the GetSubAdminArea RPC.
+func (c *AddressClient) GetSubAdminArea(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetSubAdminArea(ctx, &pb.GetSubAdminAreaRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSubLocality calls the GetSubLocality RPC.
+func (c *AddressClient) GetSubLocality(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetSubLocality(ctx, &pb.GetSubLocalityRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSubThoroughfare calls the GetSubThoroughfare RPC.
+func (c *AddressClient) GetSubThoroughfare(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetSubThoroughfare(ctx, &pb.GetSubThoroughfareRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetThoroughfare calls the GetThoroughfare RPC.
+func (c *AddressClient) GetThoroughfare(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetThoroughfare(ctx, &pb.GetThoroughfareRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUrl calls the GetUrl RPC.
+func (c *AddressClient) GetUrl(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetUrl(ctx, &pb.GetUrlRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasLatitude calls the HasLatitude RPC.
+func (c *AddressClient) HasLatitude(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.HasLatitude(ctx, &pb.HasLatitudeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasLongitude calls the HasLongitude RPC.
+func (c *AddressClient) HasLongitude(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.HasLongitude(ctx, &pb.HasLongitudeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetAddressLine calls the SetAddressLine RPC.
+func (c *AddressClient) SetAddressLine(ctx context.Context, handle int64, arg0 int32, arg1 string) error {
+	_, err := c.svc.SetAddressLine(ctx, &pb.SetAddressLineRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SetAdminArea calls the SetAdminArea RPC.
+func (c *AddressClient) SetAdminArea(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.SetAdminArea(ctx, &pb.SetAdminAreaRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetCountryCode calls the SetCountryCode RPC.
+func (c *AddressClient) SetCountryCode(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.SetCountryCode(ctx, &pb.SetCountryCodeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetCountryName calls the SetCountryName RPC.
+func (c *AddressClient) SetCountryName(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.SetCountryName(ctx, &pb.SetCountryNameRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetExtras calls the SetExtras RPC.
+func (c *AddressClient) SetExtras(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetExtras(ctx, &pb.SetExtrasRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetFeatureName calls the SetFeatureName RPC.
+func (c *AddressClient) SetFeatureName(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.SetFeatureName(ctx, &pb.SetFeatureNameRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetLatitude calls the SetLatitude RPC.
+func (c *AddressClient) SetLatitude(ctx context.Context, handle int64, arg0 float64) error {
+	_, err := c.svc.SetLatitude(ctx, &pb.SetLatitudeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetLocality calls the SetLocality RPC.
+func (c *AddressClient) SetLocality(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.SetLocality(ctx, &pb.SetLocalityRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetLongitude calls the SetLongitude RPC.
+func (c *AddressClient) SetLongitude(ctx context.Context, handle int64, arg0 float64) error {
+	_, err := c.svc.SetLongitude(ctx, &pb.SetLongitudeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetPhone calls the SetPhone RPC.
+func (c *AddressClient) SetPhone(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.SetPhone(ctx, &pb.SetPhoneRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetPostalCode calls the SetPostalCode RPC.
+func (c *AddressClient) SetPostalCode(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.SetPostalCode(ctx, &pb.SetPostalCodeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetPremises calls the SetPremises RPC.
+func (c *AddressClient) SetPremises(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.SetPremises(ctx, &pb.SetPremisesRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetSubAdminArea calls the SetSubAdminArea RPC.
+func (c *AddressClient) SetSubAdminArea(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.SetSubAdminArea(ctx, &pb.SetSubAdminAreaRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetSubLocality calls the SetSubLocality RPC.
+func (c *AddressClient) SetSubLocality(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.SetSubLocality(ctx, &pb.SetSubLocalityRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetSubThoroughfare calls the SetSubThoroughfare RPC.
+func (c *AddressClient) SetSubThoroughfare(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.SetSubThoroughfare(ctx, &pb.SetSubThoroughfareRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetThoroughfare calls the SetThoroughfare RPC.
+func (c *AddressClient) SetThoroughfare(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.SetThoroughfare(ctx, &pb.SetThoroughfareRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetUrl calls the SetUrl RPC.
+func (c *AddressClient) SetUrl(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.SetUrl(ctx, &pb.SetUrlRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// ToString calls the ToString RPC.
+func (c *AddressClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.AddressToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *AddressClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.AddressWriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// CriteriaClient wraps the gRPC CriteriaService client.
+type CriteriaClient struct {
+	svc pb.CriteriaServiceClient
+}
+
+// NewCriteriaClient creates a new Criteria client.
+func NewCriteriaClient(cc grpc.ClientConnInterface) *CriteriaClient {
+	return &CriteriaClient{
+		svc: pb.NewCriteriaServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *CriteriaClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.CriteriaDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAccuracy calls the GetAccuracy RPC.
+func (c *CriteriaClient) GetAccuracy(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetAccuracy(ctx, &pb.GetAccuracyRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBearingAccuracy calls the GetBearingAccuracy RPC.
+func (c *CriteriaClient) GetBearingAccuracy(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetBearingAccuracy(ctx, &pb.GetBearingAccuracyRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHorizontalAccuracy calls the GetHorizontalAccuracy RPC.
+func (c *CriteriaClient) GetHorizontalAccuracy(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetHorizontalAccuracy(ctx, &pb.GetHorizontalAccuracyRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPowerRequirement calls the GetPowerRequirement RPC.
+func (c *CriteriaClient) GetPowerRequirement(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetPowerRequirement(ctx, &pb.GetPowerRequirementRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSpeedAccuracy calls the GetSpeedAccuracy RPC.
+func (c *CriteriaClient) GetSpeedAccuracy(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetSpeedAccuracy(ctx, &pb.GetSpeedAccuracyRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVerticalAccuracy calls the GetVerticalAccuracy RPC.
+func (c *CriteriaClient) GetVerticalAccuracy(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetVerticalAccuracy(ctx, &pb.GetVerticalAccuracyRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsAltitudeRequired calls the IsAltitudeRequired RPC.
+func (c *CriteriaClient) IsAltitudeRequired(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsAltitudeRequired(ctx, &pb.IsAltitudeRequiredRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsBearingRequired calls the IsBearingRequired RPC.
+func (c *CriteriaClient) IsBearingRequired(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsBearingRequired(ctx, &pb.IsBearingRequiredRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsCostAllowed calls the IsCostAllowed RPC.
+func (c *CriteriaClient) IsCostAllowed(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsCostAllowed(ctx, &pb.IsCostAllowedRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsSpeedRequired calls the IsSpeedRequired RPC.
+func (c *CriteriaClient) IsSpeedRequired(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsSpeedRequired(ctx, &pb.IsSpeedRequiredRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetAccuracy calls the SetAccuracy RPC.
+func (c *CriteriaClient) SetAccuracy(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetAccuracy(ctx, &pb.SetAccuracyRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetAltitudeRequired calls the SetAltitudeRequired RPC.
+func (c *CriteriaClient) SetAltitudeRequired(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetAltitudeRequired(ctx, &pb.SetAltitudeRequiredRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetBearingAccuracy calls the SetBearingAccuracy RPC.
+func (c *CriteriaClient) SetBearingAccuracy(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetBearingAccuracy(ctx, &pb.SetBearingAccuracyRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetBearingRequired calls the SetBearingRequired RPC.
+func (c *CriteriaClient) SetBearingRequired(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetBearingRequired(ctx, &pb.SetBearingRequiredRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetCostAllowed calls the SetCostAllowed RPC.
+func (c *CriteriaClient) SetCostAllowed(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetCostAllowed(ctx, &pb.SetCostAllowedRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetHorizontalAccuracy calls the SetHorizontalAccuracy RPC.
+func (c *CriteriaClient) SetHorizontalAccuracy(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetHorizontalAccuracy(ctx, &pb.SetHorizontalAccuracyRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetPowerRequirement calls the SetPowerRequirement RPC.
+func (c *CriteriaClient) SetPowerRequirement(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetPowerRequirement(ctx, &pb.SetPowerRequirementRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetSpeedAccuracy calls the SetSpeedAccuracy RPC.
+func (c *CriteriaClient) SetSpeedAccuracy(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetSpeedAccuracy(ctx, &pb.SetSpeedAccuracyRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetSpeedRequired calls the SetSpeedRequired RPC.
+func (c *CriteriaClient) SetSpeedRequired(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetSpeedRequired(ctx, &pb.SetSpeedRequiredRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetVerticalAccuracy calls the SetVerticalAccuracy RPC.
+func (c *CriteriaClient) SetVerticalAccuracy(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetVerticalAccuracy(ctx, &pb.SetVerticalAccuracyRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// ToString calls the ToString RPC.
+func (c *CriteriaClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.CriteriaToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *CriteriaClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.CriteriaWriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GpsSatelliteClient wraps the gRPC GpsSatelliteService client.
+type GpsSatelliteClient struct {
+	svc pb.GpsSatelliteServiceClient
+}
+
+// NewGpsSatelliteClient creates a new GpsSatellite client.
+func NewGpsSatelliteClient(cc grpc.ClientConnInterface) *GpsSatelliteClient {
+	return &GpsSatelliteClient{
+		svc: pb.NewGpsSatelliteServiceClient(cc),
+	}
+}
+
+// GetAzimuth calls the GetAzimuth RPC.
+func (c *GpsSatelliteClient) GetAzimuth(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetAzimuth(ctx, &pb.GetAzimuthRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetElevation calls the GetElevation RPC.
+func (c *GpsSatelliteClient) GetElevation(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetElevation(ctx, &pb.GetElevationRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPrn calls the GetPrn RPC.
+func (c *GpsSatelliteClient) GetPrn(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetPrn(ctx, &pb.GetPrnRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSnr calls the GetSnr RPC.
+func (c *GpsSatelliteClient) GetSnr(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetSnr(ctx, &pb.GetSnrRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasAlmanac calls the HasAlmanac RPC.
+func (c *GpsSatelliteClient) HasAlmanac(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasAlmanac(ctx, &pb.HasAlmanacRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasEphemeris calls the HasEphemeris RPC.
+func (c *GpsSatelliteClient) HasEphemeris(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasEphemeris(ctx, &pb.HasEphemerisRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// UsedInFix calls the UsedInFix RPC.
+func (c *GpsSatelliteClient) UsedInFix(ctx context.Context) (bool, error) {
+	resp, err := c.svc.UsedInFix(ctx, &pb.UsedInFixRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GnssAutomaticGainControlClient wraps the gRPC GnssAutomaticGainControlService client.
+type GnssAutomaticGainControlClient struct {
+	svc pb.GnssAutomaticGainControlServiceClient
+}
+
+// NewGnssAutomaticGainControlClient creates a new GnssAutomaticGainControl client.
+func NewGnssAutomaticGainControlClient(cc grpc.ClientConnInterface) *GnssAutomaticGainControlClient {
+	return &GnssAutomaticGainControlClient{
+		svc: pb.NewGnssAutomaticGainControlServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *GnssAutomaticGainControlClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *GnssAutomaticGainControlClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCarrierFrequencyHz calls the GetCarrierFrequencyHz RPC.
+func (c *GnssAutomaticGainControlClient) GetCarrierFrequencyHz(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetCarrierFrequencyHz(ctx, &pb.GetCarrierFrequencyHzRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetConstellationType calls the GetConstellationType RPC.
+func (c *GnssAutomaticGainControlClient) GetConstellationType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetConstellationType(ctx, &pb.GetConstellationTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLevelDb calls the GetLevelDb RPC.
+func (c *GnssAutomaticGainControlClient) GetLevelDb(ctx context.Context) (float64, error) {
+	resp, err := c.svc.GetLevelDb(ctx, &pb.GetLevelDbRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *GnssAutomaticGainControlClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *GnssAutomaticGainControlClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *GnssAutomaticGainControlClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// GnssAutomaticGainControlBuilderClient wraps the gRPC GnssAutomaticGainControlBuilderService client.
+type GnssAutomaticGainControlBuilderClient struct {
+	svc pb.GnssAutomaticGainControlBuilderServiceClient
+}
+
+// NewGnssAutomaticGainControlBuilderClient creates a new GnssAutomaticGainControlBuilder client.
+func NewGnssAutomaticGainControlBuilderClient(cc grpc.ClientConnInterface) *GnssAutomaticGainControlBuilderClient {
+	return &GnssAutomaticGainControlBuilderClient{
+		svc: pb.NewGnssAutomaticGainControlBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *GnssAutomaticGainControlBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetCarrierFrequencyHz calls the SetCarrierFrequencyHz RPC.
+func (c *GnssAutomaticGainControlBuilderClient) SetCarrierFrequencyHz(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetCarrierFrequencyHz(ctx, &pb.SetCarrierFrequencyHzRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetConstellationType calls the SetConstellationType RPC.
+func (c *GnssAutomaticGainControlBuilderClient) SetConstellationType(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetConstellationType(ctx, &pb.SetConstellationTypeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetLevelDb calls the SetLevelDb RPC.
+func (c *GnssAutomaticGainControlBuilderClient) SetLevelDb(ctx context.Context, arg0 float64) (int64, error) {
+	resp, err := c.svc.SetLevelDb(ctx, &pb.SetLevelDbRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GnssCapabilitiesClient wraps the gRPC GnssCapabilitiesService client.
+type GnssCapabilitiesClient struct {
+	svc pb.GnssCapabilitiesServiceClient
+}
+
+// NewGnssCapabilitiesClient creates a new GnssCapabilities client.
+func NewGnssCapabilitiesClient(cc grpc.ClientConnInterface) *GnssCapabilitiesClient {
+	return &GnssCapabilitiesClient{
+		svc: pb.NewGnssCapabilitiesServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *GnssCapabilitiesClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *GnssCapabilitiesClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasAccumulatedDeltaRange calls the HasAccumulatedDeltaRange RPC.
+func (c *GnssCapabilitiesClient) HasAccumulatedDeltaRange(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HasAccumulatedDeltaRange(ctx, &pb.HasAccumulatedDeltaRangeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasAntennaInfo calls the HasAntennaInfo RPC.
+func (c *GnssCapabilitiesClient) HasAntennaInfo(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasAntennaInfo(ctx, &pb.HasAntennaInfoRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasGeofencing calls the HasGeofencing RPC.
+func (c *GnssCapabilitiesClient) HasGeofencing(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasGeofencing(ctx, &pb.HasGeofencingRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasGnssAntennaInfo calls the HasGnssAntennaInfo RPC.
+func (c *GnssCapabilitiesClient) HasGnssAntennaInfo(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasGnssAntennaInfo(ctx, &pb.HasGnssAntennaInfoRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasLowPowerMode calls the HasLowPowerMode RPC.
+func (c *GnssCapabilitiesClient) HasLowPowerMode(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasLowPowerMode(ctx, &pb.HasLowPowerModeRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasMeasurementCorrections calls the HasMeasurementCorrections RPC.
+func (c *GnssCapabilitiesClient) HasMeasurementCorrections(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasMeasurementCorrections(ctx, &pb.HasMeasurementCorrectionsRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasMeasurementCorrectionsExcessPathLength calls the HasMeasurementCorrectionsExcessPathLength RPC.
+func (c *GnssCapabilitiesClient) HasMeasurementCorrectionsExcessPathLength(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasMeasurementCorrectionsExcessPathLength(ctx, &pb.HasMeasurementCorrectionsExcessPathLengthRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasMeasurementCorrectionsForDriving calls the HasMeasurementCorrectionsForDriving RPC.
+func (c *GnssCapabilitiesClient) HasMeasurementCorrectionsForDriving(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasMeasurementCorrectionsForDriving(ctx, &pb.HasMeasurementCorrectionsForDrivingRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasMeasurementCorrectionsLosSats calls the HasMeasurementCorrectionsLosSats RPC.
+func (c *GnssCapabilitiesClient) HasMeasurementCorrectionsLosSats(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasMeasurementCorrectionsLosSats(ctx, &pb.HasMeasurementCorrectionsLosSatsRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasMeasurementCorrectionsReflectingPlane calls the HasMeasurementCorrectionsReflectingPlane RPC.
+func (c *GnssCapabilitiesClient) HasMeasurementCorrectionsReflectingPlane(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasMeasurementCorrectionsReflectingPlane(ctx, &pb.HasMeasurementCorrectionsReflectingPlaneRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasMeasurementCorrelationVectors calls the HasMeasurementCorrelationVectors RPC.
+func (c *GnssCapabilitiesClient) HasMeasurementCorrelationVectors(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasMeasurementCorrelationVectors(ctx, &pb.HasMeasurementCorrelationVectorsRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasMeasurements calls the HasMeasurements RPC.
+func (c *GnssCapabilitiesClient) HasMeasurements(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasMeasurements(ctx, &pb.HasMeasurementsRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasMsa calls the HasMsa RPC.
+func (c *GnssCapabilitiesClient) HasMsa(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasMsa(ctx, &pb.HasMsaRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasMsb calls the HasMsb RPC.
+func (c *GnssCapabilitiesClient) HasMsb(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasMsb(ctx, &pb.HasMsbRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasNavigationMessages calls the HasNavigationMessages RPC.
+func (c *GnssCapabilitiesClient) HasNavigationMessages(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasNavigationMessages(ctx, &pb.HasNavigationMessagesRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasOnDemandTime calls the HasOnDemandTime RPC.
+func (c *GnssCapabilitiesClient) HasOnDemandTime(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasOnDemandTime(ctx, &pb.HasOnDemandTimeRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasPowerMultibandAcquisition calls the HasPowerMultibandAcquisition RPC.
+func (c *GnssCapabilitiesClient) HasPowerMultibandAcquisition(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasPowerMultibandAcquisition(ctx, &pb.HasPowerMultibandAcquisitionRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasPowerMultibandTracking calls the HasPowerMultibandTracking RPC.
+func (c *GnssCapabilitiesClient) HasPowerMultibandTracking(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasPowerMultibandTracking(ctx, &pb.HasPowerMultibandTrackingRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasPowerOtherModes calls the HasPowerOtherModes RPC.
+func (c *GnssCapabilitiesClient) HasPowerOtherModes(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasPowerOtherModes(ctx, &pb.HasPowerOtherModesRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasPowerSinglebandAcquisition calls the HasPowerSinglebandAcquisition RPC.
+func (c *GnssCapabilitiesClient) HasPowerSinglebandAcquisition(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasPowerSinglebandAcquisition(ctx, &pb.HasPowerSinglebandAcquisitionRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasPowerSinglebandTracking calls the HasPowerSinglebandTracking RPC.
+func (c *GnssCapabilitiesClient) HasPowerSinglebandTracking(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasPowerSinglebandTracking(ctx, &pb.HasPowerSinglebandTrackingRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasPowerTotal calls the HasPowerTotal RPC.
+func (c *GnssCapabilitiesClient) HasPowerTotal(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasPowerTotal(ctx, &pb.HasPowerTotalRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasSatelliteBlocklist calls the HasSatelliteBlocklist RPC.
+func (c *GnssCapabilitiesClient) HasSatelliteBlocklist(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasSatelliteBlocklist(ctx, &pb.HasSatelliteBlocklistRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasSatellitePvt calls the HasSatellitePvt RPC.
+func (c *GnssCapabilitiesClient) HasSatellitePvt(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasSatellitePvt(ctx, &pb.HasSatellitePvtRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasScheduling calls the HasScheduling RPC.
+func (c *GnssCapabilitiesClient) HasScheduling(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasScheduling(ctx, &pb.HasSchedulingRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasSingleShotFix calls the HasSingleShotFix RPC.
+func (c *GnssCapabilitiesClient) HasSingleShotFix(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasSingleShotFix(ctx, &pb.HasSingleShotFixRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *GnssCapabilitiesClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *GnssCapabilitiesClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *GnssCapabilitiesClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// GnssCapabilitiesBuilderClient wraps the gRPC GnssCapabilitiesBuilderService client.
+type GnssCapabilitiesBuilderClient struct {
+	svc pb.GnssCapabilitiesBuilderServiceClient
+}
+
+// NewGnssCapabilitiesBuilderClient creates a new GnssCapabilitiesBuilder client.
+func NewGnssCapabilitiesBuilderClient(cc grpc.ClientConnInterface) *GnssCapabilitiesBuilderClient {
+	return &GnssCapabilitiesBuilderClient{
+		svc: pb.NewGnssCapabilitiesBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *GnssCapabilitiesBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetHasAccumulatedDeltaRange calls the SetHasAccumulatedDeltaRange RPC.
+func (c *GnssCapabilitiesBuilderClient) SetHasAccumulatedDeltaRange(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetHasAccumulatedDeltaRange(ctx, &pb.SetHasAccumulatedDeltaRangeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetHasAntennaInfo calls the SetHasAntennaInfo RPC.
+func (c *GnssCapabilitiesBuilderClient) SetHasAntennaInfo(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetHasAntennaInfo(ctx, &pb.SetHasAntennaInfoRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetHasGeofencing calls the SetHasGeofencing RPC.
+func (c *GnssCapabilitiesBuilderClient) SetHasGeofencing(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetHasGeofencing(ctx, &pb.SetHasGeofencingRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetHasLowPowerMode calls the SetHasLowPowerMode RPC.
+func (c *GnssCapabilitiesBuilderClient) SetHasLowPowerMode(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetHasLowPowerMode(ctx, &pb.SetHasLowPowerModeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetHasMeasurementCorrections calls the SetHasMeasurementCorrections RPC.
+func (c *GnssCapabilitiesBuilderClient) SetHasMeasurementCorrections(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetHasMeasurementCorrections(ctx, &pb.SetHasMeasurementCorrectionsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetHasMeasurementCorrectionsExcessPathLength calls the SetHasMeasurementCorrectionsExcessPathLength RPC.
+func (c *GnssCapabilitiesBuilderClient) SetHasMeasurementCorrectionsExcessPathLength(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetHasMeasurementCorrectionsExcessPathLength(ctx, &pb.SetHasMeasurementCorrectionsExcessPathLengthRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetHasMeasurementCorrectionsForDriving calls the SetHasMeasurementCorrectionsForDriving RPC.
+func (c *GnssCapabilitiesBuilderClient) SetHasMeasurementCorrectionsForDriving(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetHasMeasurementCorrectionsForDriving(ctx, &pb.SetHasMeasurementCorrectionsForDrivingRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetHasMeasurementCorrectionsLosSats calls the SetHasMeasurementCorrectionsLosSats RPC.
+func (c *GnssCapabilitiesBuilderClient) SetHasMeasurementCorrectionsLosSats(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetHasMeasurementCorrectionsLosSats(ctx, &pb.SetHasMeasurementCorrectionsLosSatsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetHasMeasurementCorrectionsReflectingPlane calls the SetHasMeasurementCorrectionsReflectingPlane RPC.
+func (c *GnssCapabilitiesBuilderClient) SetHasMeasurementCorrectionsReflectingPlane(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetHasMeasurementCorrectionsReflectingPlane(ctx, &pb.SetHasMeasurementCorrectionsReflectingPlaneRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetHasMeasurementCorrelationVectors calls the SetHasMeasurementCorrelationVectors RPC.
+func (c *GnssCapabilitiesBuilderClient) SetHasMeasurementCorrelationVectors(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetHasMeasurementCorrelationVectors(ctx, &pb.SetHasMeasurementCorrelationVectorsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetHasMeasurements calls the SetHasMeasurements RPC.
+func (c *GnssCapabilitiesBuilderClient) SetHasMeasurements(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetHasMeasurements(ctx, &pb.SetHasMeasurementsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetHasMsa calls the SetHasMsa RPC.
+func (c *GnssCapabilitiesBuilderClient) SetHasMsa(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetHasMsa(ctx, &pb.SetHasMsaRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetHasMsb calls the SetHasMsb RPC.
+func (c *GnssCapabilitiesBuilderClient) SetHasMsb(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetHasMsb(ctx, &pb.SetHasMsbRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetHasNavigationMessages calls the SetHasNavigationMessages RPC.
+func (c *GnssCapabilitiesBuilderClient) SetHasNavigationMessages(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetHasNavigationMessages(ctx, &pb.SetHasNavigationMessagesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetHasOnDemandTime calls the SetHasOnDemandTime RPC.
+func (c *GnssCapabilitiesBuilderClient) SetHasOnDemandTime(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetHasOnDemandTime(ctx, &pb.SetHasOnDemandTimeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetHasPowerMultibandAcquisition calls the SetHasPowerMultibandAcquisition RPC.
+func (c *GnssCapabilitiesBuilderClient) SetHasPowerMultibandAcquisition(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetHasPowerMultibandAcquisition(ctx, &pb.SetHasPowerMultibandAcquisitionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetHasPowerMultibandTracking calls the SetHasPowerMultibandTracking RPC.
+func (c *GnssCapabilitiesBuilderClient) SetHasPowerMultibandTracking(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetHasPowerMultibandTracking(ctx, &pb.SetHasPowerMultibandTrackingRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetHasPowerOtherModes calls the SetHasPowerOtherModes RPC.
+func (c *GnssCapabilitiesBuilderClient) SetHasPowerOtherModes(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetHasPowerOtherModes(ctx, &pb.SetHasPowerOtherModesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetHasPowerSinglebandAcquisition calls the SetHasPowerSinglebandAcquisition RPC.
+func (c *GnssCapabilitiesBuilderClient) SetHasPowerSinglebandAcquisition(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetHasPowerSinglebandAcquisition(ctx, &pb.SetHasPowerSinglebandAcquisitionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetHasPowerSinglebandTracking calls the SetHasPowerSinglebandTracking RPC.
+func (c *GnssCapabilitiesBuilderClient) SetHasPowerSinglebandTracking(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetHasPowerSinglebandTracking(ctx, &pb.SetHasPowerSinglebandTrackingRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetHasPowerTotal calls the SetHasPowerTotal RPC.
+func (c *GnssCapabilitiesBuilderClient) SetHasPowerTotal(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetHasPowerTotal(ctx, &pb.SetHasPowerTotalRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetHasSatelliteBlocklist calls the SetHasSatelliteBlocklist RPC.
+func (c *GnssCapabilitiesBuilderClient) SetHasSatelliteBlocklist(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetHasSatelliteBlocklist(ctx, &pb.SetHasSatelliteBlocklistRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetHasSatellitePvt calls the SetHasSatellitePvt RPC.
+func (c *GnssCapabilitiesBuilderClient) SetHasSatellitePvt(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetHasSatellitePvt(ctx, &pb.SetHasSatellitePvtRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetHasScheduling calls the SetHasScheduling RPC.
+func (c *GnssCapabilitiesBuilderClient) SetHasScheduling(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetHasScheduling(ctx, &pb.SetHasSchedulingRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetHasSingleShotFix calls the SetHasSingleShotFix RPC.
+func (c *GnssCapabilitiesBuilderClient) SetHasSingleShotFix(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetHasSingleShotFix(ctx, &pb.SetHasSingleShotFixRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GnssStatusClient wraps the gRPC GnssStatusService client.
+type GnssStatusClient struct {
+	svc pb.GnssStatusServiceClient
+}
+
+// NewGnssStatusClient creates a new GnssStatus client.
+func NewGnssStatusClient(cc grpc.ClientConnInterface) *GnssStatusClient {
+	return &GnssStatusClient{
+		svc: pb.NewGnssStatusServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *GnssStatusClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *GnssStatusClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAzimuthDegrees calls the GetAzimuthDegrees RPC.
+func (c *GnssStatusClient) GetAzimuthDegrees(ctx context.Context, arg0 int32) (float32, error) {
+	resp, err := c.svc.GetAzimuthDegrees(ctx, &pb.GetAzimuthDegreesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBasebandCn0DbHz calls the GetBasebandCn0DbHz RPC.
+func (c *GnssStatusClient) GetBasebandCn0DbHz(ctx context.Context, arg0 int32) (float32, error) {
+	resp, err := c.svc.GetBasebandCn0DbHz(ctx, &pb.GetBasebandCn0DbHzRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCarrierFrequencyHz calls the GetCarrierFrequencyHz RPC.
+func (c *GnssStatusClient) GetCarrierFrequencyHz(ctx context.Context, arg0 int32) (float32, error) {
+	resp, err := c.svc.GetCarrierFrequencyHz(ctx, &pb.GnssStatusGetCarrierFrequencyHzRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCn0DbHz calls the GetCn0DbHz RPC.
+func (c *GnssStatusClient) GetCn0DbHz(ctx context.Context, arg0 int32) (float32, error) {
+	resp, err := c.svc.GetCn0DbHz(ctx, &pb.GetCn0DbHzRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetConstellationType calls the GetConstellationType RPC.
+func (c *GnssStatusClient) GetConstellationType(ctx context.Context, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetConstellationType(ctx, &pb.GnssStatusGetConstellationTypeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetElevationDegrees calls the GetElevationDegrees RPC.
+func (c *GnssStatusClient) GetElevationDegrees(ctx context.Context, arg0 int32) (float32, error) {
+	resp, err := c.svc.GetElevationDegrees(ctx, &pb.GetElevationDegreesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSatelliteCount calls the GetSatelliteCount RPC.
+func (c *GnssStatusClient) GetSatelliteCount(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetSatelliteCount(ctx, &pb.GetSatelliteCountRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSvid calls the GetSvid RPC.
+func (c *GnssStatusClient) GetSvid(ctx context.Context, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetSvid(ctx, &pb.GetSvidRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasAlmanacData calls the HasAlmanacData RPC.
+func (c *GnssStatusClient) HasAlmanacData(ctx context.Context, arg0 int32) (bool, error) {
+	resp, err := c.svc.HasAlmanacData(ctx, &pb.HasAlmanacDataRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasBasebandCn0DbHz calls the HasBasebandCn0DbHz RPC.
+func (c *GnssStatusClient) HasBasebandCn0DbHz(ctx context.Context, arg0 int32) (bool, error) {
+	resp, err := c.svc.HasBasebandCn0DbHz(ctx, &pb.HasBasebandCn0DbHzRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasCarrierFrequencyHz calls the HasCarrierFrequencyHz RPC.
+func (c *GnssStatusClient) HasCarrierFrequencyHz(ctx context.Context, arg0 int32) (bool, error) {
+	resp, err := c.svc.HasCarrierFrequencyHz(ctx, &pb.HasCarrierFrequencyHzRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasEphemerisData calls the HasEphemerisData RPC.
+func (c *GnssStatusClient) HasEphemerisData(ctx context.Context, arg0 int32) (bool, error) {
+	resp, err := c.svc.HasEphemerisData(ctx, &pb.HasEphemerisDataRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *GnssStatusClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// UsedInFix calls the UsedInFix RPC.
+func (c *GnssStatusClient) UsedInFix(ctx context.Context, arg0 int32) (bool, error) {
+	resp, err := c.svc.UsedInFix(ctx, &pb.GnssStatusUsedInFixRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *GnssStatusClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// GnssStatusBuilderClient wraps the gRPC GnssStatusBuilderService client.
+type GnssStatusBuilderClient struct {
+	svc pb.GnssStatusBuilderServiceClient
+}
+
+// NewGnssStatusBuilderClient creates a new GnssStatusBuilder client.
+func NewGnssStatusBuilderClient(cc grpc.ClientConnInterface) *GnssStatusBuilderClient {
+	return &GnssStatusBuilderClient{
+		svc: pb.NewGnssStatusBuilderServiceClient(cc),
+	}
+}
+
+// AddSatellite calls the AddSatellite RPC.
+func (c *GnssStatusBuilderClient) AddSatellite(ctx context.Context, arg0 int32, arg1 int32, arg2 float32, arg3 float32, arg4 float32, arg5 bool, arg6 bool, arg7 bool, arg8 bool, arg9 float32, arg10 bool, arg11 float32) (int64, error) {
+	resp, err := c.svc.AddSatellite(ctx, &pb.AddSatelliteRequest{
+		Arg0:  arg0,
+		Arg1:  arg1,
+		Arg2:  arg2,
+		Arg3:  arg3,
+		Arg4:  arg4,
+		Arg5:  arg5,
+		Arg6:  arg6,
+		Arg7:  arg7,
+		Arg8:  arg8,
+		Arg9:  arg9,
+		Arg10: arg10,
+		Arg11: arg11,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Build calls the Build RPC.
+func (c *GnssStatusBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearSatellites calls the ClearSatellites RPC.
+func (c *GnssStatusBuilderClient) ClearSatellites(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearSatellites(ctx, &pb.ClearSatellitesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GnssStatusCallbackClient wraps the gRPC GnssStatusCallbackService client.
+type GnssStatusCallbackClient struct {
+	svc pb.GnssStatusCallbackServiceClient
+}
+
+// NewGnssStatusCallbackClient creates a new GnssStatusCallback client.
+func NewGnssStatusCallbackClient(cc grpc.ClientConnInterface) *GnssStatusCallbackClient {
+	return &GnssStatusCallbackClient{
+		svc: pb.NewGnssStatusCallbackServiceClient(cc),
+	}
+}
+
+// OnFirstFix calls the OnFirstFix RPC.
+func (c *GnssStatusCallbackClient) OnFirstFix(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.OnFirstFix(ctx, &pb.OnFirstFixRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnSatelliteStatusChanged calls the OnSatelliteStatusChanged RPC.
+func (c *GnssStatusCallbackClient) OnSatelliteStatusChanged(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnSatelliteStatusChanged(ctx, &pb.OnSatelliteStatusChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnStarted calls the OnStarted RPC.
+func (c *GnssStatusCallbackClient) OnStarted(ctx context.Context) error {
+	_, err := c.svc.OnStarted(ctx, &pb.OnStartedRequest{})
+	return err
+}
+
+// OnStopped calls the OnStopped RPC.
+func (c *GnssStatusCallbackClient) OnStopped(ctx context.Context) error {
+	_, err := c.svc.OnStopped(ctx, &pb.OnStoppedRequest{})
+	return err
+}
+
+// GnssClockClient wraps the gRPC GnssClockService client.
+type GnssClockClient struct {
+	svc pb.GnssClockServiceClient
+}
+
+// NewGnssClockClient creates a new GnssClock client.
+func NewGnssClockClient(cc grpc.ClientConnInterface) *GnssClockClient {
+	return &GnssClockClient{
+		svc: pb.NewGnssClockServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *GnssClockClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBiasNanos calls the GetBiasNanos RPC.
+func (c *GnssClockClient) GetBiasNanos(ctx context.Context) (float64, error) {
+	resp, err := c.svc.GetBiasNanos(ctx, &pb.GetBiasNanosRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBiasUncertaintyNanos calls the GetBiasUncertaintyNanos RPC.
+func (c *GnssClockClient) GetBiasUncertaintyNanos(ctx context.Context) (float64, error) {
+	resp, err := c.svc.GetBiasUncertaintyNanos(ctx, &pb.GetBiasUncertaintyNanosRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDriftNanosPerSecond calls the GetDriftNanosPerSecond RPC.
+func (c *GnssClockClient) GetDriftNanosPerSecond(ctx context.Context) (float64, error) {
+	resp, err := c.svc.GetDriftNanosPerSecond(ctx, &pb.GetDriftNanosPerSecondRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDriftUncertaintyNanosPerSecond calls the GetDriftUncertaintyNanosPerSecond RPC.
+func (c *GnssClockClient) GetDriftUncertaintyNanosPerSecond(ctx context.Context) (float64, error) {
+	resp, err := c.svc.GetDriftUncertaintyNanosPerSecond(ctx, &pb.GetDriftUncertaintyNanosPerSecondRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetElapsedRealtimeNanos calls the GetElapsedRealtimeNanos RPC.
+func (c *GnssClockClient) GetElapsedRealtimeNanos(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetElapsedRealtimeNanos(ctx, &pb.GetElapsedRealtimeNanosRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetElapsedRealtimeUncertaintyNanos calls the GetElapsedRealtimeUncertaintyNanos RPC.
+func (c *GnssClockClient) GetElapsedRealtimeUncertaintyNanos(ctx context.Context) (float64, error) {
+	resp, err := c.svc.GetElapsedRealtimeUncertaintyNanos(ctx, &pb.GetElapsedRealtimeUncertaintyNanosRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFullBiasNanos calls the GetFullBiasNanos RPC.
+func (c *GnssClockClient) GetFullBiasNanos(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetFullBiasNanos(ctx, &pb.GetFullBiasNanosRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHardwareClockDiscontinuityCount calls the GetHardwareClockDiscontinuityCount RPC.
+func (c *GnssClockClient) GetHardwareClockDiscontinuityCount(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetHardwareClockDiscontinuityCount(ctx, &pb.GetHardwareClockDiscontinuityCountRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLeapSecond calls the GetLeapSecond RPC.
+func (c *GnssClockClient) GetLeapSecond(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetLeapSecond(ctx, &pb.GetLeapSecondRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetReferenceCarrierFrequencyHzForIsb calls the GetReferenceCarrierFrequencyHzForIsb RPC.
+func (c *GnssClockClient) GetReferenceCarrierFrequencyHzForIsb(ctx context.Context) (float64, error) {
+	resp, err := c.svc.GetReferenceCarrierFrequencyHzForIsb(ctx, &pb.GetReferenceCarrierFrequencyHzForIsbRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetReferenceCodeTypeForIsb calls the GetReferenceCodeTypeForIsb RPC.
+func (c *GnssClockClient) GetReferenceCodeTypeForIsb(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetReferenceCodeTypeForIsb(ctx, &pb.GetReferenceCodeTypeForIsbRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetReferenceConstellationTypeForIsb calls the GetReferenceConstellationTypeForIsb RPC.
+func (c *GnssClockClient) GetReferenceConstellationTypeForIsb(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetReferenceConstellationTypeForIsb(ctx, &pb.GetReferenceConstellationTypeForIsbRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTimeNanos calls the GetTimeNanos RPC.
+func (c *GnssClockClient) GetTimeNanos(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTimeNanos(ctx, &pb.GetTimeNanosRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTimeUncertaintyNanos calls the GetTimeUncertaintyNanos RPC.
+func (c *GnssClockClient) GetTimeUncertaintyNanos(ctx context.Context) (float64, error) {
+	resp, err := c.svc.GetTimeUncertaintyNanos(ctx, &pb.GetTimeUncertaintyNanosRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasBiasNanos calls the HasBiasNanos RPC.
+func (c *GnssClockClient) HasBiasNanos(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasBiasNanos(ctx, &pb.HasBiasNanosRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasBiasUncertaintyNanos calls the HasBiasUncertaintyNanos RPC.
+func (c *GnssClockClient) HasBiasUncertaintyNanos(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasBiasUncertaintyNanos(ctx, &pb.HasBiasUncertaintyNanosRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasDriftNanosPerSecond calls the HasDriftNanosPerSecond RPC.
+func (c *GnssClockClient) HasDriftNanosPerSecond(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasDriftNanosPerSecond(ctx, &pb.HasDriftNanosPerSecondRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasDriftUncertaintyNanosPerSecond calls the HasDriftUncertaintyNanosPerSecond RPC.
+func (c *GnssClockClient) HasDriftUncertaintyNanosPerSecond(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasDriftUncertaintyNanosPerSecond(ctx, &pb.HasDriftUncertaintyNanosPerSecondRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasElapsedRealtimeNanos calls the HasElapsedRealtimeNanos RPC.
+func (c *GnssClockClient) HasElapsedRealtimeNanos(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasElapsedRealtimeNanos(ctx, &pb.HasElapsedRealtimeNanosRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasElapsedRealtimeUncertaintyNanos calls the HasElapsedRealtimeUncertaintyNanos RPC.
+func (c *GnssClockClient) HasElapsedRealtimeUncertaintyNanos(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasElapsedRealtimeUncertaintyNanos(ctx, &pb.HasElapsedRealtimeUncertaintyNanosRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasFullBiasNanos calls the HasFullBiasNanos RPC.
+func (c *GnssClockClient) HasFullBiasNanos(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasFullBiasNanos(ctx, &pb.HasFullBiasNanosRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasLeapSecond calls the HasLeapSecond RPC.
+func (c *GnssClockClient) HasLeapSecond(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasLeapSecond(ctx, &pb.HasLeapSecondRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasReferenceCarrierFrequencyHzForIsb calls the HasReferenceCarrierFrequencyHzForIsb RPC.
+func (c *GnssClockClient) HasReferenceCarrierFrequencyHzForIsb(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasReferenceCarrierFrequencyHzForIsb(ctx, &pb.HasReferenceCarrierFrequencyHzForIsbRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasReferenceCodeTypeForIsb calls the HasReferenceCodeTypeForIsb RPC.
+func (c *GnssClockClient) HasReferenceCodeTypeForIsb(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasReferenceCodeTypeForIsb(ctx, &pb.HasReferenceCodeTypeForIsbRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasReferenceConstellationTypeForIsb calls the HasReferenceConstellationTypeForIsb RPC.
+func (c *GnssClockClient) HasReferenceConstellationTypeForIsb(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasReferenceConstellationTypeForIsb(ctx, &pb.HasReferenceConstellationTypeForIsbRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasTimeUncertaintyNanos calls the HasTimeUncertaintyNanos RPC.
+func (c *GnssClockClient) HasTimeUncertaintyNanos(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasTimeUncertaintyNanos(ctx, &pb.HasTimeUncertaintyNanosRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *GnssClockClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *GnssClockClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// GnssSignalTypeClient wraps the gRPC GnssSignalTypeService client.
+type GnssSignalTypeClient struct {
+	svc pb.GnssSignalTypeServiceClient
+}
+
+// NewGnssSignalTypeClient creates a new GnssSignalType client.
+func NewGnssSignalTypeClient(cc grpc.ClientConnInterface) *GnssSignalTypeClient {
+	return &GnssSignalTypeClient{
+		svc: pb.NewGnssSignalTypeServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *GnssSignalTypeClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *GnssSignalTypeClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCarrierFrequencyHz calls the GetCarrierFrequencyHz RPC.
+func (c *GnssSignalTypeClient) GetCarrierFrequencyHz(ctx context.Context) (float64, error) {
+	resp, err := c.svc.GetCarrierFrequencyHz(ctx, &pb.GetCarrierFrequencyHzRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCodeType calls the GetCodeType RPC.
+func (c *GnssSignalTypeClient) GetCodeType(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetCodeType(ctx, &pb.GetCodeTypeRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetConstellationType calls the GetConstellationType RPC.
+func (c *GnssSignalTypeClient) GetConstellationType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetConstellationType(ctx, &pb.GetConstellationTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *GnssSignalTypeClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *GnssSignalTypeClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *GnssSignalTypeClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// Create calls the Create RPC.
+func (c *GnssSignalTypeClient) Create(ctx context.Context, arg0 int32, arg1 float64, arg2 string) (int64, error) {
+	resp, err := c.svc.Create(ctx, &pb.CreateRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GnssMeasurementClient wraps the gRPC GnssMeasurementService client.
+type GnssMeasurementClient struct {
+	svc pb.GnssMeasurementServiceClient
+}
+
+// NewGnssMeasurementClient creates a new GnssMeasurement client.
+func NewGnssMeasurementClient(cc grpc.ClientConnInterface) *GnssMeasurementClient {
+	return &GnssMeasurementClient{
+		svc: pb.NewGnssMeasurementServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *GnssMeasurementClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAccumulatedDeltaRangeMeters calls the GetAccumulatedDeltaRangeMeters RPC.
+func (c *GnssMeasurementClient) GetAccumulatedDeltaRangeMeters(ctx context.Context) (float64, error) {
+	resp, err := c.svc.GetAccumulatedDeltaRangeMeters(ctx, &pb.GetAccumulatedDeltaRangeMetersRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAccumulatedDeltaRangeState calls the GetAccumulatedDeltaRangeState RPC.
+func (c *GnssMeasurementClient) GetAccumulatedDeltaRangeState(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetAccumulatedDeltaRangeState(ctx, &pb.GetAccumulatedDeltaRangeStateRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAccumulatedDeltaRangeUncertaintyMeters calls the GetAccumulatedDeltaRangeUncertaintyMeters RPC.
+func (c *GnssMeasurementClient) GetAccumulatedDeltaRangeUncertaintyMeters(ctx context.Context) (float64, error) {
+	resp, err := c.svc.GetAccumulatedDeltaRangeUncertaintyMeters(ctx, &pb.GetAccumulatedDeltaRangeUncertaintyMetersRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAutomaticGainControlLevelDb calls the GetAutomaticGainControlLevelDb RPC.
+func (c *GnssMeasurementClient) GetAutomaticGainControlLevelDb(ctx context.Context) (float64, error) {
+	resp, err := c.svc.GetAutomaticGainControlLevelDb(ctx, &pb.GetAutomaticGainControlLevelDbRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBasebandCn0DbHz calls the GetBasebandCn0DbHz RPC.
+func (c *GnssMeasurementClient) GetBasebandCn0DbHz(ctx context.Context) (float64, error) {
+	resp, err := c.svc.GetBasebandCn0DbHz(ctx, &pb.GnssMeasurementGetBasebandCn0DbHzRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCarrierCycles calls the GetCarrierCycles RPC.
+func (c *GnssMeasurementClient) GetCarrierCycles(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetCarrierCycles(ctx, &pb.GetCarrierCyclesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCarrierFrequencyHz calls the GetCarrierFrequencyHz RPC.
+func (c *GnssMeasurementClient) GetCarrierFrequencyHz(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetCarrierFrequencyHz(ctx, &pb.GetCarrierFrequencyHzRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCarrierPhase calls the GetCarrierPhase RPC.
+func (c *GnssMeasurementClient) GetCarrierPhase(ctx context.Context) (float64, error) {
+	resp, err := c.svc.GetCarrierPhase(ctx, &pb.GetCarrierPhaseRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCarrierPhaseUncertainty calls the GetCarrierPhaseUncertainty RPC.
+func (c *GnssMeasurementClient) GetCarrierPhaseUncertainty(ctx context.Context) (float64, error) {
+	resp, err := c.svc.GetCarrierPhaseUncertainty(ctx, &pb.GetCarrierPhaseUncertaintyRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCn0DbHz calls the GetCn0DbHz RPC.
+func (c *GnssMeasurementClient) GetCn0DbHz(ctx context.Context) (float64, error) {
+	resp, err := c.svc.GetCn0DbHz(ctx, &pb.GnssMeasurementGetCn0DbHzRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCodeType calls the GetCodeType RPC.
+func (c *GnssMeasurementClient) GetCodeType(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetCodeType(ctx, &pb.GetCodeTypeRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetConstellationType calls the GetConstellationType RPC.
+func (c *GnssMeasurementClient) GetConstellationType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetConstellationType(ctx, &pb.GetConstellationTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFullInterSignalBiasNanos calls the GetFullInterSignalBiasNanos RPC.
+func (c *GnssMeasurementClient) GetFullInterSignalBiasNanos(ctx context.Context) (float64, error) {
+	resp, err := c.svc.GetFullInterSignalBiasNanos(ctx, &pb.GetFullInterSignalBiasNanosRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFullInterSignalBiasUncertaintyNanos calls the GetFullInterSignalBiasUncertaintyNanos RPC.
+func (c *GnssMeasurementClient) GetFullInterSignalBiasUncertaintyNanos(ctx context.Context) (float64, error) {
+	resp, err := c.svc.GetFullInterSignalBiasUncertaintyNanos(ctx, &pb.GetFullInterSignalBiasUncertaintyNanosRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMultipathIndicator calls the GetMultipathIndicator RPC.
+func (c *GnssMeasurementClient) GetMultipathIndicator(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMultipathIndicator(ctx, &pb.GetMultipathIndicatorRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPseudorangeRateMetersPerSecond calls the GetPseudorangeRateMetersPerSecond RPC.
+func (c *GnssMeasurementClient) GetPseudorangeRateMetersPerSecond(ctx context.Context) (float64, error) {
+	resp, err := c.svc.GetPseudorangeRateMetersPerSecond(ctx, &pb.GetPseudorangeRateMetersPerSecondRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPseudorangeRateUncertaintyMetersPerSecond calls the GetPseudorangeRateUncertaintyMetersPerSecond RPC.
+func (c *GnssMeasurementClient) GetPseudorangeRateUncertaintyMetersPerSecond(ctx context.Context) (float64, error) {
+	resp, err := c.svc.GetPseudorangeRateUncertaintyMetersPerSecond(ctx, &pb.GetPseudorangeRateUncertaintyMetersPerSecondRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetReceivedSvTimeNanos calls the GetReceivedSvTimeNanos RPC.
+func (c *GnssMeasurementClient) GetReceivedSvTimeNanos(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetReceivedSvTimeNanos(ctx, &pb.GetReceivedSvTimeNanosRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetReceivedSvTimeUncertaintyNanos calls the GetReceivedSvTimeUncertaintyNanos RPC.
+func (c *GnssMeasurementClient) GetReceivedSvTimeUncertaintyNanos(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetReceivedSvTimeUncertaintyNanos(ctx, &pb.GetReceivedSvTimeUncertaintyNanosRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSatelliteInterSignalBiasNanos calls the GetSatelliteInterSignalBiasNanos RPC.
+func (c *GnssMeasurementClient) GetSatelliteInterSignalBiasNanos(ctx context.Context) (float64, error) {
+	resp, err := c.svc.GetSatelliteInterSignalBiasNanos(ctx, &pb.GetSatelliteInterSignalBiasNanosRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSatelliteInterSignalBiasUncertaintyNanos calls the GetSatelliteInterSignalBiasUncertaintyNanos RPC.
+func (c *GnssMeasurementClient) GetSatelliteInterSignalBiasUncertaintyNanos(ctx context.Context) (float64, error) {
+	resp, err := c.svc.GetSatelliteInterSignalBiasUncertaintyNanos(ctx, &pb.GetSatelliteInterSignalBiasUncertaintyNanosRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSnrInDb calls the GetSnrInDb RPC.
+func (c *GnssMeasurementClient) GetSnrInDb(ctx context.Context) (float64, error) {
+	resp, err := c.svc.GetSnrInDb(ctx, &pb.GetSnrInDbRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetState calls the GetState RPC.
+func (c *GnssMeasurementClient) GetState(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetState(ctx, &pb.GetStateRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSvid calls the GetSvid RPC.
+func (c *GnssMeasurementClient) GetSvid(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetSvid(ctx, &pb.GnssMeasurementGetSvidRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTimeOffsetNanos calls the GetTimeOffsetNanos RPC.
+func (c *GnssMeasurementClient) GetTimeOffsetNanos(ctx context.Context) (float64, error) {
+	resp, err := c.svc.GetTimeOffsetNanos(ctx, &pb.GetTimeOffsetNanosRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasAutomaticGainControlLevelDb calls the HasAutomaticGainControlLevelDb RPC.
+func (c *GnssMeasurementClient) HasAutomaticGainControlLevelDb(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasAutomaticGainControlLevelDb(ctx, &pb.HasAutomaticGainControlLevelDbRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasBasebandCn0DbHz calls the HasBasebandCn0DbHz RPC.
+func (c *GnssMeasurementClient) HasBasebandCn0DbHz(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasBasebandCn0DbHz(ctx, &pb.GnssMeasurementHasBasebandCn0DbHzRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasCarrierCycles calls the HasCarrierCycles RPC.
+func (c *GnssMeasurementClient) HasCarrierCycles(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasCarrierCycles(ctx, &pb.HasCarrierCyclesRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasCarrierFrequencyHz calls the HasCarrierFrequencyHz RPC.
+func (c *GnssMeasurementClient) HasCarrierFrequencyHz(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasCarrierFrequencyHz(ctx, &pb.GnssMeasurementHasCarrierFrequencyHzRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasCarrierPhase calls the HasCarrierPhase RPC.
+func (c *GnssMeasurementClient) HasCarrierPhase(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasCarrierPhase(ctx, &pb.HasCarrierPhaseRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasCarrierPhaseUncertainty calls the HasCarrierPhaseUncertainty RPC.
+func (c *GnssMeasurementClient) HasCarrierPhaseUncertainty(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasCarrierPhaseUncertainty(ctx, &pb.HasCarrierPhaseUncertaintyRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasCodeType calls the HasCodeType RPC.
+func (c *GnssMeasurementClient) HasCodeType(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasCodeType(ctx, &pb.HasCodeTypeRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasFullInterSignalBiasNanos calls the HasFullInterSignalBiasNanos RPC.
+func (c *GnssMeasurementClient) HasFullInterSignalBiasNanos(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasFullInterSignalBiasNanos(ctx, &pb.HasFullInterSignalBiasNanosRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasFullInterSignalBiasUncertaintyNanos calls the HasFullInterSignalBiasUncertaintyNanos RPC.
+func (c *GnssMeasurementClient) HasFullInterSignalBiasUncertaintyNanos(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasFullInterSignalBiasUncertaintyNanos(ctx, &pb.HasFullInterSignalBiasUncertaintyNanosRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasSatelliteInterSignalBiasNanos calls the HasSatelliteInterSignalBiasNanos RPC.
+func (c *GnssMeasurementClient) HasSatelliteInterSignalBiasNanos(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasSatelliteInterSignalBiasNanos(ctx, &pb.HasSatelliteInterSignalBiasNanosRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasSatelliteInterSignalBiasUncertaintyNanos calls the HasSatelliteInterSignalBiasUncertaintyNanos RPC.
+func (c *GnssMeasurementClient) HasSatelliteInterSignalBiasUncertaintyNanos(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasSatelliteInterSignalBiasUncertaintyNanos(ctx, &pb.HasSatelliteInterSignalBiasUncertaintyNanosRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasSnrInDb calls the HasSnrInDb RPC.
+func (c *GnssMeasurementClient) HasSnrInDb(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasSnrInDb(ctx, &pb.HasSnrInDbRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *GnssMeasurementClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *GnssMeasurementClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// GnssMeasurementsEventClient wraps the gRPC GnssMeasurementsEventService client.
+type GnssMeasurementsEventClient struct {
+	svc pb.GnssMeasurementsEventServiceClient
+}
+
+// NewGnssMeasurementsEventClient creates a new GnssMeasurementsEvent client.
+func NewGnssMeasurementsEventClient(cc grpc.ClientConnInterface) *GnssMeasurementsEventClient {
+	return &GnssMeasurementsEventClient{
+		svc: pb.NewGnssMeasurementsEventServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *GnssMeasurementsEventClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetClock calls the GetClock RPC.
+func (c *GnssMeasurementsEventClient) GetClock(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetClock(ctx, &pb.GetClockRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasIsFullTracking calls the HasIsFullTracking RPC.
+func (c *GnssMeasurementsEventClient) HasIsFullTracking(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasIsFullTracking(ctx, &pb.HasIsFullTrackingRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsFullTracking calls the IsFullTracking RPC.
+func (c *GnssMeasurementsEventClient) IsFullTracking(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsFullTracking(ctx, &pb.IsFullTrackingRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *GnssMeasurementsEventClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *GnssMeasurementsEventClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// GnssMeasurementsEventBuilderClient wraps the gRPC GnssMeasurementsEventBuilderService client.
+type GnssMeasurementsEventBuilderClient struct {
+	svc pb.GnssMeasurementsEventBuilderServiceClient
+}
+
+// NewGnssMeasurementsEventBuilderClient creates a new GnssMeasurementsEventBuilder client.
+func NewGnssMeasurementsEventBuilderClient(cc grpc.ClientConnInterface) *GnssMeasurementsEventBuilderClient {
+	return &GnssMeasurementsEventBuilderClient{
+		svc: pb.NewGnssMeasurementsEventBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *GnssMeasurementsEventBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearIsFullTracking calls the ClearIsFullTracking RPC.
+func (c *GnssMeasurementsEventBuilderClient) ClearIsFullTracking(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearIsFullTracking(ctx, &pb.ClearIsFullTrackingRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetClock calls the SetClock RPC.
+func (c *GnssMeasurementsEventBuilderClient) SetClock(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetClock(ctx, &pb.SetClockRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetIsFullTracking calls the SetIsFullTracking RPC.
+func (c *GnssMeasurementsEventBuilderClient) SetIsFullTracking(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetIsFullTracking(ctx, &pb.SetIsFullTrackingRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GnssMeasurementsEventCallbackClient wraps the gRPC GnssMeasurementsEventCallbackService client.
+type GnssMeasurementsEventCallbackClient struct {
+	svc pb.GnssMeasurementsEventCallbackServiceClient
+}
+
+// NewGnssMeasurementsEventCallbackClient creates a new GnssMeasurementsEventCallback client.
+func NewGnssMeasurementsEventCallbackClient(cc grpc.ClientConnInterface) *GnssMeasurementsEventCallbackClient {
+	return &GnssMeasurementsEventCallbackClient{
+		svc: pb.NewGnssMeasurementsEventCallbackServiceClient(cc),
+	}
+}
+
+// OnGnssMeasurementsReceived calls the OnGnssMeasurementsReceived RPC.
+func (c *GnssMeasurementsEventCallbackClient) OnGnssMeasurementsReceived(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnGnssMeasurementsReceived(ctx, &pb.OnGnssMeasurementsReceivedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnStatusChanged calls the OnStatusChanged RPC.
+func (c *GnssMeasurementsEventCallbackClient) OnStatusChanged(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.OnStatusChanged(ctx, &pb.OnStatusChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnNmeaMessageListenerClient wraps the gRPC OnNmeaMessageListenerService client.
+type OnNmeaMessageListenerClient struct {
+	svc pb.OnNmeaMessageListenerServiceClient
+}
+
+// NewOnNmeaMessageListenerClient creates a new OnNmeaMessageListener client.
+func NewOnNmeaMessageListenerClient(cc grpc.ClientConnInterface) *OnNmeaMessageListenerClient {
+	return &OnNmeaMessageListenerClient{
+		svc: pb.NewOnNmeaMessageListenerServiceClient(cc),
+	}
+}
+
+// OnNmeaMessage calls the OnNmeaMessage RPC.
+func (c *OnNmeaMessageListenerClient) OnNmeaMessage(ctx context.Context, arg0 string, arg1 int64) error {
+	_, err := c.svc.OnNmeaMessage(ctx, &pb.OnNmeaMessageRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// GeocoderClient wraps the gRPC GeocoderService client.
+type GeocoderClient struct {
+	svc pb.GeocoderServiceClient
+}
+
+// NewGeocoderClient creates a new Geocoder client.
+func NewGeocoderClient(cc grpc.ClientConnInterface) *GeocoderClient {
+	return &GeocoderClient{
+		svc: pb.NewGeocoderServiceClient(cc),
+	}
+}
+
+// GetFromLocation calls the GetFromLocation RPC.
+func (c *GeocoderClient) GetFromLocation(ctx context.Context, handle int64, arg0 float64, arg1 float64, arg2 int32, arg3 int64) error {
+	_, err := c.svc.GetFromLocation(ctx, &pb.GetFromLocationRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// GetFromLocationName3 calls the GetFromLocationName3 RPC.
+func (c *GeocoderClient) GetFromLocationName3(ctx context.Context, handle int64, arg0 string, arg1 int32, arg2 int64) error {
+	_, err := c.svc.GetFromLocationName3(ctx, &pb.GetFromLocationName3Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GetFromLocationName7_1 calls the GetFromLocationName7_1 RPC.
+func (c *GeocoderClient) GetFromLocationName7_1(ctx context.Context, handle int64, arg0 string, arg1 int32, arg2 float64, arg3 float64, arg4 float64, arg5 float64, arg6 int64) error {
+	_, err := c.svc.GetFromLocationName7_1(ctx, &pb.GetFromLocationName7_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+		Arg5:   arg5,
+		Arg6:   arg6,
+	})
+	return err
+}
+
+// IsPresent calls the IsPresent RPC.
+func (c *GeocoderClient) IsPresent(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsPresent(ctx, &pb.IsPresentRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GnssNavigationMessageClient wraps the gRPC GnssNavigationMessageService client.
+type GnssNavigationMessageClient struct {
+	svc pb.GnssNavigationMessageServiceClient
+}
+
+// NewGnssNavigationMessageClient creates a new GnssNavigationMessage client.
+func NewGnssNavigationMessageClient(cc grpc.ClientConnInterface) *GnssNavigationMessageClient {
+	return &GnssNavigationMessageClient{
+		svc: pb.NewGnssNavigationMessageServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *GnssNavigationMessageClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetData calls the GetData RPC.
+func (c *GnssNavigationMessageClient) GetData(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetData(ctx, &pb.GetDataRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMessageId calls the GetMessageId RPC.
+func (c *GnssNavigationMessageClient) GetMessageId(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMessageId(ctx, &pb.GetMessageIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStatus calls the GetStatus RPC.
+func (c *GnssNavigationMessageClient) GetStatus(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetStatus(ctx, &pb.GetStatusRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSubmessageId calls the GetSubmessageId RPC.
+func (c *GnssNavigationMessageClient) GetSubmessageId(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetSubmessageId(ctx, &pb.GetSubmessageIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSvid calls the GetSvid RPC.
+func (c *GnssNavigationMessageClient) GetSvid(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetSvid(ctx, &pb.GnssNavigationMessageGetSvidRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetType calls the GetType RPC.
+func (c *GnssNavigationMessageClient) GetType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetType(ctx, &pb.GetTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *GnssNavigationMessageClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *GnssNavigationMessageClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// GnssNavigationMessageCallbackClient wraps the gRPC GnssNavigationMessageCallbackService client.
+type GnssNavigationMessageCallbackClient struct {
+	svc pb.GnssNavigationMessageCallbackServiceClient
+}
+
+// NewGnssNavigationMessageCallbackClient creates a new GnssNavigationMessageCallback client.
+func NewGnssNavigationMessageCallbackClient(cc grpc.ClientConnInterface) *GnssNavigationMessageCallbackClient {
+	return &GnssNavigationMessageCallbackClient{
+		svc: pb.NewGnssNavigationMessageCallbackServiceClient(cc),
+	}
+}
+
+// OnGnssNavigationMessageReceived calls the OnGnssNavigationMessageReceived RPC.
+func (c *GnssNavigationMessageCallbackClient) OnGnssNavigationMessageReceived(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnGnssNavigationMessageReceived(ctx, &pb.OnGnssNavigationMessageReceivedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnStatusChanged calls the OnStatusChanged RPC.
+func (c *GnssNavigationMessageCallbackClient) OnStatusChanged(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.OnStatusChanged(ctx, &pb.OnStatusChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SettingInjectorServiceClient wraps the gRPC SettingInjectorServiceService client.
+type SettingInjectorServiceClient struct {
+	svc pb.SettingInjectorServiceServiceClient
+}
+
+// NewSettingInjectorServiceClient creates a new SettingInjectorService client.
+func NewSettingInjectorServiceClient(cc grpc.ClientConnInterface) *SettingInjectorServiceClient {
+	return &SettingInjectorServiceClient{
+		svc: pb.NewSettingInjectorServiceServiceClient(cc),
+	}
+}
+
+// OnBind calls the OnBind RPC.
+func (c *SettingInjectorServiceClient) OnBind(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.OnBind(ctx, &pb.OnBindRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnStart calls the OnStart RPC.
+func (c *SettingInjectorServiceClient) OnStart(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.OnStart(ctx, &pb.OnStartRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnStartCommand calls the OnStartCommand RPC.
+func (c *SettingInjectorServiceClient) OnStartCommand(ctx context.Context, arg0 int64, arg1 int32, arg2 int32) (int32, error) {
+	resp, err := c.svc.OnStartCommand(ctx, &pb.OnStartCommandRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RefreshSettings calls the RefreshSettings RPC.
+func (c *SettingInjectorServiceClient) RefreshSettings(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.RefreshSettings(ctx, &pb.RefreshSettingsRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
 // ManagerClient wraps the gRPC ManagerService client.
 type ManagerClient struct {
 	svc pb.ManagerServiceClient
@@ -624,4 +4055,1171 @@ func (c *ManagerClient) UnregisterGnssStatusCallback(ctx context.Context, arg0 i
 		Arg0: arg0,
 	})
 	return err
+}
+
+// LocationClient wraps the gRPC LocationService client.
+type LocationClient struct {
+	svc pb.LocationServiceClient
+}
+
+// NewLocationClient creates a new Location client.
+func NewLocationClient(cc grpc.ClientConnInterface) *LocationClient {
+	return &LocationClient{
+		svc: pb.NewLocationServiceClient(cc),
+	}
+}
+
+// BearingTo calls the BearingTo RPC.
+func (c *LocationClient) BearingTo(ctx context.Context, handle int64, arg0 int64) (float32, error) {
+	resp, err := c.svc.BearingTo(ctx, &pb.BearingToRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *LocationClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.LocationDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DistanceTo calls the DistanceTo RPC.
+func (c *LocationClient) DistanceTo(ctx context.Context, handle int64, arg0 int64) (float32, error) {
+	resp, err := c.svc.DistanceTo(ctx, &pb.DistanceToRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Dump calls the Dump RPC.
+func (c *LocationClient) Dump(ctx context.Context, handle int64, arg0 int64, arg1 string) error {
+	_, err := c.svc.Dump(ctx, &pb.DumpRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// Equals calls the Equals RPC.
+func (c *LocationClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.LocationEqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAccuracy calls the GetAccuracy RPC.
+func (c *LocationClient) GetAccuracy(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetAccuracy(ctx, &pb.GetAccuracyRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAltitude calls the GetAltitude RPC.
+func (c *LocationClient) GetAltitude(ctx context.Context, handle int64) (float64, error) {
+	resp, err := c.svc.GetAltitude(ctx, &pb.GetAltitudeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBearing calls the GetBearing RPC.
+func (c *LocationClient) GetBearing(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetBearing(ctx, &pb.GetBearingRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBearingAccuracyDegrees calls the GetBearingAccuracyDegrees RPC.
+func (c *LocationClient) GetBearingAccuracyDegrees(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetBearingAccuracyDegrees(ctx, &pb.GetBearingAccuracyDegreesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetElapsedRealtimeAgeMillis0 calls the GetElapsedRealtimeAgeMillis0 RPC.
+func (c *LocationClient) GetElapsedRealtimeAgeMillis0(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetElapsedRealtimeAgeMillis0(ctx, &pb.GetElapsedRealtimeAgeMillis0Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetElapsedRealtimeAgeMillis1_1 calls the GetElapsedRealtimeAgeMillis1_1 RPC.
+func (c *LocationClient) GetElapsedRealtimeAgeMillis1_1(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetElapsedRealtimeAgeMillis1_1(ctx, &pb.GetElapsedRealtimeAgeMillis1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetElapsedRealtimeMillis calls the GetElapsedRealtimeMillis RPC.
+func (c *LocationClient) GetElapsedRealtimeMillis(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetElapsedRealtimeMillis(ctx, &pb.GetElapsedRealtimeMillisRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetElapsedRealtimeNanos calls the GetElapsedRealtimeNanos RPC.
+func (c *LocationClient) GetElapsedRealtimeNanos(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetElapsedRealtimeNanos(ctx, &pb.LocationGetElapsedRealtimeNanosRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetElapsedRealtimeUncertaintyNanos calls the GetElapsedRealtimeUncertaintyNanos RPC.
+func (c *LocationClient) GetElapsedRealtimeUncertaintyNanos(ctx context.Context, handle int64) (float64, error) {
+	resp, err := c.svc.GetElapsedRealtimeUncertaintyNanos(ctx, &pb.LocationGetElapsedRealtimeUncertaintyNanosRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExtras calls the GetExtras RPC.
+func (c *LocationClient) GetExtras(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetExtras(ctx, &pb.GetExtrasRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLatitude calls the GetLatitude RPC.
+func (c *LocationClient) GetLatitude(ctx context.Context, handle int64) (float64, error) {
+	resp, err := c.svc.GetLatitude(ctx, &pb.GetLatitudeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLongitude calls the GetLongitude RPC.
+func (c *LocationClient) GetLongitude(ctx context.Context, handle int64) (float64, error) {
+	resp, err := c.svc.GetLongitude(ctx, &pb.GetLongitudeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMslAltitudeAccuracyMeters calls the GetMslAltitudeAccuracyMeters RPC.
+func (c *LocationClient) GetMslAltitudeAccuracyMeters(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetMslAltitudeAccuracyMeters(ctx, &pb.GetMslAltitudeAccuracyMetersRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMslAltitudeMeters calls the GetMslAltitudeMeters RPC.
+func (c *LocationClient) GetMslAltitudeMeters(ctx context.Context, handle int64) (float64, error) {
+	resp, err := c.svc.GetMslAltitudeMeters(ctx, &pb.GetMslAltitudeMetersRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetProvider calls the GetProvider RPC.
+func (c *LocationClient) GetProvider(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetProvider(ctx, &pb.LocationGetProviderRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSpeed calls the GetSpeed RPC.
+func (c *LocationClient) GetSpeed(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetSpeed(ctx, &pb.GetSpeedRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSpeedAccuracyMetersPerSecond calls the GetSpeedAccuracyMetersPerSecond RPC.
+func (c *LocationClient) GetSpeedAccuracyMetersPerSecond(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetSpeedAccuracyMetersPerSecond(ctx, &pb.GetSpeedAccuracyMetersPerSecondRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTime calls the GetTime RPC.
+func (c *LocationClient) GetTime(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetTime(ctx, &pb.GetTimeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVerticalAccuracyMeters calls the GetVerticalAccuracyMeters RPC.
+func (c *LocationClient) GetVerticalAccuracyMeters(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetVerticalAccuracyMeters(ctx, &pb.GetVerticalAccuracyMetersRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasAccuracy calls the HasAccuracy RPC.
+func (c *LocationClient) HasAccuracy(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.HasAccuracy(ctx, &pb.HasAccuracyRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasAltitude calls the HasAltitude RPC.
+func (c *LocationClient) HasAltitude(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.HasAltitude(ctx, &pb.HasAltitudeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasBearing calls the HasBearing RPC.
+func (c *LocationClient) HasBearing(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.HasBearing(ctx, &pb.HasBearingRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasBearingAccuracy calls the HasBearingAccuracy RPC.
+func (c *LocationClient) HasBearingAccuracy(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.HasBearingAccuracy(ctx, &pb.HasBearingAccuracyRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasElapsedRealtimeUncertaintyNanos calls the HasElapsedRealtimeUncertaintyNanos RPC.
+func (c *LocationClient) HasElapsedRealtimeUncertaintyNanos(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.HasElapsedRealtimeUncertaintyNanos(ctx, &pb.LocationHasElapsedRealtimeUncertaintyNanosRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasMslAltitude calls the HasMslAltitude RPC.
+func (c *LocationClient) HasMslAltitude(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.HasMslAltitude(ctx, &pb.HasMslAltitudeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasMslAltitudeAccuracy calls the HasMslAltitudeAccuracy RPC.
+func (c *LocationClient) HasMslAltitudeAccuracy(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.HasMslAltitudeAccuracy(ctx, &pb.HasMslAltitudeAccuracyRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasSpeed calls the HasSpeed RPC.
+func (c *LocationClient) HasSpeed(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.HasSpeed(ctx, &pb.HasSpeedRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasSpeedAccuracy calls the HasSpeedAccuracy RPC.
+func (c *LocationClient) HasSpeedAccuracy(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.HasSpeedAccuracy(ctx, &pb.HasSpeedAccuracyRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasVerticalAccuracy calls the HasVerticalAccuracy RPC.
+func (c *LocationClient) HasVerticalAccuracy(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.HasVerticalAccuracy(ctx, &pb.HasVerticalAccuracyRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *LocationClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.LocationHashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsComplete calls the IsComplete RPC.
+func (c *LocationClient) IsComplete(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsComplete(ctx, &pb.IsCompleteRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsFromMockProvider calls the IsFromMockProvider RPC.
+func (c *LocationClient) IsFromMockProvider(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsFromMockProvider(ctx, &pb.IsFromMockProviderRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsMock calls the IsMock RPC.
+func (c *LocationClient) IsMock(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsMock(ctx, &pb.IsMockRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RemoveAccuracy calls the RemoveAccuracy RPC.
+func (c *LocationClient) RemoveAccuracy(ctx context.Context, handle int64) error {
+	_, err := c.svc.RemoveAccuracy(ctx, &pb.RemoveAccuracyRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// RemoveAltitude calls the RemoveAltitude RPC.
+func (c *LocationClient) RemoveAltitude(ctx context.Context, handle int64) error {
+	_, err := c.svc.RemoveAltitude(ctx, &pb.RemoveAltitudeRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// RemoveBearing calls the RemoveBearing RPC.
+func (c *LocationClient) RemoveBearing(ctx context.Context, handle int64) error {
+	_, err := c.svc.RemoveBearing(ctx, &pb.RemoveBearingRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// RemoveBearingAccuracy calls the RemoveBearingAccuracy RPC.
+func (c *LocationClient) RemoveBearingAccuracy(ctx context.Context, handle int64) error {
+	_, err := c.svc.RemoveBearingAccuracy(ctx, &pb.RemoveBearingAccuracyRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// RemoveElapsedRealtimeUncertaintyNanos calls the RemoveElapsedRealtimeUncertaintyNanos RPC.
+func (c *LocationClient) RemoveElapsedRealtimeUncertaintyNanos(ctx context.Context, handle int64) error {
+	_, err := c.svc.RemoveElapsedRealtimeUncertaintyNanos(ctx, &pb.RemoveElapsedRealtimeUncertaintyNanosRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// RemoveMslAltitude calls the RemoveMslAltitude RPC.
+func (c *LocationClient) RemoveMslAltitude(ctx context.Context, handle int64) error {
+	_, err := c.svc.RemoveMslAltitude(ctx, &pb.RemoveMslAltitudeRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// RemoveMslAltitudeAccuracy calls the RemoveMslAltitudeAccuracy RPC.
+func (c *LocationClient) RemoveMslAltitudeAccuracy(ctx context.Context, handle int64) error {
+	_, err := c.svc.RemoveMslAltitudeAccuracy(ctx, &pb.RemoveMslAltitudeAccuracyRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// RemoveSpeed calls the RemoveSpeed RPC.
+func (c *LocationClient) RemoveSpeed(ctx context.Context, handle int64) error {
+	_, err := c.svc.RemoveSpeed(ctx, &pb.RemoveSpeedRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// RemoveSpeedAccuracy calls the RemoveSpeedAccuracy RPC.
+func (c *LocationClient) RemoveSpeedAccuracy(ctx context.Context, handle int64) error {
+	_, err := c.svc.RemoveSpeedAccuracy(ctx, &pb.RemoveSpeedAccuracyRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// RemoveVerticalAccuracy calls the RemoveVerticalAccuracy RPC.
+func (c *LocationClient) RemoveVerticalAccuracy(ctx context.Context, handle int64) error {
+	_, err := c.svc.RemoveVerticalAccuracy(ctx, &pb.RemoveVerticalAccuracyRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// Reset calls the Reset RPC.
+func (c *LocationClient) Reset(ctx context.Context, handle int64) error {
+	_, err := c.svc.Reset(ctx, &pb.ResetRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// Set calls the Set RPC.
+func (c *LocationClient) Set(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.Set(ctx, &pb.SetRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetAccuracy calls the SetAccuracy RPC.
+func (c *LocationClient) SetAccuracy(ctx context.Context, handle int64, arg0 float32) error {
+	_, err := c.svc.SetAccuracy(ctx, &pb.LocationSetAccuracyRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetAltitude calls the SetAltitude RPC.
+func (c *LocationClient) SetAltitude(ctx context.Context, handle int64, arg0 float64) error {
+	_, err := c.svc.SetAltitude(ctx, &pb.SetAltitudeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetBearing calls the SetBearing RPC.
+func (c *LocationClient) SetBearing(ctx context.Context, handle int64, arg0 float32) error {
+	_, err := c.svc.SetBearing(ctx, &pb.SetBearingRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetBearingAccuracyDegrees calls the SetBearingAccuracyDegrees RPC.
+func (c *LocationClient) SetBearingAccuracyDegrees(ctx context.Context, handle int64, arg0 float32) error {
+	_, err := c.svc.SetBearingAccuracyDegrees(ctx, &pb.SetBearingAccuracyDegreesRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetElapsedRealtimeNanos calls the SetElapsedRealtimeNanos RPC.
+func (c *LocationClient) SetElapsedRealtimeNanos(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetElapsedRealtimeNanos(ctx, &pb.SetElapsedRealtimeNanosRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetElapsedRealtimeUncertaintyNanos calls the SetElapsedRealtimeUncertaintyNanos RPC.
+func (c *LocationClient) SetElapsedRealtimeUncertaintyNanos(ctx context.Context, handle int64, arg0 float64) error {
+	_, err := c.svc.SetElapsedRealtimeUncertaintyNanos(ctx, &pb.SetElapsedRealtimeUncertaintyNanosRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetExtras calls the SetExtras RPC.
+func (c *LocationClient) SetExtras(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetExtras(ctx, &pb.SetExtrasRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetLatitude calls the SetLatitude RPC.
+func (c *LocationClient) SetLatitude(ctx context.Context, handle int64, arg0 float64) error {
+	_, err := c.svc.SetLatitude(ctx, &pb.SetLatitudeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetLongitude calls the SetLongitude RPC.
+func (c *LocationClient) SetLongitude(ctx context.Context, handle int64, arg0 float64) error {
+	_, err := c.svc.SetLongitude(ctx, &pb.SetLongitudeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetMock calls the SetMock RPC.
+func (c *LocationClient) SetMock(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetMock(ctx, &pb.SetMockRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetMslAltitudeAccuracyMeters calls the SetMslAltitudeAccuracyMeters RPC.
+func (c *LocationClient) SetMslAltitudeAccuracyMeters(ctx context.Context, handle int64, arg0 float32) error {
+	_, err := c.svc.SetMslAltitudeAccuracyMeters(ctx, &pb.SetMslAltitudeAccuracyMetersRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetMslAltitudeMeters calls the SetMslAltitudeMeters RPC.
+func (c *LocationClient) SetMslAltitudeMeters(ctx context.Context, handle int64, arg0 float64) error {
+	_, err := c.svc.SetMslAltitudeMeters(ctx, &pb.SetMslAltitudeMetersRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetProvider calls the SetProvider RPC.
+func (c *LocationClient) SetProvider(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.SetProvider(ctx, &pb.SetProviderRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetSpeed calls the SetSpeed RPC.
+func (c *LocationClient) SetSpeed(ctx context.Context, handle int64, arg0 float32) error {
+	_, err := c.svc.SetSpeed(ctx, &pb.SetSpeedRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetSpeedAccuracyMetersPerSecond calls the SetSpeedAccuracyMetersPerSecond RPC.
+func (c *LocationClient) SetSpeedAccuracyMetersPerSecond(ctx context.Context, handle int64, arg0 float32) error {
+	_, err := c.svc.SetSpeedAccuracyMetersPerSecond(ctx, &pb.SetSpeedAccuracyMetersPerSecondRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetTime calls the SetTime RPC.
+func (c *LocationClient) SetTime(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetTime(ctx, &pb.SetTimeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetVerticalAccuracyMeters calls the SetVerticalAccuracyMeters RPC.
+func (c *LocationClient) SetVerticalAccuracyMeters(ctx context.Context, handle int64, arg0 float32) error {
+	_, err := c.svc.SetVerticalAccuracyMeters(ctx, &pb.SetVerticalAccuracyMetersRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// ToString calls the ToString RPC.
+func (c *LocationClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.LocationToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *LocationClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.LocationWriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// Convert2 calls the Convert2 RPC.
+func (c *LocationClient) Convert2(ctx context.Context, handle int64, arg0 float64, arg1 int32) (string, error) {
+	resp, err := c.svc.Convert2(ctx, &pb.Convert2Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// Convert1_1 calls the Convert1_1 RPC.
+func (c *LocationClient) Convert1_1(ctx context.Context, handle int64, arg0 string) (float64, error) {
+	resp, err := c.svc.Convert1_1(ctx, &pb.Convert1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DistanceBetween calls the DistanceBetween RPC.
+func (c *LocationClient) DistanceBetween(ctx context.Context, handle int64, arg0 float64, arg1 float64, arg2 float64, arg3 float64, arg4 int64) error {
+	_, err := c.svc.DistanceBetween(ctx, &pb.DistanceBetweenRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+	})
+	return err
+}
+
+// RequestClient wraps the gRPC RequestService client.
+type RequestClient struct {
+	svc pb.RequestServiceClient
+}
+
+// NewRequestClient creates a new Request client.
+func NewRequestClient(cc grpc.ClientConnInterface) *RequestClient {
+	return &RequestClient{
+		svc: pb.NewRequestServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *RequestClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *RequestClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDurationMillis calls the GetDurationMillis RPC.
+func (c *RequestClient) GetDurationMillis(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDurationMillis(ctx, &pb.GetDurationMillisRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIntervalMillis calls the GetIntervalMillis RPC.
+func (c *RequestClient) GetIntervalMillis(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetIntervalMillis(ctx, &pb.GetIntervalMillisRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMaxUpdateDelayMillis calls the GetMaxUpdateDelayMillis RPC.
+func (c *RequestClient) GetMaxUpdateDelayMillis(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetMaxUpdateDelayMillis(ctx, &pb.GetMaxUpdateDelayMillisRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMaxUpdates calls the GetMaxUpdates RPC.
+func (c *RequestClient) GetMaxUpdates(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMaxUpdates(ctx, &pb.GetMaxUpdatesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMinUpdateDistanceMeters calls the GetMinUpdateDistanceMeters RPC.
+func (c *RequestClient) GetMinUpdateDistanceMeters(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetMinUpdateDistanceMeters(ctx, &pb.GetMinUpdateDistanceMetersRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMinUpdateIntervalMillis calls the GetMinUpdateIntervalMillis RPC.
+func (c *RequestClient) GetMinUpdateIntervalMillis(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetMinUpdateIntervalMillis(ctx, &pb.GetMinUpdateIntervalMillisRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetQuality calls the GetQuality RPC.
+func (c *RequestClient) GetQuality(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetQuality(ctx, &pb.GetQualityRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *RequestClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *RequestClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *RequestClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// RequestBuilderClient wraps the gRPC RequestBuilderService client.
+type RequestBuilderClient struct {
+	svc pb.RequestBuilderServiceClient
+}
+
+// NewRequestBuilderClient creates a new RequestBuilder client.
+func NewRequestBuilderClient(cc grpc.ClientConnInterface) *RequestBuilderClient {
+	return &RequestBuilderClient{
+		svc: pb.NewRequestBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *RequestBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearMinUpdateIntervalMillis calls the ClearMinUpdateIntervalMillis RPC.
+func (c *RequestBuilderClient) ClearMinUpdateIntervalMillis(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearMinUpdateIntervalMillis(ctx, &pb.ClearMinUpdateIntervalMillisRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetDurationMillis calls the SetDurationMillis RPC.
+func (c *RequestBuilderClient) SetDurationMillis(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetDurationMillis(ctx, &pb.SetDurationMillisRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetIntervalMillis calls the SetIntervalMillis RPC.
+func (c *RequestBuilderClient) SetIntervalMillis(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetIntervalMillis(ctx, &pb.RequestBuilderSetIntervalMillisRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetMaxUpdateDelayMillis calls the SetMaxUpdateDelayMillis RPC.
+func (c *RequestBuilderClient) SetMaxUpdateDelayMillis(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetMaxUpdateDelayMillis(ctx, &pb.SetMaxUpdateDelayMillisRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetMaxUpdates calls the SetMaxUpdates RPC.
+func (c *RequestBuilderClient) SetMaxUpdates(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetMaxUpdates(ctx, &pb.SetMaxUpdatesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetMinUpdateDistanceMeters calls the SetMinUpdateDistanceMeters RPC.
+func (c *RequestBuilderClient) SetMinUpdateDistanceMeters(ctx context.Context, arg0 float32) (int64, error) {
+	resp, err := c.svc.SetMinUpdateDistanceMeters(ctx, &pb.SetMinUpdateDistanceMetersRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetMinUpdateIntervalMillis calls the SetMinUpdateIntervalMillis RPC.
+func (c *RequestBuilderClient) SetMinUpdateIntervalMillis(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetMinUpdateIntervalMillis(ctx, &pb.SetMinUpdateIntervalMillisRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetQuality calls the SetQuality RPC.
+func (c *RequestBuilderClient) SetQuality(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetQuality(ctx, &pb.SetQualityRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GpsStatusClient wraps the gRPC GpsStatusService client.
+type GpsStatusClient struct {
+	svc pb.GpsStatusServiceClient
+}
+
+// NewGpsStatusClient creates a new GpsStatus client.
+func NewGpsStatusClient(cc grpc.ClientConnInterface) *GpsStatusClient {
+	return &GpsStatusClient{
+		svc: pb.NewGpsStatusServiceClient(cc),
+	}
+}
+
+// GetMaxSatellites calls the GetMaxSatellites RPC.
+func (c *GpsStatusClient) GetMaxSatellites(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMaxSatellites(ctx, &pb.GetMaxSatellitesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTimeToFirstFix calls the GetTimeToFirstFix RPC.
+func (c *GpsStatusClient) GetTimeToFirstFix(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetTimeToFirstFix(ctx, &pb.GetTimeToFirstFixRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Create calls the Create RPC.
+func (c *GpsStatusClient) Create(ctx context.Context, arg0 int64, arg1 int32) (int64, error) {
+	resp, err := c.svc.Create(ctx, &pb.GpsStatusCreateRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GpsStatusListenerClient wraps the gRPC GpsStatusListenerService client.
+type GpsStatusListenerClient struct {
+	svc pb.GpsStatusListenerServiceClient
+}
+
+// NewGpsStatusListenerClient creates a new GpsStatusListener client.
+func NewGpsStatusListenerClient(cc grpc.ClientConnInterface) *GpsStatusListenerClient {
+	return &GpsStatusListenerClient{
+		svc: pb.NewGpsStatusListenerServiceClient(cc),
+	}
+}
+
+// OnGpsStatusChanged calls the OnGpsStatusChanged RPC.
+func (c *GpsStatusListenerClient) OnGpsStatusChanged(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.OnGpsStatusChanged(ctx, &pb.OnGpsStatusChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// GpsStatusNmeaListenerClient wraps the gRPC GpsStatusNmeaListenerService client.
+type GpsStatusNmeaListenerClient struct {
+	svc pb.GpsStatusNmeaListenerServiceClient
+}
+
+// NewGpsStatusNmeaListenerClient creates a new GpsStatusNmeaListener client.
+func NewGpsStatusNmeaListenerClient(cc grpc.ClientConnInterface) *GpsStatusNmeaListenerClient {
+	return &GpsStatusNmeaListenerClient{
+		svc: pb.NewGpsStatusNmeaListenerServiceClient(cc),
+	}
+}
+
+// OnNmeaReceived calls the OnNmeaReceived RPC.
+func (c *GpsStatusNmeaListenerClient) OnNmeaReceived(ctx context.Context, arg0 int64, arg1 string) error {
+	_, err := c.svc.OnNmeaReceived(ctx, &pb.OnNmeaReceivedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ProviderClient wraps the gRPC ProviderService client.
+type ProviderClient struct {
+	svc pb.ProviderServiceClient
+}
+
+// NewProviderClient creates a new Provider client.
+func NewProviderClient(cc grpc.ClientConnInterface) *ProviderClient {
+	return &ProviderClient{
+		svc: pb.NewProviderServiceClient(cc),
+	}
+}
+
+// GetAccuracy calls the GetAccuracy RPC.
+func (c *ProviderClient) GetAccuracy(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetAccuracy(ctx, &pb.ProviderGetAccuracyRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetName calls the GetName RPC.
+func (c *ProviderClient) GetName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetName(ctx, &pb.GetNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPowerRequirement calls the GetPowerRequirement RPC.
+func (c *ProviderClient) GetPowerRequirement(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetPowerRequirement(ctx, &pb.ProviderGetPowerRequirementRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasMonetaryCost calls the HasMonetaryCost RPC.
+func (c *ProviderClient) HasMonetaryCost(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasMonetaryCost(ctx, &pb.HasMonetaryCostRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MeetsCriteria calls the MeetsCriteria RPC.
+func (c *ProviderClient) MeetsCriteria(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.MeetsCriteria(ctx, &pb.MeetsCriteriaRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RequiresCell calls the RequiresCell RPC.
+func (c *ProviderClient) RequiresCell(ctx context.Context) (bool, error) {
+	resp, err := c.svc.RequiresCell(ctx, &pb.RequiresCellRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RequiresNetwork calls the RequiresNetwork RPC.
+func (c *ProviderClient) RequiresNetwork(ctx context.Context) (bool, error) {
+	resp, err := c.svc.RequiresNetwork(ctx, &pb.RequiresNetworkRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RequiresSatellite calls the RequiresSatellite RPC.
+func (c *ProviderClient) RequiresSatellite(ctx context.Context) (bool, error) {
+	resp, err := c.svc.RequiresSatellite(ctx, &pb.RequiresSatelliteRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SupportsAltitude calls the SupportsAltitude RPC.
+func (c *ProviderClient) SupportsAltitude(ctx context.Context) (bool, error) {
+	resp, err := c.svc.SupportsAltitude(ctx, &pb.SupportsAltitudeRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SupportsBearing calls the SupportsBearing RPC.
+func (c *ProviderClient) SupportsBearing(ctx context.Context) (bool, error) {
+	resp, err := c.svc.SupportsBearing(ctx, &pb.SupportsBearingRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SupportsSpeed calls the SupportsSpeed RPC.
+func (c *ProviderClient) SupportsSpeed(ctx context.Context) (bool, error) {
+	resp, err := c.svc.SupportsSpeed(ctx, &pb.SupportsSpeedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
 }

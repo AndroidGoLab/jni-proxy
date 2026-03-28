@@ -5,3 +5,643 @@ syntax = "proto3";
 package format;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/format";
+
+message NewDateFormatRequest {
+}
+
+message NewDateFormatResponse {
+  int64 result = 1;
+}
+
+message Format2Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message Format2Response {
+  int64 result = 1;
+}
+
+message Format2_1Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message Format2_1Response {
+  int64 result = 1;
+}
+
+message Format2_2Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message Format2_2Response {
+  int64 result = 1;
+}
+
+message GetBestDateTimePatternRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+}
+
+message GetBestDateTimePatternResponse {
+  string result = 1;
+}
+
+message GetDateFormatRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetDateFormatResponse {
+  int64 result = 1;
+}
+
+message GetDateFormatOrderRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetDateFormatOrderResponse {
+  int64 result = 1;
+}
+
+message GetLongDateFormatRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetLongDateFormatResponse {
+  int64 result = 1;
+}
+
+message GetMediumDateFormatRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetMediumDateFormatResponse {
+  int64 result = 1;
+}
+
+message GetTimeFormatRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetTimeFormatResponse {
+  int64 result = 1;
+}
+
+message Is24HourFormatRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message Is24HourFormatResponse {
+  bool result = 1;
+}
+
+message NewDateUtilsRequest {
+}
+
+message NewDateUtilsResponse {
+  int64 result = 1;
+}
+
+message FormatDateRange5Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int64 arg2 = 4;
+  int64 arg3 = 5;
+  int32 arg4 = 6;
+}
+
+message FormatDateRange5Response {
+  int64 result = 1;
+}
+
+message FormatDateRange6_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int64 arg2 = 4;
+  int64 arg3 = 5;
+  int32 arg4 = 6;
+  string arg5 = 7;
+}
+
+message FormatDateRange6_1Response {
+  int64 result = 1;
+}
+
+message FormatDateRange4_2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int64 arg2 = 4;
+  int32 arg3 = 5;
+}
+
+message FormatDateRange4_2Response {
+  string result = 1;
+}
+
+message FormatDateTimeRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int32 arg2 = 4;
+}
+
+message FormatDateTimeResponse {
+  string result = 1;
+}
+
+message FormatElapsedTime2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message FormatElapsedTime2Response {
+  string result = 1;
+}
+
+message FormatElapsedTime1_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message FormatElapsedTime1_1Response {
+  string result = 1;
+}
+
+message FormatSameDayTimeRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
+}
+
+message FormatSameDayTimeResponse {
+  int64 result = 1;
+}
+
+message GetAMPMStringRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetAMPMStringResponse {
+  string result = 1;
+}
+
+message GetDayOfWeekStringRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message GetDayOfWeekStringResponse {
+  string result = 1;
+}
+
+message GetMonthStringRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message GetMonthStringResponse {
+  string result = 1;
+}
+
+message GetRelativeDateTimeStringRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int64 arg2 = 4;
+  int64 arg3 = 5;
+  int32 arg4 = 6;
+}
+
+message GetRelativeDateTimeStringResponse {
+  int64 result = 1;
+}
+
+message GetRelativeTimeSpanString2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message GetRelativeTimeSpanString2Response {
+  int64 result = 1;
+}
+
+message GetRelativeTimeSpanString3_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  bool arg2 = 4;
+}
+
+message GetRelativeTimeSpanString3_1Response {
+  int64 result = 1;
+}
+
+message GetRelativeTimeSpanString1_2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetRelativeTimeSpanString1_2Response {
+  int64 result = 1;
+}
+
+message GetRelativeTimeSpanString3_3Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message GetRelativeTimeSpanString3_3Response {
+  int64 result = 1;
+}
+
+message GetRelativeTimeSpanString4_4Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int64 arg2 = 4;
+  int32 arg3 = 5;
+}
+
+message GetRelativeTimeSpanString4_4Response {
+  int64 result = 1;
+}
+
+message IsTodayRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message IsTodayResponse {
+  bool result = 1;
+}
+
+message NewTimeRequest {
+}
+
+message NewTimeResponse {
+  int64 result = 1;
+}
+
+message AfterRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AfterResponse {
+  bool result = 1;
+}
+
+message BeforeRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message BeforeResponse {
+  bool result = 1;
+}
+
+message ClearRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message ClearResponse {
+}
+
+message FormatRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message FormatResponse {
+  string result = 1;
+}
+
+message Format2445Request {
+  int64 handle = 1;
+}
+
+message Format2445Response {
+  string result = 1;
+}
+
+message Format3339Request {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message Format3339Response {
+  string result = 1;
+}
+
+message GetActualMaximumRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetActualMaximumResponse {
+  int32 result = 1;
+}
+
+message GetWeekNumberRequest {
+  int64 handle = 1;
+}
+
+message GetWeekNumberResponse {
+  int32 result = 1;
+}
+
+message NormalizeRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message NormalizeResponse {
+  int64 result = 1;
+}
+
+message ParseRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message ParseResponse {
+  bool result = 1;
+}
+
+message Parse3339Request {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message Parse3339Response {
+  bool result = 1;
+}
+
+message Set1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message Set1Response {
+}
+
+message Set3_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+}
+
+message Set3_1Response {
+}
+
+message Set6_2Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
+  int32 arg4 = 6;
+  int32 arg5 = 7;
+}
+
+message Set6_2Response {
+}
+
+message Set1_3Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message Set1_3Response {
+}
+
+message SetJulianDayRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetJulianDayResponse {
+  int64 result = 1;
+}
+
+message SetToNowRequest {
+  int64 handle = 1;
+}
+
+message SetToNowResponse {
+}
+
+message SwitchTimezoneRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SwitchTimezoneResponse {
+}
+
+message ToMillisRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message ToMillisResponse {
+  int64 result = 1;
+}
+
+message ToStringRequest {
+  int64 handle = 1;
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message CompareRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message CompareResponse {
+  int32 result = 1;
+}
+
+message GetCurrentTimezoneRequest {
+  int64 handle = 1;
+}
+
+message GetCurrentTimezoneResponse {
+  string result = 1;
+}
+
+message GetJulianDayRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message GetJulianDayResponse {
+  int32 result = 1;
+}
+
+message GetJulianMondayFromWeeksSinceEpochRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetJulianMondayFromWeeksSinceEpochResponse {
+  int32 result = 1;
+}
+
+message GetWeeksSinceEpochFromJulianDayRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message GetWeeksSinceEpochFromJulianDayResponse {
+  int32 result = 1;
+}
+
+message IsEpochRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message IsEpochResponse {
+  bool result = 1;
+}
+
+message NewTerRequest {
+}
+
+message NewTerResponse {
+  int64 result = 1;
+}
+
+message FormatFileSizeRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message FormatFileSizeResponse {
+  string result = 1;
+}
+
+message FormatIpAddressRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message FormatIpAddressResponse {
+  string result = 1;
+}
+
+message FormatShortFileSizeRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message FormatShortFileSizeResponse {
+  string result = 1;
+}
+
+service DateFormatService {
+  rpc NewDateFormat (NewDateFormatRequest) returns (NewDateFormatResponse);
+  rpc Format2 (Format2Request) returns (Format2Response);
+  rpc Format2_1 (Format2_1Request) returns (Format2_1Response);
+  rpc Format2_2 (Format2_2Request) returns (Format2_2Response);
+  rpc GetBestDateTimePattern (GetBestDateTimePatternRequest) returns (GetBestDateTimePatternResponse);
+  rpc GetDateFormat (GetDateFormatRequest) returns (GetDateFormatResponse);
+  rpc GetDateFormatOrder (GetDateFormatOrderRequest) returns (GetDateFormatOrderResponse);
+  rpc GetLongDateFormat (GetLongDateFormatRequest) returns (GetLongDateFormatResponse);
+  rpc GetMediumDateFormat (GetMediumDateFormatRequest) returns (GetMediumDateFormatResponse);
+  rpc GetTimeFormat (GetTimeFormatRequest) returns (GetTimeFormatResponse);
+  rpc Is24HourFormat (Is24HourFormatRequest) returns (Is24HourFormatResponse);
+}
+
+service DateUtilsService {
+  rpc NewDateUtils (NewDateUtilsRequest) returns (NewDateUtilsResponse);
+  rpc FormatDateRange5 (FormatDateRange5Request) returns (FormatDateRange5Response);
+  rpc FormatDateRange6_1 (FormatDateRange6_1Request) returns (FormatDateRange6_1Response);
+  rpc FormatDateRange4_2 (FormatDateRange4_2Request) returns (FormatDateRange4_2Response);
+  rpc FormatDateTime (FormatDateTimeRequest) returns (FormatDateTimeResponse);
+  rpc FormatElapsedTime2 (FormatElapsedTime2Request) returns (FormatElapsedTime2Response);
+  rpc FormatElapsedTime1_1 (FormatElapsedTime1_1Request) returns (FormatElapsedTime1_1Response);
+  rpc FormatSameDayTime (FormatSameDayTimeRequest) returns (FormatSameDayTimeResponse);
+  rpc GetAMPMString (GetAMPMStringRequest) returns (GetAMPMStringResponse);
+  rpc GetDayOfWeekString (GetDayOfWeekStringRequest) returns (GetDayOfWeekStringResponse);
+  rpc GetMonthString (GetMonthStringRequest) returns (GetMonthStringResponse);
+  rpc GetRelativeDateTimeString (GetRelativeDateTimeStringRequest) returns (GetRelativeDateTimeStringResponse);
+  rpc GetRelativeTimeSpanString2 (GetRelativeTimeSpanString2Request) returns (GetRelativeTimeSpanString2Response);
+  rpc GetRelativeTimeSpanString3_1 (GetRelativeTimeSpanString3_1Request) returns (GetRelativeTimeSpanString3_1Response);
+  rpc GetRelativeTimeSpanString1_2 (GetRelativeTimeSpanString1_2Request) returns (GetRelativeTimeSpanString1_2Response);
+  rpc GetRelativeTimeSpanString3_3 (GetRelativeTimeSpanString3_3Request) returns (GetRelativeTimeSpanString3_3Response);
+  rpc GetRelativeTimeSpanString4_4 (GetRelativeTimeSpanString4_4Request) returns (GetRelativeTimeSpanString4_4Response);
+  rpc IsToday (IsTodayRequest) returns (IsTodayResponse);
+}
+
+service TimeService {
+  rpc NewTime (NewTimeRequest) returns (NewTimeResponse);
+  rpc After (AfterRequest) returns (AfterResponse);
+  rpc Before (BeforeRequest) returns (BeforeResponse);
+  rpc Clear (ClearRequest) returns (ClearResponse);
+  rpc Format (FormatRequest) returns (FormatResponse);
+  rpc Format2445 (Format2445Request) returns (Format2445Response);
+  rpc Format3339 (Format3339Request) returns (Format3339Response);
+  rpc GetActualMaximum (GetActualMaximumRequest) returns (GetActualMaximumResponse);
+  rpc GetWeekNumber (GetWeekNumberRequest) returns (GetWeekNumberResponse);
+  rpc Normalize (NormalizeRequest) returns (NormalizeResponse);
+  rpc Parse (ParseRequest) returns (ParseResponse);
+  rpc Parse3339 (Parse3339Request) returns (Parse3339Response);
+  rpc Set1 (Set1Request) returns (Set1Response);
+  rpc Set3_1 (Set3_1Request) returns (Set3_1Response);
+  rpc Set6_2 (Set6_2Request) returns (Set6_2Response);
+  rpc Set1_3 (Set1_3Request) returns (Set1_3Response);
+  rpc SetJulianDay (SetJulianDayRequest) returns (SetJulianDayResponse);
+  rpc SetToNow (SetToNowRequest) returns (SetToNowResponse);
+  rpc SwitchTimezone (SwitchTimezoneRequest) returns (SwitchTimezoneResponse);
+  rpc ToMillis (ToMillisRequest) returns (ToMillisResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc Compare (CompareRequest) returns (CompareResponse);
+  rpc GetCurrentTimezone (GetCurrentTimezoneRequest) returns (GetCurrentTimezoneResponse);
+  rpc GetJulianDay (GetJulianDayRequest) returns (GetJulianDayResponse);
+  rpc GetJulianMondayFromWeeksSinceEpoch (GetJulianMondayFromWeeksSinceEpochRequest) returns (GetJulianMondayFromWeeksSinceEpochResponse);
+  rpc GetWeeksSinceEpochFromJulianDay (GetWeeksSinceEpochFromJulianDayRequest) returns (GetWeeksSinceEpochFromJulianDayResponse);
+  rpc IsEpoch (IsEpochRequest) returns (IsEpochResponse);
+}
+
+service TerService {
+  rpc NewTer (NewTerRequest) returns (NewTerResponse);
+  rpc FormatFileSize (FormatFileSizeRequest) returns (FormatFileSizeResponse);
+  rpc FormatIpAddress (FormatIpAddressRequest) returns (FormatIpAddressResponse);
+  rpc FormatShortFileSize (FormatShortFileSizeRequest) returns (FormatShortFileSizeResponse);
+}

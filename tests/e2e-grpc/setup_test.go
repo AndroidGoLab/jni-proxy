@@ -139,7 +139,7 @@ func grantViaADB(adbAdminPath, cn string) error {
 	// Push script to device.
 	pushArgs := make([]string, 0, len(adbParts)-1+3)
 	pushArgs = append(pushArgs, adbParts[1:]...)
-	pushArgs = append(pushArgs, "push", scriptFile.Name(), "/data/adb/jniservice/e2e-grant.sh")
+	pushArgs = append(pushArgs, "push", scriptFile.Name(), "/data/local/tmp/e2e-grant.sh")
 	pushCmd := exec.Command(adbParts[0], pushArgs...)
 	if out, err := pushCmd.CombinedOutput(); err != nil {
 		return fmt.Errorf("pushing grant script: %w\n%s", err, out)
@@ -149,7 +149,7 @@ func grantViaADB(adbAdminPath, cn string) error {
 	// falling back to direct execution (adb root gives us uid 0).
 	runArgs := make([]string, 0, len(adbParts)-1+4)
 	runArgs = append(runArgs, adbParts[1:]...)
-	runArgs = append(runArgs, "shell", "sh", "/data/adb/jniservice/e2e-grant.sh")
+	runArgs = append(runArgs, "shell", "sh", "/data/local/tmp/e2e-grant.sh")
 	cmd := exec.Command(adbParts[0], runArgs...)
 	out, err := cmd.CombinedOutput()
 	if err != nil {

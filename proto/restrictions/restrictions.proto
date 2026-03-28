@@ -5,3 +5,27 @@ syntax = "proto3";
 package restrictions;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/restrictions";
+
+message OnReceiveRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnReceiveResponse {
+}
+
+message OnRequestPermissionRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  string arg2 = 3;
+  string arg3 = 4;
+  int64 arg4 = 5;
+}
+
+message OnRequestPermissionResponse {
+}
+
+service ReceiverService {
+  rpc OnReceive (OnReceiveRequest) returns (OnReceiveResponse);
+  rpc OnRequestPermission (OnRequestPermissionRequest) returns (OnRequestPermissionResponse);
+}

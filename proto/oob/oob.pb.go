@@ -12,6 +12,7 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -22,19 +23,2116 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type DescribeContentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DescribeContentsRequest) Reset() {
+	*x = DescribeContentsRequest{}
+	mi := &file_proto_oob_oob_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DescribeContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DescribeContentsRequest) ProtoMessage() {}
+
+func (x *DescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_oob_oob_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*DescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_oob_oob_proto_rawDescGZIP(), []int{0}
+}
+
+type DescribeContentsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DescribeContentsResponse) Reset() {
+	*x = DescribeContentsResponse{}
+	mi := &file_proto_oob_oob_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DescribeContentsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DescribeContentsResponse) ProtoMessage() {}
+
+func (x *DescribeContentsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_oob_oob_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DescribeContentsResponse.ProtoReflect.Descriptor instead.
+func (*DescribeContentsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_oob_oob_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *DescribeContentsResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetRangingDeviceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRangingDeviceRequest) Reset() {
+	*x = GetRangingDeviceRequest{}
+	mi := &file_proto_oob_oob_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRangingDeviceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRangingDeviceRequest) ProtoMessage() {}
+
+func (x *GetRangingDeviceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_oob_oob_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRangingDeviceRequest.ProtoReflect.Descriptor instead.
+func (*GetRangingDeviceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_oob_oob_proto_rawDescGZIP(), []int{2}
+}
+
+type GetRangingDeviceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRangingDeviceResponse) Reset() {
+	*x = GetRangingDeviceResponse{}
+	mi := &file_proto_oob_oob_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRangingDeviceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRangingDeviceResponse) ProtoMessage() {}
+
+func (x *GetRangingDeviceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_oob_oob_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRangingDeviceResponse.ProtoReflect.Descriptor instead.
+func (*GetRangingDeviceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_oob_oob_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *GetRangingDeviceResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetTransportHandleRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTransportHandleRequest) Reset() {
+	*x = GetTransportHandleRequest{}
+	mi := &file_proto_oob_oob_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTransportHandleRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTransportHandleRequest) ProtoMessage() {}
+
+func (x *GetTransportHandleRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_oob_oob_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTransportHandleRequest.ProtoReflect.Descriptor instead.
+func (*GetTransportHandleRequest) Descriptor() ([]byte, []int) {
+	return file_proto_oob_oob_proto_rawDescGZIP(), []int{4}
+}
+
+type GetTransportHandleResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTransportHandleResponse) Reset() {
+	*x = GetTransportHandleResponse{}
+	mi := &file_proto_oob_oob_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTransportHandleResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTransportHandleResponse) ProtoMessage() {}
+
+func (x *GetTransportHandleResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_oob_oob_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTransportHandleResponse.ProtoReflect.Descriptor instead.
+func (*GetTransportHandleResponse) Descriptor() ([]byte, []int) {
+	return file_proto_oob_oob_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *GetTransportHandleResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ToStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringRequest) Reset() {
+	*x = ToStringRequest{}
+	mi := &file_proto_oob_oob_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringRequest) ProtoMessage() {}
+
+func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_oob_oob_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringRequest.ProtoReflect.Descriptor instead.
+func (*ToStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_oob_oob_proto_rawDescGZIP(), []int{6}
+}
+
+type ToStringResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringResponse) Reset() {
+	*x = ToStringResponse{}
+	mi := &file_proto_oob_oob_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringResponse) ProtoMessage() {}
+
+func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_oob_oob_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringResponse.ProtoReflect.Descriptor instead.
+func (*ToStringResponse) Descriptor() ([]byte, []int) {
+	return file_proto_oob_oob_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *ToStringResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type WriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WriteToParcelRequest) Reset() {
+	*x = WriteToParcelRequest{}
+	mi := &file_proto_oob_oob_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WriteToParcelRequest) ProtoMessage() {}
+
+func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_oob_oob_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*WriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_oob_oob_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *WriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *WriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type WriteToParcelResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WriteToParcelResponse) Reset() {
+	*x = WriteToParcelResponse{}
+	mi := &file_proto_oob_oob_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WriteToParcelResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WriteToParcelResponse) ProtoMessage() {}
+
+func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_oob_oob_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WriteToParcelResponse.ProtoReflect.Descriptor instead.
+func (*WriteToParcelResponse) Descriptor() ([]byte, []int) {
+	return file_proto_oob_oob_proto_rawDescGZIP(), []int{9}
+}
+
+type BuildRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BuildRequest) Reset() {
+	*x = BuildRequest{}
+	mi := &file_proto_oob_oob_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BuildRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BuildRequest) ProtoMessage() {}
+
+func (x *BuildRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_oob_oob_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BuildRequest.ProtoReflect.Descriptor instead.
+func (*BuildRequest) Descriptor() ([]byte, []int) {
+	return file_proto_oob_oob_proto_rawDescGZIP(), []int{10}
+}
+
+type BuildResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BuildResponse) Reset() {
+	*x = BuildResponse{}
+	mi := &file_proto_oob_oob_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BuildResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BuildResponse) ProtoMessage() {}
+
+func (x *BuildResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_oob_oob_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BuildResponse.ProtoReflect.Descriptor instead.
+func (*BuildResponse) Descriptor() ([]byte, []int) {
+	return file_proto_oob_oob_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *BuildResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type RegisterReceiveCallbackRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RegisterReceiveCallbackRequest) Reset() {
+	*x = RegisterReceiveCallbackRequest{}
+	mi := &file_proto_oob_oob_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RegisterReceiveCallbackRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RegisterReceiveCallbackRequest) ProtoMessage() {}
+
+func (x *RegisterReceiveCallbackRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_oob_oob_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RegisterReceiveCallbackRequest.ProtoReflect.Descriptor instead.
+func (*RegisterReceiveCallbackRequest) Descriptor() ([]byte, []int) {
+	return file_proto_oob_oob_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *RegisterReceiveCallbackRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *RegisterReceiveCallbackRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type RegisterReceiveCallbackResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RegisterReceiveCallbackResponse) Reset() {
+	*x = RegisterReceiveCallbackResponse{}
+	mi := &file_proto_oob_oob_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RegisterReceiveCallbackResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RegisterReceiveCallbackResponse) ProtoMessage() {}
+
+func (x *RegisterReceiveCallbackResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_oob_oob_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RegisterReceiveCallbackResponse.ProtoReflect.Descriptor instead.
+func (*RegisterReceiveCallbackResponse) Descriptor() ([]byte, []int) {
+	return file_proto_oob_oob_proto_rawDescGZIP(), []int{13}
+}
+
+type SendDataRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SendDataRequest) Reset() {
+	*x = SendDataRequest{}
+	mi := &file_proto_oob_oob_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SendDataRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SendDataRequest) ProtoMessage() {}
+
+func (x *SendDataRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_oob_oob_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SendDataRequest.ProtoReflect.Descriptor instead.
+func (*SendDataRequest) Descriptor() ([]byte, []int) {
+	return file_proto_oob_oob_proto_rawDescGZIP(), []int{14}
+}
+
+func (x *SendDataRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SendDataResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SendDataResponse) Reset() {
+	*x = SendDataResponse{}
+	mi := &file_proto_oob_oob_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SendDataResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SendDataResponse) ProtoMessage() {}
+
+func (x *SendDataResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_oob_oob_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SendDataResponse.ProtoReflect.Descriptor instead.
+func (*SendDataResponse) Descriptor() ([]byte, []int) {
+	return file_proto_oob_oob_proto_rawDescGZIP(), []int{15}
+}
+
+type OnCloseRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnCloseRequest) Reset() {
+	*x = OnCloseRequest{}
+	mi := &file_proto_oob_oob_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnCloseRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnCloseRequest) ProtoMessage() {}
+
+func (x *OnCloseRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_oob_oob_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnCloseRequest.ProtoReflect.Descriptor instead.
+func (*OnCloseRequest) Descriptor() ([]byte, []int) {
+	return file_proto_oob_oob_proto_rawDescGZIP(), []int{16}
+}
+
+type OnCloseResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnCloseResponse) Reset() {
+	*x = OnCloseResponse{}
+	mi := &file_proto_oob_oob_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnCloseResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnCloseResponse) ProtoMessage() {}
+
+func (x *OnCloseResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_oob_oob_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnCloseResponse.ProtoReflect.Descriptor instead.
+func (*OnCloseResponse) Descriptor() ([]byte, []int) {
+	return file_proto_oob_oob_proto_rawDescGZIP(), []int{17}
+}
+
+type OnDisconnectRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnDisconnectRequest) Reset() {
+	*x = OnDisconnectRequest{}
+	mi := &file_proto_oob_oob_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnDisconnectRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnDisconnectRequest) ProtoMessage() {}
+
+func (x *OnDisconnectRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_oob_oob_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnDisconnectRequest.ProtoReflect.Descriptor instead.
+func (*OnDisconnectRequest) Descriptor() ([]byte, []int) {
+	return file_proto_oob_oob_proto_rawDescGZIP(), []int{18}
+}
+
+type OnDisconnectResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnDisconnectResponse) Reset() {
+	*x = OnDisconnectResponse{}
+	mi := &file_proto_oob_oob_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnDisconnectResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnDisconnectResponse) ProtoMessage() {}
+
+func (x *OnDisconnectResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_oob_oob_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnDisconnectResponse.ProtoReflect.Descriptor instead.
+func (*OnDisconnectResponse) Descriptor() ([]byte, []int) {
+	return file_proto_oob_oob_proto_rawDescGZIP(), []int{19}
+}
+
+type OnReceiveDataRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnReceiveDataRequest) Reset() {
+	*x = OnReceiveDataRequest{}
+	mi := &file_proto_oob_oob_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnReceiveDataRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnReceiveDataRequest) ProtoMessage() {}
+
+func (x *OnReceiveDataRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_oob_oob_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnReceiveDataRequest.ProtoReflect.Descriptor instead.
+func (*OnReceiveDataRequest) Descriptor() ([]byte, []int) {
+	return file_proto_oob_oob_proto_rawDescGZIP(), []int{20}
+}
+
+func (x *OnReceiveDataRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnReceiveDataResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnReceiveDataResponse) Reset() {
+	*x = OnReceiveDataResponse{}
+	mi := &file_proto_oob_oob_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnReceiveDataResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnReceiveDataResponse) ProtoMessage() {}
+
+func (x *OnReceiveDataResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_oob_oob_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnReceiveDataResponse.ProtoReflect.Descriptor instead.
+func (*OnReceiveDataResponse) Descriptor() ([]byte, []int) {
+	return file_proto_oob_oob_proto_rawDescGZIP(), []int{21}
+}
+
+type OnReconnectRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnReconnectRequest) Reset() {
+	*x = OnReconnectRequest{}
+	mi := &file_proto_oob_oob_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnReconnectRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnReconnectRequest) ProtoMessage() {}
+
+func (x *OnReconnectRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_oob_oob_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnReconnectRequest.ProtoReflect.Descriptor instead.
+func (*OnReconnectRequest) Descriptor() ([]byte, []int) {
+	return file_proto_oob_oob_proto_rawDescGZIP(), []int{22}
+}
+
+type OnReconnectResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnReconnectResponse) Reset() {
+	*x = OnReconnectResponse{}
+	mi := &file_proto_oob_oob_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnReconnectResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnReconnectResponse) ProtoMessage() {}
+
+func (x *OnReconnectResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_oob_oob_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnReconnectResponse.ProtoReflect.Descriptor instead.
+func (*OnReconnectResponse) Descriptor() ([]byte, []int) {
+	return file_proto_oob_oob_proto_rawDescGZIP(), []int{23}
+}
+
+type OnSendFailedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnSendFailedRequest) Reset() {
+	*x = OnSendFailedRequest{}
+	mi := &file_proto_oob_oob_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnSendFailedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnSendFailedRequest) ProtoMessage() {}
+
+func (x *OnSendFailedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_oob_oob_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnSendFailedRequest.ProtoReflect.Descriptor instead.
+func (*OnSendFailedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_oob_oob_proto_rawDescGZIP(), []int{24}
+}
+
+type OnSendFailedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnSendFailedResponse) Reset() {
+	*x = OnSendFailedResponse{}
+	mi := &file_proto_oob_oob_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnSendFailedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnSendFailedResponse) ProtoMessage() {}
+
+func (x *OnSendFailedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_oob_oob_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnSendFailedResponse.ProtoReflect.Descriptor instead.
+func (*OnSendFailedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_oob_oob_proto_rawDescGZIP(), []int{25}
+}
+
+type GetFastestRangingIntervalRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetFastestRangingIntervalRequest) Reset() {
+	*x = GetFastestRangingIntervalRequest{}
+	mi := &file_proto_oob_oob_proto_msgTypes[26]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetFastestRangingIntervalRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetFastestRangingIntervalRequest) ProtoMessage() {}
+
+func (x *GetFastestRangingIntervalRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_oob_oob_proto_msgTypes[26]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetFastestRangingIntervalRequest.ProtoReflect.Descriptor instead.
+func (*GetFastestRangingIntervalRequest) Descriptor() ([]byte, []int) {
+	return file_proto_oob_oob_proto_rawDescGZIP(), []int{26}
+}
+
+type GetFastestRangingIntervalResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetFastestRangingIntervalResponse) Reset() {
+	*x = GetFastestRangingIntervalResponse{}
+	mi := &file_proto_oob_oob_proto_msgTypes[27]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetFastestRangingIntervalResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetFastestRangingIntervalResponse) ProtoMessage() {}
+
+func (x *GetFastestRangingIntervalResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_oob_oob_proto_msgTypes[27]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetFastestRangingIntervalResponse.ProtoReflect.Descriptor instead.
+func (*GetFastestRangingIntervalResponse) Descriptor() ([]byte, []int) {
+	return file_proto_oob_oob_proto_rawDescGZIP(), []int{27}
+}
+
+func (x *GetFastestRangingIntervalResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetRangingModeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRangingModeRequest) Reset() {
+	*x = GetRangingModeRequest{}
+	mi := &file_proto_oob_oob_proto_msgTypes[28]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRangingModeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRangingModeRequest) ProtoMessage() {}
+
+func (x *GetRangingModeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_oob_oob_proto_msgTypes[28]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRangingModeRequest.ProtoReflect.Descriptor instead.
+func (*GetRangingModeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_oob_oob_proto_rawDescGZIP(), []int{28}
+}
+
+type GetRangingModeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRangingModeResponse) Reset() {
+	*x = GetRangingModeResponse{}
+	mi := &file_proto_oob_oob_proto_msgTypes[29]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRangingModeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRangingModeResponse) ProtoMessage() {}
+
+func (x *GetRangingModeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_oob_oob_proto_msgTypes[29]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRangingModeResponse.ProtoReflect.Descriptor instead.
+func (*GetRangingModeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_oob_oob_proto_rawDescGZIP(), []int{29}
+}
+
+func (x *GetRangingModeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSecurityLevelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSecurityLevelRequest) Reset() {
+	*x = GetSecurityLevelRequest{}
+	mi := &file_proto_oob_oob_proto_msgTypes[30]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSecurityLevelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSecurityLevelRequest) ProtoMessage() {}
+
+func (x *GetSecurityLevelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_oob_oob_proto_msgTypes[30]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSecurityLevelRequest.ProtoReflect.Descriptor instead.
+func (*GetSecurityLevelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_oob_oob_proto_rawDescGZIP(), []int{30}
+}
+
+type GetSecurityLevelResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSecurityLevelResponse) Reset() {
+	*x = GetSecurityLevelResponse{}
+	mi := &file_proto_oob_oob_proto_msgTypes[31]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSecurityLevelResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSecurityLevelResponse) ProtoMessage() {}
+
+func (x *GetSecurityLevelResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_oob_oob_proto_msgTypes[31]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSecurityLevelResponse.ProtoReflect.Descriptor instead.
+func (*GetSecurityLevelResponse) Descriptor() ([]byte, []int) {
+	return file_proto_oob_oob_proto_rawDescGZIP(), []int{31}
+}
+
+func (x *GetSecurityLevelResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSlowestRangingIntervalRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSlowestRangingIntervalRequest) Reset() {
+	*x = GetSlowestRangingIntervalRequest{}
+	mi := &file_proto_oob_oob_proto_msgTypes[32]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSlowestRangingIntervalRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSlowestRangingIntervalRequest) ProtoMessage() {}
+
+func (x *GetSlowestRangingIntervalRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_oob_oob_proto_msgTypes[32]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSlowestRangingIntervalRequest.ProtoReflect.Descriptor instead.
+func (*GetSlowestRangingIntervalRequest) Descriptor() ([]byte, []int) {
+	return file_proto_oob_oob_proto_rawDescGZIP(), []int{32}
+}
+
+type GetSlowestRangingIntervalResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSlowestRangingIntervalResponse) Reset() {
+	*x = GetSlowestRangingIntervalResponse{}
+	mi := &file_proto_oob_oob_proto_msgTypes[33]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSlowestRangingIntervalResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSlowestRangingIntervalResponse) ProtoMessage() {}
+
+func (x *GetSlowestRangingIntervalResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_oob_oob_proto_msgTypes[33]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSlowestRangingIntervalResponse.ProtoReflect.Descriptor instead.
+func (*GetSlowestRangingIntervalResponse) Descriptor() ([]byte, []int) {
+	return file_proto_oob_oob_proto_rawDescGZIP(), []int{33}
+}
+
+func (x *GetSlowestRangingIntervalResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddDeviceHandleRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddDeviceHandleRequest) Reset() {
+	*x = AddDeviceHandleRequest{}
+	mi := &file_proto_oob_oob_proto_msgTypes[34]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddDeviceHandleRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddDeviceHandleRequest) ProtoMessage() {}
+
+func (x *AddDeviceHandleRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_oob_oob_proto_msgTypes[34]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddDeviceHandleRequest.ProtoReflect.Descriptor instead.
+func (*AddDeviceHandleRequest) Descriptor() ([]byte, []int) {
+	return file_proto_oob_oob_proto_rawDescGZIP(), []int{34}
+}
+
+func (x *AddDeviceHandleRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AddDeviceHandleResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddDeviceHandleResponse) Reset() {
+	*x = AddDeviceHandleResponse{}
+	mi := &file_proto_oob_oob_proto_msgTypes[35]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddDeviceHandleResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddDeviceHandleResponse) ProtoMessage() {}
+
+func (x *AddDeviceHandleResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_oob_oob_proto_msgTypes[35]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddDeviceHandleResponse.ProtoReflect.Descriptor instead.
+func (*AddDeviceHandleResponse) Descriptor() ([]byte, []int) {
+	return file_proto_oob_oob_proto_rawDescGZIP(), []int{35}
+}
+
+func (x *AddDeviceHandleResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetFastestRangingIntervalRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetFastestRangingIntervalRequest) Reset() {
+	*x = SetFastestRangingIntervalRequest{}
+	mi := &file_proto_oob_oob_proto_msgTypes[36]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetFastestRangingIntervalRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetFastestRangingIntervalRequest) ProtoMessage() {}
+
+func (x *SetFastestRangingIntervalRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_oob_oob_proto_msgTypes[36]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetFastestRangingIntervalRequest.ProtoReflect.Descriptor instead.
+func (*SetFastestRangingIntervalRequest) Descriptor() ([]byte, []int) {
+	return file_proto_oob_oob_proto_rawDescGZIP(), []int{36}
+}
+
+func (x *SetFastestRangingIntervalRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetFastestRangingIntervalResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetFastestRangingIntervalResponse) Reset() {
+	*x = SetFastestRangingIntervalResponse{}
+	mi := &file_proto_oob_oob_proto_msgTypes[37]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetFastestRangingIntervalResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetFastestRangingIntervalResponse) ProtoMessage() {}
+
+func (x *SetFastestRangingIntervalResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_oob_oob_proto_msgTypes[37]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetFastestRangingIntervalResponse.ProtoReflect.Descriptor instead.
+func (*SetFastestRangingIntervalResponse) Descriptor() ([]byte, []int) {
+	return file_proto_oob_oob_proto_rawDescGZIP(), []int{37}
+}
+
+func (x *SetFastestRangingIntervalResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetRangingModeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetRangingModeRequest) Reset() {
+	*x = SetRangingModeRequest{}
+	mi := &file_proto_oob_oob_proto_msgTypes[38]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetRangingModeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetRangingModeRequest) ProtoMessage() {}
+
+func (x *SetRangingModeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_oob_oob_proto_msgTypes[38]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetRangingModeRequest.ProtoReflect.Descriptor instead.
+func (*SetRangingModeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_oob_oob_proto_rawDescGZIP(), []int{38}
+}
+
+func (x *SetRangingModeRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetRangingModeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetRangingModeResponse) Reset() {
+	*x = SetRangingModeResponse{}
+	mi := &file_proto_oob_oob_proto_msgTypes[39]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetRangingModeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetRangingModeResponse) ProtoMessage() {}
+
+func (x *SetRangingModeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_oob_oob_proto_msgTypes[39]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetRangingModeResponse.ProtoReflect.Descriptor instead.
+func (*SetRangingModeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_oob_oob_proto_rawDescGZIP(), []int{39}
+}
+
+func (x *SetRangingModeResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetSecurityLevelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetSecurityLevelRequest) Reset() {
+	*x = SetSecurityLevelRequest{}
+	mi := &file_proto_oob_oob_proto_msgTypes[40]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetSecurityLevelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetSecurityLevelRequest) ProtoMessage() {}
+
+func (x *SetSecurityLevelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_oob_oob_proto_msgTypes[40]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetSecurityLevelRequest.ProtoReflect.Descriptor instead.
+func (*SetSecurityLevelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_oob_oob_proto_rawDescGZIP(), []int{40}
+}
+
+func (x *SetSecurityLevelRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetSecurityLevelResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetSecurityLevelResponse) Reset() {
+	*x = SetSecurityLevelResponse{}
+	mi := &file_proto_oob_oob_proto_msgTypes[41]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetSecurityLevelResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetSecurityLevelResponse) ProtoMessage() {}
+
+func (x *SetSecurityLevelResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_oob_oob_proto_msgTypes[41]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetSecurityLevelResponse.ProtoReflect.Descriptor instead.
+func (*SetSecurityLevelResponse) Descriptor() ([]byte, []int) {
+	return file_proto_oob_oob_proto_rawDescGZIP(), []int{41}
+}
+
+func (x *SetSecurityLevelResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetSlowestRangingIntervalRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetSlowestRangingIntervalRequest) Reset() {
+	*x = SetSlowestRangingIntervalRequest{}
+	mi := &file_proto_oob_oob_proto_msgTypes[42]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetSlowestRangingIntervalRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetSlowestRangingIntervalRequest) ProtoMessage() {}
+
+func (x *SetSlowestRangingIntervalRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_oob_oob_proto_msgTypes[42]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetSlowestRangingIntervalRequest.ProtoReflect.Descriptor instead.
+func (*SetSlowestRangingIntervalRequest) Descriptor() ([]byte, []int) {
+	return file_proto_oob_oob_proto_rawDescGZIP(), []int{42}
+}
+
+func (x *SetSlowestRangingIntervalRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetSlowestRangingIntervalResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetSlowestRangingIntervalResponse) Reset() {
+	*x = SetSlowestRangingIntervalResponse{}
+	mi := &file_proto_oob_oob_proto_msgTypes[43]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetSlowestRangingIntervalResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetSlowestRangingIntervalResponse) ProtoMessage() {}
+
+func (x *SetSlowestRangingIntervalResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_oob_oob_proto_msgTypes[43]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetSlowestRangingIntervalResponse.ProtoReflect.Descriptor instead.
+func (*SetSlowestRangingIntervalResponse) Descriptor() ([]byte, []int) {
+	return file_proto_oob_oob_proto_rawDescGZIP(), []int{43}
+}
+
+func (x *SetSlowestRangingIntervalResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetDeviceHandleRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDeviceHandleRequest) Reset() {
+	*x = GetDeviceHandleRequest{}
+	mi := &file_proto_oob_oob_proto_msgTypes[44]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDeviceHandleRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDeviceHandleRequest) ProtoMessage() {}
+
+func (x *GetDeviceHandleRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_oob_oob_proto_msgTypes[44]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDeviceHandleRequest.ProtoReflect.Descriptor instead.
+func (*GetDeviceHandleRequest) Descriptor() ([]byte, []int) {
+	return file_proto_oob_oob_proto_rawDescGZIP(), []int{44}
+}
+
+type GetDeviceHandleResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDeviceHandleResponse) Reset() {
+	*x = GetDeviceHandleResponse{}
+	mi := &file_proto_oob_oob_proto_msgTypes[45]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDeviceHandleResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDeviceHandleResponse) ProtoMessage() {}
+
+func (x *GetDeviceHandleResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_oob_oob_proto_msgTypes[45]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDeviceHandleResponse.ProtoReflect.Descriptor instead.
+func (*GetDeviceHandleResponse) Descriptor() ([]byte, []int) {
+	return file_proto_oob_oob_proto_rawDescGZIP(), []int{45}
+}
+
+func (x *GetDeviceHandleResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
 var File_proto_oob_oob_proto protoreflect.FileDescriptor
 
 const file_proto_oob_oob_proto_rawDesc = "" +
 	"\n" +
-	"\x13proto/oob/oob.proto\x12\x03oobB-Z+github.com/AndroidGoLab/jni-proxy/proto/oobb\x06proto3"
+	"\x13proto/oob/oob.proto\x12\x03oob\"\x19\n" +
+	"\x17DescribeContentsRequest\"2\n" +
+	"\x18DescribeContentsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x19\n" +
+	"\x17GetRangingDeviceRequest\"2\n" +
+	"\x18GetRangingDeviceResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1b\n" +
+	"\x19GetTransportHandleRequest\"4\n" +
+	"\x1aGetTransportHandleResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x11\n" +
+	"\x0fToStringRequest\"*\n" +
+	"\x10ToStringResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\">\n" +
+	"\x14WriteToParcelRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x17\n" +
+	"\x15WriteToParcelResponse\"\x0e\n" +
+	"\fBuildRequest\"'\n" +
+	"\rBuildResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"H\n" +
+	"\x1eRegisterReceiveCallbackRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"!\n" +
+	"\x1fRegisterReceiveCallbackResponse\"%\n" +
+	"\x0fSendDataRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x12\n" +
+	"\x10SendDataResponse\"\x10\n" +
+	"\x0eOnCloseRequest\"\x11\n" +
+	"\x0fOnCloseResponse\"\x15\n" +
+	"\x13OnDisconnectRequest\"\x16\n" +
+	"\x14OnDisconnectResponse\"*\n" +
+	"\x14OnReceiveDataRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x17\n" +
+	"\x15OnReceiveDataResponse\"\x14\n" +
+	"\x12OnReconnectRequest\"\x15\n" +
+	"\x13OnReconnectResponse\"\x15\n" +
+	"\x13OnSendFailedRequest\"\x16\n" +
+	"\x14OnSendFailedResponse\"\"\n" +
+	" GetFastestRangingIntervalRequest\";\n" +
+	"!GetFastestRangingIntervalResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x17\n" +
+	"\x15GetRangingModeRequest\"0\n" +
+	"\x16GetRangingModeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x19\n" +
+	"\x17GetSecurityLevelRequest\"2\n" +
+	"\x18GetSecurityLevelResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\"\n" +
+	" GetSlowestRangingIntervalRequest\";\n" +
+	"!GetSlowestRangingIntervalResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\",\n" +
+	"\x16AddDeviceHandleRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"1\n" +
+	"\x17AddDeviceHandleResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"6\n" +
+	" SetFastestRangingIntervalRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\";\n" +
+	"!SetFastestRangingIntervalResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"+\n" +
+	"\x15SetRangingModeRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"0\n" +
+	"\x16SetRangingModeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"-\n" +
+	"\x17SetSecurityLevelRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"2\n" +
+	"\x18SetSecurityLevelResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"6\n" +
+	" SetSlowestRangingIntervalRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\";\n" +
+	"!SetSlowestRangingIntervalResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x18\n" +
+	"\x16GetDeviceHandleRequest\"1\n" +
+	"\x17GetDeviceHandleResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result2\x8f\x03\n" +
+	"\x13DeviceHandleService\x12O\n" +
+	"\x10DescribeContents\x12\x1c.oob.DescribeContentsRequest\x1a\x1d.oob.DescribeContentsResponse\x12O\n" +
+	"\x10GetRangingDevice\x12\x1c.oob.GetRangingDeviceRequest\x1a\x1d.oob.GetRangingDeviceResponse\x12U\n" +
+	"\x12GetTransportHandle\x12\x1e.oob.GetTransportHandleRequest\x1a\x1f.oob.GetTransportHandleResponse\x127\n" +
+	"\bToString\x12\x14.oob.ToStringRequest\x1a\x15.oob.ToStringResponse\x12F\n" +
+	"\rWriteToParcel\x12\x19.oob.WriteToParcelRequest\x1a\x1a.oob.WriteToParcelResponse2L\n" +
+	"\x1aDeviceHandleBuilderService\x12.\n" +
+	"\x05Build\x12\x11.oob.BuildRequest\x1a\x12.oob.BuildResponse2\xb7\x01\n" +
+	"\x16TransportHandleService\x12d\n" +
+	"\x17RegisterReceiveCallback\x12#.oob.RegisterReceiveCallbackRequest\x1a$.oob.RegisterReceiveCallbackResponse\x127\n" +
+	"\bSendData\x12\x14.oob.SendDataRequest\x1a\x15.oob.SendDataResponse2\xf1\x02\n" +
+	"%TransportHandleReceiveCallbackService\x124\n" +
+	"\aOnClose\x12\x13.oob.OnCloseRequest\x1a\x14.oob.OnCloseResponse\x12C\n" +
+	"\fOnDisconnect\x12\x18.oob.OnDisconnectRequest\x1a\x19.oob.OnDisconnectResponse\x12F\n" +
+	"\rOnReceiveData\x12\x19.oob.OnReceiveDataRequest\x1a\x1a.oob.OnReceiveDataResponse\x12@\n" +
+	"\vOnReconnect\x12\x17.oob.OnReconnectRequest\x1a\x18.oob.OnReconnectResponse\x12C\n" +
+	"\fOnSendFailed\x12\x18.oob.OnSendFailedRequest\x1a\x19.oob.OnSendFailedResponse2\xe5\x04\n" +
+	"\x1dInitiatorRangingConfigService\x12O\n" +
+	"\x10DescribeContents\x12\x1c.oob.DescribeContentsRequest\x1a\x1d.oob.DescribeContentsResponse\x12j\n" +
+	"\x19GetFastestRangingInterval\x12%.oob.GetFastestRangingIntervalRequest\x1a&.oob.GetFastestRangingIntervalResponse\x12I\n" +
+	"\x0eGetRangingMode\x12\x1a.oob.GetRangingModeRequest\x1a\x1b.oob.GetRangingModeResponse\x12O\n" +
+	"\x10GetSecurityLevel\x12\x1c.oob.GetSecurityLevelRequest\x1a\x1d.oob.GetSecurityLevelResponse\x12j\n" +
+	"\x19GetSlowestRangingInterval\x12%.oob.GetSlowestRangingIntervalRequest\x1a&.oob.GetSlowestRangingIntervalResponse\x127\n" +
+	"\bToString\x12\x14.oob.ToStringRequest\x1a\x15.oob.ToStringResponse\x12F\n" +
+	"\rWriteToParcel\x12\x19.oob.WriteToParcelRequest\x1a\x1a.oob.WriteToParcelResponse2\x98\x04\n" +
+	"$InitiatorRangingConfigBuilderService\x12L\n" +
+	"\x0fAddDeviceHandle\x12\x1b.oob.AddDeviceHandleRequest\x1a\x1c.oob.AddDeviceHandleResponse\x12.\n" +
+	"\x05Build\x12\x11.oob.BuildRequest\x1a\x12.oob.BuildResponse\x12j\n" +
+	"\x19SetFastestRangingInterval\x12%.oob.SetFastestRangingIntervalRequest\x1a&.oob.SetFastestRangingIntervalResponse\x12I\n" +
+	"\x0eSetRangingMode\x12\x1a.oob.SetRangingModeRequest\x1a\x1b.oob.SetRangingModeResponse\x12O\n" +
+	"\x10SetSecurityLevel\x12\x1c.oob.SetSecurityLevelRequest\x1a\x1d.oob.SetSecurityLevelResponse\x12j\n" +
+	"\x19SetSlowestRangingInterval\x12%.oob.SetSlowestRangingIntervalRequest\x1a&.oob.SetSlowestRangingIntervalResponse2\xbf\x02\n" +
+	"\x1dResponderRangingConfigService\x12O\n" +
+	"\x10DescribeContents\x12\x1c.oob.DescribeContentsRequest\x1a\x1d.oob.DescribeContentsResponse\x12L\n" +
+	"\x0fGetDeviceHandle\x12\x1b.oob.GetDeviceHandleRequest\x1a\x1c.oob.GetDeviceHandleResponse\x127\n" +
+	"\bToString\x12\x14.oob.ToStringRequest\x1a\x15.oob.ToStringResponse\x12F\n" +
+	"\rWriteToParcel\x12\x19.oob.WriteToParcelRequest\x1a\x1a.oob.WriteToParcelResponse2V\n" +
+	"$ResponderRangingConfigBuilderService\x12.\n" +
+	"\x05Build\x12\x11.oob.BuildRequest\x1a\x12.oob.BuildResponseB-Z+github.com/AndroidGoLab/jni-proxy/proto/oobb\x06proto3"
 
-var file_proto_oob_oob_proto_goTypes = []any{}
+var (
+	file_proto_oob_oob_proto_rawDescOnce sync.Once
+	file_proto_oob_oob_proto_rawDescData []byte
+)
+
+func file_proto_oob_oob_proto_rawDescGZIP() []byte {
+	file_proto_oob_oob_proto_rawDescOnce.Do(func() {
+		file_proto_oob_oob_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_proto_oob_oob_proto_rawDesc), len(file_proto_oob_oob_proto_rawDesc)))
+	})
+	return file_proto_oob_oob_proto_rawDescData
+}
+
+var file_proto_oob_oob_proto_msgTypes = make([]protoimpl.MessageInfo, 46)
+var file_proto_oob_oob_proto_goTypes = []any{
+	(*DescribeContentsRequest)(nil),           // 0: oob.DescribeContentsRequest
+	(*DescribeContentsResponse)(nil),          // 1: oob.DescribeContentsResponse
+	(*GetRangingDeviceRequest)(nil),           // 2: oob.GetRangingDeviceRequest
+	(*GetRangingDeviceResponse)(nil),          // 3: oob.GetRangingDeviceResponse
+	(*GetTransportHandleRequest)(nil),         // 4: oob.GetTransportHandleRequest
+	(*GetTransportHandleResponse)(nil),        // 5: oob.GetTransportHandleResponse
+	(*ToStringRequest)(nil),                   // 6: oob.ToStringRequest
+	(*ToStringResponse)(nil),                  // 7: oob.ToStringResponse
+	(*WriteToParcelRequest)(nil),              // 8: oob.WriteToParcelRequest
+	(*WriteToParcelResponse)(nil),             // 9: oob.WriteToParcelResponse
+	(*BuildRequest)(nil),                      // 10: oob.BuildRequest
+	(*BuildResponse)(nil),                     // 11: oob.BuildResponse
+	(*RegisterReceiveCallbackRequest)(nil),    // 12: oob.RegisterReceiveCallbackRequest
+	(*RegisterReceiveCallbackResponse)(nil),   // 13: oob.RegisterReceiveCallbackResponse
+	(*SendDataRequest)(nil),                   // 14: oob.SendDataRequest
+	(*SendDataResponse)(nil),                  // 15: oob.SendDataResponse
+	(*OnCloseRequest)(nil),                    // 16: oob.OnCloseRequest
+	(*OnCloseResponse)(nil),                   // 17: oob.OnCloseResponse
+	(*OnDisconnectRequest)(nil),               // 18: oob.OnDisconnectRequest
+	(*OnDisconnectResponse)(nil),              // 19: oob.OnDisconnectResponse
+	(*OnReceiveDataRequest)(nil),              // 20: oob.OnReceiveDataRequest
+	(*OnReceiveDataResponse)(nil),             // 21: oob.OnReceiveDataResponse
+	(*OnReconnectRequest)(nil),                // 22: oob.OnReconnectRequest
+	(*OnReconnectResponse)(nil),               // 23: oob.OnReconnectResponse
+	(*OnSendFailedRequest)(nil),               // 24: oob.OnSendFailedRequest
+	(*OnSendFailedResponse)(nil),              // 25: oob.OnSendFailedResponse
+	(*GetFastestRangingIntervalRequest)(nil),  // 26: oob.GetFastestRangingIntervalRequest
+	(*GetFastestRangingIntervalResponse)(nil), // 27: oob.GetFastestRangingIntervalResponse
+	(*GetRangingModeRequest)(nil),             // 28: oob.GetRangingModeRequest
+	(*GetRangingModeResponse)(nil),            // 29: oob.GetRangingModeResponse
+	(*GetSecurityLevelRequest)(nil),           // 30: oob.GetSecurityLevelRequest
+	(*GetSecurityLevelResponse)(nil),          // 31: oob.GetSecurityLevelResponse
+	(*GetSlowestRangingIntervalRequest)(nil),  // 32: oob.GetSlowestRangingIntervalRequest
+	(*GetSlowestRangingIntervalResponse)(nil), // 33: oob.GetSlowestRangingIntervalResponse
+	(*AddDeviceHandleRequest)(nil),            // 34: oob.AddDeviceHandleRequest
+	(*AddDeviceHandleResponse)(nil),           // 35: oob.AddDeviceHandleResponse
+	(*SetFastestRangingIntervalRequest)(nil),  // 36: oob.SetFastestRangingIntervalRequest
+	(*SetFastestRangingIntervalResponse)(nil), // 37: oob.SetFastestRangingIntervalResponse
+	(*SetRangingModeRequest)(nil),             // 38: oob.SetRangingModeRequest
+	(*SetRangingModeResponse)(nil),            // 39: oob.SetRangingModeResponse
+	(*SetSecurityLevelRequest)(nil),           // 40: oob.SetSecurityLevelRequest
+	(*SetSecurityLevelResponse)(nil),          // 41: oob.SetSecurityLevelResponse
+	(*SetSlowestRangingIntervalRequest)(nil),  // 42: oob.SetSlowestRangingIntervalRequest
+	(*SetSlowestRangingIntervalResponse)(nil), // 43: oob.SetSlowestRangingIntervalResponse
+	(*GetDeviceHandleRequest)(nil),            // 44: oob.GetDeviceHandleRequest
+	(*GetDeviceHandleResponse)(nil),           // 45: oob.GetDeviceHandleResponse
+}
 var file_proto_oob_oob_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	0,  // 0: oob.DeviceHandleService.DescribeContents:input_type -> oob.DescribeContentsRequest
+	2,  // 1: oob.DeviceHandleService.GetRangingDevice:input_type -> oob.GetRangingDeviceRequest
+	4,  // 2: oob.DeviceHandleService.GetTransportHandle:input_type -> oob.GetTransportHandleRequest
+	6,  // 3: oob.DeviceHandleService.ToString:input_type -> oob.ToStringRequest
+	8,  // 4: oob.DeviceHandleService.WriteToParcel:input_type -> oob.WriteToParcelRequest
+	10, // 5: oob.DeviceHandleBuilderService.Build:input_type -> oob.BuildRequest
+	12, // 6: oob.TransportHandleService.RegisterReceiveCallback:input_type -> oob.RegisterReceiveCallbackRequest
+	14, // 7: oob.TransportHandleService.SendData:input_type -> oob.SendDataRequest
+	16, // 8: oob.TransportHandleReceiveCallbackService.OnClose:input_type -> oob.OnCloseRequest
+	18, // 9: oob.TransportHandleReceiveCallbackService.OnDisconnect:input_type -> oob.OnDisconnectRequest
+	20, // 10: oob.TransportHandleReceiveCallbackService.OnReceiveData:input_type -> oob.OnReceiveDataRequest
+	22, // 11: oob.TransportHandleReceiveCallbackService.OnReconnect:input_type -> oob.OnReconnectRequest
+	24, // 12: oob.TransportHandleReceiveCallbackService.OnSendFailed:input_type -> oob.OnSendFailedRequest
+	0,  // 13: oob.InitiatorRangingConfigService.DescribeContents:input_type -> oob.DescribeContentsRequest
+	26, // 14: oob.InitiatorRangingConfigService.GetFastestRangingInterval:input_type -> oob.GetFastestRangingIntervalRequest
+	28, // 15: oob.InitiatorRangingConfigService.GetRangingMode:input_type -> oob.GetRangingModeRequest
+	30, // 16: oob.InitiatorRangingConfigService.GetSecurityLevel:input_type -> oob.GetSecurityLevelRequest
+	32, // 17: oob.InitiatorRangingConfigService.GetSlowestRangingInterval:input_type -> oob.GetSlowestRangingIntervalRequest
+	6,  // 18: oob.InitiatorRangingConfigService.ToString:input_type -> oob.ToStringRequest
+	8,  // 19: oob.InitiatorRangingConfigService.WriteToParcel:input_type -> oob.WriteToParcelRequest
+	34, // 20: oob.InitiatorRangingConfigBuilderService.AddDeviceHandle:input_type -> oob.AddDeviceHandleRequest
+	10, // 21: oob.InitiatorRangingConfigBuilderService.Build:input_type -> oob.BuildRequest
+	36, // 22: oob.InitiatorRangingConfigBuilderService.SetFastestRangingInterval:input_type -> oob.SetFastestRangingIntervalRequest
+	38, // 23: oob.InitiatorRangingConfigBuilderService.SetRangingMode:input_type -> oob.SetRangingModeRequest
+	40, // 24: oob.InitiatorRangingConfigBuilderService.SetSecurityLevel:input_type -> oob.SetSecurityLevelRequest
+	42, // 25: oob.InitiatorRangingConfigBuilderService.SetSlowestRangingInterval:input_type -> oob.SetSlowestRangingIntervalRequest
+	0,  // 26: oob.ResponderRangingConfigService.DescribeContents:input_type -> oob.DescribeContentsRequest
+	44, // 27: oob.ResponderRangingConfigService.GetDeviceHandle:input_type -> oob.GetDeviceHandleRequest
+	6,  // 28: oob.ResponderRangingConfigService.ToString:input_type -> oob.ToStringRequest
+	8,  // 29: oob.ResponderRangingConfigService.WriteToParcel:input_type -> oob.WriteToParcelRequest
+	10, // 30: oob.ResponderRangingConfigBuilderService.Build:input_type -> oob.BuildRequest
+	1,  // 31: oob.DeviceHandleService.DescribeContents:output_type -> oob.DescribeContentsResponse
+	3,  // 32: oob.DeviceHandleService.GetRangingDevice:output_type -> oob.GetRangingDeviceResponse
+	5,  // 33: oob.DeviceHandleService.GetTransportHandle:output_type -> oob.GetTransportHandleResponse
+	7,  // 34: oob.DeviceHandleService.ToString:output_type -> oob.ToStringResponse
+	9,  // 35: oob.DeviceHandleService.WriteToParcel:output_type -> oob.WriteToParcelResponse
+	11, // 36: oob.DeviceHandleBuilderService.Build:output_type -> oob.BuildResponse
+	13, // 37: oob.TransportHandleService.RegisterReceiveCallback:output_type -> oob.RegisterReceiveCallbackResponse
+	15, // 38: oob.TransportHandleService.SendData:output_type -> oob.SendDataResponse
+	17, // 39: oob.TransportHandleReceiveCallbackService.OnClose:output_type -> oob.OnCloseResponse
+	19, // 40: oob.TransportHandleReceiveCallbackService.OnDisconnect:output_type -> oob.OnDisconnectResponse
+	21, // 41: oob.TransportHandleReceiveCallbackService.OnReceiveData:output_type -> oob.OnReceiveDataResponse
+	23, // 42: oob.TransportHandleReceiveCallbackService.OnReconnect:output_type -> oob.OnReconnectResponse
+	25, // 43: oob.TransportHandleReceiveCallbackService.OnSendFailed:output_type -> oob.OnSendFailedResponse
+	1,  // 44: oob.InitiatorRangingConfigService.DescribeContents:output_type -> oob.DescribeContentsResponse
+	27, // 45: oob.InitiatorRangingConfigService.GetFastestRangingInterval:output_type -> oob.GetFastestRangingIntervalResponse
+	29, // 46: oob.InitiatorRangingConfigService.GetRangingMode:output_type -> oob.GetRangingModeResponse
+	31, // 47: oob.InitiatorRangingConfigService.GetSecurityLevel:output_type -> oob.GetSecurityLevelResponse
+	33, // 48: oob.InitiatorRangingConfigService.GetSlowestRangingInterval:output_type -> oob.GetSlowestRangingIntervalResponse
+	7,  // 49: oob.InitiatorRangingConfigService.ToString:output_type -> oob.ToStringResponse
+	9,  // 50: oob.InitiatorRangingConfigService.WriteToParcel:output_type -> oob.WriteToParcelResponse
+	35, // 51: oob.InitiatorRangingConfigBuilderService.AddDeviceHandle:output_type -> oob.AddDeviceHandleResponse
+	11, // 52: oob.InitiatorRangingConfigBuilderService.Build:output_type -> oob.BuildResponse
+	37, // 53: oob.InitiatorRangingConfigBuilderService.SetFastestRangingInterval:output_type -> oob.SetFastestRangingIntervalResponse
+	39, // 54: oob.InitiatorRangingConfigBuilderService.SetRangingMode:output_type -> oob.SetRangingModeResponse
+	41, // 55: oob.InitiatorRangingConfigBuilderService.SetSecurityLevel:output_type -> oob.SetSecurityLevelResponse
+	43, // 56: oob.InitiatorRangingConfigBuilderService.SetSlowestRangingInterval:output_type -> oob.SetSlowestRangingIntervalResponse
+	1,  // 57: oob.ResponderRangingConfigService.DescribeContents:output_type -> oob.DescribeContentsResponse
+	45, // 58: oob.ResponderRangingConfigService.GetDeviceHandle:output_type -> oob.GetDeviceHandleResponse
+	7,  // 59: oob.ResponderRangingConfigService.ToString:output_type -> oob.ToStringResponse
+	9,  // 60: oob.ResponderRangingConfigService.WriteToParcel:output_type -> oob.WriteToParcelResponse
+	11, // 61: oob.ResponderRangingConfigBuilderService.Build:output_type -> oob.BuildResponse
+	31, // [31:62] is the sub-list for method output_type
+	0,  // [0:31] is the sub-list for method input_type
+	0,  // [0:0] is the sub-list for extension type_name
+	0,  // [0:0] is the sub-list for extension extendee
+	0,  // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_proto_oob_oob_proto_init() }
@@ -48,12 +2146,13 @@ func file_proto_oob_oob_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_oob_oob_proto_rawDesc), len(file_proto_oob_oob_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   46,
 			NumExtensions: 0,
-			NumServices:   0,
+			NumServices:   8,
 		},
 		GoTypes:           file_proto_oob_oob_proto_goTypes,
 		DependencyIndexes: file_proto_oob_oob_proto_depIdxs,
+		MessageInfos:      file_proto_oob_oob_proto_msgTypes,
 	}.Build()
 	File_proto_oob_oob_proto = out.File
 	file_proto_oob_oob_proto_goTypes = nil

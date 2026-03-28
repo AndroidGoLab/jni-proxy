@@ -85,6 +85,160 @@ message ReleaseLeaseRequest {
 message ReleaseLeaseResponse {
 }
 
+message AbandonRequest {
+}
+
+message AbandonResponse {
+}
+
+message AllowPackageAccessRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message AllowPackageAccessResponse {
+}
+
+message AllowPublicAccessRequest {
+}
+
+message AllowPublicAccessResponse {
+}
+
+message AllowSameSignatureAccessRequest {
+}
+
+message AllowSameSignatureAccessResponse {
+}
+
+message CloseRequest {
+}
+
+message CloseResponse {
+}
+
+message GetSizeRequest {
+}
+
+message GetSizeResponse {
+  int64 result = 1;
+}
+
+message IsPackageAccessAllowedRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message IsPackageAccessAllowedResponse {
+  bool result = 1;
+}
+
+message IsPublicAccessAllowedRequest {
+}
+
+message IsPublicAccessAllowedResponse {
+  bool result = 1;
+}
+
+message IsSameSignatureAccessAllowedRequest {
+}
+
+message IsSameSignatureAccessAllowedResponse {
+  bool result = 1;
+}
+
+message OpenReadRequest {
+}
+
+message OpenReadResponse {
+  int64 result = 1;
+}
+
+message OpenWriteRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OpenWriteResponse {
+  int64 result = 1;
+}
+
+message DescribeContentsRequest {
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message EqualsRequest {
+  int64 arg0 = 1;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message GetExpiryTimeMillisRequest {
+}
+
+message GetExpiryTimeMillisResponse {
+  int64 result = 1;
+}
+
+message GetLabelRequest {
+}
+
+message GetLabelResponse {
+  int64 result = 1;
+}
+
+message GetSha256DigestRequest {
+}
+
+message GetSha256DigestResponse {
+  int64 result = 1;
+}
+
+message GetTagRequest {
+}
+
+message GetTagResponse {
+  string result = 1;
+}
+
+message HashCodeRequest {
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message ToStringRequest {
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteToParcelResponse {
+}
+
+message CreateWithSha256Request {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  int64 arg2 = 3;
+  string arg3 = 4;
+}
+
+message CreateWithSha256Response {
+  int64 result = 1;
+}
+
 service StoreManagerService {
   rpc AbandonSession (AbandonSessionRequest) returns (AbandonSessionResponse);
   rpc AcquireLease2 (AcquireLease2Request) returns (AcquireLease2Response);
@@ -96,4 +250,31 @@ service StoreManagerService {
   rpc OpenBlob (OpenBlobRequest) returns (OpenBlobResponse);
   rpc OpenSession (OpenSessionRequest) returns (OpenSessionResponse);
   rpc ReleaseLease (ReleaseLeaseRequest) returns (ReleaseLeaseResponse);
+}
+
+service StoreManagerSessionService {
+  rpc Abandon (AbandonRequest) returns (AbandonResponse);
+  rpc AllowPackageAccess (AllowPackageAccessRequest) returns (AllowPackageAccessResponse);
+  rpc AllowPublicAccess (AllowPublicAccessRequest) returns (AllowPublicAccessResponse);
+  rpc AllowSameSignatureAccess (AllowSameSignatureAccessRequest) returns (AllowSameSignatureAccessResponse);
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc GetSize (GetSizeRequest) returns (GetSizeResponse);
+  rpc IsPackageAccessAllowed (IsPackageAccessAllowedRequest) returns (IsPackageAccessAllowedResponse);
+  rpc IsPublicAccessAllowed (IsPublicAccessAllowedRequest) returns (IsPublicAccessAllowedResponse);
+  rpc IsSameSignatureAccessAllowed (IsSameSignatureAccessAllowedRequest) returns (IsSameSignatureAccessAllowedResponse);
+  rpc OpenRead (OpenReadRequest) returns (OpenReadResponse);
+  rpc OpenWrite (OpenWriteRequest) returns (OpenWriteResponse);
+}
+
+service HandleService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetExpiryTimeMillis (GetExpiryTimeMillisRequest) returns (GetExpiryTimeMillisResponse);
+  rpc GetLabel (GetLabelRequest) returns (GetLabelResponse);
+  rpc GetSha256Digest (GetSha256DigestRequest) returns (GetSha256DigestResponse);
+  rpc GetTag (GetTagRequest) returns (GetTagResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc CreateWithSha256 (CreateWithSha256Request) returns (CreateWithSha256Response);
 }

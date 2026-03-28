@@ -5,3 +5,1088 @@ syntax = "proto3";
 package speech;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/speech";
+
+message CancelRequest {
+}
+
+message CancelResponse {
+}
+
+message CheckRecognitionSupportRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message CheckRecognitionSupportResponse {
+}
+
+message DestroyRequest {
+}
+
+message DestroyResponse {
+}
+
+message SetRecognitionListenerRequest {
+  int64 arg0 = 1;
+}
+
+message SetRecognitionListenerResponse {
+}
+
+message StartListeningRequest {
+  int64 arg0 = 1;
+}
+
+message StartListeningResponse {
+}
+
+message StopListeningRequest {
+}
+
+message StopListeningResponse {
+}
+
+message TriggerModelDownload1Request {
+  int64 arg0 = 1;
+}
+
+message TriggerModelDownload1Response {
+}
+
+message TriggerModelDownload3_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message TriggerModelDownload3_1Response {
+}
+
+message CreateOnDeviceSpeechRecognizerRequest {
+  int64 arg0 = 1;
+}
+
+message CreateOnDeviceSpeechRecognizerResponse {
+  int64 result = 1;
+}
+
+message CreateSpeechRecognizer1Request {
+  int64 arg0 = 1;
+}
+
+message CreateSpeechRecognizer1Response {
+  int64 result = 1;
+}
+
+message CreateSpeechRecognizer2_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message CreateSpeechRecognizer2_1Response {
+  int64 result = 1;
+}
+
+message IsOnDeviceRecognitionAvailableRequest {
+  int64 arg0 = 1;
+}
+
+message IsOnDeviceRecognitionAvailableResponse {
+  bool result = 1;
+}
+
+message IsRecognitionAvailableRequest {
+  int64 arg0 = 1;
+}
+
+message IsRecognitionAvailableResponse {
+  bool result = 1;
+}
+
+message OnErrorRequest {
+  int32 arg0 = 1;
+}
+
+message OnErrorResponse {
+}
+
+message OnProgressRequest {
+  int32 arg0 = 1;
+}
+
+message OnProgressResponse {
+}
+
+message OnScheduledRequest {
+}
+
+message OnScheduledResponse {
+}
+
+message OnSuccessRequest {
+}
+
+message OnSuccessResponse {
+}
+
+message DescribeContentsRequest {
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message EqualsRequest {
+  int64 arg0 = 1;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message GetConfidenceLevelRequest {
+}
+
+message GetConfidenceLevelResponse {
+  int32 result = 1;
+}
+
+message GetFormattedTextRequest {
+}
+
+message GetFormattedTextResponse {
+  string result = 1;
+}
+
+message GetRawTextRequest {
+}
+
+message GetRawTextResponse {
+  string result = 1;
+}
+
+message GetTimestampMillisRequest {
+}
+
+message GetTimestampMillisResponse {
+  int64 result = 1;
+}
+
+message HashCodeRequest {
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message ToStringRequest {
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteToParcelResponse {
+}
+
+message BuildRequest {
+}
+
+message BuildResponse {
+  int64 result = 1;
+}
+
+message SetConfidenceLevelRequest {
+  int32 arg0 = 1;
+}
+
+message SetConfidenceLevelResponse {
+  int64 result = 1;
+}
+
+message SetFormattedTextRequest {
+  string arg0 = 1;
+}
+
+message SetFormattedTextResponse {
+  int64 result = 1;
+}
+
+message SetRawTextRequest {
+  string arg0 = 1;
+}
+
+message SetRawTextResponse {
+  int64 result = 1;
+}
+
+message SetTimestampMillisRequest {
+  int64 arg0 = 1;
+}
+
+message SetTimestampMillisResponse {
+  int64 result = 1;
+}
+
+message GetVoiceDetailsIntentRequest {
+  int64 arg0 = 1;
+}
+
+message GetVoiceDetailsIntentResponse {
+  int64 result = 1;
+}
+
+message NewAlternativeSpansRequest {
+  int64 arg0 = 1;
+}
+
+message NewAlternativeSpansResponse {
+  int64 result = 1;
+}
+
+message AlternativeSpansDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message AlternativeSpansEqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AlternativeSpansHashCodeRequest {
+  int64 handle = 1;
+}
+
+message AlternativeSpansToStringRequest {
+  int64 handle = 1;
+}
+
+message AlternativeSpansWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message NewAlternativeSpanRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message NewAlternativeSpanResponse {
+  int64 result = 1;
+}
+
+message AlternativeSpanDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message AlternativeSpanEqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetEndPositionRequest {
+  int64 handle = 1;
+}
+
+message GetEndPositionResponse {
+  int32 result = 1;
+}
+
+message GetStartPositionRequest {
+  int64 handle = 1;
+}
+
+message GetStartPositionResponse {
+  int32 result = 1;
+}
+
+message AlternativeSpanHashCodeRequest {
+  int64 handle = 1;
+}
+
+message AlternativeSpanToStringRequest {
+  int64 handle = 1;
+}
+
+message AlternativeSpanWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message NewTextToSpeechRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewTextToSpeechResponse {
+  int64 result = 1;
+}
+
+message AddEarcon2Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message AddEarcon2Response {
+  int32 result = 1;
+}
+
+message AddEarcon2_1Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message AddEarcon2_1Response {
+  int32 result = 1;
+}
+
+message AddEarcon2_2Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  string arg1 = 3;
+}
+
+message AddEarcon2_2Response {
+  int32 result = 1;
+}
+
+message AddEarcon3_3Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  string arg1 = 3;
+  int32 arg2 = 4;
+}
+
+message AddEarcon3_3Response {
+  int32 result = 1;
+}
+
+message AddSpeech2Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message AddSpeech2Response {
+  int32 result = 1;
+}
+
+message AddSpeech2_1Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message AddSpeech2_1Response {
+  int32 result = 1;
+}
+
+message AddSpeech3_2Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  string arg1 = 3;
+  int32 arg2 = 4;
+}
+
+message AddSpeech3_2Response {
+  int32 result = 1;
+}
+
+message AddSpeech2_3Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  string arg1 = 3;
+}
+
+message AddSpeech2_3Response {
+  int32 result = 1;
+}
+
+message AddSpeech3_4Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  string arg1 = 3;
+  int32 arg2 = 4;
+}
+
+message AddSpeech3_4Response {
+  int32 result = 1;
+}
+
+message AreDefaultsEnforcedRequest {
+  int64 handle = 1;
+}
+
+message AreDefaultsEnforcedResponse {
+  bool result = 1;
+}
+
+message GetDefaultEngineRequest {
+  int64 handle = 1;
+}
+
+message GetDefaultEngineResponse {
+  string result = 1;
+}
+
+message GetDefaultLanguageRequest {
+  int64 handle = 1;
+}
+
+message GetDefaultLanguageResponse {
+  int64 result = 1;
+}
+
+message GetDefaultVoiceRequest {
+  int64 handle = 1;
+}
+
+message GetDefaultVoiceResponse {
+  int64 result = 1;
+}
+
+message GetLanguageRequest {
+  int64 handle = 1;
+}
+
+message GetLanguageResponse {
+  int64 result = 1;
+}
+
+message GetVoiceRequest {
+  int64 handle = 1;
+}
+
+message GetVoiceResponse {
+  int64 result = 1;
+}
+
+message IsLanguageAvailableRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message IsLanguageAvailableResponse {
+  int32 result = 1;
+}
+
+message IsSpeakingRequest {
+  int64 handle = 1;
+}
+
+message IsSpeakingResponse {
+  bool result = 1;
+}
+
+message PlayEarconRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  int32 arg1 = 3;
+  int64 arg2 = 4;
+  string arg3 = 5;
+}
+
+message PlayEarconResponse {
+  int32 result = 1;
+}
+
+message PlaySilentUtteranceRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+  string arg2 = 4;
+}
+
+message PlaySilentUtteranceResponse {
+  int32 result = 1;
+}
+
+message SetAudioAttributesRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetAudioAttributesResponse {
+  int32 result = 1;
+}
+
+message SetEngineByPackageNameRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetEngineByPackageNameResponse {
+  int32 result = 1;
+}
+
+message SetLanguageRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetLanguageResponse {
+  int32 result = 1;
+}
+
+message SetOnUtteranceCompletedListenerRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetOnUtteranceCompletedListenerResponse {
+  int32 result = 1;
+}
+
+message SetOnUtteranceProgressListenerRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetOnUtteranceProgressListenerResponse {
+  int32 result = 1;
+}
+
+message SetPitchRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+}
+
+message SetPitchResponse {
+  int32 result = 1;
+}
+
+message SetSpeechRateRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+}
+
+message SetSpeechRateResponse {
+  int32 result = 1;
+}
+
+message SetVoiceRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetVoiceResponse {
+  int32 result = 1;
+}
+
+message ShutdownRequest {
+  int64 handle = 1;
+}
+
+message ShutdownResponse {
+}
+
+message SpeakRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  int32 arg1 = 3;
+  int64 arg2 = 4;
+  string arg3 = 5;
+}
+
+message SpeakResponse {
+  int32 result = 1;
+}
+
+message StopRequest {
+  int64 handle = 1;
+}
+
+message StopResponse {
+  int32 result = 1;
+}
+
+message SynthesizeToFile4Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  int64 arg1 = 3;
+  int64 arg2 = 4;
+  string arg3 = 5;
+}
+
+message SynthesizeToFile4Response {
+  int32 result = 1;
+}
+
+message SynthesizeToFile4_1Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  int64 arg1 = 3;
+  int64 arg2 = 4;
+  string arg3 = 5;
+}
+
+message SynthesizeToFile4_1Response {
+  int32 result = 1;
+}
+
+message GetMaxSpeechInputLengthRequest {
+  int64 handle = 1;
+}
+
+message GetMaxSpeechInputLengthResponse {
+  int32 result = 1;
+}
+
+message OnInitRequest {
+  int32 arg0 = 1;
+}
+
+message OnInitResponse {
+}
+
+message OnUtteranceCompletedRequest {
+  string arg0 = 1;
+}
+
+message OnUtteranceCompletedResponse {
+}
+
+message AddInstalledOnDeviceLanguageRequest {
+  string arg0 = 1;
+}
+
+message AddInstalledOnDeviceLanguageResponse {
+  int64 result = 1;
+}
+
+message AddOnlineLanguageRequest {
+  string arg0 = 1;
+}
+
+message AddOnlineLanguageResponse {
+  int64 result = 1;
+}
+
+message AddPendingOnDeviceLanguageRequest {
+  string arg0 = 1;
+}
+
+message AddPendingOnDeviceLanguageResponse {
+  int64 result = 1;
+}
+
+message AddSupportedOnDeviceLanguageRequest {
+  string arg0 = 1;
+}
+
+message AddSupportedOnDeviceLanguageResponse {
+  int64 result = 1;
+}
+
+message CreateContextRequest {
+  int64 arg0 = 1;
+}
+
+message CreateContextResponse {
+  int64 result = 1;
+}
+
+message GetMaxConcurrentSessionsCountRequest {
+}
+
+message GetMaxConcurrentSessionsCountResponse {
+  int32 result = 1;
+}
+
+message OnBindRequest {
+  int64 arg0 = 1;
+}
+
+message OnBindResponse {
+  int64 result = 1;
+}
+
+message OnCheckRecognitionSupport3Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message OnCheckRecognitionSupport3Response {
+}
+
+message OnCheckRecognitionSupport2_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnCheckRecognitionSupport2_1Response {
+}
+
+message OnDestroyRequest {
+}
+
+message OnDestroyResponse {
+}
+
+message OnTriggerModelDownload1Request {
+  int64 arg0 = 1;
+}
+
+message OnTriggerModelDownload1Response {
+}
+
+message OnTriggerModelDownload2_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnTriggerModelDownload2_1Response {
+}
+
+message OnTriggerModelDownload3_2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message OnTriggerModelDownload3_2Response {
+}
+
+message BeginningOfSpeechRequest {
+}
+
+message BeginningOfSpeechResponse {
+}
+
+message BufferReceivedRequest {
+  int64 arg0 = 1;
+}
+
+message BufferReceivedResponse {
+}
+
+message EndOfSegmentedSessionRequest {
+}
+
+message EndOfSegmentedSessionResponse {
+}
+
+message EndOfSpeechRequest {
+}
+
+message EndOfSpeechResponse {
+}
+
+message ErrorRequest {
+  int32 arg0 = 1;
+}
+
+message ErrorResponse {
+}
+
+message GetCallingAttributionSourceRequest {
+}
+
+message GetCallingAttributionSourceResponse {
+  int64 result = 1;
+}
+
+message GetCallingUidRequest {
+}
+
+message GetCallingUidResponse {
+  int32 result = 1;
+}
+
+message LanguageDetectionRequest {
+  int64 arg0 = 1;
+}
+
+message LanguageDetectionResponse {
+}
+
+message PartialResultsRequest {
+  int64 arg0 = 1;
+}
+
+message PartialResultsResponse {
+}
+
+message ReadyForSpeechRequest {
+  int64 arg0 = 1;
+}
+
+message ReadyForSpeechResponse {
+}
+
+message ResultsRequest {
+  int64 arg0 = 1;
+}
+
+message ResultsResponse {
+}
+
+message RmsChangedRequest {
+  float arg0 = 1;
+}
+
+message RmsChangedResponse {
+}
+
+message SegmentResultsRequest {
+  int64 arg0 = 1;
+}
+
+message SegmentResultsResponse {
+}
+
+message OnSupportResultRequest {
+  int64 arg0 = 1;
+}
+
+message OnSupportResultResponse {
+}
+
+message OnBeginningOfSpeechRequest {
+}
+
+message OnBeginningOfSpeechResponse {
+}
+
+message OnBufferReceivedRequest {
+  int64 arg0 = 1;
+}
+
+message OnBufferReceivedResponse {
+}
+
+message OnEndOfSpeechRequest {
+}
+
+message OnEndOfSpeechResponse {
+}
+
+message OnEventRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnEventResponse {
+}
+
+message OnPartialResultsRequest {
+  int64 arg0 = 1;
+}
+
+message OnPartialResultsResponse {
+}
+
+message OnReadyForSpeechRequest {
+  int64 arg0 = 1;
+}
+
+message OnReadyForSpeechResponse {
+}
+
+message OnResultsRequest {
+  int64 arg0 = 1;
+}
+
+message OnResultsResponse {
+}
+
+message OnRmsChangedRequest {
+  float arg0 = 1;
+}
+
+message OnRmsChangedResponse {
+}
+
+service RecognizerService {
+  rpc Cancel (CancelRequest) returns (CancelResponse);
+  rpc CheckRecognitionSupport (CheckRecognitionSupportRequest) returns (CheckRecognitionSupportResponse);
+  rpc Destroy (DestroyRequest) returns (DestroyResponse);
+  rpc SetRecognitionListener (SetRecognitionListenerRequest) returns (SetRecognitionListenerResponse);
+  rpc StartListening (StartListeningRequest) returns (StartListeningResponse);
+  rpc StopListening (StopListeningRequest) returns (StopListeningResponse);
+  rpc TriggerModelDownload1 (TriggerModelDownload1Request) returns (TriggerModelDownload1Response);
+  rpc TriggerModelDownload3_1 (TriggerModelDownload3_1Request) returns (TriggerModelDownload3_1Response);
+  rpc CreateOnDeviceSpeechRecognizer (CreateOnDeviceSpeechRecognizerRequest) returns (CreateOnDeviceSpeechRecognizerResponse);
+  rpc CreateSpeechRecognizer1 (CreateSpeechRecognizer1Request) returns (CreateSpeechRecognizer1Response);
+  rpc CreateSpeechRecognizer2_1 (CreateSpeechRecognizer2_1Request) returns (CreateSpeechRecognizer2_1Response);
+  rpc IsOnDeviceRecognitionAvailable (IsOnDeviceRecognitionAvailableRequest) returns (IsOnDeviceRecognitionAvailableResponse);
+  rpc IsRecognitionAvailable (IsRecognitionAvailableRequest) returns (IsRecognitionAvailableResponse);
+}
+
+service ModelDownloadListenerService {
+  rpc OnError (OnErrorRequest) returns (OnErrorResponse);
+  rpc OnProgress (OnProgressRequest) returns (OnProgressResponse);
+  rpc OnScheduled (OnScheduledRequest) returns (OnScheduledResponse);
+  rpc OnSuccess (OnSuccessRequest) returns (OnSuccessResponse);
+}
+
+service RecognitionPartService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetConfidenceLevel (GetConfidenceLevelRequest) returns (GetConfidenceLevelResponse);
+  rpc GetFormattedText (GetFormattedTextRequest) returns (GetFormattedTextResponse);
+  rpc GetRawText (GetRawTextRequest) returns (GetRawTextResponse);
+  rpc GetTimestampMillis (GetTimestampMillisRequest) returns (GetTimestampMillisResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service RecognitionPartBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetConfidenceLevel (SetConfidenceLevelRequest) returns (SetConfidenceLevelResponse);
+  rpc SetFormattedText (SetFormattedTextRequest) returns (SetFormattedTextResponse);
+  rpc SetRawText (SetRawTextRequest) returns (SetRawTextResponse);
+  rpc SetTimestampMillis (SetTimestampMillisRequest) returns (SetTimestampMillisResponse);
+}
+
+service RecognizerIntentService {
+  rpc GetVoiceDetailsIntent (GetVoiceDetailsIntentRequest) returns (GetVoiceDetailsIntentResponse);
+}
+
+service AlternativeSpansService {
+  rpc NewAlternativeSpans (NewAlternativeSpansRequest) returns (NewAlternativeSpansResponse);
+  rpc DescribeContents (AlternativeSpansDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (AlternativeSpansEqualsRequest) returns (EqualsResponse);
+  rpc HashCode (AlternativeSpansHashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (AlternativeSpansToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (AlternativeSpansWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service AlternativeSpanService {
+  rpc NewAlternativeSpan (NewAlternativeSpanRequest) returns (NewAlternativeSpanResponse);
+  rpc DescribeContents (AlternativeSpanDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (AlternativeSpanEqualsRequest) returns (EqualsResponse);
+  rpc GetEndPosition (GetEndPositionRequest) returns (GetEndPositionResponse);
+  rpc GetStartPosition (GetStartPositionRequest) returns (GetStartPositionResponse);
+  rpc HashCode (AlternativeSpanHashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (AlternativeSpanToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (AlternativeSpanWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service TextToSpeechService {
+  rpc NewTextToSpeech (NewTextToSpeechRequest) returns (NewTextToSpeechResponse);
+  rpc AddEarcon2 (AddEarcon2Request) returns (AddEarcon2Response);
+  rpc AddEarcon2_1 (AddEarcon2_1Request) returns (AddEarcon2_1Response);
+  rpc AddEarcon2_2 (AddEarcon2_2Request) returns (AddEarcon2_2Response);
+  rpc AddEarcon3_3 (AddEarcon3_3Request) returns (AddEarcon3_3Response);
+  rpc AddSpeech2 (AddSpeech2Request) returns (AddSpeech2Response);
+  rpc AddSpeech2_1 (AddSpeech2_1Request) returns (AddSpeech2_1Response);
+  rpc AddSpeech3_2 (AddSpeech3_2Request) returns (AddSpeech3_2Response);
+  rpc AddSpeech2_3 (AddSpeech2_3Request) returns (AddSpeech2_3Response);
+  rpc AddSpeech3_4 (AddSpeech3_4Request) returns (AddSpeech3_4Response);
+  rpc AreDefaultsEnforced (AreDefaultsEnforcedRequest) returns (AreDefaultsEnforcedResponse);
+  rpc GetDefaultEngine (GetDefaultEngineRequest) returns (GetDefaultEngineResponse);
+  rpc GetDefaultLanguage (GetDefaultLanguageRequest) returns (GetDefaultLanguageResponse);
+  rpc GetDefaultVoice (GetDefaultVoiceRequest) returns (GetDefaultVoiceResponse);
+  rpc GetLanguage (GetLanguageRequest) returns (GetLanguageResponse);
+  rpc GetVoice (GetVoiceRequest) returns (GetVoiceResponse);
+  rpc IsLanguageAvailable (IsLanguageAvailableRequest) returns (IsLanguageAvailableResponse);
+  rpc IsSpeaking (IsSpeakingRequest) returns (IsSpeakingResponse);
+  rpc PlayEarcon (PlayEarconRequest) returns (PlayEarconResponse);
+  rpc PlaySilentUtterance (PlaySilentUtteranceRequest) returns (PlaySilentUtteranceResponse);
+  rpc SetAudioAttributes (SetAudioAttributesRequest) returns (SetAudioAttributesResponse);
+  rpc SetEngineByPackageName (SetEngineByPackageNameRequest) returns (SetEngineByPackageNameResponse);
+  rpc SetLanguage (SetLanguageRequest) returns (SetLanguageResponse);
+  rpc SetOnUtteranceCompletedListener (SetOnUtteranceCompletedListenerRequest) returns (SetOnUtteranceCompletedListenerResponse);
+  rpc SetOnUtteranceProgressListener (SetOnUtteranceProgressListenerRequest) returns (SetOnUtteranceProgressListenerResponse);
+  rpc SetPitch (SetPitchRequest) returns (SetPitchResponse);
+  rpc SetSpeechRate (SetSpeechRateRequest) returns (SetSpeechRateResponse);
+  rpc SetVoice (SetVoiceRequest) returns (SetVoiceResponse);
+  rpc Shutdown (ShutdownRequest) returns (ShutdownResponse);
+  rpc Speak (SpeakRequest) returns (SpeakResponse);
+  rpc Stop (StopRequest) returns (StopResponse);
+  rpc SynthesizeToFile4 (SynthesizeToFile4Request) returns (SynthesizeToFile4Response);
+  rpc SynthesizeToFile4_1 (SynthesizeToFile4_1Request) returns (SynthesizeToFile4_1Response);
+  rpc GetMaxSpeechInputLength (GetMaxSpeechInputLengthRequest) returns (GetMaxSpeechInputLengthResponse);
+}
+
+service TextToSpeechEngineInfoService {
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service TextToSpeechOnInitListenerService {
+  rpc OnInit (OnInitRequest) returns (OnInitResponse);
+}
+
+service TextToSpeechOnUtteranceCompletedListenerService {
+  rpc OnUtteranceCompleted (OnUtteranceCompletedRequest) returns (OnUtteranceCompletedResponse);
+}
+
+service RecognitionSupportService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service RecognitionSupportBuilderService {
+  rpc AddInstalledOnDeviceLanguage (AddInstalledOnDeviceLanguageRequest) returns (AddInstalledOnDeviceLanguageResponse);
+  rpc AddOnlineLanguage (AddOnlineLanguageRequest) returns (AddOnlineLanguageResponse);
+  rpc AddPendingOnDeviceLanguage (AddPendingOnDeviceLanguageRequest) returns (AddPendingOnDeviceLanguageResponse);
+  rpc AddSupportedOnDeviceLanguage (AddSupportedOnDeviceLanguageRequest) returns (AddSupportedOnDeviceLanguageResponse);
+  rpc Build (BuildRequest) returns (BuildResponse);
+}
+
+service RecognitionServiceService {
+  rpc CreateContext (CreateContextRequest) returns (CreateContextResponse);
+  rpc GetMaxConcurrentSessionsCount (GetMaxConcurrentSessionsCountRequest) returns (GetMaxConcurrentSessionsCountResponse);
+  rpc OnBind (OnBindRequest) returns (OnBindResponse);
+  rpc OnCheckRecognitionSupport3 (OnCheckRecognitionSupport3Request) returns (OnCheckRecognitionSupport3Response);
+  rpc OnCheckRecognitionSupport2_1 (OnCheckRecognitionSupport2_1Request) returns (OnCheckRecognitionSupport2_1Response);
+  rpc OnDestroy (OnDestroyRequest) returns (OnDestroyResponse);
+  rpc OnTriggerModelDownload1 (OnTriggerModelDownload1Request) returns (OnTriggerModelDownload1Response);
+  rpc OnTriggerModelDownload2_1 (OnTriggerModelDownload2_1Request) returns (OnTriggerModelDownload2_1Response);
+  rpc OnTriggerModelDownload3_2 (OnTriggerModelDownload3_2Request) returns (OnTriggerModelDownload3_2Response);
+}
+
+service RecognitionServiceCallbackService {
+  rpc BeginningOfSpeech (BeginningOfSpeechRequest) returns (BeginningOfSpeechResponse);
+  rpc BufferReceived (BufferReceivedRequest) returns (BufferReceivedResponse);
+  rpc EndOfSegmentedSession (EndOfSegmentedSessionRequest) returns (EndOfSegmentedSessionResponse);
+  rpc EndOfSpeech (EndOfSpeechRequest) returns (EndOfSpeechResponse);
+  rpc Error (ErrorRequest) returns (ErrorResponse);
+  rpc GetCallingAttributionSource (GetCallingAttributionSourceRequest) returns (GetCallingAttributionSourceResponse);
+  rpc GetCallingUid (GetCallingUidRequest) returns (GetCallingUidResponse);
+  rpc LanguageDetection (LanguageDetectionRequest) returns (LanguageDetectionResponse);
+  rpc PartialResults (PartialResultsRequest) returns (PartialResultsResponse);
+  rpc ReadyForSpeech (ReadyForSpeechRequest) returns (ReadyForSpeechResponse);
+  rpc Results (ResultsRequest) returns (ResultsResponse);
+  rpc RmsChanged (RmsChangedRequest) returns (RmsChangedResponse);
+  rpc SegmentResults (SegmentResultsRequest) returns (SegmentResultsResponse);
+}
+
+service RecognitionServiceSupportCallbackService {
+  rpc OnError (OnErrorRequest) returns (OnErrorResponse);
+  rpc OnSupportResult (OnSupportResultRequest) returns (OnSupportResultResponse);
+}
+
+service RecognitionListenerService {
+  rpc OnBeginningOfSpeech (OnBeginningOfSpeechRequest) returns (OnBeginningOfSpeechResponse);
+  rpc OnBufferReceived (OnBufferReceivedRequest) returns (OnBufferReceivedResponse);
+  rpc OnEndOfSpeech (OnEndOfSpeechRequest) returns (OnEndOfSpeechResponse);
+  rpc OnError (OnErrorRequest) returns (OnErrorResponse);
+  rpc OnEvent (OnEventRequest) returns (OnEventResponse);
+  rpc OnPartialResults (OnPartialResultsRequest) returns (OnPartialResultsResponse);
+  rpc OnReadyForSpeech (OnReadyForSpeechRequest) returns (OnReadyForSpeechResponse);
+  rpc OnResults (OnResultsRequest) returns (OnResultsResponse);
+  rpc OnRmsChanged (OnRmsChangedRequest) returns (OnRmsChangedResponse);
+}
+
+service RecognitionSupportCallbackService {
+  rpc OnError (OnErrorRequest) returns (OnErrorResponse);
+  rpc OnSupportResult (OnSupportResultRequest) returns (OnSupportResultResponse);
+}

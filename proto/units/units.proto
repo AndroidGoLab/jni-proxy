@@ -5,3 +5,301 @@ syntax = "proto3";
 package units;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/units";
+
+message CompareTo1Request {
+  int64 arg0 = 1;
+}
+
+message CompareTo1Response {
+  int32 result = 1;
+}
+
+message EqualsRequest {
+  int64 arg0 = 1;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message GetInMillimolesPerLiterRequest {
+}
+
+message GetInMillimolesPerLiterResponse {
+  double result = 1;
+}
+
+message HashCodeRequest {
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message ToStringRequest {
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message CompareTo1_1Request {
+  int64 arg0 = 1;
+}
+
+message CompareTo1_1Response {
+  int32 result = 1;
+}
+
+message FromMillimolesPerLiterRequest {
+  double arg0 = 1;
+}
+
+message FromMillimolesPerLiterResponse {
+  int64 result = 1;
+}
+
+message GetInLitersRequest {
+}
+
+message GetInLitersResponse {
+  double result = 1;
+}
+
+message FromLitersRequest {
+  double arg0 = 1;
+}
+
+message FromLitersResponse {
+  int64 result = 1;
+}
+
+message GetInCelsiusRequest {
+}
+
+message GetInCelsiusResponse {
+  double result = 1;
+}
+
+message FromCelsiusRequest {
+  double arg0 = 1;
+}
+
+message FromCelsiusResponse {
+  int64 result = 1;
+}
+
+message GetInWattsRequest {
+}
+
+message GetInWattsResponse {
+  double result = 1;
+}
+
+message FromWattsRequest {
+  double arg0 = 1;
+}
+
+message FromWattsResponse {
+  int64 result = 1;
+}
+
+message GetInMetersRequest {
+}
+
+message GetInMetersResponse {
+  double result = 1;
+}
+
+message FromMetersRequest {
+  double arg0 = 1;
+}
+
+message FromMetersResponse {
+  int64 result = 1;
+}
+
+message GetValueRequest {
+}
+
+message GetValueResponse {
+  double result = 1;
+}
+
+message FromValueRequest {
+  double arg0 = 1;
+}
+
+message FromValueResponse {
+  int64 result = 1;
+}
+
+message GetInMillimetersOfMercuryRequest {
+}
+
+message GetInMillimetersOfMercuryResponse {
+  double result = 1;
+}
+
+message FromMillimetersOfMercuryRequest {
+  double arg0 = 1;
+}
+
+message FromMillimetersOfMercuryResponse {
+  int64 result = 1;
+}
+
+message GetInMetersPerSecondRequest {
+}
+
+message GetInMetersPerSecondResponse {
+  double result = 1;
+}
+
+message FromMetersPerSecondRequest {
+  double arg0 = 1;
+}
+
+message FromMetersPerSecondResponse {
+  int64 result = 1;
+}
+
+message GetInGramsRequest {
+}
+
+message GetInGramsResponse {
+  double result = 1;
+}
+
+message FromGramsRequest {
+  double arg0 = 1;
+}
+
+message FromGramsResponse {
+  int64 result = 1;
+}
+
+message GetInCaloriesRequest {
+}
+
+message GetInCaloriesResponse {
+  double result = 1;
+}
+
+message FromCaloriesRequest {
+  double arg0 = 1;
+}
+
+message FromCaloriesResponse {
+  int64 result = 1;
+}
+
+service BloodGlucoseService {
+  rpc CompareTo1 (CompareTo1Request) returns (CompareTo1Response);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetInMillimolesPerLiter (GetInMillimolesPerLiterRequest) returns (GetInMillimolesPerLiterResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc CompareTo1_1 (CompareTo1_1Request) returns (CompareTo1_1Response);
+  rpc FromMillimolesPerLiter (FromMillimolesPerLiterRequest) returns (FromMillimolesPerLiterResponse);
+}
+
+service VolumeService {
+  rpc CompareTo1 (CompareTo1Request) returns (CompareTo1Response);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetInLiters (GetInLitersRequest) returns (GetInLitersResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc CompareTo1_1 (CompareTo1_1Request) returns (CompareTo1_1Response);
+  rpc FromLiters (FromLitersRequest) returns (FromLitersResponse);
+}
+
+service TemperatureDeltaService {
+  rpc CompareTo1 (CompareTo1Request) returns (CompareTo1Response);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetInCelsius (GetInCelsiusRequest) returns (GetInCelsiusResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc CompareTo1_1 (CompareTo1_1Request) returns (CompareTo1_1Response);
+  rpc FromCelsius (FromCelsiusRequest) returns (FromCelsiusResponse);
+}
+
+service PowerService {
+  rpc CompareTo1 (CompareTo1Request) returns (CompareTo1Response);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetInWatts (GetInWattsRequest) returns (GetInWattsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc CompareTo1_1 (CompareTo1_1Request) returns (CompareTo1_1Response);
+  rpc FromWatts (FromWattsRequest) returns (FromWattsResponse);
+}
+
+service LengthService {
+  rpc CompareTo1 (CompareTo1Request) returns (CompareTo1Response);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetInMeters (GetInMetersRequest) returns (GetInMetersResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc CompareTo1_1 (CompareTo1_1Request) returns (CompareTo1_1Response);
+  rpc FromMeters (FromMetersRequest) returns (FromMetersResponse);
+}
+
+service PercentageService {
+  rpc CompareTo1 (CompareTo1Request) returns (CompareTo1Response);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetValue (GetValueRequest) returns (GetValueResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc CompareTo1_1 (CompareTo1_1Request) returns (CompareTo1_1Response);
+  rpc FromValue (FromValueRequest) returns (FromValueResponse);
+}
+
+service TemperatureService {
+  rpc CompareTo1 (CompareTo1Request) returns (CompareTo1Response);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetInCelsius (GetInCelsiusRequest) returns (GetInCelsiusResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc CompareTo1_1 (CompareTo1_1Request) returns (CompareTo1_1Response);
+  rpc FromCelsius (FromCelsiusRequest) returns (FromCelsiusResponse);
+}
+
+service PressureService {
+  rpc CompareTo1 (CompareTo1Request) returns (CompareTo1Response);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetInMillimetersOfMercury (GetInMillimetersOfMercuryRequest) returns (GetInMillimetersOfMercuryResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc CompareTo1_1 (CompareTo1_1Request) returns (CompareTo1_1Response);
+  rpc FromMillimetersOfMercury (FromMillimetersOfMercuryRequest) returns (FromMillimetersOfMercuryResponse);
+}
+
+service VelocityService {
+  rpc CompareTo1 (CompareTo1Request) returns (CompareTo1Response);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetInMetersPerSecond (GetInMetersPerSecondRequest) returns (GetInMetersPerSecondResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc CompareTo1_1 (CompareTo1_1Request) returns (CompareTo1_1Response);
+  rpc FromMetersPerSecond (FromMetersPerSecondRequest) returns (FromMetersPerSecondResponse);
+}
+
+service MassService {
+  rpc CompareTo1 (CompareTo1Request) returns (CompareTo1Response);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetInGrams (GetInGramsRequest) returns (GetInGramsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc CompareTo1_1 (CompareTo1_1Request) returns (CompareTo1_1Response);
+  rpc FromGrams (FromGramsRequest) returns (FromGramsResponse);
+}
+
+service EnergyService {
+  rpc CompareTo1 (CompareTo1Request) returns (CompareTo1Response);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetInCalories (GetInCaloriesRequest) returns (GetInCaloriesResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc CompareTo1_1 (CompareTo1_1Request) returns (CompareTo1_1Response);
+  rpc FromCalories (FromCaloriesRequest) returns (FromCaloriesResponse);
+}

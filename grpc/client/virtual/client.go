@@ -9,6 +9,99 @@ import (
 	"google.golang.org/grpc"
 )
 
+// DeviceClient wraps the gRPC DeviceService client.
+type DeviceClient struct {
+	svc pb.DeviceServiceClient
+}
+
+// NewDeviceClient creates a new Device client.
+func NewDeviceClient(cc grpc.ClientConnInterface) *DeviceClient {
+	return &DeviceClient{
+		svc: pb.NewDeviceServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *DeviceClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDeviceId calls the GetDeviceId RPC.
+func (c *DeviceClient) GetDeviceId(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetDeviceId(ctx, &pb.GetDeviceIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDisplayIds calls the GetDisplayIds RPC.
+func (c *DeviceClient) GetDisplayIds(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDisplayIds(ctx, &pb.GetDisplayIdsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDisplayName calls the GetDisplayName RPC.
+func (c *DeviceClient) GetDisplayName(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDisplayName(ctx, &pb.GetDisplayNameRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetName calls the GetName RPC.
+func (c *DeviceClient) GetName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetName(ctx, &pb.GetNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPersistentDeviceId calls the GetPersistentDeviceId RPC.
+func (c *DeviceClient) GetPersistentDeviceId(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetPersistentDeviceId(ctx, &pb.GetPersistentDeviceIdRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasCustomSensorSupport calls the HasCustomSensorSupport RPC.
+func (c *DeviceClient) HasCustomSensorSupport(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasCustomSensorSupport(ctx, &pb.HasCustomSensorSupportRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *DeviceClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *DeviceClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
 // DeviceManagerClient wraps the gRPC DeviceManagerService client.
 type DeviceManagerClient struct {
 	svc pb.DeviceManagerServiceClient

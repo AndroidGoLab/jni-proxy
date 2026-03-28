@@ -21,6 +21,440 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
+	DownloadableSubscriptionService_DescribeContents_FullMethodName         = "/euicc.DownloadableSubscriptionService/DescribeContents"
+	DownloadableSubscriptionService_GetConfirmationCode_FullMethodName      = "/euicc.DownloadableSubscriptionService/GetConfirmationCode"
+	DownloadableSubscriptionService_GetEncodedActivationCode_FullMethodName = "/euicc.DownloadableSubscriptionService/GetEncodedActivationCode"
+	DownloadableSubscriptionService_WriteToParcel_FullMethodName            = "/euicc.DownloadableSubscriptionService/WriteToParcel"
+	DownloadableSubscriptionService_ForActivationCode_FullMethodName        = "/euicc.DownloadableSubscriptionService/ForActivationCode"
+)
+
+// DownloadableSubscriptionServiceClient is the client API for DownloadableSubscriptionService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type DownloadableSubscriptionServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetConfirmationCode(ctx context.Context, in *GetConfirmationCodeRequest, opts ...grpc.CallOption) (*GetConfirmationCodeResponse, error)
+	GetEncodedActivationCode(ctx context.Context, in *GetEncodedActivationCodeRequest, opts ...grpc.CallOption) (*GetEncodedActivationCodeResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+	ForActivationCode(ctx context.Context, in *ForActivationCodeRequest, opts ...grpc.CallOption) (*ForActivationCodeResponse, error)
+}
+
+type downloadableSubscriptionServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewDownloadableSubscriptionServiceClient(cc grpc.ClientConnInterface) DownloadableSubscriptionServiceClient {
+	return &downloadableSubscriptionServiceClient{cc}
+}
+
+func (c *downloadableSubscriptionServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, DownloadableSubscriptionService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *downloadableSubscriptionServiceClient) GetConfirmationCode(ctx context.Context, in *GetConfirmationCodeRequest, opts ...grpc.CallOption) (*GetConfirmationCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetConfirmationCodeResponse)
+	err := c.cc.Invoke(ctx, DownloadableSubscriptionService_GetConfirmationCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *downloadableSubscriptionServiceClient) GetEncodedActivationCode(ctx context.Context, in *GetEncodedActivationCodeRequest, opts ...grpc.CallOption) (*GetEncodedActivationCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEncodedActivationCodeResponse)
+	err := c.cc.Invoke(ctx, DownloadableSubscriptionService_GetEncodedActivationCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *downloadableSubscriptionServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, DownloadableSubscriptionService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *downloadableSubscriptionServiceClient) ForActivationCode(ctx context.Context, in *ForActivationCodeRequest, opts ...grpc.CallOption) (*ForActivationCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ForActivationCodeResponse)
+	err := c.cc.Invoke(ctx, DownloadableSubscriptionService_ForActivationCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// DownloadableSubscriptionServiceServer is the server API for DownloadableSubscriptionService service.
+// All implementations must embed UnimplementedDownloadableSubscriptionServiceServer
+// for forward compatibility.
+type DownloadableSubscriptionServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetConfirmationCode(context.Context, *GetConfirmationCodeRequest) (*GetConfirmationCodeResponse, error)
+	GetEncodedActivationCode(context.Context, *GetEncodedActivationCodeRequest) (*GetEncodedActivationCodeResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	ForActivationCode(context.Context, *ForActivationCodeRequest) (*ForActivationCodeResponse, error)
+	mustEmbedUnimplementedDownloadableSubscriptionServiceServer()
+}
+
+// UnimplementedDownloadableSubscriptionServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedDownloadableSubscriptionServiceServer struct{}
+
+func (UnimplementedDownloadableSubscriptionServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedDownloadableSubscriptionServiceServer) GetConfirmationCode(context.Context, *GetConfirmationCodeRequest) (*GetConfirmationCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetConfirmationCode not implemented")
+}
+func (UnimplementedDownloadableSubscriptionServiceServer) GetEncodedActivationCode(context.Context, *GetEncodedActivationCodeRequest) (*GetEncodedActivationCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEncodedActivationCode not implemented")
+}
+func (UnimplementedDownloadableSubscriptionServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedDownloadableSubscriptionServiceServer) ForActivationCode(context.Context, *ForActivationCodeRequest) (*ForActivationCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ForActivationCode not implemented")
+}
+func (UnimplementedDownloadableSubscriptionServiceServer) mustEmbedUnimplementedDownloadableSubscriptionServiceServer() {
+}
+func (UnimplementedDownloadableSubscriptionServiceServer) testEmbeddedByValue() {}
+
+// UnsafeDownloadableSubscriptionServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to DownloadableSubscriptionServiceServer will
+// result in compilation errors.
+type UnsafeDownloadableSubscriptionServiceServer interface {
+	mustEmbedUnimplementedDownloadableSubscriptionServiceServer()
+}
+
+func RegisterDownloadableSubscriptionServiceServer(s grpc.ServiceRegistrar, srv DownloadableSubscriptionServiceServer) {
+	// If the following call panics, it indicates UnimplementedDownloadableSubscriptionServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&DownloadableSubscriptionService_ServiceDesc, srv)
+}
+
+func _DownloadableSubscriptionService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DownloadableSubscriptionServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DownloadableSubscriptionService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DownloadableSubscriptionServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DownloadableSubscriptionService_GetConfirmationCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetConfirmationCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DownloadableSubscriptionServiceServer).GetConfirmationCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DownloadableSubscriptionService_GetConfirmationCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DownloadableSubscriptionServiceServer).GetConfirmationCode(ctx, req.(*GetConfirmationCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DownloadableSubscriptionService_GetEncodedActivationCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEncodedActivationCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DownloadableSubscriptionServiceServer).GetEncodedActivationCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DownloadableSubscriptionService_GetEncodedActivationCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DownloadableSubscriptionServiceServer).GetEncodedActivationCode(ctx, req.(*GetEncodedActivationCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DownloadableSubscriptionService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DownloadableSubscriptionServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DownloadableSubscriptionService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DownloadableSubscriptionServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DownloadableSubscriptionService_ForActivationCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ForActivationCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DownloadableSubscriptionServiceServer).ForActivationCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DownloadableSubscriptionService_ForActivationCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DownloadableSubscriptionServiceServer).ForActivationCode(ctx, req.(*ForActivationCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// DownloadableSubscriptionService_ServiceDesc is the grpc.ServiceDesc for DownloadableSubscriptionService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var DownloadableSubscriptionService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "euicc.DownloadableSubscriptionService",
+	HandlerType: (*DownloadableSubscriptionServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _DownloadableSubscriptionService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetConfirmationCode",
+			Handler:    _DownloadableSubscriptionService_GetConfirmationCode_Handler,
+		},
+		{
+			MethodName: "GetEncodedActivationCode",
+			Handler:    _DownloadableSubscriptionService_GetEncodedActivationCode_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _DownloadableSubscriptionService_WriteToParcel_Handler,
+		},
+		{
+			MethodName: "ForActivationCode",
+			Handler:    _DownloadableSubscriptionService_ForActivationCode_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/euicc/euicc.proto",
+}
+
+const (
+	DownloadableSubscriptionBuilderService_Build_FullMethodName                    = "/euicc.DownloadableSubscriptionBuilderService/Build"
+	DownloadableSubscriptionBuilderService_SetConfirmationCode_FullMethodName      = "/euicc.DownloadableSubscriptionBuilderService/SetConfirmationCode"
+	DownloadableSubscriptionBuilderService_SetEncodedActivationCode_FullMethodName = "/euicc.DownloadableSubscriptionBuilderService/SetEncodedActivationCode"
+)
+
+// DownloadableSubscriptionBuilderServiceClient is the client API for DownloadableSubscriptionBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type DownloadableSubscriptionBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetConfirmationCode(ctx context.Context, in *SetConfirmationCodeRequest, opts ...grpc.CallOption) (*SetConfirmationCodeResponse, error)
+	SetEncodedActivationCode(ctx context.Context, in *SetEncodedActivationCodeRequest, opts ...grpc.CallOption) (*SetEncodedActivationCodeResponse, error)
+}
+
+type downloadableSubscriptionBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewDownloadableSubscriptionBuilderServiceClient(cc grpc.ClientConnInterface) DownloadableSubscriptionBuilderServiceClient {
+	return &downloadableSubscriptionBuilderServiceClient{cc}
+}
+
+func (c *downloadableSubscriptionBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, DownloadableSubscriptionBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *downloadableSubscriptionBuilderServiceClient) SetConfirmationCode(ctx context.Context, in *SetConfirmationCodeRequest, opts ...grpc.CallOption) (*SetConfirmationCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetConfirmationCodeResponse)
+	err := c.cc.Invoke(ctx, DownloadableSubscriptionBuilderService_SetConfirmationCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *downloadableSubscriptionBuilderServiceClient) SetEncodedActivationCode(ctx context.Context, in *SetEncodedActivationCodeRequest, opts ...grpc.CallOption) (*SetEncodedActivationCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetEncodedActivationCodeResponse)
+	err := c.cc.Invoke(ctx, DownloadableSubscriptionBuilderService_SetEncodedActivationCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// DownloadableSubscriptionBuilderServiceServer is the server API for DownloadableSubscriptionBuilderService service.
+// All implementations must embed UnimplementedDownloadableSubscriptionBuilderServiceServer
+// for forward compatibility.
+type DownloadableSubscriptionBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetConfirmationCode(context.Context, *SetConfirmationCodeRequest) (*SetConfirmationCodeResponse, error)
+	SetEncodedActivationCode(context.Context, *SetEncodedActivationCodeRequest) (*SetEncodedActivationCodeResponse, error)
+	mustEmbedUnimplementedDownloadableSubscriptionBuilderServiceServer()
+}
+
+// UnimplementedDownloadableSubscriptionBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedDownloadableSubscriptionBuilderServiceServer struct{}
+
+func (UnimplementedDownloadableSubscriptionBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedDownloadableSubscriptionBuilderServiceServer) SetConfirmationCode(context.Context, *SetConfirmationCodeRequest) (*SetConfirmationCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetConfirmationCode not implemented")
+}
+func (UnimplementedDownloadableSubscriptionBuilderServiceServer) SetEncodedActivationCode(context.Context, *SetEncodedActivationCodeRequest) (*SetEncodedActivationCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetEncodedActivationCode not implemented")
+}
+func (UnimplementedDownloadableSubscriptionBuilderServiceServer) mustEmbedUnimplementedDownloadableSubscriptionBuilderServiceServer() {
+}
+func (UnimplementedDownloadableSubscriptionBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeDownloadableSubscriptionBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to DownloadableSubscriptionBuilderServiceServer will
+// result in compilation errors.
+type UnsafeDownloadableSubscriptionBuilderServiceServer interface {
+	mustEmbedUnimplementedDownloadableSubscriptionBuilderServiceServer()
+}
+
+func RegisterDownloadableSubscriptionBuilderServiceServer(s grpc.ServiceRegistrar, srv DownloadableSubscriptionBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedDownloadableSubscriptionBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&DownloadableSubscriptionBuilderService_ServiceDesc, srv)
+}
+
+func _DownloadableSubscriptionBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DownloadableSubscriptionBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DownloadableSubscriptionBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DownloadableSubscriptionBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DownloadableSubscriptionBuilderService_SetConfirmationCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetConfirmationCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DownloadableSubscriptionBuilderServiceServer).SetConfirmationCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DownloadableSubscriptionBuilderService_SetConfirmationCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DownloadableSubscriptionBuilderServiceServer).SetConfirmationCode(ctx, req.(*SetConfirmationCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DownloadableSubscriptionBuilderService_SetEncodedActivationCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetEncodedActivationCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DownloadableSubscriptionBuilderServiceServer).SetEncodedActivationCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DownloadableSubscriptionBuilderService_SetEncodedActivationCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DownloadableSubscriptionBuilderServiceServer).SetEncodedActivationCode(ctx, req.(*SetEncodedActivationCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// DownloadableSubscriptionBuilderService_ServiceDesc is the grpc.ServiceDesc for DownloadableSubscriptionBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var DownloadableSubscriptionBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "euicc.DownloadableSubscriptionBuilderService",
+	HandlerType: (*DownloadableSubscriptionBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _DownloadableSubscriptionBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetConfirmationCode",
+			Handler:    _DownloadableSubscriptionBuilderService_SetConfirmationCode_Handler,
+		},
+		{
+			MethodName: "SetEncodedActivationCode",
+			Handler:    _DownloadableSubscriptionBuilderService_SetEncodedActivationCode_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/euicc/euicc.proto",
+}
+
+const (
 	ManagerService_CreateForCardId_FullMethodName            = "/euicc.ManagerService/CreateForCardId"
 	ManagerService_DeleteSubscription_FullMethodName         = "/euicc.ManagerService/DeleteSubscription"
 	ManagerService_DownloadSubscription_FullMethodName       = "/euicc.ManagerService/DownloadSubscription"
@@ -534,6 +968,222 @@ var ManagerService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UpdateSubscriptionNickname",
 			Handler:    _ManagerService_UpdateSubscriptionNickname_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/euicc/euicc.proto",
+}
+
+const (
+	InfoService_NewInfo_FullMethodName          = "/euicc.InfoService/NewInfo"
+	InfoService_DescribeContents_FullMethodName = "/euicc.InfoService/DescribeContents"
+	InfoService_GetOsVersion_FullMethodName     = "/euicc.InfoService/GetOsVersion"
+	InfoService_WriteToParcel_FullMethodName    = "/euicc.InfoService/WriteToParcel"
+)
+
+// InfoServiceClient is the client API for InfoService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type InfoServiceClient interface {
+	NewInfo(ctx context.Context, in *NewInfoRequest, opts ...grpc.CallOption) (*NewInfoResponse, error)
+	DescribeContents(ctx context.Context, in *InfoDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetOsVersion(ctx context.Context, in *GetOsVersionRequest, opts ...grpc.CallOption) (*GetOsVersionResponse, error)
+	WriteToParcel(ctx context.Context, in *InfoWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type infoServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewInfoServiceClient(cc grpc.ClientConnInterface) InfoServiceClient {
+	return &infoServiceClient{cc}
+}
+
+func (c *infoServiceClient) NewInfo(ctx context.Context, in *NewInfoRequest, opts ...grpc.CallOption) (*NewInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewInfoResponse)
+	err := c.cc.Invoke(ctx, InfoService_NewInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoServiceClient) DescribeContents(ctx context.Context, in *InfoDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, InfoService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoServiceClient) GetOsVersion(ctx context.Context, in *GetOsVersionRequest, opts ...grpc.CallOption) (*GetOsVersionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetOsVersionResponse)
+	err := c.cc.Invoke(ctx, InfoService_GetOsVersion_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoServiceClient) WriteToParcel(ctx context.Context, in *InfoWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, InfoService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// InfoServiceServer is the server API for InfoService service.
+// All implementations must embed UnimplementedInfoServiceServer
+// for forward compatibility.
+type InfoServiceServer interface {
+	NewInfo(context.Context, *NewInfoRequest) (*NewInfoResponse, error)
+	DescribeContents(context.Context, *InfoDescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetOsVersion(context.Context, *GetOsVersionRequest) (*GetOsVersionResponse, error)
+	WriteToParcel(context.Context, *InfoWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedInfoServiceServer()
+}
+
+// UnimplementedInfoServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedInfoServiceServer struct{}
+
+func (UnimplementedInfoServiceServer) NewInfo(context.Context, *NewInfoRequest) (*NewInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewInfo not implemented")
+}
+func (UnimplementedInfoServiceServer) DescribeContents(context.Context, *InfoDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedInfoServiceServer) GetOsVersion(context.Context, *GetOsVersionRequest) (*GetOsVersionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetOsVersion not implemented")
+}
+func (UnimplementedInfoServiceServer) WriteToParcel(context.Context, *InfoWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedInfoServiceServer) mustEmbedUnimplementedInfoServiceServer() {}
+func (UnimplementedInfoServiceServer) testEmbeddedByValue()                     {}
+
+// UnsafeInfoServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to InfoServiceServer will
+// result in compilation errors.
+type UnsafeInfoServiceServer interface {
+	mustEmbedUnimplementedInfoServiceServer()
+}
+
+func RegisterInfoServiceServer(s grpc.ServiceRegistrar, srv InfoServiceServer) {
+	// If the following call panics, it indicates UnimplementedInfoServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&InfoService_ServiceDesc, srv)
+}
+
+func _InfoService_NewInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoServiceServer).NewInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoService_NewInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoServiceServer).NewInfo(ctx, req.(*NewInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(InfoDescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoServiceServer).DescribeContents(ctx, req.(*InfoDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoService_GetOsVersion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetOsVersionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoServiceServer).GetOsVersion(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoService_GetOsVersion_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoServiceServer).GetOsVersion(ctx, req.(*GetOsVersionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(InfoWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoServiceServer).WriteToParcel(ctx, req.(*InfoWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// InfoService_ServiceDesc is the grpc.ServiceDesc for InfoService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var InfoService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "euicc.InfoService",
+	HandlerType: (*InfoServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewInfo",
+			Handler:    _InfoService_NewInfo_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _InfoService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetOsVersion",
+			Handler:    _InfoService_GetOsVersion_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _InfoService_WriteToParcel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

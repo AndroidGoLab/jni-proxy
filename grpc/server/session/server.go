@@ -15,6 +15,670 @@ import (
 	"google.golang.org/grpc/status"
 )
 
+// MediaSessionServer implements pb.MediaSessionServiceServer.
+type MediaSessionServer struct {
+	pb.UnimplementedMediaSessionServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *MediaSessionServer) NewMediaSession(_ context.Context, req *pb.NewMediaSessionRequest) (*pb.NewMediaSessionResponse, error) {
+	obj, err := jnipkg.NewMediaSession(s.Ctx.VM, s.Ctx.Obj, req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewMediaSessionResponse{Result: handle}, nil
+}
+
+func (s *MediaSessionServer) GetController(_ context.Context, req *pb.GetControllerRequest) (*pb.GetControllerResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MediaSession{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetController()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetControllerResponse{Result: handle}, nil
+}
+
+func (s *MediaSessionServer) GetCurrentControllerInfo(_ context.Context, req *pb.GetCurrentControllerInfoRequest) (*pb.GetCurrentControllerInfoResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MediaSession{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetCurrentControllerInfo()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetCurrentControllerInfoResponse{Result: handle}, nil
+}
+
+func (s *MediaSessionServer) GetSessionToken(_ context.Context, req *pb.GetSessionTokenRequest) (*pb.GetSessionTokenResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MediaSession{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetSessionToken()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetSessionTokenResponse{Result: handle}, nil
+}
+
+func (s *MediaSessionServer) IsActive(_ context.Context, req *pb.IsActiveRequest) (*pb.IsActiveResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MediaSession{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsActive()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsActiveResponse{Result: result}, nil
+}
+
+func (s *MediaSessionServer) Release(_ context.Context, req *pb.ReleaseRequest) (*pb.ReleaseResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MediaSession{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Release(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ReleaseResponse{}, nil
+}
+
+func (s *MediaSessionServer) SendSessionEvent(_ context.Context, req *pb.SendSessionEventRequest) (*pb.SendSessionEventResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MediaSession{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SendSessionEvent(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SendSessionEventResponse{}, nil
+}
+
+func (s *MediaSessionServer) SetActive(_ context.Context, req *pb.SetActiveRequest) (*pb.SetActiveResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MediaSession{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetActive(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetActiveResponse{}, nil
+}
+
+func (s *MediaSessionServer) SetCallback(_ context.Context, req *pb.SetCallbackRequest) (*pb.SetCallbackResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MediaSession{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetCallback(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetCallbackResponse{}, nil
+}
+
+func (s *MediaSessionServer) SetExtras(_ context.Context, req *pb.SetExtrasRequest) (*pb.SetExtrasResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MediaSession{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetExtras(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetExtrasResponse{}, nil
+}
+
+func (s *MediaSessionServer) SetFlags(_ context.Context, req *pb.SetFlagsRequest) (*pb.SetFlagsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MediaSession{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetFlags(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetFlagsResponse{}, nil
+}
+
+func (s *MediaSessionServer) SetMediaButtonBroadcastReceiver(_ context.Context, req *pb.SetMediaButtonBroadcastReceiverRequest) (*pb.SetMediaButtonBroadcastReceiverResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MediaSession{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetMediaButtonBroadcastReceiver(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetMediaButtonBroadcastReceiverResponse{}, nil
+}
+
+func (s *MediaSessionServer) SetMediaButtonReceiver(_ context.Context, req *pb.SetMediaButtonReceiverRequest) (*pb.SetMediaButtonReceiverResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MediaSession{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetMediaButtonReceiver(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetMediaButtonReceiverResponse{}, nil
+}
+
+func (s *MediaSessionServer) SetMetadata(_ context.Context, req *pb.SetMetadataRequest) (*pb.SetMetadataResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MediaSession{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetMetadata(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetMetadataResponse{}, nil
+}
+
+func (s *MediaSessionServer) SetPlaybackState(_ context.Context, req *pb.SetPlaybackStateRequest) (*pb.SetPlaybackStateResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MediaSession{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetPlaybackState(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetPlaybackStateResponse{}, nil
+}
+
+func (s *MediaSessionServer) SetPlaybackToLocal(_ context.Context, req *pb.SetPlaybackToLocalRequest) (*pb.SetPlaybackToLocalResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MediaSession{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetPlaybackToLocal(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetPlaybackToLocalResponse{}, nil
+}
+
+func (s *MediaSessionServer) SetPlaybackToRemote(_ context.Context, req *pb.SetPlaybackToRemoteRequest) (*pb.SetPlaybackToRemoteResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MediaSession{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetPlaybackToRemote(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetPlaybackToRemoteResponse{}, nil
+}
+
+func (s *MediaSessionServer) SetQueueTitle(_ context.Context, req *pb.SetQueueTitleRequest) (*pb.SetQueueTitleResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MediaSession{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetQueueTitle(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetQueueTitleResponse{}, nil
+}
+
+func (s *MediaSessionServer) SetRatingType(_ context.Context, req *pb.SetRatingTypeRequest) (*pb.SetRatingTypeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MediaSession{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetRatingType(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetRatingTypeResponse{}, nil
+}
+
+func (s *MediaSessionServer) SetSessionActivity(_ context.Context, req *pb.SetSessionActivityRequest) (*pb.SetSessionActivityResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MediaSession{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetSessionActivity(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetSessionActivityResponse{}, nil
+}
+
+// MediaControllerServer implements pb.MediaControllerServiceServer.
+type MediaControllerServer struct {
+	pb.UnimplementedMediaControllerServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *MediaControllerServer) NewMediaController(_ context.Context, req *pb.NewMediaControllerRequest) (*pb.NewMediaControllerResponse, error) {
+	obj, err := jnipkg.NewMediaController(s.Ctx.VM, s.Ctx.Obj, s.Handles.Get(req.GetArg1()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewMediaControllerResponse{Result: handle}, nil
+}
+
+func (s *MediaControllerServer) AdjustVolume(_ context.Context, req *pb.AdjustVolumeRequest) (*pb.AdjustVolumeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MediaController{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.AdjustVolume(req.GetArg0(), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.AdjustVolumeResponse{}, nil
+}
+
+func (s *MediaControllerServer) DispatchMediaButtonEvent(_ context.Context, req *pb.DispatchMediaButtonEventRequest) (*pb.DispatchMediaButtonEventResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MediaController{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DispatchMediaButtonEvent(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DispatchMediaButtonEventResponse{Result: result}, nil
+}
+
+func (s *MediaControllerServer) GetExtras(_ context.Context, req *pb.MediaControllerGetExtrasRequest) (*pb.GetExtrasResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MediaController{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetExtras()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetExtrasResponse{Result: handle}, nil
+}
+
+func (s *MediaControllerServer) GetFlags(_ context.Context, req *pb.GetFlagsRequest) (*pb.GetFlagsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MediaController{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetFlags()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetFlagsResponse{Result: result}, nil
+}
+
+func (s *MediaControllerServer) GetMetadata(_ context.Context, req *pb.GetMetadataRequest) (*pb.GetMetadataResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MediaController{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetMetadata()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetMetadataResponse{Result: handle}, nil
+}
+
+func (s *MediaControllerServer) GetPackageName(_ context.Context, req *pb.GetPackageNameRequest) (*pb.GetPackageNameResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MediaController{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetPackageName()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetPackageNameResponse{Result: result}, nil
+}
+
+func (s *MediaControllerServer) GetPlaybackInfo(_ context.Context, req *pb.GetPlaybackInfoRequest) (*pb.GetPlaybackInfoResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MediaController{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetPlaybackInfo()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetPlaybackInfoResponse{Result: handle}, nil
+}
+
+func (s *MediaControllerServer) GetPlaybackState(_ context.Context, req *pb.GetPlaybackStateRequest) (*pb.GetPlaybackStateResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MediaController{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetPlaybackState()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetPlaybackStateResponse{Result: handle}, nil
+}
+
+func (s *MediaControllerServer) GetQueueTitle(_ context.Context, req *pb.GetQueueTitleRequest) (*pb.GetQueueTitleResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MediaController{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetQueueTitle()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetQueueTitleResponse{Result: handle}, nil
+}
+
+func (s *MediaControllerServer) GetRatingType(_ context.Context, req *pb.GetRatingTypeRequest) (*pb.GetRatingTypeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MediaController{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetRatingType()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetRatingTypeResponse{Result: result}, nil
+}
+
+func (s *MediaControllerServer) GetSessionActivity(_ context.Context, req *pb.GetSessionActivityRequest) (*pb.GetSessionActivityResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MediaController{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetSessionActivity()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetSessionActivityResponse{Result: handle}, nil
+}
+
+func (s *MediaControllerServer) GetSessionInfo(_ context.Context, req *pb.GetSessionInfoRequest) (*pb.GetSessionInfoResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MediaController{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetSessionInfo()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetSessionInfoResponse{Result: handle}, nil
+}
+
+func (s *MediaControllerServer) GetSessionToken(_ context.Context, req *pb.GetSessionTokenRequest) (*pb.GetSessionTokenResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MediaController{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetSessionToken()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetSessionTokenResponse{Result: handle}, nil
+}
+
+func (s *MediaControllerServer) GetTag(_ context.Context, req *pb.GetTagRequest) (*pb.GetTagResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MediaController{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetTag()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetTagResponse{Result: result}, nil
+}
+
+func (s *MediaControllerServer) GetTransportControls(_ context.Context, req *pb.GetTransportControlsRequest) (*pb.GetTransportControlsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MediaController{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetTransportControls()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetTransportControlsResponse{Result: handle}, nil
+}
+
+func (s *MediaControllerServer) RegisterCallback(_ context.Context, req *pb.RegisterCallbackRequest) (*pb.RegisterCallbackResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MediaController{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.RegisterCallback(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.RegisterCallbackResponse{}, nil
+}
+
+func (s *MediaControllerServer) SendCommand(_ context.Context, req *pb.SendCommandRequest) (*pb.SendCommandResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MediaController{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SendCommand(req.GetArg0(), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SendCommandResponse{}, nil
+}
+
+func (s *MediaControllerServer) SetVolumeTo(_ context.Context, req *pb.SetVolumeToRequest) (*pb.SetVolumeToResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MediaController{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetVolumeTo(req.GetArg0(), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetVolumeToResponse{}, nil
+}
+
+func (s *MediaControllerServer) UnregisterCallback(_ context.Context, req *pb.UnregisterCallbackRequest) (*pb.UnregisterCallbackResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MediaController{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.UnregisterCallback(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.UnregisterCallbackResponse{}, nil
+}
+
 // MediaSessionManagerServer implements pb.MediaSessionManagerServiceServer.
 type MediaSessionManagerServer struct {
 	pb.UnimplementedMediaSessionManagerServiceServer

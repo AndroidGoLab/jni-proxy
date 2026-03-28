@@ -12,6 +12,7 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -22,17 +23,492 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type GetNumberOfInstancesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNumberOfInstancesRequest) Reset() {
+	*x = GetNumberOfInstancesRequest{}
+	mi := &file_proto_strictmode_strictmode_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNumberOfInstancesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNumberOfInstancesRequest) ProtoMessage() {}
+
+func (x *GetNumberOfInstancesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_strictmode_strictmode_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNumberOfInstancesRequest.ProtoReflect.Descriptor instead.
+func (*GetNumberOfInstancesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_strictmode_strictmode_proto_rawDescGZIP(), []int{0}
+}
+
+type GetNumberOfInstancesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNumberOfInstancesResponse) Reset() {
+	*x = GetNumberOfInstancesResponse{}
+	mi := &file_proto_strictmode_strictmode_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNumberOfInstancesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNumberOfInstancesResponse) ProtoMessage() {}
+
+func (x *GetNumberOfInstancesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_strictmode_strictmode_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNumberOfInstancesResponse.ProtoReflect.Descriptor instead.
+func (*GetNumberOfInstancesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_strictmode_strictmode_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *GetNumberOfInstancesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type HashCodeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HashCodeRequest) Reset() {
+	*x = HashCodeRequest{}
+	mi := &file_proto_strictmode_strictmode_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HashCodeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HashCodeRequest) ProtoMessage() {}
+
+func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_strictmode_strictmode_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HashCodeRequest.ProtoReflect.Descriptor instead.
+func (*HashCodeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_strictmode_strictmode_proto_rawDescGZIP(), []int{2}
+}
+
+type HashCodeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HashCodeResponse) Reset() {
+	*x = HashCodeResponse{}
+	mi := &file_proto_strictmode_strictmode_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HashCodeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HashCodeResponse) ProtoMessage() {}
+
+func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_strictmode_strictmode_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HashCodeResponse.ProtoReflect.Descriptor instead.
+func (*HashCodeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_strictmode_strictmode_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *HashCodeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetStackTraceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetStackTraceRequest) Reset() {
+	*x = SetStackTraceRequest{}
+	mi := &file_proto_strictmode_strictmode_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetStackTraceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetStackTraceRequest) ProtoMessage() {}
+
+func (x *SetStackTraceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_strictmode_strictmode_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetStackTraceRequest.ProtoReflect.Descriptor instead.
+func (*SetStackTraceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_strictmode_strictmode_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *SetStackTraceRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetStackTraceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetStackTraceResponse) Reset() {
+	*x = SetStackTraceResponse{}
+	mi := &file_proto_strictmode_strictmode_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetStackTraceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetStackTraceResponse) ProtoMessage() {}
+
+func (x *SetStackTraceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_strictmode_strictmode_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetStackTraceResponse.ProtoReflect.Descriptor instead.
+func (*SetStackTraceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_strictmode_strictmode_proto_rawDescGZIP(), []int{5}
+}
+
+type NewUnsafeIntentLaunchViolationRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewUnsafeIntentLaunchViolationRequest) Reset() {
+	*x = NewUnsafeIntentLaunchViolationRequest{}
+	mi := &file_proto_strictmode_strictmode_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewUnsafeIntentLaunchViolationRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewUnsafeIntentLaunchViolationRequest) ProtoMessage() {}
+
+func (x *NewUnsafeIntentLaunchViolationRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_strictmode_strictmode_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewUnsafeIntentLaunchViolationRequest.ProtoReflect.Descriptor instead.
+func (*NewUnsafeIntentLaunchViolationRequest) Descriptor() ([]byte, []int) {
+	return file_proto_strictmode_strictmode_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *NewUnsafeIntentLaunchViolationRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type NewUnsafeIntentLaunchViolationResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewUnsafeIntentLaunchViolationResponse) Reset() {
+	*x = NewUnsafeIntentLaunchViolationResponse{}
+	mi := &file_proto_strictmode_strictmode_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewUnsafeIntentLaunchViolationResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewUnsafeIntentLaunchViolationResponse) ProtoMessage() {}
+
+func (x *NewUnsafeIntentLaunchViolationResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_strictmode_strictmode_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewUnsafeIntentLaunchViolationResponse.ProtoReflect.Descriptor instead.
+func (*NewUnsafeIntentLaunchViolationResponse) Descriptor() ([]byte, []int) {
+	return file_proto_strictmode_strictmode_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *NewUnsafeIntentLaunchViolationResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetIntentRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetIntentRequest) Reset() {
+	*x = GetIntentRequest{}
+	mi := &file_proto_strictmode_strictmode_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetIntentRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetIntentRequest) ProtoMessage() {}
+
+func (x *GetIntentRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_strictmode_strictmode_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetIntentRequest.ProtoReflect.Descriptor instead.
+func (*GetIntentRequest) Descriptor() ([]byte, []int) {
+	return file_proto_strictmode_strictmode_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *GetIntentRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetIntentResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetIntentResponse) Reset() {
+	*x = GetIntentResponse{}
+	mi := &file_proto_strictmode_strictmode_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetIntentResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetIntentResponse) ProtoMessage() {}
+
+func (x *GetIntentResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_strictmode_strictmode_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetIntentResponse.ProtoReflect.Descriptor instead.
+func (*GetIntentResponse) Descriptor() ([]byte, []int) {
+	return file_proto_strictmode_strictmode_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *GetIntentResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
 var File_proto_strictmode_strictmode_proto protoreflect.FileDescriptor
 
 const file_proto_strictmode_strictmode_proto_rawDesc = "" +
 	"\n" +
 	"!proto/strictmode/strictmode.proto\x12\n" +
-	"strictmodeB4Z2github.com/AndroidGoLab/jni-proxy/proto/strictmodeb\x06proto3"
+	"strictmode\"\x1d\n" +
+	"\x1bGetNumberOfInstancesRequest\"6\n" +
+	"\x1cGetNumberOfInstancesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x11\n" +
+	"\x0fHashCodeRequest\"*\n" +
+	"\x10HashCodeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"*\n" +
+	"\x14SetStackTraceRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x17\n" +
+	"\x15SetStackTraceResponse\";\n" +
+	"%NewUnsafeIntentLaunchViolationRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"@\n" +
+	"&NewUnsafeIntentLaunchViolationResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"*\n" +
+	"\x10GetIntentRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"+\n" +
+	"\x11GetIntentResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result2\x8a\x01\n" +
+	"\x1dInstanceCountViolationService\x12i\n" +
+	"\x14GetNumberOfInstances\x12'.strictmode.GetNumberOfInstancesRequest\x1a(.strictmode.GetNumberOfInstancesResponse2\xaf\x01\n" +
+	"\x10ViolationService\x12E\n" +
+	"\bHashCode\x12\x1b.strictmode.HashCodeRequest\x1a\x1c.strictmode.HashCodeResponse\x12T\n" +
+	"\rSetStackTrace\x12 .strictmode.SetStackTraceRequest\x1a!.strictmode.SetStackTraceResponse2\xf8\x01\n" +
+	"\"UnsafeIntentLaunchViolationService\x12\x87\x01\n" +
+	"\x1eNewUnsafeIntentLaunchViolation\x121.strictmode.NewUnsafeIntentLaunchViolationRequest\x1a2.strictmode.NewUnsafeIntentLaunchViolationResponse\x12H\n" +
+	"\tGetIntent\x12\x1c.strictmode.GetIntentRequest\x1a\x1d.strictmode.GetIntentResponseB4Z2github.com/AndroidGoLab/jni-proxy/proto/strictmodeb\x06proto3"
 
-var file_proto_strictmode_strictmode_proto_goTypes = []any{}
+var (
+	file_proto_strictmode_strictmode_proto_rawDescOnce sync.Once
+	file_proto_strictmode_strictmode_proto_rawDescData []byte
+)
+
+func file_proto_strictmode_strictmode_proto_rawDescGZIP() []byte {
+	file_proto_strictmode_strictmode_proto_rawDescOnce.Do(func() {
+		file_proto_strictmode_strictmode_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_proto_strictmode_strictmode_proto_rawDesc), len(file_proto_strictmode_strictmode_proto_rawDesc)))
+	})
+	return file_proto_strictmode_strictmode_proto_rawDescData
+}
+
+var file_proto_strictmode_strictmode_proto_msgTypes = make([]protoimpl.MessageInfo, 10)
+var file_proto_strictmode_strictmode_proto_goTypes = []any{
+	(*GetNumberOfInstancesRequest)(nil),            // 0: strictmode.GetNumberOfInstancesRequest
+	(*GetNumberOfInstancesResponse)(nil),           // 1: strictmode.GetNumberOfInstancesResponse
+	(*HashCodeRequest)(nil),                        // 2: strictmode.HashCodeRequest
+	(*HashCodeResponse)(nil),                       // 3: strictmode.HashCodeResponse
+	(*SetStackTraceRequest)(nil),                   // 4: strictmode.SetStackTraceRequest
+	(*SetStackTraceResponse)(nil),                  // 5: strictmode.SetStackTraceResponse
+	(*NewUnsafeIntentLaunchViolationRequest)(nil),  // 6: strictmode.NewUnsafeIntentLaunchViolationRequest
+	(*NewUnsafeIntentLaunchViolationResponse)(nil), // 7: strictmode.NewUnsafeIntentLaunchViolationResponse
+	(*GetIntentRequest)(nil),                       // 8: strictmode.GetIntentRequest
+	(*GetIntentResponse)(nil),                      // 9: strictmode.GetIntentResponse
+}
 var file_proto_strictmode_strictmode_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
+	0, // 0: strictmode.InstanceCountViolationService.GetNumberOfInstances:input_type -> strictmode.GetNumberOfInstancesRequest
+	2, // 1: strictmode.ViolationService.HashCode:input_type -> strictmode.HashCodeRequest
+	4, // 2: strictmode.ViolationService.SetStackTrace:input_type -> strictmode.SetStackTraceRequest
+	6, // 3: strictmode.UnsafeIntentLaunchViolationService.NewUnsafeIntentLaunchViolation:input_type -> strictmode.NewUnsafeIntentLaunchViolationRequest
+	8, // 4: strictmode.UnsafeIntentLaunchViolationService.GetIntent:input_type -> strictmode.GetIntentRequest
+	1, // 5: strictmode.InstanceCountViolationService.GetNumberOfInstances:output_type -> strictmode.GetNumberOfInstancesResponse
+	3, // 6: strictmode.ViolationService.HashCode:output_type -> strictmode.HashCodeResponse
+	5, // 7: strictmode.ViolationService.SetStackTrace:output_type -> strictmode.SetStackTraceResponse
+	7, // 8: strictmode.UnsafeIntentLaunchViolationService.NewUnsafeIntentLaunchViolation:output_type -> strictmode.NewUnsafeIntentLaunchViolationResponse
+	9, // 9: strictmode.UnsafeIntentLaunchViolationService.GetIntent:output_type -> strictmode.GetIntentResponse
+	5, // [5:10] is the sub-list for method output_type
+	0, // [0:5] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
 	0, // [0:0] is the sub-list for extension extendee
 	0, // [0:0] is the sub-list for field type_name
@@ -49,12 +525,13 @@ func file_proto_strictmode_strictmode_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_strictmode_strictmode_proto_rawDesc), len(file_proto_strictmode_strictmode_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   10,
 			NumExtensions: 0,
-			NumServices:   0,
+			NumServices:   3,
 		},
 		GoTypes:           file_proto_strictmode_strictmode_proto_goTypes,
 		DependencyIndexes: file_proto_strictmode_strictmode_proto_depIdxs,
+		MessageInfos:      file_proto_strictmode_strictmode_proto_msgTypes,
 	}.Build()
 	File_proto_strictmode_strictmode_proto = out.File
 	file_proto_strictmode_strictmode_proto_goTypes = nil

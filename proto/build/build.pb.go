@@ -12,6 +12,7 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -22,19 +23,978 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type NewBuildRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewBuildRequest) Reset() {
+	*x = NewBuildRequest{}
+	mi := &file_proto_build_build_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewBuildRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewBuildRequest) ProtoMessage() {}
+
+func (x *NewBuildRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_build_build_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewBuildRequest.ProtoReflect.Descriptor instead.
+func (*NewBuildRequest) Descriptor() ([]byte, []int) {
+	return file_proto_build_build_proto_rawDescGZIP(), []int{0}
+}
+
+type NewBuildResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewBuildResponse) Reset() {
+	*x = NewBuildResponse{}
+	mi := &file_proto_build_build_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewBuildResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewBuildResponse) ProtoMessage() {}
+
+func (x *NewBuildResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_build_build_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewBuildResponse.ProtoReflect.Descriptor instead.
+func (*NewBuildResponse) Descriptor() ([]byte, []int) {
+	return file_proto_build_build_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *NewBuildResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetMajorSdkVersionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMajorSdkVersionRequest) Reset() {
+	*x = GetMajorSdkVersionRequest{}
+	mi := &file_proto_build_build_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMajorSdkVersionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMajorSdkVersionRequest) ProtoMessage() {}
+
+func (x *GetMajorSdkVersionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_build_build_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMajorSdkVersionRequest.ProtoReflect.Descriptor instead.
+func (*GetMajorSdkVersionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_build_build_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *GetMajorSdkVersionRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetMajorSdkVersionRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetMajorSdkVersionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMajorSdkVersionResponse) Reset() {
+	*x = GetMajorSdkVersionResponse{}
+	mi := &file_proto_build_build_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMajorSdkVersionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMajorSdkVersionResponse) ProtoMessage() {}
+
+func (x *GetMajorSdkVersionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_build_build_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMajorSdkVersionResponse.ProtoReflect.Descriptor instead.
+func (*GetMajorSdkVersionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_build_build_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *GetMajorSdkVersionResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetMinorSdkVersionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMinorSdkVersionRequest) Reset() {
+	*x = GetMinorSdkVersionRequest{}
+	mi := &file_proto_build_build_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMinorSdkVersionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMinorSdkVersionRequest) ProtoMessage() {}
+
+func (x *GetMinorSdkVersionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_build_build_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMinorSdkVersionRequest.ProtoReflect.Descriptor instead.
+func (*GetMinorSdkVersionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_build_build_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *GetMinorSdkVersionRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetMinorSdkVersionRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetMinorSdkVersionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMinorSdkVersionResponse) Reset() {
+	*x = GetMinorSdkVersionResponse{}
+	mi := &file_proto_build_build_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMinorSdkVersionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMinorSdkVersionResponse) ProtoMessage() {}
+
+func (x *GetMinorSdkVersionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_build_build_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMinorSdkVersionResponse.ProtoReflect.Descriptor instead.
+func (*GetMinorSdkVersionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_build_build_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *GetMinorSdkVersionResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetRadioVersionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRadioVersionRequest) Reset() {
+	*x = GetRadioVersionRequest{}
+	mi := &file_proto_build_build_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRadioVersionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRadioVersionRequest) ProtoMessage() {}
+
+func (x *GetRadioVersionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_build_build_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRadioVersionRequest.ProtoReflect.Descriptor instead.
+func (*GetRadioVersionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_build_build_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *GetRadioVersionRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetRadioVersionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRadioVersionResponse) Reset() {
+	*x = GetRadioVersionResponse{}
+	mi := &file_proto_build_build_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRadioVersionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRadioVersionResponse) ProtoMessage() {}
+
+func (x *GetRadioVersionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_build_build_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRadioVersionResponse.ProtoReflect.Descriptor instead.
+func (*GetRadioVersionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_build_build_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *GetRadioVersionResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetSerialRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSerialRequest) Reset() {
+	*x = GetSerialRequest{}
+	mi := &file_proto_build_build_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSerialRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSerialRequest) ProtoMessage() {}
+
+func (x *GetSerialRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_build_build_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSerialRequest.ProtoReflect.Descriptor instead.
+func (*GetSerialRequest) Descriptor() ([]byte, []int) {
+	return file_proto_build_build_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *GetSerialRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetSerialResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSerialResponse) Reset() {
+	*x = GetSerialResponse{}
+	mi := &file_proto_build_build_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSerialResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSerialResponse) ProtoMessage() {}
+
+func (x *GetSerialResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_build_build_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSerialResponse.ProtoReflect.Descriptor instead.
+func (*GetSerialResponse) Descriptor() ([]byte, []int) {
+	return file_proto_build_build_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *GetSerialResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type EqualsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EqualsRequest) Reset() {
+	*x = EqualsRequest{}
+	mi := &file_proto_build_build_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EqualsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EqualsRequest) ProtoMessage() {}
+
+func (x *EqualsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_build_build_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EqualsRequest.ProtoReflect.Descriptor instead.
+func (*EqualsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_build_build_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *EqualsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type EqualsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EqualsResponse) Reset() {
+	*x = EqualsResponse{}
+	mi := &file_proto_build_build_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EqualsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EqualsResponse) ProtoMessage() {}
+
+func (x *EqualsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_build_build_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EqualsResponse.ProtoReflect.Descriptor instead.
+func (*EqualsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_build_build_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *EqualsResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type GetBuildTimeMillisRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBuildTimeMillisRequest) Reset() {
+	*x = GetBuildTimeMillisRequest{}
+	mi := &file_proto_build_build_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBuildTimeMillisRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBuildTimeMillisRequest) ProtoMessage() {}
+
+func (x *GetBuildTimeMillisRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_build_build_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBuildTimeMillisRequest.ProtoReflect.Descriptor instead.
+func (*GetBuildTimeMillisRequest) Descriptor() ([]byte, []int) {
+	return file_proto_build_build_proto_rawDescGZIP(), []int{12}
+}
+
+type GetBuildTimeMillisResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBuildTimeMillisResponse) Reset() {
+	*x = GetBuildTimeMillisResponse{}
+	mi := &file_proto_build_build_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBuildTimeMillisResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBuildTimeMillisResponse) ProtoMessage() {}
+
+func (x *GetBuildTimeMillisResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_build_build_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBuildTimeMillisResponse.ProtoReflect.Descriptor instead.
+func (*GetBuildTimeMillisResponse) Descriptor() ([]byte, []int) {
+	return file_proto_build_build_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *GetBuildTimeMillisResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetFingerprintRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetFingerprintRequest) Reset() {
+	*x = GetFingerprintRequest{}
+	mi := &file_proto_build_build_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetFingerprintRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetFingerprintRequest) ProtoMessage() {}
+
+func (x *GetFingerprintRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_build_build_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetFingerprintRequest.ProtoReflect.Descriptor instead.
+func (*GetFingerprintRequest) Descriptor() ([]byte, []int) {
+	return file_proto_build_build_proto_rawDescGZIP(), []int{14}
+}
+
+type GetFingerprintResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetFingerprintResponse) Reset() {
+	*x = GetFingerprintResponse{}
+	mi := &file_proto_build_build_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetFingerprintResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetFingerprintResponse) ProtoMessage() {}
+
+func (x *GetFingerprintResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_build_build_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetFingerprintResponse.ProtoReflect.Descriptor instead.
+func (*GetFingerprintResponse) Descriptor() ([]byte, []int) {
+	return file_proto_build_build_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *GetFingerprintResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetNameRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNameRequest) Reset() {
+	*x = GetNameRequest{}
+	mi := &file_proto_build_build_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNameRequest) ProtoMessage() {}
+
+func (x *GetNameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_build_build_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNameRequest.ProtoReflect.Descriptor instead.
+func (*GetNameRequest) Descriptor() ([]byte, []int) {
+	return file_proto_build_build_proto_rawDescGZIP(), []int{16}
+}
+
+type GetNameResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNameResponse) Reset() {
+	*x = GetNameResponse{}
+	mi := &file_proto_build_build_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNameResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNameResponse) ProtoMessage() {}
+
+func (x *GetNameResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_build_build_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNameResponse.ProtoReflect.Descriptor instead.
+func (*GetNameResponse) Descriptor() ([]byte, []int) {
+	return file_proto_build_build_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *GetNameResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type HashCodeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HashCodeRequest) Reset() {
+	*x = HashCodeRequest{}
+	mi := &file_proto_build_build_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HashCodeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HashCodeRequest) ProtoMessage() {}
+
+func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_build_build_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HashCodeRequest.ProtoReflect.Descriptor instead.
+func (*HashCodeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_build_build_proto_rawDescGZIP(), []int{18}
+}
+
+type HashCodeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HashCodeResponse) Reset() {
+	*x = HashCodeResponse{}
+	mi := &file_proto_build_build_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HashCodeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HashCodeResponse) ProtoMessage() {}
+
+func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_build_build_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HashCodeResponse.ProtoReflect.Descriptor instead.
+func (*HashCodeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_build_build_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *HashCodeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
 var File_proto_build_build_proto protoreflect.FileDescriptor
 
 const file_proto_build_build_proto_rawDesc = "" +
 	"\n" +
-	"\x17proto/build/build.proto\x12\x05buildB/Z-github.com/AndroidGoLab/jni-proxy/proto/buildb\x06proto3"
+	"\x17proto/build/build.proto\x12\x05build\"\x11\n" +
+	"\x0fNewBuildRequest\"*\n" +
+	"\x10NewBuildResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"G\n" +
+	"\x19GetMajorSdkVersionRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"4\n" +
+	"\x1aGetMajorSdkVersionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"G\n" +
+	"\x19GetMinorSdkVersionRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"4\n" +
+	"\x1aGetMinorSdkVersionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"0\n" +
+	"\x16GetRadioVersionRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"1\n" +
+	"\x17GetRadioVersionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"*\n" +
+	"\x10GetSerialRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"+\n" +
+	"\x11GetSerialResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"#\n" +
+	"\rEqualsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"(\n" +
+	"\x0eEqualsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x1b\n" +
+	"\x19GetBuildTimeMillisRequest\"4\n" +
+	"\x1aGetBuildTimeMillisResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x17\n" +
+	"\x15GetFingerprintRequest\"0\n" +
+	"\x16GetFingerprintResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x10\n" +
+	"\x0eGetNameRequest\")\n" +
+	"\x0fGetNameResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x11\n" +
+	"\x0fHashCodeRequest\"*\n" +
+	"\x10HashCodeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result2\x93\x03\n" +
+	"\fBuildService\x12;\n" +
+	"\bNewBuild\x12\x16.build.NewBuildRequest\x1a\x17.build.NewBuildResponse\x12Y\n" +
+	"\x12GetMajorSdkVersion\x12 .build.GetMajorSdkVersionRequest\x1a!.build.GetMajorSdkVersionResponse\x12Y\n" +
+	"\x12GetMinorSdkVersion\x12 .build.GetMinorSdkVersionRequest\x1a!.build.GetMinorSdkVersionResponse\x12P\n" +
+	"\x0fGetRadioVersion\x12\x1d.build.GetRadioVersionRequest\x1a\x1e.build.GetRadioVersionResponse\x12>\n" +
+	"\tGetSerial\x12\x17.build.GetSerialRequest\x1a\x18.build.GetSerialResponse2\xea\x02\n" +
+	"\x10PartitionService\x125\n" +
+	"\x06Equals\x12\x14.build.EqualsRequest\x1a\x15.build.EqualsResponse\x12Y\n" +
+	"\x12GetBuildTimeMillis\x12 .build.GetBuildTimeMillisRequest\x1a!.build.GetBuildTimeMillisResponse\x12M\n" +
+	"\x0eGetFingerprint\x12\x1c.build.GetFingerprintRequest\x1a\x1d.build.GetFingerprintResponse\x128\n" +
+	"\aGetName\x12\x15.build.GetNameRequest\x1a\x16.build.GetNameResponse\x12;\n" +
+	"\bHashCode\x12\x16.build.HashCodeRequest\x1a\x17.build.HashCodeResponseB/Z-github.com/AndroidGoLab/jni-proxy/proto/buildb\x06proto3"
 
-var file_proto_build_build_proto_goTypes = []any{}
+var (
+	file_proto_build_build_proto_rawDescOnce sync.Once
+	file_proto_build_build_proto_rawDescData []byte
+)
+
+func file_proto_build_build_proto_rawDescGZIP() []byte {
+	file_proto_build_build_proto_rawDescOnce.Do(func() {
+		file_proto_build_build_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_proto_build_build_proto_rawDesc), len(file_proto_build_build_proto_rawDesc)))
+	})
+	return file_proto_build_build_proto_rawDescData
+}
+
+var file_proto_build_build_proto_msgTypes = make([]protoimpl.MessageInfo, 20)
+var file_proto_build_build_proto_goTypes = []any{
+	(*NewBuildRequest)(nil),            // 0: build.NewBuildRequest
+	(*NewBuildResponse)(nil),           // 1: build.NewBuildResponse
+	(*GetMajorSdkVersionRequest)(nil),  // 2: build.GetMajorSdkVersionRequest
+	(*GetMajorSdkVersionResponse)(nil), // 3: build.GetMajorSdkVersionResponse
+	(*GetMinorSdkVersionRequest)(nil),  // 4: build.GetMinorSdkVersionRequest
+	(*GetMinorSdkVersionResponse)(nil), // 5: build.GetMinorSdkVersionResponse
+	(*GetRadioVersionRequest)(nil),     // 6: build.GetRadioVersionRequest
+	(*GetRadioVersionResponse)(nil),    // 7: build.GetRadioVersionResponse
+	(*GetSerialRequest)(nil),           // 8: build.GetSerialRequest
+	(*GetSerialResponse)(nil),          // 9: build.GetSerialResponse
+	(*EqualsRequest)(nil),              // 10: build.EqualsRequest
+	(*EqualsResponse)(nil),             // 11: build.EqualsResponse
+	(*GetBuildTimeMillisRequest)(nil),  // 12: build.GetBuildTimeMillisRequest
+	(*GetBuildTimeMillisResponse)(nil), // 13: build.GetBuildTimeMillisResponse
+	(*GetFingerprintRequest)(nil),      // 14: build.GetFingerprintRequest
+	(*GetFingerprintResponse)(nil),     // 15: build.GetFingerprintResponse
+	(*GetNameRequest)(nil),             // 16: build.GetNameRequest
+	(*GetNameResponse)(nil),            // 17: build.GetNameResponse
+	(*HashCodeRequest)(nil),            // 18: build.HashCodeRequest
+	(*HashCodeResponse)(nil),           // 19: build.HashCodeResponse
+}
 var file_proto_build_build_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	0,  // 0: build.BuildService.NewBuild:input_type -> build.NewBuildRequest
+	2,  // 1: build.BuildService.GetMajorSdkVersion:input_type -> build.GetMajorSdkVersionRequest
+	4,  // 2: build.BuildService.GetMinorSdkVersion:input_type -> build.GetMinorSdkVersionRequest
+	6,  // 3: build.BuildService.GetRadioVersion:input_type -> build.GetRadioVersionRequest
+	8,  // 4: build.BuildService.GetSerial:input_type -> build.GetSerialRequest
+	10, // 5: build.PartitionService.Equals:input_type -> build.EqualsRequest
+	12, // 6: build.PartitionService.GetBuildTimeMillis:input_type -> build.GetBuildTimeMillisRequest
+	14, // 7: build.PartitionService.GetFingerprint:input_type -> build.GetFingerprintRequest
+	16, // 8: build.PartitionService.GetName:input_type -> build.GetNameRequest
+	18, // 9: build.PartitionService.HashCode:input_type -> build.HashCodeRequest
+	1,  // 10: build.BuildService.NewBuild:output_type -> build.NewBuildResponse
+	3,  // 11: build.BuildService.GetMajorSdkVersion:output_type -> build.GetMajorSdkVersionResponse
+	5,  // 12: build.BuildService.GetMinorSdkVersion:output_type -> build.GetMinorSdkVersionResponse
+	7,  // 13: build.BuildService.GetRadioVersion:output_type -> build.GetRadioVersionResponse
+	9,  // 14: build.BuildService.GetSerial:output_type -> build.GetSerialResponse
+	11, // 15: build.PartitionService.Equals:output_type -> build.EqualsResponse
+	13, // 16: build.PartitionService.GetBuildTimeMillis:output_type -> build.GetBuildTimeMillisResponse
+	15, // 17: build.PartitionService.GetFingerprint:output_type -> build.GetFingerprintResponse
+	17, // 18: build.PartitionService.GetName:output_type -> build.GetNameResponse
+	19, // 19: build.PartitionService.HashCode:output_type -> build.HashCodeResponse
+	10, // [10:20] is the sub-list for method output_type
+	0,  // [0:10] is the sub-list for method input_type
+	0,  // [0:0] is the sub-list for extension type_name
+	0,  // [0:0] is the sub-list for extension extendee
+	0,  // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_proto_build_build_proto_init() }
@@ -48,12 +1008,13 @@ func file_proto_build_build_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_build_build_proto_rawDesc), len(file_proto_build_build_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   20,
 			NumExtensions: 0,
-			NumServices:   0,
+			NumServices:   2,
 		},
 		GoTypes:           file_proto_build_build_proto_goTypes,
 		DependencyIndexes: file_proto_build_build_proto_depIdxs,
+		MessageInfos:      file_proto_build_build_proto_msgTypes,
 	}.Build()
 	File_proto_build_build_proto = out.File
 	file_proto_build_build_proto_goTypes = nil

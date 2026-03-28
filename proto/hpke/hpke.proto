@@ -5,3 +5,131 @@ syntax = "proto3";
 package hpke;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/hpke";
+
+message NewXdhKeySpecRequest {
+  int64 arg0 = 1;
+}
+
+message NewXdhKeySpecResponse {
+  int64 result = 1;
+}
+
+message EqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message GetFormatRequest {
+  int64 handle = 1;
+}
+
+message GetFormatResponse {
+  string result = 1;
+}
+
+message GetKeyRequest {
+  int64 handle = 1;
+}
+
+message GetKeyResponse {
+  int64 result = 1;
+}
+
+message HashCodeRequest {
+  int64 handle = 1;
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message EngineExportRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message EngineExportResponse {
+  int64 result = 1;
+}
+
+message EngineInitRecipientRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+  int64 arg5 = 6;
+}
+
+message EngineInitRecipientResponse {
+}
+
+message EngineInitSenderRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+}
+
+message EngineInitSenderResponse {
+}
+
+message EngineInitSenderWithSeedRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+  int64 arg5 = 6;
+}
+
+message EngineInitSenderWithSeedResponse {
+}
+
+message EngineOpenRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message EngineOpenResponse {
+  int64 result = 1;
+}
+
+message EngineSealRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message EngineSealResponse {
+  int64 result = 1;
+}
+
+message GetEncapsulatedRequest {
+}
+
+message GetEncapsulatedResponse {
+  int64 result = 1;
+}
+
+service XdhKeySpecService {
+  rpc NewXdhKeySpec (NewXdhKeySpecRequest) returns (NewXdhKeySpecResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetFormat (GetFormatRequest) returns (GetFormatResponse);
+  rpc GetKey (GetKeyRequest) returns (GetKeyResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service SpiService {
+  rpc EngineExport (EngineExportRequest) returns (EngineExportResponse);
+  rpc EngineInitRecipient (EngineInitRecipientRequest) returns (EngineInitRecipientResponse);
+  rpc EngineInitSender (EngineInitSenderRequest) returns (EngineInitSenderResponse);
+  rpc EngineInitSenderWithSeed (EngineInitSenderWithSeedRequest) returns (EngineInitSenderWithSeedResponse);
+  rpc EngineOpen (EngineOpenRequest) returns (EngineOpenResponse);
+  rpc EngineSeal (EngineSealRequest) returns (EngineSealResponse);
+  rpc GetEncapsulated (GetEncapsulatedRequest) returns (GetEncapsulatedResponse);
+}

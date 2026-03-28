@@ -5,3 +5,715 @@ syntax = "proto3";
 package data;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/data";
+
+message DescribeContentsRequest {
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message EqualsRequest {
+  int64 arg0 = 1;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message GetPrecedenceRequest {
+}
+
+message GetPrecedenceResponse {
+  int32 result = 1;
+}
+
+message GetSessionTypeRequest {
+}
+
+message GetSessionTypeResponse {
+  int32 result = 1;
+}
+
+message GetSscModeRequest {
+}
+
+message GetSscModeResponse {
+  int32 result = 1;
+}
+
+message HashCodeRequest {
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message ToStringRequest {
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteToParcelResponse {
+}
+
+message NewNetworkSlicingConfigRequest {
+}
+
+message NewNetworkSlicingConfigResponse {
+  int64 result = 1;
+}
+
+message NetworkSlicingConfigDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message NetworkSlicingConfigEqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message NetworkSlicingConfigHashCodeRequest {
+  int64 handle = 1;
+}
+
+message NetworkSlicingConfigToStringRequest {
+  int64 handle = 1;
+}
+
+message NetworkSlicingConfigWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message GetDataNetworkNameRequest {
+}
+
+message GetDataNetworkNameResponse {
+  string result = 1;
+}
+
+message GetOsAppIdRequest {
+}
+
+message GetOsAppIdResponse {
+  int64 result = 1;
+}
+
+message BuildRequest {
+}
+
+message BuildResponse {
+  int64 result = 1;
+}
+
+message SetDataNetworkNameRequest {
+  string arg0 = 1;
+}
+
+message SetDataNetworkNameResponse {
+  int64 result = 1;
+}
+
+message SetOsAppIdRequest {
+  int64 arg0 = 1;
+}
+
+message SetOsAppIdResponse {
+  int64 result = 1;
+}
+
+message GetMappedHplmnSliceDifferentiatorRequest {
+}
+
+message GetMappedHplmnSliceDifferentiatorResponse {
+  int32 result = 1;
+}
+
+message GetMappedHplmnSliceServiceTypeRequest {
+}
+
+message GetMappedHplmnSliceServiceTypeResponse {
+  int32 result = 1;
+}
+
+message GetSliceDifferentiatorRequest {
+}
+
+message GetSliceDifferentiatorResponse {
+  int32 result = 1;
+}
+
+message GetSliceServiceTypeRequest {
+}
+
+message GetSliceServiceTypeResponse {
+  int32 result = 1;
+}
+
+message GetStatusRequest {
+}
+
+message GetStatusResponse {
+  int32 result = 1;
+}
+
+message SetMappedHplmnSliceDifferentiatorRequest {
+  int32 arg0 = 1;
+}
+
+message SetMappedHplmnSliceDifferentiatorResponse {
+  int64 result = 1;
+}
+
+message SetMappedHplmnSliceServiceTypeRequest {
+  int32 arg0 = 1;
+}
+
+message SetMappedHplmnSliceServiceTypeResponse {
+  int64 result = 1;
+}
+
+message SetSliceDifferentiatorRequest {
+  int32 arg0 = 1;
+}
+
+message SetSliceDifferentiatorResponse {
+  int64 result = 1;
+}
+
+message SetSliceServiceTypeRequest {
+  int32 arg0 = 1;
+}
+
+message SetSliceServiceTypeResponse {
+  int64 result = 1;
+}
+
+message SetStatusRequest {
+  int32 arg0 = 1;
+}
+
+message SetStatusResponse {
+  int64 result = 1;
+}
+
+message GetApnNameRequest {
+}
+
+message GetApnNameResponse {
+  string result = 1;
+}
+
+message GetApnTypeBitmaskRequest {
+}
+
+message GetApnTypeBitmaskResponse {
+  int32 result = 1;
+}
+
+message GetAuthTypeRequest {
+}
+
+message GetAuthTypeResponse {
+  int32 result = 1;
+}
+
+message GetCarrierIdRequest {
+}
+
+message GetCarrierIdResponse {
+  int32 result = 1;
+}
+
+message GetEntryNameRequest {
+}
+
+message GetEntryNameResponse {
+  string result = 1;
+}
+
+message GetIdRequest {
+}
+
+message GetIdResponse {
+  int32 result = 1;
+}
+
+message GetMmsProxyAddressRequest {
+}
+
+message GetMmsProxyAddressResponse {
+  int64 result = 1;
+}
+
+message GetMmsProxyAddressAsStringRequest {
+}
+
+message GetMmsProxyAddressAsStringResponse {
+  string result = 1;
+}
+
+message GetMmsProxyPortRequest {
+}
+
+message GetMmsProxyPortResponse {
+  int32 result = 1;
+}
+
+message GetMmscRequest {
+}
+
+message GetMmscResponse {
+  int64 result = 1;
+}
+
+message GetMtuV4Request {
+}
+
+message GetMtuV4Response {
+  int32 result = 1;
+}
+
+message GetMtuV6Request {
+}
+
+message GetMtuV6Response {
+  int32 result = 1;
+}
+
+message GetMvnoTypeRequest {
+}
+
+message GetMvnoTypeResponse {
+  int32 result = 1;
+}
+
+message GetNetworkTypeBitmaskRequest {
+}
+
+message GetNetworkTypeBitmaskResponse {
+  int32 result = 1;
+}
+
+message GetOperatorNumericRequest {
+}
+
+message GetOperatorNumericResponse {
+  string result = 1;
+}
+
+message GetPasswordRequest {
+}
+
+message GetPasswordResponse {
+  string result = 1;
+}
+
+message GetProfileIdRequest {
+}
+
+message GetProfileIdResponse {
+  int32 result = 1;
+}
+
+message GetProtocolRequest {
+}
+
+message GetProtocolResponse {
+  int32 result = 1;
+}
+
+message GetProxyAddressRequest {
+}
+
+message GetProxyAddressResponse {
+  int64 result = 1;
+}
+
+message GetProxyAddressAsStringRequest {
+}
+
+message GetProxyAddressAsStringResponse {
+  string result = 1;
+}
+
+message GetProxyPortRequest {
+}
+
+message GetProxyPortResponse {
+  int32 result = 1;
+}
+
+message GetRoamingProtocolRequest {
+}
+
+message GetRoamingProtocolResponse {
+  int32 result = 1;
+}
+
+message GetUserRequest {
+}
+
+message GetUserResponse {
+  string result = 1;
+}
+
+message IsAlwaysOnRequest {
+}
+
+message IsAlwaysOnResponse {
+  bool result = 1;
+}
+
+message IsEnabledRequest {
+}
+
+message IsEnabledResponse {
+  bool result = 1;
+}
+
+message IsPersistentRequest {
+}
+
+message IsPersistentResponse {
+  bool result = 1;
+}
+
+message SetAlwaysOnRequest {
+  bool arg0 = 1;
+}
+
+message SetAlwaysOnResponse {
+  int64 result = 1;
+}
+
+message SetApnNameRequest {
+  string arg0 = 1;
+}
+
+message SetApnNameResponse {
+  int64 result = 1;
+}
+
+message SetApnTypeBitmaskRequest {
+  int32 arg0 = 1;
+}
+
+message SetApnTypeBitmaskResponse {
+  int64 result = 1;
+}
+
+message SetAuthTypeRequest {
+  int32 arg0 = 1;
+}
+
+message SetAuthTypeResponse {
+  int64 result = 1;
+}
+
+message SetCarrierEnabledRequest {
+  bool arg0 = 1;
+}
+
+message SetCarrierEnabledResponse {
+  int64 result = 1;
+}
+
+message SetCarrierIdRequest {
+  int32 arg0 = 1;
+}
+
+message SetCarrierIdResponse {
+  int64 result = 1;
+}
+
+message SetEntryNameRequest {
+  string arg0 = 1;
+}
+
+message SetEntryNameResponse {
+  int64 result = 1;
+}
+
+message SetMmsProxyAddress1Request {
+  string arg0 = 1;
+}
+
+message SetMmsProxyAddress1Response {
+  int64 result = 1;
+}
+
+message SetMmsProxyAddress1_1Request {
+  int64 arg0 = 1;
+}
+
+message SetMmsProxyAddress1_1Response {
+  int64 result = 1;
+}
+
+message SetMmsProxyPortRequest {
+  int32 arg0 = 1;
+}
+
+message SetMmsProxyPortResponse {
+  int64 result = 1;
+}
+
+message SetMmscRequest {
+  int64 arg0 = 1;
+}
+
+message SetMmscResponse {
+  int64 result = 1;
+}
+
+message SetMtuV4Request {
+  int32 arg0 = 1;
+}
+
+message SetMtuV4Response {
+  int64 result = 1;
+}
+
+message SetMtuV6Request {
+  int32 arg0 = 1;
+}
+
+message SetMtuV6Response {
+  int64 result = 1;
+}
+
+message SetMvnoTypeRequest {
+  int32 arg0 = 1;
+}
+
+message SetMvnoTypeResponse {
+  int64 result = 1;
+}
+
+message SetNetworkTypeBitmaskRequest {
+  int32 arg0 = 1;
+}
+
+message SetNetworkTypeBitmaskResponse {
+  int64 result = 1;
+}
+
+message SetOperatorNumericRequest {
+  string arg0 = 1;
+}
+
+message SetOperatorNumericResponse {
+  int64 result = 1;
+}
+
+message SetPasswordRequest {
+  string arg0 = 1;
+}
+
+message SetPasswordResponse {
+  int64 result = 1;
+}
+
+message SetPersistentRequest {
+  bool arg0 = 1;
+}
+
+message SetPersistentResponse {
+  int64 result = 1;
+}
+
+message SetProfileIdRequest {
+  int32 arg0 = 1;
+}
+
+message SetProfileIdResponse {
+  int64 result = 1;
+}
+
+message SetProtocolRequest {
+  int32 arg0 = 1;
+}
+
+message SetProtocolResponse {
+  int64 result = 1;
+}
+
+message SetProxyAddress1Request {
+  string arg0 = 1;
+}
+
+message SetProxyAddress1Response {
+  int64 result = 1;
+}
+
+message SetProxyAddress1_1Request {
+  int64 arg0 = 1;
+}
+
+message SetProxyAddress1_1Response {
+  int64 result = 1;
+}
+
+message SetProxyPortRequest {
+  int32 arg0 = 1;
+}
+
+message SetProxyPortResponse {
+  int64 result = 1;
+}
+
+message SetRoamingProtocolRequest {
+  int32 arg0 = 1;
+}
+
+message SetRoamingProtocolResponse {
+  int64 result = 1;
+}
+
+message SetUserRequest {
+  string arg0 = 1;
+}
+
+message SetUserResponse {
+  int64 result = 1;
+}
+
+service RouteSelectionDescriptorService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetPrecedence (GetPrecedenceRequest) returns (GetPrecedenceResponse);
+  rpc GetSessionType (GetSessionTypeRequest) returns (GetSessionTypeResponse);
+  rpc GetSscMode (GetSscModeRequest) returns (GetSscModeResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service NetworkSlicingConfigService {
+  rpc NewNetworkSlicingConfig (NewNetworkSlicingConfigRequest) returns (NewNetworkSlicingConfigResponse);
+  rpc DescribeContents (NetworkSlicingConfigDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (NetworkSlicingConfigEqualsRequest) returns (EqualsResponse);
+  rpc HashCode (NetworkSlicingConfigHashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (NetworkSlicingConfigToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (NetworkSlicingConfigWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service TrafficDescriptorService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetDataNetworkName (GetDataNetworkNameRequest) returns (GetDataNetworkNameResponse);
+  rpc GetOsAppId (GetOsAppIdRequest) returns (GetOsAppIdResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service TrafficDescriptorBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetDataNetworkName (SetDataNetworkNameRequest) returns (SetDataNetworkNameResponse);
+  rpc SetOsAppId (SetOsAppIdRequest) returns (SetOsAppIdResponse);
+}
+
+service NetworkSliceInfoService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetMappedHplmnSliceDifferentiator (GetMappedHplmnSliceDifferentiatorRequest) returns (GetMappedHplmnSliceDifferentiatorResponse);
+  rpc GetMappedHplmnSliceServiceType (GetMappedHplmnSliceServiceTypeRequest) returns (GetMappedHplmnSliceServiceTypeResponse);
+  rpc GetSliceDifferentiator (GetSliceDifferentiatorRequest) returns (GetSliceDifferentiatorResponse);
+  rpc GetSliceServiceType (GetSliceServiceTypeRequest) returns (GetSliceServiceTypeResponse);
+  rpc GetStatus (GetStatusRequest) returns (GetStatusResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service NetworkSliceInfoBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetMappedHplmnSliceDifferentiator (SetMappedHplmnSliceDifferentiatorRequest) returns (SetMappedHplmnSliceDifferentiatorResponse);
+  rpc SetMappedHplmnSliceServiceType (SetMappedHplmnSliceServiceTypeRequest) returns (SetMappedHplmnSliceServiceTypeResponse);
+  rpc SetSliceDifferentiator (SetSliceDifferentiatorRequest) returns (SetSliceDifferentiatorResponse);
+  rpc SetSliceServiceType (SetSliceServiceTypeRequest) returns (SetSliceServiceTypeResponse);
+  rpc SetStatus (SetStatusRequest) returns (SetStatusResponse);
+}
+
+service UrspRuleService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetPrecedence (GetPrecedenceRequest) returns (GetPrecedenceResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ApnSettingService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetApnName (GetApnNameRequest) returns (GetApnNameResponse);
+  rpc GetApnTypeBitmask (GetApnTypeBitmaskRequest) returns (GetApnTypeBitmaskResponse);
+  rpc GetAuthType (GetAuthTypeRequest) returns (GetAuthTypeResponse);
+  rpc GetCarrierId (GetCarrierIdRequest) returns (GetCarrierIdResponse);
+  rpc GetEntryName (GetEntryNameRequest) returns (GetEntryNameResponse);
+  rpc GetId (GetIdRequest) returns (GetIdResponse);
+  rpc GetMmsProxyAddress (GetMmsProxyAddressRequest) returns (GetMmsProxyAddressResponse);
+  rpc GetMmsProxyAddressAsString (GetMmsProxyAddressAsStringRequest) returns (GetMmsProxyAddressAsStringResponse);
+  rpc GetMmsProxyPort (GetMmsProxyPortRequest) returns (GetMmsProxyPortResponse);
+  rpc GetMmsc (GetMmscRequest) returns (GetMmscResponse);
+  rpc GetMtuV4 (GetMtuV4Request) returns (GetMtuV4Response);
+  rpc GetMtuV6 (GetMtuV6Request) returns (GetMtuV6Response);
+  rpc GetMvnoType (GetMvnoTypeRequest) returns (GetMvnoTypeResponse);
+  rpc GetNetworkTypeBitmask (GetNetworkTypeBitmaskRequest) returns (GetNetworkTypeBitmaskResponse);
+  rpc GetOperatorNumeric (GetOperatorNumericRequest) returns (GetOperatorNumericResponse);
+  rpc GetPassword (GetPasswordRequest) returns (GetPasswordResponse);
+  rpc GetProfileId (GetProfileIdRequest) returns (GetProfileIdResponse);
+  rpc GetProtocol (GetProtocolRequest) returns (GetProtocolResponse);
+  rpc GetProxyAddress (GetProxyAddressRequest) returns (GetProxyAddressResponse);
+  rpc GetProxyAddressAsString (GetProxyAddressAsStringRequest) returns (GetProxyAddressAsStringResponse);
+  rpc GetProxyPort (GetProxyPortRequest) returns (GetProxyPortResponse);
+  rpc GetRoamingProtocol (GetRoamingProtocolRequest) returns (GetRoamingProtocolResponse);
+  rpc GetUser (GetUserRequest) returns (GetUserResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc IsAlwaysOn (IsAlwaysOnRequest) returns (IsAlwaysOnResponse);
+  rpc IsEnabled (IsEnabledRequest) returns (IsEnabledResponse);
+  rpc IsPersistent (IsPersistentRequest) returns (IsPersistentResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ApnSettingBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetAlwaysOn (SetAlwaysOnRequest) returns (SetAlwaysOnResponse);
+  rpc SetApnName (SetApnNameRequest) returns (SetApnNameResponse);
+  rpc SetApnTypeBitmask (SetApnTypeBitmaskRequest) returns (SetApnTypeBitmaskResponse);
+  rpc SetAuthType (SetAuthTypeRequest) returns (SetAuthTypeResponse);
+  rpc SetCarrierEnabled (SetCarrierEnabledRequest) returns (SetCarrierEnabledResponse);
+  rpc SetCarrierId (SetCarrierIdRequest) returns (SetCarrierIdResponse);
+  rpc SetEntryName (SetEntryNameRequest) returns (SetEntryNameResponse);
+  rpc SetMmsProxyAddress1 (SetMmsProxyAddress1Request) returns (SetMmsProxyAddress1Response);
+  rpc SetMmsProxyAddress1_1 (SetMmsProxyAddress1_1Request) returns (SetMmsProxyAddress1_1Response);
+  rpc SetMmsProxyPort (SetMmsProxyPortRequest) returns (SetMmsProxyPortResponse);
+  rpc SetMmsc (SetMmscRequest) returns (SetMmscResponse);
+  rpc SetMtuV4 (SetMtuV4Request) returns (SetMtuV4Response);
+  rpc SetMtuV6 (SetMtuV6Request) returns (SetMtuV6Response);
+  rpc SetMvnoType (SetMvnoTypeRequest) returns (SetMvnoTypeResponse);
+  rpc SetNetworkTypeBitmask (SetNetworkTypeBitmaskRequest) returns (SetNetworkTypeBitmaskResponse);
+  rpc SetOperatorNumeric (SetOperatorNumericRequest) returns (SetOperatorNumericResponse);
+  rpc SetPassword (SetPasswordRequest) returns (SetPasswordResponse);
+  rpc SetPersistent (SetPersistentRequest) returns (SetPersistentResponse);
+  rpc SetProfileId (SetProfileIdRequest) returns (SetProfileIdResponse);
+  rpc SetProtocol (SetProtocolRequest) returns (SetProtocolResponse);
+  rpc SetProxyAddress1 (SetProxyAddress1Request) returns (SetProxyAddress1Response);
+  rpc SetProxyAddress1_1 (SetProxyAddress1_1Request) returns (SetProxyAddress1_1Response);
+  rpc SetProxyPort (SetProxyPortRequest) returns (SetProxyPortResponse);
+  rpc SetRoamingProtocol (SetRoamingProtocolRequest) returns (SetRoamingProtocolResponse);
+  rpc SetUser (SetUserRequest) returns (SetUserResponse);
+}

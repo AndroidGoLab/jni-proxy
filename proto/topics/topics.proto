@@ -5,3 +5,192 @@ syntax = "proto3";
 package topics;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/topics";
+
+message NewEncryptedTopicRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message NewEncryptedTopicResponse {
+  int64 result = 1;
+}
+
+message EqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message GetEncapsulatedKeyRequest {
+  int64 handle = 1;
+}
+
+message GetEncapsulatedKeyResponse {
+  int64 result = 1;
+}
+
+message GetEncryptedTopicRequest {
+  int64 handle = 1;
+}
+
+message GetEncryptedTopicResponse {
+  int64 result = 1;
+}
+
+message GetKeyIdentifierRequest {
+  int64 handle = 1;
+}
+
+message GetKeyIdentifierResponse {
+  string result = 1;
+}
+
+message HashCodeRequest {
+  int64 handle = 1;
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message ToStringRequest {
+  int64 handle = 1;
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message GetAdsSdkNameRequest {
+}
+
+message GetAdsSdkNameResponse {
+  string result = 1;
+}
+
+message ShouldRecordObservationRequest {
+}
+
+message ShouldRecordObservationResponse {
+  bool result = 1;
+}
+
+message BuildRequest {
+}
+
+message BuildResponse {
+  int64 result = 1;
+}
+
+message SetAdsSdkNameRequest {
+  string arg0 = 1;
+}
+
+message SetAdsSdkNameResponse {
+  int64 result = 1;
+}
+
+message SetShouldRecordObservationRequest {
+  bool arg0 = 1;
+}
+
+message SetShouldRecordObservationResponse {
+  int64 result = 1;
+}
+
+message GetRequest {
+  int64 arg0 = 1;
+}
+
+message GetResponse {
+  int64 result = 1;
+}
+
+message NewTopicRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message NewTopicResponse {
+  int64 result = 1;
+}
+
+message GetModelVersionRequest {
+  int64 handle = 1;
+}
+
+message GetModelVersionResponse {
+  int64 result = 1;
+}
+
+message GetTaxonomyVersionRequest {
+  int64 handle = 1;
+}
+
+message GetTaxonomyVersionResponse {
+  int64 result = 1;
+}
+
+message GetTopicIdRequest {
+  int64 handle = 1;
+}
+
+message GetTopicIdResponse {
+  int32 result = 1;
+}
+
+message GetTopicsResponseEqualsRequest {
+  int64 arg0 = 1;
+}
+
+message GetTopicsResponseHashCodeRequest {
+}
+
+service EncryptedTopicService {
+  rpc NewEncryptedTopic (NewEncryptedTopicRequest) returns (NewEncryptedTopicResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetEncapsulatedKey (GetEncapsulatedKeyRequest) returns (GetEncapsulatedKeyResponse);
+  rpc GetEncryptedTopic (GetEncryptedTopicRequest) returns (GetEncryptedTopicResponse);
+  rpc GetKeyIdentifier (GetKeyIdentifierRequest) returns (GetKeyIdentifierResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service GetTopicsRequestService {
+  rpc GetAdsSdkName (GetAdsSdkNameRequest) returns (GetAdsSdkNameResponse);
+  rpc ShouldRecordObservation (ShouldRecordObservationRequest) returns (ShouldRecordObservationResponse);
+}
+
+service GetTopicsRequestBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetAdsSdkName (SetAdsSdkNameRequest) returns (SetAdsSdkNameResponse);
+  rpc SetShouldRecordObservation (SetShouldRecordObservationRequest) returns (SetShouldRecordObservationResponse);
+}
+
+service ManagerService {
+  rpc Get (GetRequest) returns (GetResponse);
+}
+
+service TopicService {
+  rpc NewTopic (NewTopicRequest) returns (NewTopicResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetModelVersion (GetModelVersionRequest) returns (GetModelVersionResponse);
+  rpc GetTaxonomyVersion (GetTaxonomyVersionRequest) returns (GetTaxonomyVersionResponse);
+  rpc GetTopicId (GetTopicIdRequest) returns (GetTopicIdResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service GetTopicsResponseService {
+  rpc Equals (GetTopicsResponseEqualsRequest) returns (EqualsResponse);
+  rpc HashCode (GetTopicsResponseHashCodeRequest) returns (HashCodeResponse);
+}
+
+service GetTopicsResponseBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+}

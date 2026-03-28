@@ -12,6 +12,7 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -22,17 +23,120 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type IsAdServicesStateEnabledRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsAdServicesStateEnabledRequest) Reset() {
+	*x = IsAdServicesStateEnabledRequest{}
+	mi := &file_proto_adservices_adservices_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsAdServicesStateEnabledRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsAdServicesStateEnabledRequest) ProtoMessage() {}
+
+func (x *IsAdServicesStateEnabledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adservices_adservices_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsAdServicesStateEnabledRequest.ProtoReflect.Descriptor instead.
+func (*IsAdServicesStateEnabledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adservices_adservices_proto_rawDescGZIP(), []int{0}
+}
+
+type IsAdServicesStateEnabledResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsAdServicesStateEnabledResponse) Reset() {
+	*x = IsAdServicesStateEnabledResponse{}
+	mi := &file_proto_adservices_adservices_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsAdServicesStateEnabledResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsAdServicesStateEnabledResponse) ProtoMessage() {}
+
+func (x *IsAdServicesStateEnabledResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adservices_adservices_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsAdServicesStateEnabledResponse.ProtoReflect.Descriptor instead.
+func (*IsAdServicesStateEnabledResponse) Descriptor() ([]byte, []int) {
+	return file_proto_adservices_adservices_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *IsAdServicesStateEnabledResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
 var File_proto_adservices_adservices_proto protoreflect.FileDescriptor
 
 const file_proto_adservices_adservices_proto_rawDesc = "" +
 	"\n" +
 	"!proto/adservices/adservices.proto\x12\n" +
-	"adservicesB4Z2github.com/AndroidGoLab/jni-proxy/proto/adservicesb\x06proto3"
+	"adservices\"!\n" +
+	"\x1fIsAdServicesStateEnabledRequest\":\n" +
+	" IsAdServicesStateEnabledResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result2\x8f\x01\n" +
+	"\x16AdServicesStateService\x12u\n" +
+	"\x18IsAdServicesStateEnabled\x12+.adservices.IsAdServicesStateEnabledRequest\x1a,.adservices.IsAdServicesStateEnabledResponseB4Z2github.com/AndroidGoLab/jni-proxy/proto/adservicesb\x06proto3"
 
-var file_proto_adservices_adservices_proto_goTypes = []any{}
+var (
+	file_proto_adservices_adservices_proto_rawDescOnce sync.Once
+	file_proto_adservices_adservices_proto_rawDescData []byte
+)
+
+func file_proto_adservices_adservices_proto_rawDescGZIP() []byte {
+	file_proto_adservices_adservices_proto_rawDescOnce.Do(func() {
+		file_proto_adservices_adservices_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_proto_adservices_adservices_proto_rawDesc), len(file_proto_adservices_adservices_proto_rawDesc)))
+	})
+	return file_proto_adservices_adservices_proto_rawDescData
+}
+
+var file_proto_adservices_adservices_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_proto_adservices_adservices_proto_goTypes = []any{
+	(*IsAdServicesStateEnabledRequest)(nil),  // 0: adservices.IsAdServicesStateEnabledRequest
+	(*IsAdServicesStateEnabledResponse)(nil), // 1: adservices.IsAdServicesStateEnabledResponse
+}
 var file_proto_adservices_adservices_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
+	0, // 0: adservices.AdServicesStateService.IsAdServicesStateEnabled:input_type -> adservices.IsAdServicesStateEnabledRequest
+	1, // 1: adservices.AdServicesStateService.IsAdServicesStateEnabled:output_type -> adservices.IsAdServicesStateEnabledResponse
+	1, // [1:2] is the sub-list for method output_type
+	0, // [0:1] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
 	0, // [0:0] is the sub-list for extension extendee
 	0, // [0:0] is the sub-list for field type_name
@@ -49,12 +153,13 @@ func file_proto_adservices_adservices_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_adservices_adservices_proto_rawDesc), len(file_proto_adservices_adservices_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   2,
 			NumExtensions: 0,
-			NumServices:   0,
+			NumServices:   1,
 		},
 		GoTypes:           file_proto_adservices_adservices_proto_goTypes,
 		DependencyIndexes: file_proto_adservices_adservices_proto_depIdxs,
+		MessageInfos:      file_proto_adservices_adservices_proto_msgTypes,
 	}.Build()
 	File_proto_adservices_adservices_proto = out.File
 	file_proto_adservices_adservices_proto_goTypes = nil

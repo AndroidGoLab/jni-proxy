@@ -215,3 +215,148 @@ func (c *VibratorClient) Vibrate3_6(ctx context.Context, arg0 int64, arg1 int32,
 	})
 	return err
 }
+
+// EnvelopeEffectInfoClient wraps the gRPC EnvelopeEffectInfoService client.
+type EnvelopeEffectInfoClient struct {
+	svc pb.EnvelopeEffectInfoServiceClient
+}
+
+// NewEnvelopeEffectInfoClient creates a new EnvelopeEffectInfo client.
+func NewEnvelopeEffectInfoClient(cc grpc.ClientConnInterface) *EnvelopeEffectInfoClient {
+	return &EnvelopeEffectInfoClient{
+		svc: pb.NewEnvelopeEffectInfoServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *EnvelopeEffectInfoClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *EnvelopeEffectInfoClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMaxControlPointDurationMillis calls the GetMaxControlPointDurationMillis RPC.
+func (c *EnvelopeEffectInfoClient) GetMaxControlPointDurationMillis(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetMaxControlPointDurationMillis(ctx, &pb.GetMaxControlPointDurationMillisRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMaxDurationMillis calls the GetMaxDurationMillis RPC.
+func (c *EnvelopeEffectInfoClient) GetMaxDurationMillis(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetMaxDurationMillis(ctx, &pb.GetMaxDurationMillisRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMaxSize calls the GetMaxSize RPC.
+func (c *EnvelopeEffectInfoClient) GetMaxSize(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMaxSize(ctx, &pb.GetMaxSizeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMinControlPointDurationMillis calls the GetMinControlPointDurationMillis RPC.
+func (c *EnvelopeEffectInfoClient) GetMinControlPointDurationMillis(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetMinControlPointDurationMillis(ctx, &pb.GetMinControlPointDurationMillisRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *EnvelopeEffectInfoClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *EnvelopeEffectInfoClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *EnvelopeEffectInfoClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// FrequencyProfileClient wraps the gRPC FrequencyProfileService client.
+type FrequencyProfileClient struct {
+	svc pb.FrequencyProfileServiceClient
+}
+
+// NewFrequencyProfileClient creates a new FrequencyProfile client.
+func NewFrequencyProfileClient(cc grpc.ClientConnInterface) *FrequencyProfileClient {
+	return &FrequencyProfileClient{
+		svc: pb.NewFrequencyProfileServiceClient(cc),
+	}
+}
+
+// GetMaxFrequencyHz calls the GetMaxFrequencyHz RPC.
+func (c *FrequencyProfileClient) GetMaxFrequencyHz(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetMaxFrequencyHz(ctx, &pb.GetMaxFrequencyHzRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMaxOutputAccelerationGs calls the GetMaxOutputAccelerationGs RPC.
+func (c *FrequencyProfileClient) GetMaxOutputAccelerationGs(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetMaxOutputAccelerationGs(ctx, &pb.GetMaxOutputAccelerationGsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMinFrequencyHz calls the GetMinFrequencyHz RPC.
+func (c *FrequencyProfileClient) GetMinFrequencyHz(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetMinFrequencyHz(ctx, &pb.GetMinFrequencyHzRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOutputAccelerationGs calls the GetOutputAccelerationGs RPC.
+func (c *FrequencyProfileClient) GetOutputAccelerationGs(ctx context.Context, arg0 float32) (float32, error) {
+	resp, err := c.svc.GetOutputAccelerationGs(ctx, &pb.GetOutputAccelerationGsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}

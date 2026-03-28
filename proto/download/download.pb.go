@@ -1015,6 +1015,1606 @@ func (x *GetRecommendedMaxBytesOverMobileResponse) GetResult() int64 {
 	return 0
 }
 
+type SetFilterByIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetFilterByIdRequest) Reset() {
+	*x = SetFilterByIdRequest{}
+	mi := &file_proto_download_download_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetFilterByIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetFilterByIdRequest) ProtoMessage() {}
+
+func (x *SetFilterByIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_download_download_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetFilterByIdRequest.ProtoReflect.Descriptor instead.
+func (*SetFilterByIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_download_download_proto_rawDescGZIP(), []int{20}
+}
+
+func (x *SetFilterByIdRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetFilterByIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetFilterByIdResponse) Reset() {
+	*x = SetFilterByIdResponse{}
+	mi := &file_proto_download_download_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetFilterByIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetFilterByIdResponse) ProtoMessage() {}
+
+func (x *SetFilterByIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_download_download_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetFilterByIdResponse.ProtoReflect.Descriptor instead.
+func (*SetFilterByIdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_download_download_proto_rawDescGZIP(), []int{21}
+}
+
+func (x *SetFilterByIdResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetFilterByStatusRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetFilterByStatusRequest) Reset() {
+	*x = SetFilterByStatusRequest{}
+	mi := &file_proto_download_download_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetFilterByStatusRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetFilterByStatusRequest) ProtoMessage() {}
+
+func (x *SetFilterByStatusRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_download_download_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetFilterByStatusRequest.ProtoReflect.Descriptor instead.
+func (*SetFilterByStatusRequest) Descriptor() ([]byte, []int) {
+	return file_proto_download_download_proto_rawDescGZIP(), []int{22}
+}
+
+func (x *SetFilterByStatusRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetFilterByStatusResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetFilterByStatusResponse) Reset() {
+	*x = SetFilterByStatusResponse{}
+	mi := &file_proto_download_download_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetFilterByStatusResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetFilterByStatusResponse) ProtoMessage() {}
+
+func (x *SetFilterByStatusResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_download_download_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetFilterByStatusResponse.ProtoReflect.Descriptor instead.
+func (*SetFilterByStatusResponse) Descriptor() ([]byte, []int) {
+	return file_proto_download_download_proto_rawDescGZIP(), []int{23}
+}
+
+func (x *SetFilterByStatusResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddRequestHeaderRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddRequestHeaderRequest) Reset() {
+	*x = AddRequestHeaderRequest{}
+	mi := &file_proto_download_download_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddRequestHeaderRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddRequestHeaderRequest) ProtoMessage() {}
+
+func (x *AddRequestHeaderRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_download_download_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddRequestHeaderRequest.ProtoReflect.Descriptor instead.
+func (*AddRequestHeaderRequest) Descriptor() ([]byte, []int) {
+	return file_proto_download_download_proto_rawDescGZIP(), []int{24}
+}
+
+func (x *AddRequestHeaderRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *AddRequestHeaderRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+type AddRequestHeaderResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddRequestHeaderResponse) Reset() {
+	*x = AddRequestHeaderResponse{}
+	mi := &file_proto_download_download_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddRequestHeaderResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddRequestHeaderResponse) ProtoMessage() {}
+
+func (x *AddRequestHeaderResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_download_download_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddRequestHeaderResponse.ProtoReflect.Descriptor instead.
+func (*AddRequestHeaderResponse) Descriptor() ([]byte, []int) {
+	return file_proto_download_download_proto_rawDescGZIP(), []int{25}
+}
+
+func (x *AddRequestHeaderResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AllowScanningByMediaScannerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AllowScanningByMediaScannerRequest) Reset() {
+	*x = AllowScanningByMediaScannerRequest{}
+	mi := &file_proto_download_download_proto_msgTypes[26]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AllowScanningByMediaScannerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AllowScanningByMediaScannerRequest) ProtoMessage() {}
+
+func (x *AllowScanningByMediaScannerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_download_download_proto_msgTypes[26]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AllowScanningByMediaScannerRequest.ProtoReflect.Descriptor instead.
+func (*AllowScanningByMediaScannerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_download_download_proto_rawDescGZIP(), []int{26}
+}
+
+type AllowScanningByMediaScannerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AllowScanningByMediaScannerResponse) Reset() {
+	*x = AllowScanningByMediaScannerResponse{}
+	mi := &file_proto_download_download_proto_msgTypes[27]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AllowScanningByMediaScannerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AllowScanningByMediaScannerResponse) ProtoMessage() {}
+
+func (x *AllowScanningByMediaScannerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_download_download_proto_msgTypes[27]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AllowScanningByMediaScannerResponse.ProtoReflect.Descriptor instead.
+func (*AllowScanningByMediaScannerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_download_download_proto_rawDescGZIP(), []int{27}
+}
+
+type SetAllowedNetworkTypesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetAllowedNetworkTypesRequest) Reset() {
+	*x = SetAllowedNetworkTypesRequest{}
+	mi := &file_proto_download_download_proto_msgTypes[28]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetAllowedNetworkTypesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetAllowedNetworkTypesRequest) ProtoMessage() {}
+
+func (x *SetAllowedNetworkTypesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_download_download_proto_msgTypes[28]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetAllowedNetworkTypesRequest.ProtoReflect.Descriptor instead.
+func (*SetAllowedNetworkTypesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_download_download_proto_rawDescGZIP(), []int{28}
+}
+
+func (x *SetAllowedNetworkTypesRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetAllowedNetworkTypesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetAllowedNetworkTypesResponse) Reset() {
+	*x = SetAllowedNetworkTypesResponse{}
+	mi := &file_proto_download_download_proto_msgTypes[29]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetAllowedNetworkTypesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetAllowedNetworkTypesResponse) ProtoMessage() {}
+
+func (x *SetAllowedNetworkTypesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_download_download_proto_msgTypes[29]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetAllowedNetworkTypesResponse.ProtoReflect.Descriptor instead.
+func (*SetAllowedNetworkTypesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_download_download_proto_rawDescGZIP(), []int{29}
+}
+
+func (x *SetAllowedNetworkTypesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetAllowedOverMeteredRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetAllowedOverMeteredRequest) Reset() {
+	*x = SetAllowedOverMeteredRequest{}
+	mi := &file_proto_download_download_proto_msgTypes[30]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetAllowedOverMeteredRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetAllowedOverMeteredRequest) ProtoMessage() {}
+
+func (x *SetAllowedOverMeteredRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_download_download_proto_msgTypes[30]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetAllowedOverMeteredRequest.ProtoReflect.Descriptor instead.
+func (*SetAllowedOverMeteredRequest) Descriptor() ([]byte, []int) {
+	return file_proto_download_download_proto_rawDescGZIP(), []int{30}
+}
+
+func (x *SetAllowedOverMeteredRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetAllowedOverMeteredResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetAllowedOverMeteredResponse) Reset() {
+	*x = SetAllowedOverMeteredResponse{}
+	mi := &file_proto_download_download_proto_msgTypes[31]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetAllowedOverMeteredResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetAllowedOverMeteredResponse) ProtoMessage() {}
+
+func (x *SetAllowedOverMeteredResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_download_download_proto_msgTypes[31]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetAllowedOverMeteredResponse.ProtoReflect.Descriptor instead.
+func (*SetAllowedOverMeteredResponse) Descriptor() ([]byte, []int) {
+	return file_proto_download_download_proto_rawDescGZIP(), []int{31}
+}
+
+func (x *SetAllowedOverMeteredResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetAllowedOverRoamingRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetAllowedOverRoamingRequest) Reset() {
+	*x = SetAllowedOverRoamingRequest{}
+	mi := &file_proto_download_download_proto_msgTypes[32]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetAllowedOverRoamingRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetAllowedOverRoamingRequest) ProtoMessage() {}
+
+func (x *SetAllowedOverRoamingRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_download_download_proto_msgTypes[32]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetAllowedOverRoamingRequest.ProtoReflect.Descriptor instead.
+func (*SetAllowedOverRoamingRequest) Descriptor() ([]byte, []int) {
+	return file_proto_download_download_proto_rawDescGZIP(), []int{32}
+}
+
+func (x *SetAllowedOverRoamingRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetAllowedOverRoamingResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetAllowedOverRoamingResponse) Reset() {
+	*x = SetAllowedOverRoamingResponse{}
+	mi := &file_proto_download_download_proto_msgTypes[33]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetAllowedOverRoamingResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetAllowedOverRoamingResponse) ProtoMessage() {}
+
+func (x *SetAllowedOverRoamingResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_download_download_proto_msgTypes[33]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetAllowedOverRoamingResponse.ProtoReflect.Descriptor instead.
+func (*SetAllowedOverRoamingResponse) Descriptor() ([]byte, []int) {
+	return file_proto_download_download_proto_rawDescGZIP(), []int{33}
+}
+
+func (x *SetAllowedOverRoamingResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetDescriptionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetDescriptionRequest) Reset() {
+	*x = SetDescriptionRequest{}
+	mi := &file_proto_download_download_proto_msgTypes[34]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetDescriptionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetDescriptionRequest) ProtoMessage() {}
+
+func (x *SetDescriptionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_download_download_proto_msgTypes[34]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetDescriptionRequest.ProtoReflect.Descriptor instead.
+func (*SetDescriptionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_download_download_proto_rawDescGZIP(), []int{34}
+}
+
+func (x *SetDescriptionRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type SetDescriptionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetDescriptionResponse) Reset() {
+	*x = SetDescriptionResponse{}
+	mi := &file_proto_download_download_proto_msgTypes[35]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetDescriptionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetDescriptionResponse) ProtoMessage() {}
+
+func (x *SetDescriptionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_download_download_proto_msgTypes[35]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetDescriptionResponse.ProtoReflect.Descriptor instead.
+func (*SetDescriptionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_download_download_proto_rawDescGZIP(), []int{35}
+}
+
+func (x *SetDescriptionResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetDestinationInExternalFilesDirRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          string                 `protobuf:"bytes,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetDestinationInExternalFilesDirRequest) Reset() {
+	*x = SetDestinationInExternalFilesDirRequest{}
+	mi := &file_proto_download_download_proto_msgTypes[36]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetDestinationInExternalFilesDirRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetDestinationInExternalFilesDirRequest) ProtoMessage() {}
+
+func (x *SetDestinationInExternalFilesDirRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_download_download_proto_msgTypes[36]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetDestinationInExternalFilesDirRequest.ProtoReflect.Descriptor instead.
+func (*SetDestinationInExternalFilesDirRequest) Descriptor() ([]byte, []int) {
+	return file_proto_download_download_proto_rawDescGZIP(), []int{36}
+}
+
+func (x *SetDestinationInExternalFilesDirRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SetDestinationInExternalFilesDirRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *SetDestinationInExternalFilesDirRequest) GetArg2() string {
+	if x != nil {
+		return x.Arg2
+	}
+	return ""
+}
+
+type SetDestinationInExternalFilesDirResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetDestinationInExternalFilesDirResponse) Reset() {
+	*x = SetDestinationInExternalFilesDirResponse{}
+	mi := &file_proto_download_download_proto_msgTypes[37]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetDestinationInExternalFilesDirResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetDestinationInExternalFilesDirResponse) ProtoMessage() {}
+
+func (x *SetDestinationInExternalFilesDirResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_download_download_proto_msgTypes[37]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetDestinationInExternalFilesDirResponse.ProtoReflect.Descriptor instead.
+func (*SetDestinationInExternalFilesDirResponse) Descriptor() ([]byte, []int) {
+	return file_proto_download_download_proto_rawDescGZIP(), []int{37}
+}
+
+func (x *SetDestinationInExternalFilesDirResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetDestinationInExternalPublicDirRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetDestinationInExternalPublicDirRequest) Reset() {
+	*x = SetDestinationInExternalPublicDirRequest{}
+	mi := &file_proto_download_download_proto_msgTypes[38]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetDestinationInExternalPublicDirRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetDestinationInExternalPublicDirRequest) ProtoMessage() {}
+
+func (x *SetDestinationInExternalPublicDirRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_download_download_proto_msgTypes[38]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetDestinationInExternalPublicDirRequest.ProtoReflect.Descriptor instead.
+func (*SetDestinationInExternalPublicDirRequest) Descriptor() ([]byte, []int) {
+	return file_proto_download_download_proto_rawDescGZIP(), []int{38}
+}
+
+func (x *SetDestinationInExternalPublicDirRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *SetDestinationInExternalPublicDirRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+type SetDestinationInExternalPublicDirResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetDestinationInExternalPublicDirResponse) Reset() {
+	*x = SetDestinationInExternalPublicDirResponse{}
+	mi := &file_proto_download_download_proto_msgTypes[39]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetDestinationInExternalPublicDirResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetDestinationInExternalPublicDirResponse) ProtoMessage() {}
+
+func (x *SetDestinationInExternalPublicDirResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_download_download_proto_msgTypes[39]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetDestinationInExternalPublicDirResponse.ProtoReflect.Descriptor instead.
+func (*SetDestinationInExternalPublicDirResponse) Descriptor() ([]byte, []int) {
+	return file_proto_download_download_proto_rawDescGZIP(), []int{39}
+}
+
+func (x *SetDestinationInExternalPublicDirResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetDestinationUriRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetDestinationUriRequest) Reset() {
+	*x = SetDestinationUriRequest{}
+	mi := &file_proto_download_download_proto_msgTypes[40]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetDestinationUriRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetDestinationUriRequest) ProtoMessage() {}
+
+func (x *SetDestinationUriRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_download_download_proto_msgTypes[40]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetDestinationUriRequest.ProtoReflect.Descriptor instead.
+func (*SetDestinationUriRequest) Descriptor() ([]byte, []int) {
+	return file_proto_download_download_proto_rawDescGZIP(), []int{40}
+}
+
+func (x *SetDestinationUriRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetDestinationUriResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetDestinationUriResponse) Reset() {
+	*x = SetDestinationUriResponse{}
+	mi := &file_proto_download_download_proto_msgTypes[41]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetDestinationUriResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetDestinationUriResponse) ProtoMessage() {}
+
+func (x *SetDestinationUriResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_download_download_proto_msgTypes[41]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetDestinationUriResponse.ProtoReflect.Descriptor instead.
+func (*SetDestinationUriResponse) Descriptor() ([]byte, []int) {
+	return file_proto_download_download_proto_rawDescGZIP(), []int{41}
+}
+
+func (x *SetDestinationUriResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetMimeTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetMimeTypeRequest) Reset() {
+	*x = SetMimeTypeRequest{}
+	mi := &file_proto_download_download_proto_msgTypes[42]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetMimeTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetMimeTypeRequest) ProtoMessage() {}
+
+func (x *SetMimeTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_download_download_proto_msgTypes[42]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetMimeTypeRequest.ProtoReflect.Descriptor instead.
+func (*SetMimeTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_download_download_proto_rawDescGZIP(), []int{42}
+}
+
+func (x *SetMimeTypeRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type SetMimeTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetMimeTypeResponse) Reset() {
+	*x = SetMimeTypeResponse{}
+	mi := &file_proto_download_download_proto_msgTypes[43]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetMimeTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetMimeTypeResponse) ProtoMessage() {}
+
+func (x *SetMimeTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_download_download_proto_msgTypes[43]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetMimeTypeResponse.ProtoReflect.Descriptor instead.
+func (*SetMimeTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_download_download_proto_rawDescGZIP(), []int{43}
+}
+
+func (x *SetMimeTypeResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetNotificationVisibilityRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetNotificationVisibilityRequest) Reset() {
+	*x = SetNotificationVisibilityRequest{}
+	mi := &file_proto_download_download_proto_msgTypes[44]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetNotificationVisibilityRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetNotificationVisibilityRequest) ProtoMessage() {}
+
+func (x *SetNotificationVisibilityRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_download_download_proto_msgTypes[44]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetNotificationVisibilityRequest.ProtoReflect.Descriptor instead.
+func (*SetNotificationVisibilityRequest) Descriptor() ([]byte, []int) {
+	return file_proto_download_download_proto_rawDescGZIP(), []int{44}
+}
+
+func (x *SetNotificationVisibilityRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetNotificationVisibilityResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetNotificationVisibilityResponse) Reset() {
+	*x = SetNotificationVisibilityResponse{}
+	mi := &file_proto_download_download_proto_msgTypes[45]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetNotificationVisibilityResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetNotificationVisibilityResponse) ProtoMessage() {}
+
+func (x *SetNotificationVisibilityResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_download_download_proto_msgTypes[45]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetNotificationVisibilityResponse.ProtoReflect.Descriptor instead.
+func (*SetNotificationVisibilityResponse) Descriptor() ([]byte, []int) {
+	return file_proto_download_download_proto_rawDescGZIP(), []int{45}
+}
+
+func (x *SetNotificationVisibilityResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetRequiresChargingRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetRequiresChargingRequest) Reset() {
+	*x = SetRequiresChargingRequest{}
+	mi := &file_proto_download_download_proto_msgTypes[46]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetRequiresChargingRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetRequiresChargingRequest) ProtoMessage() {}
+
+func (x *SetRequiresChargingRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_download_download_proto_msgTypes[46]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetRequiresChargingRequest.ProtoReflect.Descriptor instead.
+func (*SetRequiresChargingRequest) Descriptor() ([]byte, []int) {
+	return file_proto_download_download_proto_rawDescGZIP(), []int{46}
+}
+
+func (x *SetRequiresChargingRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetRequiresChargingResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetRequiresChargingResponse) Reset() {
+	*x = SetRequiresChargingResponse{}
+	mi := &file_proto_download_download_proto_msgTypes[47]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetRequiresChargingResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetRequiresChargingResponse) ProtoMessage() {}
+
+func (x *SetRequiresChargingResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_download_download_proto_msgTypes[47]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetRequiresChargingResponse.ProtoReflect.Descriptor instead.
+func (*SetRequiresChargingResponse) Descriptor() ([]byte, []int) {
+	return file_proto_download_download_proto_rawDescGZIP(), []int{47}
+}
+
+func (x *SetRequiresChargingResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetRequiresDeviceIdleRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetRequiresDeviceIdleRequest) Reset() {
+	*x = SetRequiresDeviceIdleRequest{}
+	mi := &file_proto_download_download_proto_msgTypes[48]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetRequiresDeviceIdleRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetRequiresDeviceIdleRequest) ProtoMessage() {}
+
+func (x *SetRequiresDeviceIdleRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_download_download_proto_msgTypes[48]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetRequiresDeviceIdleRequest.ProtoReflect.Descriptor instead.
+func (*SetRequiresDeviceIdleRequest) Descriptor() ([]byte, []int) {
+	return file_proto_download_download_proto_rawDescGZIP(), []int{48}
+}
+
+func (x *SetRequiresDeviceIdleRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetRequiresDeviceIdleResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetRequiresDeviceIdleResponse) Reset() {
+	*x = SetRequiresDeviceIdleResponse{}
+	mi := &file_proto_download_download_proto_msgTypes[49]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetRequiresDeviceIdleResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetRequiresDeviceIdleResponse) ProtoMessage() {}
+
+func (x *SetRequiresDeviceIdleResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_download_download_proto_msgTypes[49]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetRequiresDeviceIdleResponse.ProtoReflect.Descriptor instead.
+func (*SetRequiresDeviceIdleResponse) Descriptor() ([]byte, []int) {
+	return file_proto_download_download_proto_rawDescGZIP(), []int{49}
+}
+
+func (x *SetRequiresDeviceIdleResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetShowRunningNotificationRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetShowRunningNotificationRequest) Reset() {
+	*x = SetShowRunningNotificationRequest{}
+	mi := &file_proto_download_download_proto_msgTypes[50]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetShowRunningNotificationRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetShowRunningNotificationRequest) ProtoMessage() {}
+
+func (x *SetShowRunningNotificationRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_download_download_proto_msgTypes[50]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetShowRunningNotificationRequest.ProtoReflect.Descriptor instead.
+func (*SetShowRunningNotificationRequest) Descriptor() ([]byte, []int) {
+	return file_proto_download_download_proto_rawDescGZIP(), []int{50}
+}
+
+func (x *SetShowRunningNotificationRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetShowRunningNotificationResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetShowRunningNotificationResponse) Reset() {
+	*x = SetShowRunningNotificationResponse{}
+	mi := &file_proto_download_download_proto_msgTypes[51]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetShowRunningNotificationResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetShowRunningNotificationResponse) ProtoMessage() {}
+
+func (x *SetShowRunningNotificationResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_download_download_proto_msgTypes[51]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetShowRunningNotificationResponse.ProtoReflect.Descriptor instead.
+func (*SetShowRunningNotificationResponse) Descriptor() ([]byte, []int) {
+	return file_proto_download_download_proto_rawDescGZIP(), []int{51}
+}
+
+func (x *SetShowRunningNotificationResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetTitleRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetTitleRequest) Reset() {
+	*x = SetTitleRequest{}
+	mi := &file_proto_download_download_proto_msgTypes[52]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetTitleRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetTitleRequest) ProtoMessage() {}
+
+func (x *SetTitleRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_download_download_proto_msgTypes[52]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetTitleRequest.ProtoReflect.Descriptor instead.
+func (*SetTitleRequest) Descriptor() ([]byte, []int) {
+	return file_proto_download_download_proto_rawDescGZIP(), []int{52}
+}
+
+func (x *SetTitleRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type SetTitleResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetTitleResponse) Reset() {
+	*x = SetTitleResponse{}
+	mi := &file_proto_download_download_proto_msgTypes[53]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetTitleResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetTitleResponse) ProtoMessage() {}
+
+func (x *SetTitleResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_download_download_proto_msgTypes[53]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetTitleResponse.ProtoReflect.Descriptor instead.
+func (*SetTitleResponse) Descriptor() ([]byte, []int) {
+	return file_proto_download_download_proto_rawDescGZIP(), []int{53}
+}
+
+func (x *SetTitleResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetVisibleInDownloadsUiRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetVisibleInDownloadsUiRequest) Reset() {
+	*x = SetVisibleInDownloadsUiRequest{}
+	mi := &file_proto_download_download_proto_msgTypes[54]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetVisibleInDownloadsUiRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetVisibleInDownloadsUiRequest) ProtoMessage() {}
+
+func (x *SetVisibleInDownloadsUiRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_download_download_proto_msgTypes[54]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetVisibleInDownloadsUiRequest.ProtoReflect.Descriptor instead.
+func (*SetVisibleInDownloadsUiRequest) Descriptor() ([]byte, []int) {
+	return file_proto_download_download_proto_rawDescGZIP(), []int{54}
+}
+
+func (x *SetVisibleInDownloadsUiRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetVisibleInDownloadsUiResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetVisibleInDownloadsUiResponse) Reset() {
+	*x = SetVisibleInDownloadsUiResponse{}
+	mi := &file_proto_download_download_proto_msgTypes[55]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetVisibleInDownloadsUiResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetVisibleInDownloadsUiResponse) ProtoMessage() {}
+
+func (x *SetVisibleInDownloadsUiResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_download_download_proto_msgTypes[55]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetVisibleInDownloadsUiResponse.ProtoReflect.Descriptor instead.
+func (*SetVisibleInDownloadsUiResponse) Descriptor() ([]byte, []int) {
+	return file_proto_download_download_proto_rawDescGZIP(), []int{55}
+}
+
+func (x *SetVisibleInDownloadsUiResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
 var File_proto_download_download_proto protoreflect.FileDescriptor
 
 const file_proto_download_download_proto_rawDesc = "" +
@@ -1073,6 +2673,80 @@ const file_proto_download_download_proto_rawDesc = "" +
 	"'GetRecommendedMaxBytesOverMobileRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"B\n" +
 	"(GetRecommendedMaxBytesOverMobileResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"*\n" +
+	"\x14SetFilterByIdRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"/\n" +
+	"\x15SetFilterByIdResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\".\n" +
+	"\x18SetFilterByStatusRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"3\n" +
+	"\x19SetFilterByStatusResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"A\n" +
+	"\x17AddRequestHeaderRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\"2\n" +
+	"\x18AddRequestHeaderResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"$\n" +
+	"\"AllowScanningByMediaScannerRequest\"%\n" +
+	"#AllowScanningByMediaScannerResponse\"3\n" +
+	"\x1dSetAllowedNetworkTypesRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"8\n" +
+	"\x1eSetAllowedNetworkTypesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"2\n" +
+	"\x1cSetAllowedOverMeteredRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"7\n" +
+	"\x1dSetAllowedOverMeteredResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"2\n" +
+	"\x1cSetAllowedOverRoamingRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"7\n" +
+	"\x1dSetAllowedOverRoamingResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"+\n" +
+	"\x15SetDescriptionRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"0\n" +
+	"\x16SetDescriptionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"e\n" +
+	"'SetDestinationInExternalFilesDirRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\tR\x04arg2\"B\n" +
+	"(SetDestinationInExternalFilesDirResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"R\n" +
+	"(SetDestinationInExternalPublicDirRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\"C\n" +
+	")SetDestinationInExternalPublicDirResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\".\n" +
+	"\x18SetDestinationUriRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"3\n" +
+	"\x19SetDestinationUriResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"(\n" +
+	"\x12SetMimeTypeRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"-\n" +
+	"\x13SetMimeTypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"6\n" +
+	" SetNotificationVisibilityRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\";\n" +
+	"!SetNotificationVisibilityResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"0\n" +
+	"\x1aSetRequiresChargingRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"5\n" +
+	"\x1bSetRequiresChargingResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"2\n" +
+	"\x1cSetRequiresDeviceIdleRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"7\n" +
+	"\x1dSetRequiresDeviceIdleResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"7\n" +
+	"!SetShowRunningNotificationRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"<\n" +
+	"\"SetShowRunningNotificationResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"%\n" +
+	"\x0fSetTitleRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"*\n" +
+	"\x10SetTitleResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"4\n" +
+	"\x1eSetVisibleInDownloadsUiRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"9\n" +
+	"\x1fSetVisibleInDownloadsUiResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result2\xe7\a\n" +
 	"\x0eManagerService\x12h\n" +
 	"\x15AddCompletedDownload7\x12&.download.AddCompletedDownload7Request\x1a'.download.AddCompletedDownload7Response\x12n\n" +
@@ -1084,7 +2758,27 @@ const file_proto_download_download_proto_rawDesc = "" +
 	"\x05Query\x12\x16.download.QueryRequest\x1a\x17.download.QueryResponse\x12;\n" +
 	"\x06Remove\x12\x17.download.RemoveRequest\x1a\x18.download.RemoveResponse\x12h\n" +
 	"\x15GetMaxBytesOverMobile\x12&.download.GetMaxBytesOverMobileRequest\x1a'.download.GetMaxBytesOverMobileResponse\x12\x89\x01\n" +
-	" GetRecommendedMaxBytesOverMobile\x121.download.GetRecommendedMaxBytesOverMobileRequest\x1a2.download.GetRecommendedMaxBytesOverMobileResponseB2Z0github.com/AndroidGoLab/jni-proxy/proto/downloadb\x06proto3"
+	" GetRecommendedMaxBytesOverMobile\x121.download.GetRecommendedMaxBytesOverMobileRequest\x1a2.download.GetRecommendedMaxBytesOverMobileResponse2\xc5\x01\n" +
+	"\x13ManagerQueryService\x12P\n" +
+	"\rSetFilterById\x12\x1e.download.SetFilterByIdRequest\x1a\x1f.download.SetFilterByIdResponse\x12\\\n" +
+	"\x11SetFilterByStatus\x12\".download.SetFilterByStatusRequest\x1a#.download.SetFilterByStatusResponse2\xb9\r\n" +
+	"\x15ManagerRequestService\x12Y\n" +
+	"\x10AddRequestHeader\x12!.download.AddRequestHeaderRequest\x1a\".download.AddRequestHeaderResponse\x12z\n" +
+	"\x1bAllowScanningByMediaScanner\x12,.download.AllowScanningByMediaScannerRequest\x1a-.download.AllowScanningByMediaScannerResponse\x12k\n" +
+	"\x16SetAllowedNetworkTypes\x12'.download.SetAllowedNetworkTypesRequest\x1a(.download.SetAllowedNetworkTypesResponse\x12h\n" +
+	"\x15SetAllowedOverMetered\x12&.download.SetAllowedOverMeteredRequest\x1a'.download.SetAllowedOverMeteredResponse\x12h\n" +
+	"\x15SetAllowedOverRoaming\x12&.download.SetAllowedOverRoamingRequest\x1a'.download.SetAllowedOverRoamingResponse\x12S\n" +
+	"\x0eSetDescription\x12\x1f.download.SetDescriptionRequest\x1a .download.SetDescriptionResponse\x12\x89\x01\n" +
+	" SetDestinationInExternalFilesDir\x121.download.SetDestinationInExternalFilesDirRequest\x1a2.download.SetDestinationInExternalFilesDirResponse\x12\x8c\x01\n" +
+	"!SetDestinationInExternalPublicDir\x122.download.SetDestinationInExternalPublicDirRequest\x1a3.download.SetDestinationInExternalPublicDirResponse\x12\\\n" +
+	"\x11SetDestinationUri\x12\".download.SetDestinationUriRequest\x1a#.download.SetDestinationUriResponse\x12J\n" +
+	"\vSetMimeType\x12\x1c.download.SetMimeTypeRequest\x1a\x1d.download.SetMimeTypeResponse\x12t\n" +
+	"\x19SetNotificationVisibility\x12*.download.SetNotificationVisibilityRequest\x1a+.download.SetNotificationVisibilityResponse\x12b\n" +
+	"\x13SetRequiresCharging\x12$.download.SetRequiresChargingRequest\x1a%.download.SetRequiresChargingResponse\x12h\n" +
+	"\x15SetRequiresDeviceIdle\x12&.download.SetRequiresDeviceIdleRequest\x1a'.download.SetRequiresDeviceIdleResponse\x12w\n" +
+	"\x1aSetShowRunningNotification\x12+.download.SetShowRunningNotificationRequest\x1a,.download.SetShowRunningNotificationResponse\x12A\n" +
+	"\bSetTitle\x12\x19.download.SetTitleRequest\x1a\x1a.download.SetTitleResponse\x12n\n" +
+	"\x17SetVisibleInDownloadsUi\x12(.download.SetVisibleInDownloadsUiRequest\x1a).download.SetVisibleInDownloadsUiResponseB2Z0github.com/AndroidGoLab/jni-proxy/proto/downloadb\x06proto3"
 
 var (
 	file_proto_download_download_proto_rawDescOnce sync.Once
@@ -1098,28 +2792,64 @@ func file_proto_download_download_proto_rawDescGZIP() []byte {
 	return file_proto_download_download_proto_rawDescData
 }
 
-var file_proto_download_download_proto_msgTypes = make([]protoimpl.MessageInfo, 20)
+var file_proto_download_download_proto_msgTypes = make([]protoimpl.MessageInfo, 56)
 var file_proto_download_download_proto_goTypes = []any{
-	(*AddCompletedDownload7Request)(nil),             // 0: download.AddCompletedDownload7Request
-	(*AddCompletedDownload7Response)(nil),            // 1: download.AddCompletedDownload7Response
-	(*AddCompletedDownload9_1Request)(nil),           // 2: download.AddCompletedDownload9_1Request
-	(*AddCompletedDownload9_1Response)(nil),          // 3: download.AddCompletedDownload9_1Response
-	(*EnqueueRequest)(nil),                           // 4: download.EnqueueRequest
-	(*EnqueueResponse)(nil),                          // 5: download.EnqueueResponse
-	(*GetMimeTypeForDownloadedFileRequest)(nil),      // 6: download.GetMimeTypeForDownloadedFileRequest
-	(*GetMimeTypeForDownloadedFileResponse)(nil),     // 7: download.GetMimeTypeForDownloadedFileResponse
-	(*GetUriForDownloadedFileRequest)(nil),           // 8: download.GetUriForDownloadedFileRequest
-	(*GetUriForDownloadedFileResponse)(nil),          // 9: download.GetUriForDownloadedFileResponse
-	(*OpenDownloadedFileRequest)(nil),                // 10: download.OpenDownloadedFileRequest
-	(*OpenDownloadedFileResponse)(nil),               // 11: download.OpenDownloadedFileResponse
-	(*QueryRequest)(nil),                             // 12: download.QueryRequest
-	(*QueryResponse)(nil),                            // 13: download.QueryResponse
-	(*RemoveRequest)(nil),                            // 14: download.RemoveRequest
-	(*RemoveResponse)(nil),                           // 15: download.RemoveResponse
-	(*GetMaxBytesOverMobileRequest)(nil),             // 16: download.GetMaxBytesOverMobileRequest
-	(*GetMaxBytesOverMobileResponse)(nil),            // 17: download.GetMaxBytesOverMobileResponse
-	(*GetRecommendedMaxBytesOverMobileRequest)(nil),  // 18: download.GetRecommendedMaxBytesOverMobileRequest
-	(*GetRecommendedMaxBytesOverMobileResponse)(nil), // 19: download.GetRecommendedMaxBytesOverMobileResponse
+	(*AddCompletedDownload7Request)(nil),              // 0: download.AddCompletedDownload7Request
+	(*AddCompletedDownload7Response)(nil),             // 1: download.AddCompletedDownload7Response
+	(*AddCompletedDownload9_1Request)(nil),            // 2: download.AddCompletedDownload9_1Request
+	(*AddCompletedDownload9_1Response)(nil),           // 3: download.AddCompletedDownload9_1Response
+	(*EnqueueRequest)(nil),                            // 4: download.EnqueueRequest
+	(*EnqueueResponse)(nil),                           // 5: download.EnqueueResponse
+	(*GetMimeTypeForDownloadedFileRequest)(nil),       // 6: download.GetMimeTypeForDownloadedFileRequest
+	(*GetMimeTypeForDownloadedFileResponse)(nil),      // 7: download.GetMimeTypeForDownloadedFileResponse
+	(*GetUriForDownloadedFileRequest)(nil),            // 8: download.GetUriForDownloadedFileRequest
+	(*GetUriForDownloadedFileResponse)(nil),           // 9: download.GetUriForDownloadedFileResponse
+	(*OpenDownloadedFileRequest)(nil),                 // 10: download.OpenDownloadedFileRequest
+	(*OpenDownloadedFileResponse)(nil),                // 11: download.OpenDownloadedFileResponse
+	(*QueryRequest)(nil),                              // 12: download.QueryRequest
+	(*QueryResponse)(nil),                             // 13: download.QueryResponse
+	(*RemoveRequest)(nil),                             // 14: download.RemoveRequest
+	(*RemoveResponse)(nil),                            // 15: download.RemoveResponse
+	(*GetMaxBytesOverMobileRequest)(nil),              // 16: download.GetMaxBytesOverMobileRequest
+	(*GetMaxBytesOverMobileResponse)(nil),             // 17: download.GetMaxBytesOverMobileResponse
+	(*GetRecommendedMaxBytesOverMobileRequest)(nil),   // 18: download.GetRecommendedMaxBytesOverMobileRequest
+	(*GetRecommendedMaxBytesOverMobileResponse)(nil),  // 19: download.GetRecommendedMaxBytesOverMobileResponse
+	(*SetFilterByIdRequest)(nil),                      // 20: download.SetFilterByIdRequest
+	(*SetFilterByIdResponse)(nil),                     // 21: download.SetFilterByIdResponse
+	(*SetFilterByStatusRequest)(nil),                  // 22: download.SetFilterByStatusRequest
+	(*SetFilterByStatusResponse)(nil),                 // 23: download.SetFilterByStatusResponse
+	(*AddRequestHeaderRequest)(nil),                   // 24: download.AddRequestHeaderRequest
+	(*AddRequestHeaderResponse)(nil),                  // 25: download.AddRequestHeaderResponse
+	(*AllowScanningByMediaScannerRequest)(nil),        // 26: download.AllowScanningByMediaScannerRequest
+	(*AllowScanningByMediaScannerResponse)(nil),       // 27: download.AllowScanningByMediaScannerResponse
+	(*SetAllowedNetworkTypesRequest)(nil),             // 28: download.SetAllowedNetworkTypesRequest
+	(*SetAllowedNetworkTypesResponse)(nil),            // 29: download.SetAllowedNetworkTypesResponse
+	(*SetAllowedOverMeteredRequest)(nil),              // 30: download.SetAllowedOverMeteredRequest
+	(*SetAllowedOverMeteredResponse)(nil),             // 31: download.SetAllowedOverMeteredResponse
+	(*SetAllowedOverRoamingRequest)(nil),              // 32: download.SetAllowedOverRoamingRequest
+	(*SetAllowedOverRoamingResponse)(nil),             // 33: download.SetAllowedOverRoamingResponse
+	(*SetDescriptionRequest)(nil),                     // 34: download.SetDescriptionRequest
+	(*SetDescriptionResponse)(nil),                    // 35: download.SetDescriptionResponse
+	(*SetDestinationInExternalFilesDirRequest)(nil),   // 36: download.SetDestinationInExternalFilesDirRequest
+	(*SetDestinationInExternalFilesDirResponse)(nil),  // 37: download.SetDestinationInExternalFilesDirResponse
+	(*SetDestinationInExternalPublicDirRequest)(nil),  // 38: download.SetDestinationInExternalPublicDirRequest
+	(*SetDestinationInExternalPublicDirResponse)(nil), // 39: download.SetDestinationInExternalPublicDirResponse
+	(*SetDestinationUriRequest)(nil),                  // 40: download.SetDestinationUriRequest
+	(*SetDestinationUriResponse)(nil),                 // 41: download.SetDestinationUriResponse
+	(*SetMimeTypeRequest)(nil),                        // 42: download.SetMimeTypeRequest
+	(*SetMimeTypeResponse)(nil),                       // 43: download.SetMimeTypeResponse
+	(*SetNotificationVisibilityRequest)(nil),          // 44: download.SetNotificationVisibilityRequest
+	(*SetNotificationVisibilityResponse)(nil),         // 45: download.SetNotificationVisibilityResponse
+	(*SetRequiresChargingRequest)(nil),                // 46: download.SetRequiresChargingRequest
+	(*SetRequiresChargingResponse)(nil),               // 47: download.SetRequiresChargingResponse
+	(*SetRequiresDeviceIdleRequest)(nil),              // 48: download.SetRequiresDeviceIdleRequest
+	(*SetRequiresDeviceIdleResponse)(nil),             // 49: download.SetRequiresDeviceIdleResponse
+	(*SetShowRunningNotificationRequest)(nil),         // 50: download.SetShowRunningNotificationRequest
+	(*SetShowRunningNotificationResponse)(nil),        // 51: download.SetShowRunningNotificationResponse
+	(*SetTitleRequest)(nil),                           // 52: download.SetTitleRequest
+	(*SetTitleResponse)(nil),                          // 53: download.SetTitleResponse
+	(*SetVisibleInDownloadsUiRequest)(nil),            // 54: download.SetVisibleInDownloadsUiRequest
+	(*SetVisibleInDownloadsUiResponse)(nil),           // 55: download.SetVisibleInDownloadsUiResponse
 }
 var file_proto_download_download_proto_depIdxs = []int32{
 	0,  // 0: download.ManagerService.AddCompletedDownload7:input_type -> download.AddCompletedDownload7Request
@@ -1132,18 +2862,54 @@ var file_proto_download_download_proto_depIdxs = []int32{
 	14, // 7: download.ManagerService.Remove:input_type -> download.RemoveRequest
 	16, // 8: download.ManagerService.GetMaxBytesOverMobile:input_type -> download.GetMaxBytesOverMobileRequest
 	18, // 9: download.ManagerService.GetRecommendedMaxBytesOverMobile:input_type -> download.GetRecommendedMaxBytesOverMobileRequest
-	1,  // 10: download.ManagerService.AddCompletedDownload7:output_type -> download.AddCompletedDownload7Response
-	3,  // 11: download.ManagerService.AddCompletedDownload9_1:output_type -> download.AddCompletedDownload9_1Response
-	5,  // 12: download.ManagerService.Enqueue:output_type -> download.EnqueueResponse
-	7,  // 13: download.ManagerService.GetMimeTypeForDownloadedFile:output_type -> download.GetMimeTypeForDownloadedFileResponse
-	9,  // 14: download.ManagerService.GetUriForDownloadedFile:output_type -> download.GetUriForDownloadedFileResponse
-	11, // 15: download.ManagerService.OpenDownloadedFile:output_type -> download.OpenDownloadedFileResponse
-	13, // 16: download.ManagerService.Query:output_type -> download.QueryResponse
-	15, // 17: download.ManagerService.Remove:output_type -> download.RemoveResponse
-	17, // 18: download.ManagerService.GetMaxBytesOverMobile:output_type -> download.GetMaxBytesOverMobileResponse
-	19, // 19: download.ManagerService.GetRecommendedMaxBytesOverMobile:output_type -> download.GetRecommendedMaxBytesOverMobileResponse
-	10, // [10:20] is the sub-list for method output_type
-	0,  // [0:10] is the sub-list for method input_type
+	20, // 10: download.ManagerQueryService.SetFilterById:input_type -> download.SetFilterByIdRequest
+	22, // 11: download.ManagerQueryService.SetFilterByStatus:input_type -> download.SetFilterByStatusRequest
+	24, // 12: download.ManagerRequestService.AddRequestHeader:input_type -> download.AddRequestHeaderRequest
+	26, // 13: download.ManagerRequestService.AllowScanningByMediaScanner:input_type -> download.AllowScanningByMediaScannerRequest
+	28, // 14: download.ManagerRequestService.SetAllowedNetworkTypes:input_type -> download.SetAllowedNetworkTypesRequest
+	30, // 15: download.ManagerRequestService.SetAllowedOverMetered:input_type -> download.SetAllowedOverMeteredRequest
+	32, // 16: download.ManagerRequestService.SetAllowedOverRoaming:input_type -> download.SetAllowedOverRoamingRequest
+	34, // 17: download.ManagerRequestService.SetDescription:input_type -> download.SetDescriptionRequest
+	36, // 18: download.ManagerRequestService.SetDestinationInExternalFilesDir:input_type -> download.SetDestinationInExternalFilesDirRequest
+	38, // 19: download.ManagerRequestService.SetDestinationInExternalPublicDir:input_type -> download.SetDestinationInExternalPublicDirRequest
+	40, // 20: download.ManagerRequestService.SetDestinationUri:input_type -> download.SetDestinationUriRequest
+	42, // 21: download.ManagerRequestService.SetMimeType:input_type -> download.SetMimeTypeRequest
+	44, // 22: download.ManagerRequestService.SetNotificationVisibility:input_type -> download.SetNotificationVisibilityRequest
+	46, // 23: download.ManagerRequestService.SetRequiresCharging:input_type -> download.SetRequiresChargingRequest
+	48, // 24: download.ManagerRequestService.SetRequiresDeviceIdle:input_type -> download.SetRequiresDeviceIdleRequest
+	50, // 25: download.ManagerRequestService.SetShowRunningNotification:input_type -> download.SetShowRunningNotificationRequest
+	52, // 26: download.ManagerRequestService.SetTitle:input_type -> download.SetTitleRequest
+	54, // 27: download.ManagerRequestService.SetVisibleInDownloadsUi:input_type -> download.SetVisibleInDownloadsUiRequest
+	1,  // 28: download.ManagerService.AddCompletedDownload7:output_type -> download.AddCompletedDownload7Response
+	3,  // 29: download.ManagerService.AddCompletedDownload9_1:output_type -> download.AddCompletedDownload9_1Response
+	5,  // 30: download.ManagerService.Enqueue:output_type -> download.EnqueueResponse
+	7,  // 31: download.ManagerService.GetMimeTypeForDownloadedFile:output_type -> download.GetMimeTypeForDownloadedFileResponse
+	9,  // 32: download.ManagerService.GetUriForDownloadedFile:output_type -> download.GetUriForDownloadedFileResponse
+	11, // 33: download.ManagerService.OpenDownloadedFile:output_type -> download.OpenDownloadedFileResponse
+	13, // 34: download.ManagerService.Query:output_type -> download.QueryResponse
+	15, // 35: download.ManagerService.Remove:output_type -> download.RemoveResponse
+	17, // 36: download.ManagerService.GetMaxBytesOverMobile:output_type -> download.GetMaxBytesOverMobileResponse
+	19, // 37: download.ManagerService.GetRecommendedMaxBytesOverMobile:output_type -> download.GetRecommendedMaxBytesOverMobileResponse
+	21, // 38: download.ManagerQueryService.SetFilterById:output_type -> download.SetFilterByIdResponse
+	23, // 39: download.ManagerQueryService.SetFilterByStatus:output_type -> download.SetFilterByStatusResponse
+	25, // 40: download.ManagerRequestService.AddRequestHeader:output_type -> download.AddRequestHeaderResponse
+	27, // 41: download.ManagerRequestService.AllowScanningByMediaScanner:output_type -> download.AllowScanningByMediaScannerResponse
+	29, // 42: download.ManagerRequestService.SetAllowedNetworkTypes:output_type -> download.SetAllowedNetworkTypesResponse
+	31, // 43: download.ManagerRequestService.SetAllowedOverMetered:output_type -> download.SetAllowedOverMeteredResponse
+	33, // 44: download.ManagerRequestService.SetAllowedOverRoaming:output_type -> download.SetAllowedOverRoamingResponse
+	35, // 45: download.ManagerRequestService.SetDescription:output_type -> download.SetDescriptionResponse
+	37, // 46: download.ManagerRequestService.SetDestinationInExternalFilesDir:output_type -> download.SetDestinationInExternalFilesDirResponse
+	39, // 47: download.ManagerRequestService.SetDestinationInExternalPublicDir:output_type -> download.SetDestinationInExternalPublicDirResponse
+	41, // 48: download.ManagerRequestService.SetDestinationUri:output_type -> download.SetDestinationUriResponse
+	43, // 49: download.ManagerRequestService.SetMimeType:output_type -> download.SetMimeTypeResponse
+	45, // 50: download.ManagerRequestService.SetNotificationVisibility:output_type -> download.SetNotificationVisibilityResponse
+	47, // 51: download.ManagerRequestService.SetRequiresCharging:output_type -> download.SetRequiresChargingResponse
+	49, // 52: download.ManagerRequestService.SetRequiresDeviceIdle:output_type -> download.SetRequiresDeviceIdleResponse
+	51, // 53: download.ManagerRequestService.SetShowRunningNotification:output_type -> download.SetShowRunningNotificationResponse
+	53, // 54: download.ManagerRequestService.SetTitle:output_type -> download.SetTitleResponse
+	55, // 55: download.ManagerRequestService.SetVisibleInDownloadsUi:output_type -> download.SetVisibleInDownloadsUiResponse
+	28, // [28:56] is the sub-list for method output_type
+	0,  // [0:28] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name
 	0,  // [0:0] is the sub-list for extension extendee
 	0,  // [0:0] is the sub-list for field type_name
@@ -1160,9 +2926,9 @@ func file_proto_download_download_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_download_download_proto_rawDesc), len(file_proto_download_download_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   20,
+			NumMessages:   56,
 			NumExtensions: 0,
-			NumServices:   1,
+			NumServices:   3,
 		},
 		GoTypes:           file_proto_download_download_proto_goTypes,
 		DependencyIndexes: file_proto_download_download_proto_depIdxs,

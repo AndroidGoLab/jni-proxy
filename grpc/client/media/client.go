@@ -9,25 +9,9722 @@ import (
 	"google.golang.org/grpc"
 )
 
-// CommunicationManagerClient wraps the gRPC CommunicationManagerService client.
-type CommunicationManagerClient struct {
-	svc pb.CommunicationManagerServiceClient
+// Route2InfoClient wraps the gRPC Route2InfoService client.
+type Route2InfoClient struct {
+	svc pb.Route2InfoServiceClient
 }
 
-// NewCommunicationManagerClient creates a new CommunicationManager client.
-func NewCommunicationManagerClient(cc grpc.ClientConnInterface) *CommunicationManagerClient {
-	return &CommunicationManagerClient{
-		svc: pb.NewCommunicationManagerServiceClient(cc),
+// NewRoute2InfoClient creates a new Route2Info client.
+func NewRoute2InfoClient(cc grpc.ClientConnInterface) *Route2InfoClient {
+	return &Route2InfoClient{
+		svc: pb.NewRoute2InfoServiceClient(cc),
 	}
 }
 
-// GetVersion calls the GetVersion RPC.
-func (c *CommunicationManagerClient) GetVersion(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetVersion(ctx, &pb.GetVersionRequest{})
+// DescribeContents calls the DescribeContents RPC.
+func (c *Route2InfoClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *Route2InfoClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetClientPackageName calls the GetClientPackageName RPC.
+func (c *Route2InfoClient) GetClientPackageName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetClientPackageName(ctx, &pb.GetClientPackageNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetConnectionState calls the GetConnectionState RPC.
+func (c *Route2InfoClient) GetConnectionState(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetConnectionState(ctx, &pb.GetConnectionStateRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDescription calls the GetDescription RPC.
+func (c *Route2InfoClient) GetDescription(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDescription(ctx, &pb.GetDescriptionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExtras calls the GetExtras RPC.
+func (c *Route2InfoClient) GetExtras(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetExtras(ctx, &pb.GetExtrasRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIconUri calls the GetIconUri RPC.
+func (c *Route2InfoClient) GetIconUri(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetIconUri(ctx, &pb.GetIconUriRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetId calls the GetId RPC.
+func (c *Route2InfoClient) GetId(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetName calls the GetName RPC.
+func (c *Route2InfoClient) GetName(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetName(ctx, &pb.GetNameRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSuitabilityStatus calls the GetSuitabilityStatus RPC.
+func (c *Route2InfoClient) GetSuitabilityStatus(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetSuitabilityStatus(ctx, &pb.GetSuitabilityStatusRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetType calls the GetType RPC.
+func (c *Route2InfoClient) GetType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetType(ctx, &pb.GetTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVolume calls the GetVolume RPC.
+func (c *Route2InfoClient) GetVolume(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetVolume(ctx, &pb.GetVolumeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVolumeHandling calls the GetVolumeHandling RPC.
+func (c *Route2InfoClient) GetVolumeHandling(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetVolumeHandling(ctx, &pb.GetVolumeHandlingRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVolumeMax calls the GetVolumeMax RPC.
+func (c *Route2InfoClient) GetVolumeMax(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetVolumeMax(ctx, &pb.GetVolumeMaxRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *Route2InfoClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsSystemRoute calls the IsSystemRoute RPC.
+func (c *Route2InfoClient) IsSystemRoute(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsSystemRoute(ctx, &pb.IsSystemRouteRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *Route2InfoClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *Route2InfoClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// Route2InfoBuilderClient wraps the gRPC Route2InfoBuilderService client.
+type Route2InfoBuilderClient struct {
+	svc pb.Route2InfoBuilderServiceClient
+}
+
+// NewRoute2InfoBuilderClient creates a new Route2InfoBuilder client.
+func NewRoute2InfoBuilderClient(cc grpc.ClientConnInterface) *Route2InfoBuilderClient {
+	return &Route2InfoBuilderClient{
+		svc: pb.NewRoute2InfoBuilderServiceClient(cc),
+	}
+}
+
+// AddFeature calls the AddFeature RPC.
+func (c *Route2InfoBuilderClient) AddFeature(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.AddFeature(ctx, &pb.AddFeatureRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Build calls the Build RPC.
+func (c *Route2InfoBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearFeatures calls the ClearFeatures RPC.
+func (c *Route2InfoBuilderClient) ClearFeatures(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearFeatures(ctx, &pb.ClearFeaturesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetClientPackageName calls the SetClientPackageName RPC.
+func (c *Route2InfoBuilderClient) SetClientPackageName(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetClientPackageName(ctx, &pb.SetClientPackageNameRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetConnectionState calls the SetConnectionState RPC.
+func (c *Route2InfoBuilderClient) SetConnectionState(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetConnectionState(ctx, &pb.SetConnectionStateRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetDescription calls the SetDescription RPC.
+func (c *Route2InfoBuilderClient) SetDescription(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetDescription(ctx, &pb.SetDescriptionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetExtras calls the SetExtras RPC.
+func (c *Route2InfoBuilderClient) SetExtras(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetExtras(ctx, &pb.SetExtrasRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetIconUri calls the SetIconUri RPC.
+func (c *Route2InfoBuilderClient) SetIconUri(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetIconUri(ctx, &pb.SetIconUriRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSuitabilityStatus calls the SetSuitabilityStatus RPC.
+func (c *Route2InfoBuilderClient) SetSuitabilityStatus(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetSuitabilityStatus(ctx, &pb.SetSuitabilityStatusRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetType calls the SetType RPC.
+func (c *Route2InfoBuilderClient) SetType(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetType(ctx, &pb.SetTypeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetVisibilityPublic calls the SetVisibilityPublic RPC.
+func (c *Route2InfoBuilderClient) SetVisibilityPublic(ctx context.Context) (int64, error) {
+	resp, err := c.svc.SetVisibilityPublic(ctx, &pb.SetVisibilityPublicRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetVolume calls the SetVolume RPC.
+func (c *Route2InfoBuilderClient) SetVolume(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetVolume(ctx, &pb.SetVolumeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetVolumeHandling calls the SetVolumeHandling RPC.
+func (c *Route2InfoBuilderClient) SetVolumeHandling(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetVolumeHandling(ctx, &pb.SetVolumeHandlingRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetVolumeMax calls the SetVolumeMax RPC.
+func (c *Route2InfoBuilderClient) SetVolumeMax(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetVolumeMax(ctx, &pb.SetVolumeMaxRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SubtitleDataClient wraps the gRPC SubtitleDataService client.
+type SubtitleDataClient struct {
+	svc pb.SubtitleDataServiceClient
+}
+
+// NewSubtitleDataClient creates a new SubtitleData client.
+func NewSubtitleDataClient(cc grpc.ClientConnInterface) *SubtitleDataClient {
+	return &SubtitleDataClient{
+		svc: pb.NewSubtitleDataServiceClient(cc),
+	}
+}
+
+// GetData calls the GetData RPC.
+func (c *SubtitleDataClient) GetData(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetData(ctx, &pb.GetDataRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDurationUs calls the GetDurationUs RPC.
+func (c *SubtitleDataClient) GetDurationUs(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetDurationUs(ctx, &pb.GetDurationUsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStartTimeUs calls the GetStartTimeUs RPC.
+func (c *SubtitleDataClient) GetStartTimeUs(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetStartTimeUs(ctx, &pb.GetStartTimeUsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTrackIndex calls the GetTrackIndex RPC.
+func (c *SubtitleDataClient) GetTrackIndex(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetTrackIndex(ctx, &pb.GetTrackIndexRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Route2ProviderServiceClient wraps the gRPC Route2ProviderServiceService client.
+type Route2ProviderServiceClient struct {
+	svc pb.Route2ProviderServiceServiceClient
+}
+
+// NewRoute2ProviderServiceClient creates a new Route2ProviderService client.
+func NewRoute2ProviderServiceClient(cc grpc.ClientConnInterface) *Route2ProviderServiceClient {
+	return &Route2ProviderServiceClient{
+		svc: pb.NewRoute2ProviderServiceServiceClient(cc),
+	}
+}
+
+// GetSessionInfo calls the GetSessionInfo RPC.
+func (c *Route2ProviderServiceClient) GetSessionInfo(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.GetSessionInfo(ctx, &pb.GetSessionInfoRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// NotifyRequestFailed calls the NotifyRequestFailed RPC.
+func (c *Route2ProviderServiceClient) NotifyRequestFailed(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.NotifyRequestFailed(ctx, &pb.NotifyRequestFailedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// NotifySessionCreated calls the NotifySessionCreated RPC.
+func (c *Route2ProviderServiceClient) NotifySessionCreated(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.NotifySessionCreated(ctx, &pb.NotifySessionCreatedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// NotifySessionReleased calls the NotifySessionReleased RPC.
+func (c *Route2ProviderServiceClient) NotifySessionReleased(ctx context.Context, arg0 string) error {
+	_, err := c.svc.NotifySessionReleased(ctx, &pb.NotifySessionReleasedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// NotifySessionUpdated calls the NotifySessionUpdated RPC.
+func (c *Route2ProviderServiceClient) NotifySessionUpdated(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.NotifySessionUpdated(ctx, &pb.NotifySessionUpdatedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnBind calls the OnBind RPC.
+func (c *Route2ProviderServiceClient) OnBind(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.OnBind(ctx, &pb.OnBindRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnCreateSession calls the OnCreateSession RPC.
+func (c *Route2ProviderServiceClient) OnCreateSession(ctx context.Context, arg0 int64, arg1 string, arg2 string, arg3 int64) error {
+	_, err := c.svc.OnCreateSession(ctx, &pb.OnCreateSessionRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// OnDeselectRoute calls the OnDeselectRoute RPC.
+func (c *Route2ProviderServiceClient) OnDeselectRoute(ctx context.Context, arg0 int64, arg1 string, arg2 string) error {
+	_, err := c.svc.OnDeselectRoute(ctx, &pb.OnDeselectRouteRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// OnDiscoveryPreferenceChanged calls the OnDiscoveryPreferenceChanged RPC.
+func (c *Route2ProviderServiceClient) OnDiscoveryPreferenceChanged(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnDiscoveryPreferenceChanged(ctx, &pb.OnDiscoveryPreferenceChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnReleaseSession calls the OnReleaseSession RPC.
+func (c *Route2ProviderServiceClient) OnReleaseSession(ctx context.Context, arg0 int64, arg1 string) error {
+	_, err := c.svc.OnReleaseSession(ctx, &pb.OnReleaseSessionRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnSelectRoute calls the OnSelectRoute RPC.
+func (c *Route2ProviderServiceClient) OnSelectRoute(ctx context.Context, arg0 int64, arg1 string, arg2 string) error {
+	_, err := c.svc.OnSelectRoute(ctx, &pb.OnSelectRouteRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// OnSetRouteVolume calls the OnSetRouteVolume RPC.
+func (c *Route2ProviderServiceClient) OnSetRouteVolume(ctx context.Context, arg0 int64, arg1 string, arg2 int32) error {
+	_, err := c.svc.OnSetRouteVolume(ctx, &pb.OnSetRouteVolumeRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// OnSetSessionVolume calls the OnSetSessionVolume RPC.
+func (c *Route2ProviderServiceClient) OnSetSessionVolume(ctx context.Context, arg0 int64, arg1 string, arg2 int32) error {
+	_, err := c.svc.OnSetSessionVolume(ctx, &pb.OnSetSessionVolumeRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// OnTransferToRoute calls the OnTransferToRoute RPC.
+func (c *Route2ProviderServiceClient) OnTransferToRoute(ctx context.Context, arg0 int64, arg1 string, arg2 string) error {
+	_, err := c.svc.OnTransferToRoute(ctx, &pb.OnTransferToRouteRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// AudioPresentationClient wraps the gRPC AudioPresentationService client.
+type AudioPresentationClient struct {
+	svc pb.AudioPresentationServiceClient
+}
+
+// NewAudioPresentationClient creates a new AudioPresentation client.
+func NewAudioPresentationClient(cc grpc.ClientConnInterface) *AudioPresentationClient {
+	return &AudioPresentationClient{
+		svc: pb.NewAudioPresentationServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *AudioPresentationClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *AudioPresentationClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLocale calls the GetLocale RPC.
+func (c *AudioPresentationClient) GetLocale(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetLocale(ctx, &pb.GetLocaleRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMasteringIndication calls the GetMasteringIndication RPC.
+func (c *AudioPresentationClient) GetMasteringIndication(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMasteringIndication(ctx, &pb.GetMasteringIndicationRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPresentationId calls the GetPresentationId RPC.
+func (c *AudioPresentationClient) GetPresentationId(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetPresentationId(ctx, &pb.GetPresentationIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetProgramId calls the GetProgramId RPC.
+func (c *AudioPresentationClient) GetProgramId(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetProgramId(ctx, &pb.GetProgramIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasAudioDescription calls the HasAudioDescription RPC.
+func (c *AudioPresentationClient) HasAudioDescription(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasAudioDescription(ctx, &pb.HasAudioDescriptionRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasDialogueEnhancement calls the HasDialogueEnhancement RPC.
+func (c *AudioPresentationClient) HasDialogueEnhancement(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasDialogueEnhancement(ctx, &pb.HasDialogueEnhancementRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasSpokenSubtitles calls the HasSpokenSubtitles RPC.
+func (c *AudioPresentationClient) HasSpokenSubtitles(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasSpokenSubtitles(ctx, &pb.HasSpokenSubtitlesRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *AudioPresentationClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *AudioPresentationClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *AudioPresentationClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// AudioPresentationBuilderClient wraps the gRPC AudioPresentationBuilderService client.
+type AudioPresentationBuilderClient struct {
+	svc pb.AudioPresentationBuilderServiceClient
+}
+
+// NewAudioPresentationBuilderClient creates a new AudioPresentationBuilder client.
+func NewAudioPresentationBuilderClient(cc grpc.ClientConnInterface) *AudioPresentationBuilderClient {
+	return &AudioPresentationBuilderClient{
+		svc: pb.NewAudioPresentationBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *AudioPresentationBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetHasAudioDescription calls the SetHasAudioDescription RPC.
+func (c *AudioPresentationBuilderClient) SetHasAudioDescription(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetHasAudioDescription(ctx, &pb.SetHasAudioDescriptionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetHasDialogueEnhancement calls the SetHasDialogueEnhancement RPC.
+func (c *AudioPresentationBuilderClient) SetHasDialogueEnhancement(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetHasDialogueEnhancement(ctx, &pb.SetHasDialogueEnhancementRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetHasSpokenSubtitles calls the SetHasSpokenSubtitles RPC.
+func (c *AudioPresentationBuilderClient) SetHasSpokenSubtitles(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetHasSpokenSubtitles(ctx, &pb.SetHasSpokenSubtitlesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetLocale calls the SetLocale RPC.
+func (c *AudioPresentationBuilderClient) SetLocale(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetLocale(ctx, &pb.SetLocaleRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetMasteringIndication calls the SetMasteringIndication RPC.
+func (c *AudioPresentationBuilderClient) SetMasteringIndication(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetMasteringIndication(ctx, &pb.SetMasteringIndicationRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetProgramId calls the SetProgramId RPC.
+func (c *AudioPresentationBuilderClient) SetProgramId(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetProgramId(ctx, &pb.SetProgramIdRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CasClient wraps the gRPC CasService client.
+type CasClient struct {
+	svc pb.CasServiceClient
+}
+
+// NewCasClient creates a new Cas client.
+func NewCasClient(cc grpc.ClientConnInterface) *CasClient {
+	return &CasClient{
+		svc: pb.NewCasServiceClient(cc),
+	}
+}
+
+// Close calls the Close RPC.
+func (c *CasClient) Close(ctx context.Context, handle int64) error {
+	_, err := c.svc.Close(ctx, &pb.CloseRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// OpenSession0 calls the OpenSession0 RPC.
+func (c *CasClient) OpenSession0(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.OpenSession0(ctx, &pb.OpenSession0Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OpenSession2_1 calls the OpenSession2_1 RPC.
+func (c *CasClient) OpenSession2_1(ctx context.Context, handle int64, arg0 int32, arg1 int32) (int64, error) {
+	resp, err := c.svc.OpenSession2_1(ctx, &pb.OpenSession2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ProcessEmm1 calls the ProcessEmm1 RPC.
+func (c *CasClient) ProcessEmm1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.ProcessEmm1(ctx, &pb.ProcessEmm1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// ProcessEmm3_1 calls the ProcessEmm3_1 RPC.
+func (c *CasClient) ProcessEmm3_1(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int32) error {
+	_, err := c.svc.ProcessEmm3_1(ctx, &pb.ProcessEmm3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// Provision calls the Provision RPC.
+func (c *CasClient) Provision(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.Provision(ctx, &pb.ProvisionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// RefreshEntitlements calls the RefreshEntitlements RPC.
+func (c *CasClient) RefreshEntitlements(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
+	_, err := c.svc.RefreshEntitlements(ctx, &pb.RefreshEntitlementsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SendEvent calls the SendEvent RPC.
+func (c *CasClient) SendEvent(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.SendEvent(ctx, &pb.SendEventRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// SetPrivateData calls the SetPrivateData RPC.
+func (c *CasClient) SetPrivateData(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetPrivateData(ctx, &pb.SetPrivateDataRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// EnumeratePlugins calls the EnumeratePlugins RPC.
+func (c *CasClient) EnumeratePlugins(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.EnumeratePlugins(ctx, &pb.EnumeratePluginsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsSystemIdSupported calls the IsSystemIdSupported RPC.
+func (c *CasClient) IsSystemIdSupported(ctx context.Context, handle int64, arg0 int32) (bool, error) {
+	resp, err := c.svc.IsSystemIdSupported(ctx, &pb.IsSystemIdSupportedRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CasEventListenerClient wraps the gRPC CasEventListenerService client.
+type CasEventListenerClient struct {
+	svc pb.CasEventListenerServiceClient
+}
+
+// NewCasEventListenerClient creates a new CasEventListener client.
+func NewCasEventListenerClient(cc grpc.ClientConnInterface) *CasEventListenerClient {
+	return &CasEventListenerClient{
+		svc: pb.NewCasEventListenerServiceClient(cc),
+	}
+}
+
+// OnEvent calls the OnEvent RPC.
+func (c *CasEventListenerClient) OnEvent(ctx context.Context, arg0 int64, arg1 int32, arg2 int32, arg3 int64) error {
+	_, err := c.svc.OnEvent(ctx, &pb.OnEventRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// CasPluginDescriptorClient wraps the gRPC CasPluginDescriptorService client.
+type CasPluginDescriptorClient struct {
+	svc pb.CasPluginDescriptorServiceClient
+}
+
+// NewCasPluginDescriptorClient creates a new CasPluginDescriptor client.
+func NewCasPluginDescriptorClient(cc grpc.ClientConnInterface) *CasPluginDescriptorClient {
+	return &CasPluginDescriptorClient{
+		svc: pb.NewCasPluginDescriptorServiceClient(cc),
+	}
+}
+
+// GetName calls the GetName RPC.
+func (c *CasPluginDescriptorClient) GetName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetName(ctx, &pb.GetNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSystemId calls the GetSystemId RPC.
+func (c *CasPluginDescriptorClient) GetSystemId(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetSystemId(ctx, &pb.GetSystemIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *CasPluginDescriptorClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// CasSessionClient wraps the gRPC CasSessionService client.
+type CasSessionClient struct {
+	svc pb.CasSessionServiceClient
+}
+
+// NewCasSessionClient creates a new CasSession client.
+func NewCasSessionClient(cc grpc.ClientConnInterface) *CasSessionClient {
+	return &CasSessionClient{
+		svc: pb.NewCasSessionServiceClient(cc),
+	}
+}
+
+// Close calls the Close RPC.
+func (c *CasSessionClient) Close(ctx context.Context) error {
+	_, err := c.svc.Close(ctx, &pb.CasSessionCloseRequest{})
+	return err
+}
+
+// Equals calls the Equals RPC.
+func (c *CasSessionClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSessionId calls the GetSessionId RPC.
+func (c *CasSessionClient) GetSessionId(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSessionId(ctx, &pb.GetSessionIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ProcessEcm1 calls the ProcessEcm1 RPC.
+func (c *CasSessionClient) ProcessEcm1(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.ProcessEcm1(ctx, &pb.ProcessEcm1Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ProcessEcm3_1 calls the ProcessEcm3_1 RPC.
+func (c *CasSessionClient) ProcessEcm3_1(ctx context.Context, arg0 int64, arg1 int32, arg2 int32) error {
+	_, err := c.svc.ProcessEcm3_1(ctx, &pb.ProcessEcm3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// SendSessionEvent calls the SendSessionEvent RPC.
+func (c *CasSessionClient) SendSessionEvent(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.SendSessionEvent(ctx, &pb.SendSessionEventRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// SetPrivateData calls the SetPrivateData RPC.
+func (c *CasSessionClient) SetPrivateData(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetPrivateData(ctx, &pb.CasSessionSetPrivateDataRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// DescramblerClient wraps the gRPC DescramblerService client.
+type DescramblerClient struct {
+	svc pb.DescramblerServiceClient
+}
+
+// NewDescramblerClient creates a new Descrambler client.
+func NewDescramblerClient(cc grpc.ClientConnInterface) *DescramblerClient {
+	return &DescramblerClient{
+		svc: pb.NewDescramblerServiceClient(cc),
+	}
+}
+
+// Close calls the Close RPC.
+func (c *DescramblerClient) Close(ctx context.Context, handle int64) error {
+	_, err := c.svc.Close(ctx, &pb.CloseRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// RequiresSecureDecoderComponent calls the RequiresSecureDecoderComponent RPC.
+func (c *DescramblerClient) RequiresSecureDecoderComponent(ctx context.Context, handle int64, arg0 string) (bool, error) {
+	resp, err := c.svc.RequiresSecureDecoderComponent(ctx, &pb.RequiresSecureDecoderComponentRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetMediaCasSession calls the SetMediaCasSession RPC.
+func (c *DescramblerClient) SetMediaCasSession(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetMediaCasSession(ctx, &pb.SetMediaCasSessionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// AudioMixerAttributesClient wraps the gRPC AudioMixerAttributesService client.
+type AudioMixerAttributesClient struct {
+	svc pb.AudioMixerAttributesServiceClient
+}
+
+// NewAudioMixerAttributesClient creates a new AudioMixerAttributes client.
+func NewAudioMixerAttributesClient(cc grpc.ClientConnInterface) *AudioMixerAttributesClient {
+	return &AudioMixerAttributesClient{
+		svc: pb.NewAudioMixerAttributesServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *AudioMixerAttributesClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *AudioMixerAttributesClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFormat calls the GetFormat RPC.
+func (c *AudioMixerAttributesClient) GetFormat(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetFormat(ctx, &pb.GetFormatRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMixerBehavior calls the GetMixerBehavior RPC.
+func (c *AudioMixerAttributesClient) GetMixerBehavior(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMixerBehavior(ctx, &pb.GetMixerBehaviorRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *AudioMixerAttributesClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *AudioMixerAttributesClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *AudioMixerAttributesClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// AudioMixerAttributesBuilderClient wraps the gRPC AudioMixerAttributesBuilderService client.
+type AudioMixerAttributesBuilderClient struct {
+	svc pb.AudioMixerAttributesBuilderServiceClient
+}
+
+// NewAudioMixerAttributesBuilderClient creates a new AudioMixerAttributesBuilder client.
+func NewAudioMixerAttributesBuilderClient(cc grpc.ClientConnInterface) *AudioMixerAttributesBuilderClient {
+	return &AudioMixerAttributesBuilderClient{
+		svc: pb.NewAudioMixerAttributesBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *AudioMixerAttributesBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetMixerBehavior calls the SetMixerBehavior RPC.
+func (c *AudioMixerAttributesBuilderClient) SetMixerBehavior(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetMixerBehavior(ctx, &pb.SetMixerBehaviorRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AudioRecordingConfigurationClient wraps the gRPC AudioRecordingConfigurationService client.
+type AudioRecordingConfigurationClient struct {
+	svc pb.AudioRecordingConfigurationServiceClient
+}
+
+// NewAudioRecordingConfigurationClient creates a new AudioRecordingConfiguration client.
+func NewAudioRecordingConfigurationClient(cc grpc.ClientConnInterface) *AudioRecordingConfigurationClient {
+	return &AudioRecordingConfigurationClient{
+		svc: pb.NewAudioRecordingConfigurationServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *AudioRecordingConfigurationClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *AudioRecordingConfigurationClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAudioDevice calls the GetAudioDevice RPC.
+func (c *AudioRecordingConfigurationClient) GetAudioDevice(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAudioDevice(ctx, &pb.GetAudioDeviceRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAudioSource calls the GetAudioSource RPC.
+func (c *AudioRecordingConfigurationClient) GetAudioSource(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetAudioSource(ctx, &pb.GetAudioSourceRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetClientAudioSessionId calls the GetClientAudioSessionId RPC.
+func (c *AudioRecordingConfigurationClient) GetClientAudioSessionId(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetClientAudioSessionId(ctx, &pb.GetClientAudioSessionIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetClientAudioSource calls the GetClientAudioSource RPC.
+func (c *AudioRecordingConfigurationClient) GetClientAudioSource(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetClientAudioSource(ctx, &pb.GetClientAudioSourceRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetClientFormat calls the GetClientFormat RPC.
+func (c *AudioRecordingConfigurationClient) GetClientFormat(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetClientFormat(ctx, &pb.GetClientFormatRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFormat calls the GetFormat RPC.
+func (c *AudioRecordingConfigurationClient) GetFormat(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetFormat(ctx, &pb.GetFormatRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *AudioRecordingConfigurationClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsClientSilenced calls the IsClientSilenced RPC.
+func (c *AudioRecordingConfigurationClient) IsClientSilenced(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsClientSilenced(ctx, &pb.IsClientSilencedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *AudioRecordingConfigurationClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// DrmClient wraps the gRPC DrmService client.
+type DrmClient struct {
+	svc pb.DrmServiceClient
+}
+
+// NewDrmClient creates a new Drm client.
+func NewDrmClient(cc grpc.ClientConnInterface) *DrmClient {
+	return &DrmClient{
+		svc: pb.NewDrmServiceClient(cc),
+	}
+}
+
+// ClearOnEventListener calls the ClearOnEventListener RPC.
+func (c *DrmClient) ClearOnEventListener(ctx context.Context, handle int64) error {
+	_, err := c.svc.ClearOnEventListener(ctx, &pb.ClearOnEventListenerRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// ClearOnExpirationUpdateListener calls the ClearOnExpirationUpdateListener RPC.
+func (c *DrmClient) ClearOnExpirationUpdateListener(ctx context.Context, handle int64) error {
+	_, err := c.svc.ClearOnExpirationUpdateListener(ctx, &pb.ClearOnExpirationUpdateListenerRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// ClearOnKeyStatusChangeListener calls the ClearOnKeyStatusChangeListener RPC.
+func (c *DrmClient) ClearOnKeyStatusChangeListener(ctx context.Context, handle int64) error {
+	_, err := c.svc.ClearOnKeyStatusChangeListener(ctx, &pb.ClearOnKeyStatusChangeListenerRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// ClearOnSessionLostStateListener calls the ClearOnSessionLostStateListener RPC.
+func (c *DrmClient) ClearOnSessionLostStateListener(ctx context.Context, handle int64) error {
+	_, err := c.svc.ClearOnSessionLostStateListener(ctx, &pb.ClearOnSessionLostStateListenerRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// Close calls the Close RPC.
+func (c *DrmClient) Close(ctx context.Context, handle int64) error {
+	_, err := c.svc.Close(ctx, &pb.CloseRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// CloseSession calls the CloseSession RPC.
+func (c *DrmClient) CloseSession(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.CloseSession(ctx, &pb.CloseSessionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// GetConnectedHdcpLevel calls the GetConnectedHdcpLevel RPC.
+func (c *DrmClient) GetConnectedHdcpLevel(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetConnectedHdcpLevel(ctx, &pb.GetConnectedHdcpLevelRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCryptoSession calls the GetCryptoSession RPC.
+func (c *DrmClient) GetCryptoSession(ctx context.Context, handle int64, arg0 int64, arg1 string, arg2 string) (int64, error) {
+	resp, err := c.svc.GetCryptoSession(ctx, &pb.GetCryptoSessionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMaxHdcpLevel calls the GetMaxHdcpLevel RPC.
+func (c *DrmClient) GetMaxHdcpLevel(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetMaxHdcpLevel(ctx, &pb.GetMaxHdcpLevelRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMaxSessionCount calls the GetMaxSessionCount RPC.
+func (c *DrmClient) GetMaxSessionCount(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetMaxSessionCount(ctx, &pb.GetMaxSessionCountRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMetrics calls the GetMetrics RPC.
+func (c *DrmClient) GetMetrics(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetMetrics(ctx, &pb.GetMetricsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOfflineLicenseState calls the GetOfflineLicenseState RPC.
+func (c *DrmClient) GetOfflineLicenseState(ctx context.Context, handle int64, arg0 int64) (int32, error) {
+	resp, err := c.svc.GetOfflineLicenseState(ctx, &pb.GetOfflineLicenseStateRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOpenSessionCount calls the GetOpenSessionCount RPC.
+func (c *DrmClient) GetOpenSessionCount(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetOpenSessionCount(ctx, &pb.GetOpenSessionCountRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPlaybackComponent calls the GetPlaybackComponent RPC.
+func (c *DrmClient) GetPlaybackComponent(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetPlaybackComponent(ctx, &pb.GetPlaybackComponentRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPropertyByteArray calls the GetPropertyByteArray RPC.
+func (c *DrmClient) GetPropertyByteArray(ctx context.Context, handle int64, arg0 string) (int64, error) {
+	resp, err := c.svc.GetPropertyByteArray(ctx, &pb.GetPropertyByteArrayRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPropertyString calls the GetPropertyString RPC.
+func (c *DrmClient) GetPropertyString(ctx context.Context, handle int64, arg0 string) (string, error) {
+	resp, err := c.svc.GetPropertyString(ctx, &pb.GetPropertyStringRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetProvisionRequest calls the GetProvisionRequest RPC.
+func (c *DrmClient) GetProvisionRequest(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetProvisionRequest(ctx, &pb.GetProvisionRequestRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSecureStop calls the GetSecureStop RPC.
+func (c *DrmClient) GetSecureStop(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetSecureStop(ctx, &pb.GetSecureStopRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSecurityLevel calls the GetSecurityLevel RPC.
+func (c *DrmClient) GetSecurityLevel(ctx context.Context, handle int64, arg0 int64) (int32, error) {
+	resp, err := c.svc.GetSecurityLevel(ctx, &pb.GetSecurityLevelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OpenSession0 calls the OpenSession0 RPC.
+func (c *DrmClient) OpenSession0(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.OpenSession0(ctx, &pb.OpenSession0Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OpenSession1_1 calls the OpenSession1_1 RPC.
+func (c *DrmClient) OpenSession1_1(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.OpenSession1_1(ctx, &pb.OpenSession1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ProvideKeyResponse calls the ProvideKeyResponse RPC.
+func (c *DrmClient) ProvideKeyResponse(ctx context.Context, handle int64, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.ProvideKeyResponse(ctx, &pb.ProvideKeyResponseRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ProvideProvisionResponse calls the ProvideProvisionResponse RPC.
+func (c *DrmClient) ProvideProvisionResponse(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.ProvideProvisionResponse(ctx, &pb.ProvideProvisionResponseRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// Release calls the Release RPC.
+func (c *DrmClient) Release(ctx context.Context, handle int64) error {
+	_, err := c.svc.Release(ctx, &pb.ReleaseRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// ReleaseAllSecureStops calls the ReleaseAllSecureStops RPC.
+func (c *DrmClient) ReleaseAllSecureStops(ctx context.Context, handle int64) error {
+	_, err := c.svc.ReleaseAllSecureStops(ctx, &pb.ReleaseAllSecureStopsRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// ReleaseSecureStops calls the ReleaseSecureStops RPC.
+func (c *DrmClient) ReleaseSecureStops(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.ReleaseSecureStops(ctx, &pb.ReleaseSecureStopsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// RemoveAllSecureStops calls the RemoveAllSecureStops RPC.
+func (c *DrmClient) RemoveAllSecureStops(ctx context.Context, handle int64) error {
+	_, err := c.svc.RemoveAllSecureStops(ctx, &pb.RemoveAllSecureStopsRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// RemoveKeys calls the RemoveKeys RPC.
+func (c *DrmClient) RemoveKeys(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.RemoveKeys(ctx, &pb.RemoveKeysRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// RemoveOfflineLicense calls the RemoveOfflineLicense RPC.
+func (c *DrmClient) RemoveOfflineLicense(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.RemoveOfflineLicense(ctx, &pb.RemoveOfflineLicenseRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// RemoveSecureStop calls the RemoveSecureStop RPC.
+func (c *DrmClient) RemoveSecureStop(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.RemoveSecureStop(ctx, &pb.RemoveSecureStopRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// RequiresSecureDecoder1 calls the RequiresSecureDecoder1 RPC.
+func (c *DrmClient) RequiresSecureDecoder1(ctx context.Context, handle int64, arg0 string) (bool, error) {
+	resp, err := c.svc.RequiresSecureDecoder1(ctx, &pb.RequiresSecureDecoder1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RequiresSecureDecoder2_1 calls the RequiresSecureDecoder2_1 RPC.
+func (c *DrmClient) RequiresSecureDecoder2_1(ctx context.Context, handle int64, arg0 string, arg1 int32) (bool, error) {
+	resp, err := c.svc.RequiresSecureDecoder2_1(ctx, &pb.RequiresSecureDecoder2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RestoreKeys calls the RestoreKeys RPC.
+func (c *DrmClient) RestoreKeys(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
+	_, err := c.svc.RestoreKeys(ctx, &pb.RestoreKeysRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SetOnEventListener1 calls the SetOnEventListener1 RPC.
+func (c *DrmClient) SetOnEventListener1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetOnEventListener1(ctx, &pb.SetOnEventListener1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetOnEventListener2_1 calls the SetOnEventListener2_1 RPC.
+func (c *DrmClient) SetOnEventListener2_1(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
+	_, err := c.svc.SetOnEventListener2_1(ctx, &pb.SetOnEventListener2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SetOnExpirationUpdateListener calls the SetOnExpirationUpdateListener RPC.
+func (c *DrmClient) SetOnExpirationUpdateListener(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
+	_, err := c.svc.SetOnExpirationUpdateListener(ctx, &pb.SetOnExpirationUpdateListenerRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SetOnKeyStatusChangeListener calls the SetOnKeyStatusChangeListener RPC.
+func (c *DrmClient) SetOnKeyStatusChangeListener(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
+	_, err := c.svc.SetOnKeyStatusChangeListener(ctx, &pb.SetOnKeyStatusChangeListenerRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SetOnSessionLostStateListener calls the SetOnSessionLostStateListener RPC.
+func (c *DrmClient) SetOnSessionLostStateListener(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
+	_, err := c.svc.SetOnSessionLostStateListener(ctx, &pb.SetOnSessionLostStateListenerRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SetPropertyByteArray calls the SetPropertyByteArray RPC.
+func (c *DrmClient) SetPropertyByteArray(ctx context.Context, handle int64, arg0 string, arg1 int64) error {
+	_, err := c.svc.SetPropertyByteArray(ctx, &pb.SetPropertyByteArrayRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SetPropertyString calls the SetPropertyString RPC.
+func (c *DrmClient) SetPropertyString(ctx context.Context, handle int64, arg0 string, arg1 string) error {
+	_, err := c.svc.SetPropertyString(ctx, &pb.SetPropertyStringRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GetMaxSecurityLevel calls the GetMaxSecurityLevel RPC.
+func (c *DrmClient) GetMaxSecurityLevel(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetMaxSecurityLevel(ctx, &pb.GetMaxSecurityLevelRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsCryptoSchemeSupported1 calls the IsCryptoSchemeSupported1 RPC.
+func (c *DrmClient) IsCryptoSchemeSupported1(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.IsCryptoSchemeSupported1(ctx, &pb.IsCryptoSchemeSupported1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsCryptoSchemeSupported2_1 calls the IsCryptoSchemeSupported2_1 RPC.
+func (c *DrmClient) IsCryptoSchemeSupported2_1(ctx context.Context, handle int64, arg0 int64, arg1 string) (bool, error) {
+	resp, err := c.svc.IsCryptoSchemeSupported2_1(ctx, &pb.IsCryptoSchemeSupported2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsCryptoSchemeSupported3_2 calls the IsCryptoSchemeSupported3_2 RPC.
+func (c *DrmClient) IsCryptoSchemeSupported3_2(ctx context.Context, handle int64, arg0 int64, arg1 string, arg2 int32) (bool, error) {
+	resp, err := c.svc.IsCryptoSchemeSupported3_2(ctx, &pb.IsCryptoSchemeSupported3_2Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DrmCryptoSessionClient wraps the gRPC DrmCryptoSessionService client.
+type DrmCryptoSessionClient struct {
+	svc pb.DrmCryptoSessionServiceClient
+}
+
+// NewDrmCryptoSessionClient creates a new DrmCryptoSession client.
+func NewDrmCryptoSessionClient(cc grpc.ClientConnInterface) *DrmCryptoSessionClient {
+	return &DrmCryptoSessionClient{
+		svc: pb.NewDrmCryptoSessionServiceClient(cc),
+	}
+}
+
+// Decrypt calls the Decrypt RPC.
+func (c *DrmCryptoSessionClient) Decrypt(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.Decrypt(ctx, &pb.DecryptRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Encrypt calls the Encrypt RPC.
+func (c *DrmCryptoSessionClient) Encrypt(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.Encrypt(ctx, &pb.EncryptRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Sign calls the Sign RPC.
+func (c *DrmCryptoSessionClient) Sign(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.Sign(ctx, &pb.SignRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Verify calls the Verify RPC.
+func (c *DrmCryptoSessionClient) Verify(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (bool, error) {
+	resp, err := c.svc.Verify(ctx, &pb.VerifyRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DrmKeyRequestClient wraps the gRPC DrmKeyRequestService client.
+type DrmKeyRequestClient struct {
+	svc pb.DrmKeyRequestServiceClient
+}
+
+// NewDrmKeyRequestClient creates a new DrmKeyRequest client.
+func NewDrmKeyRequestClient(cc grpc.ClientConnInterface) *DrmKeyRequestClient {
+	return &DrmKeyRequestClient{
+		svc: pb.NewDrmKeyRequestServiceClient(cc),
+	}
+}
+
+// GetData calls the GetData RPC.
+func (c *DrmKeyRequestClient) GetData(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetData(ctx, &pb.DrmKeyRequestGetDataRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDefaultUrl calls the GetDefaultUrl RPC.
+func (c *DrmKeyRequestClient) GetDefaultUrl(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetDefaultUrl(ctx, &pb.GetDefaultUrlRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRequestType calls the GetRequestType RPC.
+func (c *DrmKeyRequestClient) GetRequestType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetRequestType(ctx, &pb.GetRequestTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DrmKeyStatusClient wraps the gRPC DrmKeyStatusService client.
+type DrmKeyStatusClient struct {
+	svc pb.DrmKeyStatusServiceClient
+}
+
+// NewDrmKeyStatusClient creates a new DrmKeyStatus client.
+func NewDrmKeyStatusClient(cc grpc.ClientConnInterface) *DrmKeyStatusClient {
+	return &DrmKeyStatusClient{
+		svc: pb.NewDrmKeyStatusServiceClient(cc),
+	}
+}
+
+// GetKeyId calls the GetKeyId RPC.
+func (c *DrmKeyStatusClient) GetKeyId(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetKeyId(ctx, &pb.GetKeyIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStatusCode calls the GetStatusCode RPC.
+func (c *DrmKeyStatusClient) GetStatusCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetStatusCode(ctx, &pb.GetStatusCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DrmLogMessageClient wraps the gRPC DrmLogMessageService client.
+type DrmLogMessageClient struct {
+	svc pb.DrmLogMessageServiceClient
+}
+
+// NewDrmLogMessageClient creates a new DrmLogMessage client.
+func NewDrmLogMessageClient(cc grpc.ClientConnInterface) *DrmLogMessageClient {
+	return &DrmLogMessageClient{
+		svc: pb.NewDrmLogMessageServiceClient(cc),
+	}
+}
+
+// GetMessage calls the GetMessage RPC.
+func (c *DrmLogMessageClient) GetMessage(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetMessage(ctx, &pb.GetMessageRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPriority calls the GetPriority RPC.
+func (c *DrmLogMessageClient) GetPriority(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetPriority(ctx, &pb.GetPriorityRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTimestampMillis calls the GetTimestampMillis RPC.
+func (c *DrmLogMessageClient) GetTimestampMillis(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTimestampMillis(ctx, &pb.GetTimestampMillisRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *DrmLogMessageClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// DrmMediaDrmStateExceptionClient wraps the gRPC DrmMediaDrmStateExceptionService client.
+type DrmMediaDrmStateExceptionClient struct {
+	svc pb.DrmMediaDrmStateExceptionServiceClient
+}
+
+// NewDrmMediaDrmStateExceptionClient creates a new DrmMediaDrmStateException client.
+func NewDrmMediaDrmStateExceptionClient(cc grpc.ClientConnInterface) *DrmMediaDrmStateExceptionClient {
+	return &DrmMediaDrmStateExceptionClient{
+		svc: pb.NewDrmMediaDrmStateExceptionServiceClient(cc),
+	}
+}
+
+// GetDiagnosticInfo calls the GetDiagnosticInfo RPC.
+func (c *DrmMediaDrmStateExceptionClient) GetDiagnosticInfo(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetDiagnosticInfo(ctx, &pb.GetDiagnosticInfoRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetErrorCode calls the GetErrorCode RPC.
+func (c *DrmMediaDrmStateExceptionClient) GetErrorCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetErrorCode(ctx, &pb.GetErrorCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetErrorContext calls the GetErrorContext RPC.
+func (c *DrmMediaDrmStateExceptionClient) GetErrorContext(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetErrorContext(ctx, &pb.GetErrorContextRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOemError calls the GetOemError RPC.
+func (c *DrmMediaDrmStateExceptionClient) GetOemError(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetOemError(ctx, &pb.GetOemErrorRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVendorError calls the GetVendorError RPC.
+func (c *DrmMediaDrmStateExceptionClient) GetVendorError(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetVendorError(ctx, &pb.GetVendorErrorRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsTransient calls the IsTransient RPC.
+func (c *DrmMediaDrmStateExceptionClient) IsTransient(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsTransient(ctx, &pb.IsTransientRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DrmOnEventListenerClient wraps the gRPC DrmOnEventListenerService client.
+type DrmOnEventListenerClient struct {
+	svc pb.DrmOnEventListenerServiceClient
+}
+
+// NewDrmOnEventListenerClient creates a new DrmOnEventListener client.
+func NewDrmOnEventListenerClient(cc grpc.ClientConnInterface) *DrmOnEventListenerClient {
+	return &DrmOnEventListenerClient{
+		svc: pb.NewDrmOnEventListenerServiceClient(cc),
+	}
+}
+
+// OnEvent calls the OnEvent RPC.
+func (c *DrmOnEventListenerClient) OnEvent(ctx context.Context, arg0 int64, arg1 int64, arg2 int32, arg3 int32, arg4 int64) error {
+	_, err := c.svc.OnEvent(ctx, &pb.DrmOnEventListenerOnEventRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// DrmOnExpirationUpdateListenerClient wraps the gRPC DrmOnExpirationUpdateListenerService client.
+type DrmOnExpirationUpdateListenerClient struct {
+	svc pb.DrmOnExpirationUpdateListenerServiceClient
+}
+
+// NewDrmOnExpirationUpdateListenerClient creates a new DrmOnExpirationUpdateListener client.
+func NewDrmOnExpirationUpdateListenerClient(cc grpc.ClientConnInterface) *DrmOnExpirationUpdateListenerClient {
+	return &DrmOnExpirationUpdateListenerClient{
+		svc: pb.NewDrmOnExpirationUpdateListenerServiceClient(cc),
+	}
+}
+
+// OnExpirationUpdate calls the OnExpirationUpdate RPC.
+func (c *DrmOnExpirationUpdateListenerClient) OnExpirationUpdate(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.OnExpirationUpdate(ctx, &pb.OnExpirationUpdateRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// DrmOnSessionLostStateListenerClient wraps the gRPC DrmOnSessionLostStateListenerService client.
+type DrmOnSessionLostStateListenerClient struct {
+	svc pb.DrmOnSessionLostStateListenerServiceClient
+}
+
+// NewDrmOnSessionLostStateListenerClient creates a new DrmOnSessionLostStateListener client.
+func NewDrmOnSessionLostStateListenerClient(cc grpc.ClientConnInterface) *DrmOnSessionLostStateListenerClient {
+	return &DrmOnSessionLostStateListenerClient{
+		svc: pb.NewDrmOnSessionLostStateListenerServiceClient(cc),
+	}
+}
+
+// OnSessionLostState calls the OnSessionLostState RPC.
+func (c *DrmOnSessionLostStateListenerClient) OnSessionLostState(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.OnSessionLostState(ctx, &pb.OnSessionLostStateRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// DrmPlaybackComponentClient wraps the gRPC DrmPlaybackComponentService client.
+type DrmPlaybackComponentClient struct {
+	svc pb.DrmPlaybackComponentServiceClient
+}
+
+// NewDrmPlaybackComponentClient creates a new DrmPlaybackComponent client.
+func NewDrmPlaybackComponentClient(cc grpc.ClientConnInterface) *DrmPlaybackComponentClient {
+	return &DrmPlaybackComponentClient{
+		svc: pb.NewDrmPlaybackComponentServiceClient(cc),
+	}
+}
+
+// GetLogSessionId calls the GetLogSessionId RPC.
+func (c *DrmPlaybackComponentClient) GetLogSessionId(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetLogSessionId(ctx, &pb.GetLogSessionIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetLogSessionId calls the SetLogSessionId RPC.
+func (c *DrmPlaybackComponentClient) SetLogSessionId(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetLogSessionId(ctx, &pb.SetLogSessionIdRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// DrmProvisionRequestClient wraps the gRPC DrmProvisionRequestService client.
+type DrmProvisionRequestClient struct {
+	svc pb.DrmProvisionRequestServiceClient
+}
+
+// NewDrmProvisionRequestClient creates a new DrmProvisionRequest client.
+func NewDrmProvisionRequestClient(cc grpc.ClientConnInterface) *DrmProvisionRequestClient {
+	return &DrmProvisionRequestClient{
+		svc: pb.NewDrmProvisionRequestServiceClient(cc),
+	}
+}
+
+// GetData calls the GetData RPC.
+func (c *DrmProvisionRequestClient) GetData(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetData(ctx, &pb.DrmProvisionRequestGetDataRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDefaultUrl calls the GetDefaultUrl RPC.
+func (c *DrmProvisionRequestClient) GetDefaultUrl(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetDefaultUrl(ctx, &pb.GetDefaultUrlRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// DrmSessionExceptionClient wraps the gRPC DrmSessionExceptionService client.
+type DrmSessionExceptionClient struct {
+	svc pb.DrmSessionExceptionServiceClient
+}
+
+// NewDrmSessionExceptionClient creates a new DrmSessionException client.
+func NewDrmSessionExceptionClient(cc grpc.ClientConnInterface) *DrmSessionExceptionClient {
+	return &DrmSessionExceptionClient{
+		svc: pb.NewDrmSessionExceptionServiceClient(cc),
+	}
+}
+
+// GetErrorCode calls the GetErrorCode RPC.
+func (c *DrmSessionExceptionClient) GetErrorCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetErrorCode(ctx, &pb.GetErrorCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetErrorContext calls the GetErrorContext RPC.
+func (c *DrmSessionExceptionClient) GetErrorContext(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetErrorContext(ctx, &pb.GetErrorContextRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOemError calls the GetOemError RPC.
+func (c *DrmSessionExceptionClient) GetOemError(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetOemError(ctx, &pb.GetOemErrorRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVendorError calls the GetVendorError RPC.
+func (c *DrmSessionExceptionClient) GetVendorError(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetVendorError(ctx, &pb.GetVendorErrorRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsTransient calls the IsTransient RPC.
+func (c *DrmSessionExceptionClient) IsTransient(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsTransient(ctx, &pb.IsTransientRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AudioFocusRequestClient wraps the gRPC AudioFocusRequestService client.
+type AudioFocusRequestClient struct {
+	svc pb.AudioFocusRequestServiceClient
+}
+
+// NewAudioFocusRequestClient creates a new AudioFocusRequest client.
+func NewAudioFocusRequestClient(cc grpc.ClientConnInterface) *AudioFocusRequestClient {
+	return &AudioFocusRequestClient{
+		svc: pb.NewAudioFocusRequestServiceClient(cc),
+	}
+}
+
+// AcceptsDelayedFocusGain calls the AcceptsDelayedFocusGain RPC.
+func (c *AudioFocusRequestClient) AcceptsDelayedFocusGain(ctx context.Context) (bool, error) {
+	resp, err := c.svc.AcceptsDelayedFocusGain(ctx, &pb.AcceptsDelayedFocusGainRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAudioAttributes calls the GetAudioAttributes RPC.
+func (c *AudioFocusRequestClient) GetAudioAttributes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAudioAttributes(ctx, &pb.GetAudioAttributesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFocusGain calls the GetFocusGain RPC.
+func (c *AudioFocusRequestClient) GetFocusGain(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetFocusGain(ctx, &pb.GetFocusGainRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WillPauseWhenDucked calls the WillPauseWhenDucked RPC.
+func (c *AudioFocusRequestClient) WillPauseWhenDucked(ctx context.Context) (bool, error) {
+	resp, err := c.svc.WillPauseWhenDucked(ctx, &pb.WillPauseWhenDuckedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AudioFocusRequestBuilderClient wraps the gRPC AudioFocusRequestBuilderService client.
+type AudioFocusRequestBuilderClient struct {
+	svc pb.AudioFocusRequestBuilderServiceClient
+}
+
+// NewAudioFocusRequestBuilderClient creates a new AudioFocusRequestBuilder client.
+func NewAudioFocusRequestBuilderClient(cc grpc.ClientConnInterface) *AudioFocusRequestBuilderClient {
+	return &AudioFocusRequestBuilderClient{
+		svc: pb.NewAudioFocusRequestBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *AudioFocusRequestBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetAcceptsDelayedFocusGain calls the SetAcceptsDelayedFocusGain RPC.
+func (c *AudioFocusRequestBuilderClient) SetAcceptsDelayedFocusGain(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetAcceptsDelayedFocusGain(ctx, &pb.SetAcceptsDelayedFocusGainRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetAudioAttributes calls the SetAudioAttributes RPC.
+func (c *AudioFocusRequestBuilderClient) SetAudioAttributes(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetAudioAttributes(ctx, &pb.SetAudioAttributesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetFocusGain calls the SetFocusGain RPC.
+func (c *AudioFocusRequestBuilderClient) SetFocusGain(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetFocusGain(ctx, &pb.SetFocusGainRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetForceDucking calls the SetForceDucking RPC.
+func (c *AudioFocusRequestBuilderClient) SetForceDucking(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetForceDucking(ctx, &pb.SetForceDuckingRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetOnAudioFocusChangeListener calls the SetOnAudioFocusChangeListener RPC.
+func (c *AudioFocusRequestBuilderClient) SetOnAudioFocusChangeListener(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetOnAudioFocusChangeListener(ctx, &pb.SetOnAudioFocusChangeListenerRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetWillPauseWhenDucked calls the SetWillPauseWhenDucked RPC.
+func (c *AudioFocusRequestBuilderClient) SetWillPauseWhenDucked(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetWillPauseWhenDucked(ctx, &pb.SetWillPauseWhenDuckedRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AudioMetadataReadMapClient wraps the gRPC AudioMetadataReadMapService client.
+type AudioMetadataReadMapClient struct {
+	svc pb.AudioMetadataReadMapServiceClient
+}
+
+// NewAudioMetadataReadMapClient creates a new AudioMetadataReadMap client.
+func NewAudioMetadataReadMapClient(cc grpc.ClientConnInterface) *AudioMetadataReadMapClient {
+	return &AudioMetadataReadMapClient{
+		svc: pb.NewAudioMetadataReadMapServiceClient(cc),
+	}
+}
+
+// Dup calls the Dup RPC.
+func (c *AudioMetadataReadMapClient) Dup(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Dup(ctx, &pb.DupRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Size calls the Size RPC.
+func (c *AudioMetadataReadMapClient) Size(ctx context.Context) (int32, error) {
+	resp, err := c.svc.Size(ctx, &pb.SizeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// EncoderProfilesClient wraps the gRPC EncoderProfilesService client.
+type EncoderProfilesClient struct {
+	svc pb.EncoderProfilesServiceClient
+}
+
+// NewEncoderProfilesClient creates a new EncoderProfiles client.
+func NewEncoderProfilesClient(cc grpc.ClientConnInterface) *EncoderProfilesClient {
+	return &EncoderProfilesClient{
+		svc: pb.NewEncoderProfilesServiceClient(cc),
+	}
+}
+
+// GetDefaultDurationSeconds calls the GetDefaultDurationSeconds RPC.
+func (c *EncoderProfilesClient) GetDefaultDurationSeconds(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetDefaultDurationSeconds(ctx, &pb.GetDefaultDurationSecondsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRecommendedFileFormat calls the GetRecommendedFileFormat RPC.
+func (c *EncoderProfilesClient) GetRecommendedFileFormat(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetRecommendedFileFormat(ctx, &pb.GetRecommendedFileFormatRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// EncoderProfilesAudioProfileClient wraps the gRPC EncoderProfilesAudioProfileService client.
+type EncoderProfilesAudioProfileClient struct {
+	svc pb.EncoderProfilesAudioProfileServiceClient
+}
+
+// NewEncoderProfilesAudioProfileClient creates a new EncoderProfilesAudioProfile client.
+func NewEncoderProfilesAudioProfileClient(cc grpc.ClientConnInterface) *EncoderProfilesAudioProfileClient {
+	return &EncoderProfilesAudioProfileClient{
+		svc: pb.NewEncoderProfilesAudioProfileServiceClient(cc),
+	}
+}
+
+// GetBitrate calls the GetBitrate RPC.
+func (c *EncoderProfilesAudioProfileClient) GetBitrate(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetBitrate(ctx, &pb.GetBitrateRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetChannels calls the GetChannels RPC.
+func (c *EncoderProfilesAudioProfileClient) GetChannels(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetChannels(ctx, &pb.GetChannelsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCodec calls the GetCodec RPC.
+func (c *EncoderProfilesAudioProfileClient) GetCodec(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetCodec(ctx, &pb.GetCodecRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMediaType calls the GetMediaType RPC.
+func (c *EncoderProfilesAudioProfileClient) GetMediaType(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetMediaType(ctx, &pb.GetMediaTypeRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetProfile calls the GetProfile RPC.
+func (c *EncoderProfilesAudioProfileClient) GetProfile(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetProfile(ctx, &pb.GetProfileRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSampleRate calls the GetSampleRate RPC.
+func (c *EncoderProfilesAudioProfileClient) GetSampleRate(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetSampleRate(ctx, &pb.GetSampleRateRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// EncoderProfilesVideoProfileClient wraps the gRPC EncoderProfilesVideoProfileService client.
+type EncoderProfilesVideoProfileClient struct {
+	svc pb.EncoderProfilesVideoProfileServiceClient
+}
+
+// NewEncoderProfilesVideoProfileClient creates a new EncoderProfilesVideoProfile client.
+func NewEncoderProfilesVideoProfileClient(cc grpc.ClientConnInterface) *EncoderProfilesVideoProfileClient {
+	return &EncoderProfilesVideoProfileClient{
+		svc: pb.NewEncoderProfilesVideoProfileServiceClient(cc),
+	}
+}
+
+// GetBitDepth calls the GetBitDepth RPC.
+func (c *EncoderProfilesVideoProfileClient) GetBitDepth(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetBitDepth(ctx, &pb.GetBitDepthRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBitrate calls the GetBitrate RPC.
+func (c *EncoderProfilesVideoProfileClient) GetBitrate(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetBitrate(ctx, &pb.GetBitrateRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetChromaSubsampling calls the GetChromaSubsampling RPC.
+func (c *EncoderProfilesVideoProfileClient) GetChromaSubsampling(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetChromaSubsampling(ctx, &pb.GetChromaSubsamplingRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCodec calls the GetCodec RPC.
+func (c *EncoderProfilesVideoProfileClient) GetCodec(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetCodec(ctx, &pb.GetCodecRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFrameRate calls the GetFrameRate RPC.
+func (c *EncoderProfilesVideoProfileClient) GetFrameRate(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetFrameRate(ctx, &pb.GetFrameRateRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHdrFormat calls the GetHdrFormat RPC.
+func (c *EncoderProfilesVideoProfileClient) GetHdrFormat(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetHdrFormat(ctx, &pb.GetHdrFormatRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHeight calls the GetHeight RPC.
+func (c *EncoderProfilesVideoProfileClient) GetHeight(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetHeight(ctx, &pb.GetHeightRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMediaType calls the GetMediaType RPC.
+func (c *EncoderProfilesVideoProfileClient) GetMediaType(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetMediaType(ctx, &pb.GetMediaTypeRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetProfile calls the GetProfile RPC.
+func (c *EncoderProfilesVideoProfileClient) GetProfile(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetProfile(ctx, &pb.GetProfileRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWidth calls the GetWidth RPC.
+func (c *EncoderProfilesVideoProfileClient) GetWidth(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetWidth(ctx, &pb.GetWidthRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Session2ServiceClient wraps the gRPC Session2ServiceService client.
+type Session2ServiceClient struct {
+	svc pb.Session2ServiceServiceClient
+}
+
+// NewSession2ServiceClient creates a new Session2Service client.
+func NewSession2ServiceClient(cc grpc.ClientConnInterface) *Session2ServiceClient {
+	return &Session2ServiceClient{
+		svc: pb.NewSession2ServiceServiceClient(cc),
+	}
+}
+
+// AddSession calls the AddSession RPC.
+func (c *Session2ServiceClient) AddSession(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.AddSession(ctx, &pb.AddSessionRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnBind calls the OnBind RPC.
+func (c *Session2ServiceClient) OnBind(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.OnBind(ctx, &pb.OnBindRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnCreate calls the OnCreate RPC.
+func (c *Session2ServiceClient) OnCreate(ctx context.Context) error {
+	_, err := c.svc.OnCreate(ctx, &pb.OnCreateRequest{})
+	return err
+}
+
+// OnDestroy calls the OnDestroy RPC.
+func (c *Session2ServiceClient) OnDestroy(ctx context.Context) error {
+	_, err := c.svc.OnDestroy(ctx, &pb.OnDestroyRequest{})
+	return err
+}
+
+// OnGetSession calls the OnGetSession RPC.
+func (c *Session2ServiceClient) OnGetSession(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.OnGetSession(ctx, &pb.OnGetSessionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnUpdateNotification calls the OnUpdateNotification RPC.
+func (c *Session2ServiceClient) OnUpdateNotification(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.OnUpdateNotification(ctx, &pb.OnUpdateNotificationRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RemoveSession calls the RemoveSession RPC.
+func (c *Session2ServiceClient) RemoveSession(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.RemoveSession(ctx, &pb.RemoveSessionRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// Session2ServiceMediaNotificationClient wraps the gRPC Session2ServiceMediaNotificationService client.
+type Session2ServiceMediaNotificationClient struct {
+	svc pb.Session2ServiceMediaNotificationServiceClient
+}
+
+// NewSession2ServiceMediaNotificationClient creates a new Session2ServiceMediaNotification client.
+func NewSession2ServiceMediaNotificationClient(cc grpc.ClientConnInterface) *Session2ServiceMediaNotificationClient {
+	return &Session2ServiceMediaNotificationClient{
+		svc: pb.NewSession2ServiceMediaNotificationServiceClient(cc),
+	}
+}
+
+// GetNotification calls the GetNotification RPC.
+func (c *Session2ServiceMediaNotificationClient) GetNotification(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetNotification(ctx, &pb.GetNotificationRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNotificationId calls the GetNotificationId RPC.
+func (c *Session2ServiceMediaNotificationClient) GetNotificationId(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetNotificationId(ctx, &pb.GetNotificationIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AudioAttributesClient wraps the gRPC AudioAttributesService client.
+type AudioAttributesClient struct {
+	svc pb.AudioAttributesServiceClient
+}
+
+// NewAudioAttributesClient creates a new AudioAttributes client.
+func NewAudioAttributesClient(cc grpc.ClientConnInterface) *AudioAttributesClient {
+	return &AudioAttributesClient{
+		svc: pb.NewAudioAttributesServiceClient(cc),
+	}
+}
+
+// AreHapticChannelsMuted calls the AreHapticChannelsMuted RPC.
+func (c *AudioAttributesClient) AreHapticChannelsMuted(ctx context.Context) (bool, error) {
+	resp, err := c.svc.AreHapticChannelsMuted(ctx, &pb.AreHapticChannelsMutedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *AudioAttributesClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *AudioAttributesClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAllowedCapturePolicy calls the GetAllowedCapturePolicy RPC.
+func (c *AudioAttributesClient) GetAllowedCapturePolicy(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetAllowedCapturePolicy(ctx, &pb.GetAllowedCapturePolicyRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetContentType calls the GetContentType RPC.
+func (c *AudioAttributesClient) GetContentType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetContentType(ctx, &pb.GetContentTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFlags calls the GetFlags RPC.
+func (c *AudioAttributesClient) GetFlags(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetFlags(ctx, &pb.GetFlagsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSpatializationBehavior calls the GetSpatializationBehavior RPC.
+func (c *AudioAttributesClient) GetSpatializationBehavior(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetSpatializationBehavior(ctx, &pb.GetSpatializationBehaviorRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUsage calls the GetUsage RPC.
+func (c *AudioAttributesClient) GetUsage(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetUsage(ctx, &pb.GetUsageRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVolumeControlStream calls the GetVolumeControlStream RPC.
+func (c *AudioAttributesClient) GetVolumeControlStream(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetVolumeControlStream(ctx, &pb.GetVolumeControlStreamRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *AudioAttributesClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsContentSpatialized calls the IsContentSpatialized RPC.
+func (c *AudioAttributesClient) IsContentSpatialized(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsContentSpatialized(ctx, &pb.IsContentSpatializedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *AudioAttributesClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *AudioAttributesClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// AudioAttributesBuilderClient wraps the gRPC AudioAttributesBuilderService client.
+type AudioAttributesBuilderClient struct {
+	svc pb.AudioAttributesBuilderServiceClient
+}
+
+// NewAudioAttributesBuilderClient creates a new AudioAttributesBuilder client.
+func NewAudioAttributesBuilderClient(cc grpc.ClientConnInterface) *AudioAttributesBuilderClient {
+	return &AudioAttributesBuilderClient{
+		svc: pb.NewAudioAttributesBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *AudioAttributesBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetAllowedCapturePolicy calls the SetAllowedCapturePolicy RPC.
+func (c *AudioAttributesBuilderClient) SetAllowedCapturePolicy(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetAllowedCapturePolicy(ctx, &pb.SetAllowedCapturePolicyRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetContentType calls the SetContentType RPC.
+func (c *AudioAttributesBuilderClient) SetContentType(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetContentType(ctx, &pb.SetContentTypeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetFlags calls the SetFlags RPC.
+func (c *AudioAttributesBuilderClient) SetFlags(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetFlags(ctx, &pb.SetFlagsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetHapticChannelsMuted calls the SetHapticChannelsMuted RPC.
+func (c *AudioAttributesBuilderClient) SetHapticChannelsMuted(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetHapticChannelsMuted(ctx, &pb.SetHapticChannelsMutedRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetIsContentSpatialized calls the SetIsContentSpatialized RPC.
+func (c *AudioAttributesBuilderClient) SetIsContentSpatialized(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetIsContentSpatialized(ctx, &pb.SetIsContentSpatializedRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetLegacyStreamType calls the SetLegacyStreamType RPC.
+func (c *AudioAttributesBuilderClient) SetLegacyStreamType(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetLegacyStreamType(ctx, &pb.SetLegacyStreamTypeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSpatializationBehavior calls the SetSpatializationBehavior RPC.
+func (c *AudioAttributesBuilderClient) SetSpatializationBehavior(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetSpatializationBehavior(ctx, &pb.SetSpatializationBehaviorRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetUsage calls the SetUsage RPC.
+func (c *AudioAttributesBuilderClient) SetUsage(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetUsage(ctx, &pb.SetUsageRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DescriptionClient wraps the gRPC DescriptionService client.
+type DescriptionClient struct {
+	svc pb.DescriptionServiceClient
+}
+
+// NewDescriptionClient creates a new Description client.
+func NewDescriptionClient(cc grpc.ClientConnInterface) *DescriptionClient {
+	return &DescriptionClient{
+		svc: pb.NewDescriptionServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *DescriptionClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *DescriptionClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDescription calls the GetDescription RPC.
+func (c *DescriptionClient) GetDescription(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDescription(ctx, &pb.GetDescriptionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExtras calls the GetExtras RPC.
+func (c *DescriptionClient) GetExtras(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetExtras(ctx, &pb.GetExtrasRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIconBitmap calls the GetIconBitmap RPC.
+func (c *DescriptionClient) GetIconBitmap(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetIconBitmap(ctx, &pb.GetIconBitmapRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIconUri calls the GetIconUri RPC.
+func (c *DescriptionClient) GetIconUri(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetIconUri(ctx, &pb.GetIconUriRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMediaId calls the GetMediaId RPC.
+func (c *DescriptionClient) GetMediaId(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetMediaId(ctx, &pb.GetMediaIdRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMediaUri calls the GetMediaUri RPC.
+func (c *DescriptionClient) GetMediaUri(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetMediaUri(ctx, &pb.GetMediaUriRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSubtitle calls the GetSubtitle RPC.
+func (c *DescriptionClient) GetSubtitle(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSubtitle(ctx, &pb.GetSubtitleRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTitle calls the GetTitle RPC.
+func (c *DescriptionClient) GetTitle(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTitle(ctx, &pb.GetTitleRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *DescriptionClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *DescriptionClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// DescriptionBuilderClient wraps the gRPC DescriptionBuilderService client.
+type DescriptionBuilderClient struct {
+	svc pb.DescriptionBuilderServiceClient
+}
+
+// NewDescriptionBuilderClient creates a new DescriptionBuilder client.
+func NewDescriptionBuilderClient(cc grpc.ClientConnInterface) *DescriptionBuilderClient {
+	return &DescriptionBuilderClient{
+		svc: pb.NewDescriptionBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *DescriptionBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetDescription calls the SetDescription RPC.
+func (c *DescriptionBuilderClient) SetDescription(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetDescription(ctx, &pb.SetDescriptionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetExtras calls the SetExtras RPC.
+func (c *DescriptionBuilderClient) SetExtras(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetExtras(ctx, &pb.SetExtrasRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetIconBitmap calls the SetIconBitmap RPC.
+func (c *DescriptionBuilderClient) SetIconBitmap(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetIconBitmap(ctx, &pb.SetIconBitmapRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetIconUri calls the SetIconUri RPC.
+func (c *DescriptionBuilderClient) SetIconUri(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetIconUri(ctx, &pb.SetIconUriRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetMediaId calls the SetMediaId RPC.
+func (c *DescriptionBuilderClient) SetMediaId(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetMediaId(ctx, &pb.SetMediaIdRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetMediaUri calls the SetMediaUri RPC.
+func (c *DescriptionBuilderClient) SetMediaUri(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetMediaUri(ctx, &pb.SetMediaUriRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSubtitle calls the SetSubtitle RPC.
+func (c *DescriptionBuilderClient) SetSubtitle(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetSubtitle(ctx, &pb.SetSubtitleRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetTitle calls the SetTitle RPC.
+func (c *DescriptionBuilderClient) SetTitle(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetTitle(ctx, &pb.SetTitleRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CodecClient wraps the gRPC CodecService client.
+type CodecClient struct {
+	svc pb.CodecServiceClient
+}
+
+// NewCodecClient creates a new Codec client.
+func NewCodecClient(cc grpc.ClientConnInterface) *CodecClient {
+	return &CodecClient{
+		svc: pb.NewCodecServiceClient(cc),
+	}
+}
+
+// Configure4 calls the Configure4 RPC.
+func (c *CodecClient) Configure4(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int32) error {
+	_, err := c.svc.Configure4(ctx, &pb.Configure4Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// Configure4_1 calls the Configure4_1 RPC.
+func (c *CodecClient) Configure4_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int32, arg3 int64) error {
+	_, err := c.svc.Configure4_1(ctx, &pb.Configure4_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// CreateInputSurface calls the CreateInputSurface RPC.
+func (c *CodecClient) CreateInputSurface(ctx context.Context) (int64, error) {
+	resp, err := c.svc.CreateInputSurface(ctx, &pb.CreateInputSurfaceRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DequeueInputBuffer calls the DequeueInputBuffer RPC.
+func (c *CodecClient) DequeueInputBuffer(ctx context.Context, arg0 int64) (int32, error) {
+	resp, err := c.svc.DequeueInputBuffer(ctx, &pb.DequeueInputBufferRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DequeueOutputBuffer calls the DequeueOutputBuffer RPC.
+func (c *CodecClient) DequeueOutputBuffer(ctx context.Context, arg0 int64, arg1 int64) (int32, error) {
+	resp, err := c.svc.DequeueOutputBuffer(ctx, &pb.DequeueOutputBufferRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DetachOutputSurface calls the DetachOutputSurface RPC.
+func (c *CodecClient) DetachOutputSurface(ctx context.Context) error {
+	_, err := c.svc.DetachOutputSurface(ctx, &pb.DetachOutputSurfaceRequest{})
+	return err
+}
+
+// Flush calls the Flush RPC.
+func (c *CodecClient) Flush(ctx context.Context) error {
+	_, err := c.svc.Flush(ctx, &pb.FlushRequest{})
+	return err
+}
+
+// GetCanonicalName calls the GetCanonicalName RPC.
+func (c *CodecClient) GetCanonicalName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetCanonicalName(ctx, &pb.GetCanonicalNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCodecInfo calls the GetCodecInfo RPC.
+func (c *CodecClient) GetCodecInfo(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetCodecInfo(ctx, &pb.GetCodecInfoRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInputBuffer calls the GetInputBuffer RPC.
+func (c *CodecClient) GetInputBuffer(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetInputBuffer(ctx, &pb.GetInputBufferRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInputBuffers calls the GetInputBuffers RPC.
+func (c *CodecClient) GetInputBuffers(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetInputBuffers(ctx, &pb.GetInputBuffersRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInputFormat calls the GetInputFormat RPC.
+func (c *CodecClient) GetInputFormat(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetInputFormat(ctx, &pb.GetInputFormatRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInputImage calls the GetInputImage RPC.
+func (c *CodecClient) GetInputImage(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetInputImage(ctx, &pb.GetInputImageRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMetrics calls the GetMetrics RPC.
+func (c *CodecClient) GetMetrics(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetMetrics(ctx, &pb.CodecGetMetricsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetName calls the GetName RPC.
+func (c *CodecClient) GetName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetName(ctx, &pb.GetNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOutputBuffer calls the GetOutputBuffer RPC.
+func (c *CodecClient) GetOutputBuffer(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetOutputBuffer(ctx, &pb.GetOutputBufferRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOutputBuffers calls the GetOutputBuffers RPC.
+func (c *CodecClient) GetOutputBuffers(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetOutputBuffers(ctx, &pb.GetOutputBuffersRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOutputFormat0 calls the GetOutputFormat0 RPC.
+func (c *CodecClient) GetOutputFormat0(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetOutputFormat0(ctx, &pb.GetOutputFormat0Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOutputFormat1_1 calls the GetOutputFormat1_1 RPC.
+func (c *CodecClient) GetOutputFormat1_1(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetOutputFormat1_1(ctx, &pb.GetOutputFormat1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOutputFrame calls the GetOutputFrame RPC.
+func (c *CodecClient) GetOutputFrame(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetOutputFrame(ctx, &pb.GetOutputFrameRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOutputImage calls the GetOutputImage RPC.
+func (c *CodecClient) GetOutputImage(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetOutputImage(ctx, &pb.GetOutputImageRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetParameterDescriptor calls the GetParameterDescriptor RPC.
+func (c *CodecClient) GetParameterDescriptor(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.GetParameterDescriptor(ctx, &pb.GetParameterDescriptorRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetQueueRequest calls the GetQueueRequest RPC.
+func (c *CodecClient) GetQueueRequest(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetQueueRequest(ctx, &pb.GetQueueRequestRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// QueueInputBuffer calls the QueueInputBuffer RPC.
+func (c *CodecClient) QueueInputBuffer(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64, arg4 int32) error {
+	_, err := c.svc.QueueInputBuffer(ctx, &pb.QueueInputBufferRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// QueueSecureInputBuffer calls the QueueSecureInputBuffer RPC.
+func (c *CodecClient) QueueSecureInputBuffer(ctx context.Context, arg0 int32, arg1 int32, arg2 int64, arg3 int64, arg4 int32) error {
+	_, err := c.svc.QueueSecureInputBuffer(ctx, &pb.QueueSecureInputBufferRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// Release calls the Release RPC.
+func (c *CodecClient) Release(ctx context.Context) error {
+	_, err := c.svc.Release(ctx, &pb.CodecReleaseRequest{})
+	return err
+}
+
+// ReleaseOutputBuffer2 calls the ReleaseOutputBuffer2 RPC.
+func (c *CodecClient) ReleaseOutputBuffer2(ctx context.Context, arg0 int32, arg1 bool) error {
+	_, err := c.svc.ReleaseOutputBuffer2(ctx, &pb.ReleaseOutputBuffer2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ReleaseOutputBuffer2_1 calls the ReleaseOutputBuffer2_1 RPC.
+func (c *CodecClient) ReleaseOutputBuffer2_1(ctx context.Context, arg0 int32, arg1 int64) error {
+	_, err := c.svc.ReleaseOutputBuffer2_1(ctx, &pb.ReleaseOutputBuffer2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// Reset calls the Reset RPC.
+func (c *CodecClient) Reset(ctx context.Context) error {
+	_, err := c.svc.Reset(ctx, &pb.ResetRequest{})
+	return err
+}
+
+// SetAudioPresentation calls the SetAudioPresentation RPC.
+func (c *CodecClient) SetAudioPresentation(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetAudioPresentation(ctx, &pb.SetAudioPresentationRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetCallback calls the SetCallback RPC.
+func (c *CodecClient) SetCallback(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetCallback(ctx, &pb.SetCallbackRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetInputSurface calls the SetInputSurface RPC.
+func (c *CodecClient) SetInputSurface(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetInputSurface(ctx, &pb.SetInputSurfaceRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetOutputSurface calls the SetOutputSurface RPC.
+func (c *CodecClient) SetOutputSurface(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetOutputSurface(ctx, &pb.SetOutputSurfaceRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetParameters calls the SetParameters RPC.
+func (c *CodecClient) SetParameters(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetParameters(ctx, &pb.SetParametersRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetVideoScalingMode calls the SetVideoScalingMode RPC.
+func (c *CodecClient) SetVideoScalingMode(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetVideoScalingMode(ctx, &pb.SetVideoScalingModeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SignalEndOfInputStream calls the SignalEndOfInputStream RPC.
+func (c *CodecClient) SignalEndOfInputStream(ctx context.Context) error {
+	_, err := c.svc.SignalEndOfInputStream(ctx, &pb.SignalEndOfInputStreamRequest{})
+	return err
+}
+
+// Start calls the Start RPC.
+func (c *CodecClient) Start(ctx context.Context) error {
+	_, err := c.svc.Start(ctx, &pb.StartRequest{})
+	return err
+}
+
+// Stop calls the Stop RPC.
+func (c *CodecClient) Stop(ctx context.Context) error {
+	_, err := c.svc.Stop(ctx, &pb.StopRequest{})
+	return err
+}
+
+// CreateByCodecName calls the CreateByCodecName RPC.
+func (c *CodecClient) CreateByCodecName(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.CreateByCodecName(ctx, &pb.CreateByCodecNameRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateDecoderByType calls the CreateDecoderByType RPC.
+func (c *CodecClient) CreateDecoderByType(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.CreateDecoderByType(ctx, &pb.CreateDecoderByTypeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateEncoderByType calls the CreateEncoderByType RPC.
+func (c *CodecClient) CreateEncoderByType(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.CreateEncoderByType(ctx, &pb.CreateEncoderByTypeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreatePersistentInputSurface calls the CreatePersistentInputSurface RPC.
+func (c *CodecClient) CreatePersistentInputSurface(ctx context.Context) (int64, error) {
+	resp, err := c.svc.CreatePersistentInputSurface(ctx, &pb.CreatePersistentInputSurfaceRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MapHardwareBuffer calls the MapHardwareBuffer RPC.
+func (c *CodecClient) MapHardwareBuffer(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.MapHardwareBuffer(ctx, &pb.MapHardwareBufferRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CodecBufferInfoClient wraps the gRPC CodecBufferInfoService client.
+type CodecBufferInfoClient struct {
+	svc pb.CodecBufferInfoServiceClient
+}
+
+// NewCodecBufferInfoClient creates a new CodecBufferInfo client.
+func NewCodecBufferInfoClient(cc grpc.ClientConnInterface) *CodecBufferInfoClient {
+	return &CodecBufferInfoClient{
+		svc: pb.NewCodecBufferInfoServiceClient(cc),
+	}
+}
+
+// Set calls the Set RPC.
+func (c *CodecBufferInfoClient) Set(ctx context.Context, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.Set(ctx, &pb.SetRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// CodecCallbackClient wraps the gRPC CodecCallbackService client.
+type CodecCallbackClient struct {
+	svc pb.CodecCallbackServiceClient
+}
+
+// NewCodecCallbackClient creates a new CodecCallback client.
+func NewCodecCallbackClient(cc grpc.ClientConnInterface) *CodecCallbackClient {
+	return &CodecCallbackClient{
+		svc: pb.NewCodecCallbackServiceClient(cc),
+	}
+}
+
+// OnCryptoError calls the OnCryptoError RPC.
+func (c *CodecCallbackClient) OnCryptoError(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.OnCryptoError(ctx, &pb.OnCryptoErrorRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnError calls the OnError RPC.
+func (c *CodecCallbackClient) OnError(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.OnError(ctx, &pb.OnErrorRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnInputBufferAvailable calls the OnInputBufferAvailable RPC.
+func (c *CodecCallbackClient) OnInputBufferAvailable(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.OnInputBufferAvailable(ctx, &pb.OnInputBufferAvailableRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnMetricsFlushed calls the OnMetricsFlushed RPC.
+func (c *CodecCallbackClient) OnMetricsFlushed(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.OnMetricsFlushed(ctx, &pb.OnMetricsFlushedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnOutputBufferAvailable calls the OnOutputBufferAvailable RPC.
+func (c *CodecCallbackClient) OnOutputBufferAvailable(ctx context.Context, arg0 int64, arg1 int32, arg2 int64) error {
+	_, err := c.svc.OnOutputBufferAvailable(ctx, &pb.OnOutputBufferAvailableRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// OnOutputFormatChanged calls the OnOutputFormatChanged RPC.
+func (c *CodecCallbackClient) OnOutputFormatChanged(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.OnOutputFormatChanged(ctx, &pb.OnOutputFormatChangedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// CodecCodecExceptionClient wraps the gRPC CodecCodecExceptionService client.
+type CodecCodecExceptionClient struct {
+	svc pb.CodecCodecExceptionServiceClient
+}
+
+// NewCodecCodecExceptionClient creates a new CodecCodecException client.
+func NewCodecCodecExceptionClient(cc grpc.ClientConnInterface) *CodecCodecExceptionClient {
+	return &CodecCodecExceptionClient{
+		svc: pb.NewCodecCodecExceptionServiceClient(cc),
+	}
+}
+
+// GetDiagnosticInfo calls the GetDiagnosticInfo RPC.
+func (c *CodecCodecExceptionClient) GetDiagnosticInfo(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetDiagnosticInfo(ctx, &pb.GetDiagnosticInfoRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetErrorCode calls the GetErrorCode RPC.
+func (c *CodecCodecExceptionClient) GetErrorCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetErrorCode(ctx, &pb.GetErrorCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsRecoverable calls the IsRecoverable RPC.
+func (c *CodecCodecExceptionClient) IsRecoverable(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsRecoverable(ctx, &pb.IsRecoverableRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsTransient calls the IsTransient RPC.
+func (c *CodecCodecExceptionClient) IsTransient(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsTransient(ctx, &pb.IsTransientRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CodecCryptoExceptionClient wraps the gRPC CodecCryptoExceptionService client.
+type CodecCryptoExceptionClient struct {
+	svc pb.CodecCryptoExceptionServiceClient
+}
+
+// NewCodecCryptoExceptionClient creates a new CodecCryptoException client.
+func NewCodecCryptoExceptionClient(cc grpc.ClientConnInterface) *CodecCryptoExceptionClient {
+	return &CodecCryptoExceptionClient{
+		svc: pb.NewCodecCryptoExceptionServiceClient(cc),
+	}
+}
+
+// GetCryptoInfo calls the GetCryptoInfo RPC.
+func (c *CodecCryptoExceptionClient) GetCryptoInfo(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetCryptoInfo(ctx, &pb.GetCryptoInfoRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetErrorCode calls the GetErrorCode RPC.
+func (c *CodecCryptoExceptionClient) GetErrorCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetErrorCode(ctx, &pb.GetErrorCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetErrorContext calls the GetErrorContext RPC.
+func (c *CodecCryptoExceptionClient) GetErrorContext(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetErrorContext(ctx, &pb.GetErrorContextRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOemError calls the GetOemError RPC.
+func (c *CodecCryptoExceptionClient) GetOemError(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetOemError(ctx, &pb.GetOemErrorRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVendorError calls the GetVendorError RPC.
+func (c *CodecCryptoExceptionClient) GetVendorError(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetVendorError(ctx, &pb.GetVendorErrorRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CodecCryptoInfoClient wraps the gRPC CodecCryptoInfoService client.
+type CodecCryptoInfoClient struct {
+	svc pb.CodecCryptoInfoServiceClient
+}
+
+// NewCodecCryptoInfoClient creates a new CodecCryptoInfo client.
+func NewCodecCryptoInfoClient(cc grpc.ClientConnInterface) *CodecCryptoInfoClient {
+	return &CodecCryptoInfoClient{
+		svc: pb.NewCodecCryptoInfoServiceClient(cc),
+	}
+}
+
+// GetPattern calls the GetPattern RPC.
+func (c *CodecCryptoInfoClient) GetPattern(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPattern(ctx, &pb.GetPatternRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Set calls the Set RPC.
+func (c *CodecCryptoInfoClient) Set(ctx context.Context, arg0 int32, arg1 int64, arg2 int64, arg3 int64, arg4 int64, arg5 int32) error {
+	_, err := c.svc.Set(ctx, &pb.CodecCryptoInfoSetRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+	})
+	return err
+}
+
+// SetPattern calls the SetPattern RPC.
+func (c *CodecCryptoInfoClient) SetPattern(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetPattern(ctx, &pb.SetPatternRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ToString calls the ToString RPC.
+func (c *CodecCryptoInfoClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// CodecLinearBlockClient wraps the gRPC CodecLinearBlockService client.
+type CodecLinearBlockClient struct {
+	svc pb.CodecLinearBlockServiceClient
+}
+
+// NewCodecLinearBlockClient creates a new CodecLinearBlock client.
+func NewCodecLinearBlockClient(cc grpc.ClientConnInterface) *CodecLinearBlockClient {
+	return &CodecLinearBlockClient{
+		svc: pb.NewCodecLinearBlockServiceClient(cc),
+	}
+}
+
+// IsMappable calls the IsMappable RPC.
+func (c *CodecLinearBlockClient) IsMappable(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsMappable(ctx, &pb.IsMappableRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Map calls the Map RPC.
+func (c *CodecLinearBlockClient) Map(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Map(ctx, &pb.MapRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Recycle calls the Recycle RPC.
+func (c *CodecLinearBlockClient) Recycle(ctx context.Context) error {
+	_, err := c.svc.Recycle(ctx, &pb.RecycleRequest{})
+	return err
+}
+
+// IsCodecCopyFreeCompatible calls the IsCodecCopyFreeCompatible RPC.
+func (c *CodecLinearBlockClient) IsCodecCopyFreeCompatible(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.IsCodecCopyFreeCompatible(ctx, &pb.IsCodecCopyFreeCompatibleRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Obtain calls the Obtain RPC.
+func (c *CodecLinearBlockClient) Obtain(ctx context.Context, arg0 int32, arg1 int64) (int64, error) {
+	resp, err := c.svc.Obtain(ctx, &pb.ObtainRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CodecOnFirstTunnelFrameReadyListenerClient wraps the gRPC CodecOnFirstTunnelFrameReadyListenerService client.
+type CodecOnFirstTunnelFrameReadyListenerClient struct {
+	svc pb.CodecOnFirstTunnelFrameReadyListenerServiceClient
+}
+
+// NewCodecOnFirstTunnelFrameReadyListenerClient creates a new CodecOnFirstTunnelFrameReadyListener client.
+func NewCodecOnFirstTunnelFrameReadyListenerClient(cc grpc.ClientConnInterface) *CodecOnFirstTunnelFrameReadyListenerClient {
+	return &CodecOnFirstTunnelFrameReadyListenerClient{
+		svc: pb.NewCodecOnFirstTunnelFrameReadyListenerServiceClient(cc),
+	}
+}
+
+// OnFirstTunnelFrameReady calls the OnFirstTunnelFrameReady RPC.
+func (c *CodecOnFirstTunnelFrameReadyListenerClient) OnFirstTunnelFrameReady(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnFirstTunnelFrameReady(ctx, &pb.OnFirstTunnelFrameReadyRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// CodecOnFrameRenderedListenerClient wraps the gRPC CodecOnFrameRenderedListenerService client.
+type CodecOnFrameRenderedListenerClient struct {
+	svc pb.CodecOnFrameRenderedListenerServiceClient
+}
+
+// NewCodecOnFrameRenderedListenerClient creates a new CodecOnFrameRenderedListener client.
+func NewCodecOnFrameRenderedListenerClient(cc grpc.ClientConnInterface) *CodecOnFrameRenderedListenerClient {
+	return &CodecOnFrameRenderedListenerClient{
+		svc: pb.NewCodecOnFrameRenderedListenerServiceClient(cc),
+	}
+}
+
+// OnFrameRendered calls the OnFrameRendered RPC.
+func (c *CodecOnFrameRenderedListenerClient) OnFrameRendered(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.OnFrameRendered(ctx, &pb.OnFrameRenderedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// CodecOutputFrameClient wraps the gRPC CodecOutputFrameService client.
+type CodecOutputFrameClient struct {
+	svc pb.CodecOutputFrameServiceClient
+}
+
+// NewCodecOutputFrameClient creates a new CodecOutputFrame client.
+func NewCodecOutputFrameClient(cc grpc.ClientConnInterface) *CodecOutputFrameClient {
+	return &CodecOutputFrameClient{
+		svc: pb.NewCodecOutputFrameServiceClient(cc),
+	}
+}
+
+// GetFlags calls the GetFlags RPC.
+func (c *CodecOutputFrameClient) GetFlags(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetFlags(ctx, &pb.GetFlagsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFormat calls the GetFormat RPC.
+func (c *CodecOutputFrameClient) GetFormat(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetFormat(ctx, &pb.GetFormatRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHardwareBuffer calls the GetHardwareBuffer RPC.
+func (c *CodecOutputFrameClient) GetHardwareBuffer(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetHardwareBuffer(ctx, &pb.GetHardwareBufferRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLinearBlock calls the GetLinearBlock RPC.
+func (c *CodecOutputFrameClient) GetLinearBlock(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetLinearBlock(ctx, &pb.GetLinearBlockRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPresentationTimeUs calls the GetPresentationTimeUs RPC.
+func (c *CodecOutputFrameClient) GetPresentationTimeUs(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPresentationTimeUs(ctx, &pb.GetPresentationTimeUsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CodecParameterDescriptorClient wraps the gRPC CodecParameterDescriptorService client.
+type CodecParameterDescriptorClient struct {
+	svc pb.CodecParameterDescriptorServiceClient
+}
+
+// NewCodecParameterDescriptorClient creates a new CodecParameterDescriptor client.
+func NewCodecParameterDescriptorClient(cc grpc.ClientConnInterface) *CodecParameterDescriptorClient {
+	return &CodecParameterDescriptorClient{
+		svc: pb.NewCodecParameterDescriptorServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *CodecParameterDescriptorClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetName calls the GetName RPC.
+func (c *CodecParameterDescriptorClient) GetName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetName(ctx, &pb.GetNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetType calls the GetType RPC.
+func (c *CodecParameterDescriptorClient) GetType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetType(ctx, &pb.GetTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *CodecParameterDescriptorClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CodecQueueRequestClient wraps the gRPC CodecQueueRequestService client.
+type CodecQueueRequestClient struct {
+	svc pb.CodecQueueRequestServiceClient
+}
+
+// NewCodecQueueRequestClient creates a new CodecQueueRequest client.
+func NewCodecQueueRequestClient(cc grpc.ClientConnInterface) *CodecQueueRequestClient {
+	return &CodecQueueRequestClient{
+		svc: pb.NewCodecQueueRequestServiceClient(cc),
+	}
+}
+
+// Queue calls the Queue RPC.
+func (c *CodecQueueRequestClient) Queue(ctx context.Context) error {
+	_, err := c.svc.Queue(ctx, &pb.QueueRequest{})
+	return err
+}
+
+// SetEncryptedLinearBlock calls the SetEncryptedLinearBlock RPC.
+func (c *CodecQueueRequestClient) SetEncryptedLinearBlock(ctx context.Context, arg0 int64, arg1 int32, arg2 int32, arg3 int64) (int64, error) {
+	resp, err := c.svc.SetEncryptedLinearBlock(ctx, &pb.SetEncryptedLinearBlockRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetFlags calls the SetFlags RPC.
+func (c *CodecQueueRequestClient) SetFlags(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetFlags(ctx, &pb.SetFlagsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetFloatParameter calls the SetFloatParameter RPC.
+func (c *CodecQueueRequestClient) SetFloatParameter(ctx context.Context, arg0 string, arg1 float32) (int64, error) {
+	resp, err := c.svc.SetFloatParameter(ctx, &pb.SetFloatParameterRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetHardwareBuffer calls the SetHardwareBuffer RPC.
+func (c *CodecQueueRequestClient) SetHardwareBuffer(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetHardwareBuffer(ctx, &pb.SetHardwareBufferRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetIntegerParameter calls the SetIntegerParameter RPC.
+func (c *CodecQueueRequestClient) SetIntegerParameter(ctx context.Context, arg0 string, arg1 int32) (int64, error) {
+	resp, err := c.svc.SetIntegerParameter(ctx, &pb.SetIntegerParameterRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetLinearBlock calls the SetLinearBlock RPC.
+func (c *CodecQueueRequestClient) SetLinearBlock(ctx context.Context, arg0 int64, arg1 int32, arg2 int32) (int64, error) {
+	resp, err := c.svc.SetLinearBlock(ctx, &pb.SetLinearBlockRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetLongParameter calls the SetLongParameter RPC.
+func (c *CodecQueueRequestClient) SetLongParameter(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.SetLongParameter(ctx, &pb.SetLongParameterRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPresentationTimeUs calls the SetPresentationTimeUs RPC.
+func (c *CodecQueueRequestClient) SetPresentationTimeUs(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetPresentationTimeUs(ctx, &pb.SetPresentationTimeUsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetStringParameter calls the SetStringParameter RPC.
+func (c *CodecQueueRequestClient) SetStringParameter(ctx context.Context, arg0 string, arg1 string) (int64, error) {
+	resp, err := c.svc.SetStringParameter(ctx, &pb.SetStringParameterRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MicrophoneInfoClient wraps the gRPC MicrophoneInfoService client.
+type MicrophoneInfoClient struct {
+	svc pb.MicrophoneInfoServiceClient
+}
+
+// NewMicrophoneInfoClient creates a new MicrophoneInfo client.
+func NewMicrophoneInfoClient(cc grpc.ClientConnInterface) *MicrophoneInfoClient {
+	return &MicrophoneInfoClient{
+		svc: pb.NewMicrophoneInfoServiceClient(cc),
+	}
+}
+
+// GetAddress calls the GetAddress RPC.
+func (c *MicrophoneInfoClient) GetAddress(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetAddress(ctx, &pb.GetAddressRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDescription calls the GetDescription RPC.
+func (c *MicrophoneInfoClient) GetDescription(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetDescription(ctx, &pb.GetDescriptionRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDirectionality calls the GetDirectionality RPC.
+func (c *MicrophoneInfoClient) GetDirectionality(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetDirectionality(ctx, &pb.GetDirectionalityRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetGroup calls the GetGroup RPC.
+func (c *MicrophoneInfoClient) GetGroup(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetGroup(ctx, &pb.GetGroupRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetId calls the GetId RPC.
+func (c *MicrophoneInfoClient) GetId(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIndexInTheGroup calls the GetIndexInTheGroup RPC.
+func (c *MicrophoneInfoClient) GetIndexInTheGroup(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetIndexInTheGroup(ctx, &pb.GetIndexInTheGroupRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLocation calls the GetLocation RPC.
+func (c *MicrophoneInfoClient) GetLocation(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetLocation(ctx, &pb.GetLocationRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMaxSpl calls the GetMaxSpl RPC.
+func (c *MicrophoneInfoClient) GetMaxSpl(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetMaxSpl(ctx, &pb.GetMaxSplRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMinSpl calls the GetMinSpl RPC.
+func (c *MicrophoneInfoClient) GetMinSpl(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetMinSpl(ctx, &pb.GetMinSplRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOrientation calls the GetOrientation RPC.
+func (c *MicrophoneInfoClient) GetOrientation(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetOrientation(ctx, &pb.GetOrientationRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPosition calls the GetPosition RPC.
+func (c *MicrophoneInfoClient) GetPosition(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPosition(ctx, &pb.GetPositionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSensitivity calls the GetSensitivity RPC.
+func (c *MicrophoneInfoClient) GetSensitivity(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetSensitivity(ctx, &pb.GetSensitivityRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetType calls the GetType RPC.
+func (c *MicrophoneInfoClient) GetType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetType(ctx, &pb.GetTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MicrophoneInfoCoordinate3FClient wraps the gRPC MicrophoneInfoCoordinate3FService client.
+type MicrophoneInfoCoordinate3FClient struct {
+	svc pb.MicrophoneInfoCoordinate3FServiceClient
+}
+
+// NewMicrophoneInfoCoordinate3FClient creates a new MicrophoneInfoCoordinate3F client.
+func NewMicrophoneInfoCoordinate3FClient(cc grpc.ClientConnInterface) *MicrophoneInfoCoordinate3FClient {
+	return &MicrophoneInfoCoordinate3FClient{
+		svc: pb.NewMicrophoneInfoCoordinate3FServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *MicrophoneInfoCoordinate3FClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AudioTrackClient wraps the gRPC AudioTrackService client.
+type AudioTrackClient struct {
+	svc pb.AudioTrackServiceClient
+}
+
+// NewAudioTrackClient creates a new AudioTrack client.
+func NewAudioTrackClient(cc grpc.ClientConnInterface) *AudioTrackClient {
+	return &AudioTrackClient{
+		svc: pb.NewAudioTrackServiceClient(cc),
+	}
+}
+
+// AddOnCodecFormatChangedListener calls the AddOnCodecFormatChangedListener RPC.
+func (c *AudioTrackClient) AddOnCodecFormatChangedListener(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
+	_, err := c.svc.AddOnCodecFormatChangedListener(ctx, &pb.AddOnCodecFormatChangedListenerRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// AttachAuxEffect calls the AttachAuxEffect RPC.
+func (c *AudioTrackClient) AttachAuxEffect(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.AttachAuxEffect(ctx, &pb.AttachAuxEffectRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateVolumeShaper calls the CreateVolumeShaper RPC.
+func (c *AudioTrackClient) CreateVolumeShaper(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.CreateVolumeShaper(ctx, &pb.CreateVolumeShaperRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Flush calls the Flush RPC.
+func (c *AudioTrackClient) Flush(ctx context.Context, handle int64) error {
+	_, err := c.svc.Flush(ctx, &pb.AudioTrackFlushRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// GetAudioAttributes calls the GetAudioAttributes RPC.
+func (c *AudioTrackClient) GetAudioAttributes(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetAudioAttributes(ctx, &pb.AudioTrackGetAudioAttributesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAudioDescriptionMixLeveldB calls the GetAudioDescriptionMixLeveldB RPC.
+func (c *AudioTrackClient) GetAudioDescriptionMixLeveldB(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetAudioDescriptionMixLeveldB(ctx, &pb.GetAudioDescriptionMixLeveldBRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAudioFormat calls the GetAudioFormat RPC.
+func (c *AudioTrackClient) GetAudioFormat(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetAudioFormat(ctx, &pb.GetAudioFormatRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAudioSessionId calls the GetAudioSessionId RPC.
+func (c *AudioTrackClient) GetAudioSessionId(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetAudioSessionId(ctx, &pb.GetAudioSessionIdRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBufferCapacityInFrames calls the GetBufferCapacityInFrames RPC.
+func (c *AudioTrackClient) GetBufferCapacityInFrames(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetBufferCapacityInFrames(ctx, &pb.GetBufferCapacityInFramesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBufferSizeInFrames calls the GetBufferSizeInFrames RPC.
+func (c *AudioTrackClient) GetBufferSizeInFrames(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetBufferSizeInFrames(ctx, &pb.GetBufferSizeInFramesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetChannelConfiguration calls the GetChannelConfiguration RPC.
+func (c *AudioTrackClient) GetChannelConfiguration(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetChannelConfiguration(ctx, &pb.GetChannelConfigurationRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetChannelCount calls the GetChannelCount RPC.
+func (c *AudioTrackClient) GetChannelCount(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetChannelCount(ctx, &pb.GetChannelCountRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDualMonoMode calls the GetDualMonoMode RPC.
+func (c *AudioTrackClient) GetDualMonoMode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetDualMonoMode(ctx, &pb.GetDualMonoModeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFormat calls the GetFormat RPC.
+func (c *AudioTrackClient) GetFormat(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetFormat(ctx, &pb.AudioTrackGetFormatRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLogSessionId calls the GetLogSessionId RPC.
+func (c *AudioTrackClient) GetLogSessionId(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetLogSessionId(ctx, &pb.AudioTrackGetLogSessionIdRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMetrics calls the GetMetrics RPC.
+func (c *AudioTrackClient) GetMetrics(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetMetrics(ctx, &pb.GetMetricsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNotificationMarkerPosition calls the GetNotificationMarkerPosition RPC.
+func (c *AudioTrackClient) GetNotificationMarkerPosition(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetNotificationMarkerPosition(ctx, &pb.GetNotificationMarkerPositionRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOffloadDelay calls the GetOffloadDelay RPC.
+func (c *AudioTrackClient) GetOffloadDelay(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetOffloadDelay(ctx, &pb.GetOffloadDelayRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOffloadPadding calls the GetOffloadPadding RPC.
+func (c *AudioTrackClient) GetOffloadPadding(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetOffloadPadding(ctx, &pb.GetOffloadPaddingRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPerformanceMode calls the GetPerformanceMode RPC.
+func (c *AudioTrackClient) GetPerformanceMode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetPerformanceMode(ctx, &pb.GetPerformanceModeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPlayState calls the GetPlayState RPC.
+func (c *AudioTrackClient) GetPlayState(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetPlayState(ctx, &pb.GetPlayStateRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPlaybackHeadPosition calls the GetPlaybackHeadPosition RPC.
+func (c *AudioTrackClient) GetPlaybackHeadPosition(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetPlaybackHeadPosition(ctx, &pb.GetPlaybackHeadPositionRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPlaybackParams calls the GetPlaybackParams RPC.
+func (c *AudioTrackClient) GetPlaybackParams(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetPlaybackParams(ctx, &pb.GetPlaybackParamsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPlaybackRate calls the GetPlaybackRate RPC.
+func (c *AudioTrackClient) GetPlaybackRate(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetPlaybackRate(ctx, &pb.GetPlaybackRateRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPositionNotificationPeriod calls the GetPositionNotificationPeriod RPC.
+func (c *AudioTrackClient) GetPositionNotificationPeriod(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetPositionNotificationPeriod(ctx, &pb.GetPositionNotificationPeriodRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPreferredDevice calls the GetPreferredDevice RPC.
+func (c *AudioTrackClient) GetPreferredDevice(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetPreferredDevice(ctx, &pb.GetPreferredDeviceRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRoutedDevice calls the GetRoutedDevice RPC.
+func (c *AudioTrackClient) GetRoutedDevice(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetRoutedDevice(ctx, &pb.GetRoutedDeviceRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSampleRate calls the GetSampleRate RPC.
+func (c *AudioTrackClient) GetSampleRate(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetSampleRate(ctx, &pb.AudioTrackGetSampleRateRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStartThresholdInFrames calls the GetStartThresholdInFrames RPC.
+func (c *AudioTrackClient) GetStartThresholdInFrames(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetStartThresholdInFrames(ctx, &pb.GetStartThresholdInFramesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetState calls the GetState RPC.
+func (c *AudioTrackClient) GetState(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetState(ctx, &pb.GetStateRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStreamType calls the GetStreamType RPC.
+func (c *AudioTrackClient) GetStreamType(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetStreamType(ctx, &pb.GetStreamTypeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTimestamp calls the GetTimestamp RPC.
+func (c *AudioTrackClient) GetTimestamp(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.GetTimestamp(ctx, &pb.GetTimestampRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUnderrunCount calls the GetUnderrunCount RPC.
+func (c *AudioTrackClient) GetUnderrunCount(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetUnderrunCount(ctx, &pb.GetUnderrunCountRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsOffloadedPlayback calls the IsOffloadedPlayback RPC.
+func (c *AudioTrackClient) IsOffloadedPlayback(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsOffloadedPlayback(ctx, &pb.IsOffloadedPlaybackRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Pause calls the Pause RPC.
+func (c *AudioTrackClient) Pause(ctx context.Context, handle int64) error {
+	_, err := c.svc.Pause(ctx, &pb.PauseRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// Play calls the Play RPC.
+func (c *AudioTrackClient) Play(ctx context.Context, handle int64) error {
+	_, err := c.svc.Play(ctx, &pb.PlayRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// RegisterStreamEventCallback calls the RegisterStreamEventCallback RPC.
+func (c *AudioTrackClient) RegisterStreamEventCallback(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
+	_, err := c.svc.RegisterStreamEventCallback(ctx, &pb.RegisterStreamEventCallbackRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// Release calls the Release RPC.
+func (c *AudioTrackClient) Release(ctx context.Context, handle int64) error {
+	_, err := c.svc.Release(ctx, &pb.ReleaseRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// ReloadStaticData calls the ReloadStaticData RPC.
+func (c *AudioTrackClient) ReloadStaticData(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.ReloadStaticData(ctx, &pb.ReloadStaticDataRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RemoveOnCodecFormatChangedListener calls the RemoveOnCodecFormatChangedListener RPC.
+func (c *AudioTrackClient) RemoveOnCodecFormatChangedListener(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.RemoveOnCodecFormatChangedListener(ctx, &pb.RemoveOnCodecFormatChangedListenerRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// RemoveOnRoutingChangedListener1 calls the RemoveOnRoutingChangedListener1 RPC.
+func (c *AudioTrackClient) RemoveOnRoutingChangedListener1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.RemoveOnRoutingChangedListener1(ctx, &pb.RemoveOnRoutingChangedListener1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// RemoveOnRoutingChangedListener1_1 calls the RemoveOnRoutingChangedListener1_1 RPC.
+func (c *AudioTrackClient) RemoveOnRoutingChangedListener1_1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.RemoveOnRoutingChangedListener1_1(ctx, &pb.RemoveOnRoutingChangedListener1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetAudioDescriptionMixLeveldB calls the SetAudioDescriptionMixLeveldB RPC.
+func (c *AudioTrackClient) SetAudioDescriptionMixLeveldB(ctx context.Context, handle int64, arg0 float32) (bool, error) {
+	resp, err := c.svc.SetAudioDescriptionMixLeveldB(ctx, &pb.SetAudioDescriptionMixLeveldBRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetAuxEffectSendLevel calls the SetAuxEffectSendLevel RPC.
+func (c *AudioTrackClient) SetAuxEffectSendLevel(ctx context.Context, handle int64, arg0 float32) (int32, error) {
+	resp, err := c.svc.SetAuxEffectSendLevel(ctx, &pb.SetAuxEffectSendLevelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetBufferSizeInFrames calls the SetBufferSizeInFrames RPC.
+func (c *AudioTrackClient) SetBufferSizeInFrames(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.SetBufferSizeInFrames(ctx, &pb.SetBufferSizeInFramesRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetDualMonoMode calls the SetDualMonoMode RPC.
+func (c *AudioTrackClient) SetDualMonoMode(ctx context.Context, handle int64, arg0 int32) (bool, error) {
+	resp, err := c.svc.SetDualMonoMode(ctx, &pb.SetDualMonoModeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetLogSessionId calls the SetLogSessionId RPC.
+func (c *AudioTrackClient) SetLogSessionId(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetLogSessionId(ctx, &pb.AudioTrackSetLogSessionIdRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetLoopPoints calls the SetLoopPoints RPC.
+func (c *AudioTrackClient) SetLoopPoints(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32) (int32, error) {
+	resp, err := c.svc.SetLoopPoints(ctx, &pb.SetLoopPointsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetNotificationMarkerPosition calls the SetNotificationMarkerPosition RPC.
+func (c *AudioTrackClient) SetNotificationMarkerPosition(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.SetNotificationMarkerPosition(ctx, &pb.SetNotificationMarkerPositionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetOffloadDelayPadding calls the SetOffloadDelayPadding RPC.
+func (c *AudioTrackClient) SetOffloadDelayPadding(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
+	_, err := c.svc.SetOffloadDelayPadding(ctx, &pb.SetOffloadDelayPaddingRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SetOffloadEndOfStream calls the SetOffloadEndOfStream RPC.
+func (c *AudioTrackClient) SetOffloadEndOfStream(ctx context.Context, handle int64) error {
+	_, err := c.svc.SetOffloadEndOfStream(ctx, &pb.SetOffloadEndOfStreamRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// SetPlaybackHeadPosition calls the SetPlaybackHeadPosition RPC.
+func (c *AudioTrackClient) SetPlaybackHeadPosition(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.SetPlaybackHeadPosition(ctx, &pb.SetPlaybackHeadPositionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPlaybackParams calls the SetPlaybackParams RPC.
+func (c *AudioTrackClient) SetPlaybackParams(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetPlaybackParams(ctx, &pb.SetPlaybackParamsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetPlaybackPositionUpdateListener calls the SetPlaybackPositionUpdateListener RPC.
+func (c *AudioTrackClient) SetPlaybackPositionUpdateListener(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetPlaybackPositionUpdateListener(ctx, &pb.SetPlaybackPositionUpdateListenerRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetPlaybackRate calls the SetPlaybackRate RPC.
+func (c *AudioTrackClient) SetPlaybackRate(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.SetPlaybackRate(ctx, &pb.SetPlaybackRateRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPositionNotificationPeriod calls the SetPositionNotificationPeriod RPC.
+func (c *AudioTrackClient) SetPositionNotificationPeriod(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.SetPositionNotificationPeriod(ctx, &pb.SetPositionNotificationPeriodRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPreferredDevice calls the SetPreferredDevice RPC.
+func (c *AudioTrackClient) SetPreferredDevice(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.SetPreferredDevice(ctx, &pb.SetPreferredDeviceRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPresentation calls the SetPresentation RPC.
+func (c *AudioTrackClient) SetPresentation(ctx context.Context, handle int64, arg0 int64) (int32, error) {
+	resp, err := c.svc.SetPresentation(ctx, &pb.SetPresentationRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetStartThresholdInFrames calls the SetStartThresholdInFrames RPC.
+func (c *AudioTrackClient) SetStartThresholdInFrames(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.SetStartThresholdInFrames(ctx, &pb.SetStartThresholdInFramesRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetStereoVolume calls the SetStereoVolume RPC.
+func (c *AudioTrackClient) SetStereoVolume(ctx context.Context, handle int64, arg0 float32, arg1 float32) (int32, error) {
+	resp, err := c.svc.SetStereoVolume(ctx, &pb.SetStereoVolumeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetVolume calls the SetVolume RPC.
+func (c *AudioTrackClient) SetVolume(ctx context.Context, handle int64, arg0 float32) (int32, error) {
+	resp, err := c.svc.SetVolume(ctx, &pb.AudioTrackSetVolumeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Stop calls the Stop RPC.
+func (c *AudioTrackClient) Stop(ctx context.Context, handle int64) error {
+	_, err := c.svc.Stop(ctx, &pb.AudioTrackStopRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// UnregisterStreamEventCallback calls the UnregisterStreamEventCallback RPC.
+func (c *AudioTrackClient) UnregisterStreamEventCallback(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.UnregisterStreamEventCallback(ctx, &pb.UnregisterStreamEventCallbackRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// Write3 calls the Write3 RPC.
+func (c *AudioTrackClient) Write3(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int32) (int32, error) {
+	resp, err := c.svc.Write3(ctx, &pb.Write3Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Write4_1 calls the Write4_1 RPC.
+func (c *AudioTrackClient) Write4_1(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int32, arg3 int32) (int32, error) {
+	resp, err := c.svc.Write4_1(ctx, &pb.Write4_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Write4_2 calls the Write4_2 RPC.
+func (c *AudioTrackClient) Write4_2(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int32, arg3 int32) (int32, error) {
+	resp, err := c.svc.Write4_2(ctx, &pb.Write4_2Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Write3_3 calls the Write3_3 RPC.
+func (c *AudioTrackClient) Write3_3(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int32) (int32, error) {
+	resp, err := c.svc.Write3_3(ctx, &pb.Write3_3Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Write4_4 calls the Write4_4 RPC.
+func (c *AudioTrackClient) Write4_4(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int32, arg3 int32) (int32, error) {
+	resp, err := c.svc.Write4_4(ctx, &pb.Write4_4Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMaxVolume calls the GetMaxVolume RPC.
+func (c *AudioTrackClient) GetMaxVolume(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetMaxVolume(ctx, &pb.GetMaxVolumeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMinBufferSize calls the GetMinBufferSize RPC.
+func (c *AudioTrackClient) GetMinBufferSize(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32) (int32, error) {
+	resp, err := c.svc.GetMinBufferSize(ctx, &pb.GetMinBufferSizeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMinVolume calls the GetMinVolume RPC.
+func (c *AudioTrackClient) GetMinVolume(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetMinVolume(ctx, &pb.GetMinVolumeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNativeOutputSampleRate calls the GetNativeOutputSampleRate RPC.
+func (c *AudioTrackClient) GetNativeOutputSampleRate(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetNativeOutputSampleRate(ctx, &pb.GetNativeOutputSampleRateRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsDirectPlaybackSupported calls the IsDirectPlaybackSupported RPC.
+func (c *AudioTrackClient) IsDirectPlaybackSupported(ctx context.Context, handle int64, arg0 int64, arg1 int64) (bool, error) {
+	resp, err := c.svc.IsDirectPlaybackSupported(ctx, &pb.IsDirectPlaybackSupportedRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AudioTrackBuilderClient wraps the gRPC AudioTrackBuilderService client.
+type AudioTrackBuilderClient struct {
+	svc pb.AudioTrackBuilderServiceClient
+}
+
+// NewAudioTrackBuilderClient creates a new AudioTrackBuilder client.
+func NewAudioTrackBuilderClient(cc grpc.ClientConnInterface) *AudioTrackBuilderClient {
+	return &AudioTrackBuilderClient{
+		svc: pb.NewAudioTrackBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *AudioTrackBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetAudioAttributes calls the SetAudioAttributes RPC.
+func (c *AudioTrackBuilderClient) SetAudioAttributes(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetAudioAttributes(ctx, &pb.SetAudioAttributesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetAudioFormat calls the SetAudioFormat RPC.
+func (c *AudioTrackBuilderClient) SetAudioFormat(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetAudioFormat(ctx, &pb.SetAudioFormatRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetBufferSizeInBytes calls the SetBufferSizeInBytes RPC.
+func (c *AudioTrackBuilderClient) SetBufferSizeInBytes(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetBufferSizeInBytes(ctx, &pb.SetBufferSizeInBytesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetContext calls the SetContext RPC.
+func (c *AudioTrackBuilderClient) SetContext(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetContext(ctx, &pb.SetContextRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetEncapsulationMode calls the SetEncapsulationMode RPC.
+func (c *AudioTrackBuilderClient) SetEncapsulationMode(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetEncapsulationMode(ctx, &pb.SetEncapsulationModeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetOffloadedPlayback calls the SetOffloadedPlayback RPC.
+func (c *AudioTrackBuilderClient) SetOffloadedPlayback(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetOffloadedPlayback(ctx, &pb.SetOffloadedPlaybackRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPerformanceMode calls the SetPerformanceMode RPC.
+func (c *AudioTrackBuilderClient) SetPerformanceMode(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetPerformanceMode(ctx, &pb.SetPerformanceModeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSessionId calls the SetSessionId RPC.
+func (c *AudioTrackBuilderClient) SetSessionId(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetSessionId(ctx, &pb.SetSessionIdRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetTransferMode calls the SetTransferMode RPC.
+func (c *AudioTrackBuilderClient) SetTransferMode(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetTransferMode(ctx, &pb.SetTransferModeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AudioTrackOnCodecFormatChangedListenerClient wraps the gRPC AudioTrackOnCodecFormatChangedListenerService client.
+type AudioTrackOnCodecFormatChangedListenerClient struct {
+	svc pb.AudioTrackOnCodecFormatChangedListenerServiceClient
+}
+
+// NewAudioTrackOnCodecFormatChangedListenerClient creates a new AudioTrackOnCodecFormatChangedListener client.
+func NewAudioTrackOnCodecFormatChangedListenerClient(cc grpc.ClientConnInterface) *AudioTrackOnCodecFormatChangedListenerClient {
+	return &AudioTrackOnCodecFormatChangedListenerClient{
+		svc: pb.NewAudioTrackOnCodecFormatChangedListenerServiceClient(cc),
+	}
+}
+
+// OnCodecFormatChanged calls the OnCodecFormatChanged RPC.
+func (c *AudioTrackOnCodecFormatChangedListenerClient) OnCodecFormatChanged(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.OnCodecFormatChanged(ctx, &pb.OnCodecFormatChangedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// AudioTrackOnPlaybackPositionUpdateListenerClient wraps the gRPC AudioTrackOnPlaybackPositionUpdateListenerService client.
+type AudioTrackOnPlaybackPositionUpdateListenerClient struct {
+	svc pb.AudioTrackOnPlaybackPositionUpdateListenerServiceClient
+}
+
+// NewAudioTrackOnPlaybackPositionUpdateListenerClient creates a new AudioTrackOnPlaybackPositionUpdateListener client.
+func NewAudioTrackOnPlaybackPositionUpdateListenerClient(cc grpc.ClientConnInterface) *AudioTrackOnPlaybackPositionUpdateListenerClient {
+	return &AudioTrackOnPlaybackPositionUpdateListenerClient{
+		svc: pb.NewAudioTrackOnPlaybackPositionUpdateListenerServiceClient(cc),
+	}
+}
+
+// OnMarkerReached calls the OnMarkerReached RPC.
+func (c *AudioTrackOnPlaybackPositionUpdateListenerClient) OnMarkerReached(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnMarkerReached(ctx, &pb.OnMarkerReachedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnPeriodicNotification calls the OnPeriodicNotification RPC.
+func (c *AudioTrackOnPlaybackPositionUpdateListenerClient) OnPeriodicNotification(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnPeriodicNotification(ctx, &pb.OnPeriodicNotificationRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// AudioTrackOnRoutingChangedListenerClient wraps the gRPC AudioTrackOnRoutingChangedListenerService client.
+type AudioTrackOnRoutingChangedListenerClient struct {
+	svc pb.AudioTrackOnRoutingChangedListenerServiceClient
+}
+
+// NewAudioTrackOnRoutingChangedListenerClient creates a new AudioTrackOnRoutingChangedListener client.
+func NewAudioTrackOnRoutingChangedListenerClient(cc grpc.ClientConnInterface) *AudioTrackOnRoutingChangedListenerClient {
+	return &AudioTrackOnRoutingChangedListenerClient{
+		svc: pb.NewAudioTrackOnRoutingChangedListenerServiceClient(cc),
+	}
+}
+
+// OnRoutingChanged calls the OnRoutingChanged RPC.
+func (c *AudioTrackOnRoutingChangedListenerClient) OnRoutingChanged(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnRoutingChanged(ctx, &pb.OnRoutingChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// AudioTrackStreamEventCallbackClient wraps the gRPC AudioTrackStreamEventCallbackService client.
+type AudioTrackStreamEventCallbackClient struct {
+	svc pb.AudioTrackStreamEventCallbackServiceClient
+}
+
+// NewAudioTrackStreamEventCallbackClient creates a new AudioTrackStreamEventCallback client.
+func NewAudioTrackStreamEventCallbackClient(cc grpc.ClientConnInterface) *AudioTrackStreamEventCallbackClient {
+	return &AudioTrackStreamEventCallbackClient{
+		svc: pb.NewAudioTrackStreamEventCallbackServiceClient(cc),
+	}
+}
+
+// OnDataRequest calls the OnDataRequest RPC.
+func (c *AudioTrackStreamEventCallbackClient) OnDataRequest(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.OnDataRequest(ctx, &pb.OnDataRequestRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnPresentationEnded calls the OnPresentationEnded RPC.
+func (c *AudioTrackStreamEventCallbackClient) OnPresentationEnded(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnPresentationEnded(ctx, &pb.OnPresentationEndedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnTearDown calls the OnTearDown RPC.
+func (c *AudioTrackStreamEventCallbackClient) OnTearDown(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnTearDown(ctx, &pb.OnTearDownRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// CodecListClient wraps the gRPC CodecListService client.
+type CodecListClient struct {
+	svc pb.CodecListServiceClient
+}
+
+// NewCodecListClient creates a new CodecList client.
+func NewCodecListClient(cc grpc.ClientConnInterface) *CodecListClient {
+	return &CodecListClient{
+		svc: pb.NewCodecListServiceClient(cc),
+	}
+}
+
+// FindDecoderForFormat calls the FindDecoderForFormat RPC.
+func (c *CodecListClient) FindDecoderForFormat(ctx context.Context, handle int64, arg0 int64) (string, error) {
+	resp, err := c.svc.FindDecoderForFormat(ctx, &pb.FindDecoderForFormatRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// FindEncoderForFormat calls the FindEncoderForFormat RPC.
+func (c *CodecListClient) FindEncoderForFormat(ctx context.Context, handle int64, arg0 int64) (string, error) {
+	resp, err := c.svc.FindEncoderForFormat(ctx, &pb.FindEncoderForFormatRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCodecInfos calls the GetCodecInfos RPC.
+func (c *CodecListClient) GetCodecInfos(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetCodecInfos(ctx, &pb.GetCodecInfosRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCodecCount calls the GetCodecCount RPC.
+func (c *CodecListClient) GetCodecCount(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetCodecCount(ctx, &pb.GetCodecCountRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCodecInfoAt calls the GetCodecInfoAt RPC.
+func (c *CodecListClient) GetCodecInfoAt(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetCodecInfoAt(ctx, &pb.GetCodecInfoAtRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToneGeneratorClient wraps the gRPC ToneGeneratorService client.
+type ToneGeneratorClient struct {
+	svc pb.ToneGeneratorServiceClient
+}
+
+// NewToneGeneratorClient creates a new ToneGenerator client.
+func NewToneGeneratorClient(cc grpc.ClientConnInterface) *ToneGeneratorClient {
+	return &ToneGeneratorClient{
+		svc: pb.NewToneGeneratorServiceClient(cc),
+	}
+}
+
+// GetAudioSessionId calls the GetAudioSessionId RPC.
+func (c *ToneGeneratorClient) GetAudioSessionId(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetAudioSessionId(ctx, &pb.GetAudioSessionIdRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Release calls the Release RPC.
+func (c *ToneGeneratorClient) Release(ctx context.Context, handle int64) error {
+	_, err := c.svc.Release(ctx, &pb.ReleaseRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// StartTone1 calls the StartTone1 RPC.
+func (c *ToneGeneratorClient) StartTone1(ctx context.Context, handle int64, arg0 int32) (bool, error) {
+	resp, err := c.svc.StartTone1(ctx, &pb.StartTone1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// StartTone2_1 calls the StartTone2_1 RPC.
+func (c *ToneGeneratorClient) StartTone2_1(ctx context.Context, handle int64, arg0 int32, arg1 int32) (bool, error) {
+	resp, err := c.svc.StartTone2_1(ctx, &pb.StartTone2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// StopTone calls the StopTone RPC.
+func (c *ToneGeneratorClient) StopTone(ctx context.Context, handle int64) error {
+	_, err := c.svc.StopTone(ctx, &pb.StopToneRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// CamcorderProfileClient wraps the gRPC CamcorderProfileService client.
+type CamcorderProfileClient struct {
+	svc pb.CamcorderProfileServiceClient
+}
+
+// NewCamcorderProfileClient creates a new CamcorderProfile client.
+func NewCamcorderProfileClient(cc grpc.ClientConnInterface) *CamcorderProfileClient {
+	return &CamcorderProfileClient{
+		svc: pb.NewCamcorderProfileServiceClient(cc),
+	}
+}
+
+// Get1 calls the Get1 RPC.
+func (c *CamcorderProfileClient) Get1(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.Get1(ctx, &pb.Get1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Get2_1 calls the Get2_1 RPC.
+func (c *CamcorderProfileClient) Get2_1(ctx context.Context, arg0 int32, arg1 int32) (int64, error) {
+	resp, err := c.svc.Get2_1(ctx, &pb.Get2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAll calls the GetAll RPC.
+func (c *CamcorderProfileClient) GetAll(ctx context.Context, arg0 string, arg1 int32) (int64, error) {
+	resp, err := c.svc.GetAll(ctx, &pb.GetAllRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasProfile1 calls the HasProfile1 RPC.
+func (c *CamcorderProfileClient) HasProfile1(ctx context.Context, arg0 int32) (bool, error) {
+	resp, err := c.svc.HasProfile1(ctx, &pb.HasProfile1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasProfile2_1 calls the HasProfile2_1 RPC.
+func (c *CamcorderProfileClient) HasProfile2_1(ctx context.Context, arg0 int32, arg1 int32) (bool, error) {
+	resp, err := c.svc.HasProfile2_1(ctx, &pb.HasProfile2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AudioProfileClient wraps the gRPC AudioProfileService client.
+type AudioProfileClient struct {
+	svc pb.AudioProfileServiceClient
+}
+
+// NewAudioProfileClient creates a new AudioProfile client.
+func NewAudioProfileClient(cc grpc.ClientConnInterface) *AudioProfileClient {
+	return &AudioProfileClient{
+		svc: pb.NewAudioProfileServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *AudioProfileClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *AudioProfileClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetChannelIndexMasks calls the GetChannelIndexMasks RPC.
+func (c *AudioProfileClient) GetChannelIndexMasks(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetChannelIndexMasks(ctx, &pb.GetChannelIndexMasksRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetChannelMasks calls the GetChannelMasks RPC.
+func (c *AudioProfileClient) GetChannelMasks(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetChannelMasks(ctx, &pb.GetChannelMasksRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEncapsulationType calls the GetEncapsulationType RPC.
+func (c *AudioProfileClient) GetEncapsulationType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetEncapsulationType(ctx, &pb.GetEncapsulationTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFormat calls the GetFormat RPC.
+func (c *AudioProfileClient) GetFormat(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetFormat(ctx, &pb.GetFormatRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSampleRates calls the GetSampleRates RPC.
+func (c *AudioProfileClient) GetSampleRates(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSampleRates(ctx, &pb.GetSampleRatesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *AudioProfileClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *AudioProfileClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *AudioProfileClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// RouteListingPreferenceClient wraps the gRPC RouteListingPreferenceService client.
+type RouteListingPreferenceClient struct {
+	svc pb.RouteListingPreferenceServiceClient
+}
+
+// NewRouteListingPreferenceClient creates a new RouteListingPreference client.
+func NewRouteListingPreferenceClient(cc grpc.ClientConnInterface) *RouteListingPreferenceClient {
+	return &RouteListingPreferenceClient{
+		svc: pb.NewRouteListingPreferenceServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *RouteListingPreferenceClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *RouteListingPreferenceClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLinkedItemComponentName calls the GetLinkedItemComponentName RPC.
+func (c *RouteListingPreferenceClient) GetLinkedItemComponentName(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetLinkedItemComponentName(ctx, &pb.GetLinkedItemComponentNameRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUseSystemOrdering calls the GetUseSystemOrdering RPC.
+func (c *RouteListingPreferenceClient) GetUseSystemOrdering(ctx context.Context) (bool, error) {
+	resp, err := c.svc.GetUseSystemOrdering(ctx, &pb.GetUseSystemOrderingRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *RouteListingPreferenceClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *RouteListingPreferenceClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// RouteListingPreferenceBuilderClient wraps the gRPC RouteListingPreferenceBuilderService client.
+type RouteListingPreferenceBuilderClient struct {
+	svc pb.RouteListingPreferenceBuilderServiceClient
+}
+
+// NewRouteListingPreferenceBuilderClient creates a new RouteListingPreferenceBuilder client.
+func NewRouteListingPreferenceBuilderClient(cc grpc.ClientConnInterface) *RouteListingPreferenceBuilderClient {
+	return &RouteListingPreferenceBuilderClient{
+		svc: pb.NewRouteListingPreferenceBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *RouteListingPreferenceBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetLinkedItemComponentName calls the SetLinkedItemComponentName RPC.
+func (c *RouteListingPreferenceBuilderClient) SetLinkedItemComponentName(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetLinkedItemComponentName(ctx, &pb.SetLinkedItemComponentNameRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetUseSystemOrdering calls the SetUseSystemOrdering RPC.
+func (c *RouteListingPreferenceBuilderClient) SetUseSystemOrdering(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetUseSystemOrdering(ctx, &pb.SetUseSystemOrderingRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RouteListingPreferenceItemClient wraps the gRPC RouteListingPreferenceItemService client.
+type RouteListingPreferenceItemClient struct {
+	svc pb.RouteListingPreferenceItemServiceClient
+}
+
+// NewRouteListingPreferenceItemClient creates a new RouteListingPreferenceItem client.
+func NewRouteListingPreferenceItemClient(cc grpc.ClientConnInterface) *RouteListingPreferenceItemClient {
+	return &RouteListingPreferenceItemClient{
+		svc: pb.NewRouteListingPreferenceItemServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *RouteListingPreferenceItemClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *RouteListingPreferenceItemClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCustomSubtextMessage calls the GetCustomSubtextMessage RPC.
+func (c *RouteListingPreferenceItemClient) GetCustomSubtextMessage(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetCustomSubtextMessage(ctx, &pb.GetCustomSubtextMessageRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFlags calls the GetFlags RPC.
+func (c *RouteListingPreferenceItemClient) GetFlags(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetFlags(ctx, &pb.GetFlagsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRouteId calls the GetRouteId RPC.
+func (c *RouteListingPreferenceItemClient) GetRouteId(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetRouteId(ctx, &pb.GetRouteIdRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSelectionBehavior calls the GetSelectionBehavior RPC.
+func (c *RouteListingPreferenceItemClient) GetSelectionBehavior(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetSelectionBehavior(ctx, &pb.GetSelectionBehaviorRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSubText calls the GetSubText RPC.
+func (c *RouteListingPreferenceItemClient) GetSubText(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetSubText(ctx, &pb.GetSubTextRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *RouteListingPreferenceItemClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *RouteListingPreferenceItemClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// AudioFormatClient wraps the gRPC AudioFormatService client.
+type AudioFormatClient struct {
+	svc pb.AudioFormatServiceClient
+}
+
+// NewAudioFormatClient creates a new AudioFormat client.
+func NewAudioFormatClient(cc grpc.ClientConnInterface) *AudioFormatClient {
+	return &AudioFormatClient{
+		svc: pb.NewAudioFormatServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *AudioFormatClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *AudioFormatClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetChannelCount calls the GetChannelCount RPC.
+func (c *AudioFormatClient) GetChannelCount(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetChannelCount(ctx, &pb.AudioFormatGetChannelCountRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetChannelIndexMask calls the GetChannelIndexMask RPC.
+func (c *AudioFormatClient) GetChannelIndexMask(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetChannelIndexMask(ctx, &pb.GetChannelIndexMaskRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetChannelMask calls the GetChannelMask RPC.
+func (c *AudioFormatClient) GetChannelMask(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetChannelMask(ctx, &pb.GetChannelMaskRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEncoding calls the GetEncoding RPC.
+func (c *AudioFormatClient) GetEncoding(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetEncoding(ctx, &pb.GetEncodingRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFrameSizeInBytes calls the GetFrameSizeInBytes RPC.
+func (c *AudioFormatClient) GetFrameSizeInBytes(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetFrameSizeInBytes(ctx, &pb.GetFrameSizeInBytesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSampleRate calls the GetSampleRate RPC.
+func (c *AudioFormatClient) GetSampleRate(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetSampleRate(ctx, &pb.GetSampleRateRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *AudioFormatClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *AudioFormatClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *AudioFormatClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// AudioFormatBuilderClient wraps the gRPC AudioFormatBuilderService client.
+type AudioFormatBuilderClient struct {
+	svc pb.AudioFormatBuilderServiceClient
+}
+
+// NewAudioFormatBuilderClient creates a new AudioFormatBuilder client.
+func NewAudioFormatBuilderClient(cc grpc.ClientConnInterface) *AudioFormatBuilderClient {
+	return &AudioFormatBuilderClient{
+		svc: pb.NewAudioFormatBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *AudioFormatBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetChannelIndexMask calls the SetChannelIndexMask RPC.
+func (c *AudioFormatBuilderClient) SetChannelIndexMask(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetChannelIndexMask(ctx, &pb.SetChannelIndexMaskRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetChannelMask calls the SetChannelMask RPC.
+func (c *AudioFormatBuilderClient) SetChannelMask(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetChannelMask(ctx, &pb.SetChannelMaskRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetEncoding calls the SetEncoding RPC.
+func (c *AudioFormatBuilderClient) SetEncoding(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetEncoding(ctx, &pb.SetEncodingRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSampleRate calls the SetSampleRate RPC.
+func (c *AudioFormatBuilderClient) SetSampleRate(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetSampleRate(ctx, &pb.SetSampleRateRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AudioRecordingMonitorClient wraps the gRPC AudioRecordingMonitorService client.
+type AudioRecordingMonitorClient struct {
+	svc pb.AudioRecordingMonitorServiceClient
+}
+
+// NewAudioRecordingMonitorClient creates a new AudioRecordingMonitor client.
+func NewAudioRecordingMonitorClient(cc grpc.ClientConnInterface) *AudioRecordingMonitorClient {
+	return &AudioRecordingMonitorClient{
+		svc: pb.NewAudioRecordingMonitorServiceClient(cc),
+	}
+}
+
+// GetActiveRecordingConfiguration calls the GetActiveRecordingConfiguration RPC.
+func (c *AudioRecordingMonitorClient) GetActiveRecordingConfiguration(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetActiveRecordingConfiguration(ctx, &pb.GetActiveRecordingConfigurationRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RegisterAudioRecordingCallback calls the RegisterAudioRecordingCallback RPC.
+func (c *AudioRecordingMonitorClient) RegisterAudioRecordingCallback(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.RegisterAudioRecordingCallback(ctx, &pb.RegisterAudioRecordingCallbackRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// UnregisterAudioRecordingCallback calls the UnregisterAudioRecordingCallback RPC.
+func (c *AudioRecordingMonitorClient) UnregisterAudioRecordingCallback(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.UnregisterAudioRecordingCallback(ctx, &pb.UnregisterAudioRecordingCallbackRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// CasStateExceptionClient wraps the gRPC CasStateExceptionService client.
+type CasStateExceptionClient struct {
+	svc pb.CasStateExceptionServiceClient
+}
+
+// NewCasStateExceptionClient creates a new CasStateException client.
+func NewCasStateExceptionClient(cc grpc.ClientConnInterface) *CasStateExceptionClient {
+	return &CasStateExceptionClient{
+		svc: pb.NewCasStateExceptionServiceClient(cc),
+	}
+}
+
+// GetDiagnosticInfo calls the GetDiagnosticInfo RPC.
+func (c *CasStateExceptionClient) GetDiagnosticInfo(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetDiagnosticInfo(ctx, &pb.GetDiagnosticInfoRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// MuxerClient wraps the gRPC MuxerService client.
+type MuxerClient struct {
+	svc pb.MuxerServiceClient
+}
+
+// NewMuxerClient creates a new Muxer client.
+func NewMuxerClient(cc grpc.ClientConnInterface) *MuxerClient {
+	return &MuxerClient{
+		svc: pb.NewMuxerServiceClient(cc),
+	}
+}
+
+// AddTrack calls the AddTrack RPC.
+func (c *MuxerClient) AddTrack(ctx context.Context, handle int64, arg0 int64) (int32, error) {
+	resp, err := c.svc.AddTrack(ctx, &pb.AddTrackRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Release calls the Release RPC.
+func (c *MuxerClient) Release(ctx context.Context, handle int64) error {
+	_, err := c.svc.Release(ctx, &pb.ReleaseRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// SetLocation calls the SetLocation RPC.
+func (c *MuxerClient) SetLocation(ctx context.Context, handle int64, arg0 float32, arg1 float32) error {
+	_, err := c.svc.SetLocation(ctx, &pb.SetLocationRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SetOrientationHint calls the SetOrientationHint RPC.
+func (c *MuxerClient) SetOrientationHint(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetOrientationHint(ctx, &pb.SetOrientationHintRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// Start calls the Start RPC.
+func (c *MuxerClient) Start(ctx context.Context, handle int64) error {
+	_, err := c.svc.Start(ctx, &pb.MuxerStartRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// Stop calls the Stop RPC.
+func (c *MuxerClient) Stop(ctx context.Context, handle int64) error {
+	_, err := c.svc.Stop(ctx, &pb.MuxerStopRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// SyncParamsClient wraps the gRPC SyncParamsService client.
+type SyncParamsClient struct {
+	svc pb.SyncParamsServiceClient
+}
+
+// NewSyncParamsClient creates a new SyncParams client.
+func NewSyncParamsClient(cc grpc.ClientConnInterface) *SyncParamsClient {
+	return &SyncParamsClient{
+		svc: pb.NewSyncParamsServiceClient(cc),
+	}
+}
+
+// AllowDefaults calls the AllowDefaults RPC.
+func (c *SyncParamsClient) AllowDefaults(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.AllowDefaults(ctx, &pb.AllowDefaultsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAudioAdjustMode calls the GetAudioAdjustMode RPC.
+func (c *SyncParamsClient) GetAudioAdjustMode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetAudioAdjustMode(ctx, &pb.GetAudioAdjustModeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFrameRate calls the GetFrameRate RPC.
+func (c *SyncParamsClient) GetFrameRate(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetFrameRate(ctx, &pb.SyncParamsGetFrameRateRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSyncSource calls the GetSyncSource RPC.
+func (c *SyncParamsClient) GetSyncSource(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetSyncSource(ctx, &pb.GetSyncSourceRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTolerance calls the GetTolerance RPC.
+func (c *SyncParamsClient) GetTolerance(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetTolerance(ctx, &pb.GetToleranceRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetAudioAdjustMode calls the SetAudioAdjustMode RPC.
+func (c *SyncParamsClient) SetAudioAdjustMode(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetAudioAdjustMode(ctx, &pb.SetAudioAdjustModeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetFrameRate calls the SetFrameRate RPC.
+func (c *SyncParamsClient) SetFrameRate(ctx context.Context, handle int64, arg0 float32) (int64, error) {
+	resp, err := c.svc.SetFrameRate(ctx, &pb.SetFrameRateRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSyncSource calls the SetSyncSource RPC.
+func (c *SyncParamsClient) SetSyncSource(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetSyncSource(ctx, &pb.SetSyncSourceRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetTolerance calls the SetTolerance RPC.
+func (c *SyncParamsClient) SetTolerance(ctx context.Context, handle int64, arg0 float32) (int64, error) {
+	resp, err := c.svc.SetTolerance(ctx, &pb.SetToleranceRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// VolumeProviderClient wraps the gRPC VolumeProviderService client.
+type VolumeProviderClient struct {
+	svc pb.VolumeProviderServiceClient
+}
+
+// NewVolumeProviderClient creates a new VolumeProvider client.
+func NewVolumeProviderClient(cc grpc.ClientConnInterface) *VolumeProviderClient {
+	return &VolumeProviderClient{
+		svc: pb.NewVolumeProviderServiceClient(cc),
+	}
+}
+
+// GetCurrentVolume calls the GetCurrentVolume RPC.
+func (c *VolumeProviderClient) GetCurrentVolume(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetCurrentVolume(ctx, &pb.GetCurrentVolumeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMaxVolume calls the GetMaxVolume RPC.
+func (c *VolumeProviderClient) GetMaxVolume(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMaxVolume(ctx, &pb.VolumeProviderGetMaxVolumeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVolumeControl calls the GetVolumeControl RPC.
+func (c *VolumeProviderClient) GetVolumeControl(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetVolumeControl(ctx, &pb.GetVolumeControlRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVolumeControlId calls the GetVolumeControlId RPC.
+func (c *VolumeProviderClient) GetVolumeControlId(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetVolumeControlId(ctx, &pb.GetVolumeControlIdRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnAdjustVolume calls the OnAdjustVolume RPC.
+func (c *VolumeProviderClient) OnAdjustVolume(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.OnAdjustVolume(ctx, &pb.OnAdjustVolumeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnSetVolumeTo calls the OnSetVolumeTo RPC.
+func (c *VolumeProviderClient) OnSetVolumeTo(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.OnSetVolumeTo(ctx, &pb.OnSetVolumeToRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetCurrentVolume calls the SetCurrentVolume RPC.
+func (c *VolumeProviderClient) SetCurrentVolume(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetCurrentVolume(ctx, &pb.SetCurrentVolumeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// AudioDeviceCallbackClient wraps the gRPC AudioDeviceCallbackService client.
+type AudioDeviceCallbackClient struct {
+	svc pb.AudioDeviceCallbackServiceClient
+}
+
+// NewAudioDeviceCallbackClient creates a new AudioDeviceCallback client.
+func NewAudioDeviceCallbackClient(cc grpc.ClientConnInterface) *AudioDeviceCallbackClient {
+	return &AudioDeviceCallbackClient{
+		svc: pb.NewAudioDeviceCallbackServiceClient(cc),
+	}
+}
+
+// OnAudioDevicesAdded calls the OnAudioDevicesAdded RPC.
+func (c *AudioDeviceCallbackClient) OnAudioDevicesAdded(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnAudioDevicesAdded(ctx, &pb.OnAudioDevicesAddedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnAudioDevicesRemoved calls the OnAudioDevicesRemoved RPC.
+func (c *AudioDeviceCallbackClient) OnAudioDevicesRemoved(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnAudioDevicesRemoved(ctx, &pb.OnAudioDevicesRemovedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// MetadataClient wraps the gRPC MetadataService client.
+type MetadataClient struct {
+	svc pb.MetadataServiceClient
+}
+
+// NewMetadataClient creates a new Metadata client.
+func NewMetadataClient(cc grpc.ClientConnInterface) *MetadataClient {
+	return &MetadataClient{
+		svc: pb.NewMetadataServiceClient(cc),
+	}
+}
+
+// ContainsKey calls the ContainsKey RPC.
+func (c *MetadataClient) ContainsKey(ctx context.Context, arg0 string) (bool, error) {
+	resp, err := c.svc.ContainsKey(ctx, &pb.ContainsKeyRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *MetadataClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *MetadataClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBitmap calls the GetBitmap RPC.
+func (c *MetadataClient) GetBitmap(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.GetBitmap(ctx, &pb.GetBitmapRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBitmapDimensionLimit calls the GetBitmapDimensionLimit RPC.
+func (c *MetadataClient) GetBitmapDimensionLimit(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetBitmapDimensionLimit(ctx, &pb.GetBitmapDimensionLimitRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDescription calls the GetDescription RPC.
+func (c *MetadataClient) GetDescription(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDescription(ctx, &pb.GetDescriptionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLong calls the GetLong RPC.
+func (c *MetadataClient) GetLong(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.GetLong(ctx, &pb.GetLongRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRating calls the GetRating RPC.
+func (c *MetadataClient) GetRating(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.GetRating(ctx, &pb.GetRatingRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetString calls the GetString RPC.
+func (c *MetadataClient) GetString(ctx context.Context, arg0 string) (string, error) {
+	resp, err := c.svc.GetString(ctx, &pb.GetStringRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetText calls the GetText RPC.
+func (c *MetadataClient) GetText(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.GetText(ctx, &pb.GetTextRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *MetadataClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Size calls the Size RPC.
+func (c *MetadataClient) Size(ctx context.Context) (int32, error) {
+	resp, err := c.svc.Size(ctx, &pb.SizeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *MetadataClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// MetadataBuilderClient wraps the gRPC MetadataBuilderService client.
+type MetadataBuilderClient struct {
+	svc pb.MetadataBuilderServiceClient
+}
+
+// NewMetadataBuilderClient creates a new MetadataBuilder client.
+func NewMetadataBuilderClient(cc grpc.ClientConnInterface) *MetadataBuilderClient {
+	return &MetadataBuilderClient{
+		svc: pb.NewMetadataBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *MetadataBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PutBitmap calls the PutBitmap RPC.
+func (c *MetadataBuilderClient) PutBitmap(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.PutBitmap(ctx, &pb.PutBitmapRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PutLong calls the PutLong RPC.
+func (c *MetadataBuilderClient) PutLong(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.PutLong(ctx, &pb.PutLongRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PutRating calls the PutRating RPC.
+func (c *MetadataBuilderClient) PutRating(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.PutRating(ctx, &pb.PutRatingRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PutString calls the PutString RPC.
+func (c *MetadataBuilderClient) PutString(ctx context.Context, arg0 string, arg1 string) (int64, error) {
+	resp, err := c.svc.PutString(ctx, &pb.PutStringRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PutText calls the PutText RPC.
+func (c *MetadataBuilderClient) PutText(ctx context.Context, arg0 string, arg1 string) (int64, error) {
+	resp, err := c.svc.PutText(ctx, &pb.PutTextRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetBitmapDimensionLimit calls the SetBitmapDimensionLimit RPC.
+func (c *MetadataBuilderClient) SetBitmapDimensionLimit(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetBitmapDimensionLimit(ctx, &pb.SetBitmapDimensionLimitRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RemoteControllerClient wraps the gRPC RemoteControllerService client.
+type RemoteControllerClient struct {
+	svc pb.RemoteControllerServiceClient
+}
+
+// NewRemoteControllerClient creates a new RemoteController client.
+func NewRemoteControllerClient(cc grpc.ClientConnInterface) *RemoteControllerClient {
+	return &RemoteControllerClient{
+		svc: pb.NewRemoteControllerServiceClient(cc),
+	}
+}
+
+// ClearArtworkConfiguration calls the ClearArtworkConfiguration RPC.
+func (c *RemoteControllerClient) ClearArtworkConfiguration(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.ClearArtworkConfiguration(ctx, &pb.ClearArtworkConfigurationRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// EditMetadata calls the EditMetadata RPC.
+func (c *RemoteControllerClient) EditMetadata(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.EditMetadata(ctx, &pb.EditMetadataRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEstimatedMediaPosition calls the GetEstimatedMediaPosition RPC.
+func (c *RemoteControllerClient) GetEstimatedMediaPosition(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetEstimatedMediaPosition(ctx, &pb.GetEstimatedMediaPositionRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SeekTo calls the SeekTo RPC.
+func (c *RemoteControllerClient) SeekTo(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.SeekTo(ctx, &pb.SeekToRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SendMediaKeyEvent calls the SendMediaKeyEvent RPC.
+func (c *RemoteControllerClient) SendMediaKeyEvent(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.SendMediaKeyEvent(ctx, &pb.SendMediaKeyEventRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetArtworkConfiguration calls the SetArtworkConfiguration RPC.
+func (c *RemoteControllerClient) SetArtworkConfiguration(ctx context.Context, handle int64, arg0 int32, arg1 int32) (bool, error) {
+	resp, err := c.svc.SetArtworkConfiguration(ctx, &pb.SetArtworkConfigurationRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSynchronizationMode calls the SetSynchronizationMode RPC.
+func (c *RemoteControllerClient) SetSynchronizationMode(ctx context.Context, handle int64, arg0 int32) (bool, error) {
+	resp, err := c.svc.SetSynchronizationMode(ctx, &pb.SetSynchronizationModeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RemoteControllerOnClientUpdateListenerClient wraps the gRPC RemoteControllerOnClientUpdateListenerService client.
+type RemoteControllerOnClientUpdateListenerClient struct {
+	svc pb.RemoteControllerOnClientUpdateListenerServiceClient
+}
+
+// NewRemoteControllerOnClientUpdateListenerClient creates a new RemoteControllerOnClientUpdateListener client.
+func NewRemoteControllerOnClientUpdateListenerClient(cc grpc.ClientConnInterface) *RemoteControllerOnClientUpdateListenerClient {
+	return &RemoteControllerOnClientUpdateListenerClient{
+		svc: pb.NewRemoteControllerOnClientUpdateListenerServiceClient(cc),
+	}
+}
+
+// OnClientChange calls the OnClientChange RPC.
+func (c *RemoteControllerOnClientUpdateListenerClient) OnClientChange(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.OnClientChange(ctx, &pb.OnClientChangeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnClientMetadataUpdate calls the OnClientMetadataUpdate RPC.
+func (c *RemoteControllerOnClientUpdateListenerClient) OnClientMetadataUpdate(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnClientMetadataUpdate(ctx, &pb.OnClientMetadataUpdateRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnClientPlaybackStateUpdate1 calls the OnClientPlaybackStateUpdate1 RPC.
+func (c *RemoteControllerOnClientUpdateListenerClient) OnClientPlaybackStateUpdate1(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.OnClientPlaybackStateUpdate1(ctx, &pb.OnClientPlaybackStateUpdate1Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnClientPlaybackStateUpdate4_1 calls the OnClientPlaybackStateUpdate4_1 RPC.
+func (c *RemoteControllerOnClientUpdateListenerClient) OnClientPlaybackStateUpdate4_1(ctx context.Context, arg0 int32, arg1 int64, arg2 int64, arg3 float32) error {
+	_, err := c.svc.OnClientPlaybackStateUpdate4_1(ctx, &pb.OnClientPlaybackStateUpdate4_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// OnClientTransportControlUpdate calls the OnClientTransportControlUpdate RPC.
+func (c *RemoteControllerOnClientUpdateListenerClient) OnClientTransportControlUpdate(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.OnClientTransportControlUpdate(ctx, &pb.OnClientTransportControlUpdateRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ExtractorClient wraps the gRPC ExtractorService client.
+type ExtractorClient struct {
+	svc pb.ExtractorServiceClient
+}
+
+// NewExtractorClient creates a new Extractor client.
+func NewExtractorClient(cc grpc.ClientConnInterface) *ExtractorClient {
+	return &ExtractorClient{
+		svc: pb.NewExtractorServiceClient(cc),
+	}
+}
+
+// Advance calls the Advance RPC.
+func (c *ExtractorClient) Advance(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.Advance(ctx, &pb.AdvanceRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCachedDuration calls the GetCachedDuration RPC.
+func (c *ExtractorClient) GetCachedDuration(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetCachedDuration(ctx, &pb.GetCachedDurationRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCasInfo calls the GetCasInfo RPC.
+func (c *ExtractorClient) GetCasInfo(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetCasInfo(ctx, &pb.GetCasInfoRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDrmInitData calls the GetDrmInitData RPC.
+func (c *ExtractorClient) GetDrmInitData(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetDrmInitData(ctx, &pb.GetDrmInitDataRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLogSessionId calls the GetLogSessionId RPC.
+func (c *ExtractorClient) GetLogSessionId(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetLogSessionId(ctx, &pb.ExtractorGetLogSessionIdRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMetrics calls the GetMetrics RPC.
+func (c *ExtractorClient) GetMetrics(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetMetrics(ctx, &pb.GetMetricsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSampleCryptoInfo calls the GetSampleCryptoInfo RPC.
+func (c *ExtractorClient) GetSampleCryptoInfo(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.GetSampleCryptoInfo(ctx, &pb.GetSampleCryptoInfoRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSampleFlags calls the GetSampleFlags RPC.
+func (c *ExtractorClient) GetSampleFlags(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetSampleFlags(ctx, &pb.GetSampleFlagsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSampleSize calls the GetSampleSize RPC.
+func (c *ExtractorClient) GetSampleSize(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetSampleSize(ctx, &pb.GetSampleSizeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSampleTime calls the GetSampleTime RPC.
+func (c *ExtractorClient) GetSampleTime(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetSampleTime(ctx, &pb.GetSampleTimeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSampleTrackIndex calls the GetSampleTrackIndex RPC.
+func (c *ExtractorClient) GetSampleTrackIndex(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetSampleTrackIndex(ctx, &pb.GetSampleTrackIndexRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTrackCount calls the GetTrackCount RPC.
+func (c *ExtractorClient) GetTrackCount(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetTrackCount(ctx, &pb.GetTrackCountRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTrackFormat calls the GetTrackFormat RPC.
+func (c *ExtractorClient) GetTrackFormat(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetTrackFormat(ctx, &pb.GetTrackFormatRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasCacheReachedEndOfStream calls the HasCacheReachedEndOfStream RPC.
+func (c *ExtractorClient) HasCacheReachedEndOfStream(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.HasCacheReachedEndOfStream(ctx, &pb.HasCacheReachedEndOfStreamRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Release calls the Release RPC.
+func (c *ExtractorClient) Release(ctx context.Context, handle int64) error {
+	_, err := c.svc.Release(ctx, &pb.ReleaseRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// SeekTo calls the SeekTo RPC.
+func (c *ExtractorClient) SeekTo(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.SeekTo(ctx, &pb.ExtractorSeekToRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SelectTrack calls the SelectTrack RPC.
+func (c *ExtractorClient) SelectTrack(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SelectTrack(ctx, &pb.SelectTrackRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetDataSource1 calls the SetDataSource1 RPC.
+func (c *ExtractorClient) SetDataSource1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetDataSource1(ctx, &pb.SetDataSource1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetDataSource1_1 calls the SetDataSource1_1 RPC.
+func (c *ExtractorClient) SetDataSource1_1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetDataSource1_1(ctx, &pb.SetDataSource1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetDataSource1_2 calls the SetDataSource1_2 RPC.
+func (c *ExtractorClient) SetDataSource1_2(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetDataSource1_2(ctx, &pb.SetDataSource1_2Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetDataSource3_3 calls the SetDataSource3_3 RPC.
+func (c *ExtractorClient) SetDataSource3_3(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.SetDataSource3_3(ctx, &pb.SetDataSource3_3Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// SetDataSource1_4 calls the SetDataSource1_4 RPC.
+func (c *ExtractorClient) SetDataSource1_4(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.SetDataSource1_4(ctx, &pb.SetDataSource1_4Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetLogSessionId calls the SetLogSessionId RPC.
+func (c *ExtractorClient) SetLogSessionId(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetLogSessionId(ctx, &pb.ExtractorSetLogSessionIdRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetMediaCas calls the SetMediaCas RPC.
+func (c *ExtractorClient) SetMediaCas(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetMediaCas(ctx, &pb.SetMediaCasRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// UnselectTrack calls the UnselectTrack RPC.
+func (c *ExtractorClient) UnselectTrack(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.UnselectTrack(ctx, &pb.UnselectTrackRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// ExtractorCasInfoClient wraps the gRPC ExtractorCasInfoService client.
+type ExtractorCasInfoClient struct {
+	svc pb.ExtractorCasInfoServiceClient
+}
+
+// NewExtractorCasInfoClient creates a new ExtractorCasInfo client.
+func NewExtractorCasInfoClient(cc grpc.ClientConnInterface) *ExtractorCasInfoClient {
+	return &ExtractorCasInfoClient{
+		svc: pb.NewExtractorCasInfoServiceClient(cc),
+	}
+}
+
+// GetPrivateData calls the GetPrivateData RPC.
+func (c *ExtractorCasInfoClient) GetPrivateData(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPrivateData(ctx, &pb.GetPrivateDataRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSession calls the GetSession RPC.
+func (c *ExtractorCasInfoClient) GetSession(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSession(ctx, &pb.GetSessionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSystemId calls the GetSystemId RPC.
+func (c *ExtractorCasInfoClient) GetSystemId(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetSystemId(ctx, &pb.GetSystemIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ImageReaderClient wraps the gRPC ImageReaderService client.
+type ImageReaderClient struct {
+	svc pb.ImageReaderServiceClient
+}
+
+// NewImageReaderClient creates a new ImageReader client.
+func NewImageReaderClient(cc grpc.ClientConnInterface) *ImageReaderClient {
+	return &ImageReaderClient{
+		svc: pb.NewImageReaderServiceClient(cc),
+	}
+}
+
+// AcquireLatestImage calls the AcquireLatestImage RPC.
+func (c *ImageReaderClient) AcquireLatestImage(ctx context.Context) (int64, error) {
+	resp, err := c.svc.AcquireLatestImage(ctx, &pb.AcquireLatestImageRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AcquireNextImage calls the AcquireNextImage RPC.
+func (c *ImageReaderClient) AcquireNextImage(ctx context.Context) (int64, error) {
+	resp, err := c.svc.AcquireNextImage(ctx, &pb.AcquireNextImageRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Close calls the Close RPC.
+func (c *ImageReaderClient) Close(ctx context.Context) error {
+	_, err := c.svc.Close(ctx, &pb.ImageReaderCloseRequest{})
+	return err
+}
+
+// DiscardFreeBuffers calls the DiscardFreeBuffers RPC.
+func (c *ImageReaderClient) DiscardFreeBuffers(ctx context.Context) error {
+	_, err := c.svc.DiscardFreeBuffers(ctx, &pb.DiscardFreeBuffersRequest{})
+	return err
+}
+
+// GetDataSpace calls the GetDataSpace RPC.
+func (c *ImageReaderClient) GetDataSpace(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetDataSpace(ctx, &pb.GetDataSpaceRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHardwareBufferFormat calls the GetHardwareBufferFormat RPC.
+func (c *ImageReaderClient) GetHardwareBufferFormat(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetHardwareBufferFormat(ctx, &pb.GetHardwareBufferFormatRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHeight calls the GetHeight RPC.
+func (c *ImageReaderClient) GetHeight(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetHeight(ctx, &pb.GetHeightRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetImageFormat calls the GetImageFormat RPC.
+func (c *ImageReaderClient) GetImageFormat(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetImageFormat(ctx, &pb.GetImageFormatRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMaxImages calls the GetMaxImages RPC.
+func (c *ImageReaderClient) GetMaxImages(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMaxImages(ctx, &pb.GetMaxImagesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSurface calls the GetSurface RPC.
+func (c *ImageReaderClient) GetSurface(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSurface(ctx, &pb.GetSurfaceRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUsage calls the GetUsage RPC.
+func (c *ImageReaderClient) GetUsage(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetUsage(ctx, &pb.GetUsageRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWidth calls the GetWidth RPC.
+func (c *ImageReaderClient) GetWidth(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetWidth(ctx, &pb.GetWidthRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// NewInstance4 calls the NewInstance4 RPC.
+func (c *ImageReaderClient) NewInstance4(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32) (int64, error) {
+	resp, err := c.svc.NewInstance4(ctx, &pb.NewInstance4Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// NewInstance5_1 calls the NewInstance5_1 RPC.
+func (c *ImageReaderClient) NewInstance5_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int64) (int64, error) {
+	resp, err := c.svc.NewInstance5_1(ctx, &pb.NewInstance5_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ImageReaderBuilderClient wraps the gRPC ImageReaderBuilderService client.
+type ImageReaderBuilderClient struct {
+	svc pb.ImageReaderBuilderServiceClient
+}
+
+// NewImageReaderBuilderClient creates a new ImageReaderBuilder client.
+func NewImageReaderBuilderClient(cc grpc.ClientConnInterface) *ImageReaderBuilderClient {
+	return &ImageReaderBuilderClient{
+		svc: pb.NewImageReaderBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *ImageReaderBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetDefaultDataSpace calls the SetDefaultDataSpace RPC.
+func (c *ImageReaderBuilderClient) SetDefaultDataSpace(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetDefaultDataSpace(ctx, &pb.SetDefaultDataSpaceRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetDefaultHardwareBufferFormat calls the SetDefaultHardwareBufferFormat RPC.
+func (c *ImageReaderBuilderClient) SetDefaultHardwareBufferFormat(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetDefaultHardwareBufferFormat(ctx, &pb.SetDefaultHardwareBufferFormatRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetImageFormat calls the SetImageFormat RPC.
+func (c *ImageReaderBuilderClient) SetImageFormat(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetImageFormat(ctx, &pb.SetImageFormatRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetMaxImages calls the SetMaxImages RPC.
+func (c *ImageReaderBuilderClient) SetMaxImages(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetMaxImages(ctx, &pb.SetMaxImagesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetUsage calls the SetUsage RPC.
+func (c *ImageReaderBuilderClient) SetUsage(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetUsage(ctx, &pb.ImageReaderBuilderSetUsageRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ImageReaderOnImageAvailableListenerClient wraps the gRPC ImageReaderOnImageAvailableListenerService client.
+type ImageReaderOnImageAvailableListenerClient struct {
+	svc pb.ImageReaderOnImageAvailableListenerServiceClient
+}
+
+// NewImageReaderOnImageAvailableListenerClient creates a new ImageReaderOnImageAvailableListener client.
+func NewImageReaderOnImageAvailableListenerClient(cc grpc.ClientConnInterface) *ImageReaderOnImageAvailableListenerClient {
+	return &ImageReaderOnImageAvailableListenerClient{
+		svc: pb.NewImageReaderOnImageAvailableListenerServiceClient(cc),
+	}
+}
+
+// OnImageAvailable calls the OnImageAvailable RPC.
+func (c *ImageReaderOnImageAvailableListenerClient) OnImageAvailable(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnImageAvailable(ctx, &pb.OnImageAvailableRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// Controller2Client wraps the gRPC Controller2Service client.
+type Controller2Client struct {
+	svc pb.Controller2ServiceClient
+}
+
+// NewController2Client creates a new Controller2 client.
+func NewController2Client(cc grpc.ClientConnInterface) *Controller2Client {
+	return &Controller2Client{
+		svc: pb.NewController2ServiceClient(cc),
+	}
+}
+
+// CancelSessionCommand calls the CancelSessionCommand RPC.
+func (c *Controller2Client) CancelSessionCommand(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.CancelSessionCommand(ctx, &pb.CancelSessionCommandRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// Close calls the Close RPC.
+func (c *Controller2Client) Close(ctx context.Context) error {
+	_, err := c.svc.Close(ctx, &pb.Controller2CloseRequest{})
+	return err
+}
+
+// GetConnectedToken calls the GetConnectedToken RPC.
+func (c *Controller2Client) GetConnectedToken(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetConnectedToken(ctx, &pb.GetConnectedTokenRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsPlaybackActive calls the IsPlaybackActive RPC.
+func (c *Controller2Client) IsPlaybackActive(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsPlaybackActive(ctx, &pb.IsPlaybackActiveRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SendSessionCommand calls the SendSessionCommand RPC.
+func (c *Controller2Client) SendSessionCommand(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.SendSessionCommand(ctx, &pb.SendSessionCommandRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Controller2BuilderClient wraps the gRPC Controller2BuilderService client.
+type Controller2BuilderClient struct {
+	svc pb.Controller2BuilderServiceClient
+}
+
+// NewController2BuilderClient creates a new Controller2Builder client.
+func NewController2BuilderClient(cc grpc.ClientConnInterface) *Controller2BuilderClient {
+	return &Controller2BuilderClient{
+		svc: pb.NewController2BuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *Controller2BuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetConnectionHints calls the SetConnectionHints RPC.
+func (c *Controller2BuilderClient) SetConnectionHints(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetConnectionHints(ctx, &pb.SetConnectionHintsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetControllerCallback calls the SetControllerCallback RPC.
+func (c *Controller2BuilderClient) SetControllerCallback(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.SetControllerCallback(ctx, &pb.SetControllerCallbackRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Controller2ControllerCallbackClient wraps the gRPC Controller2ControllerCallbackService client.
+type Controller2ControllerCallbackClient struct {
+	svc pb.Controller2ControllerCallbackServiceClient
+}
+
+// NewController2ControllerCallbackClient creates a new Controller2ControllerCallback client.
+func NewController2ControllerCallbackClient(cc grpc.ClientConnInterface) *Controller2ControllerCallbackClient {
+	return &Controller2ControllerCallbackClient{
+		svc: pb.NewController2ControllerCallbackServiceClient(cc),
+	}
+}
+
+// OnCommandResult calls the OnCommandResult RPC.
+func (c *Controller2ControllerCallbackClient) OnCommandResult(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
+	_, err := c.svc.OnCommandResult(ctx, &pb.OnCommandResultRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// OnConnected calls the OnConnected RPC.
+func (c *Controller2ControllerCallbackClient) OnConnected(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.OnConnected(ctx, &pb.OnConnectedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnDisconnected calls the OnDisconnected RPC.
+func (c *Controller2ControllerCallbackClient) OnDisconnected(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnDisconnected(ctx, &pb.OnDisconnectedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnPlaybackActiveChanged calls the OnPlaybackActiveChanged RPC.
+func (c *Controller2ControllerCallbackClient) OnPlaybackActiveChanged(ctx context.Context, arg0 int64, arg1 bool) error {
+	_, err := c.svc.OnPlaybackActiveChanged(ctx, &pb.OnPlaybackActiveChangedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnSessionCommand calls the OnSessionCommand RPC.
+func (c *Controller2ControllerCallbackClient) OnSessionCommand(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.OnSessionCommand(ctx, &pb.OnSessionCommandRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MetadataRetrieverClient wraps the gRPC MetadataRetrieverService client.
+type MetadataRetrieverClient struct {
+	svc pb.MetadataRetrieverServiceClient
+}
+
+// NewMetadataRetrieverClient creates a new MetadataRetriever client.
+func NewMetadataRetrieverClient(cc grpc.ClientConnInterface) *MetadataRetrieverClient {
+	return &MetadataRetrieverClient{
+		svc: pb.NewMetadataRetrieverServiceClient(cc),
+	}
+}
+
+// Close calls the Close RPC.
+func (c *MetadataRetrieverClient) Close(ctx context.Context, handle int64) error {
+	_, err := c.svc.Close(ctx, &pb.CloseRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// ExtractMetadata calls the ExtractMetadata RPC.
+func (c *MetadataRetrieverClient) ExtractMetadata(ctx context.Context, handle int64, arg0 int32) (string, error) {
+	resp, err := c.svc.ExtractMetadata(ctx, &pb.ExtractMetadataRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEmbeddedPicture calls the GetEmbeddedPicture RPC.
+func (c *MetadataRetrieverClient) GetEmbeddedPicture(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetEmbeddedPicture(ctx, &pb.GetEmbeddedPictureRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFrameAtIndex1 calls the GetFrameAtIndex1 RPC.
+func (c *MetadataRetrieverClient) GetFrameAtIndex1(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetFrameAtIndex1(ctx, &pb.GetFrameAtIndex1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFrameAtIndex2_1 calls the GetFrameAtIndex2_1 RPC.
+func (c *MetadataRetrieverClient) GetFrameAtIndex2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) (int64, error) {
+	resp, err := c.svc.GetFrameAtIndex2_1(ctx, &pb.GetFrameAtIndex2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFrameAtTime0 calls the GetFrameAtTime0 RPC.
+func (c *MetadataRetrieverClient) GetFrameAtTime0(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetFrameAtTime0(ctx, &pb.GetFrameAtTime0Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFrameAtTime1_1 calls the GetFrameAtTime1_1 RPC.
+func (c *MetadataRetrieverClient) GetFrameAtTime1_1(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetFrameAtTime1_1(ctx, &pb.GetFrameAtTime1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFrameAtTime2_2 calls the GetFrameAtTime2_2 RPC.
+func (c *MetadataRetrieverClient) GetFrameAtTime2_2(ctx context.Context, handle int64, arg0 int64, arg1 int32) (int64, error) {
+	resp, err := c.svc.GetFrameAtTime2_2(ctx, &pb.GetFrameAtTime2_2Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFrameAtTime3_3 calls the GetFrameAtTime3_3 RPC.
+func (c *MetadataRetrieverClient) GetFrameAtTime3_3(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int64) (int64, error) {
+	resp, err := c.svc.GetFrameAtTime3_3(ctx, &pb.GetFrameAtTime3_3Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetImageAtIndex1 calls the GetImageAtIndex1 RPC.
+func (c *MetadataRetrieverClient) GetImageAtIndex1(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetImageAtIndex1(ctx, &pb.GetImageAtIndex1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetImageAtIndex2_1 calls the GetImageAtIndex2_1 RPC.
+func (c *MetadataRetrieverClient) GetImageAtIndex2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) (int64, error) {
+	resp, err := c.svc.GetImageAtIndex2_1(ctx, &pb.GetImageAtIndex2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPrimaryImage0 calls the GetPrimaryImage0 RPC.
+func (c *MetadataRetrieverClient) GetPrimaryImage0(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetPrimaryImage0(ctx, &pb.GetPrimaryImage0Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPrimaryImage1_1 calls the GetPrimaryImage1_1 RPC.
+func (c *MetadataRetrieverClient) GetPrimaryImage1_1(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetPrimaryImage1_1(ctx, &pb.GetPrimaryImage1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetScaledFrameAtTime4 calls the GetScaledFrameAtTime4 RPC.
+func (c *MetadataRetrieverClient) GetScaledFrameAtTime4(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int32, arg3 int32) (int64, error) {
+	resp, err := c.svc.GetScaledFrameAtTime4(ctx, &pb.GetScaledFrameAtTime4Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetScaledFrameAtTime5_1 calls the GetScaledFrameAtTime5_1 RPC.
+func (c *MetadataRetrieverClient) GetScaledFrameAtTime5_1(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int32, arg3 int32, arg4 int64) (int64, error) {
+	resp, err := c.svc.GetScaledFrameAtTime5_1(ctx, &pb.GetScaledFrameAtTime5_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Release calls the Release RPC.
+func (c *MetadataRetrieverClient) Release(ctx context.Context, handle int64) error {
+	_, err := c.svc.Release(ctx, &pb.ReleaseRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// SetDataSource2 calls the SetDataSource2 RPC.
+func (c *MetadataRetrieverClient) SetDataSource2(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
+	_, err := c.svc.SetDataSource2(ctx, &pb.SetDataSource2Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SetDataSource1_1 calls the SetDataSource1_1 RPC.
+func (c *MetadataRetrieverClient) SetDataSource1_1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetDataSource1_1(ctx, &pb.SetDataSource1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetDataSource1_2 calls the SetDataSource1_2 RPC.
+func (c *MetadataRetrieverClient) SetDataSource1_2(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetDataSource1_2(ctx, &pb.SetDataSource1_2Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetDataSource3_3 calls the SetDataSource3_3 RPC.
+func (c *MetadataRetrieverClient) SetDataSource3_3(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.SetDataSource3_3(ctx, &pb.SetDataSource3_3Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// SetDataSource1_4 calls the SetDataSource1_4 RPC.
+func (c *MetadataRetrieverClient) SetDataSource1_4(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.SetDataSource1_4(ctx, &pb.SetDataSource1_4Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// MetadataRetrieverBitmapParamsClient wraps the gRPC MetadataRetrieverBitmapParamsService client.
+type MetadataRetrieverBitmapParamsClient struct {
+	svc pb.MetadataRetrieverBitmapParamsServiceClient
+}
+
+// NewMetadataRetrieverBitmapParamsClient creates a new MetadataRetrieverBitmapParams client.
+func NewMetadataRetrieverBitmapParamsClient(cc grpc.ClientConnInterface) *MetadataRetrieverBitmapParamsClient {
+	return &MetadataRetrieverBitmapParamsClient{
+		svc: pb.NewMetadataRetrieverBitmapParamsServiceClient(cc),
+	}
+}
+
+// GetActualConfig calls the GetActualConfig RPC.
+func (c *MetadataRetrieverBitmapParamsClient) GetActualConfig(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetActualConfig(ctx, &pb.GetActualConfigRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPreferredConfig calls the GetPreferredConfig RPC.
+func (c *MetadataRetrieverBitmapParamsClient) GetPreferredConfig(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPreferredConfig(ctx, &pb.GetPreferredConfigRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPreferredConfig calls the SetPreferredConfig RPC.
+func (c *MetadataRetrieverBitmapParamsClient) SetPreferredConfig(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetPreferredConfig(ctx, &pb.SetPreferredConfigRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ScannerConnectionClient wraps the gRPC ScannerConnectionService client.
+type ScannerConnectionClient struct {
+	svc pb.ScannerConnectionServiceClient
+}
+
+// NewScannerConnectionClient creates a new ScannerConnection client.
+func NewScannerConnectionClient(cc grpc.ClientConnInterface) *ScannerConnectionClient {
+	return &ScannerConnectionClient{
+		svc: pb.NewScannerConnectionServiceClient(cc),
+	}
+}
+
+// Connect calls the Connect RPC.
+func (c *ScannerConnectionClient) Connect(ctx context.Context, handle int64) error {
+	_, err := c.svc.Connect(ctx, &pb.ConnectRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// Disconnect calls the Disconnect RPC.
+func (c *ScannerConnectionClient) Disconnect(ctx context.Context, handle int64) error {
+	_, err := c.svc.Disconnect(ctx, &pb.DisconnectRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// OnServiceConnected calls the OnServiceConnected RPC.
+func (c *ScannerConnectionClient) OnServiceConnected(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
+	_, err := c.svc.OnServiceConnected(ctx, &pb.OnServiceConnectedRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// OnServiceDisconnected calls the OnServiceDisconnected RPC.
+func (c *ScannerConnectionClient) OnServiceDisconnected(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.OnServiceDisconnected(ctx, &pb.OnServiceDisconnectedRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// ScanFile2_1 calls the ScanFile2_1 RPC.
+func (c *ScannerConnectionClient) ScanFile2_1(ctx context.Context, handle int64, arg0 string, arg1 string) error {
+	_, err := c.svc.ScanFile2_1(ctx, &pb.ScanFile2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// ScanFile4 calls the ScanFile4 RPC.
+func (c *ScannerConnectionClient) ScanFile4(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
+	_, err := c.svc.ScanFile4(ctx, &pb.ScanFile4Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// ScannerConnectionMediaScannerConnectionClientClient wraps the gRPC ScannerConnectionMediaScannerConnectionClientService client.
+type ScannerConnectionMediaScannerConnectionClientClient struct {
+	svc pb.ScannerConnectionMediaScannerConnectionClientServiceClient
+}
+
+// NewScannerConnectionMediaScannerConnectionClientClient creates a new ScannerConnectionMediaScannerConnectionClient client.
+func NewScannerConnectionMediaScannerConnectionClientClient(cc grpc.ClientConnInterface) *ScannerConnectionMediaScannerConnectionClientClient {
+	return &ScannerConnectionMediaScannerConnectionClientClient{
+		svc: pb.NewScannerConnectionMediaScannerConnectionClientServiceClient(cc),
+	}
+}
+
+// OnMediaScannerConnected calls the OnMediaScannerConnected RPC.
+func (c *ScannerConnectionMediaScannerConnectionClientClient) OnMediaScannerConnected(ctx context.Context) error {
+	_, err := c.svc.OnMediaScannerConnected(ctx, &pb.OnMediaScannerConnectedRequest{})
+	return err
+}
+
+// ScannerConnectionOnScanCompletedListenerClient wraps the gRPC ScannerConnectionOnScanCompletedListenerService client.
+type ScannerConnectionOnScanCompletedListenerClient struct {
+	svc pb.ScannerConnectionOnScanCompletedListenerServiceClient
+}
+
+// NewScannerConnectionOnScanCompletedListenerClient creates a new ScannerConnectionOnScanCompletedListener client.
+func NewScannerConnectionOnScanCompletedListenerClient(cc grpc.ClientConnInterface) *ScannerConnectionOnScanCompletedListenerClient {
+	return &ScannerConnectionOnScanCompletedListenerClient{
+		svc: pb.NewScannerConnectionOnScanCompletedListenerServiceClient(cc),
+	}
+}
+
+// OnScanCompleted calls the OnScanCompleted RPC.
+func (c *ScannerConnectionOnScanCompletedListenerClient) OnScanCompleted(ctx context.Context, arg0 string, arg1 int64) error {
+	_, err := c.svc.OnScanCompleted(ctx, &pb.OnScanCompletedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// SyncClient wraps the gRPC SyncService client.
+type SyncClient struct {
+	svc pb.SyncServiceClient
+}
+
+// NewSyncClient creates a new Sync client.
+func NewSyncClient(cc grpc.ClientConnInterface) *SyncClient {
+	return &SyncClient{
+		svc: pb.NewSyncServiceClient(cc),
+	}
+}
+
+// CreateInputSurface calls the CreateInputSurface RPC.
+func (c *SyncClient) CreateInputSurface(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.CreateInputSurface(ctx, &pb.SyncCreateInputSurfaceRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Flush calls the Flush RPC.
+func (c *SyncClient) Flush(ctx context.Context, handle int64) error {
+	_, err := c.svc.Flush(ctx, &pb.SyncFlushRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// GetPlaybackParams calls the GetPlaybackParams RPC.
+func (c *SyncClient) GetPlaybackParams(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetPlaybackParams(ctx, &pb.GetPlaybackParamsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSyncParams calls the GetSyncParams RPC.
+func (c *SyncClient) GetSyncParams(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetSyncParams(ctx, &pb.GetSyncParamsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTimestamp calls the GetTimestamp RPC.
+func (c *SyncClient) GetTimestamp(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetTimestamp(ctx, &pb.SyncGetTimestampRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Release calls the Release RPC.
+func (c *SyncClient) Release(ctx context.Context, handle int64) error {
+	_, err := c.svc.Release(ctx, &pb.ReleaseRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// SetAudioTrack calls the SetAudioTrack RPC.
+func (c *SyncClient) SetAudioTrack(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetAudioTrack(ctx, &pb.SetAudioTrackRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetPlaybackParams calls the SetPlaybackParams RPC.
+func (c *SyncClient) SetPlaybackParams(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetPlaybackParams(ctx, &pb.SetPlaybackParamsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetSurface calls the SetSurface RPC.
+func (c *SyncClient) SetSurface(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetSurface(ctx, &pb.SetSurfaceRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetSyncParams calls the SetSyncParams RPC.
+func (c *SyncClient) SetSyncParams(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetSyncParams(ctx, &pb.SetSyncParamsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SyncOnErrorListenerClient wraps the gRPC SyncOnErrorListenerService client.
+type SyncOnErrorListenerClient struct {
+	svc pb.SyncOnErrorListenerServiceClient
+}
+
+// NewSyncOnErrorListenerClient creates a new SyncOnErrorListener client.
+func NewSyncOnErrorListenerClient(cc grpc.ClientConnInterface) *SyncOnErrorListenerClient {
+	return &SyncOnErrorListenerClient{
+		svc: pb.NewSyncOnErrorListenerServiceClient(cc),
+	}
+}
+
+// OnError calls the OnError RPC.
+func (c *SyncOnErrorListenerClient) OnError(ctx context.Context, arg0 int64, arg1 int32, arg2 int32) error {
+	_, err := c.svc.OnError(ctx, &pb.SyncOnErrorListenerOnErrorRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// JetPlayerClient wraps the gRPC JetPlayerService client.
+type JetPlayerClient struct {
+	svc pb.JetPlayerServiceClient
+}
+
+// NewJetPlayerClient creates a new JetPlayer client.
+func NewJetPlayerClient(cc grpc.ClientConnInterface) *JetPlayerClient {
+	return &JetPlayerClient{
+		svc: pb.NewJetPlayerServiceClient(cc),
+	}
+}
+
+// ClearQueue calls the ClearQueue RPC.
+func (c *JetPlayerClient) ClearQueue(ctx context.Context) (bool, error) {
+	resp, err := c.svc.ClearQueue(ctx, &pb.ClearQueueRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Clone calls the Clone RPC.
+func (c *JetPlayerClient) Clone(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Clone(ctx, &pb.CloneRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CloseJetFile calls the CloseJetFile RPC.
+func (c *JetPlayerClient) CloseJetFile(ctx context.Context) (bool, error) {
+	resp, err := c.svc.CloseJetFile(ctx, &pb.CloseJetFileRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// LoadJetFile1 calls the LoadJetFile1 RPC.
+func (c *JetPlayerClient) LoadJetFile1(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.LoadJetFile1(ctx, &pb.LoadJetFile1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// LoadJetFile1_1 calls the LoadJetFile1_1 RPC.
+func (c *JetPlayerClient) LoadJetFile1_1(ctx context.Context, arg0 string) (bool, error) {
+	resp, err := c.svc.LoadJetFile1_1(ctx, &pb.LoadJetFile1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Pause calls the Pause RPC.
+func (c *JetPlayerClient) Pause(ctx context.Context) (bool, error) {
+	resp, err := c.svc.Pause(ctx, &pb.JetPlayerPauseRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Play calls the Play RPC.
+func (c *JetPlayerClient) Play(ctx context.Context) (bool, error) {
+	resp, err := c.svc.Play(ctx, &pb.JetPlayerPlayRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// QueueJetSegment calls the QueueJetSegment RPC.
+func (c *JetPlayerClient) QueueJetSegment(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int8) (bool, error) {
+	resp, err := c.svc.QueueJetSegment(ctx, &pb.QueueJetSegmentRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: int64(arg5),
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// QueueJetSegmentMuteArray calls the QueueJetSegmentMuteArray RPC.
+func (c *JetPlayerClient) QueueJetSegmentMuteArray(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int64, arg5 int8) (bool, error) {
+	resp, err := c.svc.QueueJetSegmentMuteArray(ctx, &pb.QueueJetSegmentMuteArrayRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: int64(arg5),
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Release calls the Release RPC.
+func (c *JetPlayerClient) Release(ctx context.Context) error {
+	_, err := c.svc.Release(ctx, &pb.JetPlayerReleaseRequest{})
+	return err
+}
+
+// SetEventListener calls the SetEventListener RPC.
+func (c *JetPlayerClient) SetEventListener(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetEventListener(ctx, &pb.SetEventListenerRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetMuteArray calls the SetMuteArray RPC.
+func (c *JetPlayerClient) SetMuteArray(ctx context.Context, arg0 int64, arg1 bool) (bool, error) {
+	resp, err := c.svc.SetMuteArray(ctx, &pb.SetMuteArrayRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetMuteFlag calls the SetMuteFlag RPC.
+func (c *JetPlayerClient) SetMuteFlag(ctx context.Context, arg0 int32, arg1 bool, arg2 bool) (bool, error) {
+	resp, err := c.svc.SetMuteFlag(ctx, &pb.SetMuteFlagRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetMuteFlags calls the SetMuteFlags RPC.
+func (c *JetPlayerClient) SetMuteFlags(ctx context.Context, arg0 int32, arg1 bool) (bool, error) {
+	resp, err := c.svc.SetMuteFlags(ctx, &pb.SetMuteFlagsRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// TriggerClip calls the TriggerClip RPC.
+func (c *JetPlayerClient) TriggerClip(ctx context.Context, arg0 int32) (bool, error) {
+	resp, err := c.svc.TriggerClip(ctx, &pb.TriggerClipRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetJetPlayer calls the GetJetPlayer RPC.
+func (c *JetPlayerClient) GetJetPlayer(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetJetPlayer(ctx, &pb.GetJetPlayerRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMaxTracks calls the GetMaxTracks RPC.
+func (c *JetPlayerClient) GetMaxTracks(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMaxTracks(ctx, &pb.GetMaxTracksRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// JetPlayerOnJetEventListenerClient wraps the gRPC JetPlayerOnJetEventListenerService client.
+type JetPlayerOnJetEventListenerClient struct {
+	svc pb.JetPlayerOnJetEventListenerServiceClient
+}
+
+// NewJetPlayerOnJetEventListenerClient creates a new JetPlayerOnJetEventListener client.
+func NewJetPlayerOnJetEventListenerClient(cc grpc.ClientConnInterface) *JetPlayerOnJetEventListenerClient {
+	return &JetPlayerOnJetEventListenerClient{
+		svc: pb.NewJetPlayerOnJetEventListenerServiceClient(cc),
+	}
+}
+
+// OnJetEvent calls the OnJetEvent RPC.
+func (c *JetPlayerOnJetEventListenerClient) OnJetEvent(ctx context.Context, arg0 int64, arg1 int16, arg2 int8, arg3 int8, arg4 int8, arg5 int8) error {
+	_, err := c.svc.OnJetEvent(ctx, &pb.OnJetEventRequest{
+		Arg0: arg0,
+		Arg1: int32(arg1),
+		Arg2: int64(arg2),
+		Arg3: int64(arg3),
+		Arg4: int64(arg4),
+		Arg5: int64(arg5),
+	})
+	return err
+}
+
+// OnJetNumQueuedSegmentUpdate calls the OnJetNumQueuedSegmentUpdate RPC.
+func (c *JetPlayerOnJetEventListenerClient) OnJetNumQueuedSegmentUpdate(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.OnJetNumQueuedSegmentUpdate(ctx, &pb.OnJetNumQueuedSegmentUpdateRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnJetPauseUpdate calls the OnJetPauseUpdate RPC.
+func (c *JetPlayerOnJetEventListenerClient) OnJetPauseUpdate(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.OnJetPauseUpdate(ctx, &pb.OnJetPauseUpdateRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnJetUserIdUpdate calls the OnJetUserIdUpdate RPC.
+func (c *JetPlayerOnJetEventListenerClient) OnJetUserIdUpdate(ctx context.Context, arg0 int64, arg1 int32, arg2 int32) error {
+	_, err := c.svc.OnJetUserIdUpdate(ctx, &pb.OnJetUserIdUpdateRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// AudioMetadataClient wraps the gRPC AudioMetadataService client.
+type AudioMetadataClient struct {
+	svc pb.AudioMetadataServiceClient
+}
+
+// NewAudioMetadataClient creates a new AudioMetadata client.
+func NewAudioMetadataClient(cc grpc.ClientConnInterface) *AudioMetadataClient {
+	return &AudioMetadataClient{
+		svc: pb.NewAudioMetadataServiceClient(cc),
+	}
+}
+
+// CreateMap calls the CreateMap RPC.
+func (c *AudioMetadataClient) CreateMap(ctx context.Context) (int64, error) {
+	resp, err := c.svc.CreateMap(ctx, &pb.CreateMapRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AudioMetadataKeyClient wraps the gRPC AudioMetadataKeyService client.
+type AudioMetadataKeyClient struct {
+	svc pb.AudioMetadataKeyServiceClient
+}
+
+// NewAudioMetadataKeyClient creates a new AudioMetadataKey client.
+func NewAudioMetadataKeyClient(cc grpc.ClientConnInterface) *AudioMetadataKeyClient {
+	return &AudioMetadataKeyClient{
+		svc: pb.NewAudioMetadataKeyServiceClient(cc),
+	}
+}
+
+// GetName calls the GetName RPC.
+func (c *AudioMetadataKeyClient) GetName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetName(ctx, &pb.GetNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// ImageClient wraps the gRPC ImageService client.
+type ImageClient struct {
+	svc pb.ImageServiceClient
+}
+
+// NewImageClient creates a new Image client.
+func NewImageClient(cc grpc.ClientConnInterface) *ImageClient {
+	return &ImageClient{
+		svc: pb.NewImageServiceClient(cc),
+	}
+}
+
+// Close calls the Close RPC.
+func (c *ImageClient) Close(ctx context.Context) error {
+	_, err := c.svc.Close(ctx, &pb.ImageCloseRequest{})
+	return err
+}
+
+// GetCropRect calls the GetCropRect RPC.
+func (c *ImageClient) GetCropRect(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetCropRect(ctx, &pb.GetCropRectRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDataSpace calls the GetDataSpace RPC.
+func (c *ImageClient) GetDataSpace(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetDataSpace(ctx, &pb.GetDataSpaceRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFence calls the GetFence RPC.
+func (c *ImageClient) GetFence(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetFence(ctx, &pb.GetFenceRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFormat calls the GetFormat RPC.
+func (c *ImageClient) GetFormat(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetFormat(ctx, &pb.GetFormatRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHardwareBuffer calls the GetHardwareBuffer RPC.
+func (c *ImageClient) GetHardwareBuffer(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetHardwareBuffer(ctx, &pb.GetHardwareBufferRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHeight calls the GetHeight RPC.
+func (c *ImageClient) GetHeight(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetHeight(ctx, &pb.GetHeightRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPlanes calls the GetPlanes RPC.
+func (c *ImageClient) GetPlanes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPlanes(ctx, &pb.GetPlanesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTimestamp calls the GetTimestamp RPC.
+func (c *ImageClient) GetTimestamp(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTimestamp(ctx, &pb.ImageGetTimestampRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWidth calls the GetWidth RPC.
+func (c *ImageClient) GetWidth(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetWidth(ctx, &pb.GetWidthRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetCropRect calls the SetCropRect RPC.
+func (c *ImageClient) SetCropRect(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetCropRect(ctx, &pb.SetCropRectRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetDataSpace calls the SetDataSpace RPC.
+func (c *ImageClient) SetDataSpace(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetDataSpace(ctx, &pb.SetDataSpaceRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetFence calls the SetFence RPC.
+func (c *ImageClient) SetFence(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetFence(ctx, &pb.SetFenceRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetTimestamp calls the SetTimestamp RPC.
+func (c *ImageClient) SetTimestamp(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetTimestamp(ctx, &pb.SetTimestampRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ImagePlaneClient wraps the gRPC ImagePlaneService client.
+type ImagePlaneClient struct {
+	svc pb.ImagePlaneServiceClient
+}
+
+// NewImagePlaneClient creates a new ImagePlane client.
+func NewImagePlaneClient(cc grpc.ClientConnInterface) *ImagePlaneClient {
+	return &ImagePlaneClient{
+		svc: pb.NewImagePlaneServiceClient(cc),
+	}
+}
+
+// GetBuffer calls the GetBuffer RPC.
+func (c *ImagePlaneClient) GetBuffer(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetBuffer(ctx, &pb.GetBufferRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPixelStride calls the GetPixelStride RPC.
+func (c *ImagePlaneClient) GetPixelStride(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetPixelStride(ctx, &pb.GetPixelStrideRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRowStride calls the GetRowStride RPC.
+func (c *ImagePlaneClient) GetRowStride(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetRowStride(ctx, &pb.GetRowStrideRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Session2CommandClient wraps the gRPC Session2CommandService client.
+type Session2CommandClient struct {
+	svc pb.Session2CommandServiceClient
+}
+
+// NewSession2CommandClient creates a new Session2Command client.
+func NewSession2CommandClient(cc grpc.ClientConnInterface) *Session2CommandClient {
+	return &Session2CommandClient{
+		svc: pb.NewSession2CommandServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *Session2CommandClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.Session2CommandDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *Session2CommandClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.Session2CommandEqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCommandCode calls the GetCommandCode RPC.
+func (c *Session2CommandClient) GetCommandCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetCommandCode(ctx, &pb.GetCommandCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCustomAction calls the GetCustomAction RPC.
+func (c *Session2CommandClient) GetCustomAction(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetCustomAction(ctx, &pb.GetCustomActionRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCustomExtras calls the GetCustomExtras RPC.
+func (c *Session2CommandClient) GetCustomExtras(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetCustomExtras(ctx, &pb.GetCustomExtrasRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *Session2CommandClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.Session2CommandHashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *Session2CommandClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.Session2CommandWriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// Session2CommandResultClient wraps the gRPC Session2CommandResultService client.
+type Session2CommandResultClient struct {
+	svc pb.Session2CommandResultServiceClient
+}
+
+// NewSession2CommandResultClient creates a new Session2CommandResult client.
+func NewSession2CommandResultClient(cc grpc.ClientConnInterface) *Session2CommandResultClient {
+	return &Session2CommandResultClient{
+		svc: pb.NewSession2CommandResultServiceClient(cc),
+	}
+}
+
+// GetResultCode calls the GetResultCode RPC.
+func (c *Session2CommandResultClient) GetResultCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetResultCode(ctx, &pb.GetResultCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetResultData calls the GetResultData RPC.
+func (c *Session2CommandResultClient) GetResultData(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetResultData(ctx, &pb.GetResultDataRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Session2TokenClient wraps the gRPC Session2TokenService client.
+type Session2TokenClient struct {
+	svc pb.Session2TokenServiceClient
+}
+
+// NewSession2TokenClient creates a new Session2Token client.
+func NewSession2TokenClient(cc grpc.ClientConnInterface) *Session2TokenClient {
+	return &Session2TokenClient{
+		svc: pb.NewSession2TokenServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *Session2TokenClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.Session2TokenDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *Session2TokenClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.Session2TokenEqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExtras calls the GetExtras RPC.
+func (c *Session2TokenClient) GetExtras(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetExtras(ctx, &pb.Session2TokenGetExtrasRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPackageName calls the GetPackageName RPC.
+func (c *Session2TokenClient) GetPackageName(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetPackageName(ctx, &pb.GetPackageNameRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetServiceName calls the GetServiceName RPC.
+func (c *Session2TokenClient) GetServiceName(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetServiceName(ctx, &pb.GetServiceNameRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetType calls the GetType RPC.
+func (c *Session2TokenClient) GetType(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetType(ctx, &pb.Session2TokenGetTypeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUid calls the GetUid RPC.
+func (c *Session2TokenClient) GetUid(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetUid(ctx, &pb.GetUidRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *Session2TokenClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.Session2TokenHashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *Session2TokenClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.Session2TokenToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *Session2TokenClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.Session2TokenWriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// CodecInfoClient wraps the gRPC CodecInfoService client.
+type CodecInfoClient struct {
+	svc pb.CodecInfoServiceClient
+}
+
+// NewCodecInfoClient creates a new CodecInfo client.
+func NewCodecInfoClient(cc grpc.ClientConnInterface) *CodecInfoClient {
+	return &CodecInfoClient{
+		svc: pb.NewCodecInfoServiceClient(cc),
+	}
+}
+
+// GetCanonicalName calls the GetCanonicalName RPC.
+func (c *CodecInfoClient) GetCanonicalName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetCanonicalName(ctx, &pb.GetCanonicalNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCapabilitiesForType calls the GetCapabilitiesForType RPC.
+func (c *CodecInfoClient) GetCapabilitiesForType(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.GetCapabilitiesForType(ctx, &pb.GetCapabilitiesForTypeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetName calls the GetName RPC.
+func (c *CodecInfoClient) GetName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetName(ctx, &pb.GetNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSecurityModel calls the GetSecurityModel RPC.
+func (c *CodecInfoClient) GetSecurityModel(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetSecurityModel(ctx, &pb.GetSecurityModelRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSupportedTypes calls the GetSupportedTypes RPC.
+func (c *CodecInfoClient) GetSupportedTypes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSupportedTypes(ctx, &pb.GetSupportedTypesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsAlias calls the IsAlias RPC.
+func (c *CodecInfoClient) IsAlias(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsAlias(ctx, &pb.IsAliasRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsEncoder calls the IsEncoder RPC.
+func (c *CodecInfoClient) IsEncoder(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsEncoder(ctx, &pb.IsEncoderRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsHardwareAccelerated calls the IsHardwareAccelerated RPC.
+func (c *CodecInfoClient) IsHardwareAccelerated(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsHardwareAccelerated(ctx, &pb.IsHardwareAcceleratedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsSoftwareOnly calls the IsSoftwareOnly RPC.
+func (c *CodecInfoClient) IsSoftwareOnly(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsSoftwareOnly(ctx, &pb.IsSoftwareOnlyRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsVendor calls the IsVendor RPC.
+func (c *CodecInfoClient) IsVendor(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsVendor(ctx, &pb.IsVendorRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CodecInfoAudioCapabilitiesClient wraps the gRPC CodecInfoAudioCapabilitiesService client.
+type CodecInfoAudioCapabilitiesClient struct {
+	svc pb.CodecInfoAudioCapabilitiesServiceClient
+}
+
+// NewCodecInfoAudioCapabilitiesClient creates a new CodecInfoAudioCapabilities client.
+func NewCodecInfoAudioCapabilitiesClient(cc grpc.ClientConnInterface) *CodecInfoAudioCapabilitiesClient {
+	return &CodecInfoAudioCapabilitiesClient{
+		svc: pb.NewCodecInfoAudioCapabilitiesServiceClient(cc),
+	}
+}
+
+// GetMaxInputChannelCount calls the GetMaxInputChannelCount RPC.
+func (c *CodecInfoAudioCapabilitiesClient) GetMaxInputChannelCount(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMaxInputChannelCount(ctx, &pb.GetMaxInputChannelCountRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMinInputChannelCount calls the GetMinInputChannelCount RPC.
+func (c *CodecInfoAudioCapabilitiesClient) GetMinInputChannelCount(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMinInputChannelCount(ctx, &pb.GetMinInputChannelCountRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSupportedSampleRates calls the GetSupportedSampleRates RPC.
+func (c *CodecInfoAudioCapabilitiesClient) GetSupportedSampleRates(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSupportedSampleRates(ctx, &pb.GetSupportedSampleRatesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsSampleRateSupported calls the IsSampleRateSupported RPC.
+func (c *CodecInfoAudioCapabilitiesClient) IsSampleRateSupported(ctx context.Context, arg0 int32) (bool, error) {
+	resp, err := c.svc.IsSampleRateSupported(ctx, &pb.IsSampleRateSupportedRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CodecInfoCodecCapabilitiesClient wraps the gRPC CodecInfoCodecCapabilitiesService client.
+type CodecInfoCodecCapabilitiesClient struct {
+	svc pb.CodecInfoCodecCapabilitiesServiceClient
+}
+
+// NewCodecInfoCodecCapabilitiesClient creates a new CodecInfoCodecCapabilities client.
+func NewCodecInfoCodecCapabilitiesClient(cc grpc.ClientConnInterface) *CodecInfoCodecCapabilitiesClient {
+	return &CodecInfoCodecCapabilitiesClient{
+		svc: pb.NewCodecInfoCodecCapabilitiesServiceClient(cc),
+	}
+}
+
+// GetAudioCapabilities calls the GetAudioCapabilities RPC.
+func (c *CodecInfoCodecCapabilitiesClient) GetAudioCapabilities(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAudioCapabilities(ctx, &pb.GetAudioCapabilitiesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDefaultFormat calls the GetDefaultFormat RPC.
+func (c *CodecInfoCodecCapabilitiesClient) GetDefaultFormat(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDefaultFormat(ctx, &pb.GetDefaultFormatRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEncoderCapabilities calls the GetEncoderCapabilities RPC.
+func (c *CodecInfoCodecCapabilitiesClient) GetEncoderCapabilities(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetEncoderCapabilities(ctx, &pb.GetEncoderCapabilitiesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMaxSupportedInstances calls the GetMaxSupportedInstances RPC.
+func (c *CodecInfoCodecCapabilitiesClient) GetMaxSupportedInstances(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMaxSupportedInstances(ctx, &pb.GetMaxSupportedInstancesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMimeType calls the GetMimeType RPC.
+func (c *CodecInfoCodecCapabilitiesClient) GetMimeType(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetMimeType(ctx, &pb.GetMimeTypeRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVideoCapabilities calls the GetVideoCapabilities RPC.
+func (c *CodecInfoCodecCapabilitiesClient) GetVideoCapabilities(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetVideoCapabilities(ctx, &pb.GetVideoCapabilitiesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsFeatureRequired calls the IsFeatureRequired RPC.
+func (c *CodecInfoCodecCapabilitiesClient) IsFeatureRequired(ctx context.Context, arg0 string) (bool, error) {
+	resp, err := c.svc.IsFeatureRequired(ctx, &pb.IsFeatureRequiredRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsFeatureSupported calls the IsFeatureSupported RPC.
+func (c *CodecInfoCodecCapabilitiesClient) IsFeatureSupported(ctx context.Context, arg0 string) (bool, error) {
+	resp, err := c.svc.IsFeatureSupported(ctx, &pb.IsFeatureSupportedRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsFormatSupported calls the IsFormatSupported RPC.
+func (c *CodecInfoCodecCapabilitiesClient) IsFormatSupported(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.IsFormatSupported(ctx, &pb.IsFormatSupportedRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateFromProfileLevel calls the CreateFromProfileLevel RPC.
+func (c *CodecInfoCodecCapabilitiesClient) CreateFromProfileLevel(ctx context.Context, arg0 string, arg1 int32, arg2 int32) (int64, error) {
+	resp, err := c.svc.CreateFromProfileLevel(ctx, &pb.CreateFromProfileLevelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CodecInfoCodecProfileLevelClient wraps the gRPC CodecInfoCodecProfileLevelService client.
+type CodecInfoCodecProfileLevelClient struct {
+	svc pb.CodecInfoCodecProfileLevelServiceClient
+}
+
+// NewCodecInfoCodecProfileLevelClient creates a new CodecInfoCodecProfileLevel client.
+func NewCodecInfoCodecProfileLevelClient(cc grpc.ClientConnInterface) *CodecInfoCodecProfileLevelClient {
+	return &CodecInfoCodecProfileLevelClient{
+		svc: pb.NewCodecInfoCodecProfileLevelServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *CodecInfoCodecProfileLevelClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *CodecInfoCodecProfileLevelClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CodecInfoEncoderCapabilitiesClient wraps the gRPC CodecInfoEncoderCapabilitiesService client.
+type CodecInfoEncoderCapabilitiesClient struct {
+	svc pb.CodecInfoEncoderCapabilitiesServiceClient
+}
+
+// NewCodecInfoEncoderCapabilitiesClient creates a new CodecInfoEncoderCapabilities client.
+func NewCodecInfoEncoderCapabilitiesClient(cc grpc.ClientConnInterface) *CodecInfoEncoderCapabilitiesClient {
+	return &CodecInfoEncoderCapabilitiesClient{
+		svc: pb.NewCodecInfoEncoderCapabilitiesServiceClient(cc),
+	}
+}
+
+// IsBitrateModeSupported calls the IsBitrateModeSupported RPC.
+func (c *CodecInfoEncoderCapabilitiesClient) IsBitrateModeSupported(ctx context.Context, arg0 int32) (bool, error) {
+	resp, err := c.svc.IsBitrateModeSupported(ctx, &pb.IsBitrateModeSupportedRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CodecInfoVideoCapabilitiesClient wraps the gRPC CodecInfoVideoCapabilitiesService client.
+type CodecInfoVideoCapabilitiesClient struct {
+	svc pb.CodecInfoVideoCapabilitiesServiceClient
+}
+
+// NewCodecInfoVideoCapabilitiesClient creates a new CodecInfoVideoCapabilities client.
+func NewCodecInfoVideoCapabilitiesClient(cc grpc.ClientConnInterface) *CodecInfoVideoCapabilitiesClient {
+	return &CodecInfoVideoCapabilitiesClient{
+		svc: pb.NewCodecInfoVideoCapabilitiesServiceClient(cc),
+	}
+}
+
+// AreSizeAndRateSupported calls the AreSizeAndRateSupported RPC.
+func (c *CodecInfoVideoCapabilitiesClient) AreSizeAndRateSupported(ctx context.Context, arg0 int32, arg1 int32, arg2 float64) (bool, error) {
+	resp, err := c.svc.AreSizeAndRateSupported(ctx, &pb.AreSizeAndRateSupportedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHeightAlignment calls the GetHeightAlignment RPC.
+func (c *CodecInfoVideoCapabilitiesClient) GetHeightAlignment(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetHeightAlignment(ctx, &pb.GetHeightAlignmentRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWidthAlignment calls the GetWidthAlignment RPC.
+func (c *CodecInfoVideoCapabilitiesClient) GetWidthAlignment(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetWidthAlignment(ctx, &pb.GetWidthAlignmentRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsSizeSupported calls the IsSizeSupported RPC.
+func (c *CodecInfoVideoCapabilitiesClient) IsSizeSupported(ctx context.Context, arg0 int32, arg1 int32) (bool, error) {
+	resp, err := c.svc.IsSizeSupported(ctx, &pb.IsSizeSupportedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MicrophoneDirectionClient wraps the gRPC MicrophoneDirectionService client.
+type MicrophoneDirectionClient struct {
+	svc pb.MicrophoneDirectionServiceClient
+}
+
+// NewMicrophoneDirectionClient creates a new MicrophoneDirection client.
+func NewMicrophoneDirectionClient(cc grpc.ClientConnInterface) *MicrophoneDirectionClient {
+	return &MicrophoneDirectionClient{
+		svc: pb.NewMicrophoneDirectionServiceClient(cc),
+	}
+}
+
+// SetPreferredMicrophoneDirection calls the SetPreferredMicrophoneDirection RPC.
+func (c *MicrophoneDirectionClient) SetPreferredMicrophoneDirection(ctx context.Context, arg0 int32) (bool, error) {
+	resp, err := c.svc.SetPreferredMicrophoneDirection(ctx, &pb.SetPreferredMicrophoneDirectionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPreferredMicrophoneFieldDimension calls the SetPreferredMicrophoneFieldDimension RPC.
+func (c *MicrophoneDirectionClient) SetPreferredMicrophoneFieldDimension(ctx context.Context, arg0 float32) (bool, error) {
+	resp, err := c.svc.SetPreferredMicrophoneFieldDimension(ctx, &pb.SetPreferredMicrophoneFieldDimensionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AudioDescriptorClient wraps the gRPC AudioDescriptorService client.
+type AudioDescriptorClient struct {
+	svc pb.AudioDescriptorServiceClient
+}
+
+// NewAudioDescriptorClient creates a new AudioDescriptor client.
+func NewAudioDescriptorClient(cc grpc.ClientConnInterface) *AudioDescriptorClient {
+	return &AudioDescriptorClient{
+		svc: pb.NewAudioDescriptorServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *AudioDescriptorClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *AudioDescriptorClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDescriptor calls the GetDescriptor RPC.
+func (c *AudioDescriptorClient) GetDescriptor(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDescriptor(ctx, &pb.GetDescriptorRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEncapsulationType calls the GetEncapsulationType RPC.
+func (c *AudioDescriptorClient) GetEncapsulationType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetEncapsulationType(ctx, &pb.GetEncapsulationTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStandard calls the GetStandard RPC.
+func (c *AudioDescriptorClient) GetStandard(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetStandard(ctx, &pb.GetStandardRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *AudioDescriptorClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *AudioDescriptorClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *AudioDescriptorClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ApplicationMediaCapabilitiesClient wraps the gRPC ApplicationMediaCapabilitiesService client.
+type ApplicationMediaCapabilitiesClient struct {
+	svc pb.ApplicationMediaCapabilitiesServiceClient
+}
+
+// NewApplicationMediaCapabilitiesClient creates a new ApplicationMediaCapabilities client.
+func NewApplicationMediaCapabilitiesClient(cc grpc.ClientConnInterface) *ApplicationMediaCapabilitiesClient {
+	return &ApplicationMediaCapabilitiesClient{
+		svc: pb.NewApplicationMediaCapabilitiesServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ApplicationMediaCapabilitiesClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsFormatSpecified calls the IsFormatSpecified RPC.
+func (c *ApplicationMediaCapabilitiesClient) IsFormatSpecified(ctx context.Context, arg0 string) (bool, error) {
+	resp, err := c.svc.IsFormatSpecified(ctx, &pb.IsFormatSpecifiedRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsHdrTypeSupported calls the IsHdrTypeSupported RPC.
+func (c *ApplicationMediaCapabilitiesClient) IsHdrTypeSupported(ctx context.Context, arg0 string) (bool, error) {
+	resp, err := c.svc.IsHdrTypeSupported(ctx, &pb.IsHdrTypeSupportedRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsVideoMimeTypeSupported calls the IsVideoMimeTypeSupported RPC.
+func (c *ApplicationMediaCapabilitiesClient) IsVideoMimeTypeSupported(ctx context.Context, arg0 string) (bool, error) {
+	resp, err := c.svc.IsVideoMimeTypeSupported(ctx, &pb.IsVideoMimeTypeSupportedRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *ApplicationMediaCapabilitiesClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ApplicationMediaCapabilitiesClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// CreateFromXml calls the CreateFromXml RPC.
+func (c *ApplicationMediaCapabilitiesClient) CreateFromXml(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.CreateFromXml(ctx, &pb.CreateFromXmlRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ApplicationMediaCapabilitiesBuilderClient wraps the gRPC ApplicationMediaCapabilitiesBuilderService client.
+type ApplicationMediaCapabilitiesBuilderClient struct {
+	svc pb.ApplicationMediaCapabilitiesBuilderServiceClient
+}
+
+// NewApplicationMediaCapabilitiesBuilderClient creates a new ApplicationMediaCapabilitiesBuilder client.
+func NewApplicationMediaCapabilitiesBuilderClient(cc grpc.ClientConnInterface) *ApplicationMediaCapabilitiesBuilderClient {
+	return &ApplicationMediaCapabilitiesBuilderClient{
+		svc: pb.NewApplicationMediaCapabilitiesBuilderServiceClient(cc),
+	}
+}
+
+// AddSupportedHdrType calls the AddSupportedHdrType RPC.
+func (c *ApplicationMediaCapabilitiesBuilderClient) AddSupportedHdrType(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.AddSupportedHdrType(ctx, &pb.AddSupportedHdrTypeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddSupportedVideoMimeType calls the AddSupportedVideoMimeType RPC.
+func (c *ApplicationMediaCapabilitiesBuilderClient) AddSupportedVideoMimeType(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.AddSupportedVideoMimeType(ctx, &pb.AddSupportedVideoMimeTypeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddUnsupportedHdrType calls the AddUnsupportedHdrType RPC.
+func (c *ApplicationMediaCapabilitiesBuilderClient) AddUnsupportedHdrType(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.AddUnsupportedHdrType(ctx, &pb.AddUnsupportedHdrTypeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddUnsupportedVideoMimeType calls the AddUnsupportedVideoMimeType RPC.
+func (c *ApplicationMediaCapabilitiesBuilderClient) AddUnsupportedVideoMimeType(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.AddUnsupportedVideoMimeType(ctx, &pb.AddUnsupportedVideoMimeTypeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Build calls the Build RPC.
+func (c *ApplicationMediaCapabilitiesBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CryptoClient wraps the gRPC CryptoService client.
+type CryptoClient struct {
+	svc pb.CryptoServiceClient
+}
+
+// NewCryptoClient creates a new Crypto client.
+func NewCryptoClient(cc grpc.ClientConnInterface) *CryptoClient {
+	return &CryptoClient{
+		svc: pb.NewCryptoServiceClient(cc),
+	}
+}
+
+// Release calls the Release RPC.
+func (c *CryptoClient) Release(ctx context.Context, handle int64) error {
+	_, err := c.svc.Release(ctx, &pb.ReleaseRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// RequiresSecureDecoderComponent calls the RequiresSecureDecoderComponent RPC.
+func (c *CryptoClient) RequiresSecureDecoderComponent(ctx context.Context, handle int64, arg0 string) (bool, error) {
+	resp, err := c.svc.RequiresSecureDecoderComponent(ctx, &pb.RequiresSecureDecoderComponentRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetMediaDrmSession calls the SetMediaDrmSession RPC.
+func (c *CryptoClient) SetMediaDrmSession(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetMediaDrmSession(ctx, &pb.SetMediaDrmSessionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// IsCryptoSchemeSupported calls the IsCryptoSchemeSupported RPC.
+func (c *CryptoClient) IsCryptoSchemeSupported(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.IsCryptoSchemeSupported(ctx, &pb.IsCryptoSchemeSupportedRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AsyncPlayerClient wraps the gRPC AsyncPlayerService client.
+type AsyncPlayerClient struct {
+	svc pb.AsyncPlayerServiceClient
+}
+
+// NewAsyncPlayerClient creates a new AsyncPlayer client.
+func NewAsyncPlayerClient(cc grpc.ClientConnInterface) *AsyncPlayerClient {
+	return &AsyncPlayerClient{
+		svc: pb.NewAsyncPlayerServiceClient(cc),
+	}
+}
+
+// Play4 calls the Play4 RPC.
+func (c *AsyncPlayerClient) Play4(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 bool, arg3 int64) error {
+	_, err := c.svc.Play4(ctx, &pb.Play4Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// Play4_1 calls the Play4_1 RPC.
+func (c *AsyncPlayerClient) Play4_1(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 bool, arg3 int32) error {
+	_, err := c.svc.Play4_1(ctx, &pb.Play4_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// Stop calls the Stop RPC.
+func (c *AsyncPlayerClient) Stop(ctx context.Context, handle int64) error {
+	_, err := c.svc.Stop(ctx, &pb.AsyncPlayerStopRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// MetadataEditorClient wraps the gRPC MetadataEditorService client.
+type MetadataEditorClient struct {
+	svc pb.MetadataEditorServiceClient
+}
+
+// NewMetadataEditorClient creates a new MetadataEditor client.
+func NewMetadataEditorClient(cc grpc.ClientConnInterface) *MetadataEditorClient {
+	return &MetadataEditorClient{
+		svc: pb.NewMetadataEditorServiceClient(cc),
+	}
+}
+
+// Apply calls the Apply RPC.
+func (c *MetadataEditorClient) Apply(ctx context.Context) error {
+	_, err := c.svc.Apply(ctx, &pb.ApplyRequest{})
+	return err
+}
+
+// ParserClient wraps the gRPC ParserService client.
+type ParserClient struct {
+	svc pb.ParserServiceClient
+}
+
+// NewParserClient creates a new Parser client.
+func NewParserClient(cc grpc.ClientConnInterface) *ParserClient {
+	return &ParserClient{
+		svc: pb.NewParserServiceClient(cc),
+	}
+}
+
+// Advance calls the Advance RPC.
+func (c *ParserClient) Advance(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Advance(ctx, &pb.ParserAdvanceRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLogSessionId calls the GetLogSessionId RPC.
+func (c *ParserClient) GetLogSessionId(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetLogSessionId(ctx, &pb.GetLogSessionIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetParserName calls the GetParserName RPC.
+func (c *ParserClient) GetParserName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetParserName(ctx, &pb.GetParserNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// Release calls the Release RPC.
+func (c *ParserClient) Release(ctx context.Context) error {
+	_, err := c.svc.Release(ctx, &pb.ParserReleaseRequest{})
+	return err
+}
+
+// Seek calls the Seek RPC.
+func (c *ParserClient) Seek(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.Seek(ctx, &pb.SeekRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetLogSessionId calls the SetLogSessionId RPC.
+func (c *ParserClient) SetLogSessionId(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetLogSessionId(ctx, &pb.SetLogSessionIdRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetParameter calls the SetParameter RPC.
+func (c *ParserClient) SetParameter(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.SetParameter(ctx, &pb.SetParameterRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SupportsParameter calls the SupportsParameter RPC.
+func (c *ParserClient) SupportsParameter(ctx context.Context, arg0 string) (bool, error) {
+	resp, err := c.svc.SupportsParameter(ctx, &pb.SupportsParameterRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Create calls the Create RPC.
+func (c *ParserClient) Create(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.Create(ctx, &pb.CreateRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateByName calls the CreateByName RPC.
+func (c *ParserClient) CreateByName(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.CreateByName(ctx, &pb.CreateByNameRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ParserInputReaderClient wraps the gRPC ParserInputReaderService client.
+type ParserInputReaderClient struct {
+	svc pb.ParserInputReaderServiceClient
+}
+
+// NewParserInputReaderClient creates a new ParserInputReader client.
+func NewParserInputReaderClient(cc grpc.ClientConnInterface) *ParserInputReaderClient {
+	return &ParserInputReaderClient{
+		svc: pb.NewParserInputReaderServiceClient(cc),
+	}
+}
+
+// GetLength calls the GetLength RPC.
+func (c *ParserInputReaderClient) GetLength(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetLength(ctx, &pb.GetLengthRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPosition calls the GetPosition RPC.
+func (c *ParserInputReaderClient) GetPosition(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPosition(ctx, &pb.GetPositionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Read calls the Read RPC.
+func (c *ParserInputReaderClient) Read(ctx context.Context, arg0 int64, arg1 int32, arg2 int32) (int32, error) {
+	resp, err := c.svc.Read(ctx, &pb.ReadRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ParserOutputConsumerClient wraps the gRPC ParserOutputConsumerService client.
+type ParserOutputConsumerClient struct {
+	svc pb.ParserOutputConsumerServiceClient
+}
+
+// NewParserOutputConsumerClient creates a new ParserOutputConsumer client.
+func NewParserOutputConsumerClient(cc grpc.ClientConnInterface) *ParserOutputConsumerClient {
+	return &ParserOutputConsumerClient{
+		svc: pb.NewParserOutputConsumerServiceClient(cc),
+	}
+}
+
+// OnSampleCompleted calls the OnSampleCompleted RPC.
+func (c *ParserOutputConsumerClient) OnSampleCompleted(ctx context.Context, arg0 int32, arg1 int64, arg2 int32, arg3 int32, arg4 int32, arg5 int64) error {
+	_, err := c.svc.OnSampleCompleted(ctx, &pb.OnSampleCompletedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+	})
+	return err
+}
+
+// OnSampleDataFound calls the OnSampleDataFound RPC.
+func (c *ParserOutputConsumerClient) OnSampleDataFound(ctx context.Context, arg0 int32, arg1 int64) error {
+	_, err := c.svc.OnSampleDataFound(ctx, &pb.OnSampleDataFoundRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnSeekMapFound calls the OnSeekMapFound RPC.
+func (c *ParserOutputConsumerClient) OnSeekMapFound(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnSeekMapFound(ctx, &pb.OnSeekMapFoundRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnTrackCountFound calls the OnTrackCountFound RPC.
+func (c *ParserOutputConsumerClient) OnTrackCountFound(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.OnTrackCountFound(ctx, &pb.OnTrackCountFoundRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnTrackDataFound calls the OnTrackDataFound RPC.
+func (c *ParserOutputConsumerClient) OnTrackDataFound(ctx context.Context, arg0 int32, arg1 int64) error {
+	_, err := c.svc.OnTrackDataFound(ctx, &pb.OnTrackDataFoundRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ParserSeekMapClient wraps the gRPC ParserSeekMapService client.
+type ParserSeekMapClient struct {
+	svc pb.ParserSeekMapServiceClient
+}
+
+// NewParserSeekMapClient creates a new ParserSeekMap client.
+func NewParserSeekMapClient(cc grpc.ClientConnInterface) *ParserSeekMapClient {
+	return &ParserSeekMapClient{
+		svc: pb.NewParserSeekMapServiceClient(cc),
+	}
+}
+
+// GetDurationMicros calls the GetDurationMicros RPC.
+func (c *ParserSeekMapClient) GetDurationMicros(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDurationMicros(ctx, &pb.GetDurationMicrosRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsSeekable calls the IsSeekable RPC.
+func (c *ParserSeekMapClient) IsSeekable(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsSeekable(ctx, &pb.IsSeekableRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ParserSeekPointClient wraps the gRPC ParserSeekPointService client.
+type ParserSeekPointClient struct {
+	svc pb.ParserSeekPointServiceClient
+}
+
+// NewParserSeekPointClient creates a new ParserSeekPoint client.
+func NewParserSeekPointClient(cc grpc.ClientConnInterface) *ParserSeekPointClient {
+	return &ParserSeekPointClient{
+		svc: pb.NewParserSeekPointServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *ParserSeekPointClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *ParserSeekPointClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *ParserSeekPointClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// ParserSeekableInputReaderClient wraps the gRPC ParserSeekableInputReaderService client.
+type ParserSeekableInputReaderClient struct {
+	svc pb.ParserSeekableInputReaderServiceClient
+}
+
+// NewParserSeekableInputReaderClient creates a new ParserSeekableInputReader client.
+func NewParserSeekableInputReaderClient(cc grpc.ClientConnInterface) *ParserSeekableInputReaderClient {
+	return &ParserSeekableInputReaderClient{
+		svc: pb.NewParserSeekableInputReaderServiceClient(cc),
+	}
+}
+
+// SeekToPosition calls the SeekToPosition RPC.
+func (c *ParserSeekableInputReaderClient) SeekToPosition(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SeekToPosition(ctx, &pb.SeekToPositionRequest{
+		Arg0: arg0,
+	})
+	return err
 }
 
 // RouterClient wraps the gRPC RouterService client.
@@ -192,5 +9889,5291 @@ func (c *RouterClient) SelectRoute(ctx context.Context, arg0 int32, arg1 int64) 
 		Arg0: arg0,
 		Arg1: arg1,
 	})
+	return err
+}
+
+// RouterCallbackClient wraps the gRPC RouterCallbackService client.
+type RouterCallbackClient struct {
+	svc pb.RouterCallbackServiceClient
+}
+
+// NewRouterCallbackClient creates a new RouterCallback client.
+func NewRouterCallbackClient(cc grpc.ClientConnInterface) *RouterCallbackClient {
+	return &RouterCallbackClient{
+		svc: pb.NewRouterCallbackServiceClient(cc),
+	}
+}
+
+// OnRouteAdded calls the OnRouteAdded RPC.
+func (c *RouterCallbackClient) OnRouteAdded(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.OnRouteAdded(ctx, &pb.OnRouteAddedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnRouteChanged calls the OnRouteChanged RPC.
+func (c *RouterCallbackClient) OnRouteChanged(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.OnRouteChanged(ctx, &pb.OnRouteChangedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnRouteGrouped calls the OnRouteGrouped RPC.
+func (c *RouterCallbackClient) OnRouteGrouped(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int32) error {
+	_, err := c.svc.OnRouteGrouped(ctx, &pb.OnRouteGroupedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// OnRoutePresentationDisplayChanged calls the OnRoutePresentationDisplayChanged RPC.
+func (c *RouterCallbackClient) OnRoutePresentationDisplayChanged(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.OnRoutePresentationDisplayChanged(ctx, &pb.OnRoutePresentationDisplayChangedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnRouteRemoved calls the OnRouteRemoved RPC.
+func (c *RouterCallbackClient) OnRouteRemoved(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.OnRouteRemoved(ctx, &pb.OnRouteRemovedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnRouteSelected calls the OnRouteSelected RPC.
+func (c *RouterCallbackClient) OnRouteSelected(ctx context.Context, arg0 int64, arg1 int32, arg2 int64) error {
+	_, err := c.svc.OnRouteSelected(ctx, &pb.OnRouteSelectedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// OnRouteUngrouped calls the OnRouteUngrouped RPC.
+func (c *RouterCallbackClient) OnRouteUngrouped(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.OnRouteUngrouped(ctx, &pb.OnRouteUngroupedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// OnRouteUnselected calls the OnRouteUnselected RPC.
+func (c *RouterCallbackClient) OnRouteUnselected(ctx context.Context, arg0 int64, arg1 int32, arg2 int64) error {
+	_, err := c.svc.OnRouteUnselected(ctx, &pb.OnRouteUnselectedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// OnRouteVolumeChanged calls the OnRouteVolumeChanged RPC.
+func (c *RouterCallbackClient) OnRouteVolumeChanged(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.OnRouteVolumeChanged(ctx, &pb.OnRouteVolumeChangedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// RouterRouteCategoryClient wraps the gRPC RouterRouteCategoryService client.
+type RouterRouteCategoryClient struct {
+	svc pb.RouterRouteCategoryServiceClient
+}
+
+// NewRouterRouteCategoryClient creates a new RouterRouteCategory client.
+func NewRouterRouteCategoryClient(cc grpc.ClientConnInterface) *RouterRouteCategoryClient {
+	return &RouterRouteCategoryClient{
+		svc: pb.NewRouterRouteCategoryServiceClient(cc),
+	}
+}
+
+// GetName0 calls the GetName0 RPC.
+func (c *RouterRouteCategoryClient) GetName0(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetName0(ctx, &pb.GetName0Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetName1_1 calls the GetName1_1 RPC.
+func (c *RouterRouteCategoryClient) GetName1_1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetName1_1(ctx, &pb.GetName1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSupportedTypes calls the GetSupportedTypes RPC.
+func (c *RouterRouteCategoryClient) GetSupportedTypes(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetSupportedTypes(ctx, &pb.GetSupportedTypesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsGroupable calls the IsGroupable RPC.
+func (c *RouterRouteCategoryClient) IsGroupable(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsGroupable(ctx, &pb.IsGroupableRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *RouterRouteCategoryClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// RouterRouteGroupClient wraps the gRPC RouterRouteGroupService client.
+type RouterRouteGroupClient struct {
+	svc pb.RouterRouteGroupServiceClient
+}
+
+// NewRouterRouteGroupClient creates a new RouterRouteGroup client.
+func NewRouterRouteGroupClient(cc grpc.ClientConnInterface) *RouterRouteGroupClient {
+	return &RouterRouteGroupClient{
+		svc: pb.NewRouterRouteGroupServiceClient(cc),
+	}
+}
+
+// AddRoute1 calls the AddRoute1 RPC.
+func (c *RouterRouteGroupClient) AddRoute1(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.AddRoute1(ctx, &pb.AddRoute1Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// AddRoute2_1 calls the AddRoute2_1 RPC.
+func (c *RouterRouteGroupClient) AddRoute2_1(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.AddRoute2_1(ctx, &pb.AddRoute2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// GetRouteAt calls the GetRouteAt RPC.
+func (c *RouterRouteGroupClient) GetRouteAt(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetRouteAt(ctx, &pb.GetRouteAtRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRouteCount calls the GetRouteCount RPC.
+func (c *RouterRouteGroupClient) GetRouteCount(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetRouteCount(ctx, &pb.GetRouteCountRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RemoveRoute1 calls the RemoveRoute1 RPC.
+func (c *RouterRouteGroupClient) RemoveRoute1(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.RemoveRoute1(ctx, &pb.RemoveRoute1Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// RemoveRoute1_1 calls the RemoveRoute1_1 RPC.
+func (c *RouterRouteGroupClient) RemoveRoute1_1(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.RemoveRoute1_1(ctx, &pb.RemoveRoute1_1Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// RequestSetVolume calls the RequestSetVolume RPC.
+func (c *RouterRouteGroupClient) RequestSetVolume(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.RequestSetVolume(ctx, &pb.RequestSetVolumeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// RequestUpdateVolume calls the RequestUpdateVolume RPC.
+func (c *RouterRouteGroupClient) RequestUpdateVolume(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.RequestUpdateVolume(ctx, &pb.RequestUpdateVolumeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetIconDrawable calls the SetIconDrawable RPC.
+func (c *RouterRouteGroupClient) SetIconDrawable(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetIconDrawable(ctx, &pb.SetIconDrawableRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetIconResource calls the SetIconResource RPC.
+func (c *RouterRouteGroupClient) SetIconResource(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetIconResource(ctx, &pb.SetIconResourceRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ToString calls the ToString RPC.
+func (c *RouterRouteGroupClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// RouterRouteInfoClient wraps the gRPC RouterRouteInfoService client.
+type RouterRouteInfoClient struct {
+	svc pb.RouterRouteInfoServiceClient
+}
+
+// NewRouterRouteInfoClient creates a new RouterRouteInfo client.
+func NewRouterRouteInfoClient(cc grpc.ClientConnInterface) *RouterRouteInfoClient {
+	return &RouterRouteInfoClient{
+		svc: pb.NewRouterRouteInfoServiceClient(cc),
+	}
+}
+
+// GetCategory calls the GetCategory RPC.
+func (c *RouterRouteInfoClient) GetCategory(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetCategory(ctx, &pb.GetCategoryRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDescription calls the GetDescription RPC.
+func (c *RouterRouteInfoClient) GetDescription(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDescription(ctx, &pb.GetDescriptionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDeviceType calls the GetDeviceType RPC.
+func (c *RouterRouteInfoClient) GetDeviceType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetDeviceType(ctx, &pb.GetDeviceTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetGroup calls the GetGroup RPC.
+func (c *RouterRouteInfoClient) GetGroup(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetGroup(ctx, &pb.GetGroupRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIconDrawable calls the GetIconDrawable RPC.
+func (c *RouterRouteInfoClient) GetIconDrawable(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetIconDrawable(ctx, &pb.GetIconDrawableRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetName0 calls the GetName0 RPC.
+func (c *RouterRouteInfoClient) GetName0(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetName0(ctx, &pb.GetName0Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetName1_1 calls the GetName1_1 RPC.
+func (c *RouterRouteInfoClient) GetName1_1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetName1_1(ctx, &pb.GetName1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPlaybackStream calls the GetPlaybackStream RPC.
+func (c *RouterRouteInfoClient) GetPlaybackStream(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetPlaybackStream(ctx, &pb.GetPlaybackStreamRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPlaybackType calls the GetPlaybackType RPC.
+func (c *RouterRouteInfoClient) GetPlaybackType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetPlaybackType(ctx, &pb.GetPlaybackTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPresentationDisplay calls the GetPresentationDisplay RPC.
+func (c *RouterRouteInfoClient) GetPresentationDisplay(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPresentationDisplay(ctx, &pb.GetPresentationDisplayRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStatus calls the GetStatus RPC.
+func (c *RouterRouteInfoClient) GetStatus(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetStatus(ctx, &pb.GetStatusRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSupportedTypes calls the GetSupportedTypes RPC.
+func (c *RouterRouteInfoClient) GetSupportedTypes(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetSupportedTypes(ctx, &pb.GetSupportedTypesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTag calls the GetTag RPC.
+func (c *RouterRouteInfoClient) GetTag(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTag(ctx, &pb.GetTagRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVolume calls the GetVolume RPC.
+func (c *RouterRouteInfoClient) GetVolume(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetVolume(ctx, &pb.GetVolumeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVolumeHandling calls the GetVolumeHandling RPC.
+func (c *RouterRouteInfoClient) GetVolumeHandling(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetVolumeHandling(ctx, &pb.GetVolumeHandlingRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVolumeMax calls the GetVolumeMax RPC.
+func (c *RouterRouteInfoClient) GetVolumeMax(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetVolumeMax(ctx, &pb.GetVolumeMaxRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsConnecting calls the IsConnecting RPC.
+func (c *RouterRouteInfoClient) IsConnecting(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsConnecting(ctx, &pb.IsConnectingRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsEnabled calls the IsEnabled RPC.
+func (c *RouterRouteInfoClient) IsEnabled(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsEnabled(ctx, &pb.IsEnabledRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RequestSetVolume calls the RequestSetVolume RPC.
+func (c *RouterRouteInfoClient) RequestSetVolume(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.RequestSetVolume(ctx, &pb.RequestSetVolumeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// RequestUpdateVolume calls the RequestUpdateVolume RPC.
+func (c *RouterRouteInfoClient) RequestUpdateVolume(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.RequestUpdateVolume(ctx, &pb.RequestUpdateVolumeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetTag calls the SetTag RPC.
+func (c *RouterRouteInfoClient) SetTag(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetTag(ctx, &pb.SetTagRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ToString calls the ToString RPC.
+func (c *RouterRouteInfoClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// RouterSimpleCallbackClient wraps the gRPC RouterSimpleCallbackService client.
+type RouterSimpleCallbackClient struct {
+	svc pb.RouterSimpleCallbackServiceClient
+}
+
+// NewRouterSimpleCallbackClient creates a new RouterSimpleCallback client.
+func NewRouterSimpleCallbackClient(cc grpc.ClientConnInterface) *RouterSimpleCallbackClient {
+	return &RouterSimpleCallbackClient{
+		svc: pb.NewRouterSimpleCallbackServiceClient(cc),
+	}
+}
+
+// OnRouteAdded calls the OnRouteAdded RPC.
+func (c *RouterSimpleCallbackClient) OnRouteAdded(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.OnRouteAdded(ctx, &pb.OnRouteAddedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnRouteChanged calls the OnRouteChanged RPC.
+func (c *RouterSimpleCallbackClient) OnRouteChanged(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.OnRouteChanged(ctx, &pb.OnRouteChangedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnRouteGrouped calls the OnRouteGrouped RPC.
+func (c *RouterSimpleCallbackClient) OnRouteGrouped(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int32) error {
+	_, err := c.svc.OnRouteGrouped(ctx, &pb.OnRouteGroupedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// OnRouteRemoved calls the OnRouteRemoved RPC.
+func (c *RouterSimpleCallbackClient) OnRouteRemoved(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.OnRouteRemoved(ctx, &pb.OnRouteRemovedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnRouteSelected calls the OnRouteSelected RPC.
+func (c *RouterSimpleCallbackClient) OnRouteSelected(ctx context.Context, arg0 int64, arg1 int32, arg2 int64) error {
+	_, err := c.svc.OnRouteSelected(ctx, &pb.OnRouteSelectedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// OnRouteUngrouped calls the OnRouteUngrouped RPC.
+func (c *RouterSimpleCallbackClient) OnRouteUngrouped(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.OnRouteUngrouped(ctx, &pb.OnRouteUngroupedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// OnRouteUnselected calls the OnRouteUnselected RPC.
+func (c *RouterSimpleCallbackClient) OnRouteUnselected(ctx context.Context, arg0 int64, arg1 int32, arg2 int64) error {
+	_, err := c.svc.OnRouteUnselected(ctx, &pb.OnRouteUnselectedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// OnRouteVolumeChanged calls the OnRouteVolumeChanged RPC.
+func (c *RouterSimpleCallbackClient) OnRouteVolumeChanged(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.OnRouteVolumeChanged(ctx, &pb.OnRouteVolumeChangedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// RouterUserRouteInfoClient wraps the gRPC RouterUserRouteInfoService client.
+type RouterUserRouteInfoClient struct {
+	svc pb.RouterUserRouteInfoServiceClient
+}
+
+// NewRouterUserRouteInfoClient creates a new RouterUserRouteInfo client.
+func NewRouterUserRouteInfoClient(cc grpc.ClientConnInterface) *RouterUserRouteInfoClient {
+	return &RouterUserRouteInfoClient{
+		svc: pb.NewRouterUserRouteInfoServiceClient(cc),
+	}
+}
+
+// GetRemoteControlClient calls the GetRemoteControlClient RPC.
+func (c *RouterUserRouteInfoClient) GetRemoteControlClient(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetRemoteControlClient(ctx, &pb.GetRemoteControlClientRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RequestSetVolume calls the RequestSetVolume RPC.
+func (c *RouterUserRouteInfoClient) RequestSetVolume(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.RequestSetVolume(ctx, &pb.RequestSetVolumeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// RequestUpdateVolume calls the RequestUpdateVolume RPC.
+func (c *RouterUserRouteInfoClient) RequestUpdateVolume(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.RequestUpdateVolume(ctx, &pb.RequestUpdateVolumeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetDescription calls the SetDescription RPC.
+func (c *RouterUserRouteInfoClient) SetDescription(ctx context.Context, arg0 string) error {
+	_, err := c.svc.SetDescription(ctx, &pb.SetDescriptionRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetIconDrawable calls the SetIconDrawable RPC.
+func (c *RouterUserRouteInfoClient) SetIconDrawable(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetIconDrawable(ctx, &pb.SetIconDrawableRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetIconResource calls the SetIconResource RPC.
+func (c *RouterUserRouteInfoClient) SetIconResource(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetIconResource(ctx, &pb.SetIconResourceRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetName1 calls the SetName1 RPC.
+func (c *RouterUserRouteInfoClient) SetName1(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetName1(ctx, &pb.SetName1Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetName1_1 calls the SetName1_1 RPC.
+func (c *RouterUserRouteInfoClient) SetName1_1(ctx context.Context, arg0 string) error {
+	_, err := c.svc.SetName1_1(ctx, &pb.SetName1_1Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetPlaybackStream calls the SetPlaybackStream RPC.
+func (c *RouterUserRouteInfoClient) SetPlaybackStream(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetPlaybackStream(ctx, &pb.SetPlaybackStreamRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetPlaybackType calls the SetPlaybackType RPC.
+func (c *RouterUserRouteInfoClient) SetPlaybackType(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetPlaybackType(ctx, &pb.SetPlaybackTypeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetRemoteControlClient calls the SetRemoteControlClient RPC.
+func (c *RouterUserRouteInfoClient) SetRemoteControlClient(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetRemoteControlClient(ctx, &pb.SetRemoteControlClientRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetStatus calls the SetStatus RPC.
+func (c *RouterUserRouteInfoClient) SetStatus(ctx context.Context, arg0 string) error {
+	_, err := c.svc.SetStatus(ctx, &pb.SetStatusRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetVolume calls the SetVolume RPC.
+func (c *RouterUserRouteInfoClient) SetVolume(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetVolume(ctx, &pb.SetVolumeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetVolumeCallback calls the SetVolumeCallback RPC.
+func (c *RouterUserRouteInfoClient) SetVolumeCallback(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetVolumeCallback(ctx, &pb.SetVolumeCallbackRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetVolumeHandling calls the SetVolumeHandling RPC.
+func (c *RouterUserRouteInfoClient) SetVolumeHandling(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetVolumeHandling(ctx, &pb.SetVolumeHandlingRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetVolumeMax calls the SetVolumeMax RPC.
+func (c *RouterUserRouteInfoClient) SetVolumeMax(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetVolumeMax(ctx, &pb.SetVolumeMaxRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// RouterVolumeCallbackClient wraps the gRPC RouterVolumeCallbackService client.
+type RouterVolumeCallbackClient struct {
+	svc pb.RouterVolumeCallbackServiceClient
+}
+
+// NewRouterVolumeCallbackClient creates a new RouterVolumeCallback client.
+func NewRouterVolumeCallbackClient(cc grpc.ClientConnInterface) *RouterVolumeCallbackClient {
+	return &RouterVolumeCallbackClient{
+		svc: pb.NewRouterVolumeCallbackServiceClient(cc),
+	}
+}
+
+// OnVolumeSetRequest calls the OnVolumeSetRequest RPC.
+func (c *RouterVolumeCallbackClient) OnVolumeSetRequest(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.OnVolumeSetRequest(ctx, &pb.OnVolumeSetRequestRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnVolumeUpdateRequest calls the OnVolumeUpdateRequest RPC.
+func (c *RouterVolumeCallbackClient) OnVolumeUpdateRequest(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.OnVolumeUpdateRequest(ctx, &pb.OnVolumeUpdateRequestRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// SyncEventClient wraps the gRPC SyncEventService client.
+type SyncEventClient struct {
+	svc pb.SyncEventServiceClient
+}
+
+// NewSyncEventClient creates a new SyncEvent client.
+func NewSyncEventClient(cc grpc.ClientConnInterface) *SyncEventClient {
+	return &SyncEventClient{
+		svc: pb.NewSyncEventServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *SyncEventClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *SyncEventClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAudioSessionId calls the GetAudioSessionId RPC.
+func (c *SyncEventClient) GetAudioSessionId(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetAudioSessionId(ctx, &pb.SyncEventGetAudioSessionIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetType calls the GetType RPC.
+func (c *SyncEventClient) GetType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetType(ctx, &pb.GetTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *SyncEventClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetAudioSessionId calls the SetAudioSessionId RPC.
+func (c *SyncEventClient) SetAudioSessionId(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetAudioSessionId(ctx, &pb.SetAudioSessionIdRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *SyncEventClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *SyncEventClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// CreateEvent calls the CreateEvent RPC.
+func (c *SyncEventClient) CreateEvent(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.CreateEvent(ctx, &pb.CreateEventRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RemoteControlClientClient wraps the gRPC RemoteControlClientService client.
+type RemoteControlClientClient struct {
+	svc pb.RemoteControlClientServiceClient
+}
+
+// NewRemoteControlClientClient creates a new RemoteControlClient client.
+func NewRemoteControlClientClient(cc grpc.ClientConnInterface) *RemoteControlClientClient {
+	return &RemoteControlClientClient{
+		svc: pb.NewRemoteControlClientServiceClient(cc),
+	}
+}
+
+// EditMetadata calls the EditMetadata RPC.
+func (c *RemoteControlClientClient) EditMetadata(ctx context.Context, handle int64, arg0 bool) (int64, error) {
+	resp, err := c.svc.EditMetadata(ctx, &pb.RemoteControlClientEditMetadataRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMediaSession calls the GetMediaSession RPC.
+func (c *RemoteControlClientClient) GetMediaSession(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetMediaSession(ctx, &pb.GetMediaSessionRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetMetadataUpdateListener calls the SetMetadataUpdateListener RPC.
+func (c *RemoteControlClientClient) SetMetadataUpdateListener(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetMetadataUpdateListener(ctx, &pb.SetMetadataUpdateListenerRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetOnGetPlaybackPositionListener calls the SetOnGetPlaybackPositionListener RPC.
+func (c *RemoteControlClientClient) SetOnGetPlaybackPositionListener(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetOnGetPlaybackPositionListener(ctx, &pb.SetOnGetPlaybackPositionListenerRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetPlaybackPositionUpdateListener calls the SetPlaybackPositionUpdateListener RPC.
+func (c *RemoteControlClientClient) SetPlaybackPositionUpdateListener(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetPlaybackPositionUpdateListener(ctx, &pb.SetPlaybackPositionUpdateListenerRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetPlaybackState1 calls the SetPlaybackState1 RPC.
+func (c *RemoteControlClientClient) SetPlaybackState1(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetPlaybackState1(ctx, &pb.SetPlaybackState1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetPlaybackState3_1 calls the SetPlaybackState3_1 RPC.
+func (c *RemoteControlClientClient) SetPlaybackState3_1(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 float32) error {
+	_, err := c.svc.SetPlaybackState3_1(ctx, &pb.SetPlaybackState3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// SetTransportControlFlags calls the SetTransportControlFlags RPC.
+func (c *RemoteControlClientClient) SetTransportControlFlags(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetTransportControlFlags(ctx, &pb.SetTransportControlFlagsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// RemoteControlClientMetadataEditorClient wraps the gRPC RemoteControlClientMetadataEditorService client.
+type RemoteControlClientMetadataEditorClient struct {
+	svc pb.RemoteControlClientMetadataEditorServiceClient
+}
+
+// NewRemoteControlClientMetadataEditorClient creates a new RemoteControlClientMetadataEditor client.
+func NewRemoteControlClientMetadataEditorClient(cc grpc.ClientConnInterface) *RemoteControlClientMetadataEditorClient {
+	return &RemoteControlClientMetadataEditorClient{
+		svc: pb.NewRemoteControlClientMetadataEditorServiceClient(cc),
+	}
+}
+
+// Clone calls the Clone RPC.
+func (c *RemoteControlClientMetadataEditorClient) Clone(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Clone(ctx, &pb.CloneRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PutString calls the PutString RPC.
+func (c *RemoteControlClientMetadataEditorClient) PutString(ctx context.Context, arg0 int32, arg1 string) (int64, error) {
+	resp, err := c.svc.PutString(ctx, &pb.RemoteControlClientMetadataEditorPutStringRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PutObject calls the PutObject RPC.
+func (c *RemoteControlClientMetadataEditorClient) PutObject(ctx context.Context, arg0 int32, arg1 int64) (int64, error) {
+	resp, err := c.svc.PutObject(ctx, &pb.PutObjectRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PutLong calls the PutLong RPC.
+func (c *RemoteControlClientMetadataEditorClient) PutLong(ctx context.Context, arg0 int32, arg1 int64) (int64, error) {
+	resp, err := c.svc.PutLong(ctx, &pb.RemoteControlClientMetadataEditorPutLongRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PutBitmap calls the PutBitmap RPC.
+func (c *RemoteControlClientMetadataEditorClient) PutBitmap(ctx context.Context, arg0 int32, arg1 int64) (int64, error) {
+	resp, err := c.svc.PutBitmap(ctx, &pb.RemoteControlClientMetadataEditorPutBitmapRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RemoteControlClientOnGetPlaybackPositionListenerClient wraps the gRPC RemoteControlClientOnGetPlaybackPositionListenerService client.
+type RemoteControlClientOnGetPlaybackPositionListenerClient struct {
+	svc pb.RemoteControlClientOnGetPlaybackPositionListenerServiceClient
+}
+
+// NewRemoteControlClientOnGetPlaybackPositionListenerClient creates a new RemoteControlClientOnGetPlaybackPositionListener client.
+func NewRemoteControlClientOnGetPlaybackPositionListenerClient(cc grpc.ClientConnInterface) *RemoteControlClientOnGetPlaybackPositionListenerClient {
+	return &RemoteControlClientOnGetPlaybackPositionListenerClient{
+		svc: pb.NewRemoteControlClientOnGetPlaybackPositionListenerServiceClient(cc),
+	}
+}
+
+// OnGetPlaybackPosition calls the OnGetPlaybackPosition RPC.
+func (c *RemoteControlClientOnGetPlaybackPositionListenerClient) OnGetPlaybackPosition(ctx context.Context) (int64, error) {
+	resp, err := c.svc.OnGetPlaybackPosition(ctx, &pb.OnGetPlaybackPositionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RemoteControlClientOnMetadataUpdateListenerClient wraps the gRPC RemoteControlClientOnMetadataUpdateListenerService client.
+type RemoteControlClientOnMetadataUpdateListenerClient struct {
+	svc pb.RemoteControlClientOnMetadataUpdateListenerServiceClient
+}
+
+// NewRemoteControlClientOnMetadataUpdateListenerClient creates a new RemoteControlClientOnMetadataUpdateListener client.
+func NewRemoteControlClientOnMetadataUpdateListenerClient(cc grpc.ClientConnInterface) *RemoteControlClientOnMetadataUpdateListenerClient {
+	return &RemoteControlClientOnMetadataUpdateListenerClient{
+		svc: pb.NewRemoteControlClientOnMetadataUpdateListenerServiceClient(cc),
+	}
+}
+
+// OnMetadataUpdate calls the OnMetadataUpdate RPC.
+func (c *RemoteControlClientOnMetadataUpdateListenerClient) OnMetadataUpdate(ctx context.Context, arg0 int32, arg1 int64) error {
+	_, err := c.svc.OnMetadataUpdate(ctx, &pb.OnMetadataUpdateRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// RemoteControlClientOnPlaybackPositionUpdateListenerClient wraps the gRPC RemoteControlClientOnPlaybackPositionUpdateListenerService client.
+type RemoteControlClientOnPlaybackPositionUpdateListenerClient struct {
+	svc pb.RemoteControlClientOnPlaybackPositionUpdateListenerServiceClient
+}
+
+// NewRemoteControlClientOnPlaybackPositionUpdateListenerClient creates a new RemoteControlClientOnPlaybackPositionUpdateListener client.
+func NewRemoteControlClientOnPlaybackPositionUpdateListenerClient(cc grpc.ClientConnInterface) *RemoteControlClientOnPlaybackPositionUpdateListenerClient {
+	return &RemoteControlClientOnPlaybackPositionUpdateListenerClient{
+		svc: pb.NewRemoteControlClientOnPlaybackPositionUpdateListenerServiceClient(cc),
+	}
+}
+
+// OnPlaybackPositionUpdate calls the OnPlaybackPositionUpdate RPC.
+func (c *RemoteControlClientOnPlaybackPositionUpdateListenerClient) OnPlaybackPositionUpdate(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnPlaybackPositionUpdate(ctx, &pb.OnPlaybackPositionUpdateRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// RatingClient wraps the gRPC RatingService client.
+type RatingClient struct {
+	svc pb.RatingServiceClient
+}
+
+// NewRatingClient creates a new Rating client.
+func NewRatingClient(cc grpc.ClientConnInterface) *RatingClient {
+	return &RatingClient{
+		svc: pb.NewRatingServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *RatingClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPercentRating calls the GetPercentRating RPC.
+func (c *RatingClient) GetPercentRating(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetPercentRating(ctx, &pb.GetPercentRatingRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRatingStyle calls the GetRatingStyle RPC.
+func (c *RatingClient) GetRatingStyle(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetRatingStyle(ctx, &pb.GetRatingStyleRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStarRating calls the GetStarRating RPC.
+func (c *RatingClient) GetStarRating(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetStarRating(ctx, &pb.GetStarRatingRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasHeart calls the HasHeart RPC.
+func (c *RatingClient) HasHeart(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasHeart(ctx, &pb.HasHeartRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsRated calls the IsRated RPC.
+func (c *RatingClient) IsRated(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsRated(ctx, &pb.IsRatedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsThumbUp calls the IsThumbUp RPC.
+func (c *RatingClient) IsThumbUp(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsThumbUp(ctx, &pb.IsThumbUpRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *RatingClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *RatingClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// NewHeartRating calls the NewHeartRating RPC.
+func (c *RatingClient) NewHeartRating(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.NewHeartRating(ctx, &pb.NewHeartRatingRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// NewPercentageRating calls the NewPercentageRating RPC.
+func (c *RatingClient) NewPercentageRating(ctx context.Context, arg0 float32) (int64, error) {
+	resp, err := c.svc.NewPercentageRating(ctx, &pb.NewPercentageRatingRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// NewStarRating calls the NewStarRating RPC.
+func (c *RatingClient) NewStarRating(ctx context.Context, arg0 int32, arg1 float32) (int64, error) {
+	resp, err := c.svc.NewStarRating(ctx, &pb.NewStarRatingRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// NewThumbRating calls the NewThumbRating RPC.
+func (c *RatingClient) NewThumbRating(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.NewThumbRating(ctx, &pb.NewThumbRatingRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// NewUnratedRating calls the NewUnratedRating RPC.
+func (c *RatingClient) NewUnratedRating(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.NewUnratedRating(ctx, &pb.NewUnratedRatingRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// TimedMetaDataClient wraps the gRPC TimedMetaDataService client.
+type TimedMetaDataClient struct {
+	svc pb.TimedMetaDataServiceClient
+}
+
+// NewTimedMetaDataClient creates a new TimedMetaData client.
+func NewTimedMetaDataClient(cc grpc.ClientConnInterface) *TimedMetaDataClient {
+	return &TimedMetaDataClient{
+		svc: pb.NewTimedMetaDataServiceClient(cc),
+	}
+}
+
+// GetMetaData calls the GetMetaData RPC.
+func (c *TimedMetaDataClient) GetMetaData(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetMetaData(ctx, &pb.GetMetaDataRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTimestamp calls the GetTimestamp RPC.
+func (c *TimedMetaDataClient) GetTimestamp(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetTimestamp(ctx, &pb.TimedMetaDataGetTimestampRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Router2Client wraps the gRPC Router2Service client.
+type Router2Client struct {
+	svc pb.Router2ServiceClient
+}
+
+// NewRouter2Client creates a new Router2 client.
+func NewRouter2Client(cc grpc.ClientConnInterface) *Router2Client {
+	return &Router2Client{
+		svc: pb.NewRouter2ServiceClient(cc),
+	}
+}
+
+// CancelScanRequest calls the CancelScanRequest RPC.
+func (c *Router2Client) CancelScanRequest(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.CancelScanRequest(ctx, &pb.CancelScanRequestRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// GetController calls the GetController RPC.
+func (c *Router2Client) GetController(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.GetController(ctx, &pb.GetControllerRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRouteListingPreference calls the GetRouteListingPreference RPC.
+func (c *Router2Client) GetRouteListingPreference(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetRouteListingPreference(ctx, &pb.GetRouteListingPreferenceRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSystemController calls the GetSystemController RPC.
+func (c *Router2Client) GetSystemController(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSystemController(ctx, &pb.GetSystemControllerRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RegisterControllerCallback calls the RegisterControllerCallback RPC.
+func (c *Router2Client) RegisterControllerCallback(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.RegisterControllerCallback(ctx, &pb.RegisterControllerCallbackRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// RegisterRouteCallback calls the RegisterRouteCallback RPC.
+func (c *Router2Client) RegisterRouteCallback(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.RegisterRouteCallback(ctx, &pb.RegisterRouteCallbackRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// RegisterTransferCallback calls the RegisterTransferCallback RPC.
+func (c *Router2Client) RegisterTransferCallback(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.RegisterTransferCallback(ctx, &pb.RegisterTransferCallbackRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// RequestScan calls the RequestScan RPC.
+func (c *Router2Client) RequestScan(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.RequestScan(ctx, &pb.RequestScanRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetOnGetControllerHintsListener calls the SetOnGetControllerHintsListener RPC.
+func (c *Router2Client) SetOnGetControllerHintsListener(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetOnGetControllerHintsListener(ctx, &pb.SetOnGetControllerHintsListenerRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetRouteListingPreference calls the SetRouteListingPreference RPC.
+func (c *Router2Client) SetRouteListingPreference(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetRouteListingPreference(ctx, &pb.SetRouteListingPreferenceRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetRouteVolume calls the SetRouteVolume RPC.
+func (c *Router2Client) SetRouteVolume(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.SetRouteVolume(ctx, &pb.SetRouteVolumeRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ShowSystemOutputSwitcher calls the ShowSystemOutputSwitcher RPC.
+func (c *Router2Client) ShowSystemOutputSwitcher(ctx context.Context) (bool, error) {
+	resp, err := c.svc.ShowSystemOutputSwitcher(ctx, &pb.ShowSystemOutputSwitcherRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Stop calls the Stop RPC.
+func (c *Router2Client) Stop(ctx context.Context) error {
+	_, err := c.svc.Stop(ctx, &pb.StopRequest{})
+	return err
+}
+
+// TransferTo calls the TransferTo RPC.
+func (c *Router2Client) TransferTo(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.TransferTo(ctx, &pb.TransferToRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// UnregisterControllerCallback calls the UnregisterControllerCallback RPC.
+func (c *Router2Client) UnregisterControllerCallback(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.UnregisterControllerCallback(ctx, &pb.UnregisterControllerCallbackRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// UnregisterRouteCallback calls the UnregisterRouteCallback RPC.
+func (c *Router2Client) UnregisterRouteCallback(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.UnregisterRouteCallback(ctx, &pb.UnregisterRouteCallbackRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// UnregisterTransferCallback calls the UnregisterTransferCallback RPC.
+func (c *Router2Client) UnregisterTransferCallback(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.UnregisterTransferCallback(ctx, &pb.UnregisterTransferCallbackRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// GetInstance1 calls the GetInstance1 RPC.
+func (c *Router2Client) GetInstance1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetInstance1(ctx, &pb.GetInstance1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance4_1 calls the GetInstance4_1 RPC.
+func (c *Router2Client) GetInstance4_1(ctx context.Context, arg0 int64, arg1 string, arg2 int64, arg3 int64) (int64, error) {
+	resp, err := c.svc.GetInstance4_1(ctx, &pb.GetInstance4_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Router2ControllerCallbackClient wraps the gRPC Router2ControllerCallbackService client.
+type Router2ControllerCallbackClient struct {
+	svc pb.Router2ControllerCallbackServiceClient
+}
+
+// NewRouter2ControllerCallbackClient creates a new Router2ControllerCallback client.
+func NewRouter2ControllerCallbackClient(cc grpc.ClientConnInterface) *Router2ControllerCallbackClient {
+	return &Router2ControllerCallbackClient{
+		svc: pb.NewRouter2ControllerCallbackServiceClient(cc),
+	}
+}
+
+// OnControllerUpdated calls the OnControllerUpdated RPC.
+func (c *Router2ControllerCallbackClient) OnControllerUpdated(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnControllerUpdated(ctx, &pb.OnControllerUpdatedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// Router2OnGetControllerHintsListenerClient wraps the gRPC Router2OnGetControllerHintsListenerService client.
+type Router2OnGetControllerHintsListenerClient struct {
+	svc pb.Router2OnGetControllerHintsListenerServiceClient
+}
+
+// NewRouter2OnGetControllerHintsListenerClient creates a new Router2OnGetControllerHintsListener client.
+func NewRouter2OnGetControllerHintsListenerClient(cc grpc.ClientConnInterface) *Router2OnGetControllerHintsListenerClient {
+	return &Router2OnGetControllerHintsListenerClient{
+		svc: pb.NewRouter2OnGetControllerHintsListenerServiceClient(cc),
+	}
+}
+
+// OnGetControllerHints calls the OnGetControllerHints RPC.
+func (c *Router2OnGetControllerHintsListenerClient) OnGetControllerHints(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.OnGetControllerHints(ctx, &pb.OnGetControllerHintsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Router2RoutingControllerClient wraps the gRPC Router2RoutingControllerService client.
+type Router2RoutingControllerClient struct {
+	svc pb.Router2RoutingControllerServiceClient
+}
+
+// NewRouter2RoutingControllerClient creates a new Router2RoutingController client.
+func NewRouter2RoutingControllerClient(cc grpc.ClientConnInterface) *Router2RoutingControllerClient {
+	return &Router2RoutingControllerClient{
+		svc: pb.NewRouter2RoutingControllerServiceClient(cc),
+	}
+}
+
+// DeselectRoute calls the DeselectRoute RPC.
+func (c *Router2RoutingControllerClient) DeselectRoute(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.DeselectRoute(ctx, &pb.DeselectRouteRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// GetControlHints calls the GetControlHints RPC.
+func (c *Router2RoutingControllerClient) GetControlHints(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetControlHints(ctx, &pb.GetControlHintsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetId calls the GetId RPC.
+func (c *Router2RoutingControllerClient) GetId(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRoutingSessionInfo calls the GetRoutingSessionInfo RPC.
+func (c *Router2RoutingControllerClient) GetRoutingSessionInfo(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetRoutingSessionInfo(ctx, &pb.GetRoutingSessionInfoRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVolume calls the GetVolume RPC.
+func (c *Router2RoutingControllerClient) GetVolume(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetVolume(ctx, &pb.GetVolumeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVolumeHandling calls the GetVolumeHandling RPC.
+func (c *Router2RoutingControllerClient) GetVolumeHandling(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetVolumeHandling(ctx, &pb.GetVolumeHandlingRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVolumeMax calls the GetVolumeMax RPC.
+func (c *Router2RoutingControllerClient) GetVolumeMax(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetVolumeMax(ctx, &pb.GetVolumeMaxRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsReleased calls the IsReleased RPC.
+func (c *Router2RoutingControllerClient) IsReleased(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsReleased(ctx, &pb.IsReleasedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Release calls the Release RPC.
+func (c *Router2RoutingControllerClient) Release(ctx context.Context) error {
+	_, err := c.svc.Release(ctx, &pb.Router2RoutingControllerReleaseRequest{})
+	return err
+}
+
+// SelectRoute calls the SelectRoute RPC.
+func (c *Router2RoutingControllerClient) SelectRoute(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SelectRoute(ctx, &pb.Router2RoutingControllerSelectRouteRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetVolume calls the SetVolume RPC.
+func (c *Router2RoutingControllerClient) SetVolume(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetVolume(ctx, &pb.SetVolumeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ToString calls the ToString RPC.
+func (c *Router2RoutingControllerClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WasTransferInitiatedBySelf calls the WasTransferInitiatedBySelf RPC.
+func (c *Router2RoutingControllerClient) WasTransferInitiatedBySelf(ctx context.Context) (bool, error) {
+	resp, err := c.svc.WasTransferInitiatedBySelf(ctx, &pb.WasTransferInitiatedBySelfRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Router2ScanRequestClient wraps the gRPC Router2ScanRequestService client.
+type Router2ScanRequestClient struct {
+	svc pb.Router2ScanRequestServiceClient
+}
+
+// NewRouter2ScanRequestClient creates a new Router2ScanRequest client.
+func NewRouter2ScanRequestClient(cc grpc.ClientConnInterface) *Router2ScanRequestClient {
+	return &Router2ScanRequestClient{
+		svc: pb.NewRouter2ScanRequestServiceClient(cc),
+	}
+}
+
+// IsScreenOffScan calls the IsScreenOffScan RPC.
+func (c *Router2ScanRequestClient) IsScreenOffScan(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsScreenOffScan(ctx, &pb.IsScreenOffScanRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Router2TransferCallbackClient wraps the gRPC Router2TransferCallbackService client.
+type Router2TransferCallbackClient struct {
+	svc pb.Router2TransferCallbackServiceClient
+}
+
+// NewRouter2TransferCallbackClient creates a new Router2TransferCallback client.
+func NewRouter2TransferCallbackClient(cc grpc.ClientConnInterface) *Router2TransferCallbackClient {
+	return &Router2TransferCallbackClient{
+		svc: pb.NewRouter2TransferCallbackServiceClient(cc),
+	}
+}
+
+// OnStop calls the OnStop RPC.
+func (c *Router2TransferCallbackClient) OnStop(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnStop(ctx, &pb.OnStopRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnTransfer calls the OnTransfer RPC.
+func (c *Router2TransferCallbackClient) OnTransfer(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.OnTransfer(ctx, &pb.OnTransferRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnTransferFailure calls the OnTransferFailure RPC.
+func (c *Router2TransferCallbackClient) OnTransferFailure(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnTransferFailure(ctx, &pb.OnTransferFailureRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ActionSoundClient wraps the gRPC ActionSoundService client.
+type ActionSoundClient struct {
+	svc pb.ActionSoundServiceClient
+}
+
+// NewActionSoundClient creates a new ActionSound client.
+func NewActionSoundClient(cc grpc.ClientConnInterface) *ActionSoundClient {
+	return &ActionSoundClient{
+		svc: pb.NewActionSoundServiceClient(cc),
+	}
+}
+
+// Load calls the Load RPC.
+func (c *ActionSoundClient) Load(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.Load(ctx, &pb.LoadRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// Play calls the Play RPC.
+func (c *ActionSoundClient) Play(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.Play(ctx, &pb.ActionSoundPlayRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// Release calls the Release RPC.
+func (c *ActionSoundClient) Release(ctx context.Context, handle int64) error {
+	_, err := c.svc.Release(ctx, &pb.ReleaseRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// MustPlayShutterSound calls the MustPlayShutterSound RPC.
+func (c *ActionSoundClient) MustPlayShutterSound(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.MustPlayShutterSound(ctx, &pb.MustPlayShutterSoundRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CameraProfileClient wraps the gRPC CameraProfileService client.
+type CameraProfileClient struct {
+	svc pb.CameraProfileServiceClient
+}
+
+// NewCameraProfileClient creates a new CameraProfile client.
+func NewCameraProfileClient(cc grpc.ClientConnInterface) *CameraProfileClient {
+	return &CameraProfileClient{
+		svc: pb.NewCameraProfileServiceClient(cc),
+	}
+}
+
+// GetJpegEncodingQualityParameter1 calls the GetJpegEncodingQualityParameter1 RPC.
+func (c *CameraProfileClient) GetJpegEncodingQualityParameter1(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetJpegEncodingQualityParameter1(ctx, &pb.GetJpegEncodingQualityParameter1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetJpegEncodingQualityParameter2_1 calls the GetJpegEncodingQualityParameter2_1 RPC.
+func (c *CameraProfileClient) GetJpegEncodingQualityParameter2_1(ctx context.Context, handle int64, arg0 int32, arg1 int32) (int32, error) {
+	resp, err := c.svc.GetJpegEncodingQualityParameter2_1(ctx, &pb.GetJpegEncodingQualityParameter2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DataSourceClient wraps the gRPC DataSourceService client.
+type DataSourceClient struct {
+	svc pb.DataSourceServiceClient
+}
+
+// NewDataSourceClient creates a new DataSource client.
+func NewDataSourceClient(cc grpc.ClientConnInterface) *DataSourceClient {
+	return &DataSourceClient{
+		svc: pb.NewDataSourceServiceClient(cc),
+	}
+}
+
+// GetSize calls the GetSize RPC.
+func (c *DataSourceClient) GetSize(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSize(ctx, &pb.GetSizeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ReadAt calls the ReadAt RPC.
+func (c *DataSourceClient) ReadAt(ctx context.Context, arg0 int64, arg1 int64, arg2 int32, arg3 int32) (int32, error) {
+	resp, err := c.svc.ReadAt(ctx, &pb.ReadAtRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CommunicationManagerClient wraps the gRPC CommunicationManagerService client.
+type CommunicationManagerClient struct {
+	svc pb.CommunicationManagerServiceClient
+}
+
+// NewCommunicationManagerClient creates a new CommunicationManager client.
+func NewCommunicationManagerClient(cc grpc.ClientConnInterface) *CommunicationManagerClient {
+	return &CommunicationManagerClient{
+		svc: pb.NewCommunicationManagerServiceClient(cc),
+	}
+}
+
+// GetVersion calls the GetVersion RPC.
+func (c *CommunicationManagerClient) GetVersion(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetVersion(ctx, &pb.GetVersionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SoundPoolClient wraps the gRPC SoundPoolService client.
+type SoundPoolClient struct {
+	svc pb.SoundPoolServiceClient
+}
+
+// NewSoundPoolClient creates a new SoundPool client.
+func NewSoundPoolClient(cc grpc.ClientConnInterface) *SoundPoolClient {
+	return &SoundPoolClient{
+		svc: pb.NewSoundPoolServiceClient(cc),
+	}
+}
+
+// AutoPause calls the AutoPause RPC.
+func (c *SoundPoolClient) AutoPause(ctx context.Context, handle int64) error {
+	_, err := c.svc.AutoPause(ctx, &pb.AutoPauseRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// AutoResume calls the AutoResume RPC.
+func (c *SoundPoolClient) AutoResume(ctx context.Context, handle int64) error {
+	_, err := c.svc.AutoResume(ctx, &pb.AutoResumeRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// Load3 calls the Load3 RPC.
+func (c *SoundPoolClient) Load3(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int32) (int32, error) {
+	resp, err := c.svc.Load3(ctx, &pb.Load3Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Load2_1 calls the Load2_1 RPC.
+func (c *SoundPoolClient) Load2_1(ctx context.Context, handle int64, arg0 int64, arg1 int32) (int32, error) {
+	resp, err := c.svc.Load2_1(ctx, &pb.Load2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Load4_2 calls the Load4_2 RPC.
+func (c *SoundPoolClient) Load4_2(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64, arg3 int32) (int32, error) {
+	resp, err := c.svc.Load4_2(ctx, &pb.Load4_2Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Load2_3 calls the Load2_3 RPC.
+func (c *SoundPoolClient) Load2_3(ctx context.Context, handle int64, arg0 string, arg1 int32) (int32, error) {
+	resp, err := c.svc.Load2_3(ctx, &pb.Load2_3Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Pause calls the Pause RPC.
+func (c *SoundPoolClient) Pause(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.Pause(ctx, &pb.SoundPoolPauseRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// Play calls the Play RPC.
+func (c *SoundPoolClient) Play(ctx context.Context, handle int64, arg0 int32, arg1 float32, arg2 float32, arg3 int32, arg4 int32, arg5 float32) (int32, error) {
+	resp, err := c.svc.Play(ctx, &pb.SoundPoolPlayRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+		Arg5:   arg5,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Release calls the Release RPC.
+func (c *SoundPoolClient) Release(ctx context.Context, handle int64) error {
+	_, err := c.svc.Release(ctx, &pb.ReleaseRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// Resume calls the Resume RPC.
+func (c *SoundPoolClient) Resume(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.Resume(ctx, &pb.ResumeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetLoop calls the SetLoop RPC.
+func (c *SoundPoolClient) SetLoop(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
+	_, err := c.svc.SetLoop(ctx, &pb.SetLoopRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SetOnLoadCompleteListener calls the SetOnLoadCompleteListener RPC.
+func (c *SoundPoolClient) SetOnLoadCompleteListener(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetOnLoadCompleteListener(ctx, &pb.SetOnLoadCompleteListenerRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetPriority calls the SetPriority RPC.
+func (c *SoundPoolClient) SetPriority(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
+	_, err := c.svc.SetPriority(ctx, &pb.SetPriorityRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SetRate calls the SetRate RPC.
+func (c *SoundPoolClient) SetRate(ctx context.Context, handle int64, arg0 int32, arg1 float32) error {
+	_, err := c.svc.SetRate(ctx, &pb.SetRateRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SetVolume calls the SetVolume RPC.
+func (c *SoundPoolClient) SetVolume(ctx context.Context, handle int64, arg0 int32, arg1 float32, arg2 float32) error {
+	_, err := c.svc.SetVolume(ctx, &pb.SoundPoolSetVolumeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// Stop calls the Stop RPC.
+func (c *SoundPoolClient) Stop(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.Stop(ctx, &pb.SoundPoolStopRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// Unload calls the Unload RPC.
+func (c *SoundPoolClient) Unload(ctx context.Context, handle int64, arg0 int32) (bool, error) {
+	resp, err := c.svc.Unload(ctx, &pb.UnloadRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SoundPoolBuilderClient wraps the gRPC SoundPoolBuilderService client.
+type SoundPoolBuilderClient struct {
+	svc pb.SoundPoolBuilderServiceClient
+}
+
+// NewSoundPoolBuilderClient creates a new SoundPoolBuilder client.
+func NewSoundPoolBuilderClient(cc grpc.ClientConnInterface) *SoundPoolBuilderClient {
+	return &SoundPoolBuilderClient{
+		svc: pb.NewSoundPoolBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *SoundPoolBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetAudioAttributes calls the SetAudioAttributes RPC.
+func (c *SoundPoolBuilderClient) SetAudioAttributes(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetAudioAttributes(ctx, &pb.SetAudioAttributesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetAudioSessionId calls the SetAudioSessionId RPC.
+func (c *SoundPoolBuilderClient) SetAudioSessionId(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetAudioSessionId(ctx, &pb.SetAudioSessionIdRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetContext calls the SetContext RPC.
+func (c *SoundPoolBuilderClient) SetContext(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetContext(ctx, &pb.SetContextRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetMaxStreams calls the SetMaxStreams RPC.
+func (c *SoundPoolBuilderClient) SetMaxStreams(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetMaxStreams(ctx, &pb.SetMaxStreamsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SoundPoolOnLoadCompleteListenerClient wraps the gRPC SoundPoolOnLoadCompleteListenerService client.
+type SoundPoolOnLoadCompleteListenerClient struct {
+	svc pb.SoundPoolOnLoadCompleteListenerServiceClient
+}
+
+// NewSoundPoolOnLoadCompleteListenerClient creates a new SoundPoolOnLoadCompleteListener client.
+func NewSoundPoolOnLoadCompleteListenerClient(cc grpc.ClientConnInterface) *SoundPoolOnLoadCompleteListenerClient {
+	return &SoundPoolOnLoadCompleteListenerClient{
+		svc: pb.NewSoundPoolOnLoadCompleteListenerServiceClient(cc),
+	}
+}
+
+// OnLoadComplete calls the OnLoadComplete RPC.
+func (c *SoundPoolOnLoadCompleteListenerClient) OnLoadComplete(ctx context.Context, arg0 int64, arg1 int32, arg2 int32) error {
+	_, err := c.svc.OnLoadComplete(ctx, &pb.OnLoadCompleteRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// FaceDetectorClient wraps the gRPC FaceDetectorService client.
+type FaceDetectorClient struct {
+	svc pb.FaceDetectorServiceClient
+}
+
+// NewFaceDetectorClient creates a new FaceDetector client.
+func NewFaceDetectorClient(cc grpc.ClientConnInterface) *FaceDetectorClient {
+	return &FaceDetectorClient{
+		svc: pb.NewFaceDetectorServiceClient(cc),
+	}
+}
+
+// FindFaces calls the FindFaces RPC.
+func (c *FaceDetectorClient) FindFaces(ctx context.Context, handle int64, arg0 int64, arg1 int64) (int32, error) {
+	resp, err := c.svc.FindFaces(ctx, &pb.FindFacesRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// FaceDetectorFaceClient wraps the gRPC FaceDetectorFaceService client.
+type FaceDetectorFaceClient struct {
+	svc pb.FaceDetectorFaceServiceClient
+}
+
+// NewFaceDetectorFaceClient creates a new FaceDetectorFace client.
+func NewFaceDetectorFaceClient(cc grpc.ClientConnInterface) *FaceDetectorFaceClient {
+	return &FaceDetectorFaceClient{
+		svc: pb.NewFaceDetectorFaceServiceClient(cc),
+	}
+}
+
+// Confidence calls the Confidence RPC.
+func (c *FaceDetectorFaceClient) Confidence(ctx context.Context) (float32, error) {
+	resp, err := c.svc.Confidence(ctx, &pb.ConfidenceRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// EyesDistance calls the EyesDistance RPC.
+func (c *FaceDetectorFaceClient) EyesDistance(ctx context.Context) (float32, error) {
+	resp, err := c.svc.EyesDistance(ctx, &pb.EyesDistanceRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMidPoint calls the GetMidPoint RPC.
+func (c *FaceDetectorFaceClient) GetMidPoint(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.GetMidPoint(ctx, &pb.GetMidPointRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// Pose calls the Pose RPC.
+func (c *FaceDetectorFaceClient) Pose(ctx context.Context, arg0 int32) (float32, error) {
+	resp, err := c.svc.Pose(ctx, &pb.PoseRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// LoudnessCodecControllerClient wraps the gRPC LoudnessCodecControllerService client.
+type LoudnessCodecControllerClient struct {
+	svc pb.LoudnessCodecControllerServiceClient
+}
+
+// NewLoudnessCodecControllerClient creates a new LoudnessCodecController client.
+func NewLoudnessCodecControllerClient(cc grpc.ClientConnInterface) *LoudnessCodecControllerClient {
+	return &LoudnessCodecControllerClient{
+		svc: pb.NewLoudnessCodecControllerServiceClient(cc),
+	}
+}
+
+// AddMediaCodec calls the AddMediaCodec RPC.
+func (c *LoudnessCodecControllerClient) AddMediaCodec(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.AddMediaCodec(ctx, &pb.AddMediaCodecRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Close calls the Close RPC.
+func (c *LoudnessCodecControllerClient) Close(ctx context.Context) error {
+	_, err := c.svc.Close(ctx, &pb.LoudnessCodecControllerCloseRequest{})
+	return err
+}
+
+// GetLoudnessCodecParams calls the GetLoudnessCodecParams RPC.
+func (c *LoudnessCodecControllerClient) GetLoudnessCodecParams(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetLoudnessCodecParams(ctx, &pb.GetLoudnessCodecParamsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RemoveMediaCodec calls the RemoveMediaCodec RPC.
+func (c *LoudnessCodecControllerClient) RemoveMediaCodec(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.RemoveMediaCodec(ctx, &pb.RemoveMediaCodecRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// Create1 calls the Create1 RPC.
+func (c *LoudnessCodecControllerClient) Create1(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.Create1(ctx, &pb.Create1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Create3_1 calls the Create3_1 RPC.
+func (c *LoudnessCodecControllerClient) Create3_1(ctx context.Context, arg0 int32, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.Create3_1(ctx, &pb.Create3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CryptoExceptionClient wraps the gRPC CryptoExceptionService client.
+type CryptoExceptionClient struct {
+	svc pb.CryptoExceptionServiceClient
+}
+
+// NewCryptoExceptionClient creates a new CryptoException client.
+func NewCryptoExceptionClient(cc grpc.ClientConnInterface) *CryptoExceptionClient {
+	return &CryptoExceptionClient{
+		svc: pb.NewCryptoExceptionServiceClient(cc),
+	}
+}
+
+// GetErrorContext calls the GetErrorContext RPC.
+func (c *CryptoExceptionClient) GetErrorContext(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetErrorContext(ctx, &pb.CryptoExceptionGetErrorContextRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOemError calls the GetOemError RPC.
+func (c *CryptoExceptionClient) GetOemError(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetOemError(ctx, &pb.CryptoExceptionGetOemErrorRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVendorError calls the GetVendorError RPC.
+func (c *CryptoExceptionClient) GetVendorError(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetVendorError(ctx, &pb.CryptoExceptionGetVendorErrorRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// TimestampClient wraps the gRPC TimestampService client.
+type TimestampClient struct {
+	svc pb.TimestampServiceClient
+}
+
+// NewTimestampClient creates a new Timestamp client.
+func NewTimestampClient(cc grpc.ClientConnInterface) *TimestampClient {
+	return &TimestampClient{
+		svc: pb.NewTimestampServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *TimestampClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.TimestampEqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAnchorMediaTimeUs calls the GetAnchorMediaTimeUs RPC.
+func (c *TimestampClient) GetAnchorMediaTimeUs(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetAnchorMediaTimeUs(ctx, &pb.GetAnchorMediaTimeUsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAnchorSystemNanoTime calls the GetAnchorSystemNanoTime RPC.
+func (c *TimestampClient) GetAnchorSystemNanoTime(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetAnchorSystemNanoTime(ctx, &pb.GetAnchorSystemNanoTimeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAnchorSytemNanoTime calls the GetAnchorSytemNanoTime RPC.
+func (c *TimestampClient) GetAnchorSytemNanoTime(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetAnchorSytemNanoTime(ctx, &pb.GetAnchorSytemNanoTimeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMediaClockRate calls the GetMediaClockRate RPC.
+func (c *TimestampClient) GetMediaClockRate(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetMediaClockRate(ctx, &pb.GetMediaClockRateRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *TimestampClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.TimestampToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// RoutingSessionInfoClient wraps the gRPC RoutingSessionInfoService client.
+type RoutingSessionInfoClient struct {
+	svc pb.RoutingSessionInfoServiceClient
+}
+
+// NewRoutingSessionInfoClient creates a new RoutingSessionInfo client.
+func NewRoutingSessionInfoClient(cc grpc.ClientConnInterface) *RoutingSessionInfoClient {
+	return &RoutingSessionInfoClient{
+		svc: pb.NewRoutingSessionInfoServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *RoutingSessionInfoClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *RoutingSessionInfoClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetClientPackageName calls the GetClientPackageName RPC.
+func (c *RoutingSessionInfoClient) GetClientPackageName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetClientPackageName(ctx, &pb.GetClientPackageNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetControlHints calls the GetControlHints RPC.
+func (c *RoutingSessionInfoClient) GetControlHints(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetControlHints(ctx, &pb.GetControlHintsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetId calls the GetId RPC.
+func (c *RoutingSessionInfoClient) GetId(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetName calls the GetName RPC.
+func (c *RoutingSessionInfoClient) GetName(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetName(ctx, &pb.GetNameRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTransferReason calls the GetTransferReason RPC.
+func (c *RoutingSessionInfoClient) GetTransferReason(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetTransferReason(ctx, &pb.GetTransferReasonRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVolume calls the GetVolume RPC.
+func (c *RoutingSessionInfoClient) GetVolume(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetVolume(ctx, &pb.GetVolumeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVolumeHandling calls the GetVolumeHandling RPC.
+func (c *RoutingSessionInfoClient) GetVolumeHandling(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetVolumeHandling(ctx, &pb.GetVolumeHandlingRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVolumeMax calls the GetVolumeMax RPC.
+func (c *RoutingSessionInfoClient) GetVolumeMax(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetVolumeMax(ctx, &pb.GetVolumeMaxRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *RoutingSessionInfoClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *RoutingSessionInfoClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *RoutingSessionInfoClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// RoutingSessionInfoBuilderClient wraps the gRPC RoutingSessionInfoBuilderService client.
+type RoutingSessionInfoBuilderClient struct {
+	svc pb.RoutingSessionInfoBuilderServiceClient
+}
+
+// NewRoutingSessionInfoBuilderClient creates a new RoutingSessionInfoBuilder client.
+func NewRoutingSessionInfoBuilderClient(cc grpc.ClientConnInterface) *RoutingSessionInfoBuilderClient {
+	return &RoutingSessionInfoBuilderClient{
+		svc: pb.NewRoutingSessionInfoBuilderServiceClient(cc),
+	}
+}
+
+// AddDeselectableRoute calls the AddDeselectableRoute RPC.
+func (c *RoutingSessionInfoBuilderClient) AddDeselectableRoute(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.AddDeselectableRoute(ctx, &pb.AddDeselectableRouteRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddSelectableRoute calls the AddSelectableRoute RPC.
+func (c *RoutingSessionInfoBuilderClient) AddSelectableRoute(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.AddSelectableRoute(ctx, &pb.AddSelectableRouteRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddSelectedRoute calls the AddSelectedRoute RPC.
+func (c *RoutingSessionInfoBuilderClient) AddSelectedRoute(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.AddSelectedRoute(ctx, &pb.AddSelectedRouteRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddTransferableRoute calls the AddTransferableRoute RPC.
+func (c *RoutingSessionInfoBuilderClient) AddTransferableRoute(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.AddTransferableRoute(ctx, &pb.AddTransferableRouteRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Build calls the Build RPC.
+func (c *RoutingSessionInfoBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearDeselectableRoutes calls the ClearDeselectableRoutes RPC.
+func (c *RoutingSessionInfoBuilderClient) ClearDeselectableRoutes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearDeselectableRoutes(ctx, &pb.ClearDeselectableRoutesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearSelectableRoutes calls the ClearSelectableRoutes RPC.
+func (c *RoutingSessionInfoBuilderClient) ClearSelectableRoutes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearSelectableRoutes(ctx, &pb.ClearSelectableRoutesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearSelectedRoutes calls the ClearSelectedRoutes RPC.
+func (c *RoutingSessionInfoBuilderClient) ClearSelectedRoutes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearSelectedRoutes(ctx, &pb.ClearSelectedRoutesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearTransferableRoutes calls the ClearTransferableRoutes RPC.
+func (c *RoutingSessionInfoBuilderClient) ClearTransferableRoutes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearTransferableRoutes(ctx, &pb.ClearTransferableRoutesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RemoveDeselectableRoute calls the RemoveDeselectableRoute RPC.
+func (c *RoutingSessionInfoBuilderClient) RemoveDeselectableRoute(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.RemoveDeselectableRoute(ctx, &pb.RemoveDeselectableRouteRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RemoveSelectableRoute calls the RemoveSelectableRoute RPC.
+func (c *RoutingSessionInfoBuilderClient) RemoveSelectableRoute(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.RemoveSelectableRoute(ctx, &pb.RemoveSelectableRouteRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RemoveSelectedRoute calls the RemoveSelectedRoute RPC.
+func (c *RoutingSessionInfoBuilderClient) RemoveSelectedRoute(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.RemoveSelectedRoute(ctx, &pb.RemoveSelectedRouteRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RemoveTransferableRoute calls the RemoveTransferableRoute RPC.
+func (c *RoutingSessionInfoBuilderClient) RemoveTransferableRoute(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.RemoveTransferableRoute(ctx, &pb.RemoveTransferableRouteRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetControlHints calls the SetControlHints RPC.
+func (c *RoutingSessionInfoBuilderClient) SetControlHints(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetControlHints(ctx, &pb.SetControlHintsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetName calls the SetName RPC.
+func (c *RoutingSessionInfoBuilderClient) SetName(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetName(ctx, &pb.SetNameRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetTransferInitiator calls the SetTransferInitiator RPC.
+func (c *RoutingSessionInfoBuilderClient) SetTransferInitiator(ctx context.Context, arg0 int64, arg1 string) (int64, error) {
+	resp, err := c.svc.SetTransferInitiator(ctx, &pb.SetTransferInitiatorRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetTransferReason calls the SetTransferReason RPC.
+func (c *RoutingSessionInfoBuilderClient) SetTransferReason(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetTransferReason(ctx, &pb.SetTransferReasonRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetVolume calls the SetVolume RPC.
+func (c *RoutingSessionInfoBuilderClient) SetVolume(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetVolume(ctx, &pb.SetVolumeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetVolumeHandling calls the SetVolumeHandling RPC.
+func (c *RoutingSessionInfoBuilderClient) SetVolumeHandling(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetVolumeHandling(ctx, &pb.SetVolumeHandlingRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetVolumeMax calls the SetVolumeMax RPC.
+func (c *RoutingSessionInfoBuilderClient) SetVolumeMax(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetVolumeMax(ctx, &pb.SetVolumeMaxRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// VolumeAutomationClient wraps the gRPC VolumeAutomationService client.
+type VolumeAutomationClient struct {
+	svc pb.VolumeAutomationServiceClient
+}
+
+// NewVolumeAutomationClient creates a new VolumeAutomation client.
+func NewVolumeAutomationClient(cc grpc.ClientConnInterface) *VolumeAutomationClient {
+	return &VolumeAutomationClient{
+		svc: pb.NewVolumeAutomationServiceClient(cc),
+	}
+}
+
+// CreateVolumeShaper calls the CreateVolumeShaper RPC.
+func (c *VolumeAutomationClient) CreateVolumeShaper(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.CreateVolumeShaper(ctx, &pb.VolumeAutomationCreateVolumeShaperRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ThumbnailUtilsClient wraps the gRPC ThumbnailUtilsService client.
+type ThumbnailUtilsClient struct {
+	svc pb.ThumbnailUtilsServiceClient
+}
+
+// NewThumbnailUtilsClient creates a new ThumbnailUtils client.
+func NewThumbnailUtilsClient(cc grpc.ClientConnInterface) *ThumbnailUtilsClient {
+	return &ThumbnailUtilsClient{
+		svc: pb.NewThumbnailUtilsServiceClient(cc),
+	}
+}
+
+// CreateAudioThumbnail3 calls the CreateAudioThumbnail3 RPC.
+func (c *ThumbnailUtilsClient) CreateAudioThumbnail3(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.CreateAudioThumbnail3(ctx, &pb.CreateAudioThumbnail3Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateAudioThumbnail2_1 calls the CreateAudioThumbnail2_1 RPC.
+func (c *ThumbnailUtilsClient) CreateAudioThumbnail2_1(ctx context.Context, handle int64, arg0 string, arg1 int32) (int64, error) {
+	resp, err := c.svc.CreateAudioThumbnail2_1(ctx, &pb.CreateAudioThumbnail2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateImageThumbnail3 calls the CreateImageThumbnail3 RPC.
+func (c *ThumbnailUtilsClient) CreateImageThumbnail3(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.CreateImageThumbnail3(ctx, &pb.CreateImageThumbnail3Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateImageThumbnail2_1 calls the CreateImageThumbnail2_1 RPC.
+func (c *ThumbnailUtilsClient) CreateImageThumbnail2_1(ctx context.Context, handle int64, arg0 string, arg1 int32) (int64, error) {
+	resp, err := c.svc.CreateImageThumbnail2_1(ctx, &pb.CreateImageThumbnail2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateVideoThumbnail3 calls the CreateVideoThumbnail3 RPC.
+func (c *ThumbnailUtilsClient) CreateVideoThumbnail3(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.CreateVideoThumbnail3(ctx, &pb.CreateVideoThumbnail3Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateVideoThumbnail2_1 calls the CreateVideoThumbnail2_1 RPC.
+func (c *ThumbnailUtilsClient) CreateVideoThumbnail2_1(ctx context.Context, handle int64, arg0 string, arg1 int32) (int64, error) {
+	resp, err := c.svc.CreateVideoThumbnail2_1(ctx, &pb.CreateVideoThumbnail2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ExtractThumbnail3 calls the ExtractThumbnail3 RPC.
+func (c *ThumbnailUtilsClient) ExtractThumbnail3(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int32) (int64, error) {
+	resp, err := c.svc.ExtractThumbnail3(ctx, &pb.ExtractThumbnail3Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ExtractThumbnail4_1 calls the ExtractThumbnail4_1 RPC.
+func (c *ThumbnailUtilsClient) ExtractThumbnail4_1(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int32, arg3 int32) (int64, error) {
+	resp, err := c.svc.ExtractThumbnail4_1(ctx, &pb.ExtractThumbnail4_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AudioTimestampClient wraps the gRPC AudioTimestampService client.
+type AudioTimestampClient struct {
+	svc pb.AudioTimestampServiceClient
+}
+
+// NewAudioTimestampClient creates a new AudioTimestamp client.
+func NewAudioTimestampClient(cc grpc.ClientConnInterface) *AudioTimestampClient {
+	return &AudioTimestampClient{
+		svc: pb.NewAudioTimestampServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *AudioTimestampClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.AudioTimestampDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *AudioTimestampClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.AudioTimestampToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *AudioTimestampClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.AudioTimestampWriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// FormatClient wraps the gRPC FormatService client.
+type FormatClient struct {
+	svc pb.FormatServiceClient
+}
+
+// NewFormatClient creates a new Format client.
+func NewFormatClient(cc grpc.ClientConnInterface) *FormatClient {
+	return &FormatClient{
+		svc: pb.NewFormatServiceClient(cc),
+	}
+}
+
+// ContainsFeature calls the ContainsFeature RPC.
+func (c *FormatClient) ContainsFeature(ctx context.Context, handle int64, arg0 string) (bool, error) {
+	resp, err := c.svc.ContainsFeature(ctx, &pb.ContainsFeatureRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ContainsKey calls the ContainsKey RPC.
+func (c *FormatClient) ContainsKey(ctx context.Context, handle int64, arg0 string) (bool, error) {
+	resp, err := c.svc.ContainsKey(ctx, &pb.FormatContainsKeyRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetByteBuffer calls the GetByteBuffer RPC.
+func (c *FormatClient) GetByteBuffer(ctx context.Context, handle int64, arg0 string) (int64, error) {
+	resp, err := c.svc.GetByteBuffer(ctx, &pb.GetByteBufferRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFeatureEnabled calls the GetFeatureEnabled RPC.
+func (c *FormatClient) GetFeatureEnabled(ctx context.Context, handle int64, arg0 string) (bool, error) {
+	resp, err := c.svc.GetFeatureEnabled(ctx, &pb.GetFeatureEnabledRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFloat1 calls the GetFloat1 RPC.
+func (c *FormatClient) GetFloat1(ctx context.Context, handle int64, arg0 string) (float32, error) {
+	resp, err := c.svc.GetFloat1(ctx, &pb.GetFloat1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFloat2_1 calls the GetFloat2_1 RPC.
+func (c *FormatClient) GetFloat2_1(ctx context.Context, handle int64, arg0 string, arg1 float32) (float32, error) {
+	resp, err := c.svc.GetFloat2_1(ctx, &pb.GetFloat2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInteger1 calls the GetInteger1 RPC.
+func (c *FormatClient) GetInteger1(ctx context.Context, handle int64, arg0 string) (int32, error) {
+	resp, err := c.svc.GetInteger1(ctx, &pb.GetInteger1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInteger2_1 calls the GetInteger2_1 RPC.
+func (c *FormatClient) GetInteger2_1(ctx context.Context, handle int64, arg0 string, arg1 int32) (int32, error) {
+	resp, err := c.svc.GetInteger2_1(ctx, &pb.GetInteger2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLong1 calls the GetLong1 RPC.
+func (c *FormatClient) GetLong1(ctx context.Context, handle int64, arg0 string) (int64, error) {
+	resp, err := c.svc.GetLong1(ctx, &pb.GetLong1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLong2_1 calls the GetLong2_1 RPC.
+func (c *FormatClient) GetLong2_1(ctx context.Context, handle int64, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.GetLong2_1(ctx, &pb.GetLong2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNumber1 calls the GetNumber1 RPC.
+func (c *FormatClient) GetNumber1(ctx context.Context, handle int64, arg0 string) (int64, error) {
+	resp, err := c.svc.GetNumber1(ctx, &pb.GetNumber1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNumber2_1 calls the GetNumber2_1 RPC.
+func (c *FormatClient) GetNumber2_1(ctx context.Context, handle int64, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.GetNumber2_1(ctx, &pb.GetNumber2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetString1 calls the GetString1 RPC.
+func (c *FormatClient) GetString1(ctx context.Context, handle int64, arg0 string) (string, error) {
+	resp, err := c.svc.GetString1(ctx, &pb.GetString1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetString2_1 calls the GetString2_1 RPC.
+func (c *FormatClient) GetString2_1(ctx context.Context, handle int64, arg0 string, arg1 string) (string, error) {
+	resp, err := c.svc.GetString2_1(ctx, &pb.GetString2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetValueTypeForKey calls the GetValueTypeForKey RPC.
+func (c *FormatClient) GetValueTypeForKey(ctx context.Context, handle int64, arg0 string) (int32, error) {
+	resp, err := c.svc.GetValueTypeForKey(ctx, &pb.GetValueTypeForKeyRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RemoveFeature calls the RemoveFeature RPC.
+func (c *FormatClient) RemoveFeature(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.RemoveFeature(ctx, &pb.RemoveFeatureRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// RemoveKey calls the RemoveKey RPC.
+func (c *FormatClient) RemoveKey(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.RemoveKey(ctx, &pb.RemoveKeyRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetFeatureEnabled calls the SetFeatureEnabled RPC.
+func (c *FormatClient) SetFeatureEnabled(ctx context.Context, handle int64, arg0 string, arg1 bool) error {
+	_, err := c.svc.SetFeatureEnabled(ctx, &pb.SetFeatureEnabledRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SetFloat calls the SetFloat RPC.
+func (c *FormatClient) SetFloat(ctx context.Context, handle int64, arg0 string, arg1 float32) error {
+	_, err := c.svc.SetFloat(ctx, &pb.SetFloatRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SetInteger calls the SetInteger RPC.
+func (c *FormatClient) SetInteger(ctx context.Context, handle int64, arg0 string, arg1 int32) error {
+	_, err := c.svc.SetInteger(ctx, &pb.SetIntegerRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SetLong calls the SetLong RPC.
+func (c *FormatClient) SetLong(ctx context.Context, handle int64, arg0 string, arg1 int64) error {
+	_, err := c.svc.SetLong(ctx, &pb.SetLongRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SetString calls the SetString RPC.
+func (c *FormatClient) SetString(ctx context.Context, handle int64, arg0 string, arg1 string) error {
+	_, err := c.svc.SetString(ctx, &pb.SetStringRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// ToString calls the ToString RPC.
+func (c *FormatClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.FormatToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateAudioFormat calls the CreateAudioFormat RPC.
+func (c *FormatClient) CreateAudioFormat(ctx context.Context, handle int64, arg0 string, arg1 int32, arg2 int32) (int64, error) {
+	resp, err := c.svc.CreateAudioFormat(ctx, &pb.CreateAudioFormatRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateSubtitleFormat calls the CreateSubtitleFormat RPC.
+func (c *FormatClient) CreateSubtitleFormat(ctx context.Context, handle int64, arg0 string, arg1 string) (int64, error) {
+	resp, err := c.svc.CreateSubtitleFormat(ctx, &pb.CreateSubtitleFormatRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateVideoFormat calls the CreateVideoFormat RPC.
+func (c *FormatClient) CreateVideoFormat(ctx context.Context, handle int64, arg0 string, arg1 int32, arg2 int32) (int64, error) {
+	resp, err := c.svc.CreateVideoFormat(ctx, &pb.CreateVideoFormatRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// FormatQpOffsetRectClient wraps the gRPC FormatQpOffsetRectService client.
+type FormatQpOffsetRectClient struct {
+	svc pb.FormatQpOffsetRectServiceClient
+}
+
+// NewFormatQpOffsetRectClient creates a new FormatQpOffsetRect client.
+func NewFormatQpOffsetRectClient(cc grpc.ClientConnInterface) *FormatQpOffsetRectClient {
+	return &FormatQpOffsetRectClient{
+		svc: pb.NewFormatQpOffsetRectServiceClient(cc),
+	}
+}
+
+// FlattenToString calls the FlattenToString RPC.
+func (c *FormatQpOffsetRectClient) FlattenToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.FlattenToString(ctx, &pb.FlattenToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// Set calls the Set RPC.
+func (c *FormatQpOffsetRectClient) Set(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.Set(ctx, &pb.FormatQpOffsetRectSetRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// AudioRoutingClient wraps the gRPC AudioRoutingService client.
+type AudioRoutingClient struct {
+	svc pb.AudioRoutingServiceClient
+}
+
+// NewAudioRoutingClient creates a new AudioRouting client.
+func NewAudioRoutingClient(cc grpc.ClientConnInterface) *AudioRoutingClient {
+	return &AudioRoutingClient{
+		svc: pb.NewAudioRoutingServiceClient(cc),
+	}
+}
+
+// GetPreferredDevice calls the GetPreferredDevice RPC.
+func (c *AudioRoutingClient) GetPreferredDevice(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPreferredDevice(ctx, &pb.AudioRoutingGetPreferredDeviceRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRoutedDevice calls the GetRoutedDevice RPC.
+func (c *AudioRoutingClient) GetRoutedDevice(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetRoutedDevice(ctx, &pb.AudioRoutingGetRoutedDeviceRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RemoveOnRoutingChangedListener calls the RemoveOnRoutingChangedListener RPC.
+func (c *AudioRoutingClient) RemoveOnRoutingChangedListener(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.RemoveOnRoutingChangedListener(ctx, &pb.RemoveOnRoutingChangedListenerRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetPreferredDevice calls the SetPreferredDevice RPC.
+func (c *AudioRoutingClient) SetPreferredDevice(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.SetPreferredDevice(ctx, &pb.AudioRoutingSetPreferredDeviceRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AudioRoutingOnRoutingChangedListenerClient wraps the gRPC AudioRoutingOnRoutingChangedListenerService client.
+type AudioRoutingOnRoutingChangedListenerClient struct {
+	svc pb.AudioRoutingOnRoutingChangedListenerServiceClient
+}
+
+// NewAudioRoutingOnRoutingChangedListenerClient creates a new AudioRoutingOnRoutingChangedListener client.
+func NewAudioRoutingOnRoutingChangedListenerClient(cc grpc.ClientConnInterface) *AudioRoutingOnRoutingChangedListenerClient {
+	return &AudioRoutingOnRoutingChangedListenerClient{
+		svc: pb.NewAudioRoutingOnRoutingChangedListenerServiceClient(cc),
+	}
+}
+
+// OnRoutingChanged calls the OnRoutingChanged RPC.
+func (c *AudioRoutingOnRoutingChangedListenerClient) OnRoutingChanged(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnRoutingChanged(ctx, &pb.OnRoutingChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// AudioPlaybackCaptureConfigurationClient wraps the gRPC AudioPlaybackCaptureConfigurationService client.
+type AudioPlaybackCaptureConfigurationClient struct {
+	svc pb.AudioPlaybackCaptureConfigurationServiceClient
+}
+
+// NewAudioPlaybackCaptureConfigurationClient creates a new AudioPlaybackCaptureConfiguration client.
+func NewAudioPlaybackCaptureConfigurationClient(cc grpc.ClientConnInterface) *AudioPlaybackCaptureConfigurationClient {
+	return &AudioPlaybackCaptureConfigurationClient{
+		svc: pb.NewAudioPlaybackCaptureConfigurationServiceClient(cc),
+	}
+}
+
+// GetExcludeUids calls the GetExcludeUids RPC.
+func (c *AudioPlaybackCaptureConfigurationClient) GetExcludeUids(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetExcludeUids(ctx, &pb.GetExcludeUidsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExcludeUsages calls the GetExcludeUsages RPC.
+func (c *AudioPlaybackCaptureConfigurationClient) GetExcludeUsages(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetExcludeUsages(ctx, &pb.GetExcludeUsagesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMatchingUids calls the GetMatchingUids RPC.
+func (c *AudioPlaybackCaptureConfigurationClient) GetMatchingUids(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetMatchingUids(ctx, &pb.GetMatchingUidsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMatchingUsages calls the GetMatchingUsages RPC.
+func (c *AudioPlaybackCaptureConfigurationClient) GetMatchingUsages(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetMatchingUsages(ctx, &pb.GetMatchingUsagesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMediaProjection calls the GetMediaProjection RPC.
+func (c *AudioPlaybackCaptureConfigurationClient) GetMediaProjection(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetMediaProjection(ctx, &pb.GetMediaProjectionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AudioPlaybackCaptureConfigurationBuilderClient wraps the gRPC AudioPlaybackCaptureConfigurationBuilderService client.
+type AudioPlaybackCaptureConfigurationBuilderClient struct {
+	svc pb.AudioPlaybackCaptureConfigurationBuilderServiceClient
+}
+
+// NewAudioPlaybackCaptureConfigurationBuilderClient creates a new AudioPlaybackCaptureConfigurationBuilder client.
+func NewAudioPlaybackCaptureConfigurationBuilderClient(cc grpc.ClientConnInterface) *AudioPlaybackCaptureConfigurationBuilderClient {
+	return &AudioPlaybackCaptureConfigurationBuilderClient{
+		svc: pb.NewAudioPlaybackCaptureConfigurationBuilderServiceClient(cc),
+	}
+}
+
+// AddMatchingUid calls the AddMatchingUid RPC.
+func (c *AudioPlaybackCaptureConfigurationBuilderClient) AddMatchingUid(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.AddMatchingUid(ctx, &pb.AddMatchingUidRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddMatchingUsage calls the AddMatchingUsage RPC.
+func (c *AudioPlaybackCaptureConfigurationBuilderClient) AddMatchingUsage(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.AddMatchingUsage(ctx, &pb.AddMatchingUsageRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Build calls the Build RPC.
+func (c *AudioPlaybackCaptureConfigurationBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ExcludeUid calls the ExcludeUid RPC.
+func (c *AudioPlaybackCaptureConfigurationBuilderClient) ExcludeUid(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.ExcludeUid(ctx, &pb.ExcludeUidRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ExcludeUsage calls the ExcludeUsage RPC.
+func (c *AudioPlaybackCaptureConfigurationBuilderClient) ExcludeUsage(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.ExcludeUsage(ctx, &pb.ExcludeUsageRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DrmInitDataClient wraps the gRPC DrmInitDataService client.
+type DrmInitDataClient struct {
+	svc pb.DrmInitDataServiceClient
+}
+
+// NewDrmInitDataClient creates a new DrmInitData client.
+func NewDrmInitDataClient(cc grpc.ClientConnInterface) *DrmInitDataClient {
+	return &DrmInitDataClient{
+		svc: pb.NewDrmInitDataServiceClient(cc),
+	}
+}
+
+// Get calls the Get RPC.
+func (c *DrmInitDataClient) Get(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.Get(ctx, &pb.GetRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSchemeInitDataAt calls the GetSchemeInitDataAt RPC.
+func (c *DrmInitDataClient) GetSchemeInitDataAt(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetSchemeInitDataAt(ctx, &pb.GetSchemeInitDataAtRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSchemeInitDataCount calls the GetSchemeInitDataCount RPC.
+func (c *DrmInitDataClient) GetSchemeInitDataCount(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetSchemeInitDataCount(ctx, &pb.GetSchemeInitDataCountRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DrmInitDataSchemeInitDataClient wraps the gRPC DrmInitDataSchemeInitDataService client.
+type DrmInitDataSchemeInitDataClient struct {
+	svc pb.DrmInitDataSchemeInitDataServiceClient
+}
+
+// NewDrmInitDataSchemeInitDataClient creates a new DrmInitDataSchemeInitData client.
+func NewDrmInitDataSchemeInitDataClient(cc grpc.ClientConnInterface) *DrmInitDataSchemeInitDataClient {
+	return &DrmInitDataSchemeInitDataClient{
+		svc: pb.NewDrmInitDataSchemeInitDataServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *DrmInitDataSchemeInitDataClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *DrmInitDataSchemeInitDataClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RouteDiscoveryPreferenceClient wraps the gRPC RouteDiscoveryPreferenceService client.
+type RouteDiscoveryPreferenceClient struct {
+	svc pb.RouteDiscoveryPreferenceServiceClient
+}
+
+// NewRouteDiscoveryPreferenceClient creates a new RouteDiscoveryPreference client.
+func NewRouteDiscoveryPreferenceClient(cc grpc.ClientConnInterface) *RouteDiscoveryPreferenceClient {
+	return &RouteDiscoveryPreferenceClient{
+		svc: pb.NewRouteDiscoveryPreferenceServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *RouteDiscoveryPreferenceClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *RouteDiscoveryPreferenceClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *RouteDiscoveryPreferenceClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ShouldPerformActiveScan calls the ShouldPerformActiveScan RPC.
+func (c *RouteDiscoveryPreferenceClient) ShouldPerformActiveScan(ctx context.Context) (bool, error) {
+	resp, err := c.svc.ShouldPerformActiveScan(ctx, &pb.ShouldPerformActiveScanRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *RouteDiscoveryPreferenceClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *RouteDiscoveryPreferenceClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// RouteDiscoveryPreferenceBuilderClient wraps the gRPC RouteDiscoveryPreferenceBuilderService client.
+type RouteDiscoveryPreferenceBuilderClient struct {
+	svc pb.RouteDiscoveryPreferenceBuilderServiceClient
+}
+
+// NewRouteDiscoveryPreferenceBuilderClient creates a new RouteDiscoveryPreferenceBuilder client.
+func NewRouteDiscoveryPreferenceBuilderClient(cc grpc.ClientConnInterface) *RouteDiscoveryPreferenceBuilderClient {
+	return &RouteDiscoveryPreferenceBuilderClient{
+		svc: pb.NewRouteDiscoveryPreferenceBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *RouteDiscoveryPreferenceBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetShouldPerformActiveScan calls the SetShouldPerformActiveScan RPC.
+func (c *RouteDiscoveryPreferenceBuilderClient) SetShouldPerformActiveScan(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetShouldPerformActiveScan(ctx, &pb.SetShouldPerformActiveScanRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DrmExceptionClient wraps the gRPC DrmExceptionService client.
+type DrmExceptionClient struct {
+	svc pb.DrmExceptionServiceClient
+}
+
+// NewDrmExceptionClient creates a new DrmException client.
+func NewDrmExceptionClient(cc grpc.ClientConnInterface) *DrmExceptionClient {
+	return &DrmExceptionClient{
+		svc: pb.NewDrmExceptionServiceClient(cc),
+	}
+}
+
+// GetErrorContext calls the GetErrorContext RPC.
+func (c *DrmExceptionClient) GetErrorContext(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetErrorContext(ctx, &pb.DrmExceptionGetErrorContextRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOemError calls the GetOemError RPC.
+func (c *DrmExceptionClient) GetOemError(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetOemError(ctx, &pb.DrmExceptionGetOemErrorRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVendorError calls the GetVendorError RPC.
+func (c *DrmExceptionClient) GetVendorError(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetVendorError(ctx, &pb.DrmExceptionGetVendorErrorRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SpatializerClient wraps the gRPC SpatializerService client.
+type SpatializerClient struct {
+	svc pb.SpatializerServiceClient
+}
+
+// NewSpatializerClient creates a new Spatializer client.
+func NewSpatializerClient(cc grpc.ClientConnInterface) *SpatializerClient {
+	return &SpatializerClient{
+		svc: pb.NewSpatializerServiceClient(cc),
+	}
+}
+
+// AddOnHeadTrackerAvailableListener calls the AddOnHeadTrackerAvailableListener RPC.
+func (c *SpatializerClient) AddOnHeadTrackerAvailableListener(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.AddOnHeadTrackerAvailableListener(ctx, &pb.AddOnHeadTrackerAvailableListenerRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// AddOnSpatializerStateChangedListener calls the AddOnSpatializerStateChangedListener RPC.
+func (c *SpatializerClient) AddOnSpatializerStateChangedListener(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.AddOnSpatializerStateChangedListener(ctx, &pb.AddOnSpatializerStateChangedListenerRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// CanBeSpatialized calls the CanBeSpatialized RPC.
+func (c *SpatializerClient) CanBeSpatialized(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
+	resp, err := c.svc.CanBeSpatialized(ctx, &pb.CanBeSpatializedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetImmersiveAudioLevel calls the GetImmersiveAudioLevel RPC.
+func (c *SpatializerClient) GetImmersiveAudioLevel(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetImmersiveAudioLevel(ctx, &pb.GetImmersiveAudioLevelRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsAvailable calls the IsAvailable RPC.
+func (c *SpatializerClient) IsAvailable(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsAvailable(ctx, &pb.IsAvailableRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsEnabled calls the IsEnabled RPC.
+func (c *SpatializerClient) IsEnabled(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsEnabled(ctx, &pb.IsEnabledRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsHeadTrackerAvailable calls the IsHeadTrackerAvailable RPC.
+func (c *SpatializerClient) IsHeadTrackerAvailable(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsHeadTrackerAvailable(ctx, &pb.IsHeadTrackerAvailableRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RemoveOnHeadTrackerAvailableListener calls the RemoveOnHeadTrackerAvailableListener RPC.
+func (c *SpatializerClient) RemoveOnHeadTrackerAvailableListener(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.RemoveOnHeadTrackerAvailableListener(ctx, &pb.RemoveOnHeadTrackerAvailableListenerRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// RemoveOnSpatializerStateChangedListener calls the RemoveOnSpatializerStateChangedListener RPC.
+func (c *SpatializerClient) RemoveOnSpatializerStateChangedListener(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.RemoveOnSpatializerStateChangedListener(ctx, &pb.RemoveOnSpatializerStateChangedListenerRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SpatializerOnHeadTrackerAvailableListenerClient wraps the gRPC SpatializerOnHeadTrackerAvailableListenerService client.
+type SpatializerOnHeadTrackerAvailableListenerClient struct {
+	svc pb.SpatializerOnHeadTrackerAvailableListenerServiceClient
+}
+
+// NewSpatializerOnHeadTrackerAvailableListenerClient creates a new SpatializerOnHeadTrackerAvailableListener client.
+func NewSpatializerOnHeadTrackerAvailableListenerClient(cc grpc.ClientConnInterface) *SpatializerOnHeadTrackerAvailableListenerClient {
+	return &SpatializerOnHeadTrackerAvailableListenerClient{
+		svc: pb.NewSpatializerOnHeadTrackerAvailableListenerServiceClient(cc),
+	}
+}
+
+// OnHeadTrackerAvailableChanged calls the OnHeadTrackerAvailableChanged RPC.
+func (c *SpatializerOnHeadTrackerAvailableListenerClient) OnHeadTrackerAvailableChanged(ctx context.Context, arg0 int64, arg1 bool) error {
+	_, err := c.svc.OnHeadTrackerAvailableChanged(ctx, &pb.OnHeadTrackerAvailableChangedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// SpatializerOnSpatializerStateChangedListenerClient wraps the gRPC SpatializerOnSpatializerStateChangedListenerService client.
+type SpatializerOnSpatializerStateChangedListenerClient struct {
+	svc pb.SpatializerOnSpatializerStateChangedListenerServiceClient
+}
+
+// NewSpatializerOnSpatializerStateChangedListenerClient creates a new SpatializerOnSpatializerStateChangedListener client.
+func NewSpatializerOnSpatializerStateChangedListenerClient(cc grpc.ClientConnInterface) *SpatializerOnSpatializerStateChangedListenerClient {
+	return &SpatializerOnSpatializerStateChangedListenerClient{
+		svc: pb.NewSpatializerOnSpatializerStateChangedListenerServiceClient(cc),
+	}
+}
+
+// OnSpatializerAvailableChanged calls the OnSpatializerAvailableChanged RPC.
+func (c *SpatializerOnSpatializerStateChangedListenerClient) OnSpatializerAvailableChanged(ctx context.Context, arg0 int64, arg1 bool) error {
+	_, err := c.svc.OnSpatializerAvailableChanged(ctx, &pb.OnSpatializerAvailableChangedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnSpatializerEnabledChanged calls the OnSpatializerEnabledChanged RPC.
+func (c *SpatializerOnSpatializerStateChangedListenerClient) OnSpatializerEnabledChanged(ctx context.Context, arg0 int64, arg1 bool) error {
+	_, err := c.svc.OnSpatializerEnabledChanged(ctx, &pb.OnSpatializerEnabledChangedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ExifInterfaceClient wraps the gRPC ExifInterfaceService client.
+type ExifInterfaceClient struct {
+	svc pb.ExifInterfaceServiceClient
+}
+
+// NewExifInterfaceClient creates a new ExifInterface client.
+func NewExifInterfaceClient(cc grpc.ClientConnInterface) *ExifInterfaceClient {
+	return &ExifInterfaceClient{
+		svc: pb.NewExifInterfaceServiceClient(cc),
+	}
+}
+
+// GetAltitude calls the GetAltitude RPC.
+func (c *ExifInterfaceClient) GetAltitude(ctx context.Context, handle int64, arg0 float64) (float64, error) {
+	resp, err := c.svc.GetAltitude(ctx, &pb.GetAltitudeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAttribute calls the GetAttribute RPC.
+func (c *ExifInterfaceClient) GetAttribute(ctx context.Context, handle int64, arg0 string) (string, error) {
+	resp, err := c.svc.GetAttribute(ctx, &pb.GetAttributeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAttributeBytes calls the GetAttributeBytes RPC.
+func (c *ExifInterfaceClient) GetAttributeBytes(ctx context.Context, handle int64, arg0 string) (int64, error) {
+	resp, err := c.svc.GetAttributeBytes(ctx, &pb.GetAttributeBytesRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAttributeDouble calls the GetAttributeDouble RPC.
+func (c *ExifInterfaceClient) GetAttributeDouble(ctx context.Context, handle int64, arg0 string, arg1 float64) (float64, error) {
+	resp, err := c.svc.GetAttributeDouble(ctx, &pb.GetAttributeDoubleRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAttributeInt calls the GetAttributeInt RPC.
+func (c *ExifInterfaceClient) GetAttributeInt(ctx context.Context, handle int64, arg0 string, arg1 int32) (int32, error) {
+	resp, err := c.svc.GetAttributeInt(ctx, &pb.GetAttributeIntRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAttributeRange calls the GetAttributeRange RPC.
+func (c *ExifInterfaceClient) GetAttributeRange(ctx context.Context, handle int64, arg0 string) (int64, error) {
+	resp, err := c.svc.GetAttributeRange(ctx, &pb.GetAttributeRangeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDateTime calls the GetDateTime RPC.
+func (c *ExifInterfaceClient) GetDateTime(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetDateTime(ctx, &pb.GetDateTimeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDateTimeDigitized calls the GetDateTimeDigitized RPC.
+func (c *ExifInterfaceClient) GetDateTimeDigitized(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetDateTimeDigitized(ctx, &pb.GetDateTimeDigitizedRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDateTimeOriginal calls the GetDateTimeOriginal RPC.
+func (c *ExifInterfaceClient) GetDateTimeOriginal(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetDateTimeOriginal(ctx, &pb.GetDateTimeOriginalRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetGpsDateTime calls the GetGpsDateTime RPC.
+func (c *ExifInterfaceClient) GetGpsDateTime(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetGpsDateTime(ctx, &pb.GetGpsDateTimeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLatLong calls the GetLatLong RPC.
+func (c *ExifInterfaceClient) GetLatLong(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.GetLatLong(ctx, &pb.GetLatLongRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetThumbnail calls the GetThumbnail RPC.
+func (c *ExifInterfaceClient) GetThumbnail(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetThumbnail(ctx, &pb.GetThumbnailRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetThumbnailBitmap calls the GetThumbnailBitmap RPC.
+func (c *ExifInterfaceClient) GetThumbnailBitmap(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetThumbnailBitmap(ctx, &pb.GetThumbnailBitmapRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetThumbnailBytes calls the GetThumbnailBytes RPC.
+func (c *ExifInterfaceClient) GetThumbnailBytes(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetThumbnailBytes(ctx, &pb.GetThumbnailBytesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetThumbnailRange calls the GetThumbnailRange RPC.
+func (c *ExifInterfaceClient) GetThumbnailRange(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetThumbnailRange(ctx, &pb.GetThumbnailRangeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasAttribute calls the HasAttribute RPC.
+func (c *ExifInterfaceClient) HasAttribute(ctx context.Context, handle int64, arg0 string) (bool, error) {
+	resp, err := c.svc.HasAttribute(ctx, &pb.HasAttributeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasThumbnail calls the HasThumbnail RPC.
+func (c *ExifInterfaceClient) HasThumbnail(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.HasThumbnail(ctx, &pb.HasThumbnailRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsThumbnailCompressed calls the IsThumbnailCompressed RPC.
+func (c *ExifInterfaceClient) IsThumbnailCompressed(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsThumbnailCompressed(ctx, &pb.IsThumbnailCompressedRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SaveAttributes calls the SaveAttributes RPC.
+func (c *ExifInterfaceClient) SaveAttributes(ctx context.Context, handle int64) error {
+	_, err := c.svc.SaveAttributes(ctx, &pb.SaveAttributesRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// SetAttribute calls the SetAttribute RPC.
+func (c *ExifInterfaceClient) SetAttribute(ctx context.Context, handle int64, arg0 string, arg1 string) error {
+	_, err := c.svc.SetAttribute(ctx, &pb.SetAttributeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// IsSupportedMimeType calls the IsSupportedMimeType RPC.
+func (c *ExifInterfaceClient) IsSupportedMimeType(ctx context.Context, handle int64, arg0 string) (bool, error) {
+	resp, err := c.svc.IsSupportedMimeType(ctx, &pb.IsSupportedMimeTypeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PlaybackParamsClient wraps the gRPC PlaybackParamsService client.
+type PlaybackParamsClient struct {
+	svc pb.PlaybackParamsServiceClient
+}
+
+// NewPlaybackParamsClient creates a new PlaybackParams client.
+func NewPlaybackParamsClient(cc grpc.ClientConnInterface) *PlaybackParamsClient {
+	return &PlaybackParamsClient{
+		svc: pb.NewPlaybackParamsServiceClient(cc),
+	}
+}
+
+// AllowDefaults calls the AllowDefaults RPC.
+func (c *PlaybackParamsClient) AllowDefaults(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.AllowDefaults(ctx, &pb.AllowDefaultsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *PlaybackParamsClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.PlaybackParamsDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAudioFallbackMode calls the GetAudioFallbackMode RPC.
+func (c *PlaybackParamsClient) GetAudioFallbackMode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetAudioFallbackMode(ctx, &pb.GetAudioFallbackModeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPitch calls the GetPitch RPC.
+func (c *PlaybackParamsClient) GetPitch(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetPitch(ctx, &pb.GetPitchRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSpeed calls the GetSpeed RPC.
+func (c *PlaybackParamsClient) GetSpeed(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetSpeed(ctx, &pb.GetSpeedRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetAudioFallbackMode calls the SetAudioFallbackMode RPC.
+func (c *PlaybackParamsClient) SetAudioFallbackMode(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetAudioFallbackMode(ctx, &pb.SetAudioFallbackModeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPitch calls the SetPitch RPC.
+func (c *PlaybackParamsClient) SetPitch(ctx context.Context, handle int64, arg0 float32) (int64, error) {
+	resp, err := c.svc.SetPitch(ctx, &pb.SetPitchRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSpeed calls the SetSpeed RPC.
+func (c *PlaybackParamsClient) SetSpeed(ctx context.Context, handle int64, arg0 float32) (int64, error) {
+	resp, err := c.svc.SetSpeed(ctx, &pb.SetSpeedRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *PlaybackParamsClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.PlaybackParamsWriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// TimedTextClient wraps the gRPC TimedTextService client.
+type TimedTextClient struct {
+	svc pb.TimedTextServiceClient
+}
+
+// NewTimedTextClient creates a new TimedText client.
+func NewTimedTextClient(cc grpc.ClientConnInterface) *TimedTextClient {
+	return &TimedTextClient{
+		svc: pb.NewTimedTextServiceClient(cc),
+	}
+}
+
+// GetBounds calls the GetBounds RPC.
+func (c *TimedTextClient) GetBounds(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetBounds(ctx, &pb.GetBoundsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetText calls the GetText RPC.
+func (c *TimedTextClient) GetText(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetText(ctx, &pb.TimedTextGetTextRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// Session2CommandGroupClient wraps the gRPC Session2CommandGroupService client.
+type Session2CommandGroupClient struct {
+	svc pb.Session2CommandGroupServiceClient
+}
+
+// NewSession2CommandGroupClient creates a new Session2CommandGroup client.
+func NewSession2CommandGroupClient(cc grpc.ClientConnInterface) *Session2CommandGroupClient {
+	return &Session2CommandGroupClient{
+		svc: pb.NewSession2CommandGroupServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *Session2CommandGroupClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasCommand1 calls the HasCommand1 RPC.
+func (c *Session2CommandGroupClient) HasCommand1(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.HasCommand1(ctx, &pb.HasCommand1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasCommand1_1 calls the HasCommand1_1 RPC.
+func (c *Session2CommandGroupClient) HasCommand1_1(ctx context.Context, arg0 int32) (bool, error) {
+	resp, err := c.svc.HasCommand1_1(ctx, &pb.HasCommand1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *Session2CommandGroupClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// Session2CommandGroupBuilderClient wraps the gRPC Session2CommandGroupBuilderService client.
+type Session2CommandGroupBuilderClient struct {
+	svc pb.Session2CommandGroupBuilderServiceClient
+}
+
+// NewSession2CommandGroupBuilderClient creates a new Session2CommandGroupBuilder client.
+func NewSession2CommandGroupBuilderClient(cc grpc.ClientConnInterface) *Session2CommandGroupBuilderClient {
+	return &Session2CommandGroupBuilderClient{
+		svc: pb.NewSession2CommandGroupBuilderServiceClient(cc),
+	}
+}
+
+// AddCommand calls the AddCommand RPC.
+func (c *Session2CommandGroupBuilderClient) AddCommand(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.AddCommand(ctx, &pb.AddCommandRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Build calls the Build RPC.
+func (c *Session2CommandGroupBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RemoveCommand calls the RemoveCommand RPC.
+func (c *Session2CommandGroupBuilderClient) RemoveCommand(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.RemoveCommand(ctx, &pb.RemoveCommandRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// VolumeShaperClient wraps the gRPC VolumeShaperService client.
+type VolumeShaperClient struct {
+	svc pb.VolumeShaperServiceClient
+}
+
+// NewVolumeShaperClient creates a new VolumeShaper client.
+func NewVolumeShaperClient(cc grpc.ClientConnInterface) *VolumeShaperClient {
+	return &VolumeShaperClient{
+		svc: pb.NewVolumeShaperServiceClient(cc),
+	}
+}
+
+// Apply calls the Apply RPC.
+func (c *VolumeShaperClient) Apply(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.Apply(ctx, &pb.VolumeShaperApplyRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// Close calls the Close RPC.
+func (c *VolumeShaperClient) Close(ctx context.Context) error {
+	_, err := c.svc.Close(ctx, &pb.VolumeShaperCloseRequest{})
+	return err
+}
+
+// GetVolume calls the GetVolume RPC.
+func (c *VolumeShaperClient) GetVolume(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetVolume(ctx, &pb.GetVolumeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Replace calls the Replace RPC.
+func (c *VolumeShaperClient) Replace(ctx context.Context, arg0 int64, arg1 int64, arg2 bool) error {
+	_, err := c.svc.Replace(ctx, &pb.ReplaceRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// VolumeShaperConfigurationClient wraps the gRPC VolumeShaperConfigurationService client.
+type VolumeShaperConfigurationClient struct {
+	svc pb.VolumeShaperConfigurationServiceClient
+}
+
+// NewVolumeShaperConfigurationClient creates a new VolumeShaperConfiguration client.
+func NewVolumeShaperConfigurationClient(cc grpc.ClientConnInterface) *VolumeShaperConfigurationClient {
+	return &VolumeShaperConfigurationClient{
+		svc: pb.NewVolumeShaperConfigurationServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *VolumeShaperConfigurationClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *VolumeShaperConfigurationClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDuration calls the GetDuration RPC.
+func (c *VolumeShaperConfigurationClient) GetDuration(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDuration(ctx, &pb.GetDurationRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInterpolatorType calls the GetInterpolatorType RPC.
+func (c *VolumeShaperConfigurationClient) GetInterpolatorType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetInterpolatorType(ctx, &pb.GetInterpolatorTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTimes calls the GetTimes RPC.
+func (c *VolumeShaperConfigurationClient) GetTimes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTimes(ctx, &pb.GetTimesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVolumes calls the GetVolumes RPC.
+func (c *VolumeShaperConfigurationClient) GetVolumes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetVolumes(ctx, &pb.GetVolumesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *VolumeShaperConfigurationClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *VolumeShaperConfigurationClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *VolumeShaperConfigurationClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// GetMaximumCurvePoints calls the GetMaximumCurvePoints RPC.
+func (c *VolumeShaperConfigurationClient) GetMaximumCurvePoints(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMaximumCurvePoints(ctx, &pb.GetMaximumCurvePointsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// VolumeShaperOperationClient wraps the gRPC VolumeShaperOperationService client.
+type VolumeShaperOperationClient struct {
+	svc pb.VolumeShaperOperationServiceClient
+}
+
+// NewVolumeShaperOperationClient creates a new VolumeShaperOperation client.
+func NewVolumeShaperOperationClient(cc grpc.ClientConnInterface) *VolumeShaperOperationClient {
+	return &VolumeShaperOperationClient{
+		svc: pb.NewVolumeShaperOperationServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *VolumeShaperOperationClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *VolumeShaperOperationClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *VolumeShaperOperationClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *VolumeShaperOperationClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *VolumeShaperOperationClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// AudioPlaybackConfigurationClient wraps the gRPC AudioPlaybackConfigurationService client.
+type AudioPlaybackConfigurationClient struct {
+	svc pb.AudioPlaybackConfigurationServiceClient
+}
+
+// NewAudioPlaybackConfigurationClient creates a new AudioPlaybackConfiguration client.
+func NewAudioPlaybackConfigurationClient(cc grpc.ClientConnInterface) *AudioPlaybackConfigurationClient {
+	return &AudioPlaybackConfigurationClient{
+		svc: pb.NewAudioPlaybackConfigurationServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *AudioPlaybackConfigurationClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *AudioPlaybackConfigurationClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAudioAttributes calls the GetAudioAttributes RPC.
+func (c *AudioPlaybackConfigurationClient) GetAudioAttributes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAudioAttributes(ctx, &pb.GetAudioAttributesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAudioDeviceInfo calls the GetAudioDeviceInfo RPC.
+func (c *AudioPlaybackConfigurationClient) GetAudioDeviceInfo(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAudioDeviceInfo(ctx, &pb.GetAudioDeviceInfoRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *AudioPlaybackConfigurationClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *AudioPlaybackConfigurationClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *AudioPlaybackConfigurationClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ImageWriterClient wraps the gRPC ImageWriterService client.
+type ImageWriterClient struct {
+	svc pb.ImageWriterServiceClient
+}
+
+// NewImageWriterClient creates a new ImageWriter client.
+func NewImageWriterClient(cc grpc.ClientConnInterface) *ImageWriterClient {
+	return &ImageWriterClient{
+		svc: pb.NewImageWriterServiceClient(cc),
+	}
+}
+
+// Close calls the Close RPC.
+func (c *ImageWriterClient) Close(ctx context.Context) error {
+	_, err := c.svc.Close(ctx, &pb.ImageWriterCloseRequest{})
+	return err
+}
+
+// DequeueInputImage calls the DequeueInputImage RPC.
+func (c *ImageWriterClient) DequeueInputImage(ctx context.Context) (int64, error) {
+	resp, err := c.svc.DequeueInputImage(ctx, &pb.DequeueInputImageRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDataSpace calls the GetDataSpace RPC.
+func (c *ImageWriterClient) GetDataSpace(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetDataSpace(ctx, &pb.GetDataSpaceRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFormat calls the GetFormat RPC.
+func (c *ImageWriterClient) GetFormat(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetFormat(ctx, &pb.GetFormatRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHardwareBufferFormat calls the GetHardwareBufferFormat RPC.
+func (c *ImageWriterClient) GetHardwareBufferFormat(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetHardwareBufferFormat(ctx, &pb.GetHardwareBufferFormatRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHeight calls the GetHeight RPC.
+func (c *ImageWriterClient) GetHeight(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetHeight(ctx, &pb.GetHeightRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMaxImages calls the GetMaxImages RPC.
+func (c *ImageWriterClient) GetMaxImages(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMaxImages(ctx, &pb.GetMaxImagesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUsage calls the GetUsage RPC.
+func (c *ImageWriterClient) GetUsage(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetUsage(ctx, &pb.GetUsageRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWidth calls the GetWidth RPC.
+func (c *ImageWriterClient) GetWidth(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetWidth(ctx, &pb.GetWidthRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// QueueInputImage calls the QueueInputImage RPC.
+func (c *ImageWriterClient) QueueInputImage(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.QueueInputImage(ctx, &pb.QueueInputImageRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// NewInstance2 calls the NewInstance2 RPC.
+func (c *ImageWriterClient) NewInstance2(ctx context.Context, arg0 int64, arg1 int32) (int64, error) {
+	resp, err := c.svc.NewInstance2(ctx, &pb.NewInstance2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// NewInstance3_1 calls the NewInstance3_1 RPC.
+func (c *ImageWriterClient) NewInstance3_1(ctx context.Context, arg0 int64, arg1 int32, arg2 int32) (int64, error) {
+	resp, err := c.svc.NewInstance3_1(ctx, &pb.NewInstance3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ImageWriterBuilderClient wraps the gRPC ImageWriterBuilderService client.
+type ImageWriterBuilderClient struct {
+	svc pb.ImageWriterBuilderServiceClient
+}
+
+// NewImageWriterBuilderClient creates a new ImageWriterBuilder client.
+func NewImageWriterBuilderClient(cc grpc.ClientConnInterface) *ImageWriterBuilderClient {
+	return &ImageWriterBuilderClient{
+		svc: pb.NewImageWriterBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *ImageWriterBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetDataSpace calls the SetDataSpace RPC.
+func (c *ImageWriterBuilderClient) SetDataSpace(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetDataSpace(ctx, &pb.SetDataSpaceRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetHardwareBufferFormat calls the SetHardwareBufferFormat RPC.
+func (c *ImageWriterBuilderClient) SetHardwareBufferFormat(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetHardwareBufferFormat(ctx, &pb.SetHardwareBufferFormatRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetImageFormat calls the SetImageFormat RPC.
+func (c *ImageWriterBuilderClient) SetImageFormat(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetImageFormat(ctx, &pb.SetImageFormatRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetMaxImages calls the SetMaxImages RPC.
+func (c *ImageWriterBuilderClient) SetMaxImages(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetMaxImages(ctx, &pb.SetMaxImagesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetUsage calls the SetUsage RPC.
+func (c *ImageWriterBuilderClient) SetUsage(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetUsage(ctx, &pb.ImageWriterBuilderSetUsageRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetWidthAndHeight calls the SetWidthAndHeight RPC.
+func (c *ImageWriterBuilderClient) SetWidthAndHeight(ctx context.Context, arg0 int32, arg1 int32) (int64, error) {
+	resp, err := c.svc.SetWidthAndHeight(ctx, &pb.SetWidthAndHeightRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ImageWriterOnImageReleasedListenerClient wraps the gRPC ImageWriterOnImageReleasedListenerService client.
+type ImageWriterOnImageReleasedListenerClient struct {
+	svc pb.ImageWriterOnImageReleasedListenerServiceClient
+}
+
+// NewImageWriterOnImageReleasedListenerClient creates a new ImageWriterOnImageReleasedListener client.
+func NewImageWriterOnImageReleasedListenerClient(cc grpc.ClientConnInterface) *ImageWriterOnImageReleasedListenerClient {
+	return &ImageWriterOnImageReleasedListenerClient{
+		svc: pb.NewImageWriterOnImageReleasedListenerServiceClient(cc),
+	}
+}
+
+// OnImageReleased calls the OnImageReleased RPC.
+func (c *ImageWriterOnImageReleasedListenerClient) OnImageReleased(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnImageReleased(ctx, &pb.OnImageReleasedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// Session2Client wraps the gRPC Session2Service client.
+type Session2Client struct {
+	svc pb.Session2ServiceClient
+}
+
+// NewSession2Client creates a new Session2 client.
+func NewSession2Client(cc grpc.ClientConnInterface) *Session2Client {
+	return &Session2Client{
+		svc: pb.NewSession2ServiceClient(cc),
+	}
+}
+
+// BroadcastSessionCommand calls the BroadcastSessionCommand RPC.
+func (c *Session2Client) BroadcastSessionCommand(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.BroadcastSessionCommand(ctx, &pb.BroadcastSessionCommandRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// CancelSessionCommand calls the CancelSessionCommand RPC.
+func (c *Session2Client) CancelSessionCommand(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.CancelSessionCommand(ctx, &pb.Session2CancelSessionCommandRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// Close calls the Close RPC.
+func (c *Session2Client) Close(ctx context.Context) error {
+	_, err := c.svc.Close(ctx, &pb.Session2CloseRequest{})
+	return err
+}
+
+// GetId calls the GetId RPC.
+func (c *Session2Client) GetId(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetToken calls the GetToken RPC.
+func (c *Session2Client) GetToken(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetToken(ctx, &pb.GetTokenRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsPlaybackActive calls the IsPlaybackActive RPC.
+func (c *Session2Client) IsPlaybackActive(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsPlaybackActive(ctx, &pb.IsPlaybackActiveRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SendSessionCommand calls the SendSessionCommand RPC.
+func (c *Session2Client) SendSessionCommand(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.SendSessionCommand(ctx, &pb.Session2SendSessionCommandRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPlaybackActive calls the SetPlaybackActive RPC.
+func (c *Session2Client) SetPlaybackActive(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetPlaybackActive(ctx, &pb.SetPlaybackActiveRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// Session2BuilderClient wraps the gRPC Session2BuilderService client.
+type Session2BuilderClient struct {
+	svc pb.Session2BuilderServiceClient
+}
+
+// NewSession2BuilderClient creates a new Session2Builder client.
+func NewSession2BuilderClient(cc grpc.ClientConnInterface) *Session2BuilderClient {
+	return &Session2BuilderClient{
+		svc: pb.NewSession2BuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *Session2BuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetExtras calls the SetExtras RPC.
+func (c *Session2BuilderClient) SetExtras(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetExtras(ctx, &pb.SetExtrasRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetId calls the SetId RPC.
+func (c *Session2BuilderClient) SetId(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetId(ctx, &pb.SetIdRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSessionActivity calls the SetSessionActivity RPC.
+func (c *Session2BuilderClient) SetSessionActivity(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetSessionActivity(ctx, &pb.SetSessionActivityRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSessionCallback calls the SetSessionCallback RPC.
+func (c *Session2BuilderClient) SetSessionCallback(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.SetSessionCallback(ctx, &pb.SetSessionCallbackRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Session2ControllerInfoClient wraps the gRPC Session2ControllerInfoService client.
+type Session2ControllerInfoClient struct {
+	svc pb.Session2ControllerInfoServiceClient
+}
+
+// NewSession2ControllerInfoClient creates a new Session2ControllerInfo client.
+func NewSession2ControllerInfoClient(cc grpc.ClientConnInterface) *Session2ControllerInfoClient {
+	return &Session2ControllerInfoClient{
+		svc: pb.NewSession2ControllerInfoServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *Session2ControllerInfoClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetConnectionHints calls the GetConnectionHints RPC.
+func (c *Session2ControllerInfoClient) GetConnectionHints(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetConnectionHints(ctx, &pb.GetConnectionHintsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPackageName calls the GetPackageName RPC.
+func (c *Session2ControllerInfoClient) GetPackageName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetPackageName(ctx, &pb.Session2ControllerInfoGetPackageNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRemoteUserInfo calls the GetRemoteUserInfo RPC.
+func (c *Session2ControllerInfoClient) GetRemoteUserInfo(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetRemoteUserInfo(ctx, &pb.GetRemoteUserInfoRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUid calls the GetUid RPC.
+func (c *Session2ControllerInfoClient) GetUid(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetUid(ctx, &pb.Session2ControllerInfoGetUidRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *Session2ControllerInfoClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *Session2ControllerInfoClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// Session2SessionCallbackClient wraps the gRPC Session2SessionCallbackService client.
+type Session2SessionCallbackClient struct {
+	svc pb.Session2SessionCallbackServiceClient
+}
+
+// NewSession2SessionCallbackClient creates a new Session2SessionCallback client.
+func NewSession2SessionCallbackClient(cc grpc.ClientConnInterface) *Session2SessionCallbackClient {
+	return &Session2SessionCallbackClient{
+		svc: pb.NewSession2SessionCallbackServiceClient(cc),
+	}
+}
+
+// OnCommandResult calls the OnCommandResult RPC.
+func (c *Session2SessionCallbackClient) OnCommandResult(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64, arg4 int64) error {
+	_, err := c.svc.OnCommandResult(ctx, &pb.Session2SessionCallbackOnCommandResultRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// OnConnect calls the OnConnect RPC.
+func (c *Session2SessionCallbackClient) OnConnect(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.OnConnect(ctx, &pb.OnConnectRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnDisconnected calls the OnDisconnected RPC.
+func (c *Session2SessionCallbackClient) OnDisconnected(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.OnDisconnected(ctx, &pb.Session2SessionCallbackOnDisconnectedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnPostConnect calls the OnPostConnect RPC.
+func (c *Session2SessionCallbackClient) OnPostConnect(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.OnPostConnect(ctx, &pb.OnPostConnectRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnSessionCommand calls the OnSessionCommand RPC.
+func (c *Session2SessionCallbackClient) OnSessionCommand(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64) (int64, error) {
+	resp, err := c.svc.OnSessionCommand(ctx, &pb.Session2SessionCallbackOnSessionCommandRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CameraPrewarmServiceClient wraps the gRPC CameraPrewarmServiceService client.
+type CameraPrewarmServiceClient struct {
+	svc pb.CameraPrewarmServiceServiceClient
+}
+
+// NewCameraPrewarmServiceClient creates a new CameraPrewarmService client.
+func NewCameraPrewarmServiceClient(cc grpc.ClientConnInterface) *CameraPrewarmServiceClient {
+	return &CameraPrewarmServiceClient{
+		svc: pb.NewCameraPrewarmServiceServiceClient(cc),
+	}
+}
+
+// OnBind calls the OnBind RPC.
+func (c *CameraPrewarmServiceClient) OnBind(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.OnBind(ctx, &pb.OnBindRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnCooldown calls the OnCooldown RPC.
+func (c *CameraPrewarmServiceClient) OnCooldown(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.OnCooldown(ctx, &pb.OnCooldownRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnPrewarm calls the OnPrewarm RPC.
+func (c *CameraPrewarmServiceClient) OnPrewarm(ctx context.Context) error {
+	_, err := c.svc.OnPrewarm(ctx, &pb.OnPrewarmRequest{})
+	return err
+}
+
+// OnUnbind calls the OnUnbind RPC.
+func (c *CameraPrewarmServiceClient) OnUnbind(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.OnUnbind(ctx, &pb.OnUnbindRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// BrowserServiceClient wraps the gRPC BrowserServiceService client.
+type BrowserServiceClient struct {
+	svc pb.BrowserServiceServiceClient
+}
+
+// NewBrowserServiceClient creates a new BrowserService client.
+func NewBrowserServiceClient(cc grpc.ClientConnInterface) *BrowserServiceClient {
+	return &BrowserServiceClient{
+		svc: pb.NewBrowserServiceServiceClient(cc),
+	}
+}
+
+// Dump calls the Dump RPC.
+func (c *BrowserServiceClient) Dump(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.Dump(ctx, &pb.DumpRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// GetBrowserRootHints calls the GetBrowserRootHints RPC.
+func (c *BrowserServiceClient) GetBrowserRootHints(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetBrowserRootHints(ctx, &pb.GetBrowserRootHintsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCurrentBrowserInfo calls the GetCurrentBrowserInfo RPC.
+func (c *BrowserServiceClient) GetCurrentBrowserInfo(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetCurrentBrowserInfo(ctx, &pb.GetCurrentBrowserInfoRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSessionToken calls the GetSessionToken RPC.
+func (c *BrowserServiceClient) GetSessionToken(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSessionToken(ctx, &pb.GetSessionTokenRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// NotifyChildrenChanged1 calls the NotifyChildrenChanged1 RPC.
+func (c *BrowserServiceClient) NotifyChildrenChanged1(ctx context.Context, arg0 string) error {
+	_, err := c.svc.NotifyChildrenChanged1(ctx, &pb.NotifyChildrenChanged1Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// NotifyChildrenChanged2_1 calls the NotifyChildrenChanged2_1 RPC.
+func (c *BrowserServiceClient) NotifyChildrenChanged2_1(ctx context.Context, arg0 string, arg1 int64) error {
+	_, err := c.svc.NotifyChildrenChanged2_1(ctx, &pb.NotifyChildrenChanged2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnBind calls the OnBind RPC.
+func (c *BrowserServiceClient) OnBind(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.OnBind(ctx, &pb.OnBindRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnCreate calls the OnCreate RPC.
+func (c *BrowserServiceClient) OnCreate(ctx context.Context) error {
+	_, err := c.svc.OnCreate(ctx, &pb.OnCreateRequest{})
+	return err
+}
+
+// OnGetRoot calls the OnGetRoot RPC.
+func (c *BrowserServiceClient) OnGetRoot(ctx context.Context, arg0 string, arg1 int32, arg2 int64) (int64, error) {
+	resp, err := c.svc.OnGetRoot(ctx, &pb.OnGetRootRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSessionToken calls the SetSessionToken RPC.
+func (c *BrowserServiceClient) SetSessionToken(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetSessionToken(ctx, &pb.SetSessionTokenRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// BrowserServiceBrowserRootClient wraps the gRPC BrowserServiceBrowserRootService client.
+type BrowserServiceBrowserRootClient struct {
+	svc pb.BrowserServiceBrowserRootServiceClient
+}
+
+// NewBrowserServiceBrowserRootClient creates a new BrowserServiceBrowserRoot client.
+func NewBrowserServiceBrowserRootClient(cc grpc.ClientConnInterface) *BrowserServiceBrowserRootClient {
+	return &BrowserServiceBrowserRootClient{
+		svc: pb.NewBrowserServiceBrowserRootServiceClient(cc),
+	}
+}
+
+// GetExtras calls the GetExtras RPC.
+func (c *BrowserServiceBrowserRootClient) GetExtras(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetExtras(ctx, &pb.GetExtrasRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRootId calls the GetRootId RPC.
+func (c *BrowserServiceBrowserRootClient) GetRootId(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetRootId(ctx, &pb.GetRootIdRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// BrowserServiceResultClient wraps the gRPC BrowserServiceResultService client.
+type BrowserServiceResultClient struct {
+	svc pb.BrowserServiceResultServiceClient
+}
+
+// NewBrowserServiceResultClient creates a new BrowserServiceResult client.
+func NewBrowserServiceResultClient(cc grpc.ClientConnInterface) *BrowserServiceResultClient {
+	return &BrowserServiceResultClient{
+		svc: pb.NewBrowserServiceResultServiceClient(cc),
+	}
+}
+
+// Detach calls the Detach RPC.
+func (c *BrowserServiceResultClient) Detach(ctx context.Context) error {
+	_, err := c.svc.Detach(ctx, &pb.DetachRequest{})
 	return err
 }

@@ -5,3 +5,161 @@ syntax = "proto3";
 package biometrics;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/biometrics";
+
+message NewPromptContentItemPlainTextRequest {
+  string arg0 = 1;
+}
+
+message NewPromptContentItemPlainTextResponse {
+  int64 result = 1;
+}
+
+message DescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message WriteToParcelResponse {
+}
+
+message PromptVerticalListContentViewDescribeContentsRequest {
+}
+
+message GetDescriptionRequest {
+}
+
+message GetDescriptionResponse {
+  string result = 1;
+}
+
+message PromptVerticalListContentViewWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message GetMaxEachItemCharacterNumberRequest {
+}
+
+message GetMaxEachItemCharacterNumberResponse {
+  int32 result = 1;
+}
+
+message GetMaxItemCountRequest {
+}
+
+message GetMaxItemCountResponse {
+  int32 result = 1;
+}
+
+message AddListItem1Request {
+  int64 arg0 = 1;
+}
+
+message AddListItem1Response {
+  int64 result = 1;
+}
+
+message AddListItem2_1Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message AddListItem2_1Response {
+  int64 result = 1;
+}
+
+message BuildRequest {
+}
+
+message BuildResponse {
+  int64 result = 1;
+}
+
+message SetDescriptionRequest {
+  string arg0 = 1;
+}
+
+message SetDescriptionResponse {
+  int64 result = 1;
+}
+
+message NewPromptContentItemBulletedTextRequest {
+  string arg0 = 1;
+}
+
+message NewPromptContentItemBulletedTextResponse {
+  int64 result = 1;
+}
+
+message PromptContentViewWithMoreOptionsButtonDescribeContentsRequest {
+}
+
+message GetMoreOptionsButtonListenerRequest {
+}
+
+message GetMoreOptionsButtonListenerResponse {
+  int64 result = 1;
+}
+
+message PromptContentViewWithMoreOptionsButtonWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message SetMoreOptionsButtonListenerRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SetMoreOptionsButtonListenerResponse {
+  int64 result = 1;
+}
+
+service PromptContentItemPlainTextService {
+  rpc NewPromptContentItemPlainText (NewPromptContentItemPlainTextRequest) returns (NewPromptContentItemPlainTextResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service PromptVerticalListContentViewService {
+  rpc DescribeContents (PromptVerticalListContentViewDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetDescription (GetDescriptionRequest) returns (GetDescriptionResponse);
+  rpc WriteToParcel (PromptVerticalListContentViewWriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc GetMaxEachItemCharacterNumber (GetMaxEachItemCharacterNumberRequest) returns (GetMaxEachItemCharacterNumberResponse);
+  rpc GetMaxItemCount (GetMaxItemCountRequest) returns (GetMaxItemCountResponse);
+}
+
+service PromptVerticalListContentViewBuilderService {
+  rpc AddListItem1 (AddListItem1Request) returns (AddListItem1Response);
+  rpc AddListItem2_1 (AddListItem2_1Request) returns (AddListItem2_1Response);
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetDescription (SetDescriptionRequest) returns (SetDescriptionResponse);
+}
+
+service PromptContentItemBulletedTextService {
+  rpc NewPromptContentItemBulletedText (NewPromptContentItemBulletedTextRequest) returns (NewPromptContentItemBulletedTextResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service PromptContentViewWithMoreOptionsButtonService {
+  rpc DescribeContents (PromptContentViewWithMoreOptionsButtonDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetDescription (GetDescriptionRequest) returns (GetDescriptionResponse);
+  rpc GetMoreOptionsButtonListener (GetMoreOptionsButtonListenerRequest) returns (GetMoreOptionsButtonListenerResponse);
+  rpc WriteToParcel (PromptContentViewWithMoreOptionsButtonWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service PromptContentViewWithMoreOptionsButtonBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetDescription (SetDescriptionRequest) returns (SetDescriptionResponse);
+  rpc SetMoreOptionsButtonListener (SetMoreOptionsButtonListenerRequest) returns (SetMoreOptionsButtonListenerResponse);
+}

@@ -12,6 +12,7 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -22,19 +23,2202 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type NewToastRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewToastRequest) Reset() {
+	*x = NewToastRequest{}
+	mi := &file_proto_toast_toast_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewToastRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewToastRequest) ProtoMessage() {}
+
+func (x *NewToastRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_toast_toast_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewToastRequest.ProtoReflect.Descriptor instead.
+func (*NewToastRequest) Descriptor() ([]byte, []int) {
+	return file_proto_toast_toast_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *NewToastRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type NewToastResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewToastResponse) Reset() {
+	*x = NewToastResponse{}
+	mi := &file_proto_toast_toast_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewToastResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewToastResponse) ProtoMessage() {}
+
+func (x *NewToastResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_toast_toast_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewToastResponse.ProtoReflect.Descriptor instead.
+func (*NewToastResponse) Descriptor() ([]byte, []int) {
+	return file_proto_toast_toast_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *NewToastResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddCallbackRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddCallbackRequest) Reset() {
+	*x = AddCallbackRequest{}
+	mi := &file_proto_toast_toast_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddCallbackRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddCallbackRequest) ProtoMessage() {}
+
+func (x *AddCallbackRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_toast_toast_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddCallbackRequest.ProtoReflect.Descriptor instead.
+func (*AddCallbackRequest) Descriptor() ([]byte, []int) {
+	return file_proto_toast_toast_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *AddCallbackRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *AddCallbackRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AddCallbackResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddCallbackResponse) Reset() {
+	*x = AddCallbackResponse{}
+	mi := &file_proto_toast_toast_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddCallbackResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddCallbackResponse) ProtoMessage() {}
+
+func (x *AddCallbackResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_toast_toast_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddCallbackResponse.ProtoReflect.Descriptor instead.
+func (*AddCallbackResponse) Descriptor() ([]byte, []int) {
+	return file_proto_toast_toast_proto_rawDescGZIP(), []int{3}
+}
+
+type CancelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CancelRequest) Reset() {
+	*x = CancelRequest{}
+	mi := &file_proto_toast_toast_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CancelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CancelRequest) ProtoMessage() {}
+
+func (x *CancelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_toast_toast_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CancelRequest.ProtoReflect.Descriptor instead.
+func (*CancelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_toast_toast_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *CancelRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type CancelResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CancelResponse) Reset() {
+	*x = CancelResponse{}
+	mi := &file_proto_toast_toast_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CancelResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CancelResponse) ProtoMessage() {}
+
+func (x *CancelResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_toast_toast_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CancelResponse.ProtoReflect.Descriptor instead.
+func (*CancelResponse) Descriptor() ([]byte, []int) {
+	return file_proto_toast_toast_proto_rawDescGZIP(), []int{5}
+}
+
+type GetDurationRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDurationRequest) Reset() {
+	*x = GetDurationRequest{}
+	mi := &file_proto_toast_toast_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDurationRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDurationRequest) ProtoMessage() {}
+
+func (x *GetDurationRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_toast_toast_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDurationRequest.ProtoReflect.Descriptor instead.
+func (*GetDurationRequest) Descriptor() ([]byte, []int) {
+	return file_proto_toast_toast_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *GetDurationRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetDurationResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDurationResponse) Reset() {
+	*x = GetDurationResponse{}
+	mi := &file_proto_toast_toast_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDurationResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDurationResponse) ProtoMessage() {}
+
+func (x *GetDurationResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_toast_toast_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDurationResponse.ProtoReflect.Descriptor instead.
+func (*GetDurationResponse) Descriptor() ([]byte, []int) {
+	return file_proto_toast_toast_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *GetDurationResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetGravityRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetGravityRequest) Reset() {
+	*x = GetGravityRequest{}
+	mi := &file_proto_toast_toast_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetGravityRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetGravityRequest) ProtoMessage() {}
+
+func (x *GetGravityRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_toast_toast_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetGravityRequest.ProtoReflect.Descriptor instead.
+func (*GetGravityRequest) Descriptor() ([]byte, []int) {
+	return file_proto_toast_toast_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *GetGravityRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetGravityResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetGravityResponse) Reset() {
+	*x = GetGravityResponse{}
+	mi := &file_proto_toast_toast_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetGravityResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetGravityResponse) ProtoMessage() {}
+
+func (x *GetGravityResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_toast_toast_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetGravityResponse.ProtoReflect.Descriptor instead.
+func (*GetGravityResponse) Descriptor() ([]byte, []int) {
+	return file_proto_toast_toast_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *GetGravityResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetHorizontalMarginRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetHorizontalMarginRequest) Reset() {
+	*x = GetHorizontalMarginRequest{}
+	mi := &file_proto_toast_toast_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetHorizontalMarginRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetHorizontalMarginRequest) ProtoMessage() {}
+
+func (x *GetHorizontalMarginRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_toast_toast_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetHorizontalMarginRequest.ProtoReflect.Descriptor instead.
+func (*GetHorizontalMarginRequest) Descriptor() ([]byte, []int) {
+	return file_proto_toast_toast_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *GetHorizontalMarginRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetHorizontalMarginResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        float32                `protobuf:"fixed32,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetHorizontalMarginResponse) Reset() {
+	*x = GetHorizontalMarginResponse{}
+	mi := &file_proto_toast_toast_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetHorizontalMarginResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetHorizontalMarginResponse) ProtoMessage() {}
+
+func (x *GetHorizontalMarginResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_toast_toast_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetHorizontalMarginResponse.ProtoReflect.Descriptor instead.
+func (*GetHorizontalMarginResponse) Descriptor() ([]byte, []int) {
+	return file_proto_toast_toast_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *GetHorizontalMarginResponse) GetResult() float32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetVerticalMarginRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetVerticalMarginRequest) Reset() {
+	*x = GetVerticalMarginRequest{}
+	mi := &file_proto_toast_toast_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetVerticalMarginRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetVerticalMarginRequest) ProtoMessage() {}
+
+func (x *GetVerticalMarginRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_toast_toast_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetVerticalMarginRequest.ProtoReflect.Descriptor instead.
+func (*GetVerticalMarginRequest) Descriptor() ([]byte, []int) {
+	return file_proto_toast_toast_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *GetVerticalMarginRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetVerticalMarginResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        float32                `protobuf:"fixed32,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetVerticalMarginResponse) Reset() {
+	*x = GetVerticalMarginResponse{}
+	mi := &file_proto_toast_toast_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetVerticalMarginResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetVerticalMarginResponse) ProtoMessage() {}
+
+func (x *GetVerticalMarginResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_toast_toast_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetVerticalMarginResponse.ProtoReflect.Descriptor instead.
+func (*GetVerticalMarginResponse) Descriptor() ([]byte, []int) {
+	return file_proto_toast_toast_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *GetVerticalMarginResponse) GetResult() float32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetViewRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetViewRequest) Reset() {
+	*x = GetViewRequest{}
+	mi := &file_proto_toast_toast_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetViewRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetViewRequest) ProtoMessage() {}
+
+func (x *GetViewRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_toast_toast_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetViewRequest.ProtoReflect.Descriptor instead.
+func (*GetViewRequest) Descriptor() ([]byte, []int) {
+	return file_proto_toast_toast_proto_rawDescGZIP(), []int{14}
+}
+
+func (x *GetViewRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetViewResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetViewResponse) Reset() {
+	*x = GetViewResponse{}
+	mi := &file_proto_toast_toast_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetViewResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetViewResponse) ProtoMessage() {}
+
+func (x *GetViewResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_toast_toast_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetViewResponse.ProtoReflect.Descriptor instead.
+func (*GetViewResponse) Descriptor() ([]byte, []int) {
+	return file_proto_toast_toast_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *GetViewResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetXOffsetRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetXOffsetRequest) Reset() {
+	*x = GetXOffsetRequest{}
+	mi := &file_proto_toast_toast_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetXOffsetRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetXOffsetRequest) ProtoMessage() {}
+
+func (x *GetXOffsetRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_toast_toast_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetXOffsetRequest.ProtoReflect.Descriptor instead.
+func (*GetXOffsetRequest) Descriptor() ([]byte, []int) {
+	return file_proto_toast_toast_proto_rawDescGZIP(), []int{16}
+}
+
+func (x *GetXOffsetRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetXOffsetResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetXOffsetResponse) Reset() {
+	*x = GetXOffsetResponse{}
+	mi := &file_proto_toast_toast_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetXOffsetResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetXOffsetResponse) ProtoMessage() {}
+
+func (x *GetXOffsetResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_toast_toast_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetXOffsetResponse.ProtoReflect.Descriptor instead.
+func (*GetXOffsetResponse) Descriptor() ([]byte, []int) {
+	return file_proto_toast_toast_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *GetXOffsetResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetYOffsetRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetYOffsetRequest) Reset() {
+	*x = GetYOffsetRequest{}
+	mi := &file_proto_toast_toast_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetYOffsetRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetYOffsetRequest) ProtoMessage() {}
+
+func (x *GetYOffsetRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_toast_toast_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetYOffsetRequest.ProtoReflect.Descriptor instead.
+func (*GetYOffsetRequest) Descriptor() ([]byte, []int) {
+	return file_proto_toast_toast_proto_rawDescGZIP(), []int{18}
+}
+
+func (x *GetYOffsetRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetYOffsetResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetYOffsetResponse) Reset() {
+	*x = GetYOffsetResponse{}
+	mi := &file_proto_toast_toast_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetYOffsetResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetYOffsetResponse) ProtoMessage() {}
+
+func (x *GetYOffsetResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_toast_toast_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetYOffsetResponse.ProtoReflect.Descriptor instead.
+func (*GetYOffsetResponse) Descriptor() ([]byte, []int) {
+	return file_proto_toast_toast_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *GetYOffsetResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type RemoveCallbackRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RemoveCallbackRequest) Reset() {
+	*x = RemoveCallbackRequest{}
+	mi := &file_proto_toast_toast_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RemoveCallbackRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemoveCallbackRequest) ProtoMessage() {}
+
+func (x *RemoveCallbackRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_toast_toast_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemoveCallbackRequest.ProtoReflect.Descriptor instead.
+func (*RemoveCallbackRequest) Descriptor() ([]byte, []int) {
+	return file_proto_toast_toast_proto_rawDescGZIP(), []int{20}
+}
+
+func (x *RemoveCallbackRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *RemoveCallbackRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type RemoveCallbackResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RemoveCallbackResponse) Reset() {
+	*x = RemoveCallbackResponse{}
+	mi := &file_proto_toast_toast_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RemoveCallbackResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemoveCallbackResponse) ProtoMessage() {}
+
+func (x *RemoveCallbackResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_toast_toast_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemoveCallbackResponse.ProtoReflect.Descriptor instead.
+func (*RemoveCallbackResponse) Descriptor() ([]byte, []int) {
+	return file_proto_toast_toast_proto_rawDescGZIP(), []int{21}
+}
+
+type SetDurationRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetDurationRequest) Reset() {
+	*x = SetDurationRequest{}
+	mi := &file_proto_toast_toast_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetDurationRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetDurationRequest) ProtoMessage() {}
+
+func (x *SetDurationRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_toast_toast_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetDurationRequest.ProtoReflect.Descriptor instead.
+func (*SetDurationRequest) Descriptor() ([]byte, []int) {
+	return file_proto_toast_toast_proto_rawDescGZIP(), []int{22}
+}
+
+func (x *SetDurationRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetDurationRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetDurationResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetDurationResponse) Reset() {
+	*x = SetDurationResponse{}
+	mi := &file_proto_toast_toast_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetDurationResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetDurationResponse) ProtoMessage() {}
+
+func (x *SetDurationResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_toast_toast_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetDurationResponse.ProtoReflect.Descriptor instead.
+func (*SetDurationResponse) Descriptor() ([]byte, []int) {
+	return file_proto_toast_toast_proto_rawDescGZIP(), []int{23}
+}
+
+type SetGravityRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetGravityRequest) Reset() {
+	*x = SetGravityRequest{}
+	mi := &file_proto_toast_toast_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetGravityRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetGravityRequest) ProtoMessage() {}
+
+func (x *SetGravityRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_toast_toast_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetGravityRequest.ProtoReflect.Descriptor instead.
+func (*SetGravityRequest) Descriptor() ([]byte, []int) {
+	return file_proto_toast_toast_proto_rawDescGZIP(), []int{24}
+}
+
+func (x *SetGravityRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetGravityRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SetGravityRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *SetGravityRequest) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type SetGravityResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetGravityResponse) Reset() {
+	*x = SetGravityResponse{}
+	mi := &file_proto_toast_toast_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetGravityResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetGravityResponse) ProtoMessage() {}
+
+func (x *SetGravityResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_toast_toast_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetGravityResponse.ProtoReflect.Descriptor instead.
+func (*SetGravityResponse) Descriptor() ([]byte, []int) {
+	return file_proto_toast_toast_proto_rawDescGZIP(), []int{25}
+}
+
+type SetMarginRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          float32                `protobuf:"fixed32,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          float32                `protobuf:"fixed32,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetMarginRequest) Reset() {
+	*x = SetMarginRequest{}
+	mi := &file_proto_toast_toast_proto_msgTypes[26]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetMarginRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetMarginRequest) ProtoMessage() {}
+
+func (x *SetMarginRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_toast_toast_proto_msgTypes[26]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetMarginRequest.ProtoReflect.Descriptor instead.
+func (*SetMarginRequest) Descriptor() ([]byte, []int) {
+	return file_proto_toast_toast_proto_rawDescGZIP(), []int{26}
+}
+
+func (x *SetMarginRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetMarginRequest) GetArg0() float32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SetMarginRequest) GetArg1() float32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type SetMarginResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetMarginResponse) Reset() {
+	*x = SetMarginResponse{}
+	mi := &file_proto_toast_toast_proto_msgTypes[27]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetMarginResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetMarginResponse) ProtoMessage() {}
+
+func (x *SetMarginResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_toast_toast_proto_msgTypes[27]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetMarginResponse.ProtoReflect.Descriptor instead.
+func (*SetMarginResponse) Descriptor() ([]byte, []int) {
+	return file_proto_toast_toast_proto_rawDescGZIP(), []int{27}
+}
+
+type SetText1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetText1Request) Reset() {
+	*x = SetText1Request{}
+	mi := &file_proto_toast_toast_proto_msgTypes[28]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetText1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetText1Request) ProtoMessage() {}
+
+func (x *SetText1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_toast_toast_proto_msgTypes[28]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetText1Request.ProtoReflect.Descriptor instead.
+func (*SetText1Request) Descriptor() ([]byte, []int) {
+	return file_proto_toast_toast_proto_rawDescGZIP(), []int{28}
+}
+
+func (x *SetText1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetText1Request) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetText1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetText1Response) Reset() {
+	*x = SetText1Response{}
+	mi := &file_proto_toast_toast_proto_msgTypes[29]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetText1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetText1Response) ProtoMessage() {}
+
+func (x *SetText1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_toast_toast_proto_msgTypes[29]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetText1Response.ProtoReflect.Descriptor instead.
+func (*SetText1Response) Descriptor() ([]byte, []int) {
+	return file_proto_toast_toast_proto_rawDescGZIP(), []int{29}
+}
+
+type SetText1_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          string                 `protobuf:"bytes,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetText1_1Request) Reset() {
+	*x = SetText1_1Request{}
+	mi := &file_proto_toast_toast_proto_msgTypes[30]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetText1_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetText1_1Request) ProtoMessage() {}
+
+func (x *SetText1_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_toast_toast_proto_msgTypes[30]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetText1_1Request.ProtoReflect.Descriptor instead.
+func (*SetText1_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_toast_toast_proto_rawDescGZIP(), []int{30}
+}
+
+func (x *SetText1_1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetText1_1Request) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type SetText1_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetText1_1Response) Reset() {
+	*x = SetText1_1Response{}
+	mi := &file_proto_toast_toast_proto_msgTypes[31]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetText1_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetText1_1Response) ProtoMessage() {}
+
+func (x *SetText1_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_toast_toast_proto_msgTypes[31]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetText1_1Response.ProtoReflect.Descriptor instead.
+func (*SetText1_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_toast_toast_proto_rawDescGZIP(), []int{31}
+}
+
+type SetViewRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetViewRequest) Reset() {
+	*x = SetViewRequest{}
+	mi := &file_proto_toast_toast_proto_msgTypes[32]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetViewRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetViewRequest) ProtoMessage() {}
+
+func (x *SetViewRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_toast_toast_proto_msgTypes[32]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetViewRequest.ProtoReflect.Descriptor instead.
+func (*SetViewRequest) Descriptor() ([]byte, []int) {
+	return file_proto_toast_toast_proto_rawDescGZIP(), []int{32}
+}
+
+func (x *SetViewRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetViewRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetViewResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetViewResponse) Reset() {
+	*x = SetViewResponse{}
+	mi := &file_proto_toast_toast_proto_msgTypes[33]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetViewResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetViewResponse) ProtoMessage() {}
+
+func (x *SetViewResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_toast_toast_proto_msgTypes[33]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetViewResponse.ProtoReflect.Descriptor instead.
+func (*SetViewResponse) Descriptor() ([]byte, []int) {
+	return file_proto_toast_toast_proto_rawDescGZIP(), []int{33}
+}
+
+type ShowRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ShowRequest) Reset() {
+	*x = ShowRequest{}
+	mi := &file_proto_toast_toast_proto_msgTypes[34]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ShowRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ShowRequest) ProtoMessage() {}
+
+func (x *ShowRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_toast_toast_proto_msgTypes[34]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ShowRequest.ProtoReflect.Descriptor instead.
+func (*ShowRequest) Descriptor() ([]byte, []int) {
+	return file_proto_toast_toast_proto_rawDescGZIP(), []int{34}
+}
+
+func (x *ShowRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type ShowResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ShowResponse) Reset() {
+	*x = ShowResponse{}
+	mi := &file_proto_toast_toast_proto_msgTypes[35]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ShowResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ShowResponse) ProtoMessage() {}
+
+func (x *ShowResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_toast_toast_proto_msgTypes[35]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ShowResponse.ProtoReflect.Descriptor instead.
+func (*ShowResponse) Descriptor() ([]byte, []int) {
+	return file_proto_toast_toast_proto_rawDescGZIP(), []int{35}
+}
+
+type MakeText3Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *MakeText3Request) Reset() {
+	*x = MakeText3Request{}
+	mi := &file_proto_toast_toast_proto_msgTypes[36]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *MakeText3Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MakeText3Request) ProtoMessage() {}
+
+func (x *MakeText3Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_toast_toast_proto_msgTypes[36]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MakeText3Request.ProtoReflect.Descriptor instead.
+func (*MakeText3Request) Descriptor() ([]byte, []int) {
+	return file_proto_toast_toast_proto_rawDescGZIP(), []int{36}
+}
+
+func (x *MakeText3Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *MakeText3Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *MakeText3Request) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *MakeText3Request) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type MakeText3Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *MakeText3Response) Reset() {
+	*x = MakeText3Response{}
+	mi := &file_proto_toast_toast_proto_msgTypes[37]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *MakeText3Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MakeText3Response) ProtoMessage() {}
+
+func (x *MakeText3Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_toast_toast_proto_msgTypes[37]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MakeText3Response.ProtoReflect.Descriptor instead.
+func (*MakeText3Response) Descriptor() ([]byte, []int) {
+	return file_proto_toast_toast_proto_rawDescGZIP(), []int{37}
+}
+
+func (x *MakeText3Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type MakeText3_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *MakeText3_1Request) Reset() {
+	*x = MakeText3_1Request{}
+	mi := &file_proto_toast_toast_proto_msgTypes[38]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *MakeText3_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MakeText3_1Request) ProtoMessage() {}
+
+func (x *MakeText3_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_toast_toast_proto_msgTypes[38]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MakeText3_1Request.ProtoReflect.Descriptor instead.
+func (*MakeText3_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_toast_toast_proto_rawDescGZIP(), []int{38}
+}
+
+func (x *MakeText3_1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *MakeText3_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *MakeText3_1Request) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *MakeText3_1Request) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type MakeText3_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *MakeText3_1Response) Reset() {
+	*x = MakeText3_1Response{}
+	mi := &file_proto_toast_toast_proto_msgTypes[39]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *MakeText3_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MakeText3_1Response) ProtoMessage() {}
+
+func (x *MakeText3_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_toast_toast_proto_msgTypes[39]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MakeText3_1Response.ProtoReflect.Descriptor instead.
+func (*MakeText3_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_toast_toast_proto_rawDescGZIP(), []int{39}
+}
+
+func (x *MakeText3_1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OnToastHiddenRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnToastHiddenRequest) Reset() {
+	*x = OnToastHiddenRequest{}
+	mi := &file_proto_toast_toast_proto_msgTypes[40]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnToastHiddenRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnToastHiddenRequest) ProtoMessage() {}
+
+func (x *OnToastHiddenRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_toast_toast_proto_msgTypes[40]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnToastHiddenRequest.ProtoReflect.Descriptor instead.
+func (*OnToastHiddenRequest) Descriptor() ([]byte, []int) {
+	return file_proto_toast_toast_proto_rawDescGZIP(), []int{40}
+}
+
+type OnToastHiddenResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnToastHiddenResponse) Reset() {
+	*x = OnToastHiddenResponse{}
+	mi := &file_proto_toast_toast_proto_msgTypes[41]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnToastHiddenResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnToastHiddenResponse) ProtoMessage() {}
+
+func (x *OnToastHiddenResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_toast_toast_proto_msgTypes[41]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnToastHiddenResponse.ProtoReflect.Descriptor instead.
+func (*OnToastHiddenResponse) Descriptor() ([]byte, []int) {
+	return file_proto_toast_toast_proto_rawDescGZIP(), []int{41}
+}
+
+type OnToastShownRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnToastShownRequest) Reset() {
+	*x = OnToastShownRequest{}
+	mi := &file_proto_toast_toast_proto_msgTypes[42]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnToastShownRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnToastShownRequest) ProtoMessage() {}
+
+func (x *OnToastShownRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_toast_toast_proto_msgTypes[42]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnToastShownRequest.ProtoReflect.Descriptor instead.
+func (*OnToastShownRequest) Descriptor() ([]byte, []int) {
+	return file_proto_toast_toast_proto_rawDescGZIP(), []int{42}
+}
+
+type OnToastShownResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnToastShownResponse) Reset() {
+	*x = OnToastShownResponse{}
+	mi := &file_proto_toast_toast_proto_msgTypes[43]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnToastShownResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnToastShownResponse) ProtoMessage() {}
+
+func (x *OnToastShownResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_toast_toast_proto_msgTypes[43]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnToastShownResponse.ProtoReflect.Descriptor instead.
+func (*OnToastShownResponse) Descriptor() ([]byte, []int) {
+	return file_proto_toast_toast_proto_rawDescGZIP(), []int{43}
+}
+
 var File_proto_toast_toast_proto protoreflect.FileDescriptor
 
 const file_proto_toast_toast_proto_rawDesc = "" +
 	"\n" +
-	"\x17proto/toast/toast.proto\x12\x05toastB/Z-github.com/AndroidGoLab/jni-proxy/proto/toastb\x06proto3"
+	"\x17proto/toast/toast.proto\x12\x05toast\"%\n" +
+	"\x0fNewToastRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"*\n" +
+	"\x10NewToastResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"@\n" +
+	"\x12AddCallbackRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x15\n" +
+	"\x13AddCallbackResponse\"'\n" +
+	"\rCancelRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x10\n" +
+	"\x0eCancelResponse\",\n" +
+	"\x12GetDurationRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"-\n" +
+	"\x13GetDurationResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"+\n" +
+	"\x11GetGravityRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\",\n" +
+	"\x12GetGravityResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"4\n" +
+	"\x1aGetHorizontalMarginRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"5\n" +
+	"\x1bGetHorizontalMarginResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x02R\x06result\"2\n" +
+	"\x18GetVerticalMarginRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"3\n" +
+	"\x19GetVerticalMarginResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x02R\x06result\"(\n" +
+	"\x0eGetViewRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\")\n" +
+	"\x0fGetViewResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"+\n" +
+	"\x11GetXOffsetRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\",\n" +
+	"\x12GetXOffsetResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"+\n" +
+	"\x11GetYOffsetRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\",\n" +
+	"\x12GetYOffsetResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"C\n" +
+	"\x15RemoveCallbackRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x18\n" +
+	"\x16RemoveCallbackResponse\"@\n" +
+	"\x12SetDurationRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"\x15\n" +
+	"\x13SetDurationResponse\"g\n" +
+	"\x11SetGravityRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x05R\x04arg2\"\x14\n" +
+	"\x12SetGravityResponse\"R\n" +
+	"\x10SetMarginRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x02R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x02R\x04arg1\"\x13\n" +
+	"\x11SetMarginResponse\"=\n" +
+	"\x0fSetText1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"\x12\n" +
+	"\x10SetText1Response\"?\n" +
+	"\x11SetText1_1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\tR\x04arg0\"\x14\n" +
+	"\x12SetText1_1Response\"<\n" +
+	"\x0eSetViewRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x11\n" +
+	"\x0fSetViewResponse\"%\n" +
+	"\vShowRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x0e\n" +
+	"\fShowResponse\"f\n" +
+	"\x10MakeText3Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x05R\x04arg2\"+\n" +
+	"\x11MakeText3Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"h\n" +
+	"\x12MakeText3_1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x05R\x04arg2\"-\n" +
+	"\x13MakeText3_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x16\n" +
+	"\x14OnToastHiddenRequest\"\x17\n" +
+	"\x15OnToastHiddenResponse\"\x15\n" +
+	"\x13OnToastShownRequest\"\x16\n" +
+	"\x14OnToastShownResponse2\xd0\n" +
+	"\n" +
+	"\fToastService\x12;\n" +
+	"\bNewToast\x12\x16.toast.NewToastRequest\x1a\x17.toast.NewToastResponse\x12D\n" +
+	"\vAddCallback\x12\x19.toast.AddCallbackRequest\x1a\x1a.toast.AddCallbackResponse\x125\n" +
+	"\x06Cancel\x12\x14.toast.CancelRequest\x1a\x15.toast.CancelResponse\x12D\n" +
+	"\vGetDuration\x12\x19.toast.GetDurationRequest\x1a\x1a.toast.GetDurationResponse\x12A\n" +
+	"\n" +
+	"GetGravity\x12\x18.toast.GetGravityRequest\x1a\x19.toast.GetGravityResponse\x12\\\n" +
+	"\x13GetHorizontalMargin\x12!.toast.GetHorizontalMarginRequest\x1a\".toast.GetHorizontalMarginResponse\x12V\n" +
+	"\x11GetVerticalMargin\x12\x1f.toast.GetVerticalMarginRequest\x1a .toast.GetVerticalMarginResponse\x128\n" +
+	"\aGetView\x12\x15.toast.GetViewRequest\x1a\x16.toast.GetViewResponse\x12A\n" +
+	"\n" +
+	"GetXOffset\x12\x18.toast.GetXOffsetRequest\x1a\x19.toast.GetXOffsetResponse\x12A\n" +
+	"\n" +
+	"GetYOffset\x12\x18.toast.GetYOffsetRequest\x1a\x19.toast.GetYOffsetResponse\x12M\n" +
+	"\x0eRemoveCallback\x12\x1c.toast.RemoveCallbackRequest\x1a\x1d.toast.RemoveCallbackResponse\x12D\n" +
+	"\vSetDuration\x12\x19.toast.SetDurationRequest\x1a\x1a.toast.SetDurationResponse\x12A\n" +
+	"\n" +
+	"SetGravity\x12\x18.toast.SetGravityRequest\x1a\x19.toast.SetGravityResponse\x12>\n" +
+	"\tSetMargin\x12\x17.toast.SetMarginRequest\x1a\x18.toast.SetMarginResponse\x12;\n" +
+	"\bSetText1\x12\x16.toast.SetText1Request\x1a\x17.toast.SetText1Response\x12A\n" +
+	"\n" +
+	"SetText1_1\x12\x18.toast.SetText1_1Request\x1a\x19.toast.SetText1_1Response\x128\n" +
+	"\aSetView\x12\x15.toast.SetViewRequest\x1a\x16.toast.SetViewResponse\x12/\n" +
+	"\x04Show\x12\x12.toast.ShowRequest\x1a\x13.toast.ShowResponse\x12>\n" +
+	"\tMakeText3\x12\x17.toast.MakeText3Request\x1a\x18.toast.MakeText3Response\x12D\n" +
+	"\vMakeText3_1\x12\x19.toast.MakeText3_1Request\x1a\x1a.toast.MakeText3_1Response2\xa6\x01\n" +
+	"\x0fCallbackService\x12J\n" +
+	"\rOnToastHidden\x12\x1b.toast.OnToastHiddenRequest\x1a\x1c.toast.OnToastHiddenResponse\x12G\n" +
+	"\fOnToastShown\x12\x1a.toast.OnToastShownRequest\x1a\x1b.toast.OnToastShownResponseB/Z-github.com/AndroidGoLab/jni-proxy/proto/toastb\x06proto3"
 
-var file_proto_toast_toast_proto_goTypes = []any{}
+var (
+	file_proto_toast_toast_proto_rawDescOnce sync.Once
+	file_proto_toast_toast_proto_rawDescData []byte
+)
+
+func file_proto_toast_toast_proto_rawDescGZIP() []byte {
+	file_proto_toast_toast_proto_rawDescOnce.Do(func() {
+		file_proto_toast_toast_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_proto_toast_toast_proto_rawDesc), len(file_proto_toast_toast_proto_rawDesc)))
+	})
+	return file_proto_toast_toast_proto_rawDescData
+}
+
+var file_proto_toast_toast_proto_msgTypes = make([]protoimpl.MessageInfo, 44)
+var file_proto_toast_toast_proto_goTypes = []any{
+	(*NewToastRequest)(nil),             // 0: toast.NewToastRequest
+	(*NewToastResponse)(nil),            // 1: toast.NewToastResponse
+	(*AddCallbackRequest)(nil),          // 2: toast.AddCallbackRequest
+	(*AddCallbackResponse)(nil),         // 3: toast.AddCallbackResponse
+	(*CancelRequest)(nil),               // 4: toast.CancelRequest
+	(*CancelResponse)(nil),              // 5: toast.CancelResponse
+	(*GetDurationRequest)(nil),          // 6: toast.GetDurationRequest
+	(*GetDurationResponse)(nil),         // 7: toast.GetDurationResponse
+	(*GetGravityRequest)(nil),           // 8: toast.GetGravityRequest
+	(*GetGravityResponse)(nil),          // 9: toast.GetGravityResponse
+	(*GetHorizontalMarginRequest)(nil),  // 10: toast.GetHorizontalMarginRequest
+	(*GetHorizontalMarginResponse)(nil), // 11: toast.GetHorizontalMarginResponse
+	(*GetVerticalMarginRequest)(nil),    // 12: toast.GetVerticalMarginRequest
+	(*GetVerticalMarginResponse)(nil),   // 13: toast.GetVerticalMarginResponse
+	(*GetViewRequest)(nil),              // 14: toast.GetViewRequest
+	(*GetViewResponse)(nil),             // 15: toast.GetViewResponse
+	(*GetXOffsetRequest)(nil),           // 16: toast.GetXOffsetRequest
+	(*GetXOffsetResponse)(nil),          // 17: toast.GetXOffsetResponse
+	(*GetYOffsetRequest)(nil),           // 18: toast.GetYOffsetRequest
+	(*GetYOffsetResponse)(nil),          // 19: toast.GetYOffsetResponse
+	(*RemoveCallbackRequest)(nil),       // 20: toast.RemoveCallbackRequest
+	(*RemoveCallbackResponse)(nil),      // 21: toast.RemoveCallbackResponse
+	(*SetDurationRequest)(nil),          // 22: toast.SetDurationRequest
+	(*SetDurationResponse)(nil),         // 23: toast.SetDurationResponse
+	(*SetGravityRequest)(nil),           // 24: toast.SetGravityRequest
+	(*SetGravityResponse)(nil),          // 25: toast.SetGravityResponse
+	(*SetMarginRequest)(nil),            // 26: toast.SetMarginRequest
+	(*SetMarginResponse)(nil),           // 27: toast.SetMarginResponse
+	(*SetText1Request)(nil),             // 28: toast.SetText1Request
+	(*SetText1Response)(nil),            // 29: toast.SetText1Response
+	(*SetText1_1Request)(nil),           // 30: toast.SetText1_1Request
+	(*SetText1_1Response)(nil),          // 31: toast.SetText1_1Response
+	(*SetViewRequest)(nil),              // 32: toast.SetViewRequest
+	(*SetViewResponse)(nil),             // 33: toast.SetViewResponse
+	(*ShowRequest)(nil),                 // 34: toast.ShowRequest
+	(*ShowResponse)(nil),                // 35: toast.ShowResponse
+	(*MakeText3Request)(nil),            // 36: toast.MakeText3Request
+	(*MakeText3Response)(nil),           // 37: toast.MakeText3Response
+	(*MakeText3_1Request)(nil),          // 38: toast.MakeText3_1Request
+	(*MakeText3_1Response)(nil),         // 39: toast.MakeText3_1Response
+	(*OnToastHiddenRequest)(nil),        // 40: toast.OnToastHiddenRequest
+	(*OnToastHiddenResponse)(nil),       // 41: toast.OnToastHiddenResponse
+	(*OnToastShownRequest)(nil),         // 42: toast.OnToastShownRequest
+	(*OnToastShownResponse)(nil),        // 43: toast.OnToastShownResponse
+}
 var file_proto_toast_toast_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	0,  // 0: toast.ToastService.NewToast:input_type -> toast.NewToastRequest
+	2,  // 1: toast.ToastService.AddCallback:input_type -> toast.AddCallbackRequest
+	4,  // 2: toast.ToastService.Cancel:input_type -> toast.CancelRequest
+	6,  // 3: toast.ToastService.GetDuration:input_type -> toast.GetDurationRequest
+	8,  // 4: toast.ToastService.GetGravity:input_type -> toast.GetGravityRequest
+	10, // 5: toast.ToastService.GetHorizontalMargin:input_type -> toast.GetHorizontalMarginRequest
+	12, // 6: toast.ToastService.GetVerticalMargin:input_type -> toast.GetVerticalMarginRequest
+	14, // 7: toast.ToastService.GetView:input_type -> toast.GetViewRequest
+	16, // 8: toast.ToastService.GetXOffset:input_type -> toast.GetXOffsetRequest
+	18, // 9: toast.ToastService.GetYOffset:input_type -> toast.GetYOffsetRequest
+	20, // 10: toast.ToastService.RemoveCallback:input_type -> toast.RemoveCallbackRequest
+	22, // 11: toast.ToastService.SetDuration:input_type -> toast.SetDurationRequest
+	24, // 12: toast.ToastService.SetGravity:input_type -> toast.SetGravityRequest
+	26, // 13: toast.ToastService.SetMargin:input_type -> toast.SetMarginRequest
+	28, // 14: toast.ToastService.SetText1:input_type -> toast.SetText1Request
+	30, // 15: toast.ToastService.SetText1_1:input_type -> toast.SetText1_1Request
+	32, // 16: toast.ToastService.SetView:input_type -> toast.SetViewRequest
+	34, // 17: toast.ToastService.Show:input_type -> toast.ShowRequest
+	36, // 18: toast.ToastService.MakeText3:input_type -> toast.MakeText3Request
+	38, // 19: toast.ToastService.MakeText3_1:input_type -> toast.MakeText3_1Request
+	40, // 20: toast.CallbackService.OnToastHidden:input_type -> toast.OnToastHiddenRequest
+	42, // 21: toast.CallbackService.OnToastShown:input_type -> toast.OnToastShownRequest
+	1,  // 22: toast.ToastService.NewToast:output_type -> toast.NewToastResponse
+	3,  // 23: toast.ToastService.AddCallback:output_type -> toast.AddCallbackResponse
+	5,  // 24: toast.ToastService.Cancel:output_type -> toast.CancelResponse
+	7,  // 25: toast.ToastService.GetDuration:output_type -> toast.GetDurationResponse
+	9,  // 26: toast.ToastService.GetGravity:output_type -> toast.GetGravityResponse
+	11, // 27: toast.ToastService.GetHorizontalMargin:output_type -> toast.GetHorizontalMarginResponse
+	13, // 28: toast.ToastService.GetVerticalMargin:output_type -> toast.GetVerticalMarginResponse
+	15, // 29: toast.ToastService.GetView:output_type -> toast.GetViewResponse
+	17, // 30: toast.ToastService.GetXOffset:output_type -> toast.GetXOffsetResponse
+	19, // 31: toast.ToastService.GetYOffset:output_type -> toast.GetYOffsetResponse
+	21, // 32: toast.ToastService.RemoveCallback:output_type -> toast.RemoveCallbackResponse
+	23, // 33: toast.ToastService.SetDuration:output_type -> toast.SetDurationResponse
+	25, // 34: toast.ToastService.SetGravity:output_type -> toast.SetGravityResponse
+	27, // 35: toast.ToastService.SetMargin:output_type -> toast.SetMarginResponse
+	29, // 36: toast.ToastService.SetText1:output_type -> toast.SetText1Response
+	31, // 37: toast.ToastService.SetText1_1:output_type -> toast.SetText1_1Response
+	33, // 38: toast.ToastService.SetView:output_type -> toast.SetViewResponse
+	35, // 39: toast.ToastService.Show:output_type -> toast.ShowResponse
+	37, // 40: toast.ToastService.MakeText3:output_type -> toast.MakeText3Response
+	39, // 41: toast.ToastService.MakeText3_1:output_type -> toast.MakeText3_1Response
+	41, // 42: toast.CallbackService.OnToastHidden:output_type -> toast.OnToastHiddenResponse
+	43, // 43: toast.CallbackService.OnToastShown:output_type -> toast.OnToastShownResponse
+	22, // [22:44] is the sub-list for method output_type
+	0,  // [0:22] is the sub-list for method input_type
+	0,  // [0:0] is the sub-list for extension type_name
+	0,  // [0:0] is the sub-list for extension extendee
+	0,  // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_proto_toast_toast_proto_init() }
@@ -48,12 +2232,13 @@ func file_proto_toast_toast_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_toast_toast_proto_rawDesc), len(file_proto_toast_toast_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   44,
 			NumExtensions: 0,
-			NumServices:   0,
+			NumServices:   2,
 		},
 		GoTypes:           file_proto_toast_toast_proto_goTypes,
 		DependencyIndexes: file_proto_toast_toast_proto_depIdxs,
+		MessageInfos:      file_proto_toast_toast_proto_msgTypes,
 	}.Build()
 	File_proto_toast_toast_proto = out.File
 	file_proto_toast_toast_proto_goTypes = nil

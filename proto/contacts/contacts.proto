@@ -5,3 +5,387 @@ syntax = "proto3";
 package contacts;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/contacts";
+
+message NewContractRequest {
+}
+
+message NewContractResponse {
+  int64 result = 1;
+}
+
+message IsProfileIdRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message IsProfileIdResponse {
+  bool result = 1;
+}
+
+message GetLookupUri2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message GetLookupUri2Response {
+  int64 result = 1;
+}
+
+message GetLookupUri2_1Request {
+  int64 arg0 = 1;
+  string arg1 = 2;
+}
+
+message GetLookupUri2_1Response {
+  int64 result = 1;
+}
+
+message IsEnterpriseContactIdRequest {
+  int64 arg0 = 1;
+}
+
+message IsEnterpriseContactIdResponse {
+  bool result = 1;
+}
+
+message LookupContactRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message LookupContactResponse {
+  int64 result = 1;
+}
+
+message MarkAsContactedRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message MarkAsContactedResponse {
+}
+
+message OpenContactPhotoInputStream2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OpenContactPhotoInputStream2Response {
+  int64 result = 1;
+}
+
+message OpenContactPhotoInputStream3_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  bool arg2 = 3;
+}
+
+message OpenContactPhotoInputStream3_1Response {
+  int64 result = 1;
+}
+
+message GetContactLookupUriRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message GetContactLookupUriResponse {
+  int64 result = 1;
+}
+
+message IsEnterpriseDirectoryIdRequest {
+  int64 arg0 = 1;
+}
+
+message IsEnterpriseDirectoryIdResponse {
+  bool result = 1;
+}
+
+message IsRemoteDirectoryIdRequest {
+  int64 arg0 = 1;
+}
+
+message IsRemoteDirectoryIdResponse {
+  bool result = 1;
+}
+
+message NotifyDirectoryChangeRequest {
+  int64 arg0 = 1;
+}
+
+message NotifyDirectoryChangeResponse {
+}
+
+message NewEntityIteratorRequest {
+  int64 arg0 = 1;
+}
+
+message NewEntityIteratorResponse {
+  int64 result = 1;
+}
+
+message PinRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message PinResponse {
+}
+
+message UndemoteRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message UndemoteResponse {
+}
+
+message GetRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message GetResponse {
+  int64 result = 1;
+}
+
+message NewSetOperationRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewSetOperationResponse {
+  int64 result = 1;
+}
+
+message SetRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message SetResponse {
+}
+
+message ShowQuickContact5Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int32 arg3 = 4;
+  int64 arg4 = 5;
+}
+
+message ShowQuickContact5Response {
+}
+
+message ShowQuickContact5_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+  string arg4 = 5;
+}
+
+message ShowQuickContact5_1Response {
+}
+
+message ShowQuickContact5_2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int32 arg3 = 4;
+  int64 arg4 = 5;
+}
+
+message ShowQuickContact5_2Response {
+}
+
+message ShowQuickContact5_3Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+  string arg4 = 5;
+}
+
+message ShowQuickContact5_3Response {
+}
+
+message GetLocalAccountNameRequest {
+  int64 arg0 = 1;
+}
+
+message GetLocalAccountNameResponse {
+  string result = 1;
+}
+
+message GetLocalAccountTypeRequest {
+  int64 arg0 = 1;
+}
+
+message GetLocalAccountTypeResponse {
+  string result = 1;
+}
+
+message GetDefaultAccountRequest {
+  int64 arg0 = 1;
+}
+
+message GetDefaultAccountResponse {
+  int64 result = 1;
+}
+
+message DescribeContentsRequest {
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message EqualsRequest {
+  int64 arg0 = 1;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message GetAccountNameRequest {
+}
+
+message GetAccountNameResponse {
+  string result = 1;
+}
+
+message GetAccountTypeRequest {
+}
+
+message GetAccountTypeResponse {
+  string result = 1;
+}
+
+message GetEfTypeRequest {
+}
+
+message GetEfTypeResponse {
+  int32 result = 1;
+}
+
+message GetSimSlotIndexRequest {
+}
+
+message GetSimSlotIndexResponse {
+  int32 result = 1;
+}
+
+message HashCodeRequest {
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteToParcelResponse {
+}
+
+message GetPresenceIconResourceIdRequest {
+  int32 arg0 = 1;
+}
+
+message GetPresenceIconResourceIdResponse {
+  int32 result = 1;
+}
+
+message GetPresencePrecedenceRequest {
+  int32 arg0 = 1;
+}
+
+message GetPresencePrecedenceResponse {
+  int32 result = 1;
+}
+
+service ContractService {
+  rpc NewContract (NewContractRequest) returns (NewContractResponse);
+  rpc IsProfileId (IsProfileIdRequest) returns (IsProfileIdResponse);
+}
+
+service ContractContactsService {
+  rpc GetLookupUri2 (GetLookupUri2Request) returns (GetLookupUri2Response);
+  rpc GetLookupUri2_1 (GetLookupUri2_1Request) returns (GetLookupUri2_1Response);
+  rpc IsEnterpriseContactId (IsEnterpriseContactIdRequest) returns (IsEnterpriseContactIdResponse);
+  rpc LookupContact (LookupContactRequest) returns (LookupContactResponse);
+  rpc MarkAsContacted (MarkAsContactedRequest) returns (MarkAsContactedResponse);
+  rpc OpenContactPhotoInputStream2 (OpenContactPhotoInputStream2Request) returns (OpenContactPhotoInputStream2Response);
+  rpc OpenContactPhotoInputStream3_1 (OpenContactPhotoInputStream3_1Request) returns (OpenContactPhotoInputStream3_1Response);
+}
+
+service ContractDataService {
+  rpc GetContactLookupUri (GetContactLookupUriRequest) returns (GetContactLookupUriResponse);
+}
+
+service ContractDirectoryService {
+  rpc IsEnterpriseDirectoryId (IsEnterpriseDirectoryIdRequest) returns (IsEnterpriseDirectoryIdResponse);
+  rpc IsRemoteDirectoryId (IsRemoteDirectoryIdRequest) returns (IsRemoteDirectoryIdResponse);
+  rpc NotifyDirectoryChange (NotifyDirectoryChangeRequest) returns (NotifyDirectoryChangeResponse);
+}
+
+service ContractGroupsService {
+  rpc NewEntityIterator (NewEntityIteratorRequest) returns (NewEntityIteratorResponse);
+}
+
+service ContractPinnedPositionsService {
+  rpc Pin (PinRequest) returns (PinResponse);
+  rpc Undemote (UndemoteRequest) returns (UndemoteResponse);
+}
+
+service ContractProfileSyncStateService {
+  rpc Get (GetRequest) returns (GetResponse);
+  rpc NewSetOperation (NewSetOperationRequest) returns (NewSetOperationResponse);
+  rpc Set (SetRequest) returns (SetResponse);
+}
+
+service ContractQuickContactService {
+  rpc ShowQuickContact5 (ShowQuickContact5Request) returns (ShowQuickContact5Response);
+  rpc ShowQuickContact5_1 (ShowQuickContact5_1Request) returns (ShowQuickContact5_1Response);
+  rpc ShowQuickContact5_2 (ShowQuickContact5_2Request) returns (ShowQuickContact5_2Response);
+  rpc ShowQuickContact5_3 (ShowQuickContact5_3Request) returns (ShowQuickContact5_3Response);
+}
+
+service ContractRawContactsService {
+  rpc GetContactLookupUri (GetContactLookupUriRequest) returns (GetContactLookupUriResponse);
+  rpc GetLocalAccountName (GetLocalAccountNameRequest) returns (GetLocalAccountNameResponse);
+  rpc GetLocalAccountType (GetLocalAccountTypeRequest) returns (GetLocalAccountTypeResponse);
+  rpc NewEntityIterator (NewEntityIteratorRequest) returns (NewEntityIteratorResponse);
+}
+
+service ContractSettingsService {
+  rpc GetDefaultAccount (GetDefaultAccountRequest) returns (GetDefaultAccountResponse);
+}
+
+service ContractSimAccountService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetAccountName (GetAccountNameRequest) returns (GetAccountNameResponse);
+  rpc GetAccountType (GetAccountTypeRequest) returns (GetAccountTypeResponse);
+  rpc GetEfType (GetEfTypeRequest) returns (GetEfTypeResponse);
+  rpc GetSimSlotIndex (GetSimSlotIndexRequest) returns (GetSimSlotIndexResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ContractStatusUpdatesService {
+  rpc GetPresenceIconResourceId (GetPresenceIconResourceIdRequest) returns (GetPresenceIconResourceIdResponse);
+  rpc GetPresencePrecedence (GetPresencePrecedenceRequest) returns (GetPresencePrecedenceResponse);
+}
+
+service ContractSyncStateService {
+  rpc Get (GetRequest) returns (GetResponse);
+  rpc NewSetOperation (NewSetOperationRequest) returns (NewSetOperationResponse);
+  rpc Set (SetRequest) returns (SetResponse);
+}

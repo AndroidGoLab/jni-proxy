@@ -5,3 +5,1895 @@ syntax = "proto3";
 package preference;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/preference";
+
+message AddPreferencesFromIntentRequest {
+  int64 arg0 = 1;
+}
+
+message AddPreferencesFromIntentResponse {
+}
+
+message AddPreferencesFromResourceRequest {
+  int32 arg0 = 1;
+}
+
+message AddPreferencesFromResourceResponse {
+}
+
+message FindPreferenceRequest {
+  string arg0 = 1;
+}
+
+message FindPreferenceResponse {
+  int64 result = 1;
+}
+
+message GetPreferenceManagerRequest {
+}
+
+message GetPreferenceManagerResponse {
+  int64 result = 1;
+}
+
+message GetPreferenceScreenRequest {
+}
+
+message GetPreferenceScreenResponse {
+  int64 result = 1;
+}
+
+message OnActivityCreatedRequest {
+  int64 arg0 = 1;
+}
+
+message OnActivityCreatedResponse {
+}
+
+message OnActivityResultRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message OnActivityResultResponse {
+}
+
+message OnCreateRequest {
+  int64 arg0 = 1;
+}
+
+message OnCreateResponse {
+}
+
+message OnCreateViewRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message OnCreateViewResponse {
+  int64 result = 1;
+}
+
+message OnDestroyRequest {
+}
+
+message OnDestroyResponse {
+}
+
+message OnDestroyViewRequest {
+}
+
+message OnDestroyViewResponse {
+}
+
+message OnPreferenceTreeClickRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnPreferenceTreeClickResponse {
+  bool result = 1;
+}
+
+message OnSaveInstanceStateRequest {
+  int64 arg0 = 1;
+}
+
+message OnSaveInstanceStateResponse {
+}
+
+message OnStartRequest {
+}
+
+message OnStartResponse {
+}
+
+message OnStopRequest {
+}
+
+message OnStopResponse {
+}
+
+message OnViewCreatedRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnViewCreatedResponse {
+}
+
+message SetPreferenceScreenRequest {
+  int64 arg0 = 1;
+}
+
+message SetPreferenceScreenResponse {
+}
+
+message OnPreferenceStartFragmentRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnPreferenceStartFragmentResponse {
+  bool result = 1;
+}
+
+message NewMultiSelectListPreferenceRequest {
+  int64 arg0 = 1;
+}
+
+message NewMultiSelectListPreferenceResponse {
+  int64 result = 1;
+}
+
+message FindIndexOfValueRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message FindIndexOfValueResponse {
+  int32 result = 1;
+}
+
+message GetEntriesRequest {
+  int64 handle = 1;
+}
+
+message GetEntriesResponse {
+  int64 result = 1;
+}
+
+message GetEntryValuesRequest {
+  int64 handle = 1;
+}
+
+message GetEntryValuesResponse {
+  int64 result = 1;
+}
+
+message SetEntries1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetEntries1Response {
+}
+
+message SetEntries1_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetEntries1_1Response {
+}
+
+message SetEntryValues1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetEntryValues1Response {
+}
+
+message SetEntryValues1_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetEntryValues1_1Response {
+}
+
+message CreatePreferenceScreenRequest {
+  int64 arg0 = 1;
+}
+
+message CreatePreferenceScreenResponse {
+  int64 result = 1;
+}
+
+message GetPreferenceDataStoreRequest {
+}
+
+message GetPreferenceDataStoreResponse {
+  int64 result = 1;
+}
+
+message GetSharedPreferencesRequest {
+}
+
+message GetSharedPreferencesResponse {
+  int64 result = 1;
+}
+
+message GetSharedPreferencesModeRequest {
+}
+
+message GetSharedPreferencesModeResponse {
+  int32 result = 1;
+}
+
+message GetSharedPreferencesNameRequest {
+}
+
+message GetSharedPreferencesNameResponse {
+  string result = 1;
+}
+
+message IsStorageDefaultRequest {
+}
+
+message IsStorageDefaultResponse {
+  bool result = 1;
+}
+
+message IsStorageDeviceProtectedRequest {
+}
+
+message IsStorageDeviceProtectedResponse {
+  bool result = 1;
+}
+
+message SetPreferenceDataStoreRequest {
+  int64 arg0 = 1;
+}
+
+message SetPreferenceDataStoreResponse {
+}
+
+message SetSharedPreferencesModeRequest {
+  int32 arg0 = 1;
+}
+
+message SetSharedPreferencesModeResponse {
+}
+
+message SetSharedPreferencesNameRequest {
+  string arg0 = 1;
+}
+
+message SetSharedPreferencesNameResponse {
+}
+
+message SetStorageDefaultRequest {
+}
+
+message SetStorageDefaultResponse {
+}
+
+message SetStorageDeviceProtectedRequest {
+}
+
+message SetStorageDeviceProtectedResponse {
+}
+
+message GetDefaultSharedPreferencesRequest {
+  int64 arg0 = 1;
+}
+
+message GetDefaultSharedPreferencesResponse {
+  int64 result = 1;
+}
+
+message GetDefaultSharedPreferencesNameRequest {
+  int64 arg0 = 1;
+}
+
+message GetDefaultSharedPreferencesNameResponse {
+  string result = 1;
+}
+
+message SetDefaultValues3Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  bool arg2 = 3;
+}
+
+message SetDefaultValues3Response {
+}
+
+message SetDefaultValues5_1Request {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  bool arg4 = 5;
+}
+
+message SetDefaultValues5_1Response {
+}
+
+message OnActivityDestroyRequest {
+}
+
+message OnActivityDestroyResponse {
+}
+
+message ManagerOnActivityResultListenerOnActivityResultResponse {
+  bool result = 1;
+}
+
+message OnActivityStopRequest {
+}
+
+message OnActivityStopResponse {
+}
+
+message NewSwitchPreferenceRequest {
+  int64 arg0 = 1;
+}
+
+message NewSwitchPreferenceResponse {
+  int64 result = 1;
+}
+
+message GetSwitchTextOffRequest {
+  int64 handle = 1;
+}
+
+message GetSwitchTextOffResponse {
+  int64 result = 1;
+}
+
+message GetSwitchTextOnRequest {
+  int64 handle = 1;
+}
+
+message GetSwitchTextOnResponse {
+  int64 result = 1;
+}
+
+message SetSwitchTextOff1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetSwitchTextOff1Response {
+}
+
+message SetSwitchTextOff1_1Request {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetSwitchTextOff1_1Response {
+}
+
+message SetSwitchTextOn1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetSwitchTextOn1Response {
+}
+
+message SetSwitchTextOn1_1Request {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetSwitchTextOn1_1Response {
+}
+
+message NewEditTextPreferenceRequest {
+  int64 arg0 = 1;
+}
+
+message NewEditTextPreferenceResponse {
+  int64 result = 1;
+}
+
+message GetEditTextRequest {
+  int64 handle = 1;
+}
+
+message GetEditTextResponse {
+  int64 result = 1;
+}
+
+message GetTextRequest {
+  int64 handle = 1;
+}
+
+message GetTextResponse {
+  string result = 1;
+}
+
+message SetTextRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetTextResponse {
+}
+
+message ShouldDisableDependentsRequest {
+  int64 handle = 1;
+}
+
+message ShouldDisableDependentsResponse {
+  bool result = 1;
+}
+
+message NewListPreferenceRequest {
+  int64 arg0 = 1;
+}
+
+message NewListPreferenceResponse {
+  int64 result = 1;
+}
+
+message GetEntryRequest {
+  int64 handle = 1;
+}
+
+message GetEntryResponse {
+  int64 result = 1;
+}
+
+message GetSummaryRequest {
+  int64 handle = 1;
+}
+
+message GetSummaryResponse {
+  int64 result = 1;
+}
+
+message GetValueRequest {
+  int64 handle = 1;
+}
+
+message GetValueResponse {
+  string result = 1;
+}
+
+message SetSummaryRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetSummaryResponse {
+}
+
+message SetValueRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetValueResponse {
+}
+
+message SetValueIndexRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetValueIndexResponse {
+}
+
+message FinishPreferencePanelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message FinishPreferencePanelResponse {
+}
+
+message HasHeadersRequest {
+}
+
+message HasHeadersResponse {
+  bool result = 1;
+}
+
+message InvalidateHeadersRequest {
+}
+
+message InvalidateHeadersResponse {
+}
+
+message IsMultiPaneRequest {
+}
+
+message IsMultiPaneResponse {
+  bool result = 1;
+}
+
+message OnBackPressedRequest {
+}
+
+message OnBackPressedResponse {
+}
+
+message OnBuildStartFragmentIntentRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message OnBuildStartFragmentIntentResponse {
+  int64 result = 1;
+}
+
+message OnContentChangedRequest {
+}
+
+message OnContentChangedResponse {
+}
+
+message OnGetInitialHeaderRequest {
+}
+
+message OnGetInitialHeaderResponse {
+  int64 result = 1;
+}
+
+message OnGetNewHeaderRequest {
+}
+
+message OnGetNewHeaderResponse {
+  int64 result = 1;
+}
+
+message OnHeaderClickRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message OnHeaderClickResponse {
+}
+
+message OnIsHidingHeadersRequest {
+}
+
+message OnIsHidingHeadersResponse {
+  bool result = 1;
+}
+
+message OnIsMultiPaneRequest {
+}
+
+message OnIsMultiPaneResponse {
+  bool result = 1;
+}
+
+message OnOptionsItemSelectedRequest {
+  int64 arg0 = 1;
+}
+
+message OnOptionsItemSelectedResponse {
+  bool result = 1;
+}
+
+message SetListFooterRequest {
+  int64 arg0 = 1;
+}
+
+message SetListFooterResponse {
+}
+
+message SetParentTitleRequest {
+  string arg0 = 1;
+  string arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message SetParentTitleResponse {
+}
+
+message ShowBreadCrumbsRequest {
+  string arg0 = 1;
+  string arg1 = 2;
+}
+
+message ShowBreadCrumbsResponse {
+}
+
+message StartPreferenceFragmentRequest {
+  int64 arg0 = 1;
+  bool arg1 = 2;
+}
+
+message StartPreferenceFragmentResponse {
+}
+
+message StartPreferencePanelRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+  string arg3 = 4;
+  int64 arg4 = 5;
+  int32 arg5 = 6;
+}
+
+message StartPreferencePanelResponse {
+}
+
+message StartWithFragment4Request {
+  string arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message StartWithFragment4Response {
+}
+
+message StartWithFragment6_1Request {
+  string arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int32 arg3 = 4;
+  int32 arg4 = 5;
+  int32 arg5 = 6;
+}
+
+message StartWithFragment6_1Response {
+}
+
+message SwitchToHeader1Request {
+  int64 arg0 = 1;
+}
+
+message SwitchToHeader1Response {
+}
+
+message SwitchToHeader2_1Request {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SwitchToHeader2_1Response {
+}
+
+message DescribeContentsRequest {
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message GetBreadCrumbShortTitleRequest {
+  int64 arg0 = 1;
+}
+
+message GetBreadCrumbShortTitleResponse {
+  int64 result = 1;
+}
+
+message GetBreadCrumbTitleRequest {
+  int64 arg0 = 1;
+}
+
+message GetBreadCrumbTitleResponse {
+  int64 result = 1;
+}
+
+message ActivityHeaderGetSummaryRequest {
+  int64 arg0 = 1;
+}
+
+message GetTitleRequest {
+  int64 arg0 = 1;
+}
+
+message GetTitleResponse {
+  int64 result = 1;
+}
+
+message ReadFromParcelRequest {
+  int64 arg0 = 1;
+}
+
+message ReadFromParcelResponse {
+}
+
+message WriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteToParcelResponse {
+}
+
+message GetDisableDependentsStateRequest {
+}
+
+message GetDisableDependentsStateResponse {
+  bool result = 1;
+}
+
+message GetSummaryOffRequest {
+}
+
+message GetSummaryOffResponse {
+  int64 result = 1;
+}
+
+message GetSummaryOnRequest {
+}
+
+message GetSummaryOnResponse {
+  int64 result = 1;
+}
+
+message IsCheckedRequest {
+}
+
+message IsCheckedResponse {
+  bool result = 1;
+}
+
+message SetCheckedRequest {
+  bool arg0 = 1;
+}
+
+message SetCheckedResponse {
+}
+
+message SetDisableDependentsStateRequest {
+  bool arg0 = 1;
+}
+
+message SetDisableDependentsStateResponse {
+}
+
+message SetSummaryOff1Request {
+  int32 arg0 = 1;
+}
+
+message SetSummaryOff1Response {
+}
+
+message SetSummaryOff1_1Request {
+  string arg0 = 1;
+}
+
+message SetSummaryOff1_1Response {
+}
+
+message SetSummaryOn1Request {
+  int32 arg0 = 1;
+}
+
+message SetSummaryOn1Response {
+}
+
+message SetSummaryOn1_1Request {
+  string arg0 = 1;
+}
+
+message SetSummaryOn1_1Response {
+}
+
+message TwoStatePreferenceShouldDisableDependentsRequest {
+}
+
+message GetDialogRequest {
+}
+
+message GetDialogResponse {
+  int64 result = 1;
+}
+
+message GetDialogIconRequest {
+}
+
+message GetDialogIconResponse {
+  int64 result = 1;
+}
+
+message GetDialogLayoutResourceRequest {
+}
+
+message GetDialogLayoutResourceResponse {
+  int32 result = 1;
+}
+
+message GetDialogMessageRequest {
+}
+
+message GetDialogMessageResponse {
+  int64 result = 1;
+}
+
+message GetDialogTitleRequest {
+}
+
+message GetDialogTitleResponse {
+  int64 result = 1;
+}
+
+message GetNegativeButtonTextRequest {
+}
+
+message GetNegativeButtonTextResponse {
+  int64 result = 1;
+}
+
+message GetPositiveButtonTextRequest {
+}
+
+message GetPositiveButtonTextResponse {
+  int64 result = 1;
+}
+
+message OnClickRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message OnClickResponse {
+}
+
+message OnDismissRequest {
+  int64 arg0 = 1;
+}
+
+message OnDismissResponse {
+}
+
+message SetDialogIcon1Request {
+  int64 arg0 = 1;
+}
+
+message SetDialogIcon1Response {
+}
+
+message SetDialogIcon1_1Request {
+  int32 arg0 = 1;
+}
+
+message SetDialogIcon1_1Response {
+}
+
+message SetDialogLayoutResourceRequest {
+  int32 arg0 = 1;
+}
+
+message SetDialogLayoutResourceResponse {
+}
+
+message SetDialogMessage1Request {
+  int32 arg0 = 1;
+}
+
+message SetDialogMessage1Response {
+}
+
+message SetDialogMessage1_1Request {
+  string arg0 = 1;
+}
+
+message SetDialogMessage1_1Response {
+}
+
+message SetDialogTitle1Request {
+  int32 arg0 = 1;
+}
+
+message SetDialogTitle1Response {
+}
+
+message SetDialogTitle1_1Request {
+  string arg0 = 1;
+}
+
+message SetDialogTitle1_1Response {
+}
+
+message SetNegativeButtonText1Request {
+  int32 arg0 = 1;
+}
+
+message SetNegativeButtonText1Response {
+}
+
+message SetNegativeButtonText1_1Request {
+  string arg0 = 1;
+}
+
+message SetNegativeButtonText1_1Response {
+}
+
+message SetPositiveButtonText1Request {
+  int32 arg0 = 1;
+}
+
+message SetPositiveButtonText1Response {
+}
+
+message SetPositiveButtonText1_1Request {
+  string arg0 = 1;
+}
+
+message SetPositiveButtonText1_1Response {
+}
+
+message BindRequest {
+  int64 arg0 = 1;
+}
+
+message BindResponse {
+}
+
+message GetRootAdapterRequest {
+}
+
+message GetRootAdapterResponse {
+  int64 result = 1;
+}
+
+message OnItemClickRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message OnItemClickResponse {
+}
+
+message AddItemFromInflaterRequest {
+  int64 arg0 = 1;
+}
+
+message AddItemFromInflaterResponse {
+}
+
+message AddPreferenceRequest {
+  int64 arg0 = 1;
+}
+
+message AddPreferenceResponse {
+  bool result = 1;
+}
+
+message GetPreferenceRequest {
+  int32 arg0 = 1;
+}
+
+message GetPreferenceResponse {
+  int64 result = 1;
+}
+
+message GetPreferenceCountRequest {
+}
+
+message GetPreferenceCountResponse {
+  int32 result = 1;
+}
+
+message IsOrderingAsAddedRequest {
+}
+
+message IsOrderingAsAddedResponse {
+  bool result = 1;
+}
+
+message NotifyDependencyChangeRequest {
+  bool arg0 = 1;
+}
+
+message NotifyDependencyChangeResponse {
+}
+
+message RemoveAllRequest {
+}
+
+message RemoveAllResponse {
+}
+
+message RemovePreferenceRequest {
+  int64 arg0 = 1;
+}
+
+message RemovePreferenceResponse {
+  bool result = 1;
+}
+
+message SetOrderingAsAddedRequest {
+  bool arg0 = 1;
+}
+
+message SetOrderingAsAddedResponse {
+}
+
+message NewRingtonePreferenceRequest {
+  int64 arg0 = 1;
+}
+
+message NewRingtonePreferenceResponse {
+  int64 result = 1;
+}
+
+message GetRingtoneTypeRequest {
+  int64 handle = 1;
+}
+
+message GetRingtoneTypeResponse {
+  int32 result = 1;
+}
+
+message GetShowDefaultRequest {
+  int64 handle = 1;
+}
+
+message GetShowDefaultResponse {
+  bool result = 1;
+}
+
+message GetShowSilentRequest {
+  int64 handle = 1;
+}
+
+message GetShowSilentResponse {
+  bool result = 1;
+}
+
+message RingtonePreferenceOnActivityResultRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message RingtonePreferenceOnActivityResultResponse {
+  bool result = 1;
+}
+
+message SetRingtoneTypeRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetRingtoneTypeResponse {
+}
+
+message SetShowDefaultRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetShowDefaultResponse {
+}
+
+message SetShowSilentRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetShowSilentResponse {
+}
+
+message NewPreferenceRequest {
+  int64 arg0 = 1;
+}
+
+message NewPreferenceResponse {
+  int64 result = 1;
+}
+
+message CompareTo1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message CompareTo1Response {
+  int32 result = 1;
+}
+
+message GetContextRequest {
+  int64 handle = 1;
+}
+
+message GetContextResponse {
+  int64 result = 1;
+}
+
+message GetDependencyRequest {
+  int64 handle = 1;
+}
+
+message GetDependencyResponse {
+  string result = 1;
+}
+
+message GetEditorRequest {
+  int64 handle = 1;
+}
+
+message GetEditorResponse {
+  int64 result = 1;
+}
+
+message GetExtrasRequest {
+  int64 handle = 1;
+}
+
+message GetExtrasResponse {
+  int64 result = 1;
+}
+
+message GetFragmentRequest {
+  int64 handle = 1;
+}
+
+message GetFragmentResponse {
+  string result = 1;
+}
+
+message GetIconRequest {
+  int64 handle = 1;
+}
+
+message GetIconResponse {
+  int64 result = 1;
+}
+
+message GetIntentRequest {
+  int64 handle = 1;
+}
+
+message GetIntentResponse {
+  int64 result = 1;
+}
+
+message GetKeyRequest {
+  int64 handle = 1;
+}
+
+message GetKeyResponse {
+  string result = 1;
+}
+
+message GetLayoutResourceRequest {
+  int64 handle = 1;
+}
+
+message GetLayoutResourceResponse {
+  int32 result = 1;
+}
+
+message GetOnPreferenceChangeListenerRequest {
+  int64 handle = 1;
+}
+
+message GetOnPreferenceChangeListenerResponse {
+  int64 result = 1;
+}
+
+message GetOnPreferenceClickListenerRequest {
+  int64 handle = 1;
+}
+
+message GetOnPreferenceClickListenerResponse {
+  int64 result = 1;
+}
+
+message GetOrderRequest {
+  int64 handle = 1;
+}
+
+message GetOrderResponse {
+  int32 result = 1;
+}
+
+message GetParentRequest {
+  int64 handle = 1;
+}
+
+message GetParentResponse {
+  int64 result = 1;
+}
+
+message PreferenceGetPreferenceDataStoreRequest {
+  int64 handle = 1;
+}
+
+message PreferenceGetPreferenceManagerRequest {
+  int64 handle = 1;
+}
+
+message PreferenceGetSharedPreferencesRequest {
+  int64 handle = 1;
+}
+
+message GetShouldDisableViewRequest {
+  int64 handle = 1;
+}
+
+message GetShouldDisableViewResponse {
+  bool result = 1;
+}
+
+message PreferenceGetTitleRequest {
+  int64 handle = 1;
+}
+
+message GetTitleResRequest {
+  int64 handle = 1;
+}
+
+message GetTitleResResponse {
+  int32 result = 1;
+}
+
+message GetViewRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message GetViewResponse {
+  int64 result = 1;
+}
+
+message GetWidgetLayoutResourceRequest {
+  int64 handle = 1;
+}
+
+message GetWidgetLayoutResourceResponse {
+  int32 result = 1;
+}
+
+message HasKeyRequest {
+  int64 handle = 1;
+}
+
+message HasKeyResponse {
+  bool result = 1;
+}
+
+message IsEnabledRequest {
+  int64 handle = 1;
+}
+
+message IsEnabledResponse {
+  bool result = 1;
+}
+
+message IsIconSpaceReservedRequest {
+  int64 handle = 1;
+}
+
+message IsIconSpaceReservedResponse {
+  bool result = 1;
+}
+
+message IsPersistentRequest {
+  int64 handle = 1;
+}
+
+message IsPersistentResponse {
+  bool result = 1;
+}
+
+message IsRecycleEnabledRequest {
+  int64 handle = 1;
+}
+
+message IsRecycleEnabledResponse {
+  bool result = 1;
+}
+
+message IsSelectableRequest {
+  int64 handle = 1;
+}
+
+message IsSelectableResponse {
+  bool result = 1;
+}
+
+message IsSingleLineTitleRequest {
+  int64 handle = 1;
+}
+
+message IsSingleLineTitleResponse {
+  bool result = 1;
+}
+
+message PreferenceNotifyDependencyChangeRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message OnDependencyChangedRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  bool arg1 = 3;
+}
+
+message OnDependencyChangedResponse {
+}
+
+message OnParentChangedRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  bool arg1 = 3;
+}
+
+message OnParentChangedResponse {
+}
+
+message PeekExtrasRequest {
+  int64 handle = 1;
+}
+
+message PeekExtrasResponse {
+  int64 result = 1;
+}
+
+message RestoreHierarchyStateRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message RestoreHierarchyStateResponse {
+}
+
+message SaveHierarchyStateRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SaveHierarchyStateResponse {
+}
+
+message SetDefaultValueRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetDefaultValueResponse {
+}
+
+message SetDependencyRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetDependencyResponse {
+}
+
+message SetEnabledRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetEnabledResponse {
+}
+
+message SetFragmentRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetFragmentResponse {
+}
+
+message SetIcon1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetIcon1Response {
+}
+
+message SetIcon1_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetIcon1_1Response {
+}
+
+message SetIconSpaceReservedRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetIconSpaceReservedResponse {
+}
+
+message SetIntentRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetIntentResponse {
+}
+
+message SetKeyRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetKeyResponse {
+}
+
+message SetLayoutResourceRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetLayoutResourceResponse {
+}
+
+message SetOnPreferenceChangeListenerRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetOnPreferenceChangeListenerResponse {
+}
+
+message SetOnPreferenceClickListenerRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetOnPreferenceClickListenerResponse {
+}
+
+message SetOrderRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetOrderResponse {
+}
+
+message SetPersistentRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetPersistentResponse {
+}
+
+message PreferenceSetPreferenceDataStoreRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetRecycleEnabledRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetRecycleEnabledResponse {
+}
+
+message SetSelectableRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetSelectableResponse {
+}
+
+message SetShouldDisableViewRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetShouldDisableViewResponse {
+}
+
+message SetSingleLineTitleRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetSingleLineTitleResponse {
+}
+
+message SetSummary1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetSummary1Response {
+}
+
+message SetSummary1_1Request {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetSummary1_1Response {
+}
+
+message SetTitle1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetTitle1Response {
+}
+
+message SetTitle1_1Request {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetTitle1_1Response {
+}
+
+message SetWidgetLayoutResourceRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetWidgetLayoutResourceResponse {
+}
+
+message ShouldCommitRequest {
+  int64 handle = 1;
+}
+
+message ShouldCommitResponse {
+  bool result = 1;
+}
+
+message ToStringRequest {
+  int64 handle = 1;
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message CompareTo1_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message CompareTo1_1Response {
+  int32 result = 1;
+}
+
+message OnPreferenceChangeRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnPreferenceChangeResponse {
+  bool result = 1;
+}
+
+message OnPreferenceClickRequest {
+  int64 arg0 = 1;
+}
+
+message OnPreferenceClickResponse {
+  bool result = 1;
+}
+
+message NewCategoryRequest {
+  int64 arg0 = 1;
+}
+
+message NewCategoryResponse {
+  int64 result = 1;
+}
+
+service FragmentService {
+  rpc AddPreferencesFromIntent (AddPreferencesFromIntentRequest) returns (AddPreferencesFromIntentResponse);
+  rpc AddPreferencesFromResource (AddPreferencesFromResourceRequest) returns (AddPreferencesFromResourceResponse);
+  rpc FindPreference (FindPreferenceRequest) returns (FindPreferenceResponse);
+  rpc GetPreferenceManager (GetPreferenceManagerRequest) returns (GetPreferenceManagerResponse);
+  rpc GetPreferenceScreen (GetPreferenceScreenRequest) returns (GetPreferenceScreenResponse);
+  rpc OnActivityCreated (OnActivityCreatedRequest) returns (OnActivityCreatedResponse);
+  rpc OnActivityResult (OnActivityResultRequest) returns (OnActivityResultResponse);
+  rpc OnCreate (OnCreateRequest) returns (OnCreateResponse);
+  rpc OnCreateView (OnCreateViewRequest) returns (OnCreateViewResponse);
+  rpc OnDestroy (OnDestroyRequest) returns (OnDestroyResponse);
+  rpc OnDestroyView (OnDestroyViewRequest) returns (OnDestroyViewResponse);
+  rpc OnPreferenceTreeClick (OnPreferenceTreeClickRequest) returns (OnPreferenceTreeClickResponse);
+  rpc OnSaveInstanceState (OnSaveInstanceStateRequest) returns (OnSaveInstanceStateResponse);
+  rpc OnStart (OnStartRequest) returns (OnStartResponse);
+  rpc OnStop (OnStopRequest) returns (OnStopResponse);
+  rpc OnViewCreated (OnViewCreatedRequest) returns (OnViewCreatedResponse);
+  rpc SetPreferenceScreen (SetPreferenceScreenRequest) returns (SetPreferenceScreenResponse);
+}
+
+service FragmentOnPreferenceStartFragmentCallbackService {
+  rpc OnPreferenceStartFragment (OnPreferenceStartFragmentRequest) returns (OnPreferenceStartFragmentResponse);
+}
+
+service MultiSelectListPreferenceService {
+  rpc NewMultiSelectListPreference (NewMultiSelectListPreferenceRequest) returns (NewMultiSelectListPreferenceResponse);
+  rpc FindIndexOfValue (FindIndexOfValueRequest) returns (FindIndexOfValueResponse);
+  rpc GetEntries (GetEntriesRequest) returns (GetEntriesResponse);
+  rpc GetEntryValues (GetEntryValuesRequest) returns (GetEntryValuesResponse);
+  rpc SetEntries1 (SetEntries1Request) returns (SetEntries1Response);
+  rpc SetEntries1_1 (SetEntries1_1Request) returns (SetEntries1_1Response);
+  rpc SetEntryValues1 (SetEntryValues1Request) returns (SetEntryValues1Response);
+  rpc SetEntryValues1_1 (SetEntryValues1_1Request) returns (SetEntryValues1_1Response);
+}
+
+service ManagerService {
+  rpc CreatePreferenceScreen (CreatePreferenceScreenRequest) returns (CreatePreferenceScreenResponse);
+  rpc FindPreference (FindPreferenceRequest) returns (FindPreferenceResponse);
+  rpc GetPreferenceDataStore (GetPreferenceDataStoreRequest) returns (GetPreferenceDataStoreResponse);
+  rpc GetSharedPreferences (GetSharedPreferencesRequest) returns (GetSharedPreferencesResponse);
+  rpc GetSharedPreferencesMode (GetSharedPreferencesModeRequest) returns (GetSharedPreferencesModeResponse);
+  rpc GetSharedPreferencesName (GetSharedPreferencesNameRequest) returns (GetSharedPreferencesNameResponse);
+  rpc IsStorageDefault (IsStorageDefaultRequest) returns (IsStorageDefaultResponse);
+  rpc IsStorageDeviceProtected (IsStorageDeviceProtectedRequest) returns (IsStorageDeviceProtectedResponse);
+  rpc SetPreferenceDataStore (SetPreferenceDataStoreRequest) returns (SetPreferenceDataStoreResponse);
+  rpc SetSharedPreferencesMode (SetSharedPreferencesModeRequest) returns (SetSharedPreferencesModeResponse);
+  rpc SetSharedPreferencesName (SetSharedPreferencesNameRequest) returns (SetSharedPreferencesNameResponse);
+  rpc SetStorageDefault (SetStorageDefaultRequest) returns (SetStorageDefaultResponse);
+  rpc SetStorageDeviceProtected (SetStorageDeviceProtectedRequest) returns (SetStorageDeviceProtectedResponse);
+  rpc GetDefaultSharedPreferences (GetDefaultSharedPreferencesRequest) returns (GetDefaultSharedPreferencesResponse);
+  rpc GetDefaultSharedPreferencesName (GetDefaultSharedPreferencesNameRequest) returns (GetDefaultSharedPreferencesNameResponse);
+  rpc SetDefaultValues3 (SetDefaultValues3Request) returns (SetDefaultValues3Response);
+  rpc SetDefaultValues5_1 (SetDefaultValues5_1Request) returns (SetDefaultValues5_1Response);
+}
+
+service ManagerOnActivityDestroyListenerService {
+  rpc OnActivityDestroy (OnActivityDestroyRequest) returns (OnActivityDestroyResponse);
+}
+
+service ManagerOnActivityResultListenerService {
+  rpc OnActivityResult (OnActivityResultRequest) returns (ManagerOnActivityResultListenerOnActivityResultResponse);
+}
+
+service ManagerOnActivityStopListenerService {
+  rpc OnActivityStop (OnActivityStopRequest) returns (OnActivityStopResponse);
+}
+
+service SwitchPreferenceService {
+  rpc NewSwitchPreference (NewSwitchPreferenceRequest) returns (NewSwitchPreferenceResponse);
+  rpc GetSwitchTextOff (GetSwitchTextOffRequest) returns (GetSwitchTextOffResponse);
+  rpc GetSwitchTextOn (GetSwitchTextOnRequest) returns (GetSwitchTextOnResponse);
+  rpc SetSwitchTextOff1 (SetSwitchTextOff1Request) returns (SetSwitchTextOff1Response);
+  rpc SetSwitchTextOff1_1 (SetSwitchTextOff1_1Request) returns (SetSwitchTextOff1_1Response);
+  rpc SetSwitchTextOn1 (SetSwitchTextOn1Request) returns (SetSwitchTextOn1Response);
+  rpc SetSwitchTextOn1_1 (SetSwitchTextOn1_1Request) returns (SetSwitchTextOn1_1Response);
+}
+
+service EditTextPreferenceService {
+  rpc NewEditTextPreference (NewEditTextPreferenceRequest) returns (NewEditTextPreferenceResponse);
+  rpc GetEditText (GetEditTextRequest) returns (GetEditTextResponse);
+  rpc GetText (GetTextRequest) returns (GetTextResponse);
+  rpc SetText (SetTextRequest) returns (SetTextResponse);
+  rpc ShouldDisableDependents (ShouldDisableDependentsRequest) returns (ShouldDisableDependentsResponse);
+}
+
+service ListPreferenceService {
+  rpc NewListPreference (NewListPreferenceRequest) returns (NewListPreferenceResponse);
+  rpc FindIndexOfValue (FindIndexOfValueRequest) returns (FindIndexOfValueResponse);
+  rpc GetEntries (GetEntriesRequest) returns (GetEntriesResponse);
+  rpc GetEntry (GetEntryRequest) returns (GetEntryResponse);
+  rpc GetEntryValues (GetEntryValuesRequest) returns (GetEntryValuesResponse);
+  rpc GetSummary (GetSummaryRequest) returns (GetSummaryResponse);
+  rpc GetValue (GetValueRequest) returns (GetValueResponse);
+  rpc SetEntries1 (SetEntries1Request) returns (SetEntries1Response);
+  rpc SetEntries1_1 (SetEntries1_1Request) returns (SetEntries1_1Response);
+  rpc SetEntryValues1 (SetEntryValues1Request) returns (SetEntryValues1Response);
+  rpc SetEntryValues1_1 (SetEntryValues1_1Request) returns (SetEntryValues1_1Response);
+  rpc SetSummary (SetSummaryRequest) returns (SetSummaryResponse);
+  rpc SetValue (SetValueRequest) returns (SetValueResponse);
+  rpc SetValueIndex (SetValueIndexRequest) returns (SetValueIndexResponse);
+}
+
+service ActivityService {
+  rpc AddPreferencesFromIntent (AddPreferencesFromIntentRequest) returns (AddPreferencesFromIntentResponse);
+  rpc AddPreferencesFromResource (AddPreferencesFromResourceRequest) returns (AddPreferencesFromResourceResponse);
+  rpc FindPreference (FindPreferenceRequest) returns (FindPreferenceResponse);
+  rpc FinishPreferencePanel (FinishPreferencePanelRequest) returns (FinishPreferencePanelResponse);
+  rpc GetPreferenceManager (GetPreferenceManagerRequest) returns (GetPreferenceManagerResponse);
+  rpc GetPreferenceScreen (GetPreferenceScreenRequest) returns (GetPreferenceScreenResponse);
+  rpc HasHeaders (HasHeadersRequest) returns (HasHeadersResponse);
+  rpc InvalidateHeaders (InvalidateHeadersRequest) returns (InvalidateHeadersResponse);
+  rpc IsMultiPane (IsMultiPaneRequest) returns (IsMultiPaneResponse);
+  rpc OnBackPressed (OnBackPressedRequest) returns (OnBackPressedResponse);
+  rpc OnBuildStartFragmentIntent (OnBuildStartFragmentIntentRequest) returns (OnBuildStartFragmentIntentResponse);
+  rpc OnContentChanged (OnContentChangedRequest) returns (OnContentChangedResponse);
+  rpc OnGetInitialHeader (OnGetInitialHeaderRequest) returns (OnGetInitialHeaderResponse);
+  rpc OnGetNewHeader (OnGetNewHeaderRequest) returns (OnGetNewHeaderResponse);
+  rpc OnHeaderClick (OnHeaderClickRequest) returns (OnHeaderClickResponse);
+  rpc OnIsHidingHeaders (OnIsHidingHeadersRequest) returns (OnIsHidingHeadersResponse);
+  rpc OnIsMultiPane (OnIsMultiPaneRequest) returns (OnIsMultiPaneResponse);
+  rpc OnOptionsItemSelected (OnOptionsItemSelectedRequest) returns (OnOptionsItemSelectedResponse);
+  rpc OnPreferenceStartFragment (OnPreferenceStartFragmentRequest) returns (OnPreferenceStartFragmentResponse);
+  rpc OnPreferenceTreeClick (OnPreferenceTreeClickRequest) returns (OnPreferenceTreeClickResponse);
+  rpc SetListFooter (SetListFooterRequest) returns (SetListFooterResponse);
+  rpc SetParentTitle (SetParentTitleRequest) returns (SetParentTitleResponse);
+  rpc SetPreferenceScreen (SetPreferenceScreenRequest) returns (SetPreferenceScreenResponse);
+  rpc ShowBreadCrumbs (ShowBreadCrumbsRequest) returns (ShowBreadCrumbsResponse);
+  rpc StartPreferenceFragment (StartPreferenceFragmentRequest) returns (StartPreferenceFragmentResponse);
+  rpc StartPreferencePanel (StartPreferencePanelRequest) returns (StartPreferencePanelResponse);
+  rpc StartWithFragment4 (StartWithFragment4Request) returns (StartWithFragment4Response);
+  rpc StartWithFragment6_1 (StartWithFragment6_1Request) returns (StartWithFragment6_1Response);
+  rpc SwitchToHeader1 (SwitchToHeader1Request) returns (SwitchToHeader1Response);
+  rpc SwitchToHeader2_1 (SwitchToHeader2_1Request) returns (SwitchToHeader2_1Response);
+}
+
+service ActivityHeaderService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetBreadCrumbShortTitle (GetBreadCrumbShortTitleRequest) returns (GetBreadCrumbShortTitleResponse);
+  rpc GetBreadCrumbTitle (GetBreadCrumbTitleRequest) returns (GetBreadCrumbTitleResponse);
+  rpc GetSummary (ActivityHeaderGetSummaryRequest) returns (GetSummaryResponse);
+  rpc GetTitle (GetTitleRequest) returns (GetTitleResponse);
+  rpc ReadFromParcel (ReadFromParcelRequest) returns (ReadFromParcelResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service TwoStatePreferenceService {
+  rpc GetDisableDependentsState (GetDisableDependentsStateRequest) returns (GetDisableDependentsStateResponse);
+  rpc GetSummaryOff (GetSummaryOffRequest) returns (GetSummaryOffResponse);
+  rpc GetSummaryOn (GetSummaryOnRequest) returns (GetSummaryOnResponse);
+  rpc IsChecked (IsCheckedRequest) returns (IsCheckedResponse);
+  rpc SetChecked (SetCheckedRequest) returns (SetCheckedResponse);
+  rpc SetDisableDependentsState (SetDisableDependentsStateRequest) returns (SetDisableDependentsStateResponse);
+  rpc SetSummaryOff1 (SetSummaryOff1Request) returns (SetSummaryOff1Response);
+  rpc SetSummaryOff1_1 (SetSummaryOff1_1Request) returns (SetSummaryOff1_1Response);
+  rpc SetSummaryOn1 (SetSummaryOn1Request) returns (SetSummaryOn1Response);
+  rpc SetSummaryOn1_1 (SetSummaryOn1_1Request) returns (SetSummaryOn1_1Response);
+  rpc ShouldDisableDependents (TwoStatePreferenceShouldDisableDependentsRequest) returns (ShouldDisableDependentsResponse);
+}
+
+service DialogPreferenceService {
+  rpc GetDialog (GetDialogRequest) returns (GetDialogResponse);
+  rpc GetDialogIcon (GetDialogIconRequest) returns (GetDialogIconResponse);
+  rpc GetDialogLayoutResource (GetDialogLayoutResourceRequest) returns (GetDialogLayoutResourceResponse);
+  rpc GetDialogMessage (GetDialogMessageRequest) returns (GetDialogMessageResponse);
+  rpc GetDialogTitle (GetDialogTitleRequest) returns (GetDialogTitleResponse);
+  rpc GetNegativeButtonText (GetNegativeButtonTextRequest) returns (GetNegativeButtonTextResponse);
+  rpc GetPositiveButtonText (GetPositiveButtonTextRequest) returns (GetPositiveButtonTextResponse);
+  rpc OnActivityDestroy (OnActivityDestroyRequest) returns (OnActivityDestroyResponse);
+  rpc OnClick (OnClickRequest) returns (OnClickResponse);
+  rpc OnDismiss (OnDismissRequest) returns (OnDismissResponse);
+  rpc SetDialogIcon1 (SetDialogIcon1Request) returns (SetDialogIcon1Response);
+  rpc SetDialogIcon1_1 (SetDialogIcon1_1Request) returns (SetDialogIcon1_1Response);
+  rpc SetDialogLayoutResource (SetDialogLayoutResourceRequest) returns (SetDialogLayoutResourceResponse);
+  rpc SetDialogMessage1 (SetDialogMessage1Request) returns (SetDialogMessage1Response);
+  rpc SetDialogMessage1_1 (SetDialogMessage1_1Request) returns (SetDialogMessage1_1Response);
+  rpc SetDialogTitle1 (SetDialogTitle1Request) returns (SetDialogTitle1Response);
+  rpc SetDialogTitle1_1 (SetDialogTitle1_1Request) returns (SetDialogTitle1_1Response);
+  rpc SetNegativeButtonText1 (SetNegativeButtonText1Request) returns (SetNegativeButtonText1Response);
+  rpc SetNegativeButtonText1_1 (SetNegativeButtonText1_1Request) returns (SetNegativeButtonText1_1Response);
+  rpc SetPositiveButtonText1 (SetPositiveButtonText1Request) returns (SetPositiveButtonText1Response);
+  rpc SetPositiveButtonText1_1 (SetPositiveButtonText1_1Request) returns (SetPositiveButtonText1_1Response);
+}
+
+service ScreenService {
+  rpc Bind (BindRequest) returns (BindResponse);
+  rpc GetDialog (GetDialogRequest) returns (GetDialogResponse);
+  rpc GetRootAdapter (GetRootAdapterRequest) returns (GetRootAdapterResponse);
+  rpc OnDismiss (OnDismissRequest) returns (OnDismissResponse);
+  rpc OnItemClick (OnItemClickRequest) returns (OnItemClickResponse);
+}
+
+service GroupService {
+  rpc AddItemFromInflater (AddItemFromInflaterRequest) returns (AddItemFromInflaterResponse);
+  rpc AddPreference (AddPreferenceRequest) returns (AddPreferenceResponse);
+  rpc FindPreference (FindPreferenceRequest) returns (FindPreferenceResponse);
+  rpc GetPreference (GetPreferenceRequest) returns (GetPreferenceResponse);
+  rpc GetPreferenceCount (GetPreferenceCountRequest) returns (GetPreferenceCountResponse);
+  rpc IsOrderingAsAdded (IsOrderingAsAddedRequest) returns (IsOrderingAsAddedResponse);
+  rpc NotifyDependencyChange (NotifyDependencyChangeRequest) returns (NotifyDependencyChangeResponse);
+  rpc RemoveAll (RemoveAllRequest) returns (RemoveAllResponse);
+  rpc RemovePreference (RemovePreferenceRequest) returns (RemovePreferenceResponse);
+  rpc SetOrderingAsAdded (SetOrderingAsAddedRequest) returns (SetOrderingAsAddedResponse);
+}
+
+service RingtonePreferenceService {
+  rpc NewRingtonePreference (NewRingtonePreferenceRequest) returns (NewRingtonePreferenceResponse);
+  rpc GetRingtoneType (GetRingtoneTypeRequest) returns (GetRingtoneTypeResponse);
+  rpc GetShowDefault (GetShowDefaultRequest) returns (GetShowDefaultResponse);
+  rpc GetShowSilent (GetShowSilentRequest) returns (GetShowSilentResponse);
+  rpc OnActivityResult (RingtonePreferenceOnActivityResultRequest) returns (RingtonePreferenceOnActivityResultResponse);
+  rpc SetRingtoneType (SetRingtoneTypeRequest) returns (SetRingtoneTypeResponse);
+  rpc SetShowDefault (SetShowDefaultRequest) returns (SetShowDefaultResponse);
+  rpc SetShowSilent (SetShowSilentRequest) returns (SetShowSilentResponse);
+}
+
+service PreferenceService {
+  rpc NewPreference (NewPreferenceRequest) returns (NewPreferenceResponse);
+  rpc CompareTo1 (CompareTo1Request) returns (CompareTo1Response);
+  rpc GetContext (GetContextRequest) returns (GetContextResponse);
+  rpc GetDependency (GetDependencyRequest) returns (GetDependencyResponse);
+  rpc GetEditor (GetEditorRequest) returns (GetEditorResponse);
+  rpc GetExtras (GetExtrasRequest) returns (GetExtrasResponse);
+  rpc GetFragment (GetFragmentRequest) returns (GetFragmentResponse);
+  rpc GetIcon (GetIconRequest) returns (GetIconResponse);
+  rpc GetIntent (GetIntentRequest) returns (GetIntentResponse);
+  rpc GetKey (GetKeyRequest) returns (GetKeyResponse);
+  rpc GetLayoutResource (GetLayoutResourceRequest) returns (GetLayoutResourceResponse);
+  rpc GetOnPreferenceChangeListener (GetOnPreferenceChangeListenerRequest) returns (GetOnPreferenceChangeListenerResponse);
+  rpc GetOnPreferenceClickListener (GetOnPreferenceClickListenerRequest) returns (GetOnPreferenceClickListenerResponse);
+  rpc GetOrder (GetOrderRequest) returns (GetOrderResponse);
+  rpc GetParent (GetParentRequest) returns (GetParentResponse);
+  rpc GetPreferenceDataStore (PreferenceGetPreferenceDataStoreRequest) returns (GetPreferenceDataStoreResponse);
+  rpc GetPreferenceManager (PreferenceGetPreferenceManagerRequest) returns (GetPreferenceManagerResponse);
+  rpc GetSharedPreferences (PreferenceGetSharedPreferencesRequest) returns (GetSharedPreferencesResponse);
+  rpc GetShouldDisableView (GetShouldDisableViewRequest) returns (GetShouldDisableViewResponse);
+  rpc GetSummary (GetSummaryRequest) returns (GetSummaryResponse);
+  rpc GetTitle (PreferenceGetTitleRequest) returns (GetTitleResponse);
+  rpc GetTitleRes (GetTitleResRequest) returns (GetTitleResResponse);
+  rpc GetView (GetViewRequest) returns (GetViewResponse);
+  rpc GetWidgetLayoutResource (GetWidgetLayoutResourceRequest) returns (GetWidgetLayoutResourceResponse);
+  rpc HasKey (HasKeyRequest) returns (HasKeyResponse);
+  rpc IsEnabled (IsEnabledRequest) returns (IsEnabledResponse);
+  rpc IsIconSpaceReserved (IsIconSpaceReservedRequest) returns (IsIconSpaceReservedResponse);
+  rpc IsPersistent (IsPersistentRequest) returns (IsPersistentResponse);
+  rpc IsRecycleEnabled (IsRecycleEnabledRequest) returns (IsRecycleEnabledResponse);
+  rpc IsSelectable (IsSelectableRequest) returns (IsSelectableResponse);
+  rpc IsSingleLineTitle (IsSingleLineTitleRequest) returns (IsSingleLineTitleResponse);
+  rpc NotifyDependencyChange (PreferenceNotifyDependencyChangeRequest) returns (NotifyDependencyChangeResponse);
+  rpc OnDependencyChanged (OnDependencyChangedRequest) returns (OnDependencyChangedResponse);
+  rpc OnParentChanged (OnParentChangedRequest) returns (OnParentChangedResponse);
+  rpc PeekExtras (PeekExtrasRequest) returns (PeekExtrasResponse);
+  rpc RestoreHierarchyState (RestoreHierarchyStateRequest) returns (RestoreHierarchyStateResponse);
+  rpc SaveHierarchyState (SaveHierarchyStateRequest) returns (SaveHierarchyStateResponse);
+  rpc SetDefaultValue (SetDefaultValueRequest) returns (SetDefaultValueResponse);
+  rpc SetDependency (SetDependencyRequest) returns (SetDependencyResponse);
+  rpc SetEnabled (SetEnabledRequest) returns (SetEnabledResponse);
+  rpc SetFragment (SetFragmentRequest) returns (SetFragmentResponse);
+  rpc SetIcon1 (SetIcon1Request) returns (SetIcon1Response);
+  rpc SetIcon1_1 (SetIcon1_1Request) returns (SetIcon1_1Response);
+  rpc SetIconSpaceReserved (SetIconSpaceReservedRequest) returns (SetIconSpaceReservedResponse);
+  rpc SetIntent (SetIntentRequest) returns (SetIntentResponse);
+  rpc SetKey (SetKeyRequest) returns (SetKeyResponse);
+  rpc SetLayoutResource (SetLayoutResourceRequest) returns (SetLayoutResourceResponse);
+  rpc SetOnPreferenceChangeListener (SetOnPreferenceChangeListenerRequest) returns (SetOnPreferenceChangeListenerResponse);
+  rpc SetOnPreferenceClickListener (SetOnPreferenceClickListenerRequest) returns (SetOnPreferenceClickListenerResponse);
+  rpc SetOrder (SetOrderRequest) returns (SetOrderResponse);
+  rpc SetPersistent (SetPersistentRequest) returns (SetPersistentResponse);
+  rpc SetPreferenceDataStore (PreferenceSetPreferenceDataStoreRequest) returns (SetPreferenceDataStoreResponse);
+  rpc SetRecycleEnabled (SetRecycleEnabledRequest) returns (SetRecycleEnabledResponse);
+  rpc SetSelectable (SetSelectableRequest) returns (SetSelectableResponse);
+  rpc SetShouldDisableView (SetShouldDisableViewRequest) returns (SetShouldDisableViewResponse);
+  rpc SetSingleLineTitle (SetSingleLineTitleRequest) returns (SetSingleLineTitleResponse);
+  rpc SetSummary1 (SetSummary1Request) returns (SetSummary1Response);
+  rpc SetSummary1_1 (SetSummary1_1Request) returns (SetSummary1_1Response);
+  rpc SetTitle1 (SetTitle1Request) returns (SetTitle1Response);
+  rpc SetTitle1_1 (SetTitle1_1Request) returns (SetTitle1_1Response);
+  rpc SetWidgetLayoutResource (SetWidgetLayoutResourceRequest) returns (SetWidgetLayoutResourceResponse);
+  rpc ShouldCommit (ShouldCommitRequest) returns (ShouldCommitResponse);
+  rpc ShouldDisableDependents (ShouldDisableDependentsRequest) returns (ShouldDisableDependentsResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc CompareTo1_1 (CompareTo1_1Request) returns (CompareTo1_1Response);
+}
+
+service OnPreferenceChangeListenerService {
+  rpc OnPreferenceChange (OnPreferenceChangeRequest) returns (OnPreferenceChangeResponse);
+}
+
+service OnPreferenceClickListenerService {
+  rpc OnPreferenceClick (OnPreferenceClickRequest) returns (OnPreferenceClickResponse);
+}
+
+service CategoryService {
+  rpc NewCategory (NewCategoryRequest) returns (NewCategoryResponse);
+  rpc IsEnabled (IsEnabledRequest) returns (IsEnabledResponse);
+  rpc ShouldDisableDependents (ShouldDisableDependentsRequest) returns (ShouldDisableDependentsResponse);
+}

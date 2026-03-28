@@ -41,18 +41,24 @@ build-host:
 # Build jniserviceadmin for Android (for granting permissions on device).
 build-admin:
 	@mkdir -p build
-	CGO_ENABLED=0 GOOS=android GOARCH=$(GOARCH) go build -o build/jniserviceadmin ../../cmd/jniserviceadmin/
+	CGO_ENABLED=0 GOOS=linux GOARCH=$(GOARCH) go build -o build/jniserviceadmin ../../cmd/jniserviceadmin/
 
 # Build jnicli + libjniservice.so + classes.dex for Android.
 build-android:
 	@mkdir -p build
-	CGO_ENABLED=0 GOOS=android GOARCH=$(GOARCH) go build -o build/jnicli ../../cmd/jnicli/
+	CGO_ENABLED=0 GOOS=linux GOARCH=$(GOARCH) go build -o build/jnicli ../../cmd/jnicli/
 	CGO_ENABLED=1 GOOS=android GOARCH=$(GOARCH) CC=$(CC) \
 		go build -buildmode=c-shared -o build/libjniservice.so ../../cmd/jniservice/
-	javac --release 17 -d build ../../cmd/jniservice/JNIService.java
+	javac --release 17 \
+		-cp $$(ls -d $(ANDROID_SDK)/platforms/android-* | sort -V | tail -1)/android.jar \
+		-d build \
+		../../cmd/jniservice/JNIService.java \
+		../../cmd/jniservice/apk/src/center/dx/jni/internal/GoAbstractDispatch.java \
+		../../cmd/jniservice/apk/src/center/dx/jni/generated/*.java \
+		../../internal/testjvm/testdata/center/dx/jni/internal/GoInvocationHandler.java
 	$(ANDROID_SDK)/build-tools/$$(ls $(ANDROID_SDK)/build-tools | sort -V | tail -1)/d8 \
 		--lib $$(ls -d $(ANDROID_SDK)/platforms/android-* | sort -V | tail -1)/android.jar \
-		--output build build/JNIService.class
+		--output build $$(find build -name '*.class')
 
 # Push artifacts to the device.
 push: build-android

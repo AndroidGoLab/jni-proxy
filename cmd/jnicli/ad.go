@@ -80,6 +80,1670 @@ var adTvAdManagerUnregisterCallbackCmd = &cobra.Command{
 	},
 }
 
+var adTvAdManagerTvAdServiceCallbackCmd = &cobra.Command{
+	Use:   "tv-ad-manager-tv-ad-service-callback",
+	Short: "TvAdManagerTvAdServiceCallbackService operations",
+}
+
+var adTvAdManagerTvAdServiceCallbackOnAdServiceAddedCmd = &cobra.Command{
+	Use:   "on-ad-service-added",
+	Short: "OnAdServiceAdded RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdManagerTvAdServiceCallbackServiceClient(grpcConn)
+		req := &pb.OnAdServiceAddedRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnAdServiceAdded(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdManagerTvAdServiceCallbackOnAdServiceRemovedCmd = &cobra.Command{
+	Use:   "on-ad-service-removed",
+	Short: "OnAdServiceRemoved RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdManagerTvAdServiceCallbackServiceClient(grpcConn)
+		req := &pb.OnAdServiceRemovedRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnAdServiceRemoved(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdManagerTvAdServiceCallbackOnAdServiceUpdatedCmd = &cobra.Command{
+	Use:   "on-ad-service-updated",
+	Short: "OnAdServiceUpdated RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdManagerTvAdServiceCallbackServiceClient(grpcConn)
+		req := &pb.OnAdServiceUpdatedRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnAdServiceUpdated(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdServiceInfoCmd = &cobra.Command{
+	Use:   "tv-ad-service-info",
+	Short: "TvAdServiceInfoService operations",
+}
+
+var adTvAdServiceInfoNewTvAdServiceInfoCmd = &cobra.Command{
+	Use:   "new-tv-ad-service-info",
+	Short: "NewTvAdServiceInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdServiceInfoServiceClient(grpcConn)
+		req := &pb.NewTvAdServiceInfoRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewTvAdServiceInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdServiceInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdServiceInfoServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdServiceInfoGetIdCmd = &cobra.Command{
+	Use:   "get-id",
+	Short: "GetId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdServiceInfoServiceClient(grpcConn)
+		req := &pb.GetIdRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdServiceInfoGetServiceInfoCmd = &cobra.Command{
+	Use:   "get-service-info",
+	Short: "GetServiceInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdServiceInfoServiceClient(grpcConn)
+		req := &pb.GetServiceInfoRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetServiceInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdServiceInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdServiceInfoServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdViewCmd = &cobra.Command{
+	Use:   "tv-ad-view",
+	Short: "TvAdViewService operations",
+}
+
+var adTvAdViewNewTvAdViewCmd = &cobra.Command{
+	Use:   "new-tv-ad-view",
+	Short: "NewTvAdView RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdViewServiceClient(grpcConn)
+		req := &pb.NewTvAdViewRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewTvAdView(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdViewClearCallbackCmd = &cobra.Command{
+	Use:   "clear-callback",
+	Short: "ClearCallback RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdViewServiceClient(grpcConn)
+		req := &pb.ClearCallbackRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ClearCallback(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdViewClearOnUnhandledInputEventListenerCmd = &cobra.Command{
+	Use:   "clear-on-unhandled-input-event-listener",
+	Short: "ClearOnUnhandledInputEventListener RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdViewServiceClient(grpcConn)
+		req := &pb.ClearOnUnhandledInputEventListenerRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ClearOnUnhandledInputEventListener(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdViewDispatchKeyEventCmd = &cobra.Command{
+	Use:   "dispatch-key-event",
+	Short: "DispatchKeyEvent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdViewServiceClient(grpcConn)
+		req := &pb.DispatchKeyEventRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.DispatchKeyEvent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdViewDispatchUnhandledInputEventCmd = &cobra.Command{
+	Use:   "dispatch-unhandled-input-event",
+	Short: "DispatchUnhandledInputEvent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdViewServiceClient(grpcConn)
+		req := &pb.DispatchUnhandledInputEventRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.DispatchUnhandledInputEvent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdViewGetOnUnhandledInputEventListenerCmd = &cobra.Command{
+	Use:   "get-on-unhandled-input-event-listener",
+	Short: "GetOnUnhandledInputEventListener RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdViewServiceClient(grpcConn)
+		req := &pb.GetOnUnhandledInputEventListenerRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetOnUnhandledInputEventListener(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdViewNotifyErrorCmd = &cobra.Command{
+	Use:   "notify-error",
+	Short: "NotifyError RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdViewServiceClient(grpcConn)
+		req := &pb.NotifyErrorRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NotifyError(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdViewNotifyTvMessageCmd = &cobra.Command{
+	Use:   "notify-tv-message",
+	Short: "NotifyTvMessage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdViewServiceClient(grpcConn)
+		req := &pb.NotifyTvMessageRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NotifyTvMessage(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdViewOnAttachedToWindowCmd = &cobra.Command{
+	Use:   "on-attached-to-window",
+	Short: "OnAttachedToWindow RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdViewServiceClient(grpcConn)
+		req := &pb.OnAttachedToWindowRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.OnAttachedToWindow(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdViewOnDetachedFromWindowCmd = &cobra.Command{
+	Use:   "on-detached-from-window",
+	Short: "OnDetachedFromWindow RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdViewServiceClient(grpcConn)
+		req := &pb.OnDetachedFromWindowRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.OnDetachedFromWindow(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdViewOnLayoutCmd = &cobra.Command{
+	Use:   "on-layout",
+	Short: "OnLayout RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdViewServiceClient(grpcConn)
+		req := &pb.OnLayoutRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.OnLayout(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdViewOnMeasureCmd = &cobra.Command{
+	Use:   "on-measure",
+	Short: "OnMeasure RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdViewServiceClient(grpcConn)
+		req := &pb.OnMeasureRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnMeasure(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdViewOnUnhandledInputEventCmd = &cobra.Command{
+	Use:   "on-unhandled-input-event",
+	Short: "OnUnhandledInputEvent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdViewServiceClient(grpcConn)
+		req := &pb.OnUnhandledInputEventRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnUnhandledInputEvent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdViewOnVisibilityChangedCmd = &cobra.Command{
+	Use:   "on-visibility-changed",
+	Short: "OnVisibilityChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdViewServiceClient(grpcConn)
+		req := &pb.OnVisibilityChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnVisibilityChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdViewPrepareAdServiceCmd = &cobra.Command{
+	Use:   "prepare-ad-service",
+	Short: "PrepareAdService RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdViewServiceClient(grpcConn)
+		req := &pb.PrepareAdServiceRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.PrepareAdService(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdViewResetCmd = &cobra.Command{
+	Use:   "reset",
+	Short: "Reset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdViewServiceClient(grpcConn)
+		req := &pb.ResetRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Reset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdViewResetAdServiceCmd = &cobra.Command{
+	Use:   "reset-ad-service",
+	Short: "ResetAdService RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdViewServiceClient(grpcConn)
+		req := &pb.ResetAdServiceRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ResetAdService(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdViewSendCurrentChannelUriCmd = &cobra.Command{
+	Use:   "send-current-channel-uri",
+	Short: "SendCurrentChannelUri RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdViewServiceClient(grpcConn)
+		req := &pb.SendCurrentChannelUriRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SendCurrentChannelUri(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdViewSendCurrentTvInputIdCmd = &cobra.Command{
+	Use:   "send-current-tv-input-id",
+	Short: "SendCurrentTvInputId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdViewServiceClient(grpcConn)
+		req := &pb.SendCurrentTvInputIdRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SendCurrentTvInputId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdViewSendCurrentVideoBoundsCmd = &cobra.Command{
+	Use:   "send-current-video-bounds",
+	Short: "SendCurrentVideoBounds RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdViewServiceClient(grpcConn)
+		req := &pb.SendCurrentVideoBoundsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SendCurrentVideoBounds(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdViewSendSigningResultCmd = &cobra.Command{
+	Use:   "send-signing-result",
+	Short: "SendSigningResult RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdViewServiceClient(grpcConn)
+		req := &pb.SendSigningResultRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SendSigningResult(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdViewSetCallbackCmd = &cobra.Command{
+	Use:   "set-callback",
+	Short: "SetCallback RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdViewServiceClient(grpcConn)
+		req := &pb.SetCallbackRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetCallback(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdViewSetOnUnhandledInputEventListenerCmd = &cobra.Command{
+	Use:   "set-on-unhandled-input-event-listener",
+	Short: "SetOnUnhandledInputEventListener RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdViewServiceClient(grpcConn)
+		req := &pb.SetOnUnhandledInputEventListenerRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetOnUnhandledInputEventListener(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdViewSetTvViewCmd = &cobra.Command{
+	Use:   "set-tv-view",
+	Short: "SetTvView RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdViewServiceClient(grpcConn)
+		req := &pb.SetTvViewRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetTvView(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdViewSetZOrderMediaOverlayCmd = &cobra.Command{
+	Use:   "set-z-order-media-overlay",
+	Short: "SetZOrderMediaOverlay RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdViewServiceClient(grpcConn)
+		req := &pb.SetZOrderMediaOverlayRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetZOrderMediaOverlay(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdViewSetZOrderOnTopCmd = &cobra.Command{
+	Use:   "set-z-order-on-top",
+	Short: "SetZOrderOnTop RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdViewServiceClient(grpcConn)
+		req := &pb.SetZOrderOnTopRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetZOrderOnTop(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdViewStartAdServiceCmd = &cobra.Command{
+	Use:   "start-ad-service",
+	Short: "StartAdService RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdViewServiceClient(grpcConn)
+		req := &pb.StartAdServiceRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.StartAdService(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdViewStopAdServiceCmd = &cobra.Command{
+	Use:   "stop-ad-service",
+	Short: "StopAdService RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdViewServiceClient(grpcConn)
+		req := &pb.StopAdServiceRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.StopAdService(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdViewOnUnhandledInputEventListenerCmd = &cobra.Command{
+	Use:   "tv-ad-view-on-unhandled-input-event-listener",
+	Short: "TvAdViewOnUnhandledInputEventListenerService operations",
+}
+
+var adTvAdViewOnUnhandledInputEventListenerOnUnhandledInputEventCmd = &cobra.Command{
+	Use:   "on-unhandled-input-event",
+	Short: "OnUnhandledInputEvent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdViewOnUnhandledInputEventListenerServiceClient(grpcConn)
+		req := &pb.TvAdViewOnUnhandledInputEventListenerOnUnhandledInputEventRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnUnhandledInputEvent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdViewTvAdCallbackCmd = &cobra.Command{
+	Use:   "tv-ad-view-tv-ad-callback",
+	Short: "TvAdViewTvAdCallbackService operations",
+}
+
+var adTvAdViewTvAdCallbackOnRequestCurrentChannelUriCmd = &cobra.Command{
+	Use:   "on-request-current-channel-uri",
+	Short: "OnRequestCurrentChannelUri RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdViewTvAdCallbackServiceClient(grpcConn)
+		req := &pb.OnRequestCurrentChannelUriRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnRequestCurrentChannelUri(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdViewTvAdCallbackOnRequestCurrentTvInputIdCmd = &cobra.Command{
+	Use:   "on-request-current-tv-input-id",
+	Short: "OnRequestCurrentTvInputId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdViewTvAdCallbackServiceClient(grpcConn)
+		req := &pb.OnRequestCurrentTvInputIdRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnRequestCurrentTvInputId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdViewTvAdCallbackOnRequestCurrentVideoBoundsCmd = &cobra.Command{
+	Use:   "on-request-current-video-bounds",
+	Short: "OnRequestCurrentVideoBounds RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdViewTvAdCallbackServiceClient(grpcConn)
+		req := &pb.OnRequestCurrentVideoBoundsRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnRequestCurrentVideoBounds(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdViewTvAdCallbackOnRequestSigningCmd = &cobra.Command{
+	Use:   "on-request-signing",
+	Short: "OnRequestSigning RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdViewTvAdCallbackServiceClient(grpcConn)
+		req := &pb.OnRequestSigningRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetString("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.OnRequestSigning(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdViewTvAdCallbackOnRequestTrackInfoListCmd = &cobra.Command{
+	Use:   "on-request-track-info-list",
+	Short: "OnRequestTrackInfoList RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdViewTvAdCallbackServiceClient(grpcConn)
+		req := &pb.OnRequestTrackInfoListRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnRequestTrackInfoList(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdViewTvAdCallbackOnStateChangedCmd = &cobra.Command{
+	Use:   "on-state-changed",
+	Short: "OnStateChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdViewTvAdCallbackServiceClient(grpcConn)
+		req := &pb.OnStateChangedRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnStateChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdServiceCmd = &cobra.Command{
+	Use:   "tv-ad-service",
+	Short: "TvAdServiceService operations",
+}
+
+var adTvAdServiceOnAppLinkCommandCmd = &cobra.Command{
+	Use:   "on-app-link-command",
+	Short: "OnAppLinkCommand RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdServiceServiceClient(grpcConn)
+		req := &pb.OnAppLinkCommandRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnAppLinkCommand(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdServiceOnBindCmd = &cobra.Command{
+	Use:   "on-bind",
+	Short: "OnBind RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdServiceServiceClient(grpcConn)
+		req := &pb.OnBindRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnBind(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdServiceOnCreateSessionCmd = &cobra.Command{
+	Use:   "on-create-session",
+	Short: "OnCreateSession RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdServiceServiceClient(grpcConn)
+		req := &pb.OnCreateSessionRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnCreateSession(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdServiceSessionCmd = &cobra.Command{
+	Use:   "tv-ad-service-session",
+	Short: "TvAdServiceSessionService operations",
+}
+
+var adTvAdServiceSessionIsMediaViewEnabledCmd = &cobra.Command{
+	Use:   "is-media-view-enabled",
+	Short: "IsMediaViewEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdServiceSessionServiceClient(grpcConn)
+		req := &pb.IsMediaViewEnabledRequest{}
+		resp, err := client.IsMediaViewEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdServiceSessionLayoutSurfaceCmd = &cobra.Command{
+	Use:   "layout-surface",
+	Short: "LayoutSurface RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdServiceSessionServiceClient(grpcConn)
+		req := &pb.LayoutSurfaceRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.LayoutSurface(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdServiceSessionNotifySessionStateChangedCmd = &cobra.Command{
+	Use:   "notify-session-state-changed",
+	Short: "NotifySessionStateChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdServiceSessionServiceClient(grpcConn)
+		req := &pb.NotifySessionStateChangedRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NotifySessionStateChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdServiceSessionOnCreateMediaViewCmd = &cobra.Command{
+	Use:   "on-create-media-view",
+	Short: "OnCreateMediaView RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdServiceSessionServiceClient(grpcConn)
+		req := &pb.OnCreateMediaViewRequest{}
+		resp, err := client.OnCreateMediaView(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdServiceSessionOnCurrentChannelUriCmd = &cobra.Command{
+	Use:   "on-current-channel-uri",
+	Short: "OnCurrentChannelUri RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdServiceSessionServiceClient(grpcConn)
+		req := &pb.OnCurrentChannelUriRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnCurrentChannelUri(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdServiceSessionOnCurrentTvInputIdCmd = &cobra.Command{
+	Use:   "on-current-tv-input-id",
+	Short: "OnCurrentTvInputId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdServiceSessionServiceClient(grpcConn)
+		req := &pb.OnCurrentTvInputIdRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnCurrentTvInputId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdServiceSessionOnCurrentVideoBoundsCmd = &cobra.Command{
+	Use:   "on-current-video-bounds",
+	Short: "OnCurrentVideoBounds RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdServiceSessionServiceClient(grpcConn)
+		req := &pb.OnCurrentVideoBoundsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnCurrentVideoBounds(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdServiceSessionOnErrorCmd = &cobra.Command{
+	Use:   "on-error",
+	Short: "OnError RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdServiceSessionServiceClient(grpcConn)
+		req := &pb.OnErrorRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnError(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdServiceSessionOnGenericMotionEventCmd = &cobra.Command{
+	Use:   "on-generic-motion-event",
+	Short: "OnGenericMotionEvent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdServiceSessionServiceClient(grpcConn)
+		req := &pb.OnGenericMotionEventRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnGenericMotionEvent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdServiceSessionOnKeyDownCmd = &cobra.Command{
+	Use:   "on-key-down",
+	Short: "OnKeyDown RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdServiceSessionServiceClient(grpcConn)
+		req := &pb.OnKeyDownRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnKeyDown(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdServiceSessionOnKeyLongPressCmd = &cobra.Command{
+	Use:   "on-key-long-press",
+	Short: "OnKeyLongPress RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdServiceSessionServiceClient(grpcConn)
+		req := &pb.OnKeyLongPressRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnKeyLongPress(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdServiceSessionOnKeyMultipleCmd = &cobra.Command{
+	Use:   "on-key-multiple",
+	Short: "OnKeyMultiple RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdServiceSessionServiceClient(grpcConn)
+		req := &pb.OnKeyMultipleRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnKeyMultiple(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdServiceSessionOnKeyUpCmd = &cobra.Command{
+	Use:   "on-key-up",
+	Short: "OnKeyUp RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdServiceSessionServiceClient(grpcConn)
+		req := &pb.OnKeyUpRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnKeyUp(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdServiceSessionOnMediaViewSizeChangedCmd = &cobra.Command{
+	Use:   "on-media-view-size-changed",
+	Short: "OnMediaViewSizeChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdServiceSessionServiceClient(grpcConn)
+		req := &pb.OnMediaViewSizeChangedRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnMediaViewSizeChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdServiceSessionOnReleaseCmd = &cobra.Command{
+	Use:   "on-release",
+	Short: "OnRelease RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdServiceSessionServiceClient(grpcConn)
+		req := &pb.OnReleaseRequest{}
+		resp, err := client.OnRelease(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdServiceSessionOnResetAdServiceCmd = &cobra.Command{
+	Use:   "on-reset-ad-service",
+	Short: "OnResetAdService RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdServiceSessionServiceClient(grpcConn)
+		req := &pb.OnResetAdServiceRequest{}
+		resp, err := client.OnResetAdService(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdServiceSessionOnSetSurfaceCmd = &cobra.Command{
+	Use:   "on-set-surface",
+	Short: "OnSetSurface RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdServiceSessionServiceClient(grpcConn)
+		req := &pb.OnSetSurfaceRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnSetSurface(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdServiceSessionOnSigningResultCmd = &cobra.Command{
+	Use:   "on-signing-result",
+	Short: "OnSigningResult RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdServiceSessionServiceClient(grpcConn)
+		req := &pb.OnSigningResultRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnSigningResult(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdServiceSessionOnStartAdServiceCmd = &cobra.Command{
+	Use:   "on-start-ad-service",
+	Short: "OnStartAdService RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdServiceSessionServiceClient(grpcConn)
+		req := &pb.OnStartAdServiceRequest{}
+		resp, err := client.OnStartAdService(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdServiceSessionOnStopAdServiceCmd = &cobra.Command{
+	Use:   "on-stop-ad-service",
+	Short: "OnStopAdService RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdServiceSessionServiceClient(grpcConn)
+		req := &pb.OnStopAdServiceRequest{}
+		resp, err := client.OnStopAdService(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdServiceSessionOnSurfaceChangedCmd = &cobra.Command{
+	Use:   "on-surface-changed",
+	Short: "OnSurfaceChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdServiceSessionServiceClient(grpcConn)
+		req := &pb.OnSurfaceChangedRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnSurfaceChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdServiceSessionOnTouchEventCmd = &cobra.Command{
+	Use:   "on-touch-event",
+	Short: "OnTouchEvent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdServiceSessionServiceClient(grpcConn)
+		req := &pb.OnTouchEventRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnTouchEvent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdServiceSessionOnTrackballEventCmd = &cobra.Command{
+	Use:   "on-trackball-event",
+	Short: "OnTrackballEvent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdServiceSessionServiceClient(grpcConn)
+		req := &pb.OnTrackballEventRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnTrackballEvent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdServiceSessionOnTvInputSessionDataCmd = &cobra.Command{
+	Use:   "on-tv-input-session-data",
+	Short: "OnTvInputSessionData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdServiceSessionServiceClient(grpcConn)
+		req := &pb.OnTvInputSessionDataRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnTvInputSessionData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdServiceSessionOnTvMessageCmd = &cobra.Command{
+	Use:   "on-tv-message",
+	Short: "OnTvMessage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdServiceSessionServiceClient(grpcConn)
+		req := &pb.OnTvMessageRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnTvMessage(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdServiceSessionRequestCurrentChannelUriCmd = &cobra.Command{
+	Use:   "request-current-channel-uri",
+	Short: "RequestCurrentChannelUri RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdServiceSessionServiceClient(grpcConn)
+		req := &pb.RequestCurrentChannelUriRequest{}
+		resp, err := client.RequestCurrentChannelUri(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdServiceSessionRequestCurrentTvInputIdCmd = &cobra.Command{
+	Use:   "request-current-tv-input-id",
+	Short: "RequestCurrentTvInputId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdServiceSessionServiceClient(grpcConn)
+		req := &pb.RequestCurrentTvInputIdRequest{}
+		resp, err := client.RequestCurrentTvInputId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdServiceSessionRequestCurrentVideoBoundsCmd = &cobra.Command{
+	Use:   "request-current-video-bounds",
+	Short: "RequestCurrentVideoBounds RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdServiceSessionServiceClient(grpcConn)
+		req := &pb.RequestCurrentVideoBoundsRequest{}
+		resp, err := client.RequestCurrentVideoBounds(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdServiceSessionRequestSigningCmd = &cobra.Command{
+	Use:   "request-signing",
+	Short: "RequestSigning RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdServiceSessionServiceClient(grpcConn)
+		req := &pb.RequestSigningRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.RequestSigning(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdServiceSessionRequestTrackInfoListCmd = &cobra.Command{
+	Use:   "request-track-info-list",
+	Short: "RequestTrackInfoList RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdServiceSessionServiceClient(grpcConn)
+		req := &pb.RequestTrackInfoListRequest{}
+		resp, err := client.RequestTrackInfoList(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdServiceSessionSendTvAdSessionDataCmd = &cobra.Command{
+	Use:   "send-tv-ad-session-data",
+	Short: "SendTvAdSessionData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdServiceSessionServiceClient(grpcConn)
+		req := &pb.SendTvAdSessionDataRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SendTvAdSessionData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var adTvAdServiceSessionSetMediaViewEnabledCmd = &cobra.Command{
+	Use:   "set-media-view-enabled",
+	Short: "SetMediaViewEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTvAdServiceSessionServiceClient(grpcConn)
+		req := &pb.SetMediaViewEnabledRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetMediaViewEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 func init() {
 	adTvAdManagerRegisterCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	adTvAdManagerRegisterCallbackCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
@@ -90,5 +1754,217 @@ func init() {
 	adTvAdManagerUnregisterCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	adTvAdManagerCmd.AddCommand(adTvAdManagerUnregisterCallbackCmd)
 	adCmd.AddCommand(adTvAdManagerCmd)
+	adTvAdManagerTvAdServiceCallbackOnAdServiceAddedCmd.Flags().String("arg0", "", "arg0 (string)")
+	adTvAdManagerTvAdServiceCallbackCmd.AddCommand(adTvAdManagerTvAdServiceCallbackOnAdServiceAddedCmd)
+	adTvAdManagerTvAdServiceCallbackOnAdServiceRemovedCmd.Flags().String("arg0", "", "arg0 (string)")
+	adTvAdManagerTvAdServiceCallbackCmd.AddCommand(adTvAdManagerTvAdServiceCallbackOnAdServiceRemovedCmd)
+	adTvAdManagerTvAdServiceCallbackOnAdServiceUpdatedCmd.Flags().String("arg0", "", "arg0 (string)")
+	adTvAdManagerTvAdServiceCallbackCmd.AddCommand(adTvAdManagerTvAdServiceCallbackOnAdServiceUpdatedCmd)
+	adCmd.AddCommand(adTvAdManagerTvAdServiceCallbackCmd)
+	adTvAdServiceInfoNewTvAdServiceInfoCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adTvAdServiceInfoNewTvAdServiceInfoCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	adTvAdServiceInfoCmd.AddCommand(adTvAdServiceInfoNewTvAdServiceInfoCmd)
+	adTvAdServiceInfoDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adTvAdServiceInfoCmd.AddCommand(adTvAdServiceInfoDescribeContentsCmd)
+	adTvAdServiceInfoGetIdCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adTvAdServiceInfoCmd.AddCommand(adTvAdServiceInfoGetIdCmd)
+	adTvAdServiceInfoGetServiceInfoCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adTvAdServiceInfoCmd.AddCommand(adTvAdServiceInfoGetServiceInfoCmd)
+	adTvAdServiceInfoWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adTvAdServiceInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adTvAdServiceInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	adTvAdServiceInfoCmd.AddCommand(adTvAdServiceInfoWriteToParcelCmd)
+	adCmd.AddCommand(adTvAdServiceInfoCmd)
+	adTvAdViewNewTvAdViewCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adTvAdViewCmd.AddCommand(adTvAdViewNewTvAdViewCmd)
+	adTvAdViewClearCallbackCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adTvAdViewCmd.AddCommand(adTvAdViewClearCallbackCmd)
+	adTvAdViewClearOnUnhandledInputEventListenerCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adTvAdViewCmd.AddCommand(adTvAdViewClearOnUnhandledInputEventListenerCmd)
+	adTvAdViewDispatchKeyEventCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adTvAdViewDispatchKeyEventCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adTvAdViewCmd.AddCommand(adTvAdViewDispatchKeyEventCmd)
+	adTvAdViewDispatchUnhandledInputEventCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adTvAdViewDispatchUnhandledInputEventCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adTvAdViewCmd.AddCommand(adTvAdViewDispatchUnhandledInputEventCmd)
+	adTvAdViewGetOnUnhandledInputEventListenerCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adTvAdViewCmd.AddCommand(adTvAdViewGetOnUnhandledInputEventListenerCmd)
+	adTvAdViewNotifyErrorCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adTvAdViewNotifyErrorCmd.Flags().String("arg0", "", "arg0 (string)")
+	adTvAdViewNotifyErrorCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	adTvAdViewCmd.AddCommand(adTvAdViewNotifyErrorCmd)
+	adTvAdViewNotifyTvMessageCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adTvAdViewNotifyTvMessageCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	adTvAdViewNotifyTvMessageCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	adTvAdViewCmd.AddCommand(adTvAdViewNotifyTvMessageCmd)
+	adTvAdViewOnAttachedToWindowCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adTvAdViewCmd.AddCommand(adTvAdViewOnAttachedToWindowCmd)
+	adTvAdViewOnDetachedFromWindowCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adTvAdViewCmd.AddCommand(adTvAdViewOnDetachedFromWindowCmd)
+	adTvAdViewOnLayoutCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adTvAdViewOnLayoutCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	adTvAdViewOnLayoutCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	adTvAdViewOnLayoutCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	adTvAdViewOnLayoutCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	adTvAdViewOnLayoutCmd.Flags().Int32("arg4", 0, "arg4 (int32)")
+	adTvAdViewCmd.AddCommand(adTvAdViewOnLayoutCmd)
+	adTvAdViewOnMeasureCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adTvAdViewOnMeasureCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	adTvAdViewOnMeasureCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	adTvAdViewCmd.AddCommand(adTvAdViewOnMeasureCmd)
+	adTvAdViewOnUnhandledInputEventCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adTvAdViewOnUnhandledInputEventCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adTvAdViewCmd.AddCommand(adTvAdViewOnUnhandledInputEventCmd)
+	adTvAdViewOnVisibilityChangedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adTvAdViewOnVisibilityChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adTvAdViewOnVisibilityChangedCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	adTvAdViewCmd.AddCommand(adTvAdViewOnVisibilityChangedCmd)
+	adTvAdViewPrepareAdServiceCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adTvAdViewPrepareAdServiceCmd.Flags().String("arg0", "", "arg0 (string)")
+	adTvAdViewPrepareAdServiceCmd.Flags().String("arg1", "", "arg1 (string)")
+	adTvAdViewCmd.AddCommand(adTvAdViewPrepareAdServiceCmd)
+	adTvAdViewResetCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adTvAdViewCmd.AddCommand(adTvAdViewResetCmd)
+	adTvAdViewResetAdServiceCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adTvAdViewCmd.AddCommand(adTvAdViewResetAdServiceCmd)
+	adTvAdViewSendCurrentChannelUriCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adTvAdViewSendCurrentChannelUriCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adTvAdViewCmd.AddCommand(adTvAdViewSendCurrentChannelUriCmd)
+	adTvAdViewSendCurrentTvInputIdCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adTvAdViewSendCurrentTvInputIdCmd.Flags().String("arg0", "", "arg0 (string)")
+	adTvAdViewCmd.AddCommand(adTvAdViewSendCurrentTvInputIdCmd)
+	adTvAdViewSendCurrentVideoBoundsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adTvAdViewSendCurrentVideoBoundsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adTvAdViewCmd.AddCommand(adTvAdViewSendCurrentVideoBoundsCmd)
+	adTvAdViewSendSigningResultCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adTvAdViewSendSigningResultCmd.Flags().String("arg0", "", "arg0 (string)")
+	adTvAdViewSendSigningResultCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	adTvAdViewCmd.AddCommand(adTvAdViewSendSigningResultCmd)
+	adTvAdViewSetCallbackCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adTvAdViewSetCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adTvAdViewSetCallbackCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	adTvAdViewCmd.AddCommand(adTvAdViewSetCallbackCmd)
+	adTvAdViewSetOnUnhandledInputEventListenerCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adTvAdViewSetOnUnhandledInputEventListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adTvAdViewCmd.AddCommand(adTvAdViewSetOnUnhandledInputEventListenerCmd)
+	adTvAdViewSetTvViewCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adTvAdViewSetTvViewCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adTvAdViewCmd.AddCommand(adTvAdViewSetTvViewCmd)
+	adTvAdViewSetZOrderMediaOverlayCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adTvAdViewSetZOrderMediaOverlayCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	adTvAdViewCmd.AddCommand(adTvAdViewSetZOrderMediaOverlayCmd)
+	adTvAdViewSetZOrderOnTopCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adTvAdViewSetZOrderOnTopCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	adTvAdViewCmd.AddCommand(adTvAdViewSetZOrderOnTopCmd)
+	adTvAdViewStartAdServiceCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adTvAdViewCmd.AddCommand(adTvAdViewStartAdServiceCmd)
+	adTvAdViewStopAdServiceCmd.Flags().Int64("handle", 0, "handle (int64)")
+	adTvAdViewCmd.AddCommand(adTvAdViewStopAdServiceCmd)
+	adCmd.AddCommand(adTvAdViewCmd)
+	adTvAdViewOnUnhandledInputEventListenerOnUnhandledInputEventCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adTvAdViewOnUnhandledInputEventListenerCmd.AddCommand(adTvAdViewOnUnhandledInputEventListenerOnUnhandledInputEventCmd)
+	adCmd.AddCommand(adTvAdViewOnUnhandledInputEventListenerCmd)
+	adTvAdViewTvAdCallbackOnRequestCurrentChannelUriCmd.Flags().String("arg0", "", "arg0 (string)")
+	adTvAdViewTvAdCallbackCmd.AddCommand(adTvAdViewTvAdCallbackOnRequestCurrentChannelUriCmd)
+	adTvAdViewTvAdCallbackOnRequestCurrentTvInputIdCmd.Flags().String("arg0", "", "arg0 (string)")
+	adTvAdViewTvAdCallbackCmd.AddCommand(adTvAdViewTvAdCallbackOnRequestCurrentTvInputIdCmd)
+	adTvAdViewTvAdCallbackOnRequestCurrentVideoBoundsCmd.Flags().String("arg0", "", "arg0 (string)")
+	adTvAdViewTvAdCallbackCmd.AddCommand(adTvAdViewTvAdCallbackOnRequestCurrentVideoBoundsCmd)
+	adTvAdViewTvAdCallbackOnRequestSigningCmd.Flags().String("arg0", "", "arg0 (string)")
+	adTvAdViewTvAdCallbackOnRequestSigningCmd.Flags().String("arg1", "", "arg1 (string)")
+	adTvAdViewTvAdCallbackOnRequestSigningCmd.Flags().String("arg2", "", "arg2 (string)")
+	adTvAdViewTvAdCallbackOnRequestSigningCmd.Flags().String("arg3", "", "arg3 (string)")
+	adTvAdViewTvAdCallbackOnRequestSigningCmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	adTvAdViewTvAdCallbackCmd.AddCommand(adTvAdViewTvAdCallbackOnRequestSigningCmd)
+	adTvAdViewTvAdCallbackOnRequestTrackInfoListCmd.Flags().String("arg0", "", "arg0 (string)")
+	adTvAdViewTvAdCallbackCmd.AddCommand(adTvAdViewTvAdCallbackOnRequestTrackInfoListCmd)
+	adTvAdViewTvAdCallbackOnStateChangedCmd.Flags().String("arg0", "", "arg0 (string)")
+	adTvAdViewTvAdCallbackOnStateChangedCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	adTvAdViewTvAdCallbackOnStateChangedCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	adTvAdViewTvAdCallbackCmd.AddCommand(adTvAdViewTvAdCallbackOnStateChangedCmd)
+	adCmd.AddCommand(adTvAdViewTvAdCallbackCmd)
+	adTvAdServiceOnAppLinkCommandCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adTvAdServiceCmd.AddCommand(adTvAdServiceOnAppLinkCommandCmd)
+	adTvAdServiceOnBindCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adTvAdServiceCmd.AddCommand(adTvAdServiceOnBindCmd)
+	adTvAdServiceOnCreateSessionCmd.Flags().String("arg0", "", "arg0 (string)")
+	adTvAdServiceOnCreateSessionCmd.Flags().String("arg1", "", "arg1 (string)")
+	adTvAdServiceCmd.AddCommand(adTvAdServiceOnCreateSessionCmd)
+	adCmd.AddCommand(adTvAdServiceCmd)
+	adTvAdServiceSessionCmd.AddCommand(adTvAdServiceSessionIsMediaViewEnabledCmd)
+	adTvAdServiceSessionLayoutSurfaceCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	adTvAdServiceSessionLayoutSurfaceCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	adTvAdServiceSessionLayoutSurfaceCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	adTvAdServiceSessionLayoutSurfaceCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	adTvAdServiceSessionCmd.AddCommand(adTvAdServiceSessionLayoutSurfaceCmd)
+	adTvAdServiceSessionNotifySessionStateChangedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	adTvAdServiceSessionNotifySessionStateChangedCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	adTvAdServiceSessionCmd.AddCommand(adTvAdServiceSessionNotifySessionStateChangedCmd)
+	adTvAdServiceSessionCmd.AddCommand(adTvAdServiceSessionOnCreateMediaViewCmd)
+	adTvAdServiceSessionOnCurrentChannelUriCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adTvAdServiceSessionCmd.AddCommand(adTvAdServiceSessionOnCurrentChannelUriCmd)
+	adTvAdServiceSessionOnCurrentTvInputIdCmd.Flags().String("arg0", "", "arg0 (string)")
+	adTvAdServiceSessionCmd.AddCommand(adTvAdServiceSessionOnCurrentTvInputIdCmd)
+	adTvAdServiceSessionOnCurrentVideoBoundsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adTvAdServiceSessionCmd.AddCommand(adTvAdServiceSessionOnCurrentVideoBoundsCmd)
+	adTvAdServiceSessionOnErrorCmd.Flags().String("arg0", "", "arg0 (string)")
+	adTvAdServiceSessionOnErrorCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	adTvAdServiceSessionCmd.AddCommand(adTvAdServiceSessionOnErrorCmd)
+	adTvAdServiceSessionOnGenericMotionEventCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adTvAdServiceSessionCmd.AddCommand(adTvAdServiceSessionOnGenericMotionEventCmd)
+	adTvAdServiceSessionOnKeyDownCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	adTvAdServiceSessionOnKeyDownCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	adTvAdServiceSessionCmd.AddCommand(adTvAdServiceSessionOnKeyDownCmd)
+	adTvAdServiceSessionOnKeyLongPressCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	adTvAdServiceSessionOnKeyLongPressCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	adTvAdServiceSessionCmd.AddCommand(adTvAdServiceSessionOnKeyLongPressCmd)
+	adTvAdServiceSessionOnKeyMultipleCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	adTvAdServiceSessionOnKeyMultipleCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	adTvAdServiceSessionOnKeyMultipleCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	adTvAdServiceSessionCmd.AddCommand(adTvAdServiceSessionOnKeyMultipleCmd)
+	adTvAdServiceSessionOnKeyUpCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	adTvAdServiceSessionOnKeyUpCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	adTvAdServiceSessionCmd.AddCommand(adTvAdServiceSessionOnKeyUpCmd)
+	adTvAdServiceSessionOnMediaViewSizeChangedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	adTvAdServiceSessionOnMediaViewSizeChangedCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	adTvAdServiceSessionCmd.AddCommand(adTvAdServiceSessionOnMediaViewSizeChangedCmd)
+	adTvAdServiceSessionCmd.AddCommand(adTvAdServiceSessionOnReleaseCmd)
+	adTvAdServiceSessionCmd.AddCommand(adTvAdServiceSessionOnResetAdServiceCmd)
+	adTvAdServiceSessionOnSetSurfaceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adTvAdServiceSessionCmd.AddCommand(adTvAdServiceSessionOnSetSurfaceCmd)
+	adTvAdServiceSessionOnSigningResultCmd.Flags().String("arg0", "", "arg0 (string)")
+	adTvAdServiceSessionOnSigningResultCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	adTvAdServiceSessionCmd.AddCommand(adTvAdServiceSessionOnSigningResultCmd)
+	adTvAdServiceSessionCmd.AddCommand(adTvAdServiceSessionOnStartAdServiceCmd)
+	adTvAdServiceSessionCmd.AddCommand(adTvAdServiceSessionOnStopAdServiceCmd)
+	adTvAdServiceSessionOnSurfaceChangedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	adTvAdServiceSessionOnSurfaceChangedCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	adTvAdServiceSessionOnSurfaceChangedCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	adTvAdServiceSessionCmd.AddCommand(adTvAdServiceSessionOnSurfaceChangedCmd)
+	adTvAdServiceSessionOnTouchEventCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adTvAdServiceSessionCmd.AddCommand(adTvAdServiceSessionOnTouchEventCmd)
+	adTvAdServiceSessionOnTrackballEventCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adTvAdServiceSessionCmd.AddCommand(adTvAdServiceSessionOnTrackballEventCmd)
+	adTvAdServiceSessionOnTvInputSessionDataCmd.Flags().String("arg0", "", "arg0 (string)")
+	adTvAdServiceSessionOnTvInputSessionDataCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	adTvAdServiceSessionCmd.AddCommand(adTvAdServiceSessionOnTvInputSessionDataCmd)
+	adTvAdServiceSessionOnTvMessageCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	adTvAdServiceSessionOnTvMessageCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	adTvAdServiceSessionCmd.AddCommand(adTvAdServiceSessionOnTvMessageCmd)
+	adTvAdServiceSessionCmd.AddCommand(adTvAdServiceSessionRequestCurrentChannelUriCmd)
+	adTvAdServiceSessionCmd.AddCommand(adTvAdServiceSessionRequestCurrentTvInputIdCmd)
+	adTvAdServiceSessionCmd.AddCommand(adTvAdServiceSessionRequestCurrentVideoBoundsCmd)
+	adTvAdServiceSessionRequestSigningCmd.Flags().String("arg0", "", "arg0 (string)")
+	adTvAdServiceSessionRequestSigningCmd.Flags().String("arg1", "", "arg1 (string)")
+	adTvAdServiceSessionRequestSigningCmd.Flags().String("arg2", "", "arg2 (string)")
+	adTvAdServiceSessionRequestSigningCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	adTvAdServiceSessionCmd.AddCommand(adTvAdServiceSessionRequestSigningCmd)
+	adTvAdServiceSessionCmd.AddCommand(adTvAdServiceSessionRequestTrackInfoListCmd)
+	adTvAdServiceSessionSendTvAdSessionDataCmd.Flags().String("arg0", "", "arg0 (string)")
+	adTvAdServiceSessionSendTvAdSessionDataCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	adTvAdServiceSessionCmd.AddCommand(adTvAdServiceSessionSendTvAdSessionDataCmd)
+	adTvAdServiceSessionSetMediaViewEnabledCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	adTvAdServiceSessionCmd.AddCommand(adTvAdServiceSessionSetMediaViewEnabledCmd)
+	adCmd.AddCommand(adTvAdServiceSessionCmd)
 	rootCmd.AddCommand(adCmd)
 }

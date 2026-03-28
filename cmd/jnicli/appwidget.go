@@ -12,6 +12,806 @@ var appwidgetCmd = &cobra.Command{
 	Short: "appwidget service operations",
 }
 
+var appwidgetAppWidgetProviderCmd = &cobra.Command{
+	Use:   "app-widget-provider",
+	Short: "AppWidgetProviderService operations",
+}
+
+var appwidgetAppWidgetProviderNewAppWidgetProviderCmd = &cobra.Command{
+	Use:   "new-app-widget-provider",
+	Short: "NewAppWidgetProvider RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppWidgetProviderServiceClient(grpcConn)
+		req := &pb.NewAppWidgetProviderRequest{}
+		resp, err := client.NewAppWidgetProvider(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appwidgetAppWidgetProviderOnAppWidgetOptionsChangedCmd = &cobra.Command{
+	Use:   "on-app-widget-options-changed",
+	Short: "OnAppWidgetOptionsChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppWidgetProviderServiceClient(grpcConn)
+		req := &pb.OnAppWidgetOptionsChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.OnAppWidgetOptionsChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appwidgetAppWidgetProviderOnDeletedCmd = &cobra.Command{
+	Use:   "on-deleted",
+	Short: "OnDeleted RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppWidgetProviderServiceClient(grpcConn)
+		req := &pb.OnDeletedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnDeleted(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appwidgetAppWidgetProviderOnDisabledCmd = &cobra.Command{
+	Use:   "on-disabled",
+	Short: "OnDisabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppWidgetProviderServiceClient(grpcConn)
+		req := &pb.OnDisabledRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnDisabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appwidgetAppWidgetProviderOnEnabledCmd = &cobra.Command{
+	Use:   "on-enabled",
+	Short: "OnEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppWidgetProviderServiceClient(grpcConn)
+		req := &pb.OnEnabledRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appwidgetAppWidgetProviderOnReceiveCmd = &cobra.Command{
+	Use:   "on-receive",
+	Short: "OnReceive RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppWidgetProviderServiceClient(grpcConn)
+		req := &pb.OnReceiveRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnReceive(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appwidgetAppWidgetProviderOnRestoredCmd = &cobra.Command{
+	Use:   "on-restored",
+	Short: "OnRestored RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppWidgetProviderServiceClient(grpcConn)
+		req := &pb.OnRestoredRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnRestored(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appwidgetAppWidgetProviderOnUpdateCmd = &cobra.Command{
+	Use:   "on-update",
+	Short: "OnUpdate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppWidgetProviderServiceClient(grpcConn)
+		req := &pb.OnUpdateRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnUpdate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appwidgetAppWidgetHostViewCmd = &cobra.Command{
+	Use:   "app-widget-host-view",
+	Short: "AppWidgetHostViewService operations",
+}
+
+var appwidgetAppWidgetHostViewNewAppWidgetHostViewCmd = &cobra.Command{
+	Use:   "new-app-widget-host-view",
+	Short: "NewAppWidgetHostView RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppWidgetHostViewServiceClient(grpcConn)
+		req := &pb.NewAppWidgetHostViewRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewAppWidgetHostView(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appwidgetAppWidgetHostViewGenerateLayoutParams1Cmd = &cobra.Command{
+	Use:   "generate-layout-params1",
+	Short: "GenerateLayoutParams1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppWidgetHostViewServiceClient(grpcConn)
+		req := &pb.GenerateLayoutParams1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GenerateLayoutParams1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appwidgetAppWidgetHostViewGetAppWidgetIdCmd = &cobra.Command{
+	Use:   "get-app-widget-id",
+	Short: "GetAppWidgetId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppWidgetHostViewServiceClient(grpcConn)
+		req := &pb.GetAppWidgetIdRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetAppWidgetId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appwidgetAppWidgetHostViewGetAppWidgetInfoCmd = &cobra.Command{
+	Use:   "get-app-widget-info",
+	Short: "GetAppWidgetInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppWidgetHostViewServiceClient(grpcConn)
+		req := &pb.GetAppWidgetInfoRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetAppWidgetInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appwidgetAppWidgetHostViewOnWindowFocusChangedCmd = &cobra.Command{
+	Use:   "on-window-focus-changed",
+	Short: "OnWindowFocusChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppWidgetHostViewServiceClient(grpcConn)
+		req := &pb.OnWindowFocusChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnWindowFocusChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appwidgetAppWidgetHostViewResetColorResourcesCmd = &cobra.Command{
+	Use:   "reset-color-resources",
+	Short: "ResetColorResources RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppWidgetHostViewServiceClient(grpcConn)
+		req := &pb.ResetColorResourcesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ResetColorResources(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appwidgetAppWidgetHostViewSetAppWidgetCmd = &cobra.Command{
+	Use:   "set-app-widget",
+	Short: "SetAppWidget RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppWidgetHostViewServiceClient(grpcConn)
+		req := &pb.SetAppWidgetRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetAppWidget(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appwidgetAppWidgetHostViewSetColorResourcesCmd = &cobra.Command{
+	Use:   "set-color-resources",
+	Short: "SetColorResources RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppWidgetHostViewServiceClient(grpcConn)
+		req := &pb.SetColorResourcesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetColorResources(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appwidgetAppWidgetHostViewSetExecutorCmd = &cobra.Command{
+	Use:   "set-executor",
+	Short: "SetExecutor RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppWidgetHostViewServiceClient(grpcConn)
+		req := &pb.SetExecutorRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetExecutor(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appwidgetAppWidgetHostViewSetOnLightBackgroundCmd = &cobra.Command{
+	Use:   "set-on-light-background",
+	Short: "SetOnLightBackground RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppWidgetHostViewServiceClient(grpcConn)
+		req := &pb.SetOnLightBackgroundRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetOnLightBackground(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appwidgetAppWidgetHostViewUpdateAppWidgetCmd = &cobra.Command{
+	Use:   "update-app-widget",
+	Short: "UpdateAppWidget RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppWidgetHostViewServiceClient(grpcConn)
+		req := &pb.UpdateAppWidgetRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.UpdateAppWidget(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appwidgetAppWidgetHostViewUpdateAppWidgetOptionsCmd = &cobra.Command{
+	Use:   "update-app-widget-options",
+	Short: "UpdateAppWidgetOptions RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppWidgetHostViewServiceClient(grpcConn)
+		req := &pb.UpdateAppWidgetOptionsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.UpdateAppWidgetOptions(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appwidgetAppWidgetHostViewUpdateAppWidgetSizeCmd = &cobra.Command{
+	Use:   "update-app-widget-size",
+	Short: "UpdateAppWidgetSize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppWidgetHostViewServiceClient(grpcConn)
+		req := &pb.UpdateAppWidgetSizeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.UpdateAppWidgetSize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appwidgetAppWidgetHostViewGenerateLayoutParams1_1Cmd = &cobra.Command{
+	Use:   "generate-layout-params1_1",
+	Short: "GenerateLayoutParams1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppWidgetHostViewServiceClient(grpcConn)
+		req := &pb.GenerateLayoutParams1_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GenerateLayoutParams1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appwidgetAppWidgetHostViewGetDefaultPaddingForWidgetCmd = &cobra.Command{
+	Use:   "get-default-padding-for-widget",
+	Short: "GetDefaultPaddingForWidget RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppWidgetHostViewServiceClient(grpcConn)
+		req := &pb.GetDefaultPaddingForWidgetRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.GetDefaultPaddingForWidget(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appwidgetAppWidgetProviderInfoCmd = &cobra.Command{
+	Use:   "app-widget-provider-info",
+	Short: "AppWidgetProviderInfoService operations",
+}
+
+var appwidgetAppWidgetProviderInfoNewAppWidgetProviderInfoCmd = &cobra.Command{
+	Use:   "new-app-widget-provider-info",
+	Short: "NewAppWidgetProviderInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppWidgetProviderInfoServiceClient(grpcConn)
+		req := &pb.NewAppWidgetProviderInfoRequest{}
+		resp, err := client.NewAppWidgetProviderInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appwidgetAppWidgetProviderInfoClone0Cmd = &cobra.Command{
+	Use:   "clone0",
+	Short: "Clone0 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppWidgetProviderInfoServiceClient(grpcConn)
+		req := &pb.Clone0Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Clone0(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appwidgetAppWidgetProviderInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppWidgetProviderInfoServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appwidgetAppWidgetProviderInfoGetActivityInfoCmd = &cobra.Command{
+	Use:   "get-activity-info",
+	Short: "GetActivityInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppWidgetProviderInfoServiceClient(grpcConn)
+		req := &pb.GetActivityInfoRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetActivityInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appwidgetAppWidgetProviderInfoGetProfileCmd = &cobra.Command{
+	Use:   "get-profile",
+	Short: "GetProfile RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppWidgetProviderInfoServiceClient(grpcConn)
+		req := &pb.GetProfileRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetProfile(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appwidgetAppWidgetProviderInfoLoadDescriptionCmd = &cobra.Command{
+	Use:   "load-description",
+	Short: "LoadDescription RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppWidgetProviderInfoServiceClient(grpcConn)
+		req := &pb.LoadDescriptionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.LoadDescription(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appwidgetAppWidgetProviderInfoLoadIconCmd = &cobra.Command{
+	Use:   "load-icon",
+	Short: "LoadIcon RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppWidgetProviderInfoServiceClient(grpcConn)
+		req := &pb.LoadIconRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.LoadIcon(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appwidgetAppWidgetProviderInfoLoadLabelCmd = &cobra.Command{
+	Use:   "load-label",
+	Short: "LoadLabel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppWidgetProviderInfoServiceClient(grpcConn)
+		req := &pb.LoadLabelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.LoadLabel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appwidgetAppWidgetProviderInfoLoadPreviewImageCmd = &cobra.Command{
+	Use:   "load-preview-image",
+	Short: "LoadPreviewImage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppWidgetProviderInfoServiceClient(grpcConn)
+		req := &pb.LoadPreviewImageRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.LoadPreviewImage(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appwidgetAppWidgetProviderInfoToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppWidgetProviderInfoServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appwidgetAppWidgetProviderInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppWidgetProviderInfoServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appwidgetAppWidgetProviderInfoClone0_1Cmd = &cobra.Command{
+	Use:   "clone0_1",
+	Short: "Clone0_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppWidgetProviderInfoServiceClient(grpcConn)
+		req := &pb.Clone0_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Clone0_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var appwidgetAppWidgetManagerCmd = &cobra.Command{
 	Use:   "app-widget-manager",
 	Short: "AppWidgetManagerService operations",
@@ -118,7 +918,7 @@ var appwidgetAppWidgetManagerGetAppWidgetInfoCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewAppWidgetManagerServiceClient(grpcConn)
-		req := &pb.GetAppWidgetInfoRequest{}
+		req := &pb.AppWidgetManagerGetAppWidgetInfoRequest{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -423,7 +1223,7 @@ var appwidgetAppWidgetManagerUpdateAppWidgetOptionsCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewAppWidgetManagerServiceClient(grpcConn)
-		req := &pb.UpdateAppWidgetOptionsRequest{}
+		req := &pb.AppWidgetManagerUpdateAppWidgetOptionsRequest{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -479,7 +1279,367 @@ var appwidgetAppWidgetManagerGetInstanceCmd = &cobra.Command{
 	},
 }
 
+var appwidgetAppWidgetHostCmd = &cobra.Command{
+	Use:   "app-widget-host",
+	Short: "AppWidgetHostService operations",
+}
+
+var appwidgetAppWidgetHostNewAppWidgetHostCmd = &cobra.Command{
+	Use:   "new-app-widget-host",
+	Short: "NewAppWidgetHost RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppWidgetHostServiceClient(grpcConn)
+		req := &pb.NewAppWidgetHostRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewAppWidgetHost(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appwidgetAppWidgetHostAllocateAppWidgetIdCmd = &cobra.Command{
+	Use:   "allocate-app-widget-id",
+	Short: "AllocateAppWidgetId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppWidgetHostServiceClient(grpcConn)
+		req := &pb.AllocateAppWidgetIdRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.AllocateAppWidgetId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appwidgetAppWidgetHostCreateViewCmd = &cobra.Command{
+	Use:   "create-view",
+	Short: "CreateView RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppWidgetHostServiceClient(grpcConn)
+		req := &pb.CreateViewRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.CreateView(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appwidgetAppWidgetHostDeleteAppWidgetIdCmd = &cobra.Command{
+	Use:   "delete-app-widget-id",
+	Short: "DeleteAppWidgetId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppWidgetHostServiceClient(grpcConn)
+		req := &pb.DeleteAppWidgetIdRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.DeleteAppWidgetId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appwidgetAppWidgetHostDeleteHostCmd = &cobra.Command{
+	Use:   "delete-host",
+	Short: "DeleteHost RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppWidgetHostServiceClient(grpcConn)
+		req := &pb.DeleteHostRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DeleteHost(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appwidgetAppWidgetHostGetAppWidgetIdsCmd = &cobra.Command{
+	Use:   "get-app-widget-ids",
+	Short: "GetAppWidgetIds RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppWidgetHostServiceClient(grpcConn)
+		req := &pb.AppWidgetHostGetAppWidgetIdsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetAppWidgetIds(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appwidgetAppWidgetHostOnAppWidgetRemovedCmd = &cobra.Command{
+	Use:   "on-app-widget-removed",
+	Short: "OnAppWidgetRemoved RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppWidgetHostServiceClient(grpcConn)
+		req := &pb.OnAppWidgetRemovedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnAppWidgetRemoved(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appwidgetAppWidgetHostStartAppWidgetConfigureActivityForResultCmd = &cobra.Command{
+	Use:   "start-app-widget-configure-activity-for-result",
+	Short: "StartAppWidgetConfigureActivityForResult RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppWidgetHostServiceClient(grpcConn)
+		req := &pb.StartAppWidgetConfigureActivityForResultRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.StartAppWidgetConfigureActivityForResult(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appwidgetAppWidgetHostStartListeningCmd = &cobra.Command{
+	Use:   "start-listening",
+	Short: "StartListening RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppWidgetHostServiceClient(grpcConn)
+		req := &pb.StartListeningRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.StartListening(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appwidgetAppWidgetHostStopListeningCmd = &cobra.Command{
+	Use:   "stop-listening",
+	Short: "StopListening RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppWidgetHostServiceClient(grpcConn)
+		req := &pb.StopListeningRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.StopListening(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appwidgetAppWidgetHostDeleteAllHostsCmd = &cobra.Command{
+	Use:   "delete-all-hosts",
+	Short: "DeleteAllHosts RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppWidgetHostServiceClient(grpcConn)
+		req := &pb.DeleteAllHostsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DeleteAllHosts(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 func init() {
+	appwidgetAppWidgetProviderCmd.AddCommand(appwidgetAppWidgetProviderNewAppWidgetProviderCmd)
+	appwidgetAppWidgetProviderOnAppWidgetOptionsChangedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appwidgetAppWidgetProviderOnAppWidgetOptionsChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appwidgetAppWidgetProviderOnAppWidgetOptionsChangedCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	appwidgetAppWidgetProviderOnAppWidgetOptionsChangedCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	appwidgetAppWidgetProviderOnAppWidgetOptionsChangedCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	appwidgetAppWidgetProviderCmd.AddCommand(appwidgetAppWidgetProviderOnAppWidgetOptionsChangedCmd)
+	appwidgetAppWidgetProviderOnDeletedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appwidgetAppWidgetProviderOnDeletedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appwidgetAppWidgetProviderOnDeletedCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	appwidgetAppWidgetProviderCmd.AddCommand(appwidgetAppWidgetProviderOnDeletedCmd)
+	appwidgetAppWidgetProviderOnDisabledCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appwidgetAppWidgetProviderOnDisabledCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appwidgetAppWidgetProviderCmd.AddCommand(appwidgetAppWidgetProviderOnDisabledCmd)
+	appwidgetAppWidgetProviderOnEnabledCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appwidgetAppWidgetProviderOnEnabledCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appwidgetAppWidgetProviderCmd.AddCommand(appwidgetAppWidgetProviderOnEnabledCmd)
+	appwidgetAppWidgetProviderOnReceiveCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appwidgetAppWidgetProviderOnReceiveCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appwidgetAppWidgetProviderOnReceiveCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	appwidgetAppWidgetProviderCmd.AddCommand(appwidgetAppWidgetProviderOnReceiveCmd)
+	appwidgetAppWidgetProviderOnRestoredCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appwidgetAppWidgetProviderOnRestoredCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appwidgetAppWidgetProviderOnRestoredCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	appwidgetAppWidgetProviderOnRestoredCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	appwidgetAppWidgetProviderCmd.AddCommand(appwidgetAppWidgetProviderOnRestoredCmd)
+	appwidgetAppWidgetProviderOnUpdateCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appwidgetAppWidgetProviderOnUpdateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appwidgetAppWidgetProviderOnUpdateCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	appwidgetAppWidgetProviderOnUpdateCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	appwidgetAppWidgetProviderCmd.AddCommand(appwidgetAppWidgetProviderOnUpdateCmd)
+	appwidgetCmd.AddCommand(appwidgetAppWidgetProviderCmd)
+	appwidgetAppWidgetHostViewNewAppWidgetHostViewCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appwidgetAppWidgetHostViewCmd.AddCommand(appwidgetAppWidgetHostViewNewAppWidgetHostViewCmd)
+	appwidgetAppWidgetHostViewGenerateLayoutParams1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	appwidgetAppWidgetHostViewGenerateLayoutParams1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appwidgetAppWidgetHostViewCmd.AddCommand(appwidgetAppWidgetHostViewGenerateLayoutParams1Cmd)
+	appwidgetAppWidgetHostViewGetAppWidgetIdCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appwidgetAppWidgetHostViewCmd.AddCommand(appwidgetAppWidgetHostViewGetAppWidgetIdCmd)
+	appwidgetAppWidgetHostViewGetAppWidgetInfoCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appwidgetAppWidgetHostViewCmd.AddCommand(appwidgetAppWidgetHostViewGetAppWidgetInfoCmd)
+	appwidgetAppWidgetHostViewOnWindowFocusChangedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appwidgetAppWidgetHostViewOnWindowFocusChangedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	appwidgetAppWidgetHostViewCmd.AddCommand(appwidgetAppWidgetHostViewOnWindowFocusChangedCmd)
+	appwidgetAppWidgetHostViewResetColorResourcesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appwidgetAppWidgetHostViewCmd.AddCommand(appwidgetAppWidgetHostViewResetColorResourcesCmd)
+	appwidgetAppWidgetHostViewSetAppWidgetCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appwidgetAppWidgetHostViewSetAppWidgetCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	appwidgetAppWidgetHostViewSetAppWidgetCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	appwidgetAppWidgetHostViewCmd.AddCommand(appwidgetAppWidgetHostViewSetAppWidgetCmd)
+	appwidgetAppWidgetHostViewSetColorResourcesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appwidgetAppWidgetHostViewSetColorResourcesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appwidgetAppWidgetHostViewCmd.AddCommand(appwidgetAppWidgetHostViewSetColorResourcesCmd)
+	appwidgetAppWidgetHostViewSetExecutorCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appwidgetAppWidgetHostViewSetExecutorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appwidgetAppWidgetHostViewCmd.AddCommand(appwidgetAppWidgetHostViewSetExecutorCmd)
+	appwidgetAppWidgetHostViewSetOnLightBackgroundCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appwidgetAppWidgetHostViewSetOnLightBackgroundCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	appwidgetAppWidgetHostViewCmd.AddCommand(appwidgetAppWidgetHostViewSetOnLightBackgroundCmd)
+	appwidgetAppWidgetHostViewUpdateAppWidgetCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appwidgetAppWidgetHostViewUpdateAppWidgetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appwidgetAppWidgetHostViewCmd.AddCommand(appwidgetAppWidgetHostViewUpdateAppWidgetCmd)
+	appwidgetAppWidgetHostViewUpdateAppWidgetOptionsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appwidgetAppWidgetHostViewUpdateAppWidgetOptionsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appwidgetAppWidgetHostViewCmd.AddCommand(appwidgetAppWidgetHostViewUpdateAppWidgetOptionsCmd)
+	appwidgetAppWidgetHostViewUpdateAppWidgetSizeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appwidgetAppWidgetHostViewUpdateAppWidgetSizeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appwidgetAppWidgetHostViewUpdateAppWidgetSizeCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	appwidgetAppWidgetHostViewUpdateAppWidgetSizeCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	appwidgetAppWidgetHostViewUpdateAppWidgetSizeCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	appwidgetAppWidgetHostViewUpdateAppWidgetSizeCmd.Flags().Int32("arg4", 0, "arg4 (int32)")
+	appwidgetAppWidgetHostViewCmd.AddCommand(appwidgetAppWidgetHostViewUpdateAppWidgetSizeCmd)
+	appwidgetAppWidgetHostViewGenerateLayoutParams1_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	appwidgetAppWidgetHostViewGenerateLayoutParams1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appwidgetAppWidgetHostViewCmd.AddCommand(appwidgetAppWidgetHostViewGenerateLayoutParams1_1Cmd)
+	appwidgetAppWidgetHostViewGetDefaultPaddingForWidgetCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appwidgetAppWidgetHostViewGetDefaultPaddingForWidgetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appwidgetAppWidgetHostViewGetDefaultPaddingForWidgetCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	appwidgetAppWidgetHostViewGetDefaultPaddingForWidgetCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	appwidgetAppWidgetHostViewCmd.AddCommand(appwidgetAppWidgetHostViewGetDefaultPaddingForWidgetCmd)
+	appwidgetCmd.AddCommand(appwidgetAppWidgetHostViewCmd)
+	appwidgetAppWidgetProviderInfoCmd.AddCommand(appwidgetAppWidgetProviderInfoNewAppWidgetProviderInfoCmd)
+	appwidgetAppWidgetProviderInfoClone0Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	appwidgetAppWidgetProviderInfoCmd.AddCommand(appwidgetAppWidgetProviderInfoClone0Cmd)
+	appwidgetAppWidgetProviderInfoDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appwidgetAppWidgetProviderInfoCmd.AddCommand(appwidgetAppWidgetProviderInfoDescribeContentsCmd)
+	appwidgetAppWidgetProviderInfoGetActivityInfoCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appwidgetAppWidgetProviderInfoCmd.AddCommand(appwidgetAppWidgetProviderInfoGetActivityInfoCmd)
+	appwidgetAppWidgetProviderInfoGetProfileCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appwidgetAppWidgetProviderInfoCmd.AddCommand(appwidgetAppWidgetProviderInfoGetProfileCmd)
+	appwidgetAppWidgetProviderInfoLoadDescriptionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appwidgetAppWidgetProviderInfoLoadDescriptionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appwidgetAppWidgetProviderInfoCmd.AddCommand(appwidgetAppWidgetProviderInfoLoadDescriptionCmd)
+	appwidgetAppWidgetProviderInfoLoadIconCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appwidgetAppWidgetProviderInfoLoadIconCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appwidgetAppWidgetProviderInfoLoadIconCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	appwidgetAppWidgetProviderInfoCmd.AddCommand(appwidgetAppWidgetProviderInfoLoadIconCmd)
+	appwidgetAppWidgetProviderInfoLoadLabelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appwidgetAppWidgetProviderInfoLoadLabelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appwidgetAppWidgetProviderInfoCmd.AddCommand(appwidgetAppWidgetProviderInfoLoadLabelCmd)
+	appwidgetAppWidgetProviderInfoLoadPreviewImageCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appwidgetAppWidgetProviderInfoLoadPreviewImageCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appwidgetAppWidgetProviderInfoLoadPreviewImageCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	appwidgetAppWidgetProviderInfoCmd.AddCommand(appwidgetAppWidgetProviderInfoLoadPreviewImageCmd)
+	appwidgetAppWidgetProviderInfoToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appwidgetAppWidgetProviderInfoCmd.AddCommand(appwidgetAppWidgetProviderInfoToStringCmd)
+	appwidgetAppWidgetProviderInfoWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appwidgetAppWidgetProviderInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appwidgetAppWidgetProviderInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	appwidgetAppWidgetProviderInfoCmd.AddCommand(appwidgetAppWidgetProviderInfoWriteToParcelCmd)
+	appwidgetAppWidgetProviderInfoClone0_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	appwidgetAppWidgetProviderInfoCmd.AddCommand(appwidgetAppWidgetProviderInfoClone0_1Cmd)
+	appwidgetCmd.AddCommand(appwidgetAppWidgetProviderInfoCmd)
 	appwidgetAppWidgetManagerBindAppWidgetIdIfAllowed2Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	appwidgetAppWidgetManagerBindAppWidgetIdIfAllowed2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	appwidgetAppWidgetManagerCmd.AddCommand(appwidgetAppWidgetManagerBindAppWidgetIdIfAllowed2Cmd)
@@ -544,5 +1704,39 @@ func init() {
 	appwidgetAppWidgetManagerGetInstanceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	appwidgetAppWidgetManagerCmd.AddCommand(appwidgetAppWidgetManagerGetInstanceCmd)
 	appwidgetCmd.AddCommand(appwidgetAppWidgetManagerCmd)
+	appwidgetAppWidgetHostNewAppWidgetHostCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appwidgetAppWidgetHostNewAppWidgetHostCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	appwidgetAppWidgetHostCmd.AddCommand(appwidgetAppWidgetHostNewAppWidgetHostCmd)
+	appwidgetAppWidgetHostAllocateAppWidgetIdCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appwidgetAppWidgetHostCmd.AddCommand(appwidgetAppWidgetHostAllocateAppWidgetIdCmd)
+	appwidgetAppWidgetHostCreateViewCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appwidgetAppWidgetHostCreateViewCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appwidgetAppWidgetHostCreateViewCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	appwidgetAppWidgetHostCreateViewCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	appwidgetAppWidgetHostCmd.AddCommand(appwidgetAppWidgetHostCreateViewCmd)
+	appwidgetAppWidgetHostDeleteAppWidgetIdCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appwidgetAppWidgetHostDeleteAppWidgetIdCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	appwidgetAppWidgetHostCmd.AddCommand(appwidgetAppWidgetHostDeleteAppWidgetIdCmd)
+	appwidgetAppWidgetHostDeleteHostCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appwidgetAppWidgetHostCmd.AddCommand(appwidgetAppWidgetHostDeleteHostCmd)
+	appwidgetAppWidgetHostGetAppWidgetIdsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appwidgetAppWidgetHostCmd.AddCommand(appwidgetAppWidgetHostGetAppWidgetIdsCmd)
+	appwidgetAppWidgetHostOnAppWidgetRemovedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appwidgetAppWidgetHostOnAppWidgetRemovedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	appwidgetAppWidgetHostCmd.AddCommand(appwidgetAppWidgetHostOnAppWidgetRemovedCmd)
+	appwidgetAppWidgetHostStartAppWidgetConfigureActivityForResultCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appwidgetAppWidgetHostStartAppWidgetConfigureActivityForResultCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appwidgetAppWidgetHostStartAppWidgetConfigureActivityForResultCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	appwidgetAppWidgetHostStartAppWidgetConfigureActivityForResultCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	appwidgetAppWidgetHostStartAppWidgetConfigureActivityForResultCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	appwidgetAppWidgetHostStartAppWidgetConfigureActivityForResultCmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	appwidgetAppWidgetHostCmd.AddCommand(appwidgetAppWidgetHostStartAppWidgetConfigureActivityForResultCmd)
+	appwidgetAppWidgetHostStartListeningCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appwidgetAppWidgetHostCmd.AddCommand(appwidgetAppWidgetHostStartListeningCmd)
+	appwidgetAppWidgetHostStopListeningCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appwidgetAppWidgetHostCmd.AddCommand(appwidgetAppWidgetHostStopListeningCmd)
+	appwidgetAppWidgetHostDeleteAllHostsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appwidgetAppWidgetHostCmd.AddCommand(appwidgetAppWidgetHostDeleteAllHostsCmd)
+	appwidgetCmd.AddCommand(appwidgetAppWidgetHostCmd)
 	rootCmd.AddCommand(appwidgetCmd)
 }

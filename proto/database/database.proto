@@ -5,3 +5,2066 @@ syntax = "proto3";
 package database;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/database";
+
+message NewDataSetObservableRequest {
+}
+
+message NewDataSetObservableResponse {
+  int64 result = 1;
+}
+
+message NotifyChangedRequest {
+  int64 handle = 1;
+}
+
+message NotifyChangedResponse {
+}
+
+message NotifyInvalidatedRequest {
+  int64 handle = 1;
+}
+
+message NotifyInvalidatedResponse {
+}
+
+message NewUtilsRequest {
+}
+
+message NewUtilsResponse {
+  int64 result = 1;
+}
+
+message AppendEscapedSQLStringRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+}
+
+message AppendEscapedSQLStringResponse {
+}
+
+message AppendSelectionArgsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message AppendSelectionArgsResponse {
+  int64 result = 1;
+}
+
+message AppendValueToSqlRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message AppendValueToSqlResponse {
+}
+
+message BindObjectToProgramRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message BindObjectToProgramResponse {
+}
+
+message BlobFileDescriptorForQuery3Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message BlobFileDescriptorForQuery3Response {
+  int64 result = 1;
+}
+
+message BlobFileDescriptorForQuery2_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message BlobFileDescriptorForQuery2_1Response {
+  int64 result = 1;
+}
+
+message ConcatenateWhereRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  string arg1 = 3;
+}
+
+message ConcatenateWhereResponse {
+  string result = 1;
+}
+
+message CreateDbFromSqlStatementsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+  int32 arg2 = 4;
+  string arg3 = 5;
+}
+
+message CreateDbFromSqlStatementsResponse {
+}
+
+message CursorDoubleToContentValuesRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+  int64 arg2 = 4;
+  string arg3 = 5;
+}
+
+message CursorDoubleToContentValuesResponse {
+}
+
+message CursorDoubleToContentValuesIfPresentRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  string arg2 = 4;
+}
+
+message CursorDoubleToContentValuesIfPresentResponse {
+}
+
+message CursorDoubleToCursorValuesRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message CursorDoubleToCursorValuesResponse {
+}
+
+message CursorFloatToContentValuesIfPresentRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  string arg2 = 4;
+}
+
+message CursorFloatToContentValuesIfPresentResponse {
+}
+
+message CursorIntToContentValues3Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message CursorIntToContentValues3Response {
+}
+
+message CursorIntToContentValues4_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+  int64 arg2 = 4;
+  string arg3 = 5;
+}
+
+message CursorIntToContentValues4_1Response {
+}
+
+message CursorIntToContentValuesIfPresentRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  string arg2 = 4;
+}
+
+message CursorIntToContentValuesIfPresentResponse {
+}
+
+message CursorLongToContentValues3Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message CursorLongToContentValues3Response {
+}
+
+message CursorLongToContentValues4_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+  int64 arg2 = 4;
+  string arg3 = 5;
+}
+
+message CursorLongToContentValues4_1Response {
+}
+
+message CursorLongToContentValuesIfPresentRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  string arg2 = 4;
+}
+
+message CursorLongToContentValuesIfPresentResponse {
+}
+
+message CursorRowToContentValuesRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message CursorRowToContentValuesResponse {
+}
+
+message CursorShortToContentValuesIfPresentRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  string arg2 = 4;
+}
+
+message CursorShortToContentValuesIfPresentResponse {
+}
+
+message CursorStringToContentValues3Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message CursorStringToContentValues3Response {
+}
+
+message CursorStringToContentValues4_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+  int64 arg2 = 4;
+  string arg3 = 5;
+}
+
+message CursorStringToContentValues4_1Response {
+}
+
+message CursorStringToContentValuesIfPresentRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  string arg2 = 4;
+}
+
+message CursorStringToContentValuesIfPresentResponse {
+}
+
+message CursorStringToInsertHelperRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+  int64 arg2 = 4;
+  int32 arg3 = 5;
+}
+
+message CursorStringToInsertHelperResponse {
+}
+
+message DumpCurrentRow1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message DumpCurrentRow1Response {
+}
+
+message DumpCurrentRow2_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message DumpCurrentRow2_1Response {
+}
+
+message DumpCurrentRow2_2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message DumpCurrentRow2_2Response {
+}
+
+message DumpCurrentRowToStringRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message DumpCurrentRowToStringResponse {
+  string result = 1;
+}
+
+message DumpCursor1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message DumpCursor1Response {
+}
+
+message DumpCursor2_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message DumpCursor2_1Response {
+}
+
+message DumpCursor2_2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message DumpCursor2_2Response {
+}
+
+message DumpCursorToStringRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message DumpCursorToStringResponse {
+  string result = 1;
+}
+
+message GetCollationKeyRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message GetCollationKeyResponse {
+  string result = 1;
+}
+
+message GetHexCollationKeyRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message GetHexCollationKeyResponse {
+  string result = 1;
+}
+
+message GetSqlStatementTypeRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message GetSqlStatementTypeResponse {
+  int32 result = 1;
+}
+
+message LongForQuery3Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message LongForQuery3Response {
+  int64 result = 1;
+}
+
+message LongForQuery2_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message LongForQuery2_1Response {
+  int64 result = 1;
+}
+
+message QueryNumEntries2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+}
+
+message QueryNumEntries2Response {
+  int64 result = 1;
+}
+
+message QueryNumEntries3_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+  string arg2 = 4;
+}
+
+message QueryNumEntries3_1Response {
+  int64 result = 1;
+}
+
+message QueryNumEntries4_2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+  string arg2 = 4;
+  int64 arg3 = 5;
+}
+
+message QueryNumEntries4_2Response {
+  int64 result = 1;
+}
+
+message ReadExceptionFromParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message ReadExceptionFromParcelResponse {
+}
+
+message ReadExceptionWithFileNotFoundExceptionFromParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message ReadExceptionWithFileNotFoundExceptionFromParcelResponse {
+}
+
+message ReadExceptionWithOperationApplicationExceptionFromParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message ReadExceptionWithOperationApplicationExceptionFromParcelResponse {
+}
+
+message SqlEscapeStringRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SqlEscapeStringResponse {
+  string result = 1;
+}
+
+message StringForQuery3Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message StringForQuery3Response {
+  string result = 1;
+}
+
+message StringForQuery2_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message StringForQuery2_1Response {
+  string result = 1;
+}
+
+message WriteExceptionToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message WriteExceptionToParcelResponse {
+}
+
+message Bind2Request {
+  int32 arg0 = 1;
+  bool arg1 = 2;
+}
+
+message Bind2Response {
+}
+
+message Bind2_1Request {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message Bind2_1Response {
+}
+
+message Bind2_2Request {
+  int32 arg0 = 1;
+  double arg1 = 2;
+}
+
+message Bind2_2Response {
+}
+
+message Bind2_3Request {
+  int32 arg0 = 1;
+  float arg1 = 2;
+}
+
+message Bind2_3Response {
+}
+
+message Bind2_4Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message Bind2_4Response {
+}
+
+message Bind2_5Request {
+  int32 arg0 = 1;
+  string arg1 = 2;
+}
+
+message Bind2_5Response {
+}
+
+message Bind2_6Request {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message Bind2_6Response {
+}
+
+message BindNullRequest {
+  int32 arg0 = 1;
+}
+
+message BindNullResponse {
+}
+
+message CloseRequest {
+}
+
+message CloseResponse {
+}
+
+message ExecuteRequest {
+}
+
+message ExecuteResponse {
+  int64 result = 1;
+}
+
+message GetColumnIndexRequest {
+  string arg0 = 1;
+}
+
+message GetColumnIndexResponse {
+  int32 result = 1;
+}
+
+message InsertRequest {
+  int64 arg0 = 1;
+}
+
+message InsertResponse {
+  int64 result = 1;
+}
+
+message PrepareForInsertRequest {
+}
+
+message PrepareForInsertResponse {
+}
+
+message PrepareForReplaceRequest {
+}
+
+message PrepareForReplaceResponse {
+}
+
+message ReplaceRequest {
+  int64 arg0 = 1;
+}
+
+message ReplaceResponse {
+  int64 result = 1;
+}
+
+message NewMatrixCursorRequest {
+  int64 arg0 = 1;
+}
+
+message NewMatrixCursorResponse {
+  int64 result = 1;
+}
+
+message AddRowRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AddRowResponse {
+}
+
+message GetBlobRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetBlobResponse {
+  int64 result = 1;
+}
+
+message GetColumnNamesRequest {
+  int64 handle = 1;
+}
+
+message GetColumnNamesResponse {
+  int64 result = 1;
+}
+
+message GetCountRequest {
+  int64 handle = 1;
+}
+
+message GetCountResponse {
+  int32 result = 1;
+}
+
+message GetDoubleRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetDoubleResponse {
+  double result = 1;
+}
+
+message GetFloatRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetFloatResponse {
+  float result = 1;
+}
+
+message GetIntRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetIntResponse {
+  int32 result = 1;
+}
+
+message GetLongRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetLongResponse {
+  int64 result = 1;
+}
+
+message GetShortRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetShortResponse {
+  int32 result = 1;
+}
+
+message GetStringRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetStringResponse {
+  string result = 1;
+}
+
+message GetTypeRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetTypeResponse {
+  int32 result = 1;
+}
+
+message IsNullRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message IsNullResponse {
+  bool result = 1;
+}
+
+message NewRowRequest {
+  int64 handle = 1;
+}
+
+message NewRowResponse {
+  int64 result = 1;
+}
+
+message Add1Request {
+  int64 arg0 = 1;
+}
+
+message Add1Response {
+  int64 result = 1;
+}
+
+message Add2_1Request {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message Add2_1Response {
+  int64 result = 1;
+}
+
+message DeliverSelfNotificationsRequest {
+}
+
+message DeliverSelfNotificationsResponse {
+  bool result = 1;
+}
+
+message DispatchChange1Request {
+  bool arg0 = 1;
+}
+
+message DispatchChange1Response {
+}
+
+message DispatchChange2_1Request {
+  bool arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message DispatchChange2_1Response {
+}
+
+message DispatchChange3_2Request {
+  bool arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message DispatchChange3_2Response {
+}
+
+message OnChange1Request {
+  bool arg0 = 1;
+}
+
+message OnChange1Response {
+}
+
+message OnChange2_1Request {
+  bool arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnChange2_1Response {
+}
+
+message OnChange3_2Request {
+  bool arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message OnChange3_2Response {
+}
+
+message NewDefaultDatabaseErrorHandlerRequest {
+}
+
+message NewDefaultDatabaseErrorHandlerResponse {
+  int64 result = 1;
+}
+
+message OnCorruptionRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OnCorruptionResponse {
+}
+
+message NewCursorWrapperRequest {
+  int64 arg0 = 1;
+}
+
+message NewCursorWrapperResponse {
+  int64 result = 1;
+}
+
+message CursorWrapperCloseRequest {
+  int64 handle = 1;
+}
+
+message CopyStringToBufferRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message CopyStringToBufferResponse {
+}
+
+message DeactivateRequest {
+  int64 handle = 1;
+}
+
+message DeactivateResponse {
+}
+
+message GetColumnCountRequest {
+  int64 handle = 1;
+}
+
+message GetColumnCountResponse {
+  int32 result = 1;
+}
+
+message CursorWrapperGetColumnIndexRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message GetColumnIndexOrThrowRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message GetColumnIndexOrThrowResponse {
+  int32 result = 1;
+}
+
+message GetColumnNameRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetColumnNameResponse {
+  string result = 1;
+}
+
+message GetExtrasRequest {
+  int64 handle = 1;
+}
+
+message GetExtrasResponse {
+  int64 result = 1;
+}
+
+message GetNotificationUriRequest {
+  int64 handle = 1;
+}
+
+message GetNotificationUriResponse {
+  int64 result = 1;
+}
+
+message GetPositionRequest {
+  int64 handle = 1;
+}
+
+message GetPositionResponse {
+  int32 result = 1;
+}
+
+message GetWantsAllOnMoveCallsRequest {
+  int64 handle = 1;
+}
+
+message GetWantsAllOnMoveCallsResponse {
+  bool result = 1;
+}
+
+message GetWrappedCursorRequest {
+  int64 handle = 1;
+}
+
+message GetWrappedCursorResponse {
+  int64 result = 1;
+}
+
+message IsAfterLastRequest {
+  int64 handle = 1;
+}
+
+message IsAfterLastResponse {
+  bool result = 1;
+}
+
+message IsBeforeFirstRequest {
+  int64 handle = 1;
+}
+
+message IsBeforeFirstResponse {
+  bool result = 1;
+}
+
+message IsClosedRequest {
+  int64 handle = 1;
+}
+
+message IsClosedResponse {
+  bool result = 1;
+}
+
+message IsFirstRequest {
+  int64 handle = 1;
+}
+
+message IsFirstResponse {
+  bool result = 1;
+}
+
+message IsLastRequest {
+  int64 handle = 1;
+}
+
+message IsLastResponse {
+  bool result = 1;
+}
+
+message MoveRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message MoveResponse {
+  bool result = 1;
+}
+
+message MoveToFirstRequest {
+  int64 handle = 1;
+}
+
+message MoveToFirstResponse {
+  bool result = 1;
+}
+
+message MoveToLastRequest {
+  int64 handle = 1;
+}
+
+message MoveToLastResponse {
+  bool result = 1;
+}
+
+message MoveToNextRequest {
+  int64 handle = 1;
+}
+
+message MoveToNextResponse {
+  bool result = 1;
+}
+
+message MoveToPositionRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message MoveToPositionResponse {
+  bool result = 1;
+}
+
+message MoveToPreviousRequest {
+  int64 handle = 1;
+}
+
+message MoveToPreviousResponse {
+  bool result = 1;
+}
+
+message RegisterContentObserverRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message RegisterContentObserverResponse {
+}
+
+message RegisterDataSetObserverRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message RegisterDataSetObserverResponse {
+}
+
+message RequeryRequest {
+  int64 handle = 1;
+}
+
+message RequeryResponse {
+  bool result = 1;
+}
+
+message RespondRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message RespondResponse {
+  int64 result = 1;
+}
+
+message SetExtrasRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetExtrasResponse {
+}
+
+message SetNotificationUriRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message SetNotificationUriResponse {
+}
+
+message UnregisterContentObserverRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message UnregisterContentObserverResponse {
+}
+
+message UnregisterDataSetObserverRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message UnregisterDataSetObserverResponse {
+}
+
+message UnregisterAllRequest {
+}
+
+message UnregisterAllResponse {
+}
+
+message NewCrossProcessCursorWrapperRequest {
+  int64 arg0 = 1;
+}
+
+message NewCrossProcessCursorWrapperResponse {
+  int64 result = 1;
+}
+
+message FillWindowRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message FillWindowResponse {
+}
+
+message GetWindowRequest {
+  int64 handle = 1;
+}
+
+message GetWindowResponse {
+  int64 result = 1;
+}
+
+message OnMoveRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message OnMoveResponse {
+  bool result = 1;
+}
+
+message OnChangedRequest {
+}
+
+message OnChangedResponse {
+}
+
+message OnInvalidatedRequest {
+}
+
+message OnInvalidatedResponse {
+}
+
+message NewCursorJoinerRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message NewCursorJoinerResponse {
+  int64 result = 1;
+}
+
+message HasNextRequest {
+  int64 handle = 1;
+}
+
+message HasNextResponse {
+  bool result = 1;
+}
+
+message Next0Request {
+  int64 handle = 1;
+}
+
+message Next0Response {
+  int64 result = 1;
+}
+
+message RemoveRequest {
+  int64 handle = 1;
+}
+
+message RemoveResponse {
+}
+
+message Next0_1Request {
+  int64 handle = 1;
+}
+
+message Next0_1Response {
+  int64 result = 1;
+}
+
+message ValuesRequest {
+}
+
+message ValuesResponse {
+  int64 result = 1;
+}
+
+message ValueOfRequest {
+  string arg0 = 1;
+}
+
+message ValueOfResponse {
+  int64 result = 1;
+}
+
+message CrossProcessCursorFillWindowRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message CrossProcessCursorGetWindowRequest {
+}
+
+message CrossProcessCursorOnMoveRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message NewCursorWindowRequest {
+  bool arg0 = 1;
+}
+
+message NewCursorWindowResponse {
+  int64 result = 1;
+}
+
+message AllocRowRequest {
+  int64 handle = 1;
+}
+
+message AllocRowResponse {
+  bool result = 1;
+}
+
+message ClearRequest {
+  int64 handle = 1;
+}
+
+message ClearResponse {
+}
+
+message CursorWindowCopyStringToBufferRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message DescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message FreeLastRowRequest {
+  int64 handle = 1;
+}
+
+message FreeLastRowResponse {
+}
+
+message CursorWindowGetBlobRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message CursorWindowGetDoubleRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message CursorWindowGetFloatRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message CursorWindowGetIntRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message CursorWindowGetLongRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message GetNumRowsRequest {
+  int64 handle = 1;
+}
+
+message GetNumRowsResponse {
+  int32 result = 1;
+}
+
+message CursorWindowGetShortRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message GetStartPositionRequest {
+  int64 handle = 1;
+}
+
+message GetStartPositionResponse {
+  int32 result = 1;
+}
+
+message CursorWindowGetStringRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message CursorWindowGetTypeRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message IsBlobRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message IsBlobResponse {
+  bool result = 1;
+}
+
+message IsFloatRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message IsFloatResponse {
+  bool result = 1;
+}
+
+message IsLongRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message IsLongResponse {
+  bool result = 1;
+}
+
+message CursorWindowIsNullRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message IsStringRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message IsStringResponse {
+  bool result = 1;
+}
+
+message PutBlobRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+}
+
+message PutBlobResponse {
+  bool result = 1;
+}
+
+message PutDoubleRequest {
+  int64 handle = 1;
+  double arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+}
+
+message PutDoubleResponse {
+  bool result = 1;
+}
+
+message PutLongRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+}
+
+message PutLongResponse {
+  bool result = 1;
+}
+
+message PutNullRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message PutNullResponse {
+  bool result = 1;
+}
+
+message PutStringRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+}
+
+message PutStringResponse {
+  bool result = 1;
+}
+
+message SetNumColumnsRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetNumColumnsResponse {
+  bool result = 1;
+}
+
+message SetStartPositionRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetStartPositionResponse {
+}
+
+message ToStringRequest {
+  int64 handle = 1;
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message WriteToParcelResponse {
+}
+
+message NewFromParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message NewFromParcelResponse {
+  int64 result = 1;
+}
+
+message NewContentObservableRequest {
+}
+
+message NewContentObservableResponse {
+  int64 result = 1;
+}
+
+message ContentObservableDispatchChange1Request {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message ContentObservableDispatchChange2_1Request {
+  int64 handle = 1;
+  bool arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message NotifyChangeRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message NotifyChangeResponse {
+}
+
+message RegisterObserver1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message RegisterObserver1Response {
+}
+
+message RegisterObserver1_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message RegisterObserver1_1Response {
+}
+
+message NewMergeCursorRequest {
+  int64 arg0 = 1;
+}
+
+message NewMergeCursorResponse {
+  int64 result = 1;
+}
+
+message MergeCursorCloseRequest {
+  int64 handle = 1;
+}
+
+message AbstractWindowedCursorCopyStringToBufferRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message AbstractWindowedCursorGetBlobRequest {
+  int32 arg0 = 1;
+}
+
+message AbstractWindowedCursorGetDoubleRequest {
+  int32 arg0 = 1;
+}
+
+message AbstractWindowedCursorGetFloatRequest {
+  int32 arg0 = 1;
+}
+
+message AbstractWindowedCursorGetIntRequest {
+  int32 arg0 = 1;
+}
+
+message AbstractWindowedCursorGetLongRequest {
+  int32 arg0 = 1;
+}
+
+message AbstractWindowedCursorGetShortRequest {
+  int32 arg0 = 1;
+}
+
+message AbstractWindowedCursorGetStringRequest {
+  int32 arg0 = 1;
+}
+
+message AbstractWindowedCursorGetTypeRequest {
+  int32 arg0 = 1;
+}
+
+message AbstractWindowedCursorGetWindowRequest {
+}
+
+message HasWindowRequest {
+}
+
+message HasWindowResponse {
+  bool result = 1;
+}
+
+message AbstractWindowedCursorIsBlobRequest {
+  int32 arg0 = 1;
+}
+
+message AbstractWindowedCursorIsFloatRequest {
+  int32 arg0 = 1;
+}
+
+message AbstractWindowedCursorIsLongRequest {
+  int32 arg0 = 1;
+}
+
+message AbstractWindowedCursorIsNullRequest {
+  int32 arg0 = 1;
+}
+
+message AbstractWindowedCursorIsStringRequest {
+  int32 arg0 = 1;
+}
+
+message SetWindowRequest {
+  int64 arg0 = 1;
+}
+
+message SetWindowResponse {
+}
+
+message ErrorHandlerOnCorruptionRequest {
+  int64 arg0 = 1;
+}
+
+message AbstractCursorCopyStringToBufferRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message AbstractCursorDeactivateRequest {
+}
+
+message AbstractCursorFillWindowRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message AbstractCursorGetBlobRequest {
+  int32 arg0 = 1;
+}
+
+message AbstractCursorGetColumnCountRequest {
+}
+
+message AbstractCursorGetColumnIndexOrThrowRequest {
+  string arg0 = 1;
+}
+
+message AbstractCursorGetColumnNameRequest {
+  int32 arg0 = 1;
+}
+
+message AbstractCursorGetColumnNamesRequest {
+}
+
+message AbstractCursorGetCountRequest {
+}
+
+message AbstractCursorGetDoubleRequest {
+  int32 arg0 = 1;
+}
+
+message AbstractCursorGetExtrasRequest {
+}
+
+message AbstractCursorGetFloatRequest {
+  int32 arg0 = 1;
+}
+
+message AbstractCursorGetIntRequest {
+  int32 arg0 = 1;
+}
+
+message AbstractCursorGetLongRequest {
+  int32 arg0 = 1;
+}
+
+message AbstractCursorGetNotificationUriRequest {
+}
+
+message AbstractCursorGetPositionRequest {
+}
+
+message AbstractCursorGetShortRequest {
+  int32 arg0 = 1;
+}
+
+message AbstractCursorGetStringRequest {
+  int32 arg0 = 1;
+}
+
+message AbstractCursorGetTypeRequest {
+  int32 arg0 = 1;
+}
+
+message AbstractCursorGetWantsAllOnMoveCallsRequest {
+}
+
+message AbstractCursorGetWindowRequest {
+}
+
+message AbstractCursorIsAfterLastRequest {
+}
+
+message AbstractCursorIsBeforeFirstRequest {
+}
+
+message AbstractCursorIsClosedRequest {
+}
+
+message AbstractCursorIsFirstRequest {
+}
+
+message AbstractCursorIsLastRequest {
+}
+
+message AbstractCursorIsNullRequest {
+  int32 arg0 = 1;
+}
+
+message AbstractCursorMoveRequest {
+  int32 arg0 = 1;
+}
+
+message AbstractCursorMoveToFirstRequest {
+}
+
+message AbstractCursorMoveToLastRequest {
+}
+
+message AbstractCursorMoveToNextRequest {
+}
+
+message AbstractCursorMoveToPositionRequest {
+  int32 arg0 = 1;
+}
+
+message AbstractCursorMoveToPreviousRequest {
+}
+
+message AbstractCursorOnMoveRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message AbstractCursorRegisterContentObserverRequest {
+  int64 arg0 = 1;
+}
+
+message AbstractCursorRegisterDataSetObserverRequest {
+  int64 arg0 = 1;
+}
+
+message AbstractCursorRequeryRequest {
+}
+
+message AbstractCursorRespondRequest {
+  int64 arg0 = 1;
+}
+
+message AbstractCursorSetExtrasRequest {
+  int64 arg0 = 1;
+}
+
+message AbstractCursorSetNotificationUriRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message AbstractCursorUnregisterContentObserverRequest {
+  int64 arg0 = 1;
+}
+
+message AbstractCursorUnregisterDataSetObserverRequest {
+  int64 arg0 = 1;
+}
+
+message OnChangeRequest {
+  bool arg0 = 1;
+}
+
+message OnChangeResponse {
+}
+
+service DataSetObservableService {
+  rpc NewDataSetObservable (NewDataSetObservableRequest) returns (NewDataSetObservableResponse);
+  rpc NotifyChanged (NotifyChangedRequest) returns (NotifyChangedResponse);
+  rpc NotifyInvalidated (NotifyInvalidatedRequest) returns (NotifyInvalidatedResponse);
+}
+
+service UtilsService {
+  rpc NewUtils (NewUtilsRequest) returns (NewUtilsResponse);
+  rpc AppendEscapedSQLString (AppendEscapedSQLStringRequest) returns (AppendEscapedSQLStringResponse);
+  rpc AppendSelectionArgs (AppendSelectionArgsRequest) returns (AppendSelectionArgsResponse);
+  rpc AppendValueToSql (AppendValueToSqlRequest) returns (AppendValueToSqlResponse);
+  rpc BindObjectToProgram (BindObjectToProgramRequest) returns (BindObjectToProgramResponse);
+  rpc BlobFileDescriptorForQuery3 (BlobFileDescriptorForQuery3Request) returns (BlobFileDescriptorForQuery3Response);
+  rpc BlobFileDescriptorForQuery2_1 (BlobFileDescriptorForQuery2_1Request) returns (BlobFileDescriptorForQuery2_1Response);
+  rpc ConcatenateWhere (ConcatenateWhereRequest) returns (ConcatenateWhereResponse);
+  rpc CreateDbFromSqlStatements (CreateDbFromSqlStatementsRequest) returns (CreateDbFromSqlStatementsResponse);
+  rpc CursorDoubleToContentValues (CursorDoubleToContentValuesRequest) returns (CursorDoubleToContentValuesResponse);
+  rpc CursorDoubleToContentValuesIfPresent (CursorDoubleToContentValuesIfPresentRequest) returns (CursorDoubleToContentValuesIfPresentResponse);
+  rpc CursorDoubleToCursorValues (CursorDoubleToCursorValuesRequest) returns (CursorDoubleToCursorValuesResponse);
+  rpc CursorFloatToContentValuesIfPresent (CursorFloatToContentValuesIfPresentRequest) returns (CursorFloatToContentValuesIfPresentResponse);
+  rpc CursorIntToContentValues3 (CursorIntToContentValues3Request) returns (CursorIntToContentValues3Response);
+  rpc CursorIntToContentValues4_1 (CursorIntToContentValues4_1Request) returns (CursorIntToContentValues4_1Response);
+  rpc CursorIntToContentValuesIfPresent (CursorIntToContentValuesIfPresentRequest) returns (CursorIntToContentValuesIfPresentResponse);
+  rpc CursorLongToContentValues3 (CursorLongToContentValues3Request) returns (CursorLongToContentValues3Response);
+  rpc CursorLongToContentValues4_1 (CursorLongToContentValues4_1Request) returns (CursorLongToContentValues4_1Response);
+  rpc CursorLongToContentValuesIfPresent (CursorLongToContentValuesIfPresentRequest) returns (CursorLongToContentValuesIfPresentResponse);
+  rpc CursorRowToContentValues (CursorRowToContentValuesRequest) returns (CursorRowToContentValuesResponse);
+  rpc CursorShortToContentValuesIfPresent (CursorShortToContentValuesIfPresentRequest) returns (CursorShortToContentValuesIfPresentResponse);
+  rpc CursorStringToContentValues3 (CursorStringToContentValues3Request) returns (CursorStringToContentValues3Response);
+  rpc CursorStringToContentValues4_1 (CursorStringToContentValues4_1Request) returns (CursorStringToContentValues4_1Response);
+  rpc CursorStringToContentValuesIfPresent (CursorStringToContentValuesIfPresentRequest) returns (CursorStringToContentValuesIfPresentResponse);
+  rpc CursorStringToInsertHelper (CursorStringToInsertHelperRequest) returns (CursorStringToInsertHelperResponse);
+  rpc DumpCurrentRow1 (DumpCurrentRow1Request) returns (DumpCurrentRow1Response);
+  rpc DumpCurrentRow2_1 (DumpCurrentRow2_1Request) returns (DumpCurrentRow2_1Response);
+  rpc DumpCurrentRow2_2 (DumpCurrentRow2_2Request) returns (DumpCurrentRow2_2Response);
+  rpc DumpCurrentRowToString (DumpCurrentRowToStringRequest) returns (DumpCurrentRowToStringResponse);
+  rpc DumpCursor1 (DumpCursor1Request) returns (DumpCursor1Response);
+  rpc DumpCursor2_1 (DumpCursor2_1Request) returns (DumpCursor2_1Response);
+  rpc DumpCursor2_2 (DumpCursor2_2Request) returns (DumpCursor2_2Response);
+  rpc DumpCursorToString (DumpCursorToStringRequest) returns (DumpCursorToStringResponse);
+  rpc GetCollationKey (GetCollationKeyRequest) returns (GetCollationKeyResponse);
+  rpc GetHexCollationKey (GetHexCollationKeyRequest) returns (GetHexCollationKeyResponse);
+  rpc GetSqlStatementType (GetSqlStatementTypeRequest) returns (GetSqlStatementTypeResponse);
+  rpc LongForQuery3 (LongForQuery3Request) returns (LongForQuery3Response);
+  rpc LongForQuery2_1 (LongForQuery2_1Request) returns (LongForQuery2_1Response);
+  rpc QueryNumEntries2 (QueryNumEntries2Request) returns (QueryNumEntries2Response);
+  rpc QueryNumEntries3_1 (QueryNumEntries3_1Request) returns (QueryNumEntries3_1Response);
+  rpc QueryNumEntries4_2 (QueryNumEntries4_2Request) returns (QueryNumEntries4_2Response);
+  rpc ReadExceptionFromParcel (ReadExceptionFromParcelRequest) returns (ReadExceptionFromParcelResponse);
+  rpc ReadExceptionWithFileNotFoundExceptionFromParcel (ReadExceptionWithFileNotFoundExceptionFromParcelRequest) returns (ReadExceptionWithFileNotFoundExceptionFromParcelResponse);
+  rpc ReadExceptionWithOperationApplicationExceptionFromParcel (ReadExceptionWithOperationApplicationExceptionFromParcelRequest) returns (ReadExceptionWithOperationApplicationExceptionFromParcelResponse);
+  rpc SqlEscapeString (SqlEscapeStringRequest) returns (SqlEscapeStringResponse);
+  rpc StringForQuery3 (StringForQuery3Request) returns (StringForQuery3Response);
+  rpc StringForQuery2_1 (StringForQuery2_1Request) returns (StringForQuery2_1Response);
+  rpc WriteExceptionToParcel (WriteExceptionToParcelRequest) returns (WriteExceptionToParcelResponse);
+}
+
+service UtilsInsertHelperService {
+  rpc Bind2 (Bind2Request) returns (Bind2Response);
+  rpc Bind2_1 (Bind2_1Request) returns (Bind2_1Response);
+  rpc Bind2_2 (Bind2_2Request) returns (Bind2_2Response);
+  rpc Bind2_3 (Bind2_3Request) returns (Bind2_3Response);
+  rpc Bind2_4 (Bind2_4Request) returns (Bind2_4Response);
+  rpc Bind2_5 (Bind2_5Request) returns (Bind2_5Response);
+  rpc Bind2_6 (Bind2_6Request) returns (Bind2_6Response);
+  rpc BindNull (BindNullRequest) returns (BindNullResponse);
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc Execute (ExecuteRequest) returns (ExecuteResponse);
+  rpc GetColumnIndex (GetColumnIndexRequest) returns (GetColumnIndexResponse);
+  rpc Insert (InsertRequest) returns (InsertResponse);
+  rpc PrepareForInsert (PrepareForInsertRequest) returns (PrepareForInsertResponse);
+  rpc PrepareForReplace (PrepareForReplaceRequest) returns (PrepareForReplaceResponse);
+  rpc Replace (ReplaceRequest) returns (ReplaceResponse);
+}
+
+service MatrixCursorService {
+  rpc NewMatrixCursor (NewMatrixCursorRequest) returns (NewMatrixCursorResponse);
+  rpc AddRow (AddRowRequest) returns (AddRowResponse);
+  rpc GetBlob (GetBlobRequest) returns (GetBlobResponse);
+  rpc GetColumnNames (GetColumnNamesRequest) returns (GetColumnNamesResponse);
+  rpc GetCount (GetCountRequest) returns (GetCountResponse);
+  rpc GetDouble (GetDoubleRequest) returns (GetDoubleResponse);
+  rpc GetFloat (GetFloatRequest) returns (GetFloatResponse);
+  rpc GetInt (GetIntRequest) returns (GetIntResponse);
+  rpc GetLong (GetLongRequest) returns (GetLongResponse);
+  rpc GetShort (GetShortRequest) returns (GetShortResponse);
+  rpc GetString (GetStringRequest) returns (GetStringResponse);
+  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
+  rpc IsNull (IsNullRequest) returns (IsNullResponse);
+  rpc NewRow (NewRowRequest) returns (NewRowResponse);
+}
+
+service MatrixCursorRowBuilderService {
+  rpc Add1 (Add1Request) returns (Add1Response);
+  rpc Add2_1 (Add2_1Request) returns (Add2_1Response);
+}
+
+service ContentObserverService {
+  rpc DeliverSelfNotifications (DeliverSelfNotificationsRequest) returns (DeliverSelfNotificationsResponse);
+  rpc DispatchChange1 (DispatchChange1Request) returns (DispatchChange1Response);
+  rpc DispatchChange2_1 (DispatchChange2_1Request) returns (DispatchChange2_1Response);
+  rpc DispatchChange3_2 (DispatchChange3_2Request) returns (DispatchChange3_2Response);
+  rpc OnChange1 (OnChange1Request) returns (OnChange1Response);
+  rpc OnChange2_1 (OnChange2_1Request) returns (OnChange2_1Response);
+  rpc OnChange3_2 (OnChange3_2Request) returns (OnChange3_2Response);
+}
+
+service DefaultDatabaseErrorHandlerService {
+  rpc NewDefaultDatabaseErrorHandler (NewDefaultDatabaseErrorHandlerRequest) returns (NewDefaultDatabaseErrorHandlerResponse);
+  rpc OnCorruption (OnCorruptionRequest) returns (OnCorruptionResponse);
+}
+
+service CursorWrapperService {
+  rpc NewCursorWrapper (NewCursorWrapperRequest) returns (NewCursorWrapperResponse);
+  rpc Close (CursorWrapperCloseRequest) returns (CloseResponse);
+  rpc CopyStringToBuffer (CopyStringToBufferRequest) returns (CopyStringToBufferResponse);
+  rpc Deactivate (DeactivateRequest) returns (DeactivateResponse);
+  rpc GetBlob (GetBlobRequest) returns (GetBlobResponse);
+  rpc GetColumnCount (GetColumnCountRequest) returns (GetColumnCountResponse);
+  rpc GetColumnIndex (CursorWrapperGetColumnIndexRequest) returns (GetColumnIndexResponse);
+  rpc GetColumnIndexOrThrow (GetColumnIndexOrThrowRequest) returns (GetColumnIndexOrThrowResponse);
+  rpc GetColumnName (GetColumnNameRequest) returns (GetColumnNameResponse);
+  rpc GetColumnNames (GetColumnNamesRequest) returns (GetColumnNamesResponse);
+  rpc GetCount (GetCountRequest) returns (GetCountResponse);
+  rpc GetDouble (GetDoubleRequest) returns (GetDoubleResponse);
+  rpc GetExtras (GetExtrasRequest) returns (GetExtrasResponse);
+  rpc GetFloat (GetFloatRequest) returns (GetFloatResponse);
+  rpc GetInt (GetIntRequest) returns (GetIntResponse);
+  rpc GetLong (GetLongRequest) returns (GetLongResponse);
+  rpc GetNotificationUri (GetNotificationUriRequest) returns (GetNotificationUriResponse);
+  rpc GetPosition (GetPositionRequest) returns (GetPositionResponse);
+  rpc GetShort (GetShortRequest) returns (GetShortResponse);
+  rpc GetString (GetStringRequest) returns (GetStringResponse);
+  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
+  rpc GetWantsAllOnMoveCalls (GetWantsAllOnMoveCallsRequest) returns (GetWantsAllOnMoveCallsResponse);
+  rpc GetWrappedCursor (GetWrappedCursorRequest) returns (GetWrappedCursorResponse);
+  rpc IsAfterLast (IsAfterLastRequest) returns (IsAfterLastResponse);
+  rpc IsBeforeFirst (IsBeforeFirstRequest) returns (IsBeforeFirstResponse);
+  rpc IsClosed (IsClosedRequest) returns (IsClosedResponse);
+  rpc IsFirst (IsFirstRequest) returns (IsFirstResponse);
+  rpc IsLast (IsLastRequest) returns (IsLastResponse);
+  rpc IsNull (IsNullRequest) returns (IsNullResponse);
+  rpc Move (MoveRequest) returns (MoveResponse);
+  rpc MoveToFirst (MoveToFirstRequest) returns (MoveToFirstResponse);
+  rpc MoveToLast (MoveToLastRequest) returns (MoveToLastResponse);
+  rpc MoveToNext (MoveToNextRequest) returns (MoveToNextResponse);
+  rpc MoveToPosition (MoveToPositionRequest) returns (MoveToPositionResponse);
+  rpc MoveToPrevious (MoveToPreviousRequest) returns (MoveToPreviousResponse);
+  rpc RegisterContentObserver (RegisterContentObserverRequest) returns (RegisterContentObserverResponse);
+  rpc RegisterDataSetObserver (RegisterDataSetObserverRequest) returns (RegisterDataSetObserverResponse);
+  rpc Requery (RequeryRequest) returns (RequeryResponse);
+  rpc Respond (RespondRequest) returns (RespondResponse);
+  rpc SetExtras (SetExtrasRequest) returns (SetExtrasResponse);
+  rpc SetNotificationUri (SetNotificationUriRequest) returns (SetNotificationUriResponse);
+  rpc UnregisterContentObserver (UnregisterContentObserverRequest) returns (UnregisterContentObserverResponse);
+  rpc UnregisterDataSetObserver (UnregisterDataSetObserverRequest) returns (UnregisterDataSetObserverResponse);
+}
+
+service ObservableService {
+  rpc UnregisterAll (UnregisterAllRequest) returns (UnregisterAllResponse);
+}
+
+service CrossProcessCursorWrapperService {
+  rpc NewCrossProcessCursorWrapper (NewCrossProcessCursorWrapperRequest) returns (NewCrossProcessCursorWrapperResponse);
+  rpc FillWindow (FillWindowRequest) returns (FillWindowResponse);
+  rpc GetWindow (GetWindowRequest) returns (GetWindowResponse);
+  rpc OnMove (OnMoveRequest) returns (OnMoveResponse);
+}
+
+service DataSetObserverService {
+  rpc OnChanged (OnChangedRequest) returns (OnChangedResponse);
+  rpc OnInvalidated (OnInvalidatedRequest) returns (OnInvalidatedResponse);
+}
+
+service CursorJoinerService {
+  rpc NewCursorJoiner (NewCursorJoinerRequest) returns (NewCursorJoinerResponse);
+  rpc HasNext (HasNextRequest) returns (HasNextResponse);
+  rpc Next0 (Next0Request) returns (Next0Response);
+  rpc Remove (RemoveRequest) returns (RemoveResponse);
+  rpc Next0_1 (Next0_1Request) returns (Next0_1Response);
+}
+
+service CursorJoinerResultService {
+  rpc Values (ValuesRequest) returns (ValuesResponse);
+  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
+}
+
+service CrossProcessCursorService {
+  rpc FillWindow (CrossProcessCursorFillWindowRequest) returns (FillWindowResponse);
+  rpc GetWindow (CrossProcessCursorGetWindowRequest) returns (GetWindowResponse);
+  rpc OnMove (CrossProcessCursorOnMoveRequest) returns (OnMoveResponse);
+}
+
+service CursorWindowService {
+  rpc NewCursorWindow (NewCursorWindowRequest) returns (NewCursorWindowResponse);
+  rpc AllocRow (AllocRowRequest) returns (AllocRowResponse);
+  rpc Clear (ClearRequest) returns (ClearResponse);
+  rpc CopyStringToBuffer (CursorWindowCopyStringToBufferRequest) returns (CopyStringToBufferResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc FreeLastRow (FreeLastRowRequest) returns (FreeLastRowResponse);
+  rpc GetBlob (CursorWindowGetBlobRequest) returns (GetBlobResponse);
+  rpc GetDouble (CursorWindowGetDoubleRequest) returns (GetDoubleResponse);
+  rpc GetFloat (CursorWindowGetFloatRequest) returns (GetFloatResponse);
+  rpc GetInt (CursorWindowGetIntRequest) returns (GetIntResponse);
+  rpc GetLong (CursorWindowGetLongRequest) returns (GetLongResponse);
+  rpc GetNumRows (GetNumRowsRequest) returns (GetNumRowsResponse);
+  rpc GetShort (CursorWindowGetShortRequest) returns (GetShortResponse);
+  rpc GetStartPosition (GetStartPositionRequest) returns (GetStartPositionResponse);
+  rpc GetString (CursorWindowGetStringRequest) returns (GetStringResponse);
+  rpc GetType (CursorWindowGetTypeRequest) returns (GetTypeResponse);
+  rpc IsBlob (IsBlobRequest) returns (IsBlobResponse);
+  rpc IsFloat (IsFloatRequest) returns (IsFloatResponse);
+  rpc IsLong (IsLongRequest) returns (IsLongResponse);
+  rpc IsNull (CursorWindowIsNullRequest) returns (IsNullResponse);
+  rpc IsString (IsStringRequest) returns (IsStringResponse);
+  rpc PutBlob (PutBlobRequest) returns (PutBlobResponse);
+  rpc PutDouble (PutDoubleRequest) returns (PutDoubleResponse);
+  rpc PutLong (PutLongRequest) returns (PutLongResponse);
+  rpc PutNull (PutNullRequest) returns (PutNullResponse);
+  rpc PutString (PutStringRequest) returns (PutStringResponse);
+  rpc SetNumColumns (SetNumColumnsRequest) returns (SetNumColumnsResponse);
+  rpc SetStartPosition (SetStartPositionRequest) returns (SetStartPositionResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc NewFromParcel (NewFromParcelRequest) returns (NewFromParcelResponse);
+}
+
+service ContentObservableService {
+  rpc NewContentObservable (NewContentObservableRequest) returns (NewContentObservableResponse);
+  rpc DispatchChange1 (ContentObservableDispatchChange1Request) returns (DispatchChange1Response);
+  rpc DispatchChange2_1 (ContentObservableDispatchChange2_1Request) returns (DispatchChange2_1Response);
+  rpc NotifyChange (NotifyChangeRequest) returns (NotifyChangeResponse);
+  rpc RegisterObserver1 (RegisterObserver1Request) returns (RegisterObserver1Response);
+  rpc RegisterObserver1_1 (RegisterObserver1_1Request) returns (RegisterObserver1_1Response);
+}
+
+service MergeCursorService {
+  rpc NewMergeCursor (NewMergeCursorRequest) returns (NewMergeCursorResponse);
+  rpc Close (MergeCursorCloseRequest) returns (CloseResponse);
+  rpc Deactivate (DeactivateRequest) returns (DeactivateResponse);
+  rpc GetBlob (GetBlobRequest) returns (GetBlobResponse);
+  rpc GetColumnNames (GetColumnNamesRequest) returns (GetColumnNamesResponse);
+  rpc GetCount (GetCountRequest) returns (GetCountResponse);
+  rpc GetDouble (GetDoubleRequest) returns (GetDoubleResponse);
+  rpc GetFloat (GetFloatRequest) returns (GetFloatResponse);
+  rpc GetInt (GetIntRequest) returns (GetIntResponse);
+  rpc GetLong (GetLongRequest) returns (GetLongResponse);
+  rpc GetShort (GetShortRequest) returns (GetShortResponse);
+  rpc GetString (GetStringRequest) returns (GetStringResponse);
+  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
+  rpc IsNull (IsNullRequest) returns (IsNullResponse);
+  rpc OnMove (OnMoveRequest) returns (OnMoveResponse);
+  rpc RegisterContentObserver (RegisterContentObserverRequest) returns (RegisterContentObserverResponse);
+  rpc RegisterDataSetObserver (RegisterDataSetObserverRequest) returns (RegisterDataSetObserverResponse);
+  rpc Requery (RequeryRequest) returns (RequeryResponse);
+  rpc UnregisterContentObserver (UnregisterContentObserverRequest) returns (UnregisterContentObserverResponse);
+  rpc UnregisterDataSetObserver (UnregisterDataSetObserverRequest) returns (UnregisterDataSetObserverResponse);
+}
+
+service AbstractWindowedCursorService {
+  rpc CopyStringToBuffer (AbstractWindowedCursorCopyStringToBufferRequest) returns (CopyStringToBufferResponse);
+  rpc GetBlob (AbstractWindowedCursorGetBlobRequest) returns (GetBlobResponse);
+  rpc GetDouble (AbstractWindowedCursorGetDoubleRequest) returns (GetDoubleResponse);
+  rpc GetFloat (AbstractWindowedCursorGetFloatRequest) returns (GetFloatResponse);
+  rpc GetInt (AbstractWindowedCursorGetIntRequest) returns (GetIntResponse);
+  rpc GetLong (AbstractWindowedCursorGetLongRequest) returns (GetLongResponse);
+  rpc GetShort (AbstractWindowedCursorGetShortRequest) returns (GetShortResponse);
+  rpc GetString (AbstractWindowedCursorGetStringRequest) returns (GetStringResponse);
+  rpc GetType (AbstractWindowedCursorGetTypeRequest) returns (GetTypeResponse);
+  rpc GetWindow (AbstractWindowedCursorGetWindowRequest) returns (GetWindowResponse);
+  rpc HasWindow (HasWindowRequest) returns (HasWindowResponse);
+  rpc IsBlob (AbstractWindowedCursorIsBlobRequest) returns (IsBlobResponse);
+  rpc IsFloat (AbstractWindowedCursorIsFloatRequest) returns (IsFloatResponse);
+  rpc IsLong (AbstractWindowedCursorIsLongRequest) returns (IsLongResponse);
+  rpc IsNull (AbstractWindowedCursorIsNullRequest) returns (IsNullResponse);
+  rpc IsString (AbstractWindowedCursorIsStringRequest) returns (IsStringResponse);
+  rpc SetWindow (SetWindowRequest) returns (SetWindowResponse);
+}
+
+service ErrorHandlerService {
+  rpc OnCorruption (ErrorHandlerOnCorruptionRequest) returns (OnCorruptionResponse);
+}
+
+service AbstractCursorService {
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc CopyStringToBuffer (AbstractCursorCopyStringToBufferRequest) returns (CopyStringToBufferResponse);
+  rpc Deactivate (AbstractCursorDeactivateRequest) returns (DeactivateResponse);
+  rpc FillWindow (AbstractCursorFillWindowRequest) returns (FillWindowResponse);
+  rpc GetBlob (AbstractCursorGetBlobRequest) returns (GetBlobResponse);
+  rpc GetColumnCount (AbstractCursorGetColumnCountRequest) returns (GetColumnCountResponse);
+  rpc GetColumnIndex (GetColumnIndexRequest) returns (GetColumnIndexResponse);
+  rpc GetColumnIndexOrThrow (AbstractCursorGetColumnIndexOrThrowRequest) returns (GetColumnIndexOrThrowResponse);
+  rpc GetColumnName (AbstractCursorGetColumnNameRequest) returns (GetColumnNameResponse);
+  rpc GetColumnNames (AbstractCursorGetColumnNamesRequest) returns (GetColumnNamesResponse);
+  rpc GetCount (AbstractCursorGetCountRequest) returns (GetCountResponse);
+  rpc GetDouble (AbstractCursorGetDoubleRequest) returns (GetDoubleResponse);
+  rpc GetExtras (AbstractCursorGetExtrasRequest) returns (GetExtrasResponse);
+  rpc GetFloat (AbstractCursorGetFloatRequest) returns (GetFloatResponse);
+  rpc GetInt (AbstractCursorGetIntRequest) returns (GetIntResponse);
+  rpc GetLong (AbstractCursorGetLongRequest) returns (GetLongResponse);
+  rpc GetNotificationUri (AbstractCursorGetNotificationUriRequest) returns (GetNotificationUriResponse);
+  rpc GetPosition (AbstractCursorGetPositionRequest) returns (GetPositionResponse);
+  rpc GetShort (AbstractCursorGetShortRequest) returns (GetShortResponse);
+  rpc GetString (AbstractCursorGetStringRequest) returns (GetStringResponse);
+  rpc GetType (AbstractCursorGetTypeRequest) returns (GetTypeResponse);
+  rpc GetWantsAllOnMoveCalls (AbstractCursorGetWantsAllOnMoveCallsRequest) returns (GetWantsAllOnMoveCallsResponse);
+  rpc GetWindow (AbstractCursorGetWindowRequest) returns (GetWindowResponse);
+  rpc IsAfterLast (AbstractCursorIsAfterLastRequest) returns (IsAfterLastResponse);
+  rpc IsBeforeFirst (AbstractCursorIsBeforeFirstRequest) returns (IsBeforeFirstResponse);
+  rpc IsClosed (AbstractCursorIsClosedRequest) returns (IsClosedResponse);
+  rpc IsFirst (AbstractCursorIsFirstRequest) returns (IsFirstResponse);
+  rpc IsLast (AbstractCursorIsLastRequest) returns (IsLastResponse);
+  rpc IsNull (AbstractCursorIsNullRequest) returns (IsNullResponse);
+  rpc Move (AbstractCursorMoveRequest) returns (MoveResponse);
+  rpc MoveToFirst (AbstractCursorMoveToFirstRequest) returns (MoveToFirstResponse);
+  rpc MoveToLast (AbstractCursorMoveToLastRequest) returns (MoveToLastResponse);
+  rpc MoveToNext (AbstractCursorMoveToNextRequest) returns (MoveToNextResponse);
+  rpc MoveToPosition (AbstractCursorMoveToPositionRequest) returns (MoveToPositionResponse);
+  rpc MoveToPrevious (AbstractCursorMoveToPreviousRequest) returns (MoveToPreviousResponse);
+  rpc OnMove (AbstractCursorOnMoveRequest) returns (OnMoveResponse);
+  rpc RegisterContentObserver (AbstractCursorRegisterContentObserverRequest) returns (RegisterContentObserverResponse);
+  rpc RegisterDataSetObserver (AbstractCursorRegisterDataSetObserverRequest) returns (RegisterDataSetObserverResponse);
+  rpc Requery (AbstractCursorRequeryRequest) returns (RequeryResponse);
+  rpc Respond (AbstractCursorRespondRequest) returns (RespondResponse);
+  rpc SetExtras (AbstractCursorSetExtrasRequest) returns (SetExtrasResponse);
+  rpc SetNotificationUri (AbstractCursorSetNotificationUriRequest) returns (SetNotificationUriResponse);
+  rpc UnregisterContentObserver (AbstractCursorUnregisterContentObserverRequest) returns (UnregisterContentObserverResponse);
+  rpc UnregisterDataSetObserver (AbstractCursorUnregisterDataSetObserverRequest) returns (UnregisterDataSetObserverResponse);
+}
+
+service AbstractCursorSelfContentObserverService {
+  rpc DeliverSelfNotifications (DeliverSelfNotificationsRequest) returns (DeliverSelfNotificationsResponse);
+  rpc OnChange (OnChangeRequest) returns (OnChangeResponse);
+}

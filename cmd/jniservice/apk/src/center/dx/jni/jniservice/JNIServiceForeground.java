@@ -5,6 +5,7 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.Service;
 import android.content.Intent;
+import android.content.pm.ServiceInfo;
 import android.os.IBinder;
 
 public class JNIServiceForeground extends Service {
@@ -32,7 +33,11 @@ public class JNIServiceForeground extends Service {
                 .setOngoing(true)
                 .build();
 
-        startForeground(NOTIFICATION_ID, notification);
+        startForeground(NOTIFICATION_ID, notification,
+                ServiceInfo.FOREGROUND_SERVICE_TYPE_CAMERA
+                | ServiceInfo.FOREGROUND_SERVICE_TYPE_MICROPHONE
+                | ServiceInfo.FOREGROUND_SERVICE_TYPE_LOCATION
+                | ServiceInfo.FOREGROUND_SERVICE_TYPE_SPECIAL_USE);
 
         if (!loaded) {
             loaded = true;

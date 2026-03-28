@@ -9,6 +9,2844 @@ import (
 	"google.golang.org/grpc"
 )
 
+// NotificationClient wraps the gRPC NotificationService client.
+type NotificationClient struct {
+	svc pb.NotificationServiceClient
+}
+
+// NewNotificationClient creates a new Notification client.
+func NewNotificationClient(cc grpc.ClientConnInterface) *NotificationClient {
+	return &NotificationClient{
+		svc: pb.NewNotificationServiceClient(cc),
+	}
+}
+
+// Clone0 calls the Clone0 RPC.
+func (c *NotificationClient) Clone0(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.Clone0(ctx, &pb.Clone0Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *NotificationClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAllowSystemGeneratedContextualActions calls the GetAllowSystemGeneratedContextualActions RPC.
+func (c *NotificationClient) GetAllowSystemGeneratedContextualActions(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.GetAllowSystemGeneratedContextualActions(ctx, &pb.GetAllowSystemGeneratedContextualActionsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBadgeIconType calls the GetBadgeIconType RPC.
+func (c *NotificationClient) GetBadgeIconType(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetBadgeIconType(ctx, &pb.GetBadgeIconTypeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBubbleMetadata calls the GetBubbleMetadata RPC.
+func (c *NotificationClient) GetBubbleMetadata(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetBubbleMetadata(ctx, &pb.GetBubbleMetadataRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetChannelId calls the GetChannelId RPC.
+func (c *NotificationClient) GetChannelId(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetChannelId(ctx, &pb.GetChannelIdRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetGroup calls the GetGroup RPC.
+func (c *NotificationClient) GetGroup(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetGroup(ctx, &pb.GetGroupRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetGroupAlertBehavior calls the GetGroupAlertBehavior RPC.
+func (c *NotificationClient) GetGroupAlertBehavior(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetGroupAlertBehavior(ctx, &pb.GetGroupAlertBehaviorRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLargeIcon calls the GetLargeIcon RPC.
+func (c *NotificationClient) GetLargeIcon(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetLargeIcon(ctx, &pb.GetLargeIconRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLocusId calls the GetLocusId RPC.
+func (c *NotificationClient) GetLocusId(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetLocusId(ctx, &pb.GetLocusIdRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSettingsText calls the GetSettingsText RPC.
+func (c *NotificationClient) GetSettingsText(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetSettingsText(ctx, &pb.GetSettingsTextRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetShortCriticalText calls the GetShortCriticalText RPC.
+func (c *NotificationClient) GetShortCriticalText(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetShortCriticalText(ctx, &pb.GetShortCriticalTextRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetShortcutId calls the GetShortcutId RPC.
+func (c *NotificationClient) GetShortcutId(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetShortcutId(ctx, &pb.GetShortcutIdRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSmallIcon calls the GetSmallIcon RPC.
+func (c *NotificationClient) GetSmallIcon(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetSmallIcon(ctx, &pb.GetSmallIconRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSortKey calls the GetSortKey RPC.
+func (c *NotificationClient) GetSortKey(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetSortKey(ctx, &pb.GetSortKeyRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTimeoutAfter calls the GetTimeoutAfter RPC.
+func (c *NotificationClient) GetTimeoutAfter(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetTimeoutAfter(ctx, &pb.GetTimeoutAfterRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasImage calls the HasImage RPC.
+func (c *NotificationClient) HasImage(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.HasImage(ctx, &pb.HasImageRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasPromotableCharacteristics calls the HasPromotableCharacteristics RPC.
+func (c *NotificationClient) HasPromotableCharacteristics(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.HasPromotableCharacteristics(ctx, &pb.HasPromotableCharacteristicsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *NotificationClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *NotificationClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// Clone0_1 calls the Clone0_1 RPC.
+func (c *NotificationClient) Clone0_1(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.Clone0_1(ctx, &pb.Clone0_1Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ActionClient wraps the gRPC ActionService client.
+type ActionClient struct {
+	svc pb.ActionServiceClient
+}
+
+// NewActionClient creates a new Action client.
+func NewActionClient(cc grpc.ClientConnInterface) *ActionClient {
+	return &ActionClient{
+		svc: pb.NewActionServiceClient(cc),
+	}
+}
+
+// Clone0 calls the Clone0 RPC.
+func (c *ActionClient) Clone0(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Clone0(ctx, &pb.ActionClone0Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ActionClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.ActionDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAllowGeneratedReplies calls the GetAllowGeneratedReplies RPC.
+func (c *ActionClient) GetAllowGeneratedReplies(ctx context.Context) (bool, error) {
+	resp, err := c.svc.GetAllowGeneratedReplies(ctx, &pb.GetAllowGeneratedRepliesRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDataOnlyRemoteInputs calls the GetDataOnlyRemoteInputs RPC.
+func (c *ActionClient) GetDataOnlyRemoteInputs(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDataOnlyRemoteInputs(ctx, &pb.GetDataOnlyRemoteInputsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExtras calls the GetExtras RPC.
+func (c *ActionClient) GetExtras(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetExtras(ctx, &pb.GetExtrasRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIcon calls the GetIcon RPC.
+func (c *ActionClient) GetIcon(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetIcon(ctx, &pb.GetIconRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRemoteInputs calls the GetRemoteInputs RPC.
+func (c *ActionClient) GetRemoteInputs(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetRemoteInputs(ctx, &pb.GetRemoteInputsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSemanticAction calls the GetSemanticAction RPC.
+func (c *ActionClient) GetSemanticAction(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetSemanticAction(ctx, &pb.GetSemanticActionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsAuthenticationRequired calls the IsAuthenticationRequired RPC.
+func (c *ActionClient) IsAuthenticationRequired(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsAuthenticationRequired(ctx, &pb.IsAuthenticationRequiredRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsContextual calls the IsContextual RPC.
+func (c *ActionClient) IsContextual(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsContextual(ctx, &pb.IsContextualRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ActionClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.ActionWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// Clone0_1 calls the Clone0_1 RPC.
+func (c *ActionClient) Clone0_1(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Clone0_1(ctx, &pb.ActionClone0_1Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// BigPictureStyleClient wraps the gRPC BigPictureStyleService client.
+type BigPictureStyleClient struct {
+	svc pb.BigPictureStyleServiceClient
+}
+
+// NewBigPictureStyleClient creates a new BigPictureStyle client.
+func NewBigPictureStyleClient(cc grpc.ClientConnInterface) *BigPictureStyleClient {
+	return &BigPictureStyleClient{
+		svc: pb.NewBigPictureStyleServiceClient(cc),
+	}
+}
+
+// BigLargeIcon1 calls the BigLargeIcon1 RPC.
+func (c *BigPictureStyleClient) BigLargeIcon1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.BigLargeIcon1(ctx, &pb.BigLargeIcon1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// BigLargeIcon1_1 calls the BigLargeIcon1_1 RPC.
+func (c *BigPictureStyleClient) BigLargeIcon1_1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.BigLargeIcon1_1(ctx, &pb.BigLargeIcon1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// BigPicture1 calls the BigPicture1 RPC.
+func (c *BigPictureStyleClient) BigPicture1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.BigPicture1(ctx, &pb.BigPicture1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// BigPicture1_1 calls the BigPicture1_1 RPC.
+func (c *BigPictureStyleClient) BigPicture1_1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.BigPicture1_1(ctx, &pb.BigPicture1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetBigContentTitle calls the SetBigContentTitle RPC.
+func (c *BigPictureStyleClient) SetBigContentTitle(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetBigContentTitle(ctx, &pb.SetBigContentTitleRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetContentDescription calls the SetContentDescription RPC.
+func (c *BigPictureStyleClient) SetContentDescription(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetContentDescription(ctx, &pb.SetContentDescriptionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSummaryText calls the SetSummaryText RPC.
+func (c *BigPictureStyleClient) SetSummaryText(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetSummaryText(ctx, &pb.SetSummaryTextRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ShowBigPictureWhenCollapsed calls the ShowBigPictureWhenCollapsed RPC.
+func (c *BigPictureStyleClient) ShowBigPictureWhenCollapsed(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.ShowBigPictureWhenCollapsed(ctx, &pb.ShowBigPictureWhenCollapsedRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// BigTextStyleClient wraps the gRPC BigTextStyleService client.
+type BigTextStyleClient struct {
+	svc pb.BigTextStyleServiceClient
+}
+
+// NewBigTextStyleClient creates a new BigTextStyle client.
+func NewBigTextStyleClient(cc grpc.ClientConnInterface) *BigTextStyleClient {
+	return &BigTextStyleClient{
+		svc: pb.NewBigTextStyleServiceClient(cc),
+	}
+}
+
+// BigText calls the BigText RPC.
+func (c *BigTextStyleClient) BigText(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.BigText(ctx, &pb.BigTextRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetBigContentTitle calls the SetBigContentTitle RPC.
+func (c *BigTextStyleClient) SetBigContentTitle(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetBigContentTitle(ctx, &pb.SetBigContentTitleRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSummaryText calls the SetSummaryText RPC.
+func (c *BigTextStyleClient) SetSummaryText(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetSummaryText(ctx, &pb.SetSummaryTextRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// BubbleMetadataClient wraps the gRPC BubbleMetadataService client.
+type BubbleMetadataClient struct {
+	svc pb.BubbleMetadataServiceClient
+}
+
+// NewBubbleMetadataClient creates a new BubbleMetadata client.
+func NewBubbleMetadataClient(cc grpc.ClientConnInterface) *BubbleMetadataClient {
+	return &BubbleMetadataClient{
+		svc: pb.NewBubbleMetadataServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *BubbleMetadataClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.BubbleMetadataDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAutoExpandBubble calls the GetAutoExpandBubble RPC.
+func (c *BubbleMetadataClient) GetAutoExpandBubble(ctx context.Context) (bool, error) {
+	resp, err := c.svc.GetAutoExpandBubble(ctx, &pb.GetAutoExpandBubbleRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDeleteIntent calls the GetDeleteIntent RPC.
+func (c *BubbleMetadataClient) GetDeleteIntent(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDeleteIntent(ctx, &pb.GetDeleteIntentRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDesiredHeight calls the GetDesiredHeight RPC.
+func (c *BubbleMetadataClient) GetDesiredHeight(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetDesiredHeight(ctx, &pb.GetDesiredHeightRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDesiredHeightResId calls the GetDesiredHeightResId RPC.
+func (c *BubbleMetadataClient) GetDesiredHeightResId(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetDesiredHeightResId(ctx, &pb.GetDesiredHeightResIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIcon calls the GetIcon RPC.
+func (c *BubbleMetadataClient) GetIcon(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetIcon(ctx, &pb.GetIconRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIntent calls the GetIntent RPC.
+func (c *BubbleMetadataClient) GetIntent(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetIntent(ctx, &pb.GetIntentRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetShortcutId calls the GetShortcutId RPC.
+func (c *BubbleMetadataClient) GetShortcutId(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetShortcutId(ctx, &pb.BubbleMetadataGetShortcutIdRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsBubbleSuppressable calls the IsBubbleSuppressable RPC.
+func (c *BubbleMetadataClient) IsBubbleSuppressable(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsBubbleSuppressable(ctx, &pb.IsBubbleSuppressableRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsBubbleSuppressed calls the IsBubbleSuppressed RPC.
+func (c *BubbleMetadataClient) IsBubbleSuppressed(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsBubbleSuppressed(ctx, &pb.IsBubbleSuppressedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsNotificationSuppressed calls the IsNotificationSuppressed RPC.
+func (c *BubbleMetadataClient) IsNotificationSuppressed(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsNotificationSuppressed(ctx, &pb.IsNotificationSuppressedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *BubbleMetadataClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.BubbleMetadataWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// BuilderClient wraps the gRPC BuilderService client.
+type BuilderClient struct {
+	svc pb.BuilderServiceClient
+}
+
+// NewBuilderClient creates a new Builder client.
+func NewBuilderClient(cc grpc.ClientConnInterface) *BuilderClient {
+	return &BuilderClient{
+		svc: pb.NewBuilderServiceClient(cc),
+	}
+}
+
+// AddAction1 calls the AddAction1 RPC.
+func (c *BuilderClient) AddAction1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.AddAction1(ctx, &pb.AddAction1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddAction3_1 calls the AddAction3_1 RPC.
+func (c *BuilderClient) AddAction3_1(ctx context.Context, arg0 int32, arg1 string, arg2 int64) (int64, error) {
+	resp, err := c.svc.AddAction3_1(ctx, &pb.AddAction3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddExtras calls the AddExtras RPC.
+func (c *BuilderClient) AddExtras(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.AddExtras(ctx, &pb.AddExtrasRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddPerson1 calls the AddPerson1 RPC.
+func (c *BuilderClient) AddPerson1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.AddPerson1(ctx, &pb.AddPerson1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddPerson1_1 calls the AddPerson1_1 RPC.
+func (c *BuilderClient) AddPerson1_1(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.AddPerson1_1(ctx, &pb.AddPerson1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Build calls the Build RPC.
+func (c *BuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateBigContentView calls the CreateBigContentView RPC.
+func (c *BuilderClient) CreateBigContentView(ctx context.Context) (int64, error) {
+	resp, err := c.svc.CreateBigContentView(ctx, &pb.CreateBigContentViewRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateContentView calls the CreateContentView RPC.
+func (c *BuilderClient) CreateContentView(ctx context.Context) (int64, error) {
+	resp, err := c.svc.CreateContentView(ctx, &pb.CreateContentViewRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateHeadsUpContentView calls the CreateHeadsUpContentView RPC.
+func (c *BuilderClient) CreateHeadsUpContentView(ctx context.Context) (int64, error) {
+	resp, err := c.svc.CreateHeadsUpContentView(ctx, &pb.CreateHeadsUpContentViewRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Extend calls the Extend RPC.
+func (c *BuilderClient) Extend(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.Extend(ctx, &pb.ExtendRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExtras calls the GetExtras RPC.
+func (c *BuilderClient) GetExtras(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetExtras(ctx, &pb.GetExtrasRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNotification calls the GetNotification RPC.
+func (c *BuilderClient) GetNotification(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetNotification(ctx, &pb.GetNotificationRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStyle calls the GetStyle RPC.
+func (c *BuilderClient) GetStyle(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetStyle(ctx, &pb.GetStyleRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetActions calls the SetActions RPC.
+func (c *BuilderClient) SetActions(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetActions(ctx, &pb.SetActionsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetAllowSystemGeneratedContextualActions calls the SetAllowSystemGeneratedContextualActions RPC.
+func (c *BuilderClient) SetAllowSystemGeneratedContextualActions(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetAllowSystemGeneratedContextualActions(ctx, &pb.SetAllowSystemGeneratedContextualActionsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetAutoCancel calls the SetAutoCancel RPC.
+func (c *BuilderClient) SetAutoCancel(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetAutoCancel(ctx, &pb.SetAutoCancelRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetBadgeIconType calls the SetBadgeIconType RPC.
+func (c *BuilderClient) SetBadgeIconType(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetBadgeIconType(ctx, &pb.SetBadgeIconTypeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetBubbleMetadata calls the SetBubbleMetadata RPC.
+func (c *BuilderClient) SetBubbleMetadata(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetBubbleMetadata(ctx, &pb.SetBubbleMetadataRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetCategory calls the SetCategory RPC.
+func (c *BuilderClient) SetCategory(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetCategory(ctx, &pb.SetCategoryRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetChannelId calls the SetChannelId RPC.
+func (c *BuilderClient) SetChannelId(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetChannelId(ctx, &pb.SetChannelIdRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetChronometerCountDown calls the SetChronometerCountDown RPC.
+func (c *BuilderClient) SetChronometerCountDown(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetChronometerCountDown(ctx, &pb.SetChronometerCountDownRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetColor calls the SetColor RPC.
+func (c *BuilderClient) SetColor(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetColor(ctx, &pb.SetColorRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetColorized calls the SetColorized RPC.
+func (c *BuilderClient) SetColorized(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetColorized(ctx, &pb.SetColorizedRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetContent calls the SetContent RPC.
+func (c *BuilderClient) SetContent(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetContent(ctx, &pb.SetContentRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetContentInfo calls the SetContentInfo RPC.
+func (c *BuilderClient) SetContentInfo(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetContentInfo(ctx, &pb.SetContentInfoRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetContentIntent calls the SetContentIntent RPC.
+func (c *BuilderClient) SetContentIntent(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetContentIntent(ctx, &pb.SetContentIntentRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetContentText calls the SetContentText RPC.
+func (c *BuilderClient) SetContentText(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetContentText(ctx, &pb.SetContentTextRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetContentTitle calls the SetContentTitle RPC.
+func (c *BuilderClient) SetContentTitle(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetContentTitle(ctx, &pb.SetContentTitleRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetCustomBigContentView calls the SetCustomBigContentView RPC.
+func (c *BuilderClient) SetCustomBigContentView(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetCustomBigContentView(ctx, &pb.SetCustomBigContentViewRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetCustomContentView calls the SetCustomContentView RPC.
+func (c *BuilderClient) SetCustomContentView(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetCustomContentView(ctx, &pb.SetCustomContentViewRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetCustomHeadsUpContentView calls the SetCustomHeadsUpContentView RPC.
+func (c *BuilderClient) SetCustomHeadsUpContentView(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetCustomHeadsUpContentView(ctx, &pb.SetCustomHeadsUpContentViewRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetDefaults calls the SetDefaults RPC.
+func (c *BuilderClient) SetDefaults(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetDefaults(ctx, &pb.SetDefaultsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetDeleteIntent calls the SetDeleteIntent RPC.
+func (c *BuilderClient) SetDeleteIntent(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetDeleteIntent(ctx, &pb.SetDeleteIntentRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetExtras calls the SetExtras RPC.
+func (c *BuilderClient) SetExtras(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetExtras(ctx, &pb.SetExtrasRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetFlag calls the SetFlag RPC.
+func (c *BuilderClient) SetFlag(ctx context.Context, arg0 int32, arg1 bool) (int64, error) {
+	resp, err := c.svc.SetFlag(ctx, &pb.SetFlagRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetForegroundServiceBehavior calls the SetForegroundServiceBehavior RPC.
+func (c *BuilderClient) SetForegroundServiceBehavior(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetForegroundServiceBehavior(ctx, &pb.SetForegroundServiceBehaviorRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetFullScreenIntent calls the SetFullScreenIntent RPC.
+func (c *BuilderClient) SetFullScreenIntent(ctx context.Context, arg0 int64, arg1 bool) (int64, error) {
+	resp, err := c.svc.SetFullScreenIntent(ctx, &pb.SetFullScreenIntentRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetGroup calls the SetGroup RPC.
+func (c *BuilderClient) SetGroup(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetGroup(ctx, &pb.SetGroupRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetGroupAlertBehavior calls the SetGroupAlertBehavior RPC.
+func (c *BuilderClient) SetGroupAlertBehavior(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetGroupAlertBehavior(ctx, &pb.SetGroupAlertBehaviorRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetGroupSummary calls the SetGroupSummary RPC.
+func (c *BuilderClient) SetGroupSummary(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetGroupSummary(ctx, &pb.SetGroupSummaryRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetLargeIcon1 calls the SetLargeIcon1 RPC.
+func (c *BuilderClient) SetLargeIcon1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetLargeIcon1(ctx, &pb.SetLargeIcon1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetLargeIcon1_1 calls the SetLargeIcon1_1 RPC.
+func (c *BuilderClient) SetLargeIcon1_1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetLargeIcon1_1(ctx, &pb.SetLargeIcon1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetLights calls the SetLights RPC.
+func (c *BuilderClient) SetLights(ctx context.Context, arg0 int32, arg1 int32, arg2 int32) (int64, error) {
+	resp, err := c.svc.SetLights(ctx, &pb.SetLightsRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetLocalOnly calls the SetLocalOnly RPC.
+func (c *BuilderClient) SetLocalOnly(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetLocalOnly(ctx, &pb.SetLocalOnlyRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetLocusId calls the SetLocusId RPC.
+func (c *BuilderClient) SetLocusId(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetLocusId(ctx, &pb.SetLocusIdRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetNumber calls the SetNumber RPC.
+func (c *BuilderClient) SetNumber(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetNumber(ctx, &pb.SetNumberRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetOngoing calls the SetOngoing RPC.
+func (c *BuilderClient) SetOngoing(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetOngoing(ctx, &pb.SetOngoingRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetOnlyAlertOnce calls the SetOnlyAlertOnce RPC.
+func (c *BuilderClient) SetOnlyAlertOnce(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetOnlyAlertOnce(ctx, &pb.SetOnlyAlertOnceRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPriority calls the SetPriority RPC.
+func (c *BuilderClient) SetPriority(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetPriority(ctx, &pb.SetPriorityRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetProgress calls the SetProgress RPC.
+func (c *BuilderClient) SetProgress(ctx context.Context, arg0 int32, arg1 int32, arg2 bool) (int64, error) {
+	resp, err := c.svc.SetProgress(ctx, &pb.SetProgressRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPublicVersion calls the SetPublicVersion RPC.
+func (c *BuilderClient) SetPublicVersion(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetPublicVersion(ctx, &pb.SetPublicVersionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetRemoteInputHistory calls the SetRemoteInputHistory RPC.
+func (c *BuilderClient) SetRemoteInputHistory(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetRemoteInputHistory(ctx, &pb.SetRemoteInputHistoryRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSettingsText calls the SetSettingsText RPC.
+func (c *BuilderClient) SetSettingsText(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetSettingsText(ctx, &pb.SetSettingsTextRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetShortCriticalText calls the SetShortCriticalText RPC.
+func (c *BuilderClient) SetShortCriticalText(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetShortCriticalText(ctx, &pb.SetShortCriticalTextRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetShortcutId calls the SetShortcutId RPC.
+func (c *BuilderClient) SetShortcutId(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetShortcutId(ctx, &pb.SetShortcutIdRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetShowWhen calls the SetShowWhen RPC.
+func (c *BuilderClient) SetShowWhen(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetShowWhen(ctx, &pb.SetShowWhenRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSmallIcon1 calls the SetSmallIcon1 RPC.
+func (c *BuilderClient) SetSmallIcon1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetSmallIcon1(ctx, &pb.SetSmallIcon1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSmallIcon1_1 calls the SetSmallIcon1_1 RPC.
+func (c *BuilderClient) SetSmallIcon1_1(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetSmallIcon1_1(ctx, &pb.SetSmallIcon1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSmallIcon2_2 calls the SetSmallIcon2_2 RPC.
+func (c *BuilderClient) SetSmallIcon2_2(ctx context.Context, arg0 int32, arg1 int32) (int64, error) {
+	resp, err := c.svc.SetSmallIcon2_2(ctx, &pb.SetSmallIcon2_2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSortKey calls the SetSortKey RPC.
+func (c *BuilderClient) SetSortKey(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetSortKey(ctx, &pb.SetSortKeyRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSound1 calls the SetSound1 RPC.
+func (c *BuilderClient) SetSound1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetSound1(ctx, &pb.SetSound1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSound2_1 calls the SetSound2_1 RPC.
+func (c *BuilderClient) SetSound2_1(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.SetSound2_1(ctx, &pb.SetSound2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSound2_2 calls the SetSound2_2 RPC.
+func (c *BuilderClient) SetSound2_2(ctx context.Context, arg0 int64, arg1 int32) (int64, error) {
+	resp, err := c.svc.SetSound2_2(ctx, &pb.SetSound2_2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetStyle calls the SetStyle RPC.
+func (c *BuilderClient) SetStyle(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetStyle(ctx, &pb.SetStyleRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSubText calls the SetSubText RPC.
+func (c *BuilderClient) SetSubText(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetSubText(ctx, &pb.SetSubTextRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetTicker1 calls the SetTicker1 RPC.
+func (c *BuilderClient) SetTicker1(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetTicker1(ctx, &pb.SetTicker1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetTicker2_1 calls the SetTicker2_1 RPC.
+func (c *BuilderClient) SetTicker2_1(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.SetTicker2_1(ctx, &pb.SetTicker2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetTimeoutAfter calls the SetTimeoutAfter RPC.
+func (c *BuilderClient) SetTimeoutAfter(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetTimeoutAfter(ctx, &pb.SetTimeoutAfterRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetUsesChronometer calls the SetUsesChronometer RPC.
+func (c *BuilderClient) SetUsesChronometer(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetUsesChronometer(ctx, &pb.SetUsesChronometerRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetVibrate calls the SetVibrate RPC.
+func (c *BuilderClient) SetVibrate(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetVibrate(ctx, &pb.SetVibrateRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetVisibility calls the SetVisibility RPC.
+func (c *BuilderClient) SetVisibility(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetVisibility(ctx, &pb.SetVisibilityRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetWhen calls the SetWhen RPC.
+func (c *BuilderClient) SetWhen(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetWhen(ctx, &pb.SetWhenRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RecoverBuilder calls the RecoverBuilder RPC.
+func (c *BuilderClient) RecoverBuilder(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.RecoverBuilder(ctx, &pb.RecoverBuilderRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CallStyleClient wraps the gRPC CallStyleService client.
+type CallStyleClient struct {
+	svc pb.CallStyleServiceClient
+}
+
+// NewCallStyleClient creates a new CallStyle client.
+func NewCallStyleClient(cc grpc.ClientConnInterface) *CallStyleClient {
+	return &CallStyleClient{
+		svc: pb.NewCallStyleServiceClient(cc),
+	}
+}
+
+// SetAnswerButtonColorHint calls the SetAnswerButtonColorHint RPC.
+func (c *CallStyleClient) SetAnswerButtonColorHint(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetAnswerButtonColorHint(ctx, &pb.SetAnswerButtonColorHintRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetDeclineButtonColorHint calls the SetDeclineButtonColorHint RPC.
+func (c *CallStyleClient) SetDeclineButtonColorHint(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetDeclineButtonColorHint(ctx, &pb.SetDeclineButtonColorHintRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetIsVideo calls the SetIsVideo RPC.
+func (c *CallStyleClient) SetIsVideo(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetIsVideo(ctx, &pb.SetIsVideoRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetVerificationIcon calls the SetVerificationIcon RPC.
+func (c *CallStyleClient) SetVerificationIcon(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetVerificationIcon(ctx, &pb.SetVerificationIconRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetVerificationText calls the SetVerificationText RPC.
+func (c *CallStyleClient) SetVerificationText(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetVerificationText(ctx, &pb.SetVerificationTextRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ForIncomingCall calls the ForIncomingCall RPC.
+func (c *CallStyleClient) ForIncomingCall(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.ForIncomingCall(ctx, &pb.ForIncomingCallRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ForOngoingCall calls the ForOngoingCall RPC.
+func (c *CallStyleClient) ForOngoingCall(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.ForOngoingCall(ctx, &pb.ForOngoingCallRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ForScreeningCall calls the ForScreeningCall RPC.
+func (c *CallStyleClient) ForScreeningCall(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.ForScreeningCall(ctx, &pb.ForScreeningCallRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CarExtenderClient wraps the gRPC CarExtenderService client.
+type CarExtenderClient struct {
+	svc pb.CarExtenderServiceClient
+}
+
+// NewCarExtenderClient creates a new CarExtender client.
+func NewCarExtenderClient(cc grpc.ClientConnInterface) *CarExtenderClient {
+	return &CarExtenderClient{
+		svc: pb.NewCarExtenderServiceClient(cc),
+	}
+}
+
+// Extend calls the Extend RPC.
+func (c *CarExtenderClient) Extend(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.Extend(ctx, &pb.ExtendRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetColor calls the GetColor RPC.
+func (c *CarExtenderClient) GetColor(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetColor(ctx, &pb.GetColorRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLargeIcon calls the GetLargeIcon RPC.
+func (c *CarExtenderClient) GetLargeIcon(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetLargeIcon(ctx, &pb.CarExtenderGetLargeIconRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUnreadConversation calls the GetUnreadConversation RPC.
+func (c *CarExtenderClient) GetUnreadConversation(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetUnreadConversation(ctx, &pb.GetUnreadConversationRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetColor calls the SetColor RPC.
+func (c *CarExtenderClient) SetColor(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetColor(ctx, &pb.SetColorRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetLargeIcon calls the SetLargeIcon RPC.
+func (c *CarExtenderClient) SetLargeIcon(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetLargeIcon(ctx, &pb.SetLargeIconRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetUnreadConversation calls the SetUnreadConversation RPC.
+func (c *CarExtenderClient) SetUnreadConversation(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetUnreadConversation(ctx, &pb.SetUnreadConversationRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ExtenderClient wraps the gRPC ExtenderService client.
+type ExtenderClient struct {
+	svc pb.ExtenderServiceClient
+}
+
+// NewExtenderClient creates a new Extender client.
+func NewExtenderClient(cc grpc.ClientConnInterface) *ExtenderClient {
+	return &ExtenderClient{
+		svc: pb.NewExtenderServiceClient(cc),
+	}
+}
+
+// Extend calls the Extend RPC.
+func (c *ExtenderClient) Extend(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.Extend(ctx, &pb.ExtendRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// InboxStyleClient wraps the gRPC InboxStyleService client.
+type InboxStyleClient struct {
+	svc pb.InboxStyleServiceClient
+}
+
+// NewInboxStyleClient creates a new InboxStyle client.
+func NewInboxStyleClient(cc grpc.ClientConnInterface) *InboxStyleClient {
+	return &InboxStyleClient{
+		svc: pb.NewInboxStyleServiceClient(cc),
+	}
+}
+
+// AddLine calls the AddLine RPC.
+func (c *InboxStyleClient) AddLine(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.AddLine(ctx, &pb.AddLineRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetBigContentTitle calls the SetBigContentTitle RPC.
+func (c *InboxStyleClient) SetBigContentTitle(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetBigContentTitle(ctx, &pb.SetBigContentTitleRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSummaryText calls the SetSummaryText RPC.
+func (c *InboxStyleClient) SetSummaryText(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetSummaryText(ctx, &pb.SetSummaryTextRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MediaStyleClient wraps the gRPC MediaStyleService client.
+type MediaStyleClient struct {
+	svc pb.MediaStyleServiceClient
+}
+
+// NewMediaStyleClient creates a new MediaStyle client.
+func NewMediaStyleClient(cc grpc.ClientConnInterface) *MediaStyleClient {
+	return &MediaStyleClient{
+		svc: pb.NewMediaStyleServiceClient(cc),
+	}
+}
+
+// SetMediaSession calls the SetMediaSession RPC.
+func (c *MediaStyleClient) SetMediaSession(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetMediaSession(ctx, &pb.SetMediaSessionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetRemotePlaybackInfo calls the SetRemotePlaybackInfo RPC.
+func (c *MediaStyleClient) SetRemotePlaybackInfo(ctx context.Context, arg0 string, arg1 int32, arg2 int64) (int64, error) {
+	resp, err := c.svc.SetRemotePlaybackInfo(ctx, &pb.SetRemotePlaybackInfoRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetShowActionsInCompactView calls the SetShowActionsInCompactView RPC.
+func (c *MediaStyleClient) SetShowActionsInCompactView(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetShowActionsInCompactView(ctx, &pb.SetShowActionsInCompactViewRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MessagingStyleClient wraps the gRPC MessagingStyleService client.
+type MessagingStyleClient struct {
+	svc pb.MessagingStyleServiceClient
+}
+
+// NewMessagingStyleClient creates a new MessagingStyle client.
+func NewMessagingStyleClient(cc grpc.ClientConnInterface) *MessagingStyleClient {
+	return &MessagingStyleClient{
+		svc: pb.NewMessagingStyleServiceClient(cc),
+	}
+}
+
+// AddHistoricMessage calls the AddHistoricMessage RPC.
+func (c *MessagingStyleClient) AddHistoricMessage(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.AddHistoricMessage(ctx, &pb.AddHistoricMessageRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddMessage1 calls the AddMessage1 RPC.
+func (c *MessagingStyleClient) AddMessage1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.AddMessage1(ctx, &pb.AddMessage1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddMessage3_1 calls the AddMessage3_1 RPC.
+func (c *MessagingStyleClient) AddMessage3_1(ctx context.Context, arg0 string, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.AddMessage3_1(ctx, &pb.AddMessage3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddMessage3_2 calls the AddMessage3_2 RPC.
+func (c *MessagingStyleClient) AddMessage3_2(ctx context.Context, arg0 string, arg1 int64, arg2 string) (int64, error) {
+	resp, err := c.svc.AddMessage3_2(ctx, &pb.AddMessage3_2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetConversationTitle calls the GetConversationTitle RPC.
+func (c *MessagingStyleClient) GetConversationTitle(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetConversationTitle(ctx, &pb.GetConversationTitleRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUser calls the GetUser RPC.
+func (c *MessagingStyleClient) GetUser(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetUser(ctx, &pb.GetUserRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUserDisplayName calls the GetUserDisplayName RPC.
+func (c *MessagingStyleClient) GetUserDisplayName(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetUserDisplayName(ctx, &pb.GetUserDisplayNameRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsGroupConversation calls the IsGroupConversation RPC.
+func (c *MessagingStyleClient) IsGroupConversation(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsGroupConversation(ctx, &pb.IsGroupConversationRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetConversationTitle calls the SetConversationTitle RPC.
+func (c *MessagingStyleClient) SetConversationTitle(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetConversationTitle(ctx, &pb.SetConversationTitleRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetGroupConversation calls the SetGroupConversation RPC.
+func (c *MessagingStyleClient) SetGroupConversation(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetGroupConversation(ctx, &pb.SetGroupConversationRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ProgressStyleClient wraps the gRPC ProgressStyleService client.
+type ProgressStyleClient struct {
+	svc pb.ProgressStyleServiceClient
+}
+
+// NewProgressStyleClient creates a new ProgressStyle client.
+func NewProgressStyleClient(cc grpc.ClientConnInterface) *ProgressStyleClient {
+	return &ProgressStyleClient{
+		svc: pb.NewProgressStyleServiceClient(cc),
+	}
+}
+
+// AddProgressPoint calls the AddProgressPoint RPC.
+func (c *ProgressStyleClient) AddProgressPoint(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.AddProgressPoint(ctx, &pb.AddProgressPointRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddProgressSegment calls the AddProgressSegment RPC.
+func (c *ProgressStyleClient) AddProgressSegment(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.AddProgressSegment(ctx, &pb.AddProgressSegmentRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetProgress calls the GetProgress RPC.
+func (c *ProgressStyleClient) GetProgress(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetProgress(ctx, &pb.GetProgressRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetProgressEndIcon calls the GetProgressEndIcon RPC.
+func (c *ProgressStyleClient) GetProgressEndIcon(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetProgressEndIcon(ctx, &pb.GetProgressEndIconRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetProgressMax calls the GetProgressMax RPC.
+func (c *ProgressStyleClient) GetProgressMax(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetProgressMax(ctx, &pb.GetProgressMaxRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetProgressStartIcon calls the GetProgressStartIcon RPC.
+func (c *ProgressStyleClient) GetProgressStartIcon(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetProgressStartIcon(ctx, &pb.GetProgressStartIconRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetProgressTrackerIcon calls the GetProgressTrackerIcon RPC.
+func (c *ProgressStyleClient) GetProgressTrackerIcon(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetProgressTrackerIcon(ctx, &pb.GetProgressTrackerIconRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsProgressIndeterminate calls the IsProgressIndeterminate RPC.
+func (c *ProgressStyleClient) IsProgressIndeterminate(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsProgressIndeterminate(ctx, &pb.IsProgressIndeterminateRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsStyledByProgress calls the IsStyledByProgress RPC.
+func (c *ProgressStyleClient) IsStyledByProgress(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsStyledByProgress(ctx, &pb.IsStyledByProgressRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetProgress calls the SetProgress RPC.
+func (c *ProgressStyleClient) SetProgress(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetProgress(ctx, &pb.ProgressStyleSetProgressRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetProgressEndIcon calls the SetProgressEndIcon RPC.
+func (c *ProgressStyleClient) SetProgressEndIcon(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetProgressEndIcon(ctx, &pb.SetProgressEndIconRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetProgressIndeterminate calls the SetProgressIndeterminate RPC.
+func (c *ProgressStyleClient) SetProgressIndeterminate(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetProgressIndeterminate(ctx, &pb.SetProgressIndeterminateRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetProgressStartIcon calls the SetProgressStartIcon RPC.
+func (c *ProgressStyleClient) SetProgressStartIcon(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetProgressStartIcon(ctx, &pb.SetProgressStartIconRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetProgressTrackerIcon calls the SetProgressTrackerIcon RPC.
+func (c *ProgressStyleClient) SetProgressTrackerIcon(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetProgressTrackerIcon(ctx, &pb.SetProgressTrackerIconRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetStyledByProgress calls the SetStyledByProgress RPC.
+func (c *ProgressStyleClient) SetStyledByProgress(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetStyledByProgress(ctx, &pb.SetStyledByProgressRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// StyleClient wraps the gRPC StyleService client.
+type StyleClient struct {
+	svc pb.StyleServiceClient
+}
+
+// NewStyleClient creates a new Style client.
+func NewStyleClient(cc grpc.ClientConnInterface) *StyleClient {
+	return &StyleClient{
+		svc: pb.NewStyleServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *StyleClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetBuilder calls the SetBuilder RPC.
+func (c *StyleClient) SetBuilder(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetBuilder(ctx, &pb.SetBuilderRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// TvExtenderClient wraps the gRPC TvExtenderService client.
+type TvExtenderClient struct {
+	svc pb.TvExtenderServiceClient
+}
+
+// NewTvExtenderClient creates a new TvExtender client.
+func NewTvExtenderClient(cc grpc.ClientConnInterface) *TvExtenderClient {
+	return &TvExtenderClient{
+		svc: pb.NewTvExtenderServiceClient(cc),
+	}
+}
+
+// Extend calls the Extend RPC.
+func (c *TvExtenderClient) Extend(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.Extend(ctx, &pb.ExtendRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetChannelId calls the GetChannelId RPC.
+func (c *TvExtenderClient) GetChannelId(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetChannelId(ctx, &pb.TvExtenderGetChannelIdRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetContentIntent calls the GetContentIntent RPC.
+func (c *TvExtenderClient) GetContentIntent(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetContentIntent(ctx, &pb.GetContentIntentRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDeleteIntent calls the GetDeleteIntent RPC.
+func (c *TvExtenderClient) GetDeleteIntent(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDeleteIntent(ctx, &pb.GetDeleteIntentRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsAvailableOnTv calls the IsAvailableOnTv RPC.
+func (c *TvExtenderClient) IsAvailableOnTv(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsAvailableOnTv(ctx, &pb.IsAvailableOnTvRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsSuppressShowOverApps calls the IsSuppressShowOverApps RPC.
+func (c *TvExtenderClient) IsSuppressShowOverApps(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsSuppressShowOverApps(ctx, &pb.IsSuppressShowOverAppsRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetChannelId calls the SetChannelId RPC.
+func (c *TvExtenderClient) SetChannelId(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetChannelId(ctx, &pb.SetChannelIdRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetContentIntent calls the SetContentIntent RPC.
+func (c *TvExtenderClient) SetContentIntent(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetContentIntent(ctx, &pb.SetContentIntentRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetDeleteIntent calls the SetDeleteIntent RPC.
+func (c *TvExtenderClient) SetDeleteIntent(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetDeleteIntent(ctx, &pb.SetDeleteIntentRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSuppressShowOverApps calls the SetSuppressShowOverApps RPC.
+func (c *TvExtenderClient) SetSuppressShowOverApps(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetSuppressShowOverApps(ctx, &pb.SetSuppressShowOverAppsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WearableExtenderClient wraps the gRPC WearableExtenderService client.
+type WearableExtenderClient struct {
+	svc pb.WearableExtenderServiceClient
+}
+
+// NewWearableExtenderClient creates a new WearableExtender client.
+func NewWearableExtenderClient(cc grpc.ClientConnInterface) *WearableExtenderClient {
+	return &WearableExtenderClient{
+		svc: pb.NewWearableExtenderServiceClient(cc),
+	}
+}
+
+// AddAction calls the AddAction RPC.
+func (c *WearableExtenderClient) AddAction(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.AddAction(ctx, &pb.AddActionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddPage calls the AddPage RPC.
+func (c *WearableExtenderClient) AddPage(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.AddPage(ctx, &pb.AddPageRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearActions calls the ClearActions RPC.
+func (c *WearableExtenderClient) ClearActions(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearActions(ctx, &pb.ClearActionsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearPages calls the ClearPages RPC.
+func (c *WearableExtenderClient) ClearPages(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearPages(ctx, &pb.ClearPagesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Clone0 calls the Clone0 RPC.
+func (c *WearableExtenderClient) Clone0(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Clone0(ctx, &pb.WearableExtenderClone0Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Extend calls the Extend RPC.
+func (c *WearableExtenderClient) Extend(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.Extend(ctx, &pb.ExtendRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBridgeTag calls the GetBridgeTag RPC.
+func (c *WearableExtenderClient) GetBridgeTag(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetBridgeTag(ctx, &pb.GetBridgeTagRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetContentAction calls the GetContentAction RPC.
+func (c *WearableExtenderClient) GetContentAction(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetContentAction(ctx, &pb.GetContentActionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetContentIcon calls the GetContentIcon RPC.
+func (c *WearableExtenderClient) GetContentIcon(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetContentIcon(ctx, &pb.GetContentIconRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetContentIconGravity calls the GetContentIconGravity RPC.
+func (c *WearableExtenderClient) GetContentIconGravity(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetContentIconGravity(ctx, &pb.GetContentIconGravityRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetContentIntentAvailableOffline calls the GetContentIntentAvailableOffline RPC.
+func (c *WearableExtenderClient) GetContentIntentAvailableOffline(ctx context.Context) (bool, error) {
+	resp, err := c.svc.GetContentIntentAvailableOffline(ctx, &pb.GetContentIntentAvailableOfflineRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCustomContentHeight calls the GetCustomContentHeight RPC.
+func (c *WearableExtenderClient) GetCustomContentHeight(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetCustomContentHeight(ctx, &pb.GetCustomContentHeightRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCustomSizePreset calls the GetCustomSizePreset RPC.
+func (c *WearableExtenderClient) GetCustomSizePreset(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetCustomSizePreset(ctx, &pb.GetCustomSizePresetRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDismissalId calls the GetDismissalId RPC.
+func (c *WearableExtenderClient) GetDismissalId(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetDismissalId(ctx, &pb.GetDismissalIdRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDisplayIntent calls the GetDisplayIntent RPC.
+func (c *WearableExtenderClient) GetDisplayIntent(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDisplayIntent(ctx, &pb.GetDisplayIntentRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetGravity calls the GetGravity RPC.
+func (c *WearableExtenderClient) GetGravity(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetGravity(ctx, &pb.GetGravityRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHintAmbientBigPicture calls the GetHintAmbientBigPicture RPC.
+func (c *WearableExtenderClient) GetHintAmbientBigPicture(ctx context.Context) (bool, error) {
+	resp, err := c.svc.GetHintAmbientBigPicture(ctx, &pb.GetHintAmbientBigPictureRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHintAvoidBackgroundClipping calls the GetHintAvoidBackgroundClipping RPC.
+func (c *WearableExtenderClient) GetHintAvoidBackgroundClipping(ctx context.Context) (bool, error) {
+	resp, err := c.svc.GetHintAvoidBackgroundClipping(ctx, &pb.GetHintAvoidBackgroundClippingRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHintContentIntentLaunchesActivity calls the GetHintContentIntentLaunchesActivity RPC.
+func (c *WearableExtenderClient) GetHintContentIntentLaunchesActivity(ctx context.Context) (bool, error) {
+	resp, err := c.svc.GetHintContentIntentLaunchesActivity(ctx, &pb.GetHintContentIntentLaunchesActivityRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHintHideIcon calls the GetHintHideIcon RPC.
+func (c *WearableExtenderClient) GetHintHideIcon(ctx context.Context) (bool, error) {
+	resp, err := c.svc.GetHintHideIcon(ctx, &pb.GetHintHideIconRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHintScreenTimeout calls the GetHintScreenTimeout RPC.
+func (c *WearableExtenderClient) GetHintScreenTimeout(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetHintScreenTimeout(ctx, &pb.GetHintScreenTimeoutRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHintShowBackgroundOnly calls the GetHintShowBackgroundOnly RPC.
+func (c *WearableExtenderClient) GetHintShowBackgroundOnly(ctx context.Context) (bool, error) {
+	resp, err := c.svc.GetHintShowBackgroundOnly(ctx, &pb.GetHintShowBackgroundOnlyRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStartScrollBottom calls the GetStartScrollBottom RPC.
+func (c *WearableExtenderClient) GetStartScrollBottom(ctx context.Context) (bool, error) {
+	resp, err := c.svc.GetStartScrollBottom(ctx, &pb.GetStartScrollBottomRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetBridgeTag calls the SetBridgeTag RPC.
+func (c *WearableExtenderClient) SetBridgeTag(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetBridgeTag(ctx, &pb.SetBridgeTagRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetContentAction calls the SetContentAction RPC.
+func (c *WearableExtenderClient) SetContentAction(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetContentAction(ctx, &pb.SetContentActionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetContentIcon calls the SetContentIcon RPC.
+func (c *WearableExtenderClient) SetContentIcon(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetContentIcon(ctx, &pb.SetContentIconRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetContentIconGravity calls the SetContentIconGravity RPC.
+func (c *WearableExtenderClient) SetContentIconGravity(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetContentIconGravity(ctx, &pb.SetContentIconGravityRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetContentIntentAvailableOffline calls the SetContentIntentAvailableOffline RPC.
+func (c *WearableExtenderClient) SetContentIntentAvailableOffline(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetContentIntentAvailableOffline(ctx, &pb.SetContentIntentAvailableOfflineRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetCustomContentHeight calls the SetCustomContentHeight RPC.
+func (c *WearableExtenderClient) SetCustomContentHeight(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetCustomContentHeight(ctx, &pb.SetCustomContentHeightRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetCustomSizePreset calls the SetCustomSizePreset RPC.
+func (c *WearableExtenderClient) SetCustomSizePreset(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetCustomSizePreset(ctx, &pb.SetCustomSizePresetRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetDismissalId calls the SetDismissalId RPC.
+func (c *WearableExtenderClient) SetDismissalId(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetDismissalId(ctx, &pb.SetDismissalIdRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetDisplayIntent calls the SetDisplayIntent RPC.
+func (c *WearableExtenderClient) SetDisplayIntent(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetDisplayIntent(ctx, &pb.SetDisplayIntentRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetGravity calls the SetGravity RPC.
+func (c *WearableExtenderClient) SetGravity(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetGravity(ctx, &pb.SetGravityRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetHintAmbientBigPicture calls the SetHintAmbientBigPicture RPC.
+func (c *WearableExtenderClient) SetHintAmbientBigPicture(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetHintAmbientBigPicture(ctx, &pb.SetHintAmbientBigPictureRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetHintAvoidBackgroundClipping calls the SetHintAvoidBackgroundClipping RPC.
+func (c *WearableExtenderClient) SetHintAvoidBackgroundClipping(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetHintAvoidBackgroundClipping(ctx, &pb.SetHintAvoidBackgroundClippingRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetHintContentIntentLaunchesActivity calls the SetHintContentIntentLaunchesActivity RPC.
+func (c *WearableExtenderClient) SetHintContentIntentLaunchesActivity(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetHintContentIntentLaunchesActivity(ctx, &pb.SetHintContentIntentLaunchesActivityRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetHintHideIcon calls the SetHintHideIcon RPC.
+func (c *WearableExtenderClient) SetHintHideIcon(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetHintHideIcon(ctx, &pb.SetHintHideIconRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetHintScreenTimeout calls the SetHintScreenTimeout RPC.
+func (c *WearableExtenderClient) SetHintScreenTimeout(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetHintScreenTimeout(ctx, &pb.SetHintScreenTimeoutRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetHintShowBackgroundOnly calls the SetHintShowBackgroundOnly RPC.
+func (c *WearableExtenderClient) SetHintShowBackgroundOnly(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetHintShowBackgroundOnly(ctx, &pb.SetHintShowBackgroundOnlyRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetStartScrollBottom calls the SetStartScrollBottom RPC.
+func (c *WearableExtenderClient) SetStartScrollBottom(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetStartScrollBottom(ctx, &pb.SetStartScrollBottomRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Clone0_1 calls the Clone0_1 RPC.
+func (c *WearableExtenderClient) Clone0_1(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Clone0_1(ctx, &pb.WearableExtenderClone0_1Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// StatusBarNotificationClient wraps the gRPC StatusBarNotificationService client.
+type StatusBarNotificationClient struct {
+	svc pb.StatusBarNotificationServiceClient
+}
+
+// NewStatusBarNotificationClient creates a new StatusBarNotification client.
+func NewStatusBarNotificationClient(cc grpc.ClientConnInterface) *StatusBarNotificationClient {
+	return &StatusBarNotificationClient{
+		svc: pb.NewStatusBarNotificationServiceClient(cc),
+	}
+}
+
+// Clone0 calls the Clone0 RPC.
+func (c *StatusBarNotificationClient) Clone0(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.Clone0(ctx, &pb.Clone0Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *StatusBarNotificationClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetGroupKey calls the GetGroupKey RPC.
+func (c *StatusBarNotificationClient) GetGroupKey(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetGroupKey(ctx, &pb.GetGroupKeyRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetId calls the GetId RPC.
+func (c *StatusBarNotificationClient) GetId(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetKey calls the GetKey RPC.
+func (c *StatusBarNotificationClient) GetKey(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetKey(ctx, &pb.GetKeyRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNotification calls the GetNotification RPC.
+func (c *StatusBarNotificationClient) GetNotification(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetNotification(ctx, &pb.StatusBarNotificationGetNotificationRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOpPkg calls the GetOpPkg RPC.
+func (c *StatusBarNotificationClient) GetOpPkg(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetOpPkg(ctx, &pb.GetOpPkgRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOverrideGroupKey calls the GetOverrideGroupKey RPC.
+func (c *StatusBarNotificationClient) GetOverrideGroupKey(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetOverrideGroupKey(ctx, &pb.GetOverrideGroupKeyRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPackageName calls the GetPackageName RPC.
+func (c *StatusBarNotificationClient) GetPackageName(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetPackageName(ctx, &pb.GetPackageNameRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPostTime calls the GetPostTime RPC.
+func (c *StatusBarNotificationClient) GetPostTime(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetPostTime(ctx, &pb.GetPostTimeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTag calls the GetTag RPC.
+func (c *StatusBarNotificationClient) GetTag(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetTag(ctx, &pb.GetTagRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUid calls the GetUid RPC.
+func (c *StatusBarNotificationClient) GetUid(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetUid(ctx, &pb.GetUidRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUser calls the GetUser RPC.
+func (c *StatusBarNotificationClient) GetUser(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetUser(ctx, &pb.StatusBarNotificationGetUserRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUserId calls the GetUserId RPC.
+func (c *StatusBarNotificationClient) GetUserId(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetUserId(ctx, &pb.GetUserIdRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsAppGroup calls the IsAppGroup RPC.
+func (c *StatusBarNotificationClient) IsAppGroup(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsAppGroup(ctx, &pb.IsAppGroupRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsClearable calls the IsClearable RPC.
+func (c *StatusBarNotificationClient) IsClearable(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsClearable(ctx, &pb.IsClearableRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsGroup calls the IsGroup RPC.
+func (c *StatusBarNotificationClient) IsGroup(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsGroup(ctx, &pb.IsGroupRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsOngoing calls the IsOngoing RPC.
+func (c *StatusBarNotificationClient) IsOngoing(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsOngoing(ctx, &pb.IsOngoingRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetOverrideGroupKey calls the SetOverrideGroupKey RPC.
+func (c *StatusBarNotificationClient) SetOverrideGroupKey(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.SetOverrideGroupKey(ctx, &pb.SetOverrideGroupKeyRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// ToString calls the ToString RPC.
+func (c *StatusBarNotificationClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *StatusBarNotificationClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// Clone0_1 calls the Clone0_1 RPC.
+func (c *StatusBarNotificationClient) Clone0_1(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.Clone0_1(ctx, &pb.Clone0_1Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // ManagerClient wraps the gRPC ManagerService client.
 type ManagerClient struct {
 	svc pb.ManagerServiceClient
@@ -412,6 +3250,1978 @@ func (c *ManagerClient) UpdateAutomaticZenRule(ctx context.Context, arg0 string,
 	})
 	if err != nil {
 		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ManagerPolicyClient wraps the gRPC ManagerPolicyService client.
+type ManagerPolicyClient struct {
+	svc pb.ManagerPolicyServiceClient
+}
+
+// NewManagerPolicyClient creates a new ManagerPolicy client.
+func NewManagerPolicyClient(cc grpc.ClientConnInterface) *ManagerPolicyClient {
+	return &ManagerPolicyClient{
+		svc: pb.NewManagerPolicyServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ManagerPolicyClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.ManagerPolicyDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *ManagerPolicyClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *ManagerPolicyClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *ManagerPolicyClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ManagerPolicyToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ManagerPolicyClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.ManagerPolicyWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// PriorityCategoriesToString calls the PriorityCategoriesToString RPC.
+func (c *ManagerPolicyClient) PriorityCategoriesToString(ctx context.Context, arg0 int32) (string, error) {
+	resp, err := c.svc.PriorityCategoriesToString(ctx, &pb.PriorityCategoriesToStringRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// PrioritySendersToString calls the PrioritySendersToString RPC.
+func (c *ManagerPolicyClient) PrioritySendersToString(ctx context.Context, arg0 int32) (string, error) {
+	resp, err := c.svc.PrioritySendersToString(ctx, &pb.PrioritySendersToStringRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// SuppressedEffectsToString calls the SuppressedEffectsToString RPC.
+func (c *ManagerPolicyClient) SuppressedEffectsToString(ctx context.Context, arg0 int32) (string, error) {
+	resp, err := c.svc.SuppressedEffectsToString(ctx, &pb.SuppressedEffectsToStringRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// ChannelClient wraps the gRPC ChannelService client.
+type ChannelClient struct {
+	svc pb.ChannelServiceClient
+}
+
+// NewChannelClient creates a new Channel client.
+func NewChannelClient(cc grpc.ClientConnInterface) *ChannelClient {
+	return &ChannelClient{
+		svc: pb.NewChannelServiceClient(cc),
+	}
+}
+
+// CanBubble calls the CanBubble RPC.
+func (c *ChannelClient) CanBubble(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.CanBubble(ctx, &pb.CanBubbleRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CanBypassDnd calls the CanBypassDnd RPC.
+func (c *ChannelClient) CanBypassDnd(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.CanBypassDnd(ctx, &pb.CanBypassDndRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CanShowBadge calls the CanShowBadge RPC.
+func (c *ChannelClient) CanShowBadge(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.CanShowBadge(ctx, &pb.CanShowBadgeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ChannelClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// EnableLights calls the EnableLights RPC.
+func (c *ChannelClient) EnableLights(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.EnableLights(ctx, &pb.EnableLightsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// EnableVibration calls the EnableVibration RPC.
+func (c *ChannelClient) EnableVibration(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.EnableVibration(ctx, &pb.EnableVibrationRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// Equals calls the Equals RPC.
+func (c *ChannelClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.ChannelEqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAudioAttributes calls the GetAudioAttributes RPC.
+func (c *ChannelClient) GetAudioAttributes(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetAudioAttributes(ctx, &pb.GetAudioAttributesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetConversationId calls the GetConversationId RPC.
+func (c *ChannelClient) GetConversationId(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetConversationId(ctx, &pb.GetConversationIdRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDescription calls the GetDescription RPC.
+func (c *ChannelClient) GetDescription(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetDescription(ctx, &pb.GetDescriptionRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetGroup calls the GetGroup RPC.
+func (c *ChannelClient) GetGroup(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetGroup(ctx, &pb.GetGroupRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetId calls the GetId RPC.
+func (c *ChannelClient) GetId(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetImportance calls the GetImportance RPC.
+func (c *ChannelClient) GetImportance(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetImportance(ctx, &pb.ChannelGetImportanceRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLightColor calls the GetLightColor RPC.
+func (c *ChannelClient) GetLightColor(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetLightColor(ctx, &pb.GetLightColorRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLockscreenVisibility calls the GetLockscreenVisibility RPC.
+func (c *ChannelClient) GetLockscreenVisibility(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetLockscreenVisibility(ctx, &pb.GetLockscreenVisibilityRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetName calls the GetName RPC.
+func (c *ChannelClient) GetName(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetName(ctx, &pb.GetNameRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetParentChannelId calls the GetParentChannelId RPC.
+func (c *ChannelClient) GetParentChannelId(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetParentChannelId(ctx, &pb.GetParentChannelIdRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSound calls the GetSound RPC.
+func (c *ChannelClient) GetSound(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetSound(ctx, &pb.GetSoundRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVibrationEffect calls the GetVibrationEffect RPC.
+func (c *ChannelClient) GetVibrationEffect(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetVibrationEffect(ctx, &pb.GetVibrationEffectRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVibrationPattern calls the GetVibrationPattern RPC.
+func (c *ChannelClient) GetVibrationPattern(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetVibrationPattern(ctx, &pb.GetVibrationPatternRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasUserSetImportance calls the HasUserSetImportance RPC.
+func (c *ChannelClient) HasUserSetImportance(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.HasUserSetImportance(ctx, &pb.HasUserSetImportanceRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasUserSetSound calls the HasUserSetSound RPC.
+func (c *ChannelClient) HasUserSetSound(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.HasUserSetSound(ctx, &pb.HasUserSetSoundRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *ChannelClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.ChannelHashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsBlockable calls the IsBlockable RPC.
+func (c *ChannelClient) IsBlockable(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsBlockable(ctx, &pb.IsBlockableRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsConversation calls the IsConversation RPC.
+func (c *ChannelClient) IsConversation(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsConversation(ctx, &pb.IsConversationRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsDemoted calls the IsDemoted RPC.
+func (c *ChannelClient) IsDemoted(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsDemoted(ctx, &pb.IsDemotedRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsImportantConversation calls the IsImportantConversation RPC.
+func (c *ChannelClient) IsImportantConversation(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsImportantConversation(ctx, &pb.IsImportantConversationRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetAllowBubbles calls the SetAllowBubbles RPC.
+func (c *ChannelClient) SetAllowBubbles(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetAllowBubbles(ctx, &pb.SetAllowBubblesRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetBlockable calls the SetBlockable RPC.
+func (c *ChannelClient) SetBlockable(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetBlockable(ctx, &pb.SetBlockableRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetBypassDnd calls the SetBypassDnd RPC.
+func (c *ChannelClient) SetBypassDnd(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetBypassDnd(ctx, &pb.SetBypassDndRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetConversationId calls the SetConversationId RPC.
+func (c *ChannelClient) SetConversationId(ctx context.Context, handle int64, arg0 string, arg1 string) error {
+	_, err := c.svc.SetConversationId(ctx, &pb.SetConversationIdRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SetDescription calls the SetDescription RPC.
+func (c *ChannelClient) SetDescription(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.SetDescription(ctx, &pb.SetDescriptionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetGroup calls the SetGroup RPC.
+func (c *ChannelClient) SetGroup(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.SetGroup(ctx, &pb.ChannelSetGroupRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetImportance calls the SetImportance RPC.
+func (c *ChannelClient) SetImportance(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetImportance(ctx, &pb.SetImportanceRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetLightColor calls the SetLightColor RPC.
+func (c *ChannelClient) SetLightColor(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetLightColor(ctx, &pb.SetLightColorRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetLockscreenVisibility calls the SetLockscreenVisibility RPC.
+func (c *ChannelClient) SetLockscreenVisibility(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetLockscreenVisibility(ctx, &pb.SetLockscreenVisibilityRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetName calls the SetName RPC.
+func (c *ChannelClient) SetName(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.SetName(ctx, &pb.SetNameRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetShowBadge calls the SetShowBadge RPC.
+func (c *ChannelClient) SetShowBadge(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetShowBadge(ctx, &pb.SetShowBadgeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetSound calls the SetSound RPC.
+func (c *ChannelClient) SetSound(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
+	_, err := c.svc.SetSound(ctx, &pb.SetSoundRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SetVibrationEffect calls the SetVibrationEffect RPC.
+func (c *ChannelClient) SetVibrationEffect(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetVibrationEffect(ctx, &pb.SetVibrationEffectRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetVibrationPattern calls the SetVibrationPattern RPC.
+func (c *ChannelClient) SetVibrationPattern(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetVibrationPattern(ctx, &pb.SetVibrationPatternRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// ShouldShowLights calls the ShouldShowLights RPC.
+func (c *ChannelClient) ShouldShowLights(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.ShouldShowLights(ctx, &pb.ShouldShowLightsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ShouldVibrate calls the ShouldVibrate RPC.
+func (c *ChannelClient) ShouldVibrate(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.ShouldVibrate(ctx, &pb.ShouldVibrateRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *ChannelClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ChannelClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// ConditionClient wraps the gRPC ConditionService client.
+type ConditionClient struct {
+	svc pb.ConditionServiceClient
+}
+
+// NewConditionClient creates a new Condition client.
+func NewConditionClient(cc grpc.ClientConnInterface) *ConditionClient {
+	return &ConditionClient{
+		svc: pb.NewConditionServiceClient(cc),
+	}
+}
+
+// Copy calls the Copy RPC.
+func (c *ConditionClient) Copy(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.Copy(ctx, &pb.CopyRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ConditionClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *ConditionClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.ConditionEqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *ConditionClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.ConditionHashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *ConditionClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ConditionClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// IsValidId calls the IsValidId RPC.
+func (c *ConditionClient) IsValidId(ctx context.Context, handle int64, arg0 int64, arg1 string) (bool, error) {
+	resp, err := c.svc.IsValidId(ctx, &pb.IsValidIdRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// NewId calls the NewId RPC.
+func (c *ConditionClient) NewId(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.NewId(ctx, &pb.NewIdRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RelevanceToString calls the RelevanceToString RPC.
+func (c *ConditionClient) RelevanceToString(ctx context.Context, handle int64, arg0 int32) (string, error) {
+	resp, err := c.svc.RelevanceToString(ctx, &pb.RelevanceToStringRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// StateToString calls the StateToString RPC.
+func (c *ConditionClient) StateToString(ctx context.Context, handle int64, arg0 int32) (string, error) {
+	resp, err := c.svc.StateToString(ctx, &pb.StateToStringRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// ZenPolicyClient wraps the gRPC ZenPolicyService client.
+type ZenPolicyClient struct {
+	svc pb.ZenPolicyServiceClient
+}
+
+// NewZenPolicyClient creates a new ZenPolicy client.
+func NewZenPolicyClient(cc grpc.ClientConnInterface) *ZenPolicyClient {
+	return &ZenPolicyClient{
+		svc: pb.NewZenPolicyServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ZenPolicyClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.ZenPolicyDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *ZenPolicyClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.ZenPolicyEqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPriorityCallSenders calls the GetPriorityCallSenders RPC.
+func (c *ZenPolicyClient) GetPriorityCallSenders(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetPriorityCallSenders(ctx, &pb.GetPriorityCallSendersRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPriorityCategoryAlarms calls the GetPriorityCategoryAlarms RPC.
+func (c *ZenPolicyClient) GetPriorityCategoryAlarms(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetPriorityCategoryAlarms(ctx, &pb.GetPriorityCategoryAlarmsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPriorityCategoryCalls calls the GetPriorityCategoryCalls RPC.
+func (c *ZenPolicyClient) GetPriorityCategoryCalls(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetPriorityCategoryCalls(ctx, &pb.GetPriorityCategoryCallsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPriorityCategoryConversations calls the GetPriorityCategoryConversations RPC.
+func (c *ZenPolicyClient) GetPriorityCategoryConversations(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetPriorityCategoryConversations(ctx, &pb.GetPriorityCategoryConversationsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPriorityCategoryEvents calls the GetPriorityCategoryEvents RPC.
+func (c *ZenPolicyClient) GetPriorityCategoryEvents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetPriorityCategoryEvents(ctx, &pb.GetPriorityCategoryEventsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPriorityCategoryMedia calls the GetPriorityCategoryMedia RPC.
+func (c *ZenPolicyClient) GetPriorityCategoryMedia(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetPriorityCategoryMedia(ctx, &pb.GetPriorityCategoryMediaRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPriorityCategoryMessages calls the GetPriorityCategoryMessages RPC.
+func (c *ZenPolicyClient) GetPriorityCategoryMessages(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetPriorityCategoryMessages(ctx, &pb.GetPriorityCategoryMessagesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPriorityCategoryReminders calls the GetPriorityCategoryReminders RPC.
+func (c *ZenPolicyClient) GetPriorityCategoryReminders(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetPriorityCategoryReminders(ctx, &pb.GetPriorityCategoryRemindersRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPriorityCategoryRepeatCallers calls the GetPriorityCategoryRepeatCallers RPC.
+func (c *ZenPolicyClient) GetPriorityCategoryRepeatCallers(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetPriorityCategoryRepeatCallers(ctx, &pb.GetPriorityCategoryRepeatCallersRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPriorityCategorySystem calls the GetPriorityCategorySystem RPC.
+func (c *ZenPolicyClient) GetPriorityCategorySystem(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetPriorityCategorySystem(ctx, &pb.GetPriorityCategorySystemRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPriorityChannelsAllowed calls the GetPriorityChannelsAllowed RPC.
+func (c *ZenPolicyClient) GetPriorityChannelsAllowed(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetPriorityChannelsAllowed(ctx, &pb.GetPriorityChannelsAllowedRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPriorityConversationSenders calls the GetPriorityConversationSenders RPC.
+func (c *ZenPolicyClient) GetPriorityConversationSenders(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetPriorityConversationSenders(ctx, &pb.GetPriorityConversationSendersRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPriorityMessageSenders calls the GetPriorityMessageSenders RPC.
+func (c *ZenPolicyClient) GetPriorityMessageSenders(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetPriorityMessageSenders(ctx, &pb.GetPriorityMessageSendersRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVisualEffectAmbient calls the GetVisualEffectAmbient RPC.
+func (c *ZenPolicyClient) GetVisualEffectAmbient(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetVisualEffectAmbient(ctx, &pb.GetVisualEffectAmbientRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVisualEffectBadge calls the GetVisualEffectBadge RPC.
+func (c *ZenPolicyClient) GetVisualEffectBadge(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetVisualEffectBadge(ctx, &pb.GetVisualEffectBadgeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVisualEffectFullScreenIntent calls the GetVisualEffectFullScreenIntent RPC.
+func (c *ZenPolicyClient) GetVisualEffectFullScreenIntent(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetVisualEffectFullScreenIntent(ctx, &pb.GetVisualEffectFullScreenIntentRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVisualEffectLights calls the GetVisualEffectLights RPC.
+func (c *ZenPolicyClient) GetVisualEffectLights(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetVisualEffectLights(ctx, &pb.GetVisualEffectLightsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVisualEffectNotificationList calls the GetVisualEffectNotificationList RPC.
+func (c *ZenPolicyClient) GetVisualEffectNotificationList(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetVisualEffectNotificationList(ctx, &pb.GetVisualEffectNotificationListRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVisualEffectPeek calls the GetVisualEffectPeek RPC.
+func (c *ZenPolicyClient) GetVisualEffectPeek(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetVisualEffectPeek(ctx, &pb.GetVisualEffectPeekRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVisualEffectStatusBar calls the GetVisualEffectStatusBar RPC.
+func (c *ZenPolicyClient) GetVisualEffectStatusBar(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetVisualEffectStatusBar(ctx, &pb.GetVisualEffectStatusBarRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *ZenPolicyClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.ZenPolicyHashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *ZenPolicyClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ZenPolicyToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ZenPolicyClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.ZenPolicyWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ZenPolicyBuilderClient wraps the gRPC ZenPolicyBuilderService client.
+type ZenPolicyBuilderClient struct {
+	svc pb.ZenPolicyBuilderServiceClient
+}
+
+// NewZenPolicyBuilderClient creates a new ZenPolicyBuilder client.
+func NewZenPolicyBuilderClient(cc grpc.ClientConnInterface) *ZenPolicyBuilderClient {
+	return &ZenPolicyBuilderClient{
+		svc: pb.NewZenPolicyBuilderServiceClient(cc),
+	}
+}
+
+// AllowAlarms calls the AllowAlarms RPC.
+func (c *ZenPolicyBuilderClient) AllowAlarms(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.AllowAlarms(ctx, &pb.AllowAlarmsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AllowAllSounds calls the AllowAllSounds RPC.
+func (c *ZenPolicyBuilderClient) AllowAllSounds(ctx context.Context) (int64, error) {
+	resp, err := c.svc.AllowAllSounds(ctx, &pb.AllowAllSoundsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AllowCalls calls the AllowCalls RPC.
+func (c *ZenPolicyBuilderClient) AllowCalls(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.AllowCalls(ctx, &pb.AllowCallsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AllowConversations calls the AllowConversations RPC.
+func (c *ZenPolicyBuilderClient) AllowConversations(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.AllowConversations(ctx, &pb.AllowConversationsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AllowEvents calls the AllowEvents RPC.
+func (c *ZenPolicyBuilderClient) AllowEvents(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.AllowEvents(ctx, &pb.AllowEventsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AllowMedia calls the AllowMedia RPC.
+func (c *ZenPolicyBuilderClient) AllowMedia(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.AllowMedia(ctx, &pb.AllowMediaRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AllowMessages calls the AllowMessages RPC.
+func (c *ZenPolicyBuilderClient) AllowMessages(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.AllowMessages(ctx, &pb.AllowMessagesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AllowPriorityChannels calls the AllowPriorityChannels RPC.
+func (c *ZenPolicyBuilderClient) AllowPriorityChannels(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.AllowPriorityChannels(ctx, &pb.AllowPriorityChannelsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AllowReminders calls the AllowReminders RPC.
+func (c *ZenPolicyBuilderClient) AllowReminders(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.AllowReminders(ctx, &pb.AllowRemindersRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AllowRepeatCallers calls the AllowRepeatCallers RPC.
+func (c *ZenPolicyBuilderClient) AllowRepeatCallers(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.AllowRepeatCallers(ctx, &pb.AllowRepeatCallersRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AllowSystem calls the AllowSystem RPC.
+func (c *ZenPolicyBuilderClient) AllowSystem(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.AllowSystem(ctx, &pb.AllowSystemRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Build calls the Build RPC.
+func (c *ZenPolicyBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DisallowAllSounds calls the DisallowAllSounds RPC.
+func (c *ZenPolicyBuilderClient) DisallowAllSounds(ctx context.Context) (int64, error) {
+	resp, err := c.svc.DisallowAllSounds(ctx, &pb.DisallowAllSoundsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HideAllVisualEffects calls the HideAllVisualEffects RPC.
+func (c *ZenPolicyBuilderClient) HideAllVisualEffects(ctx context.Context) (int64, error) {
+	resp, err := c.svc.HideAllVisualEffects(ctx, &pb.HideAllVisualEffectsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ShowAllVisualEffects calls the ShowAllVisualEffects RPC.
+func (c *ZenPolicyBuilderClient) ShowAllVisualEffects(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ShowAllVisualEffects(ctx, &pb.ShowAllVisualEffectsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ShowBadges calls the ShowBadges RPC.
+func (c *ZenPolicyBuilderClient) ShowBadges(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.ShowBadges(ctx, &pb.ShowBadgesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ShowFullScreenIntent calls the ShowFullScreenIntent RPC.
+func (c *ZenPolicyBuilderClient) ShowFullScreenIntent(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.ShowFullScreenIntent(ctx, &pb.ShowFullScreenIntentRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ShowInAmbientDisplay calls the ShowInAmbientDisplay RPC.
+func (c *ZenPolicyBuilderClient) ShowInAmbientDisplay(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.ShowInAmbientDisplay(ctx, &pb.ShowInAmbientDisplayRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ShowInNotificationList calls the ShowInNotificationList RPC.
+func (c *ZenPolicyBuilderClient) ShowInNotificationList(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.ShowInNotificationList(ctx, &pb.ShowInNotificationListRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ShowLights calls the ShowLights RPC.
+func (c *ZenPolicyBuilderClient) ShowLights(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.ShowLights(ctx, &pb.ShowLightsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ShowPeeking calls the ShowPeeking RPC.
+func (c *ZenPolicyBuilderClient) ShowPeeking(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.ShowPeeking(ctx, &pb.ShowPeekingRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ShowStatusBarIcons calls the ShowStatusBarIcons RPC.
+func (c *ZenPolicyBuilderClient) ShowStatusBarIcons(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.ShowStatusBarIcons(ctx, &pb.ShowStatusBarIconsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ConditionProviderServiceClient wraps the gRPC ConditionProviderServiceService client.
+type ConditionProviderServiceClient struct {
+	svc pb.ConditionProviderServiceServiceClient
+}
+
+// NewConditionProviderServiceClient creates a new ConditionProviderService client.
+func NewConditionProviderServiceClient(cc grpc.ClientConnInterface) *ConditionProviderServiceClient {
+	return &ConditionProviderServiceClient{
+		svc: pb.NewConditionProviderServiceServiceClient(cc),
+	}
+}
+
+// NotifyCondition calls the NotifyCondition RPC.
+func (c *ConditionProviderServiceClient) NotifyCondition(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.NotifyCondition(ctx, &pb.NotifyConditionRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// NotifyConditions calls the NotifyConditions RPC.
+func (c *ConditionProviderServiceClient) NotifyConditions(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.NotifyConditions(ctx, &pb.NotifyConditionsRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnBind calls the OnBind RPC.
+func (c *ConditionProviderServiceClient) OnBind(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.OnBind(ctx, &pb.OnBindRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnConnected calls the OnConnected RPC.
+func (c *ConditionProviderServiceClient) OnConnected(ctx context.Context) error {
+	_, err := c.svc.OnConnected(ctx, &pb.OnConnectedRequest{})
+	return err
+}
+
+// OnRequestConditions calls the OnRequestConditions RPC.
+func (c *ConditionProviderServiceClient) OnRequestConditions(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.OnRequestConditions(ctx, &pb.OnRequestConditionsRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnSubscribe calls the OnSubscribe RPC.
+func (c *ConditionProviderServiceClient) OnSubscribe(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnSubscribe(ctx, &pb.OnSubscribeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnUnsubscribe calls the OnUnsubscribe RPC.
+func (c *ConditionProviderServiceClient) OnUnsubscribe(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnUnsubscribe(ctx, &pb.OnUnsubscribeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// RequestUnbind calls the RequestUnbind RPC.
+func (c *ConditionProviderServiceClient) RequestUnbind(ctx context.Context) error {
+	_, err := c.svc.RequestUnbind(ctx, &pb.RequestUnbindRequest{})
+	return err
+}
+
+// RequestRebind calls the RequestRebind RPC.
+func (c *ConditionProviderServiceClient) RequestRebind(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.RequestRebind(ctx, &pb.RequestRebindRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ListenerServiceClient wraps the gRPC ListenerServiceService client.
+type ListenerServiceClient struct {
+	svc pb.ListenerServiceServiceClient
+}
+
+// NewListenerServiceClient creates a new ListenerService client.
+func NewListenerServiceClient(cc grpc.ClientConnInterface) *ListenerServiceClient {
+	return &ListenerServiceClient{
+		svc: pb.NewListenerServiceServiceClient(cc),
+	}
+}
+
+// CancelAllNotifications calls the CancelAllNotifications RPC.
+func (c *ListenerServiceClient) CancelAllNotifications(ctx context.Context) error {
+	_, err := c.svc.CancelAllNotifications(ctx, &pb.CancelAllNotificationsRequest{})
+	return err
+}
+
+// CancelNotification1 calls the CancelNotification1 RPC.
+func (c *ListenerServiceClient) CancelNotification1(ctx context.Context, arg0 string) error {
+	_, err := c.svc.CancelNotification1(ctx, &pb.CancelNotification1Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// CancelNotification3_1 calls the CancelNotification3_1 RPC.
+func (c *ListenerServiceClient) CancelNotification3_1(ctx context.Context, arg0 string, arg1 string, arg2 int32) error {
+	_, err := c.svc.CancelNotification3_1(ctx, &pb.CancelNotification3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// CancelNotifications calls the CancelNotifications RPC.
+func (c *ListenerServiceClient) CancelNotifications(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.CancelNotifications(ctx, &pb.CancelNotificationsRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ClearRequestedListenerHints calls the ClearRequestedListenerHints RPC.
+func (c *ListenerServiceClient) ClearRequestedListenerHints(ctx context.Context) error {
+	_, err := c.svc.ClearRequestedListenerHints(ctx, &pb.ClearRequestedListenerHintsRequest{})
+	return err
+}
+
+// CreateConversationNotificationChannelForPackage calls the CreateConversationNotificationChannelForPackage RPC.
+func (c *ListenerServiceClient) CreateConversationNotificationChannelForPackage(ctx context.Context, arg0 string, arg1 int64, arg2 string, arg3 string) (int64, error) {
+	resp, err := c.svc.CreateConversationNotificationChannelForPackage(ctx, &pb.CreateConversationNotificationChannelForPackageRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetActiveNotifications0 calls the GetActiveNotifications0 RPC.
+func (c *ListenerServiceClient) GetActiveNotifications0(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetActiveNotifications0(ctx, &pb.GetActiveNotifications0Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetActiveNotifications1_1 calls the GetActiveNotifications1_1 RPC.
+func (c *ListenerServiceClient) GetActiveNotifications1_1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetActiveNotifications1_1(ctx, &pb.GetActiveNotifications1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCurrentInterruptionFilter calls the GetCurrentInterruptionFilter RPC.
+func (c *ListenerServiceClient) GetCurrentInterruptionFilter(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetCurrentInterruptionFilter(ctx, &pb.GetCurrentInterruptionFilterRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCurrentListenerHints calls the GetCurrentListenerHints RPC.
+func (c *ListenerServiceClient) GetCurrentListenerHints(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetCurrentListenerHints(ctx, &pb.GetCurrentListenerHintsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCurrentRanking calls the GetCurrentRanking RPC.
+func (c *ListenerServiceClient) GetCurrentRanking(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetCurrentRanking(ctx, &pb.GetCurrentRankingRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSnoozedNotifications calls the GetSnoozedNotifications RPC.
+func (c *ListenerServiceClient) GetSnoozedNotifications(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSnoozedNotifications(ctx, &pb.GetSnoozedNotificationsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnBind calls the OnBind RPC.
+func (c *ListenerServiceClient) OnBind(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.OnBind(ctx, &pb.OnBindRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnDestroy calls the OnDestroy RPC.
+func (c *ListenerServiceClient) OnDestroy(ctx context.Context) error {
+	_, err := c.svc.OnDestroy(ctx, &pb.OnDestroyRequest{})
+	return err
+}
+
+// OnInterruptionFilterChanged calls the OnInterruptionFilterChanged RPC.
+func (c *ListenerServiceClient) OnInterruptionFilterChanged(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.OnInterruptionFilterChanged(ctx, &pb.OnInterruptionFilterChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnListenerConnected calls the OnListenerConnected RPC.
+func (c *ListenerServiceClient) OnListenerConnected(ctx context.Context) error {
+	_, err := c.svc.OnListenerConnected(ctx, &pb.OnListenerConnectedRequest{})
+	return err
+}
+
+// OnListenerDisconnected calls the OnListenerDisconnected RPC.
+func (c *ListenerServiceClient) OnListenerDisconnected(ctx context.Context) error {
+	_, err := c.svc.OnListenerDisconnected(ctx, &pb.OnListenerDisconnectedRequest{})
+	return err
+}
+
+// OnListenerHintsChanged calls the OnListenerHintsChanged RPC.
+func (c *ListenerServiceClient) OnListenerHintsChanged(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.OnListenerHintsChanged(ctx, &pb.OnListenerHintsChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnNotificationChannelGroupModified calls the OnNotificationChannelGroupModified RPC.
+func (c *ListenerServiceClient) OnNotificationChannelGroupModified(ctx context.Context, arg0 string, arg1 int64, arg2 int64, arg3 int32) error {
+	_, err := c.svc.OnNotificationChannelGroupModified(ctx, &pb.OnNotificationChannelGroupModifiedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// OnNotificationChannelModified calls the OnNotificationChannelModified RPC.
+func (c *ListenerServiceClient) OnNotificationChannelModified(ctx context.Context, arg0 string, arg1 int64, arg2 int64, arg3 int32) error {
+	_, err := c.svc.OnNotificationChannelModified(ctx, &pb.OnNotificationChannelModifiedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// OnNotificationPosted1 calls the OnNotificationPosted1 RPC.
+func (c *ListenerServiceClient) OnNotificationPosted1(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnNotificationPosted1(ctx, &pb.OnNotificationPosted1Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnNotificationPosted2_1 calls the OnNotificationPosted2_1 RPC.
+func (c *ListenerServiceClient) OnNotificationPosted2_1(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.OnNotificationPosted2_1(ctx, &pb.OnNotificationPosted2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnNotificationRankingUpdate calls the OnNotificationRankingUpdate RPC.
+func (c *ListenerServiceClient) OnNotificationRankingUpdate(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnNotificationRankingUpdate(ctx, &pb.OnNotificationRankingUpdateRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnNotificationRemoved1 calls the OnNotificationRemoved1 RPC.
+func (c *ListenerServiceClient) OnNotificationRemoved1(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnNotificationRemoved1(ctx, &pb.OnNotificationRemoved1Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnNotificationRemoved2_1 calls the OnNotificationRemoved2_1 RPC.
+func (c *ListenerServiceClient) OnNotificationRemoved2_1(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.OnNotificationRemoved2_1(ctx, &pb.OnNotificationRemoved2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnNotificationRemoved3_2 calls the OnNotificationRemoved3_2 RPC.
+func (c *ListenerServiceClient) OnNotificationRemoved3_2(ctx context.Context, arg0 int64, arg1 int64, arg2 int32) error {
+	_, err := c.svc.OnNotificationRemoved3_2(ctx, &pb.OnNotificationRemoved3_2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// OnSilentStatusBarIconsVisibilityChanged calls the OnSilentStatusBarIconsVisibilityChanged RPC.
+func (c *ListenerServiceClient) OnSilentStatusBarIconsVisibilityChanged(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.OnSilentStatusBarIconsVisibilityChanged(ctx, &pb.OnSilentStatusBarIconsVisibilityChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// RequestInterruptionFilter calls the RequestInterruptionFilter RPC.
+func (c *ListenerServiceClient) RequestInterruptionFilter(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.RequestInterruptionFilter(ctx, &pb.RequestInterruptionFilterRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// RequestListenerHints calls the RequestListenerHints RPC.
+func (c *ListenerServiceClient) RequestListenerHints(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.RequestListenerHints(ctx, &pb.RequestListenerHintsRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// RequestUnbind0 calls the RequestUnbind0 RPC.
+func (c *ListenerServiceClient) RequestUnbind0(ctx context.Context) error {
+	_, err := c.svc.RequestUnbind0(ctx, &pb.RequestUnbind0Request{})
+	return err
+}
+
+// SetNotificationsShown calls the SetNotificationsShown RPC.
+func (c *ListenerServiceClient) SetNotificationsShown(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetNotificationsShown(ctx, &pb.SetNotificationsShownRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SnoozeNotification calls the SnoozeNotification RPC.
+func (c *ListenerServiceClient) SnoozeNotification(ctx context.Context, arg0 string, arg1 int64) error {
+	_, err := c.svc.SnoozeNotification(ctx, &pb.SnoozeNotificationRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// UpdateNotificationChannel calls the UpdateNotificationChannel RPC.
+func (c *ListenerServiceClient) UpdateNotificationChannel(ctx context.Context, arg0 string, arg1 int64, arg2 int64) error {
+	_, err := c.svc.UpdateNotificationChannel(ctx, &pb.UpdateNotificationChannelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// RequestRebind calls the RequestRebind RPC.
+func (c *ListenerServiceClient) RequestRebind(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.RequestRebind(ctx, &pb.RequestRebindRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// RequestUnbind1_1 calls the RequestUnbind1_1 RPC.
+func (c *ListenerServiceClient) RequestUnbind1_1(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.RequestUnbind1_1(ctx, &pb.RequestUnbind1_1Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ListenerServiceRankingClient wraps the gRPC ListenerServiceRankingService client.
+type ListenerServiceRankingClient struct {
+	svc pb.ListenerServiceRankingServiceClient
+}
+
+// NewListenerServiceRankingClient creates a new ListenerServiceRanking client.
+func NewListenerServiceRankingClient(cc grpc.ClientConnInterface) *ListenerServiceRankingClient {
+	return &ListenerServiceRankingClient{
+		svc: pb.NewListenerServiceRankingServiceClient(cc),
+	}
+}
+
+// CanBubble calls the CanBubble RPC.
+func (c *ListenerServiceRankingClient) CanBubble(ctx context.Context) (bool, error) {
+	resp, err := c.svc.CanBubble(ctx, &pb.ListenerServiceRankingCanBubbleRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CanShowBadge calls the CanShowBadge RPC.
+func (c *ListenerServiceRankingClient) CanShowBadge(ctx context.Context) (bool, error) {
+	resp, err := c.svc.CanShowBadge(ctx, &pb.ListenerServiceRankingCanShowBadgeRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *ListenerServiceRankingClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.ListenerServiceRankingEqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetChannel calls the GetChannel RPC.
+func (c *ListenerServiceRankingClient) GetChannel(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetChannel(ctx, &pb.GetChannelRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetConversationShortcutInfo calls the GetConversationShortcutInfo RPC.
+func (c *ListenerServiceRankingClient) GetConversationShortcutInfo(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetConversationShortcutInfo(ctx, &pb.GetConversationShortcutInfoRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetImportance calls the GetImportance RPC.
+func (c *ListenerServiceRankingClient) GetImportance(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetImportance(ctx, &pb.GetImportanceRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetImportanceExplanation calls the GetImportanceExplanation RPC.
+func (c *ListenerServiceRankingClient) GetImportanceExplanation(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetImportanceExplanation(ctx, &pb.GetImportanceExplanationRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetKey calls the GetKey RPC.
+func (c *ListenerServiceRankingClient) GetKey(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetKey(ctx, &pb.ListenerServiceRankingGetKeyRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLastAudiblyAlertedMillis calls the GetLastAudiblyAlertedMillis RPC.
+func (c *ListenerServiceRankingClient) GetLastAudiblyAlertedMillis(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetLastAudiblyAlertedMillis(ctx, &pb.GetLastAudiblyAlertedMillisRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLockscreenVisibilityOverride calls the GetLockscreenVisibilityOverride RPC.
+func (c *ListenerServiceRankingClient) GetLockscreenVisibilityOverride(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetLockscreenVisibilityOverride(ctx, &pb.GetLockscreenVisibilityOverrideRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOverrideGroupKey calls the GetOverrideGroupKey RPC.
+func (c *ListenerServiceRankingClient) GetOverrideGroupKey(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetOverrideGroupKey(ctx, &pb.ListenerServiceRankingGetOverrideGroupKeyRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRank calls the GetRank RPC.
+func (c *ListenerServiceRankingClient) GetRank(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetRank(ctx, &pb.GetRankRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSuppressedVisualEffects calls the GetSuppressedVisualEffects RPC.
+func (c *ListenerServiceRankingClient) GetSuppressedVisualEffects(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetSuppressedVisualEffects(ctx, &pb.GetSuppressedVisualEffectsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUserSentiment calls the GetUserSentiment RPC.
+func (c *ListenerServiceRankingClient) GetUserSentiment(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetUserSentiment(ctx, &pb.GetUserSentimentRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsAmbient calls the IsAmbient RPC.
+func (c *ListenerServiceRankingClient) IsAmbient(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsAmbient(ctx, &pb.IsAmbientRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsConversation calls the IsConversation RPC.
+func (c *ListenerServiceRankingClient) IsConversation(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsConversation(ctx, &pb.ListenerServiceRankingIsConversationRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsSuspended calls the IsSuspended RPC.
+func (c *ListenerServiceRankingClient) IsSuspended(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsSuspended(ctx, &pb.IsSuspendedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MatchesInterruptionFilter calls the MatchesInterruptionFilter RPC.
+func (c *ListenerServiceRankingClient) MatchesInterruptionFilter(ctx context.Context) (bool, error) {
+	resp, err := c.svc.MatchesInterruptionFilter(ctx, &pb.MatchesInterruptionFilterRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ListenerServiceRankingMapClient wraps the gRPC ListenerServiceRankingMapService client.
+type ListenerServiceRankingMapClient struct {
+	svc pb.ListenerServiceRankingMapServiceClient
+}
+
+// NewListenerServiceRankingMapClient creates a new ListenerServiceRankingMap client.
+func NewListenerServiceRankingMapClient(cc grpc.ClientConnInterface) *ListenerServiceRankingMapClient {
+	return &ListenerServiceRankingMapClient{
+		svc: pb.NewListenerServiceRankingMapServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ListenerServiceRankingMapClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.ListenerServiceRankingMapDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *ListenerServiceRankingMapClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.ListenerServiceRankingMapEqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOrderedKeys calls the GetOrderedKeys RPC.
+func (c *ListenerServiceRankingMapClient) GetOrderedKeys(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetOrderedKeys(ctx, &pb.GetOrderedKeysRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRanking calls the GetRanking RPC.
+func (c *ListenerServiceRankingMapClient) GetRanking(ctx context.Context, arg0 string, arg1 int64) (bool, error) {
+	resp, err := c.svc.GetRanking(ctx, &pb.GetRankingRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ListenerServiceRankingMapClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.ListenerServiceRankingMapWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ZenDeviceEffectsClient wraps the gRPC ZenDeviceEffectsService client.
+type ZenDeviceEffectsClient struct {
+	svc pb.ZenDeviceEffectsServiceClient
+}
+
+// NewZenDeviceEffectsClient creates a new ZenDeviceEffects client.
+func NewZenDeviceEffectsClient(cc grpc.ClientConnInterface) *ZenDeviceEffectsClient {
+	return &ZenDeviceEffectsClient{
+		svc: pb.NewZenDeviceEffectsServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ZenDeviceEffectsClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.ZenDeviceEffectsDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *ZenDeviceEffectsClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.ZenDeviceEffectsEqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *ZenDeviceEffectsClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.ZenDeviceEffectsHashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ShouldDimWallpaper calls the ShouldDimWallpaper RPC.
+func (c *ZenDeviceEffectsClient) ShouldDimWallpaper(ctx context.Context) (bool, error) {
+	resp, err := c.svc.ShouldDimWallpaper(ctx, &pb.ShouldDimWallpaperRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ShouldDisplayGrayscale calls the ShouldDisplayGrayscale RPC.
+func (c *ZenDeviceEffectsClient) ShouldDisplayGrayscale(ctx context.Context) (bool, error) {
+	resp, err := c.svc.ShouldDisplayGrayscale(ctx, &pb.ShouldDisplayGrayscaleRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ShouldSuppressAmbientDisplay calls the ShouldSuppressAmbientDisplay RPC.
+func (c *ZenDeviceEffectsClient) ShouldSuppressAmbientDisplay(ctx context.Context) (bool, error) {
+	resp, err := c.svc.ShouldSuppressAmbientDisplay(ctx, &pb.ShouldSuppressAmbientDisplayRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ShouldUseNightMode calls the ShouldUseNightMode RPC.
+func (c *ZenDeviceEffectsClient) ShouldUseNightMode(ctx context.Context) (bool, error) {
+	resp, err := c.svc.ShouldUseNightMode(ctx, &pb.ShouldUseNightModeRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *ZenDeviceEffectsClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ZenDeviceEffectsToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ZenDeviceEffectsClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.ZenDeviceEffectsWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ZenDeviceEffectsBuilderClient wraps the gRPC ZenDeviceEffectsBuilderService client.
+type ZenDeviceEffectsBuilderClient struct {
+	svc pb.ZenDeviceEffectsBuilderServiceClient
+}
+
+// NewZenDeviceEffectsBuilderClient creates a new ZenDeviceEffectsBuilder client.
+func NewZenDeviceEffectsBuilderClient(cc grpc.ClientConnInterface) *ZenDeviceEffectsBuilderClient {
+	return &ZenDeviceEffectsBuilderClient{
+		svc: pb.NewZenDeviceEffectsBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *ZenDeviceEffectsBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetShouldDimWallpaper calls the SetShouldDimWallpaper RPC.
+func (c *ZenDeviceEffectsBuilderClient) SetShouldDimWallpaper(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetShouldDimWallpaper(ctx, &pb.SetShouldDimWallpaperRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetShouldDisplayGrayscale calls the SetShouldDisplayGrayscale RPC.
+func (c *ZenDeviceEffectsBuilderClient) SetShouldDisplayGrayscale(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetShouldDisplayGrayscale(ctx, &pb.SetShouldDisplayGrayscaleRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetShouldSuppressAmbientDisplay calls the SetShouldSuppressAmbientDisplay RPC.
+func (c *ZenDeviceEffectsBuilderClient) SetShouldSuppressAmbientDisplay(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetShouldSuppressAmbientDisplay(ctx, &pb.SetShouldSuppressAmbientDisplayRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetShouldUseNightMode calls the SetShouldUseNightMode RPC.
+func (c *ZenDeviceEffectsBuilderClient) SetShouldUseNightMode(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetShouldUseNightMode(ctx, &pb.SetShouldUseNightModeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
 	}
 	return resp.GetResult(), nil
 }

@@ -6,6 +6,1330 @@ package interactive;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/interactive";
 
+message NewTvInteractiveAppServiceInfoRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewTvInteractiveAppServiceInfoResponse {
+  int64 result = 1;
+}
+
+message DescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message GetIdRequest {
+  int64 handle = 1;
+}
+
+message GetIdResponse {
+  string result = 1;
+}
+
+message GetServiceInfoRequest {
+  int64 handle = 1;
+}
+
+message GetServiceInfoResponse {
+  int64 result = 1;
+}
+
+message GetSupportedTypesRequest {
+  int64 handle = 1;
+}
+
+message GetSupportedTypesResponse {
+  int32 result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message WriteToParcelResponse {
+}
+
+message NotifyStateChangedRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message NotifyStateChangedResponse {
+}
+
+message OnAppLinkCommandRequest {
+  int64 arg0 = 1;
+}
+
+message OnAppLinkCommandResponse {
+}
+
+message OnBindRequest {
+  int64 arg0 = 1;
+}
+
+message OnBindResponse {
+  int64 result = 1;
+}
+
+message OnCreateSessionRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message OnCreateSessionResponse {
+  int64 result = 1;
+}
+
+message OnRegisterAppLinkInfoRequest {
+  int64 arg0 = 1;
+}
+
+message OnRegisterAppLinkInfoResponse {
+}
+
+message OnUnregisterAppLinkInfoRequest {
+  int64 arg0 = 1;
+}
+
+message OnUnregisterAppLinkInfoResponse {
+}
+
+message IsMediaViewEnabledRequest {
+}
+
+message IsMediaViewEnabledResponse {
+  bool result = 1;
+}
+
+message LayoutSurfaceRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message LayoutSurfaceResponse {
+}
+
+message NotifyAdBufferReadyRequest {
+  int64 arg0 = 1;
+}
+
+message NotifyAdBufferReadyResponse {
+}
+
+message NotifyBiInteractiveAppCreatedRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+}
+
+message NotifyBiInteractiveAppCreatedResponse {
+}
+
+message NotifySessionStateChangedRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message NotifySessionStateChangedResponse {
+}
+
+message NotifyTeletextAppStateChangedRequest {
+  int32 arg0 = 1;
+}
+
+message NotifyTeletextAppStateChangedResponse {
+}
+
+message OnAdBufferConsumedRequest {
+  int64 arg0 = 1;
+}
+
+message OnAdBufferConsumedResponse {
+}
+
+message OnAdResponseRequest {
+  int64 arg0 = 1;
+}
+
+message OnAdResponseResponse {
+}
+
+message OnAvailableSpeedsRequest {
+  int64 arg0 = 1;
+}
+
+message OnAvailableSpeedsResponse {
+}
+
+message OnBroadcastInfoResponseRequest {
+  int64 arg0 = 1;
+}
+
+message OnBroadcastInfoResponseResponse {
+}
+
+message OnCertificateRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message OnCertificateResponse {
+}
+
+message OnContentAllowedRequest {
+}
+
+message OnContentAllowedResponse {
+}
+
+message OnContentBlockedRequest {
+  int64 arg0 = 1;
+}
+
+message OnContentBlockedResponse {
+}
+
+message OnCreateBiInteractiveAppRequestRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnCreateBiInteractiveAppRequestResponse {
+}
+
+message OnCreateMediaViewRequest {
+}
+
+message OnCreateMediaViewResponse {
+  int64 result = 1;
+}
+
+message OnCurrentChannelLcnRequest {
+  int32 arg0 = 1;
+}
+
+message OnCurrentChannelLcnResponse {
+}
+
+message OnCurrentChannelUriRequest {
+  int64 arg0 = 1;
+}
+
+message OnCurrentChannelUriResponse {
+}
+
+message OnCurrentTvInputIdRequest {
+  string arg0 = 1;
+}
+
+message OnCurrentTvInputIdResponse {
+}
+
+message OnCurrentVideoBoundsRequest {
+  int64 arg0 = 1;
+}
+
+message OnCurrentVideoBoundsResponse {
+}
+
+message OnDestroyBiInteractiveAppRequestRequest {
+  string arg0 = 1;
+}
+
+message OnDestroyBiInteractiveAppRequestResponse {
+}
+
+message OnErrorRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnErrorResponse {
+}
+
+message OnGenericMotionEventRequest {
+  int64 arg0 = 1;
+}
+
+message OnGenericMotionEventResponse {
+  bool result = 1;
+}
+
+message OnKeyDownRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnKeyDownResponse {
+  bool result = 1;
+}
+
+message OnKeyLongPressRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnKeyLongPressResponse {
+  bool result = 1;
+}
+
+message OnKeyMultipleRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message OnKeyMultipleResponse {
+  bool result = 1;
+}
+
+message OnKeyUpRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnKeyUpResponse {
+  bool result = 1;
+}
+
+message OnMediaViewSizeChangedRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message OnMediaViewSizeChangedResponse {
+}
+
+message OnRecordingConnectionFailedRequest {
+  string arg0 = 1;
+  string arg1 = 2;
+}
+
+message OnRecordingConnectionFailedResponse {
+}
+
+message OnRecordingDisconnectedRequest {
+  string arg0 = 1;
+  string arg1 = 2;
+}
+
+message OnRecordingDisconnectedResponse {
+}
+
+message OnRecordingErrorRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message OnRecordingErrorResponse {
+}
+
+message OnRecordingScheduledRequest {
+  string arg0 = 1;
+  string arg1 = 2;
+}
+
+message OnRecordingScheduledResponse {
+}
+
+message OnRecordingStartedRequest {
+  string arg0 = 1;
+  string arg1 = 2;
+}
+
+message OnRecordingStartedResponse {
+}
+
+message OnRecordingStoppedRequest {
+  string arg0 = 1;
+}
+
+message OnRecordingStoppedResponse {
+}
+
+message OnRecordingTunedRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnRecordingTunedResponse {
+}
+
+message OnReleaseRequest {
+}
+
+message OnReleaseResponse {
+}
+
+message OnResetInteractiveAppRequest {
+}
+
+message OnResetInteractiveAppResponse {
+}
+
+message OnSetSurfaceRequest {
+  int64 arg0 = 1;
+}
+
+message OnSetSurfaceResponse {
+  bool result = 1;
+}
+
+message OnSetTeletextAppEnabledRequest {
+  bool arg0 = 1;
+}
+
+message OnSetTeletextAppEnabledResponse {
+}
+
+message OnSignalStrengthRequest {
+  int32 arg0 = 1;
+}
+
+message OnSignalStrengthResponse {
+}
+
+message OnSigningResultRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnSigningResultResponse {
+}
+
+message OnStartInteractiveAppRequest {
+}
+
+message OnStartInteractiveAppResponse {
+}
+
+message OnStopInteractiveAppRequest {
+}
+
+message OnStopInteractiveAppResponse {
+}
+
+message OnStreamVolumeRequest {
+  float arg0 = 1;
+}
+
+message OnStreamVolumeResponse {
+}
+
+message OnSurfaceChangedRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message OnSurfaceChangedResponse {
+}
+
+message OnTimeShiftCurrentPositionChangedRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnTimeShiftCurrentPositionChangedResponse {
+}
+
+message OnTimeShiftModeRequest {
+  int32 arg0 = 1;
+}
+
+message OnTimeShiftModeResponse {
+}
+
+message OnTimeShiftPlaybackParamsRequest {
+  int64 arg0 = 1;
+}
+
+message OnTimeShiftPlaybackParamsResponse {
+}
+
+message OnTimeShiftStartPositionChangedRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnTimeShiftStartPositionChangedResponse {
+}
+
+message OnTimeShiftStatusChangedRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message OnTimeShiftStatusChangedResponse {
+}
+
+message OnTouchEventRequest {
+  int64 arg0 = 1;
+}
+
+message OnTouchEventResponse {
+  bool result = 1;
+}
+
+message OnTrackSelectedRequest {
+  int32 arg0 = 1;
+  string arg1 = 2;
+}
+
+message OnTrackSelectedResponse {
+}
+
+message OnTrackballEventRequest {
+  int64 arg0 = 1;
+}
+
+message OnTrackballEventResponse {
+  bool result = 1;
+}
+
+message OnTunedRequest {
+  int64 arg0 = 1;
+}
+
+message OnTunedResponse {
+}
+
+message OnTvMessageRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnTvMessageResponse {
+}
+
+message OnTvRecordingInfoRequest {
+  int64 arg0 = 1;
+}
+
+message OnTvRecordingInfoResponse {
+}
+
+message OnVideoAvailableRequest {
+}
+
+message OnVideoAvailableResponse {
+}
+
+message OnVideoFreezeUpdatedRequest {
+  bool arg0 = 1;
+}
+
+message OnVideoFreezeUpdatedResponse {
+}
+
+message OnVideoUnavailableRequest {
+  int32 arg0 = 1;
+}
+
+message OnVideoUnavailableResponse {
+}
+
+message RemoveBroadcastInfoRequest {
+  int32 arg0 = 1;
+}
+
+message RemoveBroadcastInfoResponse {
+}
+
+message RequestAdRequest {
+  int64 arg0 = 1;
+}
+
+message RequestAdResponse {
+}
+
+message RequestAvailableSpeedsRequest {
+}
+
+message RequestAvailableSpeedsResponse {
+}
+
+message RequestBroadcastInfoRequest {
+  int64 arg0 = 1;
+}
+
+message RequestBroadcastInfoResponse {
+}
+
+message RequestCertificateRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message RequestCertificateResponse {
+}
+
+message RequestCurrentChannelLcnRequest {
+}
+
+message RequestCurrentChannelLcnResponse {
+}
+
+message RequestCurrentChannelUriRequest {
+}
+
+message RequestCurrentChannelUriResponse {
+}
+
+message RequestCurrentTvInputIdRequest {
+}
+
+message RequestCurrentTvInputIdResponse {
+}
+
+message RequestCurrentVideoBoundsRequest {
+}
+
+message RequestCurrentVideoBoundsResponse {
+}
+
+message RequestScheduleRecording5Request {
+  string arg0 = 1;
+  string arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+}
+
+message RequestScheduleRecording5Response {
+}
+
+message RequestScheduleRecording7_1Request {
+  string arg0 = 1;
+  string arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+  int32 arg5 = 6;
+  int64 arg6 = 7;
+}
+
+message RequestScheduleRecording7_1Response {
+}
+
+message RequestSelectedTrackInfoRequest {
+}
+
+message RequestSelectedTrackInfoResponse {
+}
+
+message RequestSigning4Request {
+  string arg0 = 1;
+  string arg1 = 2;
+  string arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message RequestSigning4Response {
+}
+
+message RequestSigning5_1Request {
+  string arg0 = 1;
+  string arg1 = 2;
+  string arg2 = 3;
+  int32 arg3 = 4;
+  int64 arg4 = 5;
+}
+
+message RequestSigning5_1Response {
+}
+
+message RequestStartRecordingRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message RequestStartRecordingResponse {
+}
+
+message RequestStopRecordingRequest {
+  string arg0 = 1;
+}
+
+message RequestStopRecordingResponse {
+}
+
+message RequestStreamVolumeRequest {
+}
+
+message RequestStreamVolumeResponse {
+}
+
+message RequestTimeShiftModeRequest {
+}
+
+message RequestTimeShiftModeResponse {
+}
+
+message RequestTrackInfoListRequest {
+}
+
+message RequestTrackInfoListResponse {
+}
+
+message RequestTvRecordingInfoRequest {
+  string arg0 = 1;
+}
+
+message RequestTvRecordingInfoResponse {
+}
+
+message RequestTvRecordingInfoListRequest {
+  int32 arg0 = 1;
+}
+
+message RequestTvRecordingInfoListResponse {
+}
+
+message SendPlaybackCommandRequestRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SendPlaybackCommandRequestResponse {
+}
+
+message SendTimeShiftCommandRequestRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SendTimeShiftCommandRequestResponse {
+}
+
+message SetMediaViewEnabledRequest {
+  bool arg0 = 1;
+}
+
+message SetMediaViewEnabledResponse {
+}
+
+message SetTvRecordingInfoRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SetTvRecordingInfoResponse {
+}
+
+message SetVideoBoundsRequest {
+  int64 arg0 = 1;
+}
+
+message SetVideoBoundsResponse {
+}
+
+message NewTvInteractiveAppViewRequest {
+  int64 arg0 = 1;
+}
+
+message NewTvInteractiveAppViewResponse {
+  int64 result = 1;
+}
+
+message ClearCallbackRequest {
+  int64 handle = 1;
+}
+
+message ClearCallbackResponse {
+}
+
+message ClearOnUnhandledInputEventListenerRequest {
+  int64 handle = 1;
+}
+
+message ClearOnUnhandledInputEventListenerResponse {
+}
+
+message CreateBiInteractiveAppRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message CreateBiInteractiveAppResponse {
+}
+
+message DestroyBiInteractiveAppRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message DestroyBiInteractiveAppResponse {
+}
+
+message DispatchKeyEventRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message DispatchKeyEventResponse {
+  bool result = 1;
+}
+
+message DispatchUnhandledInputEventRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message DispatchUnhandledInputEventResponse {
+  bool result = 1;
+}
+
+message GetOnUnhandledInputEventListenerRequest {
+  int64 handle = 1;
+}
+
+message GetOnUnhandledInputEventListenerResponse {
+  int64 result = 1;
+}
+
+message NotifyErrorRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message NotifyErrorResponse {
+}
+
+message NotifyRecordingScheduledRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  string arg1 = 3;
+}
+
+message NotifyRecordingScheduledResponse {
+}
+
+message NotifyRecordingStartedRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  string arg1 = 3;
+}
+
+message NotifyRecordingStartedResponse {
+}
+
+message NotifyRecordingStoppedRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message NotifyRecordingStoppedResponse {
+}
+
+message NotifyTimeShiftCurrentPositionChangedRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message NotifyTimeShiftCurrentPositionChangedResponse {
+}
+
+message NotifyTimeShiftPlaybackParamsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message NotifyTimeShiftPlaybackParamsResponse {
+}
+
+message NotifyTimeShiftStartPositionChangedRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message NotifyTimeShiftStartPositionChangedResponse {
+}
+
+message NotifyTimeShiftStatusChangedRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message NotifyTimeShiftStatusChangedResponse {
+}
+
+message NotifyTvMessageRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message NotifyTvMessageResponse {
+}
+
+message NotifyVideoFreezeUpdatedRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message NotifyVideoFreezeUpdatedResponse {
+}
+
+message OnAttachedToWindowRequest {
+  int64 handle = 1;
+}
+
+message OnAttachedToWindowResponse {
+}
+
+message OnDetachedFromWindowRequest {
+  int64 handle = 1;
+}
+
+message OnDetachedFromWindowResponse {
+}
+
+message OnLayoutRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
+  int32 arg4 = 6;
+}
+
+message OnLayoutResponse {
+}
+
+message OnMeasureRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message OnMeasureResponse {
+}
+
+message OnUnhandledInputEventRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OnUnhandledInputEventResponse {
+  bool result = 1;
+}
+
+message OnVisibilityChangedRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message OnVisibilityChangedResponse {
+}
+
+message PrepareInteractiveAppRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message PrepareInteractiveAppResponse {
+}
+
+message ResetRequest {
+  int64 handle = 1;
+}
+
+message ResetResponse {
+}
+
+message ResetInteractiveAppRequest {
+  int64 handle = 1;
+}
+
+message ResetInteractiveAppResponse {
+}
+
+message SendAvailableSpeedsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SendAvailableSpeedsResponse {
+}
+
+message SendCertificateRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  int32 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message SendCertificateResponse {
+}
+
+message SendCurrentChannelLcnRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SendCurrentChannelLcnResponse {
+}
+
+message SendCurrentChannelUriRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SendCurrentChannelUriResponse {
+}
+
+message SendCurrentTvInputIdRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SendCurrentTvInputIdResponse {
+}
+
+message SendCurrentVideoBoundsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SendCurrentVideoBoundsResponse {
+}
+
+message SendSigningResultRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message SendSigningResultResponse {
+}
+
+message SendStreamVolumeRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+}
+
+message SendStreamVolumeResponse {
+}
+
+message SendTimeShiftModeRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SendTimeShiftModeResponse {
+}
+
+message SendTvRecordingInfoRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SendTvRecordingInfoResponse {
+}
+
+message SetCallbackRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message SetCallbackResponse {
+}
+
+message SetOnUnhandledInputEventListenerRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message SetOnUnhandledInputEventListenerResponse {
+}
+
+message SetTeletextAppEnabledRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetTeletextAppEnabledResponse {
+}
+
+message SetTvViewRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetTvViewResponse {
+  int32 result = 1;
+}
+
+message SetZOrderMediaOverlayRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetZOrderMediaOverlayResponse {
+}
+
+message SetZOrderOnTopRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetZOrderOnTopResponse {
+}
+
+message StartInteractiveAppRequest {
+  int64 handle = 1;
+}
+
+message StartInteractiveAppResponse {
+}
+
+message StopInteractiveAppRequest {
+  int64 handle = 1;
+}
+
+message StopInteractiveAppResponse {
+}
+
+message TvInteractiveAppViewOnUnhandledInputEventListenerOnUnhandledInputEventRequest {
+  int64 arg0 = 1;
+}
+
+message OnBiInteractiveAppCreatedRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+  string arg2 = 3;
+}
+
+message OnBiInteractiveAppCreatedResponse {
+}
+
+message OnPlaybackCommandRequestRequest {
+  string arg0 = 1;
+  string arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message OnPlaybackCommandRequestResponse {
+}
+
+message OnRequestAvailableSpeedsRequest {
+  string arg0 = 1;
+}
+
+message OnRequestAvailableSpeedsResponse {
+}
+
+message OnRequestCertificateRequest {
+  string arg0 = 1;
+  string arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message OnRequestCertificateResponse {
+}
+
+message OnRequestCurrentChannelLcnRequest {
+  string arg0 = 1;
+}
+
+message OnRequestCurrentChannelLcnResponse {
+}
+
+message OnRequestCurrentChannelUriRequest {
+  string arg0 = 1;
+}
+
+message OnRequestCurrentChannelUriResponse {
+}
+
+message OnRequestCurrentTvInputIdRequest {
+  string arg0 = 1;
+}
+
+message OnRequestCurrentTvInputIdResponse {
+}
+
+message OnRequestCurrentVideoBoundsRequest {
+  string arg0 = 1;
+}
+
+message OnRequestCurrentVideoBoundsResponse {
+}
+
+message OnRequestScheduleRecording6Request {
+  string arg0 = 1;
+  string arg1 = 2;
+  string arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+  int64 arg5 = 6;
+}
+
+message OnRequestScheduleRecording6Response {
+}
+
+message OnRequestScheduleRecording8_1Request {
+  string arg0 = 1;
+  string arg1 = 2;
+  string arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+  int64 arg5 = 6;
+  int32 arg6 = 7;
+  int64 arg7 = 8;
+}
+
+message OnRequestScheduleRecording8_1Response {
+}
+
+message OnRequestSelectedTrackInfoRequest {
+  string arg0 = 1;
+}
+
+message OnRequestSelectedTrackInfoResponse {
+}
+
+message OnRequestSigning5Request {
+  string arg0 = 1;
+  string arg1 = 2;
+  string arg2 = 3;
+  string arg3 = 4;
+  int64 arg4 = 5;
+}
+
+message OnRequestSigning5Response {
+}
+
+message OnRequestSigning6_1Request {
+  string arg0 = 1;
+  string arg1 = 2;
+  string arg2 = 3;
+  string arg3 = 4;
+  int32 arg4 = 5;
+  int64 arg5 = 6;
+}
+
+message OnRequestSigning6_1Response {
+}
+
+message OnRequestStartRecordingRequest {
+  string arg0 = 1;
+  string arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message OnRequestStartRecordingResponse {
+}
+
+message OnRequestStopRecordingRequest {
+  string arg0 = 1;
+  string arg1 = 2;
+}
+
+message OnRequestStopRecordingResponse {
+}
+
+message OnRequestStreamVolumeRequest {
+  string arg0 = 1;
+}
+
+message OnRequestStreamVolumeResponse {
+}
+
+message OnRequestTimeShiftModeRequest {
+  string arg0 = 1;
+}
+
+message OnRequestTimeShiftModeResponse {
+}
+
+message OnRequestTrackInfoListRequest {
+  string arg0 = 1;
+}
+
+message OnRequestTrackInfoListResponse {
+}
+
+message OnRequestTvRecordingInfoRequest {
+  string arg0 = 1;
+  string arg1 = 2;
+}
+
+message OnRequestTvRecordingInfoResponse {
+}
+
+message OnRequestTvRecordingInfoListRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message OnRequestTvRecordingInfoListResponse {
+}
+
+message OnSetTvRecordingInfoRequest {
+  string arg0 = 1;
+  string arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message OnSetTvRecordingInfoResponse {
+}
+
+message OnSetVideoBoundsRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnSetVideoBoundsResponse {
+}
+
+message OnStateChangedRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message OnStateChangedResponse {
+}
+
+message OnTeletextAppStateChangedRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message OnTeletextAppStateChangedResponse {
+}
+
+message OnTimeShiftCommandRequestRequest {
+  string arg0 = 1;
+  string arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message OnTimeShiftCommandRequestResponse {
+}
+
 message RegisterAppLinkInfoRequest {
   string arg0 = 1;
   int64 arg1 = 2;
@@ -45,10 +1369,276 @@ message UnregisterCallbackRequest {
 message UnregisterCallbackResponse {
 }
 
+message OnInteractiveAppServiceAddedRequest {
+  string arg0 = 1;
+}
+
+message OnInteractiveAppServiceAddedResponse {
+}
+
+message OnInteractiveAppServiceRemovedRequest {
+  string arg0 = 1;
+}
+
+message OnInteractiveAppServiceRemovedResponse {
+}
+
+message OnInteractiveAppServiceUpdatedRequest {
+  string arg0 = 1;
+}
+
+message OnInteractiveAppServiceUpdatedResponse {
+}
+
+message OnTvInteractiveAppServiceStateChangedRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message OnTvInteractiveAppServiceStateChangedResponse {
+}
+
+message NewAppLinkInfoRequest {
+  string arg0 = 1;
+  string arg1 = 2;
+  string arg2 = 3;
+}
+
+message NewAppLinkInfoResponse {
+  int64 result = 1;
+}
+
+message GetComponentNameRequest {
+  int64 handle = 1;
+}
+
+message GetComponentNameResponse {
+  int64 result = 1;
+}
+
+message GetUriRequest {
+  int64 handle = 1;
+}
+
+message GetUriResponse {
+  int64 result = 1;
+}
+
+message ToStringRequest {
+  int64 handle = 1;
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+service TvInteractiveAppServiceInfoService {
+  rpc NewTvInteractiveAppServiceInfo (NewTvInteractiveAppServiceInfoRequest) returns (NewTvInteractiveAppServiceInfoResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetId (GetIdRequest) returns (GetIdResponse);
+  rpc GetServiceInfo (GetServiceInfoRequest) returns (GetServiceInfoResponse);
+  rpc GetSupportedTypes (GetSupportedTypesRequest) returns (GetSupportedTypesResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service TvInteractiveAppServiceService {
+  rpc NotifyStateChanged (NotifyStateChangedRequest) returns (NotifyStateChangedResponse);
+  rpc OnAppLinkCommand (OnAppLinkCommandRequest) returns (OnAppLinkCommandResponse);
+  rpc OnBind (OnBindRequest) returns (OnBindResponse);
+  rpc OnCreateSession (OnCreateSessionRequest) returns (OnCreateSessionResponse);
+  rpc OnRegisterAppLinkInfo (OnRegisterAppLinkInfoRequest) returns (OnRegisterAppLinkInfoResponse);
+  rpc OnUnregisterAppLinkInfo (OnUnregisterAppLinkInfoRequest) returns (OnUnregisterAppLinkInfoResponse);
+}
+
+service TvInteractiveAppServiceSessionService {
+  rpc IsMediaViewEnabled (IsMediaViewEnabledRequest) returns (IsMediaViewEnabledResponse);
+  rpc LayoutSurface (LayoutSurfaceRequest) returns (LayoutSurfaceResponse);
+  rpc NotifyAdBufferReady (NotifyAdBufferReadyRequest) returns (NotifyAdBufferReadyResponse);
+  rpc NotifyBiInteractiveAppCreated (NotifyBiInteractiveAppCreatedRequest) returns (NotifyBiInteractiveAppCreatedResponse);
+  rpc NotifySessionStateChanged (NotifySessionStateChangedRequest) returns (NotifySessionStateChangedResponse);
+  rpc NotifyTeletextAppStateChanged (NotifyTeletextAppStateChangedRequest) returns (NotifyTeletextAppStateChangedResponse);
+  rpc OnAdBufferConsumed (OnAdBufferConsumedRequest) returns (OnAdBufferConsumedResponse);
+  rpc OnAdResponse (OnAdResponseRequest) returns (OnAdResponseResponse);
+  rpc OnAvailableSpeeds (OnAvailableSpeedsRequest) returns (OnAvailableSpeedsResponse);
+  rpc OnBroadcastInfoResponse (OnBroadcastInfoResponseRequest) returns (OnBroadcastInfoResponseResponse);
+  rpc OnCertificate (OnCertificateRequest) returns (OnCertificateResponse);
+  rpc OnContentAllowed (OnContentAllowedRequest) returns (OnContentAllowedResponse);
+  rpc OnContentBlocked (OnContentBlockedRequest) returns (OnContentBlockedResponse);
+  rpc OnCreateBiInteractiveAppRequest (OnCreateBiInteractiveAppRequestRequest) returns (OnCreateBiInteractiveAppRequestResponse);
+  rpc OnCreateMediaView (OnCreateMediaViewRequest) returns (OnCreateMediaViewResponse);
+  rpc OnCurrentChannelLcn (OnCurrentChannelLcnRequest) returns (OnCurrentChannelLcnResponse);
+  rpc OnCurrentChannelUri (OnCurrentChannelUriRequest) returns (OnCurrentChannelUriResponse);
+  rpc OnCurrentTvInputId (OnCurrentTvInputIdRequest) returns (OnCurrentTvInputIdResponse);
+  rpc OnCurrentVideoBounds (OnCurrentVideoBoundsRequest) returns (OnCurrentVideoBoundsResponse);
+  rpc OnDestroyBiInteractiveAppRequest (OnDestroyBiInteractiveAppRequestRequest) returns (OnDestroyBiInteractiveAppRequestResponse);
+  rpc OnError (OnErrorRequest) returns (OnErrorResponse);
+  rpc OnGenericMotionEvent (OnGenericMotionEventRequest) returns (OnGenericMotionEventResponse);
+  rpc OnKeyDown (OnKeyDownRequest) returns (OnKeyDownResponse);
+  rpc OnKeyLongPress (OnKeyLongPressRequest) returns (OnKeyLongPressResponse);
+  rpc OnKeyMultiple (OnKeyMultipleRequest) returns (OnKeyMultipleResponse);
+  rpc OnKeyUp (OnKeyUpRequest) returns (OnKeyUpResponse);
+  rpc OnMediaViewSizeChanged (OnMediaViewSizeChangedRequest) returns (OnMediaViewSizeChangedResponse);
+  rpc OnRecordingConnectionFailed (OnRecordingConnectionFailedRequest) returns (OnRecordingConnectionFailedResponse);
+  rpc OnRecordingDisconnected (OnRecordingDisconnectedRequest) returns (OnRecordingDisconnectedResponse);
+  rpc OnRecordingError (OnRecordingErrorRequest) returns (OnRecordingErrorResponse);
+  rpc OnRecordingScheduled (OnRecordingScheduledRequest) returns (OnRecordingScheduledResponse);
+  rpc OnRecordingStarted (OnRecordingStartedRequest) returns (OnRecordingStartedResponse);
+  rpc OnRecordingStopped (OnRecordingStoppedRequest) returns (OnRecordingStoppedResponse);
+  rpc OnRecordingTuned (OnRecordingTunedRequest) returns (OnRecordingTunedResponse);
+  rpc OnRelease (OnReleaseRequest) returns (OnReleaseResponse);
+  rpc OnResetInteractiveApp (OnResetInteractiveAppRequest) returns (OnResetInteractiveAppResponse);
+  rpc OnSetSurface (OnSetSurfaceRequest) returns (OnSetSurfaceResponse);
+  rpc OnSetTeletextAppEnabled (OnSetTeletextAppEnabledRequest) returns (OnSetTeletextAppEnabledResponse);
+  rpc OnSignalStrength (OnSignalStrengthRequest) returns (OnSignalStrengthResponse);
+  rpc OnSigningResult (OnSigningResultRequest) returns (OnSigningResultResponse);
+  rpc OnStartInteractiveApp (OnStartInteractiveAppRequest) returns (OnStartInteractiveAppResponse);
+  rpc OnStopInteractiveApp (OnStopInteractiveAppRequest) returns (OnStopInteractiveAppResponse);
+  rpc OnStreamVolume (OnStreamVolumeRequest) returns (OnStreamVolumeResponse);
+  rpc OnSurfaceChanged (OnSurfaceChangedRequest) returns (OnSurfaceChangedResponse);
+  rpc OnTimeShiftCurrentPositionChanged (OnTimeShiftCurrentPositionChangedRequest) returns (OnTimeShiftCurrentPositionChangedResponse);
+  rpc OnTimeShiftMode (OnTimeShiftModeRequest) returns (OnTimeShiftModeResponse);
+  rpc OnTimeShiftPlaybackParams (OnTimeShiftPlaybackParamsRequest) returns (OnTimeShiftPlaybackParamsResponse);
+  rpc OnTimeShiftStartPositionChanged (OnTimeShiftStartPositionChangedRequest) returns (OnTimeShiftStartPositionChangedResponse);
+  rpc OnTimeShiftStatusChanged (OnTimeShiftStatusChangedRequest) returns (OnTimeShiftStatusChangedResponse);
+  rpc OnTouchEvent (OnTouchEventRequest) returns (OnTouchEventResponse);
+  rpc OnTrackSelected (OnTrackSelectedRequest) returns (OnTrackSelectedResponse);
+  rpc OnTrackballEvent (OnTrackballEventRequest) returns (OnTrackballEventResponse);
+  rpc OnTuned (OnTunedRequest) returns (OnTunedResponse);
+  rpc OnTvMessage (OnTvMessageRequest) returns (OnTvMessageResponse);
+  rpc OnTvRecordingInfo (OnTvRecordingInfoRequest) returns (OnTvRecordingInfoResponse);
+  rpc OnVideoAvailable (OnVideoAvailableRequest) returns (OnVideoAvailableResponse);
+  rpc OnVideoFreezeUpdated (OnVideoFreezeUpdatedRequest) returns (OnVideoFreezeUpdatedResponse);
+  rpc OnVideoUnavailable (OnVideoUnavailableRequest) returns (OnVideoUnavailableResponse);
+  rpc RemoveBroadcastInfo (RemoveBroadcastInfoRequest) returns (RemoveBroadcastInfoResponse);
+  rpc RequestAd (RequestAdRequest) returns (RequestAdResponse);
+  rpc RequestAvailableSpeeds (RequestAvailableSpeedsRequest) returns (RequestAvailableSpeedsResponse);
+  rpc RequestBroadcastInfo (RequestBroadcastInfoRequest) returns (RequestBroadcastInfoResponse);
+  rpc RequestCertificate (RequestCertificateRequest) returns (RequestCertificateResponse);
+  rpc RequestCurrentChannelLcn (RequestCurrentChannelLcnRequest) returns (RequestCurrentChannelLcnResponse);
+  rpc RequestCurrentChannelUri (RequestCurrentChannelUriRequest) returns (RequestCurrentChannelUriResponse);
+  rpc RequestCurrentTvInputId (RequestCurrentTvInputIdRequest) returns (RequestCurrentTvInputIdResponse);
+  rpc RequestCurrentVideoBounds (RequestCurrentVideoBoundsRequest) returns (RequestCurrentVideoBoundsResponse);
+  rpc RequestScheduleRecording5 (RequestScheduleRecording5Request) returns (RequestScheduleRecording5Response);
+  rpc RequestScheduleRecording7_1 (RequestScheduleRecording7_1Request) returns (RequestScheduleRecording7_1Response);
+  rpc RequestSelectedTrackInfo (RequestSelectedTrackInfoRequest) returns (RequestSelectedTrackInfoResponse);
+  rpc RequestSigning4 (RequestSigning4Request) returns (RequestSigning4Response);
+  rpc RequestSigning5_1 (RequestSigning5_1Request) returns (RequestSigning5_1Response);
+  rpc RequestStartRecording (RequestStartRecordingRequest) returns (RequestStartRecordingResponse);
+  rpc RequestStopRecording (RequestStopRecordingRequest) returns (RequestStopRecordingResponse);
+  rpc RequestStreamVolume (RequestStreamVolumeRequest) returns (RequestStreamVolumeResponse);
+  rpc RequestTimeShiftMode (RequestTimeShiftModeRequest) returns (RequestTimeShiftModeResponse);
+  rpc RequestTrackInfoList (RequestTrackInfoListRequest) returns (RequestTrackInfoListResponse);
+  rpc RequestTvRecordingInfo (RequestTvRecordingInfoRequest) returns (RequestTvRecordingInfoResponse);
+  rpc RequestTvRecordingInfoList (RequestTvRecordingInfoListRequest) returns (RequestTvRecordingInfoListResponse);
+  rpc SendPlaybackCommandRequest (SendPlaybackCommandRequestRequest) returns (SendPlaybackCommandRequestResponse);
+  rpc SendTimeShiftCommandRequest (SendTimeShiftCommandRequestRequest) returns (SendTimeShiftCommandRequestResponse);
+  rpc SetMediaViewEnabled (SetMediaViewEnabledRequest) returns (SetMediaViewEnabledResponse);
+  rpc SetTvRecordingInfo (SetTvRecordingInfoRequest) returns (SetTvRecordingInfoResponse);
+  rpc SetVideoBounds (SetVideoBoundsRequest) returns (SetVideoBoundsResponse);
+}
+
+service TvInteractiveAppViewService {
+  rpc NewTvInteractiveAppView (NewTvInteractiveAppViewRequest) returns (NewTvInteractiveAppViewResponse);
+  rpc ClearCallback (ClearCallbackRequest) returns (ClearCallbackResponse);
+  rpc ClearOnUnhandledInputEventListener (ClearOnUnhandledInputEventListenerRequest) returns (ClearOnUnhandledInputEventListenerResponse);
+  rpc CreateBiInteractiveApp (CreateBiInteractiveAppRequest) returns (CreateBiInteractiveAppResponse);
+  rpc DestroyBiInteractiveApp (DestroyBiInteractiveAppRequest) returns (DestroyBiInteractiveAppResponse);
+  rpc DispatchKeyEvent (DispatchKeyEventRequest) returns (DispatchKeyEventResponse);
+  rpc DispatchUnhandledInputEvent (DispatchUnhandledInputEventRequest) returns (DispatchUnhandledInputEventResponse);
+  rpc GetOnUnhandledInputEventListener (GetOnUnhandledInputEventListenerRequest) returns (GetOnUnhandledInputEventListenerResponse);
+  rpc NotifyError (NotifyErrorRequest) returns (NotifyErrorResponse);
+  rpc NotifyRecordingScheduled (NotifyRecordingScheduledRequest) returns (NotifyRecordingScheduledResponse);
+  rpc NotifyRecordingStarted (NotifyRecordingStartedRequest) returns (NotifyRecordingStartedResponse);
+  rpc NotifyRecordingStopped (NotifyRecordingStoppedRequest) returns (NotifyRecordingStoppedResponse);
+  rpc NotifyTimeShiftCurrentPositionChanged (NotifyTimeShiftCurrentPositionChangedRequest) returns (NotifyTimeShiftCurrentPositionChangedResponse);
+  rpc NotifyTimeShiftPlaybackParams (NotifyTimeShiftPlaybackParamsRequest) returns (NotifyTimeShiftPlaybackParamsResponse);
+  rpc NotifyTimeShiftStartPositionChanged (NotifyTimeShiftStartPositionChangedRequest) returns (NotifyTimeShiftStartPositionChangedResponse);
+  rpc NotifyTimeShiftStatusChanged (NotifyTimeShiftStatusChangedRequest) returns (NotifyTimeShiftStatusChangedResponse);
+  rpc NotifyTvMessage (NotifyTvMessageRequest) returns (NotifyTvMessageResponse);
+  rpc NotifyVideoFreezeUpdated (NotifyVideoFreezeUpdatedRequest) returns (NotifyVideoFreezeUpdatedResponse);
+  rpc OnAttachedToWindow (OnAttachedToWindowRequest) returns (OnAttachedToWindowResponse);
+  rpc OnDetachedFromWindow (OnDetachedFromWindowRequest) returns (OnDetachedFromWindowResponse);
+  rpc OnLayout (OnLayoutRequest) returns (OnLayoutResponse);
+  rpc OnMeasure (OnMeasureRequest) returns (OnMeasureResponse);
+  rpc OnUnhandledInputEvent (OnUnhandledInputEventRequest) returns (OnUnhandledInputEventResponse);
+  rpc OnVisibilityChanged (OnVisibilityChangedRequest) returns (OnVisibilityChangedResponse);
+  rpc PrepareInteractiveApp (PrepareInteractiveAppRequest) returns (PrepareInteractiveAppResponse);
+  rpc Reset (ResetRequest) returns (ResetResponse);
+  rpc ResetInteractiveApp (ResetInteractiveAppRequest) returns (ResetInteractiveAppResponse);
+  rpc SendAvailableSpeeds (SendAvailableSpeedsRequest) returns (SendAvailableSpeedsResponse);
+  rpc SendCertificate (SendCertificateRequest) returns (SendCertificateResponse);
+  rpc SendCurrentChannelLcn (SendCurrentChannelLcnRequest) returns (SendCurrentChannelLcnResponse);
+  rpc SendCurrentChannelUri (SendCurrentChannelUriRequest) returns (SendCurrentChannelUriResponse);
+  rpc SendCurrentTvInputId (SendCurrentTvInputIdRequest) returns (SendCurrentTvInputIdResponse);
+  rpc SendCurrentVideoBounds (SendCurrentVideoBoundsRequest) returns (SendCurrentVideoBoundsResponse);
+  rpc SendSigningResult (SendSigningResultRequest) returns (SendSigningResultResponse);
+  rpc SendStreamVolume (SendStreamVolumeRequest) returns (SendStreamVolumeResponse);
+  rpc SendTimeShiftMode (SendTimeShiftModeRequest) returns (SendTimeShiftModeResponse);
+  rpc SendTvRecordingInfo (SendTvRecordingInfoRequest) returns (SendTvRecordingInfoResponse);
+  rpc SetCallback (SetCallbackRequest) returns (SetCallbackResponse);
+  rpc SetOnUnhandledInputEventListener (SetOnUnhandledInputEventListenerRequest) returns (SetOnUnhandledInputEventListenerResponse);
+  rpc SetTeletextAppEnabled (SetTeletextAppEnabledRequest) returns (SetTeletextAppEnabledResponse);
+  rpc SetTvView (SetTvViewRequest) returns (SetTvViewResponse);
+  rpc SetZOrderMediaOverlay (SetZOrderMediaOverlayRequest) returns (SetZOrderMediaOverlayResponse);
+  rpc SetZOrderOnTop (SetZOrderOnTopRequest) returns (SetZOrderOnTopResponse);
+  rpc StartInteractiveApp (StartInteractiveAppRequest) returns (StartInteractiveAppResponse);
+  rpc StopInteractiveApp (StopInteractiveAppRequest) returns (StopInteractiveAppResponse);
+}
+
+service TvInteractiveAppViewOnUnhandledInputEventListenerService {
+  rpc OnUnhandledInputEvent (TvInteractiveAppViewOnUnhandledInputEventListenerOnUnhandledInputEventRequest) returns (OnUnhandledInputEventResponse);
+}
+
+service TvInteractiveAppViewTvInteractiveAppCallbackService {
+  rpc OnBiInteractiveAppCreated (OnBiInteractiveAppCreatedRequest) returns (OnBiInteractiveAppCreatedResponse);
+  rpc OnPlaybackCommandRequest (OnPlaybackCommandRequestRequest) returns (OnPlaybackCommandRequestResponse);
+  rpc OnRequestAvailableSpeeds (OnRequestAvailableSpeedsRequest) returns (OnRequestAvailableSpeedsResponse);
+  rpc OnRequestCertificate (OnRequestCertificateRequest) returns (OnRequestCertificateResponse);
+  rpc OnRequestCurrentChannelLcn (OnRequestCurrentChannelLcnRequest) returns (OnRequestCurrentChannelLcnResponse);
+  rpc OnRequestCurrentChannelUri (OnRequestCurrentChannelUriRequest) returns (OnRequestCurrentChannelUriResponse);
+  rpc OnRequestCurrentTvInputId (OnRequestCurrentTvInputIdRequest) returns (OnRequestCurrentTvInputIdResponse);
+  rpc OnRequestCurrentVideoBounds (OnRequestCurrentVideoBoundsRequest) returns (OnRequestCurrentVideoBoundsResponse);
+  rpc OnRequestScheduleRecording6 (OnRequestScheduleRecording6Request) returns (OnRequestScheduleRecording6Response);
+  rpc OnRequestScheduleRecording8_1 (OnRequestScheduleRecording8_1Request) returns (OnRequestScheduleRecording8_1Response);
+  rpc OnRequestSelectedTrackInfo (OnRequestSelectedTrackInfoRequest) returns (OnRequestSelectedTrackInfoResponse);
+  rpc OnRequestSigning5 (OnRequestSigning5Request) returns (OnRequestSigning5Response);
+  rpc OnRequestSigning6_1 (OnRequestSigning6_1Request) returns (OnRequestSigning6_1Response);
+  rpc OnRequestStartRecording (OnRequestStartRecordingRequest) returns (OnRequestStartRecordingResponse);
+  rpc OnRequestStopRecording (OnRequestStopRecordingRequest) returns (OnRequestStopRecordingResponse);
+  rpc OnRequestStreamVolume (OnRequestStreamVolumeRequest) returns (OnRequestStreamVolumeResponse);
+  rpc OnRequestTimeShiftMode (OnRequestTimeShiftModeRequest) returns (OnRequestTimeShiftModeResponse);
+  rpc OnRequestTrackInfoList (OnRequestTrackInfoListRequest) returns (OnRequestTrackInfoListResponse);
+  rpc OnRequestTvRecordingInfo (OnRequestTvRecordingInfoRequest) returns (OnRequestTvRecordingInfoResponse);
+  rpc OnRequestTvRecordingInfoList (OnRequestTvRecordingInfoListRequest) returns (OnRequestTvRecordingInfoListResponse);
+  rpc OnSetTvRecordingInfo (OnSetTvRecordingInfoRequest) returns (OnSetTvRecordingInfoResponse);
+  rpc OnSetVideoBounds (OnSetVideoBoundsRequest) returns (OnSetVideoBoundsResponse);
+  rpc OnStateChanged (OnStateChangedRequest) returns (OnStateChangedResponse);
+  rpc OnTeletextAppStateChanged (OnTeletextAppStateChangedRequest) returns (OnTeletextAppStateChangedResponse);
+  rpc OnTimeShiftCommandRequest (OnTimeShiftCommandRequestRequest) returns (OnTimeShiftCommandRequestResponse);
+}
+
 service TvInteractiveAppManagerService {
   rpc RegisterAppLinkInfo (RegisterAppLinkInfoRequest) returns (RegisterAppLinkInfoResponse);
   rpc RegisterCallback (RegisterCallbackRequest) returns (RegisterCallbackResponse);
   rpc SendAppLinkCommand (SendAppLinkCommandRequest) returns (SendAppLinkCommandResponse);
   rpc UnregisterAppLinkInfo (UnregisterAppLinkInfoRequest) returns (UnregisterAppLinkInfoResponse);
   rpc UnregisterCallback (UnregisterCallbackRequest) returns (UnregisterCallbackResponse);
+}
+
+service TvInteractiveAppManagerTvInteractiveAppCallbackService {
+  rpc OnInteractiveAppServiceAdded (OnInteractiveAppServiceAddedRequest) returns (OnInteractiveAppServiceAddedResponse);
+  rpc OnInteractiveAppServiceRemoved (OnInteractiveAppServiceRemovedRequest) returns (OnInteractiveAppServiceRemovedResponse);
+  rpc OnInteractiveAppServiceUpdated (OnInteractiveAppServiceUpdatedRequest) returns (OnInteractiveAppServiceUpdatedResponse);
+  rpc OnTvInteractiveAppServiceStateChanged (OnTvInteractiveAppServiceStateChangedRequest) returns (OnTvInteractiveAppServiceStateChangedResponse);
+}
+
+service AppLinkInfoService {
+  rpc NewAppLinkInfo (NewAppLinkInfoRequest) returns (NewAppLinkInfoResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetComponentName (GetComponentNameRequest) returns (GetComponentNameResponse);
+  rpc GetUri (GetUriRequest) returns (GetUriResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }

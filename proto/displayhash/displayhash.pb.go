@@ -111,6 +111,1026 @@ func (x *VerifyDisplayHashResponse) GetResult() int64 {
 	return 0
 }
 
+type OnDisplayHashErrorRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnDisplayHashErrorRequest) Reset() {
+	*x = OnDisplayHashErrorRequest{}
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnDisplayHashErrorRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnDisplayHashErrorRequest) ProtoMessage() {}
+
+func (x *OnDisplayHashErrorRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnDisplayHashErrorRequest.ProtoReflect.Descriptor instead.
+func (*OnDisplayHashErrorRequest) Descriptor() ([]byte, []int) {
+	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *OnDisplayHashErrorRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnDisplayHashErrorResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnDisplayHashErrorResponse) Reset() {
+	*x = OnDisplayHashErrorResponse{}
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnDisplayHashErrorResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnDisplayHashErrorResponse) ProtoMessage() {}
+
+func (x *OnDisplayHashErrorResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnDisplayHashErrorResponse.ProtoReflect.Descriptor instead.
+func (*OnDisplayHashErrorResponse) Descriptor() ([]byte, []int) {
+	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{3}
+}
+
+type OnDisplayHashResultRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnDisplayHashResultRequest) Reset() {
+	*x = OnDisplayHashResultRequest{}
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnDisplayHashResultRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnDisplayHashResultRequest) ProtoMessage() {}
+
+func (x *OnDisplayHashResultRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnDisplayHashResultRequest.ProtoReflect.Descriptor instead.
+func (*OnDisplayHashResultRequest) Descriptor() ([]byte, []int) {
+	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *OnDisplayHashResultRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnDisplayHashResultResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnDisplayHashResultResponse) Reset() {
+	*x = OnDisplayHashResultResponse{}
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnDisplayHashResultResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnDisplayHashResultResponse) ProtoMessage() {}
+
+func (x *OnDisplayHashResultResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnDisplayHashResultResponse.ProtoReflect.Descriptor instead.
+func (*OnDisplayHashResultResponse) Descriptor() ([]byte, []int) {
+	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{5}
+}
+
+type NewVerifiedDisplayHashRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          string                 `protobuf:"bytes,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int64                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewVerifiedDisplayHashRequest) Reset() {
+	*x = NewVerifiedDisplayHashRequest{}
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewVerifiedDisplayHashRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewVerifiedDisplayHashRequest) ProtoMessage() {}
+
+func (x *NewVerifiedDisplayHashRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewVerifiedDisplayHashRequest.ProtoReflect.Descriptor instead.
+func (*NewVerifiedDisplayHashRequest) Descriptor() ([]byte, []int) {
+	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *NewVerifiedDisplayHashRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *NewVerifiedDisplayHashRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *NewVerifiedDisplayHashRequest) GetArg2() string {
+	if x != nil {
+		return x.Arg2
+	}
+	return ""
+}
+
+func (x *NewVerifiedDisplayHashRequest) GetArg3() int64 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+type NewVerifiedDisplayHashResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewVerifiedDisplayHashResponse) Reset() {
+	*x = NewVerifiedDisplayHashResponse{}
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewVerifiedDisplayHashResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewVerifiedDisplayHashResponse) ProtoMessage() {}
+
+func (x *NewVerifiedDisplayHashResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewVerifiedDisplayHashResponse.ProtoReflect.Descriptor instead.
+func (*NewVerifiedDisplayHashResponse) Descriptor() ([]byte, []int) {
+	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *NewVerifiedDisplayHashResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type DescribeContentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DescribeContentsRequest) Reset() {
+	*x = DescribeContentsRequest{}
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DescribeContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DescribeContentsRequest) ProtoMessage() {}
+
+func (x *DescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*DescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *DescribeContentsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type DescribeContentsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DescribeContentsResponse) Reset() {
+	*x = DescribeContentsResponse{}
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DescribeContentsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DescribeContentsResponse) ProtoMessage() {}
+
+func (x *DescribeContentsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DescribeContentsResponse.ProtoReflect.Descriptor instead.
+func (*DescribeContentsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *DescribeContentsResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetBoundsInWindowRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBoundsInWindowRequest) Reset() {
+	*x = GetBoundsInWindowRequest{}
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBoundsInWindowRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBoundsInWindowRequest) ProtoMessage() {}
+
+func (x *GetBoundsInWindowRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBoundsInWindowRequest.ProtoReflect.Descriptor instead.
+func (*GetBoundsInWindowRequest) Descriptor() ([]byte, []int) {
+	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *GetBoundsInWindowRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetBoundsInWindowResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBoundsInWindowResponse) Reset() {
+	*x = GetBoundsInWindowResponse{}
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBoundsInWindowResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBoundsInWindowResponse) ProtoMessage() {}
+
+func (x *GetBoundsInWindowResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBoundsInWindowResponse.ProtoReflect.Descriptor instead.
+func (*GetBoundsInWindowResponse) Descriptor() ([]byte, []int) {
+	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *GetBoundsInWindowResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetHashAlgorithmRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetHashAlgorithmRequest) Reset() {
+	*x = GetHashAlgorithmRequest{}
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetHashAlgorithmRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetHashAlgorithmRequest) ProtoMessage() {}
+
+func (x *GetHashAlgorithmRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetHashAlgorithmRequest.ProtoReflect.Descriptor instead.
+func (*GetHashAlgorithmRequest) Descriptor() ([]byte, []int) {
+	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *GetHashAlgorithmRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetHashAlgorithmResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetHashAlgorithmResponse) Reset() {
+	*x = GetHashAlgorithmResponse{}
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetHashAlgorithmResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetHashAlgorithmResponse) ProtoMessage() {}
+
+func (x *GetHashAlgorithmResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetHashAlgorithmResponse.ProtoReflect.Descriptor instead.
+func (*GetHashAlgorithmResponse) Descriptor() ([]byte, []int) {
+	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *GetHashAlgorithmResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetImageHashRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetImageHashRequest) Reset() {
+	*x = GetImageHashRequest{}
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetImageHashRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetImageHashRequest) ProtoMessage() {}
+
+func (x *GetImageHashRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetImageHashRequest.ProtoReflect.Descriptor instead.
+func (*GetImageHashRequest) Descriptor() ([]byte, []int) {
+	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{14}
+}
+
+func (x *GetImageHashRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetImageHashResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetImageHashResponse) Reset() {
+	*x = GetImageHashResponse{}
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetImageHashResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetImageHashResponse) ProtoMessage() {}
+
+func (x *GetImageHashResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetImageHashResponse.ProtoReflect.Descriptor instead.
+func (*GetImageHashResponse) Descriptor() ([]byte, []int) {
+	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *GetImageHashResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetTimeMillisRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTimeMillisRequest) Reset() {
+	*x = GetTimeMillisRequest{}
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTimeMillisRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTimeMillisRequest) ProtoMessage() {}
+
+func (x *GetTimeMillisRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTimeMillisRequest.ProtoReflect.Descriptor instead.
+func (*GetTimeMillisRequest) Descriptor() ([]byte, []int) {
+	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{16}
+}
+
+func (x *GetTimeMillisRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetTimeMillisResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTimeMillisResponse) Reset() {
+	*x = GetTimeMillisResponse{}
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTimeMillisResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTimeMillisResponse) ProtoMessage() {}
+
+func (x *GetTimeMillisResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTimeMillisResponse.ProtoReflect.Descriptor instead.
+func (*GetTimeMillisResponse) Descriptor() ([]byte, []int) {
+	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *GetTimeMillisResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ToStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringRequest) Reset() {
+	*x = ToStringRequest{}
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringRequest) ProtoMessage() {}
+
+func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringRequest.ProtoReflect.Descriptor instead.
+func (*ToStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{18}
+}
+
+func (x *ToStringRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type ToStringResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringResponse) Reset() {
+	*x = ToStringResponse{}
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringResponse) ProtoMessage() {}
+
+func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringResponse.ProtoReflect.Descriptor instead.
+func (*ToStringResponse) Descriptor() ([]byte, []int) {
+	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *ToStringResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type WriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WriteToParcelRequest) Reset() {
+	*x = WriteToParcelRequest{}
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WriteToParcelRequest) ProtoMessage() {}
+
+func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*WriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{20}
+}
+
+func (x *WriteToParcelRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *WriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *WriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type WriteToParcelResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WriteToParcelResponse) Reset() {
+	*x = WriteToParcelResponse{}
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WriteToParcelResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WriteToParcelResponse) ProtoMessage() {}
+
+func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WriteToParcelResponse.ProtoReflect.Descriptor instead.
+func (*WriteToParcelResponse) Descriptor() ([]byte, []int) {
+	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{21}
+}
+
+type DisplayHashDescribeContentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DisplayHashDescribeContentsRequest) Reset() {
+	*x = DisplayHashDescribeContentsRequest{}
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DisplayHashDescribeContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DisplayHashDescribeContentsRequest) ProtoMessage() {}
+
+func (x *DisplayHashDescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DisplayHashDescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*DisplayHashDescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{22}
+}
+
+type DisplayHashToStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DisplayHashToStringRequest) Reset() {
+	*x = DisplayHashToStringRequest{}
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DisplayHashToStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DisplayHashToStringRequest) ProtoMessage() {}
+
+func (x *DisplayHashToStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DisplayHashToStringRequest.ProtoReflect.Descriptor instead.
+func (*DisplayHashToStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{23}
+}
+
+type DisplayHashWriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DisplayHashWriteToParcelRequest) Reset() {
+	*x = DisplayHashWriteToParcelRequest{}
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DisplayHashWriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DisplayHashWriteToParcelRequest) ProtoMessage() {}
+
+func (x *DisplayHashWriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DisplayHashWriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*DisplayHashWriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{24}
+}
+
+func (x *DisplayHashWriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *DisplayHashWriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
 var File_proto_displayhash_displayhash_proto protoreflect.FileDescriptor
 
 const file_proto_displayhash_displayhash_proto_rawDesc = "" +
@@ -119,9 +1139,72 @@ const file_proto_displayhash_displayhash_proto_rawDesc = "" +
 	"\x18VerifyDisplayHashRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"3\n" +
 	"\x19VerifyDisplayHashResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result2\x7f\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"/\n" +
+	"\x19OnDisplayHashErrorRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"\x1c\n" +
+	"\x1aOnDisplayHashErrorResponse\"0\n" +
+	"\x1aOnDisplayHashResultRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x1d\n" +
+	"\x1bOnDisplayHashResultResponse\"o\n" +
+	"\x1dNewVerifiedDisplayHashRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\tR\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\"8\n" +
+	"\x1eNewVerifiedDisplayHashResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"1\n" +
+	"\x17DescribeContentsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"2\n" +
+	"\x18DescribeContentsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"2\n" +
+	"\x18GetBoundsInWindowRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"3\n" +
+	"\x19GetBoundsInWindowResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"1\n" +
+	"\x17GetHashAlgorithmRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"2\n" +
+	"\x18GetHashAlgorithmResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"-\n" +
+	"\x13GetImageHashRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\".\n" +
+	"\x14GetImageHashResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\".\n" +
+	"\x14GetTimeMillisRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"/\n" +
+	"\x15GetTimeMillisResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\")\n" +
+	"\x0fToStringRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
+	"\x10ToStringResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"V\n" +
+	"\x14WriteToParcelRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"\x17\n" +
+	"\x15WriteToParcelResponse\"$\n" +
+	"\"DisplayHashDescribeContentsRequest\"\x1c\n" +
+	"\x1aDisplayHashToStringRequest\"I\n" +
+	"\x1fDisplayHashWriteToParcelRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg12\x7f\n" +
 	"\x19DisplayHashManagerService\x12b\n" +
-	"\x11VerifyDisplayHash\x12%.displayhash.VerifyDisplayHashRequest\x1a&.displayhash.VerifyDisplayHashResponseB5Z3github.com/AndroidGoLab/jni-proxy/proto/displayhashb\x06proto3"
+	"\x11VerifyDisplayHash\x12%.displayhash.VerifyDisplayHashRequest\x1a&.displayhash.VerifyDisplayHashResponse2\xf3\x01\n" +
+	" DisplayHashResultCallbackService\x12e\n" +
+	"\x12OnDisplayHashError\x12&.displayhash.OnDisplayHashErrorRequest\x1a'.displayhash.OnDisplayHashErrorResponse\x12h\n" +
+	"\x13OnDisplayHashResult\x12'.displayhash.OnDisplayHashResultRequest\x1a(.displayhash.OnDisplayHashResultResponse2\x83\x06\n" +
+	"\x1aVerifiedDisplayHashService\x12q\n" +
+	"\x16NewVerifiedDisplayHash\x12*.displayhash.NewVerifiedDisplayHashRequest\x1a+.displayhash.NewVerifiedDisplayHashResponse\x12_\n" +
+	"\x10DescribeContents\x12$.displayhash.DescribeContentsRequest\x1a%.displayhash.DescribeContentsResponse\x12b\n" +
+	"\x11GetBoundsInWindow\x12%.displayhash.GetBoundsInWindowRequest\x1a&.displayhash.GetBoundsInWindowResponse\x12_\n" +
+	"\x10GetHashAlgorithm\x12$.displayhash.GetHashAlgorithmRequest\x1a%.displayhash.GetHashAlgorithmResponse\x12S\n" +
+	"\fGetImageHash\x12 .displayhash.GetImageHashRequest\x1a!.displayhash.GetImageHashResponse\x12V\n" +
+	"\rGetTimeMillis\x12!.displayhash.GetTimeMillisRequest\x1a\".displayhash.GetTimeMillisResponse\x12G\n" +
+	"\bToString\x12\x1c.displayhash.ToStringRequest\x1a\x1d.displayhash.ToStringResponse\x12V\n" +
+	"\rWriteToParcel\x12!.displayhash.WriteToParcelRequest\x1a\".displayhash.WriteToParcelResponse2\xb7\x02\n" +
+	"\x12DisplayHashService\x12j\n" +
+	"\x10DescribeContents\x12/.displayhash.DisplayHashDescribeContentsRequest\x1a%.displayhash.DescribeContentsResponse\x12R\n" +
+	"\bToString\x12'.displayhash.DisplayHashToStringRequest\x1a\x1d.displayhash.ToStringResponse\x12a\n" +
+	"\rWriteToParcel\x12,.displayhash.DisplayHashWriteToParcelRequest\x1a\".displayhash.WriteToParcelResponseB5Z3github.com/AndroidGoLab/jni-proxy/proto/displayhashb\x06proto3"
 
 var (
 	file_proto_displayhash_displayhash_proto_rawDescOnce sync.Once
@@ -135,19 +1218,68 @@ func file_proto_displayhash_displayhash_proto_rawDescGZIP() []byte {
 	return file_proto_displayhash_displayhash_proto_rawDescData
 }
 
-var file_proto_displayhash_displayhash_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_proto_displayhash_displayhash_proto_msgTypes = make([]protoimpl.MessageInfo, 25)
 var file_proto_displayhash_displayhash_proto_goTypes = []any{
-	(*VerifyDisplayHashRequest)(nil),  // 0: displayhash.VerifyDisplayHashRequest
-	(*VerifyDisplayHashResponse)(nil), // 1: displayhash.VerifyDisplayHashResponse
+	(*VerifyDisplayHashRequest)(nil),           // 0: displayhash.VerifyDisplayHashRequest
+	(*VerifyDisplayHashResponse)(nil),          // 1: displayhash.VerifyDisplayHashResponse
+	(*OnDisplayHashErrorRequest)(nil),          // 2: displayhash.OnDisplayHashErrorRequest
+	(*OnDisplayHashErrorResponse)(nil),         // 3: displayhash.OnDisplayHashErrorResponse
+	(*OnDisplayHashResultRequest)(nil),         // 4: displayhash.OnDisplayHashResultRequest
+	(*OnDisplayHashResultResponse)(nil),        // 5: displayhash.OnDisplayHashResultResponse
+	(*NewVerifiedDisplayHashRequest)(nil),      // 6: displayhash.NewVerifiedDisplayHashRequest
+	(*NewVerifiedDisplayHashResponse)(nil),     // 7: displayhash.NewVerifiedDisplayHashResponse
+	(*DescribeContentsRequest)(nil),            // 8: displayhash.DescribeContentsRequest
+	(*DescribeContentsResponse)(nil),           // 9: displayhash.DescribeContentsResponse
+	(*GetBoundsInWindowRequest)(nil),           // 10: displayhash.GetBoundsInWindowRequest
+	(*GetBoundsInWindowResponse)(nil),          // 11: displayhash.GetBoundsInWindowResponse
+	(*GetHashAlgorithmRequest)(nil),            // 12: displayhash.GetHashAlgorithmRequest
+	(*GetHashAlgorithmResponse)(nil),           // 13: displayhash.GetHashAlgorithmResponse
+	(*GetImageHashRequest)(nil),                // 14: displayhash.GetImageHashRequest
+	(*GetImageHashResponse)(nil),               // 15: displayhash.GetImageHashResponse
+	(*GetTimeMillisRequest)(nil),               // 16: displayhash.GetTimeMillisRequest
+	(*GetTimeMillisResponse)(nil),              // 17: displayhash.GetTimeMillisResponse
+	(*ToStringRequest)(nil),                    // 18: displayhash.ToStringRequest
+	(*ToStringResponse)(nil),                   // 19: displayhash.ToStringResponse
+	(*WriteToParcelRequest)(nil),               // 20: displayhash.WriteToParcelRequest
+	(*WriteToParcelResponse)(nil),              // 21: displayhash.WriteToParcelResponse
+	(*DisplayHashDescribeContentsRequest)(nil), // 22: displayhash.DisplayHashDescribeContentsRequest
+	(*DisplayHashToStringRequest)(nil),         // 23: displayhash.DisplayHashToStringRequest
+	(*DisplayHashWriteToParcelRequest)(nil),    // 24: displayhash.DisplayHashWriteToParcelRequest
 }
 var file_proto_displayhash_displayhash_proto_depIdxs = []int32{
-	0, // 0: displayhash.DisplayHashManagerService.VerifyDisplayHash:input_type -> displayhash.VerifyDisplayHashRequest
-	1, // 1: displayhash.DisplayHashManagerService.VerifyDisplayHash:output_type -> displayhash.VerifyDisplayHashResponse
-	1, // [1:2] is the sub-list for method output_type
-	0, // [0:1] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	0,  // 0: displayhash.DisplayHashManagerService.VerifyDisplayHash:input_type -> displayhash.VerifyDisplayHashRequest
+	2,  // 1: displayhash.DisplayHashResultCallbackService.OnDisplayHashError:input_type -> displayhash.OnDisplayHashErrorRequest
+	4,  // 2: displayhash.DisplayHashResultCallbackService.OnDisplayHashResult:input_type -> displayhash.OnDisplayHashResultRequest
+	6,  // 3: displayhash.VerifiedDisplayHashService.NewVerifiedDisplayHash:input_type -> displayhash.NewVerifiedDisplayHashRequest
+	8,  // 4: displayhash.VerifiedDisplayHashService.DescribeContents:input_type -> displayhash.DescribeContentsRequest
+	10, // 5: displayhash.VerifiedDisplayHashService.GetBoundsInWindow:input_type -> displayhash.GetBoundsInWindowRequest
+	12, // 6: displayhash.VerifiedDisplayHashService.GetHashAlgorithm:input_type -> displayhash.GetHashAlgorithmRequest
+	14, // 7: displayhash.VerifiedDisplayHashService.GetImageHash:input_type -> displayhash.GetImageHashRequest
+	16, // 8: displayhash.VerifiedDisplayHashService.GetTimeMillis:input_type -> displayhash.GetTimeMillisRequest
+	18, // 9: displayhash.VerifiedDisplayHashService.ToString:input_type -> displayhash.ToStringRequest
+	20, // 10: displayhash.VerifiedDisplayHashService.WriteToParcel:input_type -> displayhash.WriteToParcelRequest
+	22, // 11: displayhash.DisplayHashService.DescribeContents:input_type -> displayhash.DisplayHashDescribeContentsRequest
+	23, // 12: displayhash.DisplayHashService.ToString:input_type -> displayhash.DisplayHashToStringRequest
+	24, // 13: displayhash.DisplayHashService.WriteToParcel:input_type -> displayhash.DisplayHashWriteToParcelRequest
+	1,  // 14: displayhash.DisplayHashManagerService.VerifyDisplayHash:output_type -> displayhash.VerifyDisplayHashResponse
+	3,  // 15: displayhash.DisplayHashResultCallbackService.OnDisplayHashError:output_type -> displayhash.OnDisplayHashErrorResponse
+	5,  // 16: displayhash.DisplayHashResultCallbackService.OnDisplayHashResult:output_type -> displayhash.OnDisplayHashResultResponse
+	7,  // 17: displayhash.VerifiedDisplayHashService.NewVerifiedDisplayHash:output_type -> displayhash.NewVerifiedDisplayHashResponse
+	9,  // 18: displayhash.VerifiedDisplayHashService.DescribeContents:output_type -> displayhash.DescribeContentsResponse
+	11, // 19: displayhash.VerifiedDisplayHashService.GetBoundsInWindow:output_type -> displayhash.GetBoundsInWindowResponse
+	13, // 20: displayhash.VerifiedDisplayHashService.GetHashAlgorithm:output_type -> displayhash.GetHashAlgorithmResponse
+	15, // 21: displayhash.VerifiedDisplayHashService.GetImageHash:output_type -> displayhash.GetImageHashResponse
+	17, // 22: displayhash.VerifiedDisplayHashService.GetTimeMillis:output_type -> displayhash.GetTimeMillisResponse
+	19, // 23: displayhash.VerifiedDisplayHashService.ToString:output_type -> displayhash.ToStringResponse
+	21, // 24: displayhash.VerifiedDisplayHashService.WriteToParcel:output_type -> displayhash.WriteToParcelResponse
+	9,  // 25: displayhash.DisplayHashService.DescribeContents:output_type -> displayhash.DescribeContentsResponse
+	19, // 26: displayhash.DisplayHashService.ToString:output_type -> displayhash.ToStringResponse
+	21, // 27: displayhash.DisplayHashService.WriteToParcel:output_type -> displayhash.WriteToParcelResponse
+	14, // [14:28] is the sub-list for method output_type
+	0,  // [0:14] is the sub-list for method input_type
+	0,  // [0:0] is the sub-list for extension type_name
+	0,  // [0:0] is the sub-list for extension extendee
+	0,  // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_proto_displayhash_displayhash_proto_init() }
@@ -161,9 +1293,9 @@ func file_proto_displayhash_displayhash_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_displayhash_displayhash_proto_rawDesc), len(file_proto_displayhash_displayhash_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   2,
+			NumMessages:   25,
 			NumExtensions: 0,
-			NumServices:   1,
+			NumServices:   4,
 		},
 		GoTypes:           file_proto_displayhash_displayhash_proto_goTypes,
 		DependencyIndexes: file_proto_displayhash_displayhash_proto_depIdxs,

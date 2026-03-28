@@ -5,3 +5,488 @@ syntax = "proto3";
 package vcn;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/vcn";
+
+message DescribeContentsRequest {
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message EqualsRequest {
+  int64 arg0 = 1;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message HashCodeRequest {
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteToParcelResponse {
+}
+
+message AddGatewayConnectionConfigRequest {
+  int64 arg0 = 1;
+}
+
+message AddGatewayConnectionConfigResponse {
+  int64 result = 1;
+}
+
+message BuildRequest {
+}
+
+message BuildResponse {
+  int64 result = 1;
+}
+
+message GetCbsRequest {
+}
+
+message GetCbsResponse {
+  int32 result = 1;
+}
+
+message GetDunRequest {
+}
+
+message GetDunResponse {
+  int32 result = 1;
+}
+
+message GetImsRequest {
+}
+
+message GetImsResponse {
+  int32 result = 1;
+}
+
+message GetInternetRequest {
+}
+
+message GetInternetResponse {
+  int32 result = 1;
+}
+
+message GetMmsRequest {
+}
+
+message GetMmsResponse {
+  int32 result = 1;
+}
+
+message GetOpportunisticRequest {
+}
+
+message GetOpportunisticResponse {
+  int32 result = 1;
+}
+
+message GetRcsRequest {
+}
+
+message GetRcsResponse {
+  int32 result = 1;
+}
+
+message GetRoamingRequest {
+}
+
+message GetRoamingResponse {
+  int32 result = 1;
+}
+
+message SetCbsRequest {
+  int32 arg0 = 1;
+}
+
+message SetCbsResponse {
+  int64 result = 1;
+}
+
+message SetDunRequest {
+  int32 arg0 = 1;
+}
+
+message SetDunResponse {
+  int64 result = 1;
+}
+
+message SetImsRequest {
+  int32 arg0 = 1;
+}
+
+message SetImsResponse {
+  int64 result = 1;
+}
+
+message SetInternetRequest {
+  int32 arg0 = 1;
+}
+
+message SetInternetResponse {
+  int64 result = 1;
+}
+
+message SetMeteredRequest {
+  int32 arg0 = 1;
+}
+
+message SetMeteredResponse {
+  int64 result = 1;
+}
+
+message SetMinDownstreamBandwidthKbpsRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message SetMinDownstreamBandwidthKbpsResponse {
+  int64 result = 1;
+}
+
+message SetMinUpstreamBandwidthKbpsRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message SetMinUpstreamBandwidthKbpsResponse {
+  int64 result = 1;
+}
+
+message SetMmsRequest {
+  int32 arg0 = 1;
+}
+
+message SetMmsResponse {
+  int64 result = 1;
+}
+
+message SetOpportunisticRequest {
+  int32 arg0 = 1;
+}
+
+message SetOpportunisticResponse {
+  int64 result = 1;
+}
+
+message SetRcsRequest {
+  int32 arg0 = 1;
+}
+
+message SetRcsResponse {
+  int64 result = 1;
+}
+
+message SetRoamingRequest {
+  int32 arg0 = 1;
+}
+
+message SetRoamingResponse {
+  int64 result = 1;
+}
+
+message GetExposedCapabilitiesRequest {
+}
+
+message GetExposedCapabilitiesResponse {
+  int64 result = 1;
+}
+
+message GetGatewayConnectionNameRequest {
+}
+
+message GetGatewayConnectionNameResponse {
+  string result = 1;
+}
+
+message GetMaxMtuRequest {
+}
+
+message GetMaxMtuResponse {
+  int32 result = 1;
+}
+
+message GetMinUdpPort4500NatTimeoutSecondsRequest {
+}
+
+message GetMinUdpPort4500NatTimeoutSecondsResponse {
+  int32 result = 1;
+}
+
+message GetRetryIntervalsMillisRequest {
+}
+
+message GetRetryIntervalsMillisResponse {
+  int64 result = 1;
+}
+
+message HasGatewayOptionRequest {
+  int32 arg0 = 1;
+}
+
+message HasGatewayOptionResponse {
+  bool result = 1;
+}
+
+message IsSafeModeEnabledRequest {
+}
+
+message IsSafeModeEnabledResponse {
+  bool result = 1;
+}
+
+message AddExposedCapabilityRequest {
+  int32 arg0 = 1;
+}
+
+message AddExposedCapabilityResponse {
+  int64 result = 1;
+}
+
+message AddGatewayOptionRequest {
+  int32 arg0 = 1;
+}
+
+message AddGatewayOptionResponse {
+  int64 result = 1;
+}
+
+message RemoveExposedCapabilityRequest {
+  int32 arg0 = 1;
+}
+
+message RemoveExposedCapabilityResponse {
+  int64 result = 1;
+}
+
+message RemoveGatewayOptionRequest {
+  int32 arg0 = 1;
+}
+
+message RemoveGatewayOptionResponse {
+  int64 result = 1;
+}
+
+message SetMaxMtuRequest {
+  int32 arg0 = 1;
+}
+
+message SetMaxMtuResponse {
+  int64 result = 1;
+}
+
+message SetMinUdpPort4500NatTimeoutSecondsRequest {
+  int32 arg0 = 1;
+}
+
+message SetMinUdpPort4500NatTimeoutSecondsResponse {
+  int64 result = 1;
+}
+
+message SetRetryIntervalsMillisRequest {
+  int64 arg0 = 1;
+}
+
+message SetRetryIntervalsMillisResponse {
+  int64 result = 1;
+}
+
+message SetSafeModeEnabledRequest {
+  bool arg0 = 1;
+}
+
+message SetSafeModeEnabledResponse {
+  int64 result = 1;
+}
+
+message ClearVcnConfigRequest {
+  int64 arg0 = 1;
+}
+
+message ClearVcnConfigResponse {
+}
+
+message RegisterVcnStatusCallbackRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message RegisterVcnStatusCallbackResponse {
+}
+
+message SetVcnConfigRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SetVcnConfigResponse {
+}
+
+message UnregisterVcnStatusCallbackRequest {
+  int64 arg0 = 1;
+}
+
+message UnregisterVcnStatusCallbackResponse {
+}
+
+message OnGatewayConnectionErrorRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message OnGatewayConnectionErrorResponse {
+}
+
+message OnStatusChangedRequest {
+  int32 arg0 = 1;
+}
+
+message OnStatusChangedResponse {
+}
+
+message GetMeteredRequest {
+}
+
+message GetMeteredResponse {
+  int32 result = 1;
+}
+
+message GetMinEntryDownstreamBandwidthKbpsRequest {
+}
+
+message GetMinEntryDownstreamBandwidthKbpsResponse {
+  int32 result = 1;
+}
+
+message GetMinEntryUpstreamBandwidthKbpsRequest {
+}
+
+message GetMinEntryUpstreamBandwidthKbpsResponse {
+  int32 result = 1;
+}
+
+message GetMinExitDownstreamBandwidthKbpsRequest {
+}
+
+message GetMinExitDownstreamBandwidthKbpsResponse {
+  int32 result = 1;
+}
+
+message GetMinExitUpstreamBandwidthKbpsRequest {
+}
+
+message GetMinExitUpstreamBandwidthKbpsResponse {
+  int32 result = 1;
+}
+
+service ConfigService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ConfigBuilderService {
+  rpc AddGatewayConnectionConfig (AddGatewayConnectionConfigRequest) returns (AddGatewayConnectionConfigResponse);
+  rpc Build (BuildRequest) returns (BuildResponse);
+}
+
+service CellUnderlyingNetworkTemplateService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetCbs (GetCbsRequest) returns (GetCbsResponse);
+  rpc GetDun (GetDunRequest) returns (GetDunResponse);
+  rpc GetIms (GetImsRequest) returns (GetImsResponse);
+  rpc GetInternet (GetInternetRequest) returns (GetInternetResponse);
+  rpc GetMms (GetMmsRequest) returns (GetMmsResponse);
+  rpc GetOpportunistic (GetOpportunisticRequest) returns (GetOpportunisticResponse);
+  rpc GetRcs (GetRcsRequest) returns (GetRcsResponse);
+  rpc GetRoaming (GetRoamingRequest) returns (GetRoamingResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service CellUnderlyingNetworkTemplateBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetCbs (SetCbsRequest) returns (SetCbsResponse);
+  rpc SetDun (SetDunRequest) returns (SetDunResponse);
+  rpc SetIms (SetImsRequest) returns (SetImsResponse);
+  rpc SetInternet (SetInternetRequest) returns (SetInternetResponse);
+  rpc SetMetered (SetMeteredRequest) returns (SetMeteredResponse);
+  rpc SetMinDownstreamBandwidthKbps (SetMinDownstreamBandwidthKbpsRequest) returns (SetMinDownstreamBandwidthKbpsResponse);
+  rpc SetMinUpstreamBandwidthKbps (SetMinUpstreamBandwidthKbpsRequest) returns (SetMinUpstreamBandwidthKbpsResponse);
+  rpc SetMms (SetMmsRequest) returns (SetMmsResponse);
+  rpc SetOpportunistic (SetOpportunisticRequest) returns (SetOpportunisticResponse);
+  rpc SetRcs (SetRcsRequest) returns (SetRcsResponse);
+  rpc SetRoaming (SetRoamingRequest) returns (SetRoamingResponse);
+}
+
+service WifiUnderlyingNetworkTemplateService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service WifiUnderlyingNetworkTemplateBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetMetered (SetMeteredRequest) returns (SetMeteredResponse);
+  rpc SetMinDownstreamBandwidthKbps (SetMinDownstreamBandwidthKbpsRequest) returns (SetMinDownstreamBandwidthKbpsResponse);
+  rpc SetMinUpstreamBandwidthKbps (SetMinUpstreamBandwidthKbpsRequest) returns (SetMinUpstreamBandwidthKbpsResponse);
+}
+
+service GatewayConnectionConfigService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetExposedCapabilities (GetExposedCapabilitiesRequest) returns (GetExposedCapabilitiesResponse);
+  rpc GetGatewayConnectionName (GetGatewayConnectionNameRequest) returns (GetGatewayConnectionNameResponse);
+  rpc GetMaxMtu (GetMaxMtuRequest) returns (GetMaxMtuResponse);
+  rpc GetMinUdpPort4500NatTimeoutSeconds (GetMinUdpPort4500NatTimeoutSecondsRequest) returns (GetMinUdpPort4500NatTimeoutSecondsResponse);
+  rpc GetRetryIntervalsMillis (GetRetryIntervalsMillisRequest) returns (GetRetryIntervalsMillisResponse);
+  rpc HasGatewayOption (HasGatewayOptionRequest) returns (HasGatewayOptionResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc IsSafeModeEnabled (IsSafeModeEnabledRequest) returns (IsSafeModeEnabledResponse);
+}
+
+service GatewayConnectionConfigBuilderService {
+  rpc AddExposedCapability (AddExposedCapabilityRequest) returns (AddExposedCapabilityResponse);
+  rpc AddGatewayOption (AddGatewayOptionRequest) returns (AddGatewayOptionResponse);
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc RemoveExposedCapability (RemoveExposedCapabilityRequest) returns (RemoveExposedCapabilityResponse);
+  rpc RemoveGatewayOption (RemoveGatewayOptionRequest) returns (RemoveGatewayOptionResponse);
+  rpc SetMaxMtu (SetMaxMtuRequest) returns (SetMaxMtuResponse);
+  rpc SetMinUdpPort4500NatTimeoutSeconds (SetMinUdpPort4500NatTimeoutSecondsRequest) returns (SetMinUdpPort4500NatTimeoutSecondsResponse);
+  rpc SetRetryIntervalsMillis (SetRetryIntervalsMillisRequest) returns (SetRetryIntervalsMillisResponse);
+  rpc SetSafeModeEnabled (SetSafeModeEnabledRequest) returns (SetSafeModeEnabledResponse);
+}
+
+service ManagerService {
+  rpc ClearVcnConfig (ClearVcnConfigRequest) returns (ClearVcnConfigResponse);
+  rpc RegisterVcnStatusCallback (RegisterVcnStatusCallbackRequest) returns (RegisterVcnStatusCallbackResponse);
+  rpc SetVcnConfig (SetVcnConfigRequest) returns (SetVcnConfigResponse);
+  rpc UnregisterVcnStatusCallback (UnregisterVcnStatusCallbackRequest) returns (UnregisterVcnStatusCallbackResponse);
+}
+
+service ManagerVcnStatusCallbackService {
+  rpc OnGatewayConnectionError (OnGatewayConnectionErrorRequest) returns (OnGatewayConnectionErrorResponse);
+  rpc OnStatusChanged (OnStatusChangedRequest) returns (OnStatusChangedResponse);
+}
+
+service UnderlyingNetworkTemplateService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetMetered (GetMeteredRequest) returns (GetMeteredResponse);
+  rpc GetMinEntryDownstreamBandwidthKbps (GetMinEntryDownstreamBandwidthKbpsRequest) returns (GetMinEntryDownstreamBandwidthKbpsResponse);
+  rpc GetMinEntryUpstreamBandwidthKbps (GetMinEntryUpstreamBandwidthKbpsRequest) returns (GetMinEntryUpstreamBandwidthKbpsResponse);
+  rpc GetMinExitDownstreamBandwidthKbps (GetMinExitDownstreamBandwidthKbpsRequest) returns (GetMinExitDownstreamBandwidthKbpsResponse);
+  rpc GetMinExitUpstreamBandwidthKbps (GetMinExitUpstreamBandwidthKbpsRequest) returns (GetMinExitUpstreamBandwidthKbpsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}

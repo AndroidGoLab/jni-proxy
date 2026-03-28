@@ -220,6 +220,144 @@ var keyguardManagerRequestDismissKeyguardCmd = &cobra.Command{
 	},
 }
 
+var keyguardManagerKeyguardDismissCallbackCmd = &cobra.Command{
+	Use:   "manager-keyguard-dismiss-callback",
+	Short: "ManagerKeyguardDismissCallbackService operations",
+}
+
+var keyguardManagerKeyguardDismissCallbackOnDismissCancelledCmd = &cobra.Command{
+	Use:   "on-dismiss-cancelled",
+	Short: "OnDismissCancelled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerKeyguardDismissCallbackServiceClient(grpcConn)
+		req := &pb.OnDismissCancelledRequest{}
+		resp, err := client.OnDismissCancelled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var keyguardManagerKeyguardDismissCallbackOnDismissErrorCmd = &cobra.Command{
+	Use:   "on-dismiss-error",
+	Short: "OnDismissError RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerKeyguardDismissCallbackServiceClient(grpcConn)
+		req := &pb.OnDismissErrorRequest{}
+		resp, err := client.OnDismissError(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var keyguardManagerKeyguardDismissCallbackOnDismissSucceededCmd = &cobra.Command{
+	Use:   "on-dismiss-succeeded",
+	Short: "OnDismissSucceeded RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerKeyguardDismissCallbackServiceClient(grpcConn)
+		req := &pb.OnDismissSucceededRequest{}
+		resp, err := client.OnDismissSucceeded(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var keyguardManagerKeyguardLockCmd = &cobra.Command{
+	Use:   "manager-keyguard-lock",
+	Short: "ManagerKeyguardLockService operations",
+}
+
+var keyguardManagerKeyguardLockDisableKeyguardCmd = &cobra.Command{
+	Use:   "disable-keyguard",
+	Short: "DisableKeyguard RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerKeyguardLockServiceClient(grpcConn)
+		req := &pb.DisableKeyguardRequest{}
+		resp, err := client.DisableKeyguard(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var keyguardManagerKeyguardLockReenableKeyguardCmd = &cobra.Command{
+	Use:   "reenable-keyguard",
+	Short: "ReenableKeyguard RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerKeyguardLockServiceClient(grpcConn)
+		req := &pb.ReenableKeyguardRequest{}
+		resp, err := client.ReenableKeyguard(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var keyguardManagerKeyguardLockedStateListenerCmd = &cobra.Command{
+	Use:   "manager-keyguard-locked-state-listener",
+	Short: "ManagerKeyguardLockedStateListenerService operations",
+}
+
+var keyguardManagerKeyguardLockedStateListenerOnKeyguardLockedStateChangedCmd = &cobra.Command{
+	Use:   "on-keyguard-locked-state-changed",
+	Short: "OnKeyguardLockedStateChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerKeyguardLockedStateListenerServiceClient(grpcConn)
+		req := &pb.OnKeyguardLockedStateChangedRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnKeyguardLockedStateChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var keyguardManagerOnKeyguardExitResultCmd = &cobra.Command{
+	Use:   "manager-on-keyguard-exit-result",
+	Short: "ManagerOnKeyguardExitResultService operations",
+}
+
+var keyguardManagerOnKeyguardExitResultOnKeyguardExitResultCmd = &cobra.Command{
+	Use:   "on-keyguard-exit-result",
+	Short: "OnKeyguardExitResult RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerOnKeyguardExitResultServiceClient(grpcConn)
+		req := &pb.OnKeyguardExitResultRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnKeyguardExitResult(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 func init() {
 	keyguardManagerAddKeyguardLockedStateListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	keyguardManagerAddKeyguardLockedStateListenerCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
@@ -242,5 +380,18 @@ func init() {
 	keyguardManagerRequestDismissKeyguardCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	keyguardManagerCmd.AddCommand(keyguardManagerRequestDismissKeyguardCmd)
 	keyguardCmd.AddCommand(keyguardManagerCmd)
+	keyguardManagerKeyguardDismissCallbackCmd.AddCommand(keyguardManagerKeyguardDismissCallbackOnDismissCancelledCmd)
+	keyguardManagerKeyguardDismissCallbackCmd.AddCommand(keyguardManagerKeyguardDismissCallbackOnDismissErrorCmd)
+	keyguardManagerKeyguardDismissCallbackCmd.AddCommand(keyguardManagerKeyguardDismissCallbackOnDismissSucceededCmd)
+	keyguardCmd.AddCommand(keyguardManagerKeyguardDismissCallbackCmd)
+	keyguardManagerKeyguardLockCmd.AddCommand(keyguardManagerKeyguardLockDisableKeyguardCmd)
+	keyguardManagerKeyguardLockCmd.AddCommand(keyguardManagerKeyguardLockReenableKeyguardCmd)
+	keyguardCmd.AddCommand(keyguardManagerKeyguardLockCmd)
+	keyguardManagerKeyguardLockedStateListenerOnKeyguardLockedStateChangedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	keyguardManagerKeyguardLockedStateListenerCmd.AddCommand(keyguardManagerKeyguardLockedStateListenerOnKeyguardLockedStateChangedCmd)
+	keyguardCmd.AddCommand(keyguardManagerKeyguardLockedStateListenerCmd)
+	keyguardManagerOnKeyguardExitResultOnKeyguardExitResultCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	keyguardManagerOnKeyguardExitResultCmd.AddCommand(keyguardManagerOnKeyguardExitResultOnKeyguardExitResultCmd)
+	keyguardCmd.AddCommand(keyguardManagerOnKeyguardExitResultCmd)
 	rootCmd.AddCommand(keyguardCmd)
 }

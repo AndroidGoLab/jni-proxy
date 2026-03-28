@@ -88,6 +88,50 @@ message RequestDismissKeyguardRequest {
 message RequestDismissKeyguardResponse {
 }
 
+message OnDismissCancelledRequest {
+}
+
+message OnDismissCancelledResponse {
+}
+
+message OnDismissErrorRequest {
+}
+
+message OnDismissErrorResponse {
+}
+
+message OnDismissSucceededRequest {
+}
+
+message OnDismissSucceededResponse {
+}
+
+message DisableKeyguardRequest {
+}
+
+message DisableKeyguardResponse {
+}
+
+message ReenableKeyguardRequest {
+}
+
+message ReenableKeyguardResponse {
+}
+
+message OnKeyguardLockedStateChangedRequest {
+  bool arg0 = 1;
+}
+
+message OnKeyguardLockedStateChangedResponse {
+}
+
+message OnKeyguardExitResultRequest {
+  bool arg0 = 1;
+}
+
+message OnKeyguardExitResultResponse {
+}
+
 service ManagerService {
   rpc AddKeyguardLockedStateListener (AddKeyguardLockedStateListenerRequest) returns (AddKeyguardLockedStateListenerResponse);
   rpc CreateConfirmDeviceCredentialIntent (CreateConfirmDeviceCredentialIntentRequest) returns (CreateConfirmDeviceCredentialIntentResponse);
@@ -100,4 +144,23 @@ service ManagerService {
   rpc NewKeyguardLock (NewKeyguardLockRequest) returns (NewKeyguardLockResponse);
   rpc RemoveKeyguardLockedStateListener (RemoveKeyguardLockedStateListenerRequest) returns (RemoveKeyguardLockedStateListenerResponse);
   rpc RequestDismissKeyguard (RequestDismissKeyguardRequest) returns (RequestDismissKeyguardResponse);
+}
+
+service ManagerKeyguardDismissCallbackService {
+  rpc OnDismissCancelled (OnDismissCancelledRequest) returns (OnDismissCancelledResponse);
+  rpc OnDismissError (OnDismissErrorRequest) returns (OnDismissErrorResponse);
+  rpc OnDismissSucceeded (OnDismissSucceededRequest) returns (OnDismissSucceededResponse);
+}
+
+service ManagerKeyguardLockService {
+  rpc DisableKeyguard (DisableKeyguardRequest) returns (DisableKeyguardResponse);
+  rpc ReenableKeyguard (ReenableKeyguardRequest) returns (ReenableKeyguardResponse);
+}
+
+service ManagerKeyguardLockedStateListenerService {
+  rpc OnKeyguardLockedStateChanged (OnKeyguardLockedStateChangedRequest) returns (OnKeyguardLockedStateChangedResponse);
+}
+
+service ManagerOnKeyguardExitResultService {
+  rpc OnKeyguardExitResult (OnKeyguardExitResultRequest) returns (OnKeyguardExitResultResponse);
 }

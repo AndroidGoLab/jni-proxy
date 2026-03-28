@@ -5,3 +5,249 @@ syntax = "proto3";
 package shapes;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/shapes";
+
+message NewOvalShapeRequest {
+}
+
+message NewOvalShapeResponse {
+  int64 result = 1;
+}
+
+message Clone0Request {
+  int64 handle = 1;
+}
+
+message Clone0Response {
+  int64 result = 1;
+}
+
+message DrawRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message DrawResponse {
+}
+
+message GetOutlineRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetOutlineResponse {
+}
+
+message Clone0_1Request {
+  int64 handle = 1;
+}
+
+message Clone0_1Response {
+  int64 result = 1;
+}
+
+message Clone0_2Request {
+  int64 handle = 1;
+}
+
+message Clone0_2Response {
+  int64 result = 1;
+}
+
+message Clone0_3Request {
+  int64 handle = 1;
+}
+
+message Clone0_3Response {
+  int64 result = 1;
+}
+
+message NewRoundRectShapeRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message NewRoundRectShapeResponse {
+  int64 result = 1;
+}
+
+message EqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message HashCodeRequest {
+  int64 handle = 1;
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message NewPathShapeRequest {
+  int64 arg0 = 1;
+  float arg1 = 2;
+  float arg2 = 3;
+}
+
+message NewPathShapeResponse {
+  int64 result = 1;
+}
+
+message ShapeClone0Request {
+}
+
+message ShapeDrawRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message ShapeEqualsRequest {
+  int64 arg0 = 1;
+}
+
+message GetHeightRequest {
+}
+
+message GetHeightResponse {
+  float result = 1;
+}
+
+message ShapeGetOutlineRequest {
+  int64 arg0 = 1;
+}
+
+message GetWidthRequest {
+}
+
+message GetWidthResponse {
+  float result = 1;
+}
+
+message HasAlphaRequest {
+}
+
+message HasAlphaResponse {
+  bool result = 1;
+}
+
+message ShapeHashCodeRequest {
+}
+
+message ResizeRequest {
+  float arg0 = 1;
+  float arg1 = 2;
+}
+
+message ResizeResponse {
+}
+
+message ShapeClone0_1Request {
+}
+
+message NewRectShapeRequest {
+}
+
+message NewRectShapeResponse {
+  int64 result = 1;
+}
+
+message NewArcShapeRequest {
+  float arg0 = 1;
+  float arg1 = 2;
+}
+
+message NewArcShapeResponse {
+  int64 result = 1;
+}
+
+message GetStartAngleRequest {
+  int64 handle = 1;
+}
+
+message GetStartAngleResponse {
+  float result = 1;
+}
+
+message GetSweepAngleRequest {
+  int64 handle = 1;
+}
+
+message GetSweepAngleResponse {
+  float result = 1;
+}
+
+service OvalShapeService {
+  rpc NewOvalShape (NewOvalShapeRequest) returns (NewOvalShapeResponse);
+  rpc Clone0 (Clone0Request) returns (Clone0Response);
+  rpc Draw (DrawRequest) returns (DrawResponse);
+  rpc GetOutline (GetOutlineRequest) returns (GetOutlineResponse);
+  rpc Clone0_1 (Clone0_1Request) returns (Clone0_1Response);
+  rpc Clone0_2 (Clone0_2Request) returns (Clone0_2Response);
+  rpc Clone0_3 (Clone0_3Request) returns (Clone0_3Response);
+}
+
+service RoundRectShapeService {
+  rpc NewRoundRectShape (NewRoundRectShapeRequest) returns (NewRoundRectShapeResponse);
+  rpc Clone0 (Clone0Request) returns (Clone0Response);
+  rpc Draw (DrawRequest) returns (DrawResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetOutline (GetOutlineRequest) returns (GetOutlineResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc Clone0_1 (Clone0_1Request) returns (Clone0_1Response);
+  rpc Clone0_2 (Clone0_2Request) returns (Clone0_2Response);
+  rpc Clone0_3 (Clone0_3Request) returns (Clone0_3Response);
+}
+
+service PathShapeService {
+  rpc NewPathShape (NewPathShapeRequest) returns (NewPathShapeResponse);
+  rpc Clone0 (Clone0Request) returns (Clone0Response);
+  rpc Draw (DrawRequest) returns (DrawResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc Clone0_1 (Clone0_1Request) returns (Clone0_1Response);
+  rpc Clone0_2 (Clone0_2Request) returns (Clone0_2Response);
+}
+
+service ShapeService {
+  rpc Clone0 (ShapeClone0Request) returns (Clone0Response);
+  rpc Draw (ShapeDrawRequest) returns (DrawResponse);
+  rpc Equals (ShapeEqualsRequest) returns (EqualsResponse);
+  rpc GetHeight (GetHeightRequest) returns (GetHeightResponse);
+  rpc GetOutline (ShapeGetOutlineRequest) returns (GetOutlineResponse);
+  rpc GetWidth (GetWidthRequest) returns (GetWidthResponse);
+  rpc HasAlpha (HasAlphaRequest) returns (HasAlphaResponse);
+  rpc HashCode (ShapeHashCodeRequest) returns (HashCodeResponse);
+  rpc Resize (ResizeRequest) returns (ResizeResponse);
+  rpc Clone0_1 (ShapeClone0_1Request) returns (Clone0_1Response);
+}
+
+service RectShapeService {
+  rpc NewRectShape (NewRectShapeRequest) returns (NewRectShapeResponse);
+  rpc Clone0 (Clone0Request) returns (Clone0Response);
+  rpc Draw (DrawRequest) returns (DrawResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetOutline (GetOutlineRequest) returns (GetOutlineResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc Clone0_1 (Clone0_1Request) returns (Clone0_1Response);
+  rpc Clone0_2 (Clone0_2Request) returns (Clone0_2Response);
+}
+
+service ArcShapeService {
+  rpc NewArcShape (NewArcShapeRequest) returns (NewArcShapeResponse);
+  rpc Clone0 (Clone0Request) returns (Clone0Response);
+  rpc Draw (DrawRequest) returns (DrawResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetOutline (GetOutlineRequest) returns (GetOutlineResponse);
+  rpc GetStartAngle (GetStartAngleRequest) returns (GetStartAngleResponse);
+  rpc GetSweepAngle (GetSweepAngleRequest) returns (GetSweepAngleResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc Clone0_1 (Clone0_1Request) returns (Clone0_1Response);
+  rpc Clone0_2 (Clone0_2Request) returns (Clone0_2Response);
+  rpc Clone0_3 (Clone0_3Request) returns (Clone0_3Response);
+}

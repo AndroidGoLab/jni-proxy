@@ -122,3 +122,691 @@ var DisplayHashManagerService_ServiceDesc = grpc.ServiceDesc{
 	Streams:  []grpc.StreamDesc{},
 	Metadata: "proto/displayhash/displayhash.proto",
 }
+
+const (
+	DisplayHashResultCallbackService_OnDisplayHashError_FullMethodName  = "/displayhash.DisplayHashResultCallbackService/OnDisplayHashError"
+	DisplayHashResultCallbackService_OnDisplayHashResult_FullMethodName = "/displayhash.DisplayHashResultCallbackService/OnDisplayHashResult"
+)
+
+// DisplayHashResultCallbackServiceClient is the client API for DisplayHashResultCallbackService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type DisplayHashResultCallbackServiceClient interface {
+	OnDisplayHashError(ctx context.Context, in *OnDisplayHashErrorRequest, opts ...grpc.CallOption) (*OnDisplayHashErrorResponse, error)
+	OnDisplayHashResult(ctx context.Context, in *OnDisplayHashResultRequest, opts ...grpc.CallOption) (*OnDisplayHashResultResponse, error)
+}
+
+type displayHashResultCallbackServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewDisplayHashResultCallbackServiceClient(cc grpc.ClientConnInterface) DisplayHashResultCallbackServiceClient {
+	return &displayHashResultCallbackServiceClient{cc}
+}
+
+func (c *displayHashResultCallbackServiceClient) OnDisplayHashError(ctx context.Context, in *OnDisplayHashErrorRequest, opts ...grpc.CallOption) (*OnDisplayHashErrorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnDisplayHashErrorResponse)
+	err := c.cc.Invoke(ctx, DisplayHashResultCallbackService_OnDisplayHashError_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *displayHashResultCallbackServiceClient) OnDisplayHashResult(ctx context.Context, in *OnDisplayHashResultRequest, opts ...grpc.CallOption) (*OnDisplayHashResultResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnDisplayHashResultResponse)
+	err := c.cc.Invoke(ctx, DisplayHashResultCallbackService_OnDisplayHashResult_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// DisplayHashResultCallbackServiceServer is the server API for DisplayHashResultCallbackService service.
+// All implementations must embed UnimplementedDisplayHashResultCallbackServiceServer
+// for forward compatibility.
+type DisplayHashResultCallbackServiceServer interface {
+	OnDisplayHashError(context.Context, *OnDisplayHashErrorRequest) (*OnDisplayHashErrorResponse, error)
+	OnDisplayHashResult(context.Context, *OnDisplayHashResultRequest) (*OnDisplayHashResultResponse, error)
+	mustEmbedUnimplementedDisplayHashResultCallbackServiceServer()
+}
+
+// UnimplementedDisplayHashResultCallbackServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedDisplayHashResultCallbackServiceServer struct{}
+
+func (UnimplementedDisplayHashResultCallbackServiceServer) OnDisplayHashError(context.Context, *OnDisplayHashErrorRequest) (*OnDisplayHashErrorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnDisplayHashError not implemented")
+}
+func (UnimplementedDisplayHashResultCallbackServiceServer) OnDisplayHashResult(context.Context, *OnDisplayHashResultRequest) (*OnDisplayHashResultResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnDisplayHashResult not implemented")
+}
+func (UnimplementedDisplayHashResultCallbackServiceServer) mustEmbedUnimplementedDisplayHashResultCallbackServiceServer() {
+}
+func (UnimplementedDisplayHashResultCallbackServiceServer) testEmbeddedByValue() {}
+
+// UnsafeDisplayHashResultCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to DisplayHashResultCallbackServiceServer will
+// result in compilation errors.
+type UnsafeDisplayHashResultCallbackServiceServer interface {
+	mustEmbedUnimplementedDisplayHashResultCallbackServiceServer()
+}
+
+func RegisterDisplayHashResultCallbackServiceServer(s grpc.ServiceRegistrar, srv DisplayHashResultCallbackServiceServer) {
+	// If the following call panics, it indicates UnimplementedDisplayHashResultCallbackServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&DisplayHashResultCallbackService_ServiceDesc, srv)
+}
+
+func _DisplayHashResultCallbackService_OnDisplayHashError_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnDisplayHashErrorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DisplayHashResultCallbackServiceServer).OnDisplayHashError(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DisplayHashResultCallbackService_OnDisplayHashError_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DisplayHashResultCallbackServiceServer).OnDisplayHashError(ctx, req.(*OnDisplayHashErrorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DisplayHashResultCallbackService_OnDisplayHashResult_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnDisplayHashResultRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DisplayHashResultCallbackServiceServer).OnDisplayHashResult(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DisplayHashResultCallbackService_OnDisplayHashResult_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DisplayHashResultCallbackServiceServer).OnDisplayHashResult(ctx, req.(*OnDisplayHashResultRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// DisplayHashResultCallbackService_ServiceDesc is the grpc.ServiceDesc for DisplayHashResultCallbackService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var DisplayHashResultCallbackService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "displayhash.DisplayHashResultCallbackService",
+	HandlerType: (*DisplayHashResultCallbackServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnDisplayHashError",
+			Handler:    _DisplayHashResultCallbackService_OnDisplayHashError_Handler,
+		},
+		{
+			MethodName: "OnDisplayHashResult",
+			Handler:    _DisplayHashResultCallbackService_OnDisplayHashResult_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/displayhash/displayhash.proto",
+}
+
+const (
+	VerifiedDisplayHashService_NewVerifiedDisplayHash_FullMethodName = "/displayhash.VerifiedDisplayHashService/NewVerifiedDisplayHash"
+	VerifiedDisplayHashService_DescribeContents_FullMethodName       = "/displayhash.VerifiedDisplayHashService/DescribeContents"
+	VerifiedDisplayHashService_GetBoundsInWindow_FullMethodName      = "/displayhash.VerifiedDisplayHashService/GetBoundsInWindow"
+	VerifiedDisplayHashService_GetHashAlgorithm_FullMethodName       = "/displayhash.VerifiedDisplayHashService/GetHashAlgorithm"
+	VerifiedDisplayHashService_GetImageHash_FullMethodName           = "/displayhash.VerifiedDisplayHashService/GetImageHash"
+	VerifiedDisplayHashService_GetTimeMillis_FullMethodName          = "/displayhash.VerifiedDisplayHashService/GetTimeMillis"
+	VerifiedDisplayHashService_ToString_FullMethodName               = "/displayhash.VerifiedDisplayHashService/ToString"
+	VerifiedDisplayHashService_WriteToParcel_FullMethodName          = "/displayhash.VerifiedDisplayHashService/WriteToParcel"
+)
+
+// VerifiedDisplayHashServiceClient is the client API for VerifiedDisplayHashService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type VerifiedDisplayHashServiceClient interface {
+	NewVerifiedDisplayHash(ctx context.Context, in *NewVerifiedDisplayHashRequest, opts ...grpc.CallOption) (*NewVerifiedDisplayHashResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetBoundsInWindow(ctx context.Context, in *GetBoundsInWindowRequest, opts ...grpc.CallOption) (*GetBoundsInWindowResponse, error)
+	GetHashAlgorithm(ctx context.Context, in *GetHashAlgorithmRequest, opts ...grpc.CallOption) (*GetHashAlgorithmResponse, error)
+	GetImageHash(ctx context.Context, in *GetImageHashRequest, opts ...grpc.CallOption) (*GetImageHashResponse, error)
+	GetTimeMillis(ctx context.Context, in *GetTimeMillisRequest, opts ...grpc.CallOption) (*GetTimeMillisResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type verifiedDisplayHashServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewVerifiedDisplayHashServiceClient(cc grpc.ClientConnInterface) VerifiedDisplayHashServiceClient {
+	return &verifiedDisplayHashServiceClient{cc}
+}
+
+func (c *verifiedDisplayHashServiceClient) NewVerifiedDisplayHash(ctx context.Context, in *NewVerifiedDisplayHashRequest, opts ...grpc.CallOption) (*NewVerifiedDisplayHashResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewVerifiedDisplayHashResponse)
+	err := c.cc.Invoke(ctx, VerifiedDisplayHashService_NewVerifiedDisplayHash_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *verifiedDisplayHashServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, VerifiedDisplayHashService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *verifiedDisplayHashServiceClient) GetBoundsInWindow(ctx context.Context, in *GetBoundsInWindowRequest, opts ...grpc.CallOption) (*GetBoundsInWindowResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetBoundsInWindowResponse)
+	err := c.cc.Invoke(ctx, VerifiedDisplayHashService_GetBoundsInWindow_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *verifiedDisplayHashServiceClient) GetHashAlgorithm(ctx context.Context, in *GetHashAlgorithmRequest, opts ...grpc.CallOption) (*GetHashAlgorithmResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetHashAlgorithmResponse)
+	err := c.cc.Invoke(ctx, VerifiedDisplayHashService_GetHashAlgorithm_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *verifiedDisplayHashServiceClient) GetImageHash(ctx context.Context, in *GetImageHashRequest, opts ...grpc.CallOption) (*GetImageHashResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetImageHashResponse)
+	err := c.cc.Invoke(ctx, VerifiedDisplayHashService_GetImageHash_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *verifiedDisplayHashServiceClient) GetTimeMillis(ctx context.Context, in *GetTimeMillisRequest, opts ...grpc.CallOption) (*GetTimeMillisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTimeMillisResponse)
+	err := c.cc.Invoke(ctx, VerifiedDisplayHashService_GetTimeMillis_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *verifiedDisplayHashServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, VerifiedDisplayHashService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *verifiedDisplayHashServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, VerifiedDisplayHashService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// VerifiedDisplayHashServiceServer is the server API for VerifiedDisplayHashService service.
+// All implementations must embed UnimplementedVerifiedDisplayHashServiceServer
+// for forward compatibility.
+type VerifiedDisplayHashServiceServer interface {
+	NewVerifiedDisplayHash(context.Context, *NewVerifiedDisplayHashRequest) (*NewVerifiedDisplayHashResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetBoundsInWindow(context.Context, *GetBoundsInWindowRequest) (*GetBoundsInWindowResponse, error)
+	GetHashAlgorithm(context.Context, *GetHashAlgorithmRequest) (*GetHashAlgorithmResponse, error)
+	GetImageHash(context.Context, *GetImageHashRequest) (*GetImageHashResponse, error)
+	GetTimeMillis(context.Context, *GetTimeMillisRequest) (*GetTimeMillisResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedVerifiedDisplayHashServiceServer()
+}
+
+// UnimplementedVerifiedDisplayHashServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedVerifiedDisplayHashServiceServer struct{}
+
+func (UnimplementedVerifiedDisplayHashServiceServer) NewVerifiedDisplayHash(context.Context, *NewVerifiedDisplayHashRequest) (*NewVerifiedDisplayHashResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewVerifiedDisplayHash not implemented")
+}
+func (UnimplementedVerifiedDisplayHashServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedVerifiedDisplayHashServiceServer) GetBoundsInWindow(context.Context, *GetBoundsInWindowRequest) (*GetBoundsInWindowResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetBoundsInWindow not implemented")
+}
+func (UnimplementedVerifiedDisplayHashServiceServer) GetHashAlgorithm(context.Context, *GetHashAlgorithmRequest) (*GetHashAlgorithmResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetHashAlgorithm not implemented")
+}
+func (UnimplementedVerifiedDisplayHashServiceServer) GetImageHash(context.Context, *GetImageHashRequest) (*GetImageHashResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetImageHash not implemented")
+}
+func (UnimplementedVerifiedDisplayHashServiceServer) GetTimeMillis(context.Context, *GetTimeMillisRequest) (*GetTimeMillisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTimeMillis not implemented")
+}
+func (UnimplementedVerifiedDisplayHashServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedVerifiedDisplayHashServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedVerifiedDisplayHashServiceServer) mustEmbedUnimplementedVerifiedDisplayHashServiceServer() {
+}
+func (UnimplementedVerifiedDisplayHashServiceServer) testEmbeddedByValue() {}
+
+// UnsafeVerifiedDisplayHashServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to VerifiedDisplayHashServiceServer will
+// result in compilation errors.
+type UnsafeVerifiedDisplayHashServiceServer interface {
+	mustEmbedUnimplementedVerifiedDisplayHashServiceServer()
+}
+
+func RegisterVerifiedDisplayHashServiceServer(s grpc.ServiceRegistrar, srv VerifiedDisplayHashServiceServer) {
+	// If the following call panics, it indicates UnimplementedVerifiedDisplayHashServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&VerifiedDisplayHashService_ServiceDesc, srv)
+}
+
+func _VerifiedDisplayHashService_NewVerifiedDisplayHash_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewVerifiedDisplayHashRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VerifiedDisplayHashServiceServer).NewVerifiedDisplayHash(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VerifiedDisplayHashService_NewVerifiedDisplayHash_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VerifiedDisplayHashServiceServer).NewVerifiedDisplayHash(ctx, req.(*NewVerifiedDisplayHashRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VerifiedDisplayHashService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VerifiedDisplayHashServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VerifiedDisplayHashService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VerifiedDisplayHashServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VerifiedDisplayHashService_GetBoundsInWindow_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetBoundsInWindowRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VerifiedDisplayHashServiceServer).GetBoundsInWindow(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VerifiedDisplayHashService_GetBoundsInWindow_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VerifiedDisplayHashServiceServer).GetBoundsInWindow(ctx, req.(*GetBoundsInWindowRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VerifiedDisplayHashService_GetHashAlgorithm_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetHashAlgorithmRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VerifiedDisplayHashServiceServer).GetHashAlgorithm(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VerifiedDisplayHashService_GetHashAlgorithm_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VerifiedDisplayHashServiceServer).GetHashAlgorithm(ctx, req.(*GetHashAlgorithmRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VerifiedDisplayHashService_GetImageHash_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetImageHashRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VerifiedDisplayHashServiceServer).GetImageHash(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VerifiedDisplayHashService_GetImageHash_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VerifiedDisplayHashServiceServer).GetImageHash(ctx, req.(*GetImageHashRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VerifiedDisplayHashService_GetTimeMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTimeMillisRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VerifiedDisplayHashServiceServer).GetTimeMillis(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VerifiedDisplayHashService_GetTimeMillis_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VerifiedDisplayHashServiceServer).GetTimeMillis(ctx, req.(*GetTimeMillisRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VerifiedDisplayHashService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VerifiedDisplayHashServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VerifiedDisplayHashService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VerifiedDisplayHashServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VerifiedDisplayHashService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VerifiedDisplayHashServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VerifiedDisplayHashService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VerifiedDisplayHashServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// VerifiedDisplayHashService_ServiceDesc is the grpc.ServiceDesc for VerifiedDisplayHashService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var VerifiedDisplayHashService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "displayhash.VerifiedDisplayHashService",
+	HandlerType: (*VerifiedDisplayHashServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewVerifiedDisplayHash",
+			Handler:    _VerifiedDisplayHashService_NewVerifiedDisplayHash_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _VerifiedDisplayHashService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetBoundsInWindow",
+			Handler:    _VerifiedDisplayHashService_GetBoundsInWindow_Handler,
+		},
+		{
+			MethodName: "GetHashAlgorithm",
+			Handler:    _VerifiedDisplayHashService_GetHashAlgorithm_Handler,
+		},
+		{
+			MethodName: "GetImageHash",
+			Handler:    _VerifiedDisplayHashService_GetImageHash_Handler,
+		},
+		{
+			MethodName: "GetTimeMillis",
+			Handler:    _VerifiedDisplayHashService_GetTimeMillis_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _VerifiedDisplayHashService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _VerifiedDisplayHashService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/displayhash/displayhash.proto",
+}
+
+const (
+	DisplayHashService_DescribeContents_FullMethodName = "/displayhash.DisplayHashService/DescribeContents"
+	DisplayHashService_ToString_FullMethodName         = "/displayhash.DisplayHashService/ToString"
+	DisplayHashService_WriteToParcel_FullMethodName    = "/displayhash.DisplayHashService/WriteToParcel"
+)
+
+// DisplayHashServiceClient is the client API for DisplayHashService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type DisplayHashServiceClient interface {
+	DescribeContents(ctx context.Context, in *DisplayHashDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	ToString(ctx context.Context, in *DisplayHashToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *DisplayHashWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type displayHashServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewDisplayHashServiceClient(cc grpc.ClientConnInterface) DisplayHashServiceClient {
+	return &displayHashServiceClient{cc}
+}
+
+func (c *displayHashServiceClient) DescribeContents(ctx context.Context, in *DisplayHashDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, DisplayHashService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *displayHashServiceClient) ToString(ctx context.Context, in *DisplayHashToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, DisplayHashService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *displayHashServiceClient) WriteToParcel(ctx context.Context, in *DisplayHashWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, DisplayHashService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// DisplayHashServiceServer is the server API for DisplayHashService service.
+// All implementations must embed UnimplementedDisplayHashServiceServer
+// for forward compatibility.
+type DisplayHashServiceServer interface {
+	DescribeContents(context.Context, *DisplayHashDescribeContentsRequest) (*DescribeContentsResponse, error)
+	ToString(context.Context, *DisplayHashToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *DisplayHashWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedDisplayHashServiceServer()
+}
+
+// UnimplementedDisplayHashServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedDisplayHashServiceServer struct{}
+
+func (UnimplementedDisplayHashServiceServer) DescribeContents(context.Context, *DisplayHashDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedDisplayHashServiceServer) ToString(context.Context, *DisplayHashToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedDisplayHashServiceServer) WriteToParcel(context.Context, *DisplayHashWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedDisplayHashServiceServer) mustEmbedUnimplementedDisplayHashServiceServer() {}
+func (UnimplementedDisplayHashServiceServer) testEmbeddedByValue()                            {}
+
+// UnsafeDisplayHashServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to DisplayHashServiceServer will
+// result in compilation errors.
+type UnsafeDisplayHashServiceServer interface {
+	mustEmbedUnimplementedDisplayHashServiceServer()
+}
+
+func RegisterDisplayHashServiceServer(s grpc.ServiceRegistrar, srv DisplayHashServiceServer) {
+	// If the following call panics, it indicates UnimplementedDisplayHashServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&DisplayHashService_ServiceDesc, srv)
+}
+
+func _DisplayHashService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DisplayHashDescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DisplayHashServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DisplayHashService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DisplayHashServiceServer).DescribeContents(ctx, req.(*DisplayHashDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DisplayHashService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DisplayHashToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DisplayHashServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DisplayHashService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DisplayHashServiceServer).ToString(ctx, req.(*DisplayHashToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DisplayHashService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DisplayHashWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DisplayHashServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DisplayHashService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DisplayHashServiceServer).WriteToParcel(ctx, req.(*DisplayHashWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// DisplayHashService_ServiceDesc is the grpc.ServiceDesc for DisplayHashService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var DisplayHashService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "displayhash.DisplayHashService",
+	HandlerType: (*DisplayHashServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _DisplayHashService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _DisplayHashService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _DisplayHashService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/displayhash/displayhash.proto",
+}

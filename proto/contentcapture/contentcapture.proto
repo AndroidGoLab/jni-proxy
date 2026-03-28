@@ -5,3 +5,471 @@ syntax = "proto3";
 package contentcapture;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/contentcapture";
+
+message OnRejectedRequest {
+}
+
+message OnRejectedResponse {
+}
+
+message OnWriteRequest {
+  int64 arg0 = 1;
+}
+
+message OnWriteResponse {
+}
+
+message CloseRequest {
+}
+
+message CloseResponse {
+}
+
+message CreateContentCaptureSessionRequest {
+  int64 arg0 = 1;
+}
+
+message CreateContentCaptureSessionResponse {
+  int64 result = 1;
+}
+
+message DestroyRequest {
+}
+
+message DestroyResponse {
+}
+
+message FlushRequest {
+}
+
+message FlushResponse {
+}
+
+message GetContentCaptureContextRequest {
+}
+
+message GetContentCaptureContextResponse {
+  int64 result = 1;
+}
+
+message GetContentCaptureSessionIdRequest {
+}
+
+message GetContentCaptureSessionIdResponse {
+  int64 result = 1;
+}
+
+message NewAutofillIdRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewAutofillIdResponse {
+  int64 result = 1;
+}
+
+message NewViewStructureRequest {
+  int64 arg0 = 1;
+}
+
+message NewViewStructureResponse {
+  int64 result = 1;
+}
+
+message NewVirtualViewStructureRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewVirtualViewStructureResponse {
+  int64 result = 1;
+}
+
+message NotifySessionPausedRequest {
+}
+
+message NotifySessionPausedResponse {
+}
+
+message NotifySessionResumedRequest {
+}
+
+message NotifySessionResumedResponse {
+}
+
+message NotifyViewAppearedRequest {
+  int64 arg0 = 1;
+}
+
+message NotifyViewAppearedResponse {
+}
+
+message NotifyViewDisappearedRequest {
+  int64 arg0 = 1;
+}
+
+message NotifyViewDisappearedResponse {
+}
+
+message NotifyViewInsetsChangedRequest {
+  int64 arg0 = 1;
+}
+
+message NotifyViewInsetsChangedResponse {
+}
+
+message NotifyViewTextChangedRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+}
+
+message NotifyViewTextChangedResponse {
+}
+
+message NotifyViewsDisappearedRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NotifyViewsDisappearedResponse {
+}
+
+message SetContentCaptureContextRequest {
+  int64 arg0 = 1;
+}
+
+message SetContentCaptureContextResponse {
+}
+
+message ToStringRequest {
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message DescribeContentsRequest {
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message EqualsRequest {
+  int64 arg0 = 1;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message HashCodeRequest {
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteToParcelResponse {
+}
+
+message GetPackageNameRequest {
+}
+
+message GetPackageNameResponse {
+  string result = 1;
+}
+
+message IsForEverythingRequest {
+}
+
+message IsForEverythingResponse {
+  bool result = 1;
+}
+
+message AddLocusIdRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message AddLocusIdResponse {
+  int64 result = 1;
+}
+
+message BuildRequest {
+}
+
+message BuildResponse {
+  int64 result = 1;
+}
+
+message ForEverythingRequest {
+}
+
+message ForEverythingResponse {
+  int64 result = 1;
+}
+
+message GetFlagsRequest {
+}
+
+message GetFlagsResponse {
+  int32 result = 1;
+}
+
+message GetLocusIdRequest {
+}
+
+message GetLocusIdResponse {
+  int64 result = 1;
+}
+
+message GetExtrasRequest {
+}
+
+message GetExtrasResponse {
+  int64 result = 1;
+}
+
+message ForLocusIdRequest {
+  string arg0 = 1;
+}
+
+message ForLocusIdResponse {
+  int64 result = 1;
+}
+
+message SetExtrasRequest {
+  int64 arg0 = 1;
+}
+
+message SetExtrasResponse {
+  int64 result = 1;
+}
+
+message NewContentCaptureConditionRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message NewContentCaptureConditionResponse {
+  int64 result = 1;
+}
+
+message ContentCaptureConditionDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message ContentCaptureConditionEqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message ContentCaptureConditionGetFlagsRequest {
+  int64 handle = 1;
+}
+
+message ContentCaptureConditionGetLocusIdRequest {
+  int64 handle = 1;
+}
+
+message ContentCaptureConditionHashCodeRequest {
+  int64 handle = 1;
+}
+
+message ContentCaptureConditionToStringRequest {
+  int64 handle = 1;
+}
+
+message ContentCaptureConditionWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message GetServiceComponentNameRequest {
+}
+
+message GetServiceComponentNameResponse {
+  int64 result = 1;
+}
+
+message IsContentCaptureEnabledRequest {
+}
+
+message IsContentCaptureEnabledResponse {
+  bool result = 1;
+}
+
+message RemoveDataRequest {
+  int64 arg0 = 1;
+}
+
+message RemoveDataResponse {
+}
+
+message SetContentCaptureEnabledRequest {
+  bool arg0 = 1;
+}
+
+message SetContentCaptureEnabledResponse {
+}
+
+message ShareDataRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message ShareDataResponse {
+}
+
+message NewDataShareRequestRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+}
+
+message NewDataShareRequestResponse {
+  int64 result = 1;
+}
+
+message DataShareRequestDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message DataShareRequestEqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message DataShareRequestGetLocusIdRequest {
+  int64 handle = 1;
+}
+
+message GetMimeTypeRequest {
+  int64 handle = 1;
+}
+
+message GetMimeTypeResponse {
+  string result = 1;
+}
+
+message DataShareRequestGetPackageNameRequest {
+  int64 handle = 1;
+}
+
+message DataShareRequestHashCodeRequest {
+  int64 handle = 1;
+}
+
+message DataShareRequestToStringRequest {
+  int64 handle = 1;
+}
+
+message DataShareRequestWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+service DataShareWriteAdapterService {
+  rpc OnRejected (OnRejectedRequest) returns (OnRejectedResponse);
+  rpc OnWrite (OnWriteRequest) returns (OnWriteResponse);
+}
+
+service ContentCaptureSessionService {
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc CreateContentCaptureSession (CreateContentCaptureSessionRequest) returns (CreateContentCaptureSessionResponse);
+  rpc Destroy (DestroyRequest) returns (DestroyResponse);
+  rpc Flush (FlushRequest) returns (FlushResponse);
+  rpc GetContentCaptureContext (GetContentCaptureContextRequest) returns (GetContentCaptureContextResponse);
+  rpc GetContentCaptureSessionId (GetContentCaptureSessionIdRequest) returns (GetContentCaptureSessionIdResponse);
+  rpc NewAutofillId (NewAutofillIdRequest) returns (NewAutofillIdResponse);
+  rpc NewViewStructure (NewViewStructureRequest) returns (NewViewStructureResponse);
+  rpc NewVirtualViewStructure (NewVirtualViewStructureRequest) returns (NewVirtualViewStructureResponse);
+  rpc NotifySessionPaused (NotifySessionPausedRequest) returns (NotifySessionPausedResponse);
+  rpc NotifySessionResumed (NotifySessionResumedRequest) returns (NotifySessionResumedResponse);
+  rpc NotifyViewAppeared (NotifyViewAppearedRequest) returns (NotifyViewAppearedResponse);
+  rpc NotifyViewDisappeared (NotifyViewDisappearedRequest) returns (NotifyViewDisappearedResponse);
+  rpc NotifyViewInsetsChanged (NotifyViewInsetsChangedRequest) returns (NotifyViewInsetsChangedResponse);
+  rpc NotifyViewTextChanged (NotifyViewTextChangedRequest) returns (NotifyViewTextChangedResponse);
+  rpc NotifyViewsDisappeared (NotifyViewsDisappearedRequest) returns (NotifyViewsDisappearedResponse);
+  rpc SetContentCaptureContext (SetContentCaptureContextRequest) returns (SetContentCaptureContextResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service ContentCaptureSessionIdService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service DataRemovalRequestService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetPackageName (GetPackageNameRequest) returns (GetPackageNameResponse);
+  rpc IsForEverything (IsForEverythingRequest) returns (IsForEverythingResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service DataRemovalRequestBuilderService {
+  rpc AddLocusId (AddLocusIdRequest) returns (AddLocusIdResponse);
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc ForEverything (ForEverythingRequest) returns (ForEverythingResponse);
+}
+
+service DataRemovalRequestLocusIdRequestService {
+  rpc GetFlags (GetFlagsRequest) returns (GetFlagsResponse);
+  rpc GetLocusId (GetLocusIdRequest) returns (GetLocusIdResponse);
+}
+
+service ContentCaptureContextService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetExtras (GetExtrasRequest) returns (GetExtrasResponse);
+  rpc GetLocusId (GetLocusIdRequest) returns (GetLocusIdResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc ForLocusId (ForLocusIdRequest) returns (ForLocusIdResponse);
+}
+
+service ContentCaptureContextBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetExtras (SetExtrasRequest) returns (SetExtrasResponse);
+}
+
+service ContentCaptureConditionService {
+  rpc NewContentCaptureCondition (NewContentCaptureConditionRequest) returns (NewContentCaptureConditionResponse);
+  rpc DescribeContents (ContentCaptureConditionDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (ContentCaptureConditionEqualsRequest) returns (EqualsResponse);
+  rpc GetFlags (ContentCaptureConditionGetFlagsRequest) returns (GetFlagsResponse);
+  rpc GetLocusId (ContentCaptureConditionGetLocusIdRequest) returns (GetLocusIdResponse);
+  rpc HashCode (ContentCaptureConditionHashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ContentCaptureConditionToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (ContentCaptureConditionWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ContentCaptureManagerService {
+  rpc GetServiceComponentName (GetServiceComponentNameRequest) returns (GetServiceComponentNameResponse);
+  rpc IsContentCaptureEnabled (IsContentCaptureEnabledRequest) returns (IsContentCaptureEnabledResponse);
+  rpc RemoveData (RemoveDataRequest) returns (RemoveDataResponse);
+  rpc SetContentCaptureEnabled (SetContentCaptureEnabledRequest) returns (SetContentCaptureEnabledResponse);
+  rpc ShareData (ShareDataRequest) returns (ShareDataResponse);
+}
+
+service DataShareRequestService {
+  rpc NewDataShareRequest (NewDataShareRequestRequest) returns (NewDataShareRequestResponse);
+  rpc DescribeContents (DataShareRequestDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (DataShareRequestEqualsRequest) returns (EqualsResponse);
+  rpc GetLocusId (DataShareRequestGetLocusIdRequest) returns (GetLocusIdResponse);
+  rpc GetMimeType (GetMimeTypeRequest) returns (GetMimeTypeResponse);
+  rpc GetPackageName (DataShareRequestGetPackageNameRequest) returns (GetPackageNameResponse);
+  rpc HashCode (DataShareRequestHashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (DataShareRequestToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (DataShareRequestWriteToParcelRequest) returns (WriteToParcelResponse);
+}

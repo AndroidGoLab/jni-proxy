@@ -9,6 +9,328 @@ import (
 	"google.golang.org/grpc"
 )
 
+// DeviceClient wraps the gRPC DeviceService client.
+type DeviceClient struct {
+	svc pb.DeviceServiceClient
+}
+
+// NewDeviceClient creates a new Device client.
+func NewDeviceClient(cc grpc.ClientConnInterface) *DeviceClient {
+	return &DeviceClient{
+		svc: pb.NewDeviceServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *DeviceClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *DeviceClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetConfiguration calls the GetConfiguration RPC.
+func (c *DeviceClient) GetConfiguration(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetConfiguration(ctx, &pb.GetConfigurationRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetConfigurationCount calls the GetConfigurationCount RPC.
+func (c *DeviceClient) GetConfigurationCount(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetConfigurationCount(ctx, &pb.GetConfigurationCountRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDeviceClass calls the GetDeviceClass RPC.
+func (c *DeviceClient) GetDeviceClass(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetDeviceClass(ctx, &pb.GetDeviceClassRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDeviceId0 calls the GetDeviceId0 RPC.
+func (c *DeviceClient) GetDeviceId0(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetDeviceId0(ctx, &pb.GetDeviceId0Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDeviceName0 calls the GetDeviceName0 RPC.
+func (c *DeviceClient) GetDeviceName0(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetDeviceName0(ctx, &pb.GetDeviceName0Request{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDeviceProtocol calls the GetDeviceProtocol RPC.
+func (c *DeviceClient) GetDeviceProtocol(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetDeviceProtocol(ctx, &pb.GetDeviceProtocolRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDeviceSubclass calls the GetDeviceSubclass RPC.
+func (c *DeviceClient) GetDeviceSubclass(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetDeviceSubclass(ctx, &pb.GetDeviceSubclassRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInterface calls the GetInterface RPC.
+func (c *DeviceClient) GetInterface(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetInterface(ctx, &pb.GetInterfaceRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInterfaceCount calls the GetInterfaceCount RPC.
+func (c *DeviceClient) GetInterfaceCount(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetInterfaceCount(ctx, &pb.GetInterfaceCountRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetManufacturerName calls the GetManufacturerName RPC.
+func (c *DeviceClient) GetManufacturerName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetManufacturerName(ctx, &pb.GetManufacturerNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetProductId calls the GetProductId RPC.
+func (c *DeviceClient) GetProductId(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetProductId(ctx, &pb.GetProductIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetProductName calls the GetProductName RPC.
+func (c *DeviceClient) GetProductName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetProductName(ctx, &pb.GetProductNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSerialNumber calls the GetSerialNumber RPC.
+func (c *DeviceClient) GetSerialNumber(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetSerialNumber(ctx, &pb.GetSerialNumberRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVendorId calls the GetVendorId RPC.
+func (c *DeviceClient) GetVendorId(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetVendorId(ctx, &pb.GetVendorIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVersion calls the GetVersion RPC.
+func (c *DeviceClient) GetVersion(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetVersion(ctx, &pb.GetVersionRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *DeviceClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *DeviceClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *DeviceClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// GetDeviceId1_1 calls the GetDeviceId1_1 RPC.
+func (c *DeviceClient) GetDeviceId1_1(ctx context.Context, arg0 string) (int32, error) {
+	resp, err := c.svc.GetDeviceId1_1(ctx, &pb.GetDeviceId1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDeviceName1_1 calls the GetDeviceName1_1 RPC.
+func (c *DeviceClient) GetDeviceName1_1(ctx context.Context, arg0 int32) (string, error) {
+	resp, err := c.svc.GetDeviceName1_1(ctx, &pb.GetDeviceName1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// EndpointClient wraps the gRPC EndpointService client.
+type EndpointClient struct {
+	svc pb.EndpointServiceClient
+}
+
+// NewEndpointClient creates a new Endpoint client.
+func NewEndpointClient(cc grpc.ClientConnInterface) *EndpointClient {
+	return &EndpointClient{
+		svc: pb.NewEndpointServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *EndpointClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAddress calls the GetAddress RPC.
+func (c *EndpointClient) GetAddress(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetAddress(ctx, &pb.GetAddressRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAttributes calls the GetAttributes RPC.
+func (c *EndpointClient) GetAttributes(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetAttributes(ctx, &pb.GetAttributesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDirection calls the GetDirection RPC.
+func (c *EndpointClient) GetDirection(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetDirection(ctx, &pb.GetDirectionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEndpointNumber calls the GetEndpointNumber RPC.
+func (c *EndpointClient) GetEndpointNumber(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetEndpointNumber(ctx, &pb.GetEndpointNumberRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInterval calls the GetInterval RPC.
+func (c *EndpointClient) GetInterval(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetInterval(ctx, &pb.GetIntervalRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMaxPacketSize calls the GetMaxPacketSize RPC.
+func (c *EndpointClient) GetMaxPacketSize(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMaxPacketSize(ctx, &pb.GetMaxPacketSizeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetType calls the GetType RPC.
+func (c *EndpointClient) GetType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetType(ctx, &pb.GetTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *EndpointClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *EndpointClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
 // ManagerClient wraps the gRPC ManagerService client.
 type ManagerClient struct {
 	svc pb.ManagerServiceClient
@@ -112,4 +434,583 @@ func (c *ManagerClient) RequestPermission2_1(ctx context.Context, arg0 int64, ar
 		Arg1: arg1,
 	})
 	return err
+}
+
+// InterfaceClient wraps the gRPC InterfaceService client.
+type InterfaceClient struct {
+	svc pb.InterfaceServiceClient
+}
+
+// NewInterfaceClient creates a new Interface client.
+func NewInterfaceClient(cc grpc.ClientConnInterface) *InterfaceClient {
+	return &InterfaceClient{
+		svc: pb.NewInterfaceServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *InterfaceClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAlternateSetting calls the GetAlternateSetting RPC.
+func (c *InterfaceClient) GetAlternateSetting(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetAlternateSetting(ctx, &pb.GetAlternateSettingRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEndpoint calls the GetEndpoint RPC.
+func (c *InterfaceClient) GetEndpoint(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetEndpoint(ctx, &pb.GetEndpointRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEndpointCount calls the GetEndpointCount RPC.
+func (c *InterfaceClient) GetEndpointCount(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetEndpointCount(ctx, &pb.GetEndpointCountRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetId calls the GetId RPC.
+func (c *InterfaceClient) GetId(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInterfaceClass calls the GetInterfaceClass RPC.
+func (c *InterfaceClient) GetInterfaceClass(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetInterfaceClass(ctx, &pb.GetInterfaceClassRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInterfaceProtocol calls the GetInterfaceProtocol RPC.
+func (c *InterfaceClient) GetInterfaceProtocol(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetInterfaceProtocol(ctx, &pb.GetInterfaceProtocolRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInterfaceSubclass calls the GetInterfaceSubclass RPC.
+func (c *InterfaceClient) GetInterfaceSubclass(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetInterfaceSubclass(ctx, &pb.GetInterfaceSubclassRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetName calls the GetName RPC.
+func (c *InterfaceClient) GetName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetName(ctx, &pb.GetNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *InterfaceClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *InterfaceClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// RequestClient wraps the gRPC RequestService client.
+type RequestClient struct {
+	svc pb.RequestServiceClient
+}
+
+// NewRequestClient creates a new Request client.
+func NewRequestClient(cc grpc.ClientConnInterface) *RequestClient {
+	return &RequestClient{
+		svc: pb.NewRequestServiceClient(cc),
+	}
+}
+
+// Cancel calls the Cancel RPC.
+func (c *RequestClient) Cancel(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.Cancel(ctx, &pb.CancelRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Close calls the Close RPC.
+func (c *RequestClient) Close(ctx context.Context, handle int64) error {
+	_, err := c.svc.Close(ctx, &pb.CloseRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// GetClientData calls the GetClientData RPC.
+func (c *RequestClient) GetClientData(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetClientData(ctx, &pb.GetClientDataRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEndpoint calls the GetEndpoint RPC.
+func (c *RequestClient) GetEndpoint(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetEndpoint(ctx, &pb.RequestGetEndpointRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Initialize calls the Initialize RPC.
+func (c *RequestClient) Initialize(ctx context.Context, handle int64, arg0 int64, arg1 int64) (bool, error) {
+	resp, err := c.svc.Initialize(ctx, &pb.InitializeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetClientData calls the SetClientData RPC.
+func (c *RequestClient) SetClientData(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetClientData(ctx, &pb.SetClientDataRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// ConfigurationClient wraps the gRPC ConfigurationService client.
+type ConfigurationClient struct {
+	svc pb.ConfigurationServiceClient
+}
+
+// NewConfigurationClient creates a new Configuration client.
+func NewConfigurationClient(cc grpc.ClientConnInterface) *ConfigurationClient {
+	return &ConfigurationClient{
+		svc: pb.NewConfigurationServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ConfigurationClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetId calls the GetId RPC.
+func (c *ConfigurationClient) GetId(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInterface calls the GetInterface RPC.
+func (c *ConfigurationClient) GetInterface(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetInterface(ctx, &pb.GetInterfaceRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInterfaceCount calls the GetInterfaceCount RPC.
+func (c *ConfigurationClient) GetInterfaceCount(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetInterfaceCount(ctx, &pb.GetInterfaceCountRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMaxPower calls the GetMaxPower RPC.
+func (c *ConfigurationClient) GetMaxPower(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMaxPower(ctx, &pb.GetMaxPowerRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetName calls the GetName RPC.
+func (c *ConfigurationClient) GetName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetName(ctx, &pb.GetNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsRemoteWakeup calls the IsRemoteWakeup RPC.
+func (c *ConfigurationClient) IsRemoteWakeup(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsRemoteWakeup(ctx, &pb.IsRemoteWakeupRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsSelfPowered calls the IsSelfPowered RPC.
+func (c *ConfigurationClient) IsSelfPowered(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsSelfPowered(ctx, &pb.IsSelfPoweredRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *ConfigurationClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ConfigurationClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// AccessoryClient wraps the gRPC AccessoryService client.
+type AccessoryClient struct {
+	svc pb.AccessoryServiceClient
+}
+
+// NewAccessoryClient creates a new Accessory client.
+func NewAccessoryClient(cc grpc.ClientConnInterface) *AccessoryClient {
+	return &AccessoryClient{
+		svc: pb.NewAccessoryServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *AccessoryClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *AccessoryClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDescription calls the GetDescription RPC.
+func (c *AccessoryClient) GetDescription(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetDescription(ctx, &pb.GetDescriptionRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetManufacturer calls the GetManufacturer RPC.
+func (c *AccessoryClient) GetManufacturer(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetManufacturer(ctx, &pb.GetManufacturerRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetModel calls the GetModel RPC.
+func (c *AccessoryClient) GetModel(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetModel(ctx, &pb.GetModelRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSerial calls the GetSerial RPC.
+func (c *AccessoryClient) GetSerial(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetSerial(ctx, &pb.GetSerialRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUri calls the GetUri RPC.
+func (c *AccessoryClient) GetUri(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetUri(ctx, &pb.GetUriRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVersion calls the GetVersion RPC.
+func (c *AccessoryClient) GetVersion(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetVersion(ctx, &pb.GetVersionRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *AccessoryClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *AccessoryClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *AccessoryClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// DeviceConnectionClient wraps the gRPC DeviceConnectionService client.
+type DeviceConnectionClient struct {
+	svc pb.DeviceConnectionServiceClient
+}
+
+// NewDeviceConnectionClient creates a new DeviceConnection client.
+func NewDeviceConnectionClient(cc grpc.ClientConnInterface) *DeviceConnectionClient {
+	return &DeviceConnectionClient{
+		svc: pb.NewDeviceConnectionServiceClient(cc),
+	}
+}
+
+// BulkTransfer4 calls the BulkTransfer4 RPC.
+func (c *DeviceConnectionClient) BulkTransfer4(ctx context.Context, arg0 int64, arg1 int64, arg2 int32, arg3 int32) (int32, error) {
+	resp, err := c.svc.BulkTransfer4(ctx, &pb.BulkTransfer4Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// BulkTransfer5_1 calls the BulkTransfer5_1 RPC.
+func (c *DeviceConnectionClient) BulkTransfer5_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int32, arg3 int32, arg4 int32) (int32, error) {
+	resp, err := c.svc.BulkTransfer5_1(ctx, &pb.BulkTransfer5_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClaimInterface calls the ClaimInterface RPC.
+func (c *DeviceConnectionClient) ClaimInterface(ctx context.Context, arg0 int64, arg1 bool) (bool, error) {
+	resp, err := c.svc.ClaimInterface(ctx, &pb.ClaimInterfaceRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Close calls the Close RPC.
+func (c *DeviceConnectionClient) Close(ctx context.Context) error {
+	_, err := c.svc.Close(ctx, &pb.DeviceConnectionCloseRequest{})
+	return err
+}
+
+// ControlTransfer7 calls the ControlTransfer7 RPC.
+func (c *DeviceConnectionClient) ControlTransfer7(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int64, arg5 int32, arg6 int32) (int32, error) {
+	resp, err := c.svc.ControlTransfer7(ctx, &pb.ControlTransfer7Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+		Arg6: arg6,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ControlTransfer8_1 calls the ControlTransfer8_1 RPC.
+func (c *DeviceConnectionClient) ControlTransfer8_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int64, arg5 int32, arg6 int32, arg7 int32) (int32, error) {
+	resp, err := c.svc.ControlTransfer8_1(ctx, &pb.ControlTransfer8_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+		Arg6: arg6,
+		Arg7: arg7,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFileDescriptor calls the GetFileDescriptor RPC.
+func (c *DeviceConnectionClient) GetFileDescriptor(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetFileDescriptor(ctx, &pb.GetFileDescriptorRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRawDescriptors calls the GetRawDescriptors RPC.
+func (c *DeviceConnectionClient) GetRawDescriptors(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetRawDescriptors(ctx, &pb.GetRawDescriptorsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSerial calls the GetSerial RPC.
+func (c *DeviceConnectionClient) GetSerial(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetSerial(ctx, &pb.GetSerialRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// ReleaseInterface calls the ReleaseInterface RPC.
+func (c *DeviceConnectionClient) ReleaseInterface(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.ReleaseInterface(ctx, &pb.ReleaseInterfaceRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RequestWait0 calls the RequestWait0 RPC.
+func (c *DeviceConnectionClient) RequestWait0(ctx context.Context) (int64, error) {
+	resp, err := c.svc.RequestWait0(ctx, &pb.RequestWait0Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RequestWait1_1 calls the RequestWait1_1 RPC.
+func (c *DeviceConnectionClient) RequestWait1_1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.RequestWait1_1(ctx, &pb.RequestWait1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetConfiguration calls the SetConfiguration RPC.
+func (c *DeviceConnectionClient) SetConfiguration(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.SetConfiguration(ctx, &pb.SetConfigurationRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetInterface calls the SetInterface RPC.
+func (c *DeviceConnectionClient) SetInterface(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.SetInterface(ctx, &pb.SetInterfaceRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
 }

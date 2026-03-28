@@ -5,3 +5,527 @@ syntax = "proto3";
 package recorder;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/recorder";
+
+message NewMediaRecorderRequest {
+  int64 arg0 = 1;
+}
+
+message NewMediaRecorderResponse {
+  int64 result = 1;
+}
+
+message GetActiveRecordingConfigurationRequest {
+  int64 handle = 1;
+}
+
+message GetActiveRecordingConfigurationResponse {
+  int64 result = 1;
+}
+
+message GetLogSessionIdRequest {
+  int64 handle = 1;
+}
+
+message GetLogSessionIdResponse {
+  int64 result = 1;
+}
+
+message GetMaxAmplitudeRequest {
+  int64 handle = 1;
+}
+
+message GetMaxAmplitudeResponse {
+  int32 result = 1;
+}
+
+message GetMetricsRequest {
+  int64 handle = 1;
+}
+
+message GetMetricsResponse {
+  int64 result = 1;
+}
+
+message GetPreferredDeviceRequest {
+  int64 handle = 1;
+}
+
+message GetPreferredDeviceResponse {
+  int64 result = 1;
+}
+
+message GetRoutedDeviceRequest {
+  int64 handle = 1;
+}
+
+message GetRoutedDeviceResponse {
+  int64 result = 1;
+}
+
+message GetSurfaceRequest {
+  int64 handle = 1;
+}
+
+message GetSurfaceResponse {
+  int64 result = 1;
+}
+
+message IsPrivacySensitiveRequest {
+  int64 handle = 1;
+}
+
+message IsPrivacySensitiveResponse {
+  bool result = 1;
+}
+
+message PauseRequest {
+  int64 handle = 1;
+}
+
+message PauseResponse {
+}
+
+message PrepareRequest {
+  int64 handle = 1;
+}
+
+message PrepareResponse {
+}
+
+message RegisterAudioRecordingCallbackRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message RegisterAudioRecordingCallbackResponse {
+}
+
+message ReleaseRequest {
+  int64 handle = 1;
+}
+
+message ReleaseResponse {
+}
+
+message RemoveOnRoutingChangedListenerRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message RemoveOnRoutingChangedListenerResponse {
+}
+
+message ResetRequest {
+  int64 handle = 1;
+}
+
+message ResetResponse {
+}
+
+message ResumeRequest {
+  int64 handle = 1;
+}
+
+message ResumeResponse {
+}
+
+message SetAudioChannelsRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetAudioChannelsResponse {
+}
+
+message SetAudioEncoderRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetAudioEncoderResponse {
+}
+
+message SetAudioEncodingBitRateRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetAudioEncodingBitRateResponse {
+}
+
+message SetAudioProfileRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetAudioProfileResponse {
+}
+
+message SetAudioSamplingRateRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetAudioSamplingRateResponse {
+}
+
+message SetAudioSourceRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetAudioSourceResponse {
+}
+
+message SetCameraRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetCameraResponse {
+}
+
+message SetCaptureRateRequest {
+  int64 handle = 1;
+  double arg0 = 2;
+}
+
+message SetCaptureRateResponse {
+}
+
+message SetInputSurfaceRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetInputSurfaceResponse {
+}
+
+message SetLocationRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+}
+
+message SetLocationResponse {
+}
+
+message SetLogSessionIdRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetLogSessionIdResponse {
+}
+
+message SetMaxDurationRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetMaxDurationResponse {
+}
+
+message SetMaxFileSizeRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetMaxFileSizeResponse {
+}
+
+message SetNextOutputFile1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetNextOutputFile1Response {
+}
+
+message SetNextOutputFile1_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetNextOutputFile1_1Response {
+}
+
+message SetOnErrorListenerRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetOnErrorListenerResponse {
+}
+
+message SetOnInfoListenerRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetOnInfoListenerResponse {
+}
+
+message SetOrientationHintRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetOrientationHintResponse {
+}
+
+message SetOutputFile1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetOutputFile1Response {
+}
+
+message SetOutputFile1_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetOutputFile1_1Response {
+}
+
+message SetOutputFile1_2Request {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetOutputFile1_2Response {
+}
+
+message SetOutputFormatRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetOutputFormatResponse {
+}
+
+message SetPreferredDeviceRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetPreferredDeviceResponse {
+  bool result = 1;
+}
+
+message SetPreferredMicrophoneDirectionRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetPreferredMicrophoneDirectionResponse {
+  bool result = 1;
+}
+
+message SetPreferredMicrophoneFieldDimensionRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+}
+
+message SetPreferredMicrophoneFieldDimensionResponse {
+  bool result = 1;
+}
+
+message SetPreviewDisplayRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetPreviewDisplayResponse {
+}
+
+message SetPrivacySensitiveRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetPrivacySensitiveResponse {
+}
+
+message SetProfileRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetProfileResponse {
+}
+
+message SetVideoEncoderRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetVideoEncoderResponse {
+}
+
+message SetVideoEncodingBitRateRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetVideoEncodingBitRateResponse {
+}
+
+message SetVideoEncodingProfileLevelRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message SetVideoEncodingProfileLevelResponse {
+}
+
+message SetVideoFrameRateRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetVideoFrameRateResponse {
+}
+
+message SetVideoProfileRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetVideoProfileResponse {
+}
+
+message SetVideoSizeRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message SetVideoSizeResponse {
+}
+
+message SetVideoSourceRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetVideoSourceResponse {
+}
+
+message StartRequest {
+  int64 handle = 1;
+}
+
+message StartResponse {
+}
+
+message StopRequest {
+  int64 handle = 1;
+}
+
+message StopResponse {
+}
+
+message UnregisterAudioRecordingCallbackRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message UnregisterAudioRecordingCallbackResponse {
+}
+
+message GetAudioSourceMaxRequest {
+  int64 handle = 1;
+}
+
+message GetAudioSourceMaxResponse {
+  int32 result = 1;
+}
+
+message OnErrorRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message OnErrorResponse {
+}
+
+message OnInfoRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message OnInfoResponse {
+}
+
+service MediaRecorderService {
+  rpc NewMediaRecorder (NewMediaRecorderRequest) returns (NewMediaRecorderResponse);
+  rpc GetActiveRecordingConfiguration (GetActiveRecordingConfigurationRequest) returns (GetActiveRecordingConfigurationResponse);
+  rpc GetLogSessionId (GetLogSessionIdRequest) returns (GetLogSessionIdResponse);
+  rpc GetMaxAmplitude (GetMaxAmplitudeRequest) returns (GetMaxAmplitudeResponse);
+  rpc GetMetrics (GetMetricsRequest) returns (GetMetricsResponse);
+  rpc GetPreferredDevice (GetPreferredDeviceRequest) returns (GetPreferredDeviceResponse);
+  rpc GetRoutedDevice (GetRoutedDeviceRequest) returns (GetRoutedDeviceResponse);
+  rpc GetSurface (GetSurfaceRequest) returns (GetSurfaceResponse);
+  rpc IsPrivacySensitive (IsPrivacySensitiveRequest) returns (IsPrivacySensitiveResponse);
+  rpc Pause (PauseRequest) returns (PauseResponse);
+  rpc Prepare (PrepareRequest) returns (PrepareResponse);
+  rpc RegisterAudioRecordingCallback (RegisterAudioRecordingCallbackRequest) returns (RegisterAudioRecordingCallbackResponse);
+  rpc Release (ReleaseRequest) returns (ReleaseResponse);
+  rpc RemoveOnRoutingChangedListener (RemoveOnRoutingChangedListenerRequest) returns (RemoveOnRoutingChangedListenerResponse);
+  rpc Reset (ResetRequest) returns (ResetResponse);
+  rpc Resume (ResumeRequest) returns (ResumeResponse);
+  rpc SetAudioChannels (SetAudioChannelsRequest) returns (SetAudioChannelsResponse);
+  rpc SetAudioEncoder (SetAudioEncoderRequest) returns (SetAudioEncoderResponse);
+  rpc SetAudioEncodingBitRate (SetAudioEncodingBitRateRequest) returns (SetAudioEncodingBitRateResponse);
+  rpc SetAudioProfile (SetAudioProfileRequest) returns (SetAudioProfileResponse);
+  rpc SetAudioSamplingRate (SetAudioSamplingRateRequest) returns (SetAudioSamplingRateResponse);
+  rpc SetAudioSource (SetAudioSourceRequest) returns (SetAudioSourceResponse);
+  rpc SetCamera (SetCameraRequest) returns (SetCameraResponse);
+  rpc SetCaptureRate (SetCaptureRateRequest) returns (SetCaptureRateResponse);
+  rpc SetInputSurface (SetInputSurfaceRequest) returns (SetInputSurfaceResponse);
+  rpc SetLocation (SetLocationRequest) returns (SetLocationResponse);
+  rpc SetLogSessionId (SetLogSessionIdRequest) returns (SetLogSessionIdResponse);
+  rpc SetMaxDuration (SetMaxDurationRequest) returns (SetMaxDurationResponse);
+  rpc SetMaxFileSize (SetMaxFileSizeRequest) returns (SetMaxFileSizeResponse);
+  rpc SetNextOutputFile1 (SetNextOutputFile1Request) returns (SetNextOutputFile1Response);
+  rpc SetNextOutputFile1_1 (SetNextOutputFile1_1Request) returns (SetNextOutputFile1_1Response);
+  rpc SetOnErrorListener (SetOnErrorListenerRequest) returns (SetOnErrorListenerResponse);
+  rpc SetOnInfoListener (SetOnInfoListenerRequest) returns (SetOnInfoListenerResponse);
+  rpc SetOrientationHint (SetOrientationHintRequest) returns (SetOrientationHintResponse);
+  rpc SetOutputFile1 (SetOutputFile1Request) returns (SetOutputFile1Response);
+  rpc SetOutputFile1_1 (SetOutputFile1_1Request) returns (SetOutputFile1_1Response);
+  rpc SetOutputFile1_2 (SetOutputFile1_2Request) returns (SetOutputFile1_2Response);
+  rpc SetOutputFormat (SetOutputFormatRequest) returns (SetOutputFormatResponse);
+  rpc SetPreferredDevice (SetPreferredDeviceRequest) returns (SetPreferredDeviceResponse);
+  rpc SetPreferredMicrophoneDirection (SetPreferredMicrophoneDirectionRequest) returns (SetPreferredMicrophoneDirectionResponse);
+  rpc SetPreferredMicrophoneFieldDimension (SetPreferredMicrophoneFieldDimensionRequest) returns (SetPreferredMicrophoneFieldDimensionResponse);
+  rpc SetPreviewDisplay (SetPreviewDisplayRequest) returns (SetPreviewDisplayResponse);
+  rpc SetPrivacySensitive (SetPrivacySensitiveRequest) returns (SetPrivacySensitiveResponse);
+  rpc SetProfile (SetProfileRequest) returns (SetProfileResponse);
+  rpc SetVideoEncoder (SetVideoEncoderRequest) returns (SetVideoEncoderResponse);
+  rpc SetVideoEncodingBitRate (SetVideoEncodingBitRateRequest) returns (SetVideoEncodingBitRateResponse);
+  rpc SetVideoEncodingProfileLevel (SetVideoEncodingProfileLevelRequest) returns (SetVideoEncodingProfileLevelResponse);
+  rpc SetVideoFrameRate (SetVideoFrameRateRequest) returns (SetVideoFrameRateResponse);
+  rpc SetVideoProfile (SetVideoProfileRequest) returns (SetVideoProfileResponse);
+  rpc SetVideoSize (SetVideoSizeRequest) returns (SetVideoSizeResponse);
+  rpc SetVideoSource (SetVideoSourceRequest) returns (SetVideoSourceResponse);
+  rpc Start (StartRequest) returns (StartResponse);
+  rpc Stop (StopRequest) returns (StopResponse);
+  rpc UnregisterAudioRecordingCallback (UnregisterAudioRecordingCallbackRequest) returns (UnregisterAudioRecordingCallbackResponse);
+  rpc GetAudioSourceMax (GetAudioSourceMaxRequest) returns (GetAudioSourceMaxResponse);
+}
+
+service MediaRecorderOnErrorListenerService {
+  rpc OnError (OnErrorRequest) returns (OnErrorResponse);
+}
+
+service MediaRecorderOnInfoListenerService {
+  rpc OnInfo (OnInfoRequest) returns (OnInfoResponse);
+}

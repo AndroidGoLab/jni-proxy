@@ -5,3 +5,1377 @@ syntax = "proto3";
 package params;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/params";
+
+message NewInputConfigurationRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message NewInputConfigurationResponse {
+  int64 result = 1;
+}
+
+message EqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message GetFormatRequest {
+  int64 handle = 1;
+}
+
+message GetFormatResponse {
+  int32 result = 1;
+}
+
+message GetHeightRequest {
+  int64 handle = 1;
+}
+
+message GetHeightResponse {
+  int32 result = 1;
+}
+
+message GetWidthRequest {
+  int64 handle = 1;
+}
+
+message GetWidthResponse {
+  int32 result = 1;
+}
+
+message HashCodeRequest {
+  int64 handle = 1;
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message IsMultiResolutionRequest {
+  int64 handle = 1;
+}
+
+message IsMultiResolutionResponse {
+  bool result = 1;
+}
+
+message ToStringRequest {
+  int64 handle = 1;
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message NewOisSampleRequest {
+  int64 arg0 = 1;
+  float arg1 = 2;
+  float arg2 = 3;
+}
+
+message NewOisSampleResponse {
+  int64 result = 1;
+}
+
+message GetTimestampRequest {
+  int64 handle = 1;
+}
+
+message GetTimestampResponse {
+  int64 result = 1;
+}
+
+message GetXshiftRequest {
+  int64 handle = 1;
+}
+
+message GetXshiftResponse {
+  float result = 1;
+}
+
+message GetYshiftRequest {
+  int64 handle = 1;
+}
+
+message GetYshiftResponse {
+  float result = 1;
+}
+
+message MultiResolutionStreamConfigurationMapEqualsRequest {
+  int64 arg0 = 1;
+}
+
+message GetInputFormatsRequest {
+}
+
+message GetInputFormatsResponse {
+  int64 result = 1;
+}
+
+message GetOutputFormatsRequest {
+}
+
+message GetOutputFormatsResponse {
+  int64 result = 1;
+}
+
+message MultiResolutionStreamConfigurationMapHashCodeRequest {
+}
+
+message MultiResolutionStreamConfigurationMapToStringRequest {
+}
+
+message MandatoryStreamCombinationEqualsRequest {
+  int64 arg0 = 1;
+}
+
+message GetDescriptionRequest {
+}
+
+message GetDescriptionResponse {
+  int64 result = 1;
+}
+
+message MandatoryStreamCombinationHashCodeRequest {
+}
+
+message IsReprocessableRequest {
+}
+
+message IsReprocessableResponse {
+  bool result = 1;
+}
+
+message MandatoryStreamCombinationMandatoryStreamInformationEqualsRequest {
+  int64 arg0 = 1;
+}
+
+message Get10BitFormatRequest {
+}
+
+message Get10BitFormatResponse {
+  int32 result = 1;
+}
+
+message MandatoryStreamCombinationMandatoryStreamInformationGetFormatRequest {
+}
+
+message GetStreamUseCaseRequest {
+}
+
+message GetStreamUseCaseResponse {
+  int64 result = 1;
+}
+
+message MandatoryStreamCombinationMandatoryStreamInformationHashCodeRequest {
+}
+
+message Is10BitCapableRequest {
+}
+
+message Is10BitCapableResponse {
+  bool result = 1;
+}
+
+message IsInputRequest {
+}
+
+message IsInputResponse {
+  bool result = 1;
+}
+
+message IsMaximumSizeRequest {
+}
+
+message IsMaximumSizeResponse {
+  bool result = 1;
+}
+
+message IsUltraHighResolutionRequest {
+}
+
+message IsUltraHighResolutionResponse {
+  bool result = 1;
+}
+
+message NewDynamicRangeProfilesRequest {
+  int64 arg0 = 1;
+}
+
+message NewDynamicRangeProfilesResponse {
+  int64 result = 1;
+}
+
+message IsExtraLatencyPresentRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message IsExtraLatencyPresentResponse {
+  bool result = 1;
+}
+
+message NewMultiResolutionStreamInfoRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  string arg2 = 3;
+}
+
+message NewMultiResolutionStreamInfoResponse {
+  int64 result = 1;
+}
+
+message GetPhysicalCameraIdRequest {
+  int64 handle = 1;
+}
+
+message GetPhysicalCameraIdResponse {
+  string result = 1;
+}
+
+message NewExtensionSessionConfigurationRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message NewExtensionSessionConfigurationResponse {
+  int64 result = 1;
+}
+
+message ClearColorSpaceRequest {
+  int64 handle = 1;
+}
+
+message ClearColorSpaceResponse {
+}
+
+message GetColorSpaceRequest {
+  int64 handle = 1;
+}
+
+message GetColorSpaceResponse {
+  int64 result = 1;
+}
+
+message GetExecutorRequest {
+  int64 handle = 1;
+}
+
+message GetExecutorResponse {
+  int64 result = 1;
+}
+
+message GetExtensionRequest {
+  int64 handle = 1;
+}
+
+message GetExtensionResponse {
+  int32 result = 1;
+}
+
+message GetPostviewOutputConfigurationRequest {
+  int64 handle = 1;
+}
+
+message GetPostviewOutputConfigurationResponse {
+  int64 result = 1;
+}
+
+message GetStateCallbackRequest {
+  int64 handle = 1;
+}
+
+message GetStateCallbackResponse {
+  int64 result = 1;
+}
+
+message SetColorSpaceRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetColorSpaceResponse {
+}
+
+message SetPostviewOutputConfigurationRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetPostviewOutputConfigurationResponse {
+}
+
+message NewColorSpaceTransformRequest {
+  int64 arg0 = 1;
+}
+
+message NewColorSpaceTransformResponse {
+  int64 result = 1;
+}
+
+message CopyElements2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message CopyElements2Response {
+}
+
+message CopyElements2_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message CopyElements2_1Response {
+}
+
+message GetElementRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message GetElementResponse {
+  int64 result = 1;
+}
+
+message NewSessionConfigurationRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewSessionConfigurationResponse {
+  int64 result = 1;
+}
+
+message DescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message GetInputConfigurationRequest {
+  int64 handle = 1;
+}
+
+message GetInputConfigurationResponse {
+  int64 result = 1;
+}
+
+message GetSessionParametersRequest {
+  int64 handle = 1;
+}
+
+message GetSessionParametersResponse {
+  int64 result = 1;
+}
+
+message GetSessionTypeRequest {
+  int64 handle = 1;
+}
+
+message GetSessionTypeResponse {
+  int32 result = 1;
+}
+
+message SetInputConfigurationRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetInputConfigurationResponse {
+}
+
+message SetSessionParametersRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetSessionParametersResponse {
+}
+
+message SetStateCallbackRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message SetStateCallbackResponse {
+}
+
+message WriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message WriteToParcelResponse {
+}
+
+message DeviceStateSensorOrientationMapEqualsRequest {
+  int64 arg0 = 1;
+}
+
+message GetSensorOrientationRequest {
+  int64 arg0 = 1;
+}
+
+message GetSensorOrientationResponse {
+  int32 result = 1;
+}
+
+message DeviceStateSensorOrientationMapHashCodeRequest {
+}
+
+message AddOrientationForStateRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message AddOrientationForStateResponse {
+  int64 result = 1;
+}
+
+message BuildRequest {
+}
+
+message BuildResponse {
+  int64 result = 1;
+}
+
+message NewTonemapCurveRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message NewTonemapCurveResponse {
+  int64 result = 1;
+}
+
+message CopyColorCurveRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
+  int32 arg2 = 4;
+}
+
+message CopyColorCurveResponse {
+}
+
+message GetPointRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message GetPointResponse {
+  int64 result = 1;
+}
+
+message GetPointCountRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetPointCountResponse {
+  int32 result = 1;
+}
+
+message NewCapabilityRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message NewCapabilityResponse {
+  int64 result = 1;
+}
+
+message GetMaxStreamingSizeRequest {
+  int64 handle = 1;
+}
+
+message GetMaxStreamingSizeResponse {
+  int64 result = 1;
+}
+
+message GetModeRequest {
+  int64 handle = 1;
+}
+
+message GetModeResponse {
+  int32 result = 1;
+}
+
+message NewBlackLevelPatternRequest {
+  int64 arg0 = 1;
+}
+
+message NewBlackLevelPatternResponse {
+  int64 result = 1;
+}
+
+message CopyToRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message CopyToResponse {
+}
+
+message GetOffsetForIndexRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message GetOffsetForIndexResponse {
+  int32 result = 1;
+}
+
+message CopyGainFactorsRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message CopyGainFactorsResponse {
+}
+
+message LensShadingMapEqualsRequest {
+  int64 arg0 = 1;
+}
+
+message GetColumnCountRequest {
+}
+
+message GetColumnCountResponse {
+  int32 result = 1;
+}
+
+message GetGainFactorRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message GetGainFactorResponse {
+  float result = 1;
+}
+
+message GetGainFactorCountRequest {
+}
+
+message GetGainFactorCountResponse {
+  int32 result = 1;
+}
+
+message GetGainFactorVectorRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message GetGainFactorVectorResponse {
+  int64 result = 1;
+}
+
+message GetRowCountRequest {
+}
+
+message GetRowCountResponse {
+  int32 result = 1;
+}
+
+message LensShadingMapHashCodeRequest {
+}
+
+message LensShadingMapToStringRequest {
+}
+
+message NewMeteringRectangleRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message NewMeteringRectangleResponse {
+  int64 result = 1;
+}
+
+message Equals1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message Equals1Response {
+  bool result = 1;
+}
+
+message Equals1_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message Equals1_1Response {
+  bool result = 1;
+}
+
+message GetMeteringWeightRequest {
+  int64 handle = 1;
+}
+
+message GetMeteringWeightResponse {
+  int32 result = 1;
+}
+
+message GetRectRequest {
+  int64 handle = 1;
+}
+
+message GetRectResponse {
+  int64 result = 1;
+}
+
+message GetSizeRequest {
+  int64 handle = 1;
+}
+
+message GetSizeResponse {
+  int64 result = 1;
+}
+
+message GetUpperLeftPointRequest {
+  int64 handle = 1;
+}
+
+message GetUpperLeftPointResponse {
+  int64 result = 1;
+}
+
+message GetXRequest {
+  int64 handle = 1;
+}
+
+message GetXResponse {
+  int32 result = 1;
+}
+
+message GetYRequest {
+  int64 handle = 1;
+}
+
+message GetYResponse {
+  int32 result = 1;
+}
+
+message GetOutputMinFrameDurationRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message GetOutputMinFrameDurationResponse {
+  int64 result = 1;
+}
+
+message GetOutputStallDurationRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message GetOutputStallDurationResponse {
+  int64 result = 1;
+}
+
+message GetRecommendedUseCaseRequest {
+}
+
+message GetRecommendedUseCaseResponse {
+  int32 result = 1;
+}
+
+message IsOutputSupportedFor1Request {
+  int64 arg0 = 1;
+}
+
+message IsOutputSupportedFor1Response {
+  bool result = 1;
+}
+
+message IsOutputSupportedFor1_1Request {
+  int32 arg0 = 1;
+}
+
+message IsOutputSupportedFor1_1Response {
+  bool result = 1;
+}
+
+message NewOutputConfigurationRequest {
+  int64 arg0 = 1;
+}
+
+message NewOutputConfigurationResponse {
+  int64 result = 1;
+}
+
+message AddSensorPixelModeUsedRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message AddSensorPixelModeUsedResponse {
+}
+
+message AddSurfaceRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AddSurfaceResponse {
+}
+
+message EnableSurfaceSharingRequest {
+  int64 handle = 1;
+}
+
+message EnableSurfaceSharingResponse {
+}
+
+message GetDynamicRangeProfileRequest {
+  int64 handle = 1;
+}
+
+message GetDynamicRangeProfileResponse {
+  int64 result = 1;
+}
+
+message GetMaxSharedSurfaceCountRequest {
+  int64 handle = 1;
+}
+
+message GetMaxSharedSurfaceCountResponse {
+  int32 result = 1;
+}
+
+message GetMirrorMode0Request {
+  int64 handle = 1;
+}
+
+message GetMirrorMode0Response {
+  int32 result = 1;
+}
+
+message GetMirrorMode1_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetMirrorMode1_1Response {
+  int32 result = 1;
+}
+
+message OutputConfigurationGetStreamUseCaseRequest {
+  int64 handle = 1;
+}
+
+message GetSurfaceRequest {
+  int64 handle = 1;
+}
+
+message GetSurfaceResponse {
+  int64 result = 1;
+}
+
+message GetSurfaceGroupIdRequest {
+  int64 handle = 1;
+}
+
+message GetSurfaceGroupIdResponse {
+  int32 result = 1;
+}
+
+message GetTimestampBaseRequest {
+  int64 handle = 1;
+}
+
+message GetTimestampBaseResponse {
+  int32 result = 1;
+}
+
+message IsReadoutTimestampEnabledRequest {
+  int64 handle = 1;
+}
+
+message IsReadoutTimestampEnabledResponse {
+  bool result = 1;
+}
+
+message RemoveSensorPixelModeUsedRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message RemoveSensorPixelModeUsedResponse {
+}
+
+message RemoveSurfaceRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message RemoveSurfaceResponse {
+}
+
+message SetDynamicRangeProfileRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetDynamicRangeProfileResponse {
+}
+
+message SetMirrorMode2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message SetMirrorMode2Response {
+}
+
+message SetMirrorMode1_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetMirrorMode1_1Response {
+}
+
+message SetPhysicalCameraIdRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetPhysicalCameraIdResponse {
+}
+
+message SetReadoutTimestampEnabledRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetReadoutTimestampEnabledResponse {
+}
+
+message SetStreamUseCaseRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetStreamUseCaseResponse {
+}
+
+message SetTimestampBaseRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetTimestampBaseResponse {
+}
+
+message NewLensIntrinsicsSampleRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewLensIntrinsicsSampleResponse {
+  int64 result = 1;
+}
+
+message GetLensIntrinsicsRequest {
+  int64 handle = 1;
+}
+
+message GetLensIntrinsicsResponse {
+  int64 result = 1;
+}
+
+message GetTimestampNanosRequest {
+  int64 handle = 1;
+}
+
+message GetTimestampNanosResponse {
+  int64 result = 1;
+}
+
+message GetBoundsRequest {
+}
+
+message GetBoundsResponse {
+  int64 result = 1;
+}
+
+message GetIdRequest {
+}
+
+message GetIdResponse {
+  int32 result = 1;
+}
+
+message GetLeftEyePositionRequest {
+}
+
+message GetLeftEyePositionResponse {
+  int64 result = 1;
+}
+
+message GetMouthPositionRequest {
+}
+
+message GetMouthPositionResponse {
+  int64 result = 1;
+}
+
+message GetRightEyePositionRequest {
+}
+
+message GetRightEyePositionResponse {
+  int64 result = 1;
+}
+
+message GetScoreRequest {
+}
+
+message GetScoreResponse {
+  int32 result = 1;
+}
+
+message FaceToStringRequest {
+}
+
+message SetBoundsRequest {
+  int64 arg0 = 1;
+}
+
+message SetBoundsResponse {
+  int64 result = 1;
+}
+
+message SetIdRequest {
+  int32 arg0 = 1;
+}
+
+message SetIdResponse {
+  int64 result = 1;
+}
+
+message SetLeftEyePositionRequest {
+  int64 arg0 = 1;
+}
+
+message SetLeftEyePositionResponse {
+  int64 result = 1;
+}
+
+message SetMouthPositionRequest {
+  int64 arg0 = 1;
+}
+
+message SetMouthPositionResponse {
+  int64 result = 1;
+}
+
+message SetRightEyePositionRequest {
+  int64 arg0 = 1;
+}
+
+message SetRightEyePositionResponse {
+  int64 result = 1;
+}
+
+message SetScoreRequest {
+  int32 arg0 = 1;
+}
+
+message SetScoreResponse {
+  int64 result = 1;
+}
+
+message StreamConfigurationMapEqualsRequest {
+  int64 arg0 = 1;
+}
+
+message GetHighResolutionOutputSizesRequest {
+  int32 arg0 = 1;
+}
+
+message GetHighResolutionOutputSizesResponse {
+  int64 result = 1;
+}
+
+message GetHighSpeedVideoSizesRequest {
+}
+
+message GetHighSpeedVideoSizesResponse {
+  int64 result = 1;
+}
+
+message GetInputSizesRequest {
+  int32 arg0 = 1;
+}
+
+message GetInputSizesResponse {
+  int64 result = 1;
+}
+
+message GetOutputSizesRequest {
+  int32 arg0 = 1;
+}
+
+message GetOutputSizesResponse {
+  int64 result = 1;
+}
+
+message GetValidOutputFormatsForInputRequest {
+  int32 arg0 = 1;
+}
+
+message GetValidOutputFormatsForInputResponse {
+  int64 result = 1;
+}
+
+message StreamConfigurationMapHashCodeRequest {
+}
+
+message StreamConfigurationMapToStringRequest {
+}
+
+message NewRggbChannelVectorRequest {
+  float arg0 = 1;
+  float arg1 = 2;
+  float arg2 = 3;
+  float arg3 = 4;
+}
+
+message NewRggbChannelVectorResponse {
+  int64 result = 1;
+}
+
+message GetBlueRequest {
+  int64 handle = 1;
+}
+
+message GetBlueResponse {
+  float result = 1;
+}
+
+message GetComponentRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetComponentResponse {
+  float result = 1;
+}
+
+message GetGreenEvenRequest {
+  int64 handle = 1;
+}
+
+message GetGreenEvenResponse {
+  float result = 1;
+}
+
+message GetGreenOddRequest {
+  int64 handle = 1;
+}
+
+message GetGreenOddResponse {
+  float result = 1;
+}
+
+message GetRedRequest {
+  int64 handle = 1;
+}
+
+message GetRedResponse {
+  float result = 1;
+}
+
+service InputConfigurationService {
+  rpc NewInputConfiguration (NewInputConfigurationRequest) returns (NewInputConfigurationResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetFormat (GetFormatRequest) returns (GetFormatResponse);
+  rpc GetHeight (GetHeightRequest) returns (GetHeightResponse);
+  rpc GetWidth (GetWidthRequest) returns (GetWidthResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc IsMultiResolution (IsMultiResolutionRequest) returns (IsMultiResolutionResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service OisSampleService {
+  rpc NewOisSample (NewOisSampleRequest) returns (NewOisSampleResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetTimestamp (GetTimestampRequest) returns (GetTimestampResponse);
+  rpc GetXshift (GetXshiftRequest) returns (GetXshiftResponse);
+  rpc GetYshift (GetYshiftRequest) returns (GetYshiftResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service MultiResolutionStreamConfigurationMapService {
+  rpc Equals (MultiResolutionStreamConfigurationMapEqualsRequest) returns (EqualsResponse);
+  rpc GetInputFormats (GetInputFormatsRequest) returns (GetInputFormatsResponse);
+  rpc GetOutputFormats (GetOutputFormatsRequest) returns (GetOutputFormatsResponse);
+  rpc HashCode (MultiResolutionStreamConfigurationMapHashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (MultiResolutionStreamConfigurationMapToStringRequest) returns (ToStringResponse);
+}
+
+service MandatoryStreamCombinationService {
+  rpc Equals (MandatoryStreamCombinationEqualsRequest) returns (EqualsResponse);
+  rpc GetDescription (GetDescriptionRequest) returns (GetDescriptionResponse);
+  rpc HashCode (MandatoryStreamCombinationHashCodeRequest) returns (HashCodeResponse);
+  rpc IsReprocessable (IsReprocessableRequest) returns (IsReprocessableResponse);
+}
+
+service MandatoryStreamCombinationMandatoryStreamInformationService {
+  rpc Equals (MandatoryStreamCombinationMandatoryStreamInformationEqualsRequest) returns (EqualsResponse);
+  rpc Get10BitFormat (Get10BitFormatRequest) returns (Get10BitFormatResponse);
+  rpc GetFormat (MandatoryStreamCombinationMandatoryStreamInformationGetFormatRequest) returns (GetFormatResponse);
+  rpc GetStreamUseCase (GetStreamUseCaseRequest) returns (GetStreamUseCaseResponse);
+  rpc HashCode (MandatoryStreamCombinationMandatoryStreamInformationHashCodeRequest) returns (HashCodeResponse);
+  rpc Is10BitCapable (Is10BitCapableRequest) returns (Is10BitCapableResponse);
+  rpc IsInput (IsInputRequest) returns (IsInputResponse);
+  rpc IsMaximumSize (IsMaximumSizeRequest) returns (IsMaximumSizeResponse);
+  rpc IsUltraHighResolution (IsUltraHighResolutionRequest) returns (IsUltraHighResolutionResponse);
+}
+
+service DynamicRangeProfilesService {
+  rpc NewDynamicRangeProfiles (NewDynamicRangeProfilesRequest) returns (NewDynamicRangeProfilesResponse);
+  rpc IsExtraLatencyPresent (IsExtraLatencyPresentRequest) returns (IsExtraLatencyPresentResponse);
+}
+
+service MultiResolutionStreamInfoService {
+  rpc NewMultiResolutionStreamInfo (NewMultiResolutionStreamInfoRequest) returns (NewMultiResolutionStreamInfoResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetHeight (GetHeightRequest) returns (GetHeightResponse);
+  rpc GetPhysicalCameraId (GetPhysicalCameraIdRequest) returns (GetPhysicalCameraIdResponse);
+  rpc GetWidth (GetWidthRequest) returns (GetWidthResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service ExtensionSessionConfigurationService {
+  rpc NewExtensionSessionConfiguration (NewExtensionSessionConfigurationRequest) returns (NewExtensionSessionConfigurationResponse);
+  rpc ClearColorSpace (ClearColorSpaceRequest) returns (ClearColorSpaceResponse);
+  rpc GetColorSpace (GetColorSpaceRequest) returns (GetColorSpaceResponse);
+  rpc GetExecutor (GetExecutorRequest) returns (GetExecutorResponse);
+  rpc GetExtension (GetExtensionRequest) returns (GetExtensionResponse);
+  rpc GetPostviewOutputConfiguration (GetPostviewOutputConfigurationRequest) returns (GetPostviewOutputConfigurationResponse);
+  rpc GetStateCallback (GetStateCallbackRequest) returns (GetStateCallbackResponse);
+  rpc SetColorSpace (SetColorSpaceRequest) returns (SetColorSpaceResponse);
+  rpc SetPostviewOutputConfiguration (SetPostviewOutputConfigurationRequest) returns (SetPostviewOutputConfigurationResponse);
+}
+
+service ColorSpaceTransformService {
+  rpc NewColorSpaceTransform (NewColorSpaceTransformRequest) returns (NewColorSpaceTransformResponse);
+  rpc CopyElements2 (CopyElements2Request) returns (CopyElements2Response);
+  rpc CopyElements2_1 (CopyElements2_1Request) returns (CopyElements2_1Response);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetElement (GetElementRequest) returns (GetElementResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service SessionConfigurationService {
+  rpc NewSessionConfiguration (NewSessionConfigurationRequest) returns (NewSessionConfigurationResponse);
+  rpc ClearColorSpace (ClearColorSpaceRequest) returns (ClearColorSpaceResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetColorSpace (GetColorSpaceRequest) returns (GetColorSpaceResponse);
+  rpc GetExecutor (GetExecutorRequest) returns (GetExecutorResponse);
+  rpc GetInputConfiguration (GetInputConfigurationRequest) returns (GetInputConfigurationResponse);
+  rpc GetSessionParameters (GetSessionParametersRequest) returns (GetSessionParametersResponse);
+  rpc GetSessionType (GetSessionTypeRequest) returns (GetSessionTypeResponse);
+  rpc GetStateCallback (GetStateCallbackRequest) returns (GetStateCallbackResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc SetColorSpace (SetColorSpaceRequest) returns (SetColorSpaceResponse);
+  rpc SetInputConfiguration (SetInputConfigurationRequest) returns (SetInputConfigurationResponse);
+  rpc SetSessionParameters (SetSessionParametersRequest) returns (SetSessionParametersResponse);
+  rpc SetStateCallback (SetStateCallbackRequest) returns (SetStateCallbackResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service DeviceStateSensorOrientationMapService {
+  rpc Equals (DeviceStateSensorOrientationMapEqualsRequest) returns (EqualsResponse);
+  rpc GetSensorOrientation (GetSensorOrientationRequest) returns (GetSensorOrientationResponse);
+  rpc HashCode (DeviceStateSensorOrientationMapHashCodeRequest) returns (HashCodeResponse);
+}
+
+service DeviceStateSensorOrientationMapBuilderService {
+  rpc AddOrientationForState (AddOrientationForStateRequest) returns (AddOrientationForStateResponse);
+  rpc Build (BuildRequest) returns (BuildResponse);
+}
+
+service TonemapCurveService {
+  rpc NewTonemapCurve (NewTonemapCurveRequest) returns (NewTonemapCurveResponse);
+  rpc CopyColorCurve (CopyColorCurveRequest) returns (CopyColorCurveResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetPoint (GetPointRequest) returns (GetPointResponse);
+  rpc GetPointCount (GetPointCountRequest) returns (GetPointCountResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service CapabilityService {
+  rpc NewCapability (NewCapabilityRequest) returns (NewCapabilityResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetMaxStreamingSize (GetMaxStreamingSizeRequest) returns (GetMaxStreamingSizeResponse);
+  rpc GetMode (GetModeRequest) returns (GetModeResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service BlackLevelPatternService {
+  rpc NewBlackLevelPattern (NewBlackLevelPatternRequest) returns (NewBlackLevelPatternResponse);
+  rpc CopyTo (CopyToRequest) returns (CopyToResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetOffsetForIndex (GetOffsetForIndexRequest) returns (GetOffsetForIndexResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service LensShadingMapService {
+  rpc CopyGainFactors (CopyGainFactorsRequest) returns (CopyGainFactorsResponse);
+  rpc Equals (LensShadingMapEqualsRequest) returns (EqualsResponse);
+  rpc GetColumnCount (GetColumnCountRequest) returns (GetColumnCountResponse);
+  rpc GetGainFactor (GetGainFactorRequest) returns (GetGainFactorResponse);
+  rpc GetGainFactorCount (GetGainFactorCountRequest) returns (GetGainFactorCountResponse);
+  rpc GetGainFactorVector (GetGainFactorVectorRequest) returns (GetGainFactorVectorResponse);
+  rpc GetRowCount (GetRowCountRequest) returns (GetRowCountResponse);
+  rpc HashCode (LensShadingMapHashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (LensShadingMapToStringRequest) returns (ToStringResponse);
+}
+
+service MeteringRectangleService {
+  rpc NewMeteringRectangle (NewMeteringRectangleRequest) returns (NewMeteringRectangleResponse);
+  rpc Equals1 (Equals1Request) returns (Equals1Response);
+  rpc Equals1_1 (Equals1_1Request) returns (Equals1_1Response);
+  rpc GetHeight (GetHeightRequest) returns (GetHeightResponse);
+  rpc GetMeteringWeight (GetMeteringWeightRequest) returns (GetMeteringWeightResponse);
+  rpc GetRect (GetRectRequest) returns (GetRectResponse);
+  rpc GetSize (GetSizeRequest) returns (GetSizeResponse);
+  rpc GetUpperLeftPoint (GetUpperLeftPointRequest) returns (GetUpperLeftPointResponse);
+  rpc GetWidth (GetWidthRequest) returns (GetWidthResponse);
+  rpc GetX (GetXRequest) returns (GetXResponse);
+  rpc GetY (GetYRequest) returns (GetYResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service RecommendedStreamConfigurationMapService {
+  rpc GetOutputMinFrameDuration (GetOutputMinFrameDurationRequest) returns (GetOutputMinFrameDurationResponse);
+  rpc GetOutputStallDuration (GetOutputStallDurationRequest) returns (GetOutputStallDurationResponse);
+  rpc GetRecommendedUseCase (GetRecommendedUseCaseRequest) returns (GetRecommendedUseCaseResponse);
+  rpc IsOutputSupportedFor1 (IsOutputSupportedFor1Request) returns (IsOutputSupportedFor1Response);
+  rpc IsOutputSupportedFor1_1 (IsOutputSupportedFor1_1Request) returns (IsOutputSupportedFor1_1Response);
+}
+
+service OutputConfigurationService {
+  rpc NewOutputConfiguration (NewOutputConfigurationRequest) returns (NewOutputConfigurationResponse);
+  rpc AddSensorPixelModeUsed (AddSensorPixelModeUsedRequest) returns (AddSensorPixelModeUsedResponse);
+  rpc AddSurface (AddSurfaceRequest) returns (AddSurfaceResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc EnableSurfaceSharing (EnableSurfaceSharingRequest) returns (EnableSurfaceSharingResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetDynamicRangeProfile (GetDynamicRangeProfileRequest) returns (GetDynamicRangeProfileResponse);
+  rpc GetMaxSharedSurfaceCount (GetMaxSharedSurfaceCountRequest) returns (GetMaxSharedSurfaceCountResponse);
+  rpc GetMirrorMode0 (GetMirrorMode0Request) returns (GetMirrorMode0Response);
+  rpc GetMirrorMode1_1 (GetMirrorMode1_1Request) returns (GetMirrorMode1_1Response);
+  rpc GetStreamUseCase (OutputConfigurationGetStreamUseCaseRequest) returns (GetStreamUseCaseResponse);
+  rpc GetSurface (GetSurfaceRequest) returns (GetSurfaceResponse);
+  rpc GetSurfaceGroupId (GetSurfaceGroupIdRequest) returns (GetSurfaceGroupIdResponse);
+  rpc GetTimestampBase (GetTimestampBaseRequest) returns (GetTimestampBaseResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc IsReadoutTimestampEnabled (IsReadoutTimestampEnabledRequest) returns (IsReadoutTimestampEnabledResponse);
+  rpc RemoveSensorPixelModeUsed (RemoveSensorPixelModeUsedRequest) returns (RemoveSensorPixelModeUsedResponse);
+  rpc RemoveSurface (RemoveSurfaceRequest) returns (RemoveSurfaceResponse);
+  rpc SetDynamicRangeProfile (SetDynamicRangeProfileRequest) returns (SetDynamicRangeProfileResponse);
+  rpc SetMirrorMode2 (SetMirrorMode2Request) returns (SetMirrorMode2Response);
+  rpc SetMirrorMode1_1 (SetMirrorMode1_1Request) returns (SetMirrorMode1_1Response);
+  rpc SetPhysicalCameraId (SetPhysicalCameraIdRequest) returns (SetPhysicalCameraIdResponse);
+  rpc SetReadoutTimestampEnabled (SetReadoutTimestampEnabledRequest) returns (SetReadoutTimestampEnabledResponse);
+  rpc SetStreamUseCase (SetStreamUseCaseRequest) returns (SetStreamUseCaseResponse);
+  rpc SetTimestampBase (SetTimestampBaseRequest) returns (SetTimestampBaseResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service LensIntrinsicsSampleService {
+  rpc NewLensIntrinsicsSample (NewLensIntrinsicsSampleRequest) returns (NewLensIntrinsicsSampleResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetLensIntrinsics (GetLensIntrinsicsRequest) returns (GetLensIntrinsicsResponse);
+  rpc GetTimestampNanos (GetTimestampNanosRequest) returns (GetTimestampNanosResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service FaceService {
+  rpc GetBounds (GetBoundsRequest) returns (GetBoundsResponse);
+  rpc GetId (GetIdRequest) returns (GetIdResponse);
+  rpc GetLeftEyePosition (GetLeftEyePositionRequest) returns (GetLeftEyePositionResponse);
+  rpc GetMouthPosition (GetMouthPositionRequest) returns (GetMouthPositionResponse);
+  rpc GetRightEyePosition (GetRightEyePositionRequest) returns (GetRightEyePositionResponse);
+  rpc GetScore (GetScoreRequest) returns (GetScoreResponse);
+  rpc ToString (FaceToStringRequest) returns (ToStringResponse);
+}
+
+service FaceBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetBounds (SetBoundsRequest) returns (SetBoundsResponse);
+  rpc SetId (SetIdRequest) returns (SetIdResponse);
+  rpc SetLeftEyePosition (SetLeftEyePositionRequest) returns (SetLeftEyePositionResponse);
+  rpc SetMouthPosition (SetMouthPositionRequest) returns (SetMouthPositionResponse);
+  rpc SetRightEyePosition (SetRightEyePositionRequest) returns (SetRightEyePositionResponse);
+  rpc SetScore (SetScoreRequest) returns (SetScoreResponse);
+}
+
+service StreamConfigurationMapService {
+  rpc Equals (StreamConfigurationMapEqualsRequest) returns (EqualsResponse);
+  rpc GetHighResolutionOutputSizes (GetHighResolutionOutputSizesRequest) returns (GetHighResolutionOutputSizesResponse);
+  rpc GetHighSpeedVideoSizes (GetHighSpeedVideoSizesRequest) returns (GetHighSpeedVideoSizesResponse);
+  rpc GetInputFormats (GetInputFormatsRequest) returns (GetInputFormatsResponse);
+  rpc GetInputSizes (GetInputSizesRequest) returns (GetInputSizesResponse);
+  rpc GetOutputFormats (GetOutputFormatsRequest) returns (GetOutputFormatsResponse);
+  rpc GetOutputMinFrameDuration (GetOutputMinFrameDurationRequest) returns (GetOutputMinFrameDurationResponse);
+  rpc GetOutputSizes (GetOutputSizesRequest) returns (GetOutputSizesResponse);
+  rpc GetOutputStallDuration (GetOutputStallDurationRequest) returns (GetOutputStallDurationResponse);
+  rpc GetValidOutputFormatsForInput (GetValidOutputFormatsForInputRequest) returns (GetValidOutputFormatsForInputResponse);
+  rpc HashCode (StreamConfigurationMapHashCodeRequest) returns (HashCodeResponse);
+  rpc IsOutputSupportedFor1 (IsOutputSupportedFor1Request) returns (IsOutputSupportedFor1Response);
+  rpc IsOutputSupportedFor1_1 (IsOutputSupportedFor1_1Request) returns (IsOutputSupportedFor1_1Response);
+  rpc ToString (StreamConfigurationMapToStringRequest) returns (ToStringResponse);
+}
+
+service RggbChannelVectorService {
+  rpc NewRggbChannelVector (NewRggbChannelVectorRequest) returns (NewRggbChannelVectorResponse);
+  rpc CopyTo (CopyToRequest) returns (CopyToResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetBlue (GetBlueRequest) returns (GetBlueResponse);
+  rpc GetComponent (GetComponentRequest) returns (GetComponentResponse);
+  rpc GetGreenEven (GetGreenEvenRequest) returns (GetGreenEvenResponse);
+  rpc GetGreenOdd (GetGreenOddRequest) returns (GetGreenOddResponse);
+  rpc GetRed (GetRedRequest) returns (GetRedResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}

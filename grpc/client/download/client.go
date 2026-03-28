@@ -144,3 +144,224 @@ func (c *ManagerClient) GetRecommendedMaxBytesOverMobile(ctx context.Context, ar
 	}
 	return resp.GetResult(), nil
 }
+
+// ManagerQueryClient wraps the gRPC ManagerQueryService client.
+type ManagerQueryClient struct {
+	svc pb.ManagerQueryServiceClient
+}
+
+// NewManagerQueryClient creates a new ManagerQuery client.
+func NewManagerQueryClient(cc grpc.ClientConnInterface) *ManagerQueryClient {
+	return &ManagerQueryClient{
+		svc: pb.NewManagerQueryServiceClient(cc),
+	}
+}
+
+// SetFilterById calls the SetFilterById RPC.
+func (c *ManagerQueryClient) SetFilterById(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetFilterById(ctx, &pb.SetFilterByIdRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetFilterByStatus calls the SetFilterByStatus RPC.
+func (c *ManagerQueryClient) SetFilterByStatus(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetFilterByStatus(ctx, &pb.SetFilterByStatusRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ManagerRequestClient wraps the gRPC ManagerRequestService client.
+type ManagerRequestClient struct {
+	svc pb.ManagerRequestServiceClient
+}
+
+// NewManagerRequestClient creates a new ManagerRequest client.
+func NewManagerRequestClient(cc grpc.ClientConnInterface) *ManagerRequestClient {
+	return &ManagerRequestClient{
+		svc: pb.NewManagerRequestServiceClient(cc),
+	}
+}
+
+// AddRequestHeader calls the AddRequestHeader RPC.
+func (c *ManagerRequestClient) AddRequestHeader(ctx context.Context, arg0 string, arg1 string) (int64, error) {
+	resp, err := c.svc.AddRequestHeader(ctx, &pb.AddRequestHeaderRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AllowScanningByMediaScanner calls the AllowScanningByMediaScanner RPC.
+func (c *ManagerRequestClient) AllowScanningByMediaScanner(ctx context.Context) error {
+	_, err := c.svc.AllowScanningByMediaScanner(ctx, &pb.AllowScanningByMediaScannerRequest{})
+	return err
+}
+
+// SetAllowedNetworkTypes calls the SetAllowedNetworkTypes RPC.
+func (c *ManagerRequestClient) SetAllowedNetworkTypes(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetAllowedNetworkTypes(ctx, &pb.SetAllowedNetworkTypesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetAllowedOverMetered calls the SetAllowedOverMetered RPC.
+func (c *ManagerRequestClient) SetAllowedOverMetered(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetAllowedOverMetered(ctx, &pb.SetAllowedOverMeteredRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetAllowedOverRoaming calls the SetAllowedOverRoaming RPC.
+func (c *ManagerRequestClient) SetAllowedOverRoaming(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetAllowedOverRoaming(ctx, &pb.SetAllowedOverRoamingRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetDescription calls the SetDescription RPC.
+func (c *ManagerRequestClient) SetDescription(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetDescription(ctx, &pb.SetDescriptionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetDestinationInExternalFilesDir calls the SetDestinationInExternalFilesDir RPC.
+func (c *ManagerRequestClient) SetDestinationInExternalFilesDir(ctx context.Context, arg0 int64, arg1 string, arg2 string) (int64, error) {
+	resp, err := c.svc.SetDestinationInExternalFilesDir(ctx, &pb.SetDestinationInExternalFilesDirRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetDestinationInExternalPublicDir calls the SetDestinationInExternalPublicDir RPC.
+func (c *ManagerRequestClient) SetDestinationInExternalPublicDir(ctx context.Context, arg0 string, arg1 string) (int64, error) {
+	resp, err := c.svc.SetDestinationInExternalPublicDir(ctx, &pb.SetDestinationInExternalPublicDirRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetDestinationUri calls the SetDestinationUri RPC.
+func (c *ManagerRequestClient) SetDestinationUri(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetDestinationUri(ctx, &pb.SetDestinationUriRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetMimeType calls the SetMimeType RPC.
+func (c *ManagerRequestClient) SetMimeType(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetMimeType(ctx, &pb.SetMimeTypeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetNotificationVisibility calls the SetNotificationVisibility RPC.
+func (c *ManagerRequestClient) SetNotificationVisibility(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetNotificationVisibility(ctx, &pb.SetNotificationVisibilityRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetRequiresCharging calls the SetRequiresCharging RPC.
+func (c *ManagerRequestClient) SetRequiresCharging(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetRequiresCharging(ctx, &pb.SetRequiresChargingRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetRequiresDeviceIdle calls the SetRequiresDeviceIdle RPC.
+func (c *ManagerRequestClient) SetRequiresDeviceIdle(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetRequiresDeviceIdle(ctx, &pb.SetRequiresDeviceIdleRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetShowRunningNotification calls the SetShowRunningNotification RPC.
+func (c *ManagerRequestClient) SetShowRunningNotification(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetShowRunningNotification(ctx, &pb.SetShowRunningNotificationRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetTitle calls the SetTitle RPC.
+func (c *ManagerRequestClient) SetTitle(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetTitle(ctx, &pb.SetTitleRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetVisibleInDownloadsUi calls the SetVisibleInDownloadsUi RPC.
+func (c *ManagerRequestClient) SetVisibleInDownloadsUi(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetVisibleInDownloadsUi(ctx, &pb.SetVisibleInDownloadsUiRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}

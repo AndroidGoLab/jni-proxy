@@ -9,6 +9,204 @@ import (
 	"google.golang.org/grpc"
 )
 
+// ConversationStatusClient wraps the gRPC ConversationStatusService client.
+type ConversationStatusClient struct {
+	svc pb.ConversationStatusServiceClient
+}
+
+// NewConversationStatusClient creates a new ConversationStatus client.
+func NewConversationStatusClient(cc grpc.ClientConnInterface) *ConversationStatusClient {
+	return &ConversationStatusClient{
+		svc: pb.NewConversationStatusServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ConversationStatusClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *ConversationStatusClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetActivity calls the GetActivity RPC.
+func (c *ConversationStatusClient) GetActivity(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetActivity(ctx, &pb.GetActivityRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAvailability calls the GetAvailability RPC.
+func (c *ConversationStatusClient) GetAvailability(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetAvailability(ctx, &pb.GetAvailabilityRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDescription calls the GetDescription RPC.
+func (c *ConversationStatusClient) GetDescription(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDescription(ctx, &pb.GetDescriptionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEndTimeMillis calls the GetEndTimeMillis RPC.
+func (c *ConversationStatusClient) GetEndTimeMillis(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetEndTimeMillis(ctx, &pb.GetEndTimeMillisRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIcon calls the GetIcon RPC.
+func (c *ConversationStatusClient) GetIcon(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetIcon(ctx, &pb.GetIconRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetId calls the GetId RPC.
+func (c *ConversationStatusClient) GetId(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStartTimeMillis calls the GetStartTimeMillis RPC.
+func (c *ConversationStatusClient) GetStartTimeMillis(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetStartTimeMillis(ctx, &pb.GetStartTimeMillisRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *ConversationStatusClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *ConversationStatusClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ConversationStatusClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ConversationStatusBuilderClient wraps the gRPC ConversationStatusBuilderService client.
+type ConversationStatusBuilderClient struct {
+	svc pb.ConversationStatusBuilderServiceClient
+}
+
+// NewConversationStatusBuilderClient creates a new ConversationStatusBuilder client.
+func NewConversationStatusBuilderClient(cc grpc.ClientConnInterface) *ConversationStatusBuilderClient {
+	return &ConversationStatusBuilderClient{
+		svc: pb.NewConversationStatusBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *ConversationStatusBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetAvailability calls the SetAvailability RPC.
+func (c *ConversationStatusBuilderClient) SetAvailability(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetAvailability(ctx, &pb.SetAvailabilityRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetDescription calls the SetDescription RPC.
+func (c *ConversationStatusBuilderClient) SetDescription(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetDescription(ctx, &pb.SetDescriptionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetEndTimeMillis calls the SetEndTimeMillis RPC.
+func (c *ConversationStatusBuilderClient) SetEndTimeMillis(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetEndTimeMillis(ctx, &pb.SetEndTimeMillisRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetIcon calls the SetIcon RPC.
+func (c *ConversationStatusBuilderClient) SetIcon(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetIcon(ctx, &pb.SetIconRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetStartTimeMillis calls the SetStartTimeMillis RPC.
+func (c *ConversationStatusBuilderClient) SetStartTimeMillis(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetStartTimeMillis(ctx, &pb.SetStartTimeMillisRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // ManagerClient wraps the gRPC ManagerService client.
 type ManagerClient struct {
 	svc pb.ManagerServiceClient

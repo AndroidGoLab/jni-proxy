@@ -5,3 +5,1190 @@ syntax = "proto3";
 package lang;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/lang";
+
+message ToStringRequest {
+  int32 arg0 = 1;
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message CharCountRequest {
+  int32 arg0 = 1;
+}
+
+message CharCountResponse {
+  int32 result = 1;
+}
+
+message CodePointAt2Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message CodePointAt2Response {
+  int32 result = 1;
+}
+
+message CodePointAt3_1Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message CodePointAt3_1Response {
+  int32 result = 1;
+}
+
+message CodePointAt2_2Request {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message CodePointAt2_2Response {
+  int32 result = 1;
+}
+
+message CodePointBefore2Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message CodePointBefore2Response {
+  int32 result = 1;
+}
+
+message CodePointBefore3_1Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message CodePointBefore3_1Response {
+  int32 result = 1;
+}
+
+message CodePointBefore2_2Request {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message CodePointBefore2_2Response {
+  int32 result = 1;
+}
+
+message CodePointCount3Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message CodePointCount3Response {
+  int32 result = 1;
+}
+
+message CodePointCount3_1Request {
+  string arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message CodePointCount3_1Response {
+  int32 result = 1;
+}
+
+message Digit1Request {
+  int32 arg0 = 1;
+}
+
+message Digit1Response {
+  int32 result = 1;
+}
+
+message Digit2_1Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message Digit2_1Response {
+  int32 result = 1;
+}
+
+message FoldCase2Request {
+  int32 arg0 = 1;
+  bool arg1 = 2;
+}
+
+message FoldCase2Response {
+  int32 result = 1;
+}
+
+message FoldCase2_1Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message FoldCase2_1Response {
+  int32 result = 1;
+}
+
+message FoldCase2_2Request {
+  string arg0 = 1;
+  bool arg1 = 2;
+}
+
+message FoldCase2_2Response {
+  string result = 1;
+}
+
+message FoldCase2_3Request {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message FoldCase2_3Response {
+  string result = 1;
+}
+
+message ForDigitRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message ForDigitResponse {
+  int32 result = 1;
+}
+
+message GetAgeRequest {
+  int32 arg0 = 1;
+}
+
+message GetAgeResponse {
+  int64 result = 1;
+}
+
+message GetBidiPairedBracketRequest {
+  int32 arg0 = 1;
+}
+
+message GetBidiPairedBracketResponse {
+  int32 result = 1;
+}
+
+message GetCharFromExtendedNameRequest {
+  string arg0 = 1;
+}
+
+message GetCharFromExtendedNameResponse {
+  int32 result = 1;
+}
+
+message GetCharFromNameRequest {
+  string arg0 = 1;
+}
+
+message GetCharFromNameResponse {
+  int32 result = 1;
+}
+
+message GetCharFromNameAliasRequest {
+  string arg0 = 1;
+}
+
+message GetCharFromNameAliasResponse {
+  int32 result = 1;
+}
+
+message GetCodePoint1Request {
+  uint32 arg0 = 1;
+}
+
+message GetCodePoint1Response {
+  int32 result = 1;
+}
+
+message GetCodePoint2_1Request {
+  uint32 arg0 = 1;
+  uint32 arg1 = 2;
+}
+
+message GetCodePoint2_1Response {
+  int32 result = 1;
+}
+
+message GetCodePoint2_2Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message GetCodePoint2_2Response {
+  int32 result = 1;
+}
+
+message GetCombiningClassRequest {
+  int32 arg0 = 1;
+}
+
+message GetCombiningClassResponse {
+  int32 result = 1;
+}
+
+message GetDirectionRequest {
+  int32 arg0 = 1;
+}
+
+message GetDirectionResponse {
+  int32 result = 1;
+}
+
+message GetDirectionalityRequest {
+  int32 arg0 = 1;
+}
+
+message GetDirectionalityResponse {
+  uint32 result = 1;
+}
+
+message GetExtendedNameRequest {
+  int32 arg0 = 1;
+}
+
+message GetExtendedNameResponse {
+  string result = 1;
+}
+
+message GetExtendedNameIteratorRequest {
+}
+
+message GetExtendedNameIteratorResponse {
+  int64 result = 1;
+}
+
+message GetHanNumericValueRequest {
+  int32 arg0 = 1;
+}
+
+message GetHanNumericValueResponse {
+  int32 result = 1;
+}
+
+message GetIntPropertyMaxValueRequest {
+  int32 arg0 = 1;
+}
+
+message GetIntPropertyMaxValueResponse {
+  int32 result = 1;
+}
+
+message GetIntPropertyMinValueRequest {
+  int32 arg0 = 1;
+}
+
+message GetIntPropertyMinValueResponse {
+  int32 result = 1;
+}
+
+message GetIntPropertyValueRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message GetIntPropertyValueResponse {
+  int32 result = 1;
+}
+
+message GetMirrorRequest {
+  int32 arg0 = 1;
+}
+
+message GetMirrorResponse {
+  int32 result = 1;
+}
+
+message GetName1Request {
+  int32 arg0 = 1;
+}
+
+message GetName1Response {
+  string result = 1;
+}
+
+message GetName2_1Request {
+  string arg0 = 1;
+  string arg1 = 2;
+}
+
+message GetName2_1Response {
+  string result = 1;
+}
+
+message GetNameAliasRequest {
+  int32 arg0 = 1;
+}
+
+message GetNameAliasResponse {
+  string result = 1;
+}
+
+message GetNameIteratorRequest {
+}
+
+message GetNameIteratorResponse {
+  int64 result = 1;
+}
+
+message GetNumericValueRequest {
+  int32 arg0 = 1;
+}
+
+message GetNumericValueResponse {
+  int32 result = 1;
+}
+
+message GetPropertyEnumRequest {
+  string arg0 = 1;
+}
+
+message GetPropertyEnumResponse {
+  int32 result = 1;
+}
+
+message GetPropertyNameRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message GetPropertyNameResponse {
+  string result = 1;
+}
+
+message GetPropertyValueEnumRequest {
+  int32 arg0 = 1;
+  string arg1 = 2;
+}
+
+message GetPropertyValueEnumResponse {
+  int32 result = 1;
+}
+
+message GetPropertyValueNameRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message GetPropertyValueNameResponse {
+  string result = 1;
+}
+
+message GetTypeRequest {
+  int32 arg0 = 1;
+}
+
+message GetTypeResponse {
+  int32 result = 1;
+}
+
+message GetTypeIteratorRequest {
+}
+
+message GetTypeIteratorResponse {
+  int64 result = 1;
+}
+
+message GetUnicodeNumericValueRequest {
+  int32 arg0 = 1;
+}
+
+message GetUnicodeNumericValueResponse {
+  double result = 1;
+}
+
+message GetUnicodeVersionRequest {
+}
+
+message GetUnicodeVersionResponse {
+  int64 result = 1;
+}
+
+message HasBinaryProperty2Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message HasBinaryProperty2Response {
+  bool result = 1;
+}
+
+message HasBinaryProperty2_1Request {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message HasBinaryProperty2_1Response {
+  bool result = 1;
+}
+
+message IsBMPRequest {
+  int32 arg0 = 1;
+}
+
+message IsBMPResponse {
+  bool result = 1;
+}
+
+message IsBaseFormRequest {
+  int32 arg0 = 1;
+}
+
+message IsBaseFormResponse {
+  bool result = 1;
+}
+
+message IsDefinedRequest {
+  int32 arg0 = 1;
+}
+
+message IsDefinedResponse {
+  bool result = 1;
+}
+
+message IsDigitRequest {
+  int32 arg0 = 1;
+}
+
+message IsDigitResponse {
+  bool result = 1;
+}
+
+message IsHighSurrogate1Request {
+  uint32 arg0 = 1;
+}
+
+message IsHighSurrogate1Response {
+  bool result = 1;
+}
+
+message IsHighSurrogate1_1Request {
+  int32 arg0 = 1;
+}
+
+message IsHighSurrogate1_1Response {
+  bool result = 1;
+}
+
+message IsISOControlRequest {
+  int32 arg0 = 1;
+}
+
+message IsISOControlResponse {
+  bool result = 1;
+}
+
+message IsIdentifierIgnorableRequest {
+  int32 arg0 = 1;
+}
+
+message IsIdentifierIgnorableResponse {
+  bool result = 1;
+}
+
+message IsJavaIdentifierPartRequest {
+  int32 arg0 = 1;
+}
+
+message IsJavaIdentifierPartResponse {
+  bool result = 1;
+}
+
+message IsJavaIdentifierStartRequest {
+  int32 arg0 = 1;
+}
+
+message IsJavaIdentifierStartResponse {
+  bool result = 1;
+}
+
+message IsLegal1Request {
+  int32 arg0 = 1;
+}
+
+message IsLegal1Response {
+  bool result = 1;
+}
+
+message IsLegal1_1Request {
+  string arg0 = 1;
+}
+
+message IsLegal1_1Response {
+  bool result = 1;
+}
+
+message IsLetterRequest {
+  int32 arg0 = 1;
+}
+
+message IsLetterResponse {
+  bool result = 1;
+}
+
+message IsLetterOrDigitRequest {
+  int32 arg0 = 1;
+}
+
+message IsLetterOrDigitResponse {
+  bool result = 1;
+}
+
+message IsLowSurrogate1Request {
+  uint32 arg0 = 1;
+}
+
+message IsLowSurrogate1Response {
+  bool result = 1;
+}
+
+message IsLowSurrogate1_1Request {
+  int32 arg0 = 1;
+}
+
+message IsLowSurrogate1_1Response {
+  bool result = 1;
+}
+
+message IsLowerCaseRequest {
+  int32 arg0 = 1;
+}
+
+message IsLowerCaseResponse {
+  bool result = 1;
+}
+
+message IsMirroredRequest {
+  int32 arg0 = 1;
+}
+
+message IsMirroredResponse {
+  bool result = 1;
+}
+
+message IsPrintableRequest {
+  int32 arg0 = 1;
+}
+
+message IsPrintableResponse {
+  bool result = 1;
+}
+
+message IsSpaceCharRequest {
+  int32 arg0 = 1;
+}
+
+message IsSpaceCharResponse {
+  bool result = 1;
+}
+
+message IsSupplementaryRequest {
+  int32 arg0 = 1;
+}
+
+message IsSupplementaryResponse {
+  bool result = 1;
+}
+
+message IsSupplementaryCodePointRequest {
+  int32 arg0 = 1;
+}
+
+message IsSupplementaryCodePointResponse {
+  bool result = 1;
+}
+
+message IsSurrogatePair2Request {
+  uint32 arg0 = 1;
+  uint32 arg1 = 2;
+}
+
+message IsSurrogatePair2Response {
+  bool result = 1;
+}
+
+message IsSurrogatePair2_1Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message IsSurrogatePair2_1Response {
+  bool result = 1;
+}
+
+message IsTitleCaseRequest {
+  int32 arg0 = 1;
+}
+
+message IsTitleCaseResponse {
+  bool result = 1;
+}
+
+message IsUAlphabeticRequest {
+  int32 arg0 = 1;
+}
+
+message IsUAlphabeticResponse {
+  bool result = 1;
+}
+
+message IsULowercaseRequest {
+  int32 arg0 = 1;
+}
+
+message IsULowercaseResponse {
+  bool result = 1;
+}
+
+message IsUUppercaseRequest {
+  int32 arg0 = 1;
+}
+
+message IsUUppercaseResponse {
+  bool result = 1;
+}
+
+message IsUWhiteSpaceRequest {
+  int32 arg0 = 1;
+}
+
+message IsUWhiteSpaceResponse {
+  bool result = 1;
+}
+
+message IsUnicodeIdentifierPartRequest {
+  int32 arg0 = 1;
+}
+
+message IsUnicodeIdentifierPartResponse {
+  bool result = 1;
+}
+
+message IsUnicodeIdentifierStartRequest {
+  int32 arg0 = 1;
+}
+
+message IsUnicodeIdentifierStartResponse {
+  bool result = 1;
+}
+
+message IsUpperCaseRequest {
+  int32 arg0 = 1;
+}
+
+message IsUpperCaseResponse {
+  bool result = 1;
+}
+
+message IsValidCodePointRequest {
+  int32 arg0 = 1;
+}
+
+message IsValidCodePointResponse {
+  bool result = 1;
+}
+
+message IsWhitespaceRequest {
+  int32 arg0 = 1;
+}
+
+message IsWhitespaceResponse {
+  bool result = 1;
+}
+
+message OffsetByCodePoints5Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int32 arg4 = 5;
+}
+
+message OffsetByCodePoints5Response {
+  int32 result = 1;
+}
+
+message OffsetByCodePoints3_1Request {
+  string arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message OffsetByCodePoints3_1Response {
+  int32 result = 1;
+}
+
+message ToChars1Request {
+  int32 arg0 = 1;
+}
+
+message ToChars1Response {
+  int64 result = 1;
+}
+
+message ToChars3_1Request {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message ToChars3_1Response {
+  int32 result = 1;
+}
+
+message ToCodePoint2Request {
+  uint32 arg0 = 1;
+  uint32 arg1 = 2;
+}
+
+message ToCodePoint2Response {
+  int32 result = 1;
+}
+
+message ToCodePoint2_1Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message ToCodePoint2_1Response {
+  int32 result = 1;
+}
+
+message ToLowerCase2Request {
+  int64 arg0 = 1;
+  string arg1 = 2;
+}
+
+message ToLowerCase2Response {
+  string result = 1;
+}
+
+message ToLowerCase1_1Request {
+  int32 arg0 = 1;
+}
+
+message ToLowerCase1_1Response {
+  int32 result = 1;
+}
+
+message ToLowerCase1_2Request {
+  string arg0 = 1;
+}
+
+message ToLowerCase1_2Response {
+  string result = 1;
+}
+
+message ToLowerCase2_3Request {
+  int64 arg0 = 1;
+  string arg1 = 2;
+}
+
+message ToLowerCase2_3Response {
+  string result = 1;
+}
+
+message ToTitleCase3Request {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message ToTitleCase3Response {
+  string result = 1;
+}
+
+message ToTitleCase4_1Request {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  int64 arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message ToTitleCase4_1Response {
+  string result = 1;
+}
+
+message ToTitleCase1_2Request {
+  int32 arg0 = 1;
+}
+
+message ToTitleCase1_2Response {
+  int32 result = 1;
+}
+
+message ToTitleCase2_3Request {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message ToTitleCase2_3Response {
+  string result = 1;
+}
+
+message ToTitleCase3_4Request {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message ToTitleCase3_4Response {
+  string result = 1;
+}
+
+message ToTitleCase4_5Request {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  int64 arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message ToTitleCase4_5Response {
+  string result = 1;
+}
+
+message ToUpperCase2Request {
+  int64 arg0 = 1;
+  string arg1 = 2;
+}
+
+message ToUpperCase2Response {
+  string result = 1;
+}
+
+message ToUpperCase1_1Request {
+  int32 arg0 = 1;
+}
+
+message ToUpperCase1_1Response {
+  int32 result = 1;
+}
+
+message ToUpperCase1_2Request {
+  string arg0 = 1;
+}
+
+message ToUpperCase1_2Response {
+  string result = 1;
+}
+
+message ToUpperCase2_3Request {
+  int64 arg0 = 1;
+  string arg1 = 2;
+}
+
+message ToUpperCase2_3Response {
+  string result = 1;
+}
+
+message GetIDRequest {
+}
+
+message GetIDResponse {
+  int32 result = 1;
+}
+
+message ForNameRequest {
+  string arg0 = 1;
+}
+
+message ForNameResponse {
+  int64 result = 1;
+}
+
+message GetInstanceRequest {
+  int32 arg0 = 1;
+}
+
+message GetInstanceResponse {
+  int64 result = 1;
+}
+
+message OfRequest {
+  int32 arg0 = 1;
+}
+
+message OfResponse {
+  int64 result = 1;
+}
+
+message BreaksBetweenLettersRequest {
+  int32 arg0 = 1;
+}
+
+message BreaksBetweenLettersResponse {
+  bool result = 1;
+}
+
+message GetCode1Request {
+  int64 arg0 = 1;
+}
+
+message GetCode1Response {
+  int64 result = 1;
+}
+
+message GetCode1_1Request {
+  string arg0 = 1;
+}
+
+message GetCode1_1Response {
+  int64 result = 1;
+}
+
+message GetCode1_2Request {
+  int64 arg0 = 1;
+}
+
+message GetCode1_2Response {
+  int64 result = 1;
+}
+
+message GetCodeFromNameRequest {
+  string arg0 = 1;
+}
+
+message GetCodeFromNameResponse {
+  int32 result = 1;
+}
+
+message GetNameRequest {
+  int32 arg0 = 1;
+}
+
+message GetNameResponse {
+  string result = 1;
+}
+
+message GetSampleStringRequest {
+  int32 arg0 = 1;
+}
+
+message GetSampleStringResponse {
+  string result = 1;
+}
+
+message GetScriptRequest {
+  int32 arg0 = 1;
+}
+
+message GetScriptResponse {
+  int32 result = 1;
+}
+
+message GetScriptExtensionsRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message GetScriptExtensionsResponse {
+  int32 result = 1;
+}
+
+message GetShortNameRequest {
+  int32 arg0 = 1;
+}
+
+message GetShortNameResponse {
+  string result = 1;
+}
+
+message GetUsageRequest {
+  int32 arg0 = 1;
+}
+
+message GetUsageResponse {
+  int64 result = 1;
+}
+
+message HasScriptRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message HasScriptResponse {
+  bool result = 1;
+}
+
+message IsCasedRequest {
+  int32 arg0 = 1;
+}
+
+message IsCasedResponse {
+  bool result = 1;
+}
+
+message IsRightToLeftRequest {
+  int32 arg0 = 1;
+}
+
+message IsRightToLeftResponse {
+  bool result = 1;
+}
+
+message ValuesRequest {
+}
+
+message ValuesResponse {
+  int64 result = 1;
+}
+
+message ValueOfRequest {
+  string arg0 = 1;
+}
+
+message ValueOfResponse {
+  int64 result = 1;
+}
+
+service UCharacterDirectionService {
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service UCharacterCategoryService {
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service UCharacterService {
+  rpc CharCount (CharCountRequest) returns (CharCountResponse);
+  rpc CodePointAt2 (CodePointAt2Request) returns (CodePointAt2Response);
+  rpc CodePointAt3_1 (CodePointAt3_1Request) returns (CodePointAt3_1Response);
+  rpc CodePointAt2_2 (CodePointAt2_2Request) returns (CodePointAt2_2Response);
+  rpc CodePointBefore2 (CodePointBefore2Request) returns (CodePointBefore2Response);
+  rpc CodePointBefore3_1 (CodePointBefore3_1Request) returns (CodePointBefore3_1Response);
+  rpc CodePointBefore2_2 (CodePointBefore2_2Request) returns (CodePointBefore2_2Response);
+  rpc CodePointCount3 (CodePointCount3Request) returns (CodePointCount3Response);
+  rpc CodePointCount3_1 (CodePointCount3_1Request) returns (CodePointCount3_1Response);
+  rpc Digit1 (Digit1Request) returns (Digit1Response);
+  rpc Digit2_1 (Digit2_1Request) returns (Digit2_1Response);
+  rpc FoldCase2 (FoldCase2Request) returns (FoldCase2Response);
+  rpc FoldCase2_1 (FoldCase2_1Request) returns (FoldCase2_1Response);
+  rpc FoldCase2_2 (FoldCase2_2Request) returns (FoldCase2_2Response);
+  rpc FoldCase2_3 (FoldCase2_3Request) returns (FoldCase2_3Response);
+  rpc ForDigit (ForDigitRequest) returns (ForDigitResponse);
+  rpc GetAge (GetAgeRequest) returns (GetAgeResponse);
+  rpc GetBidiPairedBracket (GetBidiPairedBracketRequest) returns (GetBidiPairedBracketResponse);
+  rpc GetCharFromExtendedName (GetCharFromExtendedNameRequest) returns (GetCharFromExtendedNameResponse);
+  rpc GetCharFromName (GetCharFromNameRequest) returns (GetCharFromNameResponse);
+  rpc GetCharFromNameAlias (GetCharFromNameAliasRequest) returns (GetCharFromNameAliasResponse);
+  rpc GetCodePoint1 (GetCodePoint1Request) returns (GetCodePoint1Response);
+  rpc GetCodePoint2_1 (GetCodePoint2_1Request) returns (GetCodePoint2_1Response);
+  rpc GetCodePoint2_2 (GetCodePoint2_2Request) returns (GetCodePoint2_2Response);
+  rpc GetCombiningClass (GetCombiningClassRequest) returns (GetCombiningClassResponse);
+  rpc GetDirection (GetDirectionRequest) returns (GetDirectionResponse);
+  rpc GetDirectionality (GetDirectionalityRequest) returns (GetDirectionalityResponse);
+  rpc GetExtendedName (GetExtendedNameRequest) returns (GetExtendedNameResponse);
+  rpc GetExtendedNameIterator (GetExtendedNameIteratorRequest) returns (GetExtendedNameIteratorResponse);
+  rpc GetHanNumericValue (GetHanNumericValueRequest) returns (GetHanNumericValueResponse);
+  rpc GetIntPropertyMaxValue (GetIntPropertyMaxValueRequest) returns (GetIntPropertyMaxValueResponse);
+  rpc GetIntPropertyMinValue (GetIntPropertyMinValueRequest) returns (GetIntPropertyMinValueResponse);
+  rpc GetIntPropertyValue (GetIntPropertyValueRequest) returns (GetIntPropertyValueResponse);
+  rpc GetMirror (GetMirrorRequest) returns (GetMirrorResponse);
+  rpc GetName1 (GetName1Request) returns (GetName1Response);
+  rpc GetName2_1 (GetName2_1Request) returns (GetName2_1Response);
+  rpc GetNameAlias (GetNameAliasRequest) returns (GetNameAliasResponse);
+  rpc GetNameIterator (GetNameIteratorRequest) returns (GetNameIteratorResponse);
+  rpc GetNumericValue (GetNumericValueRequest) returns (GetNumericValueResponse);
+  rpc GetPropertyEnum (GetPropertyEnumRequest) returns (GetPropertyEnumResponse);
+  rpc GetPropertyName (GetPropertyNameRequest) returns (GetPropertyNameResponse);
+  rpc GetPropertyValueEnum (GetPropertyValueEnumRequest) returns (GetPropertyValueEnumResponse);
+  rpc GetPropertyValueName (GetPropertyValueNameRequest) returns (GetPropertyValueNameResponse);
+  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
+  rpc GetTypeIterator (GetTypeIteratorRequest) returns (GetTypeIteratorResponse);
+  rpc GetUnicodeNumericValue (GetUnicodeNumericValueRequest) returns (GetUnicodeNumericValueResponse);
+  rpc GetUnicodeVersion (GetUnicodeVersionRequest) returns (GetUnicodeVersionResponse);
+  rpc HasBinaryProperty2 (HasBinaryProperty2Request) returns (HasBinaryProperty2Response);
+  rpc HasBinaryProperty2_1 (HasBinaryProperty2_1Request) returns (HasBinaryProperty2_1Response);
+  rpc IsBMP (IsBMPRequest) returns (IsBMPResponse);
+  rpc IsBaseForm (IsBaseFormRequest) returns (IsBaseFormResponse);
+  rpc IsDefined (IsDefinedRequest) returns (IsDefinedResponse);
+  rpc IsDigit (IsDigitRequest) returns (IsDigitResponse);
+  rpc IsHighSurrogate1 (IsHighSurrogate1Request) returns (IsHighSurrogate1Response);
+  rpc IsHighSurrogate1_1 (IsHighSurrogate1_1Request) returns (IsHighSurrogate1_1Response);
+  rpc IsISOControl (IsISOControlRequest) returns (IsISOControlResponse);
+  rpc IsIdentifierIgnorable (IsIdentifierIgnorableRequest) returns (IsIdentifierIgnorableResponse);
+  rpc IsJavaIdentifierPart (IsJavaIdentifierPartRequest) returns (IsJavaIdentifierPartResponse);
+  rpc IsJavaIdentifierStart (IsJavaIdentifierStartRequest) returns (IsJavaIdentifierStartResponse);
+  rpc IsLegal1 (IsLegal1Request) returns (IsLegal1Response);
+  rpc IsLegal1_1 (IsLegal1_1Request) returns (IsLegal1_1Response);
+  rpc IsLetter (IsLetterRequest) returns (IsLetterResponse);
+  rpc IsLetterOrDigit (IsLetterOrDigitRequest) returns (IsLetterOrDigitResponse);
+  rpc IsLowSurrogate1 (IsLowSurrogate1Request) returns (IsLowSurrogate1Response);
+  rpc IsLowSurrogate1_1 (IsLowSurrogate1_1Request) returns (IsLowSurrogate1_1Response);
+  rpc IsLowerCase (IsLowerCaseRequest) returns (IsLowerCaseResponse);
+  rpc IsMirrored (IsMirroredRequest) returns (IsMirroredResponse);
+  rpc IsPrintable (IsPrintableRequest) returns (IsPrintableResponse);
+  rpc IsSpaceChar (IsSpaceCharRequest) returns (IsSpaceCharResponse);
+  rpc IsSupplementary (IsSupplementaryRequest) returns (IsSupplementaryResponse);
+  rpc IsSupplementaryCodePoint (IsSupplementaryCodePointRequest) returns (IsSupplementaryCodePointResponse);
+  rpc IsSurrogatePair2 (IsSurrogatePair2Request) returns (IsSurrogatePair2Response);
+  rpc IsSurrogatePair2_1 (IsSurrogatePair2_1Request) returns (IsSurrogatePair2_1Response);
+  rpc IsTitleCase (IsTitleCaseRequest) returns (IsTitleCaseResponse);
+  rpc IsUAlphabetic (IsUAlphabeticRequest) returns (IsUAlphabeticResponse);
+  rpc IsULowercase (IsULowercaseRequest) returns (IsULowercaseResponse);
+  rpc IsUUppercase (IsUUppercaseRequest) returns (IsUUppercaseResponse);
+  rpc IsUWhiteSpace (IsUWhiteSpaceRequest) returns (IsUWhiteSpaceResponse);
+  rpc IsUnicodeIdentifierPart (IsUnicodeIdentifierPartRequest) returns (IsUnicodeIdentifierPartResponse);
+  rpc IsUnicodeIdentifierStart (IsUnicodeIdentifierStartRequest) returns (IsUnicodeIdentifierStartResponse);
+  rpc IsUpperCase (IsUpperCaseRequest) returns (IsUpperCaseResponse);
+  rpc IsValidCodePoint (IsValidCodePointRequest) returns (IsValidCodePointResponse);
+  rpc IsWhitespace (IsWhitespaceRequest) returns (IsWhitespaceResponse);
+  rpc OffsetByCodePoints5 (OffsetByCodePoints5Request) returns (OffsetByCodePoints5Response);
+  rpc OffsetByCodePoints3_1 (OffsetByCodePoints3_1Request) returns (OffsetByCodePoints3_1Response);
+  rpc ToChars1 (ToChars1Request) returns (ToChars1Response);
+  rpc ToChars3_1 (ToChars3_1Request) returns (ToChars3_1Response);
+  rpc ToCodePoint2 (ToCodePoint2Request) returns (ToCodePoint2Response);
+  rpc ToCodePoint2_1 (ToCodePoint2_1Request) returns (ToCodePoint2_1Response);
+  rpc ToLowerCase2 (ToLowerCase2Request) returns (ToLowerCase2Response);
+  rpc ToLowerCase1_1 (ToLowerCase1_1Request) returns (ToLowerCase1_1Response);
+  rpc ToLowerCase1_2 (ToLowerCase1_2Request) returns (ToLowerCase1_2Response);
+  rpc ToLowerCase2_3 (ToLowerCase2_3Request) returns (ToLowerCase2_3Response);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc ToTitleCase3 (ToTitleCase3Request) returns (ToTitleCase3Response);
+  rpc ToTitleCase4_1 (ToTitleCase4_1Request) returns (ToTitleCase4_1Response);
+  rpc ToTitleCase1_2 (ToTitleCase1_2Request) returns (ToTitleCase1_2Response);
+  rpc ToTitleCase2_3 (ToTitleCase2_3Request) returns (ToTitleCase2_3Response);
+  rpc ToTitleCase3_4 (ToTitleCase3_4Request) returns (ToTitleCase3_4Response);
+  rpc ToTitleCase4_5 (ToTitleCase4_5Request) returns (ToTitleCase4_5Response);
+  rpc ToUpperCase2 (ToUpperCase2Request) returns (ToUpperCase2Response);
+  rpc ToUpperCase1_1 (ToUpperCase1_1Request) returns (ToUpperCase1_1Response);
+  rpc ToUpperCase1_2 (ToUpperCase1_2Request) returns (ToUpperCase1_2Response);
+  rpc ToUpperCase2_3 (ToUpperCase2_3Request) returns (ToUpperCase2_3Response);
+}
+
+service UCharacterUnicodeBlockService {
+  rpc GetID (GetIDRequest) returns (GetIDResponse);
+  rpc ForName (ForNameRequest) returns (ForNameResponse);
+  rpc GetInstance (GetInstanceRequest) returns (GetInstanceResponse);
+  rpc Of (OfRequest) returns (OfResponse);
+}
+
+service UScriptService {
+  rpc BreaksBetweenLetters (BreaksBetweenLettersRequest) returns (BreaksBetweenLettersResponse);
+  rpc GetCode1 (GetCode1Request) returns (GetCode1Response);
+  rpc GetCode1_1 (GetCode1_1Request) returns (GetCode1_1Response);
+  rpc GetCode1_2 (GetCode1_2Request) returns (GetCode1_2Response);
+  rpc GetCodeFromName (GetCodeFromNameRequest) returns (GetCodeFromNameResponse);
+  rpc GetName (GetNameRequest) returns (GetNameResponse);
+  rpc GetSampleString (GetSampleStringRequest) returns (GetSampleStringResponse);
+  rpc GetScript (GetScriptRequest) returns (GetScriptResponse);
+  rpc GetScriptExtensions (GetScriptExtensionsRequest) returns (GetScriptExtensionsResponse);
+  rpc GetShortName (GetShortNameRequest) returns (GetShortNameResponse);
+  rpc GetUsage (GetUsageRequest) returns (GetUsageResponse);
+  rpc HasScript (HasScriptRequest) returns (HasScriptResponse);
+  rpc IsCased (IsCasedRequest) returns (IsCasedResponse);
+  rpc IsRightToLeft (IsRightToLeftRequest) returns (IsRightToLeftResponse);
+}
+
+service UScriptScriptUsageService {
+  rpc Values (ValuesRequest) returns (ValuesResponse);
+  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
+}

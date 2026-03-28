@@ -12,6 +12,7 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -22,19 +23,18772 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type NewBassBoostRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewBassBoostRequest) Reset() {
+	*x = NewBassBoostRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewBassBoostRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewBassBoostRequest) ProtoMessage() {}
+
+func (x *NewBassBoostRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewBassBoostRequest.ProtoReflect.Descriptor instead.
+func (*NewBassBoostRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *NewBassBoostRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *NewBassBoostRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type NewBassBoostResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewBassBoostResponse) Reset() {
+	*x = NewBassBoostResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewBassBoostResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewBassBoostResponse) ProtoMessage() {}
+
+func (x *NewBassBoostResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewBassBoostResponse.ProtoReflect.Descriptor instead.
+func (*NewBassBoostResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *NewBassBoostResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPropertiesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPropertiesRequest) Reset() {
+	*x = GetPropertiesRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPropertiesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPropertiesRequest) ProtoMessage() {}
+
+func (x *GetPropertiesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPropertiesRequest.ProtoReflect.Descriptor instead.
+func (*GetPropertiesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *GetPropertiesRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetPropertiesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPropertiesResponse) Reset() {
+	*x = GetPropertiesResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPropertiesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPropertiesResponse) ProtoMessage() {}
+
+func (x *GetPropertiesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPropertiesResponse.ProtoReflect.Descriptor instead.
+func (*GetPropertiesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *GetPropertiesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetRoundedStrengthRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRoundedStrengthRequest) Reset() {
+	*x = GetRoundedStrengthRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRoundedStrengthRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRoundedStrengthRequest) ProtoMessage() {}
+
+func (x *GetRoundedStrengthRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRoundedStrengthRequest.ProtoReflect.Descriptor instead.
+func (*GetRoundedStrengthRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *GetRoundedStrengthRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetRoundedStrengthResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRoundedStrengthResponse) Reset() {
+	*x = GetRoundedStrengthResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRoundedStrengthResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRoundedStrengthResponse) ProtoMessage() {}
+
+func (x *GetRoundedStrengthResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRoundedStrengthResponse.ProtoReflect.Descriptor instead.
+func (*GetRoundedStrengthResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *GetRoundedStrengthResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetStrengthSupportedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetStrengthSupportedRequest) Reset() {
+	*x = GetStrengthSupportedRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetStrengthSupportedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetStrengthSupportedRequest) ProtoMessage() {}
+
+func (x *GetStrengthSupportedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetStrengthSupportedRequest.ProtoReflect.Descriptor instead.
+func (*GetStrengthSupportedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *GetStrengthSupportedRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetStrengthSupportedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetStrengthSupportedResponse) Reset() {
+	*x = GetStrengthSupportedResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetStrengthSupportedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetStrengthSupportedResponse) ProtoMessage() {}
+
+func (x *GetStrengthSupportedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetStrengthSupportedResponse.ProtoReflect.Descriptor instead.
+func (*GetStrengthSupportedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *GetStrengthSupportedResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type SetParameterListenerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetParameterListenerRequest) Reset() {
+	*x = SetParameterListenerRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetParameterListenerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetParameterListenerRequest) ProtoMessage() {}
+
+func (x *SetParameterListenerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetParameterListenerRequest.ProtoReflect.Descriptor instead.
+func (*SetParameterListenerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *SetParameterListenerRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetParameterListenerRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetParameterListenerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetParameterListenerResponse) Reset() {
+	*x = SetParameterListenerResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetParameterListenerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetParameterListenerResponse) ProtoMessage() {}
+
+func (x *SetParameterListenerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetParameterListenerResponse.ProtoReflect.Descriptor instead.
+func (*SetParameterListenerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{9}
+}
+
+type SetPropertiesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPropertiesRequest) Reset() {
+	*x = SetPropertiesRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPropertiesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPropertiesRequest) ProtoMessage() {}
+
+func (x *SetPropertiesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPropertiesRequest.ProtoReflect.Descriptor instead.
+func (*SetPropertiesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *SetPropertiesRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetPropertiesRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetPropertiesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPropertiesResponse) Reset() {
+	*x = SetPropertiesResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPropertiesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPropertiesResponse) ProtoMessage() {}
+
+func (x *SetPropertiesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPropertiesResponse.ProtoReflect.Descriptor instead.
+func (*SetPropertiesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{11}
+}
+
+type SetStrengthRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetStrengthRequest) Reset() {
+	*x = SetStrengthRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetStrengthRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetStrengthRequest) ProtoMessage() {}
+
+func (x *SetStrengthRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetStrengthRequest.ProtoReflect.Descriptor instead.
+func (*SetStrengthRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *SetStrengthRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetStrengthRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetStrengthResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetStrengthResponse) Reset() {
+	*x = SetStrengthResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetStrengthResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetStrengthResponse) ProtoMessage() {}
+
+func (x *SetStrengthResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetStrengthResponse.ProtoReflect.Descriptor instead.
+func (*SetStrengthResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{13}
+}
+
+type OnParameterChangeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int32                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnParameterChangeRequest) Reset() {
+	*x = OnParameterChangeRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnParameterChangeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnParameterChangeRequest) ProtoMessage() {}
+
+func (x *OnParameterChangeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnParameterChangeRequest.ProtoReflect.Descriptor instead.
+func (*OnParameterChangeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{14}
+}
+
+func (x *OnParameterChangeRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnParameterChangeRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *OnParameterChangeRequest) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *OnParameterChangeRequest) GetArg3() int32 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+type OnParameterChangeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnParameterChangeResponse) Reset() {
+	*x = OnParameterChangeResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnParameterChangeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnParameterChangeResponse) ProtoMessage() {}
+
+func (x *OnParameterChangeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnParameterChangeResponse.ProtoReflect.Descriptor instead.
+func (*OnParameterChangeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{15}
+}
+
+type ToStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringRequest) Reset() {
+	*x = ToStringRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringRequest) ProtoMessage() {}
+
+func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringRequest.ProtoReflect.Descriptor instead.
+func (*ToStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{16}
+}
+
+type ToStringResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringResponse) Reset() {
+	*x = ToStringResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringResponse) ProtoMessage() {}
+
+func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringResponse.ProtoReflect.Descriptor instead.
+func (*ToStringResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *ToStringResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type CreateRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateRequest) Reset() {
+	*x = CreateRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateRequest) ProtoMessage() {}
+
+func (x *CreateRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateRequest.ProtoReflect.Descriptor instead.
+func (*CreateRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{18}
+}
+
+func (x *CreateRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type CreateResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateResponse) Reset() {
+	*x = CreateResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateResponse) ProtoMessage() {}
+
+func (x *CreateResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateResponse.ProtoReflect.Descriptor instead.
+func (*CreateResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *CreateResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type IsAvailableRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsAvailableRequest) Reset() {
+	*x = IsAvailableRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsAvailableRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsAvailableRequest) ProtoMessage() {}
+
+func (x *IsAvailableRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsAvailableRequest.ProtoReflect.Descriptor instead.
+func (*IsAvailableRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{20}
+}
+
+type IsAvailableResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsAvailableResponse) Reset() {
+	*x = IsAvailableResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsAvailableResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsAvailableResponse) ProtoMessage() {}
+
+func (x *IsAvailableResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsAvailableResponse.ProtoReflect.Descriptor instead.
+func (*IsAvailableResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{21}
+}
+
+func (x *IsAvailableResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type NewVisualizerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewVisualizerRequest) Reset() {
+	*x = NewVisualizerRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewVisualizerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewVisualizerRequest) ProtoMessage() {}
+
+func (x *NewVisualizerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewVisualizerRequest.ProtoReflect.Descriptor instead.
+func (*NewVisualizerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{22}
+}
+
+func (x *NewVisualizerRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type NewVisualizerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewVisualizerResponse) Reset() {
+	*x = NewVisualizerResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewVisualizerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewVisualizerResponse) ProtoMessage() {}
+
+func (x *NewVisualizerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewVisualizerResponse.ProtoReflect.Descriptor instead.
+func (*NewVisualizerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{23}
+}
+
+func (x *NewVisualizerResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetCaptureSizeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCaptureSizeRequest) Reset() {
+	*x = GetCaptureSizeRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCaptureSizeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCaptureSizeRequest) ProtoMessage() {}
+
+func (x *GetCaptureSizeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCaptureSizeRequest.ProtoReflect.Descriptor instead.
+func (*GetCaptureSizeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{24}
+}
+
+func (x *GetCaptureSizeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetCaptureSizeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCaptureSizeResponse) Reset() {
+	*x = GetCaptureSizeResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCaptureSizeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCaptureSizeResponse) ProtoMessage() {}
+
+func (x *GetCaptureSizeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCaptureSizeResponse.ProtoReflect.Descriptor instead.
+func (*GetCaptureSizeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{25}
+}
+
+func (x *GetCaptureSizeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetEnabledRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEnabledRequest) Reset() {
+	*x = GetEnabledRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[26]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEnabledRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEnabledRequest) ProtoMessage() {}
+
+func (x *GetEnabledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[26]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEnabledRequest.ProtoReflect.Descriptor instead.
+func (*GetEnabledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{26}
+}
+
+func (x *GetEnabledRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetEnabledResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEnabledResponse) Reset() {
+	*x = GetEnabledResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[27]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEnabledResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEnabledResponse) ProtoMessage() {}
+
+func (x *GetEnabledResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[27]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEnabledResponse.ProtoReflect.Descriptor instead.
+func (*GetEnabledResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{27}
+}
+
+func (x *GetEnabledResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type GetFftRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetFftRequest) Reset() {
+	*x = GetFftRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[28]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetFftRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetFftRequest) ProtoMessage() {}
+
+func (x *GetFftRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[28]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetFftRequest.ProtoReflect.Descriptor instead.
+func (*GetFftRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{28}
+}
+
+func (x *GetFftRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetFftRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetFftResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetFftResponse) Reset() {
+	*x = GetFftResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[29]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetFftResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetFftResponse) ProtoMessage() {}
+
+func (x *GetFftResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[29]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetFftResponse.ProtoReflect.Descriptor instead.
+func (*GetFftResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{29}
+}
+
+func (x *GetFftResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetMeasurementModeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMeasurementModeRequest) Reset() {
+	*x = GetMeasurementModeRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[30]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMeasurementModeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMeasurementModeRequest) ProtoMessage() {}
+
+func (x *GetMeasurementModeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[30]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMeasurementModeRequest.ProtoReflect.Descriptor instead.
+func (*GetMeasurementModeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{30}
+}
+
+func (x *GetMeasurementModeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetMeasurementModeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMeasurementModeResponse) Reset() {
+	*x = GetMeasurementModeResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[31]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMeasurementModeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMeasurementModeResponse) ProtoMessage() {}
+
+func (x *GetMeasurementModeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[31]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMeasurementModeResponse.ProtoReflect.Descriptor instead.
+func (*GetMeasurementModeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{31}
+}
+
+func (x *GetMeasurementModeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetMeasurementPeakRmsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMeasurementPeakRmsRequest) Reset() {
+	*x = GetMeasurementPeakRmsRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[32]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMeasurementPeakRmsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMeasurementPeakRmsRequest) ProtoMessage() {}
+
+func (x *GetMeasurementPeakRmsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[32]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMeasurementPeakRmsRequest.ProtoReflect.Descriptor instead.
+func (*GetMeasurementPeakRmsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{32}
+}
+
+func (x *GetMeasurementPeakRmsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetMeasurementPeakRmsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetMeasurementPeakRmsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMeasurementPeakRmsResponse) Reset() {
+	*x = GetMeasurementPeakRmsResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[33]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMeasurementPeakRmsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMeasurementPeakRmsResponse) ProtoMessage() {}
+
+func (x *GetMeasurementPeakRmsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[33]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMeasurementPeakRmsResponse.ProtoReflect.Descriptor instead.
+func (*GetMeasurementPeakRmsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{33}
+}
+
+func (x *GetMeasurementPeakRmsResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSamplingRateRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSamplingRateRequest) Reset() {
+	*x = GetSamplingRateRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[34]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSamplingRateRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSamplingRateRequest) ProtoMessage() {}
+
+func (x *GetSamplingRateRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[34]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSamplingRateRequest.ProtoReflect.Descriptor instead.
+func (*GetSamplingRateRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{34}
+}
+
+func (x *GetSamplingRateRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetSamplingRateResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSamplingRateResponse) Reset() {
+	*x = GetSamplingRateResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[35]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSamplingRateResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSamplingRateResponse) ProtoMessage() {}
+
+func (x *GetSamplingRateResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[35]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSamplingRateResponse.ProtoReflect.Descriptor instead.
+func (*GetSamplingRateResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{35}
+}
+
+func (x *GetSamplingRateResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetScalingModeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetScalingModeRequest) Reset() {
+	*x = GetScalingModeRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[36]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetScalingModeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetScalingModeRequest) ProtoMessage() {}
+
+func (x *GetScalingModeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[36]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetScalingModeRequest.ProtoReflect.Descriptor instead.
+func (*GetScalingModeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{36}
+}
+
+func (x *GetScalingModeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetScalingModeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetScalingModeResponse) Reset() {
+	*x = GetScalingModeResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[37]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetScalingModeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetScalingModeResponse) ProtoMessage() {}
+
+func (x *GetScalingModeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[37]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetScalingModeResponse.ProtoReflect.Descriptor instead.
+func (*GetScalingModeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{37}
+}
+
+func (x *GetScalingModeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetWaveFormRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetWaveFormRequest) Reset() {
+	*x = GetWaveFormRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[38]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetWaveFormRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetWaveFormRequest) ProtoMessage() {}
+
+func (x *GetWaveFormRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[38]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetWaveFormRequest.ProtoReflect.Descriptor instead.
+func (*GetWaveFormRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{38}
+}
+
+func (x *GetWaveFormRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetWaveFormRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetWaveFormResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetWaveFormResponse) Reset() {
+	*x = GetWaveFormResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[39]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetWaveFormResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetWaveFormResponse) ProtoMessage() {}
+
+func (x *GetWaveFormResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[39]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetWaveFormResponse.ProtoReflect.Descriptor instead.
+func (*GetWaveFormResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{39}
+}
+
+func (x *GetWaveFormResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ReleaseRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ReleaseRequest) Reset() {
+	*x = ReleaseRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[40]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ReleaseRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ReleaseRequest) ProtoMessage() {}
+
+func (x *ReleaseRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[40]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ReleaseRequest.ProtoReflect.Descriptor instead.
+func (*ReleaseRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{40}
+}
+
+func (x *ReleaseRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type ReleaseResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ReleaseResponse) Reset() {
+	*x = ReleaseResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[41]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ReleaseResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ReleaseResponse) ProtoMessage() {}
+
+func (x *ReleaseResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[41]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ReleaseResponse.ProtoReflect.Descriptor instead.
+func (*ReleaseResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{41}
+}
+
+type SetCaptureSizeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetCaptureSizeRequest) Reset() {
+	*x = SetCaptureSizeRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[42]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetCaptureSizeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetCaptureSizeRequest) ProtoMessage() {}
+
+func (x *SetCaptureSizeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[42]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetCaptureSizeRequest.ProtoReflect.Descriptor instead.
+func (*SetCaptureSizeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{42}
+}
+
+func (x *SetCaptureSizeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetCaptureSizeRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetCaptureSizeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetCaptureSizeResponse) Reset() {
+	*x = SetCaptureSizeResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[43]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetCaptureSizeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetCaptureSizeResponse) ProtoMessage() {}
+
+func (x *SetCaptureSizeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[43]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetCaptureSizeResponse.ProtoReflect.Descriptor instead.
+func (*SetCaptureSizeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{43}
+}
+
+func (x *SetCaptureSizeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetDataCaptureListenerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          bool                   `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          bool                   `protobuf:"varint,5,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetDataCaptureListenerRequest) Reset() {
+	*x = SetDataCaptureListenerRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[44]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetDataCaptureListenerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetDataCaptureListenerRequest) ProtoMessage() {}
+
+func (x *SetDataCaptureListenerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[44]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetDataCaptureListenerRequest.ProtoReflect.Descriptor instead.
+func (*SetDataCaptureListenerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{44}
+}
+
+func (x *SetDataCaptureListenerRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetDataCaptureListenerRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SetDataCaptureListenerRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *SetDataCaptureListenerRequest) GetArg2() bool {
+	if x != nil {
+		return x.Arg2
+	}
+	return false
+}
+
+func (x *SetDataCaptureListenerRequest) GetArg3() bool {
+	if x != nil {
+		return x.Arg3
+	}
+	return false
+}
+
+type SetDataCaptureListenerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetDataCaptureListenerResponse) Reset() {
+	*x = SetDataCaptureListenerResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[45]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetDataCaptureListenerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetDataCaptureListenerResponse) ProtoMessage() {}
+
+func (x *SetDataCaptureListenerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[45]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetDataCaptureListenerResponse.ProtoReflect.Descriptor instead.
+func (*SetDataCaptureListenerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{45}
+}
+
+func (x *SetDataCaptureListenerResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetEnabledRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          bool                   `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetEnabledRequest) Reset() {
+	*x = SetEnabledRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[46]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetEnabledRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetEnabledRequest) ProtoMessage() {}
+
+func (x *SetEnabledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[46]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetEnabledRequest.ProtoReflect.Descriptor instead.
+func (*SetEnabledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{46}
+}
+
+func (x *SetEnabledRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetEnabledRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetEnabledResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetEnabledResponse) Reset() {
+	*x = SetEnabledResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[47]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetEnabledResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetEnabledResponse) ProtoMessage() {}
+
+func (x *SetEnabledResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[47]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetEnabledResponse.ProtoReflect.Descriptor instead.
+func (*SetEnabledResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{47}
+}
+
+func (x *SetEnabledResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetMeasurementModeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetMeasurementModeRequest) Reset() {
+	*x = SetMeasurementModeRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[48]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetMeasurementModeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetMeasurementModeRequest) ProtoMessage() {}
+
+func (x *SetMeasurementModeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[48]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetMeasurementModeRequest.ProtoReflect.Descriptor instead.
+func (*SetMeasurementModeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{48}
+}
+
+func (x *SetMeasurementModeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetMeasurementModeRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetMeasurementModeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetMeasurementModeResponse) Reset() {
+	*x = SetMeasurementModeResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[49]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetMeasurementModeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetMeasurementModeResponse) ProtoMessage() {}
+
+func (x *SetMeasurementModeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[49]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetMeasurementModeResponse.ProtoReflect.Descriptor instead.
+func (*SetMeasurementModeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{49}
+}
+
+func (x *SetMeasurementModeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetScalingModeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetScalingModeRequest) Reset() {
+	*x = SetScalingModeRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[50]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetScalingModeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetScalingModeRequest) ProtoMessage() {}
+
+func (x *SetScalingModeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[50]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetScalingModeRequest.ProtoReflect.Descriptor instead.
+func (*SetScalingModeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{50}
+}
+
+func (x *SetScalingModeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetScalingModeRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetScalingModeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetScalingModeResponse) Reset() {
+	*x = SetScalingModeResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[51]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetScalingModeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetScalingModeResponse) ProtoMessage() {}
+
+func (x *SetScalingModeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[51]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetScalingModeResponse.ProtoReflect.Descriptor instead.
+func (*SetScalingModeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{51}
+}
+
+func (x *SetScalingModeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetCaptureSizeRangeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCaptureSizeRangeRequest) Reset() {
+	*x = GetCaptureSizeRangeRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[52]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCaptureSizeRangeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCaptureSizeRangeRequest) ProtoMessage() {}
+
+func (x *GetCaptureSizeRangeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[52]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCaptureSizeRangeRequest.ProtoReflect.Descriptor instead.
+func (*GetCaptureSizeRangeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{52}
+}
+
+func (x *GetCaptureSizeRangeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetCaptureSizeRangeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCaptureSizeRangeResponse) Reset() {
+	*x = GetCaptureSizeRangeResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[53]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCaptureSizeRangeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCaptureSizeRangeResponse) ProtoMessage() {}
+
+func (x *GetCaptureSizeRangeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[53]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCaptureSizeRangeResponse.ProtoReflect.Descriptor instead.
+func (*GetCaptureSizeRangeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{53}
+}
+
+func (x *GetCaptureSizeRangeResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetMaxCaptureRateRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMaxCaptureRateRequest) Reset() {
+	*x = GetMaxCaptureRateRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[54]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMaxCaptureRateRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMaxCaptureRateRequest) ProtoMessage() {}
+
+func (x *GetMaxCaptureRateRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[54]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMaxCaptureRateRequest.ProtoReflect.Descriptor instead.
+func (*GetMaxCaptureRateRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{54}
+}
+
+func (x *GetMaxCaptureRateRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetMaxCaptureRateResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMaxCaptureRateResponse) Reset() {
+	*x = GetMaxCaptureRateResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[55]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMaxCaptureRateResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMaxCaptureRateResponse) ProtoMessage() {}
+
+func (x *GetMaxCaptureRateResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[55]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMaxCaptureRateResponse.ProtoReflect.Descriptor instead.
+func (*GetMaxCaptureRateResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{55}
+}
+
+func (x *GetMaxCaptureRateResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OnFftDataCaptureRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnFftDataCaptureRequest) Reset() {
+	*x = OnFftDataCaptureRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[56]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnFftDataCaptureRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnFftDataCaptureRequest) ProtoMessage() {}
+
+func (x *OnFftDataCaptureRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[56]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnFftDataCaptureRequest.ProtoReflect.Descriptor instead.
+func (*OnFftDataCaptureRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{56}
+}
+
+func (x *OnFftDataCaptureRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnFftDataCaptureRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *OnFftDataCaptureRequest) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type OnFftDataCaptureResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnFftDataCaptureResponse) Reset() {
+	*x = OnFftDataCaptureResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[57]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnFftDataCaptureResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnFftDataCaptureResponse) ProtoMessage() {}
+
+func (x *OnFftDataCaptureResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[57]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnFftDataCaptureResponse.ProtoReflect.Descriptor instead.
+func (*OnFftDataCaptureResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{57}
+}
+
+type OnWaveFormDataCaptureRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnWaveFormDataCaptureRequest) Reset() {
+	*x = OnWaveFormDataCaptureRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[58]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnWaveFormDataCaptureRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnWaveFormDataCaptureRequest) ProtoMessage() {}
+
+func (x *OnWaveFormDataCaptureRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[58]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnWaveFormDataCaptureRequest.ProtoReflect.Descriptor instead.
+func (*OnWaveFormDataCaptureRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{58}
+}
+
+func (x *OnWaveFormDataCaptureRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnWaveFormDataCaptureRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *OnWaveFormDataCaptureRequest) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type OnWaveFormDataCaptureResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnWaveFormDataCaptureResponse) Reset() {
+	*x = OnWaveFormDataCaptureResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[59]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnWaveFormDataCaptureResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnWaveFormDataCaptureResponse) ProtoMessage() {}
+
+func (x *OnWaveFormDataCaptureResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[59]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnWaveFormDataCaptureResponse.ProtoReflect.Descriptor instead.
+func (*OnWaveFormDataCaptureResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{59}
+}
+
+type NewEnvironmentalReverbRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewEnvironmentalReverbRequest) Reset() {
+	*x = NewEnvironmentalReverbRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[60]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewEnvironmentalReverbRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewEnvironmentalReverbRequest) ProtoMessage() {}
+
+func (x *NewEnvironmentalReverbRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[60]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewEnvironmentalReverbRequest.ProtoReflect.Descriptor instead.
+func (*NewEnvironmentalReverbRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{60}
+}
+
+func (x *NewEnvironmentalReverbRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *NewEnvironmentalReverbRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type NewEnvironmentalReverbResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewEnvironmentalReverbResponse) Reset() {
+	*x = NewEnvironmentalReverbResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[61]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewEnvironmentalReverbResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewEnvironmentalReverbResponse) ProtoMessage() {}
+
+func (x *NewEnvironmentalReverbResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[61]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewEnvironmentalReverbResponse.ProtoReflect.Descriptor instead.
+func (*NewEnvironmentalReverbResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{61}
+}
+
+func (x *NewEnvironmentalReverbResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetDecayHFRatioRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDecayHFRatioRequest) Reset() {
+	*x = GetDecayHFRatioRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[62]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDecayHFRatioRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDecayHFRatioRequest) ProtoMessage() {}
+
+func (x *GetDecayHFRatioRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[62]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDecayHFRatioRequest.ProtoReflect.Descriptor instead.
+func (*GetDecayHFRatioRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{62}
+}
+
+func (x *GetDecayHFRatioRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetDecayHFRatioResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDecayHFRatioResponse) Reset() {
+	*x = GetDecayHFRatioResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[63]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDecayHFRatioResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDecayHFRatioResponse) ProtoMessage() {}
+
+func (x *GetDecayHFRatioResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[63]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDecayHFRatioResponse.ProtoReflect.Descriptor instead.
+func (*GetDecayHFRatioResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{63}
+}
+
+func (x *GetDecayHFRatioResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetDecayTimeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDecayTimeRequest) Reset() {
+	*x = GetDecayTimeRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[64]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDecayTimeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDecayTimeRequest) ProtoMessage() {}
+
+func (x *GetDecayTimeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[64]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDecayTimeRequest.ProtoReflect.Descriptor instead.
+func (*GetDecayTimeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{64}
+}
+
+func (x *GetDecayTimeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetDecayTimeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDecayTimeResponse) Reset() {
+	*x = GetDecayTimeResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[65]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDecayTimeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDecayTimeResponse) ProtoMessage() {}
+
+func (x *GetDecayTimeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[65]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDecayTimeResponse.ProtoReflect.Descriptor instead.
+func (*GetDecayTimeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{65}
+}
+
+func (x *GetDecayTimeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetDensityRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDensityRequest) Reset() {
+	*x = GetDensityRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[66]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDensityRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDensityRequest) ProtoMessage() {}
+
+func (x *GetDensityRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[66]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDensityRequest.ProtoReflect.Descriptor instead.
+func (*GetDensityRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{66}
+}
+
+func (x *GetDensityRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetDensityResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDensityResponse) Reset() {
+	*x = GetDensityResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[67]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDensityResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDensityResponse) ProtoMessage() {}
+
+func (x *GetDensityResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[67]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDensityResponse.ProtoReflect.Descriptor instead.
+func (*GetDensityResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{67}
+}
+
+func (x *GetDensityResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetDiffusionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDiffusionRequest) Reset() {
+	*x = GetDiffusionRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[68]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDiffusionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDiffusionRequest) ProtoMessage() {}
+
+func (x *GetDiffusionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[68]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDiffusionRequest.ProtoReflect.Descriptor instead.
+func (*GetDiffusionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{68}
+}
+
+func (x *GetDiffusionRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetDiffusionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDiffusionResponse) Reset() {
+	*x = GetDiffusionResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[69]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDiffusionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDiffusionResponse) ProtoMessage() {}
+
+func (x *GetDiffusionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[69]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDiffusionResponse.ProtoReflect.Descriptor instead.
+func (*GetDiffusionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{69}
+}
+
+func (x *GetDiffusionResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetReflectionsDelayRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetReflectionsDelayRequest) Reset() {
+	*x = GetReflectionsDelayRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[70]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetReflectionsDelayRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetReflectionsDelayRequest) ProtoMessage() {}
+
+func (x *GetReflectionsDelayRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[70]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetReflectionsDelayRequest.ProtoReflect.Descriptor instead.
+func (*GetReflectionsDelayRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{70}
+}
+
+func (x *GetReflectionsDelayRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetReflectionsDelayResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetReflectionsDelayResponse) Reset() {
+	*x = GetReflectionsDelayResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[71]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetReflectionsDelayResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetReflectionsDelayResponse) ProtoMessage() {}
+
+func (x *GetReflectionsDelayResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[71]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetReflectionsDelayResponse.ProtoReflect.Descriptor instead.
+func (*GetReflectionsDelayResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{71}
+}
+
+func (x *GetReflectionsDelayResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetReflectionsLevelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetReflectionsLevelRequest) Reset() {
+	*x = GetReflectionsLevelRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[72]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetReflectionsLevelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetReflectionsLevelRequest) ProtoMessage() {}
+
+func (x *GetReflectionsLevelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[72]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetReflectionsLevelRequest.ProtoReflect.Descriptor instead.
+func (*GetReflectionsLevelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{72}
+}
+
+func (x *GetReflectionsLevelRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetReflectionsLevelResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetReflectionsLevelResponse) Reset() {
+	*x = GetReflectionsLevelResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[73]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetReflectionsLevelResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetReflectionsLevelResponse) ProtoMessage() {}
+
+func (x *GetReflectionsLevelResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[73]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetReflectionsLevelResponse.ProtoReflect.Descriptor instead.
+func (*GetReflectionsLevelResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{73}
+}
+
+func (x *GetReflectionsLevelResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetReverbDelayRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetReverbDelayRequest) Reset() {
+	*x = GetReverbDelayRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[74]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetReverbDelayRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetReverbDelayRequest) ProtoMessage() {}
+
+func (x *GetReverbDelayRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[74]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetReverbDelayRequest.ProtoReflect.Descriptor instead.
+func (*GetReverbDelayRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{74}
+}
+
+func (x *GetReverbDelayRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetReverbDelayResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetReverbDelayResponse) Reset() {
+	*x = GetReverbDelayResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[75]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetReverbDelayResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetReverbDelayResponse) ProtoMessage() {}
+
+func (x *GetReverbDelayResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[75]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetReverbDelayResponse.ProtoReflect.Descriptor instead.
+func (*GetReverbDelayResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{75}
+}
+
+func (x *GetReverbDelayResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetReverbLevelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetReverbLevelRequest) Reset() {
+	*x = GetReverbLevelRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[76]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetReverbLevelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetReverbLevelRequest) ProtoMessage() {}
+
+func (x *GetReverbLevelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[76]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetReverbLevelRequest.ProtoReflect.Descriptor instead.
+func (*GetReverbLevelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{76}
+}
+
+func (x *GetReverbLevelRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetReverbLevelResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetReverbLevelResponse) Reset() {
+	*x = GetReverbLevelResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[77]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetReverbLevelResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetReverbLevelResponse) ProtoMessage() {}
+
+func (x *GetReverbLevelResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[77]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetReverbLevelResponse.ProtoReflect.Descriptor instead.
+func (*GetReverbLevelResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{77}
+}
+
+func (x *GetReverbLevelResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetRoomHFLevelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRoomHFLevelRequest) Reset() {
+	*x = GetRoomHFLevelRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[78]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRoomHFLevelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRoomHFLevelRequest) ProtoMessage() {}
+
+func (x *GetRoomHFLevelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[78]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRoomHFLevelRequest.ProtoReflect.Descriptor instead.
+func (*GetRoomHFLevelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{78}
+}
+
+func (x *GetRoomHFLevelRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetRoomHFLevelResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRoomHFLevelResponse) Reset() {
+	*x = GetRoomHFLevelResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[79]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRoomHFLevelResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRoomHFLevelResponse) ProtoMessage() {}
+
+func (x *GetRoomHFLevelResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[79]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRoomHFLevelResponse.ProtoReflect.Descriptor instead.
+func (*GetRoomHFLevelResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{79}
+}
+
+func (x *GetRoomHFLevelResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetRoomLevelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRoomLevelRequest) Reset() {
+	*x = GetRoomLevelRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[80]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRoomLevelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRoomLevelRequest) ProtoMessage() {}
+
+func (x *GetRoomLevelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[80]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRoomLevelRequest.ProtoReflect.Descriptor instead.
+func (*GetRoomLevelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{80}
+}
+
+func (x *GetRoomLevelRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetRoomLevelResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRoomLevelResponse) Reset() {
+	*x = GetRoomLevelResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[81]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRoomLevelResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRoomLevelResponse) ProtoMessage() {}
+
+func (x *GetRoomLevelResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[81]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRoomLevelResponse.ProtoReflect.Descriptor instead.
+func (*GetRoomLevelResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{81}
+}
+
+func (x *GetRoomLevelResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetDecayHFRatioRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetDecayHFRatioRequest) Reset() {
+	*x = SetDecayHFRatioRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[82]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetDecayHFRatioRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetDecayHFRatioRequest) ProtoMessage() {}
+
+func (x *SetDecayHFRatioRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[82]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetDecayHFRatioRequest.ProtoReflect.Descriptor instead.
+func (*SetDecayHFRatioRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{82}
+}
+
+func (x *SetDecayHFRatioRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetDecayHFRatioRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetDecayHFRatioResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetDecayHFRatioResponse) Reset() {
+	*x = SetDecayHFRatioResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[83]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetDecayHFRatioResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetDecayHFRatioResponse) ProtoMessage() {}
+
+func (x *SetDecayHFRatioResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[83]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetDecayHFRatioResponse.ProtoReflect.Descriptor instead.
+func (*SetDecayHFRatioResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{83}
+}
+
+type SetDecayTimeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetDecayTimeRequest) Reset() {
+	*x = SetDecayTimeRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[84]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetDecayTimeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetDecayTimeRequest) ProtoMessage() {}
+
+func (x *SetDecayTimeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[84]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetDecayTimeRequest.ProtoReflect.Descriptor instead.
+func (*SetDecayTimeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{84}
+}
+
+func (x *SetDecayTimeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetDecayTimeRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetDecayTimeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetDecayTimeResponse) Reset() {
+	*x = SetDecayTimeResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[85]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetDecayTimeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetDecayTimeResponse) ProtoMessage() {}
+
+func (x *SetDecayTimeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[85]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetDecayTimeResponse.ProtoReflect.Descriptor instead.
+func (*SetDecayTimeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{85}
+}
+
+type SetDensityRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetDensityRequest) Reset() {
+	*x = SetDensityRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[86]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetDensityRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetDensityRequest) ProtoMessage() {}
+
+func (x *SetDensityRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[86]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetDensityRequest.ProtoReflect.Descriptor instead.
+func (*SetDensityRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{86}
+}
+
+func (x *SetDensityRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetDensityRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetDensityResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetDensityResponse) Reset() {
+	*x = SetDensityResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[87]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetDensityResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetDensityResponse) ProtoMessage() {}
+
+func (x *SetDensityResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[87]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetDensityResponse.ProtoReflect.Descriptor instead.
+func (*SetDensityResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{87}
+}
+
+type SetDiffusionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetDiffusionRequest) Reset() {
+	*x = SetDiffusionRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[88]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetDiffusionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetDiffusionRequest) ProtoMessage() {}
+
+func (x *SetDiffusionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[88]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetDiffusionRequest.ProtoReflect.Descriptor instead.
+func (*SetDiffusionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{88}
+}
+
+func (x *SetDiffusionRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetDiffusionRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetDiffusionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetDiffusionResponse) Reset() {
+	*x = SetDiffusionResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[89]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetDiffusionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetDiffusionResponse) ProtoMessage() {}
+
+func (x *SetDiffusionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[89]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetDiffusionResponse.ProtoReflect.Descriptor instead.
+func (*SetDiffusionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{89}
+}
+
+type SetReflectionsDelayRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetReflectionsDelayRequest) Reset() {
+	*x = SetReflectionsDelayRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[90]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetReflectionsDelayRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetReflectionsDelayRequest) ProtoMessage() {}
+
+func (x *SetReflectionsDelayRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[90]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetReflectionsDelayRequest.ProtoReflect.Descriptor instead.
+func (*SetReflectionsDelayRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{90}
+}
+
+func (x *SetReflectionsDelayRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetReflectionsDelayRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetReflectionsDelayResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetReflectionsDelayResponse) Reset() {
+	*x = SetReflectionsDelayResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[91]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetReflectionsDelayResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetReflectionsDelayResponse) ProtoMessage() {}
+
+func (x *SetReflectionsDelayResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[91]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetReflectionsDelayResponse.ProtoReflect.Descriptor instead.
+func (*SetReflectionsDelayResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{91}
+}
+
+type SetReflectionsLevelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetReflectionsLevelRequest) Reset() {
+	*x = SetReflectionsLevelRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[92]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetReflectionsLevelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetReflectionsLevelRequest) ProtoMessage() {}
+
+func (x *SetReflectionsLevelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[92]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetReflectionsLevelRequest.ProtoReflect.Descriptor instead.
+func (*SetReflectionsLevelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{92}
+}
+
+func (x *SetReflectionsLevelRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetReflectionsLevelRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetReflectionsLevelResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetReflectionsLevelResponse) Reset() {
+	*x = SetReflectionsLevelResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[93]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetReflectionsLevelResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetReflectionsLevelResponse) ProtoMessage() {}
+
+func (x *SetReflectionsLevelResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[93]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetReflectionsLevelResponse.ProtoReflect.Descriptor instead.
+func (*SetReflectionsLevelResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{93}
+}
+
+type SetReverbDelayRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetReverbDelayRequest) Reset() {
+	*x = SetReverbDelayRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[94]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetReverbDelayRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetReverbDelayRequest) ProtoMessage() {}
+
+func (x *SetReverbDelayRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[94]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetReverbDelayRequest.ProtoReflect.Descriptor instead.
+func (*SetReverbDelayRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{94}
+}
+
+func (x *SetReverbDelayRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetReverbDelayRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetReverbDelayResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetReverbDelayResponse) Reset() {
+	*x = SetReverbDelayResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[95]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetReverbDelayResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetReverbDelayResponse) ProtoMessage() {}
+
+func (x *SetReverbDelayResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[95]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetReverbDelayResponse.ProtoReflect.Descriptor instead.
+func (*SetReverbDelayResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{95}
+}
+
+type SetReverbLevelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetReverbLevelRequest) Reset() {
+	*x = SetReverbLevelRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[96]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetReverbLevelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetReverbLevelRequest) ProtoMessage() {}
+
+func (x *SetReverbLevelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[96]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetReverbLevelRequest.ProtoReflect.Descriptor instead.
+func (*SetReverbLevelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{96}
+}
+
+func (x *SetReverbLevelRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetReverbLevelRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetReverbLevelResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetReverbLevelResponse) Reset() {
+	*x = SetReverbLevelResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[97]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetReverbLevelResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetReverbLevelResponse) ProtoMessage() {}
+
+func (x *SetReverbLevelResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[97]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetReverbLevelResponse.ProtoReflect.Descriptor instead.
+func (*SetReverbLevelResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{97}
+}
+
+type SetRoomHFLevelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetRoomHFLevelRequest) Reset() {
+	*x = SetRoomHFLevelRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[98]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetRoomHFLevelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetRoomHFLevelRequest) ProtoMessage() {}
+
+func (x *SetRoomHFLevelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[98]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetRoomHFLevelRequest.ProtoReflect.Descriptor instead.
+func (*SetRoomHFLevelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{98}
+}
+
+func (x *SetRoomHFLevelRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetRoomHFLevelRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetRoomHFLevelResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetRoomHFLevelResponse) Reset() {
+	*x = SetRoomHFLevelResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[99]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetRoomHFLevelResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetRoomHFLevelResponse) ProtoMessage() {}
+
+func (x *SetRoomHFLevelResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[99]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetRoomHFLevelResponse.ProtoReflect.Descriptor instead.
+func (*SetRoomHFLevelResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{99}
+}
+
+type SetRoomLevelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetRoomLevelRequest) Reset() {
+	*x = SetRoomLevelRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[100]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetRoomLevelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetRoomLevelRequest) ProtoMessage() {}
+
+func (x *SetRoomLevelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[100]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetRoomLevelRequest.ProtoReflect.Descriptor instead.
+func (*SetRoomLevelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{100}
+}
+
+func (x *SetRoomLevelRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetRoomLevelRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetRoomLevelResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetRoomLevelResponse) Reset() {
+	*x = SetRoomLevelResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[101]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetRoomLevelResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetRoomLevelResponse) ProtoMessage() {}
+
+func (x *SetRoomLevelResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[101]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetRoomLevelResponse.ProtoReflect.Descriptor instead.
+func (*SetRoomLevelResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{101}
+}
+
+type GetDescriptorRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDescriptorRequest) Reset() {
+	*x = GetDescriptorRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[102]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDescriptorRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDescriptorRequest) ProtoMessage() {}
+
+func (x *GetDescriptorRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[102]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDescriptorRequest.ProtoReflect.Descriptor instead.
+func (*GetDescriptorRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{102}
+}
+
+type GetDescriptorResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDescriptorResponse) Reset() {
+	*x = GetDescriptorResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[103]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDescriptorResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDescriptorResponse) ProtoMessage() {}
+
+func (x *GetDescriptorResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[103]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDescriptorResponse.ProtoReflect.Descriptor instead.
+func (*GetDescriptorResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{103}
+}
+
+func (x *GetDescriptorResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AudioEffectGetEnabledRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AudioEffectGetEnabledRequest) Reset() {
+	*x = AudioEffectGetEnabledRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[104]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AudioEffectGetEnabledRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AudioEffectGetEnabledRequest) ProtoMessage() {}
+
+func (x *AudioEffectGetEnabledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[104]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AudioEffectGetEnabledRequest.ProtoReflect.Descriptor instead.
+func (*AudioEffectGetEnabledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{104}
+}
+
+type GetIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetIdRequest) Reset() {
+	*x = GetIdRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[105]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetIdRequest) ProtoMessage() {}
+
+func (x *GetIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[105]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetIdRequest.ProtoReflect.Descriptor instead.
+func (*GetIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{105}
+}
+
+type GetIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetIdResponse) Reset() {
+	*x = GetIdResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[106]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetIdResponse) ProtoMessage() {}
+
+func (x *GetIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[106]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetIdResponse.ProtoReflect.Descriptor instead.
+func (*GetIdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{106}
+}
+
+func (x *GetIdResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type HasControlRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HasControlRequest) Reset() {
+	*x = HasControlRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[107]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HasControlRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HasControlRequest) ProtoMessage() {}
+
+func (x *HasControlRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[107]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HasControlRequest.ProtoReflect.Descriptor instead.
+func (*HasControlRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{107}
+}
+
+type HasControlResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HasControlResponse) Reset() {
+	*x = HasControlResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[108]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HasControlResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HasControlResponse) ProtoMessage() {}
+
+func (x *HasControlResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[108]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HasControlResponse.ProtoReflect.Descriptor instead.
+func (*HasControlResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{108}
+}
+
+func (x *HasControlResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type AudioEffectReleaseRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AudioEffectReleaseRequest) Reset() {
+	*x = AudioEffectReleaseRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[109]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AudioEffectReleaseRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AudioEffectReleaseRequest) ProtoMessage() {}
+
+func (x *AudioEffectReleaseRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[109]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AudioEffectReleaseRequest.ProtoReflect.Descriptor instead.
+func (*AudioEffectReleaseRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{109}
+}
+
+type SetControlStatusListenerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetControlStatusListenerRequest) Reset() {
+	*x = SetControlStatusListenerRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[110]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetControlStatusListenerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetControlStatusListenerRequest) ProtoMessage() {}
+
+func (x *SetControlStatusListenerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[110]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetControlStatusListenerRequest.ProtoReflect.Descriptor instead.
+func (*SetControlStatusListenerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{110}
+}
+
+func (x *SetControlStatusListenerRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetControlStatusListenerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetControlStatusListenerResponse) Reset() {
+	*x = SetControlStatusListenerResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[111]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetControlStatusListenerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetControlStatusListenerResponse) ProtoMessage() {}
+
+func (x *SetControlStatusListenerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[111]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetControlStatusListenerResponse.ProtoReflect.Descriptor instead.
+func (*SetControlStatusListenerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{111}
+}
+
+type SetEnableStatusListenerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetEnableStatusListenerRequest) Reset() {
+	*x = SetEnableStatusListenerRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[112]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetEnableStatusListenerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetEnableStatusListenerRequest) ProtoMessage() {}
+
+func (x *SetEnableStatusListenerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[112]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetEnableStatusListenerRequest.ProtoReflect.Descriptor instead.
+func (*SetEnableStatusListenerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{112}
+}
+
+func (x *SetEnableStatusListenerRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetEnableStatusListenerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetEnableStatusListenerResponse) Reset() {
+	*x = SetEnableStatusListenerResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[113]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetEnableStatusListenerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetEnableStatusListenerResponse) ProtoMessage() {}
+
+func (x *SetEnableStatusListenerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[113]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetEnableStatusListenerResponse.ProtoReflect.Descriptor instead.
+func (*SetEnableStatusListenerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{113}
+}
+
+type AudioEffectSetEnabledRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AudioEffectSetEnabledRequest) Reset() {
+	*x = AudioEffectSetEnabledRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[114]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AudioEffectSetEnabledRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AudioEffectSetEnabledRequest) ProtoMessage() {}
+
+func (x *AudioEffectSetEnabledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[114]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AudioEffectSetEnabledRequest.ProtoReflect.Descriptor instead.
+func (*AudioEffectSetEnabledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{114}
+}
+
+func (x *AudioEffectSetEnabledRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type QueryEffectsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *QueryEffectsRequest) Reset() {
+	*x = QueryEffectsRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[115]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *QueryEffectsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryEffectsRequest) ProtoMessage() {}
+
+func (x *QueryEffectsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[115]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use QueryEffectsRequest.ProtoReflect.Descriptor instead.
+func (*QueryEffectsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{115}
+}
+
+type QueryEffectsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *QueryEffectsResponse) Reset() {
+	*x = QueryEffectsResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[116]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *QueryEffectsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryEffectsResponse) ProtoMessage() {}
+
+func (x *QueryEffectsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[116]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use QueryEffectsResponse.ProtoReflect.Descriptor instead.
+func (*QueryEffectsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{116}
+}
+
+func (x *QueryEffectsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type EqualsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EqualsRequest) Reset() {
+	*x = EqualsRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[117]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EqualsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EqualsRequest) ProtoMessage() {}
+
+func (x *EqualsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[117]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EqualsRequest.ProtoReflect.Descriptor instead.
+func (*EqualsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{117}
+}
+
+func (x *EqualsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type EqualsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EqualsResponse) Reset() {
+	*x = EqualsResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[118]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EqualsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EqualsResponse) ProtoMessage() {}
+
+func (x *EqualsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[118]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EqualsResponse.ProtoReflect.Descriptor instead.
+func (*EqualsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{118}
+}
+
+func (x *EqualsResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type HashCodeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HashCodeRequest) Reset() {
+	*x = HashCodeRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[119]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HashCodeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HashCodeRequest) ProtoMessage() {}
+
+func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[119]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HashCodeRequest.ProtoReflect.Descriptor instead.
+func (*HashCodeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{119}
+}
+
+type HashCodeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HashCodeResponse) Reset() {
+	*x = HashCodeResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[120]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HashCodeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HashCodeResponse) ProtoMessage() {}
+
+func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[120]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HashCodeResponse.ProtoReflect.Descriptor instead.
+func (*HashCodeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{120}
+}
+
+func (x *HashCodeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OnControlStatusChangeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          bool                   `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnControlStatusChangeRequest) Reset() {
+	*x = OnControlStatusChangeRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[121]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnControlStatusChangeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnControlStatusChangeRequest) ProtoMessage() {}
+
+func (x *OnControlStatusChangeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[121]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnControlStatusChangeRequest.ProtoReflect.Descriptor instead.
+func (*OnControlStatusChangeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{121}
+}
+
+func (x *OnControlStatusChangeRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnControlStatusChangeRequest) GetArg1() bool {
+	if x != nil {
+		return x.Arg1
+	}
+	return false
+}
+
+type OnControlStatusChangeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnControlStatusChangeResponse) Reset() {
+	*x = OnControlStatusChangeResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[122]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnControlStatusChangeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnControlStatusChangeResponse) ProtoMessage() {}
+
+func (x *OnControlStatusChangeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[122]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnControlStatusChangeResponse.ProtoReflect.Descriptor instead.
+func (*OnControlStatusChangeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{122}
+}
+
+type OnEnableStatusChangeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          bool                   `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnEnableStatusChangeRequest) Reset() {
+	*x = OnEnableStatusChangeRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[123]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnEnableStatusChangeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnEnableStatusChangeRequest) ProtoMessage() {}
+
+func (x *OnEnableStatusChangeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[123]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnEnableStatusChangeRequest.ProtoReflect.Descriptor instead.
+func (*OnEnableStatusChangeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{123}
+}
+
+func (x *OnEnableStatusChangeRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnEnableStatusChangeRequest) GetArg1() bool {
+	if x != nil {
+		return x.Arg1
+	}
+	return false
+}
+
+type OnEnableStatusChangeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnEnableStatusChangeResponse) Reset() {
+	*x = OnEnableStatusChangeResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[124]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnEnableStatusChangeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnEnableStatusChangeResponse) ProtoMessage() {}
+
+func (x *OnEnableStatusChangeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[124]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnEnableStatusChangeResponse.ProtoReflect.Descriptor instead.
+func (*OnEnableStatusChangeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{124}
+}
+
+type NewEqualizerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewEqualizerRequest) Reset() {
+	*x = NewEqualizerRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[125]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewEqualizerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewEqualizerRequest) ProtoMessage() {}
+
+func (x *NewEqualizerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[125]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewEqualizerRequest.ProtoReflect.Descriptor instead.
+func (*NewEqualizerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{125}
+}
+
+func (x *NewEqualizerRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *NewEqualizerRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type NewEqualizerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewEqualizerResponse) Reset() {
+	*x = NewEqualizerResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[126]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewEqualizerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewEqualizerResponse) ProtoMessage() {}
+
+func (x *NewEqualizerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[126]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewEqualizerResponse.ProtoReflect.Descriptor instead.
+func (*NewEqualizerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{126}
+}
+
+func (x *NewEqualizerResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetBandRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBandRequest) Reset() {
+	*x = GetBandRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[127]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBandRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBandRequest) ProtoMessage() {}
+
+func (x *GetBandRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[127]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBandRequest.ProtoReflect.Descriptor instead.
+func (*GetBandRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{127}
+}
+
+func (x *GetBandRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetBandRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetBandResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBandResponse) Reset() {
+	*x = GetBandResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[128]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBandResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBandResponse) ProtoMessage() {}
+
+func (x *GetBandResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[128]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBandResponse.ProtoReflect.Descriptor instead.
+func (*GetBandResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{128}
+}
+
+func (x *GetBandResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetBandFreqRangeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBandFreqRangeRequest) Reset() {
+	*x = GetBandFreqRangeRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[129]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBandFreqRangeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBandFreqRangeRequest) ProtoMessage() {}
+
+func (x *GetBandFreqRangeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[129]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBandFreqRangeRequest.ProtoReflect.Descriptor instead.
+func (*GetBandFreqRangeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{129}
+}
+
+func (x *GetBandFreqRangeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetBandFreqRangeRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetBandFreqRangeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBandFreqRangeResponse) Reset() {
+	*x = GetBandFreqRangeResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[130]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBandFreqRangeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBandFreqRangeResponse) ProtoMessage() {}
+
+func (x *GetBandFreqRangeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[130]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBandFreqRangeResponse.ProtoReflect.Descriptor instead.
+func (*GetBandFreqRangeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{130}
+}
+
+func (x *GetBandFreqRangeResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetBandLevelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBandLevelRequest) Reset() {
+	*x = GetBandLevelRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[131]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBandLevelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBandLevelRequest) ProtoMessage() {}
+
+func (x *GetBandLevelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[131]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBandLevelRequest.ProtoReflect.Descriptor instead.
+func (*GetBandLevelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{131}
+}
+
+func (x *GetBandLevelRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetBandLevelRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetBandLevelResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBandLevelResponse) Reset() {
+	*x = GetBandLevelResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[132]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBandLevelResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBandLevelResponse) ProtoMessage() {}
+
+func (x *GetBandLevelResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[132]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBandLevelResponse.ProtoReflect.Descriptor instead.
+func (*GetBandLevelResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{132}
+}
+
+func (x *GetBandLevelResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetBandLevelRangeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBandLevelRangeRequest) Reset() {
+	*x = GetBandLevelRangeRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[133]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBandLevelRangeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBandLevelRangeRequest) ProtoMessage() {}
+
+func (x *GetBandLevelRangeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[133]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBandLevelRangeRequest.ProtoReflect.Descriptor instead.
+func (*GetBandLevelRangeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{133}
+}
+
+func (x *GetBandLevelRangeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetBandLevelRangeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBandLevelRangeResponse) Reset() {
+	*x = GetBandLevelRangeResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[134]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBandLevelRangeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBandLevelRangeResponse) ProtoMessage() {}
+
+func (x *GetBandLevelRangeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[134]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBandLevelRangeResponse.ProtoReflect.Descriptor instead.
+func (*GetBandLevelRangeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{134}
+}
+
+func (x *GetBandLevelRangeResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetCenterFreqRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCenterFreqRequest) Reset() {
+	*x = GetCenterFreqRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[135]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCenterFreqRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCenterFreqRequest) ProtoMessage() {}
+
+func (x *GetCenterFreqRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[135]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCenterFreqRequest.ProtoReflect.Descriptor instead.
+func (*GetCenterFreqRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{135}
+}
+
+func (x *GetCenterFreqRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetCenterFreqRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetCenterFreqResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCenterFreqResponse) Reset() {
+	*x = GetCenterFreqResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[136]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCenterFreqResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCenterFreqResponse) ProtoMessage() {}
+
+func (x *GetCenterFreqResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[136]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCenterFreqResponse.ProtoReflect.Descriptor instead.
+func (*GetCenterFreqResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{136}
+}
+
+func (x *GetCenterFreqResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetCurrentPresetRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCurrentPresetRequest) Reset() {
+	*x = GetCurrentPresetRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[137]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCurrentPresetRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCurrentPresetRequest) ProtoMessage() {}
+
+func (x *GetCurrentPresetRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[137]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCurrentPresetRequest.ProtoReflect.Descriptor instead.
+func (*GetCurrentPresetRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{137}
+}
+
+func (x *GetCurrentPresetRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetCurrentPresetResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCurrentPresetResponse) Reset() {
+	*x = GetCurrentPresetResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[138]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCurrentPresetResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCurrentPresetResponse) ProtoMessage() {}
+
+func (x *GetCurrentPresetResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[138]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCurrentPresetResponse.ProtoReflect.Descriptor instead.
+func (*GetCurrentPresetResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{138}
+}
+
+func (x *GetCurrentPresetResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetNumberOfBandsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNumberOfBandsRequest) Reset() {
+	*x = GetNumberOfBandsRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[139]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNumberOfBandsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNumberOfBandsRequest) ProtoMessage() {}
+
+func (x *GetNumberOfBandsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[139]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNumberOfBandsRequest.ProtoReflect.Descriptor instead.
+func (*GetNumberOfBandsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{139}
+}
+
+func (x *GetNumberOfBandsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetNumberOfBandsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNumberOfBandsResponse) Reset() {
+	*x = GetNumberOfBandsResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[140]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNumberOfBandsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNumberOfBandsResponse) ProtoMessage() {}
+
+func (x *GetNumberOfBandsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[140]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNumberOfBandsResponse.ProtoReflect.Descriptor instead.
+func (*GetNumberOfBandsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{140}
+}
+
+func (x *GetNumberOfBandsResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetNumberOfPresetsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNumberOfPresetsRequest) Reset() {
+	*x = GetNumberOfPresetsRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[141]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNumberOfPresetsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNumberOfPresetsRequest) ProtoMessage() {}
+
+func (x *GetNumberOfPresetsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[141]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNumberOfPresetsRequest.ProtoReflect.Descriptor instead.
+func (*GetNumberOfPresetsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{141}
+}
+
+func (x *GetNumberOfPresetsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetNumberOfPresetsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNumberOfPresetsResponse) Reset() {
+	*x = GetNumberOfPresetsResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[142]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNumberOfPresetsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNumberOfPresetsResponse) ProtoMessage() {}
+
+func (x *GetNumberOfPresetsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[142]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNumberOfPresetsResponse.ProtoReflect.Descriptor instead.
+func (*GetNumberOfPresetsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{142}
+}
+
+func (x *GetNumberOfPresetsResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPresetNameRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPresetNameRequest) Reset() {
+	*x = GetPresetNameRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[143]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPresetNameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPresetNameRequest) ProtoMessage() {}
+
+func (x *GetPresetNameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[143]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPresetNameRequest.ProtoReflect.Descriptor instead.
+func (*GetPresetNameRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{143}
+}
+
+func (x *GetPresetNameRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetPresetNameRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetPresetNameResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPresetNameResponse) Reset() {
+	*x = GetPresetNameResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[144]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPresetNameResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPresetNameResponse) ProtoMessage() {}
+
+func (x *GetPresetNameResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[144]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPresetNameResponse.ProtoReflect.Descriptor instead.
+func (*GetPresetNameResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{144}
+}
+
+func (x *GetPresetNameResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type SetBandLevelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetBandLevelRequest) Reset() {
+	*x = SetBandLevelRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[145]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetBandLevelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetBandLevelRequest) ProtoMessage() {}
+
+func (x *SetBandLevelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[145]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetBandLevelRequest.ProtoReflect.Descriptor instead.
+func (*SetBandLevelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{145}
+}
+
+func (x *SetBandLevelRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetBandLevelRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SetBandLevelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type SetBandLevelResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetBandLevelResponse) Reset() {
+	*x = SetBandLevelResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[146]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetBandLevelResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetBandLevelResponse) ProtoMessage() {}
+
+func (x *SetBandLevelResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[146]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetBandLevelResponse.ProtoReflect.Descriptor instead.
+func (*SetBandLevelResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{146}
+}
+
+type UsePresetRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UsePresetRequest) Reset() {
+	*x = UsePresetRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[147]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UsePresetRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UsePresetRequest) ProtoMessage() {}
+
+func (x *UsePresetRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[147]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UsePresetRequest.ProtoReflect.Descriptor instead.
+func (*UsePresetRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{147}
+}
+
+func (x *UsePresetRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *UsePresetRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type UsePresetResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UsePresetResponse) Reset() {
+	*x = UsePresetResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[148]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UsePresetResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UsePresetResponse) ProtoMessage() {}
+
+func (x *UsePresetResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[148]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UsePresetResponse.ProtoReflect.Descriptor instead.
+func (*UsePresetResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{148}
+}
+
+type EqualizerOnParameterChangeListenerOnParameterChangeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int32                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	Arg4          int32                  `protobuf:"varint,5,opt,name=arg4,proto3" json:"arg4,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EqualizerOnParameterChangeListenerOnParameterChangeRequest) Reset() {
+	*x = EqualizerOnParameterChangeListenerOnParameterChangeRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[149]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EqualizerOnParameterChangeListenerOnParameterChangeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EqualizerOnParameterChangeListenerOnParameterChangeRequest) ProtoMessage() {}
+
+func (x *EqualizerOnParameterChangeListenerOnParameterChangeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[149]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EqualizerOnParameterChangeListenerOnParameterChangeRequest.ProtoReflect.Descriptor instead.
+func (*EqualizerOnParameterChangeListenerOnParameterChangeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{149}
+}
+
+func (x *EqualizerOnParameterChangeListenerOnParameterChangeRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *EqualizerOnParameterChangeListenerOnParameterChangeRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *EqualizerOnParameterChangeListenerOnParameterChangeRequest) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *EqualizerOnParameterChangeListenerOnParameterChangeRequest) GetArg3() int32 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+func (x *EqualizerOnParameterChangeListenerOnParameterChangeRequest) GetArg4() int32 {
+	if x != nil {
+		return x.Arg4
+	}
+	return 0
+}
+
+type NewPresetReverbRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewPresetReverbRequest) Reset() {
+	*x = NewPresetReverbRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[150]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewPresetReverbRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewPresetReverbRequest) ProtoMessage() {}
+
+func (x *NewPresetReverbRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[150]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewPresetReverbRequest.ProtoReflect.Descriptor instead.
+func (*NewPresetReverbRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{150}
+}
+
+func (x *NewPresetReverbRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *NewPresetReverbRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type NewPresetReverbResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewPresetReverbResponse) Reset() {
+	*x = NewPresetReverbResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[151]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewPresetReverbResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewPresetReverbResponse) ProtoMessage() {}
+
+func (x *NewPresetReverbResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[151]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewPresetReverbResponse.ProtoReflect.Descriptor instead.
+func (*NewPresetReverbResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{151}
+}
+
+func (x *NewPresetReverbResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPresetRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPresetRequest) Reset() {
+	*x = GetPresetRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[152]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPresetRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPresetRequest) ProtoMessage() {}
+
+func (x *GetPresetRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[152]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPresetRequest.ProtoReflect.Descriptor instead.
+func (*GetPresetRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{152}
+}
+
+func (x *GetPresetRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetPresetResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPresetResponse) Reset() {
+	*x = GetPresetResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[153]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPresetResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPresetResponse) ProtoMessage() {}
+
+func (x *GetPresetResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[153]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPresetResponse.ProtoReflect.Descriptor instead.
+func (*GetPresetResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{153}
+}
+
+func (x *GetPresetResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetPresetRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPresetRequest) Reset() {
+	*x = SetPresetRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[154]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPresetRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPresetRequest) ProtoMessage() {}
+
+func (x *SetPresetRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[154]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPresetRequest.ProtoReflect.Descriptor instead.
+func (*SetPresetRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{154}
+}
+
+func (x *SetPresetRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetPresetRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetPresetResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPresetResponse) Reset() {
+	*x = SetPresetResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[155]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPresetResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPresetResponse) ProtoMessage() {}
+
+func (x *SetPresetResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[155]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPresetResponse.ProtoReflect.Descriptor instead.
+func (*SetPresetResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{155}
+}
+
+type NewLoudnessEnhancerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewLoudnessEnhancerRequest) Reset() {
+	*x = NewLoudnessEnhancerRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[156]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewLoudnessEnhancerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewLoudnessEnhancerRequest) ProtoMessage() {}
+
+func (x *NewLoudnessEnhancerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[156]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewLoudnessEnhancerRequest.ProtoReflect.Descriptor instead.
+func (*NewLoudnessEnhancerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{156}
+}
+
+func (x *NewLoudnessEnhancerRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type NewLoudnessEnhancerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewLoudnessEnhancerResponse) Reset() {
+	*x = NewLoudnessEnhancerResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[157]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewLoudnessEnhancerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewLoudnessEnhancerResponse) ProtoMessage() {}
+
+func (x *NewLoudnessEnhancerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[157]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewLoudnessEnhancerResponse.ProtoReflect.Descriptor instead.
+func (*NewLoudnessEnhancerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{157}
+}
+
+func (x *NewLoudnessEnhancerResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetTargetGainRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTargetGainRequest) Reset() {
+	*x = GetTargetGainRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[158]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTargetGainRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTargetGainRequest) ProtoMessage() {}
+
+func (x *GetTargetGainRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[158]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTargetGainRequest.ProtoReflect.Descriptor instead.
+func (*GetTargetGainRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{158}
+}
+
+func (x *GetTargetGainRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetTargetGainResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        float32                `protobuf:"fixed32,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTargetGainResponse) Reset() {
+	*x = GetTargetGainResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[159]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTargetGainResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTargetGainResponse) ProtoMessage() {}
+
+func (x *GetTargetGainResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[159]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTargetGainResponse.ProtoReflect.Descriptor instead.
+func (*GetTargetGainResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{159}
+}
+
+func (x *GetTargetGainResponse) GetResult() float32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetTargetGainRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetTargetGainRequest) Reset() {
+	*x = SetTargetGainRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[160]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetTargetGainRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetTargetGainRequest) ProtoMessage() {}
+
+func (x *SetTargetGainRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[160]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetTargetGainRequest.ProtoReflect.Descriptor instead.
+func (*SetTargetGainRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{160}
+}
+
+func (x *SetTargetGainRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetTargetGainRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetTargetGainResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetTargetGainResponse) Reset() {
+	*x = SetTargetGainResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[161]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetTargetGainResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetTargetGainResponse) ProtoMessage() {}
+
+func (x *SetTargetGainResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[161]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetTargetGainResponse.ProtoReflect.Descriptor instead.
+func (*SetTargetGainResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{161}
+}
+
+type NewDynamicsProcessingRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewDynamicsProcessingRequest) Reset() {
+	*x = NewDynamicsProcessingRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[162]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewDynamicsProcessingRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewDynamicsProcessingRequest) ProtoMessage() {}
+
+func (x *NewDynamicsProcessingRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[162]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewDynamicsProcessingRequest.ProtoReflect.Descriptor instead.
+func (*NewDynamicsProcessingRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{162}
+}
+
+func (x *NewDynamicsProcessingRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type NewDynamicsProcessingResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewDynamicsProcessingResponse) Reset() {
+	*x = NewDynamicsProcessingResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[163]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewDynamicsProcessingResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewDynamicsProcessingResponse) ProtoMessage() {}
+
+func (x *NewDynamicsProcessingResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[163]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewDynamicsProcessingResponse.ProtoReflect.Descriptor instead.
+func (*NewDynamicsProcessingResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{163}
+}
+
+func (x *NewDynamicsProcessingResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetChannelByChannelIndexRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetChannelByChannelIndexRequest) Reset() {
+	*x = GetChannelByChannelIndexRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[164]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetChannelByChannelIndexRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetChannelByChannelIndexRequest) ProtoMessage() {}
+
+func (x *GetChannelByChannelIndexRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[164]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetChannelByChannelIndexRequest.ProtoReflect.Descriptor instead.
+func (*GetChannelByChannelIndexRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{164}
+}
+
+func (x *GetChannelByChannelIndexRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetChannelByChannelIndexRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetChannelByChannelIndexResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetChannelByChannelIndexResponse) Reset() {
+	*x = GetChannelByChannelIndexResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[165]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetChannelByChannelIndexResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetChannelByChannelIndexResponse) ProtoMessage() {}
+
+func (x *GetChannelByChannelIndexResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[165]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetChannelByChannelIndexResponse.ProtoReflect.Descriptor instead.
+func (*GetChannelByChannelIndexResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{165}
+}
+
+func (x *GetChannelByChannelIndexResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetChannelCountRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetChannelCountRequest) Reset() {
+	*x = GetChannelCountRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[166]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetChannelCountRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetChannelCountRequest) ProtoMessage() {}
+
+func (x *GetChannelCountRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[166]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetChannelCountRequest.ProtoReflect.Descriptor instead.
+func (*GetChannelCountRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{166}
+}
+
+func (x *GetChannelCountRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetChannelCountResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetChannelCountResponse) Reset() {
+	*x = GetChannelCountResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[167]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetChannelCountResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetChannelCountResponse) ProtoMessage() {}
+
+func (x *GetChannelCountResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[167]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetChannelCountResponse.ProtoReflect.Descriptor instead.
+func (*GetChannelCountResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{167}
+}
+
+func (x *GetChannelCountResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetConfigRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetConfigRequest) Reset() {
+	*x = GetConfigRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[168]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetConfigRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetConfigRequest) ProtoMessage() {}
+
+func (x *GetConfigRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[168]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetConfigRequest.ProtoReflect.Descriptor instead.
+func (*GetConfigRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{168}
+}
+
+func (x *GetConfigRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetConfigResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetConfigResponse) Reset() {
+	*x = GetConfigResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[169]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetConfigResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetConfigResponse) ProtoMessage() {}
+
+func (x *GetConfigResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[169]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetConfigResponse.ProtoReflect.Descriptor instead.
+func (*GetConfigResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{169}
+}
+
+func (x *GetConfigResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetInputGainByChannelIndexRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetInputGainByChannelIndexRequest) Reset() {
+	*x = GetInputGainByChannelIndexRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[170]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetInputGainByChannelIndexRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetInputGainByChannelIndexRequest) ProtoMessage() {}
+
+func (x *GetInputGainByChannelIndexRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[170]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetInputGainByChannelIndexRequest.ProtoReflect.Descriptor instead.
+func (*GetInputGainByChannelIndexRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{170}
+}
+
+func (x *GetInputGainByChannelIndexRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetInputGainByChannelIndexRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetInputGainByChannelIndexResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        float32                `protobuf:"fixed32,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetInputGainByChannelIndexResponse) Reset() {
+	*x = GetInputGainByChannelIndexResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[171]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetInputGainByChannelIndexResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetInputGainByChannelIndexResponse) ProtoMessage() {}
+
+func (x *GetInputGainByChannelIndexResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[171]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetInputGainByChannelIndexResponse.ProtoReflect.Descriptor instead.
+func (*GetInputGainByChannelIndexResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{171}
+}
+
+func (x *GetInputGainByChannelIndexResponse) GetResult() float32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetLimiterByChannelIndexRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLimiterByChannelIndexRequest) Reset() {
+	*x = GetLimiterByChannelIndexRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[172]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLimiterByChannelIndexRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLimiterByChannelIndexRequest) ProtoMessage() {}
+
+func (x *GetLimiterByChannelIndexRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[172]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLimiterByChannelIndexRequest.ProtoReflect.Descriptor instead.
+func (*GetLimiterByChannelIndexRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{172}
+}
+
+func (x *GetLimiterByChannelIndexRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetLimiterByChannelIndexRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetLimiterByChannelIndexResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLimiterByChannelIndexResponse) Reset() {
+	*x = GetLimiterByChannelIndexResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[173]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLimiterByChannelIndexResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLimiterByChannelIndexResponse) ProtoMessage() {}
+
+func (x *GetLimiterByChannelIndexResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[173]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLimiterByChannelIndexResponse.ProtoReflect.Descriptor instead.
+func (*GetLimiterByChannelIndexResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{173}
+}
+
+func (x *GetLimiterByChannelIndexResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetMbcBandByChannelIndexRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMbcBandByChannelIndexRequest) Reset() {
+	*x = GetMbcBandByChannelIndexRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[174]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMbcBandByChannelIndexRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMbcBandByChannelIndexRequest) ProtoMessage() {}
+
+func (x *GetMbcBandByChannelIndexRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[174]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMbcBandByChannelIndexRequest.ProtoReflect.Descriptor instead.
+func (*GetMbcBandByChannelIndexRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{174}
+}
+
+func (x *GetMbcBandByChannelIndexRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetMbcBandByChannelIndexRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *GetMbcBandByChannelIndexRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type GetMbcBandByChannelIndexResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMbcBandByChannelIndexResponse) Reset() {
+	*x = GetMbcBandByChannelIndexResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[175]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMbcBandByChannelIndexResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMbcBandByChannelIndexResponse) ProtoMessage() {}
+
+func (x *GetMbcBandByChannelIndexResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[175]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMbcBandByChannelIndexResponse.ProtoReflect.Descriptor instead.
+func (*GetMbcBandByChannelIndexResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{175}
+}
+
+func (x *GetMbcBandByChannelIndexResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetMbcByChannelIndexRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMbcByChannelIndexRequest) Reset() {
+	*x = GetMbcByChannelIndexRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[176]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMbcByChannelIndexRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMbcByChannelIndexRequest) ProtoMessage() {}
+
+func (x *GetMbcByChannelIndexRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[176]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMbcByChannelIndexRequest.ProtoReflect.Descriptor instead.
+func (*GetMbcByChannelIndexRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{176}
+}
+
+func (x *GetMbcByChannelIndexRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetMbcByChannelIndexRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetMbcByChannelIndexResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMbcByChannelIndexResponse) Reset() {
+	*x = GetMbcByChannelIndexResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[177]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMbcByChannelIndexResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMbcByChannelIndexResponse) ProtoMessage() {}
+
+func (x *GetMbcByChannelIndexResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[177]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMbcByChannelIndexResponse.ProtoReflect.Descriptor instead.
+func (*GetMbcByChannelIndexResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{177}
+}
+
+func (x *GetMbcByChannelIndexResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPostEqBandByChannelIndexRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPostEqBandByChannelIndexRequest) Reset() {
+	*x = GetPostEqBandByChannelIndexRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[178]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPostEqBandByChannelIndexRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPostEqBandByChannelIndexRequest) ProtoMessage() {}
+
+func (x *GetPostEqBandByChannelIndexRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[178]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPostEqBandByChannelIndexRequest.ProtoReflect.Descriptor instead.
+func (*GetPostEqBandByChannelIndexRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{178}
+}
+
+func (x *GetPostEqBandByChannelIndexRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetPostEqBandByChannelIndexRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *GetPostEqBandByChannelIndexRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type GetPostEqBandByChannelIndexResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPostEqBandByChannelIndexResponse) Reset() {
+	*x = GetPostEqBandByChannelIndexResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[179]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPostEqBandByChannelIndexResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPostEqBandByChannelIndexResponse) ProtoMessage() {}
+
+func (x *GetPostEqBandByChannelIndexResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[179]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPostEqBandByChannelIndexResponse.ProtoReflect.Descriptor instead.
+func (*GetPostEqBandByChannelIndexResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{179}
+}
+
+func (x *GetPostEqBandByChannelIndexResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPostEqByChannelIndexRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPostEqByChannelIndexRequest) Reset() {
+	*x = GetPostEqByChannelIndexRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[180]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPostEqByChannelIndexRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPostEqByChannelIndexRequest) ProtoMessage() {}
+
+func (x *GetPostEqByChannelIndexRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[180]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPostEqByChannelIndexRequest.ProtoReflect.Descriptor instead.
+func (*GetPostEqByChannelIndexRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{180}
+}
+
+func (x *GetPostEqByChannelIndexRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetPostEqByChannelIndexRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetPostEqByChannelIndexResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPostEqByChannelIndexResponse) Reset() {
+	*x = GetPostEqByChannelIndexResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[181]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPostEqByChannelIndexResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPostEqByChannelIndexResponse) ProtoMessage() {}
+
+func (x *GetPostEqByChannelIndexResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[181]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPostEqByChannelIndexResponse.ProtoReflect.Descriptor instead.
+func (*GetPostEqByChannelIndexResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{181}
+}
+
+func (x *GetPostEqByChannelIndexResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPreEqBandByChannelIndexRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPreEqBandByChannelIndexRequest) Reset() {
+	*x = GetPreEqBandByChannelIndexRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[182]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPreEqBandByChannelIndexRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPreEqBandByChannelIndexRequest) ProtoMessage() {}
+
+func (x *GetPreEqBandByChannelIndexRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[182]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPreEqBandByChannelIndexRequest.ProtoReflect.Descriptor instead.
+func (*GetPreEqBandByChannelIndexRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{182}
+}
+
+func (x *GetPreEqBandByChannelIndexRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetPreEqBandByChannelIndexRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *GetPreEqBandByChannelIndexRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type GetPreEqBandByChannelIndexResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPreEqBandByChannelIndexResponse) Reset() {
+	*x = GetPreEqBandByChannelIndexResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[183]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPreEqBandByChannelIndexResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPreEqBandByChannelIndexResponse) ProtoMessage() {}
+
+func (x *GetPreEqBandByChannelIndexResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[183]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPreEqBandByChannelIndexResponse.ProtoReflect.Descriptor instead.
+func (*GetPreEqBandByChannelIndexResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{183}
+}
+
+func (x *GetPreEqBandByChannelIndexResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPreEqByChannelIndexRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPreEqByChannelIndexRequest) Reset() {
+	*x = GetPreEqByChannelIndexRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[184]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPreEqByChannelIndexRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPreEqByChannelIndexRequest) ProtoMessage() {}
+
+func (x *GetPreEqByChannelIndexRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[184]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPreEqByChannelIndexRequest.ProtoReflect.Descriptor instead.
+func (*GetPreEqByChannelIndexRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{184}
+}
+
+func (x *GetPreEqByChannelIndexRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetPreEqByChannelIndexRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetPreEqByChannelIndexResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPreEqByChannelIndexResponse) Reset() {
+	*x = GetPreEqByChannelIndexResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[185]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPreEqByChannelIndexResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPreEqByChannelIndexResponse) ProtoMessage() {}
+
+func (x *GetPreEqByChannelIndexResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[185]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPreEqByChannelIndexResponse.ProtoReflect.Descriptor instead.
+func (*GetPreEqByChannelIndexResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{185}
+}
+
+func (x *GetPreEqByChannelIndexResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetAllChannelsToRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetAllChannelsToRequest) Reset() {
+	*x = SetAllChannelsToRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[186]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetAllChannelsToRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetAllChannelsToRequest) ProtoMessage() {}
+
+func (x *SetAllChannelsToRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[186]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetAllChannelsToRequest.ProtoReflect.Descriptor instead.
+func (*SetAllChannelsToRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{186}
+}
+
+func (x *SetAllChannelsToRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetAllChannelsToRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetAllChannelsToResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetAllChannelsToResponse) Reset() {
+	*x = SetAllChannelsToResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[187]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetAllChannelsToResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetAllChannelsToResponse) ProtoMessage() {}
+
+func (x *SetAllChannelsToResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[187]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetAllChannelsToResponse.ProtoReflect.Descriptor instead.
+func (*SetAllChannelsToResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{187}
+}
+
+type SetChannelToRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetChannelToRequest) Reset() {
+	*x = SetChannelToRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[188]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetChannelToRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetChannelToRequest) ProtoMessage() {}
+
+func (x *SetChannelToRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[188]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetChannelToRequest.ProtoReflect.Descriptor instead.
+func (*SetChannelToRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{188}
+}
+
+func (x *SetChannelToRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetChannelToRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SetChannelToRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type SetChannelToResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetChannelToResponse) Reset() {
+	*x = SetChannelToResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[189]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetChannelToResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetChannelToResponse) ProtoMessage() {}
+
+func (x *SetChannelToResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[189]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetChannelToResponse.ProtoReflect.Descriptor instead.
+func (*SetChannelToResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{189}
+}
+
+type SetInputGainAllChannelsToRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          float32                `protobuf:"fixed32,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetInputGainAllChannelsToRequest) Reset() {
+	*x = SetInputGainAllChannelsToRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[190]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetInputGainAllChannelsToRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetInputGainAllChannelsToRequest) ProtoMessage() {}
+
+func (x *SetInputGainAllChannelsToRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[190]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetInputGainAllChannelsToRequest.ProtoReflect.Descriptor instead.
+func (*SetInputGainAllChannelsToRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{190}
+}
+
+func (x *SetInputGainAllChannelsToRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetInputGainAllChannelsToRequest) GetArg0() float32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetInputGainAllChannelsToResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetInputGainAllChannelsToResponse) Reset() {
+	*x = SetInputGainAllChannelsToResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[191]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetInputGainAllChannelsToResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetInputGainAllChannelsToResponse) ProtoMessage() {}
+
+func (x *SetInputGainAllChannelsToResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[191]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetInputGainAllChannelsToResponse.ProtoReflect.Descriptor instead.
+func (*SetInputGainAllChannelsToResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{191}
+}
+
+type SetInputGainbyChannelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          float32                `protobuf:"fixed32,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetInputGainbyChannelRequest) Reset() {
+	*x = SetInputGainbyChannelRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[192]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetInputGainbyChannelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetInputGainbyChannelRequest) ProtoMessage() {}
+
+func (x *SetInputGainbyChannelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[192]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetInputGainbyChannelRequest.ProtoReflect.Descriptor instead.
+func (*SetInputGainbyChannelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{192}
+}
+
+func (x *SetInputGainbyChannelRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetInputGainbyChannelRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SetInputGainbyChannelRequest) GetArg1() float32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type SetInputGainbyChannelResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetInputGainbyChannelResponse) Reset() {
+	*x = SetInputGainbyChannelResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[193]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetInputGainbyChannelResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetInputGainbyChannelResponse) ProtoMessage() {}
+
+func (x *SetInputGainbyChannelResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[193]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetInputGainbyChannelResponse.ProtoReflect.Descriptor instead.
+func (*SetInputGainbyChannelResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{193}
+}
+
+type SetLimiterAllChannelsToRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetLimiterAllChannelsToRequest) Reset() {
+	*x = SetLimiterAllChannelsToRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[194]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetLimiterAllChannelsToRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetLimiterAllChannelsToRequest) ProtoMessage() {}
+
+func (x *SetLimiterAllChannelsToRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[194]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetLimiterAllChannelsToRequest.ProtoReflect.Descriptor instead.
+func (*SetLimiterAllChannelsToRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{194}
+}
+
+func (x *SetLimiterAllChannelsToRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetLimiterAllChannelsToRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetLimiterAllChannelsToResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetLimiterAllChannelsToResponse) Reset() {
+	*x = SetLimiterAllChannelsToResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[195]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetLimiterAllChannelsToResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetLimiterAllChannelsToResponse) ProtoMessage() {}
+
+func (x *SetLimiterAllChannelsToResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[195]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetLimiterAllChannelsToResponse.ProtoReflect.Descriptor instead.
+func (*SetLimiterAllChannelsToResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{195}
+}
+
+type SetLimiterByChannelIndexRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetLimiterByChannelIndexRequest) Reset() {
+	*x = SetLimiterByChannelIndexRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[196]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetLimiterByChannelIndexRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetLimiterByChannelIndexRequest) ProtoMessage() {}
+
+func (x *SetLimiterByChannelIndexRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[196]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetLimiterByChannelIndexRequest.ProtoReflect.Descriptor instead.
+func (*SetLimiterByChannelIndexRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{196}
+}
+
+func (x *SetLimiterByChannelIndexRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetLimiterByChannelIndexRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SetLimiterByChannelIndexRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type SetLimiterByChannelIndexResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetLimiterByChannelIndexResponse) Reset() {
+	*x = SetLimiterByChannelIndexResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[197]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetLimiterByChannelIndexResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetLimiterByChannelIndexResponse) ProtoMessage() {}
+
+func (x *SetLimiterByChannelIndexResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[197]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetLimiterByChannelIndexResponse.ProtoReflect.Descriptor instead.
+func (*SetLimiterByChannelIndexResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{197}
+}
+
+type SetMbcAllChannelsToRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetMbcAllChannelsToRequest) Reset() {
+	*x = SetMbcAllChannelsToRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[198]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetMbcAllChannelsToRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetMbcAllChannelsToRequest) ProtoMessage() {}
+
+func (x *SetMbcAllChannelsToRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[198]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetMbcAllChannelsToRequest.ProtoReflect.Descriptor instead.
+func (*SetMbcAllChannelsToRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{198}
+}
+
+func (x *SetMbcAllChannelsToRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetMbcAllChannelsToRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetMbcAllChannelsToResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetMbcAllChannelsToResponse) Reset() {
+	*x = SetMbcAllChannelsToResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[199]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetMbcAllChannelsToResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetMbcAllChannelsToResponse) ProtoMessage() {}
+
+func (x *SetMbcAllChannelsToResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[199]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetMbcAllChannelsToResponse.ProtoReflect.Descriptor instead.
+func (*SetMbcAllChannelsToResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{199}
+}
+
+type SetMbcBandAllChannelsToRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetMbcBandAllChannelsToRequest) Reset() {
+	*x = SetMbcBandAllChannelsToRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[200]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetMbcBandAllChannelsToRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetMbcBandAllChannelsToRequest) ProtoMessage() {}
+
+func (x *SetMbcBandAllChannelsToRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[200]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetMbcBandAllChannelsToRequest.ProtoReflect.Descriptor instead.
+func (*SetMbcBandAllChannelsToRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{200}
+}
+
+func (x *SetMbcBandAllChannelsToRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetMbcBandAllChannelsToRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SetMbcBandAllChannelsToRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type SetMbcBandAllChannelsToResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetMbcBandAllChannelsToResponse) Reset() {
+	*x = SetMbcBandAllChannelsToResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[201]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetMbcBandAllChannelsToResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetMbcBandAllChannelsToResponse) ProtoMessage() {}
+
+func (x *SetMbcBandAllChannelsToResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[201]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetMbcBandAllChannelsToResponse.ProtoReflect.Descriptor instead.
+func (*SetMbcBandAllChannelsToResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{201}
+}
+
+type SetMbcBandByChannelIndexRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetMbcBandByChannelIndexRequest) Reset() {
+	*x = SetMbcBandByChannelIndexRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[202]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetMbcBandByChannelIndexRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetMbcBandByChannelIndexRequest) ProtoMessage() {}
+
+func (x *SetMbcBandByChannelIndexRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[202]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetMbcBandByChannelIndexRequest.ProtoReflect.Descriptor instead.
+func (*SetMbcBandByChannelIndexRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{202}
+}
+
+func (x *SetMbcBandByChannelIndexRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetMbcBandByChannelIndexRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SetMbcBandByChannelIndexRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *SetMbcBandByChannelIndexRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type SetMbcBandByChannelIndexResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetMbcBandByChannelIndexResponse) Reset() {
+	*x = SetMbcBandByChannelIndexResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[203]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetMbcBandByChannelIndexResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetMbcBandByChannelIndexResponse) ProtoMessage() {}
+
+func (x *SetMbcBandByChannelIndexResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[203]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetMbcBandByChannelIndexResponse.ProtoReflect.Descriptor instead.
+func (*SetMbcBandByChannelIndexResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{203}
+}
+
+type SetMbcByChannelIndexRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetMbcByChannelIndexRequest) Reset() {
+	*x = SetMbcByChannelIndexRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[204]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetMbcByChannelIndexRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetMbcByChannelIndexRequest) ProtoMessage() {}
+
+func (x *SetMbcByChannelIndexRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[204]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetMbcByChannelIndexRequest.ProtoReflect.Descriptor instead.
+func (*SetMbcByChannelIndexRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{204}
+}
+
+func (x *SetMbcByChannelIndexRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetMbcByChannelIndexRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SetMbcByChannelIndexRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type SetMbcByChannelIndexResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetMbcByChannelIndexResponse) Reset() {
+	*x = SetMbcByChannelIndexResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[205]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetMbcByChannelIndexResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetMbcByChannelIndexResponse) ProtoMessage() {}
+
+func (x *SetMbcByChannelIndexResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[205]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetMbcByChannelIndexResponse.ProtoReflect.Descriptor instead.
+func (*SetMbcByChannelIndexResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{205}
+}
+
+type SetPostEqAllChannelsToRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPostEqAllChannelsToRequest) Reset() {
+	*x = SetPostEqAllChannelsToRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[206]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPostEqAllChannelsToRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPostEqAllChannelsToRequest) ProtoMessage() {}
+
+func (x *SetPostEqAllChannelsToRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[206]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPostEqAllChannelsToRequest.ProtoReflect.Descriptor instead.
+func (*SetPostEqAllChannelsToRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{206}
+}
+
+func (x *SetPostEqAllChannelsToRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetPostEqAllChannelsToRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetPostEqAllChannelsToResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPostEqAllChannelsToResponse) Reset() {
+	*x = SetPostEqAllChannelsToResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[207]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPostEqAllChannelsToResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPostEqAllChannelsToResponse) ProtoMessage() {}
+
+func (x *SetPostEqAllChannelsToResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[207]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPostEqAllChannelsToResponse.ProtoReflect.Descriptor instead.
+func (*SetPostEqAllChannelsToResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{207}
+}
+
+type SetPostEqBandAllChannelsToRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPostEqBandAllChannelsToRequest) Reset() {
+	*x = SetPostEqBandAllChannelsToRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[208]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPostEqBandAllChannelsToRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPostEqBandAllChannelsToRequest) ProtoMessage() {}
+
+func (x *SetPostEqBandAllChannelsToRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[208]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPostEqBandAllChannelsToRequest.ProtoReflect.Descriptor instead.
+func (*SetPostEqBandAllChannelsToRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{208}
+}
+
+func (x *SetPostEqBandAllChannelsToRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetPostEqBandAllChannelsToRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SetPostEqBandAllChannelsToRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type SetPostEqBandAllChannelsToResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPostEqBandAllChannelsToResponse) Reset() {
+	*x = SetPostEqBandAllChannelsToResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[209]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPostEqBandAllChannelsToResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPostEqBandAllChannelsToResponse) ProtoMessage() {}
+
+func (x *SetPostEqBandAllChannelsToResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[209]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPostEqBandAllChannelsToResponse.ProtoReflect.Descriptor instead.
+func (*SetPostEqBandAllChannelsToResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{209}
+}
+
+type SetPostEqBandByChannelIndexRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPostEqBandByChannelIndexRequest) Reset() {
+	*x = SetPostEqBandByChannelIndexRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[210]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPostEqBandByChannelIndexRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPostEqBandByChannelIndexRequest) ProtoMessage() {}
+
+func (x *SetPostEqBandByChannelIndexRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[210]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPostEqBandByChannelIndexRequest.ProtoReflect.Descriptor instead.
+func (*SetPostEqBandByChannelIndexRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{210}
+}
+
+func (x *SetPostEqBandByChannelIndexRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetPostEqBandByChannelIndexRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SetPostEqBandByChannelIndexRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *SetPostEqBandByChannelIndexRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type SetPostEqBandByChannelIndexResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPostEqBandByChannelIndexResponse) Reset() {
+	*x = SetPostEqBandByChannelIndexResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[211]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPostEqBandByChannelIndexResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPostEqBandByChannelIndexResponse) ProtoMessage() {}
+
+func (x *SetPostEqBandByChannelIndexResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[211]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPostEqBandByChannelIndexResponse.ProtoReflect.Descriptor instead.
+func (*SetPostEqBandByChannelIndexResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{211}
+}
+
+type SetPostEqByChannelIndexRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPostEqByChannelIndexRequest) Reset() {
+	*x = SetPostEqByChannelIndexRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[212]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPostEqByChannelIndexRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPostEqByChannelIndexRequest) ProtoMessage() {}
+
+func (x *SetPostEqByChannelIndexRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[212]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPostEqByChannelIndexRequest.ProtoReflect.Descriptor instead.
+func (*SetPostEqByChannelIndexRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{212}
+}
+
+func (x *SetPostEqByChannelIndexRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetPostEqByChannelIndexRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SetPostEqByChannelIndexRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type SetPostEqByChannelIndexResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPostEqByChannelIndexResponse) Reset() {
+	*x = SetPostEqByChannelIndexResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[213]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPostEqByChannelIndexResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPostEqByChannelIndexResponse) ProtoMessage() {}
+
+func (x *SetPostEqByChannelIndexResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[213]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPostEqByChannelIndexResponse.ProtoReflect.Descriptor instead.
+func (*SetPostEqByChannelIndexResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{213}
+}
+
+type SetPreEqAllChannelsToRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPreEqAllChannelsToRequest) Reset() {
+	*x = SetPreEqAllChannelsToRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[214]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPreEqAllChannelsToRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPreEqAllChannelsToRequest) ProtoMessage() {}
+
+func (x *SetPreEqAllChannelsToRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[214]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPreEqAllChannelsToRequest.ProtoReflect.Descriptor instead.
+func (*SetPreEqAllChannelsToRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{214}
+}
+
+func (x *SetPreEqAllChannelsToRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetPreEqAllChannelsToRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetPreEqAllChannelsToResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPreEqAllChannelsToResponse) Reset() {
+	*x = SetPreEqAllChannelsToResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[215]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPreEqAllChannelsToResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPreEqAllChannelsToResponse) ProtoMessage() {}
+
+func (x *SetPreEqAllChannelsToResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[215]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPreEqAllChannelsToResponse.ProtoReflect.Descriptor instead.
+func (*SetPreEqAllChannelsToResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{215}
+}
+
+type SetPreEqBandAllChannelsToRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPreEqBandAllChannelsToRequest) Reset() {
+	*x = SetPreEqBandAllChannelsToRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[216]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPreEqBandAllChannelsToRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPreEqBandAllChannelsToRequest) ProtoMessage() {}
+
+func (x *SetPreEqBandAllChannelsToRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[216]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPreEqBandAllChannelsToRequest.ProtoReflect.Descriptor instead.
+func (*SetPreEqBandAllChannelsToRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{216}
+}
+
+func (x *SetPreEqBandAllChannelsToRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetPreEqBandAllChannelsToRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SetPreEqBandAllChannelsToRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type SetPreEqBandAllChannelsToResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPreEqBandAllChannelsToResponse) Reset() {
+	*x = SetPreEqBandAllChannelsToResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[217]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPreEqBandAllChannelsToResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPreEqBandAllChannelsToResponse) ProtoMessage() {}
+
+func (x *SetPreEqBandAllChannelsToResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[217]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPreEqBandAllChannelsToResponse.ProtoReflect.Descriptor instead.
+func (*SetPreEqBandAllChannelsToResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{217}
+}
+
+type SetPreEqBandByChannelIndexRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPreEqBandByChannelIndexRequest) Reset() {
+	*x = SetPreEqBandByChannelIndexRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[218]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPreEqBandByChannelIndexRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPreEqBandByChannelIndexRequest) ProtoMessage() {}
+
+func (x *SetPreEqBandByChannelIndexRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[218]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPreEqBandByChannelIndexRequest.ProtoReflect.Descriptor instead.
+func (*SetPreEqBandByChannelIndexRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{218}
+}
+
+func (x *SetPreEqBandByChannelIndexRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetPreEqBandByChannelIndexRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SetPreEqBandByChannelIndexRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *SetPreEqBandByChannelIndexRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type SetPreEqBandByChannelIndexResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPreEqBandByChannelIndexResponse) Reset() {
+	*x = SetPreEqBandByChannelIndexResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[219]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPreEqBandByChannelIndexResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPreEqBandByChannelIndexResponse) ProtoMessage() {}
+
+func (x *SetPreEqBandByChannelIndexResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[219]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPreEqBandByChannelIndexResponse.ProtoReflect.Descriptor instead.
+func (*SetPreEqBandByChannelIndexResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{219}
+}
+
+type SetPreEqByChannelIndexRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPreEqByChannelIndexRequest) Reset() {
+	*x = SetPreEqByChannelIndexRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[220]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPreEqByChannelIndexRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPreEqByChannelIndexRequest) ProtoMessage() {}
+
+func (x *SetPreEqByChannelIndexRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[220]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPreEqByChannelIndexRequest.ProtoReflect.Descriptor instead.
+func (*SetPreEqByChannelIndexRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{220}
+}
+
+func (x *SetPreEqByChannelIndexRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetPreEqByChannelIndexRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SetPreEqByChannelIndexRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type SetPreEqByChannelIndexResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPreEqByChannelIndexResponse) Reset() {
+	*x = SetPreEqByChannelIndexResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[221]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPreEqByChannelIndexResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPreEqByChannelIndexResponse) ProtoMessage() {}
+
+func (x *SetPreEqByChannelIndexResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[221]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPreEqByChannelIndexResponse.ProtoReflect.Descriptor instead.
+func (*SetPreEqByChannelIndexResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{221}
+}
+
+type GetCutoffFrequencyRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCutoffFrequencyRequest) Reset() {
+	*x = GetCutoffFrequencyRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[222]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCutoffFrequencyRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCutoffFrequencyRequest) ProtoMessage() {}
+
+func (x *GetCutoffFrequencyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[222]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCutoffFrequencyRequest.ProtoReflect.Descriptor instead.
+func (*GetCutoffFrequencyRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{222}
+}
+
+type GetCutoffFrequencyResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        float32                `protobuf:"fixed32,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCutoffFrequencyResponse) Reset() {
+	*x = GetCutoffFrequencyResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[223]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCutoffFrequencyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCutoffFrequencyResponse) ProtoMessage() {}
+
+func (x *GetCutoffFrequencyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[223]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCutoffFrequencyResponse.ProtoReflect.Descriptor instead.
+func (*GetCutoffFrequencyResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{223}
+}
+
+func (x *GetCutoffFrequencyResponse) GetResult() float32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type IsEnabledRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsEnabledRequest) Reset() {
+	*x = IsEnabledRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[224]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsEnabledRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsEnabledRequest) ProtoMessage() {}
+
+func (x *IsEnabledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[224]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsEnabledRequest.ProtoReflect.Descriptor instead.
+func (*IsEnabledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{224}
+}
+
+type IsEnabledResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsEnabledResponse) Reset() {
+	*x = IsEnabledResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[225]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsEnabledResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsEnabledResponse) ProtoMessage() {}
+
+func (x *IsEnabledResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[225]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsEnabledResponse.ProtoReflect.Descriptor instead.
+func (*IsEnabledResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{225}
+}
+
+func (x *IsEnabledResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type SetCutoffFrequencyRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          float32                `protobuf:"fixed32,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetCutoffFrequencyRequest) Reset() {
+	*x = SetCutoffFrequencyRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[226]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetCutoffFrequencyRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetCutoffFrequencyRequest) ProtoMessage() {}
+
+func (x *SetCutoffFrequencyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[226]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetCutoffFrequencyRequest.ProtoReflect.Descriptor instead.
+func (*SetCutoffFrequencyRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{226}
+}
+
+func (x *SetCutoffFrequencyRequest) GetArg0() float32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetCutoffFrequencyResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetCutoffFrequencyResponse) Reset() {
+	*x = SetCutoffFrequencyResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[227]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetCutoffFrequencyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetCutoffFrequencyResponse) ProtoMessage() {}
+
+func (x *SetCutoffFrequencyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[227]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetCutoffFrequencyResponse.ProtoReflect.Descriptor instead.
+func (*SetCutoffFrequencyResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{227}
+}
+
+type DynamicsProcessingBandBaseSetEnabledRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DynamicsProcessingBandBaseSetEnabledRequest) Reset() {
+	*x = DynamicsProcessingBandBaseSetEnabledRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[228]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DynamicsProcessingBandBaseSetEnabledRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DynamicsProcessingBandBaseSetEnabledRequest) ProtoMessage() {}
+
+func (x *DynamicsProcessingBandBaseSetEnabledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[228]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DynamicsProcessingBandBaseSetEnabledRequest.ProtoReflect.Descriptor instead.
+func (*DynamicsProcessingBandBaseSetEnabledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{228}
+}
+
+func (x *DynamicsProcessingBandBaseSetEnabledRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type DynamicsProcessingBandBaseSetEnabledResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DynamicsProcessingBandBaseSetEnabledResponse) Reset() {
+	*x = DynamicsProcessingBandBaseSetEnabledResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[229]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DynamicsProcessingBandBaseSetEnabledResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DynamicsProcessingBandBaseSetEnabledResponse) ProtoMessage() {}
+
+func (x *DynamicsProcessingBandBaseSetEnabledResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[229]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DynamicsProcessingBandBaseSetEnabledResponse.ProtoReflect.Descriptor instead.
+func (*DynamicsProcessingBandBaseSetEnabledResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{229}
+}
+
+type GetBandCountRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBandCountRequest) Reset() {
+	*x = GetBandCountRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[230]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBandCountRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBandCountRequest) ProtoMessage() {}
+
+func (x *GetBandCountRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[230]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBandCountRequest.ProtoReflect.Descriptor instead.
+func (*GetBandCountRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{230}
+}
+
+type GetBandCountResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBandCountResponse) Reset() {
+	*x = GetBandCountResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[231]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBandCountResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBandCountResponse) ProtoMessage() {}
+
+func (x *GetBandCountResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[231]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBandCountResponse.ProtoReflect.Descriptor instead.
+func (*GetBandCountResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{231}
+}
+
+func (x *GetBandCountResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetInputGainRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetInputGainRequest) Reset() {
+	*x = GetInputGainRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[232]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetInputGainRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetInputGainRequest) ProtoMessage() {}
+
+func (x *GetInputGainRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[232]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetInputGainRequest.ProtoReflect.Descriptor instead.
+func (*GetInputGainRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{232}
+}
+
+type GetInputGainResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        float32                `protobuf:"fixed32,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetInputGainResponse) Reset() {
+	*x = GetInputGainResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[233]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetInputGainResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetInputGainResponse) ProtoMessage() {}
+
+func (x *GetInputGainResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[233]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetInputGainResponse.ProtoReflect.Descriptor instead.
+func (*GetInputGainResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{233}
+}
+
+func (x *GetInputGainResponse) GetResult() float32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetLimiterRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLimiterRequest) Reset() {
+	*x = GetLimiterRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[234]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLimiterRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLimiterRequest) ProtoMessage() {}
+
+func (x *GetLimiterRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[234]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLimiterRequest.ProtoReflect.Descriptor instead.
+func (*GetLimiterRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{234}
+}
+
+type GetLimiterResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLimiterResponse) Reset() {
+	*x = GetLimiterResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[235]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLimiterResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLimiterResponse) ProtoMessage() {}
+
+func (x *GetLimiterResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[235]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLimiterResponse.ProtoReflect.Descriptor instead.
+func (*GetLimiterResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{235}
+}
+
+func (x *GetLimiterResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetMbcRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMbcRequest) Reset() {
+	*x = GetMbcRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[236]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMbcRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMbcRequest) ProtoMessage() {}
+
+func (x *GetMbcRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[236]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMbcRequest.ProtoReflect.Descriptor instead.
+func (*GetMbcRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{236}
+}
+
+type GetMbcResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMbcResponse) Reset() {
+	*x = GetMbcResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[237]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMbcResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMbcResponse) ProtoMessage() {}
+
+func (x *GetMbcResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[237]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMbcResponse.ProtoReflect.Descriptor instead.
+func (*GetMbcResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{237}
+}
+
+func (x *GetMbcResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetMbcBandRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMbcBandRequest) Reset() {
+	*x = GetMbcBandRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[238]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMbcBandRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMbcBandRequest) ProtoMessage() {}
+
+func (x *GetMbcBandRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[238]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMbcBandRequest.ProtoReflect.Descriptor instead.
+func (*GetMbcBandRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{238}
+}
+
+func (x *GetMbcBandRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetMbcBandResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMbcBandResponse) Reset() {
+	*x = GetMbcBandResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[239]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMbcBandResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMbcBandResponse) ProtoMessage() {}
+
+func (x *GetMbcBandResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[239]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMbcBandResponse.ProtoReflect.Descriptor instead.
+func (*GetMbcBandResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{239}
+}
+
+func (x *GetMbcBandResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPostEqRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPostEqRequest) Reset() {
+	*x = GetPostEqRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[240]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPostEqRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPostEqRequest) ProtoMessage() {}
+
+func (x *GetPostEqRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[240]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPostEqRequest.ProtoReflect.Descriptor instead.
+func (*GetPostEqRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{240}
+}
+
+type GetPostEqResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPostEqResponse) Reset() {
+	*x = GetPostEqResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[241]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPostEqResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPostEqResponse) ProtoMessage() {}
+
+func (x *GetPostEqResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[241]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPostEqResponse.ProtoReflect.Descriptor instead.
+func (*GetPostEqResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{241}
+}
+
+func (x *GetPostEqResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPostEqBandRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPostEqBandRequest) Reset() {
+	*x = GetPostEqBandRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[242]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPostEqBandRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPostEqBandRequest) ProtoMessage() {}
+
+func (x *GetPostEqBandRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[242]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPostEqBandRequest.ProtoReflect.Descriptor instead.
+func (*GetPostEqBandRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{242}
+}
+
+func (x *GetPostEqBandRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetPostEqBandResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPostEqBandResponse) Reset() {
+	*x = GetPostEqBandResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[243]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPostEqBandResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPostEqBandResponse) ProtoMessage() {}
+
+func (x *GetPostEqBandResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[243]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPostEqBandResponse.ProtoReflect.Descriptor instead.
+func (*GetPostEqBandResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{243}
+}
+
+func (x *GetPostEqBandResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPreEqRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPreEqRequest) Reset() {
+	*x = GetPreEqRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[244]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPreEqRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPreEqRequest) ProtoMessage() {}
+
+func (x *GetPreEqRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[244]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPreEqRequest.ProtoReflect.Descriptor instead.
+func (*GetPreEqRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{244}
+}
+
+type GetPreEqResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPreEqResponse) Reset() {
+	*x = GetPreEqResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[245]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPreEqResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPreEqResponse) ProtoMessage() {}
+
+func (x *GetPreEqResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[245]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPreEqResponse.ProtoReflect.Descriptor instead.
+func (*GetPreEqResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{245}
+}
+
+func (x *GetPreEqResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPreEqBandRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPreEqBandRequest) Reset() {
+	*x = GetPreEqBandRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[246]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPreEqBandRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPreEqBandRequest) ProtoMessage() {}
+
+func (x *GetPreEqBandRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[246]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPreEqBandRequest.ProtoReflect.Descriptor instead.
+func (*GetPreEqBandRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{246}
+}
+
+func (x *GetPreEqBandRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetPreEqBandResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPreEqBandResponse) Reset() {
+	*x = GetPreEqBandResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[247]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPreEqBandResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPreEqBandResponse) ProtoMessage() {}
+
+func (x *GetPreEqBandResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[247]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPreEqBandResponse.ProtoReflect.Descriptor instead.
+func (*GetPreEqBandResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{247}
+}
+
+func (x *GetPreEqBandResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetInputGainRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          float32                `protobuf:"fixed32,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetInputGainRequest) Reset() {
+	*x = SetInputGainRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[248]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetInputGainRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetInputGainRequest) ProtoMessage() {}
+
+func (x *SetInputGainRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[248]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetInputGainRequest.ProtoReflect.Descriptor instead.
+func (*SetInputGainRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{248}
+}
+
+func (x *SetInputGainRequest) GetArg0() float32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetInputGainResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetInputGainResponse) Reset() {
+	*x = SetInputGainResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[249]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetInputGainResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetInputGainResponse) ProtoMessage() {}
+
+func (x *SetInputGainResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[249]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetInputGainResponse.ProtoReflect.Descriptor instead.
+func (*SetInputGainResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{249}
+}
+
+type SetLimiterRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetLimiterRequest) Reset() {
+	*x = SetLimiterRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[250]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetLimiterRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetLimiterRequest) ProtoMessage() {}
+
+func (x *SetLimiterRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[250]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetLimiterRequest.ProtoReflect.Descriptor instead.
+func (*SetLimiterRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{250}
+}
+
+func (x *SetLimiterRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetLimiterResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetLimiterResponse) Reset() {
+	*x = SetLimiterResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[251]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetLimiterResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetLimiterResponse) ProtoMessage() {}
+
+func (x *SetLimiterResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[251]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetLimiterResponse.ProtoReflect.Descriptor instead.
+func (*SetLimiterResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{251}
+}
+
+type SetMbcRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetMbcRequest) Reset() {
+	*x = SetMbcRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[252]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetMbcRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetMbcRequest) ProtoMessage() {}
+
+func (x *SetMbcRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[252]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetMbcRequest.ProtoReflect.Descriptor instead.
+func (*SetMbcRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{252}
+}
+
+func (x *SetMbcRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetMbcResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetMbcResponse) Reset() {
+	*x = SetMbcResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[253]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetMbcResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetMbcResponse) ProtoMessage() {}
+
+func (x *SetMbcResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[253]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetMbcResponse.ProtoReflect.Descriptor instead.
+func (*SetMbcResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{253}
+}
+
+type SetMbcBandRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetMbcBandRequest) Reset() {
+	*x = SetMbcBandRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[254]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetMbcBandRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetMbcBandRequest) ProtoMessage() {}
+
+func (x *SetMbcBandRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[254]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetMbcBandRequest.ProtoReflect.Descriptor instead.
+func (*SetMbcBandRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{254}
+}
+
+func (x *SetMbcBandRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SetMbcBandRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type SetMbcBandResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetMbcBandResponse) Reset() {
+	*x = SetMbcBandResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[255]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetMbcBandResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetMbcBandResponse) ProtoMessage() {}
+
+func (x *SetMbcBandResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[255]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetMbcBandResponse.ProtoReflect.Descriptor instead.
+func (*SetMbcBandResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{255}
+}
+
+type SetPostEqRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPostEqRequest) Reset() {
+	*x = SetPostEqRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[256]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPostEqRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPostEqRequest) ProtoMessage() {}
+
+func (x *SetPostEqRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[256]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPostEqRequest.ProtoReflect.Descriptor instead.
+func (*SetPostEqRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{256}
+}
+
+func (x *SetPostEqRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetPostEqResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPostEqResponse) Reset() {
+	*x = SetPostEqResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[257]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPostEqResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPostEqResponse) ProtoMessage() {}
+
+func (x *SetPostEqResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[257]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPostEqResponse.ProtoReflect.Descriptor instead.
+func (*SetPostEqResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{257}
+}
+
+type SetPostEqBandRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPostEqBandRequest) Reset() {
+	*x = SetPostEqBandRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[258]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPostEqBandRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPostEqBandRequest) ProtoMessage() {}
+
+func (x *SetPostEqBandRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[258]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPostEqBandRequest.ProtoReflect.Descriptor instead.
+func (*SetPostEqBandRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{258}
+}
+
+func (x *SetPostEqBandRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SetPostEqBandRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type SetPostEqBandResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPostEqBandResponse) Reset() {
+	*x = SetPostEqBandResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[259]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPostEqBandResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPostEqBandResponse) ProtoMessage() {}
+
+func (x *SetPostEqBandResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[259]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPostEqBandResponse.ProtoReflect.Descriptor instead.
+func (*SetPostEqBandResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{259}
+}
+
+type SetPreEqRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPreEqRequest) Reset() {
+	*x = SetPreEqRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[260]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPreEqRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPreEqRequest) ProtoMessage() {}
+
+func (x *SetPreEqRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[260]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPreEqRequest.ProtoReflect.Descriptor instead.
+func (*SetPreEqRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{260}
+}
+
+func (x *SetPreEqRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetPreEqResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPreEqResponse) Reset() {
+	*x = SetPreEqResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[261]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPreEqResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPreEqResponse) ProtoMessage() {}
+
+func (x *SetPreEqResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[261]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPreEqResponse.ProtoReflect.Descriptor instead.
+func (*SetPreEqResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{261}
+}
+
+type SetPreEqBandRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPreEqBandRequest) Reset() {
+	*x = SetPreEqBandRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[262]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPreEqBandRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPreEqBandRequest) ProtoMessage() {}
+
+func (x *SetPreEqBandRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[262]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPreEqBandRequest.ProtoReflect.Descriptor instead.
+func (*SetPreEqBandRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{262}
+}
+
+func (x *SetPreEqBandRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SetPreEqBandRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type SetPreEqBandResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPreEqBandResponse) Reset() {
+	*x = SetPreEqBandResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[263]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPreEqBandResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPreEqBandResponse) ProtoMessage() {}
+
+func (x *SetPreEqBandResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[263]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPreEqBandResponse.ProtoReflect.Descriptor instead.
+func (*SetPreEqBandResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{263}
+}
+
+type DynamicsProcessingConfigGetChannelByChannelIndexRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DynamicsProcessingConfigGetChannelByChannelIndexRequest) Reset() {
+	*x = DynamicsProcessingConfigGetChannelByChannelIndexRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[264]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DynamicsProcessingConfigGetChannelByChannelIndexRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DynamicsProcessingConfigGetChannelByChannelIndexRequest) ProtoMessage() {}
+
+func (x *DynamicsProcessingConfigGetChannelByChannelIndexRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[264]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DynamicsProcessingConfigGetChannelByChannelIndexRequest.ProtoReflect.Descriptor instead.
+func (*DynamicsProcessingConfigGetChannelByChannelIndexRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{264}
+}
+
+func (x *DynamicsProcessingConfigGetChannelByChannelIndexRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type DynamicsProcessingConfigGetInputGainByChannelIndexRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DynamicsProcessingConfigGetInputGainByChannelIndexRequest) Reset() {
+	*x = DynamicsProcessingConfigGetInputGainByChannelIndexRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[265]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DynamicsProcessingConfigGetInputGainByChannelIndexRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DynamicsProcessingConfigGetInputGainByChannelIndexRequest) ProtoMessage() {}
+
+func (x *DynamicsProcessingConfigGetInputGainByChannelIndexRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[265]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DynamicsProcessingConfigGetInputGainByChannelIndexRequest.ProtoReflect.Descriptor instead.
+func (*DynamicsProcessingConfigGetInputGainByChannelIndexRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{265}
+}
+
+func (x *DynamicsProcessingConfigGetInputGainByChannelIndexRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type DynamicsProcessingConfigGetLimiterByChannelIndexRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DynamicsProcessingConfigGetLimiterByChannelIndexRequest) Reset() {
+	*x = DynamicsProcessingConfigGetLimiterByChannelIndexRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[266]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DynamicsProcessingConfigGetLimiterByChannelIndexRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DynamicsProcessingConfigGetLimiterByChannelIndexRequest) ProtoMessage() {}
+
+func (x *DynamicsProcessingConfigGetLimiterByChannelIndexRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[266]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DynamicsProcessingConfigGetLimiterByChannelIndexRequest.ProtoReflect.Descriptor instead.
+func (*DynamicsProcessingConfigGetLimiterByChannelIndexRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{266}
+}
+
+func (x *DynamicsProcessingConfigGetLimiterByChannelIndexRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type DynamicsProcessingConfigGetMbcBandByChannelIndexRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DynamicsProcessingConfigGetMbcBandByChannelIndexRequest) Reset() {
+	*x = DynamicsProcessingConfigGetMbcBandByChannelIndexRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[267]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DynamicsProcessingConfigGetMbcBandByChannelIndexRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DynamicsProcessingConfigGetMbcBandByChannelIndexRequest) ProtoMessage() {}
+
+func (x *DynamicsProcessingConfigGetMbcBandByChannelIndexRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[267]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DynamicsProcessingConfigGetMbcBandByChannelIndexRequest.ProtoReflect.Descriptor instead.
+func (*DynamicsProcessingConfigGetMbcBandByChannelIndexRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{267}
+}
+
+func (x *DynamicsProcessingConfigGetMbcBandByChannelIndexRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *DynamicsProcessingConfigGetMbcBandByChannelIndexRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type GetMbcBandCountRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMbcBandCountRequest) Reset() {
+	*x = GetMbcBandCountRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[268]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMbcBandCountRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMbcBandCountRequest) ProtoMessage() {}
+
+func (x *GetMbcBandCountRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[268]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMbcBandCountRequest.ProtoReflect.Descriptor instead.
+func (*GetMbcBandCountRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{268}
+}
+
+type GetMbcBandCountResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMbcBandCountResponse) Reset() {
+	*x = GetMbcBandCountResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[269]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMbcBandCountResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMbcBandCountResponse) ProtoMessage() {}
+
+func (x *GetMbcBandCountResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[269]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMbcBandCountResponse.ProtoReflect.Descriptor instead.
+func (*GetMbcBandCountResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{269}
+}
+
+func (x *GetMbcBandCountResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type DynamicsProcessingConfigGetMbcByChannelIndexRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DynamicsProcessingConfigGetMbcByChannelIndexRequest) Reset() {
+	*x = DynamicsProcessingConfigGetMbcByChannelIndexRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[270]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DynamicsProcessingConfigGetMbcByChannelIndexRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DynamicsProcessingConfigGetMbcByChannelIndexRequest) ProtoMessage() {}
+
+func (x *DynamicsProcessingConfigGetMbcByChannelIndexRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[270]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DynamicsProcessingConfigGetMbcByChannelIndexRequest.ProtoReflect.Descriptor instead.
+func (*DynamicsProcessingConfigGetMbcByChannelIndexRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{270}
+}
+
+func (x *DynamicsProcessingConfigGetMbcByChannelIndexRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type DynamicsProcessingConfigGetPostEqBandByChannelIndexRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DynamicsProcessingConfigGetPostEqBandByChannelIndexRequest) Reset() {
+	*x = DynamicsProcessingConfigGetPostEqBandByChannelIndexRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[271]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DynamicsProcessingConfigGetPostEqBandByChannelIndexRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DynamicsProcessingConfigGetPostEqBandByChannelIndexRequest) ProtoMessage() {}
+
+func (x *DynamicsProcessingConfigGetPostEqBandByChannelIndexRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[271]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DynamicsProcessingConfigGetPostEqBandByChannelIndexRequest.ProtoReflect.Descriptor instead.
+func (*DynamicsProcessingConfigGetPostEqBandByChannelIndexRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{271}
+}
+
+func (x *DynamicsProcessingConfigGetPostEqBandByChannelIndexRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *DynamicsProcessingConfigGetPostEqBandByChannelIndexRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type GetPostEqBandCountRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPostEqBandCountRequest) Reset() {
+	*x = GetPostEqBandCountRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[272]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPostEqBandCountRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPostEqBandCountRequest) ProtoMessage() {}
+
+func (x *GetPostEqBandCountRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[272]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPostEqBandCountRequest.ProtoReflect.Descriptor instead.
+func (*GetPostEqBandCountRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{272}
+}
+
+type GetPostEqBandCountResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPostEqBandCountResponse) Reset() {
+	*x = GetPostEqBandCountResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[273]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPostEqBandCountResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPostEqBandCountResponse) ProtoMessage() {}
+
+func (x *GetPostEqBandCountResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[273]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPostEqBandCountResponse.ProtoReflect.Descriptor instead.
+func (*GetPostEqBandCountResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{273}
+}
+
+func (x *GetPostEqBandCountResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type DynamicsProcessingConfigGetPostEqByChannelIndexRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DynamicsProcessingConfigGetPostEqByChannelIndexRequest) Reset() {
+	*x = DynamicsProcessingConfigGetPostEqByChannelIndexRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[274]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DynamicsProcessingConfigGetPostEqByChannelIndexRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DynamicsProcessingConfigGetPostEqByChannelIndexRequest) ProtoMessage() {}
+
+func (x *DynamicsProcessingConfigGetPostEqByChannelIndexRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[274]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DynamicsProcessingConfigGetPostEqByChannelIndexRequest.ProtoReflect.Descriptor instead.
+func (*DynamicsProcessingConfigGetPostEqByChannelIndexRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{274}
+}
+
+func (x *DynamicsProcessingConfigGetPostEqByChannelIndexRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type DynamicsProcessingConfigGetPreEqBandByChannelIndexRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DynamicsProcessingConfigGetPreEqBandByChannelIndexRequest) Reset() {
+	*x = DynamicsProcessingConfigGetPreEqBandByChannelIndexRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[275]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DynamicsProcessingConfigGetPreEqBandByChannelIndexRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DynamicsProcessingConfigGetPreEqBandByChannelIndexRequest) ProtoMessage() {}
+
+func (x *DynamicsProcessingConfigGetPreEqBandByChannelIndexRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[275]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DynamicsProcessingConfigGetPreEqBandByChannelIndexRequest.ProtoReflect.Descriptor instead.
+func (*DynamicsProcessingConfigGetPreEqBandByChannelIndexRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{275}
+}
+
+func (x *DynamicsProcessingConfigGetPreEqBandByChannelIndexRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *DynamicsProcessingConfigGetPreEqBandByChannelIndexRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type GetPreEqBandCountRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPreEqBandCountRequest) Reset() {
+	*x = GetPreEqBandCountRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[276]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPreEqBandCountRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPreEqBandCountRequest) ProtoMessage() {}
+
+func (x *GetPreEqBandCountRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[276]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPreEqBandCountRequest.ProtoReflect.Descriptor instead.
+func (*GetPreEqBandCountRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{276}
+}
+
+type GetPreEqBandCountResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPreEqBandCountResponse) Reset() {
+	*x = GetPreEqBandCountResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[277]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPreEqBandCountResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPreEqBandCountResponse) ProtoMessage() {}
+
+func (x *GetPreEqBandCountResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[277]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPreEqBandCountResponse.ProtoReflect.Descriptor instead.
+func (*GetPreEqBandCountResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{277}
+}
+
+func (x *GetPreEqBandCountResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type DynamicsProcessingConfigGetPreEqByChannelIndexRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DynamicsProcessingConfigGetPreEqByChannelIndexRequest) Reset() {
+	*x = DynamicsProcessingConfigGetPreEqByChannelIndexRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[278]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DynamicsProcessingConfigGetPreEqByChannelIndexRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DynamicsProcessingConfigGetPreEqByChannelIndexRequest) ProtoMessage() {}
+
+func (x *DynamicsProcessingConfigGetPreEqByChannelIndexRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[278]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DynamicsProcessingConfigGetPreEqByChannelIndexRequest.ProtoReflect.Descriptor instead.
+func (*DynamicsProcessingConfigGetPreEqByChannelIndexRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{278}
+}
+
+func (x *DynamicsProcessingConfigGetPreEqByChannelIndexRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetPreferredFrameDurationRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPreferredFrameDurationRequest) Reset() {
+	*x = GetPreferredFrameDurationRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[279]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPreferredFrameDurationRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPreferredFrameDurationRequest) ProtoMessage() {}
+
+func (x *GetPreferredFrameDurationRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[279]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPreferredFrameDurationRequest.ProtoReflect.Descriptor instead.
+func (*GetPreferredFrameDurationRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{279}
+}
+
+type GetPreferredFrameDurationResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        float32                `protobuf:"fixed32,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPreferredFrameDurationResponse) Reset() {
+	*x = GetPreferredFrameDurationResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[280]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPreferredFrameDurationResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPreferredFrameDurationResponse) ProtoMessage() {}
+
+func (x *GetPreferredFrameDurationResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[280]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPreferredFrameDurationResponse.ProtoReflect.Descriptor instead.
+func (*GetPreferredFrameDurationResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{280}
+}
+
+func (x *GetPreferredFrameDurationResponse) GetResult() float32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetVariantRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetVariantRequest) Reset() {
+	*x = GetVariantRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[281]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetVariantRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetVariantRequest) ProtoMessage() {}
+
+func (x *GetVariantRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[281]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetVariantRequest.ProtoReflect.Descriptor instead.
+func (*GetVariantRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{281}
+}
+
+type GetVariantResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetVariantResponse) Reset() {
+	*x = GetVariantResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[282]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetVariantResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetVariantResponse) ProtoMessage() {}
+
+func (x *GetVariantResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[282]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetVariantResponse.ProtoReflect.Descriptor instead.
+func (*GetVariantResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{282}
+}
+
+func (x *GetVariantResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type IsLimiterInUseRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsLimiterInUseRequest) Reset() {
+	*x = IsLimiterInUseRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[283]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsLimiterInUseRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsLimiterInUseRequest) ProtoMessage() {}
+
+func (x *IsLimiterInUseRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[283]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsLimiterInUseRequest.ProtoReflect.Descriptor instead.
+func (*IsLimiterInUseRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{283}
+}
+
+type IsLimiterInUseResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsLimiterInUseResponse) Reset() {
+	*x = IsLimiterInUseResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[284]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsLimiterInUseResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsLimiterInUseResponse) ProtoMessage() {}
+
+func (x *IsLimiterInUseResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[284]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsLimiterInUseResponse.ProtoReflect.Descriptor instead.
+func (*IsLimiterInUseResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{284}
+}
+
+func (x *IsLimiterInUseResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsMbcInUseRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsMbcInUseRequest) Reset() {
+	*x = IsMbcInUseRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[285]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsMbcInUseRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsMbcInUseRequest) ProtoMessage() {}
+
+func (x *IsMbcInUseRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[285]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsMbcInUseRequest.ProtoReflect.Descriptor instead.
+func (*IsMbcInUseRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{285}
+}
+
+type IsMbcInUseResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsMbcInUseResponse) Reset() {
+	*x = IsMbcInUseResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[286]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsMbcInUseResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsMbcInUseResponse) ProtoMessage() {}
+
+func (x *IsMbcInUseResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[286]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsMbcInUseResponse.ProtoReflect.Descriptor instead.
+func (*IsMbcInUseResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{286}
+}
+
+func (x *IsMbcInUseResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsPostEqInUseRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsPostEqInUseRequest) Reset() {
+	*x = IsPostEqInUseRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[287]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsPostEqInUseRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsPostEqInUseRequest) ProtoMessage() {}
+
+func (x *IsPostEqInUseRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[287]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsPostEqInUseRequest.ProtoReflect.Descriptor instead.
+func (*IsPostEqInUseRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{287}
+}
+
+type IsPostEqInUseResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsPostEqInUseResponse) Reset() {
+	*x = IsPostEqInUseResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[288]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsPostEqInUseResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsPostEqInUseResponse) ProtoMessage() {}
+
+func (x *IsPostEqInUseResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[288]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsPostEqInUseResponse.ProtoReflect.Descriptor instead.
+func (*IsPostEqInUseResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{288}
+}
+
+func (x *IsPostEqInUseResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsPreEqInUseRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsPreEqInUseRequest) Reset() {
+	*x = IsPreEqInUseRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[289]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsPreEqInUseRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsPreEqInUseRequest) ProtoMessage() {}
+
+func (x *IsPreEqInUseRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[289]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsPreEqInUseRequest.ProtoReflect.Descriptor instead.
+func (*IsPreEqInUseRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{289}
+}
+
+type IsPreEqInUseResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsPreEqInUseResponse) Reset() {
+	*x = IsPreEqInUseResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[290]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsPreEqInUseResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsPreEqInUseResponse) ProtoMessage() {}
+
+func (x *IsPreEqInUseResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[290]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsPreEqInUseResponse.ProtoReflect.Descriptor instead.
+func (*IsPreEqInUseResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{290}
+}
+
+func (x *IsPreEqInUseResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type DynamicsProcessingConfigSetAllChannelsToRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DynamicsProcessingConfigSetAllChannelsToRequest) Reset() {
+	*x = DynamicsProcessingConfigSetAllChannelsToRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[291]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DynamicsProcessingConfigSetAllChannelsToRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DynamicsProcessingConfigSetAllChannelsToRequest) ProtoMessage() {}
+
+func (x *DynamicsProcessingConfigSetAllChannelsToRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[291]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DynamicsProcessingConfigSetAllChannelsToRequest.ProtoReflect.Descriptor instead.
+func (*DynamicsProcessingConfigSetAllChannelsToRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{291}
+}
+
+func (x *DynamicsProcessingConfigSetAllChannelsToRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type DynamicsProcessingConfigSetChannelToRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DynamicsProcessingConfigSetChannelToRequest) Reset() {
+	*x = DynamicsProcessingConfigSetChannelToRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[292]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DynamicsProcessingConfigSetChannelToRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DynamicsProcessingConfigSetChannelToRequest) ProtoMessage() {}
+
+func (x *DynamicsProcessingConfigSetChannelToRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[292]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DynamicsProcessingConfigSetChannelToRequest.ProtoReflect.Descriptor instead.
+func (*DynamicsProcessingConfigSetChannelToRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{292}
+}
+
+func (x *DynamicsProcessingConfigSetChannelToRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *DynamicsProcessingConfigSetChannelToRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type DynamicsProcessingConfigSetInputGainAllChannelsToRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          float32                `protobuf:"fixed32,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DynamicsProcessingConfigSetInputGainAllChannelsToRequest) Reset() {
+	*x = DynamicsProcessingConfigSetInputGainAllChannelsToRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[293]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DynamicsProcessingConfigSetInputGainAllChannelsToRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DynamicsProcessingConfigSetInputGainAllChannelsToRequest) ProtoMessage() {}
+
+func (x *DynamicsProcessingConfigSetInputGainAllChannelsToRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[293]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DynamicsProcessingConfigSetInputGainAllChannelsToRequest.ProtoReflect.Descriptor instead.
+func (*DynamicsProcessingConfigSetInputGainAllChannelsToRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{293}
+}
+
+func (x *DynamicsProcessingConfigSetInputGainAllChannelsToRequest) GetArg0() float32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetInputGainByChannelIndexRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          float32                `protobuf:"fixed32,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetInputGainByChannelIndexRequest) Reset() {
+	*x = SetInputGainByChannelIndexRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[294]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetInputGainByChannelIndexRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetInputGainByChannelIndexRequest) ProtoMessage() {}
+
+func (x *SetInputGainByChannelIndexRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[294]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetInputGainByChannelIndexRequest.ProtoReflect.Descriptor instead.
+func (*SetInputGainByChannelIndexRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{294}
+}
+
+func (x *SetInputGainByChannelIndexRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SetInputGainByChannelIndexRequest) GetArg1() float32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type SetInputGainByChannelIndexResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetInputGainByChannelIndexResponse) Reset() {
+	*x = SetInputGainByChannelIndexResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[295]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetInputGainByChannelIndexResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetInputGainByChannelIndexResponse) ProtoMessage() {}
+
+func (x *SetInputGainByChannelIndexResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[295]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetInputGainByChannelIndexResponse.ProtoReflect.Descriptor instead.
+func (*SetInputGainByChannelIndexResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{295}
+}
+
+type DynamicsProcessingConfigSetLimiterAllChannelsToRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DynamicsProcessingConfigSetLimiterAllChannelsToRequest) Reset() {
+	*x = DynamicsProcessingConfigSetLimiterAllChannelsToRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[296]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DynamicsProcessingConfigSetLimiterAllChannelsToRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DynamicsProcessingConfigSetLimiterAllChannelsToRequest) ProtoMessage() {}
+
+func (x *DynamicsProcessingConfigSetLimiterAllChannelsToRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[296]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DynamicsProcessingConfigSetLimiterAllChannelsToRequest.ProtoReflect.Descriptor instead.
+func (*DynamicsProcessingConfigSetLimiterAllChannelsToRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{296}
+}
+
+func (x *DynamicsProcessingConfigSetLimiterAllChannelsToRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type DynamicsProcessingConfigSetLimiterByChannelIndexRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DynamicsProcessingConfigSetLimiterByChannelIndexRequest) Reset() {
+	*x = DynamicsProcessingConfigSetLimiterByChannelIndexRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[297]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DynamicsProcessingConfigSetLimiterByChannelIndexRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DynamicsProcessingConfigSetLimiterByChannelIndexRequest) ProtoMessage() {}
+
+func (x *DynamicsProcessingConfigSetLimiterByChannelIndexRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[297]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DynamicsProcessingConfigSetLimiterByChannelIndexRequest.ProtoReflect.Descriptor instead.
+func (*DynamicsProcessingConfigSetLimiterByChannelIndexRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{297}
+}
+
+func (x *DynamicsProcessingConfigSetLimiterByChannelIndexRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *DynamicsProcessingConfigSetLimiterByChannelIndexRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type DynamicsProcessingConfigSetMbcAllChannelsToRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DynamicsProcessingConfigSetMbcAllChannelsToRequest) Reset() {
+	*x = DynamicsProcessingConfigSetMbcAllChannelsToRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[298]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DynamicsProcessingConfigSetMbcAllChannelsToRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DynamicsProcessingConfigSetMbcAllChannelsToRequest) ProtoMessage() {}
+
+func (x *DynamicsProcessingConfigSetMbcAllChannelsToRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[298]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DynamicsProcessingConfigSetMbcAllChannelsToRequest.ProtoReflect.Descriptor instead.
+func (*DynamicsProcessingConfigSetMbcAllChannelsToRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{298}
+}
+
+func (x *DynamicsProcessingConfigSetMbcAllChannelsToRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type DynamicsProcessingConfigSetMbcBandAllChannelsToRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DynamicsProcessingConfigSetMbcBandAllChannelsToRequest) Reset() {
+	*x = DynamicsProcessingConfigSetMbcBandAllChannelsToRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[299]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DynamicsProcessingConfigSetMbcBandAllChannelsToRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DynamicsProcessingConfigSetMbcBandAllChannelsToRequest) ProtoMessage() {}
+
+func (x *DynamicsProcessingConfigSetMbcBandAllChannelsToRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[299]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DynamicsProcessingConfigSetMbcBandAllChannelsToRequest.ProtoReflect.Descriptor instead.
+func (*DynamicsProcessingConfigSetMbcBandAllChannelsToRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{299}
+}
+
+func (x *DynamicsProcessingConfigSetMbcBandAllChannelsToRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *DynamicsProcessingConfigSetMbcBandAllChannelsToRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type DynamicsProcessingConfigSetMbcBandByChannelIndexRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DynamicsProcessingConfigSetMbcBandByChannelIndexRequest) Reset() {
+	*x = DynamicsProcessingConfigSetMbcBandByChannelIndexRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[300]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DynamicsProcessingConfigSetMbcBandByChannelIndexRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DynamicsProcessingConfigSetMbcBandByChannelIndexRequest) ProtoMessage() {}
+
+func (x *DynamicsProcessingConfigSetMbcBandByChannelIndexRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[300]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DynamicsProcessingConfigSetMbcBandByChannelIndexRequest.ProtoReflect.Descriptor instead.
+func (*DynamicsProcessingConfigSetMbcBandByChannelIndexRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{300}
+}
+
+func (x *DynamicsProcessingConfigSetMbcBandByChannelIndexRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *DynamicsProcessingConfigSetMbcBandByChannelIndexRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *DynamicsProcessingConfigSetMbcBandByChannelIndexRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type DynamicsProcessingConfigSetMbcByChannelIndexRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DynamicsProcessingConfigSetMbcByChannelIndexRequest) Reset() {
+	*x = DynamicsProcessingConfigSetMbcByChannelIndexRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[301]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DynamicsProcessingConfigSetMbcByChannelIndexRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DynamicsProcessingConfigSetMbcByChannelIndexRequest) ProtoMessage() {}
+
+func (x *DynamicsProcessingConfigSetMbcByChannelIndexRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[301]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DynamicsProcessingConfigSetMbcByChannelIndexRequest.ProtoReflect.Descriptor instead.
+func (*DynamicsProcessingConfigSetMbcByChannelIndexRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{301}
+}
+
+func (x *DynamicsProcessingConfigSetMbcByChannelIndexRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *DynamicsProcessingConfigSetMbcByChannelIndexRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type DynamicsProcessingConfigSetPostEqAllChannelsToRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DynamicsProcessingConfigSetPostEqAllChannelsToRequest) Reset() {
+	*x = DynamicsProcessingConfigSetPostEqAllChannelsToRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[302]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DynamicsProcessingConfigSetPostEqAllChannelsToRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DynamicsProcessingConfigSetPostEqAllChannelsToRequest) ProtoMessage() {}
+
+func (x *DynamicsProcessingConfigSetPostEqAllChannelsToRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[302]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DynamicsProcessingConfigSetPostEqAllChannelsToRequest.ProtoReflect.Descriptor instead.
+func (*DynamicsProcessingConfigSetPostEqAllChannelsToRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{302}
+}
+
+func (x *DynamicsProcessingConfigSetPostEqAllChannelsToRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type DynamicsProcessingConfigSetPostEqBandAllChannelsToRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DynamicsProcessingConfigSetPostEqBandAllChannelsToRequest) Reset() {
+	*x = DynamicsProcessingConfigSetPostEqBandAllChannelsToRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[303]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DynamicsProcessingConfigSetPostEqBandAllChannelsToRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DynamicsProcessingConfigSetPostEqBandAllChannelsToRequest) ProtoMessage() {}
+
+func (x *DynamicsProcessingConfigSetPostEqBandAllChannelsToRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[303]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DynamicsProcessingConfigSetPostEqBandAllChannelsToRequest.ProtoReflect.Descriptor instead.
+func (*DynamicsProcessingConfigSetPostEqBandAllChannelsToRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{303}
+}
+
+func (x *DynamicsProcessingConfigSetPostEqBandAllChannelsToRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *DynamicsProcessingConfigSetPostEqBandAllChannelsToRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type DynamicsProcessingConfigSetPostEqBandByChannelIndexRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DynamicsProcessingConfigSetPostEqBandByChannelIndexRequest) Reset() {
+	*x = DynamicsProcessingConfigSetPostEqBandByChannelIndexRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[304]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DynamicsProcessingConfigSetPostEqBandByChannelIndexRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DynamicsProcessingConfigSetPostEqBandByChannelIndexRequest) ProtoMessage() {}
+
+func (x *DynamicsProcessingConfigSetPostEqBandByChannelIndexRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[304]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DynamicsProcessingConfigSetPostEqBandByChannelIndexRequest.ProtoReflect.Descriptor instead.
+func (*DynamicsProcessingConfigSetPostEqBandByChannelIndexRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{304}
+}
+
+func (x *DynamicsProcessingConfigSetPostEqBandByChannelIndexRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *DynamicsProcessingConfigSetPostEqBandByChannelIndexRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *DynamicsProcessingConfigSetPostEqBandByChannelIndexRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type DynamicsProcessingConfigSetPostEqByChannelIndexRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DynamicsProcessingConfigSetPostEqByChannelIndexRequest) Reset() {
+	*x = DynamicsProcessingConfigSetPostEqByChannelIndexRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[305]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DynamicsProcessingConfigSetPostEqByChannelIndexRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DynamicsProcessingConfigSetPostEqByChannelIndexRequest) ProtoMessage() {}
+
+func (x *DynamicsProcessingConfigSetPostEqByChannelIndexRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[305]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DynamicsProcessingConfigSetPostEqByChannelIndexRequest.ProtoReflect.Descriptor instead.
+func (*DynamicsProcessingConfigSetPostEqByChannelIndexRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{305}
+}
+
+func (x *DynamicsProcessingConfigSetPostEqByChannelIndexRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *DynamicsProcessingConfigSetPostEqByChannelIndexRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type DynamicsProcessingConfigSetPreEqAllChannelsToRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DynamicsProcessingConfigSetPreEqAllChannelsToRequest) Reset() {
+	*x = DynamicsProcessingConfigSetPreEqAllChannelsToRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[306]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DynamicsProcessingConfigSetPreEqAllChannelsToRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DynamicsProcessingConfigSetPreEqAllChannelsToRequest) ProtoMessage() {}
+
+func (x *DynamicsProcessingConfigSetPreEqAllChannelsToRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[306]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DynamicsProcessingConfigSetPreEqAllChannelsToRequest.ProtoReflect.Descriptor instead.
+func (*DynamicsProcessingConfigSetPreEqAllChannelsToRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{306}
+}
+
+func (x *DynamicsProcessingConfigSetPreEqAllChannelsToRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type DynamicsProcessingConfigSetPreEqBandAllChannelsToRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DynamicsProcessingConfigSetPreEqBandAllChannelsToRequest) Reset() {
+	*x = DynamicsProcessingConfigSetPreEqBandAllChannelsToRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[307]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DynamicsProcessingConfigSetPreEqBandAllChannelsToRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DynamicsProcessingConfigSetPreEqBandAllChannelsToRequest) ProtoMessage() {}
+
+func (x *DynamicsProcessingConfigSetPreEqBandAllChannelsToRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[307]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DynamicsProcessingConfigSetPreEqBandAllChannelsToRequest.ProtoReflect.Descriptor instead.
+func (*DynamicsProcessingConfigSetPreEqBandAllChannelsToRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{307}
+}
+
+func (x *DynamicsProcessingConfigSetPreEqBandAllChannelsToRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *DynamicsProcessingConfigSetPreEqBandAllChannelsToRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type DynamicsProcessingConfigSetPreEqBandByChannelIndexRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DynamicsProcessingConfigSetPreEqBandByChannelIndexRequest) Reset() {
+	*x = DynamicsProcessingConfigSetPreEqBandByChannelIndexRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[308]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DynamicsProcessingConfigSetPreEqBandByChannelIndexRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DynamicsProcessingConfigSetPreEqBandByChannelIndexRequest) ProtoMessage() {}
+
+func (x *DynamicsProcessingConfigSetPreEqBandByChannelIndexRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[308]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DynamicsProcessingConfigSetPreEqBandByChannelIndexRequest.ProtoReflect.Descriptor instead.
+func (*DynamicsProcessingConfigSetPreEqBandByChannelIndexRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{308}
+}
+
+func (x *DynamicsProcessingConfigSetPreEqBandByChannelIndexRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *DynamicsProcessingConfigSetPreEqBandByChannelIndexRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *DynamicsProcessingConfigSetPreEqBandByChannelIndexRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type DynamicsProcessingConfigSetPreEqByChannelIndexRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DynamicsProcessingConfigSetPreEqByChannelIndexRequest) Reset() {
+	*x = DynamicsProcessingConfigSetPreEqByChannelIndexRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[309]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DynamicsProcessingConfigSetPreEqByChannelIndexRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DynamicsProcessingConfigSetPreEqByChannelIndexRequest) ProtoMessage() {}
+
+func (x *DynamicsProcessingConfigSetPreEqByChannelIndexRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[309]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DynamicsProcessingConfigSetPreEqByChannelIndexRequest.ProtoReflect.Descriptor instead.
+func (*DynamicsProcessingConfigSetPreEqByChannelIndexRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{309}
+}
+
+func (x *DynamicsProcessingConfigSetPreEqByChannelIndexRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *DynamicsProcessingConfigSetPreEqByChannelIndexRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type DynamicsProcessingEqGetBandRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DynamicsProcessingEqGetBandRequest) Reset() {
+	*x = DynamicsProcessingEqGetBandRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[310]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DynamicsProcessingEqGetBandRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DynamicsProcessingEqGetBandRequest) ProtoMessage() {}
+
+func (x *DynamicsProcessingEqGetBandRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[310]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DynamicsProcessingEqGetBandRequest.ProtoReflect.Descriptor instead.
+func (*DynamicsProcessingEqGetBandRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{310}
+}
+
+func (x *DynamicsProcessingEqGetBandRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type DynamicsProcessingEqGetBandResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DynamicsProcessingEqGetBandResponse) Reset() {
+	*x = DynamicsProcessingEqGetBandResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[311]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DynamicsProcessingEqGetBandResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DynamicsProcessingEqGetBandResponse) ProtoMessage() {}
+
+func (x *DynamicsProcessingEqGetBandResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[311]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DynamicsProcessingEqGetBandResponse.ProtoReflect.Descriptor instead.
+func (*DynamicsProcessingEqGetBandResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{311}
+}
+
+func (x *DynamicsProcessingEqGetBandResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetBandRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetBandRequest) Reset() {
+	*x = SetBandRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[312]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetBandRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetBandRequest) ProtoMessage() {}
+
+func (x *SetBandRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[312]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetBandRequest.ProtoReflect.Descriptor instead.
+func (*SetBandRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{312}
+}
+
+func (x *SetBandRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SetBandRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type SetBandResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetBandResponse) Reset() {
+	*x = SetBandResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[313]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetBandResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetBandResponse) ProtoMessage() {}
+
+func (x *SetBandResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[313]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetBandResponse.ProtoReflect.Descriptor instead.
+func (*SetBandResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{313}
+}
+
+type GetGainRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetGainRequest) Reset() {
+	*x = GetGainRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[314]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetGainRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetGainRequest) ProtoMessage() {}
+
+func (x *GetGainRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[314]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetGainRequest.ProtoReflect.Descriptor instead.
+func (*GetGainRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{314}
+}
+
+type GetGainResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        float32                `protobuf:"fixed32,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetGainResponse) Reset() {
+	*x = GetGainResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[315]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetGainResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetGainResponse) ProtoMessage() {}
+
+func (x *GetGainResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[315]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetGainResponse.ProtoReflect.Descriptor instead.
+func (*GetGainResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{315}
+}
+
+func (x *GetGainResponse) GetResult() float32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetGainRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          float32                `protobuf:"fixed32,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetGainRequest) Reset() {
+	*x = SetGainRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[316]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetGainRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetGainRequest) ProtoMessage() {}
+
+func (x *SetGainRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[316]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetGainRequest.ProtoReflect.Descriptor instead.
+func (*SetGainRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{316}
+}
+
+func (x *SetGainRequest) GetArg0() float32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetGainResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetGainResponse) Reset() {
+	*x = SetGainResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[317]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetGainResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetGainResponse) ProtoMessage() {}
+
+func (x *SetGainResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[317]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetGainResponse.ProtoReflect.Descriptor instead.
+func (*SetGainResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{317}
+}
+
+type GetAttackTimeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAttackTimeRequest) Reset() {
+	*x = GetAttackTimeRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[318]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAttackTimeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAttackTimeRequest) ProtoMessage() {}
+
+func (x *GetAttackTimeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[318]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAttackTimeRequest.ProtoReflect.Descriptor instead.
+func (*GetAttackTimeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{318}
+}
+
+type GetAttackTimeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        float32                `protobuf:"fixed32,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAttackTimeResponse) Reset() {
+	*x = GetAttackTimeResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[319]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAttackTimeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAttackTimeResponse) ProtoMessage() {}
+
+func (x *GetAttackTimeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[319]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAttackTimeResponse.ProtoReflect.Descriptor instead.
+func (*GetAttackTimeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{319}
+}
+
+func (x *GetAttackTimeResponse) GetResult() float32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetLinkGroupRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLinkGroupRequest) Reset() {
+	*x = GetLinkGroupRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[320]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLinkGroupRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLinkGroupRequest) ProtoMessage() {}
+
+func (x *GetLinkGroupRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[320]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLinkGroupRequest.ProtoReflect.Descriptor instead.
+func (*GetLinkGroupRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{320}
+}
+
+type GetLinkGroupResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLinkGroupResponse) Reset() {
+	*x = GetLinkGroupResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[321]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLinkGroupResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLinkGroupResponse) ProtoMessage() {}
+
+func (x *GetLinkGroupResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[321]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLinkGroupResponse.ProtoReflect.Descriptor instead.
+func (*GetLinkGroupResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{321}
+}
+
+func (x *GetLinkGroupResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPostGainRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPostGainRequest) Reset() {
+	*x = GetPostGainRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[322]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPostGainRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPostGainRequest) ProtoMessage() {}
+
+func (x *GetPostGainRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[322]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPostGainRequest.ProtoReflect.Descriptor instead.
+func (*GetPostGainRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{322}
+}
+
+type GetPostGainResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        float32                `protobuf:"fixed32,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPostGainResponse) Reset() {
+	*x = GetPostGainResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[323]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPostGainResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPostGainResponse) ProtoMessage() {}
+
+func (x *GetPostGainResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[323]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPostGainResponse.ProtoReflect.Descriptor instead.
+func (*GetPostGainResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{323}
+}
+
+func (x *GetPostGainResponse) GetResult() float32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetRatioRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRatioRequest) Reset() {
+	*x = GetRatioRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[324]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRatioRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRatioRequest) ProtoMessage() {}
+
+func (x *GetRatioRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[324]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRatioRequest.ProtoReflect.Descriptor instead.
+func (*GetRatioRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{324}
+}
+
+type GetRatioResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        float32                `protobuf:"fixed32,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRatioResponse) Reset() {
+	*x = GetRatioResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[325]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRatioResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRatioResponse) ProtoMessage() {}
+
+func (x *GetRatioResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[325]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRatioResponse.ProtoReflect.Descriptor instead.
+func (*GetRatioResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{325}
+}
+
+func (x *GetRatioResponse) GetResult() float32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetReleaseTimeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetReleaseTimeRequest) Reset() {
+	*x = GetReleaseTimeRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[326]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetReleaseTimeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetReleaseTimeRequest) ProtoMessage() {}
+
+func (x *GetReleaseTimeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[326]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetReleaseTimeRequest.ProtoReflect.Descriptor instead.
+func (*GetReleaseTimeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{326}
+}
+
+type GetReleaseTimeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        float32                `protobuf:"fixed32,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetReleaseTimeResponse) Reset() {
+	*x = GetReleaseTimeResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[327]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetReleaseTimeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetReleaseTimeResponse) ProtoMessage() {}
+
+func (x *GetReleaseTimeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[327]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetReleaseTimeResponse.ProtoReflect.Descriptor instead.
+func (*GetReleaseTimeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{327}
+}
+
+func (x *GetReleaseTimeResponse) GetResult() float32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetThresholdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetThresholdRequest) Reset() {
+	*x = GetThresholdRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[328]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetThresholdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetThresholdRequest) ProtoMessage() {}
+
+func (x *GetThresholdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[328]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetThresholdRequest.ProtoReflect.Descriptor instead.
+func (*GetThresholdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{328}
+}
+
+type GetThresholdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        float32                `protobuf:"fixed32,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetThresholdResponse) Reset() {
+	*x = GetThresholdResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[329]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetThresholdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetThresholdResponse) ProtoMessage() {}
+
+func (x *GetThresholdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[329]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetThresholdResponse.ProtoReflect.Descriptor instead.
+func (*GetThresholdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{329}
+}
+
+func (x *GetThresholdResponse) GetResult() float32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetAttackTimeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          float32                `protobuf:"fixed32,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetAttackTimeRequest) Reset() {
+	*x = SetAttackTimeRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[330]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetAttackTimeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetAttackTimeRequest) ProtoMessage() {}
+
+func (x *SetAttackTimeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[330]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetAttackTimeRequest.ProtoReflect.Descriptor instead.
+func (*SetAttackTimeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{330}
+}
+
+func (x *SetAttackTimeRequest) GetArg0() float32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetAttackTimeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetAttackTimeResponse) Reset() {
+	*x = SetAttackTimeResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[331]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetAttackTimeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetAttackTimeResponse) ProtoMessage() {}
+
+func (x *SetAttackTimeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[331]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetAttackTimeResponse.ProtoReflect.Descriptor instead.
+func (*SetAttackTimeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{331}
+}
+
+type SetLinkGroupRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetLinkGroupRequest) Reset() {
+	*x = SetLinkGroupRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[332]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetLinkGroupRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetLinkGroupRequest) ProtoMessage() {}
+
+func (x *SetLinkGroupRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[332]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetLinkGroupRequest.ProtoReflect.Descriptor instead.
+func (*SetLinkGroupRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{332}
+}
+
+func (x *SetLinkGroupRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetLinkGroupResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetLinkGroupResponse) Reset() {
+	*x = SetLinkGroupResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[333]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetLinkGroupResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetLinkGroupResponse) ProtoMessage() {}
+
+func (x *SetLinkGroupResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[333]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetLinkGroupResponse.ProtoReflect.Descriptor instead.
+func (*SetLinkGroupResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{333}
+}
+
+type SetPostGainRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          float32                `protobuf:"fixed32,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPostGainRequest) Reset() {
+	*x = SetPostGainRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[334]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPostGainRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPostGainRequest) ProtoMessage() {}
+
+func (x *SetPostGainRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[334]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPostGainRequest.ProtoReflect.Descriptor instead.
+func (*SetPostGainRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{334}
+}
+
+func (x *SetPostGainRequest) GetArg0() float32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetPostGainResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPostGainResponse) Reset() {
+	*x = SetPostGainResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[335]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPostGainResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPostGainResponse) ProtoMessage() {}
+
+func (x *SetPostGainResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[335]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPostGainResponse.ProtoReflect.Descriptor instead.
+func (*SetPostGainResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{335}
+}
+
+type SetRatioRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          float32                `protobuf:"fixed32,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetRatioRequest) Reset() {
+	*x = SetRatioRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[336]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetRatioRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetRatioRequest) ProtoMessage() {}
+
+func (x *SetRatioRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[336]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetRatioRequest.ProtoReflect.Descriptor instead.
+func (*SetRatioRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{336}
+}
+
+func (x *SetRatioRequest) GetArg0() float32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetRatioResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetRatioResponse) Reset() {
+	*x = SetRatioResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[337]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetRatioResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetRatioResponse) ProtoMessage() {}
+
+func (x *SetRatioResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[337]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetRatioResponse.ProtoReflect.Descriptor instead.
+func (*SetRatioResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{337}
+}
+
+type SetReleaseTimeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          float32                `protobuf:"fixed32,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetReleaseTimeRequest) Reset() {
+	*x = SetReleaseTimeRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[338]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetReleaseTimeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetReleaseTimeRequest) ProtoMessage() {}
+
+func (x *SetReleaseTimeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[338]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetReleaseTimeRequest.ProtoReflect.Descriptor instead.
+func (*SetReleaseTimeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{338}
+}
+
+func (x *SetReleaseTimeRequest) GetArg0() float32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetReleaseTimeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetReleaseTimeResponse) Reset() {
+	*x = SetReleaseTimeResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[339]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetReleaseTimeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetReleaseTimeResponse) ProtoMessage() {}
+
+func (x *SetReleaseTimeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[339]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetReleaseTimeResponse.ProtoReflect.Descriptor instead.
+func (*SetReleaseTimeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{339}
+}
+
+type SetThresholdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          float32                `protobuf:"fixed32,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetThresholdRequest) Reset() {
+	*x = SetThresholdRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[340]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetThresholdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetThresholdRequest) ProtoMessage() {}
+
+func (x *SetThresholdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[340]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetThresholdRequest.ProtoReflect.Descriptor instead.
+func (*SetThresholdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{340}
+}
+
+func (x *SetThresholdRequest) GetArg0() float32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetThresholdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetThresholdResponse) Reset() {
+	*x = SetThresholdResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[341]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetThresholdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetThresholdResponse) ProtoMessage() {}
+
+func (x *SetThresholdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[341]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetThresholdResponse.ProtoReflect.Descriptor instead.
+func (*SetThresholdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{341}
+}
+
+type DynamicsProcessingMbcGetBandRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DynamicsProcessingMbcGetBandRequest) Reset() {
+	*x = DynamicsProcessingMbcGetBandRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[342]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DynamicsProcessingMbcGetBandRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DynamicsProcessingMbcGetBandRequest) ProtoMessage() {}
+
+func (x *DynamicsProcessingMbcGetBandRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[342]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DynamicsProcessingMbcGetBandRequest.ProtoReflect.Descriptor instead.
+func (*DynamicsProcessingMbcGetBandRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{342}
+}
+
+func (x *DynamicsProcessingMbcGetBandRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type DynamicsProcessingMbcGetBandResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DynamicsProcessingMbcGetBandResponse) Reset() {
+	*x = DynamicsProcessingMbcGetBandResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[343]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DynamicsProcessingMbcGetBandResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DynamicsProcessingMbcGetBandResponse) ProtoMessage() {}
+
+func (x *DynamicsProcessingMbcGetBandResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[343]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DynamicsProcessingMbcGetBandResponse.ProtoReflect.Descriptor instead.
+func (*DynamicsProcessingMbcGetBandResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{343}
+}
+
+func (x *DynamicsProcessingMbcGetBandResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetExpanderRatioRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetExpanderRatioRequest) Reset() {
+	*x = GetExpanderRatioRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[344]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetExpanderRatioRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetExpanderRatioRequest) ProtoMessage() {}
+
+func (x *GetExpanderRatioRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[344]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetExpanderRatioRequest.ProtoReflect.Descriptor instead.
+func (*GetExpanderRatioRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{344}
+}
+
+type GetExpanderRatioResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        float32                `protobuf:"fixed32,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetExpanderRatioResponse) Reset() {
+	*x = GetExpanderRatioResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[345]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetExpanderRatioResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetExpanderRatioResponse) ProtoMessage() {}
+
+func (x *GetExpanderRatioResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[345]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetExpanderRatioResponse.ProtoReflect.Descriptor instead.
+func (*GetExpanderRatioResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{345}
+}
+
+func (x *GetExpanderRatioResponse) GetResult() float32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetKneeWidthRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetKneeWidthRequest) Reset() {
+	*x = GetKneeWidthRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[346]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetKneeWidthRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetKneeWidthRequest) ProtoMessage() {}
+
+func (x *GetKneeWidthRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[346]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetKneeWidthRequest.ProtoReflect.Descriptor instead.
+func (*GetKneeWidthRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{346}
+}
+
+type GetKneeWidthResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        float32                `protobuf:"fixed32,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetKneeWidthResponse) Reset() {
+	*x = GetKneeWidthResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[347]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetKneeWidthResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetKneeWidthResponse) ProtoMessage() {}
+
+func (x *GetKneeWidthResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[347]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetKneeWidthResponse.ProtoReflect.Descriptor instead.
+func (*GetKneeWidthResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{347}
+}
+
+func (x *GetKneeWidthResponse) GetResult() float32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetNoiseGateThresholdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNoiseGateThresholdRequest) Reset() {
+	*x = GetNoiseGateThresholdRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[348]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNoiseGateThresholdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNoiseGateThresholdRequest) ProtoMessage() {}
+
+func (x *GetNoiseGateThresholdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[348]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNoiseGateThresholdRequest.ProtoReflect.Descriptor instead.
+func (*GetNoiseGateThresholdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{348}
+}
+
+type GetNoiseGateThresholdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        float32                `protobuf:"fixed32,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNoiseGateThresholdResponse) Reset() {
+	*x = GetNoiseGateThresholdResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[349]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNoiseGateThresholdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNoiseGateThresholdResponse) ProtoMessage() {}
+
+func (x *GetNoiseGateThresholdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[349]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNoiseGateThresholdResponse.ProtoReflect.Descriptor instead.
+func (*GetNoiseGateThresholdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{349}
+}
+
+func (x *GetNoiseGateThresholdResponse) GetResult() float32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPreGainRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPreGainRequest) Reset() {
+	*x = GetPreGainRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[350]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPreGainRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPreGainRequest) ProtoMessage() {}
+
+func (x *GetPreGainRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[350]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPreGainRequest.ProtoReflect.Descriptor instead.
+func (*GetPreGainRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{350}
+}
+
+type GetPreGainResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        float32                `protobuf:"fixed32,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPreGainResponse) Reset() {
+	*x = GetPreGainResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[351]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPreGainResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPreGainResponse) ProtoMessage() {}
+
+func (x *GetPreGainResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[351]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPreGainResponse.ProtoReflect.Descriptor instead.
+func (*GetPreGainResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{351}
+}
+
+func (x *GetPreGainResponse) GetResult() float32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetExpanderRatioRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          float32                `protobuf:"fixed32,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetExpanderRatioRequest) Reset() {
+	*x = SetExpanderRatioRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[352]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetExpanderRatioRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetExpanderRatioRequest) ProtoMessage() {}
+
+func (x *SetExpanderRatioRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[352]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetExpanderRatioRequest.ProtoReflect.Descriptor instead.
+func (*SetExpanderRatioRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{352}
+}
+
+func (x *SetExpanderRatioRequest) GetArg0() float32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetExpanderRatioResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetExpanderRatioResponse) Reset() {
+	*x = SetExpanderRatioResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[353]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetExpanderRatioResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetExpanderRatioResponse) ProtoMessage() {}
+
+func (x *SetExpanderRatioResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[353]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetExpanderRatioResponse.ProtoReflect.Descriptor instead.
+func (*SetExpanderRatioResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{353}
+}
+
+type SetKneeWidthRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          float32                `protobuf:"fixed32,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetKneeWidthRequest) Reset() {
+	*x = SetKneeWidthRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[354]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetKneeWidthRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetKneeWidthRequest) ProtoMessage() {}
+
+func (x *SetKneeWidthRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[354]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetKneeWidthRequest.ProtoReflect.Descriptor instead.
+func (*SetKneeWidthRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{354}
+}
+
+func (x *SetKneeWidthRequest) GetArg0() float32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetKneeWidthResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetKneeWidthResponse) Reset() {
+	*x = SetKneeWidthResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[355]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetKneeWidthResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetKneeWidthResponse) ProtoMessage() {}
+
+func (x *SetKneeWidthResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[355]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetKneeWidthResponse.ProtoReflect.Descriptor instead.
+func (*SetKneeWidthResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{355}
+}
+
+type SetNoiseGateThresholdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          float32                `protobuf:"fixed32,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetNoiseGateThresholdRequest) Reset() {
+	*x = SetNoiseGateThresholdRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[356]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetNoiseGateThresholdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetNoiseGateThresholdRequest) ProtoMessage() {}
+
+func (x *SetNoiseGateThresholdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[356]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetNoiseGateThresholdRequest.ProtoReflect.Descriptor instead.
+func (*SetNoiseGateThresholdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{356}
+}
+
+func (x *SetNoiseGateThresholdRequest) GetArg0() float32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetNoiseGateThresholdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetNoiseGateThresholdResponse) Reset() {
+	*x = SetNoiseGateThresholdResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[357]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetNoiseGateThresholdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetNoiseGateThresholdResponse) ProtoMessage() {}
+
+func (x *SetNoiseGateThresholdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[357]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetNoiseGateThresholdResponse.ProtoReflect.Descriptor instead.
+func (*SetNoiseGateThresholdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{357}
+}
+
+type SetPreGainRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          float32                `protobuf:"fixed32,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPreGainRequest) Reset() {
+	*x = SetPreGainRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[358]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPreGainRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPreGainRequest) ProtoMessage() {}
+
+func (x *SetPreGainRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[358]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPreGainRequest.ProtoReflect.Descriptor instead.
+func (*SetPreGainRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{358}
+}
+
+func (x *SetPreGainRequest) GetArg0() float32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetPreGainResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPreGainResponse) Reset() {
+	*x = SetPreGainResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[359]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPreGainResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPreGainResponse) ProtoMessage() {}
+
+func (x *SetPreGainResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[359]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPreGainResponse.ProtoReflect.Descriptor instead.
+func (*SetPreGainResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{359}
+}
+
+type IsInUseRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsInUseRequest) Reset() {
+	*x = IsInUseRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[360]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsInUseRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsInUseRequest) ProtoMessage() {}
+
+func (x *IsInUseRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[360]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsInUseRequest.ProtoReflect.Descriptor instead.
+func (*IsInUseRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{360}
+}
+
+type IsInUseResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsInUseResponse) Reset() {
+	*x = IsInUseResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[361]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsInUseResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsInUseResponse) ProtoMessage() {}
+
+func (x *IsInUseResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[361]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsInUseResponse.ProtoReflect.Descriptor instead.
+func (*IsInUseResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{361}
+}
+
+func (x *IsInUseResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type DynamicsProcessingStageSetEnabledRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DynamicsProcessingStageSetEnabledRequest) Reset() {
+	*x = DynamicsProcessingStageSetEnabledRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[362]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DynamicsProcessingStageSetEnabledRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DynamicsProcessingStageSetEnabledRequest) ProtoMessage() {}
+
+func (x *DynamicsProcessingStageSetEnabledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[362]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DynamicsProcessingStageSetEnabledRequest.ProtoReflect.Descriptor instead.
+func (*DynamicsProcessingStageSetEnabledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{362}
+}
+
+func (x *DynamicsProcessingStageSetEnabledRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type DynamicsProcessingStageSetEnabledResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DynamicsProcessingStageSetEnabledResponse) Reset() {
+	*x = DynamicsProcessingStageSetEnabledResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[363]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DynamicsProcessingStageSetEnabledResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DynamicsProcessingStageSetEnabledResponse) ProtoMessage() {}
+
+func (x *DynamicsProcessingStageSetEnabledResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[363]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DynamicsProcessingStageSetEnabledResponse.ProtoReflect.Descriptor instead.
+func (*DynamicsProcessingStageSetEnabledResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{363}
+}
+
+type NewVirtualizerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewVirtualizerRequest) Reset() {
+	*x = NewVirtualizerRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[364]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewVirtualizerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewVirtualizerRequest) ProtoMessage() {}
+
+func (x *NewVirtualizerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[364]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewVirtualizerRequest.ProtoReflect.Descriptor instead.
+func (*NewVirtualizerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{364}
+}
+
+func (x *NewVirtualizerRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *NewVirtualizerRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type NewVirtualizerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewVirtualizerResponse) Reset() {
+	*x = NewVirtualizerResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[365]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewVirtualizerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewVirtualizerResponse) ProtoMessage() {}
+
+func (x *NewVirtualizerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[365]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewVirtualizerResponse.ProtoReflect.Descriptor instead.
+func (*NewVirtualizerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{365}
+}
+
+func (x *NewVirtualizerResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type CanVirtualizeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CanVirtualizeRequest) Reset() {
+	*x = CanVirtualizeRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[366]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CanVirtualizeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CanVirtualizeRequest) ProtoMessage() {}
+
+func (x *CanVirtualizeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[366]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CanVirtualizeRequest.ProtoReflect.Descriptor instead.
+func (*CanVirtualizeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{366}
+}
+
+func (x *CanVirtualizeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *CanVirtualizeRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *CanVirtualizeRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type CanVirtualizeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CanVirtualizeResponse) Reset() {
+	*x = CanVirtualizeResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[367]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CanVirtualizeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CanVirtualizeResponse) ProtoMessage() {}
+
+func (x *CanVirtualizeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[367]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CanVirtualizeResponse.ProtoReflect.Descriptor instead.
+func (*CanVirtualizeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{367}
+}
+
+func (x *CanVirtualizeResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type ForceVirtualizationModeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ForceVirtualizationModeRequest) Reset() {
+	*x = ForceVirtualizationModeRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[368]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ForceVirtualizationModeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ForceVirtualizationModeRequest) ProtoMessage() {}
+
+func (x *ForceVirtualizationModeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[368]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ForceVirtualizationModeRequest.ProtoReflect.Descriptor instead.
+func (*ForceVirtualizationModeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{368}
+}
+
+func (x *ForceVirtualizationModeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *ForceVirtualizationModeRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type ForceVirtualizationModeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ForceVirtualizationModeResponse) Reset() {
+	*x = ForceVirtualizationModeResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[369]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ForceVirtualizationModeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ForceVirtualizationModeResponse) ProtoMessage() {}
+
+func (x *ForceVirtualizationModeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[369]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ForceVirtualizationModeResponse.ProtoReflect.Descriptor instead.
+func (*ForceVirtualizationModeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{369}
+}
+
+func (x *ForceVirtualizationModeResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type GetSpeakerAnglesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSpeakerAnglesRequest) Reset() {
+	*x = GetSpeakerAnglesRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[370]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSpeakerAnglesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSpeakerAnglesRequest) ProtoMessage() {}
+
+func (x *GetSpeakerAnglesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[370]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSpeakerAnglesRequest.ProtoReflect.Descriptor instead.
+func (*GetSpeakerAnglesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{370}
+}
+
+func (x *GetSpeakerAnglesRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetSpeakerAnglesRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *GetSpeakerAnglesRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *GetSpeakerAnglesRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type GetSpeakerAnglesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSpeakerAnglesResponse) Reset() {
+	*x = GetSpeakerAnglesResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[371]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSpeakerAnglesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSpeakerAnglesResponse) ProtoMessage() {}
+
+func (x *GetSpeakerAnglesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[371]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSpeakerAnglesResponse.ProtoReflect.Descriptor instead.
+func (*GetSpeakerAnglesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{371}
+}
+
+func (x *GetSpeakerAnglesResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type GetVirtualizationModeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetVirtualizationModeRequest) Reset() {
+	*x = GetVirtualizationModeRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[372]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetVirtualizationModeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetVirtualizationModeRequest) ProtoMessage() {}
+
+func (x *GetVirtualizationModeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[372]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetVirtualizationModeRequest.ProtoReflect.Descriptor instead.
+func (*GetVirtualizationModeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{372}
+}
+
+func (x *GetVirtualizationModeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetVirtualizationModeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetVirtualizationModeResponse) Reset() {
+	*x = GetVirtualizationModeResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[373]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetVirtualizationModeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetVirtualizationModeResponse) ProtoMessage() {}
+
+func (x *GetVirtualizationModeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[373]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetVirtualizationModeResponse.ProtoReflect.Descriptor instead.
+func (*GetVirtualizationModeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{373}
+}
+
+func (x *GetVirtualizationModeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type CloseRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CloseRequest) Reset() {
+	*x = CloseRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[374]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CloseRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CloseRequest) ProtoMessage() {}
+
+func (x *CloseRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[374]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CloseRequest.ProtoReflect.Descriptor instead.
+func (*CloseRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{374}
+}
+
+type CloseResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CloseResponse) Reset() {
+	*x = CloseResponse{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[375]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CloseResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CloseResponse) ProtoMessage() {}
+
+func (x *CloseResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[375]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CloseResponse.ProtoReflect.Descriptor instead.
+func (*CloseResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{375}
+}
+
+type HapticGeneratorReleaseRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HapticGeneratorReleaseRequest) Reset() {
+	*x = HapticGeneratorReleaseRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[376]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HapticGeneratorReleaseRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HapticGeneratorReleaseRequest) ProtoMessage() {}
+
+func (x *HapticGeneratorReleaseRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[376]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HapticGeneratorReleaseRequest.ProtoReflect.Descriptor instead.
+func (*HapticGeneratorReleaseRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{376}
+}
+
+type HapticGeneratorSetEnabledRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HapticGeneratorSetEnabledRequest) Reset() {
+	*x = HapticGeneratorSetEnabledRequest{}
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[377]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HapticGeneratorSetEnabledRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HapticGeneratorSetEnabledRequest) ProtoMessage() {}
+
+func (x *HapticGeneratorSetEnabledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiofx_audiofx_proto_msgTypes[377]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HapticGeneratorSetEnabledRequest.ProtoReflect.Descriptor instead.
+func (*HapticGeneratorSetEnabledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiofx_audiofx_proto_rawDescGZIP(), []int{377}
+}
+
+func (x *HapticGeneratorSetEnabledRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
 var File_proto_audiofx_audiofx_proto protoreflect.FileDescriptor
 
 const file_proto_audiofx_audiofx_proto_rawDesc = "" +
 	"\n" +
-	"\x1bproto/audiofx/audiofx.proto\x12\aaudiofxB1Z/github.com/AndroidGoLab/jni-proxy/proto/audiofxb\x06proto3"
+	"\x1bproto/audiofx/audiofx.proto\x12\aaudiofx\"=\n" +
+	"\x13NewBassBoostRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\".\n" +
+	"\x14NewBassBoostResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\".\n" +
+	"\x14GetPropertiesRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"/\n" +
+	"\x15GetPropertiesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"3\n" +
+	"\x19GetRoundedStrengthRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"4\n" +
+	"\x1aGetRoundedStrengthResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"5\n" +
+	"\x1bGetStrengthSupportedRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"6\n" +
+	"\x1cGetStrengthSupportedResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"I\n" +
+	"\x1bSetParameterListenerRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x1e\n" +
+	"\x1cSetParameterListenerResponse\"B\n" +
+	"\x14SetPropertiesRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x17\n" +
+	"\x15SetPropertiesResponse\"@\n" +
+	"\x12SetStrengthRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"\x15\n" +
+	"\x13SetStrengthResponse\"j\n" +
+	"\x18OnParameterChangeRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x05R\x04arg3\"\x1b\n" +
+	"\x19OnParameterChangeResponse\"\x11\n" +
+	"\x0fToStringRequest\"*\n" +
+	"\x10ToStringResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"#\n" +
+	"\rCreateRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"(\n" +
+	"\x0eCreateResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x14\n" +
+	"\x12IsAvailableRequest\"-\n" +
+	"\x13IsAvailableResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"*\n" +
+	"\x14NewVisualizerRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"/\n" +
+	"\x15NewVisualizerResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"/\n" +
+	"\x15GetCaptureSizeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"0\n" +
+	"\x16GetCaptureSizeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"+\n" +
+	"\x11GetEnabledRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\",\n" +
+	"\x12GetEnabledResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\";\n" +
+	"\rGetFftRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"(\n" +
+	"\x0eGetFftResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"3\n" +
+	"\x19GetMeasurementModeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"4\n" +
+	"\x1aGetMeasurementModeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"J\n" +
+	"\x1cGetMeasurementPeakRmsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"7\n" +
+	"\x1dGetMeasurementPeakRmsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"0\n" +
+	"\x16GetSamplingRateRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"1\n" +
+	"\x17GetSamplingRateResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"/\n" +
+	"\x15GetScalingModeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"0\n" +
+	"\x16GetScalingModeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"@\n" +
+	"\x12GetWaveFormRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"-\n" +
+	"\x13GetWaveFormResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"(\n" +
+	"\x0eReleaseRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x11\n" +
+	"\x0fReleaseResponse\"C\n" +
+	"\x15SetCaptureSizeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"0\n" +
+	"\x16SetCaptureSizeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x87\x01\n" +
+	"\x1dSetDataCaptureListenerRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\bR\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x05 \x01(\bR\x04arg3\"8\n" +
+	"\x1eSetDataCaptureListenerResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"?\n" +
+	"\x11SetEnabledRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\bR\x04arg0\",\n" +
+	"\x12SetEnabledResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"G\n" +
+	"\x19SetMeasurementModeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"4\n" +
+	"\x1aSetMeasurementModeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"C\n" +
+	"\x15SetScalingModeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"0\n" +
+	"\x16SetScalingModeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"4\n" +
+	"\x1aGetCaptureSizeRangeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"5\n" +
+	"\x1bGetCaptureSizeRangeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"2\n" +
+	"\x18GetMaxCaptureRateRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"3\n" +
+	"\x19GetMaxCaptureRateResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"U\n" +
+	"\x17OnFftDataCaptureRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\"\x1a\n" +
+	"\x18OnFftDataCaptureResponse\"Z\n" +
+	"\x1cOnWaveFormDataCaptureRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\"\x1f\n" +
+	"\x1dOnWaveFormDataCaptureResponse\"G\n" +
+	"\x1dNewEnvironmentalReverbRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"8\n" +
+	"\x1eNewEnvironmentalReverbResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"0\n" +
+	"\x16GetDecayHFRatioRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"1\n" +
+	"\x17GetDecayHFRatioResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"-\n" +
+	"\x13GetDecayTimeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\".\n" +
+	"\x14GetDecayTimeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"+\n" +
+	"\x11GetDensityRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\",\n" +
+	"\x12GetDensityResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"-\n" +
+	"\x13GetDiffusionRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\".\n" +
+	"\x14GetDiffusionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"4\n" +
+	"\x1aGetReflectionsDelayRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"5\n" +
+	"\x1bGetReflectionsDelayResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"4\n" +
+	"\x1aGetReflectionsLevelRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"5\n" +
+	"\x1bGetReflectionsLevelResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"/\n" +
+	"\x15GetReverbDelayRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"0\n" +
+	"\x16GetReverbDelayResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"/\n" +
+	"\x15GetReverbLevelRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"0\n" +
+	"\x16GetReverbLevelResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"/\n" +
+	"\x15GetRoomHFLevelRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"0\n" +
+	"\x16GetRoomHFLevelResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"-\n" +
+	"\x13GetRoomLevelRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\".\n" +
+	"\x14GetRoomLevelResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"D\n" +
+	"\x16SetDecayHFRatioRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"\x19\n" +
+	"\x17SetDecayHFRatioResponse\"A\n" +
+	"\x13SetDecayTimeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"\x16\n" +
+	"\x14SetDecayTimeResponse\"?\n" +
+	"\x11SetDensityRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"\x14\n" +
+	"\x12SetDensityResponse\"A\n" +
+	"\x13SetDiffusionRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"\x16\n" +
+	"\x14SetDiffusionResponse\"H\n" +
+	"\x1aSetReflectionsDelayRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"\x1d\n" +
+	"\x1bSetReflectionsDelayResponse\"H\n" +
+	"\x1aSetReflectionsLevelRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"\x1d\n" +
+	"\x1bSetReflectionsLevelResponse\"C\n" +
+	"\x15SetReverbDelayRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"\x18\n" +
+	"\x16SetReverbDelayResponse\"C\n" +
+	"\x15SetReverbLevelRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"\x18\n" +
+	"\x16SetReverbLevelResponse\"C\n" +
+	"\x15SetRoomHFLevelRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"\x18\n" +
+	"\x16SetRoomHFLevelResponse\"A\n" +
+	"\x13SetRoomLevelRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"\x16\n" +
+	"\x14SetRoomLevelResponse\"\x16\n" +
+	"\x14GetDescriptorRequest\"/\n" +
+	"\x15GetDescriptorResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1e\n" +
+	"\x1cAudioEffectGetEnabledRequest\"\x0e\n" +
+	"\fGetIdRequest\"'\n" +
+	"\rGetIdResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x13\n" +
+	"\x11HasControlRequest\",\n" +
+	"\x12HasControlResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x1b\n" +
+	"\x19AudioEffectReleaseRequest\"5\n" +
+	"\x1fSetControlStatusListenerRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\"\n" +
+	" SetControlStatusListenerResponse\"4\n" +
+	"\x1eSetEnableStatusListenerRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"!\n" +
+	"\x1fSetEnableStatusListenerResponse\"2\n" +
+	"\x1cAudioEffectSetEnabledRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"\x15\n" +
+	"\x13QueryEffectsRequest\".\n" +
+	"\x14QueryEffectsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"#\n" +
+	"\rEqualsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"(\n" +
+	"\x0eEqualsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x11\n" +
+	"\x0fHashCodeRequest\"*\n" +
+	"\x10HashCodeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"F\n" +
+	"\x1cOnControlStatusChangeRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\bR\x04arg1\"\x1f\n" +
+	"\x1dOnControlStatusChangeResponse\"E\n" +
+	"\x1bOnEnableStatusChangeRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\bR\x04arg1\"\x1e\n" +
+	"\x1cOnEnableStatusChangeResponse\"=\n" +
+	"\x13NewEqualizerRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\".\n" +
+	"\x14NewEqualizerResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"<\n" +
+	"\x0eGetBandRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\")\n" +
+	"\x0fGetBandResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"E\n" +
+	"\x17GetBandFreqRangeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"2\n" +
+	"\x18GetBandFreqRangeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"A\n" +
+	"\x13GetBandLevelRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\".\n" +
+	"\x14GetBandLevelResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"2\n" +
+	"\x18GetBandLevelRangeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"3\n" +
+	"\x19GetBandLevelRangeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"B\n" +
+	"\x14GetCenterFreqRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"/\n" +
+	"\x15GetCenterFreqResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"1\n" +
+	"\x17GetCurrentPresetRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"2\n" +
+	"\x18GetCurrentPresetResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"1\n" +
+	"\x17GetNumberOfBandsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"2\n" +
+	"\x18GetNumberOfBandsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"3\n" +
+	"\x19GetNumberOfPresetsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"4\n" +
+	"\x1aGetNumberOfPresetsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"B\n" +
+	"\x14GetPresetNameRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"/\n" +
+	"\x15GetPresetNameResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"U\n" +
+	"\x13SetBandLevelRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"\x16\n" +
+	"\x14SetBandLevelResponse\">\n" +
+	"\x10UsePresetRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"\x13\n" +
+	"\x11UsePresetResponse\"\xa0\x01\n" +
+	":EqualizerOnParameterChangeListenerOnParameterChangeRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x05R\x04arg3\x12\x12\n" +
+	"\x04arg4\x18\x05 \x01(\x05R\x04arg4\"@\n" +
+	"\x16NewPresetReverbRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"1\n" +
+	"\x17NewPresetReverbResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"*\n" +
+	"\x10GetPresetRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"+\n" +
+	"\x11GetPresetResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\">\n" +
+	"\x10SetPresetRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"\x13\n" +
+	"\x11SetPresetResponse\"0\n" +
+	"\x1aNewLoudnessEnhancerRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"5\n" +
+	"\x1bNewLoudnessEnhancerResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\".\n" +
+	"\x14GetTargetGainRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"/\n" +
+	"\x15GetTargetGainResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x02R\x06result\"B\n" +
+	"\x14SetTargetGainRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"\x17\n" +
+	"\x15SetTargetGainResponse\"2\n" +
+	"\x1cNewDynamicsProcessingRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"7\n" +
+	"\x1dNewDynamicsProcessingResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"M\n" +
+	"\x1fGetChannelByChannelIndexRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\":\n" +
+	" GetChannelByChannelIndexResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"0\n" +
+	"\x16GetChannelCountRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"1\n" +
+	"\x17GetChannelCountResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"*\n" +
+	"\x10GetConfigRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"+\n" +
+	"\x11GetConfigResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"O\n" +
+	"!GetInputGainByChannelIndexRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"<\n" +
+	"\"GetInputGainByChannelIndexResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x02R\x06result\"M\n" +
+	"\x1fGetLimiterByChannelIndexRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\":\n" +
+	" GetLimiterByChannelIndexResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"a\n" +
+	"\x1fGetMbcBandByChannelIndexRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\":\n" +
+	" GetMbcBandByChannelIndexResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"I\n" +
+	"\x1bGetMbcByChannelIndexRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"6\n" +
+	"\x1cGetMbcByChannelIndexResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"d\n" +
+	"\"GetPostEqBandByChannelIndexRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"=\n" +
+	"#GetPostEqBandByChannelIndexResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"L\n" +
+	"\x1eGetPostEqByChannelIndexRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"9\n" +
+	"\x1fGetPostEqByChannelIndexResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"c\n" +
+	"!GetPreEqBandByChannelIndexRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"<\n" +
+	"\"GetPreEqBandByChannelIndexResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"K\n" +
+	"\x1dGetPreEqByChannelIndexRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"8\n" +
+	"\x1eGetPreEqByChannelIndexResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"E\n" +
+	"\x17SetAllChannelsToRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x1a\n" +
+	"\x18SetAllChannelsToResponse\"U\n" +
+	"\x13SetChannelToRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"\x16\n" +
+	"\x14SetChannelToResponse\"N\n" +
+	" SetInputGainAllChannelsToRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x02R\x04arg0\"#\n" +
+	"!SetInputGainAllChannelsToResponse\"^\n" +
+	"\x1cSetInputGainbyChannelRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x02R\x04arg1\"\x1f\n" +
+	"\x1dSetInputGainbyChannelResponse\"L\n" +
+	"\x1eSetLimiterAllChannelsToRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"!\n" +
+	"\x1fSetLimiterAllChannelsToResponse\"a\n" +
+	"\x1fSetLimiterByChannelIndexRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"\"\n" +
+	" SetLimiterByChannelIndexResponse\"H\n" +
+	"\x1aSetMbcAllChannelsToRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x1d\n" +
+	"\x1bSetMbcAllChannelsToResponse\"`\n" +
+	"\x1eSetMbcBandAllChannelsToRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"!\n" +
+	"\x1fSetMbcBandAllChannelsToResponse\"u\n" +
+	"\x1fSetMbcBandByChannelIndexRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x03R\x04arg2\"\"\n" +
+	" SetMbcBandByChannelIndexResponse\"]\n" +
+	"\x1bSetMbcByChannelIndexRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"\x1e\n" +
+	"\x1cSetMbcByChannelIndexResponse\"K\n" +
+	"\x1dSetPostEqAllChannelsToRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\" \n" +
+	"\x1eSetPostEqAllChannelsToResponse\"c\n" +
+	"!SetPostEqBandAllChannelsToRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"$\n" +
+	"\"SetPostEqBandAllChannelsToResponse\"x\n" +
+	"\"SetPostEqBandByChannelIndexRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x03R\x04arg2\"%\n" +
+	"#SetPostEqBandByChannelIndexResponse\"`\n" +
+	"\x1eSetPostEqByChannelIndexRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"!\n" +
+	"\x1fSetPostEqByChannelIndexResponse\"J\n" +
+	"\x1cSetPreEqAllChannelsToRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x1f\n" +
+	"\x1dSetPreEqAllChannelsToResponse\"b\n" +
+	" SetPreEqBandAllChannelsToRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"#\n" +
+	"!SetPreEqBandAllChannelsToResponse\"w\n" +
+	"!SetPreEqBandByChannelIndexRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x03R\x04arg2\"$\n" +
+	"\"SetPreEqBandByChannelIndexResponse\"_\n" +
+	"\x1dSetPreEqByChannelIndexRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\" \n" +
+	"\x1eSetPreEqByChannelIndexResponse\"\x1b\n" +
+	"\x19GetCutoffFrequencyRequest\"4\n" +
+	"\x1aGetCutoffFrequencyResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x02R\x06result\"\x12\n" +
+	"\x10IsEnabledRequest\"+\n" +
+	"\x11IsEnabledResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"/\n" +
+	"\x19SetCutoffFrequencyRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x02R\x04arg0\"\x1c\n" +
+	"\x1aSetCutoffFrequencyResponse\"A\n" +
+	"+DynamicsProcessingBandBaseSetEnabledRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\".\n" +
+	",DynamicsProcessingBandBaseSetEnabledResponse\"\x15\n" +
+	"\x13GetBandCountRequest\".\n" +
+	"\x14GetBandCountResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x15\n" +
+	"\x13GetInputGainRequest\".\n" +
+	"\x14GetInputGainResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x02R\x06result\"\x13\n" +
+	"\x11GetLimiterRequest\",\n" +
+	"\x12GetLimiterResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x0f\n" +
+	"\rGetMbcRequest\"(\n" +
+	"\x0eGetMbcResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"'\n" +
+	"\x11GetMbcBandRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\",\n" +
+	"\x12GetMbcBandResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x12\n" +
+	"\x10GetPostEqRequest\"+\n" +
+	"\x11GetPostEqResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"*\n" +
+	"\x14GetPostEqBandRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"/\n" +
+	"\x15GetPostEqBandResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x11\n" +
+	"\x0fGetPreEqRequest\"*\n" +
+	"\x10GetPreEqResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\")\n" +
+	"\x13GetPreEqBandRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\".\n" +
+	"\x14GetPreEqBandResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\")\n" +
+	"\x13SetInputGainRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x02R\x04arg0\"\x16\n" +
+	"\x14SetInputGainResponse\"'\n" +
+	"\x11SetLimiterRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x14\n" +
+	"\x12SetLimiterResponse\"#\n" +
+	"\rSetMbcRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x10\n" +
+	"\x0eSetMbcResponse\";\n" +
+	"\x11SetMbcBandRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x14\n" +
+	"\x12SetMbcBandResponse\"&\n" +
+	"\x10SetPostEqRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x13\n" +
+	"\x11SetPostEqResponse\">\n" +
+	"\x14SetPostEqBandRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x17\n" +
+	"\x15SetPostEqBandResponse\"%\n" +
+	"\x0fSetPreEqRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x12\n" +
+	"\x10SetPreEqResponse\"=\n" +
+	"\x13SetPreEqBandRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x16\n" +
+	"\x14SetPreEqBandResponse\"M\n" +
+	"7DynamicsProcessingConfigGetChannelByChannelIndexRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"O\n" +
+	"9DynamicsProcessingConfigGetInputGainByChannelIndexRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"M\n" +
+	"7DynamicsProcessingConfigGetLimiterByChannelIndexRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"a\n" +
+	"7DynamicsProcessingConfigGetMbcBandByChannelIndexRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x18\n" +
+	"\x16GetMbcBandCountRequest\"1\n" +
+	"\x17GetMbcBandCountResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"I\n" +
+	"3DynamicsProcessingConfigGetMbcByChannelIndexRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"d\n" +
+	":DynamicsProcessingConfigGetPostEqBandByChannelIndexRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x1b\n" +
+	"\x19GetPostEqBandCountRequest\"4\n" +
+	"\x1aGetPostEqBandCountResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"L\n" +
+	"6DynamicsProcessingConfigGetPostEqByChannelIndexRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"c\n" +
+	"9DynamicsProcessingConfigGetPreEqBandByChannelIndexRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x1a\n" +
+	"\x18GetPreEqBandCountRequest\"3\n" +
+	"\x19GetPreEqBandCountResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"K\n" +
+	"5DynamicsProcessingConfigGetPreEqByChannelIndexRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"\"\n" +
+	" GetPreferredFrameDurationRequest\";\n" +
+	"!GetPreferredFrameDurationResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x02R\x06result\"\x13\n" +
+	"\x11GetVariantRequest\",\n" +
+	"\x12GetVariantResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x17\n" +
+	"\x15IsLimiterInUseRequest\"0\n" +
+	"\x16IsLimiterInUseResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x13\n" +
+	"\x11IsMbcInUseRequest\",\n" +
+	"\x12IsMbcInUseResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x16\n" +
+	"\x14IsPostEqInUseRequest\"/\n" +
+	"\x15IsPostEqInUseResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x15\n" +
+	"\x13IsPreEqInUseRequest\".\n" +
+	"\x14IsPreEqInUseResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"E\n" +
+	"/DynamicsProcessingConfigSetAllChannelsToRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"U\n" +
+	"+DynamicsProcessingConfigSetChannelToRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"N\n" +
+	"8DynamicsProcessingConfigSetInputGainAllChannelsToRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x02R\x04arg0\"K\n" +
+	"!SetInputGainByChannelIndexRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x02R\x04arg1\"$\n" +
+	"\"SetInputGainByChannelIndexResponse\"L\n" +
+	"6DynamicsProcessingConfigSetLimiterAllChannelsToRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"a\n" +
+	"7DynamicsProcessingConfigSetLimiterByChannelIndexRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"H\n" +
+	"2DynamicsProcessingConfigSetMbcAllChannelsToRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"`\n" +
+	"6DynamicsProcessingConfigSetMbcBandAllChannelsToRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"u\n" +
+	"7DynamicsProcessingConfigSetMbcBandByChannelIndexRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"]\n" +
+	"3DynamicsProcessingConfigSetMbcByChannelIndexRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"K\n" +
+	"5DynamicsProcessingConfigSetPostEqAllChannelsToRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"c\n" +
+	"9DynamicsProcessingConfigSetPostEqBandAllChannelsToRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"x\n" +
+	":DynamicsProcessingConfigSetPostEqBandByChannelIndexRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"`\n" +
+	"6DynamicsProcessingConfigSetPostEqByChannelIndexRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"J\n" +
+	"4DynamicsProcessingConfigSetPreEqAllChannelsToRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"b\n" +
+	"8DynamicsProcessingConfigSetPreEqBandAllChannelsToRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"w\n" +
+	"9DynamicsProcessingConfigSetPreEqBandByChannelIndexRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"_\n" +
+	"5DynamicsProcessingConfigSetPreEqByChannelIndexRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"8\n" +
+	"\"DynamicsProcessingEqGetBandRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"=\n" +
+	"#DynamicsProcessingEqGetBandResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"8\n" +
+	"\x0eSetBandRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x11\n" +
+	"\x0fSetBandResponse\"\x10\n" +
+	"\x0eGetGainRequest\")\n" +
+	"\x0fGetGainResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x02R\x06result\"$\n" +
+	"\x0eSetGainRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x02R\x04arg0\"\x11\n" +
+	"\x0fSetGainResponse\"\x16\n" +
+	"\x14GetAttackTimeRequest\"/\n" +
+	"\x15GetAttackTimeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x02R\x06result\"\x15\n" +
+	"\x13GetLinkGroupRequest\".\n" +
+	"\x14GetLinkGroupResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x14\n" +
+	"\x12GetPostGainRequest\"-\n" +
+	"\x13GetPostGainResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x02R\x06result\"\x11\n" +
+	"\x0fGetRatioRequest\"*\n" +
+	"\x10GetRatioResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x02R\x06result\"\x17\n" +
+	"\x15GetReleaseTimeRequest\"0\n" +
+	"\x16GetReleaseTimeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x02R\x06result\"\x15\n" +
+	"\x13GetThresholdRequest\".\n" +
+	"\x14GetThresholdResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x02R\x06result\"*\n" +
+	"\x14SetAttackTimeRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x02R\x04arg0\"\x17\n" +
+	"\x15SetAttackTimeResponse\")\n" +
+	"\x13SetLinkGroupRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"\x16\n" +
+	"\x14SetLinkGroupResponse\"(\n" +
+	"\x12SetPostGainRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x02R\x04arg0\"\x15\n" +
+	"\x13SetPostGainResponse\"%\n" +
+	"\x0fSetRatioRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x02R\x04arg0\"\x12\n" +
+	"\x10SetRatioResponse\"+\n" +
+	"\x15SetReleaseTimeRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x02R\x04arg0\"\x18\n" +
+	"\x16SetReleaseTimeResponse\")\n" +
+	"\x13SetThresholdRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x02R\x04arg0\"\x16\n" +
+	"\x14SetThresholdResponse\"9\n" +
+	"#DynamicsProcessingMbcGetBandRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\">\n" +
+	"$DynamicsProcessingMbcGetBandResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x19\n" +
+	"\x17GetExpanderRatioRequest\"2\n" +
+	"\x18GetExpanderRatioResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x02R\x06result\"\x15\n" +
+	"\x13GetKneeWidthRequest\".\n" +
+	"\x14GetKneeWidthResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x02R\x06result\"\x1e\n" +
+	"\x1cGetNoiseGateThresholdRequest\"7\n" +
+	"\x1dGetNoiseGateThresholdResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x02R\x06result\"\x13\n" +
+	"\x11GetPreGainRequest\",\n" +
+	"\x12GetPreGainResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x02R\x06result\"-\n" +
+	"\x17SetExpanderRatioRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x02R\x04arg0\"\x1a\n" +
+	"\x18SetExpanderRatioResponse\")\n" +
+	"\x13SetKneeWidthRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x02R\x04arg0\"\x16\n" +
+	"\x14SetKneeWidthResponse\"2\n" +
+	"\x1cSetNoiseGateThresholdRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x02R\x04arg0\"\x1f\n" +
+	"\x1dSetNoiseGateThresholdResponse\"'\n" +
+	"\x11SetPreGainRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x02R\x04arg0\"\x14\n" +
+	"\x12SetPreGainResponse\"\x10\n" +
+	"\x0eIsInUseRequest\")\n" +
+	"\x0fIsInUseResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\">\n" +
+	"(DynamicsProcessingStageSetEnabledRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"+\n" +
+	")DynamicsProcessingStageSetEnabledResponse\"?\n" +
+	"\x15NewVirtualizerRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"0\n" +
+	"\x16NewVirtualizerResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"V\n" +
+	"\x14CanVirtualizeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"/\n" +
+	"\x15CanVirtualizeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"L\n" +
+	"\x1eForceVirtualizationModeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"9\n" +
+	"\x1fForceVirtualizationModeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"m\n" +
+	"\x17GetSpeakerAnglesRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x03R\x04arg2\"2\n" +
+	"\x18GetSpeakerAnglesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"6\n" +
+	"\x1cGetVirtualizationModeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"7\n" +
+	"\x1dGetVirtualizationModeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x0e\n" +
+	"\fCloseRequest\"\x0f\n" +
+	"\rCloseResponse\"\x1f\n" +
+	"\x1dHapticGeneratorReleaseRequest\"6\n" +
+	" HapticGeneratorSetEnabledRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg02\xf2\x04\n" +
+	"\x10BassBoostService\x12K\n" +
+	"\fNewBassBoost\x12\x1c.audiofx.NewBassBoostRequest\x1a\x1d.audiofx.NewBassBoostResponse\x12N\n" +
+	"\rGetProperties\x12\x1d.audiofx.GetPropertiesRequest\x1a\x1e.audiofx.GetPropertiesResponse\x12]\n" +
+	"\x12GetRoundedStrength\x12\".audiofx.GetRoundedStrengthRequest\x1a#.audiofx.GetRoundedStrengthResponse\x12c\n" +
+	"\x14GetStrengthSupported\x12$.audiofx.GetStrengthSupportedRequest\x1a%.audiofx.GetStrengthSupportedResponse\x12c\n" +
+	"\x14SetParameterListener\x12$.audiofx.SetParameterListenerRequest\x1a%.audiofx.SetParameterListenerResponse\x12N\n" +
+	"\rSetProperties\x12\x1d.audiofx.SetPropertiesRequest\x1a\x1e.audiofx.SetPropertiesResponse\x12H\n" +
+	"\vSetStrength\x12\x1b.audiofx.SetStrengthRequest\x1a\x1c.audiofx.SetStrengthResponse2\x87\x01\n" +
+	")BassBoostOnParameterChangeListenerService\x12Z\n" +
+	"\x11OnParameterChange\x12!.audiofx.OnParameterChangeRequest\x1a\".audiofx.OnParameterChangeResponse2[\n" +
+	"\x18BassBoostSettingsService\x12?\n" +
+	"\bToString\x12\x18.audiofx.ToStringRequest\x1a\x19.audiofx.ToStringResponse2\xa2\x01\n" +
+	"\x1bAutomaticGainControlService\x129\n" +
+	"\x06Create\x12\x16.audiofx.CreateRequest\x1a\x17.audiofx.CreateResponse\x12H\n" +
+	"\vIsAvailable\x12\x1b.audiofx.IsAvailableRequest\x1a\x1c.audiofx.IsAvailableResponse2\xa5\v\n" +
+	"\x11VisualizerService\x12N\n" +
+	"\rNewVisualizer\x12\x1d.audiofx.NewVisualizerRequest\x1a\x1e.audiofx.NewVisualizerResponse\x12Q\n" +
+	"\x0eGetCaptureSize\x12\x1e.audiofx.GetCaptureSizeRequest\x1a\x1f.audiofx.GetCaptureSizeResponse\x12E\n" +
+	"\n" +
+	"GetEnabled\x12\x1a.audiofx.GetEnabledRequest\x1a\x1b.audiofx.GetEnabledResponse\x129\n" +
+	"\x06GetFft\x12\x16.audiofx.GetFftRequest\x1a\x17.audiofx.GetFftResponse\x12]\n" +
+	"\x12GetMeasurementMode\x12\".audiofx.GetMeasurementModeRequest\x1a#.audiofx.GetMeasurementModeResponse\x12f\n" +
+	"\x15GetMeasurementPeakRms\x12%.audiofx.GetMeasurementPeakRmsRequest\x1a&.audiofx.GetMeasurementPeakRmsResponse\x12T\n" +
+	"\x0fGetSamplingRate\x12\x1f.audiofx.GetSamplingRateRequest\x1a .audiofx.GetSamplingRateResponse\x12Q\n" +
+	"\x0eGetScalingMode\x12\x1e.audiofx.GetScalingModeRequest\x1a\x1f.audiofx.GetScalingModeResponse\x12H\n" +
+	"\vGetWaveForm\x12\x1b.audiofx.GetWaveFormRequest\x1a\x1c.audiofx.GetWaveFormResponse\x12<\n" +
+	"\aRelease\x12\x17.audiofx.ReleaseRequest\x1a\x18.audiofx.ReleaseResponse\x12Q\n" +
+	"\x0eSetCaptureSize\x12\x1e.audiofx.SetCaptureSizeRequest\x1a\x1f.audiofx.SetCaptureSizeResponse\x12i\n" +
+	"\x16SetDataCaptureListener\x12&.audiofx.SetDataCaptureListenerRequest\x1a'.audiofx.SetDataCaptureListenerResponse\x12E\n" +
+	"\n" +
+	"SetEnabled\x12\x1a.audiofx.SetEnabledRequest\x1a\x1b.audiofx.SetEnabledResponse\x12]\n" +
+	"\x12SetMeasurementMode\x12\".audiofx.SetMeasurementModeRequest\x1a#.audiofx.SetMeasurementModeResponse\x12Q\n" +
+	"\x0eSetScalingMode\x12\x1e.audiofx.SetScalingModeRequest\x1a\x1f.audiofx.SetScalingModeResponse\x12`\n" +
+	"\x13GetCaptureSizeRange\x12#.audiofx.GetCaptureSizeRangeRequest\x1a$.audiofx.GetCaptureSizeRangeResponse\x12Z\n" +
+	"\x11GetMaxCaptureRate\x12!.audiofx.GetMaxCaptureRateRequest\x1a\".audiofx.GetMaxCaptureRateResponse2\xe9\x01\n" +
+	"&VisualizerOnDataCaptureListenerService\x12W\n" +
+	"\x10OnFftDataCapture\x12 .audiofx.OnFftDataCaptureRequest\x1a!.audiofx.OnFftDataCaptureResponse\x12f\n" +
+	"\x15OnWaveFormDataCapture\x12%.audiofx.OnWaveFormDataCaptureRequest\x1a&.audiofx.OnWaveFormDataCaptureResponse2\x8e\x10\n" +
+	"\x1aEnvironmentalReverbService\x12i\n" +
+	"\x16NewEnvironmentalReverb\x12&.audiofx.NewEnvironmentalReverbRequest\x1a'.audiofx.NewEnvironmentalReverbResponse\x12T\n" +
+	"\x0fGetDecayHFRatio\x12\x1f.audiofx.GetDecayHFRatioRequest\x1a .audiofx.GetDecayHFRatioResponse\x12K\n" +
+	"\fGetDecayTime\x12\x1c.audiofx.GetDecayTimeRequest\x1a\x1d.audiofx.GetDecayTimeResponse\x12E\n" +
+	"\n" +
+	"GetDensity\x12\x1a.audiofx.GetDensityRequest\x1a\x1b.audiofx.GetDensityResponse\x12K\n" +
+	"\fGetDiffusion\x12\x1c.audiofx.GetDiffusionRequest\x1a\x1d.audiofx.GetDiffusionResponse\x12N\n" +
+	"\rGetProperties\x12\x1d.audiofx.GetPropertiesRequest\x1a\x1e.audiofx.GetPropertiesResponse\x12`\n" +
+	"\x13GetReflectionsDelay\x12#.audiofx.GetReflectionsDelayRequest\x1a$.audiofx.GetReflectionsDelayResponse\x12`\n" +
+	"\x13GetReflectionsLevel\x12#.audiofx.GetReflectionsLevelRequest\x1a$.audiofx.GetReflectionsLevelResponse\x12Q\n" +
+	"\x0eGetReverbDelay\x12\x1e.audiofx.GetReverbDelayRequest\x1a\x1f.audiofx.GetReverbDelayResponse\x12Q\n" +
+	"\x0eGetReverbLevel\x12\x1e.audiofx.GetReverbLevelRequest\x1a\x1f.audiofx.GetReverbLevelResponse\x12Q\n" +
+	"\x0eGetRoomHFLevel\x12\x1e.audiofx.GetRoomHFLevelRequest\x1a\x1f.audiofx.GetRoomHFLevelResponse\x12K\n" +
+	"\fGetRoomLevel\x12\x1c.audiofx.GetRoomLevelRequest\x1a\x1d.audiofx.GetRoomLevelResponse\x12T\n" +
+	"\x0fSetDecayHFRatio\x12\x1f.audiofx.SetDecayHFRatioRequest\x1a .audiofx.SetDecayHFRatioResponse\x12K\n" +
+	"\fSetDecayTime\x12\x1c.audiofx.SetDecayTimeRequest\x1a\x1d.audiofx.SetDecayTimeResponse\x12E\n" +
+	"\n" +
+	"SetDensity\x12\x1a.audiofx.SetDensityRequest\x1a\x1b.audiofx.SetDensityResponse\x12K\n" +
+	"\fSetDiffusion\x12\x1c.audiofx.SetDiffusionRequest\x1a\x1d.audiofx.SetDiffusionResponse\x12c\n" +
+	"\x14SetParameterListener\x12$.audiofx.SetParameterListenerRequest\x1a%.audiofx.SetParameterListenerResponse\x12N\n" +
+	"\rSetProperties\x12\x1d.audiofx.SetPropertiesRequest\x1a\x1e.audiofx.SetPropertiesResponse\x12`\n" +
+	"\x13SetReflectionsDelay\x12#.audiofx.SetReflectionsDelayRequest\x1a$.audiofx.SetReflectionsDelayResponse\x12`\n" +
+	"\x13SetReflectionsLevel\x12#.audiofx.SetReflectionsLevelRequest\x1a$.audiofx.SetReflectionsLevelResponse\x12Q\n" +
+	"\x0eSetReverbDelay\x12\x1e.audiofx.SetReverbDelayRequest\x1a\x1f.audiofx.SetReverbDelayResponse\x12Q\n" +
+	"\x0eSetReverbLevel\x12\x1e.audiofx.SetReverbLevelRequest\x1a\x1f.audiofx.SetReverbLevelResponse\x12Q\n" +
+	"\x0eSetRoomHFLevel\x12\x1e.audiofx.SetRoomHFLevelRequest\x1a\x1f.audiofx.SetRoomHFLevelResponse\x12K\n" +
+	"\fSetRoomLevel\x12\x1c.audiofx.SetRoomLevelRequest\x1a\x1d.audiofx.SetRoomLevelResponse2\x91\x01\n" +
+	"3EnvironmentalReverbOnParameterChangeListenerService\x12Z\n" +
+	"\x11OnParameterChange\x12!.audiofx.OnParameterChangeRequest\x1a\".audiofx.OnParameterChangeResponse2e\n" +
+	"\"EnvironmentalReverbSettingsService\x12?\n" +
+	"\bToString\x12\x18.audiofx.ToStringRequest\x1a\x19.audiofx.ToStringResponse2\xfc\x05\n" +
+	"\x12AudioEffectService\x12N\n" +
+	"\rGetDescriptor\x12\x1d.audiofx.GetDescriptorRequest\x1a\x1e.audiofx.GetDescriptorResponse\x12P\n" +
+	"\n" +
+	"GetEnabled\x12%.audiofx.AudioEffectGetEnabledRequest\x1a\x1b.audiofx.GetEnabledResponse\x126\n" +
+	"\x05GetId\x12\x15.audiofx.GetIdRequest\x1a\x16.audiofx.GetIdResponse\x12E\n" +
+	"\n" +
+	"HasControl\x12\x1a.audiofx.HasControlRequest\x1a\x1b.audiofx.HasControlResponse\x12G\n" +
+	"\aRelease\x12\".audiofx.AudioEffectReleaseRequest\x1a\x18.audiofx.ReleaseResponse\x12o\n" +
+	"\x18SetControlStatusListener\x12(.audiofx.SetControlStatusListenerRequest\x1a).audiofx.SetControlStatusListenerResponse\x12l\n" +
+	"\x17SetEnableStatusListener\x12'.audiofx.SetEnableStatusListenerRequest\x1a(.audiofx.SetEnableStatusListenerResponse\x12P\n" +
+	"\n" +
+	"SetEnabled\x12%.audiofx.AudioEffectSetEnabledRequest\x1a\x1b.audiofx.SetEnabledResponse\x12K\n" +
+	"\fQueryEffects\x12\x1c.audiofx.QueryEffectsRequest\x1a\x1d.audiofx.QueryEffectsResponse2\x9a\x01\n" +
+	"\x1cAudioEffectDescriptorService\x129\n" +
+	"\x06Equals\x12\x16.audiofx.EqualsRequest\x1a\x17.audiofx.EqualsResponse\x12?\n" +
+	"\bHashCode\x12\x18.audiofx.HashCodeRequest\x1a\x19.audiofx.HashCodeResponse2\x99\x01\n" +
+	"/AudioEffectOnControlStatusChangeListenerService\x12f\n" +
+	"\x15OnControlStatusChange\x12%.audiofx.OnControlStatusChangeRequest\x1a&.audiofx.OnControlStatusChangeResponse2\x95\x01\n" +
+	".AudioEffectOnEnableStatusChangeListenerService\x12c\n" +
+	"\x14OnEnableStatusChange\x12$.audiofx.OnEnableStatusChangeRequest\x1a%.audiofx.OnEnableStatusChangeResponse2\xe6\t\n" +
+	"\x10EqualizerService\x12K\n" +
+	"\fNewEqualizer\x12\x1c.audiofx.NewEqualizerRequest\x1a\x1d.audiofx.NewEqualizerResponse\x12<\n" +
+	"\aGetBand\x12\x17.audiofx.GetBandRequest\x1a\x18.audiofx.GetBandResponse\x12W\n" +
+	"\x10GetBandFreqRange\x12 .audiofx.GetBandFreqRangeRequest\x1a!.audiofx.GetBandFreqRangeResponse\x12K\n" +
+	"\fGetBandLevel\x12\x1c.audiofx.GetBandLevelRequest\x1a\x1d.audiofx.GetBandLevelResponse\x12Z\n" +
+	"\x11GetBandLevelRange\x12!.audiofx.GetBandLevelRangeRequest\x1a\".audiofx.GetBandLevelRangeResponse\x12N\n" +
+	"\rGetCenterFreq\x12\x1d.audiofx.GetCenterFreqRequest\x1a\x1e.audiofx.GetCenterFreqResponse\x12W\n" +
+	"\x10GetCurrentPreset\x12 .audiofx.GetCurrentPresetRequest\x1a!.audiofx.GetCurrentPresetResponse\x12W\n" +
+	"\x10GetNumberOfBands\x12 .audiofx.GetNumberOfBandsRequest\x1a!.audiofx.GetNumberOfBandsResponse\x12]\n" +
+	"\x12GetNumberOfPresets\x12\".audiofx.GetNumberOfPresetsRequest\x1a#.audiofx.GetNumberOfPresetsResponse\x12N\n" +
+	"\rGetPresetName\x12\x1d.audiofx.GetPresetNameRequest\x1a\x1e.audiofx.GetPresetNameResponse\x12N\n" +
+	"\rGetProperties\x12\x1d.audiofx.GetPropertiesRequest\x1a\x1e.audiofx.GetPropertiesResponse\x12K\n" +
+	"\fSetBandLevel\x12\x1c.audiofx.SetBandLevelRequest\x1a\x1d.audiofx.SetBandLevelResponse\x12c\n" +
+	"\x14SetParameterListener\x12$.audiofx.SetParameterListenerRequest\x1a%.audiofx.SetParameterListenerResponse\x12N\n" +
+	"\rSetProperties\x12\x1d.audiofx.SetPropertiesRequest\x1a\x1e.audiofx.SetPropertiesResponse\x12B\n" +
+	"\tUsePreset\x12\x19.audiofx.UsePresetRequest\x1a\x1a.audiofx.UsePresetResponse2\xa9\x01\n" +
+	")EqualizerOnParameterChangeListenerService\x12|\n" +
+	"\x11OnParameterChange\x12C.audiofx.EqualizerOnParameterChangeListenerOnParameterChangeRequest\x1a\".audiofx.OnParameterChangeResponse2[\n" +
+	"\x18EqualizerSettingsService\x12?\n" +
+	"\bToString\x12\x18.audiofx.ToStringRequest\x1a\x19.audiofx.ToStringResponse2\xf8\x03\n" +
+	"\x13PresetReverbService\x12T\n" +
+	"\x0fNewPresetReverb\x12\x1f.audiofx.NewPresetReverbRequest\x1a .audiofx.NewPresetReverbResponse\x12B\n" +
+	"\tGetPreset\x12\x19.audiofx.GetPresetRequest\x1a\x1a.audiofx.GetPresetResponse\x12N\n" +
+	"\rGetProperties\x12\x1d.audiofx.GetPropertiesRequest\x1a\x1e.audiofx.GetPropertiesResponse\x12c\n" +
+	"\x14SetParameterListener\x12$.audiofx.SetParameterListenerRequest\x1a%.audiofx.SetParameterListenerResponse\x12B\n" +
+	"\tSetPreset\x12\x19.audiofx.SetPresetRequest\x1a\x1a.audiofx.SetPresetResponse\x12N\n" +
+	"\rSetProperties\x12\x1d.audiofx.SetPropertiesRequest\x1a\x1e.audiofx.SetPropertiesResponse2\x8a\x01\n" +
+	",PresetReverbOnParameterChangeListenerService\x12Z\n" +
+	"\x11OnParameterChange\x12!.audiofx.OnParameterChangeRequest\x1a\".audiofx.OnParameterChangeResponse2^\n" +
+	"\x1bPresetReverbSettingsService\x12?\n" +
+	"\bToString\x12\x18.audiofx.ToStringRequest\x1a\x19.audiofx.ToStringResponse2\x9b\x02\n" +
+	"\x17LoudnessEnhancerService\x12`\n" +
+	"\x13NewLoudnessEnhancer\x12#.audiofx.NewLoudnessEnhancerRequest\x1a$.audiofx.NewLoudnessEnhancerResponse\x12N\n" +
+	"\rGetTargetGain\x12\x1d.audiofx.GetTargetGainRequest\x1a\x1e.audiofx.GetTargetGainResponse\x12N\n" +
+	"\rSetTargetGain\x12\x1d.audiofx.SetTargetGainRequest\x1a\x1e.audiofx.SetTargetGainResponse2\xa5\x19\n" +
+	"\x19DynamicsProcessingService\x12f\n" +
+	"\x15NewDynamicsProcessing\x12%.audiofx.NewDynamicsProcessingRequest\x1a&.audiofx.NewDynamicsProcessingResponse\x12o\n" +
+	"\x18GetChannelByChannelIndex\x12(.audiofx.GetChannelByChannelIndexRequest\x1a).audiofx.GetChannelByChannelIndexResponse\x12T\n" +
+	"\x0fGetChannelCount\x12\x1f.audiofx.GetChannelCountRequest\x1a .audiofx.GetChannelCountResponse\x12B\n" +
+	"\tGetConfig\x12\x19.audiofx.GetConfigRequest\x1a\x1a.audiofx.GetConfigResponse\x12u\n" +
+	"\x1aGetInputGainByChannelIndex\x12*.audiofx.GetInputGainByChannelIndexRequest\x1a+.audiofx.GetInputGainByChannelIndexResponse\x12o\n" +
+	"\x18GetLimiterByChannelIndex\x12(.audiofx.GetLimiterByChannelIndexRequest\x1a).audiofx.GetLimiterByChannelIndexResponse\x12o\n" +
+	"\x18GetMbcBandByChannelIndex\x12(.audiofx.GetMbcBandByChannelIndexRequest\x1a).audiofx.GetMbcBandByChannelIndexResponse\x12c\n" +
+	"\x14GetMbcByChannelIndex\x12$.audiofx.GetMbcByChannelIndexRequest\x1a%.audiofx.GetMbcByChannelIndexResponse\x12x\n" +
+	"\x1bGetPostEqBandByChannelIndex\x12+.audiofx.GetPostEqBandByChannelIndexRequest\x1a,.audiofx.GetPostEqBandByChannelIndexResponse\x12l\n" +
+	"\x17GetPostEqByChannelIndex\x12'.audiofx.GetPostEqByChannelIndexRequest\x1a(.audiofx.GetPostEqByChannelIndexResponse\x12u\n" +
+	"\x1aGetPreEqBandByChannelIndex\x12*.audiofx.GetPreEqBandByChannelIndexRequest\x1a+.audiofx.GetPreEqBandByChannelIndexResponse\x12i\n" +
+	"\x16GetPreEqByChannelIndex\x12&.audiofx.GetPreEqByChannelIndexRequest\x1a'.audiofx.GetPreEqByChannelIndexResponse\x12W\n" +
+	"\x10SetAllChannelsTo\x12 .audiofx.SetAllChannelsToRequest\x1a!.audiofx.SetAllChannelsToResponse\x12K\n" +
+	"\fSetChannelTo\x12\x1c.audiofx.SetChannelToRequest\x1a\x1d.audiofx.SetChannelToResponse\x12r\n" +
+	"\x19SetInputGainAllChannelsTo\x12).audiofx.SetInputGainAllChannelsToRequest\x1a*.audiofx.SetInputGainAllChannelsToResponse\x12f\n" +
+	"\x15SetInputGainbyChannel\x12%.audiofx.SetInputGainbyChannelRequest\x1a&.audiofx.SetInputGainbyChannelResponse\x12l\n" +
+	"\x17SetLimiterAllChannelsTo\x12'.audiofx.SetLimiterAllChannelsToRequest\x1a(.audiofx.SetLimiterAllChannelsToResponse\x12o\n" +
+	"\x18SetLimiterByChannelIndex\x12(.audiofx.SetLimiterByChannelIndexRequest\x1a).audiofx.SetLimiterByChannelIndexResponse\x12`\n" +
+	"\x13SetMbcAllChannelsTo\x12#.audiofx.SetMbcAllChannelsToRequest\x1a$.audiofx.SetMbcAllChannelsToResponse\x12l\n" +
+	"\x17SetMbcBandAllChannelsTo\x12'.audiofx.SetMbcBandAllChannelsToRequest\x1a(.audiofx.SetMbcBandAllChannelsToResponse\x12o\n" +
+	"\x18SetMbcBandByChannelIndex\x12(.audiofx.SetMbcBandByChannelIndexRequest\x1a).audiofx.SetMbcBandByChannelIndexResponse\x12c\n" +
+	"\x14SetMbcByChannelIndex\x12$.audiofx.SetMbcByChannelIndexRequest\x1a%.audiofx.SetMbcByChannelIndexResponse\x12i\n" +
+	"\x16SetPostEqAllChannelsTo\x12&.audiofx.SetPostEqAllChannelsToRequest\x1a'.audiofx.SetPostEqAllChannelsToResponse\x12u\n" +
+	"\x1aSetPostEqBandAllChannelsTo\x12*.audiofx.SetPostEqBandAllChannelsToRequest\x1a+.audiofx.SetPostEqBandAllChannelsToResponse\x12x\n" +
+	"\x1bSetPostEqBandByChannelIndex\x12+.audiofx.SetPostEqBandByChannelIndexRequest\x1a,.audiofx.SetPostEqBandByChannelIndexResponse\x12l\n" +
+	"\x17SetPostEqByChannelIndex\x12'.audiofx.SetPostEqByChannelIndexRequest\x1a(.audiofx.SetPostEqByChannelIndexResponse\x12f\n" +
+	"\x15SetPreEqAllChannelsTo\x12%.audiofx.SetPreEqAllChannelsToRequest\x1a&.audiofx.SetPreEqAllChannelsToResponse\x12r\n" +
+	"\x19SetPreEqBandAllChannelsTo\x12).audiofx.SetPreEqBandAllChannelsToRequest\x1a*.audiofx.SetPreEqBandAllChannelsToResponse\x12u\n" +
+	"\x1aSetPreEqBandByChannelIndex\x12*.audiofx.SetPreEqBandByChannelIndexRequest\x1a+.audiofx.SetPreEqBandByChannelIndexResponse\x12i\n" +
+	"\x16SetPreEqByChannelIndex\x12&.audiofx.SetPreEqByChannelIndexRequest\x1a'.audiofx.SetPreEqByChannelIndexResponse2\xe1\x03\n" +
+	"!DynamicsProcessingBandBaseService\x12]\n" +
+	"\x12GetCutoffFrequency\x12\".audiofx.GetCutoffFrequencyRequest\x1a#.audiofx.GetCutoffFrequencyResponse\x12B\n" +
+	"\tIsEnabled\x12\x19.audiofx.IsEnabledRequest\x1a\x1a.audiofx.IsEnabledResponse\x12]\n" +
+	"\x12SetCutoffFrequency\x12\".audiofx.SetCutoffFrequencyRequest\x1a#.audiofx.SetCutoffFrequencyResponse\x12y\n" +
+	"\n" +
+	"SetEnabled\x124.audiofx.DynamicsProcessingBandBaseSetEnabledRequest\x1a5.audiofx.DynamicsProcessingBandBaseSetEnabledResponse\x12?\n" +
+	"\bToString\x12\x18.audiofx.ToStringRequest\x1a\x19.audiofx.ToStringResponse2\xb2\x01\n" +
+	"\"DynamicsProcessingBandStageService\x12K\n" +
+	"\fGetBandCount\x12\x1c.audiofx.GetBandCountRequest\x1a\x1d.audiofx.GetBandCountResponse\x12?\n" +
+	"\bToString\x12\x18.audiofx.ToStringRequest\x1a\x19.audiofx.ToStringResponse2\xd3\t\n" +
+	" DynamicsProcessingChannelService\x12K\n" +
+	"\fGetInputGain\x12\x1c.audiofx.GetInputGainRequest\x1a\x1d.audiofx.GetInputGainResponse\x12E\n" +
+	"\n" +
+	"GetLimiter\x12\x1a.audiofx.GetLimiterRequest\x1a\x1b.audiofx.GetLimiterResponse\x129\n" +
+	"\x06GetMbc\x12\x16.audiofx.GetMbcRequest\x1a\x17.audiofx.GetMbcResponse\x12E\n" +
+	"\n" +
+	"GetMbcBand\x12\x1a.audiofx.GetMbcBandRequest\x1a\x1b.audiofx.GetMbcBandResponse\x12B\n" +
+	"\tGetPostEq\x12\x19.audiofx.GetPostEqRequest\x1a\x1a.audiofx.GetPostEqResponse\x12N\n" +
+	"\rGetPostEqBand\x12\x1d.audiofx.GetPostEqBandRequest\x1a\x1e.audiofx.GetPostEqBandResponse\x12?\n" +
+	"\bGetPreEq\x12\x18.audiofx.GetPreEqRequest\x1a\x19.audiofx.GetPreEqResponse\x12K\n" +
+	"\fGetPreEqBand\x12\x1c.audiofx.GetPreEqBandRequest\x1a\x1d.audiofx.GetPreEqBandResponse\x12K\n" +
+	"\fSetInputGain\x12\x1c.audiofx.SetInputGainRequest\x1a\x1d.audiofx.SetInputGainResponse\x12E\n" +
+	"\n" +
+	"SetLimiter\x12\x1a.audiofx.SetLimiterRequest\x1a\x1b.audiofx.SetLimiterResponse\x129\n" +
+	"\x06SetMbc\x12\x16.audiofx.SetMbcRequest\x1a\x17.audiofx.SetMbcResponse\x12E\n" +
+	"\n" +
+	"SetMbcBand\x12\x1a.audiofx.SetMbcBandRequest\x1a\x1b.audiofx.SetMbcBandResponse\x12B\n" +
+	"\tSetPostEq\x12\x19.audiofx.SetPostEqRequest\x1a\x1a.audiofx.SetPostEqResponse\x12N\n" +
+	"\rSetPostEqBand\x12\x1d.audiofx.SetPostEqBandRequest\x1a\x1e.audiofx.SetPostEqBandResponse\x12?\n" +
+	"\bSetPreEq\x12\x18.audiofx.SetPreEqRequest\x1a\x19.audiofx.SetPreEqResponse\x12K\n" +
+	"\fSetPreEqBand\x12\x1c.audiofx.SetPreEqBandRequest\x1a\x1d.audiofx.SetPreEqBandResponse\x12?\n" +
+	"\bToString\x12\x18.audiofx.ToStringRequest\x1a\x19.audiofx.ToStringResponse2\x80#\n" +
+	"\x1fDynamicsProcessingConfigService\x12\x87\x01\n" +
+	"\x18GetChannelByChannelIndex\x12@.audiofx.DynamicsProcessingConfigGetChannelByChannelIndexRequest\x1a).audiofx.GetChannelByChannelIndexResponse\x12\x8d\x01\n" +
+	"\x1aGetInputGainByChannelIndex\x12B.audiofx.DynamicsProcessingConfigGetInputGainByChannelIndexRequest\x1a+.audiofx.GetInputGainByChannelIndexResponse\x12\x87\x01\n" +
+	"\x18GetLimiterByChannelIndex\x12@.audiofx.DynamicsProcessingConfigGetLimiterByChannelIndexRequest\x1a).audiofx.GetLimiterByChannelIndexResponse\x12\x87\x01\n" +
+	"\x18GetMbcBandByChannelIndex\x12@.audiofx.DynamicsProcessingConfigGetMbcBandByChannelIndexRequest\x1a).audiofx.GetMbcBandByChannelIndexResponse\x12T\n" +
+	"\x0fGetMbcBandCount\x12\x1f.audiofx.GetMbcBandCountRequest\x1a .audiofx.GetMbcBandCountResponse\x12{\n" +
+	"\x14GetMbcByChannelIndex\x12<.audiofx.DynamicsProcessingConfigGetMbcByChannelIndexRequest\x1a%.audiofx.GetMbcByChannelIndexResponse\x12\x90\x01\n" +
+	"\x1bGetPostEqBandByChannelIndex\x12C.audiofx.DynamicsProcessingConfigGetPostEqBandByChannelIndexRequest\x1a,.audiofx.GetPostEqBandByChannelIndexResponse\x12]\n" +
+	"\x12GetPostEqBandCount\x12\".audiofx.GetPostEqBandCountRequest\x1a#.audiofx.GetPostEqBandCountResponse\x12\x84\x01\n" +
+	"\x17GetPostEqByChannelIndex\x12?.audiofx.DynamicsProcessingConfigGetPostEqByChannelIndexRequest\x1a(.audiofx.GetPostEqByChannelIndexResponse\x12\x8d\x01\n" +
+	"\x1aGetPreEqBandByChannelIndex\x12B.audiofx.DynamicsProcessingConfigGetPreEqBandByChannelIndexRequest\x1a+.audiofx.GetPreEqBandByChannelIndexResponse\x12Z\n" +
+	"\x11GetPreEqBandCount\x12!.audiofx.GetPreEqBandCountRequest\x1a\".audiofx.GetPreEqBandCountResponse\x12\x81\x01\n" +
+	"\x16GetPreEqByChannelIndex\x12>.audiofx.DynamicsProcessingConfigGetPreEqByChannelIndexRequest\x1a'.audiofx.GetPreEqByChannelIndexResponse\x12r\n" +
+	"\x19GetPreferredFrameDuration\x12).audiofx.GetPreferredFrameDurationRequest\x1a*.audiofx.GetPreferredFrameDurationResponse\x12E\n" +
+	"\n" +
+	"GetVariant\x12\x1a.audiofx.GetVariantRequest\x1a\x1b.audiofx.GetVariantResponse\x12Q\n" +
+	"\x0eIsLimiterInUse\x12\x1e.audiofx.IsLimiterInUseRequest\x1a\x1f.audiofx.IsLimiterInUseResponse\x12E\n" +
+	"\n" +
+	"IsMbcInUse\x12\x1a.audiofx.IsMbcInUseRequest\x1a\x1b.audiofx.IsMbcInUseResponse\x12N\n" +
+	"\rIsPostEqInUse\x12\x1d.audiofx.IsPostEqInUseRequest\x1a\x1e.audiofx.IsPostEqInUseResponse\x12K\n" +
+	"\fIsPreEqInUse\x12\x1c.audiofx.IsPreEqInUseRequest\x1a\x1d.audiofx.IsPreEqInUseResponse\x12o\n" +
+	"\x10SetAllChannelsTo\x128.audiofx.DynamicsProcessingConfigSetAllChannelsToRequest\x1a!.audiofx.SetAllChannelsToResponse\x12c\n" +
+	"\fSetChannelTo\x124.audiofx.DynamicsProcessingConfigSetChannelToRequest\x1a\x1d.audiofx.SetChannelToResponse\x12\x8a\x01\n" +
+	"\x19SetInputGainAllChannelsTo\x12A.audiofx.DynamicsProcessingConfigSetInputGainAllChannelsToRequest\x1a*.audiofx.SetInputGainAllChannelsToResponse\x12u\n" +
+	"\x1aSetInputGainByChannelIndex\x12*.audiofx.SetInputGainByChannelIndexRequest\x1a+.audiofx.SetInputGainByChannelIndexResponse\x12\x84\x01\n" +
+	"\x17SetLimiterAllChannelsTo\x12?.audiofx.DynamicsProcessingConfigSetLimiterAllChannelsToRequest\x1a(.audiofx.SetLimiterAllChannelsToResponse\x12\x87\x01\n" +
+	"\x18SetLimiterByChannelIndex\x12@.audiofx.DynamicsProcessingConfigSetLimiterByChannelIndexRequest\x1a).audiofx.SetLimiterByChannelIndexResponse\x12x\n" +
+	"\x13SetMbcAllChannelsTo\x12;.audiofx.DynamicsProcessingConfigSetMbcAllChannelsToRequest\x1a$.audiofx.SetMbcAllChannelsToResponse\x12\x84\x01\n" +
+	"\x17SetMbcBandAllChannelsTo\x12?.audiofx.DynamicsProcessingConfigSetMbcBandAllChannelsToRequest\x1a(.audiofx.SetMbcBandAllChannelsToResponse\x12\x87\x01\n" +
+	"\x18SetMbcBandByChannelIndex\x12@.audiofx.DynamicsProcessingConfigSetMbcBandByChannelIndexRequest\x1a).audiofx.SetMbcBandByChannelIndexResponse\x12{\n" +
+	"\x14SetMbcByChannelIndex\x12<.audiofx.DynamicsProcessingConfigSetMbcByChannelIndexRequest\x1a%.audiofx.SetMbcByChannelIndexResponse\x12\x81\x01\n" +
+	"\x16SetPostEqAllChannelsTo\x12>.audiofx.DynamicsProcessingConfigSetPostEqAllChannelsToRequest\x1a'.audiofx.SetPostEqAllChannelsToResponse\x12\x8d\x01\n" +
+	"\x1aSetPostEqBandAllChannelsTo\x12B.audiofx.DynamicsProcessingConfigSetPostEqBandAllChannelsToRequest\x1a+.audiofx.SetPostEqBandAllChannelsToResponse\x12\x90\x01\n" +
+	"\x1bSetPostEqBandByChannelIndex\x12C.audiofx.DynamicsProcessingConfigSetPostEqBandByChannelIndexRequest\x1a,.audiofx.SetPostEqBandByChannelIndexResponse\x12\x84\x01\n" +
+	"\x17SetPostEqByChannelIndex\x12?.audiofx.DynamicsProcessingConfigSetPostEqByChannelIndexRequest\x1a(.audiofx.SetPostEqByChannelIndexResponse\x12~\n" +
+	"\x15SetPreEqAllChannelsTo\x12=.audiofx.DynamicsProcessingConfigSetPreEqAllChannelsToRequest\x1a&.audiofx.SetPreEqAllChannelsToResponse\x12\x8a\x01\n" +
+	"\x19SetPreEqBandAllChannelsTo\x12A.audiofx.DynamicsProcessingConfigSetPreEqBandAllChannelsToRequest\x1a*.audiofx.SetPreEqBandAllChannelsToResponse\x12\x8d\x01\n" +
+	"\x1aSetPreEqBandByChannelIndex\x12B.audiofx.DynamicsProcessingConfigSetPreEqBandByChannelIndexRequest\x1a+.audiofx.SetPreEqBandByChannelIndexResponse\x12\x81\x01\n" +
+	"\x16SetPreEqByChannelIndex\x12>.audiofx.DynamicsProcessingConfigSetPreEqByChannelIndexRequest\x1a'.audiofx.SetPreEqByChannelIndexResponse\x12?\n" +
+	"\bToString\x12\x18.audiofx.ToStringRequest\x1a\x19.audiofx.ToStringResponse2\x82\x02\n" +
+	"\x1bDynamicsProcessingEqService\x12d\n" +
+	"\aGetBand\x12+.audiofx.DynamicsProcessingEqGetBandRequest\x1a,.audiofx.DynamicsProcessingEqGetBandResponse\x12<\n" +
+	"\aSetBand\x12\x17.audiofx.SetBandRequest\x1a\x18.audiofx.SetBandResponse\x12?\n" +
+	"\bToString\x12\x18.audiofx.ToStringRequest\x1a\x19.audiofx.ToStringResponse2\xde\x01\n" +
+	"\x1fDynamicsProcessingEqBandService\x12<\n" +
+	"\aGetGain\x12\x17.audiofx.GetGainRequest\x1a\x18.audiofx.GetGainResponse\x12<\n" +
+	"\aSetGain\x12\x17.audiofx.SetGainRequest\x1a\x18.audiofx.SetGainResponse\x12?\n" +
+	"\bToString\x12\x18.audiofx.ToStringRequest\x1a\x19.audiofx.ToStringResponse2\xf3\a\n" +
+	" DynamicsProcessingLimiterService\x12N\n" +
+	"\rGetAttackTime\x12\x1d.audiofx.GetAttackTimeRequest\x1a\x1e.audiofx.GetAttackTimeResponse\x12K\n" +
+	"\fGetLinkGroup\x12\x1c.audiofx.GetLinkGroupRequest\x1a\x1d.audiofx.GetLinkGroupResponse\x12H\n" +
+	"\vGetPostGain\x12\x1b.audiofx.GetPostGainRequest\x1a\x1c.audiofx.GetPostGainResponse\x12?\n" +
+	"\bGetRatio\x12\x18.audiofx.GetRatioRequest\x1a\x19.audiofx.GetRatioResponse\x12Q\n" +
+	"\x0eGetReleaseTime\x12\x1e.audiofx.GetReleaseTimeRequest\x1a\x1f.audiofx.GetReleaseTimeResponse\x12K\n" +
+	"\fGetThreshold\x12\x1c.audiofx.GetThresholdRequest\x1a\x1d.audiofx.GetThresholdResponse\x12N\n" +
+	"\rSetAttackTime\x12\x1d.audiofx.SetAttackTimeRequest\x1a\x1e.audiofx.SetAttackTimeResponse\x12K\n" +
+	"\fSetLinkGroup\x12\x1c.audiofx.SetLinkGroupRequest\x1a\x1d.audiofx.SetLinkGroupResponse\x12H\n" +
+	"\vSetPostGain\x12\x1b.audiofx.SetPostGainRequest\x1a\x1c.audiofx.SetPostGainResponse\x12?\n" +
+	"\bSetRatio\x12\x18.audiofx.SetRatioRequest\x1a\x19.audiofx.SetRatioResponse\x12Q\n" +
+	"\x0eSetReleaseTime\x12\x1e.audiofx.SetReleaseTimeRequest\x1a\x1f.audiofx.SetReleaseTimeResponse\x12K\n" +
+	"\fSetThreshold\x12\x1c.audiofx.SetThresholdRequest\x1a\x1d.audiofx.SetThresholdResponse\x12?\n" +
+	"\bToString\x12\x18.audiofx.ToStringRequest\x1a\x19.audiofx.ToStringResponse2\x85\x02\n" +
+	"\x1cDynamicsProcessingMbcService\x12f\n" +
+	"\aGetBand\x12,.audiofx.DynamicsProcessingMbcGetBandRequest\x1a-.audiofx.DynamicsProcessingMbcGetBandResponse\x12<\n" +
+	"\aSetBand\x12\x17.audiofx.SetBandRequest\x1a\x18.audiofx.SetBandResponse\x12?\n" +
+	"\bToString\x12\x18.audiofx.ToStringRequest\x1a\x19.audiofx.ToStringResponse2\x83\f\n" +
+	" DynamicsProcessingMbcBandService\x12N\n" +
+	"\rGetAttackTime\x12\x1d.audiofx.GetAttackTimeRequest\x1a\x1e.audiofx.GetAttackTimeResponse\x12W\n" +
+	"\x10GetExpanderRatio\x12 .audiofx.GetExpanderRatioRequest\x1a!.audiofx.GetExpanderRatioResponse\x12K\n" +
+	"\fGetKneeWidth\x12\x1c.audiofx.GetKneeWidthRequest\x1a\x1d.audiofx.GetKneeWidthResponse\x12f\n" +
+	"\x15GetNoiseGateThreshold\x12%.audiofx.GetNoiseGateThresholdRequest\x1a&.audiofx.GetNoiseGateThresholdResponse\x12H\n" +
+	"\vGetPostGain\x12\x1b.audiofx.GetPostGainRequest\x1a\x1c.audiofx.GetPostGainResponse\x12E\n" +
+	"\n" +
+	"GetPreGain\x12\x1a.audiofx.GetPreGainRequest\x1a\x1b.audiofx.GetPreGainResponse\x12?\n" +
+	"\bGetRatio\x12\x18.audiofx.GetRatioRequest\x1a\x19.audiofx.GetRatioResponse\x12Q\n" +
+	"\x0eGetReleaseTime\x12\x1e.audiofx.GetReleaseTimeRequest\x1a\x1f.audiofx.GetReleaseTimeResponse\x12K\n" +
+	"\fGetThreshold\x12\x1c.audiofx.GetThresholdRequest\x1a\x1d.audiofx.GetThresholdResponse\x12N\n" +
+	"\rSetAttackTime\x12\x1d.audiofx.SetAttackTimeRequest\x1a\x1e.audiofx.SetAttackTimeResponse\x12W\n" +
+	"\x10SetExpanderRatio\x12 .audiofx.SetExpanderRatioRequest\x1a!.audiofx.SetExpanderRatioResponse\x12K\n" +
+	"\fSetKneeWidth\x12\x1c.audiofx.SetKneeWidthRequest\x1a\x1d.audiofx.SetKneeWidthResponse\x12f\n" +
+	"\x15SetNoiseGateThreshold\x12%.audiofx.SetNoiseGateThresholdRequest\x1a&.audiofx.SetNoiseGateThresholdResponse\x12H\n" +
+	"\vSetPostGain\x12\x1b.audiofx.SetPostGainRequest\x1a\x1c.audiofx.SetPostGainResponse\x12E\n" +
+	"\n" +
+	"SetPreGain\x12\x1a.audiofx.SetPreGainRequest\x1a\x1b.audiofx.SetPreGainResponse\x12?\n" +
+	"\bSetRatio\x12\x18.audiofx.SetRatioRequest\x1a\x19.audiofx.SetRatioResponse\x12Q\n" +
+	"\x0eSetReleaseTime\x12\x1e.audiofx.SetReleaseTimeRequest\x1a\x1f.audiofx.SetReleaseTimeResponse\x12K\n" +
+	"\fSetThreshold\x12\x1c.audiofx.SetThresholdRequest\x1a\x1d.audiofx.SetThresholdResponse\x12?\n" +
+	"\bToString\x12\x18.audiofx.ToStringRequest\x1a\x19.audiofx.ToStringResponse2\xd8\x02\n" +
+	"\x1eDynamicsProcessingStageService\x12B\n" +
+	"\tIsEnabled\x12\x19.audiofx.IsEnabledRequest\x1a\x1a.audiofx.IsEnabledResponse\x12<\n" +
+	"\aIsInUse\x12\x17.audiofx.IsInUseRequest\x1a\x18.audiofx.IsInUseResponse\x12s\n" +
+	"\n" +
+	"SetEnabled\x121.audiofx.DynamicsProcessingStageSetEnabledRequest\x1a2.audiofx.DynamicsProcessingStageSetEnabledResponse\x12?\n" +
+	"\bToString\x12\x18.audiofx.ToStringRequest\x1a\x19.audiofx.ToStringResponse2\x9d\x01\n" +
+	"\x16NoiseSuppressorService\x129\n" +
+	"\x06Create\x12\x16.audiofx.CreateRequest\x1a\x17.audiofx.CreateResponse\x12H\n" +
+	"\vIsAvailable\x12\x1b.audiofx.IsAvailableRequest\x1a\x1c.audiofx.IsAvailableResponse2\xf9\a\n" +
+	"\x12VirtualizerService\x12Q\n" +
+	"\x0eNewVirtualizer\x12\x1e.audiofx.NewVirtualizerRequest\x1a\x1f.audiofx.NewVirtualizerResponse\x12N\n" +
+	"\rCanVirtualize\x12\x1d.audiofx.CanVirtualizeRequest\x1a\x1e.audiofx.CanVirtualizeResponse\x12l\n" +
+	"\x17ForceVirtualizationMode\x12'.audiofx.ForceVirtualizationModeRequest\x1a(.audiofx.ForceVirtualizationModeResponse\x12N\n" +
+	"\rGetProperties\x12\x1d.audiofx.GetPropertiesRequest\x1a\x1e.audiofx.GetPropertiesResponse\x12]\n" +
+	"\x12GetRoundedStrength\x12\".audiofx.GetRoundedStrengthRequest\x1a#.audiofx.GetRoundedStrengthResponse\x12W\n" +
+	"\x10GetSpeakerAngles\x12 .audiofx.GetSpeakerAnglesRequest\x1a!.audiofx.GetSpeakerAnglesResponse\x12c\n" +
+	"\x14GetStrengthSupported\x12$.audiofx.GetStrengthSupportedRequest\x1a%.audiofx.GetStrengthSupportedResponse\x12f\n" +
+	"\x15GetVirtualizationMode\x12%.audiofx.GetVirtualizationModeRequest\x1a&.audiofx.GetVirtualizationModeResponse\x12c\n" +
+	"\x14SetParameterListener\x12$.audiofx.SetParameterListenerRequest\x1a%.audiofx.SetParameterListenerResponse\x12N\n" +
+	"\rSetProperties\x12\x1d.audiofx.SetPropertiesRequest\x1a\x1e.audiofx.SetPropertiesResponse\x12H\n" +
+	"\vSetStrength\x12\x1b.audiofx.SetStrengthRequest\x1a\x1c.audiofx.SetStrengthResponse2\x89\x01\n" +
+	"+VirtualizerOnParameterChangeListenerService\x12Z\n" +
+	"\x11OnParameterChange\x12!.audiofx.OnParameterChangeRequest\x1a\".audiofx.OnParameterChangeResponse2]\n" +
+	"\x1aVirtualizerSettingsService\x12?\n" +
+	"\bToString\x12\x18.audiofx.ToStringRequest\x1a\x19.audiofx.ToStringResponse2\xa2\x01\n" +
+	"\x1bAcousticEchoCancelerService\x129\n" +
+	"\x06Create\x12\x16.audiofx.CreateRequest\x1a\x17.audiofx.CreateResponse\x12H\n" +
+	"\vIsAvailable\x12\x1b.audiofx.IsAvailableRequest\x1a\x1c.audiofx.IsAvailableResponse2\xf8\x02\n" +
+	"\x16HapticGeneratorService\x126\n" +
+	"\x05Close\x12\x15.audiofx.CloseRequest\x1a\x16.audiofx.CloseResponse\x12K\n" +
+	"\aRelease\x12&.audiofx.HapticGeneratorReleaseRequest\x1a\x18.audiofx.ReleaseResponse\x12T\n" +
+	"\n" +
+	"SetEnabled\x12).audiofx.HapticGeneratorSetEnabledRequest\x1a\x1b.audiofx.SetEnabledResponse\x129\n" +
+	"\x06Create\x12\x16.audiofx.CreateRequest\x1a\x17.audiofx.CreateResponse\x12H\n" +
+	"\vIsAvailable\x12\x1b.audiofx.IsAvailableRequest\x1a\x1c.audiofx.IsAvailableResponseB1Z/github.com/AndroidGoLab/jni-proxy/proto/audiofxb\x06proto3"
 
-var file_proto_audiofx_audiofx_proto_goTypes = []any{}
+var (
+	file_proto_audiofx_audiofx_proto_rawDescOnce sync.Once
+	file_proto_audiofx_audiofx_proto_rawDescData []byte
+)
+
+func file_proto_audiofx_audiofx_proto_rawDescGZIP() []byte {
+	file_proto_audiofx_audiofx_proto_rawDescOnce.Do(func() {
+		file_proto_audiofx_audiofx_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_proto_audiofx_audiofx_proto_rawDesc), len(file_proto_audiofx_audiofx_proto_rawDesc)))
+	})
+	return file_proto_audiofx_audiofx_proto_rawDescData
+}
+
+var file_proto_audiofx_audiofx_proto_msgTypes = make([]protoimpl.MessageInfo, 378)
+var file_proto_audiofx_audiofx_proto_goTypes = []any{
+	(*NewBassBoostRequest)(nil),                                        // 0: audiofx.NewBassBoostRequest
+	(*NewBassBoostResponse)(nil),                                       // 1: audiofx.NewBassBoostResponse
+	(*GetPropertiesRequest)(nil),                                       // 2: audiofx.GetPropertiesRequest
+	(*GetPropertiesResponse)(nil),                                      // 3: audiofx.GetPropertiesResponse
+	(*GetRoundedStrengthRequest)(nil),                                  // 4: audiofx.GetRoundedStrengthRequest
+	(*GetRoundedStrengthResponse)(nil),                                 // 5: audiofx.GetRoundedStrengthResponse
+	(*GetStrengthSupportedRequest)(nil),                                // 6: audiofx.GetStrengthSupportedRequest
+	(*GetStrengthSupportedResponse)(nil),                               // 7: audiofx.GetStrengthSupportedResponse
+	(*SetParameterListenerRequest)(nil),                                // 8: audiofx.SetParameterListenerRequest
+	(*SetParameterListenerResponse)(nil),                               // 9: audiofx.SetParameterListenerResponse
+	(*SetPropertiesRequest)(nil),                                       // 10: audiofx.SetPropertiesRequest
+	(*SetPropertiesResponse)(nil),                                      // 11: audiofx.SetPropertiesResponse
+	(*SetStrengthRequest)(nil),                                         // 12: audiofx.SetStrengthRequest
+	(*SetStrengthResponse)(nil),                                        // 13: audiofx.SetStrengthResponse
+	(*OnParameterChangeRequest)(nil),                                   // 14: audiofx.OnParameterChangeRequest
+	(*OnParameterChangeResponse)(nil),                                  // 15: audiofx.OnParameterChangeResponse
+	(*ToStringRequest)(nil),                                            // 16: audiofx.ToStringRequest
+	(*ToStringResponse)(nil),                                           // 17: audiofx.ToStringResponse
+	(*CreateRequest)(nil),                                              // 18: audiofx.CreateRequest
+	(*CreateResponse)(nil),                                             // 19: audiofx.CreateResponse
+	(*IsAvailableRequest)(nil),                                         // 20: audiofx.IsAvailableRequest
+	(*IsAvailableResponse)(nil),                                        // 21: audiofx.IsAvailableResponse
+	(*NewVisualizerRequest)(nil),                                       // 22: audiofx.NewVisualizerRequest
+	(*NewVisualizerResponse)(nil),                                      // 23: audiofx.NewVisualizerResponse
+	(*GetCaptureSizeRequest)(nil),                                      // 24: audiofx.GetCaptureSizeRequest
+	(*GetCaptureSizeResponse)(nil),                                     // 25: audiofx.GetCaptureSizeResponse
+	(*GetEnabledRequest)(nil),                                          // 26: audiofx.GetEnabledRequest
+	(*GetEnabledResponse)(nil),                                         // 27: audiofx.GetEnabledResponse
+	(*GetFftRequest)(nil),                                              // 28: audiofx.GetFftRequest
+	(*GetFftResponse)(nil),                                             // 29: audiofx.GetFftResponse
+	(*GetMeasurementModeRequest)(nil),                                  // 30: audiofx.GetMeasurementModeRequest
+	(*GetMeasurementModeResponse)(nil),                                 // 31: audiofx.GetMeasurementModeResponse
+	(*GetMeasurementPeakRmsRequest)(nil),                               // 32: audiofx.GetMeasurementPeakRmsRequest
+	(*GetMeasurementPeakRmsResponse)(nil),                              // 33: audiofx.GetMeasurementPeakRmsResponse
+	(*GetSamplingRateRequest)(nil),                                     // 34: audiofx.GetSamplingRateRequest
+	(*GetSamplingRateResponse)(nil),                                    // 35: audiofx.GetSamplingRateResponse
+	(*GetScalingModeRequest)(nil),                                      // 36: audiofx.GetScalingModeRequest
+	(*GetScalingModeResponse)(nil),                                     // 37: audiofx.GetScalingModeResponse
+	(*GetWaveFormRequest)(nil),                                         // 38: audiofx.GetWaveFormRequest
+	(*GetWaveFormResponse)(nil),                                        // 39: audiofx.GetWaveFormResponse
+	(*ReleaseRequest)(nil),                                             // 40: audiofx.ReleaseRequest
+	(*ReleaseResponse)(nil),                                            // 41: audiofx.ReleaseResponse
+	(*SetCaptureSizeRequest)(nil),                                      // 42: audiofx.SetCaptureSizeRequest
+	(*SetCaptureSizeResponse)(nil),                                     // 43: audiofx.SetCaptureSizeResponse
+	(*SetDataCaptureListenerRequest)(nil),                              // 44: audiofx.SetDataCaptureListenerRequest
+	(*SetDataCaptureListenerResponse)(nil),                             // 45: audiofx.SetDataCaptureListenerResponse
+	(*SetEnabledRequest)(nil),                                          // 46: audiofx.SetEnabledRequest
+	(*SetEnabledResponse)(nil),                                         // 47: audiofx.SetEnabledResponse
+	(*SetMeasurementModeRequest)(nil),                                  // 48: audiofx.SetMeasurementModeRequest
+	(*SetMeasurementModeResponse)(nil),                                 // 49: audiofx.SetMeasurementModeResponse
+	(*SetScalingModeRequest)(nil),                                      // 50: audiofx.SetScalingModeRequest
+	(*SetScalingModeResponse)(nil),                                     // 51: audiofx.SetScalingModeResponse
+	(*GetCaptureSizeRangeRequest)(nil),                                 // 52: audiofx.GetCaptureSizeRangeRequest
+	(*GetCaptureSizeRangeResponse)(nil),                                // 53: audiofx.GetCaptureSizeRangeResponse
+	(*GetMaxCaptureRateRequest)(nil),                                   // 54: audiofx.GetMaxCaptureRateRequest
+	(*GetMaxCaptureRateResponse)(nil),                                  // 55: audiofx.GetMaxCaptureRateResponse
+	(*OnFftDataCaptureRequest)(nil),                                    // 56: audiofx.OnFftDataCaptureRequest
+	(*OnFftDataCaptureResponse)(nil),                                   // 57: audiofx.OnFftDataCaptureResponse
+	(*OnWaveFormDataCaptureRequest)(nil),                               // 58: audiofx.OnWaveFormDataCaptureRequest
+	(*OnWaveFormDataCaptureResponse)(nil),                              // 59: audiofx.OnWaveFormDataCaptureResponse
+	(*NewEnvironmentalReverbRequest)(nil),                              // 60: audiofx.NewEnvironmentalReverbRequest
+	(*NewEnvironmentalReverbResponse)(nil),                             // 61: audiofx.NewEnvironmentalReverbResponse
+	(*GetDecayHFRatioRequest)(nil),                                     // 62: audiofx.GetDecayHFRatioRequest
+	(*GetDecayHFRatioResponse)(nil),                                    // 63: audiofx.GetDecayHFRatioResponse
+	(*GetDecayTimeRequest)(nil),                                        // 64: audiofx.GetDecayTimeRequest
+	(*GetDecayTimeResponse)(nil),                                       // 65: audiofx.GetDecayTimeResponse
+	(*GetDensityRequest)(nil),                                          // 66: audiofx.GetDensityRequest
+	(*GetDensityResponse)(nil),                                         // 67: audiofx.GetDensityResponse
+	(*GetDiffusionRequest)(nil),                                        // 68: audiofx.GetDiffusionRequest
+	(*GetDiffusionResponse)(nil),                                       // 69: audiofx.GetDiffusionResponse
+	(*GetReflectionsDelayRequest)(nil),                                 // 70: audiofx.GetReflectionsDelayRequest
+	(*GetReflectionsDelayResponse)(nil),                                // 71: audiofx.GetReflectionsDelayResponse
+	(*GetReflectionsLevelRequest)(nil),                                 // 72: audiofx.GetReflectionsLevelRequest
+	(*GetReflectionsLevelResponse)(nil),                                // 73: audiofx.GetReflectionsLevelResponse
+	(*GetReverbDelayRequest)(nil),                                      // 74: audiofx.GetReverbDelayRequest
+	(*GetReverbDelayResponse)(nil),                                     // 75: audiofx.GetReverbDelayResponse
+	(*GetReverbLevelRequest)(nil),                                      // 76: audiofx.GetReverbLevelRequest
+	(*GetReverbLevelResponse)(nil),                                     // 77: audiofx.GetReverbLevelResponse
+	(*GetRoomHFLevelRequest)(nil),                                      // 78: audiofx.GetRoomHFLevelRequest
+	(*GetRoomHFLevelResponse)(nil),                                     // 79: audiofx.GetRoomHFLevelResponse
+	(*GetRoomLevelRequest)(nil),                                        // 80: audiofx.GetRoomLevelRequest
+	(*GetRoomLevelResponse)(nil),                                       // 81: audiofx.GetRoomLevelResponse
+	(*SetDecayHFRatioRequest)(nil),                                     // 82: audiofx.SetDecayHFRatioRequest
+	(*SetDecayHFRatioResponse)(nil),                                    // 83: audiofx.SetDecayHFRatioResponse
+	(*SetDecayTimeRequest)(nil),                                        // 84: audiofx.SetDecayTimeRequest
+	(*SetDecayTimeResponse)(nil),                                       // 85: audiofx.SetDecayTimeResponse
+	(*SetDensityRequest)(nil),                                          // 86: audiofx.SetDensityRequest
+	(*SetDensityResponse)(nil),                                         // 87: audiofx.SetDensityResponse
+	(*SetDiffusionRequest)(nil),                                        // 88: audiofx.SetDiffusionRequest
+	(*SetDiffusionResponse)(nil),                                       // 89: audiofx.SetDiffusionResponse
+	(*SetReflectionsDelayRequest)(nil),                                 // 90: audiofx.SetReflectionsDelayRequest
+	(*SetReflectionsDelayResponse)(nil),                                // 91: audiofx.SetReflectionsDelayResponse
+	(*SetReflectionsLevelRequest)(nil),                                 // 92: audiofx.SetReflectionsLevelRequest
+	(*SetReflectionsLevelResponse)(nil),                                // 93: audiofx.SetReflectionsLevelResponse
+	(*SetReverbDelayRequest)(nil),                                      // 94: audiofx.SetReverbDelayRequest
+	(*SetReverbDelayResponse)(nil),                                     // 95: audiofx.SetReverbDelayResponse
+	(*SetReverbLevelRequest)(nil),                                      // 96: audiofx.SetReverbLevelRequest
+	(*SetReverbLevelResponse)(nil),                                     // 97: audiofx.SetReverbLevelResponse
+	(*SetRoomHFLevelRequest)(nil),                                      // 98: audiofx.SetRoomHFLevelRequest
+	(*SetRoomHFLevelResponse)(nil),                                     // 99: audiofx.SetRoomHFLevelResponse
+	(*SetRoomLevelRequest)(nil),                                        // 100: audiofx.SetRoomLevelRequest
+	(*SetRoomLevelResponse)(nil),                                       // 101: audiofx.SetRoomLevelResponse
+	(*GetDescriptorRequest)(nil),                                       // 102: audiofx.GetDescriptorRequest
+	(*GetDescriptorResponse)(nil),                                      // 103: audiofx.GetDescriptorResponse
+	(*AudioEffectGetEnabledRequest)(nil),                               // 104: audiofx.AudioEffectGetEnabledRequest
+	(*GetIdRequest)(nil),                                               // 105: audiofx.GetIdRequest
+	(*GetIdResponse)(nil),                                              // 106: audiofx.GetIdResponse
+	(*HasControlRequest)(nil),                                          // 107: audiofx.HasControlRequest
+	(*HasControlResponse)(nil),                                         // 108: audiofx.HasControlResponse
+	(*AudioEffectReleaseRequest)(nil),                                  // 109: audiofx.AudioEffectReleaseRequest
+	(*SetControlStatusListenerRequest)(nil),                            // 110: audiofx.SetControlStatusListenerRequest
+	(*SetControlStatusListenerResponse)(nil),                           // 111: audiofx.SetControlStatusListenerResponse
+	(*SetEnableStatusListenerRequest)(nil),                             // 112: audiofx.SetEnableStatusListenerRequest
+	(*SetEnableStatusListenerResponse)(nil),                            // 113: audiofx.SetEnableStatusListenerResponse
+	(*AudioEffectSetEnabledRequest)(nil),                               // 114: audiofx.AudioEffectSetEnabledRequest
+	(*QueryEffectsRequest)(nil),                                        // 115: audiofx.QueryEffectsRequest
+	(*QueryEffectsResponse)(nil),                                       // 116: audiofx.QueryEffectsResponse
+	(*EqualsRequest)(nil),                                              // 117: audiofx.EqualsRequest
+	(*EqualsResponse)(nil),                                             // 118: audiofx.EqualsResponse
+	(*HashCodeRequest)(nil),                                            // 119: audiofx.HashCodeRequest
+	(*HashCodeResponse)(nil),                                           // 120: audiofx.HashCodeResponse
+	(*OnControlStatusChangeRequest)(nil),                               // 121: audiofx.OnControlStatusChangeRequest
+	(*OnControlStatusChangeResponse)(nil),                              // 122: audiofx.OnControlStatusChangeResponse
+	(*OnEnableStatusChangeRequest)(nil),                                // 123: audiofx.OnEnableStatusChangeRequest
+	(*OnEnableStatusChangeResponse)(nil),                               // 124: audiofx.OnEnableStatusChangeResponse
+	(*NewEqualizerRequest)(nil),                                        // 125: audiofx.NewEqualizerRequest
+	(*NewEqualizerResponse)(nil),                                       // 126: audiofx.NewEqualizerResponse
+	(*GetBandRequest)(nil),                                             // 127: audiofx.GetBandRequest
+	(*GetBandResponse)(nil),                                            // 128: audiofx.GetBandResponse
+	(*GetBandFreqRangeRequest)(nil),                                    // 129: audiofx.GetBandFreqRangeRequest
+	(*GetBandFreqRangeResponse)(nil),                                   // 130: audiofx.GetBandFreqRangeResponse
+	(*GetBandLevelRequest)(nil),                                        // 131: audiofx.GetBandLevelRequest
+	(*GetBandLevelResponse)(nil),                                       // 132: audiofx.GetBandLevelResponse
+	(*GetBandLevelRangeRequest)(nil),                                   // 133: audiofx.GetBandLevelRangeRequest
+	(*GetBandLevelRangeResponse)(nil),                                  // 134: audiofx.GetBandLevelRangeResponse
+	(*GetCenterFreqRequest)(nil),                                       // 135: audiofx.GetCenterFreqRequest
+	(*GetCenterFreqResponse)(nil),                                      // 136: audiofx.GetCenterFreqResponse
+	(*GetCurrentPresetRequest)(nil),                                    // 137: audiofx.GetCurrentPresetRequest
+	(*GetCurrentPresetResponse)(nil),                                   // 138: audiofx.GetCurrentPresetResponse
+	(*GetNumberOfBandsRequest)(nil),                                    // 139: audiofx.GetNumberOfBandsRequest
+	(*GetNumberOfBandsResponse)(nil),                                   // 140: audiofx.GetNumberOfBandsResponse
+	(*GetNumberOfPresetsRequest)(nil),                                  // 141: audiofx.GetNumberOfPresetsRequest
+	(*GetNumberOfPresetsResponse)(nil),                                 // 142: audiofx.GetNumberOfPresetsResponse
+	(*GetPresetNameRequest)(nil),                                       // 143: audiofx.GetPresetNameRequest
+	(*GetPresetNameResponse)(nil),                                      // 144: audiofx.GetPresetNameResponse
+	(*SetBandLevelRequest)(nil),                                        // 145: audiofx.SetBandLevelRequest
+	(*SetBandLevelResponse)(nil),                                       // 146: audiofx.SetBandLevelResponse
+	(*UsePresetRequest)(nil),                                           // 147: audiofx.UsePresetRequest
+	(*UsePresetResponse)(nil),                                          // 148: audiofx.UsePresetResponse
+	(*EqualizerOnParameterChangeListenerOnParameterChangeRequest)(nil), // 149: audiofx.EqualizerOnParameterChangeListenerOnParameterChangeRequest
+	(*NewPresetReverbRequest)(nil),                                     // 150: audiofx.NewPresetReverbRequest
+	(*NewPresetReverbResponse)(nil),                                    // 151: audiofx.NewPresetReverbResponse
+	(*GetPresetRequest)(nil),                                           // 152: audiofx.GetPresetRequest
+	(*GetPresetResponse)(nil),                                          // 153: audiofx.GetPresetResponse
+	(*SetPresetRequest)(nil),                                           // 154: audiofx.SetPresetRequest
+	(*SetPresetResponse)(nil),                                          // 155: audiofx.SetPresetResponse
+	(*NewLoudnessEnhancerRequest)(nil),                                 // 156: audiofx.NewLoudnessEnhancerRequest
+	(*NewLoudnessEnhancerResponse)(nil),                                // 157: audiofx.NewLoudnessEnhancerResponse
+	(*GetTargetGainRequest)(nil),                                       // 158: audiofx.GetTargetGainRequest
+	(*GetTargetGainResponse)(nil),                                      // 159: audiofx.GetTargetGainResponse
+	(*SetTargetGainRequest)(nil),                                       // 160: audiofx.SetTargetGainRequest
+	(*SetTargetGainResponse)(nil),                                      // 161: audiofx.SetTargetGainResponse
+	(*NewDynamicsProcessingRequest)(nil),                               // 162: audiofx.NewDynamicsProcessingRequest
+	(*NewDynamicsProcessingResponse)(nil),                              // 163: audiofx.NewDynamicsProcessingResponse
+	(*GetChannelByChannelIndexRequest)(nil),                            // 164: audiofx.GetChannelByChannelIndexRequest
+	(*GetChannelByChannelIndexResponse)(nil),                           // 165: audiofx.GetChannelByChannelIndexResponse
+	(*GetChannelCountRequest)(nil),                                     // 166: audiofx.GetChannelCountRequest
+	(*GetChannelCountResponse)(nil),                                    // 167: audiofx.GetChannelCountResponse
+	(*GetConfigRequest)(nil),                                           // 168: audiofx.GetConfigRequest
+	(*GetConfigResponse)(nil),                                          // 169: audiofx.GetConfigResponse
+	(*GetInputGainByChannelIndexRequest)(nil),                          // 170: audiofx.GetInputGainByChannelIndexRequest
+	(*GetInputGainByChannelIndexResponse)(nil),                         // 171: audiofx.GetInputGainByChannelIndexResponse
+	(*GetLimiterByChannelIndexRequest)(nil),                            // 172: audiofx.GetLimiterByChannelIndexRequest
+	(*GetLimiterByChannelIndexResponse)(nil),                           // 173: audiofx.GetLimiterByChannelIndexResponse
+	(*GetMbcBandByChannelIndexRequest)(nil),                            // 174: audiofx.GetMbcBandByChannelIndexRequest
+	(*GetMbcBandByChannelIndexResponse)(nil),                           // 175: audiofx.GetMbcBandByChannelIndexResponse
+	(*GetMbcByChannelIndexRequest)(nil),                                // 176: audiofx.GetMbcByChannelIndexRequest
+	(*GetMbcByChannelIndexResponse)(nil),                               // 177: audiofx.GetMbcByChannelIndexResponse
+	(*GetPostEqBandByChannelIndexRequest)(nil),                         // 178: audiofx.GetPostEqBandByChannelIndexRequest
+	(*GetPostEqBandByChannelIndexResponse)(nil),                        // 179: audiofx.GetPostEqBandByChannelIndexResponse
+	(*GetPostEqByChannelIndexRequest)(nil),                             // 180: audiofx.GetPostEqByChannelIndexRequest
+	(*GetPostEqByChannelIndexResponse)(nil),                            // 181: audiofx.GetPostEqByChannelIndexResponse
+	(*GetPreEqBandByChannelIndexRequest)(nil),                          // 182: audiofx.GetPreEqBandByChannelIndexRequest
+	(*GetPreEqBandByChannelIndexResponse)(nil),                         // 183: audiofx.GetPreEqBandByChannelIndexResponse
+	(*GetPreEqByChannelIndexRequest)(nil),                              // 184: audiofx.GetPreEqByChannelIndexRequest
+	(*GetPreEqByChannelIndexResponse)(nil),                             // 185: audiofx.GetPreEqByChannelIndexResponse
+	(*SetAllChannelsToRequest)(nil),                                    // 186: audiofx.SetAllChannelsToRequest
+	(*SetAllChannelsToResponse)(nil),                                   // 187: audiofx.SetAllChannelsToResponse
+	(*SetChannelToRequest)(nil),                                        // 188: audiofx.SetChannelToRequest
+	(*SetChannelToResponse)(nil),                                       // 189: audiofx.SetChannelToResponse
+	(*SetInputGainAllChannelsToRequest)(nil),                           // 190: audiofx.SetInputGainAllChannelsToRequest
+	(*SetInputGainAllChannelsToResponse)(nil),                          // 191: audiofx.SetInputGainAllChannelsToResponse
+	(*SetInputGainbyChannelRequest)(nil),                               // 192: audiofx.SetInputGainbyChannelRequest
+	(*SetInputGainbyChannelResponse)(nil),                              // 193: audiofx.SetInputGainbyChannelResponse
+	(*SetLimiterAllChannelsToRequest)(nil),                             // 194: audiofx.SetLimiterAllChannelsToRequest
+	(*SetLimiterAllChannelsToResponse)(nil),                            // 195: audiofx.SetLimiterAllChannelsToResponse
+	(*SetLimiterByChannelIndexRequest)(nil),                            // 196: audiofx.SetLimiterByChannelIndexRequest
+	(*SetLimiterByChannelIndexResponse)(nil),                           // 197: audiofx.SetLimiterByChannelIndexResponse
+	(*SetMbcAllChannelsToRequest)(nil),                                 // 198: audiofx.SetMbcAllChannelsToRequest
+	(*SetMbcAllChannelsToResponse)(nil),                                // 199: audiofx.SetMbcAllChannelsToResponse
+	(*SetMbcBandAllChannelsToRequest)(nil),                             // 200: audiofx.SetMbcBandAllChannelsToRequest
+	(*SetMbcBandAllChannelsToResponse)(nil),                            // 201: audiofx.SetMbcBandAllChannelsToResponse
+	(*SetMbcBandByChannelIndexRequest)(nil),                            // 202: audiofx.SetMbcBandByChannelIndexRequest
+	(*SetMbcBandByChannelIndexResponse)(nil),                           // 203: audiofx.SetMbcBandByChannelIndexResponse
+	(*SetMbcByChannelIndexRequest)(nil),                                // 204: audiofx.SetMbcByChannelIndexRequest
+	(*SetMbcByChannelIndexResponse)(nil),                               // 205: audiofx.SetMbcByChannelIndexResponse
+	(*SetPostEqAllChannelsToRequest)(nil),                              // 206: audiofx.SetPostEqAllChannelsToRequest
+	(*SetPostEqAllChannelsToResponse)(nil),                             // 207: audiofx.SetPostEqAllChannelsToResponse
+	(*SetPostEqBandAllChannelsToRequest)(nil),                          // 208: audiofx.SetPostEqBandAllChannelsToRequest
+	(*SetPostEqBandAllChannelsToResponse)(nil),                         // 209: audiofx.SetPostEqBandAllChannelsToResponse
+	(*SetPostEqBandByChannelIndexRequest)(nil),                         // 210: audiofx.SetPostEqBandByChannelIndexRequest
+	(*SetPostEqBandByChannelIndexResponse)(nil),                        // 211: audiofx.SetPostEqBandByChannelIndexResponse
+	(*SetPostEqByChannelIndexRequest)(nil),                             // 212: audiofx.SetPostEqByChannelIndexRequest
+	(*SetPostEqByChannelIndexResponse)(nil),                            // 213: audiofx.SetPostEqByChannelIndexResponse
+	(*SetPreEqAllChannelsToRequest)(nil),                               // 214: audiofx.SetPreEqAllChannelsToRequest
+	(*SetPreEqAllChannelsToResponse)(nil),                              // 215: audiofx.SetPreEqAllChannelsToResponse
+	(*SetPreEqBandAllChannelsToRequest)(nil),                           // 216: audiofx.SetPreEqBandAllChannelsToRequest
+	(*SetPreEqBandAllChannelsToResponse)(nil),                          // 217: audiofx.SetPreEqBandAllChannelsToResponse
+	(*SetPreEqBandByChannelIndexRequest)(nil),                          // 218: audiofx.SetPreEqBandByChannelIndexRequest
+	(*SetPreEqBandByChannelIndexResponse)(nil),                         // 219: audiofx.SetPreEqBandByChannelIndexResponse
+	(*SetPreEqByChannelIndexRequest)(nil),                              // 220: audiofx.SetPreEqByChannelIndexRequest
+	(*SetPreEqByChannelIndexResponse)(nil),                             // 221: audiofx.SetPreEqByChannelIndexResponse
+	(*GetCutoffFrequencyRequest)(nil),                                  // 222: audiofx.GetCutoffFrequencyRequest
+	(*GetCutoffFrequencyResponse)(nil),                                 // 223: audiofx.GetCutoffFrequencyResponse
+	(*IsEnabledRequest)(nil),                                           // 224: audiofx.IsEnabledRequest
+	(*IsEnabledResponse)(nil),                                          // 225: audiofx.IsEnabledResponse
+	(*SetCutoffFrequencyRequest)(nil),                                  // 226: audiofx.SetCutoffFrequencyRequest
+	(*SetCutoffFrequencyResponse)(nil),                                 // 227: audiofx.SetCutoffFrequencyResponse
+	(*DynamicsProcessingBandBaseSetEnabledRequest)(nil),                // 228: audiofx.DynamicsProcessingBandBaseSetEnabledRequest
+	(*DynamicsProcessingBandBaseSetEnabledResponse)(nil),               // 229: audiofx.DynamicsProcessingBandBaseSetEnabledResponse
+	(*GetBandCountRequest)(nil),                                        // 230: audiofx.GetBandCountRequest
+	(*GetBandCountResponse)(nil),                                       // 231: audiofx.GetBandCountResponse
+	(*GetInputGainRequest)(nil),                                        // 232: audiofx.GetInputGainRequest
+	(*GetInputGainResponse)(nil),                                       // 233: audiofx.GetInputGainResponse
+	(*GetLimiterRequest)(nil),                                          // 234: audiofx.GetLimiterRequest
+	(*GetLimiterResponse)(nil),                                         // 235: audiofx.GetLimiterResponse
+	(*GetMbcRequest)(nil),                                              // 236: audiofx.GetMbcRequest
+	(*GetMbcResponse)(nil),                                             // 237: audiofx.GetMbcResponse
+	(*GetMbcBandRequest)(nil),                                          // 238: audiofx.GetMbcBandRequest
+	(*GetMbcBandResponse)(nil),                                         // 239: audiofx.GetMbcBandResponse
+	(*GetPostEqRequest)(nil),                                           // 240: audiofx.GetPostEqRequest
+	(*GetPostEqResponse)(nil),                                          // 241: audiofx.GetPostEqResponse
+	(*GetPostEqBandRequest)(nil),                                       // 242: audiofx.GetPostEqBandRequest
+	(*GetPostEqBandResponse)(nil),                                      // 243: audiofx.GetPostEqBandResponse
+	(*GetPreEqRequest)(nil),                                            // 244: audiofx.GetPreEqRequest
+	(*GetPreEqResponse)(nil),                                           // 245: audiofx.GetPreEqResponse
+	(*GetPreEqBandRequest)(nil),                                        // 246: audiofx.GetPreEqBandRequest
+	(*GetPreEqBandResponse)(nil),                                       // 247: audiofx.GetPreEqBandResponse
+	(*SetInputGainRequest)(nil),                                        // 248: audiofx.SetInputGainRequest
+	(*SetInputGainResponse)(nil),                                       // 249: audiofx.SetInputGainResponse
+	(*SetLimiterRequest)(nil),                                          // 250: audiofx.SetLimiterRequest
+	(*SetLimiterResponse)(nil),                                         // 251: audiofx.SetLimiterResponse
+	(*SetMbcRequest)(nil),                                              // 252: audiofx.SetMbcRequest
+	(*SetMbcResponse)(nil),                                             // 253: audiofx.SetMbcResponse
+	(*SetMbcBandRequest)(nil),                                          // 254: audiofx.SetMbcBandRequest
+	(*SetMbcBandResponse)(nil),                                         // 255: audiofx.SetMbcBandResponse
+	(*SetPostEqRequest)(nil),                                           // 256: audiofx.SetPostEqRequest
+	(*SetPostEqResponse)(nil),                                          // 257: audiofx.SetPostEqResponse
+	(*SetPostEqBandRequest)(nil),                                       // 258: audiofx.SetPostEqBandRequest
+	(*SetPostEqBandResponse)(nil),                                      // 259: audiofx.SetPostEqBandResponse
+	(*SetPreEqRequest)(nil),                                            // 260: audiofx.SetPreEqRequest
+	(*SetPreEqResponse)(nil),                                           // 261: audiofx.SetPreEqResponse
+	(*SetPreEqBandRequest)(nil),                                        // 262: audiofx.SetPreEqBandRequest
+	(*SetPreEqBandResponse)(nil),                                       // 263: audiofx.SetPreEqBandResponse
+	(*DynamicsProcessingConfigGetChannelByChannelIndexRequest)(nil),    // 264: audiofx.DynamicsProcessingConfigGetChannelByChannelIndexRequest
+	(*DynamicsProcessingConfigGetInputGainByChannelIndexRequest)(nil),  // 265: audiofx.DynamicsProcessingConfigGetInputGainByChannelIndexRequest
+	(*DynamicsProcessingConfigGetLimiterByChannelIndexRequest)(nil),    // 266: audiofx.DynamicsProcessingConfigGetLimiterByChannelIndexRequest
+	(*DynamicsProcessingConfigGetMbcBandByChannelIndexRequest)(nil),    // 267: audiofx.DynamicsProcessingConfigGetMbcBandByChannelIndexRequest
+	(*GetMbcBandCountRequest)(nil),                                     // 268: audiofx.GetMbcBandCountRequest
+	(*GetMbcBandCountResponse)(nil),                                    // 269: audiofx.GetMbcBandCountResponse
+	(*DynamicsProcessingConfigGetMbcByChannelIndexRequest)(nil),        // 270: audiofx.DynamicsProcessingConfigGetMbcByChannelIndexRequest
+	(*DynamicsProcessingConfigGetPostEqBandByChannelIndexRequest)(nil), // 271: audiofx.DynamicsProcessingConfigGetPostEqBandByChannelIndexRequest
+	(*GetPostEqBandCountRequest)(nil),                                  // 272: audiofx.GetPostEqBandCountRequest
+	(*GetPostEqBandCountResponse)(nil),                                 // 273: audiofx.GetPostEqBandCountResponse
+	(*DynamicsProcessingConfigGetPostEqByChannelIndexRequest)(nil),     // 274: audiofx.DynamicsProcessingConfigGetPostEqByChannelIndexRequest
+	(*DynamicsProcessingConfigGetPreEqBandByChannelIndexRequest)(nil),  // 275: audiofx.DynamicsProcessingConfigGetPreEqBandByChannelIndexRequest
+	(*GetPreEqBandCountRequest)(nil),                                   // 276: audiofx.GetPreEqBandCountRequest
+	(*GetPreEqBandCountResponse)(nil),                                  // 277: audiofx.GetPreEqBandCountResponse
+	(*DynamicsProcessingConfigGetPreEqByChannelIndexRequest)(nil),      // 278: audiofx.DynamicsProcessingConfigGetPreEqByChannelIndexRequest
+	(*GetPreferredFrameDurationRequest)(nil),                           // 279: audiofx.GetPreferredFrameDurationRequest
+	(*GetPreferredFrameDurationResponse)(nil),                          // 280: audiofx.GetPreferredFrameDurationResponse
+	(*GetVariantRequest)(nil),                                          // 281: audiofx.GetVariantRequest
+	(*GetVariantResponse)(nil),                                         // 282: audiofx.GetVariantResponse
+	(*IsLimiterInUseRequest)(nil),                                      // 283: audiofx.IsLimiterInUseRequest
+	(*IsLimiterInUseResponse)(nil),                                     // 284: audiofx.IsLimiterInUseResponse
+	(*IsMbcInUseRequest)(nil),                                          // 285: audiofx.IsMbcInUseRequest
+	(*IsMbcInUseResponse)(nil),                                         // 286: audiofx.IsMbcInUseResponse
+	(*IsPostEqInUseRequest)(nil),                                       // 287: audiofx.IsPostEqInUseRequest
+	(*IsPostEqInUseResponse)(nil),                                      // 288: audiofx.IsPostEqInUseResponse
+	(*IsPreEqInUseRequest)(nil),                                        // 289: audiofx.IsPreEqInUseRequest
+	(*IsPreEqInUseResponse)(nil),                                       // 290: audiofx.IsPreEqInUseResponse
+	(*DynamicsProcessingConfigSetAllChannelsToRequest)(nil),            // 291: audiofx.DynamicsProcessingConfigSetAllChannelsToRequest
+	(*DynamicsProcessingConfigSetChannelToRequest)(nil),                // 292: audiofx.DynamicsProcessingConfigSetChannelToRequest
+	(*DynamicsProcessingConfigSetInputGainAllChannelsToRequest)(nil),   // 293: audiofx.DynamicsProcessingConfigSetInputGainAllChannelsToRequest
+	(*SetInputGainByChannelIndexRequest)(nil),                          // 294: audiofx.SetInputGainByChannelIndexRequest
+	(*SetInputGainByChannelIndexResponse)(nil),                         // 295: audiofx.SetInputGainByChannelIndexResponse
+	(*DynamicsProcessingConfigSetLimiterAllChannelsToRequest)(nil),     // 296: audiofx.DynamicsProcessingConfigSetLimiterAllChannelsToRequest
+	(*DynamicsProcessingConfigSetLimiterByChannelIndexRequest)(nil),    // 297: audiofx.DynamicsProcessingConfigSetLimiterByChannelIndexRequest
+	(*DynamicsProcessingConfigSetMbcAllChannelsToRequest)(nil),         // 298: audiofx.DynamicsProcessingConfigSetMbcAllChannelsToRequest
+	(*DynamicsProcessingConfigSetMbcBandAllChannelsToRequest)(nil),     // 299: audiofx.DynamicsProcessingConfigSetMbcBandAllChannelsToRequest
+	(*DynamicsProcessingConfigSetMbcBandByChannelIndexRequest)(nil),    // 300: audiofx.DynamicsProcessingConfigSetMbcBandByChannelIndexRequest
+	(*DynamicsProcessingConfigSetMbcByChannelIndexRequest)(nil),        // 301: audiofx.DynamicsProcessingConfigSetMbcByChannelIndexRequest
+	(*DynamicsProcessingConfigSetPostEqAllChannelsToRequest)(nil),      // 302: audiofx.DynamicsProcessingConfigSetPostEqAllChannelsToRequest
+	(*DynamicsProcessingConfigSetPostEqBandAllChannelsToRequest)(nil),  // 303: audiofx.DynamicsProcessingConfigSetPostEqBandAllChannelsToRequest
+	(*DynamicsProcessingConfigSetPostEqBandByChannelIndexRequest)(nil), // 304: audiofx.DynamicsProcessingConfigSetPostEqBandByChannelIndexRequest
+	(*DynamicsProcessingConfigSetPostEqByChannelIndexRequest)(nil),     // 305: audiofx.DynamicsProcessingConfigSetPostEqByChannelIndexRequest
+	(*DynamicsProcessingConfigSetPreEqAllChannelsToRequest)(nil),       // 306: audiofx.DynamicsProcessingConfigSetPreEqAllChannelsToRequest
+	(*DynamicsProcessingConfigSetPreEqBandAllChannelsToRequest)(nil),   // 307: audiofx.DynamicsProcessingConfigSetPreEqBandAllChannelsToRequest
+	(*DynamicsProcessingConfigSetPreEqBandByChannelIndexRequest)(nil),  // 308: audiofx.DynamicsProcessingConfigSetPreEqBandByChannelIndexRequest
+	(*DynamicsProcessingConfigSetPreEqByChannelIndexRequest)(nil),      // 309: audiofx.DynamicsProcessingConfigSetPreEqByChannelIndexRequest
+	(*DynamicsProcessingEqGetBandRequest)(nil),                         // 310: audiofx.DynamicsProcessingEqGetBandRequest
+	(*DynamicsProcessingEqGetBandResponse)(nil),                        // 311: audiofx.DynamicsProcessingEqGetBandResponse
+	(*SetBandRequest)(nil),                                             // 312: audiofx.SetBandRequest
+	(*SetBandResponse)(nil),                                            // 313: audiofx.SetBandResponse
+	(*GetGainRequest)(nil),                                             // 314: audiofx.GetGainRequest
+	(*GetGainResponse)(nil),                                            // 315: audiofx.GetGainResponse
+	(*SetGainRequest)(nil),                                             // 316: audiofx.SetGainRequest
+	(*SetGainResponse)(nil),                                            // 317: audiofx.SetGainResponse
+	(*GetAttackTimeRequest)(nil),                                       // 318: audiofx.GetAttackTimeRequest
+	(*GetAttackTimeResponse)(nil),                                      // 319: audiofx.GetAttackTimeResponse
+	(*GetLinkGroupRequest)(nil),                                        // 320: audiofx.GetLinkGroupRequest
+	(*GetLinkGroupResponse)(nil),                                       // 321: audiofx.GetLinkGroupResponse
+	(*GetPostGainRequest)(nil),                                         // 322: audiofx.GetPostGainRequest
+	(*GetPostGainResponse)(nil),                                        // 323: audiofx.GetPostGainResponse
+	(*GetRatioRequest)(nil),                                            // 324: audiofx.GetRatioRequest
+	(*GetRatioResponse)(nil),                                           // 325: audiofx.GetRatioResponse
+	(*GetReleaseTimeRequest)(nil),                                      // 326: audiofx.GetReleaseTimeRequest
+	(*GetReleaseTimeResponse)(nil),                                     // 327: audiofx.GetReleaseTimeResponse
+	(*GetThresholdRequest)(nil),                                        // 328: audiofx.GetThresholdRequest
+	(*GetThresholdResponse)(nil),                                       // 329: audiofx.GetThresholdResponse
+	(*SetAttackTimeRequest)(nil),                                       // 330: audiofx.SetAttackTimeRequest
+	(*SetAttackTimeResponse)(nil),                                      // 331: audiofx.SetAttackTimeResponse
+	(*SetLinkGroupRequest)(nil),                                        // 332: audiofx.SetLinkGroupRequest
+	(*SetLinkGroupResponse)(nil),                                       // 333: audiofx.SetLinkGroupResponse
+	(*SetPostGainRequest)(nil),                                         // 334: audiofx.SetPostGainRequest
+	(*SetPostGainResponse)(nil),                                        // 335: audiofx.SetPostGainResponse
+	(*SetRatioRequest)(nil),                                            // 336: audiofx.SetRatioRequest
+	(*SetRatioResponse)(nil),                                           // 337: audiofx.SetRatioResponse
+	(*SetReleaseTimeRequest)(nil),                                      // 338: audiofx.SetReleaseTimeRequest
+	(*SetReleaseTimeResponse)(nil),                                     // 339: audiofx.SetReleaseTimeResponse
+	(*SetThresholdRequest)(nil),                                        // 340: audiofx.SetThresholdRequest
+	(*SetThresholdResponse)(nil),                                       // 341: audiofx.SetThresholdResponse
+	(*DynamicsProcessingMbcGetBandRequest)(nil),                        // 342: audiofx.DynamicsProcessingMbcGetBandRequest
+	(*DynamicsProcessingMbcGetBandResponse)(nil),                       // 343: audiofx.DynamicsProcessingMbcGetBandResponse
+	(*GetExpanderRatioRequest)(nil),                                    // 344: audiofx.GetExpanderRatioRequest
+	(*GetExpanderRatioResponse)(nil),                                   // 345: audiofx.GetExpanderRatioResponse
+	(*GetKneeWidthRequest)(nil),                                        // 346: audiofx.GetKneeWidthRequest
+	(*GetKneeWidthResponse)(nil),                                       // 347: audiofx.GetKneeWidthResponse
+	(*GetNoiseGateThresholdRequest)(nil),                               // 348: audiofx.GetNoiseGateThresholdRequest
+	(*GetNoiseGateThresholdResponse)(nil),                              // 349: audiofx.GetNoiseGateThresholdResponse
+	(*GetPreGainRequest)(nil),                                          // 350: audiofx.GetPreGainRequest
+	(*GetPreGainResponse)(nil),                                         // 351: audiofx.GetPreGainResponse
+	(*SetExpanderRatioRequest)(nil),                                    // 352: audiofx.SetExpanderRatioRequest
+	(*SetExpanderRatioResponse)(nil),                                   // 353: audiofx.SetExpanderRatioResponse
+	(*SetKneeWidthRequest)(nil),                                        // 354: audiofx.SetKneeWidthRequest
+	(*SetKneeWidthResponse)(nil),                                       // 355: audiofx.SetKneeWidthResponse
+	(*SetNoiseGateThresholdRequest)(nil),                               // 356: audiofx.SetNoiseGateThresholdRequest
+	(*SetNoiseGateThresholdResponse)(nil),                              // 357: audiofx.SetNoiseGateThresholdResponse
+	(*SetPreGainRequest)(nil),                                          // 358: audiofx.SetPreGainRequest
+	(*SetPreGainResponse)(nil),                                         // 359: audiofx.SetPreGainResponse
+	(*IsInUseRequest)(nil),                                             // 360: audiofx.IsInUseRequest
+	(*IsInUseResponse)(nil),                                            // 361: audiofx.IsInUseResponse
+	(*DynamicsProcessingStageSetEnabledRequest)(nil),                   // 362: audiofx.DynamicsProcessingStageSetEnabledRequest
+	(*DynamicsProcessingStageSetEnabledResponse)(nil),                  // 363: audiofx.DynamicsProcessingStageSetEnabledResponse
+	(*NewVirtualizerRequest)(nil),                                      // 364: audiofx.NewVirtualizerRequest
+	(*NewVirtualizerResponse)(nil),                                     // 365: audiofx.NewVirtualizerResponse
+	(*CanVirtualizeRequest)(nil),                                       // 366: audiofx.CanVirtualizeRequest
+	(*CanVirtualizeResponse)(nil),                                      // 367: audiofx.CanVirtualizeResponse
+	(*ForceVirtualizationModeRequest)(nil),                             // 368: audiofx.ForceVirtualizationModeRequest
+	(*ForceVirtualizationModeResponse)(nil),                            // 369: audiofx.ForceVirtualizationModeResponse
+	(*GetSpeakerAnglesRequest)(nil),                                    // 370: audiofx.GetSpeakerAnglesRequest
+	(*GetSpeakerAnglesResponse)(nil),                                   // 371: audiofx.GetSpeakerAnglesResponse
+	(*GetVirtualizationModeRequest)(nil),                               // 372: audiofx.GetVirtualizationModeRequest
+	(*GetVirtualizationModeResponse)(nil),                              // 373: audiofx.GetVirtualizationModeResponse
+	(*CloseRequest)(nil),                                               // 374: audiofx.CloseRequest
+	(*CloseResponse)(nil),                                              // 375: audiofx.CloseResponse
+	(*HapticGeneratorReleaseRequest)(nil),                              // 376: audiofx.HapticGeneratorReleaseRequest
+	(*HapticGeneratorSetEnabledRequest)(nil),                           // 377: audiofx.HapticGeneratorSetEnabledRequest
+}
 var file_proto_audiofx_audiofx_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	0,   // 0: audiofx.BassBoostService.NewBassBoost:input_type -> audiofx.NewBassBoostRequest
+	2,   // 1: audiofx.BassBoostService.GetProperties:input_type -> audiofx.GetPropertiesRequest
+	4,   // 2: audiofx.BassBoostService.GetRoundedStrength:input_type -> audiofx.GetRoundedStrengthRequest
+	6,   // 3: audiofx.BassBoostService.GetStrengthSupported:input_type -> audiofx.GetStrengthSupportedRequest
+	8,   // 4: audiofx.BassBoostService.SetParameterListener:input_type -> audiofx.SetParameterListenerRequest
+	10,  // 5: audiofx.BassBoostService.SetProperties:input_type -> audiofx.SetPropertiesRequest
+	12,  // 6: audiofx.BassBoostService.SetStrength:input_type -> audiofx.SetStrengthRequest
+	14,  // 7: audiofx.BassBoostOnParameterChangeListenerService.OnParameterChange:input_type -> audiofx.OnParameterChangeRequest
+	16,  // 8: audiofx.BassBoostSettingsService.ToString:input_type -> audiofx.ToStringRequest
+	18,  // 9: audiofx.AutomaticGainControlService.Create:input_type -> audiofx.CreateRequest
+	20,  // 10: audiofx.AutomaticGainControlService.IsAvailable:input_type -> audiofx.IsAvailableRequest
+	22,  // 11: audiofx.VisualizerService.NewVisualizer:input_type -> audiofx.NewVisualizerRequest
+	24,  // 12: audiofx.VisualizerService.GetCaptureSize:input_type -> audiofx.GetCaptureSizeRequest
+	26,  // 13: audiofx.VisualizerService.GetEnabled:input_type -> audiofx.GetEnabledRequest
+	28,  // 14: audiofx.VisualizerService.GetFft:input_type -> audiofx.GetFftRequest
+	30,  // 15: audiofx.VisualizerService.GetMeasurementMode:input_type -> audiofx.GetMeasurementModeRequest
+	32,  // 16: audiofx.VisualizerService.GetMeasurementPeakRms:input_type -> audiofx.GetMeasurementPeakRmsRequest
+	34,  // 17: audiofx.VisualizerService.GetSamplingRate:input_type -> audiofx.GetSamplingRateRequest
+	36,  // 18: audiofx.VisualizerService.GetScalingMode:input_type -> audiofx.GetScalingModeRequest
+	38,  // 19: audiofx.VisualizerService.GetWaveForm:input_type -> audiofx.GetWaveFormRequest
+	40,  // 20: audiofx.VisualizerService.Release:input_type -> audiofx.ReleaseRequest
+	42,  // 21: audiofx.VisualizerService.SetCaptureSize:input_type -> audiofx.SetCaptureSizeRequest
+	44,  // 22: audiofx.VisualizerService.SetDataCaptureListener:input_type -> audiofx.SetDataCaptureListenerRequest
+	46,  // 23: audiofx.VisualizerService.SetEnabled:input_type -> audiofx.SetEnabledRequest
+	48,  // 24: audiofx.VisualizerService.SetMeasurementMode:input_type -> audiofx.SetMeasurementModeRequest
+	50,  // 25: audiofx.VisualizerService.SetScalingMode:input_type -> audiofx.SetScalingModeRequest
+	52,  // 26: audiofx.VisualizerService.GetCaptureSizeRange:input_type -> audiofx.GetCaptureSizeRangeRequest
+	54,  // 27: audiofx.VisualizerService.GetMaxCaptureRate:input_type -> audiofx.GetMaxCaptureRateRequest
+	56,  // 28: audiofx.VisualizerOnDataCaptureListenerService.OnFftDataCapture:input_type -> audiofx.OnFftDataCaptureRequest
+	58,  // 29: audiofx.VisualizerOnDataCaptureListenerService.OnWaveFormDataCapture:input_type -> audiofx.OnWaveFormDataCaptureRequest
+	60,  // 30: audiofx.EnvironmentalReverbService.NewEnvironmentalReverb:input_type -> audiofx.NewEnvironmentalReverbRequest
+	62,  // 31: audiofx.EnvironmentalReverbService.GetDecayHFRatio:input_type -> audiofx.GetDecayHFRatioRequest
+	64,  // 32: audiofx.EnvironmentalReverbService.GetDecayTime:input_type -> audiofx.GetDecayTimeRequest
+	66,  // 33: audiofx.EnvironmentalReverbService.GetDensity:input_type -> audiofx.GetDensityRequest
+	68,  // 34: audiofx.EnvironmentalReverbService.GetDiffusion:input_type -> audiofx.GetDiffusionRequest
+	2,   // 35: audiofx.EnvironmentalReverbService.GetProperties:input_type -> audiofx.GetPropertiesRequest
+	70,  // 36: audiofx.EnvironmentalReverbService.GetReflectionsDelay:input_type -> audiofx.GetReflectionsDelayRequest
+	72,  // 37: audiofx.EnvironmentalReverbService.GetReflectionsLevel:input_type -> audiofx.GetReflectionsLevelRequest
+	74,  // 38: audiofx.EnvironmentalReverbService.GetReverbDelay:input_type -> audiofx.GetReverbDelayRequest
+	76,  // 39: audiofx.EnvironmentalReverbService.GetReverbLevel:input_type -> audiofx.GetReverbLevelRequest
+	78,  // 40: audiofx.EnvironmentalReverbService.GetRoomHFLevel:input_type -> audiofx.GetRoomHFLevelRequest
+	80,  // 41: audiofx.EnvironmentalReverbService.GetRoomLevel:input_type -> audiofx.GetRoomLevelRequest
+	82,  // 42: audiofx.EnvironmentalReverbService.SetDecayHFRatio:input_type -> audiofx.SetDecayHFRatioRequest
+	84,  // 43: audiofx.EnvironmentalReverbService.SetDecayTime:input_type -> audiofx.SetDecayTimeRequest
+	86,  // 44: audiofx.EnvironmentalReverbService.SetDensity:input_type -> audiofx.SetDensityRequest
+	88,  // 45: audiofx.EnvironmentalReverbService.SetDiffusion:input_type -> audiofx.SetDiffusionRequest
+	8,   // 46: audiofx.EnvironmentalReverbService.SetParameterListener:input_type -> audiofx.SetParameterListenerRequest
+	10,  // 47: audiofx.EnvironmentalReverbService.SetProperties:input_type -> audiofx.SetPropertiesRequest
+	90,  // 48: audiofx.EnvironmentalReverbService.SetReflectionsDelay:input_type -> audiofx.SetReflectionsDelayRequest
+	92,  // 49: audiofx.EnvironmentalReverbService.SetReflectionsLevel:input_type -> audiofx.SetReflectionsLevelRequest
+	94,  // 50: audiofx.EnvironmentalReverbService.SetReverbDelay:input_type -> audiofx.SetReverbDelayRequest
+	96,  // 51: audiofx.EnvironmentalReverbService.SetReverbLevel:input_type -> audiofx.SetReverbLevelRequest
+	98,  // 52: audiofx.EnvironmentalReverbService.SetRoomHFLevel:input_type -> audiofx.SetRoomHFLevelRequest
+	100, // 53: audiofx.EnvironmentalReverbService.SetRoomLevel:input_type -> audiofx.SetRoomLevelRequest
+	14,  // 54: audiofx.EnvironmentalReverbOnParameterChangeListenerService.OnParameterChange:input_type -> audiofx.OnParameterChangeRequest
+	16,  // 55: audiofx.EnvironmentalReverbSettingsService.ToString:input_type -> audiofx.ToStringRequest
+	102, // 56: audiofx.AudioEffectService.GetDescriptor:input_type -> audiofx.GetDescriptorRequest
+	104, // 57: audiofx.AudioEffectService.GetEnabled:input_type -> audiofx.AudioEffectGetEnabledRequest
+	105, // 58: audiofx.AudioEffectService.GetId:input_type -> audiofx.GetIdRequest
+	107, // 59: audiofx.AudioEffectService.HasControl:input_type -> audiofx.HasControlRequest
+	109, // 60: audiofx.AudioEffectService.Release:input_type -> audiofx.AudioEffectReleaseRequest
+	110, // 61: audiofx.AudioEffectService.SetControlStatusListener:input_type -> audiofx.SetControlStatusListenerRequest
+	112, // 62: audiofx.AudioEffectService.SetEnableStatusListener:input_type -> audiofx.SetEnableStatusListenerRequest
+	114, // 63: audiofx.AudioEffectService.SetEnabled:input_type -> audiofx.AudioEffectSetEnabledRequest
+	115, // 64: audiofx.AudioEffectService.QueryEffects:input_type -> audiofx.QueryEffectsRequest
+	117, // 65: audiofx.AudioEffectDescriptorService.Equals:input_type -> audiofx.EqualsRequest
+	119, // 66: audiofx.AudioEffectDescriptorService.HashCode:input_type -> audiofx.HashCodeRequest
+	121, // 67: audiofx.AudioEffectOnControlStatusChangeListenerService.OnControlStatusChange:input_type -> audiofx.OnControlStatusChangeRequest
+	123, // 68: audiofx.AudioEffectOnEnableStatusChangeListenerService.OnEnableStatusChange:input_type -> audiofx.OnEnableStatusChangeRequest
+	125, // 69: audiofx.EqualizerService.NewEqualizer:input_type -> audiofx.NewEqualizerRequest
+	127, // 70: audiofx.EqualizerService.GetBand:input_type -> audiofx.GetBandRequest
+	129, // 71: audiofx.EqualizerService.GetBandFreqRange:input_type -> audiofx.GetBandFreqRangeRequest
+	131, // 72: audiofx.EqualizerService.GetBandLevel:input_type -> audiofx.GetBandLevelRequest
+	133, // 73: audiofx.EqualizerService.GetBandLevelRange:input_type -> audiofx.GetBandLevelRangeRequest
+	135, // 74: audiofx.EqualizerService.GetCenterFreq:input_type -> audiofx.GetCenterFreqRequest
+	137, // 75: audiofx.EqualizerService.GetCurrentPreset:input_type -> audiofx.GetCurrentPresetRequest
+	139, // 76: audiofx.EqualizerService.GetNumberOfBands:input_type -> audiofx.GetNumberOfBandsRequest
+	141, // 77: audiofx.EqualizerService.GetNumberOfPresets:input_type -> audiofx.GetNumberOfPresetsRequest
+	143, // 78: audiofx.EqualizerService.GetPresetName:input_type -> audiofx.GetPresetNameRequest
+	2,   // 79: audiofx.EqualizerService.GetProperties:input_type -> audiofx.GetPropertiesRequest
+	145, // 80: audiofx.EqualizerService.SetBandLevel:input_type -> audiofx.SetBandLevelRequest
+	8,   // 81: audiofx.EqualizerService.SetParameterListener:input_type -> audiofx.SetParameterListenerRequest
+	10,  // 82: audiofx.EqualizerService.SetProperties:input_type -> audiofx.SetPropertiesRequest
+	147, // 83: audiofx.EqualizerService.UsePreset:input_type -> audiofx.UsePresetRequest
+	149, // 84: audiofx.EqualizerOnParameterChangeListenerService.OnParameterChange:input_type -> audiofx.EqualizerOnParameterChangeListenerOnParameterChangeRequest
+	16,  // 85: audiofx.EqualizerSettingsService.ToString:input_type -> audiofx.ToStringRequest
+	150, // 86: audiofx.PresetReverbService.NewPresetReverb:input_type -> audiofx.NewPresetReverbRequest
+	152, // 87: audiofx.PresetReverbService.GetPreset:input_type -> audiofx.GetPresetRequest
+	2,   // 88: audiofx.PresetReverbService.GetProperties:input_type -> audiofx.GetPropertiesRequest
+	8,   // 89: audiofx.PresetReverbService.SetParameterListener:input_type -> audiofx.SetParameterListenerRequest
+	154, // 90: audiofx.PresetReverbService.SetPreset:input_type -> audiofx.SetPresetRequest
+	10,  // 91: audiofx.PresetReverbService.SetProperties:input_type -> audiofx.SetPropertiesRequest
+	14,  // 92: audiofx.PresetReverbOnParameterChangeListenerService.OnParameterChange:input_type -> audiofx.OnParameterChangeRequest
+	16,  // 93: audiofx.PresetReverbSettingsService.ToString:input_type -> audiofx.ToStringRequest
+	156, // 94: audiofx.LoudnessEnhancerService.NewLoudnessEnhancer:input_type -> audiofx.NewLoudnessEnhancerRequest
+	158, // 95: audiofx.LoudnessEnhancerService.GetTargetGain:input_type -> audiofx.GetTargetGainRequest
+	160, // 96: audiofx.LoudnessEnhancerService.SetTargetGain:input_type -> audiofx.SetTargetGainRequest
+	162, // 97: audiofx.DynamicsProcessingService.NewDynamicsProcessing:input_type -> audiofx.NewDynamicsProcessingRequest
+	164, // 98: audiofx.DynamicsProcessingService.GetChannelByChannelIndex:input_type -> audiofx.GetChannelByChannelIndexRequest
+	166, // 99: audiofx.DynamicsProcessingService.GetChannelCount:input_type -> audiofx.GetChannelCountRequest
+	168, // 100: audiofx.DynamicsProcessingService.GetConfig:input_type -> audiofx.GetConfigRequest
+	170, // 101: audiofx.DynamicsProcessingService.GetInputGainByChannelIndex:input_type -> audiofx.GetInputGainByChannelIndexRequest
+	172, // 102: audiofx.DynamicsProcessingService.GetLimiterByChannelIndex:input_type -> audiofx.GetLimiterByChannelIndexRequest
+	174, // 103: audiofx.DynamicsProcessingService.GetMbcBandByChannelIndex:input_type -> audiofx.GetMbcBandByChannelIndexRequest
+	176, // 104: audiofx.DynamicsProcessingService.GetMbcByChannelIndex:input_type -> audiofx.GetMbcByChannelIndexRequest
+	178, // 105: audiofx.DynamicsProcessingService.GetPostEqBandByChannelIndex:input_type -> audiofx.GetPostEqBandByChannelIndexRequest
+	180, // 106: audiofx.DynamicsProcessingService.GetPostEqByChannelIndex:input_type -> audiofx.GetPostEqByChannelIndexRequest
+	182, // 107: audiofx.DynamicsProcessingService.GetPreEqBandByChannelIndex:input_type -> audiofx.GetPreEqBandByChannelIndexRequest
+	184, // 108: audiofx.DynamicsProcessingService.GetPreEqByChannelIndex:input_type -> audiofx.GetPreEqByChannelIndexRequest
+	186, // 109: audiofx.DynamicsProcessingService.SetAllChannelsTo:input_type -> audiofx.SetAllChannelsToRequest
+	188, // 110: audiofx.DynamicsProcessingService.SetChannelTo:input_type -> audiofx.SetChannelToRequest
+	190, // 111: audiofx.DynamicsProcessingService.SetInputGainAllChannelsTo:input_type -> audiofx.SetInputGainAllChannelsToRequest
+	192, // 112: audiofx.DynamicsProcessingService.SetInputGainbyChannel:input_type -> audiofx.SetInputGainbyChannelRequest
+	194, // 113: audiofx.DynamicsProcessingService.SetLimiterAllChannelsTo:input_type -> audiofx.SetLimiterAllChannelsToRequest
+	196, // 114: audiofx.DynamicsProcessingService.SetLimiterByChannelIndex:input_type -> audiofx.SetLimiterByChannelIndexRequest
+	198, // 115: audiofx.DynamicsProcessingService.SetMbcAllChannelsTo:input_type -> audiofx.SetMbcAllChannelsToRequest
+	200, // 116: audiofx.DynamicsProcessingService.SetMbcBandAllChannelsTo:input_type -> audiofx.SetMbcBandAllChannelsToRequest
+	202, // 117: audiofx.DynamicsProcessingService.SetMbcBandByChannelIndex:input_type -> audiofx.SetMbcBandByChannelIndexRequest
+	204, // 118: audiofx.DynamicsProcessingService.SetMbcByChannelIndex:input_type -> audiofx.SetMbcByChannelIndexRequest
+	206, // 119: audiofx.DynamicsProcessingService.SetPostEqAllChannelsTo:input_type -> audiofx.SetPostEqAllChannelsToRequest
+	208, // 120: audiofx.DynamicsProcessingService.SetPostEqBandAllChannelsTo:input_type -> audiofx.SetPostEqBandAllChannelsToRequest
+	210, // 121: audiofx.DynamicsProcessingService.SetPostEqBandByChannelIndex:input_type -> audiofx.SetPostEqBandByChannelIndexRequest
+	212, // 122: audiofx.DynamicsProcessingService.SetPostEqByChannelIndex:input_type -> audiofx.SetPostEqByChannelIndexRequest
+	214, // 123: audiofx.DynamicsProcessingService.SetPreEqAllChannelsTo:input_type -> audiofx.SetPreEqAllChannelsToRequest
+	216, // 124: audiofx.DynamicsProcessingService.SetPreEqBandAllChannelsTo:input_type -> audiofx.SetPreEqBandAllChannelsToRequest
+	218, // 125: audiofx.DynamicsProcessingService.SetPreEqBandByChannelIndex:input_type -> audiofx.SetPreEqBandByChannelIndexRequest
+	220, // 126: audiofx.DynamicsProcessingService.SetPreEqByChannelIndex:input_type -> audiofx.SetPreEqByChannelIndexRequest
+	222, // 127: audiofx.DynamicsProcessingBandBaseService.GetCutoffFrequency:input_type -> audiofx.GetCutoffFrequencyRequest
+	224, // 128: audiofx.DynamicsProcessingBandBaseService.IsEnabled:input_type -> audiofx.IsEnabledRequest
+	226, // 129: audiofx.DynamicsProcessingBandBaseService.SetCutoffFrequency:input_type -> audiofx.SetCutoffFrequencyRequest
+	228, // 130: audiofx.DynamicsProcessingBandBaseService.SetEnabled:input_type -> audiofx.DynamicsProcessingBandBaseSetEnabledRequest
+	16,  // 131: audiofx.DynamicsProcessingBandBaseService.ToString:input_type -> audiofx.ToStringRequest
+	230, // 132: audiofx.DynamicsProcessingBandStageService.GetBandCount:input_type -> audiofx.GetBandCountRequest
+	16,  // 133: audiofx.DynamicsProcessingBandStageService.ToString:input_type -> audiofx.ToStringRequest
+	232, // 134: audiofx.DynamicsProcessingChannelService.GetInputGain:input_type -> audiofx.GetInputGainRequest
+	234, // 135: audiofx.DynamicsProcessingChannelService.GetLimiter:input_type -> audiofx.GetLimiterRequest
+	236, // 136: audiofx.DynamicsProcessingChannelService.GetMbc:input_type -> audiofx.GetMbcRequest
+	238, // 137: audiofx.DynamicsProcessingChannelService.GetMbcBand:input_type -> audiofx.GetMbcBandRequest
+	240, // 138: audiofx.DynamicsProcessingChannelService.GetPostEq:input_type -> audiofx.GetPostEqRequest
+	242, // 139: audiofx.DynamicsProcessingChannelService.GetPostEqBand:input_type -> audiofx.GetPostEqBandRequest
+	244, // 140: audiofx.DynamicsProcessingChannelService.GetPreEq:input_type -> audiofx.GetPreEqRequest
+	246, // 141: audiofx.DynamicsProcessingChannelService.GetPreEqBand:input_type -> audiofx.GetPreEqBandRequest
+	248, // 142: audiofx.DynamicsProcessingChannelService.SetInputGain:input_type -> audiofx.SetInputGainRequest
+	250, // 143: audiofx.DynamicsProcessingChannelService.SetLimiter:input_type -> audiofx.SetLimiterRequest
+	252, // 144: audiofx.DynamicsProcessingChannelService.SetMbc:input_type -> audiofx.SetMbcRequest
+	254, // 145: audiofx.DynamicsProcessingChannelService.SetMbcBand:input_type -> audiofx.SetMbcBandRequest
+	256, // 146: audiofx.DynamicsProcessingChannelService.SetPostEq:input_type -> audiofx.SetPostEqRequest
+	258, // 147: audiofx.DynamicsProcessingChannelService.SetPostEqBand:input_type -> audiofx.SetPostEqBandRequest
+	260, // 148: audiofx.DynamicsProcessingChannelService.SetPreEq:input_type -> audiofx.SetPreEqRequest
+	262, // 149: audiofx.DynamicsProcessingChannelService.SetPreEqBand:input_type -> audiofx.SetPreEqBandRequest
+	16,  // 150: audiofx.DynamicsProcessingChannelService.ToString:input_type -> audiofx.ToStringRequest
+	264, // 151: audiofx.DynamicsProcessingConfigService.GetChannelByChannelIndex:input_type -> audiofx.DynamicsProcessingConfigGetChannelByChannelIndexRequest
+	265, // 152: audiofx.DynamicsProcessingConfigService.GetInputGainByChannelIndex:input_type -> audiofx.DynamicsProcessingConfigGetInputGainByChannelIndexRequest
+	266, // 153: audiofx.DynamicsProcessingConfigService.GetLimiterByChannelIndex:input_type -> audiofx.DynamicsProcessingConfigGetLimiterByChannelIndexRequest
+	267, // 154: audiofx.DynamicsProcessingConfigService.GetMbcBandByChannelIndex:input_type -> audiofx.DynamicsProcessingConfigGetMbcBandByChannelIndexRequest
+	268, // 155: audiofx.DynamicsProcessingConfigService.GetMbcBandCount:input_type -> audiofx.GetMbcBandCountRequest
+	270, // 156: audiofx.DynamicsProcessingConfigService.GetMbcByChannelIndex:input_type -> audiofx.DynamicsProcessingConfigGetMbcByChannelIndexRequest
+	271, // 157: audiofx.DynamicsProcessingConfigService.GetPostEqBandByChannelIndex:input_type -> audiofx.DynamicsProcessingConfigGetPostEqBandByChannelIndexRequest
+	272, // 158: audiofx.DynamicsProcessingConfigService.GetPostEqBandCount:input_type -> audiofx.GetPostEqBandCountRequest
+	274, // 159: audiofx.DynamicsProcessingConfigService.GetPostEqByChannelIndex:input_type -> audiofx.DynamicsProcessingConfigGetPostEqByChannelIndexRequest
+	275, // 160: audiofx.DynamicsProcessingConfigService.GetPreEqBandByChannelIndex:input_type -> audiofx.DynamicsProcessingConfigGetPreEqBandByChannelIndexRequest
+	276, // 161: audiofx.DynamicsProcessingConfigService.GetPreEqBandCount:input_type -> audiofx.GetPreEqBandCountRequest
+	278, // 162: audiofx.DynamicsProcessingConfigService.GetPreEqByChannelIndex:input_type -> audiofx.DynamicsProcessingConfigGetPreEqByChannelIndexRequest
+	279, // 163: audiofx.DynamicsProcessingConfigService.GetPreferredFrameDuration:input_type -> audiofx.GetPreferredFrameDurationRequest
+	281, // 164: audiofx.DynamicsProcessingConfigService.GetVariant:input_type -> audiofx.GetVariantRequest
+	283, // 165: audiofx.DynamicsProcessingConfigService.IsLimiterInUse:input_type -> audiofx.IsLimiterInUseRequest
+	285, // 166: audiofx.DynamicsProcessingConfigService.IsMbcInUse:input_type -> audiofx.IsMbcInUseRequest
+	287, // 167: audiofx.DynamicsProcessingConfigService.IsPostEqInUse:input_type -> audiofx.IsPostEqInUseRequest
+	289, // 168: audiofx.DynamicsProcessingConfigService.IsPreEqInUse:input_type -> audiofx.IsPreEqInUseRequest
+	291, // 169: audiofx.DynamicsProcessingConfigService.SetAllChannelsTo:input_type -> audiofx.DynamicsProcessingConfigSetAllChannelsToRequest
+	292, // 170: audiofx.DynamicsProcessingConfigService.SetChannelTo:input_type -> audiofx.DynamicsProcessingConfigSetChannelToRequest
+	293, // 171: audiofx.DynamicsProcessingConfigService.SetInputGainAllChannelsTo:input_type -> audiofx.DynamicsProcessingConfigSetInputGainAllChannelsToRequest
+	294, // 172: audiofx.DynamicsProcessingConfigService.SetInputGainByChannelIndex:input_type -> audiofx.SetInputGainByChannelIndexRequest
+	296, // 173: audiofx.DynamicsProcessingConfigService.SetLimiterAllChannelsTo:input_type -> audiofx.DynamicsProcessingConfigSetLimiterAllChannelsToRequest
+	297, // 174: audiofx.DynamicsProcessingConfigService.SetLimiterByChannelIndex:input_type -> audiofx.DynamicsProcessingConfigSetLimiterByChannelIndexRequest
+	298, // 175: audiofx.DynamicsProcessingConfigService.SetMbcAllChannelsTo:input_type -> audiofx.DynamicsProcessingConfigSetMbcAllChannelsToRequest
+	299, // 176: audiofx.DynamicsProcessingConfigService.SetMbcBandAllChannelsTo:input_type -> audiofx.DynamicsProcessingConfigSetMbcBandAllChannelsToRequest
+	300, // 177: audiofx.DynamicsProcessingConfigService.SetMbcBandByChannelIndex:input_type -> audiofx.DynamicsProcessingConfigSetMbcBandByChannelIndexRequest
+	301, // 178: audiofx.DynamicsProcessingConfigService.SetMbcByChannelIndex:input_type -> audiofx.DynamicsProcessingConfigSetMbcByChannelIndexRequest
+	302, // 179: audiofx.DynamicsProcessingConfigService.SetPostEqAllChannelsTo:input_type -> audiofx.DynamicsProcessingConfigSetPostEqAllChannelsToRequest
+	303, // 180: audiofx.DynamicsProcessingConfigService.SetPostEqBandAllChannelsTo:input_type -> audiofx.DynamicsProcessingConfigSetPostEqBandAllChannelsToRequest
+	304, // 181: audiofx.DynamicsProcessingConfigService.SetPostEqBandByChannelIndex:input_type -> audiofx.DynamicsProcessingConfigSetPostEqBandByChannelIndexRequest
+	305, // 182: audiofx.DynamicsProcessingConfigService.SetPostEqByChannelIndex:input_type -> audiofx.DynamicsProcessingConfigSetPostEqByChannelIndexRequest
+	306, // 183: audiofx.DynamicsProcessingConfigService.SetPreEqAllChannelsTo:input_type -> audiofx.DynamicsProcessingConfigSetPreEqAllChannelsToRequest
+	307, // 184: audiofx.DynamicsProcessingConfigService.SetPreEqBandAllChannelsTo:input_type -> audiofx.DynamicsProcessingConfigSetPreEqBandAllChannelsToRequest
+	308, // 185: audiofx.DynamicsProcessingConfigService.SetPreEqBandByChannelIndex:input_type -> audiofx.DynamicsProcessingConfigSetPreEqBandByChannelIndexRequest
+	309, // 186: audiofx.DynamicsProcessingConfigService.SetPreEqByChannelIndex:input_type -> audiofx.DynamicsProcessingConfigSetPreEqByChannelIndexRequest
+	16,  // 187: audiofx.DynamicsProcessingConfigService.ToString:input_type -> audiofx.ToStringRequest
+	310, // 188: audiofx.DynamicsProcessingEqService.GetBand:input_type -> audiofx.DynamicsProcessingEqGetBandRequest
+	312, // 189: audiofx.DynamicsProcessingEqService.SetBand:input_type -> audiofx.SetBandRequest
+	16,  // 190: audiofx.DynamicsProcessingEqService.ToString:input_type -> audiofx.ToStringRequest
+	314, // 191: audiofx.DynamicsProcessingEqBandService.GetGain:input_type -> audiofx.GetGainRequest
+	316, // 192: audiofx.DynamicsProcessingEqBandService.SetGain:input_type -> audiofx.SetGainRequest
+	16,  // 193: audiofx.DynamicsProcessingEqBandService.ToString:input_type -> audiofx.ToStringRequest
+	318, // 194: audiofx.DynamicsProcessingLimiterService.GetAttackTime:input_type -> audiofx.GetAttackTimeRequest
+	320, // 195: audiofx.DynamicsProcessingLimiterService.GetLinkGroup:input_type -> audiofx.GetLinkGroupRequest
+	322, // 196: audiofx.DynamicsProcessingLimiterService.GetPostGain:input_type -> audiofx.GetPostGainRequest
+	324, // 197: audiofx.DynamicsProcessingLimiterService.GetRatio:input_type -> audiofx.GetRatioRequest
+	326, // 198: audiofx.DynamicsProcessingLimiterService.GetReleaseTime:input_type -> audiofx.GetReleaseTimeRequest
+	328, // 199: audiofx.DynamicsProcessingLimiterService.GetThreshold:input_type -> audiofx.GetThresholdRequest
+	330, // 200: audiofx.DynamicsProcessingLimiterService.SetAttackTime:input_type -> audiofx.SetAttackTimeRequest
+	332, // 201: audiofx.DynamicsProcessingLimiterService.SetLinkGroup:input_type -> audiofx.SetLinkGroupRequest
+	334, // 202: audiofx.DynamicsProcessingLimiterService.SetPostGain:input_type -> audiofx.SetPostGainRequest
+	336, // 203: audiofx.DynamicsProcessingLimiterService.SetRatio:input_type -> audiofx.SetRatioRequest
+	338, // 204: audiofx.DynamicsProcessingLimiterService.SetReleaseTime:input_type -> audiofx.SetReleaseTimeRequest
+	340, // 205: audiofx.DynamicsProcessingLimiterService.SetThreshold:input_type -> audiofx.SetThresholdRequest
+	16,  // 206: audiofx.DynamicsProcessingLimiterService.ToString:input_type -> audiofx.ToStringRequest
+	342, // 207: audiofx.DynamicsProcessingMbcService.GetBand:input_type -> audiofx.DynamicsProcessingMbcGetBandRequest
+	312, // 208: audiofx.DynamicsProcessingMbcService.SetBand:input_type -> audiofx.SetBandRequest
+	16,  // 209: audiofx.DynamicsProcessingMbcService.ToString:input_type -> audiofx.ToStringRequest
+	318, // 210: audiofx.DynamicsProcessingMbcBandService.GetAttackTime:input_type -> audiofx.GetAttackTimeRequest
+	344, // 211: audiofx.DynamicsProcessingMbcBandService.GetExpanderRatio:input_type -> audiofx.GetExpanderRatioRequest
+	346, // 212: audiofx.DynamicsProcessingMbcBandService.GetKneeWidth:input_type -> audiofx.GetKneeWidthRequest
+	348, // 213: audiofx.DynamicsProcessingMbcBandService.GetNoiseGateThreshold:input_type -> audiofx.GetNoiseGateThresholdRequest
+	322, // 214: audiofx.DynamicsProcessingMbcBandService.GetPostGain:input_type -> audiofx.GetPostGainRequest
+	350, // 215: audiofx.DynamicsProcessingMbcBandService.GetPreGain:input_type -> audiofx.GetPreGainRequest
+	324, // 216: audiofx.DynamicsProcessingMbcBandService.GetRatio:input_type -> audiofx.GetRatioRequest
+	326, // 217: audiofx.DynamicsProcessingMbcBandService.GetReleaseTime:input_type -> audiofx.GetReleaseTimeRequest
+	328, // 218: audiofx.DynamicsProcessingMbcBandService.GetThreshold:input_type -> audiofx.GetThresholdRequest
+	330, // 219: audiofx.DynamicsProcessingMbcBandService.SetAttackTime:input_type -> audiofx.SetAttackTimeRequest
+	352, // 220: audiofx.DynamicsProcessingMbcBandService.SetExpanderRatio:input_type -> audiofx.SetExpanderRatioRequest
+	354, // 221: audiofx.DynamicsProcessingMbcBandService.SetKneeWidth:input_type -> audiofx.SetKneeWidthRequest
+	356, // 222: audiofx.DynamicsProcessingMbcBandService.SetNoiseGateThreshold:input_type -> audiofx.SetNoiseGateThresholdRequest
+	334, // 223: audiofx.DynamicsProcessingMbcBandService.SetPostGain:input_type -> audiofx.SetPostGainRequest
+	358, // 224: audiofx.DynamicsProcessingMbcBandService.SetPreGain:input_type -> audiofx.SetPreGainRequest
+	336, // 225: audiofx.DynamicsProcessingMbcBandService.SetRatio:input_type -> audiofx.SetRatioRequest
+	338, // 226: audiofx.DynamicsProcessingMbcBandService.SetReleaseTime:input_type -> audiofx.SetReleaseTimeRequest
+	340, // 227: audiofx.DynamicsProcessingMbcBandService.SetThreshold:input_type -> audiofx.SetThresholdRequest
+	16,  // 228: audiofx.DynamicsProcessingMbcBandService.ToString:input_type -> audiofx.ToStringRequest
+	224, // 229: audiofx.DynamicsProcessingStageService.IsEnabled:input_type -> audiofx.IsEnabledRequest
+	360, // 230: audiofx.DynamicsProcessingStageService.IsInUse:input_type -> audiofx.IsInUseRequest
+	362, // 231: audiofx.DynamicsProcessingStageService.SetEnabled:input_type -> audiofx.DynamicsProcessingStageSetEnabledRequest
+	16,  // 232: audiofx.DynamicsProcessingStageService.ToString:input_type -> audiofx.ToStringRequest
+	18,  // 233: audiofx.NoiseSuppressorService.Create:input_type -> audiofx.CreateRequest
+	20,  // 234: audiofx.NoiseSuppressorService.IsAvailable:input_type -> audiofx.IsAvailableRequest
+	364, // 235: audiofx.VirtualizerService.NewVirtualizer:input_type -> audiofx.NewVirtualizerRequest
+	366, // 236: audiofx.VirtualizerService.CanVirtualize:input_type -> audiofx.CanVirtualizeRequest
+	368, // 237: audiofx.VirtualizerService.ForceVirtualizationMode:input_type -> audiofx.ForceVirtualizationModeRequest
+	2,   // 238: audiofx.VirtualizerService.GetProperties:input_type -> audiofx.GetPropertiesRequest
+	4,   // 239: audiofx.VirtualizerService.GetRoundedStrength:input_type -> audiofx.GetRoundedStrengthRequest
+	370, // 240: audiofx.VirtualizerService.GetSpeakerAngles:input_type -> audiofx.GetSpeakerAnglesRequest
+	6,   // 241: audiofx.VirtualizerService.GetStrengthSupported:input_type -> audiofx.GetStrengthSupportedRequest
+	372, // 242: audiofx.VirtualizerService.GetVirtualizationMode:input_type -> audiofx.GetVirtualizationModeRequest
+	8,   // 243: audiofx.VirtualizerService.SetParameterListener:input_type -> audiofx.SetParameterListenerRequest
+	10,  // 244: audiofx.VirtualizerService.SetProperties:input_type -> audiofx.SetPropertiesRequest
+	12,  // 245: audiofx.VirtualizerService.SetStrength:input_type -> audiofx.SetStrengthRequest
+	14,  // 246: audiofx.VirtualizerOnParameterChangeListenerService.OnParameterChange:input_type -> audiofx.OnParameterChangeRequest
+	16,  // 247: audiofx.VirtualizerSettingsService.ToString:input_type -> audiofx.ToStringRequest
+	18,  // 248: audiofx.AcousticEchoCancelerService.Create:input_type -> audiofx.CreateRequest
+	20,  // 249: audiofx.AcousticEchoCancelerService.IsAvailable:input_type -> audiofx.IsAvailableRequest
+	374, // 250: audiofx.HapticGeneratorService.Close:input_type -> audiofx.CloseRequest
+	376, // 251: audiofx.HapticGeneratorService.Release:input_type -> audiofx.HapticGeneratorReleaseRequest
+	377, // 252: audiofx.HapticGeneratorService.SetEnabled:input_type -> audiofx.HapticGeneratorSetEnabledRequest
+	18,  // 253: audiofx.HapticGeneratorService.Create:input_type -> audiofx.CreateRequest
+	20,  // 254: audiofx.HapticGeneratorService.IsAvailable:input_type -> audiofx.IsAvailableRequest
+	1,   // 255: audiofx.BassBoostService.NewBassBoost:output_type -> audiofx.NewBassBoostResponse
+	3,   // 256: audiofx.BassBoostService.GetProperties:output_type -> audiofx.GetPropertiesResponse
+	5,   // 257: audiofx.BassBoostService.GetRoundedStrength:output_type -> audiofx.GetRoundedStrengthResponse
+	7,   // 258: audiofx.BassBoostService.GetStrengthSupported:output_type -> audiofx.GetStrengthSupportedResponse
+	9,   // 259: audiofx.BassBoostService.SetParameterListener:output_type -> audiofx.SetParameterListenerResponse
+	11,  // 260: audiofx.BassBoostService.SetProperties:output_type -> audiofx.SetPropertiesResponse
+	13,  // 261: audiofx.BassBoostService.SetStrength:output_type -> audiofx.SetStrengthResponse
+	15,  // 262: audiofx.BassBoostOnParameterChangeListenerService.OnParameterChange:output_type -> audiofx.OnParameterChangeResponse
+	17,  // 263: audiofx.BassBoostSettingsService.ToString:output_type -> audiofx.ToStringResponse
+	19,  // 264: audiofx.AutomaticGainControlService.Create:output_type -> audiofx.CreateResponse
+	21,  // 265: audiofx.AutomaticGainControlService.IsAvailable:output_type -> audiofx.IsAvailableResponse
+	23,  // 266: audiofx.VisualizerService.NewVisualizer:output_type -> audiofx.NewVisualizerResponse
+	25,  // 267: audiofx.VisualizerService.GetCaptureSize:output_type -> audiofx.GetCaptureSizeResponse
+	27,  // 268: audiofx.VisualizerService.GetEnabled:output_type -> audiofx.GetEnabledResponse
+	29,  // 269: audiofx.VisualizerService.GetFft:output_type -> audiofx.GetFftResponse
+	31,  // 270: audiofx.VisualizerService.GetMeasurementMode:output_type -> audiofx.GetMeasurementModeResponse
+	33,  // 271: audiofx.VisualizerService.GetMeasurementPeakRms:output_type -> audiofx.GetMeasurementPeakRmsResponse
+	35,  // 272: audiofx.VisualizerService.GetSamplingRate:output_type -> audiofx.GetSamplingRateResponse
+	37,  // 273: audiofx.VisualizerService.GetScalingMode:output_type -> audiofx.GetScalingModeResponse
+	39,  // 274: audiofx.VisualizerService.GetWaveForm:output_type -> audiofx.GetWaveFormResponse
+	41,  // 275: audiofx.VisualizerService.Release:output_type -> audiofx.ReleaseResponse
+	43,  // 276: audiofx.VisualizerService.SetCaptureSize:output_type -> audiofx.SetCaptureSizeResponse
+	45,  // 277: audiofx.VisualizerService.SetDataCaptureListener:output_type -> audiofx.SetDataCaptureListenerResponse
+	47,  // 278: audiofx.VisualizerService.SetEnabled:output_type -> audiofx.SetEnabledResponse
+	49,  // 279: audiofx.VisualizerService.SetMeasurementMode:output_type -> audiofx.SetMeasurementModeResponse
+	51,  // 280: audiofx.VisualizerService.SetScalingMode:output_type -> audiofx.SetScalingModeResponse
+	53,  // 281: audiofx.VisualizerService.GetCaptureSizeRange:output_type -> audiofx.GetCaptureSizeRangeResponse
+	55,  // 282: audiofx.VisualizerService.GetMaxCaptureRate:output_type -> audiofx.GetMaxCaptureRateResponse
+	57,  // 283: audiofx.VisualizerOnDataCaptureListenerService.OnFftDataCapture:output_type -> audiofx.OnFftDataCaptureResponse
+	59,  // 284: audiofx.VisualizerOnDataCaptureListenerService.OnWaveFormDataCapture:output_type -> audiofx.OnWaveFormDataCaptureResponse
+	61,  // 285: audiofx.EnvironmentalReverbService.NewEnvironmentalReverb:output_type -> audiofx.NewEnvironmentalReverbResponse
+	63,  // 286: audiofx.EnvironmentalReverbService.GetDecayHFRatio:output_type -> audiofx.GetDecayHFRatioResponse
+	65,  // 287: audiofx.EnvironmentalReverbService.GetDecayTime:output_type -> audiofx.GetDecayTimeResponse
+	67,  // 288: audiofx.EnvironmentalReverbService.GetDensity:output_type -> audiofx.GetDensityResponse
+	69,  // 289: audiofx.EnvironmentalReverbService.GetDiffusion:output_type -> audiofx.GetDiffusionResponse
+	3,   // 290: audiofx.EnvironmentalReverbService.GetProperties:output_type -> audiofx.GetPropertiesResponse
+	71,  // 291: audiofx.EnvironmentalReverbService.GetReflectionsDelay:output_type -> audiofx.GetReflectionsDelayResponse
+	73,  // 292: audiofx.EnvironmentalReverbService.GetReflectionsLevel:output_type -> audiofx.GetReflectionsLevelResponse
+	75,  // 293: audiofx.EnvironmentalReverbService.GetReverbDelay:output_type -> audiofx.GetReverbDelayResponse
+	77,  // 294: audiofx.EnvironmentalReverbService.GetReverbLevel:output_type -> audiofx.GetReverbLevelResponse
+	79,  // 295: audiofx.EnvironmentalReverbService.GetRoomHFLevel:output_type -> audiofx.GetRoomHFLevelResponse
+	81,  // 296: audiofx.EnvironmentalReverbService.GetRoomLevel:output_type -> audiofx.GetRoomLevelResponse
+	83,  // 297: audiofx.EnvironmentalReverbService.SetDecayHFRatio:output_type -> audiofx.SetDecayHFRatioResponse
+	85,  // 298: audiofx.EnvironmentalReverbService.SetDecayTime:output_type -> audiofx.SetDecayTimeResponse
+	87,  // 299: audiofx.EnvironmentalReverbService.SetDensity:output_type -> audiofx.SetDensityResponse
+	89,  // 300: audiofx.EnvironmentalReverbService.SetDiffusion:output_type -> audiofx.SetDiffusionResponse
+	9,   // 301: audiofx.EnvironmentalReverbService.SetParameterListener:output_type -> audiofx.SetParameterListenerResponse
+	11,  // 302: audiofx.EnvironmentalReverbService.SetProperties:output_type -> audiofx.SetPropertiesResponse
+	91,  // 303: audiofx.EnvironmentalReverbService.SetReflectionsDelay:output_type -> audiofx.SetReflectionsDelayResponse
+	93,  // 304: audiofx.EnvironmentalReverbService.SetReflectionsLevel:output_type -> audiofx.SetReflectionsLevelResponse
+	95,  // 305: audiofx.EnvironmentalReverbService.SetReverbDelay:output_type -> audiofx.SetReverbDelayResponse
+	97,  // 306: audiofx.EnvironmentalReverbService.SetReverbLevel:output_type -> audiofx.SetReverbLevelResponse
+	99,  // 307: audiofx.EnvironmentalReverbService.SetRoomHFLevel:output_type -> audiofx.SetRoomHFLevelResponse
+	101, // 308: audiofx.EnvironmentalReverbService.SetRoomLevel:output_type -> audiofx.SetRoomLevelResponse
+	15,  // 309: audiofx.EnvironmentalReverbOnParameterChangeListenerService.OnParameterChange:output_type -> audiofx.OnParameterChangeResponse
+	17,  // 310: audiofx.EnvironmentalReverbSettingsService.ToString:output_type -> audiofx.ToStringResponse
+	103, // 311: audiofx.AudioEffectService.GetDescriptor:output_type -> audiofx.GetDescriptorResponse
+	27,  // 312: audiofx.AudioEffectService.GetEnabled:output_type -> audiofx.GetEnabledResponse
+	106, // 313: audiofx.AudioEffectService.GetId:output_type -> audiofx.GetIdResponse
+	108, // 314: audiofx.AudioEffectService.HasControl:output_type -> audiofx.HasControlResponse
+	41,  // 315: audiofx.AudioEffectService.Release:output_type -> audiofx.ReleaseResponse
+	111, // 316: audiofx.AudioEffectService.SetControlStatusListener:output_type -> audiofx.SetControlStatusListenerResponse
+	113, // 317: audiofx.AudioEffectService.SetEnableStatusListener:output_type -> audiofx.SetEnableStatusListenerResponse
+	47,  // 318: audiofx.AudioEffectService.SetEnabled:output_type -> audiofx.SetEnabledResponse
+	116, // 319: audiofx.AudioEffectService.QueryEffects:output_type -> audiofx.QueryEffectsResponse
+	118, // 320: audiofx.AudioEffectDescriptorService.Equals:output_type -> audiofx.EqualsResponse
+	120, // 321: audiofx.AudioEffectDescriptorService.HashCode:output_type -> audiofx.HashCodeResponse
+	122, // 322: audiofx.AudioEffectOnControlStatusChangeListenerService.OnControlStatusChange:output_type -> audiofx.OnControlStatusChangeResponse
+	124, // 323: audiofx.AudioEffectOnEnableStatusChangeListenerService.OnEnableStatusChange:output_type -> audiofx.OnEnableStatusChangeResponse
+	126, // 324: audiofx.EqualizerService.NewEqualizer:output_type -> audiofx.NewEqualizerResponse
+	128, // 325: audiofx.EqualizerService.GetBand:output_type -> audiofx.GetBandResponse
+	130, // 326: audiofx.EqualizerService.GetBandFreqRange:output_type -> audiofx.GetBandFreqRangeResponse
+	132, // 327: audiofx.EqualizerService.GetBandLevel:output_type -> audiofx.GetBandLevelResponse
+	134, // 328: audiofx.EqualizerService.GetBandLevelRange:output_type -> audiofx.GetBandLevelRangeResponse
+	136, // 329: audiofx.EqualizerService.GetCenterFreq:output_type -> audiofx.GetCenterFreqResponse
+	138, // 330: audiofx.EqualizerService.GetCurrentPreset:output_type -> audiofx.GetCurrentPresetResponse
+	140, // 331: audiofx.EqualizerService.GetNumberOfBands:output_type -> audiofx.GetNumberOfBandsResponse
+	142, // 332: audiofx.EqualizerService.GetNumberOfPresets:output_type -> audiofx.GetNumberOfPresetsResponse
+	144, // 333: audiofx.EqualizerService.GetPresetName:output_type -> audiofx.GetPresetNameResponse
+	3,   // 334: audiofx.EqualizerService.GetProperties:output_type -> audiofx.GetPropertiesResponse
+	146, // 335: audiofx.EqualizerService.SetBandLevel:output_type -> audiofx.SetBandLevelResponse
+	9,   // 336: audiofx.EqualizerService.SetParameterListener:output_type -> audiofx.SetParameterListenerResponse
+	11,  // 337: audiofx.EqualizerService.SetProperties:output_type -> audiofx.SetPropertiesResponse
+	148, // 338: audiofx.EqualizerService.UsePreset:output_type -> audiofx.UsePresetResponse
+	15,  // 339: audiofx.EqualizerOnParameterChangeListenerService.OnParameterChange:output_type -> audiofx.OnParameterChangeResponse
+	17,  // 340: audiofx.EqualizerSettingsService.ToString:output_type -> audiofx.ToStringResponse
+	151, // 341: audiofx.PresetReverbService.NewPresetReverb:output_type -> audiofx.NewPresetReverbResponse
+	153, // 342: audiofx.PresetReverbService.GetPreset:output_type -> audiofx.GetPresetResponse
+	3,   // 343: audiofx.PresetReverbService.GetProperties:output_type -> audiofx.GetPropertiesResponse
+	9,   // 344: audiofx.PresetReverbService.SetParameterListener:output_type -> audiofx.SetParameterListenerResponse
+	155, // 345: audiofx.PresetReverbService.SetPreset:output_type -> audiofx.SetPresetResponse
+	11,  // 346: audiofx.PresetReverbService.SetProperties:output_type -> audiofx.SetPropertiesResponse
+	15,  // 347: audiofx.PresetReverbOnParameterChangeListenerService.OnParameterChange:output_type -> audiofx.OnParameterChangeResponse
+	17,  // 348: audiofx.PresetReverbSettingsService.ToString:output_type -> audiofx.ToStringResponse
+	157, // 349: audiofx.LoudnessEnhancerService.NewLoudnessEnhancer:output_type -> audiofx.NewLoudnessEnhancerResponse
+	159, // 350: audiofx.LoudnessEnhancerService.GetTargetGain:output_type -> audiofx.GetTargetGainResponse
+	161, // 351: audiofx.LoudnessEnhancerService.SetTargetGain:output_type -> audiofx.SetTargetGainResponse
+	163, // 352: audiofx.DynamicsProcessingService.NewDynamicsProcessing:output_type -> audiofx.NewDynamicsProcessingResponse
+	165, // 353: audiofx.DynamicsProcessingService.GetChannelByChannelIndex:output_type -> audiofx.GetChannelByChannelIndexResponse
+	167, // 354: audiofx.DynamicsProcessingService.GetChannelCount:output_type -> audiofx.GetChannelCountResponse
+	169, // 355: audiofx.DynamicsProcessingService.GetConfig:output_type -> audiofx.GetConfigResponse
+	171, // 356: audiofx.DynamicsProcessingService.GetInputGainByChannelIndex:output_type -> audiofx.GetInputGainByChannelIndexResponse
+	173, // 357: audiofx.DynamicsProcessingService.GetLimiterByChannelIndex:output_type -> audiofx.GetLimiterByChannelIndexResponse
+	175, // 358: audiofx.DynamicsProcessingService.GetMbcBandByChannelIndex:output_type -> audiofx.GetMbcBandByChannelIndexResponse
+	177, // 359: audiofx.DynamicsProcessingService.GetMbcByChannelIndex:output_type -> audiofx.GetMbcByChannelIndexResponse
+	179, // 360: audiofx.DynamicsProcessingService.GetPostEqBandByChannelIndex:output_type -> audiofx.GetPostEqBandByChannelIndexResponse
+	181, // 361: audiofx.DynamicsProcessingService.GetPostEqByChannelIndex:output_type -> audiofx.GetPostEqByChannelIndexResponse
+	183, // 362: audiofx.DynamicsProcessingService.GetPreEqBandByChannelIndex:output_type -> audiofx.GetPreEqBandByChannelIndexResponse
+	185, // 363: audiofx.DynamicsProcessingService.GetPreEqByChannelIndex:output_type -> audiofx.GetPreEqByChannelIndexResponse
+	187, // 364: audiofx.DynamicsProcessingService.SetAllChannelsTo:output_type -> audiofx.SetAllChannelsToResponse
+	189, // 365: audiofx.DynamicsProcessingService.SetChannelTo:output_type -> audiofx.SetChannelToResponse
+	191, // 366: audiofx.DynamicsProcessingService.SetInputGainAllChannelsTo:output_type -> audiofx.SetInputGainAllChannelsToResponse
+	193, // 367: audiofx.DynamicsProcessingService.SetInputGainbyChannel:output_type -> audiofx.SetInputGainbyChannelResponse
+	195, // 368: audiofx.DynamicsProcessingService.SetLimiterAllChannelsTo:output_type -> audiofx.SetLimiterAllChannelsToResponse
+	197, // 369: audiofx.DynamicsProcessingService.SetLimiterByChannelIndex:output_type -> audiofx.SetLimiterByChannelIndexResponse
+	199, // 370: audiofx.DynamicsProcessingService.SetMbcAllChannelsTo:output_type -> audiofx.SetMbcAllChannelsToResponse
+	201, // 371: audiofx.DynamicsProcessingService.SetMbcBandAllChannelsTo:output_type -> audiofx.SetMbcBandAllChannelsToResponse
+	203, // 372: audiofx.DynamicsProcessingService.SetMbcBandByChannelIndex:output_type -> audiofx.SetMbcBandByChannelIndexResponse
+	205, // 373: audiofx.DynamicsProcessingService.SetMbcByChannelIndex:output_type -> audiofx.SetMbcByChannelIndexResponse
+	207, // 374: audiofx.DynamicsProcessingService.SetPostEqAllChannelsTo:output_type -> audiofx.SetPostEqAllChannelsToResponse
+	209, // 375: audiofx.DynamicsProcessingService.SetPostEqBandAllChannelsTo:output_type -> audiofx.SetPostEqBandAllChannelsToResponse
+	211, // 376: audiofx.DynamicsProcessingService.SetPostEqBandByChannelIndex:output_type -> audiofx.SetPostEqBandByChannelIndexResponse
+	213, // 377: audiofx.DynamicsProcessingService.SetPostEqByChannelIndex:output_type -> audiofx.SetPostEqByChannelIndexResponse
+	215, // 378: audiofx.DynamicsProcessingService.SetPreEqAllChannelsTo:output_type -> audiofx.SetPreEqAllChannelsToResponse
+	217, // 379: audiofx.DynamicsProcessingService.SetPreEqBandAllChannelsTo:output_type -> audiofx.SetPreEqBandAllChannelsToResponse
+	219, // 380: audiofx.DynamicsProcessingService.SetPreEqBandByChannelIndex:output_type -> audiofx.SetPreEqBandByChannelIndexResponse
+	221, // 381: audiofx.DynamicsProcessingService.SetPreEqByChannelIndex:output_type -> audiofx.SetPreEqByChannelIndexResponse
+	223, // 382: audiofx.DynamicsProcessingBandBaseService.GetCutoffFrequency:output_type -> audiofx.GetCutoffFrequencyResponse
+	225, // 383: audiofx.DynamicsProcessingBandBaseService.IsEnabled:output_type -> audiofx.IsEnabledResponse
+	227, // 384: audiofx.DynamicsProcessingBandBaseService.SetCutoffFrequency:output_type -> audiofx.SetCutoffFrequencyResponse
+	229, // 385: audiofx.DynamicsProcessingBandBaseService.SetEnabled:output_type -> audiofx.DynamicsProcessingBandBaseSetEnabledResponse
+	17,  // 386: audiofx.DynamicsProcessingBandBaseService.ToString:output_type -> audiofx.ToStringResponse
+	231, // 387: audiofx.DynamicsProcessingBandStageService.GetBandCount:output_type -> audiofx.GetBandCountResponse
+	17,  // 388: audiofx.DynamicsProcessingBandStageService.ToString:output_type -> audiofx.ToStringResponse
+	233, // 389: audiofx.DynamicsProcessingChannelService.GetInputGain:output_type -> audiofx.GetInputGainResponse
+	235, // 390: audiofx.DynamicsProcessingChannelService.GetLimiter:output_type -> audiofx.GetLimiterResponse
+	237, // 391: audiofx.DynamicsProcessingChannelService.GetMbc:output_type -> audiofx.GetMbcResponse
+	239, // 392: audiofx.DynamicsProcessingChannelService.GetMbcBand:output_type -> audiofx.GetMbcBandResponse
+	241, // 393: audiofx.DynamicsProcessingChannelService.GetPostEq:output_type -> audiofx.GetPostEqResponse
+	243, // 394: audiofx.DynamicsProcessingChannelService.GetPostEqBand:output_type -> audiofx.GetPostEqBandResponse
+	245, // 395: audiofx.DynamicsProcessingChannelService.GetPreEq:output_type -> audiofx.GetPreEqResponse
+	247, // 396: audiofx.DynamicsProcessingChannelService.GetPreEqBand:output_type -> audiofx.GetPreEqBandResponse
+	249, // 397: audiofx.DynamicsProcessingChannelService.SetInputGain:output_type -> audiofx.SetInputGainResponse
+	251, // 398: audiofx.DynamicsProcessingChannelService.SetLimiter:output_type -> audiofx.SetLimiterResponse
+	253, // 399: audiofx.DynamicsProcessingChannelService.SetMbc:output_type -> audiofx.SetMbcResponse
+	255, // 400: audiofx.DynamicsProcessingChannelService.SetMbcBand:output_type -> audiofx.SetMbcBandResponse
+	257, // 401: audiofx.DynamicsProcessingChannelService.SetPostEq:output_type -> audiofx.SetPostEqResponse
+	259, // 402: audiofx.DynamicsProcessingChannelService.SetPostEqBand:output_type -> audiofx.SetPostEqBandResponse
+	261, // 403: audiofx.DynamicsProcessingChannelService.SetPreEq:output_type -> audiofx.SetPreEqResponse
+	263, // 404: audiofx.DynamicsProcessingChannelService.SetPreEqBand:output_type -> audiofx.SetPreEqBandResponse
+	17,  // 405: audiofx.DynamicsProcessingChannelService.ToString:output_type -> audiofx.ToStringResponse
+	165, // 406: audiofx.DynamicsProcessingConfigService.GetChannelByChannelIndex:output_type -> audiofx.GetChannelByChannelIndexResponse
+	171, // 407: audiofx.DynamicsProcessingConfigService.GetInputGainByChannelIndex:output_type -> audiofx.GetInputGainByChannelIndexResponse
+	173, // 408: audiofx.DynamicsProcessingConfigService.GetLimiterByChannelIndex:output_type -> audiofx.GetLimiterByChannelIndexResponse
+	175, // 409: audiofx.DynamicsProcessingConfigService.GetMbcBandByChannelIndex:output_type -> audiofx.GetMbcBandByChannelIndexResponse
+	269, // 410: audiofx.DynamicsProcessingConfigService.GetMbcBandCount:output_type -> audiofx.GetMbcBandCountResponse
+	177, // 411: audiofx.DynamicsProcessingConfigService.GetMbcByChannelIndex:output_type -> audiofx.GetMbcByChannelIndexResponse
+	179, // 412: audiofx.DynamicsProcessingConfigService.GetPostEqBandByChannelIndex:output_type -> audiofx.GetPostEqBandByChannelIndexResponse
+	273, // 413: audiofx.DynamicsProcessingConfigService.GetPostEqBandCount:output_type -> audiofx.GetPostEqBandCountResponse
+	181, // 414: audiofx.DynamicsProcessingConfigService.GetPostEqByChannelIndex:output_type -> audiofx.GetPostEqByChannelIndexResponse
+	183, // 415: audiofx.DynamicsProcessingConfigService.GetPreEqBandByChannelIndex:output_type -> audiofx.GetPreEqBandByChannelIndexResponse
+	277, // 416: audiofx.DynamicsProcessingConfigService.GetPreEqBandCount:output_type -> audiofx.GetPreEqBandCountResponse
+	185, // 417: audiofx.DynamicsProcessingConfigService.GetPreEqByChannelIndex:output_type -> audiofx.GetPreEqByChannelIndexResponse
+	280, // 418: audiofx.DynamicsProcessingConfigService.GetPreferredFrameDuration:output_type -> audiofx.GetPreferredFrameDurationResponse
+	282, // 419: audiofx.DynamicsProcessingConfigService.GetVariant:output_type -> audiofx.GetVariantResponse
+	284, // 420: audiofx.DynamicsProcessingConfigService.IsLimiterInUse:output_type -> audiofx.IsLimiterInUseResponse
+	286, // 421: audiofx.DynamicsProcessingConfigService.IsMbcInUse:output_type -> audiofx.IsMbcInUseResponse
+	288, // 422: audiofx.DynamicsProcessingConfigService.IsPostEqInUse:output_type -> audiofx.IsPostEqInUseResponse
+	290, // 423: audiofx.DynamicsProcessingConfigService.IsPreEqInUse:output_type -> audiofx.IsPreEqInUseResponse
+	187, // 424: audiofx.DynamicsProcessingConfigService.SetAllChannelsTo:output_type -> audiofx.SetAllChannelsToResponse
+	189, // 425: audiofx.DynamicsProcessingConfigService.SetChannelTo:output_type -> audiofx.SetChannelToResponse
+	191, // 426: audiofx.DynamicsProcessingConfigService.SetInputGainAllChannelsTo:output_type -> audiofx.SetInputGainAllChannelsToResponse
+	295, // 427: audiofx.DynamicsProcessingConfigService.SetInputGainByChannelIndex:output_type -> audiofx.SetInputGainByChannelIndexResponse
+	195, // 428: audiofx.DynamicsProcessingConfigService.SetLimiterAllChannelsTo:output_type -> audiofx.SetLimiterAllChannelsToResponse
+	197, // 429: audiofx.DynamicsProcessingConfigService.SetLimiterByChannelIndex:output_type -> audiofx.SetLimiterByChannelIndexResponse
+	199, // 430: audiofx.DynamicsProcessingConfigService.SetMbcAllChannelsTo:output_type -> audiofx.SetMbcAllChannelsToResponse
+	201, // 431: audiofx.DynamicsProcessingConfigService.SetMbcBandAllChannelsTo:output_type -> audiofx.SetMbcBandAllChannelsToResponse
+	203, // 432: audiofx.DynamicsProcessingConfigService.SetMbcBandByChannelIndex:output_type -> audiofx.SetMbcBandByChannelIndexResponse
+	205, // 433: audiofx.DynamicsProcessingConfigService.SetMbcByChannelIndex:output_type -> audiofx.SetMbcByChannelIndexResponse
+	207, // 434: audiofx.DynamicsProcessingConfigService.SetPostEqAllChannelsTo:output_type -> audiofx.SetPostEqAllChannelsToResponse
+	209, // 435: audiofx.DynamicsProcessingConfigService.SetPostEqBandAllChannelsTo:output_type -> audiofx.SetPostEqBandAllChannelsToResponse
+	211, // 436: audiofx.DynamicsProcessingConfigService.SetPostEqBandByChannelIndex:output_type -> audiofx.SetPostEqBandByChannelIndexResponse
+	213, // 437: audiofx.DynamicsProcessingConfigService.SetPostEqByChannelIndex:output_type -> audiofx.SetPostEqByChannelIndexResponse
+	215, // 438: audiofx.DynamicsProcessingConfigService.SetPreEqAllChannelsTo:output_type -> audiofx.SetPreEqAllChannelsToResponse
+	217, // 439: audiofx.DynamicsProcessingConfigService.SetPreEqBandAllChannelsTo:output_type -> audiofx.SetPreEqBandAllChannelsToResponse
+	219, // 440: audiofx.DynamicsProcessingConfigService.SetPreEqBandByChannelIndex:output_type -> audiofx.SetPreEqBandByChannelIndexResponse
+	221, // 441: audiofx.DynamicsProcessingConfigService.SetPreEqByChannelIndex:output_type -> audiofx.SetPreEqByChannelIndexResponse
+	17,  // 442: audiofx.DynamicsProcessingConfigService.ToString:output_type -> audiofx.ToStringResponse
+	311, // 443: audiofx.DynamicsProcessingEqService.GetBand:output_type -> audiofx.DynamicsProcessingEqGetBandResponse
+	313, // 444: audiofx.DynamicsProcessingEqService.SetBand:output_type -> audiofx.SetBandResponse
+	17,  // 445: audiofx.DynamicsProcessingEqService.ToString:output_type -> audiofx.ToStringResponse
+	315, // 446: audiofx.DynamicsProcessingEqBandService.GetGain:output_type -> audiofx.GetGainResponse
+	317, // 447: audiofx.DynamicsProcessingEqBandService.SetGain:output_type -> audiofx.SetGainResponse
+	17,  // 448: audiofx.DynamicsProcessingEqBandService.ToString:output_type -> audiofx.ToStringResponse
+	319, // 449: audiofx.DynamicsProcessingLimiterService.GetAttackTime:output_type -> audiofx.GetAttackTimeResponse
+	321, // 450: audiofx.DynamicsProcessingLimiterService.GetLinkGroup:output_type -> audiofx.GetLinkGroupResponse
+	323, // 451: audiofx.DynamicsProcessingLimiterService.GetPostGain:output_type -> audiofx.GetPostGainResponse
+	325, // 452: audiofx.DynamicsProcessingLimiterService.GetRatio:output_type -> audiofx.GetRatioResponse
+	327, // 453: audiofx.DynamicsProcessingLimiterService.GetReleaseTime:output_type -> audiofx.GetReleaseTimeResponse
+	329, // 454: audiofx.DynamicsProcessingLimiterService.GetThreshold:output_type -> audiofx.GetThresholdResponse
+	331, // 455: audiofx.DynamicsProcessingLimiterService.SetAttackTime:output_type -> audiofx.SetAttackTimeResponse
+	333, // 456: audiofx.DynamicsProcessingLimiterService.SetLinkGroup:output_type -> audiofx.SetLinkGroupResponse
+	335, // 457: audiofx.DynamicsProcessingLimiterService.SetPostGain:output_type -> audiofx.SetPostGainResponse
+	337, // 458: audiofx.DynamicsProcessingLimiterService.SetRatio:output_type -> audiofx.SetRatioResponse
+	339, // 459: audiofx.DynamicsProcessingLimiterService.SetReleaseTime:output_type -> audiofx.SetReleaseTimeResponse
+	341, // 460: audiofx.DynamicsProcessingLimiterService.SetThreshold:output_type -> audiofx.SetThresholdResponse
+	17,  // 461: audiofx.DynamicsProcessingLimiterService.ToString:output_type -> audiofx.ToStringResponse
+	343, // 462: audiofx.DynamicsProcessingMbcService.GetBand:output_type -> audiofx.DynamicsProcessingMbcGetBandResponse
+	313, // 463: audiofx.DynamicsProcessingMbcService.SetBand:output_type -> audiofx.SetBandResponse
+	17,  // 464: audiofx.DynamicsProcessingMbcService.ToString:output_type -> audiofx.ToStringResponse
+	319, // 465: audiofx.DynamicsProcessingMbcBandService.GetAttackTime:output_type -> audiofx.GetAttackTimeResponse
+	345, // 466: audiofx.DynamicsProcessingMbcBandService.GetExpanderRatio:output_type -> audiofx.GetExpanderRatioResponse
+	347, // 467: audiofx.DynamicsProcessingMbcBandService.GetKneeWidth:output_type -> audiofx.GetKneeWidthResponse
+	349, // 468: audiofx.DynamicsProcessingMbcBandService.GetNoiseGateThreshold:output_type -> audiofx.GetNoiseGateThresholdResponse
+	323, // 469: audiofx.DynamicsProcessingMbcBandService.GetPostGain:output_type -> audiofx.GetPostGainResponse
+	351, // 470: audiofx.DynamicsProcessingMbcBandService.GetPreGain:output_type -> audiofx.GetPreGainResponse
+	325, // 471: audiofx.DynamicsProcessingMbcBandService.GetRatio:output_type -> audiofx.GetRatioResponse
+	327, // 472: audiofx.DynamicsProcessingMbcBandService.GetReleaseTime:output_type -> audiofx.GetReleaseTimeResponse
+	329, // 473: audiofx.DynamicsProcessingMbcBandService.GetThreshold:output_type -> audiofx.GetThresholdResponse
+	331, // 474: audiofx.DynamicsProcessingMbcBandService.SetAttackTime:output_type -> audiofx.SetAttackTimeResponse
+	353, // 475: audiofx.DynamicsProcessingMbcBandService.SetExpanderRatio:output_type -> audiofx.SetExpanderRatioResponse
+	355, // 476: audiofx.DynamicsProcessingMbcBandService.SetKneeWidth:output_type -> audiofx.SetKneeWidthResponse
+	357, // 477: audiofx.DynamicsProcessingMbcBandService.SetNoiseGateThreshold:output_type -> audiofx.SetNoiseGateThresholdResponse
+	335, // 478: audiofx.DynamicsProcessingMbcBandService.SetPostGain:output_type -> audiofx.SetPostGainResponse
+	359, // 479: audiofx.DynamicsProcessingMbcBandService.SetPreGain:output_type -> audiofx.SetPreGainResponse
+	337, // 480: audiofx.DynamicsProcessingMbcBandService.SetRatio:output_type -> audiofx.SetRatioResponse
+	339, // 481: audiofx.DynamicsProcessingMbcBandService.SetReleaseTime:output_type -> audiofx.SetReleaseTimeResponse
+	341, // 482: audiofx.DynamicsProcessingMbcBandService.SetThreshold:output_type -> audiofx.SetThresholdResponse
+	17,  // 483: audiofx.DynamicsProcessingMbcBandService.ToString:output_type -> audiofx.ToStringResponse
+	225, // 484: audiofx.DynamicsProcessingStageService.IsEnabled:output_type -> audiofx.IsEnabledResponse
+	361, // 485: audiofx.DynamicsProcessingStageService.IsInUse:output_type -> audiofx.IsInUseResponse
+	363, // 486: audiofx.DynamicsProcessingStageService.SetEnabled:output_type -> audiofx.DynamicsProcessingStageSetEnabledResponse
+	17,  // 487: audiofx.DynamicsProcessingStageService.ToString:output_type -> audiofx.ToStringResponse
+	19,  // 488: audiofx.NoiseSuppressorService.Create:output_type -> audiofx.CreateResponse
+	21,  // 489: audiofx.NoiseSuppressorService.IsAvailable:output_type -> audiofx.IsAvailableResponse
+	365, // 490: audiofx.VirtualizerService.NewVirtualizer:output_type -> audiofx.NewVirtualizerResponse
+	367, // 491: audiofx.VirtualizerService.CanVirtualize:output_type -> audiofx.CanVirtualizeResponse
+	369, // 492: audiofx.VirtualizerService.ForceVirtualizationMode:output_type -> audiofx.ForceVirtualizationModeResponse
+	3,   // 493: audiofx.VirtualizerService.GetProperties:output_type -> audiofx.GetPropertiesResponse
+	5,   // 494: audiofx.VirtualizerService.GetRoundedStrength:output_type -> audiofx.GetRoundedStrengthResponse
+	371, // 495: audiofx.VirtualizerService.GetSpeakerAngles:output_type -> audiofx.GetSpeakerAnglesResponse
+	7,   // 496: audiofx.VirtualizerService.GetStrengthSupported:output_type -> audiofx.GetStrengthSupportedResponse
+	373, // 497: audiofx.VirtualizerService.GetVirtualizationMode:output_type -> audiofx.GetVirtualizationModeResponse
+	9,   // 498: audiofx.VirtualizerService.SetParameterListener:output_type -> audiofx.SetParameterListenerResponse
+	11,  // 499: audiofx.VirtualizerService.SetProperties:output_type -> audiofx.SetPropertiesResponse
+	13,  // 500: audiofx.VirtualizerService.SetStrength:output_type -> audiofx.SetStrengthResponse
+	15,  // 501: audiofx.VirtualizerOnParameterChangeListenerService.OnParameterChange:output_type -> audiofx.OnParameterChangeResponse
+	17,  // 502: audiofx.VirtualizerSettingsService.ToString:output_type -> audiofx.ToStringResponse
+	19,  // 503: audiofx.AcousticEchoCancelerService.Create:output_type -> audiofx.CreateResponse
+	21,  // 504: audiofx.AcousticEchoCancelerService.IsAvailable:output_type -> audiofx.IsAvailableResponse
+	375, // 505: audiofx.HapticGeneratorService.Close:output_type -> audiofx.CloseResponse
+	41,  // 506: audiofx.HapticGeneratorService.Release:output_type -> audiofx.ReleaseResponse
+	47,  // 507: audiofx.HapticGeneratorService.SetEnabled:output_type -> audiofx.SetEnabledResponse
+	19,  // 508: audiofx.HapticGeneratorService.Create:output_type -> audiofx.CreateResponse
+	21,  // 509: audiofx.HapticGeneratorService.IsAvailable:output_type -> audiofx.IsAvailableResponse
+	255, // [255:510] is the sub-list for method output_type
+	0,   // [0:255] is the sub-list for method input_type
+	0,   // [0:0] is the sub-list for extension type_name
+	0,   // [0:0] is the sub-list for extension extendee
+	0,   // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_proto_audiofx_audiofx_proto_init() }
@@ -48,12 +18802,13 @@ func file_proto_audiofx_audiofx_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_audiofx_audiofx_proto_rawDesc), len(file_proto_audiofx_audiofx_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   378,
 			NumExtensions: 0,
-			NumServices:   0,
+			NumServices:   37,
 		},
 		GoTypes:           file_proto_audiofx_audiofx_proto_goTypes,
 		DependencyIndexes: file_proto_audiofx_audiofx_proto_depIdxs,
+		MessageInfos:      file_proto_audiofx_audiofx_proto_msgTypes,
 	}.Build()
 	File_proto_audiofx_audiofx_proto = out.File
 	file_proto_audiofx_audiofx_proto_goTypes = nil

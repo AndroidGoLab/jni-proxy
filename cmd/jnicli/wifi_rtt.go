@@ -12,6 +12,2804 @@ var wifirttCmd = &cobra.Command{
 	Short: "wifi_rtt service operations",
 }
 
+var wifirttResponderConfigCmd = &cobra.Command{
+	Use:   "responder-config",
+	Short: "ResponderConfigService operations",
+}
+
+var wifirttResponderConfigDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponderConfigServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttResponderConfigEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponderConfigServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttResponderConfigGetCenterFreq0MhzCmd = &cobra.Command{
+	Use:   "get-center-freq0mhz",
+	Short: "GetCenterFreq0Mhz RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponderConfigServiceClient(grpcConn)
+		req := &pb.GetCenterFreq0MhzRequest{}
+		resp, err := client.GetCenterFreq0Mhz(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttResponderConfigGetCenterFreq1MhzCmd = &cobra.Command{
+	Use:   "get-center-freq1mhz",
+	Short: "GetCenterFreq1Mhz RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponderConfigServiceClient(grpcConn)
+		req := &pb.GetCenterFreq1MhzRequest{}
+		resp, err := client.GetCenterFreq1Mhz(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttResponderConfigGetChannelWidthCmd = &cobra.Command{
+	Use:   "get-channel-width",
+	Short: "GetChannelWidth RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponderConfigServiceClient(grpcConn)
+		req := &pb.GetChannelWidthRequest{}
+		resp, err := client.GetChannelWidth(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttResponderConfigGetFrequencyMhzCmd = &cobra.Command{
+	Use:   "get-frequency-mhz",
+	Short: "GetFrequencyMhz RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponderConfigServiceClient(grpcConn)
+		req := &pb.GetFrequencyMhzRequest{}
+		resp, err := client.GetFrequencyMhz(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttResponderConfigGetMacAddressCmd = &cobra.Command{
+	Use:   "get-mac-address",
+	Short: "GetMacAddress RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponderConfigServiceClient(grpcConn)
+		req := &pb.GetMacAddressRequest{}
+		resp, err := client.GetMacAddress(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttResponderConfigGetPreambleCmd = &cobra.Command{
+	Use:   "get-preamble",
+	Short: "GetPreamble RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponderConfigServiceClient(grpcConn)
+		req := &pb.GetPreambleRequest{}
+		resp, err := client.GetPreamble(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttResponderConfigGetResponderTypeCmd = &cobra.Command{
+	Use:   "get-responder-type",
+	Short: "GetResponderType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponderConfigServiceClient(grpcConn)
+		req := &pb.GetResponderTypeRequest{}
+		resp, err := client.GetResponderType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttResponderConfigGetSecureRangingConfigCmd = &cobra.Command{
+	Use:   "get-secure-ranging-config",
+	Short: "GetSecureRangingConfig RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponderConfigServiceClient(grpcConn)
+		req := &pb.GetSecureRangingConfigRequest{}
+		resp, err := client.GetSecureRangingConfig(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttResponderConfigHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponderConfigServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttResponderConfigIs80211azNtbSupportedCmd = &cobra.Command{
+	Use:   "is80211az-ntb-supported",
+	Short: "Is80211azNtbSupported RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponderConfigServiceClient(grpcConn)
+		req := &pb.Is80211AzNtbSupportedRequest{}
+		resp, err := client.Is80211AzNtbSupported(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttResponderConfigIs80211mcSupportedCmd = &cobra.Command{
+	Use:   "is80211mc-supported",
+	Short: "Is80211mcSupported RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponderConfigServiceClient(grpcConn)
+		req := &pb.Is80211McSupportedRequest{}
+		resp, err := client.Is80211McSupported(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttResponderConfigToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponderConfigServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttResponderConfigWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponderConfigServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttResponderConfigFromScanResultCmd = &cobra.Command{
+	Use:   "from-scan-result",
+	Short: "FromScanResult RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponderConfigServiceClient(grpcConn)
+		req := &pb.FromScanResultRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.FromScanResult(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttResponderConfigBuilderCmd = &cobra.Command{
+	Use:   "responder-config-builder",
+	Short: "ResponderConfigBuilderService operations",
+}
+
+var wifirttResponderConfigBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponderConfigBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttResponderConfigBuilderSet80211azNtbSupportedCmd = &cobra.Command{
+	Use:   "set80211az-ntb-supported",
+	Short: "Set80211azNtbSupported RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponderConfigBuilderServiceClient(grpcConn)
+		req := &pb.Set80211AzNtbSupportedRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Set80211AzNtbSupported(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttResponderConfigBuilderSet80211mcSupportedCmd = &cobra.Command{
+	Use:   "set80211mc-supported",
+	Short: "Set80211mcSupported RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponderConfigBuilderServiceClient(grpcConn)
+		req := &pb.Set80211McSupportedRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Set80211McSupported(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttResponderConfigBuilderSetCenterFreq0MhzCmd = &cobra.Command{
+	Use:   "set-center-freq0mhz",
+	Short: "SetCenterFreq0Mhz RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponderConfigBuilderServiceClient(grpcConn)
+		req := &pb.SetCenterFreq0MhzRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetCenterFreq0Mhz(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttResponderConfigBuilderSetCenterFreq1MhzCmd = &cobra.Command{
+	Use:   "set-center-freq1mhz",
+	Short: "SetCenterFreq1Mhz RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponderConfigBuilderServiceClient(grpcConn)
+		req := &pb.SetCenterFreq1MhzRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetCenterFreq1Mhz(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttResponderConfigBuilderSetChannelWidthCmd = &cobra.Command{
+	Use:   "set-channel-width",
+	Short: "SetChannelWidth RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponderConfigBuilderServiceClient(grpcConn)
+		req := &pb.SetChannelWidthRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetChannelWidth(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttResponderConfigBuilderSetFrequencyMhzCmd = &cobra.Command{
+	Use:   "set-frequency-mhz",
+	Short: "SetFrequencyMhz RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponderConfigBuilderServiceClient(grpcConn)
+		req := &pb.SetFrequencyMhzRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetFrequencyMhz(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttResponderConfigBuilderSetMacAddressCmd = &cobra.Command{
+	Use:   "set-mac-address",
+	Short: "SetMacAddress RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponderConfigBuilderServiceClient(grpcConn)
+		req := &pb.SetMacAddressRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetMacAddress(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttResponderConfigBuilderSetPreambleCmd = &cobra.Command{
+	Use:   "set-preamble",
+	Short: "SetPreamble RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponderConfigBuilderServiceClient(grpcConn)
+		req := &pb.SetPreambleRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetPreamble(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttResponderConfigBuilderSetResponderTypeCmd = &cobra.Command{
+	Use:   "set-responder-type",
+	Short: "SetResponderType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponderConfigBuilderServiceClient(grpcConn)
+		req := &pb.SetResponderTypeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetResponderType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttResponderConfigBuilderSetSecureRangingConfigCmd = &cobra.Command{
+	Use:   "set-secure-ranging-config",
+	Short: "SetSecureRangingConfig RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponderConfigBuilderServiceClient(grpcConn)
+		req := &pb.SetSecureRangingConfigRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSecureRangingConfig(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingRequestCmd = &cobra.Command{
+	Use:   "ranging-request",
+	Short: "RangingRequestService operations",
+}
+
+var wifirttRangingRequestDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingRequestServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingRequestEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingRequestServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingRequestGetRttBurstSizeCmd = &cobra.Command{
+	Use:   "get-rtt-burst-size",
+	Short: "GetRttBurstSize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingRequestServiceClient(grpcConn)
+		req := &pb.GetRttBurstSizeRequest{}
+		resp, err := client.GetRttBurstSize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingRequestGetSecurityModeCmd = &cobra.Command{
+	Use:   "get-security-mode",
+	Short: "GetSecurityMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingRequestServiceClient(grpcConn)
+		req := &pb.GetSecurityModeRequest{}
+		resp, err := client.GetSecurityMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingRequestHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingRequestServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingRequestToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingRequestServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingRequestWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingRequestServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingRequestGetDefaultRttBurstSizeCmd = &cobra.Command{
+	Use:   "get-default-rtt-burst-size",
+	Short: "GetDefaultRttBurstSize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingRequestServiceClient(grpcConn)
+		req := &pb.GetDefaultRttBurstSizeRequest{}
+		resp, err := client.GetDefaultRttBurstSize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingRequestGetMaxPeersCmd = &cobra.Command{
+	Use:   "get-max-peers",
+	Short: "GetMaxPeers RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingRequestServiceClient(grpcConn)
+		req := &pb.GetMaxPeersRequest{}
+		resp, err := client.GetMaxPeers(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingRequestGetMaxRttBurstSizeCmd = &cobra.Command{
+	Use:   "get-max-rtt-burst-size",
+	Short: "GetMaxRttBurstSize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingRequestServiceClient(grpcConn)
+		req := &pb.GetMaxRttBurstSizeRequest{}
+		resp, err := client.GetMaxRttBurstSize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingRequestGetMinRttBurstSizeCmd = &cobra.Command{
+	Use:   "get-min-rtt-burst-size",
+	Short: "GetMinRttBurstSize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingRequestServiceClient(grpcConn)
+		req := &pb.GetMinRttBurstSizeRequest{}
+		resp, err := client.GetMinRttBurstSize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingRequestBuilderCmd = &cobra.Command{
+	Use:   "ranging-request-builder",
+	Short: "RangingRequestBuilderService operations",
+}
+
+var wifirttRangingRequestBuilderAddAccessPointCmd = &cobra.Command{
+	Use:   "add-access-point",
+	Short: "AddAccessPoint RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingRequestBuilderServiceClient(grpcConn)
+		req := &pb.AddAccessPointRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddAccessPoint(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingRequestBuilderAddNon80211mcCapableAccessPointCmd = &cobra.Command{
+	Use:   "add-non80211mc-capable-access-point",
+	Short: "AddNon80211mcCapableAccessPoint RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingRequestBuilderServiceClient(grpcConn)
+		req := &pb.AddNon80211McCapableAccessPointRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddNon80211McCapableAccessPoint(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingRequestBuilderAddResponderCmd = &cobra.Command{
+	Use:   "add-responder",
+	Short: "AddResponder RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingRequestBuilderServiceClient(grpcConn)
+		req := &pb.AddResponderRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddResponder(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingRequestBuilderAddWifiAwarePeer1Cmd = &cobra.Command{
+	Use:   "add-wifi-aware-peer1",
+	Short: "AddWifiAwarePeer1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingRequestBuilderServiceClient(grpcConn)
+		req := &pb.AddWifiAwarePeer1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddWifiAwarePeer1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingRequestBuilderAddWifiAwarePeer1_1Cmd = &cobra.Command{
+	Use:   "add-wifi-aware-peer1_1",
+	Short: "AddWifiAwarePeer1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingRequestBuilderServiceClient(grpcConn)
+		req := &pb.AddWifiAwarePeer1_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddWifiAwarePeer1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingRequestBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingRequestBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingRequestBuilderSetRttBurstSizeCmd = &cobra.Command{
+	Use:   "set-rtt-burst-size",
+	Short: "SetRttBurstSize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetRttBurstSizeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetRttBurstSize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingRequestBuilderSetSecurityModeCmd = &cobra.Command{
+	Use:   "set-security-mode",
+	Short: "SetSecurityMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetSecurityModeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSecurityMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingResultCallbackCmd = &cobra.Command{
+	Use:   "ranging-result-callback",
+	Short: "RangingResultCallbackService operations",
+}
+
+var wifirttRangingResultCallbackOnRangingFailureCmd = &cobra.Command{
+	Use:   "on-ranging-failure",
+	Short: "OnRangingFailure RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingResultCallbackServiceClient(grpcConn)
+		req := &pb.OnRangingFailureRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnRangingFailure(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttPasnConfigCmd = &cobra.Command{
+	Use:   "pasn-config",
+	Short: "PasnConfigService operations",
+}
+
+var wifirttPasnConfigDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPasnConfigServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttPasnConfigEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPasnConfigServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttPasnConfigGetBaseAkmsCmd = &cobra.Command{
+	Use:   "get-base-akms",
+	Short: "GetBaseAkms RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPasnConfigServiceClient(grpcConn)
+		req := &pb.GetBaseAkmsRequest{}
+		resp, err := client.GetBaseAkms(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttPasnConfigGetCiphersCmd = &cobra.Command{
+	Use:   "get-ciphers",
+	Short: "GetCiphers RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPasnConfigServiceClient(grpcConn)
+		req := &pb.GetCiphersRequest{}
+		resp, err := client.GetCiphers(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttPasnConfigGetPasnComebackCookieCmd = &cobra.Command{
+	Use:   "get-pasn-comeback-cookie",
+	Short: "GetPasnComebackCookie RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPasnConfigServiceClient(grpcConn)
+		req := &pb.GetPasnComebackCookieRequest{}
+		resp, err := client.GetPasnComebackCookie(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttPasnConfigGetPasswordCmd = &cobra.Command{
+	Use:   "get-password",
+	Short: "GetPassword RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPasnConfigServiceClient(grpcConn)
+		req := &pb.GetPasswordRequest{}
+		resp, err := client.GetPassword(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttPasnConfigGetWifiSsidCmd = &cobra.Command{
+	Use:   "get-wifi-ssid",
+	Short: "GetWifiSsid RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPasnConfigServiceClient(grpcConn)
+		req := &pb.GetWifiSsidRequest{}
+		resp, err := client.GetWifiSsid(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttPasnConfigHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPasnConfigServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttPasnConfigToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPasnConfigServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttPasnConfigWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPasnConfigServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttPasnConfigBuilderCmd = &cobra.Command{
+	Use:   "pasn-config-builder",
+	Short: "PasnConfigBuilderService operations",
+}
+
+var wifirttPasnConfigBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPasnConfigBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttPasnConfigBuilderSetPasnComebackCookieCmd = &cobra.Command{
+	Use:   "set-pasn-comeback-cookie",
+	Short: "SetPasnComebackCookie RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPasnConfigBuilderServiceClient(grpcConn)
+		req := &pb.SetPasnComebackCookieRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetPasnComebackCookie(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttPasnConfigBuilderSetPasswordCmd = &cobra.Command{
+	Use:   "set-password",
+	Short: "SetPassword RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPasnConfigBuilderServiceClient(grpcConn)
+		req := &pb.SetPasswordRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetPassword(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttPasnConfigBuilderSetWifiSsidCmd = &cobra.Command{
+	Use:   "set-wifi-ssid",
+	Short: "SetWifiSsid RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPasnConfigBuilderServiceClient(grpcConn)
+		req := &pb.SetWifiSsidRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetWifiSsid(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingResultCmd = &cobra.Command{
+	Use:   "ranging-result",
+	Short: "RangingResultService operations",
+}
+
+var wifirttRangingResultDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingResultServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingResultEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingResultServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingResultGet80211azInitiatorTxLtfRepetitionsCountCmd = &cobra.Command{
+	Use:   "get80211az-initiator-tx-ltf-repetitions-count",
+	Short: "Get80211azInitiatorTxLtfRepetitionsCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingResultServiceClient(grpcConn)
+		req := &pb.Get80211AzInitiatorTxLtfRepetitionsCountRequest{}
+		resp, err := client.Get80211AzInitiatorTxLtfRepetitionsCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingResultGet80211azNumberOfRxSpatialStreamsCmd = &cobra.Command{
+	Use:   "get80211az-number-of-rx-spatial-streams",
+	Short: "Get80211azNumberOfRxSpatialStreams RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingResultServiceClient(grpcConn)
+		req := &pb.Get80211AzNumberOfRxSpatialStreamsRequest{}
+		resp, err := client.Get80211AzNumberOfRxSpatialStreams(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingResultGet80211azNumberOfTxSpatialStreamsCmd = &cobra.Command{
+	Use:   "get80211az-number-of-tx-spatial-streams",
+	Short: "Get80211azNumberOfTxSpatialStreams RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingResultServiceClient(grpcConn)
+		req := &pb.Get80211AzNumberOfTxSpatialStreamsRequest{}
+		resp, err := client.Get80211AzNumberOfTxSpatialStreams(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingResultGet80211azResponderTxLtfRepetitionsCountCmd = &cobra.Command{
+	Use:   "get80211az-responder-tx-ltf-repetitions-count",
+	Short: "Get80211azResponderTxLtfRepetitionsCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingResultServiceClient(grpcConn)
+		req := &pb.Get80211AzResponderTxLtfRepetitionsCountRequest{}
+		resp, err := client.Get80211AzResponderTxLtfRepetitionsCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingResultGetDistanceMmCmd = &cobra.Command{
+	Use:   "get-distance-mm",
+	Short: "GetDistanceMm RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingResultServiceClient(grpcConn)
+		req := &pb.GetDistanceMmRequest{}
+		resp, err := client.GetDistanceMm(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingResultGetDistanceStdDevMmCmd = &cobra.Command{
+	Use:   "get-distance-std-dev-mm",
+	Short: "GetDistanceStdDevMm RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingResultServiceClient(grpcConn)
+		req := &pb.GetDistanceStdDevMmRequest{}
+		resp, err := client.GetDistanceStdDevMm(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingResultGetLciCmd = &cobra.Command{
+	Use:   "get-lci",
+	Short: "GetLci RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingResultServiceClient(grpcConn)
+		req := &pb.GetLciRequest{}
+		resp, err := client.GetLci(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingResultGetLcrCmd = &cobra.Command{
+	Use:   "get-lcr",
+	Short: "GetLcr RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingResultServiceClient(grpcConn)
+		req := &pb.GetLcrRequest{}
+		resp, err := client.GetLcr(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingResultGetMacAddressCmd = &cobra.Command{
+	Use:   "get-mac-address",
+	Short: "GetMacAddress RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingResultServiceClient(grpcConn)
+		req := &pb.GetMacAddressRequest{}
+		resp, err := client.GetMacAddress(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingResultGetMaxTimeBetweenNtbMeasurementsMicrosCmd = &cobra.Command{
+	Use:   "get-max-time-between-ntb-measurements-micros",
+	Short: "GetMaxTimeBetweenNtbMeasurementsMicros RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingResultServiceClient(grpcConn)
+		req := &pb.GetMaxTimeBetweenNtbMeasurementsMicrosRequest{}
+		resp, err := client.GetMaxTimeBetweenNtbMeasurementsMicros(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingResultGetMeasurementBandwidthCmd = &cobra.Command{
+	Use:   "get-measurement-bandwidth",
+	Short: "GetMeasurementBandwidth RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingResultServiceClient(grpcConn)
+		req := &pb.GetMeasurementBandwidthRequest{}
+		resp, err := client.GetMeasurementBandwidth(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingResultGetMeasurementChannelFrequencyMHzCmd = &cobra.Command{
+	Use:   "get-measurement-channel-frequency-m-hz",
+	Short: "GetMeasurementChannelFrequencyMHz RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingResultServiceClient(grpcConn)
+		req := &pb.GetMeasurementChannelFrequencyMHzRequest{}
+		resp, err := client.GetMeasurementChannelFrequencyMHz(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingResultGetMinTimeBetweenNtbMeasurementsMicrosCmd = &cobra.Command{
+	Use:   "get-min-time-between-ntb-measurements-micros",
+	Short: "GetMinTimeBetweenNtbMeasurementsMicros RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingResultServiceClient(grpcConn)
+		req := &pb.GetMinTimeBetweenNtbMeasurementsMicrosRequest{}
+		resp, err := client.GetMinTimeBetweenNtbMeasurementsMicros(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingResultGetNumAttemptedMeasurementsCmd = &cobra.Command{
+	Use:   "get-num-attempted-measurements",
+	Short: "GetNumAttemptedMeasurements RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingResultServiceClient(grpcConn)
+		req := &pb.GetNumAttemptedMeasurementsRequest{}
+		resp, err := client.GetNumAttemptedMeasurements(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingResultGetNumSuccessfulMeasurementsCmd = &cobra.Command{
+	Use:   "get-num-successful-measurements",
+	Short: "GetNumSuccessfulMeasurements RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingResultServiceClient(grpcConn)
+		req := &pb.GetNumSuccessfulMeasurementsRequest{}
+		resp, err := client.GetNumSuccessfulMeasurements(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingResultGetPasnComebackAfterMillisCmd = &cobra.Command{
+	Use:   "get-pasn-comeback-after-millis",
+	Short: "GetPasnComebackAfterMillis RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingResultServiceClient(grpcConn)
+		req := &pb.GetPasnComebackAfterMillisRequest{}
+		resp, err := client.GetPasnComebackAfterMillis(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingResultGetPasnComebackCookieCmd = &cobra.Command{
+	Use:   "get-pasn-comeback-cookie",
+	Short: "GetPasnComebackCookie RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingResultServiceClient(grpcConn)
+		req := &pb.GetPasnComebackCookieRequest{}
+		resp, err := client.GetPasnComebackCookie(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingResultGetPeerHandleCmd = &cobra.Command{
+	Use:   "get-peer-handle",
+	Short: "GetPeerHandle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingResultServiceClient(grpcConn)
+		req := &pb.GetPeerHandleRequest{}
+		resp, err := client.GetPeerHandle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingResultGetRangingTimestampMillisCmd = &cobra.Command{
+	Use:   "get-ranging-timestamp-millis",
+	Short: "GetRangingTimestampMillis RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingResultServiceClient(grpcConn)
+		req := &pb.GetRangingTimestampMillisRequest{}
+		resp, err := client.GetRangingTimestampMillis(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingResultGetRssiCmd = &cobra.Command{
+	Use:   "get-rssi",
+	Short: "GetRssi RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingResultServiceClient(grpcConn)
+		req := &pb.GetRssiRequest{}
+		resp, err := client.GetRssi(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingResultGetSecureHeLtfProtocolVersionCmd = &cobra.Command{
+	Use:   "get-secure-he-ltf-protocol-version",
+	Short: "GetSecureHeLtfProtocolVersion RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingResultServiceClient(grpcConn)
+		req := &pb.GetSecureHeLtfProtocolVersionRequest{}
+		resp, err := client.GetSecureHeLtfProtocolVersion(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingResultGetStatusCmd = &cobra.Command{
+	Use:   "get-status",
+	Short: "GetStatus RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingResultServiceClient(grpcConn)
+		req := &pb.GetStatusRequest{}
+		resp, err := client.GetStatus(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingResultGetUnverifiedResponderLocationCmd = &cobra.Command{
+	Use:   "get-unverified-responder-location",
+	Short: "GetUnverifiedResponderLocation RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingResultServiceClient(grpcConn)
+		req := &pb.GetUnverifiedResponderLocationRequest{}
+		resp, err := client.GetUnverifiedResponderLocation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingResultHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingResultServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingResultIs80211azNtbMeasurementCmd = &cobra.Command{
+	Use:   "is80211az-ntb-measurement",
+	Short: "Is80211azNtbMeasurement RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingResultServiceClient(grpcConn)
+		req := &pb.Is80211AzNtbMeasurementRequest{}
+		resp, err := client.Is80211AzNtbMeasurement(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingResultIs80211mcMeasurementCmd = &cobra.Command{
+	Use:   "is80211mc-measurement",
+	Short: "Is80211mcMeasurement RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingResultServiceClient(grpcConn)
+		req := &pb.Is80211McMeasurementRequest{}
+		resp, err := client.Is80211McMeasurement(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingResultIsRangingAuthenticatedCmd = &cobra.Command{
+	Use:   "is-ranging-authenticated",
+	Short: "IsRangingAuthenticated RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingResultServiceClient(grpcConn)
+		req := &pb.IsRangingAuthenticatedRequest{}
+		resp, err := client.IsRangingAuthenticated(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingResultIsRangingFrameProtectedCmd = &cobra.Command{
+	Use:   "is-ranging-frame-protected",
+	Short: "IsRangingFrameProtected RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingResultServiceClient(grpcConn)
+		req := &pb.IsRangingFrameProtectedRequest{}
+		resp, err := client.IsRangingFrameProtected(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingResultIsSecureHeLtfEnabledCmd = &cobra.Command{
+	Use:   "is-secure-he-ltf-enabled",
+	Short: "IsSecureHeLtfEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingResultServiceClient(grpcConn)
+		req := &pb.IsSecureHeLtfEnabledRequest{}
+		resp, err := client.IsSecureHeLtfEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingResultToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingResultServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingResultWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingResultServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingResultBuilderCmd = &cobra.Command{
+	Use:   "ranging-result-builder",
+	Short: "RangingResultBuilderService operations",
+}
+
+var wifirttRangingResultBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingResultBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingResultBuilderSet80211azInitiatorTxLtfRepetitionsCountCmd = &cobra.Command{
+	Use:   "set80211az-initiator-tx-ltf-repetitions-count",
+	Short: "Set80211azInitiatorTxLtfRepetitionsCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingResultBuilderServiceClient(grpcConn)
+		req := &pb.Set80211AzInitiatorTxLtfRepetitionsCountRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Set80211AzInitiatorTxLtfRepetitionsCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingResultBuilderSet80211azNtbMeasurementCmd = &cobra.Command{
+	Use:   "set80211az-ntb-measurement",
+	Short: "Set80211azNtbMeasurement RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingResultBuilderServiceClient(grpcConn)
+		req := &pb.Set80211AzNtbMeasurementRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Set80211AzNtbMeasurement(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingResultBuilderSet80211azNumberOfRxSpatialStreamsCmd = &cobra.Command{
+	Use:   "set80211az-number-of-rx-spatial-streams",
+	Short: "Set80211azNumberOfRxSpatialStreams RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingResultBuilderServiceClient(grpcConn)
+		req := &pb.Set80211AzNumberOfRxSpatialStreamsRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Set80211AzNumberOfRxSpatialStreams(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingResultBuilderSet80211azNumberOfTxSpatialStreamsCmd = &cobra.Command{
+	Use:   "set80211az-number-of-tx-spatial-streams",
+	Short: "Set80211azNumberOfTxSpatialStreams RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingResultBuilderServiceClient(grpcConn)
+		req := &pb.Set80211AzNumberOfTxSpatialStreamsRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Set80211AzNumberOfTxSpatialStreams(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingResultBuilderSet80211azResponderTxLtfRepetitionsCountCmd = &cobra.Command{
+	Use:   "set80211az-responder-tx-ltf-repetitions-count",
+	Short: "Set80211azResponderTxLtfRepetitionsCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingResultBuilderServiceClient(grpcConn)
+		req := &pb.Set80211AzResponderTxLtfRepetitionsCountRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Set80211AzResponderTxLtfRepetitionsCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingResultBuilderSet80211mcMeasurementCmd = &cobra.Command{
+	Use:   "set80211mc-measurement",
+	Short: "Set80211mcMeasurement RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingResultBuilderServiceClient(grpcConn)
+		req := &pb.Set80211McMeasurementRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Set80211McMeasurement(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingResultBuilderSetDistanceMmCmd = &cobra.Command{
+	Use:   "set-distance-mm",
+	Short: "SetDistanceMm RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingResultBuilderServiceClient(grpcConn)
+		req := &pb.SetDistanceMmRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDistanceMm(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingResultBuilderSetDistanceStdDevMmCmd = &cobra.Command{
+	Use:   "set-distance-std-dev-mm",
+	Short: "SetDistanceStdDevMm RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingResultBuilderServiceClient(grpcConn)
+		req := &pb.SetDistanceStdDevMmRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDistanceStdDevMm(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingResultBuilderSetLciCmd = &cobra.Command{
+	Use:   "set-lci",
+	Short: "SetLci RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingResultBuilderServiceClient(grpcConn)
+		req := &pb.SetLciRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetLci(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingResultBuilderSetLcrCmd = &cobra.Command{
+	Use:   "set-lcr",
+	Short: "SetLcr RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingResultBuilderServiceClient(grpcConn)
+		req := &pb.SetLcrRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetLcr(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingResultBuilderSetMacAddressCmd = &cobra.Command{
+	Use:   "set-mac-address",
+	Short: "SetMacAddress RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingResultBuilderServiceClient(grpcConn)
+		req := &pb.SetMacAddressRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetMacAddress(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingResultBuilderSetMaxTimeBetweenNtbMeasurementsMicrosCmd = &cobra.Command{
+	Use:   "set-max-time-between-ntb-measurements-micros",
+	Short: "SetMaxTimeBetweenNtbMeasurementsMicros RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingResultBuilderServiceClient(grpcConn)
+		req := &pb.SetMaxTimeBetweenNtbMeasurementsMicrosRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetMaxTimeBetweenNtbMeasurementsMicros(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingResultBuilderSetMeasurementBandwidthCmd = &cobra.Command{
+	Use:   "set-measurement-bandwidth",
+	Short: "SetMeasurementBandwidth RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingResultBuilderServiceClient(grpcConn)
+		req := &pb.SetMeasurementBandwidthRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetMeasurementBandwidth(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingResultBuilderSetMeasurementChannelFrequencyMHzCmd = &cobra.Command{
+	Use:   "set-measurement-channel-frequency-m-hz",
+	Short: "SetMeasurementChannelFrequencyMHz RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingResultBuilderServiceClient(grpcConn)
+		req := &pb.SetMeasurementChannelFrequencyMHzRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetMeasurementChannelFrequencyMHz(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingResultBuilderSetMinTimeBetweenNtbMeasurementsMicrosCmd = &cobra.Command{
+	Use:   "set-min-time-between-ntb-measurements-micros",
+	Short: "SetMinTimeBetweenNtbMeasurementsMicros RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingResultBuilderServiceClient(grpcConn)
+		req := &pb.SetMinTimeBetweenNtbMeasurementsMicrosRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetMinTimeBetweenNtbMeasurementsMicros(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingResultBuilderSetNumAttemptedMeasurementsCmd = &cobra.Command{
+	Use:   "set-num-attempted-measurements",
+	Short: "SetNumAttemptedMeasurements RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingResultBuilderServiceClient(grpcConn)
+		req := &pb.SetNumAttemptedMeasurementsRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetNumAttemptedMeasurements(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingResultBuilderSetNumSuccessfulMeasurementsCmd = &cobra.Command{
+	Use:   "set-num-successful-measurements",
+	Short: "SetNumSuccessfulMeasurements RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingResultBuilderServiceClient(grpcConn)
+		req := &pb.SetNumSuccessfulMeasurementsRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetNumSuccessfulMeasurements(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingResultBuilderSetPasnComebackAfterMillisCmd = &cobra.Command{
+	Use:   "set-pasn-comeback-after-millis",
+	Short: "SetPasnComebackAfterMillis RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingResultBuilderServiceClient(grpcConn)
+		req := &pb.SetPasnComebackAfterMillisRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetPasnComebackAfterMillis(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingResultBuilderSetPasnComebackCookieCmd = &cobra.Command{
+	Use:   "set-pasn-comeback-cookie",
+	Short: "SetPasnComebackCookie RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingResultBuilderServiceClient(grpcConn)
+		req := &pb.SetPasnComebackCookieRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetPasnComebackCookie(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingResultBuilderSetPeerHandleCmd = &cobra.Command{
+	Use:   "set-peer-handle",
+	Short: "SetPeerHandle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingResultBuilderServiceClient(grpcConn)
+		req := &pb.SetPeerHandleRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetPeerHandle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingResultBuilderSetRangingAuthenticatedCmd = &cobra.Command{
+	Use:   "set-ranging-authenticated",
+	Short: "SetRangingAuthenticated RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingResultBuilderServiceClient(grpcConn)
+		req := &pb.SetRangingAuthenticatedRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetRangingAuthenticated(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingResultBuilderSetRangingFrameProtectedCmd = &cobra.Command{
+	Use:   "set-ranging-frame-protected",
+	Short: "SetRangingFrameProtected RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingResultBuilderServiceClient(grpcConn)
+		req := &pb.SetRangingFrameProtectedRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetRangingFrameProtected(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingResultBuilderSetRangingTimestampMillisCmd = &cobra.Command{
+	Use:   "set-ranging-timestamp-millis",
+	Short: "SetRangingTimestampMillis RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingResultBuilderServiceClient(grpcConn)
+		req := &pb.SetRangingTimestampMillisRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetRangingTimestampMillis(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingResultBuilderSetRssiCmd = &cobra.Command{
+	Use:   "set-rssi",
+	Short: "SetRssi RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingResultBuilderServiceClient(grpcConn)
+		req := &pb.SetRssiRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetRssi(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingResultBuilderSetSecureHeLtfEnabledCmd = &cobra.Command{
+	Use:   "set-secure-he-ltf-enabled",
+	Short: "SetSecureHeLtfEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingResultBuilderServiceClient(grpcConn)
+		req := &pb.SetSecureHeLtfEnabledRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSecureHeLtfEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingResultBuilderSetSecureHeLtfProtocolVersionCmd = &cobra.Command{
+	Use:   "set-secure-he-ltf-protocol-version",
+	Short: "SetSecureHeLtfProtocolVersion RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingResultBuilderServiceClient(grpcConn)
+		req := &pb.SetSecureHeLtfProtocolVersionRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSecureHeLtfProtocolVersion(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingResultBuilderSetStatusCmd = &cobra.Command{
+	Use:   "set-status",
+	Short: "SetStatus RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingResultBuilderServiceClient(grpcConn)
+		req := &pb.SetStatusRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetStatus(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttRangingResultBuilderSetUnverifiedResponderLocationCmd = &cobra.Command{
+	Use:   "set-unverified-responder-location",
+	Short: "SetUnverifiedResponderLocation RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingResultBuilderServiceClient(grpcConn)
+		req := &pb.SetUnverifiedResponderLocationRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetUnverifiedResponderLocation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttSecureRangingConfigCmd = &cobra.Command{
+	Use:   "secure-ranging-config",
+	Short: "SecureRangingConfigService operations",
+}
+
+var wifirttSecureRangingConfigDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSecureRangingConfigServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttSecureRangingConfigEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSecureRangingConfigServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttSecureRangingConfigGetPasnConfigCmd = &cobra.Command{
+	Use:   "get-pasn-config",
+	Short: "GetPasnConfig RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSecureRangingConfigServiceClient(grpcConn)
+		req := &pb.GetPasnConfigRequest{}
+		resp, err := client.GetPasnConfig(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttSecureRangingConfigHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSecureRangingConfigServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttSecureRangingConfigIsRangingFrameProtectionEnabledCmd = &cobra.Command{
+	Use:   "is-ranging-frame-protection-enabled",
+	Short: "IsRangingFrameProtectionEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSecureRangingConfigServiceClient(grpcConn)
+		req := &pb.IsRangingFrameProtectionEnabledRequest{}
+		resp, err := client.IsRangingFrameProtectionEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttSecureRangingConfigIsSecureHeLtfEnabledCmd = &cobra.Command{
+	Use:   "is-secure-he-ltf-enabled",
+	Short: "IsSecureHeLtfEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSecureRangingConfigServiceClient(grpcConn)
+		req := &pb.IsSecureHeLtfEnabledRequest{}
+		resp, err := client.IsSecureHeLtfEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttSecureRangingConfigToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSecureRangingConfigServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttSecureRangingConfigWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSecureRangingConfigServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttSecureRangingConfigBuilderCmd = &cobra.Command{
+	Use:   "secure-ranging-config-builder",
+	Short: "SecureRangingConfigBuilderService operations",
+}
+
+var wifirttSecureRangingConfigBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSecureRangingConfigBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttSecureRangingConfigBuilderSetRangingFrameProtectionEnabledCmd = &cobra.Command{
+	Use:   "set-ranging-frame-protection-enabled",
+	Short: "SetRangingFrameProtectionEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSecureRangingConfigBuilderServiceClient(grpcConn)
+		req := &pb.SetRangingFrameProtectionEnabledRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetRangingFrameProtectionEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttSecureRangingConfigBuilderSetSecureHeLtfEnabledCmd = &cobra.Command{
+	Use:   "set-secure-he-ltf-enabled",
+	Short: "SetSecureHeLtfEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSecureRangingConfigBuilderServiceClient(grpcConn)
+		req := &pb.SetSecureHeLtfEnabledRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSecureHeLtfEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttResponderLocationCmd = &cobra.Command{
+	Use:   "responder-location",
+	Short: "ResponderLocationService operations",
+}
+
+var wifirttResponderLocationDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponderLocationServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttResponderLocationEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponderLocationServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttResponderLocationGetAltitudeCmd = &cobra.Command{
+	Use:   "get-altitude",
+	Short: "GetAltitude RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponderLocationServiceClient(grpcConn)
+		req := &pb.GetAltitudeRequest{}
+		resp, err := client.GetAltitude(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttResponderLocationGetAltitudeTypeCmd = &cobra.Command{
+	Use:   "get-altitude-type",
+	Short: "GetAltitudeType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponderLocationServiceClient(grpcConn)
+		req := &pb.GetAltitudeTypeRequest{}
+		resp, err := client.GetAltitudeType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttResponderLocationGetAltitudeUncertaintyCmd = &cobra.Command{
+	Use:   "get-altitude-uncertainty",
+	Short: "GetAltitudeUncertainty RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponderLocationServiceClient(grpcConn)
+		req := &pb.GetAltitudeUncertaintyRequest{}
+		resp, err := client.GetAltitudeUncertainty(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttResponderLocationGetDatumCmd = &cobra.Command{
+	Use:   "get-datum",
+	Short: "GetDatum RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponderLocationServiceClient(grpcConn)
+		req := &pb.GetDatumRequest{}
+		resp, err := client.GetDatum(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttResponderLocationGetExpectedToMoveCmd = &cobra.Command{
+	Use:   "get-expected-to-move",
+	Short: "GetExpectedToMove RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponderLocationServiceClient(grpcConn)
+		req := &pb.GetExpectedToMoveRequest{}
+		resp, err := client.GetExpectedToMove(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttResponderLocationGetFloorNumberCmd = &cobra.Command{
+	Use:   "get-floor-number",
+	Short: "GetFloorNumber RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponderLocationServiceClient(grpcConn)
+		req := &pb.GetFloorNumberRequest{}
+		resp, err := client.GetFloorNumber(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttResponderLocationGetHeightAboveFloorMetersCmd = &cobra.Command{
+	Use:   "get-height-above-floor-meters",
+	Short: "GetHeightAboveFloorMeters RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponderLocationServiceClient(grpcConn)
+		req := &pb.GetHeightAboveFloorMetersRequest{}
+		resp, err := client.GetHeightAboveFloorMeters(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttResponderLocationGetHeightAboveFloorUncertaintyMetersCmd = &cobra.Command{
+	Use:   "get-height-above-floor-uncertainty-meters",
+	Short: "GetHeightAboveFloorUncertaintyMeters RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponderLocationServiceClient(grpcConn)
+		req := &pb.GetHeightAboveFloorUncertaintyMetersRequest{}
+		resp, err := client.GetHeightAboveFloorUncertaintyMeters(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttResponderLocationGetLatitudeCmd = &cobra.Command{
+	Use:   "get-latitude",
+	Short: "GetLatitude RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponderLocationServiceClient(grpcConn)
+		req := &pb.GetLatitudeRequest{}
+		resp, err := client.GetLatitude(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttResponderLocationGetLatitudeUncertaintyCmd = &cobra.Command{
+	Use:   "get-latitude-uncertainty",
+	Short: "GetLatitudeUncertainty RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponderLocationServiceClient(grpcConn)
+		req := &pb.GetLatitudeUncertaintyRequest{}
+		resp, err := client.GetLatitudeUncertainty(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttResponderLocationGetLciVersionCmd = &cobra.Command{
+	Use:   "get-lci-version",
+	Short: "GetLciVersion RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponderLocationServiceClient(grpcConn)
+		req := &pb.GetLciVersionRequest{}
+		resp, err := client.GetLciVersion(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttResponderLocationGetLongitudeCmd = &cobra.Command{
+	Use:   "get-longitude",
+	Short: "GetLongitude RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponderLocationServiceClient(grpcConn)
+		req := &pb.GetLongitudeRequest{}
+		resp, err := client.GetLongitude(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttResponderLocationGetLongitudeUncertaintyCmd = &cobra.Command{
+	Use:   "get-longitude-uncertainty",
+	Short: "GetLongitudeUncertainty RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponderLocationServiceClient(grpcConn)
+		req := &pb.GetLongitudeUncertaintyRequest{}
+		resp, err := client.GetLongitudeUncertainty(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttResponderLocationGetMapImageMimeTypeCmd = &cobra.Command{
+	Use:   "get-map-image-mime-type",
+	Short: "GetMapImageMimeType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponderLocationServiceClient(grpcConn)
+		req := &pb.GetMapImageMimeTypeRequest{}
+		resp, err := client.GetMapImageMimeType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttResponderLocationGetMapImageUriCmd = &cobra.Command{
+	Use:   "get-map-image-uri",
+	Short: "GetMapImageUri RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponderLocationServiceClient(grpcConn)
+		req := &pb.GetMapImageUriRequest{}
+		resp, err := client.GetMapImageUri(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttResponderLocationGetRegisteredLocationAgreementIndicationCmd = &cobra.Command{
+	Use:   "get-registered-location-agreement-indication",
+	Short: "GetRegisteredLocationAgreementIndication RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponderLocationServiceClient(grpcConn)
+		req := &pb.GetRegisteredLocationAgreementIndicationRequest{}
+		resp, err := client.GetRegisteredLocationAgreementIndication(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttResponderLocationHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponderLocationServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttResponderLocationIsLciSubelementValidCmd = &cobra.Command{
+	Use:   "is-lci-subelement-valid",
+	Short: "IsLciSubelementValid RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponderLocationServiceClient(grpcConn)
+		req := &pb.IsLciSubelementValidRequest{}
+		resp, err := client.IsLciSubelementValid(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttResponderLocationIsZaxisSubelementValidCmd = &cobra.Command{
+	Use:   "is-zaxis-subelement-valid",
+	Short: "IsZaxisSubelementValid RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponderLocationServiceClient(grpcConn)
+		req := &pb.IsZaxisSubelementValidRequest{}
+		resp, err := client.IsZaxisSubelementValid(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttResponderLocationToCivicLocationAddressCmd = &cobra.Command{
+	Use:   "to-civic-location-address",
+	Short: "ToCivicLocationAddress RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponderLocationServiceClient(grpcConn)
+		req := &pb.ToCivicLocationAddressRequest{}
+		resp, err := client.ToCivicLocationAddress(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttResponderLocationToLocationCmd = &cobra.Command{
+	Use:   "to-location",
+	Short: "ToLocation RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponderLocationServiceClient(grpcConn)
+		req := &pb.ToLocationRequest{}
+		resp, err := client.ToLocation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var wifirttResponderLocationWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponderLocationServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var wifirttWifiRttManagerCmd = &cobra.Command{
 	Use:   "wifi-rtt-manager",
 	Short: "WifiRttManagerService operations",
@@ -75,6 +2873,246 @@ var wifirttWifiRttManagerStartRangingCmd = &cobra.Command{
 }
 
 func init() {
+	wifirttResponderConfigCmd.AddCommand(wifirttResponderConfigDescribeContentsCmd)
+	wifirttResponderConfigEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	wifirttResponderConfigCmd.AddCommand(wifirttResponderConfigEqualsCmd)
+	wifirttResponderConfigCmd.AddCommand(wifirttResponderConfigGetCenterFreq0MhzCmd)
+	wifirttResponderConfigCmd.AddCommand(wifirttResponderConfigGetCenterFreq1MhzCmd)
+	wifirttResponderConfigCmd.AddCommand(wifirttResponderConfigGetChannelWidthCmd)
+	wifirttResponderConfigCmd.AddCommand(wifirttResponderConfigGetFrequencyMhzCmd)
+	wifirttResponderConfigCmd.AddCommand(wifirttResponderConfigGetMacAddressCmd)
+	wifirttResponderConfigCmd.AddCommand(wifirttResponderConfigGetPreambleCmd)
+	wifirttResponderConfigCmd.AddCommand(wifirttResponderConfigGetResponderTypeCmd)
+	wifirttResponderConfigCmd.AddCommand(wifirttResponderConfigGetSecureRangingConfigCmd)
+	wifirttResponderConfigCmd.AddCommand(wifirttResponderConfigHashCodeCmd)
+	wifirttResponderConfigCmd.AddCommand(wifirttResponderConfigIs80211azNtbSupportedCmd)
+	wifirttResponderConfigCmd.AddCommand(wifirttResponderConfigIs80211mcSupportedCmd)
+	wifirttResponderConfigCmd.AddCommand(wifirttResponderConfigToStringCmd)
+	wifirttResponderConfigWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	wifirttResponderConfigWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	wifirttResponderConfigCmd.AddCommand(wifirttResponderConfigWriteToParcelCmd)
+	wifirttResponderConfigFromScanResultCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	wifirttResponderConfigCmd.AddCommand(wifirttResponderConfigFromScanResultCmd)
+	wifirttCmd.AddCommand(wifirttResponderConfigCmd)
+	wifirttResponderConfigBuilderCmd.AddCommand(wifirttResponderConfigBuilderBuildCmd)
+	wifirttResponderConfigBuilderSet80211azNtbSupportedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	wifirttResponderConfigBuilderCmd.AddCommand(wifirttResponderConfigBuilderSet80211azNtbSupportedCmd)
+	wifirttResponderConfigBuilderSet80211mcSupportedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	wifirttResponderConfigBuilderCmd.AddCommand(wifirttResponderConfigBuilderSet80211mcSupportedCmd)
+	wifirttResponderConfigBuilderSetCenterFreq0MhzCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	wifirttResponderConfigBuilderCmd.AddCommand(wifirttResponderConfigBuilderSetCenterFreq0MhzCmd)
+	wifirttResponderConfigBuilderSetCenterFreq1MhzCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	wifirttResponderConfigBuilderCmd.AddCommand(wifirttResponderConfigBuilderSetCenterFreq1MhzCmd)
+	wifirttResponderConfigBuilderSetChannelWidthCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	wifirttResponderConfigBuilderCmd.AddCommand(wifirttResponderConfigBuilderSetChannelWidthCmd)
+	wifirttResponderConfigBuilderSetFrequencyMhzCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	wifirttResponderConfigBuilderCmd.AddCommand(wifirttResponderConfigBuilderSetFrequencyMhzCmd)
+	wifirttResponderConfigBuilderSetMacAddressCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	wifirttResponderConfigBuilderCmd.AddCommand(wifirttResponderConfigBuilderSetMacAddressCmd)
+	wifirttResponderConfigBuilderSetPreambleCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	wifirttResponderConfigBuilderCmd.AddCommand(wifirttResponderConfigBuilderSetPreambleCmd)
+	wifirttResponderConfigBuilderSetResponderTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	wifirttResponderConfigBuilderCmd.AddCommand(wifirttResponderConfigBuilderSetResponderTypeCmd)
+	wifirttResponderConfigBuilderSetSecureRangingConfigCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	wifirttResponderConfigBuilderCmd.AddCommand(wifirttResponderConfigBuilderSetSecureRangingConfigCmd)
+	wifirttCmd.AddCommand(wifirttResponderConfigBuilderCmd)
+	wifirttRangingRequestCmd.AddCommand(wifirttRangingRequestDescribeContentsCmd)
+	wifirttRangingRequestEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	wifirttRangingRequestCmd.AddCommand(wifirttRangingRequestEqualsCmd)
+	wifirttRangingRequestCmd.AddCommand(wifirttRangingRequestGetRttBurstSizeCmd)
+	wifirttRangingRequestCmd.AddCommand(wifirttRangingRequestGetSecurityModeCmd)
+	wifirttRangingRequestCmd.AddCommand(wifirttRangingRequestHashCodeCmd)
+	wifirttRangingRequestCmd.AddCommand(wifirttRangingRequestToStringCmd)
+	wifirttRangingRequestWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	wifirttRangingRequestWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	wifirttRangingRequestCmd.AddCommand(wifirttRangingRequestWriteToParcelCmd)
+	wifirttRangingRequestCmd.AddCommand(wifirttRangingRequestGetDefaultRttBurstSizeCmd)
+	wifirttRangingRequestCmd.AddCommand(wifirttRangingRequestGetMaxPeersCmd)
+	wifirttRangingRequestCmd.AddCommand(wifirttRangingRequestGetMaxRttBurstSizeCmd)
+	wifirttRangingRequestCmd.AddCommand(wifirttRangingRequestGetMinRttBurstSizeCmd)
+	wifirttCmd.AddCommand(wifirttRangingRequestCmd)
+	wifirttRangingRequestBuilderAddAccessPointCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	wifirttRangingRequestBuilderCmd.AddCommand(wifirttRangingRequestBuilderAddAccessPointCmd)
+	wifirttRangingRequestBuilderAddNon80211mcCapableAccessPointCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	wifirttRangingRequestBuilderCmd.AddCommand(wifirttRangingRequestBuilderAddNon80211mcCapableAccessPointCmd)
+	wifirttRangingRequestBuilderAddResponderCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	wifirttRangingRequestBuilderCmd.AddCommand(wifirttRangingRequestBuilderAddResponderCmd)
+	wifirttRangingRequestBuilderAddWifiAwarePeer1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	wifirttRangingRequestBuilderCmd.AddCommand(wifirttRangingRequestBuilderAddWifiAwarePeer1Cmd)
+	wifirttRangingRequestBuilderAddWifiAwarePeer1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	wifirttRangingRequestBuilderCmd.AddCommand(wifirttRangingRequestBuilderAddWifiAwarePeer1_1Cmd)
+	wifirttRangingRequestBuilderCmd.AddCommand(wifirttRangingRequestBuilderBuildCmd)
+	wifirttRangingRequestBuilderSetRttBurstSizeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	wifirttRangingRequestBuilderCmd.AddCommand(wifirttRangingRequestBuilderSetRttBurstSizeCmd)
+	wifirttRangingRequestBuilderSetSecurityModeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	wifirttRangingRequestBuilderCmd.AddCommand(wifirttRangingRequestBuilderSetSecurityModeCmd)
+	wifirttCmd.AddCommand(wifirttRangingRequestBuilderCmd)
+	wifirttRangingResultCallbackOnRangingFailureCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	wifirttRangingResultCallbackCmd.AddCommand(wifirttRangingResultCallbackOnRangingFailureCmd)
+	wifirttCmd.AddCommand(wifirttRangingResultCallbackCmd)
+	wifirttPasnConfigCmd.AddCommand(wifirttPasnConfigDescribeContentsCmd)
+	wifirttPasnConfigEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	wifirttPasnConfigCmd.AddCommand(wifirttPasnConfigEqualsCmd)
+	wifirttPasnConfigCmd.AddCommand(wifirttPasnConfigGetBaseAkmsCmd)
+	wifirttPasnConfigCmd.AddCommand(wifirttPasnConfigGetCiphersCmd)
+	wifirttPasnConfigCmd.AddCommand(wifirttPasnConfigGetPasnComebackCookieCmd)
+	wifirttPasnConfigCmd.AddCommand(wifirttPasnConfigGetPasswordCmd)
+	wifirttPasnConfigCmd.AddCommand(wifirttPasnConfigGetWifiSsidCmd)
+	wifirttPasnConfigCmd.AddCommand(wifirttPasnConfigHashCodeCmd)
+	wifirttPasnConfigCmd.AddCommand(wifirttPasnConfigToStringCmd)
+	wifirttPasnConfigWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	wifirttPasnConfigWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	wifirttPasnConfigCmd.AddCommand(wifirttPasnConfigWriteToParcelCmd)
+	wifirttCmd.AddCommand(wifirttPasnConfigCmd)
+	wifirttPasnConfigBuilderCmd.AddCommand(wifirttPasnConfigBuilderBuildCmd)
+	wifirttPasnConfigBuilderSetPasnComebackCookieCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	wifirttPasnConfigBuilderCmd.AddCommand(wifirttPasnConfigBuilderSetPasnComebackCookieCmd)
+	wifirttPasnConfigBuilderSetPasswordCmd.Flags().String("arg0", "", "arg0 (string)")
+	wifirttPasnConfigBuilderCmd.AddCommand(wifirttPasnConfigBuilderSetPasswordCmd)
+	wifirttPasnConfigBuilderSetWifiSsidCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	wifirttPasnConfigBuilderCmd.AddCommand(wifirttPasnConfigBuilderSetWifiSsidCmd)
+	wifirttCmd.AddCommand(wifirttPasnConfigBuilderCmd)
+	wifirttRangingResultCmd.AddCommand(wifirttRangingResultDescribeContentsCmd)
+	wifirttRangingResultEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	wifirttRangingResultCmd.AddCommand(wifirttRangingResultEqualsCmd)
+	wifirttRangingResultCmd.AddCommand(wifirttRangingResultGet80211azInitiatorTxLtfRepetitionsCountCmd)
+	wifirttRangingResultCmd.AddCommand(wifirttRangingResultGet80211azNumberOfRxSpatialStreamsCmd)
+	wifirttRangingResultCmd.AddCommand(wifirttRangingResultGet80211azNumberOfTxSpatialStreamsCmd)
+	wifirttRangingResultCmd.AddCommand(wifirttRangingResultGet80211azResponderTxLtfRepetitionsCountCmd)
+	wifirttRangingResultCmd.AddCommand(wifirttRangingResultGetDistanceMmCmd)
+	wifirttRangingResultCmd.AddCommand(wifirttRangingResultGetDistanceStdDevMmCmd)
+	wifirttRangingResultCmd.AddCommand(wifirttRangingResultGetLciCmd)
+	wifirttRangingResultCmd.AddCommand(wifirttRangingResultGetLcrCmd)
+	wifirttRangingResultCmd.AddCommand(wifirttRangingResultGetMacAddressCmd)
+	wifirttRangingResultCmd.AddCommand(wifirttRangingResultGetMaxTimeBetweenNtbMeasurementsMicrosCmd)
+	wifirttRangingResultCmd.AddCommand(wifirttRangingResultGetMeasurementBandwidthCmd)
+	wifirttRangingResultCmd.AddCommand(wifirttRangingResultGetMeasurementChannelFrequencyMHzCmd)
+	wifirttRangingResultCmd.AddCommand(wifirttRangingResultGetMinTimeBetweenNtbMeasurementsMicrosCmd)
+	wifirttRangingResultCmd.AddCommand(wifirttRangingResultGetNumAttemptedMeasurementsCmd)
+	wifirttRangingResultCmd.AddCommand(wifirttRangingResultGetNumSuccessfulMeasurementsCmd)
+	wifirttRangingResultCmd.AddCommand(wifirttRangingResultGetPasnComebackAfterMillisCmd)
+	wifirttRangingResultCmd.AddCommand(wifirttRangingResultGetPasnComebackCookieCmd)
+	wifirttRangingResultCmd.AddCommand(wifirttRangingResultGetPeerHandleCmd)
+	wifirttRangingResultCmd.AddCommand(wifirttRangingResultGetRangingTimestampMillisCmd)
+	wifirttRangingResultCmd.AddCommand(wifirttRangingResultGetRssiCmd)
+	wifirttRangingResultCmd.AddCommand(wifirttRangingResultGetSecureHeLtfProtocolVersionCmd)
+	wifirttRangingResultCmd.AddCommand(wifirttRangingResultGetStatusCmd)
+	wifirttRangingResultCmd.AddCommand(wifirttRangingResultGetUnverifiedResponderLocationCmd)
+	wifirttRangingResultCmd.AddCommand(wifirttRangingResultHashCodeCmd)
+	wifirttRangingResultCmd.AddCommand(wifirttRangingResultIs80211azNtbMeasurementCmd)
+	wifirttRangingResultCmd.AddCommand(wifirttRangingResultIs80211mcMeasurementCmd)
+	wifirttRangingResultCmd.AddCommand(wifirttRangingResultIsRangingAuthenticatedCmd)
+	wifirttRangingResultCmd.AddCommand(wifirttRangingResultIsRangingFrameProtectedCmd)
+	wifirttRangingResultCmd.AddCommand(wifirttRangingResultIsSecureHeLtfEnabledCmd)
+	wifirttRangingResultCmd.AddCommand(wifirttRangingResultToStringCmd)
+	wifirttRangingResultWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	wifirttRangingResultWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	wifirttRangingResultCmd.AddCommand(wifirttRangingResultWriteToParcelCmd)
+	wifirttCmd.AddCommand(wifirttRangingResultCmd)
+	wifirttRangingResultBuilderCmd.AddCommand(wifirttRangingResultBuilderBuildCmd)
+	wifirttRangingResultBuilderSet80211azInitiatorTxLtfRepetitionsCountCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	wifirttRangingResultBuilderCmd.AddCommand(wifirttRangingResultBuilderSet80211azInitiatorTxLtfRepetitionsCountCmd)
+	wifirttRangingResultBuilderSet80211azNtbMeasurementCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	wifirttRangingResultBuilderCmd.AddCommand(wifirttRangingResultBuilderSet80211azNtbMeasurementCmd)
+	wifirttRangingResultBuilderSet80211azNumberOfRxSpatialStreamsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	wifirttRangingResultBuilderCmd.AddCommand(wifirttRangingResultBuilderSet80211azNumberOfRxSpatialStreamsCmd)
+	wifirttRangingResultBuilderSet80211azNumberOfTxSpatialStreamsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	wifirttRangingResultBuilderCmd.AddCommand(wifirttRangingResultBuilderSet80211azNumberOfTxSpatialStreamsCmd)
+	wifirttRangingResultBuilderSet80211azResponderTxLtfRepetitionsCountCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	wifirttRangingResultBuilderCmd.AddCommand(wifirttRangingResultBuilderSet80211azResponderTxLtfRepetitionsCountCmd)
+	wifirttRangingResultBuilderSet80211mcMeasurementCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	wifirttRangingResultBuilderCmd.AddCommand(wifirttRangingResultBuilderSet80211mcMeasurementCmd)
+	wifirttRangingResultBuilderSetDistanceMmCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	wifirttRangingResultBuilderCmd.AddCommand(wifirttRangingResultBuilderSetDistanceMmCmd)
+	wifirttRangingResultBuilderSetDistanceStdDevMmCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	wifirttRangingResultBuilderCmd.AddCommand(wifirttRangingResultBuilderSetDistanceStdDevMmCmd)
+	wifirttRangingResultBuilderSetLciCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	wifirttRangingResultBuilderCmd.AddCommand(wifirttRangingResultBuilderSetLciCmd)
+	wifirttRangingResultBuilderSetLcrCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	wifirttRangingResultBuilderCmd.AddCommand(wifirttRangingResultBuilderSetLcrCmd)
+	wifirttRangingResultBuilderSetMacAddressCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	wifirttRangingResultBuilderCmd.AddCommand(wifirttRangingResultBuilderSetMacAddressCmd)
+	wifirttRangingResultBuilderSetMaxTimeBetweenNtbMeasurementsMicrosCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	wifirttRangingResultBuilderCmd.AddCommand(wifirttRangingResultBuilderSetMaxTimeBetweenNtbMeasurementsMicrosCmd)
+	wifirttRangingResultBuilderSetMeasurementBandwidthCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	wifirttRangingResultBuilderCmd.AddCommand(wifirttRangingResultBuilderSetMeasurementBandwidthCmd)
+	wifirttRangingResultBuilderSetMeasurementChannelFrequencyMHzCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	wifirttRangingResultBuilderCmd.AddCommand(wifirttRangingResultBuilderSetMeasurementChannelFrequencyMHzCmd)
+	wifirttRangingResultBuilderSetMinTimeBetweenNtbMeasurementsMicrosCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	wifirttRangingResultBuilderCmd.AddCommand(wifirttRangingResultBuilderSetMinTimeBetweenNtbMeasurementsMicrosCmd)
+	wifirttRangingResultBuilderSetNumAttemptedMeasurementsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	wifirttRangingResultBuilderCmd.AddCommand(wifirttRangingResultBuilderSetNumAttemptedMeasurementsCmd)
+	wifirttRangingResultBuilderSetNumSuccessfulMeasurementsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	wifirttRangingResultBuilderCmd.AddCommand(wifirttRangingResultBuilderSetNumSuccessfulMeasurementsCmd)
+	wifirttRangingResultBuilderSetPasnComebackAfterMillisCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	wifirttRangingResultBuilderCmd.AddCommand(wifirttRangingResultBuilderSetPasnComebackAfterMillisCmd)
+	wifirttRangingResultBuilderSetPasnComebackCookieCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	wifirttRangingResultBuilderCmd.AddCommand(wifirttRangingResultBuilderSetPasnComebackCookieCmd)
+	wifirttRangingResultBuilderSetPeerHandleCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	wifirttRangingResultBuilderCmd.AddCommand(wifirttRangingResultBuilderSetPeerHandleCmd)
+	wifirttRangingResultBuilderSetRangingAuthenticatedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	wifirttRangingResultBuilderCmd.AddCommand(wifirttRangingResultBuilderSetRangingAuthenticatedCmd)
+	wifirttRangingResultBuilderSetRangingFrameProtectedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	wifirttRangingResultBuilderCmd.AddCommand(wifirttRangingResultBuilderSetRangingFrameProtectedCmd)
+	wifirttRangingResultBuilderSetRangingTimestampMillisCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	wifirttRangingResultBuilderCmd.AddCommand(wifirttRangingResultBuilderSetRangingTimestampMillisCmd)
+	wifirttRangingResultBuilderSetRssiCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	wifirttRangingResultBuilderCmd.AddCommand(wifirttRangingResultBuilderSetRssiCmd)
+	wifirttRangingResultBuilderSetSecureHeLtfEnabledCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	wifirttRangingResultBuilderCmd.AddCommand(wifirttRangingResultBuilderSetSecureHeLtfEnabledCmd)
+	wifirttRangingResultBuilderSetSecureHeLtfProtocolVersionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	wifirttRangingResultBuilderCmd.AddCommand(wifirttRangingResultBuilderSetSecureHeLtfProtocolVersionCmd)
+	wifirttRangingResultBuilderSetStatusCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	wifirttRangingResultBuilderCmd.AddCommand(wifirttRangingResultBuilderSetStatusCmd)
+	wifirttRangingResultBuilderSetUnverifiedResponderLocationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	wifirttRangingResultBuilderCmd.AddCommand(wifirttRangingResultBuilderSetUnverifiedResponderLocationCmd)
+	wifirttCmd.AddCommand(wifirttRangingResultBuilderCmd)
+	wifirttSecureRangingConfigCmd.AddCommand(wifirttSecureRangingConfigDescribeContentsCmd)
+	wifirttSecureRangingConfigEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	wifirttSecureRangingConfigCmd.AddCommand(wifirttSecureRangingConfigEqualsCmd)
+	wifirttSecureRangingConfigCmd.AddCommand(wifirttSecureRangingConfigGetPasnConfigCmd)
+	wifirttSecureRangingConfigCmd.AddCommand(wifirttSecureRangingConfigHashCodeCmd)
+	wifirttSecureRangingConfigCmd.AddCommand(wifirttSecureRangingConfigIsRangingFrameProtectionEnabledCmd)
+	wifirttSecureRangingConfigCmd.AddCommand(wifirttSecureRangingConfigIsSecureHeLtfEnabledCmd)
+	wifirttSecureRangingConfigCmd.AddCommand(wifirttSecureRangingConfigToStringCmd)
+	wifirttSecureRangingConfigWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	wifirttSecureRangingConfigWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	wifirttSecureRangingConfigCmd.AddCommand(wifirttSecureRangingConfigWriteToParcelCmd)
+	wifirttCmd.AddCommand(wifirttSecureRangingConfigCmd)
+	wifirttSecureRangingConfigBuilderCmd.AddCommand(wifirttSecureRangingConfigBuilderBuildCmd)
+	wifirttSecureRangingConfigBuilderSetRangingFrameProtectionEnabledCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	wifirttSecureRangingConfigBuilderCmd.AddCommand(wifirttSecureRangingConfigBuilderSetRangingFrameProtectionEnabledCmd)
+	wifirttSecureRangingConfigBuilderSetSecureHeLtfEnabledCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	wifirttSecureRangingConfigBuilderCmd.AddCommand(wifirttSecureRangingConfigBuilderSetSecureHeLtfEnabledCmd)
+	wifirttCmd.AddCommand(wifirttSecureRangingConfigBuilderCmd)
+	wifirttResponderLocationCmd.AddCommand(wifirttResponderLocationDescribeContentsCmd)
+	wifirttResponderLocationEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	wifirttResponderLocationCmd.AddCommand(wifirttResponderLocationEqualsCmd)
+	wifirttResponderLocationCmd.AddCommand(wifirttResponderLocationGetAltitudeCmd)
+	wifirttResponderLocationCmd.AddCommand(wifirttResponderLocationGetAltitudeTypeCmd)
+	wifirttResponderLocationCmd.AddCommand(wifirttResponderLocationGetAltitudeUncertaintyCmd)
+	wifirttResponderLocationCmd.AddCommand(wifirttResponderLocationGetDatumCmd)
+	wifirttResponderLocationCmd.AddCommand(wifirttResponderLocationGetExpectedToMoveCmd)
+	wifirttResponderLocationCmd.AddCommand(wifirttResponderLocationGetFloorNumberCmd)
+	wifirttResponderLocationCmd.AddCommand(wifirttResponderLocationGetHeightAboveFloorMetersCmd)
+	wifirttResponderLocationCmd.AddCommand(wifirttResponderLocationGetHeightAboveFloorUncertaintyMetersCmd)
+	wifirttResponderLocationCmd.AddCommand(wifirttResponderLocationGetLatitudeCmd)
+	wifirttResponderLocationCmd.AddCommand(wifirttResponderLocationGetLatitudeUncertaintyCmd)
+	wifirttResponderLocationCmd.AddCommand(wifirttResponderLocationGetLciVersionCmd)
+	wifirttResponderLocationCmd.AddCommand(wifirttResponderLocationGetLongitudeCmd)
+	wifirttResponderLocationCmd.AddCommand(wifirttResponderLocationGetLongitudeUncertaintyCmd)
+	wifirttResponderLocationCmd.AddCommand(wifirttResponderLocationGetMapImageMimeTypeCmd)
+	wifirttResponderLocationCmd.AddCommand(wifirttResponderLocationGetMapImageUriCmd)
+	wifirttResponderLocationCmd.AddCommand(wifirttResponderLocationGetRegisteredLocationAgreementIndicationCmd)
+	wifirttResponderLocationCmd.AddCommand(wifirttResponderLocationHashCodeCmd)
+	wifirttResponderLocationCmd.AddCommand(wifirttResponderLocationIsLciSubelementValidCmd)
+	wifirttResponderLocationCmd.AddCommand(wifirttResponderLocationIsZaxisSubelementValidCmd)
+	wifirttResponderLocationCmd.AddCommand(wifirttResponderLocationToCivicLocationAddressCmd)
+	wifirttResponderLocationCmd.AddCommand(wifirttResponderLocationToLocationCmd)
+	wifirttResponderLocationWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	wifirttResponderLocationWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	wifirttResponderLocationCmd.AddCommand(wifirttResponderLocationWriteToParcelCmd)
+	wifirttCmd.AddCommand(wifirttResponderLocationCmd)
 	wifirttWifiRttManagerCmd.AddCommand(wifirttWifiRttManagerGetRttCharacteristicsCmd)
 	wifirttWifiRttManagerCmd.AddCommand(wifirttWifiRttManagerIsAvailableCmd)
 	wifirttWifiRttManagerStartRangingCmd.Flags().Int64("arg0", 0, "arg0 (int64)")

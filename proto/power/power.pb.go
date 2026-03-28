@@ -2175,6 +2175,878 @@ func (*RemoveThermalStatusListenerResponse) Descriptor() ([]byte, []int) {
 	return file_proto_power_power_proto_rawDescGZIP(), []int{51}
 }
 
+type OnThermalStatusChangedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnThermalStatusChangedRequest) Reset() {
+	*x = OnThermalStatusChangedRequest{}
+	mi := &file_proto_power_power_proto_msgTypes[52]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnThermalStatusChangedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnThermalStatusChangedRequest) ProtoMessage() {}
+
+func (x *OnThermalStatusChangedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_power_power_proto_msgTypes[52]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnThermalStatusChangedRequest.ProtoReflect.Descriptor instead.
+func (*OnThermalStatusChangedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_power_power_proto_rawDescGZIP(), []int{52}
+}
+
+func (x *OnThermalStatusChangedRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnThermalStatusChangedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnThermalStatusChangedResponse) Reset() {
+	*x = OnThermalStatusChangedResponse{}
+	mi := &file_proto_power_power_proto_msgTypes[53]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnThermalStatusChangedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnThermalStatusChangedResponse) ProtoMessage() {}
+
+func (x *OnThermalStatusChangedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_power_power_proto_msgTypes[53]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnThermalStatusChangedResponse.ProtoReflect.Descriptor instead.
+func (*OnThermalStatusChangedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_power_power_proto_rawDescGZIP(), []int{53}
+}
+
+type Acquire0Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Acquire0Request) Reset() {
+	*x = Acquire0Request{}
+	mi := &file_proto_power_power_proto_msgTypes[54]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Acquire0Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Acquire0Request) ProtoMessage() {}
+
+func (x *Acquire0Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_power_power_proto_msgTypes[54]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Acquire0Request.ProtoReflect.Descriptor instead.
+func (*Acquire0Request) Descriptor() ([]byte, []int) {
+	return file_proto_power_power_proto_rawDescGZIP(), []int{54}
+}
+
+type Acquire0Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Acquire0Response) Reset() {
+	*x = Acquire0Response{}
+	mi := &file_proto_power_power_proto_msgTypes[55]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Acquire0Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Acquire0Response) ProtoMessage() {}
+
+func (x *Acquire0Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_power_power_proto_msgTypes[55]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Acquire0Response.ProtoReflect.Descriptor instead.
+func (*Acquire0Response) Descriptor() ([]byte, []int) {
+	return file_proto_power_power_proto_rawDescGZIP(), []int{55}
+}
+
+type Acquire1_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Acquire1_1Request) Reset() {
+	*x = Acquire1_1Request{}
+	mi := &file_proto_power_power_proto_msgTypes[56]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Acquire1_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Acquire1_1Request) ProtoMessage() {}
+
+func (x *Acquire1_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_power_power_proto_msgTypes[56]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Acquire1_1Request.ProtoReflect.Descriptor instead.
+func (*Acquire1_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_power_power_proto_rawDescGZIP(), []int{56}
+}
+
+func (x *Acquire1_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type Acquire1_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Acquire1_1Response) Reset() {
+	*x = Acquire1_1Response{}
+	mi := &file_proto_power_power_proto_msgTypes[57]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Acquire1_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Acquire1_1Response) ProtoMessage() {}
+
+func (x *Acquire1_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_power_power_proto_msgTypes[57]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Acquire1_1Response.ProtoReflect.Descriptor instead.
+func (*Acquire1_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_power_power_proto_rawDescGZIP(), []int{57}
+}
+
+type IsHeldRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsHeldRequest) Reset() {
+	*x = IsHeldRequest{}
+	mi := &file_proto_power_power_proto_msgTypes[58]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsHeldRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsHeldRequest) ProtoMessage() {}
+
+func (x *IsHeldRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_power_power_proto_msgTypes[58]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsHeldRequest.ProtoReflect.Descriptor instead.
+func (*IsHeldRequest) Descriptor() ([]byte, []int) {
+	return file_proto_power_power_proto_rawDescGZIP(), []int{58}
+}
+
+type IsHeldResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsHeldResponse) Reset() {
+	*x = IsHeldResponse{}
+	mi := &file_proto_power_power_proto_msgTypes[59]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsHeldResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsHeldResponse) ProtoMessage() {}
+
+func (x *IsHeldResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_power_power_proto_msgTypes[59]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsHeldResponse.ProtoReflect.Descriptor instead.
+func (*IsHeldResponse) Descriptor() ([]byte, []int) {
+	return file_proto_power_power_proto_rawDescGZIP(), []int{59}
+}
+
+func (x *IsHeldResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type Release0Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Release0Request) Reset() {
+	*x = Release0Request{}
+	mi := &file_proto_power_power_proto_msgTypes[60]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Release0Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Release0Request) ProtoMessage() {}
+
+func (x *Release0Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_power_power_proto_msgTypes[60]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Release0Request.ProtoReflect.Descriptor instead.
+func (*Release0Request) Descriptor() ([]byte, []int) {
+	return file_proto_power_power_proto_rawDescGZIP(), []int{60}
+}
+
+type Release0Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Release0Response) Reset() {
+	*x = Release0Response{}
+	mi := &file_proto_power_power_proto_msgTypes[61]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Release0Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Release0Response) ProtoMessage() {}
+
+func (x *Release0Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_power_power_proto_msgTypes[61]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Release0Response.ProtoReflect.Descriptor instead.
+func (*Release0Response) Descriptor() ([]byte, []int) {
+	return file_proto_power_power_proto_rawDescGZIP(), []int{61}
+}
+
+type Release1_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Release1_1Request) Reset() {
+	*x = Release1_1Request{}
+	mi := &file_proto_power_power_proto_msgTypes[62]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Release1_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Release1_1Request) ProtoMessage() {}
+
+func (x *Release1_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_power_power_proto_msgTypes[62]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Release1_1Request.ProtoReflect.Descriptor instead.
+func (*Release1_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_power_power_proto_rawDescGZIP(), []int{62}
+}
+
+func (x *Release1_1Request) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type Release1_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Release1_1Response) Reset() {
+	*x = Release1_1Response{}
+	mi := &file_proto_power_power_proto_msgTypes[63]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Release1_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Release1_1Response) ProtoMessage() {}
+
+func (x *Release1_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_power_power_proto_msgTypes[63]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Release1_1Response.ProtoReflect.Descriptor instead.
+func (*Release1_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_power_power_proto_rawDescGZIP(), []int{63}
+}
+
+type SetReferenceCountedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetReferenceCountedRequest) Reset() {
+	*x = SetReferenceCountedRequest{}
+	mi := &file_proto_power_power_proto_msgTypes[64]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetReferenceCountedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetReferenceCountedRequest) ProtoMessage() {}
+
+func (x *SetReferenceCountedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_power_power_proto_msgTypes[64]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetReferenceCountedRequest.ProtoReflect.Descriptor instead.
+func (*SetReferenceCountedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_power_power_proto_rawDescGZIP(), []int{64}
+}
+
+func (x *SetReferenceCountedRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetReferenceCountedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetReferenceCountedResponse) Reset() {
+	*x = SetReferenceCountedResponse{}
+	mi := &file_proto_power_power_proto_msgTypes[65]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetReferenceCountedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetReferenceCountedResponse) ProtoMessage() {}
+
+func (x *SetReferenceCountedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_power_power_proto_msgTypes[65]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetReferenceCountedResponse.ProtoReflect.Descriptor instead.
+func (*SetReferenceCountedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_power_power_proto_rawDescGZIP(), []int{65}
+}
+
+type SetStateListenerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetStateListenerRequest) Reset() {
+	*x = SetStateListenerRequest{}
+	mi := &file_proto_power_power_proto_msgTypes[66]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetStateListenerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetStateListenerRequest) ProtoMessage() {}
+
+func (x *SetStateListenerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_power_power_proto_msgTypes[66]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetStateListenerRequest.ProtoReflect.Descriptor instead.
+func (*SetStateListenerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_power_power_proto_rawDescGZIP(), []int{66}
+}
+
+func (x *SetStateListenerRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SetStateListenerRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type SetStateListenerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetStateListenerResponse) Reset() {
+	*x = SetStateListenerResponse{}
+	mi := &file_proto_power_power_proto_msgTypes[67]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetStateListenerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetStateListenerResponse) ProtoMessage() {}
+
+func (x *SetStateListenerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_power_power_proto_msgTypes[67]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetStateListenerResponse.ProtoReflect.Descriptor instead.
+func (*SetStateListenerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_power_power_proto_rawDescGZIP(), []int{67}
+}
+
+type SetWorkSourceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetWorkSourceRequest) Reset() {
+	*x = SetWorkSourceRequest{}
+	mi := &file_proto_power_power_proto_msgTypes[68]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetWorkSourceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetWorkSourceRequest) ProtoMessage() {}
+
+func (x *SetWorkSourceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_power_power_proto_msgTypes[68]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetWorkSourceRequest.ProtoReflect.Descriptor instead.
+func (*SetWorkSourceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_power_power_proto_rawDescGZIP(), []int{68}
+}
+
+func (x *SetWorkSourceRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetWorkSourceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetWorkSourceResponse) Reset() {
+	*x = SetWorkSourceResponse{}
+	mi := &file_proto_power_power_proto_msgTypes[69]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetWorkSourceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetWorkSourceResponse) ProtoMessage() {}
+
+func (x *SetWorkSourceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_power_power_proto_msgTypes[69]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetWorkSourceResponse.ProtoReflect.Descriptor instead.
+func (*SetWorkSourceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_power_power_proto_rawDescGZIP(), []int{69}
+}
+
+type ToStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringRequest) Reset() {
+	*x = ToStringRequest{}
+	mi := &file_proto_power_power_proto_msgTypes[70]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringRequest) ProtoMessage() {}
+
+func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_power_power_proto_msgTypes[70]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringRequest.ProtoReflect.Descriptor instead.
+func (*ToStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_power_power_proto_rawDescGZIP(), []int{70}
+}
+
+type ToStringResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringResponse) Reset() {
+	*x = ToStringResponse{}
+	mi := &file_proto_power_power_proto_msgTypes[71]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringResponse) ProtoMessage() {}
+
+func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_power_power_proto_msgTypes[71]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringResponse.ProtoReflect.Descriptor instead.
+func (*ToStringResponse) Descriptor() ([]byte, []int) {
+	return file_proto_power_power_proto_rawDescGZIP(), []int{71}
+}
+
+func (x *ToStringResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type OnStateChangedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnStateChangedRequest) Reset() {
+	*x = OnStateChangedRequest{}
+	mi := &file_proto_power_power_proto_msgTypes[72]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnStateChangedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnStateChangedRequest) ProtoMessage() {}
+
+func (x *OnStateChangedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_power_power_proto_msgTypes[72]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnStateChangedRequest.ProtoReflect.Descriptor instead.
+func (*OnStateChangedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_power_power_proto_rawDescGZIP(), []int{72}
+}
+
+func (x *OnStateChangedRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type OnStateChangedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnStateChangedResponse) Reset() {
+	*x = OnStateChangedResponse{}
+	mi := &file_proto_power_power_proto_msgTypes[73]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnStateChangedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnStateChangedResponse) ProtoMessage() {}
+
+func (x *OnStateChangedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_power_power_proto_msgTypes[73]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnStateChangedResponse.ProtoReflect.Descriptor instead.
+func (*OnStateChangedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_power_power_proto_rawDescGZIP(), []int{73}
+}
+
 var File_proto_power_power_proto protoreflect.FileDescriptor
 
 const file_proto_power_power_proto_rawDesc = "" +
@@ -2266,7 +3138,39 @@ const file_proto_power_power_proto_rawDesc = "" +
 	"%RemoveThermalHeadroomListenerResponse\"8\n" +
 	"\"RemoveThermalStatusListenerRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"%\n" +
-	"#RemoveThermalStatusListenerResponse2\x89\x16\n" +
+	"#RemoveThermalStatusListenerResponse\"3\n" +
+	"\x1dOnThermalStatusChangedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\" \n" +
+	"\x1eOnThermalStatusChangedResponse\"\x11\n" +
+	"\x0fAcquire0Request\"\x12\n" +
+	"\x10Acquire0Response\"'\n" +
+	"\x11Acquire1_1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x14\n" +
+	"\x12Acquire1_1Response\"\x0f\n" +
+	"\rIsHeldRequest\"(\n" +
+	"\x0eIsHeldResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x11\n" +
+	"\x0fRelease0Request\"\x12\n" +
+	"\x10Release0Response\"'\n" +
+	"\x11Release1_1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"\x14\n" +
+	"\x12Release1_1Response\"0\n" +
+	"\x1aSetReferenceCountedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"\x1d\n" +
+	"\x1bSetReferenceCountedResponse\"A\n" +
+	"\x17SetStateListenerRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x1a\n" +
+	"\x18SetStateListenerResponse\"*\n" +
+	"\x14SetWorkSourceRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x17\n" +
+	"\x15SetWorkSourceResponse\"\x11\n" +
+	"\x0fToStringRequest\"*\n" +
+	"\x10ToStringResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"+\n" +
+	"\x15OnStateChangedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"\x18\n" +
+	"\x16OnStateChangedResponse2\x89\x16\n" +
 	"\x0eManagerService\x12t\n" +
 	"\x1bAddThermalHeadroomListener1\x12).power.AddThermalHeadroomListener1Request\x1a*.power.AddThermalHeadroomListener1Response\x12z\n" +
 	"\x1dAddThermalHeadroomListener2_1\x12+.power.AddThermalHeadroomListener2_1Request\x1a,.power.AddThermalHeadroomListener2_1Response\x12n\n" +
@@ -2294,7 +3198,23 @@ const file_proto_power_power_proto_rawDesc = "" +
 	"\vNewWakeLock\x12\x19.power.NewWakeLockRequest\x1a\x1a.power.NewWakeLockResponse\x125\n" +
 	"\x06Reboot\x12\x14.power.RebootRequest\x1a\x15.power.RebootResponse\x12z\n" +
 	"\x1dRemoveThermalHeadroomListener\x12+.power.RemoveThermalHeadroomListenerRequest\x1a,.power.RemoveThermalHeadroomListenerResponse\x12t\n" +
-	"\x1bRemoveThermalStatusListener\x12).power.RemoveThermalStatusListenerRequest\x1a*.power.RemoveThermalStatusListenerResponseB/Z-github.com/AndroidGoLab/jni-proxy/proto/powerb\x06proto3"
+	"\x1bRemoveThermalStatusListener\x12).power.RemoveThermalStatusListenerRequest\x1a*.power.RemoveThermalStatusListenerResponse2\x95\x01\n" +
+	",ManagerOnThermalStatusChangedListenerService\x12e\n" +
+	"\x16OnThermalStatusChanged\x12$.power.OnThermalStatusChangedRequest\x1a%.power.OnThermalStatusChangedResponse2\x8b\x05\n" +
+	"\x16ManagerWakeLockService\x12;\n" +
+	"\bAcquire0\x12\x16.power.Acquire0Request\x1a\x17.power.Acquire0Response\x12A\n" +
+	"\n" +
+	"Acquire1_1\x12\x18.power.Acquire1_1Request\x1a\x19.power.Acquire1_1Response\x125\n" +
+	"\x06IsHeld\x12\x14.power.IsHeldRequest\x1a\x15.power.IsHeldResponse\x12;\n" +
+	"\bRelease0\x12\x16.power.Release0Request\x1a\x17.power.Release0Response\x12A\n" +
+	"\n" +
+	"Release1_1\x12\x18.power.Release1_1Request\x1a\x19.power.Release1_1Response\x12\\\n" +
+	"\x13SetReferenceCounted\x12!.power.SetReferenceCountedRequest\x1a\".power.SetReferenceCountedResponse\x12S\n" +
+	"\x10SetStateListener\x12\x1e.power.SetStateListenerRequest\x1a\x1f.power.SetStateListenerResponse\x12J\n" +
+	"\rSetWorkSource\x12\x1b.power.SetWorkSourceRequest\x1a\x1c.power.SetWorkSourceResponse\x12;\n" +
+	"\bToString\x12\x16.power.ToStringRequest\x1a\x17.power.ToStringResponse2t\n" +
+	"#ManagerWakeLockStateListenerService\x12M\n" +
+	"\x0eOnStateChanged\x12\x1c.power.OnStateChangedRequest\x1a\x1d.power.OnStateChangedResponseB/Z-github.com/AndroidGoLab/jni-proxy/proto/powerb\x06proto3"
 
 var (
 	file_proto_power_power_proto_rawDescOnce sync.Once
@@ -2308,7 +3228,7 @@ func file_proto_power_power_proto_rawDescGZIP() []byte {
 	return file_proto_power_power_proto_rawDescData
 }
 
-var file_proto_power_power_proto_msgTypes = make([]protoimpl.MessageInfo, 52)
+var file_proto_power_power_proto_msgTypes = make([]protoimpl.MessageInfo, 74)
 var file_proto_power_power_proto_goTypes = []any{
 	(*AddThermalHeadroomListener1Request)(nil),               // 0: power.AddThermalHeadroomListener1Request
 	(*AddThermalHeadroomListener1Response)(nil),              // 1: power.AddThermalHeadroomListener1Response
@@ -2362,6 +3282,28 @@ var file_proto_power_power_proto_goTypes = []any{
 	(*RemoveThermalHeadroomListenerResponse)(nil),            // 49: power.RemoveThermalHeadroomListenerResponse
 	(*RemoveThermalStatusListenerRequest)(nil),               // 50: power.RemoveThermalStatusListenerRequest
 	(*RemoveThermalStatusListenerResponse)(nil),              // 51: power.RemoveThermalStatusListenerResponse
+	(*OnThermalStatusChangedRequest)(nil),                    // 52: power.OnThermalStatusChangedRequest
+	(*OnThermalStatusChangedResponse)(nil),                   // 53: power.OnThermalStatusChangedResponse
+	(*Acquire0Request)(nil),                                  // 54: power.Acquire0Request
+	(*Acquire0Response)(nil),                                 // 55: power.Acquire0Response
+	(*Acquire1_1Request)(nil),                                // 56: power.Acquire1_1Request
+	(*Acquire1_1Response)(nil),                               // 57: power.Acquire1_1Response
+	(*IsHeldRequest)(nil),                                    // 58: power.IsHeldRequest
+	(*IsHeldResponse)(nil),                                   // 59: power.IsHeldResponse
+	(*Release0Request)(nil),                                  // 60: power.Release0Request
+	(*Release0Response)(nil),                                 // 61: power.Release0Response
+	(*Release1_1Request)(nil),                                // 62: power.Release1_1Request
+	(*Release1_1Response)(nil),                               // 63: power.Release1_1Response
+	(*SetReferenceCountedRequest)(nil),                       // 64: power.SetReferenceCountedRequest
+	(*SetReferenceCountedResponse)(nil),                      // 65: power.SetReferenceCountedResponse
+	(*SetStateListenerRequest)(nil),                          // 66: power.SetStateListenerRequest
+	(*SetStateListenerResponse)(nil),                         // 67: power.SetStateListenerResponse
+	(*SetWorkSourceRequest)(nil),                             // 68: power.SetWorkSourceRequest
+	(*SetWorkSourceResponse)(nil),                            // 69: power.SetWorkSourceResponse
+	(*ToStringRequest)(nil),                                  // 70: power.ToStringRequest
+	(*ToStringResponse)(nil),                                 // 71: power.ToStringResponse
+	(*OnStateChangedRequest)(nil),                            // 72: power.OnStateChangedRequest
+	(*OnStateChangedResponse)(nil),                           // 73: power.OnStateChangedResponse
 }
 var file_proto_power_power_proto_depIdxs = []int32{
 	0,  // 0: power.ManagerService.AddThermalHeadroomListener1:input_type -> power.AddThermalHeadroomListener1Request
@@ -2390,34 +3332,56 @@ var file_proto_power_power_proto_depIdxs = []int32{
 	46, // 23: power.ManagerService.Reboot:input_type -> power.RebootRequest
 	48, // 24: power.ManagerService.RemoveThermalHeadroomListener:input_type -> power.RemoveThermalHeadroomListenerRequest
 	50, // 25: power.ManagerService.RemoveThermalStatusListener:input_type -> power.RemoveThermalStatusListenerRequest
-	1,  // 26: power.ManagerService.AddThermalHeadroomListener1:output_type -> power.AddThermalHeadroomListener1Response
-	3,  // 27: power.ManagerService.AddThermalHeadroomListener2_1:output_type -> power.AddThermalHeadroomListener2_1Response
-	5,  // 28: power.ManagerService.AddThermalStatusListener1:output_type -> power.AddThermalStatusListener1Response
-	7,  // 29: power.ManagerService.AddThermalStatusListener2_1:output_type -> power.AddThermalStatusListener2_1Response
-	9,  // 30: power.ManagerService.GetBatteryDischargePrediction:output_type -> power.GetBatteryDischargePredictionResponse
-	11, // 31: power.ManagerService.GetCurrentThermalStatus:output_type -> power.GetCurrentThermalStatusResponse
-	13, // 32: power.ManagerService.GetLocationPowerSaveMode:output_type -> power.GetLocationPowerSaveModeResponse
-	15, // 33: power.ManagerService.GetThermalHeadroom:output_type -> power.GetThermalHeadroomResponse
-	17, // 34: power.ManagerService.IsAllowedInLowPowerStandby1:output_type -> power.IsAllowedInLowPowerStandby1Response
-	19, // 35: power.ManagerService.IsAllowedInLowPowerStandby1_1:output_type -> power.IsAllowedInLowPowerStandby1_1Response
-	21, // 36: power.ManagerService.IsBatteryDischargePredictionPersonalized:output_type -> power.IsBatteryDischargePredictionPersonalizedResponse
-	23, // 37: power.ManagerService.IsDeviceIdleMode:output_type -> power.IsDeviceIdleModeResponse
-	25, // 38: power.ManagerService.IsDeviceLightIdleMode:output_type -> power.IsDeviceLightIdleModeResponse
-	27, // 39: power.ManagerService.IsExemptFromLowPowerStandby:output_type -> power.IsExemptFromLowPowerStandbyResponse
-	29, // 40: power.ManagerService.IsIgnoringBatteryOptimizations:output_type -> power.IsIgnoringBatteryOptimizationsResponse
-	31, // 41: power.ManagerService.IsInteractive:output_type -> power.IsInteractiveResponse
-	33, // 42: power.ManagerService.IsLowPowerStandbyEnabled:output_type -> power.IsLowPowerStandbyEnabledResponse
-	35, // 43: power.ManagerService.IsPowerSaveMode:output_type -> power.IsPowerSaveModeResponse
-	37, // 44: power.ManagerService.IsRebootingUserspaceSupported:output_type -> power.IsRebootingUserspaceSupportedResponse
-	39, // 45: power.ManagerService.IsScreenOn:output_type -> power.IsScreenOnResponse
-	41, // 46: power.ManagerService.IsSustainedPerformanceModeSupported:output_type -> power.IsSustainedPerformanceModeSupportedResponse
-	43, // 47: power.ManagerService.IsWakeLockLevelSupported:output_type -> power.IsWakeLockLevelSupportedResponse
-	45, // 48: power.ManagerService.NewWakeLock:output_type -> power.NewWakeLockResponse
-	47, // 49: power.ManagerService.Reboot:output_type -> power.RebootResponse
-	49, // 50: power.ManagerService.RemoveThermalHeadroomListener:output_type -> power.RemoveThermalHeadroomListenerResponse
-	51, // 51: power.ManagerService.RemoveThermalStatusListener:output_type -> power.RemoveThermalStatusListenerResponse
-	26, // [26:52] is the sub-list for method output_type
-	0,  // [0:26] is the sub-list for method input_type
+	52, // 26: power.ManagerOnThermalStatusChangedListenerService.OnThermalStatusChanged:input_type -> power.OnThermalStatusChangedRequest
+	54, // 27: power.ManagerWakeLockService.Acquire0:input_type -> power.Acquire0Request
+	56, // 28: power.ManagerWakeLockService.Acquire1_1:input_type -> power.Acquire1_1Request
+	58, // 29: power.ManagerWakeLockService.IsHeld:input_type -> power.IsHeldRequest
+	60, // 30: power.ManagerWakeLockService.Release0:input_type -> power.Release0Request
+	62, // 31: power.ManagerWakeLockService.Release1_1:input_type -> power.Release1_1Request
+	64, // 32: power.ManagerWakeLockService.SetReferenceCounted:input_type -> power.SetReferenceCountedRequest
+	66, // 33: power.ManagerWakeLockService.SetStateListener:input_type -> power.SetStateListenerRequest
+	68, // 34: power.ManagerWakeLockService.SetWorkSource:input_type -> power.SetWorkSourceRequest
+	70, // 35: power.ManagerWakeLockService.ToString:input_type -> power.ToStringRequest
+	72, // 36: power.ManagerWakeLockStateListenerService.OnStateChanged:input_type -> power.OnStateChangedRequest
+	1,  // 37: power.ManagerService.AddThermalHeadroomListener1:output_type -> power.AddThermalHeadroomListener1Response
+	3,  // 38: power.ManagerService.AddThermalHeadroomListener2_1:output_type -> power.AddThermalHeadroomListener2_1Response
+	5,  // 39: power.ManagerService.AddThermalStatusListener1:output_type -> power.AddThermalStatusListener1Response
+	7,  // 40: power.ManagerService.AddThermalStatusListener2_1:output_type -> power.AddThermalStatusListener2_1Response
+	9,  // 41: power.ManagerService.GetBatteryDischargePrediction:output_type -> power.GetBatteryDischargePredictionResponse
+	11, // 42: power.ManagerService.GetCurrentThermalStatus:output_type -> power.GetCurrentThermalStatusResponse
+	13, // 43: power.ManagerService.GetLocationPowerSaveMode:output_type -> power.GetLocationPowerSaveModeResponse
+	15, // 44: power.ManagerService.GetThermalHeadroom:output_type -> power.GetThermalHeadroomResponse
+	17, // 45: power.ManagerService.IsAllowedInLowPowerStandby1:output_type -> power.IsAllowedInLowPowerStandby1Response
+	19, // 46: power.ManagerService.IsAllowedInLowPowerStandby1_1:output_type -> power.IsAllowedInLowPowerStandby1_1Response
+	21, // 47: power.ManagerService.IsBatteryDischargePredictionPersonalized:output_type -> power.IsBatteryDischargePredictionPersonalizedResponse
+	23, // 48: power.ManagerService.IsDeviceIdleMode:output_type -> power.IsDeviceIdleModeResponse
+	25, // 49: power.ManagerService.IsDeviceLightIdleMode:output_type -> power.IsDeviceLightIdleModeResponse
+	27, // 50: power.ManagerService.IsExemptFromLowPowerStandby:output_type -> power.IsExemptFromLowPowerStandbyResponse
+	29, // 51: power.ManagerService.IsIgnoringBatteryOptimizations:output_type -> power.IsIgnoringBatteryOptimizationsResponse
+	31, // 52: power.ManagerService.IsInteractive:output_type -> power.IsInteractiveResponse
+	33, // 53: power.ManagerService.IsLowPowerStandbyEnabled:output_type -> power.IsLowPowerStandbyEnabledResponse
+	35, // 54: power.ManagerService.IsPowerSaveMode:output_type -> power.IsPowerSaveModeResponse
+	37, // 55: power.ManagerService.IsRebootingUserspaceSupported:output_type -> power.IsRebootingUserspaceSupportedResponse
+	39, // 56: power.ManagerService.IsScreenOn:output_type -> power.IsScreenOnResponse
+	41, // 57: power.ManagerService.IsSustainedPerformanceModeSupported:output_type -> power.IsSustainedPerformanceModeSupportedResponse
+	43, // 58: power.ManagerService.IsWakeLockLevelSupported:output_type -> power.IsWakeLockLevelSupportedResponse
+	45, // 59: power.ManagerService.NewWakeLock:output_type -> power.NewWakeLockResponse
+	47, // 60: power.ManagerService.Reboot:output_type -> power.RebootResponse
+	49, // 61: power.ManagerService.RemoveThermalHeadroomListener:output_type -> power.RemoveThermalHeadroomListenerResponse
+	51, // 62: power.ManagerService.RemoveThermalStatusListener:output_type -> power.RemoveThermalStatusListenerResponse
+	53, // 63: power.ManagerOnThermalStatusChangedListenerService.OnThermalStatusChanged:output_type -> power.OnThermalStatusChangedResponse
+	55, // 64: power.ManagerWakeLockService.Acquire0:output_type -> power.Acquire0Response
+	57, // 65: power.ManagerWakeLockService.Acquire1_1:output_type -> power.Acquire1_1Response
+	59, // 66: power.ManagerWakeLockService.IsHeld:output_type -> power.IsHeldResponse
+	61, // 67: power.ManagerWakeLockService.Release0:output_type -> power.Release0Response
+	63, // 68: power.ManagerWakeLockService.Release1_1:output_type -> power.Release1_1Response
+	65, // 69: power.ManagerWakeLockService.SetReferenceCounted:output_type -> power.SetReferenceCountedResponse
+	67, // 70: power.ManagerWakeLockService.SetStateListener:output_type -> power.SetStateListenerResponse
+	69, // 71: power.ManagerWakeLockService.SetWorkSource:output_type -> power.SetWorkSourceResponse
+	71, // 72: power.ManagerWakeLockService.ToString:output_type -> power.ToStringResponse
+	73, // 73: power.ManagerWakeLockStateListenerService.OnStateChanged:output_type -> power.OnStateChangedResponse
+	37, // [37:74] is the sub-list for method output_type
+	0,  // [0:37] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name
 	0,  // [0:0] is the sub-list for extension extendee
 	0,  // [0:0] is the sub-list for field type_name
@@ -2434,9 +3398,9 @@ func file_proto_power_power_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_power_power_proto_rawDesc), len(file_proto_power_power_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   52,
+			NumMessages:   74,
 			NumExtensions: 0,
-			NumServices:   1,
+			NumServices:   4,
 		},
 		GoTypes:           file_proto_power_power_proto_goTypes,
 		DependencyIndexes: file_proto_power_power_proto_depIdxs,

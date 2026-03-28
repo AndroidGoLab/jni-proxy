@@ -197,3 +197,3420 @@ var TvAdManagerService_ServiceDesc = grpc.ServiceDesc{
 	Streams:  []grpc.StreamDesc{},
 	Metadata: "proto/ad/ad.proto",
 }
+
+const (
+	TvAdManagerTvAdServiceCallbackService_OnAdServiceAdded_FullMethodName   = "/ad.TvAdManagerTvAdServiceCallbackService/OnAdServiceAdded"
+	TvAdManagerTvAdServiceCallbackService_OnAdServiceRemoved_FullMethodName = "/ad.TvAdManagerTvAdServiceCallbackService/OnAdServiceRemoved"
+	TvAdManagerTvAdServiceCallbackService_OnAdServiceUpdated_FullMethodName = "/ad.TvAdManagerTvAdServiceCallbackService/OnAdServiceUpdated"
+)
+
+// TvAdManagerTvAdServiceCallbackServiceClient is the client API for TvAdManagerTvAdServiceCallbackService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TvAdManagerTvAdServiceCallbackServiceClient interface {
+	OnAdServiceAdded(ctx context.Context, in *OnAdServiceAddedRequest, opts ...grpc.CallOption) (*OnAdServiceAddedResponse, error)
+	OnAdServiceRemoved(ctx context.Context, in *OnAdServiceRemovedRequest, opts ...grpc.CallOption) (*OnAdServiceRemovedResponse, error)
+	OnAdServiceUpdated(ctx context.Context, in *OnAdServiceUpdatedRequest, opts ...grpc.CallOption) (*OnAdServiceUpdatedResponse, error)
+}
+
+type tvAdManagerTvAdServiceCallbackServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTvAdManagerTvAdServiceCallbackServiceClient(cc grpc.ClientConnInterface) TvAdManagerTvAdServiceCallbackServiceClient {
+	return &tvAdManagerTvAdServiceCallbackServiceClient{cc}
+}
+
+func (c *tvAdManagerTvAdServiceCallbackServiceClient) OnAdServiceAdded(ctx context.Context, in *OnAdServiceAddedRequest, opts ...grpc.CallOption) (*OnAdServiceAddedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnAdServiceAddedResponse)
+	err := c.cc.Invoke(ctx, TvAdManagerTvAdServiceCallbackService_OnAdServiceAdded_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdManagerTvAdServiceCallbackServiceClient) OnAdServiceRemoved(ctx context.Context, in *OnAdServiceRemovedRequest, opts ...grpc.CallOption) (*OnAdServiceRemovedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnAdServiceRemovedResponse)
+	err := c.cc.Invoke(ctx, TvAdManagerTvAdServiceCallbackService_OnAdServiceRemoved_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdManagerTvAdServiceCallbackServiceClient) OnAdServiceUpdated(ctx context.Context, in *OnAdServiceUpdatedRequest, opts ...grpc.CallOption) (*OnAdServiceUpdatedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnAdServiceUpdatedResponse)
+	err := c.cc.Invoke(ctx, TvAdManagerTvAdServiceCallbackService_OnAdServiceUpdated_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TvAdManagerTvAdServiceCallbackServiceServer is the server API for TvAdManagerTvAdServiceCallbackService service.
+// All implementations must embed UnimplementedTvAdManagerTvAdServiceCallbackServiceServer
+// for forward compatibility.
+type TvAdManagerTvAdServiceCallbackServiceServer interface {
+	OnAdServiceAdded(context.Context, *OnAdServiceAddedRequest) (*OnAdServiceAddedResponse, error)
+	OnAdServiceRemoved(context.Context, *OnAdServiceRemovedRequest) (*OnAdServiceRemovedResponse, error)
+	OnAdServiceUpdated(context.Context, *OnAdServiceUpdatedRequest) (*OnAdServiceUpdatedResponse, error)
+	mustEmbedUnimplementedTvAdManagerTvAdServiceCallbackServiceServer()
+}
+
+// UnimplementedTvAdManagerTvAdServiceCallbackServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTvAdManagerTvAdServiceCallbackServiceServer struct{}
+
+func (UnimplementedTvAdManagerTvAdServiceCallbackServiceServer) OnAdServiceAdded(context.Context, *OnAdServiceAddedRequest) (*OnAdServiceAddedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnAdServiceAdded not implemented")
+}
+func (UnimplementedTvAdManagerTvAdServiceCallbackServiceServer) OnAdServiceRemoved(context.Context, *OnAdServiceRemovedRequest) (*OnAdServiceRemovedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnAdServiceRemoved not implemented")
+}
+func (UnimplementedTvAdManagerTvAdServiceCallbackServiceServer) OnAdServiceUpdated(context.Context, *OnAdServiceUpdatedRequest) (*OnAdServiceUpdatedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnAdServiceUpdated not implemented")
+}
+func (UnimplementedTvAdManagerTvAdServiceCallbackServiceServer) mustEmbedUnimplementedTvAdManagerTvAdServiceCallbackServiceServer() {
+}
+func (UnimplementedTvAdManagerTvAdServiceCallbackServiceServer) testEmbeddedByValue() {}
+
+// UnsafeTvAdManagerTvAdServiceCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TvAdManagerTvAdServiceCallbackServiceServer will
+// result in compilation errors.
+type UnsafeTvAdManagerTvAdServiceCallbackServiceServer interface {
+	mustEmbedUnimplementedTvAdManagerTvAdServiceCallbackServiceServer()
+}
+
+func RegisterTvAdManagerTvAdServiceCallbackServiceServer(s grpc.ServiceRegistrar, srv TvAdManagerTvAdServiceCallbackServiceServer) {
+	// If the following call panics, it indicates UnimplementedTvAdManagerTvAdServiceCallbackServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TvAdManagerTvAdServiceCallbackService_ServiceDesc, srv)
+}
+
+func _TvAdManagerTvAdServiceCallbackService_OnAdServiceAdded_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnAdServiceAddedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdManagerTvAdServiceCallbackServiceServer).OnAdServiceAdded(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdManagerTvAdServiceCallbackService_OnAdServiceAdded_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdManagerTvAdServiceCallbackServiceServer).OnAdServiceAdded(ctx, req.(*OnAdServiceAddedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdManagerTvAdServiceCallbackService_OnAdServiceRemoved_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnAdServiceRemovedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdManagerTvAdServiceCallbackServiceServer).OnAdServiceRemoved(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdManagerTvAdServiceCallbackService_OnAdServiceRemoved_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdManagerTvAdServiceCallbackServiceServer).OnAdServiceRemoved(ctx, req.(*OnAdServiceRemovedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdManagerTvAdServiceCallbackService_OnAdServiceUpdated_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnAdServiceUpdatedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdManagerTvAdServiceCallbackServiceServer).OnAdServiceUpdated(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdManagerTvAdServiceCallbackService_OnAdServiceUpdated_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdManagerTvAdServiceCallbackServiceServer).OnAdServiceUpdated(ctx, req.(*OnAdServiceUpdatedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TvAdManagerTvAdServiceCallbackService_ServiceDesc is the grpc.ServiceDesc for TvAdManagerTvAdServiceCallbackService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TvAdManagerTvAdServiceCallbackService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "ad.TvAdManagerTvAdServiceCallbackService",
+	HandlerType: (*TvAdManagerTvAdServiceCallbackServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnAdServiceAdded",
+			Handler:    _TvAdManagerTvAdServiceCallbackService_OnAdServiceAdded_Handler,
+		},
+		{
+			MethodName: "OnAdServiceRemoved",
+			Handler:    _TvAdManagerTvAdServiceCallbackService_OnAdServiceRemoved_Handler,
+		},
+		{
+			MethodName: "OnAdServiceUpdated",
+			Handler:    _TvAdManagerTvAdServiceCallbackService_OnAdServiceUpdated_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/ad/ad.proto",
+}
+
+const (
+	TvAdServiceInfoService_NewTvAdServiceInfo_FullMethodName = "/ad.TvAdServiceInfoService/NewTvAdServiceInfo"
+	TvAdServiceInfoService_DescribeContents_FullMethodName   = "/ad.TvAdServiceInfoService/DescribeContents"
+	TvAdServiceInfoService_GetId_FullMethodName              = "/ad.TvAdServiceInfoService/GetId"
+	TvAdServiceInfoService_GetServiceInfo_FullMethodName     = "/ad.TvAdServiceInfoService/GetServiceInfo"
+	TvAdServiceInfoService_WriteToParcel_FullMethodName      = "/ad.TvAdServiceInfoService/WriteToParcel"
+)
+
+// TvAdServiceInfoServiceClient is the client API for TvAdServiceInfoService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TvAdServiceInfoServiceClient interface {
+	NewTvAdServiceInfo(ctx context.Context, in *NewTvAdServiceInfoRequest, opts ...grpc.CallOption) (*NewTvAdServiceInfoResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error)
+	GetServiceInfo(ctx context.Context, in *GetServiceInfoRequest, opts ...grpc.CallOption) (*GetServiceInfoResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type tvAdServiceInfoServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTvAdServiceInfoServiceClient(cc grpc.ClientConnInterface) TvAdServiceInfoServiceClient {
+	return &tvAdServiceInfoServiceClient{cc}
+}
+
+func (c *tvAdServiceInfoServiceClient) NewTvAdServiceInfo(ctx context.Context, in *NewTvAdServiceInfoRequest, opts ...grpc.CallOption) (*NewTvAdServiceInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewTvAdServiceInfoResponse)
+	err := c.cc.Invoke(ctx, TvAdServiceInfoService_NewTvAdServiceInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdServiceInfoServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, TvAdServiceInfoService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdServiceInfoServiceClient) GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetIdResponse)
+	err := c.cc.Invoke(ctx, TvAdServiceInfoService_GetId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdServiceInfoServiceClient) GetServiceInfo(ctx context.Context, in *GetServiceInfoRequest, opts ...grpc.CallOption) (*GetServiceInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetServiceInfoResponse)
+	err := c.cc.Invoke(ctx, TvAdServiceInfoService_GetServiceInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdServiceInfoServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, TvAdServiceInfoService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TvAdServiceInfoServiceServer is the server API for TvAdServiceInfoService service.
+// All implementations must embed UnimplementedTvAdServiceInfoServiceServer
+// for forward compatibility.
+type TvAdServiceInfoServiceServer interface {
+	NewTvAdServiceInfo(context.Context, *NewTvAdServiceInfoRequest) (*NewTvAdServiceInfoResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetId(context.Context, *GetIdRequest) (*GetIdResponse, error)
+	GetServiceInfo(context.Context, *GetServiceInfoRequest) (*GetServiceInfoResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedTvAdServiceInfoServiceServer()
+}
+
+// UnimplementedTvAdServiceInfoServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTvAdServiceInfoServiceServer struct{}
+
+func (UnimplementedTvAdServiceInfoServiceServer) NewTvAdServiceInfo(context.Context, *NewTvAdServiceInfoRequest) (*NewTvAdServiceInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewTvAdServiceInfo not implemented")
+}
+func (UnimplementedTvAdServiceInfoServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedTvAdServiceInfoServiceServer) GetId(context.Context, *GetIdRequest) (*GetIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetId not implemented")
+}
+func (UnimplementedTvAdServiceInfoServiceServer) GetServiceInfo(context.Context, *GetServiceInfoRequest) (*GetServiceInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetServiceInfo not implemented")
+}
+func (UnimplementedTvAdServiceInfoServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedTvAdServiceInfoServiceServer) mustEmbedUnimplementedTvAdServiceInfoServiceServer() {
+}
+func (UnimplementedTvAdServiceInfoServiceServer) testEmbeddedByValue() {}
+
+// UnsafeTvAdServiceInfoServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TvAdServiceInfoServiceServer will
+// result in compilation errors.
+type UnsafeTvAdServiceInfoServiceServer interface {
+	mustEmbedUnimplementedTvAdServiceInfoServiceServer()
+}
+
+func RegisterTvAdServiceInfoServiceServer(s grpc.ServiceRegistrar, srv TvAdServiceInfoServiceServer) {
+	// If the following call panics, it indicates UnimplementedTvAdServiceInfoServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TvAdServiceInfoService_ServiceDesc, srv)
+}
+
+func _TvAdServiceInfoService_NewTvAdServiceInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewTvAdServiceInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdServiceInfoServiceServer).NewTvAdServiceInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdServiceInfoService_NewTvAdServiceInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdServiceInfoServiceServer).NewTvAdServiceInfo(ctx, req.(*NewTvAdServiceInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdServiceInfoService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdServiceInfoServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdServiceInfoService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdServiceInfoServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdServiceInfoService_GetId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdServiceInfoServiceServer).GetId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdServiceInfoService_GetId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdServiceInfoServiceServer).GetId(ctx, req.(*GetIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdServiceInfoService_GetServiceInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetServiceInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdServiceInfoServiceServer).GetServiceInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdServiceInfoService_GetServiceInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdServiceInfoServiceServer).GetServiceInfo(ctx, req.(*GetServiceInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdServiceInfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdServiceInfoServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdServiceInfoService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdServiceInfoServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TvAdServiceInfoService_ServiceDesc is the grpc.ServiceDesc for TvAdServiceInfoService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TvAdServiceInfoService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "ad.TvAdServiceInfoService",
+	HandlerType: (*TvAdServiceInfoServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewTvAdServiceInfo",
+			Handler:    _TvAdServiceInfoService_NewTvAdServiceInfo_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _TvAdServiceInfoService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetId",
+			Handler:    _TvAdServiceInfoService_GetId_Handler,
+		},
+		{
+			MethodName: "GetServiceInfo",
+			Handler:    _TvAdServiceInfoService_GetServiceInfo_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _TvAdServiceInfoService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/ad/ad.proto",
+}
+
+const (
+	TvAdViewService_NewTvAdView_FullMethodName                        = "/ad.TvAdViewService/NewTvAdView"
+	TvAdViewService_ClearCallback_FullMethodName                      = "/ad.TvAdViewService/ClearCallback"
+	TvAdViewService_ClearOnUnhandledInputEventListener_FullMethodName = "/ad.TvAdViewService/ClearOnUnhandledInputEventListener"
+	TvAdViewService_DispatchKeyEvent_FullMethodName                   = "/ad.TvAdViewService/DispatchKeyEvent"
+	TvAdViewService_DispatchUnhandledInputEvent_FullMethodName        = "/ad.TvAdViewService/DispatchUnhandledInputEvent"
+	TvAdViewService_GetOnUnhandledInputEventListener_FullMethodName   = "/ad.TvAdViewService/GetOnUnhandledInputEventListener"
+	TvAdViewService_NotifyError_FullMethodName                        = "/ad.TvAdViewService/NotifyError"
+	TvAdViewService_NotifyTvMessage_FullMethodName                    = "/ad.TvAdViewService/NotifyTvMessage"
+	TvAdViewService_OnAttachedToWindow_FullMethodName                 = "/ad.TvAdViewService/OnAttachedToWindow"
+	TvAdViewService_OnDetachedFromWindow_FullMethodName               = "/ad.TvAdViewService/OnDetachedFromWindow"
+	TvAdViewService_OnLayout_FullMethodName                           = "/ad.TvAdViewService/OnLayout"
+	TvAdViewService_OnMeasure_FullMethodName                          = "/ad.TvAdViewService/OnMeasure"
+	TvAdViewService_OnUnhandledInputEvent_FullMethodName              = "/ad.TvAdViewService/OnUnhandledInputEvent"
+	TvAdViewService_OnVisibilityChanged_FullMethodName                = "/ad.TvAdViewService/OnVisibilityChanged"
+	TvAdViewService_PrepareAdService_FullMethodName                   = "/ad.TvAdViewService/PrepareAdService"
+	TvAdViewService_Reset_FullMethodName                              = "/ad.TvAdViewService/Reset"
+	TvAdViewService_ResetAdService_FullMethodName                     = "/ad.TvAdViewService/ResetAdService"
+	TvAdViewService_SendCurrentChannelUri_FullMethodName              = "/ad.TvAdViewService/SendCurrentChannelUri"
+	TvAdViewService_SendCurrentTvInputId_FullMethodName               = "/ad.TvAdViewService/SendCurrentTvInputId"
+	TvAdViewService_SendCurrentVideoBounds_FullMethodName             = "/ad.TvAdViewService/SendCurrentVideoBounds"
+	TvAdViewService_SendSigningResult_FullMethodName                  = "/ad.TvAdViewService/SendSigningResult"
+	TvAdViewService_SetCallback_FullMethodName                        = "/ad.TvAdViewService/SetCallback"
+	TvAdViewService_SetOnUnhandledInputEventListener_FullMethodName   = "/ad.TvAdViewService/SetOnUnhandledInputEventListener"
+	TvAdViewService_SetTvView_FullMethodName                          = "/ad.TvAdViewService/SetTvView"
+	TvAdViewService_SetZOrderMediaOverlay_FullMethodName              = "/ad.TvAdViewService/SetZOrderMediaOverlay"
+	TvAdViewService_SetZOrderOnTop_FullMethodName                     = "/ad.TvAdViewService/SetZOrderOnTop"
+	TvAdViewService_StartAdService_FullMethodName                     = "/ad.TvAdViewService/StartAdService"
+	TvAdViewService_StopAdService_FullMethodName                      = "/ad.TvAdViewService/StopAdService"
+)
+
+// TvAdViewServiceClient is the client API for TvAdViewService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TvAdViewServiceClient interface {
+	NewTvAdView(ctx context.Context, in *NewTvAdViewRequest, opts ...grpc.CallOption) (*NewTvAdViewResponse, error)
+	ClearCallback(ctx context.Context, in *ClearCallbackRequest, opts ...grpc.CallOption) (*ClearCallbackResponse, error)
+	ClearOnUnhandledInputEventListener(ctx context.Context, in *ClearOnUnhandledInputEventListenerRequest, opts ...grpc.CallOption) (*ClearOnUnhandledInputEventListenerResponse, error)
+	DispatchKeyEvent(ctx context.Context, in *DispatchKeyEventRequest, opts ...grpc.CallOption) (*DispatchKeyEventResponse, error)
+	DispatchUnhandledInputEvent(ctx context.Context, in *DispatchUnhandledInputEventRequest, opts ...grpc.CallOption) (*DispatchUnhandledInputEventResponse, error)
+	GetOnUnhandledInputEventListener(ctx context.Context, in *GetOnUnhandledInputEventListenerRequest, opts ...grpc.CallOption) (*GetOnUnhandledInputEventListenerResponse, error)
+	NotifyError(ctx context.Context, in *NotifyErrorRequest, opts ...grpc.CallOption) (*NotifyErrorResponse, error)
+	NotifyTvMessage(ctx context.Context, in *NotifyTvMessageRequest, opts ...grpc.CallOption) (*NotifyTvMessageResponse, error)
+	OnAttachedToWindow(ctx context.Context, in *OnAttachedToWindowRequest, opts ...grpc.CallOption) (*OnAttachedToWindowResponse, error)
+	OnDetachedFromWindow(ctx context.Context, in *OnDetachedFromWindowRequest, opts ...grpc.CallOption) (*OnDetachedFromWindowResponse, error)
+	OnLayout(ctx context.Context, in *OnLayoutRequest, opts ...grpc.CallOption) (*OnLayoutResponse, error)
+	OnMeasure(ctx context.Context, in *OnMeasureRequest, opts ...grpc.CallOption) (*OnMeasureResponse, error)
+	OnUnhandledInputEvent(ctx context.Context, in *OnUnhandledInputEventRequest, opts ...grpc.CallOption) (*OnUnhandledInputEventResponse, error)
+	OnVisibilityChanged(ctx context.Context, in *OnVisibilityChangedRequest, opts ...grpc.CallOption) (*OnVisibilityChangedResponse, error)
+	PrepareAdService(ctx context.Context, in *PrepareAdServiceRequest, opts ...grpc.CallOption) (*PrepareAdServiceResponse, error)
+	Reset(ctx context.Context, in *ResetRequest, opts ...grpc.CallOption) (*ResetResponse, error)
+	ResetAdService(ctx context.Context, in *ResetAdServiceRequest, opts ...grpc.CallOption) (*ResetAdServiceResponse, error)
+	SendCurrentChannelUri(ctx context.Context, in *SendCurrentChannelUriRequest, opts ...grpc.CallOption) (*SendCurrentChannelUriResponse, error)
+	SendCurrentTvInputId(ctx context.Context, in *SendCurrentTvInputIdRequest, opts ...grpc.CallOption) (*SendCurrentTvInputIdResponse, error)
+	SendCurrentVideoBounds(ctx context.Context, in *SendCurrentVideoBoundsRequest, opts ...grpc.CallOption) (*SendCurrentVideoBoundsResponse, error)
+	SendSigningResult(ctx context.Context, in *SendSigningResultRequest, opts ...grpc.CallOption) (*SendSigningResultResponse, error)
+	SetCallback(ctx context.Context, in *SetCallbackRequest, opts ...grpc.CallOption) (*SetCallbackResponse, error)
+	SetOnUnhandledInputEventListener(ctx context.Context, in *SetOnUnhandledInputEventListenerRequest, opts ...grpc.CallOption) (*SetOnUnhandledInputEventListenerResponse, error)
+	SetTvView(ctx context.Context, in *SetTvViewRequest, opts ...grpc.CallOption) (*SetTvViewResponse, error)
+	SetZOrderMediaOverlay(ctx context.Context, in *SetZOrderMediaOverlayRequest, opts ...grpc.CallOption) (*SetZOrderMediaOverlayResponse, error)
+	SetZOrderOnTop(ctx context.Context, in *SetZOrderOnTopRequest, opts ...grpc.CallOption) (*SetZOrderOnTopResponse, error)
+	StartAdService(ctx context.Context, in *StartAdServiceRequest, opts ...grpc.CallOption) (*StartAdServiceResponse, error)
+	StopAdService(ctx context.Context, in *StopAdServiceRequest, opts ...grpc.CallOption) (*StopAdServiceResponse, error)
+}
+
+type tvAdViewServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTvAdViewServiceClient(cc grpc.ClientConnInterface) TvAdViewServiceClient {
+	return &tvAdViewServiceClient{cc}
+}
+
+func (c *tvAdViewServiceClient) NewTvAdView(ctx context.Context, in *NewTvAdViewRequest, opts ...grpc.CallOption) (*NewTvAdViewResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewTvAdViewResponse)
+	err := c.cc.Invoke(ctx, TvAdViewService_NewTvAdView_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdViewServiceClient) ClearCallback(ctx context.Context, in *ClearCallbackRequest, opts ...grpc.CallOption) (*ClearCallbackResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ClearCallbackResponse)
+	err := c.cc.Invoke(ctx, TvAdViewService_ClearCallback_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdViewServiceClient) ClearOnUnhandledInputEventListener(ctx context.Context, in *ClearOnUnhandledInputEventListenerRequest, opts ...grpc.CallOption) (*ClearOnUnhandledInputEventListenerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ClearOnUnhandledInputEventListenerResponse)
+	err := c.cc.Invoke(ctx, TvAdViewService_ClearOnUnhandledInputEventListener_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdViewServiceClient) DispatchKeyEvent(ctx context.Context, in *DispatchKeyEventRequest, opts ...grpc.CallOption) (*DispatchKeyEventResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DispatchKeyEventResponse)
+	err := c.cc.Invoke(ctx, TvAdViewService_DispatchKeyEvent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdViewServiceClient) DispatchUnhandledInputEvent(ctx context.Context, in *DispatchUnhandledInputEventRequest, opts ...grpc.CallOption) (*DispatchUnhandledInputEventResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DispatchUnhandledInputEventResponse)
+	err := c.cc.Invoke(ctx, TvAdViewService_DispatchUnhandledInputEvent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdViewServiceClient) GetOnUnhandledInputEventListener(ctx context.Context, in *GetOnUnhandledInputEventListenerRequest, opts ...grpc.CallOption) (*GetOnUnhandledInputEventListenerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetOnUnhandledInputEventListenerResponse)
+	err := c.cc.Invoke(ctx, TvAdViewService_GetOnUnhandledInputEventListener_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdViewServiceClient) NotifyError(ctx context.Context, in *NotifyErrorRequest, opts ...grpc.CallOption) (*NotifyErrorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NotifyErrorResponse)
+	err := c.cc.Invoke(ctx, TvAdViewService_NotifyError_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdViewServiceClient) NotifyTvMessage(ctx context.Context, in *NotifyTvMessageRequest, opts ...grpc.CallOption) (*NotifyTvMessageResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NotifyTvMessageResponse)
+	err := c.cc.Invoke(ctx, TvAdViewService_NotifyTvMessage_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdViewServiceClient) OnAttachedToWindow(ctx context.Context, in *OnAttachedToWindowRequest, opts ...grpc.CallOption) (*OnAttachedToWindowResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnAttachedToWindowResponse)
+	err := c.cc.Invoke(ctx, TvAdViewService_OnAttachedToWindow_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdViewServiceClient) OnDetachedFromWindow(ctx context.Context, in *OnDetachedFromWindowRequest, opts ...grpc.CallOption) (*OnDetachedFromWindowResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnDetachedFromWindowResponse)
+	err := c.cc.Invoke(ctx, TvAdViewService_OnDetachedFromWindow_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdViewServiceClient) OnLayout(ctx context.Context, in *OnLayoutRequest, opts ...grpc.CallOption) (*OnLayoutResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnLayoutResponse)
+	err := c.cc.Invoke(ctx, TvAdViewService_OnLayout_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdViewServiceClient) OnMeasure(ctx context.Context, in *OnMeasureRequest, opts ...grpc.CallOption) (*OnMeasureResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnMeasureResponse)
+	err := c.cc.Invoke(ctx, TvAdViewService_OnMeasure_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdViewServiceClient) OnUnhandledInputEvent(ctx context.Context, in *OnUnhandledInputEventRequest, opts ...grpc.CallOption) (*OnUnhandledInputEventResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnUnhandledInputEventResponse)
+	err := c.cc.Invoke(ctx, TvAdViewService_OnUnhandledInputEvent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdViewServiceClient) OnVisibilityChanged(ctx context.Context, in *OnVisibilityChangedRequest, opts ...grpc.CallOption) (*OnVisibilityChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnVisibilityChangedResponse)
+	err := c.cc.Invoke(ctx, TvAdViewService_OnVisibilityChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdViewServiceClient) PrepareAdService(ctx context.Context, in *PrepareAdServiceRequest, opts ...grpc.CallOption) (*PrepareAdServiceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(PrepareAdServiceResponse)
+	err := c.cc.Invoke(ctx, TvAdViewService_PrepareAdService_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdViewServiceClient) Reset(ctx context.Context, in *ResetRequest, opts ...grpc.CallOption) (*ResetResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ResetResponse)
+	err := c.cc.Invoke(ctx, TvAdViewService_Reset_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdViewServiceClient) ResetAdService(ctx context.Context, in *ResetAdServiceRequest, opts ...grpc.CallOption) (*ResetAdServiceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ResetAdServiceResponse)
+	err := c.cc.Invoke(ctx, TvAdViewService_ResetAdService_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdViewServiceClient) SendCurrentChannelUri(ctx context.Context, in *SendCurrentChannelUriRequest, opts ...grpc.CallOption) (*SendCurrentChannelUriResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SendCurrentChannelUriResponse)
+	err := c.cc.Invoke(ctx, TvAdViewService_SendCurrentChannelUri_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdViewServiceClient) SendCurrentTvInputId(ctx context.Context, in *SendCurrentTvInputIdRequest, opts ...grpc.CallOption) (*SendCurrentTvInputIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SendCurrentTvInputIdResponse)
+	err := c.cc.Invoke(ctx, TvAdViewService_SendCurrentTvInputId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdViewServiceClient) SendCurrentVideoBounds(ctx context.Context, in *SendCurrentVideoBoundsRequest, opts ...grpc.CallOption) (*SendCurrentVideoBoundsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SendCurrentVideoBoundsResponse)
+	err := c.cc.Invoke(ctx, TvAdViewService_SendCurrentVideoBounds_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdViewServiceClient) SendSigningResult(ctx context.Context, in *SendSigningResultRequest, opts ...grpc.CallOption) (*SendSigningResultResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SendSigningResultResponse)
+	err := c.cc.Invoke(ctx, TvAdViewService_SendSigningResult_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdViewServiceClient) SetCallback(ctx context.Context, in *SetCallbackRequest, opts ...grpc.CallOption) (*SetCallbackResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetCallbackResponse)
+	err := c.cc.Invoke(ctx, TvAdViewService_SetCallback_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdViewServiceClient) SetOnUnhandledInputEventListener(ctx context.Context, in *SetOnUnhandledInputEventListenerRequest, opts ...grpc.CallOption) (*SetOnUnhandledInputEventListenerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetOnUnhandledInputEventListenerResponse)
+	err := c.cc.Invoke(ctx, TvAdViewService_SetOnUnhandledInputEventListener_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdViewServiceClient) SetTvView(ctx context.Context, in *SetTvViewRequest, opts ...grpc.CallOption) (*SetTvViewResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetTvViewResponse)
+	err := c.cc.Invoke(ctx, TvAdViewService_SetTvView_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdViewServiceClient) SetZOrderMediaOverlay(ctx context.Context, in *SetZOrderMediaOverlayRequest, opts ...grpc.CallOption) (*SetZOrderMediaOverlayResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetZOrderMediaOverlayResponse)
+	err := c.cc.Invoke(ctx, TvAdViewService_SetZOrderMediaOverlay_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdViewServiceClient) SetZOrderOnTop(ctx context.Context, in *SetZOrderOnTopRequest, opts ...grpc.CallOption) (*SetZOrderOnTopResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetZOrderOnTopResponse)
+	err := c.cc.Invoke(ctx, TvAdViewService_SetZOrderOnTop_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdViewServiceClient) StartAdService(ctx context.Context, in *StartAdServiceRequest, opts ...grpc.CallOption) (*StartAdServiceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(StartAdServiceResponse)
+	err := c.cc.Invoke(ctx, TvAdViewService_StartAdService_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdViewServiceClient) StopAdService(ctx context.Context, in *StopAdServiceRequest, opts ...grpc.CallOption) (*StopAdServiceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(StopAdServiceResponse)
+	err := c.cc.Invoke(ctx, TvAdViewService_StopAdService_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TvAdViewServiceServer is the server API for TvAdViewService service.
+// All implementations must embed UnimplementedTvAdViewServiceServer
+// for forward compatibility.
+type TvAdViewServiceServer interface {
+	NewTvAdView(context.Context, *NewTvAdViewRequest) (*NewTvAdViewResponse, error)
+	ClearCallback(context.Context, *ClearCallbackRequest) (*ClearCallbackResponse, error)
+	ClearOnUnhandledInputEventListener(context.Context, *ClearOnUnhandledInputEventListenerRequest) (*ClearOnUnhandledInputEventListenerResponse, error)
+	DispatchKeyEvent(context.Context, *DispatchKeyEventRequest) (*DispatchKeyEventResponse, error)
+	DispatchUnhandledInputEvent(context.Context, *DispatchUnhandledInputEventRequest) (*DispatchUnhandledInputEventResponse, error)
+	GetOnUnhandledInputEventListener(context.Context, *GetOnUnhandledInputEventListenerRequest) (*GetOnUnhandledInputEventListenerResponse, error)
+	NotifyError(context.Context, *NotifyErrorRequest) (*NotifyErrorResponse, error)
+	NotifyTvMessage(context.Context, *NotifyTvMessageRequest) (*NotifyTvMessageResponse, error)
+	OnAttachedToWindow(context.Context, *OnAttachedToWindowRequest) (*OnAttachedToWindowResponse, error)
+	OnDetachedFromWindow(context.Context, *OnDetachedFromWindowRequest) (*OnDetachedFromWindowResponse, error)
+	OnLayout(context.Context, *OnLayoutRequest) (*OnLayoutResponse, error)
+	OnMeasure(context.Context, *OnMeasureRequest) (*OnMeasureResponse, error)
+	OnUnhandledInputEvent(context.Context, *OnUnhandledInputEventRequest) (*OnUnhandledInputEventResponse, error)
+	OnVisibilityChanged(context.Context, *OnVisibilityChangedRequest) (*OnVisibilityChangedResponse, error)
+	PrepareAdService(context.Context, *PrepareAdServiceRequest) (*PrepareAdServiceResponse, error)
+	Reset(context.Context, *ResetRequest) (*ResetResponse, error)
+	ResetAdService(context.Context, *ResetAdServiceRequest) (*ResetAdServiceResponse, error)
+	SendCurrentChannelUri(context.Context, *SendCurrentChannelUriRequest) (*SendCurrentChannelUriResponse, error)
+	SendCurrentTvInputId(context.Context, *SendCurrentTvInputIdRequest) (*SendCurrentTvInputIdResponse, error)
+	SendCurrentVideoBounds(context.Context, *SendCurrentVideoBoundsRequest) (*SendCurrentVideoBoundsResponse, error)
+	SendSigningResult(context.Context, *SendSigningResultRequest) (*SendSigningResultResponse, error)
+	SetCallback(context.Context, *SetCallbackRequest) (*SetCallbackResponse, error)
+	SetOnUnhandledInputEventListener(context.Context, *SetOnUnhandledInputEventListenerRequest) (*SetOnUnhandledInputEventListenerResponse, error)
+	SetTvView(context.Context, *SetTvViewRequest) (*SetTvViewResponse, error)
+	SetZOrderMediaOverlay(context.Context, *SetZOrderMediaOverlayRequest) (*SetZOrderMediaOverlayResponse, error)
+	SetZOrderOnTop(context.Context, *SetZOrderOnTopRequest) (*SetZOrderOnTopResponse, error)
+	StartAdService(context.Context, *StartAdServiceRequest) (*StartAdServiceResponse, error)
+	StopAdService(context.Context, *StopAdServiceRequest) (*StopAdServiceResponse, error)
+	mustEmbedUnimplementedTvAdViewServiceServer()
+}
+
+// UnimplementedTvAdViewServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTvAdViewServiceServer struct{}
+
+func (UnimplementedTvAdViewServiceServer) NewTvAdView(context.Context, *NewTvAdViewRequest) (*NewTvAdViewResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewTvAdView not implemented")
+}
+func (UnimplementedTvAdViewServiceServer) ClearCallback(context.Context, *ClearCallbackRequest) (*ClearCallbackResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ClearCallback not implemented")
+}
+func (UnimplementedTvAdViewServiceServer) ClearOnUnhandledInputEventListener(context.Context, *ClearOnUnhandledInputEventListenerRequest) (*ClearOnUnhandledInputEventListenerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ClearOnUnhandledInputEventListener not implemented")
+}
+func (UnimplementedTvAdViewServiceServer) DispatchKeyEvent(context.Context, *DispatchKeyEventRequest) (*DispatchKeyEventResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DispatchKeyEvent not implemented")
+}
+func (UnimplementedTvAdViewServiceServer) DispatchUnhandledInputEvent(context.Context, *DispatchUnhandledInputEventRequest) (*DispatchUnhandledInputEventResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DispatchUnhandledInputEvent not implemented")
+}
+func (UnimplementedTvAdViewServiceServer) GetOnUnhandledInputEventListener(context.Context, *GetOnUnhandledInputEventListenerRequest) (*GetOnUnhandledInputEventListenerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetOnUnhandledInputEventListener not implemented")
+}
+func (UnimplementedTvAdViewServiceServer) NotifyError(context.Context, *NotifyErrorRequest) (*NotifyErrorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NotifyError not implemented")
+}
+func (UnimplementedTvAdViewServiceServer) NotifyTvMessage(context.Context, *NotifyTvMessageRequest) (*NotifyTvMessageResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NotifyTvMessage not implemented")
+}
+func (UnimplementedTvAdViewServiceServer) OnAttachedToWindow(context.Context, *OnAttachedToWindowRequest) (*OnAttachedToWindowResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnAttachedToWindow not implemented")
+}
+func (UnimplementedTvAdViewServiceServer) OnDetachedFromWindow(context.Context, *OnDetachedFromWindowRequest) (*OnDetachedFromWindowResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnDetachedFromWindow not implemented")
+}
+func (UnimplementedTvAdViewServiceServer) OnLayout(context.Context, *OnLayoutRequest) (*OnLayoutResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnLayout not implemented")
+}
+func (UnimplementedTvAdViewServiceServer) OnMeasure(context.Context, *OnMeasureRequest) (*OnMeasureResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnMeasure not implemented")
+}
+func (UnimplementedTvAdViewServiceServer) OnUnhandledInputEvent(context.Context, *OnUnhandledInputEventRequest) (*OnUnhandledInputEventResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnUnhandledInputEvent not implemented")
+}
+func (UnimplementedTvAdViewServiceServer) OnVisibilityChanged(context.Context, *OnVisibilityChangedRequest) (*OnVisibilityChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnVisibilityChanged not implemented")
+}
+func (UnimplementedTvAdViewServiceServer) PrepareAdService(context.Context, *PrepareAdServiceRequest) (*PrepareAdServiceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method PrepareAdService not implemented")
+}
+func (UnimplementedTvAdViewServiceServer) Reset(context.Context, *ResetRequest) (*ResetResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Reset not implemented")
+}
+func (UnimplementedTvAdViewServiceServer) ResetAdService(context.Context, *ResetAdServiceRequest) (*ResetAdServiceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ResetAdService not implemented")
+}
+func (UnimplementedTvAdViewServiceServer) SendCurrentChannelUri(context.Context, *SendCurrentChannelUriRequest) (*SendCurrentChannelUriResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SendCurrentChannelUri not implemented")
+}
+func (UnimplementedTvAdViewServiceServer) SendCurrentTvInputId(context.Context, *SendCurrentTvInputIdRequest) (*SendCurrentTvInputIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SendCurrentTvInputId not implemented")
+}
+func (UnimplementedTvAdViewServiceServer) SendCurrentVideoBounds(context.Context, *SendCurrentVideoBoundsRequest) (*SendCurrentVideoBoundsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SendCurrentVideoBounds not implemented")
+}
+func (UnimplementedTvAdViewServiceServer) SendSigningResult(context.Context, *SendSigningResultRequest) (*SendSigningResultResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SendSigningResult not implemented")
+}
+func (UnimplementedTvAdViewServiceServer) SetCallback(context.Context, *SetCallbackRequest) (*SetCallbackResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetCallback not implemented")
+}
+func (UnimplementedTvAdViewServiceServer) SetOnUnhandledInputEventListener(context.Context, *SetOnUnhandledInputEventListenerRequest) (*SetOnUnhandledInputEventListenerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetOnUnhandledInputEventListener not implemented")
+}
+func (UnimplementedTvAdViewServiceServer) SetTvView(context.Context, *SetTvViewRequest) (*SetTvViewResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetTvView not implemented")
+}
+func (UnimplementedTvAdViewServiceServer) SetZOrderMediaOverlay(context.Context, *SetZOrderMediaOverlayRequest) (*SetZOrderMediaOverlayResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetZOrderMediaOverlay not implemented")
+}
+func (UnimplementedTvAdViewServiceServer) SetZOrderOnTop(context.Context, *SetZOrderOnTopRequest) (*SetZOrderOnTopResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetZOrderOnTop not implemented")
+}
+func (UnimplementedTvAdViewServiceServer) StartAdService(context.Context, *StartAdServiceRequest) (*StartAdServiceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method StartAdService not implemented")
+}
+func (UnimplementedTvAdViewServiceServer) StopAdService(context.Context, *StopAdServiceRequest) (*StopAdServiceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method StopAdService not implemented")
+}
+func (UnimplementedTvAdViewServiceServer) mustEmbedUnimplementedTvAdViewServiceServer() {}
+func (UnimplementedTvAdViewServiceServer) testEmbeddedByValue()                         {}
+
+// UnsafeTvAdViewServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TvAdViewServiceServer will
+// result in compilation errors.
+type UnsafeTvAdViewServiceServer interface {
+	mustEmbedUnimplementedTvAdViewServiceServer()
+}
+
+func RegisterTvAdViewServiceServer(s grpc.ServiceRegistrar, srv TvAdViewServiceServer) {
+	// If the following call panics, it indicates UnimplementedTvAdViewServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TvAdViewService_ServiceDesc, srv)
+}
+
+func _TvAdViewService_NewTvAdView_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewTvAdViewRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdViewServiceServer).NewTvAdView(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdViewService_NewTvAdView_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdViewServiceServer).NewTvAdView(ctx, req.(*NewTvAdViewRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdViewService_ClearCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ClearCallbackRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdViewServiceServer).ClearCallback(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdViewService_ClearCallback_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdViewServiceServer).ClearCallback(ctx, req.(*ClearCallbackRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdViewService_ClearOnUnhandledInputEventListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ClearOnUnhandledInputEventListenerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdViewServiceServer).ClearOnUnhandledInputEventListener(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdViewService_ClearOnUnhandledInputEventListener_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdViewServiceServer).ClearOnUnhandledInputEventListener(ctx, req.(*ClearOnUnhandledInputEventListenerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdViewService_DispatchKeyEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DispatchKeyEventRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdViewServiceServer).DispatchKeyEvent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdViewService_DispatchKeyEvent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdViewServiceServer).DispatchKeyEvent(ctx, req.(*DispatchKeyEventRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdViewService_DispatchUnhandledInputEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DispatchUnhandledInputEventRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdViewServiceServer).DispatchUnhandledInputEvent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdViewService_DispatchUnhandledInputEvent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdViewServiceServer).DispatchUnhandledInputEvent(ctx, req.(*DispatchUnhandledInputEventRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdViewService_GetOnUnhandledInputEventListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetOnUnhandledInputEventListenerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdViewServiceServer).GetOnUnhandledInputEventListener(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdViewService_GetOnUnhandledInputEventListener_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdViewServiceServer).GetOnUnhandledInputEventListener(ctx, req.(*GetOnUnhandledInputEventListenerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdViewService_NotifyError_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NotifyErrorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdViewServiceServer).NotifyError(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdViewService_NotifyError_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdViewServiceServer).NotifyError(ctx, req.(*NotifyErrorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdViewService_NotifyTvMessage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NotifyTvMessageRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdViewServiceServer).NotifyTvMessage(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdViewService_NotifyTvMessage_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdViewServiceServer).NotifyTvMessage(ctx, req.(*NotifyTvMessageRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdViewService_OnAttachedToWindow_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnAttachedToWindowRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdViewServiceServer).OnAttachedToWindow(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdViewService_OnAttachedToWindow_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdViewServiceServer).OnAttachedToWindow(ctx, req.(*OnAttachedToWindowRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdViewService_OnDetachedFromWindow_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnDetachedFromWindowRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdViewServiceServer).OnDetachedFromWindow(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdViewService_OnDetachedFromWindow_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdViewServiceServer).OnDetachedFromWindow(ctx, req.(*OnDetachedFromWindowRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdViewService_OnLayout_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnLayoutRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdViewServiceServer).OnLayout(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdViewService_OnLayout_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdViewServiceServer).OnLayout(ctx, req.(*OnLayoutRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdViewService_OnMeasure_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnMeasureRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdViewServiceServer).OnMeasure(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdViewService_OnMeasure_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdViewServiceServer).OnMeasure(ctx, req.(*OnMeasureRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdViewService_OnUnhandledInputEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnUnhandledInputEventRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdViewServiceServer).OnUnhandledInputEvent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdViewService_OnUnhandledInputEvent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdViewServiceServer).OnUnhandledInputEvent(ctx, req.(*OnUnhandledInputEventRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdViewService_OnVisibilityChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnVisibilityChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdViewServiceServer).OnVisibilityChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdViewService_OnVisibilityChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdViewServiceServer).OnVisibilityChanged(ctx, req.(*OnVisibilityChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdViewService_PrepareAdService_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PrepareAdServiceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdViewServiceServer).PrepareAdService(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdViewService_PrepareAdService_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdViewServiceServer).PrepareAdService(ctx, req.(*PrepareAdServiceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdViewService_Reset_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ResetRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdViewServiceServer).Reset(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdViewService_Reset_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdViewServiceServer).Reset(ctx, req.(*ResetRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdViewService_ResetAdService_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ResetAdServiceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdViewServiceServer).ResetAdService(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdViewService_ResetAdService_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdViewServiceServer).ResetAdService(ctx, req.(*ResetAdServiceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdViewService_SendCurrentChannelUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SendCurrentChannelUriRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdViewServiceServer).SendCurrentChannelUri(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdViewService_SendCurrentChannelUri_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdViewServiceServer).SendCurrentChannelUri(ctx, req.(*SendCurrentChannelUriRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdViewService_SendCurrentTvInputId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SendCurrentTvInputIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdViewServiceServer).SendCurrentTvInputId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdViewService_SendCurrentTvInputId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdViewServiceServer).SendCurrentTvInputId(ctx, req.(*SendCurrentTvInputIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdViewService_SendCurrentVideoBounds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SendCurrentVideoBoundsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdViewServiceServer).SendCurrentVideoBounds(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdViewService_SendCurrentVideoBounds_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdViewServiceServer).SendCurrentVideoBounds(ctx, req.(*SendCurrentVideoBoundsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdViewService_SendSigningResult_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SendSigningResultRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdViewServiceServer).SendSigningResult(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdViewService_SendSigningResult_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdViewServiceServer).SendSigningResult(ctx, req.(*SendSigningResultRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdViewService_SetCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetCallbackRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdViewServiceServer).SetCallback(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdViewService_SetCallback_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdViewServiceServer).SetCallback(ctx, req.(*SetCallbackRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdViewService_SetOnUnhandledInputEventListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetOnUnhandledInputEventListenerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdViewServiceServer).SetOnUnhandledInputEventListener(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdViewService_SetOnUnhandledInputEventListener_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdViewServiceServer).SetOnUnhandledInputEventListener(ctx, req.(*SetOnUnhandledInputEventListenerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdViewService_SetTvView_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetTvViewRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdViewServiceServer).SetTvView(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdViewService_SetTvView_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdViewServiceServer).SetTvView(ctx, req.(*SetTvViewRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdViewService_SetZOrderMediaOverlay_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetZOrderMediaOverlayRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdViewServiceServer).SetZOrderMediaOverlay(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdViewService_SetZOrderMediaOverlay_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdViewServiceServer).SetZOrderMediaOverlay(ctx, req.(*SetZOrderMediaOverlayRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdViewService_SetZOrderOnTop_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetZOrderOnTopRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdViewServiceServer).SetZOrderOnTop(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdViewService_SetZOrderOnTop_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdViewServiceServer).SetZOrderOnTop(ctx, req.(*SetZOrderOnTopRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdViewService_StartAdService_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StartAdServiceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdViewServiceServer).StartAdService(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdViewService_StartAdService_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdViewServiceServer).StartAdService(ctx, req.(*StartAdServiceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdViewService_StopAdService_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StopAdServiceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdViewServiceServer).StopAdService(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdViewService_StopAdService_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdViewServiceServer).StopAdService(ctx, req.(*StopAdServiceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TvAdViewService_ServiceDesc is the grpc.ServiceDesc for TvAdViewService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TvAdViewService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "ad.TvAdViewService",
+	HandlerType: (*TvAdViewServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewTvAdView",
+			Handler:    _TvAdViewService_NewTvAdView_Handler,
+		},
+		{
+			MethodName: "ClearCallback",
+			Handler:    _TvAdViewService_ClearCallback_Handler,
+		},
+		{
+			MethodName: "ClearOnUnhandledInputEventListener",
+			Handler:    _TvAdViewService_ClearOnUnhandledInputEventListener_Handler,
+		},
+		{
+			MethodName: "DispatchKeyEvent",
+			Handler:    _TvAdViewService_DispatchKeyEvent_Handler,
+		},
+		{
+			MethodName: "DispatchUnhandledInputEvent",
+			Handler:    _TvAdViewService_DispatchUnhandledInputEvent_Handler,
+		},
+		{
+			MethodName: "GetOnUnhandledInputEventListener",
+			Handler:    _TvAdViewService_GetOnUnhandledInputEventListener_Handler,
+		},
+		{
+			MethodName: "NotifyError",
+			Handler:    _TvAdViewService_NotifyError_Handler,
+		},
+		{
+			MethodName: "NotifyTvMessage",
+			Handler:    _TvAdViewService_NotifyTvMessage_Handler,
+		},
+		{
+			MethodName: "OnAttachedToWindow",
+			Handler:    _TvAdViewService_OnAttachedToWindow_Handler,
+		},
+		{
+			MethodName: "OnDetachedFromWindow",
+			Handler:    _TvAdViewService_OnDetachedFromWindow_Handler,
+		},
+		{
+			MethodName: "OnLayout",
+			Handler:    _TvAdViewService_OnLayout_Handler,
+		},
+		{
+			MethodName: "OnMeasure",
+			Handler:    _TvAdViewService_OnMeasure_Handler,
+		},
+		{
+			MethodName: "OnUnhandledInputEvent",
+			Handler:    _TvAdViewService_OnUnhandledInputEvent_Handler,
+		},
+		{
+			MethodName: "OnVisibilityChanged",
+			Handler:    _TvAdViewService_OnVisibilityChanged_Handler,
+		},
+		{
+			MethodName: "PrepareAdService",
+			Handler:    _TvAdViewService_PrepareAdService_Handler,
+		},
+		{
+			MethodName: "Reset",
+			Handler:    _TvAdViewService_Reset_Handler,
+		},
+		{
+			MethodName: "ResetAdService",
+			Handler:    _TvAdViewService_ResetAdService_Handler,
+		},
+		{
+			MethodName: "SendCurrentChannelUri",
+			Handler:    _TvAdViewService_SendCurrentChannelUri_Handler,
+		},
+		{
+			MethodName: "SendCurrentTvInputId",
+			Handler:    _TvAdViewService_SendCurrentTvInputId_Handler,
+		},
+		{
+			MethodName: "SendCurrentVideoBounds",
+			Handler:    _TvAdViewService_SendCurrentVideoBounds_Handler,
+		},
+		{
+			MethodName: "SendSigningResult",
+			Handler:    _TvAdViewService_SendSigningResult_Handler,
+		},
+		{
+			MethodName: "SetCallback",
+			Handler:    _TvAdViewService_SetCallback_Handler,
+		},
+		{
+			MethodName: "SetOnUnhandledInputEventListener",
+			Handler:    _TvAdViewService_SetOnUnhandledInputEventListener_Handler,
+		},
+		{
+			MethodName: "SetTvView",
+			Handler:    _TvAdViewService_SetTvView_Handler,
+		},
+		{
+			MethodName: "SetZOrderMediaOverlay",
+			Handler:    _TvAdViewService_SetZOrderMediaOverlay_Handler,
+		},
+		{
+			MethodName: "SetZOrderOnTop",
+			Handler:    _TvAdViewService_SetZOrderOnTop_Handler,
+		},
+		{
+			MethodName: "StartAdService",
+			Handler:    _TvAdViewService_StartAdService_Handler,
+		},
+		{
+			MethodName: "StopAdService",
+			Handler:    _TvAdViewService_StopAdService_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/ad/ad.proto",
+}
+
+const (
+	TvAdViewOnUnhandledInputEventListenerService_OnUnhandledInputEvent_FullMethodName = "/ad.TvAdViewOnUnhandledInputEventListenerService/OnUnhandledInputEvent"
+)
+
+// TvAdViewOnUnhandledInputEventListenerServiceClient is the client API for TvAdViewOnUnhandledInputEventListenerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TvAdViewOnUnhandledInputEventListenerServiceClient interface {
+	OnUnhandledInputEvent(ctx context.Context, in *TvAdViewOnUnhandledInputEventListenerOnUnhandledInputEventRequest, opts ...grpc.CallOption) (*OnUnhandledInputEventResponse, error)
+}
+
+type tvAdViewOnUnhandledInputEventListenerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTvAdViewOnUnhandledInputEventListenerServiceClient(cc grpc.ClientConnInterface) TvAdViewOnUnhandledInputEventListenerServiceClient {
+	return &tvAdViewOnUnhandledInputEventListenerServiceClient{cc}
+}
+
+func (c *tvAdViewOnUnhandledInputEventListenerServiceClient) OnUnhandledInputEvent(ctx context.Context, in *TvAdViewOnUnhandledInputEventListenerOnUnhandledInputEventRequest, opts ...grpc.CallOption) (*OnUnhandledInputEventResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnUnhandledInputEventResponse)
+	err := c.cc.Invoke(ctx, TvAdViewOnUnhandledInputEventListenerService_OnUnhandledInputEvent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TvAdViewOnUnhandledInputEventListenerServiceServer is the server API for TvAdViewOnUnhandledInputEventListenerService service.
+// All implementations must embed UnimplementedTvAdViewOnUnhandledInputEventListenerServiceServer
+// for forward compatibility.
+type TvAdViewOnUnhandledInputEventListenerServiceServer interface {
+	OnUnhandledInputEvent(context.Context, *TvAdViewOnUnhandledInputEventListenerOnUnhandledInputEventRequest) (*OnUnhandledInputEventResponse, error)
+	mustEmbedUnimplementedTvAdViewOnUnhandledInputEventListenerServiceServer()
+}
+
+// UnimplementedTvAdViewOnUnhandledInputEventListenerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTvAdViewOnUnhandledInputEventListenerServiceServer struct{}
+
+func (UnimplementedTvAdViewOnUnhandledInputEventListenerServiceServer) OnUnhandledInputEvent(context.Context, *TvAdViewOnUnhandledInputEventListenerOnUnhandledInputEventRequest) (*OnUnhandledInputEventResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnUnhandledInputEvent not implemented")
+}
+func (UnimplementedTvAdViewOnUnhandledInputEventListenerServiceServer) mustEmbedUnimplementedTvAdViewOnUnhandledInputEventListenerServiceServer() {
+}
+func (UnimplementedTvAdViewOnUnhandledInputEventListenerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeTvAdViewOnUnhandledInputEventListenerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TvAdViewOnUnhandledInputEventListenerServiceServer will
+// result in compilation errors.
+type UnsafeTvAdViewOnUnhandledInputEventListenerServiceServer interface {
+	mustEmbedUnimplementedTvAdViewOnUnhandledInputEventListenerServiceServer()
+}
+
+func RegisterTvAdViewOnUnhandledInputEventListenerServiceServer(s grpc.ServiceRegistrar, srv TvAdViewOnUnhandledInputEventListenerServiceServer) {
+	// If the following call panics, it indicates UnimplementedTvAdViewOnUnhandledInputEventListenerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TvAdViewOnUnhandledInputEventListenerService_ServiceDesc, srv)
+}
+
+func _TvAdViewOnUnhandledInputEventListenerService_OnUnhandledInputEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TvAdViewOnUnhandledInputEventListenerOnUnhandledInputEventRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdViewOnUnhandledInputEventListenerServiceServer).OnUnhandledInputEvent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdViewOnUnhandledInputEventListenerService_OnUnhandledInputEvent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdViewOnUnhandledInputEventListenerServiceServer).OnUnhandledInputEvent(ctx, req.(*TvAdViewOnUnhandledInputEventListenerOnUnhandledInputEventRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TvAdViewOnUnhandledInputEventListenerService_ServiceDesc is the grpc.ServiceDesc for TvAdViewOnUnhandledInputEventListenerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TvAdViewOnUnhandledInputEventListenerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "ad.TvAdViewOnUnhandledInputEventListenerService",
+	HandlerType: (*TvAdViewOnUnhandledInputEventListenerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnUnhandledInputEvent",
+			Handler:    _TvAdViewOnUnhandledInputEventListenerService_OnUnhandledInputEvent_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/ad/ad.proto",
+}
+
+const (
+	TvAdViewTvAdCallbackService_OnRequestCurrentChannelUri_FullMethodName  = "/ad.TvAdViewTvAdCallbackService/OnRequestCurrentChannelUri"
+	TvAdViewTvAdCallbackService_OnRequestCurrentTvInputId_FullMethodName   = "/ad.TvAdViewTvAdCallbackService/OnRequestCurrentTvInputId"
+	TvAdViewTvAdCallbackService_OnRequestCurrentVideoBounds_FullMethodName = "/ad.TvAdViewTvAdCallbackService/OnRequestCurrentVideoBounds"
+	TvAdViewTvAdCallbackService_OnRequestSigning_FullMethodName            = "/ad.TvAdViewTvAdCallbackService/OnRequestSigning"
+	TvAdViewTvAdCallbackService_OnRequestTrackInfoList_FullMethodName      = "/ad.TvAdViewTvAdCallbackService/OnRequestTrackInfoList"
+	TvAdViewTvAdCallbackService_OnStateChanged_FullMethodName              = "/ad.TvAdViewTvAdCallbackService/OnStateChanged"
+)
+
+// TvAdViewTvAdCallbackServiceClient is the client API for TvAdViewTvAdCallbackService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TvAdViewTvAdCallbackServiceClient interface {
+	OnRequestCurrentChannelUri(ctx context.Context, in *OnRequestCurrentChannelUriRequest, opts ...grpc.CallOption) (*OnRequestCurrentChannelUriResponse, error)
+	OnRequestCurrentTvInputId(ctx context.Context, in *OnRequestCurrentTvInputIdRequest, opts ...grpc.CallOption) (*OnRequestCurrentTvInputIdResponse, error)
+	OnRequestCurrentVideoBounds(ctx context.Context, in *OnRequestCurrentVideoBoundsRequest, opts ...grpc.CallOption) (*OnRequestCurrentVideoBoundsResponse, error)
+	OnRequestSigning(ctx context.Context, in *OnRequestSigningRequest, opts ...grpc.CallOption) (*OnRequestSigningResponse, error)
+	OnRequestTrackInfoList(ctx context.Context, in *OnRequestTrackInfoListRequest, opts ...grpc.CallOption) (*OnRequestTrackInfoListResponse, error)
+	OnStateChanged(ctx context.Context, in *OnStateChangedRequest, opts ...grpc.CallOption) (*OnStateChangedResponse, error)
+}
+
+type tvAdViewTvAdCallbackServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTvAdViewTvAdCallbackServiceClient(cc grpc.ClientConnInterface) TvAdViewTvAdCallbackServiceClient {
+	return &tvAdViewTvAdCallbackServiceClient{cc}
+}
+
+func (c *tvAdViewTvAdCallbackServiceClient) OnRequestCurrentChannelUri(ctx context.Context, in *OnRequestCurrentChannelUriRequest, opts ...grpc.CallOption) (*OnRequestCurrentChannelUriResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnRequestCurrentChannelUriResponse)
+	err := c.cc.Invoke(ctx, TvAdViewTvAdCallbackService_OnRequestCurrentChannelUri_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdViewTvAdCallbackServiceClient) OnRequestCurrentTvInputId(ctx context.Context, in *OnRequestCurrentTvInputIdRequest, opts ...grpc.CallOption) (*OnRequestCurrentTvInputIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnRequestCurrentTvInputIdResponse)
+	err := c.cc.Invoke(ctx, TvAdViewTvAdCallbackService_OnRequestCurrentTvInputId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdViewTvAdCallbackServiceClient) OnRequestCurrentVideoBounds(ctx context.Context, in *OnRequestCurrentVideoBoundsRequest, opts ...grpc.CallOption) (*OnRequestCurrentVideoBoundsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnRequestCurrentVideoBoundsResponse)
+	err := c.cc.Invoke(ctx, TvAdViewTvAdCallbackService_OnRequestCurrentVideoBounds_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdViewTvAdCallbackServiceClient) OnRequestSigning(ctx context.Context, in *OnRequestSigningRequest, opts ...grpc.CallOption) (*OnRequestSigningResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnRequestSigningResponse)
+	err := c.cc.Invoke(ctx, TvAdViewTvAdCallbackService_OnRequestSigning_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdViewTvAdCallbackServiceClient) OnRequestTrackInfoList(ctx context.Context, in *OnRequestTrackInfoListRequest, opts ...grpc.CallOption) (*OnRequestTrackInfoListResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnRequestTrackInfoListResponse)
+	err := c.cc.Invoke(ctx, TvAdViewTvAdCallbackService_OnRequestTrackInfoList_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdViewTvAdCallbackServiceClient) OnStateChanged(ctx context.Context, in *OnStateChangedRequest, opts ...grpc.CallOption) (*OnStateChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnStateChangedResponse)
+	err := c.cc.Invoke(ctx, TvAdViewTvAdCallbackService_OnStateChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TvAdViewTvAdCallbackServiceServer is the server API for TvAdViewTvAdCallbackService service.
+// All implementations must embed UnimplementedTvAdViewTvAdCallbackServiceServer
+// for forward compatibility.
+type TvAdViewTvAdCallbackServiceServer interface {
+	OnRequestCurrentChannelUri(context.Context, *OnRequestCurrentChannelUriRequest) (*OnRequestCurrentChannelUriResponse, error)
+	OnRequestCurrentTvInputId(context.Context, *OnRequestCurrentTvInputIdRequest) (*OnRequestCurrentTvInputIdResponse, error)
+	OnRequestCurrentVideoBounds(context.Context, *OnRequestCurrentVideoBoundsRequest) (*OnRequestCurrentVideoBoundsResponse, error)
+	OnRequestSigning(context.Context, *OnRequestSigningRequest) (*OnRequestSigningResponse, error)
+	OnRequestTrackInfoList(context.Context, *OnRequestTrackInfoListRequest) (*OnRequestTrackInfoListResponse, error)
+	OnStateChanged(context.Context, *OnStateChangedRequest) (*OnStateChangedResponse, error)
+	mustEmbedUnimplementedTvAdViewTvAdCallbackServiceServer()
+}
+
+// UnimplementedTvAdViewTvAdCallbackServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTvAdViewTvAdCallbackServiceServer struct{}
+
+func (UnimplementedTvAdViewTvAdCallbackServiceServer) OnRequestCurrentChannelUri(context.Context, *OnRequestCurrentChannelUriRequest) (*OnRequestCurrentChannelUriResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnRequestCurrentChannelUri not implemented")
+}
+func (UnimplementedTvAdViewTvAdCallbackServiceServer) OnRequestCurrentTvInputId(context.Context, *OnRequestCurrentTvInputIdRequest) (*OnRequestCurrentTvInputIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnRequestCurrentTvInputId not implemented")
+}
+func (UnimplementedTvAdViewTvAdCallbackServiceServer) OnRequestCurrentVideoBounds(context.Context, *OnRequestCurrentVideoBoundsRequest) (*OnRequestCurrentVideoBoundsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnRequestCurrentVideoBounds not implemented")
+}
+func (UnimplementedTvAdViewTvAdCallbackServiceServer) OnRequestSigning(context.Context, *OnRequestSigningRequest) (*OnRequestSigningResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnRequestSigning not implemented")
+}
+func (UnimplementedTvAdViewTvAdCallbackServiceServer) OnRequestTrackInfoList(context.Context, *OnRequestTrackInfoListRequest) (*OnRequestTrackInfoListResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnRequestTrackInfoList not implemented")
+}
+func (UnimplementedTvAdViewTvAdCallbackServiceServer) OnStateChanged(context.Context, *OnStateChangedRequest) (*OnStateChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnStateChanged not implemented")
+}
+func (UnimplementedTvAdViewTvAdCallbackServiceServer) mustEmbedUnimplementedTvAdViewTvAdCallbackServiceServer() {
+}
+func (UnimplementedTvAdViewTvAdCallbackServiceServer) testEmbeddedByValue() {}
+
+// UnsafeTvAdViewTvAdCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TvAdViewTvAdCallbackServiceServer will
+// result in compilation errors.
+type UnsafeTvAdViewTvAdCallbackServiceServer interface {
+	mustEmbedUnimplementedTvAdViewTvAdCallbackServiceServer()
+}
+
+func RegisterTvAdViewTvAdCallbackServiceServer(s grpc.ServiceRegistrar, srv TvAdViewTvAdCallbackServiceServer) {
+	// If the following call panics, it indicates UnimplementedTvAdViewTvAdCallbackServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TvAdViewTvAdCallbackService_ServiceDesc, srv)
+}
+
+func _TvAdViewTvAdCallbackService_OnRequestCurrentChannelUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnRequestCurrentChannelUriRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdViewTvAdCallbackServiceServer).OnRequestCurrentChannelUri(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdViewTvAdCallbackService_OnRequestCurrentChannelUri_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdViewTvAdCallbackServiceServer).OnRequestCurrentChannelUri(ctx, req.(*OnRequestCurrentChannelUriRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdViewTvAdCallbackService_OnRequestCurrentTvInputId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnRequestCurrentTvInputIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdViewTvAdCallbackServiceServer).OnRequestCurrentTvInputId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdViewTvAdCallbackService_OnRequestCurrentTvInputId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdViewTvAdCallbackServiceServer).OnRequestCurrentTvInputId(ctx, req.(*OnRequestCurrentTvInputIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdViewTvAdCallbackService_OnRequestCurrentVideoBounds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnRequestCurrentVideoBoundsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdViewTvAdCallbackServiceServer).OnRequestCurrentVideoBounds(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdViewTvAdCallbackService_OnRequestCurrentVideoBounds_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdViewTvAdCallbackServiceServer).OnRequestCurrentVideoBounds(ctx, req.(*OnRequestCurrentVideoBoundsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdViewTvAdCallbackService_OnRequestSigning_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnRequestSigningRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdViewTvAdCallbackServiceServer).OnRequestSigning(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdViewTvAdCallbackService_OnRequestSigning_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdViewTvAdCallbackServiceServer).OnRequestSigning(ctx, req.(*OnRequestSigningRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdViewTvAdCallbackService_OnRequestTrackInfoList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnRequestTrackInfoListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdViewTvAdCallbackServiceServer).OnRequestTrackInfoList(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdViewTvAdCallbackService_OnRequestTrackInfoList_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdViewTvAdCallbackServiceServer).OnRequestTrackInfoList(ctx, req.(*OnRequestTrackInfoListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdViewTvAdCallbackService_OnStateChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnStateChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdViewTvAdCallbackServiceServer).OnStateChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdViewTvAdCallbackService_OnStateChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdViewTvAdCallbackServiceServer).OnStateChanged(ctx, req.(*OnStateChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TvAdViewTvAdCallbackService_ServiceDesc is the grpc.ServiceDesc for TvAdViewTvAdCallbackService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TvAdViewTvAdCallbackService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "ad.TvAdViewTvAdCallbackService",
+	HandlerType: (*TvAdViewTvAdCallbackServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnRequestCurrentChannelUri",
+			Handler:    _TvAdViewTvAdCallbackService_OnRequestCurrentChannelUri_Handler,
+		},
+		{
+			MethodName: "OnRequestCurrentTvInputId",
+			Handler:    _TvAdViewTvAdCallbackService_OnRequestCurrentTvInputId_Handler,
+		},
+		{
+			MethodName: "OnRequestCurrentVideoBounds",
+			Handler:    _TvAdViewTvAdCallbackService_OnRequestCurrentVideoBounds_Handler,
+		},
+		{
+			MethodName: "OnRequestSigning",
+			Handler:    _TvAdViewTvAdCallbackService_OnRequestSigning_Handler,
+		},
+		{
+			MethodName: "OnRequestTrackInfoList",
+			Handler:    _TvAdViewTvAdCallbackService_OnRequestTrackInfoList_Handler,
+		},
+		{
+			MethodName: "OnStateChanged",
+			Handler:    _TvAdViewTvAdCallbackService_OnStateChanged_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/ad/ad.proto",
+}
+
+const (
+	TvAdServiceService_OnAppLinkCommand_FullMethodName = "/ad.TvAdServiceService/OnAppLinkCommand"
+	TvAdServiceService_OnBind_FullMethodName           = "/ad.TvAdServiceService/OnBind"
+	TvAdServiceService_OnCreateSession_FullMethodName  = "/ad.TvAdServiceService/OnCreateSession"
+)
+
+// TvAdServiceServiceClient is the client API for TvAdServiceService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TvAdServiceServiceClient interface {
+	OnAppLinkCommand(ctx context.Context, in *OnAppLinkCommandRequest, opts ...grpc.CallOption) (*OnAppLinkCommandResponse, error)
+	OnBind(ctx context.Context, in *OnBindRequest, opts ...grpc.CallOption) (*OnBindResponse, error)
+	OnCreateSession(ctx context.Context, in *OnCreateSessionRequest, opts ...grpc.CallOption) (*OnCreateSessionResponse, error)
+}
+
+type tvAdServiceServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTvAdServiceServiceClient(cc grpc.ClientConnInterface) TvAdServiceServiceClient {
+	return &tvAdServiceServiceClient{cc}
+}
+
+func (c *tvAdServiceServiceClient) OnAppLinkCommand(ctx context.Context, in *OnAppLinkCommandRequest, opts ...grpc.CallOption) (*OnAppLinkCommandResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnAppLinkCommandResponse)
+	err := c.cc.Invoke(ctx, TvAdServiceService_OnAppLinkCommand_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdServiceServiceClient) OnBind(ctx context.Context, in *OnBindRequest, opts ...grpc.CallOption) (*OnBindResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnBindResponse)
+	err := c.cc.Invoke(ctx, TvAdServiceService_OnBind_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdServiceServiceClient) OnCreateSession(ctx context.Context, in *OnCreateSessionRequest, opts ...grpc.CallOption) (*OnCreateSessionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnCreateSessionResponse)
+	err := c.cc.Invoke(ctx, TvAdServiceService_OnCreateSession_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TvAdServiceServiceServer is the server API for TvAdServiceService service.
+// All implementations must embed UnimplementedTvAdServiceServiceServer
+// for forward compatibility.
+type TvAdServiceServiceServer interface {
+	OnAppLinkCommand(context.Context, *OnAppLinkCommandRequest) (*OnAppLinkCommandResponse, error)
+	OnBind(context.Context, *OnBindRequest) (*OnBindResponse, error)
+	OnCreateSession(context.Context, *OnCreateSessionRequest) (*OnCreateSessionResponse, error)
+	mustEmbedUnimplementedTvAdServiceServiceServer()
+}
+
+// UnimplementedTvAdServiceServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTvAdServiceServiceServer struct{}
+
+func (UnimplementedTvAdServiceServiceServer) OnAppLinkCommand(context.Context, *OnAppLinkCommandRequest) (*OnAppLinkCommandResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnAppLinkCommand not implemented")
+}
+func (UnimplementedTvAdServiceServiceServer) OnBind(context.Context, *OnBindRequest) (*OnBindResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnBind not implemented")
+}
+func (UnimplementedTvAdServiceServiceServer) OnCreateSession(context.Context, *OnCreateSessionRequest) (*OnCreateSessionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnCreateSession not implemented")
+}
+func (UnimplementedTvAdServiceServiceServer) mustEmbedUnimplementedTvAdServiceServiceServer() {}
+func (UnimplementedTvAdServiceServiceServer) testEmbeddedByValue()                            {}
+
+// UnsafeTvAdServiceServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TvAdServiceServiceServer will
+// result in compilation errors.
+type UnsafeTvAdServiceServiceServer interface {
+	mustEmbedUnimplementedTvAdServiceServiceServer()
+}
+
+func RegisterTvAdServiceServiceServer(s grpc.ServiceRegistrar, srv TvAdServiceServiceServer) {
+	// If the following call panics, it indicates UnimplementedTvAdServiceServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TvAdServiceService_ServiceDesc, srv)
+}
+
+func _TvAdServiceService_OnAppLinkCommand_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnAppLinkCommandRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdServiceServiceServer).OnAppLinkCommand(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdServiceService_OnAppLinkCommand_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdServiceServiceServer).OnAppLinkCommand(ctx, req.(*OnAppLinkCommandRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdServiceService_OnBind_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnBindRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdServiceServiceServer).OnBind(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdServiceService_OnBind_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdServiceServiceServer).OnBind(ctx, req.(*OnBindRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdServiceService_OnCreateSession_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnCreateSessionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdServiceServiceServer).OnCreateSession(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdServiceService_OnCreateSession_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdServiceServiceServer).OnCreateSession(ctx, req.(*OnCreateSessionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TvAdServiceService_ServiceDesc is the grpc.ServiceDesc for TvAdServiceService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TvAdServiceService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "ad.TvAdServiceService",
+	HandlerType: (*TvAdServiceServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnAppLinkCommand",
+			Handler:    _TvAdServiceService_OnAppLinkCommand_Handler,
+		},
+		{
+			MethodName: "OnBind",
+			Handler:    _TvAdServiceService_OnBind_Handler,
+		},
+		{
+			MethodName: "OnCreateSession",
+			Handler:    _TvAdServiceService_OnCreateSession_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/ad/ad.proto",
+}
+
+const (
+	TvAdServiceSessionService_IsMediaViewEnabled_FullMethodName        = "/ad.TvAdServiceSessionService/IsMediaViewEnabled"
+	TvAdServiceSessionService_LayoutSurface_FullMethodName             = "/ad.TvAdServiceSessionService/LayoutSurface"
+	TvAdServiceSessionService_NotifySessionStateChanged_FullMethodName = "/ad.TvAdServiceSessionService/NotifySessionStateChanged"
+	TvAdServiceSessionService_OnCreateMediaView_FullMethodName         = "/ad.TvAdServiceSessionService/OnCreateMediaView"
+	TvAdServiceSessionService_OnCurrentChannelUri_FullMethodName       = "/ad.TvAdServiceSessionService/OnCurrentChannelUri"
+	TvAdServiceSessionService_OnCurrentTvInputId_FullMethodName        = "/ad.TvAdServiceSessionService/OnCurrentTvInputId"
+	TvAdServiceSessionService_OnCurrentVideoBounds_FullMethodName      = "/ad.TvAdServiceSessionService/OnCurrentVideoBounds"
+	TvAdServiceSessionService_OnError_FullMethodName                   = "/ad.TvAdServiceSessionService/OnError"
+	TvAdServiceSessionService_OnGenericMotionEvent_FullMethodName      = "/ad.TvAdServiceSessionService/OnGenericMotionEvent"
+	TvAdServiceSessionService_OnKeyDown_FullMethodName                 = "/ad.TvAdServiceSessionService/OnKeyDown"
+	TvAdServiceSessionService_OnKeyLongPress_FullMethodName            = "/ad.TvAdServiceSessionService/OnKeyLongPress"
+	TvAdServiceSessionService_OnKeyMultiple_FullMethodName             = "/ad.TvAdServiceSessionService/OnKeyMultiple"
+	TvAdServiceSessionService_OnKeyUp_FullMethodName                   = "/ad.TvAdServiceSessionService/OnKeyUp"
+	TvAdServiceSessionService_OnMediaViewSizeChanged_FullMethodName    = "/ad.TvAdServiceSessionService/OnMediaViewSizeChanged"
+	TvAdServiceSessionService_OnRelease_FullMethodName                 = "/ad.TvAdServiceSessionService/OnRelease"
+	TvAdServiceSessionService_OnResetAdService_FullMethodName          = "/ad.TvAdServiceSessionService/OnResetAdService"
+	TvAdServiceSessionService_OnSetSurface_FullMethodName              = "/ad.TvAdServiceSessionService/OnSetSurface"
+	TvAdServiceSessionService_OnSigningResult_FullMethodName           = "/ad.TvAdServiceSessionService/OnSigningResult"
+	TvAdServiceSessionService_OnStartAdService_FullMethodName          = "/ad.TvAdServiceSessionService/OnStartAdService"
+	TvAdServiceSessionService_OnStopAdService_FullMethodName           = "/ad.TvAdServiceSessionService/OnStopAdService"
+	TvAdServiceSessionService_OnSurfaceChanged_FullMethodName          = "/ad.TvAdServiceSessionService/OnSurfaceChanged"
+	TvAdServiceSessionService_OnTouchEvent_FullMethodName              = "/ad.TvAdServiceSessionService/OnTouchEvent"
+	TvAdServiceSessionService_OnTrackballEvent_FullMethodName          = "/ad.TvAdServiceSessionService/OnTrackballEvent"
+	TvAdServiceSessionService_OnTvInputSessionData_FullMethodName      = "/ad.TvAdServiceSessionService/OnTvInputSessionData"
+	TvAdServiceSessionService_OnTvMessage_FullMethodName               = "/ad.TvAdServiceSessionService/OnTvMessage"
+	TvAdServiceSessionService_RequestCurrentChannelUri_FullMethodName  = "/ad.TvAdServiceSessionService/RequestCurrentChannelUri"
+	TvAdServiceSessionService_RequestCurrentTvInputId_FullMethodName   = "/ad.TvAdServiceSessionService/RequestCurrentTvInputId"
+	TvAdServiceSessionService_RequestCurrentVideoBounds_FullMethodName = "/ad.TvAdServiceSessionService/RequestCurrentVideoBounds"
+	TvAdServiceSessionService_RequestSigning_FullMethodName            = "/ad.TvAdServiceSessionService/RequestSigning"
+	TvAdServiceSessionService_RequestTrackInfoList_FullMethodName      = "/ad.TvAdServiceSessionService/RequestTrackInfoList"
+	TvAdServiceSessionService_SendTvAdSessionData_FullMethodName       = "/ad.TvAdServiceSessionService/SendTvAdSessionData"
+	TvAdServiceSessionService_SetMediaViewEnabled_FullMethodName       = "/ad.TvAdServiceSessionService/SetMediaViewEnabled"
+)
+
+// TvAdServiceSessionServiceClient is the client API for TvAdServiceSessionService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TvAdServiceSessionServiceClient interface {
+	IsMediaViewEnabled(ctx context.Context, in *IsMediaViewEnabledRequest, opts ...grpc.CallOption) (*IsMediaViewEnabledResponse, error)
+	LayoutSurface(ctx context.Context, in *LayoutSurfaceRequest, opts ...grpc.CallOption) (*LayoutSurfaceResponse, error)
+	NotifySessionStateChanged(ctx context.Context, in *NotifySessionStateChangedRequest, opts ...grpc.CallOption) (*NotifySessionStateChangedResponse, error)
+	OnCreateMediaView(ctx context.Context, in *OnCreateMediaViewRequest, opts ...grpc.CallOption) (*OnCreateMediaViewResponse, error)
+	OnCurrentChannelUri(ctx context.Context, in *OnCurrentChannelUriRequest, opts ...grpc.CallOption) (*OnCurrentChannelUriResponse, error)
+	OnCurrentTvInputId(ctx context.Context, in *OnCurrentTvInputIdRequest, opts ...grpc.CallOption) (*OnCurrentTvInputIdResponse, error)
+	OnCurrentVideoBounds(ctx context.Context, in *OnCurrentVideoBoundsRequest, opts ...grpc.CallOption) (*OnCurrentVideoBoundsResponse, error)
+	OnError(ctx context.Context, in *OnErrorRequest, opts ...grpc.CallOption) (*OnErrorResponse, error)
+	OnGenericMotionEvent(ctx context.Context, in *OnGenericMotionEventRequest, opts ...grpc.CallOption) (*OnGenericMotionEventResponse, error)
+	OnKeyDown(ctx context.Context, in *OnKeyDownRequest, opts ...grpc.CallOption) (*OnKeyDownResponse, error)
+	OnKeyLongPress(ctx context.Context, in *OnKeyLongPressRequest, opts ...grpc.CallOption) (*OnKeyLongPressResponse, error)
+	OnKeyMultiple(ctx context.Context, in *OnKeyMultipleRequest, opts ...grpc.CallOption) (*OnKeyMultipleResponse, error)
+	OnKeyUp(ctx context.Context, in *OnKeyUpRequest, opts ...grpc.CallOption) (*OnKeyUpResponse, error)
+	OnMediaViewSizeChanged(ctx context.Context, in *OnMediaViewSizeChangedRequest, opts ...grpc.CallOption) (*OnMediaViewSizeChangedResponse, error)
+	OnRelease(ctx context.Context, in *OnReleaseRequest, opts ...grpc.CallOption) (*OnReleaseResponse, error)
+	OnResetAdService(ctx context.Context, in *OnResetAdServiceRequest, opts ...grpc.CallOption) (*OnResetAdServiceResponse, error)
+	OnSetSurface(ctx context.Context, in *OnSetSurfaceRequest, opts ...grpc.CallOption) (*OnSetSurfaceResponse, error)
+	OnSigningResult(ctx context.Context, in *OnSigningResultRequest, opts ...grpc.CallOption) (*OnSigningResultResponse, error)
+	OnStartAdService(ctx context.Context, in *OnStartAdServiceRequest, opts ...grpc.CallOption) (*OnStartAdServiceResponse, error)
+	OnStopAdService(ctx context.Context, in *OnStopAdServiceRequest, opts ...grpc.CallOption) (*OnStopAdServiceResponse, error)
+	OnSurfaceChanged(ctx context.Context, in *OnSurfaceChangedRequest, opts ...grpc.CallOption) (*OnSurfaceChangedResponse, error)
+	OnTouchEvent(ctx context.Context, in *OnTouchEventRequest, opts ...grpc.CallOption) (*OnTouchEventResponse, error)
+	OnTrackballEvent(ctx context.Context, in *OnTrackballEventRequest, opts ...grpc.CallOption) (*OnTrackballEventResponse, error)
+	OnTvInputSessionData(ctx context.Context, in *OnTvInputSessionDataRequest, opts ...grpc.CallOption) (*OnTvInputSessionDataResponse, error)
+	OnTvMessage(ctx context.Context, in *OnTvMessageRequest, opts ...grpc.CallOption) (*OnTvMessageResponse, error)
+	RequestCurrentChannelUri(ctx context.Context, in *RequestCurrentChannelUriRequest, opts ...grpc.CallOption) (*RequestCurrentChannelUriResponse, error)
+	RequestCurrentTvInputId(ctx context.Context, in *RequestCurrentTvInputIdRequest, opts ...grpc.CallOption) (*RequestCurrentTvInputIdResponse, error)
+	RequestCurrentVideoBounds(ctx context.Context, in *RequestCurrentVideoBoundsRequest, opts ...grpc.CallOption) (*RequestCurrentVideoBoundsResponse, error)
+	RequestSigning(ctx context.Context, in *RequestSigningRequest, opts ...grpc.CallOption) (*RequestSigningResponse, error)
+	RequestTrackInfoList(ctx context.Context, in *RequestTrackInfoListRequest, opts ...grpc.CallOption) (*RequestTrackInfoListResponse, error)
+	SendTvAdSessionData(ctx context.Context, in *SendTvAdSessionDataRequest, opts ...grpc.CallOption) (*SendTvAdSessionDataResponse, error)
+	SetMediaViewEnabled(ctx context.Context, in *SetMediaViewEnabledRequest, opts ...grpc.CallOption) (*SetMediaViewEnabledResponse, error)
+}
+
+type tvAdServiceSessionServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTvAdServiceSessionServiceClient(cc grpc.ClientConnInterface) TvAdServiceSessionServiceClient {
+	return &tvAdServiceSessionServiceClient{cc}
+}
+
+func (c *tvAdServiceSessionServiceClient) IsMediaViewEnabled(ctx context.Context, in *IsMediaViewEnabledRequest, opts ...grpc.CallOption) (*IsMediaViewEnabledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsMediaViewEnabledResponse)
+	err := c.cc.Invoke(ctx, TvAdServiceSessionService_IsMediaViewEnabled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdServiceSessionServiceClient) LayoutSurface(ctx context.Context, in *LayoutSurfaceRequest, opts ...grpc.CallOption) (*LayoutSurfaceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(LayoutSurfaceResponse)
+	err := c.cc.Invoke(ctx, TvAdServiceSessionService_LayoutSurface_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdServiceSessionServiceClient) NotifySessionStateChanged(ctx context.Context, in *NotifySessionStateChangedRequest, opts ...grpc.CallOption) (*NotifySessionStateChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NotifySessionStateChangedResponse)
+	err := c.cc.Invoke(ctx, TvAdServiceSessionService_NotifySessionStateChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdServiceSessionServiceClient) OnCreateMediaView(ctx context.Context, in *OnCreateMediaViewRequest, opts ...grpc.CallOption) (*OnCreateMediaViewResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnCreateMediaViewResponse)
+	err := c.cc.Invoke(ctx, TvAdServiceSessionService_OnCreateMediaView_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdServiceSessionServiceClient) OnCurrentChannelUri(ctx context.Context, in *OnCurrentChannelUriRequest, opts ...grpc.CallOption) (*OnCurrentChannelUriResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnCurrentChannelUriResponse)
+	err := c.cc.Invoke(ctx, TvAdServiceSessionService_OnCurrentChannelUri_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdServiceSessionServiceClient) OnCurrentTvInputId(ctx context.Context, in *OnCurrentTvInputIdRequest, opts ...grpc.CallOption) (*OnCurrentTvInputIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnCurrentTvInputIdResponse)
+	err := c.cc.Invoke(ctx, TvAdServiceSessionService_OnCurrentTvInputId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdServiceSessionServiceClient) OnCurrentVideoBounds(ctx context.Context, in *OnCurrentVideoBoundsRequest, opts ...grpc.CallOption) (*OnCurrentVideoBoundsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnCurrentVideoBoundsResponse)
+	err := c.cc.Invoke(ctx, TvAdServiceSessionService_OnCurrentVideoBounds_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdServiceSessionServiceClient) OnError(ctx context.Context, in *OnErrorRequest, opts ...grpc.CallOption) (*OnErrorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnErrorResponse)
+	err := c.cc.Invoke(ctx, TvAdServiceSessionService_OnError_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdServiceSessionServiceClient) OnGenericMotionEvent(ctx context.Context, in *OnGenericMotionEventRequest, opts ...grpc.CallOption) (*OnGenericMotionEventResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnGenericMotionEventResponse)
+	err := c.cc.Invoke(ctx, TvAdServiceSessionService_OnGenericMotionEvent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdServiceSessionServiceClient) OnKeyDown(ctx context.Context, in *OnKeyDownRequest, opts ...grpc.CallOption) (*OnKeyDownResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnKeyDownResponse)
+	err := c.cc.Invoke(ctx, TvAdServiceSessionService_OnKeyDown_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdServiceSessionServiceClient) OnKeyLongPress(ctx context.Context, in *OnKeyLongPressRequest, opts ...grpc.CallOption) (*OnKeyLongPressResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnKeyLongPressResponse)
+	err := c.cc.Invoke(ctx, TvAdServiceSessionService_OnKeyLongPress_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdServiceSessionServiceClient) OnKeyMultiple(ctx context.Context, in *OnKeyMultipleRequest, opts ...grpc.CallOption) (*OnKeyMultipleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnKeyMultipleResponse)
+	err := c.cc.Invoke(ctx, TvAdServiceSessionService_OnKeyMultiple_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdServiceSessionServiceClient) OnKeyUp(ctx context.Context, in *OnKeyUpRequest, opts ...grpc.CallOption) (*OnKeyUpResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnKeyUpResponse)
+	err := c.cc.Invoke(ctx, TvAdServiceSessionService_OnKeyUp_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdServiceSessionServiceClient) OnMediaViewSizeChanged(ctx context.Context, in *OnMediaViewSizeChangedRequest, opts ...grpc.CallOption) (*OnMediaViewSizeChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnMediaViewSizeChangedResponse)
+	err := c.cc.Invoke(ctx, TvAdServiceSessionService_OnMediaViewSizeChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdServiceSessionServiceClient) OnRelease(ctx context.Context, in *OnReleaseRequest, opts ...grpc.CallOption) (*OnReleaseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnReleaseResponse)
+	err := c.cc.Invoke(ctx, TvAdServiceSessionService_OnRelease_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdServiceSessionServiceClient) OnResetAdService(ctx context.Context, in *OnResetAdServiceRequest, opts ...grpc.CallOption) (*OnResetAdServiceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnResetAdServiceResponse)
+	err := c.cc.Invoke(ctx, TvAdServiceSessionService_OnResetAdService_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdServiceSessionServiceClient) OnSetSurface(ctx context.Context, in *OnSetSurfaceRequest, opts ...grpc.CallOption) (*OnSetSurfaceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnSetSurfaceResponse)
+	err := c.cc.Invoke(ctx, TvAdServiceSessionService_OnSetSurface_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdServiceSessionServiceClient) OnSigningResult(ctx context.Context, in *OnSigningResultRequest, opts ...grpc.CallOption) (*OnSigningResultResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnSigningResultResponse)
+	err := c.cc.Invoke(ctx, TvAdServiceSessionService_OnSigningResult_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdServiceSessionServiceClient) OnStartAdService(ctx context.Context, in *OnStartAdServiceRequest, opts ...grpc.CallOption) (*OnStartAdServiceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnStartAdServiceResponse)
+	err := c.cc.Invoke(ctx, TvAdServiceSessionService_OnStartAdService_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdServiceSessionServiceClient) OnStopAdService(ctx context.Context, in *OnStopAdServiceRequest, opts ...grpc.CallOption) (*OnStopAdServiceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnStopAdServiceResponse)
+	err := c.cc.Invoke(ctx, TvAdServiceSessionService_OnStopAdService_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdServiceSessionServiceClient) OnSurfaceChanged(ctx context.Context, in *OnSurfaceChangedRequest, opts ...grpc.CallOption) (*OnSurfaceChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnSurfaceChangedResponse)
+	err := c.cc.Invoke(ctx, TvAdServiceSessionService_OnSurfaceChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdServiceSessionServiceClient) OnTouchEvent(ctx context.Context, in *OnTouchEventRequest, opts ...grpc.CallOption) (*OnTouchEventResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnTouchEventResponse)
+	err := c.cc.Invoke(ctx, TvAdServiceSessionService_OnTouchEvent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdServiceSessionServiceClient) OnTrackballEvent(ctx context.Context, in *OnTrackballEventRequest, opts ...grpc.CallOption) (*OnTrackballEventResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnTrackballEventResponse)
+	err := c.cc.Invoke(ctx, TvAdServiceSessionService_OnTrackballEvent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdServiceSessionServiceClient) OnTvInputSessionData(ctx context.Context, in *OnTvInputSessionDataRequest, opts ...grpc.CallOption) (*OnTvInputSessionDataResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnTvInputSessionDataResponse)
+	err := c.cc.Invoke(ctx, TvAdServiceSessionService_OnTvInputSessionData_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdServiceSessionServiceClient) OnTvMessage(ctx context.Context, in *OnTvMessageRequest, opts ...grpc.CallOption) (*OnTvMessageResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnTvMessageResponse)
+	err := c.cc.Invoke(ctx, TvAdServiceSessionService_OnTvMessage_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdServiceSessionServiceClient) RequestCurrentChannelUri(ctx context.Context, in *RequestCurrentChannelUriRequest, opts ...grpc.CallOption) (*RequestCurrentChannelUriResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RequestCurrentChannelUriResponse)
+	err := c.cc.Invoke(ctx, TvAdServiceSessionService_RequestCurrentChannelUri_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdServiceSessionServiceClient) RequestCurrentTvInputId(ctx context.Context, in *RequestCurrentTvInputIdRequest, opts ...grpc.CallOption) (*RequestCurrentTvInputIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RequestCurrentTvInputIdResponse)
+	err := c.cc.Invoke(ctx, TvAdServiceSessionService_RequestCurrentTvInputId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdServiceSessionServiceClient) RequestCurrentVideoBounds(ctx context.Context, in *RequestCurrentVideoBoundsRequest, opts ...grpc.CallOption) (*RequestCurrentVideoBoundsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RequestCurrentVideoBoundsResponse)
+	err := c.cc.Invoke(ctx, TvAdServiceSessionService_RequestCurrentVideoBounds_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdServiceSessionServiceClient) RequestSigning(ctx context.Context, in *RequestSigningRequest, opts ...grpc.CallOption) (*RequestSigningResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RequestSigningResponse)
+	err := c.cc.Invoke(ctx, TvAdServiceSessionService_RequestSigning_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdServiceSessionServiceClient) RequestTrackInfoList(ctx context.Context, in *RequestTrackInfoListRequest, opts ...grpc.CallOption) (*RequestTrackInfoListResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RequestTrackInfoListResponse)
+	err := c.cc.Invoke(ctx, TvAdServiceSessionService_RequestTrackInfoList_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdServiceSessionServiceClient) SendTvAdSessionData(ctx context.Context, in *SendTvAdSessionDataRequest, opts ...grpc.CallOption) (*SendTvAdSessionDataResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SendTvAdSessionDataResponse)
+	err := c.cc.Invoke(ctx, TvAdServiceSessionService_SendTvAdSessionData_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvAdServiceSessionServiceClient) SetMediaViewEnabled(ctx context.Context, in *SetMediaViewEnabledRequest, opts ...grpc.CallOption) (*SetMediaViewEnabledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetMediaViewEnabledResponse)
+	err := c.cc.Invoke(ctx, TvAdServiceSessionService_SetMediaViewEnabled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TvAdServiceSessionServiceServer is the server API for TvAdServiceSessionService service.
+// All implementations must embed UnimplementedTvAdServiceSessionServiceServer
+// for forward compatibility.
+type TvAdServiceSessionServiceServer interface {
+	IsMediaViewEnabled(context.Context, *IsMediaViewEnabledRequest) (*IsMediaViewEnabledResponse, error)
+	LayoutSurface(context.Context, *LayoutSurfaceRequest) (*LayoutSurfaceResponse, error)
+	NotifySessionStateChanged(context.Context, *NotifySessionStateChangedRequest) (*NotifySessionStateChangedResponse, error)
+	OnCreateMediaView(context.Context, *OnCreateMediaViewRequest) (*OnCreateMediaViewResponse, error)
+	OnCurrentChannelUri(context.Context, *OnCurrentChannelUriRequest) (*OnCurrentChannelUriResponse, error)
+	OnCurrentTvInputId(context.Context, *OnCurrentTvInputIdRequest) (*OnCurrentTvInputIdResponse, error)
+	OnCurrentVideoBounds(context.Context, *OnCurrentVideoBoundsRequest) (*OnCurrentVideoBoundsResponse, error)
+	OnError(context.Context, *OnErrorRequest) (*OnErrorResponse, error)
+	OnGenericMotionEvent(context.Context, *OnGenericMotionEventRequest) (*OnGenericMotionEventResponse, error)
+	OnKeyDown(context.Context, *OnKeyDownRequest) (*OnKeyDownResponse, error)
+	OnKeyLongPress(context.Context, *OnKeyLongPressRequest) (*OnKeyLongPressResponse, error)
+	OnKeyMultiple(context.Context, *OnKeyMultipleRequest) (*OnKeyMultipleResponse, error)
+	OnKeyUp(context.Context, *OnKeyUpRequest) (*OnKeyUpResponse, error)
+	OnMediaViewSizeChanged(context.Context, *OnMediaViewSizeChangedRequest) (*OnMediaViewSizeChangedResponse, error)
+	OnRelease(context.Context, *OnReleaseRequest) (*OnReleaseResponse, error)
+	OnResetAdService(context.Context, *OnResetAdServiceRequest) (*OnResetAdServiceResponse, error)
+	OnSetSurface(context.Context, *OnSetSurfaceRequest) (*OnSetSurfaceResponse, error)
+	OnSigningResult(context.Context, *OnSigningResultRequest) (*OnSigningResultResponse, error)
+	OnStartAdService(context.Context, *OnStartAdServiceRequest) (*OnStartAdServiceResponse, error)
+	OnStopAdService(context.Context, *OnStopAdServiceRequest) (*OnStopAdServiceResponse, error)
+	OnSurfaceChanged(context.Context, *OnSurfaceChangedRequest) (*OnSurfaceChangedResponse, error)
+	OnTouchEvent(context.Context, *OnTouchEventRequest) (*OnTouchEventResponse, error)
+	OnTrackballEvent(context.Context, *OnTrackballEventRequest) (*OnTrackballEventResponse, error)
+	OnTvInputSessionData(context.Context, *OnTvInputSessionDataRequest) (*OnTvInputSessionDataResponse, error)
+	OnTvMessage(context.Context, *OnTvMessageRequest) (*OnTvMessageResponse, error)
+	RequestCurrentChannelUri(context.Context, *RequestCurrentChannelUriRequest) (*RequestCurrentChannelUriResponse, error)
+	RequestCurrentTvInputId(context.Context, *RequestCurrentTvInputIdRequest) (*RequestCurrentTvInputIdResponse, error)
+	RequestCurrentVideoBounds(context.Context, *RequestCurrentVideoBoundsRequest) (*RequestCurrentVideoBoundsResponse, error)
+	RequestSigning(context.Context, *RequestSigningRequest) (*RequestSigningResponse, error)
+	RequestTrackInfoList(context.Context, *RequestTrackInfoListRequest) (*RequestTrackInfoListResponse, error)
+	SendTvAdSessionData(context.Context, *SendTvAdSessionDataRequest) (*SendTvAdSessionDataResponse, error)
+	SetMediaViewEnabled(context.Context, *SetMediaViewEnabledRequest) (*SetMediaViewEnabledResponse, error)
+	mustEmbedUnimplementedTvAdServiceSessionServiceServer()
+}
+
+// UnimplementedTvAdServiceSessionServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTvAdServiceSessionServiceServer struct{}
+
+func (UnimplementedTvAdServiceSessionServiceServer) IsMediaViewEnabled(context.Context, *IsMediaViewEnabledRequest) (*IsMediaViewEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsMediaViewEnabled not implemented")
+}
+func (UnimplementedTvAdServiceSessionServiceServer) LayoutSurface(context.Context, *LayoutSurfaceRequest) (*LayoutSurfaceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method LayoutSurface not implemented")
+}
+func (UnimplementedTvAdServiceSessionServiceServer) NotifySessionStateChanged(context.Context, *NotifySessionStateChangedRequest) (*NotifySessionStateChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NotifySessionStateChanged not implemented")
+}
+func (UnimplementedTvAdServiceSessionServiceServer) OnCreateMediaView(context.Context, *OnCreateMediaViewRequest) (*OnCreateMediaViewResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnCreateMediaView not implemented")
+}
+func (UnimplementedTvAdServiceSessionServiceServer) OnCurrentChannelUri(context.Context, *OnCurrentChannelUriRequest) (*OnCurrentChannelUriResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnCurrentChannelUri not implemented")
+}
+func (UnimplementedTvAdServiceSessionServiceServer) OnCurrentTvInputId(context.Context, *OnCurrentTvInputIdRequest) (*OnCurrentTvInputIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnCurrentTvInputId not implemented")
+}
+func (UnimplementedTvAdServiceSessionServiceServer) OnCurrentVideoBounds(context.Context, *OnCurrentVideoBoundsRequest) (*OnCurrentVideoBoundsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnCurrentVideoBounds not implemented")
+}
+func (UnimplementedTvAdServiceSessionServiceServer) OnError(context.Context, *OnErrorRequest) (*OnErrorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnError not implemented")
+}
+func (UnimplementedTvAdServiceSessionServiceServer) OnGenericMotionEvent(context.Context, *OnGenericMotionEventRequest) (*OnGenericMotionEventResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnGenericMotionEvent not implemented")
+}
+func (UnimplementedTvAdServiceSessionServiceServer) OnKeyDown(context.Context, *OnKeyDownRequest) (*OnKeyDownResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnKeyDown not implemented")
+}
+func (UnimplementedTvAdServiceSessionServiceServer) OnKeyLongPress(context.Context, *OnKeyLongPressRequest) (*OnKeyLongPressResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnKeyLongPress not implemented")
+}
+func (UnimplementedTvAdServiceSessionServiceServer) OnKeyMultiple(context.Context, *OnKeyMultipleRequest) (*OnKeyMultipleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnKeyMultiple not implemented")
+}
+func (UnimplementedTvAdServiceSessionServiceServer) OnKeyUp(context.Context, *OnKeyUpRequest) (*OnKeyUpResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnKeyUp not implemented")
+}
+func (UnimplementedTvAdServiceSessionServiceServer) OnMediaViewSizeChanged(context.Context, *OnMediaViewSizeChangedRequest) (*OnMediaViewSizeChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnMediaViewSizeChanged not implemented")
+}
+func (UnimplementedTvAdServiceSessionServiceServer) OnRelease(context.Context, *OnReleaseRequest) (*OnReleaseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnRelease not implemented")
+}
+func (UnimplementedTvAdServiceSessionServiceServer) OnResetAdService(context.Context, *OnResetAdServiceRequest) (*OnResetAdServiceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnResetAdService not implemented")
+}
+func (UnimplementedTvAdServiceSessionServiceServer) OnSetSurface(context.Context, *OnSetSurfaceRequest) (*OnSetSurfaceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnSetSurface not implemented")
+}
+func (UnimplementedTvAdServiceSessionServiceServer) OnSigningResult(context.Context, *OnSigningResultRequest) (*OnSigningResultResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnSigningResult not implemented")
+}
+func (UnimplementedTvAdServiceSessionServiceServer) OnStartAdService(context.Context, *OnStartAdServiceRequest) (*OnStartAdServiceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnStartAdService not implemented")
+}
+func (UnimplementedTvAdServiceSessionServiceServer) OnStopAdService(context.Context, *OnStopAdServiceRequest) (*OnStopAdServiceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnStopAdService not implemented")
+}
+func (UnimplementedTvAdServiceSessionServiceServer) OnSurfaceChanged(context.Context, *OnSurfaceChangedRequest) (*OnSurfaceChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnSurfaceChanged not implemented")
+}
+func (UnimplementedTvAdServiceSessionServiceServer) OnTouchEvent(context.Context, *OnTouchEventRequest) (*OnTouchEventResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnTouchEvent not implemented")
+}
+func (UnimplementedTvAdServiceSessionServiceServer) OnTrackballEvent(context.Context, *OnTrackballEventRequest) (*OnTrackballEventResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnTrackballEvent not implemented")
+}
+func (UnimplementedTvAdServiceSessionServiceServer) OnTvInputSessionData(context.Context, *OnTvInputSessionDataRequest) (*OnTvInputSessionDataResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnTvInputSessionData not implemented")
+}
+func (UnimplementedTvAdServiceSessionServiceServer) OnTvMessage(context.Context, *OnTvMessageRequest) (*OnTvMessageResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnTvMessage not implemented")
+}
+func (UnimplementedTvAdServiceSessionServiceServer) RequestCurrentChannelUri(context.Context, *RequestCurrentChannelUriRequest) (*RequestCurrentChannelUriResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RequestCurrentChannelUri not implemented")
+}
+func (UnimplementedTvAdServiceSessionServiceServer) RequestCurrentTvInputId(context.Context, *RequestCurrentTvInputIdRequest) (*RequestCurrentTvInputIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RequestCurrentTvInputId not implemented")
+}
+func (UnimplementedTvAdServiceSessionServiceServer) RequestCurrentVideoBounds(context.Context, *RequestCurrentVideoBoundsRequest) (*RequestCurrentVideoBoundsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RequestCurrentVideoBounds not implemented")
+}
+func (UnimplementedTvAdServiceSessionServiceServer) RequestSigning(context.Context, *RequestSigningRequest) (*RequestSigningResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RequestSigning not implemented")
+}
+func (UnimplementedTvAdServiceSessionServiceServer) RequestTrackInfoList(context.Context, *RequestTrackInfoListRequest) (*RequestTrackInfoListResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RequestTrackInfoList not implemented")
+}
+func (UnimplementedTvAdServiceSessionServiceServer) SendTvAdSessionData(context.Context, *SendTvAdSessionDataRequest) (*SendTvAdSessionDataResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SendTvAdSessionData not implemented")
+}
+func (UnimplementedTvAdServiceSessionServiceServer) SetMediaViewEnabled(context.Context, *SetMediaViewEnabledRequest) (*SetMediaViewEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetMediaViewEnabled not implemented")
+}
+func (UnimplementedTvAdServiceSessionServiceServer) mustEmbedUnimplementedTvAdServiceSessionServiceServer() {
+}
+func (UnimplementedTvAdServiceSessionServiceServer) testEmbeddedByValue() {}
+
+// UnsafeTvAdServiceSessionServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TvAdServiceSessionServiceServer will
+// result in compilation errors.
+type UnsafeTvAdServiceSessionServiceServer interface {
+	mustEmbedUnimplementedTvAdServiceSessionServiceServer()
+}
+
+func RegisterTvAdServiceSessionServiceServer(s grpc.ServiceRegistrar, srv TvAdServiceSessionServiceServer) {
+	// If the following call panics, it indicates UnimplementedTvAdServiceSessionServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TvAdServiceSessionService_ServiceDesc, srv)
+}
+
+func _TvAdServiceSessionService_IsMediaViewEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsMediaViewEnabledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdServiceSessionServiceServer).IsMediaViewEnabled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdServiceSessionService_IsMediaViewEnabled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdServiceSessionServiceServer).IsMediaViewEnabled(ctx, req.(*IsMediaViewEnabledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdServiceSessionService_LayoutSurface_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LayoutSurfaceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdServiceSessionServiceServer).LayoutSurface(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdServiceSessionService_LayoutSurface_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdServiceSessionServiceServer).LayoutSurface(ctx, req.(*LayoutSurfaceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdServiceSessionService_NotifySessionStateChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NotifySessionStateChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdServiceSessionServiceServer).NotifySessionStateChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdServiceSessionService_NotifySessionStateChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdServiceSessionServiceServer).NotifySessionStateChanged(ctx, req.(*NotifySessionStateChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdServiceSessionService_OnCreateMediaView_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnCreateMediaViewRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdServiceSessionServiceServer).OnCreateMediaView(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdServiceSessionService_OnCreateMediaView_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdServiceSessionServiceServer).OnCreateMediaView(ctx, req.(*OnCreateMediaViewRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdServiceSessionService_OnCurrentChannelUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnCurrentChannelUriRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdServiceSessionServiceServer).OnCurrentChannelUri(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdServiceSessionService_OnCurrentChannelUri_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdServiceSessionServiceServer).OnCurrentChannelUri(ctx, req.(*OnCurrentChannelUriRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdServiceSessionService_OnCurrentTvInputId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnCurrentTvInputIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdServiceSessionServiceServer).OnCurrentTvInputId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdServiceSessionService_OnCurrentTvInputId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdServiceSessionServiceServer).OnCurrentTvInputId(ctx, req.(*OnCurrentTvInputIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdServiceSessionService_OnCurrentVideoBounds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnCurrentVideoBoundsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdServiceSessionServiceServer).OnCurrentVideoBounds(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdServiceSessionService_OnCurrentVideoBounds_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdServiceSessionServiceServer).OnCurrentVideoBounds(ctx, req.(*OnCurrentVideoBoundsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdServiceSessionService_OnError_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnErrorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdServiceSessionServiceServer).OnError(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdServiceSessionService_OnError_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdServiceSessionServiceServer).OnError(ctx, req.(*OnErrorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdServiceSessionService_OnGenericMotionEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnGenericMotionEventRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdServiceSessionServiceServer).OnGenericMotionEvent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdServiceSessionService_OnGenericMotionEvent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdServiceSessionServiceServer).OnGenericMotionEvent(ctx, req.(*OnGenericMotionEventRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdServiceSessionService_OnKeyDown_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnKeyDownRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdServiceSessionServiceServer).OnKeyDown(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdServiceSessionService_OnKeyDown_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdServiceSessionServiceServer).OnKeyDown(ctx, req.(*OnKeyDownRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdServiceSessionService_OnKeyLongPress_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnKeyLongPressRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdServiceSessionServiceServer).OnKeyLongPress(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdServiceSessionService_OnKeyLongPress_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdServiceSessionServiceServer).OnKeyLongPress(ctx, req.(*OnKeyLongPressRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdServiceSessionService_OnKeyMultiple_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnKeyMultipleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdServiceSessionServiceServer).OnKeyMultiple(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdServiceSessionService_OnKeyMultiple_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdServiceSessionServiceServer).OnKeyMultiple(ctx, req.(*OnKeyMultipleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdServiceSessionService_OnKeyUp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnKeyUpRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdServiceSessionServiceServer).OnKeyUp(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdServiceSessionService_OnKeyUp_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdServiceSessionServiceServer).OnKeyUp(ctx, req.(*OnKeyUpRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdServiceSessionService_OnMediaViewSizeChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnMediaViewSizeChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdServiceSessionServiceServer).OnMediaViewSizeChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdServiceSessionService_OnMediaViewSizeChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdServiceSessionServiceServer).OnMediaViewSizeChanged(ctx, req.(*OnMediaViewSizeChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdServiceSessionService_OnRelease_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnReleaseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdServiceSessionServiceServer).OnRelease(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdServiceSessionService_OnRelease_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdServiceSessionServiceServer).OnRelease(ctx, req.(*OnReleaseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdServiceSessionService_OnResetAdService_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnResetAdServiceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdServiceSessionServiceServer).OnResetAdService(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdServiceSessionService_OnResetAdService_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdServiceSessionServiceServer).OnResetAdService(ctx, req.(*OnResetAdServiceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdServiceSessionService_OnSetSurface_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnSetSurfaceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdServiceSessionServiceServer).OnSetSurface(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdServiceSessionService_OnSetSurface_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdServiceSessionServiceServer).OnSetSurface(ctx, req.(*OnSetSurfaceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdServiceSessionService_OnSigningResult_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnSigningResultRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdServiceSessionServiceServer).OnSigningResult(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdServiceSessionService_OnSigningResult_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdServiceSessionServiceServer).OnSigningResult(ctx, req.(*OnSigningResultRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdServiceSessionService_OnStartAdService_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnStartAdServiceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdServiceSessionServiceServer).OnStartAdService(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdServiceSessionService_OnStartAdService_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdServiceSessionServiceServer).OnStartAdService(ctx, req.(*OnStartAdServiceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdServiceSessionService_OnStopAdService_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnStopAdServiceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdServiceSessionServiceServer).OnStopAdService(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdServiceSessionService_OnStopAdService_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdServiceSessionServiceServer).OnStopAdService(ctx, req.(*OnStopAdServiceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdServiceSessionService_OnSurfaceChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnSurfaceChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdServiceSessionServiceServer).OnSurfaceChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdServiceSessionService_OnSurfaceChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdServiceSessionServiceServer).OnSurfaceChanged(ctx, req.(*OnSurfaceChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdServiceSessionService_OnTouchEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnTouchEventRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdServiceSessionServiceServer).OnTouchEvent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdServiceSessionService_OnTouchEvent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdServiceSessionServiceServer).OnTouchEvent(ctx, req.(*OnTouchEventRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdServiceSessionService_OnTrackballEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnTrackballEventRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdServiceSessionServiceServer).OnTrackballEvent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdServiceSessionService_OnTrackballEvent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdServiceSessionServiceServer).OnTrackballEvent(ctx, req.(*OnTrackballEventRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdServiceSessionService_OnTvInputSessionData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnTvInputSessionDataRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdServiceSessionServiceServer).OnTvInputSessionData(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdServiceSessionService_OnTvInputSessionData_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdServiceSessionServiceServer).OnTvInputSessionData(ctx, req.(*OnTvInputSessionDataRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdServiceSessionService_OnTvMessage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnTvMessageRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdServiceSessionServiceServer).OnTvMessage(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdServiceSessionService_OnTvMessage_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdServiceSessionServiceServer).OnTvMessage(ctx, req.(*OnTvMessageRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdServiceSessionService_RequestCurrentChannelUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RequestCurrentChannelUriRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdServiceSessionServiceServer).RequestCurrentChannelUri(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdServiceSessionService_RequestCurrentChannelUri_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdServiceSessionServiceServer).RequestCurrentChannelUri(ctx, req.(*RequestCurrentChannelUriRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdServiceSessionService_RequestCurrentTvInputId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RequestCurrentTvInputIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdServiceSessionServiceServer).RequestCurrentTvInputId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdServiceSessionService_RequestCurrentTvInputId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdServiceSessionServiceServer).RequestCurrentTvInputId(ctx, req.(*RequestCurrentTvInputIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdServiceSessionService_RequestCurrentVideoBounds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RequestCurrentVideoBoundsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdServiceSessionServiceServer).RequestCurrentVideoBounds(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdServiceSessionService_RequestCurrentVideoBounds_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdServiceSessionServiceServer).RequestCurrentVideoBounds(ctx, req.(*RequestCurrentVideoBoundsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdServiceSessionService_RequestSigning_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RequestSigningRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdServiceSessionServiceServer).RequestSigning(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdServiceSessionService_RequestSigning_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdServiceSessionServiceServer).RequestSigning(ctx, req.(*RequestSigningRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdServiceSessionService_RequestTrackInfoList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RequestTrackInfoListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdServiceSessionServiceServer).RequestTrackInfoList(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdServiceSessionService_RequestTrackInfoList_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdServiceSessionServiceServer).RequestTrackInfoList(ctx, req.(*RequestTrackInfoListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdServiceSessionService_SendTvAdSessionData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SendTvAdSessionDataRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdServiceSessionServiceServer).SendTvAdSessionData(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdServiceSessionService_SendTvAdSessionData_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdServiceSessionServiceServer).SendTvAdSessionData(ctx, req.(*SendTvAdSessionDataRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvAdServiceSessionService_SetMediaViewEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetMediaViewEnabledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvAdServiceSessionServiceServer).SetMediaViewEnabled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvAdServiceSessionService_SetMediaViewEnabled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvAdServiceSessionServiceServer).SetMediaViewEnabled(ctx, req.(*SetMediaViewEnabledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TvAdServiceSessionService_ServiceDesc is the grpc.ServiceDesc for TvAdServiceSessionService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TvAdServiceSessionService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "ad.TvAdServiceSessionService",
+	HandlerType: (*TvAdServiceSessionServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "IsMediaViewEnabled",
+			Handler:    _TvAdServiceSessionService_IsMediaViewEnabled_Handler,
+		},
+		{
+			MethodName: "LayoutSurface",
+			Handler:    _TvAdServiceSessionService_LayoutSurface_Handler,
+		},
+		{
+			MethodName: "NotifySessionStateChanged",
+			Handler:    _TvAdServiceSessionService_NotifySessionStateChanged_Handler,
+		},
+		{
+			MethodName: "OnCreateMediaView",
+			Handler:    _TvAdServiceSessionService_OnCreateMediaView_Handler,
+		},
+		{
+			MethodName: "OnCurrentChannelUri",
+			Handler:    _TvAdServiceSessionService_OnCurrentChannelUri_Handler,
+		},
+		{
+			MethodName: "OnCurrentTvInputId",
+			Handler:    _TvAdServiceSessionService_OnCurrentTvInputId_Handler,
+		},
+		{
+			MethodName: "OnCurrentVideoBounds",
+			Handler:    _TvAdServiceSessionService_OnCurrentVideoBounds_Handler,
+		},
+		{
+			MethodName: "OnError",
+			Handler:    _TvAdServiceSessionService_OnError_Handler,
+		},
+		{
+			MethodName: "OnGenericMotionEvent",
+			Handler:    _TvAdServiceSessionService_OnGenericMotionEvent_Handler,
+		},
+		{
+			MethodName: "OnKeyDown",
+			Handler:    _TvAdServiceSessionService_OnKeyDown_Handler,
+		},
+		{
+			MethodName: "OnKeyLongPress",
+			Handler:    _TvAdServiceSessionService_OnKeyLongPress_Handler,
+		},
+		{
+			MethodName: "OnKeyMultiple",
+			Handler:    _TvAdServiceSessionService_OnKeyMultiple_Handler,
+		},
+		{
+			MethodName: "OnKeyUp",
+			Handler:    _TvAdServiceSessionService_OnKeyUp_Handler,
+		},
+		{
+			MethodName: "OnMediaViewSizeChanged",
+			Handler:    _TvAdServiceSessionService_OnMediaViewSizeChanged_Handler,
+		},
+		{
+			MethodName: "OnRelease",
+			Handler:    _TvAdServiceSessionService_OnRelease_Handler,
+		},
+		{
+			MethodName: "OnResetAdService",
+			Handler:    _TvAdServiceSessionService_OnResetAdService_Handler,
+		},
+		{
+			MethodName: "OnSetSurface",
+			Handler:    _TvAdServiceSessionService_OnSetSurface_Handler,
+		},
+		{
+			MethodName: "OnSigningResult",
+			Handler:    _TvAdServiceSessionService_OnSigningResult_Handler,
+		},
+		{
+			MethodName: "OnStartAdService",
+			Handler:    _TvAdServiceSessionService_OnStartAdService_Handler,
+		},
+		{
+			MethodName: "OnStopAdService",
+			Handler:    _TvAdServiceSessionService_OnStopAdService_Handler,
+		},
+		{
+			MethodName: "OnSurfaceChanged",
+			Handler:    _TvAdServiceSessionService_OnSurfaceChanged_Handler,
+		},
+		{
+			MethodName: "OnTouchEvent",
+			Handler:    _TvAdServiceSessionService_OnTouchEvent_Handler,
+		},
+		{
+			MethodName: "OnTrackballEvent",
+			Handler:    _TvAdServiceSessionService_OnTrackballEvent_Handler,
+		},
+		{
+			MethodName: "OnTvInputSessionData",
+			Handler:    _TvAdServiceSessionService_OnTvInputSessionData_Handler,
+		},
+		{
+			MethodName: "OnTvMessage",
+			Handler:    _TvAdServiceSessionService_OnTvMessage_Handler,
+		},
+		{
+			MethodName: "RequestCurrentChannelUri",
+			Handler:    _TvAdServiceSessionService_RequestCurrentChannelUri_Handler,
+		},
+		{
+			MethodName: "RequestCurrentTvInputId",
+			Handler:    _TvAdServiceSessionService_RequestCurrentTvInputId_Handler,
+		},
+		{
+			MethodName: "RequestCurrentVideoBounds",
+			Handler:    _TvAdServiceSessionService_RequestCurrentVideoBounds_Handler,
+		},
+		{
+			MethodName: "RequestSigning",
+			Handler:    _TvAdServiceSessionService_RequestSigning_Handler,
+		},
+		{
+			MethodName: "RequestTrackInfoList",
+			Handler:    _TvAdServiceSessionService_RequestTrackInfoList_Handler,
+		},
+		{
+			MethodName: "SendTvAdSessionData",
+			Handler:    _TvAdServiceSessionService_SendTvAdSessionData_Handler,
+		},
+		{
+			MethodName: "SetMediaViewEnabled",
+			Handler:    _TvAdServiceSessionService_SetMediaViewEnabled_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/ad/ad.proto",
+}

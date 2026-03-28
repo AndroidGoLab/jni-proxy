@@ -196,8 +196,37 @@ func buildServiceFromClass(
 	svc := ProtoService{Name: capitalizeFirst(cls.GoType) + "Service"}
 	var msgs []ProtoMessage
 
+	isConstructorClass := cls.Obtain == "constructor"
+	ctorRPCName := "New" + capitalizeFirst(cls.GoType)
+
+	// For constructor classes, synthesize a NewXxx RPC that creates the
+	// object and returns a handle.
+	if isConstructorClass {
+		reqMsg := ProtoMessage{Name: ctorRPCName + "Request"}
+		for i, p := range cls.ConstructorParams {
+			reqMsg.Fields = append(reqMsg.Fields, ProtoField{
+				Type:   protoTypeFromParam(p),
+				Name:   toSnakeCase(p.GoName),
+				Number: i + 1,
+			})
+		}
+		respMsg := ProtoMessage{Name: ctorRPCName + "Response", Fields: []ProtoField{
+			{Type: "int64", Name: "result", Number: 1},
+		}}
+		svc.RPCs = append(svc.RPCs, ProtoRPC{
+			Name:       ctorRPCName,
+			InputType:  reqMsg.Name,
+			OutputType: respMsg.Name,
+		})
+		msgs = append(msgs, reqMsg, respMsg)
+	}
+
 	for _, m := range cls.Methods {
-		rpc, reqMsg, respMsg := buildRPCFromMethod(m, dataClassNames, javaClassToDataMsg)
+		// For constructor classes, regular methods (not the constructor
+		// itself) need a handle field so the server can look up the
+		// object instance from the HandleStore.
+		needsHandle := isConstructorClass && capitalizeFirst(m.GoName) != ctorRPCName
+		rpc, reqMsg, respMsg := buildRPCFromMethod(m, dataClassNames, javaClassToDataMsg, needsHandle)
 		svc.RPCs = append(svc.RPCs, rpc)
 		msgs = append(msgs, reqMsg)
 		if respMsg != nil {
@@ -209,11 +238,13 @@ func buildServiceFromClass(
 }
 
 // buildRPCFromMethod converts a MergedMethod into a ProtoRPC and its
-// request/response messages.
+// request/response messages. When needsHandle is true, a handle field is
+// prepended to the request message (used by constructor-class instance methods).
 func buildRPCFromMethod(
 	m javagen.MergedMethod,
 	dataClassNames map[string]bool,
 	javaClassToDataMsg map[string]string,
+	needsHandle bool,
 ) (ProtoRPC, ProtoMessage, *ProtoMessage) {
 	goName := capitalizeFirst(m.GoName)
 	reqName := goName + "Request"
@@ -221,11 +252,20 @@ func buildRPCFromMethod(
 
 	// Build request message.
 	reqMsg := ProtoMessage{Name: reqName}
+	fieldOffset := 0
+	if needsHandle {
+		reqMsg.Fields = append(reqMsg.Fields, ProtoField{
+			Type:   "int64",
+			Name:   "handle",
+			Number: 1,
+		})
+		fieldOffset = 1
+	}
 	for i, p := range m.Params {
 		reqMsg.Fields = append(reqMsg.Fields, ProtoField{
 			Type:   protoTypeFromParam(p),
 			Name:   toSnakeCase(p.GoName),
-			Number: i + 1,
+			Number: i + 1 + fieldOffset,
 		})
 	}
 

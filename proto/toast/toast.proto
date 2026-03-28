@@ -5,3 +5,210 @@ syntax = "proto3";
 package toast;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/toast";
+
+message NewToastRequest {
+  int64 arg0 = 1;
+}
+
+message NewToastResponse {
+  int64 result = 1;
+}
+
+message AddCallbackRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AddCallbackResponse {
+}
+
+message CancelRequest {
+  int64 handle = 1;
+}
+
+message CancelResponse {
+}
+
+message GetDurationRequest {
+  int64 handle = 1;
+}
+
+message GetDurationResponse {
+  int32 result = 1;
+}
+
+message GetGravityRequest {
+  int64 handle = 1;
+}
+
+message GetGravityResponse {
+  int32 result = 1;
+}
+
+message GetHorizontalMarginRequest {
+  int64 handle = 1;
+}
+
+message GetHorizontalMarginResponse {
+  float result = 1;
+}
+
+message GetVerticalMarginRequest {
+  int64 handle = 1;
+}
+
+message GetVerticalMarginResponse {
+  float result = 1;
+}
+
+message GetViewRequest {
+  int64 handle = 1;
+}
+
+message GetViewResponse {
+  int64 result = 1;
+}
+
+message GetXOffsetRequest {
+  int64 handle = 1;
+}
+
+message GetXOffsetResponse {
+  int32 result = 1;
+}
+
+message GetYOffsetRequest {
+  int64 handle = 1;
+}
+
+message GetYOffsetResponse {
+  int32 result = 1;
+}
+
+message RemoveCallbackRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message RemoveCallbackResponse {
+}
+
+message SetDurationRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetDurationResponse {
+}
+
+message SetGravityRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+}
+
+message SetGravityResponse {
+}
+
+message SetMarginRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+}
+
+message SetMarginResponse {
+}
+
+message SetText1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetText1Response {
+}
+
+message SetText1_1Request {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetText1_1Response {
+}
+
+message SetViewRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetViewResponse {
+}
+
+message ShowRequest {
+  int64 handle = 1;
+}
+
+message ShowResponse {
+}
+
+message MakeText3Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+}
+
+message MakeText3Response {
+  int64 result = 1;
+}
+
+message MakeText3_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+  int32 arg2 = 4;
+}
+
+message MakeText3_1Response {
+  int64 result = 1;
+}
+
+message OnToastHiddenRequest {
+}
+
+message OnToastHiddenResponse {
+}
+
+message OnToastShownRequest {
+}
+
+message OnToastShownResponse {
+}
+
+service ToastService {
+  rpc NewToast (NewToastRequest) returns (NewToastResponse);
+  rpc AddCallback (AddCallbackRequest) returns (AddCallbackResponse);
+  rpc Cancel (CancelRequest) returns (CancelResponse);
+  rpc GetDuration (GetDurationRequest) returns (GetDurationResponse);
+  rpc GetGravity (GetGravityRequest) returns (GetGravityResponse);
+  rpc GetHorizontalMargin (GetHorizontalMarginRequest) returns (GetHorizontalMarginResponse);
+  rpc GetVerticalMargin (GetVerticalMarginRequest) returns (GetVerticalMarginResponse);
+  rpc GetView (GetViewRequest) returns (GetViewResponse);
+  rpc GetXOffset (GetXOffsetRequest) returns (GetXOffsetResponse);
+  rpc GetYOffset (GetYOffsetRequest) returns (GetYOffsetResponse);
+  rpc RemoveCallback (RemoveCallbackRequest) returns (RemoveCallbackResponse);
+  rpc SetDuration (SetDurationRequest) returns (SetDurationResponse);
+  rpc SetGravity (SetGravityRequest) returns (SetGravityResponse);
+  rpc SetMargin (SetMarginRequest) returns (SetMarginResponse);
+  rpc SetText1 (SetText1Request) returns (SetText1Response);
+  rpc SetText1_1 (SetText1_1Request) returns (SetText1_1Response);
+  rpc SetView (SetViewRequest) returns (SetViewResponse);
+  rpc Show (ShowRequest) returns (ShowResponse);
+  rpc MakeText3 (MakeText3Request) returns (MakeText3Response);
+  rpc MakeText3_1 (MakeText3_1Request) returns (MakeText3_1Response);
+}
+
+service CallbackService {
+  rpc OnToastHidden (OnToastHiddenRequest) returns (OnToastHiddenResponse);
+  rpc OnToastShown (OnToastShownRequest) returns (OnToastShownResponse);
+}

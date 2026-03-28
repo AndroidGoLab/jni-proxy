@@ -5,3 +5,74 @@ syntax = "proto3";
 package adid;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/adid";
+
+message NewAdIdRequest {
+  string arg0 = 1;
+  bool arg1 = 2;
+}
+
+message NewAdIdResponse {
+  int64 result = 1;
+}
+
+message EqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message GetAdIdRequest {
+  int64 handle = 1;
+}
+
+message GetAdIdResponse {
+  string result = 1;
+}
+
+message HashCodeRequest {
+  int64 handle = 1;
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message IsLimitAdTrackingEnabledRequest {
+  int64 handle = 1;
+}
+
+message IsLimitAdTrackingEnabledResponse {
+  bool result = 1;
+}
+
+message ToStringRequest {
+  int64 handle = 1;
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message GetRequest {
+  int64 arg0 = 1;
+}
+
+message GetResponse {
+  int64 result = 1;
+}
+
+service AdIdService {
+  rpc NewAdId (NewAdIdRequest) returns (NewAdIdResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetAdId (GetAdIdRequest) returns (GetAdIdResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc IsLimitAdTrackingEnabled (IsLimitAdTrackingEnabledRequest) returns (IsLimitAdTrackingEnabledResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service AdIdManagerService {
+  rpc Get (GetRequest) returns (GetResponse);
+}

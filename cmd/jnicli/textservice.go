@@ -12,6 +12,407 @@ var textserviceCmd = &cobra.Command{
 	Short: "textservice service operations",
 }
 
+var textserviceSpellCheckerServiceCmd = &cobra.Command{
+	Use:   "spell-checker-service",
+	Short: "SpellCheckerServiceService operations",
+}
+
+var textserviceSpellCheckerServiceCreateSessionCmd = &cobra.Command{
+	Use:   "create-session",
+	Short: "CreateSession RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSpellCheckerServiceServiceClient(grpcConn)
+		req := &pb.CreateSessionRequest{}
+		resp, err := client.CreateSession(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceSpellCheckerServiceOnBindCmd = &cobra.Command{
+	Use:   "on-bind",
+	Short: "OnBind RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSpellCheckerServiceServiceClient(grpcConn)
+		req := &pb.OnBindRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnBind(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceSpellCheckerServiceSessionCmd = &cobra.Command{
+	Use:   "spell-checker-service-session",
+	Short: "SpellCheckerServiceSessionService operations",
+}
+
+var textserviceSpellCheckerServiceSessionGetBundleCmd = &cobra.Command{
+	Use:   "get-bundle",
+	Short: "GetBundle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSpellCheckerServiceSessionServiceClient(grpcConn)
+		req := &pb.GetBundleRequest{}
+		resp, err := client.GetBundle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceSpellCheckerServiceSessionGetLocaleCmd = &cobra.Command{
+	Use:   "get-locale",
+	Short: "GetLocale RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSpellCheckerServiceSessionServiceClient(grpcConn)
+		req := &pb.GetLocaleRequest{}
+		resp, err := client.GetLocale(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceSpellCheckerServiceSessionGetSupportedAttributesCmd = &cobra.Command{
+	Use:   "get-supported-attributes",
+	Short: "GetSupportedAttributes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSpellCheckerServiceSessionServiceClient(grpcConn)
+		req := &pb.GetSupportedAttributesRequest{}
+		resp, err := client.GetSupportedAttributes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceSpellCheckerServiceSessionOnCancelCmd = &cobra.Command{
+	Use:   "on-cancel",
+	Short: "OnCancel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSpellCheckerServiceSessionServiceClient(grpcConn)
+		req := &pb.OnCancelRequest{}
+		resp, err := client.OnCancel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceSpellCheckerServiceSessionOnCloseCmd = &cobra.Command{
+	Use:   "on-close",
+	Short: "OnClose RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSpellCheckerServiceSessionServiceClient(grpcConn)
+		req := &pb.OnCloseRequest{}
+		resp, err := client.OnClose(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceSpellCheckerServiceSessionOnCreateCmd = &cobra.Command{
+	Use:   "on-create",
+	Short: "OnCreate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSpellCheckerServiceSessionServiceClient(grpcConn)
+		req := &pb.OnCreateRequest{}
+		resp, err := client.OnCreate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceSpellCheckerServiceSessionOnGetSentenceSuggestionsMultipleCmd = &cobra.Command{
+	Use:   "on-get-sentence-suggestions-multiple",
+	Short: "OnGetSentenceSuggestionsMultiple RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSpellCheckerServiceSessionServiceClient(grpcConn)
+		req := &pb.OnGetSentenceSuggestionsMultipleRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnGetSentenceSuggestionsMultiple(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceSpellCheckerServiceSessionOnGetSuggestionsCmd = &cobra.Command{
+	Use:   "on-get-suggestions",
+	Short: "OnGetSuggestions RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSpellCheckerServiceSessionServiceClient(grpcConn)
+		req := &pb.OnGetSuggestionsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnGetSuggestions(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceSpellCheckerServiceSessionOnGetSuggestionsMultipleCmd = &cobra.Command{
+	Use:   "on-get-suggestions-multiple",
+	Short: "OnGetSuggestionsMultiple RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSpellCheckerServiceSessionServiceClient(grpcConn)
+		req := &pb.OnGetSuggestionsMultipleRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnGetSuggestionsMultiple(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceSuggestionsInfoCmd = &cobra.Command{
+	Use:   "suggestions-info",
+	Short: "SuggestionsInfoService operations",
+}
+
+var textserviceSuggestionsInfoNewSuggestionsInfoCmd = &cobra.Command{
+	Use:   "new-suggestions-info",
+	Short: "NewSuggestionsInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSuggestionsInfoServiceClient(grpcConn)
+		req := &pb.NewSuggestionsInfoRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewSuggestionsInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceSuggestionsInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSuggestionsInfoServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceSuggestionsInfoGetCookieCmd = &cobra.Command{
+	Use:   "get-cookie",
+	Short: "GetCookie RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSuggestionsInfoServiceClient(grpcConn)
+		req := &pb.GetCookieRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetCookie(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceSuggestionsInfoGetSequenceCmd = &cobra.Command{
+	Use:   "get-sequence",
+	Short: "GetSequence RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSuggestionsInfoServiceClient(grpcConn)
+		req := &pb.GetSequenceRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSequence(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceSuggestionsInfoGetSuggestionAtCmd = &cobra.Command{
+	Use:   "get-suggestion-at",
+	Short: "GetSuggestionAt RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSuggestionsInfoServiceClient(grpcConn)
+		req := &pb.GetSuggestionAtRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetSuggestionAt(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceSuggestionsInfoGetSuggestionsAttributesCmd = &cobra.Command{
+	Use:   "get-suggestions-attributes",
+	Short: "GetSuggestionsAttributes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSuggestionsInfoServiceClient(grpcConn)
+		req := &pb.GetSuggestionsAttributesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSuggestionsAttributes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceSuggestionsInfoGetSuggestionsCountCmd = &cobra.Command{
+	Use:   "get-suggestions-count",
+	Short: "GetSuggestionsCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSuggestionsInfoServiceClient(grpcConn)
+		req := &pb.GetSuggestionsCountRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSuggestionsCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceSuggestionsInfoSetCookieAndSequenceCmd = &cobra.Command{
+	Use:   "set-cookie-and-sequence",
+	Short: "SetCookieAndSequence RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSuggestionsInfoServiceClient(grpcConn)
+		req := &pb.SetCookieAndSequenceRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetCookieAndSequence(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceSuggestionsInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSuggestionsInfoServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var textserviceTextServicesManagerCmd = &cobra.Command{
 	Use:   "text-services-manager",
 	Short: "TextServicesManagerService operations",
@@ -102,7 +503,1058 @@ var textserviceTextServicesManagerNewSpellCheckerSession3_1Cmd = &cobra.Command{
 	},
 }
 
+var textserviceSentenceSuggestionsInfoCmd = &cobra.Command{
+	Use:   "sentence-suggestions-info",
+	Short: "SentenceSuggestionsInfoService operations",
+}
+
+var textserviceSentenceSuggestionsInfoNewSentenceSuggestionsInfoCmd = &cobra.Command{
+	Use:   "new-sentence-suggestions-info",
+	Short: "NewSentenceSuggestionsInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSentenceSuggestionsInfoServiceClient(grpcConn)
+		req := &pb.NewSentenceSuggestionsInfoRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewSentenceSuggestionsInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceSentenceSuggestionsInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSentenceSuggestionsInfoServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceSentenceSuggestionsInfoGetLengthAtCmd = &cobra.Command{
+	Use:   "get-length-at",
+	Short: "GetLengthAt RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSentenceSuggestionsInfoServiceClient(grpcConn)
+		req := &pb.GetLengthAtRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetLengthAt(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceSentenceSuggestionsInfoGetOffsetAtCmd = &cobra.Command{
+	Use:   "get-offset-at",
+	Short: "GetOffsetAt RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSentenceSuggestionsInfoServiceClient(grpcConn)
+		req := &pb.GetOffsetAtRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetOffsetAt(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceSentenceSuggestionsInfoGetSuggestionsCountCmd = &cobra.Command{
+	Use:   "get-suggestions-count",
+	Short: "GetSuggestionsCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSentenceSuggestionsInfoServiceClient(grpcConn)
+		req := &pb.GetSuggestionsCountRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSuggestionsCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceSentenceSuggestionsInfoGetSuggestionsInfoAtCmd = &cobra.Command{
+	Use:   "get-suggestions-info-at",
+	Short: "GetSuggestionsInfoAt RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSentenceSuggestionsInfoServiceClient(grpcConn)
+		req := &pb.GetSuggestionsInfoAtRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetSuggestionsInfoAt(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceSentenceSuggestionsInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSentenceSuggestionsInfoServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceTextInfoCmd = &cobra.Command{
+	Use:   "text-info",
+	Short: "TextInfoService operations",
+}
+
+var textserviceTextInfoNewTextInfoCmd = &cobra.Command{
+	Use:   "new-text-info",
+	Short: "NewTextInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextInfoServiceClient(grpcConn)
+		req := &pb.NewTextInfoRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewTextInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceTextInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextInfoServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceTextInfoGetCharSequenceCmd = &cobra.Command{
+	Use:   "get-char-sequence",
+	Short: "GetCharSequence RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextInfoServiceClient(grpcConn)
+		req := &pb.GetCharSequenceRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetCharSequence(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceTextInfoGetCookieCmd = &cobra.Command{
+	Use:   "get-cookie",
+	Short: "GetCookie RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextInfoServiceClient(grpcConn)
+		req := &pb.GetCookieRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetCookie(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceTextInfoGetSequenceCmd = &cobra.Command{
+	Use:   "get-sequence",
+	Short: "GetSequence RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextInfoServiceClient(grpcConn)
+		req := &pb.GetSequenceRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSequence(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceTextInfoGetTextCmd = &cobra.Command{
+	Use:   "get-text",
+	Short: "GetText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextInfoServiceClient(grpcConn)
+		req := &pb.GetTextRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceTextInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextInfoServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceSpellCheckerSubtypeCmd = &cobra.Command{
+	Use:   "spell-checker-subtype",
+	Short: "SpellCheckerSubtypeService operations",
+}
+
+var textserviceSpellCheckerSubtypeNewSpellCheckerSubtypeCmd = &cobra.Command{
+	Use:   "new-spell-checker-subtype",
+	Short: "NewSpellCheckerSubtype RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSpellCheckerSubtypeServiceClient(grpcConn)
+		req := &pb.NewSpellCheckerSubtypeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.NewSpellCheckerSubtype(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceSpellCheckerSubtypeContainsExtraValueKeyCmd = &cobra.Command{
+	Use:   "contains-extra-value-key",
+	Short: "ContainsExtraValueKey RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSpellCheckerSubtypeServiceClient(grpcConn)
+		req := &pb.ContainsExtraValueKeyRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ContainsExtraValueKey(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceSpellCheckerSubtypeDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSpellCheckerSubtypeServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceSpellCheckerSubtypeEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSpellCheckerSubtypeServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceSpellCheckerSubtypeGetDisplayNameCmd = &cobra.Command{
+	Use:   "get-display-name",
+	Short: "GetDisplayName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSpellCheckerSubtypeServiceClient(grpcConn)
+		req := &pb.GetDisplayNameRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.GetDisplayName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceSpellCheckerSubtypeGetExtraValueCmd = &cobra.Command{
+	Use:   "get-extra-value",
+	Short: "GetExtraValue RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSpellCheckerSubtypeServiceClient(grpcConn)
+		req := &pb.GetExtraValueRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetExtraValue(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceSpellCheckerSubtypeGetExtraValueOfCmd = &cobra.Command{
+	Use:   "get-extra-value-of",
+	Short: "GetExtraValueOf RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSpellCheckerSubtypeServiceClient(grpcConn)
+		req := &pb.GetExtraValueOfRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetExtraValueOf(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceSpellCheckerSubtypeGetLanguageTagCmd = &cobra.Command{
+	Use:   "get-language-tag",
+	Short: "GetLanguageTag RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSpellCheckerSubtypeServiceClient(grpcConn)
+		req := &pb.GetLanguageTagRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetLanguageTag(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceSpellCheckerSubtypeGetLocaleCmd = &cobra.Command{
+	Use:   "get-locale",
+	Short: "GetLocale RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSpellCheckerSubtypeServiceClient(grpcConn)
+		req := &pb.SpellCheckerSubtypeGetLocaleRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetLocale(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceSpellCheckerSubtypeGetNameResIdCmd = &cobra.Command{
+	Use:   "get-name-res-id",
+	Short: "GetNameResId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSpellCheckerSubtypeServiceClient(grpcConn)
+		req := &pb.GetNameResIdRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetNameResId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceSpellCheckerSubtypeHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSpellCheckerSubtypeServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceSpellCheckerSubtypeWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSpellCheckerSubtypeServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceSpellCheckerInfoCmd = &cobra.Command{
+	Use:   "spell-checker-info",
+	Short: "SpellCheckerInfoService operations",
+}
+
+var textserviceSpellCheckerInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSpellCheckerInfoServiceClient(grpcConn)
+		req := &pb.SpellCheckerInfoDescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceSpellCheckerInfoGetComponentCmd = &cobra.Command{
+	Use:   "get-component",
+	Short: "GetComponent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSpellCheckerInfoServiceClient(grpcConn)
+		req := &pb.GetComponentRequest{}
+		resp, err := client.GetComponent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceSpellCheckerInfoGetIdCmd = &cobra.Command{
+	Use:   "get-id",
+	Short: "GetId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSpellCheckerInfoServiceClient(grpcConn)
+		req := &pb.GetIdRequest{}
+		resp, err := client.GetId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceSpellCheckerInfoGetPackageNameCmd = &cobra.Command{
+	Use:   "get-package-name",
+	Short: "GetPackageName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSpellCheckerInfoServiceClient(grpcConn)
+		req := &pb.GetPackageNameRequest{}
+		resp, err := client.GetPackageName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceSpellCheckerInfoGetServiceInfoCmd = &cobra.Command{
+	Use:   "get-service-info",
+	Short: "GetServiceInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSpellCheckerInfoServiceClient(grpcConn)
+		req := &pb.GetServiceInfoRequest{}
+		resp, err := client.GetServiceInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceSpellCheckerInfoGetSettingsActivityCmd = &cobra.Command{
+	Use:   "get-settings-activity",
+	Short: "GetSettingsActivity RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSpellCheckerInfoServiceClient(grpcConn)
+		req := &pb.GetSettingsActivityRequest{}
+		resp, err := client.GetSettingsActivity(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceSpellCheckerInfoGetSubtypeAtCmd = &cobra.Command{
+	Use:   "get-subtype-at",
+	Short: "GetSubtypeAt RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSpellCheckerInfoServiceClient(grpcConn)
+		req := &pb.GetSubtypeAtRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetSubtypeAt(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceSpellCheckerInfoGetSubtypeCountCmd = &cobra.Command{
+	Use:   "get-subtype-count",
+	Short: "GetSubtypeCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSpellCheckerInfoServiceClient(grpcConn)
+		req := &pb.GetSubtypeCountRequest{}
+		resp, err := client.GetSubtypeCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceSpellCheckerInfoLoadIconCmd = &cobra.Command{
+	Use:   "load-icon",
+	Short: "LoadIcon RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSpellCheckerInfoServiceClient(grpcConn)
+		req := &pb.LoadIconRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.LoadIcon(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceSpellCheckerInfoLoadLabelCmd = &cobra.Command{
+	Use:   "load-label",
+	Short: "LoadLabel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSpellCheckerInfoServiceClient(grpcConn)
+		req := &pb.LoadLabelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.LoadLabel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceSpellCheckerInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSpellCheckerInfoServiceClient(grpcConn)
+		req := &pb.SpellCheckerInfoWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceSpellCheckerSessionCmd = &cobra.Command{
+	Use:   "spell-checker-session",
+	Short: "SpellCheckerSessionService operations",
+}
+
+var textserviceSpellCheckerSessionCancelCmd = &cobra.Command{
+	Use:   "cancel",
+	Short: "Cancel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSpellCheckerSessionServiceClient(grpcConn)
+		req := &pb.CancelRequest{}
+		resp, err := client.Cancel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceSpellCheckerSessionCloseCmd = &cobra.Command{
+	Use:   "close",
+	Short: "Close RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSpellCheckerSessionServiceClient(grpcConn)
+		req := &pb.CloseRequest{}
+		resp, err := client.Close(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceSpellCheckerSessionGetSentenceSuggestionsCmd = &cobra.Command{
+	Use:   "get-sentence-suggestions",
+	Short: "GetSentenceSuggestions RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSpellCheckerSessionServiceClient(grpcConn)
+		req := &pb.GetSentenceSuggestionsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetSentenceSuggestions(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceSpellCheckerSessionGetSpellCheckerCmd = &cobra.Command{
+	Use:   "get-spell-checker",
+	Short: "GetSpellChecker RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSpellCheckerSessionServiceClient(grpcConn)
+		req := &pb.GetSpellCheckerRequest{}
+		resp, err := client.GetSpellChecker(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceSpellCheckerSessionGetSuggestions2Cmd = &cobra.Command{
+	Use:   "get-suggestions2",
+	Short: "GetSuggestions2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSpellCheckerSessionServiceClient(grpcConn)
+		req := &pb.GetSuggestions2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetSuggestions2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceSpellCheckerSessionGetSuggestions3_1Cmd = &cobra.Command{
+	Use:   "get-suggestions3_1",
+	Short: "GetSuggestions3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSpellCheckerSessionServiceClient(grpcConn)
+		req := &pb.GetSuggestions3_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.GetSuggestions3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceSpellCheckerSessionIsSessionDisconnectedCmd = &cobra.Command{
+	Use:   "is-session-disconnected",
+	Short: "IsSessionDisconnected RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSpellCheckerSessionServiceClient(grpcConn)
+		req := &pb.IsSessionDisconnectedRequest{}
+		resp, err := client.IsSessionDisconnected(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceSpellCheckerSessionSpellCheckerSessionListenerCmd = &cobra.Command{
+	Use:   "spell-checker-session-spell-checker-session-listener",
+	Short: "SpellCheckerSessionSpellCheckerSessionListenerService operations",
+}
+
+var textserviceSpellCheckerSessionSpellCheckerSessionListenerOnGetSentenceSuggestionsCmd = &cobra.Command{
+	Use:   "on-get-sentence-suggestions",
+	Short: "OnGetSentenceSuggestions RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSpellCheckerSessionSpellCheckerSessionListenerServiceClient(grpcConn)
+		req := &pb.OnGetSentenceSuggestionsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnGetSentenceSuggestions(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceSpellCheckerSessionSpellCheckerSessionListenerOnGetSuggestionsCmd = &cobra.Command{
+	Use:   "on-get-suggestions",
+	Short: "OnGetSuggestions RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSpellCheckerSessionSpellCheckerSessionListenerServiceClient(grpcConn)
+		req := &pb.SpellCheckerSessionSpellCheckerSessionListenerOnGetSuggestionsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnGetSuggestions(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceSpellCheckerSessionSpellCheckerSessionParamsCmd = &cobra.Command{
+	Use:   "spell-checker-session-spell-checker-session-params",
+	Short: "SpellCheckerSessionSpellCheckerSessionParamsService operations",
+}
+
+var textserviceSpellCheckerSessionSpellCheckerSessionParamsGetExtrasCmd = &cobra.Command{
+	Use:   "get-extras",
+	Short: "GetExtras RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSpellCheckerSessionSpellCheckerSessionParamsServiceClient(grpcConn)
+		req := &pb.GetExtrasRequest{}
+		resp, err := client.GetExtras(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceSpellCheckerSessionSpellCheckerSessionParamsGetLocaleCmd = &cobra.Command{
+	Use:   "get-locale",
+	Short: "GetLocale RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSpellCheckerSessionSpellCheckerSessionParamsServiceClient(grpcConn)
+		req := &pb.SpellCheckerSessionSpellCheckerSessionParamsGetLocaleRequest{}
+		resp, err := client.GetLocale(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceSpellCheckerSessionSpellCheckerSessionParamsGetSupportedAttributesCmd = &cobra.Command{
+	Use:   "get-supported-attributes",
+	Short: "GetSupportedAttributes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSpellCheckerSessionSpellCheckerSessionParamsServiceClient(grpcConn)
+		req := &pb.GetSupportedAttributesRequest{}
+		resp, err := client.GetSupportedAttributes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var textserviceSpellCheckerSessionSpellCheckerSessionParamsShouldReferToSpellCheckerLanguageSettingsCmd = &cobra.Command{
+	Use:   "should-refer-to-spell-checker-language-settings",
+	Short: "ShouldReferToSpellCheckerLanguageSettings RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSpellCheckerSessionSpellCheckerSessionParamsServiceClient(grpcConn)
+		req := &pb.ShouldReferToSpellCheckerLanguageSettingsRequest{}
+		resp, err := client.ShouldReferToSpellCheckerLanguageSettings(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 func init() {
+	textserviceSpellCheckerServiceCmd.AddCommand(textserviceSpellCheckerServiceCreateSessionCmd)
+	textserviceSpellCheckerServiceOnBindCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	textserviceSpellCheckerServiceCmd.AddCommand(textserviceSpellCheckerServiceOnBindCmd)
+	textserviceCmd.AddCommand(textserviceSpellCheckerServiceCmd)
+	textserviceSpellCheckerServiceSessionCmd.AddCommand(textserviceSpellCheckerServiceSessionGetBundleCmd)
+	textserviceSpellCheckerServiceSessionCmd.AddCommand(textserviceSpellCheckerServiceSessionGetLocaleCmd)
+	textserviceSpellCheckerServiceSessionCmd.AddCommand(textserviceSpellCheckerServiceSessionGetSupportedAttributesCmd)
+	textserviceSpellCheckerServiceSessionCmd.AddCommand(textserviceSpellCheckerServiceSessionOnCancelCmd)
+	textserviceSpellCheckerServiceSessionCmd.AddCommand(textserviceSpellCheckerServiceSessionOnCloseCmd)
+	textserviceSpellCheckerServiceSessionCmd.AddCommand(textserviceSpellCheckerServiceSessionOnCreateCmd)
+	textserviceSpellCheckerServiceSessionOnGetSentenceSuggestionsMultipleCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	textserviceSpellCheckerServiceSessionOnGetSentenceSuggestionsMultipleCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	textserviceSpellCheckerServiceSessionCmd.AddCommand(textserviceSpellCheckerServiceSessionOnGetSentenceSuggestionsMultipleCmd)
+	textserviceSpellCheckerServiceSessionOnGetSuggestionsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	textserviceSpellCheckerServiceSessionOnGetSuggestionsCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	textserviceSpellCheckerServiceSessionCmd.AddCommand(textserviceSpellCheckerServiceSessionOnGetSuggestionsCmd)
+	textserviceSpellCheckerServiceSessionOnGetSuggestionsMultipleCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	textserviceSpellCheckerServiceSessionOnGetSuggestionsMultipleCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	textserviceSpellCheckerServiceSessionOnGetSuggestionsMultipleCmd.Flags().Bool("arg2", false, "arg2 (bool)")
+	textserviceSpellCheckerServiceSessionCmd.AddCommand(textserviceSpellCheckerServiceSessionOnGetSuggestionsMultipleCmd)
+	textserviceCmd.AddCommand(textserviceSpellCheckerServiceSessionCmd)
+	textserviceSuggestionsInfoNewSuggestionsInfoCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	textserviceSuggestionsInfoCmd.AddCommand(textserviceSuggestionsInfoNewSuggestionsInfoCmd)
+	textserviceSuggestionsInfoDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	textserviceSuggestionsInfoCmd.AddCommand(textserviceSuggestionsInfoDescribeContentsCmd)
+	textserviceSuggestionsInfoGetCookieCmd.Flags().Int64("handle", 0, "handle (int64)")
+	textserviceSuggestionsInfoCmd.AddCommand(textserviceSuggestionsInfoGetCookieCmd)
+	textserviceSuggestionsInfoGetSequenceCmd.Flags().Int64("handle", 0, "handle (int64)")
+	textserviceSuggestionsInfoCmd.AddCommand(textserviceSuggestionsInfoGetSequenceCmd)
+	textserviceSuggestionsInfoGetSuggestionAtCmd.Flags().Int64("handle", 0, "handle (int64)")
+	textserviceSuggestionsInfoGetSuggestionAtCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	textserviceSuggestionsInfoCmd.AddCommand(textserviceSuggestionsInfoGetSuggestionAtCmd)
+	textserviceSuggestionsInfoGetSuggestionsAttributesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	textserviceSuggestionsInfoCmd.AddCommand(textserviceSuggestionsInfoGetSuggestionsAttributesCmd)
+	textserviceSuggestionsInfoGetSuggestionsCountCmd.Flags().Int64("handle", 0, "handle (int64)")
+	textserviceSuggestionsInfoCmd.AddCommand(textserviceSuggestionsInfoGetSuggestionsCountCmd)
+	textserviceSuggestionsInfoSetCookieAndSequenceCmd.Flags().Int64("handle", 0, "handle (int64)")
+	textserviceSuggestionsInfoSetCookieAndSequenceCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	textserviceSuggestionsInfoSetCookieAndSequenceCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	textserviceSuggestionsInfoCmd.AddCommand(textserviceSuggestionsInfoSetCookieAndSequenceCmd)
+	textserviceSuggestionsInfoWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	textserviceSuggestionsInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	textserviceSuggestionsInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	textserviceSuggestionsInfoCmd.AddCommand(textserviceSuggestionsInfoWriteToParcelCmd)
+	textserviceCmd.AddCommand(textserviceSuggestionsInfoCmd)
 	textserviceTextServicesManagerCmd.AddCommand(textserviceTextServicesManagerGetCurrentSpellCheckerInfoCmd)
 	textserviceTextServicesManagerCmd.AddCommand(textserviceTextServicesManagerIsSpellCheckerEnabledCmd)
 	textserviceTextServicesManagerNewSpellCheckerSession4Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
@@ -115,5 +1567,119 @@ func init() {
 	textserviceTextServicesManagerNewSpellCheckerSession3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
 	textserviceTextServicesManagerCmd.AddCommand(textserviceTextServicesManagerNewSpellCheckerSession3_1Cmd)
 	textserviceCmd.AddCommand(textserviceTextServicesManagerCmd)
+	textserviceSentenceSuggestionsInfoNewSentenceSuggestionsInfoCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	textserviceSentenceSuggestionsInfoCmd.AddCommand(textserviceSentenceSuggestionsInfoNewSentenceSuggestionsInfoCmd)
+	textserviceSentenceSuggestionsInfoDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	textserviceSentenceSuggestionsInfoCmd.AddCommand(textserviceSentenceSuggestionsInfoDescribeContentsCmd)
+	textserviceSentenceSuggestionsInfoGetLengthAtCmd.Flags().Int64("handle", 0, "handle (int64)")
+	textserviceSentenceSuggestionsInfoGetLengthAtCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	textserviceSentenceSuggestionsInfoCmd.AddCommand(textserviceSentenceSuggestionsInfoGetLengthAtCmd)
+	textserviceSentenceSuggestionsInfoGetOffsetAtCmd.Flags().Int64("handle", 0, "handle (int64)")
+	textserviceSentenceSuggestionsInfoGetOffsetAtCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	textserviceSentenceSuggestionsInfoCmd.AddCommand(textserviceSentenceSuggestionsInfoGetOffsetAtCmd)
+	textserviceSentenceSuggestionsInfoGetSuggestionsCountCmd.Flags().Int64("handle", 0, "handle (int64)")
+	textserviceSentenceSuggestionsInfoCmd.AddCommand(textserviceSentenceSuggestionsInfoGetSuggestionsCountCmd)
+	textserviceSentenceSuggestionsInfoGetSuggestionsInfoAtCmd.Flags().Int64("handle", 0, "handle (int64)")
+	textserviceSentenceSuggestionsInfoGetSuggestionsInfoAtCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	textserviceSentenceSuggestionsInfoCmd.AddCommand(textserviceSentenceSuggestionsInfoGetSuggestionsInfoAtCmd)
+	textserviceSentenceSuggestionsInfoWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	textserviceSentenceSuggestionsInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	textserviceSentenceSuggestionsInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	textserviceSentenceSuggestionsInfoCmd.AddCommand(textserviceSentenceSuggestionsInfoWriteToParcelCmd)
+	textserviceCmd.AddCommand(textserviceSentenceSuggestionsInfoCmd)
+	textserviceTextInfoNewTextInfoCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	textserviceTextInfoCmd.AddCommand(textserviceTextInfoNewTextInfoCmd)
+	textserviceTextInfoDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	textserviceTextInfoCmd.AddCommand(textserviceTextInfoDescribeContentsCmd)
+	textserviceTextInfoGetCharSequenceCmd.Flags().Int64("handle", 0, "handle (int64)")
+	textserviceTextInfoCmd.AddCommand(textserviceTextInfoGetCharSequenceCmd)
+	textserviceTextInfoGetCookieCmd.Flags().Int64("handle", 0, "handle (int64)")
+	textserviceTextInfoCmd.AddCommand(textserviceTextInfoGetCookieCmd)
+	textserviceTextInfoGetSequenceCmd.Flags().Int64("handle", 0, "handle (int64)")
+	textserviceTextInfoCmd.AddCommand(textserviceTextInfoGetSequenceCmd)
+	textserviceTextInfoGetTextCmd.Flags().Int64("handle", 0, "handle (int64)")
+	textserviceTextInfoCmd.AddCommand(textserviceTextInfoGetTextCmd)
+	textserviceTextInfoWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	textserviceTextInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	textserviceTextInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	textserviceTextInfoCmd.AddCommand(textserviceTextInfoWriteToParcelCmd)
+	textserviceCmd.AddCommand(textserviceTextInfoCmd)
+	textserviceSpellCheckerSubtypeNewSpellCheckerSubtypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	textserviceSpellCheckerSubtypeNewSpellCheckerSubtypeCmd.Flags().String("arg1", "", "arg1 (string)")
+	textserviceSpellCheckerSubtypeNewSpellCheckerSubtypeCmd.Flags().String("arg2", "", "arg2 (string)")
+	textserviceSpellCheckerSubtypeCmd.AddCommand(textserviceSpellCheckerSubtypeNewSpellCheckerSubtypeCmd)
+	textserviceSpellCheckerSubtypeContainsExtraValueKeyCmd.Flags().Int64("handle", 0, "handle (int64)")
+	textserviceSpellCheckerSubtypeContainsExtraValueKeyCmd.Flags().String("arg0", "", "arg0 (string)")
+	textserviceSpellCheckerSubtypeCmd.AddCommand(textserviceSpellCheckerSubtypeContainsExtraValueKeyCmd)
+	textserviceSpellCheckerSubtypeDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	textserviceSpellCheckerSubtypeCmd.AddCommand(textserviceSpellCheckerSubtypeDescribeContentsCmd)
+	textserviceSpellCheckerSubtypeEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	textserviceSpellCheckerSubtypeEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	textserviceSpellCheckerSubtypeCmd.AddCommand(textserviceSpellCheckerSubtypeEqualsCmd)
+	textserviceSpellCheckerSubtypeGetDisplayNameCmd.Flags().Int64("handle", 0, "handle (int64)")
+	textserviceSpellCheckerSubtypeGetDisplayNameCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	textserviceSpellCheckerSubtypeGetDisplayNameCmd.Flags().String("arg1", "", "arg1 (string)")
+	textserviceSpellCheckerSubtypeGetDisplayNameCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	textserviceSpellCheckerSubtypeCmd.AddCommand(textserviceSpellCheckerSubtypeGetDisplayNameCmd)
+	textserviceSpellCheckerSubtypeGetExtraValueCmd.Flags().Int64("handle", 0, "handle (int64)")
+	textserviceSpellCheckerSubtypeCmd.AddCommand(textserviceSpellCheckerSubtypeGetExtraValueCmd)
+	textserviceSpellCheckerSubtypeGetExtraValueOfCmd.Flags().Int64("handle", 0, "handle (int64)")
+	textserviceSpellCheckerSubtypeGetExtraValueOfCmd.Flags().String("arg0", "", "arg0 (string)")
+	textserviceSpellCheckerSubtypeCmd.AddCommand(textserviceSpellCheckerSubtypeGetExtraValueOfCmd)
+	textserviceSpellCheckerSubtypeGetLanguageTagCmd.Flags().Int64("handle", 0, "handle (int64)")
+	textserviceSpellCheckerSubtypeCmd.AddCommand(textserviceSpellCheckerSubtypeGetLanguageTagCmd)
+	textserviceSpellCheckerSubtypeGetLocaleCmd.Flags().Int64("handle", 0, "handle (int64)")
+	textserviceSpellCheckerSubtypeCmd.AddCommand(textserviceSpellCheckerSubtypeGetLocaleCmd)
+	textserviceSpellCheckerSubtypeGetNameResIdCmd.Flags().Int64("handle", 0, "handle (int64)")
+	textserviceSpellCheckerSubtypeCmd.AddCommand(textserviceSpellCheckerSubtypeGetNameResIdCmd)
+	textserviceSpellCheckerSubtypeHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	textserviceSpellCheckerSubtypeCmd.AddCommand(textserviceSpellCheckerSubtypeHashCodeCmd)
+	textserviceSpellCheckerSubtypeWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	textserviceSpellCheckerSubtypeWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	textserviceSpellCheckerSubtypeWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	textserviceSpellCheckerSubtypeCmd.AddCommand(textserviceSpellCheckerSubtypeWriteToParcelCmd)
+	textserviceCmd.AddCommand(textserviceSpellCheckerSubtypeCmd)
+	textserviceSpellCheckerInfoCmd.AddCommand(textserviceSpellCheckerInfoDescribeContentsCmd)
+	textserviceSpellCheckerInfoCmd.AddCommand(textserviceSpellCheckerInfoGetComponentCmd)
+	textserviceSpellCheckerInfoCmd.AddCommand(textserviceSpellCheckerInfoGetIdCmd)
+	textserviceSpellCheckerInfoCmd.AddCommand(textserviceSpellCheckerInfoGetPackageNameCmd)
+	textserviceSpellCheckerInfoCmd.AddCommand(textserviceSpellCheckerInfoGetServiceInfoCmd)
+	textserviceSpellCheckerInfoCmd.AddCommand(textserviceSpellCheckerInfoGetSettingsActivityCmd)
+	textserviceSpellCheckerInfoGetSubtypeAtCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	textserviceSpellCheckerInfoCmd.AddCommand(textserviceSpellCheckerInfoGetSubtypeAtCmd)
+	textserviceSpellCheckerInfoCmd.AddCommand(textserviceSpellCheckerInfoGetSubtypeCountCmd)
+	textserviceSpellCheckerInfoLoadIconCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	textserviceSpellCheckerInfoCmd.AddCommand(textserviceSpellCheckerInfoLoadIconCmd)
+	textserviceSpellCheckerInfoLoadLabelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	textserviceSpellCheckerInfoCmd.AddCommand(textserviceSpellCheckerInfoLoadLabelCmd)
+	textserviceSpellCheckerInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	textserviceSpellCheckerInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	textserviceSpellCheckerInfoCmd.AddCommand(textserviceSpellCheckerInfoWriteToParcelCmd)
+	textserviceCmd.AddCommand(textserviceSpellCheckerInfoCmd)
+	textserviceSpellCheckerSessionCmd.AddCommand(textserviceSpellCheckerSessionCancelCmd)
+	textserviceSpellCheckerSessionCmd.AddCommand(textserviceSpellCheckerSessionCloseCmd)
+	textserviceSpellCheckerSessionGetSentenceSuggestionsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	textserviceSpellCheckerSessionGetSentenceSuggestionsCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	textserviceSpellCheckerSessionCmd.AddCommand(textserviceSpellCheckerSessionGetSentenceSuggestionsCmd)
+	textserviceSpellCheckerSessionCmd.AddCommand(textserviceSpellCheckerSessionGetSpellCheckerCmd)
+	textserviceSpellCheckerSessionGetSuggestions2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	textserviceSpellCheckerSessionGetSuggestions2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	textserviceSpellCheckerSessionCmd.AddCommand(textserviceSpellCheckerSessionGetSuggestions2Cmd)
+	textserviceSpellCheckerSessionGetSuggestions3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	textserviceSpellCheckerSessionGetSuggestions3_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	textserviceSpellCheckerSessionGetSuggestions3_1Cmd.Flags().Bool("arg2", false, "arg2 (bool)")
+	textserviceSpellCheckerSessionCmd.AddCommand(textserviceSpellCheckerSessionGetSuggestions3_1Cmd)
+	textserviceSpellCheckerSessionCmd.AddCommand(textserviceSpellCheckerSessionIsSessionDisconnectedCmd)
+	textserviceCmd.AddCommand(textserviceSpellCheckerSessionCmd)
+	textserviceSpellCheckerSessionSpellCheckerSessionListenerOnGetSentenceSuggestionsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	textserviceSpellCheckerSessionSpellCheckerSessionListenerCmd.AddCommand(textserviceSpellCheckerSessionSpellCheckerSessionListenerOnGetSentenceSuggestionsCmd)
+	textserviceSpellCheckerSessionSpellCheckerSessionListenerOnGetSuggestionsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	textserviceSpellCheckerSessionSpellCheckerSessionListenerCmd.AddCommand(textserviceSpellCheckerSessionSpellCheckerSessionListenerOnGetSuggestionsCmd)
+	textserviceCmd.AddCommand(textserviceSpellCheckerSessionSpellCheckerSessionListenerCmd)
+	textserviceSpellCheckerSessionSpellCheckerSessionParamsCmd.AddCommand(textserviceSpellCheckerSessionSpellCheckerSessionParamsGetExtrasCmd)
+	textserviceSpellCheckerSessionSpellCheckerSessionParamsCmd.AddCommand(textserviceSpellCheckerSessionSpellCheckerSessionParamsGetLocaleCmd)
+	textserviceSpellCheckerSessionSpellCheckerSessionParamsCmd.AddCommand(textserviceSpellCheckerSessionSpellCheckerSessionParamsGetSupportedAttributesCmd)
+	textserviceSpellCheckerSessionSpellCheckerSessionParamsCmd.AddCommand(textserviceSpellCheckerSessionSpellCheckerSessionParamsShouldReferToSpellCheckerLanguageSettingsCmd)
+	textserviceCmd.AddCommand(textserviceSpellCheckerSessionSpellCheckerSessionParamsCmd)
 	rootCmd.AddCommand(textserviceCmd)
 }

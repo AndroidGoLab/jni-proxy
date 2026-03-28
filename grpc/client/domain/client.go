@@ -9,6 +9,92 @@ import (
 	"google.golang.org/grpc"
 )
 
+// VerificationUserStateClient wraps the gRPC VerificationUserStateService client.
+type VerificationUserStateClient struct {
+	svc pb.VerificationUserStateServiceClient
+}
+
+// NewVerificationUserStateClient creates a new VerificationUserState client.
+func NewVerificationUserStateClient(cc grpc.ClientConnInterface) *VerificationUserStateClient {
+	return &VerificationUserStateClient{
+		svc: pb.NewVerificationUserStateServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *VerificationUserStateClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *VerificationUserStateClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPackageName calls the GetPackageName RPC.
+func (c *VerificationUserStateClient) GetPackageName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetPackageName(ctx, &pb.GetPackageNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUser calls the GetUser RPC.
+func (c *VerificationUserStateClient) GetUser(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetUser(ctx, &pb.GetUserRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *VerificationUserStateClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsLinkHandlingAllowed calls the IsLinkHandlingAllowed RPC.
+func (c *VerificationUserStateClient) IsLinkHandlingAllowed(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsLinkHandlingAllowed(ctx, &pb.IsLinkHandlingAllowedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *VerificationUserStateClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *VerificationUserStateClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
 // VerificationManagerClient wraps the gRPC VerificationManagerService client.
 type VerificationManagerClient struct {
 	svc pb.VerificationManagerServiceClient

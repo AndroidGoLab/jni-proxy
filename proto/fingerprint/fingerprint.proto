@@ -20,7 +20,81 @@ message IsHardwareDetectedResponse {
   bool result = 1;
 }
 
+message OnAuthenticationErrorRequest {
+  int32 arg0 = 1;
+  string arg1 = 2;
+}
+
+message OnAuthenticationErrorResponse {
+}
+
+message OnAuthenticationFailedRequest {
+}
+
+message OnAuthenticationFailedResponse {
+}
+
+message OnAuthenticationHelpRequest {
+  int32 arg0 = 1;
+  string arg1 = 2;
+}
+
+message OnAuthenticationHelpResponse {
+}
+
+message OnAuthenticationSucceededRequest {
+  int64 arg0 = 1;
+}
+
+message OnAuthenticationSucceededResponse {
+}
+
+message GetCryptoObjectRequest {
+}
+
+message GetCryptoObjectResponse {
+  int64 result = 1;
+}
+
+message GetCipherRequest {
+}
+
+message GetCipherResponse {
+  int64 result = 1;
+}
+
+message GetMacRequest {
+}
+
+message GetMacResponse {
+  int64 result = 1;
+}
+
+message GetSignatureRequest {
+}
+
+message GetSignatureResponse {
+  int64 result = 1;
+}
+
 service ManagerService {
   rpc HasEnrolledFingerprints (HasEnrolledFingerprintsRequest) returns (HasEnrolledFingerprintsResponse);
   rpc IsHardwareDetected (IsHardwareDetectedRequest) returns (IsHardwareDetectedResponse);
+}
+
+service ManagerAuthenticationCallbackService {
+  rpc OnAuthenticationError (OnAuthenticationErrorRequest) returns (OnAuthenticationErrorResponse);
+  rpc OnAuthenticationFailed (OnAuthenticationFailedRequest) returns (OnAuthenticationFailedResponse);
+  rpc OnAuthenticationHelp (OnAuthenticationHelpRequest) returns (OnAuthenticationHelpResponse);
+  rpc OnAuthenticationSucceeded (OnAuthenticationSucceededRequest) returns (OnAuthenticationSucceededResponse);
+}
+
+service ManagerAuthenticationResultService {
+  rpc GetCryptoObject (GetCryptoObjectRequest) returns (GetCryptoObjectResponse);
+}
+
+service ManagerCryptoObjectService {
+  rpc GetCipher (GetCipherRequest) returns (GetCipherResponse);
+  rpc GetMac (GetMacRequest) returns (GetMacResponse);
+  rpc GetSignature (GetSignatureRequest) returns (GetSignatureResponse);
 }

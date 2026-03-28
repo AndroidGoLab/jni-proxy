@@ -198,3 +198,144 @@ var ConsumerIrManagerService_ServiceDesc = grpc.ServiceDesc{
 	Streams:  []grpc.StreamDesc{},
 	Metadata: "proto/ir/ir.proto",
 }
+
+const (
+	ConsumerIrManagerCarrierFrequencyRangeService_GetMaxFrequency_FullMethodName = "/ir.ConsumerIrManagerCarrierFrequencyRangeService/GetMaxFrequency"
+	ConsumerIrManagerCarrierFrequencyRangeService_GetMinFrequency_FullMethodName = "/ir.ConsumerIrManagerCarrierFrequencyRangeService/GetMinFrequency"
+)
+
+// ConsumerIrManagerCarrierFrequencyRangeServiceClient is the client API for ConsumerIrManagerCarrierFrequencyRangeService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ConsumerIrManagerCarrierFrequencyRangeServiceClient interface {
+	GetMaxFrequency(ctx context.Context, in *GetMaxFrequencyRequest, opts ...grpc.CallOption) (*GetMaxFrequencyResponse, error)
+	GetMinFrequency(ctx context.Context, in *GetMinFrequencyRequest, opts ...grpc.CallOption) (*GetMinFrequencyResponse, error)
+}
+
+type consumerIrManagerCarrierFrequencyRangeServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewConsumerIrManagerCarrierFrequencyRangeServiceClient(cc grpc.ClientConnInterface) ConsumerIrManagerCarrierFrequencyRangeServiceClient {
+	return &consumerIrManagerCarrierFrequencyRangeServiceClient{cc}
+}
+
+func (c *consumerIrManagerCarrierFrequencyRangeServiceClient) GetMaxFrequency(ctx context.Context, in *GetMaxFrequencyRequest, opts ...grpc.CallOption) (*GetMaxFrequencyResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMaxFrequencyResponse)
+	err := c.cc.Invoke(ctx, ConsumerIrManagerCarrierFrequencyRangeService_GetMaxFrequency_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *consumerIrManagerCarrierFrequencyRangeServiceClient) GetMinFrequency(ctx context.Context, in *GetMinFrequencyRequest, opts ...grpc.CallOption) (*GetMinFrequencyResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMinFrequencyResponse)
+	err := c.cc.Invoke(ctx, ConsumerIrManagerCarrierFrequencyRangeService_GetMinFrequency_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ConsumerIrManagerCarrierFrequencyRangeServiceServer is the server API for ConsumerIrManagerCarrierFrequencyRangeService service.
+// All implementations must embed UnimplementedConsumerIrManagerCarrierFrequencyRangeServiceServer
+// for forward compatibility.
+type ConsumerIrManagerCarrierFrequencyRangeServiceServer interface {
+	GetMaxFrequency(context.Context, *GetMaxFrequencyRequest) (*GetMaxFrequencyResponse, error)
+	GetMinFrequency(context.Context, *GetMinFrequencyRequest) (*GetMinFrequencyResponse, error)
+	mustEmbedUnimplementedConsumerIrManagerCarrierFrequencyRangeServiceServer()
+}
+
+// UnimplementedConsumerIrManagerCarrierFrequencyRangeServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedConsumerIrManagerCarrierFrequencyRangeServiceServer struct{}
+
+func (UnimplementedConsumerIrManagerCarrierFrequencyRangeServiceServer) GetMaxFrequency(context.Context, *GetMaxFrequencyRequest) (*GetMaxFrequencyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMaxFrequency not implemented")
+}
+func (UnimplementedConsumerIrManagerCarrierFrequencyRangeServiceServer) GetMinFrequency(context.Context, *GetMinFrequencyRequest) (*GetMinFrequencyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMinFrequency not implemented")
+}
+func (UnimplementedConsumerIrManagerCarrierFrequencyRangeServiceServer) mustEmbedUnimplementedConsumerIrManagerCarrierFrequencyRangeServiceServer() {
+}
+func (UnimplementedConsumerIrManagerCarrierFrequencyRangeServiceServer) testEmbeddedByValue() {}
+
+// UnsafeConsumerIrManagerCarrierFrequencyRangeServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ConsumerIrManagerCarrierFrequencyRangeServiceServer will
+// result in compilation errors.
+type UnsafeConsumerIrManagerCarrierFrequencyRangeServiceServer interface {
+	mustEmbedUnimplementedConsumerIrManagerCarrierFrequencyRangeServiceServer()
+}
+
+func RegisterConsumerIrManagerCarrierFrequencyRangeServiceServer(s grpc.ServiceRegistrar, srv ConsumerIrManagerCarrierFrequencyRangeServiceServer) {
+	// If the following call panics, it indicates UnimplementedConsumerIrManagerCarrierFrequencyRangeServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ConsumerIrManagerCarrierFrequencyRangeService_ServiceDesc, srv)
+}
+
+func _ConsumerIrManagerCarrierFrequencyRangeService_GetMaxFrequency_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMaxFrequencyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConsumerIrManagerCarrierFrequencyRangeServiceServer).GetMaxFrequency(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConsumerIrManagerCarrierFrequencyRangeService_GetMaxFrequency_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConsumerIrManagerCarrierFrequencyRangeServiceServer).GetMaxFrequency(ctx, req.(*GetMaxFrequencyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConsumerIrManagerCarrierFrequencyRangeService_GetMinFrequency_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMinFrequencyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConsumerIrManagerCarrierFrequencyRangeServiceServer).GetMinFrequency(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConsumerIrManagerCarrierFrequencyRangeService_GetMinFrequency_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConsumerIrManagerCarrierFrequencyRangeServiceServer).GetMinFrequency(ctx, req.(*GetMinFrequencyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ConsumerIrManagerCarrierFrequencyRangeService_ServiceDesc is the grpc.ServiceDesc for ConsumerIrManagerCarrierFrequencyRangeService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ConsumerIrManagerCarrierFrequencyRangeService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "ir.ConsumerIrManagerCarrierFrequencyRangeService",
+	HandlerType: (*ConsumerIrManagerCarrierFrequencyRangeServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetMaxFrequency",
+			Handler:    _ConsumerIrManagerCarrierFrequencyRangeService_GetMaxFrequency_Handler,
+		},
+		{
+			MethodName: "GetMinFrequency",
+			Handler:    _ConsumerIrManagerCarrierFrequencyRangeService_GetMinFrequency_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/ir/ir.proto",
+}

@@ -46,6 +46,101 @@ type {{export $svc.GoType}}Server struct {
 }
 {{range $m := $svc.Methods}}
 func (s *{{export $svc.GoType}}Server) {{$m.GoName}}(_ context.Context, req *pb.{{$m.RequestType}}) (*pb.{{$m.ResponseType}}, error) {
+{{- if and $m.IsConstructor (eq $svc.InstantiationKind "constructor")}}
+	obj, err := {{$svc.ImportAlias}}.New{{export $svc.GoType}}(s.Ctx.VM{{if $m.CallArgs}}, {{$m.CallArgs}}{{end}})
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.{{$m.ResponseType}}{Result: handle}, nil
+{{- else if and (not $m.IsConstructor) (eq $svc.InstantiationKind "constructor")}}
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &{{$svc.ImportAlias}}.{{export $svc.GoType}}{VM: s.Ctx.VM, Obj: rawObj}
+{{- if and $m.HasResult $m.HasError}}
+{{- if eq $m.ReturnKind "data_class"}}
+
+	result, err := mgr.{{$m.SpecGoName}}({{$m.CallArgs}})
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	if result == nil {
+		return &pb.{{$m.ResponseType}}{}, nil
+	}
+	var extracted *{{$svc.ImportAlias}}.{{$m.DataClass}}
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		var extractErr error
+		extracted, extractErr = {{$svc.ImportAlias}}.Extract{{$m.DataClass}}(env, result)
+		return extractErr
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "extract {{$m.DataClass | lower}}: %v", doErr)
+	}
+	return &pb.{{$m.ResponseType}}{
+		Result: {{$m.DataClassConversion}},
+	}, nil
+{{- else if eq $m.ReturnKind "object"}}
+
+	result, err := mgr.{{$m.SpecGoName}}({{$m.CallArgs}})
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.{{$m.ResponseType}}{Result: handle}, nil
+{{- else}}
+
+	result, err := mgr.{{$m.SpecGoName}}({{$m.CallArgs}})
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.{{$m.ResponseType}}{Result: {{$m.ResultExpr}}}, nil
+{{- end}}
+{{- else if $m.HasError}}
+
+	if err := mgr.{{$m.SpecGoName}}({{$m.CallArgs}}); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.{{$m.ResponseType}}{}, nil
+{{- else if $m.HasResult}}
+{{- if eq $m.ReturnKind "object"}}
+
+	result := mgr.{{$m.SpecGoName}}({{$m.CallArgs}})
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.{{$m.ResponseType}}{Result: handle}, nil
+{{- else}}
+
+	result := mgr.{{$m.SpecGoName}}({{$m.CallArgs}})
+	return &pb.{{$m.ResponseType}}{Result: {{$m.ResultExpr}}}, nil
+{{- end}}
+{{- else}}
+
+	mgr.{{$m.SpecGoName}}({{$m.CallArgs}})
+	return &pb.{{$m.ResponseType}}{}, nil
+{{- end}}
+{{- else}}
 	mgr, err := {{$svc.ImportAlias}}.New{{$svc.GoType}}(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
@@ -127,6 +222,7 @@ func (s *{{export $svc.GoType}}Server) {{$m.GoName}}(_ context.Context, req *pb.
 
 	mgr.{{$m.SpecGoName}}({{$m.CallArgs}})
 	return &pb.{{$m.ResponseType}}{}, nil
+{{- end}}
 {{- end}}
 }
 {{end}}{{end}}`))

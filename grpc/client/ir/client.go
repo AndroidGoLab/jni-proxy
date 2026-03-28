@@ -47,3 +47,33 @@ func (c *ConsumerIrManagerClient) Transmit(ctx context.Context, arg0 int32, arg1
 	})
 	return err
 }
+
+// ConsumerIrManagerCarrierFrequencyRangeClient wraps the gRPC ConsumerIrManagerCarrierFrequencyRangeService client.
+type ConsumerIrManagerCarrierFrequencyRangeClient struct {
+	svc pb.ConsumerIrManagerCarrierFrequencyRangeServiceClient
+}
+
+// NewConsumerIrManagerCarrierFrequencyRangeClient creates a new ConsumerIrManagerCarrierFrequencyRange client.
+func NewConsumerIrManagerCarrierFrequencyRangeClient(cc grpc.ClientConnInterface) *ConsumerIrManagerCarrierFrequencyRangeClient {
+	return &ConsumerIrManagerCarrierFrequencyRangeClient{
+		svc: pb.NewConsumerIrManagerCarrierFrequencyRangeServiceClient(cc),
+	}
+}
+
+// GetMaxFrequency calls the GetMaxFrequency RPC.
+func (c *ConsumerIrManagerCarrierFrequencyRangeClient) GetMaxFrequency(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMaxFrequency(ctx, &pb.GetMaxFrequencyRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMinFrequency calls the GetMinFrequency RPC.
+func (c *ConsumerIrManagerCarrierFrequencyRangeClient) GetMinFrequency(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMinFrequency(ctx, &pb.GetMinFrequencyRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}

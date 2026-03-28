@@ -5,6 +5,7 @@ import (
 	"unicode"
 
 	"github.com/AndroidGoLab/jni-proxy/tools/pkg/protogen"
+	"github.com/AndroidGoLab/jni-proxy/tools/pkg/protoscan"
 )
 
 // buildCLIPackage converts ProtoData into a CLIPackage.
@@ -14,7 +15,7 @@ import (
 func buildCLIPackage(
 	pd *protogen.ProtoData,
 	goModule string,
-	goClientNames map[string]string,
+	goNames protoscan.GoNames,
 ) *CLIPackage {
 	msgFields := buildMessageFieldMap(pd)
 
@@ -25,7 +26,7 @@ func buildCLIPackage(
 	}
 
 	for _, svc := range pd.Services {
-		cliSvc := buildCLIService(svc, msgFields, goClientNames)
+		cliSvc := buildCLIService(svc, msgFields, goNames)
 		if len(cliSvc.Commands) == 0 {
 			continue
 		}
@@ -84,16 +85,13 @@ func buildMessageFieldMap(pd *protogen.ProtoData) map[string][]protogen.ProtoFie
 func buildCLIService(
 	svc protogen.ProtoService,
 	msgFields map[string][]protogen.ProtoField,
-	goClientNames map[string]string,
+	goNames protoscan.GoNames,
 ) CLIService {
 	svcName := strings.TrimSuffix(svc.Name, "Service")
 
 	// Resolve the actual Go service name from compiled proto stubs.
 	// Protoc may rename e.g. "P2pConfigService" → "P2PConfigService".
-	goServiceName := svc.Name
-	if resolved, ok := goClientNames[strings.ToLower(svc.Name)]; ok {
-		goServiceName = resolved
-	}
+	goServiceName := goNames.ResolveService(svc.Name)
 
 	cs := CLIService{
 		ProtoServiceName: goServiceName,
@@ -108,7 +106,7 @@ func buildCLIService(
 			continue
 		}
 
-		cmd := buildCLICommand(rpc, msgFields, goClientNames)
+		cmd := buildCLICommand(rpc, msgFields, goNames)
 		cs.Commands = append(cs.Commands, cmd)
 	}
 
@@ -119,18 +117,12 @@ func buildCLIService(
 func buildCLICommand(
 	rpc protogen.ProtoRPC,
 	msgFields map[string][]protogen.ProtoField,
-	goClientNames map[string]string,
+	goNames protoscan.GoNames,
 ) CLICommand {
-	// Resolve RPC name through protoc naming (e.g., A2dp → A2Dp).
-	rpcName := rpc.Name
-	if resolved, ok := goClientNames[strings.ToLower(rpc.Name)]; ok {
-		rpcName = resolved
-	}
-	// Also resolve request type name through protoc naming.
-	reqType := rpc.InputType
-	if resolved, ok := goClientNames[strings.ToLower(rpc.InputType)]; ok {
-		reqType = resolved
-	}
+	// Resolve RPC and request type names through protoscan.
+	// Protoc-gen-go may rename (e.g., A2dp → A2Dp, i_v3 → IV3).
+	rpcName := goNames.ResolveRPC(rpc.Name)
+	reqType := goNames.ResolveMessage(rpc.InputType)
 	cmd := CLICommand{
 		RPCName:         rpcName,
 		CobraName:       toKebabCase(rpc.Name),

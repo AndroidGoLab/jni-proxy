@@ -5,3 +5,5877 @@ syntax = "proto3";
 package renderscript;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/renderscript";
+
+message DestroyRequest {
+}
+
+message DestroyResponse {
+}
+
+message Execute0Request {
+}
+
+message Execute0Response {
+}
+
+message Execute1_1Request {
+  int64 arg0 = 1;
+}
+
+message Execute1_1Response {
+  int64 result = 1;
+}
+
+message SetInputRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SetInputResponse {
+}
+
+message SetOutputRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SetOutputResponse {
+}
+
+message AddConnection3Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message AddConnection3Response {
+  int64 result = 1;
+}
+
+message AddConnection3_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message AddConnection3_1Response {
+  int64 result = 1;
+}
+
+message AddKernelRequest {
+  int64 arg0 = 1;
+}
+
+message AddKernelResponse {
+  int64 result = 1;
+}
+
+message CreateRequest {
+}
+
+message CreateResponse {
+  int64 result = 1;
+}
+
+message AddInputRequest {
+}
+
+message AddInputResponse {
+  int64 result = 1;
+}
+
+message AddInvokeRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message AddInvokeResponse {
+  int64 result = 1;
+}
+
+message ScriptGroupBuilder2AddKernelRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message ScriptGroupBuilder2CreateRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message GetGlobalRequest {
+  int64 arg0 = 1;
+}
+
+message GetGlobalResponse {
+  int64 result = 1;
+}
+
+message GetReturnRequest {
+}
+
+message GetReturnResponse {
+  int64 result = 1;
+}
+
+message GetAnisotropyRequest {
+}
+
+message GetAnisotropyResponse {
+  float result = 1;
+}
+
+message GetMagnificationRequest {
+}
+
+message GetMagnificationResponse {
+  int64 result = 1;
+}
+
+message GetMinificationRequest {
+}
+
+message GetMinificationResponse {
+  int64 result = 1;
+}
+
+message GetWrapSRequest {
+}
+
+message GetWrapSResponse {
+  int64 result = 1;
+}
+
+message GetWrapTRequest {
+}
+
+message GetWrapTResponse {
+  int64 result = 1;
+}
+
+message CLAMP_LINEARRequest {
+  int64 arg0 = 1;
+}
+
+message CLAMP_LINEARResponse {
+  int64 result = 1;
+}
+
+message CLAMP_LINEAR_MIP_LINEARRequest {
+  int64 arg0 = 1;
+}
+
+message CLAMP_LINEAR_MIP_LINEARResponse {
+  int64 result = 1;
+}
+
+message CLAMP_NEARESTRequest {
+  int64 arg0 = 1;
+}
+
+message CLAMP_NEARESTResponse {
+  int64 result = 1;
+}
+
+message MIRRORED_REPEAT_LINEARRequest {
+  int64 arg0 = 1;
+}
+
+message MIRRORED_REPEAT_LINEARResponse {
+  int64 result = 1;
+}
+
+message MIRRORED_REPEAT_LINEAR_MIP_LINEARRequest {
+  int64 arg0 = 1;
+}
+
+message MIRRORED_REPEAT_LINEAR_MIP_LINEARResponse {
+  int64 result = 1;
+}
+
+message MIRRORED_REPEAT_NEARESTRequest {
+  int64 arg0 = 1;
+}
+
+message MIRRORED_REPEAT_NEARESTResponse {
+  int64 result = 1;
+}
+
+message WRAP_LINEARRequest {
+  int64 arg0 = 1;
+}
+
+message WRAP_LINEARResponse {
+  int64 result = 1;
+}
+
+message WRAP_LINEAR_MIP_LINEARRequest {
+  int64 arg0 = 1;
+}
+
+message WRAP_LINEAR_MIP_LINEARResponse {
+  int64 result = 1;
+}
+
+message WRAP_NEARESTRequest {
+  int64 arg0 = 1;
+}
+
+message WRAP_NEARESTResponse {
+  int64 result = 1;
+}
+
+message SetAnisotropyRequest {
+  float arg0 = 1;
+}
+
+message SetAnisotropyResponse {
+}
+
+message SetMagnificationRequest {
+  int64 arg0 = 1;
+}
+
+message SetMagnificationResponse {
+}
+
+message SetMinificationRequest {
+  int64 arg0 = 1;
+}
+
+message SetMinificationResponse {
+}
+
+message SetWrapSRequest {
+  int64 arg0 = 1;
+}
+
+message SetWrapSResponse {
+}
+
+message SetWrapTRequest {
+  int64 arg0 = 1;
+}
+
+message SetWrapTResponse {
+}
+
+message ValuesRequest {
+}
+
+message ValuesResponse {
+  int64 result = 1;
+}
+
+message ValueOfRequest {
+  string arg0 = 1;
+}
+
+message ValueOfResponse {
+  int64 result = 1;
+}
+
+message ForEach1Request {
+  int64 arg0 = 1;
+}
+
+message ForEach1Response {
+}
+
+message ForEach2_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message ForEach2_1Response {
+}
+
+message ForEach_Dot1Request {
+  int64 arg0 = 1;
+}
+
+message ForEach_Dot1Response {
+}
+
+message ForEach_Dot2_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message ForEach_Dot2_1Response {
+}
+
+message GetFieldID_InputRequest {
+}
+
+message GetFieldID_InputResponse {
+  int64 result = 1;
+}
+
+message GetKernelID_SeparateRequest {
+}
+
+message GetKernelID_SeparateResponse {
+  int64 result = 1;
+}
+
+message SetDotCoefficientsRequest {
+  float arg0 = 1;
+  float arg1 = 2;
+  float arg2 = 3;
+  float arg3 = 4;
+}
+
+message SetDotCoefficientsResponse {
+}
+
+message ScriptIntrinsicHistogramSetOutputRequest {
+  int64 arg0 = 1;
+}
+
+message ScriptIntrinsicHistogramCreateRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message ForEachRequest {
+  int64 arg0 = 1;
+}
+
+message ForEachResponse {
+}
+
+message GetKernelIDRequest {
+}
+
+message GetKernelIDResponse {
+  int64 result = 1;
+}
+
+message ScriptIntrinsicYuvToRGBSetInputRequest {
+  int64 arg0 = 1;
+}
+
+message ScriptIntrinsicYuvToRGBCreateRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message ForEach2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message ForEach2Response {
+}
+
+message ForEach3_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message ForEach3_1Response {
+}
+
+message SetAlphaRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message SetAlphaResponse {
+}
+
+message SetBlueRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message SetBlueResponse {
+}
+
+message SetGreenRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message SetGreenResponse {
+}
+
+message SetRedRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message SetRedResponse {
+}
+
+message ScriptIntrinsicLUTCreateRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SetAdd1Request {
+  int64 arg0 = 1;
+}
+
+message SetAdd1Response {
+}
+
+message SetAdd4_1Request {
+  float arg0 = 1;
+  float arg1 = 2;
+  float arg2 = 3;
+  float arg3 = 4;
+}
+
+message SetAdd4_1Response {
+}
+
+message SetColorMatrix1Request {
+  int64 arg0 = 1;
+}
+
+message SetColorMatrix1Response {
+}
+
+message SetColorMatrix1_1Request {
+  int64 arg0 = 1;
+}
+
+message SetColorMatrix1_1Response {
+}
+
+message SetGreyscaleRequest {
+}
+
+message SetGreyscaleResponse {
+}
+
+message SetRGBtoYUVRequest {
+}
+
+message SetRGBtoYUVResponse {
+}
+
+message SetYUVtoRGBRequest {
+}
+
+message SetYUVtoRGBResponse {
+}
+
+message Create1Request {
+  int64 arg0 = 1;
+}
+
+message Create1Response {
+  int64 result = 1;
+}
+
+message Create2_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message Create2_1Response {
+  int64 result = 1;
+}
+
+message ContextDumpRequest {
+}
+
+message ContextDumpResponse {
+}
+
+message FinishRequest {
+}
+
+message FinishResponse {
+}
+
+message GetApplicationContextRequest {
+}
+
+message GetApplicationContextResponse {
+  int64 result = 1;
+}
+
+message GetErrorHandlerRequest {
+}
+
+message GetErrorHandlerResponse {
+  int64 result = 1;
+}
+
+message GetMessageHandlerRequest {
+}
+
+message GetMessageHandlerResponse {
+  int64 result = 1;
+}
+
+message SendMessageRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SendMessageResponse {
+}
+
+message SetPriorityRequest {
+  int64 arg0 = 1;
+}
+
+message SetPriorityResponse {
+}
+
+message Create3_2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message Create3_2Response {
+  int64 result = 1;
+}
+
+message CreateMultiContextRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message CreateMultiContextResponse {
+  int64 result = 1;
+}
+
+message GetMinorVersionRequest {
+}
+
+message GetMinorVersionResponse {
+  int64 result = 1;
+}
+
+message ReleaseAllContextsRequest {
+}
+
+message ReleaseAllContextsResponse {
+}
+
+message RunRequest {
+}
+
+message RunResponse {
+}
+
+message BNNMRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+  int32 arg3 = 4;
+  int64 arg4 = 5;
+  int32 arg5 = 6;
+  int32 arg6 = 7;
+}
+
+message BNNMResponse {
+}
+
+message CGBMVRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+  int64 arg5 = 6;
+  int32 arg6 = 7;
+  int64 arg7 = 8;
+  int64 arg8 = 9;
+  int32 arg9 = 10;
+}
+
+message CGBMVResponse {
+}
+
+message CGEMMRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+  int64 arg5 = 6;
+  int64 arg6 = 7;
+}
+
+message CGEMMResponse {
+}
+
+message CGEMVRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+  int32 arg4 = 5;
+  int64 arg5 = 6;
+  int64 arg6 = 7;
+  int32 arg7 = 8;
+}
+
+message CGEMVResponse {
+}
+
+message CGERCRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+  int64 arg3 = 4;
+  int32 arg4 = 5;
+  int64 arg5 = 6;
+}
+
+message CGERCResponse {
+}
+
+message CGERURequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+  int64 arg3 = 4;
+  int32 arg4 = 5;
+  int64 arg5 = 6;
+}
+
+message CGERUResponse {
+}
+
+message CHBMVRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+  int32 arg5 = 6;
+  int64 arg6 = 7;
+  int64 arg7 = 8;
+  int32 arg8 = 9;
+}
+
+message CHBMVResponse {
+}
+
+message CHEMMRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+  int64 arg5 = 6;
+  int64 arg6 = 7;
+}
+
+message CHEMMResponse {
+}
+
+message CHEMVRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+  int32 arg4 = 5;
+  int64 arg5 = 6;
+  int64 arg6 = 7;
+  int32 arg7 = 8;
+}
+
+message CHEMVResponse {
+}
+
+message CHERRequest {
+  int32 arg0 = 1;
+  float arg1 = 2;
+  int64 arg2 = 3;
+  int32 arg3 = 4;
+  int64 arg4 = 5;
+}
+
+message CHERResponse {
+}
+
+message CHER2Request {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int32 arg3 = 4;
+  int64 arg4 = 5;
+  int32 arg5 = 6;
+  int64 arg6 = 7;
+}
+
+message CHER2Response {
+}
+
+message CHER2KRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+  float arg5 = 6;
+  int64 arg6 = 7;
+}
+
+message CHER2KResponse {
+}
+
+message CHERKRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  float arg2 = 3;
+  int64 arg3 = 4;
+  float arg4 = 5;
+  int64 arg5 = 6;
+}
+
+message CHERKResponse {
+}
+
+message CHPMVRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+  int32 arg4 = 5;
+  int64 arg5 = 6;
+  int64 arg6 = 7;
+  int32 arg7 = 8;
+}
+
+message CHPMVResponse {
+}
+
+message CHPRRequest {
+  int32 arg0 = 1;
+  float arg1 = 2;
+  int64 arg2 = 3;
+  int32 arg3 = 4;
+  int64 arg4 = 5;
+}
+
+message CHPRResponse {
+}
+
+message CHPR2Request {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int32 arg3 = 4;
+  int64 arg4 = 5;
+  int32 arg5 = 6;
+  int64 arg6 = 7;
+}
+
+message CHPR2Response {
+}
+
+message CSYMMRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+  int64 arg5 = 6;
+  int64 arg6 = 7;
+}
+
+message CSYMMResponse {
+}
+
+message CSYR2KRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+  int64 arg5 = 6;
+  int64 arg6 = 7;
+}
+
+message CSYR2KResponse {
+}
+
+message CSYRKRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+  int64 arg5 = 6;
+}
+
+message CSYRKResponse {
+}
+
+message CTBMVRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int64 arg4 = 5;
+  int64 arg5 = 6;
+  int32 arg6 = 7;
+}
+
+message CTBMVResponse {
+}
+
+message CTBSVRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int64 arg4 = 5;
+  int64 arg5 = 6;
+  int32 arg6 = 7;
+}
+
+message CTBSVResponse {
+}
+
+message CTPMVRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+  int32 arg5 = 6;
+}
+
+message CTPMVResponse {
+}
+
+message CTPSVRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+  int32 arg5 = 6;
+}
+
+message CTPSVResponse {
+}
+
+message CTRMMRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int64 arg4 = 5;
+  int64 arg5 = 6;
+  int64 arg6 = 7;
+}
+
+message CTRMMResponse {
+}
+
+message CTRMVRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+  int32 arg5 = 6;
+}
+
+message CTRMVResponse {
+}
+
+message CTRSMRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int64 arg4 = 5;
+  int64 arg5 = 6;
+  int64 arg6 = 7;
+}
+
+message CTRSMResponse {
+}
+
+message CTRSVRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+  int32 arg5 = 6;
+}
+
+message CTRSVResponse {
+}
+
+message DGBMVRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  double arg3 = 4;
+  int64 arg4 = 5;
+  int64 arg5 = 6;
+  int32 arg6 = 7;
+  double arg7 = 8;
+  int64 arg8 = 9;
+  int32 arg9 = 10;
+}
+
+message DGBMVResponse {
+}
+
+message DGEMMRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  double arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+  double arg5 = 6;
+  int64 arg6 = 7;
+}
+
+message DGEMMResponse {
+}
+
+message DGEMVRequest {
+  int32 arg0 = 1;
+  double arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+  int32 arg4 = 5;
+  double arg5 = 6;
+  int64 arg6 = 7;
+  int32 arg7 = 8;
+}
+
+message DGEMVResponse {
+}
+
+message DGERRequest {
+  double arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+  int64 arg3 = 4;
+  int32 arg4 = 5;
+  int64 arg5 = 6;
+}
+
+message DGERResponse {
+}
+
+message DSBMVRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  double arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+  int32 arg5 = 6;
+  double arg6 = 7;
+  int64 arg7 = 8;
+  int32 arg8 = 9;
+}
+
+message DSBMVResponse {
+}
+
+message DSPMVRequest {
+  int32 arg0 = 1;
+  double arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+  int32 arg4 = 5;
+  double arg5 = 6;
+  int64 arg6 = 7;
+  int32 arg7 = 8;
+}
+
+message DSPMVResponse {
+}
+
+message DSPRRequest {
+  int32 arg0 = 1;
+  double arg1 = 2;
+  int64 arg2 = 3;
+  int32 arg3 = 4;
+  int64 arg4 = 5;
+}
+
+message DSPRResponse {
+}
+
+message DSPR2Request {
+  int32 arg0 = 1;
+  double arg1 = 2;
+  int64 arg2 = 3;
+  int32 arg3 = 4;
+  int64 arg4 = 5;
+  int32 arg5 = 6;
+  int64 arg6 = 7;
+}
+
+message DSPR2Response {
+}
+
+message DSYMMRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  double arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+  double arg5 = 6;
+  int64 arg6 = 7;
+}
+
+message DSYMMResponse {
+}
+
+message DSYMVRequest {
+  int32 arg0 = 1;
+  double arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+  int32 arg4 = 5;
+  double arg5 = 6;
+  int64 arg6 = 7;
+  int32 arg7 = 8;
+}
+
+message DSYMVResponse {
+}
+
+message DSYRRequest {
+  int32 arg0 = 1;
+  double arg1 = 2;
+  int64 arg2 = 3;
+  int32 arg3 = 4;
+  int64 arg4 = 5;
+}
+
+message DSYRResponse {
+}
+
+message DSYR2Request {
+  int32 arg0 = 1;
+  double arg1 = 2;
+  int64 arg2 = 3;
+  int32 arg3 = 4;
+  int64 arg4 = 5;
+  int32 arg5 = 6;
+  int64 arg6 = 7;
+}
+
+message DSYR2Response {
+}
+
+message DSYR2KRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  double arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+  double arg5 = 6;
+  int64 arg6 = 7;
+}
+
+message DSYR2KResponse {
+}
+
+message DSYRKRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  double arg2 = 3;
+  int64 arg3 = 4;
+  double arg4 = 5;
+  int64 arg5 = 6;
+}
+
+message DSYRKResponse {
+}
+
+message DTBMVRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int64 arg4 = 5;
+  int64 arg5 = 6;
+  int32 arg6 = 7;
+}
+
+message DTBMVResponse {
+}
+
+message DTBSVRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int64 arg4 = 5;
+  int64 arg5 = 6;
+  int32 arg6 = 7;
+}
+
+message DTBSVResponse {
+}
+
+message DTPMVRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+  int32 arg5 = 6;
+}
+
+message DTPMVResponse {
+}
+
+message DTPSVRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+  int32 arg5 = 6;
+}
+
+message DTPSVResponse {
+}
+
+message DTRMMRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  double arg4 = 5;
+  int64 arg5 = 6;
+  int64 arg6 = 7;
+}
+
+message DTRMMResponse {
+}
+
+message DTRMVRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+  int32 arg5 = 6;
+}
+
+message DTRMVResponse {
+}
+
+message DTRSMRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  double arg4 = 5;
+  int64 arg5 = 6;
+  int64 arg6 = 7;
+}
+
+message DTRSMResponse {
+}
+
+message DTRSVRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+  int32 arg5 = 6;
+}
+
+message DTRSVResponse {
+}
+
+message SGBMVRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  float arg3 = 4;
+  int64 arg4 = 5;
+  int64 arg5 = 6;
+  int32 arg6 = 7;
+  float arg7 = 8;
+  int64 arg8 = 9;
+  int32 arg9 = 10;
+}
+
+message SGBMVResponse {
+}
+
+message SGEMMRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  float arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+  float arg5 = 6;
+  int64 arg6 = 7;
+}
+
+message SGEMMResponse {
+}
+
+message SGEMVRequest {
+  int32 arg0 = 1;
+  float arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+  int32 arg4 = 5;
+  float arg5 = 6;
+  int64 arg6 = 7;
+  int32 arg7 = 8;
+}
+
+message SGEMVResponse {
+}
+
+message SGERRequest {
+  float arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+  int64 arg3 = 4;
+  int32 arg4 = 5;
+  int64 arg5 = 6;
+}
+
+message SGERResponse {
+}
+
+message SSBMVRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  float arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+  int32 arg5 = 6;
+  float arg6 = 7;
+  int64 arg7 = 8;
+  int32 arg8 = 9;
+}
+
+message SSBMVResponse {
+}
+
+message SSPMVRequest {
+  int32 arg0 = 1;
+  float arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+  int32 arg4 = 5;
+  float arg5 = 6;
+  int64 arg6 = 7;
+  int32 arg7 = 8;
+}
+
+message SSPMVResponse {
+}
+
+message SSPRRequest {
+  int32 arg0 = 1;
+  float arg1 = 2;
+  int64 arg2 = 3;
+  int32 arg3 = 4;
+  int64 arg4 = 5;
+}
+
+message SSPRResponse {
+}
+
+message SSPR2Request {
+  int32 arg0 = 1;
+  float arg1 = 2;
+  int64 arg2 = 3;
+  int32 arg3 = 4;
+  int64 arg4 = 5;
+  int32 arg5 = 6;
+  int64 arg6 = 7;
+}
+
+message SSPR2Response {
+}
+
+message SSYMMRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  float arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+  float arg5 = 6;
+  int64 arg6 = 7;
+}
+
+message SSYMMResponse {
+}
+
+message SSYMVRequest {
+  int32 arg0 = 1;
+  float arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+  int32 arg4 = 5;
+  float arg5 = 6;
+  int64 arg6 = 7;
+  int32 arg7 = 8;
+}
+
+message SSYMVResponse {
+}
+
+message SSYRRequest {
+  int32 arg0 = 1;
+  float arg1 = 2;
+  int64 arg2 = 3;
+  int32 arg3 = 4;
+  int64 arg4 = 5;
+}
+
+message SSYRResponse {
+}
+
+message SSYR2Request {
+  int32 arg0 = 1;
+  float arg1 = 2;
+  int64 arg2 = 3;
+  int32 arg3 = 4;
+  int64 arg4 = 5;
+  int32 arg5 = 6;
+  int64 arg6 = 7;
+}
+
+message SSYR2Response {
+}
+
+message SSYR2KRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  float arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+  float arg5 = 6;
+  int64 arg6 = 7;
+}
+
+message SSYR2KResponse {
+}
+
+message SSYRKRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  float arg2 = 3;
+  int64 arg3 = 4;
+  float arg4 = 5;
+  int64 arg5 = 6;
+}
+
+message SSYRKResponse {
+}
+
+message STBMVRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int64 arg4 = 5;
+  int64 arg5 = 6;
+  int32 arg6 = 7;
+}
+
+message STBMVResponse {
+}
+
+message STBSVRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int64 arg4 = 5;
+  int64 arg5 = 6;
+  int32 arg6 = 7;
+}
+
+message STBSVResponse {
+}
+
+message STPMVRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+  int32 arg5 = 6;
+}
+
+message STPMVResponse {
+}
+
+message STPSVRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+  int32 arg5 = 6;
+}
+
+message STPSVResponse {
+}
+
+message STRMMRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  float arg4 = 5;
+  int64 arg5 = 6;
+  int64 arg6 = 7;
+}
+
+message STRMMResponse {
+}
+
+message STRMVRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+  int32 arg5 = 6;
+}
+
+message STRMVResponse {
+}
+
+message STRSMRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  float arg4 = 5;
+  int64 arg5 = 6;
+  int64 arg6 = 7;
+}
+
+message STRSMResponse {
+}
+
+message STRSVRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+  int32 arg5 = 6;
+}
+
+message STRSVResponse {
+}
+
+message ZGBMVRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+  int64 arg5 = 6;
+  int32 arg6 = 7;
+  int64 arg7 = 8;
+  int64 arg8 = 9;
+  int32 arg9 = 10;
+}
+
+message ZGBMVResponse {
+}
+
+message ZGEMMRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+  int64 arg5 = 6;
+  int64 arg6 = 7;
+}
+
+message ZGEMMResponse {
+}
+
+message ZGEMVRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+  int32 arg4 = 5;
+  int64 arg5 = 6;
+  int64 arg6 = 7;
+  int32 arg7 = 8;
+}
+
+message ZGEMVResponse {
+}
+
+message ZGERCRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+  int64 arg3 = 4;
+  int32 arg4 = 5;
+  int64 arg5 = 6;
+}
+
+message ZGERCResponse {
+}
+
+message ZGERURequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+  int64 arg3 = 4;
+  int32 arg4 = 5;
+  int64 arg5 = 6;
+}
+
+message ZGERUResponse {
+}
+
+message ZHBMVRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+  int32 arg5 = 6;
+  int64 arg6 = 7;
+  int64 arg7 = 8;
+  int32 arg8 = 9;
+}
+
+message ZHBMVResponse {
+}
+
+message ZHEMMRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+  int64 arg5 = 6;
+  int64 arg6 = 7;
+}
+
+message ZHEMMResponse {
+}
+
+message ZHEMVRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+  int32 arg4 = 5;
+  int64 arg5 = 6;
+  int64 arg6 = 7;
+  int32 arg7 = 8;
+}
+
+message ZHEMVResponse {
+}
+
+message ZHERRequest {
+  int32 arg0 = 1;
+  double arg1 = 2;
+  int64 arg2 = 3;
+  int32 arg3 = 4;
+  int64 arg4 = 5;
+}
+
+message ZHERResponse {
+}
+
+message ZHER2Request {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int32 arg3 = 4;
+  int64 arg4 = 5;
+  int32 arg5 = 6;
+  int64 arg6 = 7;
+}
+
+message ZHER2Response {
+}
+
+message ZHER2KRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+  double arg5 = 6;
+  int64 arg6 = 7;
+}
+
+message ZHER2KResponse {
+}
+
+message ZHERKRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  double arg2 = 3;
+  int64 arg3 = 4;
+  double arg4 = 5;
+  int64 arg5 = 6;
+}
+
+message ZHERKResponse {
+}
+
+message ZHPMVRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+  int32 arg4 = 5;
+  int64 arg5 = 6;
+  int64 arg6 = 7;
+  int32 arg7 = 8;
+}
+
+message ZHPMVResponse {
+}
+
+message ZHPRRequest {
+  int32 arg0 = 1;
+  double arg1 = 2;
+  int64 arg2 = 3;
+  int32 arg3 = 4;
+  int64 arg4 = 5;
+}
+
+message ZHPRResponse {
+}
+
+message ZHPR2Request {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int32 arg3 = 4;
+  int64 arg4 = 5;
+  int32 arg5 = 6;
+  int64 arg6 = 7;
+}
+
+message ZHPR2Response {
+}
+
+message ZSYMMRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+  int64 arg5 = 6;
+  int64 arg6 = 7;
+}
+
+message ZSYMMResponse {
+}
+
+message ZSYR2KRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+  int64 arg5 = 6;
+  int64 arg6 = 7;
+}
+
+message ZSYR2KResponse {
+}
+
+message ZSYRKRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+  int64 arg5 = 6;
+}
+
+message ZSYRKResponse {
+}
+
+message ZTBMVRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int64 arg4 = 5;
+  int64 arg5 = 6;
+  int32 arg6 = 7;
+}
+
+message ZTBMVResponse {
+}
+
+message ZTBSVRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int64 arg4 = 5;
+  int64 arg5 = 6;
+  int32 arg6 = 7;
+}
+
+message ZTBSVResponse {
+}
+
+message ZTPMVRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+  int32 arg5 = 6;
+}
+
+message ZTPMVResponse {
+}
+
+message ZTPSVRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+  int32 arg5 = 6;
+}
+
+message ZTPSVResponse {
+}
+
+message ZTRMMRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int64 arg4 = 5;
+  int64 arg5 = 6;
+  int64 arg6 = 7;
+}
+
+message ZTRMMResponse {
+}
+
+message ZTRMVRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+  int32 arg5 = 6;
+}
+
+message ZTRMVResponse {
+}
+
+message ZTRSMRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int64 arg4 = 5;
+  int64 arg5 = 6;
+  int64 arg6 = 7;
+}
+
+message ZTRSMResponse {
+}
+
+message ZTRSVRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+  int32 arg5 = 6;
+}
+
+message ZTRSVResponse {
+}
+
+message ScriptIntrinsicBLASCreateRequest {
+  int64 arg0 = 1;
+}
+
+message Copy1DRangeFrom4Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message Copy1DRangeFrom4Response {
+}
+
+message Copy1DRangeFrom3_1Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message Copy1DRangeFrom3_1Response {
+}
+
+message Copy1DRangeFrom3_2Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message Copy1DRangeFrom3_2Response {
+}
+
+message Copy1DRangeFrom3_3Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message Copy1DRangeFrom3_3Response {
+}
+
+message Copy1DRangeFrom3_4Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message Copy1DRangeFrom3_4Response {
+}
+
+message Copy1DRangeFrom3_5Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message Copy1DRangeFrom3_5Response {
+}
+
+message Copy1DRangeFromUnchecked3Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message Copy1DRangeFromUnchecked3Response {
+}
+
+message Copy1DRangeFromUnchecked3_1Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message Copy1DRangeFromUnchecked3_1Response {
+}
+
+message Copy1DRangeFromUnchecked3_2Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message Copy1DRangeFromUnchecked3_2Response {
+}
+
+message Copy1DRangeFromUnchecked3_3Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message Copy1DRangeFromUnchecked3_3Response {
+}
+
+message Copy1DRangeFromUnchecked3_4Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message Copy1DRangeFromUnchecked3_4Response {
+}
+
+message Copy1DRangeTo3Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message Copy1DRangeTo3Response {
+}
+
+message Copy1DRangeTo3_1Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message Copy1DRangeTo3_1Response {
+}
+
+message Copy1DRangeTo3_2Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message Copy1DRangeTo3_2Response {
+}
+
+message Copy1DRangeTo3_3Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message Copy1DRangeTo3_3Response {
+}
+
+message Copy1DRangeTo3_4Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message Copy1DRangeTo3_4Response {
+}
+
+message Copy1DRangeToUnchecked3Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message Copy1DRangeToUnchecked3Response {
+}
+
+message Copy1DRangeToUnchecked3_1Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message Copy1DRangeToUnchecked3_1Response {
+}
+
+message Copy1DRangeToUnchecked3_2Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message Copy1DRangeToUnchecked3_2Response {
+}
+
+message Copy1DRangeToUnchecked3_3Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message Copy1DRangeToUnchecked3_3Response {
+}
+
+message Copy1DRangeToUnchecked3_4Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message Copy1DRangeToUnchecked3_4Response {
+}
+
+message Copy2DRangeFrom3Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message Copy2DRangeFrom3Response {
+}
+
+message Copy2DRangeFrom7_1Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int64 arg4 = 5;
+  int32 arg5 = 6;
+  int32 arg6 = 7;
+}
+
+message Copy2DRangeFrom7_1Response {
+}
+
+message Copy2DRangeFrom5_2Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int64 arg4 = 5;
+}
+
+message Copy2DRangeFrom5_2Response {
+}
+
+message Copy2DRangeFrom5_3Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int64 arg4 = 5;
+}
+
+message Copy2DRangeFrom5_3Response {
+}
+
+message Copy2DRangeFrom5_4Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int64 arg4 = 5;
+}
+
+message Copy2DRangeFrom5_4Response {
+}
+
+message Copy2DRangeFrom5_5Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int64 arg4 = 5;
+}
+
+message Copy2DRangeFrom5_5Response {
+}
+
+message Copy2DRangeFrom5_6Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int64 arg4 = 5;
+}
+
+message Copy2DRangeFrom5_6Response {
+}
+
+message Copy2DRangeTo5Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int64 arg4 = 5;
+}
+
+message Copy2DRangeTo5Response {
+}
+
+message Copy2DRangeTo5_1Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int64 arg4 = 5;
+}
+
+message Copy2DRangeTo5_1Response {
+}
+
+message Copy2DRangeTo5_2Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int64 arg4 = 5;
+}
+
+message Copy2DRangeTo5_2Response {
+}
+
+message Copy2DRangeTo5_3Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int64 arg4 = 5;
+}
+
+message Copy2DRangeTo5_3Response {
+}
+
+message Copy2DRangeTo5_4Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int64 arg4 = 5;
+}
+
+message Copy2DRangeTo5_4Response {
+}
+
+message Copy3DRangeFrom10Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int32 arg4 = 5;
+  int32 arg5 = 6;
+  int64 arg6 = 7;
+  int32 arg7 = 8;
+  int32 arg8 = 9;
+  int32 arg9 = 10;
+}
+
+message Copy3DRangeFrom10Response {
+}
+
+message Copy3DRangeFrom7_1Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int32 arg4 = 5;
+  int32 arg5 = 6;
+  int64 arg6 = 7;
+}
+
+message Copy3DRangeFrom7_1Response {
+}
+
+message Copy3DRangeToRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int32 arg4 = 5;
+  int32 arg5 = 6;
+  int64 arg6 = 7;
+}
+
+message Copy3DRangeToResponse {
+}
+
+message CopyFrom1Request {
+  int64 arg0 = 1;
+}
+
+message CopyFrom1Response {
+}
+
+message CopyFrom1_1Request {
+  int64 arg0 = 1;
+}
+
+message CopyFrom1_1Response {
+}
+
+message CopyFrom1_2Request {
+  int64 arg0 = 1;
+}
+
+message CopyFrom1_2Response {
+}
+
+message CopyFrom1_3Request {
+  int64 arg0 = 1;
+}
+
+message CopyFrom1_3Response {
+}
+
+message CopyFrom1_4Request {
+  int64 arg0 = 1;
+}
+
+message CopyFrom1_4Response {
+}
+
+message CopyFrom1_5Request {
+  int64 arg0 = 1;
+}
+
+message CopyFrom1_5Response {
+}
+
+message CopyFrom1_6Request {
+  int64 arg0 = 1;
+}
+
+message CopyFrom1_6Response {
+}
+
+message CopyFrom1_7Request {
+  int64 arg0 = 1;
+}
+
+message CopyFrom1_7Response {
+}
+
+message CopyFromUnchecked1Request {
+  int64 arg0 = 1;
+}
+
+message CopyFromUnchecked1Response {
+}
+
+message CopyFromUnchecked1_1Request {
+  int64 arg0 = 1;
+}
+
+message CopyFromUnchecked1_1Response {
+}
+
+message CopyFromUnchecked1_2Request {
+  int64 arg0 = 1;
+}
+
+message CopyFromUnchecked1_2Response {
+}
+
+message CopyFromUnchecked1_3Request {
+  int64 arg0 = 1;
+}
+
+message CopyFromUnchecked1_3Response {
+}
+
+message CopyFromUnchecked1_4Request {
+  int64 arg0 = 1;
+}
+
+message CopyFromUnchecked1_4Response {
+}
+
+message CopyTo1Request {
+  int64 arg0 = 1;
+}
+
+message CopyTo1Response {
+}
+
+message CopyTo1_1Request {
+  int64 arg0 = 1;
+}
+
+message CopyTo1_1Response {
+}
+
+message CopyTo1_2Request {
+  int64 arg0 = 1;
+}
+
+message CopyTo1_2Response {
+}
+
+message CopyTo1_3Request {
+  int64 arg0 = 1;
+}
+
+message CopyTo1_3Response {
+}
+
+message CopyTo1_4Request {
+  int64 arg0 = 1;
+}
+
+message CopyTo1_4Response {
+}
+
+message CopyTo1_5Request {
+  int64 arg0 = 1;
+}
+
+message CopyTo1_5Response {
+}
+
+message GenerateMipmapsRequest {
+}
+
+message GenerateMipmapsResponse {
+}
+
+message GetByteBufferRequest {
+}
+
+message GetByteBufferResponse {
+  int64 result = 1;
+}
+
+message GetBytesSizeRequest {
+}
+
+message GetBytesSizeResponse {
+  int32 result = 1;
+}
+
+message GetElementRequest {
+}
+
+message GetElementResponse {
+  int64 result = 1;
+}
+
+message GetStrideRequest {
+}
+
+message GetStrideResponse {
+  int64 result = 1;
+}
+
+message GetSurfaceRequest {
+}
+
+message GetSurfaceResponse {
+  int64 result = 1;
+}
+
+message GetTimeStampRequest {
+}
+
+message GetTimeStampResponse {
+  int64 result = 1;
+}
+
+message GetTypeRequest {
+}
+
+message GetTypeResponse {
+  int64 result = 1;
+}
+
+message GetUsageRequest {
+}
+
+message GetUsageResponse {
+  int32 result = 1;
+}
+
+message IoReceiveRequest {
+}
+
+message IoReceiveResponse {
+}
+
+message IoSendRequest {
+}
+
+message IoSendResponse {
+}
+
+message SetAutoPaddingRequest {
+  bool arg0 = 1;
+}
+
+message SetAutoPaddingResponse {
+}
+
+message SetFromFieldPacker2Request {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SetFromFieldPacker2Response {
+}
+
+message SetFromFieldPacker3_1Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message SetFromFieldPacker3_1Response {
+}
+
+message SetFromFieldPacker5_2Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int64 arg4 = 5;
+}
+
+message SetFromFieldPacker5_2Response {
+}
+
+message SetOnBufferAvailableListenerRequest {
+  int64 arg0 = 1;
+}
+
+message SetOnBufferAvailableListenerResponse {
+}
+
+message SetSurfaceRequest {
+  int64 arg0 = 1;
+}
+
+message SetSurfaceResponse {
+}
+
+message SyncAllRequest {
+  int32 arg0 = 1;
+}
+
+message SyncAllResponse {
+}
+
+message CreateAllocationsRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message CreateAllocationsResponse {
+  int64 result = 1;
+}
+
+message CreateCubemapFromBitmap2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message CreateCubemapFromBitmap2Response {
+  int64 result = 1;
+}
+
+message CreateCubemapFromBitmap4_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message CreateCubemapFromBitmap4_1Response {
+  int64 result = 1;
+}
+
+message CreateCubemapFromCubeFaces7Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+  int64 arg5 = 6;
+  int64 arg6 = 7;
+}
+
+message CreateCubemapFromCubeFaces7Response {
+  int64 result = 1;
+}
+
+message CreateCubemapFromCubeFaces9_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+  int64 arg5 = 6;
+  int64 arg6 = 7;
+  int64 arg7 = 8;
+  int32 arg8 = 9;
+}
+
+message CreateCubemapFromCubeFaces9_1Response {
+  int64 result = 1;
+}
+
+message CreateFromBitmap2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message CreateFromBitmap2Response {
+  int64 result = 1;
+}
+
+message CreateFromBitmap4_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message CreateFromBitmap4_1Response {
+  int64 result = 1;
+}
+
+message CreateFromBitmapResource3Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message CreateFromBitmapResource3Response {
+  int64 result = 1;
+}
+
+message CreateFromBitmapResource5_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+  int64 arg3 = 4;
+  int32 arg4 = 5;
+}
+
+message CreateFromBitmapResource5_1Response {
+  int64 result = 1;
+}
+
+message CreateFromStringRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message CreateFromStringResponse {
+  int64 result = 1;
+}
+
+message CreateSized3Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message CreateSized3Response {
+  int64 result = 1;
+}
+
+message CreateSized4_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message CreateSized4_1Response {
+  int64 result = 1;
+}
+
+message CreateTyped2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message CreateTyped2Response {
+  int64 result = 1;
+}
+
+message CreateTyped4_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message CreateTyped4_1Response {
+  int64 result = 1;
+}
+
+message CreateTyped3_2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message CreateTyped3_2Response {
+  int64 result = 1;
+}
+
+message OnBufferAvailableRequest {
+  int64 arg0 = 1;
+}
+
+message OnBufferAvailableResponse {
+}
+
+message BindAllocationRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message BindAllocationResponse {
+}
+
+message GetVarBRequest {
+  int32 arg0 = 1;
+}
+
+message GetVarBResponse {
+  bool result = 1;
+}
+
+message GetVarDRequest {
+  int32 arg0 = 1;
+}
+
+message GetVarDResponse {
+  double result = 1;
+}
+
+message GetVarFRequest {
+  int32 arg0 = 1;
+}
+
+message GetVarFResponse {
+  float result = 1;
+}
+
+message GetVarIRequest {
+  int32 arg0 = 1;
+}
+
+message GetVarIResponse {
+  int32 result = 1;
+}
+
+message GetVarJRequest {
+  int32 arg0 = 1;
+}
+
+message GetVarJResponse {
+  int64 result = 1;
+}
+
+message GetVarVRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message GetVarVResponse {
+}
+
+message SetTimeZoneRequest {
+  string arg0 = 1;
+}
+
+message SetTimeZoneResponse {
+}
+
+message SetVar2Request {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SetVar2Response {
+}
+
+message SetVar2_1Request {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SetVar2_1Response {
+}
+
+message SetVar4_2Request {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message SetVar4_2Response {
+}
+
+message SetVar2_3Request {
+  int32 arg0 = 1;
+  bool arg1 = 2;
+}
+
+message SetVar2_3Response {
+}
+
+message SetVar2_4Request {
+  int32 arg0 = 1;
+  double arg1 = 2;
+}
+
+message SetVar2_4Response {
+}
+
+message SetVar2_5Request {
+  int32 arg0 = 1;
+  float arg1 = 2;
+}
+
+message SetVar2_5Response {
+}
+
+message SetVar2_6Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message SetVar2_6Response {
+}
+
+message SetVar2_7Request {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SetVar2_7Response {
+}
+
+message GetAllocationRequest {
+}
+
+message GetAllocationResponse {
+  int64 result = 1;
+}
+
+message UpdateAllocationRequest {
+}
+
+message UpdateAllocationResponse {
+}
+
+message GetXEndRequest {
+}
+
+message GetXEndResponse {
+  int32 result = 1;
+}
+
+message GetXStartRequest {
+}
+
+message GetXStartResponse {
+  int32 result = 1;
+}
+
+message GetYEndRequest {
+}
+
+message GetYEndResponse {
+  int32 result = 1;
+}
+
+message GetYStartRequest {
+}
+
+message GetYStartResponse {
+  int32 result = 1;
+}
+
+message GetZEndRequest {
+}
+
+message GetZEndResponse {
+  int32 result = 1;
+}
+
+message GetZStartRequest {
+}
+
+message GetZStartResponse {
+  int32 result = 1;
+}
+
+message SetXRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message SetXResponse {
+  int64 result = 1;
+}
+
+message SetYRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message SetYResponse {
+  int64 result = 1;
+}
+
+message SetZRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message SetZResponse {
+  int64 result = 1;
+}
+
+message SetLUTRequest {
+  int64 arg0 = 1;
+}
+
+message SetLUTResponse {
+}
+
+message ScriptIntrinsic3DLUTCreateRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message GetCountRequest {
+}
+
+message GetCountResponse {
+  int32 result = 1;
+}
+
+message GetXRequest {
+}
+
+message GetXResponse {
+  int32 result = 1;
+}
+
+message GetYRequest {
+}
+
+message GetYResponse {
+  int32 result = 1;
+}
+
+message GetYuvRequest {
+}
+
+message GetYuvResponse {
+  int32 result = 1;
+}
+
+message GetZRequest {
+}
+
+message GetZResponse {
+  int32 result = 1;
+}
+
+message HasFacesRequest {
+}
+
+message HasFacesResponse {
+  bool result = 1;
+}
+
+message HasMipmapsRequest {
+}
+
+message HasMipmapsResponse {
+  bool result = 1;
+}
+
+message CreateXRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message CreateXResponse {
+  int64 result = 1;
+}
+
+message CreateXYRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message CreateXYResponse {
+  int64 result = 1;
+}
+
+message CreateXYZRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int32 arg4 = 5;
+}
+
+message CreateXYZResponse {
+  int64 result = 1;
+}
+
+message SetFacesRequest {
+  bool arg0 = 1;
+}
+
+message SetFacesResponse {
+  int64 result = 1;
+}
+
+message SetMipmapsRequest {
+  bool arg0 = 1;
+}
+
+message SetMipmapsResponse {
+  int64 result = 1;
+}
+
+message TypeBuilderSetXRequest {
+  int32 arg0 = 1;
+}
+
+message TypeBuilderSetYRequest {
+  int32 arg0 = 1;
+}
+
+message SetYuvFormatRequest {
+  int32 arg0 = 1;
+}
+
+message SetYuvFormatResponse {
+  int64 result = 1;
+}
+
+message TypeBuilderSetZRequest {
+  int32 arg0 = 1;
+}
+
+message ScriptIntrinsicBlurSetInputRequest {
+  int64 arg0 = 1;
+}
+
+message SetRadiusRequest {
+  float arg0 = 1;
+}
+
+message SetRadiusResponse {
+}
+
+message ScriptIntrinsicBlurCreateRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SetFaceRequest {
+  int64 arg0 = 1;
+}
+
+message SetFaceResponse {
+}
+
+message SetLODRequest {
+  int32 arg0 = 1;
+}
+
+message SetLODResponse {
+}
+
+message AllocationAdapterSetXRequest {
+  int32 arg0 = 1;
+}
+
+message AllocationAdapterSetXResponse {
+}
+
+message AllocationAdapterSetYRequest {
+  int32 arg0 = 1;
+}
+
+message AllocationAdapterSetYResponse {
+}
+
+message AllocationAdapterSetZRequest {
+  int32 arg0 = 1;
+}
+
+message AllocationAdapterSetZResponse {
+}
+
+message Create1DRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message Create1DResponse {
+  int64 result = 1;
+}
+
+message Create2DRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message Create2DResponse {
+  int64 result = 1;
+}
+
+message CreateTypedRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message CreateTypedResponse {
+  int64 result = 1;
+}
+
+message GetDataKindRequest {
+}
+
+message GetDataKindResponse {
+  int64 result = 1;
+}
+
+message GetDataTypeRequest {
+}
+
+message GetDataTypeResponse {
+  int64 result = 1;
+}
+
+message GetSubElementRequest {
+  int32 arg0 = 1;
+}
+
+message GetSubElementResponse {
+  int64 result = 1;
+}
+
+message GetSubElementArraySizeRequest {
+  int32 arg0 = 1;
+}
+
+message GetSubElementArraySizeResponse {
+  int32 result = 1;
+}
+
+message GetSubElementCountRequest {
+}
+
+message GetSubElementCountResponse {
+  int32 result = 1;
+}
+
+message GetSubElementNameRequest {
+  int32 arg0 = 1;
+}
+
+message GetSubElementNameResponse {
+  string result = 1;
+}
+
+message GetSubElementOffsetBytesRequest {
+  int32 arg0 = 1;
+}
+
+message GetSubElementOffsetBytesResponse {
+  int32 result = 1;
+}
+
+message GetVectorSizeRequest {
+}
+
+message GetVectorSizeResponse {
+  int32 result = 1;
+}
+
+message IsCompatibleRequest {
+  int64 arg0 = 1;
+}
+
+message IsCompatibleResponse {
+  bool result = 1;
+}
+
+message IsComplexRequest {
+}
+
+message IsComplexResponse {
+  bool result = 1;
+}
+
+message ALLOCATIONRequest {
+  int64 arg0 = 1;
+}
+
+message ALLOCATIONResponse {
+  int64 result = 1;
+}
+
+message A_8Request {
+  int64 arg0 = 1;
+}
+
+message A_8Response {
+  int64 result = 1;
+}
+
+message BOOLEANRequest {
+  int64 arg0 = 1;
+}
+
+message BOOLEANResponse {
+  int64 result = 1;
+}
+
+message ELEMENTRequest {
+  int64 arg0 = 1;
+}
+
+message ELEMENTResponse {
+  int64 result = 1;
+}
+
+message F16Request {
+  int64 arg0 = 1;
+}
+
+message F16Response {
+  int64 result = 1;
+}
+
+message F16_2Request {
+  int64 arg0 = 1;
+}
+
+message F16_2Response {
+  int64 result = 1;
+}
+
+message F16_3Request {
+  int64 arg0 = 1;
+}
+
+message F16_3Response {
+  int64 result = 1;
+}
+
+message F16_4Request {
+  int64 arg0 = 1;
+}
+
+message F16_4Response {
+  int64 result = 1;
+}
+
+message F32Request {
+  int64 arg0 = 1;
+}
+
+message F32Response {
+  int64 result = 1;
+}
+
+message F32_2Request {
+  int64 arg0 = 1;
+}
+
+message F32_2Response {
+  int64 result = 1;
+}
+
+message F32_3Request {
+  int64 arg0 = 1;
+}
+
+message F32_3Response {
+  int64 result = 1;
+}
+
+message F32_4Request {
+  int64 arg0 = 1;
+}
+
+message F32_4Response {
+  int64 result = 1;
+}
+
+message F64Request {
+  int64 arg0 = 1;
+}
+
+message F64Response {
+  int64 result = 1;
+}
+
+message F64_2Request {
+  int64 arg0 = 1;
+}
+
+message F64_2Response {
+  int64 result = 1;
+}
+
+message F64_3Request {
+  int64 arg0 = 1;
+}
+
+message F64_3Response {
+  int64 result = 1;
+}
+
+message F64_4Request {
+  int64 arg0 = 1;
+}
+
+message F64_4Response {
+  int64 result = 1;
+}
+
+message FONTRequest {
+  int64 arg0 = 1;
+}
+
+message FONTResponse {
+  int64 result = 1;
+}
+
+message I16Request {
+  int64 arg0 = 1;
+}
+
+message I16Response {
+  int64 result = 1;
+}
+
+message I16_2Request {
+  int64 arg0 = 1;
+}
+
+message I16_2Response {
+  int64 result = 1;
+}
+
+message I16_3Request {
+  int64 arg0 = 1;
+}
+
+message I16_3Response {
+  int64 result = 1;
+}
+
+message I16_4Request {
+  int64 arg0 = 1;
+}
+
+message I16_4Response {
+  int64 result = 1;
+}
+
+message I32Request {
+  int64 arg0 = 1;
+}
+
+message I32Response {
+  int64 result = 1;
+}
+
+message I32_2Request {
+  int64 arg0 = 1;
+}
+
+message I32_2Response {
+  int64 result = 1;
+}
+
+message I32_3Request {
+  int64 arg0 = 1;
+}
+
+message I32_3Response {
+  int64 result = 1;
+}
+
+message I32_4Request {
+  int64 arg0 = 1;
+}
+
+message I32_4Response {
+  int64 result = 1;
+}
+
+message I64Request {
+  int64 arg0 = 1;
+}
+
+message I64Response {
+  int64 result = 1;
+}
+
+message I64_2Request {
+  int64 arg0 = 1;
+}
+
+message I64_2Response {
+  int64 result = 1;
+}
+
+message I64_3Request {
+  int64 arg0 = 1;
+}
+
+message I64_3Response {
+  int64 result = 1;
+}
+
+message I64_4Request {
+  int64 arg0 = 1;
+}
+
+message I64_4Response {
+  int64 result = 1;
+}
+
+message I8Request {
+  int64 arg0 = 1;
+}
+
+message I8Response {
+  int64 result = 1;
+}
+
+message I8_2Request {
+  int64 arg0 = 1;
+}
+
+message I8_2Response {
+  int64 result = 1;
+}
+
+message I8_3Request {
+  int64 arg0 = 1;
+}
+
+message I8_3Response {
+  int64 result = 1;
+}
+
+message I8_4Request {
+  int64 arg0 = 1;
+}
+
+message I8_4Response {
+  int64 result = 1;
+}
+
+message MATRIX4X4Request {
+  int64 arg0 = 1;
+}
+
+message MATRIX4X4Response {
+  int64 result = 1;
+}
+
+message MATRIX_2X2Request {
+  int64 arg0 = 1;
+}
+
+message MATRIX_2X2Response {
+  int64 result = 1;
+}
+
+message MATRIX_3X3Request {
+  int64 arg0 = 1;
+}
+
+message MATRIX_3X3Response {
+  int64 result = 1;
+}
+
+message MATRIX_4X4Request {
+  int64 arg0 = 1;
+}
+
+message MATRIX_4X4Response {
+  int64 result = 1;
+}
+
+message MESHRequest {
+  int64 arg0 = 1;
+}
+
+message MESHResponse {
+  int64 result = 1;
+}
+
+message PROGRAM_FRAGMENTRequest {
+  int64 arg0 = 1;
+}
+
+message PROGRAM_FRAGMENTResponse {
+  int64 result = 1;
+}
+
+message PROGRAM_RASTERRequest {
+  int64 arg0 = 1;
+}
+
+message PROGRAM_RASTERResponse {
+  int64 result = 1;
+}
+
+message PROGRAM_STORERequest {
+  int64 arg0 = 1;
+}
+
+message PROGRAM_STOREResponse {
+  int64 result = 1;
+}
+
+message PROGRAM_VERTEXRequest {
+  int64 arg0 = 1;
+}
+
+message PROGRAM_VERTEXResponse {
+  int64 result = 1;
+}
+
+message RGBA_4444Request {
+  int64 arg0 = 1;
+}
+
+message RGBA_4444Response {
+  int64 result = 1;
+}
+
+message RGBA_5551Request {
+  int64 arg0 = 1;
+}
+
+message RGBA_5551Response {
+  int64 result = 1;
+}
+
+message RGBA_8888Request {
+  int64 arg0 = 1;
+}
+
+message RGBA_8888Response {
+  int64 result = 1;
+}
+
+message RGB_565Request {
+  int64 arg0 = 1;
+}
+
+message RGB_565Response {
+  int64 result = 1;
+}
+
+message RGB_888Request {
+  int64 arg0 = 1;
+}
+
+message RGB_888Response {
+  int64 result = 1;
+}
+
+message SAMPLERRequest {
+  int64 arg0 = 1;
+}
+
+message SAMPLERResponse {
+  int64 result = 1;
+}
+
+message SCRIPTRequest {
+  int64 arg0 = 1;
+}
+
+message SCRIPTResponse {
+  int64 result = 1;
+}
+
+message TYPERequest {
+  int64 arg0 = 1;
+}
+
+message TYPEResponse {
+  int64 result = 1;
+}
+
+message U16Request {
+  int64 arg0 = 1;
+}
+
+message U16Response {
+  int64 result = 1;
+}
+
+message U16_2Request {
+  int64 arg0 = 1;
+}
+
+message U16_2Response {
+  int64 result = 1;
+}
+
+message U16_3Request {
+  int64 arg0 = 1;
+}
+
+message U16_3Response {
+  int64 result = 1;
+}
+
+message U16_4Request {
+  int64 arg0 = 1;
+}
+
+message U16_4Response {
+  int64 result = 1;
+}
+
+message U32Request {
+  int64 arg0 = 1;
+}
+
+message U32Response {
+  int64 result = 1;
+}
+
+message U32_2Request {
+  int64 arg0 = 1;
+}
+
+message U32_2Response {
+  int64 result = 1;
+}
+
+message U32_3Request {
+  int64 arg0 = 1;
+}
+
+message U32_3Response {
+  int64 result = 1;
+}
+
+message U32_4Request {
+  int64 arg0 = 1;
+}
+
+message U32_4Response {
+  int64 result = 1;
+}
+
+message U64Request {
+  int64 arg0 = 1;
+}
+
+message U64Response {
+  int64 result = 1;
+}
+
+message U64_2Request {
+  int64 arg0 = 1;
+}
+
+message U64_2Response {
+  int64 result = 1;
+}
+
+message U64_3Request {
+  int64 arg0 = 1;
+}
+
+message U64_3Response {
+  int64 result = 1;
+}
+
+message U64_4Request {
+  int64 arg0 = 1;
+}
+
+message U64_4Response {
+  int64 result = 1;
+}
+
+message U8Request {
+  int64 arg0 = 1;
+}
+
+message U8Response {
+  int64 result = 1;
+}
+
+message U8_2Request {
+  int64 arg0 = 1;
+}
+
+message U8_2Response {
+  int64 result = 1;
+}
+
+message U8_3Request {
+  int64 arg0 = 1;
+}
+
+message U8_3Response {
+  int64 result = 1;
+}
+
+message U8_4Request {
+  int64 arg0 = 1;
+}
+
+message U8_4Response {
+  int64 result = 1;
+}
+
+message YUVRequest {
+  int64 arg0 = 1;
+}
+
+message YUVResponse {
+  int64 result = 1;
+}
+
+message CreatePixelRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message CreatePixelResponse {
+  int64 result = 1;
+}
+
+message CreateVectorRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message CreateVectorResponse {
+  int64 result = 1;
+}
+
+message Add2Request {
+  int64 arg0 = 1;
+  string arg1 = 2;
+}
+
+message Add2Response {
+  int64 result = 1;
+}
+
+message Add3_1Request {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message Add3_1Response {
+  int64 result = 1;
+}
+
+message NewMatrix3fRequest {
+}
+
+message NewMatrix3fResponse {
+  int64 result = 1;
+}
+
+message GetRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message GetResponse {
+  float result = 1;
+}
+
+message GetArrayRequest {
+  int64 handle = 1;
+}
+
+message GetArrayResponse {
+  int64 result = 1;
+}
+
+message LoadRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message LoadResponse {
+}
+
+message LoadIdentityRequest {
+  int64 handle = 1;
+}
+
+message LoadIdentityResponse {
+}
+
+message LoadMultiplyRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message LoadMultiplyResponse {
+}
+
+message LoadRotate1Request {
+  int64 handle = 1;
+  float arg0 = 2;
+}
+
+message LoadRotate1Response {
+}
+
+message LoadRotate4_1Request {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+  float arg3 = 5;
+}
+
+message LoadRotate4_1Response {
+}
+
+message LoadScale2Request {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+}
+
+message LoadScale2Response {
+}
+
+message LoadScale3_1Request {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+}
+
+message LoadScale3_1Response {
+}
+
+message LoadTranslateRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+}
+
+message LoadTranslateResponse {
+}
+
+message MultiplyRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message MultiplyResponse {
+}
+
+message Rotate1Request {
+  int64 handle = 1;
+  float arg0 = 2;
+}
+
+message Rotate1Response {
+}
+
+message Rotate4_1Request {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+  float arg3 = 5;
+}
+
+message Rotate4_1Response {
+}
+
+message Scale2Request {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+}
+
+message Scale2Response {
+}
+
+message Scale3_1Request {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+}
+
+message Scale3_1Response {
+}
+
+message SetRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+  float arg2 = 4;
+}
+
+message SetResponse {
+}
+
+message TranslateRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+}
+
+message TranslateResponse {
+}
+
+message TransposeRequest {
+  int64 handle = 1;
+}
+
+message TransposeResponse {
+}
+
+message SetCoefficientsRequest {
+  int64 arg0 = 1;
+}
+
+message SetCoefficientsResponse {
+}
+
+message ScriptIntrinsicConvolve5x5SetInputRequest {
+  int64 arg0 = 1;
+}
+
+message ScriptIntrinsicConvolve5x5CreateRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message ForEachAdd2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message ForEachAdd2Response {
+}
+
+message ForEachAdd3_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message ForEachAdd3_1Response {
+}
+
+message ForEachClear2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message ForEachClear2Response {
+}
+
+message ForEachClear3_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message ForEachClear3_1Response {
+}
+
+message ForEachDst2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message ForEachDst2Response {
+}
+
+message ForEachDst3_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message ForEachDst3_1Response {
+}
+
+message ForEachDstAtop2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message ForEachDstAtop2Response {
+}
+
+message ForEachDstAtop3_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message ForEachDstAtop3_1Response {
+}
+
+message ForEachDstIn2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message ForEachDstIn2Response {
+}
+
+message ForEachDstIn3_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message ForEachDstIn3_1Response {
+}
+
+message ForEachDstOut2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message ForEachDstOut2Response {
+}
+
+message ForEachDstOut3_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message ForEachDstOut3_1Response {
+}
+
+message ForEachDstOver2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message ForEachDstOver2Response {
+}
+
+message ForEachDstOver3_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message ForEachDstOver3_1Response {
+}
+
+message ForEachMultiply2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message ForEachMultiply2Response {
+}
+
+message ForEachMultiply3_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message ForEachMultiply3_1Response {
+}
+
+message ForEachSrc2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message ForEachSrc2Response {
+}
+
+message ForEachSrc3_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message ForEachSrc3_1Response {
+}
+
+message ForEachSrcAtop2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message ForEachSrcAtop2Response {
+}
+
+message ForEachSrcAtop3_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message ForEachSrcAtop3_1Response {
+}
+
+message ForEachSrcIn2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message ForEachSrcIn2Response {
+}
+
+message ForEachSrcIn3_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message ForEachSrcIn3_1Response {
+}
+
+message ForEachSrcOut2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message ForEachSrcOut2Response {
+}
+
+message ForEachSrcOut3_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message ForEachSrcOut3_1Response {
+}
+
+message ForEachSrcOver2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message ForEachSrcOver2Response {
+}
+
+message ForEachSrcOver3_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message ForEachSrcOver3_1Response {
+}
+
+message ForEachSubtract2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message ForEachSubtract2Response {
+}
+
+message ForEachSubtract3_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message ForEachSubtract3_1Response {
+}
+
+message ForEachXor2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message ForEachXor2Response {
+}
+
+message ForEachXor3_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message ForEachXor3_1Response {
+}
+
+message GetKernelIDAddRequest {
+}
+
+message GetKernelIDAddResponse {
+  int64 result = 1;
+}
+
+message GetKernelIDClearRequest {
+}
+
+message GetKernelIDClearResponse {
+  int64 result = 1;
+}
+
+message GetKernelIDDstRequest {
+}
+
+message GetKernelIDDstResponse {
+  int64 result = 1;
+}
+
+message GetKernelIDDstAtopRequest {
+}
+
+message GetKernelIDDstAtopResponse {
+  int64 result = 1;
+}
+
+message GetKernelIDDstInRequest {
+}
+
+message GetKernelIDDstInResponse {
+  int64 result = 1;
+}
+
+message GetKernelIDDstOutRequest {
+}
+
+message GetKernelIDDstOutResponse {
+  int64 result = 1;
+}
+
+message GetKernelIDDstOverRequest {
+}
+
+message GetKernelIDDstOverResponse {
+  int64 result = 1;
+}
+
+message GetKernelIDMultiplyRequest {
+}
+
+message GetKernelIDMultiplyResponse {
+  int64 result = 1;
+}
+
+message GetKernelIDSrcRequest {
+}
+
+message GetKernelIDSrcResponse {
+  int64 result = 1;
+}
+
+message GetKernelIDSrcAtopRequest {
+}
+
+message GetKernelIDSrcAtopResponse {
+  int64 result = 1;
+}
+
+message GetKernelIDSrcInRequest {
+}
+
+message GetKernelIDSrcInResponse {
+  int64 result = 1;
+}
+
+message GetKernelIDSrcOutRequest {
+}
+
+message GetKernelIDSrcOutResponse {
+  int64 result = 1;
+}
+
+message GetKernelIDSrcOverRequest {
+}
+
+message GetKernelIDSrcOverResponse {
+  int64 result = 1;
+}
+
+message GetKernelIDSubtractRequest {
+}
+
+message GetKernelIDSubtractResponse {
+  int64 result = 1;
+}
+
+message GetKernelIDXorRequest {
+}
+
+message GetKernelIDXorResponse {
+  int64 result = 1;
+}
+
+message ScriptIntrinsicBlendCreateRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message ScriptIntrinsicConvolve3x3SetInputRequest {
+  int64 arg0 = 1;
+}
+
+message ScriptIntrinsicConvolve3x3CreateRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewMatrix2fRequest {
+}
+
+message NewMatrix2fResponse {
+  int64 result = 1;
+}
+
+message LoadRotateRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+}
+
+message LoadRotateResponse {
+}
+
+message LoadScaleRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+}
+
+message LoadScaleResponse {
+}
+
+message RotateRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+}
+
+message RotateResponse {
+}
+
+message ScaleRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+}
+
+message ScaleResponse {
+}
+
+message NewMatrix4fRequest {
+}
+
+message NewMatrix4fResponse {
+  int64 result = 1;
+}
+
+message InverseRequest {
+  int64 handle = 1;
+}
+
+message InverseResponse {
+  bool result = 1;
+}
+
+message InverseTransposeRequest {
+  int64 handle = 1;
+}
+
+message InverseTransposeResponse {
+  bool result = 1;
+}
+
+message LoadFrustumRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+  float arg3 = 5;
+  float arg4 = 6;
+  float arg5 = 7;
+}
+
+message LoadFrustumResponse {
+}
+
+message LoadOrthoRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+  float arg3 = 5;
+  float arg4 = 6;
+  float arg5 = 7;
+}
+
+message LoadOrthoResponse {
+}
+
+message LoadOrthoWindowRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message LoadOrthoWindowResponse {
+}
+
+message LoadPerspectiveRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+  float arg3 = 5;
+}
+
+message LoadPerspectiveResponse {
+}
+
+message LoadProjectionNormalizedRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message LoadProjectionNormalizedResponse {
+}
+
+message Matrix4fLoadRotateRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+  float arg3 = 5;
+}
+
+message Matrix4fLoadScaleRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+}
+
+message Matrix4fLoadTranslateRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+}
+
+message Matrix4fRotateRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+  float arg3 = 5;
+}
+
+message Matrix4fScaleRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+}
+
+message Matrix4fTranslateRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+}
+
+message NewFieldPackerRequest {
+  int64 arg0 = 1;
+}
+
+message NewFieldPackerResponse {
+  int64 result = 1;
+}
+
+message AddBooleanRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message AddBooleanResponse {
+}
+
+message AddF321Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AddF321Response {
+}
+
+message AddF321_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AddF321_1Response {
+}
+
+message AddF321_2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AddF321_2Response {
+}
+
+message AddF321_3Request {
+  int64 handle = 1;
+  float arg0 = 2;
+}
+
+message AddF321_3Response {
+}
+
+message AddF641Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AddF641Response {
+}
+
+message AddF641_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AddF641_1Response {
+}
+
+message AddF641_2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AddF641_2Response {
+}
+
+message AddF641_3Request {
+  int64 handle = 1;
+  double arg0 = 2;
+}
+
+message AddF641_3Response {
+}
+
+message AddI161Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AddI161Response {
+}
+
+message AddI161_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AddI161_1Response {
+}
+
+message AddI161_2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AddI161_2Response {
+}
+
+message AddI161_3Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message AddI161_3Response {
+}
+
+message AddI321Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AddI321Response {
+}
+
+message AddI321_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AddI321_1Response {
+}
+
+message AddI321_2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AddI321_2Response {
+}
+
+message AddI321_3Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message AddI321_3Response {
+}
+
+message AddI641Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AddI641Response {
+}
+
+message AddI641_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AddI641_1Response {
+}
+
+message AddI641_2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AddI641_2Response {
+}
+
+message AddI641_3Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AddI641_3Response {
+}
+
+message AddI81Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AddI81Response {
+}
+
+message AddI81_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AddI81_1Response {
+}
+
+message AddI81_2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AddI81_2Response {
+}
+
+message AddI81_3Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AddI81_3Response {
+}
+
+message AddMatrix1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AddMatrix1Response {
+}
+
+message AddMatrix1_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AddMatrix1_1Response {
+}
+
+message AddMatrix1_2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AddMatrix1_2Response {
+}
+
+message AddObjRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AddObjResponse {
+}
+
+message AddU161Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AddU161Response {
+}
+
+message AddU161_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AddU161_1Response {
+}
+
+message AddU161_2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AddU161_2Response {
+}
+
+message AddU161_3Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message AddU161_3Response {
+}
+
+message AddU321Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AddU321Response {
+}
+
+message AddU321_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AddU321_1Response {
+}
+
+message AddU321_2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AddU321_2Response {
+}
+
+message AddU321_3Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AddU321_3Response {
+}
+
+message AddU641Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AddU641Response {
+}
+
+message AddU641_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AddU641_1Response {
+}
+
+message AddU641_2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AddU641_2Response {
+}
+
+message AddU641_3Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AddU641_3Response {
+}
+
+message AddU81Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AddU81Response {
+}
+
+message AddU81_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AddU81_1Response {
+}
+
+message AddU81_2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AddU81_2Response {
+}
+
+message AddU81_3Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message AddU81_3Response {
+}
+
+message AlignRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message AlignResponse {
+}
+
+message GetDataRequest {
+  int64 handle = 1;
+}
+
+message GetDataResponse {
+  int64 result = 1;
+}
+
+message Reset0Request {
+  int64 handle = 1;
+}
+
+message Reset0Response {
+}
+
+message Reset1_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message Reset1_1Response {
+}
+
+message SkipRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SkipResponse {
+}
+
+message SubBooleanRequest {
+  int64 handle = 1;
+}
+
+message SubBooleanResponse {
+  bool result = 1;
+}
+
+message SubByte2Request {
+  int64 handle = 1;
+}
+
+message SubByte2Response {
+  int64 result = 1;
+}
+
+message SubByte3Request {
+  int64 handle = 1;
+}
+
+message SubByte3Response {
+  int64 result = 1;
+}
+
+message SubByte4Request {
+  int64 handle = 1;
+}
+
+message SubByte4Response {
+  int64 result = 1;
+}
+
+message SubDouble2Request {
+  int64 handle = 1;
+}
+
+message SubDouble2Response {
+  int64 result = 1;
+}
+
+message SubDouble3Request {
+  int64 handle = 1;
+}
+
+message SubDouble3Response {
+  int64 result = 1;
+}
+
+message SubDouble4Request {
+  int64 handle = 1;
+}
+
+message SubDouble4Response {
+  int64 result = 1;
+}
+
+message SubF32Request {
+  int64 handle = 1;
+}
+
+message SubF32Response {
+  float result = 1;
+}
+
+message SubF64Request {
+  int64 handle = 1;
+}
+
+message SubF64Response {
+  double result = 1;
+}
+
+message SubFloat2Request {
+  int64 handle = 1;
+}
+
+message SubFloat2Response {
+  int64 result = 1;
+}
+
+message SubFloat3Request {
+  int64 handle = 1;
+}
+
+message SubFloat3Response {
+  int64 result = 1;
+}
+
+message SubFloat4Request {
+  int64 handle = 1;
+}
+
+message SubFloat4Response {
+  int64 result = 1;
+}
+
+message SubI16Request {
+  int64 handle = 1;
+}
+
+message SubI16Response {
+  int32 result = 1;
+}
+
+message SubI32Request {
+  int64 handle = 1;
+}
+
+message SubI32Response {
+  int32 result = 1;
+}
+
+message SubI64Request {
+  int64 handle = 1;
+}
+
+message SubI64Response {
+  int64 result = 1;
+}
+
+message SubI8Request {
+  int64 handle = 1;
+}
+
+message SubI8Response {
+  uint32 result = 1;
+}
+
+message SubInt2Request {
+  int64 handle = 1;
+}
+
+message SubInt2Response {
+  int64 result = 1;
+}
+
+message SubInt3Request {
+  int64 handle = 1;
+}
+
+message SubInt3Response {
+  int64 result = 1;
+}
+
+message SubInt4Request {
+  int64 handle = 1;
+}
+
+message SubInt4Response {
+  int64 result = 1;
+}
+
+message SubLong2Request {
+  int64 handle = 1;
+}
+
+message SubLong2Response {
+  int64 result = 1;
+}
+
+message SubLong3Request {
+  int64 handle = 1;
+}
+
+message SubLong3Response {
+  int64 result = 1;
+}
+
+message SubLong4Request {
+  int64 handle = 1;
+}
+
+message SubLong4Response {
+  int64 result = 1;
+}
+
+message SubMatrix2fRequest {
+  int64 handle = 1;
+}
+
+message SubMatrix2fResponse {
+  int64 result = 1;
+}
+
+message SubMatrix3fRequest {
+  int64 handle = 1;
+}
+
+message SubMatrix3fResponse {
+  int64 result = 1;
+}
+
+message SubMatrix4fRequest {
+  int64 handle = 1;
+}
+
+message SubMatrix4fResponse {
+  int64 result = 1;
+}
+
+message SubShort2Request {
+  int64 handle = 1;
+}
+
+message SubShort2Response {
+  int64 result = 1;
+}
+
+message SubShort3Request {
+  int64 handle = 1;
+}
+
+message SubShort3Response {
+  int64 result = 1;
+}
+
+message SubShort4Request {
+  int64 handle = 1;
+}
+
+message SubShort4Response {
+  int64 result = 1;
+}
+
+message SubalignRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SubalignResponse {
+}
+
+message ForEach_bicubic1Request {
+  int64 arg0 = 1;
+}
+
+message ForEach_bicubic1Response {
+}
+
+message ForEach_bicubic2_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message ForEach_bicubic2_1Response {
+}
+
+message GetKernelID_bicubicRequest {
+}
+
+message GetKernelID_bicubicResponse {
+  int64 result = 1;
+}
+
+message ScriptIntrinsicResizeSetInputRequest {
+  int64 arg0 = 1;
+}
+
+message ScriptIntrinsicResizeCreateRequest {
+  int64 arg0 = 1;
+}
+
+message EqualsRequest {
+  int64 arg0 = 1;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message GetNameRequest {
+}
+
+message GetNameResponse {
+  string result = 1;
+}
+
+message HashCodeRequest {
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message SetNameRequest {
+  string arg0 = 1;
+}
+
+message SetNameResponse {
+}
+
+service ScriptGroupService {
+  rpc Destroy (DestroyRequest) returns (DestroyResponse);
+  rpc Execute0 (Execute0Request) returns (Execute0Response);
+  rpc Execute1_1 (Execute1_1Request) returns (Execute1_1Response);
+  rpc SetInput (SetInputRequest) returns (SetInputResponse);
+  rpc SetOutput (SetOutputRequest) returns (SetOutputResponse);
+}
+
+service ScriptGroupBuilderService {
+  rpc AddConnection3 (AddConnection3Request) returns (AddConnection3Response);
+  rpc AddConnection3_1 (AddConnection3_1Request) returns (AddConnection3_1Response);
+  rpc AddKernel (AddKernelRequest) returns (AddKernelResponse);
+  rpc Create (CreateRequest) returns (CreateResponse);
+}
+
+service ScriptGroupBuilder2Service {
+  rpc AddInput (AddInputRequest) returns (AddInputResponse);
+  rpc AddInvoke (AddInvokeRequest) returns (AddInvokeResponse);
+  rpc AddKernel (ScriptGroupBuilder2AddKernelRequest) returns (AddKernelResponse);
+  rpc Create (ScriptGroupBuilder2CreateRequest) returns (CreateResponse);
+}
+
+service ScriptGroupClosureService {
+  rpc Destroy (DestroyRequest) returns (DestroyResponse);
+  rpc GetGlobal (GetGlobalRequest) returns (GetGlobalResponse);
+  rpc GetReturn (GetReturnRequest) returns (GetReturnResponse);
+}
+
+service SamplerService {
+  rpc GetAnisotropy (GetAnisotropyRequest) returns (GetAnisotropyResponse);
+  rpc GetMagnification (GetMagnificationRequest) returns (GetMagnificationResponse);
+  rpc GetMinification (GetMinificationRequest) returns (GetMinificationResponse);
+  rpc GetWrapS (GetWrapSRequest) returns (GetWrapSResponse);
+  rpc GetWrapT (GetWrapTRequest) returns (GetWrapTResponse);
+  rpc CLAMP_LINEAR (CLAMP_LINEARRequest) returns (CLAMP_LINEARResponse);
+  rpc CLAMP_LINEAR_MIP_LINEAR (CLAMP_LINEAR_MIP_LINEARRequest) returns (CLAMP_LINEAR_MIP_LINEARResponse);
+  rpc CLAMP_NEAREST (CLAMP_NEARESTRequest) returns (CLAMP_NEARESTResponse);
+  rpc MIRRORED_REPEAT_LINEAR (MIRRORED_REPEAT_LINEARRequest) returns (MIRRORED_REPEAT_LINEARResponse);
+  rpc MIRRORED_REPEAT_LINEAR_MIP_LINEAR (MIRRORED_REPEAT_LINEAR_MIP_LINEARRequest) returns (MIRRORED_REPEAT_LINEAR_MIP_LINEARResponse);
+  rpc MIRRORED_REPEAT_NEAREST (MIRRORED_REPEAT_NEARESTRequest) returns (MIRRORED_REPEAT_NEARESTResponse);
+  rpc WRAP_LINEAR (WRAP_LINEARRequest) returns (WRAP_LINEARResponse);
+  rpc WRAP_LINEAR_MIP_LINEAR (WRAP_LINEAR_MIP_LINEARRequest) returns (WRAP_LINEAR_MIP_LINEARResponse);
+  rpc WRAP_NEAREST (WRAP_NEARESTRequest) returns (WRAP_NEARESTResponse);
+}
+
+service SamplerBuilderService {
+  rpc Create (CreateRequest) returns (CreateResponse);
+  rpc SetAnisotropy (SetAnisotropyRequest) returns (SetAnisotropyResponse);
+  rpc SetMagnification (SetMagnificationRequest) returns (SetMagnificationResponse);
+  rpc SetMinification (SetMinificationRequest) returns (SetMinificationResponse);
+  rpc SetWrapS (SetWrapSRequest) returns (SetWrapSResponse);
+  rpc SetWrapT (SetWrapTRequest) returns (SetWrapTResponse);
+}
+
+service SamplerValueService {
+  rpc Values (ValuesRequest) returns (ValuesResponse);
+  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
+}
+
+service ScriptIntrinsicHistogramService {
+  rpc ForEach1 (ForEach1Request) returns (ForEach1Response);
+  rpc ForEach2_1 (ForEach2_1Request) returns (ForEach2_1Response);
+  rpc ForEach_Dot1 (ForEach_Dot1Request) returns (ForEach_Dot1Response);
+  rpc ForEach_Dot2_1 (ForEach_Dot2_1Request) returns (ForEach_Dot2_1Response);
+  rpc GetFieldID_Input (GetFieldID_InputRequest) returns (GetFieldID_InputResponse);
+  rpc GetKernelID_Separate (GetKernelID_SeparateRequest) returns (GetKernelID_SeparateResponse);
+  rpc SetDotCoefficients (SetDotCoefficientsRequest) returns (SetDotCoefficientsResponse);
+  rpc SetOutput (ScriptIntrinsicHistogramSetOutputRequest) returns (SetOutputResponse);
+  rpc Create (ScriptIntrinsicHistogramCreateRequest) returns (CreateResponse);
+}
+
+service ScriptIntrinsicYuvToRGBService {
+  rpc ForEach (ForEachRequest) returns (ForEachResponse);
+  rpc GetFieldID_Input (GetFieldID_InputRequest) returns (GetFieldID_InputResponse);
+  rpc GetKernelID (GetKernelIDRequest) returns (GetKernelIDResponse);
+  rpc SetInput (ScriptIntrinsicYuvToRGBSetInputRequest) returns (SetInputResponse);
+  rpc Create (ScriptIntrinsicYuvToRGBCreateRequest) returns (CreateResponse);
+}
+
+service ScriptIntrinsicLUTService {
+  rpc Destroy (DestroyRequest) returns (DestroyResponse);
+  rpc ForEach2 (ForEach2Request) returns (ForEach2Response);
+  rpc ForEach3_1 (ForEach3_1Request) returns (ForEach3_1Response);
+  rpc GetKernelID (GetKernelIDRequest) returns (GetKernelIDResponse);
+  rpc SetAlpha (SetAlphaRequest) returns (SetAlphaResponse);
+  rpc SetBlue (SetBlueRequest) returns (SetBlueResponse);
+  rpc SetGreen (SetGreenRequest) returns (SetGreenResponse);
+  rpc SetRed (SetRedRequest) returns (SetRedResponse);
+  rpc Create (ScriptIntrinsicLUTCreateRequest) returns (CreateResponse);
+}
+
+service ScriptIntrinsicColorMatrixService {
+  rpc ForEach2 (ForEach2Request) returns (ForEach2Response);
+  rpc ForEach3_1 (ForEach3_1Request) returns (ForEach3_1Response);
+  rpc GetKernelID (GetKernelIDRequest) returns (GetKernelIDResponse);
+  rpc SetAdd1 (SetAdd1Request) returns (SetAdd1Response);
+  rpc SetAdd4_1 (SetAdd4_1Request) returns (SetAdd4_1Response);
+  rpc SetColorMatrix1 (SetColorMatrix1Request) returns (SetColorMatrix1Response);
+  rpc SetColorMatrix1_1 (SetColorMatrix1_1Request) returns (SetColorMatrix1_1Response);
+  rpc SetGreyscale (SetGreyscaleRequest) returns (SetGreyscaleResponse);
+  rpc SetRGBtoYUV (SetRGBtoYUVRequest) returns (SetRGBtoYUVResponse);
+  rpc SetYUVtoRGB (SetYUVtoRGBRequest) returns (SetYUVtoRGBResponse);
+  rpc Create1 (Create1Request) returns (Create1Response);
+  rpc Create2_1 (Create2_1Request) returns (Create2_1Response);
+}
+
+service RenderScriptService {
+  rpc ContextDump (ContextDumpRequest) returns (ContextDumpResponse);
+  rpc Destroy (DestroyRequest) returns (DestroyResponse);
+  rpc Finish (FinishRequest) returns (FinishResponse);
+  rpc GetApplicationContext (GetApplicationContextRequest) returns (GetApplicationContextResponse);
+  rpc GetErrorHandler (GetErrorHandlerRequest) returns (GetErrorHandlerResponse);
+  rpc GetMessageHandler (GetMessageHandlerRequest) returns (GetMessageHandlerResponse);
+  rpc SendMessage (SendMessageRequest) returns (SendMessageResponse);
+  rpc SetPriority (SetPriorityRequest) returns (SetPriorityResponse);
+  rpc Create1 (Create1Request) returns (Create1Response);
+  rpc Create2_1 (Create2_1Request) returns (Create2_1Response);
+  rpc Create3_2 (Create3_2Request) returns (Create3_2Response);
+  rpc CreateMultiContext (CreateMultiContextRequest) returns (CreateMultiContextResponse);
+  rpc GetMinorVersion (GetMinorVersionRequest) returns (GetMinorVersionResponse);
+  rpc ReleaseAllContexts (ReleaseAllContextsRequest) returns (ReleaseAllContextsResponse);
+}
+
+service RenderScriptContextTypeService {
+  rpc Values (ValuesRequest) returns (ValuesResponse);
+  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
+}
+
+service RenderScriptPriorityService {
+  rpc Values (ValuesRequest) returns (ValuesResponse);
+  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
+}
+
+service RenderScriptRSErrorHandlerService {
+  rpc Run (RunRequest) returns (RunResponse);
+}
+
+service RenderScriptRSMessageHandlerService {
+  rpc Run (RunRequest) returns (RunResponse);
+}
+
+service ScriptIntrinsicBLASService {
+  rpc BNNM (BNNMRequest) returns (BNNMResponse);
+  rpc CGBMV (CGBMVRequest) returns (CGBMVResponse);
+  rpc CGEMM (CGEMMRequest) returns (CGEMMResponse);
+  rpc CGEMV (CGEMVRequest) returns (CGEMVResponse);
+  rpc CGERC (CGERCRequest) returns (CGERCResponse);
+  rpc CGERU (CGERURequest) returns (CGERUResponse);
+  rpc CHBMV (CHBMVRequest) returns (CHBMVResponse);
+  rpc CHEMM (CHEMMRequest) returns (CHEMMResponse);
+  rpc CHEMV (CHEMVRequest) returns (CHEMVResponse);
+  rpc CHER (CHERRequest) returns (CHERResponse);
+  rpc CHER2 (CHER2Request) returns (CHER2Response);
+  rpc CHER2K (CHER2KRequest) returns (CHER2KResponse);
+  rpc CHERK (CHERKRequest) returns (CHERKResponse);
+  rpc CHPMV (CHPMVRequest) returns (CHPMVResponse);
+  rpc CHPR (CHPRRequest) returns (CHPRResponse);
+  rpc CHPR2 (CHPR2Request) returns (CHPR2Response);
+  rpc CSYMM (CSYMMRequest) returns (CSYMMResponse);
+  rpc CSYR2K (CSYR2KRequest) returns (CSYR2KResponse);
+  rpc CSYRK (CSYRKRequest) returns (CSYRKResponse);
+  rpc CTBMV (CTBMVRequest) returns (CTBMVResponse);
+  rpc CTBSV (CTBSVRequest) returns (CTBSVResponse);
+  rpc CTPMV (CTPMVRequest) returns (CTPMVResponse);
+  rpc CTPSV (CTPSVRequest) returns (CTPSVResponse);
+  rpc CTRMM (CTRMMRequest) returns (CTRMMResponse);
+  rpc CTRMV (CTRMVRequest) returns (CTRMVResponse);
+  rpc CTRSM (CTRSMRequest) returns (CTRSMResponse);
+  rpc CTRSV (CTRSVRequest) returns (CTRSVResponse);
+  rpc DGBMV (DGBMVRequest) returns (DGBMVResponse);
+  rpc DGEMM (DGEMMRequest) returns (DGEMMResponse);
+  rpc DGEMV (DGEMVRequest) returns (DGEMVResponse);
+  rpc DGER (DGERRequest) returns (DGERResponse);
+  rpc DSBMV (DSBMVRequest) returns (DSBMVResponse);
+  rpc DSPMV (DSPMVRequest) returns (DSPMVResponse);
+  rpc DSPR (DSPRRequest) returns (DSPRResponse);
+  rpc DSPR2 (DSPR2Request) returns (DSPR2Response);
+  rpc DSYMM (DSYMMRequest) returns (DSYMMResponse);
+  rpc DSYMV (DSYMVRequest) returns (DSYMVResponse);
+  rpc DSYR (DSYRRequest) returns (DSYRResponse);
+  rpc DSYR2 (DSYR2Request) returns (DSYR2Response);
+  rpc DSYR2K (DSYR2KRequest) returns (DSYR2KResponse);
+  rpc DSYRK (DSYRKRequest) returns (DSYRKResponse);
+  rpc DTBMV (DTBMVRequest) returns (DTBMVResponse);
+  rpc DTBSV (DTBSVRequest) returns (DTBSVResponse);
+  rpc DTPMV (DTPMVRequest) returns (DTPMVResponse);
+  rpc DTPSV (DTPSVRequest) returns (DTPSVResponse);
+  rpc DTRMM (DTRMMRequest) returns (DTRMMResponse);
+  rpc DTRMV (DTRMVRequest) returns (DTRMVResponse);
+  rpc DTRSM (DTRSMRequest) returns (DTRSMResponse);
+  rpc DTRSV (DTRSVRequest) returns (DTRSVResponse);
+  rpc SGBMV (SGBMVRequest) returns (SGBMVResponse);
+  rpc SGEMM (SGEMMRequest) returns (SGEMMResponse);
+  rpc SGEMV (SGEMVRequest) returns (SGEMVResponse);
+  rpc SGER (SGERRequest) returns (SGERResponse);
+  rpc SSBMV (SSBMVRequest) returns (SSBMVResponse);
+  rpc SSPMV (SSPMVRequest) returns (SSPMVResponse);
+  rpc SSPR (SSPRRequest) returns (SSPRResponse);
+  rpc SSPR2 (SSPR2Request) returns (SSPR2Response);
+  rpc SSYMM (SSYMMRequest) returns (SSYMMResponse);
+  rpc SSYMV (SSYMVRequest) returns (SSYMVResponse);
+  rpc SSYR (SSYRRequest) returns (SSYRResponse);
+  rpc SSYR2 (SSYR2Request) returns (SSYR2Response);
+  rpc SSYR2K (SSYR2KRequest) returns (SSYR2KResponse);
+  rpc SSYRK (SSYRKRequest) returns (SSYRKResponse);
+  rpc STBMV (STBMVRequest) returns (STBMVResponse);
+  rpc STBSV (STBSVRequest) returns (STBSVResponse);
+  rpc STPMV (STPMVRequest) returns (STPMVResponse);
+  rpc STPSV (STPSVRequest) returns (STPSVResponse);
+  rpc STRMM (STRMMRequest) returns (STRMMResponse);
+  rpc STRMV (STRMVRequest) returns (STRMVResponse);
+  rpc STRSM (STRSMRequest) returns (STRSMResponse);
+  rpc STRSV (STRSVRequest) returns (STRSVResponse);
+  rpc ZGBMV (ZGBMVRequest) returns (ZGBMVResponse);
+  rpc ZGEMM (ZGEMMRequest) returns (ZGEMMResponse);
+  rpc ZGEMV (ZGEMVRequest) returns (ZGEMVResponse);
+  rpc ZGERC (ZGERCRequest) returns (ZGERCResponse);
+  rpc ZGERU (ZGERURequest) returns (ZGERUResponse);
+  rpc ZHBMV (ZHBMVRequest) returns (ZHBMVResponse);
+  rpc ZHEMM (ZHEMMRequest) returns (ZHEMMResponse);
+  rpc ZHEMV (ZHEMVRequest) returns (ZHEMVResponse);
+  rpc ZHER (ZHERRequest) returns (ZHERResponse);
+  rpc ZHER2 (ZHER2Request) returns (ZHER2Response);
+  rpc ZHER2K (ZHER2KRequest) returns (ZHER2KResponse);
+  rpc ZHERK (ZHERKRequest) returns (ZHERKResponse);
+  rpc ZHPMV (ZHPMVRequest) returns (ZHPMVResponse);
+  rpc ZHPR (ZHPRRequest) returns (ZHPRResponse);
+  rpc ZHPR2 (ZHPR2Request) returns (ZHPR2Response);
+  rpc ZSYMM (ZSYMMRequest) returns (ZSYMMResponse);
+  rpc ZSYR2K (ZSYR2KRequest) returns (ZSYR2KResponse);
+  rpc ZSYRK (ZSYRKRequest) returns (ZSYRKResponse);
+  rpc ZTBMV (ZTBMVRequest) returns (ZTBMVResponse);
+  rpc ZTBSV (ZTBSVRequest) returns (ZTBSVResponse);
+  rpc ZTPMV (ZTPMVRequest) returns (ZTPMVResponse);
+  rpc ZTPSV (ZTPSVRequest) returns (ZTPSVResponse);
+  rpc ZTRMM (ZTRMMRequest) returns (ZTRMMResponse);
+  rpc ZTRMV (ZTRMVRequest) returns (ZTRMVResponse);
+  rpc ZTRSM (ZTRSMRequest) returns (ZTRSMResponse);
+  rpc ZTRSV (ZTRSVRequest) returns (ZTRSVResponse);
+  rpc Create (ScriptIntrinsicBLASCreateRequest) returns (CreateResponse);
+}
+
+service AllocationService {
+  rpc Copy1DRangeFrom4 (Copy1DRangeFrom4Request) returns (Copy1DRangeFrom4Response);
+  rpc Copy1DRangeFrom3_1 (Copy1DRangeFrom3_1Request) returns (Copy1DRangeFrom3_1Response);
+  rpc Copy1DRangeFrom3_2 (Copy1DRangeFrom3_2Request) returns (Copy1DRangeFrom3_2Response);
+  rpc Copy1DRangeFrom3_3 (Copy1DRangeFrom3_3Request) returns (Copy1DRangeFrom3_3Response);
+  rpc Copy1DRangeFrom3_4 (Copy1DRangeFrom3_4Request) returns (Copy1DRangeFrom3_4Response);
+  rpc Copy1DRangeFrom3_5 (Copy1DRangeFrom3_5Request) returns (Copy1DRangeFrom3_5Response);
+  rpc Copy1DRangeFromUnchecked3 (Copy1DRangeFromUnchecked3Request) returns (Copy1DRangeFromUnchecked3Response);
+  rpc Copy1DRangeFromUnchecked3_1 (Copy1DRangeFromUnchecked3_1Request) returns (Copy1DRangeFromUnchecked3_1Response);
+  rpc Copy1DRangeFromUnchecked3_2 (Copy1DRangeFromUnchecked3_2Request) returns (Copy1DRangeFromUnchecked3_2Response);
+  rpc Copy1DRangeFromUnchecked3_3 (Copy1DRangeFromUnchecked3_3Request) returns (Copy1DRangeFromUnchecked3_3Response);
+  rpc Copy1DRangeFromUnchecked3_4 (Copy1DRangeFromUnchecked3_4Request) returns (Copy1DRangeFromUnchecked3_4Response);
+  rpc Copy1DRangeTo3 (Copy1DRangeTo3Request) returns (Copy1DRangeTo3Response);
+  rpc Copy1DRangeTo3_1 (Copy1DRangeTo3_1Request) returns (Copy1DRangeTo3_1Response);
+  rpc Copy1DRangeTo3_2 (Copy1DRangeTo3_2Request) returns (Copy1DRangeTo3_2Response);
+  rpc Copy1DRangeTo3_3 (Copy1DRangeTo3_3Request) returns (Copy1DRangeTo3_3Response);
+  rpc Copy1DRangeTo3_4 (Copy1DRangeTo3_4Request) returns (Copy1DRangeTo3_4Response);
+  rpc Copy1DRangeToUnchecked3 (Copy1DRangeToUnchecked3Request) returns (Copy1DRangeToUnchecked3Response);
+  rpc Copy1DRangeToUnchecked3_1 (Copy1DRangeToUnchecked3_1Request) returns (Copy1DRangeToUnchecked3_1Response);
+  rpc Copy1DRangeToUnchecked3_2 (Copy1DRangeToUnchecked3_2Request) returns (Copy1DRangeToUnchecked3_2Response);
+  rpc Copy1DRangeToUnchecked3_3 (Copy1DRangeToUnchecked3_3Request) returns (Copy1DRangeToUnchecked3_3Response);
+  rpc Copy1DRangeToUnchecked3_4 (Copy1DRangeToUnchecked3_4Request) returns (Copy1DRangeToUnchecked3_4Response);
+  rpc Copy2DRangeFrom3 (Copy2DRangeFrom3Request) returns (Copy2DRangeFrom3Response);
+  rpc Copy2DRangeFrom7_1 (Copy2DRangeFrom7_1Request) returns (Copy2DRangeFrom7_1Response);
+  rpc Copy2DRangeFrom5_2 (Copy2DRangeFrom5_2Request) returns (Copy2DRangeFrom5_2Response);
+  rpc Copy2DRangeFrom5_3 (Copy2DRangeFrom5_3Request) returns (Copy2DRangeFrom5_3Response);
+  rpc Copy2DRangeFrom5_4 (Copy2DRangeFrom5_4Request) returns (Copy2DRangeFrom5_4Response);
+  rpc Copy2DRangeFrom5_5 (Copy2DRangeFrom5_5Request) returns (Copy2DRangeFrom5_5Response);
+  rpc Copy2DRangeFrom5_6 (Copy2DRangeFrom5_6Request) returns (Copy2DRangeFrom5_6Response);
+  rpc Copy2DRangeTo5 (Copy2DRangeTo5Request) returns (Copy2DRangeTo5Response);
+  rpc Copy2DRangeTo5_1 (Copy2DRangeTo5_1Request) returns (Copy2DRangeTo5_1Response);
+  rpc Copy2DRangeTo5_2 (Copy2DRangeTo5_2Request) returns (Copy2DRangeTo5_2Response);
+  rpc Copy2DRangeTo5_3 (Copy2DRangeTo5_3Request) returns (Copy2DRangeTo5_3Response);
+  rpc Copy2DRangeTo5_4 (Copy2DRangeTo5_4Request) returns (Copy2DRangeTo5_4Response);
+  rpc Copy3DRangeFrom10 (Copy3DRangeFrom10Request) returns (Copy3DRangeFrom10Response);
+  rpc Copy3DRangeFrom7_1 (Copy3DRangeFrom7_1Request) returns (Copy3DRangeFrom7_1Response);
+  rpc Copy3DRangeTo (Copy3DRangeToRequest) returns (Copy3DRangeToResponse);
+  rpc CopyFrom1 (CopyFrom1Request) returns (CopyFrom1Response);
+  rpc CopyFrom1_1 (CopyFrom1_1Request) returns (CopyFrom1_1Response);
+  rpc CopyFrom1_2 (CopyFrom1_2Request) returns (CopyFrom1_2Response);
+  rpc CopyFrom1_3 (CopyFrom1_3Request) returns (CopyFrom1_3Response);
+  rpc CopyFrom1_4 (CopyFrom1_4Request) returns (CopyFrom1_4Response);
+  rpc CopyFrom1_5 (CopyFrom1_5Request) returns (CopyFrom1_5Response);
+  rpc CopyFrom1_6 (CopyFrom1_6Request) returns (CopyFrom1_6Response);
+  rpc CopyFrom1_7 (CopyFrom1_7Request) returns (CopyFrom1_7Response);
+  rpc CopyFromUnchecked1 (CopyFromUnchecked1Request) returns (CopyFromUnchecked1Response);
+  rpc CopyFromUnchecked1_1 (CopyFromUnchecked1_1Request) returns (CopyFromUnchecked1_1Response);
+  rpc CopyFromUnchecked1_2 (CopyFromUnchecked1_2Request) returns (CopyFromUnchecked1_2Response);
+  rpc CopyFromUnchecked1_3 (CopyFromUnchecked1_3Request) returns (CopyFromUnchecked1_3Response);
+  rpc CopyFromUnchecked1_4 (CopyFromUnchecked1_4Request) returns (CopyFromUnchecked1_4Response);
+  rpc CopyTo1 (CopyTo1Request) returns (CopyTo1Response);
+  rpc CopyTo1_1 (CopyTo1_1Request) returns (CopyTo1_1Response);
+  rpc CopyTo1_2 (CopyTo1_2Request) returns (CopyTo1_2Response);
+  rpc CopyTo1_3 (CopyTo1_3Request) returns (CopyTo1_3Response);
+  rpc CopyTo1_4 (CopyTo1_4Request) returns (CopyTo1_4Response);
+  rpc CopyTo1_5 (CopyTo1_5Request) returns (CopyTo1_5Response);
+  rpc Destroy (DestroyRequest) returns (DestroyResponse);
+  rpc GenerateMipmaps (GenerateMipmapsRequest) returns (GenerateMipmapsResponse);
+  rpc GetByteBuffer (GetByteBufferRequest) returns (GetByteBufferResponse);
+  rpc GetBytesSize (GetBytesSizeRequest) returns (GetBytesSizeResponse);
+  rpc GetElement (GetElementRequest) returns (GetElementResponse);
+  rpc GetStride (GetStrideRequest) returns (GetStrideResponse);
+  rpc GetSurface (GetSurfaceRequest) returns (GetSurfaceResponse);
+  rpc GetTimeStamp (GetTimeStampRequest) returns (GetTimeStampResponse);
+  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
+  rpc GetUsage (GetUsageRequest) returns (GetUsageResponse);
+  rpc IoReceive (IoReceiveRequest) returns (IoReceiveResponse);
+  rpc IoSend (IoSendRequest) returns (IoSendResponse);
+  rpc SetAutoPadding (SetAutoPaddingRequest) returns (SetAutoPaddingResponse);
+  rpc SetFromFieldPacker2 (SetFromFieldPacker2Request) returns (SetFromFieldPacker2Response);
+  rpc SetFromFieldPacker3_1 (SetFromFieldPacker3_1Request) returns (SetFromFieldPacker3_1Response);
+  rpc SetFromFieldPacker5_2 (SetFromFieldPacker5_2Request) returns (SetFromFieldPacker5_2Response);
+  rpc SetOnBufferAvailableListener (SetOnBufferAvailableListenerRequest) returns (SetOnBufferAvailableListenerResponse);
+  rpc SetSurface (SetSurfaceRequest) returns (SetSurfaceResponse);
+  rpc SyncAll (SyncAllRequest) returns (SyncAllResponse);
+  rpc CreateAllocations (CreateAllocationsRequest) returns (CreateAllocationsResponse);
+  rpc CreateCubemapFromBitmap2 (CreateCubemapFromBitmap2Request) returns (CreateCubemapFromBitmap2Response);
+  rpc CreateCubemapFromBitmap4_1 (CreateCubemapFromBitmap4_1Request) returns (CreateCubemapFromBitmap4_1Response);
+  rpc CreateCubemapFromCubeFaces7 (CreateCubemapFromCubeFaces7Request) returns (CreateCubemapFromCubeFaces7Response);
+  rpc CreateCubemapFromCubeFaces9_1 (CreateCubemapFromCubeFaces9_1Request) returns (CreateCubemapFromCubeFaces9_1Response);
+  rpc CreateFromBitmap2 (CreateFromBitmap2Request) returns (CreateFromBitmap2Response);
+  rpc CreateFromBitmap4_1 (CreateFromBitmap4_1Request) returns (CreateFromBitmap4_1Response);
+  rpc CreateFromBitmapResource3 (CreateFromBitmapResource3Request) returns (CreateFromBitmapResource3Response);
+  rpc CreateFromBitmapResource5_1 (CreateFromBitmapResource5_1Request) returns (CreateFromBitmapResource5_1Response);
+  rpc CreateFromString (CreateFromStringRequest) returns (CreateFromStringResponse);
+  rpc CreateSized3 (CreateSized3Request) returns (CreateSized3Response);
+  rpc CreateSized4_1 (CreateSized4_1Request) returns (CreateSized4_1Response);
+  rpc CreateTyped2 (CreateTyped2Request) returns (CreateTyped2Response);
+  rpc CreateTyped4_1 (CreateTyped4_1Request) returns (CreateTyped4_1Response);
+  rpc CreateTyped3_2 (CreateTyped3_2Request) returns (CreateTyped3_2Response);
+}
+
+service AllocationMipmapControlService {
+  rpc Values (ValuesRequest) returns (ValuesResponse);
+  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
+}
+
+service AllocationOnBufferAvailableListenerService {
+  rpc OnBufferAvailable (OnBufferAvailableRequest) returns (OnBufferAvailableResponse);
+}
+
+service ScriptService {
+  rpc BindAllocation (BindAllocationRequest) returns (BindAllocationResponse);
+  rpc GetVarB (GetVarBRequest) returns (GetVarBResponse);
+  rpc GetVarD (GetVarDRequest) returns (GetVarDResponse);
+  rpc GetVarF (GetVarFRequest) returns (GetVarFResponse);
+  rpc GetVarI (GetVarIRequest) returns (GetVarIResponse);
+  rpc GetVarJ (GetVarJRequest) returns (GetVarJResponse);
+  rpc GetVarV (GetVarVRequest) returns (GetVarVResponse);
+  rpc SetTimeZone (SetTimeZoneRequest) returns (SetTimeZoneResponse);
+  rpc SetVar2 (SetVar2Request) returns (SetVar2Response);
+  rpc SetVar2_1 (SetVar2_1Request) returns (SetVar2_1Response);
+  rpc SetVar4_2 (SetVar4_2Request) returns (SetVar4_2Response);
+  rpc SetVar2_3 (SetVar2_3Request) returns (SetVar2_3Response);
+  rpc SetVar2_4 (SetVar2_4Request) returns (SetVar2_4Response);
+  rpc SetVar2_5 (SetVar2_5Request) returns (SetVar2_5Response);
+  rpc SetVar2_6 (SetVar2_6Request) returns (SetVar2_6Response);
+  rpc SetVar2_7 (SetVar2_7Request) returns (SetVar2_7Response);
+}
+
+service ScriptFieldBaseService {
+  rpc GetAllocation (GetAllocationRequest) returns (GetAllocationResponse);
+  rpc GetElement (GetElementRequest) returns (GetElementResponse);
+  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
+  rpc UpdateAllocation (UpdateAllocationRequest) returns (UpdateAllocationResponse);
+}
+
+service ScriptLaunchOptionsService {
+  rpc GetXEnd (GetXEndRequest) returns (GetXEndResponse);
+  rpc GetXStart (GetXStartRequest) returns (GetXStartResponse);
+  rpc GetYEnd (GetYEndRequest) returns (GetYEndResponse);
+  rpc GetYStart (GetYStartRequest) returns (GetYStartResponse);
+  rpc GetZEnd (GetZEndRequest) returns (GetZEndResponse);
+  rpc GetZStart (GetZStartRequest) returns (GetZStartResponse);
+  rpc SetX (SetXRequest) returns (SetXResponse);
+  rpc SetY (SetYRequest) returns (SetYResponse);
+  rpc SetZ (SetZRequest) returns (SetZResponse);
+}
+
+service ScriptIntrinsic3DLUTService {
+  rpc ForEach2 (ForEach2Request) returns (ForEach2Response);
+  rpc ForEach3_1 (ForEach3_1Request) returns (ForEach3_1Response);
+  rpc GetKernelID (GetKernelIDRequest) returns (GetKernelIDResponse);
+  rpc SetLUT (SetLUTRequest) returns (SetLUTResponse);
+  rpc Create (ScriptIntrinsic3DLUTCreateRequest) returns (CreateResponse);
+}
+
+service TypeService {
+  rpc GetCount (GetCountRequest) returns (GetCountResponse);
+  rpc GetElement (GetElementRequest) returns (GetElementResponse);
+  rpc GetX (GetXRequest) returns (GetXResponse);
+  rpc GetY (GetYRequest) returns (GetYResponse);
+  rpc GetYuv (GetYuvRequest) returns (GetYuvResponse);
+  rpc GetZ (GetZRequest) returns (GetZResponse);
+  rpc HasFaces (HasFacesRequest) returns (HasFacesResponse);
+  rpc HasMipmaps (HasMipmapsRequest) returns (HasMipmapsResponse);
+  rpc CreateX (CreateXRequest) returns (CreateXResponse);
+  rpc CreateXY (CreateXYRequest) returns (CreateXYResponse);
+  rpc CreateXYZ (CreateXYZRequest) returns (CreateXYZResponse);
+}
+
+service TypeBuilderService {
+  rpc Create (CreateRequest) returns (CreateResponse);
+  rpc SetFaces (SetFacesRequest) returns (SetFacesResponse);
+  rpc SetMipmaps (SetMipmapsRequest) returns (SetMipmapsResponse);
+  rpc SetX (TypeBuilderSetXRequest) returns (SetXResponse);
+  rpc SetY (TypeBuilderSetYRequest) returns (SetYResponse);
+  rpc SetYuvFormat (SetYuvFormatRequest) returns (SetYuvFormatResponse);
+  rpc SetZ (TypeBuilderSetZRequest) returns (SetZResponse);
+}
+
+service TypeCubemapFaceService {
+  rpc Values (ValuesRequest) returns (ValuesResponse);
+  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
+}
+
+service ScriptIntrinsicBlurService {
+  rpc ForEach1 (ForEach1Request) returns (ForEach1Response);
+  rpc ForEach2_1 (ForEach2_1Request) returns (ForEach2_1Response);
+  rpc GetFieldID_Input (GetFieldID_InputRequest) returns (GetFieldID_InputResponse);
+  rpc GetKernelID (GetKernelIDRequest) returns (GetKernelIDResponse);
+  rpc SetInput (ScriptIntrinsicBlurSetInputRequest) returns (SetInputResponse);
+  rpc SetRadius (SetRadiusRequest) returns (SetRadiusResponse);
+  rpc Create (ScriptIntrinsicBlurCreateRequest) returns (CreateResponse);
+}
+
+service AllocationAdapterService {
+  rpc SetFace (SetFaceRequest) returns (SetFaceResponse);
+  rpc SetLOD (SetLODRequest) returns (SetLODResponse);
+  rpc SetX (AllocationAdapterSetXRequest) returns (AllocationAdapterSetXResponse);
+  rpc SetY (AllocationAdapterSetYRequest) returns (AllocationAdapterSetYResponse);
+  rpc SetZ (AllocationAdapterSetZRequest) returns (AllocationAdapterSetZResponse);
+  rpc Create1D (Create1DRequest) returns (Create1DResponse);
+  rpc Create2D (Create2DRequest) returns (Create2DResponse);
+  rpc CreateTyped (CreateTypedRequest) returns (CreateTypedResponse);
+}
+
+service ElementService {
+  rpc GetBytesSize (GetBytesSizeRequest) returns (GetBytesSizeResponse);
+  rpc GetDataKind (GetDataKindRequest) returns (GetDataKindResponse);
+  rpc GetDataType (GetDataTypeRequest) returns (GetDataTypeResponse);
+  rpc GetSubElement (GetSubElementRequest) returns (GetSubElementResponse);
+  rpc GetSubElementArraySize (GetSubElementArraySizeRequest) returns (GetSubElementArraySizeResponse);
+  rpc GetSubElementCount (GetSubElementCountRequest) returns (GetSubElementCountResponse);
+  rpc GetSubElementName (GetSubElementNameRequest) returns (GetSubElementNameResponse);
+  rpc GetSubElementOffsetBytes (GetSubElementOffsetBytesRequest) returns (GetSubElementOffsetBytesResponse);
+  rpc GetVectorSize (GetVectorSizeRequest) returns (GetVectorSizeResponse);
+  rpc IsCompatible (IsCompatibleRequest) returns (IsCompatibleResponse);
+  rpc IsComplex (IsComplexRequest) returns (IsComplexResponse);
+  rpc ALLOCATION (ALLOCATIONRequest) returns (ALLOCATIONResponse);
+  rpc A_8 (A_8Request) returns (A_8Response);
+  rpc BOOLEAN (BOOLEANRequest) returns (BOOLEANResponse);
+  rpc ELEMENT (ELEMENTRequest) returns (ELEMENTResponse);
+  rpc F16 (F16Request) returns (F16Response);
+  rpc F16_2 (F16_2Request) returns (F16_2Response);
+  rpc F16_3 (F16_3Request) returns (F16_3Response);
+  rpc F16_4 (F16_4Request) returns (F16_4Response);
+  rpc F32 (F32Request) returns (F32Response);
+  rpc F32_2 (F32_2Request) returns (F32_2Response);
+  rpc F32_3 (F32_3Request) returns (F32_3Response);
+  rpc F32_4 (F32_4Request) returns (F32_4Response);
+  rpc F64 (F64Request) returns (F64Response);
+  rpc F64_2 (F64_2Request) returns (F64_2Response);
+  rpc F64_3 (F64_3Request) returns (F64_3Response);
+  rpc F64_4 (F64_4Request) returns (F64_4Response);
+  rpc FONT (FONTRequest) returns (FONTResponse);
+  rpc I16 (I16Request) returns (I16Response);
+  rpc I16_2 (I16_2Request) returns (I16_2Response);
+  rpc I16_3 (I16_3Request) returns (I16_3Response);
+  rpc I16_4 (I16_4Request) returns (I16_4Response);
+  rpc I32 (I32Request) returns (I32Response);
+  rpc I32_2 (I32_2Request) returns (I32_2Response);
+  rpc I32_3 (I32_3Request) returns (I32_3Response);
+  rpc I32_4 (I32_4Request) returns (I32_4Response);
+  rpc I64 (I64Request) returns (I64Response);
+  rpc I64_2 (I64_2Request) returns (I64_2Response);
+  rpc I64_3 (I64_3Request) returns (I64_3Response);
+  rpc I64_4 (I64_4Request) returns (I64_4Response);
+  rpc I8 (I8Request) returns (I8Response);
+  rpc I8_2 (I8_2Request) returns (I8_2Response);
+  rpc I8_3 (I8_3Request) returns (I8_3Response);
+  rpc I8_4 (I8_4Request) returns (I8_4Response);
+  rpc MATRIX4X4 (MATRIX4X4Request) returns (MATRIX4X4Response);
+  rpc MATRIX_2X2 (MATRIX_2X2Request) returns (MATRIX_2X2Response);
+  rpc MATRIX_3X3 (MATRIX_3X3Request) returns (MATRIX_3X3Response);
+  rpc MATRIX_4X4 (MATRIX_4X4Request) returns (MATRIX_4X4Response);
+  rpc MESH (MESHRequest) returns (MESHResponse);
+  rpc PROGRAM_FRAGMENT (PROGRAM_FRAGMENTRequest) returns (PROGRAM_FRAGMENTResponse);
+  rpc PROGRAM_RASTER (PROGRAM_RASTERRequest) returns (PROGRAM_RASTERResponse);
+  rpc PROGRAM_STORE (PROGRAM_STORERequest) returns (PROGRAM_STOREResponse);
+  rpc PROGRAM_VERTEX (PROGRAM_VERTEXRequest) returns (PROGRAM_VERTEXResponse);
+  rpc RGBA_4444 (RGBA_4444Request) returns (RGBA_4444Response);
+  rpc RGBA_5551 (RGBA_5551Request) returns (RGBA_5551Response);
+  rpc RGBA_8888 (RGBA_8888Request) returns (RGBA_8888Response);
+  rpc RGB_565 (RGB_565Request) returns (RGB_565Response);
+  rpc RGB_888 (RGB_888Request) returns (RGB_888Response);
+  rpc SAMPLER (SAMPLERRequest) returns (SAMPLERResponse);
+  rpc SCRIPT (SCRIPTRequest) returns (SCRIPTResponse);
+  rpc TYPE (TYPERequest) returns (TYPEResponse);
+  rpc U16 (U16Request) returns (U16Response);
+  rpc U16_2 (U16_2Request) returns (U16_2Response);
+  rpc U16_3 (U16_3Request) returns (U16_3Response);
+  rpc U16_4 (U16_4Request) returns (U16_4Response);
+  rpc U32 (U32Request) returns (U32Response);
+  rpc U32_2 (U32_2Request) returns (U32_2Response);
+  rpc U32_3 (U32_3Request) returns (U32_3Response);
+  rpc U32_4 (U32_4Request) returns (U32_4Response);
+  rpc U64 (U64Request) returns (U64Response);
+  rpc U64_2 (U64_2Request) returns (U64_2Response);
+  rpc U64_3 (U64_3Request) returns (U64_3Response);
+  rpc U64_4 (U64_4Request) returns (U64_4Response);
+  rpc U8 (U8Request) returns (U8Response);
+  rpc U8_2 (U8_2Request) returns (U8_2Response);
+  rpc U8_3 (U8_3Request) returns (U8_3Response);
+  rpc U8_4 (U8_4Request) returns (U8_4Response);
+  rpc YUV (YUVRequest) returns (YUVResponse);
+  rpc CreatePixel (CreatePixelRequest) returns (CreatePixelResponse);
+  rpc CreateVector (CreateVectorRequest) returns (CreateVectorResponse);
+}
+
+service ElementBuilderService {
+  rpc Add2 (Add2Request) returns (Add2Response);
+  rpc Add3_1 (Add3_1Request) returns (Add3_1Response);
+  rpc Create (CreateRequest) returns (CreateResponse);
+}
+
+service ElementDataKindService {
+  rpc Values (ValuesRequest) returns (ValuesResponse);
+  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
+}
+
+service ElementDataTypeService {
+  rpc Values (ValuesRequest) returns (ValuesResponse);
+  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
+}
+
+service Matrix3fService {
+  rpc NewMatrix3f (NewMatrix3fRequest) returns (NewMatrix3fResponse);
+  rpc Get (GetRequest) returns (GetResponse);
+  rpc GetArray (GetArrayRequest) returns (GetArrayResponse);
+  rpc Load (LoadRequest) returns (LoadResponse);
+  rpc LoadIdentity (LoadIdentityRequest) returns (LoadIdentityResponse);
+  rpc LoadMultiply (LoadMultiplyRequest) returns (LoadMultiplyResponse);
+  rpc LoadRotate1 (LoadRotate1Request) returns (LoadRotate1Response);
+  rpc LoadRotate4_1 (LoadRotate4_1Request) returns (LoadRotate4_1Response);
+  rpc LoadScale2 (LoadScale2Request) returns (LoadScale2Response);
+  rpc LoadScale3_1 (LoadScale3_1Request) returns (LoadScale3_1Response);
+  rpc LoadTranslate (LoadTranslateRequest) returns (LoadTranslateResponse);
+  rpc Multiply (MultiplyRequest) returns (MultiplyResponse);
+  rpc Rotate1 (Rotate1Request) returns (Rotate1Response);
+  rpc Rotate4_1 (Rotate4_1Request) returns (Rotate4_1Response);
+  rpc Scale2 (Scale2Request) returns (Scale2Response);
+  rpc Scale3_1 (Scale3_1Request) returns (Scale3_1Response);
+  rpc Set (SetRequest) returns (SetResponse);
+  rpc Translate (TranslateRequest) returns (TranslateResponse);
+  rpc Transpose (TransposeRequest) returns (TransposeResponse);
+}
+
+service ScriptIntrinsicConvolve5x5Service {
+  rpc ForEach1 (ForEach1Request) returns (ForEach1Response);
+  rpc ForEach2_1 (ForEach2_1Request) returns (ForEach2_1Response);
+  rpc GetFieldID_Input (GetFieldID_InputRequest) returns (GetFieldID_InputResponse);
+  rpc GetKernelID (GetKernelIDRequest) returns (GetKernelIDResponse);
+  rpc SetCoefficients (SetCoefficientsRequest) returns (SetCoefficientsResponse);
+  rpc SetInput (ScriptIntrinsicConvolve5x5SetInputRequest) returns (SetInputResponse);
+  rpc Create (ScriptIntrinsicConvolve5x5CreateRequest) returns (CreateResponse);
+}
+
+service ScriptIntrinsicBlendService {
+  rpc ForEachAdd2 (ForEachAdd2Request) returns (ForEachAdd2Response);
+  rpc ForEachAdd3_1 (ForEachAdd3_1Request) returns (ForEachAdd3_1Response);
+  rpc ForEachClear2 (ForEachClear2Request) returns (ForEachClear2Response);
+  rpc ForEachClear3_1 (ForEachClear3_1Request) returns (ForEachClear3_1Response);
+  rpc ForEachDst2 (ForEachDst2Request) returns (ForEachDst2Response);
+  rpc ForEachDst3_1 (ForEachDst3_1Request) returns (ForEachDst3_1Response);
+  rpc ForEachDstAtop2 (ForEachDstAtop2Request) returns (ForEachDstAtop2Response);
+  rpc ForEachDstAtop3_1 (ForEachDstAtop3_1Request) returns (ForEachDstAtop3_1Response);
+  rpc ForEachDstIn2 (ForEachDstIn2Request) returns (ForEachDstIn2Response);
+  rpc ForEachDstIn3_1 (ForEachDstIn3_1Request) returns (ForEachDstIn3_1Response);
+  rpc ForEachDstOut2 (ForEachDstOut2Request) returns (ForEachDstOut2Response);
+  rpc ForEachDstOut3_1 (ForEachDstOut3_1Request) returns (ForEachDstOut3_1Response);
+  rpc ForEachDstOver2 (ForEachDstOver2Request) returns (ForEachDstOver2Response);
+  rpc ForEachDstOver3_1 (ForEachDstOver3_1Request) returns (ForEachDstOver3_1Response);
+  rpc ForEachMultiply2 (ForEachMultiply2Request) returns (ForEachMultiply2Response);
+  rpc ForEachMultiply3_1 (ForEachMultiply3_1Request) returns (ForEachMultiply3_1Response);
+  rpc ForEachSrc2 (ForEachSrc2Request) returns (ForEachSrc2Response);
+  rpc ForEachSrc3_1 (ForEachSrc3_1Request) returns (ForEachSrc3_1Response);
+  rpc ForEachSrcAtop2 (ForEachSrcAtop2Request) returns (ForEachSrcAtop2Response);
+  rpc ForEachSrcAtop3_1 (ForEachSrcAtop3_1Request) returns (ForEachSrcAtop3_1Response);
+  rpc ForEachSrcIn2 (ForEachSrcIn2Request) returns (ForEachSrcIn2Response);
+  rpc ForEachSrcIn3_1 (ForEachSrcIn3_1Request) returns (ForEachSrcIn3_1Response);
+  rpc ForEachSrcOut2 (ForEachSrcOut2Request) returns (ForEachSrcOut2Response);
+  rpc ForEachSrcOut3_1 (ForEachSrcOut3_1Request) returns (ForEachSrcOut3_1Response);
+  rpc ForEachSrcOver2 (ForEachSrcOver2Request) returns (ForEachSrcOver2Response);
+  rpc ForEachSrcOver3_1 (ForEachSrcOver3_1Request) returns (ForEachSrcOver3_1Response);
+  rpc ForEachSubtract2 (ForEachSubtract2Request) returns (ForEachSubtract2Response);
+  rpc ForEachSubtract3_1 (ForEachSubtract3_1Request) returns (ForEachSubtract3_1Response);
+  rpc ForEachXor2 (ForEachXor2Request) returns (ForEachXor2Response);
+  rpc ForEachXor3_1 (ForEachXor3_1Request) returns (ForEachXor3_1Response);
+  rpc GetKernelIDAdd (GetKernelIDAddRequest) returns (GetKernelIDAddResponse);
+  rpc GetKernelIDClear (GetKernelIDClearRequest) returns (GetKernelIDClearResponse);
+  rpc GetKernelIDDst (GetKernelIDDstRequest) returns (GetKernelIDDstResponse);
+  rpc GetKernelIDDstAtop (GetKernelIDDstAtopRequest) returns (GetKernelIDDstAtopResponse);
+  rpc GetKernelIDDstIn (GetKernelIDDstInRequest) returns (GetKernelIDDstInResponse);
+  rpc GetKernelIDDstOut (GetKernelIDDstOutRequest) returns (GetKernelIDDstOutResponse);
+  rpc GetKernelIDDstOver (GetKernelIDDstOverRequest) returns (GetKernelIDDstOverResponse);
+  rpc GetKernelIDMultiply (GetKernelIDMultiplyRequest) returns (GetKernelIDMultiplyResponse);
+  rpc GetKernelIDSrc (GetKernelIDSrcRequest) returns (GetKernelIDSrcResponse);
+  rpc GetKernelIDSrcAtop (GetKernelIDSrcAtopRequest) returns (GetKernelIDSrcAtopResponse);
+  rpc GetKernelIDSrcIn (GetKernelIDSrcInRequest) returns (GetKernelIDSrcInResponse);
+  rpc GetKernelIDSrcOut (GetKernelIDSrcOutRequest) returns (GetKernelIDSrcOutResponse);
+  rpc GetKernelIDSrcOver (GetKernelIDSrcOverRequest) returns (GetKernelIDSrcOverResponse);
+  rpc GetKernelIDSubtract (GetKernelIDSubtractRequest) returns (GetKernelIDSubtractResponse);
+  rpc GetKernelIDXor (GetKernelIDXorRequest) returns (GetKernelIDXorResponse);
+  rpc Create (ScriptIntrinsicBlendCreateRequest) returns (CreateResponse);
+}
+
+service ScriptIntrinsicConvolve3x3Service {
+  rpc ForEach1 (ForEach1Request) returns (ForEach1Response);
+  rpc ForEach2_1 (ForEach2_1Request) returns (ForEach2_1Response);
+  rpc GetFieldID_Input (GetFieldID_InputRequest) returns (GetFieldID_InputResponse);
+  rpc GetKernelID (GetKernelIDRequest) returns (GetKernelIDResponse);
+  rpc SetCoefficients (SetCoefficientsRequest) returns (SetCoefficientsResponse);
+  rpc SetInput (ScriptIntrinsicConvolve3x3SetInputRequest) returns (SetInputResponse);
+  rpc Create (ScriptIntrinsicConvolve3x3CreateRequest) returns (CreateResponse);
+}
+
+service Matrix2fService {
+  rpc NewMatrix2f (NewMatrix2fRequest) returns (NewMatrix2fResponse);
+  rpc Get (GetRequest) returns (GetResponse);
+  rpc GetArray (GetArrayRequest) returns (GetArrayResponse);
+  rpc Load (LoadRequest) returns (LoadResponse);
+  rpc LoadIdentity (LoadIdentityRequest) returns (LoadIdentityResponse);
+  rpc LoadMultiply (LoadMultiplyRequest) returns (LoadMultiplyResponse);
+  rpc LoadRotate (LoadRotateRequest) returns (LoadRotateResponse);
+  rpc LoadScale (LoadScaleRequest) returns (LoadScaleResponse);
+  rpc Multiply (MultiplyRequest) returns (MultiplyResponse);
+  rpc Rotate (RotateRequest) returns (RotateResponse);
+  rpc Scale (ScaleRequest) returns (ScaleResponse);
+  rpc Set (SetRequest) returns (SetResponse);
+  rpc Transpose (TransposeRequest) returns (TransposeResponse);
+}
+
+service Matrix4fService {
+  rpc NewMatrix4f (NewMatrix4fRequest) returns (NewMatrix4fResponse);
+  rpc Get (GetRequest) returns (GetResponse);
+  rpc GetArray (GetArrayRequest) returns (GetArrayResponse);
+  rpc Inverse (InverseRequest) returns (InverseResponse);
+  rpc InverseTranspose (InverseTransposeRequest) returns (InverseTransposeResponse);
+  rpc Load (LoadRequest) returns (LoadResponse);
+  rpc LoadFrustum (LoadFrustumRequest) returns (LoadFrustumResponse);
+  rpc LoadIdentity (LoadIdentityRequest) returns (LoadIdentityResponse);
+  rpc LoadMultiply (LoadMultiplyRequest) returns (LoadMultiplyResponse);
+  rpc LoadOrtho (LoadOrthoRequest) returns (LoadOrthoResponse);
+  rpc LoadOrthoWindow (LoadOrthoWindowRequest) returns (LoadOrthoWindowResponse);
+  rpc LoadPerspective (LoadPerspectiveRequest) returns (LoadPerspectiveResponse);
+  rpc LoadProjectionNormalized (LoadProjectionNormalizedRequest) returns (LoadProjectionNormalizedResponse);
+  rpc LoadRotate (Matrix4fLoadRotateRequest) returns (LoadRotateResponse);
+  rpc LoadScale (Matrix4fLoadScaleRequest) returns (LoadScaleResponse);
+  rpc LoadTranslate (Matrix4fLoadTranslateRequest) returns (LoadTranslateResponse);
+  rpc Multiply (MultiplyRequest) returns (MultiplyResponse);
+  rpc Rotate (Matrix4fRotateRequest) returns (RotateResponse);
+  rpc Scale (Matrix4fScaleRequest) returns (ScaleResponse);
+  rpc Set (SetRequest) returns (SetResponse);
+  rpc Translate (Matrix4fTranslateRequest) returns (TranslateResponse);
+  rpc Transpose (TransposeRequest) returns (TransposeResponse);
+}
+
+service FieldPackerService {
+  rpc NewFieldPacker (NewFieldPackerRequest) returns (NewFieldPackerResponse);
+  rpc AddBoolean (AddBooleanRequest) returns (AddBooleanResponse);
+  rpc AddF321 (AddF321Request) returns (AddF321Response);
+  rpc AddF321_1 (AddF321_1Request) returns (AddF321_1Response);
+  rpc AddF321_2 (AddF321_2Request) returns (AddF321_2Response);
+  rpc AddF321_3 (AddF321_3Request) returns (AddF321_3Response);
+  rpc AddF641 (AddF641Request) returns (AddF641Response);
+  rpc AddF641_1 (AddF641_1Request) returns (AddF641_1Response);
+  rpc AddF641_2 (AddF641_2Request) returns (AddF641_2Response);
+  rpc AddF641_3 (AddF641_3Request) returns (AddF641_3Response);
+  rpc AddI161 (AddI161Request) returns (AddI161Response);
+  rpc AddI161_1 (AddI161_1Request) returns (AddI161_1Response);
+  rpc AddI161_2 (AddI161_2Request) returns (AddI161_2Response);
+  rpc AddI161_3 (AddI161_3Request) returns (AddI161_3Response);
+  rpc AddI321 (AddI321Request) returns (AddI321Response);
+  rpc AddI321_1 (AddI321_1Request) returns (AddI321_1Response);
+  rpc AddI321_2 (AddI321_2Request) returns (AddI321_2Response);
+  rpc AddI321_3 (AddI321_3Request) returns (AddI321_3Response);
+  rpc AddI641 (AddI641Request) returns (AddI641Response);
+  rpc AddI641_1 (AddI641_1Request) returns (AddI641_1Response);
+  rpc AddI641_2 (AddI641_2Request) returns (AddI641_2Response);
+  rpc AddI641_3 (AddI641_3Request) returns (AddI641_3Response);
+  rpc AddI81 (AddI81Request) returns (AddI81Response);
+  rpc AddI81_1 (AddI81_1Request) returns (AddI81_1Response);
+  rpc AddI81_2 (AddI81_2Request) returns (AddI81_2Response);
+  rpc AddI81_3 (AddI81_3Request) returns (AddI81_3Response);
+  rpc AddMatrix1 (AddMatrix1Request) returns (AddMatrix1Response);
+  rpc AddMatrix1_1 (AddMatrix1_1Request) returns (AddMatrix1_1Response);
+  rpc AddMatrix1_2 (AddMatrix1_2Request) returns (AddMatrix1_2Response);
+  rpc AddObj (AddObjRequest) returns (AddObjResponse);
+  rpc AddU161 (AddU161Request) returns (AddU161Response);
+  rpc AddU161_1 (AddU161_1Request) returns (AddU161_1Response);
+  rpc AddU161_2 (AddU161_2Request) returns (AddU161_2Response);
+  rpc AddU161_3 (AddU161_3Request) returns (AddU161_3Response);
+  rpc AddU321 (AddU321Request) returns (AddU321Response);
+  rpc AddU321_1 (AddU321_1Request) returns (AddU321_1Response);
+  rpc AddU321_2 (AddU321_2Request) returns (AddU321_2Response);
+  rpc AddU321_3 (AddU321_3Request) returns (AddU321_3Response);
+  rpc AddU641 (AddU641Request) returns (AddU641Response);
+  rpc AddU641_1 (AddU641_1Request) returns (AddU641_1Response);
+  rpc AddU641_2 (AddU641_2Request) returns (AddU641_2Response);
+  rpc AddU641_3 (AddU641_3Request) returns (AddU641_3Response);
+  rpc AddU81 (AddU81Request) returns (AddU81Response);
+  rpc AddU81_1 (AddU81_1Request) returns (AddU81_1Response);
+  rpc AddU81_2 (AddU81_2Request) returns (AddU81_2Response);
+  rpc AddU81_3 (AddU81_3Request) returns (AddU81_3Response);
+  rpc Align (AlignRequest) returns (AlignResponse);
+  rpc GetData (GetDataRequest) returns (GetDataResponse);
+  rpc Reset0 (Reset0Request) returns (Reset0Response);
+  rpc Reset1_1 (Reset1_1Request) returns (Reset1_1Response);
+  rpc Skip (SkipRequest) returns (SkipResponse);
+  rpc SubBoolean (SubBooleanRequest) returns (SubBooleanResponse);
+  rpc SubByte2 (SubByte2Request) returns (SubByte2Response);
+  rpc SubByte3 (SubByte3Request) returns (SubByte3Response);
+  rpc SubByte4 (SubByte4Request) returns (SubByte4Response);
+  rpc SubDouble2 (SubDouble2Request) returns (SubDouble2Response);
+  rpc SubDouble3 (SubDouble3Request) returns (SubDouble3Response);
+  rpc SubDouble4 (SubDouble4Request) returns (SubDouble4Response);
+  rpc SubF32 (SubF32Request) returns (SubF32Response);
+  rpc SubF64 (SubF64Request) returns (SubF64Response);
+  rpc SubFloat2 (SubFloat2Request) returns (SubFloat2Response);
+  rpc SubFloat3 (SubFloat3Request) returns (SubFloat3Response);
+  rpc SubFloat4 (SubFloat4Request) returns (SubFloat4Response);
+  rpc SubI16 (SubI16Request) returns (SubI16Response);
+  rpc SubI32 (SubI32Request) returns (SubI32Response);
+  rpc SubI64 (SubI64Request) returns (SubI64Response);
+  rpc SubI8 (SubI8Request) returns (SubI8Response);
+  rpc SubInt2 (SubInt2Request) returns (SubInt2Response);
+  rpc SubInt3 (SubInt3Request) returns (SubInt3Response);
+  rpc SubInt4 (SubInt4Request) returns (SubInt4Response);
+  rpc SubLong2 (SubLong2Request) returns (SubLong2Response);
+  rpc SubLong3 (SubLong3Request) returns (SubLong3Response);
+  rpc SubLong4 (SubLong4Request) returns (SubLong4Response);
+  rpc SubMatrix2f (SubMatrix2fRequest) returns (SubMatrix2fResponse);
+  rpc SubMatrix3f (SubMatrix3fRequest) returns (SubMatrix3fResponse);
+  rpc SubMatrix4f (SubMatrix4fRequest) returns (SubMatrix4fResponse);
+  rpc SubShort2 (SubShort2Request) returns (SubShort2Response);
+  rpc SubShort3 (SubShort3Request) returns (SubShort3Response);
+  rpc SubShort4 (SubShort4Request) returns (SubShort4Response);
+  rpc Subalign (SubalignRequest) returns (SubalignResponse);
+}
+
+service ScriptIntrinsicResizeService {
+  rpc ForEach_bicubic1 (ForEach_bicubic1Request) returns (ForEach_bicubic1Response);
+  rpc ForEach_bicubic2_1 (ForEach_bicubic2_1Request) returns (ForEach_bicubic2_1Response);
+  rpc GetFieldID_Input (GetFieldID_InputRequest) returns (GetFieldID_InputResponse);
+  rpc GetKernelID_bicubic (GetKernelID_bicubicRequest) returns (GetKernelID_bicubicResponse);
+  rpc SetInput (ScriptIntrinsicResizeSetInputRequest) returns (SetInputResponse);
+  rpc Create (ScriptIntrinsicResizeCreateRequest) returns (CreateResponse);
+}
+
+service BaseObjService {
+  rpc Destroy (DestroyRequest) returns (DestroyResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetName (GetNameRequest) returns (GetNameResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc SetName (SetNameRequest) returns (SetNameResponse);
+}

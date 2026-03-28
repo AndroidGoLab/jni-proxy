@@ -201,3 +201,66 @@ func (s *ManagerServer) UpdateSubscriptionNickname(_ context.Context, req *pb.Up
 	}
 	return &pb.UpdateSubscriptionNicknameResponse{}, nil
 }
+
+// InfoServer implements pb.InfoServiceServer.
+type InfoServer struct {
+	pb.UnimplementedInfoServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *InfoServer) NewInfo(_ context.Context, req *pb.NewInfoRequest) (*pb.NewInfoResponse, error) {
+	obj, err := jnipkg.NewInfo(s.Ctx.VM, req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewInfoResponse{Result: handle}, nil
+}
+
+func (s *InfoServer) DescribeContents(_ context.Context, req *pb.InfoDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Info{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *InfoServer) GetOsVersion(_ context.Context, req *pb.GetOsVersionRequest) (*pb.GetOsVersionResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Info{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetOsVersion()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetOsVersionResponse{Result: result}, nil
+}
+
+func (s *InfoServer) WriteToParcel(_ context.Context, req *pb.InfoWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Info{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}

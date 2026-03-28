@@ -12,6 +12,7 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -22,19 +23,3102 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type NewServiceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewServiceRequest) Reset() {
+	*x = NewServiceRequest{}
+	mi := &file_proto_vpn_vpn_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewServiceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewServiceRequest) ProtoMessage() {}
+
+func (x *NewServiceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vpn_vpn_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewServiceRequest.ProtoReflect.Descriptor instead.
+func (*NewServiceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vpn_vpn_proto_rawDescGZIP(), []int{0}
+}
+
+type NewServiceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewServiceResponse) Reset() {
+	*x = NewServiceResponse{}
+	mi := &file_proto_vpn_vpn_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewServiceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewServiceResponse) ProtoMessage() {}
+
+func (x *NewServiceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vpn_vpn_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewServiceResponse.ProtoReflect.Descriptor instead.
+func (*NewServiceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vpn_vpn_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *NewServiceResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type IsAlwaysOnRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsAlwaysOnRequest) Reset() {
+	*x = IsAlwaysOnRequest{}
+	mi := &file_proto_vpn_vpn_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsAlwaysOnRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsAlwaysOnRequest) ProtoMessage() {}
+
+func (x *IsAlwaysOnRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vpn_vpn_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsAlwaysOnRequest.ProtoReflect.Descriptor instead.
+func (*IsAlwaysOnRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vpn_vpn_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *IsAlwaysOnRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type IsAlwaysOnResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsAlwaysOnResponse) Reset() {
+	*x = IsAlwaysOnResponse{}
+	mi := &file_proto_vpn_vpn_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsAlwaysOnResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsAlwaysOnResponse) ProtoMessage() {}
+
+func (x *IsAlwaysOnResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vpn_vpn_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsAlwaysOnResponse.ProtoReflect.Descriptor instead.
+func (*IsAlwaysOnResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vpn_vpn_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *IsAlwaysOnResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsLockdownEnabledRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsLockdownEnabledRequest) Reset() {
+	*x = IsLockdownEnabledRequest{}
+	mi := &file_proto_vpn_vpn_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsLockdownEnabledRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsLockdownEnabledRequest) ProtoMessage() {}
+
+func (x *IsLockdownEnabledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vpn_vpn_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsLockdownEnabledRequest.ProtoReflect.Descriptor instead.
+func (*IsLockdownEnabledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vpn_vpn_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *IsLockdownEnabledRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type IsLockdownEnabledResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsLockdownEnabledResponse) Reset() {
+	*x = IsLockdownEnabledResponse{}
+	mi := &file_proto_vpn_vpn_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsLockdownEnabledResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsLockdownEnabledResponse) ProtoMessage() {}
+
+func (x *IsLockdownEnabledResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vpn_vpn_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsLockdownEnabledResponse.ProtoReflect.Descriptor instead.
+func (*IsLockdownEnabledResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vpn_vpn_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *IsLockdownEnabledResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type OnBindRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnBindRequest) Reset() {
+	*x = OnBindRequest{}
+	mi := &file_proto_vpn_vpn_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnBindRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnBindRequest) ProtoMessage() {}
+
+func (x *OnBindRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vpn_vpn_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnBindRequest.ProtoReflect.Descriptor instead.
+func (*OnBindRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vpn_vpn_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *OnBindRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *OnBindRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnBindResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnBindResponse) Reset() {
+	*x = OnBindResponse{}
+	mi := &file_proto_vpn_vpn_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnBindResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnBindResponse) ProtoMessage() {}
+
+func (x *OnBindResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vpn_vpn_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnBindResponse.ProtoReflect.Descriptor instead.
+func (*OnBindResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vpn_vpn_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *OnBindResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OnRevokeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnRevokeRequest) Reset() {
+	*x = OnRevokeRequest{}
+	mi := &file_proto_vpn_vpn_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnRevokeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnRevokeRequest) ProtoMessage() {}
+
+func (x *OnRevokeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vpn_vpn_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnRevokeRequest.ProtoReflect.Descriptor instead.
+func (*OnRevokeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vpn_vpn_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *OnRevokeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type OnRevokeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnRevokeResponse) Reset() {
+	*x = OnRevokeResponse{}
+	mi := &file_proto_vpn_vpn_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnRevokeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnRevokeResponse) ProtoMessage() {}
+
+func (x *OnRevokeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vpn_vpn_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnRevokeResponse.ProtoReflect.Descriptor instead.
+func (*OnRevokeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vpn_vpn_proto_rawDescGZIP(), []int{9}
+}
+
+type Protect1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Protect1Request) Reset() {
+	*x = Protect1Request{}
+	mi := &file_proto_vpn_vpn_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Protect1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Protect1Request) ProtoMessage() {}
+
+func (x *Protect1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vpn_vpn_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Protect1Request.ProtoReflect.Descriptor instead.
+func (*Protect1Request) Descriptor() ([]byte, []int) {
+	return file_proto_vpn_vpn_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *Protect1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *Protect1Request) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type Protect1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Protect1Response) Reset() {
+	*x = Protect1Response{}
+	mi := &file_proto_vpn_vpn_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Protect1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Protect1Response) ProtoMessage() {}
+
+func (x *Protect1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vpn_vpn_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Protect1Response.ProtoReflect.Descriptor instead.
+func (*Protect1Response) Descriptor() ([]byte, []int) {
+	return file_proto_vpn_vpn_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *Protect1Response) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type Protect1_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Protect1_1Request) Reset() {
+	*x = Protect1_1Request{}
+	mi := &file_proto_vpn_vpn_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Protect1_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Protect1_1Request) ProtoMessage() {}
+
+func (x *Protect1_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vpn_vpn_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Protect1_1Request.ProtoReflect.Descriptor instead.
+func (*Protect1_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_vpn_vpn_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *Protect1_1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *Protect1_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type Protect1_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Protect1_1Response) Reset() {
+	*x = Protect1_1Response{}
+	mi := &file_proto_vpn_vpn_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Protect1_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Protect1_1Response) ProtoMessage() {}
+
+func (x *Protect1_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vpn_vpn_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Protect1_1Response.ProtoReflect.Descriptor instead.
+func (*Protect1_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_vpn_vpn_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *Protect1_1Response) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type Protect1_2Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Protect1_2Request) Reset() {
+	*x = Protect1_2Request{}
+	mi := &file_proto_vpn_vpn_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Protect1_2Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Protect1_2Request) ProtoMessage() {}
+
+func (x *Protect1_2Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vpn_vpn_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Protect1_2Request.ProtoReflect.Descriptor instead.
+func (*Protect1_2Request) Descriptor() ([]byte, []int) {
+	return file_proto_vpn_vpn_proto_rawDescGZIP(), []int{14}
+}
+
+func (x *Protect1_2Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *Protect1_2Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type Protect1_2Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Protect1_2Response) Reset() {
+	*x = Protect1_2Response{}
+	mi := &file_proto_vpn_vpn_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Protect1_2Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Protect1_2Response) ProtoMessage() {}
+
+func (x *Protect1_2Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vpn_vpn_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Protect1_2Response.ProtoReflect.Descriptor instead.
+func (*Protect1_2Response) Descriptor() ([]byte, []int) {
+	return file_proto_vpn_vpn_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *Protect1_2Response) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type SetUnderlyingNetworksRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetUnderlyingNetworksRequest) Reset() {
+	*x = SetUnderlyingNetworksRequest{}
+	mi := &file_proto_vpn_vpn_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetUnderlyingNetworksRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetUnderlyingNetworksRequest) ProtoMessage() {}
+
+func (x *SetUnderlyingNetworksRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vpn_vpn_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetUnderlyingNetworksRequest.ProtoReflect.Descriptor instead.
+func (*SetUnderlyingNetworksRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vpn_vpn_proto_rawDescGZIP(), []int{16}
+}
+
+func (x *SetUnderlyingNetworksRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetUnderlyingNetworksRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetUnderlyingNetworksResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetUnderlyingNetworksResponse) Reset() {
+	*x = SetUnderlyingNetworksResponse{}
+	mi := &file_proto_vpn_vpn_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetUnderlyingNetworksResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetUnderlyingNetworksResponse) ProtoMessage() {}
+
+func (x *SetUnderlyingNetworksResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vpn_vpn_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetUnderlyingNetworksResponse.ProtoReflect.Descriptor instead.
+func (*SetUnderlyingNetworksResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vpn_vpn_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *SetUnderlyingNetworksResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type PrepareRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PrepareRequest) Reset() {
+	*x = PrepareRequest{}
+	mi := &file_proto_vpn_vpn_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PrepareRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PrepareRequest) ProtoMessage() {}
+
+func (x *PrepareRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vpn_vpn_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PrepareRequest.ProtoReflect.Descriptor instead.
+func (*PrepareRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vpn_vpn_proto_rawDescGZIP(), []int{18}
+}
+
+func (x *PrepareRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *PrepareRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type PrepareResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PrepareResponse) Reset() {
+	*x = PrepareResponse{}
+	mi := &file_proto_vpn_vpn_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PrepareResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PrepareResponse) ProtoMessage() {}
+
+func (x *PrepareResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vpn_vpn_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PrepareResponse.ProtoReflect.Descriptor instead.
+func (*PrepareResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vpn_vpn_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *PrepareResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddAddress2Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddAddress2Request) Reset() {
+	*x = AddAddress2Request{}
+	mi := &file_proto_vpn_vpn_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddAddress2Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddAddress2Request) ProtoMessage() {}
+
+func (x *AddAddress2Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vpn_vpn_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddAddress2Request.ProtoReflect.Descriptor instead.
+func (*AddAddress2Request) Descriptor() ([]byte, []int) {
+	return file_proto_vpn_vpn_proto_rawDescGZIP(), []int{20}
+}
+
+func (x *AddAddress2Request) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *AddAddress2Request) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type AddAddress2Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddAddress2Response) Reset() {
+	*x = AddAddress2Response{}
+	mi := &file_proto_vpn_vpn_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddAddress2Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddAddress2Response) ProtoMessage() {}
+
+func (x *AddAddress2Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vpn_vpn_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddAddress2Response.ProtoReflect.Descriptor instead.
+func (*AddAddress2Response) Descriptor() ([]byte, []int) {
+	return file_proto_vpn_vpn_proto_rawDescGZIP(), []int{21}
+}
+
+func (x *AddAddress2Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddAddress2_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddAddress2_1Request) Reset() {
+	*x = AddAddress2_1Request{}
+	mi := &file_proto_vpn_vpn_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddAddress2_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddAddress2_1Request) ProtoMessage() {}
+
+func (x *AddAddress2_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vpn_vpn_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddAddress2_1Request.ProtoReflect.Descriptor instead.
+func (*AddAddress2_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_vpn_vpn_proto_rawDescGZIP(), []int{22}
+}
+
+func (x *AddAddress2_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *AddAddress2_1Request) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type AddAddress2_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddAddress2_1Response) Reset() {
+	*x = AddAddress2_1Response{}
+	mi := &file_proto_vpn_vpn_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddAddress2_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddAddress2_1Response) ProtoMessage() {}
+
+func (x *AddAddress2_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vpn_vpn_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddAddress2_1Response.ProtoReflect.Descriptor instead.
+func (*AddAddress2_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_vpn_vpn_proto_rawDescGZIP(), []int{23}
+}
+
+func (x *AddAddress2_1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddAllowedApplicationRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddAllowedApplicationRequest) Reset() {
+	*x = AddAllowedApplicationRequest{}
+	mi := &file_proto_vpn_vpn_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddAllowedApplicationRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddAllowedApplicationRequest) ProtoMessage() {}
+
+func (x *AddAllowedApplicationRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vpn_vpn_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddAllowedApplicationRequest.ProtoReflect.Descriptor instead.
+func (*AddAllowedApplicationRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vpn_vpn_proto_rawDescGZIP(), []int{24}
+}
+
+func (x *AddAllowedApplicationRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type AddAllowedApplicationResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddAllowedApplicationResponse) Reset() {
+	*x = AddAllowedApplicationResponse{}
+	mi := &file_proto_vpn_vpn_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddAllowedApplicationResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddAllowedApplicationResponse) ProtoMessage() {}
+
+func (x *AddAllowedApplicationResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vpn_vpn_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddAllowedApplicationResponse.ProtoReflect.Descriptor instead.
+func (*AddAllowedApplicationResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vpn_vpn_proto_rawDescGZIP(), []int{25}
+}
+
+func (x *AddAllowedApplicationResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddDisallowedApplicationRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddDisallowedApplicationRequest) Reset() {
+	*x = AddDisallowedApplicationRequest{}
+	mi := &file_proto_vpn_vpn_proto_msgTypes[26]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddDisallowedApplicationRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddDisallowedApplicationRequest) ProtoMessage() {}
+
+func (x *AddDisallowedApplicationRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vpn_vpn_proto_msgTypes[26]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddDisallowedApplicationRequest.ProtoReflect.Descriptor instead.
+func (*AddDisallowedApplicationRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vpn_vpn_proto_rawDescGZIP(), []int{26}
+}
+
+func (x *AddDisallowedApplicationRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type AddDisallowedApplicationResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddDisallowedApplicationResponse) Reset() {
+	*x = AddDisallowedApplicationResponse{}
+	mi := &file_proto_vpn_vpn_proto_msgTypes[27]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddDisallowedApplicationResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddDisallowedApplicationResponse) ProtoMessage() {}
+
+func (x *AddDisallowedApplicationResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vpn_vpn_proto_msgTypes[27]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddDisallowedApplicationResponse.ProtoReflect.Descriptor instead.
+func (*AddDisallowedApplicationResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vpn_vpn_proto_rawDescGZIP(), []int{27}
+}
+
+func (x *AddDisallowedApplicationResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddDnsServer1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddDnsServer1Request) Reset() {
+	*x = AddDnsServer1Request{}
+	mi := &file_proto_vpn_vpn_proto_msgTypes[28]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddDnsServer1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddDnsServer1Request) ProtoMessage() {}
+
+func (x *AddDnsServer1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vpn_vpn_proto_msgTypes[28]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddDnsServer1Request.ProtoReflect.Descriptor instead.
+func (*AddDnsServer1Request) Descriptor() ([]byte, []int) {
+	return file_proto_vpn_vpn_proto_rawDescGZIP(), []int{28}
+}
+
+func (x *AddDnsServer1Request) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type AddDnsServer1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddDnsServer1Response) Reset() {
+	*x = AddDnsServer1Response{}
+	mi := &file_proto_vpn_vpn_proto_msgTypes[29]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddDnsServer1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddDnsServer1Response) ProtoMessage() {}
+
+func (x *AddDnsServer1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vpn_vpn_proto_msgTypes[29]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddDnsServer1Response.ProtoReflect.Descriptor instead.
+func (*AddDnsServer1Response) Descriptor() ([]byte, []int) {
+	return file_proto_vpn_vpn_proto_rawDescGZIP(), []int{29}
+}
+
+func (x *AddDnsServer1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddDnsServer1_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddDnsServer1_1Request) Reset() {
+	*x = AddDnsServer1_1Request{}
+	mi := &file_proto_vpn_vpn_proto_msgTypes[30]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddDnsServer1_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddDnsServer1_1Request) ProtoMessage() {}
+
+func (x *AddDnsServer1_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vpn_vpn_proto_msgTypes[30]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddDnsServer1_1Request.ProtoReflect.Descriptor instead.
+func (*AddDnsServer1_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_vpn_vpn_proto_rawDescGZIP(), []int{30}
+}
+
+func (x *AddDnsServer1_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AddDnsServer1_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddDnsServer1_1Response) Reset() {
+	*x = AddDnsServer1_1Response{}
+	mi := &file_proto_vpn_vpn_proto_msgTypes[31]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddDnsServer1_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddDnsServer1_1Response) ProtoMessage() {}
+
+func (x *AddDnsServer1_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vpn_vpn_proto_msgTypes[31]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddDnsServer1_1Response.ProtoReflect.Descriptor instead.
+func (*AddDnsServer1_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_vpn_vpn_proto_rawDescGZIP(), []int{31}
+}
+
+func (x *AddDnsServer1_1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddRoute1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddRoute1Request) Reset() {
+	*x = AddRoute1Request{}
+	mi := &file_proto_vpn_vpn_proto_msgTypes[32]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddRoute1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddRoute1Request) ProtoMessage() {}
+
+func (x *AddRoute1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vpn_vpn_proto_msgTypes[32]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddRoute1Request.ProtoReflect.Descriptor instead.
+func (*AddRoute1Request) Descriptor() ([]byte, []int) {
+	return file_proto_vpn_vpn_proto_rawDescGZIP(), []int{32}
+}
+
+func (x *AddRoute1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AddRoute1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddRoute1Response) Reset() {
+	*x = AddRoute1Response{}
+	mi := &file_proto_vpn_vpn_proto_msgTypes[33]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddRoute1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddRoute1Response) ProtoMessage() {}
+
+func (x *AddRoute1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vpn_vpn_proto_msgTypes[33]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddRoute1Response.ProtoReflect.Descriptor instead.
+func (*AddRoute1Response) Descriptor() ([]byte, []int) {
+	return file_proto_vpn_vpn_proto_rawDescGZIP(), []int{33}
+}
+
+func (x *AddRoute1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddRoute2_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddRoute2_1Request) Reset() {
+	*x = AddRoute2_1Request{}
+	mi := &file_proto_vpn_vpn_proto_msgTypes[34]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddRoute2_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddRoute2_1Request) ProtoMessage() {}
+
+func (x *AddRoute2_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vpn_vpn_proto_msgTypes[34]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddRoute2_1Request.ProtoReflect.Descriptor instead.
+func (*AddRoute2_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_vpn_vpn_proto_rawDescGZIP(), []int{34}
+}
+
+func (x *AddRoute2_1Request) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *AddRoute2_1Request) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type AddRoute2_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddRoute2_1Response) Reset() {
+	*x = AddRoute2_1Response{}
+	mi := &file_proto_vpn_vpn_proto_msgTypes[35]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddRoute2_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddRoute2_1Response) ProtoMessage() {}
+
+func (x *AddRoute2_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vpn_vpn_proto_msgTypes[35]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddRoute2_1Response.ProtoReflect.Descriptor instead.
+func (*AddRoute2_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_vpn_vpn_proto_rawDescGZIP(), []int{35}
+}
+
+func (x *AddRoute2_1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddRoute2_2Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddRoute2_2Request) Reset() {
+	*x = AddRoute2_2Request{}
+	mi := &file_proto_vpn_vpn_proto_msgTypes[36]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddRoute2_2Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddRoute2_2Request) ProtoMessage() {}
+
+func (x *AddRoute2_2Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vpn_vpn_proto_msgTypes[36]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddRoute2_2Request.ProtoReflect.Descriptor instead.
+func (*AddRoute2_2Request) Descriptor() ([]byte, []int) {
+	return file_proto_vpn_vpn_proto_rawDescGZIP(), []int{36}
+}
+
+func (x *AddRoute2_2Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *AddRoute2_2Request) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type AddRoute2_2Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddRoute2_2Response) Reset() {
+	*x = AddRoute2_2Response{}
+	mi := &file_proto_vpn_vpn_proto_msgTypes[37]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddRoute2_2Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddRoute2_2Response) ProtoMessage() {}
+
+func (x *AddRoute2_2Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vpn_vpn_proto_msgTypes[37]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddRoute2_2Response.ProtoReflect.Descriptor instead.
+func (*AddRoute2_2Response) Descriptor() ([]byte, []int) {
+	return file_proto_vpn_vpn_proto_rawDescGZIP(), []int{37}
+}
+
+func (x *AddRoute2_2Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddSearchDomainRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddSearchDomainRequest) Reset() {
+	*x = AddSearchDomainRequest{}
+	mi := &file_proto_vpn_vpn_proto_msgTypes[38]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddSearchDomainRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddSearchDomainRequest) ProtoMessage() {}
+
+func (x *AddSearchDomainRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vpn_vpn_proto_msgTypes[38]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddSearchDomainRequest.ProtoReflect.Descriptor instead.
+func (*AddSearchDomainRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vpn_vpn_proto_rawDescGZIP(), []int{38}
+}
+
+func (x *AddSearchDomainRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type AddSearchDomainResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddSearchDomainResponse) Reset() {
+	*x = AddSearchDomainResponse{}
+	mi := &file_proto_vpn_vpn_proto_msgTypes[39]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddSearchDomainResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddSearchDomainResponse) ProtoMessage() {}
+
+func (x *AddSearchDomainResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vpn_vpn_proto_msgTypes[39]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddSearchDomainResponse.ProtoReflect.Descriptor instead.
+func (*AddSearchDomainResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vpn_vpn_proto_rawDescGZIP(), []int{39}
+}
+
+func (x *AddSearchDomainResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AllowBypassRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AllowBypassRequest) Reset() {
+	*x = AllowBypassRequest{}
+	mi := &file_proto_vpn_vpn_proto_msgTypes[40]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AllowBypassRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AllowBypassRequest) ProtoMessage() {}
+
+func (x *AllowBypassRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vpn_vpn_proto_msgTypes[40]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AllowBypassRequest.ProtoReflect.Descriptor instead.
+func (*AllowBypassRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vpn_vpn_proto_rawDescGZIP(), []int{40}
+}
+
+type AllowBypassResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AllowBypassResponse) Reset() {
+	*x = AllowBypassResponse{}
+	mi := &file_proto_vpn_vpn_proto_msgTypes[41]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AllowBypassResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AllowBypassResponse) ProtoMessage() {}
+
+func (x *AllowBypassResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vpn_vpn_proto_msgTypes[41]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AllowBypassResponse.ProtoReflect.Descriptor instead.
+func (*AllowBypassResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vpn_vpn_proto_rawDescGZIP(), []int{41}
+}
+
+func (x *AllowBypassResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AllowFamilyRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AllowFamilyRequest) Reset() {
+	*x = AllowFamilyRequest{}
+	mi := &file_proto_vpn_vpn_proto_msgTypes[42]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AllowFamilyRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AllowFamilyRequest) ProtoMessage() {}
+
+func (x *AllowFamilyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vpn_vpn_proto_msgTypes[42]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AllowFamilyRequest.ProtoReflect.Descriptor instead.
+func (*AllowFamilyRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vpn_vpn_proto_rawDescGZIP(), []int{42}
+}
+
+func (x *AllowFamilyRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AllowFamilyResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AllowFamilyResponse) Reset() {
+	*x = AllowFamilyResponse{}
+	mi := &file_proto_vpn_vpn_proto_msgTypes[43]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AllowFamilyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AllowFamilyResponse) ProtoMessage() {}
+
+func (x *AllowFamilyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vpn_vpn_proto_msgTypes[43]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AllowFamilyResponse.ProtoReflect.Descriptor instead.
+func (*AllowFamilyResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vpn_vpn_proto_rawDescGZIP(), []int{43}
+}
+
+func (x *AllowFamilyResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type EstablishRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EstablishRequest) Reset() {
+	*x = EstablishRequest{}
+	mi := &file_proto_vpn_vpn_proto_msgTypes[44]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EstablishRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EstablishRequest) ProtoMessage() {}
+
+func (x *EstablishRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vpn_vpn_proto_msgTypes[44]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EstablishRequest.ProtoReflect.Descriptor instead.
+func (*EstablishRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vpn_vpn_proto_rawDescGZIP(), []int{44}
+}
+
+type EstablishResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EstablishResponse) Reset() {
+	*x = EstablishResponse{}
+	mi := &file_proto_vpn_vpn_proto_msgTypes[45]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EstablishResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EstablishResponse) ProtoMessage() {}
+
+func (x *EstablishResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vpn_vpn_proto_msgTypes[45]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EstablishResponse.ProtoReflect.Descriptor instead.
+func (*EstablishResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vpn_vpn_proto_rawDescGZIP(), []int{45}
+}
+
+func (x *EstablishResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ExcludeRouteRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ExcludeRouteRequest) Reset() {
+	*x = ExcludeRouteRequest{}
+	mi := &file_proto_vpn_vpn_proto_msgTypes[46]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ExcludeRouteRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ExcludeRouteRequest) ProtoMessage() {}
+
+func (x *ExcludeRouteRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vpn_vpn_proto_msgTypes[46]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ExcludeRouteRequest.ProtoReflect.Descriptor instead.
+func (*ExcludeRouteRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vpn_vpn_proto_rawDescGZIP(), []int{46}
+}
+
+func (x *ExcludeRouteRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type ExcludeRouteResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ExcludeRouteResponse) Reset() {
+	*x = ExcludeRouteResponse{}
+	mi := &file_proto_vpn_vpn_proto_msgTypes[47]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ExcludeRouteResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ExcludeRouteResponse) ProtoMessage() {}
+
+func (x *ExcludeRouteResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vpn_vpn_proto_msgTypes[47]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ExcludeRouteResponse.ProtoReflect.Descriptor instead.
+func (*ExcludeRouteResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vpn_vpn_proto_rawDescGZIP(), []int{47}
+}
+
+func (x *ExcludeRouteResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetBlockingRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetBlockingRequest) Reset() {
+	*x = SetBlockingRequest{}
+	mi := &file_proto_vpn_vpn_proto_msgTypes[48]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetBlockingRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetBlockingRequest) ProtoMessage() {}
+
+func (x *SetBlockingRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vpn_vpn_proto_msgTypes[48]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetBlockingRequest.ProtoReflect.Descriptor instead.
+func (*SetBlockingRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vpn_vpn_proto_rawDescGZIP(), []int{48}
+}
+
+func (x *SetBlockingRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetBlockingResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetBlockingResponse) Reset() {
+	*x = SetBlockingResponse{}
+	mi := &file_proto_vpn_vpn_proto_msgTypes[49]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetBlockingResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetBlockingResponse) ProtoMessage() {}
+
+func (x *SetBlockingResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vpn_vpn_proto_msgTypes[49]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetBlockingResponse.ProtoReflect.Descriptor instead.
+func (*SetBlockingResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vpn_vpn_proto_rawDescGZIP(), []int{49}
+}
+
+func (x *SetBlockingResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetConfigureIntentRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetConfigureIntentRequest) Reset() {
+	*x = SetConfigureIntentRequest{}
+	mi := &file_proto_vpn_vpn_proto_msgTypes[50]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetConfigureIntentRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetConfigureIntentRequest) ProtoMessage() {}
+
+func (x *SetConfigureIntentRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vpn_vpn_proto_msgTypes[50]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetConfigureIntentRequest.ProtoReflect.Descriptor instead.
+func (*SetConfigureIntentRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vpn_vpn_proto_rawDescGZIP(), []int{50}
+}
+
+func (x *SetConfigureIntentRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetConfigureIntentResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetConfigureIntentResponse) Reset() {
+	*x = SetConfigureIntentResponse{}
+	mi := &file_proto_vpn_vpn_proto_msgTypes[51]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetConfigureIntentResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetConfigureIntentResponse) ProtoMessage() {}
+
+func (x *SetConfigureIntentResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vpn_vpn_proto_msgTypes[51]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetConfigureIntentResponse.ProtoReflect.Descriptor instead.
+func (*SetConfigureIntentResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vpn_vpn_proto_rawDescGZIP(), []int{51}
+}
+
+func (x *SetConfigureIntentResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetHttpProxyRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetHttpProxyRequest) Reset() {
+	*x = SetHttpProxyRequest{}
+	mi := &file_proto_vpn_vpn_proto_msgTypes[52]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetHttpProxyRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetHttpProxyRequest) ProtoMessage() {}
+
+func (x *SetHttpProxyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vpn_vpn_proto_msgTypes[52]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetHttpProxyRequest.ProtoReflect.Descriptor instead.
+func (*SetHttpProxyRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vpn_vpn_proto_rawDescGZIP(), []int{52}
+}
+
+func (x *SetHttpProxyRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetHttpProxyResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetHttpProxyResponse) Reset() {
+	*x = SetHttpProxyResponse{}
+	mi := &file_proto_vpn_vpn_proto_msgTypes[53]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetHttpProxyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetHttpProxyResponse) ProtoMessage() {}
+
+func (x *SetHttpProxyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vpn_vpn_proto_msgTypes[53]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetHttpProxyResponse.ProtoReflect.Descriptor instead.
+func (*SetHttpProxyResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vpn_vpn_proto_rawDescGZIP(), []int{53}
+}
+
+func (x *SetHttpProxyResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetMeteredRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetMeteredRequest) Reset() {
+	*x = SetMeteredRequest{}
+	mi := &file_proto_vpn_vpn_proto_msgTypes[54]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetMeteredRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetMeteredRequest) ProtoMessage() {}
+
+func (x *SetMeteredRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vpn_vpn_proto_msgTypes[54]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetMeteredRequest.ProtoReflect.Descriptor instead.
+func (*SetMeteredRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vpn_vpn_proto_rawDescGZIP(), []int{54}
+}
+
+func (x *SetMeteredRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetMeteredResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetMeteredResponse) Reset() {
+	*x = SetMeteredResponse{}
+	mi := &file_proto_vpn_vpn_proto_msgTypes[55]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetMeteredResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetMeteredResponse) ProtoMessage() {}
+
+func (x *SetMeteredResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vpn_vpn_proto_msgTypes[55]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetMeteredResponse.ProtoReflect.Descriptor instead.
+func (*SetMeteredResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vpn_vpn_proto_rawDescGZIP(), []int{55}
+}
+
+func (x *SetMeteredResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetMtuRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetMtuRequest) Reset() {
+	*x = SetMtuRequest{}
+	mi := &file_proto_vpn_vpn_proto_msgTypes[56]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetMtuRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetMtuRequest) ProtoMessage() {}
+
+func (x *SetMtuRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vpn_vpn_proto_msgTypes[56]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetMtuRequest.ProtoReflect.Descriptor instead.
+func (*SetMtuRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vpn_vpn_proto_rawDescGZIP(), []int{56}
+}
+
+func (x *SetMtuRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetMtuResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetMtuResponse) Reset() {
+	*x = SetMtuResponse{}
+	mi := &file_proto_vpn_vpn_proto_msgTypes[57]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetMtuResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetMtuResponse) ProtoMessage() {}
+
+func (x *SetMtuResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vpn_vpn_proto_msgTypes[57]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetMtuResponse.ProtoReflect.Descriptor instead.
+func (*SetMtuResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vpn_vpn_proto_rawDescGZIP(), []int{57}
+}
+
+func (x *SetMtuResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetSessionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetSessionRequest) Reset() {
+	*x = SetSessionRequest{}
+	mi := &file_proto_vpn_vpn_proto_msgTypes[58]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetSessionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetSessionRequest) ProtoMessage() {}
+
+func (x *SetSessionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vpn_vpn_proto_msgTypes[58]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetSessionRequest.ProtoReflect.Descriptor instead.
+func (*SetSessionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vpn_vpn_proto_rawDescGZIP(), []int{58}
+}
+
+func (x *SetSessionRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type SetSessionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetSessionResponse) Reset() {
+	*x = SetSessionResponse{}
+	mi := &file_proto_vpn_vpn_proto_msgTypes[59]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetSessionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetSessionResponse) ProtoMessage() {}
+
+func (x *SetSessionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vpn_vpn_proto_msgTypes[59]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetSessionResponse.ProtoReflect.Descriptor instead.
+func (*SetSessionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vpn_vpn_proto_rawDescGZIP(), []int{59}
+}
+
+func (x *SetSessionResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ServiceBuilderSetUnderlyingNetworksRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ServiceBuilderSetUnderlyingNetworksRequest) Reset() {
+	*x = ServiceBuilderSetUnderlyingNetworksRequest{}
+	mi := &file_proto_vpn_vpn_proto_msgTypes[60]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ServiceBuilderSetUnderlyingNetworksRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ServiceBuilderSetUnderlyingNetworksRequest) ProtoMessage() {}
+
+func (x *ServiceBuilderSetUnderlyingNetworksRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vpn_vpn_proto_msgTypes[60]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ServiceBuilderSetUnderlyingNetworksRequest.ProtoReflect.Descriptor instead.
+func (*ServiceBuilderSetUnderlyingNetworksRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vpn_vpn_proto_rawDescGZIP(), []int{60}
+}
+
+func (x *ServiceBuilderSetUnderlyingNetworksRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type ServiceBuilderSetUnderlyingNetworksResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ServiceBuilderSetUnderlyingNetworksResponse) Reset() {
+	*x = ServiceBuilderSetUnderlyingNetworksResponse{}
+	mi := &file_proto_vpn_vpn_proto_msgTypes[61]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ServiceBuilderSetUnderlyingNetworksResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ServiceBuilderSetUnderlyingNetworksResponse) ProtoMessage() {}
+
+func (x *ServiceBuilderSetUnderlyingNetworksResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vpn_vpn_proto_msgTypes[61]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ServiceBuilderSetUnderlyingNetworksResponse.ProtoReflect.Descriptor instead.
+func (*ServiceBuilderSetUnderlyingNetworksResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vpn_vpn_proto_rawDescGZIP(), []int{61}
+}
+
+func (x *ServiceBuilderSetUnderlyingNetworksResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
 var File_proto_vpn_vpn_proto protoreflect.FileDescriptor
 
 const file_proto_vpn_vpn_proto_rawDesc = "" +
 	"\n" +
-	"\x13proto/vpn/vpn.proto\x12\x03vpnB-Z+github.com/AndroidGoLab/jni-proxy/proto/vpnb\x06proto3"
+	"\x13proto/vpn/vpn.proto\x12\x03vpn\"\x13\n" +
+	"\x11NewServiceRequest\",\n" +
+	"\x12NewServiceResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"+\n" +
+	"\x11IsAlwaysOnRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\",\n" +
+	"\x12IsAlwaysOnResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"2\n" +
+	"\x18IsLockdownEnabledRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"3\n" +
+	"\x19IsLockdownEnabledResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\";\n" +
+	"\rOnBindRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"(\n" +
+	"\x0eOnBindResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\")\n" +
+	"\x0fOnRevokeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x12\n" +
+	"\x10OnRevokeResponse\"=\n" +
+	"\x0fProtect1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"*\n" +
+	"\x10Protect1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"?\n" +
+	"\x11Protect1_1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\",\n" +
+	"\x12Protect1_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"?\n" +
+	"\x11Protect1_2Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\",\n" +
+	"\x12Protect1_2Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"J\n" +
+	"\x1cSetUnderlyingNetworksRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"7\n" +
+	"\x1dSetUnderlyingNetworksResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"<\n" +
+	"\x0ePrepareRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\")\n" +
+	"\x0fPrepareResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"<\n" +
+	"\x12AddAddress2Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"-\n" +
+	"\x13AddAddress2Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\">\n" +
+	"\x14AddAddress2_1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"/\n" +
+	"\x15AddAddress2_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"2\n" +
+	"\x1cAddAllowedApplicationRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"7\n" +
+	"\x1dAddAllowedApplicationResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"5\n" +
+	"\x1fAddDisallowedApplicationRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\":\n" +
+	" AddDisallowedApplicationResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"*\n" +
+	"\x14AddDnsServer1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"/\n" +
+	"\x15AddDnsServer1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\",\n" +
+	"\x16AddDnsServer1_1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"1\n" +
+	"\x17AddDnsServer1_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"&\n" +
+	"\x10AddRoute1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"+\n" +
+	"\x11AddRoute1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"<\n" +
+	"\x12AddRoute2_1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"-\n" +
+	"\x13AddRoute2_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"<\n" +
+	"\x12AddRoute2_2Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"-\n" +
+	"\x13AddRoute2_2Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\",\n" +
+	"\x16AddSearchDomainRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"1\n" +
+	"\x17AddSearchDomainResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x14\n" +
+	"\x12AllowBypassRequest\"-\n" +
+	"\x13AllowBypassResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"(\n" +
+	"\x12AllowFamilyRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"-\n" +
+	"\x13AllowFamilyResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x12\n" +
+	"\x10EstablishRequest\"+\n" +
+	"\x11EstablishResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\")\n" +
+	"\x13ExcludeRouteRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\".\n" +
+	"\x14ExcludeRouteResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"(\n" +
+	"\x12SetBlockingRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"-\n" +
+	"\x13SetBlockingResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"/\n" +
+	"\x19SetConfigureIntentRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"4\n" +
+	"\x1aSetConfigureIntentResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\")\n" +
+	"\x13SetHttpProxyRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\".\n" +
+	"\x14SetHttpProxyResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"'\n" +
+	"\x11SetMeteredRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\",\n" +
+	"\x12SetMeteredResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"#\n" +
+	"\rSetMtuRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"(\n" +
+	"\x0eSetMtuResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"'\n" +
+	"\x11SetSessionRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\",\n" +
+	"\x12SetSessionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"@\n" +
+	"*ServiceBuilderSetUnderlyingNetworksRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"E\n" +
+	"+ServiceBuilderSetUnderlyingNetworksResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result2\x9b\x05\n" +
+	"\x0eServiceService\x12=\n" +
+	"\n" +
+	"NewService\x12\x16.vpn.NewServiceRequest\x1a\x17.vpn.NewServiceResponse\x12=\n" +
+	"\n" +
+	"IsAlwaysOn\x12\x16.vpn.IsAlwaysOnRequest\x1a\x17.vpn.IsAlwaysOnResponse\x12R\n" +
+	"\x11IsLockdownEnabled\x12\x1d.vpn.IsLockdownEnabledRequest\x1a\x1e.vpn.IsLockdownEnabledResponse\x121\n" +
+	"\x06OnBind\x12\x12.vpn.OnBindRequest\x1a\x13.vpn.OnBindResponse\x127\n" +
+	"\bOnRevoke\x12\x14.vpn.OnRevokeRequest\x1a\x15.vpn.OnRevokeResponse\x127\n" +
+	"\bProtect1\x12\x14.vpn.Protect1Request\x1a\x15.vpn.Protect1Response\x12=\n" +
+	"\n" +
+	"Protect1_1\x12\x16.vpn.Protect1_1Request\x1a\x17.vpn.Protect1_1Response\x12=\n" +
+	"\n" +
+	"Protect1_2\x12\x16.vpn.Protect1_2Request\x1a\x17.vpn.Protect1_2Response\x12^\n" +
+	"\x15SetUnderlyingNetworks\x12!.vpn.SetUnderlyingNetworksRequest\x1a\".vpn.SetUnderlyingNetworksResponse\x124\n" +
+	"\aPrepare\x12\x13.vpn.PrepareRequest\x1a\x14.vpn.PrepareResponse2\x9e\f\n" +
+	"\x15ServiceBuilderService\x12@\n" +
+	"\vAddAddress2\x12\x17.vpn.AddAddress2Request\x1a\x18.vpn.AddAddress2Response\x12F\n" +
+	"\rAddAddress2_1\x12\x19.vpn.AddAddress2_1Request\x1a\x1a.vpn.AddAddress2_1Response\x12^\n" +
+	"\x15AddAllowedApplication\x12!.vpn.AddAllowedApplicationRequest\x1a\".vpn.AddAllowedApplicationResponse\x12g\n" +
+	"\x18AddDisallowedApplication\x12$.vpn.AddDisallowedApplicationRequest\x1a%.vpn.AddDisallowedApplicationResponse\x12F\n" +
+	"\rAddDnsServer1\x12\x19.vpn.AddDnsServer1Request\x1a\x1a.vpn.AddDnsServer1Response\x12L\n" +
+	"\x0fAddDnsServer1_1\x12\x1b.vpn.AddDnsServer1_1Request\x1a\x1c.vpn.AddDnsServer1_1Response\x12:\n" +
+	"\tAddRoute1\x12\x15.vpn.AddRoute1Request\x1a\x16.vpn.AddRoute1Response\x12@\n" +
+	"\vAddRoute2_1\x12\x17.vpn.AddRoute2_1Request\x1a\x18.vpn.AddRoute2_1Response\x12@\n" +
+	"\vAddRoute2_2\x12\x17.vpn.AddRoute2_2Request\x1a\x18.vpn.AddRoute2_2Response\x12L\n" +
+	"\x0fAddSearchDomain\x12\x1b.vpn.AddSearchDomainRequest\x1a\x1c.vpn.AddSearchDomainResponse\x12@\n" +
+	"\vAllowBypass\x12\x17.vpn.AllowBypassRequest\x1a\x18.vpn.AllowBypassResponse\x12@\n" +
+	"\vAllowFamily\x12\x17.vpn.AllowFamilyRequest\x1a\x18.vpn.AllowFamilyResponse\x12:\n" +
+	"\tEstablish\x12\x15.vpn.EstablishRequest\x1a\x16.vpn.EstablishResponse\x12C\n" +
+	"\fExcludeRoute\x12\x18.vpn.ExcludeRouteRequest\x1a\x19.vpn.ExcludeRouteResponse\x12@\n" +
+	"\vSetBlocking\x12\x17.vpn.SetBlockingRequest\x1a\x18.vpn.SetBlockingResponse\x12U\n" +
+	"\x12SetConfigureIntent\x12\x1e.vpn.SetConfigureIntentRequest\x1a\x1f.vpn.SetConfigureIntentResponse\x12C\n" +
+	"\fSetHttpProxy\x12\x18.vpn.SetHttpProxyRequest\x1a\x19.vpn.SetHttpProxyResponse\x12=\n" +
+	"\n" +
+	"SetMetered\x12\x16.vpn.SetMeteredRequest\x1a\x17.vpn.SetMeteredResponse\x121\n" +
+	"\x06SetMtu\x12\x12.vpn.SetMtuRequest\x1a\x13.vpn.SetMtuResponse\x12=\n" +
+	"\n" +
+	"SetSession\x12\x16.vpn.SetSessionRequest\x1a\x17.vpn.SetSessionResponse\x12z\n" +
+	"\x15SetUnderlyingNetworks\x12/.vpn.ServiceBuilderSetUnderlyingNetworksRequest\x1a0.vpn.ServiceBuilderSetUnderlyingNetworksResponseB-Z+github.com/AndroidGoLab/jni-proxy/proto/vpnb\x06proto3"
 
-var file_proto_vpn_vpn_proto_goTypes = []any{}
+var (
+	file_proto_vpn_vpn_proto_rawDescOnce sync.Once
+	file_proto_vpn_vpn_proto_rawDescData []byte
+)
+
+func file_proto_vpn_vpn_proto_rawDescGZIP() []byte {
+	file_proto_vpn_vpn_proto_rawDescOnce.Do(func() {
+		file_proto_vpn_vpn_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_proto_vpn_vpn_proto_rawDesc), len(file_proto_vpn_vpn_proto_rawDesc)))
+	})
+	return file_proto_vpn_vpn_proto_rawDescData
+}
+
+var file_proto_vpn_vpn_proto_msgTypes = make([]protoimpl.MessageInfo, 62)
+var file_proto_vpn_vpn_proto_goTypes = []any{
+	(*NewServiceRequest)(nil),                           // 0: vpn.NewServiceRequest
+	(*NewServiceResponse)(nil),                          // 1: vpn.NewServiceResponse
+	(*IsAlwaysOnRequest)(nil),                           // 2: vpn.IsAlwaysOnRequest
+	(*IsAlwaysOnResponse)(nil),                          // 3: vpn.IsAlwaysOnResponse
+	(*IsLockdownEnabledRequest)(nil),                    // 4: vpn.IsLockdownEnabledRequest
+	(*IsLockdownEnabledResponse)(nil),                   // 5: vpn.IsLockdownEnabledResponse
+	(*OnBindRequest)(nil),                               // 6: vpn.OnBindRequest
+	(*OnBindResponse)(nil),                              // 7: vpn.OnBindResponse
+	(*OnRevokeRequest)(nil),                             // 8: vpn.OnRevokeRequest
+	(*OnRevokeResponse)(nil),                            // 9: vpn.OnRevokeResponse
+	(*Protect1Request)(nil),                             // 10: vpn.Protect1Request
+	(*Protect1Response)(nil),                            // 11: vpn.Protect1Response
+	(*Protect1_1Request)(nil),                           // 12: vpn.Protect1_1Request
+	(*Protect1_1Response)(nil),                          // 13: vpn.Protect1_1Response
+	(*Protect1_2Request)(nil),                           // 14: vpn.Protect1_2Request
+	(*Protect1_2Response)(nil),                          // 15: vpn.Protect1_2Response
+	(*SetUnderlyingNetworksRequest)(nil),                // 16: vpn.SetUnderlyingNetworksRequest
+	(*SetUnderlyingNetworksResponse)(nil),               // 17: vpn.SetUnderlyingNetworksResponse
+	(*PrepareRequest)(nil),                              // 18: vpn.PrepareRequest
+	(*PrepareResponse)(nil),                             // 19: vpn.PrepareResponse
+	(*AddAddress2Request)(nil),                          // 20: vpn.AddAddress2Request
+	(*AddAddress2Response)(nil),                         // 21: vpn.AddAddress2Response
+	(*AddAddress2_1Request)(nil),                        // 22: vpn.AddAddress2_1Request
+	(*AddAddress2_1Response)(nil),                       // 23: vpn.AddAddress2_1Response
+	(*AddAllowedApplicationRequest)(nil),                // 24: vpn.AddAllowedApplicationRequest
+	(*AddAllowedApplicationResponse)(nil),               // 25: vpn.AddAllowedApplicationResponse
+	(*AddDisallowedApplicationRequest)(nil),             // 26: vpn.AddDisallowedApplicationRequest
+	(*AddDisallowedApplicationResponse)(nil),            // 27: vpn.AddDisallowedApplicationResponse
+	(*AddDnsServer1Request)(nil),                        // 28: vpn.AddDnsServer1Request
+	(*AddDnsServer1Response)(nil),                       // 29: vpn.AddDnsServer1Response
+	(*AddDnsServer1_1Request)(nil),                      // 30: vpn.AddDnsServer1_1Request
+	(*AddDnsServer1_1Response)(nil),                     // 31: vpn.AddDnsServer1_1Response
+	(*AddRoute1Request)(nil),                            // 32: vpn.AddRoute1Request
+	(*AddRoute1Response)(nil),                           // 33: vpn.AddRoute1Response
+	(*AddRoute2_1Request)(nil),                          // 34: vpn.AddRoute2_1Request
+	(*AddRoute2_1Response)(nil),                         // 35: vpn.AddRoute2_1Response
+	(*AddRoute2_2Request)(nil),                          // 36: vpn.AddRoute2_2Request
+	(*AddRoute2_2Response)(nil),                         // 37: vpn.AddRoute2_2Response
+	(*AddSearchDomainRequest)(nil),                      // 38: vpn.AddSearchDomainRequest
+	(*AddSearchDomainResponse)(nil),                     // 39: vpn.AddSearchDomainResponse
+	(*AllowBypassRequest)(nil),                          // 40: vpn.AllowBypassRequest
+	(*AllowBypassResponse)(nil),                         // 41: vpn.AllowBypassResponse
+	(*AllowFamilyRequest)(nil),                          // 42: vpn.AllowFamilyRequest
+	(*AllowFamilyResponse)(nil),                         // 43: vpn.AllowFamilyResponse
+	(*EstablishRequest)(nil),                            // 44: vpn.EstablishRequest
+	(*EstablishResponse)(nil),                           // 45: vpn.EstablishResponse
+	(*ExcludeRouteRequest)(nil),                         // 46: vpn.ExcludeRouteRequest
+	(*ExcludeRouteResponse)(nil),                        // 47: vpn.ExcludeRouteResponse
+	(*SetBlockingRequest)(nil),                          // 48: vpn.SetBlockingRequest
+	(*SetBlockingResponse)(nil),                         // 49: vpn.SetBlockingResponse
+	(*SetConfigureIntentRequest)(nil),                   // 50: vpn.SetConfigureIntentRequest
+	(*SetConfigureIntentResponse)(nil),                  // 51: vpn.SetConfigureIntentResponse
+	(*SetHttpProxyRequest)(nil),                         // 52: vpn.SetHttpProxyRequest
+	(*SetHttpProxyResponse)(nil),                        // 53: vpn.SetHttpProxyResponse
+	(*SetMeteredRequest)(nil),                           // 54: vpn.SetMeteredRequest
+	(*SetMeteredResponse)(nil),                          // 55: vpn.SetMeteredResponse
+	(*SetMtuRequest)(nil),                               // 56: vpn.SetMtuRequest
+	(*SetMtuResponse)(nil),                              // 57: vpn.SetMtuResponse
+	(*SetSessionRequest)(nil),                           // 58: vpn.SetSessionRequest
+	(*SetSessionResponse)(nil),                          // 59: vpn.SetSessionResponse
+	(*ServiceBuilderSetUnderlyingNetworksRequest)(nil),  // 60: vpn.ServiceBuilderSetUnderlyingNetworksRequest
+	(*ServiceBuilderSetUnderlyingNetworksResponse)(nil), // 61: vpn.ServiceBuilderSetUnderlyingNetworksResponse
+}
 var file_proto_vpn_vpn_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	0,  // 0: vpn.ServiceService.NewService:input_type -> vpn.NewServiceRequest
+	2,  // 1: vpn.ServiceService.IsAlwaysOn:input_type -> vpn.IsAlwaysOnRequest
+	4,  // 2: vpn.ServiceService.IsLockdownEnabled:input_type -> vpn.IsLockdownEnabledRequest
+	6,  // 3: vpn.ServiceService.OnBind:input_type -> vpn.OnBindRequest
+	8,  // 4: vpn.ServiceService.OnRevoke:input_type -> vpn.OnRevokeRequest
+	10, // 5: vpn.ServiceService.Protect1:input_type -> vpn.Protect1Request
+	12, // 6: vpn.ServiceService.Protect1_1:input_type -> vpn.Protect1_1Request
+	14, // 7: vpn.ServiceService.Protect1_2:input_type -> vpn.Protect1_2Request
+	16, // 8: vpn.ServiceService.SetUnderlyingNetworks:input_type -> vpn.SetUnderlyingNetworksRequest
+	18, // 9: vpn.ServiceService.Prepare:input_type -> vpn.PrepareRequest
+	20, // 10: vpn.ServiceBuilderService.AddAddress2:input_type -> vpn.AddAddress2Request
+	22, // 11: vpn.ServiceBuilderService.AddAddress2_1:input_type -> vpn.AddAddress2_1Request
+	24, // 12: vpn.ServiceBuilderService.AddAllowedApplication:input_type -> vpn.AddAllowedApplicationRequest
+	26, // 13: vpn.ServiceBuilderService.AddDisallowedApplication:input_type -> vpn.AddDisallowedApplicationRequest
+	28, // 14: vpn.ServiceBuilderService.AddDnsServer1:input_type -> vpn.AddDnsServer1Request
+	30, // 15: vpn.ServiceBuilderService.AddDnsServer1_1:input_type -> vpn.AddDnsServer1_1Request
+	32, // 16: vpn.ServiceBuilderService.AddRoute1:input_type -> vpn.AddRoute1Request
+	34, // 17: vpn.ServiceBuilderService.AddRoute2_1:input_type -> vpn.AddRoute2_1Request
+	36, // 18: vpn.ServiceBuilderService.AddRoute2_2:input_type -> vpn.AddRoute2_2Request
+	38, // 19: vpn.ServiceBuilderService.AddSearchDomain:input_type -> vpn.AddSearchDomainRequest
+	40, // 20: vpn.ServiceBuilderService.AllowBypass:input_type -> vpn.AllowBypassRequest
+	42, // 21: vpn.ServiceBuilderService.AllowFamily:input_type -> vpn.AllowFamilyRequest
+	44, // 22: vpn.ServiceBuilderService.Establish:input_type -> vpn.EstablishRequest
+	46, // 23: vpn.ServiceBuilderService.ExcludeRoute:input_type -> vpn.ExcludeRouteRequest
+	48, // 24: vpn.ServiceBuilderService.SetBlocking:input_type -> vpn.SetBlockingRequest
+	50, // 25: vpn.ServiceBuilderService.SetConfigureIntent:input_type -> vpn.SetConfigureIntentRequest
+	52, // 26: vpn.ServiceBuilderService.SetHttpProxy:input_type -> vpn.SetHttpProxyRequest
+	54, // 27: vpn.ServiceBuilderService.SetMetered:input_type -> vpn.SetMeteredRequest
+	56, // 28: vpn.ServiceBuilderService.SetMtu:input_type -> vpn.SetMtuRequest
+	58, // 29: vpn.ServiceBuilderService.SetSession:input_type -> vpn.SetSessionRequest
+	60, // 30: vpn.ServiceBuilderService.SetUnderlyingNetworks:input_type -> vpn.ServiceBuilderSetUnderlyingNetworksRequest
+	1,  // 31: vpn.ServiceService.NewService:output_type -> vpn.NewServiceResponse
+	3,  // 32: vpn.ServiceService.IsAlwaysOn:output_type -> vpn.IsAlwaysOnResponse
+	5,  // 33: vpn.ServiceService.IsLockdownEnabled:output_type -> vpn.IsLockdownEnabledResponse
+	7,  // 34: vpn.ServiceService.OnBind:output_type -> vpn.OnBindResponse
+	9,  // 35: vpn.ServiceService.OnRevoke:output_type -> vpn.OnRevokeResponse
+	11, // 36: vpn.ServiceService.Protect1:output_type -> vpn.Protect1Response
+	13, // 37: vpn.ServiceService.Protect1_1:output_type -> vpn.Protect1_1Response
+	15, // 38: vpn.ServiceService.Protect1_2:output_type -> vpn.Protect1_2Response
+	17, // 39: vpn.ServiceService.SetUnderlyingNetworks:output_type -> vpn.SetUnderlyingNetworksResponse
+	19, // 40: vpn.ServiceService.Prepare:output_type -> vpn.PrepareResponse
+	21, // 41: vpn.ServiceBuilderService.AddAddress2:output_type -> vpn.AddAddress2Response
+	23, // 42: vpn.ServiceBuilderService.AddAddress2_1:output_type -> vpn.AddAddress2_1Response
+	25, // 43: vpn.ServiceBuilderService.AddAllowedApplication:output_type -> vpn.AddAllowedApplicationResponse
+	27, // 44: vpn.ServiceBuilderService.AddDisallowedApplication:output_type -> vpn.AddDisallowedApplicationResponse
+	29, // 45: vpn.ServiceBuilderService.AddDnsServer1:output_type -> vpn.AddDnsServer1Response
+	31, // 46: vpn.ServiceBuilderService.AddDnsServer1_1:output_type -> vpn.AddDnsServer1_1Response
+	33, // 47: vpn.ServiceBuilderService.AddRoute1:output_type -> vpn.AddRoute1Response
+	35, // 48: vpn.ServiceBuilderService.AddRoute2_1:output_type -> vpn.AddRoute2_1Response
+	37, // 49: vpn.ServiceBuilderService.AddRoute2_2:output_type -> vpn.AddRoute2_2Response
+	39, // 50: vpn.ServiceBuilderService.AddSearchDomain:output_type -> vpn.AddSearchDomainResponse
+	41, // 51: vpn.ServiceBuilderService.AllowBypass:output_type -> vpn.AllowBypassResponse
+	43, // 52: vpn.ServiceBuilderService.AllowFamily:output_type -> vpn.AllowFamilyResponse
+	45, // 53: vpn.ServiceBuilderService.Establish:output_type -> vpn.EstablishResponse
+	47, // 54: vpn.ServiceBuilderService.ExcludeRoute:output_type -> vpn.ExcludeRouteResponse
+	49, // 55: vpn.ServiceBuilderService.SetBlocking:output_type -> vpn.SetBlockingResponse
+	51, // 56: vpn.ServiceBuilderService.SetConfigureIntent:output_type -> vpn.SetConfigureIntentResponse
+	53, // 57: vpn.ServiceBuilderService.SetHttpProxy:output_type -> vpn.SetHttpProxyResponse
+	55, // 58: vpn.ServiceBuilderService.SetMetered:output_type -> vpn.SetMeteredResponse
+	57, // 59: vpn.ServiceBuilderService.SetMtu:output_type -> vpn.SetMtuResponse
+	59, // 60: vpn.ServiceBuilderService.SetSession:output_type -> vpn.SetSessionResponse
+	61, // 61: vpn.ServiceBuilderService.SetUnderlyingNetworks:output_type -> vpn.ServiceBuilderSetUnderlyingNetworksResponse
+	31, // [31:62] is the sub-list for method output_type
+	0,  // [0:31] is the sub-list for method input_type
+	0,  // [0:0] is the sub-list for extension type_name
+	0,  // [0:0] is the sub-list for extension extendee
+	0,  // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_proto_vpn_vpn_proto_init() }
@@ -48,12 +3132,13 @@ func file_proto_vpn_vpn_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_vpn_vpn_proto_rawDesc), len(file_proto_vpn_vpn_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   62,
 			NumExtensions: 0,
-			NumServices:   0,
+			NumServices:   2,
 		},
 		GoTypes:           file_proto_vpn_vpn_proto_goTypes,
 		DependencyIndexes: file_proto_vpn_vpn_proto_depIdxs,
+		MessageInfos:      file_proto_vpn_vpn_proto_msgTypes,
 	}.Build()
 	File_proto_vpn_vpn_proto = out.File
 	file_proto_vpn_vpn_proto_goTypes = nil

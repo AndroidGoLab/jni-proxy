@@ -5,3 +5,1112 @@ syntax = "proto3";
 package method;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/method";
+
+message NewCharacterPickerDialogRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  string arg3 = 4;
+  bool arg4 = 5;
+}
+
+message NewCharacterPickerDialogResponse {
+  int64 result = 1;
+}
+
+message OnClickRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OnClickResponse {
+}
+
+message OnItemClickRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int32 arg2 = 4;
+  int64 arg3 = 5;
+}
+
+message OnItemClickResponse {
+}
+
+message FilterRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int64 arg3 = 4;
+  int32 arg4 = 5;
+  int32 arg5 = 6;
+}
+
+message FilterResponse {
+  int64 result = 1;
+}
+
+message OnKeyDownRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message OnKeyDownResponse {
+  bool result = 1;
+}
+
+message NewSingleLineTransformationMethodRequest {
+}
+
+message NewSingleLineTransformationMethodResponse {
+  int64 result = 1;
+}
+
+message GetInstanceRequest {
+  int64 handle = 1;
+}
+
+message GetInstanceResponse {
+  int64 result = 1;
+}
+
+message CanSelectArbitrarilyRequest {
+}
+
+message CanSelectArbitrarilyResponse {
+  bool result = 1;
+}
+
+message InitializeRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message InitializeResponse {
+}
+
+message OnGenericMotionEventRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message OnGenericMotionEventResponse {
+  bool result = 1;
+}
+
+message OnKeyOtherRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message OnKeyOtherResponse {
+  bool result = 1;
+}
+
+message OnKeyUpRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message OnKeyUpResponse {
+  bool result = 1;
+}
+
+message OnTakeFocusRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message OnTakeFocusResponse {
+}
+
+message OnTouchEventRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message OnTouchEventResponse {
+  bool result = 1;
+}
+
+message OnTrackballEventRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message OnTrackballEventResponse {
+  bool result = 1;
+}
+
+message GetTransformationRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message GetTransformationResponse {
+  int64 result = 1;
+}
+
+message OnFocusChangedRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  bool arg2 = 3;
+  int32 arg3 = 4;
+  int64 arg4 = 5;
+}
+
+message OnFocusChangedResponse {
+}
+
+message GetInitialScrollXRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message GetInitialScrollXResponse {
+  int32 result = 1;
+}
+
+message GetInitialScrollYRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message GetInitialScrollYResponse {
+  int32 result = 1;
+}
+
+message ScrollToRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message ScrollToResponse {
+}
+
+message NewScrollingMovementMethodRequest {
+}
+
+message NewScrollingMovementMethodResponse {
+  int64 result = 1;
+}
+
+message ScrollingMovementMethodOnTakeFocusRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int32 arg2 = 4;
+}
+
+message ScrollingMovementMethodOnTouchEventRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message NewHideReturnsTransformationMethodRequest {
+}
+
+message NewHideReturnsTransformationMethodResponse {
+  int64 result = 1;
+}
+
+message NewMultiTapKeyListenerRequest {
+  int64 arg0 = 1;
+  bool arg1 = 2;
+}
+
+message NewMultiTapKeyListenerResponse {
+  int64 result = 1;
+}
+
+message GetInputTypeRequest {
+  int64 handle = 1;
+}
+
+message GetInputTypeResponse {
+  int32 result = 1;
+}
+
+message MultiTapKeyListenerOnKeyDownRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int32 arg2 = 4;
+  int64 arg3 = 5;
+}
+
+message OnSpanAddedRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
+}
+
+message OnSpanAddedResponse {
+}
+
+message OnSpanChangedRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
+  int32 arg4 = 6;
+  int32 arg5 = 7;
+}
+
+message OnSpanChangedResponse {
+}
+
+message OnSpanRemovedRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
+}
+
+message OnSpanRemovedResponse {
+}
+
+message MultiTapKeyListenerGetInstanceRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message NewDigitsKeyListenerRequest {
+}
+
+message NewDigitsKeyListenerResponse {
+  int64 result = 1;
+}
+
+message DigitsKeyListenerFilterRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int64 arg3 = 5;
+  int32 arg4 = 6;
+  int32 arg5 = 7;
+}
+
+message GetInstance0Request {
+  int64 handle = 1;
+}
+
+message GetInstance0Response {
+  int64 result = 1;
+}
+
+message GetInstance2_1Request {
+  int64 handle = 1;
+  bool arg0 = 2;
+  bool arg1 = 3;
+}
+
+message GetInstance2_1Response {
+  int64 result = 1;
+}
+
+message GetInstance1_2Request {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message GetInstance1_2Response {
+  int64 result = 1;
+}
+
+message GetInstance1_3Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetInstance1_3Response {
+  int64 result = 1;
+}
+
+message GetInstance3_4Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  bool arg1 = 3;
+  bool arg2 = 4;
+}
+
+message GetInstance3_4Response {
+  int64 result = 1;
+}
+
+message NewDialerKeyListenerRequest {
+}
+
+message NewDialerKeyListenerResponse {
+  int64 result = 1;
+}
+
+message NewTimeKeyListenerRequest {
+}
+
+message NewTimeKeyListenerResponse {
+  int64 result = 1;
+}
+
+message GetInstance1_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetInstance1_1Response {
+  int64 result = 1;
+}
+
+message NewQwertyKeyListenerRequest {
+  int64 arg0 = 1;
+  bool arg1 = 2;
+}
+
+message NewQwertyKeyListenerResponse {
+  int64 result = 1;
+}
+
+message QwertyKeyListenerOnKeyDownRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int32 arg2 = 4;
+  int64 arg3 = 5;
+}
+
+message QwertyKeyListenerGetInstanceRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message GetInstanceForFullKeyboardRequest {
+  int64 handle = 1;
+}
+
+message GetInstanceForFullKeyboardResponse {
+  int64 result = 1;
+}
+
+message MarkAsReplacedRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  string arg3 = 5;
+}
+
+message MarkAsReplacedResponse {
+}
+
+message BackspaceRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message BackspaceResponse {
+  bool result = 1;
+}
+
+message ForwardDeleteRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message ForwardDeleteResponse {
+  bool result = 1;
+}
+
+message ClearMetaKeyState3_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message ClearMetaKeyState3_1Response {
+}
+
+message ClearMetaKeyState2_2Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message ClearMetaKeyState2_2Response {
+  int64 result = 1;
+}
+
+message AdjustMetaAfterKeypress1Request {
+  int64 arg0 = 1;
+}
+
+message AdjustMetaAfterKeypress1Response {
+}
+
+message AdjustMetaAfterKeypress1_1Request {
+  int64 arg0 = 1;
+}
+
+message AdjustMetaAfterKeypress1_1Response {
+  int64 result = 1;
+}
+
+message ClearMetaKeyState2Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message ClearMetaKeyState2Response {
+}
+
+message GetMetaState1Request {
+  string arg0 = 1;
+}
+
+message GetMetaState1Response {
+  int32 result = 1;
+}
+
+message GetMetaState2_1Request {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message GetMetaState2_1Response {
+  int32 result = 1;
+}
+
+message GetMetaState2_2Request {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message GetMetaState2_2Response {
+  int32 result = 1;
+}
+
+message GetMetaState3_3Request {
+  string arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message GetMetaState3_3Response {
+  int32 result = 1;
+}
+
+message GetMetaState1_4Request {
+  int64 arg0 = 1;
+}
+
+message GetMetaState1_4Response {
+  int32 result = 1;
+}
+
+message GetMetaState2_5Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message GetMetaState2_5Response {
+  int32 result = 1;
+}
+
+message HandleKeyDownRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message HandleKeyDownResponse {
+  int64 result = 1;
+}
+
+message HandleKeyUpRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message HandleKeyUpResponse {
+  int64 result = 1;
+}
+
+message IsMetaTrackerRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message IsMetaTrackerResponse {
+  bool result = 1;
+}
+
+message IsSelectingMetaTrackerRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message IsSelectingMetaTrackerResponse {
+  bool result = 1;
+}
+
+message ResetLockedMetaRequest {
+  int64 arg0 = 1;
+}
+
+message ResetLockedMetaResponse {
+  int64 result = 1;
+}
+
+message ResetMetaStateRequest {
+  int64 arg0 = 1;
+}
+
+message ResetMetaStateResponse {
+}
+
+message NewTextKeyListenerRequest {
+  int64 arg0 = 1;
+  bool arg1 = 2;
+}
+
+message NewTextKeyListenerResponse {
+  int64 result = 1;
+}
+
+message TextKeyListenerOnKeyDownRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int32 arg2 = 4;
+  int64 arg3 = 5;
+}
+
+message TextKeyListenerOnKeyOtherRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message TextKeyListenerOnKeyUpRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int32 arg2 = 4;
+  int64 arg3 = 5;
+}
+
+message ReleaseRequest {
+  int64 handle = 1;
+}
+
+message ReleaseResponse {
+}
+
+message ClearRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message ClearResponse {
+}
+
+message TextKeyListenerGetInstance2_1Request {
+  int64 handle = 1;
+  bool arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message ShouldCapRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+  int32 arg2 = 4;
+}
+
+message ShouldCapResponse {
+  bool result = 1;
+}
+
+message ValuesRequest {
+}
+
+message ValuesResponse {
+  int64 result = 1;
+}
+
+message ValueOfRequest {
+  string arg0 = 1;
+}
+
+message ValueOfResponse {
+  int64 result = 1;
+}
+
+message NewArrowKeyMovementMethodRequest {
+}
+
+message NewArrowKeyMovementMethodResponse {
+  int64 result = 1;
+}
+
+message ArrowKeyMovementMethodCanSelectArbitrarilyRequest {
+  int64 handle = 1;
+}
+
+message ArrowKeyMovementMethodInitializeRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message NextParagraphRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message NextParagraphResponse {
+  bool result = 1;
+}
+
+message ArrowKeyMovementMethodOnTakeFocusRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int32 arg2 = 4;
+}
+
+message ArrowKeyMovementMethodOnTouchEventRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message PreviousParagraphRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message PreviousParagraphResponse {
+  bool result = 1;
+}
+
+message ClearMetaKeyStateRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message ClearMetaKeyStateResponse {
+}
+
+message KeyListenerGetInputTypeRequest {
+}
+
+message NewDateTimeKeyListenerRequest {
+}
+
+message NewDateTimeKeyListenerResponse {
+  int64 result = 1;
+}
+
+message NewDateKeyListenerRequest {
+}
+
+message NewDateKeyListenerResponse {
+  int64 result = 1;
+}
+
+message NewPasswordTransformationMethodRequest {
+}
+
+message NewPasswordTransformationMethodResponse {
+  int64 result = 1;
+}
+
+message AfterTextChangedRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AfterTextChangedResponse {
+}
+
+message BeforeTextChangedRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
+}
+
+message BeforeTextChangedResponse {
+}
+
+message PasswordTransformationMethodGetTransformationRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message PasswordTransformationMethodOnFocusChangedRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+  bool arg2 = 4;
+  int32 arg3 = 5;
+  int64 arg4 = 6;
+}
+
+message OnTextChangedRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
+}
+
+message OnTextChangedResponse {
+}
+
+message NewLinkMovementMethodRequest {
+}
+
+message NewLinkMovementMethodResponse {
+  int64 result = 1;
+}
+
+message LinkMovementMethodCanSelectArbitrarilyRequest {
+  int64 handle = 1;
+}
+
+message LinkMovementMethodInitializeRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message LinkMovementMethodOnTakeFocusRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int32 arg2 = 4;
+}
+
+message LinkMovementMethodOnTouchEventRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message NewBaseMovementMethodRequest {
+}
+
+message NewBaseMovementMethodResponse {
+  int64 result = 1;
+}
+
+message BaseMovementMethodCanSelectArbitrarilyRequest {
+  int64 handle = 1;
+}
+
+message BaseMovementMethodInitializeRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message BaseMovementMethodOnGenericMotionEventRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message BaseMovementMethodOnKeyDownRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int32 arg2 = 4;
+  int64 arg3 = 5;
+}
+
+message BaseMovementMethodOnKeyOtherRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message BaseMovementMethodOnKeyUpRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int32 arg2 = 4;
+  int64 arg3 = 5;
+}
+
+message BaseMovementMethodOnTakeFocusRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int32 arg2 = 4;
+}
+
+message BaseMovementMethodOnTouchEventRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message BaseMovementMethodOnTrackballEventRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+service CharacterPickerDialogService {
+  rpc NewCharacterPickerDialog (NewCharacterPickerDialogRequest) returns (NewCharacterPickerDialogResponse);
+  rpc OnClick (OnClickRequest) returns (OnClickResponse);
+  rpc OnItemClick (OnItemClickRequest) returns (OnItemClickResponse);
+}
+
+service NumberKeyListenerService {
+  rpc Filter (FilterRequest) returns (FilterResponse);
+  rpc OnKeyDown (OnKeyDownRequest) returns (OnKeyDownResponse);
+}
+
+service SingleLineTransformationMethodService {
+  rpc NewSingleLineTransformationMethod (NewSingleLineTransformationMethodRequest) returns (NewSingleLineTransformationMethodResponse);
+  rpc GetInstance (GetInstanceRequest) returns (GetInstanceResponse);
+}
+
+service MovementMethodService {
+  rpc CanSelectArbitrarily (CanSelectArbitrarilyRequest) returns (CanSelectArbitrarilyResponse);
+  rpc Initialize (InitializeRequest) returns (InitializeResponse);
+  rpc OnGenericMotionEvent (OnGenericMotionEventRequest) returns (OnGenericMotionEventResponse);
+  rpc OnKeyDown (OnKeyDownRequest) returns (OnKeyDownResponse);
+  rpc OnKeyOther (OnKeyOtherRequest) returns (OnKeyOtherResponse);
+  rpc OnKeyUp (OnKeyUpRequest) returns (OnKeyUpResponse);
+  rpc OnTakeFocus (OnTakeFocusRequest) returns (OnTakeFocusResponse);
+  rpc OnTouchEvent (OnTouchEventRequest) returns (OnTouchEventResponse);
+  rpc OnTrackballEvent (OnTrackballEventRequest) returns (OnTrackballEventResponse);
+}
+
+service ReplacementTransformationMethodService {
+  rpc GetTransformation (GetTransformationRequest) returns (GetTransformationResponse);
+  rpc OnFocusChanged (OnFocusChangedRequest) returns (OnFocusChangedResponse);
+}
+
+service TouchService {
+  rpc GetInitialScrollX (GetInitialScrollXRequest) returns (GetInitialScrollXResponse);
+  rpc GetInitialScrollY (GetInitialScrollYRequest) returns (GetInitialScrollYResponse);
+  rpc OnTouchEvent (OnTouchEventRequest) returns (OnTouchEventResponse);
+  rpc ScrollTo (ScrollToRequest) returns (ScrollToResponse);
+}
+
+service ScrollingMovementMethodService {
+  rpc NewScrollingMovementMethod (NewScrollingMovementMethodRequest) returns (NewScrollingMovementMethodResponse);
+  rpc OnTakeFocus (ScrollingMovementMethodOnTakeFocusRequest) returns (OnTakeFocusResponse);
+  rpc OnTouchEvent (ScrollingMovementMethodOnTouchEventRequest) returns (OnTouchEventResponse);
+  rpc GetInstance (GetInstanceRequest) returns (GetInstanceResponse);
+}
+
+service HideReturnsTransformationMethodService {
+  rpc NewHideReturnsTransformationMethod (NewHideReturnsTransformationMethodRequest) returns (NewHideReturnsTransformationMethodResponse);
+  rpc GetInstance (GetInstanceRequest) returns (GetInstanceResponse);
+}
+
+service MultiTapKeyListenerService {
+  rpc NewMultiTapKeyListener (NewMultiTapKeyListenerRequest) returns (NewMultiTapKeyListenerResponse);
+  rpc GetInputType (GetInputTypeRequest) returns (GetInputTypeResponse);
+  rpc OnKeyDown (MultiTapKeyListenerOnKeyDownRequest) returns (OnKeyDownResponse);
+  rpc OnSpanAdded (OnSpanAddedRequest) returns (OnSpanAddedResponse);
+  rpc OnSpanChanged (OnSpanChangedRequest) returns (OnSpanChangedResponse);
+  rpc OnSpanRemoved (OnSpanRemovedRequest) returns (OnSpanRemovedResponse);
+  rpc GetInstance (MultiTapKeyListenerGetInstanceRequest) returns (GetInstanceResponse);
+}
+
+service DigitsKeyListenerService {
+  rpc NewDigitsKeyListener (NewDigitsKeyListenerRequest) returns (NewDigitsKeyListenerResponse);
+  rpc Filter (DigitsKeyListenerFilterRequest) returns (FilterResponse);
+  rpc GetInputType (GetInputTypeRequest) returns (GetInputTypeResponse);
+  rpc GetInstance0 (GetInstance0Request) returns (GetInstance0Response);
+  rpc GetInstance2_1 (GetInstance2_1Request) returns (GetInstance2_1Response);
+  rpc GetInstance1_2 (GetInstance1_2Request) returns (GetInstance1_2Response);
+  rpc GetInstance1_3 (GetInstance1_3Request) returns (GetInstance1_3Response);
+  rpc GetInstance3_4 (GetInstance3_4Request) returns (GetInstance3_4Response);
+}
+
+service DialerKeyListenerService {
+  rpc NewDialerKeyListener (NewDialerKeyListenerRequest) returns (NewDialerKeyListenerResponse);
+  rpc GetInputType (GetInputTypeRequest) returns (GetInputTypeResponse);
+  rpc GetInstance (GetInstanceRequest) returns (GetInstanceResponse);
+}
+
+service TimeKeyListenerService {
+  rpc NewTimeKeyListener (NewTimeKeyListenerRequest) returns (NewTimeKeyListenerResponse);
+  rpc GetInputType (GetInputTypeRequest) returns (GetInputTypeResponse);
+  rpc GetInstance0 (GetInstance0Request) returns (GetInstance0Response);
+  rpc GetInstance1_1 (GetInstance1_1Request) returns (GetInstance1_1Response);
+}
+
+service QwertyKeyListenerService {
+  rpc NewQwertyKeyListener (NewQwertyKeyListenerRequest) returns (NewQwertyKeyListenerResponse);
+  rpc GetInputType (GetInputTypeRequest) returns (GetInputTypeResponse);
+  rpc OnKeyDown (QwertyKeyListenerOnKeyDownRequest) returns (OnKeyDownResponse);
+  rpc GetInstance (QwertyKeyListenerGetInstanceRequest) returns (GetInstanceResponse);
+  rpc GetInstanceForFullKeyboard (GetInstanceForFullKeyboardRequest) returns (GetInstanceForFullKeyboardResponse);
+  rpc MarkAsReplaced (MarkAsReplacedRequest) returns (MarkAsReplacedResponse);
+}
+
+service BaseKeyListenerService {
+  rpc Backspace (BackspaceRequest) returns (BackspaceResponse);
+  rpc ForwardDelete (ForwardDeleteRequest) returns (ForwardDeleteResponse);
+  rpc OnKeyDown (OnKeyDownRequest) returns (OnKeyDownResponse);
+  rpc OnKeyOther (OnKeyOtherRequest) returns (OnKeyOtherResponse);
+}
+
+service MetaKeyKeyListenerService {
+  rpc ClearMetaKeyState3_1 (ClearMetaKeyState3_1Request) returns (ClearMetaKeyState3_1Response);
+  rpc ClearMetaKeyState2_2 (ClearMetaKeyState2_2Request) returns (ClearMetaKeyState2_2Response);
+  rpc OnKeyDown (OnKeyDownRequest) returns (OnKeyDownResponse);
+  rpc OnKeyUp (OnKeyUpRequest) returns (OnKeyUpResponse);
+  rpc AdjustMetaAfterKeypress1 (AdjustMetaAfterKeypress1Request) returns (AdjustMetaAfterKeypress1Response);
+  rpc AdjustMetaAfterKeypress1_1 (AdjustMetaAfterKeypress1_1Request) returns (AdjustMetaAfterKeypress1_1Response);
+  rpc ClearMetaKeyState2 (ClearMetaKeyState2Request) returns (ClearMetaKeyState2Response);
+  rpc GetMetaState1 (GetMetaState1Request) returns (GetMetaState1Response);
+  rpc GetMetaState2_1 (GetMetaState2_1Request) returns (GetMetaState2_1Response);
+  rpc GetMetaState2_2 (GetMetaState2_2Request) returns (GetMetaState2_2Response);
+  rpc GetMetaState3_3 (GetMetaState3_3Request) returns (GetMetaState3_3Response);
+  rpc GetMetaState1_4 (GetMetaState1_4Request) returns (GetMetaState1_4Response);
+  rpc GetMetaState2_5 (GetMetaState2_5Request) returns (GetMetaState2_5Response);
+  rpc HandleKeyDown (HandleKeyDownRequest) returns (HandleKeyDownResponse);
+  rpc HandleKeyUp (HandleKeyUpRequest) returns (HandleKeyUpResponse);
+  rpc IsMetaTracker (IsMetaTrackerRequest) returns (IsMetaTrackerResponse);
+  rpc IsSelectingMetaTracker (IsSelectingMetaTrackerRequest) returns (IsSelectingMetaTrackerResponse);
+  rpc ResetLockedMeta (ResetLockedMetaRequest) returns (ResetLockedMetaResponse);
+  rpc ResetMetaState (ResetMetaStateRequest) returns (ResetMetaStateResponse);
+}
+
+service TransformationMethodService {
+  rpc GetTransformation (GetTransformationRequest) returns (GetTransformationResponse);
+  rpc OnFocusChanged (OnFocusChangedRequest) returns (OnFocusChangedResponse);
+}
+
+service TextKeyListenerService {
+  rpc NewTextKeyListener (NewTextKeyListenerRequest) returns (NewTextKeyListenerResponse);
+  rpc GetInputType (GetInputTypeRequest) returns (GetInputTypeResponse);
+  rpc OnKeyDown (TextKeyListenerOnKeyDownRequest) returns (OnKeyDownResponse);
+  rpc OnKeyOther (TextKeyListenerOnKeyOtherRequest) returns (OnKeyOtherResponse);
+  rpc OnKeyUp (TextKeyListenerOnKeyUpRequest) returns (OnKeyUpResponse);
+  rpc OnSpanAdded (OnSpanAddedRequest) returns (OnSpanAddedResponse);
+  rpc OnSpanChanged (OnSpanChangedRequest) returns (OnSpanChangedResponse);
+  rpc OnSpanRemoved (OnSpanRemovedRequest) returns (OnSpanRemovedResponse);
+  rpc Release (ReleaseRequest) returns (ReleaseResponse);
+  rpc Clear (ClearRequest) returns (ClearResponse);
+  rpc GetInstance0 (GetInstance0Request) returns (GetInstance0Response);
+  rpc GetInstance2_1 (TextKeyListenerGetInstance2_1Request) returns (GetInstance2_1Response);
+  rpc ShouldCap (ShouldCapRequest) returns (ShouldCapResponse);
+}
+
+service TextKeyListenerCapitalizeService {
+  rpc Values (ValuesRequest) returns (ValuesResponse);
+  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
+}
+
+service ArrowKeyMovementMethodService {
+  rpc NewArrowKeyMovementMethod (NewArrowKeyMovementMethodRequest) returns (NewArrowKeyMovementMethodResponse);
+  rpc CanSelectArbitrarily (ArrowKeyMovementMethodCanSelectArbitrarilyRequest) returns (CanSelectArbitrarilyResponse);
+  rpc Initialize (ArrowKeyMovementMethodInitializeRequest) returns (InitializeResponse);
+  rpc NextParagraph (NextParagraphRequest) returns (NextParagraphResponse);
+  rpc OnTakeFocus (ArrowKeyMovementMethodOnTakeFocusRequest) returns (OnTakeFocusResponse);
+  rpc OnTouchEvent (ArrowKeyMovementMethodOnTouchEventRequest) returns (OnTouchEventResponse);
+  rpc PreviousParagraph (PreviousParagraphRequest) returns (PreviousParagraphResponse);
+  rpc GetInstance (GetInstanceRequest) returns (GetInstanceResponse);
+}
+
+service KeyListenerService {
+  rpc ClearMetaKeyState (ClearMetaKeyStateRequest) returns (ClearMetaKeyStateResponse);
+  rpc GetInputType (KeyListenerGetInputTypeRequest) returns (GetInputTypeResponse);
+  rpc OnKeyDown (OnKeyDownRequest) returns (OnKeyDownResponse);
+  rpc OnKeyOther (OnKeyOtherRequest) returns (OnKeyOtherResponse);
+  rpc OnKeyUp (OnKeyUpRequest) returns (OnKeyUpResponse);
+}
+
+service DateTimeKeyListenerService {
+  rpc NewDateTimeKeyListener (NewDateTimeKeyListenerRequest) returns (NewDateTimeKeyListenerResponse);
+  rpc GetInputType (GetInputTypeRequest) returns (GetInputTypeResponse);
+  rpc GetInstance0 (GetInstance0Request) returns (GetInstance0Response);
+  rpc GetInstance1_1 (GetInstance1_1Request) returns (GetInstance1_1Response);
+}
+
+service DateKeyListenerService {
+  rpc NewDateKeyListener (NewDateKeyListenerRequest) returns (NewDateKeyListenerResponse);
+  rpc GetInputType (GetInputTypeRequest) returns (GetInputTypeResponse);
+  rpc GetInstance0 (GetInstance0Request) returns (GetInstance0Response);
+  rpc GetInstance1_1 (GetInstance1_1Request) returns (GetInstance1_1Response);
+}
+
+service PasswordTransformationMethodService {
+  rpc NewPasswordTransformationMethod (NewPasswordTransformationMethodRequest) returns (NewPasswordTransformationMethodResponse);
+  rpc AfterTextChanged (AfterTextChangedRequest) returns (AfterTextChangedResponse);
+  rpc BeforeTextChanged (BeforeTextChangedRequest) returns (BeforeTextChangedResponse);
+  rpc GetTransformation (PasswordTransformationMethodGetTransformationRequest) returns (GetTransformationResponse);
+  rpc OnFocusChanged (PasswordTransformationMethodOnFocusChangedRequest) returns (OnFocusChangedResponse);
+  rpc OnTextChanged (OnTextChangedRequest) returns (OnTextChangedResponse);
+  rpc GetInstance (GetInstanceRequest) returns (GetInstanceResponse);
+}
+
+service LinkMovementMethodService {
+  rpc NewLinkMovementMethod (NewLinkMovementMethodRequest) returns (NewLinkMovementMethodResponse);
+  rpc CanSelectArbitrarily (LinkMovementMethodCanSelectArbitrarilyRequest) returns (CanSelectArbitrarilyResponse);
+  rpc Initialize (LinkMovementMethodInitializeRequest) returns (InitializeResponse);
+  rpc OnTakeFocus (LinkMovementMethodOnTakeFocusRequest) returns (OnTakeFocusResponse);
+  rpc OnTouchEvent (LinkMovementMethodOnTouchEventRequest) returns (OnTouchEventResponse);
+  rpc GetInstance (GetInstanceRequest) returns (GetInstanceResponse);
+}
+
+service BaseMovementMethodService {
+  rpc NewBaseMovementMethod (NewBaseMovementMethodRequest) returns (NewBaseMovementMethodResponse);
+  rpc CanSelectArbitrarily (BaseMovementMethodCanSelectArbitrarilyRequest) returns (CanSelectArbitrarilyResponse);
+  rpc Initialize (BaseMovementMethodInitializeRequest) returns (InitializeResponse);
+  rpc NextParagraph (NextParagraphRequest) returns (NextParagraphResponse);
+  rpc OnGenericMotionEvent (BaseMovementMethodOnGenericMotionEventRequest) returns (OnGenericMotionEventResponse);
+  rpc OnKeyDown (BaseMovementMethodOnKeyDownRequest) returns (OnKeyDownResponse);
+  rpc OnKeyOther (BaseMovementMethodOnKeyOtherRequest) returns (OnKeyOtherResponse);
+  rpc OnKeyUp (BaseMovementMethodOnKeyUpRequest) returns (OnKeyUpResponse);
+  rpc OnTakeFocus (BaseMovementMethodOnTakeFocusRequest) returns (OnTakeFocusResponse);
+  rpc OnTouchEvent (BaseMovementMethodOnTouchEventRequest) returns (OnTouchEventResponse);
+  rpc OnTrackballEvent (BaseMovementMethodOnTrackballEventRequest) returns (OnTrackballEventResponse);
+  rpc PreviousParagraph (PreviousParagraphRequest) returns (PreviousParagraphResponse);
+}

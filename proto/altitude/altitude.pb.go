@@ -12,6 +12,7 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -22,16 +23,331 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type NewConverterRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewConverterRequest) Reset() {
+	*x = NewConverterRequest{}
+	mi := &file_proto_altitude_altitude_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewConverterRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewConverterRequest) ProtoMessage() {}
+
+func (x *NewConverterRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_altitude_altitude_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewConverterRequest.ProtoReflect.Descriptor instead.
+func (*NewConverterRequest) Descriptor() ([]byte, []int) {
+	return file_proto_altitude_altitude_proto_rawDescGZIP(), []int{0}
+}
+
+type NewConverterResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewConverterResponse) Reset() {
+	*x = NewConverterResponse{}
+	mi := &file_proto_altitude_altitude_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewConverterResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewConverterResponse) ProtoMessage() {}
+
+func (x *NewConverterResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_altitude_altitude_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewConverterResponse.ProtoReflect.Descriptor instead.
+func (*NewConverterResponse) Descriptor() ([]byte, []int) {
+	return file_proto_altitude_altitude_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *NewConverterResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddMslAltitudeToLocationRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddMslAltitudeToLocationRequest) Reset() {
+	*x = AddMslAltitudeToLocationRequest{}
+	mi := &file_proto_altitude_altitude_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddMslAltitudeToLocationRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddMslAltitudeToLocationRequest) ProtoMessage() {}
+
+func (x *AddMslAltitudeToLocationRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_altitude_altitude_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddMslAltitudeToLocationRequest.ProtoReflect.Descriptor instead.
+func (*AddMslAltitudeToLocationRequest) Descriptor() ([]byte, []int) {
+	return file_proto_altitude_altitude_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *AddMslAltitudeToLocationRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *AddMslAltitudeToLocationRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *AddMslAltitudeToLocationRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type AddMslAltitudeToLocationResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddMslAltitudeToLocationResponse) Reset() {
+	*x = AddMslAltitudeToLocationResponse{}
+	mi := &file_proto_altitude_altitude_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddMslAltitudeToLocationResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddMslAltitudeToLocationResponse) ProtoMessage() {}
+
+func (x *AddMslAltitudeToLocationResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_altitude_altitude_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddMslAltitudeToLocationResponse.ProtoReflect.Descriptor instead.
+func (*AddMslAltitudeToLocationResponse) Descriptor() ([]byte, []int) {
+	return file_proto_altitude_altitude_proto_rawDescGZIP(), []int{3}
+}
+
+type TryAddMslAltitudeToLocationRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *TryAddMslAltitudeToLocationRequest) Reset() {
+	*x = TryAddMslAltitudeToLocationRequest{}
+	mi := &file_proto_altitude_altitude_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *TryAddMslAltitudeToLocationRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TryAddMslAltitudeToLocationRequest) ProtoMessage() {}
+
+func (x *TryAddMslAltitudeToLocationRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_altitude_altitude_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TryAddMslAltitudeToLocationRequest.ProtoReflect.Descriptor instead.
+func (*TryAddMslAltitudeToLocationRequest) Descriptor() ([]byte, []int) {
+	return file_proto_altitude_altitude_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *TryAddMslAltitudeToLocationRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *TryAddMslAltitudeToLocationRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type TryAddMslAltitudeToLocationResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *TryAddMslAltitudeToLocationResponse) Reset() {
+	*x = TryAddMslAltitudeToLocationResponse{}
+	mi := &file_proto_altitude_altitude_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *TryAddMslAltitudeToLocationResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TryAddMslAltitudeToLocationResponse) ProtoMessage() {}
+
+func (x *TryAddMslAltitudeToLocationResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_altitude_altitude_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TryAddMslAltitudeToLocationResponse.ProtoReflect.Descriptor instead.
+func (*TryAddMslAltitudeToLocationResponse) Descriptor() ([]byte, []int) {
+	return file_proto_altitude_altitude_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *TryAddMslAltitudeToLocationResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
 var File_proto_altitude_altitude_proto protoreflect.FileDescriptor
 
 const file_proto_altitude_altitude_proto_rawDesc = "" +
 	"\n" +
-	"\x1dproto/altitude/altitude.proto\x12\baltitudeB2Z0github.com/AndroidGoLab/jni-proxy/proto/altitudeb\x06proto3"
+	"\x1dproto/altitude/altitude.proto\x12\baltitude\"\x15\n" +
+	"\x13NewConverterRequest\".\n" +
+	"\x14NewConverterResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"a\n" +
+	"\x1fAddMslAltitudeToLocationRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"\"\n" +
+	" AddMslAltitudeToLocationResponse\"P\n" +
+	"\"TryAddMslAltitudeToLocationRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"=\n" +
+	"#TryAddMslAltitudeToLocationResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result2\xd0\x02\n" +
+	"\x10ConverterService\x12M\n" +
+	"\fNewConverter\x12\x1d.altitude.NewConverterRequest\x1a\x1e.altitude.NewConverterResponse\x12q\n" +
+	"\x18AddMslAltitudeToLocation\x12).altitude.AddMslAltitudeToLocationRequest\x1a*.altitude.AddMslAltitudeToLocationResponse\x12z\n" +
+	"\x1bTryAddMslAltitudeToLocation\x12,.altitude.TryAddMslAltitudeToLocationRequest\x1a-.altitude.TryAddMslAltitudeToLocationResponseB2Z0github.com/AndroidGoLab/jni-proxy/proto/altitudeb\x06proto3"
 
-var file_proto_altitude_altitude_proto_goTypes = []any{}
+var (
+	file_proto_altitude_altitude_proto_rawDescOnce sync.Once
+	file_proto_altitude_altitude_proto_rawDescData []byte
+)
+
+func file_proto_altitude_altitude_proto_rawDescGZIP() []byte {
+	file_proto_altitude_altitude_proto_rawDescOnce.Do(func() {
+		file_proto_altitude_altitude_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_proto_altitude_altitude_proto_rawDesc), len(file_proto_altitude_altitude_proto_rawDesc)))
+	})
+	return file_proto_altitude_altitude_proto_rawDescData
+}
+
+var file_proto_altitude_altitude_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
+var file_proto_altitude_altitude_proto_goTypes = []any{
+	(*NewConverterRequest)(nil),                 // 0: altitude.NewConverterRequest
+	(*NewConverterResponse)(nil),                // 1: altitude.NewConverterResponse
+	(*AddMslAltitudeToLocationRequest)(nil),     // 2: altitude.AddMslAltitudeToLocationRequest
+	(*AddMslAltitudeToLocationResponse)(nil),    // 3: altitude.AddMslAltitudeToLocationResponse
+	(*TryAddMslAltitudeToLocationRequest)(nil),  // 4: altitude.TryAddMslAltitudeToLocationRequest
+	(*TryAddMslAltitudeToLocationResponse)(nil), // 5: altitude.TryAddMslAltitudeToLocationResponse
+}
 var file_proto_altitude_altitude_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
+	0, // 0: altitude.ConverterService.NewConverter:input_type -> altitude.NewConverterRequest
+	2, // 1: altitude.ConverterService.AddMslAltitudeToLocation:input_type -> altitude.AddMslAltitudeToLocationRequest
+	4, // 2: altitude.ConverterService.TryAddMslAltitudeToLocation:input_type -> altitude.TryAddMslAltitudeToLocationRequest
+	1, // 3: altitude.ConverterService.NewConverter:output_type -> altitude.NewConverterResponse
+	3, // 4: altitude.ConverterService.AddMslAltitudeToLocation:output_type -> altitude.AddMslAltitudeToLocationResponse
+	5, // 5: altitude.ConverterService.TryAddMslAltitudeToLocation:output_type -> altitude.TryAddMslAltitudeToLocationResponse
+	3, // [3:6] is the sub-list for method output_type
+	0, // [0:3] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
 	0, // [0:0] is the sub-list for extension extendee
 	0, // [0:0] is the sub-list for field type_name
@@ -48,12 +364,13 @@ func file_proto_altitude_altitude_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_altitude_altitude_proto_rawDesc), len(file_proto_altitude_altitude_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   6,
 			NumExtensions: 0,
-			NumServices:   0,
+			NumServices:   1,
 		},
 		GoTypes:           file_proto_altitude_altitude_proto_goTypes,
 		DependencyIndexes: file_proto_altitude_altitude_proto_depIdxs,
+		MessageInfos:      file_proto_altitude_altitude_proto_msgTypes,
 	}.Build()
 	File_proto_altitude_altitude_proto = out.File
 	file_proto_altitude_altitude_proto_goTypes = nil

@@ -9,6 +9,226 @@ import (
 	"google.golang.org/grpc"
 )
 
+// StatsClient wraps the gRPC StatsService client.
+type StatsClient struct {
+	svc pb.StatsServiceClient
+}
+
+// NewStatsClient creates a new Stats client.
+func NewStatsClient(cc grpc.ClientConnInterface) *StatsClient {
+	return &StatsClient{
+		svc: pb.NewStatsServiceClient(cc),
+	}
+}
+
+// GetDataType calls the GetDataType RPC.
+func (c *StatsClient) GetDataType(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetDataType(ctx, &pb.GetDataTypeRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMeasurement calls the GetMeasurement RPC.
+func (c *StatsClient) GetMeasurement(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetMeasurement(ctx, &pb.GetMeasurementRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMeasurementKeyAt calls the GetMeasurementKeyAt RPC.
+func (c *StatsClient) GetMeasurementKeyAt(ctx context.Context, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetMeasurementKeyAt(ctx, &pb.GetMeasurementKeyAtRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMeasurementKeyCount calls the GetMeasurementKeyCount RPC.
+func (c *StatsClient) GetMeasurementKeyCount(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMeasurementKeyCount(ctx, &pb.GetMeasurementKeyCountRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMeasurementsKeyAt calls the GetMeasurementsKeyAt RPC.
+func (c *StatsClient) GetMeasurementsKeyAt(ctx context.Context, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetMeasurementsKeyAt(ctx, &pb.GetMeasurementsKeyAtRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMeasurementsKeyCount calls the GetMeasurementsKeyCount RPC.
+func (c *StatsClient) GetMeasurementsKeyCount(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMeasurementsKeyCount(ctx, &pb.GetMeasurementsKeyCountRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStatsKeyAt calls the GetStatsKeyAt RPC.
+func (c *StatsClient) GetStatsKeyAt(ctx context.Context, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetStatsKeyAt(ctx, &pb.GetStatsKeyAtRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStatsKeyCount calls the GetStatsKeyCount RPC.
+func (c *StatsClient) GetStatsKeyCount(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetStatsKeyCount(ctx, &pb.GetStatsKeyCountRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTimer calls the GetTimer RPC.
+func (c *StatsClient) GetTimer(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetTimer(ctx, &pb.GetTimerRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTimerCount calls the GetTimerCount RPC.
+func (c *StatsClient) GetTimerCount(ctx context.Context, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetTimerCount(ctx, &pb.GetTimerCountRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTimerKeyAt calls the GetTimerKeyAt RPC.
+func (c *StatsClient) GetTimerKeyAt(ctx context.Context, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetTimerKeyAt(ctx, &pb.GetTimerKeyAtRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTimerKeyCount calls the GetTimerKeyCount RPC.
+func (c *StatsClient) GetTimerKeyCount(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetTimerKeyCount(ctx, &pb.GetTimerKeyCountRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTimerTime calls the GetTimerTime RPC.
+func (c *StatsClient) GetTimerTime(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetTimerTime(ctx, &pb.GetTimerTimeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTimersKeyAt calls the GetTimersKeyAt RPC.
+func (c *StatsClient) GetTimersKeyAt(ctx context.Context, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetTimersKeyAt(ctx, &pb.GetTimersKeyAtRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTimersKeyCount calls the GetTimersKeyCount RPC.
+func (c *StatsClient) GetTimersKeyCount(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetTimersKeyCount(ctx, &pb.GetTimersKeyCountRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasMeasurement calls the HasMeasurement RPC.
+func (c *StatsClient) HasMeasurement(ctx context.Context, arg0 int32) (bool, error) {
+	resp, err := c.svc.HasMeasurement(ctx, &pb.HasMeasurementRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasMeasurements calls the HasMeasurements RPC.
+func (c *StatsClient) HasMeasurements(ctx context.Context, arg0 int32) (bool, error) {
+	resp, err := c.svc.HasMeasurements(ctx, &pb.HasMeasurementsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasStats calls the HasStats RPC.
+func (c *StatsClient) HasStats(ctx context.Context, arg0 int32) (bool, error) {
+	resp, err := c.svc.HasStats(ctx, &pb.HasStatsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasTimer calls the HasTimer RPC.
+func (c *StatsClient) HasTimer(ctx context.Context, arg0 int32) (bool, error) {
+	resp, err := c.svc.HasTimer(ctx, &pb.HasTimerRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasTimers calls the HasTimers RPC.
+func (c *StatsClient) HasTimers(ctx context.Context, arg0 int32) (bool, error) {
+	resp, err := c.svc.HasTimers(ctx, &pb.HasTimersRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
 // SystemHealthManagerClient wraps the gRPC SystemHealthManagerService client.
 type SystemHealthManagerClient struct {
 	svc pb.SystemHealthManagerServiceClient
@@ -99,4 +319,77 @@ func (c *SystemHealthManagerClient) TakeUidSnapshots(ctx context.Context, arg0 i
 		return 0, err
 	}
 	return resp.GetResult(), nil
+}
+
+// TimerStatClient wraps the gRPC TimerStatService client.
+type TimerStatClient struct {
+	svc pb.TimerStatServiceClient
+}
+
+// NewTimerStatClient creates a new TimerStat client.
+func NewTimerStatClient(cc grpc.ClientConnInterface) *TimerStatClient {
+	return &TimerStatClient{
+		svc: pb.NewTimerStatServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *TimerStatClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCount calls the GetCount RPC.
+func (c *TimerStatClient) GetCount(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetCount(ctx, &pb.GetCountRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTime calls the GetTime RPC.
+func (c *TimerStatClient) GetTime(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetTime(ctx, &pb.GetTimeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetCount calls the SetCount RPC.
+func (c *TimerStatClient) SetCount(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetCount(ctx, &pb.SetCountRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetTime calls the SetTime RPC.
+func (c *TimerStatClient) SetTime(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetTime(ctx, &pb.SetTimeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *TimerStatClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
 }

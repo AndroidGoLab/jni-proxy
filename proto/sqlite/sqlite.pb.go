@@ -12,6 +12,7 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -22,19 +23,17491 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type BindBlob2Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BindBlob2Request) Reset() {
+	*x = BindBlob2Request{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BindBlob2Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BindBlob2Request) ProtoMessage() {}
+
+func (x *BindBlob2Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BindBlob2Request.ProtoReflect.Descriptor instead.
+func (*BindBlob2Request) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *BindBlob2Request) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *BindBlob2Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type BindBlob2Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BindBlob2Response) Reset() {
+	*x = BindBlob2Response{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BindBlob2Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BindBlob2Response) ProtoMessage() {}
+
+func (x *BindBlob2Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BindBlob2Response.ProtoReflect.Descriptor instead.
+func (*BindBlob2Response) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{1}
+}
+
+type BindBlob4_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int32                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BindBlob4_1Request) Reset() {
+	*x = BindBlob4_1Request{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BindBlob4_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BindBlob4_1Request) ProtoMessage() {}
+
+func (x *BindBlob4_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BindBlob4_1Request.ProtoReflect.Descriptor instead.
+func (*BindBlob4_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *BindBlob4_1Request) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *BindBlob4_1Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *BindBlob4_1Request) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *BindBlob4_1Request) GetArg3() int32 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+type BindBlob4_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BindBlob4_1Response) Reset() {
+	*x = BindBlob4_1Response{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BindBlob4_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BindBlob4_1Response) ProtoMessage() {}
+
+func (x *BindBlob4_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BindBlob4_1Response.ProtoReflect.Descriptor instead.
+func (*BindBlob4_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{3}
+}
+
+type BindDoubleRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          float64                `protobuf:"fixed64,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BindDoubleRequest) Reset() {
+	*x = BindDoubleRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BindDoubleRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BindDoubleRequest) ProtoMessage() {}
+
+func (x *BindDoubleRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BindDoubleRequest.ProtoReflect.Descriptor instead.
+func (*BindDoubleRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *BindDoubleRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *BindDoubleRequest) GetArg1() float64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type BindDoubleResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BindDoubleResponse) Reset() {
+	*x = BindDoubleResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BindDoubleResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BindDoubleResponse) ProtoMessage() {}
+
+func (x *BindDoubleResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BindDoubleResponse.ProtoReflect.Descriptor instead.
+func (*BindDoubleResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{5}
+}
+
+type BindIntRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BindIntRequest) Reset() {
+	*x = BindIntRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BindIntRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BindIntRequest) ProtoMessage() {}
+
+func (x *BindIntRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BindIntRequest.ProtoReflect.Descriptor instead.
+func (*BindIntRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *BindIntRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *BindIntRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type BindIntResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BindIntResponse) Reset() {
+	*x = BindIntResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BindIntResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BindIntResponse) ProtoMessage() {}
+
+func (x *BindIntResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BindIntResponse.ProtoReflect.Descriptor instead.
+func (*BindIntResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{7}
+}
+
+type BindLongRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BindLongRequest) Reset() {
+	*x = BindLongRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BindLongRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BindLongRequest) ProtoMessage() {}
+
+func (x *BindLongRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BindLongRequest.ProtoReflect.Descriptor instead.
+func (*BindLongRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *BindLongRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *BindLongRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type BindLongResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BindLongResponse) Reset() {
+	*x = BindLongResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BindLongResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BindLongResponse) ProtoMessage() {}
+
+func (x *BindLongResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BindLongResponse.ProtoReflect.Descriptor instead.
+func (*BindLongResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{9}
+}
+
+type BindNullRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BindNullRequest) Reset() {
+	*x = BindNullRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BindNullRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BindNullRequest) ProtoMessage() {}
+
+func (x *BindNullRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BindNullRequest.ProtoReflect.Descriptor instead.
+func (*BindNullRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *BindNullRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type BindNullResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BindNullResponse) Reset() {
+	*x = BindNullResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BindNullResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BindNullResponse) ProtoMessage() {}
+
+func (x *BindNullResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BindNullResponse.ProtoReflect.Descriptor instead.
+func (*BindNullResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{11}
+}
+
+type BindTextRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BindTextRequest) Reset() {
+	*x = BindTextRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BindTextRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BindTextRequest) ProtoMessage() {}
+
+func (x *BindTextRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BindTextRequest.ProtoReflect.Descriptor instead.
+func (*BindTextRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *BindTextRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *BindTextRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+type BindTextResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BindTextResponse) Reset() {
+	*x = BindTextResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BindTextResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BindTextResponse) ProtoMessage() {}
+
+func (x *BindTextResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BindTextResponse.ProtoReflect.Descriptor instead.
+func (*BindTextResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{13}
+}
+
+type ClearBindingsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearBindingsRequest) Reset() {
+	*x = ClearBindingsRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearBindingsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearBindingsRequest) ProtoMessage() {}
+
+func (x *ClearBindingsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearBindingsRequest.ProtoReflect.Descriptor instead.
+func (*ClearBindingsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{14}
+}
+
+type ClearBindingsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearBindingsResponse) Reset() {
+	*x = ClearBindingsResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearBindingsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearBindingsResponse) ProtoMessage() {}
+
+func (x *ClearBindingsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearBindingsResponse.ProtoReflect.Descriptor instead.
+func (*ClearBindingsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{15}
+}
+
+type CloseRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CloseRequest) Reset() {
+	*x = CloseRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CloseRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CloseRequest) ProtoMessage() {}
+
+func (x *CloseRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CloseRequest.ProtoReflect.Descriptor instead.
+func (*CloseRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{16}
+}
+
+type CloseResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CloseResponse) Reset() {
+	*x = CloseResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CloseResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CloseResponse) ProtoMessage() {}
+
+func (x *CloseResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CloseResponse.ProtoReflect.Descriptor instead.
+func (*CloseResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{17}
+}
+
+type GetColumnBlobRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetColumnBlobRequest) Reset() {
+	*x = GetColumnBlobRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetColumnBlobRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetColumnBlobRequest) ProtoMessage() {}
+
+func (x *GetColumnBlobRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetColumnBlobRequest.ProtoReflect.Descriptor instead.
+func (*GetColumnBlobRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{18}
+}
+
+func (x *GetColumnBlobRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetColumnBlobResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetColumnBlobResponse) Reset() {
+	*x = GetColumnBlobResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetColumnBlobResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetColumnBlobResponse) ProtoMessage() {}
+
+func (x *GetColumnBlobResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetColumnBlobResponse.ProtoReflect.Descriptor instead.
+func (*GetColumnBlobResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *GetColumnBlobResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetColumnDoubleRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetColumnDoubleRequest) Reset() {
+	*x = GetColumnDoubleRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetColumnDoubleRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetColumnDoubleRequest) ProtoMessage() {}
+
+func (x *GetColumnDoubleRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetColumnDoubleRequest.ProtoReflect.Descriptor instead.
+func (*GetColumnDoubleRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{20}
+}
+
+func (x *GetColumnDoubleRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetColumnDoubleResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        float64                `protobuf:"fixed64,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetColumnDoubleResponse) Reset() {
+	*x = GetColumnDoubleResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetColumnDoubleResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetColumnDoubleResponse) ProtoMessage() {}
+
+func (x *GetColumnDoubleResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetColumnDoubleResponse.ProtoReflect.Descriptor instead.
+func (*GetColumnDoubleResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{21}
+}
+
+func (x *GetColumnDoubleResponse) GetResult() float64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetColumnIntRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetColumnIntRequest) Reset() {
+	*x = GetColumnIntRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetColumnIntRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetColumnIntRequest) ProtoMessage() {}
+
+func (x *GetColumnIntRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetColumnIntRequest.ProtoReflect.Descriptor instead.
+func (*GetColumnIntRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{22}
+}
+
+func (x *GetColumnIntRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetColumnIntResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetColumnIntResponse) Reset() {
+	*x = GetColumnIntResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetColumnIntResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetColumnIntResponse) ProtoMessage() {}
+
+func (x *GetColumnIntResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetColumnIntResponse.ProtoReflect.Descriptor instead.
+func (*GetColumnIntResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{23}
+}
+
+func (x *GetColumnIntResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetColumnLengthRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetColumnLengthRequest) Reset() {
+	*x = GetColumnLengthRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetColumnLengthRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetColumnLengthRequest) ProtoMessage() {}
+
+func (x *GetColumnLengthRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetColumnLengthRequest.ProtoReflect.Descriptor instead.
+func (*GetColumnLengthRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{24}
+}
+
+func (x *GetColumnLengthRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetColumnLengthResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetColumnLengthResponse) Reset() {
+	*x = GetColumnLengthResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetColumnLengthResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetColumnLengthResponse) ProtoMessage() {}
+
+func (x *GetColumnLengthResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetColumnLengthResponse.ProtoReflect.Descriptor instead.
+func (*GetColumnLengthResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{25}
+}
+
+func (x *GetColumnLengthResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetColumnLongRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetColumnLongRequest) Reset() {
+	*x = GetColumnLongRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[26]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetColumnLongRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetColumnLongRequest) ProtoMessage() {}
+
+func (x *GetColumnLongRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[26]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetColumnLongRequest.ProtoReflect.Descriptor instead.
+func (*GetColumnLongRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{26}
+}
+
+func (x *GetColumnLongRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetColumnLongResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetColumnLongResponse) Reset() {
+	*x = GetColumnLongResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[27]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetColumnLongResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetColumnLongResponse) ProtoMessage() {}
+
+func (x *GetColumnLongResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[27]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetColumnLongResponse.ProtoReflect.Descriptor instead.
+func (*GetColumnLongResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{27}
+}
+
+func (x *GetColumnLongResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetColumnNameRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetColumnNameRequest) Reset() {
+	*x = GetColumnNameRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[28]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetColumnNameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetColumnNameRequest) ProtoMessage() {}
+
+func (x *GetColumnNameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[28]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetColumnNameRequest.ProtoReflect.Descriptor instead.
+func (*GetColumnNameRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{28}
+}
+
+func (x *GetColumnNameRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetColumnNameResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetColumnNameResponse) Reset() {
+	*x = GetColumnNameResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[29]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetColumnNameResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetColumnNameResponse) ProtoMessage() {}
+
+func (x *GetColumnNameResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[29]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetColumnNameResponse.ProtoReflect.Descriptor instead.
+func (*GetColumnNameResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{29}
+}
+
+func (x *GetColumnNameResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetColumnTextRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetColumnTextRequest) Reset() {
+	*x = GetColumnTextRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[30]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetColumnTextRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetColumnTextRequest) ProtoMessage() {}
+
+func (x *GetColumnTextRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[30]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetColumnTextRequest.ProtoReflect.Descriptor instead.
+func (*GetColumnTextRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{30}
+}
+
+func (x *GetColumnTextRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetColumnTextResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetColumnTextResponse) Reset() {
+	*x = GetColumnTextResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[31]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetColumnTextResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetColumnTextResponse) ProtoMessage() {}
+
+func (x *GetColumnTextResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[31]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetColumnTextResponse.ProtoReflect.Descriptor instead.
+func (*GetColumnTextResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{31}
+}
+
+func (x *GetColumnTextResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetColumnTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetColumnTypeRequest) Reset() {
+	*x = GetColumnTypeRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[32]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetColumnTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetColumnTypeRequest) ProtoMessage() {}
+
+func (x *GetColumnTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[32]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetColumnTypeRequest.ProtoReflect.Descriptor instead.
+func (*GetColumnTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{32}
+}
+
+func (x *GetColumnTypeRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetColumnTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetColumnTypeResponse) Reset() {
+	*x = GetColumnTypeResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[33]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetColumnTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetColumnTypeResponse) ProtoMessage() {}
+
+func (x *GetColumnTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[33]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetColumnTypeResponse.ProtoReflect.Descriptor instead.
+func (*GetColumnTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{33}
+}
+
+func (x *GetColumnTypeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetParameterCountRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetParameterCountRequest) Reset() {
+	*x = GetParameterCountRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[34]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetParameterCountRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetParameterCountRequest) ProtoMessage() {}
+
+func (x *GetParameterCountRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[34]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetParameterCountRequest.ProtoReflect.Descriptor instead.
+func (*GetParameterCountRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{34}
+}
+
+type GetParameterCountResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetParameterCountResponse) Reset() {
+	*x = GetParameterCountResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[35]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetParameterCountResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetParameterCountResponse) ProtoMessage() {}
+
+func (x *GetParameterCountResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[35]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetParameterCountResponse.ProtoReflect.Descriptor instead.
+func (*GetParameterCountResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{35}
+}
+
+func (x *GetParameterCountResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetParameterIndexRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetParameterIndexRequest) Reset() {
+	*x = GetParameterIndexRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[36]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetParameterIndexRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetParameterIndexRequest) ProtoMessage() {}
+
+func (x *GetParameterIndexRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[36]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetParameterIndexRequest.ProtoReflect.Descriptor instead.
+func (*GetParameterIndexRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{36}
+}
+
+func (x *GetParameterIndexRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type GetParameterIndexResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetParameterIndexResponse) Reset() {
+	*x = GetParameterIndexResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[37]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetParameterIndexResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetParameterIndexResponse) ProtoMessage() {}
+
+func (x *GetParameterIndexResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[37]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetParameterIndexResponse.ProtoReflect.Descriptor instead.
+func (*GetParameterIndexResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{37}
+}
+
+func (x *GetParameterIndexResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetParameterNameRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetParameterNameRequest) Reset() {
+	*x = GetParameterNameRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[38]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetParameterNameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetParameterNameRequest) ProtoMessage() {}
+
+func (x *GetParameterNameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[38]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetParameterNameRequest.ProtoReflect.Descriptor instead.
+func (*GetParameterNameRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{38}
+}
+
+func (x *GetParameterNameRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetParameterNameResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetParameterNameResponse) Reset() {
+	*x = GetParameterNameResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[39]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetParameterNameResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetParameterNameResponse) ProtoMessage() {}
+
+func (x *GetParameterNameResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[39]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetParameterNameResponse.ProtoReflect.Descriptor instead.
+func (*GetParameterNameResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{39}
+}
+
+func (x *GetParameterNameResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetResultColumnCountRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetResultColumnCountRequest) Reset() {
+	*x = GetResultColumnCountRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[40]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetResultColumnCountRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetResultColumnCountRequest) ProtoMessage() {}
+
+func (x *GetResultColumnCountRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[40]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetResultColumnCountRequest.ProtoReflect.Descriptor instead.
+func (*GetResultColumnCountRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{40}
+}
+
+type GetResultColumnCountResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetResultColumnCountResponse) Reset() {
+	*x = GetResultColumnCountResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[41]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetResultColumnCountResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetResultColumnCountResponse) ProtoMessage() {}
+
+func (x *GetResultColumnCountResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[41]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetResultColumnCountResponse.ProtoReflect.Descriptor instead.
+func (*GetResultColumnCountResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{41}
+}
+
+func (x *GetResultColumnCountResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type IsOpenRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsOpenRequest) Reset() {
+	*x = IsOpenRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[42]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsOpenRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsOpenRequest) ProtoMessage() {}
+
+func (x *IsOpenRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[42]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsOpenRequest.ProtoReflect.Descriptor instead.
+func (*IsOpenRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{42}
+}
+
+type IsOpenResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsOpenResponse) Reset() {
+	*x = IsOpenResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[43]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsOpenResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsOpenResponse) ProtoMessage() {}
+
+func (x *IsOpenResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[43]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsOpenResponse.ProtoReflect.Descriptor instead.
+func (*IsOpenResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{43}
+}
+
+func (x *IsOpenResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type ReadColumnBlobRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int32                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	Arg4          int32                  `protobuf:"varint,5,opt,name=arg4,proto3" json:"arg4,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ReadColumnBlobRequest) Reset() {
+	*x = ReadColumnBlobRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[44]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ReadColumnBlobRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ReadColumnBlobRequest) ProtoMessage() {}
+
+func (x *ReadColumnBlobRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[44]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ReadColumnBlobRequest.ProtoReflect.Descriptor instead.
+func (*ReadColumnBlobRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{44}
+}
+
+func (x *ReadColumnBlobRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *ReadColumnBlobRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *ReadColumnBlobRequest) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *ReadColumnBlobRequest) GetArg3() int32 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+func (x *ReadColumnBlobRequest) GetArg4() int32 {
+	if x != nil {
+		return x.Arg4
+	}
+	return 0
+}
+
+type ReadColumnBlobResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ReadColumnBlobResponse) Reset() {
+	*x = ReadColumnBlobResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[45]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ReadColumnBlobResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ReadColumnBlobResponse) ProtoMessage() {}
+
+func (x *ReadColumnBlobResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[45]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ReadColumnBlobResponse.ProtoReflect.Descriptor instead.
+func (*ReadColumnBlobResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{45}
+}
+
+func (x *ReadColumnBlobResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ResetRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ResetRequest) Reset() {
+	*x = ResetRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[46]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ResetRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ResetRequest) ProtoMessage() {}
+
+func (x *ResetRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[46]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ResetRequest.ProtoReflect.Descriptor instead.
+func (*ResetRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{46}
+}
+
+type ResetResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ResetResponse) Reset() {
+	*x = ResetResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[47]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ResetResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ResetResponse) ProtoMessage() {}
+
+func (x *ResetResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[47]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ResetResponse.ProtoReflect.Descriptor instead.
+func (*ResetResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{47}
+}
+
+type StepRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *StepRequest) Reset() {
+	*x = StepRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[48]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *StepRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StepRequest) ProtoMessage() {}
+
+func (x *StepRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[48]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StepRequest.ProtoReflect.Descriptor instead.
+func (*StepRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{48}
+}
+
+type StepResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *StepResponse) Reset() {
+	*x = StepResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[49]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *StepResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StepResponse) ProtoMessage() {}
+
+func (x *StepResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[49]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StepResponse.ProtoReflect.Descriptor instead.
+func (*StepResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{49}
+}
+
+func (x *StepResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type ToStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringRequest) Reset() {
+	*x = ToStringRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[50]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringRequest) ProtoMessage() {}
+
+func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[50]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringRequest.ProtoReflect.Descriptor instead.
+func (*ToStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{50}
+}
+
+type ToStringResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringResponse) Reset() {
+	*x = ToStringResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[51]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringResponse) ProtoMessage() {}
+
+func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[51]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringResponse.ProtoReflect.Descriptor instead.
+func (*ToStringResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{51}
+}
+
+func (x *ToStringResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type NewSQLiteCursorRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewSQLiteCursorRequest) Reset() {
+	*x = NewSQLiteCursorRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[52]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewSQLiteCursorRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewSQLiteCursorRequest) ProtoMessage() {}
+
+func (x *NewSQLiteCursorRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[52]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewSQLiteCursorRequest.ProtoReflect.Descriptor instead.
+func (*NewSQLiteCursorRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{52}
+}
+
+func (x *NewSQLiteCursorRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *NewSQLiteCursorRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *NewSQLiteCursorRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type NewSQLiteCursorResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewSQLiteCursorResponse) Reset() {
+	*x = NewSQLiteCursorResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[53]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewSQLiteCursorResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewSQLiteCursorResponse) ProtoMessage() {}
+
+func (x *NewSQLiteCursorResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[53]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewSQLiteCursorResponse.ProtoReflect.Descriptor instead.
+func (*NewSQLiteCursorResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{53}
+}
+
+func (x *NewSQLiteCursorResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SQLiteCursorCloseRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SQLiteCursorCloseRequest) Reset() {
+	*x = SQLiteCursorCloseRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[54]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SQLiteCursorCloseRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SQLiteCursorCloseRequest) ProtoMessage() {}
+
+func (x *SQLiteCursorCloseRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[54]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SQLiteCursorCloseRequest.ProtoReflect.Descriptor instead.
+func (*SQLiteCursorCloseRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{54}
+}
+
+func (x *SQLiteCursorCloseRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type DeactivateRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DeactivateRequest) Reset() {
+	*x = DeactivateRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[55]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DeactivateRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeactivateRequest) ProtoMessage() {}
+
+func (x *DeactivateRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[55]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeactivateRequest.ProtoReflect.Descriptor instead.
+func (*DeactivateRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{55}
+}
+
+func (x *DeactivateRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type DeactivateResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DeactivateResponse) Reset() {
+	*x = DeactivateResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[56]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DeactivateResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeactivateResponse) ProtoMessage() {}
+
+func (x *DeactivateResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[56]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeactivateResponse.ProtoReflect.Descriptor instead.
+func (*DeactivateResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{56}
+}
+
+type GetColumnIndexRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          string                 `protobuf:"bytes,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetColumnIndexRequest) Reset() {
+	*x = GetColumnIndexRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[57]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetColumnIndexRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetColumnIndexRequest) ProtoMessage() {}
+
+func (x *GetColumnIndexRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[57]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetColumnIndexRequest.ProtoReflect.Descriptor instead.
+func (*GetColumnIndexRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{57}
+}
+
+func (x *GetColumnIndexRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetColumnIndexRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type GetColumnIndexResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetColumnIndexResponse) Reset() {
+	*x = GetColumnIndexResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[58]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetColumnIndexResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetColumnIndexResponse) ProtoMessage() {}
+
+func (x *GetColumnIndexResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[58]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetColumnIndexResponse.ProtoReflect.Descriptor instead.
+func (*GetColumnIndexResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{58}
+}
+
+func (x *GetColumnIndexResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetColumnNamesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetColumnNamesRequest) Reset() {
+	*x = GetColumnNamesRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[59]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetColumnNamesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetColumnNamesRequest) ProtoMessage() {}
+
+func (x *GetColumnNamesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[59]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetColumnNamesRequest.ProtoReflect.Descriptor instead.
+func (*GetColumnNamesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{59}
+}
+
+func (x *GetColumnNamesRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetColumnNamesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetColumnNamesResponse) Reset() {
+	*x = GetColumnNamesResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[60]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetColumnNamesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetColumnNamesResponse) ProtoMessage() {}
+
+func (x *GetColumnNamesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[60]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetColumnNamesResponse.ProtoReflect.Descriptor instead.
+func (*GetColumnNamesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{60}
+}
+
+func (x *GetColumnNamesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetCountRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCountRequest) Reset() {
+	*x = GetCountRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[61]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCountRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCountRequest) ProtoMessage() {}
+
+func (x *GetCountRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[61]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCountRequest.ProtoReflect.Descriptor instead.
+func (*GetCountRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{61}
+}
+
+func (x *GetCountRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetCountResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCountResponse) Reset() {
+	*x = GetCountResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[62]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCountResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCountResponse) ProtoMessage() {}
+
+func (x *GetCountResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[62]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCountResponse.ProtoReflect.Descriptor instead.
+func (*GetCountResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{62}
+}
+
+func (x *GetCountResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetDatabaseRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDatabaseRequest) Reset() {
+	*x = GetDatabaseRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[63]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDatabaseRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDatabaseRequest) ProtoMessage() {}
+
+func (x *GetDatabaseRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[63]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDatabaseRequest.ProtoReflect.Descriptor instead.
+func (*GetDatabaseRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{63}
+}
+
+func (x *GetDatabaseRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetDatabaseResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDatabaseResponse) Reset() {
+	*x = GetDatabaseResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[64]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDatabaseResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDatabaseResponse) ProtoMessage() {}
+
+func (x *GetDatabaseResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[64]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDatabaseResponse.ProtoReflect.Descriptor instead.
+func (*GetDatabaseResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{64}
+}
+
+func (x *GetDatabaseResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OnMoveRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnMoveRequest) Reset() {
+	*x = OnMoveRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[65]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnMoveRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnMoveRequest) ProtoMessage() {}
+
+func (x *OnMoveRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[65]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnMoveRequest.ProtoReflect.Descriptor instead.
+func (*OnMoveRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{65}
+}
+
+func (x *OnMoveRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *OnMoveRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnMoveRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type OnMoveResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnMoveResponse) Reset() {
+	*x = OnMoveResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[66]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnMoveResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnMoveResponse) ProtoMessage() {}
+
+func (x *OnMoveResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[66]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnMoveResponse.ProtoReflect.Descriptor instead.
+func (*OnMoveResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{66}
+}
+
+func (x *OnMoveResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type RequeryRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RequeryRequest) Reset() {
+	*x = RequeryRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[67]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RequeryRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RequeryRequest) ProtoMessage() {}
+
+func (x *RequeryRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[67]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RequeryRequest.ProtoReflect.Descriptor instead.
+func (*RequeryRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{67}
+}
+
+func (x *RequeryRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type RequeryResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RequeryResponse) Reset() {
+	*x = RequeryResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[68]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RequeryResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RequeryResponse) ProtoMessage() {}
+
+func (x *RequeryResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[68]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RequeryResponse.ProtoReflect.Descriptor instead.
+func (*RequeryResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{68}
+}
+
+func (x *RequeryResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type SetFillWindowForwardOnlyRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          bool                   `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetFillWindowForwardOnlyRequest) Reset() {
+	*x = SetFillWindowForwardOnlyRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[69]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetFillWindowForwardOnlyRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetFillWindowForwardOnlyRequest) ProtoMessage() {}
+
+func (x *SetFillWindowForwardOnlyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[69]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetFillWindowForwardOnlyRequest.ProtoReflect.Descriptor instead.
+func (*SetFillWindowForwardOnlyRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{69}
+}
+
+func (x *SetFillWindowForwardOnlyRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetFillWindowForwardOnlyRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetFillWindowForwardOnlyResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetFillWindowForwardOnlyResponse) Reset() {
+	*x = SetFillWindowForwardOnlyResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[70]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetFillWindowForwardOnlyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetFillWindowForwardOnlyResponse) ProtoMessage() {}
+
+func (x *SetFillWindowForwardOnlyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[70]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetFillWindowForwardOnlyResponse.ProtoReflect.Descriptor instead.
+func (*SetFillWindowForwardOnlyResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{70}
+}
+
+type SetSelectionArgumentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetSelectionArgumentsRequest) Reset() {
+	*x = SetSelectionArgumentsRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[71]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetSelectionArgumentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetSelectionArgumentsRequest) ProtoMessage() {}
+
+func (x *SetSelectionArgumentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[71]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetSelectionArgumentsRequest.ProtoReflect.Descriptor instead.
+func (*SetSelectionArgumentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{71}
+}
+
+func (x *SetSelectionArgumentsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetSelectionArgumentsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetSelectionArgumentsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetSelectionArgumentsResponse) Reset() {
+	*x = SetSelectionArgumentsResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[72]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetSelectionArgumentsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetSelectionArgumentsResponse) ProtoMessage() {}
+
+func (x *SetSelectionArgumentsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[72]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetSelectionArgumentsResponse.ProtoReflect.Descriptor instead.
+func (*SetSelectionArgumentsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{72}
+}
+
+type SetWindowRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetWindowRequest) Reset() {
+	*x = SetWindowRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[73]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetWindowRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetWindowRequest) ProtoMessage() {}
+
+func (x *SetWindowRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[73]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetWindowRequest.ProtoReflect.Descriptor instead.
+func (*SetWindowRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{73}
+}
+
+func (x *SetWindowRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetWindowRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetWindowResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetWindowResponse) Reset() {
+	*x = SetWindowResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[74]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetWindowResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetWindowResponse) ProtoMessage() {}
+
+func (x *SetWindowResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[74]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetWindowResponse.ProtoReflect.Descriptor instead.
+func (*SetWindowResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{74}
+}
+
+type AcquireReferenceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AcquireReferenceRequest) Reset() {
+	*x = AcquireReferenceRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[75]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AcquireReferenceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AcquireReferenceRequest) ProtoMessage() {}
+
+func (x *AcquireReferenceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[75]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AcquireReferenceRequest.ProtoReflect.Descriptor instead.
+func (*AcquireReferenceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{75}
+}
+
+type AcquireReferenceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AcquireReferenceResponse) Reset() {
+	*x = AcquireReferenceResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[76]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AcquireReferenceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AcquireReferenceResponse) ProtoMessage() {}
+
+func (x *AcquireReferenceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[76]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AcquireReferenceResponse.ProtoReflect.Descriptor instead.
+func (*AcquireReferenceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{76}
+}
+
+type ReleaseReferenceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ReleaseReferenceRequest) Reset() {
+	*x = ReleaseReferenceRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[77]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ReleaseReferenceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ReleaseReferenceRequest) ProtoMessage() {}
+
+func (x *ReleaseReferenceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[77]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ReleaseReferenceRequest.ProtoReflect.Descriptor instead.
+func (*ReleaseReferenceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{77}
+}
+
+type ReleaseReferenceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ReleaseReferenceResponse) Reset() {
+	*x = ReleaseReferenceResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[78]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ReleaseReferenceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ReleaseReferenceResponse) ProtoMessage() {}
+
+func (x *ReleaseReferenceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[78]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ReleaseReferenceResponse.ProtoReflect.Descriptor instead.
+func (*ReleaseReferenceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{78}
+}
+
+type ReleaseReferenceFromContainerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ReleaseReferenceFromContainerRequest) Reset() {
+	*x = ReleaseReferenceFromContainerRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[79]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ReleaseReferenceFromContainerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ReleaseReferenceFromContainerRequest) ProtoMessage() {}
+
+func (x *ReleaseReferenceFromContainerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[79]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ReleaseReferenceFromContainerRequest.ProtoReflect.Descriptor instead.
+func (*ReleaseReferenceFromContainerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{79}
+}
+
+type ReleaseReferenceFromContainerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ReleaseReferenceFromContainerResponse) Reset() {
+	*x = ReleaseReferenceFromContainerResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[80]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ReleaseReferenceFromContainerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ReleaseReferenceFromContainerResponse) ProtoMessage() {}
+
+func (x *ReleaseReferenceFromContainerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[80]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ReleaseReferenceFromContainerResponse.ProtoReflect.Descriptor instead.
+func (*ReleaseReferenceFromContainerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{80}
+}
+
+type OnBeginRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnBeginRequest) Reset() {
+	*x = OnBeginRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[81]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnBeginRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnBeginRequest) ProtoMessage() {}
+
+func (x *OnBeginRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[81]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnBeginRequest.ProtoReflect.Descriptor instead.
+func (*OnBeginRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{81}
+}
+
+type OnBeginResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnBeginResponse) Reset() {
+	*x = OnBeginResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[82]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnBeginResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnBeginResponse) ProtoMessage() {}
+
+func (x *OnBeginResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[82]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnBeginResponse.ProtoReflect.Descriptor instead.
+func (*OnBeginResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{82}
+}
+
+type OnCommitRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnCommitRequest) Reset() {
+	*x = OnCommitRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[83]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnCommitRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnCommitRequest) ProtoMessage() {}
+
+func (x *OnCommitRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[83]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnCommitRequest.ProtoReflect.Descriptor instead.
+func (*OnCommitRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{83}
+}
+
+type OnCommitResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnCommitResponse) Reset() {
+	*x = OnCommitResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[84]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnCommitResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnCommitResponse) ProtoMessage() {}
+
+func (x *OnCommitResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[84]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnCommitResponse.ProtoReflect.Descriptor instead.
+func (*OnCommitResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{84}
+}
+
+type OnRollbackRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnRollbackRequest) Reset() {
+	*x = OnRollbackRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[85]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnRollbackRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnRollbackRequest) ProtoMessage() {}
+
+func (x *OnRollbackRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[85]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnRollbackRequest.ProtoReflect.Descriptor instead.
+func (*OnRollbackRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{85}
+}
+
+type OnRollbackResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnRollbackResponse) Reset() {
+	*x = OnRollbackResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[86]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnRollbackResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnRollbackResponse) ProtoMessage() {}
+
+func (x *OnRollbackResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[86]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnRollbackResponse.ProtoReflect.Descriptor instead.
+func (*OnRollbackResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{86}
+}
+
+type GetDatabaseNameRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDatabaseNameRequest) Reset() {
+	*x = GetDatabaseNameRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[87]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDatabaseNameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDatabaseNameRequest) ProtoMessage() {}
+
+func (x *GetDatabaseNameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[87]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDatabaseNameRequest.ProtoReflect.Descriptor instead.
+func (*GetDatabaseNameRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{87}
+}
+
+type GetDatabaseNameResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDatabaseNameResponse) Reset() {
+	*x = GetDatabaseNameResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[88]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDatabaseNameResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDatabaseNameResponse) ProtoMessage() {}
+
+func (x *GetDatabaseNameResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[88]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDatabaseNameResponse.ProtoReflect.Descriptor instead.
+func (*GetDatabaseNameResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{88}
+}
+
+func (x *GetDatabaseNameResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetReadableDatabaseRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetReadableDatabaseRequest) Reset() {
+	*x = GetReadableDatabaseRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[89]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetReadableDatabaseRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetReadableDatabaseRequest) ProtoMessage() {}
+
+func (x *GetReadableDatabaseRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[89]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetReadableDatabaseRequest.ProtoReflect.Descriptor instead.
+func (*GetReadableDatabaseRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{89}
+}
+
+type GetReadableDatabaseResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetReadableDatabaseResponse) Reset() {
+	*x = GetReadableDatabaseResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[90]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetReadableDatabaseResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetReadableDatabaseResponse) ProtoMessage() {}
+
+func (x *GetReadableDatabaseResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[90]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetReadableDatabaseResponse.ProtoReflect.Descriptor instead.
+func (*GetReadableDatabaseResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{90}
+}
+
+func (x *GetReadableDatabaseResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetWritableDatabaseRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetWritableDatabaseRequest) Reset() {
+	*x = GetWritableDatabaseRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[91]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetWritableDatabaseRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetWritableDatabaseRequest) ProtoMessage() {}
+
+func (x *GetWritableDatabaseRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[91]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetWritableDatabaseRequest.ProtoReflect.Descriptor instead.
+func (*GetWritableDatabaseRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{91}
+}
+
+type GetWritableDatabaseResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetWritableDatabaseResponse) Reset() {
+	*x = GetWritableDatabaseResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[92]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetWritableDatabaseResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetWritableDatabaseResponse) ProtoMessage() {}
+
+func (x *GetWritableDatabaseResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[92]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetWritableDatabaseResponse.ProtoReflect.Descriptor instead.
+func (*GetWritableDatabaseResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{92}
+}
+
+func (x *GetWritableDatabaseResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OnConfigureRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnConfigureRequest) Reset() {
+	*x = OnConfigureRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[93]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnConfigureRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnConfigureRequest) ProtoMessage() {}
+
+func (x *OnConfigureRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[93]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnConfigureRequest.ProtoReflect.Descriptor instead.
+func (*OnConfigureRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{93}
+}
+
+func (x *OnConfigureRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnConfigureResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnConfigureResponse) Reset() {
+	*x = OnConfigureResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[94]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnConfigureResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnConfigureResponse) ProtoMessage() {}
+
+func (x *OnConfigureResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[94]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnConfigureResponse.ProtoReflect.Descriptor instead.
+func (*OnConfigureResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{94}
+}
+
+type OnCreateRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnCreateRequest) Reset() {
+	*x = OnCreateRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[95]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnCreateRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnCreateRequest) ProtoMessage() {}
+
+func (x *OnCreateRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[95]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnCreateRequest.ProtoReflect.Descriptor instead.
+func (*OnCreateRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{95}
+}
+
+func (x *OnCreateRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnCreateResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnCreateResponse) Reset() {
+	*x = OnCreateResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[96]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnCreateResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnCreateResponse) ProtoMessage() {}
+
+func (x *OnCreateResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[96]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnCreateResponse.ProtoReflect.Descriptor instead.
+func (*OnCreateResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{96}
+}
+
+type OnDowngradeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnDowngradeRequest) Reset() {
+	*x = OnDowngradeRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[97]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnDowngradeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnDowngradeRequest) ProtoMessage() {}
+
+func (x *OnDowngradeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[97]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnDowngradeRequest.ProtoReflect.Descriptor instead.
+func (*OnDowngradeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{97}
+}
+
+func (x *OnDowngradeRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnDowngradeRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *OnDowngradeRequest) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type OnDowngradeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnDowngradeResponse) Reset() {
+	*x = OnDowngradeResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[98]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnDowngradeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnDowngradeResponse) ProtoMessage() {}
+
+func (x *OnDowngradeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[98]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnDowngradeResponse.ProtoReflect.Descriptor instead.
+func (*OnDowngradeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{98}
+}
+
+type OnOpenRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnOpenRequest) Reset() {
+	*x = OnOpenRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[99]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnOpenRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnOpenRequest) ProtoMessage() {}
+
+func (x *OnOpenRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[99]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnOpenRequest.ProtoReflect.Descriptor instead.
+func (*OnOpenRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{99}
+}
+
+func (x *OnOpenRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnOpenResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnOpenResponse) Reset() {
+	*x = OnOpenResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[100]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnOpenResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnOpenResponse) ProtoMessage() {}
+
+func (x *OnOpenResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[100]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnOpenResponse.ProtoReflect.Descriptor instead.
+func (*OnOpenResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{100}
+}
+
+type OnUpgradeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnUpgradeRequest) Reset() {
+	*x = OnUpgradeRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[101]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnUpgradeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnUpgradeRequest) ProtoMessage() {}
+
+func (x *OnUpgradeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[101]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnUpgradeRequest.ProtoReflect.Descriptor instead.
+func (*OnUpgradeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{101}
+}
+
+func (x *OnUpgradeRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnUpgradeRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *OnUpgradeRequest) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type OnUpgradeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnUpgradeResponse) Reset() {
+	*x = OnUpgradeResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[102]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnUpgradeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnUpgradeResponse) ProtoMessage() {}
+
+func (x *OnUpgradeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[102]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnUpgradeResponse.ProtoReflect.Descriptor instead.
+func (*OnUpgradeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{102}
+}
+
+type SetIdleConnectionTimeoutRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetIdleConnectionTimeoutRequest) Reset() {
+	*x = SetIdleConnectionTimeoutRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[103]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetIdleConnectionTimeoutRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetIdleConnectionTimeoutRequest) ProtoMessage() {}
+
+func (x *SetIdleConnectionTimeoutRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[103]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetIdleConnectionTimeoutRequest.ProtoReflect.Descriptor instead.
+func (*SetIdleConnectionTimeoutRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{103}
+}
+
+func (x *SetIdleConnectionTimeoutRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetIdleConnectionTimeoutResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetIdleConnectionTimeoutResponse) Reset() {
+	*x = SetIdleConnectionTimeoutResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[104]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetIdleConnectionTimeoutResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetIdleConnectionTimeoutResponse) ProtoMessage() {}
+
+func (x *SetIdleConnectionTimeoutResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[104]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetIdleConnectionTimeoutResponse.ProtoReflect.Descriptor instead.
+func (*SetIdleConnectionTimeoutResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{104}
+}
+
+type SetLookasideConfigRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetLookasideConfigRequest) Reset() {
+	*x = SetLookasideConfigRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[105]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetLookasideConfigRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetLookasideConfigRequest) ProtoMessage() {}
+
+func (x *SetLookasideConfigRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[105]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetLookasideConfigRequest.ProtoReflect.Descriptor instead.
+func (*SetLookasideConfigRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{105}
+}
+
+func (x *SetLookasideConfigRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SetLookasideConfigRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type SetLookasideConfigResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetLookasideConfigResponse) Reset() {
+	*x = SetLookasideConfigResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[106]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetLookasideConfigResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetLookasideConfigResponse) ProtoMessage() {}
+
+func (x *SetLookasideConfigResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[106]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetLookasideConfigResponse.ProtoReflect.Descriptor instead.
+func (*SetLookasideConfigResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{106}
+}
+
+type SetOpenParamsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetOpenParamsRequest) Reset() {
+	*x = SetOpenParamsRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[107]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetOpenParamsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetOpenParamsRequest) ProtoMessage() {}
+
+func (x *SetOpenParamsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[107]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetOpenParamsRequest.ProtoReflect.Descriptor instead.
+func (*SetOpenParamsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{107}
+}
+
+func (x *SetOpenParamsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetOpenParamsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetOpenParamsResponse) Reset() {
+	*x = SetOpenParamsResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[108]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetOpenParamsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetOpenParamsResponse) ProtoMessage() {}
+
+func (x *SetOpenParamsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[108]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetOpenParamsResponse.ProtoReflect.Descriptor instead.
+func (*SetOpenParamsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{108}
+}
+
+type SetWriteAheadLoggingEnabledRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetWriteAheadLoggingEnabledRequest) Reset() {
+	*x = SetWriteAheadLoggingEnabledRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[109]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetWriteAheadLoggingEnabledRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetWriteAheadLoggingEnabledRequest) ProtoMessage() {}
+
+func (x *SetWriteAheadLoggingEnabledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[109]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetWriteAheadLoggingEnabledRequest.ProtoReflect.Descriptor instead.
+func (*SetWriteAheadLoggingEnabledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{109}
+}
+
+func (x *SetWriteAheadLoggingEnabledRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetWriteAheadLoggingEnabledResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetWriteAheadLoggingEnabledResponse) Reset() {
+	*x = SetWriteAheadLoggingEnabledResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[110]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetWriteAheadLoggingEnabledResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetWriteAheadLoggingEnabledResponse) ProtoMessage() {}
+
+func (x *SetWriteAheadLoggingEnabledResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[110]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetWriteAheadLoggingEnabledResponse.ProtoReflect.Descriptor instead.
+func (*SetWriteAheadLoggingEnabledResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{110}
+}
+
+type BindAllArgsAsStringsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BindAllArgsAsStringsRequest) Reset() {
+	*x = BindAllArgsAsStringsRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[111]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BindAllArgsAsStringsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BindAllArgsAsStringsRequest) ProtoMessage() {}
+
+func (x *BindAllArgsAsStringsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[111]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BindAllArgsAsStringsRequest.ProtoReflect.Descriptor instead.
+func (*BindAllArgsAsStringsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{111}
+}
+
+func (x *BindAllArgsAsStringsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type BindAllArgsAsStringsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BindAllArgsAsStringsResponse) Reset() {
+	*x = BindAllArgsAsStringsResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[112]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BindAllArgsAsStringsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BindAllArgsAsStringsResponse) ProtoMessage() {}
+
+func (x *BindAllArgsAsStringsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[112]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BindAllArgsAsStringsResponse.ProtoReflect.Descriptor instead.
+func (*BindAllArgsAsStringsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{112}
+}
+
+type BindBlobRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BindBlobRequest) Reset() {
+	*x = BindBlobRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[113]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BindBlobRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BindBlobRequest) ProtoMessage() {}
+
+func (x *BindBlobRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[113]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BindBlobRequest.ProtoReflect.Descriptor instead.
+func (*BindBlobRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{113}
+}
+
+func (x *BindBlobRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *BindBlobRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type BindBlobResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BindBlobResponse) Reset() {
+	*x = BindBlobResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[114]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BindBlobResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BindBlobResponse) ProtoMessage() {}
+
+func (x *BindBlobResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[114]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BindBlobResponse.ProtoReflect.Descriptor instead.
+func (*BindBlobResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{114}
+}
+
+type BindStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BindStringRequest) Reset() {
+	*x = BindStringRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[115]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BindStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BindStringRequest) ProtoMessage() {}
+
+func (x *BindStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[115]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BindStringRequest.ProtoReflect.Descriptor instead.
+func (*BindStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{115}
+}
+
+func (x *BindStringRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *BindStringRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+type BindStringResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BindStringResponse) Reset() {
+	*x = BindStringResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[116]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BindStringResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BindStringResponse) ProtoMessage() {}
+
+func (x *BindStringResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[116]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BindStringResponse.ProtoReflect.Descriptor instead.
+func (*BindStringResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{116}
+}
+
+type GetUniqueIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetUniqueIdRequest) Reset() {
+	*x = GetUniqueIdRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[117]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetUniqueIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetUniqueIdRequest) ProtoMessage() {}
+
+func (x *GetUniqueIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[117]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetUniqueIdRequest.ProtoReflect.Descriptor instead.
+func (*GetUniqueIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{117}
+}
+
+type GetUniqueIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetUniqueIdResponse) Reset() {
+	*x = GetUniqueIdResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[118]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetUniqueIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetUniqueIdResponse) ProtoMessage() {}
+
+func (x *GetUniqueIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[118]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetUniqueIdResponse.ProtoReflect.Descriptor instead.
+func (*GetUniqueIdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{118}
+}
+
+func (x *GetUniqueIdResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type BeginTransactionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BeginTransactionRequest) Reset() {
+	*x = BeginTransactionRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[119]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BeginTransactionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BeginTransactionRequest) ProtoMessage() {}
+
+func (x *BeginTransactionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[119]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BeginTransactionRequest.ProtoReflect.Descriptor instead.
+func (*BeginTransactionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{119}
+}
+
+type BeginTransactionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BeginTransactionResponse) Reset() {
+	*x = BeginTransactionResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[120]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BeginTransactionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BeginTransactionResponse) ProtoMessage() {}
+
+func (x *BeginTransactionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[120]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BeginTransactionResponse.ProtoReflect.Descriptor instead.
+func (*BeginTransactionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{120}
+}
+
+type BeginTransactionNonExclusiveRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BeginTransactionNonExclusiveRequest) Reset() {
+	*x = BeginTransactionNonExclusiveRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[121]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BeginTransactionNonExclusiveRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BeginTransactionNonExclusiveRequest) ProtoMessage() {}
+
+func (x *BeginTransactionNonExclusiveRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[121]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BeginTransactionNonExclusiveRequest.ProtoReflect.Descriptor instead.
+func (*BeginTransactionNonExclusiveRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{121}
+}
+
+type BeginTransactionNonExclusiveResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BeginTransactionNonExclusiveResponse) Reset() {
+	*x = BeginTransactionNonExclusiveResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[122]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BeginTransactionNonExclusiveResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BeginTransactionNonExclusiveResponse) ProtoMessage() {}
+
+func (x *BeginTransactionNonExclusiveResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[122]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BeginTransactionNonExclusiveResponse.ProtoReflect.Descriptor instead.
+func (*BeginTransactionNonExclusiveResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{122}
+}
+
+type BeginTransactionReadOnlyRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BeginTransactionReadOnlyRequest) Reset() {
+	*x = BeginTransactionReadOnlyRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[123]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BeginTransactionReadOnlyRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BeginTransactionReadOnlyRequest) ProtoMessage() {}
+
+func (x *BeginTransactionReadOnlyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[123]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BeginTransactionReadOnlyRequest.ProtoReflect.Descriptor instead.
+func (*BeginTransactionReadOnlyRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{123}
+}
+
+type BeginTransactionReadOnlyResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BeginTransactionReadOnlyResponse) Reset() {
+	*x = BeginTransactionReadOnlyResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[124]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BeginTransactionReadOnlyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BeginTransactionReadOnlyResponse) ProtoMessage() {}
+
+func (x *BeginTransactionReadOnlyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[124]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BeginTransactionReadOnlyResponse.ProtoReflect.Descriptor instead.
+func (*BeginTransactionReadOnlyResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{124}
+}
+
+type BeginTransactionWithListenerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BeginTransactionWithListenerRequest) Reset() {
+	*x = BeginTransactionWithListenerRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[125]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BeginTransactionWithListenerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BeginTransactionWithListenerRequest) ProtoMessage() {}
+
+func (x *BeginTransactionWithListenerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[125]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BeginTransactionWithListenerRequest.ProtoReflect.Descriptor instead.
+func (*BeginTransactionWithListenerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{125}
+}
+
+func (x *BeginTransactionWithListenerRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type BeginTransactionWithListenerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BeginTransactionWithListenerResponse) Reset() {
+	*x = BeginTransactionWithListenerResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[126]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BeginTransactionWithListenerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BeginTransactionWithListenerResponse) ProtoMessage() {}
+
+func (x *BeginTransactionWithListenerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[126]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BeginTransactionWithListenerResponse.ProtoReflect.Descriptor instead.
+func (*BeginTransactionWithListenerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{126}
+}
+
+type BeginTransactionWithListenerNonExclusiveRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BeginTransactionWithListenerNonExclusiveRequest) Reset() {
+	*x = BeginTransactionWithListenerNonExclusiveRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[127]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BeginTransactionWithListenerNonExclusiveRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BeginTransactionWithListenerNonExclusiveRequest) ProtoMessage() {}
+
+func (x *BeginTransactionWithListenerNonExclusiveRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[127]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BeginTransactionWithListenerNonExclusiveRequest.ProtoReflect.Descriptor instead.
+func (*BeginTransactionWithListenerNonExclusiveRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{127}
+}
+
+func (x *BeginTransactionWithListenerNonExclusiveRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type BeginTransactionWithListenerNonExclusiveResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BeginTransactionWithListenerNonExclusiveResponse) Reset() {
+	*x = BeginTransactionWithListenerNonExclusiveResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[128]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BeginTransactionWithListenerNonExclusiveResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BeginTransactionWithListenerNonExclusiveResponse) ProtoMessage() {}
+
+func (x *BeginTransactionWithListenerNonExclusiveResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[128]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BeginTransactionWithListenerNonExclusiveResponse.ProtoReflect.Descriptor instead.
+func (*BeginTransactionWithListenerNonExclusiveResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{128}
+}
+
+type BeginTransactionWithListenerReadOnlyRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BeginTransactionWithListenerReadOnlyRequest) Reset() {
+	*x = BeginTransactionWithListenerReadOnlyRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[129]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BeginTransactionWithListenerReadOnlyRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BeginTransactionWithListenerReadOnlyRequest) ProtoMessage() {}
+
+func (x *BeginTransactionWithListenerReadOnlyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[129]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BeginTransactionWithListenerReadOnlyRequest.ProtoReflect.Descriptor instead.
+func (*BeginTransactionWithListenerReadOnlyRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{129}
+}
+
+func (x *BeginTransactionWithListenerReadOnlyRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type BeginTransactionWithListenerReadOnlyResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BeginTransactionWithListenerReadOnlyResponse) Reset() {
+	*x = BeginTransactionWithListenerReadOnlyResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[130]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BeginTransactionWithListenerReadOnlyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BeginTransactionWithListenerReadOnlyResponse) ProtoMessage() {}
+
+func (x *BeginTransactionWithListenerReadOnlyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[130]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BeginTransactionWithListenerReadOnlyResponse.ProtoReflect.Descriptor instead.
+func (*BeginTransactionWithListenerReadOnlyResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{130}
+}
+
+type CompileStatementRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CompileStatementRequest) Reset() {
+	*x = CompileStatementRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[131]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CompileStatementRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CompileStatementRequest) ProtoMessage() {}
+
+func (x *CompileStatementRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[131]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CompileStatementRequest.ProtoReflect.Descriptor instead.
+func (*CompileStatementRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{131}
+}
+
+func (x *CompileStatementRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type CompileStatementResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CompileStatementResponse) Reset() {
+	*x = CompileStatementResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[132]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CompileStatementResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CompileStatementResponse) ProtoMessage() {}
+
+func (x *CompileStatementResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[132]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CompileStatementResponse.ProtoReflect.Descriptor instead.
+func (*CompileStatementResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{132}
+}
+
+func (x *CompileStatementResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type CreateRawStatementRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateRawStatementRequest) Reset() {
+	*x = CreateRawStatementRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[133]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateRawStatementRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateRawStatementRequest) ProtoMessage() {}
+
+func (x *CreateRawStatementRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[133]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateRawStatementRequest.ProtoReflect.Descriptor instead.
+func (*CreateRawStatementRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{133}
+}
+
+func (x *CreateRawStatementRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type CreateRawStatementResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateRawStatementResponse) Reset() {
+	*x = CreateRawStatementResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[134]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateRawStatementResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateRawStatementResponse) ProtoMessage() {}
+
+func (x *CreateRawStatementResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[134]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateRawStatementResponse.ProtoReflect.Descriptor instead.
+func (*CreateRawStatementResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{134}
+}
+
+func (x *CreateRawStatementResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type DeleteRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DeleteRequest) Reset() {
+	*x = DeleteRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[135]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DeleteRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeleteRequest) ProtoMessage() {}
+
+func (x *DeleteRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[135]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeleteRequest.ProtoReflect.Descriptor instead.
+func (*DeleteRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{135}
+}
+
+func (x *DeleteRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *DeleteRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *DeleteRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type DeleteResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DeleteResponse) Reset() {
+	*x = DeleteResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[136]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DeleteResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeleteResponse) ProtoMessage() {}
+
+func (x *DeleteResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[136]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeleteResponse.ProtoReflect.Descriptor instead.
+func (*DeleteResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{136}
+}
+
+func (x *DeleteResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type DisableWriteAheadLoggingRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DisableWriteAheadLoggingRequest) Reset() {
+	*x = DisableWriteAheadLoggingRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[137]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DisableWriteAheadLoggingRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DisableWriteAheadLoggingRequest) ProtoMessage() {}
+
+func (x *DisableWriteAheadLoggingRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[137]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DisableWriteAheadLoggingRequest.ProtoReflect.Descriptor instead.
+func (*DisableWriteAheadLoggingRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{137}
+}
+
+type DisableWriteAheadLoggingResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DisableWriteAheadLoggingResponse) Reset() {
+	*x = DisableWriteAheadLoggingResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[138]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DisableWriteAheadLoggingResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DisableWriteAheadLoggingResponse) ProtoMessage() {}
+
+func (x *DisableWriteAheadLoggingResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[138]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DisableWriteAheadLoggingResponse.ProtoReflect.Descriptor instead.
+func (*DisableWriteAheadLoggingResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{138}
+}
+
+type EnableWriteAheadLoggingRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EnableWriteAheadLoggingRequest) Reset() {
+	*x = EnableWriteAheadLoggingRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[139]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EnableWriteAheadLoggingRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EnableWriteAheadLoggingRequest) ProtoMessage() {}
+
+func (x *EnableWriteAheadLoggingRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[139]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EnableWriteAheadLoggingRequest.ProtoReflect.Descriptor instead.
+func (*EnableWriteAheadLoggingRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{139}
+}
+
+type EnableWriteAheadLoggingResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EnableWriteAheadLoggingResponse) Reset() {
+	*x = EnableWriteAheadLoggingResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[140]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EnableWriteAheadLoggingResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EnableWriteAheadLoggingResponse) ProtoMessage() {}
+
+func (x *EnableWriteAheadLoggingResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[140]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EnableWriteAheadLoggingResponse.ProtoReflect.Descriptor instead.
+func (*EnableWriteAheadLoggingResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{140}
+}
+
+func (x *EnableWriteAheadLoggingResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type EndTransactionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EndTransactionRequest) Reset() {
+	*x = EndTransactionRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[141]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EndTransactionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EndTransactionRequest) ProtoMessage() {}
+
+func (x *EndTransactionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[141]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EndTransactionRequest.ProtoReflect.Descriptor instead.
+func (*EndTransactionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{141}
+}
+
+type EndTransactionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EndTransactionResponse) Reset() {
+	*x = EndTransactionResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[142]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EndTransactionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EndTransactionResponse) ProtoMessage() {}
+
+func (x *EndTransactionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[142]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EndTransactionResponse.ProtoReflect.Descriptor instead.
+func (*EndTransactionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{142}
+}
+
+type ExecPerConnectionSQLRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ExecPerConnectionSQLRequest) Reset() {
+	*x = ExecPerConnectionSQLRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[143]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ExecPerConnectionSQLRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ExecPerConnectionSQLRequest) ProtoMessage() {}
+
+func (x *ExecPerConnectionSQLRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[143]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ExecPerConnectionSQLRequest.ProtoReflect.Descriptor instead.
+func (*ExecPerConnectionSQLRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{143}
+}
+
+func (x *ExecPerConnectionSQLRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *ExecPerConnectionSQLRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type ExecPerConnectionSQLResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ExecPerConnectionSQLResponse) Reset() {
+	*x = ExecPerConnectionSQLResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[144]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ExecPerConnectionSQLResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ExecPerConnectionSQLResponse) ProtoMessage() {}
+
+func (x *ExecPerConnectionSQLResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[144]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ExecPerConnectionSQLResponse.ProtoReflect.Descriptor instead.
+func (*ExecPerConnectionSQLResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{144}
+}
+
+type ExecSQL1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ExecSQL1Request) Reset() {
+	*x = ExecSQL1Request{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[145]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ExecSQL1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ExecSQL1Request) ProtoMessage() {}
+
+func (x *ExecSQL1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[145]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ExecSQL1Request.ProtoReflect.Descriptor instead.
+func (*ExecSQL1Request) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{145}
+}
+
+func (x *ExecSQL1Request) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type ExecSQL1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ExecSQL1Response) Reset() {
+	*x = ExecSQL1Response{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[146]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ExecSQL1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ExecSQL1Response) ProtoMessage() {}
+
+func (x *ExecSQL1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[146]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ExecSQL1Response.ProtoReflect.Descriptor instead.
+func (*ExecSQL1Response) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{146}
+}
+
+type ExecSQL2_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ExecSQL2_1Request) Reset() {
+	*x = ExecSQL2_1Request{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[147]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ExecSQL2_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ExecSQL2_1Request) ProtoMessage() {}
+
+func (x *ExecSQL2_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[147]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ExecSQL2_1Request.ProtoReflect.Descriptor instead.
+func (*ExecSQL2_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{147}
+}
+
+func (x *ExecSQL2_1Request) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *ExecSQL2_1Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type ExecSQL2_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ExecSQL2_1Response) Reset() {
+	*x = ExecSQL2_1Response{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[148]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ExecSQL2_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ExecSQL2_1Response) ProtoMessage() {}
+
+func (x *ExecSQL2_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[148]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ExecSQL2_1Response.ProtoReflect.Descriptor instead.
+func (*ExecSQL2_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{148}
+}
+
+type GetLastChangedRowCountRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLastChangedRowCountRequest) Reset() {
+	*x = GetLastChangedRowCountRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[149]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLastChangedRowCountRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLastChangedRowCountRequest) ProtoMessage() {}
+
+func (x *GetLastChangedRowCountRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[149]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLastChangedRowCountRequest.ProtoReflect.Descriptor instead.
+func (*GetLastChangedRowCountRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{149}
+}
+
+type GetLastChangedRowCountResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLastChangedRowCountResponse) Reset() {
+	*x = GetLastChangedRowCountResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[150]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLastChangedRowCountResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLastChangedRowCountResponse) ProtoMessage() {}
+
+func (x *GetLastChangedRowCountResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[150]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLastChangedRowCountResponse.ProtoReflect.Descriptor instead.
+func (*GetLastChangedRowCountResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{150}
+}
+
+func (x *GetLastChangedRowCountResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetLastInsertRowIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLastInsertRowIdRequest) Reset() {
+	*x = GetLastInsertRowIdRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[151]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLastInsertRowIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLastInsertRowIdRequest) ProtoMessage() {}
+
+func (x *GetLastInsertRowIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[151]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLastInsertRowIdRequest.ProtoReflect.Descriptor instead.
+func (*GetLastInsertRowIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{151}
+}
+
+type GetLastInsertRowIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLastInsertRowIdResponse) Reset() {
+	*x = GetLastInsertRowIdResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[152]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLastInsertRowIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLastInsertRowIdResponse) ProtoMessage() {}
+
+func (x *GetLastInsertRowIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[152]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLastInsertRowIdResponse.ProtoReflect.Descriptor instead.
+func (*GetLastInsertRowIdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{152}
+}
+
+func (x *GetLastInsertRowIdResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetMaximumSizeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMaximumSizeRequest) Reset() {
+	*x = GetMaximumSizeRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[153]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMaximumSizeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMaximumSizeRequest) ProtoMessage() {}
+
+func (x *GetMaximumSizeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[153]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMaximumSizeRequest.ProtoReflect.Descriptor instead.
+func (*GetMaximumSizeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{153}
+}
+
+type GetMaximumSizeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMaximumSizeResponse) Reset() {
+	*x = GetMaximumSizeResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[154]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMaximumSizeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMaximumSizeResponse) ProtoMessage() {}
+
+func (x *GetMaximumSizeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[154]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMaximumSizeResponse.ProtoReflect.Descriptor instead.
+func (*GetMaximumSizeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{154}
+}
+
+func (x *GetMaximumSizeResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPageSizeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPageSizeRequest) Reset() {
+	*x = GetPageSizeRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[155]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPageSizeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPageSizeRequest) ProtoMessage() {}
+
+func (x *GetPageSizeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[155]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPageSizeRequest.ProtoReflect.Descriptor instead.
+func (*GetPageSizeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{155}
+}
+
+type GetPageSizeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPageSizeResponse) Reset() {
+	*x = GetPageSizeResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[156]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPageSizeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPageSizeResponse) ProtoMessage() {}
+
+func (x *GetPageSizeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[156]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPageSizeResponse.ProtoReflect.Descriptor instead.
+func (*GetPageSizeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{156}
+}
+
+func (x *GetPageSizeResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPathRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPathRequest) Reset() {
+	*x = GetPathRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[157]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPathRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPathRequest) ProtoMessage() {}
+
+func (x *GetPathRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[157]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPathRequest.ProtoReflect.Descriptor instead.
+func (*GetPathRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{157}
+}
+
+type GetPathResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPathResponse) Reset() {
+	*x = GetPathResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[158]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPathResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPathResponse) ProtoMessage() {}
+
+func (x *GetPathResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[158]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPathResponse.ProtoReflect.Descriptor instead.
+func (*GetPathResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{158}
+}
+
+func (x *GetPathResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetTotalChangedRowCountRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTotalChangedRowCountRequest) Reset() {
+	*x = GetTotalChangedRowCountRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[159]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTotalChangedRowCountRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTotalChangedRowCountRequest) ProtoMessage() {}
+
+func (x *GetTotalChangedRowCountRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[159]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTotalChangedRowCountRequest.ProtoReflect.Descriptor instead.
+func (*GetTotalChangedRowCountRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{159}
+}
+
+type GetTotalChangedRowCountResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTotalChangedRowCountResponse) Reset() {
+	*x = GetTotalChangedRowCountResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[160]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTotalChangedRowCountResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTotalChangedRowCountResponse) ProtoMessage() {}
+
+func (x *GetTotalChangedRowCountResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[160]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTotalChangedRowCountResponse.ProtoReflect.Descriptor instead.
+func (*GetTotalChangedRowCountResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{160}
+}
+
+func (x *GetTotalChangedRowCountResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetVersionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetVersionRequest) Reset() {
+	*x = GetVersionRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[161]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetVersionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetVersionRequest) ProtoMessage() {}
+
+func (x *GetVersionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[161]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetVersionRequest.ProtoReflect.Descriptor instead.
+func (*GetVersionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{161}
+}
+
+type GetVersionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetVersionResponse) Reset() {
+	*x = GetVersionResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[162]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetVersionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetVersionResponse) ProtoMessage() {}
+
+func (x *GetVersionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[162]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetVersionResponse.ProtoReflect.Descriptor instead.
+func (*GetVersionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{162}
+}
+
+func (x *GetVersionResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type InTransactionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *InTransactionRequest) Reset() {
+	*x = InTransactionRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[163]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *InTransactionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*InTransactionRequest) ProtoMessage() {}
+
+func (x *InTransactionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[163]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use InTransactionRequest.ProtoReflect.Descriptor instead.
+func (*InTransactionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{163}
+}
+
+type InTransactionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *InTransactionResponse) Reset() {
+	*x = InTransactionResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[164]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *InTransactionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*InTransactionResponse) ProtoMessage() {}
+
+func (x *InTransactionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[164]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use InTransactionResponse.ProtoReflect.Descriptor instead.
+func (*InTransactionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{164}
+}
+
+func (x *InTransactionResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type InsertRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *InsertRequest) Reset() {
+	*x = InsertRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[165]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *InsertRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*InsertRequest) ProtoMessage() {}
+
+func (x *InsertRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[165]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use InsertRequest.ProtoReflect.Descriptor instead.
+func (*InsertRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{165}
+}
+
+func (x *InsertRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *InsertRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *InsertRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type InsertResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *InsertResponse) Reset() {
+	*x = InsertResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[166]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *InsertResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*InsertResponse) ProtoMessage() {}
+
+func (x *InsertResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[166]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use InsertResponse.ProtoReflect.Descriptor instead.
+func (*InsertResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{166}
+}
+
+func (x *InsertResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type InsertOrThrowRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *InsertOrThrowRequest) Reset() {
+	*x = InsertOrThrowRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[167]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *InsertOrThrowRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*InsertOrThrowRequest) ProtoMessage() {}
+
+func (x *InsertOrThrowRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[167]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use InsertOrThrowRequest.ProtoReflect.Descriptor instead.
+func (*InsertOrThrowRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{167}
+}
+
+func (x *InsertOrThrowRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *InsertOrThrowRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *InsertOrThrowRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type InsertOrThrowResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *InsertOrThrowResponse) Reset() {
+	*x = InsertOrThrowResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[168]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *InsertOrThrowResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*InsertOrThrowResponse) ProtoMessage() {}
+
+func (x *InsertOrThrowResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[168]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use InsertOrThrowResponse.ProtoReflect.Descriptor instead.
+func (*InsertOrThrowResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{168}
+}
+
+func (x *InsertOrThrowResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type InsertWithOnConflictRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int32                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *InsertWithOnConflictRequest) Reset() {
+	*x = InsertWithOnConflictRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[169]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *InsertWithOnConflictRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*InsertWithOnConflictRequest) ProtoMessage() {}
+
+func (x *InsertWithOnConflictRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[169]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use InsertWithOnConflictRequest.ProtoReflect.Descriptor instead.
+func (*InsertWithOnConflictRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{169}
+}
+
+func (x *InsertWithOnConflictRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *InsertWithOnConflictRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *InsertWithOnConflictRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *InsertWithOnConflictRequest) GetArg3() int32 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+type InsertWithOnConflictResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *InsertWithOnConflictResponse) Reset() {
+	*x = InsertWithOnConflictResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[170]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *InsertWithOnConflictResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*InsertWithOnConflictResponse) ProtoMessage() {}
+
+func (x *InsertWithOnConflictResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[170]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use InsertWithOnConflictResponse.ProtoReflect.Descriptor instead.
+func (*InsertWithOnConflictResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{170}
+}
+
+func (x *InsertWithOnConflictResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type IsDatabaseIntegrityOkRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsDatabaseIntegrityOkRequest) Reset() {
+	*x = IsDatabaseIntegrityOkRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[171]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsDatabaseIntegrityOkRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsDatabaseIntegrityOkRequest) ProtoMessage() {}
+
+func (x *IsDatabaseIntegrityOkRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[171]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsDatabaseIntegrityOkRequest.ProtoReflect.Descriptor instead.
+func (*IsDatabaseIntegrityOkRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{171}
+}
+
+type IsDatabaseIntegrityOkResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsDatabaseIntegrityOkResponse) Reset() {
+	*x = IsDatabaseIntegrityOkResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[172]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsDatabaseIntegrityOkResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsDatabaseIntegrityOkResponse) ProtoMessage() {}
+
+func (x *IsDatabaseIntegrityOkResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[172]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsDatabaseIntegrityOkResponse.ProtoReflect.Descriptor instead.
+func (*IsDatabaseIntegrityOkResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{172}
+}
+
+func (x *IsDatabaseIntegrityOkResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsDbLockedByCurrentThreadRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsDbLockedByCurrentThreadRequest) Reset() {
+	*x = IsDbLockedByCurrentThreadRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[173]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsDbLockedByCurrentThreadRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsDbLockedByCurrentThreadRequest) ProtoMessage() {}
+
+func (x *IsDbLockedByCurrentThreadRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[173]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsDbLockedByCurrentThreadRequest.ProtoReflect.Descriptor instead.
+func (*IsDbLockedByCurrentThreadRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{173}
+}
+
+type IsDbLockedByCurrentThreadResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsDbLockedByCurrentThreadResponse) Reset() {
+	*x = IsDbLockedByCurrentThreadResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[174]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsDbLockedByCurrentThreadResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsDbLockedByCurrentThreadResponse) ProtoMessage() {}
+
+func (x *IsDbLockedByCurrentThreadResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[174]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsDbLockedByCurrentThreadResponse.ProtoReflect.Descriptor instead.
+func (*IsDbLockedByCurrentThreadResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{174}
+}
+
+func (x *IsDbLockedByCurrentThreadResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsDbLockedByOtherThreadsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsDbLockedByOtherThreadsRequest) Reset() {
+	*x = IsDbLockedByOtherThreadsRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[175]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsDbLockedByOtherThreadsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsDbLockedByOtherThreadsRequest) ProtoMessage() {}
+
+func (x *IsDbLockedByOtherThreadsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[175]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsDbLockedByOtherThreadsRequest.ProtoReflect.Descriptor instead.
+func (*IsDbLockedByOtherThreadsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{175}
+}
+
+type IsDbLockedByOtherThreadsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsDbLockedByOtherThreadsResponse) Reset() {
+	*x = IsDbLockedByOtherThreadsResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[176]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsDbLockedByOtherThreadsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsDbLockedByOtherThreadsResponse) ProtoMessage() {}
+
+func (x *IsDbLockedByOtherThreadsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[176]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsDbLockedByOtherThreadsResponse.ProtoReflect.Descriptor instead.
+func (*IsDbLockedByOtherThreadsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{176}
+}
+
+func (x *IsDbLockedByOtherThreadsResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsReadOnlyRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsReadOnlyRequest) Reset() {
+	*x = IsReadOnlyRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[177]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsReadOnlyRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsReadOnlyRequest) ProtoMessage() {}
+
+func (x *IsReadOnlyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[177]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsReadOnlyRequest.ProtoReflect.Descriptor instead.
+func (*IsReadOnlyRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{177}
+}
+
+type IsReadOnlyResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsReadOnlyResponse) Reset() {
+	*x = IsReadOnlyResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[178]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsReadOnlyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsReadOnlyResponse) ProtoMessage() {}
+
+func (x *IsReadOnlyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[178]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsReadOnlyResponse.ProtoReflect.Descriptor instead.
+func (*IsReadOnlyResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{178}
+}
+
+func (x *IsReadOnlyResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsWriteAheadLoggingEnabledRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsWriteAheadLoggingEnabledRequest) Reset() {
+	*x = IsWriteAheadLoggingEnabledRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[179]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsWriteAheadLoggingEnabledRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsWriteAheadLoggingEnabledRequest) ProtoMessage() {}
+
+func (x *IsWriteAheadLoggingEnabledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[179]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsWriteAheadLoggingEnabledRequest.ProtoReflect.Descriptor instead.
+func (*IsWriteAheadLoggingEnabledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{179}
+}
+
+type IsWriteAheadLoggingEnabledResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsWriteAheadLoggingEnabledResponse) Reset() {
+	*x = IsWriteAheadLoggingEnabledResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[180]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsWriteAheadLoggingEnabledResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsWriteAheadLoggingEnabledResponse) ProtoMessage() {}
+
+func (x *IsWriteAheadLoggingEnabledResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[180]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsWriteAheadLoggingEnabledResponse.ProtoReflect.Descriptor instead.
+func (*IsWriteAheadLoggingEnabledResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{180}
+}
+
+func (x *IsWriteAheadLoggingEnabledResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type MarkTableSyncable2Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *MarkTableSyncable2Request) Reset() {
+	*x = MarkTableSyncable2Request{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[181]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *MarkTableSyncable2Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MarkTableSyncable2Request) ProtoMessage() {}
+
+func (x *MarkTableSyncable2Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[181]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MarkTableSyncable2Request.ProtoReflect.Descriptor instead.
+func (*MarkTableSyncable2Request) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{181}
+}
+
+func (x *MarkTableSyncable2Request) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *MarkTableSyncable2Request) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+type MarkTableSyncable2Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *MarkTableSyncable2Response) Reset() {
+	*x = MarkTableSyncable2Response{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[182]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *MarkTableSyncable2Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MarkTableSyncable2Response) ProtoMessage() {}
+
+func (x *MarkTableSyncable2Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[182]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MarkTableSyncable2Response.ProtoReflect.Descriptor instead.
+func (*MarkTableSyncable2Response) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{182}
+}
+
+type MarkTableSyncable3_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          string                 `protobuf:"bytes,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *MarkTableSyncable3_1Request) Reset() {
+	*x = MarkTableSyncable3_1Request{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[183]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *MarkTableSyncable3_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MarkTableSyncable3_1Request) ProtoMessage() {}
+
+func (x *MarkTableSyncable3_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[183]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MarkTableSyncable3_1Request.ProtoReflect.Descriptor instead.
+func (*MarkTableSyncable3_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{183}
+}
+
+func (x *MarkTableSyncable3_1Request) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *MarkTableSyncable3_1Request) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *MarkTableSyncable3_1Request) GetArg2() string {
+	if x != nil {
+		return x.Arg2
+	}
+	return ""
+}
+
+type MarkTableSyncable3_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *MarkTableSyncable3_1Response) Reset() {
+	*x = MarkTableSyncable3_1Response{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[184]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *MarkTableSyncable3_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MarkTableSyncable3_1Response) ProtoMessage() {}
+
+func (x *MarkTableSyncable3_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[184]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MarkTableSyncable3_1Response.ProtoReflect.Descriptor instead.
+func (*MarkTableSyncable3_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{184}
+}
+
+type NeedUpgradeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NeedUpgradeRequest) Reset() {
+	*x = NeedUpgradeRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[185]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NeedUpgradeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NeedUpgradeRequest) ProtoMessage() {}
+
+func (x *NeedUpgradeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[185]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NeedUpgradeRequest.ProtoReflect.Descriptor instead.
+func (*NeedUpgradeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{185}
+}
+
+func (x *NeedUpgradeRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type NeedUpgradeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NeedUpgradeResponse) Reset() {
+	*x = NeedUpgradeResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[186]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NeedUpgradeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NeedUpgradeResponse) ProtoMessage() {}
+
+func (x *NeedUpgradeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[186]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NeedUpgradeResponse.ProtoReflect.Descriptor instead.
+func (*NeedUpgradeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{186}
+}
+
+func (x *NeedUpgradeResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type Query9Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          string                 `protobuf:"bytes,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	Arg4          int64                  `protobuf:"varint,5,opt,name=arg4,proto3" json:"arg4,omitempty"`
+	Arg5          string                 `protobuf:"bytes,6,opt,name=arg5,proto3" json:"arg5,omitempty"`
+	Arg6          string                 `protobuf:"bytes,7,opt,name=arg6,proto3" json:"arg6,omitempty"`
+	Arg7          string                 `protobuf:"bytes,8,opt,name=arg7,proto3" json:"arg7,omitempty"`
+	Arg8          string                 `protobuf:"bytes,9,opt,name=arg8,proto3" json:"arg8,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Query9Request) Reset() {
+	*x = Query9Request{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[187]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Query9Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Query9Request) ProtoMessage() {}
+
+func (x *Query9Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[187]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Query9Request.ProtoReflect.Descriptor instead.
+func (*Query9Request) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{187}
+}
+
+func (x *Query9Request) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+func (x *Query9Request) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *Query9Request) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *Query9Request) GetArg3() string {
+	if x != nil {
+		return x.Arg3
+	}
+	return ""
+}
+
+func (x *Query9Request) GetArg4() int64 {
+	if x != nil {
+		return x.Arg4
+	}
+	return 0
+}
+
+func (x *Query9Request) GetArg5() string {
+	if x != nil {
+		return x.Arg5
+	}
+	return ""
+}
+
+func (x *Query9Request) GetArg6() string {
+	if x != nil {
+		return x.Arg6
+	}
+	return ""
+}
+
+func (x *Query9Request) GetArg7() string {
+	if x != nil {
+		return x.Arg7
+	}
+	return ""
+}
+
+func (x *Query9Request) GetArg8() string {
+	if x != nil {
+		return x.Arg8
+	}
+	return ""
+}
+
+type Query9Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Query9Response) Reset() {
+	*x = Query9Response{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[188]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Query9Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Query9Response) ProtoMessage() {}
+
+func (x *Query9Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[188]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Query9Response.ProtoReflect.Descriptor instead.
+func (*Query9Response) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{188}
+}
+
+func (x *Query9Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type Query10_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          string                 `protobuf:"bytes,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	Arg4          int64                  `protobuf:"varint,5,opt,name=arg4,proto3" json:"arg4,omitempty"`
+	Arg5          string                 `protobuf:"bytes,6,opt,name=arg5,proto3" json:"arg5,omitempty"`
+	Arg6          string                 `protobuf:"bytes,7,opt,name=arg6,proto3" json:"arg6,omitempty"`
+	Arg7          string                 `protobuf:"bytes,8,opt,name=arg7,proto3" json:"arg7,omitempty"`
+	Arg8          string                 `protobuf:"bytes,9,opt,name=arg8,proto3" json:"arg8,omitempty"`
+	Arg9          int64                  `protobuf:"varint,10,opt,name=arg9,proto3" json:"arg9,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Query10_1Request) Reset() {
+	*x = Query10_1Request{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[189]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Query10_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Query10_1Request) ProtoMessage() {}
+
+func (x *Query10_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[189]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Query10_1Request.ProtoReflect.Descriptor instead.
+func (*Query10_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{189}
+}
+
+func (x *Query10_1Request) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+func (x *Query10_1Request) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *Query10_1Request) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *Query10_1Request) GetArg3() string {
+	if x != nil {
+		return x.Arg3
+	}
+	return ""
+}
+
+func (x *Query10_1Request) GetArg4() int64 {
+	if x != nil {
+		return x.Arg4
+	}
+	return 0
+}
+
+func (x *Query10_1Request) GetArg5() string {
+	if x != nil {
+		return x.Arg5
+	}
+	return ""
+}
+
+func (x *Query10_1Request) GetArg6() string {
+	if x != nil {
+		return x.Arg6
+	}
+	return ""
+}
+
+func (x *Query10_1Request) GetArg7() string {
+	if x != nil {
+		return x.Arg7
+	}
+	return ""
+}
+
+func (x *Query10_1Request) GetArg8() string {
+	if x != nil {
+		return x.Arg8
+	}
+	return ""
+}
+
+func (x *Query10_1Request) GetArg9() int64 {
+	if x != nil {
+		return x.Arg9
+	}
+	return 0
+}
+
+type Query10_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Query10_1Response) Reset() {
+	*x = Query10_1Response{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[190]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Query10_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Query10_1Response) ProtoMessage() {}
+
+func (x *Query10_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[190]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Query10_1Response.ProtoReflect.Descriptor instead.
+func (*Query10_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{190}
+}
+
+func (x *Query10_1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type Query7_2Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          string                 `protobuf:"bytes,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int64                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	Arg4          string                 `protobuf:"bytes,5,opt,name=arg4,proto3" json:"arg4,omitempty"`
+	Arg5          string                 `protobuf:"bytes,6,opt,name=arg5,proto3" json:"arg5,omitempty"`
+	Arg6          string                 `protobuf:"bytes,7,opt,name=arg6,proto3" json:"arg6,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Query7_2Request) Reset() {
+	*x = Query7_2Request{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[191]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Query7_2Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Query7_2Request) ProtoMessage() {}
+
+func (x *Query7_2Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[191]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Query7_2Request.ProtoReflect.Descriptor instead.
+func (*Query7_2Request) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{191}
+}
+
+func (x *Query7_2Request) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *Query7_2Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *Query7_2Request) GetArg2() string {
+	if x != nil {
+		return x.Arg2
+	}
+	return ""
+}
+
+func (x *Query7_2Request) GetArg3() int64 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+func (x *Query7_2Request) GetArg4() string {
+	if x != nil {
+		return x.Arg4
+	}
+	return ""
+}
+
+func (x *Query7_2Request) GetArg5() string {
+	if x != nil {
+		return x.Arg5
+	}
+	return ""
+}
+
+func (x *Query7_2Request) GetArg6() string {
+	if x != nil {
+		return x.Arg6
+	}
+	return ""
+}
+
+type Query7_2Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Query7_2Response) Reset() {
+	*x = Query7_2Response{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[192]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Query7_2Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Query7_2Response) ProtoMessage() {}
+
+func (x *Query7_2Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[192]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Query7_2Response.ProtoReflect.Descriptor instead.
+func (*Query7_2Response) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{192}
+}
+
+func (x *Query7_2Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type Query8_3Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          string                 `protobuf:"bytes,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int64                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	Arg4          string                 `protobuf:"bytes,5,opt,name=arg4,proto3" json:"arg4,omitempty"`
+	Arg5          string                 `protobuf:"bytes,6,opt,name=arg5,proto3" json:"arg5,omitempty"`
+	Arg6          string                 `protobuf:"bytes,7,opt,name=arg6,proto3" json:"arg6,omitempty"`
+	Arg7          string                 `protobuf:"bytes,8,opt,name=arg7,proto3" json:"arg7,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Query8_3Request) Reset() {
+	*x = Query8_3Request{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[193]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Query8_3Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Query8_3Request) ProtoMessage() {}
+
+func (x *Query8_3Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[193]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Query8_3Request.ProtoReflect.Descriptor instead.
+func (*Query8_3Request) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{193}
+}
+
+func (x *Query8_3Request) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *Query8_3Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *Query8_3Request) GetArg2() string {
+	if x != nil {
+		return x.Arg2
+	}
+	return ""
+}
+
+func (x *Query8_3Request) GetArg3() int64 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+func (x *Query8_3Request) GetArg4() string {
+	if x != nil {
+		return x.Arg4
+	}
+	return ""
+}
+
+func (x *Query8_3Request) GetArg5() string {
+	if x != nil {
+		return x.Arg5
+	}
+	return ""
+}
+
+func (x *Query8_3Request) GetArg6() string {
+	if x != nil {
+		return x.Arg6
+	}
+	return ""
+}
+
+func (x *Query8_3Request) GetArg7() string {
+	if x != nil {
+		return x.Arg7
+	}
+	return ""
+}
+
+type Query8_3Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Query8_3Response) Reset() {
+	*x = Query8_3Response{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[194]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Query8_3Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Query8_3Response) ProtoMessage() {}
+
+func (x *Query8_3Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[194]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Query8_3Response.ProtoReflect.Descriptor instead.
+func (*Query8_3Response) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{194}
+}
+
+func (x *Query8_3Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type QueryWithFactory10Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          bool                   `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          string                 `protobuf:"bytes,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int64                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	Arg4          string                 `protobuf:"bytes,5,opt,name=arg4,proto3" json:"arg4,omitempty"`
+	Arg5          int64                  `protobuf:"varint,6,opt,name=arg5,proto3" json:"arg5,omitempty"`
+	Arg6          string                 `protobuf:"bytes,7,opt,name=arg6,proto3" json:"arg6,omitempty"`
+	Arg7          string                 `protobuf:"bytes,8,opt,name=arg7,proto3" json:"arg7,omitempty"`
+	Arg8          string                 `protobuf:"bytes,9,opt,name=arg8,proto3" json:"arg8,omitempty"`
+	Arg9          string                 `protobuf:"bytes,10,opt,name=arg9,proto3" json:"arg9,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *QueryWithFactory10Request) Reset() {
+	*x = QueryWithFactory10Request{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[195]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *QueryWithFactory10Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryWithFactory10Request) ProtoMessage() {}
+
+func (x *QueryWithFactory10Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[195]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use QueryWithFactory10Request.ProtoReflect.Descriptor instead.
+func (*QueryWithFactory10Request) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{195}
+}
+
+func (x *QueryWithFactory10Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *QueryWithFactory10Request) GetArg1() bool {
+	if x != nil {
+		return x.Arg1
+	}
+	return false
+}
+
+func (x *QueryWithFactory10Request) GetArg2() string {
+	if x != nil {
+		return x.Arg2
+	}
+	return ""
+}
+
+func (x *QueryWithFactory10Request) GetArg3() int64 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+func (x *QueryWithFactory10Request) GetArg4() string {
+	if x != nil {
+		return x.Arg4
+	}
+	return ""
+}
+
+func (x *QueryWithFactory10Request) GetArg5() int64 {
+	if x != nil {
+		return x.Arg5
+	}
+	return 0
+}
+
+func (x *QueryWithFactory10Request) GetArg6() string {
+	if x != nil {
+		return x.Arg6
+	}
+	return ""
+}
+
+func (x *QueryWithFactory10Request) GetArg7() string {
+	if x != nil {
+		return x.Arg7
+	}
+	return ""
+}
+
+func (x *QueryWithFactory10Request) GetArg8() string {
+	if x != nil {
+		return x.Arg8
+	}
+	return ""
+}
+
+func (x *QueryWithFactory10Request) GetArg9() string {
+	if x != nil {
+		return x.Arg9
+	}
+	return ""
+}
+
+type QueryWithFactory10Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *QueryWithFactory10Response) Reset() {
+	*x = QueryWithFactory10Response{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[196]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *QueryWithFactory10Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryWithFactory10Response) ProtoMessage() {}
+
+func (x *QueryWithFactory10Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[196]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use QueryWithFactory10Response.ProtoReflect.Descriptor instead.
+func (*QueryWithFactory10Response) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{196}
+}
+
+func (x *QueryWithFactory10Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type QueryWithFactory11_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          bool                   `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          string                 `protobuf:"bytes,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int64                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	Arg4          string                 `protobuf:"bytes,5,opt,name=arg4,proto3" json:"arg4,omitempty"`
+	Arg5          int64                  `protobuf:"varint,6,opt,name=arg5,proto3" json:"arg5,omitempty"`
+	Arg6          string                 `protobuf:"bytes,7,opt,name=arg6,proto3" json:"arg6,omitempty"`
+	Arg7          string                 `protobuf:"bytes,8,opt,name=arg7,proto3" json:"arg7,omitempty"`
+	Arg8          string                 `protobuf:"bytes,9,opt,name=arg8,proto3" json:"arg8,omitempty"`
+	Arg9          string                 `protobuf:"bytes,10,opt,name=arg9,proto3" json:"arg9,omitempty"`
+	Arg10         int64                  `protobuf:"varint,11,opt,name=arg10,proto3" json:"arg10,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *QueryWithFactory11_1Request) Reset() {
+	*x = QueryWithFactory11_1Request{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[197]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *QueryWithFactory11_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryWithFactory11_1Request) ProtoMessage() {}
+
+func (x *QueryWithFactory11_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[197]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use QueryWithFactory11_1Request.ProtoReflect.Descriptor instead.
+func (*QueryWithFactory11_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{197}
+}
+
+func (x *QueryWithFactory11_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *QueryWithFactory11_1Request) GetArg1() bool {
+	if x != nil {
+		return x.Arg1
+	}
+	return false
+}
+
+func (x *QueryWithFactory11_1Request) GetArg2() string {
+	if x != nil {
+		return x.Arg2
+	}
+	return ""
+}
+
+func (x *QueryWithFactory11_1Request) GetArg3() int64 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+func (x *QueryWithFactory11_1Request) GetArg4() string {
+	if x != nil {
+		return x.Arg4
+	}
+	return ""
+}
+
+func (x *QueryWithFactory11_1Request) GetArg5() int64 {
+	if x != nil {
+		return x.Arg5
+	}
+	return 0
+}
+
+func (x *QueryWithFactory11_1Request) GetArg6() string {
+	if x != nil {
+		return x.Arg6
+	}
+	return ""
+}
+
+func (x *QueryWithFactory11_1Request) GetArg7() string {
+	if x != nil {
+		return x.Arg7
+	}
+	return ""
+}
+
+func (x *QueryWithFactory11_1Request) GetArg8() string {
+	if x != nil {
+		return x.Arg8
+	}
+	return ""
+}
+
+func (x *QueryWithFactory11_1Request) GetArg9() string {
+	if x != nil {
+		return x.Arg9
+	}
+	return ""
+}
+
+func (x *QueryWithFactory11_1Request) GetArg10() int64 {
+	if x != nil {
+		return x.Arg10
+	}
+	return 0
+}
+
+type QueryWithFactory11_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *QueryWithFactory11_1Response) Reset() {
+	*x = QueryWithFactory11_1Response{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[198]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *QueryWithFactory11_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryWithFactory11_1Response) ProtoMessage() {}
+
+func (x *QueryWithFactory11_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[198]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use QueryWithFactory11_1Response.ProtoReflect.Descriptor instead.
+func (*QueryWithFactory11_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{198}
+}
+
+func (x *QueryWithFactory11_1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type RawQuery2Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RawQuery2Request) Reset() {
+	*x = RawQuery2Request{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[199]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RawQuery2Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RawQuery2Request) ProtoMessage() {}
+
+func (x *RawQuery2Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[199]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RawQuery2Request.ProtoReflect.Descriptor instead.
+func (*RawQuery2Request) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{199}
+}
+
+func (x *RawQuery2Request) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *RawQuery2Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type RawQuery2Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RawQuery2Response) Reset() {
+	*x = RawQuery2Response{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[200]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RawQuery2Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RawQuery2Response) ProtoMessage() {}
+
+func (x *RawQuery2Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[200]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RawQuery2Response.ProtoReflect.Descriptor instead.
+func (*RawQuery2Response) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{200}
+}
+
+func (x *RawQuery2Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type RawQuery3_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RawQuery3_1Request) Reset() {
+	*x = RawQuery3_1Request{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[201]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RawQuery3_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RawQuery3_1Request) ProtoMessage() {}
+
+func (x *RawQuery3_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[201]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RawQuery3_1Request.ProtoReflect.Descriptor instead.
+func (*RawQuery3_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{201}
+}
+
+func (x *RawQuery3_1Request) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *RawQuery3_1Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *RawQuery3_1Request) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type RawQuery3_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RawQuery3_1Response) Reset() {
+	*x = RawQuery3_1Response{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[202]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RawQuery3_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RawQuery3_1Response) ProtoMessage() {}
+
+func (x *RawQuery3_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[202]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RawQuery3_1Response.ProtoReflect.Descriptor instead.
+func (*RawQuery3_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{202}
+}
+
+func (x *RawQuery3_1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type RawQueryWithFactory4Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          string                 `protobuf:"bytes,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RawQueryWithFactory4Request) Reset() {
+	*x = RawQueryWithFactory4Request{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[203]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RawQueryWithFactory4Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RawQueryWithFactory4Request) ProtoMessage() {}
+
+func (x *RawQueryWithFactory4Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[203]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RawQueryWithFactory4Request.ProtoReflect.Descriptor instead.
+func (*RawQueryWithFactory4Request) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{203}
+}
+
+func (x *RawQueryWithFactory4Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *RawQueryWithFactory4Request) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *RawQueryWithFactory4Request) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *RawQueryWithFactory4Request) GetArg3() string {
+	if x != nil {
+		return x.Arg3
+	}
+	return ""
+}
+
+type RawQueryWithFactory4Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RawQueryWithFactory4Response) Reset() {
+	*x = RawQueryWithFactory4Response{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[204]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RawQueryWithFactory4Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RawQueryWithFactory4Response) ProtoMessage() {}
+
+func (x *RawQueryWithFactory4Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[204]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RawQueryWithFactory4Response.ProtoReflect.Descriptor instead.
+func (*RawQueryWithFactory4Response) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{204}
+}
+
+func (x *RawQueryWithFactory4Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type RawQueryWithFactory5_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          string                 `protobuf:"bytes,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	Arg4          int64                  `protobuf:"varint,5,opt,name=arg4,proto3" json:"arg4,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RawQueryWithFactory5_1Request) Reset() {
+	*x = RawQueryWithFactory5_1Request{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[205]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RawQueryWithFactory5_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RawQueryWithFactory5_1Request) ProtoMessage() {}
+
+func (x *RawQueryWithFactory5_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[205]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RawQueryWithFactory5_1Request.ProtoReflect.Descriptor instead.
+func (*RawQueryWithFactory5_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{205}
+}
+
+func (x *RawQueryWithFactory5_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *RawQueryWithFactory5_1Request) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *RawQueryWithFactory5_1Request) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *RawQueryWithFactory5_1Request) GetArg3() string {
+	if x != nil {
+		return x.Arg3
+	}
+	return ""
+}
+
+func (x *RawQueryWithFactory5_1Request) GetArg4() int64 {
+	if x != nil {
+		return x.Arg4
+	}
+	return 0
+}
+
+type RawQueryWithFactory5_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RawQueryWithFactory5_1Response) Reset() {
+	*x = RawQueryWithFactory5_1Response{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[206]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RawQueryWithFactory5_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RawQueryWithFactory5_1Response) ProtoMessage() {}
+
+func (x *RawQueryWithFactory5_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[206]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RawQueryWithFactory5_1Response.ProtoReflect.Descriptor instead.
+func (*RawQueryWithFactory5_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{206}
+}
+
+func (x *RawQueryWithFactory5_1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ReplaceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ReplaceRequest) Reset() {
+	*x = ReplaceRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[207]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ReplaceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ReplaceRequest) ProtoMessage() {}
+
+func (x *ReplaceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[207]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ReplaceRequest.ProtoReflect.Descriptor instead.
+func (*ReplaceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{207}
+}
+
+func (x *ReplaceRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *ReplaceRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *ReplaceRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type ReplaceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ReplaceResponse) Reset() {
+	*x = ReplaceResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[208]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ReplaceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ReplaceResponse) ProtoMessage() {}
+
+func (x *ReplaceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[208]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ReplaceResponse.ProtoReflect.Descriptor instead.
+func (*ReplaceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{208}
+}
+
+func (x *ReplaceResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ReplaceOrThrowRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ReplaceOrThrowRequest) Reset() {
+	*x = ReplaceOrThrowRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[209]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ReplaceOrThrowRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ReplaceOrThrowRequest) ProtoMessage() {}
+
+func (x *ReplaceOrThrowRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[209]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ReplaceOrThrowRequest.ProtoReflect.Descriptor instead.
+func (*ReplaceOrThrowRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{209}
+}
+
+func (x *ReplaceOrThrowRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *ReplaceOrThrowRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *ReplaceOrThrowRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type ReplaceOrThrowResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ReplaceOrThrowResponse) Reset() {
+	*x = ReplaceOrThrowResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[210]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ReplaceOrThrowResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ReplaceOrThrowResponse) ProtoMessage() {}
+
+func (x *ReplaceOrThrowResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[210]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ReplaceOrThrowResponse.ProtoReflect.Descriptor instead.
+func (*ReplaceOrThrowResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{210}
+}
+
+func (x *ReplaceOrThrowResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetForeignKeyConstraintsEnabledRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetForeignKeyConstraintsEnabledRequest) Reset() {
+	*x = SetForeignKeyConstraintsEnabledRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[211]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetForeignKeyConstraintsEnabledRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetForeignKeyConstraintsEnabledRequest) ProtoMessage() {}
+
+func (x *SetForeignKeyConstraintsEnabledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[211]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetForeignKeyConstraintsEnabledRequest.ProtoReflect.Descriptor instead.
+func (*SetForeignKeyConstraintsEnabledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{211}
+}
+
+func (x *SetForeignKeyConstraintsEnabledRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetForeignKeyConstraintsEnabledResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetForeignKeyConstraintsEnabledResponse) Reset() {
+	*x = SetForeignKeyConstraintsEnabledResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[212]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetForeignKeyConstraintsEnabledResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetForeignKeyConstraintsEnabledResponse) ProtoMessage() {}
+
+func (x *SetForeignKeyConstraintsEnabledResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[212]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetForeignKeyConstraintsEnabledResponse.ProtoReflect.Descriptor instead.
+func (*SetForeignKeyConstraintsEnabledResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{212}
+}
+
+type SetLocaleRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetLocaleRequest) Reset() {
+	*x = SetLocaleRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[213]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetLocaleRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetLocaleRequest) ProtoMessage() {}
+
+func (x *SetLocaleRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[213]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetLocaleRequest.ProtoReflect.Descriptor instead.
+func (*SetLocaleRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{213}
+}
+
+func (x *SetLocaleRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetLocaleResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetLocaleResponse) Reset() {
+	*x = SetLocaleResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[214]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetLocaleResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetLocaleResponse) ProtoMessage() {}
+
+func (x *SetLocaleResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[214]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetLocaleResponse.ProtoReflect.Descriptor instead.
+func (*SetLocaleResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{214}
+}
+
+type SetLockingEnabledRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetLockingEnabledRequest) Reset() {
+	*x = SetLockingEnabledRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[215]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetLockingEnabledRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetLockingEnabledRequest) ProtoMessage() {}
+
+func (x *SetLockingEnabledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[215]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetLockingEnabledRequest.ProtoReflect.Descriptor instead.
+func (*SetLockingEnabledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{215}
+}
+
+func (x *SetLockingEnabledRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetLockingEnabledResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetLockingEnabledResponse) Reset() {
+	*x = SetLockingEnabledResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[216]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetLockingEnabledResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetLockingEnabledResponse) ProtoMessage() {}
+
+func (x *SetLockingEnabledResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[216]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetLockingEnabledResponse.ProtoReflect.Descriptor instead.
+func (*SetLockingEnabledResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{216}
+}
+
+type SetMaxSqlCacheSizeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetMaxSqlCacheSizeRequest) Reset() {
+	*x = SetMaxSqlCacheSizeRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[217]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetMaxSqlCacheSizeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetMaxSqlCacheSizeRequest) ProtoMessage() {}
+
+func (x *SetMaxSqlCacheSizeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[217]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetMaxSqlCacheSizeRequest.ProtoReflect.Descriptor instead.
+func (*SetMaxSqlCacheSizeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{217}
+}
+
+func (x *SetMaxSqlCacheSizeRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetMaxSqlCacheSizeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetMaxSqlCacheSizeResponse) Reset() {
+	*x = SetMaxSqlCacheSizeResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[218]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetMaxSqlCacheSizeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetMaxSqlCacheSizeResponse) ProtoMessage() {}
+
+func (x *SetMaxSqlCacheSizeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[218]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetMaxSqlCacheSizeResponse.ProtoReflect.Descriptor instead.
+func (*SetMaxSqlCacheSizeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{218}
+}
+
+type SetMaximumSizeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetMaximumSizeRequest) Reset() {
+	*x = SetMaximumSizeRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[219]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetMaximumSizeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetMaximumSizeRequest) ProtoMessage() {}
+
+func (x *SetMaximumSizeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[219]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetMaximumSizeRequest.ProtoReflect.Descriptor instead.
+func (*SetMaximumSizeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{219}
+}
+
+func (x *SetMaximumSizeRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetMaximumSizeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetMaximumSizeResponse) Reset() {
+	*x = SetMaximumSizeResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[220]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetMaximumSizeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetMaximumSizeResponse) ProtoMessage() {}
+
+func (x *SetMaximumSizeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[220]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetMaximumSizeResponse.ProtoReflect.Descriptor instead.
+func (*SetMaximumSizeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{220}
+}
+
+func (x *SetMaximumSizeResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetPageSizeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPageSizeRequest) Reset() {
+	*x = SetPageSizeRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[221]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPageSizeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPageSizeRequest) ProtoMessage() {}
+
+func (x *SetPageSizeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[221]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPageSizeRequest.ProtoReflect.Descriptor instead.
+func (*SetPageSizeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{221}
+}
+
+func (x *SetPageSizeRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetPageSizeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPageSizeResponse) Reset() {
+	*x = SetPageSizeResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[222]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPageSizeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPageSizeResponse) ProtoMessage() {}
+
+func (x *SetPageSizeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[222]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPageSizeResponse.ProtoReflect.Descriptor instead.
+func (*SetPageSizeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{222}
+}
+
+type SetTransactionSuccessfulRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetTransactionSuccessfulRequest) Reset() {
+	*x = SetTransactionSuccessfulRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[223]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetTransactionSuccessfulRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetTransactionSuccessfulRequest) ProtoMessage() {}
+
+func (x *SetTransactionSuccessfulRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[223]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetTransactionSuccessfulRequest.ProtoReflect.Descriptor instead.
+func (*SetTransactionSuccessfulRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{223}
+}
+
+type SetTransactionSuccessfulResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetTransactionSuccessfulResponse) Reset() {
+	*x = SetTransactionSuccessfulResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[224]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetTransactionSuccessfulResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetTransactionSuccessfulResponse) ProtoMessage() {}
+
+func (x *SetTransactionSuccessfulResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[224]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetTransactionSuccessfulResponse.ProtoReflect.Descriptor instead.
+func (*SetTransactionSuccessfulResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{224}
+}
+
+type SetVersionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetVersionRequest) Reset() {
+	*x = SetVersionRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[225]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetVersionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetVersionRequest) ProtoMessage() {}
+
+func (x *SetVersionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[225]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetVersionRequest.ProtoReflect.Descriptor instead.
+func (*SetVersionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{225}
+}
+
+func (x *SetVersionRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetVersionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetVersionResponse) Reset() {
+	*x = SetVersionResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[226]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetVersionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetVersionResponse) ProtoMessage() {}
+
+func (x *SetVersionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[226]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetVersionResponse.ProtoReflect.Descriptor instead.
+func (*SetVersionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{226}
+}
+
+type UpdateRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          string                 `protobuf:"bytes,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int64                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UpdateRequest) Reset() {
+	*x = UpdateRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[227]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdateRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateRequest) ProtoMessage() {}
+
+func (x *UpdateRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[227]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateRequest.ProtoReflect.Descriptor instead.
+func (*UpdateRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{227}
+}
+
+func (x *UpdateRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *UpdateRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *UpdateRequest) GetArg2() string {
+	if x != nil {
+		return x.Arg2
+	}
+	return ""
+}
+
+func (x *UpdateRequest) GetArg3() int64 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+type UpdateResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UpdateResponse) Reset() {
+	*x = UpdateResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[228]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdateResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateResponse) ProtoMessage() {}
+
+func (x *UpdateResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[228]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateResponse.ProtoReflect.Descriptor instead.
+func (*UpdateResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{228}
+}
+
+func (x *UpdateResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type UpdateWithOnConflictRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          string                 `protobuf:"bytes,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int64                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	Arg4          int32                  `protobuf:"varint,5,opt,name=arg4,proto3" json:"arg4,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UpdateWithOnConflictRequest) Reset() {
+	*x = UpdateWithOnConflictRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[229]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdateWithOnConflictRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateWithOnConflictRequest) ProtoMessage() {}
+
+func (x *UpdateWithOnConflictRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[229]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateWithOnConflictRequest.ProtoReflect.Descriptor instead.
+func (*UpdateWithOnConflictRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{229}
+}
+
+func (x *UpdateWithOnConflictRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *UpdateWithOnConflictRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *UpdateWithOnConflictRequest) GetArg2() string {
+	if x != nil {
+		return x.Arg2
+	}
+	return ""
+}
+
+func (x *UpdateWithOnConflictRequest) GetArg3() int64 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+func (x *UpdateWithOnConflictRequest) GetArg4() int32 {
+	if x != nil {
+		return x.Arg4
+	}
+	return 0
+}
+
+type UpdateWithOnConflictResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UpdateWithOnConflictResponse) Reset() {
+	*x = UpdateWithOnConflictResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[230]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdateWithOnConflictResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateWithOnConflictResponse) ProtoMessage() {}
+
+func (x *UpdateWithOnConflictResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[230]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateWithOnConflictResponse.ProtoReflect.Descriptor instead.
+func (*UpdateWithOnConflictResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{230}
+}
+
+func (x *UpdateWithOnConflictResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ValidateSqlRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ValidateSqlRequest) Reset() {
+	*x = ValidateSqlRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[231]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ValidateSqlRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ValidateSqlRequest) ProtoMessage() {}
+
+func (x *ValidateSqlRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[231]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ValidateSqlRequest.ProtoReflect.Descriptor instead.
+func (*ValidateSqlRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{231}
+}
+
+func (x *ValidateSqlRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *ValidateSqlRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type ValidateSqlResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ValidateSqlResponse) Reset() {
+	*x = ValidateSqlResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[232]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ValidateSqlResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ValidateSqlResponse) ProtoMessage() {}
+
+func (x *ValidateSqlResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[232]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ValidateSqlResponse.ProtoReflect.Descriptor instead.
+func (*ValidateSqlResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{232}
+}
+
+type YieldIfContendedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *YieldIfContendedRequest) Reset() {
+	*x = YieldIfContendedRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[233]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *YieldIfContendedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*YieldIfContendedRequest) ProtoMessage() {}
+
+func (x *YieldIfContendedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[233]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use YieldIfContendedRequest.ProtoReflect.Descriptor instead.
+func (*YieldIfContendedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{233}
+}
+
+type YieldIfContendedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *YieldIfContendedResponse) Reset() {
+	*x = YieldIfContendedResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[234]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *YieldIfContendedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*YieldIfContendedResponse) ProtoMessage() {}
+
+func (x *YieldIfContendedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[234]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use YieldIfContendedResponse.ProtoReflect.Descriptor instead.
+func (*YieldIfContendedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{234}
+}
+
+func (x *YieldIfContendedResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type YieldIfContendedSafely0Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *YieldIfContendedSafely0Request) Reset() {
+	*x = YieldIfContendedSafely0Request{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[235]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *YieldIfContendedSafely0Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*YieldIfContendedSafely0Request) ProtoMessage() {}
+
+func (x *YieldIfContendedSafely0Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[235]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use YieldIfContendedSafely0Request.ProtoReflect.Descriptor instead.
+func (*YieldIfContendedSafely0Request) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{235}
+}
+
+type YieldIfContendedSafely0Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *YieldIfContendedSafely0Response) Reset() {
+	*x = YieldIfContendedSafely0Response{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[236]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *YieldIfContendedSafely0Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*YieldIfContendedSafely0Response) ProtoMessage() {}
+
+func (x *YieldIfContendedSafely0Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[236]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use YieldIfContendedSafely0Response.ProtoReflect.Descriptor instead.
+func (*YieldIfContendedSafely0Response) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{236}
+}
+
+func (x *YieldIfContendedSafely0Response) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type YieldIfContendedSafely1_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *YieldIfContendedSafely1_1Request) Reset() {
+	*x = YieldIfContendedSafely1_1Request{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[237]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *YieldIfContendedSafely1_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*YieldIfContendedSafely1_1Request) ProtoMessage() {}
+
+func (x *YieldIfContendedSafely1_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[237]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use YieldIfContendedSafely1_1Request.ProtoReflect.Descriptor instead.
+func (*YieldIfContendedSafely1_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{237}
+}
+
+func (x *YieldIfContendedSafely1_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type YieldIfContendedSafely1_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *YieldIfContendedSafely1_1Response) Reset() {
+	*x = YieldIfContendedSafely1_1Response{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[238]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *YieldIfContendedSafely1_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*YieldIfContendedSafely1_1Response) ProtoMessage() {}
+
+func (x *YieldIfContendedSafely1_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[238]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use YieldIfContendedSafely1_1Response.ProtoReflect.Descriptor instead.
+func (*YieldIfContendedSafely1_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{238}
+}
+
+func (x *YieldIfContendedSafely1_1Response) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type CreateRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateRequest) Reset() {
+	*x = CreateRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[239]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateRequest) ProtoMessage() {}
+
+func (x *CreateRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[239]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateRequest.ProtoReflect.Descriptor instead.
+func (*CreateRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{239}
+}
+
+func (x *CreateRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type CreateResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateResponse) Reset() {
+	*x = CreateResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[240]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateResponse) ProtoMessage() {}
+
+func (x *CreateResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[240]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateResponse.ProtoReflect.Descriptor instead.
+func (*CreateResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{240}
+}
+
+func (x *CreateResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type CreateInMemoryRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateInMemoryRequest) Reset() {
+	*x = CreateInMemoryRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[241]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateInMemoryRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateInMemoryRequest) ProtoMessage() {}
+
+func (x *CreateInMemoryRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[241]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateInMemoryRequest.ProtoReflect.Descriptor instead.
+func (*CreateInMemoryRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{241}
+}
+
+func (x *CreateInMemoryRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type CreateInMemoryResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateInMemoryResponse) Reset() {
+	*x = CreateInMemoryResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[242]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateInMemoryResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateInMemoryResponse) ProtoMessage() {}
+
+func (x *CreateInMemoryResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[242]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateInMemoryResponse.ProtoReflect.Descriptor instead.
+func (*CreateInMemoryResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{242}
+}
+
+func (x *CreateInMemoryResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type DeleteDatabaseRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DeleteDatabaseRequest) Reset() {
+	*x = DeleteDatabaseRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[243]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DeleteDatabaseRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeleteDatabaseRequest) ProtoMessage() {}
+
+func (x *DeleteDatabaseRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[243]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeleteDatabaseRequest.ProtoReflect.Descriptor instead.
+func (*DeleteDatabaseRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{243}
+}
+
+func (x *DeleteDatabaseRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type DeleteDatabaseResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DeleteDatabaseResponse) Reset() {
+	*x = DeleteDatabaseResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[244]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DeleteDatabaseResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeleteDatabaseResponse) ProtoMessage() {}
+
+func (x *DeleteDatabaseResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[244]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeleteDatabaseResponse.ProtoReflect.Descriptor instead.
+func (*DeleteDatabaseResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{244}
+}
+
+func (x *DeleteDatabaseResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type FindEditTableRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FindEditTableRequest) Reset() {
+	*x = FindEditTableRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[245]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FindEditTableRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FindEditTableRequest) ProtoMessage() {}
+
+func (x *FindEditTableRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[245]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FindEditTableRequest.ProtoReflect.Descriptor instead.
+func (*FindEditTableRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{245}
+}
+
+func (x *FindEditTableRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type FindEditTableResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FindEditTableResponse) Reset() {
+	*x = FindEditTableResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[246]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FindEditTableResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FindEditTableResponse) ProtoMessage() {}
+
+func (x *FindEditTableResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[246]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FindEditTableResponse.ProtoReflect.Descriptor instead.
+func (*FindEditTableResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{246}
+}
+
+func (x *FindEditTableResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type OpenDatabase2Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OpenDatabase2Request) Reset() {
+	*x = OpenDatabase2Request{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[247]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OpenDatabase2Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OpenDatabase2Request) ProtoMessage() {}
+
+func (x *OpenDatabase2Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[247]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OpenDatabase2Request.ProtoReflect.Descriptor instead.
+func (*OpenDatabase2Request) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{247}
+}
+
+func (x *OpenDatabase2Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OpenDatabase2Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type OpenDatabase2Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OpenDatabase2Response) Reset() {
+	*x = OpenDatabase2Response{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[248]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OpenDatabase2Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OpenDatabase2Response) ProtoMessage() {}
+
+func (x *OpenDatabase2Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[248]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OpenDatabase2Response.ProtoReflect.Descriptor instead.
+func (*OpenDatabase2Response) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{248}
+}
+
+func (x *OpenDatabase2Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OpenDatabase3_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OpenDatabase3_1Request) Reset() {
+	*x = OpenDatabase3_1Request{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[249]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OpenDatabase3_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OpenDatabase3_1Request) ProtoMessage() {}
+
+func (x *OpenDatabase3_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[249]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OpenDatabase3_1Request.ProtoReflect.Descriptor instead.
+func (*OpenDatabase3_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{249}
+}
+
+func (x *OpenDatabase3_1Request) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *OpenDatabase3_1Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *OpenDatabase3_1Request) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type OpenDatabase3_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OpenDatabase3_1Response) Reset() {
+	*x = OpenDatabase3_1Response{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[250]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OpenDatabase3_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OpenDatabase3_1Response) ProtoMessage() {}
+
+func (x *OpenDatabase3_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[250]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OpenDatabase3_1Response.ProtoReflect.Descriptor instead.
+func (*OpenDatabase3_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{250}
+}
+
+func (x *OpenDatabase3_1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OpenOrCreateDatabase2Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OpenOrCreateDatabase2Request) Reset() {
+	*x = OpenOrCreateDatabase2Request{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[251]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OpenOrCreateDatabase2Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OpenOrCreateDatabase2Request) ProtoMessage() {}
+
+func (x *OpenOrCreateDatabase2Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[251]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OpenOrCreateDatabase2Request.ProtoReflect.Descriptor instead.
+func (*OpenOrCreateDatabase2Request) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{251}
+}
+
+func (x *OpenOrCreateDatabase2Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OpenOrCreateDatabase2Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type OpenOrCreateDatabase2Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OpenOrCreateDatabase2Response) Reset() {
+	*x = OpenOrCreateDatabase2Response{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[252]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OpenOrCreateDatabase2Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OpenOrCreateDatabase2Response) ProtoMessage() {}
+
+func (x *OpenOrCreateDatabase2Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[252]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OpenOrCreateDatabase2Response.ProtoReflect.Descriptor instead.
+func (*OpenOrCreateDatabase2Response) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{252}
+}
+
+func (x *OpenOrCreateDatabase2Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OpenOrCreateDatabase2_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OpenOrCreateDatabase2_1Request) Reset() {
+	*x = OpenOrCreateDatabase2_1Request{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[253]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OpenOrCreateDatabase2_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OpenOrCreateDatabase2_1Request) ProtoMessage() {}
+
+func (x *OpenOrCreateDatabase2_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[253]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OpenOrCreateDatabase2_1Request.ProtoReflect.Descriptor instead.
+func (*OpenOrCreateDatabase2_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{253}
+}
+
+func (x *OpenOrCreateDatabase2_1Request) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *OpenOrCreateDatabase2_1Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type OpenOrCreateDatabase2_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OpenOrCreateDatabase2_1Response) Reset() {
+	*x = OpenOrCreateDatabase2_1Response{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[254]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OpenOrCreateDatabase2_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OpenOrCreateDatabase2_1Response) ProtoMessage() {}
+
+func (x *OpenOrCreateDatabase2_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[254]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OpenOrCreateDatabase2_1Response.ProtoReflect.Descriptor instead.
+func (*OpenOrCreateDatabase2_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{254}
+}
+
+func (x *OpenOrCreateDatabase2_1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ReleaseMemoryRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ReleaseMemoryRequest) Reset() {
+	*x = ReleaseMemoryRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[255]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ReleaseMemoryRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ReleaseMemoryRequest) ProtoMessage() {}
+
+func (x *ReleaseMemoryRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[255]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ReleaseMemoryRequest.ProtoReflect.Descriptor instead.
+func (*ReleaseMemoryRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{255}
+}
+
+type ReleaseMemoryResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ReleaseMemoryResponse) Reset() {
+	*x = ReleaseMemoryResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[256]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ReleaseMemoryResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ReleaseMemoryResponse) ProtoMessage() {}
+
+func (x *ReleaseMemoryResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[256]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ReleaseMemoryResponse.ProtoReflect.Descriptor instead.
+func (*ReleaseMemoryResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{256}
+}
+
+func (x *ReleaseMemoryResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type NewCursorRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          string                 `protobuf:"bytes,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int64                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewCursorRequest) Reset() {
+	*x = NewCursorRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[257]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewCursorRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewCursorRequest) ProtoMessage() {}
+
+func (x *NewCursorRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[257]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewCursorRequest.ProtoReflect.Descriptor instead.
+func (*NewCursorRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{257}
+}
+
+func (x *NewCursorRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *NewCursorRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *NewCursorRequest) GetArg2() string {
+	if x != nil {
+		return x.Arg2
+	}
+	return ""
+}
+
+func (x *NewCursorRequest) GetArg3() int64 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+type NewCursorResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewCursorResponse) Reset() {
+	*x = NewCursorResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[258]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewCursorResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewCursorResponse) ProtoMessage() {}
+
+func (x *NewCursorResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[258]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewCursorResponse.ProtoReflect.Descriptor instead.
+func (*NewCursorResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{258}
+}
+
+func (x *NewCursorResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetCursorFactoryRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCursorFactoryRequest) Reset() {
+	*x = GetCursorFactoryRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[259]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCursorFactoryRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCursorFactoryRequest) ProtoMessage() {}
+
+func (x *GetCursorFactoryRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[259]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCursorFactoryRequest.ProtoReflect.Descriptor instead.
+func (*GetCursorFactoryRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{259}
+}
+
+type GetCursorFactoryResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCursorFactoryResponse) Reset() {
+	*x = GetCursorFactoryResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[260]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCursorFactoryResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCursorFactoryResponse) ProtoMessage() {}
+
+func (x *GetCursorFactoryResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[260]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCursorFactoryResponse.ProtoReflect.Descriptor instead.
+func (*GetCursorFactoryResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{260}
+}
+
+func (x *GetCursorFactoryResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetErrorHandlerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetErrorHandlerRequest) Reset() {
+	*x = GetErrorHandlerRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[261]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetErrorHandlerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetErrorHandlerRequest) ProtoMessage() {}
+
+func (x *GetErrorHandlerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[261]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetErrorHandlerRequest.ProtoReflect.Descriptor instead.
+func (*GetErrorHandlerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{261}
+}
+
+type GetErrorHandlerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetErrorHandlerResponse) Reset() {
+	*x = GetErrorHandlerResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[262]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetErrorHandlerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetErrorHandlerResponse) ProtoMessage() {}
+
+func (x *GetErrorHandlerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[262]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetErrorHandlerResponse.ProtoReflect.Descriptor instead.
+func (*GetErrorHandlerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{262}
+}
+
+func (x *GetErrorHandlerResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetIdleConnectionTimeoutRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetIdleConnectionTimeoutRequest) Reset() {
+	*x = GetIdleConnectionTimeoutRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[263]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetIdleConnectionTimeoutRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetIdleConnectionTimeoutRequest) ProtoMessage() {}
+
+func (x *GetIdleConnectionTimeoutRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[263]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetIdleConnectionTimeoutRequest.ProtoReflect.Descriptor instead.
+func (*GetIdleConnectionTimeoutRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{263}
+}
+
+type GetIdleConnectionTimeoutResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetIdleConnectionTimeoutResponse) Reset() {
+	*x = GetIdleConnectionTimeoutResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[264]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetIdleConnectionTimeoutResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetIdleConnectionTimeoutResponse) ProtoMessage() {}
+
+func (x *GetIdleConnectionTimeoutResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[264]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetIdleConnectionTimeoutResponse.ProtoReflect.Descriptor instead.
+func (*GetIdleConnectionTimeoutResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{264}
+}
+
+func (x *GetIdleConnectionTimeoutResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetJournalModeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetJournalModeRequest) Reset() {
+	*x = GetJournalModeRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[265]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetJournalModeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetJournalModeRequest) ProtoMessage() {}
+
+func (x *GetJournalModeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[265]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetJournalModeRequest.ProtoReflect.Descriptor instead.
+func (*GetJournalModeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{265}
+}
+
+type GetJournalModeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetJournalModeResponse) Reset() {
+	*x = GetJournalModeResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[266]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetJournalModeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetJournalModeResponse) ProtoMessage() {}
+
+func (x *GetJournalModeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[266]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetJournalModeResponse.ProtoReflect.Descriptor instead.
+func (*GetJournalModeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{266}
+}
+
+func (x *GetJournalModeResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetLookasideSlotCountRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLookasideSlotCountRequest) Reset() {
+	*x = GetLookasideSlotCountRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[267]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLookasideSlotCountRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLookasideSlotCountRequest) ProtoMessage() {}
+
+func (x *GetLookasideSlotCountRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[267]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLookasideSlotCountRequest.ProtoReflect.Descriptor instead.
+func (*GetLookasideSlotCountRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{267}
+}
+
+type GetLookasideSlotCountResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLookasideSlotCountResponse) Reset() {
+	*x = GetLookasideSlotCountResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[268]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLookasideSlotCountResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLookasideSlotCountResponse) ProtoMessage() {}
+
+func (x *GetLookasideSlotCountResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[268]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLookasideSlotCountResponse.ProtoReflect.Descriptor instead.
+func (*GetLookasideSlotCountResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{268}
+}
+
+func (x *GetLookasideSlotCountResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetLookasideSlotSizeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLookasideSlotSizeRequest) Reset() {
+	*x = GetLookasideSlotSizeRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[269]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLookasideSlotSizeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLookasideSlotSizeRequest) ProtoMessage() {}
+
+func (x *GetLookasideSlotSizeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[269]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLookasideSlotSizeRequest.ProtoReflect.Descriptor instead.
+func (*GetLookasideSlotSizeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{269}
+}
+
+type GetLookasideSlotSizeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLookasideSlotSizeResponse) Reset() {
+	*x = GetLookasideSlotSizeResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[270]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLookasideSlotSizeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLookasideSlotSizeResponse) ProtoMessage() {}
+
+func (x *GetLookasideSlotSizeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[270]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLookasideSlotSizeResponse.ProtoReflect.Descriptor instead.
+func (*GetLookasideSlotSizeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{270}
+}
+
+func (x *GetLookasideSlotSizeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetOpenFlagsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetOpenFlagsRequest) Reset() {
+	*x = GetOpenFlagsRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[271]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetOpenFlagsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetOpenFlagsRequest) ProtoMessage() {}
+
+func (x *GetOpenFlagsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[271]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetOpenFlagsRequest.ProtoReflect.Descriptor instead.
+func (*GetOpenFlagsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{271}
+}
+
+type GetOpenFlagsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetOpenFlagsResponse) Reset() {
+	*x = GetOpenFlagsResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[272]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetOpenFlagsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetOpenFlagsResponse) ProtoMessage() {}
+
+func (x *GetOpenFlagsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[272]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetOpenFlagsResponse.ProtoReflect.Descriptor instead.
+func (*GetOpenFlagsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{272}
+}
+
+func (x *GetOpenFlagsResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSynchronousModeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSynchronousModeRequest) Reset() {
+	*x = GetSynchronousModeRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[273]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSynchronousModeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSynchronousModeRequest) ProtoMessage() {}
+
+func (x *GetSynchronousModeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[273]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSynchronousModeRequest.ProtoReflect.Descriptor instead.
+func (*GetSynchronousModeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{273}
+}
+
+type GetSynchronousModeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSynchronousModeResponse) Reset() {
+	*x = GetSynchronousModeResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[274]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSynchronousModeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSynchronousModeResponse) ProtoMessage() {}
+
+func (x *GetSynchronousModeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[274]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSynchronousModeResponse.ProtoReflect.Descriptor instead.
+func (*GetSynchronousModeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{274}
+}
+
+func (x *GetSynchronousModeResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type NewSQLiteQueryBuilderRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewSQLiteQueryBuilderRequest) Reset() {
+	*x = NewSQLiteQueryBuilderRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[275]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewSQLiteQueryBuilderRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewSQLiteQueryBuilderRequest) ProtoMessage() {}
+
+func (x *NewSQLiteQueryBuilderRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[275]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewSQLiteQueryBuilderRequest.ProtoReflect.Descriptor instead.
+func (*NewSQLiteQueryBuilderRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{275}
+}
+
+type NewSQLiteQueryBuilderResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewSQLiteQueryBuilderResponse) Reset() {
+	*x = NewSQLiteQueryBuilderResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[276]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewSQLiteQueryBuilderResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewSQLiteQueryBuilderResponse) ProtoMessage() {}
+
+func (x *NewSQLiteQueryBuilderResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[276]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewSQLiteQueryBuilderResponse.ProtoReflect.Descriptor instead.
+func (*NewSQLiteQueryBuilderResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{276}
+}
+
+func (x *NewSQLiteQueryBuilderResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AppendWhereRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          string                 `protobuf:"bytes,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AppendWhereRequest) Reset() {
+	*x = AppendWhereRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[277]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AppendWhereRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AppendWhereRequest) ProtoMessage() {}
+
+func (x *AppendWhereRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[277]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AppendWhereRequest.ProtoReflect.Descriptor instead.
+func (*AppendWhereRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{277}
+}
+
+func (x *AppendWhereRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *AppendWhereRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type AppendWhereResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AppendWhereResponse) Reset() {
+	*x = AppendWhereResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[278]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AppendWhereResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AppendWhereResponse) ProtoMessage() {}
+
+func (x *AppendWhereResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[278]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AppendWhereResponse.ProtoReflect.Descriptor instead.
+func (*AppendWhereResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{278}
+}
+
+type AppendWhereEscapeStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          string                 `protobuf:"bytes,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AppendWhereEscapeStringRequest) Reset() {
+	*x = AppendWhereEscapeStringRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[279]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AppendWhereEscapeStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AppendWhereEscapeStringRequest) ProtoMessage() {}
+
+func (x *AppendWhereEscapeStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[279]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AppendWhereEscapeStringRequest.ProtoReflect.Descriptor instead.
+func (*AppendWhereEscapeStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{279}
+}
+
+func (x *AppendWhereEscapeStringRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *AppendWhereEscapeStringRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type AppendWhereEscapeStringResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AppendWhereEscapeStringResponse) Reset() {
+	*x = AppendWhereEscapeStringResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[280]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AppendWhereEscapeStringResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AppendWhereEscapeStringResponse) ProtoMessage() {}
+
+func (x *AppendWhereEscapeStringResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[280]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AppendWhereEscapeStringResponse.ProtoReflect.Descriptor instead.
+func (*AppendWhereEscapeStringResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{280}
+}
+
+type AppendWhereStandaloneRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          string                 `protobuf:"bytes,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AppendWhereStandaloneRequest) Reset() {
+	*x = AppendWhereStandaloneRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[281]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AppendWhereStandaloneRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AppendWhereStandaloneRequest) ProtoMessage() {}
+
+func (x *AppendWhereStandaloneRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[281]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AppendWhereStandaloneRequest.ProtoReflect.Descriptor instead.
+func (*AppendWhereStandaloneRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{281}
+}
+
+func (x *AppendWhereStandaloneRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *AppendWhereStandaloneRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type AppendWhereStandaloneResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AppendWhereStandaloneResponse) Reset() {
+	*x = AppendWhereStandaloneResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[282]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AppendWhereStandaloneResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AppendWhereStandaloneResponse) ProtoMessage() {}
+
+func (x *AppendWhereStandaloneResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[282]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AppendWhereStandaloneResponse.ProtoReflect.Descriptor instead.
+func (*AppendWhereStandaloneResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{282}
+}
+
+type BuildQuery6Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          string                 `protobuf:"bytes,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          string                 `protobuf:"bytes,5,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	Arg4          string                 `protobuf:"bytes,6,opt,name=arg4,proto3" json:"arg4,omitempty"`
+	Arg5          string                 `protobuf:"bytes,7,opt,name=arg5,proto3" json:"arg5,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BuildQuery6Request) Reset() {
+	*x = BuildQuery6Request{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[283]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BuildQuery6Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BuildQuery6Request) ProtoMessage() {}
+
+func (x *BuildQuery6Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[283]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BuildQuery6Request.ProtoReflect.Descriptor instead.
+func (*BuildQuery6Request) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{283}
+}
+
+func (x *BuildQuery6Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *BuildQuery6Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *BuildQuery6Request) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *BuildQuery6Request) GetArg2() string {
+	if x != nil {
+		return x.Arg2
+	}
+	return ""
+}
+
+func (x *BuildQuery6Request) GetArg3() string {
+	if x != nil {
+		return x.Arg3
+	}
+	return ""
+}
+
+func (x *BuildQuery6Request) GetArg4() string {
+	if x != nil {
+		return x.Arg4
+	}
+	return ""
+}
+
+func (x *BuildQuery6Request) GetArg5() string {
+	if x != nil {
+		return x.Arg5
+	}
+	return ""
+}
+
+type BuildQuery6Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BuildQuery6Response) Reset() {
+	*x = BuildQuery6Response{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[284]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BuildQuery6Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BuildQuery6Response) ProtoMessage() {}
+
+func (x *BuildQuery6Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[284]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BuildQuery6Response.ProtoReflect.Descriptor instead.
+func (*BuildQuery6Response) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{284}
+}
+
+func (x *BuildQuery6Response) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type BuildQuery7_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          string                 `protobuf:"bytes,5,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	Arg4          string                 `protobuf:"bytes,6,opt,name=arg4,proto3" json:"arg4,omitempty"`
+	Arg5          string                 `protobuf:"bytes,7,opt,name=arg5,proto3" json:"arg5,omitempty"`
+	Arg6          string                 `protobuf:"bytes,8,opt,name=arg6,proto3" json:"arg6,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BuildQuery7_1Request) Reset() {
+	*x = BuildQuery7_1Request{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[285]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BuildQuery7_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BuildQuery7_1Request) ProtoMessage() {}
+
+func (x *BuildQuery7_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[285]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BuildQuery7_1Request.ProtoReflect.Descriptor instead.
+func (*BuildQuery7_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{285}
+}
+
+func (x *BuildQuery7_1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *BuildQuery7_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *BuildQuery7_1Request) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *BuildQuery7_1Request) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *BuildQuery7_1Request) GetArg3() string {
+	if x != nil {
+		return x.Arg3
+	}
+	return ""
+}
+
+func (x *BuildQuery7_1Request) GetArg4() string {
+	if x != nil {
+		return x.Arg4
+	}
+	return ""
+}
+
+func (x *BuildQuery7_1Request) GetArg5() string {
+	if x != nil {
+		return x.Arg5
+	}
+	return ""
+}
+
+func (x *BuildQuery7_1Request) GetArg6() string {
+	if x != nil {
+		return x.Arg6
+	}
+	return ""
+}
+
+type BuildQuery7_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BuildQuery7_1Response) Reset() {
+	*x = BuildQuery7_1Response{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[286]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BuildQuery7_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BuildQuery7_1Response) ProtoMessage() {}
+
+func (x *BuildQuery7_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[286]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BuildQuery7_1Response.ProtoReflect.Descriptor instead.
+func (*BuildQuery7_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{286}
+}
+
+func (x *BuildQuery7_1Response) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type BuildUnionQueryRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          string                 `protobuf:"bytes,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BuildUnionQueryRequest) Reset() {
+	*x = BuildUnionQueryRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[287]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BuildUnionQueryRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BuildUnionQueryRequest) ProtoMessage() {}
+
+func (x *BuildUnionQueryRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[287]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BuildUnionQueryRequest.ProtoReflect.Descriptor instead.
+func (*BuildUnionQueryRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{287}
+}
+
+func (x *BuildUnionQueryRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *BuildUnionQueryRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *BuildUnionQueryRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *BuildUnionQueryRequest) GetArg2() string {
+	if x != nil {
+		return x.Arg2
+	}
+	return ""
+}
+
+type BuildUnionQueryResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BuildUnionQueryResponse) Reset() {
+	*x = BuildUnionQueryResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[288]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BuildUnionQueryResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BuildUnionQueryResponse) ProtoMessage() {}
+
+func (x *BuildUnionQueryResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[288]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BuildUnionQueryResponse.ProtoReflect.Descriptor instead.
+func (*BuildUnionQueryResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{288}
+}
+
+func (x *BuildUnionQueryResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type SQLiteQueryBuilderDeleteRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SQLiteQueryBuilderDeleteRequest) Reset() {
+	*x = SQLiteQueryBuilderDeleteRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[289]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SQLiteQueryBuilderDeleteRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SQLiteQueryBuilderDeleteRequest) ProtoMessage() {}
+
+func (x *SQLiteQueryBuilderDeleteRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[289]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SQLiteQueryBuilderDeleteRequest.ProtoReflect.Descriptor instead.
+func (*SQLiteQueryBuilderDeleteRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{289}
+}
+
+func (x *SQLiteQueryBuilderDeleteRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SQLiteQueryBuilderDeleteRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SQLiteQueryBuilderDeleteRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *SQLiteQueryBuilderDeleteRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type SQLiteQueryBuilderGetCursorFactoryRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SQLiteQueryBuilderGetCursorFactoryRequest) Reset() {
+	*x = SQLiteQueryBuilderGetCursorFactoryRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[290]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SQLiteQueryBuilderGetCursorFactoryRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SQLiteQueryBuilderGetCursorFactoryRequest) ProtoMessage() {}
+
+func (x *SQLiteQueryBuilderGetCursorFactoryRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[290]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SQLiteQueryBuilderGetCursorFactoryRequest.ProtoReflect.Descriptor instead.
+func (*SQLiteQueryBuilderGetCursorFactoryRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{290}
+}
+
+func (x *SQLiteQueryBuilderGetCursorFactoryRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetTablesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTablesRequest) Reset() {
+	*x = GetTablesRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[291]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTablesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTablesRequest) ProtoMessage() {}
+
+func (x *GetTablesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[291]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTablesRequest.ProtoReflect.Descriptor instead.
+func (*GetTablesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{291}
+}
+
+func (x *GetTablesRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetTablesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTablesResponse) Reset() {
+	*x = GetTablesResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[292]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTablesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTablesResponse) ProtoMessage() {}
+
+func (x *GetTablesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[292]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTablesResponse.ProtoReflect.Descriptor instead.
+func (*GetTablesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{292}
+}
+
+func (x *GetTablesResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type SQLiteQueryBuilderInsertRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SQLiteQueryBuilderInsertRequest) Reset() {
+	*x = SQLiteQueryBuilderInsertRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[293]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SQLiteQueryBuilderInsertRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SQLiteQueryBuilderInsertRequest) ProtoMessage() {}
+
+func (x *SQLiteQueryBuilderInsertRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[293]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SQLiteQueryBuilderInsertRequest.ProtoReflect.Descriptor instead.
+func (*SQLiteQueryBuilderInsertRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{293}
+}
+
+func (x *SQLiteQueryBuilderInsertRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SQLiteQueryBuilderInsertRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SQLiteQueryBuilderInsertRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type IsDistinctRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsDistinctRequest) Reset() {
+	*x = IsDistinctRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[294]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsDistinctRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsDistinctRequest) ProtoMessage() {}
+
+func (x *IsDistinctRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[294]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsDistinctRequest.ProtoReflect.Descriptor instead.
+func (*IsDistinctRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{294}
+}
+
+func (x *IsDistinctRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type IsDistinctResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsDistinctResponse) Reset() {
+	*x = IsDistinctResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[295]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsDistinctResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsDistinctResponse) ProtoMessage() {}
+
+func (x *IsDistinctResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[295]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsDistinctResponse.ProtoReflect.Descriptor instead.
+func (*IsDistinctResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{295}
+}
+
+func (x *IsDistinctResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsStrictRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsStrictRequest) Reset() {
+	*x = IsStrictRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[296]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsStrictRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsStrictRequest) ProtoMessage() {}
+
+func (x *IsStrictRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[296]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsStrictRequest.ProtoReflect.Descriptor instead.
+func (*IsStrictRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{296}
+}
+
+func (x *IsStrictRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type IsStrictResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsStrictResponse) Reset() {
+	*x = IsStrictResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[297]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsStrictResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsStrictResponse) ProtoMessage() {}
+
+func (x *IsStrictResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[297]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsStrictResponse.ProtoReflect.Descriptor instead.
+func (*IsStrictResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{297}
+}
+
+func (x *IsStrictResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsStrictColumnsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsStrictColumnsRequest) Reset() {
+	*x = IsStrictColumnsRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[298]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsStrictColumnsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsStrictColumnsRequest) ProtoMessage() {}
+
+func (x *IsStrictColumnsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[298]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsStrictColumnsRequest.ProtoReflect.Descriptor instead.
+func (*IsStrictColumnsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{298}
+}
+
+func (x *IsStrictColumnsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type IsStrictColumnsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsStrictColumnsResponse) Reset() {
+	*x = IsStrictColumnsResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[299]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsStrictColumnsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsStrictColumnsResponse) ProtoMessage() {}
+
+func (x *IsStrictColumnsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[299]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsStrictColumnsResponse.ProtoReflect.Descriptor instead.
+func (*IsStrictColumnsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{299}
+}
+
+func (x *IsStrictColumnsResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsStrictGrammarRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsStrictGrammarRequest) Reset() {
+	*x = IsStrictGrammarRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[300]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsStrictGrammarRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsStrictGrammarRequest) ProtoMessage() {}
+
+func (x *IsStrictGrammarRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[300]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsStrictGrammarRequest.ProtoReflect.Descriptor instead.
+func (*IsStrictGrammarRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{300}
+}
+
+func (x *IsStrictGrammarRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type IsStrictGrammarResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsStrictGrammarResponse) Reset() {
+	*x = IsStrictGrammarResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[301]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsStrictGrammarResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsStrictGrammarResponse) ProtoMessage() {}
+
+func (x *IsStrictGrammarResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[301]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsStrictGrammarResponse.ProtoReflect.Descriptor instead.
+func (*IsStrictGrammarResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{301}
+}
+
+func (x *IsStrictGrammarResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type Query7Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          string                 `protobuf:"bytes,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int64                  `protobuf:"varint,5,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	Arg4          string                 `protobuf:"bytes,6,opt,name=arg4,proto3" json:"arg4,omitempty"`
+	Arg5          string                 `protobuf:"bytes,7,opt,name=arg5,proto3" json:"arg5,omitempty"`
+	Arg6          string                 `protobuf:"bytes,8,opt,name=arg6,proto3" json:"arg6,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Query7Request) Reset() {
+	*x = Query7Request{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[302]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Query7Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Query7Request) ProtoMessage() {}
+
+func (x *Query7Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[302]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Query7Request.ProtoReflect.Descriptor instead.
+func (*Query7Request) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{302}
+}
+
+func (x *Query7Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *Query7Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *Query7Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *Query7Request) GetArg2() string {
+	if x != nil {
+		return x.Arg2
+	}
+	return ""
+}
+
+func (x *Query7Request) GetArg3() int64 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+func (x *Query7Request) GetArg4() string {
+	if x != nil {
+		return x.Arg4
+	}
+	return ""
+}
+
+func (x *Query7Request) GetArg5() string {
+	if x != nil {
+		return x.Arg5
+	}
+	return ""
+}
+
+func (x *Query7Request) GetArg6() string {
+	if x != nil {
+		return x.Arg6
+	}
+	return ""
+}
+
+type Query7Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Query7Response) Reset() {
+	*x = Query7Response{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[303]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Query7Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Query7Response) ProtoMessage() {}
+
+func (x *Query7Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[303]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Query7Response.ProtoReflect.Descriptor instead.
+func (*Query7Response) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{303}
+}
+
+func (x *Query7Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type Query8_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          string                 `protobuf:"bytes,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int64                  `protobuf:"varint,5,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	Arg4          string                 `protobuf:"bytes,6,opt,name=arg4,proto3" json:"arg4,omitempty"`
+	Arg5          string                 `protobuf:"bytes,7,opt,name=arg5,proto3" json:"arg5,omitempty"`
+	Arg6          string                 `protobuf:"bytes,8,opt,name=arg6,proto3" json:"arg6,omitempty"`
+	Arg7          string                 `protobuf:"bytes,9,opt,name=arg7,proto3" json:"arg7,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Query8_1Request) Reset() {
+	*x = Query8_1Request{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[304]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Query8_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Query8_1Request) ProtoMessage() {}
+
+func (x *Query8_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[304]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Query8_1Request.ProtoReflect.Descriptor instead.
+func (*Query8_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{304}
+}
+
+func (x *Query8_1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *Query8_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *Query8_1Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *Query8_1Request) GetArg2() string {
+	if x != nil {
+		return x.Arg2
+	}
+	return ""
+}
+
+func (x *Query8_1Request) GetArg3() int64 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+func (x *Query8_1Request) GetArg4() string {
+	if x != nil {
+		return x.Arg4
+	}
+	return ""
+}
+
+func (x *Query8_1Request) GetArg5() string {
+	if x != nil {
+		return x.Arg5
+	}
+	return ""
+}
+
+func (x *Query8_1Request) GetArg6() string {
+	if x != nil {
+		return x.Arg6
+	}
+	return ""
+}
+
+func (x *Query8_1Request) GetArg7() string {
+	if x != nil {
+		return x.Arg7
+	}
+	return ""
+}
+
+type Query8_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Query8_1Response) Reset() {
+	*x = Query8_1Response{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[305]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Query8_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Query8_1Response) ProtoMessage() {}
+
+func (x *Query8_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[305]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Query8_1Response.ProtoReflect.Descriptor instead.
+func (*Query8_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{305}
+}
+
+func (x *Query8_1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type Query9_2Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          string                 `protobuf:"bytes,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int64                  `protobuf:"varint,5,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	Arg4          string                 `protobuf:"bytes,6,opt,name=arg4,proto3" json:"arg4,omitempty"`
+	Arg5          string                 `protobuf:"bytes,7,opt,name=arg5,proto3" json:"arg5,omitempty"`
+	Arg6          string                 `protobuf:"bytes,8,opt,name=arg6,proto3" json:"arg6,omitempty"`
+	Arg7          string                 `protobuf:"bytes,9,opt,name=arg7,proto3" json:"arg7,omitempty"`
+	Arg8          int64                  `protobuf:"varint,10,opt,name=arg8,proto3" json:"arg8,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Query9_2Request) Reset() {
+	*x = Query9_2Request{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[306]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Query9_2Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Query9_2Request) ProtoMessage() {}
+
+func (x *Query9_2Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[306]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Query9_2Request.ProtoReflect.Descriptor instead.
+func (*Query9_2Request) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{306}
+}
+
+func (x *Query9_2Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *Query9_2Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *Query9_2Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *Query9_2Request) GetArg2() string {
+	if x != nil {
+		return x.Arg2
+	}
+	return ""
+}
+
+func (x *Query9_2Request) GetArg3() int64 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+func (x *Query9_2Request) GetArg4() string {
+	if x != nil {
+		return x.Arg4
+	}
+	return ""
+}
+
+func (x *Query9_2Request) GetArg5() string {
+	if x != nil {
+		return x.Arg5
+	}
+	return ""
+}
+
+func (x *Query9_2Request) GetArg6() string {
+	if x != nil {
+		return x.Arg6
+	}
+	return ""
+}
+
+func (x *Query9_2Request) GetArg7() string {
+	if x != nil {
+		return x.Arg7
+	}
+	return ""
+}
+
+func (x *Query9_2Request) GetArg8() int64 {
+	if x != nil {
+		return x.Arg8
+	}
+	return 0
+}
+
+type Query9_2Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Query9_2Response) Reset() {
+	*x = Query9_2Response{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[307]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Query9_2Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Query9_2Response) ProtoMessage() {}
+
+func (x *Query9_2Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[307]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Query9_2Response.ProtoReflect.Descriptor instead.
+func (*Query9_2Response) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{307}
+}
+
+func (x *Query9_2Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetCursorFactoryRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetCursorFactoryRequest) Reset() {
+	*x = SetCursorFactoryRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[308]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetCursorFactoryRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetCursorFactoryRequest) ProtoMessage() {}
+
+func (x *SetCursorFactoryRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[308]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetCursorFactoryRequest.ProtoReflect.Descriptor instead.
+func (*SetCursorFactoryRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{308}
+}
+
+func (x *SetCursorFactoryRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetCursorFactoryRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetCursorFactoryResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetCursorFactoryResponse) Reset() {
+	*x = SetCursorFactoryResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[309]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetCursorFactoryResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetCursorFactoryResponse) ProtoMessage() {}
+
+func (x *SetCursorFactoryResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[309]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetCursorFactoryResponse.ProtoReflect.Descriptor instead.
+func (*SetCursorFactoryResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{309}
+}
+
+type SetDistinctRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          bool                   `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetDistinctRequest) Reset() {
+	*x = SetDistinctRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[310]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetDistinctRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetDistinctRequest) ProtoMessage() {}
+
+func (x *SetDistinctRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[310]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetDistinctRequest.ProtoReflect.Descriptor instead.
+func (*SetDistinctRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{310}
+}
+
+func (x *SetDistinctRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetDistinctRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetDistinctResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetDistinctResponse) Reset() {
+	*x = SetDistinctResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[311]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetDistinctResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetDistinctResponse) ProtoMessage() {}
+
+func (x *SetDistinctResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[311]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetDistinctResponse.ProtoReflect.Descriptor instead.
+func (*SetDistinctResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{311}
+}
+
+type SetStrictRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          bool                   `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetStrictRequest) Reset() {
+	*x = SetStrictRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[312]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetStrictRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetStrictRequest) ProtoMessage() {}
+
+func (x *SetStrictRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[312]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetStrictRequest.ProtoReflect.Descriptor instead.
+func (*SetStrictRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{312}
+}
+
+func (x *SetStrictRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetStrictRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetStrictResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetStrictResponse) Reset() {
+	*x = SetStrictResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[313]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetStrictResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetStrictResponse) ProtoMessage() {}
+
+func (x *SetStrictResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[313]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetStrictResponse.ProtoReflect.Descriptor instead.
+func (*SetStrictResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{313}
+}
+
+type SetStrictColumnsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          bool                   `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetStrictColumnsRequest) Reset() {
+	*x = SetStrictColumnsRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[314]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetStrictColumnsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetStrictColumnsRequest) ProtoMessage() {}
+
+func (x *SetStrictColumnsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[314]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetStrictColumnsRequest.ProtoReflect.Descriptor instead.
+func (*SetStrictColumnsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{314}
+}
+
+func (x *SetStrictColumnsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetStrictColumnsRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetStrictColumnsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetStrictColumnsResponse) Reset() {
+	*x = SetStrictColumnsResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[315]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetStrictColumnsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetStrictColumnsResponse) ProtoMessage() {}
+
+func (x *SetStrictColumnsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[315]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetStrictColumnsResponse.ProtoReflect.Descriptor instead.
+func (*SetStrictColumnsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{315}
+}
+
+type SetStrictGrammarRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          bool                   `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetStrictGrammarRequest) Reset() {
+	*x = SetStrictGrammarRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[316]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetStrictGrammarRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetStrictGrammarRequest) ProtoMessage() {}
+
+func (x *SetStrictGrammarRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[316]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetStrictGrammarRequest.ProtoReflect.Descriptor instead.
+func (*SetStrictGrammarRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{316}
+}
+
+func (x *SetStrictGrammarRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetStrictGrammarRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetStrictGrammarResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetStrictGrammarResponse) Reset() {
+	*x = SetStrictGrammarResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[317]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetStrictGrammarResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetStrictGrammarResponse) ProtoMessage() {}
+
+func (x *SetStrictGrammarResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[317]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetStrictGrammarResponse.ProtoReflect.Descriptor instead.
+func (*SetStrictGrammarResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{317}
+}
+
+type SetTablesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          string                 `protobuf:"bytes,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetTablesRequest) Reset() {
+	*x = SetTablesRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[318]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetTablesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetTablesRequest) ProtoMessage() {}
+
+func (x *SetTablesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[318]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetTablesRequest.ProtoReflect.Descriptor instead.
+func (*SetTablesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{318}
+}
+
+func (x *SetTablesRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetTablesRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type SetTablesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetTablesResponse) Reset() {
+	*x = SetTablesResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[319]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetTablesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetTablesResponse) ProtoMessage() {}
+
+func (x *SetTablesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[319]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetTablesResponse.ProtoReflect.Descriptor instead.
+func (*SetTablesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{319}
+}
+
+type SQLiteQueryBuilderUpdateRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          string                 `protobuf:"bytes,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int64                  `protobuf:"varint,5,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SQLiteQueryBuilderUpdateRequest) Reset() {
+	*x = SQLiteQueryBuilderUpdateRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[320]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SQLiteQueryBuilderUpdateRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SQLiteQueryBuilderUpdateRequest) ProtoMessage() {}
+
+func (x *SQLiteQueryBuilderUpdateRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[320]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SQLiteQueryBuilderUpdateRequest.ProtoReflect.Descriptor instead.
+func (*SQLiteQueryBuilderUpdateRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{320}
+}
+
+func (x *SQLiteQueryBuilderUpdateRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SQLiteQueryBuilderUpdateRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SQLiteQueryBuilderUpdateRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *SQLiteQueryBuilderUpdateRequest) GetArg2() string {
+	if x != nil {
+		return x.Arg2
+	}
+	return ""
+}
+
+func (x *SQLiteQueryBuilderUpdateRequest) GetArg3() int64 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+type AppendColumnsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AppendColumnsRequest) Reset() {
+	*x = AppendColumnsRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[321]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AppendColumnsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AppendColumnsRequest) ProtoMessage() {}
+
+func (x *AppendColumnsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[321]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AppendColumnsRequest.ProtoReflect.Descriptor instead.
+func (*AppendColumnsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{321}
+}
+
+func (x *AppendColumnsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *AppendColumnsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *AppendColumnsRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type AppendColumnsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AppendColumnsResponse) Reset() {
+	*x = AppendColumnsResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[322]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AppendColumnsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AppendColumnsResponse) ProtoMessage() {}
+
+func (x *AppendColumnsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[322]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AppendColumnsResponse.ProtoReflect.Descriptor instead.
+func (*AppendColumnsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{322}
+}
+
+type BuildQueryStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          bool                   `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          string                 `protobuf:"bytes,5,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	Arg4          string                 `protobuf:"bytes,6,opt,name=arg4,proto3" json:"arg4,omitempty"`
+	Arg5          string                 `protobuf:"bytes,7,opt,name=arg5,proto3" json:"arg5,omitempty"`
+	Arg6          string                 `protobuf:"bytes,8,opt,name=arg6,proto3" json:"arg6,omitempty"`
+	Arg7          string                 `protobuf:"bytes,9,opt,name=arg7,proto3" json:"arg7,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BuildQueryStringRequest) Reset() {
+	*x = BuildQueryStringRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[323]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BuildQueryStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BuildQueryStringRequest) ProtoMessage() {}
+
+func (x *BuildQueryStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[323]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BuildQueryStringRequest.ProtoReflect.Descriptor instead.
+func (*BuildQueryStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{323}
+}
+
+func (x *BuildQueryStringRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *BuildQueryStringRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+func (x *BuildQueryStringRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *BuildQueryStringRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *BuildQueryStringRequest) GetArg3() string {
+	if x != nil {
+		return x.Arg3
+	}
+	return ""
+}
+
+func (x *BuildQueryStringRequest) GetArg4() string {
+	if x != nil {
+		return x.Arg4
+	}
+	return ""
+}
+
+func (x *BuildQueryStringRequest) GetArg5() string {
+	if x != nil {
+		return x.Arg5
+	}
+	return ""
+}
+
+func (x *BuildQueryStringRequest) GetArg6() string {
+	if x != nil {
+		return x.Arg6
+	}
+	return ""
+}
+
+func (x *BuildQueryStringRequest) GetArg7() string {
+	if x != nil {
+		return x.Arg7
+	}
+	return ""
+}
+
+type BuildQueryStringResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BuildQueryStringResponse) Reset() {
+	*x = BuildQueryStringResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[324]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BuildQueryStringResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BuildQueryStringResponse) ProtoMessage() {}
+
+func (x *BuildQueryStringResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[324]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BuildQueryStringResponse.ProtoReflect.Descriptor instead.
+func (*BuildQueryStringResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{324}
+}
+
+func (x *BuildQueryStringResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type CursorClosedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CursorClosedRequest) Reset() {
+	*x = CursorClosedRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[325]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CursorClosedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CursorClosedRequest) ProtoMessage() {}
+
+func (x *CursorClosedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[325]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CursorClosedRequest.ProtoReflect.Descriptor instead.
+func (*CursorClosedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{325}
+}
+
+type CursorClosedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CursorClosedResponse) Reset() {
+	*x = CursorClosedResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[326]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CursorClosedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CursorClosedResponse) ProtoMessage() {}
+
+func (x *CursorClosedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[326]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CursorClosedResponse.ProtoReflect.Descriptor instead.
+func (*CursorClosedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{326}
+}
+
+type CursorDeactivatedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CursorDeactivatedRequest) Reset() {
+	*x = CursorDeactivatedRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[327]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CursorDeactivatedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CursorDeactivatedRequest) ProtoMessage() {}
+
+func (x *CursorDeactivatedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[327]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CursorDeactivatedRequest.ProtoReflect.Descriptor instead.
+func (*CursorDeactivatedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{327}
+}
+
+type CursorDeactivatedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CursorDeactivatedResponse) Reset() {
+	*x = CursorDeactivatedResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[328]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CursorDeactivatedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CursorDeactivatedResponse) ProtoMessage() {}
+
+func (x *CursorDeactivatedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[328]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CursorDeactivatedResponse.ProtoReflect.Descriptor instead.
+func (*CursorDeactivatedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{328}
+}
+
+type CursorRequeriedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CursorRequeriedRequest) Reset() {
+	*x = CursorRequeriedRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[329]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CursorRequeriedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CursorRequeriedRequest) ProtoMessage() {}
+
+func (x *CursorRequeriedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[329]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CursorRequeriedRequest.ProtoReflect.Descriptor instead.
+func (*CursorRequeriedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{329}
+}
+
+func (x *CursorRequeriedRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type CursorRequeriedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CursorRequeriedResponse) Reset() {
+	*x = CursorRequeriedResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[330]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CursorRequeriedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CursorRequeriedResponse) ProtoMessage() {}
+
+func (x *CursorRequeriedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[330]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CursorRequeriedResponse.ProtoReflect.Descriptor instead.
+func (*CursorRequeriedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{330}
+}
+
+type QueryRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *QueryRequest) Reset() {
+	*x = QueryRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[331]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *QueryRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryRequest) ProtoMessage() {}
+
+func (x *QueryRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[331]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use QueryRequest.ProtoReflect.Descriptor instead.
+func (*QueryRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{331}
+}
+
+func (x *QueryRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *QueryRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type QueryResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *QueryResponse) Reset() {
+	*x = QueryResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[332]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *QueryResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryResponse) ProtoMessage() {}
+
+func (x *QueryResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[332]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use QueryResponse.ProtoReflect.Descriptor instead.
+func (*QueryResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{332}
+}
+
+func (x *QueryResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetBindArgumentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetBindArgumentsRequest) Reset() {
+	*x = SetBindArgumentsRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[333]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetBindArgumentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetBindArgumentsRequest) ProtoMessage() {}
+
+func (x *SetBindArgumentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[333]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetBindArgumentsRequest.ProtoReflect.Descriptor instead.
+func (*SetBindArgumentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{333}
+}
+
+func (x *SetBindArgumentsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetBindArgumentsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetBindArgumentsResponse) Reset() {
+	*x = SetBindArgumentsResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[334]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetBindArgumentsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetBindArgumentsResponse) ProtoMessage() {}
+
+func (x *SetBindArgumentsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[334]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetBindArgumentsResponse.ProtoReflect.Descriptor instead.
+func (*SetBindArgumentsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{334}
+}
+
+type ExecuteRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ExecuteRequest) Reset() {
+	*x = ExecuteRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[335]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ExecuteRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ExecuteRequest) ProtoMessage() {}
+
+func (x *ExecuteRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[335]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ExecuteRequest.ProtoReflect.Descriptor instead.
+func (*ExecuteRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{335}
+}
+
+type ExecuteResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ExecuteResponse) Reset() {
+	*x = ExecuteResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[336]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ExecuteResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ExecuteResponse) ProtoMessage() {}
+
+func (x *ExecuteResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[336]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ExecuteResponse.ProtoReflect.Descriptor instead.
+func (*ExecuteResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{336}
+}
+
+type ExecuteInsertRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ExecuteInsertRequest) Reset() {
+	*x = ExecuteInsertRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[337]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ExecuteInsertRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ExecuteInsertRequest) ProtoMessage() {}
+
+func (x *ExecuteInsertRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[337]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ExecuteInsertRequest.ProtoReflect.Descriptor instead.
+func (*ExecuteInsertRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{337}
+}
+
+type ExecuteInsertResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ExecuteInsertResponse) Reset() {
+	*x = ExecuteInsertResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[338]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ExecuteInsertResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ExecuteInsertResponse) ProtoMessage() {}
+
+func (x *ExecuteInsertResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[338]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ExecuteInsertResponse.ProtoReflect.Descriptor instead.
+func (*ExecuteInsertResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{338}
+}
+
+func (x *ExecuteInsertResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ExecuteUpdateDeleteRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ExecuteUpdateDeleteRequest) Reset() {
+	*x = ExecuteUpdateDeleteRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[339]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ExecuteUpdateDeleteRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ExecuteUpdateDeleteRequest) ProtoMessage() {}
+
+func (x *ExecuteUpdateDeleteRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[339]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ExecuteUpdateDeleteRequest.ProtoReflect.Descriptor instead.
+func (*ExecuteUpdateDeleteRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{339}
+}
+
+type ExecuteUpdateDeleteResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ExecuteUpdateDeleteResponse) Reset() {
+	*x = ExecuteUpdateDeleteResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[340]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ExecuteUpdateDeleteResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ExecuteUpdateDeleteResponse) ProtoMessage() {}
+
+func (x *ExecuteUpdateDeleteResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[340]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ExecuteUpdateDeleteResponse.ProtoReflect.Descriptor instead.
+func (*ExecuteUpdateDeleteResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{340}
+}
+
+func (x *ExecuteUpdateDeleteResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SimpleQueryForBlobFileDescriptorRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SimpleQueryForBlobFileDescriptorRequest) Reset() {
+	*x = SimpleQueryForBlobFileDescriptorRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[341]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SimpleQueryForBlobFileDescriptorRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SimpleQueryForBlobFileDescriptorRequest) ProtoMessage() {}
+
+func (x *SimpleQueryForBlobFileDescriptorRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[341]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SimpleQueryForBlobFileDescriptorRequest.ProtoReflect.Descriptor instead.
+func (*SimpleQueryForBlobFileDescriptorRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{341}
+}
+
+type SimpleQueryForBlobFileDescriptorResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SimpleQueryForBlobFileDescriptorResponse) Reset() {
+	*x = SimpleQueryForBlobFileDescriptorResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[342]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SimpleQueryForBlobFileDescriptorResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SimpleQueryForBlobFileDescriptorResponse) ProtoMessage() {}
+
+func (x *SimpleQueryForBlobFileDescriptorResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[342]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SimpleQueryForBlobFileDescriptorResponse.ProtoReflect.Descriptor instead.
+func (*SimpleQueryForBlobFileDescriptorResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{342}
+}
+
+func (x *SimpleQueryForBlobFileDescriptorResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SimpleQueryForLongRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SimpleQueryForLongRequest) Reset() {
+	*x = SimpleQueryForLongRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[343]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SimpleQueryForLongRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SimpleQueryForLongRequest) ProtoMessage() {}
+
+func (x *SimpleQueryForLongRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[343]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SimpleQueryForLongRequest.ProtoReflect.Descriptor instead.
+func (*SimpleQueryForLongRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{343}
+}
+
+type SimpleQueryForLongResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SimpleQueryForLongResponse) Reset() {
+	*x = SimpleQueryForLongResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[344]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SimpleQueryForLongResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SimpleQueryForLongResponse) ProtoMessage() {}
+
+func (x *SimpleQueryForLongResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[344]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SimpleQueryForLongResponse.ProtoReflect.Descriptor instead.
+func (*SimpleQueryForLongResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{344}
+}
+
+func (x *SimpleQueryForLongResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SimpleQueryForStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SimpleQueryForStringRequest) Reset() {
+	*x = SimpleQueryForStringRequest{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[345]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SimpleQueryForStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SimpleQueryForStringRequest) ProtoMessage() {}
+
+func (x *SimpleQueryForStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[345]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SimpleQueryForStringRequest.ProtoReflect.Descriptor instead.
+func (*SimpleQueryForStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{345}
+}
+
+type SimpleQueryForStringResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SimpleQueryForStringResponse) Reset() {
+	*x = SimpleQueryForStringResponse{}
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[346]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SimpleQueryForStringResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SimpleQueryForStringResponse) ProtoMessage() {}
+
+func (x *SimpleQueryForStringResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sqlite_sqlite_proto_msgTypes[346]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SimpleQueryForStringResponse.ProtoReflect.Descriptor instead.
+func (*SimpleQueryForStringResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sqlite_sqlite_proto_rawDescGZIP(), []int{346}
+}
+
+func (x *SimpleQueryForStringResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
 var File_proto_sqlite_sqlite_proto protoreflect.FileDescriptor
 
 const file_proto_sqlite_sqlite_proto_rawDesc = "" +
 	"\n" +
-	"\x19proto/sqlite/sqlite.proto\x12\x06sqliteB0Z.github.com/AndroidGoLab/jni-proxy/proto/sqliteb\x06proto3"
+	"\x19proto/sqlite/sqlite.proto\x12\x06sqlite\":\n" +
+	"\x10BindBlob2Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x13\n" +
+	"\x11BindBlob2Response\"d\n" +
+	"\x12BindBlob4_1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x05R\x04arg3\"\x15\n" +
+	"\x13BindBlob4_1Response\";\n" +
+	"\x11BindDoubleRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x01R\x04arg1\"\x14\n" +
+	"\x12BindDoubleResponse\"8\n" +
+	"\x0eBindIntRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x11\n" +
+	"\x0fBindIntResponse\"9\n" +
+	"\x0fBindLongRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x12\n" +
+	"\x10BindLongResponse\"%\n" +
+	"\x0fBindNullRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"\x12\n" +
+	"\x10BindNullResponse\"9\n" +
+	"\x0fBindTextRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\"\x12\n" +
+	"\x10BindTextResponse\"\x16\n" +
+	"\x14ClearBindingsRequest\"\x17\n" +
+	"\x15ClearBindingsResponse\"\x0e\n" +
+	"\fCloseRequest\"\x0f\n" +
+	"\rCloseResponse\"*\n" +
+	"\x14GetColumnBlobRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"/\n" +
+	"\x15GetColumnBlobResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\",\n" +
+	"\x16GetColumnDoubleRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"1\n" +
+	"\x17GetColumnDoubleResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x01R\x06result\")\n" +
+	"\x13GetColumnIntRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\".\n" +
+	"\x14GetColumnIntResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\",\n" +
+	"\x16GetColumnLengthRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"1\n" +
+	"\x17GetColumnLengthResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"*\n" +
+	"\x14GetColumnLongRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"/\n" +
+	"\x15GetColumnLongResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"*\n" +
+	"\x14GetColumnNameRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"/\n" +
+	"\x15GetColumnNameResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"*\n" +
+	"\x14GetColumnTextRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"/\n" +
+	"\x15GetColumnTextResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"*\n" +
+	"\x14GetColumnTypeRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"/\n" +
+	"\x15GetColumnTypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1a\n" +
+	"\x18GetParameterCountRequest\"3\n" +
+	"\x19GetParameterCountResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\".\n" +
+	"\x18GetParameterIndexRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"3\n" +
+	"\x19GetParameterIndexResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"-\n" +
+	"\x17GetParameterNameRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"2\n" +
+	"\x18GetParameterNameResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x1d\n" +
+	"\x1bGetResultColumnCountRequest\"6\n" +
+	"\x1cGetResultColumnCountResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x0f\n" +
+	"\rIsOpenRequest\"(\n" +
+	"\x0eIsOpenResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"{\n" +
+	"\x15ReadColumnBlobRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x05R\x04arg3\x12\x12\n" +
+	"\x04arg4\x18\x05 \x01(\x05R\x04arg4\"0\n" +
+	"\x16ReadColumnBlobResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x0e\n" +
+	"\fResetRequest\"\x0f\n" +
+	"\rResetResponse\"\r\n" +
+	"\vStepRequest\"&\n" +
+	"\fStepResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x11\n" +
+	"\x0fToStringRequest\"*\n" +
+	"\x10ToStringResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"T\n" +
+	"\x16NewSQLiteCursorRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"1\n" +
+	"\x17NewSQLiteCursorResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"2\n" +
+	"\x18SQLiteCursorCloseRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"+\n" +
+	"\x11DeactivateRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x14\n" +
+	"\x12DeactivateResponse\"C\n" +
+	"\x15GetColumnIndexRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\tR\x04arg0\"0\n" +
+	"\x16GetColumnIndexResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"/\n" +
+	"\x15GetColumnNamesRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"0\n" +
+	"\x16GetColumnNamesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\")\n" +
+	"\x0fGetCountRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
+	"\x10GetCountResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\",\n" +
+	"\x12GetDatabaseRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"-\n" +
+	"\x13GetDatabaseResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"O\n" +
+	"\rOnMoveRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"(\n" +
+	"\x0eOnMoveResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"(\n" +
+	"\x0eRequeryRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\")\n" +
+	"\x0fRequeryResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"M\n" +
+	"\x1fSetFillWindowForwardOnlyRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\bR\x04arg0\"\"\n" +
+	" SetFillWindowForwardOnlyResponse\"J\n" +
+	"\x1cSetSelectionArgumentsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x1f\n" +
+	"\x1dSetSelectionArgumentsResponse\">\n" +
+	"\x10SetWindowRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x13\n" +
+	"\x11SetWindowResponse\"\x19\n" +
+	"\x17AcquireReferenceRequest\"\x1a\n" +
+	"\x18AcquireReferenceResponse\"\x19\n" +
+	"\x17ReleaseReferenceRequest\"\x1a\n" +
+	"\x18ReleaseReferenceResponse\"&\n" +
+	"$ReleaseReferenceFromContainerRequest\"'\n" +
+	"%ReleaseReferenceFromContainerResponse\"\x10\n" +
+	"\x0eOnBeginRequest\"\x11\n" +
+	"\x0fOnBeginResponse\"\x11\n" +
+	"\x0fOnCommitRequest\"\x12\n" +
+	"\x10OnCommitResponse\"\x13\n" +
+	"\x11OnRollbackRequest\"\x14\n" +
+	"\x12OnRollbackResponse\"\x18\n" +
+	"\x16GetDatabaseNameRequest\"1\n" +
+	"\x17GetDatabaseNameResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x1c\n" +
+	"\x1aGetReadableDatabaseRequest\"5\n" +
+	"\x1bGetReadableDatabaseResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1c\n" +
+	"\x1aGetWritableDatabaseRequest\"5\n" +
+	"\x1bGetWritableDatabaseResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"(\n" +
+	"\x12OnConfigureRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x15\n" +
+	"\x13OnConfigureResponse\"%\n" +
+	"\x0fOnCreateRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x12\n" +
+	"\x10OnCreateResponse\"P\n" +
+	"\x12OnDowngradeRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\"\x15\n" +
+	"\x13OnDowngradeResponse\"#\n" +
+	"\rOnOpenRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x10\n" +
+	"\x0eOnOpenResponse\"N\n" +
+	"\x10OnUpgradeRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\"\x13\n" +
+	"\x11OnUpgradeResponse\"5\n" +
+	"\x1fSetIdleConnectionTimeoutRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\"\n" +
+	" SetIdleConnectionTimeoutResponse\"C\n" +
+	"\x19SetLookasideConfigRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x1c\n" +
+	"\x1aSetLookasideConfigResponse\"*\n" +
+	"\x14SetOpenParamsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x17\n" +
+	"\x15SetOpenParamsResponse\"8\n" +
+	"\"SetWriteAheadLoggingEnabledRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"%\n" +
+	"#SetWriteAheadLoggingEnabledResponse\"1\n" +
+	"\x1bBindAllArgsAsStringsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x1e\n" +
+	"\x1cBindAllArgsAsStringsResponse\"9\n" +
+	"\x0fBindBlobRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x12\n" +
+	"\x10BindBlobResponse\";\n" +
+	"\x11BindStringRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\"\x14\n" +
+	"\x12BindStringResponse\"\x14\n" +
+	"\x12GetUniqueIdRequest\"-\n" +
+	"\x13GetUniqueIdResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x19\n" +
+	"\x17BeginTransactionRequest\"\x1a\n" +
+	"\x18BeginTransactionResponse\"%\n" +
+	"#BeginTransactionNonExclusiveRequest\"&\n" +
+	"$BeginTransactionNonExclusiveResponse\"!\n" +
+	"\x1fBeginTransactionReadOnlyRequest\"\"\n" +
+	" BeginTransactionReadOnlyResponse\"9\n" +
+	"#BeginTransactionWithListenerRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"&\n" +
+	"$BeginTransactionWithListenerResponse\"E\n" +
+	"/BeginTransactionWithListenerNonExclusiveRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"2\n" +
+	"0BeginTransactionWithListenerNonExclusiveResponse\"A\n" +
+	"+BeginTransactionWithListenerReadOnlyRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\".\n" +
+	",BeginTransactionWithListenerReadOnlyResponse\"-\n" +
+	"\x17CompileStatementRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"2\n" +
+	"\x18CompileStatementResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"/\n" +
+	"\x19CreateRawStatementRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"4\n" +
+	"\x1aCreateRawStatementResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"K\n" +
+	"\rDeleteRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"(\n" +
+	"\x0eDeleteResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"!\n" +
+	"\x1fDisableWriteAheadLoggingRequest\"\"\n" +
+	" DisableWriteAheadLoggingResponse\" \n" +
+	"\x1eEnableWriteAheadLoggingRequest\"9\n" +
+	"\x1fEnableWriteAheadLoggingResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x17\n" +
+	"\x15EndTransactionRequest\"\x18\n" +
+	"\x16EndTransactionResponse\"E\n" +
+	"\x1bExecPerConnectionSQLRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x1e\n" +
+	"\x1cExecPerConnectionSQLResponse\"%\n" +
+	"\x0fExecSQL1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"\x12\n" +
+	"\x10ExecSQL1Response\";\n" +
+	"\x11ExecSQL2_1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x14\n" +
+	"\x12ExecSQL2_1Response\"\x1f\n" +
+	"\x1dGetLastChangedRowCountRequest\"8\n" +
+	"\x1eGetLastChangedRowCountResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1b\n" +
+	"\x19GetLastInsertRowIdRequest\"4\n" +
+	"\x1aGetLastInsertRowIdResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x17\n" +
+	"\x15GetMaximumSizeRequest\"0\n" +
+	"\x16GetMaximumSizeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x14\n" +
+	"\x12GetPageSizeRequest\"-\n" +
+	"\x13GetPageSizeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x10\n" +
+	"\x0eGetPathRequest\")\n" +
+	"\x0fGetPathResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\" \n" +
+	"\x1eGetTotalChangedRowCountRequest\"9\n" +
+	"\x1fGetTotalChangedRowCountResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x13\n" +
+	"\x11GetVersionRequest\",\n" +
+	"\x12GetVersionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x16\n" +
+	"\x14InTransactionRequest\"/\n" +
+	"\x15InTransactionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"K\n" +
+	"\rInsertRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"(\n" +
+	"\x0eInsertResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"R\n" +
+	"\x14InsertOrThrowRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"/\n" +
+	"\x15InsertOrThrowResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"m\n" +
+	"\x1bInsertWithOnConflictRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x05R\x04arg3\"6\n" +
+	"\x1cInsertWithOnConflictResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1e\n" +
+	"\x1cIsDatabaseIntegrityOkRequest\"7\n" +
+	"\x1dIsDatabaseIntegrityOkResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\"\n" +
+	" IsDbLockedByCurrentThreadRequest\";\n" +
+	"!IsDbLockedByCurrentThreadResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"!\n" +
+	"\x1fIsDbLockedByOtherThreadsRequest\":\n" +
+	" IsDbLockedByOtherThreadsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x13\n" +
+	"\x11IsReadOnlyRequest\",\n" +
+	"\x12IsReadOnlyResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"#\n" +
+	"!IsWriteAheadLoggingEnabledRequest\"<\n" +
+	"\"IsWriteAheadLoggingEnabledResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"C\n" +
+	"\x19MarkTableSyncable2Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\"\x1c\n" +
+	"\x1aMarkTableSyncable2Response\"Y\n" +
+	"\x1bMarkTableSyncable3_1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\tR\x04arg2\"\x1e\n" +
+	"\x1cMarkTableSyncable3_1Response\"(\n" +
+	"\x12NeedUpgradeRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"-\n" +
+	"\x13NeedUpgradeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\xc3\x01\n" +
+	"\rQuery9Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\tR\x04arg3\x12\x12\n" +
+	"\x04arg4\x18\x05 \x01(\x03R\x04arg4\x12\x12\n" +
+	"\x04arg5\x18\x06 \x01(\tR\x04arg5\x12\x12\n" +
+	"\x04arg6\x18\a \x01(\tR\x04arg6\x12\x12\n" +
+	"\x04arg7\x18\b \x01(\tR\x04arg7\x12\x12\n" +
+	"\x04arg8\x18\t \x01(\tR\x04arg8\"(\n" +
+	"\x0eQuery9Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\xda\x01\n" +
+	"\x10Query10_1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\tR\x04arg3\x12\x12\n" +
+	"\x04arg4\x18\x05 \x01(\x03R\x04arg4\x12\x12\n" +
+	"\x04arg5\x18\x06 \x01(\tR\x04arg5\x12\x12\n" +
+	"\x04arg6\x18\a \x01(\tR\x04arg6\x12\x12\n" +
+	"\x04arg7\x18\b \x01(\tR\x04arg7\x12\x12\n" +
+	"\x04arg8\x18\t \x01(\tR\x04arg8\x12\x12\n" +
+	"\x04arg9\x18\n" +
+	" \x01(\x03R\x04arg9\"+\n" +
+	"\x11Query10_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x9d\x01\n" +
+	"\x0fQuery7_2Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\tR\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\x12\x12\n" +
+	"\x04arg4\x18\x05 \x01(\tR\x04arg4\x12\x12\n" +
+	"\x04arg5\x18\x06 \x01(\tR\x04arg5\x12\x12\n" +
+	"\x04arg6\x18\a \x01(\tR\x04arg6\"*\n" +
+	"\x10Query7_2Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\xb1\x01\n" +
+	"\x0fQuery8_3Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\tR\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\x12\x12\n" +
+	"\x04arg4\x18\x05 \x01(\tR\x04arg4\x12\x12\n" +
+	"\x04arg5\x18\x06 \x01(\tR\x04arg5\x12\x12\n" +
+	"\x04arg6\x18\a \x01(\tR\x04arg6\x12\x12\n" +
+	"\x04arg7\x18\b \x01(\tR\x04arg7\"*\n" +
+	"\x10Query8_3Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\xe3\x01\n" +
+	"\x19QueryWithFactory10Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\bR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\tR\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\x12\x12\n" +
+	"\x04arg4\x18\x05 \x01(\tR\x04arg4\x12\x12\n" +
+	"\x04arg5\x18\x06 \x01(\x03R\x04arg5\x12\x12\n" +
+	"\x04arg6\x18\a \x01(\tR\x04arg6\x12\x12\n" +
+	"\x04arg7\x18\b \x01(\tR\x04arg7\x12\x12\n" +
+	"\x04arg8\x18\t \x01(\tR\x04arg8\x12\x12\n" +
+	"\x04arg9\x18\n" +
+	" \x01(\tR\x04arg9\"4\n" +
+	"\x1aQueryWithFactory10Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\xfb\x01\n" +
+	"\x1bQueryWithFactory11_1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\bR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\tR\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\x12\x12\n" +
+	"\x04arg4\x18\x05 \x01(\tR\x04arg4\x12\x12\n" +
+	"\x04arg5\x18\x06 \x01(\x03R\x04arg5\x12\x12\n" +
+	"\x04arg6\x18\a \x01(\tR\x04arg6\x12\x12\n" +
+	"\x04arg7\x18\b \x01(\tR\x04arg7\x12\x12\n" +
+	"\x04arg8\x18\t \x01(\tR\x04arg8\x12\x12\n" +
+	"\x04arg9\x18\n" +
+	" \x01(\tR\x04arg9\x12\x14\n" +
+	"\x05arg10\x18\v \x01(\x03R\x05arg10\"6\n" +
+	"\x1cQueryWithFactory11_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\":\n" +
+	"\x10RawQuery2Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"+\n" +
+	"\x11RawQuery2Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"P\n" +
+	"\x12RawQuery3_1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"-\n" +
+	"\x13RawQuery3_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"m\n" +
+	"\x1bRawQueryWithFactory4Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\tR\x04arg3\"6\n" +
+	"\x1cRawQueryWithFactory4Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x83\x01\n" +
+	"\x1dRawQueryWithFactory5_1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\tR\x04arg3\x12\x12\n" +
+	"\x04arg4\x18\x05 \x01(\x03R\x04arg4\"8\n" +
+	"\x1eRawQueryWithFactory5_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"L\n" +
+	"\x0eReplaceRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\")\n" +
+	"\x0fReplaceResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"S\n" +
+	"\x15ReplaceOrThrowRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"0\n" +
+	"\x16ReplaceOrThrowResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"<\n" +
+	"&SetForeignKeyConstraintsEnabledRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\")\n" +
+	"'SetForeignKeyConstraintsEnabledResponse\"&\n" +
+	"\x10SetLocaleRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x13\n" +
+	"\x11SetLocaleResponse\".\n" +
+	"\x18SetLockingEnabledRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"\x1b\n" +
+	"\x19SetLockingEnabledResponse\"/\n" +
+	"\x19SetMaxSqlCacheSizeRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"\x1c\n" +
+	"\x1aSetMaxSqlCacheSizeResponse\"+\n" +
+	"\x15SetMaximumSizeRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"0\n" +
+	"\x16SetMaximumSizeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"(\n" +
+	"\x12SetPageSizeRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x15\n" +
+	"\x13SetPageSizeResponse\"!\n" +
+	"\x1fSetTransactionSuccessfulRequest\"\"\n" +
+	" SetTransactionSuccessfulResponse\"'\n" +
+	"\x11SetVersionRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"\x14\n" +
+	"\x12SetVersionResponse\"_\n" +
+	"\rUpdateRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\tR\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\"(\n" +
+	"\x0eUpdateResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x81\x01\n" +
+	"\x1bUpdateWithOnConflictRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\tR\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\x12\x12\n" +
+	"\x04arg4\x18\x05 \x01(\x05R\x04arg4\"6\n" +
+	"\x1cUpdateWithOnConflictResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"<\n" +
+	"\x12ValidateSqlRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x15\n" +
+	"\x13ValidateSqlResponse\"\x19\n" +
+	"\x17YieldIfContendedRequest\"2\n" +
+	"\x18YieldIfContendedResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\" \n" +
+	"\x1eYieldIfContendedSafely0Request\"9\n" +
+	"\x1fYieldIfContendedSafely0Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"6\n" +
+	" YieldIfContendedSafely1_1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\";\n" +
+	"!YieldIfContendedSafely1_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"#\n" +
+	"\rCreateRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"(\n" +
+	"\x0eCreateResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"+\n" +
+	"\x15CreateInMemoryRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"0\n" +
+	"\x16CreateInMemoryResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"+\n" +
+	"\x15DeleteDatabaseRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"0\n" +
+	"\x16DeleteDatabaseResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"*\n" +
+	"\x14FindEditTableRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"/\n" +
+	"\x15FindEditTableResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\">\n" +
+	"\x14OpenDatabase2Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"/\n" +
+	"\x15OpenDatabase2Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"T\n" +
+	"\x16OpenDatabase3_1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\"1\n" +
+	"\x17OpenDatabase3_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"F\n" +
+	"\x1cOpenOrCreateDatabase2Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"7\n" +
+	"\x1dOpenOrCreateDatabase2Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"H\n" +
+	"\x1eOpenOrCreateDatabase2_1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"9\n" +
+	"\x1fOpenOrCreateDatabase2_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x16\n" +
+	"\x14ReleaseMemoryRequest\"/\n" +
+	"\x15ReleaseMemoryResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"b\n" +
+	"\x10NewCursorRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\tR\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\"+\n" +
+	"\x11NewCursorResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x19\n" +
+	"\x17GetCursorFactoryRequest\"2\n" +
+	"\x18GetCursorFactoryResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x18\n" +
+	"\x16GetErrorHandlerRequest\"1\n" +
+	"\x17GetErrorHandlerResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"!\n" +
+	"\x1fGetIdleConnectionTimeoutRequest\":\n" +
+	" GetIdleConnectionTimeoutResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x17\n" +
+	"\x15GetJournalModeRequest\"0\n" +
+	"\x16GetJournalModeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x1e\n" +
+	"\x1cGetLookasideSlotCountRequest\"7\n" +
+	"\x1dGetLookasideSlotCountResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1d\n" +
+	"\x1bGetLookasideSlotSizeRequest\"6\n" +
+	"\x1cGetLookasideSlotSizeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x15\n" +
+	"\x13GetOpenFlagsRequest\".\n" +
+	"\x14GetOpenFlagsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1b\n" +
+	"\x19GetSynchronousModeRequest\"4\n" +
+	"\x1aGetSynchronousModeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x1e\n" +
+	"\x1cNewSQLiteQueryBuilderRequest\"7\n" +
+	"\x1dNewSQLiteQueryBuilderResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"@\n" +
+	"\x12AppendWhereRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\tR\x04arg0\"\x15\n" +
+	"\x13AppendWhereResponse\"L\n" +
+	"\x1eAppendWhereEscapeStringRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\tR\x04arg0\"!\n" +
+	"\x1fAppendWhereEscapeStringResponse\"J\n" +
+	"\x1cAppendWhereStandaloneRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\tR\x04arg0\"\x1f\n" +
+	"\x1dAppendWhereStandaloneResponse\"\xa4\x01\n" +
+	"\x12BuildQuery6Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\tR\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x05 \x01(\tR\x04arg3\x12\x12\n" +
+	"\x04arg4\x18\x06 \x01(\tR\x04arg4\x12\x12\n" +
+	"\x04arg5\x18\a \x01(\tR\x04arg5\"-\n" +
+	"\x13BuildQuery6Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\xba\x01\n" +
+	"\x14BuildQuery7_1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x03R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x05 \x01(\tR\x04arg3\x12\x12\n" +
+	"\x04arg4\x18\x06 \x01(\tR\x04arg4\x12\x12\n" +
+	"\x04arg5\x18\a \x01(\tR\x04arg5\x12\x12\n" +
+	"\x04arg6\x18\b \x01(\tR\x04arg6\"/\n" +
+	"\x15BuildQuery7_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"l\n" +
+	"\x16BuildUnionQueryRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\tR\x04arg2\"1\n" +
+	"\x17BuildUnionQueryResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"u\n" +
+	"\x1fSQLiteQueryBuilderDeleteRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x03R\x04arg2\"C\n" +
+	")SQLiteQueryBuilderGetCursorFactoryRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
+	"\x10GetTablesRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"+\n" +
+	"\x11GetTablesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"a\n" +
+	"\x1fSQLiteQueryBuilderInsertRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"+\n" +
+	"\x11IsDistinctRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\",\n" +
+	"\x12IsDistinctResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\")\n" +
+	"\x0fIsStrictRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
+	"\x10IsStrictResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"0\n" +
+	"\x16IsStrictColumnsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"1\n" +
+	"\x17IsStrictColumnsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"0\n" +
+	"\x16IsStrictGrammarRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"1\n" +
+	"\x17IsStrictGrammarResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\xb3\x01\n" +
+	"\rQuery7Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\tR\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x05 \x01(\x03R\x04arg3\x12\x12\n" +
+	"\x04arg4\x18\x06 \x01(\tR\x04arg4\x12\x12\n" +
+	"\x04arg5\x18\a \x01(\tR\x04arg5\x12\x12\n" +
+	"\x04arg6\x18\b \x01(\tR\x04arg6\"(\n" +
+	"\x0eQuery7Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\xc9\x01\n" +
+	"\x0fQuery8_1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\tR\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x05 \x01(\x03R\x04arg3\x12\x12\n" +
+	"\x04arg4\x18\x06 \x01(\tR\x04arg4\x12\x12\n" +
+	"\x04arg5\x18\a \x01(\tR\x04arg5\x12\x12\n" +
+	"\x04arg6\x18\b \x01(\tR\x04arg6\x12\x12\n" +
+	"\x04arg7\x18\t \x01(\tR\x04arg7\"*\n" +
+	"\x10Query8_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\xdd\x01\n" +
+	"\x0fQuery9_2Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\tR\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x05 \x01(\x03R\x04arg3\x12\x12\n" +
+	"\x04arg4\x18\x06 \x01(\tR\x04arg4\x12\x12\n" +
+	"\x04arg5\x18\a \x01(\tR\x04arg5\x12\x12\n" +
+	"\x04arg6\x18\b \x01(\tR\x04arg6\x12\x12\n" +
+	"\x04arg7\x18\t \x01(\tR\x04arg7\x12\x12\n" +
+	"\x04arg8\x18\n" +
+	" \x01(\x03R\x04arg8\"*\n" +
+	"\x10Query9_2Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"E\n" +
+	"\x17SetCursorFactoryRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x1a\n" +
+	"\x18SetCursorFactoryResponse\"@\n" +
+	"\x12SetDistinctRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\bR\x04arg0\"\x15\n" +
+	"\x13SetDistinctResponse\">\n" +
+	"\x10SetStrictRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\bR\x04arg0\"\x13\n" +
+	"\x11SetStrictResponse\"E\n" +
+	"\x17SetStrictColumnsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\bR\x04arg0\"\x1a\n" +
+	"\x18SetStrictColumnsResponse\"E\n" +
+	"\x17SetStrictGrammarRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\bR\x04arg0\"\x1a\n" +
+	"\x18SetStrictGrammarResponse\">\n" +
+	"\x10SetTablesRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\tR\x04arg0\"\x13\n" +
+	"\x11SetTablesResponse\"\x89\x01\n" +
+	"\x1fSQLiteQueryBuilderUpdateRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\tR\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x05 \x01(\x03R\x04arg3\"V\n" +
+	"\x14AppendColumnsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"\x17\n" +
+	"\x15AppendColumnsResponse\"\xd1\x01\n" +
+	"\x17BuildQueryStringRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\bR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x03R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x05 \x01(\tR\x04arg3\x12\x12\n" +
+	"\x04arg4\x18\x06 \x01(\tR\x04arg4\x12\x12\n" +
+	"\x04arg5\x18\a \x01(\tR\x04arg5\x12\x12\n" +
+	"\x04arg6\x18\b \x01(\tR\x04arg6\x12\x12\n" +
+	"\x04arg7\x18\t \x01(\tR\x04arg7\"2\n" +
+	"\x18BuildQueryStringResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x15\n" +
+	"\x13CursorClosedRequest\"\x16\n" +
+	"\x14CursorClosedResponse\"\x1a\n" +
+	"\x18CursorDeactivatedRequest\"\x1b\n" +
+	"\x19CursorDeactivatedResponse\",\n" +
+	"\x16CursorRequeriedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x19\n" +
+	"\x17CursorRequeriedResponse\"6\n" +
+	"\fQueryRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"'\n" +
+	"\rQueryResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"-\n" +
+	"\x17SetBindArgumentsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x1a\n" +
+	"\x18SetBindArgumentsResponse\"\x10\n" +
+	"\x0eExecuteRequest\"\x11\n" +
+	"\x0fExecuteResponse\"\x16\n" +
+	"\x14ExecuteInsertRequest\"/\n" +
+	"\x15ExecuteInsertResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1c\n" +
+	"\x1aExecuteUpdateDeleteRequest\"5\n" +
+	"\x1bExecuteUpdateDeleteResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\")\n" +
+	"'SimpleQueryForBlobFileDescriptorRequest\"B\n" +
+	"(SimpleQueryForBlobFileDescriptorResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1b\n" +
+	"\x19SimpleQueryForLongRequest\"4\n" +
+	"\x1aSimpleQueryForLongResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1d\n" +
+	"\x1bSimpleQueryForStringRequest\"6\n" +
+	"\x1cSimpleQueryForStringResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result2\x80\x0f\n" +
+	"\x19SQLiteRawStatementService\x12@\n" +
+	"\tBindBlob2\x12\x18.sqlite.BindBlob2Request\x1a\x19.sqlite.BindBlob2Response\x12F\n" +
+	"\vBindBlob4_1\x12\x1a.sqlite.BindBlob4_1Request\x1a\x1b.sqlite.BindBlob4_1Response\x12C\n" +
+	"\n" +
+	"BindDouble\x12\x19.sqlite.BindDoubleRequest\x1a\x1a.sqlite.BindDoubleResponse\x12:\n" +
+	"\aBindInt\x12\x16.sqlite.BindIntRequest\x1a\x17.sqlite.BindIntResponse\x12=\n" +
+	"\bBindLong\x12\x17.sqlite.BindLongRequest\x1a\x18.sqlite.BindLongResponse\x12=\n" +
+	"\bBindNull\x12\x17.sqlite.BindNullRequest\x1a\x18.sqlite.BindNullResponse\x12=\n" +
+	"\bBindText\x12\x17.sqlite.BindTextRequest\x1a\x18.sqlite.BindTextResponse\x12L\n" +
+	"\rClearBindings\x12\x1c.sqlite.ClearBindingsRequest\x1a\x1d.sqlite.ClearBindingsResponse\x124\n" +
+	"\x05Close\x12\x14.sqlite.CloseRequest\x1a\x15.sqlite.CloseResponse\x12L\n" +
+	"\rGetColumnBlob\x12\x1c.sqlite.GetColumnBlobRequest\x1a\x1d.sqlite.GetColumnBlobResponse\x12R\n" +
+	"\x0fGetColumnDouble\x12\x1e.sqlite.GetColumnDoubleRequest\x1a\x1f.sqlite.GetColumnDoubleResponse\x12I\n" +
+	"\fGetColumnInt\x12\x1b.sqlite.GetColumnIntRequest\x1a\x1c.sqlite.GetColumnIntResponse\x12R\n" +
+	"\x0fGetColumnLength\x12\x1e.sqlite.GetColumnLengthRequest\x1a\x1f.sqlite.GetColumnLengthResponse\x12L\n" +
+	"\rGetColumnLong\x12\x1c.sqlite.GetColumnLongRequest\x1a\x1d.sqlite.GetColumnLongResponse\x12L\n" +
+	"\rGetColumnName\x12\x1c.sqlite.GetColumnNameRequest\x1a\x1d.sqlite.GetColumnNameResponse\x12L\n" +
+	"\rGetColumnText\x12\x1c.sqlite.GetColumnTextRequest\x1a\x1d.sqlite.GetColumnTextResponse\x12L\n" +
+	"\rGetColumnType\x12\x1c.sqlite.GetColumnTypeRequest\x1a\x1d.sqlite.GetColumnTypeResponse\x12X\n" +
+	"\x11GetParameterCount\x12 .sqlite.GetParameterCountRequest\x1a!.sqlite.GetParameterCountResponse\x12X\n" +
+	"\x11GetParameterIndex\x12 .sqlite.GetParameterIndexRequest\x1a!.sqlite.GetParameterIndexResponse\x12U\n" +
+	"\x10GetParameterName\x12\x1f.sqlite.GetParameterNameRequest\x1a .sqlite.GetParameterNameResponse\x12a\n" +
+	"\x14GetResultColumnCount\x12#.sqlite.GetResultColumnCountRequest\x1a$.sqlite.GetResultColumnCountResponse\x127\n" +
+	"\x06IsOpen\x12\x15.sqlite.IsOpenRequest\x1a\x16.sqlite.IsOpenResponse\x12O\n" +
+	"\x0eReadColumnBlob\x12\x1d.sqlite.ReadColumnBlobRequest\x1a\x1e.sqlite.ReadColumnBlobResponse\x124\n" +
+	"\x05Reset\x12\x14.sqlite.ResetRequest\x1a\x15.sqlite.ResetResponse\x121\n" +
+	"\x04Step\x12\x13.sqlite.StepRequest\x1a\x14.sqlite.StepResponse\x12=\n" +
+	"\bToString\x12\x17.sqlite.ToStringRequest\x1a\x18.sqlite.ToStringResponse2\xa5\a\n" +
+	"\x13SQLiteCursorService\x12R\n" +
+	"\x0fNewSQLiteCursor\x12\x1e.sqlite.NewSQLiteCursorRequest\x1a\x1f.sqlite.NewSQLiteCursorResponse\x12@\n" +
+	"\x05Close\x12 .sqlite.SQLiteCursorCloseRequest\x1a\x15.sqlite.CloseResponse\x12C\n" +
+	"\n" +
+	"Deactivate\x12\x19.sqlite.DeactivateRequest\x1a\x1a.sqlite.DeactivateResponse\x12O\n" +
+	"\x0eGetColumnIndex\x12\x1d.sqlite.GetColumnIndexRequest\x1a\x1e.sqlite.GetColumnIndexResponse\x12O\n" +
+	"\x0eGetColumnNames\x12\x1d.sqlite.GetColumnNamesRequest\x1a\x1e.sqlite.GetColumnNamesResponse\x12=\n" +
+	"\bGetCount\x12\x17.sqlite.GetCountRequest\x1a\x18.sqlite.GetCountResponse\x12F\n" +
+	"\vGetDatabase\x12\x1a.sqlite.GetDatabaseRequest\x1a\x1b.sqlite.GetDatabaseResponse\x127\n" +
+	"\x06OnMove\x12\x15.sqlite.OnMoveRequest\x1a\x16.sqlite.OnMoveResponse\x12:\n" +
+	"\aRequery\x12\x16.sqlite.RequeryRequest\x1a\x17.sqlite.RequeryResponse\x12m\n" +
+	"\x18SetFillWindowForwardOnly\x12'.sqlite.SetFillWindowForwardOnlyRequest\x1a(.sqlite.SetFillWindowForwardOnlyResponse\x12d\n" +
+	"\x15SetSelectionArguments\x12$.sqlite.SetSelectionArgumentsRequest\x1a%.sqlite.SetSelectionArgumentsResponse\x12@\n" +
+	"\tSetWindow\x12\x18.sqlite.SetWindowRequest\x1a\x19.sqlite.SetWindowResponse2\xf9\x02\n" +
+	"\x15SQLiteClosableService\x12U\n" +
+	"\x10AcquireReference\x12\x1f.sqlite.AcquireReferenceRequest\x1a .sqlite.AcquireReferenceResponse\x124\n" +
+	"\x05Close\x12\x14.sqlite.CloseRequest\x1a\x15.sqlite.CloseResponse\x12U\n" +
+	"\x10ReleaseReference\x12\x1f.sqlite.ReleaseReferenceRequest\x1a .sqlite.ReleaseReferenceResponse\x12|\n" +
+	"\x1dReleaseReferenceFromContainer\x12,.sqlite.ReleaseReferenceFromContainerRequest\x1a-.sqlite.ReleaseReferenceFromContainerResponse2\xe2\x01\n" +
+	" SQLiteTransactionListenerService\x12:\n" +
+	"\aOnBegin\x12\x16.sqlite.OnBeginRequest\x1a\x17.sqlite.OnBeginResponse\x12=\n" +
+	"\bOnCommit\x12\x17.sqlite.OnCommitRequest\x1a\x18.sqlite.OnCommitResponse\x12C\n" +
+	"\n" +
+	"OnRollback\x12\x19.sqlite.OnRollbackRequest\x1a\x1a.sqlite.OnRollbackResponse2\x89\b\n" +
+	"\x17SQLiteOpenHelperService\x12R\n" +
+	"\x0fGetDatabaseName\x12\x1e.sqlite.GetDatabaseNameRequest\x1a\x1f.sqlite.GetDatabaseNameResponse\x12^\n" +
+	"\x13GetReadableDatabase\x12\".sqlite.GetReadableDatabaseRequest\x1a#.sqlite.GetReadableDatabaseResponse\x12^\n" +
+	"\x13GetWritableDatabase\x12\".sqlite.GetWritableDatabaseRequest\x1a#.sqlite.GetWritableDatabaseResponse\x12F\n" +
+	"\vOnConfigure\x12\x1a.sqlite.OnConfigureRequest\x1a\x1b.sqlite.OnConfigureResponse\x12=\n" +
+	"\bOnCreate\x12\x17.sqlite.OnCreateRequest\x1a\x18.sqlite.OnCreateResponse\x12F\n" +
+	"\vOnDowngrade\x12\x1a.sqlite.OnDowngradeRequest\x1a\x1b.sqlite.OnDowngradeResponse\x127\n" +
+	"\x06OnOpen\x12\x15.sqlite.OnOpenRequest\x1a\x16.sqlite.OnOpenResponse\x12@\n" +
+	"\tOnUpgrade\x12\x18.sqlite.OnUpgradeRequest\x1a\x19.sqlite.OnUpgradeResponse\x12m\n" +
+	"\x18SetIdleConnectionTimeout\x12'.sqlite.SetIdleConnectionTimeoutRequest\x1a(.sqlite.SetIdleConnectionTimeoutResponse\x12[\n" +
+	"\x12SetLookasideConfig\x12!.sqlite.SetLookasideConfigRequest\x1a\".sqlite.SetLookasideConfigResponse\x12L\n" +
+	"\rSetOpenParams\x12\x1c.sqlite.SetOpenParamsRequest\x1a\x1d.sqlite.SetOpenParamsResponse\x12v\n" +
+	"\x1bSetWriteAheadLoggingEnabled\x12*.sqlite.SetWriteAheadLoggingEnabledRequest\x1a+.sqlite.SetWriteAheadLoggingEnabledResponse2\xd6\x04\n" +
+	"\x14SQLiteProgramService\x12a\n" +
+	"\x14BindAllArgsAsStrings\x12#.sqlite.BindAllArgsAsStringsRequest\x1a$.sqlite.BindAllArgsAsStringsResponse\x12=\n" +
+	"\bBindBlob\x12\x17.sqlite.BindBlobRequest\x1a\x18.sqlite.BindBlobResponse\x12C\n" +
+	"\n" +
+	"BindDouble\x12\x19.sqlite.BindDoubleRequest\x1a\x1a.sqlite.BindDoubleResponse\x12=\n" +
+	"\bBindLong\x12\x17.sqlite.BindLongRequest\x1a\x18.sqlite.BindLongResponse\x12=\n" +
+	"\bBindNull\x12\x17.sqlite.BindNullRequest\x1a\x18.sqlite.BindNullResponse\x12C\n" +
+	"\n" +
+	"BindString\x12\x19.sqlite.BindStringRequest\x1a\x1a.sqlite.BindStringResponse\x12L\n" +
+	"\rClearBindings\x12\x1c.sqlite.ClearBindingsRequest\x1a\x1d.sqlite.ClearBindingsResponse\x12F\n" +
+	"\vGetUniqueId\x12\x1a.sqlite.GetUniqueIdRequest\x1a\x1b.sqlite.GetUniqueIdResponse2\xf70\n" +
+	"\x15SQLiteDatabaseService\x12U\n" +
+	"\x10BeginTransaction\x12\x1f.sqlite.BeginTransactionRequest\x1a .sqlite.BeginTransactionResponse\x12y\n" +
+	"\x1cBeginTransactionNonExclusive\x12+.sqlite.BeginTransactionNonExclusiveRequest\x1a,.sqlite.BeginTransactionNonExclusiveResponse\x12m\n" +
+	"\x18BeginTransactionReadOnly\x12'.sqlite.BeginTransactionReadOnlyRequest\x1a(.sqlite.BeginTransactionReadOnlyResponse\x12y\n" +
+	"\x1cBeginTransactionWithListener\x12+.sqlite.BeginTransactionWithListenerRequest\x1a,.sqlite.BeginTransactionWithListenerResponse\x12\x9d\x01\n" +
+	"(BeginTransactionWithListenerNonExclusive\x127.sqlite.BeginTransactionWithListenerNonExclusiveRequest\x1a8.sqlite.BeginTransactionWithListenerNonExclusiveResponse\x12\x91\x01\n" +
+	"$BeginTransactionWithListenerReadOnly\x123.sqlite.BeginTransactionWithListenerReadOnlyRequest\x1a4.sqlite.BeginTransactionWithListenerReadOnlyResponse\x12U\n" +
+	"\x10CompileStatement\x12\x1f.sqlite.CompileStatementRequest\x1a .sqlite.CompileStatementResponse\x12[\n" +
+	"\x12CreateRawStatement\x12!.sqlite.CreateRawStatementRequest\x1a\".sqlite.CreateRawStatementResponse\x127\n" +
+	"\x06Delete\x12\x15.sqlite.DeleteRequest\x1a\x16.sqlite.DeleteResponse\x12m\n" +
+	"\x18DisableWriteAheadLogging\x12'.sqlite.DisableWriteAheadLoggingRequest\x1a(.sqlite.DisableWriteAheadLoggingResponse\x12j\n" +
+	"\x17EnableWriteAheadLogging\x12&.sqlite.EnableWriteAheadLoggingRequest\x1a'.sqlite.EnableWriteAheadLoggingResponse\x12O\n" +
+	"\x0eEndTransaction\x12\x1d.sqlite.EndTransactionRequest\x1a\x1e.sqlite.EndTransactionResponse\x12a\n" +
+	"\x14ExecPerConnectionSQL\x12#.sqlite.ExecPerConnectionSQLRequest\x1a$.sqlite.ExecPerConnectionSQLResponse\x12=\n" +
+	"\bExecSQL1\x12\x17.sqlite.ExecSQL1Request\x1a\x18.sqlite.ExecSQL1Response\x12C\n" +
+	"\n" +
+	"ExecSQL2_1\x12\x19.sqlite.ExecSQL2_1Request\x1a\x1a.sqlite.ExecSQL2_1Response\x12g\n" +
+	"\x16GetLastChangedRowCount\x12%.sqlite.GetLastChangedRowCountRequest\x1a&.sqlite.GetLastChangedRowCountResponse\x12[\n" +
+	"\x12GetLastInsertRowId\x12!.sqlite.GetLastInsertRowIdRequest\x1a\".sqlite.GetLastInsertRowIdResponse\x12O\n" +
+	"\x0eGetMaximumSize\x12\x1d.sqlite.GetMaximumSizeRequest\x1a\x1e.sqlite.GetMaximumSizeResponse\x12F\n" +
+	"\vGetPageSize\x12\x1a.sqlite.GetPageSizeRequest\x1a\x1b.sqlite.GetPageSizeResponse\x12:\n" +
+	"\aGetPath\x12\x16.sqlite.GetPathRequest\x1a\x17.sqlite.GetPathResponse\x12j\n" +
+	"\x17GetTotalChangedRowCount\x12&.sqlite.GetTotalChangedRowCountRequest\x1a'.sqlite.GetTotalChangedRowCountResponse\x12C\n" +
+	"\n" +
+	"GetVersion\x12\x19.sqlite.GetVersionRequest\x1a\x1a.sqlite.GetVersionResponse\x12L\n" +
+	"\rInTransaction\x12\x1c.sqlite.InTransactionRequest\x1a\x1d.sqlite.InTransactionResponse\x127\n" +
+	"\x06Insert\x12\x15.sqlite.InsertRequest\x1a\x16.sqlite.InsertResponse\x12L\n" +
+	"\rInsertOrThrow\x12\x1c.sqlite.InsertOrThrowRequest\x1a\x1d.sqlite.InsertOrThrowResponse\x12a\n" +
+	"\x14InsertWithOnConflict\x12#.sqlite.InsertWithOnConflictRequest\x1a$.sqlite.InsertWithOnConflictResponse\x12d\n" +
+	"\x15IsDatabaseIntegrityOk\x12$.sqlite.IsDatabaseIntegrityOkRequest\x1a%.sqlite.IsDatabaseIntegrityOkResponse\x12p\n" +
+	"\x19IsDbLockedByCurrentThread\x12(.sqlite.IsDbLockedByCurrentThreadRequest\x1a).sqlite.IsDbLockedByCurrentThreadResponse\x12m\n" +
+	"\x18IsDbLockedByOtherThreads\x12'.sqlite.IsDbLockedByOtherThreadsRequest\x1a(.sqlite.IsDbLockedByOtherThreadsResponse\x127\n" +
+	"\x06IsOpen\x12\x15.sqlite.IsOpenRequest\x1a\x16.sqlite.IsOpenResponse\x12C\n" +
+	"\n" +
+	"IsReadOnly\x12\x19.sqlite.IsReadOnlyRequest\x1a\x1a.sqlite.IsReadOnlyResponse\x12s\n" +
+	"\x1aIsWriteAheadLoggingEnabled\x12).sqlite.IsWriteAheadLoggingEnabledRequest\x1a*.sqlite.IsWriteAheadLoggingEnabledResponse\x12[\n" +
+	"\x12MarkTableSyncable2\x12!.sqlite.MarkTableSyncable2Request\x1a\".sqlite.MarkTableSyncable2Response\x12a\n" +
+	"\x14MarkTableSyncable3_1\x12#.sqlite.MarkTableSyncable3_1Request\x1a$.sqlite.MarkTableSyncable3_1Response\x12F\n" +
+	"\vNeedUpgrade\x12\x1a.sqlite.NeedUpgradeRequest\x1a\x1b.sqlite.NeedUpgradeResponse\x127\n" +
+	"\x06Query9\x12\x15.sqlite.Query9Request\x1a\x16.sqlite.Query9Response\x12@\n" +
+	"\tQuery10_1\x12\x18.sqlite.Query10_1Request\x1a\x19.sqlite.Query10_1Response\x12=\n" +
+	"\bQuery7_2\x12\x17.sqlite.Query7_2Request\x1a\x18.sqlite.Query7_2Response\x12=\n" +
+	"\bQuery8_3\x12\x17.sqlite.Query8_3Request\x1a\x18.sqlite.Query8_3Response\x12[\n" +
+	"\x12QueryWithFactory10\x12!.sqlite.QueryWithFactory10Request\x1a\".sqlite.QueryWithFactory10Response\x12a\n" +
+	"\x14QueryWithFactory11_1\x12#.sqlite.QueryWithFactory11_1Request\x1a$.sqlite.QueryWithFactory11_1Response\x12@\n" +
+	"\tRawQuery2\x12\x18.sqlite.RawQuery2Request\x1a\x19.sqlite.RawQuery2Response\x12F\n" +
+	"\vRawQuery3_1\x12\x1a.sqlite.RawQuery3_1Request\x1a\x1b.sqlite.RawQuery3_1Response\x12a\n" +
+	"\x14RawQueryWithFactory4\x12#.sqlite.RawQueryWithFactory4Request\x1a$.sqlite.RawQueryWithFactory4Response\x12g\n" +
+	"\x16RawQueryWithFactory5_1\x12%.sqlite.RawQueryWithFactory5_1Request\x1a&.sqlite.RawQueryWithFactory5_1Response\x12:\n" +
+	"\aReplace\x12\x16.sqlite.ReplaceRequest\x1a\x17.sqlite.ReplaceResponse\x12O\n" +
+	"\x0eReplaceOrThrow\x12\x1d.sqlite.ReplaceOrThrowRequest\x1a\x1e.sqlite.ReplaceOrThrowResponse\x12\x82\x01\n" +
+	"\x1fSetForeignKeyConstraintsEnabled\x12..sqlite.SetForeignKeyConstraintsEnabledRequest\x1a/.sqlite.SetForeignKeyConstraintsEnabledResponse\x12@\n" +
+	"\tSetLocale\x12\x18.sqlite.SetLocaleRequest\x1a\x19.sqlite.SetLocaleResponse\x12X\n" +
+	"\x11SetLockingEnabled\x12 .sqlite.SetLockingEnabledRequest\x1a!.sqlite.SetLockingEnabledResponse\x12[\n" +
+	"\x12SetMaxSqlCacheSize\x12!.sqlite.SetMaxSqlCacheSizeRequest\x1a\".sqlite.SetMaxSqlCacheSizeResponse\x12O\n" +
+	"\x0eSetMaximumSize\x12\x1d.sqlite.SetMaximumSizeRequest\x1a\x1e.sqlite.SetMaximumSizeResponse\x12F\n" +
+	"\vSetPageSize\x12\x1a.sqlite.SetPageSizeRequest\x1a\x1b.sqlite.SetPageSizeResponse\x12m\n" +
+	"\x18SetTransactionSuccessful\x12'.sqlite.SetTransactionSuccessfulRequest\x1a(.sqlite.SetTransactionSuccessfulResponse\x12C\n" +
+	"\n" +
+	"SetVersion\x12\x19.sqlite.SetVersionRequest\x1a\x1a.sqlite.SetVersionResponse\x12=\n" +
+	"\bToString\x12\x17.sqlite.ToStringRequest\x1a\x18.sqlite.ToStringResponse\x127\n" +
+	"\x06Update\x12\x15.sqlite.UpdateRequest\x1a\x16.sqlite.UpdateResponse\x12a\n" +
+	"\x14UpdateWithOnConflict\x12#.sqlite.UpdateWithOnConflictRequest\x1a$.sqlite.UpdateWithOnConflictResponse\x12F\n" +
+	"\vValidateSql\x12\x1a.sqlite.ValidateSqlRequest\x1a\x1b.sqlite.ValidateSqlResponse\x12U\n" +
+	"\x10YieldIfContended\x12\x1f.sqlite.YieldIfContendedRequest\x1a .sqlite.YieldIfContendedResponse\x12j\n" +
+	"\x17YieldIfContendedSafely0\x12&.sqlite.YieldIfContendedSafely0Request\x1a'.sqlite.YieldIfContendedSafely0Response\x12p\n" +
+	"\x19YieldIfContendedSafely1_1\x12(.sqlite.YieldIfContendedSafely1_1Request\x1a).sqlite.YieldIfContendedSafely1_1Response\x127\n" +
+	"\x06Create\x12\x15.sqlite.CreateRequest\x1a\x16.sqlite.CreateResponse\x12O\n" +
+	"\x0eCreateInMemory\x12\x1d.sqlite.CreateInMemoryRequest\x1a\x1e.sqlite.CreateInMemoryResponse\x12O\n" +
+	"\x0eDeleteDatabase\x12\x1d.sqlite.DeleteDatabaseRequest\x1a\x1e.sqlite.DeleteDatabaseResponse\x12L\n" +
+	"\rFindEditTable\x12\x1c.sqlite.FindEditTableRequest\x1a\x1d.sqlite.FindEditTableResponse\x12L\n" +
+	"\rOpenDatabase2\x12\x1c.sqlite.OpenDatabase2Request\x1a\x1d.sqlite.OpenDatabase2Response\x12R\n" +
+	"\x0fOpenDatabase3_1\x12\x1e.sqlite.OpenDatabase3_1Request\x1a\x1f.sqlite.OpenDatabase3_1Response\x12d\n" +
+	"\x15OpenOrCreateDatabase2\x12$.sqlite.OpenOrCreateDatabase2Request\x1a%.sqlite.OpenOrCreateDatabase2Response\x12j\n" +
+	"\x17OpenOrCreateDatabase2_1\x12&.sqlite.OpenOrCreateDatabase2_1Request\x1a'.sqlite.OpenOrCreateDatabase2_1Response\x12L\n" +
+	"\rReleaseMemory\x12\x1c.sqlite.ReleaseMemoryRequest\x1a\x1d.sqlite.ReleaseMemoryResponse2f\n" +
+	"\"SQLiteDatabaseCursorFactoryService\x12@\n" +
+	"\tNewCursor\x12\x18.sqlite.NewCursorRequest\x1a\x19.sqlite.NewCursorResponse2\xfd\x05\n" +
+	"\x1fSQLiteDatabaseOpenParamsService\x12U\n" +
+	"\x10GetCursorFactory\x12\x1f.sqlite.GetCursorFactoryRequest\x1a .sqlite.GetCursorFactoryResponse\x12R\n" +
+	"\x0fGetErrorHandler\x12\x1e.sqlite.GetErrorHandlerRequest\x1a\x1f.sqlite.GetErrorHandlerResponse\x12m\n" +
+	"\x18GetIdleConnectionTimeout\x12'.sqlite.GetIdleConnectionTimeoutRequest\x1a(.sqlite.GetIdleConnectionTimeoutResponse\x12O\n" +
+	"\x0eGetJournalMode\x12\x1d.sqlite.GetJournalModeRequest\x1a\x1e.sqlite.GetJournalModeResponse\x12d\n" +
+	"\x15GetLookasideSlotCount\x12$.sqlite.GetLookasideSlotCountRequest\x1a%.sqlite.GetLookasideSlotCountResponse\x12a\n" +
+	"\x14GetLookasideSlotSize\x12#.sqlite.GetLookasideSlotSizeRequest\x1a$.sqlite.GetLookasideSlotSizeResponse\x12I\n" +
+	"\fGetOpenFlags\x12\x1b.sqlite.GetOpenFlagsRequest\x1a\x1c.sqlite.GetOpenFlagsResponse\x12[\n" +
+	"\x12GetSynchronousMode\x12!.sqlite.GetSynchronousModeRequest\x1a\".sqlite.GetSynchronousModeResponse2\xea\x10\n" +
+	"\x19SQLiteQueryBuilderService\x12d\n" +
+	"\x15NewSQLiteQueryBuilder\x12$.sqlite.NewSQLiteQueryBuilderRequest\x1a%.sqlite.NewSQLiteQueryBuilderResponse\x12F\n" +
+	"\vAppendWhere\x12\x1a.sqlite.AppendWhereRequest\x1a\x1b.sqlite.AppendWhereResponse\x12j\n" +
+	"\x17AppendWhereEscapeString\x12&.sqlite.AppendWhereEscapeStringRequest\x1a'.sqlite.AppendWhereEscapeStringResponse\x12d\n" +
+	"\x15AppendWhereStandalone\x12$.sqlite.AppendWhereStandaloneRequest\x1a%.sqlite.AppendWhereStandaloneResponse\x12F\n" +
+	"\vBuildQuery6\x12\x1a.sqlite.BuildQuery6Request\x1a\x1b.sqlite.BuildQuery6Response\x12L\n" +
+	"\rBuildQuery7_1\x12\x1c.sqlite.BuildQuery7_1Request\x1a\x1d.sqlite.BuildQuery7_1Response\x12R\n" +
+	"\x0fBuildUnionQuery\x12\x1e.sqlite.BuildUnionQueryRequest\x1a\x1f.sqlite.BuildUnionQueryResponse\x12I\n" +
+	"\x06Delete\x12'.sqlite.SQLiteQueryBuilderDeleteRequest\x1a\x16.sqlite.DeleteResponse\x12g\n" +
+	"\x10GetCursorFactory\x121.sqlite.SQLiteQueryBuilderGetCursorFactoryRequest\x1a .sqlite.GetCursorFactoryResponse\x12@\n" +
+	"\tGetTables\x12\x18.sqlite.GetTablesRequest\x1a\x19.sqlite.GetTablesResponse\x12I\n" +
+	"\x06Insert\x12'.sqlite.SQLiteQueryBuilderInsertRequest\x1a\x16.sqlite.InsertResponse\x12C\n" +
+	"\n" +
+	"IsDistinct\x12\x19.sqlite.IsDistinctRequest\x1a\x1a.sqlite.IsDistinctResponse\x12=\n" +
+	"\bIsStrict\x12\x17.sqlite.IsStrictRequest\x1a\x18.sqlite.IsStrictResponse\x12R\n" +
+	"\x0fIsStrictColumns\x12\x1e.sqlite.IsStrictColumnsRequest\x1a\x1f.sqlite.IsStrictColumnsResponse\x12R\n" +
+	"\x0fIsStrictGrammar\x12\x1e.sqlite.IsStrictGrammarRequest\x1a\x1f.sqlite.IsStrictGrammarResponse\x127\n" +
+	"\x06Query7\x12\x15.sqlite.Query7Request\x1a\x16.sqlite.Query7Response\x12=\n" +
+	"\bQuery8_1\x12\x17.sqlite.Query8_1Request\x1a\x18.sqlite.Query8_1Response\x12=\n" +
+	"\bQuery9_2\x12\x17.sqlite.Query9_2Request\x1a\x18.sqlite.Query9_2Response\x12U\n" +
+	"\x10SetCursorFactory\x12\x1f.sqlite.SetCursorFactoryRequest\x1a .sqlite.SetCursorFactoryResponse\x12F\n" +
+	"\vSetDistinct\x12\x1a.sqlite.SetDistinctRequest\x1a\x1b.sqlite.SetDistinctResponse\x12@\n" +
+	"\tSetStrict\x12\x18.sqlite.SetStrictRequest\x1a\x19.sqlite.SetStrictResponse\x12U\n" +
+	"\x10SetStrictColumns\x12\x1f.sqlite.SetStrictColumnsRequest\x1a .sqlite.SetStrictColumnsResponse\x12U\n" +
+	"\x10SetStrictGrammar\x12\x1f.sqlite.SetStrictGrammarRequest\x1a .sqlite.SetStrictGrammarResponse\x12@\n" +
+	"\tSetTables\x12\x18.sqlite.SetTablesRequest\x1a\x19.sqlite.SetTablesResponse\x12I\n" +
+	"\x06Update\x12'.sqlite.SQLiteQueryBuilderUpdateRequest\x1a\x16.sqlite.UpdateResponse\x12L\n" +
+	"\rAppendColumns\x12\x1c.sqlite.AppendColumnsRequest\x1a\x1d.sqlite.AppendColumnsResponse\x12U\n" +
+	"\x10BuildQueryString\x12\x1f.sqlite.BuildQueryStringRequest\x1a .sqlite.BuildQueryStringResponse2\xa1\x03\n" +
+	"\x19SQLiteCursorDriverService\x12I\n" +
+	"\fCursorClosed\x12\x1b.sqlite.CursorClosedRequest\x1a\x1c.sqlite.CursorClosedResponse\x12X\n" +
+	"\x11CursorDeactivated\x12 .sqlite.CursorDeactivatedRequest\x1a!.sqlite.CursorDeactivatedResponse\x12R\n" +
+	"\x0fCursorRequeried\x12\x1e.sqlite.CursorRequeriedRequest\x1a\x1f.sqlite.CursorRequeriedResponse\x124\n" +
+	"\x05Query\x12\x14.sqlite.QueryRequest\x1a\x15.sqlite.QueryResponse\x12U\n" +
+	"\x10SetBindArguments\x12\x1f.sqlite.SetBindArgumentsRequest\x1a .sqlite.SetBindArgumentsResponse2S\n" +
+	"\x12SQLiteQueryService\x12=\n" +
+	"\bToString\x12\x17.sqlite.ToStringRequest\x1a\x18.sqlite.ToStringResponse2\x89\x05\n" +
+	"\x16SQLiteStatementService\x12:\n" +
+	"\aExecute\x12\x16.sqlite.ExecuteRequest\x1a\x17.sqlite.ExecuteResponse\x12L\n" +
+	"\rExecuteInsert\x12\x1c.sqlite.ExecuteInsertRequest\x1a\x1d.sqlite.ExecuteInsertResponse\x12^\n" +
+	"\x13ExecuteUpdateDelete\x12\".sqlite.ExecuteUpdateDeleteRequest\x1a#.sqlite.ExecuteUpdateDeleteResponse\x12\x85\x01\n" +
+	" SimpleQueryForBlobFileDescriptor\x12/.sqlite.SimpleQueryForBlobFileDescriptorRequest\x1a0.sqlite.SimpleQueryForBlobFileDescriptorResponse\x12[\n" +
+	"\x12SimpleQueryForLong\x12!.sqlite.SimpleQueryForLongRequest\x1a\".sqlite.SimpleQueryForLongResponse\x12a\n" +
+	"\x14SimpleQueryForString\x12#.sqlite.SimpleQueryForStringRequest\x1a$.sqlite.SimpleQueryForStringResponse\x12=\n" +
+	"\bToString\x12\x17.sqlite.ToStringRequest\x1a\x18.sqlite.ToStringResponseB0Z.github.com/AndroidGoLab/jni-proxy/proto/sqliteb\x06proto3"
 
-var file_proto_sqlite_sqlite_proto_goTypes = []any{}
+var (
+	file_proto_sqlite_sqlite_proto_rawDescOnce sync.Once
+	file_proto_sqlite_sqlite_proto_rawDescData []byte
+)
+
+func file_proto_sqlite_sqlite_proto_rawDescGZIP() []byte {
+	file_proto_sqlite_sqlite_proto_rawDescOnce.Do(func() {
+		file_proto_sqlite_sqlite_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_proto_sqlite_sqlite_proto_rawDesc), len(file_proto_sqlite_sqlite_proto_rawDesc)))
+	})
+	return file_proto_sqlite_sqlite_proto_rawDescData
+}
+
+var file_proto_sqlite_sqlite_proto_msgTypes = make([]protoimpl.MessageInfo, 347)
+var file_proto_sqlite_sqlite_proto_goTypes = []any{
+	(*BindBlob2Request)(nil),                                 // 0: sqlite.BindBlob2Request
+	(*BindBlob2Response)(nil),                                // 1: sqlite.BindBlob2Response
+	(*BindBlob4_1Request)(nil),                               // 2: sqlite.BindBlob4_1Request
+	(*BindBlob4_1Response)(nil),                              // 3: sqlite.BindBlob4_1Response
+	(*BindDoubleRequest)(nil),                                // 4: sqlite.BindDoubleRequest
+	(*BindDoubleResponse)(nil),                               // 5: sqlite.BindDoubleResponse
+	(*BindIntRequest)(nil),                                   // 6: sqlite.BindIntRequest
+	(*BindIntResponse)(nil),                                  // 7: sqlite.BindIntResponse
+	(*BindLongRequest)(nil),                                  // 8: sqlite.BindLongRequest
+	(*BindLongResponse)(nil),                                 // 9: sqlite.BindLongResponse
+	(*BindNullRequest)(nil),                                  // 10: sqlite.BindNullRequest
+	(*BindNullResponse)(nil),                                 // 11: sqlite.BindNullResponse
+	(*BindTextRequest)(nil),                                  // 12: sqlite.BindTextRequest
+	(*BindTextResponse)(nil),                                 // 13: sqlite.BindTextResponse
+	(*ClearBindingsRequest)(nil),                             // 14: sqlite.ClearBindingsRequest
+	(*ClearBindingsResponse)(nil),                            // 15: sqlite.ClearBindingsResponse
+	(*CloseRequest)(nil),                                     // 16: sqlite.CloseRequest
+	(*CloseResponse)(nil),                                    // 17: sqlite.CloseResponse
+	(*GetColumnBlobRequest)(nil),                             // 18: sqlite.GetColumnBlobRequest
+	(*GetColumnBlobResponse)(nil),                            // 19: sqlite.GetColumnBlobResponse
+	(*GetColumnDoubleRequest)(nil),                           // 20: sqlite.GetColumnDoubleRequest
+	(*GetColumnDoubleResponse)(nil),                          // 21: sqlite.GetColumnDoubleResponse
+	(*GetColumnIntRequest)(nil),                              // 22: sqlite.GetColumnIntRequest
+	(*GetColumnIntResponse)(nil),                             // 23: sqlite.GetColumnIntResponse
+	(*GetColumnLengthRequest)(nil),                           // 24: sqlite.GetColumnLengthRequest
+	(*GetColumnLengthResponse)(nil),                          // 25: sqlite.GetColumnLengthResponse
+	(*GetColumnLongRequest)(nil),                             // 26: sqlite.GetColumnLongRequest
+	(*GetColumnLongResponse)(nil),                            // 27: sqlite.GetColumnLongResponse
+	(*GetColumnNameRequest)(nil),                             // 28: sqlite.GetColumnNameRequest
+	(*GetColumnNameResponse)(nil),                            // 29: sqlite.GetColumnNameResponse
+	(*GetColumnTextRequest)(nil),                             // 30: sqlite.GetColumnTextRequest
+	(*GetColumnTextResponse)(nil),                            // 31: sqlite.GetColumnTextResponse
+	(*GetColumnTypeRequest)(nil),                             // 32: sqlite.GetColumnTypeRequest
+	(*GetColumnTypeResponse)(nil),                            // 33: sqlite.GetColumnTypeResponse
+	(*GetParameterCountRequest)(nil),                         // 34: sqlite.GetParameterCountRequest
+	(*GetParameterCountResponse)(nil),                        // 35: sqlite.GetParameterCountResponse
+	(*GetParameterIndexRequest)(nil),                         // 36: sqlite.GetParameterIndexRequest
+	(*GetParameterIndexResponse)(nil),                        // 37: sqlite.GetParameterIndexResponse
+	(*GetParameterNameRequest)(nil),                          // 38: sqlite.GetParameterNameRequest
+	(*GetParameterNameResponse)(nil),                         // 39: sqlite.GetParameterNameResponse
+	(*GetResultColumnCountRequest)(nil),                      // 40: sqlite.GetResultColumnCountRequest
+	(*GetResultColumnCountResponse)(nil),                     // 41: sqlite.GetResultColumnCountResponse
+	(*IsOpenRequest)(nil),                                    // 42: sqlite.IsOpenRequest
+	(*IsOpenResponse)(nil),                                   // 43: sqlite.IsOpenResponse
+	(*ReadColumnBlobRequest)(nil),                            // 44: sqlite.ReadColumnBlobRequest
+	(*ReadColumnBlobResponse)(nil),                           // 45: sqlite.ReadColumnBlobResponse
+	(*ResetRequest)(nil),                                     // 46: sqlite.ResetRequest
+	(*ResetResponse)(nil),                                    // 47: sqlite.ResetResponse
+	(*StepRequest)(nil),                                      // 48: sqlite.StepRequest
+	(*StepResponse)(nil),                                     // 49: sqlite.StepResponse
+	(*ToStringRequest)(nil),                                  // 50: sqlite.ToStringRequest
+	(*ToStringResponse)(nil),                                 // 51: sqlite.ToStringResponse
+	(*NewSQLiteCursorRequest)(nil),                           // 52: sqlite.NewSQLiteCursorRequest
+	(*NewSQLiteCursorResponse)(nil),                          // 53: sqlite.NewSQLiteCursorResponse
+	(*SQLiteCursorCloseRequest)(nil),                         // 54: sqlite.SQLiteCursorCloseRequest
+	(*DeactivateRequest)(nil),                                // 55: sqlite.DeactivateRequest
+	(*DeactivateResponse)(nil),                               // 56: sqlite.DeactivateResponse
+	(*GetColumnIndexRequest)(nil),                            // 57: sqlite.GetColumnIndexRequest
+	(*GetColumnIndexResponse)(nil),                           // 58: sqlite.GetColumnIndexResponse
+	(*GetColumnNamesRequest)(nil),                            // 59: sqlite.GetColumnNamesRequest
+	(*GetColumnNamesResponse)(nil),                           // 60: sqlite.GetColumnNamesResponse
+	(*GetCountRequest)(nil),                                  // 61: sqlite.GetCountRequest
+	(*GetCountResponse)(nil),                                 // 62: sqlite.GetCountResponse
+	(*GetDatabaseRequest)(nil),                               // 63: sqlite.GetDatabaseRequest
+	(*GetDatabaseResponse)(nil),                              // 64: sqlite.GetDatabaseResponse
+	(*OnMoveRequest)(nil),                                    // 65: sqlite.OnMoveRequest
+	(*OnMoveResponse)(nil),                                   // 66: sqlite.OnMoveResponse
+	(*RequeryRequest)(nil),                                   // 67: sqlite.RequeryRequest
+	(*RequeryResponse)(nil),                                  // 68: sqlite.RequeryResponse
+	(*SetFillWindowForwardOnlyRequest)(nil),                  // 69: sqlite.SetFillWindowForwardOnlyRequest
+	(*SetFillWindowForwardOnlyResponse)(nil),                 // 70: sqlite.SetFillWindowForwardOnlyResponse
+	(*SetSelectionArgumentsRequest)(nil),                     // 71: sqlite.SetSelectionArgumentsRequest
+	(*SetSelectionArgumentsResponse)(nil),                    // 72: sqlite.SetSelectionArgumentsResponse
+	(*SetWindowRequest)(nil),                                 // 73: sqlite.SetWindowRequest
+	(*SetWindowResponse)(nil),                                // 74: sqlite.SetWindowResponse
+	(*AcquireReferenceRequest)(nil),                          // 75: sqlite.AcquireReferenceRequest
+	(*AcquireReferenceResponse)(nil),                         // 76: sqlite.AcquireReferenceResponse
+	(*ReleaseReferenceRequest)(nil),                          // 77: sqlite.ReleaseReferenceRequest
+	(*ReleaseReferenceResponse)(nil),                         // 78: sqlite.ReleaseReferenceResponse
+	(*ReleaseReferenceFromContainerRequest)(nil),             // 79: sqlite.ReleaseReferenceFromContainerRequest
+	(*ReleaseReferenceFromContainerResponse)(nil),            // 80: sqlite.ReleaseReferenceFromContainerResponse
+	(*OnBeginRequest)(nil),                                   // 81: sqlite.OnBeginRequest
+	(*OnBeginResponse)(nil),                                  // 82: sqlite.OnBeginResponse
+	(*OnCommitRequest)(nil),                                  // 83: sqlite.OnCommitRequest
+	(*OnCommitResponse)(nil),                                 // 84: sqlite.OnCommitResponse
+	(*OnRollbackRequest)(nil),                                // 85: sqlite.OnRollbackRequest
+	(*OnRollbackResponse)(nil),                               // 86: sqlite.OnRollbackResponse
+	(*GetDatabaseNameRequest)(nil),                           // 87: sqlite.GetDatabaseNameRequest
+	(*GetDatabaseNameResponse)(nil),                          // 88: sqlite.GetDatabaseNameResponse
+	(*GetReadableDatabaseRequest)(nil),                       // 89: sqlite.GetReadableDatabaseRequest
+	(*GetReadableDatabaseResponse)(nil),                      // 90: sqlite.GetReadableDatabaseResponse
+	(*GetWritableDatabaseRequest)(nil),                       // 91: sqlite.GetWritableDatabaseRequest
+	(*GetWritableDatabaseResponse)(nil),                      // 92: sqlite.GetWritableDatabaseResponse
+	(*OnConfigureRequest)(nil),                               // 93: sqlite.OnConfigureRequest
+	(*OnConfigureResponse)(nil),                              // 94: sqlite.OnConfigureResponse
+	(*OnCreateRequest)(nil),                                  // 95: sqlite.OnCreateRequest
+	(*OnCreateResponse)(nil),                                 // 96: sqlite.OnCreateResponse
+	(*OnDowngradeRequest)(nil),                               // 97: sqlite.OnDowngradeRequest
+	(*OnDowngradeResponse)(nil),                              // 98: sqlite.OnDowngradeResponse
+	(*OnOpenRequest)(nil),                                    // 99: sqlite.OnOpenRequest
+	(*OnOpenResponse)(nil),                                   // 100: sqlite.OnOpenResponse
+	(*OnUpgradeRequest)(nil),                                 // 101: sqlite.OnUpgradeRequest
+	(*OnUpgradeResponse)(nil),                                // 102: sqlite.OnUpgradeResponse
+	(*SetIdleConnectionTimeoutRequest)(nil),                  // 103: sqlite.SetIdleConnectionTimeoutRequest
+	(*SetIdleConnectionTimeoutResponse)(nil),                 // 104: sqlite.SetIdleConnectionTimeoutResponse
+	(*SetLookasideConfigRequest)(nil),                        // 105: sqlite.SetLookasideConfigRequest
+	(*SetLookasideConfigResponse)(nil),                       // 106: sqlite.SetLookasideConfigResponse
+	(*SetOpenParamsRequest)(nil),                             // 107: sqlite.SetOpenParamsRequest
+	(*SetOpenParamsResponse)(nil),                            // 108: sqlite.SetOpenParamsResponse
+	(*SetWriteAheadLoggingEnabledRequest)(nil),               // 109: sqlite.SetWriteAheadLoggingEnabledRequest
+	(*SetWriteAheadLoggingEnabledResponse)(nil),              // 110: sqlite.SetWriteAheadLoggingEnabledResponse
+	(*BindAllArgsAsStringsRequest)(nil),                      // 111: sqlite.BindAllArgsAsStringsRequest
+	(*BindAllArgsAsStringsResponse)(nil),                     // 112: sqlite.BindAllArgsAsStringsResponse
+	(*BindBlobRequest)(nil),                                  // 113: sqlite.BindBlobRequest
+	(*BindBlobResponse)(nil),                                 // 114: sqlite.BindBlobResponse
+	(*BindStringRequest)(nil),                                // 115: sqlite.BindStringRequest
+	(*BindStringResponse)(nil),                               // 116: sqlite.BindStringResponse
+	(*GetUniqueIdRequest)(nil),                               // 117: sqlite.GetUniqueIdRequest
+	(*GetUniqueIdResponse)(nil),                              // 118: sqlite.GetUniqueIdResponse
+	(*BeginTransactionRequest)(nil),                          // 119: sqlite.BeginTransactionRequest
+	(*BeginTransactionResponse)(nil),                         // 120: sqlite.BeginTransactionResponse
+	(*BeginTransactionNonExclusiveRequest)(nil),              // 121: sqlite.BeginTransactionNonExclusiveRequest
+	(*BeginTransactionNonExclusiveResponse)(nil),             // 122: sqlite.BeginTransactionNonExclusiveResponse
+	(*BeginTransactionReadOnlyRequest)(nil),                  // 123: sqlite.BeginTransactionReadOnlyRequest
+	(*BeginTransactionReadOnlyResponse)(nil),                 // 124: sqlite.BeginTransactionReadOnlyResponse
+	(*BeginTransactionWithListenerRequest)(nil),              // 125: sqlite.BeginTransactionWithListenerRequest
+	(*BeginTransactionWithListenerResponse)(nil),             // 126: sqlite.BeginTransactionWithListenerResponse
+	(*BeginTransactionWithListenerNonExclusiveRequest)(nil),  // 127: sqlite.BeginTransactionWithListenerNonExclusiveRequest
+	(*BeginTransactionWithListenerNonExclusiveResponse)(nil), // 128: sqlite.BeginTransactionWithListenerNonExclusiveResponse
+	(*BeginTransactionWithListenerReadOnlyRequest)(nil),      // 129: sqlite.BeginTransactionWithListenerReadOnlyRequest
+	(*BeginTransactionWithListenerReadOnlyResponse)(nil),     // 130: sqlite.BeginTransactionWithListenerReadOnlyResponse
+	(*CompileStatementRequest)(nil),                          // 131: sqlite.CompileStatementRequest
+	(*CompileStatementResponse)(nil),                         // 132: sqlite.CompileStatementResponse
+	(*CreateRawStatementRequest)(nil),                        // 133: sqlite.CreateRawStatementRequest
+	(*CreateRawStatementResponse)(nil),                       // 134: sqlite.CreateRawStatementResponse
+	(*DeleteRequest)(nil),                                    // 135: sqlite.DeleteRequest
+	(*DeleteResponse)(nil),                                   // 136: sqlite.DeleteResponse
+	(*DisableWriteAheadLoggingRequest)(nil),                  // 137: sqlite.DisableWriteAheadLoggingRequest
+	(*DisableWriteAheadLoggingResponse)(nil),                 // 138: sqlite.DisableWriteAheadLoggingResponse
+	(*EnableWriteAheadLoggingRequest)(nil),                   // 139: sqlite.EnableWriteAheadLoggingRequest
+	(*EnableWriteAheadLoggingResponse)(nil),                  // 140: sqlite.EnableWriteAheadLoggingResponse
+	(*EndTransactionRequest)(nil),                            // 141: sqlite.EndTransactionRequest
+	(*EndTransactionResponse)(nil),                           // 142: sqlite.EndTransactionResponse
+	(*ExecPerConnectionSQLRequest)(nil),                      // 143: sqlite.ExecPerConnectionSQLRequest
+	(*ExecPerConnectionSQLResponse)(nil),                     // 144: sqlite.ExecPerConnectionSQLResponse
+	(*ExecSQL1Request)(nil),                                  // 145: sqlite.ExecSQL1Request
+	(*ExecSQL1Response)(nil),                                 // 146: sqlite.ExecSQL1Response
+	(*ExecSQL2_1Request)(nil),                                // 147: sqlite.ExecSQL2_1Request
+	(*ExecSQL2_1Response)(nil),                               // 148: sqlite.ExecSQL2_1Response
+	(*GetLastChangedRowCountRequest)(nil),                    // 149: sqlite.GetLastChangedRowCountRequest
+	(*GetLastChangedRowCountResponse)(nil),                   // 150: sqlite.GetLastChangedRowCountResponse
+	(*GetLastInsertRowIdRequest)(nil),                        // 151: sqlite.GetLastInsertRowIdRequest
+	(*GetLastInsertRowIdResponse)(nil),                       // 152: sqlite.GetLastInsertRowIdResponse
+	(*GetMaximumSizeRequest)(nil),                            // 153: sqlite.GetMaximumSizeRequest
+	(*GetMaximumSizeResponse)(nil),                           // 154: sqlite.GetMaximumSizeResponse
+	(*GetPageSizeRequest)(nil),                               // 155: sqlite.GetPageSizeRequest
+	(*GetPageSizeResponse)(nil),                              // 156: sqlite.GetPageSizeResponse
+	(*GetPathRequest)(nil),                                   // 157: sqlite.GetPathRequest
+	(*GetPathResponse)(nil),                                  // 158: sqlite.GetPathResponse
+	(*GetTotalChangedRowCountRequest)(nil),                   // 159: sqlite.GetTotalChangedRowCountRequest
+	(*GetTotalChangedRowCountResponse)(nil),                  // 160: sqlite.GetTotalChangedRowCountResponse
+	(*GetVersionRequest)(nil),                                // 161: sqlite.GetVersionRequest
+	(*GetVersionResponse)(nil),                               // 162: sqlite.GetVersionResponse
+	(*InTransactionRequest)(nil),                             // 163: sqlite.InTransactionRequest
+	(*InTransactionResponse)(nil),                            // 164: sqlite.InTransactionResponse
+	(*InsertRequest)(nil),                                    // 165: sqlite.InsertRequest
+	(*InsertResponse)(nil),                                   // 166: sqlite.InsertResponse
+	(*InsertOrThrowRequest)(nil),                             // 167: sqlite.InsertOrThrowRequest
+	(*InsertOrThrowResponse)(nil),                            // 168: sqlite.InsertOrThrowResponse
+	(*InsertWithOnConflictRequest)(nil),                      // 169: sqlite.InsertWithOnConflictRequest
+	(*InsertWithOnConflictResponse)(nil),                     // 170: sqlite.InsertWithOnConflictResponse
+	(*IsDatabaseIntegrityOkRequest)(nil),                     // 171: sqlite.IsDatabaseIntegrityOkRequest
+	(*IsDatabaseIntegrityOkResponse)(nil),                    // 172: sqlite.IsDatabaseIntegrityOkResponse
+	(*IsDbLockedByCurrentThreadRequest)(nil),                 // 173: sqlite.IsDbLockedByCurrentThreadRequest
+	(*IsDbLockedByCurrentThreadResponse)(nil),                // 174: sqlite.IsDbLockedByCurrentThreadResponse
+	(*IsDbLockedByOtherThreadsRequest)(nil),                  // 175: sqlite.IsDbLockedByOtherThreadsRequest
+	(*IsDbLockedByOtherThreadsResponse)(nil),                 // 176: sqlite.IsDbLockedByOtherThreadsResponse
+	(*IsReadOnlyRequest)(nil),                                // 177: sqlite.IsReadOnlyRequest
+	(*IsReadOnlyResponse)(nil),                               // 178: sqlite.IsReadOnlyResponse
+	(*IsWriteAheadLoggingEnabledRequest)(nil),                // 179: sqlite.IsWriteAheadLoggingEnabledRequest
+	(*IsWriteAheadLoggingEnabledResponse)(nil),               // 180: sqlite.IsWriteAheadLoggingEnabledResponse
+	(*MarkTableSyncable2Request)(nil),                        // 181: sqlite.MarkTableSyncable2Request
+	(*MarkTableSyncable2Response)(nil),                       // 182: sqlite.MarkTableSyncable2Response
+	(*MarkTableSyncable3_1Request)(nil),                      // 183: sqlite.MarkTableSyncable3_1Request
+	(*MarkTableSyncable3_1Response)(nil),                     // 184: sqlite.MarkTableSyncable3_1Response
+	(*NeedUpgradeRequest)(nil),                               // 185: sqlite.NeedUpgradeRequest
+	(*NeedUpgradeResponse)(nil),                              // 186: sqlite.NeedUpgradeResponse
+	(*Query9Request)(nil),                                    // 187: sqlite.Query9Request
+	(*Query9Response)(nil),                                   // 188: sqlite.Query9Response
+	(*Query10_1Request)(nil),                                 // 189: sqlite.Query10_1Request
+	(*Query10_1Response)(nil),                                // 190: sqlite.Query10_1Response
+	(*Query7_2Request)(nil),                                  // 191: sqlite.Query7_2Request
+	(*Query7_2Response)(nil),                                 // 192: sqlite.Query7_2Response
+	(*Query8_3Request)(nil),                                  // 193: sqlite.Query8_3Request
+	(*Query8_3Response)(nil),                                 // 194: sqlite.Query8_3Response
+	(*QueryWithFactory10Request)(nil),                        // 195: sqlite.QueryWithFactory10Request
+	(*QueryWithFactory10Response)(nil),                       // 196: sqlite.QueryWithFactory10Response
+	(*QueryWithFactory11_1Request)(nil),                      // 197: sqlite.QueryWithFactory11_1Request
+	(*QueryWithFactory11_1Response)(nil),                     // 198: sqlite.QueryWithFactory11_1Response
+	(*RawQuery2Request)(nil),                                 // 199: sqlite.RawQuery2Request
+	(*RawQuery2Response)(nil),                                // 200: sqlite.RawQuery2Response
+	(*RawQuery3_1Request)(nil),                               // 201: sqlite.RawQuery3_1Request
+	(*RawQuery3_1Response)(nil),                              // 202: sqlite.RawQuery3_1Response
+	(*RawQueryWithFactory4Request)(nil),                      // 203: sqlite.RawQueryWithFactory4Request
+	(*RawQueryWithFactory4Response)(nil),                     // 204: sqlite.RawQueryWithFactory4Response
+	(*RawQueryWithFactory5_1Request)(nil),                    // 205: sqlite.RawQueryWithFactory5_1Request
+	(*RawQueryWithFactory5_1Response)(nil),                   // 206: sqlite.RawQueryWithFactory5_1Response
+	(*ReplaceRequest)(nil),                                   // 207: sqlite.ReplaceRequest
+	(*ReplaceResponse)(nil),                                  // 208: sqlite.ReplaceResponse
+	(*ReplaceOrThrowRequest)(nil),                            // 209: sqlite.ReplaceOrThrowRequest
+	(*ReplaceOrThrowResponse)(nil),                           // 210: sqlite.ReplaceOrThrowResponse
+	(*SetForeignKeyConstraintsEnabledRequest)(nil),           // 211: sqlite.SetForeignKeyConstraintsEnabledRequest
+	(*SetForeignKeyConstraintsEnabledResponse)(nil),          // 212: sqlite.SetForeignKeyConstraintsEnabledResponse
+	(*SetLocaleRequest)(nil),                                 // 213: sqlite.SetLocaleRequest
+	(*SetLocaleResponse)(nil),                                // 214: sqlite.SetLocaleResponse
+	(*SetLockingEnabledRequest)(nil),                         // 215: sqlite.SetLockingEnabledRequest
+	(*SetLockingEnabledResponse)(nil),                        // 216: sqlite.SetLockingEnabledResponse
+	(*SetMaxSqlCacheSizeRequest)(nil),                        // 217: sqlite.SetMaxSqlCacheSizeRequest
+	(*SetMaxSqlCacheSizeResponse)(nil),                       // 218: sqlite.SetMaxSqlCacheSizeResponse
+	(*SetMaximumSizeRequest)(nil),                            // 219: sqlite.SetMaximumSizeRequest
+	(*SetMaximumSizeResponse)(nil),                           // 220: sqlite.SetMaximumSizeResponse
+	(*SetPageSizeRequest)(nil),                               // 221: sqlite.SetPageSizeRequest
+	(*SetPageSizeResponse)(nil),                              // 222: sqlite.SetPageSizeResponse
+	(*SetTransactionSuccessfulRequest)(nil),                  // 223: sqlite.SetTransactionSuccessfulRequest
+	(*SetTransactionSuccessfulResponse)(nil),                 // 224: sqlite.SetTransactionSuccessfulResponse
+	(*SetVersionRequest)(nil),                                // 225: sqlite.SetVersionRequest
+	(*SetVersionResponse)(nil),                               // 226: sqlite.SetVersionResponse
+	(*UpdateRequest)(nil),                                    // 227: sqlite.UpdateRequest
+	(*UpdateResponse)(nil),                                   // 228: sqlite.UpdateResponse
+	(*UpdateWithOnConflictRequest)(nil),                      // 229: sqlite.UpdateWithOnConflictRequest
+	(*UpdateWithOnConflictResponse)(nil),                     // 230: sqlite.UpdateWithOnConflictResponse
+	(*ValidateSqlRequest)(nil),                               // 231: sqlite.ValidateSqlRequest
+	(*ValidateSqlResponse)(nil),                              // 232: sqlite.ValidateSqlResponse
+	(*YieldIfContendedRequest)(nil),                          // 233: sqlite.YieldIfContendedRequest
+	(*YieldIfContendedResponse)(nil),                         // 234: sqlite.YieldIfContendedResponse
+	(*YieldIfContendedSafely0Request)(nil),                   // 235: sqlite.YieldIfContendedSafely0Request
+	(*YieldIfContendedSafely0Response)(nil),                  // 236: sqlite.YieldIfContendedSafely0Response
+	(*YieldIfContendedSafely1_1Request)(nil),                 // 237: sqlite.YieldIfContendedSafely1_1Request
+	(*YieldIfContendedSafely1_1Response)(nil),                // 238: sqlite.YieldIfContendedSafely1_1Response
+	(*CreateRequest)(nil),                                    // 239: sqlite.CreateRequest
+	(*CreateResponse)(nil),                                   // 240: sqlite.CreateResponse
+	(*CreateInMemoryRequest)(nil),                            // 241: sqlite.CreateInMemoryRequest
+	(*CreateInMemoryResponse)(nil),                           // 242: sqlite.CreateInMemoryResponse
+	(*DeleteDatabaseRequest)(nil),                            // 243: sqlite.DeleteDatabaseRequest
+	(*DeleteDatabaseResponse)(nil),                           // 244: sqlite.DeleteDatabaseResponse
+	(*FindEditTableRequest)(nil),                             // 245: sqlite.FindEditTableRequest
+	(*FindEditTableResponse)(nil),                            // 246: sqlite.FindEditTableResponse
+	(*OpenDatabase2Request)(nil),                             // 247: sqlite.OpenDatabase2Request
+	(*OpenDatabase2Response)(nil),                            // 248: sqlite.OpenDatabase2Response
+	(*OpenDatabase3_1Request)(nil),                           // 249: sqlite.OpenDatabase3_1Request
+	(*OpenDatabase3_1Response)(nil),                          // 250: sqlite.OpenDatabase3_1Response
+	(*OpenOrCreateDatabase2Request)(nil),                     // 251: sqlite.OpenOrCreateDatabase2Request
+	(*OpenOrCreateDatabase2Response)(nil),                    // 252: sqlite.OpenOrCreateDatabase2Response
+	(*OpenOrCreateDatabase2_1Request)(nil),                   // 253: sqlite.OpenOrCreateDatabase2_1Request
+	(*OpenOrCreateDatabase2_1Response)(nil),                  // 254: sqlite.OpenOrCreateDatabase2_1Response
+	(*ReleaseMemoryRequest)(nil),                             // 255: sqlite.ReleaseMemoryRequest
+	(*ReleaseMemoryResponse)(nil),                            // 256: sqlite.ReleaseMemoryResponse
+	(*NewCursorRequest)(nil),                                 // 257: sqlite.NewCursorRequest
+	(*NewCursorResponse)(nil),                                // 258: sqlite.NewCursorResponse
+	(*GetCursorFactoryRequest)(nil),                          // 259: sqlite.GetCursorFactoryRequest
+	(*GetCursorFactoryResponse)(nil),                         // 260: sqlite.GetCursorFactoryResponse
+	(*GetErrorHandlerRequest)(nil),                           // 261: sqlite.GetErrorHandlerRequest
+	(*GetErrorHandlerResponse)(nil),                          // 262: sqlite.GetErrorHandlerResponse
+	(*GetIdleConnectionTimeoutRequest)(nil),                  // 263: sqlite.GetIdleConnectionTimeoutRequest
+	(*GetIdleConnectionTimeoutResponse)(nil),                 // 264: sqlite.GetIdleConnectionTimeoutResponse
+	(*GetJournalModeRequest)(nil),                            // 265: sqlite.GetJournalModeRequest
+	(*GetJournalModeResponse)(nil),                           // 266: sqlite.GetJournalModeResponse
+	(*GetLookasideSlotCountRequest)(nil),                     // 267: sqlite.GetLookasideSlotCountRequest
+	(*GetLookasideSlotCountResponse)(nil),                    // 268: sqlite.GetLookasideSlotCountResponse
+	(*GetLookasideSlotSizeRequest)(nil),                      // 269: sqlite.GetLookasideSlotSizeRequest
+	(*GetLookasideSlotSizeResponse)(nil),                     // 270: sqlite.GetLookasideSlotSizeResponse
+	(*GetOpenFlagsRequest)(nil),                              // 271: sqlite.GetOpenFlagsRequest
+	(*GetOpenFlagsResponse)(nil),                             // 272: sqlite.GetOpenFlagsResponse
+	(*GetSynchronousModeRequest)(nil),                        // 273: sqlite.GetSynchronousModeRequest
+	(*GetSynchronousModeResponse)(nil),                       // 274: sqlite.GetSynchronousModeResponse
+	(*NewSQLiteQueryBuilderRequest)(nil),                     // 275: sqlite.NewSQLiteQueryBuilderRequest
+	(*NewSQLiteQueryBuilderResponse)(nil),                    // 276: sqlite.NewSQLiteQueryBuilderResponse
+	(*AppendWhereRequest)(nil),                               // 277: sqlite.AppendWhereRequest
+	(*AppendWhereResponse)(nil),                              // 278: sqlite.AppendWhereResponse
+	(*AppendWhereEscapeStringRequest)(nil),                   // 279: sqlite.AppendWhereEscapeStringRequest
+	(*AppendWhereEscapeStringResponse)(nil),                  // 280: sqlite.AppendWhereEscapeStringResponse
+	(*AppendWhereStandaloneRequest)(nil),                     // 281: sqlite.AppendWhereStandaloneRequest
+	(*AppendWhereStandaloneResponse)(nil),                    // 282: sqlite.AppendWhereStandaloneResponse
+	(*BuildQuery6Request)(nil),                               // 283: sqlite.BuildQuery6Request
+	(*BuildQuery6Response)(nil),                              // 284: sqlite.BuildQuery6Response
+	(*BuildQuery7_1Request)(nil),                             // 285: sqlite.BuildQuery7_1Request
+	(*BuildQuery7_1Response)(nil),                            // 286: sqlite.BuildQuery7_1Response
+	(*BuildUnionQueryRequest)(nil),                           // 287: sqlite.BuildUnionQueryRequest
+	(*BuildUnionQueryResponse)(nil),                          // 288: sqlite.BuildUnionQueryResponse
+	(*SQLiteQueryBuilderDeleteRequest)(nil),                  // 289: sqlite.SQLiteQueryBuilderDeleteRequest
+	(*SQLiteQueryBuilderGetCursorFactoryRequest)(nil),        // 290: sqlite.SQLiteQueryBuilderGetCursorFactoryRequest
+	(*GetTablesRequest)(nil),                                 // 291: sqlite.GetTablesRequest
+	(*GetTablesResponse)(nil),                                // 292: sqlite.GetTablesResponse
+	(*SQLiteQueryBuilderInsertRequest)(nil),                  // 293: sqlite.SQLiteQueryBuilderInsertRequest
+	(*IsDistinctRequest)(nil),                                // 294: sqlite.IsDistinctRequest
+	(*IsDistinctResponse)(nil),                               // 295: sqlite.IsDistinctResponse
+	(*IsStrictRequest)(nil),                                  // 296: sqlite.IsStrictRequest
+	(*IsStrictResponse)(nil),                                 // 297: sqlite.IsStrictResponse
+	(*IsStrictColumnsRequest)(nil),                           // 298: sqlite.IsStrictColumnsRequest
+	(*IsStrictColumnsResponse)(nil),                          // 299: sqlite.IsStrictColumnsResponse
+	(*IsStrictGrammarRequest)(nil),                           // 300: sqlite.IsStrictGrammarRequest
+	(*IsStrictGrammarResponse)(nil),                          // 301: sqlite.IsStrictGrammarResponse
+	(*Query7Request)(nil),                                    // 302: sqlite.Query7Request
+	(*Query7Response)(nil),                                   // 303: sqlite.Query7Response
+	(*Query8_1Request)(nil),                                  // 304: sqlite.Query8_1Request
+	(*Query8_1Response)(nil),                                 // 305: sqlite.Query8_1Response
+	(*Query9_2Request)(nil),                                  // 306: sqlite.Query9_2Request
+	(*Query9_2Response)(nil),                                 // 307: sqlite.Query9_2Response
+	(*SetCursorFactoryRequest)(nil),                          // 308: sqlite.SetCursorFactoryRequest
+	(*SetCursorFactoryResponse)(nil),                         // 309: sqlite.SetCursorFactoryResponse
+	(*SetDistinctRequest)(nil),                               // 310: sqlite.SetDistinctRequest
+	(*SetDistinctResponse)(nil),                              // 311: sqlite.SetDistinctResponse
+	(*SetStrictRequest)(nil),                                 // 312: sqlite.SetStrictRequest
+	(*SetStrictResponse)(nil),                                // 313: sqlite.SetStrictResponse
+	(*SetStrictColumnsRequest)(nil),                          // 314: sqlite.SetStrictColumnsRequest
+	(*SetStrictColumnsResponse)(nil),                         // 315: sqlite.SetStrictColumnsResponse
+	(*SetStrictGrammarRequest)(nil),                          // 316: sqlite.SetStrictGrammarRequest
+	(*SetStrictGrammarResponse)(nil),                         // 317: sqlite.SetStrictGrammarResponse
+	(*SetTablesRequest)(nil),                                 // 318: sqlite.SetTablesRequest
+	(*SetTablesResponse)(nil),                                // 319: sqlite.SetTablesResponse
+	(*SQLiteQueryBuilderUpdateRequest)(nil),                  // 320: sqlite.SQLiteQueryBuilderUpdateRequest
+	(*AppendColumnsRequest)(nil),                             // 321: sqlite.AppendColumnsRequest
+	(*AppendColumnsResponse)(nil),                            // 322: sqlite.AppendColumnsResponse
+	(*BuildQueryStringRequest)(nil),                          // 323: sqlite.BuildQueryStringRequest
+	(*BuildQueryStringResponse)(nil),                         // 324: sqlite.BuildQueryStringResponse
+	(*CursorClosedRequest)(nil),                              // 325: sqlite.CursorClosedRequest
+	(*CursorClosedResponse)(nil),                             // 326: sqlite.CursorClosedResponse
+	(*CursorDeactivatedRequest)(nil),                         // 327: sqlite.CursorDeactivatedRequest
+	(*CursorDeactivatedResponse)(nil),                        // 328: sqlite.CursorDeactivatedResponse
+	(*CursorRequeriedRequest)(nil),                           // 329: sqlite.CursorRequeriedRequest
+	(*CursorRequeriedResponse)(nil),                          // 330: sqlite.CursorRequeriedResponse
+	(*QueryRequest)(nil),                                     // 331: sqlite.QueryRequest
+	(*QueryResponse)(nil),                                    // 332: sqlite.QueryResponse
+	(*SetBindArgumentsRequest)(nil),                          // 333: sqlite.SetBindArgumentsRequest
+	(*SetBindArgumentsResponse)(nil),                         // 334: sqlite.SetBindArgumentsResponse
+	(*ExecuteRequest)(nil),                                   // 335: sqlite.ExecuteRequest
+	(*ExecuteResponse)(nil),                                  // 336: sqlite.ExecuteResponse
+	(*ExecuteInsertRequest)(nil),                             // 337: sqlite.ExecuteInsertRequest
+	(*ExecuteInsertResponse)(nil),                            // 338: sqlite.ExecuteInsertResponse
+	(*ExecuteUpdateDeleteRequest)(nil),                       // 339: sqlite.ExecuteUpdateDeleteRequest
+	(*ExecuteUpdateDeleteResponse)(nil),                      // 340: sqlite.ExecuteUpdateDeleteResponse
+	(*SimpleQueryForBlobFileDescriptorRequest)(nil),          // 341: sqlite.SimpleQueryForBlobFileDescriptorRequest
+	(*SimpleQueryForBlobFileDescriptorResponse)(nil),         // 342: sqlite.SimpleQueryForBlobFileDescriptorResponse
+	(*SimpleQueryForLongRequest)(nil),                        // 343: sqlite.SimpleQueryForLongRequest
+	(*SimpleQueryForLongResponse)(nil),                       // 344: sqlite.SimpleQueryForLongResponse
+	(*SimpleQueryForStringRequest)(nil),                      // 345: sqlite.SimpleQueryForStringRequest
+	(*SimpleQueryForStringResponse)(nil),                     // 346: sqlite.SimpleQueryForStringResponse
+}
 var file_proto_sqlite_sqlite_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	0,   // 0: sqlite.SQLiteRawStatementService.BindBlob2:input_type -> sqlite.BindBlob2Request
+	2,   // 1: sqlite.SQLiteRawStatementService.BindBlob4_1:input_type -> sqlite.BindBlob4_1Request
+	4,   // 2: sqlite.SQLiteRawStatementService.BindDouble:input_type -> sqlite.BindDoubleRequest
+	6,   // 3: sqlite.SQLiteRawStatementService.BindInt:input_type -> sqlite.BindIntRequest
+	8,   // 4: sqlite.SQLiteRawStatementService.BindLong:input_type -> sqlite.BindLongRequest
+	10,  // 5: sqlite.SQLiteRawStatementService.BindNull:input_type -> sqlite.BindNullRequest
+	12,  // 6: sqlite.SQLiteRawStatementService.BindText:input_type -> sqlite.BindTextRequest
+	14,  // 7: sqlite.SQLiteRawStatementService.ClearBindings:input_type -> sqlite.ClearBindingsRequest
+	16,  // 8: sqlite.SQLiteRawStatementService.Close:input_type -> sqlite.CloseRequest
+	18,  // 9: sqlite.SQLiteRawStatementService.GetColumnBlob:input_type -> sqlite.GetColumnBlobRequest
+	20,  // 10: sqlite.SQLiteRawStatementService.GetColumnDouble:input_type -> sqlite.GetColumnDoubleRequest
+	22,  // 11: sqlite.SQLiteRawStatementService.GetColumnInt:input_type -> sqlite.GetColumnIntRequest
+	24,  // 12: sqlite.SQLiteRawStatementService.GetColumnLength:input_type -> sqlite.GetColumnLengthRequest
+	26,  // 13: sqlite.SQLiteRawStatementService.GetColumnLong:input_type -> sqlite.GetColumnLongRequest
+	28,  // 14: sqlite.SQLiteRawStatementService.GetColumnName:input_type -> sqlite.GetColumnNameRequest
+	30,  // 15: sqlite.SQLiteRawStatementService.GetColumnText:input_type -> sqlite.GetColumnTextRequest
+	32,  // 16: sqlite.SQLiteRawStatementService.GetColumnType:input_type -> sqlite.GetColumnTypeRequest
+	34,  // 17: sqlite.SQLiteRawStatementService.GetParameterCount:input_type -> sqlite.GetParameterCountRequest
+	36,  // 18: sqlite.SQLiteRawStatementService.GetParameterIndex:input_type -> sqlite.GetParameterIndexRequest
+	38,  // 19: sqlite.SQLiteRawStatementService.GetParameterName:input_type -> sqlite.GetParameterNameRequest
+	40,  // 20: sqlite.SQLiteRawStatementService.GetResultColumnCount:input_type -> sqlite.GetResultColumnCountRequest
+	42,  // 21: sqlite.SQLiteRawStatementService.IsOpen:input_type -> sqlite.IsOpenRequest
+	44,  // 22: sqlite.SQLiteRawStatementService.ReadColumnBlob:input_type -> sqlite.ReadColumnBlobRequest
+	46,  // 23: sqlite.SQLiteRawStatementService.Reset:input_type -> sqlite.ResetRequest
+	48,  // 24: sqlite.SQLiteRawStatementService.Step:input_type -> sqlite.StepRequest
+	50,  // 25: sqlite.SQLiteRawStatementService.ToString:input_type -> sqlite.ToStringRequest
+	52,  // 26: sqlite.SQLiteCursorService.NewSQLiteCursor:input_type -> sqlite.NewSQLiteCursorRequest
+	54,  // 27: sqlite.SQLiteCursorService.Close:input_type -> sqlite.SQLiteCursorCloseRequest
+	55,  // 28: sqlite.SQLiteCursorService.Deactivate:input_type -> sqlite.DeactivateRequest
+	57,  // 29: sqlite.SQLiteCursorService.GetColumnIndex:input_type -> sqlite.GetColumnIndexRequest
+	59,  // 30: sqlite.SQLiteCursorService.GetColumnNames:input_type -> sqlite.GetColumnNamesRequest
+	61,  // 31: sqlite.SQLiteCursorService.GetCount:input_type -> sqlite.GetCountRequest
+	63,  // 32: sqlite.SQLiteCursorService.GetDatabase:input_type -> sqlite.GetDatabaseRequest
+	65,  // 33: sqlite.SQLiteCursorService.OnMove:input_type -> sqlite.OnMoveRequest
+	67,  // 34: sqlite.SQLiteCursorService.Requery:input_type -> sqlite.RequeryRequest
+	69,  // 35: sqlite.SQLiteCursorService.SetFillWindowForwardOnly:input_type -> sqlite.SetFillWindowForwardOnlyRequest
+	71,  // 36: sqlite.SQLiteCursorService.SetSelectionArguments:input_type -> sqlite.SetSelectionArgumentsRequest
+	73,  // 37: sqlite.SQLiteCursorService.SetWindow:input_type -> sqlite.SetWindowRequest
+	75,  // 38: sqlite.SQLiteClosableService.AcquireReference:input_type -> sqlite.AcquireReferenceRequest
+	16,  // 39: sqlite.SQLiteClosableService.Close:input_type -> sqlite.CloseRequest
+	77,  // 40: sqlite.SQLiteClosableService.ReleaseReference:input_type -> sqlite.ReleaseReferenceRequest
+	79,  // 41: sqlite.SQLiteClosableService.ReleaseReferenceFromContainer:input_type -> sqlite.ReleaseReferenceFromContainerRequest
+	81,  // 42: sqlite.SQLiteTransactionListenerService.OnBegin:input_type -> sqlite.OnBeginRequest
+	83,  // 43: sqlite.SQLiteTransactionListenerService.OnCommit:input_type -> sqlite.OnCommitRequest
+	85,  // 44: sqlite.SQLiteTransactionListenerService.OnRollback:input_type -> sqlite.OnRollbackRequest
+	87,  // 45: sqlite.SQLiteOpenHelperService.GetDatabaseName:input_type -> sqlite.GetDatabaseNameRequest
+	89,  // 46: sqlite.SQLiteOpenHelperService.GetReadableDatabase:input_type -> sqlite.GetReadableDatabaseRequest
+	91,  // 47: sqlite.SQLiteOpenHelperService.GetWritableDatabase:input_type -> sqlite.GetWritableDatabaseRequest
+	93,  // 48: sqlite.SQLiteOpenHelperService.OnConfigure:input_type -> sqlite.OnConfigureRequest
+	95,  // 49: sqlite.SQLiteOpenHelperService.OnCreate:input_type -> sqlite.OnCreateRequest
+	97,  // 50: sqlite.SQLiteOpenHelperService.OnDowngrade:input_type -> sqlite.OnDowngradeRequest
+	99,  // 51: sqlite.SQLiteOpenHelperService.OnOpen:input_type -> sqlite.OnOpenRequest
+	101, // 52: sqlite.SQLiteOpenHelperService.OnUpgrade:input_type -> sqlite.OnUpgradeRequest
+	103, // 53: sqlite.SQLiteOpenHelperService.SetIdleConnectionTimeout:input_type -> sqlite.SetIdleConnectionTimeoutRequest
+	105, // 54: sqlite.SQLiteOpenHelperService.SetLookasideConfig:input_type -> sqlite.SetLookasideConfigRequest
+	107, // 55: sqlite.SQLiteOpenHelperService.SetOpenParams:input_type -> sqlite.SetOpenParamsRequest
+	109, // 56: sqlite.SQLiteOpenHelperService.SetWriteAheadLoggingEnabled:input_type -> sqlite.SetWriteAheadLoggingEnabledRequest
+	111, // 57: sqlite.SQLiteProgramService.BindAllArgsAsStrings:input_type -> sqlite.BindAllArgsAsStringsRequest
+	113, // 58: sqlite.SQLiteProgramService.BindBlob:input_type -> sqlite.BindBlobRequest
+	4,   // 59: sqlite.SQLiteProgramService.BindDouble:input_type -> sqlite.BindDoubleRequest
+	8,   // 60: sqlite.SQLiteProgramService.BindLong:input_type -> sqlite.BindLongRequest
+	10,  // 61: sqlite.SQLiteProgramService.BindNull:input_type -> sqlite.BindNullRequest
+	115, // 62: sqlite.SQLiteProgramService.BindString:input_type -> sqlite.BindStringRequest
+	14,  // 63: sqlite.SQLiteProgramService.ClearBindings:input_type -> sqlite.ClearBindingsRequest
+	117, // 64: sqlite.SQLiteProgramService.GetUniqueId:input_type -> sqlite.GetUniqueIdRequest
+	119, // 65: sqlite.SQLiteDatabaseService.BeginTransaction:input_type -> sqlite.BeginTransactionRequest
+	121, // 66: sqlite.SQLiteDatabaseService.BeginTransactionNonExclusive:input_type -> sqlite.BeginTransactionNonExclusiveRequest
+	123, // 67: sqlite.SQLiteDatabaseService.BeginTransactionReadOnly:input_type -> sqlite.BeginTransactionReadOnlyRequest
+	125, // 68: sqlite.SQLiteDatabaseService.BeginTransactionWithListener:input_type -> sqlite.BeginTransactionWithListenerRequest
+	127, // 69: sqlite.SQLiteDatabaseService.BeginTransactionWithListenerNonExclusive:input_type -> sqlite.BeginTransactionWithListenerNonExclusiveRequest
+	129, // 70: sqlite.SQLiteDatabaseService.BeginTransactionWithListenerReadOnly:input_type -> sqlite.BeginTransactionWithListenerReadOnlyRequest
+	131, // 71: sqlite.SQLiteDatabaseService.CompileStatement:input_type -> sqlite.CompileStatementRequest
+	133, // 72: sqlite.SQLiteDatabaseService.CreateRawStatement:input_type -> sqlite.CreateRawStatementRequest
+	135, // 73: sqlite.SQLiteDatabaseService.Delete:input_type -> sqlite.DeleteRequest
+	137, // 74: sqlite.SQLiteDatabaseService.DisableWriteAheadLogging:input_type -> sqlite.DisableWriteAheadLoggingRequest
+	139, // 75: sqlite.SQLiteDatabaseService.EnableWriteAheadLogging:input_type -> sqlite.EnableWriteAheadLoggingRequest
+	141, // 76: sqlite.SQLiteDatabaseService.EndTransaction:input_type -> sqlite.EndTransactionRequest
+	143, // 77: sqlite.SQLiteDatabaseService.ExecPerConnectionSQL:input_type -> sqlite.ExecPerConnectionSQLRequest
+	145, // 78: sqlite.SQLiteDatabaseService.ExecSQL1:input_type -> sqlite.ExecSQL1Request
+	147, // 79: sqlite.SQLiteDatabaseService.ExecSQL2_1:input_type -> sqlite.ExecSQL2_1Request
+	149, // 80: sqlite.SQLiteDatabaseService.GetLastChangedRowCount:input_type -> sqlite.GetLastChangedRowCountRequest
+	151, // 81: sqlite.SQLiteDatabaseService.GetLastInsertRowId:input_type -> sqlite.GetLastInsertRowIdRequest
+	153, // 82: sqlite.SQLiteDatabaseService.GetMaximumSize:input_type -> sqlite.GetMaximumSizeRequest
+	155, // 83: sqlite.SQLiteDatabaseService.GetPageSize:input_type -> sqlite.GetPageSizeRequest
+	157, // 84: sqlite.SQLiteDatabaseService.GetPath:input_type -> sqlite.GetPathRequest
+	159, // 85: sqlite.SQLiteDatabaseService.GetTotalChangedRowCount:input_type -> sqlite.GetTotalChangedRowCountRequest
+	161, // 86: sqlite.SQLiteDatabaseService.GetVersion:input_type -> sqlite.GetVersionRequest
+	163, // 87: sqlite.SQLiteDatabaseService.InTransaction:input_type -> sqlite.InTransactionRequest
+	165, // 88: sqlite.SQLiteDatabaseService.Insert:input_type -> sqlite.InsertRequest
+	167, // 89: sqlite.SQLiteDatabaseService.InsertOrThrow:input_type -> sqlite.InsertOrThrowRequest
+	169, // 90: sqlite.SQLiteDatabaseService.InsertWithOnConflict:input_type -> sqlite.InsertWithOnConflictRequest
+	171, // 91: sqlite.SQLiteDatabaseService.IsDatabaseIntegrityOk:input_type -> sqlite.IsDatabaseIntegrityOkRequest
+	173, // 92: sqlite.SQLiteDatabaseService.IsDbLockedByCurrentThread:input_type -> sqlite.IsDbLockedByCurrentThreadRequest
+	175, // 93: sqlite.SQLiteDatabaseService.IsDbLockedByOtherThreads:input_type -> sqlite.IsDbLockedByOtherThreadsRequest
+	42,  // 94: sqlite.SQLiteDatabaseService.IsOpen:input_type -> sqlite.IsOpenRequest
+	177, // 95: sqlite.SQLiteDatabaseService.IsReadOnly:input_type -> sqlite.IsReadOnlyRequest
+	179, // 96: sqlite.SQLiteDatabaseService.IsWriteAheadLoggingEnabled:input_type -> sqlite.IsWriteAheadLoggingEnabledRequest
+	181, // 97: sqlite.SQLiteDatabaseService.MarkTableSyncable2:input_type -> sqlite.MarkTableSyncable2Request
+	183, // 98: sqlite.SQLiteDatabaseService.MarkTableSyncable3_1:input_type -> sqlite.MarkTableSyncable3_1Request
+	185, // 99: sqlite.SQLiteDatabaseService.NeedUpgrade:input_type -> sqlite.NeedUpgradeRequest
+	187, // 100: sqlite.SQLiteDatabaseService.Query9:input_type -> sqlite.Query9Request
+	189, // 101: sqlite.SQLiteDatabaseService.Query10_1:input_type -> sqlite.Query10_1Request
+	191, // 102: sqlite.SQLiteDatabaseService.Query7_2:input_type -> sqlite.Query7_2Request
+	193, // 103: sqlite.SQLiteDatabaseService.Query8_3:input_type -> sqlite.Query8_3Request
+	195, // 104: sqlite.SQLiteDatabaseService.QueryWithFactory10:input_type -> sqlite.QueryWithFactory10Request
+	197, // 105: sqlite.SQLiteDatabaseService.QueryWithFactory11_1:input_type -> sqlite.QueryWithFactory11_1Request
+	199, // 106: sqlite.SQLiteDatabaseService.RawQuery2:input_type -> sqlite.RawQuery2Request
+	201, // 107: sqlite.SQLiteDatabaseService.RawQuery3_1:input_type -> sqlite.RawQuery3_1Request
+	203, // 108: sqlite.SQLiteDatabaseService.RawQueryWithFactory4:input_type -> sqlite.RawQueryWithFactory4Request
+	205, // 109: sqlite.SQLiteDatabaseService.RawQueryWithFactory5_1:input_type -> sqlite.RawQueryWithFactory5_1Request
+	207, // 110: sqlite.SQLiteDatabaseService.Replace:input_type -> sqlite.ReplaceRequest
+	209, // 111: sqlite.SQLiteDatabaseService.ReplaceOrThrow:input_type -> sqlite.ReplaceOrThrowRequest
+	211, // 112: sqlite.SQLiteDatabaseService.SetForeignKeyConstraintsEnabled:input_type -> sqlite.SetForeignKeyConstraintsEnabledRequest
+	213, // 113: sqlite.SQLiteDatabaseService.SetLocale:input_type -> sqlite.SetLocaleRequest
+	215, // 114: sqlite.SQLiteDatabaseService.SetLockingEnabled:input_type -> sqlite.SetLockingEnabledRequest
+	217, // 115: sqlite.SQLiteDatabaseService.SetMaxSqlCacheSize:input_type -> sqlite.SetMaxSqlCacheSizeRequest
+	219, // 116: sqlite.SQLiteDatabaseService.SetMaximumSize:input_type -> sqlite.SetMaximumSizeRequest
+	221, // 117: sqlite.SQLiteDatabaseService.SetPageSize:input_type -> sqlite.SetPageSizeRequest
+	223, // 118: sqlite.SQLiteDatabaseService.SetTransactionSuccessful:input_type -> sqlite.SetTransactionSuccessfulRequest
+	225, // 119: sqlite.SQLiteDatabaseService.SetVersion:input_type -> sqlite.SetVersionRequest
+	50,  // 120: sqlite.SQLiteDatabaseService.ToString:input_type -> sqlite.ToStringRequest
+	227, // 121: sqlite.SQLiteDatabaseService.Update:input_type -> sqlite.UpdateRequest
+	229, // 122: sqlite.SQLiteDatabaseService.UpdateWithOnConflict:input_type -> sqlite.UpdateWithOnConflictRequest
+	231, // 123: sqlite.SQLiteDatabaseService.ValidateSql:input_type -> sqlite.ValidateSqlRequest
+	233, // 124: sqlite.SQLiteDatabaseService.YieldIfContended:input_type -> sqlite.YieldIfContendedRequest
+	235, // 125: sqlite.SQLiteDatabaseService.YieldIfContendedSafely0:input_type -> sqlite.YieldIfContendedSafely0Request
+	237, // 126: sqlite.SQLiteDatabaseService.YieldIfContendedSafely1_1:input_type -> sqlite.YieldIfContendedSafely1_1Request
+	239, // 127: sqlite.SQLiteDatabaseService.Create:input_type -> sqlite.CreateRequest
+	241, // 128: sqlite.SQLiteDatabaseService.CreateInMemory:input_type -> sqlite.CreateInMemoryRequest
+	243, // 129: sqlite.SQLiteDatabaseService.DeleteDatabase:input_type -> sqlite.DeleteDatabaseRequest
+	245, // 130: sqlite.SQLiteDatabaseService.FindEditTable:input_type -> sqlite.FindEditTableRequest
+	247, // 131: sqlite.SQLiteDatabaseService.OpenDatabase2:input_type -> sqlite.OpenDatabase2Request
+	249, // 132: sqlite.SQLiteDatabaseService.OpenDatabase3_1:input_type -> sqlite.OpenDatabase3_1Request
+	251, // 133: sqlite.SQLiteDatabaseService.OpenOrCreateDatabase2:input_type -> sqlite.OpenOrCreateDatabase2Request
+	253, // 134: sqlite.SQLiteDatabaseService.OpenOrCreateDatabase2_1:input_type -> sqlite.OpenOrCreateDatabase2_1Request
+	255, // 135: sqlite.SQLiteDatabaseService.ReleaseMemory:input_type -> sqlite.ReleaseMemoryRequest
+	257, // 136: sqlite.SQLiteDatabaseCursorFactoryService.NewCursor:input_type -> sqlite.NewCursorRequest
+	259, // 137: sqlite.SQLiteDatabaseOpenParamsService.GetCursorFactory:input_type -> sqlite.GetCursorFactoryRequest
+	261, // 138: sqlite.SQLiteDatabaseOpenParamsService.GetErrorHandler:input_type -> sqlite.GetErrorHandlerRequest
+	263, // 139: sqlite.SQLiteDatabaseOpenParamsService.GetIdleConnectionTimeout:input_type -> sqlite.GetIdleConnectionTimeoutRequest
+	265, // 140: sqlite.SQLiteDatabaseOpenParamsService.GetJournalMode:input_type -> sqlite.GetJournalModeRequest
+	267, // 141: sqlite.SQLiteDatabaseOpenParamsService.GetLookasideSlotCount:input_type -> sqlite.GetLookasideSlotCountRequest
+	269, // 142: sqlite.SQLiteDatabaseOpenParamsService.GetLookasideSlotSize:input_type -> sqlite.GetLookasideSlotSizeRequest
+	271, // 143: sqlite.SQLiteDatabaseOpenParamsService.GetOpenFlags:input_type -> sqlite.GetOpenFlagsRequest
+	273, // 144: sqlite.SQLiteDatabaseOpenParamsService.GetSynchronousMode:input_type -> sqlite.GetSynchronousModeRequest
+	275, // 145: sqlite.SQLiteQueryBuilderService.NewSQLiteQueryBuilder:input_type -> sqlite.NewSQLiteQueryBuilderRequest
+	277, // 146: sqlite.SQLiteQueryBuilderService.AppendWhere:input_type -> sqlite.AppendWhereRequest
+	279, // 147: sqlite.SQLiteQueryBuilderService.AppendWhereEscapeString:input_type -> sqlite.AppendWhereEscapeStringRequest
+	281, // 148: sqlite.SQLiteQueryBuilderService.AppendWhereStandalone:input_type -> sqlite.AppendWhereStandaloneRequest
+	283, // 149: sqlite.SQLiteQueryBuilderService.BuildQuery6:input_type -> sqlite.BuildQuery6Request
+	285, // 150: sqlite.SQLiteQueryBuilderService.BuildQuery7_1:input_type -> sqlite.BuildQuery7_1Request
+	287, // 151: sqlite.SQLiteQueryBuilderService.BuildUnionQuery:input_type -> sqlite.BuildUnionQueryRequest
+	289, // 152: sqlite.SQLiteQueryBuilderService.Delete:input_type -> sqlite.SQLiteQueryBuilderDeleteRequest
+	290, // 153: sqlite.SQLiteQueryBuilderService.GetCursorFactory:input_type -> sqlite.SQLiteQueryBuilderGetCursorFactoryRequest
+	291, // 154: sqlite.SQLiteQueryBuilderService.GetTables:input_type -> sqlite.GetTablesRequest
+	293, // 155: sqlite.SQLiteQueryBuilderService.Insert:input_type -> sqlite.SQLiteQueryBuilderInsertRequest
+	294, // 156: sqlite.SQLiteQueryBuilderService.IsDistinct:input_type -> sqlite.IsDistinctRequest
+	296, // 157: sqlite.SQLiteQueryBuilderService.IsStrict:input_type -> sqlite.IsStrictRequest
+	298, // 158: sqlite.SQLiteQueryBuilderService.IsStrictColumns:input_type -> sqlite.IsStrictColumnsRequest
+	300, // 159: sqlite.SQLiteQueryBuilderService.IsStrictGrammar:input_type -> sqlite.IsStrictGrammarRequest
+	302, // 160: sqlite.SQLiteQueryBuilderService.Query7:input_type -> sqlite.Query7Request
+	304, // 161: sqlite.SQLiteQueryBuilderService.Query8_1:input_type -> sqlite.Query8_1Request
+	306, // 162: sqlite.SQLiteQueryBuilderService.Query9_2:input_type -> sqlite.Query9_2Request
+	308, // 163: sqlite.SQLiteQueryBuilderService.SetCursorFactory:input_type -> sqlite.SetCursorFactoryRequest
+	310, // 164: sqlite.SQLiteQueryBuilderService.SetDistinct:input_type -> sqlite.SetDistinctRequest
+	312, // 165: sqlite.SQLiteQueryBuilderService.SetStrict:input_type -> sqlite.SetStrictRequest
+	314, // 166: sqlite.SQLiteQueryBuilderService.SetStrictColumns:input_type -> sqlite.SetStrictColumnsRequest
+	316, // 167: sqlite.SQLiteQueryBuilderService.SetStrictGrammar:input_type -> sqlite.SetStrictGrammarRequest
+	318, // 168: sqlite.SQLiteQueryBuilderService.SetTables:input_type -> sqlite.SetTablesRequest
+	320, // 169: sqlite.SQLiteQueryBuilderService.Update:input_type -> sqlite.SQLiteQueryBuilderUpdateRequest
+	321, // 170: sqlite.SQLiteQueryBuilderService.AppendColumns:input_type -> sqlite.AppendColumnsRequest
+	323, // 171: sqlite.SQLiteQueryBuilderService.BuildQueryString:input_type -> sqlite.BuildQueryStringRequest
+	325, // 172: sqlite.SQLiteCursorDriverService.CursorClosed:input_type -> sqlite.CursorClosedRequest
+	327, // 173: sqlite.SQLiteCursorDriverService.CursorDeactivated:input_type -> sqlite.CursorDeactivatedRequest
+	329, // 174: sqlite.SQLiteCursorDriverService.CursorRequeried:input_type -> sqlite.CursorRequeriedRequest
+	331, // 175: sqlite.SQLiteCursorDriverService.Query:input_type -> sqlite.QueryRequest
+	333, // 176: sqlite.SQLiteCursorDriverService.SetBindArguments:input_type -> sqlite.SetBindArgumentsRequest
+	50,  // 177: sqlite.SQLiteQueryService.ToString:input_type -> sqlite.ToStringRequest
+	335, // 178: sqlite.SQLiteStatementService.Execute:input_type -> sqlite.ExecuteRequest
+	337, // 179: sqlite.SQLiteStatementService.ExecuteInsert:input_type -> sqlite.ExecuteInsertRequest
+	339, // 180: sqlite.SQLiteStatementService.ExecuteUpdateDelete:input_type -> sqlite.ExecuteUpdateDeleteRequest
+	341, // 181: sqlite.SQLiteStatementService.SimpleQueryForBlobFileDescriptor:input_type -> sqlite.SimpleQueryForBlobFileDescriptorRequest
+	343, // 182: sqlite.SQLiteStatementService.SimpleQueryForLong:input_type -> sqlite.SimpleQueryForLongRequest
+	345, // 183: sqlite.SQLiteStatementService.SimpleQueryForString:input_type -> sqlite.SimpleQueryForStringRequest
+	50,  // 184: sqlite.SQLiteStatementService.ToString:input_type -> sqlite.ToStringRequest
+	1,   // 185: sqlite.SQLiteRawStatementService.BindBlob2:output_type -> sqlite.BindBlob2Response
+	3,   // 186: sqlite.SQLiteRawStatementService.BindBlob4_1:output_type -> sqlite.BindBlob4_1Response
+	5,   // 187: sqlite.SQLiteRawStatementService.BindDouble:output_type -> sqlite.BindDoubleResponse
+	7,   // 188: sqlite.SQLiteRawStatementService.BindInt:output_type -> sqlite.BindIntResponse
+	9,   // 189: sqlite.SQLiteRawStatementService.BindLong:output_type -> sqlite.BindLongResponse
+	11,  // 190: sqlite.SQLiteRawStatementService.BindNull:output_type -> sqlite.BindNullResponse
+	13,  // 191: sqlite.SQLiteRawStatementService.BindText:output_type -> sqlite.BindTextResponse
+	15,  // 192: sqlite.SQLiteRawStatementService.ClearBindings:output_type -> sqlite.ClearBindingsResponse
+	17,  // 193: sqlite.SQLiteRawStatementService.Close:output_type -> sqlite.CloseResponse
+	19,  // 194: sqlite.SQLiteRawStatementService.GetColumnBlob:output_type -> sqlite.GetColumnBlobResponse
+	21,  // 195: sqlite.SQLiteRawStatementService.GetColumnDouble:output_type -> sqlite.GetColumnDoubleResponse
+	23,  // 196: sqlite.SQLiteRawStatementService.GetColumnInt:output_type -> sqlite.GetColumnIntResponse
+	25,  // 197: sqlite.SQLiteRawStatementService.GetColumnLength:output_type -> sqlite.GetColumnLengthResponse
+	27,  // 198: sqlite.SQLiteRawStatementService.GetColumnLong:output_type -> sqlite.GetColumnLongResponse
+	29,  // 199: sqlite.SQLiteRawStatementService.GetColumnName:output_type -> sqlite.GetColumnNameResponse
+	31,  // 200: sqlite.SQLiteRawStatementService.GetColumnText:output_type -> sqlite.GetColumnTextResponse
+	33,  // 201: sqlite.SQLiteRawStatementService.GetColumnType:output_type -> sqlite.GetColumnTypeResponse
+	35,  // 202: sqlite.SQLiteRawStatementService.GetParameterCount:output_type -> sqlite.GetParameterCountResponse
+	37,  // 203: sqlite.SQLiteRawStatementService.GetParameterIndex:output_type -> sqlite.GetParameterIndexResponse
+	39,  // 204: sqlite.SQLiteRawStatementService.GetParameterName:output_type -> sqlite.GetParameterNameResponse
+	41,  // 205: sqlite.SQLiteRawStatementService.GetResultColumnCount:output_type -> sqlite.GetResultColumnCountResponse
+	43,  // 206: sqlite.SQLiteRawStatementService.IsOpen:output_type -> sqlite.IsOpenResponse
+	45,  // 207: sqlite.SQLiteRawStatementService.ReadColumnBlob:output_type -> sqlite.ReadColumnBlobResponse
+	47,  // 208: sqlite.SQLiteRawStatementService.Reset:output_type -> sqlite.ResetResponse
+	49,  // 209: sqlite.SQLiteRawStatementService.Step:output_type -> sqlite.StepResponse
+	51,  // 210: sqlite.SQLiteRawStatementService.ToString:output_type -> sqlite.ToStringResponse
+	53,  // 211: sqlite.SQLiteCursorService.NewSQLiteCursor:output_type -> sqlite.NewSQLiteCursorResponse
+	17,  // 212: sqlite.SQLiteCursorService.Close:output_type -> sqlite.CloseResponse
+	56,  // 213: sqlite.SQLiteCursorService.Deactivate:output_type -> sqlite.DeactivateResponse
+	58,  // 214: sqlite.SQLiteCursorService.GetColumnIndex:output_type -> sqlite.GetColumnIndexResponse
+	60,  // 215: sqlite.SQLiteCursorService.GetColumnNames:output_type -> sqlite.GetColumnNamesResponse
+	62,  // 216: sqlite.SQLiteCursorService.GetCount:output_type -> sqlite.GetCountResponse
+	64,  // 217: sqlite.SQLiteCursorService.GetDatabase:output_type -> sqlite.GetDatabaseResponse
+	66,  // 218: sqlite.SQLiteCursorService.OnMove:output_type -> sqlite.OnMoveResponse
+	68,  // 219: sqlite.SQLiteCursorService.Requery:output_type -> sqlite.RequeryResponse
+	70,  // 220: sqlite.SQLiteCursorService.SetFillWindowForwardOnly:output_type -> sqlite.SetFillWindowForwardOnlyResponse
+	72,  // 221: sqlite.SQLiteCursorService.SetSelectionArguments:output_type -> sqlite.SetSelectionArgumentsResponse
+	74,  // 222: sqlite.SQLiteCursorService.SetWindow:output_type -> sqlite.SetWindowResponse
+	76,  // 223: sqlite.SQLiteClosableService.AcquireReference:output_type -> sqlite.AcquireReferenceResponse
+	17,  // 224: sqlite.SQLiteClosableService.Close:output_type -> sqlite.CloseResponse
+	78,  // 225: sqlite.SQLiteClosableService.ReleaseReference:output_type -> sqlite.ReleaseReferenceResponse
+	80,  // 226: sqlite.SQLiteClosableService.ReleaseReferenceFromContainer:output_type -> sqlite.ReleaseReferenceFromContainerResponse
+	82,  // 227: sqlite.SQLiteTransactionListenerService.OnBegin:output_type -> sqlite.OnBeginResponse
+	84,  // 228: sqlite.SQLiteTransactionListenerService.OnCommit:output_type -> sqlite.OnCommitResponse
+	86,  // 229: sqlite.SQLiteTransactionListenerService.OnRollback:output_type -> sqlite.OnRollbackResponse
+	88,  // 230: sqlite.SQLiteOpenHelperService.GetDatabaseName:output_type -> sqlite.GetDatabaseNameResponse
+	90,  // 231: sqlite.SQLiteOpenHelperService.GetReadableDatabase:output_type -> sqlite.GetReadableDatabaseResponse
+	92,  // 232: sqlite.SQLiteOpenHelperService.GetWritableDatabase:output_type -> sqlite.GetWritableDatabaseResponse
+	94,  // 233: sqlite.SQLiteOpenHelperService.OnConfigure:output_type -> sqlite.OnConfigureResponse
+	96,  // 234: sqlite.SQLiteOpenHelperService.OnCreate:output_type -> sqlite.OnCreateResponse
+	98,  // 235: sqlite.SQLiteOpenHelperService.OnDowngrade:output_type -> sqlite.OnDowngradeResponse
+	100, // 236: sqlite.SQLiteOpenHelperService.OnOpen:output_type -> sqlite.OnOpenResponse
+	102, // 237: sqlite.SQLiteOpenHelperService.OnUpgrade:output_type -> sqlite.OnUpgradeResponse
+	104, // 238: sqlite.SQLiteOpenHelperService.SetIdleConnectionTimeout:output_type -> sqlite.SetIdleConnectionTimeoutResponse
+	106, // 239: sqlite.SQLiteOpenHelperService.SetLookasideConfig:output_type -> sqlite.SetLookasideConfigResponse
+	108, // 240: sqlite.SQLiteOpenHelperService.SetOpenParams:output_type -> sqlite.SetOpenParamsResponse
+	110, // 241: sqlite.SQLiteOpenHelperService.SetWriteAheadLoggingEnabled:output_type -> sqlite.SetWriteAheadLoggingEnabledResponse
+	112, // 242: sqlite.SQLiteProgramService.BindAllArgsAsStrings:output_type -> sqlite.BindAllArgsAsStringsResponse
+	114, // 243: sqlite.SQLiteProgramService.BindBlob:output_type -> sqlite.BindBlobResponse
+	5,   // 244: sqlite.SQLiteProgramService.BindDouble:output_type -> sqlite.BindDoubleResponse
+	9,   // 245: sqlite.SQLiteProgramService.BindLong:output_type -> sqlite.BindLongResponse
+	11,  // 246: sqlite.SQLiteProgramService.BindNull:output_type -> sqlite.BindNullResponse
+	116, // 247: sqlite.SQLiteProgramService.BindString:output_type -> sqlite.BindStringResponse
+	15,  // 248: sqlite.SQLiteProgramService.ClearBindings:output_type -> sqlite.ClearBindingsResponse
+	118, // 249: sqlite.SQLiteProgramService.GetUniqueId:output_type -> sqlite.GetUniqueIdResponse
+	120, // 250: sqlite.SQLiteDatabaseService.BeginTransaction:output_type -> sqlite.BeginTransactionResponse
+	122, // 251: sqlite.SQLiteDatabaseService.BeginTransactionNonExclusive:output_type -> sqlite.BeginTransactionNonExclusiveResponse
+	124, // 252: sqlite.SQLiteDatabaseService.BeginTransactionReadOnly:output_type -> sqlite.BeginTransactionReadOnlyResponse
+	126, // 253: sqlite.SQLiteDatabaseService.BeginTransactionWithListener:output_type -> sqlite.BeginTransactionWithListenerResponse
+	128, // 254: sqlite.SQLiteDatabaseService.BeginTransactionWithListenerNonExclusive:output_type -> sqlite.BeginTransactionWithListenerNonExclusiveResponse
+	130, // 255: sqlite.SQLiteDatabaseService.BeginTransactionWithListenerReadOnly:output_type -> sqlite.BeginTransactionWithListenerReadOnlyResponse
+	132, // 256: sqlite.SQLiteDatabaseService.CompileStatement:output_type -> sqlite.CompileStatementResponse
+	134, // 257: sqlite.SQLiteDatabaseService.CreateRawStatement:output_type -> sqlite.CreateRawStatementResponse
+	136, // 258: sqlite.SQLiteDatabaseService.Delete:output_type -> sqlite.DeleteResponse
+	138, // 259: sqlite.SQLiteDatabaseService.DisableWriteAheadLogging:output_type -> sqlite.DisableWriteAheadLoggingResponse
+	140, // 260: sqlite.SQLiteDatabaseService.EnableWriteAheadLogging:output_type -> sqlite.EnableWriteAheadLoggingResponse
+	142, // 261: sqlite.SQLiteDatabaseService.EndTransaction:output_type -> sqlite.EndTransactionResponse
+	144, // 262: sqlite.SQLiteDatabaseService.ExecPerConnectionSQL:output_type -> sqlite.ExecPerConnectionSQLResponse
+	146, // 263: sqlite.SQLiteDatabaseService.ExecSQL1:output_type -> sqlite.ExecSQL1Response
+	148, // 264: sqlite.SQLiteDatabaseService.ExecSQL2_1:output_type -> sqlite.ExecSQL2_1Response
+	150, // 265: sqlite.SQLiteDatabaseService.GetLastChangedRowCount:output_type -> sqlite.GetLastChangedRowCountResponse
+	152, // 266: sqlite.SQLiteDatabaseService.GetLastInsertRowId:output_type -> sqlite.GetLastInsertRowIdResponse
+	154, // 267: sqlite.SQLiteDatabaseService.GetMaximumSize:output_type -> sqlite.GetMaximumSizeResponse
+	156, // 268: sqlite.SQLiteDatabaseService.GetPageSize:output_type -> sqlite.GetPageSizeResponse
+	158, // 269: sqlite.SQLiteDatabaseService.GetPath:output_type -> sqlite.GetPathResponse
+	160, // 270: sqlite.SQLiteDatabaseService.GetTotalChangedRowCount:output_type -> sqlite.GetTotalChangedRowCountResponse
+	162, // 271: sqlite.SQLiteDatabaseService.GetVersion:output_type -> sqlite.GetVersionResponse
+	164, // 272: sqlite.SQLiteDatabaseService.InTransaction:output_type -> sqlite.InTransactionResponse
+	166, // 273: sqlite.SQLiteDatabaseService.Insert:output_type -> sqlite.InsertResponse
+	168, // 274: sqlite.SQLiteDatabaseService.InsertOrThrow:output_type -> sqlite.InsertOrThrowResponse
+	170, // 275: sqlite.SQLiteDatabaseService.InsertWithOnConflict:output_type -> sqlite.InsertWithOnConflictResponse
+	172, // 276: sqlite.SQLiteDatabaseService.IsDatabaseIntegrityOk:output_type -> sqlite.IsDatabaseIntegrityOkResponse
+	174, // 277: sqlite.SQLiteDatabaseService.IsDbLockedByCurrentThread:output_type -> sqlite.IsDbLockedByCurrentThreadResponse
+	176, // 278: sqlite.SQLiteDatabaseService.IsDbLockedByOtherThreads:output_type -> sqlite.IsDbLockedByOtherThreadsResponse
+	43,  // 279: sqlite.SQLiteDatabaseService.IsOpen:output_type -> sqlite.IsOpenResponse
+	178, // 280: sqlite.SQLiteDatabaseService.IsReadOnly:output_type -> sqlite.IsReadOnlyResponse
+	180, // 281: sqlite.SQLiteDatabaseService.IsWriteAheadLoggingEnabled:output_type -> sqlite.IsWriteAheadLoggingEnabledResponse
+	182, // 282: sqlite.SQLiteDatabaseService.MarkTableSyncable2:output_type -> sqlite.MarkTableSyncable2Response
+	184, // 283: sqlite.SQLiteDatabaseService.MarkTableSyncable3_1:output_type -> sqlite.MarkTableSyncable3_1Response
+	186, // 284: sqlite.SQLiteDatabaseService.NeedUpgrade:output_type -> sqlite.NeedUpgradeResponse
+	188, // 285: sqlite.SQLiteDatabaseService.Query9:output_type -> sqlite.Query9Response
+	190, // 286: sqlite.SQLiteDatabaseService.Query10_1:output_type -> sqlite.Query10_1Response
+	192, // 287: sqlite.SQLiteDatabaseService.Query7_2:output_type -> sqlite.Query7_2Response
+	194, // 288: sqlite.SQLiteDatabaseService.Query8_3:output_type -> sqlite.Query8_3Response
+	196, // 289: sqlite.SQLiteDatabaseService.QueryWithFactory10:output_type -> sqlite.QueryWithFactory10Response
+	198, // 290: sqlite.SQLiteDatabaseService.QueryWithFactory11_1:output_type -> sqlite.QueryWithFactory11_1Response
+	200, // 291: sqlite.SQLiteDatabaseService.RawQuery2:output_type -> sqlite.RawQuery2Response
+	202, // 292: sqlite.SQLiteDatabaseService.RawQuery3_1:output_type -> sqlite.RawQuery3_1Response
+	204, // 293: sqlite.SQLiteDatabaseService.RawQueryWithFactory4:output_type -> sqlite.RawQueryWithFactory4Response
+	206, // 294: sqlite.SQLiteDatabaseService.RawQueryWithFactory5_1:output_type -> sqlite.RawQueryWithFactory5_1Response
+	208, // 295: sqlite.SQLiteDatabaseService.Replace:output_type -> sqlite.ReplaceResponse
+	210, // 296: sqlite.SQLiteDatabaseService.ReplaceOrThrow:output_type -> sqlite.ReplaceOrThrowResponse
+	212, // 297: sqlite.SQLiteDatabaseService.SetForeignKeyConstraintsEnabled:output_type -> sqlite.SetForeignKeyConstraintsEnabledResponse
+	214, // 298: sqlite.SQLiteDatabaseService.SetLocale:output_type -> sqlite.SetLocaleResponse
+	216, // 299: sqlite.SQLiteDatabaseService.SetLockingEnabled:output_type -> sqlite.SetLockingEnabledResponse
+	218, // 300: sqlite.SQLiteDatabaseService.SetMaxSqlCacheSize:output_type -> sqlite.SetMaxSqlCacheSizeResponse
+	220, // 301: sqlite.SQLiteDatabaseService.SetMaximumSize:output_type -> sqlite.SetMaximumSizeResponse
+	222, // 302: sqlite.SQLiteDatabaseService.SetPageSize:output_type -> sqlite.SetPageSizeResponse
+	224, // 303: sqlite.SQLiteDatabaseService.SetTransactionSuccessful:output_type -> sqlite.SetTransactionSuccessfulResponse
+	226, // 304: sqlite.SQLiteDatabaseService.SetVersion:output_type -> sqlite.SetVersionResponse
+	51,  // 305: sqlite.SQLiteDatabaseService.ToString:output_type -> sqlite.ToStringResponse
+	228, // 306: sqlite.SQLiteDatabaseService.Update:output_type -> sqlite.UpdateResponse
+	230, // 307: sqlite.SQLiteDatabaseService.UpdateWithOnConflict:output_type -> sqlite.UpdateWithOnConflictResponse
+	232, // 308: sqlite.SQLiteDatabaseService.ValidateSql:output_type -> sqlite.ValidateSqlResponse
+	234, // 309: sqlite.SQLiteDatabaseService.YieldIfContended:output_type -> sqlite.YieldIfContendedResponse
+	236, // 310: sqlite.SQLiteDatabaseService.YieldIfContendedSafely0:output_type -> sqlite.YieldIfContendedSafely0Response
+	238, // 311: sqlite.SQLiteDatabaseService.YieldIfContendedSafely1_1:output_type -> sqlite.YieldIfContendedSafely1_1Response
+	240, // 312: sqlite.SQLiteDatabaseService.Create:output_type -> sqlite.CreateResponse
+	242, // 313: sqlite.SQLiteDatabaseService.CreateInMemory:output_type -> sqlite.CreateInMemoryResponse
+	244, // 314: sqlite.SQLiteDatabaseService.DeleteDatabase:output_type -> sqlite.DeleteDatabaseResponse
+	246, // 315: sqlite.SQLiteDatabaseService.FindEditTable:output_type -> sqlite.FindEditTableResponse
+	248, // 316: sqlite.SQLiteDatabaseService.OpenDatabase2:output_type -> sqlite.OpenDatabase2Response
+	250, // 317: sqlite.SQLiteDatabaseService.OpenDatabase3_1:output_type -> sqlite.OpenDatabase3_1Response
+	252, // 318: sqlite.SQLiteDatabaseService.OpenOrCreateDatabase2:output_type -> sqlite.OpenOrCreateDatabase2Response
+	254, // 319: sqlite.SQLiteDatabaseService.OpenOrCreateDatabase2_1:output_type -> sqlite.OpenOrCreateDatabase2_1Response
+	256, // 320: sqlite.SQLiteDatabaseService.ReleaseMemory:output_type -> sqlite.ReleaseMemoryResponse
+	258, // 321: sqlite.SQLiteDatabaseCursorFactoryService.NewCursor:output_type -> sqlite.NewCursorResponse
+	260, // 322: sqlite.SQLiteDatabaseOpenParamsService.GetCursorFactory:output_type -> sqlite.GetCursorFactoryResponse
+	262, // 323: sqlite.SQLiteDatabaseOpenParamsService.GetErrorHandler:output_type -> sqlite.GetErrorHandlerResponse
+	264, // 324: sqlite.SQLiteDatabaseOpenParamsService.GetIdleConnectionTimeout:output_type -> sqlite.GetIdleConnectionTimeoutResponse
+	266, // 325: sqlite.SQLiteDatabaseOpenParamsService.GetJournalMode:output_type -> sqlite.GetJournalModeResponse
+	268, // 326: sqlite.SQLiteDatabaseOpenParamsService.GetLookasideSlotCount:output_type -> sqlite.GetLookasideSlotCountResponse
+	270, // 327: sqlite.SQLiteDatabaseOpenParamsService.GetLookasideSlotSize:output_type -> sqlite.GetLookasideSlotSizeResponse
+	272, // 328: sqlite.SQLiteDatabaseOpenParamsService.GetOpenFlags:output_type -> sqlite.GetOpenFlagsResponse
+	274, // 329: sqlite.SQLiteDatabaseOpenParamsService.GetSynchronousMode:output_type -> sqlite.GetSynchronousModeResponse
+	276, // 330: sqlite.SQLiteQueryBuilderService.NewSQLiteQueryBuilder:output_type -> sqlite.NewSQLiteQueryBuilderResponse
+	278, // 331: sqlite.SQLiteQueryBuilderService.AppendWhere:output_type -> sqlite.AppendWhereResponse
+	280, // 332: sqlite.SQLiteQueryBuilderService.AppendWhereEscapeString:output_type -> sqlite.AppendWhereEscapeStringResponse
+	282, // 333: sqlite.SQLiteQueryBuilderService.AppendWhereStandalone:output_type -> sqlite.AppendWhereStandaloneResponse
+	284, // 334: sqlite.SQLiteQueryBuilderService.BuildQuery6:output_type -> sqlite.BuildQuery6Response
+	286, // 335: sqlite.SQLiteQueryBuilderService.BuildQuery7_1:output_type -> sqlite.BuildQuery7_1Response
+	288, // 336: sqlite.SQLiteQueryBuilderService.BuildUnionQuery:output_type -> sqlite.BuildUnionQueryResponse
+	136, // 337: sqlite.SQLiteQueryBuilderService.Delete:output_type -> sqlite.DeleteResponse
+	260, // 338: sqlite.SQLiteQueryBuilderService.GetCursorFactory:output_type -> sqlite.GetCursorFactoryResponse
+	292, // 339: sqlite.SQLiteQueryBuilderService.GetTables:output_type -> sqlite.GetTablesResponse
+	166, // 340: sqlite.SQLiteQueryBuilderService.Insert:output_type -> sqlite.InsertResponse
+	295, // 341: sqlite.SQLiteQueryBuilderService.IsDistinct:output_type -> sqlite.IsDistinctResponse
+	297, // 342: sqlite.SQLiteQueryBuilderService.IsStrict:output_type -> sqlite.IsStrictResponse
+	299, // 343: sqlite.SQLiteQueryBuilderService.IsStrictColumns:output_type -> sqlite.IsStrictColumnsResponse
+	301, // 344: sqlite.SQLiteQueryBuilderService.IsStrictGrammar:output_type -> sqlite.IsStrictGrammarResponse
+	303, // 345: sqlite.SQLiteQueryBuilderService.Query7:output_type -> sqlite.Query7Response
+	305, // 346: sqlite.SQLiteQueryBuilderService.Query8_1:output_type -> sqlite.Query8_1Response
+	307, // 347: sqlite.SQLiteQueryBuilderService.Query9_2:output_type -> sqlite.Query9_2Response
+	309, // 348: sqlite.SQLiteQueryBuilderService.SetCursorFactory:output_type -> sqlite.SetCursorFactoryResponse
+	311, // 349: sqlite.SQLiteQueryBuilderService.SetDistinct:output_type -> sqlite.SetDistinctResponse
+	313, // 350: sqlite.SQLiteQueryBuilderService.SetStrict:output_type -> sqlite.SetStrictResponse
+	315, // 351: sqlite.SQLiteQueryBuilderService.SetStrictColumns:output_type -> sqlite.SetStrictColumnsResponse
+	317, // 352: sqlite.SQLiteQueryBuilderService.SetStrictGrammar:output_type -> sqlite.SetStrictGrammarResponse
+	319, // 353: sqlite.SQLiteQueryBuilderService.SetTables:output_type -> sqlite.SetTablesResponse
+	228, // 354: sqlite.SQLiteQueryBuilderService.Update:output_type -> sqlite.UpdateResponse
+	322, // 355: sqlite.SQLiteQueryBuilderService.AppendColumns:output_type -> sqlite.AppendColumnsResponse
+	324, // 356: sqlite.SQLiteQueryBuilderService.BuildQueryString:output_type -> sqlite.BuildQueryStringResponse
+	326, // 357: sqlite.SQLiteCursorDriverService.CursorClosed:output_type -> sqlite.CursorClosedResponse
+	328, // 358: sqlite.SQLiteCursorDriverService.CursorDeactivated:output_type -> sqlite.CursorDeactivatedResponse
+	330, // 359: sqlite.SQLiteCursorDriverService.CursorRequeried:output_type -> sqlite.CursorRequeriedResponse
+	332, // 360: sqlite.SQLiteCursorDriverService.Query:output_type -> sqlite.QueryResponse
+	334, // 361: sqlite.SQLiteCursorDriverService.SetBindArguments:output_type -> sqlite.SetBindArgumentsResponse
+	51,  // 362: sqlite.SQLiteQueryService.ToString:output_type -> sqlite.ToStringResponse
+	336, // 363: sqlite.SQLiteStatementService.Execute:output_type -> sqlite.ExecuteResponse
+	338, // 364: sqlite.SQLiteStatementService.ExecuteInsert:output_type -> sqlite.ExecuteInsertResponse
+	340, // 365: sqlite.SQLiteStatementService.ExecuteUpdateDelete:output_type -> sqlite.ExecuteUpdateDeleteResponse
+	342, // 366: sqlite.SQLiteStatementService.SimpleQueryForBlobFileDescriptor:output_type -> sqlite.SimpleQueryForBlobFileDescriptorResponse
+	344, // 367: sqlite.SQLiteStatementService.SimpleQueryForLong:output_type -> sqlite.SimpleQueryForLongResponse
+	346, // 368: sqlite.SQLiteStatementService.SimpleQueryForString:output_type -> sqlite.SimpleQueryForStringResponse
+	51,  // 369: sqlite.SQLiteStatementService.ToString:output_type -> sqlite.ToStringResponse
+	185, // [185:370] is the sub-list for method output_type
+	0,   // [0:185] is the sub-list for method input_type
+	0,   // [0:0] is the sub-list for extension type_name
+	0,   // [0:0] is the sub-list for extension extendee
+	0,   // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_proto_sqlite_sqlite_proto_init() }
@@ -48,12 +17521,13 @@ func file_proto_sqlite_sqlite_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_sqlite_sqlite_proto_rawDesc), len(file_proto_sqlite_sqlite_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   347,
 			NumExtensions: 0,
-			NumServices:   0,
+			NumServices:   13,
 		},
 		GoTypes:           file_proto_sqlite_sqlite_proto_goTypes,
 		DependencyIndexes: file_proto_sqlite_sqlite_proto_depIdxs,
+		MessageInfos:      file_proto_sqlite_sqlite_proto_msgTypes,
 	}.Build()
 	File_proto_sqlite_sqlite_proto = out.File
 	file_proto_sqlite_sqlite_proto_goTypes = nil

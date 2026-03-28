@@ -15,6 +15,171 @@ import (
 	"google.golang.org/grpc/status"
 )
 
+// WorkItemServer implements pb.WorkItemServiceServer.
+type WorkItemServer struct {
+	pb.UnimplementedWorkItemServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *WorkItemServer) NewWorkItem(_ context.Context, req *pb.NewWorkItemRequest) (*pb.NewWorkItemResponse, error) {
+	obj, err := jnipkg.NewWorkItem(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewWorkItemResponse{Result: handle}, nil
+}
+
+func (s *WorkItemServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WorkItem{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *WorkItemServer) GetDeliveryCount(_ context.Context, req *pb.GetDeliveryCountRequest) (*pb.GetDeliveryCountResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WorkItem{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetDeliveryCount()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetDeliveryCountResponse{Result: result}, nil
+}
+
+func (s *WorkItemServer) GetEstimatedNetworkDownloadBytes(_ context.Context, req *pb.GetEstimatedNetworkDownloadBytesRequest) (*pb.GetEstimatedNetworkDownloadBytesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WorkItem{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetEstimatedNetworkDownloadBytes()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetEstimatedNetworkDownloadBytesResponse{Result: result}, nil
+}
+
+func (s *WorkItemServer) GetEstimatedNetworkUploadBytes(_ context.Context, req *pb.GetEstimatedNetworkUploadBytesRequest) (*pb.GetEstimatedNetworkUploadBytesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WorkItem{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetEstimatedNetworkUploadBytes()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetEstimatedNetworkUploadBytesResponse{Result: result}, nil
+}
+
+func (s *WorkItemServer) GetExtras(_ context.Context, req *pb.GetExtrasRequest) (*pb.GetExtrasResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WorkItem{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetExtras()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetExtrasResponse{Result: handle}, nil
+}
+
+func (s *WorkItemServer) GetIntent(_ context.Context, req *pb.GetIntentRequest) (*pb.GetIntentResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WorkItem{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetIntent()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetIntentResponse{Result: handle}, nil
+}
+
+func (s *WorkItemServer) GetMinimumNetworkChunkBytes(_ context.Context, req *pb.GetMinimumNetworkChunkBytesRequest) (*pb.GetMinimumNetworkChunkBytesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WorkItem{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetMinimumNetworkChunkBytes()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetMinimumNetworkChunkBytesResponse{Result: result}, nil
+}
+
+func (s *WorkItemServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WorkItem{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *WorkItemServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WorkItem{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
 // SchedulerServer implements pb.SchedulerServiceServer.
 type SchedulerServer struct {
 	pb.UnimplementedSchedulerServiceServer
@@ -198,4 +363,90 @@ func (s *SchedulerServer) Schedule(_ context.Context, req *pb.ScheduleRequest) (
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.ScheduleResponse{Result: result}, nil
+}
+
+// PendingJobReasonsInfoServer implements pb.PendingJobReasonsInfoServiceServer.
+type PendingJobReasonsInfoServer struct {
+	pb.UnimplementedPendingJobReasonsInfoServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *PendingJobReasonsInfoServer) NewPendingJobReasonsInfo(_ context.Context, req *pb.NewPendingJobReasonsInfoRequest) (*pb.NewPendingJobReasonsInfoResponse, error) {
+	obj, err := jnipkg.NewPendingJobReasonsInfo(s.Ctx.VM, req.GetArg0(), s.Handles.Get(req.GetArg1()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewPendingJobReasonsInfoResponse{Result: handle}, nil
+}
+
+func (s *PendingJobReasonsInfoServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PendingJobReasonsInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *PendingJobReasonsInfoServer) GetPendingJobReasons(_ context.Context, req *pb.PendingJobReasonsInfoGetPendingJobReasonsRequest) (*pb.GetPendingJobReasonsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PendingJobReasonsInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetPendingJobReasons()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetPendingJobReasonsResponse{Result: handle}, nil
+}
+
+func (s *PendingJobReasonsInfoServer) GetTimestampMillis(_ context.Context, req *pb.GetTimestampMillisRequest) (*pb.GetTimestampMillisResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PendingJobReasonsInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetTimestampMillis()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetTimestampMillisResponse{Result: result}, nil
+}
+
+func (s *PendingJobReasonsInfoServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PendingJobReasonsInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
 }

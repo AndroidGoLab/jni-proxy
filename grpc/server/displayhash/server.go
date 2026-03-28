@@ -44,3 +44,140 @@ func (s *DisplayHashManagerServer) VerifyDisplayHash(_ context.Context, req *pb.
 	}
 	return &pb.VerifyDisplayHashResponse{Result: handle}, nil
 }
+
+// VerifiedDisplayHashServer implements pb.VerifiedDisplayHashServiceServer.
+type VerifiedDisplayHashServer struct {
+	pb.UnimplementedVerifiedDisplayHashServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *VerifiedDisplayHashServer) NewVerifiedDisplayHash(_ context.Context, req *pb.NewVerifiedDisplayHashRequest) (*pb.NewVerifiedDisplayHashResponse, error) {
+	obj, err := jnipkg.NewVerifiedDisplayHash(s.Ctx.VM, req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2(), s.Handles.Get(req.GetArg3()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewVerifiedDisplayHashResponse{Result: handle}, nil
+}
+
+func (s *VerifiedDisplayHashServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.VerifiedDisplayHash{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *VerifiedDisplayHashServer) GetBoundsInWindow(_ context.Context, req *pb.GetBoundsInWindowRequest) (*pb.GetBoundsInWindowResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.VerifiedDisplayHash{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetBoundsInWindow()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetBoundsInWindowResponse{Result: handle}, nil
+}
+
+func (s *VerifiedDisplayHashServer) GetHashAlgorithm(_ context.Context, req *pb.GetHashAlgorithmRequest) (*pb.GetHashAlgorithmResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.VerifiedDisplayHash{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetHashAlgorithm()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetHashAlgorithmResponse{Result: result}, nil
+}
+
+func (s *VerifiedDisplayHashServer) GetImageHash(_ context.Context, req *pb.GetImageHashRequest) (*pb.GetImageHashResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.VerifiedDisplayHash{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetImageHash()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetImageHashResponse{Result: handle}, nil
+}
+
+func (s *VerifiedDisplayHashServer) GetTimeMillis(_ context.Context, req *pb.GetTimeMillisRequest) (*pb.GetTimeMillisResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.VerifiedDisplayHash{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetTimeMillis()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetTimeMillisResponse{Result: result}, nil
+}
+
+func (s *VerifiedDisplayHashServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.VerifiedDisplayHash{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *VerifiedDisplayHashServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.VerifiedDisplayHash{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}

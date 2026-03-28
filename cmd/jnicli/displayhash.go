@@ -36,9 +36,316 @@ var displayhashDisplayHashManagerVerifyDisplayHashCmd = &cobra.Command{
 	},
 }
 
+var displayhashDisplayHashResultCallbackCmd = &cobra.Command{
+	Use:   "display-hash-result-callback",
+	Short: "DisplayHashResultCallbackService operations",
+}
+
+var displayhashDisplayHashResultCallbackOnDisplayHashErrorCmd = &cobra.Command{
+	Use:   "on-display-hash-error",
+	Short: "OnDisplayHashError RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDisplayHashResultCallbackServiceClient(grpcConn)
+		req := &pb.OnDisplayHashErrorRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnDisplayHashError(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayhashDisplayHashResultCallbackOnDisplayHashResultCmd = &cobra.Command{
+	Use:   "on-display-hash-result",
+	Short: "OnDisplayHashResult RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDisplayHashResultCallbackServiceClient(grpcConn)
+		req := &pb.OnDisplayHashResultRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnDisplayHashResult(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayhashVerifiedDisplayHashCmd = &cobra.Command{
+	Use:   "verified-display-hash",
+	Short: "VerifiedDisplayHashService operations",
+}
+
+var displayhashVerifiedDisplayHashNewVerifiedDisplayHashCmd = &cobra.Command{
+	Use:   "new-verified-display-hash",
+	Short: "NewVerifiedDisplayHash RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVerifiedDisplayHashServiceClient(grpcConn)
+		req := &pb.NewVerifiedDisplayHashRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.NewVerifiedDisplayHash(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayhashVerifiedDisplayHashDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVerifiedDisplayHashServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayhashVerifiedDisplayHashGetBoundsInWindowCmd = &cobra.Command{
+	Use:   "get-bounds-in-window",
+	Short: "GetBoundsInWindow RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVerifiedDisplayHashServiceClient(grpcConn)
+		req := &pb.GetBoundsInWindowRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetBoundsInWindow(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayhashVerifiedDisplayHashGetHashAlgorithmCmd = &cobra.Command{
+	Use:   "get-hash-algorithm",
+	Short: "GetHashAlgorithm RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVerifiedDisplayHashServiceClient(grpcConn)
+		req := &pb.GetHashAlgorithmRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetHashAlgorithm(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayhashVerifiedDisplayHashGetImageHashCmd = &cobra.Command{
+	Use:   "get-image-hash",
+	Short: "GetImageHash RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVerifiedDisplayHashServiceClient(grpcConn)
+		req := &pb.GetImageHashRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetImageHash(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayhashVerifiedDisplayHashGetTimeMillisCmd = &cobra.Command{
+	Use:   "get-time-millis",
+	Short: "GetTimeMillis RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVerifiedDisplayHashServiceClient(grpcConn)
+		req := &pb.GetTimeMillisRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetTimeMillis(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayhashVerifiedDisplayHashToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVerifiedDisplayHashServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayhashVerifiedDisplayHashWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVerifiedDisplayHashServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayhashDisplayHashCmd = &cobra.Command{
+	Use:   "display-hash",
+	Short: "DisplayHashService operations",
+}
+
+var displayhashDisplayHashDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDisplayHashServiceClient(grpcConn)
+		req := &pb.DisplayHashDescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayhashDisplayHashToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDisplayHashServiceClient(grpcConn)
+		req := &pb.DisplayHashToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayhashDisplayHashWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDisplayHashServiceClient(grpcConn)
+		req := &pb.DisplayHashWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 func init() {
 	displayhashDisplayHashManagerVerifyDisplayHashCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	displayhashDisplayHashManagerCmd.AddCommand(displayhashDisplayHashManagerVerifyDisplayHashCmd)
 	displayhashCmd.AddCommand(displayhashDisplayHashManagerCmd)
+	displayhashDisplayHashResultCallbackOnDisplayHashErrorCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	displayhashDisplayHashResultCallbackCmd.AddCommand(displayhashDisplayHashResultCallbackOnDisplayHashErrorCmd)
+	displayhashDisplayHashResultCallbackOnDisplayHashResultCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	displayhashDisplayHashResultCallbackCmd.AddCommand(displayhashDisplayHashResultCallbackOnDisplayHashResultCmd)
+	displayhashCmd.AddCommand(displayhashDisplayHashResultCallbackCmd)
+	displayhashVerifiedDisplayHashNewVerifiedDisplayHashCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	displayhashVerifiedDisplayHashNewVerifiedDisplayHashCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	displayhashVerifiedDisplayHashNewVerifiedDisplayHashCmd.Flags().String("arg2", "", "arg2 (string)")
+	displayhashVerifiedDisplayHashNewVerifiedDisplayHashCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	displayhashVerifiedDisplayHashCmd.AddCommand(displayhashVerifiedDisplayHashNewVerifiedDisplayHashCmd)
+	displayhashVerifiedDisplayHashDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	displayhashVerifiedDisplayHashCmd.AddCommand(displayhashVerifiedDisplayHashDescribeContentsCmd)
+	displayhashVerifiedDisplayHashGetBoundsInWindowCmd.Flags().Int64("handle", 0, "handle (int64)")
+	displayhashVerifiedDisplayHashCmd.AddCommand(displayhashVerifiedDisplayHashGetBoundsInWindowCmd)
+	displayhashVerifiedDisplayHashGetHashAlgorithmCmd.Flags().Int64("handle", 0, "handle (int64)")
+	displayhashVerifiedDisplayHashCmd.AddCommand(displayhashVerifiedDisplayHashGetHashAlgorithmCmd)
+	displayhashVerifiedDisplayHashGetImageHashCmd.Flags().Int64("handle", 0, "handle (int64)")
+	displayhashVerifiedDisplayHashCmd.AddCommand(displayhashVerifiedDisplayHashGetImageHashCmd)
+	displayhashVerifiedDisplayHashGetTimeMillisCmd.Flags().Int64("handle", 0, "handle (int64)")
+	displayhashVerifiedDisplayHashCmd.AddCommand(displayhashVerifiedDisplayHashGetTimeMillisCmd)
+	displayhashVerifiedDisplayHashToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	displayhashVerifiedDisplayHashCmd.AddCommand(displayhashVerifiedDisplayHashToStringCmd)
+	displayhashVerifiedDisplayHashWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	displayhashVerifiedDisplayHashWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	displayhashVerifiedDisplayHashWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	displayhashVerifiedDisplayHashCmd.AddCommand(displayhashVerifiedDisplayHashWriteToParcelCmd)
+	displayhashCmd.AddCommand(displayhashVerifiedDisplayHashCmd)
+	displayhashDisplayHashCmd.AddCommand(displayhashDisplayHashDescribeContentsCmd)
+	displayhashDisplayHashCmd.AddCommand(displayhashDisplayHashToStringCmd)
+	displayhashDisplayHashWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	displayhashDisplayHashWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	displayhashDisplayHashCmd.AddCommand(displayhashDisplayHashWriteToParcelCmd)
+	displayhashCmd.AddCommand(displayhashDisplayHashCmd)
 	rootCmd.AddCommand(displayhashCmd)
 }

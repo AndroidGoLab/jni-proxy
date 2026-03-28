@@ -9,6 +9,748 @@ import (
 	"google.golang.org/grpc"
 )
 
+// TextClassificationSessionFactoryClient wraps the gRPC TextClassificationSessionFactoryService client.
+type TextClassificationSessionFactoryClient struct {
+	svc pb.TextClassificationSessionFactoryServiceClient
+}
+
+// NewTextClassificationSessionFactoryClient creates a new TextClassificationSessionFactory client.
+func NewTextClassificationSessionFactoryClient(cc grpc.ClientConnInterface) *TextClassificationSessionFactoryClient {
+	return &TextClassificationSessionFactoryClient{
+		svc: pb.NewTextClassificationSessionFactoryServiceClient(cc),
+	}
+}
+
+// CreateTextClassificationSession calls the CreateTextClassificationSession RPC.
+func (c *TextClassificationSessionFactoryClient) CreateTextClassificationSession(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.CreateTextClassificationSession(ctx, &pb.CreateTextClassificationSessionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// TextSelectionClient wraps the gRPC TextSelectionService client.
+type TextSelectionClient struct {
+	svc pb.TextSelectionServiceClient
+}
+
+// NewTextSelectionClient creates a new TextSelection client.
+func NewTextSelectionClient(cc grpc.ClientConnInterface) *TextSelectionClient {
+	return &TextSelectionClient{
+		svc: pb.NewTextSelectionServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *TextSelectionClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetConfidenceScore calls the GetConfidenceScore RPC.
+func (c *TextSelectionClient) GetConfidenceScore(ctx context.Context, arg0 string) (float32, error) {
+	resp, err := c.svc.GetConfidenceScore(ctx, &pb.GetConfidenceScoreRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEntity calls the GetEntity RPC.
+func (c *TextSelectionClient) GetEntity(ctx context.Context, arg0 int32) (string, error) {
+	resp, err := c.svc.GetEntity(ctx, &pb.GetEntityRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEntityCount calls the GetEntityCount RPC.
+func (c *TextSelectionClient) GetEntityCount(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetEntityCount(ctx, &pb.GetEntityCountRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExtras calls the GetExtras RPC.
+func (c *TextSelectionClient) GetExtras(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetExtras(ctx, &pb.GetExtrasRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetId calls the GetId RPC.
+func (c *TextSelectionClient) GetId(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSelectionEndIndex calls the GetSelectionEndIndex RPC.
+func (c *TextSelectionClient) GetSelectionEndIndex(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetSelectionEndIndex(ctx, &pb.GetSelectionEndIndexRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSelectionStartIndex calls the GetSelectionStartIndex RPC.
+func (c *TextSelectionClient) GetSelectionStartIndex(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetSelectionStartIndex(ctx, &pb.GetSelectionStartIndexRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTextClassification calls the GetTextClassification RPC.
+func (c *TextSelectionClient) GetTextClassification(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTextClassification(ctx, &pb.GetTextClassificationRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *TextSelectionClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *TextSelectionClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// TextSelectionBuilderClient wraps the gRPC TextSelectionBuilderService client.
+type TextSelectionBuilderClient struct {
+	svc pb.TextSelectionBuilderServiceClient
+}
+
+// NewTextSelectionBuilderClient creates a new TextSelectionBuilder client.
+func NewTextSelectionBuilderClient(cc grpc.ClientConnInterface) *TextSelectionBuilderClient {
+	return &TextSelectionBuilderClient{
+		svc: pb.NewTextSelectionBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *TextSelectionBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetEntityType calls the SetEntityType RPC.
+func (c *TextSelectionBuilderClient) SetEntityType(ctx context.Context, arg0 string, arg1 float32) (int64, error) {
+	resp, err := c.svc.SetEntityType(ctx, &pb.SetEntityTypeRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetExtras calls the SetExtras RPC.
+func (c *TextSelectionBuilderClient) SetExtras(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetExtras(ctx, &pb.SetExtrasRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetId calls the SetId RPC.
+func (c *TextSelectionBuilderClient) SetId(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetId(ctx, &pb.SetIdRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetTextClassification calls the SetTextClassification RPC.
+func (c *TextSelectionBuilderClient) SetTextClassification(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetTextClassification(ctx, &pb.SetTextClassificationRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// TextSelectionRequestClient wraps the gRPC TextSelectionRequestService client.
+type TextSelectionRequestClient struct {
+	svc pb.TextSelectionRequestServiceClient
+}
+
+// NewTextSelectionRequestClient creates a new TextSelectionRequest client.
+func NewTextSelectionRequestClient(cc grpc.ClientConnInterface) *TextSelectionRequestClient {
+	return &TextSelectionRequestClient{
+		svc: pb.NewTextSelectionRequestServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *TextSelectionRequestClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCallingPackageName calls the GetCallingPackageName RPC.
+func (c *TextSelectionRequestClient) GetCallingPackageName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetCallingPackageName(ctx, &pb.GetCallingPackageNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDefaultLocales calls the GetDefaultLocales RPC.
+func (c *TextSelectionRequestClient) GetDefaultLocales(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDefaultLocales(ctx, &pb.GetDefaultLocalesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEndIndex calls the GetEndIndex RPC.
+func (c *TextSelectionRequestClient) GetEndIndex(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetEndIndex(ctx, &pb.GetEndIndexRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExtras calls the GetExtras RPC.
+func (c *TextSelectionRequestClient) GetExtras(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetExtras(ctx, &pb.GetExtrasRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStartIndex calls the GetStartIndex RPC.
+func (c *TextSelectionRequestClient) GetStartIndex(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetStartIndex(ctx, &pb.GetStartIndexRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetText calls the GetText RPC.
+func (c *TextSelectionRequestClient) GetText(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetText(ctx, &pb.GetTextRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ShouldIncludeTextClassification calls the ShouldIncludeTextClassification RPC.
+func (c *TextSelectionRequestClient) ShouldIncludeTextClassification(ctx context.Context) (bool, error) {
+	resp, err := c.svc.ShouldIncludeTextClassification(ctx, &pb.ShouldIncludeTextClassificationRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *TextSelectionRequestClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// TextClassificationContextClient wraps the gRPC TextClassificationContextService client.
+type TextClassificationContextClient struct {
+	svc pb.TextClassificationContextServiceClient
+}
+
+// NewTextClassificationContextClient creates a new TextClassificationContext client.
+func NewTextClassificationContextClient(cc grpc.ClientConnInterface) *TextClassificationContextClient {
+	return &TextClassificationContextClient{
+		svc: pb.NewTextClassificationContextServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *TextClassificationContextClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPackageName calls the GetPackageName RPC.
+func (c *TextClassificationContextClient) GetPackageName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetPackageName(ctx, &pb.GetPackageNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWidgetType calls the GetWidgetType RPC.
+func (c *TextClassificationContextClient) GetWidgetType(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetWidgetType(ctx, &pb.GetWidgetTypeRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWidgetVersion calls the GetWidgetVersion RPC.
+func (c *TextClassificationContextClient) GetWidgetVersion(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetWidgetVersion(ctx, &pb.GetWidgetVersionRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *TextClassificationContextClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *TextClassificationContextClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// TextClassificationContextBuilderClient wraps the gRPC TextClassificationContextBuilderService client.
+type TextClassificationContextBuilderClient struct {
+	svc pb.TextClassificationContextBuilderServiceClient
+}
+
+// NewTextClassificationContextBuilderClient creates a new TextClassificationContextBuilder client.
+func NewTextClassificationContextBuilderClient(cc grpc.ClientConnInterface) *TextClassificationContextBuilderClient {
+	return &TextClassificationContextBuilderClient{
+		svc: pb.NewTextClassificationContextBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *TextClassificationContextBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetWidgetVersion calls the SetWidgetVersion RPC.
+func (c *TextClassificationContextBuilderClient) SetWidgetVersion(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetWidgetVersion(ctx, &pb.SetWidgetVersionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// TextClassificationClient wraps the gRPC TextClassificationService client.
+type TextClassificationClient struct {
+	svc pb.TextClassificationServiceClient
+}
+
+// NewTextClassificationClient creates a new TextClassification client.
+func NewTextClassificationClient(cc grpc.ClientConnInterface) *TextClassificationClient {
+	return &TextClassificationClient{
+		svc: pb.NewTextClassificationServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *TextClassificationClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetConfidenceScore calls the GetConfidenceScore RPC.
+func (c *TextClassificationClient) GetConfidenceScore(ctx context.Context, arg0 string) (float32, error) {
+	resp, err := c.svc.GetConfidenceScore(ctx, &pb.GetConfidenceScoreRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEntity calls the GetEntity RPC.
+func (c *TextClassificationClient) GetEntity(ctx context.Context, arg0 int32) (string, error) {
+	resp, err := c.svc.GetEntity(ctx, &pb.GetEntityRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEntityCount calls the GetEntityCount RPC.
+func (c *TextClassificationClient) GetEntityCount(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetEntityCount(ctx, &pb.GetEntityCountRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExtras calls the GetExtras RPC.
+func (c *TextClassificationClient) GetExtras(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetExtras(ctx, &pb.GetExtrasRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIcon calls the GetIcon RPC.
+func (c *TextClassificationClient) GetIcon(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetIcon(ctx, &pb.GetIconRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetId calls the GetId RPC.
+func (c *TextClassificationClient) GetId(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIntent calls the GetIntent RPC.
+func (c *TextClassificationClient) GetIntent(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetIntent(ctx, &pb.GetIntentRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLabel calls the GetLabel RPC.
+func (c *TextClassificationClient) GetLabel(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetLabel(ctx, &pb.GetLabelRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOnClickListener calls the GetOnClickListener RPC.
+func (c *TextClassificationClient) GetOnClickListener(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetOnClickListener(ctx, &pb.GetOnClickListenerRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetText calls the GetText RPC.
+func (c *TextClassificationClient) GetText(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetText(ctx, &pb.GetTextRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *TextClassificationClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *TextClassificationClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// TextClassificationBuilderClient wraps the gRPC TextClassificationBuilderService client.
+type TextClassificationBuilderClient struct {
+	svc pb.TextClassificationBuilderServiceClient
+}
+
+// NewTextClassificationBuilderClient creates a new TextClassificationBuilder client.
+func NewTextClassificationBuilderClient(cc grpc.ClientConnInterface) *TextClassificationBuilderClient {
+	return &TextClassificationBuilderClient{
+		svc: pb.NewTextClassificationBuilderServiceClient(cc),
+	}
+}
+
+// AddAction calls the AddAction RPC.
+func (c *TextClassificationBuilderClient) AddAction(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.AddAction(ctx, &pb.AddActionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Build calls the Build RPC.
+func (c *TextClassificationBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetEntityType calls the SetEntityType RPC.
+func (c *TextClassificationBuilderClient) SetEntityType(ctx context.Context, arg0 string, arg1 float32) (int64, error) {
+	resp, err := c.svc.SetEntityType(ctx, &pb.SetEntityTypeRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetExtras calls the SetExtras RPC.
+func (c *TextClassificationBuilderClient) SetExtras(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetExtras(ctx, &pb.SetExtrasRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetIcon calls the SetIcon RPC.
+func (c *TextClassificationBuilderClient) SetIcon(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetIcon(ctx, &pb.SetIconRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetId calls the SetId RPC.
+func (c *TextClassificationBuilderClient) SetId(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetId(ctx, &pb.SetIdRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetIntent calls the SetIntent RPC.
+func (c *TextClassificationBuilderClient) SetIntent(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetIntent(ctx, &pb.SetIntentRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetLabel calls the SetLabel RPC.
+func (c *TextClassificationBuilderClient) SetLabel(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetLabel(ctx, &pb.SetLabelRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetOnClickListener calls the SetOnClickListener RPC.
+func (c *TextClassificationBuilderClient) SetOnClickListener(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetOnClickListener(ctx, &pb.SetOnClickListenerRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetText calls the SetText RPC.
+func (c *TextClassificationBuilderClient) SetText(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetText(ctx, &pb.SetTextRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// TextClassificationRequestClient wraps the gRPC TextClassificationRequestService client.
+type TextClassificationRequestClient struct {
+	svc pb.TextClassificationRequestServiceClient
+}
+
+// NewTextClassificationRequestClient creates a new TextClassificationRequest client.
+func NewTextClassificationRequestClient(cc grpc.ClientConnInterface) *TextClassificationRequestClient {
+	return &TextClassificationRequestClient{
+		svc: pb.NewTextClassificationRequestServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *TextClassificationRequestClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCallingPackageName calls the GetCallingPackageName RPC.
+func (c *TextClassificationRequestClient) GetCallingPackageName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetCallingPackageName(ctx, &pb.GetCallingPackageNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDefaultLocales calls the GetDefaultLocales RPC.
+func (c *TextClassificationRequestClient) GetDefaultLocales(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDefaultLocales(ctx, &pb.GetDefaultLocalesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEndIndex calls the GetEndIndex RPC.
+func (c *TextClassificationRequestClient) GetEndIndex(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetEndIndex(ctx, &pb.GetEndIndexRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExtras calls the GetExtras RPC.
+func (c *TextClassificationRequestClient) GetExtras(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetExtras(ctx, &pb.GetExtrasRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetReferenceTime calls the GetReferenceTime RPC.
+func (c *TextClassificationRequestClient) GetReferenceTime(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetReferenceTime(ctx, &pb.GetReferenceTimeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStartIndex calls the GetStartIndex RPC.
+func (c *TextClassificationRequestClient) GetStartIndex(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetStartIndex(ctx, &pb.GetStartIndexRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetText calls the GetText RPC.
+func (c *TextClassificationRequestClient) GetText(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetText(ctx, &pb.GetTextRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *TextClassificationRequestClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
 // TextClassificationManagerClient wraps the gRPC TextClassificationManagerService client.
 type TextClassificationManagerClient struct {
 	svc pb.TextClassificationManagerServiceClient
@@ -53,6 +795,1423 @@ func (c *TextClassificationManagerClient) SetTextClassificationSessionFactory(ct
 func (c *TextClassificationManagerClient) SetTextClassifier(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.SetTextClassifier(ctx, &pb.SetTextClassifierRequest{
 		Arg0: arg0,
+	})
+	return err
+}
+
+// TextClassificationSessionIdClient wraps the gRPC TextClassificationSessionIdService client.
+type TextClassificationSessionIdClient struct {
+	svc pb.TextClassificationSessionIdServiceClient
+}
+
+// NewTextClassificationSessionIdClient creates a new TextClassificationSessionId client.
+func NewTextClassificationSessionIdClient(cc grpc.ClientConnInterface) *TextClassificationSessionIdClient {
+	return &TextClassificationSessionIdClient{
+		svc: pb.NewTextClassificationSessionIdServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *TextClassificationSessionIdClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *TextClassificationSessionIdClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetValue calls the GetValue RPC.
+func (c *TextClassificationSessionIdClient) GetValue(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetValue(ctx, &pb.GetValueRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *TextClassificationSessionIdClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *TextClassificationSessionIdClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *TextClassificationSessionIdClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// TextClassifierEventClient wraps the gRPC TextClassifierEventService client.
+type TextClassifierEventClient struct {
+	svc pb.TextClassifierEventServiceClient
+}
+
+// NewTextClassifierEventClient creates a new TextClassifierEvent client.
+func NewTextClassifierEventClient(cc grpc.ClientConnInterface) *TextClassifierEventClient {
+	return &TextClassifierEventClient{
+		svc: pb.NewTextClassifierEventServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *TextClassifierEventClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetActionIndices calls the GetActionIndices RPC.
+func (c *TextClassifierEventClient) GetActionIndices(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetActionIndices(ctx, &pb.GetActionIndicesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEntityTypes calls the GetEntityTypes RPC.
+func (c *TextClassifierEventClient) GetEntityTypes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetEntityTypes(ctx, &pb.GetEntityTypesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEventCategory calls the GetEventCategory RPC.
+func (c *TextClassifierEventClient) GetEventCategory(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetEventCategory(ctx, &pb.GetEventCategoryRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEventContext calls the GetEventContext RPC.
+func (c *TextClassifierEventClient) GetEventContext(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetEventContext(ctx, &pb.GetEventContextRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEventIndex calls the GetEventIndex RPC.
+func (c *TextClassifierEventClient) GetEventIndex(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetEventIndex(ctx, &pb.GetEventIndexRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEventType calls the GetEventType RPC.
+func (c *TextClassifierEventClient) GetEventType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetEventType(ctx, &pb.GetEventTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExtras calls the GetExtras RPC.
+func (c *TextClassifierEventClient) GetExtras(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetExtras(ctx, &pb.GetExtrasRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLocale calls the GetLocale RPC.
+func (c *TextClassifierEventClient) GetLocale(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetLocale(ctx, &pb.GetLocaleRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetModelName calls the GetModelName RPC.
+func (c *TextClassifierEventClient) GetModelName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetModelName(ctx, &pb.GetModelNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetResultId calls the GetResultId RPC.
+func (c *TextClassifierEventClient) GetResultId(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetResultId(ctx, &pb.GetResultIdRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetScores calls the GetScores RPC.
+func (c *TextClassifierEventClient) GetScores(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetScores(ctx, &pb.GetScoresRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *TextClassifierEventClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *TextClassifierEventClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// TextClassifierEventTextSelectionEventClient wraps the gRPC TextClassifierEventTextSelectionEventService client.
+type TextClassifierEventTextSelectionEventClient struct {
+	svc pb.TextClassifierEventTextSelectionEventServiceClient
+}
+
+// NewTextClassifierEventTextSelectionEventClient creates a new TextClassifierEventTextSelectionEvent client.
+func NewTextClassifierEventTextSelectionEventClient(cc grpc.ClientConnInterface) *TextClassifierEventTextSelectionEventClient {
+	return &TextClassifierEventTextSelectionEventClient{
+		svc: pb.NewTextClassifierEventTextSelectionEventServiceClient(cc),
+	}
+}
+
+// GetRelativeSuggestedWordEndIndex calls the GetRelativeSuggestedWordEndIndex RPC.
+func (c *TextClassifierEventTextSelectionEventClient) GetRelativeSuggestedWordEndIndex(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetRelativeSuggestedWordEndIndex(ctx, &pb.GetRelativeSuggestedWordEndIndexRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRelativeSuggestedWordStartIndex calls the GetRelativeSuggestedWordStartIndex RPC.
+func (c *TextClassifierEventTextSelectionEventClient) GetRelativeSuggestedWordStartIndex(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetRelativeSuggestedWordStartIndex(ctx, &pb.GetRelativeSuggestedWordStartIndexRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRelativeWordEndIndex calls the GetRelativeWordEndIndex RPC.
+func (c *TextClassifierEventTextSelectionEventClient) GetRelativeWordEndIndex(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetRelativeWordEndIndex(ctx, &pb.GetRelativeWordEndIndexRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRelativeWordStartIndex calls the GetRelativeWordStartIndex RPC.
+func (c *TextClassifierEventTextSelectionEventClient) GetRelativeWordStartIndex(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetRelativeWordStartIndex(ctx, &pb.GetRelativeWordStartIndexRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *TextClassifierEventTextSelectionEventClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// SelectionEventClient wraps the gRPC SelectionEventService client.
+type SelectionEventClient struct {
+	svc pb.SelectionEventServiceClient
+}
+
+// NewSelectionEventClient creates a new SelectionEvent client.
+func NewSelectionEventClient(cc grpc.ClientConnInterface) *SelectionEventClient {
+	return &SelectionEventClient{
+		svc: pb.NewSelectionEventServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *SelectionEventClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *SelectionEventClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDurationSincePreviousEvent calls the GetDurationSincePreviousEvent RPC.
+func (c *SelectionEventClient) GetDurationSincePreviousEvent(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDurationSincePreviousEvent(ctx, &pb.GetDurationSincePreviousEventRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDurationSinceSessionStart calls the GetDurationSinceSessionStart RPC.
+func (c *SelectionEventClient) GetDurationSinceSessionStart(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDurationSinceSessionStart(ctx, &pb.GetDurationSinceSessionStartRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEnd calls the GetEnd RPC.
+func (c *SelectionEventClient) GetEnd(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetEnd(ctx, &pb.GetEndRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEntityType calls the GetEntityType RPC.
+func (c *SelectionEventClient) GetEntityType(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetEntityType(ctx, &pb.GetEntityTypeRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEventIndex calls the GetEventIndex RPC.
+func (c *SelectionEventClient) GetEventIndex(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetEventIndex(ctx, &pb.GetEventIndexRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEventTime calls the GetEventTime RPC.
+func (c *SelectionEventClient) GetEventTime(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetEventTime(ctx, &pb.GetEventTimeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEventType calls the GetEventType RPC.
+func (c *SelectionEventClient) GetEventType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetEventType(ctx, &pb.GetEventTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInvocationMethod calls the GetInvocationMethod RPC.
+func (c *SelectionEventClient) GetInvocationMethod(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetInvocationMethod(ctx, &pb.GetInvocationMethodRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPackageName calls the GetPackageName RPC.
+func (c *SelectionEventClient) GetPackageName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetPackageName(ctx, &pb.GetPackageNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetResultId calls the GetResultId RPC.
+func (c *SelectionEventClient) GetResultId(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetResultId(ctx, &pb.GetResultIdRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSessionId calls the GetSessionId RPC.
+func (c *SelectionEventClient) GetSessionId(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSessionId(ctx, &pb.GetSessionIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSmartEnd calls the GetSmartEnd RPC.
+func (c *SelectionEventClient) GetSmartEnd(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetSmartEnd(ctx, &pb.GetSmartEndRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSmartStart calls the GetSmartStart RPC.
+func (c *SelectionEventClient) GetSmartStart(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetSmartStart(ctx, &pb.GetSmartStartRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStart calls the GetStart RPC.
+func (c *SelectionEventClient) GetStart(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetStart(ctx, &pb.GetStartRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWidgetType calls the GetWidgetType RPC.
+func (c *SelectionEventClient) GetWidgetType(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetWidgetType(ctx, &pb.GetWidgetTypeRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWidgetVersion calls the GetWidgetVersion RPC.
+func (c *SelectionEventClient) GetWidgetVersion(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetWidgetVersion(ctx, &pb.GetWidgetVersionRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *SelectionEventClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *SelectionEventClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *SelectionEventClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// CreateSelectionActionEvent3 calls the CreateSelectionActionEvent3 RPC.
+func (c *SelectionEventClient) CreateSelectionActionEvent3(ctx context.Context, arg0 int32, arg1 int32, arg2 int32) (int64, error) {
+	resp, err := c.svc.CreateSelectionActionEvent3(ctx, &pb.CreateSelectionActionEvent3Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateSelectionActionEvent4_1 calls the CreateSelectionActionEvent4_1 RPC.
+func (c *SelectionEventClient) CreateSelectionActionEvent4_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64) (int64, error) {
+	resp, err := c.svc.CreateSelectionActionEvent4_1(ctx, &pb.CreateSelectionActionEvent4_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateSelectionModifiedEvent2 calls the CreateSelectionModifiedEvent2 RPC.
+func (c *SelectionEventClient) CreateSelectionModifiedEvent2(ctx context.Context, arg0 int32, arg1 int32) (int64, error) {
+	resp, err := c.svc.CreateSelectionModifiedEvent2(ctx, &pb.CreateSelectionModifiedEvent2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateSelectionModifiedEvent3_1 calls the CreateSelectionModifiedEvent3_1 RPC.
+func (c *SelectionEventClient) CreateSelectionModifiedEvent3_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) (int64, error) {
+	resp, err := c.svc.CreateSelectionModifiedEvent3_1(ctx, &pb.CreateSelectionModifiedEvent3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateSelectionModifiedEvent3_2 calls the CreateSelectionModifiedEvent3_2 RPC.
+func (c *SelectionEventClient) CreateSelectionModifiedEvent3_2(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) (int64, error) {
+	resp, err := c.svc.CreateSelectionModifiedEvent3_2(ctx, &pb.CreateSelectionModifiedEvent3_2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateSelectionStartedEvent calls the CreateSelectionStartedEvent RPC.
+func (c *SelectionEventClient) CreateSelectionStartedEvent(ctx context.Context, arg0 int32, arg1 int32) (int64, error) {
+	resp, err := c.svc.CreateSelectionStartedEvent(ctx, &pb.CreateSelectionStartedEventRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsTerminal calls the IsTerminal RPC.
+func (c *SelectionEventClient) IsTerminal(ctx context.Context, arg0 int32) (bool, error) {
+	resp, err := c.svc.IsTerminal(ctx, &pb.IsTerminalRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// TextLinksClient wraps the gRPC TextLinksService client.
+type TextLinksClient struct {
+	svc pb.TextLinksServiceClient
+}
+
+// NewTextLinksClient creates a new TextLinks client.
+func NewTextLinksClient(cc grpc.ClientConnInterface) *TextLinksClient {
+	return &TextLinksClient{
+		svc: pb.NewTextLinksServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *TextLinksClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExtras calls the GetExtras RPC.
+func (c *TextLinksClient) GetExtras(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetExtras(ctx, &pb.GetExtrasRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetText calls the GetText RPC.
+func (c *TextLinksClient) GetText(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetText(ctx, &pb.GetTextRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *TextLinksClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *TextLinksClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// TextLinksBuilderClient wraps the gRPC TextLinksBuilderService client.
+type TextLinksBuilderClient struct {
+	svc pb.TextLinksBuilderServiceClient
+}
+
+// NewTextLinksBuilderClient creates a new TextLinksBuilder client.
+func NewTextLinksBuilderClient(cc grpc.ClientConnInterface) *TextLinksBuilderClient {
+	return &TextLinksBuilderClient{
+		svc: pb.NewTextLinksBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *TextLinksBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearTextLinks calls the ClearTextLinks RPC.
+func (c *TextLinksBuilderClient) ClearTextLinks(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearTextLinks(ctx, &pb.ClearTextLinksRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetExtras calls the SetExtras RPC.
+func (c *TextLinksBuilderClient) SetExtras(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetExtras(ctx, &pb.SetExtrasRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// TextLinksRequestClient wraps the gRPC TextLinksRequestService client.
+type TextLinksRequestClient struct {
+	svc pb.TextLinksRequestServiceClient
+}
+
+// NewTextLinksRequestClient creates a new TextLinksRequest client.
+func NewTextLinksRequestClient(cc grpc.ClientConnInterface) *TextLinksRequestClient {
+	return &TextLinksRequestClient{
+		svc: pb.NewTextLinksRequestServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *TextLinksRequestClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCallingPackageName calls the GetCallingPackageName RPC.
+func (c *TextLinksRequestClient) GetCallingPackageName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetCallingPackageName(ctx, &pb.GetCallingPackageNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDefaultLocales calls the GetDefaultLocales RPC.
+func (c *TextLinksRequestClient) GetDefaultLocales(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDefaultLocales(ctx, &pb.GetDefaultLocalesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEntityConfig calls the GetEntityConfig RPC.
+func (c *TextLinksRequestClient) GetEntityConfig(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetEntityConfig(ctx, &pb.GetEntityConfigRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExtras calls the GetExtras RPC.
+func (c *TextLinksRequestClient) GetExtras(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetExtras(ctx, &pb.GetExtrasRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetReferenceTime calls the GetReferenceTime RPC.
+func (c *TextLinksRequestClient) GetReferenceTime(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetReferenceTime(ctx, &pb.GetReferenceTimeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetText calls the GetText RPC.
+func (c *TextLinksRequestClient) GetText(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetText(ctx, &pb.GetTextRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *TextLinksRequestClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// TextLinksTextLinkClient wraps the gRPC TextLinksTextLinkService client.
+type TextLinksTextLinkClient struct {
+	svc pb.TextLinksTextLinkServiceClient
+}
+
+// NewTextLinksTextLinkClient creates a new TextLinksTextLink client.
+func NewTextLinksTextLinkClient(cc grpc.ClientConnInterface) *TextLinksTextLinkClient {
+	return &TextLinksTextLinkClient{
+		svc: pb.NewTextLinksTextLinkServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *TextLinksTextLinkClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetConfidenceScore calls the GetConfidenceScore RPC.
+func (c *TextLinksTextLinkClient) GetConfidenceScore(ctx context.Context, arg0 string) (float32, error) {
+	resp, err := c.svc.GetConfidenceScore(ctx, &pb.GetConfidenceScoreRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEnd calls the GetEnd RPC.
+func (c *TextLinksTextLinkClient) GetEnd(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetEnd(ctx, &pb.GetEndRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEntity calls the GetEntity RPC.
+func (c *TextLinksTextLinkClient) GetEntity(ctx context.Context, arg0 int32) (string, error) {
+	resp, err := c.svc.GetEntity(ctx, &pb.GetEntityRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEntityCount calls the GetEntityCount RPC.
+func (c *TextLinksTextLinkClient) GetEntityCount(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetEntityCount(ctx, &pb.GetEntityCountRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExtras calls the GetExtras RPC.
+func (c *TextLinksTextLinkClient) GetExtras(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetExtras(ctx, &pb.GetExtrasRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStart calls the GetStart RPC.
+func (c *TextLinksTextLinkClient) GetStart(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetStart(ctx, &pb.GetStartRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *TextLinksTextLinkClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *TextLinksTextLinkClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// TextLinksTextLinkSpanClient wraps the gRPC TextLinksTextLinkSpanService client.
+type TextLinksTextLinkSpanClient struct {
+	svc pb.TextLinksTextLinkSpanServiceClient
+}
+
+// NewTextLinksTextLinkSpanClient creates a new TextLinksTextLinkSpan client.
+func NewTextLinksTextLinkSpanClient(cc grpc.ClientConnInterface) *TextLinksTextLinkSpanClient {
+	return &TextLinksTextLinkSpanClient{
+		svc: pb.NewTextLinksTextLinkSpanServiceClient(cc),
+	}
+}
+
+// GetTextLink calls the GetTextLink RPC.
+func (c *TextLinksTextLinkSpanClient) GetTextLink(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTextLink(ctx, &pb.GetTextLinkRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnClick calls the OnClick RPC.
+func (c *TextLinksTextLinkSpanClient) OnClick(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnClick(ctx, &pb.OnClickRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// TextLanguageClient wraps the gRPC TextLanguageService client.
+type TextLanguageClient struct {
+	svc pb.TextLanguageServiceClient
+}
+
+// NewTextLanguageClient creates a new TextLanguage client.
+func NewTextLanguageClient(cc grpc.ClientConnInterface) *TextLanguageClient {
+	return &TextLanguageClient{
+		svc: pb.NewTextLanguageServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *TextLanguageClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetConfidenceScore calls the GetConfidenceScore RPC.
+func (c *TextLanguageClient) GetConfidenceScore(ctx context.Context, arg0 int64) (float32, error) {
+	resp, err := c.svc.GetConfidenceScore(ctx, &pb.TextLanguageGetConfidenceScoreRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExtras calls the GetExtras RPC.
+func (c *TextLanguageClient) GetExtras(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetExtras(ctx, &pb.GetExtrasRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetId calls the GetId RPC.
+func (c *TextLanguageClient) GetId(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLocale calls the GetLocale RPC.
+func (c *TextLanguageClient) GetLocale(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetLocale(ctx, &pb.TextLanguageGetLocaleRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLocaleHypothesisCount calls the GetLocaleHypothesisCount RPC.
+func (c *TextLanguageClient) GetLocaleHypothesisCount(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetLocaleHypothesisCount(ctx, &pb.GetLocaleHypothesisCountRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *TextLanguageClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *TextLanguageClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// TextLanguageBuilderClient wraps the gRPC TextLanguageBuilderService client.
+type TextLanguageBuilderClient struct {
+	svc pb.TextLanguageBuilderServiceClient
+}
+
+// NewTextLanguageBuilderClient creates a new TextLanguageBuilder client.
+func NewTextLanguageBuilderClient(cc grpc.ClientConnInterface) *TextLanguageBuilderClient {
+	return &TextLanguageBuilderClient{
+		svc: pb.NewTextLanguageBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *TextLanguageBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PutLocale calls the PutLocale RPC.
+func (c *TextLanguageBuilderClient) PutLocale(ctx context.Context, arg0 int64, arg1 float32) (int64, error) {
+	resp, err := c.svc.PutLocale(ctx, &pb.PutLocaleRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetExtras calls the SetExtras RPC.
+func (c *TextLanguageBuilderClient) SetExtras(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetExtras(ctx, &pb.SetExtrasRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetId calls the SetId RPC.
+func (c *TextLanguageBuilderClient) SetId(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetId(ctx, &pb.SetIdRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// TextLanguageRequestClient wraps the gRPC TextLanguageRequestService client.
+type TextLanguageRequestClient struct {
+	svc pb.TextLanguageRequestServiceClient
+}
+
+// NewTextLanguageRequestClient creates a new TextLanguageRequest client.
+func NewTextLanguageRequestClient(cc grpc.ClientConnInterface) *TextLanguageRequestClient {
+	return &TextLanguageRequestClient{
+		svc: pb.NewTextLanguageRequestServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *TextLanguageRequestClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCallingPackageName calls the GetCallingPackageName RPC.
+func (c *TextLanguageRequestClient) GetCallingPackageName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetCallingPackageName(ctx, &pb.GetCallingPackageNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExtras calls the GetExtras RPC.
+func (c *TextLanguageRequestClient) GetExtras(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetExtras(ctx, &pb.GetExtrasRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetText calls the GetText RPC.
+func (c *TextLanguageRequestClient) GetText(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetText(ctx, &pb.GetTextRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *TextLanguageRequestClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ConversationActionClient wraps the gRPC ConversationActionService client.
+type ConversationActionClient struct {
+	svc pb.ConversationActionServiceClient
+}
+
+// NewConversationActionClient creates a new ConversationAction client.
+func NewConversationActionClient(cc grpc.ClientConnInterface) *ConversationActionClient {
+	return &ConversationActionClient{
+		svc: pb.NewConversationActionServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ConversationActionClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAction calls the GetAction RPC.
+func (c *ConversationActionClient) GetAction(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAction(ctx, &pb.GetActionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetConfidenceScore calls the GetConfidenceScore RPC.
+func (c *ConversationActionClient) GetConfidenceScore(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetConfidenceScore(ctx, &pb.ConversationActionGetConfidenceScoreRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExtras calls the GetExtras RPC.
+func (c *ConversationActionClient) GetExtras(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetExtras(ctx, &pb.GetExtrasRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTextReply calls the GetTextReply RPC.
+func (c *ConversationActionClient) GetTextReply(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTextReply(ctx, &pb.GetTextReplyRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetType calls the GetType RPC.
+func (c *ConversationActionClient) GetType(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetType(ctx, &pb.GetTypeRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ConversationActionClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ConversationActionBuilderClient wraps the gRPC ConversationActionBuilderService client.
+type ConversationActionBuilderClient struct {
+	svc pb.ConversationActionBuilderServiceClient
+}
+
+// NewConversationActionBuilderClient creates a new ConversationActionBuilder client.
+func NewConversationActionBuilderClient(cc grpc.ClientConnInterface) *ConversationActionBuilderClient {
+	return &ConversationActionBuilderClient{
+		svc: pb.NewConversationActionBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *ConversationActionBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetAction calls the SetAction RPC.
+func (c *ConversationActionBuilderClient) SetAction(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetAction(ctx, &pb.SetActionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetConfidenceScore calls the SetConfidenceScore RPC.
+func (c *ConversationActionBuilderClient) SetConfidenceScore(ctx context.Context, arg0 float32) (int64, error) {
+	resp, err := c.svc.SetConfidenceScore(ctx, &pb.SetConfidenceScoreRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetExtras calls the SetExtras RPC.
+func (c *ConversationActionBuilderClient) SetExtras(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetExtras(ctx, &pb.SetExtrasRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetTextReply calls the SetTextReply RPC.
+func (c *ConversationActionBuilderClient) SetTextReply(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetTextReply(ctx, &pb.SetTextReplyRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// TextClassifierEntityConfigClient wraps the gRPC TextClassifierEntityConfigService client.
+type TextClassifierEntityConfigClient struct {
+	svc pb.TextClassifierEntityConfigServiceClient
+}
+
+// NewTextClassifierEntityConfigClient creates a new TextClassifierEntityConfig client.
+func NewTextClassifierEntityConfigClient(cc grpc.ClientConnInterface) *TextClassifierEntityConfigClient {
+	return &TextClassifierEntityConfigClient{
+		svc: pb.NewTextClassifierEntityConfigServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *TextClassifierEntityConfigClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ShouldIncludeTypesFromTextClassifier calls the ShouldIncludeTypesFromTextClassifier RPC.
+func (c *TextClassifierEntityConfigClient) ShouldIncludeTypesFromTextClassifier(ctx context.Context) (bool, error) {
+	resp, err := c.svc.ShouldIncludeTypesFromTextClassifier(ctx, &pb.ShouldIncludeTypesFromTextClassifierRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *TextClassifierEntityConfigClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ConversationActionsClient wraps the gRPC ConversationActionsService client.
+type ConversationActionsClient struct {
+	svc pb.ConversationActionsServiceClient
+}
+
+// NewConversationActionsClient creates a new ConversationActions client.
+func NewConversationActionsClient(cc grpc.ClientConnInterface) *ConversationActionsClient {
+	return &ConversationActionsClient{
+		svc: pb.NewConversationActionsServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ConversationActionsClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.ConversationActionsDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetId calls the GetId RPC.
+func (c *ConversationActionsClient) GetId(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetId(ctx, &pb.ConversationActionsGetIdRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ConversationActionsClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.ConversationActionsWriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// ConversationActionsMessageClient wraps the gRPC ConversationActionsMessageService client.
+type ConversationActionsMessageClient struct {
+	svc pb.ConversationActionsMessageServiceClient
+}
+
+// NewConversationActionsMessageClient creates a new ConversationActionsMessage client.
+func NewConversationActionsMessageClient(cc grpc.ClientConnInterface) *ConversationActionsMessageClient {
+	return &ConversationActionsMessageClient{
+		svc: pb.NewConversationActionsMessageServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ConversationActionsMessageClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAuthor calls the GetAuthor RPC.
+func (c *ConversationActionsMessageClient) GetAuthor(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAuthor(ctx, &pb.GetAuthorRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExtras calls the GetExtras RPC.
+func (c *ConversationActionsMessageClient) GetExtras(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetExtras(ctx, &pb.GetExtrasRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetReferenceTime calls the GetReferenceTime RPC.
+func (c *ConversationActionsMessageClient) GetReferenceTime(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetReferenceTime(ctx, &pb.GetReferenceTimeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetText calls the GetText RPC.
+func (c *ConversationActionsMessageClient) GetText(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetText(ctx, &pb.GetTextRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ConversationActionsMessageClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ConversationActionsRequestClient wraps the gRPC ConversationActionsRequestService client.
+type ConversationActionsRequestClient struct {
+	svc pb.ConversationActionsRequestServiceClient
+}
+
+// NewConversationActionsRequestClient creates a new ConversationActionsRequest client.
+func NewConversationActionsRequestClient(cc grpc.ClientConnInterface) *ConversationActionsRequestClient {
+	return &ConversationActionsRequestClient{
+		svc: pb.NewConversationActionsRequestServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ConversationActionsRequestClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCallingPackageName calls the GetCallingPackageName RPC.
+func (c *ConversationActionsRequestClient) GetCallingPackageName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetCallingPackageName(ctx, &pb.GetCallingPackageNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExtras calls the GetExtras RPC.
+func (c *ConversationActionsRequestClient) GetExtras(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetExtras(ctx, &pb.GetExtrasRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMaxSuggestions calls the GetMaxSuggestions RPC.
+func (c *ConversationActionsRequestClient) GetMaxSuggestions(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMaxSuggestions(ctx, &pb.GetMaxSuggestionsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTypeConfig calls the GetTypeConfig RPC.
+func (c *ConversationActionsRequestClient) GetTypeConfig(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTypeConfig(ctx, &pb.GetTypeConfigRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ConversationActionsRequestClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
 	})
 	return err
 }

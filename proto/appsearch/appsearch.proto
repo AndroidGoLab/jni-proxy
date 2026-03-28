@@ -5,3 +5,2359 @@ syntax = "proto3";
 package appsearch;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/appsearch";
+
+message EqualsRequest {
+  int64 arg0 = 1;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message GetErrorMessageRequest {
+}
+
+message GetErrorMessageResponse {
+  string result = 1;
+}
+
+message GetResultCodeRequest {
+}
+
+message GetResultCodeResponse {
+  int32 result = 1;
+}
+
+message GetResultValueRequest {
+}
+
+message GetResultValueResponse {
+  int64 result = 1;
+}
+
+message HashCodeRequest {
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message IsSuccessRequest {
+}
+
+message IsSuccessResponse {
+  bool result = 1;
+}
+
+message ToStringRequest {
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message GetDatabaseNameRequest {
+}
+
+message GetDatabaseNameResponse {
+  string result = 1;
+}
+
+message GetDocumentIdRequest {
+}
+
+message GetDocumentIdResponse {
+  string result = 1;
+}
+
+message GetNamespaceRequest {
+}
+
+message GetNamespaceResponse {
+  string result = 1;
+}
+
+message GetPackageNameRequest {
+}
+
+message GetPackageNameResponse {
+  string result = 1;
+}
+
+message GetUsageTimestampMillisRequest {
+}
+
+message GetUsageTimestampMillisResponse {
+  int64 result = 1;
+}
+
+message BuildRequest {
+}
+
+message BuildResponse {
+  int64 result = 1;
+}
+
+message SetUsageTimestampMillisRequest {
+  int64 arg0 = 1;
+}
+
+message SetUsageTimestampMillisResponse {
+  int64 result = 1;
+}
+
+message DescribeContentsRequest {
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message GetAdvancedRankingExpressionRequest {
+}
+
+message GetAdvancedRankingExpressionResponse {
+  string result = 1;
+}
+
+message GetDefaultEmbeddingSearchMetricTypeRequest {
+}
+
+message GetDefaultEmbeddingSearchMetricTypeResponse {
+  int32 result = 1;
+}
+
+message GetJoinSpecRequest {
+}
+
+message GetJoinSpecResponse {
+  int64 result = 1;
+}
+
+message GetMaxSnippetSizeRequest {
+}
+
+message GetMaxSnippetSizeResponse {
+  int32 result = 1;
+}
+
+message GetOrderRequest {
+}
+
+message GetOrderResponse {
+  int32 result = 1;
+}
+
+message GetRankingStrategyRequest {
+}
+
+message GetRankingStrategyResponse {
+  int32 result = 1;
+}
+
+message GetResultCountPerPageRequest {
+}
+
+message GetResultCountPerPageResponse {
+  int32 result = 1;
+}
+
+message GetResultGroupingLimitRequest {
+}
+
+message GetResultGroupingLimitResponse {
+  int32 result = 1;
+}
+
+message GetResultGroupingTypeFlagsRequest {
+}
+
+message GetResultGroupingTypeFlagsResponse {
+  int32 result = 1;
+}
+
+message GetSearchSourceLogTagRequest {
+}
+
+message GetSearchSourceLogTagResponse {
+  string result = 1;
+}
+
+message GetSnippetCountRequest {
+}
+
+message GetSnippetCountResponse {
+  int32 result = 1;
+}
+
+message GetSnippetCountPerPropertyRequest {
+}
+
+message GetSnippetCountPerPropertyResponse {
+  int32 result = 1;
+}
+
+message GetTermMatchRequest {
+}
+
+message GetTermMatchResponse {
+  int32 result = 1;
+}
+
+message IsListFilterHasPropertyFunctionEnabledRequest {
+}
+
+message IsListFilterHasPropertyFunctionEnabledResponse {
+  bool result = 1;
+}
+
+message IsListFilterMatchScoreExpressionFunctionEnabledRequest {
+}
+
+message IsListFilterMatchScoreExpressionFunctionEnabledResponse {
+  bool result = 1;
+}
+
+message IsListFilterQueryLanguageEnabledRequest {
+}
+
+message IsListFilterQueryLanguageEnabledResponse {
+  bool result = 1;
+}
+
+message IsNumericSearchEnabledRequest {
+}
+
+message IsNumericSearchEnabledResponse {
+  bool result = 1;
+}
+
+message IsScorablePropertyRankingEnabledRequest {
+}
+
+message IsScorablePropertyRankingEnabledResponse {
+  bool result = 1;
+}
+
+message IsVerbatimSearchEnabledRequest {
+}
+
+message IsVerbatimSearchEnabledResponse {
+  bool result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteToParcelResponse {
+}
+
+message AddEmbeddingParametersRequest {
+  int64 arg0 = 1;
+}
+
+message AddEmbeddingParametersResponse {
+  int64 result = 1;
+}
+
+message AddFilterDocumentIdsRequest {
+  int64 arg0 = 1;
+}
+
+message AddFilterDocumentIdsResponse {
+  int64 result = 1;
+}
+
+message AddFilterNamespacesRequest {
+  int64 arg0 = 1;
+}
+
+message AddFilterNamespacesResponse {
+  int64 result = 1;
+}
+
+message AddFilterPackageNamesRequest {
+  int64 arg0 = 1;
+}
+
+message AddFilterPackageNamesResponse {
+  int64 result = 1;
+}
+
+message AddFilterSchemasRequest {
+  int64 arg0 = 1;
+}
+
+message AddFilterSchemasResponse {
+  int64 result = 1;
+}
+
+message AddInformationalRankingExpressionsRequest {
+  int64 arg0 = 1;
+}
+
+message AddInformationalRankingExpressionsResponse {
+  int64 result = 1;
+}
+
+message AddSearchStringParametersRequest {
+  int64 arg0 = 1;
+}
+
+message AddSearchStringParametersResponse {
+  int64 result = 1;
+}
+
+message ClearEmbeddingParametersRequest {
+}
+
+message ClearEmbeddingParametersResponse {
+  int64 result = 1;
+}
+
+message ClearFilterDocumentIdsRequest {
+}
+
+message ClearFilterDocumentIdsResponse {
+  int64 result = 1;
+}
+
+message ClearFilterNamespacesRequest {
+}
+
+message ClearFilterNamespacesResponse {
+  int64 result = 1;
+}
+
+message ClearFilterPackageNamesRequest {
+}
+
+message ClearFilterPackageNamesResponse {
+  int64 result = 1;
+}
+
+message ClearFilterPropertiesRequest {
+}
+
+message ClearFilterPropertiesResponse {
+  int64 result = 1;
+}
+
+message ClearFilterSchemasRequest {
+}
+
+message ClearFilterSchemasResponse {
+  int64 result = 1;
+}
+
+message ClearInformationalRankingExpressionsRequest {
+}
+
+message ClearInformationalRankingExpressionsResponse {
+  int64 result = 1;
+}
+
+message ClearJoinSpecRequest {
+}
+
+message ClearJoinSpecResponse {
+  int64 result = 1;
+}
+
+message ClearProjectionsRequest {
+}
+
+message ClearProjectionsResponse {
+  int64 result = 1;
+}
+
+message ClearPropertyWeightsRequest {
+}
+
+message ClearPropertyWeightsResponse {
+  int64 result = 1;
+}
+
+message ClearResultGroupingRequest {
+}
+
+message ClearResultGroupingResponse {
+  int64 result = 1;
+}
+
+message ClearSearchSourceLogTagRequest {
+}
+
+message ClearSearchSourceLogTagResponse {
+  int64 result = 1;
+}
+
+message ClearSearchStringParametersRequest {
+}
+
+message ClearSearchStringParametersResponse {
+  int64 result = 1;
+}
+
+message SetDefaultEmbeddingSearchMetricTypeRequest {
+  int32 arg0 = 1;
+}
+
+message SetDefaultEmbeddingSearchMetricTypeResponse {
+  int64 result = 1;
+}
+
+message SetJoinSpecRequest {
+  int64 arg0 = 1;
+}
+
+message SetJoinSpecResponse {
+  int64 result = 1;
+}
+
+message SetListFilterHasPropertyFunctionEnabledRequest {
+  bool arg0 = 1;
+}
+
+message SetListFilterHasPropertyFunctionEnabledResponse {
+  int64 result = 1;
+}
+
+message SetListFilterMatchScoreExpressionFunctionEnabledRequest {
+  bool arg0 = 1;
+}
+
+message SetListFilterMatchScoreExpressionFunctionEnabledResponse {
+  int64 result = 1;
+}
+
+message SetListFilterQueryLanguageEnabledRequest {
+  bool arg0 = 1;
+}
+
+message SetListFilterQueryLanguageEnabledResponse {
+  int64 result = 1;
+}
+
+message SetMaxSnippetSizeRequest {
+  int32 arg0 = 1;
+}
+
+message SetMaxSnippetSizeResponse {
+  int64 result = 1;
+}
+
+message SetNumericSearchEnabledRequest {
+  bool arg0 = 1;
+}
+
+message SetNumericSearchEnabledResponse {
+  int64 result = 1;
+}
+
+message SetOrderRequest {
+  int32 arg0 = 1;
+}
+
+message SetOrderResponse {
+  int64 result = 1;
+}
+
+message SetRankingStrategy1Request {
+  int32 arg0 = 1;
+}
+
+message SetRankingStrategy1Response {
+  int64 result = 1;
+}
+
+message SetRankingStrategy1_1Request {
+  string arg0 = 1;
+}
+
+message SetRankingStrategy1_1Response {
+  int64 result = 1;
+}
+
+message SetResultCountPerPageRequest {
+  int32 arg0 = 1;
+}
+
+message SetResultCountPerPageResponse {
+  int64 result = 1;
+}
+
+message SetResultGroupingRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message SetResultGroupingResponse {
+  int64 result = 1;
+}
+
+message SetScorablePropertyRankingEnabledRequest {
+  bool arg0 = 1;
+}
+
+message SetScorablePropertyRankingEnabledResponse {
+  int64 result = 1;
+}
+
+message SetSearchSourceLogTagRequest {
+  string arg0 = 1;
+}
+
+message SetSearchSourceLogTagResponse {
+  int64 result = 1;
+}
+
+message SetSnippetCountRequest {
+  int32 arg0 = 1;
+}
+
+message SetSnippetCountResponse {
+  int64 result = 1;
+}
+
+message SetSnippetCountPerPropertyRequest {
+  int32 arg0 = 1;
+}
+
+message SetSnippetCountPerPropertyResponse {
+  int64 result = 1;
+}
+
+message SetTermMatchRequest {
+  int32 arg0 = 1;
+}
+
+message SetTermMatchResponse {
+  int64 result = 1;
+}
+
+message SetVerbatimSearchEnabledRequest {
+  bool arg0 = 1;
+}
+
+message SetVerbatimSearchEnabledResponse {
+  int64 result = 1;
+}
+
+message NewRemoveBlobResponseRequest {
+  int64 arg0 = 1;
+}
+
+message NewRemoveBlobResponseResponse {
+  int64 result = 1;
+}
+
+message RemoveBlobResponseDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message RemoveBlobResponseWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message CloseRequest {
+}
+
+message CloseResponse {
+}
+
+message RegisterObserverCallbackRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message RegisterObserverCallbackResponse {
+}
+
+message SearchRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SearchResponse {
+  int64 result = 1;
+}
+
+message UnregisterObserverCallbackRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message UnregisterObserverCallbackResponse {
+}
+
+message AddNamespaceVisibleToConfigRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message AddNamespaceVisibleToConfigResponse {
+  int64 result = 1;
+}
+
+message ClearNamespaceVisibleToConfigsRequest {
+  string arg0 = 1;
+}
+
+message ClearNamespaceVisibleToConfigsResponse {
+  int64 result = 1;
+}
+
+message SetNamespaceDisplayedBySystemRequest {
+  string arg0 = 1;
+  bool arg1 = 2;
+}
+
+message SetNamespaceDisplayedBySystemResponse {
+  int64 result = 1;
+}
+
+message GetPubliclyVisibleTargetPackageRequest {
+}
+
+message GetPubliclyVisibleTargetPackageResponse {
+  int64 result = 1;
+}
+
+message AddAllowedPackageRequest {
+  int64 arg0 = 1;
+}
+
+message AddAllowedPackageResponse {
+  int64 result = 1;
+}
+
+message ClearAllowedPackagesRequest {
+}
+
+message ClearAllowedPackagesResponse {
+  int64 result = 1;
+}
+
+message ClearRequiredPermissionsRequest {
+}
+
+message ClearRequiredPermissionsResponse {
+  int64 result = 1;
+}
+
+message SetPubliclyVisibleTargetPackageRequest {
+  int64 arg0 = 1;
+}
+
+message SetPubliclyVisibleTargetPackageResponse {
+  int64 result = 1;
+}
+
+message GetGenericDocumentRequest {
+}
+
+message GetGenericDocumentResponse {
+  int64 result = 1;
+}
+
+message GetRankingSignalRequest {
+}
+
+message GetRankingSignalResponse {
+  double result = 1;
+}
+
+message AddInformationalRankingSignalRequest {
+  double arg0 = 1;
+}
+
+message AddInformationalRankingSignalResponse {
+  int64 result = 1;
+}
+
+message AddJoinedResultRequest {
+  int64 arg0 = 1;
+}
+
+message AddJoinedResultResponse {
+  int64 result = 1;
+}
+
+message AddMatchInfoRequest {
+  int64 arg0 = 1;
+}
+
+message AddMatchInfoResponse {
+  int64 result = 1;
+}
+
+message SetGenericDocumentRequest {
+  int64 arg0 = 1;
+}
+
+message SetGenericDocumentResponse {
+  int64 result = 1;
+}
+
+message SetRankingSignalRequest {
+  double arg0 = 1;
+}
+
+message SetRankingSignalResponse {
+  int64 result = 1;
+}
+
+message GetExactMatchRequest {
+}
+
+message GetExactMatchResponse {
+  int64 result = 1;
+}
+
+message GetExactMatchRangeRequest {
+}
+
+message GetExactMatchRangeResponse {
+  int64 result = 1;
+}
+
+message GetFullTextRequest {
+}
+
+message GetFullTextResponse {
+  string result = 1;
+}
+
+message GetPropertyPathRequest {
+}
+
+message GetPropertyPathResponse {
+  string result = 1;
+}
+
+message GetPropertyPathObjectRequest {
+}
+
+message GetPropertyPathObjectResponse {
+  int64 result = 1;
+}
+
+message GetSnippetRequest {
+}
+
+message GetSnippetResponse {
+  int64 result = 1;
+}
+
+message GetSnippetRangeRequest {
+}
+
+message GetSnippetRangeResponse {
+  int64 result = 1;
+}
+
+message GetSubmatchRequest {
+}
+
+message GetSubmatchResponse {
+  int64 result = 1;
+}
+
+message GetSubmatchRangeRequest {
+}
+
+message GetSubmatchRangeResponse {
+  int64 result = 1;
+}
+
+message GetEndRequest {
+}
+
+message GetEndResponse {
+  int32 result = 1;
+}
+
+message GetStartRequest {
+}
+
+message GetStartResponse {
+  int32 result = 1;
+}
+
+message GetMaximumResultCountRequest {
+}
+
+message GetMaximumResultCountResponse {
+  int32 result = 1;
+}
+
+message SearchSuggestionSpecBuilderAddFilterDocumentIdsRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SetRankingStrategyRequest {
+  int32 arg0 = 1;
+}
+
+message SetRankingStrategyResponse {
+  int64 result = 1;
+}
+
+message NewCommitBlobResponseRequest {
+  int64 arg0 = 1;
+}
+
+message NewCommitBlobResponseResponse {
+  int64 result = 1;
+}
+
+message CommitBlobResponseDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message CommitBlobResponseWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message GetVersionRequest {
+}
+
+message GetVersionResponse {
+  int32 result = 1;
+}
+
+message AddSchemaRequest {
+  int64 arg0 = 1;
+}
+
+message AddSchemaResponse {
+  int64 result = 1;
+}
+
+message AddSchemaTypeNotDisplayedBySystemRequest {
+  string arg0 = 1;
+}
+
+message AddSchemaTypeNotDisplayedBySystemResponse {
+  int64 result = 1;
+}
+
+message ClearPubliclyVisibleSchemaRequest {
+  string arg0 = 1;
+}
+
+message ClearPubliclyVisibleSchemaResponse {
+  int64 result = 1;
+}
+
+message ClearRequiredPermissionsForSchemaTypeVisibilityRequest {
+  string arg0 = 1;
+}
+
+message ClearRequiredPermissionsForSchemaTypeVisibilityResponse {
+  int64 result = 1;
+}
+
+message ClearSchemaTypeNotDisplayedBySystemRequest {
+  string arg0 = 1;
+}
+
+message ClearSchemaTypeNotDisplayedBySystemResponse {
+  int64 result = 1;
+}
+
+message ClearSchemaTypeVisibleToConfigsRequest {
+  string arg0 = 1;
+}
+
+message ClearSchemaTypeVisibleToConfigsResponse {
+  int64 result = 1;
+}
+
+message ClearSchemaTypeVisibleToPackagesRequest {
+  string arg0 = 1;
+}
+
+message ClearSchemaTypeVisibleToPackagesResponse {
+  int64 result = 1;
+}
+
+message ClearSchemasRequest {
+}
+
+message ClearSchemasResponse {
+  int64 result = 1;
+}
+
+message SetPubliclyVisibleSchemaRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SetPubliclyVisibleSchemaResponse {
+  int64 result = 1;
+}
+
+message SetVersionRequest {
+  int32 arg0 = 1;
+}
+
+message SetVersionResponse {
+  int64 result = 1;
+}
+
+message NewOpenBlobForReadResponseRequest {
+  int64 arg0 = 1;
+}
+
+message NewOpenBlobForReadResponseResponse {
+  int64 result = 1;
+}
+
+message OpenBlobForReadResponseCloseRequest {
+  int64 handle = 1;
+}
+
+message OpenBlobForReadResponseDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message OpenBlobForReadResponseWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message OnDowngradeRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message OnDowngradeResponse {
+  int64 result = 1;
+}
+
+message OnUpgradeRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message OnUpgradeResponse {
+  int64 result = 1;
+}
+
+message ShouldMigrateRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message ShouldMigrateResponse {
+  bool result = 1;
+}
+
+message GetSchemaTypeRequest {
+}
+
+message GetSchemaTypeResponse {
+  string result = 1;
+}
+
+message IsScoringEnabledRequest {
+}
+
+message IsScoringEnabledResponse {
+  bool result = 1;
+}
+
+message AddParentTypeRequest {
+  string arg0 = 1;
+}
+
+message AddParentTypeResponse {
+  int64 result = 1;
+}
+
+message AddPropertyRequest {
+  int64 arg0 = 1;
+}
+
+message AddPropertyResponse {
+  int64 result = 1;
+}
+
+message ClearParentTypesRequest {
+}
+
+message ClearParentTypesResponse {
+  int64 result = 1;
+}
+
+message ClearPropertiesRequest {
+}
+
+message ClearPropertiesResponse {
+  int64 result = 1;
+}
+
+message SetSchemaTypeRequest {
+  string arg0 = 1;
+}
+
+message SetSchemaTypeResponse {
+  int64 result = 1;
+}
+
+message ShouldIndexNestedPropertiesRequest {
+}
+
+message ShouldIndexNestedPropertiesResponse {
+  bool result = 1;
+}
+
+message GetIndexingTypeRequest {
+}
+
+message GetIndexingTypeResponse {
+  int32 result = 1;
+}
+
+message GetQuantizationTypeRequest {
+}
+
+message GetQuantizationTypeResponse {
+  int32 result = 1;
+}
+
+message GetCardinalityRequest {
+}
+
+message GetCardinalityResponse {
+  int32 result = 1;
+}
+
+message GetNameRequest {
+}
+
+message GetNameResponse {
+  string result = 1;
+}
+
+message GetJoinableValueTypeRequest {
+}
+
+message GetJoinableValueTypeResponse {
+  int32 result = 1;
+}
+
+message GetTokenizerTypeRequest {
+}
+
+message GetTokenizerTypeResponse {
+  int32 result = 1;
+}
+
+message AddDeletedTypeRequest {
+  string arg0 = 1;
+}
+
+message AddDeletedTypeResponse {
+  int64 result = 1;
+}
+
+message AddIncompatibleTypeRequest {
+  string arg0 = 1;
+}
+
+message AddIncompatibleTypeResponse {
+  int64 result = 1;
+}
+
+message AddMigratedTypeRequest {
+  string arg0 = 1;
+}
+
+message AddMigratedTypeResponse {
+  int64 result = 1;
+}
+
+message AddMigrationFailureRequest {
+  int64 arg0 = 1;
+}
+
+message AddMigrationFailureResponse {
+  int64 result = 1;
+}
+
+message NewPackageIdentifierRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewPackageIdentifierResponse {
+  int64 result = 1;
+}
+
+message PackageIdentifierEqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message PackageIdentifierGetPackageNameRequest {
+  int64 handle = 1;
+}
+
+message GetSha256CertificateRequest {
+  int64 handle = 1;
+}
+
+message GetSha256CertificateResponse {
+  int64 result = 1;
+}
+
+message PackageIdentifierHashCodeRequest {
+  int64 handle = 1;
+}
+
+message NewOpenBlobForWriteResponseRequest {
+  int64 arg0 = 1;
+}
+
+message NewOpenBlobForWriteResponseResponse {
+  int64 result = 1;
+}
+
+message OpenBlobForWriteResponseCloseRequest {
+  int64 handle = 1;
+}
+
+message OpenBlobForWriteResponseDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message OpenBlobForWriteResponseWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message AddIdsRequest {
+  int64 arg0 = 1;
+}
+
+message AddIdsResponse {
+  int64 result = 1;
+}
+
+message AddGenericDocumentsRequest {
+  int64 arg0 = 1;
+}
+
+message AddGenericDocumentsResponse {
+  int64 result = 1;
+}
+
+message AddTakenActionGenericDocumentsRequest {
+  int64 arg0 = 1;
+}
+
+message AddTakenActionGenericDocumentsResponse {
+  int64 result = 1;
+}
+
+message GetAliveDocumentsCountRequest {
+}
+
+message GetAliveDocumentsCountResponse {
+  int32 result = 1;
+}
+
+message GetAliveNamespacesCountRequest {
+}
+
+message GetAliveNamespacesCountResponse {
+  int32 result = 1;
+}
+
+message GetBlobsCountRequest {
+}
+
+message GetBlobsCountResponse {
+  int32 result = 1;
+}
+
+message GetBlobsSizeBytesRequest {
+}
+
+message GetBlobsSizeBytesResponse {
+  int64 result = 1;
+}
+
+message GetSizeBytesRequest {
+}
+
+message GetSizeBytesResponse {
+  int64 result = 1;
+}
+
+message SetAliveDocumentsCountRequest {
+  int32 arg0 = 1;
+}
+
+message SetAliveDocumentsCountResponse {
+  int64 result = 1;
+}
+
+message SetAliveNamespacesCountRequest {
+  int32 arg0 = 1;
+}
+
+message SetAliveNamespacesCountResponse {
+  int64 result = 1;
+}
+
+message SetBlobsCountRequest {
+  int32 arg0 = 1;
+}
+
+message SetBlobsCountResponse {
+  int64 result = 1;
+}
+
+message SetBlobsSizeBytesRequest {
+  int64 arg0 = 1;
+}
+
+message SetBlobsSizeBytesResponse {
+  int64 result = 1;
+}
+
+message SetSizeBytesRequest {
+  int64 arg0 = 1;
+}
+
+message SetSizeBytesResponse {
+  int64 result = 1;
+}
+
+message GetCreationTimestampMillisRequest {
+}
+
+message GetCreationTimestampMillisResponse {
+  int64 result = 1;
+}
+
+message GetIdRequest {
+}
+
+message GetIdResponse {
+  string result = 1;
+}
+
+message GetPropertyRequest {
+  string arg0 = 1;
+}
+
+message GetPropertyResponse {
+  int64 result = 1;
+}
+
+message GetPropertyBlobHandleRequest {
+  string arg0 = 1;
+}
+
+message GetPropertyBlobHandleResponse {
+  int64 result = 1;
+}
+
+message GetPropertyBlobHandleArrayRequest {
+  string arg0 = 1;
+}
+
+message GetPropertyBlobHandleArrayResponse {
+  int64 result = 1;
+}
+
+message GetPropertyBooleanRequest {
+  string arg0 = 1;
+}
+
+message GetPropertyBooleanResponse {
+  bool result = 1;
+}
+
+message GetPropertyBooleanArrayRequest {
+  string arg0 = 1;
+}
+
+message GetPropertyBooleanArrayResponse {
+  int64 result = 1;
+}
+
+message GetPropertyBytesRequest {
+  string arg0 = 1;
+}
+
+message GetPropertyBytesResponse {
+  int64 result = 1;
+}
+
+message GetPropertyBytesArrayRequest {
+  string arg0 = 1;
+}
+
+message GetPropertyBytesArrayResponse {
+  int64 result = 1;
+}
+
+message GetPropertyDocumentRequest {
+  string arg0 = 1;
+}
+
+message GetPropertyDocumentResponse {
+  int64 result = 1;
+}
+
+message GetPropertyDocumentArrayRequest {
+  string arg0 = 1;
+}
+
+message GetPropertyDocumentArrayResponse {
+  int64 result = 1;
+}
+
+message GetPropertyDoubleRequest {
+  string arg0 = 1;
+}
+
+message GetPropertyDoubleResponse {
+  double result = 1;
+}
+
+message GetPropertyDoubleArrayRequest {
+  string arg0 = 1;
+}
+
+message GetPropertyDoubleArrayResponse {
+  int64 result = 1;
+}
+
+message GetPropertyEmbeddingRequest {
+  string arg0 = 1;
+}
+
+message GetPropertyEmbeddingResponse {
+  int64 result = 1;
+}
+
+message GetPropertyEmbeddingArrayRequest {
+  string arg0 = 1;
+}
+
+message GetPropertyEmbeddingArrayResponse {
+  int64 result = 1;
+}
+
+message GetPropertyLongRequest {
+  string arg0 = 1;
+}
+
+message GetPropertyLongResponse {
+  int64 result = 1;
+}
+
+message GetPropertyLongArrayRequest {
+  string arg0 = 1;
+}
+
+message GetPropertyLongArrayResponse {
+  int64 result = 1;
+}
+
+message GetPropertyStringRequest {
+  string arg0 = 1;
+}
+
+message GetPropertyStringResponse {
+  string result = 1;
+}
+
+message GetPropertyStringArrayRequest {
+  string arg0 = 1;
+}
+
+message GetPropertyStringArrayResponse {
+  int64 result = 1;
+}
+
+message GetScoreRequest {
+}
+
+message GetScoreResponse {
+  int32 result = 1;
+}
+
+message GetTtlMillisRequest {
+}
+
+message GetTtlMillisResponse {
+  int64 result = 1;
+}
+
+message GetMaxIndexedPropertiesRequest {
+}
+
+message GetMaxIndexedPropertiesResponse {
+  int32 result = 1;
+}
+
+message ClearPropertyRequest {
+  string arg0 = 1;
+}
+
+message ClearPropertyResponse {
+  int64 result = 1;
+}
+
+message SetCreationTimestampMillisRequest {
+  int64 arg0 = 1;
+}
+
+message SetCreationTimestampMillisResponse {
+  int64 result = 1;
+}
+
+message SetIdRequest {
+  string arg0 = 1;
+}
+
+message SetIdResponse {
+  int64 result = 1;
+}
+
+message SetNamespaceRequest {
+  string arg0 = 1;
+}
+
+message SetNamespaceResponse {
+  int64 result = 1;
+}
+
+message SetPropertyBlobHandleRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SetPropertyBlobHandleResponse {
+  int64 result = 1;
+}
+
+message SetPropertyBooleanRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SetPropertyBooleanResponse {
+  int64 result = 1;
+}
+
+message SetPropertyBytesRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SetPropertyBytesResponse {
+  int64 result = 1;
+}
+
+message SetPropertyDocumentRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SetPropertyDocumentResponse {
+  int64 result = 1;
+}
+
+message SetPropertyDoubleRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SetPropertyDoubleResponse {
+  int64 result = 1;
+}
+
+message SetPropertyEmbeddingRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SetPropertyEmbeddingResponse {
+  int64 result = 1;
+}
+
+message SetPropertyLongRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SetPropertyLongResponse {
+  int64 result = 1;
+}
+
+message SetPropertyStringRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SetPropertyStringResponse {
+  int64 result = 1;
+}
+
+message SetScoreRequest {
+  int32 arg0 = 1;
+}
+
+message SetScoreResponse {
+  int64 result = 1;
+}
+
+message SetTtlMillisRequest {
+  int64 arg0 = 1;
+}
+
+message SetTtlMillisResponse {
+  int64 result = 1;
+}
+
+message GetSha256DigestRequest {
+}
+
+message GetSha256DigestResponse {
+  int64 result = 1;
+}
+
+message CreateWithSha256Request {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  string arg2 = 3;
+  string arg3 = 4;
+}
+
+message CreateWithSha256Response {
+  int64 result = 1;
+}
+
+message GetSuggestedResultRequest {
+}
+
+message GetSuggestedResultResponse {
+  string result = 1;
+}
+
+message SetSuggestedResultRequest {
+  string arg0 = 1;
+}
+
+message SetSuggestedResultResponse {
+  int64 result = 1;
+}
+
+message IsForceOverrideRequest {
+}
+
+message IsForceOverrideResponse {
+  bool result = 1;
+}
+
+message AddSchemaTypeVisibleToConfigRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message AddSchemaTypeVisibleToConfigResponse {
+  int64 result = 1;
+}
+
+message AddSchemasRequest {
+  int64 arg0 = 1;
+}
+
+message AddSchemasResponse {
+  int64 result = 1;
+}
+
+message ClearMigratorsRequest {
+}
+
+message ClearMigratorsResponse {
+  int64 result = 1;
+}
+
+message SetForceOverrideRequest {
+  bool arg0 = 1;
+}
+
+message SetForceOverrideResponse {
+  int64 result = 1;
+}
+
+message SetMigratorRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SetMigratorResponse {
+  int64 result = 1;
+}
+
+message SetSchemaTypeDisplayedBySystemRequest {
+  string arg0 = 1;
+  bool arg1 = 2;
+}
+
+message SetSchemaTypeDisplayedBySystemResponse {
+  int64 result = 1;
+}
+
+message SetSchemaTypeVisibilityForPackageRequest {
+  string arg0 = 1;
+  bool arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message SetSchemaTypeVisibilityForPackageResponse {
+  int64 result = 1;
+}
+
+message NewEmbeddingVectorRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+}
+
+message NewEmbeddingVectorResponse {
+  int64 result = 1;
+}
+
+message EmbeddingVectorDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message EmbeddingVectorEqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetModelSignatureRequest {
+  int64 handle = 1;
+}
+
+message GetModelSignatureResponse {
+  string result = 1;
+}
+
+message GetValuesRequest {
+  int64 handle = 1;
+}
+
+message GetValuesResponse {
+  int64 result = 1;
+}
+
+message EmbeddingVectorHashCodeRequest {
+  int64 handle = 1;
+}
+
+message EmbeddingVectorWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message GetAggregationScoringStrategyRequest {
+}
+
+message GetAggregationScoringStrategyResponse {
+  int32 result = 1;
+}
+
+message GetChildPropertyExpressionRequest {
+}
+
+message GetChildPropertyExpressionResponse {
+  string result = 1;
+}
+
+message GetMaxJoinedResultCountRequest {
+}
+
+message GetMaxJoinedResultCountResponse {
+  int32 result = 1;
+}
+
+message GetNestedQueryRequest {
+}
+
+message GetNestedQueryResponse {
+  string result = 1;
+}
+
+message GetNestedSearchSpecRequest {
+}
+
+message GetNestedSearchSpecResponse {
+  int64 result = 1;
+}
+
+message SetAggregationScoringStrategyRequest {
+  int32 arg0 = 1;
+}
+
+message SetAggregationScoringStrategyResponse {
+  int64 result = 1;
+}
+
+message SetChildPropertyExpressionRequest {
+  string arg0 = 1;
+}
+
+message SetChildPropertyExpressionResponse {
+  int64 result = 1;
+}
+
+message SetMaxJoinedResultCountRequest {
+  int32 arg0 = 1;
+}
+
+message SetMaxJoinedResultCountResponse {
+  int64 result = 1;
+}
+
+message SetNestedSearchRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SetNestedSearchResponse {
+  int64 result = 1;
+}
+
+message NewPropertyPathRequest {
+  string arg0 = 1;
+}
+
+message NewPropertyPathResponse {
+  int64 result = 1;
+}
+
+message PropertyPathEqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetResponse {
+  int64 result = 1;
+}
+
+message PropertyPathHashCodeRequest {
+  int64 handle = 1;
+}
+
+message SizeRequest {
+  int64 handle = 1;
+}
+
+message SizeResponse {
+  int32 result = 1;
+}
+
+message PropertyPathToStringRequest {
+  int64 handle = 1;
+}
+
+message GetPropertyIndexRequest {
+}
+
+message GetPropertyIndexResponse {
+  int32 result = 1;
+}
+
+message GetPropertyNameRequest {
+}
+
+message GetPropertyNameResponse {
+  string result = 1;
+}
+
+message Create1Request {
+  string arg0 = 1;
+}
+
+message Create1Response {
+  int64 result = 1;
+}
+
+message Create2_1Request {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message Create2_1Response {
+  int64 result = 1;
+}
+
+service AppSearchResultService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetErrorMessage (GetErrorMessageRequest) returns (GetErrorMessageResponse);
+  rpc GetResultCode (GetResultCodeRequest) returns (GetResultCodeResponse);
+  rpc GetResultValue (GetResultValueRequest) returns (GetResultValueResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc IsSuccess (IsSuccessRequest) returns (IsSuccessResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service ReportSystemUsageRequestService {
+  rpc GetDatabaseName (GetDatabaseNameRequest) returns (GetDatabaseNameResponse);
+  rpc GetDocumentId (GetDocumentIdRequest) returns (GetDocumentIdResponse);
+  rpc GetNamespace (GetNamespaceRequest) returns (GetNamespaceResponse);
+  rpc GetPackageName (GetPackageNameRequest) returns (GetPackageNameResponse);
+  rpc GetUsageTimestampMillis (GetUsageTimestampMillisRequest) returns (GetUsageTimestampMillisResponse);
+}
+
+service ReportSystemUsageRequestBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetUsageTimestampMillis (SetUsageTimestampMillisRequest) returns (SetUsageTimestampMillisResponse);
+}
+
+service SearchSpecService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetAdvancedRankingExpression (GetAdvancedRankingExpressionRequest) returns (GetAdvancedRankingExpressionResponse);
+  rpc GetDefaultEmbeddingSearchMetricType (GetDefaultEmbeddingSearchMetricTypeRequest) returns (GetDefaultEmbeddingSearchMetricTypeResponse);
+  rpc GetJoinSpec (GetJoinSpecRequest) returns (GetJoinSpecResponse);
+  rpc GetMaxSnippetSize (GetMaxSnippetSizeRequest) returns (GetMaxSnippetSizeResponse);
+  rpc GetOrder (GetOrderRequest) returns (GetOrderResponse);
+  rpc GetRankingStrategy (GetRankingStrategyRequest) returns (GetRankingStrategyResponse);
+  rpc GetResultCountPerPage (GetResultCountPerPageRequest) returns (GetResultCountPerPageResponse);
+  rpc GetResultGroupingLimit (GetResultGroupingLimitRequest) returns (GetResultGroupingLimitResponse);
+  rpc GetResultGroupingTypeFlags (GetResultGroupingTypeFlagsRequest) returns (GetResultGroupingTypeFlagsResponse);
+  rpc GetSearchSourceLogTag (GetSearchSourceLogTagRequest) returns (GetSearchSourceLogTagResponse);
+  rpc GetSnippetCount (GetSnippetCountRequest) returns (GetSnippetCountResponse);
+  rpc GetSnippetCountPerProperty (GetSnippetCountPerPropertyRequest) returns (GetSnippetCountPerPropertyResponse);
+  rpc GetTermMatch (GetTermMatchRequest) returns (GetTermMatchResponse);
+  rpc IsListFilterHasPropertyFunctionEnabled (IsListFilterHasPropertyFunctionEnabledRequest) returns (IsListFilterHasPropertyFunctionEnabledResponse);
+  rpc IsListFilterMatchScoreExpressionFunctionEnabled (IsListFilterMatchScoreExpressionFunctionEnabledRequest) returns (IsListFilterMatchScoreExpressionFunctionEnabledResponse);
+  rpc IsListFilterQueryLanguageEnabled (IsListFilterQueryLanguageEnabledRequest) returns (IsListFilterQueryLanguageEnabledResponse);
+  rpc IsNumericSearchEnabled (IsNumericSearchEnabledRequest) returns (IsNumericSearchEnabledResponse);
+  rpc IsScorablePropertyRankingEnabled (IsScorablePropertyRankingEnabledRequest) returns (IsScorablePropertyRankingEnabledResponse);
+  rpc IsVerbatimSearchEnabled (IsVerbatimSearchEnabledRequest) returns (IsVerbatimSearchEnabledResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service SearchSpecBuilderService {
+  rpc AddEmbeddingParameters (AddEmbeddingParametersRequest) returns (AddEmbeddingParametersResponse);
+  rpc AddFilterDocumentIds (AddFilterDocumentIdsRequest) returns (AddFilterDocumentIdsResponse);
+  rpc AddFilterNamespaces (AddFilterNamespacesRequest) returns (AddFilterNamespacesResponse);
+  rpc AddFilterPackageNames (AddFilterPackageNamesRequest) returns (AddFilterPackageNamesResponse);
+  rpc AddFilterSchemas (AddFilterSchemasRequest) returns (AddFilterSchemasResponse);
+  rpc AddInformationalRankingExpressions (AddInformationalRankingExpressionsRequest) returns (AddInformationalRankingExpressionsResponse);
+  rpc AddSearchStringParameters (AddSearchStringParametersRequest) returns (AddSearchStringParametersResponse);
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc ClearEmbeddingParameters (ClearEmbeddingParametersRequest) returns (ClearEmbeddingParametersResponse);
+  rpc ClearFilterDocumentIds (ClearFilterDocumentIdsRequest) returns (ClearFilterDocumentIdsResponse);
+  rpc ClearFilterNamespaces (ClearFilterNamespacesRequest) returns (ClearFilterNamespacesResponse);
+  rpc ClearFilterPackageNames (ClearFilterPackageNamesRequest) returns (ClearFilterPackageNamesResponse);
+  rpc ClearFilterProperties (ClearFilterPropertiesRequest) returns (ClearFilterPropertiesResponse);
+  rpc ClearFilterSchemas (ClearFilterSchemasRequest) returns (ClearFilterSchemasResponse);
+  rpc ClearInformationalRankingExpressions (ClearInformationalRankingExpressionsRequest) returns (ClearInformationalRankingExpressionsResponse);
+  rpc ClearJoinSpec (ClearJoinSpecRequest) returns (ClearJoinSpecResponse);
+  rpc ClearProjections (ClearProjectionsRequest) returns (ClearProjectionsResponse);
+  rpc ClearPropertyWeights (ClearPropertyWeightsRequest) returns (ClearPropertyWeightsResponse);
+  rpc ClearResultGrouping (ClearResultGroupingRequest) returns (ClearResultGroupingResponse);
+  rpc ClearSearchSourceLogTag (ClearSearchSourceLogTagRequest) returns (ClearSearchSourceLogTagResponse);
+  rpc ClearSearchStringParameters (ClearSearchStringParametersRequest) returns (ClearSearchStringParametersResponse);
+  rpc SetDefaultEmbeddingSearchMetricType (SetDefaultEmbeddingSearchMetricTypeRequest) returns (SetDefaultEmbeddingSearchMetricTypeResponse);
+  rpc SetJoinSpec (SetJoinSpecRequest) returns (SetJoinSpecResponse);
+  rpc SetListFilterHasPropertyFunctionEnabled (SetListFilterHasPropertyFunctionEnabledRequest) returns (SetListFilterHasPropertyFunctionEnabledResponse);
+  rpc SetListFilterMatchScoreExpressionFunctionEnabled (SetListFilterMatchScoreExpressionFunctionEnabledRequest) returns (SetListFilterMatchScoreExpressionFunctionEnabledResponse);
+  rpc SetListFilterQueryLanguageEnabled (SetListFilterQueryLanguageEnabledRequest) returns (SetListFilterQueryLanguageEnabledResponse);
+  rpc SetMaxSnippetSize (SetMaxSnippetSizeRequest) returns (SetMaxSnippetSizeResponse);
+  rpc SetNumericSearchEnabled (SetNumericSearchEnabledRequest) returns (SetNumericSearchEnabledResponse);
+  rpc SetOrder (SetOrderRequest) returns (SetOrderResponse);
+  rpc SetRankingStrategy1 (SetRankingStrategy1Request) returns (SetRankingStrategy1Response);
+  rpc SetRankingStrategy1_1 (SetRankingStrategy1_1Request) returns (SetRankingStrategy1_1Response);
+  rpc SetResultCountPerPage (SetResultCountPerPageRequest) returns (SetResultCountPerPageResponse);
+  rpc SetResultGrouping (SetResultGroupingRequest) returns (SetResultGroupingResponse);
+  rpc SetScorablePropertyRankingEnabled (SetScorablePropertyRankingEnabledRequest) returns (SetScorablePropertyRankingEnabledResponse);
+  rpc SetSearchSourceLogTag (SetSearchSourceLogTagRequest) returns (SetSearchSourceLogTagResponse);
+  rpc SetSnippetCount (SetSnippetCountRequest) returns (SetSnippetCountResponse);
+  rpc SetSnippetCountPerProperty (SetSnippetCountPerPropertyRequest) returns (SetSnippetCountPerPropertyResponse);
+  rpc SetTermMatch (SetTermMatchRequest) returns (SetTermMatchResponse);
+  rpc SetVerbatimSearchEnabled (SetVerbatimSearchEnabledRequest) returns (SetVerbatimSearchEnabledResponse);
+}
+
+service RemoveBlobResponseService {
+  rpc NewRemoveBlobResponse (NewRemoveBlobResponseRequest) returns (NewRemoveBlobResponseResponse);
+  rpc DescribeContents (RemoveBlobResponseDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc WriteToParcel (RemoveBlobResponseWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service GlobalSearchSessionService {
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc RegisterObserverCallback (RegisterObserverCallbackRequest) returns (RegisterObserverCallbackResponse);
+  rpc Search (SearchRequest) returns (SearchResponse);
+  rpc UnregisterObserverCallback (UnregisterObserverCallbackRequest) returns (UnregisterObserverCallbackResponse);
+}
+
+service SetBlobVisibilityRequestBuilderService {
+  rpc AddNamespaceVisibleToConfig (AddNamespaceVisibleToConfigRequest) returns (AddNamespaceVisibleToConfigResponse);
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc ClearNamespaceVisibleToConfigs (ClearNamespaceVisibleToConfigsRequest) returns (ClearNamespaceVisibleToConfigsResponse);
+  rpc SetNamespaceDisplayedBySystem (SetNamespaceDisplayedBySystemRequest) returns (SetNamespaceDisplayedBySystemResponse);
+}
+
+service SchemaVisibilityConfigService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetPubliclyVisibleTargetPackage (GetPubliclyVisibleTargetPackageRequest) returns (GetPubliclyVisibleTargetPackageResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service SchemaVisibilityConfigBuilderService {
+  rpc AddAllowedPackage (AddAllowedPackageRequest) returns (AddAllowedPackageResponse);
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc ClearAllowedPackages (ClearAllowedPackagesRequest) returns (ClearAllowedPackagesResponse);
+  rpc ClearRequiredPermissions (ClearRequiredPermissionsRequest) returns (ClearRequiredPermissionsResponse);
+  rpc SetPubliclyVisibleTargetPackage (SetPubliclyVisibleTargetPackageRequest) returns (SetPubliclyVisibleTargetPackageResponse);
+}
+
+service SearchResultService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetDatabaseName (GetDatabaseNameRequest) returns (GetDatabaseNameResponse);
+  rpc GetGenericDocument (GetGenericDocumentRequest) returns (GetGenericDocumentResponse);
+  rpc GetPackageName (GetPackageNameRequest) returns (GetPackageNameResponse);
+  rpc GetRankingSignal (GetRankingSignalRequest) returns (GetRankingSignalResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service SearchResultBuilderService {
+  rpc AddInformationalRankingSignal (AddInformationalRankingSignalRequest) returns (AddInformationalRankingSignalResponse);
+  rpc AddJoinedResult (AddJoinedResultRequest) returns (AddJoinedResultResponse);
+  rpc AddMatchInfo (AddMatchInfoRequest) returns (AddMatchInfoResponse);
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetGenericDocument (SetGenericDocumentRequest) returns (SetGenericDocumentResponse);
+  rpc SetRankingSignal (SetRankingSignalRequest) returns (SetRankingSignalResponse);
+}
+
+service SearchResultMatchInfoService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetExactMatch (GetExactMatchRequest) returns (GetExactMatchResponse);
+  rpc GetExactMatchRange (GetExactMatchRangeRequest) returns (GetExactMatchRangeResponse);
+  rpc GetFullText (GetFullTextRequest) returns (GetFullTextResponse);
+  rpc GetPropertyPath (GetPropertyPathRequest) returns (GetPropertyPathResponse);
+  rpc GetPropertyPathObject (GetPropertyPathObjectRequest) returns (GetPropertyPathObjectResponse);
+  rpc GetSnippet (GetSnippetRequest) returns (GetSnippetResponse);
+  rpc GetSnippetRange (GetSnippetRangeRequest) returns (GetSnippetRangeResponse);
+  rpc GetSubmatch (GetSubmatchRequest) returns (GetSubmatchResponse);
+  rpc GetSubmatchRange (GetSubmatchRangeRequest) returns (GetSubmatchRangeResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service SearchResultMatchRangeService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetEnd (GetEndRequest) returns (GetEndResponse);
+  rpc GetStart (GetStartRequest) returns (GetStartResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service SearchSuggestionSpecService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetMaximumResultCount (GetMaximumResultCountRequest) returns (GetMaximumResultCountResponse);
+  rpc GetRankingStrategy (GetRankingStrategyRequest) returns (GetRankingStrategyResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service SearchSuggestionSpecBuilderService {
+  rpc AddFilterDocumentIds (SearchSuggestionSpecBuilderAddFilterDocumentIdsRequest) returns (AddFilterDocumentIdsResponse);
+  rpc AddFilterNamespaces (AddFilterNamespacesRequest) returns (AddFilterNamespacesResponse);
+  rpc AddFilterSchemas (AddFilterSchemasRequest) returns (AddFilterSchemasResponse);
+  rpc AddSearchStringParameters (AddSearchStringParametersRequest) returns (AddSearchStringParametersResponse);
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetRankingStrategy (SetRankingStrategyRequest) returns (SetRankingStrategyResponse);
+}
+
+service CommitBlobResponseService {
+  rpc NewCommitBlobResponse (NewCommitBlobResponseRequest) returns (NewCommitBlobResponseResponse);
+  rpc DescribeContents (CommitBlobResponseDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc WriteToParcel (CommitBlobResponseWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service GetSchemaResponseService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetVersion (GetVersionRequest) returns (GetVersionResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service GetSchemaResponseBuilderService {
+  rpc AddSchema (AddSchemaRequest) returns (AddSchemaResponse);
+  rpc AddSchemaTypeNotDisplayedBySystem (AddSchemaTypeNotDisplayedBySystemRequest) returns (AddSchemaTypeNotDisplayedBySystemResponse);
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc ClearPubliclyVisibleSchema (ClearPubliclyVisibleSchemaRequest) returns (ClearPubliclyVisibleSchemaResponse);
+  rpc ClearRequiredPermissionsForSchemaTypeVisibility (ClearRequiredPermissionsForSchemaTypeVisibilityRequest) returns (ClearRequiredPermissionsForSchemaTypeVisibilityResponse);
+  rpc ClearSchemaTypeNotDisplayedBySystem (ClearSchemaTypeNotDisplayedBySystemRequest) returns (ClearSchemaTypeNotDisplayedBySystemResponse);
+  rpc ClearSchemaTypeVisibleToConfigs (ClearSchemaTypeVisibleToConfigsRequest) returns (ClearSchemaTypeVisibleToConfigsResponse);
+  rpc ClearSchemaTypeVisibleToPackages (ClearSchemaTypeVisibleToPackagesRequest) returns (ClearSchemaTypeVisibleToPackagesResponse);
+  rpc ClearSchemas (ClearSchemasRequest) returns (ClearSchemasResponse);
+  rpc SetPubliclyVisibleSchema (SetPubliclyVisibleSchemaRequest) returns (SetPubliclyVisibleSchemaResponse);
+  rpc SetVersion (SetVersionRequest) returns (SetVersionResponse);
+}
+
+service OpenBlobForReadResponseService {
+  rpc NewOpenBlobForReadResponse (NewOpenBlobForReadResponseRequest) returns (NewOpenBlobForReadResponseResponse);
+  rpc Close (OpenBlobForReadResponseCloseRequest) returns (CloseResponse);
+  rpc DescribeContents (OpenBlobForReadResponseDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc WriteToParcel (OpenBlobForReadResponseWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service MigratorService {
+  rpc OnDowngrade (OnDowngradeRequest) returns (OnDowngradeResponse);
+  rpc OnUpgrade (OnUpgradeRequest) returns (OnUpgradeResponse);
+  rpc ShouldMigrate (ShouldMigrateRequest) returns (ShouldMigrateResponse);
+}
+
+service AppSearchSchemaService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetSchemaType (GetSchemaTypeRequest) returns (GetSchemaTypeResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service AppSearchSchemaBooleanPropertyConfigService {
+  rpc IsScoringEnabled (IsScoringEnabledRequest) returns (IsScoringEnabledResponse);
+}
+
+service AppSearchSchemaBuilderService {
+  rpc AddParentType (AddParentTypeRequest) returns (AddParentTypeResponse);
+  rpc AddProperty (AddPropertyRequest) returns (AddPropertyResponse);
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc ClearParentTypes (ClearParentTypesRequest) returns (ClearParentTypesResponse);
+  rpc ClearProperties (ClearPropertiesRequest) returns (ClearPropertiesResponse);
+  rpc SetSchemaType (SetSchemaTypeRequest) returns (SetSchemaTypeResponse);
+}
+
+service AppSearchSchemaDocumentPropertyConfigService {
+  rpc GetSchemaType (GetSchemaTypeRequest) returns (GetSchemaTypeResponse);
+  rpc ShouldIndexNestedProperties (ShouldIndexNestedPropertiesRequest) returns (ShouldIndexNestedPropertiesResponse);
+}
+
+service AppSearchSchemaDoublePropertyConfigService {
+  rpc IsScoringEnabled (IsScoringEnabledRequest) returns (IsScoringEnabledResponse);
+}
+
+service AppSearchSchemaEmbeddingPropertyConfigService {
+  rpc GetIndexingType (GetIndexingTypeRequest) returns (GetIndexingTypeResponse);
+  rpc GetQuantizationType (GetQuantizationTypeRequest) returns (GetQuantizationTypeResponse);
+}
+
+service AppSearchSchemaLongPropertyConfigService {
+  rpc GetIndexingType (GetIndexingTypeRequest) returns (GetIndexingTypeResponse);
+  rpc IsScoringEnabled (IsScoringEnabledRequest) returns (IsScoringEnabledResponse);
+}
+
+service AppSearchSchemaPropertyConfigService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetCardinality (GetCardinalityRequest) returns (GetCardinalityResponse);
+  rpc GetName (GetNameRequest) returns (GetNameResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service AppSearchSchemaStringPropertyConfigService {
+  rpc GetIndexingType (GetIndexingTypeRequest) returns (GetIndexingTypeResponse);
+  rpc GetJoinableValueType (GetJoinableValueTypeRequest) returns (GetJoinableValueTypeResponse);
+  rpc GetTokenizerType (GetTokenizerTypeRequest) returns (GetTokenizerTypeResponse);
+}
+
+service SetSchemaResponseService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service SetSchemaResponseBuilderService {
+  rpc AddDeletedType (AddDeletedTypeRequest) returns (AddDeletedTypeResponse);
+  rpc AddIncompatibleType (AddIncompatibleTypeRequest) returns (AddIncompatibleTypeResponse);
+  rpc AddMigratedType (AddMigratedTypeRequest) returns (AddMigratedTypeResponse);
+  rpc AddMigrationFailure (AddMigrationFailureRequest) returns (AddMigrationFailureResponse);
+  rpc Build (BuildRequest) returns (BuildResponse);
+}
+
+service SetSchemaResponseMigrationFailureService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetDocumentId (GetDocumentIdRequest) returns (GetDocumentIdResponse);
+  rpc GetNamespace (GetNamespaceRequest) returns (GetNamespaceResponse);
+  rpc GetSchemaType (GetSchemaTypeRequest) returns (GetSchemaTypeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service PackageIdentifierService {
+  rpc NewPackageIdentifier (NewPackageIdentifierRequest) returns (NewPackageIdentifierResponse);
+  rpc Equals (PackageIdentifierEqualsRequest) returns (EqualsResponse);
+  rpc GetPackageName (PackageIdentifierGetPackageNameRequest) returns (GetPackageNameResponse);
+  rpc GetSha256Certificate (GetSha256CertificateRequest) returns (GetSha256CertificateResponse);
+  rpc HashCode (PackageIdentifierHashCodeRequest) returns (HashCodeResponse);
+}
+
+service OpenBlobForWriteResponseService {
+  rpc NewOpenBlobForWriteResponse (NewOpenBlobForWriteResponseRequest) returns (NewOpenBlobForWriteResponseResponse);
+  rpc Close (OpenBlobForWriteResponseCloseRequest) returns (CloseResponse);
+  rpc DescribeContents (OpenBlobForWriteResponseDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc WriteToParcel (OpenBlobForWriteResponseWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service GetByDocumentIdRequestService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetNamespace (GetNamespaceRequest) returns (GetNamespaceResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service GetByDocumentIdRequestBuilderService {
+  rpc AddIds (AddIdsRequest) returns (AddIdsResponse);
+  rpc Build (BuildRequest) returns (BuildResponse);
+}
+
+service EnterpriseGlobalSearchSessionService {
+  rpc Search (SearchRequest) returns (SearchResponse);
+}
+
+service AppSearchManagerSearchContextService {
+  rpc GetDatabaseName (GetDatabaseNameRequest) returns (GetDatabaseNameResponse);
+}
+
+service SearchResultsService {
+  rpc Close (CloseRequest) returns (CloseResponse);
+}
+
+service PutDocumentsRequestBuilderService {
+  rpc AddGenericDocuments (AddGenericDocumentsRequest) returns (AddGenericDocumentsResponse);
+  rpc AddTakenActionGenericDocuments (AddTakenActionGenericDocumentsRequest) returns (AddTakenActionGenericDocumentsResponse);
+  rpc Build (BuildRequest) returns (BuildResponse);
+}
+
+service ReportUsageRequestService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetDocumentId (GetDocumentIdRequest) returns (GetDocumentIdResponse);
+  rpc GetNamespace (GetNamespaceRequest) returns (GetNamespaceResponse);
+  rpc GetUsageTimestampMillis (GetUsageTimestampMillisRequest) returns (GetUsageTimestampMillisResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ReportUsageRequestBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetUsageTimestampMillis (SetUsageTimestampMillisRequest) returns (SetUsageTimestampMillisResponse);
+}
+
+service StorageInfoService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetAliveDocumentsCount (GetAliveDocumentsCountRequest) returns (GetAliveDocumentsCountResponse);
+  rpc GetAliveNamespacesCount (GetAliveNamespacesCountRequest) returns (GetAliveNamespacesCountResponse);
+  rpc GetBlobsCount (GetBlobsCountRequest) returns (GetBlobsCountResponse);
+  rpc GetBlobsSizeBytes (GetBlobsSizeBytesRequest) returns (GetBlobsSizeBytesResponse);
+  rpc GetSizeBytes (GetSizeBytesRequest) returns (GetSizeBytesResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service StorageInfoBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetAliveDocumentsCount (SetAliveDocumentsCountRequest) returns (SetAliveDocumentsCountResponse);
+  rpc SetAliveNamespacesCount (SetAliveNamespacesCountRequest) returns (SetAliveNamespacesCountResponse);
+  rpc SetBlobsCount (SetBlobsCountRequest) returns (SetBlobsCountResponse);
+  rpc SetBlobsSizeBytes (SetBlobsSizeBytesRequest) returns (SetBlobsSizeBytesResponse);
+  rpc SetSizeBytes (SetSizeBytesRequest) returns (SetSizeBytesResponse);
+}
+
+service GenericDocumentService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetCreationTimestampMillis (GetCreationTimestampMillisRequest) returns (GetCreationTimestampMillisResponse);
+  rpc GetId (GetIdRequest) returns (GetIdResponse);
+  rpc GetNamespace (GetNamespaceRequest) returns (GetNamespaceResponse);
+  rpc GetProperty (GetPropertyRequest) returns (GetPropertyResponse);
+  rpc GetPropertyBlobHandle (GetPropertyBlobHandleRequest) returns (GetPropertyBlobHandleResponse);
+  rpc GetPropertyBlobHandleArray (GetPropertyBlobHandleArrayRequest) returns (GetPropertyBlobHandleArrayResponse);
+  rpc GetPropertyBoolean (GetPropertyBooleanRequest) returns (GetPropertyBooleanResponse);
+  rpc GetPropertyBooleanArray (GetPropertyBooleanArrayRequest) returns (GetPropertyBooleanArrayResponse);
+  rpc GetPropertyBytes (GetPropertyBytesRequest) returns (GetPropertyBytesResponse);
+  rpc GetPropertyBytesArray (GetPropertyBytesArrayRequest) returns (GetPropertyBytesArrayResponse);
+  rpc GetPropertyDocument (GetPropertyDocumentRequest) returns (GetPropertyDocumentResponse);
+  rpc GetPropertyDocumentArray (GetPropertyDocumentArrayRequest) returns (GetPropertyDocumentArrayResponse);
+  rpc GetPropertyDouble (GetPropertyDoubleRequest) returns (GetPropertyDoubleResponse);
+  rpc GetPropertyDoubleArray (GetPropertyDoubleArrayRequest) returns (GetPropertyDoubleArrayResponse);
+  rpc GetPropertyEmbedding (GetPropertyEmbeddingRequest) returns (GetPropertyEmbeddingResponse);
+  rpc GetPropertyEmbeddingArray (GetPropertyEmbeddingArrayRequest) returns (GetPropertyEmbeddingArrayResponse);
+  rpc GetPropertyLong (GetPropertyLongRequest) returns (GetPropertyLongResponse);
+  rpc GetPropertyLongArray (GetPropertyLongArrayRequest) returns (GetPropertyLongArrayResponse);
+  rpc GetPropertyString (GetPropertyStringRequest) returns (GetPropertyStringResponse);
+  rpc GetPropertyStringArray (GetPropertyStringArrayRequest) returns (GetPropertyStringArrayResponse);
+  rpc GetSchemaType (GetSchemaTypeRequest) returns (GetSchemaTypeResponse);
+  rpc GetScore (GetScoreRequest) returns (GetScoreResponse);
+  rpc GetTtlMillis (GetTtlMillisRequest) returns (GetTtlMillisResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc GetMaxIndexedProperties (GetMaxIndexedPropertiesRequest) returns (GetMaxIndexedPropertiesResponse);
+}
+
+service GenericDocumentBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc ClearProperty (ClearPropertyRequest) returns (ClearPropertyResponse);
+  rpc SetCreationTimestampMillis (SetCreationTimestampMillisRequest) returns (SetCreationTimestampMillisResponse);
+  rpc SetId (SetIdRequest) returns (SetIdResponse);
+  rpc SetNamespace (SetNamespaceRequest) returns (SetNamespaceResponse);
+  rpc SetPropertyBlobHandle (SetPropertyBlobHandleRequest) returns (SetPropertyBlobHandleResponse);
+  rpc SetPropertyBoolean (SetPropertyBooleanRequest) returns (SetPropertyBooleanResponse);
+  rpc SetPropertyBytes (SetPropertyBytesRequest) returns (SetPropertyBytesResponse);
+  rpc SetPropertyDocument (SetPropertyDocumentRequest) returns (SetPropertyDocumentResponse);
+  rpc SetPropertyDouble (SetPropertyDoubleRequest) returns (SetPropertyDoubleResponse);
+  rpc SetPropertyEmbedding (SetPropertyEmbeddingRequest) returns (SetPropertyEmbeddingResponse);
+  rpc SetPropertyLong (SetPropertyLongRequest) returns (SetPropertyLongResponse);
+  rpc SetPropertyString (SetPropertyStringRequest) returns (SetPropertyStringResponse);
+  rpc SetSchemaType (SetSchemaTypeRequest) returns (SetSchemaTypeResponse);
+  rpc SetScore (SetScoreRequest) returns (SetScoreResponse);
+  rpc SetTtlMillis (SetTtlMillisRequest) returns (SetTtlMillisResponse);
+}
+
+service AppSearchBlobHandleService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetDatabaseName (GetDatabaseNameRequest) returns (GetDatabaseNameResponse);
+  rpc GetNamespace (GetNamespaceRequest) returns (GetNamespaceResponse);
+  rpc GetPackageName (GetPackageNameRequest) returns (GetPackageNameResponse);
+  rpc GetSha256Digest (GetSha256DigestRequest) returns (GetSha256DigestResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc CreateWithSha256 (CreateWithSha256Request) returns (CreateWithSha256Response);
+}
+
+service AppSearchSessionService {
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc Search (SearchRequest) returns (SearchResponse);
+}
+
+service SearchSuggestionResultService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetSuggestedResult (GetSuggestedResultRequest) returns (GetSuggestedResultResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service SearchSuggestionResultBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetSuggestedResult (SetSuggestedResultRequest) returns (SetSuggestedResultResponse);
+}
+
+service RemoveByDocumentIdRequestService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetNamespace (GetNamespaceRequest) returns (GetNamespaceResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service RemoveByDocumentIdRequestBuilderService {
+  rpc AddIds (AddIdsRequest) returns (AddIdsResponse);
+  rpc Build (BuildRequest) returns (BuildResponse);
+}
+
+service SetSchemaRequestService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetVersion (GetVersionRequest) returns (GetVersionResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc IsForceOverride (IsForceOverrideRequest) returns (IsForceOverrideResponse);
+}
+
+service SetSchemaRequestBuilderService {
+  rpc AddSchemaTypeVisibleToConfig (AddSchemaTypeVisibleToConfigRequest) returns (AddSchemaTypeVisibleToConfigResponse);
+  rpc AddSchemas (AddSchemasRequest) returns (AddSchemasResponse);
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc ClearMigrators (ClearMigratorsRequest) returns (ClearMigratorsResponse);
+  rpc ClearRequiredPermissionsForSchemaTypeVisibility (ClearRequiredPermissionsForSchemaTypeVisibilityRequest) returns (ClearRequiredPermissionsForSchemaTypeVisibilityResponse);
+  rpc ClearSchemaTypeVisibleToConfigs (ClearSchemaTypeVisibleToConfigsRequest) returns (ClearSchemaTypeVisibleToConfigsResponse);
+  rpc ClearSchemas (ClearSchemasRequest) returns (ClearSchemasResponse);
+  rpc SetForceOverride (SetForceOverrideRequest) returns (SetForceOverrideResponse);
+  rpc SetMigrator (SetMigratorRequest) returns (SetMigratorResponse);
+  rpc SetPubliclyVisibleSchema (SetPubliclyVisibleSchemaRequest) returns (SetPubliclyVisibleSchemaResponse);
+  rpc SetSchemaTypeDisplayedBySystem (SetSchemaTypeDisplayedBySystemRequest) returns (SetSchemaTypeDisplayedBySystemResponse);
+  rpc SetSchemaTypeVisibilityForPackage (SetSchemaTypeVisibilityForPackageRequest) returns (SetSchemaTypeVisibilityForPackageResponse);
+  rpc SetVersion (SetVersionRequest) returns (SetVersionResponse);
+}
+
+service AppSearchBatchResultService {
+  rpc IsSuccess (IsSuccessRequest) returns (IsSuccessResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service EmbeddingVectorService {
+  rpc NewEmbeddingVector (NewEmbeddingVectorRequest) returns (NewEmbeddingVectorResponse);
+  rpc DescribeContents (EmbeddingVectorDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EmbeddingVectorEqualsRequest) returns (EqualsResponse);
+  rpc GetModelSignature (GetModelSignatureRequest) returns (GetModelSignatureResponse);
+  rpc GetValues (GetValuesRequest) returns (GetValuesResponse);
+  rpc HashCode (EmbeddingVectorHashCodeRequest) returns (HashCodeResponse);
+  rpc WriteToParcel (EmbeddingVectorWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service JoinSpecService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetAggregationScoringStrategy (GetAggregationScoringStrategyRequest) returns (GetAggregationScoringStrategyResponse);
+  rpc GetChildPropertyExpression (GetChildPropertyExpressionRequest) returns (GetChildPropertyExpressionResponse);
+  rpc GetMaxJoinedResultCount (GetMaxJoinedResultCountRequest) returns (GetMaxJoinedResultCountResponse);
+  rpc GetNestedQuery (GetNestedQueryRequest) returns (GetNestedQueryResponse);
+  rpc GetNestedSearchSpec (GetNestedSearchSpecRequest) returns (GetNestedSearchSpecResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service JoinSpecBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetAggregationScoringStrategy (SetAggregationScoringStrategyRequest) returns (SetAggregationScoringStrategyResponse);
+  rpc SetChildPropertyExpression (SetChildPropertyExpressionRequest) returns (SetChildPropertyExpressionResponse);
+  rpc SetMaxJoinedResultCount (SetMaxJoinedResultCountRequest) returns (SetMaxJoinedResultCountResponse);
+  rpc SetNestedSearch (SetNestedSearchRequest) returns (SetNestedSearchResponse);
+}
+
+service PropertyPathService {
+  rpc NewPropertyPath (NewPropertyPathRequest) returns (NewPropertyPathResponse);
+  rpc Equals (PropertyPathEqualsRequest) returns (EqualsResponse);
+  rpc Get (GetRequest) returns (GetResponse);
+  rpc HashCode (PropertyPathHashCodeRequest) returns (HashCodeResponse);
+  rpc Size (SizeRequest) returns (SizeResponse);
+  rpc ToString (PropertyPathToStringRequest) returns (ToStringResponse);
+}
+
+service PropertyPathPathSegmentService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetPropertyIndex (GetPropertyIndexRequest) returns (GetPropertyIndexResponse);
+  rpc GetPropertyName (GetPropertyNameRequest) returns (GetPropertyNameResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc Create1 (Create1Request) returns (Create1Response);
+  rpc Create2_1 (Create2_1Request) returns (Create2_1Response);
+}

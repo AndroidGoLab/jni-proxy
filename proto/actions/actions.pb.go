@@ -12,6 +12,7 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -22,19 +23,1253 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type NewFloatActionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          float32                `protobuf:"fixed32,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewFloatActionRequest) Reset() {
+	*x = NewFloatActionRequest{}
+	mi := &file_proto_actions_actions_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewFloatActionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewFloatActionRequest) ProtoMessage() {}
+
+func (x *NewFloatActionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_actions_actions_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewFloatActionRequest.ProtoReflect.Descriptor instead.
+func (*NewFloatActionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_actions_actions_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *NewFloatActionRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *NewFloatActionRequest) GetArg1() float32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type NewFloatActionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewFloatActionResponse) Reset() {
+	*x = NewFloatActionResponse{}
+	mi := &file_proto_actions_actions_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewFloatActionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewFloatActionResponse) ProtoMessage() {}
+
+func (x *NewFloatActionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_actions_actions_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewFloatActionResponse.ProtoReflect.Descriptor instead.
+func (*NewFloatActionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_actions_actions_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *NewFloatActionResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetActionTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetActionTypeRequest) Reset() {
+	*x = GetActionTypeRequest{}
+	mi := &file_proto_actions_actions_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetActionTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetActionTypeRequest) ProtoMessage() {}
+
+func (x *GetActionTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_actions_actions_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetActionTypeRequest.ProtoReflect.Descriptor instead.
+func (*GetActionTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_actions_actions_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *GetActionTypeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetActionTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetActionTypeResponse) Reset() {
+	*x = GetActionTypeResponse{}
+	mi := &file_proto_actions_actions_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetActionTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetActionTypeResponse) ProtoMessage() {}
+
+func (x *GetActionTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_actions_actions_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetActionTypeResponse.ProtoReflect.Descriptor instead.
+func (*GetActionTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_actions_actions_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *GetActionTypeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetNewValueRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNewValueRequest) Reset() {
+	*x = GetNewValueRequest{}
+	mi := &file_proto_actions_actions_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNewValueRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNewValueRequest) ProtoMessage() {}
+
+func (x *GetNewValueRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_actions_actions_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNewValueRequest.ProtoReflect.Descriptor instead.
+func (*GetNewValueRequest) Descriptor() ([]byte, []int) {
+	return file_proto_actions_actions_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *GetNewValueRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetNewValueResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        float32                `protobuf:"fixed32,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNewValueResponse) Reset() {
+	*x = GetNewValueResponse{}
+	mi := &file_proto_actions_actions_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNewValueResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNewValueResponse) ProtoMessage() {}
+
+func (x *GetNewValueResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_actions_actions_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNewValueResponse.ProtoReflect.Descriptor instead.
+func (*GetNewValueResponse) Descriptor() ([]byte, []int) {
+	return file_proto_actions_actions_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *GetNewValueResponse) GetResult() float32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type NewModeActionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewModeActionRequest) Reset() {
+	*x = NewModeActionRequest{}
+	mi := &file_proto_actions_actions_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewModeActionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewModeActionRequest) ProtoMessage() {}
+
+func (x *NewModeActionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_actions_actions_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewModeActionRequest.ProtoReflect.Descriptor instead.
+func (*NewModeActionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_actions_actions_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *NewModeActionRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *NewModeActionRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type NewModeActionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewModeActionResponse) Reset() {
+	*x = NewModeActionResponse{}
+	mi := &file_proto_actions_actions_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewModeActionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewModeActionResponse) ProtoMessage() {}
+
+func (x *NewModeActionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_actions_actions_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewModeActionResponse.ProtoReflect.Descriptor instead.
+func (*NewModeActionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_actions_actions_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *NewModeActionResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetNewModeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNewModeRequest) Reset() {
+	*x = GetNewModeRequest{}
+	mi := &file_proto_actions_actions_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNewModeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNewModeRequest) ProtoMessage() {}
+
+func (x *GetNewModeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_actions_actions_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNewModeRequest.ProtoReflect.Descriptor instead.
+func (*GetNewModeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_actions_actions_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *GetNewModeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetNewModeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNewModeResponse) Reset() {
+	*x = GetNewModeResponse{}
+	mi := &file_proto_actions_actions_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNewModeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNewModeResponse) ProtoMessage() {}
+
+func (x *GetNewModeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_actions_actions_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNewModeResponse.ProtoReflect.Descriptor instead.
+func (*GetNewModeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_actions_actions_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *GetNewModeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type NewBooleanActionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          bool                   `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewBooleanActionRequest) Reset() {
+	*x = NewBooleanActionRequest{}
+	mi := &file_proto_actions_actions_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewBooleanActionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewBooleanActionRequest) ProtoMessage() {}
+
+func (x *NewBooleanActionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_actions_actions_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewBooleanActionRequest.ProtoReflect.Descriptor instead.
+func (*NewBooleanActionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_actions_actions_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *NewBooleanActionRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *NewBooleanActionRequest) GetArg1() bool {
+	if x != nil {
+		return x.Arg1
+	}
+	return false
+}
+
+type NewBooleanActionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewBooleanActionResponse) Reset() {
+	*x = NewBooleanActionResponse{}
+	mi := &file_proto_actions_actions_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewBooleanActionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewBooleanActionResponse) ProtoMessage() {}
+
+func (x *NewBooleanActionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_actions_actions_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewBooleanActionResponse.ProtoReflect.Descriptor instead.
+func (*NewBooleanActionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_actions_actions_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *NewBooleanActionResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetNewStateRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNewStateRequest) Reset() {
+	*x = GetNewStateRequest{}
+	mi := &file_proto_actions_actions_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNewStateRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNewStateRequest) ProtoMessage() {}
+
+func (x *GetNewStateRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_actions_actions_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNewStateRequest.ProtoReflect.Descriptor instead.
+func (*GetNewStateRequest) Descriptor() ([]byte, []int) {
+	return file_proto_actions_actions_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *GetNewStateRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetNewStateResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNewStateResponse) Reset() {
+	*x = GetNewStateResponse{}
+	mi := &file_proto_actions_actions_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNewStateResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNewStateResponse) ProtoMessage() {}
+
+func (x *GetNewStateResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_actions_actions_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNewStateResponse.ProtoReflect.Descriptor instead.
+func (*GetNewStateResponse) Descriptor() ([]byte, []int) {
+	return file_proto_actions_actions_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *GetNewStateResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type NewCommandActionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewCommandActionRequest) Reset() {
+	*x = NewCommandActionRequest{}
+	mi := &file_proto_actions_actions_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewCommandActionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewCommandActionRequest) ProtoMessage() {}
+
+func (x *NewCommandActionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_actions_actions_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewCommandActionRequest.ProtoReflect.Descriptor instead.
+func (*NewCommandActionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_actions_actions_proto_rawDescGZIP(), []int{14}
+}
+
+func (x *NewCommandActionRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type NewCommandActionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewCommandActionResponse) Reset() {
+	*x = NewCommandActionResponse{}
+	mi := &file_proto_actions_actions_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewCommandActionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewCommandActionResponse) ProtoMessage() {}
+
+func (x *NewCommandActionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_actions_actions_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewCommandActionResponse.ProtoReflect.Descriptor instead.
+func (*NewCommandActionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_actions_actions_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *NewCommandActionResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ControlActionGetActionTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ControlActionGetActionTypeRequest) Reset() {
+	*x = ControlActionGetActionTypeRequest{}
+	mi := &file_proto_actions_actions_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ControlActionGetActionTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ControlActionGetActionTypeRequest) ProtoMessage() {}
+
+func (x *ControlActionGetActionTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_actions_actions_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ControlActionGetActionTypeRequest.ProtoReflect.Descriptor instead.
+func (*ControlActionGetActionTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_actions_actions_proto_rawDescGZIP(), []int{16}
+}
+
+type GetChallengeValueRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetChallengeValueRequest) Reset() {
+	*x = GetChallengeValueRequest{}
+	mi := &file_proto_actions_actions_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetChallengeValueRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetChallengeValueRequest) ProtoMessage() {}
+
+func (x *GetChallengeValueRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_actions_actions_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetChallengeValueRequest.ProtoReflect.Descriptor instead.
+func (*GetChallengeValueRequest) Descriptor() ([]byte, []int) {
+	return file_proto_actions_actions_proto_rawDescGZIP(), []int{17}
+}
+
+type GetChallengeValueResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetChallengeValueResponse) Reset() {
+	*x = GetChallengeValueResponse{}
+	mi := &file_proto_actions_actions_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetChallengeValueResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetChallengeValueResponse) ProtoMessage() {}
+
+func (x *GetChallengeValueResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_actions_actions_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetChallengeValueResponse.ProtoReflect.Descriptor instead.
+func (*GetChallengeValueResponse) Descriptor() ([]byte, []int) {
+	return file_proto_actions_actions_proto_rawDescGZIP(), []int{18}
+}
+
+func (x *GetChallengeValueResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetTemplateIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTemplateIdRequest) Reset() {
+	*x = GetTemplateIdRequest{}
+	mi := &file_proto_actions_actions_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTemplateIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTemplateIdRequest) ProtoMessage() {}
+
+func (x *GetTemplateIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_actions_actions_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTemplateIdRequest.ProtoReflect.Descriptor instead.
+func (*GetTemplateIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_actions_actions_proto_rawDescGZIP(), []int{19}
+}
+
+type GetTemplateIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTemplateIdResponse) Reset() {
+	*x = GetTemplateIdResponse{}
+	mi := &file_proto_actions_actions_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTemplateIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTemplateIdResponse) ProtoMessage() {}
+
+func (x *GetTemplateIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_actions_actions_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTemplateIdResponse.ProtoReflect.Descriptor instead.
+func (*GetTemplateIdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_actions_actions_proto_rawDescGZIP(), []int{20}
+}
+
+func (x *GetTemplateIdResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetErrorActionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetErrorActionRequest) Reset() {
+	*x = GetErrorActionRequest{}
+	mi := &file_proto_actions_actions_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetErrorActionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetErrorActionRequest) ProtoMessage() {}
+
+func (x *GetErrorActionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_actions_actions_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetErrorActionRequest.ProtoReflect.Descriptor instead.
+func (*GetErrorActionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_actions_actions_proto_rawDescGZIP(), []int{21}
+}
+
+type GetErrorActionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetErrorActionResponse) Reset() {
+	*x = GetErrorActionResponse{}
+	mi := &file_proto_actions_actions_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetErrorActionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetErrorActionResponse) ProtoMessage() {}
+
+func (x *GetErrorActionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_actions_actions_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetErrorActionResponse.ProtoReflect.Descriptor instead.
+func (*GetErrorActionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_actions_actions_proto_rawDescGZIP(), []int{22}
+}
+
+func (x *GetErrorActionResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type IsValidResponseRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsValidResponseRequest) Reset() {
+	*x = IsValidResponseRequest{}
+	mi := &file_proto_actions_actions_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsValidResponseRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsValidResponseRequest) ProtoMessage() {}
+
+func (x *IsValidResponseRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_actions_actions_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsValidResponseRequest.ProtoReflect.Descriptor instead.
+func (*IsValidResponseRequest) Descriptor() ([]byte, []int) {
+	return file_proto_actions_actions_proto_rawDescGZIP(), []int{23}
+}
+
+func (x *IsValidResponseRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type IsValidResponseResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsValidResponseResponse) Reset() {
+	*x = IsValidResponseResponse{}
+	mi := &file_proto_actions_actions_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsValidResponseResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsValidResponseResponse) ProtoMessage() {}
+
+func (x *IsValidResponseResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_actions_actions_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsValidResponseResponse.ProtoReflect.Descriptor instead.
+func (*IsValidResponseResponse) Descriptor() ([]byte, []int) {
+	return file_proto_actions_actions_proto_rawDescGZIP(), []int{24}
+}
+
+func (x *IsValidResponseResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
 var File_proto_actions_actions_proto protoreflect.FileDescriptor
 
 const file_proto_actions_actions_proto_rawDesc = "" +
 	"\n" +
-	"\x1bproto/actions/actions.proto\x12\aactionsB1Z/github.com/AndroidGoLab/jni-proxy/proto/actionsb\x06proto3"
+	"\x1bproto/actions/actions.proto\x12\aactions\"?\n" +
+	"\x15NewFloatActionRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x02R\x04arg1\"0\n" +
+	"\x16NewFloatActionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\".\n" +
+	"\x14GetActionTypeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"/\n" +
+	"\x15GetActionTypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\",\n" +
+	"\x12GetNewValueRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"-\n" +
+	"\x13GetNewValueResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x02R\x06result\">\n" +
+	"\x14NewModeActionRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"/\n" +
+	"\x15NewModeActionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"+\n" +
+	"\x11GetNewModeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\",\n" +
+	"\x12GetNewModeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"A\n" +
+	"\x17NewBooleanActionRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\bR\x04arg1\"2\n" +
+	"\x18NewBooleanActionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\",\n" +
+	"\x12GetNewStateRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"-\n" +
+	"\x13GetNewStateResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"-\n" +
+	"\x17NewCommandActionRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"2\n" +
+	"\x18NewCommandActionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"#\n" +
+	"!ControlActionGetActionTypeRequest\"\x1a\n" +
+	"\x18GetChallengeValueRequest\"3\n" +
+	"\x19GetChallengeValueResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x16\n" +
+	"\x14GetTemplateIdRequest\"/\n" +
+	"\x15GetTemplateIdResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x17\n" +
+	"\x15GetErrorActionRequest\"0\n" +
+	"\x16GetErrorActionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\",\n" +
+	"\x16IsValidResponseRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"1\n" +
+	"\x17IsValidResponseResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result2\x81\x02\n" +
+	"\x12FloatActionService\x12Q\n" +
+	"\x0eNewFloatAction\x12\x1e.actions.NewFloatActionRequest\x1a\x1f.actions.NewFloatActionResponse\x12N\n" +
+	"\rGetActionType\x12\x1d.actions.GetActionTypeRequest\x1a\x1e.actions.GetActionTypeResponse\x12H\n" +
+	"\vGetNewValue\x12\x1b.actions.GetNewValueRequest\x1a\x1c.actions.GetNewValueResponse2\xfa\x01\n" +
+	"\x11ModeActionService\x12N\n" +
+	"\rNewModeAction\x12\x1d.actions.NewModeActionRequest\x1a\x1e.actions.NewModeActionResponse\x12N\n" +
+	"\rGetActionType\x12\x1d.actions.GetActionTypeRequest\x1a\x1e.actions.GetActionTypeResponse\x12E\n" +
+	"\n" +
+	"GetNewMode\x12\x1a.actions.GetNewModeRequest\x1a\x1b.actions.GetNewModeResponse2\x89\x02\n" +
+	"\x14BooleanActionService\x12W\n" +
+	"\x10NewBooleanAction\x12 .actions.NewBooleanActionRequest\x1a!.actions.NewBooleanActionResponse\x12N\n" +
+	"\rGetActionType\x12\x1d.actions.GetActionTypeRequest\x1a\x1e.actions.GetActionTypeResponse\x12H\n" +
+	"\vGetNewState\x12\x1b.actions.GetNewStateRequest\x1a\x1c.actions.GetNewStateResponse2\xbf\x01\n" +
+	"\x14CommandActionService\x12W\n" +
+	"\x10NewCommandAction\x12 .actions.NewCommandActionRequest\x1a!.actions.NewCommandActionResponse\x12N\n" +
+	"\rGetActionType\x12\x1d.actions.GetActionTypeRequest\x1a\x1e.actions.GetActionTypeResponse2\xc8\x03\n" +
+	"\x14ControlActionService\x12[\n" +
+	"\rGetActionType\x12*.actions.ControlActionGetActionTypeRequest\x1a\x1e.actions.GetActionTypeResponse\x12Z\n" +
+	"\x11GetChallengeValue\x12!.actions.GetChallengeValueRequest\x1a\".actions.GetChallengeValueResponse\x12N\n" +
+	"\rGetTemplateId\x12\x1d.actions.GetTemplateIdRequest\x1a\x1e.actions.GetTemplateIdResponse\x12Q\n" +
+	"\x0eGetErrorAction\x12\x1e.actions.GetErrorActionRequest\x1a\x1f.actions.GetErrorActionResponse\x12T\n" +
+	"\x0fIsValidResponse\x12\x1f.actions.IsValidResponseRequest\x1a .actions.IsValidResponseResponseB1Z/github.com/AndroidGoLab/jni-proxy/proto/actionsb\x06proto3"
 
-var file_proto_actions_actions_proto_goTypes = []any{}
+var (
+	file_proto_actions_actions_proto_rawDescOnce sync.Once
+	file_proto_actions_actions_proto_rawDescData []byte
+)
+
+func file_proto_actions_actions_proto_rawDescGZIP() []byte {
+	file_proto_actions_actions_proto_rawDescOnce.Do(func() {
+		file_proto_actions_actions_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_proto_actions_actions_proto_rawDesc), len(file_proto_actions_actions_proto_rawDesc)))
+	})
+	return file_proto_actions_actions_proto_rawDescData
+}
+
+var file_proto_actions_actions_proto_msgTypes = make([]protoimpl.MessageInfo, 25)
+var file_proto_actions_actions_proto_goTypes = []any{
+	(*NewFloatActionRequest)(nil),             // 0: actions.NewFloatActionRequest
+	(*NewFloatActionResponse)(nil),            // 1: actions.NewFloatActionResponse
+	(*GetActionTypeRequest)(nil),              // 2: actions.GetActionTypeRequest
+	(*GetActionTypeResponse)(nil),             // 3: actions.GetActionTypeResponse
+	(*GetNewValueRequest)(nil),                // 4: actions.GetNewValueRequest
+	(*GetNewValueResponse)(nil),               // 5: actions.GetNewValueResponse
+	(*NewModeActionRequest)(nil),              // 6: actions.NewModeActionRequest
+	(*NewModeActionResponse)(nil),             // 7: actions.NewModeActionResponse
+	(*GetNewModeRequest)(nil),                 // 8: actions.GetNewModeRequest
+	(*GetNewModeResponse)(nil),                // 9: actions.GetNewModeResponse
+	(*NewBooleanActionRequest)(nil),           // 10: actions.NewBooleanActionRequest
+	(*NewBooleanActionResponse)(nil),          // 11: actions.NewBooleanActionResponse
+	(*GetNewStateRequest)(nil),                // 12: actions.GetNewStateRequest
+	(*GetNewStateResponse)(nil),               // 13: actions.GetNewStateResponse
+	(*NewCommandActionRequest)(nil),           // 14: actions.NewCommandActionRequest
+	(*NewCommandActionResponse)(nil),          // 15: actions.NewCommandActionResponse
+	(*ControlActionGetActionTypeRequest)(nil), // 16: actions.ControlActionGetActionTypeRequest
+	(*GetChallengeValueRequest)(nil),          // 17: actions.GetChallengeValueRequest
+	(*GetChallengeValueResponse)(nil),         // 18: actions.GetChallengeValueResponse
+	(*GetTemplateIdRequest)(nil),              // 19: actions.GetTemplateIdRequest
+	(*GetTemplateIdResponse)(nil),             // 20: actions.GetTemplateIdResponse
+	(*GetErrorActionRequest)(nil),             // 21: actions.GetErrorActionRequest
+	(*GetErrorActionResponse)(nil),            // 22: actions.GetErrorActionResponse
+	(*IsValidResponseRequest)(nil),            // 23: actions.IsValidResponseRequest
+	(*IsValidResponseResponse)(nil),           // 24: actions.IsValidResponseResponse
+}
 var file_proto_actions_actions_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	0,  // 0: actions.FloatActionService.NewFloatAction:input_type -> actions.NewFloatActionRequest
+	2,  // 1: actions.FloatActionService.GetActionType:input_type -> actions.GetActionTypeRequest
+	4,  // 2: actions.FloatActionService.GetNewValue:input_type -> actions.GetNewValueRequest
+	6,  // 3: actions.ModeActionService.NewModeAction:input_type -> actions.NewModeActionRequest
+	2,  // 4: actions.ModeActionService.GetActionType:input_type -> actions.GetActionTypeRequest
+	8,  // 5: actions.ModeActionService.GetNewMode:input_type -> actions.GetNewModeRequest
+	10, // 6: actions.BooleanActionService.NewBooleanAction:input_type -> actions.NewBooleanActionRequest
+	2,  // 7: actions.BooleanActionService.GetActionType:input_type -> actions.GetActionTypeRequest
+	12, // 8: actions.BooleanActionService.GetNewState:input_type -> actions.GetNewStateRequest
+	14, // 9: actions.CommandActionService.NewCommandAction:input_type -> actions.NewCommandActionRequest
+	2,  // 10: actions.CommandActionService.GetActionType:input_type -> actions.GetActionTypeRequest
+	16, // 11: actions.ControlActionService.GetActionType:input_type -> actions.ControlActionGetActionTypeRequest
+	17, // 12: actions.ControlActionService.GetChallengeValue:input_type -> actions.GetChallengeValueRequest
+	19, // 13: actions.ControlActionService.GetTemplateId:input_type -> actions.GetTemplateIdRequest
+	21, // 14: actions.ControlActionService.GetErrorAction:input_type -> actions.GetErrorActionRequest
+	23, // 15: actions.ControlActionService.IsValidResponse:input_type -> actions.IsValidResponseRequest
+	1,  // 16: actions.FloatActionService.NewFloatAction:output_type -> actions.NewFloatActionResponse
+	3,  // 17: actions.FloatActionService.GetActionType:output_type -> actions.GetActionTypeResponse
+	5,  // 18: actions.FloatActionService.GetNewValue:output_type -> actions.GetNewValueResponse
+	7,  // 19: actions.ModeActionService.NewModeAction:output_type -> actions.NewModeActionResponse
+	3,  // 20: actions.ModeActionService.GetActionType:output_type -> actions.GetActionTypeResponse
+	9,  // 21: actions.ModeActionService.GetNewMode:output_type -> actions.GetNewModeResponse
+	11, // 22: actions.BooleanActionService.NewBooleanAction:output_type -> actions.NewBooleanActionResponse
+	3,  // 23: actions.BooleanActionService.GetActionType:output_type -> actions.GetActionTypeResponse
+	13, // 24: actions.BooleanActionService.GetNewState:output_type -> actions.GetNewStateResponse
+	15, // 25: actions.CommandActionService.NewCommandAction:output_type -> actions.NewCommandActionResponse
+	3,  // 26: actions.CommandActionService.GetActionType:output_type -> actions.GetActionTypeResponse
+	3,  // 27: actions.ControlActionService.GetActionType:output_type -> actions.GetActionTypeResponse
+	18, // 28: actions.ControlActionService.GetChallengeValue:output_type -> actions.GetChallengeValueResponse
+	20, // 29: actions.ControlActionService.GetTemplateId:output_type -> actions.GetTemplateIdResponse
+	22, // 30: actions.ControlActionService.GetErrorAction:output_type -> actions.GetErrorActionResponse
+	24, // 31: actions.ControlActionService.IsValidResponse:output_type -> actions.IsValidResponseResponse
+	16, // [16:32] is the sub-list for method output_type
+	0,  // [0:16] is the sub-list for method input_type
+	0,  // [0:0] is the sub-list for extension type_name
+	0,  // [0:0] is the sub-list for extension extendee
+	0,  // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_proto_actions_actions_proto_init() }
@@ -48,12 +1283,13 @@ func file_proto_actions_actions_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_actions_actions_proto_rawDesc), len(file_proto_actions_actions_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   25,
 			NumExtensions: 0,
-			NumServices:   0,
+			NumServices:   5,
 		},
 		GoTypes:           file_proto_actions_actions_proto_goTypes,
 		DependencyIndexes: file_proto_actions_actions_proto_depIdxs,
+		MessageInfos:      file_proto_actions_actions_proto_msgTypes,
 	}.Build()
 	File_proto_actions_actions_proto = out.File
 	file_proto_actions_actions_proto_goTypes = nil

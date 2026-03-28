@@ -23,6 +23,2986 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type NewAmbientBacklightSettingsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int32                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	Arg4          int32                  `protobuf:"varint,5,opt,name=arg4,proto3" json:"arg4,omitempty"`
+	Arg5          bool                   `protobuf:"varint,6,opt,name=arg5,proto3" json:"arg5,omitempty"`
+	Arg6          int32                  `protobuf:"varint,7,opt,name=arg6,proto3" json:"arg6,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewAmbientBacklightSettingsRequest) Reset() {
+	*x = NewAmbientBacklightSettingsRequest{}
+	mi := &file_proto_quality_quality_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewAmbientBacklightSettingsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewAmbientBacklightSettingsRequest) ProtoMessage() {}
+
+func (x *NewAmbientBacklightSettingsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewAmbientBacklightSettingsRequest.ProtoReflect.Descriptor instead.
+func (*NewAmbientBacklightSettingsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *NewAmbientBacklightSettingsRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *NewAmbientBacklightSettingsRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *NewAmbientBacklightSettingsRequest) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *NewAmbientBacklightSettingsRequest) GetArg3() int32 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+func (x *NewAmbientBacklightSettingsRequest) GetArg4() int32 {
+	if x != nil {
+		return x.Arg4
+	}
+	return 0
+}
+
+func (x *NewAmbientBacklightSettingsRequest) GetArg5() bool {
+	if x != nil {
+		return x.Arg5
+	}
+	return false
+}
+
+func (x *NewAmbientBacklightSettingsRequest) GetArg6() int32 {
+	if x != nil {
+		return x.Arg6
+	}
+	return 0
+}
+
+type NewAmbientBacklightSettingsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewAmbientBacklightSettingsResponse) Reset() {
+	*x = NewAmbientBacklightSettingsResponse{}
+	mi := &file_proto_quality_quality_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewAmbientBacklightSettingsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewAmbientBacklightSettingsResponse) ProtoMessage() {}
+
+func (x *NewAmbientBacklightSettingsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewAmbientBacklightSettingsResponse.ProtoReflect.Descriptor instead.
+func (*NewAmbientBacklightSettingsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *NewAmbientBacklightSettingsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type DescribeContentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DescribeContentsRequest) Reset() {
+	*x = DescribeContentsRequest{}
+	mi := &file_proto_quality_quality_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DescribeContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DescribeContentsRequest) ProtoMessage() {}
+
+func (x *DescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*DescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *DescribeContentsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type DescribeContentsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DescribeContentsResponse) Reset() {
+	*x = DescribeContentsResponse{}
+	mi := &file_proto_quality_quality_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DescribeContentsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DescribeContentsResponse) ProtoMessage() {}
+
+func (x *DescribeContentsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DescribeContentsResponse.ProtoReflect.Descriptor instead.
+func (*DescribeContentsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *DescribeContentsResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetColorFormatRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetColorFormatRequest) Reset() {
+	*x = GetColorFormatRequest{}
+	mi := &file_proto_quality_quality_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetColorFormatRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetColorFormatRequest) ProtoMessage() {}
+
+func (x *GetColorFormatRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetColorFormatRequest.ProtoReflect.Descriptor instead.
+func (*GetColorFormatRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *GetColorFormatRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetColorFormatResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetColorFormatResponse) Reset() {
+	*x = GetColorFormatResponse{}
+	mi := &file_proto_quality_quality_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetColorFormatResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetColorFormatResponse) ProtoMessage() {}
+
+func (x *GetColorFormatResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetColorFormatResponse.ProtoReflect.Descriptor instead.
+func (*GetColorFormatResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *GetColorFormatResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetHorizontalZonesCountRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetHorizontalZonesCountRequest) Reset() {
+	*x = GetHorizontalZonesCountRequest{}
+	mi := &file_proto_quality_quality_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetHorizontalZonesCountRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetHorizontalZonesCountRequest) ProtoMessage() {}
+
+func (x *GetHorizontalZonesCountRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetHorizontalZonesCountRequest.ProtoReflect.Descriptor instead.
+func (*GetHorizontalZonesCountRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *GetHorizontalZonesCountRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetHorizontalZonesCountResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetHorizontalZonesCountResponse) Reset() {
+	*x = GetHorizontalZonesCountResponse{}
+	mi := &file_proto_quality_quality_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetHorizontalZonesCountResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetHorizontalZonesCountResponse) ProtoMessage() {}
+
+func (x *GetHorizontalZonesCountResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetHorizontalZonesCountResponse.ProtoReflect.Descriptor instead.
+func (*GetHorizontalZonesCountResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *GetHorizontalZonesCountResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetMaxFpsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMaxFpsRequest) Reset() {
+	*x = GetMaxFpsRequest{}
+	mi := &file_proto_quality_quality_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMaxFpsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMaxFpsRequest) ProtoMessage() {}
+
+func (x *GetMaxFpsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMaxFpsRequest.ProtoReflect.Descriptor instead.
+func (*GetMaxFpsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *GetMaxFpsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetMaxFpsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMaxFpsResponse) Reset() {
+	*x = GetMaxFpsResponse{}
+	mi := &file_proto_quality_quality_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMaxFpsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMaxFpsResponse) ProtoMessage() {}
+
+func (x *GetMaxFpsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMaxFpsResponse.ProtoReflect.Descriptor instead.
+func (*GetMaxFpsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *GetMaxFpsResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSourceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSourceRequest) Reset() {
+	*x = GetSourceRequest{}
+	mi := &file_proto_quality_quality_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSourceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSourceRequest) ProtoMessage() {}
+
+func (x *GetSourceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSourceRequest.ProtoReflect.Descriptor instead.
+func (*GetSourceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *GetSourceRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetSourceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSourceResponse) Reset() {
+	*x = GetSourceResponse{}
+	mi := &file_proto_quality_quality_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSourceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSourceResponse) ProtoMessage() {}
+
+func (x *GetSourceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSourceResponse.ProtoReflect.Descriptor instead.
+func (*GetSourceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *GetSourceResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetThresholdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetThresholdRequest) Reset() {
+	*x = GetThresholdRequest{}
+	mi := &file_proto_quality_quality_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetThresholdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetThresholdRequest) ProtoMessage() {}
+
+func (x *GetThresholdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetThresholdRequest.ProtoReflect.Descriptor instead.
+func (*GetThresholdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *GetThresholdRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetThresholdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetThresholdResponse) Reset() {
+	*x = GetThresholdResponse{}
+	mi := &file_proto_quality_quality_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetThresholdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetThresholdResponse) ProtoMessage() {}
+
+func (x *GetThresholdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetThresholdResponse.ProtoReflect.Descriptor instead.
+func (*GetThresholdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *GetThresholdResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetVerticalZonesCountRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetVerticalZonesCountRequest) Reset() {
+	*x = GetVerticalZonesCountRequest{}
+	mi := &file_proto_quality_quality_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetVerticalZonesCountRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetVerticalZonesCountRequest) ProtoMessage() {}
+
+func (x *GetVerticalZonesCountRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetVerticalZonesCountRequest.ProtoReflect.Descriptor instead.
+func (*GetVerticalZonesCountRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{14}
+}
+
+func (x *GetVerticalZonesCountRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetVerticalZonesCountResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetVerticalZonesCountResponse) Reset() {
+	*x = GetVerticalZonesCountResponse{}
+	mi := &file_proto_quality_quality_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetVerticalZonesCountResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetVerticalZonesCountResponse) ProtoMessage() {}
+
+func (x *GetVerticalZonesCountResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetVerticalZonesCountResponse.ProtoReflect.Descriptor instead.
+func (*GetVerticalZonesCountResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *GetVerticalZonesCountResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type IsLetterboxOmittedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsLetterboxOmittedRequest) Reset() {
+	*x = IsLetterboxOmittedRequest{}
+	mi := &file_proto_quality_quality_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsLetterboxOmittedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsLetterboxOmittedRequest) ProtoMessage() {}
+
+func (x *IsLetterboxOmittedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsLetterboxOmittedRequest.ProtoReflect.Descriptor instead.
+func (*IsLetterboxOmittedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{16}
+}
+
+func (x *IsLetterboxOmittedRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type IsLetterboxOmittedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsLetterboxOmittedResponse) Reset() {
+	*x = IsLetterboxOmittedResponse{}
+	mi := &file_proto_quality_quality_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsLetterboxOmittedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsLetterboxOmittedResponse) ProtoMessage() {}
+
+func (x *IsLetterboxOmittedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsLetterboxOmittedResponse.ProtoReflect.Descriptor instead.
+func (*IsLetterboxOmittedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *IsLetterboxOmittedResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type ToStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringRequest) Reset() {
+	*x = ToStringRequest{}
+	mi := &file_proto_quality_quality_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringRequest) ProtoMessage() {}
+
+func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringRequest.ProtoReflect.Descriptor instead.
+func (*ToStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{18}
+}
+
+func (x *ToStringRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type ToStringResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringResponse) Reset() {
+	*x = ToStringResponse{}
+	mi := &file_proto_quality_quality_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringResponse) ProtoMessage() {}
+
+func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringResponse.ProtoReflect.Descriptor instead.
+func (*ToStringResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *ToStringResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type WriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WriteToParcelRequest) Reset() {
+	*x = WriteToParcelRequest{}
+	mi := &file_proto_quality_quality_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WriteToParcelRequest) ProtoMessage() {}
+
+func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*WriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{20}
+}
+
+func (x *WriteToParcelRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *WriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *WriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type WriteToParcelResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WriteToParcelResponse) Reset() {
+	*x = WriteToParcelResponse{}
+	mi := &file_proto_quality_quality_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WriteToParcelResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WriteToParcelResponse) ProtoMessage() {}
+
+func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WriteToParcelResponse.ProtoReflect.Descriptor instead.
+func (*WriteToParcelResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{21}
+}
+
+type NewAmbientBacklightEventRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewAmbientBacklightEventRequest) Reset() {
+	*x = NewAmbientBacklightEventRequest{}
+	mi := &file_proto_quality_quality_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewAmbientBacklightEventRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewAmbientBacklightEventRequest) ProtoMessage() {}
+
+func (x *NewAmbientBacklightEventRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewAmbientBacklightEventRequest.ProtoReflect.Descriptor instead.
+func (*NewAmbientBacklightEventRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{22}
+}
+
+func (x *NewAmbientBacklightEventRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *NewAmbientBacklightEventRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type NewAmbientBacklightEventResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewAmbientBacklightEventResponse) Reset() {
+	*x = NewAmbientBacklightEventResponse{}
+	mi := &file_proto_quality_quality_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewAmbientBacklightEventResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewAmbientBacklightEventResponse) ProtoMessage() {}
+
+func (x *NewAmbientBacklightEventResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewAmbientBacklightEventResponse.ProtoReflect.Descriptor instead.
+func (*NewAmbientBacklightEventResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{23}
+}
+
+func (x *NewAmbientBacklightEventResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type EqualsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EqualsRequest) Reset() {
+	*x = EqualsRequest{}
+	mi := &file_proto_quality_quality_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EqualsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EqualsRequest) ProtoMessage() {}
+
+func (x *EqualsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EqualsRequest.ProtoReflect.Descriptor instead.
+func (*EqualsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{24}
+}
+
+func (x *EqualsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *EqualsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type EqualsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EqualsResponse) Reset() {
+	*x = EqualsResponse{}
+	mi := &file_proto_quality_quality_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EqualsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EqualsResponse) ProtoMessage() {}
+
+func (x *EqualsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EqualsResponse.ProtoReflect.Descriptor instead.
+func (*EqualsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{25}
+}
+
+func (x *EqualsResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type GetEventTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEventTypeRequest) Reset() {
+	*x = GetEventTypeRequest{}
+	mi := &file_proto_quality_quality_proto_msgTypes[26]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEventTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEventTypeRequest) ProtoMessage() {}
+
+func (x *GetEventTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[26]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEventTypeRequest.ProtoReflect.Descriptor instead.
+func (*GetEventTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{26}
+}
+
+func (x *GetEventTypeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetEventTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEventTypeResponse) Reset() {
+	*x = GetEventTypeResponse{}
+	mi := &file_proto_quality_quality_proto_msgTypes[27]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEventTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEventTypeResponse) ProtoMessage() {}
+
+func (x *GetEventTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[27]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEventTypeResponse.ProtoReflect.Descriptor instead.
+func (*GetEventTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{27}
+}
+
+func (x *GetEventTypeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetMetadataRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMetadataRequest) Reset() {
+	*x = GetMetadataRequest{}
+	mi := &file_proto_quality_quality_proto_msgTypes[28]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMetadataRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMetadataRequest) ProtoMessage() {}
+
+func (x *GetMetadataRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[28]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMetadataRequest.ProtoReflect.Descriptor instead.
+func (*GetMetadataRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{28}
+}
+
+func (x *GetMetadataRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetMetadataResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMetadataResponse) Reset() {
+	*x = GetMetadataResponse{}
+	mi := &file_proto_quality_quality_proto_msgTypes[29]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMetadataResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMetadataResponse) ProtoMessage() {}
+
+func (x *GetMetadataResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[29]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMetadataResponse.ProtoReflect.Descriptor instead.
+func (*GetMetadataResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{29}
+}
+
+func (x *GetMetadataResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type HashCodeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HashCodeRequest) Reset() {
+	*x = HashCodeRequest{}
+	mi := &file_proto_quality_quality_proto_msgTypes[30]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HashCodeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HashCodeRequest) ProtoMessage() {}
+
+func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[30]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HashCodeRequest.ProtoReflect.Descriptor instead.
+func (*HashCodeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{30}
+}
+
+func (x *HashCodeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type HashCodeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HashCodeResponse) Reset() {
+	*x = HashCodeResponse{}
+	mi := &file_proto_quality_quality_proto_msgTypes[31]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HashCodeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HashCodeResponse) ProtoMessage() {}
+
+func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[31]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HashCodeResponse.ProtoReflect.Descriptor instead.
+func (*HashCodeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{31}
+}
+
+func (x *HashCodeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type PictureProfileDescribeContentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PictureProfileDescribeContentsRequest) Reset() {
+	*x = PictureProfileDescribeContentsRequest{}
+	mi := &file_proto_quality_quality_proto_msgTypes[32]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PictureProfileDescribeContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PictureProfileDescribeContentsRequest) ProtoMessage() {}
+
+func (x *PictureProfileDescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[32]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PictureProfileDescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*PictureProfileDescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{32}
+}
+
+type GetInputIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetInputIdRequest) Reset() {
+	*x = GetInputIdRequest{}
+	mi := &file_proto_quality_quality_proto_msgTypes[33]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetInputIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetInputIdRequest) ProtoMessage() {}
+
+func (x *GetInputIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[33]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetInputIdRequest.ProtoReflect.Descriptor instead.
+func (*GetInputIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{33}
+}
+
+type GetInputIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetInputIdResponse) Reset() {
+	*x = GetInputIdResponse{}
+	mi := &file_proto_quality_quality_proto_msgTypes[34]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetInputIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetInputIdResponse) ProtoMessage() {}
+
+func (x *GetInputIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[34]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetInputIdResponse.ProtoReflect.Descriptor instead.
+func (*GetInputIdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{34}
+}
+
+func (x *GetInputIdResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetNameRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNameRequest) Reset() {
+	*x = GetNameRequest{}
+	mi := &file_proto_quality_quality_proto_msgTypes[35]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNameRequest) ProtoMessage() {}
+
+func (x *GetNameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[35]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNameRequest.ProtoReflect.Descriptor instead.
+func (*GetNameRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{35}
+}
+
+type GetNameResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNameResponse) Reset() {
+	*x = GetNameResponse{}
+	mi := &file_proto_quality_quality_proto_msgTypes[36]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNameResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNameResponse) ProtoMessage() {}
+
+func (x *GetNameResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[36]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNameResponse.ProtoReflect.Descriptor instead.
+func (*GetNameResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{36}
+}
+
+func (x *GetNameResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetPackageNameRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPackageNameRequest) Reset() {
+	*x = GetPackageNameRequest{}
+	mi := &file_proto_quality_quality_proto_msgTypes[37]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPackageNameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPackageNameRequest) ProtoMessage() {}
+
+func (x *GetPackageNameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[37]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPackageNameRequest.ProtoReflect.Descriptor instead.
+func (*GetPackageNameRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{37}
+}
+
+type GetPackageNameResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPackageNameResponse) Reset() {
+	*x = GetPackageNameResponse{}
+	mi := &file_proto_quality_quality_proto_msgTypes[38]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPackageNameResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPackageNameResponse) ProtoMessage() {}
+
+func (x *GetPackageNameResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[38]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPackageNameResponse.ProtoReflect.Descriptor instead.
+func (*GetPackageNameResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{38}
+}
+
+func (x *GetPackageNameResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetParametersRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetParametersRequest) Reset() {
+	*x = GetParametersRequest{}
+	mi := &file_proto_quality_quality_proto_msgTypes[39]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetParametersRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetParametersRequest) ProtoMessage() {}
+
+func (x *GetParametersRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[39]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetParametersRequest.ProtoReflect.Descriptor instead.
+func (*GetParametersRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{39}
+}
+
+type GetParametersResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetParametersResponse) Reset() {
+	*x = GetParametersResponse{}
+	mi := &file_proto_quality_quality_proto_msgTypes[40]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetParametersResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetParametersResponse) ProtoMessage() {}
+
+func (x *GetParametersResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[40]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetParametersResponse.ProtoReflect.Descriptor instead.
+func (*GetParametersResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{40}
+}
+
+func (x *GetParametersResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetProfileIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetProfileIdRequest) Reset() {
+	*x = GetProfileIdRequest{}
+	mi := &file_proto_quality_quality_proto_msgTypes[41]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetProfileIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetProfileIdRequest) ProtoMessage() {}
+
+func (x *GetProfileIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[41]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetProfileIdRequest.ProtoReflect.Descriptor instead.
+func (*GetProfileIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{41}
+}
+
+type GetProfileIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetProfileIdResponse) Reset() {
+	*x = GetProfileIdResponse{}
+	mi := &file_proto_quality_quality_proto_msgTypes[42]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetProfileIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetProfileIdResponse) ProtoMessage() {}
+
+func (x *GetProfileIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[42]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetProfileIdResponse.ProtoReflect.Descriptor instead.
+func (*GetProfileIdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{42}
+}
+
+func (x *GetProfileIdResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetProfileTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetProfileTypeRequest) Reset() {
+	*x = GetProfileTypeRequest{}
+	mi := &file_proto_quality_quality_proto_msgTypes[43]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetProfileTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetProfileTypeRequest) ProtoMessage() {}
+
+func (x *GetProfileTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[43]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetProfileTypeRequest.ProtoReflect.Descriptor instead.
+func (*GetProfileTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{43}
+}
+
+type GetProfileTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetProfileTypeResponse) Reset() {
+	*x = GetProfileTypeResponse{}
+	mi := &file_proto_quality_quality_proto_msgTypes[44]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetProfileTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetProfileTypeResponse) ProtoMessage() {}
+
+func (x *GetProfileTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[44]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetProfileTypeResponse.ProtoReflect.Descriptor instead.
+func (*GetProfileTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{44}
+}
+
+func (x *GetProfileTypeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type PictureProfileWriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PictureProfileWriteToParcelRequest) Reset() {
+	*x = PictureProfileWriteToParcelRequest{}
+	mi := &file_proto_quality_quality_proto_msgTypes[45]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PictureProfileWriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PictureProfileWriteToParcelRequest) ProtoMessage() {}
+
+func (x *PictureProfileWriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[45]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PictureProfileWriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*PictureProfileWriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{45}
+}
+
+func (x *PictureProfileWriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *PictureProfileWriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type BuildRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BuildRequest) Reset() {
+	*x = BuildRequest{}
+	mi := &file_proto_quality_quality_proto_msgTypes[46]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BuildRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BuildRequest) ProtoMessage() {}
+
+func (x *BuildRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[46]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BuildRequest.ProtoReflect.Descriptor instead.
+func (*BuildRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{46}
+}
+
+type BuildResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BuildResponse) Reset() {
+	*x = BuildResponse{}
+	mi := &file_proto_quality_quality_proto_msgTypes[47]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BuildResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BuildResponse) ProtoMessage() {}
+
+func (x *BuildResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[47]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BuildResponse.ProtoReflect.Descriptor instead.
+func (*BuildResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{47}
+}
+
+func (x *BuildResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetParametersRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetParametersRequest) Reset() {
+	*x = SetParametersRequest{}
+	mi := &file_proto_quality_quality_proto_msgTypes[48]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetParametersRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetParametersRequest) ProtoMessage() {}
+
+func (x *SetParametersRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[48]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetParametersRequest.ProtoReflect.Descriptor instead.
+func (*SetParametersRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{48}
+}
+
+func (x *SetParametersRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetParametersResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetParametersResponse) Reset() {
+	*x = SetParametersResponse{}
+	mi := &file_proto_quality_quality_proto_msgTypes[49]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetParametersResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetParametersResponse) ProtoMessage() {}
+
+func (x *SetParametersResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[49]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetParametersResponse.ProtoReflect.Descriptor instead.
+func (*SetParametersResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{49}
+}
+
+func (x *SetParametersResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ParameterCapabilityDescribeContentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ParameterCapabilityDescribeContentsRequest) Reset() {
+	*x = ParameterCapabilityDescribeContentsRequest{}
+	mi := &file_proto_quality_quality_proto_msgTypes[50]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ParameterCapabilityDescribeContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ParameterCapabilityDescribeContentsRequest) ProtoMessage() {}
+
+func (x *ParameterCapabilityDescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[50]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ParameterCapabilityDescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*ParameterCapabilityDescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{50}
+}
+
+type GetCapabilitiesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCapabilitiesRequest) Reset() {
+	*x = GetCapabilitiesRequest{}
+	mi := &file_proto_quality_quality_proto_msgTypes[51]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCapabilitiesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCapabilitiesRequest) ProtoMessage() {}
+
+func (x *GetCapabilitiesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[51]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCapabilitiesRequest.ProtoReflect.Descriptor instead.
+func (*GetCapabilitiesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{51}
+}
+
+type GetCapabilitiesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCapabilitiesResponse) Reset() {
+	*x = GetCapabilitiesResponse{}
+	mi := &file_proto_quality_quality_proto_msgTypes[52]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCapabilitiesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCapabilitiesResponse) ProtoMessage() {}
+
+func (x *GetCapabilitiesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[52]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCapabilitiesResponse.ProtoReflect.Descriptor instead.
+func (*GetCapabilitiesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{52}
+}
+
+func (x *GetCapabilitiesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetParameterNameRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetParameterNameRequest) Reset() {
+	*x = GetParameterNameRequest{}
+	mi := &file_proto_quality_quality_proto_msgTypes[53]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetParameterNameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetParameterNameRequest) ProtoMessage() {}
+
+func (x *GetParameterNameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[53]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetParameterNameRequest.ProtoReflect.Descriptor instead.
+func (*GetParameterNameRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{53}
+}
+
+type GetParameterNameResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetParameterNameResponse) Reset() {
+	*x = GetParameterNameResponse{}
+	mi := &file_proto_quality_quality_proto_msgTypes[54]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetParameterNameResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetParameterNameResponse) ProtoMessage() {}
+
+func (x *GetParameterNameResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[54]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetParameterNameResponse.ProtoReflect.Descriptor instead.
+func (*GetParameterNameResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{54}
+}
+
+func (x *GetParameterNameResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetParameterTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetParameterTypeRequest) Reset() {
+	*x = GetParameterTypeRequest{}
+	mi := &file_proto_quality_quality_proto_msgTypes[55]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetParameterTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetParameterTypeRequest) ProtoMessage() {}
+
+func (x *GetParameterTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[55]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetParameterTypeRequest.ProtoReflect.Descriptor instead.
+func (*GetParameterTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{55}
+}
+
+type GetParameterTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetParameterTypeResponse) Reset() {
+	*x = GetParameterTypeResponse{}
+	mi := &file_proto_quality_quality_proto_msgTypes[56]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetParameterTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetParameterTypeResponse) ProtoMessage() {}
+
+func (x *GetParameterTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[56]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetParameterTypeResponse.ProtoReflect.Descriptor instead.
+func (*GetParameterTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{56}
+}
+
+func (x *GetParameterTypeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type IsSupportedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsSupportedRequest) Reset() {
+	*x = IsSupportedRequest{}
+	mi := &file_proto_quality_quality_proto_msgTypes[57]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsSupportedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsSupportedRequest) ProtoMessage() {}
+
+func (x *IsSupportedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[57]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsSupportedRequest.ProtoReflect.Descriptor instead.
+func (*IsSupportedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{57}
+}
+
+type IsSupportedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsSupportedResponse) Reset() {
+	*x = IsSupportedResponse{}
+	mi := &file_proto_quality_quality_proto_msgTypes[58]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsSupportedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsSupportedResponse) ProtoMessage() {}
+
+func (x *IsSupportedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[58]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsSupportedResponse.ProtoReflect.Descriptor instead.
+func (*IsSupportedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{58}
+}
+
+func (x *IsSupportedResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type ParameterCapabilityWriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ParameterCapabilityWriteToParcelRequest) Reset() {
+	*x = ParameterCapabilityWriteToParcelRequest{}
+	mi := &file_proto_quality_quality_proto_msgTypes[59]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ParameterCapabilityWriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ParameterCapabilityWriteToParcelRequest) ProtoMessage() {}
+
+func (x *ParameterCapabilityWriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[59]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ParameterCapabilityWriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*ParameterCapabilityWriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{59}
+}
+
+func (x *ParameterCapabilityWriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *ParameterCapabilityWriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type NewAmbientBacklightMetadataRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int32                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	Arg4          int32                  `protobuf:"varint,5,opt,name=arg4,proto3" json:"arg4,omitempty"`
+	Arg5          int32                  `protobuf:"varint,6,opt,name=arg5,proto3" json:"arg5,omitempty"`
+	Arg6          int64                  `protobuf:"varint,7,opt,name=arg6,proto3" json:"arg6,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewAmbientBacklightMetadataRequest) Reset() {
+	*x = NewAmbientBacklightMetadataRequest{}
+	mi := &file_proto_quality_quality_proto_msgTypes[60]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewAmbientBacklightMetadataRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewAmbientBacklightMetadataRequest) ProtoMessage() {}
+
+func (x *NewAmbientBacklightMetadataRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[60]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewAmbientBacklightMetadataRequest.ProtoReflect.Descriptor instead.
+func (*NewAmbientBacklightMetadataRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{60}
+}
+
+func (x *NewAmbientBacklightMetadataRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *NewAmbientBacklightMetadataRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *NewAmbientBacklightMetadataRequest) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *NewAmbientBacklightMetadataRequest) GetArg3() int32 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+func (x *NewAmbientBacklightMetadataRequest) GetArg4() int32 {
+	if x != nil {
+		return x.Arg4
+	}
+	return 0
+}
+
+func (x *NewAmbientBacklightMetadataRequest) GetArg5() int32 {
+	if x != nil {
+		return x.Arg5
+	}
+	return 0
+}
+
+func (x *NewAmbientBacklightMetadataRequest) GetArg6() int64 {
+	if x != nil {
+		return x.Arg6
+	}
+	return 0
+}
+
+type NewAmbientBacklightMetadataResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewAmbientBacklightMetadataResponse) Reset() {
+	*x = NewAmbientBacklightMetadataResponse{}
+	mi := &file_proto_quality_quality_proto_msgTypes[61]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewAmbientBacklightMetadataResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewAmbientBacklightMetadataResponse) ProtoMessage() {}
+
+func (x *NewAmbientBacklightMetadataResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[61]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewAmbientBacklightMetadataResponse.ProtoReflect.Descriptor instead.
+func (*NewAmbientBacklightMetadataResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{61}
+}
+
+func (x *NewAmbientBacklightMetadataResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetCompressionAlgorithmRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCompressionAlgorithmRequest) Reset() {
+	*x = GetCompressionAlgorithmRequest{}
+	mi := &file_proto_quality_quality_proto_msgTypes[62]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCompressionAlgorithmRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCompressionAlgorithmRequest) ProtoMessage() {}
+
+func (x *GetCompressionAlgorithmRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[62]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCompressionAlgorithmRequest.ProtoReflect.Descriptor instead.
+func (*GetCompressionAlgorithmRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{62}
+}
+
+func (x *GetCompressionAlgorithmRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetCompressionAlgorithmResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCompressionAlgorithmResponse) Reset() {
+	*x = GetCompressionAlgorithmResponse{}
+	mi := &file_proto_quality_quality_proto_msgTypes[63]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCompressionAlgorithmResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCompressionAlgorithmResponse) ProtoMessage() {}
+
+func (x *GetCompressionAlgorithmResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[63]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCompressionAlgorithmResponse.ProtoReflect.Descriptor instead.
+func (*GetCompressionAlgorithmResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{63}
+}
+
+func (x *GetCompressionAlgorithmResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AmbientBacklightMetadataGetPackageNameRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AmbientBacklightMetadataGetPackageNameRequest) Reset() {
+	*x = AmbientBacklightMetadataGetPackageNameRequest{}
+	mi := &file_proto_quality_quality_proto_msgTypes[64]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AmbientBacklightMetadataGetPackageNameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AmbientBacklightMetadataGetPackageNameRequest) ProtoMessage() {}
+
+func (x *AmbientBacklightMetadataGetPackageNameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[64]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AmbientBacklightMetadataGetPackageNameRequest.ProtoReflect.Descriptor instead.
+func (*AmbientBacklightMetadataGetPackageNameRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{64}
+}
+
+func (x *AmbientBacklightMetadataGetPackageNameRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetZoneColorsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetZoneColorsRequest) Reset() {
+	*x = GetZoneColorsRequest{}
+	mi := &file_proto_quality_quality_proto_msgTypes[65]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetZoneColorsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetZoneColorsRequest) ProtoMessage() {}
+
+func (x *GetZoneColorsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[65]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetZoneColorsRequest.ProtoReflect.Descriptor instead.
+func (*GetZoneColorsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{65}
+}
+
+func (x *GetZoneColorsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetZoneColorsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetZoneColorsResponse) Reset() {
+	*x = GetZoneColorsResponse{}
+	mi := &file_proto_quality_quality_proto_msgTypes[66]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetZoneColorsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetZoneColorsResponse) ProtoMessage() {}
+
+func (x *GetZoneColorsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[66]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetZoneColorsResponse.ProtoReflect.Descriptor instead.
+func (*GetZoneColorsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{66}
+}
+
+func (x *GetZoneColorsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
 type CreatePictureProfileRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
@@ -32,7 +3012,7 @@ type CreatePictureProfileRequest struct {
 
 func (x *CreatePictureProfileRequest) Reset() {
 	*x = CreatePictureProfileRequest{}
-	mi := &file_proto_quality_quality_proto_msgTypes[0]
+	mi := &file_proto_quality_quality_proto_msgTypes[67]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -44,7 +3024,7 @@ func (x *CreatePictureProfileRequest) String() string {
 func (*CreatePictureProfileRequest) ProtoMessage() {}
 
 func (x *CreatePictureProfileRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_quality_quality_proto_msgTypes[0]
+	mi := &file_proto_quality_quality_proto_msgTypes[67]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -57,7 +3037,7 @@ func (x *CreatePictureProfileRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreatePictureProfileRequest.ProtoReflect.Descriptor instead.
 func (*CreatePictureProfileRequest) Descriptor() ([]byte, []int) {
-	return file_proto_quality_quality_proto_rawDescGZIP(), []int{0}
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{67}
 }
 
 func (x *CreatePictureProfileRequest) GetArg0() int64 {
@@ -75,7 +3055,7 @@ type CreatePictureProfileResponse struct {
 
 func (x *CreatePictureProfileResponse) Reset() {
 	*x = CreatePictureProfileResponse{}
-	mi := &file_proto_quality_quality_proto_msgTypes[1]
+	mi := &file_proto_quality_quality_proto_msgTypes[68]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -87,7 +3067,7 @@ func (x *CreatePictureProfileResponse) String() string {
 func (*CreatePictureProfileResponse) ProtoMessage() {}
 
 func (x *CreatePictureProfileResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_quality_quality_proto_msgTypes[1]
+	mi := &file_proto_quality_quality_proto_msgTypes[68]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -100,7 +3080,7 @@ func (x *CreatePictureProfileResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreatePictureProfileResponse.ProtoReflect.Descriptor instead.
 func (*CreatePictureProfileResponse) Descriptor() ([]byte, []int) {
-	return file_proto_quality_quality_proto_rawDescGZIP(), []int{1}
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{68}
 }
 
 type CreateSoundProfileRequest struct {
@@ -112,7 +3092,7 @@ type CreateSoundProfileRequest struct {
 
 func (x *CreateSoundProfileRequest) Reset() {
 	*x = CreateSoundProfileRequest{}
-	mi := &file_proto_quality_quality_proto_msgTypes[2]
+	mi := &file_proto_quality_quality_proto_msgTypes[69]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -124,7 +3104,7 @@ func (x *CreateSoundProfileRequest) String() string {
 func (*CreateSoundProfileRequest) ProtoMessage() {}
 
 func (x *CreateSoundProfileRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_quality_quality_proto_msgTypes[2]
+	mi := &file_proto_quality_quality_proto_msgTypes[69]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -137,7 +3117,7 @@ func (x *CreateSoundProfileRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateSoundProfileRequest.ProtoReflect.Descriptor instead.
 func (*CreateSoundProfileRequest) Descriptor() ([]byte, []int) {
-	return file_proto_quality_quality_proto_rawDescGZIP(), []int{2}
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{69}
 }
 
 func (x *CreateSoundProfileRequest) GetArg0() int64 {
@@ -155,7 +3135,7 @@ type CreateSoundProfileResponse struct {
 
 func (x *CreateSoundProfileResponse) Reset() {
 	*x = CreateSoundProfileResponse{}
-	mi := &file_proto_quality_quality_proto_msgTypes[3]
+	mi := &file_proto_quality_quality_proto_msgTypes[70]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -167,7 +3147,7 @@ func (x *CreateSoundProfileResponse) String() string {
 func (*CreateSoundProfileResponse) ProtoMessage() {}
 
 func (x *CreateSoundProfileResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_quality_quality_proto_msgTypes[3]
+	mi := &file_proto_quality_quality_proto_msgTypes[70]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -180,7 +3160,7 @@ func (x *CreateSoundProfileResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateSoundProfileResponse.ProtoReflect.Descriptor instead.
 func (*CreateSoundProfileResponse) Descriptor() ([]byte, []int) {
-	return file_proto_quality_quality_proto_rawDescGZIP(), []int{3}
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{70}
 }
 
 type GetPictureProfileRequest struct {
@@ -194,7 +3174,7 @@ type GetPictureProfileRequest struct {
 
 func (x *GetPictureProfileRequest) Reset() {
 	*x = GetPictureProfileRequest{}
-	mi := &file_proto_quality_quality_proto_msgTypes[4]
+	mi := &file_proto_quality_quality_proto_msgTypes[71]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -206,7 +3186,7 @@ func (x *GetPictureProfileRequest) String() string {
 func (*GetPictureProfileRequest) ProtoMessage() {}
 
 func (x *GetPictureProfileRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_quality_quality_proto_msgTypes[4]
+	mi := &file_proto_quality_quality_proto_msgTypes[71]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -219,7 +3199,7 @@ func (x *GetPictureProfileRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPictureProfileRequest.ProtoReflect.Descriptor instead.
 func (*GetPictureProfileRequest) Descriptor() ([]byte, []int) {
-	return file_proto_quality_quality_proto_rawDescGZIP(), []int{4}
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{71}
 }
 
 func (x *GetPictureProfileRequest) GetArg0() int32 {
@@ -252,7 +3232,7 @@ type GetPictureProfileResponse struct {
 
 func (x *GetPictureProfileResponse) Reset() {
 	*x = GetPictureProfileResponse{}
-	mi := &file_proto_quality_quality_proto_msgTypes[5]
+	mi := &file_proto_quality_quality_proto_msgTypes[72]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -264,7 +3244,7 @@ func (x *GetPictureProfileResponse) String() string {
 func (*GetPictureProfileResponse) ProtoMessage() {}
 
 func (x *GetPictureProfileResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_quality_quality_proto_msgTypes[5]
+	mi := &file_proto_quality_quality_proto_msgTypes[72]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -277,7 +3257,7 @@ func (x *GetPictureProfileResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPictureProfileResponse.ProtoReflect.Descriptor instead.
 func (*GetPictureProfileResponse) Descriptor() ([]byte, []int) {
-	return file_proto_quality_quality_proto_rawDescGZIP(), []int{5}
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{72}
 }
 
 func (x *GetPictureProfileResponse) GetResult() int64 {
@@ -298,7 +3278,7 @@ type GetSoundProfileRequest struct {
 
 func (x *GetSoundProfileRequest) Reset() {
 	*x = GetSoundProfileRequest{}
-	mi := &file_proto_quality_quality_proto_msgTypes[6]
+	mi := &file_proto_quality_quality_proto_msgTypes[73]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -310,7 +3290,7 @@ func (x *GetSoundProfileRequest) String() string {
 func (*GetSoundProfileRequest) ProtoMessage() {}
 
 func (x *GetSoundProfileRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_quality_quality_proto_msgTypes[6]
+	mi := &file_proto_quality_quality_proto_msgTypes[73]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -323,7 +3303,7 @@ func (x *GetSoundProfileRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetSoundProfileRequest.ProtoReflect.Descriptor instead.
 func (*GetSoundProfileRequest) Descriptor() ([]byte, []int) {
-	return file_proto_quality_quality_proto_rawDescGZIP(), []int{6}
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{73}
 }
 
 func (x *GetSoundProfileRequest) GetArg0() int32 {
@@ -356,7 +3336,7 @@ type GetSoundProfileResponse struct {
 
 func (x *GetSoundProfileResponse) Reset() {
 	*x = GetSoundProfileResponse{}
-	mi := &file_proto_quality_quality_proto_msgTypes[7]
+	mi := &file_proto_quality_quality_proto_msgTypes[74]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -368,7 +3348,7 @@ func (x *GetSoundProfileResponse) String() string {
 func (*GetSoundProfileResponse) ProtoMessage() {}
 
 func (x *GetSoundProfileResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_quality_quality_proto_msgTypes[7]
+	mi := &file_proto_quality_quality_proto_msgTypes[74]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -381,7 +3361,7 @@ func (x *GetSoundProfileResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetSoundProfileResponse.ProtoReflect.Descriptor instead.
 func (*GetSoundProfileResponse) Descriptor() ([]byte, []int) {
-	return file_proto_quality_quality_proto_rawDescGZIP(), []int{7}
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{74}
 }
 
 func (x *GetSoundProfileResponse) GetResult() int64 {
@@ -399,7 +3379,7 @@ type IsAmbientBacklightEnabledRequest struct {
 
 func (x *IsAmbientBacklightEnabledRequest) Reset() {
 	*x = IsAmbientBacklightEnabledRequest{}
-	mi := &file_proto_quality_quality_proto_msgTypes[8]
+	mi := &file_proto_quality_quality_proto_msgTypes[75]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -411,7 +3391,7 @@ func (x *IsAmbientBacklightEnabledRequest) String() string {
 func (*IsAmbientBacklightEnabledRequest) ProtoMessage() {}
 
 func (x *IsAmbientBacklightEnabledRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_quality_quality_proto_msgTypes[8]
+	mi := &file_proto_quality_quality_proto_msgTypes[75]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -424,7 +3404,7 @@ func (x *IsAmbientBacklightEnabledRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsAmbientBacklightEnabledRequest.ProtoReflect.Descriptor instead.
 func (*IsAmbientBacklightEnabledRequest) Descriptor() ([]byte, []int) {
-	return file_proto_quality_quality_proto_rawDescGZIP(), []int{8}
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{75}
 }
 
 type IsAmbientBacklightEnabledResponse struct {
@@ -436,7 +3416,7 @@ type IsAmbientBacklightEnabledResponse struct {
 
 func (x *IsAmbientBacklightEnabledResponse) Reset() {
 	*x = IsAmbientBacklightEnabledResponse{}
-	mi := &file_proto_quality_quality_proto_msgTypes[9]
+	mi := &file_proto_quality_quality_proto_msgTypes[76]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -448,7 +3428,7 @@ func (x *IsAmbientBacklightEnabledResponse) String() string {
 func (*IsAmbientBacklightEnabledResponse) ProtoMessage() {}
 
 func (x *IsAmbientBacklightEnabledResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_quality_quality_proto_msgTypes[9]
+	mi := &file_proto_quality_quality_proto_msgTypes[76]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -461,7 +3441,7 @@ func (x *IsAmbientBacklightEnabledResponse) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use IsAmbientBacklightEnabledResponse.ProtoReflect.Descriptor instead.
 func (*IsAmbientBacklightEnabledResponse) Descriptor() ([]byte, []int) {
-	return file_proto_quality_quality_proto_rawDescGZIP(), []int{9}
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{76}
 }
 
 func (x *IsAmbientBacklightEnabledResponse) GetResult() bool {
@@ -479,7 +3459,7 @@ type IsAutoPictureQualityEnabledRequest struct {
 
 func (x *IsAutoPictureQualityEnabledRequest) Reset() {
 	*x = IsAutoPictureQualityEnabledRequest{}
-	mi := &file_proto_quality_quality_proto_msgTypes[10]
+	mi := &file_proto_quality_quality_proto_msgTypes[77]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -491,7 +3471,7 @@ func (x *IsAutoPictureQualityEnabledRequest) String() string {
 func (*IsAutoPictureQualityEnabledRequest) ProtoMessage() {}
 
 func (x *IsAutoPictureQualityEnabledRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_quality_quality_proto_msgTypes[10]
+	mi := &file_proto_quality_quality_proto_msgTypes[77]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -504,7 +3484,7 @@ func (x *IsAutoPictureQualityEnabledRequest) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use IsAutoPictureQualityEnabledRequest.ProtoReflect.Descriptor instead.
 func (*IsAutoPictureQualityEnabledRequest) Descriptor() ([]byte, []int) {
-	return file_proto_quality_quality_proto_rawDescGZIP(), []int{10}
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{77}
 }
 
 type IsAutoPictureQualityEnabledResponse struct {
@@ -516,7 +3496,7 @@ type IsAutoPictureQualityEnabledResponse struct {
 
 func (x *IsAutoPictureQualityEnabledResponse) Reset() {
 	*x = IsAutoPictureQualityEnabledResponse{}
-	mi := &file_proto_quality_quality_proto_msgTypes[11]
+	mi := &file_proto_quality_quality_proto_msgTypes[78]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -528,7 +3508,7 @@ func (x *IsAutoPictureQualityEnabledResponse) String() string {
 func (*IsAutoPictureQualityEnabledResponse) ProtoMessage() {}
 
 func (x *IsAutoPictureQualityEnabledResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_quality_quality_proto_msgTypes[11]
+	mi := &file_proto_quality_quality_proto_msgTypes[78]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -541,7 +3521,7 @@ func (x *IsAutoPictureQualityEnabledResponse) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use IsAutoPictureQualityEnabledResponse.ProtoReflect.Descriptor instead.
 func (*IsAutoPictureQualityEnabledResponse) Descriptor() ([]byte, []int) {
-	return file_proto_quality_quality_proto_rawDescGZIP(), []int{11}
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{78}
 }
 
 func (x *IsAutoPictureQualityEnabledResponse) GetResult() bool {
@@ -559,7 +3539,7 @@ type IsAutoSoundQualityEnabledRequest struct {
 
 func (x *IsAutoSoundQualityEnabledRequest) Reset() {
 	*x = IsAutoSoundQualityEnabledRequest{}
-	mi := &file_proto_quality_quality_proto_msgTypes[12]
+	mi := &file_proto_quality_quality_proto_msgTypes[79]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -571,7 +3551,7 @@ func (x *IsAutoSoundQualityEnabledRequest) String() string {
 func (*IsAutoSoundQualityEnabledRequest) ProtoMessage() {}
 
 func (x *IsAutoSoundQualityEnabledRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_quality_quality_proto_msgTypes[12]
+	mi := &file_proto_quality_quality_proto_msgTypes[79]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -584,7 +3564,7 @@ func (x *IsAutoSoundQualityEnabledRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsAutoSoundQualityEnabledRequest.ProtoReflect.Descriptor instead.
 func (*IsAutoSoundQualityEnabledRequest) Descriptor() ([]byte, []int) {
-	return file_proto_quality_quality_proto_rawDescGZIP(), []int{12}
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{79}
 }
 
 type IsAutoSoundQualityEnabledResponse struct {
@@ -596,7 +3576,7 @@ type IsAutoSoundQualityEnabledResponse struct {
 
 func (x *IsAutoSoundQualityEnabledResponse) Reset() {
 	*x = IsAutoSoundQualityEnabledResponse{}
-	mi := &file_proto_quality_quality_proto_msgTypes[13]
+	mi := &file_proto_quality_quality_proto_msgTypes[80]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -608,7 +3588,7 @@ func (x *IsAutoSoundQualityEnabledResponse) String() string {
 func (*IsAutoSoundQualityEnabledResponse) ProtoMessage() {}
 
 func (x *IsAutoSoundQualityEnabledResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_quality_quality_proto_msgTypes[13]
+	mi := &file_proto_quality_quality_proto_msgTypes[80]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -621,7 +3601,7 @@ func (x *IsAutoSoundQualityEnabledResponse) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use IsAutoSoundQualityEnabledResponse.ProtoReflect.Descriptor instead.
 func (*IsAutoSoundQualityEnabledResponse) Descriptor() ([]byte, []int) {
-	return file_proto_quality_quality_proto_rawDescGZIP(), []int{13}
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{80}
 }
 
 func (x *IsAutoSoundQualityEnabledResponse) GetResult() bool {
@@ -639,7 +3619,7 @@ type IsSuperResolutionEnabledRequest struct {
 
 func (x *IsSuperResolutionEnabledRequest) Reset() {
 	*x = IsSuperResolutionEnabledRequest{}
-	mi := &file_proto_quality_quality_proto_msgTypes[14]
+	mi := &file_proto_quality_quality_proto_msgTypes[81]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -651,7 +3631,7 @@ func (x *IsSuperResolutionEnabledRequest) String() string {
 func (*IsSuperResolutionEnabledRequest) ProtoMessage() {}
 
 func (x *IsSuperResolutionEnabledRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_quality_quality_proto_msgTypes[14]
+	mi := &file_proto_quality_quality_proto_msgTypes[81]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -664,7 +3644,7 @@ func (x *IsSuperResolutionEnabledRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsSuperResolutionEnabledRequest.ProtoReflect.Descriptor instead.
 func (*IsSuperResolutionEnabledRequest) Descriptor() ([]byte, []int) {
-	return file_proto_quality_quality_proto_rawDescGZIP(), []int{14}
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{81}
 }
 
 type IsSuperResolutionEnabledResponse struct {
@@ -676,7 +3656,7 @@ type IsSuperResolutionEnabledResponse struct {
 
 func (x *IsSuperResolutionEnabledResponse) Reset() {
 	*x = IsSuperResolutionEnabledResponse{}
-	mi := &file_proto_quality_quality_proto_msgTypes[15]
+	mi := &file_proto_quality_quality_proto_msgTypes[82]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -688,7 +3668,7 @@ func (x *IsSuperResolutionEnabledResponse) String() string {
 func (*IsSuperResolutionEnabledResponse) ProtoMessage() {}
 
 func (x *IsSuperResolutionEnabledResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_quality_quality_proto_msgTypes[15]
+	mi := &file_proto_quality_quality_proto_msgTypes[82]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -701,7 +3681,7 @@ func (x *IsSuperResolutionEnabledResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsSuperResolutionEnabledResponse.ProtoReflect.Descriptor instead.
 func (*IsSuperResolutionEnabledResponse) Descriptor() ([]byte, []int) {
-	return file_proto_quality_quality_proto_rawDescGZIP(), []int{15}
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{82}
 }
 
 func (x *IsSuperResolutionEnabledResponse) GetResult() bool {
@@ -721,7 +3701,7 @@ type RegisterAmbientBacklightCallbackRequest struct {
 
 func (x *RegisterAmbientBacklightCallbackRequest) Reset() {
 	*x = RegisterAmbientBacklightCallbackRequest{}
-	mi := &file_proto_quality_quality_proto_msgTypes[16]
+	mi := &file_proto_quality_quality_proto_msgTypes[83]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -733,7 +3713,7 @@ func (x *RegisterAmbientBacklightCallbackRequest) String() string {
 func (*RegisterAmbientBacklightCallbackRequest) ProtoMessage() {}
 
 func (x *RegisterAmbientBacklightCallbackRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_quality_quality_proto_msgTypes[16]
+	mi := &file_proto_quality_quality_proto_msgTypes[83]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -746,7 +3726,7 @@ func (x *RegisterAmbientBacklightCallbackRequest) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use RegisterAmbientBacklightCallbackRequest.ProtoReflect.Descriptor instead.
 func (*RegisterAmbientBacklightCallbackRequest) Descriptor() ([]byte, []int) {
-	return file_proto_quality_quality_proto_rawDescGZIP(), []int{16}
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{83}
 }
 
 func (x *RegisterAmbientBacklightCallbackRequest) GetArg0() int64 {
@@ -771,7 +3751,7 @@ type RegisterAmbientBacklightCallbackResponse struct {
 
 func (x *RegisterAmbientBacklightCallbackResponse) Reset() {
 	*x = RegisterAmbientBacklightCallbackResponse{}
-	mi := &file_proto_quality_quality_proto_msgTypes[17]
+	mi := &file_proto_quality_quality_proto_msgTypes[84]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -783,7 +3763,7 @@ func (x *RegisterAmbientBacklightCallbackResponse) String() string {
 func (*RegisterAmbientBacklightCallbackResponse) ProtoMessage() {}
 
 func (x *RegisterAmbientBacklightCallbackResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_quality_quality_proto_msgTypes[17]
+	mi := &file_proto_quality_quality_proto_msgTypes[84]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -796,7 +3776,7 @@ func (x *RegisterAmbientBacklightCallbackResponse) ProtoReflect() protoreflect.M
 
 // Deprecated: Use RegisterAmbientBacklightCallbackResponse.ProtoReflect.Descriptor instead.
 func (*RegisterAmbientBacklightCallbackResponse) Descriptor() ([]byte, []int) {
-	return file_proto_quality_quality_proto_rawDescGZIP(), []int{17}
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{84}
 }
 
 type RegisterPictureProfileCallbackRequest struct {
@@ -809,7 +3789,7 @@ type RegisterPictureProfileCallbackRequest struct {
 
 func (x *RegisterPictureProfileCallbackRequest) Reset() {
 	*x = RegisterPictureProfileCallbackRequest{}
-	mi := &file_proto_quality_quality_proto_msgTypes[18]
+	mi := &file_proto_quality_quality_proto_msgTypes[85]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -821,7 +3801,7 @@ func (x *RegisterPictureProfileCallbackRequest) String() string {
 func (*RegisterPictureProfileCallbackRequest) ProtoMessage() {}
 
 func (x *RegisterPictureProfileCallbackRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_quality_quality_proto_msgTypes[18]
+	mi := &file_proto_quality_quality_proto_msgTypes[85]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -834,7 +3814,7 @@ func (x *RegisterPictureProfileCallbackRequest) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use RegisterPictureProfileCallbackRequest.ProtoReflect.Descriptor instead.
 func (*RegisterPictureProfileCallbackRequest) Descriptor() ([]byte, []int) {
-	return file_proto_quality_quality_proto_rawDescGZIP(), []int{18}
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{85}
 }
 
 func (x *RegisterPictureProfileCallbackRequest) GetArg0() int64 {
@@ -859,7 +3839,7 @@ type RegisterPictureProfileCallbackResponse struct {
 
 func (x *RegisterPictureProfileCallbackResponse) Reset() {
 	*x = RegisterPictureProfileCallbackResponse{}
-	mi := &file_proto_quality_quality_proto_msgTypes[19]
+	mi := &file_proto_quality_quality_proto_msgTypes[86]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -871,7 +3851,7 @@ func (x *RegisterPictureProfileCallbackResponse) String() string {
 func (*RegisterPictureProfileCallbackResponse) ProtoMessage() {}
 
 func (x *RegisterPictureProfileCallbackResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_quality_quality_proto_msgTypes[19]
+	mi := &file_proto_quality_quality_proto_msgTypes[86]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -884,7 +3864,7 @@ func (x *RegisterPictureProfileCallbackResponse) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use RegisterPictureProfileCallbackResponse.ProtoReflect.Descriptor instead.
 func (*RegisterPictureProfileCallbackResponse) Descriptor() ([]byte, []int) {
-	return file_proto_quality_quality_proto_rawDescGZIP(), []int{19}
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{86}
 }
 
 type RegisterSoundProfileCallbackRequest struct {
@@ -897,7 +3877,7 @@ type RegisterSoundProfileCallbackRequest struct {
 
 func (x *RegisterSoundProfileCallbackRequest) Reset() {
 	*x = RegisterSoundProfileCallbackRequest{}
-	mi := &file_proto_quality_quality_proto_msgTypes[20]
+	mi := &file_proto_quality_quality_proto_msgTypes[87]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -909,7 +3889,7 @@ func (x *RegisterSoundProfileCallbackRequest) String() string {
 func (*RegisterSoundProfileCallbackRequest) ProtoMessage() {}
 
 func (x *RegisterSoundProfileCallbackRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_quality_quality_proto_msgTypes[20]
+	mi := &file_proto_quality_quality_proto_msgTypes[87]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -922,7 +3902,7 @@ func (x *RegisterSoundProfileCallbackRequest) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use RegisterSoundProfileCallbackRequest.ProtoReflect.Descriptor instead.
 func (*RegisterSoundProfileCallbackRequest) Descriptor() ([]byte, []int) {
-	return file_proto_quality_quality_proto_rawDescGZIP(), []int{20}
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{87}
 }
 
 func (x *RegisterSoundProfileCallbackRequest) GetArg0() int64 {
@@ -947,7 +3927,7 @@ type RegisterSoundProfileCallbackResponse struct {
 
 func (x *RegisterSoundProfileCallbackResponse) Reset() {
 	*x = RegisterSoundProfileCallbackResponse{}
-	mi := &file_proto_quality_quality_proto_msgTypes[21]
+	mi := &file_proto_quality_quality_proto_msgTypes[88]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -959,7 +3939,7 @@ func (x *RegisterSoundProfileCallbackResponse) String() string {
 func (*RegisterSoundProfileCallbackResponse) ProtoMessage() {}
 
 func (x *RegisterSoundProfileCallbackResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_quality_quality_proto_msgTypes[21]
+	mi := &file_proto_quality_quality_proto_msgTypes[88]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -972,7 +3952,7 @@ func (x *RegisterSoundProfileCallbackResponse) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use RegisterSoundProfileCallbackResponse.ProtoReflect.Descriptor instead.
 func (*RegisterSoundProfileCallbackResponse) Descriptor() ([]byte, []int) {
-	return file_proto_quality_quality_proto_rawDescGZIP(), []int{21}
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{88}
 }
 
 type RemovePictureProfileRequest struct {
@@ -984,7 +3964,7 @@ type RemovePictureProfileRequest struct {
 
 func (x *RemovePictureProfileRequest) Reset() {
 	*x = RemovePictureProfileRequest{}
-	mi := &file_proto_quality_quality_proto_msgTypes[22]
+	mi := &file_proto_quality_quality_proto_msgTypes[89]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -996,7 +3976,7 @@ func (x *RemovePictureProfileRequest) String() string {
 func (*RemovePictureProfileRequest) ProtoMessage() {}
 
 func (x *RemovePictureProfileRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_quality_quality_proto_msgTypes[22]
+	mi := &file_proto_quality_quality_proto_msgTypes[89]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1009,7 +3989,7 @@ func (x *RemovePictureProfileRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RemovePictureProfileRequest.ProtoReflect.Descriptor instead.
 func (*RemovePictureProfileRequest) Descriptor() ([]byte, []int) {
-	return file_proto_quality_quality_proto_rawDescGZIP(), []int{22}
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{89}
 }
 
 func (x *RemovePictureProfileRequest) GetArg0() string {
@@ -1027,7 +4007,7 @@ type RemovePictureProfileResponse struct {
 
 func (x *RemovePictureProfileResponse) Reset() {
 	*x = RemovePictureProfileResponse{}
-	mi := &file_proto_quality_quality_proto_msgTypes[23]
+	mi := &file_proto_quality_quality_proto_msgTypes[90]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1039,7 +4019,7 @@ func (x *RemovePictureProfileResponse) String() string {
 func (*RemovePictureProfileResponse) ProtoMessage() {}
 
 func (x *RemovePictureProfileResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_quality_quality_proto_msgTypes[23]
+	mi := &file_proto_quality_quality_proto_msgTypes[90]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1052,7 +4032,7 @@ func (x *RemovePictureProfileResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RemovePictureProfileResponse.ProtoReflect.Descriptor instead.
 func (*RemovePictureProfileResponse) Descriptor() ([]byte, []int) {
-	return file_proto_quality_quality_proto_rawDescGZIP(), []int{23}
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{90}
 }
 
 type RemoveSoundProfileRequest struct {
@@ -1064,7 +4044,7 @@ type RemoveSoundProfileRequest struct {
 
 func (x *RemoveSoundProfileRequest) Reset() {
 	*x = RemoveSoundProfileRequest{}
-	mi := &file_proto_quality_quality_proto_msgTypes[24]
+	mi := &file_proto_quality_quality_proto_msgTypes[91]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1076,7 +4056,7 @@ func (x *RemoveSoundProfileRequest) String() string {
 func (*RemoveSoundProfileRequest) ProtoMessage() {}
 
 func (x *RemoveSoundProfileRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_quality_quality_proto_msgTypes[24]
+	mi := &file_proto_quality_quality_proto_msgTypes[91]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1089,7 +4069,7 @@ func (x *RemoveSoundProfileRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RemoveSoundProfileRequest.ProtoReflect.Descriptor instead.
 func (*RemoveSoundProfileRequest) Descriptor() ([]byte, []int) {
-	return file_proto_quality_quality_proto_rawDescGZIP(), []int{24}
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{91}
 }
 
 func (x *RemoveSoundProfileRequest) GetArg0() string {
@@ -1107,7 +4087,7 @@ type RemoveSoundProfileResponse struct {
 
 func (x *RemoveSoundProfileResponse) Reset() {
 	*x = RemoveSoundProfileResponse{}
-	mi := &file_proto_quality_quality_proto_msgTypes[25]
+	mi := &file_proto_quality_quality_proto_msgTypes[92]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1119,7 +4099,7 @@ func (x *RemoveSoundProfileResponse) String() string {
 func (*RemoveSoundProfileResponse) ProtoMessage() {}
 
 func (x *RemoveSoundProfileResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_quality_quality_proto_msgTypes[25]
+	mi := &file_proto_quality_quality_proto_msgTypes[92]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1132,7 +4112,7 @@ func (x *RemoveSoundProfileResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RemoveSoundProfileResponse.ProtoReflect.Descriptor instead.
 func (*RemoveSoundProfileResponse) Descriptor() ([]byte, []int) {
-	return file_proto_quality_quality_proto_rawDescGZIP(), []int{25}
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{92}
 }
 
 type SetAmbientBacklightEnabledRequest struct {
@@ -1144,7 +4124,7 @@ type SetAmbientBacklightEnabledRequest struct {
 
 func (x *SetAmbientBacklightEnabledRequest) Reset() {
 	*x = SetAmbientBacklightEnabledRequest{}
-	mi := &file_proto_quality_quality_proto_msgTypes[26]
+	mi := &file_proto_quality_quality_proto_msgTypes[93]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1156,7 +4136,7 @@ func (x *SetAmbientBacklightEnabledRequest) String() string {
 func (*SetAmbientBacklightEnabledRequest) ProtoMessage() {}
 
 func (x *SetAmbientBacklightEnabledRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_quality_quality_proto_msgTypes[26]
+	mi := &file_proto_quality_quality_proto_msgTypes[93]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1169,7 +4149,7 @@ func (x *SetAmbientBacklightEnabledRequest) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use SetAmbientBacklightEnabledRequest.ProtoReflect.Descriptor instead.
 func (*SetAmbientBacklightEnabledRequest) Descriptor() ([]byte, []int) {
-	return file_proto_quality_quality_proto_rawDescGZIP(), []int{26}
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{93}
 }
 
 func (x *SetAmbientBacklightEnabledRequest) GetArg0() bool {
@@ -1187,7 +4167,7 @@ type SetAmbientBacklightEnabledResponse struct {
 
 func (x *SetAmbientBacklightEnabledResponse) Reset() {
 	*x = SetAmbientBacklightEnabledResponse{}
-	mi := &file_proto_quality_quality_proto_msgTypes[27]
+	mi := &file_proto_quality_quality_proto_msgTypes[94]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1199,7 +4179,7 @@ func (x *SetAmbientBacklightEnabledResponse) String() string {
 func (*SetAmbientBacklightEnabledResponse) ProtoMessage() {}
 
 func (x *SetAmbientBacklightEnabledResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_quality_quality_proto_msgTypes[27]
+	mi := &file_proto_quality_quality_proto_msgTypes[94]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1212,7 +4192,7 @@ func (x *SetAmbientBacklightEnabledResponse) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use SetAmbientBacklightEnabledResponse.ProtoReflect.Descriptor instead.
 func (*SetAmbientBacklightEnabledResponse) Descriptor() ([]byte, []int) {
-	return file_proto_quality_quality_proto_rawDescGZIP(), []int{27}
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{94}
 }
 
 type SetAmbientBacklightSettingsRequest struct {
@@ -1224,7 +4204,7 @@ type SetAmbientBacklightSettingsRequest struct {
 
 func (x *SetAmbientBacklightSettingsRequest) Reset() {
 	*x = SetAmbientBacklightSettingsRequest{}
-	mi := &file_proto_quality_quality_proto_msgTypes[28]
+	mi := &file_proto_quality_quality_proto_msgTypes[95]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1236,7 +4216,7 @@ func (x *SetAmbientBacklightSettingsRequest) String() string {
 func (*SetAmbientBacklightSettingsRequest) ProtoMessage() {}
 
 func (x *SetAmbientBacklightSettingsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_quality_quality_proto_msgTypes[28]
+	mi := &file_proto_quality_quality_proto_msgTypes[95]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1249,7 +4229,7 @@ func (x *SetAmbientBacklightSettingsRequest) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use SetAmbientBacklightSettingsRequest.ProtoReflect.Descriptor instead.
 func (*SetAmbientBacklightSettingsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_quality_quality_proto_rawDescGZIP(), []int{28}
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{95}
 }
 
 func (x *SetAmbientBacklightSettingsRequest) GetArg0() int64 {
@@ -1267,7 +4247,7 @@ type SetAmbientBacklightSettingsResponse struct {
 
 func (x *SetAmbientBacklightSettingsResponse) Reset() {
 	*x = SetAmbientBacklightSettingsResponse{}
-	mi := &file_proto_quality_quality_proto_msgTypes[29]
+	mi := &file_proto_quality_quality_proto_msgTypes[96]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1279,7 +4259,7 @@ func (x *SetAmbientBacklightSettingsResponse) String() string {
 func (*SetAmbientBacklightSettingsResponse) ProtoMessage() {}
 
 func (x *SetAmbientBacklightSettingsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_quality_quality_proto_msgTypes[29]
+	mi := &file_proto_quality_quality_proto_msgTypes[96]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1292,7 +4272,7 @@ func (x *SetAmbientBacklightSettingsResponse) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use SetAmbientBacklightSettingsResponse.ProtoReflect.Descriptor instead.
 func (*SetAmbientBacklightSettingsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_quality_quality_proto_rawDescGZIP(), []int{29}
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{96}
 }
 
 type UnregisterAmbientBacklightCallbackRequest struct {
@@ -1304,7 +4284,7 @@ type UnregisterAmbientBacklightCallbackRequest struct {
 
 func (x *UnregisterAmbientBacklightCallbackRequest) Reset() {
 	*x = UnregisterAmbientBacklightCallbackRequest{}
-	mi := &file_proto_quality_quality_proto_msgTypes[30]
+	mi := &file_proto_quality_quality_proto_msgTypes[97]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1316,7 +4296,7 @@ func (x *UnregisterAmbientBacklightCallbackRequest) String() string {
 func (*UnregisterAmbientBacklightCallbackRequest) ProtoMessage() {}
 
 func (x *UnregisterAmbientBacklightCallbackRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_quality_quality_proto_msgTypes[30]
+	mi := &file_proto_quality_quality_proto_msgTypes[97]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1329,7 +4309,7 @@ func (x *UnregisterAmbientBacklightCallbackRequest) ProtoReflect() protoreflect.
 
 // Deprecated: Use UnregisterAmbientBacklightCallbackRequest.ProtoReflect.Descriptor instead.
 func (*UnregisterAmbientBacklightCallbackRequest) Descriptor() ([]byte, []int) {
-	return file_proto_quality_quality_proto_rawDescGZIP(), []int{30}
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{97}
 }
 
 func (x *UnregisterAmbientBacklightCallbackRequest) GetArg0() int64 {
@@ -1347,7 +4327,7 @@ type UnregisterAmbientBacklightCallbackResponse struct {
 
 func (x *UnregisterAmbientBacklightCallbackResponse) Reset() {
 	*x = UnregisterAmbientBacklightCallbackResponse{}
-	mi := &file_proto_quality_quality_proto_msgTypes[31]
+	mi := &file_proto_quality_quality_proto_msgTypes[98]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1359,7 +4339,7 @@ func (x *UnregisterAmbientBacklightCallbackResponse) String() string {
 func (*UnregisterAmbientBacklightCallbackResponse) ProtoMessage() {}
 
 func (x *UnregisterAmbientBacklightCallbackResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_quality_quality_proto_msgTypes[31]
+	mi := &file_proto_quality_quality_proto_msgTypes[98]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1372,7 +4352,7 @@ func (x *UnregisterAmbientBacklightCallbackResponse) ProtoReflect() protoreflect
 
 // Deprecated: Use UnregisterAmbientBacklightCallbackResponse.ProtoReflect.Descriptor instead.
 func (*UnregisterAmbientBacklightCallbackResponse) Descriptor() ([]byte, []int) {
-	return file_proto_quality_quality_proto_rawDescGZIP(), []int{31}
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{98}
 }
 
 type UnregisterPictureProfileCallbackRequest struct {
@@ -1384,7 +4364,7 @@ type UnregisterPictureProfileCallbackRequest struct {
 
 func (x *UnregisterPictureProfileCallbackRequest) Reset() {
 	*x = UnregisterPictureProfileCallbackRequest{}
-	mi := &file_proto_quality_quality_proto_msgTypes[32]
+	mi := &file_proto_quality_quality_proto_msgTypes[99]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1396,7 +4376,7 @@ func (x *UnregisterPictureProfileCallbackRequest) String() string {
 func (*UnregisterPictureProfileCallbackRequest) ProtoMessage() {}
 
 func (x *UnregisterPictureProfileCallbackRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_quality_quality_proto_msgTypes[32]
+	mi := &file_proto_quality_quality_proto_msgTypes[99]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1409,7 +4389,7 @@ func (x *UnregisterPictureProfileCallbackRequest) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use UnregisterPictureProfileCallbackRequest.ProtoReflect.Descriptor instead.
 func (*UnregisterPictureProfileCallbackRequest) Descriptor() ([]byte, []int) {
-	return file_proto_quality_quality_proto_rawDescGZIP(), []int{32}
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{99}
 }
 
 func (x *UnregisterPictureProfileCallbackRequest) GetArg0() int64 {
@@ -1427,7 +4407,7 @@ type UnregisterPictureProfileCallbackResponse struct {
 
 func (x *UnregisterPictureProfileCallbackResponse) Reset() {
 	*x = UnregisterPictureProfileCallbackResponse{}
-	mi := &file_proto_quality_quality_proto_msgTypes[33]
+	mi := &file_proto_quality_quality_proto_msgTypes[100]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1439,7 +4419,7 @@ func (x *UnregisterPictureProfileCallbackResponse) String() string {
 func (*UnregisterPictureProfileCallbackResponse) ProtoMessage() {}
 
 func (x *UnregisterPictureProfileCallbackResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_quality_quality_proto_msgTypes[33]
+	mi := &file_proto_quality_quality_proto_msgTypes[100]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1452,7 +4432,7 @@ func (x *UnregisterPictureProfileCallbackResponse) ProtoReflect() protoreflect.M
 
 // Deprecated: Use UnregisterPictureProfileCallbackResponse.ProtoReflect.Descriptor instead.
 func (*UnregisterPictureProfileCallbackResponse) Descriptor() ([]byte, []int) {
-	return file_proto_quality_quality_proto_rawDescGZIP(), []int{33}
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{100}
 }
 
 type UnregisterSoundProfileCallbackRequest struct {
@@ -1464,7 +4444,7 @@ type UnregisterSoundProfileCallbackRequest struct {
 
 func (x *UnregisterSoundProfileCallbackRequest) Reset() {
 	*x = UnregisterSoundProfileCallbackRequest{}
-	mi := &file_proto_quality_quality_proto_msgTypes[34]
+	mi := &file_proto_quality_quality_proto_msgTypes[101]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1476,7 +4456,7 @@ func (x *UnregisterSoundProfileCallbackRequest) String() string {
 func (*UnregisterSoundProfileCallbackRequest) ProtoMessage() {}
 
 func (x *UnregisterSoundProfileCallbackRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_quality_quality_proto_msgTypes[34]
+	mi := &file_proto_quality_quality_proto_msgTypes[101]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1489,7 +4469,7 @@ func (x *UnregisterSoundProfileCallbackRequest) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use UnregisterSoundProfileCallbackRequest.ProtoReflect.Descriptor instead.
 func (*UnregisterSoundProfileCallbackRequest) Descriptor() ([]byte, []int) {
-	return file_proto_quality_quality_proto_rawDescGZIP(), []int{34}
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{101}
 }
 
 func (x *UnregisterSoundProfileCallbackRequest) GetArg0() int64 {
@@ -1507,7 +4487,7 @@ type UnregisterSoundProfileCallbackResponse struct {
 
 func (x *UnregisterSoundProfileCallbackResponse) Reset() {
 	*x = UnregisterSoundProfileCallbackResponse{}
-	mi := &file_proto_quality_quality_proto_msgTypes[35]
+	mi := &file_proto_quality_quality_proto_msgTypes[102]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1519,7 +4499,7 @@ func (x *UnregisterSoundProfileCallbackResponse) String() string {
 func (*UnregisterSoundProfileCallbackResponse) ProtoMessage() {}
 
 func (x *UnregisterSoundProfileCallbackResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_quality_quality_proto_msgTypes[35]
+	mi := &file_proto_quality_quality_proto_msgTypes[102]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1532,7 +4512,7 @@ func (x *UnregisterSoundProfileCallbackResponse) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use UnregisterSoundProfileCallbackResponse.ProtoReflect.Descriptor instead.
 func (*UnregisterSoundProfileCallbackResponse) Descriptor() ([]byte, []int) {
-	return file_proto_quality_quality_proto_rawDescGZIP(), []int{35}
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{102}
 }
 
 type UpdatePictureProfileRequest struct {
@@ -1545,7 +4525,7 @@ type UpdatePictureProfileRequest struct {
 
 func (x *UpdatePictureProfileRequest) Reset() {
 	*x = UpdatePictureProfileRequest{}
-	mi := &file_proto_quality_quality_proto_msgTypes[36]
+	mi := &file_proto_quality_quality_proto_msgTypes[103]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1557,7 +4537,7 @@ func (x *UpdatePictureProfileRequest) String() string {
 func (*UpdatePictureProfileRequest) ProtoMessage() {}
 
 func (x *UpdatePictureProfileRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_quality_quality_proto_msgTypes[36]
+	mi := &file_proto_quality_quality_proto_msgTypes[103]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1570,7 +4550,7 @@ func (x *UpdatePictureProfileRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdatePictureProfileRequest.ProtoReflect.Descriptor instead.
 func (*UpdatePictureProfileRequest) Descriptor() ([]byte, []int) {
-	return file_proto_quality_quality_proto_rawDescGZIP(), []int{36}
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{103}
 }
 
 func (x *UpdatePictureProfileRequest) GetArg0() string {
@@ -1595,7 +4575,7 @@ type UpdatePictureProfileResponse struct {
 
 func (x *UpdatePictureProfileResponse) Reset() {
 	*x = UpdatePictureProfileResponse{}
-	mi := &file_proto_quality_quality_proto_msgTypes[37]
+	mi := &file_proto_quality_quality_proto_msgTypes[104]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1607,7 +4587,7 @@ func (x *UpdatePictureProfileResponse) String() string {
 func (*UpdatePictureProfileResponse) ProtoMessage() {}
 
 func (x *UpdatePictureProfileResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_quality_quality_proto_msgTypes[37]
+	mi := &file_proto_quality_quality_proto_msgTypes[104]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1620,7 +4600,7 @@ func (x *UpdatePictureProfileResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdatePictureProfileResponse.ProtoReflect.Descriptor instead.
 func (*UpdatePictureProfileResponse) Descriptor() ([]byte, []int) {
-	return file_proto_quality_quality_proto_rawDescGZIP(), []int{37}
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{104}
 }
 
 type UpdateSoundProfileRequest struct {
@@ -1633,7 +4613,7 @@ type UpdateSoundProfileRequest struct {
 
 func (x *UpdateSoundProfileRequest) Reset() {
 	*x = UpdateSoundProfileRequest{}
-	mi := &file_proto_quality_quality_proto_msgTypes[38]
+	mi := &file_proto_quality_quality_proto_msgTypes[105]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1645,7 +4625,7 @@ func (x *UpdateSoundProfileRequest) String() string {
 func (*UpdateSoundProfileRequest) ProtoMessage() {}
 
 func (x *UpdateSoundProfileRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_quality_quality_proto_msgTypes[38]
+	mi := &file_proto_quality_quality_proto_msgTypes[105]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1658,7 +4638,7 @@ func (x *UpdateSoundProfileRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateSoundProfileRequest.ProtoReflect.Descriptor instead.
 func (*UpdateSoundProfileRequest) Descriptor() ([]byte, []int) {
-	return file_proto_quality_quality_proto_rawDescGZIP(), []int{38}
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{105}
 }
 
 func (x *UpdateSoundProfileRequest) GetArg0() string {
@@ -1683,7 +4663,7 @@ type UpdateSoundProfileResponse struct {
 
 func (x *UpdateSoundProfileResponse) Reset() {
 	*x = UpdateSoundProfileResponse{}
-	mi := &file_proto_quality_quality_proto_msgTypes[39]
+	mi := &file_proto_quality_quality_proto_msgTypes[106]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1695,7 +4675,7 @@ func (x *UpdateSoundProfileResponse) String() string {
 func (*UpdateSoundProfileResponse) ProtoMessage() {}
 
 func (x *UpdateSoundProfileResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_quality_quality_proto_msgTypes[39]
+	mi := &file_proto_quality_quality_proto_msgTypes[106]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1708,14 +4688,1332 @@ func (x *UpdateSoundProfileResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateSoundProfileResponse.ProtoReflect.Descriptor instead.
 func (*UpdateSoundProfileResponse) Descriptor() ([]byte, []int) {
-	return file_proto_quality_quality_proto_rawDescGZIP(), []int{39}
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{106}
+}
+
+type OnAmbientBacklightEventRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnAmbientBacklightEventRequest) Reset() {
+	*x = OnAmbientBacklightEventRequest{}
+	mi := &file_proto_quality_quality_proto_msgTypes[107]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnAmbientBacklightEventRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnAmbientBacklightEventRequest) ProtoMessage() {}
+
+func (x *OnAmbientBacklightEventRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[107]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnAmbientBacklightEventRequest.ProtoReflect.Descriptor instead.
+func (*OnAmbientBacklightEventRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{107}
+}
+
+func (x *OnAmbientBacklightEventRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnAmbientBacklightEventResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnAmbientBacklightEventResponse) Reset() {
+	*x = OnAmbientBacklightEventResponse{}
+	mi := &file_proto_quality_quality_proto_msgTypes[108]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnAmbientBacklightEventResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnAmbientBacklightEventResponse) ProtoMessage() {}
+
+func (x *OnAmbientBacklightEventResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[108]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnAmbientBacklightEventResponse.ProtoReflect.Descriptor instead.
+func (*OnAmbientBacklightEventResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{108}
+}
+
+type OnErrorRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnErrorRequest) Reset() {
+	*x = OnErrorRequest{}
+	mi := &file_proto_quality_quality_proto_msgTypes[109]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnErrorRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnErrorRequest) ProtoMessage() {}
+
+func (x *OnErrorRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[109]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnErrorRequest.ProtoReflect.Descriptor instead.
+func (*OnErrorRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{109}
+}
+
+func (x *OnErrorRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *OnErrorRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type OnErrorResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnErrorResponse) Reset() {
+	*x = OnErrorResponse{}
+	mi := &file_proto_quality_quality_proto_msgTypes[110]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnErrorResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnErrorResponse) ProtoMessage() {}
+
+func (x *OnErrorResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[110]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnErrorResponse.ProtoReflect.Descriptor instead.
+func (*OnErrorResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{110}
+}
+
+type OnPictureProfileAddedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnPictureProfileAddedRequest) Reset() {
+	*x = OnPictureProfileAddedRequest{}
+	mi := &file_proto_quality_quality_proto_msgTypes[111]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnPictureProfileAddedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnPictureProfileAddedRequest) ProtoMessage() {}
+
+func (x *OnPictureProfileAddedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[111]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnPictureProfileAddedRequest.ProtoReflect.Descriptor instead.
+func (*OnPictureProfileAddedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{111}
+}
+
+func (x *OnPictureProfileAddedRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *OnPictureProfileAddedRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type OnPictureProfileAddedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnPictureProfileAddedResponse) Reset() {
+	*x = OnPictureProfileAddedResponse{}
+	mi := &file_proto_quality_quality_proto_msgTypes[112]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnPictureProfileAddedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnPictureProfileAddedResponse) ProtoMessage() {}
+
+func (x *OnPictureProfileAddedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[112]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnPictureProfileAddedResponse.ProtoReflect.Descriptor instead.
+func (*OnPictureProfileAddedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{112}
+}
+
+type OnPictureProfileRemovedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnPictureProfileRemovedRequest) Reset() {
+	*x = OnPictureProfileRemovedRequest{}
+	mi := &file_proto_quality_quality_proto_msgTypes[113]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnPictureProfileRemovedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnPictureProfileRemovedRequest) ProtoMessage() {}
+
+func (x *OnPictureProfileRemovedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[113]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnPictureProfileRemovedRequest.ProtoReflect.Descriptor instead.
+func (*OnPictureProfileRemovedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{113}
+}
+
+func (x *OnPictureProfileRemovedRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *OnPictureProfileRemovedRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type OnPictureProfileRemovedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnPictureProfileRemovedResponse) Reset() {
+	*x = OnPictureProfileRemovedResponse{}
+	mi := &file_proto_quality_quality_proto_msgTypes[114]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnPictureProfileRemovedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnPictureProfileRemovedResponse) ProtoMessage() {}
+
+func (x *OnPictureProfileRemovedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[114]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnPictureProfileRemovedResponse.ProtoReflect.Descriptor instead.
+func (*OnPictureProfileRemovedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{114}
+}
+
+type OnPictureProfileUpdatedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnPictureProfileUpdatedRequest) Reset() {
+	*x = OnPictureProfileUpdatedRequest{}
+	mi := &file_proto_quality_quality_proto_msgTypes[115]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnPictureProfileUpdatedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnPictureProfileUpdatedRequest) ProtoMessage() {}
+
+func (x *OnPictureProfileUpdatedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[115]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnPictureProfileUpdatedRequest.ProtoReflect.Descriptor instead.
+func (*OnPictureProfileUpdatedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{115}
+}
+
+func (x *OnPictureProfileUpdatedRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *OnPictureProfileUpdatedRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type OnPictureProfileUpdatedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnPictureProfileUpdatedResponse) Reset() {
+	*x = OnPictureProfileUpdatedResponse{}
+	mi := &file_proto_quality_quality_proto_msgTypes[116]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnPictureProfileUpdatedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnPictureProfileUpdatedResponse) ProtoMessage() {}
+
+func (x *OnPictureProfileUpdatedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[116]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnPictureProfileUpdatedResponse.ProtoReflect.Descriptor instead.
+func (*OnPictureProfileUpdatedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{116}
+}
+
+type AreParametersIncludedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AreParametersIncludedRequest) Reset() {
+	*x = AreParametersIncludedRequest{}
+	mi := &file_proto_quality_quality_proto_msgTypes[117]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AreParametersIncludedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AreParametersIncludedRequest) ProtoMessage() {}
+
+func (x *AreParametersIncludedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[117]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AreParametersIncludedRequest.ProtoReflect.Descriptor instead.
+func (*AreParametersIncludedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{117}
+}
+
+type AreParametersIncludedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AreParametersIncludedResponse) Reset() {
+	*x = AreParametersIncludedResponse{}
+	mi := &file_proto_quality_quality_proto_msgTypes[118]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AreParametersIncludedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AreParametersIncludedResponse) ProtoMessage() {}
+
+func (x *AreParametersIncludedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[118]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AreParametersIncludedResponse.ProtoReflect.Descriptor instead.
+func (*AreParametersIncludedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{118}
+}
+
+func (x *AreParametersIncludedResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type MediaQualityManagerProfileQueryParamsDescribeContentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *MediaQualityManagerProfileQueryParamsDescribeContentsRequest) Reset() {
+	*x = MediaQualityManagerProfileQueryParamsDescribeContentsRequest{}
+	mi := &file_proto_quality_quality_proto_msgTypes[119]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *MediaQualityManagerProfileQueryParamsDescribeContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MediaQualityManagerProfileQueryParamsDescribeContentsRequest) ProtoMessage() {}
+
+func (x *MediaQualityManagerProfileQueryParamsDescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[119]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MediaQualityManagerProfileQueryParamsDescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*MediaQualityManagerProfileQueryParamsDescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{119}
+}
+
+type MediaQualityManagerProfileQueryParamsWriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *MediaQualityManagerProfileQueryParamsWriteToParcelRequest) Reset() {
+	*x = MediaQualityManagerProfileQueryParamsWriteToParcelRequest{}
+	mi := &file_proto_quality_quality_proto_msgTypes[120]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *MediaQualityManagerProfileQueryParamsWriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MediaQualityManagerProfileQueryParamsWriteToParcelRequest) ProtoMessage() {}
+
+func (x *MediaQualityManagerProfileQueryParamsWriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[120]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MediaQualityManagerProfileQueryParamsWriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*MediaQualityManagerProfileQueryParamsWriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{120}
+}
+
+func (x *MediaQualityManagerProfileQueryParamsWriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *MediaQualityManagerProfileQueryParamsWriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type OnSoundProfileAddedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnSoundProfileAddedRequest) Reset() {
+	*x = OnSoundProfileAddedRequest{}
+	mi := &file_proto_quality_quality_proto_msgTypes[121]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnSoundProfileAddedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnSoundProfileAddedRequest) ProtoMessage() {}
+
+func (x *OnSoundProfileAddedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[121]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnSoundProfileAddedRequest.ProtoReflect.Descriptor instead.
+func (*OnSoundProfileAddedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{121}
+}
+
+func (x *OnSoundProfileAddedRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *OnSoundProfileAddedRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type OnSoundProfileAddedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnSoundProfileAddedResponse) Reset() {
+	*x = OnSoundProfileAddedResponse{}
+	mi := &file_proto_quality_quality_proto_msgTypes[122]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnSoundProfileAddedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnSoundProfileAddedResponse) ProtoMessage() {}
+
+func (x *OnSoundProfileAddedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[122]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnSoundProfileAddedResponse.ProtoReflect.Descriptor instead.
+func (*OnSoundProfileAddedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{122}
+}
+
+type OnSoundProfileRemovedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnSoundProfileRemovedRequest) Reset() {
+	*x = OnSoundProfileRemovedRequest{}
+	mi := &file_proto_quality_quality_proto_msgTypes[123]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnSoundProfileRemovedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnSoundProfileRemovedRequest) ProtoMessage() {}
+
+func (x *OnSoundProfileRemovedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[123]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnSoundProfileRemovedRequest.ProtoReflect.Descriptor instead.
+func (*OnSoundProfileRemovedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{123}
+}
+
+func (x *OnSoundProfileRemovedRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *OnSoundProfileRemovedRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type OnSoundProfileRemovedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnSoundProfileRemovedResponse) Reset() {
+	*x = OnSoundProfileRemovedResponse{}
+	mi := &file_proto_quality_quality_proto_msgTypes[124]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnSoundProfileRemovedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnSoundProfileRemovedResponse) ProtoMessage() {}
+
+func (x *OnSoundProfileRemovedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[124]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnSoundProfileRemovedResponse.ProtoReflect.Descriptor instead.
+func (*OnSoundProfileRemovedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{124}
+}
+
+type OnSoundProfileUpdatedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnSoundProfileUpdatedRequest) Reset() {
+	*x = OnSoundProfileUpdatedRequest{}
+	mi := &file_proto_quality_quality_proto_msgTypes[125]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnSoundProfileUpdatedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnSoundProfileUpdatedRequest) ProtoMessage() {}
+
+func (x *OnSoundProfileUpdatedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[125]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnSoundProfileUpdatedRequest.ProtoReflect.Descriptor instead.
+func (*OnSoundProfileUpdatedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{125}
+}
+
+func (x *OnSoundProfileUpdatedRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *OnSoundProfileUpdatedRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type OnSoundProfileUpdatedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnSoundProfileUpdatedResponse) Reset() {
+	*x = OnSoundProfileUpdatedResponse{}
+	mi := &file_proto_quality_quality_proto_msgTypes[126]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnSoundProfileUpdatedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnSoundProfileUpdatedResponse) ProtoMessage() {}
+
+func (x *OnSoundProfileUpdatedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[126]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnSoundProfileUpdatedResponse.ProtoReflect.Descriptor instead.
+func (*OnSoundProfileUpdatedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{126}
+}
+
+type NewActiveProcessingPictureRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewActiveProcessingPictureRequest) Reset() {
+	*x = NewActiveProcessingPictureRequest{}
+	mi := &file_proto_quality_quality_proto_msgTypes[127]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewActiveProcessingPictureRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewActiveProcessingPictureRequest) ProtoMessage() {}
+
+func (x *NewActiveProcessingPictureRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[127]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewActiveProcessingPictureRequest.ProtoReflect.Descriptor instead.
+func (*NewActiveProcessingPictureRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{127}
+}
+
+func (x *NewActiveProcessingPictureRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *NewActiveProcessingPictureRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+type NewActiveProcessingPictureResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewActiveProcessingPictureResponse) Reset() {
+	*x = NewActiveProcessingPictureResponse{}
+	mi := &file_proto_quality_quality_proto_msgTypes[128]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewActiveProcessingPictureResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewActiveProcessingPictureResponse) ProtoMessage() {}
+
+func (x *NewActiveProcessingPictureResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[128]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewActiveProcessingPictureResponse.ProtoReflect.Descriptor instead.
+func (*NewActiveProcessingPictureResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{128}
+}
+
+func (x *NewActiveProcessingPictureResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetIdRequest) Reset() {
+	*x = GetIdRequest{}
+	mi := &file_proto_quality_quality_proto_msgTypes[129]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetIdRequest) ProtoMessage() {}
+
+func (x *GetIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[129]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetIdRequest.ProtoReflect.Descriptor instead.
+func (*GetIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{129}
+}
+
+func (x *GetIdRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetIdResponse) Reset() {
+	*x = GetIdResponse{}
+	mi := &file_proto_quality_quality_proto_msgTypes[130]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetIdResponse) ProtoMessage() {}
+
+func (x *GetIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[130]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetIdResponse.ProtoReflect.Descriptor instead.
+func (*GetIdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{130}
+}
+
+func (x *GetIdResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ActiveProcessingPictureGetProfileIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ActiveProcessingPictureGetProfileIdRequest) Reset() {
+	*x = ActiveProcessingPictureGetProfileIdRequest{}
+	mi := &file_proto_quality_quality_proto_msgTypes[131]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ActiveProcessingPictureGetProfileIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ActiveProcessingPictureGetProfileIdRequest) ProtoMessage() {}
+
+func (x *ActiveProcessingPictureGetProfileIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[131]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ActiveProcessingPictureGetProfileIdRequest.ProtoReflect.Descriptor instead.
+func (*ActiveProcessingPictureGetProfileIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{131}
+}
+
+func (x *ActiveProcessingPictureGetProfileIdRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type SoundProfileDescribeContentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SoundProfileDescribeContentsRequest) Reset() {
+	*x = SoundProfileDescribeContentsRequest{}
+	mi := &file_proto_quality_quality_proto_msgTypes[132]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SoundProfileDescribeContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SoundProfileDescribeContentsRequest) ProtoMessage() {}
+
+func (x *SoundProfileDescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[132]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SoundProfileDescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*SoundProfileDescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{132}
+}
+
+type SoundProfileWriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SoundProfileWriteToParcelRequest) Reset() {
+	*x = SoundProfileWriteToParcelRequest{}
+	mi := &file_proto_quality_quality_proto_msgTypes[133]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SoundProfileWriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SoundProfileWriteToParcelRequest) ProtoMessage() {}
+
+func (x *SoundProfileWriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_quality_quality_proto_msgTypes[133]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SoundProfileWriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*SoundProfileWriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_quality_quality_proto_rawDescGZIP(), []int{133}
+}
+
+func (x *SoundProfileWriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SoundProfileWriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
 }
 
 var File_proto_quality_quality_proto protoreflect.FileDescriptor
 
 const file_proto_quality_quality_proto_rawDesc = "" +
 	"\n" +
-	"\x1bproto/quality/quality.proto\x12\aquality\"1\n" +
+	"\x1bproto/quality/quality.proto\x12\aquality\"\xb0\x01\n" +
+	"\"NewAmbientBacklightSettingsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x05R\x04arg3\x12\x12\n" +
+	"\x04arg4\x18\x05 \x01(\x05R\x04arg4\x12\x12\n" +
+	"\x04arg5\x18\x06 \x01(\bR\x04arg5\x12\x12\n" +
+	"\x04arg6\x18\a \x01(\x05R\x04arg6\"=\n" +
+	"#NewAmbientBacklightSettingsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"1\n" +
+	"\x17DescribeContentsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"2\n" +
+	"\x18DescribeContentsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"/\n" +
+	"\x15GetColorFormatRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"0\n" +
+	"\x16GetColorFormatResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"8\n" +
+	"\x1eGetHorizontalZonesCountRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"9\n" +
+	"\x1fGetHorizontalZonesCountResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"*\n" +
+	"\x10GetMaxFpsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"+\n" +
+	"\x11GetMaxFpsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"*\n" +
+	"\x10GetSourceRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"+\n" +
+	"\x11GetSourceResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"-\n" +
+	"\x13GetThresholdRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\".\n" +
+	"\x14GetThresholdResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"6\n" +
+	"\x1cGetVerticalZonesCountRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"7\n" +
+	"\x1dGetVerticalZonesCountResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"3\n" +
+	"\x19IsLetterboxOmittedRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"4\n" +
+	"\x1aIsLetterboxOmittedResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\")\n" +
+	"\x0fToStringRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
+	"\x10ToStringResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"V\n" +
+	"\x14WriteToParcelRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"\x17\n" +
+	"\x15WriteToParcelResponse\"I\n" +
+	"\x1fNewAmbientBacklightEventRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\":\n" +
+	" NewAmbientBacklightEventResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\";\n" +
+	"\rEqualsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"(\n" +
+	"\x0eEqualsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"-\n" +
+	"\x13GetEventTypeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\".\n" +
+	"\x14GetEventTypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\",\n" +
+	"\x12GetMetadataRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"-\n" +
+	"\x13GetMetadataResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\")\n" +
+	"\x0fHashCodeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
+	"\x10HashCodeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"'\n" +
+	"%PictureProfileDescribeContentsRequest\"\x13\n" +
+	"\x11GetInputIdRequest\",\n" +
+	"\x12GetInputIdResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x10\n" +
+	"\x0eGetNameRequest\")\n" +
+	"\x0fGetNameResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x17\n" +
+	"\x15GetPackageNameRequest\"0\n" +
+	"\x16GetPackageNameResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x16\n" +
+	"\x14GetParametersRequest\"/\n" +
+	"\x15GetParametersResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x15\n" +
+	"\x13GetProfileIdRequest\".\n" +
+	"\x14GetProfileIdResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x17\n" +
+	"\x15GetProfileTypeRequest\"0\n" +
+	"\x16GetProfileTypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"L\n" +
+	"\"PictureProfileWriteToParcelRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x0e\n" +
+	"\fBuildRequest\"'\n" +
+	"\rBuildResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"*\n" +
+	"\x14SetParametersRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"/\n" +
+	"\x15SetParametersResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\",\n" +
+	"*ParameterCapabilityDescribeContentsRequest\"\x18\n" +
+	"\x16GetCapabilitiesRequest\"1\n" +
+	"\x17GetCapabilitiesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x19\n" +
+	"\x17GetParameterNameRequest\"2\n" +
+	"\x18GetParameterNameResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x19\n" +
+	"\x17GetParameterTypeRequest\"2\n" +
+	"\x18GetParameterTypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x14\n" +
+	"\x12IsSupportedRequest\"-\n" +
+	"\x13IsSupportedResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"Q\n" +
+	"'ParameterCapabilityWriteToParcelRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\xb0\x01\n" +
+	"\"NewAmbientBacklightMetadataRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x05R\x04arg3\x12\x12\n" +
+	"\x04arg4\x18\x05 \x01(\x05R\x04arg4\x12\x12\n" +
+	"\x04arg5\x18\x06 \x01(\x05R\x04arg5\x12\x12\n" +
+	"\x04arg6\x18\a \x01(\x03R\x04arg6\"=\n" +
+	"#NewAmbientBacklightMetadataResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"8\n" +
+	"\x1eGetCompressionAlgorithmRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"9\n" +
+	"\x1fGetCompressionAlgorithmResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"G\n" +
+	"-AmbientBacklightMetadataGetPackageNameRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\".\n" +
+	"\x14GetZoneColorsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"/\n" +
+	"\x15GetZoneColorsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"1\n" +
 	"\x1bCreatePictureProfileRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x1e\n" +
 	"\x1cCreatePictureProfileResponse\"/\n" +
@@ -1786,7 +6084,113 @@ const file_proto_quality_quality_proto_rawDesc = "" +
 	"\x19UpdateSoundProfileRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x1c\n" +
-	"\x1aUpdateSoundProfileResponse2\x87\x12\n" +
+	"\x1aUpdateSoundProfileResponse\"4\n" +
+	"\x1eOnAmbientBacklightEventRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"!\n" +
+	"\x1fOnAmbientBacklightEventResponse\"8\n" +
+	"\x0eOnErrorRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x11\n" +
+	"\x0fOnErrorResponse\"F\n" +
+	"\x1cOnPictureProfileAddedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x1f\n" +
+	"\x1dOnPictureProfileAddedResponse\"H\n" +
+	"\x1eOnPictureProfileRemovedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"!\n" +
+	"\x1fOnPictureProfileRemovedResponse\"H\n" +
+	"\x1eOnPictureProfileUpdatedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"!\n" +
+	"\x1fOnPictureProfileUpdatedResponse\"\x1e\n" +
+	"\x1cAreParametersIncludedRequest\"7\n" +
+	"\x1dAreParametersIncludedResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\">\n" +
+	"<MediaQualityManagerProfileQueryParamsDescribeContentsRequest\"c\n" +
+	"9MediaQualityManagerProfileQueryParamsWriteToParcelRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"D\n" +
+	"\x1aOnSoundProfileAddedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x1d\n" +
+	"\x1bOnSoundProfileAddedResponse\"F\n" +
+	"\x1cOnSoundProfileRemovedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x1f\n" +
+	"\x1dOnSoundProfileRemovedResponse\"F\n" +
+	"\x1cOnSoundProfileUpdatedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x1f\n" +
+	"\x1dOnSoundProfileUpdatedResponse\"K\n" +
+	"!NewActiveProcessingPictureRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\"<\n" +
+	"\"NewActiveProcessingPictureResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"&\n" +
+	"\fGetIdRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"'\n" +
+	"\rGetIdResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"D\n" +
+	"*ActiveProcessingPictureGetProfileIdRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"%\n" +
+	"#SoundProfileDescribeContentsRequest\"J\n" +
+	" SoundProfileWriteToParcelRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg12\xe2\a\n" +
+	"\x1fAmbientBacklightSettingsService\x12x\n" +
+	"\x1bNewAmbientBacklightSettings\x12+.quality.NewAmbientBacklightSettingsRequest\x1a,.quality.NewAmbientBacklightSettingsResponse\x12W\n" +
+	"\x10DescribeContents\x12 .quality.DescribeContentsRequest\x1a!.quality.DescribeContentsResponse\x12Q\n" +
+	"\x0eGetColorFormat\x12\x1e.quality.GetColorFormatRequest\x1a\x1f.quality.GetColorFormatResponse\x12l\n" +
+	"\x17GetHorizontalZonesCount\x12'.quality.GetHorizontalZonesCountRequest\x1a(.quality.GetHorizontalZonesCountResponse\x12B\n" +
+	"\tGetMaxFps\x12\x19.quality.GetMaxFpsRequest\x1a\x1a.quality.GetMaxFpsResponse\x12B\n" +
+	"\tGetSource\x12\x19.quality.GetSourceRequest\x1a\x1a.quality.GetSourceResponse\x12K\n" +
+	"\fGetThreshold\x12\x1c.quality.GetThresholdRequest\x1a\x1d.quality.GetThresholdResponse\x12f\n" +
+	"\x15GetVerticalZonesCount\x12%.quality.GetVerticalZonesCountRequest\x1a&.quality.GetVerticalZonesCountResponse\x12]\n" +
+	"\x12IsLetterboxOmitted\x12\".quality.IsLetterboxOmittedRequest\x1a#.quality.IsLetterboxOmittedResponse\x12?\n" +
+	"\bToString\x12\x18.quality.ToStringRequest\x1a\x19.quality.ToStringResponse\x12N\n" +
+	"\rWriteToParcel\x12\x1d.quality.WriteToParcelRequest\x1a\x1e.quality.WriteToParcelResponse2\x8c\x05\n" +
+	"\x1cAmbientBacklightEventService\x12o\n" +
+	"\x18NewAmbientBacklightEvent\x12(.quality.NewAmbientBacklightEventRequest\x1a).quality.NewAmbientBacklightEventResponse\x12W\n" +
+	"\x10DescribeContents\x12 .quality.DescribeContentsRequest\x1a!.quality.DescribeContentsResponse\x129\n" +
+	"\x06Equals\x12\x16.quality.EqualsRequest\x1a\x17.quality.EqualsResponse\x12K\n" +
+	"\fGetEventType\x12\x1c.quality.GetEventTypeRequest\x1a\x1d.quality.GetEventTypeResponse\x12H\n" +
+	"\vGetMetadata\x12\x1b.quality.GetMetadataRequest\x1a\x1c.quality.GetMetadataResponse\x12?\n" +
+	"\bHashCode\x12\x18.quality.HashCodeRequest\x1a\x19.quality.HashCodeResponse\x12?\n" +
+	"\bToString\x12\x18.quality.ToStringRequest\x1a\x19.quality.ToStringResponse\x12N\n" +
+	"\rWriteToParcel\x12\x1d.quality.WriteToParcelRequest\x1a\x1e.quality.WriteToParcelResponse2\xa4\x05\n" +
+	"\x15PictureProfileService\x12e\n" +
+	"\x10DescribeContents\x12..quality.PictureProfileDescribeContentsRequest\x1a!.quality.DescribeContentsResponse\x12E\n" +
+	"\n" +
+	"GetInputId\x12\x1a.quality.GetInputIdRequest\x1a\x1b.quality.GetInputIdResponse\x12<\n" +
+	"\aGetName\x12\x17.quality.GetNameRequest\x1a\x18.quality.GetNameResponse\x12Q\n" +
+	"\x0eGetPackageName\x12\x1e.quality.GetPackageNameRequest\x1a\x1f.quality.GetPackageNameResponse\x12N\n" +
+	"\rGetParameters\x12\x1d.quality.GetParametersRequest\x1a\x1e.quality.GetParametersResponse\x12K\n" +
+	"\fGetProfileId\x12\x1c.quality.GetProfileIdRequest\x1a\x1d.quality.GetProfileIdResponse\x12Q\n" +
+	"\x0eGetProfileType\x12\x1e.quality.GetProfileTypeRequest\x1a\x1f.quality.GetProfileTypeResponse\x12\\\n" +
+	"\rWriteToParcel\x12+.quality.PictureProfileWriteToParcelRequest\x1a\x1e.quality.WriteToParcelResponse2\xa6\x01\n" +
+	"\x1cPictureProfileBuilderService\x126\n" +
+	"\x05Build\x12\x15.quality.BuildRequest\x1a\x16.quality.BuildResponse\x12N\n" +
+	"\rSetParameters\x12\x1d.quality.SetParametersRequest\x1a\x1e.quality.SetParametersResponse2\xbd\x04\n" +
+	"\x1aParameterCapabilityService\x12j\n" +
+	"\x10DescribeContents\x123.quality.ParameterCapabilityDescribeContentsRequest\x1a!.quality.DescribeContentsResponse\x12T\n" +
+	"\x0fGetCapabilities\x12\x1f.quality.GetCapabilitiesRequest\x1a .quality.GetCapabilitiesResponse\x12W\n" +
+	"\x10GetParameterName\x12 .quality.GetParameterNameRequest\x1a!.quality.GetParameterNameResponse\x12W\n" +
+	"\x10GetParameterType\x12 .quality.GetParameterTypeRequest\x1a!.quality.GetParameterTypeResponse\x12H\n" +
+	"\vIsSupported\x12\x1b.quality.IsSupportedRequest\x1a\x1c.quality.IsSupportedResponse\x12a\n" +
+	"\rWriteToParcel\x120.quality.ParameterCapabilityWriteToParcelRequest\x1a\x1e.quality.WriteToParcelResponse2\x9b\b\n" +
+	"\x1fAmbientBacklightMetadataService\x12x\n" +
+	"\x1bNewAmbientBacklightMetadata\x12+.quality.NewAmbientBacklightMetadataRequest\x1a,.quality.NewAmbientBacklightMetadataResponse\x12W\n" +
+	"\x10DescribeContents\x12 .quality.DescribeContentsRequest\x1a!.quality.DescribeContentsResponse\x12Q\n" +
+	"\x0eGetColorFormat\x12\x1e.quality.GetColorFormatRequest\x1a\x1f.quality.GetColorFormatResponse\x12l\n" +
+	"\x17GetCompressionAlgorithm\x12'.quality.GetCompressionAlgorithmRequest\x1a(.quality.GetCompressionAlgorithmResponse\x12l\n" +
+	"\x17GetHorizontalZonesCount\x12'.quality.GetHorizontalZonesCountRequest\x1a(.quality.GetHorizontalZonesCountResponse\x12i\n" +
+	"\x0eGetPackageName\x126.quality.AmbientBacklightMetadataGetPackageNameRequest\x1a\x1f.quality.GetPackageNameResponse\x12B\n" +
+	"\tGetSource\x12\x19.quality.GetSourceRequest\x1a\x1a.quality.GetSourceResponse\x12f\n" +
+	"\x15GetVerticalZonesCount\x12%.quality.GetVerticalZonesCountRequest\x1a&.quality.GetVerticalZonesCountResponse\x12N\n" +
+	"\rGetZoneColors\x12\x1d.quality.GetZoneColorsRequest\x1a\x1e.quality.GetZoneColorsResponse\x12?\n" +
+	"\bToString\x12\x18.quality.ToStringRequest\x1a\x19.quality.ToStringResponse\x12N\n" +
+	"\rWriteToParcel\x12\x1d.quality.WriteToParcelRequest\x1a\x1e.quality.WriteToParcelResponse2\x87\x12\n" +
 	"\x1aMediaQualityManagerService\x12c\n" +
 	"\x14CreatePictureProfile\x12$.quality.CreatePictureProfileRequest\x1a%.quality.CreatePictureProfileResponse\x12]\n" +
 	"\x12CreateSoundProfile\x12\".quality.CreateSoundProfileRequest\x1a#.quality.CreateSoundProfileResponse\x12Z\n" +
@@ -1807,7 +6211,42 @@ const file_proto_quality_quality_proto_rawDesc = "" +
 	" UnregisterPictureProfileCallback\x120.quality.UnregisterPictureProfileCallbackRequest\x1a1.quality.UnregisterPictureProfileCallbackResponse\x12\x81\x01\n" +
 	"\x1eUnregisterSoundProfileCallback\x12..quality.UnregisterSoundProfileCallbackRequest\x1a/.quality.UnregisterSoundProfileCallbackResponse\x12c\n" +
 	"\x14UpdatePictureProfile\x12$.quality.UpdatePictureProfileRequest\x1a%.quality.UpdatePictureProfileResponse\x12]\n" +
-	"\x12UpdateSoundProfile\x12\".quality.UpdateSoundProfileRequest\x1a#.quality.UpdateSoundProfileResponseB1Z/github.com/AndroidGoLab/jni-proxy/proto/qualityb\x06proto3"
+	"\x12UpdateSoundProfile\x12\".quality.UpdateSoundProfileRequest\x1a#.quality.UpdateSoundProfileResponse2\xa2\x01\n" +
+	"2MediaQualityManagerAmbientBacklightCallbackService\x12l\n" +
+	"\x17OnAmbientBacklightEvent\x12'.quality.OnAmbientBacklightEventRequest\x1a(.quality.OnAmbientBacklightEventResponse2\xb4\x03\n" +
+	"0MediaQualityManagerPictureProfileCallbackService\x12<\n" +
+	"\aOnError\x12\x17.quality.OnErrorRequest\x1a\x18.quality.OnErrorResponse\x12f\n" +
+	"\x15OnPictureProfileAdded\x12%.quality.OnPictureProfileAddedRequest\x1a&.quality.OnPictureProfileAddedResponse\x12l\n" +
+	"\x17OnPictureProfileRemoved\x12'.quality.OnPictureProfileRemovedRequest\x1a(.quality.OnPictureProfileRemovedResponse\x12l\n" +
+	"\x17OnPictureProfileUpdated\x12'.quality.OnPictureProfileUpdatedRequest\x1a(.quality.OnPictureProfileUpdatedResponse2\x89\x03\n" +
+	",MediaQualityManagerProfileQueryParamsService\x12f\n" +
+	"\x15AreParametersIncluded\x12%.quality.AreParametersIncludedRequest\x1a&.quality.AreParametersIncludedResponse\x12|\n" +
+	"\x10DescribeContents\x12E.quality.MediaQualityManagerProfileQueryParamsDescribeContentsRequest\x1a!.quality.DescribeContentsResponse\x12s\n" +
+	"\rWriteToParcel\x12B.quality.MediaQualityManagerProfileQueryParamsWriteToParcelRequest\x1a\x1e.quality.WriteToParcelResponse2\xa0\x03\n" +
+	".MediaQualityManagerSoundProfileCallbackService\x12<\n" +
+	"\aOnError\x12\x17.quality.OnErrorRequest\x1a\x18.quality.OnErrorResponse\x12`\n" +
+	"\x13OnSoundProfileAdded\x12#.quality.OnSoundProfileAddedRequest\x1a$.quality.OnSoundProfileAddedResponse\x12f\n" +
+	"\x15OnSoundProfileRemoved\x12%.quality.OnSoundProfileRemovedRequest\x1a&.quality.OnSoundProfileRemovedResponse\x12f\n" +
+	"\x15OnSoundProfileUpdated\x12%.quality.OnSoundProfileUpdatedRequest\x1a&.quality.OnSoundProfileUpdatedResponse2\xdc\x03\n" +
+	"\x1eActiveProcessingPictureService\x12u\n" +
+	"\x1aNewActiveProcessingPicture\x12*.quality.NewActiveProcessingPictureRequest\x1a+.quality.NewActiveProcessingPictureResponse\x12W\n" +
+	"\x10DescribeContents\x12 .quality.DescribeContentsRequest\x1a!.quality.DescribeContentsResponse\x126\n" +
+	"\x05GetId\x12\x15.quality.GetIdRequest\x1a\x16.quality.GetIdResponse\x12b\n" +
+	"\fGetProfileId\x123.quality.ActiveProcessingPictureGetProfileIdRequest\x1a\x1d.quality.GetProfileIdResponse\x12N\n" +
+	"\rWriteToParcel\x12\x1d.quality.WriteToParcelRequest\x1a\x1e.quality.WriteToParcelResponse2\x9e\x05\n" +
+	"\x13SoundProfileService\x12c\n" +
+	"\x10DescribeContents\x12,.quality.SoundProfileDescribeContentsRequest\x1a!.quality.DescribeContentsResponse\x12E\n" +
+	"\n" +
+	"GetInputId\x12\x1a.quality.GetInputIdRequest\x1a\x1b.quality.GetInputIdResponse\x12<\n" +
+	"\aGetName\x12\x17.quality.GetNameRequest\x1a\x18.quality.GetNameResponse\x12Q\n" +
+	"\x0eGetPackageName\x12\x1e.quality.GetPackageNameRequest\x1a\x1f.quality.GetPackageNameResponse\x12N\n" +
+	"\rGetParameters\x12\x1d.quality.GetParametersRequest\x1a\x1e.quality.GetParametersResponse\x12K\n" +
+	"\fGetProfileId\x12\x1c.quality.GetProfileIdRequest\x1a\x1d.quality.GetProfileIdResponse\x12Q\n" +
+	"\x0eGetProfileType\x12\x1e.quality.GetProfileTypeRequest\x1a\x1f.quality.GetProfileTypeResponse\x12Z\n" +
+	"\rWriteToParcel\x12).quality.SoundProfileWriteToParcelRequest\x1a\x1e.quality.WriteToParcelResponse2\xa4\x01\n" +
+	"\x1aSoundProfileBuilderService\x126\n" +
+	"\x05Build\x12\x15.quality.BuildRequest\x1a\x16.quality.BuildResponse\x12N\n" +
+	"\rSetParameters\x12\x1d.quality.SetParametersRequest\x1a\x1e.quality.SetParametersResponseB1Z/github.com/AndroidGoLab/jni-proxy/proto/qualityb\x06proto3"
 
 var (
 	file_proto_quality_quality_proto_rawDescOnce sync.Once
@@ -1821,95 +6260,335 @@ func file_proto_quality_quality_proto_rawDescGZIP() []byte {
 	return file_proto_quality_quality_proto_rawDescData
 }
 
-var file_proto_quality_quality_proto_msgTypes = make([]protoimpl.MessageInfo, 40)
+var file_proto_quality_quality_proto_msgTypes = make([]protoimpl.MessageInfo, 134)
 var file_proto_quality_quality_proto_goTypes = []any{
-	(*CreatePictureProfileRequest)(nil),                // 0: quality.CreatePictureProfileRequest
-	(*CreatePictureProfileResponse)(nil),               // 1: quality.CreatePictureProfileResponse
-	(*CreateSoundProfileRequest)(nil),                  // 2: quality.CreateSoundProfileRequest
-	(*CreateSoundProfileResponse)(nil),                 // 3: quality.CreateSoundProfileResponse
-	(*GetPictureProfileRequest)(nil),                   // 4: quality.GetPictureProfileRequest
-	(*GetPictureProfileResponse)(nil),                  // 5: quality.GetPictureProfileResponse
-	(*GetSoundProfileRequest)(nil),                     // 6: quality.GetSoundProfileRequest
-	(*GetSoundProfileResponse)(nil),                    // 7: quality.GetSoundProfileResponse
-	(*IsAmbientBacklightEnabledRequest)(nil),           // 8: quality.IsAmbientBacklightEnabledRequest
-	(*IsAmbientBacklightEnabledResponse)(nil),          // 9: quality.IsAmbientBacklightEnabledResponse
-	(*IsAutoPictureQualityEnabledRequest)(nil),         // 10: quality.IsAutoPictureQualityEnabledRequest
-	(*IsAutoPictureQualityEnabledResponse)(nil),        // 11: quality.IsAutoPictureQualityEnabledResponse
-	(*IsAutoSoundQualityEnabledRequest)(nil),           // 12: quality.IsAutoSoundQualityEnabledRequest
-	(*IsAutoSoundQualityEnabledResponse)(nil),          // 13: quality.IsAutoSoundQualityEnabledResponse
-	(*IsSuperResolutionEnabledRequest)(nil),            // 14: quality.IsSuperResolutionEnabledRequest
-	(*IsSuperResolutionEnabledResponse)(nil),           // 15: quality.IsSuperResolutionEnabledResponse
-	(*RegisterAmbientBacklightCallbackRequest)(nil),    // 16: quality.RegisterAmbientBacklightCallbackRequest
-	(*RegisterAmbientBacklightCallbackResponse)(nil),   // 17: quality.RegisterAmbientBacklightCallbackResponse
-	(*RegisterPictureProfileCallbackRequest)(nil),      // 18: quality.RegisterPictureProfileCallbackRequest
-	(*RegisterPictureProfileCallbackResponse)(nil),     // 19: quality.RegisterPictureProfileCallbackResponse
-	(*RegisterSoundProfileCallbackRequest)(nil),        // 20: quality.RegisterSoundProfileCallbackRequest
-	(*RegisterSoundProfileCallbackResponse)(nil),       // 21: quality.RegisterSoundProfileCallbackResponse
-	(*RemovePictureProfileRequest)(nil),                // 22: quality.RemovePictureProfileRequest
-	(*RemovePictureProfileResponse)(nil),               // 23: quality.RemovePictureProfileResponse
-	(*RemoveSoundProfileRequest)(nil),                  // 24: quality.RemoveSoundProfileRequest
-	(*RemoveSoundProfileResponse)(nil),                 // 25: quality.RemoveSoundProfileResponse
-	(*SetAmbientBacklightEnabledRequest)(nil),          // 26: quality.SetAmbientBacklightEnabledRequest
-	(*SetAmbientBacklightEnabledResponse)(nil),         // 27: quality.SetAmbientBacklightEnabledResponse
-	(*SetAmbientBacklightSettingsRequest)(nil),         // 28: quality.SetAmbientBacklightSettingsRequest
-	(*SetAmbientBacklightSettingsResponse)(nil),        // 29: quality.SetAmbientBacklightSettingsResponse
-	(*UnregisterAmbientBacklightCallbackRequest)(nil),  // 30: quality.UnregisterAmbientBacklightCallbackRequest
-	(*UnregisterAmbientBacklightCallbackResponse)(nil), // 31: quality.UnregisterAmbientBacklightCallbackResponse
-	(*UnregisterPictureProfileCallbackRequest)(nil),    // 32: quality.UnregisterPictureProfileCallbackRequest
-	(*UnregisterPictureProfileCallbackResponse)(nil),   // 33: quality.UnregisterPictureProfileCallbackResponse
-	(*UnregisterSoundProfileCallbackRequest)(nil),      // 34: quality.UnregisterSoundProfileCallbackRequest
-	(*UnregisterSoundProfileCallbackResponse)(nil),     // 35: quality.UnregisterSoundProfileCallbackResponse
-	(*UpdatePictureProfileRequest)(nil),                // 36: quality.UpdatePictureProfileRequest
-	(*UpdatePictureProfileResponse)(nil),               // 37: quality.UpdatePictureProfileResponse
-	(*UpdateSoundProfileRequest)(nil),                  // 38: quality.UpdateSoundProfileRequest
-	(*UpdateSoundProfileResponse)(nil),                 // 39: quality.UpdateSoundProfileResponse
+	(*NewAmbientBacklightSettingsRequest)(nil),                           // 0: quality.NewAmbientBacklightSettingsRequest
+	(*NewAmbientBacklightSettingsResponse)(nil),                          // 1: quality.NewAmbientBacklightSettingsResponse
+	(*DescribeContentsRequest)(nil),                                      // 2: quality.DescribeContentsRequest
+	(*DescribeContentsResponse)(nil),                                     // 3: quality.DescribeContentsResponse
+	(*GetColorFormatRequest)(nil),                                        // 4: quality.GetColorFormatRequest
+	(*GetColorFormatResponse)(nil),                                       // 5: quality.GetColorFormatResponse
+	(*GetHorizontalZonesCountRequest)(nil),                               // 6: quality.GetHorizontalZonesCountRequest
+	(*GetHorizontalZonesCountResponse)(nil),                              // 7: quality.GetHorizontalZonesCountResponse
+	(*GetMaxFpsRequest)(nil),                                             // 8: quality.GetMaxFpsRequest
+	(*GetMaxFpsResponse)(nil),                                            // 9: quality.GetMaxFpsResponse
+	(*GetSourceRequest)(nil),                                             // 10: quality.GetSourceRequest
+	(*GetSourceResponse)(nil),                                            // 11: quality.GetSourceResponse
+	(*GetThresholdRequest)(nil),                                          // 12: quality.GetThresholdRequest
+	(*GetThresholdResponse)(nil),                                         // 13: quality.GetThresholdResponse
+	(*GetVerticalZonesCountRequest)(nil),                                 // 14: quality.GetVerticalZonesCountRequest
+	(*GetVerticalZonesCountResponse)(nil),                                // 15: quality.GetVerticalZonesCountResponse
+	(*IsLetterboxOmittedRequest)(nil),                                    // 16: quality.IsLetterboxOmittedRequest
+	(*IsLetterboxOmittedResponse)(nil),                                   // 17: quality.IsLetterboxOmittedResponse
+	(*ToStringRequest)(nil),                                              // 18: quality.ToStringRequest
+	(*ToStringResponse)(nil),                                             // 19: quality.ToStringResponse
+	(*WriteToParcelRequest)(nil),                                         // 20: quality.WriteToParcelRequest
+	(*WriteToParcelResponse)(nil),                                        // 21: quality.WriteToParcelResponse
+	(*NewAmbientBacklightEventRequest)(nil),                              // 22: quality.NewAmbientBacklightEventRequest
+	(*NewAmbientBacklightEventResponse)(nil),                             // 23: quality.NewAmbientBacklightEventResponse
+	(*EqualsRequest)(nil),                                                // 24: quality.EqualsRequest
+	(*EqualsResponse)(nil),                                               // 25: quality.EqualsResponse
+	(*GetEventTypeRequest)(nil),                                          // 26: quality.GetEventTypeRequest
+	(*GetEventTypeResponse)(nil),                                         // 27: quality.GetEventTypeResponse
+	(*GetMetadataRequest)(nil),                                           // 28: quality.GetMetadataRequest
+	(*GetMetadataResponse)(nil),                                          // 29: quality.GetMetadataResponse
+	(*HashCodeRequest)(nil),                                              // 30: quality.HashCodeRequest
+	(*HashCodeResponse)(nil),                                             // 31: quality.HashCodeResponse
+	(*PictureProfileDescribeContentsRequest)(nil),                        // 32: quality.PictureProfileDescribeContentsRequest
+	(*GetInputIdRequest)(nil),                                            // 33: quality.GetInputIdRequest
+	(*GetInputIdResponse)(nil),                                           // 34: quality.GetInputIdResponse
+	(*GetNameRequest)(nil),                                               // 35: quality.GetNameRequest
+	(*GetNameResponse)(nil),                                              // 36: quality.GetNameResponse
+	(*GetPackageNameRequest)(nil),                                        // 37: quality.GetPackageNameRequest
+	(*GetPackageNameResponse)(nil),                                       // 38: quality.GetPackageNameResponse
+	(*GetParametersRequest)(nil),                                         // 39: quality.GetParametersRequest
+	(*GetParametersResponse)(nil),                                        // 40: quality.GetParametersResponse
+	(*GetProfileIdRequest)(nil),                                          // 41: quality.GetProfileIdRequest
+	(*GetProfileIdResponse)(nil),                                         // 42: quality.GetProfileIdResponse
+	(*GetProfileTypeRequest)(nil),                                        // 43: quality.GetProfileTypeRequest
+	(*GetProfileTypeResponse)(nil),                                       // 44: quality.GetProfileTypeResponse
+	(*PictureProfileWriteToParcelRequest)(nil),                           // 45: quality.PictureProfileWriteToParcelRequest
+	(*BuildRequest)(nil),                                                 // 46: quality.BuildRequest
+	(*BuildResponse)(nil),                                                // 47: quality.BuildResponse
+	(*SetParametersRequest)(nil),                                         // 48: quality.SetParametersRequest
+	(*SetParametersResponse)(nil),                                        // 49: quality.SetParametersResponse
+	(*ParameterCapabilityDescribeContentsRequest)(nil),                   // 50: quality.ParameterCapabilityDescribeContentsRequest
+	(*GetCapabilitiesRequest)(nil),                                       // 51: quality.GetCapabilitiesRequest
+	(*GetCapabilitiesResponse)(nil),                                      // 52: quality.GetCapabilitiesResponse
+	(*GetParameterNameRequest)(nil),                                      // 53: quality.GetParameterNameRequest
+	(*GetParameterNameResponse)(nil),                                     // 54: quality.GetParameterNameResponse
+	(*GetParameterTypeRequest)(nil),                                      // 55: quality.GetParameterTypeRequest
+	(*GetParameterTypeResponse)(nil),                                     // 56: quality.GetParameterTypeResponse
+	(*IsSupportedRequest)(nil),                                           // 57: quality.IsSupportedRequest
+	(*IsSupportedResponse)(nil),                                          // 58: quality.IsSupportedResponse
+	(*ParameterCapabilityWriteToParcelRequest)(nil),                      // 59: quality.ParameterCapabilityWriteToParcelRequest
+	(*NewAmbientBacklightMetadataRequest)(nil),                           // 60: quality.NewAmbientBacklightMetadataRequest
+	(*NewAmbientBacklightMetadataResponse)(nil),                          // 61: quality.NewAmbientBacklightMetadataResponse
+	(*GetCompressionAlgorithmRequest)(nil),                               // 62: quality.GetCompressionAlgorithmRequest
+	(*GetCompressionAlgorithmResponse)(nil),                              // 63: quality.GetCompressionAlgorithmResponse
+	(*AmbientBacklightMetadataGetPackageNameRequest)(nil),                // 64: quality.AmbientBacklightMetadataGetPackageNameRequest
+	(*GetZoneColorsRequest)(nil),                                         // 65: quality.GetZoneColorsRequest
+	(*GetZoneColorsResponse)(nil),                                        // 66: quality.GetZoneColorsResponse
+	(*CreatePictureProfileRequest)(nil),                                  // 67: quality.CreatePictureProfileRequest
+	(*CreatePictureProfileResponse)(nil),                                 // 68: quality.CreatePictureProfileResponse
+	(*CreateSoundProfileRequest)(nil),                                    // 69: quality.CreateSoundProfileRequest
+	(*CreateSoundProfileResponse)(nil),                                   // 70: quality.CreateSoundProfileResponse
+	(*GetPictureProfileRequest)(nil),                                     // 71: quality.GetPictureProfileRequest
+	(*GetPictureProfileResponse)(nil),                                    // 72: quality.GetPictureProfileResponse
+	(*GetSoundProfileRequest)(nil),                                       // 73: quality.GetSoundProfileRequest
+	(*GetSoundProfileResponse)(nil),                                      // 74: quality.GetSoundProfileResponse
+	(*IsAmbientBacklightEnabledRequest)(nil),                             // 75: quality.IsAmbientBacklightEnabledRequest
+	(*IsAmbientBacklightEnabledResponse)(nil),                            // 76: quality.IsAmbientBacklightEnabledResponse
+	(*IsAutoPictureQualityEnabledRequest)(nil),                           // 77: quality.IsAutoPictureQualityEnabledRequest
+	(*IsAutoPictureQualityEnabledResponse)(nil),                          // 78: quality.IsAutoPictureQualityEnabledResponse
+	(*IsAutoSoundQualityEnabledRequest)(nil),                             // 79: quality.IsAutoSoundQualityEnabledRequest
+	(*IsAutoSoundQualityEnabledResponse)(nil),                            // 80: quality.IsAutoSoundQualityEnabledResponse
+	(*IsSuperResolutionEnabledRequest)(nil),                              // 81: quality.IsSuperResolutionEnabledRequest
+	(*IsSuperResolutionEnabledResponse)(nil),                             // 82: quality.IsSuperResolutionEnabledResponse
+	(*RegisterAmbientBacklightCallbackRequest)(nil),                      // 83: quality.RegisterAmbientBacklightCallbackRequest
+	(*RegisterAmbientBacklightCallbackResponse)(nil),                     // 84: quality.RegisterAmbientBacklightCallbackResponse
+	(*RegisterPictureProfileCallbackRequest)(nil),                        // 85: quality.RegisterPictureProfileCallbackRequest
+	(*RegisterPictureProfileCallbackResponse)(nil),                       // 86: quality.RegisterPictureProfileCallbackResponse
+	(*RegisterSoundProfileCallbackRequest)(nil),                          // 87: quality.RegisterSoundProfileCallbackRequest
+	(*RegisterSoundProfileCallbackResponse)(nil),                         // 88: quality.RegisterSoundProfileCallbackResponse
+	(*RemovePictureProfileRequest)(nil),                                  // 89: quality.RemovePictureProfileRequest
+	(*RemovePictureProfileResponse)(nil),                                 // 90: quality.RemovePictureProfileResponse
+	(*RemoveSoundProfileRequest)(nil),                                    // 91: quality.RemoveSoundProfileRequest
+	(*RemoveSoundProfileResponse)(nil),                                   // 92: quality.RemoveSoundProfileResponse
+	(*SetAmbientBacklightEnabledRequest)(nil),                            // 93: quality.SetAmbientBacklightEnabledRequest
+	(*SetAmbientBacklightEnabledResponse)(nil),                           // 94: quality.SetAmbientBacklightEnabledResponse
+	(*SetAmbientBacklightSettingsRequest)(nil),                           // 95: quality.SetAmbientBacklightSettingsRequest
+	(*SetAmbientBacklightSettingsResponse)(nil),                          // 96: quality.SetAmbientBacklightSettingsResponse
+	(*UnregisterAmbientBacklightCallbackRequest)(nil),                    // 97: quality.UnregisterAmbientBacklightCallbackRequest
+	(*UnregisterAmbientBacklightCallbackResponse)(nil),                   // 98: quality.UnregisterAmbientBacklightCallbackResponse
+	(*UnregisterPictureProfileCallbackRequest)(nil),                      // 99: quality.UnregisterPictureProfileCallbackRequest
+	(*UnregisterPictureProfileCallbackResponse)(nil),                     // 100: quality.UnregisterPictureProfileCallbackResponse
+	(*UnregisterSoundProfileCallbackRequest)(nil),                        // 101: quality.UnregisterSoundProfileCallbackRequest
+	(*UnregisterSoundProfileCallbackResponse)(nil),                       // 102: quality.UnregisterSoundProfileCallbackResponse
+	(*UpdatePictureProfileRequest)(nil),                                  // 103: quality.UpdatePictureProfileRequest
+	(*UpdatePictureProfileResponse)(nil),                                 // 104: quality.UpdatePictureProfileResponse
+	(*UpdateSoundProfileRequest)(nil),                                    // 105: quality.UpdateSoundProfileRequest
+	(*UpdateSoundProfileResponse)(nil),                                   // 106: quality.UpdateSoundProfileResponse
+	(*OnAmbientBacklightEventRequest)(nil),                               // 107: quality.OnAmbientBacklightEventRequest
+	(*OnAmbientBacklightEventResponse)(nil),                              // 108: quality.OnAmbientBacklightEventResponse
+	(*OnErrorRequest)(nil),                                               // 109: quality.OnErrorRequest
+	(*OnErrorResponse)(nil),                                              // 110: quality.OnErrorResponse
+	(*OnPictureProfileAddedRequest)(nil),                                 // 111: quality.OnPictureProfileAddedRequest
+	(*OnPictureProfileAddedResponse)(nil),                                // 112: quality.OnPictureProfileAddedResponse
+	(*OnPictureProfileRemovedRequest)(nil),                               // 113: quality.OnPictureProfileRemovedRequest
+	(*OnPictureProfileRemovedResponse)(nil),                              // 114: quality.OnPictureProfileRemovedResponse
+	(*OnPictureProfileUpdatedRequest)(nil),                               // 115: quality.OnPictureProfileUpdatedRequest
+	(*OnPictureProfileUpdatedResponse)(nil),                              // 116: quality.OnPictureProfileUpdatedResponse
+	(*AreParametersIncludedRequest)(nil),                                 // 117: quality.AreParametersIncludedRequest
+	(*AreParametersIncludedResponse)(nil),                                // 118: quality.AreParametersIncludedResponse
+	(*MediaQualityManagerProfileQueryParamsDescribeContentsRequest)(nil), // 119: quality.MediaQualityManagerProfileQueryParamsDescribeContentsRequest
+	(*MediaQualityManagerProfileQueryParamsWriteToParcelRequest)(nil),    // 120: quality.MediaQualityManagerProfileQueryParamsWriteToParcelRequest
+	(*OnSoundProfileAddedRequest)(nil),                                   // 121: quality.OnSoundProfileAddedRequest
+	(*OnSoundProfileAddedResponse)(nil),                                  // 122: quality.OnSoundProfileAddedResponse
+	(*OnSoundProfileRemovedRequest)(nil),                                 // 123: quality.OnSoundProfileRemovedRequest
+	(*OnSoundProfileRemovedResponse)(nil),                                // 124: quality.OnSoundProfileRemovedResponse
+	(*OnSoundProfileUpdatedRequest)(nil),                                 // 125: quality.OnSoundProfileUpdatedRequest
+	(*OnSoundProfileUpdatedResponse)(nil),                                // 126: quality.OnSoundProfileUpdatedResponse
+	(*NewActiveProcessingPictureRequest)(nil),                            // 127: quality.NewActiveProcessingPictureRequest
+	(*NewActiveProcessingPictureResponse)(nil),                           // 128: quality.NewActiveProcessingPictureResponse
+	(*GetIdRequest)(nil),                                                 // 129: quality.GetIdRequest
+	(*GetIdResponse)(nil),                                                // 130: quality.GetIdResponse
+	(*ActiveProcessingPictureGetProfileIdRequest)(nil),                   // 131: quality.ActiveProcessingPictureGetProfileIdRequest
+	(*SoundProfileDescribeContentsRequest)(nil),                          // 132: quality.SoundProfileDescribeContentsRequest
+	(*SoundProfileWriteToParcelRequest)(nil),                             // 133: quality.SoundProfileWriteToParcelRequest
 }
 var file_proto_quality_quality_proto_depIdxs = []int32{
-	0,  // 0: quality.MediaQualityManagerService.CreatePictureProfile:input_type -> quality.CreatePictureProfileRequest
-	2,  // 1: quality.MediaQualityManagerService.CreateSoundProfile:input_type -> quality.CreateSoundProfileRequest
-	4,  // 2: quality.MediaQualityManagerService.GetPictureProfile:input_type -> quality.GetPictureProfileRequest
-	6,  // 3: quality.MediaQualityManagerService.GetSoundProfile:input_type -> quality.GetSoundProfileRequest
-	8,  // 4: quality.MediaQualityManagerService.IsAmbientBacklightEnabled:input_type -> quality.IsAmbientBacklightEnabledRequest
-	10, // 5: quality.MediaQualityManagerService.IsAutoPictureQualityEnabled:input_type -> quality.IsAutoPictureQualityEnabledRequest
-	12, // 6: quality.MediaQualityManagerService.IsAutoSoundQualityEnabled:input_type -> quality.IsAutoSoundQualityEnabledRequest
-	14, // 7: quality.MediaQualityManagerService.IsSuperResolutionEnabled:input_type -> quality.IsSuperResolutionEnabledRequest
-	16, // 8: quality.MediaQualityManagerService.RegisterAmbientBacklightCallback:input_type -> quality.RegisterAmbientBacklightCallbackRequest
-	18, // 9: quality.MediaQualityManagerService.RegisterPictureProfileCallback:input_type -> quality.RegisterPictureProfileCallbackRequest
-	20, // 10: quality.MediaQualityManagerService.RegisterSoundProfileCallback:input_type -> quality.RegisterSoundProfileCallbackRequest
-	22, // 11: quality.MediaQualityManagerService.RemovePictureProfile:input_type -> quality.RemovePictureProfileRequest
-	24, // 12: quality.MediaQualityManagerService.RemoveSoundProfile:input_type -> quality.RemoveSoundProfileRequest
-	26, // 13: quality.MediaQualityManagerService.SetAmbientBacklightEnabled:input_type -> quality.SetAmbientBacklightEnabledRequest
-	28, // 14: quality.MediaQualityManagerService.SetAmbientBacklightSettings:input_type -> quality.SetAmbientBacklightSettingsRequest
-	30, // 15: quality.MediaQualityManagerService.UnregisterAmbientBacklightCallback:input_type -> quality.UnregisterAmbientBacklightCallbackRequest
-	32, // 16: quality.MediaQualityManagerService.UnregisterPictureProfileCallback:input_type -> quality.UnregisterPictureProfileCallbackRequest
-	34, // 17: quality.MediaQualityManagerService.UnregisterSoundProfileCallback:input_type -> quality.UnregisterSoundProfileCallbackRequest
-	36, // 18: quality.MediaQualityManagerService.UpdatePictureProfile:input_type -> quality.UpdatePictureProfileRequest
-	38, // 19: quality.MediaQualityManagerService.UpdateSoundProfile:input_type -> quality.UpdateSoundProfileRequest
-	1,  // 20: quality.MediaQualityManagerService.CreatePictureProfile:output_type -> quality.CreatePictureProfileResponse
-	3,  // 21: quality.MediaQualityManagerService.CreateSoundProfile:output_type -> quality.CreateSoundProfileResponse
-	5,  // 22: quality.MediaQualityManagerService.GetPictureProfile:output_type -> quality.GetPictureProfileResponse
-	7,  // 23: quality.MediaQualityManagerService.GetSoundProfile:output_type -> quality.GetSoundProfileResponse
-	9,  // 24: quality.MediaQualityManagerService.IsAmbientBacklightEnabled:output_type -> quality.IsAmbientBacklightEnabledResponse
-	11, // 25: quality.MediaQualityManagerService.IsAutoPictureQualityEnabled:output_type -> quality.IsAutoPictureQualityEnabledResponse
-	13, // 26: quality.MediaQualityManagerService.IsAutoSoundQualityEnabled:output_type -> quality.IsAutoSoundQualityEnabledResponse
-	15, // 27: quality.MediaQualityManagerService.IsSuperResolutionEnabled:output_type -> quality.IsSuperResolutionEnabledResponse
-	17, // 28: quality.MediaQualityManagerService.RegisterAmbientBacklightCallback:output_type -> quality.RegisterAmbientBacklightCallbackResponse
-	19, // 29: quality.MediaQualityManagerService.RegisterPictureProfileCallback:output_type -> quality.RegisterPictureProfileCallbackResponse
-	21, // 30: quality.MediaQualityManagerService.RegisterSoundProfileCallback:output_type -> quality.RegisterSoundProfileCallbackResponse
-	23, // 31: quality.MediaQualityManagerService.RemovePictureProfile:output_type -> quality.RemovePictureProfileResponse
-	25, // 32: quality.MediaQualityManagerService.RemoveSoundProfile:output_type -> quality.RemoveSoundProfileResponse
-	27, // 33: quality.MediaQualityManagerService.SetAmbientBacklightEnabled:output_type -> quality.SetAmbientBacklightEnabledResponse
-	29, // 34: quality.MediaQualityManagerService.SetAmbientBacklightSettings:output_type -> quality.SetAmbientBacklightSettingsResponse
-	31, // 35: quality.MediaQualityManagerService.UnregisterAmbientBacklightCallback:output_type -> quality.UnregisterAmbientBacklightCallbackResponse
-	33, // 36: quality.MediaQualityManagerService.UnregisterPictureProfileCallback:output_type -> quality.UnregisterPictureProfileCallbackResponse
-	35, // 37: quality.MediaQualityManagerService.UnregisterSoundProfileCallback:output_type -> quality.UnregisterSoundProfileCallbackResponse
-	37, // 38: quality.MediaQualityManagerService.UpdatePictureProfile:output_type -> quality.UpdatePictureProfileResponse
-	39, // 39: quality.MediaQualityManagerService.UpdateSoundProfile:output_type -> quality.UpdateSoundProfileResponse
-	20, // [20:40] is the sub-list for method output_type
-	0,  // [0:20] is the sub-list for method input_type
-	0,  // [0:0] is the sub-list for extension type_name
-	0,  // [0:0] is the sub-list for extension extendee
-	0,  // [0:0] is the sub-list for field type_name
+	0,   // 0: quality.AmbientBacklightSettingsService.NewAmbientBacklightSettings:input_type -> quality.NewAmbientBacklightSettingsRequest
+	2,   // 1: quality.AmbientBacklightSettingsService.DescribeContents:input_type -> quality.DescribeContentsRequest
+	4,   // 2: quality.AmbientBacklightSettingsService.GetColorFormat:input_type -> quality.GetColorFormatRequest
+	6,   // 3: quality.AmbientBacklightSettingsService.GetHorizontalZonesCount:input_type -> quality.GetHorizontalZonesCountRequest
+	8,   // 4: quality.AmbientBacklightSettingsService.GetMaxFps:input_type -> quality.GetMaxFpsRequest
+	10,  // 5: quality.AmbientBacklightSettingsService.GetSource:input_type -> quality.GetSourceRequest
+	12,  // 6: quality.AmbientBacklightSettingsService.GetThreshold:input_type -> quality.GetThresholdRequest
+	14,  // 7: quality.AmbientBacklightSettingsService.GetVerticalZonesCount:input_type -> quality.GetVerticalZonesCountRequest
+	16,  // 8: quality.AmbientBacklightSettingsService.IsLetterboxOmitted:input_type -> quality.IsLetterboxOmittedRequest
+	18,  // 9: quality.AmbientBacklightSettingsService.ToString:input_type -> quality.ToStringRequest
+	20,  // 10: quality.AmbientBacklightSettingsService.WriteToParcel:input_type -> quality.WriteToParcelRequest
+	22,  // 11: quality.AmbientBacklightEventService.NewAmbientBacklightEvent:input_type -> quality.NewAmbientBacklightEventRequest
+	2,   // 12: quality.AmbientBacklightEventService.DescribeContents:input_type -> quality.DescribeContentsRequest
+	24,  // 13: quality.AmbientBacklightEventService.Equals:input_type -> quality.EqualsRequest
+	26,  // 14: quality.AmbientBacklightEventService.GetEventType:input_type -> quality.GetEventTypeRequest
+	28,  // 15: quality.AmbientBacklightEventService.GetMetadata:input_type -> quality.GetMetadataRequest
+	30,  // 16: quality.AmbientBacklightEventService.HashCode:input_type -> quality.HashCodeRequest
+	18,  // 17: quality.AmbientBacklightEventService.ToString:input_type -> quality.ToStringRequest
+	20,  // 18: quality.AmbientBacklightEventService.WriteToParcel:input_type -> quality.WriteToParcelRequest
+	32,  // 19: quality.PictureProfileService.DescribeContents:input_type -> quality.PictureProfileDescribeContentsRequest
+	33,  // 20: quality.PictureProfileService.GetInputId:input_type -> quality.GetInputIdRequest
+	35,  // 21: quality.PictureProfileService.GetName:input_type -> quality.GetNameRequest
+	37,  // 22: quality.PictureProfileService.GetPackageName:input_type -> quality.GetPackageNameRequest
+	39,  // 23: quality.PictureProfileService.GetParameters:input_type -> quality.GetParametersRequest
+	41,  // 24: quality.PictureProfileService.GetProfileId:input_type -> quality.GetProfileIdRequest
+	43,  // 25: quality.PictureProfileService.GetProfileType:input_type -> quality.GetProfileTypeRequest
+	45,  // 26: quality.PictureProfileService.WriteToParcel:input_type -> quality.PictureProfileWriteToParcelRequest
+	46,  // 27: quality.PictureProfileBuilderService.Build:input_type -> quality.BuildRequest
+	48,  // 28: quality.PictureProfileBuilderService.SetParameters:input_type -> quality.SetParametersRequest
+	50,  // 29: quality.ParameterCapabilityService.DescribeContents:input_type -> quality.ParameterCapabilityDescribeContentsRequest
+	51,  // 30: quality.ParameterCapabilityService.GetCapabilities:input_type -> quality.GetCapabilitiesRequest
+	53,  // 31: quality.ParameterCapabilityService.GetParameterName:input_type -> quality.GetParameterNameRequest
+	55,  // 32: quality.ParameterCapabilityService.GetParameterType:input_type -> quality.GetParameterTypeRequest
+	57,  // 33: quality.ParameterCapabilityService.IsSupported:input_type -> quality.IsSupportedRequest
+	59,  // 34: quality.ParameterCapabilityService.WriteToParcel:input_type -> quality.ParameterCapabilityWriteToParcelRequest
+	60,  // 35: quality.AmbientBacklightMetadataService.NewAmbientBacklightMetadata:input_type -> quality.NewAmbientBacklightMetadataRequest
+	2,   // 36: quality.AmbientBacklightMetadataService.DescribeContents:input_type -> quality.DescribeContentsRequest
+	4,   // 37: quality.AmbientBacklightMetadataService.GetColorFormat:input_type -> quality.GetColorFormatRequest
+	62,  // 38: quality.AmbientBacklightMetadataService.GetCompressionAlgorithm:input_type -> quality.GetCompressionAlgorithmRequest
+	6,   // 39: quality.AmbientBacklightMetadataService.GetHorizontalZonesCount:input_type -> quality.GetHorizontalZonesCountRequest
+	64,  // 40: quality.AmbientBacklightMetadataService.GetPackageName:input_type -> quality.AmbientBacklightMetadataGetPackageNameRequest
+	10,  // 41: quality.AmbientBacklightMetadataService.GetSource:input_type -> quality.GetSourceRequest
+	14,  // 42: quality.AmbientBacklightMetadataService.GetVerticalZonesCount:input_type -> quality.GetVerticalZonesCountRequest
+	65,  // 43: quality.AmbientBacklightMetadataService.GetZoneColors:input_type -> quality.GetZoneColorsRequest
+	18,  // 44: quality.AmbientBacklightMetadataService.ToString:input_type -> quality.ToStringRequest
+	20,  // 45: quality.AmbientBacklightMetadataService.WriteToParcel:input_type -> quality.WriteToParcelRequest
+	67,  // 46: quality.MediaQualityManagerService.CreatePictureProfile:input_type -> quality.CreatePictureProfileRequest
+	69,  // 47: quality.MediaQualityManagerService.CreateSoundProfile:input_type -> quality.CreateSoundProfileRequest
+	71,  // 48: quality.MediaQualityManagerService.GetPictureProfile:input_type -> quality.GetPictureProfileRequest
+	73,  // 49: quality.MediaQualityManagerService.GetSoundProfile:input_type -> quality.GetSoundProfileRequest
+	75,  // 50: quality.MediaQualityManagerService.IsAmbientBacklightEnabled:input_type -> quality.IsAmbientBacklightEnabledRequest
+	77,  // 51: quality.MediaQualityManagerService.IsAutoPictureQualityEnabled:input_type -> quality.IsAutoPictureQualityEnabledRequest
+	79,  // 52: quality.MediaQualityManagerService.IsAutoSoundQualityEnabled:input_type -> quality.IsAutoSoundQualityEnabledRequest
+	81,  // 53: quality.MediaQualityManagerService.IsSuperResolutionEnabled:input_type -> quality.IsSuperResolutionEnabledRequest
+	83,  // 54: quality.MediaQualityManagerService.RegisterAmbientBacklightCallback:input_type -> quality.RegisterAmbientBacklightCallbackRequest
+	85,  // 55: quality.MediaQualityManagerService.RegisterPictureProfileCallback:input_type -> quality.RegisterPictureProfileCallbackRequest
+	87,  // 56: quality.MediaQualityManagerService.RegisterSoundProfileCallback:input_type -> quality.RegisterSoundProfileCallbackRequest
+	89,  // 57: quality.MediaQualityManagerService.RemovePictureProfile:input_type -> quality.RemovePictureProfileRequest
+	91,  // 58: quality.MediaQualityManagerService.RemoveSoundProfile:input_type -> quality.RemoveSoundProfileRequest
+	93,  // 59: quality.MediaQualityManagerService.SetAmbientBacklightEnabled:input_type -> quality.SetAmbientBacklightEnabledRequest
+	95,  // 60: quality.MediaQualityManagerService.SetAmbientBacklightSettings:input_type -> quality.SetAmbientBacklightSettingsRequest
+	97,  // 61: quality.MediaQualityManagerService.UnregisterAmbientBacklightCallback:input_type -> quality.UnregisterAmbientBacklightCallbackRequest
+	99,  // 62: quality.MediaQualityManagerService.UnregisterPictureProfileCallback:input_type -> quality.UnregisterPictureProfileCallbackRequest
+	101, // 63: quality.MediaQualityManagerService.UnregisterSoundProfileCallback:input_type -> quality.UnregisterSoundProfileCallbackRequest
+	103, // 64: quality.MediaQualityManagerService.UpdatePictureProfile:input_type -> quality.UpdatePictureProfileRequest
+	105, // 65: quality.MediaQualityManagerService.UpdateSoundProfile:input_type -> quality.UpdateSoundProfileRequest
+	107, // 66: quality.MediaQualityManagerAmbientBacklightCallbackService.OnAmbientBacklightEvent:input_type -> quality.OnAmbientBacklightEventRequest
+	109, // 67: quality.MediaQualityManagerPictureProfileCallbackService.OnError:input_type -> quality.OnErrorRequest
+	111, // 68: quality.MediaQualityManagerPictureProfileCallbackService.OnPictureProfileAdded:input_type -> quality.OnPictureProfileAddedRequest
+	113, // 69: quality.MediaQualityManagerPictureProfileCallbackService.OnPictureProfileRemoved:input_type -> quality.OnPictureProfileRemovedRequest
+	115, // 70: quality.MediaQualityManagerPictureProfileCallbackService.OnPictureProfileUpdated:input_type -> quality.OnPictureProfileUpdatedRequest
+	117, // 71: quality.MediaQualityManagerProfileQueryParamsService.AreParametersIncluded:input_type -> quality.AreParametersIncludedRequest
+	119, // 72: quality.MediaQualityManagerProfileQueryParamsService.DescribeContents:input_type -> quality.MediaQualityManagerProfileQueryParamsDescribeContentsRequest
+	120, // 73: quality.MediaQualityManagerProfileQueryParamsService.WriteToParcel:input_type -> quality.MediaQualityManagerProfileQueryParamsWriteToParcelRequest
+	109, // 74: quality.MediaQualityManagerSoundProfileCallbackService.OnError:input_type -> quality.OnErrorRequest
+	121, // 75: quality.MediaQualityManagerSoundProfileCallbackService.OnSoundProfileAdded:input_type -> quality.OnSoundProfileAddedRequest
+	123, // 76: quality.MediaQualityManagerSoundProfileCallbackService.OnSoundProfileRemoved:input_type -> quality.OnSoundProfileRemovedRequest
+	125, // 77: quality.MediaQualityManagerSoundProfileCallbackService.OnSoundProfileUpdated:input_type -> quality.OnSoundProfileUpdatedRequest
+	127, // 78: quality.ActiveProcessingPictureService.NewActiveProcessingPicture:input_type -> quality.NewActiveProcessingPictureRequest
+	2,   // 79: quality.ActiveProcessingPictureService.DescribeContents:input_type -> quality.DescribeContentsRequest
+	129, // 80: quality.ActiveProcessingPictureService.GetId:input_type -> quality.GetIdRequest
+	131, // 81: quality.ActiveProcessingPictureService.GetProfileId:input_type -> quality.ActiveProcessingPictureGetProfileIdRequest
+	20,  // 82: quality.ActiveProcessingPictureService.WriteToParcel:input_type -> quality.WriteToParcelRequest
+	132, // 83: quality.SoundProfileService.DescribeContents:input_type -> quality.SoundProfileDescribeContentsRequest
+	33,  // 84: quality.SoundProfileService.GetInputId:input_type -> quality.GetInputIdRequest
+	35,  // 85: quality.SoundProfileService.GetName:input_type -> quality.GetNameRequest
+	37,  // 86: quality.SoundProfileService.GetPackageName:input_type -> quality.GetPackageNameRequest
+	39,  // 87: quality.SoundProfileService.GetParameters:input_type -> quality.GetParametersRequest
+	41,  // 88: quality.SoundProfileService.GetProfileId:input_type -> quality.GetProfileIdRequest
+	43,  // 89: quality.SoundProfileService.GetProfileType:input_type -> quality.GetProfileTypeRequest
+	133, // 90: quality.SoundProfileService.WriteToParcel:input_type -> quality.SoundProfileWriteToParcelRequest
+	46,  // 91: quality.SoundProfileBuilderService.Build:input_type -> quality.BuildRequest
+	48,  // 92: quality.SoundProfileBuilderService.SetParameters:input_type -> quality.SetParametersRequest
+	1,   // 93: quality.AmbientBacklightSettingsService.NewAmbientBacklightSettings:output_type -> quality.NewAmbientBacklightSettingsResponse
+	3,   // 94: quality.AmbientBacklightSettingsService.DescribeContents:output_type -> quality.DescribeContentsResponse
+	5,   // 95: quality.AmbientBacklightSettingsService.GetColorFormat:output_type -> quality.GetColorFormatResponse
+	7,   // 96: quality.AmbientBacklightSettingsService.GetHorizontalZonesCount:output_type -> quality.GetHorizontalZonesCountResponse
+	9,   // 97: quality.AmbientBacklightSettingsService.GetMaxFps:output_type -> quality.GetMaxFpsResponse
+	11,  // 98: quality.AmbientBacklightSettingsService.GetSource:output_type -> quality.GetSourceResponse
+	13,  // 99: quality.AmbientBacklightSettingsService.GetThreshold:output_type -> quality.GetThresholdResponse
+	15,  // 100: quality.AmbientBacklightSettingsService.GetVerticalZonesCount:output_type -> quality.GetVerticalZonesCountResponse
+	17,  // 101: quality.AmbientBacklightSettingsService.IsLetterboxOmitted:output_type -> quality.IsLetterboxOmittedResponse
+	19,  // 102: quality.AmbientBacklightSettingsService.ToString:output_type -> quality.ToStringResponse
+	21,  // 103: quality.AmbientBacklightSettingsService.WriteToParcel:output_type -> quality.WriteToParcelResponse
+	23,  // 104: quality.AmbientBacklightEventService.NewAmbientBacklightEvent:output_type -> quality.NewAmbientBacklightEventResponse
+	3,   // 105: quality.AmbientBacklightEventService.DescribeContents:output_type -> quality.DescribeContentsResponse
+	25,  // 106: quality.AmbientBacklightEventService.Equals:output_type -> quality.EqualsResponse
+	27,  // 107: quality.AmbientBacklightEventService.GetEventType:output_type -> quality.GetEventTypeResponse
+	29,  // 108: quality.AmbientBacklightEventService.GetMetadata:output_type -> quality.GetMetadataResponse
+	31,  // 109: quality.AmbientBacklightEventService.HashCode:output_type -> quality.HashCodeResponse
+	19,  // 110: quality.AmbientBacklightEventService.ToString:output_type -> quality.ToStringResponse
+	21,  // 111: quality.AmbientBacklightEventService.WriteToParcel:output_type -> quality.WriteToParcelResponse
+	3,   // 112: quality.PictureProfileService.DescribeContents:output_type -> quality.DescribeContentsResponse
+	34,  // 113: quality.PictureProfileService.GetInputId:output_type -> quality.GetInputIdResponse
+	36,  // 114: quality.PictureProfileService.GetName:output_type -> quality.GetNameResponse
+	38,  // 115: quality.PictureProfileService.GetPackageName:output_type -> quality.GetPackageNameResponse
+	40,  // 116: quality.PictureProfileService.GetParameters:output_type -> quality.GetParametersResponse
+	42,  // 117: quality.PictureProfileService.GetProfileId:output_type -> quality.GetProfileIdResponse
+	44,  // 118: quality.PictureProfileService.GetProfileType:output_type -> quality.GetProfileTypeResponse
+	21,  // 119: quality.PictureProfileService.WriteToParcel:output_type -> quality.WriteToParcelResponse
+	47,  // 120: quality.PictureProfileBuilderService.Build:output_type -> quality.BuildResponse
+	49,  // 121: quality.PictureProfileBuilderService.SetParameters:output_type -> quality.SetParametersResponse
+	3,   // 122: quality.ParameterCapabilityService.DescribeContents:output_type -> quality.DescribeContentsResponse
+	52,  // 123: quality.ParameterCapabilityService.GetCapabilities:output_type -> quality.GetCapabilitiesResponse
+	54,  // 124: quality.ParameterCapabilityService.GetParameterName:output_type -> quality.GetParameterNameResponse
+	56,  // 125: quality.ParameterCapabilityService.GetParameterType:output_type -> quality.GetParameterTypeResponse
+	58,  // 126: quality.ParameterCapabilityService.IsSupported:output_type -> quality.IsSupportedResponse
+	21,  // 127: quality.ParameterCapabilityService.WriteToParcel:output_type -> quality.WriteToParcelResponse
+	61,  // 128: quality.AmbientBacklightMetadataService.NewAmbientBacklightMetadata:output_type -> quality.NewAmbientBacklightMetadataResponse
+	3,   // 129: quality.AmbientBacklightMetadataService.DescribeContents:output_type -> quality.DescribeContentsResponse
+	5,   // 130: quality.AmbientBacklightMetadataService.GetColorFormat:output_type -> quality.GetColorFormatResponse
+	63,  // 131: quality.AmbientBacklightMetadataService.GetCompressionAlgorithm:output_type -> quality.GetCompressionAlgorithmResponse
+	7,   // 132: quality.AmbientBacklightMetadataService.GetHorizontalZonesCount:output_type -> quality.GetHorizontalZonesCountResponse
+	38,  // 133: quality.AmbientBacklightMetadataService.GetPackageName:output_type -> quality.GetPackageNameResponse
+	11,  // 134: quality.AmbientBacklightMetadataService.GetSource:output_type -> quality.GetSourceResponse
+	15,  // 135: quality.AmbientBacklightMetadataService.GetVerticalZonesCount:output_type -> quality.GetVerticalZonesCountResponse
+	66,  // 136: quality.AmbientBacklightMetadataService.GetZoneColors:output_type -> quality.GetZoneColorsResponse
+	19,  // 137: quality.AmbientBacklightMetadataService.ToString:output_type -> quality.ToStringResponse
+	21,  // 138: quality.AmbientBacklightMetadataService.WriteToParcel:output_type -> quality.WriteToParcelResponse
+	68,  // 139: quality.MediaQualityManagerService.CreatePictureProfile:output_type -> quality.CreatePictureProfileResponse
+	70,  // 140: quality.MediaQualityManagerService.CreateSoundProfile:output_type -> quality.CreateSoundProfileResponse
+	72,  // 141: quality.MediaQualityManagerService.GetPictureProfile:output_type -> quality.GetPictureProfileResponse
+	74,  // 142: quality.MediaQualityManagerService.GetSoundProfile:output_type -> quality.GetSoundProfileResponse
+	76,  // 143: quality.MediaQualityManagerService.IsAmbientBacklightEnabled:output_type -> quality.IsAmbientBacklightEnabledResponse
+	78,  // 144: quality.MediaQualityManagerService.IsAutoPictureQualityEnabled:output_type -> quality.IsAutoPictureQualityEnabledResponse
+	80,  // 145: quality.MediaQualityManagerService.IsAutoSoundQualityEnabled:output_type -> quality.IsAutoSoundQualityEnabledResponse
+	82,  // 146: quality.MediaQualityManagerService.IsSuperResolutionEnabled:output_type -> quality.IsSuperResolutionEnabledResponse
+	84,  // 147: quality.MediaQualityManagerService.RegisterAmbientBacklightCallback:output_type -> quality.RegisterAmbientBacklightCallbackResponse
+	86,  // 148: quality.MediaQualityManagerService.RegisterPictureProfileCallback:output_type -> quality.RegisterPictureProfileCallbackResponse
+	88,  // 149: quality.MediaQualityManagerService.RegisterSoundProfileCallback:output_type -> quality.RegisterSoundProfileCallbackResponse
+	90,  // 150: quality.MediaQualityManagerService.RemovePictureProfile:output_type -> quality.RemovePictureProfileResponse
+	92,  // 151: quality.MediaQualityManagerService.RemoveSoundProfile:output_type -> quality.RemoveSoundProfileResponse
+	94,  // 152: quality.MediaQualityManagerService.SetAmbientBacklightEnabled:output_type -> quality.SetAmbientBacklightEnabledResponse
+	96,  // 153: quality.MediaQualityManagerService.SetAmbientBacklightSettings:output_type -> quality.SetAmbientBacklightSettingsResponse
+	98,  // 154: quality.MediaQualityManagerService.UnregisterAmbientBacklightCallback:output_type -> quality.UnregisterAmbientBacklightCallbackResponse
+	100, // 155: quality.MediaQualityManagerService.UnregisterPictureProfileCallback:output_type -> quality.UnregisterPictureProfileCallbackResponse
+	102, // 156: quality.MediaQualityManagerService.UnregisterSoundProfileCallback:output_type -> quality.UnregisterSoundProfileCallbackResponse
+	104, // 157: quality.MediaQualityManagerService.UpdatePictureProfile:output_type -> quality.UpdatePictureProfileResponse
+	106, // 158: quality.MediaQualityManagerService.UpdateSoundProfile:output_type -> quality.UpdateSoundProfileResponse
+	108, // 159: quality.MediaQualityManagerAmbientBacklightCallbackService.OnAmbientBacklightEvent:output_type -> quality.OnAmbientBacklightEventResponse
+	110, // 160: quality.MediaQualityManagerPictureProfileCallbackService.OnError:output_type -> quality.OnErrorResponse
+	112, // 161: quality.MediaQualityManagerPictureProfileCallbackService.OnPictureProfileAdded:output_type -> quality.OnPictureProfileAddedResponse
+	114, // 162: quality.MediaQualityManagerPictureProfileCallbackService.OnPictureProfileRemoved:output_type -> quality.OnPictureProfileRemovedResponse
+	116, // 163: quality.MediaQualityManagerPictureProfileCallbackService.OnPictureProfileUpdated:output_type -> quality.OnPictureProfileUpdatedResponse
+	118, // 164: quality.MediaQualityManagerProfileQueryParamsService.AreParametersIncluded:output_type -> quality.AreParametersIncludedResponse
+	3,   // 165: quality.MediaQualityManagerProfileQueryParamsService.DescribeContents:output_type -> quality.DescribeContentsResponse
+	21,  // 166: quality.MediaQualityManagerProfileQueryParamsService.WriteToParcel:output_type -> quality.WriteToParcelResponse
+	110, // 167: quality.MediaQualityManagerSoundProfileCallbackService.OnError:output_type -> quality.OnErrorResponse
+	122, // 168: quality.MediaQualityManagerSoundProfileCallbackService.OnSoundProfileAdded:output_type -> quality.OnSoundProfileAddedResponse
+	124, // 169: quality.MediaQualityManagerSoundProfileCallbackService.OnSoundProfileRemoved:output_type -> quality.OnSoundProfileRemovedResponse
+	126, // 170: quality.MediaQualityManagerSoundProfileCallbackService.OnSoundProfileUpdated:output_type -> quality.OnSoundProfileUpdatedResponse
+	128, // 171: quality.ActiveProcessingPictureService.NewActiveProcessingPicture:output_type -> quality.NewActiveProcessingPictureResponse
+	3,   // 172: quality.ActiveProcessingPictureService.DescribeContents:output_type -> quality.DescribeContentsResponse
+	130, // 173: quality.ActiveProcessingPictureService.GetId:output_type -> quality.GetIdResponse
+	42,  // 174: quality.ActiveProcessingPictureService.GetProfileId:output_type -> quality.GetProfileIdResponse
+	21,  // 175: quality.ActiveProcessingPictureService.WriteToParcel:output_type -> quality.WriteToParcelResponse
+	3,   // 176: quality.SoundProfileService.DescribeContents:output_type -> quality.DescribeContentsResponse
+	34,  // 177: quality.SoundProfileService.GetInputId:output_type -> quality.GetInputIdResponse
+	36,  // 178: quality.SoundProfileService.GetName:output_type -> quality.GetNameResponse
+	38,  // 179: quality.SoundProfileService.GetPackageName:output_type -> quality.GetPackageNameResponse
+	40,  // 180: quality.SoundProfileService.GetParameters:output_type -> quality.GetParametersResponse
+	42,  // 181: quality.SoundProfileService.GetProfileId:output_type -> quality.GetProfileIdResponse
+	44,  // 182: quality.SoundProfileService.GetProfileType:output_type -> quality.GetProfileTypeResponse
+	21,  // 183: quality.SoundProfileService.WriteToParcel:output_type -> quality.WriteToParcelResponse
+	47,  // 184: quality.SoundProfileBuilderService.Build:output_type -> quality.BuildResponse
+	49,  // 185: quality.SoundProfileBuilderService.SetParameters:output_type -> quality.SetParametersResponse
+	93,  // [93:186] is the sub-list for method output_type
+	0,   // [0:93] is the sub-list for method input_type
+	0,   // [0:0] is the sub-list for extension type_name
+	0,   // [0:0] is the sub-list for extension extendee
+	0,   // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_proto_quality_quality_proto_init() }
@@ -1923,9 +6602,9 @@ func file_proto_quality_quality_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_quality_quality_proto_rawDesc), len(file_proto_quality_quality_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   40,
+			NumMessages:   134,
 			NumExtensions: 0,
-			NumServices:   1,
+			NumServices:   14,
 		},
 		GoTypes:           file_proto_quality_quality_proto_goTypes,
 		DependencyIndexes: file_proto_quality_quality_proto_depIdxs,

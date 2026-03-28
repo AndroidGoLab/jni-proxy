@@ -5,3 +5,510 @@ syntax = "proto3";
 package translation;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/translation";
+
+message DescribeContentsRequest {
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message EqualsRequest {
+  int64 arg0 = 1;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message GetAutofillIdRequest {
+}
+
+message GetAutofillIdResponse {
+  int64 result = 1;
+}
+
+message GetValueRequest {
+  string arg0 = 1;
+}
+
+message GetValueResponse {
+  int64 result = 1;
+}
+
+message HashCodeRequest {
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message ToStringRequest {
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteToParcelResponse {
+}
+
+message BuildRequest {
+}
+
+message BuildResponse {
+  int64 result = 1;
+}
+
+message SetValueRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SetValueResponse {
+  int64 result = 1;
+}
+
+message RegisterUiTranslationStateCallbackRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message RegisterUiTranslationStateCallbackResponse {
+}
+
+message UnregisterUiTranslationStateCallbackRequest {
+  int64 arg0 = 1;
+}
+
+message UnregisterUiTranslationStateCallbackResponse {
+}
+
+message GetExtrasRequest {
+}
+
+message GetExtrasResponse {
+  int64 result = 1;
+}
+
+message GetStatusCodeRequest {
+}
+
+message GetStatusCodeResponse {
+  int32 result = 1;
+}
+
+message GetTextRequest {
+}
+
+message GetTextResponse {
+  int64 result = 1;
+}
+
+message GetTransliterationRequest {
+}
+
+message GetTransliterationResponse {
+  int64 result = 1;
+}
+
+message ForErrorRequest {
+}
+
+message ForErrorResponse {
+  int64 result = 1;
+}
+
+message SetExtrasRequest {
+  int64 arg0 = 1;
+}
+
+message SetExtrasResponse {
+  int64 result = 1;
+}
+
+message SetTextRequest {
+  string arg0 = 1;
+}
+
+message SetTextResponse {
+  int64 result = 1;
+}
+
+message SetTransliterationRequest {
+  string arg0 = 1;
+}
+
+message SetTransliterationResponse {
+  int64 result = 1;
+}
+
+message GetTranslationStatusRequest {
+}
+
+message GetTranslationStatusResponse {
+  int32 result = 1;
+}
+
+message IsFinalResponseRequest {
+}
+
+message IsFinalResponseResponse {
+  bool result = 1;
+}
+
+message SetFinalResponseRequest {
+  bool arg0 = 1;
+}
+
+message SetFinalResponseResponse {
+  int64 result = 1;
+}
+
+message SetTranslationResponseValueRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SetTranslationResponseValueResponse {
+  int64 result = 1;
+}
+
+message SetViewTranslationResponseRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SetViewTranslationResponseResponse {
+  int64 result = 1;
+}
+
+message ForTextRequest {
+  string arg0 = 1;
+}
+
+message ForTextResponse {
+  int64 result = 1;
+}
+
+message GetOnDeviceTranslationSettingsActivityIntentRequest {
+}
+
+message GetOnDeviceTranslationSettingsActivityIntentResponse {
+  int64 result = 1;
+}
+
+message GetFlagsRequest {
+}
+
+message GetFlagsResponse {
+  int32 result = 1;
+}
+
+message SetFlagsRequest {
+  int32 arg0 = 1;
+}
+
+message SetFlagsResponse {
+  int64 result = 1;
+}
+
+message OnFinishedRequest {
+}
+
+message OnFinishedResponse {
+}
+
+message OnPausedRequest {
+}
+
+message OnPausedResponse {
+}
+
+message OnClearTranslationRequest {
+  int64 arg0 = 1;
+}
+
+message OnClearTranslationResponse {
+  bool result = 1;
+}
+
+message OnHideTranslationRequest {
+  int64 arg0 = 1;
+}
+
+message OnHideTranslationResponse {
+  bool result = 1;
+}
+
+message OnShowTranslationRequest {
+  int64 arg0 = 1;
+}
+
+message OnShowTranslationResponse {
+  bool result = 1;
+}
+
+message NewSpecRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message NewSpecResponse {
+  int64 result = 1;
+}
+
+message SpecDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message SpecEqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetDataFormatRequest {
+  int64 handle = 1;
+}
+
+message GetDataFormatResponse {
+  int32 result = 1;
+}
+
+message GetLocaleRequest {
+  int64 handle = 1;
+}
+
+message GetLocaleResponse {
+  int64 result = 1;
+}
+
+message SpecHashCodeRequest {
+  int64 handle = 1;
+}
+
+message SpecToStringRequest {
+  int64 handle = 1;
+}
+
+message SpecWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message GetSourceSpecRequest {
+}
+
+message GetSourceSpecResponse {
+  int64 result = 1;
+}
+
+message GetTargetSpecRequest {
+}
+
+message GetTargetSpecResponse {
+  int64 result = 1;
+}
+
+message GetTranslationFlagsRequest {
+}
+
+message GetTranslationFlagsResponse {
+  int32 result = 1;
+}
+
+message SetTranslationFlagsRequest {
+  int32 arg0 = 1;
+}
+
+message SetTranslationFlagsResponse {
+  int64 result = 1;
+}
+
+message DestroyRequest {
+}
+
+message DestroyResponse {
+}
+
+message IsDestroyedRequest {
+}
+
+message IsDestroyedResponse {
+  bool result = 1;
+}
+
+message GetStateRequest {
+}
+
+message GetStateResponse {
+  int32 result = 1;
+}
+
+message GetSupportedTranslationFlagsRequest {
+}
+
+message GetSupportedTranslationFlagsResponse {
+  int32 result = 1;
+}
+
+message IsUiTranslationEnabledRequest {
+}
+
+message IsUiTranslationEnabledResponse {
+  bool result = 1;
+}
+
+service ViewTranslationResponseService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetAutofillId (GetAutofillIdRequest) returns (GetAutofillIdResponse);
+  rpc GetValue (GetValueRequest) returns (GetValueResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ViewTranslationResponseBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetValue (SetValueRequest) returns (SetValueResponse);
+}
+
+service UiTranslationManagerService {
+  rpc RegisterUiTranslationStateCallback (RegisterUiTranslationStateCallbackRequest) returns (RegisterUiTranslationStateCallbackResponse);
+  rpc UnregisterUiTranslationStateCallback (UnregisterUiTranslationStateCallbackRequest) returns (UnregisterUiTranslationStateCallbackResponse);
+}
+
+service ViewTranslationRequestService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetAutofillId (GetAutofillIdRequest) returns (GetAutofillIdResponse);
+  rpc GetValue (GetValueRequest) returns (GetValueResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ViewTranslationRequestBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetValue (SetValueRequest) returns (SetValueResponse);
+}
+
+service ResponseValueService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetExtras (GetExtrasRequest) returns (GetExtrasResponse);
+  rpc GetStatusCode (GetStatusCodeRequest) returns (GetStatusCodeResponse);
+  rpc GetText (GetTextRequest) returns (GetTextResponse);
+  rpc GetTransliteration (GetTransliterationRequest) returns (GetTransliterationResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc ForError (ForErrorRequest) returns (ForErrorResponse);
+}
+
+service ResponseValueBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetExtras (SetExtrasRequest) returns (SetExtrasResponse);
+  rpc SetText (SetTextRequest) returns (SetTextResponse);
+  rpc SetTransliteration (SetTransliterationRequest) returns (SetTransliterationResponse);
+}
+
+service ResponseService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetTranslationStatus (GetTranslationStatusRequest) returns (GetTranslationStatusResponse);
+  rpc IsFinalResponse (IsFinalResponseRequest) returns (IsFinalResponseResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ResponseBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetFinalResponse (SetFinalResponseRequest) returns (SetFinalResponseResponse);
+  rpc SetTranslationResponseValue (SetTranslationResponseValueRequest) returns (SetTranslationResponseValueResponse);
+  rpc SetViewTranslationResponse (SetViewTranslationResponseRequest) returns (SetViewTranslationResponseResponse);
+}
+
+service RequestValueService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetText (GetTextRequest) returns (GetTextResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc ForText (ForTextRequest) returns (ForTextResponse);
+}
+
+service ManagerService {
+  rpc GetOnDeviceTranslationSettingsActivityIntent (GetOnDeviceTranslationSettingsActivityIntentRequest) returns (GetOnDeviceTranslationSettingsActivityIntentResponse);
+}
+
+service RequestService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetFlags (GetFlagsRequest) returns (GetFlagsResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service RequestBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetFlags (SetFlagsRequest) returns (SetFlagsResponse);
+}
+
+service UiTranslationStateCallbackService {
+  rpc OnFinished (OnFinishedRequest) returns (OnFinishedResponse);
+  rpc OnPaused (OnPausedRequest) returns (OnPausedResponse);
+}
+
+service ViewTranslationCallbackService {
+  rpc OnClearTranslation (OnClearTranslationRequest) returns (OnClearTranslationResponse);
+  rpc OnHideTranslation (OnHideTranslationRequest) returns (OnHideTranslationResponse);
+  rpc OnShowTranslation (OnShowTranslationRequest) returns (OnShowTranslationResponse);
+}
+
+service SpecService {
+  rpc NewSpec (NewSpecRequest) returns (NewSpecResponse);
+  rpc DescribeContents (SpecDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (SpecEqualsRequest) returns (EqualsResponse);
+  rpc GetDataFormat (GetDataFormatRequest) returns (GetDataFormatResponse);
+  rpc GetLocale (GetLocaleRequest) returns (GetLocaleResponse);
+  rpc HashCode (SpecHashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (SpecToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (SpecWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ContextService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetSourceSpec (GetSourceSpecRequest) returns (GetSourceSpecResponse);
+  rpc GetTargetSpec (GetTargetSpecRequest) returns (GetTargetSpecResponse);
+  rpc GetTranslationFlags (GetTranslationFlagsRequest) returns (GetTranslationFlagsResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ContextBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetTranslationFlags (SetTranslationFlagsRequest) returns (SetTranslationFlagsResponse);
+}
+
+service TranslatorService {
+  rpc Destroy (DestroyRequest) returns (DestroyResponse);
+  rpc IsDestroyed (IsDestroyedRequest) returns (IsDestroyedResponse);
+}
+
+service CapabilityService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetSourceSpec (GetSourceSpecRequest) returns (GetSourceSpecResponse);
+  rpc GetState (GetStateRequest) returns (GetStateResponse);
+  rpc GetSupportedTranslationFlags (GetSupportedTranslationFlagsRequest) returns (GetSupportedTranslationFlagsResponse);
+  rpc GetTargetSpec (GetTargetSpecRequest) returns (GetTargetSpecResponse);
+  rpc IsUiTranslationEnabled (IsUiTranslationEnabledRequest) returns (IsUiTranslationEnabledResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}

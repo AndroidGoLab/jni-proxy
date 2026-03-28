@@ -74,6 +74,30 @@ var advancedprotectionAdvancedProtectionManagerUnregisterAdvancedProtectionCallb
 	},
 }
 
+var advancedprotectionAdvancedProtectionManagerCallbackCmd = &cobra.Command{
+	Use:   "advanced-protection-manager-callback",
+	Short: "AdvancedProtectionManagerCallbackService operations",
+}
+
+var advancedprotectionAdvancedProtectionManagerCallbackOnAdvancedProtectionChangedCmd = &cobra.Command{
+	Use:   "on-advanced-protection-changed",
+	Short: "OnAdvancedProtectionChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdvancedProtectionManagerCallbackServiceClient(grpcConn)
+		req := &pb.OnAdvancedProtectionChangedRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnAdvancedProtectionChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 func init() {
 	advancedprotectionAdvancedProtectionManagerCmd.AddCommand(advancedprotectionAdvancedProtectionManagerIsAdvancedProtectionEnabledCmd)
 	advancedprotectionAdvancedProtectionManagerRegisterAdvancedProtectionCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
@@ -82,5 +106,8 @@ func init() {
 	advancedprotectionAdvancedProtectionManagerUnregisterAdvancedProtectionCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	advancedprotectionAdvancedProtectionManagerCmd.AddCommand(advancedprotectionAdvancedProtectionManagerUnregisterAdvancedProtectionCallbackCmd)
 	advancedprotectionCmd.AddCommand(advancedprotectionAdvancedProtectionManagerCmd)
+	advancedprotectionAdvancedProtectionManagerCallbackOnAdvancedProtectionChangedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	advancedprotectionAdvancedProtectionManagerCallbackCmd.AddCommand(advancedprotectionAdvancedProtectionManagerCallbackOnAdvancedProtectionChangedCmd)
+	advancedprotectionCmd.AddCommand(advancedprotectionAdvancedProtectionManagerCallbackCmd)
 	rootCmd.AddCommand(advancedprotectionCmd)
 }

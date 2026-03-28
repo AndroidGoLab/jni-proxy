@@ -12,6 +12,1141 @@ var credentialsCmd = &cobra.Command{
 	Short: "credentials service operations",
 }
 
+var credentialsGetCredentialRequestCmd = &cobra.Command{
+	Use:   "get-credential-request",
+	Short: "GetCredentialRequestService operations",
+}
+
+var credentialsGetCredentialRequestAlwaysSendAppInfoToProviderCmd = &cobra.Command{
+	Use:   "always-send-app-info-to-provider",
+	Short: "AlwaysSendAppInfoToProvider RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetCredentialRequestServiceClient(grpcConn)
+		req := &pb.AlwaysSendAppInfoToProviderRequest{}
+		resp, err := client.AlwaysSendAppInfoToProvider(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsGetCredentialRequestDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetCredentialRequestServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsGetCredentialRequestGetDataCmd = &cobra.Command{
+	Use:   "get-data",
+	Short: "GetData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetCredentialRequestServiceClient(grpcConn)
+		req := &pb.GetDataRequest{}
+		resp, err := client.GetData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsGetCredentialRequestGetOriginCmd = &cobra.Command{
+	Use:   "get-origin",
+	Short: "GetOrigin RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetCredentialRequestServiceClient(grpcConn)
+		req := &pb.GetOriginRequest{}
+		resp, err := client.GetOrigin(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsGetCredentialRequestToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetCredentialRequestServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsGetCredentialRequestWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetCredentialRequestServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsGetCredentialRequestNewGetCredentialRequestCmd = &cobra.Command{
+	Use:   "new-get-credential-request",
+	Short: "NewGetCredentialRequest RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetCredentialRequestServiceClient(grpcConn)
+		req := &pb.NewGetCredentialRequestRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewGetCredentialRequest(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsGetCredentialRequestGetCallingAppInfoCmd = &cobra.Command{
+	Use:   "get-calling-app-info",
+	Short: "GetCallingAppInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetCredentialRequestServiceClient(grpcConn)
+		req := &pb.GetCallingAppInfoRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetCallingAppInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsGetCredentialRequestBuilderCmd = &cobra.Command{
+	Use:   "get-credential-request-builder",
+	Short: "GetCredentialRequestBuilderService operations",
+}
+
+var credentialsGetCredentialRequestBuilderAddCredentialOptionCmd = &cobra.Command{
+	Use:   "add-credential-option",
+	Short: "AddCredentialOption RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetCredentialRequestBuilderServiceClient(grpcConn)
+		req := &pb.AddCredentialOptionRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddCredentialOption(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsGetCredentialRequestBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetCredentialRequestBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsGetCredentialRequestBuilderSetAlwaysSendAppInfoToProviderCmd = &cobra.Command{
+	Use:   "set-always-send-app-info-to-provider",
+	Short: "SetAlwaysSendAppInfoToProvider RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetCredentialRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetAlwaysSendAppInfoToProviderRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetAlwaysSendAppInfoToProvider(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsGetCredentialRequestBuilderSetOriginCmd = &cobra.Command{
+	Use:   "set-origin",
+	Short: "SetOrigin RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetCredentialRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetOriginRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetOrigin(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsCredentialCmd = &cobra.Command{
+	Use:   "credential",
+	Short: "CredentialService operations",
+}
+
+var credentialsCredentialNewCredentialCmd = &cobra.Command{
+	Use:   "new-credential",
+	Short: "NewCredential RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCredentialServiceClient(grpcConn)
+		req := &pb.NewCredentialRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewCredential(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsCredentialDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCredentialServiceClient(grpcConn)
+		req := &pb.CredentialDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsCredentialGetDataCmd = &cobra.Command{
+	Use:   "get-data",
+	Short: "GetData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCredentialServiceClient(grpcConn)
+		req := &pb.CredentialGetDataRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsCredentialGetTypeCmd = &cobra.Command{
+	Use:   "get-type",
+	Short: "GetType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCredentialServiceClient(grpcConn)
+		req := &pb.GetTypeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsCredentialToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCredentialServiceClient(grpcConn)
+		req := &pb.CredentialToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsCredentialWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCredentialServiceClient(grpcConn)
+		req := &pb.CredentialWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsCreateCredentialRequestCmd = &cobra.Command{
+	Use:   "create-credential-request",
+	Short: "CreateCredentialRequestService operations",
+}
+
+var credentialsCreateCredentialRequestAlwaysSendAppInfoToProviderCmd = &cobra.Command{
+	Use:   "always-send-app-info-to-provider",
+	Short: "AlwaysSendAppInfoToProvider RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCreateCredentialRequestServiceClient(grpcConn)
+		req := &pb.AlwaysSendAppInfoToProviderRequest{}
+		resp, err := client.AlwaysSendAppInfoToProvider(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsCreateCredentialRequestDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCreateCredentialRequestServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsCreateCredentialRequestGetCandidateQueryDataCmd = &cobra.Command{
+	Use:   "get-candidate-query-data",
+	Short: "GetCandidateQueryData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCreateCredentialRequestServiceClient(grpcConn)
+		req := &pb.GetCandidateQueryDataRequest{}
+		resp, err := client.GetCandidateQueryData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsCreateCredentialRequestGetCredentialDataCmd = &cobra.Command{
+	Use:   "get-credential-data",
+	Short: "GetCredentialData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCreateCredentialRequestServiceClient(grpcConn)
+		req := &pb.GetCredentialDataRequest{}
+		resp, err := client.GetCredentialData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsCreateCredentialRequestGetOriginCmd = &cobra.Command{
+	Use:   "get-origin",
+	Short: "GetOrigin RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCreateCredentialRequestServiceClient(grpcConn)
+		req := &pb.GetOriginRequest{}
+		resp, err := client.GetOrigin(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsCreateCredentialRequestGetTypeCmd = &cobra.Command{
+	Use:   "get-type",
+	Short: "GetType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCreateCredentialRequestServiceClient(grpcConn)
+		req := &pb.CreateCredentialRequestGetTypeRequest{}
+		resp, err := client.GetType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsCreateCredentialRequestIsSystemProviderRequiredCmd = &cobra.Command{
+	Use:   "is-system-provider-required",
+	Short: "IsSystemProviderRequired RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCreateCredentialRequestServiceClient(grpcConn)
+		req := &pb.IsSystemProviderRequiredRequest{}
+		resp, err := client.IsSystemProviderRequired(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsCreateCredentialRequestToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCreateCredentialRequestServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsCreateCredentialRequestWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCreateCredentialRequestServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsCreateCredentialRequestNewCreateCredentialRequestCmd = &cobra.Command{
+	Use:   "new-create-credential-request",
+	Short: "NewCreateCredentialRequest RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCreateCredentialRequestServiceClient(grpcConn)
+		req := &pb.NewCreateCredentialRequestRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.NewCreateCredentialRequest(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsCreateCredentialRequestGetCallingAppInfoCmd = &cobra.Command{
+	Use:   "get-calling-app-info",
+	Short: "GetCallingAppInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCreateCredentialRequestServiceClient(grpcConn)
+		req := &pb.GetCallingAppInfoRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetCallingAppInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsCreateCredentialRequestGetDataCmd = &cobra.Command{
+	Use:   "get-data",
+	Short: "GetData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCreateCredentialRequestServiceClient(grpcConn)
+		req := &pb.CreateCredentialRequestGetDataRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsCreateCredentialRequestBuilderCmd = &cobra.Command{
+	Use:   "create-credential-request-builder",
+	Short: "CreateCredentialRequestBuilderService operations",
+}
+
+var credentialsCreateCredentialRequestBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCreateCredentialRequestBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsCreateCredentialRequestBuilderSetAlwaysSendAppInfoToProviderCmd = &cobra.Command{
+	Use:   "set-always-send-app-info-to-provider",
+	Short: "SetAlwaysSendAppInfoToProvider RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCreateCredentialRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetAlwaysSendAppInfoToProviderRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetAlwaysSendAppInfoToProvider(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsCreateCredentialRequestBuilderSetIsSystemProviderRequiredCmd = &cobra.Command{
+	Use:   "set-is-system-provider-required",
+	Short: "SetIsSystemProviderRequired RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCreateCredentialRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetIsSystemProviderRequiredRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetIsSystemProviderRequired(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsCreateCredentialRequestBuilderSetOriginCmd = &cobra.Command{
+	Use:   "set-origin",
+	Short: "SetOrigin RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCreateCredentialRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetOriginRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetOrigin(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsCredentialDescriptionCmd = &cobra.Command{
+	Use:   "credential-description",
+	Short: "CredentialDescriptionService operations",
+}
+
+var credentialsCredentialDescriptionNewCredentialDescriptionCmd = &cobra.Command{
+	Use:   "new-credential-description",
+	Short: "NewCredentialDescription RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCredentialDescriptionServiceClient(grpcConn)
+		req := &pb.NewCredentialDescriptionRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.NewCredentialDescription(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsCredentialDescriptionDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCredentialDescriptionServiceClient(grpcConn)
+		req := &pb.CredentialDescriptionDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsCredentialDescriptionEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCredentialDescriptionServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsCredentialDescriptionGetTypeCmd = &cobra.Command{
+	Use:   "get-type",
+	Short: "GetType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCredentialDescriptionServiceClient(grpcConn)
+		req := &pb.GetTypeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsCredentialDescriptionHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCredentialDescriptionServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsCredentialDescriptionWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCredentialDescriptionServiceClient(grpcConn)
+		req := &pb.CredentialDescriptionWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsCreateCredentialExceptionCmd = &cobra.Command{
+	Use:   "create-credential-exception",
+	Short: "CreateCredentialExceptionService operations",
+}
+
+var credentialsCreateCredentialExceptionNewCreateCredentialExceptionCmd = &cobra.Command{
+	Use:   "new-create-credential-exception",
+	Short: "NewCreateCredentialException RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCreateCredentialExceptionServiceClient(grpcConn)
+		req := &pb.NewCreateCredentialExceptionRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewCreateCredentialException(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsCreateCredentialExceptionGetTypeCmd = &cobra.Command{
+	Use:   "get-type",
+	Short: "GetType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCreateCredentialExceptionServiceClient(grpcConn)
+		req := &pb.GetTypeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsClearCredentialStateExceptionCmd = &cobra.Command{
+	Use:   "clear-credential-state-exception",
+	Short: "ClearCredentialStateExceptionService operations",
+}
+
+var credentialsClearCredentialStateExceptionNewClearCredentialStateExceptionCmd = &cobra.Command{
+	Use:   "new-clear-credential-state-exception",
+	Short: "NewClearCredentialStateException RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewClearCredentialStateExceptionServiceClient(grpcConn)
+		req := &pb.NewClearCredentialStateExceptionRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewClearCredentialStateException(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsClearCredentialStateExceptionGetTypeCmd = &cobra.Command{
+	Use:   "get-type",
+	Short: "GetType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewClearCredentialStateExceptionServiceClient(grpcConn)
+		req := &pb.GetTypeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsPrepareGetCredentialResponseCmd = &cobra.Command{
+	Use:   "prepare-get-credential-response",
+	Short: "PrepareGetCredentialResponseService operations",
+}
+
+var credentialsPrepareGetCredentialResponseGetPendingGetCredentialHandleCmd = &cobra.Command{
+	Use:   "get-pending-get-credential-handle",
+	Short: "GetPendingGetCredentialHandle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPrepareGetCredentialResponseServiceClient(grpcConn)
+		req := &pb.GetPendingGetCredentialHandleRequest{}
+		resp, err := client.GetPendingGetCredentialHandle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsPrepareGetCredentialResponseHasAuthenticationResultsCmd = &cobra.Command{
+	Use:   "has-authentication-results",
+	Short: "HasAuthenticationResults RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPrepareGetCredentialResponseServiceClient(grpcConn)
+		req := &pb.HasAuthenticationResultsRequest{}
+		resp, err := client.HasAuthenticationResults(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsPrepareGetCredentialResponseHasCredentialResultsCmd = &cobra.Command{
+	Use:   "has-credential-results",
+	Short: "HasCredentialResults RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPrepareGetCredentialResponseServiceClient(grpcConn)
+		req := &pb.HasCredentialResultsRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.HasCredentialResults(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsPrepareGetCredentialResponseHasRemoteResultsCmd = &cobra.Command{
+	Use:   "has-remote-results",
+	Short: "HasRemoteResults RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPrepareGetCredentialResponseServiceClient(grpcConn)
+		req := &pb.HasRemoteResultsRequest{}
+		resp, err := client.HasRemoteResults(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsClearCredentialStateRequestCmd = &cobra.Command{
+	Use:   "clear-credential-state-request",
+	Short: "ClearCredentialStateRequestService operations",
+}
+
+var credentialsClearCredentialStateRequestNewClearCredentialStateRequestCmd = &cobra.Command{
+	Use:   "new-clear-credential-state-request",
+	Short: "NewClearCredentialStateRequest RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewClearCredentialStateRequestServiceClient(grpcConn)
+		req := &pb.NewClearCredentialStateRequestRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewClearCredentialStateRequest(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsClearCredentialStateRequestDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewClearCredentialStateRequestServiceClient(grpcConn)
+		req := &pb.ClearCredentialStateRequestDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsClearCredentialStateRequestGetDataCmd = &cobra.Command{
+	Use:   "get-data",
+	Short: "GetData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewClearCredentialStateRequestServiceClient(grpcConn)
+		req := &pb.ClearCredentialStateRequestGetDataRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsClearCredentialStateRequestToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewClearCredentialStateRequestServiceClient(grpcConn)
+		req := &pb.ClearCredentialStateRequestToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsClearCredentialStateRequestWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewClearCredentialStateRequestServiceClient(grpcConn)
+		req := &pb.ClearCredentialStateRequestWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsClearCredentialStateRequestGetCallingAppInfoCmd = &cobra.Command{
+	Use:   "get-calling-app-info",
+	Short: "GetCallingAppInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewClearCredentialStateRequestServiceClient(grpcConn)
+		req := &pb.GetCallingAppInfoRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetCallingAppInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsRegisterCredentialDescriptionRequestCmd = &cobra.Command{
+	Use:   "register-credential-description-request",
+	Short: "RegisterCredentialDescriptionRequestService operations",
+}
+
+var credentialsRegisterCredentialDescriptionRequestNewRegisterCredentialDescriptionRequestCmd = &cobra.Command{
+	Use:   "new-register-credential-description-request",
+	Short: "NewRegisterCredentialDescriptionRequest RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRegisterCredentialDescriptionRequestServiceClient(grpcConn)
+		req := &pb.NewRegisterCredentialDescriptionRequestRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewRegisterCredentialDescriptionRequest(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsRegisterCredentialDescriptionRequestDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRegisterCredentialDescriptionRequestServiceClient(grpcConn)
+		req := &pb.RegisterCredentialDescriptionRequestDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsRegisterCredentialDescriptionRequestWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRegisterCredentialDescriptionRequestServiceClient(grpcConn)
+		req := &pb.RegisterCredentialDescriptionRequestWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var credentialsCredentialManagerCmd = &cobra.Command{
 	Use:   "credential-manager",
 	Short: "CredentialManagerService operations",
@@ -74,7 +1209,1932 @@ var credentialsCredentialManagerUnregisterCredentialDescriptionCmd = &cobra.Comm
 	},
 }
 
+var credentialsGetCredentialResponseCmd = &cobra.Command{
+	Use:   "get-credential-response",
+	Short: "GetCredentialResponseService operations",
+}
+
+var credentialsGetCredentialResponseNewGetCredentialResponseCmd = &cobra.Command{
+	Use:   "new-get-credential-response",
+	Short: "NewGetCredentialResponse RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetCredentialResponseServiceClient(grpcConn)
+		req := &pb.NewGetCredentialResponseRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewGetCredentialResponse(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsGetCredentialResponseDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetCredentialResponseServiceClient(grpcConn)
+		req := &pb.GetCredentialResponseDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsGetCredentialResponseGetCredentialCmd = &cobra.Command{
+	Use:   "get-credential",
+	Short: "GetCredential RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetCredentialResponseServiceClient(grpcConn)
+		req := &pb.GetCredentialRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetCredential(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsGetCredentialResponseToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetCredentialResponseServiceClient(grpcConn)
+		req := &pb.GetCredentialResponseToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsGetCredentialResponseWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetCredentialResponseServiceClient(grpcConn)
+		req := &pb.GetCredentialResponseWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsCredentialOptionCmd = &cobra.Command{
+	Use:   "credential-option",
+	Short: "CredentialOptionService operations",
+}
+
+var credentialsCredentialOptionDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCredentialOptionServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsCredentialOptionGetCandidateQueryDataCmd = &cobra.Command{
+	Use:   "get-candidate-query-data",
+	Short: "GetCandidateQueryData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCredentialOptionServiceClient(grpcConn)
+		req := &pb.GetCandidateQueryDataRequest{}
+		resp, err := client.GetCandidateQueryData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsCredentialOptionGetCredentialRetrievalDataCmd = &cobra.Command{
+	Use:   "get-credential-retrieval-data",
+	Short: "GetCredentialRetrievalData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCredentialOptionServiceClient(grpcConn)
+		req := &pb.GetCredentialRetrievalDataRequest{}
+		resp, err := client.GetCredentialRetrievalData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsCredentialOptionGetTypeCmd = &cobra.Command{
+	Use:   "get-type",
+	Short: "GetType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCredentialOptionServiceClient(grpcConn)
+		req := &pb.CredentialOptionGetTypeRequest{}
+		resp, err := client.GetType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsCredentialOptionIsSystemProviderRequiredCmd = &cobra.Command{
+	Use:   "is-system-provider-required",
+	Short: "IsSystemProviderRequired RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCredentialOptionServiceClient(grpcConn)
+		req := &pb.IsSystemProviderRequiredRequest{}
+		resp, err := client.IsSystemProviderRequired(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsCredentialOptionToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCredentialOptionServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsCredentialOptionWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCredentialOptionServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsCredentialOptionBuilderCmd = &cobra.Command{
+	Use:   "credential-option-builder",
+	Short: "CredentialOptionBuilderService operations",
+}
+
+var credentialsCredentialOptionBuilderAddAllowedProviderCmd = &cobra.Command{
+	Use:   "add-allowed-provider",
+	Short: "AddAllowedProvider RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCredentialOptionBuilderServiceClient(grpcConn)
+		req := &pb.AddAllowedProviderRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddAllowedProvider(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsCredentialOptionBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCredentialOptionBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsCredentialOptionBuilderSetIsSystemProviderRequiredCmd = &cobra.Command{
+	Use:   "set-is-system-provider-required",
+	Short: "SetIsSystemProviderRequired RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCredentialOptionBuilderServiceClient(grpcConn)
+		req := &pb.SetIsSystemProviderRequiredRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetIsSystemProviderRequired(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsUnregisterCredentialDescriptionRequestCmd = &cobra.Command{
+	Use:   "unregister-credential-description-request",
+	Short: "UnregisterCredentialDescriptionRequestService operations",
+}
+
+var credentialsUnregisterCredentialDescriptionRequestNewUnregisterCredentialDescriptionRequestCmd = &cobra.Command{
+	Use:   "new-unregister-credential-description-request",
+	Short: "NewUnregisterCredentialDescriptionRequest RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUnregisterCredentialDescriptionRequestServiceClient(grpcConn)
+		req := &pb.NewUnregisterCredentialDescriptionRequestRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewUnregisterCredentialDescriptionRequest(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsUnregisterCredentialDescriptionRequestDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUnregisterCredentialDescriptionRequestServiceClient(grpcConn)
+		req := &pb.UnregisterCredentialDescriptionRequestDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsUnregisterCredentialDescriptionRequestWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUnregisterCredentialDescriptionRequestServiceClient(grpcConn)
+		req := &pb.UnregisterCredentialDescriptionRequestWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsCreateCredentialResponseCmd = &cobra.Command{
+	Use:   "create-credential-response",
+	Short: "CreateCredentialResponseService operations",
+}
+
+var credentialsCreateCredentialResponseNewCreateCredentialResponseCmd = &cobra.Command{
+	Use:   "new-create-credential-response",
+	Short: "NewCreateCredentialResponse RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCreateCredentialResponseServiceClient(grpcConn)
+		req := &pb.NewCreateCredentialResponseRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewCreateCredentialResponse(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsCreateCredentialResponseDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCreateCredentialResponseServiceClient(grpcConn)
+		req := &pb.CreateCredentialResponseDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsCreateCredentialResponseGetDataCmd = &cobra.Command{
+	Use:   "get-data",
+	Short: "GetData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCreateCredentialResponseServiceClient(grpcConn)
+		req := &pb.CreateCredentialResponseGetDataRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsCreateCredentialResponseToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCreateCredentialResponseServiceClient(grpcConn)
+		req := &pb.CreateCredentialResponseToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsCreateCredentialResponseWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCreateCredentialResponseServiceClient(grpcConn)
+		req := &pb.CreateCredentialResponseWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsGetCredentialExceptionCmd = &cobra.Command{
+	Use:   "get-credential-exception",
+	Short: "GetCredentialExceptionService operations",
+}
+
+var credentialsGetCredentialExceptionNewGetCredentialExceptionCmd = &cobra.Command{
+	Use:   "new-get-credential-exception",
+	Short: "NewGetCredentialException RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetCredentialExceptionServiceClient(grpcConn)
+		req := &pb.NewGetCredentialExceptionRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewGetCredentialException(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsGetCredentialExceptionGetTypeCmd = &cobra.Command{
+	Use:   "get-type",
+	Short: "GetType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetCredentialExceptionServiceClient(grpcConn)
+		req := &pb.GetTypeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsBeginGetCredentialOptionCmd = &cobra.Command{
+	Use:   "begin-get-credential-option",
+	Short: "BeginGetCredentialOptionService operations",
+}
+
+var credentialsBeginGetCredentialOptionNewBeginGetCredentialOptionCmd = &cobra.Command{
+	Use:   "new-begin-get-credential-option",
+	Short: "NewBeginGetCredentialOption RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBeginGetCredentialOptionServiceClient(grpcConn)
+		req := &pb.NewBeginGetCredentialOptionRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.NewBeginGetCredentialOption(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsBeginGetCredentialOptionDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBeginGetCredentialOptionServiceClient(grpcConn)
+		req := &pb.CreateCredentialRequestDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsBeginGetCredentialOptionGetCandidateQueryDataCmd = &cobra.Command{
+	Use:   "get-candidate-query-data",
+	Short: "GetCandidateQueryData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBeginGetCredentialOptionServiceClient(grpcConn)
+		req := &pb.BeginGetCredentialOptionGetCandidateQueryDataRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetCandidateQueryData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsBeginGetCredentialOptionGetIdCmd = &cobra.Command{
+	Use:   "get-id",
+	Short: "GetId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBeginGetCredentialOptionServiceClient(grpcConn)
+		req := &pb.GetIdRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsBeginGetCredentialOptionGetTypeCmd = &cobra.Command{
+	Use:   "get-type",
+	Short: "GetType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBeginGetCredentialOptionServiceClient(grpcConn)
+		req := &pb.GetTypeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsBeginGetCredentialOptionToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBeginGetCredentialOptionServiceClient(grpcConn)
+		req := &pb.BeginGetCredentialOptionToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsBeginGetCredentialOptionWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBeginGetCredentialOptionServiceClient(grpcConn)
+		req := &pb.CreateCredentialRequestWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsCredentialProviderServiceCmd = &cobra.Command{
+	Use:   "credential-provider-service",
+	Short: "CredentialProviderServiceService operations",
+}
+
+var credentialsCredentialProviderServiceOnBindCmd = &cobra.Command{
+	Use:   "on-bind",
+	Short: "OnBind RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCredentialProviderServiceServiceClient(grpcConn)
+		req := &pb.OnBindRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnBind(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsCredentialProviderServiceOnCreateCmd = &cobra.Command{
+	Use:   "on-create",
+	Short: "OnCreate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCredentialProviderServiceServiceClient(grpcConn)
+		req := &pb.OnCreateRequest{}
+		resp, err := client.OnCreate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsCreateEntryCmd = &cobra.Command{
+	Use:   "create-entry",
+	Short: "CreateEntryService operations",
+}
+
+var credentialsCreateEntryNewCreateEntryCmd = &cobra.Command{
+	Use:   "new-create-entry",
+	Short: "NewCreateEntry RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCreateEntryServiceClient(grpcConn)
+		req := &pb.NewCreateEntryRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewCreateEntry(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsCreateEntryDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCreateEntryServiceClient(grpcConn)
+		req := &pb.CreateCredentialRequestDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsCreateEntryGetSliceCmd = &cobra.Command{
+	Use:   "get-slice",
+	Short: "GetSlice RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCreateEntryServiceClient(grpcConn)
+		req := &pb.GetSliceRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSlice(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsCreateEntryWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCreateEntryServiceClient(grpcConn)
+		req := &pb.CreateCredentialRequestWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsBeginCreateCredentialRequestCmd = &cobra.Command{
+	Use:   "begin-create-credential-request",
+	Short: "BeginCreateCredentialRequestService operations",
+}
+
+var credentialsBeginCreateCredentialRequestNewBeginCreateCredentialRequestCmd = &cobra.Command{
+	Use:   "new-begin-create-credential-request",
+	Short: "NewBeginCreateCredentialRequest RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBeginCreateCredentialRequestServiceClient(grpcConn)
+		req := &pb.NewBeginCreateCredentialRequestRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewBeginCreateCredentialRequest(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsBeginCreateCredentialRequestDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBeginCreateCredentialRequestServiceClient(grpcConn)
+		req := &pb.CreateCredentialRequestDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsBeginCreateCredentialRequestGetCallingAppInfoCmd = &cobra.Command{
+	Use:   "get-calling-app-info",
+	Short: "GetCallingAppInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBeginCreateCredentialRequestServiceClient(grpcConn)
+		req := &pb.GetCallingAppInfoRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetCallingAppInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsBeginCreateCredentialRequestGetDataCmd = &cobra.Command{
+	Use:   "get-data",
+	Short: "GetData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBeginCreateCredentialRequestServiceClient(grpcConn)
+		req := &pb.CreateCredentialRequestGetDataRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsBeginCreateCredentialRequestGetTypeCmd = &cobra.Command{
+	Use:   "get-type",
+	Short: "GetType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBeginCreateCredentialRequestServiceClient(grpcConn)
+		req := &pb.GetTypeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsBeginCreateCredentialRequestWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBeginCreateCredentialRequestServiceClient(grpcConn)
+		req := &pb.CreateCredentialRequestWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsCallingAppInfoCmd = &cobra.Command{
+	Use:   "calling-app-info",
+	Short: "CallingAppInfoService operations",
+}
+
+var credentialsCallingAppInfoNewCallingAppInfoCmd = &cobra.Command{
+	Use:   "new-calling-app-info",
+	Short: "NewCallingAppInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCallingAppInfoServiceClient(grpcConn)
+		req := &pb.NewCallingAppInfoRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewCallingAppInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsCallingAppInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCallingAppInfoServiceClient(grpcConn)
+		req := &pb.CreateCredentialRequestDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsCallingAppInfoGetOriginCmd = &cobra.Command{
+	Use:   "get-origin",
+	Short: "GetOrigin RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCallingAppInfoServiceClient(grpcConn)
+		req := &pb.CallingAppInfoGetOriginRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetOrigin(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsCallingAppInfoGetPackageNameCmd = &cobra.Command{
+	Use:   "get-package-name",
+	Short: "GetPackageName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCallingAppInfoServiceClient(grpcConn)
+		req := &pb.GetPackageNameRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetPackageName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsCallingAppInfoGetSigningInfoCmd = &cobra.Command{
+	Use:   "get-signing-info",
+	Short: "GetSigningInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCallingAppInfoServiceClient(grpcConn)
+		req := &pb.GetSigningInfoRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSigningInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsCallingAppInfoToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCallingAppInfoServiceClient(grpcConn)
+		req := &pb.BeginGetCredentialOptionToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsCallingAppInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCallingAppInfoServiceClient(grpcConn)
+		req := &pb.CreateCredentialRequestWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsBeginGetCredentialResponseCmd = &cobra.Command{
+	Use:   "begin-get-credential-response",
+	Short: "BeginGetCredentialResponseService operations",
+}
+
+var credentialsBeginGetCredentialResponseNewBeginGetCredentialResponseCmd = &cobra.Command{
+	Use:   "new-begin-get-credential-response",
+	Short: "NewBeginGetCredentialResponse RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBeginGetCredentialResponseServiceClient(grpcConn)
+		req := &pb.NewBeginGetCredentialResponseRequest{}
+		resp, err := client.NewBeginGetCredentialResponse(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsBeginGetCredentialResponseDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBeginGetCredentialResponseServiceClient(grpcConn)
+		req := &pb.CreateCredentialRequestDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsBeginGetCredentialResponseGetRemoteCredentialEntryCmd = &cobra.Command{
+	Use:   "get-remote-credential-entry",
+	Short: "GetRemoteCredentialEntry RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBeginGetCredentialResponseServiceClient(grpcConn)
+		req := &pb.GetRemoteCredentialEntryRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetRemoteCredentialEntry(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsBeginGetCredentialResponseWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBeginGetCredentialResponseServiceClient(grpcConn)
+		req := &pb.CreateCredentialRequestWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsBeginGetCredentialResponseBuilderCmd = &cobra.Command{
+	Use:   "begin-get-credential-response-builder",
+	Short: "BeginGetCredentialResponseBuilderService operations",
+}
+
+var credentialsBeginGetCredentialResponseBuilderAddActionCmd = &cobra.Command{
+	Use:   "add-action",
+	Short: "AddAction RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBeginGetCredentialResponseBuilderServiceClient(grpcConn)
+		req := &pb.AddActionRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddAction(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsBeginGetCredentialResponseBuilderAddAuthenticationActionCmd = &cobra.Command{
+	Use:   "add-authentication-action",
+	Short: "AddAuthenticationAction RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBeginGetCredentialResponseBuilderServiceClient(grpcConn)
+		req := &pb.AddAuthenticationActionRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddAuthenticationAction(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsBeginGetCredentialResponseBuilderAddCredentialEntryCmd = &cobra.Command{
+	Use:   "add-credential-entry",
+	Short: "AddCredentialEntry RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBeginGetCredentialResponseBuilderServiceClient(grpcConn)
+		req := &pb.AddCredentialEntryRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddCredentialEntry(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsBeginGetCredentialResponseBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBeginGetCredentialResponseBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsBeginGetCredentialResponseBuilderSetRemoteCredentialEntryCmd = &cobra.Command{
+	Use:   "set-remote-credential-entry",
+	Short: "SetRemoteCredentialEntry RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBeginGetCredentialResponseBuilderServiceClient(grpcConn)
+		req := &pb.SetRemoteCredentialEntryRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetRemoteCredentialEntry(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsBeginCreateCredentialResponseCmd = &cobra.Command{
+	Use:   "begin-create-credential-response",
+	Short: "BeginCreateCredentialResponseService operations",
+}
+
+var credentialsBeginCreateCredentialResponseNewBeginCreateCredentialResponseCmd = &cobra.Command{
+	Use:   "new-begin-create-credential-response",
+	Short: "NewBeginCreateCredentialResponse RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBeginCreateCredentialResponseServiceClient(grpcConn)
+		req := &pb.NewBeginCreateCredentialResponseRequest{}
+		resp, err := client.NewBeginCreateCredentialResponse(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsBeginCreateCredentialResponseDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBeginCreateCredentialResponseServiceClient(grpcConn)
+		req := &pb.CreateCredentialRequestDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsBeginCreateCredentialResponseGetRemoteCreateEntryCmd = &cobra.Command{
+	Use:   "get-remote-create-entry",
+	Short: "GetRemoteCreateEntry RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBeginCreateCredentialResponseServiceClient(grpcConn)
+		req := &pb.GetRemoteCreateEntryRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetRemoteCreateEntry(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsBeginCreateCredentialResponseWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBeginCreateCredentialResponseServiceClient(grpcConn)
+		req := &pb.CreateCredentialRequestWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsBeginCreateCredentialResponseBuilderCmd = &cobra.Command{
+	Use:   "begin-create-credential-response-builder",
+	Short: "BeginCreateCredentialResponseBuilderService operations",
+}
+
+var credentialsBeginCreateCredentialResponseBuilderAddCreateEntryCmd = &cobra.Command{
+	Use:   "add-create-entry",
+	Short: "AddCreateEntry RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBeginCreateCredentialResponseBuilderServiceClient(grpcConn)
+		req := &pb.AddCreateEntryRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddCreateEntry(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsBeginCreateCredentialResponseBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBeginCreateCredentialResponseBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsBeginCreateCredentialResponseBuilderSetRemoteCreateEntryCmd = &cobra.Command{
+	Use:   "set-remote-create-entry",
+	Short: "SetRemoteCreateEntry RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBeginCreateCredentialResponseBuilderServiceClient(grpcConn)
+		req := &pb.SetRemoteCreateEntryRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetRemoteCreateEntry(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsCredentialEntryCmd = &cobra.Command{
+	Use:   "credential-entry",
+	Short: "CredentialEntryService operations",
+}
+
+var credentialsCredentialEntryNewCredentialEntryCmd = &cobra.Command{
+	Use:   "new-credential-entry",
+	Short: "NewCredentialEntry RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCredentialEntryServiceClient(grpcConn)
+		req := &pb.NewCredentialEntryRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewCredentialEntry(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsCredentialEntryDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCredentialEntryServiceClient(grpcConn)
+		req := &pb.CreateCredentialRequestDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsCredentialEntryGetBeginGetCredentialOptionIdCmd = &cobra.Command{
+	Use:   "get-begin-get-credential-option-id",
+	Short: "GetBeginGetCredentialOptionId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCredentialEntryServiceClient(grpcConn)
+		req := &pb.GetBeginGetCredentialOptionIdRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetBeginGetCredentialOptionId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsCredentialEntryGetSliceCmd = &cobra.Command{
+	Use:   "get-slice",
+	Short: "GetSlice RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCredentialEntryServiceClient(grpcConn)
+		req := &pb.GetSliceRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSlice(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsCredentialEntryGetTypeCmd = &cobra.Command{
+	Use:   "get-type",
+	Short: "GetType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCredentialEntryServiceClient(grpcConn)
+		req := &pb.GetTypeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsCredentialEntryWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCredentialEntryServiceClient(grpcConn)
+		req := &pb.CreateCredentialRequestWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsBeginGetCredentialRequestCmd = &cobra.Command{
+	Use:   "begin-get-credential-request",
+	Short: "BeginGetCredentialRequestService operations",
+}
+
+var credentialsBeginGetCredentialRequestDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBeginGetCredentialRequestServiceClient(grpcConn)
+		req := &pb.BeginGetCredentialRequestDescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsBeginGetCredentialRequestGetCallingAppInfoCmd = &cobra.Command{
+	Use:   "get-calling-app-info",
+	Short: "GetCallingAppInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBeginGetCredentialRequestServiceClient(grpcConn)
+		req := &pb.BeginGetCredentialRequestGetCallingAppInfoRequest{}
+		resp, err := client.GetCallingAppInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsBeginGetCredentialRequestWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBeginGetCredentialRequestServiceClient(grpcConn)
+		req := &pb.BeginGetCredentialRequestWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsBeginGetCredentialRequestBuilderCmd = &cobra.Command{
+	Use:   "begin-get-credential-request-builder",
+	Short: "BeginGetCredentialRequestBuilderService operations",
+}
+
+var credentialsBeginGetCredentialRequestBuilderAddBeginGetCredentialOptionCmd = &cobra.Command{
+	Use:   "add-begin-get-credential-option",
+	Short: "AddBeginGetCredentialOption RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBeginGetCredentialRequestBuilderServiceClient(grpcConn)
+		req := &pb.AddBeginGetCredentialOptionRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddBeginGetCredentialOption(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsBeginGetCredentialRequestBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBeginGetCredentialRequestBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsBeginGetCredentialRequestBuilderSetCallingAppInfoCmd = &cobra.Command{
+	Use:   "set-calling-app-info",
+	Short: "SetCallingAppInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBeginGetCredentialRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetCallingAppInfoRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetCallingAppInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsRemoteEntryCmd = &cobra.Command{
+	Use:   "remote-entry",
+	Short: "RemoteEntryService operations",
+}
+
+var credentialsRemoteEntryNewRemoteEntryCmd = &cobra.Command{
+	Use:   "new-remote-entry",
+	Short: "NewRemoteEntry RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRemoteEntryServiceClient(grpcConn)
+		req := &pb.NewRemoteEntryRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewRemoteEntry(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsRemoteEntryDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRemoteEntryServiceClient(grpcConn)
+		req := &pb.CreateCredentialRequestDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsRemoteEntryGetSliceCmd = &cobra.Command{
+	Use:   "get-slice",
+	Short: "GetSlice RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRemoteEntryServiceClient(grpcConn)
+		req := &pb.GetSliceRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSlice(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsRemoteEntryWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRemoteEntryServiceClient(grpcConn)
+		req := &pb.CreateCredentialRequestWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsActionCmd = &cobra.Command{
+	Use:   "action",
+	Short: "ActionService operations",
+}
+
+var credentialsActionNewActionCmd = &cobra.Command{
+	Use:   "new-action",
+	Short: "NewAction RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewActionServiceClient(grpcConn)
+		req := &pb.NewActionRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewAction(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsActionDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewActionServiceClient(grpcConn)
+		req := &pb.CreateCredentialRequestDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsActionGetSliceCmd = &cobra.Command{
+	Use:   "get-slice",
+	Short: "GetSlice RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewActionServiceClient(grpcConn)
+		req := &pb.GetSliceRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSlice(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var credentialsActionWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewActionServiceClient(grpcConn)
+		req := &pb.CreateCredentialRequestWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 func init() {
+	credentialsGetCredentialRequestCmd.AddCommand(credentialsGetCredentialRequestAlwaysSendAppInfoToProviderCmd)
+	credentialsGetCredentialRequestCmd.AddCommand(credentialsGetCredentialRequestDescribeContentsCmd)
+	credentialsGetCredentialRequestCmd.AddCommand(credentialsGetCredentialRequestGetDataCmd)
+	credentialsGetCredentialRequestCmd.AddCommand(credentialsGetCredentialRequestGetOriginCmd)
+	credentialsGetCredentialRequestCmd.AddCommand(credentialsGetCredentialRequestToStringCmd)
+	credentialsGetCredentialRequestWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	credentialsGetCredentialRequestWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	credentialsGetCredentialRequestCmd.AddCommand(credentialsGetCredentialRequestWriteToParcelCmd)
+	credentialsGetCredentialRequestNewGetCredentialRequestCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	credentialsGetCredentialRequestNewGetCredentialRequestCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	credentialsGetCredentialRequestCmd.AddCommand(credentialsGetCredentialRequestNewGetCredentialRequestCmd)
+	credentialsGetCredentialRequestGetCallingAppInfoCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsGetCredentialRequestCmd.AddCommand(credentialsGetCredentialRequestGetCallingAppInfoCmd)
+	credentialsCmd.AddCommand(credentialsGetCredentialRequestCmd)
+	credentialsGetCredentialRequestBuilderAddCredentialOptionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	credentialsGetCredentialRequestBuilderCmd.AddCommand(credentialsGetCredentialRequestBuilderAddCredentialOptionCmd)
+	credentialsGetCredentialRequestBuilderCmd.AddCommand(credentialsGetCredentialRequestBuilderBuildCmd)
+	credentialsGetCredentialRequestBuilderSetAlwaysSendAppInfoToProviderCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	credentialsGetCredentialRequestBuilderCmd.AddCommand(credentialsGetCredentialRequestBuilderSetAlwaysSendAppInfoToProviderCmd)
+	credentialsGetCredentialRequestBuilderSetOriginCmd.Flags().String("arg0", "", "arg0 (string)")
+	credentialsGetCredentialRequestBuilderCmd.AddCommand(credentialsGetCredentialRequestBuilderSetOriginCmd)
+	credentialsCmd.AddCommand(credentialsGetCredentialRequestBuilderCmd)
+	credentialsCredentialNewCredentialCmd.Flags().String("arg0", "", "arg0 (string)")
+	credentialsCredentialNewCredentialCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	credentialsCredentialCmd.AddCommand(credentialsCredentialNewCredentialCmd)
+	credentialsCredentialDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsCredentialCmd.AddCommand(credentialsCredentialDescribeContentsCmd)
+	credentialsCredentialGetDataCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsCredentialCmd.AddCommand(credentialsCredentialGetDataCmd)
+	credentialsCredentialGetTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsCredentialCmd.AddCommand(credentialsCredentialGetTypeCmd)
+	credentialsCredentialToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsCredentialCmd.AddCommand(credentialsCredentialToStringCmd)
+	credentialsCredentialWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsCredentialWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	credentialsCredentialWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	credentialsCredentialCmd.AddCommand(credentialsCredentialWriteToParcelCmd)
+	credentialsCmd.AddCommand(credentialsCredentialCmd)
+	credentialsCreateCredentialRequestCmd.AddCommand(credentialsCreateCredentialRequestAlwaysSendAppInfoToProviderCmd)
+	credentialsCreateCredentialRequestCmd.AddCommand(credentialsCreateCredentialRequestDescribeContentsCmd)
+	credentialsCreateCredentialRequestCmd.AddCommand(credentialsCreateCredentialRequestGetCandidateQueryDataCmd)
+	credentialsCreateCredentialRequestCmd.AddCommand(credentialsCreateCredentialRequestGetCredentialDataCmd)
+	credentialsCreateCredentialRequestCmd.AddCommand(credentialsCreateCredentialRequestGetOriginCmd)
+	credentialsCreateCredentialRequestCmd.AddCommand(credentialsCreateCredentialRequestGetTypeCmd)
+	credentialsCreateCredentialRequestCmd.AddCommand(credentialsCreateCredentialRequestIsSystemProviderRequiredCmd)
+	credentialsCreateCredentialRequestCmd.AddCommand(credentialsCreateCredentialRequestToStringCmd)
+	credentialsCreateCredentialRequestWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	credentialsCreateCredentialRequestWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	credentialsCreateCredentialRequestCmd.AddCommand(credentialsCreateCredentialRequestWriteToParcelCmd)
+	credentialsCreateCredentialRequestNewCreateCredentialRequestCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	credentialsCreateCredentialRequestNewCreateCredentialRequestCmd.Flags().String("arg1", "", "arg1 (string)")
+	credentialsCreateCredentialRequestNewCreateCredentialRequestCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	credentialsCreateCredentialRequestCmd.AddCommand(credentialsCreateCredentialRequestNewCreateCredentialRequestCmd)
+	credentialsCreateCredentialRequestGetCallingAppInfoCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsCreateCredentialRequestCmd.AddCommand(credentialsCreateCredentialRequestGetCallingAppInfoCmd)
+	credentialsCreateCredentialRequestGetDataCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsCreateCredentialRequestCmd.AddCommand(credentialsCreateCredentialRequestGetDataCmd)
+	credentialsCmd.AddCommand(credentialsCreateCredentialRequestCmd)
+	credentialsCreateCredentialRequestBuilderCmd.AddCommand(credentialsCreateCredentialRequestBuilderBuildCmd)
+	credentialsCreateCredentialRequestBuilderSetAlwaysSendAppInfoToProviderCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	credentialsCreateCredentialRequestBuilderCmd.AddCommand(credentialsCreateCredentialRequestBuilderSetAlwaysSendAppInfoToProviderCmd)
+	credentialsCreateCredentialRequestBuilderSetIsSystemProviderRequiredCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	credentialsCreateCredentialRequestBuilderCmd.AddCommand(credentialsCreateCredentialRequestBuilderSetIsSystemProviderRequiredCmd)
+	credentialsCreateCredentialRequestBuilderSetOriginCmd.Flags().String("arg0", "", "arg0 (string)")
+	credentialsCreateCredentialRequestBuilderCmd.AddCommand(credentialsCreateCredentialRequestBuilderSetOriginCmd)
+	credentialsCmd.AddCommand(credentialsCreateCredentialRequestBuilderCmd)
+	credentialsCredentialDescriptionNewCredentialDescriptionCmd.Flags().String("arg0", "", "arg0 (string)")
+	credentialsCredentialDescriptionNewCredentialDescriptionCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	credentialsCredentialDescriptionNewCredentialDescriptionCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	credentialsCredentialDescriptionCmd.AddCommand(credentialsCredentialDescriptionNewCredentialDescriptionCmd)
+	credentialsCredentialDescriptionDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsCredentialDescriptionCmd.AddCommand(credentialsCredentialDescriptionDescribeContentsCmd)
+	credentialsCredentialDescriptionEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsCredentialDescriptionEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	credentialsCredentialDescriptionCmd.AddCommand(credentialsCredentialDescriptionEqualsCmd)
+	credentialsCredentialDescriptionGetTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsCredentialDescriptionCmd.AddCommand(credentialsCredentialDescriptionGetTypeCmd)
+	credentialsCredentialDescriptionHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsCredentialDescriptionCmd.AddCommand(credentialsCredentialDescriptionHashCodeCmd)
+	credentialsCredentialDescriptionWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsCredentialDescriptionWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	credentialsCredentialDescriptionWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	credentialsCredentialDescriptionCmd.AddCommand(credentialsCredentialDescriptionWriteToParcelCmd)
+	credentialsCmd.AddCommand(credentialsCredentialDescriptionCmd)
+	credentialsCreateCredentialExceptionNewCreateCredentialExceptionCmd.Flags().String("arg0", "", "arg0 (string)")
+	credentialsCreateCredentialExceptionCmd.AddCommand(credentialsCreateCredentialExceptionNewCreateCredentialExceptionCmd)
+	credentialsCreateCredentialExceptionGetTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsCreateCredentialExceptionCmd.AddCommand(credentialsCreateCredentialExceptionGetTypeCmd)
+	credentialsCmd.AddCommand(credentialsCreateCredentialExceptionCmd)
+	credentialsClearCredentialStateExceptionNewClearCredentialStateExceptionCmd.Flags().String("arg0", "", "arg0 (string)")
+	credentialsClearCredentialStateExceptionCmd.AddCommand(credentialsClearCredentialStateExceptionNewClearCredentialStateExceptionCmd)
+	credentialsClearCredentialStateExceptionGetTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsClearCredentialStateExceptionCmd.AddCommand(credentialsClearCredentialStateExceptionGetTypeCmd)
+	credentialsCmd.AddCommand(credentialsClearCredentialStateExceptionCmd)
+	credentialsPrepareGetCredentialResponseCmd.AddCommand(credentialsPrepareGetCredentialResponseGetPendingGetCredentialHandleCmd)
+	credentialsPrepareGetCredentialResponseCmd.AddCommand(credentialsPrepareGetCredentialResponseHasAuthenticationResultsCmd)
+	credentialsPrepareGetCredentialResponseHasCredentialResultsCmd.Flags().String("arg0", "", "arg0 (string)")
+	credentialsPrepareGetCredentialResponseCmd.AddCommand(credentialsPrepareGetCredentialResponseHasCredentialResultsCmd)
+	credentialsPrepareGetCredentialResponseCmd.AddCommand(credentialsPrepareGetCredentialResponseHasRemoteResultsCmd)
+	credentialsCmd.AddCommand(credentialsPrepareGetCredentialResponseCmd)
+	credentialsClearCredentialStateRequestNewClearCredentialStateRequestCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	credentialsClearCredentialStateRequestCmd.AddCommand(credentialsClearCredentialStateRequestNewClearCredentialStateRequestCmd)
+	credentialsClearCredentialStateRequestDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsClearCredentialStateRequestCmd.AddCommand(credentialsClearCredentialStateRequestDescribeContentsCmd)
+	credentialsClearCredentialStateRequestGetDataCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsClearCredentialStateRequestCmd.AddCommand(credentialsClearCredentialStateRequestGetDataCmd)
+	credentialsClearCredentialStateRequestToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsClearCredentialStateRequestCmd.AddCommand(credentialsClearCredentialStateRequestToStringCmd)
+	credentialsClearCredentialStateRequestWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsClearCredentialStateRequestWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	credentialsClearCredentialStateRequestWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	credentialsClearCredentialStateRequestCmd.AddCommand(credentialsClearCredentialStateRequestWriteToParcelCmd)
+	credentialsClearCredentialStateRequestGetCallingAppInfoCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsClearCredentialStateRequestCmd.AddCommand(credentialsClearCredentialStateRequestGetCallingAppInfoCmd)
+	credentialsCmd.AddCommand(credentialsClearCredentialStateRequestCmd)
+	credentialsRegisterCredentialDescriptionRequestNewRegisterCredentialDescriptionRequestCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	credentialsRegisterCredentialDescriptionRequestCmd.AddCommand(credentialsRegisterCredentialDescriptionRequestNewRegisterCredentialDescriptionRequestCmd)
+	credentialsRegisterCredentialDescriptionRequestDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsRegisterCredentialDescriptionRequestCmd.AddCommand(credentialsRegisterCredentialDescriptionRequestDescribeContentsCmd)
+	credentialsRegisterCredentialDescriptionRequestWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsRegisterCredentialDescriptionRequestWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	credentialsRegisterCredentialDescriptionRequestWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	credentialsRegisterCredentialDescriptionRequestCmd.AddCommand(credentialsRegisterCredentialDescriptionRequestWriteToParcelCmd)
+	credentialsCmd.AddCommand(credentialsRegisterCredentialDescriptionRequestCmd)
 	credentialsCredentialManagerIsEnabledCredentialProviderServiceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	credentialsCredentialManagerCmd.AddCommand(credentialsCredentialManagerIsEnabledCredentialProviderServiceCmd)
 	credentialsCredentialManagerRegisterCredentialDescriptionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
@@ -82,5 +3142,215 @@ func init() {
 	credentialsCredentialManagerUnregisterCredentialDescriptionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	credentialsCredentialManagerCmd.AddCommand(credentialsCredentialManagerUnregisterCredentialDescriptionCmd)
 	credentialsCmd.AddCommand(credentialsCredentialManagerCmd)
+	credentialsGetCredentialResponseNewGetCredentialResponseCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	credentialsGetCredentialResponseCmd.AddCommand(credentialsGetCredentialResponseNewGetCredentialResponseCmd)
+	credentialsGetCredentialResponseDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsGetCredentialResponseCmd.AddCommand(credentialsGetCredentialResponseDescribeContentsCmd)
+	credentialsGetCredentialResponseGetCredentialCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsGetCredentialResponseCmd.AddCommand(credentialsGetCredentialResponseGetCredentialCmd)
+	credentialsGetCredentialResponseToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsGetCredentialResponseCmd.AddCommand(credentialsGetCredentialResponseToStringCmd)
+	credentialsGetCredentialResponseWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsGetCredentialResponseWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	credentialsGetCredentialResponseWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	credentialsGetCredentialResponseCmd.AddCommand(credentialsGetCredentialResponseWriteToParcelCmd)
+	credentialsCmd.AddCommand(credentialsGetCredentialResponseCmd)
+	credentialsCredentialOptionCmd.AddCommand(credentialsCredentialOptionDescribeContentsCmd)
+	credentialsCredentialOptionCmd.AddCommand(credentialsCredentialOptionGetCandidateQueryDataCmd)
+	credentialsCredentialOptionCmd.AddCommand(credentialsCredentialOptionGetCredentialRetrievalDataCmd)
+	credentialsCredentialOptionCmd.AddCommand(credentialsCredentialOptionGetTypeCmd)
+	credentialsCredentialOptionCmd.AddCommand(credentialsCredentialOptionIsSystemProviderRequiredCmd)
+	credentialsCredentialOptionCmd.AddCommand(credentialsCredentialOptionToStringCmd)
+	credentialsCredentialOptionWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	credentialsCredentialOptionWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	credentialsCredentialOptionCmd.AddCommand(credentialsCredentialOptionWriteToParcelCmd)
+	credentialsCmd.AddCommand(credentialsCredentialOptionCmd)
+	credentialsCredentialOptionBuilderAddAllowedProviderCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	credentialsCredentialOptionBuilderCmd.AddCommand(credentialsCredentialOptionBuilderAddAllowedProviderCmd)
+	credentialsCredentialOptionBuilderCmd.AddCommand(credentialsCredentialOptionBuilderBuildCmd)
+	credentialsCredentialOptionBuilderSetIsSystemProviderRequiredCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	credentialsCredentialOptionBuilderCmd.AddCommand(credentialsCredentialOptionBuilderSetIsSystemProviderRequiredCmd)
+	credentialsCmd.AddCommand(credentialsCredentialOptionBuilderCmd)
+	credentialsUnregisterCredentialDescriptionRequestNewUnregisterCredentialDescriptionRequestCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	credentialsUnregisterCredentialDescriptionRequestCmd.AddCommand(credentialsUnregisterCredentialDescriptionRequestNewUnregisterCredentialDescriptionRequestCmd)
+	credentialsUnregisterCredentialDescriptionRequestDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsUnregisterCredentialDescriptionRequestCmd.AddCommand(credentialsUnregisterCredentialDescriptionRequestDescribeContentsCmd)
+	credentialsUnregisterCredentialDescriptionRequestWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsUnregisterCredentialDescriptionRequestWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	credentialsUnregisterCredentialDescriptionRequestWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	credentialsUnregisterCredentialDescriptionRequestCmd.AddCommand(credentialsUnregisterCredentialDescriptionRequestWriteToParcelCmd)
+	credentialsCmd.AddCommand(credentialsUnregisterCredentialDescriptionRequestCmd)
+	credentialsCreateCredentialResponseNewCreateCredentialResponseCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	credentialsCreateCredentialResponseCmd.AddCommand(credentialsCreateCredentialResponseNewCreateCredentialResponseCmd)
+	credentialsCreateCredentialResponseDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsCreateCredentialResponseCmd.AddCommand(credentialsCreateCredentialResponseDescribeContentsCmd)
+	credentialsCreateCredentialResponseGetDataCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsCreateCredentialResponseCmd.AddCommand(credentialsCreateCredentialResponseGetDataCmd)
+	credentialsCreateCredentialResponseToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsCreateCredentialResponseCmd.AddCommand(credentialsCreateCredentialResponseToStringCmd)
+	credentialsCreateCredentialResponseWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsCreateCredentialResponseWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	credentialsCreateCredentialResponseWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	credentialsCreateCredentialResponseCmd.AddCommand(credentialsCreateCredentialResponseWriteToParcelCmd)
+	credentialsCmd.AddCommand(credentialsCreateCredentialResponseCmd)
+	credentialsGetCredentialExceptionNewGetCredentialExceptionCmd.Flags().String("arg0", "", "arg0 (string)")
+	credentialsGetCredentialExceptionCmd.AddCommand(credentialsGetCredentialExceptionNewGetCredentialExceptionCmd)
+	credentialsGetCredentialExceptionGetTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsGetCredentialExceptionCmd.AddCommand(credentialsGetCredentialExceptionGetTypeCmd)
+	credentialsCmd.AddCommand(credentialsGetCredentialExceptionCmd)
+	credentialsBeginGetCredentialOptionNewBeginGetCredentialOptionCmd.Flags().String("arg0", "", "arg0 (string)")
+	credentialsBeginGetCredentialOptionNewBeginGetCredentialOptionCmd.Flags().String("arg1", "", "arg1 (string)")
+	credentialsBeginGetCredentialOptionNewBeginGetCredentialOptionCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	credentialsBeginGetCredentialOptionCmd.AddCommand(credentialsBeginGetCredentialOptionNewBeginGetCredentialOptionCmd)
+	credentialsBeginGetCredentialOptionDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsBeginGetCredentialOptionCmd.AddCommand(credentialsBeginGetCredentialOptionDescribeContentsCmd)
+	credentialsBeginGetCredentialOptionGetCandidateQueryDataCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsBeginGetCredentialOptionCmd.AddCommand(credentialsBeginGetCredentialOptionGetCandidateQueryDataCmd)
+	credentialsBeginGetCredentialOptionGetIdCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsBeginGetCredentialOptionCmd.AddCommand(credentialsBeginGetCredentialOptionGetIdCmd)
+	credentialsBeginGetCredentialOptionGetTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsBeginGetCredentialOptionCmd.AddCommand(credentialsBeginGetCredentialOptionGetTypeCmd)
+	credentialsBeginGetCredentialOptionToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsBeginGetCredentialOptionCmd.AddCommand(credentialsBeginGetCredentialOptionToStringCmd)
+	credentialsBeginGetCredentialOptionWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsBeginGetCredentialOptionWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	credentialsBeginGetCredentialOptionWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	credentialsBeginGetCredentialOptionCmd.AddCommand(credentialsBeginGetCredentialOptionWriteToParcelCmd)
+	credentialsCmd.AddCommand(credentialsBeginGetCredentialOptionCmd)
+	credentialsCredentialProviderServiceOnBindCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	credentialsCredentialProviderServiceCmd.AddCommand(credentialsCredentialProviderServiceOnBindCmd)
+	credentialsCredentialProviderServiceCmd.AddCommand(credentialsCredentialProviderServiceOnCreateCmd)
+	credentialsCmd.AddCommand(credentialsCredentialProviderServiceCmd)
+	credentialsCreateEntryNewCreateEntryCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	credentialsCreateEntryCmd.AddCommand(credentialsCreateEntryNewCreateEntryCmd)
+	credentialsCreateEntryDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsCreateEntryCmd.AddCommand(credentialsCreateEntryDescribeContentsCmd)
+	credentialsCreateEntryGetSliceCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsCreateEntryCmd.AddCommand(credentialsCreateEntryGetSliceCmd)
+	credentialsCreateEntryWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsCreateEntryWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	credentialsCreateEntryWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	credentialsCreateEntryCmd.AddCommand(credentialsCreateEntryWriteToParcelCmd)
+	credentialsCmd.AddCommand(credentialsCreateEntryCmd)
+	credentialsBeginCreateCredentialRequestNewBeginCreateCredentialRequestCmd.Flags().String("arg0", "", "arg0 (string)")
+	credentialsBeginCreateCredentialRequestNewBeginCreateCredentialRequestCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	credentialsBeginCreateCredentialRequestCmd.AddCommand(credentialsBeginCreateCredentialRequestNewBeginCreateCredentialRequestCmd)
+	credentialsBeginCreateCredentialRequestDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsBeginCreateCredentialRequestCmd.AddCommand(credentialsBeginCreateCredentialRequestDescribeContentsCmd)
+	credentialsBeginCreateCredentialRequestGetCallingAppInfoCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsBeginCreateCredentialRequestCmd.AddCommand(credentialsBeginCreateCredentialRequestGetCallingAppInfoCmd)
+	credentialsBeginCreateCredentialRequestGetDataCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsBeginCreateCredentialRequestCmd.AddCommand(credentialsBeginCreateCredentialRequestGetDataCmd)
+	credentialsBeginCreateCredentialRequestGetTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsBeginCreateCredentialRequestCmd.AddCommand(credentialsBeginCreateCredentialRequestGetTypeCmd)
+	credentialsBeginCreateCredentialRequestWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsBeginCreateCredentialRequestWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	credentialsBeginCreateCredentialRequestWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	credentialsBeginCreateCredentialRequestCmd.AddCommand(credentialsBeginCreateCredentialRequestWriteToParcelCmd)
+	credentialsCmd.AddCommand(credentialsBeginCreateCredentialRequestCmd)
+	credentialsCallingAppInfoNewCallingAppInfoCmd.Flags().String("arg0", "", "arg0 (string)")
+	credentialsCallingAppInfoNewCallingAppInfoCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	credentialsCallingAppInfoCmd.AddCommand(credentialsCallingAppInfoNewCallingAppInfoCmd)
+	credentialsCallingAppInfoDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsCallingAppInfoCmd.AddCommand(credentialsCallingAppInfoDescribeContentsCmd)
+	credentialsCallingAppInfoGetOriginCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsCallingAppInfoCmd.AddCommand(credentialsCallingAppInfoGetOriginCmd)
+	credentialsCallingAppInfoGetPackageNameCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsCallingAppInfoCmd.AddCommand(credentialsCallingAppInfoGetPackageNameCmd)
+	credentialsCallingAppInfoGetSigningInfoCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsCallingAppInfoCmd.AddCommand(credentialsCallingAppInfoGetSigningInfoCmd)
+	credentialsCallingAppInfoToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsCallingAppInfoCmd.AddCommand(credentialsCallingAppInfoToStringCmd)
+	credentialsCallingAppInfoWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsCallingAppInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	credentialsCallingAppInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	credentialsCallingAppInfoCmd.AddCommand(credentialsCallingAppInfoWriteToParcelCmd)
+	credentialsCmd.AddCommand(credentialsCallingAppInfoCmd)
+	credentialsBeginGetCredentialResponseCmd.AddCommand(credentialsBeginGetCredentialResponseNewBeginGetCredentialResponseCmd)
+	credentialsBeginGetCredentialResponseDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsBeginGetCredentialResponseCmd.AddCommand(credentialsBeginGetCredentialResponseDescribeContentsCmd)
+	credentialsBeginGetCredentialResponseGetRemoteCredentialEntryCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsBeginGetCredentialResponseCmd.AddCommand(credentialsBeginGetCredentialResponseGetRemoteCredentialEntryCmd)
+	credentialsBeginGetCredentialResponseWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsBeginGetCredentialResponseWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	credentialsBeginGetCredentialResponseWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	credentialsBeginGetCredentialResponseCmd.AddCommand(credentialsBeginGetCredentialResponseWriteToParcelCmd)
+	credentialsCmd.AddCommand(credentialsBeginGetCredentialResponseCmd)
+	credentialsBeginGetCredentialResponseBuilderAddActionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	credentialsBeginGetCredentialResponseBuilderCmd.AddCommand(credentialsBeginGetCredentialResponseBuilderAddActionCmd)
+	credentialsBeginGetCredentialResponseBuilderAddAuthenticationActionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	credentialsBeginGetCredentialResponseBuilderCmd.AddCommand(credentialsBeginGetCredentialResponseBuilderAddAuthenticationActionCmd)
+	credentialsBeginGetCredentialResponseBuilderAddCredentialEntryCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	credentialsBeginGetCredentialResponseBuilderCmd.AddCommand(credentialsBeginGetCredentialResponseBuilderAddCredentialEntryCmd)
+	credentialsBeginGetCredentialResponseBuilderCmd.AddCommand(credentialsBeginGetCredentialResponseBuilderBuildCmd)
+	credentialsBeginGetCredentialResponseBuilderSetRemoteCredentialEntryCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	credentialsBeginGetCredentialResponseBuilderCmd.AddCommand(credentialsBeginGetCredentialResponseBuilderSetRemoteCredentialEntryCmd)
+	credentialsCmd.AddCommand(credentialsBeginGetCredentialResponseBuilderCmd)
+	credentialsBeginCreateCredentialResponseCmd.AddCommand(credentialsBeginCreateCredentialResponseNewBeginCreateCredentialResponseCmd)
+	credentialsBeginCreateCredentialResponseDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsBeginCreateCredentialResponseCmd.AddCommand(credentialsBeginCreateCredentialResponseDescribeContentsCmd)
+	credentialsBeginCreateCredentialResponseGetRemoteCreateEntryCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsBeginCreateCredentialResponseCmd.AddCommand(credentialsBeginCreateCredentialResponseGetRemoteCreateEntryCmd)
+	credentialsBeginCreateCredentialResponseWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsBeginCreateCredentialResponseWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	credentialsBeginCreateCredentialResponseWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	credentialsBeginCreateCredentialResponseCmd.AddCommand(credentialsBeginCreateCredentialResponseWriteToParcelCmd)
+	credentialsCmd.AddCommand(credentialsBeginCreateCredentialResponseCmd)
+	credentialsBeginCreateCredentialResponseBuilderAddCreateEntryCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	credentialsBeginCreateCredentialResponseBuilderCmd.AddCommand(credentialsBeginCreateCredentialResponseBuilderAddCreateEntryCmd)
+	credentialsBeginCreateCredentialResponseBuilderCmd.AddCommand(credentialsBeginCreateCredentialResponseBuilderBuildCmd)
+	credentialsBeginCreateCredentialResponseBuilderSetRemoteCreateEntryCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	credentialsBeginCreateCredentialResponseBuilderCmd.AddCommand(credentialsBeginCreateCredentialResponseBuilderSetRemoteCreateEntryCmd)
+	credentialsCmd.AddCommand(credentialsBeginCreateCredentialResponseBuilderCmd)
+	credentialsCredentialEntryNewCredentialEntryCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	credentialsCredentialEntryNewCredentialEntryCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	credentialsCredentialEntryCmd.AddCommand(credentialsCredentialEntryNewCredentialEntryCmd)
+	credentialsCredentialEntryDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsCredentialEntryCmd.AddCommand(credentialsCredentialEntryDescribeContentsCmd)
+	credentialsCredentialEntryGetBeginGetCredentialOptionIdCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsCredentialEntryCmd.AddCommand(credentialsCredentialEntryGetBeginGetCredentialOptionIdCmd)
+	credentialsCredentialEntryGetSliceCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsCredentialEntryCmd.AddCommand(credentialsCredentialEntryGetSliceCmd)
+	credentialsCredentialEntryGetTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsCredentialEntryCmd.AddCommand(credentialsCredentialEntryGetTypeCmd)
+	credentialsCredentialEntryWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsCredentialEntryWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	credentialsCredentialEntryWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	credentialsCredentialEntryCmd.AddCommand(credentialsCredentialEntryWriteToParcelCmd)
+	credentialsCmd.AddCommand(credentialsCredentialEntryCmd)
+	credentialsBeginGetCredentialRequestCmd.AddCommand(credentialsBeginGetCredentialRequestDescribeContentsCmd)
+	credentialsBeginGetCredentialRequestCmd.AddCommand(credentialsBeginGetCredentialRequestGetCallingAppInfoCmd)
+	credentialsBeginGetCredentialRequestWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	credentialsBeginGetCredentialRequestWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	credentialsBeginGetCredentialRequestCmd.AddCommand(credentialsBeginGetCredentialRequestWriteToParcelCmd)
+	credentialsCmd.AddCommand(credentialsBeginGetCredentialRequestCmd)
+	credentialsBeginGetCredentialRequestBuilderAddBeginGetCredentialOptionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	credentialsBeginGetCredentialRequestBuilderCmd.AddCommand(credentialsBeginGetCredentialRequestBuilderAddBeginGetCredentialOptionCmd)
+	credentialsBeginGetCredentialRequestBuilderCmd.AddCommand(credentialsBeginGetCredentialRequestBuilderBuildCmd)
+	credentialsBeginGetCredentialRequestBuilderSetCallingAppInfoCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	credentialsBeginGetCredentialRequestBuilderCmd.AddCommand(credentialsBeginGetCredentialRequestBuilderSetCallingAppInfoCmd)
+	credentialsCmd.AddCommand(credentialsBeginGetCredentialRequestBuilderCmd)
+	credentialsRemoteEntryNewRemoteEntryCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	credentialsRemoteEntryCmd.AddCommand(credentialsRemoteEntryNewRemoteEntryCmd)
+	credentialsRemoteEntryDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsRemoteEntryCmd.AddCommand(credentialsRemoteEntryDescribeContentsCmd)
+	credentialsRemoteEntryGetSliceCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsRemoteEntryCmd.AddCommand(credentialsRemoteEntryGetSliceCmd)
+	credentialsRemoteEntryWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsRemoteEntryWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	credentialsRemoteEntryWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	credentialsRemoteEntryCmd.AddCommand(credentialsRemoteEntryWriteToParcelCmd)
+	credentialsCmd.AddCommand(credentialsRemoteEntryCmd)
+	credentialsActionNewActionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	credentialsActionCmd.AddCommand(credentialsActionNewActionCmd)
+	credentialsActionDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsActionCmd.AddCommand(credentialsActionDescribeContentsCmd)
+	credentialsActionGetSliceCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsActionCmd.AddCommand(credentialsActionGetSliceCmd)
+	credentialsActionWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	credentialsActionWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	credentialsActionWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	credentialsActionCmd.AddCommand(credentialsActionWriteToParcelCmd)
+	credentialsCmd.AddCommand(credentialsActionCmd)
 	rootCmd.AddCommand(credentialsCmd)
 }

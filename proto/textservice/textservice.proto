@@ -6,6 +6,163 @@ package textservice;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/textservice";
 
+message CreateSessionRequest {
+}
+
+message CreateSessionResponse {
+  int64 result = 1;
+}
+
+message OnBindRequest {
+  int64 arg0 = 1;
+}
+
+message OnBindResponse {
+  int64 result = 1;
+}
+
+message GetBundleRequest {
+}
+
+message GetBundleResponse {
+  int64 result = 1;
+}
+
+message GetLocaleRequest {
+}
+
+message GetLocaleResponse {
+  string result = 1;
+}
+
+message GetSupportedAttributesRequest {
+}
+
+message GetSupportedAttributesResponse {
+  int32 result = 1;
+}
+
+message OnCancelRequest {
+}
+
+message OnCancelResponse {
+}
+
+message OnCloseRequest {
+}
+
+message OnCloseResponse {
+}
+
+message OnCreateRequest {
+}
+
+message OnCreateResponse {
+}
+
+message OnGetSentenceSuggestionsMultipleRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message OnGetSentenceSuggestionsMultipleResponse {
+  int64 result = 1;
+}
+
+message OnGetSuggestionsRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message OnGetSuggestionsResponse {
+  int64 result = 1;
+}
+
+message OnGetSuggestionsMultipleRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  bool arg2 = 3;
+}
+
+message OnGetSuggestionsMultipleResponse {
+  int64 result = 1;
+}
+
+message NewSuggestionsInfoRequest {
+  int64 arg0 = 1;
+}
+
+message NewSuggestionsInfoResponse {
+  int64 result = 1;
+}
+
+message DescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message GetCookieRequest {
+  int64 handle = 1;
+}
+
+message GetCookieResponse {
+  int32 result = 1;
+}
+
+message GetSequenceRequest {
+  int64 handle = 1;
+}
+
+message GetSequenceResponse {
+  int32 result = 1;
+}
+
+message GetSuggestionAtRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetSuggestionAtResponse {
+  string result = 1;
+}
+
+message GetSuggestionsAttributesRequest {
+  int64 handle = 1;
+}
+
+message GetSuggestionsAttributesResponse {
+  int32 result = 1;
+}
+
+message GetSuggestionsCountRequest {
+  int64 handle = 1;
+}
+
+message GetSuggestionsCountResponse {
+  int32 result = 1;
+}
+
+message SetCookieAndSequenceRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message SetCookieAndSequenceResponse {
+}
+
+message WriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message WriteToParcelResponse {
+}
+
 message GetCurrentSpellCheckerInfoRequest {
 }
 
@@ -41,9 +198,412 @@ message NewSpellCheckerSession3_1Response {
   int64 result = 1;
 }
 
+message NewSentenceSuggestionsInfoRequest {
+  int64 arg0 = 1;
+}
+
+message NewSentenceSuggestionsInfoResponse {
+  int64 result = 1;
+}
+
+message GetLengthAtRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetLengthAtResponse {
+  int32 result = 1;
+}
+
+message GetOffsetAtRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetOffsetAtResponse {
+  int32 result = 1;
+}
+
+message GetSuggestionsInfoAtRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetSuggestionsInfoAtResponse {
+  int64 result = 1;
+}
+
+message NewTextInfoRequest {
+  int64 arg0 = 1;
+}
+
+message NewTextInfoResponse {
+  int64 result = 1;
+}
+
+message GetCharSequenceRequest {
+  int64 handle = 1;
+}
+
+message GetCharSequenceResponse {
+  int64 result = 1;
+}
+
+message GetTextRequest {
+  int64 handle = 1;
+}
+
+message GetTextResponse {
+  string result = 1;
+}
+
+message NewSpellCheckerSubtypeRequest {
+  int32 arg0 = 1;
+  string arg1 = 2;
+  string arg2 = 3;
+}
+
+message NewSpellCheckerSubtypeResponse {
+  int64 result = 1;
+}
+
+message ContainsExtraValueKeyRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message ContainsExtraValueKeyResponse {
+  bool result = 1;
+}
+
+message EqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message GetDisplayNameRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message GetDisplayNameResponse {
+  int64 result = 1;
+}
+
+message GetExtraValueRequest {
+  int64 handle = 1;
+}
+
+message GetExtraValueResponse {
+  string result = 1;
+}
+
+message GetExtraValueOfRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message GetExtraValueOfResponse {
+  string result = 1;
+}
+
+message GetLanguageTagRequest {
+  int64 handle = 1;
+}
+
+message GetLanguageTagResponse {
+  string result = 1;
+}
+
+message SpellCheckerSubtypeGetLocaleRequest {
+  int64 handle = 1;
+}
+
+message GetNameResIdRequest {
+  int64 handle = 1;
+}
+
+message GetNameResIdResponse {
+  int32 result = 1;
+}
+
+message HashCodeRequest {
+  int64 handle = 1;
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message SpellCheckerInfoDescribeContentsRequest {
+}
+
+message GetComponentRequest {
+}
+
+message GetComponentResponse {
+  int64 result = 1;
+}
+
+message GetIdRequest {
+}
+
+message GetIdResponse {
+  string result = 1;
+}
+
+message GetPackageNameRequest {
+}
+
+message GetPackageNameResponse {
+  string result = 1;
+}
+
+message GetServiceInfoRequest {
+}
+
+message GetServiceInfoResponse {
+  int64 result = 1;
+}
+
+message GetSettingsActivityRequest {
+}
+
+message GetSettingsActivityResponse {
+  string result = 1;
+}
+
+message GetSubtypeAtRequest {
+  int32 arg0 = 1;
+}
+
+message GetSubtypeAtResponse {
+  int64 result = 1;
+}
+
+message GetSubtypeCountRequest {
+}
+
+message GetSubtypeCountResponse {
+  int32 result = 1;
+}
+
+message LoadIconRequest {
+  int64 arg0 = 1;
+}
+
+message LoadIconResponse {
+  int64 result = 1;
+}
+
+message LoadLabelRequest {
+  int64 arg0 = 1;
+}
+
+message LoadLabelResponse {
+  int64 result = 1;
+}
+
+message SpellCheckerInfoWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message CancelRequest {
+}
+
+message CancelResponse {
+}
+
+message CloseRequest {
+}
+
+message CloseResponse {
+}
+
+message GetSentenceSuggestionsRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message GetSentenceSuggestionsResponse {
+}
+
+message GetSpellCheckerRequest {
+}
+
+message GetSpellCheckerResponse {
+  int64 result = 1;
+}
+
+message GetSuggestions2Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message GetSuggestions2Response {
+}
+
+message GetSuggestions3_1Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  bool arg2 = 3;
+}
+
+message GetSuggestions3_1Response {
+}
+
+message IsSessionDisconnectedRequest {
+}
+
+message IsSessionDisconnectedResponse {
+  bool result = 1;
+}
+
+message OnGetSentenceSuggestionsRequest {
+  int64 arg0 = 1;
+}
+
+message OnGetSentenceSuggestionsResponse {
+}
+
+message SpellCheckerSessionSpellCheckerSessionListenerOnGetSuggestionsRequest {
+  int64 arg0 = 1;
+}
+
+message SpellCheckerSessionSpellCheckerSessionListenerOnGetSuggestionsResponse {
+}
+
+message GetExtrasRequest {
+}
+
+message GetExtrasResponse {
+  int64 result = 1;
+}
+
+message SpellCheckerSessionSpellCheckerSessionParamsGetLocaleRequest {
+}
+
+message SpellCheckerSessionSpellCheckerSessionParamsGetLocaleResponse {
+  int64 result = 1;
+}
+
+message ShouldReferToSpellCheckerLanguageSettingsRequest {
+}
+
+message ShouldReferToSpellCheckerLanguageSettingsResponse {
+  bool result = 1;
+}
+
+service SpellCheckerServiceService {
+  rpc CreateSession (CreateSessionRequest) returns (CreateSessionResponse);
+  rpc OnBind (OnBindRequest) returns (OnBindResponse);
+}
+
+service SpellCheckerServiceSessionService {
+  rpc GetBundle (GetBundleRequest) returns (GetBundleResponse);
+  rpc GetLocale (GetLocaleRequest) returns (GetLocaleResponse);
+  rpc GetSupportedAttributes (GetSupportedAttributesRequest) returns (GetSupportedAttributesResponse);
+  rpc OnCancel (OnCancelRequest) returns (OnCancelResponse);
+  rpc OnClose (OnCloseRequest) returns (OnCloseResponse);
+  rpc OnCreate (OnCreateRequest) returns (OnCreateResponse);
+  rpc OnGetSentenceSuggestionsMultiple (OnGetSentenceSuggestionsMultipleRequest) returns (OnGetSentenceSuggestionsMultipleResponse);
+  rpc OnGetSuggestions (OnGetSuggestionsRequest) returns (OnGetSuggestionsResponse);
+  rpc OnGetSuggestionsMultiple (OnGetSuggestionsMultipleRequest) returns (OnGetSuggestionsMultipleResponse);
+}
+
+service SuggestionsInfoService {
+  rpc NewSuggestionsInfo (NewSuggestionsInfoRequest) returns (NewSuggestionsInfoResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetCookie (GetCookieRequest) returns (GetCookieResponse);
+  rpc GetSequence (GetSequenceRequest) returns (GetSequenceResponse);
+  rpc GetSuggestionAt (GetSuggestionAtRequest) returns (GetSuggestionAtResponse);
+  rpc GetSuggestionsAttributes (GetSuggestionsAttributesRequest) returns (GetSuggestionsAttributesResponse);
+  rpc GetSuggestionsCount (GetSuggestionsCountRequest) returns (GetSuggestionsCountResponse);
+  rpc SetCookieAndSequence (SetCookieAndSequenceRequest) returns (SetCookieAndSequenceResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
 service TextServicesManagerService {
   rpc GetCurrentSpellCheckerInfo (GetCurrentSpellCheckerInfoRequest) returns (GetCurrentSpellCheckerInfoResponse);
   rpc IsSpellCheckerEnabled (IsSpellCheckerEnabledRequest) returns (IsSpellCheckerEnabledResponse);
   rpc NewSpellCheckerSession4 (NewSpellCheckerSession4Request) returns (NewSpellCheckerSession4Response);
   rpc NewSpellCheckerSession3_1 (NewSpellCheckerSession3_1Request) returns (NewSpellCheckerSession3_1Response);
+}
+
+service SentenceSuggestionsInfoService {
+  rpc NewSentenceSuggestionsInfo (NewSentenceSuggestionsInfoRequest) returns (NewSentenceSuggestionsInfoResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetLengthAt (GetLengthAtRequest) returns (GetLengthAtResponse);
+  rpc GetOffsetAt (GetOffsetAtRequest) returns (GetOffsetAtResponse);
+  rpc GetSuggestionsCount (GetSuggestionsCountRequest) returns (GetSuggestionsCountResponse);
+  rpc GetSuggestionsInfoAt (GetSuggestionsInfoAtRequest) returns (GetSuggestionsInfoAtResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service TextInfoService {
+  rpc NewTextInfo (NewTextInfoRequest) returns (NewTextInfoResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetCharSequence (GetCharSequenceRequest) returns (GetCharSequenceResponse);
+  rpc GetCookie (GetCookieRequest) returns (GetCookieResponse);
+  rpc GetSequence (GetSequenceRequest) returns (GetSequenceResponse);
+  rpc GetText (GetTextRequest) returns (GetTextResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service SpellCheckerSubtypeService {
+  rpc NewSpellCheckerSubtype (NewSpellCheckerSubtypeRequest) returns (NewSpellCheckerSubtypeResponse);
+  rpc ContainsExtraValueKey (ContainsExtraValueKeyRequest) returns (ContainsExtraValueKeyResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetDisplayName (GetDisplayNameRequest) returns (GetDisplayNameResponse);
+  rpc GetExtraValue (GetExtraValueRequest) returns (GetExtraValueResponse);
+  rpc GetExtraValueOf (GetExtraValueOfRequest) returns (GetExtraValueOfResponse);
+  rpc GetLanguageTag (GetLanguageTagRequest) returns (GetLanguageTagResponse);
+  rpc GetLocale (SpellCheckerSubtypeGetLocaleRequest) returns (GetLocaleResponse);
+  rpc GetNameResId (GetNameResIdRequest) returns (GetNameResIdResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service SpellCheckerInfoService {
+  rpc DescribeContents (SpellCheckerInfoDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetComponent (GetComponentRequest) returns (GetComponentResponse);
+  rpc GetId (GetIdRequest) returns (GetIdResponse);
+  rpc GetPackageName (GetPackageNameRequest) returns (GetPackageNameResponse);
+  rpc GetServiceInfo (GetServiceInfoRequest) returns (GetServiceInfoResponse);
+  rpc GetSettingsActivity (GetSettingsActivityRequest) returns (GetSettingsActivityResponse);
+  rpc GetSubtypeAt (GetSubtypeAtRequest) returns (GetSubtypeAtResponse);
+  rpc GetSubtypeCount (GetSubtypeCountRequest) returns (GetSubtypeCountResponse);
+  rpc LoadIcon (LoadIconRequest) returns (LoadIconResponse);
+  rpc LoadLabel (LoadLabelRequest) returns (LoadLabelResponse);
+  rpc WriteToParcel (SpellCheckerInfoWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service SpellCheckerSessionService {
+  rpc Cancel (CancelRequest) returns (CancelResponse);
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc GetSentenceSuggestions (GetSentenceSuggestionsRequest) returns (GetSentenceSuggestionsResponse);
+  rpc GetSpellChecker (GetSpellCheckerRequest) returns (GetSpellCheckerResponse);
+  rpc GetSuggestions2 (GetSuggestions2Request) returns (GetSuggestions2Response);
+  rpc GetSuggestions3_1 (GetSuggestions3_1Request) returns (GetSuggestions3_1Response);
+  rpc IsSessionDisconnected (IsSessionDisconnectedRequest) returns (IsSessionDisconnectedResponse);
+}
+
+service SpellCheckerSessionSpellCheckerSessionListenerService {
+  rpc OnGetSentenceSuggestions (OnGetSentenceSuggestionsRequest) returns (OnGetSentenceSuggestionsResponse);
+  rpc OnGetSuggestions (SpellCheckerSessionSpellCheckerSessionListenerOnGetSuggestionsRequest) returns (SpellCheckerSessionSpellCheckerSessionListenerOnGetSuggestionsResponse);
+}
+
+service SpellCheckerSessionSpellCheckerSessionParamsService {
+  rpc GetExtras (GetExtrasRequest) returns (GetExtrasResponse);
+  rpc GetLocale (SpellCheckerSessionSpellCheckerSessionParamsGetLocaleRequest) returns (SpellCheckerSessionSpellCheckerSessionParamsGetLocaleResponse);
+  rpc GetSupportedAttributes (GetSupportedAttributesRequest) returns (GetSupportedAttributesResponse);
+  rpc ShouldReferToSpellCheckerLanguageSettings (ShouldReferToSpellCheckerLanguageSettingsRequest) returns (ShouldReferToSpellCheckerLanguageSettingsResponse);
 }

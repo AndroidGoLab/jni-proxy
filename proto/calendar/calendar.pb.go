@@ -12,6 +12,7 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -22,19 +23,943 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type StartViewCalendarEventInManagedProfileRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int64                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	Arg4          bool                   `protobuf:"varint,5,opt,name=arg4,proto3" json:"arg4,omitempty"`
+	Arg5          int32                  `protobuf:"varint,6,opt,name=arg5,proto3" json:"arg5,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *StartViewCalendarEventInManagedProfileRequest) Reset() {
+	*x = StartViewCalendarEventInManagedProfileRequest{}
+	mi := &file_proto_calendar_calendar_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *StartViewCalendarEventInManagedProfileRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StartViewCalendarEventInManagedProfileRequest) ProtoMessage() {}
+
+func (x *StartViewCalendarEventInManagedProfileRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_calendar_calendar_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StartViewCalendarEventInManagedProfileRequest.ProtoReflect.Descriptor instead.
+func (*StartViewCalendarEventInManagedProfileRequest) Descriptor() ([]byte, []int) {
+	return file_proto_calendar_calendar_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *StartViewCalendarEventInManagedProfileRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *StartViewCalendarEventInManagedProfileRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *StartViewCalendarEventInManagedProfileRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *StartViewCalendarEventInManagedProfileRequest) GetArg3() int64 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+func (x *StartViewCalendarEventInManagedProfileRequest) GetArg4() bool {
+	if x != nil {
+		return x.Arg4
+	}
+	return false
+}
+
+func (x *StartViewCalendarEventInManagedProfileRequest) GetArg5() int32 {
+	if x != nil {
+		return x.Arg5
+	}
+	return 0
+}
+
+type StartViewCalendarEventInManagedProfileResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *StartViewCalendarEventInManagedProfileResponse) Reset() {
+	*x = StartViewCalendarEventInManagedProfileResponse{}
+	mi := &file_proto_calendar_calendar_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *StartViewCalendarEventInManagedProfileResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StartViewCalendarEventInManagedProfileResponse) ProtoMessage() {}
+
+func (x *StartViewCalendarEventInManagedProfileResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_calendar_calendar_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StartViewCalendarEventInManagedProfileResponse.ProtoReflect.Descriptor instead.
+func (*StartViewCalendarEventInManagedProfileResponse) Descriptor() ([]byte, []int) {
+	return file_proto_calendar_calendar_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *StartViewCalendarEventInManagedProfileResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type QueryRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *QueryRequest) Reset() {
+	*x = QueryRequest{}
+	mi := &file_proto_calendar_calendar_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *QueryRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryRequest) ProtoMessage() {}
+
+func (x *QueryRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_calendar_calendar_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use QueryRequest.ProtoReflect.Descriptor instead.
+func (*QueryRequest) Descriptor() ([]byte, []int) {
+	return file_proto_calendar_calendar_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *QueryRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *QueryRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *QueryRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type QueryResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *QueryResponse) Reset() {
+	*x = QueryResponse{}
+	mi := &file_proto_calendar_calendar_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *QueryResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryResponse) ProtoMessage() {}
+
+func (x *QueryResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_calendar_calendar_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use QueryResponse.ProtoReflect.Descriptor instead.
+func (*QueryResponse) Descriptor() ([]byte, []int) {
+	return file_proto_calendar_calendar_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *QueryResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type NewEntityIteratorRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewEntityIteratorRequest) Reset() {
+	*x = NewEntityIteratorRequest{}
+	mi := &file_proto_calendar_calendar_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewEntityIteratorRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewEntityIteratorRequest) ProtoMessage() {}
+
+func (x *NewEntityIteratorRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_calendar_calendar_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewEntityIteratorRequest.ProtoReflect.Descriptor instead.
+func (*NewEntityIteratorRequest) Descriptor() ([]byte, []int) {
+	return file_proto_calendar_calendar_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *NewEntityIteratorRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type NewEntityIteratorResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewEntityIteratorResponse) Reset() {
+	*x = NewEntityIteratorResponse{}
+	mi := &file_proto_calendar_calendar_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewEntityIteratorResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewEntityIteratorResponse) ProtoMessage() {}
+
+func (x *NewEntityIteratorResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_calendar_calendar_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewEntityIteratorResponse.ProtoReflect.Descriptor instead.
+func (*NewEntityIteratorResponse) Descriptor() ([]byte, []int) {
+	return file_proto_calendar_calendar_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *NewEntityIteratorResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ContractEventDaysQueryRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int64                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ContractEventDaysQueryRequest) Reset() {
+	*x = ContractEventDaysQueryRequest{}
+	mi := &file_proto_calendar_calendar_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ContractEventDaysQueryRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ContractEventDaysQueryRequest) ProtoMessage() {}
+
+func (x *ContractEventDaysQueryRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_calendar_calendar_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ContractEventDaysQueryRequest.ProtoReflect.Descriptor instead.
+func (*ContractEventDaysQueryRequest) Descriptor() ([]byte, []int) {
+	return file_proto_calendar_calendar_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *ContractEventDaysQueryRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *ContractEventDaysQueryRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *ContractEventDaysQueryRequest) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *ContractEventDaysQueryRequest) GetArg3() int64 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+type NewEntityIterator2Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewEntityIterator2Request) Reset() {
+	*x = NewEntityIterator2Request{}
+	mi := &file_proto_calendar_calendar_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewEntityIterator2Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewEntityIterator2Request) ProtoMessage() {}
+
+func (x *NewEntityIterator2Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_calendar_calendar_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewEntityIterator2Request.ProtoReflect.Descriptor instead.
+func (*NewEntityIterator2Request) Descriptor() ([]byte, []int) {
+	return file_proto_calendar_calendar_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *NewEntityIterator2Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *NewEntityIterator2Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type NewEntityIterator2Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewEntityIterator2Response) Reset() {
+	*x = NewEntityIterator2Response{}
+	mi := &file_proto_calendar_calendar_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewEntityIterator2Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewEntityIterator2Response) ProtoMessage() {}
+
+func (x *NewEntityIterator2Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_calendar_calendar_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewEntityIterator2Response.ProtoReflect.Descriptor instead.
+func (*NewEntityIterator2Response) Descriptor() ([]byte, []int) {
+	return file_proto_calendar_calendar_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *NewEntityIterator2Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type NewEntityIterator2_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewEntityIterator2_1Request) Reset() {
+	*x = NewEntityIterator2_1Request{}
+	mi := &file_proto_calendar_calendar_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewEntityIterator2_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewEntityIterator2_1Request) ProtoMessage() {}
+
+func (x *NewEntityIterator2_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_calendar_calendar_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewEntityIterator2_1Request.ProtoReflect.Descriptor instead.
+func (*NewEntityIterator2_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_calendar_calendar_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *NewEntityIterator2_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *NewEntityIterator2_1Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type NewEntityIterator2_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewEntityIterator2_1Response) Reset() {
+	*x = NewEntityIterator2_1Response{}
+	mi := &file_proto_calendar_calendar_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewEntityIterator2_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewEntityIterator2_1Response) ProtoMessage() {}
+
+func (x *NewEntityIterator2_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_calendar_calendar_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewEntityIterator2_1Response.ProtoReflect.Descriptor instead.
+func (*NewEntityIterator2_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_calendar_calendar_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *NewEntityIterator2_1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type Query4Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int64                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Query4Request) Reset() {
+	*x = Query4Request{}
+	mi := &file_proto_calendar_calendar_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Query4Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Query4Request) ProtoMessage() {}
+
+func (x *Query4Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_calendar_calendar_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Query4Request.ProtoReflect.Descriptor instead.
+func (*Query4Request) Descriptor() ([]byte, []int) {
+	return file_proto_calendar_calendar_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *Query4Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *Query4Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *Query4Request) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *Query4Request) GetArg3() int64 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+type Query4Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Query4Response) Reset() {
+	*x = Query4Response{}
+	mi := &file_proto_calendar_calendar_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Query4Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Query4Response) ProtoMessage() {}
+
+func (x *Query4Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_calendar_calendar_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Query4Response.ProtoReflect.Descriptor instead.
+func (*Query4Response) Descriptor() ([]byte, []int) {
+	return file_proto_calendar_calendar_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *Query4Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type Query5_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int64                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	Arg4          string                 `protobuf:"bytes,5,opt,name=arg4,proto3" json:"arg4,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Query5_1Request) Reset() {
+	*x = Query5_1Request{}
+	mi := &file_proto_calendar_calendar_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Query5_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Query5_1Request) ProtoMessage() {}
+
+func (x *Query5_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_calendar_calendar_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Query5_1Request.ProtoReflect.Descriptor instead.
+func (*Query5_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_calendar_calendar_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *Query5_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *Query5_1Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *Query5_1Request) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *Query5_1Request) GetArg3() int64 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+func (x *Query5_1Request) GetArg4() string {
+	if x != nil {
+		return x.Arg4
+	}
+	return ""
+}
+
+type Query5_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Query5_1Response) Reset() {
+	*x = Query5_1Response{}
+	mi := &file_proto_calendar_calendar_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Query5_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Query5_1Response) ProtoMessage() {}
+
+func (x *Query5_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_calendar_calendar_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Query5_1Response.ProtoReflect.Descriptor instead.
+func (*Query5_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_calendar_calendar_proto_rawDescGZIP(), []int{14}
+}
+
+func (x *Query5_1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
 var File_proto_calendar_calendar_proto protoreflect.FileDescriptor
 
 const file_proto_calendar_calendar_proto_rawDesc = "" +
 	"\n" +
-	"\x1dproto/calendar/calendar.proto\x12\bcalendarB2Z0github.com/AndroidGoLab/jni-proxy/proto/calendarb\x06proto3"
+	"\x1dproto/calendar/calendar.proto\x12\bcalendar\"\xa7\x01\n" +
+	"-StartViewCalendarEventInManagedProfileRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\x12\x12\n" +
+	"\x04arg4\x18\x05 \x01(\bR\x04arg4\x12\x12\n" +
+	"\x04arg5\x18\x06 \x01(\x05R\x04arg5\"H\n" +
+	".StartViewCalendarEventInManagedProfileResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"J\n" +
+	"\fQueryRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"'\n" +
+	"\rQueryResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\".\n" +
+	"\x18NewEntityIteratorRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"3\n" +
+	"\x19NewEntityIteratorResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"o\n" +
+	"\x1dContractEventDaysQueryRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\"C\n" +
+	"\x19NewEntityIterator2Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"4\n" +
+	"\x1aNewEntityIterator2Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"E\n" +
+	"\x1bNewEntityIterator2_1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"6\n" +
+	"\x1cNewEntityIterator2_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"_\n" +
+	"\rQuery4Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\"(\n" +
+	"\x0eQuery4Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"u\n" +
+	"\x0fQuery5_1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\x12\x12\n" +
+	"\x04arg4\x18\x05 \x01(\tR\x04arg4\"*\n" +
+	"\x10Query5_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result2\xaf\x01\n" +
+	"\x0fContractService\x12\x9b\x01\n" +
+	"&StartViewCalendarEventInManagedProfile\x127.calendar.StartViewCalendarEventInManagedProfileRequest\x1a8.calendar.StartViewCalendarEventInManagedProfileResponse2T\n" +
+	"\x18ContractAttendeesService\x128\n" +
+	"\x05Query\x12\x16.calendar.QueryRequest\x1a\x17.calendar.QueryResponse2}\n" +
+	"\x1dContractCalendarEntityService\x12\\\n" +
+	"\x11NewEntityIterator\x12\".calendar.NewEntityIteratorRequest\x1a#.calendar.NewEntityIteratorResponse2e\n" +
+	"\x18ContractEventDaysService\x12I\n" +
+	"\x05Query\x12'.calendar.ContractEventDaysQueryRequest\x1a\x17.calendar.QueryResponse2\xe5\x01\n" +
+	"\x1bContractEventsEntityService\x12_\n" +
+	"\x12NewEntityIterator2\x12#.calendar.NewEntityIterator2Request\x1a$.calendar.NewEntityIterator2Response\x12e\n" +
+	"\x14NewEntityIterator2_1\x12%.calendar.NewEntityIterator2_1Request\x1a&.calendar.NewEntityIterator2_1Response2\x9a\x01\n" +
+	"\x18ContractInstancesService\x12;\n" +
+	"\x06Query4\x12\x17.calendar.Query4Request\x1a\x18.calendar.Query4Response\x12A\n" +
+	"\bQuery5_1\x12\x19.calendar.Query5_1Request\x1a\x1a.calendar.Query5_1Response2T\n" +
+	"\x18ContractRemindersService\x128\n" +
+	"\x05Query\x12\x16.calendar.QueryRequest\x1a\x17.calendar.QueryResponseB2Z0github.com/AndroidGoLab/jni-proxy/proto/calendarb\x06proto3"
 
-var file_proto_calendar_calendar_proto_goTypes = []any{}
+var (
+	file_proto_calendar_calendar_proto_rawDescOnce sync.Once
+	file_proto_calendar_calendar_proto_rawDescData []byte
+)
+
+func file_proto_calendar_calendar_proto_rawDescGZIP() []byte {
+	file_proto_calendar_calendar_proto_rawDescOnce.Do(func() {
+		file_proto_calendar_calendar_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_proto_calendar_calendar_proto_rawDesc), len(file_proto_calendar_calendar_proto_rawDesc)))
+	})
+	return file_proto_calendar_calendar_proto_rawDescData
+}
+
+var file_proto_calendar_calendar_proto_msgTypes = make([]protoimpl.MessageInfo, 15)
+var file_proto_calendar_calendar_proto_goTypes = []any{
+	(*StartViewCalendarEventInManagedProfileRequest)(nil),  // 0: calendar.StartViewCalendarEventInManagedProfileRequest
+	(*StartViewCalendarEventInManagedProfileResponse)(nil), // 1: calendar.StartViewCalendarEventInManagedProfileResponse
+	(*QueryRequest)(nil),                  // 2: calendar.QueryRequest
+	(*QueryResponse)(nil),                 // 3: calendar.QueryResponse
+	(*NewEntityIteratorRequest)(nil),      // 4: calendar.NewEntityIteratorRequest
+	(*NewEntityIteratorResponse)(nil),     // 5: calendar.NewEntityIteratorResponse
+	(*ContractEventDaysQueryRequest)(nil), // 6: calendar.ContractEventDaysQueryRequest
+	(*NewEntityIterator2Request)(nil),     // 7: calendar.NewEntityIterator2Request
+	(*NewEntityIterator2Response)(nil),    // 8: calendar.NewEntityIterator2Response
+	(*NewEntityIterator2_1Request)(nil),   // 9: calendar.NewEntityIterator2_1Request
+	(*NewEntityIterator2_1Response)(nil),  // 10: calendar.NewEntityIterator2_1Response
+	(*Query4Request)(nil),                 // 11: calendar.Query4Request
+	(*Query4Response)(nil),                // 12: calendar.Query4Response
+	(*Query5_1Request)(nil),               // 13: calendar.Query5_1Request
+	(*Query5_1Response)(nil),              // 14: calendar.Query5_1Response
+}
 var file_proto_calendar_calendar_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	0,  // 0: calendar.ContractService.StartViewCalendarEventInManagedProfile:input_type -> calendar.StartViewCalendarEventInManagedProfileRequest
+	2,  // 1: calendar.ContractAttendeesService.Query:input_type -> calendar.QueryRequest
+	4,  // 2: calendar.ContractCalendarEntityService.NewEntityIterator:input_type -> calendar.NewEntityIteratorRequest
+	6,  // 3: calendar.ContractEventDaysService.Query:input_type -> calendar.ContractEventDaysQueryRequest
+	7,  // 4: calendar.ContractEventsEntityService.NewEntityIterator2:input_type -> calendar.NewEntityIterator2Request
+	9,  // 5: calendar.ContractEventsEntityService.NewEntityIterator2_1:input_type -> calendar.NewEntityIterator2_1Request
+	11, // 6: calendar.ContractInstancesService.Query4:input_type -> calendar.Query4Request
+	13, // 7: calendar.ContractInstancesService.Query5_1:input_type -> calendar.Query5_1Request
+	2,  // 8: calendar.ContractRemindersService.Query:input_type -> calendar.QueryRequest
+	1,  // 9: calendar.ContractService.StartViewCalendarEventInManagedProfile:output_type -> calendar.StartViewCalendarEventInManagedProfileResponse
+	3,  // 10: calendar.ContractAttendeesService.Query:output_type -> calendar.QueryResponse
+	5,  // 11: calendar.ContractCalendarEntityService.NewEntityIterator:output_type -> calendar.NewEntityIteratorResponse
+	3,  // 12: calendar.ContractEventDaysService.Query:output_type -> calendar.QueryResponse
+	8,  // 13: calendar.ContractEventsEntityService.NewEntityIterator2:output_type -> calendar.NewEntityIterator2Response
+	10, // 14: calendar.ContractEventsEntityService.NewEntityIterator2_1:output_type -> calendar.NewEntityIterator2_1Response
+	12, // 15: calendar.ContractInstancesService.Query4:output_type -> calendar.Query4Response
+	14, // 16: calendar.ContractInstancesService.Query5_1:output_type -> calendar.Query5_1Response
+	3,  // 17: calendar.ContractRemindersService.Query:output_type -> calendar.QueryResponse
+	9,  // [9:18] is the sub-list for method output_type
+	0,  // [0:9] is the sub-list for method input_type
+	0,  // [0:0] is the sub-list for extension type_name
+	0,  // [0:0] is the sub-list for extension extendee
+	0,  // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_proto_calendar_calendar_proto_init() }
@@ -48,12 +973,13 @@ func file_proto_calendar_calendar_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_calendar_calendar_proto_rawDesc), len(file_proto_calendar_calendar_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   15,
 			NumExtensions: 0,
-			NumServices:   0,
+			NumServices:   7,
 		},
 		GoTypes:           file_proto_calendar_calendar_proto_goTypes,
 		DependencyIndexes: file_proto_calendar_calendar_proto_depIdxs,
+		MessageInfos:      file_proto_calendar_calendar_proto_msgTypes,
 	}.Build()
 	File_proto_calendar_calendar_proto = out.File
 	file_proto_calendar_calendar_proto_goTypes = nil

@@ -5,3 +5,138 @@ syntax = "proto3";
 package cdma;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/cdma";
+
+message NewCellLocationRequest {
+}
+
+message NewCellLocationResponse {
+  int64 result = 1;
+}
+
+message EqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message FillInNotifierBundleRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message FillInNotifierBundleResponse {
+}
+
+message GetBaseStationIdRequest {
+  int64 handle = 1;
+}
+
+message GetBaseStationIdResponse {
+  int32 result = 1;
+}
+
+message GetBaseStationLatitudeRequest {
+  int64 handle = 1;
+}
+
+message GetBaseStationLatitudeResponse {
+  int32 result = 1;
+}
+
+message GetBaseStationLongitudeRequest {
+  int64 handle = 1;
+}
+
+message GetBaseStationLongitudeResponse {
+  int32 result = 1;
+}
+
+message GetNetworkIdRequest {
+  int64 handle = 1;
+}
+
+message GetNetworkIdResponse {
+  int32 result = 1;
+}
+
+message GetSystemIdRequest {
+  int64 handle = 1;
+}
+
+message GetSystemIdResponse {
+  int32 result = 1;
+}
+
+message HashCodeRequest {
+  int64 handle = 1;
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message SetCellLocationData3Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+}
+
+message SetCellLocationData3Response {
+}
+
+message SetCellLocationData5_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
+  int32 arg4 = 6;
+}
+
+message SetCellLocationData5_1Response {
+}
+
+message SetStateInvalidRequest {
+  int64 handle = 1;
+}
+
+message SetStateInvalidResponse {
+}
+
+message ToStringRequest {
+  int64 handle = 1;
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message ConvertQuartSecToDecDegreesRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message ConvertQuartSecToDecDegreesResponse {
+  double result = 1;
+}
+
+service CellLocationService {
+  rpc NewCellLocation (NewCellLocationRequest) returns (NewCellLocationResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc FillInNotifierBundle (FillInNotifierBundleRequest) returns (FillInNotifierBundleResponse);
+  rpc GetBaseStationId (GetBaseStationIdRequest) returns (GetBaseStationIdResponse);
+  rpc GetBaseStationLatitude (GetBaseStationLatitudeRequest) returns (GetBaseStationLatitudeResponse);
+  rpc GetBaseStationLongitude (GetBaseStationLongitudeRequest) returns (GetBaseStationLongitudeResponse);
+  rpc GetNetworkId (GetNetworkIdRequest) returns (GetNetworkIdResponse);
+  rpc GetSystemId (GetSystemIdRequest) returns (GetSystemIdResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc SetCellLocationData3 (SetCellLocationData3Request) returns (SetCellLocationData3Response);
+  rpc SetCellLocationData5_1 (SetCellLocationData5_1Request) returns (SetCellLocationData5_1Response);
+  rpc SetStateInvalid (SetStateInvalidRequest) returns (SetStateInvalidResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc ConvertQuartSecToDecDegrees (ConvertQuartSecToDecDegreesRequest) returns (ConvertQuartSecToDecDegreesResponse);
+}

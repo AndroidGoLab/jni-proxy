@@ -262,3 +262,126 @@ func (c *ManagerClient) RemoveThermalStatusListener(ctx context.Context, arg0 in
 	})
 	return err
 }
+
+// ManagerOnThermalStatusChangedListenerClient wraps the gRPC ManagerOnThermalStatusChangedListenerService client.
+type ManagerOnThermalStatusChangedListenerClient struct {
+	svc pb.ManagerOnThermalStatusChangedListenerServiceClient
+}
+
+// NewManagerOnThermalStatusChangedListenerClient creates a new ManagerOnThermalStatusChangedListener client.
+func NewManagerOnThermalStatusChangedListenerClient(cc grpc.ClientConnInterface) *ManagerOnThermalStatusChangedListenerClient {
+	return &ManagerOnThermalStatusChangedListenerClient{
+		svc: pb.NewManagerOnThermalStatusChangedListenerServiceClient(cc),
+	}
+}
+
+// OnThermalStatusChanged calls the OnThermalStatusChanged RPC.
+func (c *ManagerOnThermalStatusChangedListenerClient) OnThermalStatusChanged(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.OnThermalStatusChanged(ctx, &pb.OnThermalStatusChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ManagerWakeLockClient wraps the gRPC ManagerWakeLockService client.
+type ManagerWakeLockClient struct {
+	svc pb.ManagerWakeLockServiceClient
+}
+
+// NewManagerWakeLockClient creates a new ManagerWakeLock client.
+func NewManagerWakeLockClient(cc grpc.ClientConnInterface) *ManagerWakeLockClient {
+	return &ManagerWakeLockClient{
+		svc: pb.NewManagerWakeLockServiceClient(cc),
+	}
+}
+
+// Acquire0 calls the Acquire0 RPC.
+func (c *ManagerWakeLockClient) Acquire0(ctx context.Context) error {
+	_, err := c.svc.Acquire0(ctx, &pb.Acquire0Request{})
+	return err
+}
+
+// Acquire1_1 calls the Acquire1_1 RPC.
+func (c *ManagerWakeLockClient) Acquire1_1(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.Acquire1_1(ctx, &pb.Acquire1_1Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// IsHeld calls the IsHeld RPC.
+func (c *ManagerWakeLockClient) IsHeld(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsHeld(ctx, &pb.IsHeldRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Release0 calls the Release0 RPC.
+func (c *ManagerWakeLockClient) Release0(ctx context.Context) error {
+	_, err := c.svc.Release0(ctx, &pb.Release0Request{})
+	return err
+}
+
+// Release1_1 calls the Release1_1 RPC.
+func (c *ManagerWakeLockClient) Release1_1(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.Release1_1(ctx, &pb.Release1_1Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetReferenceCounted calls the SetReferenceCounted RPC.
+func (c *ManagerWakeLockClient) SetReferenceCounted(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetReferenceCounted(ctx, &pb.SetReferenceCountedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetStateListener calls the SetStateListener RPC.
+func (c *ManagerWakeLockClient) SetStateListener(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.SetStateListener(ctx, &pb.SetStateListenerRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// SetWorkSource calls the SetWorkSource RPC.
+func (c *ManagerWakeLockClient) SetWorkSource(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetWorkSource(ctx, &pb.SetWorkSourceRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ToString calls the ToString RPC.
+func (c *ManagerWakeLockClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// ManagerWakeLockStateListenerClient wraps the gRPC ManagerWakeLockStateListenerService client.
+type ManagerWakeLockStateListenerClient struct {
+	svc pb.ManagerWakeLockStateListenerServiceClient
+}
+
+// NewManagerWakeLockStateListenerClient creates a new ManagerWakeLockStateListener client.
+func NewManagerWakeLockStateListenerClient(cc grpc.ClientConnInterface) *ManagerWakeLockStateListenerClient {
+	return &ManagerWakeLockStateListenerClient{
+		svc: pb.NewManagerWakeLockStateListenerServiceClient(cc),
+	}
+}
+
+// OnStateChanged calls the OnStateChanged RPC.
+func (c *ManagerWakeLockStateListenerClient) OnStateChanged(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.OnStateChanged(ctx, &pb.OnStateChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}

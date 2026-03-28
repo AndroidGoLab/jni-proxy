@@ -12,6 +12,7 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -22,19 +23,2815 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type GetEapMethodTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEapMethodTypeRequest) Reset() {
+	*x = GetEapMethodTypeRequest{}
+	mi := &file_proto_eap_eap_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEapMethodTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEapMethodTypeRequest) ProtoMessage() {}
+
+func (x *GetEapMethodTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_eap_eap_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEapMethodTypeRequest.ProtoReflect.Descriptor instead.
+func (*GetEapMethodTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_eap_eap_proto_rawDescGZIP(), []int{0}
+}
+
+type GetEapMethodTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEapMethodTypeResponse) Reset() {
+	*x = GetEapMethodTypeResponse{}
+	mi := &file_proto_eap_eap_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEapMethodTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEapMethodTypeResponse) ProtoMessage() {}
+
+func (x *GetEapMethodTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_eap_eap_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEapMethodTypeResponse.ProtoReflect.Descriptor instead.
+func (*GetEapMethodTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_eap_eap_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *GetEapMethodTypeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetReauthIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetReauthIdRequest) Reset() {
+	*x = GetReauthIdRequest{}
+	mi := &file_proto_eap_eap_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetReauthIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetReauthIdRequest) ProtoMessage() {}
+
+func (x *GetReauthIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_eap_eap_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetReauthIdRequest.ProtoReflect.Descriptor instead.
+func (*GetReauthIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_eap_eap_proto_rawDescGZIP(), []int{2}
+}
+
+type GetReauthIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetReauthIdResponse) Reset() {
+	*x = GetReauthIdResponse{}
+	mi := &file_proto_eap_eap_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetReauthIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetReauthIdResponse) ProtoMessage() {}
+
+func (x *GetReauthIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_eap_eap_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetReauthIdResponse.ProtoReflect.Descriptor instead.
+func (*GetReauthIdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_eap_eap_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *GetReauthIdResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type BuildRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BuildRequest) Reset() {
+	*x = BuildRequest{}
+	mi := &file_proto_eap_eap_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BuildRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BuildRequest) ProtoMessage() {}
+
+func (x *BuildRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_eap_eap_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BuildRequest.ProtoReflect.Descriptor instead.
+func (*BuildRequest) Descriptor() ([]byte, []int) {
+	return file_proto_eap_eap_proto_rawDescGZIP(), []int{4}
+}
+
+type BuildResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BuildResponse) Reset() {
+	*x = BuildResponse{}
+	mi := &file_proto_eap_eap_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BuildResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BuildResponse) ProtoMessage() {}
+
+func (x *BuildResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_eap_eap_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BuildResponse.ProtoReflect.Descriptor instead.
+func (*BuildResponse) Descriptor() ([]byte, []int) {
+	return file_proto_eap_eap_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *BuildResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetReauthIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetReauthIdRequest) Reset() {
+	*x = SetReauthIdRequest{}
+	mi := &file_proto_eap_eap_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetReauthIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetReauthIdRequest) ProtoMessage() {}
+
+func (x *SetReauthIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_eap_eap_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetReauthIdRequest.ProtoReflect.Descriptor instead.
+func (*SetReauthIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_eap_eap_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *SetReauthIdRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetReauthIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetReauthIdResponse) Reset() {
+	*x = SetReauthIdResponse{}
+	mi := &file_proto_eap_eap_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetReauthIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetReauthIdResponse) ProtoMessage() {}
+
+func (x *SetReauthIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_eap_eap_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetReauthIdResponse.ProtoReflect.Descriptor instead.
+func (*SetReauthIdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_eap_eap_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *SetReauthIdResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type EqualsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EqualsRequest) Reset() {
+	*x = EqualsRequest{}
+	mi := &file_proto_eap_eap_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EqualsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EqualsRequest) ProtoMessage() {}
+
+func (x *EqualsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_eap_eap_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EqualsRequest.ProtoReflect.Descriptor instead.
+func (*EqualsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_eap_eap_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *EqualsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type EqualsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EqualsResponse) Reset() {
+	*x = EqualsResponse{}
+	mi := &file_proto_eap_eap_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EqualsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EqualsResponse) ProtoMessage() {}
+
+func (x *EqualsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_eap_eap_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EqualsResponse.ProtoReflect.Descriptor instead.
+func (*EqualsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_eap_eap_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *EqualsResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type GetEapAkaConfigRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEapAkaConfigRequest) Reset() {
+	*x = GetEapAkaConfigRequest{}
+	mi := &file_proto_eap_eap_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEapAkaConfigRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEapAkaConfigRequest) ProtoMessage() {}
+
+func (x *GetEapAkaConfigRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_eap_eap_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEapAkaConfigRequest.ProtoReflect.Descriptor instead.
+func (*GetEapAkaConfigRequest) Descriptor() ([]byte, []int) {
+	return file_proto_eap_eap_proto_rawDescGZIP(), []int{10}
+}
+
+type GetEapAkaConfigResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEapAkaConfigResponse) Reset() {
+	*x = GetEapAkaConfigResponse{}
+	mi := &file_proto_eap_eap_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEapAkaConfigResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEapAkaConfigResponse) ProtoMessage() {}
+
+func (x *GetEapAkaConfigResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_eap_eap_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEapAkaConfigResponse.ProtoReflect.Descriptor instead.
+func (*GetEapAkaConfigResponse) Descriptor() ([]byte, []int) {
+	return file_proto_eap_eap_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *GetEapAkaConfigResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetEapAkaPrimeConfigRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEapAkaPrimeConfigRequest) Reset() {
+	*x = GetEapAkaPrimeConfigRequest{}
+	mi := &file_proto_eap_eap_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEapAkaPrimeConfigRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEapAkaPrimeConfigRequest) ProtoMessage() {}
+
+func (x *GetEapAkaPrimeConfigRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_eap_eap_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEapAkaPrimeConfigRequest.ProtoReflect.Descriptor instead.
+func (*GetEapAkaPrimeConfigRequest) Descriptor() ([]byte, []int) {
+	return file_proto_eap_eap_proto_rawDescGZIP(), []int{12}
+}
+
+type GetEapAkaPrimeConfigResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEapAkaPrimeConfigResponse) Reset() {
+	*x = GetEapAkaPrimeConfigResponse{}
+	mi := &file_proto_eap_eap_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEapAkaPrimeConfigResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEapAkaPrimeConfigResponse) ProtoMessage() {}
+
+func (x *GetEapAkaPrimeConfigResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_eap_eap_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEapAkaPrimeConfigResponse.ProtoReflect.Descriptor instead.
+func (*GetEapAkaPrimeConfigResponse) Descriptor() ([]byte, []int) {
+	return file_proto_eap_eap_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *GetEapAkaPrimeConfigResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetEapIdentityRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEapIdentityRequest) Reset() {
+	*x = GetEapIdentityRequest{}
+	mi := &file_proto_eap_eap_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEapIdentityRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEapIdentityRequest) ProtoMessage() {}
+
+func (x *GetEapIdentityRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_eap_eap_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEapIdentityRequest.ProtoReflect.Descriptor instead.
+func (*GetEapIdentityRequest) Descriptor() ([]byte, []int) {
+	return file_proto_eap_eap_proto_rawDescGZIP(), []int{14}
+}
+
+type GetEapIdentityResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEapIdentityResponse) Reset() {
+	*x = GetEapIdentityResponse{}
+	mi := &file_proto_eap_eap_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEapIdentityResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEapIdentityResponse) ProtoMessage() {}
+
+func (x *GetEapIdentityResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_eap_eap_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEapIdentityResponse.ProtoReflect.Descriptor instead.
+func (*GetEapIdentityResponse) Descriptor() ([]byte, []int) {
+	return file_proto_eap_eap_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *GetEapIdentityResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetEapMsChapV2ConfigRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEapMsChapV2ConfigRequest) Reset() {
+	*x = GetEapMsChapV2ConfigRequest{}
+	mi := &file_proto_eap_eap_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEapMsChapV2ConfigRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEapMsChapV2ConfigRequest) ProtoMessage() {}
+
+func (x *GetEapMsChapV2ConfigRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_eap_eap_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEapMsChapV2ConfigRequest.ProtoReflect.Descriptor instead.
+func (*GetEapMsChapV2ConfigRequest) Descriptor() ([]byte, []int) {
+	return file_proto_eap_eap_proto_rawDescGZIP(), []int{16}
+}
+
+type GetEapMsChapV2ConfigResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEapMsChapV2ConfigResponse) Reset() {
+	*x = GetEapMsChapV2ConfigResponse{}
+	mi := &file_proto_eap_eap_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEapMsChapV2ConfigResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEapMsChapV2ConfigResponse) ProtoMessage() {}
+
+func (x *GetEapMsChapV2ConfigResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_eap_eap_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEapMsChapV2ConfigResponse.ProtoReflect.Descriptor instead.
+func (*GetEapMsChapV2ConfigResponse) Descriptor() ([]byte, []int) {
+	return file_proto_eap_eap_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *GetEapMsChapV2ConfigResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetEapSimConfigRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEapSimConfigRequest) Reset() {
+	*x = GetEapSimConfigRequest{}
+	mi := &file_proto_eap_eap_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEapSimConfigRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEapSimConfigRequest) ProtoMessage() {}
+
+func (x *GetEapSimConfigRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_eap_eap_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEapSimConfigRequest.ProtoReflect.Descriptor instead.
+func (*GetEapSimConfigRequest) Descriptor() ([]byte, []int) {
+	return file_proto_eap_eap_proto_rawDescGZIP(), []int{18}
+}
+
+type GetEapSimConfigResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEapSimConfigResponse) Reset() {
+	*x = GetEapSimConfigResponse{}
+	mi := &file_proto_eap_eap_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEapSimConfigResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEapSimConfigResponse) ProtoMessage() {}
+
+func (x *GetEapSimConfigResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_eap_eap_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEapSimConfigResponse.ProtoReflect.Descriptor instead.
+func (*GetEapSimConfigResponse) Descriptor() ([]byte, []int) {
+	return file_proto_eap_eap_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *GetEapSimConfigResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetEapTtlsConfigRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEapTtlsConfigRequest) Reset() {
+	*x = GetEapTtlsConfigRequest{}
+	mi := &file_proto_eap_eap_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEapTtlsConfigRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEapTtlsConfigRequest) ProtoMessage() {}
+
+func (x *GetEapTtlsConfigRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_eap_eap_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEapTtlsConfigRequest.ProtoReflect.Descriptor instead.
+func (*GetEapTtlsConfigRequest) Descriptor() ([]byte, []int) {
+	return file_proto_eap_eap_proto_rawDescGZIP(), []int{20}
+}
+
+type GetEapTtlsConfigResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEapTtlsConfigResponse) Reset() {
+	*x = GetEapTtlsConfigResponse{}
+	mi := &file_proto_eap_eap_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEapTtlsConfigResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEapTtlsConfigResponse) ProtoMessage() {}
+
+func (x *GetEapTtlsConfigResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_eap_eap_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEapTtlsConfigResponse.ProtoReflect.Descriptor instead.
+func (*GetEapTtlsConfigResponse) Descriptor() ([]byte, []int) {
+	return file_proto_eap_eap_proto_rawDescGZIP(), []int{21}
+}
+
+func (x *GetEapTtlsConfigResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type HashCodeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HashCodeRequest) Reset() {
+	*x = HashCodeRequest{}
+	mi := &file_proto_eap_eap_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HashCodeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HashCodeRequest) ProtoMessage() {}
+
+func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_eap_eap_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HashCodeRequest.ProtoReflect.Descriptor instead.
+func (*HashCodeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_eap_eap_proto_rawDescGZIP(), []int{22}
+}
+
+type HashCodeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HashCodeResponse) Reset() {
+	*x = HashCodeResponse{}
+	mi := &file_proto_eap_eap_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HashCodeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HashCodeResponse) ProtoMessage() {}
+
+func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_eap_eap_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HashCodeResponse.ProtoReflect.Descriptor instead.
+func (*HashCodeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_eap_eap_proto_rawDescGZIP(), []int{23}
+}
+
+func (x *HashCodeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetEapAkaConfig2Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetEapAkaConfig2Request) Reset() {
+	*x = SetEapAkaConfig2Request{}
+	mi := &file_proto_eap_eap_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetEapAkaConfig2Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetEapAkaConfig2Request) ProtoMessage() {}
+
+func (x *SetEapAkaConfig2Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_eap_eap_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetEapAkaConfig2Request.ProtoReflect.Descriptor instead.
+func (*SetEapAkaConfig2Request) Descriptor() ([]byte, []int) {
+	return file_proto_eap_eap_proto_rawDescGZIP(), []int{24}
+}
+
+func (x *SetEapAkaConfig2Request) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SetEapAkaConfig2Request) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type SetEapAkaConfig2Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetEapAkaConfig2Response) Reset() {
+	*x = SetEapAkaConfig2Response{}
+	mi := &file_proto_eap_eap_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetEapAkaConfig2Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetEapAkaConfig2Response) ProtoMessage() {}
+
+func (x *SetEapAkaConfig2Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_eap_eap_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetEapAkaConfig2Response.ProtoReflect.Descriptor instead.
+func (*SetEapAkaConfig2Response) Descriptor() ([]byte, []int) {
+	return file_proto_eap_eap_proto_rawDescGZIP(), []int{25}
+}
+
+func (x *SetEapAkaConfig2Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetEapAkaConfig3_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetEapAkaConfig3_1Request) Reset() {
+	*x = SetEapAkaConfig3_1Request{}
+	mi := &file_proto_eap_eap_proto_msgTypes[26]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetEapAkaConfig3_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetEapAkaConfig3_1Request) ProtoMessage() {}
+
+func (x *SetEapAkaConfig3_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_eap_eap_proto_msgTypes[26]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetEapAkaConfig3_1Request.ProtoReflect.Descriptor instead.
+func (*SetEapAkaConfig3_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_eap_eap_proto_rawDescGZIP(), []int{26}
+}
+
+func (x *SetEapAkaConfig3_1Request) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SetEapAkaConfig3_1Request) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *SetEapAkaConfig3_1Request) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type SetEapAkaConfig3_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetEapAkaConfig3_1Response) Reset() {
+	*x = SetEapAkaConfig3_1Response{}
+	mi := &file_proto_eap_eap_proto_msgTypes[27]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetEapAkaConfig3_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetEapAkaConfig3_1Response) ProtoMessage() {}
+
+func (x *SetEapAkaConfig3_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_eap_eap_proto_msgTypes[27]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetEapAkaConfig3_1Response.ProtoReflect.Descriptor instead.
+func (*SetEapAkaConfig3_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_eap_eap_proto_rawDescGZIP(), []int{27}
+}
+
+func (x *SetEapAkaConfig3_1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetEapAkaPrimeConfigRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          string                 `protobuf:"bytes,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          bool                   `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetEapAkaPrimeConfigRequest) Reset() {
+	*x = SetEapAkaPrimeConfigRequest{}
+	mi := &file_proto_eap_eap_proto_msgTypes[28]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetEapAkaPrimeConfigRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetEapAkaPrimeConfigRequest) ProtoMessage() {}
+
+func (x *SetEapAkaPrimeConfigRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_eap_eap_proto_msgTypes[28]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetEapAkaPrimeConfigRequest.ProtoReflect.Descriptor instead.
+func (*SetEapAkaPrimeConfigRequest) Descriptor() ([]byte, []int) {
+	return file_proto_eap_eap_proto_rawDescGZIP(), []int{28}
+}
+
+func (x *SetEapAkaPrimeConfigRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SetEapAkaPrimeConfigRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *SetEapAkaPrimeConfigRequest) GetArg2() string {
+	if x != nil {
+		return x.Arg2
+	}
+	return ""
+}
+
+func (x *SetEapAkaPrimeConfigRequest) GetArg3() bool {
+	if x != nil {
+		return x.Arg3
+	}
+	return false
+}
+
+type SetEapAkaPrimeConfigResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetEapAkaPrimeConfigResponse) Reset() {
+	*x = SetEapAkaPrimeConfigResponse{}
+	mi := &file_proto_eap_eap_proto_msgTypes[29]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetEapAkaPrimeConfigResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetEapAkaPrimeConfigResponse) ProtoMessage() {}
+
+func (x *SetEapAkaPrimeConfigResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_eap_eap_proto_msgTypes[29]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetEapAkaPrimeConfigResponse.ProtoReflect.Descriptor instead.
+func (*SetEapAkaPrimeConfigResponse) Descriptor() ([]byte, []int) {
+	return file_proto_eap_eap_proto_rawDescGZIP(), []int{29}
+}
+
+func (x *SetEapAkaPrimeConfigResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetEapIdentityRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetEapIdentityRequest) Reset() {
+	*x = SetEapIdentityRequest{}
+	mi := &file_proto_eap_eap_proto_msgTypes[30]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetEapIdentityRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetEapIdentityRequest) ProtoMessage() {}
+
+func (x *SetEapIdentityRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_eap_eap_proto_msgTypes[30]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetEapIdentityRequest.ProtoReflect.Descriptor instead.
+func (*SetEapIdentityRequest) Descriptor() ([]byte, []int) {
+	return file_proto_eap_eap_proto_rawDescGZIP(), []int{30}
+}
+
+func (x *SetEapIdentityRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetEapIdentityResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetEapIdentityResponse) Reset() {
+	*x = SetEapIdentityResponse{}
+	mi := &file_proto_eap_eap_proto_msgTypes[31]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetEapIdentityResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetEapIdentityResponse) ProtoMessage() {}
+
+func (x *SetEapIdentityResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_eap_eap_proto_msgTypes[31]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetEapIdentityResponse.ProtoReflect.Descriptor instead.
+func (*SetEapIdentityResponse) Descriptor() ([]byte, []int) {
+	return file_proto_eap_eap_proto_rawDescGZIP(), []int{31}
+}
+
+func (x *SetEapIdentityResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetEapMsChapV2ConfigRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetEapMsChapV2ConfigRequest) Reset() {
+	*x = SetEapMsChapV2ConfigRequest{}
+	mi := &file_proto_eap_eap_proto_msgTypes[32]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetEapMsChapV2ConfigRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetEapMsChapV2ConfigRequest) ProtoMessage() {}
+
+func (x *SetEapMsChapV2ConfigRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_eap_eap_proto_msgTypes[32]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetEapMsChapV2ConfigRequest.ProtoReflect.Descriptor instead.
+func (*SetEapMsChapV2ConfigRequest) Descriptor() ([]byte, []int) {
+	return file_proto_eap_eap_proto_rawDescGZIP(), []int{32}
+}
+
+func (x *SetEapMsChapV2ConfigRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *SetEapMsChapV2ConfigRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+type SetEapMsChapV2ConfigResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetEapMsChapV2ConfigResponse) Reset() {
+	*x = SetEapMsChapV2ConfigResponse{}
+	mi := &file_proto_eap_eap_proto_msgTypes[33]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetEapMsChapV2ConfigResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetEapMsChapV2ConfigResponse) ProtoMessage() {}
+
+func (x *SetEapMsChapV2ConfigResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_eap_eap_proto_msgTypes[33]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetEapMsChapV2ConfigResponse.ProtoReflect.Descriptor instead.
+func (*SetEapMsChapV2ConfigResponse) Descriptor() ([]byte, []int) {
+	return file_proto_eap_eap_proto_rawDescGZIP(), []int{33}
+}
+
+func (x *SetEapMsChapV2ConfigResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetEapSimConfigRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetEapSimConfigRequest) Reset() {
+	*x = SetEapSimConfigRequest{}
+	mi := &file_proto_eap_eap_proto_msgTypes[34]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetEapSimConfigRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetEapSimConfigRequest) ProtoMessage() {}
+
+func (x *SetEapSimConfigRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_eap_eap_proto_msgTypes[34]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetEapSimConfigRequest.ProtoReflect.Descriptor instead.
+func (*SetEapSimConfigRequest) Descriptor() ([]byte, []int) {
+	return file_proto_eap_eap_proto_rawDescGZIP(), []int{34}
+}
+
+func (x *SetEapSimConfigRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SetEapSimConfigRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type SetEapSimConfigResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetEapSimConfigResponse) Reset() {
+	*x = SetEapSimConfigResponse{}
+	mi := &file_proto_eap_eap_proto_msgTypes[35]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetEapSimConfigResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetEapSimConfigResponse) ProtoMessage() {}
+
+func (x *SetEapSimConfigResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_eap_eap_proto_msgTypes[35]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetEapSimConfigResponse.ProtoReflect.Descriptor instead.
+func (*SetEapSimConfigResponse) Descriptor() ([]byte, []int) {
+	return file_proto_eap_eap_proto_rawDescGZIP(), []int{35}
+}
+
+func (x *SetEapSimConfigResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetEapTtlsConfigRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetEapTtlsConfigRequest) Reset() {
+	*x = SetEapTtlsConfigRequest{}
+	mi := &file_proto_eap_eap_proto_msgTypes[36]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetEapTtlsConfigRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetEapTtlsConfigRequest) ProtoMessage() {}
+
+func (x *SetEapTtlsConfigRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_eap_eap_proto_msgTypes[36]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetEapTtlsConfigRequest.ProtoReflect.Descriptor instead.
+func (*SetEapTtlsConfigRequest) Descriptor() ([]byte, []int) {
+	return file_proto_eap_eap_proto_rawDescGZIP(), []int{36}
+}
+
+func (x *SetEapTtlsConfigRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SetEapTtlsConfigRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type SetEapTtlsConfigResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetEapTtlsConfigResponse) Reset() {
+	*x = SetEapTtlsConfigResponse{}
+	mi := &file_proto_eap_eap_proto_msgTypes[37]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetEapTtlsConfigResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetEapTtlsConfigResponse) ProtoMessage() {}
+
+func (x *SetEapTtlsConfigResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_eap_eap_proto_msgTypes[37]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetEapTtlsConfigResponse.ProtoReflect.Descriptor instead.
+func (*SetEapTtlsConfigResponse) Descriptor() ([]byte, []int) {
+	return file_proto_eap_eap_proto_rawDescGZIP(), []int{37}
+}
+
+func (x *SetEapTtlsConfigResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetAppTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAppTypeRequest) Reset() {
+	*x = GetAppTypeRequest{}
+	mi := &file_proto_eap_eap_proto_msgTypes[38]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAppTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAppTypeRequest) ProtoMessage() {}
+
+func (x *GetAppTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_eap_eap_proto_msgTypes[38]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAppTypeRequest.ProtoReflect.Descriptor instead.
+func (*GetAppTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_eap_eap_proto_rawDescGZIP(), []int{38}
+}
+
+type GetAppTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAppTypeResponse) Reset() {
+	*x = GetAppTypeResponse{}
+	mi := &file_proto_eap_eap_proto_msgTypes[39]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAppTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAppTypeResponse) ProtoMessage() {}
+
+func (x *GetAppTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_eap_eap_proto_msgTypes[39]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAppTypeResponse.ProtoReflect.Descriptor instead.
+func (*GetAppTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_eap_eap_proto_rawDescGZIP(), []int{39}
+}
+
+func (x *GetAppTypeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetEapAkaOptionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEapAkaOptionRequest) Reset() {
+	*x = GetEapAkaOptionRequest{}
+	mi := &file_proto_eap_eap_proto_msgTypes[40]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEapAkaOptionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEapAkaOptionRequest) ProtoMessage() {}
+
+func (x *GetEapAkaOptionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_eap_eap_proto_msgTypes[40]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEapAkaOptionRequest.ProtoReflect.Descriptor instead.
+func (*GetEapAkaOptionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_eap_eap_proto_rawDescGZIP(), []int{40}
+}
+
+type GetEapAkaOptionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEapAkaOptionResponse) Reset() {
+	*x = GetEapAkaOptionResponse{}
+	mi := &file_proto_eap_eap_proto_msgTypes[41]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEapAkaOptionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEapAkaOptionResponse) ProtoMessage() {}
+
+func (x *GetEapAkaOptionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_eap_eap_proto_msgTypes[41]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEapAkaOptionResponse.ProtoReflect.Descriptor instead.
+func (*GetEapAkaOptionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_eap_eap_proto_rawDescGZIP(), []int{41}
+}
+
+func (x *GetEapAkaOptionResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSubIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSubIdRequest) Reset() {
+	*x = GetSubIdRequest{}
+	mi := &file_proto_eap_eap_proto_msgTypes[42]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSubIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSubIdRequest) ProtoMessage() {}
+
+func (x *GetSubIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_eap_eap_proto_msgTypes[42]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSubIdRequest.ProtoReflect.Descriptor instead.
+func (*GetSubIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_eap_eap_proto_rawDescGZIP(), []int{42}
+}
+
+type GetSubIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSubIdResponse) Reset() {
+	*x = GetSubIdResponse{}
+	mi := &file_proto_eap_eap_proto_msgTypes[43]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSubIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSubIdResponse) ProtoMessage() {}
+
+func (x *GetSubIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_eap_eap_proto_msgTypes[43]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSubIdResponse.ProtoReflect.Descriptor instead.
+func (*GetSubIdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_eap_eap_proto_rawDescGZIP(), []int{43}
+}
+
+func (x *GetSubIdResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AllowsMismatchedNetworkNamesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AllowsMismatchedNetworkNamesRequest) Reset() {
+	*x = AllowsMismatchedNetworkNamesRequest{}
+	mi := &file_proto_eap_eap_proto_msgTypes[44]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AllowsMismatchedNetworkNamesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AllowsMismatchedNetworkNamesRequest) ProtoMessage() {}
+
+func (x *AllowsMismatchedNetworkNamesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_eap_eap_proto_msgTypes[44]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AllowsMismatchedNetworkNamesRequest.ProtoReflect.Descriptor instead.
+func (*AllowsMismatchedNetworkNamesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_eap_eap_proto_rawDescGZIP(), []int{44}
+}
+
+type AllowsMismatchedNetworkNamesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AllowsMismatchedNetworkNamesResponse) Reset() {
+	*x = AllowsMismatchedNetworkNamesResponse{}
+	mi := &file_proto_eap_eap_proto_msgTypes[45]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AllowsMismatchedNetworkNamesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AllowsMismatchedNetworkNamesResponse) ProtoMessage() {}
+
+func (x *AllowsMismatchedNetworkNamesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_eap_eap_proto_msgTypes[45]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AllowsMismatchedNetworkNamesResponse.ProtoReflect.Descriptor instead.
+func (*AllowsMismatchedNetworkNamesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_eap_eap_proto_rawDescGZIP(), []int{45}
+}
+
+func (x *AllowsMismatchedNetworkNamesResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type GetNetworkNameRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNetworkNameRequest) Reset() {
+	*x = GetNetworkNameRequest{}
+	mi := &file_proto_eap_eap_proto_msgTypes[46]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNetworkNameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNetworkNameRequest) ProtoMessage() {}
+
+func (x *GetNetworkNameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_eap_eap_proto_msgTypes[46]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNetworkNameRequest.ProtoReflect.Descriptor instead.
+func (*GetNetworkNameRequest) Descriptor() ([]byte, []int) {
+	return file_proto_eap_eap_proto_rawDescGZIP(), []int{46}
+}
+
+type GetNetworkNameResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNetworkNameResponse) Reset() {
+	*x = GetNetworkNameResponse{}
+	mi := &file_proto_eap_eap_proto_msgTypes[47]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNetworkNameResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNetworkNameResponse) ProtoMessage() {}
+
+func (x *GetNetworkNameResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_eap_eap_proto_msgTypes[47]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNetworkNameResponse.ProtoReflect.Descriptor instead.
+func (*GetNetworkNameResponse) Descriptor() ([]byte, []int) {
+	return file_proto_eap_eap_proto_rawDescGZIP(), []int{47}
+}
+
+func (x *GetNetworkNameResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetMethodTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMethodTypeRequest) Reset() {
+	*x = GetMethodTypeRequest{}
+	mi := &file_proto_eap_eap_proto_msgTypes[48]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMethodTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMethodTypeRequest) ProtoMessage() {}
+
+func (x *GetMethodTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_eap_eap_proto_msgTypes[48]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMethodTypeRequest.ProtoReflect.Descriptor instead.
+func (*GetMethodTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_eap_eap_proto_rawDescGZIP(), []int{48}
+}
+
+type GetMethodTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMethodTypeResponse) Reset() {
+	*x = GetMethodTypeResponse{}
+	mi := &file_proto_eap_eap_proto_msgTypes[49]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMethodTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMethodTypeResponse) ProtoMessage() {}
+
+func (x *GetMethodTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_eap_eap_proto_msgTypes[49]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMethodTypeResponse.ProtoReflect.Descriptor instead.
+func (*GetMethodTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_eap_eap_proto_rawDescGZIP(), []int{49}
+}
+
+func (x *GetMethodTypeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPasswordRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPasswordRequest) Reset() {
+	*x = GetPasswordRequest{}
+	mi := &file_proto_eap_eap_proto_msgTypes[50]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPasswordRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPasswordRequest) ProtoMessage() {}
+
+func (x *GetPasswordRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_eap_eap_proto_msgTypes[50]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPasswordRequest.ProtoReflect.Descriptor instead.
+func (*GetPasswordRequest) Descriptor() ([]byte, []int) {
+	return file_proto_eap_eap_proto_rawDescGZIP(), []int{50}
+}
+
+type GetPasswordResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPasswordResponse) Reset() {
+	*x = GetPasswordResponse{}
+	mi := &file_proto_eap_eap_proto_msgTypes[51]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPasswordResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPasswordResponse) ProtoMessage() {}
+
+func (x *GetPasswordResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_eap_eap_proto_msgTypes[51]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPasswordResponse.ProtoReflect.Descriptor instead.
+func (*GetPasswordResponse) Descriptor() ([]byte, []int) {
+	return file_proto_eap_eap_proto_rawDescGZIP(), []int{51}
+}
+
+func (x *GetPasswordResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetUsernameRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetUsernameRequest) Reset() {
+	*x = GetUsernameRequest{}
+	mi := &file_proto_eap_eap_proto_msgTypes[52]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetUsernameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetUsernameRequest) ProtoMessage() {}
+
+func (x *GetUsernameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_eap_eap_proto_msgTypes[52]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetUsernameRequest.ProtoReflect.Descriptor instead.
+func (*GetUsernameRequest) Descriptor() ([]byte, []int) {
+	return file_proto_eap_eap_proto_rawDescGZIP(), []int{52}
+}
+
+type GetUsernameResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetUsernameResponse) Reset() {
+	*x = GetUsernameResponse{}
+	mi := &file_proto_eap_eap_proto_msgTypes[53]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetUsernameResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetUsernameResponse) ProtoMessage() {}
+
+func (x *GetUsernameResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_eap_eap_proto_msgTypes[53]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetUsernameResponse.ProtoReflect.Descriptor instead.
+func (*GetUsernameResponse) Descriptor() ([]byte, []int) {
+	return file_proto_eap_eap_proto_rawDescGZIP(), []int{53}
+}
+
+func (x *GetUsernameResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetInnerEapSessionConfigRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetInnerEapSessionConfigRequest) Reset() {
+	*x = GetInnerEapSessionConfigRequest{}
+	mi := &file_proto_eap_eap_proto_msgTypes[54]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetInnerEapSessionConfigRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetInnerEapSessionConfigRequest) ProtoMessage() {}
+
+func (x *GetInnerEapSessionConfigRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_eap_eap_proto_msgTypes[54]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetInnerEapSessionConfigRequest.ProtoReflect.Descriptor instead.
+func (*GetInnerEapSessionConfigRequest) Descriptor() ([]byte, []int) {
+	return file_proto_eap_eap_proto_rawDescGZIP(), []int{54}
+}
+
+type GetInnerEapSessionConfigResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetInnerEapSessionConfigResponse) Reset() {
+	*x = GetInnerEapSessionConfigResponse{}
+	mi := &file_proto_eap_eap_proto_msgTypes[55]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetInnerEapSessionConfigResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetInnerEapSessionConfigResponse) ProtoMessage() {}
+
+func (x *GetInnerEapSessionConfigResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_eap_eap_proto_msgTypes[55]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetInnerEapSessionConfigResponse.ProtoReflect.Descriptor instead.
+func (*GetInnerEapSessionConfigResponse) Descriptor() ([]byte, []int) {
+	return file_proto_eap_eap_proto_rawDescGZIP(), []int{55}
+}
+
+func (x *GetInnerEapSessionConfigResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetServerCaCertRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetServerCaCertRequest) Reset() {
+	*x = GetServerCaCertRequest{}
+	mi := &file_proto_eap_eap_proto_msgTypes[56]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetServerCaCertRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetServerCaCertRequest) ProtoMessage() {}
+
+func (x *GetServerCaCertRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_eap_eap_proto_msgTypes[56]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetServerCaCertRequest.ProtoReflect.Descriptor instead.
+func (*GetServerCaCertRequest) Descriptor() ([]byte, []int) {
+	return file_proto_eap_eap_proto_rawDescGZIP(), []int{56}
+}
+
+type GetServerCaCertResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetServerCaCertResponse) Reset() {
+	*x = GetServerCaCertResponse{}
+	mi := &file_proto_eap_eap_proto_msgTypes[57]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetServerCaCertResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetServerCaCertResponse) ProtoMessage() {}
+
+func (x *GetServerCaCertResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_eap_eap_proto_msgTypes[57]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetServerCaCertResponse.ProtoReflect.Descriptor instead.
+func (*GetServerCaCertResponse) Descriptor() ([]byte, []int) {
+	return file_proto_eap_eap_proto_rawDescGZIP(), []int{57}
+}
+
+func (x *GetServerCaCertResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
 var File_proto_eap_eap_proto protoreflect.FileDescriptor
 
 const file_proto_eap_eap_proto_rawDesc = "" +
 	"\n" +
-	"\x13proto/eap/eap.proto\x12\x03eapB-Z+github.com/AndroidGoLab/jni-proxy/proto/eapb\x06proto3"
+	"\x13proto/eap/eap.proto\x12\x03eap\"\x19\n" +
+	"\x17GetEapMethodTypeRequest\"2\n" +
+	"\x18GetEapMethodTypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x14\n" +
+	"\x12GetReauthIdRequest\"-\n" +
+	"\x13GetReauthIdResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x0e\n" +
+	"\fBuildRequest\"'\n" +
+	"\rBuildResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"(\n" +
+	"\x12SetReauthIdRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"-\n" +
+	"\x13SetReauthIdResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"#\n" +
+	"\rEqualsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"(\n" +
+	"\x0eEqualsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x18\n" +
+	"\x16GetEapAkaConfigRequest\"1\n" +
+	"\x17GetEapAkaConfigResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1d\n" +
+	"\x1bGetEapAkaPrimeConfigRequest\"6\n" +
+	"\x1cGetEapAkaPrimeConfigResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x17\n" +
+	"\x15GetEapIdentityRequest\"0\n" +
+	"\x16GetEapIdentityResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1d\n" +
+	"\x1bGetEapMsChapV2ConfigRequest\"6\n" +
+	"\x1cGetEapMsChapV2ConfigResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x18\n" +
+	"\x16GetEapSimConfigRequest\"1\n" +
+	"\x17GetEapSimConfigResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x19\n" +
+	"\x17GetEapTtlsConfigRequest\"2\n" +
+	"\x18GetEapTtlsConfigResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x11\n" +
+	"\x0fHashCodeRequest\"*\n" +
+	"\x10HashCodeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"A\n" +
+	"\x17SetEapAkaConfig2Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"2\n" +
+	"\x18SetEapAkaConfig2Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"W\n" +
+	"\x19SetEapAkaConfig3_1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"4\n" +
+	"\x1aSetEapAkaConfig3_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"m\n" +
+	"\x1bSetEapAkaPrimeConfigRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\tR\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\bR\x04arg3\"6\n" +
+	"\x1cSetEapAkaPrimeConfigResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"+\n" +
+	"\x15SetEapIdentityRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"0\n" +
+	"\x16SetEapIdentityResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"E\n" +
+	"\x1bSetEapMsChapV2ConfigRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\"6\n" +
+	"\x1cSetEapMsChapV2ConfigResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"@\n" +
+	"\x16SetEapSimConfigRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"1\n" +
+	"\x17SetEapSimConfigResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"A\n" +
+	"\x17SetEapTtlsConfigRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"2\n" +
+	"\x18SetEapTtlsConfigResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x13\n" +
+	"\x11GetAppTypeRequest\",\n" +
+	"\x12GetAppTypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x18\n" +
+	"\x16GetEapAkaOptionRequest\"1\n" +
+	"\x17GetEapAkaOptionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x11\n" +
+	"\x0fGetSubIdRequest\"*\n" +
+	"\x10GetSubIdResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"%\n" +
+	"#AllowsMismatchedNetworkNamesRequest\">\n" +
+	"$AllowsMismatchedNetworkNamesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x17\n" +
+	"\x15GetNetworkNameRequest\"0\n" +
+	"\x16GetNetworkNameResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x16\n" +
+	"\x14GetMethodTypeRequest\"/\n" +
+	"\x15GetMethodTypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x14\n" +
+	"\x12GetPasswordRequest\"-\n" +
+	"\x13GetPasswordResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x14\n" +
+	"\x12GetUsernameRequest\"-\n" +
+	"\x13GetUsernameResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"!\n" +
+	"\x1fGetInnerEapSessionConfigRequest\":\n" +
+	" GetInnerEapSessionConfigResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x18\n" +
+	"\x16GetServerCaCertRequest\"1\n" +
+	"\x17GetServerCaCertResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result2^\n" +
+	"\vInfoService\x12O\n" +
+	"\x10GetEapMethodType\x12\x1c.eap.GetEapMethodTypeRequest\x1a\x1d.eap.GetEapMethodTypeResponse2R\n" +
+	"\x0eAkaInfoService\x12@\n" +
+	"\vGetReauthId\x12\x17.eap.GetReauthIdRequest\x1a\x18.eap.GetReauthIdResponse2\x89\x01\n" +
+	"\x15AkaInfoBuilderService\x12.\n" +
+	"\x05Build\x12\x11.eap.BuildRequest\x1a\x12.eap.BuildResponse\x12@\n" +
+	"\vSetReauthId\x12\x17.eap.SetReauthIdRequest\x1a\x18.eap.SetReauthIdResponse2\xf4\x04\n" +
+	"\x14SessionConfigService\x121\n" +
+	"\x06Equals\x12\x12.eap.EqualsRequest\x1a\x13.eap.EqualsResponse\x12L\n" +
+	"\x0fGetEapAkaConfig\x12\x1b.eap.GetEapAkaConfigRequest\x1a\x1c.eap.GetEapAkaConfigResponse\x12[\n" +
+	"\x14GetEapAkaPrimeConfig\x12 .eap.GetEapAkaPrimeConfigRequest\x1a!.eap.GetEapAkaPrimeConfigResponse\x12I\n" +
+	"\x0eGetEapIdentity\x12\x1a.eap.GetEapIdentityRequest\x1a\x1b.eap.GetEapIdentityResponse\x12[\n" +
+	"\x14GetEapMsChapV2Config\x12 .eap.GetEapMsChapV2ConfigRequest\x1a!.eap.GetEapMsChapV2ConfigResponse\x12L\n" +
+	"\x0fGetEapSimConfig\x12\x1b.eap.GetEapSimConfigRequest\x1a\x1c.eap.GetEapSimConfigResponse\x12O\n" +
+	"\x10GetEapTtlsConfig\x12\x1c.eap.GetEapTtlsConfigRequest\x1a\x1d.eap.GetEapTtlsConfigResponse\x127\n" +
+	"\bHashCode\x12\x14.eap.HashCodeRequest\x1a\x15.eap.HashCodeResponse2\x99\x05\n" +
+	"\x1bSessionConfigBuilderService\x12.\n" +
+	"\x05Build\x12\x11.eap.BuildRequest\x1a\x12.eap.BuildResponse\x12O\n" +
+	"\x10SetEapAkaConfig2\x12\x1c.eap.SetEapAkaConfig2Request\x1a\x1d.eap.SetEapAkaConfig2Response\x12U\n" +
+	"\x12SetEapAkaConfig3_1\x12\x1e.eap.SetEapAkaConfig3_1Request\x1a\x1f.eap.SetEapAkaConfig3_1Response\x12[\n" +
+	"\x14SetEapAkaPrimeConfig\x12 .eap.SetEapAkaPrimeConfigRequest\x1a!.eap.SetEapAkaPrimeConfigResponse\x12I\n" +
+	"\x0eSetEapIdentity\x12\x1a.eap.SetEapIdentityRequest\x1a\x1b.eap.SetEapIdentityResponse\x12[\n" +
+	"\x14SetEapMsChapV2Config\x12 .eap.SetEapMsChapV2ConfigRequest\x1a!.eap.SetEapMsChapV2ConfigResponse\x12L\n" +
+	"\x0fSetEapSimConfig\x12\x1b.eap.SetEapSimConfigRequest\x1a\x1c.eap.SetEapSimConfigResponse\x12O\n" +
+	"\x10SetEapTtlsConfig\x12\x1c.eap.SetEapTtlsConfigRequest\x1a\x1d.eap.SetEapTtlsConfigResponse2\xd4\x02\n" +
+	" SessionConfigEapAkaConfigService\x121\n" +
+	"\x06Equals\x12\x12.eap.EqualsRequest\x1a\x13.eap.EqualsResponse\x12=\n" +
+	"\n" +
+	"GetAppType\x12\x16.eap.GetAppTypeRequest\x1a\x17.eap.GetAppTypeResponse\x12L\n" +
+	"\x0fGetEapAkaOption\x12\x1b.eap.GetEapAkaOptionRequest\x1a\x1c.eap.GetEapAkaOptionResponse\x127\n" +
+	"\bGetSubId\x12\x14.eap.GetSubIdRequest\x1a\x15.eap.GetSubIdResponse\x127\n" +
+	"\bHashCode\x12\x14.eap.HashCodeRequest\x1a\x15.eap.HashCodeResponse2\xd0\x01\n" +
+	" SessionConfigEapAkaOptionService\x121\n" +
+	"\x06Equals\x12\x12.eap.EqualsRequest\x1a\x13.eap.EqualsResponse\x12@\n" +
+	"\vGetReauthId\x12\x17.eap.GetReauthIdRequest\x1a\x18.eap.GetReauthIdResponse\x127\n" +
+	"\bHashCode\x12\x14.eap.HashCodeRequest\x1a\x15.eap.HashCodeResponse2\xd3\x02\n" +
+	"%SessionConfigEapAkaPrimeConfigService\x12s\n" +
+	"\x1cAllowsMismatchedNetworkNames\x12(.eap.AllowsMismatchedNetworkNamesRequest\x1a).eap.AllowsMismatchedNetworkNamesResponse\x121\n" +
+	"\x06Equals\x12\x12.eap.EqualsRequest\x1a\x13.eap.EqualsResponse\x12I\n" +
+	"\x0eGetNetworkName\x12\x1a.eap.GetNetworkNameRequest\x1a\x1b.eap.GetNetworkNameResponse\x127\n" +
+	"\bHashCode\x12\x14.eap.HashCodeRequest\x1a\x15.eap.HashCodeResponse2\xd9\x01\n" +
+	"#SessionConfigEapMethodConfigService\x121\n" +
+	"\x06Equals\x12\x12.eap.EqualsRequest\x1a\x13.eap.EqualsResponse\x12F\n" +
+	"\rGetMethodType\x12\x19.eap.GetMethodTypeRequest\x1a\x1a.eap.GetMethodTypeResponse\x127\n" +
+	"\bHashCode\x12\x14.eap.HashCodeRequest\x1a\x15.eap.HashCodeResponse2\x97\x02\n" +
+	"%SessionConfigEapMsChapV2ConfigService\x121\n" +
+	"\x06Equals\x12\x12.eap.EqualsRequest\x1a\x13.eap.EqualsResponse\x12@\n" +
+	"\vGetPassword\x12\x17.eap.GetPasswordRequest\x1a\x18.eap.GetPasswordResponse\x12@\n" +
+	"\vGetUsername\x12\x17.eap.GetUsernameRequest\x1a\x18.eap.GetUsernameResponse\x127\n" +
+	"\bHashCode\x12\x14.eap.HashCodeRequest\x1a\x15.eap.HashCodeResponse2\x86\x02\n" +
+	" SessionConfigEapSimConfigService\x121\n" +
+	"\x06Equals\x12\x12.eap.EqualsRequest\x1a\x13.eap.EqualsResponse\x12=\n" +
+	"\n" +
+	"GetAppType\x12\x16.eap.GetAppTypeRequest\x1a\x17.eap.GetAppTypeResponse\x127\n" +
+	"\bGetSubId\x12\x14.eap.GetSubIdRequest\x1a\x15.eap.GetSubIdResponse\x127\n" +
+	"\bHashCode\x12\x14.eap.HashCodeRequest\x1a\x15.eap.HashCodeResponse2\xc6\x02\n" +
+	"!SessionConfigEapTtlsConfigService\x121\n" +
+	"\x06Equals\x12\x12.eap.EqualsRequest\x1a\x13.eap.EqualsResponse\x12g\n" +
+	"\x18GetInnerEapSessionConfig\x12$.eap.GetInnerEapSessionConfigRequest\x1a%.eap.GetInnerEapSessionConfigResponse\x12L\n" +
+	"\x0fGetServerCaCert\x12\x1b.eap.GetServerCaCertRequest\x1a\x1c.eap.GetServerCaCertResponse\x127\n" +
+	"\bHashCode\x12\x14.eap.HashCodeRequest\x1a\x15.eap.HashCodeResponseB-Z+github.com/AndroidGoLab/jni-proxy/proto/eapb\x06proto3"
 
-var file_proto_eap_eap_proto_goTypes = []any{}
+var (
+	file_proto_eap_eap_proto_rawDescOnce sync.Once
+	file_proto_eap_eap_proto_rawDescData []byte
+)
+
+func file_proto_eap_eap_proto_rawDescGZIP() []byte {
+	file_proto_eap_eap_proto_rawDescOnce.Do(func() {
+		file_proto_eap_eap_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_proto_eap_eap_proto_rawDesc), len(file_proto_eap_eap_proto_rawDesc)))
+	})
+	return file_proto_eap_eap_proto_rawDescData
+}
+
+var file_proto_eap_eap_proto_msgTypes = make([]protoimpl.MessageInfo, 58)
+var file_proto_eap_eap_proto_goTypes = []any{
+	(*GetEapMethodTypeRequest)(nil),              // 0: eap.GetEapMethodTypeRequest
+	(*GetEapMethodTypeResponse)(nil),             // 1: eap.GetEapMethodTypeResponse
+	(*GetReauthIdRequest)(nil),                   // 2: eap.GetReauthIdRequest
+	(*GetReauthIdResponse)(nil),                  // 3: eap.GetReauthIdResponse
+	(*BuildRequest)(nil),                         // 4: eap.BuildRequest
+	(*BuildResponse)(nil),                        // 5: eap.BuildResponse
+	(*SetReauthIdRequest)(nil),                   // 6: eap.SetReauthIdRequest
+	(*SetReauthIdResponse)(nil),                  // 7: eap.SetReauthIdResponse
+	(*EqualsRequest)(nil),                        // 8: eap.EqualsRequest
+	(*EqualsResponse)(nil),                       // 9: eap.EqualsResponse
+	(*GetEapAkaConfigRequest)(nil),               // 10: eap.GetEapAkaConfigRequest
+	(*GetEapAkaConfigResponse)(nil),              // 11: eap.GetEapAkaConfigResponse
+	(*GetEapAkaPrimeConfigRequest)(nil),          // 12: eap.GetEapAkaPrimeConfigRequest
+	(*GetEapAkaPrimeConfigResponse)(nil),         // 13: eap.GetEapAkaPrimeConfigResponse
+	(*GetEapIdentityRequest)(nil),                // 14: eap.GetEapIdentityRequest
+	(*GetEapIdentityResponse)(nil),               // 15: eap.GetEapIdentityResponse
+	(*GetEapMsChapV2ConfigRequest)(nil),          // 16: eap.GetEapMsChapV2ConfigRequest
+	(*GetEapMsChapV2ConfigResponse)(nil),         // 17: eap.GetEapMsChapV2ConfigResponse
+	(*GetEapSimConfigRequest)(nil),               // 18: eap.GetEapSimConfigRequest
+	(*GetEapSimConfigResponse)(nil),              // 19: eap.GetEapSimConfigResponse
+	(*GetEapTtlsConfigRequest)(nil),              // 20: eap.GetEapTtlsConfigRequest
+	(*GetEapTtlsConfigResponse)(nil),             // 21: eap.GetEapTtlsConfigResponse
+	(*HashCodeRequest)(nil),                      // 22: eap.HashCodeRequest
+	(*HashCodeResponse)(nil),                     // 23: eap.HashCodeResponse
+	(*SetEapAkaConfig2Request)(nil),              // 24: eap.SetEapAkaConfig2Request
+	(*SetEapAkaConfig2Response)(nil),             // 25: eap.SetEapAkaConfig2Response
+	(*SetEapAkaConfig3_1Request)(nil),            // 26: eap.SetEapAkaConfig3_1Request
+	(*SetEapAkaConfig3_1Response)(nil),           // 27: eap.SetEapAkaConfig3_1Response
+	(*SetEapAkaPrimeConfigRequest)(nil),          // 28: eap.SetEapAkaPrimeConfigRequest
+	(*SetEapAkaPrimeConfigResponse)(nil),         // 29: eap.SetEapAkaPrimeConfigResponse
+	(*SetEapIdentityRequest)(nil),                // 30: eap.SetEapIdentityRequest
+	(*SetEapIdentityResponse)(nil),               // 31: eap.SetEapIdentityResponse
+	(*SetEapMsChapV2ConfigRequest)(nil),          // 32: eap.SetEapMsChapV2ConfigRequest
+	(*SetEapMsChapV2ConfigResponse)(nil),         // 33: eap.SetEapMsChapV2ConfigResponse
+	(*SetEapSimConfigRequest)(nil),               // 34: eap.SetEapSimConfigRequest
+	(*SetEapSimConfigResponse)(nil),              // 35: eap.SetEapSimConfigResponse
+	(*SetEapTtlsConfigRequest)(nil),              // 36: eap.SetEapTtlsConfigRequest
+	(*SetEapTtlsConfigResponse)(nil),             // 37: eap.SetEapTtlsConfigResponse
+	(*GetAppTypeRequest)(nil),                    // 38: eap.GetAppTypeRequest
+	(*GetAppTypeResponse)(nil),                   // 39: eap.GetAppTypeResponse
+	(*GetEapAkaOptionRequest)(nil),               // 40: eap.GetEapAkaOptionRequest
+	(*GetEapAkaOptionResponse)(nil),              // 41: eap.GetEapAkaOptionResponse
+	(*GetSubIdRequest)(nil),                      // 42: eap.GetSubIdRequest
+	(*GetSubIdResponse)(nil),                     // 43: eap.GetSubIdResponse
+	(*AllowsMismatchedNetworkNamesRequest)(nil),  // 44: eap.AllowsMismatchedNetworkNamesRequest
+	(*AllowsMismatchedNetworkNamesResponse)(nil), // 45: eap.AllowsMismatchedNetworkNamesResponse
+	(*GetNetworkNameRequest)(nil),                // 46: eap.GetNetworkNameRequest
+	(*GetNetworkNameResponse)(nil),               // 47: eap.GetNetworkNameResponse
+	(*GetMethodTypeRequest)(nil),                 // 48: eap.GetMethodTypeRequest
+	(*GetMethodTypeResponse)(nil),                // 49: eap.GetMethodTypeResponse
+	(*GetPasswordRequest)(nil),                   // 50: eap.GetPasswordRequest
+	(*GetPasswordResponse)(nil),                  // 51: eap.GetPasswordResponse
+	(*GetUsernameRequest)(nil),                   // 52: eap.GetUsernameRequest
+	(*GetUsernameResponse)(nil),                  // 53: eap.GetUsernameResponse
+	(*GetInnerEapSessionConfigRequest)(nil),      // 54: eap.GetInnerEapSessionConfigRequest
+	(*GetInnerEapSessionConfigResponse)(nil),     // 55: eap.GetInnerEapSessionConfigResponse
+	(*GetServerCaCertRequest)(nil),               // 56: eap.GetServerCaCertRequest
+	(*GetServerCaCertResponse)(nil),              // 57: eap.GetServerCaCertResponse
+}
 var file_proto_eap_eap_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	0,  // 0: eap.InfoService.GetEapMethodType:input_type -> eap.GetEapMethodTypeRequest
+	2,  // 1: eap.AkaInfoService.GetReauthId:input_type -> eap.GetReauthIdRequest
+	4,  // 2: eap.AkaInfoBuilderService.Build:input_type -> eap.BuildRequest
+	6,  // 3: eap.AkaInfoBuilderService.SetReauthId:input_type -> eap.SetReauthIdRequest
+	8,  // 4: eap.SessionConfigService.Equals:input_type -> eap.EqualsRequest
+	10, // 5: eap.SessionConfigService.GetEapAkaConfig:input_type -> eap.GetEapAkaConfigRequest
+	12, // 6: eap.SessionConfigService.GetEapAkaPrimeConfig:input_type -> eap.GetEapAkaPrimeConfigRequest
+	14, // 7: eap.SessionConfigService.GetEapIdentity:input_type -> eap.GetEapIdentityRequest
+	16, // 8: eap.SessionConfigService.GetEapMsChapV2Config:input_type -> eap.GetEapMsChapV2ConfigRequest
+	18, // 9: eap.SessionConfigService.GetEapSimConfig:input_type -> eap.GetEapSimConfigRequest
+	20, // 10: eap.SessionConfigService.GetEapTtlsConfig:input_type -> eap.GetEapTtlsConfigRequest
+	22, // 11: eap.SessionConfigService.HashCode:input_type -> eap.HashCodeRequest
+	4,  // 12: eap.SessionConfigBuilderService.Build:input_type -> eap.BuildRequest
+	24, // 13: eap.SessionConfigBuilderService.SetEapAkaConfig2:input_type -> eap.SetEapAkaConfig2Request
+	26, // 14: eap.SessionConfigBuilderService.SetEapAkaConfig3_1:input_type -> eap.SetEapAkaConfig3_1Request
+	28, // 15: eap.SessionConfigBuilderService.SetEapAkaPrimeConfig:input_type -> eap.SetEapAkaPrimeConfigRequest
+	30, // 16: eap.SessionConfigBuilderService.SetEapIdentity:input_type -> eap.SetEapIdentityRequest
+	32, // 17: eap.SessionConfigBuilderService.SetEapMsChapV2Config:input_type -> eap.SetEapMsChapV2ConfigRequest
+	34, // 18: eap.SessionConfigBuilderService.SetEapSimConfig:input_type -> eap.SetEapSimConfigRequest
+	36, // 19: eap.SessionConfigBuilderService.SetEapTtlsConfig:input_type -> eap.SetEapTtlsConfigRequest
+	8,  // 20: eap.SessionConfigEapAkaConfigService.Equals:input_type -> eap.EqualsRequest
+	38, // 21: eap.SessionConfigEapAkaConfigService.GetAppType:input_type -> eap.GetAppTypeRequest
+	40, // 22: eap.SessionConfigEapAkaConfigService.GetEapAkaOption:input_type -> eap.GetEapAkaOptionRequest
+	42, // 23: eap.SessionConfigEapAkaConfigService.GetSubId:input_type -> eap.GetSubIdRequest
+	22, // 24: eap.SessionConfigEapAkaConfigService.HashCode:input_type -> eap.HashCodeRequest
+	8,  // 25: eap.SessionConfigEapAkaOptionService.Equals:input_type -> eap.EqualsRequest
+	2,  // 26: eap.SessionConfigEapAkaOptionService.GetReauthId:input_type -> eap.GetReauthIdRequest
+	22, // 27: eap.SessionConfigEapAkaOptionService.HashCode:input_type -> eap.HashCodeRequest
+	44, // 28: eap.SessionConfigEapAkaPrimeConfigService.AllowsMismatchedNetworkNames:input_type -> eap.AllowsMismatchedNetworkNamesRequest
+	8,  // 29: eap.SessionConfigEapAkaPrimeConfigService.Equals:input_type -> eap.EqualsRequest
+	46, // 30: eap.SessionConfigEapAkaPrimeConfigService.GetNetworkName:input_type -> eap.GetNetworkNameRequest
+	22, // 31: eap.SessionConfigEapAkaPrimeConfigService.HashCode:input_type -> eap.HashCodeRequest
+	8,  // 32: eap.SessionConfigEapMethodConfigService.Equals:input_type -> eap.EqualsRequest
+	48, // 33: eap.SessionConfigEapMethodConfigService.GetMethodType:input_type -> eap.GetMethodTypeRequest
+	22, // 34: eap.SessionConfigEapMethodConfigService.HashCode:input_type -> eap.HashCodeRequest
+	8,  // 35: eap.SessionConfigEapMsChapV2ConfigService.Equals:input_type -> eap.EqualsRequest
+	50, // 36: eap.SessionConfigEapMsChapV2ConfigService.GetPassword:input_type -> eap.GetPasswordRequest
+	52, // 37: eap.SessionConfigEapMsChapV2ConfigService.GetUsername:input_type -> eap.GetUsernameRequest
+	22, // 38: eap.SessionConfigEapMsChapV2ConfigService.HashCode:input_type -> eap.HashCodeRequest
+	8,  // 39: eap.SessionConfigEapSimConfigService.Equals:input_type -> eap.EqualsRequest
+	38, // 40: eap.SessionConfigEapSimConfigService.GetAppType:input_type -> eap.GetAppTypeRequest
+	42, // 41: eap.SessionConfigEapSimConfigService.GetSubId:input_type -> eap.GetSubIdRequest
+	22, // 42: eap.SessionConfigEapSimConfigService.HashCode:input_type -> eap.HashCodeRequest
+	8,  // 43: eap.SessionConfigEapTtlsConfigService.Equals:input_type -> eap.EqualsRequest
+	54, // 44: eap.SessionConfigEapTtlsConfigService.GetInnerEapSessionConfig:input_type -> eap.GetInnerEapSessionConfigRequest
+	56, // 45: eap.SessionConfigEapTtlsConfigService.GetServerCaCert:input_type -> eap.GetServerCaCertRequest
+	22, // 46: eap.SessionConfigEapTtlsConfigService.HashCode:input_type -> eap.HashCodeRequest
+	1,  // 47: eap.InfoService.GetEapMethodType:output_type -> eap.GetEapMethodTypeResponse
+	3,  // 48: eap.AkaInfoService.GetReauthId:output_type -> eap.GetReauthIdResponse
+	5,  // 49: eap.AkaInfoBuilderService.Build:output_type -> eap.BuildResponse
+	7,  // 50: eap.AkaInfoBuilderService.SetReauthId:output_type -> eap.SetReauthIdResponse
+	9,  // 51: eap.SessionConfigService.Equals:output_type -> eap.EqualsResponse
+	11, // 52: eap.SessionConfigService.GetEapAkaConfig:output_type -> eap.GetEapAkaConfigResponse
+	13, // 53: eap.SessionConfigService.GetEapAkaPrimeConfig:output_type -> eap.GetEapAkaPrimeConfigResponse
+	15, // 54: eap.SessionConfigService.GetEapIdentity:output_type -> eap.GetEapIdentityResponse
+	17, // 55: eap.SessionConfigService.GetEapMsChapV2Config:output_type -> eap.GetEapMsChapV2ConfigResponse
+	19, // 56: eap.SessionConfigService.GetEapSimConfig:output_type -> eap.GetEapSimConfigResponse
+	21, // 57: eap.SessionConfigService.GetEapTtlsConfig:output_type -> eap.GetEapTtlsConfigResponse
+	23, // 58: eap.SessionConfigService.HashCode:output_type -> eap.HashCodeResponse
+	5,  // 59: eap.SessionConfigBuilderService.Build:output_type -> eap.BuildResponse
+	25, // 60: eap.SessionConfigBuilderService.SetEapAkaConfig2:output_type -> eap.SetEapAkaConfig2Response
+	27, // 61: eap.SessionConfigBuilderService.SetEapAkaConfig3_1:output_type -> eap.SetEapAkaConfig3_1Response
+	29, // 62: eap.SessionConfigBuilderService.SetEapAkaPrimeConfig:output_type -> eap.SetEapAkaPrimeConfigResponse
+	31, // 63: eap.SessionConfigBuilderService.SetEapIdentity:output_type -> eap.SetEapIdentityResponse
+	33, // 64: eap.SessionConfigBuilderService.SetEapMsChapV2Config:output_type -> eap.SetEapMsChapV2ConfigResponse
+	35, // 65: eap.SessionConfigBuilderService.SetEapSimConfig:output_type -> eap.SetEapSimConfigResponse
+	37, // 66: eap.SessionConfigBuilderService.SetEapTtlsConfig:output_type -> eap.SetEapTtlsConfigResponse
+	9,  // 67: eap.SessionConfigEapAkaConfigService.Equals:output_type -> eap.EqualsResponse
+	39, // 68: eap.SessionConfigEapAkaConfigService.GetAppType:output_type -> eap.GetAppTypeResponse
+	41, // 69: eap.SessionConfigEapAkaConfigService.GetEapAkaOption:output_type -> eap.GetEapAkaOptionResponse
+	43, // 70: eap.SessionConfigEapAkaConfigService.GetSubId:output_type -> eap.GetSubIdResponse
+	23, // 71: eap.SessionConfigEapAkaConfigService.HashCode:output_type -> eap.HashCodeResponse
+	9,  // 72: eap.SessionConfigEapAkaOptionService.Equals:output_type -> eap.EqualsResponse
+	3,  // 73: eap.SessionConfigEapAkaOptionService.GetReauthId:output_type -> eap.GetReauthIdResponse
+	23, // 74: eap.SessionConfigEapAkaOptionService.HashCode:output_type -> eap.HashCodeResponse
+	45, // 75: eap.SessionConfigEapAkaPrimeConfigService.AllowsMismatchedNetworkNames:output_type -> eap.AllowsMismatchedNetworkNamesResponse
+	9,  // 76: eap.SessionConfigEapAkaPrimeConfigService.Equals:output_type -> eap.EqualsResponse
+	47, // 77: eap.SessionConfigEapAkaPrimeConfigService.GetNetworkName:output_type -> eap.GetNetworkNameResponse
+	23, // 78: eap.SessionConfigEapAkaPrimeConfigService.HashCode:output_type -> eap.HashCodeResponse
+	9,  // 79: eap.SessionConfigEapMethodConfigService.Equals:output_type -> eap.EqualsResponse
+	49, // 80: eap.SessionConfigEapMethodConfigService.GetMethodType:output_type -> eap.GetMethodTypeResponse
+	23, // 81: eap.SessionConfigEapMethodConfigService.HashCode:output_type -> eap.HashCodeResponse
+	9,  // 82: eap.SessionConfigEapMsChapV2ConfigService.Equals:output_type -> eap.EqualsResponse
+	51, // 83: eap.SessionConfigEapMsChapV2ConfigService.GetPassword:output_type -> eap.GetPasswordResponse
+	53, // 84: eap.SessionConfigEapMsChapV2ConfigService.GetUsername:output_type -> eap.GetUsernameResponse
+	23, // 85: eap.SessionConfigEapMsChapV2ConfigService.HashCode:output_type -> eap.HashCodeResponse
+	9,  // 86: eap.SessionConfigEapSimConfigService.Equals:output_type -> eap.EqualsResponse
+	39, // 87: eap.SessionConfigEapSimConfigService.GetAppType:output_type -> eap.GetAppTypeResponse
+	43, // 88: eap.SessionConfigEapSimConfigService.GetSubId:output_type -> eap.GetSubIdResponse
+	23, // 89: eap.SessionConfigEapSimConfigService.HashCode:output_type -> eap.HashCodeResponse
+	9,  // 90: eap.SessionConfigEapTtlsConfigService.Equals:output_type -> eap.EqualsResponse
+	55, // 91: eap.SessionConfigEapTtlsConfigService.GetInnerEapSessionConfig:output_type -> eap.GetInnerEapSessionConfigResponse
+	57, // 92: eap.SessionConfigEapTtlsConfigService.GetServerCaCert:output_type -> eap.GetServerCaCertResponse
+	23, // 93: eap.SessionConfigEapTtlsConfigService.HashCode:output_type -> eap.HashCodeResponse
+	47, // [47:94] is the sub-list for method output_type
+	0,  // [0:47] is the sub-list for method input_type
+	0,  // [0:0] is the sub-list for extension type_name
+	0,  // [0:0] is the sub-list for extension extendee
+	0,  // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_proto_eap_eap_proto_init() }
@@ -48,12 +2845,13 @@ func file_proto_eap_eap_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_eap_eap_proto_rawDesc), len(file_proto_eap_eap_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   58,
 			NumExtensions: 0,
-			NumServices:   0,
+			NumServices:   12,
 		},
 		GoTypes:           file_proto_eap_eap_proto_goTypes,
 		DependencyIndexes: file_proto_eap_eap_proto_depIdxs,
+		MessageInfos:      file_proto_eap_eap_proto_msgTypes,
 	}.Build()
 	File_proto_eap_eap_proto = out.File
 	file_proto_eap_eap_proto_goTypes = nil

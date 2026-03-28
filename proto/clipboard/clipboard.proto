@@ -6,6 +6,202 @@ package clipboard;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/clipboard";
 
+message NewClipDataRequest {
+  int64 arg0 = 1;
+}
+
+message NewClipDataResponse {
+  int64 result = 1;
+}
+
+message AddItem1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AddItem1Response {
+}
+
+message AddItem2_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message AddItem2_1Response {
+}
+
+message DescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message GetDescriptionRequest {
+  int64 handle = 1;
+}
+
+message GetDescriptionResponse {
+  int64 result = 1;
+}
+
+message GetItemAtRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetItemAtResponse {
+  int64 result = 1;
+}
+
+message GetItemCountRequest {
+  int64 handle = 1;
+}
+
+message GetItemCountResponse {
+  int32 result = 1;
+}
+
+message ToStringRequest {
+  int64 handle = 1;
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message WriteToParcelResponse {
+}
+
+message NewHtmlTextRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  string arg1 = 3;
+  string arg2 = 4;
+}
+
+message NewHtmlTextResponse {
+  int64 result = 1;
+}
+
+message NewIntentRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message NewIntentResponse {
+  int64 result = 1;
+}
+
+message NewPlainTextRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  string arg1 = 3;
+}
+
+message NewPlainTextResponse {
+  int64 result = 1;
+}
+
+message NewRawUriRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message NewRawUriResponse {
+  int64 result = 1;
+}
+
+message NewUriRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message NewUriResponse {
+  int64 result = 1;
+}
+
+message CoerceToHtmlTextRequest {
+  int64 arg0 = 1;
+}
+
+message CoerceToHtmlTextResponse {
+  string result = 1;
+}
+
+message CoerceToStyledTextRequest {
+  int64 arg0 = 1;
+}
+
+message CoerceToStyledTextResponse {
+  int64 result = 1;
+}
+
+message CoerceToTextRequest {
+  int64 arg0 = 1;
+}
+
+message CoerceToTextResponse {
+  int64 result = 1;
+}
+
+message GetHtmlTextRequest {
+}
+
+message GetHtmlTextResponse {
+  string result = 1;
+}
+
+message GetIntentRequest {
+}
+
+message GetIntentResponse {
+  int64 result = 1;
+}
+
+message GetIntentSenderRequest {
+}
+
+message GetIntentSenderResponse {
+  int64 result = 1;
+}
+
+message GetTextRequest {
+}
+
+message GetTextResponse {
+  int64 result = 1;
+}
+
+message GetTextLinksRequest {
+}
+
+message GetTextLinksResponse {
+  int64 result = 1;
+}
+
+message GetUriRequest {
+}
+
+message GetUriResponse {
+  int64 result = 1;
+}
+
+message ClipDataItemToStringRequest {
+}
+
 message AddPrimaryClipChangedListenerRequest {
   int64 arg0 = 1;
 }
@@ -30,13 +226,6 @@ message GetPrimaryClipDescriptionRequest {
 }
 
 message GetPrimaryClipDescriptionResponse {
-  int64 result = 1;
-}
-
-message GetTextRequest {
-}
-
-message GetTextResponse {
   int64 result = 1;
 }
 
@@ -75,6 +264,42 @@ message SetTextRequest {
 message SetTextResponse {
 }
 
+message OnPrimaryClipChangedRequest {
+}
+
+message OnPrimaryClipChangedResponse {
+}
+
+service ClipDataService {
+  rpc NewClipData (NewClipDataRequest) returns (NewClipDataResponse);
+  rpc AddItem1 (AddItem1Request) returns (AddItem1Response);
+  rpc AddItem2_1 (AddItem2_1Request) returns (AddItem2_1Response);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetDescription (GetDescriptionRequest) returns (GetDescriptionResponse);
+  rpc GetItemAt (GetItemAtRequest) returns (GetItemAtResponse);
+  rpc GetItemCount (GetItemCountRequest) returns (GetItemCountResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc NewHtmlText (NewHtmlTextRequest) returns (NewHtmlTextResponse);
+  rpc NewIntent (NewIntentRequest) returns (NewIntentResponse);
+  rpc NewPlainText (NewPlainTextRequest) returns (NewPlainTextResponse);
+  rpc NewRawUri (NewRawUriRequest) returns (NewRawUriResponse);
+  rpc NewUri (NewUriRequest) returns (NewUriResponse);
+}
+
+service ClipDataItemService {
+  rpc CoerceToHtmlText (CoerceToHtmlTextRequest) returns (CoerceToHtmlTextResponse);
+  rpc CoerceToStyledText (CoerceToStyledTextRequest) returns (CoerceToStyledTextResponse);
+  rpc CoerceToText (CoerceToTextRequest) returns (CoerceToTextResponse);
+  rpc GetHtmlText (GetHtmlTextRequest) returns (GetHtmlTextResponse);
+  rpc GetIntent (GetIntentRequest) returns (GetIntentResponse);
+  rpc GetIntentSender (GetIntentSenderRequest) returns (GetIntentSenderResponse);
+  rpc GetText (GetTextRequest) returns (GetTextResponse);
+  rpc GetTextLinks (GetTextLinksRequest) returns (GetTextLinksResponse);
+  rpc GetUri (GetUriRequest) returns (GetUriResponse);
+  rpc ToString (ClipDataItemToStringRequest) returns (ToStringResponse);
+}
+
 service ManagerService {
   rpc AddPrimaryClipChangedListener (AddPrimaryClipChangedListenerRequest) returns (AddPrimaryClipChangedListenerResponse);
   rpc ClearPrimaryClip (ClearPrimaryClipRequest) returns (ClearPrimaryClipResponse);
@@ -86,4 +311,8 @@ service ManagerService {
   rpc RemovePrimaryClipChangedListener (RemovePrimaryClipChangedListenerRequest) returns (RemovePrimaryClipChangedListenerResponse);
   rpc SetPrimaryClip (SetPrimaryClipRequest) returns (SetPrimaryClipResponse);
   rpc SetText (SetTextRequest) returns (SetTextResponse);
+}
+
+service ManagerOnPrimaryClipChangedListenerService {
+  rpc OnPrimaryClipChanged (OnPrimaryClipChangedRequest) returns (OnPrimaryClipChangedResponse);
 }

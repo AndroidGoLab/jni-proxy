@@ -1783,6 +1783,1070 @@ func (*Vibrate3_6Response) Descriptor() ([]byte, []int) {
 	return file_proto_vibrator_vibrator_proto_rawDescGZIP(), []int{41}
 }
 
+type DescribeContentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DescribeContentsRequest) Reset() {
+	*x = DescribeContentsRequest{}
+	mi := &file_proto_vibrator_vibrator_proto_msgTypes[42]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DescribeContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DescribeContentsRequest) ProtoMessage() {}
+
+func (x *DescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vibrator_vibrator_proto_msgTypes[42]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*DescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vibrator_vibrator_proto_rawDescGZIP(), []int{42}
+}
+
+type DescribeContentsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DescribeContentsResponse) Reset() {
+	*x = DescribeContentsResponse{}
+	mi := &file_proto_vibrator_vibrator_proto_msgTypes[43]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DescribeContentsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DescribeContentsResponse) ProtoMessage() {}
+
+func (x *DescribeContentsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vibrator_vibrator_proto_msgTypes[43]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DescribeContentsResponse.ProtoReflect.Descriptor instead.
+func (*DescribeContentsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vibrator_vibrator_proto_rawDescGZIP(), []int{43}
+}
+
+func (x *DescribeContentsResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type EqualsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EqualsRequest) Reset() {
+	*x = EqualsRequest{}
+	mi := &file_proto_vibrator_vibrator_proto_msgTypes[44]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EqualsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EqualsRequest) ProtoMessage() {}
+
+func (x *EqualsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vibrator_vibrator_proto_msgTypes[44]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EqualsRequest.ProtoReflect.Descriptor instead.
+func (*EqualsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vibrator_vibrator_proto_rawDescGZIP(), []int{44}
+}
+
+func (x *EqualsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type EqualsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EqualsResponse) Reset() {
+	*x = EqualsResponse{}
+	mi := &file_proto_vibrator_vibrator_proto_msgTypes[45]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EqualsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EqualsResponse) ProtoMessage() {}
+
+func (x *EqualsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vibrator_vibrator_proto_msgTypes[45]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EqualsResponse.ProtoReflect.Descriptor instead.
+func (*EqualsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vibrator_vibrator_proto_rawDescGZIP(), []int{45}
+}
+
+func (x *EqualsResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type GetMaxControlPointDurationMillisRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMaxControlPointDurationMillisRequest) Reset() {
+	*x = GetMaxControlPointDurationMillisRequest{}
+	mi := &file_proto_vibrator_vibrator_proto_msgTypes[46]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMaxControlPointDurationMillisRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMaxControlPointDurationMillisRequest) ProtoMessage() {}
+
+func (x *GetMaxControlPointDurationMillisRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vibrator_vibrator_proto_msgTypes[46]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMaxControlPointDurationMillisRequest.ProtoReflect.Descriptor instead.
+func (*GetMaxControlPointDurationMillisRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vibrator_vibrator_proto_rawDescGZIP(), []int{46}
+}
+
+type GetMaxControlPointDurationMillisResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMaxControlPointDurationMillisResponse) Reset() {
+	*x = GetMaxControlPointDurationMillisResponse{}
+	mi := &file_proto_vibrator_vibrator_proto_msgTypes[47]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMaxControlPointDurationMillisResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMaxControlPointDurationMillisResponse) ProtoMessage() {}
+
+func (x *GetMaxControlPointDurationMillisResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vibrator_vibrator_proto_msgTypes[47]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMaxControlPointDurationMillisResponse.ProtoReflect.Descriptor instead.
+func (*GetMaxControlPointDurationMillisResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vibrator_vibrator_proto_rawDescGZIP(), []int{47}
+}
+
+func (x *GetMaxControlPointDurationMillisResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetMaxDurationMillisRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMaxDurationMillisRequest) Reset() {
+	*x = GetMaxDurationMillisRequest{}
+	mi := &file_proto_vibrator_vibrator_proto_msgTypes[48]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMaxDurationMillisRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMaxDurationMillisRequest) ProtoMessage() {}
+
+func (x *GetMaxDurationMillisRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vibrator_vibrator_proto_msgTypes[48]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMaxDurationMillisRequest.ProtoReflect.Descriptor instead.
+func (*GetMaxDurationMillisRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vibrator_vibrator_proto_rawDescGZIP(), []int{48}
+}
+
+type GetMaxDurationMillisResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMaxDurationMillisResponse) Reset() {
+	*x = GetMaxDurationMillisResponse{}
+	mi := &file_proto_vibrator_vibrator_proto_msgTypes[49]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMaxDurationMillisResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMaxDurationMillisResponse) ProtoMessage() {}
+
+func (x *GetMaxDurationMillisResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vibrator_vibrator_proto_msgTypes[49]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMaxDurationMillisResponse.ProtoReflect.Descriptor instead.
+func (*GetMaxDurationMillisResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vibrator_vibrator_proto_rawDescGZIP(), []int{49}
+}
+
+func (x *GetMaxDurationMillisResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetMaxSizeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMaxSizeRequest) Reset() {
+	*x = GetMaxSizeRequest{}
+	mi := &file_proto_vibrator_vibrator_proto_msgTypes[50]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMaxSizeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMaxSizeRequest) ProtoMessage() {}
+
+func (x *GetMaxSizeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vibrator_vibrator_proto_msgTypes[50]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMaxSizeRequest.ProtoReflect.Descriptor instead.
+func (*GetMaxSizeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vibrator_vibrator_proto_rawDescGZIP(), []int{50}
+}
+
+type GetMaxSizeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMaxSizeResponse) Reset() {
+	*x = GetMaxSizeResponse{}
+	mi := &file_proto_vibrator_vibrator_proto_msgTypes[51]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMaxSizeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMaxSizeResponse) ProtoMessage() {}
+
+func (x *GetMaxSizeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vibrator_vibrator_proto_msgTypes[51]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMaxSizeResponse.ProtoReflect.Descriptor instead.
+func (*GetMaxSizeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vibrator_vibrator_proto_rawDescGZIP(), []int{51}
+}
+
+func (x *GetMaxSizeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetMinControlPointDurationMillisRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMinControlPointDurationMillisRequest) Reset() {
+	*x = GetMinControlPointDurationMillisRequest{}
+	mi := &file_proto_vibrator_vibrator_proto_msgTypes[52]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMinControlPointDurationMillisRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMinControlPointDurationMillisRequest) ProtoMessage() {}
+
+func (x *GetMinControlPointDurationMillisRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vibrator_vibrator_proto_msgTypes[52]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMinControlPointDurationMillisRequest.ProtoReflect.Descriptor instead.
+func (*GetMinControlPointDurationMillisRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vibrator_vibrator_proto_rawDescGZIP(), []int{52}
+}
+
+type GetMinControlPointDurationMillisResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMinControlPointDurationMillisResponse) Reset() {
+	*x = GetMinControlPointDurationMillisResponse{}
+	mi := &file_proto_vibrator_vibrator_proto_msgTypes[53]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMinControlPointDurationMillisResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMinControlPointDurationMillisResponse) ProtoMessage() {}
+
+func (x *GetMinControlPointDurationMillisResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vibrator_vibrator_proto_msgTypes[53]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMinControlPointDurationMillisResponse.ProtoReflect.Descriptor instead.
+func (*GetMinControlPointDurationMillisResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vibrator_vibrator_proto_rawDescGZIP(), []int{53}
+}
+
+func (x *GetMinControlPointDurationMillisResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type HashCodeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HashCodeRequest) Reset() {
+	*x = HashCodeRequest{}
+	mi := &file_proto_vibrator_vibrator_proto_msgTypes[54]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HashCodeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HashCodeRequest) ProtoMessage() {}
+
+func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vibrator_vibrator_proto_msgTypes[54]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HashCodeRequest.ProtoReflect.Descriptor instead.
+func (*HashCodeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vibrator_vibrator_proto_rawDescGZIP(), []int{54}
+}
+
+type HashCodeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HashCodeResponse) Reset() {
+	*x = HashCodeResponse{}
+	mi := &file_proto_vibrator_vibrator_proto_msgTypes[55]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HashCodeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HashCodeResponse) ProtoMessage() {}
+
+func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vibrator_vibrator_proto_msgTypes[55]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HashCodeResponse.ProtoReflect.Descriptor instead.
+func (*HashCodeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vibrator_vibrator_proto_rawDescGZIP(), []int{55}
+}
+
+func (x *HashCodeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ToStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringRequest) Reset() {
+	*x = ToStringRequest{}
+	mi := &file_proto_vibrator_vibrator_proto_msgTypes[56]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringRequest) ProtoMessage() {}
+
+func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vibrator_vibrator_proto_msgTypes[56]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringRequest.ProtoReflect.Descriptor instead.
+func (*ToStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vibrator_vibrator_proto_rawDescGZIP(), []int{56}
+}
+
+type ToStringResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringResponse) Reset() {
+	*x = ToStringResponse{}
+	mi := &file_proto_vibrator_vibrator_proto_msgTypes[57]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringResponse) ProtoMessage() {}
+
+func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vibrator_vibrator_proto_msgTypes[57]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringResponse.ProtoReflect.Descriptor instead.
+func (*ToStringResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vibrator_vibrator_proto_rawDescGZIP(), []int{57}
+}
+
+func (x *ToStringResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type WriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WriteToParcelRequest) Reset() {
+	*x = WriteToParcelRequest{}
+	mi := &file_proto_vibrator_vibrator_proto_msgTypes[58]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WriteToParcelRequest) ProtoMessage() {}
+
+func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vibrator_vibrator_proto_msgTypes[58]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*WriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vibrator_vibrator_proto_rawDescGZIP(), []int{58}
+}
+
+func (x *WriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *WriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type WriteToParcelResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WriteToParcelResponse) Reset() {
+	*x = WriteToParcelResponse{}
+	mi := &file_proto_vibrator_vibrator_proto_msgTypes[59]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WriteToParcelResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WriteToParcelResponse) ProtoMessage() {}
+
+func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vibrator_vibrator_proto_msgTypes[59]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WriteToParcelResponse.ProtoReflect.Descriptor instead.
+func (*WriteToParcelResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vibrator_vibrator_proto_rawDescGZIP(), []int{59}
+}
+
+type GetMaxFrequencyHzRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMaxFrequencyHzRequest) Reset() {
+	*x = GetMaxFrequencyHzRequest{}
+	mi := &file_proto_vibrator_vibrator_proto_msgTypes[60]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMaxFrequencyHzRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMaxFrequencyHzRequest) ProtoMessage() {}
+
+func (x *GetMaxFrequencyHzRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vibrator_vibrator_proto_msgTypes[60]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMaxFrequencyHzRequest.ProtoReflect.Descriptor instead.
+func (*GetMaxFrequencyHzRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vibrator_vibrator_proto_rawDescGZIP(), []int{60}
+}
+
+type GetMaxFrequencyHzResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        float32                `protobuf:"fixed32,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMaxFrequencyHzResponse) Reset() {
+	*x = GetMaxFrequencyHzResponse{}
+	mi := &file_proto_vibrator_vibrator_proto_msgTypes[61]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMaxFrequencyHzResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMaxFrequencyHzResponse) ProtoMessage() {}
+
+func (x *GetMaxFrequencyHzResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vibrator_vibrator_proto_msgTypes[61]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMaxFrequencyHzResponse.ProtoReflect.Descriptor instead.
+func (*GetMaxFrequencyHzResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vibrator_vibrator_proto_rawDescGZIP(), []int{61}
+}
+
+func (x *GetMaxFrequencyHzResponse) GetResult() float32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetMaxOutputAccelerationGsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMaxOutputAccelerationGsRequest) Reset() {
+	*x = GetMaxOutputAccelerationGsRequest{}
+	mi := &file_proto_vibrator_vibrator_proto_msgTypes[62]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMaxOutputAccelerationGsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMaxOutputAccelerationGsRequest) ProtoMessage() {}
+
+func (x *GetMaxOutputAccelerationGsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vibrator_vibrator_proto_msgTypes[62]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMaxOutputAccelerationGsRequest.ProtoReflect.Descriptor instead.
+func (*GetMaxOutputAccelerationGsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vibrator_vibrator_proto_rawDescGZIP(), []int{62}
+}
+
+type GetMaxOutputAccelerationGsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        float32                `protobuf:"fixed32,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMaxOutputAccelerationGsResponse) Reset() {
+	*x = GetMaxOutputAccelerationGsResponse{}
+	mi := &file_proto_vibrator_vibrator_proto_msgTypes[63]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMaxOutputAccelerationGsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMaxOutputAccelerationGsResponse) ProtoMessage() {}
+
+func (x *GetMaxOutputAccelerationGsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vibrator_vibrator_proto_msgTypes[63]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMaxOutputAccelerationGsResponse.ProtoReflect.Descriptor instead.
+func (*GetMaxOutputAccelerationGsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vibrator_vibrator_proto_rawDescGZIP(), []int{63}
+}
+
+func (x *GetMaxOutputAccelerationGsResponse) GetResult() float32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetMinFrequencyHzRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMinFrequencyHzRequest) Reset() {
+	*x = GetMinFrequencyHzRequest{}
+	mi := &file_proto_vibrator_vibrator_proto_msgTypes[64]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMinFrequencyHzRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMinFrequencyHzRequest) ProtoMessage() {}
+
+func (x *GetMinFrequencyHzRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vibrator_vibrator_proto_msgTypes[64]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMinFrequencyHzRequest.ProtoReflect.Descriptor instead.
+func (*GetMinFrequencyHzRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vibrator_vibrator_proto_rawDescGZIP(), []int{64}
+}
+
+type GetMinFrequencyHzResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        float32                `protobuf:"fixed32,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMinFrequencyHzResponse) Reset() {
+	*x = GetMinFrequencyHzResponse{}
+	mi := &file_proto_vibrator_vibrator_proto_msgTypes[65]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMinFrequencyHzResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMinFrequencyHzResponse) ProtoMessage() {}
+
+func (x *GetMinFrequencyHzResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vibrator_vibrator_proto_msgTypes[65]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMinFrequencyHzResponse.ProtoReflect.Descriptor instead.
+func (*GetMinFrequencyHzResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vibrator_vibrator_proto_rawDescGZIP(), []int{65}
+}
+
+func (x *GetMinFrequencyHzResponse) GetResult() float32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetOutputAccelerationGsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          float32                `protobuf:"fixed32,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetOutputAccelerationGsRequest) Reset() {
+	*x = GetOutputAccelerationGsRequest{}
+	mi := &file_proto_vibrator_vibrator_proto_msgTypes[66]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetOutputAccelerationGsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetOutputAccelerationGsRequest) ProtoMessage() {}
+
+func (x *GetOutputAccelerationGsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vibrator_vibrator_proto_msgTypes[66]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetOutputAccelerationGsRequest.ProtoReflect.Descriptor instead.
+func (*GetOutputAccelerationGsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_vibrator_vibrator_proto_rawDescGZIP(), []int{66}
+}
+
+func (x *GetOutputAccelerationGsRequest) GetArg0() float32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetOutputAccelerationGsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        float32                `protobuf:"fixed32,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetOutputAccelerationGsResponse) Reset() {
+	*x = GetOutputAccelerationGsResponse{}
+	mi := &file_proto_vibrator_vibrator_proto_msgTypes[67]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetOutputAccelerationGsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetOutputAccelerationGsResponse) ProtoMessage() {}
+
+func (x *GetOutputAccelerationGsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_vibrator_vibrator_proto_msgTypes[67]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetOutputAccelerationGsResponse.ProtoReflect.Descriptor instead.
+func (*GetOutputAccelerationGsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_vibrator_vibrator_proto_rawDescGZIP(), []int{67}
+}
+
+func (x *GetOutputAccelerationGsResponse) GetResult() float32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
 var File_proto_vibrator_vibrator_proto protoreflect.FileDescriptor
 
 const file_proto_vibrator_vibrator_proto_rawDesc = "" +
@@ -1860,7 +2924,49 @@ const file_proto_vibrator_vibrator_proto_rawDesc = "" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
 	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"\x14\n" +
-	"\x12Vibrate3_6Response2\xc9\x0e\n" +
+	"\x12Vibrate3_6Response\"\x19\n" +
+	"\x17DescribeContentsRequest\"2\n" +
+	"\x18DescribeContentsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"#\n" +
+	"\rEqualsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"(\n" +
+	"\x0eEqualsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\")\n" +
+	"'GetMaxControlPointDurationMillisRequest\"B\n" +
+	"(GetMaxControlPointDurationMillisResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1d\n" +
+	"\x1bGetMaxDurationMillisRequest\"6\n" +
+	"\x1cGetMaxDurationMillisResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x13\n" +
+	"\x11GetMaxSizeRequest\",\n" +
+	"\x12GetMaxSizeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\")\n" +
+	"'GetMinControlPointDurationMillisRequest\"B\n" +
+	"(GetMinControlPointDurationMillisResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x11\n" +
+	"\x0fHashCodeRequest\"*\n" +
+	"\x10HashCodeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x11\n" +
+	"\x0fToStringRequest\"*\n" +
+	"\x10ToStringResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\">\n" +
+	"\x14WriteToParcelRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x17\n" +
+	"\x15WriteToParcelResponse\"\x1a\n" +
+	"\x18GetMaxFrequencyHzRequest\"3\n" +
+	"\x19GetMaxFrequencyHzResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x02R\x06result\"#\n" +
+	"!GetMaxOutputAccelerationGsRequest\"<\n" +
+	"\"GetMaxOutputAccelerationGsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x02R\x06result\"\x1a\n" +
+	"\x18GetMinFrequencyHzRequest\"3\n" +
+	"\x19GetMinFrequencyHzResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x02R\x06result\"4\n" +
+	"\x1eGetOutputAccelerationGsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x02R\x04arg0\"9\n" +
+	"\x1fGetOutputAccelerationGsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x02R\x06result2\xc9\x0e\n" +
 	"\x0fVibratorService\x12k\n" +
 	"\x16AreAllEffectsSupported\x12'.vibrator.AreAllEffectsSupportedRequest\x1a(.vibrator.AreAllEffectsSupportedResponse\x12t\n" +
 	"\x19AreAllPrimitivesSupported\x12*.vibrator.AreAllPrimitivesSupportedRequest\x1a+.vibrator.AreAllPrimitivesSupportedResponse\x12b\n" +
@@ -1889,7 +2995,23 @@ const file_proto_vibrator_vibrator_proto_rawDesc = "" +
 	"\n" +
 	"Vibrate2_5\x12\x1b.vibrator.Vibrate2_5Request\x1a\x1c.vibrator.Vibrate2_5Response\x12G\n" +
 	"\n" +
-	"Vibrate3_6\x12\x1b.vibrator.Vibrate3_6Request\x1a\x1c.vibrator.Vibrate3_6ResponseB2Z0github.com/AndroidGoLab/jni-proxy/proto/vibratorb\x06proto3"
+	"Vibrate3_6\x12\x1b.vibrator.Vibrate3_6Request\x1a\x1c.vibrator.Vibrate3_6Response2\xd3\x06\n" +
+	"\x19EnvelopeEffectInfoService\x12Y\n" +
+	"\x10DescribeContents\x12!.vibrator.DescribeContentsRequest\x1a\".vibrator.DescribeContentsResponse\x12;\n" +
+	"\x06Equals\x12\x17.vibrator.EqualsRequest\x1a\x18.vibrator.EqualsResponse\x12\x89\x01\n" +
+	" GetMaxControlPointDurationMillis\x121.vibrator.GetMaxControlPointDurationMillisRequest\x1a2.vibrator.GetMaxControlPointDurationMillisResponse\x12e\n" +
+	"\x14GetMaxDurationMillis\x12%.vibrator.GetMaxDurationMillisRequest\x1a&.vibrator.GetMaxDurationMillisResponse\x12G\n" +
+	"\n" +
+	"GetMaxSize\x12\x1b.vibrator.GetMaxSizeRequest\x1a\x1c.vibrator.GetMaxSizeResponse\x12\x89\x01\n" +
+	" GetMinControlPointDurationMillis\x121.vibrator.GetMinControlPointDurationMillisRequest\x1a2.vibrator.GetMinControlPointDurationMillisResponse\x12A\n" +
+	"\bHashCode\x12\x19.vibrator.HashCodeRequest\x1a\x1a.vibrator.HashCodeResponse\x12A\n" +
+	"\bToString\x12\x19.vibrator.ToStringRequest\x1a\x1a.vibrator.ToStringResponse\x12P\n" +
+	"\rWriteToParcel\x12\x1e.vibrator.WriteToParcelRequest\x1a\x1f.vibrator.WriteToParcelResponse2\xbe\x03\n" +
+	"\x17FrequencyProfileService\x12\\\n" +
+	"\x11GetMaxFrequencyHz\x12\".vibrator.GetMaxFrequencyHzRequest\x1a#.vibrator.GetMaxFrequencyHzResponse\x12w\n" +
+	"\x1aGetMaxOutputAccelerationGs\x12+.vibrator.GetMaxOutputAccelerationGsRequest\x1a,.vibrator.GetMaxOutputAccelerationGsResponse\x12\\\n" +
+	"\x11GetMinFrequencyHz\x12\".vibrator.GetMinFrequencyHzRequest\x1a#.vibrator.GetMinFrequencyHzResponse\x12n\n" +
+	"\x17GetOutputAccelerationGs\x12(.vibrator.GetOutputAccelerationGsRequest\x1a).vibrator.GetOutputAccelerationGsResponseB2Z0github.com/AndroidGoLab/jni-proxy/proto/vibratorb\x06proto3"
 
 var (
 	file_proto_vibrator_vibrator_proto_rawDescOnce sync.Once
@@ -1903,50 +3025,76 @@ func file_proto_vibrator_vibrator_proto_rawDescGZIP() []byte {
 	return file_proto_vibrator_vibrator_proto_rawDescData
 }
 
-var file_proto_vibrator_vibrator_proto_msgTypes = make([]protoimpl.MessageInfo, 42)
+var file_proto_vibrator_vibrator_proto_msgTypes = make([]protoimpl.MessageInfo, 68)
 var file_proto_vibrator_vibrator_proto_goTypes = []any{
-	(*AreAllEffectsSupportedRequest)(nil),       // 0: vibrator.AreAllEffectsSupportedRequest
-	(*AreAllEffectsSupportedResponse)(nil),      // 1: vibrator.AreAllEffectsSupportedResponse
-	(*AreAllPrimitivesSupportedRequest)(nil),    // 2: vibrator.AreAllPrimitivesSupportedRequest
-	(*AreAllPrimitivesSupportedResponse)(nil),   // 3: vibrator.AreAllPrimitivesSupportedResponse
-	(*AreEffectsSupportedRequest)(nil),          // 4: vibrator.AreEffectsSupportedRequest
-	(*AreEffectsSupportedResponse)(nil),         // 5: vibrator.AreEffectsSupportedResponse
-	(*AreEnvelopeEffectsSupportedRequest)(nil),  // 6: vibrator.AreEnvelopeEffectsSupportedRequest
-	(*AreEnvelopeEffectsSupportedResponse)(nil), // 7: vibrator.AreEnvelopeEffectsSupportedResponse
-	(*ArePrimitivesSupportedRequest)(nil),       // 8: vibrator.ArePrimitivesSupportedRequest
-	(*ArePrimitivesSupportedResponse)(nil),      // 9: vibrator.ArePrimitivesSupportedResponse
-	(*CancelRequest)(nil),                       // 10: vibrator.CancelRequest
-	(*CancelResponse)(nil),                      // 11: vibrator.CancelResponse
-	(*GetEnvelopeEffectInfoRequest)(nil),        // 12: vibrator.GetEnvelopeEffectInfoRequest
-	(*GetEnvelopeEffectInfoResponse)(nil),       // 13: vibrator.GetEnvelopeEffectInfoResponse
-	(*GetFrequencyProfileRequest)(nil),          // 14: vibrator.GetFrequencyProfileRequest
-	(*GetFrequencyProfileResponse)(nil),         // 15: vibrator.GetFrequencyProfileResponse
-	(*GetIdRequest)(nil),                        // 16: vibrator.GetIdRequest
-	(*GetIdResponse)(nil),                       // 17: vibrator.GetIdResponse
-	(*GetPrimitiveDurationsRequest)(nil),        // 18: vibrator.GetPrimitiveDurationsRequest
-	(*GetPrimitiveDurationsResponse)(nil),       // 19: vibrator.GetPrimitiveDurationsResponse
-	(*GetQFactorRequest)(nil),                   // 20: vibrator.GetQFactorRequest
-	(*GetQFactorResponse)(nil),                  // 21: vibrator.GetQFactorResponse
-	(*GetResonantFrequencyRequest)(nil),         // 22: vibrator.GetResonantFrequencyRequest
-	(*GetResonantFrequencyResponse)(nil),        // 23: vibrator.GetResonantFrequencyResponse
-	(*HasAmplitudeControlRequest)(nil),          // 24: vibrator.HasAmplitudeControlRequest
-	(*HasAmplitudeControlResponse)(nil),         // 25: vibrator.HasAmplitudeControlResponse
-	(*HasVibratorRequest)(nil),                  // 26: vibrator.HasVibratorRequest
-	(*HasVibratorResponse)(nil),                 // 27: vibrator.HasVibratorResponse
-	(*Vibrate1Request)(nil),                     // 28: vibrator.Vibrate1Request
-	(*Vibrate1Response)(nil),                    // 29: vibrator.Vibrate1Response
-	(*Vibrate2_1Request)(nil),                   // 30: vibrator.Vibrate2_1Request
-	(*Vibrate2_1Response)(nil),                  // 31: vibrator.Vibrate2_1Response
-	(*Vibrate2_2Request)(nil),                   // 32: vibrator.Vibrate2_2Request
-	(*Vibrate2_2Response)(nil),                  // 33: vibrator.Vibrate2_2Response
-	(*Vibrate1_3Request)(nil),                   // 34: vibrator.Vibrate1_3Request
-	(*Vibrate1_3Response)(nil),                  // 35: vibrator.Vibrate1_3Response
-	(*Vibrate2_4Request)(nil),                   // 36: vibrator.Vibrate2_4Request
-	(*Vibrate2_4Response)(nil),                  // 37: vibrator.Vibrate2_4Response
-	(*Vibrate2_5Request)(nil),                   // 38: vibrator.Vibrate2_5Request
-	(*Vibrate2_5Response)(nil),                  // 39: vibrator.Vibrate2_5Response
-	(*Vibrate3_6Request)(nil),                   // 40: vibrator.Vibrate3_6Request
-	(*Vibrate3_6Response)(nil),                  // 41: vibrator.Vibrate3_6Response
+	(*AreAllEffectsSupportedRequest)(nil),            // 0: vibrator.AreAllEffectsSupportedRequest
+	(*AreAllEffectsSupportedResponse)(nil),           // 1: vibrator.AreAllEffectsSupportedResponse
+	(*AreAllPrimitivesSupportedRequest)(nil),         // 2: vibrator.AreAllPrimitivesSupportedRequest
+	(*AreAllPrimitivesSupportedResponse)(nil),        // 3: vibrator.AreAllPrimitivesSupportedResponse
+	(*AreEffectsSupportedRequest)(nil),               // 4: vibrator.AreEffectsSupportedRequest
+	(*AreEffectsSupportedResponse)(nil),              // 5: vibrator.AreEffectsSupportedResponse
+	(*AreEnvelopeEffectsSupportedRequest)(nil),       // 6: vibrator.AreEnvelopeEffectsSupportedRequest
+	(*AreEnvelopeEffectsSupportedResponse)(nil),      // 7: vibrator.AreEnvelopeEffectsSupportedResponse
+	(*ArePrimitivesSupportedRequest)(nil),            // 8: vibrator.ArePrimitivesSupportedRequest
+	(*ArePrimitivesSupportedResponse)(nil),           // 9: vibrator.ArePrimitivesSupportedResponse
+	(*CancelRequest)(nil),                            // 10: vibrator.CancelRequest
+	(*CancelResponse)(nil),                           // 11: vibrator.CancelResponse
+	(*GetEnvelopeEffectInfoRequest)(nil),             // 12: vibrator.GetEnvelopeEffectInfoRequest
+	(*GetEnvelopeEffectInfoResponse)(nil),            // 13: vibrator.GetEnvelopeEffectInfoResponse
+	(*GetFrequencyProfileRequest)(nil),               // 14: vibrator.GetFrequencyProfileRequest
+	(*GetFrequencyProfileResponse)(nil),              // 15: vibrator.GetFrequencyProfileResponse
+	(*GetIdRequest)(nil),                             // 16: vibrator.GetIdRequest
+	(*GetIdResponse)(nil),                            // 17: vibrator.GetIdResponse
+	(*GetPrimitiveDurationsRequest)(nil),             // 18: vibrator.GetPrimitiveDurationsRequest
+	(*GetPrimitiveDurationsResponse)(nil),            // 19: vibrator.GetPrimitiveDurationsResponse
+	(*GetQFactorRequest)(nil),                        // 20: vibrator.GetQFactorRequest
+	(*GetQFactorResponse)(nil),                       // 21: vibrator.GetQFactorResponse
+	(*GetResonantFrequencyRequest)(nil),              // 22: vibrator.GetResonantFrequencyRequest
+	(*GetResonantFrequencyResponse)(nil),             // 23: vibrator.GetResonantFrequencyResponse
+	(*HasAmplitudeControlRequest)(nil),               // 24: vibrator.HasAmplitudeControlRequest
+	(*HasAmplitudeControlResponse)(nil),              // 25: vibrator.HasAmplitudeControlResponse
+	(*HasVibratorRequest)(nil),                       // 26: vibrator.HasVibratorRequest
+	(*HasVibratorResponse)(nil),                      // 27: vibrator.HasVibratorResponse
+	(*Vibrate1Request)(nil),                          // 28: vibrator.Vibrate1Request
+	(*Vibrate1Response)(nil),                         // 29: vibrator.Vibrate1Response
+	(*Vibrate2_1Request)(nil),                        // 30: vibrator.Vibrate2_1Request
+	(*Vibrate2_1Response)(nil),                       // 31: vibrator.Vibrate2_1Response
+	(*Vibrate2_2Request)(nil),                        // 32: vibrator.Vibrate2_2Request
+	(*Vibrate2_2Response)(nil),                       // 33: vibrator.Vibrate2_2Response
+	(*Vibrate1_3Request)(nil),                        // 34: vibrator.Vibrate1_3Request
+	(*Vibrate1_3Response)(nil),                       // 35: vibrator.Vibrate1_3Response
+	(*Vibrate2_4Request)(nil),                        // 36: vibrator.Vibrate2_4Request
+	(*Vibrate2_4Response)(nil),                       // 37: vibrator.Vibrate2_4Response
+	(*Vibrate2_5Request)(nil),                        // 38: vibrator.Vibrate2_5Request
+	(*Vibrate2_5Response)(nil),                       // 39: vibrator.Vibrate2_5Response
+	(*Vibrate3_6Request)(nil),                        // 40: vibrator.Vibrate3_6Request
+	(*Vibrate3_6Response)(nil),                       // 41: vibrator.Vibrate3_6Response
+	(*DescribeContentsRequest)(nil),                  // 42: vibrator.DescribeContentsRequest
+	(*DescribeContentsResponse)(nil),                 // 43: vibrator.DescribeContentsResponse
+	(*EqualsRequest)(nil),                            // 44: vibrator.EqualsRequest
+	(*EqualsResponse)(nil),                           // 45: vibrator.EqualsResponse
+	(*GetMaxControlPointDurationMillisRequest)(nil),  // 46: vibrator.GetMaxControlPointDurationMillisRequest
+	(*GetMaxControlPointDurationMillisResponse)(nil), // 47: vibrator.GetMaxControlPointDurationMillisResponse
+	(*GetMaxDurationMillisRequest)(nil),              // 48: vibrator.GetMaxDurationMillisRequest
+	(*GetMaxDurationMillisResponse)(nil),             // 49: vibrator.GetMaxDurationMillisResponse
+	(*GetMaxSizeRequest)(nil),                        // 50: vibrator.GetMaxSizeRequest
+	(*GetMaxSizeResponse)(nil),                       // 51: vibrator.GetMaxSizeResponse
+	(*GetMinControlPointDurationMillisRequest)(nil),  // 52: vibrator.GetMinControlPointDurationMillisRequest
+	(*GetMinControlPointDurationMillisResponse)(nil), // 53: vibrator.GetMinControlPointDurationMillisResponse
+	(*HashCodeRequest)(nil),                          // 54: vibrator.HashCodeRequest
+	(*HashCodeResponse)(nil),                         // 55: vibrator.HashCodeResponse
+	(*ToStringRequest)(nil),                          // 56: vibrator.ToStringRequest
+	(*ToStringResponse)(nil),                         // 57: vibrator.ToStringResponse
+	(*WriteToParcelRequest)(nil),                     // 58: vibrator.WriteToParcelRequest
+	(*WriteToParcelResponse)(nil),                    // 59: vibrator.WriteToParcelResponse
+	(*GetMaxFrequencyHzRequest)(nil),                 // 60: vibrator.GetMaxFrequencyHzRequest
+	(*GetMaxFrequencyHzResponse)(nil),                // 61: vibrator.GetMaxFrequencyHzResponse
+	(*GetMaxOutputAccelerationGsRequest)(nil),        // 62: vibrator.GetMaxOutputAccelerationGsRequest
+	(*GetMaxOutputAccelerationGsResponse)(nil),       // 63: vibrator.GetMaxOutputAccelerationGsResponse
+	(*GetMinFrequencyHzRequest)(nil),                 // 64: vibrator.GetMinFrequencyHzRequest
+	(*GetMinFrequencyHzResponse)(nil),                // 65: vibrator.GetMinFrequencyHzResponse
+	(*GetOutputAccelerationGsRequest)(nil),           // 66: vibrator.GetOutputAccelerationGsRequest
+	(*GetOutputAccelerationGsResponse)(nil),          // 67: vibrator.GetOutputAccelerationGsResponse
 }
 var file_proto_vibrator_vibrator_proto_depIdxs = []int32{
 	0,  // 0: vibrator.VibratorService.AreAllEffectsSupported:input_type -> vibrator.AreAllEffectsSupportedRequest
@@ -1970,29 +3118,55 @@ var file_proto_vibrator_vibrator_proto_depIdxs = []int32{
 	36, // 18: vibrator.VibratorService.Vibrate2_4:input_type -> vibrator.Vibrate2_4Request
 	38, // 19: vibrator.VibratorService.Vibrate2_5:input_type -> vibrator.Vibrate2_5Request
 	40, // 20: vibrator.VibratorService.Vibrate3_6:input_type -> vibrator.Vibrate3_6Request
-	1,  // 21: vibrator.VibratorService.AreAllEffectsSupported:output_type -> vibrator.AreAllEffectsSupportedResponse
-	3,  // 22: vibrator.VibratorService.AreAllPrimitivesSupported:output_type -> vibrator.AreAllPrimitivesSupportedResponse
-	5,  // 23: vibrator.VibratorService.AreEffectsSupported:output_type -> vibrator.AreEffectsSupportedResponse
-	7,  // 24: vibrator.VibratorService.AreEnvelopeEffectsSupported:output_type -> vibrator.AreEnvelopeEffectsSupportedResponse
-	9,  // 25: vibrator.VibratorService.ArePrimitivesSupported:output_type -> vibrator.ArePrimitivesSupportedResponse
-	11, // 26: vibrator.VibratorService.Cancel:output_type -> vibrator.CancelResponse
-	13, // 27: vibrator.VibratorService.GetEnvelopeEffectInfo:output_type -> vibrator.GetEnvelopeEffectInfoResponse
-	15, // 28: vibrator.VibratorService.GetFrequencyProfile:output_type -> vibrator.GetFrequencyProfileResponse
-	17, // 29: vibrator.VibratorService.GetId:output_type -> vibrator.GetIdResponse
-	19, // 30: vibrator.VibratorService.GetPrimitiveDurations:output_type -> vibrator.GetPrimitiveDurationsResponse
-	21, // 31: vibrator.VibratorService.GetQFactor:output_type -> vibrator.GetQFactorResponse
-	23, // 32: vibrator.VibratorService.GetResonantFrequency:output_type -> vibrator.GetResonantFrequencyResponse
-	25, // 33: vibrator.VibratorService.HasAmplitudeControl:output_type -> vibrator.HasAmplitudeControlResponse
-	27, // 34: vibrator.VibratorService.HasVibrator:output_type -> vibrator.HasVibratorResponse
-	29, // 35: vibrator.VibratorService.Vibrate1:output_type -> vibrator.Vibrate1Response
-	31, // 36: vibrator.VibratorService.Vibrate2_1:output_type -> vibrator.Vibrate2_1Response
-	33, // 37: vibrator.VibratorService.Vibrate2_2:output_type -> vibrator.Vibrate2_2Response
-	35, // 38: vibrator.VibratorService.Vibrate1_3:output_type -> vibrator.Vibrate1_3Response
-	37, // 39: vibrator.VibratorService.Vibrate2_4:output_type -> vibrator.Vibrate2_4Response
-	39, // 40: vibrator.VibratorService.Vibrate2_5:output_type -> vibrator.Vibrate2_5Response
-	41, // 41: vibrator.VibratorService.Vibrate3_6:output_type -> vibrator.Vibrate3_6Response
-	21, // [21:42] is the sub-list for method output_type
-	0,  // [0:21] is the sub-list for method input_type
+	42, // 21: vibrator.EnvelopeEffectInfoService.DescribeContents:input_type -> vibrator.DescribeContentsRequest
+	44, // 22: vibrator.EnvelopeEffectInfoService.Equals:input_type -> vibrator.EqualsRequest
+	46, // 23: vibrator.EnvelopeEffectInfoService.GetMaxControlPointDurationMillis:input_type -> vibrator.GetMaxControlPointDurationMillisRequest
+	48, // 24: vibrator.EnvelopeEffectInfoService.GetMaxDurationMillis:input_type -> vibrator.GetMaxDurationMillisRequest
+	50, // 25: vibrator.EnvelopeEffectInfoService.GetMaxSize:input_type -> vibrator.GetMaxSizeRequest
+	52, // 26: vibrator.EnvelopeEffectInfoService.GetMinControlPointDurationMillis:input_type -> vibrator.GetMinControlPointDurationMillisRequest
+	54, // 27: vibrator.EnvelopeEffectInfoService.HashCode:input_type -> vibrator.HashCodeRequest
+	56, // 28: vibrator.EnvelopeEffectInfoService.ToString:input_type -> vibrator.ToStringRequest
+	58, // 29: vibrator.EnvelopeEffectInfoService.WriteToParcel:input_type -> vibrator.WriteToParcelRequest
+	60, // 30: vibrator.FrequencyProfileService.GetMaxFrequencyHz:input_type -> vibrator.GetMaxFrequencyHzRequest
+	62, // 31: vibrator.FrequencyProfileService.GetMaxOutputAccelerationGs:input_type -> vibrator.GetMaxOutputAccelerationGsRequest
+	64, // 32: vibrator.FrequencyProfileService.GetMinFrequencyHz:input_type -> vibrator.GetMinFrequencyHzRequest
+	66, // 33: vibrator.FrequencyProfileService.GetOutputAccelerationGs:input_type -> vibrator.GetOutputAccelerationGsRequest
+	1,  // 34: vibrator.VibratorService.AreAllEffectsSupported:output_type -> vibrator.AreAllEffectsSupportedResponse
+	3,  // 35: vibrator.VibratorService.AreAllPrimitivesSupported:output_type -> vibrator.AreAllPrimitivesSupportedResponse
+	5,  // 36: vibrator.VibratorService.AreEffectsSupported:output_type -> vibrator.AreEffectsSupportedResponse
+	7,  // 37: vibrator.VibratorService.AreEnvelopeEffectsSupported:output_type -> vibrator.AreEnvelopeEffectsSupportedResponse
+	9,  // 38: vibrator.VibratorService.ArePrimitivesSupported:output_type -> vibrator.ArePrimitivesSupportedResponse
+	11, // 39: vibrator.VibratorService.Cancel:output_type -> vibrator.CancelResponse
+	13, // 40: vibrator.VibratorService.GetEnvelopeEffectInfo:output_type -> vibrator.GetEnvelopeEffectInfoResponse
+	15, // 41: vibrator.VibratorService.GetFrequencyProfile:output_type -> vibrator.GetFrequencyProfileResponse
+	17, // 42: vibrator.VibratorService.GetId:output_type -> vibrator.GetIdResponse
+	19, // 43: vibrator.VibratorService.GetPrimitiveDurations:output_type -> vibrator.GetPrimitiveDurationsResponse
+	21, // 44: vibrator.VibratorService.GetQFactor:output_type -> vibrator.GetQFactorResponse
+	23, // 45: vibrator.VibratorService.GetResonantFrequency:output_type -> vibrator.GetResonantFrequencyResponse
+	25, // 46: vibrator.VibratorService.HasAmplitudeControl:output_type -> vibrator.HasAmplitudeControlResponse
+	27, // 47: vibrator.VibratorService.HasVibrator:output_type -> vibrator.HasVibratorResponse
+	29, // 48: vibrator.VibratorService.Vibrate1:output_type -> vibrator.Vibrate1Response
+	31, // 49: vibrator.VibratorService.Vibrate2_1:output_type -> vibrator.Vibrate2_1Response
+	33, // 50: vibrator.VibratorService.Vibrate2_2:output_type -> vibrator.Vibrate2_2Response
+	35, // 51: vibrator.VibratorService.Vibrate1_3:output_type -> vibrator.Vibrate1_3Response
+	37, // 52: vibrator.VibratorService.Vibrate2_4:output_type -> vibrator.Vibrate2_4Response
+	39, // 53: vibrator.VibratorService.Vibrate2_5:output_type -> vibrator.Vibrate2_5Response
+	41, // 54: vibrator.VibratorService.Vibrate3_6:output_type -> vibrator.Vibrate3_6Response
+	43, // 55: vibrator.EnvelopeEffectInfoService.DescribeContents:output_type -> vibrator.DescribeContentsResponse
+	45, // 56: vibrator.EnvelopeEffectInfoService.Equals:output_type -> vibrator.EqualsResponse
+	47, // 57: vibrator.EnvelopeEffectInfoService.GetMaxControlPointDurationMillis:output_type -> vibrator.GetMaxControlPointDurationMillisResponse
+	49, // 58: vibrator.EnvelopeEffectInfoService.GetMaxDurationMillis:output_type -> vibrator.GetMaxDurationMillisResponse
+	51, // 59: vibrator.EnvelopeEffectInfoService.GetMaxSize:output_type -> vibrator.GetMaxSizeResponse
+	53, // 60: vibrator.EnvelopeEffectInfoService.GetMinControlPointDurationMillis:output_type -> vibrator.GetMinControlPointDurationMillisResponse
+	55, // 61: vibrator.EnvelopeEffectInfoService.HashCode:output_type -> vibrator.HashCodeResponse
+	57, // 62: vibrator.EnvelopeEffectInfoService.ToString:output_type -> vibrator.ToStringResponse
+	59, // 63: vibrator.EnvelopeEffectInfoService.WriteToParcel:output_type -> vibrator.WriteToParcelResponse
+	61, // 64: vibrator.FrequencyProfileService.GetMaxFrequencyHz:output_type -> vibrator.GetMaxFrequencyHzResponse
+	63, // 65: vibrator.FrequencyProfileService.GetMaxOutputAccelerationGs:output_type -> vibrator.GetMaxOutputAccelerationGsResponse
+	65, // 66: vibrator.FrequencyProfileService.GetMinFrequencyHz:output_type -> vibrator.GetMinFrequencyHzResponse
+	67, // 67: vibrator.FrequencyProfileService.GetOutputAccelerationGs:output_type -> vibrator.GetOutputAccelerationGsResponse
+	34, // [34:68] is the sub-list for method output_type
+	0,  // [0:34] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name
 	0,  // [0:0] is the sub-list for extension extendee
 	0,  // [0:0] is the sub-list for field type_name
@@ -2009,9 +3183,9 @@ func file_proto_vibrator_vibrator_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_vibrator_vibrator_proto_rawDesc), len(file_proto_vibrator_vibrator_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   42,
+			NumMessages:   68,
 			NumExtensions: 0,
-			NumServices:   1,
+			NumServices:   3,
 		},
 		GoTypes:           file_proto_vibrator_vibrator_proto_goTypes,
 		DependencyIndexes: file_proto_vibrator_vibrator_proto_depIdxs,

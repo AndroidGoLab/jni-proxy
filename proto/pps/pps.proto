@@ -5,3 +5,503 @@ syntax = "proto3";
 package pps;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/pps";
+
+message NewHomeSpRequest {
+}
+
+message NewHomeSpResponse {
+  int64 result = 1;
+}
+
+message DescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message EqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message GetFqdnRequest {
+  int64 handle = 1;
+}
+
+message GetFqdnResponse {
+  string result = 1;
+}
+
+message GetFriendlyNameRequest {
+  int64 handle = 1;
+}
+
+message GetFriendlyNameResponse {
+  string result = 1;
+}
+
+message GetMatchAllOisRequest {
+  int64 handle = 1;
+}
+
+message GetMatchAllOisResponse {
+  int64 result = 1;
+}
+
+message GetMatchAnyOisRequest {
+  int64 handle = 1;
+}
+
+message GetMatchAnyOisResponse {
+  int64 result = 1;
+}
+
+message GetRoamingConsortiumOisRequest {
+  int64 handle = 1;
+}
+
+message GetRoamingConsortiumOisResponse {
+  int64 result = 1;
+}
+
+message HashCodeRequest {
+  int64 handle = 1;
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message SetFqdnRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetFqdnResponse {
+}
+
+message SetFriendlyNameRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetFriendlyNameResponse {
+}
+
+message SetMatchAllOisRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetMatchAllOisResponse {
+}
+
+message SetMatchAnyOisRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetMatchAnyOisResponse {
+}
+
+message SetRoamingConsortiumOisRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetRoamingConsortiumOisResponse {
+}
+
+message ToStringRequest {
+  int64 handle = 1;
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message WriteToParcelResponse {
+}
+
+message NewCredentialRequest {
+}
+
+message NewCredentialResponse {
+  int64 result = 1;
+}
+
+message GetCaCertificateRequest {
+  int64 handle = 1;
+}
+
+message GetCaCertificateResponse {
+  int64 result = 1;
+}
+
+message GetCertCredentialRequest {
+  int64 handle = 1;
+}
+
+message GetCertCredentialResponse {
+  int64 result = 1;
+}
+
+message GetClientCertificateChainRequest {
+  int64 handle = 1;
+}
+
+message GetClientCertificateChainResponse {
+  int64 result = 1;
+}
+
+message GetClientPrivateKeyRequest {
+  int64 handle = 1;
+}
+
+message GetClientPrivateKeyResponse {
+  int64 result = 1;
+}
+
+message GetMinimumTlsVersionRequest {
+  int64 handle = 1;
+}
+
+message GetMinimumTlsVersionResponse {
+  int32 result = 1;
+}
+
+message GetRealmRequest {
+  int64 handle = 1;
+}
+
+message GetRealmResponse {
+  string result = 1;
+}
+
+message GetSimCredentialRequest {
+  int64 handle = 1;
+}
+
+message GetSimCredentialResponse {
+  int64 result = 1;
+}
+
+message GetUserCredentialRequest {
+  int64 handle = 1;
+}
+
+message GetUserCredentialResponse {
+  int64 result = 1;
+}
+
+message SetCaCertificateRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetCaCertificateResponse {
+}
+
+message SetCertCredentialRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetCertCredentialResponse {
+}
+
+message SetClientCertificateChainRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetClientCertificateChainResponse {
+}
+
+message SetClientPrivateKeyRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetClientPrivateKeyResponse {
+}
+
+message SetMinimumTlsVersionRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetMinimumTlsVersionResponse {
+}
+
+message SetRealmRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetRealmResponse {
+}
+
+message SetSimCredentialRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetSimCredentialResponse {
+}
+
+message SetUserCredentialRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetUserCredentialResponse {
+}
+
+message CredentialCertificateCredentialDescribeContentsRequest {
+}
+
+message CredentialCertificateCredentialEqualsRequest {
+  int64 arg0 = 1;
+}
+
+message GetCertSha256FingerprintRequest {
+}
+
+message GetCertSha256FingerprintResponse {
+  int64 result = 1;
+}
+
+message GetCertTypeRequest {
+}
+
+message GetCertTypeResponse {
+  string result = 1;
+}
+
+message CredentialCertificateCredentialHashCodeRequest {
+}
+
+message SetCertSha256FingerprintRequest {
+  int64 arg0 = 1;
+}
+
+message SetCertSha256FingerprintResponse {
+}
+
+message SetCertTypeRequest {
+  string arg0 = 1;
+}
+
+message SetCertTypeResponse {
+}
+
+message CredentialCertificateCredentialToStringRequest {
+}
+
+message CredentialCertificateCredentialWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message CredentialSimCredentialDescribeContentsRequest {
+}
+
+message CredentialSimCredentialEqualsRequest {
+  int64 arg0 = 1;
+}
+
+message GetEapTypeRequest {
+}
+
+message GetEapTypeResponse {
+  int32 result = 1;
+}
+
+message GetImsiRequest {
+}
+
+message GetImsiResponse {
+  string result = 1;
+}
+
+message CredentialSimCredentialHashCodeRequest {
+}
+
+message SetEapTypeRequest {
+  int32 arg0 = 1;
+}
+
+message SetEapTypeResponse {
+}
+
+message SetImsiRequest {
+  string arg0 = 1;
+}
+
+message SetImsiResponse {
+}
+
+message CredentialSimCredentialToStringRequest {
+}
+
+message CredentialSimCredentialWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message CredentialUserCredentialDescribeContentsRequest {
+}
+
+message CredentialUserCredentialEqualsRequest {
+  int64 arg0 = 1;
+}
+
+message GetNonEapInnerMethodRequest {
+}
+
+message GetNonEapInnerMethodResponse {
+  string result = 1;
+}
+
+message GetPasswordRequest {
+}
+
+message GetPasswordResponse {
+  string result = 1;
+}
+
+message GetUsernameRequest {
+}
+
+message GetUsernameResponse {
+  string result = 1;
+}
+
+message CredentialUserCredentialHashCodeRequest {
+}
+
+message SetNonEapInnerMethodRequest {
+  string arg0 = 1;
+}
+
+message SetNonEapInnerMethodResponse {
+}
+
+message SetPasswordRequest {
+  string arg0 = 1;
+}
+
+message SetPasswordResponse {
+}
+
+message SetUsernameRequest {
+  string arg0 = 1;
+}
+
+message SetUsernameResponse {
+}
+
+message CredentialUserCredentialToStringRequest {
+}
+
+message CredentialUserCredentialWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+service HomeSpService {
+  rpc NewHomeSp (NewHomeSpRequest) returns (NewHomeSpResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetFqdn (GetFqdnRequest) returns (GetFqdnResponse);
+  rpc GetFriendlyName (GetFriendlyNameRequest) returns (GetFriendlyNameResponse);
+  rpc GetMatchAllOis (GetMatchAllOisRequest) returns (GetMatchAllOisResponse);
+  rpc GetMatchAnyOis (GetMatchAnyOisRequest) returns (GetMatchAnyOisResponse);
+  rpc GetRoamingConsortiumOis (GetRoamingConsortiumOisRequest) returns (GetRoamingConsortiumOisResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc SetFqdn (SetFqdnRequest) returns (SetFqdnResponse);
+  rpc SetFriendlyName (SetFriendlyNameRequest) returns (SetFriendlyNameResponse);
+  rpc SetMatchAllOis (SetMatchAllOisRequest) returns (SetMatchAllOisResponse);
+  rpc SetMatchAnyOis (SetMatchAnyOisRequest) returns (SetMatchAnyOisResponse);
+  rpc SetRoamingConsortiumOis (SetRoamingConsortiumOisRequest) returns (SetRoamingConsortiumOisResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service CredentialService {
+  rpc NewCredential (NewCredentialRequest) returns (NewCredentialResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetCaCertificate (GetCaCertificateRequest) returns (GetCaCertificateResponse);
+  rpc GetCertCredential (GetCertCredentialRequest) returns (GetCertCredentialResponse);
+  rpc GetClientCertificateChain (GetClientCertificateChainRequest) returns (GetClientCertificateChainResponse);
+  rpc GetClientPrivateKey (GetClientPrivateKeyRequest) returns (GetClientPrivateKeyResponse);
+  rpc GetMinimumTlsVersion (GetMinimumTlsVersionRequest) returns (GetMinimumTlsVersionResponse);
+  rpc GetRealm (GetRealmRequest) returns (GetRealmResponse);
+  rpc GetSimCredential (GetSimCredentialRequest) returns (GetSimCredentialResponse);
+  rpc GetUserCredential (GetUserCredentialRequest) returns (GetUserCredentialResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc SetCaCertificate (SetCaCertificateRequest) returns (SetCaCertificateResponse);
+  rpc SetCertCredential (SetCertCredentialRequest) returns (SetCertCredentialResponse);
+  rpc SetClientCertificateChain (SetClientCertificateChainRequest) returns (SetClientCertificateChainResponse);
+  rpc SetClientPrivateKey (SetClientPrivateKeyRequest) returns (SetClientPrivateKeyResponse);
+  rpc SetMinimumTlsVersion (SetMinimumTlsVersionRequest) returns (SetMinimumTlsVersionResponse);
+  rpc SetRealm (SetRealmRequest) returns (SetRealmResponse);
+  rpc SetSimCredential (SetSimCredentialRequest) returns (SetSimCredentialResponse);
+  rpc SetUserCredential (SetUserCredentialRequest) returns (SetUserCredentialResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service CredentialCertificateCredentialService {
+  rpc DescribeContents (CredentialCertificateCredentialDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (CredentialCertificateCredentialEqualsRequest) returns (EqualsResponse);
+  rpc GetCertSha256Fingerprint (GetCertSha256FingerprintRequest) returns (GetCertSha256FingerprintResponse);
+  rpc GetCertType (GetCertTypeRequest) returns (GetCertTypeResponse);
+  rpc HashCode (CredentialCertificateCredentialHashCodeRequest) returns (HashCodeResponse);
+  rpc SetCertSha256Fingerprint (SetCertSha256FingerprintRequest) returns (SetCertSha256FingerprintResponse);
+  rpc SetCertType (SetCertTypeRequest) returns (SetCertTypeResponse);
+  rpc ToString (CredentialCertificateCredentialToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (CredentialCertificateCredentialWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service CredentialSimCredentialService {
+  rpc DescribeContents (CredentialSimCredentialDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (CredentialSimCredentialEqualsRequest) returns (EqualsResponse);
+  rpc GetEapType (GetEapTypeRequest) returns (GetEapTypeResponse);
+  rpc GetImsi (GetImsiRequest) returns (GetImsiResponse);
+  rpc HashCode (CredentialSimCredentialHashCodeRequest) returns (HashCodeResponse);
+  rpc SetEapType (SetEapTypeRequest) returns (SetEapTypeResponse);
+  rpc SetImsi (SetImsiRequest) returns (SetImsiResponse);
+  rpc ToString (CredentialSimCredentialToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (CredentialSimCredentialWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service CredentialUserCredentialService {
+  rpc DescribeContents (CredentialUserCredentialDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (CredentialUserCredentialEqualsRequest) returns (EqualsResponse);
+  rpc GetEapType (GetEapTypeRequest) returns (GetEapTypeResponse);
+  rpc GetNonEapInnerMethod (GetNonEapInnerMethodRequest) returns (GetNonEapInnerMethodResponse);
+  rpc GetPassword (GetPasswordRequest) returns (GetPasswordResponse);
+  rpc GetUsername (GetUsernameRequest) returns (GetUsernameResponse);
+  rpc HashCode (CredentialUserCredentialHashCodeRequest) returns (HashCodeResponse);
+  rpc SetEapType (SetEapTypeRequest) returns (SetEapTypeResponse);
+  rpc SetNonEapInnerMethod (SetNonEapInnerMethodRequest) returns (SetNonEapInnerMethodResponse);
+  rpc SetPassword (SetPasswordRequest) returns (SetPasswordResponse);
+  rpc SetUsername (SetUsernameRequest) returns (SetUsernameResponse);
+  rpc ToString (CredentialUserCredentialToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (CredentialUserCredentialWriteToParcelRequest) returns (WriteToParcelResponse);
+}

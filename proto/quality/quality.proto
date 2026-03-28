@@ -6,6 +6,278 @@ package quality;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/quality";
 
+message NewAmbientBacklightSettingsRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int32 arg4 = 5;
+  bool arg5 = 6;
+  int32 arg6 = 7;
+}
+
+message NewAmbientBacklightSettingsResponse {
+  int64 result = 1;
+}
+
+message DescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message GetColorFormatRequest {
+  int64 handle = 1;
+}
+
+message GetColorFormatResponse {
+  int32 result = 1;
+}
+
+message GetHorizontalZonesCountRequest {
+  int64 handle = 1;
+}
+
+message GetHorizontalZonesCountResponse {
+  int32 result = 1;
+}
+
+message GetMaxFpsRequest {
+  int64 handle = 1;
+}
+
+message GetMaxFpsResponse {
+  int32 result = 1;
+}
+
+message GetSourceRequest {
+  int64 handle = 1;
+}
+
+message GetSourceResponse {
+  int32 result = 1;
+}
+
+message GetThresholdRequest {
+  int64 handle = 1;
+}
+
+message GetThresholdResponse {
+  int32 result = 1;
+}
+
+message GetVerticalZonesCountRequest {
+  int64 handle = 1;
+}
+
+message GetVerticalZonesCountResponse {
+  int32 result = 1;
+}
+
+message IsLetterboxOmittedRequest {
+  int64 handle = 1;
+}
+
+message IsLetterboxOmittedResponse {
+  bool result = 1;
+}
+
+message ToStringRequest {
+  int64 handle = 1;
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message WriteToParcelResponse {
+}
+
+message NewAmbientBacklightEventRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewAmbientBacklightEventResponse {
+  int64 result = 1;
+}
+
+message EqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message GetEventTypeRequest {
+  int64 handle = 1;
+}
+
+message GetEventTypeResponse {
+  int32 result = 1;
+}
+
+message GetMetadataRequest {
+  int64 handle = 1;
+}
+
+message GetMetadataResponse {
+  int64 result = 1;
+}
+
+message HashCodeRequest {
+  int64 handle = 1;
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message PictureProfileDescribeContentsRequest {
+}
+
+message GetInputIdRequest {
+}
+
+message GetInputIdResponse {
+  string result = 1;
+}
+
+message GetNameRequest {
+}
+
+message GetNameResponse {
+  string result = 1;
+}
+
+message GetPackageNameRequest {
+}
+
+message GetPackageNameResponse {
+  string result = 1;
+}
+
+message GetParametersRequest {
+}
+
+message GetParametersResponse {
+  int64 result = 1;
+}
+
+message GetProfileIdRequest {
+}
+
+message GetProfileIdResponse {
+  string result = 1;
+}
+
+message GetProfileTypeRequest {
+}
+
+message GetProfileTypeResponse {
+  int32 result = 1;
+}
+
+message PictureProfileWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message BuildRequest {
+}
+
+message BuildResponse {
+  int64 result = 1;
+}
+
+message SetParametersRequest {
+  int64 arg0 = 1;
+}
+
+message SetParametersResponse {
+  int64 result = 1;
+}
+
+message ParameterCapabilityDescribeContentsRequest {
+}
+
+message GetCapabilitiesRequest {
+}
+
+message GetCapabilitiesResponse {
+  int64 result = 1;
+}
+
+message GetParameterNameRequest {
+}
+
+message GetParameterNameResponse {
+  string result = 1;
+}
+
+message GetParameterTypeRequest {
+}
+
+message GetParameterTypeResponse {
+  int32 result = 1;
+}
+
+message IsSupportedRequest {
+}
+
+message IsSupportedResponse {
+  bool result = 1;
+}
+
+message ParameterCapabilityWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message NewAmbientBacklightMetadataRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int32 arg4 = 5;
+  int32 arg5 = 6;
+  int64 arg6 = 7;
+}
+
+message NewAmbientBacklightMetadataResponse {
+  int64 result = 1;
+}
+
+message GetCompressionAlgorithmRequest {
+  int64 handle = 1;
+}
+
+message GetCompressionAlgorithmResponse {
+  int32 result = 1;
+}
+
+message AmbientBacklightMetadataGetPackageNameRequest {
+  int64 handle = 1;
+}
+
+message GetZoneColorsRequest {
+  int64 handle = 1;
+}
+
+message GetZoneColorsResponse {
+  int64 result = 1;
+}
+
 message CreatePictureProfileRequest {
   int64 arg0 = 1;
 }
@@ -157,6 +429,177 @@ message UpdateSoundProfileRequest {
 message UpdateSoundProfileResponse {
 }
 
+message OnAmbientBacklightEventRequest {
+  int64 arg0 = 1;
+}
+
+message OnAmbientBacklightEventResponse {
+}
+
+message OnErrorRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message OnErrorResponse {
+}
+
+message OnPictureProfileAddedRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnPictureProfileAddedResponse {
+}
+
+message OnPictureProfileRemovedRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnPictureProfileRemovedResponse {
+}
+
+message OnPictureProfileUpdatedRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnPictureProfileUpdatedResponse {
+}
+
+message AreParametersIncludedRequest {
+}
+
+message AreParametersIncludedResponse {
+  bool result = 1;
+}
+
+message MediaQualityManagerProfileQueryParamsDescribeContentsRequest {
+}
+
+message MediaQualityManagerProfileQueryParamsWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message OnSoundProfileAddedRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnSoundProfileAddedResponse {
+}
+
+message OnSoundProfileRemovedRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnSoundProfileRemovedResponse {
+}
+
+message OnSoundProfileUpdatedRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnSoundProfileUpdatedResponse {
+}
+
+message NewActiveProcessingPictureRequest {
+  int32 arg0 = 1;
+  string arg1 = 2;
+}
+
+message NewActiveProcessingPictureResponse {
+  int64 result = 1;
+}
+
+message GetIdRequest {
+  int64 handle = 1;
+}
+
+message GetIdResponse {
+  int32 result = 1;
+}
+
+message ActiveProcessingPictureGetProfileIdRequest {
+  int64 handle = 1;
+}
+
+message SoundProfileDescribeContentsRequest {
+}
+
+message SoundProfileWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+service AmbientBacklightSettingsService {
+  rpc NewAmbientBacklightSettings (NewAmbientBacklightSettingsRequest) returns (NewAmbientBacklightSettingsResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetColorFormat (GetColorFormatRequest) returns (GetColorFormatResponse);
+  rpc GetHorizontalZonesCount (GetHorizontalZonesCountRequest) returns (GetHorizontalZonesCountResponse);
+  rpc GetMaxFps (GetMaxFpsRequest) returns (GetMaxFpsResponse);
+  rpc GetSource (GetSourceRequest) returns (GetSourceResponse);
+  rpc GetThreshold (GetThresholdRequest) returns (GetThresholdResponse);
+  rpc GetVerticalZonesCount (GetVerticalZonesCountRequest) returns (GetVerticalZonesCountResponse);
+  rpc IsLetterboxOmitted (IsLetterboxOmittedRequest) returns (IsLetterboxOmittedResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service AmbientBacklightEventService {
+  rpc NewAmbientBacklightEvent (NewAmbientBacklightEventRequest) returns (NewAmbientBacklightEventResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetEventType (GetEventTypeRequest) returns (GetEventTypeResponse);
+  rpc GetMetadata (GetMetadataRequest) returns (GetMetadataResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service PictureProfileService {
+  rpc DescribeContents (PictureProfileDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetInputId (GetInputIdRequest) returns (GetInputIdResponse);
+  rpc GetName (GetNameRequest) returns (GetNameResponse);
+  rpc GetPackageName (GetPackageNameRequest) returns (GetPackageNameResponse);
+  rpc GetParameters (GetParametersRequest) returns (GetParametersResponse);
+  rpc GetProfileId (GetProfileIdRequest) returns (GetProfileIdResponse);
+  rpc GetProfileType (GetProfileTypeRequest) returns (GetProfileTypeResponse);
+  rpc WriteToParcel (PictureProfileWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service PictureProfileBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetParameters (SetParametersRequest) returns (SetParametersResponse);
+}
+
+service ParameterCapabilityService {
+  rpc DescribeContents (ParameterCapabilityDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetCapabilities (GetCapabilitiesRequest) returns (GetCapabilitiesResponse);
+  rpc GetParameterName (GetParameterNameRequest) returns (GetParameterNameResponse);
+  rpc GetParameterType (GetParameterTypeRequest) returns (GetParameterTypeResponse);
+  rpc IsSupported (IsSupportedRequest) returns (IsSupportedResponse);
+  rpc WriteToParcel (ParameterCapabilityWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service AmbientBacklightMetadataService {
+  rpc NewAmbientBacklightMetadata (NewAmbientBacklightMetadataRequest) returns (NewAmbientBacklightMetadataResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetColorFormat (GetColorFormatRequest) returns (GetColorFormatResponse);
+  rpc GetCompressionAlgorithm (GetCompressionAlgorithmRequest) returns (GetCompressionAlgorithmResponse);
+  rpc GetHorizontalZonesCount (GetHorizontalZonesCountRequest) returns (GetHorizontalZonesCountResponse);
+  rpc GetPackageName (AmbientBacklightMetadataGetPackageNameRequest) returns (GetPackageNameResponse);
+  rpc GetSource (GetSourceRequest) returns (GetSourceResponse);
+  rpc GetVerticalZonesCount (GetVerticalZonesCountRequest) returns (GetVerticalZonesCountResponse);
+  rpc GetZoneColors (GetZoneColorsRequest) returns (GetZoneColorsResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
 service MediaQualityManagerService {
   rpc CreatePictureProfile (CreatePictureProfileRequest) returns (CreatePictureProfileResponse);
   rpc CreateSoundProfile (CreateSoundProfileRequest) returns (CreateSoundProfileResponse);
@@ -178,4 +621,52 @@ service MediaQualityManagerService {
   rpc UnregisterSoundProfileCallback (UnregisterSoundProfileCallbackRequest) returns (UnregisterSoundProfileCallbackResponse);
   rpc UpdatePictureProfile (UpdatePictureProfileRequest) returns (UpdatePictureProfileResponse);
   rpc UpdateSoundProfile (UpdateSoundProfileRequest) returns (UpdateSoundProfileResponse);
+}
+
+service MediaQualityManagerAmbientBacklightCallbackService {
+  rpc OnAmbientBacklightEvent (OnAmbientBacklightEventRequest) returns (OnAmbientBacklightEventResponse);
+}
+
+service MediaQualityManagerPictureProfileCallbackService {
+  rpc OnError (OnErrorRequest) returns (OnErrorResponse);
+  rpc OnPictureProfileAdded (OnPictureProfileAddedRequest) returns (OnPictureProfileAddedResponse);
+  rpc OnPictureProfileRemoved (OnPictureProfileRemovedRequest) returns (OnPictureProfileRemovedResponse);
+  rpc OnPictureProfileUpdated (OnPictureProfileUpdatedRequest) returns (OnPictureProfileUpdatedResponse);
+}
+
+service MediaQualityManagerProfileQueryParamsService {
+  rpc AreParametersIncluded (AreParametersIncludedRequest) returns (AreParametersIncludedResponse);
+  rpc DescribeContents (MediaQualityManagerProfileQueryParamsDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc WriteToParcel (MediaQualityManagerProfileQueryParamsWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service MediaQualityManagerSoundProfileCallbackService {
+  rpc OnError (OnErrorRequest) returns (OnErrorResponse);
+  rpc OnSoundProfileAdded (OnSoundProfileAddedRequest) returns (OnSoundProfileAddedResponse);
+  rpc OnSoundProfileRemoved (OnSoundProfileRemovedRequest) returns (OnSoundProfileRemovedResponse);
+  rpc OnSoundProfileUpdated (OnSoundProfileUpdatedRequest) returns (OnSoundProfileUpdatedResponse);
+}
+
+service ActiveProcessingPictureService {
+  rpc NewActiveProcessingPicture (NewActiveProcessingPictureRequest) returns (NewActiveProcessingPictureResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetId (GetIdRequest) returns (GetIdResponse);
+  rpc GetProfileId (ActiveProcessingPictureGetProfileIdRequest) returns (GetProfileIdResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service SoundProfileService {
+  rpc DescribeContents (SoundProfileDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetInputId (GetInputIdRequest) returns (GetInputIdResponse);
+  rpc GetName (GetNameRequest) returns (GetNameResponse);
+  rpc GetPackageName (GetPackageNameRequest) returns (GetPackageNameResponse);
+  rpc GetParameters (GetParametersRequest) returns (GetParametersResponse);
+  rpc GetProfileId (GetProfileIdRequest) returns (GetProfileIdResponse);
+  rpc GetProfileType (GetProfileTypeRequest) returns (GetProfileTypeResponse);
+  rpc WriteToParcel (SoundProfileWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service SoundProfileBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetParameters (SetParametersRequest) returns (SetParametersResponse);
 }

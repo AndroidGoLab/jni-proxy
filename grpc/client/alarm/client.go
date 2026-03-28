@@ -171,3 +171,69 @@ func (c *ManagerClient) SetWindow6_1(ctx context.Context, arg0 int32, arg1 int64
 	})
 	return err
 }
+
+// ManagerAlarmClockInfoClient wraps the gRPC ManagerAlarmClockInfoService client.
+type ManagerAlarmClockInfoClient struct {
+	svc pb.ManagerAlarmClockInfoServiceClient
+}
+
+// NewManagerAlarmClockInfoClient creates a new ManagerAlarmClockInfo client.
+func NewManagerAlarmClockInfoClient(cc grpc.ClientConnInterface) *ManagerAlarmClockInfoClient {
+	return &ManagerAlarmClockInfoClient{
+		svc: pb.NewManagerAlarmClockInfoServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ManagerAlarmClockInfoClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetShowIntent calls the GetShowIntent RPC.
+func (c *ManagerAlarmClockInfoClient) GetShowIntent(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetShowIntent(ctx, &pb.GetShowIntentRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTriggerTime calls the GetTriggerTime RPC.
+func (c *ManagerAlarmClockInfoClient) GetTriggerTime(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTriggerTime(ctx, &pb.GetTriggerTimeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ManagerAlarmClockInfoClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ManagerOnAlarmListenerClient wraps the gRPC ManagerOnAlarmListenerService client.
+type ManagerOnAlarmListenerClient struct {
+	svc pb.ManagerOnAlarmListenerServiceClient
+}
+
+// NewManagerOnAlarmListenerClient creates a new ManagerOnAlarmListener client.
+func NewManagerOnAlarmListenerClient(cc grpc.ClientConnInterface) *ManagerOnAlarmListenerClient {
+	return &ManagerOnAlarmListenerClient{
+		svc: pb.NewManagerOnAlarmListenerServiceClient(cc),
+	}
+}
+
+// OnAlarm calls the OnAlarm RPC.
+func (c *ManagerOnAlarmListenerClient) OnAlarm(ctx context.Context) error {
+	_, err := c.svc.OnAlarm(ctx, &pb.OnAlarmRequest{})
+	return err
+}

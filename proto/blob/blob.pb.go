@@ -895,6 +895,1742 @@ func (*ReleaseLeaseResponse) Descriptor() ([]byte, []int) {
 	return file_proto_blob_blob_proto_rawDescGZIP(), []int{19}
 }
 
+type AbandonRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AbandonRequest) Reset() {
+	*x = AbandonRequest{}
+	mi := &file_proto_blob_blob_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AbandonRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AbandonRequest) ProtoMessage() {}
+
+func (x *AbandonRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_blob_blob_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AbandonRequest.ProtoReflect.Descriptor instead.
+func (*AbandonRequest) Descriptor() ([]byte, []int) {
+	return file_proto_blob_blob_proto_rawDescGZIP(), []int{20}
+}
+
+type AbandonResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AbandonResponse) Reset() {
+	*x = AbandonResponse{}
+	mi := &file_proto_blob_blob_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AbandonResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AbandonResponse) ProtoMessage() {}
+
+func (x *AbandonResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_blob_blob_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AbandonResponse.ProtoReflect.Descriptor instead.
+func (*AbandonResponse) Descriptor() ([]byte, []int) {
+	return file_proto_blob_blob_proto_rawDescGZIP(), []int{21}
+}
+
+type AllowPackageAccessRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AllowPackageAccessRequest) Reset() {
+	*x = AllowPackageAccessRequest{}
+	mi := &file_proto_blob_blob_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AllowPackageAccessRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AllowPackageAccessRequest) ProtoMessage() {}
+
+func (x *AllowPackageAccessRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_blob_blob_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AllowPackageAccessRequest.ProtoReflect.Descriptor instead.
+func (*AllowPackageAccessRequest) Descriptor() ([]byte, []int) {
+	return file_proto_blob_blob_proto_rawDescGZIP(), []int{22}
+}
+
+func (x *AllowPackageAccessRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *AllowPackageAccessRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type AllowPackageAccessResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AllowPackageAccessResponse) Reset() {
+	*x = AllowPackageAccessResponse{}
+	mi := &file_proto_blob_blob_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AllowPackageAccessResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AllowPackageAccessResponse) ProtoMessage() {}
+
+func (x *AllowPackageAccessResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_blob_blob_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AllowPackageAccessResponse.ProtoReflect.Descriptor instead.
+func (*AllowPackageAccessResponse) Descriptor() ([]byte, []int) {
+	return file_proto_blob_blob_proto_rawDescGZIP(), []int{23}
+}
+
+type AllowPublicAccessRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AllowPublicAccessRequest) Reset() {
+	*x = AllowPublicAccessRequest{}
+	mi := &file_proto_blob_blob_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AllowPublicAccessRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AllowPublicAccessRequest) ProtoMessage() {}
+
+func (x *AllowPublicAccessRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_blob_blob_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AllowPublicAccessRequest.ProtoReflect.Descriptor instead.
+func (*AllowPublicAccessRequest) Descriptor() ([]byte, []int) {
+	return file_proto_blob_blob_proto_rawDescGZIP(), []int{24}
+}
+
+type AllowPublicAccessResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AllowPublicAccessResponse) Reset() {
+	*x = AllowPublicAccessResponse{}
+	mi := &file_proto_blob_blob_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AllowPublicAccessResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AllowPublicAccessResponse) ProtoMessage() {}
+
+func (x *AllowPublicAccessResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_blob_blob_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AllowPublicAccessResponse.ProtoReflect.Descriptor instead.
+func (*AllowPublicAccessResponse) Descriptor() ([]byte, []int) {
+	return file_proto_blob_blob_proto_rawDescGZIP(), []int{25}
+}
+
+type AllowSameSignatureAccessRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AllowSameSignatureAccessRequest) Reset() {
+	*x = AllowSameSignatureAccessRequest{}
+	mi := &file_proto_blob_blob_proto_msgTypes[26]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AllowSameSignatureAccessRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AllowSameSignatureAccessRequest) ProtoMessage() {}
+
+func (x *AllowSameSignatureAccessRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_blob_blob_proto_msgTypes[26]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AllowSameSignatureAccessRequest.ProtoReflect.Descriptor instead.
+func (*AllowSameSignatureAccessRequest) Descriptor() ([]byte, []int) {
+	return file_proto_blob_blob_proto_rawDescGZIP(), []int{26}
+}
+
+type AllowSameSignatureAccessResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AllowSameSignatureAccessResponse) Reset() {
+	*x = AllowSameSignatureAccessResponse{}
+	mi := &file_proto_blob_blob_proto_msgTypes[27]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AllowSameSignatureAccessResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AllowSameSignatureAccessResponse) ProtoMessage() {}
+
+func (x *AllowSameSignatureAccessResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_blob_blob_proto_msgTypes[27]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AllowSameSignatureAccessResponse.ProtoReflect.Descriptor instead.
+func (*AllowSameSignatureAccessResponse) Descriptor() ([]byte, []int) {
+	return file_proto_blob_blob_proto_rawDescGZIP(), []int{27}
+}
+
+type CloseRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CloseRequest) Reset() {
+	*x = CloseRequest{}
+	mi := &file_proto_blob_blob_proto_msgTypes[28]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CloseRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CloseRequest) ProtoMessage() {}
+
+func (x *CloseRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_blob_blob_proto_msgTypes[28]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CloseRequest.ProtoReflect.Descriptor instead.
+func (*CloseRequest) Descriptor() ([]byte, []int) {
+	return file_proto_blob_blob_proto_rawDescGZIP(), []int{28}
+}
+
+type CloseResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CloseResponse) Reset() {
+	*x = CloseResponse{}
+	mi := &file_proto_blob_blob_proto_msgTypes[29]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CloseResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CloseResponse) ProtoMessage() {}
+
+func (x *CloseResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_blob_blob_proto_msgTypes[29]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CloseResponse.ProtoReflect.Descriptor instead.
+func (*CloseResponse) Descriptor() ([]byte, []int) {
+	return file_proto_blob_blob_proto_rawDescGZIP(), []int{29}
+}
+
+type GetSizeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSizeRequest) Reset() {
+	*x = GetSizeRequest{}
+	mi := &file_proto_blob_blob_proto_msgTypes[30]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSizeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSizeRequest) ProtoMessage() {}
+
+func (x *GetSizeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_blob_blob_proto_msgTypes[30]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSizeRequest.ProtoReflect.Descriptor instead.
+func (*GetSizeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_blob_blob_proto_rawDescGZIP(), []int{30}
+}
+
+type GetSizeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSizeResponse) Reset() {
+	*x = GetSizeResponse{}
+	mi := &file_proto_blob_blob_proto_msgTypes[31]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSizeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSizeResponse) ProtoMessage() {}
+
+func (x *GetSizeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_blob_blob_proto_msgTypes[31]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSizeResponse.ProtoReflect.Descriptor instead.
+func (*GetSizeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_blob_blob_proto_rawDescGZIP(), []int{31}
+}
+
+func (x *GetSizeResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type IsPackageAccessAllowedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsPackageAccessAllowedRequest) Reset() {
+	*x = IsPackageAccessAllowedRequest{}
+	mi := &file_proto_blob_blob_proto_msgTypes[32]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsPackageAccessAllowedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsPackageAccessAllowedRequest) ProtoMessage() {}
+
+func (x *IsPackageAccessAllowedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_blob_blob_proto_msgTypes[32]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsPackageAccessAllowedRequest.ProtoReflect.Descriptor instead.
+func (*IsPackageAccessAllowedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_blob_blob_proto_rawDescGZIP(), []int{32}
+}
+
+func (x *IsPackageAccessAllowedRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *IsPackageAccessAllowedRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type IsPackageAccessAllowedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsPackageAccessAllowedResponse) Reset() {
+	*x = IsPackageAccessAllowedResponse{}
+	mi := &file_proto_blob_blob_proto_msgTypes[33]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsPackageAccessAllowedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsPackageAccessAllowedResponse) ProtoMessage() {}
+
+func (x *IsPackageAccessAllowedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_blob_blob_proto_msgTypes[33]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsPackageAccessAllowedResponse.ProtoReflect.Descriptor instead.
+func (*IsPackageAccessAllowedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_blob_blob_proto_rawDescGZIP(), []int{33}
+}
+
+func (x *IsPackageAccessAllowedResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsPublicAccessAllowedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsPublicAccessAllowedRequest) Reset() {
+	*x = IsPublicAccessAllowedRequest{}
+	mi := &file_proto_blob_blob_proto_msgTypes[34]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsPublicAccessAllowedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsPublicAccessAllowedRequest) ProtoMessage() {}
+
+func (x *IsPublicAccessAllowedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_blob_blob_proto_msgTypes[34]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsPublicAccessAllowedRequest.ProtoReflect.Descriptor instead.
+func (*IsPublicAccessAllowedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_blob_blob_proto_rawDescGZIP(), []int{34}
+}
+
+type IsPublicAccessAllowedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsPublicAccessAllowedResponse) Reset() {
+	*x = IsPublicAccessAllowedResponse{}
+	mi := &file_proto_blob_blob_proto_msgTypes[35]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsPublicAccessAllowedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsPublicAccessAllowedResponse) ProtoMessage() {}
+
+func (x *IsPublicAccessAllowedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_blob_blob_proto_msgTypes[35]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsPublicAccessAllowedResponse.ProtoReflect.Descriptor instead.
+func (*IsPublicAccessAllowedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_blob_blob_proto_rawDescGZIP(), []int{35}
+}
+
+func (x *IsPublicAccessAllowedResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsSameSignatureAccessAllowedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsSameSignatureAccessAllowedRequest) Reset() {
+	*x = IsSameSignatureAccessAllowedRequest{}
+	mi := &file_proto_blob_blob_proto_msgTypes[36]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsSameSignatureAccessAllowedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsSameSignatureAccessAllowedRequest) ProtoMessage() {}
+
+func (x *IsSameSignatureAccessAllowedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_blob_blob_proto_msgTypes[36]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsSameSignatureAccessAllowedRequest.ProtoReflect.Descriptor instead.
+func (*IsSameSignatureAccessAllowedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_blob_blob_proto_rawDescGZIP(), []int{36}
+}
+
+type IsSameSignatureAccessAllowedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsSameSignatureAccessAllowedResponse) Reset() {
+	*x = IsSameSignatureAccessAllowedResponse{}
+	mi := &file_proto_blob_blob_proto_msgTypes[37]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsSameSignatureAccessAllowedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsSameSignatureAccessAllowedResponse) ProtoMessage() {}
+
+func (x *IsSameSignatureAccessAllowedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_blob_blob_proto_msgTypes[37]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsSameSignatureAccessAllowedResponse.ProtoReflect.Descriptor instead.
+func (*IsSameSignatureAccessAllowedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_blob_blob_proto_rawDescGZIP(), []int{37}
+}
+
+func (x *IsSameSignatureAccessAllowedResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type OpenReadRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OpenReadRequest) Reset() {
+	*x = OpenReadRequest{}
+	mi := &file_proto_blob_blob_proto_msgTypes[38]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OpenReadRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OpenReadRequest) ProtoMessage() {}
+
+func (x *OpenReadRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_blob_blob_proto_msgTypes[38]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OpenReadRequest.ProtoReflect.Descriptor instead.
+func (*OpenReadRequest) Descriptor() ([]byte, []int) {
+	return file_proto_blob_blob_proto_rawDescGZIP(), []int{38}
+}
+
+type OpenReadResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OpenReadResponse) Reset() {
+	*x = OpenReadResponse{}
+	mi := &file_proto_blob_blob_proto_msgTypes[39]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OpenReadResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OpenReadResponse) ProtoMessage() {}
+
+func (x *OpenReadResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_blob_blob_proto_msgTypes[39]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OpenReadResponse.ProtoReflect.Descriptor instead.
+func (*OpenReadResponse) Descriptor() ([]byte, []int) {
+	return file_proto_blob_blob_proto_rawDescGZIP(), []int{39}
+}
+
+func (x *OpenReadResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OpenWriteRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OpenWriteRequest) Reset() {
+	*x = OpenWriteRequest{}
+	mi := &file_proto_blob_blob_proto_msgTypes[40]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OpenWriteRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OpenWriteRequest) ProtoMessage() {}
+
+func (x *OpenWriteRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_blob_blob_proto_msgTypes[40]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OpenWriteRequest.ProtoReflect.Descriptor instead.
+func (*OpenWriteRequest) Descriptor() ([]byte, []int) {
+	return file_proto_blob_blob_proto_rawDescGZIP(), []int{40}
+}
+
+func (x *OpenWriteRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OpenWriteRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type OpenWriteResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OpenWriteResponse) Reset() {
+	*x = OpenWriteResponse{}
+	mi := &file_proto_blob_blob_proto_msgTypes[41]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OpenWriteResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OpenWriteResponse) ProtoMessage() {}
+
+func (x *OpenWriteResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_blob_blob_proto_msgTypes[41]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OpenWriteResponse.ProtoReflect.Descriptor instead.
+func (*OpenWriteResponse) Descriptor() ([]byte, []int) {
+	return file_proto_blob_blob_proto_rawDescGZIP(), []int{41}
+}
+
+func (x *OpenWriteResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type DescribeContentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DescribeContentsRequest) Reset() {
+	*x = DescribeContentsRequest{}
+	mi := &file_proto_blob_blob_proto_msgTypes[42]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DescribeContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DescribeContentsRequest) ProtoMessage() {}
+
+func (x *DescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_blob_blob_proto_msgTypes[42]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*DescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_blob_blob_proto_rawDescGZIP(), []int{42}
+}
+
+type DescribeContentsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DescribeContentsResponse) Reset() {
+	*x = DescribeContentsResponse{}
+	mi := &file_proto_blob_blob_proto_msgTypes[43]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DescribeContentsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DescribeContentsResponse) ProtoMessage() {}
+
+func (x *DescribeContentsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_blob_blob_proto_msgTypes[43]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DescribeContentsResponse.ProtoReflect.Descriptor instead.
+func (*DescribeContentsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_blob_blob_proto_rawDescGZIP(), []int{43}
+}
+
+func (x *DescribeContentsResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type EqualsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EqualsRequest) Reset() {
+	*x = EqualsRequest{}
+	mi := &file_proto_blob_blob_proto_msgTypes[44]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EqualsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EqualsRequest) ProtoMessage() {}
+
+func (x *EqualsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_blob_blob_proto_msgTypes[44]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EqualsRequest.ProtoReflect.Descriptor instead.
+func (*EqualsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_blob_blob_proto_rawDescGZIP(), []int{44}
+}
+
+func (x *EqualsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type EqualsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EqualsResponse) Reset() {
+	*x = EqualsResponse{}
+	mi := &file_proto_blob_blob_proto_msgTypes[45]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EqualsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EqualsResponse) ProtoMessage() {}
+
+func (x *EqualsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_blob_blob_proto_msgTypes[45]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EqualsResponse.ProtoReflect.Descriptor instead.
+func (*EqualsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_blob_blob_proto_rawDescGZIP(), []int{45}
+}
+
+func (x *EqualsResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type GetExpiryTimeMillisRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetExpiryTimeMillisRequest) Reset() {
+	*x = GetExpiryTimeMillisRequest{}
+	mi := &file_proto_blob_blob_proto_msgTypes[46]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetExpiryTimeMillisRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetExpiryTimeMillisRequest) ProtoMessage() {}
+
+func (x *GetExpiryTimeMillisRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_blob_blob_proto_msgTypes[46]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetExpiryTimeMillisRequest.ProtoReflect.Descriptor instead.
+func (*GetExpiryTimeMillisRequest) Descriptor() ([]byte, []int) {
+	return file_proto_blob_blob_proto_rawDescGZIP(), []int{46}
+}
+
+type GetExpiryTimeMillisResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetExpiryTimeMillisResponse) Reset() {
+	*x = GetExpiryTimeMillisResponse{}
+	mi := &file_proto_blob_blob_proto_msgTypes[47]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetExpiryTimeMillisResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetExpiryTimeMillisResponse) ProtoMessage() {}
+
+func (x *GetExpiryTimeMillisResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_blob_blob_proto_msgTypes[47]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetExpiryTimeMillisResponse.ProtoReflect.Descriptor instead.
+func (*GetExpiryTimeMillisResponse) Descriptor() ([]byte, []int) {
+	return file_proto_blob_blob_proto_rawDescGZIP(), []int{47}
+}
+
+func (x *GetExpiryTimeMillisResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetLabelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLabelRequest) Reset() {
+	*x = GetLabelRequest{}
+	mi := &file_proto_blob_blob_proto_msgTypes[48]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLabelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLabelRequest) ProtoMessage() {}
+
+func (x *GetLabelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_blob_blob_proto_msgTypes[48]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLabelRequest.ProtoReflect.Descriptor instead.
+func (*GetLabelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_blob_blob_proto_rawDescGZIP(), []int{48}
+}
+
+type GetLabelResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLabelResponse) Reset() {
+	*x = GetLabelResponse{}
+	mi := &file_proto_blob_blob_proto_msgTypes[49]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLabelResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLabelResponse) ProtoMessage() {}
+
+func (x *GetLabelResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_blob_blob_proto_msgTypes[49]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLabelResponse.ProtoReflect.Descriptor instead.
+func (*GetLabelResponse) Descriptor() ([]byte, []int) {
+	return file_proto_blob_blob_proto_rawDescGZIP(), []int{49}
+}
+
+func (x *GetLabelResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSha256DigestRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSha256DigestRequest) Reset() {
+	*x = GetSha256DigestRequest{}
+	mi := &file_proto_blob_blob_proto_msgTypes[50]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSha256DigestRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSha256DigestRequest) ProtoMessage() {}
+
+func (x *GetSha256DigestRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_blob_blob_proto_msgTypes[50]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSha256DigestRequest.ProtoReflect.Descriptor instead.
+func (*GetSha256DigestRequest) Descriptor() ([]byte, []int) {
+	return file_proto_blob_blob_proto_rawDescGZIP(), []int{50}
+}
+
+type GetSha256DigestResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSha256DigestResponse) Reset() {
+	*x = GetSha256DigestResponse{}
+	mi := &file_proto_blob_blob_proto_msgTypes[51]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSha256DigestResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSha256DigestResponse) ProtoMessage() {}
+
+func (x *GetSha256DigestResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_blob_blob_proto_msgTypes[51]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSha256DigestResponse.ProtoReflect.Descriptor instead.
+func (*GetSha256DigestResponse) Descriptor() ([]byte, []int) {
+	return file_proto_blob_blob_proto_rawDescGZIP(), []int{51}
+}
+
+func (x *GetSha256DigestResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetTagRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTagRequest) Reset() {
+	*x = GetTagRequest{}
+	mi := &file_proto_blob_blob_proto_msgTypes[52]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTagRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTagRequest) ProtoMessage() {}
+
+func (x *GetTagRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_blob_blob_proto_msgTypes[52]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTagRequest.ProtoReflect.Descriptor instead.
+func (*GetTagRequest) Descriptor() ([]byte, []int) {
+	return file_proto_blob_blob_proto_rawDescGZIP(), []int{52}
+}
+
+type GetTagResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTagResponse) Reset() {
+	*x = GetTagResponse{}
+	mi := &file_proto_blob_blob_proto_msgTypes[53]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTagResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTagResponse) ProtoMessage() {}
+
+func (x *GetTagResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_blob_blob_proto_msgTypes[53]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTagResponse.ProtoReflect.Descriptor instead.
+func (*GetTagResponse) Descriptor() ([]byte, []int) {
+	return file_proto_blob_blob_proto_rawDescGZIP(), []int{53}
+}
+
+func (x *GetTagResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type HashCodeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HashCodeRequest) Reset() {
+	*x = HashCodeRequest{}
+	mi := &file_proto_blob_blob_proto_msgTypes[54]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HashCodeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HashCodeRequest) ProtoMessage() {}
+
+func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_blob_blob_proto_msgTypes[54]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HashCodeRequest.ProtoReflect.Descriptor instead.
+func (*HashCodeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_blob_blob_proto_rawDescGZIP(), []int{54}
+}
+
+type HashCodeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HashCodeResponse) Reset() {
+	*x = HashCodeResponse{}
+	mi := &file_proto_blob_blob_proto_msgTypes[55]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HashCodeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HashCodeResponse) ProtoMessage() {}
+
+func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_blob_blob_proto_msgTypes[55]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HashCodeResponse.ProtoReflect.Descriptor instead.
+func (*HashCodeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_blob_blob_proto_rawDescGZIP(), []int{55}
+}
+
+func (x *HashCodeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ToStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringRequest) Reset() {
+	*x = ToStringRequest{}
+	mi := &file_proto_blob_blob_proto_msgTypes[56]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringRequest) ProtoMessage() {}
+
+func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_blob_blob_proto_msgTypes[56]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringRequest.ProtoReflect.Descriptor instead.
+func (*ToStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_blob_blob_proto_rawDescGZIP(), []int{56}
+}
+
+type ToStringResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringResponse) Reset() {
+	*x = ToStringResponse{}
+	mi := &file_proto_blob_blob_proto_msgTypes[57]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringResponse) ProtoMessage() {}
+
+func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_blob_blob_proto_msgTypes[57]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringResponse.ProtoReflect.Descriptor instead.
+func (*ToStringResponse) Descriptor() ([]byte, []int) {
+	return file_proto_blob_blob_proto_rawDescGZIP(), []int{57}
+}
+
+func (x *ToStringResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type WriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WriteToParcelRequest) Reset() {
+	*x = WriteToParcelRequest{}
+	mi := &file_proto_blob_blob_proto_msgTypes[58]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WriteToParcelRequest) ProtoMessage() {}
+
+func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_blob_blob_proto_msgTypes[58]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*WriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_blob_blob_proto_rawDescGZIP(), []int{58}
+}
+
+func (x *WriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *WriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type WriteToParcelResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WriteToParcelResponse) Reset() {
+	*x = WriteToParcelResponse{}
+	mi := &file_proto_blob_blob_proto_msgTypes[59]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WriteToParcelResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WriteToParcelResponse) ProtoMessage() {}
+
+func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_blob_blob_proto_msgTypes[59]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WriteToParcelResponse.ProtoReflect.Descriptor instead.
+func (*WriteToParcelResponse) Descriptor() ([]byte, []int) {
+	return file_proto_blob_blob_proto_rawDescGZIP(), []int{59}
+}
+
+type CreateWithSha256Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          string                 `protobuf:"bytes,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateWithSha256Request) Reset() {
+	*x = CreateWithSha256Request{}
+	mi := &file_proto_blob_blob_proto_msgTypes[60]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateWithSha256Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateWithSha256Request) ProtoMessage() {}
+
+func (x *CreateWithSha256Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_blob_blob_proto_msgTypes[60]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateWithSha256Request.ProtoReflect.Descriptor instead.
+func (*CreateWithSha256Request) Descriptor() ([]byte, []int) {
+	return file_proto_blob_blob_proto_rawDescGZIP(), []int{60}
+}
+
+func (x *CreateWithSha256Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *CreateWithSha256Request) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *CreateWithSha256Request) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *CreateWithSha256Request) GetArg3() string {
+	if x != nil {
+		return x.Arg3
+	}
+	return ""
+}
+
+type CreateWithSha256Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateWithSha256Response) Reset() {
+	*x = CreateWithSha256Response{}
+	mi := &file_proto_blob_blob_proto_msgTypes[61]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateWithSha256Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateWithSha256Response) ProtoMessage() {}
+
+func (x *CreateWithSha256Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_blob_blob_proto_msgTypes[61]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateWithSha256Response.ProtoReflect.Descriptor instead.
+func (*CreateWithSha256Response) Descriptor() ([]byte, []int) {
+	return file_proto_blob_blob_proto_rawDescGZIP(), []int{61}
+}
+
+func (x *CreateWithSha256Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
 var File_proto_blob_blob_proto protoreflect.FileDescriptor
 
 const file_proto_blob_blob_proto_rawDesc = "" +
@@ -938,7 +2674,77 @@ const file_proto_blob_blob_proto_rawDesc = "" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\")\n" +
 	"\x13ReleaseLeaseRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x16\n" +
-	"\x14ReleaseLeaseResponse2\xa0\x06\n" +
+	"\x14ReleaseLeaseResponse\"\x10\n" +
+	"\x0eAbandonRequest\"\x11\n" +
+	"\x0fAbandonResponse\"C\n" +
+	"\x19AllowPackageAccessRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x1c\n" +
+	"\x1aAllowPackageAccessResponse\"\x1a\n" +
+	"\x18AllowPublicAccessRequest\"\x1b\n" +
+	"\x19AllowPublicAccessResponse\"!\n" +
+	"\x1fAllowSameSignatureAccessRequest\"\"\n" +
+	" AllowSameSignatureAccessResponse\"\x0e\n" +
+	"\fCloseRequest\"\x0f\n" +
+	"\rCloseResponse\"\x10\n" +
+	"\x0eGetSizeRequest\")\n" +
+	"\x0fGetSizeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"G\n" +
+	"\x1dIsPackageAccessAllowedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"8\n" +
+	"\x1eIsPackageAccessAllowedResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x1e\n" +
+	"\x1cIsPublicAccessAllowedRequest\"7\n" +
+	"\x1dIsPublicAccessAllowedResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"%\n" +
+	"#IsSameSignatureAccessAllowedRequest\">\n" +
+	"$IsSameSignatureAccessAllowedResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x11\n" +
+	"\x0fOpenReadRequest\"*\n" +
+	"\x10OpenReadResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\":\n" +
+	"\x10OpenWriteRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"+\n" +
+	"\x11OpenWriteResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x19\n" +
+	"\x17DescribeContentsRequest\"2\n" +
+	"\x18DescribeContentsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"#\n" +
+	"\rEqualsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"(\n" +
+	"\x0eEqualsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x1c\n" +
+	"\x1aGetExpiryTimeMillisRequest\"5\n" +
+	"\x1bGetExpiryTimeMillisResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x11\n" +
+	"\x0fGetLabelRequest\"*\n" +
+	"\x10GetLabelResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x18\n" +
+	"\x16GetSha256DigestRequest\"1\n" +
+	"\x17GetSha256DigestResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x0f\n" +
+	"\rGetTagRequest\"(\n" +
+	"\x0eGetTagResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x11\n" +
+	"\x0fHashCodeRequest\"*\n" +
+	"\x10HashCodeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x11\n" +
+	"\x0fToStringRequest\"*\n" +
+	"\x10ToStringResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\">\n" +
+	"\x14WriteToParcelRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x17\n" +
+	"\x15WriteToParcelResponse\"i\n" +
+	"\x17CreateWithSha256Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\tR\x04arg3\"2\n" +
+	"\x18CreateWithSha256Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result2\xa0\x06\n" +
 	"\x13StoreManagerService\x12K\n" +
 	"\x0eAbandonSession\x12\x1b.blob.AbandonSessionRequest\x1a\x1c.blob.AbandonSessionResponse\x12H\n" +
 	"\rAcquireLease2\x12\x1a.blob.AcquireLease2Request\x1a\x1b.blob.AcquireLease2Response\x12N\n" +
@@ -949,7 +2755,30 @@ const file_proto_blob_blob_proto_rawDesc = "" +
 	"\x1bGetRemainingLeaseQuotaBytes\x12(.blob.GetRemainingLeaseQuotaBytesRequest\x1a).blob.GetRemainingLeaseQuotaBytesResponse\x129\n" +
 	"\bOpenBlob\x12\x15.blob.OpenBlobRequest\x1a\x16.blob.OpenBlobResponse\x12B\n" +
 	"\vOpenSession\x12\x18.blob.OpenSessionRequest\x1a\x19.blob.OpenSessionResponse\x12E\n" +
-	"\fReleaseLease\x12\x19.blob.ReleaseLeaseRequest\x1a\x1a.blob.ReleaseLeaseResponseB.Z,github.com/AndroidGoLab/jni-proxy/proto/blobb\x06proto3"
+	"\fReleaseLease\x12\x19.blob.ReleaseLeaseRequest\x1a\x1a.blob.ReleaseLeaseResponse2\x8f\a\n" +
+	"\x1aStoreManagerSessionService\x126\n" +
+	"\aAbandon\x12\x14.blob.AbandonRequest\x1a\x15.blob.AbandonResponse\x12W\n" +
+	"\x12AllowPackageAccess\x12\x1f.blob.AllowPackageAccessRequest\x1a .blob.AllowPackageAccessResponse\x12T\n" +
+	"\x11AllowPublicAccess\x12\x1e.blob.AllowPublicAccessRequest\x1a\x1f.blob.AllowPublicAccessResponse\x12i\n" +
+	"\x18AllowSameSignatureAccess\x12%.blob.AllowSameSignatureAccessRequest\x1a&.blob.AllowSameSignatureAccessResponse\x120\n" +
+	"\x05Close\x12\x12.blob.CloseRequest\x1a\x13.blob.CloseResponse\x126\n" +
+	"\aGetSize\x12\x14.blob.GetSizeRequest\x1a\x15.blob.GetSizeResponse\x12c\n" +
+	"\x16IsPackageAccessAllowed\x12#.blob.IsPackageAccessAllowedRequest\x1a$.blob.IsPackageAccessAllowedResponse\x12`\n" +
+	"\x15IsPublicAccessAllowed\x12\".blob.IsPublicAccessAllowedRequest\x1a#.blob.IsPublicAccessAllowedResponse\x12u\n" +
+	"\x1cIsSameSignatureAccessAllowed\x12).blob.IsSameSignatureAccessAllowedRequest\x1a*.blob.IsSameSignatureAccessAllowedResponse\x129\n" +
+	"\bOpenRead\x12\x15.blob.OpenReadRequest\x1a\x16.blob.OpenReadResponse\x12<\n" +
+	"\tOpenWrite\x12\x16.blob.OpenWriteRequest\x1a\x17.blob.OpenWriteResponse2\xc6\x05\n" +
+	"\rHandleService\x12Q\n" +
+	"\x10DescribeContents\x12\x1d.blob.DescribeContentsRequest\x1a\x1e.blob.DescribeContentsResponse\x123\n" +
+	"\x06Equals\x12\x13.blob.EqualsRequest\x1a\x14.blob.EqualsResponse\x12Z\n" +
+	"\x13GetExpiryTimeMillis\x12 .blob.GetExpiryTimeMillisRequest\x1a!.blob.GetExpiryTimeMillisResponse\x129\n" +
+	"\bGetLabel\x12\x15.blob.GetLabelRequest\x1a\x16.blob.GetLabelResponse\x12N\n" +
+	"\x0fGetSha256Digest\x12\x1c.blob.GetSha256DigestRequest\x1a\x1d.blob.GetSha256DigestResponse\x123\n" +
+	"\x06GetTag\x12\x13.blob.GetTagRequest\x1a\x14.blob.GetTagResponse\x129\n" +
+	"\bHashCode\x12\x15.blob.HashCodeRequest\x1a\x16.blob.HashCodeResponse\x129\n" +
+	"\bToString\x12\x15.blob.ToStringRequest\x1a\x16.blob.ToStringResponse\x12H\n" +
+	"\rWriteToParcel\x12\x1a.blob.WriteToParcelRequest\x1a\x1b.blob.WriteToParcelResponse\x12Q\n" +
+	"\x10CreateWithSha256\x12\x1d.blob.CreateWithSha256Request\x1a\x1e.blob.CreateWithSha256ResponseB.Z,github.com/AndroidGoLab/jni-proxy/proto/blobb\x06proto3"
 
 var (
 	file_proto_blob_blob_proto_rawDescOnce sync.Once
@@ -963,28 +2792,70 @@ func file_proto_blob_blob_proto_rawDescGZIP() []byte {
 	return file_proto_blob_blob_proto_rawDescData
 }
 
-var file_proto_blob_blob_proto_msgTypes = make([]protoimpl.MessageInfo, 20)
+var file_proto_blob_blob_proto_msgTypes = make([]protoimpl.MessageInfo, 62)
 var file_proto_blob_blob_proto_goTypes = []any{
-	(*AbandonSessionRequest)(nil),               // 0: blob.AbandonSessionRequest
-	(*AbandonSessionResponse)(nil),              // 1: blob.AbandonSessionResponse
-	(*AcquireLease2Request)(nil),                // 2: blob.AcquireLease2Request
-	(*AcquireLease2Response)(nil),               // 3: blob.AcquireLease2Response
-	(*AcquireLease3_1Request)(nil),              // 4: blob.AcquireLease3_1Request
-	(*AcquireLease3_1Response)(nil),             // 5: blob.AcquireLease3_1Response
-	(*AcquireLease2_2Request)(nil),              // 6: blob.AcquireLease2_2Request
-	(*AcquireLease2_2Response)(nil),             // 7: blob.AcquireLease2_2Response
-	(*AcquireLease3_3Request)(nil),              // 8: blob.AcquireLease3_3Request
-	(*AcquireLease3_3Response)(nil),             // 9: blob.AcquireLease3_3Response
-	(*CreateSessionRequest)(nil),                // 10: blob.CreateSessionRequest
-	(*CreateSessionResponse)(nil),               // 11: blob.CreateSessionResponse
-	(*GetRemainingLeaseQuotaBytesRequest)(nil),  // 12: blob.GetRemainingLeaseQuotaBytesRequest
-	(*GetRemainingLeaseQuotaBytesResponse)(nil), // 13: blob.GetRemainingLeaseQuotaBytesResponse
-	(*OpenBlobRequest)(nil),                     // 14: blob.OpenBlobRequest
-	(*OpenBlobResponse)(nil),                    // 15: blob.OpenBlobResponse
-	(*OpenSessionRequest)(nil),                  // 16: blob.OpenSessionRequest
-	(*OpenSessionResponse)(nil),                 // 17: blob.OpenSessionResponse
-	(*ReleaseLeaseRequest)(nil),                 // 18: blob.ReleaseLeaseRequest
-	(*ReleaseLeaseResponse)(nil),                // 19: blob.ReleaseLeaseResponse
+	(*AbandonSessionRequest)(nil),                // 0: blob.AbandonSessionRequest
+	(*AbandonSessionResponse)(nil),               // 1: blob.AbandonSessionResponse
+	(*AcquireLease2Request)(nil),                 // 2: blob.AcquireLease2Request
+	(*AcquireLease2Response)(nil),                // 3: blob.AcquireLease2Response
+	(*AcquireLease3_1Request)(nil),               // 4: blob.AcquireLease3_1Request
+	(*AcquireLease3_1Response)(nil),              // 5: blob.AcquireLease3_1Response
+	(*AcquireLease2_2Request)(nil),               // 6: blob.AcquireLease2_2Request
+	(*AcquireLease2_2Response)(nil),              // 7: blob.AcquireLease2_2Response
+	(*AcquireLease3_3Request)(nil),               // 8: blob.AcquireLease3_3Request
+	(*AcquireLease3_3Response)(nil),              // 9: blob.AcquireLease3_3Response
+	(*CreateSessionRequest)(nil),                 // 10: blob.CreateSessionRequest
+	(*CreateSessionResponse)(nil),                // 11: blob.CreateSessionResponse
+	(*GetRemainingLeaseQuotaBytesRequest)(nil),   // 12: blob.GetRemainingLeaseQuotaBytesRequest
+	(*GetRemainingLeaseQuotaBytesResponse)(nil),  // 13: blob.GetRemainingLeaseQuotaBytesResponse
+	(*OpenBlobRequest)(nil),                      // 14: blob.OpenBlobRequest
+	(*OpenBlobResponse)(nil),                     // 15: blob.OpenBlobResponse
+	(*OpenSessionRequest)(nil),                   // 16: blob.OpenSessionRequest
+	(*OpenSessionResponse)(nil),                  // 17: blob.OpenSessionResponse
+	(*ReleaseLeaseRequest)(nil),                  // 18: blob.ReleaseLeaseRequest
+	(*ReleaseLeaseResponse)(nil),                 // 19: blob.ReleaseLeaseResponse
+	(*AbandonRequest)(nil),                       // 20: blob.AbandonRequest
+	(*AbandonResponse)(nil),                      // 21: blob.AbandonResponse
+	(*AllowPackageAccessRequest)(nil),            // 22: blob.AllowPackageAccessRequest
+	(*AllowPackageAccessResponse)(nil),           // 23: blob.AllowPackageAccessResponse
+	(*AllowPublicAccessRequest)(nil),             // 24: blob.AllowPublicAccessRequest
+	(*AllowPublicAccessResponse)(nil),            // 25: blob.AllowPublicAccessResponse
+	(*AllowSameSignatureAccessRequest)(nil),      // 26: blob.AllowSameSignatureAccessRequest
+	(*AllowSameSignatureAccessResponse)(nil),     // 27: blob.AllowSameSignatureAccessResponse
+	(*CloseRequest)(nil),                         // 28: blob.CloseRequest
+	(*CloseResponse)(nil),                        // 29: blob.CloseResponse
+	(*GetSizeRequest)(nil),                       // 30: blob.GetSizeRequest
+	(*GetSizeResponse)(nil),                      // 31: blob.GetSizeResponse
+	(*IsPackageAccessAllowedRequest)(nil),        // 32: blob.IsPackageAccessAllowedRequest
+	(*IsPackageAccessAllowedResponse)(nil),       // 33: blob.IsPackageAccessAllowedResponse
+	(*IsPublicAccessAllowedRequest)(nil),         // 34: blob.IsPublicAccessAllowedRequest
+	(*IsPublicAccessAllowedResponse)(nil),        // 35: blob.IsPublicAccessAllowedResponse
+	(*IsSameSignatureAccessAllowedRequest)(nil),  // 36: blob.IsSameSignatureAccessAllowedRequest
+	(*IsSameSignatureAccessAllowedResponse)(nil), // 37: blob.IsSameSignatureAccessAllowedResponse
+	(*OpenReadRequest)(nil),                      // 38: blob.OpenReadRequest
+	(*OpenReadResponse)(nil),                     // 39: blob.OpenReadResponse
+	(*OpenWriteRequest)(nil),                     // 40: blob.OpenWriteRequest
+	(*OpenWriteResponse)(nil),                    // 41: blob.OpenWriteResponse
+	(*DescribeContentsRequest)(nil),              // 42: blob.DescribeContentsRequest
+	(*DescribeContentsResponse)(nil),             // 43: blob.DescribeContentsResponse
+	(*EqualsRequest)(nil),                        // 44: blob.EqualsRequest
+	(*EqualsResponse)(nil),                       // 45: blob.EqualsResponse
+	(*GetExpiryTimeMillisRequest)(nil),           // 46: blob.GetExpiryTimeMillisRequest
+	(*GetExpiryTimeMillisResponse)(nil),          // 47: blob.GetExpiryTimeMillisResponse
+	(*GetLabelRequest)(nil),                      // 48: blob.GetLabelRequest
+	(*GetLabelResponse)(nil),                     // 49: blob.GetLabelResponse
+	(*GetSha256DigestRequest)(nil),               // 50: blob.GetSha256DigestRequest
+	(*GetSha256DigestResponse)(nil),              // 51: blob.GetSha256DigestResponse
+	(*GetTagRequest)(nil),                        // 52: blob.GetTagRequest
+	(*GetTagResponse)(nil),                       // 53: blob.GetTagResponse
+	(*HashCodeRequest)(nil),                      // 54: blob.HashCodeRequest
+	(*HashCodeResponse)(nil),                     // 55: blob.HashCodeResponse
+	(*ToStringRequest)(nil),                      // 56: blob.ToStringRequest
+	(*ToStringResponse)(nil),                     // 57: blob.ToStringResponse
+	(*WriteToParcelRequest)(nil),                 // 58: blob.WriteToParcelRequest
+	(*WriteToParcelResponse)(nil),                // 59: blob.WriteToParcelResponse
+	(*CreateWithSha256Request)(nil),              // 60: blob.CreateWithSha256Request
+	(*CreateWithSha256Response)(nil),             // 61: blob.CreateWithSha256Response
 }
 var file_proto_blob_blob_proto_depIdxs = []int32{
 	0,  // 0: blob.StoreManagerService.AbandonSession:input_type -> blob.AbandonSessionRequest
@@ -997,18 +2868,60 @@ var file_proto_blob_blob_proto_depIdxs = []int32{
 	14, // 7: blob.StoreManagerService.OpenBlob:input_type -> blob.OpenBlobRequest
 	16, // 8: blob.StoreManagerService.OpenSession:input_type -> blob.OpenSessionRequest
 	18, // 9: blob.StoreManagerService.ReleaseLease:input_type -> blob.ReleaseLeaseRequest
-	1,  // 10: blob.StoreManagerService.AbandonSession:output_type -> blob.AbandonSessionResponse
-	3,  // 11: blob.StoreManagerService.AcquireLease2:output_type -> blob.AcquireLease2Response
-	5,  // 12: blob.StoreManagerService.AcquireLease3_1:output_type -> blob.AcquireLease3_1Response
-	7,  // 13: blob.StoreManagerService.AcquireLease2_2:output_type -> blob.AcquireLease2_2Response
-	9,  // 14: blob.StoreManagerService.AcquireLease3_3:output_type -> blob.AcquireLease3_3Response
-	11, // 15: blob.StoreManagerService.CreateSession:output_type -> blob.CreateSessionResponse
-	13, // 16: blob.StoreManagerService.GetRemainingLeaseQuotaBytes:output_type -> blob.GetRemainingLeaseQuotaBytesResponse
-	15, // 17: blob.StoreManagerService.OpenBlob:output_type -> blob.OpenBlobResponse
-	17, // 18: blob.StoreManagerService.OpenSession:output_type -> blob.OpenSessionResponse
-	19, // 19: blob.StoreManagerService.ReleaseLease:output_type -> blob.ReleaseLeaseResponse
-	10, // [10:20] is the sub-list for method output_type
-	0,  // [0:10] is the sub-list for method input_type
+	20, // 10: blob.StoreManagerSessionService.Abandon:input_type -> blob.AbandonRequest
+	22, // 11: blob.StoreManagerSessionService.AllowPackageAccess:input_type -> blob.AllowPackageAccessRequest
+	24, // 12: blob.StoreManagerSessionService.AllowPublicAccess:input_type -> blob.AllowPublicAccessRequest
+	26, // 13: blob.StoreManagerSessionService.AllowSameSignatureAccess:input_type -> blob.AllowSameSignatureAccessRequest
+	28, // 14: blob.StoreManagerSessionService.Close:input_type -> blob.CloseRequest
+	30, // 15: blob.StoreManagerSessionService.GetSize:input_type -> blob.GetSizeRequest
+	32, // 16: blob.StoreManagerSessionService.IsPackageAccessAllowed:input_type -> blob.IsPackageAccessAllowedRequest
+	34, // 17: blob.StoreManagerSessionService.IsPublicAccessAllowed:input_type -> blob.IsPublicAccessAllowedRequest
+	36, // 18: blob.StoreManagerSessionService.IsSameSignatureAccessAllowed:input_type -> blob.IsSameSignatureAccessAllowedRequest
+	38, // 19: blob.StoreManagerSessionService.OpenRead:input_type -> blob.OpenReadRequest
+	40, // 20: blob.StoreManagerSessionService.OpenWrite:input_type -> blob.OpenWriteRequest
+	42, // 21: blob.HandleService.DescribeContents:input_type -> blob.DescribeContentsRequest
+	44, // 22: blob.HandleService.Equals:input_type -> blob.EqualsRequest
+	46, // 23: blob.HandleService.GetExpiryTimeMillis:input_type -> blob.GetExpiryTimeMillisRequest
+	48, // 24: blob.HandleService.GetLabel:input_type -> blob.GetLabelRequest
+	50, // 25: blob.HandleService.GetSha256Digest:input_type -> blob.GetSha256DigestRequest
+	52, // 26: blob.HandleService.GetTag:input_type -> blob.GetTagRequest
+	54, // 27: blob.HandleService.HashCode:input_type -> blob.HashCodeRequest
+	56, // 28: blob.HandleService.ToString:input_type -> blob.ToStringRequest
+	58, // 29: blob.HandleService.WriteToParcel:input_type -> blob.WriteToParcelRequest
+	60, // 30: blob.HandleService.CreateWithSha256:input_type -> blob.CreateWithSha256Request
+	1,  // 31: blob.StoreManagerService.AbandonSession:output_type -> blob.AbandonSessionResponse
+	3,  // 32: blob.StoreManagerService.AcquireLease2:output_type -> blob.AcquireLease2Response
+	5,  // 33: blob.StoreManagerService.AcquireLease3_1:output_type -> blob.AcquireLease3_1Response
+	7,  // 34: blob.StoreManagerService.AcquireLease2_2:output_type -> blob.AcquireLease2_2Response
+	9,  // 35: blob.StoreManagerService.AcquireLease3_3:output_type -> blob.AcquireLease3_3Response
+	11, // 36: blob.StoreManagerService.CreateSession:output_type -> blob.CreateSessionResponse
+	13, // 37: blob.StoreManagerService.GetRemainingLeaseQuotaBytes:output_type -> blob.GetRemainingLeaseQuotaBytesResponse
+	15, // 38: blob.StoreManagerService.OpenBlob:output_type -> blob.OpenBlobResponse
+	17, // 39: blob.StoreManagerService.OpenSession:output_type -> blob.OpenSessionResponse
+	19, // 40: blob.StoreManagerService.ReleaseLease:output_type -> blob.ReleaseLeaseResponse
+	21, // 41: blob.StoreManagerSessionService.Abandon:output_type -> blob.AbandonResponse
+	23, // 42: blob.StoreManagerSessionService.AllowPackageAccess:output_type -> blob.AllowPackageAccessResponse
+	25, // 43: blob.StoreManagerSessionService.AllowPublicAccess:output_type -> blob.AllowPublicAccessResponse
+	27, // 44: blob.StoreManagerSessionService.AllowSameSignatureAccess:output_type -> blob.AllowSameSignatureAccessResponse
+	29, // 45: blob.StoreManagerSessionService.Close:output_type -> blob.CloseResponse
+	31, // 46: blob.StoreManagerSessionService.GetSize:output_type -> blob.GetSizeResponse
+	33, // 47: blob.StoreManagerSessionService.IsPackageAccessAllowed:output_type -> blob.IsPackageAccessAllowedResponse
+	35, // 48: blob.StoreManagerSessionService.IsPublicAccessAllowed:output_type -> blob.IsPublicAccessAllowedResponse
+	37, // 49: blob.StoreManagerSessionService.IsSameSignatureAccessAllowed:output_type -> blob.IsSameSignatureAccessAllowedResponse
+	39, // 50: blob.StoreManagerSessionService.OpenRead:output_type -> blob.OpenReadResponse
+	41, // 51: blob.StoreManagerSessionService.OpenWrite:output_type -> blob.OpenWriteResponse
+	43, // 52: blob.HandleService.DescribeContents:output_type -> blob.DescribeContentsResponse
+	45, // 53: blob.HandleService.Equals:output_type -> blob.EqualsResponse
+	47, // 54: blob.HandleService.GetExpiryTimeMillis:output_type -> blob.GetExpiryTimeMillisResponse
+	49, // 55: blob.HandleService.GetLabel:output_type -> blob.GetLabelResponse
+	51, // 56: blob.HandleService.GetSha256Digest:output_type -> blob.GetSha256DigestResponse
+	53, // 57: blob.HandleService.GetTag:output_type -> blob.GetTagResponse
+	55, // 58: blob.HandleService.HashCode:output_type -> blob.HashCodeResponse
+	57, // 59: blob.HandleService.ToString:output_type -> blob.ToStringResponse
+	59, // 60: blob.HandleService.WriteToParcel:output_type -> blob.WriteToParcelResponse
+	61, // 61: blob.HandleService.CreateWithSha256:output_type -> blob.CreateWithSha256Response
+	31, // [31:62] is the sub-list for method output_type
+	0,  // [0:31] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name
 	0,  // [0:0] is the sub-list for extension extendee
 	0,  // [0:0] is the sub-list for field type_name
@@ -1025,9 +2938,9 @@ func file_proto_blob_blob_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_blob_blob_proto_rawDesc), len(file_proto_blob_blob_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   20,
+			NumMessages:   62,
 			NumExtensions: 0,
-			NumServices:   1,
+			NumServices:   3,
 		},
 		GoTypes:           file_proto_blob_blob_proto_goTypes,
 		DependencyIndexes: file_proto_blob_blob_proto_depIdxs,

@@ -5,3 +5,112 @@ syntax = "proto3";
 package calendar;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/calendar";
+
+message StartViewCalendarEventInManagedProfileRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+  bool arg4 = 5;
+  int32 arg5 = 6;
+}
+
+message StartViewCalendarEventInManagedProfileResponse {
+  bool result = 1;
+}
+
+message QueryRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message QueryResponse {
+  int64 result = 1;
+}
+
+message NewEntityIteratorRequest {
+  int64 arg0 = 1;
+}
+
+message NewEntityIteratorResponse {
+  int64 result = 1;
+}
+
+message ContractEventDaysQueryRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message NewEntityIterator2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewEntityIterator2Response {
+  int64 result = 1;
+}
+
+message NewEntityIterator2_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewEntityIterator2_1Response {
+  int64 result = 1;
+}
+
+message Query4Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message Query4Response {
+  int64 result = 1;
+}
+
+message Query5_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+  string arg4 = 5;
+}
+
+message Query5_1Response {
+  int64 result = 1;
+}
+
+service ContractService {
+  rpc StartViewCalendarEventInManagedProfile (StartViewCalendarEventInManagedProfileRequest) returns (StartViewCalendarEventInManagedProfileResponse);
+}
+
+service ContractAttendeesService {
+  rpc Query (QueryRequest) returns (QueryResponse);
+}
+
+service ContractCalendarEntityService {
+  rpc NewEntityIterator (NewEntityIteratorRequest) returns (NewEntityIteratorResponse);
+}
+
+service ContractEventDaysService {
+  rpc Query (ContractEventDaysQueryRequest) returns (QueryResponse);
+}
+
+service ContractEventsEntityService {
+  rpc NewEntityIterator2 (NewEntityIterator2Request) returns (NewEntityIterator2Response);
+  rpc NewEntityIterator2_1 (NewEntityIterator2_1Request) returns (NewEntityIterator2_1Response);
+}
+
+service ContractInstancesService {
+  rpc Query4 (Query4Request) returns (Query4Response);
+  rpc Query5_1 (Query5_1Request) returns (Query5_1Response);
+}
+
+service ContractRemindersService {
+  rpc Query (QueryRequest) returns (QueryResponse);
+}

@@ -15,6 +15,1197 @@ import (
 	"google.golang.org/grpc/status"
 )
 
+// WifiP2pDeviceServer implements pb.WifiP2PDeviceServiceServer.
+type WifiP2pDeviceServer struct {
+	pb.UnimplementedWifiP2PDeviceServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *WifiP2pDeviceServer) NewWifiP2pDevice(_ context.Context, req *pb.NewWifiP2PDeviceRequest) (*pb.NewWifiP2PDeviceResponse, error) {
+	obj, err := jnipkg.NewWifiP2pDevice(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewWifiP2PDeviceResponse{Result: handle}, nil
+}
+
+func (s *WifiP2pDeviceServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pDevice{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *WifiP2pDeviceServer) Equals(_ context.Context, req *pb.EqualsRequest) (*pb.EqualsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pDevice{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Equals(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EqualsResponse{Result: result}, nil
+}
+
+func (s *WifiP2pDeviceServer) GetIpAddress(_ context.Context, req *pb.GetIpAddressRequest) (*pb.GetIpAddressResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pDevice{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetIpAddress()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetIpAddressResponse{Result: handle}, nil
+}
+
+func (s *WifiP2pDeviceServer) GetWfdInfo(_ context.Context, req *pb.GetWfdInfoRequest) (*pb.GetWfdInfoResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pDevice{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetWfdInfo()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetWfdInfoResponse{Result: handle}, nil
+}
+
+func (s *WifiP2pDeviceServer) HashCode(_ context.Context, req *pb.HashCodeRequest) (*pb.HashCodeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pDevice{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.HashCode()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.HashCodeResponse{Result: result}, nil
+}
+
+func (s *WifiP2pDeviceServer) IsGroupOwner(_ context.Context, req *pb.IsGroupOwnerRequest) (*pb.IsGroupOwnerResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pDevice{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsGroupOwner()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsGroupOwnerResponse{Result: result}, nil
+}
+
+func (s *WifiP2pDeviceServer) IsOpportunisticBootstrappingMethodSupported(_ context.Context, req *pb.IsOpportunisticBootstrappingMethodSupportedRequest) (*pb.IsOpportunisticBootstrappingMethodSupportedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pDevice{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsOpportunisticBootstrappingMethodSupported()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsOpportunisticBootstrappingMethodSupportedResponse{Result: result}, nil
+}
+
+func (s *WifiP2pDeviceServer) IsPassphraseDisplayBootstrappingMethodSupported(_ context.Context, req *pb.IsPassphraseDisplayBootstrappingMethodSupportedRequest) (*pb.IsPassphraseDisplayBootstrappingMethodSupportedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pDevice{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsPassphraseDisplayBootstrappingMethodSupported()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsPassphraseDisplayBootstrappingMethodSupportedResponse{Result: result}, nil
+}
+
+func (s *WifiP2pDeviceServer) IsPassphraseKeypadBootstrappingMethodSupported(_ context.Context, req *pb.IsPassphraseKeypadBootstrappingMethodSupportedRequest) (*pb.IsPassphraseKeypadBootstrappingMethodSupportedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pDevice{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsPassphraseKeypadBootstrappingMethodSupported()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsPassphraseKeypadBootstrappingMethodSupportedResponse{Result: result}, nil
+}
+
+func (s *WifiP2pDeviceServer) IsPinCodeDisplayBootstrappingMethodSupported(_ context.Context, req *pb.IsPinCodeDisplayBootstrappingMethodSupportedRequest) (*pb.IsPinCodeDisplayBootstrappingMethodSupportedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pDevice{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsPinCodeDisplayBootstrappingMethodSupported()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsPinCodeDisplayBootstrappingMethodSupportedResponse{Result: result}, nil
+}
+
+func (s *WifiP2pDeviceServer) IsPinCodeKeypadBootstrappingMethodSupported(_ context.Context, req *pb.IsPinCodeKeypadBootstrappingMethodSupportedRequest) (*pb.IsPinCodeKeypadBootstrappingMethodSupportedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pDevice{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsPinCodeKeypadBootstrappingMethodSupported()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsPinCodeKeypadBootstrappingMethodSupportedResponse{Result: result}, nil
+}
+
+func (s *WifiP2pDeviceServer) IsServiceDiscoveryCapable(_ context.Context, req *pb.IsServiceDiscoveryCapableRequest) (*pb.IsServiceDiscoveryCapableResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pDevice{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsServiceDiscoveryCapable()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsServiceDiscoveryCapableResponse{Result: result}, nil
+}
+
+func (s *WifiP2pDeviceServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pDevice{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *WifiP2pDeviceServer) Update(_ context.Context, req *pb.UpdateRequest) (*pb.UpdateResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pDevice{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Update(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.UpdateResponse{}, nil
+}
+
+func (s *WifiP2pDeviceServer) WpsDisplaySupported(_ context.Context, req *pb.WpsDisplaySupportedRequest) (*pb.WpsDisplaySupportedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pDevice{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.WpsDisplaySupported()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WpsDisplaySupportedResponse{Result: result}, nil
+}
+
+func (s *WifiP2pDeviceServer) WpsKeypadSupported(_ context.Context, req *pb.WpsKeypadSupportedRequest) (*pb.WpsKeypadSupportedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pDevice{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.WpsKeypadSupported()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WpsKeypadSupportedResponse{Result: result}, nil
+}
+
+func (s *WifiP2pDeviceServer) WpsPbcSupported(_ context.Context, req *pb.WpsPbcSupportedRequest) (*pb.WpsPbcSupportedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pDevice{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.WpsPbcSupported()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WpsPbcSupportedResponse{Result: result}, nil
+}
+
+func (s *WifiP2pDeviceServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pDevice{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
+// WifiP2pInfoServer implements pb.WifiP2PInfoServiceServer.
+type WifiP2pInfoServer struct {
+	pb.UnimplementedWifiP2PInfoServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *WifiP2pInfoServer) NewWifiP2pInfo(_ context.Context, req *pb.NewWifiP2PInfoRequest) (*pb.NewWifiP2PInfoResponse, error) {
+	obj, err := jnipkg.NewWifiP2pInfo(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewWifiP2PInfoResponse{Result: handle}, nil
+}
+
+func (s *WifiP2pInfoServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *WifiP2pInfoServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *WifiP2pInfoServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
+// WifiP2pDeviceListServer implements pb.WifiP2PDeviceListServiceServer.
+type WifiP2pDeviceListServer struct {
+	pb.UnimplementedWifiP2PDeviceListServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *WifiP2pDeviceListServer) NewWifiP2pDeviceList(_ context.Context, req *pb.NewWifiP2PDeviceListRequest) (*pb.NewWifiP2PDeviceListResponse, error) {
+	obj, err := jnipkg.NewWifiP2pDeviceList(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewWifiP2PDeviceListResponse{Result: handle}, nil
+}
+
+func (s *WifiP2pDeviceListServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pDeviceList{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *WifiP2pDeviceListServer) Get(_ context.Context, req *pb.GetRequest) (*pb.GetResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pDeviceList{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Get(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetResponse{Result: handle}, nil
+}
+
+func (s *WifiP2pDeviceListServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pDeviceList{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *WifiP2pDeviceListServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pDeviceList{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
+// WifiP2pDirInfoServer implements pb.WifiP2PDirInfoServiceServer.
+type WifiP2pDirInfoServer struct {
+	pb.UnimplementedWifiP2PDirInfoServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *WifiP2pDirInfoServer) NewWifiP2pDirInfo(_ context.Context, req *pb.NewWifiP2PDirInfoRequest) (*pb.NewWifiP2PDirInfoResponse, error) {
+	obj, err := jnipkg.NewWifiP2pDirInfo(s.Ctx.VM, s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewWifiP2PDirInfoResponse{Result: handle}, nil
+}
+
+func (s *WifiP2pDirInfoServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pDirInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *WifiP2pDirInfoServer) GetDirTag(_ context.Context, req *pb.GetDirTagRequest) (*pb.GetDirTagResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pDirInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetDirTag()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetDirTagResponse{Result: handle}, nil
+}
+
+func (s *WifiP2pDirInfoServer) GetMacAddress(_ context.Context, req *pb.GetMacAddressRequest) (*pb.GetMacAddressResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pDirInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetMacAddress()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetMacAddressResponse{Result: handle}, nil
+}
+
+func (s *WifiP2pDirInfoServer) GetNonce(_ context.Context, req *pb.GetNonceRequest) (*pb.GetNonceResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pDirInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetNonce()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetNonceResponse{Result: handle}, nil
+}
+
+func (s *WifiP2pDirInfoServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pDirInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *WifiP2pDirInfoServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pDirInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
+// WifiP2pPairingBootstrappingConfigServer implements pb.WifiP2PPairingBootstrappingConfigServiceServer.
+type WifiP2pPairingBootstrappingConfigServer struct {
+	pb.UnimplementedWifiP2PPairingBootstrappingConfigServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *WifiP2pPairingBootstrappingConfigServer) NewWifiP2pPairingBootstrappingConfig(_ context.Context, req *pb.NewWifiP2PPairingBootstrappingConfigRequest) (*pb.NewWifiP2PPairingBootstrappingConfigResponse, error) {
+	obj, err := jnipkg.NewWifiP2pPairingBootstrappingConfig(s.Ctx.VM, req.GetArg0(), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewWifiP2PPairingBootstrappingConfigResponse{Result: handle}, nil
+}
+
+func (s *WifiP2pPairingBootstrappingConfigServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pPairingBootstrappingConfig{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *WifiP2pPairingBootstrappingConfigServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pPairingBootstrappingConfig{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *WifiP2pPairingBootstrappingConfigServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pPairingBootstrappingConfig{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
+// WifiP2pWfdInfoServer implements pb.WifiP2PWfdInfoServiceServer.
+type WifiP2pWfdInfoServer struct {
+	pb.UnimplementedWifiP2PWfdInfoServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *WifiP2pWfdInfoServer) NewWifiP2pWfdInfo(_ context.Context, req *pb.NewWifiP2PWfdInfoRequest) (*pb.NewWifiP2PWfdInfoResponse, error) {
+	obj, err := jnipkg.NewWifiP2pWfdInfo(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewWifiP2PWfdInfoResponse{Result: handle}, nil
+}
+
+func (s *WifiP2pWfdInfoServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pWfdInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *WifiP2pWfdInfoServer) GetControlPort(_ context.Context, req *pb.GetControlPortRequest) (*pb.GetControlPortResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pWfdInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetControlPort()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetControlPortResponse{Result: result}, nil
+}
+
+func (s *WifiP2pWfdInfoServer) GetDeviceInfo(_ context.Context, req *pb.GetDeviceInfoRequest) (*pb.GetDeviceInfoResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pWfdInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetDeviceInfo()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetDeviceInfoResponse{Result: result}, nil
+}
+
+func (s *WifiP2pWfdInfoServer) GetDeviceType(_ context.Context, req *pb.GetDeviceTypeRequest) (*pb.GetDeviceTypeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pWfdInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetDeviceType()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetDeviceTypeResponse{Result: result}, nil
+}
+
+func (s *WifiP2pWfdInfoServer) GetMaxThroughput(_ context.Context, req *pb.GetMaxThroughputRequest) (*pb.GetMaxThroughputResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pWfdInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetMaxThroughput()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetMaxThroughputResponse{Result: result}, nil
+}
+
+func (s *WifiP2pWfdInfoServer) GetR2DeviceInfo(_ context.Context, req *pb.GetR2DeviceInfoRequest) (*pb.GetR2DeviceInfoResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pWfdInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetR2DeviceInfo()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetR2DeviceInfoResponse{Result: result}, nil
+}
+
+func (s *WifiP2pWfdInfoServer) GetR2DeviceType(_ context.Context, req *pb.GetR2DeviceTypeRequest) (*pb.GetR2DeviceTypeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pWfdInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetR2DeviceType()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetR2DeviceTypeResponse{Result: result}, nil
+}
+
+func (s *WifiP2pWfdInfoServer) IsContentProtectionSupported(_ context.Context, req *pb.IsContentProtectionSupportedRequest) (*pb.IsContentProtectionSupportedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pWfdInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsContentProtectionSupported()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsContentProtectionSupportedResponse{Result: result}, nil
+}
+
+func (s *WifiP2pWfdInfoServer) IsCoupledSinkSupportedAtSink(_ context.Context, req *pb.IsCoupledSinkSupportedAtSinkRequest) (*pb.IsCoupledSinkSupportedAtSinkResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pWfdInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsCoupledSinkSupportedAtSink()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsCoupledSinkSupportedAtSinkResponse{Result: result}, nil
+}
+
+func (s *WifiP2pWfdInfoServer) IsCoupledSinkSupportedAtSource(_ context.Context, req *pb.IsCoupledSinkSupportedAtSourceRequest) (*pb.IsCoupledSinkSupportedAtSourceResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pWfdInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsCoupledSinkSupportedAtSource()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsCoupledSinkSupportedAtSourceResponse{Result: result}, nil
+}
+
+func (s *WifiP2pWfdInfoServer) IsEnabled(_ context.Context, req *pb.IsEnabledRequest) (*pb.IsEnabledResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pWfdInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsEnabled()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsEnabledResponse{Result: result}, nil
+}
+
+func (s *WifiP2pWfdInfoServer) IsR2Supported(_ context.Context, req *pb.IsR2SupportedRequest) (*pb.IsR2SupportedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pWfdInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsR2Supported()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsR2SupportedResponse{Result: result}, nil
+}
+
+func (s *WifiP2pWfdInfoServer) IsSessionAvailable(_ context.Context, req *pb.IsSessionAvailableRequest) (*pb.IsSessionAvailableResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pWfdInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsSessionAvailable()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsSessionAvailableResponse{Result: result}, nil
+}
+
+func (s *WifiP2pWfdInfoServer) SetContentProtectionSupported(_ context.Context, req *pb.SetContentProtectionSupportedRequest) (*pb.SetContentProtectionSupportedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pWfdInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetContentProtectionSupported(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetContentProtectionSupportedResponse{}, nil
+}
+
+func (s *WifiP2pWfdInfoServer) SetControlPort(_ context.Context, req *pb.SetControlPortRequest) (*pb.SetControlPortResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pWfdInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetControlPort(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetControlPortResponse{}, nil
+}
+
+func (s *WifiP2pWfdInfoServer) SetCoupledSinkSupportAtSink(_ context.Context, req *pb.SetCoupledSinkSupportAtSinkRequest) (*pb.SetCoupledSinkSupportAtSinkResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pWfdInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetCoupledSinkSupportAtSink(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetCoupledSinkSupportAtSinkResponse{}, nil
+}
+
+func (s *WifiP2pWfdInfoServer) SetCoupledSinkSupportAtSource(_ context.Context, req *pb.SetCoupledSinkSupportAtSourceRequest) (*pb.SetCoupledSinkSupportAtSourceResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pWfdInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetCoupledSinkSupportAtSource(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetCoupledSinkSupportAtSourceResponse{}, nil
+}
+
+func (s *WifiP2pWfdInfoServer) SetDeviceType(_ context.Context, req *pb.SetDeviceTypeRequest) (*pb.SetDeviceTypeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pWfdInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.SetDeviceType(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetDeviceTypeResponse{Result: result}, nil
+}
+
+func (s *WifiP2pWfdInfoServer) SetEnabled(_ context.Context, req *pb.SetEnabledRequest) (*pb.SetEnabledResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pWfdInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetEnabled(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetEnabledResponse{}, nil
+}
+
+func (s *WifiP2pWfdInfoServer) SetMaxThroughput(_ context.Context, req *pb.SetMaxThroughputRequest) (*pb.SetMaxThroughputResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pWfdInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetMaxThroughput(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetMaxThroughputResponse{}, nil
+}
+
+func (s *WifiP2pWfdInfoServer) SetR2DeviceType(_ context.Context, req *pb.SetR2DeviceTypeRequest) (*pb.SetR2DeviceTypeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pWfdInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.SetR2DeviceType(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetR2DeviceTypeResponse{Result: result}, nil
+}
+
+func (s *WifiP2pWfdInfoServer) SetSessionAvailable(_ context.Context, req *pb.SetSessionAvailableRequest) (*pb.SetSessionAvailableResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pWfdInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetSessionAvailable(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetSessionAvailableResponse{}, nil
+}
+
+func (s *WifiP2pWfdInfoServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pWfdInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *WifiP2pWfdInfoServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pWfdInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
+// WifiP2pGroupServer implements pb.WifiP2PGroupServiceServer.
+type WifiP2pGroupServer struct {
+	pb.UnimplementedWifiP2PGroupServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *WifiP2pGroupServer) NewWifiP2pGroup(_ context.Context, req *pb.NewWifiP2PGroupRequest) (*pb.NewWifiP2PGroupResponse, error) {
+	obj, err := jnipkg.NewWifiP2pGroup(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewWifiP2PGroupResponse{Result: handle}, nil
+}
+
+func (s *WifiP2pGroupServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pGroup{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *WifiP2pGroupServer) GetFrequency(_ context.Context, req *pb.GetFrequencyRequest) (*pb.GetFrequencyResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pGroup{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetFrequency()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetFrequencyResponse{Result: result}, nil
+}
+
+func (s *WifiP2pGroupServer) GetGroupOwnerBssid(_ context.Context, req *pb.GetGroupOwnerBssidRequest) (*pb.GetGroupOwnerBssidResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pGroup{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetGroupOwnerBssid()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetGroupOwnerBssidResponse{Result: handle}, nil
+}
+
+func (s *WifiP2pGroupServer) GetInterface(_ context.Context, req *pb.GetInterfaceRequest) (*pb.GetInterfaceResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pGroup{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetInterface()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetInterfaceResponse{Result: result}, nil
+}
+
+func (s *WifiP2pGroupServer) GetNetworkId(_ context.Context, req *pb.GetNetworkIdRequest) (*pb.GetNetworkIdResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pGroup{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetNetworkId()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetNetworkIdResponse{Result: result}, nil
+}
+
+func (s *WifiP2pGroupServer) GetNetworkName(_ context.Context, req *pb.GetNetworkNameRequest) (*pb.GetNetworkNameResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pGroup{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetNetworkName()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetNetworkNameResponse{Result: result}, nil
+}
+
+func (s *WifiP2pGroupServer) GetOwner(_ context.Context, req *pb.GetOwnerRequest) (*pb.GetOwnerResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pGroup{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetOwner()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetOwnerResponse{Result: handle}, nil
+}
+
+func (s *WifiP2pGroupServer) GetPassphrase(_ context.Context, req *pb.GetPassphraseRequest) (*pb.GetPassphraseResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pGroup{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetPassphrase()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetPassphraseResponse{Result: result}, nil
+}
+
+func (s *WifiP2pGroupServer) GetSecurityType(_ context.Context, req *pb.GetSecurityTypeRequest) (*pb.GetSecurityTypeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pGroup{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetSecurityType()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetSecurityTypeResponse{Result: result}, nil
+}
+
+func (s *WifiP2pGroupServer) IsGroupOwner(_ context.Context, req *pb.IsGroupOwnerRequest) (*pb.IsGroupOwnerResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pGroup{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsGroupOwner()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsGroupOwnerResponse{Result: result}, nil
+}
+
+func (s *WifiP2pGroupServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pGroup{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *WifiP2pGroupServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pGroup{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
 // WifiP2pManagerServer implements pb.WifiP2PManagerServiceServer.
 type WifiP2pManagerServer struct {
 	pb.UnimplementedWifiP2PManagerServiceServer
@@ -648,4 +1839,215 @@ func (s *WifiP2pManagerServer) GetP2PMaxAllowedVendorElementsLengthBytes(_ conte
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.GetP2PMaxAllowedVendorElementsLengthBytesResponse{Result: result}, nil
+}
+
+// WifiP2pConfigServer implements pb.WifiP2PConfigServiceServer.
+type WifiP2pConfigServer struct {
+	pb.UnimplementedWifiP2PConfigServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *WifiP2pConfigServer) NewWifiP2pConfig(_ context.Context, req *pb.NewWifiP2PConfigRequest) (*pb.NewWifiP2PConfigResponse, error) {
+	obj, err := jnipkg.NewWifiP2pConfig(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewWifiP2PConfigResponse{Result: handle}, nil
+}
+
+func (s *WifiP2pConfigServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pConfig{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *WifiP2pConfigServer) GetGroupClientIpProvisioningMode(_ context.Context, req *pb.GetGroupClientIpProvisioningModeRequest) (*pb.GetGroupClientIpProvisioningModeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pConfig{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetGroupClientIpProvisioningMode()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetGroupClientIpProvisioningModeResponse{Result: result}, nil
+}
+
+func (s *WifiP2pConfigServer) GetGroupOwnerBand(_ context.Context, req *pb.GetGroupOwnerBandRequest) (*pb.GetGroupOwnerBandResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pConfig{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetGroupOwnerBand()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetGroupOwnerBandResponse{Result: result}, nil
+}
+
+func (s *WifiP2pConfigServer) GetGroupOwnerVersion(_ context.Context, req *pb.GetGroupOwnerVersionRequest) (*pb.GetGroupOwnerVersionResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pConfig{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetGroupOwnerVersion()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetGroupOwnerVersionResponse{Result: result}, nil
+}
+
+func (s *WifiP2pConfigServer) GetNetworkId(_ context.Context, req *pb.GetNetworkIdRequest) (*pb.GetNetworkIdResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pConfig{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetNetworkId()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetNetworkIdResponse{Result: result}, nil
+}
+
+func (s *WifiP2pConfigServer) GetNetworkName(_ context.Context, req *pb.GetNetworkNameRequest) (*pb.GetNetworkNameResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pConfig{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetNetworkName()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetNetworkNameResponse{Result: result}, nil
+}
+
+func (s *WifiP2pConfigServer) GetPairingBootstrappingConfig(_ context.Context, req *pb.GetPairingBootstrappingConfigRequest) (*pb.GetPairingBootstrappingConfigResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pConfig{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetPairingBootstrappingConfig()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetPairingBootstrappingConfigResponse{Result: handle}, nil
+}
+
+func (s *WifiP2pConfigServer) GetPassphrase(_ context.Context, req *pb.GetPassphraseRequest) (*pb.GetPassphraseResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pConfig{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetPassphrase()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetPassphraseResponse{Result: result}, nil
+}
+
+func (s *WifiP2pConfigServer) GetPccModeConnectionType(_ context.Context, req *pb.GetPccModeConnectionTypeRequest) (*pb.GetPccModeConnectionTypeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pConfig{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetPccModeConnectionType()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetPccModeConnectionTypeResponse{Result: result}, nil
+}
+
+func (s *WifiP2pConfigServer) IsAuthorizeConnectionFromPeerEnabled(_ context.Context, req *pb.IsAuthorizeConnectionFromPeerEnabledRequest) (*pb.IsAuthorizeConnectionFromPeerEnabledResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pConfig{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsAuthorizeConnectionFromPeerEnabled()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsAuthorizeConnectionFromPeerEnabledResponse{Result: result}, nil
+}
+
+func (s *WifiP2pConfigServer) SetGroupOwnerVersion(_ context.Context, req *pb.SetGroupOwnerVersionRequest) (*pb.SetGroupOwnerVersionResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pConfig{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetGroupOwnerVersion(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetGroupOwnerVersionResponse{}, nil
+}
+
+func (s *WifiP2pConfigServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pConfig{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *WifiP2pConfigServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.WifiP2pConfig{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
 }

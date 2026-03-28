@@ -5,3 +5,1898 @@ syntax = "proto3";
 package audiofx;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/audiofx";
+
+message NewBassBoostRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message NewBassBoostResponse {
+  int64 result = 1;
+}
+
+message GetPropertiesRequest {
+  int64 handle = 1;
+}
+
+message GetPropertiesResponse {
+  int64 result = 1;
+}
+
+message GetRoundedStrengthRequest {
+  int64 handle = 1;
+}
+
+message GetRoundedStrengthResponse {
+  int32 result = 1;
+}
+
+message GetStrengthSupportedRequest {
+  int64 handle = 1;
+}
+
+message GetStrengthSupportedResponse {
+  bool result = 1;
+}
+
+message SetParameterListenerRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetParameterListenerResponse {
+}
+
+message SetPropertiesRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetPropertiesResponse {
+}
+
+message SetStrengthRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetStrengthResponse {
+}
+
+message OnParameterChangeRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message OnParameterChangeResponse {
+}
+
+message ToStringRequest {
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message CreateRequest {
+  int32 arg0 = 1;
+}
+
+message CreateResponse {
+  int64 result = 1;
+}
+
+message IsAvailableRequest {
+}
+
+message IsAvailableResponse {
+  bool result = 1;
+}
+
+message NewVisualizerRequest {
+  int32 arg0 = 1;
+}
+
+message NewVisualizerResponse {
+  int64 result = 1;
+}
+
+message GetCaptureSizeRequest {
+  int64 handle = 1;
+}
+
+message GetCaptureSizeResponse {
+  int32 result = 1;
+}
+
+message GetEnabledRequest {
+  int64 handle = 1;
+}
+
+message GetEnabledResponse {
+  bool result = 1;
+}
+
+message GetFftRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetFftResponse {
+  int32 result = 1;
+}
+
+message GetMeasurementModeRequest {
+  int64 handle = 1;
+}
+
+message GetMeasurementModeResponse {
+  int32 result = 1;
+}
+
+message GetMeasurementPeakRmsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetMeasurementPeakRmsResponse {
+  int32 result = 1;
+}
+
+message GetSamplingRateRequest {
+  int64 handle = 1;
+}
+
+message GetSamplingRateResponse {
+  int32 result = 1;
+}
+
+message GetScalingModeRequest {
+  int64 handle = 1;
+}
+
+message GetScalingModeResponse {
+  int32 result = 1;
+}
+
+message GetWaveFormRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetWaveFormResponse {
+  int32 result = 1;
+}
+
+message ReleaseRequest {
+  int64 handle = 1;
+}
+
+message ReleaseResponse {
+}
+
+message SetCaptureSizeRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetCaptureSizeResponse {
+  int32 result = 1;
+}
+
+message SetDataCaptureListenerRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+  bool arg2 = 4;
+  bool arg3 = 5;
+}
+
+message SetDataCaptureListenerResponse {
+  int32 result = 1;
+}
+
+message SetEnabledRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetEnabledResponse {
+  int32 result = 1;
+}
+
+message SetMeasurementModeRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetMeasurementModeResponse {
+  int32 result = 1;
+}
+
+message SetScalingModeRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetScalingModeResponse {
+  int32 result = 1;
+}
+
+message GetCaptureSizeRangeRequest {
+  int64 handle = 1;
+}
+
+message GetCaptureSizeRangeResponse {
+  int64 result = 1;
+}
+
+message GetMaxCaptureRateRequest {
+  int64 handle = 1;
+}
+
+message GetMaxCaptureRateResponse {
+  int32 result = 1;
+}
+
+message OnFftDataCaptureRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message OnFftDataCaptureResponse {
+}
+
+message OnWaveFormDataCaptureRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message OnWaveFormDataCaptureResponse {
+}
+
+message NewEnvironmentalReverbRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message NewEnvironmentalReverbResponse {
+  int64 result = 1;
+}
+
+message GetDecayHFRatioRequest {
+  int64 handle = 1;
+}
+
+message GetDecayHFRatioResponse {
+  int32 result = 1;
+}
+
+message GetDecayTimeRequest {
+  int64 handle = 1;
+}
+
+message GetDecayTimeResponse {
+  int32 result = 1;
+}
+
+message GetDensityRequest {
+  int64 handle = 1;
+}
+
+message GetDensityResponse {
+  int32 result = 1;
+}
+
+message GetDiffusionRequest {
+  int64 handle = 1;
+}
+
+message GetDiffusionResponse {
+  int32 result = 1;
+}
+
+message GetReflectionsDelayRequest {
+  int64 handle = 1;
+}
+
+message GetReflectionsDelayResponse {
+  int32 result = 1;
+}
+
+message GetReflectionsLevelRequest {
+  int64 handle = 1;
+}
+
+message GetReflectionsLevelResponse {
+  int32 result = 1;
+}
+
+message GetReverbDelayRequest {
+  int64 handle = 1;
+}
+
+message GetReverbDelayResponse {
+  int32 result = 1;
+}
+
+message GetReverbLevelRequest {
+  int64 handle = 1;
+}
+
+message GetReverbLevelResponse {
+  int32 result = 1;
+}
+
+message GetRoomHFLevelRequest {
+  int64 handle = 1;
+}
+
+message GetRoomHFLevelResponse {
+  int32 result = 1;
+}
+
+message GetRoomLevelRequest {
+  int64 handle = 1;
+}
+
+message GetRoomLevelResponse {
+  int32 result = 1;
+}
+
+message SetDecayHFRatioRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetDecayHFRatioResponse {
+}
+
+message SetDecayTimeRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetDecayTimeResponse {
+}
+
+message SetDensityRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetDensityResponse {
+}
+
+message SetDiffusionRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetDiffusionResponse {
+}
+
+message SetReflectionsDelayRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetReflectionsDelayResponse {
+}
+
+message SetReflectionsLevelRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetReflectionsLevelResponse {
+}
+
+message SetReverbDelayRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetReverbDelayResponse {
+}
+
+message SetReverbLevelRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetReverbLevelResponse {
+}
+
+message SetRoomHFLevelRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetRoomHFLevelResponse {
+}
+
+message SetRoomLevelRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetRoomLevelResponse {
+}
+
+message GetDescriptorRequest {
+}
+
+message GetDescriptorResponse {
+  int64 result = 1;
+}
+
+message AudioEffectGetEnabledRequest {
+}
+
+message GetIdRequest {
+}
+
+message GetIdResponse {
+  int32 result = 1;
+}
+
+message HasControlRequest {
+}
+
+message HasControlResponse {
+  bool result = 1;
+}
+
+message AudioEffectReleaseRequest {
+}
+
+message SetControlStatusListenerRequest {
+  int64 arg0 = 1;
+}
+
+message SetControlStatusListenerResponse {
+}
+
+message SetEnableStatusListenerRequest {
+  int64 arg0 = 1;
+}
+
+message SetEnableStatusListenerResponse {
+}
+
+message AudioEffectSetEnabledRequest {
+  bool arg0 = 1;
+}
+
+message QueryEffectsRequest {
+}
+
+message QueryEffectsResponse {
+  int64 result = 1;
+}
+
+message EqualsRequest {
+  int64 arg0 = 1;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message HashCodeRequest {
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message OnControlStatusChangeRequest {
+  int64 arg0 = 1;
+  bool arg1 = 2;
+}
+
+message OnControlStatusChangeResponse {
+}
+
+message OnEnableStatusChangeRequest {
+  int64 arg0 = 1;
+  bool arg1 = 2;
+}
+
+message OnEnableStatusChangeResponse {
+}
+
+message NewEqualizerRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message NewEqualizerResponse {
+  int64 result = 1;
+}
+
+message GetBandRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetBandResponse {
+  int32 result = 1;
+}
+
+message GetBandFreqRangeRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetBandFreqRangeResponse {
+  int64 result = 1;
+}
+
+message GetBandLevelRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetBandLevelResponse {
+  int32 result = 1;
+}
+
+message GetBandLevelRangeRequest {
+  int64 handle = 1;
+}
+
+message GetBandLevelRangeResponse {
+  int64 result = 1;
+}
+
+message GetCenterFreqRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetCenterFreqResponse {
+  int32 result = 1;
+}
+
+message GetCurrentPresetRequest {
+  int64 handle = 1;
+}
+
+message GetCurrentPresetResponse {
+  int32 result = 1;
+}
+
+message GetNumberOfBandsRequest {
+  int64 handle = 1;
+}
+
+message GetNumberOfBandsResponse {
+  int32 result = 1;
+}
+
+message GetNumberOfPresetsRequest {
+  int64 handle = 1;
+}
+
+message GetNumberOfPresetsResponse {
+  int32 result = 1;
+}
+
+message GetPresetNameRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetPresetNameResponse {
+  string result = 1;
+}
+
+message SetBandLevelRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message SetBandLevelResponse {
+}
+
+message UsePresetRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message UsePresetResponse {
+}
+
+message EqualizerOnParameterChangeListenerOnParameterChangeRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int32 arg4 = 5;
+}
+
+message NewPresetReverbRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message NewPresetReverbResponse {
+  int64 result = 1;
+}
+
+message GetPresetRequest {
+  int64 handle = 1;
+}
+
+message GetPresetResponse {
+  int32 result = 1;
+}
+
+message SetPresetRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetPresetResponse {
+}
+
+message NewLoudnessEnhancerRequest {
+  int32 arg0 = 1;
+}
+
+message NewLoudnessEnhancerResponse {
+  int64 result = 1;
+}
+
+message GetTargetGainRequest {
+  int64 handle = 1;
+}
+
+message GetTargetGainResponse {
+  float result = 1;
+}
+
+message SetTargetGainRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetTargetGainResponse {
+}
+
+message NewDynamicsProcessingRequest {
+  int32 arg0 = 1;
+}
+
+message NewDynamicsProcessingResponse {
+  int64 result = 1;
+}
+
+message GetChannelByChannelIndexRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetChannelByChannelIndexResponse {
+  int64 result = 1;
+}
+
+message GetChannelCountRequest {
+  int64 handle = 1;
+}
+
+message GetChannelCountResponse {
+  int32 result = 1;
+}
+
+message GetConfigRequest {
+  int64 handle = 1;
+}
+
+message GetConfigResponse {
+  int64 result = 1;
+}
+
+message GetInputGainByChannelIndexRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetInputGainByChannelIndexResponse {
+  float result = 1;
+}
+
+message GetLimiterByChannelIndexRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetLimiterByChannelIndexResponse {
+  int64 result = 1;
+}
+
+message GetMbcBandByChannelIndexRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message GetMbcBandByChannelIndexResponse {
+  int64 result = 1;
+}
+
+message GetMbcByChannelIndexRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetMbcByChannelIndexResponse {
+  int64 result = 1;
+}
+
+message GetPostEqBandByChannelIndexRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message GetPostEqBandByChannelIndexResponse {
+  int64 result = 1;
+}
+
+message GetPostEqByChannelIndexRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetPostEqByChannelIndexResponse {
+  int64 result = 1;
+}
+
+message GetPreEqBandByChannelIndexRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message GetPreEqBandByChannelIndexResponse {
+  int64 result = 1;
+}
+
+message GetPreEqByChannelIndexRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetPreEqByChannelIndexResponse {
+  int64 result = 1;
+}
+
+message SetAllChannelsToRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetAllChannelsToResponse {
+}
+
+message SetChannelToRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message SetChannelToResponse {
+}
+
+message SetInputGainAllChannelsToRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+}
+
+message SetInputGainAllChannelsToResponse {
+}
+
+message SetInputGainbyChannelRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  float arg1 = 3;
+}
+
+message SetInputGainbyChannelResponse {
+}
+
+message SetLimiterAllChannelsToRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetLimiterAllChannelsToResponse {
+}
+
+message SetLimiterByChannelIndexRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message SetLimiterByChannelIndexResponse {
+}
+
+message SetMbcAllChannelsToRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetMbcAllChannelsToResponse {
+}
+
+message SetMbcBandAllChannelsToRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message SetMbcBandAllChannelsToResponse {
+}
+
+message SetMbcBandByChannelIndexRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message SetMbcBandByChannelIndexResponse {
+}
+
+message SetMbcByChannelIndexRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message SetMbcByChannelIndexResponse {
+}
+
+message SetPostEqAllChannelsToRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetPostEqAllChannelsToResponse {
+}
+
+message SetPostEqBandAllChannelsToRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message SetPostEqBandAllChannelsToResponse {
+}
+
+message SetPostEqBandByChannelIndexRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message SetPostEqBandByChannelIndexResponse {
+}
+
+message SetPostEqByChannelIndexRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message SetPostEqByChannelIndexResponse {
+}
+
+message SetPreEqAllChannelsToRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetPreEqAllChannelsToResponse {
+}
+
+message SetPreEqBandAllChannelsToRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message SetPreEqBandAllChannelsToResponse {
+}
+
+message SetPreEqBandByChannelIndexRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message SetPreEqBandByChannelIndexResponse {
+}
+
+message SetPreEqByChannelIndexRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message SetPreEqByChannelIndexResponse {
+}
+
+message GetCutoffFrequencyRequest {
+}
+
+message GetCutoffFrequencyResponse {
+  float result = 1;
+}
+
+message IsEnabledRequest {
+}
+
+message IsEnabledResponse {
+  bool result = 1;
+}
+
+message SetCutoffFrequencyRequest {
+  float arg0 = 1;
+}
+
+message SetCutoffFrequencyResponse {
+}
+
+message DynamicsProcessingBandBaseSetEnabledRequest {
+  bool arg0 = 1;
+}
+
+message DynamicsProcessingBandBaseSetEnabledResponse {
+}
+
+message GetBandCountRequest {
+}
+
+message GetBandCountResponse {
+  int32 result = 1;
+}
+
+message GetInputGainRequest {
+}
+
+message GetInputGainResponse {
+  float result = 1;
+}
+
+message GetLimiterRequest {
+}
+
+message GetLimiterResponse {
+  int64 result = 1;
+}
+
+message GetMbcRequest {
+}
+
+message GetMbcResponse {
+  int64 result = 1;
+}
+
+message GetMbcBandRequest {
+  int32 arg0 = 1;
+}
+
+message GetMbcBandResponse {
+  int64 result = 1;
+}
+
+message GetPostEqRequest {
+}
+
+message GetPostEqResponse {
+  int64 result = 1;
+}
+
+message GetPostEqBandRequest {
+  int32 arg0 = 1;
+}
+
+message GetPostEqBandResponse {
+  int64 result = 1;
+}
+
+message GetPreEqRequest {
+}
+
+message GetPreEqResponse {
+  int64 result = 1;
+}
+
+message GetPreEqBandRequest {
+  int32 arg0 = 1;
+}
+
+message GetPreEqBandResponse {
+  int64 result = 1;
+}
+
+message SetInputGainRequest {
+  float arg0 = 1;
+}
+
+message SetInputGainResponse {
+}
+
+message SetLimiterRequest {
+  int64 arg0 = 1;
+}
+
+message SetLimiterResponse {
+}
+
+message SetMbcRequest {
+  int64 arg0 = 1;
+}
+
+message SetMbcResponse {
+}
+
+message SetMbcBandRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SetMbcBandResponse {
+}
+
+message SetPostEqRequest {
+  int64 arg0 = 1;
+}
+
+message SetPostEqResponse {
+}
+
+message SetPostEqBandRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SetPostEqBandResponse {
+}
+
+message SetPreEqRequest {
+  int64 arg0 = 1;
+}
+
+message SetPreEqResponse {
+}
+
+message SetPreEqBandRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SetPreEqBandResponse {
+}
+
+message DynamicsProcessingConfigGetChannelByChannelIndexRequest {
+  int32 arg0 = 1;
+}
+
+message DynamicsProcessingConfigGetInputGainByChannelIndexRequest {
+  int32 arg0 = 1;
+}
+
+message DynamicsProcessingConfigGetLimiterByChannelIndexRequest {
+  int32 arg0 = 1;
+}
+
+message DynamicsProcessingConfigGetMbcBandByChannelIndexRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message GetMbcBandCountRequest {
+}
+
+message GetMbcBandCountResponse {
+  int32 result = 1;
+}
+
+message DynamicsProcessingConfigGetMbcByChannelIndexRequest {
+  int32 arg0 = 1;
+}
+
+message DynamicsProcessingConfigGetPostEqBandByChannelIndexRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message GetPostEqBandCountRequest {
+}
+
+message GetPostEqBandCountResponse {
+  int32 result = 1;
+}
+
+message DynamicsProcessingConfigGetPostEqByChannelIndexRequest {
+  int32 arg0 = 1;
+}
+
+message DynamicsProcessingConfigGetPreEqBandByChannelIndexRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message GetPreEqBandCountRequest {
+}
+
+message GetPreEqBandCountResponse {
+  int32 result = 1;
+}
+
+message DynamicsProcessingConfigGetPreEqByChannelIndexRequest {
+  int32 arg0 = 1;
+}
+
+message GetPreferredFrameDurationRequest {
+}
+
+message GetPreferredFrameDurationResponse {
+  float result = 1;
+}
+
+message GetVariantRequest {
+}
+
+message GetVariantResponse {
+  int32 result = 1;
+}
+
+message IsLimiterInUseRequest {
+}
+
+message IsLimiterInUseResponse {
+  bool result = 1;
+}
+
+message IsMbcInUseRequest {
+}
+
+message IsMbcInUseResponse {
+  bool result = 1;
+}
+
+message IsPostEqInUseRequest {
+}
+
+message IsPostEqInUseResponse {
+  bool result = 1;
+}
+
+message IsPreEqInUseRequest {
+}
+
+message IsPreEqInUseResponse {
+  bool result = 1;
+}
+
+message DynamicsProcessingConfigSetAllChannelsToRequest {
+  int64 arg0 = 1;
+}
+
+message DynamicsProcessingConfigSetChannelToRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message DynamicsProcessingConfigSetInputGainAllChannelsToRequest {
+  float arg0 = 1;
+}
+
+message SetInputGainByChannelIndexRequest {
+  int32 arg0 = 1;
+  float arg1 = 2;
+}
+
+message SetInputGainByChannelIndexResponse {
+}
+
+message DynamicsProcessingConfigSetLimiterAllChannelsToRequest {
+  int64 arg0 = 1;
+}
+
+message DynamicsProcessingConfigSetLimiterByChannelIndexRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message DynamicsProcessingConfigSetMbcAllChannelsToRequest {
+  int64 arg0 = 1;
+}
+
+message DynamicsProcessingConfigSetMbcBandAllChannelsToRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message DynamicsProcessingConfigSetMbcBandByChannelIndexRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message DynamicsProcessingConfigSetMbcByChannelIndexRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message DynamicsProcessingConfigSetPostEqAllChannelsToRequest {
+  int64 arg0 = 1;
+}
+
+message DynamicsProcessingConfigSetPostEqBandAllChannelsToRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message DynamicsProcessingConfigSetPostEqBandByChannelIndexRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message DynamicsProcessingConfigSetPostEqByChannelIndexRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message DynamicsProcessingConfigSetPreEqAllChannelsToRequest {
+  int64 arg0 = 1;
+}
+
+message DynamicsProcessingConfigSetPreEqBandAllChannelsToRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message DynamicsProcessingConfigSetPreEqBandByChannelIndexRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message DynamicsProcessingConfigSetPreEqByChannelIndexRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message DynamicsProcessingEqGetBandRequest {
+  int32 arg0 = 1;
+}
+
+message DynamicsProcessingEqGetBandResponse {
+  int64 result = 1;
+}
+
+message SetBandRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SetBandResponse {
+}
+
+message GetGainRequest {
+}
+
+message GetGainResponse {
+  float result = 1;
+}
+
+message SetGainRequest {
+  float arg0 = 1;
+}
+
+message SetGainResponse {
+}
+
+message GetAttackTimeRequest {
+}
+
+message GetAttackTimeResponse {
+  float result = 1;
+}
+
+message GetLinkGroupRequest {
+}
+
+message GetLinkGroupResponse {
+  int32 result = 1;
+}
+
+message GetPostGainRequest {
+}
+
+message GetPostGainResponse {
+  float result = 1;
+}
+
+message GetRatioRequest {
+}
+
+message GetRatioResponse {
+  float result = 1;
+}
+
+message GetReleaseTimeRequest {
+}
+
+message GetReleaseTimeResponse {
+  float result = 1;
+}
+
+message GetThresholdRequest {
+}
+
+message GetThresholdResponse {
+  float result = 1;
+}
+
+message SetAttackTimeRequest {
+  float arg0 = 1;
+}
+
+message SetAttackTimeResponse {
+}
+
+message SetLinkGroupRequest {
+  int32 arg0 = 1;
+}
+
+message SetLinkGroupResponse {
+}
+
+message SetPostGainRequest {
+  float arg0 = 1;
+}
+
+message SetPostGainResponse {
+}
+
+message SetRatioRequest {
+  float arg0 = 1;
+}
+
+message SetRatioResponse {
+}
+
+message SetReleaseTimeRequest {
+  float arg0 = 1;
+}
+
+message SetReleaseTimeResponse {
+}
+
+message SetThresholdRequest {
+  float arg0 = 1;
+}
+
+message SetThresholdResponse {
+}
+
+message DynamicsProcessingMbcGetBandRequest {
+  int32 arg0 = 1;
+}
+
+message DynamicsProcessingMbcGetBandResponse {
+  int64 result = 1;
+}
+
+message GetExpanderRatioRequest {
+}
+
+message GetExpanderRatioResponse {
+  float result = 1;
+}
+
+message GetKneeWidthRequest {
+}
+
+message GetKneeWidthResponse {
+  float result = 1;
+}
+
+message GetNoiseGateThresholdRequest {
+}
+
+message GetNoiseGateThresholdResponse {
+  float result = 1;
+}
+
+message GetPreGainRequest {
+}
+
+message GetPreGainResponse {
+  float result = 1;
+}
+
+message SetExpanderRatioRequest {
+  float arg0 = 1;
+}
+
+message SetExpanderRatioResponse {
+}
+
+message SetKneeWidthRequest {
+  float arg0 = 1;
+}
+
+message SetKneeWidthResponse {
+}
+
+message SetNoiseGateThresholdRequest {
+  float arg0 = 1;
+}
+
+message SetNoiseGateThresholdResponse {
+}
+
+message SetPreGainRequest {
+  float arg0 = 1;
+}
+
+message SetPreGainResponse {
+}
+
+message IsInUseRequest {
+}
+
+message IsInUseResponse {
+  bool result = 1;
+}
+
+message DynamicsProcessingStageSetEnabledRequest {
+  bool arg0 = 1;
+}
+
+message DynamicsProcessingStageSetEnabledResponse {
+}
+
+message NewVirtualizerRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message NewVirtualizerResponse {
+  int64 result = 1;
+}
+
+message CanVirtualizeRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message CanVirtualizeResponse {
+  bool result = 1;
+}
+
+message ForceVirtualizationModeRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message ForceVirtualizationModeResponse {
+  bool result = 1;
+}
+
+message GetSpeakerAnglesRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message GetSpeakerAnglesResponse {
+  bool result = 1;
+}
+
+message GetVirtualizationModeRequest {
+  int64 handle = 1;
+}
+
+message GetVirtualizationModeResponse {
+  int32 result = 1;
+}
+
+message CloseRequest {
+}
+
+message CloseResponse {
+}
+
+message HapticGeneratorReleaseRequest {
+}
+
+message HapticGeneratorSetEnabledRequest {
+  bool arg0 = 1;
+}
+
+service BassBoostService {
+  rpc NewBassBoost (NewBassBoostRequest) returns (NewBassBoostResponse);
+  rpc GetProperties (GetPropertiesRequest) returns (GetPropertiesResponse);
+  rpc GetRoundedStrength (GetRoundedStrengthRequest) returns (GetRoundedStrengthResponse);
+  rpc GetStrengthSupported (GetStrengthSupportedRequest) returns (GetStrengthSupportedResponse);
+  rpc SetParameterListener (SetParameterListenerRequest) returns (SetParameterListenerResponse);
+  rpc SetProperties (SetPropertiesRequest) returns (SetPropertiesResponse);
+  rpc SetStrength (SetStrengthRequest) returns (SetStrengthResponse);
+}
+
+service BassBoostOnParameterChangeListenerService {
+  rpc OnParameterChange (OnParameterChangeRequest) returns (OnParameterChangeResponse);
+}
+
+service BassBoostSettingsService {
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service AutomaticGainControlService {
+  rpc Create (CreateRequest) returns (CreateResponse);
+  rpc IsAvailable (IsAvailableRequest) returns (IsAvailableResponse);
+}
+
+service VisualizerService {
+  rpc NewVisualizer (NewVisualizerRequest) returns (NewVisualizerResponse);
+  rpc GetCaptureSize (GetCaptureSizeRequest) returns (GetCaptureSizeResponse);
+  rpc GetEnabled (GetEnabledRequest) returns (GetEnabledResponse);
+  rpc GetFft (GetFftRequest) returns (GetFftResponse);
+  rpc GetMeasurementMode (GetMeasurementModeRequest) returns (GetMeasurementModeResponse);
+  rpc GetMeasurementPeakRms (GetMeasurementPeakRmsRequest) returns (GetMeasurementPeakRmsResponse);
+  rpc GetSamplingRate (GetSamplingRateRequest) returns (GetSamplingRateResponse);
+  rpc GetScalingMode (GetScalingModeRequest) returns (GetScalingModeResponse);
+  rpc GetWaveForm (GetWaveFormRequest) returns (GetWaveFormResponse);
+  rpc Release (ReleaseRequest) returns (ReleaseResponse);
+  rpc SetCaptureSize (SetCaptureSizeRequest) returns (SetCaptureSizeResponse);
+  rpc SetDataCaptureListener (SetDataCaptureListenerRequest) returns (SetDataCaptureListenerResponse);
+  rpc SetEnabled (SetEnabledRequest) returns (SetEnabledResponse);
+  rpc SetMeasurementMode (SetMeasurementModeRequest) returns (SetMeasurementModeResponse);
+  rpc SetScalingMode (SetScalingModeRequest) returns (SetScalingModeResponse);
+  rpc GetCaptureSizeRange (GetCaptureSizeRangeRequest) returns (GetCaptureSizeRangeResponse);
+  rpc GetMaxCaptureRate (GetMaxCaptureRateRequest) returns (GetMaxCaptureRateResponse);
+}
+
+service VisualizerOnDataCaptureListenerService {
+  rpc OnFftDataCapture (OnFftDataCaptureRequest) returns (OnFftDataCaptureResponse);
+  rpc OnWaveFormDataCapture (OnWaveFormDataCaptureRequest) returns (OnWaveFormDataCaptureResponse);
+}
+
+service EnvironmentalReverbService {
+  rpc NewEnvironmentalReverb (NewEnvironmentalReverbRequest) returns (NewEnvironmentalReverbResponse);
+  rpc GetDecayHFRatio (GetDecayHFRatioRequest) returns (GetDecayHFRatioResponse);
+  rpc GetDecayTime (GetDecayTimeRequest) returns (GetDecayTimeResponse);
+  rpc GetDensity (GetDensityRequest) returns (GetDensityResponse);
+  rpc GetDiffusion (GetDiffusionRequest) returns (GetDiffusionResponse);
+  rpc GetProperties (GetPropertiesRequest) returns (GetPropertiesResponse);
+  rpc GetReflectionsDelay (GetReflectionsDelayRequest) returns (GetReflectionsDelayResponse);
+  rpc GetReflectionsLevel (GetReflectionsLevelRequest) returns (GetReflectionsLevelResponse);
+  rpc GetReverbDelay (GetReverbDelayRequest) returns (GetReverbDelayResponse);
+  rpc GetReverbLevel (GetReverbLevelRequest) returns (GetReverbLevelResponse);
+  rpc GetRoomHFLevel (GetRoomHFLevelRequest) returns (GetRoomHFLevelResponse);
+  rpc GetRoomLevel (GetRoomLevelRequest) returns (GetRoomLevelResponse);
+  rpc SetDecayHFRatio (SetDecayHFRatioRequest) returns (SetDecayHFRatioResponse);
+  rpc SetDecayTime (SetDecayTimeRequest) returns (SetDecayTimeResponse);
+  rpc SetDensity (SetDensityRequest) returns (SetDensityResponse);
+  rpc SetDiffusion (SetDiffusionRequest) returns (SetDiffusionResponse);
+  rpc SetParameterListener (SetParameterListenerRequest) returns (SetParameterListenerResponse);
+  rpc SetProperties (SetPropertiesRequest) returns (SetPropertiesResponse);
+  rpc SetReflectionsDelay (SetReflectionsDelayRequest) returns (SetReflectionsDelayResponse);
+  rpc SetReflectionsLevel (SetReflectionsLevelRequest) returns (SetReflectionsLevelResponse);
+  rpc SetReverbDelay (SetReverbDelayRequest) returns (SetReverbDelayResponse);
+  rpc SetReverbLevel (SetReverbLevelRequest) returns (SetReverbLevelResponse);
+  rpc SetRoomHFLevel (SetRoomHFLevelRequest) returns (SetRoomHFLevelResponse);
+  rpc SetRoomLevel (SetRoomLevelRequest) returns (SetRoomLevelResponse);
+}
+
+service EnvironmentalReverbOnParameterChangeListenerService {
+  rpc OnParameterChange (OnParameterChangeRequest) returns (OnParameterChangeResponse);
+}
+
+service EnvironmentalReverbSettingsService {
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service AudioEffectService {
+  rpc GetDescriptor (GetDescriptorRequest) returns (GetDescriptorResponse);
+  rpc GetEnabled (AudioEffectGetEnabledRequest) returns (GetEnabledResponse);
+  rpc GetId (GetIdRequest) returns (GetIdResponse);
+  rpc HasControl (HasControlRequest) returns (HasControlResponse);
+  rpc Release (AudioEffectReleaseRequest) returns (ReleaseResponse);
+  rpc SetControlStatusListener (SetControlStatusListenerRequest) returns (SetControlStatusListenerResponse);
+  rpc SetEnableStatusListener (SetEnableStatusListenerRequest) returns (SetEnableStatusListenerResponse);
+  rpc SetEnabled (AudioEffectSetEnabledRequest) returns (SetEnabledResponse);
+  rpc QueryEffects (QueryEffectsRequest) returns (QueryEffectsResponse);
+}
+
+service AudioEffectDescriptorService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service AudioEffectOnControlStatusChangeListenerService {
+  rpc OnControlStatusChange (OnControlStatusChangeRequest) returns (OnControlStatusChangeResponse);
+}
+
+service AudioEffectOnEnableStatusChangeListenerService {
+  rpc OnEnableStatusChange (OnEnableStatusChangeRequest) returns (OnEnableStatusChangeResponse);
+}
+
+service EqualizerService {
+  rpc NewEqualizer (NewEqualizerRequest) returns (NewEqualizerResponse);
+  rpc GetBand (GetBandRequest) returns (GetBandResponse);
+  rpc GetBandFreqRange (GetBandFreqRangeRequest) returns (GetBandFreqRangeResponse);
+  rpc GetBandLevel (GetBandLevelRequest) returns (GetBandLevelResponse);
+  rpc GetBandLevelRange (GetBandLevelRangeRequest) returns (GetBandLevelRangeResponse);
+  rpc GetCenterFreq (GetCenterFreqRequest) returns (GetCenterFreqResponse);
+  rpc GetCurrentPreset (GetCurrentPresetRequest) returns (GetCurrentPresetResponse);
+  rpc GetNumberOfBands (GetNumberOfBandsRequest) returns (GetNumberOfBandsResponse);
+  rpc GetNumberOfPresets (GetNumberOfPresetsRequest) returns (GetNumberOfPresetsResponse);
+  rpc GetPresetName (GetPresetNameRequest) returns (GetPresetNameResponse);
+  rpc GetProperties (GetPropertiesRequest) returns (GetPropertiesResponse);
+  rpc SetBandLevel (SetBandLevelRequest) returns (SetBandLevelResponse);
+  rpc SetParameterListener (SetParameterListenerRequest) returns (SetParameterListenerResponse);
+  rpc SetProperties (SetPropertiesRequest) returns (SetPropertiesResponse);
+  rpc UsePreset (UsePresetRequest) returns (UsePresetResponse);
+}
+
+service EqualizerOnParameterChangeListenerService {
+  rpc OnParameterChange (EqualizerOnParameterChangeListenerOnParameterChangeRequest) returns (OnParameterChangeResponse);
+}
+
+service EqualizerSettingsService {
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service PresetReverbService {
+  rpc NewPresetReverb (NewPresetReverbRequest) returns (NewPresetReverbResponse);
+  rpc GetPreset (GetPresetRequest) returns (GetPresetResponse);
+  rpc GetProperties (GetPropertiesRequest) returns (GetPropertiesResponse);
+  rpc SetParameterListener (SetParameterListenerRequest) returns (SetParameterListenerResponse);
+  rpc SetPreset (SetPresetRequest) returns (SetPresetResponse);
+  rpc SetProperties (SetPropertiesRequest) returns (SetPropertiesResponse);
+}
+
+service PresetReverbOnParameterChangeListenerService {
+  rpc OnParameterChange (OnParameterChangeRequest) returns (OnParameterChangeResponse);
+}
+
+service PresetReverbSettingsService {
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service LoudnessEnhancerService {
+  rpc NewLoudnessEnhancer (NewLoudnessEnhancerRequest) returns (NewLoudnessEnhancerResponse);
+  rpc GetTargetGain (GetTargetGainRequest) returns (GetTargetGainResponse);
+  rpc SetTargetGain (SetTargetGainRequest) returns (SetTargetGainResponse);
+}
+
+service DynamicsProcessingService {
+  rpc NewDynamicsProcessing (NewDynamicsProcessingRequest) returns (NewDynamicsProcessingResponse);
+  rpc GetChannelByChannelIndex (GetChannelByChannelIndexRequest) returns (GetChannelByChannelIndexResponse);
+  rpc GetChannelCount (GetChannelCountRequest) returns (GetChannelCountResponse);
+  rpc GetConfig (GetConfigRequest) returns (GetConfigResponse);
+  rpc GetInputGainByChannelIndex (GetInputGainByChannelIndexRequest) returns (GetInputGainByChannelIndexResponse);
+  rpc GetLimiterByChannelIndex (GetLimiterByChannelIndexRequest) returns (GetLimiterByChannelIndexResponse);
+  rpc GetMbcBandByChannelIndex (GetMbcBandByChannelIndexRequest) returns (GetMbcBandByChannelIndexResponse);
+  rpc GetMbcByChannelIndex (GetMbcByChannelIndexRequest) returns (GetMbcByChannelIndexResponse);
+  rpc GetPostEqBandByChannelIndex (GetPostEqBandByChannelIndexRequest) returns (GetPostEqBandByChannelIndexResponse);
+  rpc GetPostEqByChannelIndex (GetPostEqByChannelIndexRequest) returns (GetPostEqByChannelIndexResponse);
+  rpc GetPreEqBandByChannelIndex (GetPreEqBandByChannelIndexRequest) returns (GetPreEqBandByChannelIndexResponse);
+  rpc GetPreEqByChannelIndex (GetPreEqByChannelIndexRequest) returns (GetPreEqByChannelIndexResponse);
+  rpc SetAllChannelsTo (SetAllChannelsToRequest) returns (SetAllChannelsToResponse);
+  rpc SetChannelTo (SetChannelToRequest) returns (SetChannelToResponse);
+  rpc SetInputGainAllChannelsTo (SetInputGainAllChannelsToRequest) returns (SetInputGainAllChannelsToResponse);
+  rpc SetInputGainbyChannel (SetInputGainbyChannelRequest) returns (SetInputGainbyChannelResponse);
+  rpc SetLimiterAllChannelsTo (SetLimiterAllChannelsToRequest) returns (SetLimiterAllChannelsToResponse);
+  rpc SetLimiterByChannelIndex (SetLimiterByChannelIndexRequest) returns (SetLimiterByChannelIndexResponse);
+  rpc SetMbcAllChannelsTo (SetMbcAllChannelsToRequest) returns (SetMbcAllChannelsToResponse);
+  rpc SetMbcBandAllChannelsTo (SetMbcBandAllChannelsToRequest) returns (SetMbcBandAllChannelsToResponse);
+  rpc SetMbcBandByChannelIndex (SetMbcBandByChannelIndexRequest) returns (SetMbcBandByChannelIndexResponse);
+  rpc SetMbcByChannelIndex (SetMbcByChannelIndexRequest) returns (SetMbcByChannelIndexResponse);
+  rpc SetPostEqAllChannelsTo (SetPostEqAllChannelsToRequest) returns (SetPostEqAllChannelsToResponse);
+  rpc SetPostEqBandAllChannelsTo (SetPostEqBandAllChannelsToRequest) returns (SetPostEqBandAllChannelsToResponse);
+  rpc SetPostEqBandByChannelIndex (SetPostEqBandByChannelIndexRequest) returns (SetPostEqBandByChannelIndexResponse);
+  rpc SetPostEqByChannelIndex (SetPostEqByChannelIndexRequest) returns (SetPostEqByChannelIndexResponse);
+  rpc SetPreEqAllChannelsTo (SetPreEqAllChannelsToRequest) returns (SetPreEqAllChannelsToResponse);
+  rpc SetPreEqBandAllChannelsTo (SetPreEqBandAllChannelsToRequest) returns (SetPreEqBandAllChannelsToResponse);
+  rpc SetPreEqBandByChannelIndex (SetPreEqBandByChannelIndexRequest) returns (SetPreEqBandByChannelIndexResponse);
+  rpc SetPreEqByChannelIndex (SetPreEqByChannelIndexRequest) returns (SetPreEqByChannelIndexResponse);
+}
+
+service DynamicsProcessingBandBaseService {
+  rpc GetCutoffFrequency (GetCutoffFrequencyRequest) returns (GetCutoffFrequencyResponse);
+  rpc IsEnabled (IsEnabledRequest) returns (IsEnabledResponse);
+  rpc SetCutoffFrequency (SetCutoffFrequencyRequest) returns (SetCutoffFrequencyResponse);
+  rpc SetEnabled (DynamicsProcessingBandBaseSetEnabledRequest) returns (DynamicsProcessingBandBaseSetEnabledResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service DynamicsProcessingBandStageService {
+  rpc GetBandCount (GetBandCountRequest) returns (GetBandCountResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service DynamicsProcessingChannelService {
+  rpc GetInputGain (GetInputGainRequest) returns (GetInputGainResponse);
+  rpc GetLimiter (GetLimiterRequest) returns (GetLimiterResponse);
+  rpc GetMbc (GetMbcRequest) returns (GetMbcResponse);
+  rpc GetMbcBand (GetMbcBandRequest) returns (GetMbcBandResponse);
+  rpc GetPostEq (GetPostEqRequest) returns (GetPostEqResponse);
+  rpc GetPostEqBand (GetPostEqBandRequest) returns (GetPostEqBandResponse);
+  rpc GetPreEq (GetPreEqRequest) returns (GetPreEqResponse);
+  rpc GetPreEqBand (GetPreEqBandRequest) returns (GetPreEqBandResponse);
+  rpc SetInputGain (SetInputGainRequest) returns (SetInputGainResponse);
+  rpc SetLimiter (SetLimiterRequest) returns (SetLimiterResponse);
+  rpc SetMbc (SetMbcRequest) returns (SetMbcResponse);
+  rpc SetMbcBand (SetMbcBandRequest) returns (SetMbcBandResponse);
+  rpc SetPostEq (SetPostEqRequest) returns (SetPostEqResponse);
+  rpc SetPostEqBand (SetPostEqBandRequest) returns (SetPostEqBandResponse);
+  rpc SetPreEq (SetPreEqRequest) returns (SetPreEqResponse);
+  rpc SetPreEqBand (SetPreEqBandRequest) returns (SetPreEqBandResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service DynamicsProcessingConfigService {
+  rpc GetChannelByChannelIndex (DynamicsProcessingConfigGetChannelByChannelIndexRequest) returns (GetChannelByChannelIndexResponse);
+  rpc GetInputGainByChannelIndex (DynamicsProcessingConfigGetInputGainByChannelIndexRequest) returns (GetInputGainByChannelIndexResponse);
+  rpc GetLimiterByChannelIndex (DynamicsProcessingConfigGetLimiterByChannelIndexRequest) returns (GetLimiterByChannelIndexResponse);
+  rpc GetMbcBandByChannelIndex (DynamicsProcessingConfigGetMbcBandByChannelIndexRequest) returns (GetMbcBandByChannelIndexResponse);
+  rpc GetMbcBandCount (GetMbcBandCountRequest) returns (GetMbcBandCountResponse);
+  rpc GetMbcByChannelIndex (DynamicsProcessingConfigGetMbcByChannelIndexRequest) returns (GetMbcByChannelIndexResponse);
+  rpc GetPostEqBandByChannelIndex (DynamicsProcessingConfigGetPostEqBandByChannelIndexRequest) returns (GetPostEqBandByChannelIndexResponse);
+  rpc GetPostEqBandCount (GetPostEqBandCountRequest) returns (GetPostEqBandCountResponse);
+  rpc GetPostEqByChannelIndex (DynamicsProcessingConfigGetPostEqByChannelIndexRequest) returns (GetPostEqByChannelIndexResponse);
+  rpc GetPreEqBandByChannelIndex (DynamicsProcessingConfigGetPreEqBandByChannelIndexRequest) returns (GetPreEqBandByChannelIndexResponse);
+  rpc GetPreEqBandCount (GetPreEqBandCountRequest) returns (GetPreEqBandCountResponse);
+  rpc GetPreEqByChannelIndex (DynamicsProcessingConfigGetPreEqByChannelIndexRequest) returns (GetPreEqByChannelIndexResponse);
+  rpc GetPreferredFrameDuration (GetPreferredFrameDurationRequest) returns (GetPreferredFrameDurationResponse);
+  rpc GetVariant (GetVariantRequest) returns (GetVariantResponse);
+  rpc IsLimiterInUse (IsLimiterInUseRequest) returns (IsLimiterInUseResponse);
+  rpc IsMbcInUse (IsMbcInUseRequest) returns (IsMbcInUseResponse);
+  rpc IsPostEqInUse (IsPostEqInUseRequest) returns (IsPostEqInUseResponse);
+  rpc IsPreEqInUse (IsPreEqInUseRequest) returns (IsPreEqInUseResponse);
+  rpc SetAllChannelsTo (DynamicsProcessingConfigSetAllChannelsToRequest) returns (SetAllChannelsToResponse);
+  rpc SetChannelTo (DynamicsProcessingConfigSetChannelToRequest) returns (SetChannelToResponse);
+  rpc SetInputGainAllChannelsTo (DynamicsProcessingConfigSetInputGainAllChannelsToRequest) returns (SetInputGainAllChannelsToResponse);
+  rpc SetInputGainByChannelIndex (SetInputGainByChannelIndexRequest) returns (SetInputGainByChannelIndexResponse);
+  rpc SetLimiterAllChannelsTo (DynamicsProcessingConfigSetLimiterAllChannelsToRequest) returns (SetLimiterAllChannelsToResponse);
+  rpc SetLimiterByChannelIndex (DynamicsProcessingConfigSetLimiterByChannelIndexRequest) returns (SetLimiterByChannelIndexResponse);
+  rpc SetMbcAllChannelsTo (DynamicsProcessingConfigSetMbcAllChannelsToRequest) returns (SetMbcAllChannelsToResponse);
+  rpc SetMbcBandAllChannelsTo (DynamicsProcessingConfigSetMbcBandAllChannelsToRequest) returns (SetMbcBandAllChannelsToResponse);
+  rpc SetMbcBandByChannelIndex (DynamicsProcessingConfigSetMbcBandByChannelIndexRequest) returns (SetMbcBandByChannelIndexResponse);
+  rpc SetMbcByChannelIndex (DynamicsProcessingConfigSetMbcByChannelIndexRequest) returns (SetMbcByChannelIndexResponse);
+  rpc SetPostEqAllChannelsTo (DynamicsProcessingConfigSetPostEqAllChannelsToRequest) returns (SetPostEqAllChannelsToResponse);
+  rpc SetPostEqBandAllChannelsTo (DynamicsProcessingConfigSetPostEqBandAllChannelsToRequest) returns (SetPostEqBandAllChannelsToResponse);
+  rpc SetPostEqBandByChannelIndex (DynamicsProcessingConfigSetPostEqBandByChannelIndexRequest) returns (SetPostEqBandByChannelIndexResponse);
+  rpc SetPostEqByChannelIndex (DynamicsProcessingConfigSetPostEqByChannelIndexRequest) returns (SetPostEqByChannelIndexResponse);
+  rpc SetPreEqAllChannelsTo (DynamicsProcessingConfigSetPreEqAllChannelsToRequest) returns (SetPreEqAllChannelsToResponse);
+  rpc SetPreEqBandAllChannelsTo (DynamicsProcessingConfigSetPreEqBandAllChannelsToRequest) returns (SetPreEqBandAllChannelsToResponse);
+  rpc SetPreEqBandByChannelIndex (DynamicsProcessingConfigSetPreEqBandByChannelIndexRequest) returns (SetPreEqBandByChannelIndexResponse);
+  rpc SetPreEqByChannelIndex (DynamicsProcessingConfigSetPreEqByChannelIndexRequest) returns (SetPreEqByChannelIndexResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service DynamicsProcessingEqService {
+  rpc GetBand (DynamicsProcessingEqGetBandRequest) returns (DynamicsProcessingEqGetBandResponse);
+  rpc SetBand (SetBandRequest) returns (SetBandResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service DynamicsProcessingEqBandService {
+  rpc GetGain (GetGainRequest) returns (GetGainResponse);
+  rpc SetGain (SetGainRequest) returns (SetGainResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service DynamicsProcessingLimiterService {
+  rpc GetAttackTime (GetAttackTimeRequest) returns (GetAttackTimeResponse);
+  rpc GetLinkGroup (GetLinkGroupRequest) returns (GetLinkGroupResponse);
+  rpc GetPostGain (GetPostGainRequest) returns (GetPostGainResponse);
+  rpc GetRatio (GetRatioRequest) returns (GetRatioResponse);
+  rpc GetReleaseTime (GetReleaseTimeRequest) returns (GetReleaseTimeResponse);
+  rpc GetThreshold (GetThresholdRequest) returns (GetThresholdResponse);
+  rpc SetAttackTime (SetAttackTimeRequest) returns (SetAttackTimeResponse);
+  rpc SetLinkGroup (SetLinkGroupRequest) returns (SetLinkGroupResponse);
+  rpc SetPostGain (SetPostGainRequest) returns (SetPostGainResponse);
+  rpc SetRatio (SetRatioRequest) returns (SetRatioResponse);
+  rpc SetReleaseTime (SetReleaseTimeRequest) returns (SetReleaseTimeResponse);
+  rpc SetThreshold (SetThresholdRequest) returns (SetThresholdResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service DynamicsProcessingMbcService {
+  rpc GetBand (DynamicsProcessingMbcGetBandRequest) returns (DynamicsProcessingMbcGetBandResponse);
+  rpc SetBand (SetBandRequest) returns (SetBandResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service DynamicsProcessingMbcBandService {
+  rpc GetAttackTime (GetAttackTimeRequest) returns (GetAttackTimeResponse);
+  rpc GetExpanderRatio (GetExpanderRatioRequest) returns (GetExpanderRatioResponse);
+  rpc GetKneeWidth (GetKneeWidthRequest) returns (GetKneeWidthResponse);
+  rpc GetNoiseGateThreshold (GetNoiseGateThresholdRequest) returns (GetNoiseGateThresholdResponse);
+  rpc GetPostGain (GetPostGainRequest) returns (GetPostGainResponse);
+  rpc GetPreGain (GetPreGainRequest) returns (GetPreGainResponse);
+  rpc GetRatio (GetRatioRequest) returns (GetRatioResponse);
+  rpc GetReleaseTime (GetReleaseTimeRequest) returns (GetReleaseTimeResponse);
+  rpc GetThreshold (GetThresholdRequest) returns (GetThresholdResponse);
+  rpc SetAttackTime (SetAttackTimeRequest) returns (SetAttackTimeResponse);
+  rpc SetExpanderRatio (SetExpanderRatioRequest) returns (SetExpanderRatioResponse);
+  rpc SetKneeWidth (SetKneeWidthRequest) returns (SetKneeWidthResponse);
+  rpc SetNoiseGateThreshold (SetNoiseGateThresholdRequest) returns (SetNoiseGateThresholdResponse);
+  rpc SetPostGain (SetPostGainRequest) returns (SetPostGainResponse);
+  rpc SetPreGain (SetPreGainRequest) returns (SetPreGainResponse);
+  rpc SetRatio (SetRatioRequest) returns (SetRatioResponse);
+  rpc SetReleaseTime (SetReleaseTimeRequest) returns (SetReleaseTimeResponse);
+  rpc SetThreshold (SetThresholdRequest) returns (SetThresholdResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service DynamicsProcessingStageService {
+  rpc IsEnabled (IsEnabledRequest) returns (IsEnabledResponse);
+  rpc IsInUse (IsInUseRequest) returns (IsInUseResponse);
+  rpc SetEnabled (DynamicsProcessingStageSetEnabledRequest) returns (DynamicsProcessingStageSetEnabledResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service NoiseSuppressorService {
+  rpc Create (CreateRequest) returns (CreateResponse);
+  rpc IsAvailable (IsAvailableRequest) returns (IsAvailableResponse);
+}
+
+service VirtualizerService {
+  rpc NewVirtualizer (NewVirtualizerRequest) returns (NewVirtualizerResponse);
+  rpc CanVirtualize (CanVirtualizeRequest) returns (CanVirtualizeResponse);
+  rpc ForceVirtualizationMode (ForceVirtualizationModeRequest) returns (ForceVirtualizationModeResponse);
+  rpc GetProperties (GetPropertiesRequest) returns (GetPropertiesResponse);
+  rpc GetRoundedStrength (GetRoundedStrengthRequest) returns (GetRoundedStrengthResponse);
+  rpc GetSpeakerAngles (GetSpeakerAnglesRequest) returns (GetSpeakerAnglesResponse);
+  rpc GetStrengthSupported (GetStrengthSupportedRequest) returns (GetStrengthSupportedResponse);
+  rpc GetVirtualizationMode (GetVirtualizationModeRequest) returns (GetVirtualizationModeResponse);
+  rpc SetParameterListener (SetParameterListenerRequest) returns (SetParameterListenerResponse);
+  rpc SetProperties (SetPropertiesRequest) returns (SetPropertiesResponse);
+  rpc SetStrength (SetStrengthRequest) returns (SetStrengthResponse);
+}
+
+service VirtualizerOnParameterChangeListenerService {
+  rpc OnParameterChange (OnParameterChangeRequest) returns (OnParameterChangeResponse);
+}
+
+service VirtualizerSettingsService {
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service AcousticEchoCancelerService {
+  rpc Create (CreateRequest) returns (CreateResponse);
+  rpc IsAvailable (IsAvailableRequest) returns (IsAvailableResponse);
+}
+
+service HapticGeneratorService {
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc Release (HapticGeneratorReleaseRequest) returns (ReleaseResponse);
+  rpc SetEnabled (HapticGeneratorSetEnabledRequest) returns (SetEnabledResponse);
+  rpc Create (CreateRequest) returns (CreateResponse);
+  rpc IsAvailable (IsAvailableRequest) returns (IsAvailableResponse);
+}

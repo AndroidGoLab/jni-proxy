@@ -12,6 +12,7 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -22,16 +23,536 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type GetBooleanFlagValueRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          bool                   `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBooleanFlagValueRequest) Reset() {
+	*x = GetBooleanFlagValueRequest{}
+	mi := &file_proto_flagging_flagging_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBooleanFlagValueRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBooleanFlagValueRequest) ProtoMessage() {}
+
+func (x *GetBooleanFlagValueRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_flagging_flagging_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBooleanFlagValueRequest.ProtoReflect.Descriptor instead.
+func (*GetBooleanFlagValueRequest) Descriptor() ([]byte, []int) {
+	return file_proto_flagging_flagging_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *GetBooleanFlagValueRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *GetBooleanFlagValueRequest) GetArg1() bool {
+	if x != nil {
+		return x.Arg1
+	}
+	return false
+}
+
+type GetBooleanFlagValueResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBooleanFlagValueResponse) Reset() {
+	*x = GetBooleanFlagValueResponse{}
+	mi := &file_proto_flagging_flagging_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBooleanFlagValueResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBooleanFlagValueResponse) ProtoMessage() {}
+
+func (x *GetBooleanFlagValueResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_flagging_flagging_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBooleanFlagValueResponse.ProtoReflect.Descriptor instead.
+func (*GetBooleanFlagValueResponse) Descriptor() ([]byte, []int) {
+	return file_proto_flagging_flagging_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *GetBooleanFlagValueResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type LoadRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *LoadRequest) Reset() {
+	*x = LoadRequest{}
+	mi := &file_proto_flagging_flagging_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *LoadRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*LoadRequest) ProtoMessage() {}
+
+func (x *LoadRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_flagging_flagging_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use LoadRequest.ProtoReflect.Descriptor instead.
+func (*LoadRequest) Descriptor() ([]byte, []int) {
+	return file_proto_flagging_flagging_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *LoadRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type LoadResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *LoadResponse) Reset() {
+	*x = LoadResponse{}
+	mi := &file_proto_flagging_flagging_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *LoadResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*LoadResponse) ProtoMessage() {}
+
+func (x *LoadResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_flagging_flagging_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use LoadResponse.ProtoReflect.Descriptor instead.
+func (*LoadResponse) Descriptor() ([]byte, []int) {
+	return file_proto_flagging_flagging_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *LoadResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type NewAconfigStorageReadExceptionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewAconfigStorageReadExceptionRequest) Reset() {
+	*x = NewAconfigStorageReadExceptionRequest{}
+	mi := &file_proto_flagging_flagging_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewAconfigStorageReadExceptionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewAconfigStorageReadExceptionRequest) ProtoMessage() {}
+
+func (x *NewAconfigStorageReadExceptionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_flagging_flagging_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewAconfigStorageReadExceptionRequest.ProtoReflect.Descriptor instead.
+func (*NewAconfigStorageReadExceptionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_flagging_flagging_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *NewAconfigStorageReadExceptionRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *NewAconfigStorageReadExceptionRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+type NewAconfigStorageReadExceptionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewAconfigStorageReadExceptionResponse) Reset() {
+	*x = NewAconfigStorageReadExceptionResponse{}
+	mi := &file_proto_flagging_flagging_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewAconfigStorageReadExceptionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewAconfigStorageReadExceptionResponse) ProtoMessage() {}
+
+func (x *NewAconfigStorageReadExceptionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_flagging_flagging_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewAconfigStorageReadExceptionResponse.ProtoReflect.Descriptor instead.
+func (*NewAconfigStorageReadExceptionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_flagging_flagging_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *NewAconfigStorageReadExceptionResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetErrorCodeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetErrorCodeRequest) Reset() {
+	*x = GetErrorCodeRequest{}
+	mi := &file_proto_flagging_flagging_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetErrorCodeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetErrorCodeRequest) ProtoMessage() {}
+
+func (x *GetErrorCodeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_flagging_flagging_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetErrorCodeRequest.ProtoReflect.Descriptor instead.
+func (*GetErrorCodeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_flagging_flagging_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *GetErrorCodeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetErrorCodeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetErrorCodeResponse) Reset() {
+	*x = GetErrorCodeResponse{}
+	mi := &file_proto_flagging_flagging_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetErrorCodeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetErrorCodeResponse) ProtoMessage() {}
+
+func (x *GetErrorCodeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_flagging_flagging_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetErrorCodeResponse.ProtoReflect.Descriptor instead.
+func (*GetErrorCodeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_flagging_flagging_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *GetErrorCodeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetMessageRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMessageRequest) Reset() {
+	*x = GetMessageRequest{}
+	mi := &file_proto_flagging_flagging_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMessageRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMessageRequest) ProtoMessage() {}
+
+func (x *GetMessageRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_flagging_flagging_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMessageRequest.ProtoReflect.Descriptor instead.
+func (*GetMessageRequest) Descriptor() ([]byte, []int) {
+	return file_proto_flagging_flagging_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *GetMessageRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetMessageResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMessageResponse) Reset() {
+	*x = GetMessageResponse{}
+	mi := &file_proto_flagging_flagging_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMessageResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMessageResponse) ProtoMessage() {}
+
+func (x *GetMessageResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_flagging_flagging_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMessageResponse.ProtoReflect.Descriptor instead.
+func (*GetMessageResponse) Descriptor() ([]byte, []int) {
+	return file_proto_flagging_flagging_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *GetMessageResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
 var File_proto_flagging_flagging_proto protoreflect.FileDescriptor
 
 const file_proto_flagging_flagging_proto_rawDesc = "" +
 	"\n" +
-	"\x1dproto/flagging/flagging.proto\x12\bflaggingB2Z0github.com/AndroidGoLab/jni-proxy/proto/flaggingb\x06proto3"
+	"\x1dproto/flagging/flagging.proto\x12\bflagging\"D\n" +
+	"\x1aGetBooleanFlagValueRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\bR\x04arg1\"5\n" +
+	"\x1bGetBooleanFlagValueResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"!\n" +
+	"\vLoadRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"&\n" +
+	"\fLoadResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"O\n" +
+	"%NewAconfigStorageReadExceptionRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\"@\n" +
+	"&NewAconfigStorageReadExceptionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"-\n" +
+	"\x13GetErrorCodeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\".\n" +
+	"\x14GetErrorCodeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"+\n" +
+	"\x11GetMessageRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\",\n" +
+	"\x12GetMessageResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result2\xb2\x01\n" +
+	"\x15AconfigPackageService\x12b\n" +
+	"\x13GetBooleanFlagValue\x12$.flagging.GetBooleanFlagValueRequest\x1a%.flagging.GetBooleanFlagValueResponse\x125\n" +
+	"\x04Load\x12\x15.flagging.LoadRequest\x1a\x16.flagging.LoadResponse2\xc2\x02\n" +
+	"\"AconfigStorageReadExceptionService\x12\x83\x01\n" +
+	"\x1eNewAconfigStorageReadException\x12/.flagging.NewAconfigStorageReadExceptionRequest\x1a0.flagging.NewAconfigStorageReadExceptionResponse\x12M\n" +
+	"\fGetErrorCode\x12\x1d.flagging.GetErrorCodeRequest\x1a\x1e.flagging.GetErrorCodeResponse\x12G\n" +
+	"\n" +
+	"GetMessage\x12\x1b.flagging.GetMessageRequest\x1a\x1c.flagging.GetMessageResponseB2Z0github.com/AndroidGoLab/jni-proxy/proto/flaggingb\x06proto3"
 
-var file_proto_flagging_flagging_proto_goTypes = []any{}
+var (
+	file_proto_flagging_flagging_proto_rawDescOnce sync.Once
+	file_proto_flagging_flagging_proto_rawDescData []byte
+)
+
+func file_proto_flagging_flagging_proto_rawDescGZIP() []byte {
+	file_proto_flagging_flagging_proto_rawDescOnce.Do(func() {
+		file_proto_flagging_flagging_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_proto_flagging_flagging_proto_rawDesc), len(file_proto_flagging_flagging_proto_rawDesc)))
+	})
+	return file_proto_flagging_flagging_proto_rawDescData
+}
+
+var file_proto_flagging_flagging_proto_msgTypes = make([]protoimpl.MessageInfo, 10)
+var file_proto_flagging_flagging_proto_goTypes = []any{
+	(*GetBooleanFlagValueRequest)(nil),             // 0: flagging.GetBooleanFlagValueRequest
+	(*GetBooleanFlagValueResponse)(nil),            // 1: flagging.GetBooleanFlagValueResponse
+	(*LoadRequest)(nil),                            // 2: flagging.LoadRequest
+	(*LoadResponse)(nil),                           // 3: flagging.LoadResponse
+	(*NewAconfigStorageReadExceptionRequest)(nil),  // 4: flagging.NewAconfigStorageReadExceptionRequest
+	(*NewAconfigStorageReadExceptionResponse)(nil), // 5: flagging.NewAconfigStorageReadExceptionResponse
+	(*GetErrorCodeRequest)(nil),                    // 6: flagging.GetErrorCodeRequest
+	(*GetErrorCodeResponse)(nil),                   // 7: flagging.GetErrorCodeResponse
+	(*GetMessageRequest)(nil),                      // 8: flagging.GetMessageRequest
+	(*GetMessageResponse)(nil),                     // 9: flagging.GetMessageResponse
+}
 var file_proto_flagging_flagging_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
+	0, // 0: flagging.AconfigPackageService.GetBooleanFlagValue:input_type -> flagging.GetBooleanFlagValueRequest
+	2, // 1: flagging.AconfigPackageService.Load:input_type -> flagging.LoadRequest
+	4, // 2: flagging.AconfigStorageReadExceptionService.NewAconfigStorageReadException:input_type -> flagging.NewAconfigStorageReadExceptionRequest
+	6, // 3: flagging.AconfigStorageReadExceptionService.GetErrorCode:input_type -> flagging.GetErrorCodeRequest
+	8, // 4: flagging.AconfigStorageReadExceptionService.GetMessage:input_type -> flagging.GetMessageRequest
+	1, // 5: flagging.AconfigPackageService.GetBooleanFlagValue:output_type -> flagging.GetBooleanFlagValueResponse
+	3, // 6: flagging.AconfigPackageService.Load:output_type -> flagging.LoadResponse
+	5, // 7: flagging.AconfigStorageReadExceptionService.NewAconfigStorageReadException:output_type -> flagging.NewAconfigStorageReadExceptionResponse
+	7, // 8: flagging.AconfigStorageReadExceptionService.GetErrorCode:output_type -> flagging.GetErrorCodeResponse
+	9, // 9: flagging.AconfigStorageReadExceptionService.GetMessage:output_type -> flagging.GetMessageResponse
+	5, // [5:10] is the sub-list for method output_type
+	0, // [0:5] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
 	0, // [0:0] is the sub-list for extension extendee
 	0, // [0:0] is the sub-list for field type_name
@@ -48,12 +569,13 @@ func file_proto_flagging_flagging_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_flagging_flagging_proto_rawDesc), len(file_proto_flagging_flagging_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   10,
 			NumExtensions: 0,
-			NumServices:   0,
+			NumServices:   2,
 		},
 		GoTypes:           file_proto_flagging_flagging_proto_goTypes,
 		DependencyIndexes: file_proto_flagging_flagging_proto_depIdxs,
+		MessageInfos:      file_proto_flagging_flagging_proto_msgTypes,
 	}.Build()
 	File_proto_flagging_flagging_proto = out.File
 	file_proto_flagging_flagging_proto_goTypes = nil

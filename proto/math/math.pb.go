@@ -12,6 +12,7 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -22,19 +23,6571 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type NewBigDecimalRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewBigDecimalRequest) Reset() {
+	*x = NewBigDecimalRequest{}
+	mi := &file_proto_math_math_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewBigDecimalRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewBigDecimalRequest) ProtoMessage() {}
+
+func (x *NewBigDecimalRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewBigDecimalRequest.ProtoReflect.Descriptor instead.
+func (*NewBigDecimalRequest) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *NewBigDecimalRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type NewBigDecimalResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewBigDecimalResponse) Reset() {
+	*x = NewBigDecimalResponse{}
+	mi := &file_proto_math_math_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewBigDecimalResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewBigDecimalResponse) ProtoMessage() {}
+
+func (x *NewBigDecimalResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewBigDecimalResponse.ProtoReflect.Descriptor instead.
+func (*NewBigDecimalResponse) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *NewBigDecimalResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type Abs0Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Abs0Request) Reset() {
+	*x = Abs0Request{}
+	mi := &file_proto_math_math_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Abs0Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Abs0Request) ProtoMessage() {}
+
+func (x *Abs0Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Abs0Request.ProtoReflect.Descriptor instead.
+func (*Abs0Request) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *Abs0Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type Abs0Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Abs0Response) Reset() {
+	*x = Abs0Response{}
+	mi := &file_proto_math_math_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Abs0Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Abs0Response) ProtoMessage() {}
+
+func (x *Abs0Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Abs0Response.ProtoReflect.Descriptor instead.
+func (*Abs0Response) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *Abs0Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type Abs1_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Abs1_1Request) Reset() {
+	*x = Abs1_1Request{}
+	mi := &file_proto_math_math_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Abs1_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Abs1_1Request) ProtoMessage() {}
+
+func (x *Abs1_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Abs1_1Request.ProtoReflect.Descriptor instead.
+func (*Abs1_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *Abs1_1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *Abs1_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type Abs1_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Abs1_1Response) Reset() {
+	*x = Abs1_1Response{}
+	mi := &file_proto_math_math_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Abs1_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Abs1_1Response) ProtoMessage() {}
+
+func (x *Abs1_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Abs1_1Response.ProtoReflect.Descriptor instead.
+func (*Abs1_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *Abs1_1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type Add1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Add1Request) Reset() {
+	*x = Add1Request{}
+	mi := &file_proto_math_math_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Add1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Add1Request) ProtoMessage() {}
+
+func (x *Add1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Add1Request.ProtoReflect.Descriptor instead.
+func (*Add1Request) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *Add1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *Add1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type Add1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Add1Response) Reset() {
+	*x = Add1Response{}
+	mi := &file_proto_math_math_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Add1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Add1Response) ProtoMessage() {}
+
+func (x *Add1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Add1Response.ProtoReflect.Descriptor instead.
+func (*Add1Response) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *Add1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type Add2_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Add2_1Request) Reset() {
+	*x = Add2_1Request{}
+	mi := &file_proto_math_math_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Add2_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Add2_1Request) ProtoMessage() {}
+
+func (x *Add2_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Add2_1Request.ProtoReflect.Descriptor instead.
+func (*Add2_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *Add2_1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *Add2_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *Add2_1Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type Add2_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Add2_1Response) Reset() {
+	*x = Add2_1Response{}
+	mi := &file_proto_math_math_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Add2_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Add2_1Response) ProtoMessage() {}
+
+func (x *Add2_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Add2_1Response.ProtoReflect.Descriptor instead.
+func (*Add2_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *Add2_1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ByteValueExactRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ByteValueExactRequest) Reset() {
+	*x = ByteValueExactRequest{}
+	mi := &file_proto_math_math_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ByteValueExactRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ByteValueExactRequest) ProtoMessage() {}
+
+func (x *ByteValueExactRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ByteValueExactRequest.ProtoReflect.Descriptor instead.
+func (*ByteValueExactRequest) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *ByteValueExactRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type ByteValueExactResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        uint32                 `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ByteValueExactResponse) Reset() {
+	*x = ByteValueExactResponse{}
+	mi := &file_proto_math_math_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ByteValueExactResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ByteValueExactResponse) ProtoMessage() {}
+
+func (x *ByteValueExactResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ByteValueExactResponse.ProtoReflect.Descriptor instead.
+func (*ByteValueExactResponse) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *ByteValueExactResponse) GetResult() uint32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type CompareTo1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CompareTo1Request) Reset() {
+	*x = CompareTo1Request{}
+	mi := &file_proto_math_math_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CompareTo1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CompareTo1Request) ProtoMessage() {}
+
+func (x *CompareTo1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CompareTo1Request.ProtoReflect.Descriptor instead.
+func (*CompareTo1Request) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *CompareTo1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *CompareTo1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type CompareTo1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CompareTo1Response) Reset() {
+	*x = CompareTo1Response{}
+	mi := &file_proto_math_math_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CompareTo1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CompareTo1Response) ProtoMessage() {}
+
+func (x *CompareTo1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CompareTo1Response.ProtoReflect.Descriptor instead.
+func (*CompareTo1Response) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *CompareTo1Response) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type CompareTo2_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CompareTo2_1Request) Reset() {
+	*x = CompareTo2_1Request{}
+	mi := &file_proto_math_math_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CompareTo2_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CompareTo2_1Request) ProtoMessage() {}
+
+func (x *CompareTo2_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CompareTo2_1Request.ProtoReflect.Descriptor instead.
+func (*CompareTo2_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{14}
+}
+
+func (x *CompareTo2_1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *CompareTo2_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *CompareTo2_1Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type CompareTo2_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CompareTo2_1Response) Reset() {
+	*x = CompareTo2_1Response{}
+	mi := &file_proto_math_math_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CompareTo2_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CompareTo2_1Response) ProtoMessage() {}
+
+func (x *CompareTo2_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CompareTo2_1Response.ProtoReflect.Descriptor instead.
+func (*CompareTo2_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *CompareTo2_1Response) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type Divide1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Divide1Request) Reset() {
+	*x = Divide1Request{}
+	mi := &file_proto_math_math_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Divide1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Divide1Request) ProtoMessage() {}
+
+func (x *Divide1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Divide1Request.ProtoReflect.Descriptor instead.
+func (*Divide1Request) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{16}
+}
+
+func (x *Divide1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *Divide1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type Divide1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Divide1Response) Reset() {
+	*x = Divide1Response{}
+	mi := &file_proto_math_math_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Divide1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Divide1Response) ProtoMessage() {}
+
+func (x *Divide1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Divide1Response.ProtoReflect.Descriptor instead.
+func (*Divide1Response) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *Divide1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type Divide2_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Divide2_1Request) Reset() {
+	*x = Divide2_1Request{}
+	mi := &file_proto_math_math_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Divide2_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Divide2_1Request) ProtoMessage() {}
+
+func (x *Divide2_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Divide2_1Request.ProtoReflect.Descriptor instead.
+func (*Divide2_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{18}
+}
+
+func (x *Divide2_1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *Divide2_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *Divide2_1Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type Divide2_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Divide2_1Response) Reset() {
+	*x = Divide2_1Response{}
+	mi := &file_proto_math_math_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Divide2_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Divide2_1Response) ProtoMessage() {}
+
+func (x *Divide2_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Divide2_1Response.ProtoReflect.Descriptor instead.
+func (*Divide2_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *Divide2_1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type Divide2_2Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Divide2_2Request) Reset() {
+	*x = Divide2_2Request{}
+	mi := &file_proto_math_math_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Divide2_2Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Divide2_2Request) ProtoMessage() {}
+
+func (x *Divide2_2Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Divide2_2Request.ProtoReflect.Descriptor instead.
+func (*Divide2_2Request) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{20}
+}
+
+func (x *Divide2_2Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *Divide2_2Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *Divide2_2Request) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type Divide2_2Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Divide2_2Response) Reset() {
+	*x = Divide2_2Response{}
+	mi := &file_proto_math_math_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Divide2_2Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Divide2_2Response) ProtoMessage() {}
+
+func (x *Divide2_2Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Divide2_2Response.ProtoReflect.Descriptor instead.
+func (*Divide2_2Response) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{21}
+}
+
+func (x *Divide2_2Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type Divide3_3Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Divide3_3Request) Reset() {
+	*x = Divide3_3Request{}
+	mi := &file_proto_math_math_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Divide3_3Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Divide3_3Request) ProtoMessage() {}
+
+func (x *Divide3_3Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Divide3_3Request.ProtoReflect.Descriptor instead.
+func (*Divide3_3Request) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{22}
+}
+
+func (x *Divide3_3Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *Divide3_3Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *Divide3_3Request) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *Divide3_3Request) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type Divide3_3Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Divide3_3Response) Reset() {
+	*x = Divide3_3Response{}
+	mi := &file_proto_math_math_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Divide3_3Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Divide3_3Response) ProtoMessage() {}
+
+func (x *Divide3_3Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Divide3_3Response.ProtoReflect.Descriptor instead.
+func (*Divide3_3Response) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{23}
+}
+
+func (x *Divide3_3Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type DivideInteger1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DivideInteger1Request) Reset() {
+	*x = DivideInteger1Request{}
+	mi := &file_proto_math_math_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DivideInteger1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DivideInteger1Request) ProtoMessage() {}
+
+func (x *DivideInteger1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DivideInteger1Request.ProtoReflect.Descriptor instead.
+func (*DivideInteger1Request) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{24}
+}
+
+func (x *DivideInteger1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *DivideInteger1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type DivideInteger1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DivideInteger1Response) Reset() {
+	*x = DivideInteger1Response{}
+	mi := &file_proto_math_math_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DivideInteger1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DivideInteger1Response) ProtoMessage() {}
+
+func (x *DivideInteger1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DivideInteger1Response.ProtoReflect.Descriptor instead.
+func (*DivideInteger1Response) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{25}
+}
+
+func (x *DivideInteger1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type DivideInteger2_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DivideInteger2_1Request) Reset() {
+	*x = DivideInteger2_1Request{}
+	mi := &file_proto_math_math_proto_msgTypes[26]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DivideInteger2_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DivideInteger2_1Request) ProtoMessage() {}
+
+func (x *DivideInteger2_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[26]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DivideInteger2_1Request.ProtoReflect.Descriptor instead.
+func (*DivideInteger2_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{26}
+}
+
+func (x *DivideInteger2_1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *DivideInteger2_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *DivideInteger2_1Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type DivideInteger2_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DivideInteger2_1Response) Reset() {
+	*x = DivideInteger2_1Response{}
+	mi := &file_proto_math_math_proto_msgTypes[27]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DivideInteger2_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DivideInteger2_1Response) ProtoMessage() {}
+
+func (x *DivideInteger2_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[27]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DivideInteger2_1Response.ProtoReflect.Descriptor instead.
+func (*DivideInteger2_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{27}
+}
+
+func (x *DivideInteger2_1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type DoubleValueRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DoubleValueRequest) Reset() {
+	*x = DoubleValueRequest{}
+	mi := &file_proto_math_math_proto_msgTypes[28]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DoubleValueRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DoubleValueRequest) ProtoMessage() {}
+
+func (x *DoubleValueRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[28]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DoubleValueRequest.ProtoReflect.Descriptor instead.
+func (*DoubleValueRequest) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{28}
+}
+
+func (x *DoubleValueRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type DoubleValueResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        float64                `protobuf:"fixed64,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DoubleValueResponse) Reset() {
+	*x = DoubleValueResponse{}
+	mi := &file_proto_math_math_proto_msgTypes[29]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DoubleValueResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DoubleValueResponse) ProtoMessage() {}
+
+func (x *DoubleValueResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[29]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DoubleValueResponse.ProtoReflect.Descriptor instead.
+func (*DoubleValueResponse) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{29}
+}
+
+func (x *DoubleValueResponse) GetResult() float64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type EqualsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EqualsRequest) Reset() {
+	*x = EqualsRequest{}
+	mi := &file_proto_math_math_proto_msgTypes[30]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EqualsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EqualsRequest) ProtoMessage() {}
+
+func (x *EqualsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[30]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EqualsRequest.ProtoReflect.Descriptor instead.
+func (*EqualsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{30}
+}
+
+func (x *EqualsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *EqualsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type EqualsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EqualsResponse) Reset() {
+	*x = EqualsResponse{}
+	mi := &file_proto_math_math_proto_msgTypes[31]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EqualsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EqualsResponse) ProtoMessage() {}
+
+func (x *EqualsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[31]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EqualsResponse.ProtoReflect.Descriptor instead.
+func (*EqualsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{31}
+}
+
+func (x *EqualsResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type FloatValueRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FloatValueRequest) Reset() {
+	*x = FloatValueRequest{}
+	mi := &file_proto_math_math_proto_msgTypes[32]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FloatValueRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FloatValueRequest) ProtoMessage() {}
+
+func (x *FloatValueRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[32]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FloatValueRequest.ProtoReflect.Descriptor instead.
+func (*FloatValueRequest) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{32}
+}
+
+func (x *FloatValueRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type FloatValueResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        float32                `protobuf:"fixed32,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FloatValueResponse) Reset() {
+	*x = FloatValueResponse{}
+	mi := &file_proto_math_math_proto_msgTypes[33]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FloatValueResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FloatValueResponse) ProtoMessage() {}
+
+func (x *FloatValueResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[33]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FloatValueResponse.ProtoReflect.Descriptor instead.
+func (*FloatValueResponse) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{33}
+}
+
+func (x *FloatValueResponse) GetResult() float32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type Format2Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Format2Request) Reset() {
+	*x = Format2Request{}
+	mi := &file_proto_math_math_proto_msgTypes[34]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Format2Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Format2Request) ProtoMessage() {}
+
+func (x *Format2Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[34]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Format2Request.ProtoReflect.Descriptor instead.
+func (*Format2Request) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{34}
+}
+
+func (x *Format2Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *Format2Request) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *Format2Request) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type Format2Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Format2Response) Reset() {
+	*x = Format2Response{}
+	mi := &file_proto_math_math_proto_msgTypes[35]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Format2Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Format2Response) ProtoMessage() {}
+
+func (x *Format2Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[35]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Format2Response.ProtoReflect.Descriptor instead.
+func (*Format2Response) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{35}
+}
+
+func (x *Format2Response) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type Format6_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int32                  `protobuf:"varint,5,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	Arg4          int32                  `protobuf:"varint,6,opt,name=arg4,proto3" json:"arg4,omitempty"`
+	Arg5          int32                  `protobuf:"varint,7,opt,name=arg5,proto3" json:"arg5,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Format6_1Request) Reset() {
+	*x = Format6_1Request{}
+	mi := &file_proto_math_math_proto_msgTypes[36]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Format6_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Format6_1Request) ProtoMessage() {}
+
+func (x *Format6_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[36]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Format6_1Request.ProtoReflect.Descriptor instead.
+func (*Format6_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{36}
+}
+
+func (x *Format6_1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *Format6_1Request) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *Format6_1Request) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *Format6_1Request) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *Format6_1Request) GetArg3() int32 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+func (x *Format6_1Request) GetArg4() int32 {
+	if x != nil {
+		return x.Arg4
+	}
+	return 0
+}
+
+func (x *Format6_1Request) GetArg5() int32 {
+	if x != nil {
+		return x.Arg5
+	}
+	return 0
+}
+
+type Format6_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Format6_1Response) Reset() {
+	*x = Format6_1Response{}
+	mi := &file_proto_math_math_proto_msgTypes[37]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Format6_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Format6_1Response) ProtoMessage() {}
+
+func (x *Format6_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[37]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Format6_1Response.ProtoReflect.Descriptor instead.
+func (*Format6_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{37}
+}
+
+func (x *Format6_1Response) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type HashCodeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HashCodeRequest) Reset() {
+	*x = HashCodeRequest{}
+	mi := &file_proto_math_math_proto_msgTypes[38]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HashCodeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HashCodeRequest) ProtoMessage() {}
+
+func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[38]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HashCodeRequest.ProtoReflect.Descriptor instead.
+func (*HashCodeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{38}
+}
+
+func (x *HashCodeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type HashCodeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HashCodeResponse) Reset() {
+	*x = HashCodeResponse{}
+	mi := &file_proto_math_math_proto_msgTypes[39]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HashCodeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HashCodeResponse) ProtoMessage() {}
+
+func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[39]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HashCodeResponse.ProtoReflect.Descriptor instead.
+func (*HashCodeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{39}
+}
+
+func (x *HashCodeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type IntValueRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IntValueRequest) Reset() {
+	*x = IntValueRequest{}
+	mi := &file_proto_math_math_proto_msgTypes[40]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IntValueRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IntValueRequest) ProtoMessage() {}
+
+func (x *IntValueRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[40]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IntValueRequest.ProtoReflect.Descriptor instead.
+func (*IntValueRequest) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{40}
+}
+
+func (x *IntValueRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type IntValueResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IntValueResponse) Reset() {
+	*x = IntValueResponse{}
+	mi := &file_proto_math_math_proto_msgTypes[41]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IntValueResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IntValueResponse) ProtoMessage() {}
+
+func (x *IntValueResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[41]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IntValueResponse.ProtoReflect.Descriptor instead.
+func (*IntValueResponse) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{41}
+}
+
+func (x *IntValueResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type IntValueExactRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IntValueExactRequest) Reset() {
+	*x = IntValueExactRequest{}
+	mi := &file_proto_math_math_proto_msgTypes[42]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IntValueExactRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IntValueExactRequest) ProtoMessage() {}
+
+func (x *IntValueExactRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[42]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IntValueExactRequest.ProtoReflect.Descriptor instead.
+func (*IntValueExactRequest) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{42}
+}
+
+func (x *IntValueExactRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type IntValueExactResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IntValueExactResponse) Reset() {
+	*x = IntValueExactResponse{}
+	mi := &file_proto_math_math_proto_msgTypes[43]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IntValueExactResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IntValueExactResponse) ProtoMessage() {}
+
+func (x *IntValueExactResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[43]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IntValueExactResponse.ProtoReflect.Descriptor instead.
+func (*IntValueExactResponse) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{43}
+}
+
+func (x *IntValueExactResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type LongValueRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *LongValueRequest) Reset() {
+	*x = LongValueRequest{}
+	mi := &file_proto_math_math_proto_msgTypes[44]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *LongValueRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*LongValueRequest) ProtoMessage() {}
+
+func (x *LongValueRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[44]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use LongValueRequest.ProtoReflect.Descriptor instead.
+func (*LongValueRequest) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{44}
+}
+
+func (x *LongValueRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type LongValueResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *LongValueResponse) Reset() {
+	*x = LongValueResponse{}
+	mi := &file_proto_math_math_proto_msgTypes[45]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *LongValueResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*LongValueResponse) ProtoMessage() {}
+
+func (x *LongValueResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[45]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use LongValueResponse.ProtoReflect.Descriptor instead.
+func (*LongValueResponse) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{45}
+}
+
+func (x *LongValueResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type LongValueExactRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *LongValueExactRequest) Reset() {
+	*x = LongValueExactRequest{}
+	mi := &file_proto_math_math_proto_msgTypes[46]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *LongValueExactRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*LongValueExactRequest) ProtoMessage() {}
+
+func (x *LongValueExactRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[46]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use LongValueExactRequest.ProtoReflect.Descriptor instead.
+func (*LongValueExactRequest) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{46}
+}
+
+func (x *LongValueExactRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type LongValueExactResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *LongValueExactResponse) Reset() {
+	*x = LongValueExactResponse{}
+	mi := &file_proto_math_math_proto_msgTypes[47]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *LongValueExactResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*LongValueExactResponse) ProtoMessage() {}
+
+func (x *LongValueExactResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[47]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use LongValueExactResponse.ProtoReflect.Descriptor instead.
+func (*LongValueExactResponse) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{47}
+}
+
+func (x *LongValueExactResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type Max1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Max1Request) Reset() {
+	*x = Max1Request{}
+	mi := &file_proto_math_math_proto_msgTypes[48]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Max1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Max1Request) ProtoMessage() {}
+
+func (x *Max1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[48]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Max1Request.ProtoReflect.Descriptor instead.
+func (*Max1Request) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{48}
+}
+
+func (x *Max1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *Max1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type Max1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Max1Response) Reset() {
+	*x = Max1Response{}
+	mi := &file_proto_math_math_proto_msgTypes[49]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Max1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Max1Response) ProtoMessage() {}
+
+func (x *Max1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[49]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Max1Response.ProtoReflect.Descriptor instead.
+func (*Max1Response) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{49}
+}
+
+func (x *Max1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type Max2_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Max2_1Request) Reset() {
+	*x = Max2_1Request{}
+	mi := &file_proto_math_math_proto_msgTypes[50]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Max2_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Max2_1Request) ProtoMessage() {}
+
+func (x *Max2_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[50]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Max2_1Request.ProtoReflect.Descriptor instead.
+func (*Max2_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{50}
+}
+
+func (x *Max2_1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *Max2_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *Max2_1Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type Max2_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Max2_1Response) Reset() {
+	*x = Max2_1Response{}
+	mi := &file_proto_math_math_proto_msgTypes[51]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Max2_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Max2_1Response) ProtoMessage() {}
+
+func (x *Max2_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[51]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Max2_1Response.ProtoReflect.Descriptor instead.
+func (*Max2_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{51}
+}
+
+func (x *Max2_1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type Min1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Min1Request) Reset() {
+	*x = Min1Request{}
+	mi := &file_proto_math_math_proto_msgTypes[52]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Min1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Min1Request) ProtoMessage() {}
+
+func (x *Min1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[52]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Min1Request.ProtoReflect.Descriptor instead.
+func (*Min1Request) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{52}
+}
+
+func (x *Min1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *Min1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type Min1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Min1Response) Reset() {
+	*x = Min1Response{}
+	mi := &file_proto_math_math_proto_msgTypes[53]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Min1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Min1Response) ProtoMessage() {}
+
+func (x *Min1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[53]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Min1Response.ProtoReflect.Descriptor instead.
+func (*Min1Response) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{53}
+}
+
+func (x *Min1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type Min2_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Min2_1Request) Reset() {
+	*x = Min2_1Request{}
+	mi := &file_proto_math_math_proto_msgTypes[54]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Min2_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Min2_1Request) ProtoMessage() {}
+
+func (x *Min2_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[54]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Min2_1Request.ProtoReflect.Descriptor instead.
+func (*Min2_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{54}
+}
+
+func (x *Min2_1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *Min2_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *Min2_1Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type Min2_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Min2_1Response) Reset() {
+	*x = Min2_1Response{}
+	mi := &file_proto_math_math_proto_msgTypes[55]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Min2_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Min2_1Response) ProtoMessage() {}
+
+func (x *Min2_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[55]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Min2_1Response.ProtoReflect.Descriptor instead.
+func (*Min2_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{55}
+}
+
+func (x *Min2_1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type MovePointLeftRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *MovePointLeftRequest) Reset() {
+	*x = MovePointLeftRequest{}
+	mi := &file_proto_math_math_proto_msgTypes[56]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *MovePointLeftRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MovePointLeftRequest) ProtoMessage() {}
+
+func (x *MovePointLeftRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[56]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MovePointLeftRequest.ProtoReflect.Descriptor instead.
+func (*MovePointLeftRequest) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{56}
+}
+
+func (x *MovePointLeftRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *MovePointLeftRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type MovePointLeftResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *MovePointLeftResponse) Reset() {
+	*x = MovePointLeftResponse{}
+	mi := &file_proto_math_math_proto_msgTypes[57]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *MovePointLeftResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MovePointLeftResponse) ProtoMessage() {}
+
+func (x *MovePointLeftResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[57]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MovePointLeftResponse.ProtoReflect.Descriptor instead.
+func (*MovePointLeftResponse) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{57}
+}
+
+func (x *MovePointLeftResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type MovePointRightRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *MovePointRightRequest) Reset() {
+	*x = MovePointRightRequest{}
+	mi := &file_proto_math_math_proto_msgTypes[58]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *MovePointRightRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MovePointRightRequest) ProtoMessage() {}
+
+func (x *MovePointRightRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[58]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MovePointRightRequest.ProtoReflect.Descriptor instead.
+func (*MovePointRightRequest) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{58}
+}
+
+func (x *MovePointRightRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *MovePointRightRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type MovePointRightResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *MovePointRightResponse) Reset() {
+	*x = MovePointRightResponse{}
+	mi := &file_proto_math_math_proto_msgTypes[59]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *MovePointRightResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MovePointRightResponse) ProtoMessage() {}
+
+func (x *MovePointRightResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[59]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MovePointRightResponse.ProtoReflect.Descriptor instead.
+func (*MovePointRightResponse) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{59}
+}
+
+func (x *MovePointRightResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type Multiply1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Multiply1Request) Reset() {
+	*x = Multiply1Request{}
+	mi := &file_proto_math_math_proto_msgTypes[60]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Multiply1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Multiply1Request) ProtoMessage() {}
+
+func (x *Multiply1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[60]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Multiply1Request.ProtoReflect.Descriptor instead.
+func (*Multiply1Request) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{60}
+}
+
+func (x *Multiply1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *Multiply1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type Multiply1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Multiply1Response) Reset() {
+	*x = Multiply1Response{}
+	mi := &file_proto_math_math_proto_msgTypes[61]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Multiply1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Multiply1Response) ProtoMessage() {}
+
+func (x *Multiply1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[61]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Multiply1Response.ProtoReflect.Descriptor instead.
+func (*Multiply1Response) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{61}
+}
+
+func (x *Multiply1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type Multiply2_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Multiply2_1Request) Reset() {
+	*x = Multiply2_1Request{}
+	mi := &file_proto_math_math_proto_msgTypes[62]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Multiply2_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Multiply2_1Request) ProtoMessage() {}
+
+func (x *Multiply2_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[62]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Multiply2_1Request.ProtoReflect.Descriptor instead.
+func (*Multiply2_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{62}
+}
+
+func (x *Multiply2_1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *Multiply2_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *Multiply2_1Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type Multiply2_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Multiply2_1Response) Reset() {
+	*x = Multiply2_1Response{}
+	mi := &file_proto_math_math_proto_msgTypes[63]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Multiply2_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Multiply2_1Response) ProtoMessage() {}
+
+func (x *Multiply2_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[63]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Multiply2_1Response.ProtoReflect.Descriptor instead.
+func (*Multiply2_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{63}
+}
+
+func (x *Multiply2_1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type Negate0Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Negate0Request) Reset() {
+	*x = Negate0Request{}
+	mi := &file_proto_math_math_proto_msgTypes[64]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Negate0Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Negate0Request) ProtoMessage() {}
+
+func (x *Negate0Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[64]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Negate0Request.ProtoReflect.Descriptor instead.
+func (*Negate0Request) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{64}
+}
+
+func (x *Negate0Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type Negate0Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Negate0Response) Reset() {
+	*x = Negate0Response{}
+	mi := &file_proto_math_math_proto_msgTypes[65]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Negate0Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Negate0Response) ProtoMessage() {}
+
+func (x *Negate0Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[65]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Negate0Response.ProtoReflect.Descriptor instead.
+func (*Negate0Response) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{65}
+}
+
+func (x *Negate0Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type Negate1_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Negate1_1Request) Reset() {
+	*x = Negate1_1Request{}
+	mi := &file_proto_math_math_proto_msgTypes[66]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Negate1_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Negate1_1Request) ProtoMessage() {}
+
+func (x *Negate1_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[66]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Negate1_1Request.ProtoReflect.Descriptor instead.
+func (*Negate1_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{66}
+}
+
+func (x *Negate1_1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *Negate1_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type Negate1_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Negate1_1Response) Reset() {
+	*x = Negate1_1Response{}
+	mi := &file_proto_math_math_proto_msgTypes[67]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Negate1_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Negate1_1Response) ProtoMessage() {}
+
+func (x *Negate1_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[67]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Negate1_1Response.ProtoReflect.Descriptor instead.
+func (*Negate1_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{67}
+}
+
+func (x *Negate1_1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type Plus0Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Plus0Request) Reset() {
+	*x = Plus0Request{}
+	mi := &file_proto_math_math_proto_msgTypes[68]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Plus0Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Plus0Request) ProtoMessage() {}
+
+func (x *Plus0Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[68]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Plus0Request.ProtoReflect.Descriptor instead.
+func (*Plus0Request) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{68}
+}
+
+func (x *Plus0Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type Plus0Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Plus0Response) Reset() {
+	*x = Plus0Response{}
+	mi := &file_proto_math_math_proto_msgTypes[69]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Plus0Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Plus0Response) ProtoMessage() {}
+
+func (x *Plus0Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[69]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Plus0Response.ProtoReflect.Descriptor instead.
+func (*Plus0Response) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{69}
+}
+
+func (x *Plus0Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type Plus1_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Plus1_1Request) Reset() {
+	*x = Plus1_1Request{}
+	mi := &file_proto_math_math_proto_msgTypes[70]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Plus1_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Plus1_1Request) ProtoMessage() {}
+
+func (x *Plus1_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[70]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Plus1_1Request.ProtoReflect.Descriptor instead.
+func (*Plus1_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{70}
+}
+
+func (x *Plus1_1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *Plus1_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type Plus1_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Plus1_1Response) Reset() {
+	*x = Plus1_1Response{}
+	mi := &file_proto_math_math_proto_msgTypes[71]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Plus1_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Plus1_1Response) ProtoMessage() {}
+
+func (x *Plus1_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[71]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Plus1_1Response.ProtoReflect.Descriptor instead.
+func (*Plus1_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{71}
+}
+
+func (x *Plus1_1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type Pow1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Pow1Request) Reset() {
+	*x = Pow1Request{}
+	mi := &file_proto_math_math_proto_msgTypes[72]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Pow1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Pow1Request) ProtoMessage() {}
+
+func (x *Pow1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[72]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Pow1Request.ProtoReflect.Descriptor instead.
+func (*Pow1Request) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{72}
+}
+
+func (x *Pow1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *Pow1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type Pow1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Pow1Response) Reset() {
+	*x = Pow1Response{}
+	mi := &file_proto_math_math_proto_msgTypes[73]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Pow1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Pow1Response) ProtoMessage() {}
+
+func (x *Pow1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[73]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Pow1Response.ProtoReflect.Descriptor instead.
+func (*Pow1Response) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{73}
+}
+
+func (x *Pow1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type Pow2_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Pow2_1Request) Reset() {
+	*x = Pow2_1Request{}
+	mi := &file_proto_math_math_proto_msgTypes[74]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Pow2_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Pow2_1Request) ProtoMessage() {}
+
+func (x *Pow2_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[74]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Pow2_1Request.ProtoReflect.Descriptor instead.
+func (*Pow2_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{74}
+}
+
+func (x *Pow2_1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *Pow2_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *Pow2_1Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type Pow2_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Pow2_1Response) Reset() {
+	*x = Pow2_1Response{}
+	mi := &file_proto_math_math_proto_msgTypes[75]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Pow2_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Pow2_1Response) ProtoMessage() {}
+
+func (x *Pow2_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[75]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Pow2_1Response.ProtoReflect.Descriptor instead.
+func (*Pow2_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{75}
+}
+
+func (x *Pow2_1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type Remainder1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Remainder1Request) Reset() {
+	*x = Remainder1Request{}
+	mi := &file_proto_math_math_proto_msgTypes[76]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Remainder1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Remainder1Request) ProtoMessage() {}
+
+func (x *Remainder1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[76]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Remainder1Request.ProtoReflect.Descriptor instead.
+func (*Remainder1Request) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{76}
+}
+
+func (x *Remainder1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *Remainder1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type Remainder1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Remainder1Response) Reset() {
+	*x = Remainder1Response{}
+	mi := &file_proto_math_math_proto_msgTypes[77]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Remainder1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Remainder1Response) ProtoMessage() {}
+
+func (x *Remainder1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[77]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Remainder1Response.ProtoReflect.Descriptor instead.
+func (*Remainder1Response) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{77}
+}
+
+func (x *Remainder1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type Remainder2_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Remainder2_1Request) Reset() {
+	*x = Remainder2_1Request{}
+	mi := &file_proto_math_math_proto_msgTypes[78]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Remainder2_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Remainder2_1Request) ProtoMessage() {}
+
+func (x *Remainder2_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[78]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Remainder2_1Request.ProtoReflect.Descriptor instead.
+func (*Remainder2_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{78}
+}
+
+func (x *Remainder2_1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *Remainder2_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *Remainder2_1Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type Remainder2_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Remainder2_1Response) Reset() {
+	*x = Remainder2_1Response{}
+	mi := &file_proto_math_math_proto_msgTypes[79]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Remainder2_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Remainder2_1Response) ProtoMessage() {}
+
+func (x *Remainder2_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[79]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Remainder2_1Response.ProtoReflect.Descriptor instead.
+func (*Remainder2_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{79}
+}
+
+func (x *Remainder2_1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ScaleRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ScaleRequest) Reset() {
+	*x = ScaleRequest{}
+	mi := &file_proto_math_math_proto_msgTypes[80]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ScaleRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ScaleRequest) ProtoMessage() {}
+
+func (x *ScaleRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[80]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ScaleRequest.ProtoReflect.Descriptor instead.
+func (*ScaleRequest) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{80}
+}
+
+func (x *ScaleRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type ScaleResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ScaleResponse) Reset() {
+	*x = ScaleResponse{}
+	mi := &file_proto_math_math_proto_msgTypes[81]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ScaleResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ScaleResponse) ProtoMessage() {}
+
+func (x *ScaleResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[81]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ScaleResponse.ProtoReflect.Descriptor instead.
+func (*ScaleResponse) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{81}
+}
+
+func (x *ScaleResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetScale1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetScale1Request) Reset() {
+	*x = SetScale1Request{}
+	mi := &file_proto_math_math_proto_msgTypes[82]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetScale1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetScale1Request) ProtoMessage() {}
+
+func (x *SetScale1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[82]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetScale1Request.ProtoReflect.Descriptor instead.
+func (*SetScale1Request) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{82}
+}
+
+func (x *SetScale1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetScale1Request) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetScale1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetScale1Response) Reset() {
+	*x = SetScale1Response{}
+	mi := &file_proto_math_math_proto_msgTypes[83]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetScale1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetScale1Response) ProtoMessage() {}
+
+func (x *SetScale1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[83]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetScale1Response.ProtoReflect.Descriptor instead.
+func (*SetScale1Response) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{83}
+}
+
+func (x *SetScale1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetScale2_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetScale2_1Request) Reset() {
+	*x = SetScale2_1Request{}
+	mi := &file_proto_math_math_proto_msgTypes[84]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetScale2_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetScale2_1Request) ProtoMessage() {}
+
+func (x *SetScale2_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[84]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetScale2_1Request.ProtoReflect.Descriptor instead.
+func (*SetScale2_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{84}
+}
+
+func (x *SetScale2_1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetScale2_1Request) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SetScale2_1Request) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type SetScale2_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetScale2_1Response) Reset() {
+	*x = SetScale2_1Response{}
+	mi := &file_proto_math_math_proto_msgTypes[85]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetScale2_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetScale2_1Response) ProtoMessage() {}
+
+func (x *SetScale2_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[85]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetScale2_1Response.ProtoReflect.Descriptor instead.
+func (*SetScale2_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{85}
+}
+
+func (x *SetScale2_1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ShortValueExactRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ShortValueExactRequest) Reset() {
+	*x = ShortValueExactRequest{}
+	mi := &file_proto_math_math_proto_msgTypes[86]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ShortValueExactRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ShortValueExactRequest) ProtoMessage() {}
+
+func (x *ShortValueExactRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[86]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ShortValueExactRequest.ProtoReflect.Descriptor instead.
+func (*ShortValueExactRequest) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{86}
+}
+
+func (x *ShortValueExactRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type ShortValueExactResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ShortValueExactResponse) Reset() {
+	*x = ShortValueExactResponse{}
+	mi := &file_proto_math_math_proto_msgTypes[87]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ShortValueExactResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ShortValueExactResponse) ProtoMessage() {}
+
+func (x *ShortValueExactResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[87]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ShortValueExactResponse.ProtoReflect.Descriptor instead.
+func (*ShortValueExactResponse) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{87}
+}
+
+func (x *ShortValueExactResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SignumRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SignumRequest) Reset() {
+	*x = SignumRequest{}
+	mi := &file_proto_math_math_proto_msgTypes[88]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SignumRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SignumRequest) ProtoMessage() {}
+
+func (x *SignumRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[88]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SignumRequest.ProtoReflect.Descriptor instead.
+func (*SignumRequest) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{88}
+}
+
+func (x *SignumRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type SignumResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SignumResponse) Reset() {
+	*x = SignumResponse{}
+	mi := &file_proto_math_math_proto_msgTypes[89]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SignumResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SignumResponse) ProtoMessage() {}
+
+func (x *SignumResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[89]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SignumResponse.ProtoReflect.Descriptor instead.
+func (*SignumResponse) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{89}
+}
+
+func (x *SignumResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type Subtract1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Subtract1Request) Reset() {
+	*x = Subtract1Request{}
+	mi := &file_proto_math_math_proto_msgTypes[90]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Subtract1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Subtract1Request) ProtoMessage() {}
+
+func (x *Subtract1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[90]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Subtract1Request.ProtoReflect.Descriptor instead.
+func (*Subtract1Request) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{90}
+}
+
+func (x *Subtract1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *Subtract1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type Subtract1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Subtract1Response) Reset() {
+	*x = Subtract1Response{}
+	mi := &file_proto_math_math_proto_msgTypes[91]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Subtract1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Subtract1Response) ProtoMessage() {}
+
+func (x *Subtract1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[91]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Subtract1Response.ProtoReflect.Descriptor instead.
+func (*Subtract1Response) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{91}
+}
+
+func (x *Subtract1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type Subtract2_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Subtract2_1Request) Reset() {
+	*x = Subtract2_1Request{}
+	mi := &file_proto_math_math_proto_msgTypes[92]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Subtract2_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Subtract2_1Request) ProtoMessage() {}
+
+func (x *Subtract2_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[92]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Subtract2_1Request.ProtoReflect.Descriptor instead.
+func (*Subtract2_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{92}
+}
+
+func (x *Subtract2_1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *Subtract2_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *Subtract2_1Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type Subtract2_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Subtract2_1Response) Reset() {
+	*x = Subtract2_1Response{}
+	mi := &file_proto_math_math_proto_msgTypes[93]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Subtract2_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Subtract2_1Response) ProtoMessage() {}
+
+func (x *Subtract2_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[93]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Subtract2_1Response.ProtoReflect.Descriptor instead.
+func (*Subtract2_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{93}
+}
+
+func (x *Subtract2_1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ToBigDecimalRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToBigDecimalRequest) Reset() {
+	*x = ToBigDecimalRequest{}
+	mi := &file_proto_math_math_proto_msgTypes[94]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToBigDecimalRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToBigDecimalRequest) ProtoMessage() {}
+
+func (x *ToBigDecimalRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[94]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToBigDecimalRequest.ProtoReflect.Descriptor instead.
+func (*ToBigDecimalRequest) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{94}
+}
+
+func (x *ToBigDecimalRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type ToBigDecimalResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToBigDecimalResponse) Reset() {
+	*x = ToBigDecimalResponse{}
+	mi := &file_proto_math_math_proto_msgTypes[95]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToBigDecimalResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToBigDecimalResponse) ProtoMessage() {}
+
+func (x *ToBigDecimalResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[95]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToBigDecimalResponse.ProtoReflect.Descriptor instead.
+func (*ToBigDecimalResponse) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{95}
+}
+
+func (x *ToBigDecimalResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ToBigIntegerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToBigIntegerRequest) Reset() {
+	*x = ToBigIntegerRequest{}
+	mi := &file_proto_math_math_proto_msgTypes[96]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToBigIntegerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToBigIntegerRequest) ProtoMessage() {}
+
+func (x *ToBigIntegerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[96]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToBigIntegerRequest.ProtoReflect.Descriptor instead.
+func (*ToBigIntegerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{96}
+}
+
+func (x *ToBigIntegerRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type ToBigIntegerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToBigIntegerResponse) Reset() {
+	*x = ToBigIntegerResponse{}
+	mi := &file_proto_math_math_proto_msgTypes[97]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToBigIntegerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToBigIntegerResponse) ProtoMessage() {}
+
+func (x *ToBigIntegerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[97]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToBigIntegerResponse.ProtoReflect.Descriptor instead.
+func (*ToBigIntegerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{97}
+}
+
+func (x *ToBigIntegerResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ToBigIntegerExactRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToBigIntegerExactRequest) Reset() {
+	*x = ToBigIntegerExactRequest{}
+	mi := &file_proto_math_math_proto_msgTypes[98]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToBigIntegerExactRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToBigIntegerExactRequest) ProtoMessage() {}
+
+func (x *ToBigIntegerExactRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[98]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToBigIntegerExactRequest.ProtoReflect.Descriptor instead.
+func (*ToBigIntegerExactRequest) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{98}
+}
+
+func (x *ToBigIntegerExactRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type ToBigIntegerExactResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToBigIntegerExactResponse) Reset() {
+	*x = ToBigIntegerExactResponse{}
+	mi := &file_proto_math_math_proto_msgTypes[99]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToBigIntegerExactResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToBigIntegerExactResponse) ProtoMessage() {}
+
+func (x *ToBigIntegerExactResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[99]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToBigIntegerExactResponse.ProtoReflect.Descriptor instead.
+func (*ToBigIntegerExactResponse) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{99}
+}
+
+func (x *ToBigIntegerExactResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ToCharArrayRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToCharArrayRequest) Reset() {
+	*x = ToCharArrayRequest{}
+	mi := &file_proto_math_math_proto_msgTypes[100]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToCharArrayRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToCharArrayRequest) ProtoMessage() {}
+
+func (x *ToCharArrayRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[100]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToCharArrayRequest.ProtoReflect.Descriptor instead.
+func (*ToCharArrayRequest) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{100}
+}
+
+func (x *ToCharArrayRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type ToCharArrayResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToCharArrayResponse) Reset() {
+	*x = ToCharArrayResponse{}
+	mi := &file_proto_math_math_proto_msgTypes[101]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToCharArrayResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToCharArrayResponse) ProtoMessage() {}
+
+func (x *ToCharArrayResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[101]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToCharArrayResponse.ProtoReflect.Descriptor instead.
+func (*ToCharArrayResponse) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{101}
+}
+
+func (x *ToCharArrayResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ToStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringRequest) Reset() {
+	*x = ToStringRequest{}
+	mi := &file_proto_math_math_proto_msgTypes[102]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringRequest) ProtoMessage() {}
+
+func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[102]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringRequest.ProtoReflect.Descriptor instead.
+func (*ToStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{102}
+}
+
+func (x *ToStringRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type ToStringResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringResponse) Reset() {
+	*x = ToStringResponse{}
+	mi := &file_proto_math_math_proto_msgTypes[103]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringResponse) ProtoMessage() {}
+
+func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[103]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringResponse.ProtoReflect.Descriptor instead.
+func (*ToStringResponse) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{103}
+}
+
+func (x *ToStringResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type UnscaledValueRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UnscaledValueRequest) Reset() {
+	*x = UnscaledValueRequest{}
+	mi := &file_proto_math_math_proto_msgTypes[104]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UnscaledValueRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UnscaledValueRequest) ProtoMessage() {}
+
+func (x *UnscaledValueRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[104]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UnscaledValueRequest.ProtoReflect.Descriptor instead.
+func (*UnscaledValueRequest) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{104}
+}
+
+func (x *UnscaledValueRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type UnscaledValueResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UnscaledValueResponse) Reset() {
+	*x = UnscaledValueResponse{}
+	mi := &file_proto_math_math_proto_msgTypes[105]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UnscaledValueResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UnscaledValueResponse) ProtoMessage() {}
+
+func (x *UnscaledValueResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[105]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UnscaledValueResponse.ProtoReflect.Descriptor instead.
+func (*UnscaledValueResponse) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{105}
+}
+
+func (x *UnscaledValueResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type CompareTo1_2Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CompareTo1_2Request) Reset() {
+	*x = CompareTo1_2Request{}
+	mi := &file_proto_math_math_proto_msgTypes[106]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CompareTo1_2Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CompareTo1_2Request) ProtoMessage() {}
+
+func (x *CompareTo1_2Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[106]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CompareTo1_2Request.ProtoReflect.Descriptor instead.
+func (*CompareTo1_2Request) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{106}
+}
+
+func (x *CompareTo1_2Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *CompareTo1_2Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type CompareTo1_2Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CompareTo1_2Response) Reset() {
+	*x = CompareTo1_2Response{}
+	mi := &file_proto_math_math_proto_msgTypes[107]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CompareTo1_2Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CompareTo1_2Response) ProtoMessage() {}
+
+func (x *CompareTo1_2Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[107]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CompareTo1_2Response.ProtoReflect.Descriptor instead.
+func (*CompareTo1_2Response) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{107}
+}
+
+func (x *CompareTo1_2Response) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ValueOf1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          float64                `protobuf:"fixed64,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ValueOf1Request) Reset() {
+	*x = ValueOf1Request{}
+	mi := &file_proto_math_math_proto_msgTypes[108]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ValueOf1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ValueOf1Request) ProtoMessage() {}
+
+func (x *ValueOf1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[108]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ValueOf1Request.ProtoReflect.Descriptor instead.
+func (*ValueOf1Request) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{108}
+}
+
+func (x *ValueOf1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *ValueOf1Request) GetArg0() float64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type ValueOf1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ValueOf1Response) Reset() {
+	*x = ValueOf1Response{}
+	mi := &file_proto_math_math_proto_msgTypes[109]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ValueOf1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ValueOf1Response) ProtoMessage() {}
+
+func (x *ValueOf1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[109]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ValueOf1Response.ProtoReflect.Descriptor instead.
+func (*ValueOf1Response) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{109}
+}
+
+func (x *ValueOf1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ValueOf1_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ValueOf1_1Request) Reset() {
+	*x = ValueOf1_1Request{}
+	mi := &file_proto_math_math_proto_msgTypes[110]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ValueOf1_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ValueOf1_1Request) ProtoMessage() {}
+
+func (x *ValueOf1_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[110]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ValueOf1_1Request.ProtoReflect.Descriptor instead.
+func (*ValueOf1_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{110}
+}
+
+func (x *ValueOf1_1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *ValueOf1_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type ValueOf1_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ValueOf1_1Response) Reset() {
+	*x = ValueOf1_1Response{}
+	mi := &file_proto_math_math_proto_msgTypes[111]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ValueOf1_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ValueOf1_1Response) ProtoMessage() {}
+
+func (x *ValueOf1_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[111]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ValueOf1_1Response.ProtoReflect.Descriptor instead.
+func (*ValueOf1_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{111}
+}
+
+func (x *ValueOf1_1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ValueOf2_2Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ValueOf2_2Request) Reset() {
+	*x = ValueOf2_2Request{}
+	mi := &file_proto_math_math_proto_msgTypes[112]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ValueOf2_2Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ValueOf2_2Request) ProtoMessage() {}
+
+func (x *ValueOf2_2Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[112]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ValueOf2_2Request.ProtoReflect.Descriptor instead.
+func (*ValueOf2_2Request) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{112}
+}
+
+func (x *ValueOf2_2Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *ValueOf2_2Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *ValueOf2_2Request) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type ValueOf2_2Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ValueOf2_2Response) Reset() {
+	*x = ValueOf2_2Response{}
+	mi := &file_proto_math_math_proto_msgTypes[113]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ValueOf2_2Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ValueOf2_2Response) ProtoMessage() {}
+
+func (x *ValueOf2_2Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[113]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ValueOf2_2Response.ProtoReflect.Descriptor instead.
+func (*ValueOf2_2Response) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{113}
+}
+
+func (x *ValueOf2_2Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type NewContextRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewContextRequest) Reset() {
+	*x = NewContextRequest{}
+	mi := &file_proto_math_math_proto_msgTypes[114]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewContextRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewContextRequest) ProtoMessage() {}
+
+func (x *NewContextRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[114]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewContextRequest.ProtoReflect.Descriptor instead.
+func (*NewContextRequest) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{114}
+}
+
+func (x *NewContextRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type NewContextResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewContextResponse) Reset() {
+	*x = NewContextResponse{}
+	mi := &file_proto_math_math_proto_msgTypes[115]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewContextResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewContextResponse) ProtoMessage() {}
+
+func (x *NewContextResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[115]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewContextResponse.ProtoReflect.Descriptor instead.
+func (*NewContextResponse) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{115}
+}
+
+func (x *NewContextResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetDigitsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDigitsRequest) Reset() {
+	*x = GetDigitsRequest{}
+	mi := &file_proto_math_math_proto_msgTypes[116]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDigitsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDigitsRequest) ProtoMessage() {}
+
+func (x *GetDigitsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[116]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDigitsRequest.ProtoReflect.Descriptor instead.
+func (*GetDigitsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{116}
+}
+
+func (x *GetDigitsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetDigitsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDigitsResponse) Reset() {
+	*x = GetDigitsResponse{}
+	mi := &file_proto_math_math_proto_msgTypes[117]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDigitsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDigitsResponse) ProtoMessage() {}
+
+func (x *GetDigitsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[117]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDigitsResponse.ProtoReflect.Descriptor instead.
+func (*GetDigitsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{117}
+}
+
+func (x *GetDigitsResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetFormRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetFormRequest) Reset() {
+	*x = GetFormRequest{}
+	mi := &file_proto_math_math_proto_msgTypes[118]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetFormRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetFormRequest) ProtoMessage() {}
+
+func (x *GetFormRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[118]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetFormRequest.ProtoReflect.Descriptor instead.
+func (*GetFormRequest) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{118}
+}
+
+func (x *GetFormRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetFormResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetFormResponse) Reset() {
+	*x = GetFormResponse{}
+	mi := &file_proto_math_math_proto_msgTypes[119]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetFormResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetFormResponse) ProtoMessage() {}
+
+func (x *GetFormResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[119]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetFormResponse.ProtoReflect.Descriptor instead.
+func (*GetFormResponse) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{119}
+}
+
+func (x *GetFormResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetLostDigitsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLostDigitsRequest) Reset() {
+	*x = GetLostDigitsRequest{}
+	mi := &file_proto_math_math_proto_msgTypes[120]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLostDigitsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLostDigitsRequest) ProtoMessage() {}
+
+func (x *GetLostDigitsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[120]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLostDigitsRequest.ProtoReflect.Descriptor instead.
+func (*GetLostDigitsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{120}
+}
+
+func (x *GetLostDigitsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetLostDigitsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLostDigitsResponse) Reset() {
+	*x = GetLostDigitsResponse{}
+	mi := &file_proto_math_math_proto_msgTypes[121]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLostDigitsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLostDigitsResponse) ProtoMessage() {}
+
+func (x *GetLostDigitsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[121]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLostDigitsResponse.ProtoReflect.Descriptor instead.
+func (*GetLostDigitsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{121}
+}
+
+func (x *GetLostDigitsResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type GetRoundingModeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRoundingModeRequest) Reset() {
+	*x = GetRoundingModeRequest{}
+	mi := &file_proto_math_math_proto_msgTypes[122]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRoundingModeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRoundingModeRequest) ProtoMessage() {}
+
+func (x *GetRoundingModeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[122]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRoundingModeRequest.ProtoReflect.Descriptor instead.
+func (*GetRoundingModeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{122}
+}
+
+func (x *GetRoundingModeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetRoundingModeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRoundingModeResponse) Reset() {
+	*x = GetRoundingModeResponse{}
+	mi := &file_proto_math_math_proto_msgTypes[123]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRoundingModeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRoundingModeResponse) ProtoMessage() {}
+
+func (x *GetRoundingModeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_math_math_proto_msgTypes[123]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRoundingModeResponse.ProtoReflect.Descriptor instead.
+func (*GetRoundingModeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_math_math_proto_rawDescGZIP(), []int{123}
+}
+
+func (x *GetRoundingModeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
 var File_proto_math_math_proto protoreflect.FileDescriptor
 
 const file_proto_math_math_proto_rawDesc = "" +
 	"\n" +
-	"\x15proto/math/math.proto\x12\x04mathB.Z,github.com/AndroidGoLab/jni-proxy/proto/mathb\x06proto3"
+	"\x15proto/math/math.proto\x12\x04math\"*\n" +
+	"\x14NewBigDecimalRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"/\n" +
+	"\x15NewBigDecimalResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"%\n" +
+	"\vAbs0Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"&\n" +
+	"\fAbs0Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\";\n" +
+	"\rAbs1_1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"(\n" +
+	"\x0eAbs1_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"9\n" +
+	"\vAdd1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"&\n" +
+	"\fAdd1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"O\n" +
+	"\rAdd2_1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"(\n" +
+	"\x0eAdd2_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"/\n" +
+	"\x15ByteValueExactRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"0\n" +
+	"\x16ByteValueExactResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\rR\x06result\"?\n" +
+	"\x11CompareTo1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\",\n" +
+	"\x12CompareTo1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"U\n" +
+	"\x13CompareTo2_1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\".\n" +
+	"\x14CompareTo2_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"<\n" +
+	"\x0eDivide1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\")\n" +
+	"\x0fDivide1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"R\n" +
+	"\x10Divide2_1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"+\n" +
+	"\x11Divide2_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"R\n" +
+	"\x10Divide2_2Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"+\n" +
+	"\x11Divide2_2Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"f\n" +
+	"\x10Divide3_3Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x05R\x04arg2\"+\n" +
+	"\x11Divide3_3Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"C\n" +
+	"\x15DivideInteger1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"0\n" +
+	"\x16DivideInteger1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"Y\n" +
+	"\x17DivideInteger2_1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"2\n" +
+	"\x18DivideInteger2_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\",\n" +
+	"\x12DoubleValueRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"-\n" +
+	"\x13DoubleValueResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x01R\x06result\";\n" +
+	"\rEqualsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"(\n" +
+	"\x0eEqualsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"+\n" +
+	"\x11FloatValueRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\",\n" +
+	"\x12FloatValueResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x02R\x06result\"P\n" +
+	"\x0eFormat2Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\")\n" +
+	"\x0fFormat2Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\xa2\x01\n" +
+	"\x10Format6_1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x05R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x05 \x01(\x05R\x04arg3\x12\x12\n" +
+	"\x04arg4\x18\x06 \x01(\x05R\x04arg4\x12\x12\n" +
+	"\x04arg5\x18\a \x01(\x05R\x04arg5\"+\n" +
+	"\x11Format6_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\")\n" +
+	"\x0fHashCodeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
+	"\x10HashCodeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\")\n" +
+	"\x0fIntValueRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
+	"\x10IntValueResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\".\n" +
+	"\x14IntValueExactRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"/\n" +
+	"\x15IntValueExactResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"*\n" +
+	"\x10LongValueRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"+\n" +
+	"\x11LongValueResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"/\n" +
+	"\x15LongValueExactRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"0\n" +
+	"\x16LongValueExactResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"9\n" +
+	"\vMax1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"&\n" +
+	"\fMax1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"O\n" +
+	"\rMax2_1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"(\n" +
+	"\x0eMax2_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"9\n" +
+	"\vMin1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"&\n" +
+	"\fMin1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"O\n" +
+	"\rMin2_1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"(\n" +
+	"\x0eMin2_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"B\n" +
+	"\x14MovePointLeftRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"/\n" +
+	"\x15MovePointLeftResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"C\n" +
+	"\x15MovePointRightRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"0\n" +
+	"\x16MovePointRightResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\">\n" +
+	"\x10Multiply1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"+\n" +
+	"\x11Multiply1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"T\n" +
+	"\x12Multiply2_1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"-\n" +
+	"\x13Multiply2_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"(\n" +
+	"\x0eNegate0Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\")\n" +
+	"\x0fNegate0Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\">\n" +
+	"\x10Negate1_1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"+\n" +
+	"\x11Negate1_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"&\n" +
+	"\fPlus0Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"'\n" +
+	"\rPlus0Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"<\n" +
+	"\x0ePlus1_1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\")\n" +
+	"\x0fPlus1_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"9\n" +
+	"\vPow1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"&\n" +
+	"\fPow1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"O\n" +
+	"\rPow2_1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"(\n" +
+	"\x0ePow2_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"?\n" +
+	"\x11Remainder1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\",\n" +
+	"\x12Remainder1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"U\n" +
+	"\x13Remainder2_1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\".\n" +
+	"\x14Remainder2_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"&\n" +
+	"\fScaleRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"'\n" +
+	"\rScaleResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\">\n" +
+	"\x10SetScale1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"+\n" +
+	"\x11SetScale1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"T\n" +
+	"\x12SetScale2_1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"-\n" +
+	"\x13SetScale2_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"0\n" +
+	"\x16ShortValueExactRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"1\n" +
+	"\x17ShortValueExactResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"'\n" +
+	"\rSignumRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"(\n" +
+	"\x0eSignumResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\">\n" +
+	"\x10Subtract1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"+\n" +
+	"\x11Subtract1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"T\n" +
+	"\x12Subtract2_1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"-\n" +
+	"\x13Subtract2_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"-\n" +
+	"\x13ToBigDecimalRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\".\n" +
+	"\x14ToBigDecimalResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"-\n" +
+	"\x13ToBigIntegerRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\".\n" +
+	"\x14ToBigIntegerResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"2\n" +
+	"\x18ToBigIntegerExactRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"3\n" +
+	"\x19ToBigIntegerExactResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\",\n" +
+	"\x12ToCharArrayRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"-\n" +
+	"\x13ToCharArrayResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\")\n" +
+	"\x0fToStringRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
+	"\x10ToStringResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\".\n" +
+	"\x14UnscaledValueRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"/\n" +
+	"\x15UnscaledValueResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"A\n" +
+	"\x13CompareTo1_2Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\".\n" +
+	"\x14CompareTo1_2Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"=\n" +
+	"\x0fValueOf1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x01R\x04arg0\"*\n" +
+	"\x10ValueOf1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"?\n" +
+	"\x11ValueOf1_1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\",\n" +
+	"\x12ValueOf1_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"S\n" +
+	"\x11ValueOf2_2Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\",\n" +
+	"\x12ValueOf2_2Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"'\n" +
+	"\x11NewContextRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\",\n" +
+	"\x12NewContextResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"*\n" +
+	"\x10GetDigitsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"+\n" +
+	"\x11GetDigitsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"(\n" +
+	"\x0eGetFormRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\")\n" +
+	"\x0fGetFormResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\".\n" +
+	"\x14GetLostDigitsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"/\n" +
+	"\x15GetLostDigitsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"0\n" +
+	"\x16GetRoundingModeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"1\n" +
+	"\x17GetRoundingModeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result2\xa0\x1c\n" +
+	"\x11BigDecimalService\x12H\n" +
+	"\rNewBigDecimal\x12\x1a.math.NewBigDecimalRequest\x1a\x1b.math.NewBigDecimalResponse\x12-\n" +
+	"\x04Abs0\x12\x11.math.Abs0Request\x1a\x12.math.Abs0Response\x123\n" +
+	"\x06Abs1_1\x12\x13.math.Abs1_1Request\x1a\x14.math.Abs1_1Response\x12-\n" +
+	"\x04Add1\x12\x11.math.Add1Request\x1a\x12.math.Add1Response\x123\n" +
+	"\x06Add2_1\x12\x13.math.Add2_1Request\x1a\x14.math.Add2_1Response\x12K\n" +
+	"\x0eByteValueExact\x12\x1b.math.ByteValueExactRequest\x1a\x1c.math.ByteValueExactResponse\x12?\n" +
+	"\n" +
+	"CompareTo1\x12\x17.math.CompareTo1Request\x1a\x18.math.CompareTo1Response\x12E\n" +
+	"\fCompareTo2_1\x12\x19.math.CompareTo2_1Request\x1a\x1a.math.CompareTo2_1Response\x126\n" +
+	"\aDivide1\x12\x14.math.Divide1Request\x1a\x15.math.Divide1Response\x12<\n" +
+	"\tDivide2_1\x12\x16.math.Divide2_1Request\x1a\x17.math.Divide2_1Response\x12<\n" +
+	"\tDivide2_2\x12\x16.math.Divide2_2Request\x1a\x17.math.Divide2_2Response\x12<\n" +
+	"\tDivide3_3\x12\x16.math.Divide3_3Request\x1a\x17.math.Divide3_3Response\x12K\n" +
+	"\x0eDivideInteger1\x12\x1b.math.DivideInteger1Request\x1a\x1c.math.DivideInteger1Response\x12Q\n" +
+	"\x10DivideInteger2_1\x12\x1d.math.DivideInteger2_1Request\x1a\x1e.math.DivideInteger2_1Response\x12B\n" +
+	"\vDoubleValue\x12\x18.math.DoubleValueRequest\x1a\x19.math.DoubleValueResponse\x123\n" +
+	"\x06Equals\x12\x13.math.EqualsRequest\x1a\x14.math.EqualsResponse\x12?\n" +
+	"\n" +
+	"FloatValue\x12\x17.math.FloatValueRequest\x1a\x18.math.FloatValueResponse\x126\n" +
+	"\aFormat2\x12\x14.math.Format2Request\x1a\x15.math.Format2Response\x12<\n" +
+	"\tFormat6_1\x12\x16.math.Format6_1Request\x1a\x17.math.Format6_1Response\x129\n" +
+	"\bHashCode\x12\x15.math.HashCodeRequest\x1a\x16.math.HashCodeResponse\x129\n" +
+	"\bIntValue\x12\x15.math.IntValueRequest\x1a\x16.math.IntValueResponse\x12H\n" +
+	"\rIntValueExact\x12\x1a.math.IntValueExactRequest\x1a\x1b.math.IntValueExactResponse\x12<\n" +
+	"\tLongValue\x12\x16.math.LongValueRequest\x1a\x17.math.LongValueResponse\x12K\n" +
+	"\x0eLongValueExact\x12\x1b.math.LongValueExactRequest\x1a\x1c.math.LongValueExactResponse\x12-\n" +
+	"\x04Max1\x12\x11.math.Max1Request\x1a\x12.math.Max1Response\x123\n" +
+	"\x06Max2_1\x12\x13.math.Max2_1Request\x1a\x14.math.Max2_1Response\x12-\n" +
+	"\x04Min1\x12\x11.math.Min1Request\x1a\x12.math.Min1Response\x123\n" +
+	"\x06Min2_1\x12\x13.math.Min2_1Request\x1a\x14.math.Min2_1Response\x12H\n" +
+	"\rMovePointLeft\x12\x1a.math.MovePointLeftRequest\x1a\x1b.math.MovePointLeftResponse\x12K\n" +
+	"\x0eMovePointRight\x12\x1b.math.MovePointRightRequest\x1a\x1c.math.MovePointRightResponse\x12<\n" +
+	"\tMultiply1\x12\x16.math.Multiply1Request\x1a\x17.math.Multiply1Response\x12B\n" +
+	"\vMultiply2_1\x12\x18.math.Multiply2_1Request\x1a\x19.math.Multiply2_1Response\x126\n" +
+	"\aNegate0\x12\x14.math.Negate0Request\x1a\x15.math.Negate0Response\x12<\n" +
+	"\tNegate1_1\x12\x16.math.Negate1_1Request\x1a\x17.math.Negate1_1Response\x120\n" +
+	"\x05Plus0\x12\x12.math.Plus0Request\x1a\x13.math.Plus0Response\x126\n" +
+	"\aPlus1_1\x12\x14.math.Plus1_1Request\x1a\x15.math.Plus1_1Response\x12-\n" +
+	"\x04Pow1\x12\x11.math.Pow1Request\x1a\x12.math.Pow1Response\x123\n" +
+	"\x06Pow2_1\x12\x13.math.Pow2_1Request\x1a\x14.math.Pow2_1Response\x12?\n" +
+	"\n" +
+	"Remainder1\x12\x17.math.Remainder1Request\x1a\x18.math.Remainder1Response\x12E\n" +
+	"\fRemainder2_1\x12\x19.math.Remainder2_1Request\x1a\x1a.math.Remainder2_1Response\x120\n" +
+	"\x05Scale\x12\x12.math.ScaleRequest\x1a\x13.math.ScaleResponse\x12<\n" +
+	"\tSetScale1\x12\x16.math.SetScale1Request\x1a\x17.math.SetScale1Response\x12B\n" +
+	"\vSetScale2_1\x12\x18.math.SetScale2_1Request\x1a\x19.math.SetScale2_1Response\x12N\n" +
+	"\x0fShortValueExact\x12\x1c.math.ShortValueExactRequest\x1a\x1d.math.ShortValueExactResponse\x123\n" +
+	"\x06Signum\x12\x13.math.SignumRequest\x1a\x14.math.SignumResponse\x12<\n" +
+	"\tSubtract1\x12\x16.math.Subtract1Request\x1a\x17.math.Subtract1Response\x12B\n" +
+	"\vSubtract2_1\x12\x18.math.Subtract2_1Request\x1a\x19.math.Subtract2_1Response\x12E\n" +
+	"\fToBigDecimal\x12\x19.math.ToBigDecimalRequest\x1a\x1a.math.ToBigDecimalResponse\x12E\n" +
+	"\fToBigInteger\x12\x19.math.ToBigIntegerRequest\x1a\x1a.math.ToBigIntegerResponse\x12T\n" +
+	"\x11ToBigIntegerExact\x12\x1e.math.ToBigIntegerExactRequest\x1a\x1f.math.ToBigIntegerExactResponse\x12B\n" +
+	"\vToCharArray\x12\x18.math.ToCharArrayRequest\x1a\x19.math.ToCharArrayResponse\x129\n" +
+	"\bToString\x12\x15.math.ToStringRequest\x1a\x16.math.ToStringResponse\x12H\n" +
+	"\rUnscaledValue\x12\x1a.math.UnscaledValueRequest\x1a\x1b.math.UnscaledValueResponse\x12E\n" +
+	"\fCompareTo1_2\x12\x19.math.CompareTo1_2Request\x1a\x1a.math.CompareTo1_2Response\x129\n" +
+	"\bValueOf1\x12\x15.math.ValueOf1Request\x1a\x16.math.ValueOf1Response\x12?\n" +
+	"\n" +
+	"ValueOf1_1\x12\x17.math.ValueOf1_1Request\x1a\x18.math.ValueOf1_1Response\x12?\n" +
+	"\n" +
+	"ValueOf2_2\x12\x17.math.ValueOf2_2Request\x1a\x18.math.ValueOf2_2Response2\x9c\x03\n" +
+	"\x0eContextService\x12?\n" +
+	"\n" +
+	"NewContext\x12\x17.math.NewContextRequest\x1a\x18.math.NewContextResponse\x12<\n" +
+	"\tGetDigits\x12\x16.math.GetDigitsRequest\x1a\x17.math.GetDigitsResponse\x126\n" +
+	"\aGetForm\x12\x14.math.GetFormRequest\x1a\x15.math.GetFormResponse\x12H\n" +
+	"\rGetLostDigits\x12\x1a.math.GetLostDigitsRequest\x1a\x1b.math.GetLostDigitsResponse\x12N\n" +
+	"\x0fGetRoundingMode\x12\x1c.math.GetRoundingModeRequest\x1a\x1d.math.GetRoundingModeResponse\x129\n" +
+	"\bToString\x12\x15.math.ToStringRequest\x1a\x16.math.ToStringResponseB.Z,github.com/AndroidGoLab/jni-proxy/proto/mathb\x06proto3"
 
-var file_proto_math_math_proto_goTypes = []any{}
+var (
+	file_proto_math_math_proto_rawDescOnce sync.Once
+	file_proto_math_math_proto_rawDescData []byte
+)
+
+func file_proto_math_math_proto_rawDescGZIP() []byte {
+	file_proto_math_math_proto_rawDescOnce.Do(func() {
+		file_proto_math_math_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_proto_math_math_proto_rawDesc), len(file_proto_math_math_proto_rawDesc)))
+	})
+	return file_proto_math_math_proto_rawDescData
+}
+
+var file_proto_math_math_proto_msgTypes = make([]protoimpl.MessageInfo, 124)
+var file_proto_math_math_proto_goTypes = []any{
+	(*NewBigDecimalRequest)(nil),      // 0: math.NewBigDecimalRequest
+	(*NewBigDecimalResponse)(nil),     // 1: math.NewBigDecimalResponse
+	(*Abs0Request)(nil),               // 2: math.Abs0Request
+	(*Abs0Response)(nil),              // 3: math.Abs0Response
+	(*Abs1_1Request)(nil),             // 4: math.Abs1_1Request
+	(*Abs1_1Response)(nil),            // 5: math.Abs1_1Response
+	(*Add1Request)(nil),               // 6: math.Add1Request
+	(*Add1Response)(nil),              // 7: math.Add1Response
+	(*Add2_1Request)(nil),             // 8: math.Add2_1Request
+	(*Add2_1Response)(nil),            // 9: math.Add2_1Response
+	(*ByteValueExactRequest)(nil),     // 10: math.ByteValueExactRequest
+	(*ByteValueExactResponse)(nil),    // 11: math.ByteValueExactResponse
+	(*CompareTo1Request)(nil),         // 12: math.CompareTo1Request
+	(*CompareTo1Response)(nil),        // 13: math.CompareTo1Response
+	(*CompareTo2_1Request)(nil),       // 14: math.CompareTo2_1Request
+	(*CompareTo2_1Response)(nil),      // 15: math.CompareTo2_1Response
+	(*Divide1Request)(nil),            // 16: math.Divide1Request
+	(*Divide1Response)(nil),           // 17: math.Divide1Response
+	(*Divide2_1Request)(nil),          // 18: math.Divide2_1Request
+	(*Divide2_1Response)(nil),         // 19: math.Divide2_1Response
+	(*Divide2_2Request)(nil),          // 20: math.Divide2_2Request
+	(*Divide2_2Response)(nil),         // 21: math.Divide2_2Response
+	(*Divide3_3Request)(nil),          // 22: math.Divide3_3Request
+	(*Divide3_3Response)(nil),         // 23: math.Divide3_3Response
+	(*DivideInteger1Request)(nil),     // 24: math.DivideInteger1Request
+	(*DivideInteger1Response)(nil),    // 25: math.DivideInteger1Response
+	(*DivideInteger2_1Request)(nil),   // 26: math.DivideInteger2_1Request
+	(*DivideInteger2_1Response)(nil),  // 27: math.DivideInteger2_1Response
+	(*DoubleValueRequest)(nil),        // 28: math.DoubleValueRequest
+	(*DoubleValueResponse)(nil),       // 29: math.DoubleValueResponse
+	(*EqualsRequest)(nil),             // 30: math.EqualsRequest
+	(*EqualsResponse)(nil),            // 31: math.EqualsResponse
+	(*FloatValueRequest)(nil),         // 32: math.FloatValueRequest
+	(*FloatValueResponse)(nil),        // 33: math.FloatValueResponse
+	(*Format2Request)(nil),            // 34: math.Format2Request
+	(*Format2Response)(nil),           // 35: math.Format2Response
+	(*Format6_1Request)(nil),          // 36: math.Format6_1Request
+	(*Format6_1Response)(nil),         // 37: math.Format6_1Response
+	(*HashCodeRequest)(nil),           // 38: math.HashCodeRequest
+	(*HashCodeResponse)(nil),          // 39: math.HashCodeResponse
+	(*IntValueRequest)(nil),           // 40: math.IntValueRequest
+	(*IntValueResponse)(nil),          // 41: math.IntValueResponse
+	(*IntValueExactRequest)(nil),      // 42: math.IntValueExactRequest
+	(*IntValueExactResponse)(nil),     // 43: math.IntValueExactResponse
+	(*LongValueRequest)(nil),          // 44: math.LongValueRequest
+	(*LongValueResponse)(nil),         // 45: math.LongValueResponse
+	(*LongValueExactRequest)(nil),     // 46: math.LongValueExactRequest
+	(*LongValueExactResponse)(nil),    // 47: math.LongValueExactResponse
+	(*Max1Request)(nil),               // 48: math.Max1Request
+	(*Max1Response)(nil),              // 49: math.Max1Response
+	(*Max2_1Request)(nil),             // 50: math.Max2_1Request
+	(*Max2_1Response)(nil),            // 51: math.Max2_1Response
+	(*Min1Request)(nil),               // 52: math.Min1Request
+	(*Min1Response)(nil),              // 53: math.Min1Response
+	(*Min2_1Request)(nil),             // 54: math.Min2_1Request
+	(*Min2_1Response)(nil),            // 55: math.Min2_1Response
+	(*MovePointLeftRequest)(nil),      // 56: math.MovePointLeftRequest
+	(*MovePointLeftResponse)(nil),     // 57: math.MovePointLeftResponse
+	(*MovePointRightRequest)(nil),     // 58: math.MovePointRightRequest
+	(*MovePointRightResponse)(nil),    // 59: math.MovePointRightResponse
+	(*Multiply1Request)(nil),          // 60: math.Multiply1Request
+	(*Multiply1Response)(nil),         // 61: math.Multiply1Response
+	(*Multiply2_1Request)(nil),        // 62: math.Multiply2_1Request
+	(*Multiply2_1Response)(nil),       // 63: math.Multiply2_1Response
+	(*Negate0Request)(nil),            // 64: math.Negate0Request
+	(*Negate0Response)(nil),           // 65: math.Negate0Response
+	(*Negate1_1Request)(nil),          // 66: math.Negate1_1Request
+	(*Negate1_1Response)(nil),         // 67: math.Negate1_1Response
+	(*Plus0Request)(nil),              // 68: math.Plus0Request
+	(*Plus0Response)(nil),             // 69: math.Plus0Response
+	(*Plus1_1Request)(nil),            // 70: math.Plus1_1Request
+	(*Plus1_1Response)(nil),           // 71: math.Plus1_1Response
+	(*Pow1Request)(nil),               // 72: math.Pow1Request
+	(*Pow1Response)(nil),              // 73: math.Pow1Response
+	(*Pow2_1Request)(nil),             // 74: math.Pow2_1Request
+	(*Pow2_1Response)(nil),            // 75: math.Pow2_1Response
+	(*Remainder1Request)(nil),         // 76: math.Remainder1Request
+	(*Remainder1Response)(nil),        // 77: math.Remainder1Response
+	(*Remainder2_1Request)(nil),       // 78: math.Remainder2_1Request
+	(*Remainder2_1Response)(nil),      // 79: math.Remainder2_1Response
+	(*ScaleRequest)(nil),              // 80: math.ScaleRequest
+	(*ScaleResponse)(nil),             // 81: math.ScaleResponse
+	(*SetScale1Request)(nil),          // 82: math.SetScale1Request
+	(*SetScale1Response)(nil),         // 83: math.SetScale1Response
+	(*SetScale2_1Request)(nil),        // 84: math.SetScale2_1Request
+	(*SetScale2_1Response)(nil),       // 85: math.SetScale2_1Response
+	(*ShortValueExactRequest)(nil),    // 86: math.ShortValueExactRequest
+	(*ShortValueExactResponse)(nil),   // 87: math.ShortValueExactResponse
+	(*SignumRequest)(nil),             // 88: math.SignumRequest
+	(*SignumResponse)(nil),            // 89: math.SignumResponse
+	(*Subtract1Request)(nil),          // 90: math.Subtract1Request
+	(*Subtract1Response)(nil),         // 91: math.Subtract1Response
+	(*Subtract2_1Request)(nil),        // 92: math.Subtract2_1Request
+	(*Subtract2_1Response)(nil),       // 93: math.Subtract2_1Response
+	(*ToBigDecimalRequest)(nil),       // 94: math.ToBigDecimalRequest
+	(*ToBigDecimalResponse)(nil),      // 95: math.ToBigDecimalResponse
+	(*ToBigIntegerRequest)(nil),       // 96: math.ToBigIntegerRequest
+	(*ToBigIntegerResponse)(nil),      // 97: math.ToBigIntegerResponse
+	(*ToBigIntegerExactRequest)(nil),  // 98: math.ToBigIntegerExactRequest
+	(*ToBigIntegerExactResponse)(nil), // 99: math.ToBigIntegerExactResponse
+	(*ToCharArrayRequest)(nil),        // 100: math.ToCharArrayRequest
+	(*ToCharArrayResponse)(nil),       // 101: math.ToCharArrayResponse
+	(*ToStringRequest)(nil),           // 102: math.ToStringRequest
+	(*ToStringResponse)(nil),          // 103: math.ToStringResponse
+	(*UnscaledValueRequest)(nil),      // 104: math.UnscaledValueRequest
+	(*UnscaledValueResponse)(nil),     // 105: math.UnscaledValueResponse
+	(*CompareTo1_2Request)(nil),       // 106: math.CompareTo1_2Request
+	(*CompareTo1_2Response)(nil),      // 107: math.CompareTo1_2Response
+	(*ValueOf1Request)(nil),           // 108: math.ValueOf1Request
+	(*ValueOf1Response)(nil),          // 109: math.ValueOf1Response
+	(*ValueOf1_1Request)(nil),         // 110: math.ValueOf1_1Request
+	(*ValueOf1_1Response)(nil),        // 111: math.ValueOf1_1Response
+	(*ValueOf2_2Request)(nil),         // 112: math.ValueOf2_2Request
+	(*ValueOf2_2Response)(nil),        // 113: math.ValueOf2_2Response
+	(*NewContextRequest)(nil),         // 114: math.NewContextRequest
+	(*NewContextResponse)(nil),        // 115: math.NewContextResponse
+	(*GetDigitsRequest)(nil),          // 116: math.GetDigitsRequest
+	(*GetDigitsResponse)(nil),         // 117: math.GetDigitsResponse
+	(*GetFormRequest)(nil),            // 118: math.GetFormRequest
+	(*GetFormResponse)(nil),           // 119: math.GetFormResponse
+	(*GetLostDigitsRequest)(nil),      // 120: math.GetLostDigitsRequest
+	(*GetLostDigitsResponse)(nil),     // 121: math.GetLostDigitsResponse
+	(*GetRoundingModeRequest)(nil),    // 122: math.GetRoundingModeRequest
+	(*GetRoundingModeResponse)(nil),   // 123: math.GetRoundingModeResponse
+}
 var file_proto_math_math_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	0,   // 0: math.BigDecimalService.NewBigDecimal:input_type -> math.NewBigDecimalRequest
+	2,   // 1: math.BigDecimalService.Abs0:input_type -> math.Abs0Request
+	4,   // 2: math.BigDecimalService.Abs1_1:input_type -> math.Abs1_1Request
+	6,   // 3: math.BigDecimalService.Add1:input_type -> math.Add1Request
+	8,   // 4: math.BigDecimalService.Add2_1:input_type -> math.Add2_1Request
+	10,  // 5: math.BigDecimalService.ByteValueExact:input_type -> math.ByteValueExactRequest
+	12,  // 6: math.BigDecimalService.CompareTo1:input_type -> math.CompareTo1Request
+	14,  // 7: math.BigDecimalService.CompareTo2_1:input_type -> math.CompareTo2_1Request
+	16,  // 8: math.BigDecimalService.Divide1:input_type -> math.Divide1Request
+	18,  // 9: math.BigDecimalService.Divide2_1:input_type -> math.Divide2_1Request
+	20,  // 10: math.BigDecimalService.Divide2_2:input_type -> math.Divide2_2Request
+	22,  // 11: math.BigDecimalService.Divide3_3:input_type -> math.Divide3_3Request
+	24,  // 12: math.BigDecimalService.DivideInteger1:input_type -> math.DivideInteger1Request
+	26,  // 13: math.BigDecimalService.DivideInteger2_1:input_type -> math.DivideInteger2_1Request
+	28,  // 14: math.BigDecimalService.DoubleValue:input_type -> math.DoubleValueRequest
+	30,  // 15: math.BigDecimalService.Equals:input_type -> math.EqualsRequest
+	32,  // 16: math.BigDecimalService.FloatValue:input_type -> math.FloatValueRequest
+	34,  // 17: math.BigDecimalService.Format2:input_type -> math.Format2Request
+	36,  // 18: math.BigDecimalService.Format6_1:input_type -> math.Format6_1Request
+	38,  // 19: math.BigDecimalService.HashCode:input_type -> math.HashCodeRequest
+	40,  // 20: math.BigDecimalService.IntValue:input_type -> math.IntValueRequest
+	42,  // 21: math.BigDecimalService.IntValueExact:input_type -> math.IntValueExactRequest
+	44,  // 22: math.BigDecimalService.LongValue:input_type -> math.LongValueRequest
+	46,  // 23: math.BigDecimalService.LongValueExact:input_type -> math.LongValueExactRequest
+	48,  // 24: math.BigDecimalService.Max1:input_type -> math.Max1Request
+	50,  // 25: math.BigDecimalService.Max2_1:input_type -> math.Max2_1Request
+	52,  // 26: math.BigDecimalService.Min1:input_type -> math.Min1Request
+	54,  // 27: math.BigDecimalService.Min2_1:input_type -> math.Min2_1Request
+	56,  // 28: math.BigDecimalService.MovePointLeft:input_type -> math.MovePointLeftRequest
+	58,  // 29: math.BigDecimalService.MovePointRight:input_type -> math.MovePointRightRequest
+	60,  // 30: math.BigDecimalService.Multiply1:input_type -> math.Multiply1Request
+	62,  // 31: math.BigDecimalService.Multiply2_1:input_type -> math.Multiply2_1Request
+	64,  // 32: math.BigDecimalService.Negate0:input_type -> math.Negate0Request
+	66,  // 33: math.BigDecimalService.Negate1_1:input_type -> math.Negate1_1Request
+	68,  // 34: math.BigDecimalService.Plus0:input_type -> math.Plus0Request
+	70,  // 35: math.BigDecimalService.Plus1_1:input_type -> math.Plus1_1Request
+	72,  // 36: math.BigDecimalService.Pow1:input_type -> math.Pow1Request
+	74,  // 37: math.BigDecimalService.Pow2_1:input_type -> math.Pow2_1Request
+	76,  // 38: math.BigDecimalService.Remainder1:input_type -> math.Remainder1Request
+	78,  // 39: math.BigDecimalService.Remainder2_1:input_type -> math.Remainder2_1Request
+	80,  // 40: math.BigDecimalService.Scale:input_type -> math.ScaleRequest
+	82,  // 41: math.BigDecimalService.SetScale1:input_type -> math.SetScale1Request
+	84,  // 42: math.BigDecimalService.SetScale2_1:input_type -> math.SetScale2_1Request
+	86,  // 43: math.BigDecimalService.ShortValueExact:input_type -> math.ShortValueExactRequest
+	88,  // 44: math.BigDecimalService.Signum:input_type -> math.SignumRequest
+	90,  // 45: math.BigDecimalService.Subtract1:input_type -> math.Subtract1Request
+	92,  // 46: math.BigDecimalService.Subtract2_1:input_type -> math.Subtract2_1Request
+	94,  // 47: math.BigDecimalService.ToBigDecimal:input_type -> math.ToBigDecimalRequest
+	96,  // 48: math.BigDecimalService.ToBigInteger:input_type -> math.ToBigIntegerRequest
+	98,  // 49: math.BigDecimalService.ToBigIntegerExact:input_type -> math.ToBigIntegerExactRequest
+	100, // 50: math.BigDecimalService.ToCharArray:input_type -> math.ToCharArrayRequest
+	102, // 51: math.BigDecimalService.ToString:input_type -> math.ToStringRequest
+	104, // 52: math.BigDecimalService.UnscaledValue:input_type -> math.UnscaledValueRequest
+	106, // 53: math.BigDecimalService.CompareTo1_2:input_type -> math.CompareTo1_2Request
+	108, // 54: math.BigDecimalService.ValueOf1:input_type -> math.ValueOf1Request
+	110, // 55: math.BigDecimalService.ValueOf1_1:input_type -> math.ValueOf1_1Request
+	112, // 56: math.BigDecimalService.ValueOf2_2:input_type -> math.ValueOf2_2Request
+	114, // 57: math.ContextService.NewContext:input_type -> math.NewContextRequest
+	116, // 58: math.ContextService.GetDigits:input_type -> math.GetDigitsRequest
+	118, // 59: math.ContextService.GetForm:input_type -> math.GetFormRequest
+	120, // 60: math.ContextService.GetLostDigits:input_type -> math.GetLostDigitsRequest
+	122, // 61: math.ContextService.GetRoundingMode:input_type -> math.GetRoundingModeRequest
+	102, // 62: math.ContextService.ToString:input_type -> math.ToStringRequest
+	1,   // 63: math.BigDecimalService.NewBigDecimal:output_type -> math.NewBigDecimalResponse
+	3,   // 64: math.BigDecimalService.Abs0:output_type -> math.Abs0Response
+	5,   // 65: math.BigDecimalService.Abs1_1:output_type -> math.Abs1_1Response
+	7,   // 66: math.BigDecimalService.Add1:output_type -> math.Add1Response
+	9,   // 67: math.BigDecimalService.Add2_1:output_type -> math.Add2_1Response
+	11,  // 68: math.BigDecimalService.ByteValueExact:output_type -> math.ByteValueExactResponse
+	13,  // 69: math.BigDecimalService.CompareTo1:output_type -> math.CompareTo1Response
+	15,  // 70: math.BigDecimalService.CompareTo2_1:output_type -> math.CompareTo2_1Response
+	17,  // 71: math.BigDecimalService.Divide1:output_type -> math.Divide1Response
+	19,  // 72: math.BigDecimalService.Divide2_1:output_type -> math.Divide2_1Response
+	21,  // 73: math.BigDecimalService.Divide2_2:output_type -> math.Divide2_2Response
+	23,  // 74: math.BigDecimalService.Divide3_3:output_type -> math.Divide3_3Response
+	25,  // 75: math.BigDecimalService.DivideInteger1:output_type -> math.DivideInteger1Response
+	27,  // 76: math.BigDecimalService.DivideInteger2_1:output_type -> math.DivideInteger2_1Response
+	29,  // 77: math.BigDecimalService.DoubleValue:output_type -> math.DoubleValueResponse
+	31,  // 78: math.BigDecimalService.Equals:output_type -> math.EqualsResponse
+	33,  // 79: math.BigDecimalService.FloatValue:output_type -> math.FloatValueResponse
+	35,  // 80: math.BigDecimalService.Format2:output_type -> math.Format2Response
+	37,  // 81: math.BigDecimalService.Format6_1:output_type -> math.Format6_1Response
+	39,  // 82: math.BigDecimalService.HashCode:output_type -> math.HashCodeResponse
+	41,  // 83: math.BigDecimalService.IntValue:output_type -> math.IntValueResponse
+	43,  // 84: math.BigDecimalService.IntValueExact:output_type -> math.IntValueExactResponse
+	45,  // 85: math.BigDecimalService.LongValue:output_type -> math.LongValueResponse
+	47,  // 86: math.BigDecimalService.LongValueExact:output_type -> math.LongValueExactResponse
+	49,  // 87: math.BigDecimalService.Max1:output_type -> math.Max1Response
+	51,  // 88: math.BigDecimalService.Max2_1:output_type -> math.Max2_1Response
+	53,  // 89: math.BigDecimalService.Min1:output_type -> math.Min1Response
+	55,  // 90: math.BigDecimalService.Min2_1:output_type -> math.Min2_1Response
+	57,  // 91: math.BigDecimalService.MovePointLeft:output_type -> math.MovePointLeftResponse
+	59,  // 92: math.BigDecimalService.MovePointRight:output_type -> math.MovePointRightResponse
+	61,  // 93: math.BigDecimalService.Multiply1:output_type -> math.Multiply1Response
+	63,  // 94: math.BigDecimalService.Multiply2_1:output_type -> math.Multiply2_1Response
+	65,  // 95: math.BigDecimalService.Negate0:output_type -> math.Negate0Response
+	67,  // 96: math.BigDecimalService.Negate1_1:output_type -> math.Negate1_1Response
+	69,  // 97: math.BigDecimalService.Plus0:output_type -> math.Plus0Response
+	71,  // 98: math.BigDecimalService.Plus1_1:output_type -> math.Plus1_1Response
+	73,  // 99: math.BigDecimalService.Pow1:output_type -> math.Pow1Response
+	75,  // 100: math.BigDecimalService.Pow2_1:output_type -> math.Pow2_1Response
+	77,  // 101: math.BigDecimalService.Remainder1:output_type -> math.Remainder1Response
+	79,  // 102: math.BigDecimalService.Remainder2_1:output_type -> math.Remainder2_1Response
+	81,  // 103: math.BigDecimalService.Scale:output_type -> math.ScaleResponse
+	83,  // 104: math.BigDecimalService.SetScale1:output_type -> math.SetScale1Response
+	85,  // 105: math.BigDecimalService.SetScale2_1:output_type -> math.SetScale2_1Response
+	87,  // 106: math.BigDecimalService.ShortValueExact:output_type -> math.ShortValueExactResponse
+	89,  // 107: math.BigDecimalService.Signum:output_type -> math.SignumResponse
+	91,  // 108: math.BigDecimalService.Subtract1:output_type -> math.Subtract1Response
+	93,  // 109: math.BigDecimalService.Subtract2_1:output_type -> math.Subtract2_1Response
+	95,  // 110: math.BigDecimalService.ToBigDecimal:output_type -> math.ToBigDecimalResponse
+	97,  // 111: math.BigDecimalService.ToBigInteger:output_type -> math.ToBigIntegerResponse
+	99,  // 112: math.BigDecimalService.ToBigIntegerExact:output_type -> math.ToBigIntegerExactResponse
+	101, // 113: math.BigDecimalService.ToCharArray:output_type -> math.ToCharArrayResponse
+	103, // 114: math.BigDecimalService.ToString:output_type -> math.ToStringResponse
+	105, // 115: math.BigDecimalService.UnscaledValue:output_type -> math.UnscaledValueResponse
+	107, // 116: math.BigDecimalService.CompareTo1_2:output_type -> math.CompareTo1_2Response
+	109, // 117: math.BigDecimalService.ValueOf1:output_type -> math.ValueOf1Response
+	111, // 118: math.BigDecimalService.ValueOf1_1:output_type -> math.ValueOf1_1Response
+	113, // 119: math.BigDecimalService.ValueOf2_2:output_type -> math.ValueOf2_2Response
+	115, // 120: math.ContextService.NewContext:output_type -> math.NewContextResponse
+	117, // 121: math.ContextService.GetDigits:output_type -> math.GetDigitsResponse
+	119, // 122: math.ContextService.GetForm:output_type -> math.GetFormResponse
+	121, // 123: math.ContextService.GetLostDigits:output_type -> math.GetLostDigitsResponse
+	123, // 124: math.ContextService.GetRoundingMode:output_type -> math.GetRoundingModeResponse
+	103, // 125: math.ContextService.ToString:output_type -> math.ToStringResponse
+	63,  // [63:126] is the sub-list for method output_type
+	0,   // [0:63] is the sub-list for method input_type
+	0,   // [0:0] is the sub-list for extension type_name
+	0,   // [0:0] is the sub-list for extension extendee
+	0,   // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_proto_math_math_proto_init() }
@@ -48,12 +6601,13 @@ func file_proto_math_math_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_math_math_proto_rawDesc), len(file_proto_math_math_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   124,
 			NumExtensions: 0,
-			NumServices:   0,
+			NumServices:   2,
 		},
 		GoTypes:           file_proto_math_math_proto_goTypes,
 		DependencyIndexes: file_proto_math_math_proto_depIdxs,
+		MessageInfos:      file_proto_math_math_proto_msgTypes,
 	}.Build()
 	File_proto_math_math_proto = out.File
 	file_proto_math_math_proto_goTypes = nil

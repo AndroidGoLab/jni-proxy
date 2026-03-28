@@ -62,3 +62,449 @@ func (c *ManagerClient) GetStrings(ctx context.Context, arg0 int32) (int64, erro
 	}
 	return resp.GetResult(), nil
 }
+
+// ManagerStringsClient wraps the gRPC ManagerStringsService client.
+type ManagerStringsClient struct {
+	svc pb.ManagerStringsServiceClient
+}
+
+// NewManagerStringsClient creates a new ManagerStrings client.
+func NewManagerStringsClient(cc grpc.ClientConnInterface) *ManagerStringsClient {
+	return &ManagerStringsClient{
+		svc: pb.NewManagerStringsServiceClient(cc),
+	}
+}
+
+// GetButtonLabel calls the GetButtonLabel RPC.
+func (c *ManagerStringsClient) GetButtonLabel(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetButtonLabel(ctx, &pb.GetButtonLabelRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPromptMessage calls the GetPromptMessage RPC.
+func (c *ManagerStringsClient) GetPromptMessage(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPromptMessage(ctx, &pb.GetPromptMessageRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSettingName calls the GetSettingName RPC.
+func (c *ManagerStringsClient) GetSettingName(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSettingName(ctx, &pb.GetSettingNameRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PromptClient wraps the gRPC PromptService client.
+type PromptClient struct {
+	svc pb.PromptServiceClient
+}
+
+// NewPromptClient creates a new Prompt client.
+func NewPromptClient(cc grpc.ClientConnInterface) *PromptClient {
+	return &PromptClient{
+		svc: pb.NewPromptServiceClient(cc),
+	}
+}
+
+// Authenticate4 calls the Authenticate4 RPC.
+func (c *PromptClient) Authenticate4(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
+	_, err := c.svc.Authenticate4(ctx, &pb.Authenticate4Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// Authenticate3_1 calls the Authenticate3_1 RPC.
+func (c *PromptClient) Authenticate3_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.Authenticate3_1(ctx, &pb.Authenticate3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// GetAllowedAuthenticators calls the GetAllowedAuthenticators RPC.
+func (c *PromptClient) GetAllowedAuthenticators(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetAllowedAuthenticators(ctx, &pb.GetAllowedAuthenticatorsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetContentView calls the GetContentView RPC.
+func (c *PromptClient) GetContentView(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetContentView(ctx, &pb.GetContentViewRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDescription calls the GetDescription RPC.
+func (c *PromptClient) GetDescription(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDescription(ctx, &pb.GetDescriptionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLogoBitmap calls the GetLogoBitmap RPC.
+func (c *PromptClient) GetLogoBitmap(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetLogoBitmap(ctx, &pb.GetLogoBitmapRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLogoDescription calls the GetLogoDescription RPC.
+func (c *PromptClient) GetLogoDescription(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetLogoDescription(ctx, &pb.GetLogoDescriptionRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLogoRes calls the GetLogoRes RPC.
+func (c *PromptClient) GetLogoRes(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetLogoRes(ctx, &pb.GetLogoResRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNegativeButtonText calls the GetNegativeButtonText RPC.
+func (c *PromptClient) GetNegativeButtonText(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetNegativeButtonText(ctx, &pb.GetNegativeButtonTextRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSubtitle calls the GetSubtitle RPC.
+func (c *PromptClient) GetSubtitle(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSubtitle(ctx, &pb.GetSubtitleRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTitle calls the GetTitle RPC.
+func (c *PromptClient) GetTitle(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTitle(ctx, &pb.GetTitleRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsConfirmationRequired calls the IsConfirmationRequired RPC.
+func (c *PromptClient) IsConfirmationRequired(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsConfirmationRequired(ctx, &pb.IsConfirmationRequiredRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PromptAuthenticationCallbackClient wraps the gRPC PromptAuthenticationCallbackService client.
+type PromptAuthenticationCallbackClient struct {
+	svc pb.PromptAuthenticationCallbackServiceClient
+}
+
+// NewPromptAuthenticationCallbackClient creates a new PromptAuthenticationCallback client.
+func NewPromptAuthenticationCallbackClient(cc grpc.ClientConnInterface) *PromptAuthenticationCallbackClient {
+	return &PromptAuthenticationCallbackClient{
+		svc: pb.NewPromptAuthenticationCallbackServiceClient(cc),
+	}
+}
+
+// OnAuthenticationError calls the OnAuthenticationError RPC.
+func (c *PromptAuthenticationCallbackClient) OnAuthenticationError(ctx context.Context, arg0 int32, arg1 string) error {
+	_, err := c.svc.OnAuthenticationError(ctx, &pb.OnAuthenticationErrorRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnAuthenticationFailed calls the OnAuthenticationFailed RPC.
+func (c *PromptAuthenticationCallbackClient) OnAuthenticationFailed(ctx context.Context) error {
+	_, err := c.svc.OnAuthenticationFailed(ctx, &pb.OnAuthenticationFailedRequest{})
+	return err
+}
+
+// OnAuthenticationHelp calls the OnAuthenticationHelp RPC.
+func (c *PromptAuthenticationCallbackClient) OnAuthenticationHelp(ctx context.Context, arg0 int32, arg1 string) error {
+	_, err := c.svc.OnAuthenticationHelp(ctx, &pb.OnAuthenticationHelpRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnAuthenticationSucceeded calls the OnAuthenticationSucceeded RPC.
+func (c *PromptAuthenticationCallbackClient) OnAuthenticationSucceeded(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnAuthenticationSucceeded(ctx, &pb.OnAuthenticationSucceededRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// PromptAuthenticationResultClient wraps the gRPC PromptAuthenticationResultService client.
+type PromptAuthenticationResultClient struct {
+	svc pb.PromptAuthenticationResultServiceClient
+}
+
+// NewPromptAuthenticationResultClient creates a new PromptAuthenticationResult client.
+func NewPromptAuthenticationResultClient(cc grpc.ClientConnInterface) *PromptAuthenticationResultClient {
+	return &PromptAuthenticationResultClient{
+		svc: pb.NewPromptAuthenticationResultServiceClient(cc),
+	}
+}
+
+// GetAuthenticationType calls the GetAuthenticationType RPC.
+func (c *PromptAuthenticationResultClient) GetAuthenticationType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetAuthenticationType(ctx, &pb.GetAuthenticationTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCryptoObject calls the GetCryptoObject RPC.
+func (c *PromptAuthenticationResultClient) GetCryptoObject(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetCryptoObject(ctx, &pb.GetCryptoObjectRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PromptBuilderClient wraps the gRPC PromptBuilderService client.
+type PromptBuilderClient struct {
+	svc pb.PromptBuilderServiceClient
+}
+
+// NewPromptBuilderClient creates a new PromptBuilder client.
+func NewPromptBuilderClient(cc grpc.ClientConnInterface) *PromptBuilderClient {
+	return &PromptBuilderClient{
+		svc: pb.NewPromptBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *PromptBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetAllowedAuthenticators calls the SetAllowedAuthenticators RPC.
+func (c *PromptBuilderClient) SetAllowedAuthenticators(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetAllowedAuthenticators(ctx, &pb.SetAllowedAuthenticatorsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetConfirmationRequired calls the SetConfirmationRequired RPC.
+func (c *PromptBuilderClient) SetConfirmationRequired(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetConfirmationRequired(ctx, &pb.SetConfirmationRequiredRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetContentView calls the SetContentView RPC.
+func (c *PromptBuilderClient) SetContentView(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetContentView(ctx, &pb.SetContentViewRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetDescription calls the SetDescription RPC.
+func (c *PromptBuilderClient) SetDescription(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetDescription(ctx, &pb.SetDescriptionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetDeviceCredentialAllowed calls the SetDeviceCredentialAllowed RPC.
+func (c *PromptBuilderClient) SetDeviceCredentialAllowed(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetDeviceCredentialAllowed(ctx, &pb.SetDeviceCredentialAllowedRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetLogoBitmap calls the SetLogoBitmap RPC.
+func (c *PromptBuilderClient) SetLogoBitmap(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetLogoBitmap(ctx, &pb.SetLogoBitmapRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetLogoDescription calls the SetLogoDescription RPC.
+func (c *PromptBuilderClient) SetLogoDescription(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetLogoDescription(ctx, &pb.SetLogoDescriptionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetLogoRes calls the SetLogoRes RPC.
+func (c *PromptBuilderClient) SetLogoRes(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetLogoRes(ctx, &pb.SetLogoResRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetNegativeButton calls the SetNegativeButton RPC.
+func (c *PromptBuilderClient) SetNegativeButton(ctx context.Context, arg0 string, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.SetNegativeButton(ctx, &pb.SetNegativeButtonRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSubtitle calls the SetSubtitle RPC.
+func (c *PromptBuilderClient) SetSubtitle(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetSubtitle(ctx, &pb.SetSubtitleRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetTitle calls the SetTitle RPC.
+func (c *PromptBuilderClient) SetTitle(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetTitle(ctx, &pb.SetTitleRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PromptCryptoObjectClient wraps the gRPC PromptCryptoObjectService client.
+type PromptCryptoObjectClient struct {
+	svc pb.PromptCryptoObjectServiceClient
+}
+
+// NewPromptCryptoObjectClient creates a new PromptCryptoObject client.
+func NewPromptCryptoObjectClient(cc grpc.ClientConnInterface) *PromptCryptoObjectClient {
+	return &PromptCryptoObjectClient{
+		svc: pb.NewPromptCryptoObjectServiceClient(cc),
+	}
+}
+
+// GetCipher calls the GetCipher RPC.
+func (c *PromptCryptoObjectClient) GetCipher(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetCipher(ctx, &pb.GetCipherRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIdentityCredential calls the GetIdentityCredential RPC.
+func (c *PromptCryptoObjectClient) GetIdentityCredential(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetIdentityCredential(ctx, &pb.GetIdentityCredentialRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMac calls the GetMac RPC.
+func (c *PromptCryptoObjectClient) GetMac(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetMac(ctx, &pb.GetMacRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOperationHandle calls the GetOperationHandle RPC.
+func (c *PromptCryptoObjectClient) GetOperationHandle(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetOperationHandle(ctx, &pb.GetOperationHandleRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPresentationSession calls the GetPresentationSession RPC.
+func (c *PromptCryptoObjectClient) GetPresentationSession(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPresentationSession(ctx, &pb.GetPresentationSessionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSignature calls the GetSignature RPC.
+func (c *PromptCryptoObjectClient) GetSignature(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSignature(ctx, &pb.GetSignatureRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}

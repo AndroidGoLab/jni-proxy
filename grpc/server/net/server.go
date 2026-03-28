@@ -15,6 +15,985 @@ import (
 	"google.golang.org/grpc/status"
 )
 
+// ConnectivityDiagnosticsManagerServer implements pb.ConnectivityDiagnosticsManagerServiceServer.
+type ConnectivityDiagnosticsManagerServer struct {
+	pb.UnimplementedConnectivityDiagnosticsManagerServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *ConnectivityDiagnosticsManagerServer) RegisterConnectivityDiagnosticsCallback(_ context.Context, req *pb.RegisterConnectivityDiagnosticsCallbackRequest) (*pb.RegisterConnectivityDiagnosticsCallbackResponse, error) {
+	mgr, err := jnipkg.NewConnectivityDiagnosticsManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.RegisterConnectivityDiagnosticsCallback(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.RegisterConnectivityDiagnosticsCallbackResponse{}, nil
+}
+
+func (s *ConnectivityDiagnosticsManagerServer) UnregisterConnectivityDiagnosticsCallback(_ context.Context, req *pb.UnregisterConnectivityDiagnosticsCallbackRequest) (*pb.UnregisterConnectivityDiagnosticsCallbackResponse, error) {
+	mgr, err := jnipkg.NewConnectivityDiagnosticsManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.UnregisterConnectivityDiagnosticsCallback(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.UnregisterConnectivityDiagnosticsCallbackResponse{}, nil
+}
+
+// ProxyInfoServer implements pb.ProxyInfoServiceServer.
+type ProxyInfoServer struct {
+	pb.UnimplementedProxyInfoServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *ProxyInfoServer) NewProxyInfo(_ context.Context, req *pb.NewProxyInfoRequest) (*pb.NewProxyInfoResponse, error) {
+	obj, err := jnipkg.NewProxyInfo(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewProxyInfoResponse{Result: handle}, nil
+}
+
+func (s *ProxyInfoServer) DescribeContents(_ context.Context, req *pb.ProxyInfoDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ProxyInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *ProxyInfoServer) Equals(_ context.Context, req *pb.ProxyInfoEqualsRequest) (*pb.EqualsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ProxyInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Equals(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EqualsResponse{Result: result}, nil
+}
+
+func (s *ProxyInfoServer) GetExclusionList(_ context.Context, req *pb.GetExclusionListRequest) (*pb.GetExclusionListResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ProxyInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetExclusionList()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetExclusionListResponse{Result: handle}, nil
+}
+
+func (s *ProxyInfoServer) GetHost(_ context.Context, req *pb.GetHostRequest) (*pb.GetHostResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ProxyInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetHost()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetHostResponse{Result: result}, nil
+}
+
+func (s *ProxyInfoServer) GetPacFileUrl(_ context.Context, req *pb.GetPacFileUrlRequest) (*pb.GetPacFileUrlResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ProxyInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetPacFileUrl()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetPacFileUrlResponse{Result: handle}, nil
+}
+
+func (s *ProxyInfoServer) GetPort(_ context.Context, req *pb.GetPortRequest) (*pb.GetPortResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ProxyInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetPort()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetPortResponse{Result: result}, nil
+}
+
+func (s *ProxyInfoServer) HashCode(_ context.Context, req *pb.ProxyInfoHashCodeRequest) (*pb.HashCodeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ProxyInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.HashCode()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.HashCodeResponse{Result: result}, nil
+}
+
+func (s *ProxyInfoServer) IsValid(_ context.Context, req *pb.IsValidRequest) (*pb.IsValidResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ProxyInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsValid()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsValidResponse{Result: result}, nil
+}
+
+func (s *ProxyInfoServer) ToString(_ context.Context, req *pb.ProxyInfoToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ProxyInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *ProxyInfoServer) WriteToParcel(_ context.Context, req *pb.ProxyInfoWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ProxyInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
+func (s *ProxyInfoServer) BuildDirectProxy(_ context.Context, req *pb.BuildDirectProxyRequest) (*pb.BuildDirectProxyResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ProxyInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.BuildDirectProxy(req.GetArg0(), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.BuildDirectProxyResponse{Result: handle}, nil
+}
+
+func (s *ProxyInfoServer) BuildPacProxy1(_ context.Context, req *pb.BuildPacProxy1Request) (*pb.BuildPacProxy1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ProxyInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.BuildPacProxy1(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.BuildPacProxy1Response{Result: handle}, nil
+}
+
+func (s *ProxyInfoServer) BuildPacProxy2_1(_ context.Context, req *pb.BuildPacProxy2_1Request) (*pb.BuildPacProxy2_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ProxyInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.BuildPacProxy2_1(s.Handles.Get(req.GetArg0()), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.BuildPacProxy2_1Response{Result: handle}, nil
+}
+
+// LocalServerSocketServer implements pb.LocalServerSocketServiceServer.
+type LocalServerSocketServer struct {
+	pb.UnimplementedLocalServerSocketServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *LocalServerSocketServer) NewLocalServerSocket(_ context.Context, req *pb.NewLocalServerSocketRequest) (*pb.NewLocalServerSocketResponse, error) {
+	obj, err := jnipkg.NewLocalServerSocket(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewLocalServerSocketResponse{Result: handle}, nil
+}
+
+func (s *LocalServerSocketServer) Accept(_ context.Context, req *pb.AcceptRequest) (*pb.AcceptResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LocalServerSocket{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Accept()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.AcceptResponse{Result: handle}, nil
+}
+
+func (s *LocalServerSocketServer) Close(_ context.Context, req *pb.CloseRequest) (*pb.CloseResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LocalServerSocket{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Close(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.CloseResponse{}, nil
+}
+
+func (s *LocalServerSocketServer) GetFileDescriptor(_ context.Context, req *pb.GetFileDescriptorRequest) (*pb.GetFileDescriptorResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LocalServerSocket{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetFileDescriptor()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetFileDescriptorResponse{Result: handle}, nil
+}
+
+func (s *LocalServerSocketServer) GetLocalSocketAddress(_ context.Context, req *pb.GetLocalSocketAddressRequest) (*pb.GetLocalSocketAddressResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LocalServerSocket{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetLocalSocketAddress()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetLocalSocketAddressResponse{Result: handle}, nil
+}
+
+// EthernetNetworkSpecifierServer implements pb.EthernetNetworkSpecifierServiceServer.
+type EthernetNetworkSpecifierServer struct {
+	pb.UnimplementedEthernetNetworkSpecifierServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *EthernetNetworkSpecifierServer) NewEthernetNetworkSpecifier(_ context.Context, req *pb.NewEthernetNetworkSpecifierRequest) (*pb.NewEthernetNetworkSpecifierResponse, error) {
+	obj, err := jnipkg.NewEthernetNetworkSpecifier(s.Ctx.VM, req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewEthernetNetworkSpecifierResponse{Result: handle}, nil
+}
+
+func (s *EthernetNetworkSpecifierServer) CanBeSatisfiedBy(_ context.Context, req *pb.CanBeSatisfiedByRequest) (*pb.CanBeSatisfiedByResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EthernetNetworkSpecifier{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.CanBeSatisfiedBy(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.CanBeSatisfiedByResponse{Result: result}, nil
+}
+
+func (s *EthernetNetworkSpecifierServer) DescribeContents(_ context.Context, req *pb.EthernetNetworkSpecifierDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EthernetNetworkSpecifier{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *EthernetNetworkSpecifierServer) Equals(_ context.Context, req *pb.EthernetNetworkSpecifierEqualsRequest) (*pb.EqualsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EthernetNetworkSpecifier{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Equals(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EqualsResponse{Result: result}, nil
+}
+
+func (s *EthernetNetworkSpecifierServer) GetInterfaceName(_ context.Context, req *pb.GetInterfaceNameRequest) (*pb.GetInterfaceNameResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EthernetNetworkSpecifier{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetInterfaceName()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetInterfaceNameResponse{Result: result}, nil
+}
+
+func (s *EthernetNetworkSpecifierServer) HashCode(_ context.Context, req *pb.EthernetNetworkSpecifierHashCodeRequest) (*pb.HashCodeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EthernetNetworkSpecifier{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.HashCode()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.HashCodeResponse{Result: result}, nil
+}
+
+func (s *EthernetNetworkSpecifierServer) ToString(_ context.Context, req *pb.EthernetNetworkSpecifierToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EthernetNetworkSpecifier{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *EthernetNetworkSpecifierServer) WriteToParcel(_ context.Context, req *pb.EthernetNetworkSpecifierWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.EthernetNetworkSpecifier{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
+// CredentialsServer implements pb.CredentialsServiceServer.
+type CredentialsServer struct {
+	pb.UnimplementedCredentialsServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *CredentialsServer) NewCredentials(_ context.Context, req *pb.NewCredentialsRequest) (*pb.NewCredentialsResponse, error) {
+	obj, err := jnipkg.NewCredentials(s.Ctx.VM, req.GetArg0(), req.GetArg1(), req.GetArg2())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewCredentialsResponse{Result: handle}, nil
+}
+
+func (s *CredentialsServer) GetGid(_ context.Context, req *pb.GetGidRequest) (*pb.GetGidResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Credentials{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetGid()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetGidResponse{Result: result}, nil
+}
+
+func (s *CredentialsServer) GetPid(_ context.Context, req *pb.GetPidRequest) (*pb.GetPidResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Credentials{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetPid()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetPidResponse{Result: result}, nil
+}
+
+func (s *CredentialsServer) GetUid(_ context.Context, req *pb.GetUidRequest) (*pb.GetUidResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Credentials{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetUid()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetUidResponse{Result: result}, nil
+}
+
+// LocalSocketServer implements pb.LocalSocketServiceServer.
+type LocalSocketServer struct {
+	pb.UnimplementedLocalSocketServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *LocalSocketServer) NewLocalSocket(_ context.Context, req *pb.NewLocalSocketRequest) (*pb.NewLocalSocketResponse, error) {
+	obj, err := jnipkg.NewLocalSocket(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewLocalSocketResponse{Result: handle}, nil
+}
+
+func (s *LocalSocketServer) Bind(_ context.Context, req *pb.BindRequest) (*pb.BindResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LocalSocket{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Bind(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.BindResponse{}, nil
+}
+
+func (s *LocalSocketServer) Close(_ context.Context, req *pb.CloseRequest) (*pb.CloseResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LocalSocket{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Close(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.CloseResponse{}, nil
+}
+
+func (s *LocalSocketServer) Connect1(_ context.Context, req *pb.Connect1Request) (*pb.Connect1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LocalSocket{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Connect1(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.Connect1Response{}, nil
+}
+
+func (s *LocalSocketServer) Connect2_1(_ context.Context, req *pb.Connect2_1Request) (*pb.Connect2_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LocalSocket{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Connect2_1(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.Connect2_1Response{}, nil
+}
+
+func (s *LocalSocketServer) GetAncillaryFileDescriptors(_ context.Context, req *pb.GetAncillaryFileDescriptorsRequest) (*pb.GetAncillaryFileDescriptorsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LocalSocket{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetAncillaryFileDescriptors()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetAncillaryFileDescriptorsResponse{Result: handle}, nil
+}
+
+func (s *LocalSocketServer) GetFileDescriptor(_ context.Context, req *pb.GetFileDescriptorRequest) (*pb.GetFileDescriptorResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LocalSocket{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetFileDescriptor()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetFileDescriptorResponse{Result: handle}, nil
+}
+
+func (s *LocalSocketServer) GetInputStream(_ context.Context, req *pb.GetInputStreamRequest) (*pb.GetInputStreamResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LocalSocket{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetInputStream()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetInputStreamResponse{Result: handle}, nil
+}
+
+func (s *LocalSocketServer) GetLocalSocketAddress(_ context.Context, req *pb.GetLocalSocketAddressRequest) (*pb.GetLocalSocketAddressResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LocalSocket{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetLocalSocketAddress()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetLocalSocketAddressResponse{Result: handle}, nil
+}
+
+func (s *LocalSocketServer) GetOutputStream(_ context.Context, req *pb.GetOutputStreamRequest) (*pb.GetOutputStreamResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LocalSocket{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetOutputStream()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetOutputStreamResponse{Result: handle}, nil
+}
+
+func (s *LocalSocketServer) GetPeerCredentials(_ context.Context, req *pb.GetPeerCredentialsRequest) (*pb.GetPeerCredentialsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LocalSocket{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetPeerCredentials()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetPeerCredentialsResponse{Result: handle}, nil
+}
+
+func (s *LocalSocketServer) GetReceiveBufferSize(_ context.Context, req *pb.GetReceiveBufferSizeRequest) (*pb.GetReceiveBufferSizeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LocalSocket{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetReceiveBufferSize()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetReceiveBufferSizeResponse{Result: result}, nil
+}
+
+func (s *LocalSocketServer) GetRemoteSocketAddress(_ context.Context, req *pb.GetRemoteSocketAddressRequest) (*pb.GetRemoteSocketAddressResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LocalSocket{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetRemoteSocketAddress()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetRemoteSocketAddressResponse{Result: handle}, nil
+}
+
+func (s *LocalSocketServer) GetSendBufferSize(_ context.Context, req *pb.GetSendBufferSizeRequest) (*pb.GetSendBufferSizeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LocalSocket{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetSendBufferSize()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetSendBufferSizeResponse{Result: result}, nil
+}
+
+func (s *LocalSocketServer) GetSoTimeout(_ context.Context, req *pb.GetSoTimeoutRequest) (*pb.GetSoTimeoutResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LocalSocket{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetSoTimeout()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetSoTimeoutResponse{Result: result}, nil
+}
+
+func (s *LocalSocketServer) IsClosed(_ context.Context, req *pb.IsClosedRequest) (*pb.IsClosedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LocalSocket{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsClosed()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsClosedResponse{Result: result}, nil
+}
+
+func (s *LocalSocketServer) IsInputShutdown(_ context.Context, req *pb.IsInputShutdownRequest) (*pb.IsInputShutdownResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LocalSocket{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsInputShutdown()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsInputShutdownResponse{Result: result}, nil
+}
+
+func (s *LocalSocketServer) IsOutputShutdown(_ context.Context, req *pb.IsOutputShutdownRequest) (*pb.IsOutputShutdownResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LocalSocket{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsOutputShutdown()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsOutputShutdownResponse{Result: result}, nil
+}
+
+func (s *LocalSocketServer) SetFileDescriptorsForSend(_ context.Context, req *pb.SetFileDescriptorsForSendRequest) (*pb.SetFileDescriptorsForSendResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LocalSocket{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetFileDescriptorsForSend(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetFileDescriptorsForSendResponse{}, nil
+}
+
+func (s *LocalSocketServer) SetReceiveBufferSize(_ context.Context, req *pb.SetReceiveBufferSizeRequest) (*pb.SetReceiveBufferSizeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LocalSocket{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetReceiveBufferSize(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetReceiveBufferSizeResponse{}, nil
+}
+
+func (s *LocalSocketServer) SetSendBufferSize(_ context.Context, req *pb.SetSendBufferSizeRequest) (*pb.SetSendBufferSizeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LocalSocket{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetSendBufferSize(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetSendBufferSizeResponse{}, nil
+}
+
+func (s *LocalSocketServer) SetSoTimeout(_ context.Context, req *pb.SetSoTimeoutRequest) (*pb.SetSoTimeoutResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LocalSocket{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetSoTimeout(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetSoTimeoutResponse{}, nil
+}
+
+func (s *LocalSocketServer) ShutdownInput(_ context.Context, req *pb.ShutdownInputRequest) (*pb.ShutdownInputResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LocalSocket{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.ShutdownInput(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ShutdownInputResponse{}, nil
+}
+
+func (s *LocalSocketServer) ShutdownOutput(_ context.Context, req *pb.ShutdownOutputRequest) (*pb.ShutdownOutputResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LocalSocket{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.ShutdownOutput(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ShutdownOutputResponse{}, nil
+}
+
+func (s *LocalSocketServer) ToString(_ context.Context, req *pb.LocalSocketToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LocalSocket{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
 // IpSecManagerServer implements pb.IpSecManagerServiceServer.
 type IpSecManagerServer struct {
 	pb.UnimplementedIpSecManagerServiceServer
@@ -190,6 +1169,1350 @@ func (s *IpSecManagerServer) RemoveTransportModeTransforms1_2(_ context.Context,
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.RemoveTransportModeTransforms1_2Response{}, nil
+}
+
+// TetheringInterfaceServer implements pb.TetheringInterfaceServiceServer.
+type TetheringInterfaceServer struct {
+	pb.UnimplementedTetheringInterfaceServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *TetheringInterfaceServer) NewTetheringInterface(_ context.Context, req *pb.NewTetheringInterfaceRequest) (*pb.NewTetheringInterfaceResponse, error) {
+	obj, err := jnipkg.NewTetheringInterface(s.Ctx.VM, req.GetArg0(), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewTetheringInterfaceResponse{Result: handle}, nil
+}
+
+func (s *TetheringInterfaceServer) DescribeContents(_ context.Context, req *pb.TetheringInterfaceDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TetheringInterface{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *TetheringInterfaceServer) Equals(_ context.Context, req *pb.TetheringInterfaceEqualsRequest) (*pb.EqualsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TetheringInterface{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Equals(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EqualsResponse{Result: result}, nil
+}
+
+func (s *TetheringInterfaceServer) GetInterface(_ context.Context, req *pb.TetheringInterfaceGetInterfaceRequest) (*pb.GetInterfaceResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TetheringInterface{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetInterface()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetInterfaceResponse{Result: result}, nil
+}
+
+func (s *TetheringInterfaceServer) GetSoftApConfiguration(_ context.Context, req *pb.GetSoftApConfigurationRequest) (*pb.GetSoftApConfigurationResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TetheringInterface{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetSoftApConfiguration()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetSoftApConfigurationResponse{Result: handle}, nil
+}
+
+func (s *TetheringInterfaceServer) GetType(_ context.Context, req *pb.TetheringInterfaceGetTypeRequest) (*pb.GetTypeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TetheringInterface{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetType()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetTypeResponse{Result: result}, nil
+}
+
+func (s *TetheringInterfaceServer) HashCode(_ context.Context, req *pb.TetheringInterfaceHashCodeRequest) (*pb.HashCodeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TetheringInterface{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.HashCode()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.HashCodeResponse{Result: result}, nil
+}
+
+func (s *TetheringInterfaceServer) ToString(_ context.Context, req *pb.TetheringInterfaceToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TetheringInterface{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *TetheringInterfaceServer) WriteToParcel(_ context.Context, req *pb.TetheringInterfaceWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TetheringInterface{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
+// TrafficStatsServer implements pb.TrafficStatsServiceServer.
+type TrafficStatsServer struct {
+	pb.UnimplementedTrafficStatsServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *TrafficStatsServer) NewTrafficStats(_ context.Context, req *pb.NewTrafficStatsRequest) (*pb.NewTrafficStatsResponse, error) {
+	obj, err := jnipkg.NewTrafficStats(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewTrafficStatsResponse{Result: handle}, nil
+}
+
+func (s *TrafficStatsServer) ClearThreadStatsTag(_ context.Context, req *pb.ClearThreadStatsTagRequest) (*pb.ClearThreadStatsTagResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TrafficStats{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.ClearThreadStatsTag(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ClearThreadStatsTagResponse{}, nil
+}
+
+func (s *TrafficStatsServer) ClearThreadStatsUid(_ context.Context, req *pb.ClearThreadStatsUidRequest) (*pb.ClearThreadStatsUidResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TrafficStats{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.ClearThreadStatsUid(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ClearThreadStatsUidResponse{}, nil
+}
+
+func (s *TrafficStatsServer) GetAndSetThreadStatsTag(_ context.Context, req *pb.GetAndSetThreadStatsTagRequest) (*pb.GetAndSetThreadStatsTagResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TrafficStats{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetAndSetThreadStatsTag(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetAndSetThreadStatsTagResponse{Result: result}, nil
+}
+
+func (s *TrafficStatsServer) GetMobileRxBytes(_ context.Context, req *pb.GetMobileRxBytesRequest) (*pb.GetMobileRxBytesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TrafficStats{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetMobileRxBytes()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetMobileRxBytesResponse{Result: result}, nil
+}
+
+func (s *TrafficStatsServer) GetMobileRxPackets(_ context.Context, req *pb.GetMobileRxPacketsRequest) (*pb.GetMobileRxPacketsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TrafficStats{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetMobileRxPackets()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetMobileRxPacketsResponse{Result: result}, nil
+}
+
+func (s *TrafficStatsServer) GetMobileTxBytes(_ context.Context, req *pb.GetMobileTxBytesRequest) (*pb.GetMobileTxBytesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TrafficStats{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetMobileTxBytes()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetMobileTxBytesResponse{Result: result}, nil
+}
+
+func (s *TrafficStatsServer) GetMobileTxPackets(_ context.Context, req *pb.GetMobileTxPacketsRequest) (*pb.GetMobileTxPacketsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TrafficStats{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetMobileTxPackets()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetMobileTxPacketsResponse{Result: result}, nil
+}
+
+func (s *TrafficStatsServer) GetRxBytes(_ context.Context, req *pb.GetRxBytesRequest) (*pb.GetRxBytesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TrafficStats{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetRxBytes(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetRxBytesResponse{Result: result}, nil
+}
+
+func (s *TrafficStatsServer) GetRxPackets(_ context.Context, req *pb.GetRxPacketsRequest) (*pb.GetRxPacketsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TrafficStats{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetRxPackets(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetRxPacketsResponse{Result: result}, nil
+}
+
+func (s *TrafficStatsServer) GetThreadStatsTag(_ context.Context, req *pb.GetThreadStatsTagRequest) (*pb.GetThreadStatsTagResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TrafficStats{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetThreadStatsTag()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetThreadStatsTagResponse{Result: result}, nil
+}
+
+func (s *TrafficStatsServer) GetThreadStatsUid(_ context.Context, req *pb.GetThreadStatsUidRequest) (*pb.GetThreadStatsUidResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TrafficStats{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetThreadStatsUid()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetThreadStatsUidResponse{Result: result}, nil
+}
+
+func (s *TrafficStatsServer) GetTotalRxBytes(_ context.Context, req *pb.GetTotalRxBytesRequest) (*pb.GetTotalRxBytesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TrafficStats{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetTotalRxBytes()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetTotalRxBytesResponse{Result: result}, nil
+}
+
+func (s *TrafficStatsServer) GetTotalRxPackets(_ context.Context, req *pb.GetTotalRxPacketsRequest) (*pb.GetTotalRxPacketsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TrafficStats{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetTotalRxPackets()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetTotalRxPacketsResponse{Result: result}, nil
+}
+
+func (s *TrafficStatsServer) GetTotalTxBytes(_ context.Context, req *pb.GetTotalTxBytesRequest) (*pb.GetTotalTxBytesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TrafficStats{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetTotalTxBytes()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetTotalTxBytesResponse{Result: result}, nil
+}
+
+func (s *TrafficStatsServer) GetTotalTxPackets(_ context.Context, req *pb.GetTotalTxPacketsRequest) (*pb.GetTotalTxPacketsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TrafficStats{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetTotalTxPackets()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetTotalTxPacketsResponse{Result: result}, nil
+}
+
+func (s *TrafficStatsServer) GetTxBytes(_ context.Context, req *pb.GetTxBytesRequest) (*pb.GetTxBytesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TrafficStats{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetTxBytes(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetTxBytesResponse{Result: result}, nil
+}
+
+func (s *TrafficStatsServer) GetTxPackets(_ context.Context, req *pb.GetTxPacketsRequest) (*pb.GetTxPacketsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TrafficStats{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetTxPackets(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetTxPacketsResponse{Result: result}, nil
+}
+
+func (s *TrafficStatsServer) GetUidRxBytes(_ context.Context, req *pb.GetUidRxBytesRequest) (*pb.GetUidRxBytesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TrafficStats{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetUidRxBytes(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetUidRxBytesResponse{Result: result}, nil
+}
+
+func (s *TrafficStatsServer) GetUidRxPackets(_ context.Context, req *pb.GetUidRxPacketsRequest) (*pb.GetUidRxPacketsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TrafficStats{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetUidRxPackets(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetUidRxPacketsResponse{Result: result}, nil
+}
+
+func (s *TrafficStatsServer) GetUidTcpRxBytes(_ context.Context, req *pb.GetUidTcpRxBytesRequest) (*pb.GetUidTcpRxBytesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TrafficStats{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetUidTcpRxBytes(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetUidTcpRxBytesResponse{Result: result}, nil
+}
+
+func (s *TrafficStatsServer) GetUidTcpRxSegments(_ context.Context, req *pb.GetUidTcpRxSegmentsRequest) (*pb.GetUidTcpRxSegmentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TrafficStats{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetUidTcpRxSegments(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetUidTcpRxSegmentsResponse{Result: result}, nil
+}
+
+func (s *TrafficStatsServer) GetUidTcpTxBytes(_ context.Context, req *pb.GetUidTcpTxBytesRequest) (*pb.GetUidTcpTxBytesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TrafficStats{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetUidTcpTxBytes(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetUidTcpTxBytesResponse{Result: result}, nil
+}
+
+func (s *TrafficStatsServer) GetUidTcpTxSegments(_ context.Context, req *pb.GetUidTcpTxSegmentsRequest) (*pb.GetUidTcpTxSegmentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TrafficStats{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetUidTcpTxSegments(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetUidTcpTxSegmentsResponse{Result: result}, nil
+}
+
+func (s *TrafficStatsServer) GetUidTxBytes(_ context.Context, req *pb.GetUidTxBytesRequest) (*pb.GetUidTxBytesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TrafficStats{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetUidTxBytes(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetUidTxBytesResponse{Result: result}, nil
+}
+
+func (s *TrafficStatsServer) GetUidTxPackets(_ context.Context, req *pb.GetUidTxPacketsRequest) (*pb.GetUidTxPacketsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TrafficStats{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetUidTxPackets(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetUidTxPacketsResponse{Result: result}, nil
+}
+
+func (s *TrafficStatsServer) GetUidUdpRxBytes(_ context.Context, req *pb.GetUidUdpRxBytesRequest) (*pb.GetUidUdpRxBytesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TrafficStats{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetUidUdpRxBytes(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetUidUdpRxBytesResponse{Result: result}, nil
+}
+
+func (s *TrafficStatsServer) GetUidUdpRxPackets(_ context.Context, req *pb.GetUidUdpRxPacketsRequest) (*pb.GetUidUdpRxPacketsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TrafficStats{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetUidUdpRxPackets(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetUidUdpRxPacketsResponse{Result: result}, nil
+}
+
+func (s *TrafficStatsServer) GetUidUdpTxBytes(_ context.Context, req *pb.GetUidUdpTxBytesRequest) (*pb.GetUidUdpTxBytesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TrafficStats{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetUidUdpTxBytes(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetUidUdpTxBytesResponse{Result: result}, nil
+}
+
+func (s *TrafficStatsServer) GetUidUdpTxPackets(_ context.Context, req *pb.GetUidUdpTxPacketsRequest) (*pb.GetUidUdpTxPacketsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TrafficStats{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetUidUdpTxPackets(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetUidUdpTxPacketsResponse{Result: result}, nil
+}
+
+func (s *TrafficStatsServer) IncrementOperationCount1(_ context.Context, req *pb.IncrementOperationCount1Request) (*pb.IncrementOperationCount1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TrafficStats{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.IncrementOperationCount1(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IncrementOperationCount1Response{}, nil
+}
+
+func (s *TrafficStatsServer) IncrementOperationCount2_1(_ context.Context, req *pb.IncrementOperationCount2_1Request) (*pb.IncrementOperationCount2_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TrafficStats{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.IncrementOperationCount2_1(req.GetArg0(), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IncrementOperationCount2_1Response{}, nil
+}
+
+func (s *TrafficStatsServer) SetThreadStatsTag(_ context.Context, req *pb.SetThreadStatsTagRequest) (*pb.SetThreadStatsTagResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TrafficStats{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetThreadStatsTag(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetThreadStatsTagResponse{}, nil
+}
+
+func (s *TrafficStatsServer) SetThreadStatsUid(_ context.Context, req *pb.SetThreadStatsUidRequest) (*pb.SetThreadStatsUidResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TrafficStats{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetThreadStatsUid(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetThreadStatsUidResponse{}, nil
+}
+
+func (s *TrafficStatsServer) TagDatagramSocket(_ context.Context, req *pb.TagDatagramSocketRequest) (*pb.TagDatagramSocketResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TrafficStats{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.TagDatagramSocket(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.TagDatagramSocketResponse{}, nil
+}
+
+func (s *TrafficStatsServer) TagFileDescriptor(_ context.Context, req *pb.TagFileDescriptorRequest) (*pb.TagFileDescriptorResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TrafficStats{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.TagFileDescriptor(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.TagFileDescriptorResponse{}, nil
+}
+
+func (s *TrafficStatsServer) TagSocket(_ context.Context, req *pb.TagSocketRequest) (*pb.TagSocketResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TrafficStats{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.TagSocket(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.TagSocketResponse{}, nil
+}
+
+func (s *TrafficStatsServer) UntagDatagramSocket(_ context.Context, req *pb.UntagDatagramSocketRequest) (*pb.UntagDatagramSocketResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TrafficStats{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.UntagDatagramSocket(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.UntagDatagramSocketResponse{}, nil
+}
+
+func (s *TrafficStatsServer) UntagFileDescriptor(_ context.Context, req *pb.UntagFileDescriptorRequest) (*pb.UntagFileDescriptorResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TrafficStats{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.UntagFileDescriptor(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.UntagFileDescriptorResponse{}, nil
+}
+
+func (s *TrafficStatsServer) UntagSocket(_ context.Context, req *pb.UntagSocketRequest) (*pb.UntagSocketResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TrafficStats{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.UntagSocket(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.UntagSocketResponse{}, nil
+}
+
+// LocalSocketAddressServer implements pb.LocalSocketAddressServiceServer.
+type LocalSocketAddressServer struct {
+	pb.UnimplementedLocalSocketAddressServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *LocalSocketAddressServer) NewLocalSocketAddress(_ context.Context, req *pb.NewLocalSocketAddressRequest) (*pb.NewLocalSocketAddressResponse, error) {
+	obj, err := jnipkg.NewLocalSocketAddress(s.Ctx.VM, req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewLocalSocketAddressResponse{Result: handle}, nil
+}
+
+func (s *LocalSocketAddressServer) GetName(_ context.Context, req *pb.GetNameRequest) (*pb.GetNameResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LocalSocketAddress{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetName()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetNameResponse{Result: result}, nil
+}
+
+func (s *LocalSocketAddressServer) GetNamespace(_ context.Context, req *pb.GetNamespaceRequest) (*pb.GetNamespaceResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LocalSocketAddress{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetNamespace()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetNamespaceResponse{Result: handle}, nil
+}
+
+// IpPrefixServer implements pb.IpPrefixServiceServer.
+type IpPrefixServer struct {
+	pb.UnimplementedIpPrefixServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *IpPrefixServer) NewIpPrefix(_ context.Context, req *pb.NewIpPrefixRequest) (*pb.NewIpPrefixResponse, error) {
+	obj, err := jnipkg.NewIpPrefix(s.Ctx.VM, s.Handles.Get(req.GetArg0()), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewIpPrefixResponse{Result: handle}, nil
+}
+
+func (s *IpPrefixServer) Contains(_ context.Context, req *pb.ContainsRequest) (*pb.ContainsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.IpPrefix{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Contains(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ContainsResponse{Result: result}, nil
+}
+
+func (s *IpPrefixServer) DescribeContents(_ context.Context, req *pb.IpPrefixDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.IpPrefix{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *IpPrefixServer) Equals(_ context.Context, req *pb.IpPrefixEqualsRequest) (*pb.EqualsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.IpPrefix{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Equals(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EqualsResponse{Result: result}, nil
+}
+
+func (s *IpPrefixServer) GetAddress(_ context.Context, req *pb.IpPrefixGetAddressRequest) (*pb.GetAddressResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.IpPrefix{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetAddress()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetAddressResponse{Result: handle}, nil
+}
+
+func (s *IpPrefixServer) GetPrefixLength(_ context.Context, req *pb.IpPrefixGetPrefixLengthRequest) (*pb.GetPrefixLengthResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.IpPrefix{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetPrefixLength()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetPrefixLengthResponse{Result: result}, nil
+}
+
+func (s *IpPrefixServer) GetRawAddress(_ context.Context, req *pb.GetRawAddressRequest) (*pb.GetRawAddressResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.IpPrefix{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetRawAddress()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetRawAddressResponse{Result: handle}, nil
+}
+
+func (s *IpPrefixServer) HashCode(_ context.Context, req *pb.IpPrefixHashCodeRequest) (*pb.HashCodeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.IpPrefix{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.HashCode()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.HashCodeResponse{Result: result}, nil
+}
+
+func (s *IpPrefixServer) ToString(_ context.Context, req *pb.IpPrefixToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.IpPrefix{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *IpPrefixServer) WriteToParcel(_ context.Context, req *pb.IpPrefixWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.IpPrefix{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
+// TetheringManagerServer implements pb.TetheringManagerServiceServer.
+type TetheringManagerServer struct {
+	pb.UnimplementedTetheringManagerServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *TetheringManagerServer) RegisterTetheringEventCallback(_ context.Context, req *pb.RegisterTetheringEventCallbackRequest) (*pb.RegisterTetheringEventCallbackResponse, error) {
+	mgr, err := jnipkg.NewTetheringManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.RegisterTetheringEventCallback(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.RegisterTetheringEventCallbackResponse{}, nil
+}
+
+func (s *TetheringManagerServer) StartTethering(_ context.Context, req *pb.StartTetheringRequest) (*pb.StartTetheringResponse, error) {
+	mgr, err := jnipkg.NewTetheringManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.StartTethering(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.StartTetheringResponse{}, nil
+}
+
+func (s *TetheringManagerServer) StopTethering(_ context.Context, req *pb.StopTetheringRequest) (*pb.StopTetheringResponse, error) {
+	mgr, err := jnipkg.NewTetheringManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.StopTethering(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.StopTetheringResponse{}, nil
+}
+
+func (s *TetheringManagerServer) UnregisterTetheringEventCallback(_ context.Context, req *pb.UnregisterTetheringEventCallbackRequest) (*pb.UnregisterTetheringEventCallbackResponse, error) {
+	mgr, err := jnipkg.NewTetheringManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.UnregisterTetheringEventCallback(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.UnregisterTetheringEventCallbackResponse{}, nil
+}
+
+// SSLCertificateSocketFactoryServer implements pb.SSLCertificateSocketFactoryServiceServer.
+type SSLCertificateSocketFactoryServer struct {
+	pb.UnimplementedSSLCertificateSocketFactoryServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *SSLCertificateSocketFactoryServer) NewSSLCertificateSocketFactory(_ context.Context, req *pb.NewSSLCertificateSocketFactoryRequest) (*pb.NewSSLCertificateSocketFactoryResponse, error) {
+	obj, err := jnipkg.NewSSLCertificateSocketFactory(s.Ctx.VM, req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewSSLCertificateSocketFactoryResponse{Result: handle}, nil
+}
+
+func (s *SSLCertificateSocketFactoryServer) CreateSocket0(_ context.Context, req *pb.CreateSocket0Request) (*pb.CreateSocket0Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SSLCertificateSocketFactory{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.CreateSocket0()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.CreateSocket0Response{Result: handle}, nil
+}
+
+func (s *SSLCertificateSocketFactoryServer) CreateSocket2_1(_ context.Context, req *pb.CreateSocket2_1Request) (*pb.CreateSocket2_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SSLCertificateSocketFactory{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.CreateSocket2_1(req.GetArg0(), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.CreateSocket2_1Response{Result: handle}, nil
+}
+
+func (s *SSLCertificateSocketFactoryServer) CreateSocket4_2(_ context.Context, req *pb.CreateSocket4_2Request) (*pb.CreateSocket4_2Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SSLCertificateSocketFactory{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.CreateSocket4_2(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.CreateSocket4_2Response{Result: handle}, nil
+}
+
+func (s *SSLCertificateSocketFactoryServer) CreateSocket2_3(_ context.Context, req *pb.CreateSocket2_3Request) (*pb.CreateSocket2_3Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SSLCertificateSocketFactory{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.CreateSocket2_3(s.Handles.Get(req.GetArg0()), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.CreateSocket2_3Response{Result: handle}, nil
+}
+
+func (s *SSLCertificateSocketFactoryServer) CreateSocket4_4(_ context.Context, req *pb.CreateSocket4_4Request) (*pb.CreateSocket4_4Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SSLCertificateSocketFactory{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.CreateSocket4_4(s.Handles.Get(req.GetArg0()), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.CreateSocket4_4Response{Result: handle}, nil
+}
+
+func (s *SSLCertificateSocketFactoryServer) CreateSocket4_5(_ context.Context, req *pb.CreateSocket4_5Request) (*pb.CreateSocket4_5Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SSLCertificateSocketFactory{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.CreateSocket4_5(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2(), req.GetArg3())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.CreateSocket4_5Response{Result: handle}, nil
+}
+
+func (s *SSLCertificateSocketFactoryServer) GetDefaultCipherSuites(_ context.Context, req *pb.GetDefaultCipherSuitesRequest) (*pb.GetDefaultCipherSuitesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SSLCertificateSocketFactory{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetDefaultCipherSuites()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetDefaultCipherSuitesResponse{Result: handle}, nil
+}
+
+func (s *SSLCertificateSocketFactoryServer) GetNpnSelectedProtocol(_ context.Context, req *pb.GetNpnSelectedProtocolRequest) (*pb.GetNpnSelectedProtocolResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SSLCertificateSocketFactory{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetNpnSelectedProtocol(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetNpnSelectedProtocolResponse{Result: handle}, nil
+}
+
+func (s *SSLCertificateSocketFactoryServer) GetSupportedCipherSuites(_ context.Context, req *pb.GetSupportedCipherSuitesRequest) (*pb.GetSupportedCipherSuitesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SSLCertificateSocketFactory{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetSupportedCipherSuites()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetSupportedCipherSuitesResponse{Result: handle}, nil
+}
+
+func (s *SSLCertificateSocketFactoryServer) SetHostname(_ context.Context, req *pb.SetHostnameRequest) (*pb.SetHostnameResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SSLCertificateSocketFactory{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetHostname(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetHostnameResponse{}, nil
+}
+
+func (s *SSLCertificateSocketFactoryServer) SetKeyManagers(_ context.Context, req *pb.SetKeyManagersRequest) (*pb.SetKeyManagersResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SSLCertificateSocketFactory{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetKeyManagers(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetKeyManagersResponse{}, nil
+}
+
+func (s *SSLCertificateSocketFactoryServer) SetNpnProtocols(_ context.Context, req *pb.SetNpnProtocolsRequest) (*pb.SetNpnProtocolsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SSLCertificateSocketFactory{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetNpnProtocols(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetNpnProtocolsResponse{}, nil
+}
+
+func (s *SSLCertificateSocketFactoryServer) SetTrustManagers(_ context.Context, req *pb.SetTrustManagersRequest) (*pb.SetTrustManagersResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SSLCertificateSocketFactory{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetTrustManagers(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetTrustManagersResponse{}, nil
+}
+
+func (s *SSLCertificateSocketFactoryServer) SetUseSessionTickets(_ context.Context, req *pb.SetUseSessionTicketsRequest) (*pb.SetUseSessionTicketsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SSLCertificateSocketFactory{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetUseSessionTickets(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetUseSessionTicketsResponse{}, nil
+}
+
+func (s *SSLCertificateSocketFactoryServer) GetDefault1(_ context.Context, req *pb.GetDefault1Request) (*pb.GetDefault1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SSLCertificateSocketFactory{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetDefault1(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetDefault1Response{Result: handle}, nil
+}
+
+func (s *SSLCertificateSocketFactoryServer) GetDefault2_1(_ context.Context, req *pb.GetDefault2_1Request) (*pb.GetDefault2_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SSLCertificateSocketFactory{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetDefault2_1(req.GetArg0(), s.Handles.Get(req.GetArg1()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetDefault2_1Response{Result: handle}, nil
+}
+
+func (s *SSLCertificateSocketFactoryServer) GetInsecure(_ context.Context, req *pb.GetInsecureRequest) (*pb.GetInsecureResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SSLCertificateSocketFactory{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetInsecure(req.GetArg0(), s.Handles.Get(req.GetArg1()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetInsecureResponse{Result: handle}, nil
 }
 
 // ConnectivityManagerServer implements pb.ConnectivityManagerServiceServer.
@@ -415,7 +2738,7 @@ func (s *ConnectivityManagerServer) GetDefaultProxy(_ context.Context, req *pb.G
 	return &pb.GetDefaultProxyResponse{Result: handle}, nil
 }
 
-func (s *ConnectivityManagerServer) GetLinkProperties(_ context.Context, req *pb.GetLinkPropertiesRequest) (*pb.GetLinkPropertiesResponse, error) {
+func (s *ConnectivityManagerServer) GetLinkProperties(_ context.Context, req *pb.ConnectivityManagerGetLinkPropertiesRequest) (*pb.GetLinkPropertiesResponse, error) {
 	mgr, err := jnipkg.NewConnectivityManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
@@ -452,7 +2775,7 @@ func (s *ConnectivityManagerServer) GetMultipathPreference(_ context.Context, re
 	return &pb.GetMultipathPreferenceResponse{Result: result}, nil
 }
 
-func (s *ConnectivityManagerServer) GetNetworkCapabilities(_ context.Context, req *pb.GetNetworkCapabilitiesRequest) (*pb.GetNetworkCapabilitiesResponse, error) {
+func (s *ConnectivityManagerServer) GetNetworkCapabilities(_ context.Context, req *pb.ConnectivityManagerGetNetworkCapabilitiesRequest) (*pb.GetNetworkCapabilitiesResponse, error) {
 	mgr, err := jnipkg.NewConnectivityManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
@@ -834,94 +3157,1212 @@ func (s *ConnectivityManagerServer) SetProcessDefaultNetwork(_ context.Context, 
 	return &pb.SetProcessDefaultNetworkResponse{Result: result}, nil
 }
 
-// ConnectivityDiagnosticsManagerServer implements pb.ConnectivityDiagnosticsManagerServiceServer.
-type ConnectivityDiagnosticsManagerServer struct {
-	pb.UnimplementedConnectivityDiagnosticsManagerServiceServer
+// LinkPropertiesServer implements pb.LinkPropertiesServiceServer.
+type LinkPropertiesServer struct {
+	pb.UnimplementedLinkPropertiesServiceServer
 	Ctx     *app.Context
 	Handles *handlestore.HandleStore
 }
 
-func (s *ConnectivityDiagnosticsManagerServer) RegisterConnectivityDiagnosticsCallback(_ context.Context, req *pb.RegisterConnectivityDiagnosticsCallbackRequest) (*pb.RegisterConnectivityDiagnosticsCallbackResponse, error) {
-	mgr, err := jnipkg.NewConnectivityDiagnosticsManager(s.Ctx)
+func (s *LinkPropertiesServer) NewLinkProperties(_ context.Context, req *pb.NewLinkPropertiesRequest) (*pb.NewLinkPropertiesResponse, error) {
+	obj, err := jnipkg.NewLinkProperties(s.Ctx.VM)
 	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
 	}
-	defer mgr.Close()
-
-	if err := mgr.RegisterConnectivityDiagnosticsCallback(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
 	}
-	return &pb.RegisterConnectivityDiagnosticsCallbackResponse{}, nil
+	return &pb.NewLinkPropertiesResponse{Result: handle}, nil
 }
 
-func (s *ConnectivityDiagnosticsManagerServer) UnregisterConnectivityDiagnosticsCallback(_ context.Context, req *pb.UnregisterConnectivityDiagnosticsCallbackRequest) (*pb.UnregisterConnectivityDiagnosticsCallbackResponse, error) {
-	mgr, err := jnipkg.NewConnectivityDiagnosticsManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+func (s *LinkPropertiesServer) AddRoute(_ context.Context, req *pb.AddRouteRequest) (*pb.AddRouteResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	defer mgr.Close()
+	mgr := &jnipkg.LinkProperties{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.UnregisterConnectivityDiagnosticsCallback(s.Handles.Get(req.GetArg0())); err != nil {
+	result, err := mgr.AddRoute(s.Handles.Get(req.GetArg0()))
+	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.UnregisterConnectivityDiagnosticsCallbackResponse{}, nil
+	return &pb.AddRouteResponse{Result: result}, nil
 }
 
-// TetheringManagerServer implements pb.TetheringManagerServiceServer.
-type TetheringManagerServer struct {
-	pb.UnimplementedTetheringManagerServiceServer
+func (s *LinkPropertiesServer) Clear(_ context.Context, req *pb.ClearRequest) (*pb.ClearResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LinkProperties{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Clear(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ClearResponse{}, nil
+}
+
+func (s *LinkPropertiesServer) DescribeContents(_ context.Context, req *pb.LinkPropertiesDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LinkProperties{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *LinkPropertiesServer) Equals(_ context.Context, req *pb.LinkPropertiesEqualsRequest) (*pb.EqualsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LinkProperties{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Equals(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EqualsResponse{Result: result}, nil
+}
+
+func (s *LinkPropertiesServer) GetDhcpServerAddress(_ context.Context, req *pb.GetDhcpServerAddressRequest) (*pb.GetDhcpServerAddressResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LinkProperties{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetDhcpServerAddress()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetDhcpServerAddressResponse{Result: handle}, nil
+}
+
+func (s *LinkPropertiesServer) GetDomains(_ context.Context, req *pb.LinkPropertiesGetDomainsRequest) (*pb.GetDomainsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LinkProperties{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetDomains()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetDomainsResponse{Result: result}, nil
+}
+
+func (s *LinkPropertiesServer) GetHttpProxy(_ context.Context, req *pb.LinkPropertiesGetHttpProxyRequest) (*pb.GetHttpProxyResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LinkProperties{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetHttpProxy()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetHttpProxyResponse{Result: handle}, nil
+}
+
+func (s *LinkPropertiesServer) GetInterfaceName(_ context.Context, req *pb.GetInterfaceNameRequest) (*pb.GetInterfaceNameResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LinkProperties{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetInterfaceName()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetInterfaceNameResponse{Result: result}, nil
+}
+
+func (s *LinkPropertiesServer) GetMtu(_ context.Context, req *pb.GetMtuRequest) (*pb.GetMtuResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LinkProperties{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetMtu()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetMtuResponse{Result: result}, nil
+}
+
+func (s *LinkPropertiesServer) GetNat64Prefix(_ context.Context, req *pb.GetNat64PrefixRequest) (*pb.GetNat64PrefixResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LinkProperties{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetNat64Prefix()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetNat64PrefixResponse{Result: handle}, nil
+}
+
+func (s *LinkPropertiesServer) GetPrivateDnsServerName(_ context.Context, req *pb.GetPrivateDnsServerNameRequest) (*pb.GetPrivateDnsServerNameResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LinkProperties{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetPrivateDnsServerName()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetPrivateDnsServerNameResponse{Result: result}, nil
+}
+
+func (s *LinkPropertiesServer) HashCode(_ context.Context, req *pb.LinkPropertiesHashCodeRequest) (*pb.HashCodeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LinkProperties{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.HashCode()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.HashCodeResponse{Result: result}, nil
+}
+
+func (s *LinkPropertiesServer) IsPrivateDnsActive(_ context.Context, req *pb.IsPrivateDnsActiveRequest) (*pb.IsPrivateDnsActiveResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LinkProperties{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsPrivateDnsActive()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsPrivateDnsActiveResponse{Result: result}, nil
+}
+
+func (s *LinkPropertiesServer) IsWakeOnLanSupported(_ context.Context, req *pb.IsWakeOnLanSupportedRequest) (*pb.IsWakeOnLanSupportedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LinkProperties{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsWakeOnLanSupported()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsWakeOnLanSupportedResponse{Result: result}, nil
+}
+
+func (s *LinkPropertiesServer) SetDhcpServerAddress(_ context.Context, req *pb.SetDhcpServerAddressRequest) (*pb.SetDhcpServerAddressResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LinkProperties{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetDhcpServerAddress(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetDhcpServerAddressResponse{}, nil
+}
+
+func (s *LinkPropertiesServer) SetDomains(_ context.Context, req *pb.LinkPropertiesSetDomainsRequest) (*pb.LinkPropertiesSetDomainsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LinkProperties{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetDomains(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.LinkPropertiesSetDomainsResponse{}, nil
+}
+
+func (s *LinkPropertiesServer) SetHttpProxy(_ context.Context, req *pb.LinkPropertiesSetHttpProxyRequest) (*pb.LinkPropertiesSetHttpProxyResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LinkProperties{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetHttpProxy(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.LinkPropertiesSetHttpProxyResponse{}, nil
+}
+
+func (s *LinkPropertiesServer) SetInterfaceName(_ context.Context, req *pb.SetInterfaceNameRequest) (*pb.SetInterfaceNameResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LinkProperties{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetInterfaceName(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetInterfaceNameResponse{}, nil
+}
+
+func (s *LinkPropertiesServer) SetMtu(_ context.Context, req *pb.SetMtuRequest) (*pb.SetMtuResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LinkProperties{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetMtu(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetMtuResponse{}, nil
+}
+
+func (s *LinkPropertiesServer) SetNat64Prefix(_ context.Context, req *pb.SetNat64PrefixRequest) (*pb.SetNat64PrefixResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LinkProperties{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetNat64Prefix(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetNat64PrefixResponse{}, nil
+}
+
+func (s *LinkPropertiesServer) ToString(_ context.Context, req *pb.LinkPropertiesToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LinkProperties{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *LinkPropertiesServer) WriteToParcel(_ context.Context, req *pb.LinkPropertiesWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LinkProperties{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
+// UrlQuerySanitizerServer implements pb.UrlQuerySanitizerServiceServer.
+type UrlQuerySanitizerServer struct {
+	pb.UnimplementedUrlQuerySanitizerServiceServer
 	Ctx     *app.Context
 	Handles *handlestore.HandleStore
 }
 
-func (s *TetheringManagerServer) RegisterTetheringEventCallback(_ context.Context, req *pb.RegisterTetheringEventCallbackRequest) (*pb.RegisterTetheringEventCallbackResponse, error) {
-	mgr, err := jnipkg.NewTetheringManager(s.Ctx)
+func (s *UrlQuerySanitizerServer) NewUrlQuerySanitizer(_ context.Context, req *pb.NewUrlQuerySanitizerRequest) (*pb.NewUrlQuerySanitizerResponse, error) {
+	obj, err := jnipkg.NewUrlQuerySanitizer(s.Ctx.VM)
 	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
 	}
-	defer mgr.Close()
-
-	if err := mgr.RegisterTetheringEventCallback(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
 	}
-	return &pb.RegisterTetheringEventCallbackResponse{}, nil
+	return &pb.NewUrlQuerySanitizerResponse{Result: handle}, nil
 }
 
-func (s *TetheringManagerServer) StartTethering(_ context.Context, req *pb.StartTetheringRequest) (*pb.StartTetheringResponse, error) {
-	mgr, err := jnipkg.NewTetheringManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+func (s *UrlQuerySanitizerServer) GetAllowUnregisteredParamaters(_ context.Context, req *pb.GetAllowUnregisteredParamatersRequest) (*pb.GetAllowUnregisteredParamatersResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	defer mgr.Close()
+	mgr := &jnipkg.UrlQuerySanitizer{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.StartTethering(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2())); err != nil {
+	result, err := mgr.GetAllowUnregisteredParamaters()
+	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.StartTetheringResponse{}, nil
+	return &pb.GetAllowUnregisteredParamatersResponse{Result: result}, nil
 }
 
-func (s *TetheringManagerServer) StopTethering(_ context.Context, req *pb.StopTetheringRequest) (*pb.StopTetheringResponse, error) {
-	mgr, err := jnipkg.NewTetheringManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+func (s *UrlQuerySanitizerServer) GetEffectiveValueSanitizer(_ context.Context, req *pb.GetEffectiveValueSanitizerRequest) (*pb.GetEffectiveValueSanitizerResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	defer mgr.Close()
+	mgr := &jnipkg.UrlQuerySanitizer{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.StopTethering(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2())); err != nil {
+	result, err := mgr.GetEffectiveValueSanitizer(req.GetArg0())
+	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.StopTetheringResponse{}, nil
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetEffectiveValueSanitizerResponse{Result: handle}, nil
 }
 
-func (s *TetheringManagerServer) UnregisterTetheringEventCallback(_ context.Context, req *pb.UnregisterTetheringEventCallbackRequest) (*pb.UnregisterTetheringEventCallbackResponse, error) {
-	mgr, err := jnipkg.NewTetheringManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+func (s *UrlQuerySanitizerServer) GetPreferFirstRepeatedParameter(_ context.Context, req *pb.GetPreferFirstRepeatedParameterRequest) (*pb.GetPreferFirstRepeatedParameterResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	defer mgr.Close()
+	mgr := &jnipkg.UrlQuerySanitizer{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.UnregisterTetheringEventCallback(s.Handles.Get(req.GetArg0())); err != nil {
+	result, err := mgr.GetPreferFirstRepeatedParameter()
+	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.UnregisterTetheringEventCallbackResponse{}, nil
+	return &pb.GetPreferFirstRepeatedParameterResponse{Result: result}, nil
+}
+
+func (s *UrlQuerySanitizerServer) GetUnregisteredParameterValueSanitizer(_ context.Context, req *pb.GetUnregisteredParameterValueSanitizerRequest) (*pb.GetUnregisteredParameterValueSanitizerResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.UrlQuerySanitizer{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetUnregisteredParameterValueSanitizer()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetUnregisteredParameterValueSanitizerResponse{Result: handle}, nil
+}
+
+func (s *UrlQuerySanitizerServer) GetValue(_ context.Context, req *pb.GetValueRequest) (*pb.GetValueResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.UrlQuerySanitizer{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetValue(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetValueResponse{Result: result}, nil
+}
+
+func (s *UrlQuerySanitizerServer) GetValueSanitizer(_ context.Context, req *pb.GetValueSanitizerRequest) (*pb.GetValueSanitizerResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.UrlQuerySanitizer{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetValueSanitizer(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetValueSanitizerResponse{Result: handle}, nil
+}
+
+func (s *UrlQuerySanitizerServer) HasParameter(_ context.Context, req *pb.HasParameterRequest) (*pb.HasParameterResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.UrlQuerySanitizer{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.HasParameter(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.HasParameterResponse{Result: result}, nil
+}
+
+func (s *UrlQuerySanitizerServer) ParseQuery(_ context.Context, req *pb.ParseQueryRequest) (*pb.ParseQueryResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.UrlQuerySanitizer{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.ParseQuery(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ParseQueryResponse{}, nil
+}
+
+func (s *UrlQuerySanitizerServer) ParseUrl(_ context.Context, req *pb.ParseUrlRequest) (*pb.ParseUrlResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.UrlQuerySanitizer{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.ParseUrl(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ParseUrlResponse{}, nil
+}
+
+func (s *UrlQuerySanitizerServer) RegisterParameter(_ context.Context, req *pb.RegisterParameterRequest) (*pb.RegisterParameterResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.UrlQuerySanitizer{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.RegisterParameter(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.RegisterParameterResponse{}, nil
+}
+
+func (s *UrlQuerySanitizerServer) RegisterParameters(_ context.Context, req *pb.RegisterParametersRequest) (*pb.RegisterParametersResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.UrlQuerySanitizer{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.RegisterParameters(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.RegisterParametersResponse{}, nil
+}
+
+func (s *UrlQuerySanitizerServer) SetAllowUnregisteredParamaters(_ context.Context, req *pb.SetAllowUnregisteredParamatersRequest) (*pb.SetAllowUnregisteredParamatersResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.UrlQuerySanitizer{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetAllowUnregisteredParamaters(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetAllowUnregisteredParamatersResponse{}, nil
+}
+
+func (s *UrlQuerySanitizerServer) SetPreferFirstRepeatedParameter(_ context.Context, req *pb.SetPreferFirstRepeatedParameterRequest) (*pb.SetPreferFirstRepeatedParameterResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.UrlQuerySanitizer{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetPreferFirstRepeatedParameter(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetPreferFirstRepeatedParameterResponse{}, nil
+}
+
+func (s *UrlQuerySanitizerServer) SetUnregisteredParameterValueSanitizer(_ context.Context, req *pb.SetUnregisteredParameterValueSanitizerRequest) (*pb.SetUnregisteredParameterValueSanitizerResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.UrlQuerySanitizer{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetUnregisteredParameterValueSanitizer(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetUnregisteredParameterValueSanitizerResponse{}, nil
+}
+
+func (s *UrlQuerySanitizerServer) Unescape(_ context.Context, req *pb.UnescapeRequest) (*pb.UnescapeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.UrlQuerySanitizer{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Unescape(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.UnescapeResponse{Result: result}, nil
+}
+
+func (s *UrlQuerySanitizerServer) GetAllButNulAndAngleBracketsLegal(_ context.Context, req *pb.GetAllButNulAndAngleBracketsLegalRequest) (*pb.GetAllButNulAndAngleBracketsLegalResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.UrlQuerySanitizer{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetAllButNulAndAngleBracketsLegal()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetAllButNulAndAngleBracketsLegalResponse{Result: handle}, nil
+}
+
+func (s *UrlQuerySanitizerServer) GetAllButNulLegal(_ context.Context, req *pb.GetAllButNulLegalRequest) (*pb.GetAllButNulLegalResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.UrlQuerySanitizer{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetAllButNulLegal()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetAllButNulLegalResponse{Result: handle}, nil
+}
+
+func (s *UrlQuerySanitizerServer) GetAllButWhitespaceLegal(_ context.Context, req *pb.GetAllButWhitespaceLegalRequest) (*pb.GetAllButWhitespaceLegalResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.UrlQuerySanitizer{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetAllButWhitespaceLegal()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetAllButWhitespaceLegalResponse{Result: handle}, nil
+}
+
+func (s *UrlQuerySanitizerServer) GetAllIllegal(_ context.Context, req *pb.GetAllIllegalRequest) (*pb.GetAllIllegalResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.UrlQuerySanitizer{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetAllIllegal()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetAllIllegalResponse{Result: handle}, nil
+}
+
+func (s *UrlQuerySanitizerServer) GetAmpAndSpaceLegal(_ context.Context, req *pb.GetAmpAndSpaceLegalRequest) (*pb.GetAmpAndSpaceLegalResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.UrlQuerySanitizer{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetAmpAndSpaceLegal()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetAmpAndSpaceLegalResponse{Result: handle}, nil
+}
+
+func (s *UrlQuerySanitizerServer) GetAmpLegal(_ context.Context, req *pb.GetAmpLegalRequest) (*pb.GetAmpLegalResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.UrlQuerySanitizer{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetAmpLegal()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetAmpLegalResponse{Result: handle}, nil
+}
+
+func (s *UrlQuerySanitizerServer) GetSpaceLegal(_ context.Context, req *pb.GetSpaceLegalRequest) (*pb.GetSpaceLegalResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.UrlQuerySanitizer{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetSpaceLegal()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetSpaceLegalResponse{Result: handle}, nil
+}
+
+func (s *UrlQuerySanitizerServer) GetUrlAndSpaceLegal(_ context.Context, req *pb.GetUrlAndSpaceLegalRequest) (*pb.GetUrlAndSpaceLegalResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.UrlQuerySanitizer{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetUrlAndSpaceLegal()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetUrlAndSpaceLegalResponse{Result: handle}, nil
+}
+
+func (s *UrlQuerySanitizerServer) GetUrlLegal(_ context.Context, req *pb.GetUrlLegalRequest) (*pb.GetUrlLegalResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.UrlQuerySanitizer{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetUrlLegal()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetUrlLegalResponse{Result: handle}, nil
+}
+
+// DhcpInfoServer implements pb.DhcpInfoServiceServer.
+type DhcpInfoServer struct {
+	pb.UnimplementedDhcpInfoServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *DhcpInfoServer) NewDhcpInfo(_ context.Context, req *pb.NewDhcpInfoRequest) (*pb.NewDhcpInfoResponse, error) {
+	obj, err := jnipkg.NewDhcpInfo(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewDhcpInfoResponse{Result: handle}, nil
+}
+
+func (s *DhcpInfoServer) DescribeContents(_ context.Context, req *pb.DhcpInfoDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.DhcpInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *DhcpInfoServer) ToString(_ context.Context, req *pb.DhcpInfoToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.DhcpInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *DhcpInfoServer) WriteToParcel(_ context.Context, req *pb.DhcpInfoWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.DhcpInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
+// VpnProfileStateServer implements pb.VpnProfileStateServiceServer.
+type VpnProfileStateServer struct {
+	pb.UnimplementedVpnProfileStateServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *VpnProfileStateServer) NewVpnProfileState(_ context.Context, req *pb.NewVpnProfileStateRequest) (*pb.NewVpnProfileStateResponse, error) {
+	obj, err := jnipkg.NewVpnProfileState(s.Ctx.VM, req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewVpnProfileStateResponse{Result: handle}, nil
+}
+
+func (s *VpnProfileStateServer) DescribeContents(_ context.Context, req *pb.VpnProfileStateDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.VpnProfileState{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *VpnProfileStateServer) Equals(_ context.Context, req *pb.VpnProfileStateEqualsRequest) (*pb.EqualsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.VpnProfileState{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Equals(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EqualsResponse{Result: result}, nil
+}
+
+func (s *VpnProfileStateServer) GetSessionId(_ context.Context, req *pb.GetSessionIdRequest) (*pb.GetSessionIdResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.VpnProfileState{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetSessionId()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetSessionIdResponse{Result: result}, nil
+}
+
+func (s *VpnProfileStateServer) GetState(_ context.Context, req *pb.GetStateRequest) (*pb.VpnProfileStateGetStateResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.VpnProfileState{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetState()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.VpnProfileStateGetStateResponse{Result: result}, nil
+}
+
+func (s *VpnProfileStateServer) HashCode(_ context.Context, req *pb.VpnProfileStateHashCodeRequest) (*pb.HashCodeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.VpnProfileState{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.HashCode()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.HashCodeResponse{Result: result}, nil
+}
+
+func (s *VpnProfileStateServer) IsAlwaysOn(_ context.Context, req *pb.IsAlwaysOnRequest) (*pb.IsAlwaysOnResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.VpnProfileState{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsAlwaysOn()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsAlwaysOnResponse{Result: result}, nil
+}
+
+func (s *VpnProfileStateServer) IsLockdownEnabled(_ context.Context, req *pb.IsLockdownEnabledRequest) (*pb.IsLockdownEnabledResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.VpnProfileState{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsLockdownEnabled()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsLockdownEnabledResponse{Result: result}, nil
+}
+
+func (s *VpnProfileStateServer) ToString(_ context.Context, req *pb.VpnProfileStateToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.VpnProfileState{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *VpnProfileStateServer) WriteToParcel(_ context.Context, req *pb.VpnProfileStateWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.VpnProfileState{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
+// IpSecAlgorithmServer implements pb.IpSecAlgorithmServiceServer.
+type IpSecAlgorithmServer struct {
+	pb.UnimplementedIpSecAlgorithmServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *IpSecAlgorithmServer) NewIpSecAlgorithm(_ context.Context, req *pb.NewIpSecAlgorithmRequest) (*pb.NewIpSecAlgorithmResponse, error) {
+	obj, err := jnipkg.NewIpSecAlgorithm(s.Ctx.VM, req.GetArg0(), s.Handles.Get(req.GetArg1()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewIpSecAlgorithmResponse{Result: handle}, nil
+}
+
+func (s *IpSecAlgorithmServer) DescribeContents(_ context.Context, req *pb.IpSecAlgorithmDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.IpSecAlgorithm{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *IpSecAlgorithmServer) GetKey(_ context.Context, req *pb.GetKeyRequest) (*pb.GetKeyResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.IpSecAlgorithm{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetKey()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetKeyResponse{Result: handle}, nil
+}
+
+func (s *IpSecAlgorithmServer) GetName(_ context.Context, req *pb.GetNameRequest) (*pb.GetNameResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.IpSecAlgorithm{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetName()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetNameResponse{Result: result}, nil
+}
+
+func (s *IpSecAlgorithmServer) GetTruncationLengthBits(_ context.Context, req *pb.GetTruncationLengthBitsRequest) (*pb.GetTruncationLengthBitsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.IpSecAlgorithm{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetTruncationLengthBits()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetTruncationLengthBitsResponse{Result: result}, nil
+}
+
+func (s *IpSecAlgorithmServer) ToString(_ context.Context, req *pb.IpSecAlgorithmToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.IpSecAlgorithm{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *IpSecAlgorithmServer) WriteToParcel(_ context.Context, req *pb.IpSecAlgorithmWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.IpSecAlgorithm{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
+// ProxyServer implements pb.ProxyServiceServer.
+type ProxyServer struct {
+	pb.UnimplementedProxyServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *ProxyServer) NewProxy(_ context.Context, req *pb.NewProxyRequest) (*pb.NewProxyResponse, error) {
+	obj, err := jnipkg.NewProxy(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewProxyResponse{Result: handle}, nil
+}
+
+func (s *ProxyServer) GetDefaultHost(_ context.Context, req *pb.GetDefaultHostRequest) (*pb.GetDefaultHostResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Proxy{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetDefaultHost()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetDefaultHostResponse{Result: result}, nil
+}
+
+func (s *ProxyServer) GetDefaultPort(_ context.Context, req *pb.GetDefaultPortRequest) (*pb.GetDefaultPortResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Proxy{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetDefaultPort()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetDefaultPortResponse{Result: result}, nil
+}
+
+func (s *ProxyServer) GetHost(_ context.Context, req *pb.ProxyGetHostRequest) (*pb.GetHostResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Proxy{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetHost(s.Ctx.Obj)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetHostResponse{Result: result}, nil
+}
+
+func (s *ProxyServer) GetPort(_ context.Context, req *pb.ProxyGetPortRequest) (*pb.GetPortResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Proxy{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetPort(s.Ctx.Obj)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetPortResponse{Result: result}, nil
 }

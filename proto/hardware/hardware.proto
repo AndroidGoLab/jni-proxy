@@ -236,6 +236,1428 @@ message RemapCoordinateSystemResponse {
   bool result = 1;
 }
 
+message OnDynamicSensorConnectedRequest {
+  int64 arg0 = 1;
+}
+
+message OnDynamicSensorConnectedResponse {
+}
+
+message OnDynamicSensorDisconnectedRequest {
+  int64 arg0 = 1;
+}
+
+message OnDynamicSensorDisconnectedResponse {
+}
+
+message NewSyncFenceRequest {
+  int64 arg0 = 1;
+}
+
+message NewSyncFenceResponse {
+  int64 result = 1;
+}
+
+message AwaitRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AwaitResponse {
+  bool result = 1;
+}
+
+message AwaitForeverRequest {
+  int64 handle = 1;
+}
+
+message AwaitForeverResponse {
+  bool result = 1;
+}
+
+message CloseRequest {
+  int64 handle = 1;
+}
+
+message CloseResponse {
+}
+
+message DescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message GetSignalTimeRequest {
+  int64 handle = 1;
+}
+
+message GetSignalTimeResponse {
+  int64 result = 1;
+}
+
+message IsValidRequest {
+  int64 handle = 1;
+}
+
+message IsValidResponse {
+  bool result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message WriteToParcelResponse {
+}
+
+message OnAccuracyChangedRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message OnAccuracyChangedResponse {
+}
+
+message OnSensorChangedRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnSensorChangedResponse {
+}
+
+message NewDisplayLutsRequest {
+}
+
+message NewDisplayLutsResponse {
+  int64 result = 1;
+}
+
+message Set1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message Set1Response {
+}
+
+message Set2_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message Set2_1Response {
+}
+
+message ToStringRequest {
+  int64 handle = 1;
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message GetBufferRequest {
+}
+
+message GetBufferResponse {
+  int64 result = 1;
+}
+
+message GetDimensionRequest {
+}
+
+message GetDimensionResponse {
+  int32 result = 1;
+}
+
+message GetSamplingKeyRequest {
+}
+
+message GetSamplingKeyResponse {
+  int32 result = 1;
+}
+
+message DisplayLutsEntryToStringRequest {
+}
+
+message GetFifoMaxEventCountRequest {
+}
+
+message GetFifoMaxEventCountResponse {
+  int32 result = 1;
+}
+
+message GetFifoReservedEventCountRequest {
+}
+
+message GetFifoReservedEventCountResponse {
+  int32 result = 1;
+}
+
+message GetHighestDirectReportRateLevelRequest {
+}
+
+message GetHighestDirectReportRateLevelResponse {
+  int32 result = 1;
+}
+
+message GetIdRequest {
+}
+
+message GetIdResponse {
+  int32 result = 1;
+}
+
+message GetMaxDelayRequest {
+}
+
+message GetMaxDelayResponse {
+  int32 result = 1;
+}
+
+message GetMaximumRangeRequest {
+}
+
+message GetMaximumRangeResponse {
+  float result = 1;
+}
+
+message GetMinDelayRequest {
+}
+
+message GetMinDelayResponse {
+  int32 result = 1;
+}
+
+message GetNameRequest {
+}
+
+message GetNameResponse {
+  string result = 1;
+}
+
+message GetPowerRequest {
+}
+
+message GetPowerResponse {
+  float result = 1;
+}
+
+message GetReportingModeRequest {
+}
+
+message GetReportingModeResponse {
+  int32 result = 1;
+}
+
+message GetResolutionRequest {
+}
+
+message GetResolutionResponse {
+  float result = 1;
+}
+
+message GetStringTypeRequest {
+}
+
+message GetStringTypeResponse {
+  string result = 1;
+}
+
+message GetTypeRequest {
+}
+
+message GetTypeResponse {
+  int32 result = 1;
+}
+
+message GetVendorRequest {
+}
+
+message GetVendorResponse {
+  string result = 1;
+}
+
+message GetVersionRequest {
+}
+
+message GetVersionResponse {
+  int32 result = 1;
+}
+
+message IsAdditionalInfoSupportedRequest {
+}
+
+message IsAdditionalInfoSupportedResponse {
+  bool result = 1;
+}
+
+message IsDirectChannelTypeSupportedRequest {
+  int32 arg0 = 1;
+}
+
+message IsDirectChannelTypeSupportedResponse {
+  bool result = 1;
+}
+
+message IsDynamicSensorRequest {
+}
+
+message IsDynamicSensorResponse {
+  bool result = 1;
+}
+
+message IsWakeUpSensorRequest {
+}
+
+message IsWakeUpSensorResponse {
+  bool result = 1;
+}
+
+message SensorToStringRequest {
+}
+
+message OnTriggerRequest {
+  int64 arg0 = 1;
+}
+
+message OnTriggerResponse {
+}
+
+message NewGeomagneticFieldRequest {
+  float arg0 = 1;
+  float arg1 = 2;
+  float arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message NewGeomagneticFieldResponse {
+  int64 result = 1;
+}
+
+message GetDeclinationRequest {
+  int64 handle = 1;
+}
+
+message GetDeclinationResponse {
+  float result = 1;
+}
+
+message GetFieldStrengthRequest {
+  int64 handle = 1;
+}
+
+message GetFieldStrengthResponse {
+  float result = 1;
+}
+
+message GetHorizontalStrengthRequest {
+  int64 handle = 1;
+}
+
+message GetHorizontalStrengthResponse {
+  float result = 1;
+}
+
+message GeomagneticFieldGetInclinationRequest {
+  int64 handle = 1;
+}
+
+message GetXRequest {
+  int64 handle = 1;
+}
+
+message GetXResponse {
+  float result = 1;
+}
+
+message GetYRequest {
+  int64 handle = 1;
+}
+
+message GetYResponse {
+  float result = 1;
+}
+
+message GetZRequest {
+  int64 handle = 1;
+}
+
+message GetZResponse {
+  float result = 1;
+}
+
+message BufferCloseRequest {
+}
+
+message BufferDescribeContentsRequest {
+}
+
+message GetFormatRequest {
+}
+
+message GetFormatResponse {
+  int32 result = 1;
+}
+
+message GetHeightRequest {
+}
+
+message GetHeightResponse {
+  int32 result = 1;
+}
+
+message BufferGetIdResponse {
+  int64 result = 1;
+}
+
+message GetLayersRequest {
+}
+
+message GetLayersResponse {
+  int32 result = 1;
+}
+
+message GetUsageRequest {
+}
+
+message GetUsageResponse {
+  int64 result = 1;
+}
+
+message GetWidthRequest {
+}
+
+message GetWidthResponse {
+  int32 result = 1;
+}
+
+message IsClosedRequest {
+}
+
+message IsClosedResponse {
+  bool result = 1;
+}
+
+message BufferWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message CreateRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int64 arg4 = 5;
+}
+
+message CreateResponse {
+  int64 result = 1;
+}
+
+message IsSupportedRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int64 arg4 = 5;
+}
+
+message IsSupportedResponse {
+  bool result = 1;
+}
+
+message SensorEventListenerOnAccuracyChangedRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message SensorEventListenerOnSensorChangedRequest {
+  int64 arg0 = 1;
+}
+
+message SensorDirectChannelCloseRequest {
+}
+
+message ConfigureRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message ConfigureResponse {
+  int32 result = 1;
+}
+
+message IsOpenRequest {
+}
+
+message IsOpenResponse {
+  bool result = 1;
+}
+
+message GetSamplingKeysRequest {
+}
+
+message GetSamplingKeysResponse {
+  int64 result = 1;
+}
+
+message GetSizeRequest {
+}
+
+message GetSizeResponse {
+  int32 result = 1;
+}
+
+message GetRangeRequest {
+  int32 arg0 = 1;
+}
+
+message GetRangeResponse {
+  int32 result = 1;
+}
+
+message GetStandardRequest {
+  int32 arg0 = 1;
+}
+
+message GetStandardResponse {
+  int32 result = 1;
+}
+
+message GetTransferRequest {
+  int32 arg0 = 1;
+}
+
+message GetTransferResponse {
+  int32 result = 1;
+}
+
+message PackRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message PackResponse {
+  int32 result = 1;
+}
+
+message AddCallbackBufferRequest {
+  int64 arg0 = 1;
+}
+
+message AddCallbackBufferResponse {
+}
+
+message AutoFocusRequest {
+  int64 arg0 = 1;
+}
+
+message AutoFocusResponse {
+}
+
+message CancelAutoFocusRequest {
+}
+
+message CancelAutoFocusResponse {
+}
+
+message EnableShutterSoundRequest {
+  bool arg0 = 1;
+}
+
+message EnableShutterSoundResponse {
+  bool result = 1;
+}
+
+message GetParametersRequest {
+}
+
+message GetParametersResponse {
+  int64 result = 1;
+}
+
+message LockRequest {
+}
+
+message LockResponse {
+}
+
+message ReconnectRequest {
+}
+
+message ReconnectResponse {
+}
+
+message ReleaseRequest {
+}
+
+message ReleaseResponse {
+}
+
+message SetAutoFocusMoveCallbackRequest {
+  int64 arg0 = 1;
+}
+
+message SetAutoFocusMoveCallbackResponse {
+}
+
+message SetDisplayOrientationRequest {
+  int32 arg0 = 1;
+}
+
+message SetDisplayOrientationResponse {
+}
+
+message SetErrorCallbackRequest {
+  int64 arg0 = 1;
+}
+
+message SetErrorCallbackResponse {
+}
+
+message SetFaceDetectionListenerRequest {
+  int64 arg0 = 1;
+}
+
+message SetFaceDetectionListenerResponse {
+}
+
+message SetOneShotPreviewCallbackRequest {
+  int64 arg0 = 1;
+}
+
+message SetOneShotPreviewCallbackResponse {
+}
+
+message SetParametersRequest {
+  int64 arg0 = 1;
+}
+
+message SetParametersResponse {
+}
+
+message SetPreviewCallbackRequest {
+  int64 arg0 = 1;
+}
+
+message SetPreviewCallbackResponse {
+}
+
+message SetPreviewCallbackWithBufferRequest {
+  int64 arg0 = 1;
+}
+
+message SetPreviewCallbackWithBufferResponse {
+}
+
+message SetPreviewDisplayRequest {
+  int64 arg0 = 1;
+}
+
+message SetPreviewDisplayResponse {
+}
+
+message SetPreviewTextureRequest {
+  int64 arg0 = 1;
+}
+
+message SetPreviewTextureResponse {
+}
+
+message SetZoomChangeListenerRequest {
+  int64 arg0 = 1;
+}
+
+message SetZoomChangeListenerResponse {
+}
+
+message StartFaceDetectionRequest {
+}
+
+message StartFaceDetectionResponse {
+}
+
+message StartPreviewRequest {
+}
+
+message StartPreviewResponse {
+}
+
+message StartSmoothZoomRequest {
+  int32 arg0 = 1;
+}
+
+message StartSmoothZoomResponse {
+}
+
+message StopFaceDetectionRequest {
+}
+
+message StopFaceDetectionResponse {
+}
+
+message StopPreviewRequest {
+}
+
+message StopPreviewResponse {
+}
+
+message StopSmoothZoomRequest {
+}
+
+message StopSmoothZoomResponse {
+}
+
+message TakePicture3Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message TakePicture3Response {
+}
+
+message TakePicture4_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message TakePicture4_1Response {
+}
+
+message UnlockRequest {
+}
+
+message UnlockResponse {
+}
+
+message GetCameraInfoRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message GetCameraInfoResponse {
+}
+
+message GetNumberOfCamerasRequest {
+}
+
+message GetNumberOfCamerasResponse {
+  int32 result = 1;
+}
+
+message Open0Request {
+}
+
+message Open0Response {
+  int64 result = 1;
+}
+
+message Open1_1Request {
+  int32 arg0 = 1;
+}
+
+message Open1_1Response {
+  int64 result = 1;
+}
+
+message EqualsRequest {
+  int64 arg0 = 1;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message OnAutoFocusRequest {
+  bool arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnAutoFocusResponse {
+}
+
+message OnAutoFocusMovingRequest {
+  bool arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnAutoFocusMovingResponse {
+}
+
+message OnErrorRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnErrorResponse {
+}
+
+message OnFaceDetectionRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnFaceDetectionResponse {
+}
+
+message OnZoomChangeRequest {
+  int32 arg0 = 1;
+  bool arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message OnZoomChangeResponse {
+}
+
+message FlattenRequest {
+}
+
+message FlattenResponse {
+  string result = 1;
+}
+
+message GetRequest {
+  string arg0 = 1;
+}
+
+message GetResponse {
+  string result = 1;
+}
+
+message GetAntibandingRequest {
+}
+
+message GetAntibandingResponse {
+  string result = 1;
+}
+
+message GetAutoExposureLockRequest {
+}
+
+message GetAutoExposureLockResponse {
+  bool result = 1;
+}
+
+message GetAutoWhiteBalanceLockRequest {
+}
+
+message GetAutoWhiteBalanceLockResponse {
+  bool result = 1;
+}
+
+message GetColorEffectRequest {
+}
+
+message GetColorEffectResponse {
+  string result = 1;
+}
+
+message GetExposureCompensationRequest {
+}
+
+message GetExposureCompensationResponse {
+  int32 result = 1;
+}
+
+message GetExposureCompensationStepRequest {
+}
+
+message GetExposureCompensationStepResponse {
+  float result = 1;
+}
+
+message GetFlashModeRequest {
+}
+
+message GetFlashModeResponse {
+  string result = 1;
+}
+
+message GetFocalLengthRequest {
+}
+
+message GetFocalLengthResponse {
+  float result = 1;
+}
+
+message GetFocusDistancesRequest {
+  int64 arg0 = 1;
+}
+
+message GetFocusDistancesResponse {
+}
+
+message GetFocusModeRequest {
+}
+
+message GetFocusModeResponse {
+  string result = 1;
+}
+
+message GetHorizontalViewAngleRequest {
+}
+
+message GetHorizontalViewAngleResponse {
+  float result = 1;
+}
+
+message GetIntRequest {
+  string arg0 = 1;
+}
+
+message GetIntResponse {
+  int32 result = 1;
+}
+
+message GetJpegQualityRequest {
+}
+
+message GetJpegQualityResponse {
+  int32 result = 1;
+}
+
+message GetJpegThumbnailQualityRequest {
+}
+
+message GetJpegThumbnailQualityResponse {
+  int32 result = 1;
+}
+
+message GetJpegThumbnailSizeRequest {
+}
+
+message GetJpegThumbnailSizeResponse {
+  int64 result = 1;
+}
+
+message GetMaxExposureCompensationRequest {
+}
+
+message GetMaxExposureCompensationResponse {
+  int32 result = 1;
+}
+
+message GetMaxNumDetectedFacesRequest {
+}
+
+message GetMaxNumDetectedFacesResponse {
+  int32 result = 1;
+}
+
+message GetMaxNumFocusAreasRequest {
+}
+
+message GetMaxNumFocusAreasResponse {
+  int32 result = 1;
+}
+
+message GetMaxNumMeteringAreasRequest {
+}
+
+message GetMaxNumMeteringAreasResponse {
+  int32 result = 1;
+}
+
+message GetMaxZoomRequest {
+}
+
+message GetMaxZoomResponse {
+  int32 result = 1;
+}
+
+message GetMinExposureCompensationRequest {
+}
+
+message GetMinExposureCompensationResponse {
+  int32 result = 1;
+}
+
+message GetPictureFormatRequest {
+}
+
+message GetPictureFormatResponse {
+  int32 result = 1;
+}
+
+message GetPictureSizeRequest {
+}
+
+message GetPictureSizeResponse {
+  int64 result = 1;
+}
+
+message GetPreferredPreviewSizeForVideoRequest {
+}
+
+message GetPreferredPreviewSizeForVideoResponse {
+  int64 result = 1;
+}
+
+message GetPreviewFormatRequest {
+}
+
+message GetPreviewFormatResponse {
+  int32 result = 1;
+}
+
+message GetPreviewFpsRangeRequest {
+  int64 arg0 = 1;
+}
+
+message GetPreviewFpsRangeResponse {
+}
+
+message GetPreviewFrameRateRequest {
+}
+
+message GetPreviewFrameRateResponse {
+  int32 result = 1;
+}
+
+message GetPreviewSizeRequest {
+}
+
+message GetPreviewSizeResponse {
+  int64 result = 1;
+}
+
+message GetSceneModeRequest {
+}
+
+message GetSceneModeResponse {
+  string result = 1;
+}
+
+message GetVerticalViewAngleRequest {
+}
+
+message GetVerticalViewAngleResponse {
+  float result = 1;
+}
+
+message GetVideoStabilizationRequest {
+}
+
+message GetVideoStabilizationResponse {
+  bool result = 1;
+}
+
+message GetWhiteBalanceRequest {
+}
+
+message GetWhiteBalanceResponse {
+  string result = 1;
+}
+
+message GetZoomRequest {
+}
+
+message GetZoomResponse {
+  int32 result = 1;
+}
+
+message IsAutoExposureLockSupportedRequest {
+}
+
+message IsAutoExposureLockSupportedResponse {
+  bool result = 1;
+}
+
+message IsAutoWhiteBalanceLockSupportedRequest {
+}
+
+message IsAutoWhiteBalanceLockSupportedResponse {
+  bool result = 1;
+}
+
+message IsSmoothZoomSupportedRequest {
+}
+
+message IsSmoothZoomSupportedResponse {
+  bool result = 1;
+}
+
+message IsVideoSnapshotSupportedRequest {
+}
+
+message IsVideoSnapshotSupportedResponse {
+  bool result = 1;
+}
+
+message IsVideoStabilizationSupportedRequest {
+}
+
+message IsVideoStabilizationSupportedResponse {
+  bool result = 1;
+}
+
+message IsZoomSupportedRequest {
+}
+
+message IsZoomSupportedResponse {
+  bool result = 1;
+}
+
+message RemoveRequest {
+  string arg0 = 1;
+}
+
+message RemoveResponse {
+}
+
+message RemoveGpsDataRequest {
+}
+
+message RemoveGpsDataResponse {
+}
+
+message Set2Request {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message Set2Response {
+}
+
+message CameraParametersSet2_1Request {
+  string arg0 = 1;
+  string arg1 = 2;
+}
+
+message SetAntibandingRequest {
+  string arg0 = 1;
+}
+
+message SetAntibandingResponse {
+}
+
+message SetAutoExposureLockRequest {
+  bool arg0 = 1;
+}
+
+message SetAutoExposureLockResponse {
+}
+
+message SetAutoWhiteBalanceLockRequest {
+  bool arg0 = 1;
+}
+
+message SetAutoWhiteBalanceLockResponse {
+}
+
+message SetColorEffectRequest {
+  string arg0 = 1;
+}
+
+message SetColorEffectResponse {
+}
+
+message SetExposureCompensationRequest {
+  int32 arg0 = 1;
+}
+
+message SetExposureCompensationResponse {
+}
+
+message SetFlashModeRequest {
+  string arg0 = 1;
+}
+
+message SetFlashModeResponse {
+}
+
+message SetFocusModeRequest {
+  string arg0 = 1;
+}
+
+message SetFocusModeResponse {
+}
+
+message SetGpsAltitudeRequest {
+  double arg0 = 1;
+}
+
+message SetGpsAltitudeResponse {
+}
+
+message SetGpsLatitudeRequest {
+  double arg0 = 1;
+}
+
+message SetGpsLatitudeResponse {
+}
+
+message SetGpsLongitudeRequest {
+  double arg0 = 1;
+}
+
+message SetGpsLongitudeResponse {
+}
+
+message SetGpsProcessingMethodRequest {
+  string arg0 = 1;
+}
+
+message SetGpsProcessingMethodResponse {
+}
+
+message SetGpsTimestampRequest {
+  int64 arg0 = 1;
+}
+
+message SetGpsTimestampResponse {
+}
+
+message SetJpegQualityRequest {
+  int32 arg0 = 1;
+}
+
+message SetJpegQualityResponse {
+}
+
+message SetJpegThumbnailQualityRequest {
+  int32 arg0 = 1;
+}
+
+message SetJpegThumbnailQualityResponse {
+}
+
+message SetJpegThumbnailSizeRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message SetJpegThumbnailSizeResponse {
+}
+
+message SetPictureFormatRequest {
+  int32 arg0 = 1;
+}
+
+message SetPictureFormatResponse {
+}
+
+message SetPictureSizeRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message SetPictureSizeResponse {
+}
+
+message SetPreviewFormatRequest {
+  int32 arg0 = 1;
+}
+
+message SetPreviewFormatResponse {
+}
+
+message SetPreviewFpsRangeRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message SetPreviewFpsRangeResponse {
+}
+
+message SetPreviewFrameRateRequest {
+  int32 arg0 = 1;
+}
+
+message SetPreviewFrameRateResponse {
+}
+
+message SetPreviewSizeRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message SetPreviewSizeResponse {
+}
+
+message SetRecordingHintRequest {
+  bool arg0 = 1;
+}
+
+message SetRecordingHintResponse {
+}
+
+message SetRotationRequest {
+  int32 arg0 = 1;
+}
+
+message SetRotationResponse {
+}
+
+message SetSceneModeRequest {
+  string arg0 = 1;
+}
+
+message SetSceneModeResponse {
+}
+
+message SetVideoStabilizationRequest {
+  bool arg0 = 1;
+}
+
+message SetVideoStabilizationResponse {
+}
+
+message SetWhiteBalanceRequest {
+  string arg0 = 1;
+}
+
+message SetWhiteBalanceResponse {
+}
+
+message SetZoomRequest {
+  int32 arg0 = 1;
+}
+
+message SetZoomResponse {
+}
+
+message UnflattenRequest {
+  string arg0 = 1;
+}
+
+message UnflattenResponse {
+}
+
+message OnPictureTakenRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnPictureTakenResponse {
+}
+
+message OnPreviewFrameRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnPreviewFrameResponse {
+}
+
+message OnShutterRequest {
+}
+
+message OnShutterResponse {
+}
+
+message HashCodeRequest {
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message GetCapacityRequest {
+}
+
+message GetCapacityResponse {
+  float result = 1;
+}
+
+message GetStatusRequest {
+}
+
+message GetStatusResponse {
+  int32 result = 1;
+}
+
+message IsPresentRequest {
+}
+
+message IsPresentResponse {
+  bool result = 1;
+}
+
+message OverlayPropertiesDescribeContentsRequest {
+}
+
+message GetLutPropertiesRequest {
+}
+
+message GetLutPropertiesResponse {
+  int64 result = 1;
+}
+
+message IsCombinationSupportedRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message IsCombinationSupportedResponse {
+  bool result = 1;
+}
+
+message IsMixedColorSpacesSupportedRequest {
+}
+
+message IsMixedColorSpacesSupportedResponse {
+  bool result = 1;
+}
+
+message OverlayPropertiesWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message SensorEventCallbackOnAccuracyChangedRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message OnFlushCompletedRequest {
+  int64 arg0 = 1;
+}
+
+message OnFlushCompletedResponse {
+}
+
+message OnSensorAdditionalInfoRequest {
+  int64 arg0 = 1;
+}
+
+message OnSensorAdditionalInfoResponse {
+}
+
+message SensorEventCallbackOnSensorChangedRequest {
+  int64 arg0 = 1;
+}
+
+message SupportsSensorToggle1Request {
+  int32 arg0 = 1;
+}
+
+message SupportsSensorToggle1Response {
+  bool result = 1;
+}
+
+message SupportsSensorToggle2_1Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message SupportsSensorToggle2_1Response {
+  bool result = 1;
+}
+
 service SensorManagerService {
   rpc CancelTriggerSensor (CancelTriggerSensorRequest) returns (CancelTriggerSensorResponse);
   rpc CreateDirectChannel1 (CreateDirectChannel1Request) returns (CreateDirectChannel1Response);
@@ -264,4 +1686,298 @@ service SensorManagerService {
   rpc GetRotationMatrix (GetRotationMatrixRequest) returns (GetRotationMatrixResponse);
   rpc GetRotationMatrixFromVector (GetRotationMatrixFromVectorRequest) returns (GetRotationMatrixFromVectorResponse);
   rpc RemapCoordinateSystem (RemapCoordinateSystemRequest) returns (RemapCoordinateSystemResponse);
+}
+
+service SensorManagerDynamicSensorCallbackService {
+  rpc OnDynamicSensorConnected (OnDynamicSensorConnectedRequest) returns (OnDynamicSensorConnectedResponse);
+  rpc OnDynamicSensorDisconnected (OnDynamicSensorDisconnectedRequest) returns (OnDynamicSensorDisconnectedResponse);
+}
+
+service SyncFenceService {
+  rpc NewSyncFence (NewSyncFenceRequest) returns (NewSyncFenceResponse);
+  rpc Await (AwaitRequest) returns (AwaitResponse);
+  rpc AwaitForever (AwaitForeverRequest) returns (AwaitForeverResponse);
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetSignalTime (GetSignalTimeRequest) returns (GetSignalTimeResponse);
+  rpc IsValid (IsValidRequest) returns (IsValidResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service SensorListenerService {
+  rpc OnAccuracyChanged (OnAccuracyChangedRequest) returns (OnAccuracyChangedResponse);
+  rpc OnSensorChanged (OnSensorChangedRequest) returns (OnSensorChangedResponse);
+}
+
+service DisplayLutsService {
+  rpc NewDisplayLuts (NewDisplayLutsRequest) returns (NewDisplayLutsResponse);
+  rpc Set1 (Set1Request) returns (Set1Response);
+  rpc Set2_1 (Set2_1Request) returns (Set2_1Response);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service DisplayLutsEntryService {
+  rpc GetBuffer (GetBufferRequest) returns (GetBufferResponse);
+  rpc GetDimension (GetDimensionRequest) returns (GetDimensionResponse);
+  rpc GetSamplingKey (GetSamplingKeyRequest) returns (GetSamplingKeyResponse);
+  rpc ToString (DisplayLutsEntryToStringRequest) returns (ToStringResponse);
+}
+
+service SensorService {
+  rpc GetFifoMaxEventCount (GetFifoMaxEventCountRequest) returns (GetFifoMaxEventCountResponse);
+  rpc GetFifoReservedEventCount (GetFifoReservedEventCountRequest) returns (GetFifoReservedEventCountResponse);
+  rpc GetHighestDirectReportRateLevel (GetHighestDirectReportRateLevelRequest) returns (GetHighestDirectReportRateLevelResponse);
+  rpc GetId (GetIdRequest) returns (GetIdResponse);
+  rpc GetMaxDelay (GetMaxDelayRequest) returns (GetMaxDelayResponse);
+  rpc GetMaximumRange (GetMaximumRangeRequest) returns (GetMaximumRangeResponse);
+  rpc GetMinDelay (GetMinDelayRequest) returns (GetMinDelayResponse);
+  rpc GetName (GetNameRequest) returns (GetNameResponse);
+  rpc GetPower (GetPowerRequest) returns (GetPowerResponse);
+  rpc GetReportingMode (GetReportingModeRequest) returns (GetReportingModeResponse);
+  rpc GetResolution (GetResolutionRequest) returns (GetResolutionResponse);
+  rpc GetStringType (GetStringTypeRequest) returns (GetStringTypeResponse);
+  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
+  rpc GetVendor (GetVendorRequest) returns (GetVendorResponse);
+  rpc GetVersion (GetVersionRequest) returns (GetVersionResponse);
+  rpc IsAdditionalInfoSupported (IsAdditionalInfoSupportedRequest) returns (IsAdditionalInfoSupportedResponse);
+  rpc IsDirectChannelTypeSupported (IsDirectChannelTypeSupportedRequest) returns (IsDirectChannelTypeSupportedResponse);
+  rpc IsDynamicSensor (IsDynamicSensorRequest) returns (IsDynamicSensorResponse);
+  rpc IsWakeUpSensor (IsWakeUpSensorRequest) returns (IsWakeUpSensorResponse);
+  rpc ToString (SensorToStringRequest) returns (ToStringResponse);
+}
+
+service TriggerEventListenerService {
+  rpc OnTrigger (OnTriggerRequest) returns (OnTriggerResponse);
+}
+
+service GeomagneticFieldService {
+  rpc NewGeomagneticField (NewGeomagneticFieldRequest) returns (NewGeomagneticFieldResponse);
+  rpc GetDeclination (GetDeclinationRequest) returns (GetDeclinationResponse);
+  rpc GetFieldStrength (GetFieldStrengthRequest) returns (GetFieldStrengthResponse);
+  rpc GetHorizontalStrength (GetHorizontalStrengthRequest) returns (GetHorizontalStrengthResponse);
+  rpc GetInclination (GeomagneticFieldGetInclinationRequest) returns (GetInclinationResponse);
+  rpc GetX (GetXRequest) returns (GetXResponse);
+  rpc GetY (GetYRequest) returns (GetYResponse);
+  rpc GetZ (GetZRequest) returns (GetZResponse);
+}
+
+service BufferService {
+  rpc Close (BufferCloseRequest) returns (CloseResponse);
+  rpc DescribeContents (BufferDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetFormat (GetFormatRequest) returns (GetFormatResponse);
+  rpc GetHeight (GetHeightRequest) returns (GetHeightResponse);
+  rpc GetId (GetIdRequest) returns (BufferGetIdResponse);
+  rpc GetLayers (GetLayersRequest) returns (GetLayersResponse);
+  rpc GetUsage (GetUsageRequest) returns (GetUsageResponse);
+  rpc GetWidth (GetWidthRequest) returns (GetWidthResponse);
+  rpc IsClosed (IsClosedRequest) returns (IsClosedResponse);
+  rpc WriteToParcel (BufferWriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc Create (CreateRequest) returns (CreateResponse);
+  rpc IsSupported (IsSupportedRequest) returns (IsSupportedResponse);
+}
+
+service SensorEventListenerService {
+  rpc OnAccuracyChanged (SensorEventListenerOnAccuracyChangedRequest) returns (OnAccuracyChangedResponse);
+  rpc OnSensorChanged (SensorEventListenerOnSensorChangedRequest) returns (OnSensorChangedResponse);
+}
+
+service SensorDirectChannelService {
+  rpc Close (SensorDirectChannelCloseRequest) returns (CloseResponse);
+  rpc Configure (ConfigureRequest) returns (ConfigureResponse);
+  rpc IsOpen (IsOpenRequest) returns (IsOpenResponse);
+}
+
+service LutPropertiesService {
+  rpc GetDimension (GetDimensionRequest) returns (GetDimensionResponse);
+  rpc GetSamplingKeys (GetSamplingKeysRequest) returns (GetSamplingKeysResponse);
+  rpc GetSize (GetSizeRequest) returns (GetSizeResponse);
+}
+
+service DataSpaceService {
+  rpc GetRange (GetRangeRequest) returns (GetRangeResponse);
+  rpc GetStandard (GetStandardRequest) returns (GetStandardResponse);
+  rpc GetTransfer (GetTransferRequest) returns (GetTransferResponse);
+  rpc Pack (PackRequest) returns (PackResponse);
+}
+
+service CameraService {
+  rpc AddCallbackBuffer (AddCallbackBufferRequest) returns (AddCallbackBufferResponse);
+  rpc AutoFocus (AutoFocusRequest) returns (AutoFocusResponse);
+  rpc CancelAutoFocus (CancelAutoFocusRequest) returns (CancelAutoFocusResponse);
+  rpc EnableShutterSound (EnableShutterSoundRequest) returns (EnableShutterSoundResponse);
+  rpc GetParameters (GetParametersRequest) returns (GetParametersResponse);
+  rpc Lock (LockRequest) returns (LockResponse);
+  rpc Reconnect (ReconnectRequest) returns (ReconnectResponse);
+  rpc Release (ReleaseRequest) returns (ReleaseResponse);
+  rpc SetAutoFocusMoveCallback (SetAutoFocusMoveCallbackRequest) returns (SetAutoFocusMoveCallbackResponse);
+  rpc SetDisplayOrientation (SetDisplayOrientationRequest) returns (SetDisplayOrientationResponse);
+  rpc SetErrorCallback (SetErrorCallbackRequest) returns (SetErrorCallbackResponse);
+  rpc SetFaceDetectionListener (SetFaceDetectionListenerRequest) returns (SetFaceDetectionListenerResponse);
+  rpc SetOneShotPreviewCallback (SetOneShotPreviewCallbackRequest) returns (SetOneShotPreviewCallbackResponse);
+  rpc SetParameters (SetParametersRequest) returns (SetParametersResponse);
+  rpc SetPreviewCallback (SetPreviewCallbackRequest) returns (SetPreviewCallbackResponse);
+  rpc SetPreviewCallbackWithBuffer (SetPreviewCallbackWithBufferRequest) returns (SetPreviewCallbackWithBufferResponse);
+  rpc SetPreviewDisplay (SetPreviewDisplayRequest) returns (SetPreviewDisplayResponse);
+  rpc SetPreviewTexture (SetPreviewTextureRequest) returns (SetPreviewTextureResponse);
+  rpc SetZoomChangeListener (SetZoomChangeListenerRequest) returns (SetZoomChangeListenerResponse);
+  rpc StartFaceDetection (StartFaceDetectionRequest) returns (StartFaceDetectionResponse);
+  rpc StartPreview (StartPreviewRequest) returns (StartPreviewResponse);
+  rpc StartSmoothZoom (StartSmoothZoomRequest) returns (StartSmoothZoomResponse);
+  rpc StopFaceDetection (StopFaceDetectionRequest) returns (StopFaceDetectionResponse);
+  rpc StopPreview (StopPreviewRequest) returns (StopPreviewResponse);
+  rpc StopSmoothZoom (StopSmoothZoomRequest) returns (StopSmoothZoomResponse);
+  rpc TakePicture3 (TakePicture3Request) returns (TakePicture3Response);
+  rpc TakePicture4_1 (TakePicture4_1Request) returns (TakePicture4_1Response);
+  rpc Unlock (UnlockRequest) returns (UnlockResponse);
+  rpc GetCameraInfo (GetCameraInfoRequest) returns (GetCameraInfoResponse);
+  rpc GetNumberOfCameras (GetNumberOfCamerasRequest) returns (GetNumberOfCamerasResponse);
+  rpc Open0 (Open0Request) returns (Open0Response);
+  rpc Open1_1 (Open1_1Request) returns (Open1_1Response);
+}
+
+service CameraAreaService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+}
+
+service CameraAutoFocusCallbackService {
+  rpc OnAutoFocus (OnAutoFocusRequest) returns (OnAutoFocusResponse);
+}
+
+service CameraAutoFocusMoveCallbackService {
+  rpc OnAutoFocusMoving (OnAutoFocusMovingRequest) returns (OnAutoFocusMovingResponse);
+}
+
+service CameraErrorCallbackService {
+  rpc OnError (OnErrorRequest) returns (OnErrorResponse);
+}
+
+service CameraFaceDetectionListenerService {
+  rpc OnFaceDetection (OnFaceDetectionRequest) returns (OnFaceDetectionResponse);
+}
+
+service CameraOnZoomChangeListenerService {
+  rpc OnZoomChange (OnZoomChangeRequest) returns (OnZoomChangeResponse);
+}
+
+service CameraParametersService {
+  rpc Flatten (FlattenRequest) returns (FlattenResponse);
+  rpc Get (GetRequest) returns (GetResponse);
+  rpc GetAntibanding (GetAntibandingRequest) returns (GetAntibandingResponse);
+  rpc GetAutoExposureLock (GetAutoExposureLockRequest) returns (GetAutoExposureLockResponse);
+  rpc GetAutoWhiteBalanceLock (GetAutoWhiteBalanceLockRequest) returns (GetAutoWhiteBalanceLockResponse);
+  rpc GetColorEffect (GetColorEffectRequest) returns (GetColorEffectResponse);
+  rpc GetExposureCompensation (GetExposureCompensationRequest) returns (GetExposureCompensationResponse);
+  rpc GetExposureCompensationStep (GetExposureCompensationStepRequest) returns (GetExposureCompensationStepResponse);
+  rpc GetFlashMode (GetFlashModeRequest) returns (GetFlashModeResponse);
+  rpc GetFocalLength (GetFocalLengthRequest) returns (GetFocalLengthResponse);
+  rpc GetFocusDistances (GetFocusDistancesRequest) returns (GetFocusDistancesResponse);
+  rpc GetFocusMode (GetFocusModeRequest) returns (GetFocusModeResponse);
+  rpc GetHorizontalViewAngle (GetHorizontalViewAngleRequest) returns (GetHorizontalViewAngleResponse);
+  rpc GetInt (GetIntRequest) returns (GetIntResponse);
+  rpc GetJpegQuality (GetJpegQualityRequest) returns (GetJpegQualityResponse);
+  rpc GetJpegThumbnailQuality (GetJpegThumbnailQualityRequest) returns (GetJpegThumbnailQualityResponse);
+  rpc GetJpegThumbnailSize (GetJpegThumbnailSizeRequest) returns (GetJpegThumbnailSizeResponse);
+  rpc GetMaxExposureCompensation (GetMaxExposureCompensationRequest) returns (GetMaxExposureCompensationResponse);
+  rpc GetMaxNumDetectedFaces (GetMaxNumDetectedFacesRequest) returns (GetMaxNumDetectedFacesResponse);
+  rpc GetMaxNumFocusAreas (GetMaxNumFocusAreasRequest) returns (GetMaxNumFocusAreasResponse);
+  rpc GetMaxNumMeteringAreas (GetMaxNumMeteringAreasRequest) returns (GetMaxNumMeteringAreasResponse);
+  rpc GetMaxZoom (GetMaxZoomRequest) returns (GetMaxZoomResponse);
+  rpc GetMinExposureCompensation (GetMinExposureCompensationRequest) returns (GetMinExposureCompensationResponse);
+  rpc GetPictureFormat (GetPictureFormatRequest) returns (GetPictureFormatResponse);
+  rpc GetPictureSize (GetPictureSizeRequest) returns (GetPictureSizeResponse);
+  rpc GetPreferredPreviewSizeForVideo (GetPreferredPreviewSizeForVideoRequest) returns (GetPreferredPreviewSizeForVideoResponse);
+  rpc GetPreviewFormat (GetPreviewFormatRequest) returns (GetPreviewFormatResponse);
+  rpc GetPreviewFpsRange (GetPreviewFpsRangeRequest) returns (GetPreviewFpsRangeResponse);
+  rpc GetPreviewFrameRate (GetPreviewFrameRateRequest) returns (GetPreviewFrameRateResponse);
+  rpc GetPreviewSize (GetPreviewSizeRequest) returns (GetPreviewSizeResponse);
+  rpc GetSceneMode (GetSceneModeRequest) returns (GetSceneModeResponse);
+  rpc GetVerticalViewAngle (GetVerticalViewAngleRequest) returns (GetVerticalViewAngleResponse);
+  rpc GetVideoStabilization (GetVideoStabilizationRequest) returns (GetVideoStabilizationResponse);
+  rpc GetWhiteBalance (GetWhiteBalanceRequest) returns (GetWhiteBalanceResponse);
+  rpc GetZoom (GetZoomRequest) returns (GetZoomResponse);
+  rpc IsAutoExposureLockSupported (IsAutoExposureLockSupportedRequest) returns (IsAutoExposureLockSupportedResponse);
+  rpc IsAutoWhiteBalanceLockSupported (IsAutoWhiteBalanceLockSupportedRequest) returns (IsAutoWhiteBalanceLockSupportedResponse);
+  rpc IsSmoothZoomSupported (IsSmoothZoomSupportedRequest) returns (IsSmoothZoomSupportedResponse);
+  rpc IsVideoSnapshotSupported (IsVideoSnapshotSupportedRequest) returns (IsVideoSnapshotSupportedResponse);
+  rpc IsVideoStabilizationSupported (IsVideoStabilizationSupportedRequest) returns (IsVideoStabilizationSupportedResponse);
+  rpc IsZoomSupported (IsZoomSupportedRequest) returns (IsZoomSupportedResponse);
+  rpc Remove (RemoveRequest) returns (RemoveResponse);
+  rpc RemoveGpsData (RemoveGpsDataRequest) returns (RemoveGpsDataResponse);
+  rpc Set2 (Set2Request) returns (Set2Response);
+  rpc Set2_1 (CameraParametersSet2_1Request) returns (Set2_1Response);
+  rpc SetAntibanding (SetAntibandingRequest) returns (SetAntibandingResponse);
+  rpc SetAutoExposureLock (SetAutoExposureLockRequest) returns (SetAutoExposureLockResponse);
+  rpc SetAutoWhiteBalanceLock (SetAutoWhiteBalanceLockRequest) returns (SetAutoWhiteBalanceLockResponse);
+  rpc SetColorEffect (SetColorEffectRequest) returns (SetColorEffectResponse);
+  rpc SetExposureCompensation (SetExposureCompensationRequest) returns (SetExposureCompensationResponse);
+  rpc SetFlashMode (SetFlashModeRequest) returns (SetFlashModeResponse);
+  rpc SetFocusMode (SetFocusModeRequest) returns (SetFocusModeResponse);
+  rpc SetGpsAltitude (SetGpsAltitudeRequest) returns (SetGpsAltitudeResponse);
+  rpc SetGpsLatitude (SetGpsLatitudeRequest) returns (SetGpsLatitudeResponse);
+  rpc SetGpsLongitude (SetGpsLongitudeRequest) returns (SetGpsLongitudeResponse);
+  rpc SetGpsProcessingMethod (SetGpsProcessingMethodRequest) returns (SetGpsProcessingMethodResponse);
+  rpc SetGpsTimestamp (SetGpsTimestampRequest) returns (SetGpsTimestampResponse);
+  rpc SetJpegQuality (SetJpegQualityRequest) returns (SetJpegQualityResponse);
+  rpc SetJpegThumbnailQuality (SetJpegThumbnailQualityRequest) returns (SetJpegThumbnailQualityResponse);
+  rpc SetJpegThumbnailSize (SetJpegThumbnailSizeRequest) returns (SetJpegThumbnailSizeResponse);
+  rpc SetPictureFormat (SetPictureFormatRequest) returns (SetPictureFormatResponse);
+  rpc SetPictureSize (SetPictureSizeRequest) returns (SetPictureSizeResponse);
+  rpc SetPreviewFormat (SetPreviewFormatRequest) returns (SetPreviewFormatResponse);
+  rpc SetPreviewFpsRange (SetPreviewFpsRangeRequest) returns (SetPreviewFpsRangeResponse);
+  rpc SetPreviewFrameRate (SetPreviewFrameRateRequest) returns (SetPreviewFrameRateResponse);
+  rpc SetPreviewSize (SetPreviewSizeRequest) returns (SetPreviewSizeResponse);
+  rpc SetRecordingHint (SetRecordingHintRequest) returns (SetRecordingHintResponse);
+  rpc SetRotation (SetRotationRequest) returns (SetRotationResponse);
+  rpc SetSceneMode (SetSceneModeRequest) returns (SetSceneModeResponse);
+  rpc SetVideoStabilization (SetVideoStabilizationRequest) returns (SetVideoStabilizationResponse);
+  rpc SetWhiteBalance (SetWhiteBalanceRequest) returns (SetWhiteBalanceResponse);
+  rpc SetZoom (SetZoomRequest) returns (SetZoomResponse);
+  rpc Unflatten (UnflattenRequest) returns (UnflattenResponse);
+}
+
+service CameraPictureCallbackService {
+  rpc OnPictureTaken (OnPictureTakenRequest) returns (OnPictureTakenResponse);
+}
+
+service CameraPreviewCallbackService {
+  rpc OnPreviewFrame (OnPreviewFrameRequest) returns (OnPreviewFrameResponse);
+}
+
+service CameraShutterCallbackService {
+  rpc OnShutter (OnShutterRequest) returns (OnShutterResponse);
+}
+
+service CameraSizeService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service BatteryStateService {
+  rpc GetCapacity (GetCapacityRequest) returns (GetCapacityResponse);
+  rpc GetStatus (GetStatusRequest) returns (GetStatusResponse);
+  rpc IsPresent (IsPresentRequest) returns (IsPresentResponse);
+}
+
+service OverlayPropertiesService {
+  rpc DescribeContents (OverlayPropertiesDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetLutProperties (GetLutPropertiesRequest) returns (GetLutPropertiesResponse);
+  rpc IsCombinationSupported (IsCombinationSupportedRequest) returns (IsCombinationSupportedResponse);
+  rpc IsMixedColorSpacesSupported (IsMixedColorSpacesSupportedRequest) returns (IsMixedColorSpacesSupportedResponse);
+  rpc WriteToParcel (OverlayPropertiesWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service SensorEventCallbackService {
+  rpc OnAccuracyChanged (SensorEventCallbackOnAccuracyChangedRequest) returns (OnAccuracyChangedResponse);
+  rpc OnFlushCompleted (OnFlushCompletedRequest) returns (OnFlushCompletedResponse);
+  rpc OnSensorAdditionalInfo (OnSensorAdditionalInfoRequest) returns (OnSensorAdditionalInfoResponse);
+  rpc OnSensorChanged (SensorEventCallbackOnSensorChangedRequest) returns (OnSensorChangedResponse);
+}
+
+service SensorPrivacyManagerService {
+  rpc SupportsSensorToggle1 (SupportsSensorToggle1Request) returns (SupportsSensorToggle1Response);
+  rpc SupportsSensorToggle2_1 (SupportsSensorToggle2_1Request) returns (SupportsSensorToggle2_1Response);
+}
+
+service SensorEventListener2Service {
+  rpc OnFlushCompleted (OnFlushCompletedRequest) returns (OnFlushCompletedResponse);
 }

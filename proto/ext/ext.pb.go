@@ -12,6 +12,7 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -22,16 +23,128 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type GetExtensionVersionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetExtensionVersionRequest) Reset() {
+	*x = GetExtensionVersionRequest{}
+	mi := &file_proto_ext_ext_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetExtensionVersionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetExtensionVersionRequest) ProtoMessage() {}
+
+func (x *GetExtensionVersionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ext_ext_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetExtensionVersionRequest.ProtoReflect.Descriptor instead.
+func (*GetExtensionVersionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ext_ext_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *GetExtensionVersionRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetExtensionVersionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetExtensionVersionResponse) Reset() {
+	*x = GetExtensionVersionResponse{}
+	mi := &file_proto_ext_ext_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetExtensionVersionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetExtensionVersionResponse) ProtoMessage() {}
+
+func (x *GetExtensionVersionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ext_ext_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetExtensionVersionResponse.ProtoReflect.Descriptor instead.
+func (*GetExtensionVersionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ext_ext_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *GetExtensionVersionResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
 var File_proto_ext_ext_proto protoreflect.FileDescriptor
 
 const file_proto_ext_ext_proto_rawDesc = "" +
 	"\n" +
-	"\x13proto/ext/ext.proto\x12\x03extB-Z+github.com/AndroidGoLab/jni-proxy/proto/extb\x06proto3"
+	"\x13proto/ext/ext.proto\x12\x03ext\"0\n" +
+	"\x1aGetExtensionVersionRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"5\n" +
+	"\x1bGetExtensionVersionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result2p\n" +
+	"\x14SdkExtensionsService\x12X\n" +
+	"\x13GetExtensionVersion\x12\x1f.ext.GetExtensionVersionRequest\x1a .ext.GetExtensionVersionResponseB-Z+github.com/AndroidGoLab/jni-proxy/proto/extb\x06proto3"
 
-var file_proto_ext_ext_proto_goTypes = []any{}
+var (
+	file_proto_ext_ext_proto_rawDescOnce sync.Once
+	file_proto_ext_ext_proto_rawDescData []byte
+)
+
+func file_proto_ext_ext_proto_rawDescGZIP() []byte {
+	file_proto_ext_ext_proto_rawDescOnce.Do(func() {
+		file_proto_ext_ext_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_proto_ext_ext_proto_rawDesc), len(file_proto_ext_ext_proto_rawDesc)))
+	})
+	return file_proto_ext_ext_proto_rawDescData
+}
+
+var file_proto_ext_ext_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_proto_ext_ext_proto_goTypes = []any{
+	(*GetExtensionVersionRequest)(nil),  // 0: ext.GetExtensionVersionRequest
+	(*GetExtensionVersionResponse)(nil), // 1: ext.GetExtensionVersionResponse
+}
 var file_proto_ext_ext_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
+	0, // 0: ext.SdkExtensionsService.GetExtensionVersion:input_type -> ext.GetExtensionVersionRequest
+	1, // 1: ext.SdkExtensionsService.GetExtensionVersion:output_type -> ext.GetExtensionVersionResponse
+	1, // [1:2] is the sub-list for method output_type
+	0, // [0:1] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
 	0, // [0:0] is the sub-list for extension extendee
 	0, // [0:0] is the sub-list for field type_name
@@ -48,12 +161,13 @@ func file_proto_ext_ext_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_ext_ext_proto_rawDesc), len(file_proto_ext_ext_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   2,
 			NumExtensions: 0,
-			NumServices:   0,
+			NumServices:   1,
 		},
 		GoTypes:           file_proto_ext_ext_proto_goTypes,
 		DependencyIndexes: file_proto_ext_ext_proto_depIdxs,
+		MessageInfos:      file_proto_ext_ext_proto_msgTypes,
 	}.Build()
 	File_proto_ext_ext_proto = out.File
 	file_proto_ext_ext_proto_goTypes = nil

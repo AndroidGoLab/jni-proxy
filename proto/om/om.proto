@@ -6,6 +6,148 @@ package om;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/om";
 
+message NewFabricatedOverlayRequest {
+  string arg0 = 1;
+  string arg1 = 2;
+}
+
+message NewFabricatedOverlayResponse {
+  int64 result = 1;
+}
+
+message GetIdentifierRequest {
+  int64 handle = 1;
+}
+
+message GetIdentifierResponse {
+  int64 result = 1;
+}
+
+message SetNinePatchResourceValueRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  int64 arg1 = 3;
+  string arg2 = 4;
+}
+
+message SetNinePatchResourceValueResponse {
+}
+
+message SetResourceValue3Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  int64 arg1 = 3;
+  string arg2 = 4;
+}
+
+message SetResourceValue3Response {
+}
+
+message SetResourceValue3_1Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  int64 arg1 = 3;
+  string arg2 = 4;
+}
+
+message SetResourceValue3_1Response {
+}
+
+message SetResourceValue4_2Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  string arg3 = 5;
+}
+
+message SetResourceValue4_2Response {
+}
+
+message SetResourceValue4_3Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  int32 arg1 = 3;
+  string arg2 = 4;
+  string arg3 = 5;
+}
+
+message SetResourceValue4_3Response {
+}
+
+message SetTargetOverlayableRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetTargetOverlayableResponse {
+}
+
+message DescribeContentsRequest {
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message EqualsRequest {
+  int64 arg0 = 1;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message HashCodeRequest {
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message ToStringRequest {
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteToParcelResponse {
+}
+
+message GetOverlayIdentifierRequest {
+}
+
+message GetOverlayIdentifierResponse {
+  int64 result = 1;
+}
+
+message GetOverlayNameRequest {
+}
+
+message GetOverlayNameResponse {
+  string result = 1;
+}
+
+message GetTargetOverlayableNameRequest {
+}
+
+message GetTargetOverlayableNameResponse {
+  string result = 1;
+}
+
+message GetTargetPackageNameRequest {
+}
+
+message GetTargetPackageNameResponse {
+  string result = 1;
+}
+
 message CommitRequest {
   int64 arg0 = 1;
 }
@@ -13,6 +155,67 @@ message CommitRequest {
 message CommitResponse {
 }
 
+message RegisterFabricatedOverlayRequest {
+  int64 arg0 = 1;
+}
+
+message RegisterFabricatedOverlayResponse {
+}
+
+message UnregisterFabricatedOverlayRequest {
+  int64 arg0 = 1;
+}
+
+message UnregisterFabricatedOverlayResponse {
+}
+
+message NewInstanceRequest {
+}
+
+message NewInstanceResponse {
+  int64 result = 1;
+}
+
+service FabricatedOverlayService {
+  rpc NewFabricatedOverlay (NewFabricatedOverlayRequest) returns (NewFabricatedOverlayResponse);
+  rpc GetIdentifier (GetIdentifierRequest) returns (GetIdentifierResponse);
+  rpc SetNinePatchResourceValue (SetNinePatchResourceValueRequest) returns (SetNinePatchResourceValueResponse);
+  rpc SetResourceValue3 (SetResourceValue3Request) returns (SetResourceValue3Response);
+  rpc SetResourceValue3_1 (SetResourceValue3_1Request) returns (SetResourceValue3_1Response);
+  rpc SetResourceValue4_2 (SetResourceValue4_2Request) returns (SetResourceValue4_2Response);
+  rpc SetResourceValue4_3 (SetResourceValue4_3Request) returns (SetResourceValue4_3Response);
+  rpc SetTargetOverlayable (SetTargetOverlayableRequest) returns (SetTargetOverlayableResponse);
+}
+
+service OverlayIdentifierService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service OverlayInfoService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetOverlayIdentifier (GetOverlayIdentifierRequest) returns (GetOverlayIdentifierResponse);
+  rpc GetOverlayName (GetOverlayNameRequest) returns (GetOverlayNameResponse);
+  rpc GetTargetOverlayableName (GetTargetOverlayableNameRequest) returns (GetTargetOverlayableNameResponse);
+  rpc GetTargetPackageName (GetTargetPackageNameRequest) returns (GetTargetPackageNameResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
 service OverlayManagerService {
   rpc Commit (CommitRequest) returns (CommitResponse);
+}
+
+service OverlayManagerTransactionService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc RegisterFabricatedOverlay (RegisterFabricatedOverlayRequest) returns (RegisterFabricatedOverlayResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc UnregisterFabricatedOverlay (UnregisterFabricatedOverlayRequest) returns (UnregisterFabricatedOverlayResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc NewInstance (NewInstanceRequest) returns (NewInstanceResponse);
 }

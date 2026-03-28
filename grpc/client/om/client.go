@@ -9,6 +9,249 @@ import (
 	"google.golang.org/grpc"
 )
 
+// FabricatedOverlayClient wraps the gRPC FabricatedOverlayService client.
+type FabricatedOverlayClient struct {
+	svc pb.FabricatedOverlayServiceClient
+}
+
+// NewFabricatedOverlayClient creates a new FabricatedOverlay client.
+func NewFabricatedOverlayClient(cc grpc.ClientConnInterface) *FabricatedOverlayClient {
+	return &FabricatedOverlayClient{
+		svc: pb.NewFabricatedOverlayServiceClient(cc),
+	}
+}
+
+// GetIdentifier calls the GetIdentifier RPC.
+func (c *FabricatedOverlayClient) GetIdentifier(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetIdentifier(ctx, &pb.GetIdentifierRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetNinePatchResourceValue calls the SetNinePatchResourceValue RPC.
+func (c *FabricatedOverlayClient) SetNinePatchResourceValue(ctx context.Context, handle int64, arg0 string, arg1 int64, arg2 string) error {
+	_, err := c.svc.SetNinePatchResourceValue(ctx, &pb.SetNinePatchResourceValueRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// SetResourceValue3 calls the SetResourceValue3 RPC.
+func (c *FabricatedOverlayClient) SetResourceValue3(ctx context.Context, handle int64, arg0 string, arg1 int64, arg2 string) error {
+	_, err := c.svc.SetResourceValue3(ctx, &pb.SetResourceValue3Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// SetResourceValue3_1 calls the SetResourceValue3_1 RPC.
+func (c *FabricatedOverlayClient) SetResourceValue3_1(ctx context.Context, handle int64, arg0 string, arg1 int64, arg2 string) error {
+	_, err := c.svc.SetResourceValue3_1(ctx, &pb.SetResourceValue3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// SetResourceValue4_2 calls the SetResourceValue4_2 RPC.
+func (c *FabricatedOverlayClient) SetResourceValue4_2(ctx context.Context, handle int64, arg0 string, arg1 int32, arg2 int32, arg3 string) error {
+	_, err := c.svc.SetResourceValue4_2(ctx, &pb.SetResourceValue4_2Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// SetResourceValue4_3 calls the SetResourceValue4_3 RPC.
+func (c *FabricatedOverlayClient) SetResourceValue4_3(ctx context.Context, handle int64, arg0 string, arg1 int32, arg2 string, arg3 string) error {
+	_, err := c.svc.SetResourceValue4_3(ctx, &pb.SetResourceValue4_3Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// SetTargetOverlayable calls the SetTargetOverlayable RPC.
+func (c *FabricatedOverlayClient) SetTargetOverlayable(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.SetTargetOverlayable(ctx, &pb.SetTargetOverlayableRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// OverlayIdentifierClient wraps the gRPC OverlayIdentifierService client.
+type OverlayIdentifierClient struct {
+	svc pb.OverlayIdentifierServiceClient
+}
+
+// NewOverlayIdentifierClient creates a new OverlayIdentifier client.
+func NewOverlayIdentifierClient(cc grpc.ClientConnInterface) *OverlayIdentifierClient {
+	return &OverlayIdentifierClient{
+		svc: pb.NewOverlayIdentifierServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *OverlayIdentifierClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *OverlayIdentifierClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *OverlayIdentifierClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *OverlayIdentifierClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *OverlayIdentifierClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OverlayInfoClient wraps the gRPC OverlayInfoService client.
+type OverlayInfoClient struct {
+	svc pb.OverlayInfoServiceClient
+}
+
+// NewOverlayInfoClient creates a new OverlayInfo client.
+func NewOverlayInfoClient(cc grpc.ClientConnInterface) *OverlayInfoClient {
+	return &OverlayInfoClient{
+		svc: pb.NewOverlayInfoServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *OverlayInfoClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *OverlayInfoClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOverlayIdentifier calls the GetOverlayIdentifier RPC.
+func (c *OverlayInfoClient) GetOverlayIdentifier(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetOverlayIdentifier(ctx, &pb.GetOverlayIdentifierRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOverlayName calls the GetOverlayName RPC.
+func (c *OverlayInfoClient) GetOverlayName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetOverlayName(ctx, &pb.GetOverlayNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTargetOverlayableName calls the GetTargetOverlayableName RPC.
+func (c *OverlayInfoClient) GetTargetOverlayableName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetTargetOverlayableName(ctx, &pb.GetTargetOverlayableNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTargetPackageName calls the GetTargetPackageName RPC.
+func (c *OverlayInfoClient) GetTargetPackageName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetTargetPackageName(ctx, &pb.GetTargetPackageNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *OverlayInfoClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *OverlayInfoClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *OverlayInfoClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
 // OverlayManagerClient wraps the gRPC OverlayManagerService client.
 type OverlayManagerClient struct {
 	svc pb.OverlayManagerServiceClient
@@ -27,4 +270,68 @@ func (c *OverlayManagerClient) Commit(ctx context.Context, arg0 int64) error {
 		Arg0: arg0,
 	})
 	return err
+}
+
+// OverlayManagerTransactionClient wraps the gRPC OverlayManagerTransactionService client.
+type OverlayManagerTransactionClient struct {
+	svc pb.OverlayManagerTransactionServiceClient
+}
+
+// NewOverlayManagerTransactionClient creates a new OverlayManagerTransaction client.
+func NewOverlayManagerTransactionClient(cc grpc.ClientConnInterface) *OverlayManagerTransactionClient {
+	return &OverlayManagerTransactionClient{
+		svc: pb.NewOverlayManagerTransactionServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *OverlayManagerTransactionClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RegisterFabricatedOverlay calls the RegisterFabricatedOverlay RPC.
+func (c *OverlayManagerTransactionClient) RegisterFabricatedOverlay(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.RegisterFabricatedOverlay(ctx, &pb.RegisterFabricatedOverlayRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ToString calls the ToString RPC.
+func (c *OverlayManagerTransactionClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// UnregisterFabricatedOverlay calls the UnregisterFabricatedOverlay RPC.
+func (c *OverlayManagerTransactionClient) UnregisterFabricatedOverlay(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.UnregisterFabricatedOverlay(ctx, &pb.UnregisterFabricatedOverlayRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *OverlayManagerTransactionClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// NewInstance calls the NewInstance RPC.
+func (c *OverlayManagerTransactionClient) NewInstance(ctx context.Context) (int64, error) {
+	resp, err := c.svc.NewInstance(ctx, &pb.NewInstanceRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
 }

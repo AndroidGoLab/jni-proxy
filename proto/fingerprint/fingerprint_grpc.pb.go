@@ -159,3 +159,502 @@ var ManagerService_ServiceDesc = grpc.ServiceDesc{
 	Streams:  []grpc.StreamDesc{},
 	Metadata: "proto/fingerprint/fingerprint.proto",
 }
+
+const (
+	ManagerAuthenticationCallbackService_OnAuthenticationError_FullMethodName     = "/fingerprint.ManagerAuthenticationCallbackService/OnAuthenticationError"
+	ManagerAuthenticationCallbackService_OnAuthenticationFailed_FullMethodName    = "/fingerprint.ManagerAuthenticationCallbackService/OnAuthenticationFailed"
+	ManagerAuthenticationCallbackService_OnAuthenticationHelp_FullMethodName      = "/fingerprint.ManagerAuthenticationCallbackService/OnAuthenticationHelp"
+	ManagerAuthenticationCallbackService_OnAuthenticationSucceeded_FullMethodName = "/fingerprint.ManagerAuthenticationCallbackService/OnAuthenticationSucceeded"
+)
+
+// ManagerAuthenticationCallbackServiceClient is the client API for ManagerAuthenticationCallbackService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ManagerAuthenticationCallbackServiceClient interface {
+	OnAuthenticationError(ctx context.Context, in *OnAuthenticationErrorRequest, opts ...grpc.CallOption) (*OnAuthenticationErrorResponse, error)
+	OnAuthenticationFailed(ctx context.Context, in *OnAuthenticationFailedRequest, opts ...grpc.CallOption) (*OnAuthenticationFailedResponse, error)
+	OnAuthenticationHelp(ctx context.Context, in *OnAuthenticationHelpRequest, opts ...grpc.CallOption) (*OnAuthenticationHelpResponse, error)
+	OnAuthenticationSucceeded(ctx context.Context, in *OnAuthenticationSucceededRequest, opts ...grpc.CallOption) (*OnAuthenticationSucceededResponse, error)
+}
+
+type managerAuthenticationCallbackServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewManagerAuthenticationCallbackServiceClient(cc grpc.ClientConnInterface) ManagerAuthenticationCallbackServiceClient {
+	return &managerAuthenticationCallbackServiceClient{cc}
+}
+
+func (c *managerAuthenticationCallbackServiceClient) OnAuthenticationError(ctx context.Context, in *OnAuthenticationErrorRequest, opts ...grpc.CallOption) (*OnAuthenticationErrorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnAuthenticationErrorResponse)
+	err := c.cc.Invoke(ctx, ManagerAuthenticationCallbackService_OnAuthenticationError_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerAuthenticationCallbackServiceClient) OnAuthenticationFailed(ctx context.Context, in *OnAuthenticationFailedRequest, opts ...grpc.CallOption) (*OnAuthenticationFailedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnAuthenticationFailedResponse)
+	err := c.cc.Invoke(ctx, ManagerAuthenticationCallbackService_OnAuthenticationFailed_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerAuthenticationCallbackServiceClient) OnAuthenticationHelp(ctx context.Context, in *OnAuthenticationHelpRequest, opts ...grpc.CallOption) (*OnAuthenticationHelpResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnAuthenticationHelpResponse)
+	err := c.cc.Invoke(ctx, ManagerAuthenticationCallbackService_OnAuthenticationHelp_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerAuthenticationCallbackServiceClient) OnAuthenticationSucceeded(ctx context.Context, in *OnAuthenticationSucceededRequest, opts ...grpc.CallOption) (*OnAuthenticationSucceededResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnAuthenticationSucceededResponse)
+	err := c.cc.Invoke(ctx, ManagerAuthenticationCallbackService_OnAuthenticationSucceeded_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ManagerAuthenticationCallbackServiceServer is the server API for ManagerAuthenticationCallbackService service.
+// All implementations must embed UnimplementedManagerAuthenticationCallbackServiceServer
+// for forward compatibility.
+type ManagerAuthenticationCallbackServiceServer interface {
+	OnAuthenticationError(context.Context, *OnAuthenticationErrorRequest) (*OnAuthenticationErrorResponse, error)
+	OnAuthenticationFailed(context.Context, *OnAuthenticationFailedRequest) (*OnAuthenticationFailedResponse, error)
+	OnAuthenticationHelp(context.Context, *OnAuthenticationHelpRequest) (*OnAuthenticationHelpResponse, error)
+	OnAuthenticationSucceeded(context.Context, *OnAuthenticationSucceededRequest) (*OnAuthenticationSucceededResponse, error)
+	mustEmbedUnimplementedManagerAuthenticationCallbackServiceServer()
+}
+
+// UnimplementedManagerAuthenticationCallbackServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedManagerAuthenticationCallbackServiceServer struct{}
+
+func (UnimplementedManagerAuthenticationCallbackServiceServer) OnAuthenticationError(context.Context, *OnAuthenticationErrorRequest) (*OnAuthenticationErrorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnAuthenticationError not implemented")
+}
+func (UnimplementedManagerAuthenticationCallbackServiceServer) OnAuthenticationFailed(context.Context, *OnAuthenticationFailedRequest) (*OnAuthenticationFailedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnAuthenticationFailed not implemented")
+}
+func (UnimplementedManagerAuthenticationCallbackServiceServer) OnAuthenticationHelp(context.Context, *OnAuthenticationHelpRequest) (*OnAuthenticationHelpResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnAuthenticationHelp not implemented")
+}
+func (UnimplementedManagerAuthenticationCallbackServiceServer) OnAuthenticationSucceeded(context.Context, *OnAuthenticationSucceededRequest) (*OnAuthenticationSucceededResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnAuthenticationSucceeded not implemented")
+}
+func (UnimplementedManagerAuthenticationCallbackServiceServer) mustEmbedUnimplementedManagerAuthenticationCallbackServiceServer() {
+}
+func (UnimplementedManagerAuthenticationCallbackServiceServer) testEmbeddedByValue() {}
+
+// UnsafeManagerAuthenticationCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ManagerAuthenticationCallbackServiceServer will
+// result in compilation errors.
+type UnsafeManagerAuthenticationCallbackServiceServer interface {
+	mustEmbedUnimplementedManagerAuthenticationCallbackServiceServer()
+}
+
+func RegisterManagerAuthenticationCallbackServiceServer(s grpc.ServiceRegistrar, srv ManagerAuthenticationCallbackServiceServer) {
+	// If the following call panics, it indicates UnimplementedManagerAuthenticationCallbackServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ManagerAuthenticationCallbackService_ServiceDesc, srv)
+}
+
+func _ManagerAuthenticationCallbackService_OnAuthenticationError_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnAuthenticationErrorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerAuthenticationCallbackServiceServer).OnAuthenticationError(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerAuthenticationCallbackService_OnAuthenticationError_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerAuthenticationCallbackServiceServer).OnAuthenticationError(ctx, req.(*OnAuthenticationErrorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerAuthenticationCallbackService_OnAuthenticationFailed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnAuthenticationFailedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerAuthenticationCallbackServiceServer).OnAuthenticationFailed(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerAuthenticationCallbackService_OnAuthenticationFailed_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerAuthenticationCallbackServiceServer).OnAuthenticationFailed(ctx, req.(*OnAuthenticationFailedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerAuthenticationCallbackService_OnAuthenticationHelp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnAuthenticationHelpRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerAuthenticationCallbackServiceServer).OnAuthenticationHelp(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerAuthenticationCallbackService_OnAuthenticationHelp_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerAuthenticationCallbackServiceServer).OnAuthenticationHelp(ctx, req.(*OnAuthenticationHelpRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerAuthenticationCallbackService_OnAuthenticationSucceeded_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnAuthenticationSucceededRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerAuthenticationCallbackServiceServer).OnAuthenticationSucceeded(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerAuthenticationCallbackService_OnAuthenticationSucceeded_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerAuthenticationCallbackServiceServer).OnAuthenticationSucceeded(ctx, req.(*OnAuthenticationSucceededRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ManagerAuthenticationCallbackService_ServiceDesc is the grpc.ServiceDesc for ManagerAuthenticationCallbackService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ManagerAuthenticationCallbackService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "fingerprint.ManagerAuthenticationCallbackService",
+	HandlerType: (*ManagerAuthenticationCallbackServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnAuthenticationError",
+			Handler:    _ManagerAuthenticationCallbackService_OnAuthenticationError_Handler,
+		},
+		{
+			MethodName: "OnAuthenticationFailed",
+			Handler:    _ManagerAuthenticationCallbackService_OnAuthenticationFailed_Handler,
+		},
+		{
+			MethodName: "OnAuthenticationHelp",
+			Handler:    _ManagerAuthenticationCallbackService_OnAuthenticationHelp_Handler,
+		},
+		{
+			MethodName: "OnAuthenticationSucceeded",
+			Handler:    _ManagerAuthenticationCallbackService_OnAuthenticationSucceeded_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/fingerprint/fingerprint.proto",
+}
+
+const (
+	ManagerAuthenticationResultService_GetCryptoObject_FullMethodName = "/fingerprint.ManagerAuthenticationResultService/GetCryptoObject"
+)
+
+// ManagerAuthenticationResultServiceClient is the client API for ManagerAuthenticationResultService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ManagerAuthenticationResultServiceClient interface {
+	GetCryptoObject(ctx context.Context, in *GetCryptoObjectRequest, opts ...grpc.CallOption) (*GetCryptoObjectResponse, error)
+}
+
+type managerAuthenticationResultServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewManagerAuthenticationResultServiceClient(cc grpc.ClientConnInterface) ManagerAuthenticationResultServiceClient {
+	return &managerAuthenticationResultServiceClient{cc}
+}
+
+func (c *managerAuthenticationResultServiceClient) GetCryptoObject(ctx context.Context, in *GetCryptoObjectRequest, opts ...grpc.CallOption) (*GetCryptoObjectResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCryptoObjectResponse)
+	err := c.cc.Invoke(ctx, ManagerAuthenticationResultService_GetCryptoObject_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ManagerAuthenticationResultServiceServer is the server API for ManagerAuthenticationResultService service.
+// All implementations must embed UnimplementedManagerAuthenticationResultServiceServer
+// for forward compatibility.
+type ManagerAuthenticationResultServiceServer interface {
+	GetCryptoObject(context.Context, *GetCryptoObjectRequest) (*GetCryptoObjectResponse, error)
+	mustEmbedUnimplementedManagerAuthenticationResultServiceServer()
+}
+
+// UnimplementedManagerAuthenticationResultServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedManagerAuthenticationResultServiceServer struct{}
+
+func (UnimplementedManagerAuthenticationResultServiceServer) GetCryptoObject(context.Context, *GetCryptoObjectRequest) (*GetCryptoObjectResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCryptoObject not implemented")
+}
+func (UnimplementedManagerAuthenticationResultServiceServer) mustEmbedUnimplementedManagerAuthenticationResultServiceServer() {
+}
+func (UnimplementedManagerAuthenticationResultServiceServer) testEmbeddedByValue() {}
+
+// UnsafeManagerAuthenticationResultServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ManagerAuthenticationResultServiceServer will
+// result in compilation errors.
+type UnsafeManagerAuthenticationResultServiceServer interface {
+	mustEmbedUnimplementedManagerAuthenticationResultServiceServer()
+}
+
+func RegisterManagerAuthenticationResultServiceServer(s grpc.ServiceRegistrar, srv ManagerAuthenticationResultServiceServer) {
+	// If the following call panics, it indicates UnimplementedManagerAuthenticationResultServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ManagerAuthenticationResultService_ServiceDesc, srv)
+}
+
+func _ManagerAuthenticationResultService_GetCryptoObject_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCryptoObjectRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerAuthenticationResultServiceServer).GetCryptoObject(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerAuthenticationResultService_GetCryptoObject_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerAuthenticationResultServiceServer).GetCryptoObject(ctx, req.(*GetCryptoObjectRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ManagerAuthenticationResultService_ServiceDesc is the grpc.ServiceDesc for ManagerAuthenticationResultService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ManagerAuthenticationResultService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "fingerprint.ManagerAuthenticationResultService",
+	HandlerType: (*ManagerAuthenticationResultServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetCryptoObject",
+			Handler:    _ManagerAuthenticationResultService_GetCryptoObject_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/fingerprint/fingerprint.proto",
+}
+
+const (
+	ManagerCryptoObjectService_GetCipher_FullMethodName    = "/fingerprint.ManagerCryptoObjectService/GetCipher"
+	ManagerCryptoObjectService_GetMac_FullMethodName       = "/fingerprint.ManagerCryptoObjectService/GetMac"
+	ManagerCryptoObjectService_GetSignature_FullMethodName = "/fingerprint.ManagerCryptoObjectService/GetSignature"
+)
+
+// ManagerCryptoObjectServiceClient is the client API for ManagerCryptoObjectService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ManagerCryptoObjectServiceClient interface {
+	GetCipher(ctx context.Context, in *GetCipherRequest, opts ...grpc.CallOption) (*GetCipherResponse, error)
+	GetMac(ctx context.Context, in *GetMacRequest, opts ...grpc.CallOption) (*GetMacResponse, error)
+	GetSignature(ctx context.Context, in *GetSignatureRequest, opts ...grpc.CallOption) (*GetSignatureResponse, error)
+}
+
+type managerCryptoObjectServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewManagerCryptoObjectServiceClient(cc grpc.ClientConnInterface) ManagerCryptoObjectServiceClient {
+	return &managerCryptoObjectServiceClient{cc}
+}
+
+func (c *managerCryptoObjectServiceClient) GetCipher(ctx context.Context, in *GetCipherRequest, opts ...grpc.CallOption) (*GetCipherResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCipherResponse)
+	err := c.cc.Invoke(ctx, ManagerCryptoObjectService_GetCipher_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerCryptoObjectServiceClient) GetMac(ctx context.Context, in *GetMacRequest, opts ...grpc.CallOption) (*GetMacResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMacResponse)
+	err := c.cc.Invoke(ctx, ManagerCryptoObjectService_GetMac_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerCryptoObjectServiceClient) GetSignature(ctx context.Context, in *GetSignatureRequest, opts ...grpc.CallOption) (*GetSignatureResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSignatureResponse)
+	err := c.cc.Invoke(ctx, ManagerCryptoObjectService_GetSignature_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ManagerCryptoObjectServiceServer is the server API for ManagerCryptoObjectService service.
+// All implementations must embed UnimplementedManagerCryptoObjectServiceServer
+// for forward compatibility.
+type ManagerCryptoObjectServiceServer interface {
+	GetCipher(context.Context, *GetCipherRequest) (*GetCipherResponse, error)
+	GetMac(context.Context, *GetMacRequest) (*GetMacResponse, error)
+	GetSignature(context.Context, *GetSignatureRequest) (*GetSignatureResponse, error)
+	mustEmbedUnimplementedManagerCryptoObjectServiceServer()
+}
+
+// UnimplementedManagerCryptoObjectServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedManagerCryptoObjectServiceServer struct{}
+
+func (UnimplementedManagerCryptoObjectServiceServer) GetCipher(context.Context, *GetCipherRequest) (*GetCipherResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCipher not implemented")
+}
+func (UnimplementedManagerCryptoObjectServiceServer) GetMac(context.Context, *GetMacRequest) (*GetMacResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMac not implemented")
+}
+func (UnimplementedManagerCryptoObjectServiceServer) GetSignature(context.Context, *GetSignatureRequest) (*GetSignatureResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSignature not implemented")
+}
+func (UnimplementedManagerCryptoObjectServiceServer) mustEmbedUnimplementedManagerCryptoObjectServiceServer() {
+}
+func (UnimplementedManagerCryptoObjectServiceServer) testEmbeddedByValue() {}
+
+// UnsafeManagerCryptoObjectServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ManagerCryptoObjectServiceServer will
+// result in compilation errors.
+type UnsafeManagerCryptoObjectServiceServer interface {
+	mustEmbedUnimplementedManagerCryptoObjectServiceServer()
+}
+
+func RegisterManagerCryptoObjectServiceServer(s grpc.ServiceRegistrar, srv ManagerCryptoObjectServiceServer) {
+	// If the following call panics, it indicates UnimplementedManagerCryptoObjectServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ManagerCryptoObjectService_ServiceDesc, srv)
+}
+
+func _ManagerCryptoObjectService_GetCipher_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCipherRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerCryptoObjectServiceServer).GetCipher(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerCryptoObjectService_GetCipher_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerCryptoObjectServiceServer).GetCipher(ctx, req.(*GetCipherRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerCryptoObjectService_GetMac_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMacRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerCryptoObjectServiceServer).GetMac(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerCryptoObjectService_GetMac_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerCryptoObjectServiceServer).GetMac(ctx, req.(*GetMacRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerCryptoObjectService_GetSignature_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSignatureRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerCryptoObjectServiceServer).GetSignature(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerCryptoObjectService_GetSignature_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerCryptoObjectServiceServer).GetSignature(ctx, req.(*GetSignatureRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ManagerCryptoObjectService_ServiceDesc is the grpc.ServiceDesc for ManagerCryptoObjectService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ManagerCryptoObjectService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "fingerprint.ManagerCryptoObjectService",
+	HandlerType: (*ManagerCryptoObjectServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetCipher",
+			Handler:    _ManagerCryptoObjectService_GetCipher_Handler,
+		},
+		{
+			MethodName: "GetMac",
+			Handler:    _ManagerCryptoObjectService_GetMac_Handler,
+		},
+		{
+			MethodName: "GetSignature",
+			Handler:    _ManagerCryptoObjectService_GetSignature_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/fingerprint/fingerprint.proto",
+}

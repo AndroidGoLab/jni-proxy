@@ -9,6 +9,135 @@ import (
 	"google.golang.org/grpc"
 )
 
+// DiscoveryRequestClient wraps the gRPC DiscoveryRequestService client.
+type DiscoveryRequestClient struct {
+	svc pb.DiscoveryRequestServiceClient
+}
+
+// NewDiscoveryRequestClient creates a new DiscoveryRequest client.
+func NewDiscoveryRequestClient(cc grpc.ClientConnInterface) *DiscoveryRequestClient {
+	return &DiscoveryRequestClient{
+		svc: pb.NewDiscoveryRequestServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *DiscoveryRequestClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *DiscoveryRequestClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNetwork calls the GetNetwork RPC.
+func (c *DiscoveryRequestClient) GetNetwork(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetNetwork(ctx, &pb.GetNetworkRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetServiceType calls the GetServiceType RPC.
+func (c *DiscoveryRequestClient) GetServiceType(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetServiceType(ctx, &pb.GetServiceTypeRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSubtype calls the GetSubtype RPC.
+func (c *DiscoveryRequestClient) GetSubtype(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetSubtype(ctx, &pb.GetSubtypeRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *DiscoveryRequestClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *DiscoveryRequestClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *DiscoveryRequestClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// DiscoveryRequestBuilderClient wraps the gRPC DiscoveryRequestBuilderService client.
+type DiscoveryRequestBuilderClient struct {
+	svc pb.DiscoveryRequestBuilderServiceClient
+}
+
+// NewDiscoveryRequestBuilderClient creates a new DiscoveryRequestBuilder client.
+func NewDiscoveryRequestBuilderClient(cc grpc.ClientConnInterface) *DiscoveryRequestBuilderClient {
+	return &DiscoveryRequestBuilderClient{
+		svc: pb.NewDiscoveryRequestBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *DiscoveryRequestBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetNetwork calls the SetNetwork RPC.
+func (c *DiscoveryRequestBuilderClient) SetNetwork(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetNetwork(ctx, &pb.SetNetworkRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSubtype calls the SetSubtype RPC.
+func (c *DiscoveryRequestBuilderClient) SetSubtype(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetSubtype(ctx, &pb.SetSubtypeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // ManagerClient wraps the gRPC ManagerService client.
 type ManagerClient struct {
 	svc pb.ManagerServiceClient
@@ -145,4 +274,907 @@ func (c *ManagerClient) UnregisterServiceInfoCallback(ctx context.Context, arg0 
 		Arg0: arg0,
 	})
 	return err
+}
+
+// ManagerDiscoveryListenerClient wraps the gRPC ManagerDiscoveryListenerService client.
+type ManagerDiscoveryListenerClient struct {
+	svc pb.ManagerDiscoveryListenerServiceClient
+}
+
+// NewManagerDiscoveryListenerClient creates a new ManagerDiscoveryListener client.
+func NewManagerDiscoveryListenerClient(cc grpc.ClientConnInterface) *ManagerDiscoveryListenerClient {
+	return &ManagerDiscoveryListenerClient{
+		svc: pb.NewManagerDiscoveryListenerServiceClient(cc),
+	}
+}
+
+// OnDiscoveryStarted calls the OnDiscoveryStarted RPC.
+func (c *ManagerDiscoveryListenerClient) OnDiscoveryStarted(ctx context.Context, arg0 string) error {
+	_, err := c.svc.OnDiscoveryStarted(ctx, &pb.OnDiscoveryStartedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnDiscoveryStopped calls the OnDiscoveryStopped RPC.
+func (c *ManagerDiscoveryListenerClient) OnDiscoveryStopped(ctx context.Context, arg0 string) error {
+	_, err := c.svc.OnDiscoveryStopped(ctx, &pb.OnDiscoveryStoppedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnServiceFound calls the OnServiceFound RPC.
+func (c *ManagerDiscoveryListenerClient) OnServiceFound(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnServiceFound(ctx, &pb.OnServiceFoundRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnServiceLost calls the OnServiceLost RPC.
+func (c *ManagerDiscoveryListenerClient) OnServiceLost(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnServiceLost(ctx, &pb.OnServiceLostRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnStartDiscoveryFailed calls the OnStartDiscoveryFailed RPC.
+func (c *ManagerDiscoveryListenerClient) OnStartDiscoveryFailed(ctx context.Context, arg0 string, arg1 int32) error {
+	_, err := c.svc.OnStartDiscoveryFailed(ctx, &pb.OnStartDiscoveryFailedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnStopDiscoveryFailed calls the OnStopDiscoveryFailed RPC.
+func (c *ManagerDiscoveryListenerClient) OnStopDiscoveryFailed(ctx context.Context, arg0 string, arg1 int32) error {
+	_, err := c.svc.OnStopDiscoveryFailed(ctx, &pb.OnStopDiscoveryFailedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ManagerRegistrationListenerClient wraps the gRPC ManagerRegistrationListenerService client.
+type ManagerRegistrationListenerClient struct {
+	svc pb.ManagerRegistrationListenerServiceClient
+}
+
+// NewManagerRegistrationListenerClient creates a new ManagerRegistrationListener client.
+func NewManagerRegistrationListenerClient(cc grpc.ClientConnInterface) *ManagerRegistrationListenerClient {
+	return &ManagerRegistrationListenerClient{
+		svc: pb.NewManagerRegistrationListenerServiceClient(cc),
+	}
+}
+
+// OnRegistrationFailed calls the OnRegistrationFailed RPC.
+func (c *ManagerRegistrationListenerClient) OnRegistrationFailed(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.OnRegistrationFailed(ctx, &pb.OnRegistrationFailedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnServiceRegistered calls the OnServiceRegistered RPC.
+func (c *ManagerRegistrationListenerClient) OnServiceRegistered(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnServiceRegistered(ctx, &pb.OnServiceRegisteredRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnServiceUnregistered calls the OnServiceUnregistered RPC.
+func (c *ManagerRegistrationListenerClient) OnServiceUnregistered(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnServiceUnregistered(ctx, &pb.OnServiceUnregisteredRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnUnregistrationFailed calls the OnUnregistrationFailed RPC.
+func (c *ManagerRegistrationListenerClient) OnUnregistrationFailed(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.OnUnregistrationFailed(ctx, &pb.OnUnregistrationFailedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ManagerResolveListenerClient wraps the gRPC ManagerResolveListenerService client.
+type ManagerResolveListenerClient struct {
+	svc pb.ManagerResolveListenerServiceClient
+}
+
+// NewManagerResolveListenerClient creates a new ManagerResolveListener client.
+func NewManagerResolveListenerClient(cc grpc.ClientConnInterface) *ManagerResolveListenerClient {
+	return &ManagerResolveListenerClient{
+		svc: pb.NewManagerResolveListenerServiceClient(cc),
+	}
+}
+
+// OnResolveFailed calls the OnResolveFailed RPC.
+func (c *ManagerResolveListenerClient) OnResolveFailed(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.OnResolveFailed(ctx, &pb.OnResolveFailedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnServiceResolved calls the OnServiceResolved RPC.
+func (c *ManagerResolveListenerClient) OnServiceResolved(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnServiceResolved(ctx, &pb.OnServiceResolvedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ManagerServiceInfoCallbackClient wraps the gRPC ManagerServiceInfoCallbackService client.
+type ManagerServiceInfoCallbackClient struct {
+	svc pb.ManagerServiceInfoCallbackServiceClient
+}
+
+// NewManagerServiceInfoCallbackClient creates a new ManagerServiceInfoCallback client.
+func NewManagerServiceInfoCallbackClient(cc grpc.ClientConnInterface) *ManagerServiceInfoCallbackClient {
+	return &ManagerServiceInfoCallbackClient{
+		svc: pb.NewManagerServiceInfoCallbackServiceClient(cc),
+	}
+}
+
+// OnServiceInfoCallbackRegistrationFailed calls the OnServiceInfoCallbackRegistrationFailed RPC.
+func (c *ManagerServiceInfoCallbackClient) OnServiceInfoCallbackRegistrationFailed(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.OnServiceInfoCallbackRegistrationFailed(ctx, &pb.OnServiceInfoCallbackRegistrationFailedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnServiceInfoCallbackUnregistered calls the OnServiceInfoCallbackUnregistered RPC.
+func (c *ManagerServiceInfoCallbackClient) OnServiceInfoCallbackUnregistered(ctx context.Context) error {
+	_, err := c.svc.OnServiceInfoCallbackUnregistered(ctx, &pb.OnServiceInfoCallbackUnregisteredRequest{})
+	return err
+}
+
+// OnServiceLost calls the OnServiceLost RPC.
+func (c *ManagerServiceInfoCallbackClient) OnServiceLost(ctx context.Context) error {
+	_, err := c.svc.OnServiceLost(ctx, &pb.ManagerServiceInfoCallbackOnServiceLostRequest{})
+	return err
+}
+
+// OnServiceUpdated calls the OnServiceUpdated RPC.
+func (c *ManagerServiceInfoCallbackClient) OnServiceUpdated(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnServiceUpdated(ctx, &pb.OnServiceUpdatedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ServiceInfoClient wraps the gRPC ServiceInfoService client.
+type ServiceInfoClient struct {
+	svc pb.ServiceInfoServiceClient
+}
+
+// NewServiceInfoClient creates a new ServiceInfo client.
+func NewServiceInfoClient(cc grpc.ClientConnInterface) *ServiceInfoClient {
+	return &ServiceInfoClient{
+		svc: pb.NewServiceInfoServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ServiceInfoClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.ServiceInfoDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHost calls the GetHost RPC.
+func (c *ServiceInfoClient) GetHost(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetHost(ctx, &pb.GetHostRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHostname calls the GetHostname RPC.
+func (c *ServiceInfoClient) GetHostname(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetHostname(ctx, &pb.GetHostnameRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNetwork calls the GetNetwork RPC.
+func (c *ServiceInfoClient) GetNetwork(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetNetwork(ctx, &pb.ServiceInfoGetNetworkRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPort calls the GetPort RPC.
+func (c *ServiceInfoClient) GetPort(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetPort(ctx, &pb.GetPortRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetServiceName calls the GetServiceName RPC.
+func (c *ServiceInfoClient) GetServiceName(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetServiceName(ctx, &pb.GetServiceNameRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetServiceType calls the GetServiceType RPC.
+func (c *ServiceInfoClient) GetServiceType(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetServiceType(ctx, &pb.ServiceInfoGetServiceTypeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// RemoveAttribute calls the RemoveAttribute RPC.
+func (c *ServiceInfoClient) RemoveAttribute(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.RemoveAttribute(ctx, &pb.RemoveAttributeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetAttribute calls the SetAttribute RPC.
+func (c *ServiceInfoClient) SetAttribute(ctx context.Context, handle int64, arg0 string, arg1 string) error {
+	_, err := c.svc.SetAttribute(ctx, &pb.SetAttributeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SetHost calls the SetHost RPC.
+func (c *ServiceInfoClient) SetHost(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetHost(ctx, &pb.SetHostRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetNetwork calls the SetNetwork RPC.
+func (c *ServiceInfoClient) SetNetwork(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetNetwork(ctx, &pb.ServiceInfoSetNetworkRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetPort calls the SetPort RPC.
+func (c *ServiceInfoClient) SetPort(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetPort(ctx, &pb.SetPortRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetServiceName calls the SetServiceName RPC.
+func (c *ServiceInfoClient) SetServiceName(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.SetServiceName(ctx, &pb.SetServiceNameRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetServiceType calls the SetServiceType RPC.
+func (c *ServiceInfoClient) SetServiceType(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.SetServiceType(ctx, &pb.SetServiceTypeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// ToString calls the ToString RPC.
+func (c *ServiceInfoClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ServiceInfoToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ServiceInfoClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.ServiceInfoWriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// AdvertisingRequestClient wraps the gRPC AdvertisingRequestService client.
+type AdvertisingRequestClient struct {
+	svc pb.AdvertisingRequestServiceClient
+}
+
+// NewAdvertisingRequestClient creates a new AdvertisingRequest client.
+func NewAdvertisingRequestClient(cc grpc.ClientConnInterface) *AdvertisingRequestClient {
+	return &AdvertisingRequestClient{
+		svc: pb.NewAdvertisingRequestServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *AdvertisingRequestClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *AdvertisingRequestClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFlags calls the GetFlags RPC.
+func (c *AdvertisingRequestClient) GetFlags(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetFlags(ctx, &pb.GetFlagsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetProtocolType calls the GetProtocolType RPC.
+func (c *AdvertisingRequestClient) GetProtocolType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetProtocolType(ctx, &pb.GetProtocolTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetServiceInfo calls the GetServiceInfo RPC.
+func (c *AdvertisingRequestClient) GetServiceInfo(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetServiceInfo(ctx, &pb.GetServiceInfoRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *AdvertisingRequestClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *AdvertisingRequestClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *AdvertisingRequestClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// AdvertisingRequestBuilderClient wraps the gRPC AdvertisingRequestBuilderService client.
+type AdvertisingRequestBuilderClient struct {
+	svc pb.AdvertisingRequestBuilderServiceClient
+}
+
+// NewAdvertisingRequestBuilderClient creates a new AdvertisingRequestBuilder client.
+func NewAdvertisingRequestBuilderClient(cc grpc.ClientConnInterface) *AdvertisingRequestBuilderClient {
+	return &AdvertisingRequestBuilderClient{
+		svc: pb.NewAdvertisingRequestBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *AdvertisingRequestBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetFlags calls the SetFlags RPC.
+func (c *AdvertisingRequestBuilderClient) SetFlags(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetFlags(ctx, &pb.SetFlagsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetProtocolType calls the SetProtocolType RPC.
+func (c *AdvertisingRequestBuilderClient) SetProtocolType(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetProtocolType(ctx, &pb.SetProtocolTypeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WifiP2pServiceInfoClient wraps the gRPC WifiP2PServiceInfoService client.
+type WifiP2pServiceInfoClient struct {
+	svc pb.WifiP2PServiceInfoServiceClient
+}
+
+// NewWifiP2pServiceInfoClient creates a new WifiP2pServiceInfo client.
+func NewWifiP2pServiceInfoClient(cc grpc.ClientConnInterface) *WifiP2pServiceInfoClient {
+	return &WifiP2pServiceInfoClient{
+		svc: pb.NewWifiP2PServiceInfoServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *WifiP2pServiceInfoClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.WifiP2PServiceInfoDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *WifiP2pServiceInfoClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.WifiP2PServiceInfoEqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWifiP2PUsdBasedServiceConfig calls the GetWifiP2PUsdBasedServiceConfig RPC.
+func (c *WifiP2pServiceInfoClient) GetWifiP2PUsdBasedServiceConfig(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetWifiP2PUsdBasedServiceConfig(ctx, &pb.GetWifiP2PUsdBasedServiceConfigRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *WifiP2pServiceInfoClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.WifiP2PServiceInfoHashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *WifiP2pServiceInfoClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WifiP2PServiceInfoWriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// WifiP2pUsdBasedServiceResponseClient wraps the gRPC WifiP2PUsdBasedServiceResponseService client.
+type WifiP2pUsdBasedServiceResponseClient struct {
+	svc pb.WifiP2PUsdBasedServiceResponseServiceClient
+}
+
+// NewWifiP2pUsdBasedServiceResponseClient creates a new WifiP2pUsdBasedServiceResponse client.
+func NewWifiP2pUsdBasedServiceResponseClient(cc grpc.ClientConnInterface) *WifiP2pUsdBasedServiceResponseClient {
+	return &WifiP2pUsdBasedServiceResponseClient{
+		svc: pb.NewWifiP2PUsdBasedServiceResponseServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *WifiP2pUsdBasedServiceResponseClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.WifiP2PUsdBasedServiceResponseDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetServiceProtocolType calls the GetServiceProtocolType RPC.
+func (c *WifiP2pUsdBasedServiceResponseClient) GetServiceProtocolType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetServiceProtocolType(ctx, &pb.GetServiceProtocolTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetServiceSpecificInfo calls the GetServiceSpecificInfo RPC.
+func (c *WifiP2pUsdBasedServiceResponseClient) GetServiceSpecificInfo(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetServiceSpecificInfo(ctx, &pb.GetServiceSpecificInfoRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *WifiP2pUsdBasedServiceResponseClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *WifiP2pUsdBasedServiceResponseClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WifiP2PUsdBasedServiceResponseWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// WifiP2pUpnpServiceRequestClient wraps the gRPC WifiP2PUpnpServiceRequestService client.
+type WifiP2pUpnpServiceRequestClient struct {
+	svc pb.WifiP2PUpnpServiceRequestServiceClient
+}
+
+// NewWifiP2pUpnpServiceRequestClient creates a new WifiP2pUpnpServiceRequest client.
+func NewWifiP2pUpnpServiceRequestClient(cc grpc.ClientConnInterface) *WifiP2pUpnpServiceRequestClient {
+	return &WifiP2pUpnpServiceRequestClient{
+		svc: pb.NewWifiP2PUpnpServiceRequestServiceClient(cc),
+	}
+}
+
+// NewInstance0 calls the NewInstance0 RPC.
+func (c *WifiP2pUpnpServiceRequestClient) NewInstance0(ctx context.Context) (int64, error) {
+	resp, err := c.svc.NewInstance0(ctx, &pb.NewInstance0Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// NewInstance1_1 calls the NewInstance1_1 RPC.
+func (c *WifiP2pUpnpServiceRequestClient) NewInstance1_1(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.NewInstance1_1(ctx, &pb.NewInstance1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WifiP2pServiceRequestClient wraps the gRPC WifiP2PServiceRequestService client.
+type WifiP2pServiceRequestClient struct {
+	svc pb.WifiP2PServiceRequestServiceClient
+}
+
+// NewWifiP2pServiceRequestClient creates a new WifiP2pServiceRequest client.
+func NewWifiP2pServiceRequestClient(cc grpc.ClientConnInterface) *WifiP2pServiceRequestClient {
+	return &WifiP2pServiceRequestClient{
+		svc: pb.NewWifiP2PServiceRequestServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *WifiP2pServiceRequestClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.WifiP2PServiceInfoDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *WifiP2pServiceRequestClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.WifiP2PServiceInfoEqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWifiP2PUsdBasedServiceConfig calls the GetWifiP2PUsdBasedServiceConfig RPC.
+func (c *WifiP2pServiceRequestClient) GetWifiP2PUsdBasedServiceConfig(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetWifiP2PUsdBasedServiceConfig(ctx, &pb.GetWifiP2PUsdBasedServiceConfigRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *WifiP2pServiceRequestClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.WifiP2PServiceInfoHashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *WifiP2pServiceRequestClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WifiP2PServiceInfoWriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// NewInstance1 calls the NewInstance1 RPC.
+func (c *WifiP2pServiceRequestClient) NewInstance1(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.NewInstance1(ctx, &pb.NewInstance1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// NewInstance2_1 calls the NewInstance2_1 RPC.
+func (c *WifiP2pServiceRequestClient) NewInstance2_1(ctx context.Context, handle int64, arg0 int32, arg1 string) (int64, error) {
+	resp, err := c.svc.NewInstance2_1(ctx, &pb.NewInstance2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WifiP2pDnsSdServiceRequestClient wraps the gRPC WifiP2PDnsSdServiceRequestService client.
+type WifiP2pDnsSdServiceRequestClient struct {
+	svc pb.WifiP2PDnsSdServiceRequestServiceClient
+}
+
+// NewWifiP2pDnsSdServiceRequestClient creates a new WifiP2pDnsSdServiceRequest client.
+func NewWifiP2pDnsSdServiceRequestClient(cc grpc.ClientConnInterface) *WifiP2pDnsSdServiceRequestClient {
+	return &WifiP2pDnsSdServiceRequestClient{
+		svc: pb.NewWifiP2PDnsSdServiceRequestServiceClient(cc),
+	}
+}
+
+// NewInstance0 calls the NewInstance0 RPC.
+func (c *WifiP2pDnsSdServiceRequestClient) NewInstance0(ctx context.Context) (int64, error) {
+	resp, err := c.svc.NewInstance0(ctx, &pb.NewInstance0Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// NewInstance1_1 calls the NewInstance1_1 RPC.
+func (c *WifiP2pDnsSdServiceRequestClient) NewInstance1_1(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.NewInstance1_1(ctx, &pb.NewInstance1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// NewInstance2_2 calls the NewInstance2_2 RPC.
+func (c *WifiP2pDnsSdServiceRequestClient) NewInstance2_2(ctx context.Context, arg0 string, arg1 string) (int64, error) {
+	resp, err := c.svc.NewInstance2_2(ctx, &pb.NewInstance2_2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WifiP2pUsdBasedServiceConfigClient wraps the gRPC WifiP2PUsdBasedServiceConfigService client.
+type WifiP2pUsdBasedServiceConfigClient struct {
+	svc pb.WifiP2PUsdBasedServiceConfigServiceClient
+}
+
+// NewWifiP2pUsdBasedServiceConfigClient creates a new WifiP2pUsdBasedServiceConfig client.
+func NewWifiP2pUsdBasedServiceConfigClient(cc grpc.ClientConnInterface) *WifiP2pUsdBasedServiceConfigClient {
+	return &WifiP2pUsdBasedServiceConfigClient{
+		svc: pb.NewWifiP2PUsdBasedServiceConfigServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *WifiP2pUsdBasedServiceConfigClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.WifiP2PServiceInfoDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetServiceName calls the GetServiceName RPC.
+func (c *WifiP2pUsdBasedServiceConfigClient) GetServiceName(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetServiceName(ctx, &pb.GetServiceNameRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetServiceProtocolType calls the GetServiceProtocolType RPC.
+func (c *WifiP2pUsdBasedServiceConfigClient) GetServiceProtocolType(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetServiceProtocolType(ctx, &pb.WifiP2PUsdBasedServiceConfigGetServiceProtocolTypeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetServiceSpecificInfo calls the GetServiceSpecificInfo RPC.
+func (c *WifiP2pUsdBasedServiceConfigClient) GetServiceSpecificInfo(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetServiceSpecificInfo(ctx, &pb.WifiP2PUsdBasedServiceConfigGetServiceSpecificInfoRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *WifiP2pUsdBasedServiceConfigClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.WifiP2PUsdBasedServiceConfigToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *WifiP2pUsdBasedServiceConfigClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WifiP2PServiceInfoWriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GetMaxAllowedServiceSpecificInfoLength calls the GetMaxAllowedServiceSpecificInfoLength RPC.
+func (c *WifiP2pUsdBasedServiceConfigClient) GetMaxAllowedServiceSpecificInfoLength(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetMaxAllowedServiceSpecificInfoLength(ctx, &pb.GetMaxAllowedServiceSpecificInfoLengthRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WifiP2pUsdBasedServiceConfigBuilderClient wraps the gRPC WifiP2PUsdBasedServiceConfigBuilderService client.
+type WifiP2pUsdBasedServiceConfigBuilderClient struct {
+	svc pb.WifiP2PUsdBasedServiceConfigBuilderServiceClient
+}
+
+// NewWifiP2pUsdBasedServiceConfigBuilderClient creates a new WifiP2pUsdBasedServiceConfigBuilder client.
+func NewWifiP2pUsdBasedServiceConfigBuilderClient(cc grpc.ClientConnInterface) *WifiP2pUsdBasedServiceConfigBuilderClient {
+	return &WifiP2pUsdBasedServiceConfigBuilderClient{
+		svc: pb.NewWifiP2PUsdBasedServiceConfigBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *WifiP2pUsdBasedServiceConfigBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetServiceProtocolType calls the SetServiceProtocolType RPC.
+func (c *WifiP2pUsdBasedServiceConfigBuilderClient) SetServiceProtocolType(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetServiceProtocolType(ctx, &pb.SetServiceProtocolTypeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetServiceSpecificInfo calls the SetServiceSpecificInfo RPC.
+func (c *WifiP2pUsdBasedServiceConfigBuilderClient) SetServiceSpecificInfo(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetServiceSpecificInfo(ctx, &pb.SetServiceSpecificInfoRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
 }

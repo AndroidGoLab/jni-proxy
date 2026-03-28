@@ -9,6 +9,108 @@ import (
 	"google.golang.org/grpc"
 )
 
+// DownloadableSubscriptionClient wraps the gRPC DownloadableSubscriptionService client.
+type DownloadableSubscriptionClient struct {
+	svc pb.DownloadableSubscriptionServiceClient
+}
+
+// NewDownloadableSubscriptionClient creates a new DownloadableSubscription client.
+func NewDownloadableSubscriptionClient(cc grpc.ClientConnInterface) *DownloadableSubscriptionClient {
+	return &DownloadableSubscriptionClient{
+		svc: pb.NewDownloadableSubscriptionServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *DownloadableSubscriptionClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetConfirmationCode calls the GetConfirmationCode RPC.
+func (c *DownloadableSubscriptionClient) GetConfirmationCode(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetConfirmationCode(ctx, &pb.GetConfirmationCodeRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEncodedActivationCode calls the GetEncodedActivationCode RPC.
+func (c *DownloadableSubscriptionClient) GetEncodedActivationCode(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetEncodedActivationCode(ctx, &pb.GetEncodedActivationCodeRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *DownloadableSubscriptionClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ForActivationCode calls the ForActivationCode RPC.
+func (c *DownloadableSubscriptionClient) ForActivationCode(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.ForActivationCode(ctx, &pb.ForActivationCodeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DownloadableSubscriptionBuilderClient wraps the gRPC DownloadableSubscriptionBuilderService client.
+type DownloadableSubscriptionBuilderClient struct {
+	svc pb.DownloadableSubscriptionBuilderServiceClient
+}
+
+// NewDownloadableSubscriptionBuilderClient creates a new DownloadableSubscriptionBuilder client.
+func NewDownloadableSubscriptionBuilderClient(cc grpc.ClientConnInterface) *DownloadableSubscriptionBuilderClient {
+	return &DownloadableSubscriptionBuilderClient{
+		svc: pb.NewDownloadableSubscriptionBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *DownloadableSubscriptionBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetConfirmationCode calls the SetConfirmationCode RPC.
+func (c *DownloadableSubscriptionBuilderClient) SetConfirmationCode(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetConfirmationCode(ctx, &pb.SetConfirmationCodeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetEncodedActivationCode calls the SetEncodedActivationCode RPC.
+func (c *DownloadableSubscriptionBuilderClient) SetEncodedActivationCode(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetEncodedActivationCode(ctx, &pb.SetEncodedActivationCodeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // ManagerClient wraps the gRPC ManagerService client.
 type ManagerClient struct {
 	svc pb.ManagerServiceClient
@@ -134,6 +236,50 @@ func (c *ManagerClient) UpdateSubscriptionNickname(ctx context.Context, arg0 int
 		Arg0: arg0,
 		Arg1: arg1,
 		Arg2: arg2,
+	})
+	return err
+}
+
+// InfoClient wraps the gRPC InfoService client.
+type InfoClient struct {
+	svc pb.InfoServiceClient
+}
+
+// NewInfoClient creates a new Info client.
+func NewInfoClient(cc grpc.ClientConnInterface) *InfoClient {
+	return &InfoClient{
+		svc: pb.NewInfoServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *InfoClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.InfoDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOsVersion calls the GetOsVersion RPC.
+func (c *InfoClient) GetOsVersion(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetOsVersion(ctx, &pb.GetOsVersionRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *InfoClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.InfoWriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
 	})
 	return err
 }

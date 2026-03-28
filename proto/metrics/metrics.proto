@@ -6,6 +6,908 @@ package metrics;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/metrics";
 
+message DescribeContentsRequest {
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message EqualsRequest {
+  int64 arg0 = 1;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message GetErrorCodeRequest {
+}
+
+message GetErrorCodeResponse {
+  int32 result = 1;
+}
+
+message GetExporterNameRequest {
+}
+
+message GetExporterNameResponse {
+  string result = 1;
+}
+
+message GetFinalProgressPercentRequest {
+}
+
+message GetFinalProgressPercentResponse {
+  float result = 1;
+}
+
+message GetFinalStateRequest {
+}
+
+message GetFinalStateResponse {
+  int32 result = 1;
+}
+
+message GetMetricsBundleRequest {
+}
+
+message GetMetricsBundleResponse {
+  int64 result = 1;
+}
+
+message GetMuxerNameRequest {
+}
+
+message GetMuxerNameResponse {
+  string result = 1;
+}
+
+message GetOperationTypesRequest {
+}
+
+message GetOperationTypesResponse {
+  int64 result = 1;
+}
+
+message GetOutputMediaItemInfoRequest {
+}
+
+message GetOutputMediaItemInfoResponse {
+  int64 result = 1;
+}
+
+message GetTimeSinceCreatedMillisRequest {
+}
+
+message GetTimeSinceCreatedMillisResponse {
+  int64 result = 1;
+}
+
+message HashCodeRequest {
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message ToStringRequest {
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteToParcelResponse {
+}
+
+message AddInputMediaItemInfoRequest {
+  int64 arg0 = 1;
+}
+
+message AddInputMediaItemInfoResponse {
+  int64 result = 1;
+}
+
+message AddOperationTypeRequest {
+  int64 arg0 = 1;
+}
+
+message AddOperationTypeResponse {
+  int64 result = 1;
+}
+
+message BuildRequest {
+}
+
+message BuildResponse {
+  int64 result = 1;
+}
+
+message SetErrorCodeRequest {
+  int32 arg0 = 1;
+}
+
+message SetErrorCodeResponse {
+  int64 result = 1;
+}
+
+message SetExporterNameRequest {
+  string arg0 = 1;
+}
+
+message SetExporterNameResponse {
+  int64 result = 1;
+}
+
+message SetFinalProgressPercentRequest {
+  float arg0 = 1;
+}
+
+message SetFinalProgressPercentResponse {
+  int64 result = 1;
+}
+
+message SetMetricsBundleRequest {
+  int64 arg0 = 1;
+}
+
+message SetMetricsBundleResponse {
+  int64 result = 1;
+}
+
+message SetMuxerNameRequest {
+  string arg0 = 1;
+}
+
+message SetMuxerNameResponse {
+  int64 result = 1;
+}
+
+message SetOutputMediaItemInfoRequest {
+  int64 arg0 = 1;
+}
+
+message SetOutputMediaItemInfoResponse {
+  int64 result = 1;
+}
+
+message SetTimeSinceCreatedMillisRequest {
+  int64 arg0 = 1;
+}
+
+message SetTimeSinceCreatedMillisResponse {
+  int64 result = 1;
+}
+
+message GetAudioChannelCountRequest {
+}
+
+message GetAudioChannelCountResponse {
+  int32 result = 1;
+}
+
+message GetAudioSampleCountRequest {
+}
+
+message GetAudioSampleCountResponse {
+  int64 result = 1;
+}
+
+message GetAudioSampleRateHzRequest {
+}
+
+message GetAudioSampleRateHzResponse {
+  int32 result = 1;
+}
+
+message GetClipDurationMillisRequest {
+}
+
+message GetClipDurationMillisResponse {
+  int64 result = 1;
+}
+
+message GetContainerMimeTypeRequest {
+}
+
+message GetContainerMimeTypeResponse {
+  string result = 1;
+}
+
+message GetDataTypesRequest {
+}
+
+message GetDataTypesResponse {
+  int64 result = 1;
+}
+
+message GetDurationMillisRequest {
+}
+
+message GetDurationMillisResponse {
+  int64 result = 1;
+}
+
+message GetSourceTypeRequest {
+}
+
+message GetSourceTypeResponse {
+  int32 result = 1;
+}
+
+message GetVideoDataSpaceRequest {
+}
+
+message GetVideoDataSpaceResponse {
+  int32 result = 1;
+}
+
+message GetVideoFrameRateRequest {
+}
+
+message GetVideoFrameRateResponse {
+  float result = 1;
+}
+
+message GetVideoSampleCountRequest {
+}
+
+message GetVideoSampleCountResponse {
+  int64 result = 1;
+}
+
+message GetVideoSizeRequest {
+}
+
+message GetVideoSizeResponse {
+  int64 result = 1;
+}
+
+message AddCodecNameRequest {
+  string arg0 = 1;
+}
+
+message AddCodecNameResponse {
+  int64 result = 1;
+}
+
+message AddDataTypeRequest {
+  int64 arg0 = 1;
+}
+
+message AddDataTypeResponse {
+  int64 result = 1;
+}
+
+message AddSampleMimeTypeRequest {
+  string arg0 = 1;
+}
+
+message AddSampleMimeTypeResponse {
+  int64 result = 1;
+}
+
+message SetAudioChannelCountRequest {
+  int32 arg0 = 1;
+}
+
+message SetAudioChannelCountResponse {
+  int64 result = 1;
+}
+
+message SetAudioSampleCountRequest {
+  int64 arg0 = 1;
+}
+
+message SetAudioSampleCountResponse {
+  int64 result = 1;
+}
+
+message SetAudioSampleRateHzRequest {
+  int32 arg0 = 1;
+}
+
+message SetAudioSampleRateHzResponse {
+  int64 result = 1;
+}
+
+message SetClipDurationMillisRequest {
+  int64 arg0 = 1;
+}
+
+message SetClipDurationMillisResponse {
+  int64 result = 1;
+}
+
+message SetContainerMimeTypeRequest {
+  string arg0 = 1;
+}
+
+message SetContainerMimeTypeResponse {
+  int64 result = 1;
+}
+
+message SetDurationMillisRequest {
+  int64 arg0 = 1;
+}
+
+message SetDurationMillisResponse {
+  int64 result = 1;
+}
+
+message SetSourceTypeRequest {
+  int32 arg0 = 1;
+}
+
+message SetSourceTypeResponse {
+  int64 result = 1;
+}
+
+message SetVideoDataSpaceRequest {
+  int32 arg0 = 1;
+}
+
+message SetVideoDataSpaceResponse {
+  int64 result = 1;
+}
+
+message SetVideoFrameRateRequest {
+  float arg0 = 1;
+}
+
+message SetVideoFrameRateResponse {
+  int64 result = 1;
+}
+
+message SetVideoSampleCountRequest {
+  int64 arg0 = 1;
+}
+
+message SetVideoSampleCountResponse {
+  int64 result = 1;
+}
+
+message SetVideoSizeRequest {
+  int64 arg0 = 1;
+}
+
+message SetVideoSizeResponse {
+  int64 result = 1;
+}
+
+message GetAudioUnderrunCountRequest {
+}
+
+message GetAudioUnderrunCountResponse {
+  int32 result = 1;
+}
+
+message GetContentTypeRequest {
+}
+
+message GetContentTypeResponse {
+  int32 result = 1;
+}
+
+message GetDrmSessionIdRequest {
+}
+
+message GetDrmSessionIdResponse {
+  int64 result = 1;
+}
+
+message GetDrmTypeRequest {
+}
+
+message GetDrmTypeResponse {
+  int32 result = 1;
+}
+
+message GetExperimentIdsRequest {
+}
+
+message GetExperimentIdsResponse {
+  int64 result = 1;
+}
+
+message GetLocalBytesReadRequest {
+}
+
+message GetLocalBytesReadResponse {
+  int64 result = 1;
+}
+
+message GetMediaDurationMillisRequest {
+}
+
+message GetMediaDurationMillisResponse {
+  int64 result = 1;
+}
+
+message GetNetworkBytesReadRequest {
+}
+
+message GetNetworkBytesReadResponse {
+  int64 result = 1;
+}
+
+message GetNetworkTransferDurationMillisRequest {
+}
+
+message GetNetworkTransferDurationMillisResponse {
+  int64 result = 1;
+}
+
+message GetPlaybackTypeRequest {
+}
+
+message GetPlaybackTypeResponse {
+  int32 result = 1;
+}
+
+message GetPlayerNameRequest {
+}
+
+message GetPlayerNameResponse {
+  string result = 1;
+}
+
+message GetPlayerVersionRequest {
+}
+
+message GetPlayerVersionResponse {
+  string result = 1;
+}
+
+message GetStreamSourceRequest {
+}
+
+message GetStreamSourceResponse {
+  int32 result = 1;
+}
+
+message GetStreamTypeRequest {
+}
+
+message GetStreamTypeResponse {
+  int32 result = 1;
+}
+
+message GetVideoFramesDroppedRequest {
+}
+
+message GetVideoFramesDroppedResponse {
+  int32 result = 1;
+}
+
+message GetVideoFramesPlayedRequest {
+}
+
+message GetVideoFramesPlayedResponse {
+  int32 result = 1;
+}
+
+message AddExperimentIdRequest {
+  int64 arg0 = 1;
+}
+
+message AddExperimentIdResponse {
+  int64 result = 1;
+}
+
+message SetAudioUnderrunCountRequest {
+  int32 arg0 = 1;
+}
+
+message SetAudioUnderrunCountResponse {
+  int64 result = 1;
+}
+
+message SetContentTypeRequest {
+  int32 arg0 = 1;
+}
+
+message SetContentTypeResponse {
+  int64 result = 1;
+}
+
+message SetDrmSessionIdRequest {
+  int64 arg0 = 1;
+}
+
+message SetDrmSessionIdResponse {
+  int64 result = 1;
+}
+
+message SetDrmTypeRequest {
+  int32 arg0 = 1;
+}
+
+message SetDrmTypeResponse {
+  int64 result = 1;
+}
+
+message SetLocalBytesReadRequest {
+  int64 arg0 = 1;
+}
+
+message SetLocalBytesReadResponse {
+  int64 result = 1;
+}
+
+message SetMediaDurationMillisRequest {
+  int64 arg0 = 1;
+}
+
+message SetMediaDurationMillisResponse {
+  int64 result = 1;
+}
+
+message SetNetworkBytesReadRequest {
+  int64 arg0 = 1;
+}
+
+message SetNetworkBytesReadResponse {
+  int64 result = 1;
+}
+
+message SetNetworkTransferDurationMillisRequest {
+  int64 arg0 = 1;
+}
+
+message SetNetworkTransferDurationMillisResponse {
+  int64 result = 1;
+}
+
+message SetPlaybackTypeRequest {
+  int32 arg0 = 1;
+}
+
+message SetPlaybackTypeResponse {
+  int64 result = 1;
+}
+
+message SetPlayerNameRequest {
+  string arg0 = 1;
+}
+
+message SetPlayerNameResponse {
+  int64 result = 1;
+}
+
+message SetPlayerVersionRequest {
+  string arg0 = 1;
+}
+
+message SetPlayerVersionResponse {
+  int64 result = 1;
+}
+
+message SetStreamSourceRequest {
+  int32 arg0 = 1;
+}
+
+message SetStreamSourceResponse {
+  int64 result = 1;
+}
+
+message SetStreamTypeRequest {
+  int32 arg0 = 1;
+}
+
+message SetStreamTypeResponse {
+  int64 result = 1;
+}
+
+message SetVideoFramesDroppedRequest {
+  int32 arg0 = 1;
+}
+
+message SetVideoFramesDroppedResponse {
+  int64 result = 1;
+}
+
+message SetVideoFramesPlayedRequest {
+  int32 arg0 = 1;
+}
+
+message SetVideoFramesPlayedResponse {
+  int64 result = 1;
+}
+
+message GetSubErrorCodeRequest {
+}
+
+message GetSubErrorCodeResponse {
+  int32 result = 1;
+}
+
+message SetExceptionRequest {
+  int64 arg0 = 1;
+}
+
+message SetExceptionResponse {
+  int64 result = 1;
+}
+
+message SetSubErrorCodeRequest {
+  int32 arg0 = 1;
+}
+
+message SetSubErrorCodeResponse {
+  int64 result = 1;
+}
+
+message GetStateRequest {
+}
+
+message GetStateResponse {
+  int32 result = 1;
+}
+
+message SetStateRequest {
+  int32 arg0 = 1;
+}
+
+message SetStateResponse {
+  int64 result = 1;
+}
+
+message CloseRequest {
+}
+
+message CloseResponse {
+}
+
+message GetSessionIdRequest {
+}
+
+message GetSessionIdResponse {
+  int64 result = 1;
+}
+
+message ReportNetworkEventRequest {
+  int64 arg0 = 1;
+}
+
+message ReportNetworkEventResponse {
+}
+
+message ReportPlaybackErrorEventRequest {
+  int64 arg0 = 1;
+}
+
+message ReportPlaybackErrorEventResponse {
+}
+
+message ReportPlaybackMetricsRequest {
+  int64 arg0 = 1;
+}
+
+message ReportPlaybackMetricsResponse {
+}
+
+message ReportPlaybackStateEventRequest {
+  int64 arg0 = 1;
+}
+
+message ReportPlaybackStateEventResponse {
+}
+
+message ReportTrackChangeEventRequest {
+  int64 arg0 = 1;
+}
+
+message ReportTrackChangeEventResponse {
+}
+
+message ReportBundleMetricsRequest {
+  int64 arg0 = 1;
+}
+
+message ReportBundleMetricsResponse {
+}
+
+message GetNetworkTypeRequest {
+}
+
+message GetNetworkTypeResponse {
+  int32 result = 1;
+}
+
+message SetNetworkTypeRequest {
+  int32 arg0 = 1;
+}
+
+message SetNetworkTypeResponse {
+  int64 result = 1;
+}
+
+message ReportEditingEndedEventRequest {
+  int64 arg0 = 1;
+}
+
+message ReportEditingEndedEventResponse {
+}
+
+message GetAudioSampleRateRequest {
+}
+
+message GetAudioSampleRateResponse {
+  int32 result = 1;
+}
+
+message GetBitrateRequest {
+}
+
+message GetBitrateResponse {
+  int32 result = 1;
+}
+
+message GetChannelCountRequest {
+}
+
+message GetChannelCountResponse {
+  int32 result = 1;
+}
+
+message GetCodecNameRequest {
+}
+
+message GetCodecNameResponse {
+  string result = 1;
+}
+
+message GetHeightRequest {
+}
+
+message GetHeightResponse {
+  int32 result = 1;
+}
+
+message GetLanguageRequest {
+}
+
+message GetLanguageResponse {
+  string result = 1;
+}
+
+message GetLanguageRegionRequest {
+}
+
+message GetLanguageRegionResponse {
+  string result = 1;
+}
+
+message GetSampleMimeTypeRequest {
+}
+
+message GetSampleMimeTypeResponse {
+  string result = 1;
+}
+
+message GetTrackChangeReasonRequest {
+}
+
+message GetTrackChangeReasonResponse {
+  int32 result = 1;
+}
+
+message GetTrackStateRequest {
+}
+
+message GetTrackStateResponse {
+  int32 result = 1;
+}
+
+message GetTrackTypeRequest {
+}
+
+message GetTrackTypeResponse {
+  int32 result = 1;
+}
+
+message GetWidthRequest {
+}
+
+message GetWidthResponse {
+  int32 result = 1;
+}
+
+message SetAudioSampleRateRequest {
+  int32 arg0 = 1;
+}
+
+message SetAudioSampleRateResponse {
+  int64 result = 1;
+}
+
+message SetBitrateRequest {
+  int32 arg0 = 1;
+}
+
+message SetBitrateResponse {
+  int64 result = 1;
+}
+
+message SetChannelCountRequest {
+  int32 arg0 = 1;
+}
+
+message SetChannelCountResponse {
+  int64 result = 1;
+}
+
+message SetCodecNameRequest {
+  string arg0 = 1;
+}
+
+message SetCodecNameResponse {
+  int64 result = 1;
+}
+
+message SetHeightRequest {
+  int32 arg0 = 1;
+}
+
+message SetHeightResponse {
+  int64 result = 1;
+}
+
+message SetLanguageRequest {
+  string arg0 = 1;
+}
+
+message SetLanguageResponse {
+  int64 result = 1;
+}
+
+message SetLanguageRegionRequest {
+  string arg0 = 1;
+}
+
+message SetLanguageRegionResponse {
+  int64 result = 1;
+}
+
+message SetSampleMimeTypeRequest {
+  string arg0 = 1;
+}
+
+message SetSampleMimeTypeResponse {
+  int64 result = 1;
+}
+
+message SetTrackChangeReasonRequest {
+  int32 arg0 = 1;
+}
+
+message SetTrackChangeReasonResponse {
+  int64 result = 1;
+}
+
+message SetTrackStateRequest {
+  int32 arg0 = 1;
+}
+
+message SetTrackStateResponse {
+  int64 result = 1;
+}
+
+message SetWidthRequest {
+  int32 arg0 = 1;
+}
+
+message SetWidthResponse {
+  int64 result = 1;
+}
+
 message CreateBundleSessionRequest {
 }
 
@@ -48,6 +950,261 @@ message ReleaseSessionIdRequest {
 message ReleaseSessionIdResponse {
 }
 
+message GetStringIdRequest {
+}
+
+message GetStringIdResponse {
+  string result = 1;
+}
+
+service EditingEndedEventService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetErrorCode (GetErrorCodeRequest) returns (GetErrorCodeResponse);
+  rpc GetExporterName (GetExporterNameRequest) returns (GetExporterNameResponse);
+  rpc GetFinalProgressPercent (GetFinalProgressPercentRequest) returns (GetFinalProgressPercentResponse);
+  rpc GetFinalState (GetFinalStateRequest) returns (GetFinalStateResponse);
+  rpc GetMetricsBundle (GetMetricsBundleRequest) returns (GetMetricsBundleResponse);
+  rpc GetMuxerName (GetMuxerNameRequest) returns (GetMuxerNameResponse);
+  rpc GetOperationTypes (GetOperationTypesRequest) returns (GetOperationTypesResponse);
+  rpc GetOutputMediaItemInfo (GetOutputMediaItemInfoRequest) returns (GetOutputMediaItemInfoResponse);
+  rpc GetTimeSinceCreatedMillis (GetTimeSinceCreatedMillisRequest) returns (GetTimeSinceCreatedMillisResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service EditingEndedEventBuilderService {
+  rpc AddInputMediaItemInfo (AddInputMediaItemInfoRequest) returns (AddInputMediaItemInfoResponse);
+  rpc AddOperationType (AddOperationTypeRequest) returns (AddOperationTypeResponse);
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetErrorCode (SetErrorCodeRequest) returns (SetErrorCodeResponse);
+  rpc SetExporterName (SetExporterNameRequest) returns (SetExporterNameResponse);
+  rpc SetFinalProgressPercent (SetFinalProgressPercentRequest) returns (SetFinalProgressPercentResponse);
+  rpc SetMetricsBundle (SetMetricsBundleRequest) returns (SetMetricsBundleResponse);
+  rpc SetMuxerName (SetMuxerNameRequest) returns (SetMuxerNameResponse);
+  rpc SetOutputMediaItemInfo (SetOutputMediaItemInfoRequest) returns (SetOutputMediaItemInfoResponse);
+  rpc SetTimeSinceCreatedMillis (SetTimeSinceCreatedMillisRequest) returns (SetTimeSinceCreatedMillisResponse);
+}
+
+service MediaItemInfoService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetAudioChannelCount (GetAudioChannelCountRequest) returns (GetAudioChannelCountResponse);
+  rpc GetAudioSampleCount (GetAudioSampleCountRequest) returns (GetAudioSampleCountResponse);
+  rpc GetAudioSampleRateHz (GetAudioSampleRateHzRequest) returns (GetAudioSampleRateHzResponse);
+  rpc GetClipDurationMillis (GetClipDurationMillisRequest) returns (GetClipDurationMillisResponse);
+  rpc GetContainerMimeType (GetContainerMimeTypeRequest) returns (GetContainerMimeTypeResponse);
+  rpc GetDataTypes (GetDataTypesRequest) returns (GetDataTypesResponse);
+  rpc GetDurationMillis (GetDurationMillisRequest) returns (GetDurationMillisResponse);
+  rpc GetSourceType (GetSourceTypeRequest) returns (GetSourceTypeResponse);
+  rpc GetVideoDataSpace (GetVideoDataSpaceRequest) returns (GetVideoDataSpaceResponse);
+  rpc GetVideoFrameRate (GetVideoFrameRateRequest) returns (GetVideoFrameRateResponse);
+  rpc GetVideoSampleCount (GetVideoSampleCountRequest) returns (GetVideoSampleCountResponse);
+  rpc GetVideoSize (GetVideoSizeRequest) returns (GetVideoSizeResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service MediaItemInfoBuilderService {
+  rpc AddCodecName (AddCodecNameRequest) returns (AddCodecNameResponse);
+  rpc AddDataType (AddDataTypeRequest) returns (AddDataTypeResponse);
+  rpc AddSampleMimeType (AddSampleMimeTypeRequest) returns (AddSampleMimeTypeResponse);
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetAudioChannelCount (SetAudioChannelCountRequest) returns (SetAudioChannelCountResponse);
+  rpc SetAudioSampleCount (SetAudioSampleCountRequest) returns (SetAudioSampleCountResponse);
+  rpc SetAudioSampleRateHz (SetAudioSampleRateHzRequest) returns (SetAudioSampleRateHzResponse);
+  rpc SetClipDurationMillis (SetClipDurationMillisRequest) returns (SetClipDurationMillisResponse);
+  rpc SetContainerMimeType (SetContainerMimeTypeRequest) returns (SetContainerMimeTypeResponse);
+  rpc SetDurationMillis (SetDurationMillisRequest) returns (SetDurationMillisResponse);
+  rpc SetSourceType (SetSourceTypeRequest) returns (SetSourceTypeResponse);
+  rpc SetVideoDataSpace (SetVideoDataSpaceRequest) returns (SetVideoDataSpaceResponse);
+  rpc SetVideoFrameRate (SetVideoFrameRateRequest) returns (SetVideoFrameRateResponse);
+  rpc SetVideoSampleCount (SetVideoSampleCountRequest) returns (SetVideoSampleCountResponse);
+  rpc SetVideoSize (SetVideoSizeRequest) returns (SetVideoSizeResponse);
+}
+
+service PlaybackMetricsService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetAudioUnderrunCount (GetAudioUnderrunCountRequest) returns (GetAudioUnderrunCountResponse);
+  rpc GetContentType (GetContentTypeRequest) returns (GetContentTypeResponse);
+  rpc GetDrmSessionId (GetDrmSessionIdRequest) returns (GetDrmSessionIdResponse);
+  rpc GetDrmType (GetDrmTypeRequest) returns (GetDrmTypeResponse);
+  rpc GetExperimentIds (GetExperimentIdsRequest) returns (GetExperimentIdsResponse);
+  rpc GetLocalBytesRead (GetLocalBytesReadRequest) returns (GetLocalBytesReadResponse);
+  rpc GetMediaDurationMillis (GetMediaDurationMillisRequest) returns (GetMediaDurationMillisResponse);
+  rpc GetMetricsBundle (GetMetricsBundleRequest) returns (GetMetricsBundleResponse);
+  rpc GetNetworkBytesRead (GetNetworkBytesReadRequest) returns (GetNetworkBytesReadResponse);
+  rpc GetNetworkTransferDurationMillis (GetNetworkTransferDurationMillisRequest) returns (GetNetworkTransferDurationMillisResponse);
+  rpc GetPlaybackType (GetPlaybackTypeRequest) returns (GetPlaybackTypeResponse);
+  rpc GetPlayerName (GetPlayerNameRequest) returns (GetPlayerNameResponse);
+  rpc GetPlayerVersion (GetPlayerVersionRequest) returns (GetPlayerVersionResponse);
+  rpc GetStreamSource (GetStreamSourceRequest) returns (GetStreamSourceResponse);
+  rpc GetStreamType (GetStreamTypeRequest) returns (GetStreamTypeResponse);
+  rpc GetVideoFramesDropped (GetVideoFramesDroppedRequest) returns (GetVideoFramesDroppedResponse);
+  rpc GetVideoFramesPlayed (GetVideoFramesPlayedRequest) returns (GetVideoFramesPlayedResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service PlaybackMetricsBuilderService {
+  rpc AddExperimentId (AddExperimentIdRequest) returns (AddExperimentIdResponse);
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetAudioUnderrunCount (SetAudioUnderrunCountRequest) returns (SetAudioUnderrunCountResponse);
+  rpc SetContentType (SetContentTypeRequest) returns (SetContentTypeResponse);
+  rpc SetDrmSessionId (SetDrmSessionIdRequest) returns (SetDrmSessionIdResponse);
+  rpc SetDrmType (SetDrmTypeRequest) returns (SetDrmTypeResponse);
+  rpc SetLocalBytesRead (SetLocalBytesReadRequest) returns (SetLocalBytesReadResponse);
+  rpc SetMediaDurationMillis (SetMediaDurationMillisRequest) returns (SetMediaDurationMillisResponse);
+  rpc SetMetricsBundle (SetMetricsBundleRequest) returns (SetMetricsBundleResponse);
+  rpc SetNetworkBytesRead (SetNetworkBytesReadRequest) returns (SetNetworkBytesReadResponse);
+  rpc SetNetworkTransferDurationMillis (SetNetworkTransferDurationMillisRequest) returns (SetNetworkTransferDurationMillisResponse);
+  rpc SetPlaybackType (SetPlaybackTypeRequest) returns (SetPlaybackTypeResponse);
+  rpc SetPlayerName (SetPlayerNameRequest) returns (SetPlayerNameResponse);
+  rpc SetPlayerVersion (SetPlayerVersionRequest) returns (SetPlayerVersionResponse);
+  rpc SetStreamSource (SetStreamSourceRequest) returns (SetStreamSourceResponse);
+  rpc SetStreamType (SetStreamTypeRequest) returns (SetStreamTypeResponse);
+  rpc SetVideoFramesDropped (SetVideoFramesDroppedRequest) returns (SetVideoFramesDroppedResponse);
+  rpc SetVideoFramesPlayed (SetVideoFramesPlayedRequest) returns (SetVideoFramesPlayedResponse);
+}
+
+service PlaybackErrorEventService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetErrorCode (GetErrorCodeRequest) returns (GetErrorCodeResponse);
+  rpc GetMetricsBundle (GetMetricsBundleRequest) returns (GetMetricsBundleResponse);
+  rpc GetSubErrorCode (GetSubErrorCodeRequest) returns (GetSubErrorCodeResponse);
+  rpc GetTimeSinceCreatedMillis (GetTimeSinceCreatedMillisRequest) returns (GetTimeSinceCreatedMillisResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service PlaybackErrorEventBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetErrorCode (SetErrorCodeRequest) returns (SetErrorCodeResponse);
+  rpc SetException (SetExceptionRequest) returns (SetExceptionResponse);
+  rpc SetMetricsBundle (SetMetricsBundleRequest) returns (SetMetricsBundleResponse);
+  rpc SetSubErrorCode (SetSubErrorCodeRequest) returns (SetSubErrorCodeResponse);
+  rpc SetTimeSinceCreatedMillis (SetTimeSinceCreatedMillisRequest) returns (SetTimeSinceCreatedMillisResponse);
+}
+
+service PlaybackStateEventService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetMetricsBundle (GetMetricsBundleRequest) returns (GetMetricsBundleResponse);
+  rpc GetState (GetStateRequest) returns (GetStateResponse);
+  rpc GetTimeSinceCreatedMillis (GetTimeSinceCreatedMillisRequest) returns (GetTimeSinceCreatedMillisResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service PlaybackStateEventBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetMetricsBundle (SetMetricsBundleRequest) returns (SetMetricsBundleResponse);
+  rpc SetState (SetStateRequest) returns (SetStateResponse);
+  rpc SetTimeSinceCreatedMillis (SetTimeSinceCreatedMillisRequest) returns (SetTimeSinceCreatedMillisResponse);
+}
+
+service PlaybackSessionService {
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetSessionId (GetSessionIdRequest) returns (GetSessionIdResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ReportNetworkEvent (ReportNetworkEventRequest) returns (ReportNetworkEventResponse);
+  rpc ReportPlaybackErrorEvent (ReportPlaybackErrorEventRequest) returns (ReportPlaybackErrorEventResponse);
+  rpc ReportPlaybackMetrics (ReportPlaybackMetricsRequest) returns (ReportPlaybackMetricsResponse);
+  rpc ReportPlaybackStateEvent (ReportPlaybackStateEventRequest) returns (ReportPlaybackStateEventResponse);
+  rpc ReportTrackChangeEvent (ReportTrackChangeEventRequest) returns (ReportTrackChangeEventResponse);
+}
+
+service BundleSessionService {
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetSessionId (GetSessionIdRequest) returns (GetSessionIdResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ReportBundleMetrics (ReportBundleMetricsRequest) returns (ReportBundleMetricsResponse);
+}
+
+service NetworkEventService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetMetricsBundle (GetMetricsBundleRequest) returns (GetMetricsBundleResponse);
+  rpc GetNetworkType (GetNetworkTypeRequest) returns (GetNetworkTypeResponse);
+  rpc GetTimeSinceCreatedMillis (GetTimeSinceCreatedMillisRequest) returns (GetTimeSinceCreatedMillisResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service NetworkEventBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetMetricsBundle (SetMetricsBundleRequest) returns (SetMetricsBundleResponse);
+  rpc SetNetworkType (SetNetworkTypeRequest) returns (SetNetworkTypeResponse);
+  rpc SetTimeSinceCreatedMillis (SetTimeSinceCreatedMillisRequest) returns (SetTimeSinceCreatedMillisResponse);
+}
+
+service EditingSessionService {
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetSessionId (GetSessionIdRequest) returns (GetSessionIdResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ReportEditingEndedEvent (ReportEditingEndedEventRequest) returns (ReportEditingEndedEventResponse);
+}
+
+service TrackChangeEventService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetAudioSampleRate (GetAudioSampleRateRequest) returns (GetAudioSampleRateResponse);
+  rpc GetBitrate (GetBitrateRequest) returns (GetBitrateResponse);
+  rpc GetChannelCount (GetChannelCountRequest) returns (GetChannelCountResponse);
+  rpc GetCodecName (GetCodecNameRequest) returns (GetCodecNameResponse);
+  rpc GetContainerMimeType (GetContainerMimeTypeRequest) returns (GetContainerMimeTypeResponse);
+  rpc GetHeight (GetHeightRequest) returns (GetHeightResponse);
+  rpc GetLanguage (GetLanguageRequest) returns (GetLanguageResponse);
+  rpc GetLanguageRegion (GetLanguageRegionRequest) returns (GetLanguageRegionResponse);
+  rpc GetMetricsBundle (GetMetricsBundleRequest) returns (GetMetricsBundleResponse);
+  rpc GetSampleMimeType (GetSampleMimeTypeRequest) returns (GetSampleMimeTypeResponse);
+  rpc GetTimeSinceCreatedMillis (GetTimeSinceCreatedMillisRequest) returns (GetTimeSinceCreatedMillisResponse);
+  rpc GetTrackChangeReason (GetTrackChangeReasonRequest) returns (GetTrackChangeReasonResponse);
+  rpc GetTrackState (GetTrackStateRequest) returns (GetTrackStateResponse);
+  rpc GetTrackType (GetTrackTypeRequest) returns (GetTrackTypeResponse);
+  rpc GetVideoFrameRate (GetVideoFrameRateRequest) returns (GetVideoFrameRateResponse);
+  rpc GetWidth (GetWidthRequest) returns (GetWidthResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service TrackChangeEventBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetAudioSampleRate (SetAudioSampleRateRequest) returns (SetAudioSampleRateResponse);
+  rpc SetBitrate (SetBitrateRequest) returns (SetBitrateResponse);
+  rpc SetChannelCount (SetChannelCountRequest) returns (SetChannelCountResponse);
+  rpc SetCodecName (SetCodecNameRequest) returns (SetCodecNameResponse);
+  rpc SetContainerMimeType (SetContainerMimeTypeRequest) returns (SetContainerMimeTypeResponse);
+  rpc SetHeight (SetHeightRequest) returns (SetHeightResponse);
+  rpc SetLanguage (SetLanguageRequest) returns (SetLanguageResponse);
+  rpc SetLanguageRegion (SetLanguageRegionRequest) returns (SetLanguageRegionResponse);
+  rpc SetMetricsBundle (SetMetricsBundleRequest) returns (SetMetricsBundleResponse);
+  rpc SetSampleMimeType (SetSampleMimeTypeRequest) returns (SetSampleMimeTypeResponse);
+  rpc SetTimeSinceCreatedMillis (SetTimeSinceCreatedMillisRequest) returns (SetTimeSinceCreatedMillisResponse);
+  rpc SetTrackChangeReason (SetTrackChangeReasonRequest) returns (SetTrackChangeReasonResponse);
+  rpc SetTrackState (SetTrackStateRequest) returns (SetTrackStateResponse);
+  rpc SetVideoFrameRate (SetVideoFrameRateRequest) returns (SetVideoFrameRateResponse);
+  rpc SetWidth (SetWidthRequest) returns (SetWidthResponse);
+}
+
+service TranscodingSessionService {
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetSessionId (GetSessionIdRequest) returns (GetSessionIdResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
 service MediaMetricsManagerService {
   rpc CreateBundleSession (CreateBundleSessionRequest) returns (CreateBundleSessionResponse);
   rpc CreateEditingSession (CreateEditingSessionRequest) returns (CreateEditingSessionResponse);
@@ -55,4 +1212,23 @@ service MediaMetricsManagerService {
   rpc CreateRecordingSession (CreateRecordingSessionRequest) returns (CreateRecordingSessionResponse);
   rpc CreateTranscodingSession (CreateTranscodingSessionRequest) returns (CreateTranscodingSessionResponse);
   rpc ReleaseSessionId (ReleaseSessionIdRequest) returns (ReleaseSessionIdResponse);
+}
+
+service EventService {
+  rpc GetMetricsBundle (GetMetricsBundleRequest) returns (GetMetricsBundleResponse);
+  rpc GetTimeSinceCreatedMillis (GetTimeSinceCreatedMillisRequest) returns (GetTimeSinceCreatedMillisResponse);
+}
+
+service RecordingSessionService {
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetSessionId (GetSessionIdRequest) returns (GetSessionIdResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service LogSessionIdService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetStringId (GetStringIdRequest) returns (GetStringIdResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
 }

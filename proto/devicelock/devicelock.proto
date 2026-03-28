@@ -5,3 +5,22 @@ syntax = "proto3";
 package devicelock;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/devicelock";
+
+message GetIdRequest {
+}
+
+message GetIdResponse {
+  string result = 1;
+}
+
+message GetTypeRequest {
+}
+
+message GetTypeResponse {
+  int32 result = 1;
+}
+
+service DeviceIdService {
+  rpc GetId (GetIdRequest) returns (GetIdResponse);
+  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
+}

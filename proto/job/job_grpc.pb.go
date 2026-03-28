@@ -21,6 +21,705 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
+	WorkItemService_NewWorkItem_FullMethodName                      = "/job.WorkItemService/NewWorkItem"
+	WorkItemService_DescribeContents_FullMethodName                 = "/job.WorkItemService/DescribeContents"
+	WorkItemService_GetDeliveryCount_FullMethodName                 = "/job.WorkItemService/GetDeliveryCount"
+	WorkItemService_GetEstimatedNetworkDownloadBytes_FullMethodName = "/job.WorkItemService/GetEstimatedNetworkDownloadBytes"
+	WorkItemService_GetEstimatedNetworkUploadBytes_FullMethodName   = "/job.WorkItemService/GetEstimatedNetworkUploadBytes"
+	WorkItemService_GetExtras_FullMethodName                        = "/job.WorkItemService/GetExtras"
+	WorkItemService_GetIntent_FullMethodName                        = "/job.WorkItemService/GetIntent"
+	WorkItemService_GetMinimumNetworkChunkBytes_FullMethodName      = "/job.WorkItemService/GetMinimumNetworkChunkBytes"
+	WorkItemService_ToString_FullMethodName                         = "/job.WorkItemService/ToString"
+	WorkItemService_WriteToParcel_FullMethodName                    = "/job.WorkItemService/WriteToParcel"
+)
+
+// WorkItemServiceClient is the client API for WorkItemService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type WorkItemServiceClient interface {
+	NewWorkItem(ctx context.Context, in *NewWorkItemRequest, opts ...grpc.CallOption) (*NewWorkItemResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetDeliveryCount(ctx context.Context, in *GetDeliveryCountRequest, opts ...grpc.CallOption) (*GetDeliveryCountResponse, error)
+	GetEstimatedNetworkDownloadBytes(ctx context.Context, in *GetEstimatedNetworkDownloadBytesRequest, opts ...grpc.CallOption) (*GetEstimatedNetworkDownloadBytesResponse, error)
+	GetEstimatedNetworkUploadBytes(ctx context.Context, in *GetEstimatedNetworkUploadBytesRequest, opts ...grpc.CallOption) (*GetEstimatedNetworkUploadBytesResponse, error)
+	GetExtras(ctx context.Context, in *GetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error)
+	GetIntent(ctx context.Context, in *GetIntentRequest, opts ...grpc.CallOption) (*GetIntentResponse, error)
+	GetMinimumNetworkChunkBytes(ctx context.Context, in *GetMinimumNetworkChunkBytesRequest, opts ...grpc.CallOption) (*GetMinimumNetworkChunkBytesResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type workItemServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewWorkItemServiceClient(cc grpc.ClientConnInterface) WorkItemServiceClient {
+	return &workItemServiceClient{cc}
+}
+
+func (c *workItemServiceClient) NewWorkItem(ctx context.Context, in *NewWorkItemRequest, opts ...grpc.CallOption) (*NewWorkItemResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewWorkItemResponse)
+	err := c.cc.Invoke(ctx, WorkItemService_NewWorkItem_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *workItemServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, WorkItemService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *workItemServiceClient) GetDeliveryCount(ctx context.Context, in *GetDeliveryCountRequest, opts ...grpc.CallOption) (*GetDeliveryCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDeliveryCountResponse)
+	err := c.cc.Invoke(ctx, WorkItemService_GetDeliveryCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *workItemServiceClient) GetEstimatedNetworkDownloadBytes(ctx context.Context, in *GetEstimatedNetworkDownloadBytesRequest, opts ...grpc.CallOption) (*GetEstimatedNetworkDownloadBytesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEstimatedNetworkDownloadBytesResponse)
+	err := c.cc.Invoke(ctx, WorkItemService_GetEstimatedNetworkDownloadBytes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *workItemServiceClient) GetEstimatedNetworkUploadBytes(ctx context.Context, in *GetEstimatedNetworkUploadBytesRequest, opts ...grpc.CallOption) (*GetEstimatedNetworkUploadBytesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEstimatedNetworkUploadBytesResponse)
+	err := c.cc.Invoke(ctx, WorkItemService_GetEstimatedNetworkUploadBytes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *workItemServiceClient) GetExtras(ctx context.Context, in *GetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetExtrasResponse)
+	err := c.cc.Invoke(ctx, WorkItemService_GetExtras_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *workItemServiceClient) GetIntent(ctx context.Context, in *GetIntentRequest, opts ...grpc.CallOption) (*GetIntentResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetIntentResponse)
+	err := c.cc.Invoke(ctx, WorkItemService_GetIntent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *workItemServiceClient) GetMinimumNetworkChunkBytes(ctx context.Context, in *GetMinimumNetworkChunkBytesRequest, opts ...grpc.CallOption) (*GetMinimumNetworkChunkBytesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMinimumNetworkChunkBytesResponse)
+	err := c.cc.Invoke(ctx, WorkItemService_GetMinimumNetworkChunkBytes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *workItemServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, WorkItemService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *workItemServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, WorkItemService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// WorkItemServiceServer is the server API for WorkItemService service.
+// All implementations must embed UnimplementedWorkItemServiceServer
+// for forward compatibility.
+type WorkItemServiceServer interface {
+	NewWorkItem(context.Context, *NewWorkItemRequest) (*NewWorkItemResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetDeliveryCount(context.Context, *GetDeliveryCountRequest) (*GetDeliveryCountResponse, error)
+	GetEstimatedNetworkDownloadBytes(context.Context, *GetEstimatedNetworkDownloadBytesRequest) (*GetEstimatedNetworkDownloadBytesResponse, error)
+	GetEstimatedNetworkUploadBytes(context.Context, *GetEstimatedNetworkUploadBytesRequest) (*GetEstimatedNetworkUploadBytesResponse, error)
+	GetExtras(context.Context, *GetExtrasRequest) (*GetExtrasResponse, error)
+	GetIntent(context.Context, *GetIntentRequest) (*GetIntentResponse, error)
+	GetMinimumNetworkChunkBytes(context.Context, *GetMinimumNetworkChunkBytesRequest) (*GetMinimumNetworkChunkBytesResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedWorkItemServiceServer()
+}
+
+// UnimplementedWorkItemServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedWorkItemServiceServer struct{}
+
+func (UnimplementedWorkItemServiceServer) NewWorkItem(context.Context, *NewWorkItemRequest) (*NewWorkItemResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewWorkItem not implemented")
+}
+func (UnimplementedWorkItemServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedWorkItemServiceServer) GetDeliveryCount(context.Context, *GetDeliveryCountRequest) (*GetDeliveryCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDeliveryCount not implemented")
+}
+func (UnimplementedWorkItemServiceServer) GetEstimatedNetworkDownloadBytes(context.Context, *GetEstimatedNetworkDownloadBytesRequest) (*GetEstimatedNetworkDownloadBytesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEstimatedNetworkDownloadBytes not implemented")
+}
+func (UnimplementedWorkItemServiceServer) GetEstimatedNetworkUploadBytes(context.Context, *GetEstimatedNetworkUploadBytesRequest) (*GetEstimatedNetworkUploadBytesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEstimatedNetworkUploadBytes not implemented")
+}
+func (UnimplementedWorkItemServiceServer) GetExtras(context.Context, *GetExtrasRequest) (*GetExtrasResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetExtras not implemented")
+}
+func (UnimplementedWorkItemServiceServer) GetIntent(context.Context, *GetIntentRequest) (*GetIntentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetIntent not implemented")
+}
+func (UnimplementedWorkItemServiceServer) GetMinimumNetworkChunkBytes(context.Context, *GetMinimumNetworkChunkBytesRequest) (*GetMinimumNetworkChunkBytesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMinimumNetworkChunkBytes not implemented")
+}
+func (UnimplementedWorkItemServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedWorkItemServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedWorkItemServiceServer) mustEmbedUnimplementedWorkItemServiceServer() {}
+func (UnimplementedWorkItemServiceServer) testEmbeddedByValue()                         {}
+
+// UnsafeWorkItemServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to WorkItemServiceServer will
+// result in compilation errors.
+type UnsafeWorkItemServiceServer interface {
+	mustEmbedUnimplementedWorkItemServiceServer()
+}
+
+func RegisterWorkItemServiceServer(s grpc.ServiceRegistrar, srv WorkItemServiceServer) {
+	// If the following call panics, it indicates UnimplementedWorkItemServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&WorkItemService_ServiceDesc, srv)
+}
+
+func _WorkItemService_NewWorkItem_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewWorkItemRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WorkItemServiceServer).NewWorkItem(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WorkItemService_NewWorkItem_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WorkItemServiceServer).NewWorkItem(ctx, req.(*NewWorkItemRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WorkItemService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WorkItemServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WorkItemService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WorkItemServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WorkItemService_GetDeliveryCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDeliveryCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WorkItemServiceServer).GetDeliveryCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WorkItemService_GetDeliveryCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WorkItemServiceServer).GetDeliveryCount(ctx, req.(*GetDeliveryCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WorkItemService_GetEstimatedNetworkDownloadBytes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEstimatedNetworkDownloadBytesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WorkItemServiceServer).GetEstimatedNetworkDownloadBytes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WorkItemService_GetEstimatedNetworkDownloadBytes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WorkItemServiceServer).GetEstimatedNetworkDownloadBytes(ctx, req.(*GetEstimatedNetworkDownloadBytesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WorkItemService_GetEstimatedNetworkUploadBytes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEstimatedNetworkUploadBytesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WorkItemServiceServer).GetEstimatedNetworkUploadBytes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WorkItemService_GetEstimatedNetworkUploadBytes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WorkItemServiceServer).GetEstimatedNetworkUploadBytes(ctx, req.(*GetEstimatedNetworkUploadBytesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WorkItemService_GetExtras_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetExtrasRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WorkItemServiceServer).GetExtras(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WorkItemService_GetExtras_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WorkItemServiceServer).GetExtras(ctx, req.(*GetExtrasRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WorkItemService_GetIntent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIntentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WorkItemServiceServer).GetIntent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WorkItemService_GetIntent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WorkItemServiceServer).GetIntent(ctx, req.(*GetIntentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WorkItemService_GetMinimumNetworkChunkBytes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMinimumNetworkChunkBytesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WorkItemServiceServer).GetMinimumNetworkChunkBytes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WorkItemService_GetMinimumNetworkChunkBytes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WorkItemServiceServer).GetMinimumNetworkChunkBytes(ctx, req.(*GetMinimumNetworkChunkBytesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WorkItemService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WorkItemServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WorkItemService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WorkItemServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WorkItemService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WorkItemServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WorkItemService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WorkItemServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// WorkItemService_ServiceDesc is the grpc.ServiceDesc for WorkItemService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var WorkItemService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "job.WorkItemService",
+	HandlerType: (*WorkItemServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewWorkItem",
+			Handler:    _WorkItemService_NewWorkItem_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _WorkItemService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetDeliveryCount",
+			Handler:    _WorkItemService_GetDeliveryCount_Handler,
+		},
+		{
+			MethodName: "GetEstimatedNetworkDownloadBytes",
+			Handler:    _WorkItemService_GetEstimatedNetworkDownloadBytes_Handler,
+		},
+		{
+			MethodName: "GetEstimatedNetworkUploadBytes",
+			Handler:    _WorkItemService_GetEstimatedNetworkUploadBytes_Handler,
+		},
+		{
+			MethodName: "GetExtras",
+			Handler:    _WorkItemService_GetExtras_Handler,
+		},
+		{
+			MethodName: "GetIntent",
+			Handler:    _WorkItemService_GetIntent_Handler,
+		},
+		{
+			MethodName: "GetMinimumNetworkChunkBytes",
+			Handler:    _WorkItemService_GetMinimumNetworkChunkBytes_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _WorkItemService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _WorkItemService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/job/job.proto",
+}
+
+const (
+	WorkItemBuilderService_Build_FullMethodName                       = "/job.WorkItemBuilderService/Build"
+	WorkItemBuilderService_SetEstimatedNetworkBytes_FullMethodName    = "/job.WorkItemBuilderService/SetEstimatedNetworkBytes"
+	WorkItemBuilderService_SetExtras_FullMethodName                   = "/job.WorkItemBuilderService/SetExtras"
+	WorkItemBuilderService_SetIntent_FullMethodName                   = "/job.WorkItemBuilderService/SetIntent"
+	WorkItemBuilderService_SetMinimumNetworkChunkBytes_FullMethodName = "/job.WorkItemBuilderService/SetMinimumNetworkChunkBytes"
+)
+
+// WorkItemBuilderServiceClient is the client API for WorkItemBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type WorkItemBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetEstimatedNetworkBytes(ctx context.Context, in *SetEstimatedNetworkBytesRequest, opts ...grpc.CallOption) (*SetEstimatedNetworkBytesResponse, error)
+	SetExtras(ctx context.Context, in *SetExtrasRequest, opts ...grpc.CallOption) (*SetExtrasResponse, error)
+	SetIntent(ctx context.Context, in *SetIntentRequest, opts ...grpc.CallOption) (*SetIntentResponse, error)
+	SetMinimumNetworkChunkBytes(ctx context.Context, in *SetMinimumNetworkChunkBytesRequest, opts ...grpc.CallOption) (*SetMinimumNetworkChunkBytesResponse, error)
+}
+
+type workItemBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewWorkItemBuilderServiceClient(cc grpc.ClientConnInterface) WorkItemBuilderServiceClient {
+	return &workItemBuilderServiceClient{cc}
+}
+
+func (c *workItemBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, WorkItemBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *workItemBuilderServiceClient) SetEstimatedNetworkBytes(ctx context.Context, in *SetEstimatedNetworkBytesRequest, opts ...grpc.CallOption) (*SetEstimatedNetworkBytesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetEstimatedNetworkBytesResponse)
+	err := c.cc.Invoke(ctx, WorkItemBuilderService_SetEstimatedNetworkBytes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *workItemBuilderServiceClient) SetExtras(ctx context.Context, in *SetExtrasRequest, opts ...grpc.CallOption) (*SetExtrasResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetExtrasResponse)
+	err := c.cc.Invoke(ctx, WorkItemBuilderService_SetExtras_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *workItemBuilderServiceClient) SetIntent(ctx context.Context, in *SetIntentRequest, opts ...grpc.CallOption) (*SetIntentResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetIntentResponse)
+	err := c.cc.Invoke(ctx, WorkItemBuilderService_SetIntent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *workItemBuilderServiceClient) SetMinimumNetworkChunkBytes(ctx context.Context, in *SetMinimumNetworkChunkBytesRequest, opts ...grpc.CallOption) (*SetMinimumNetworkChunkBytesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetMinimumNetworkChunkBytesResponse)
+	err := c.cc.Invoke(ctx, WorkItemBuilderService_SetMinimumNetworkChunkBytes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// WorkItemBuilderServiceServer is the server API for WorkItemBuilderService service.
+// All implementations must embed UnimplementedWorkItemBuilderServiceServer
+// for forward compatibility.
+type WorkItemBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetEstimatedNetworkBytes(context.Context, *SetEstimatedNetworkBytesRequest) (*SetEstimatedNetworkBytesResponse, error)
+	SetExtras(context.Context, *SetExtrasRequest) (*SetExtrasResponse, error)
+	SetIntent(context.Context, *SetIntentRequest) (*SetIntentResponse, error)
+	SetMinimumNetworkChunkBytes(context.Context, *SetMinimumNetworkChunkBytesRequest) (*SetMinimumNetworkChunkBytesResponse, error)
+	mustEmbedUnimplementedWorkItemBuilderServiceServer()
+}
+
+// UnimplementedWorkItemBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedWorkItemBuilderServiceServer struct{}
+
+func (UnimplementedWorkItemBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedWorkItemBuilderServiceServer) SetEstimatedNetworkBytes(context.Context, *SetEstimatedNetworkBytesRequest) (*SetEstimatedNetworkBytesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetEstimatedNetworkBytes not implemented")
+}
+func (UnimplementedWorkItemBuilderServiceServer) SetExtras(context.Context, *SetExtrasRequest) (*SetExtrasResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetExtras not implemented")
+}
+func (UnimplementedWorkItemBuilderServiceServer) SetIntent(context.Context, *SetIntentRequest) (*SetIntentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetIntent not implemented")
+}
+func (UnimplementedWorkItemBuilderServiceServer) SetMinimumNetworkChunkBytes(context.Context, *SetMinimumNetworkChunkBytesRequest) (*SetMinimumNetworkChunkBytesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetMinimumNetworkChunkBytes not implemented")
+}
+func (UnimplementedWorkItemBuilderServiceServer) mustEmbedUnimplementedWorkItemBuilderServiceServer() {
+}
+func (UnimplementedWorkItemBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeWorkItemBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to WorkItemBuilderServiceServer will
+// result in compilation errors.
+type UnsafeWorkItemBuilderServiceServer interface {
+	mustEmbedUnimplementedWorkItemBuilderServiceServer()
+}
+
+func RegisterWorkItemBuilderServiceServer(s grpc.ServiceRegistrar, srv WorkItemBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedWorkItemBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&WorkItemBuilderService_ServiceDesc, srv)
+}
+
+func _WorkItemBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WorkItemBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WorkItemBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WorkItemBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WorkItemBuilderService_SetEstimatedNetworkBytes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetEstimatedNetworkBytesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WorkItemBuilderServiceServer).SetEstimatedNetworkBytes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WorkItemBuilderService_SetEstimatedNetworkBytes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WorkItemBuilderServiceServer).SetEstimatedNetworkBytes(ctx, req.(*SetEstimatedNetworkBytesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WorkItemBuilderService_SetExtras_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetExtrasRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WorkItemBuilderServiceServer).SetExtras(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WorkItemBuilderService_SetExtras_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WorkItemBuilderServiceServer).SetExtras(ctx, req.(*SetExtrasRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WorkItemBuilderService_SetIntent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetIntentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WorkItemBuilderServiceServer).SetIntent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WorkItemBuilderService_SetIntent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WorkItemBuilderServiceServer).SetIntent(ctx, req.(*SetIntentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WorkItemBuilderService_SetMinimumNetworkChunkBytes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetMinimumNetworkChunkBytesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WorkItemBuilderServiceServer).SetMinimumNetworkChunkBytes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WorkItemBuilderService_SetMinimumNetworkChunkBytes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WorkItemBuilderServiceServer).SetMinimumNetworkChunkBytes(ctx, req.(*SetMinimumNetworkChunkBytesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// WorkItemBuilderService_ServiceDesc is the grpc.ServiceDesc for WorkItemBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var WorkItemBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "job.WorkItemBuilderService",
+	HandlerType: (*WorkItemBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _WorkItemBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetEstimatedNetworkBytes",
+			Handler:    _WorkItemBuilderService_SetEstimatedNetworkBytes_Handler,
+		},
+		{
+			MethodName: "SetExtras",
+			Handler:    _WorkItemBuilderService_SetExtras_Handler,
+		},
+		{
+			MethodName: "SetIntent",
+			Handler:    _WorkItemBuilderService_SetIntent_Handler,
+		},
+		{
+			MethodName: "SetMinimumNetworkChunkBytes",
+			Handler:    _WorkItemBuilderService_SetMinimumNetworkChunkBytes_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/job/job.proto",
+}
+
+const (
 	SchedulerService_CanRunUserInitiatedJobs_FullMethodName = "/job.SchedulerService/CanRunUserInitiatedJobs"
 	SchedulerService_Cancel_FullMethodName                  = "/job.SchedulerService/Cancel"
 	SchedulerService_CancelAll_FullMethodName               = "/job.SchedulerService/CancelAll"
@@ -496,6 +1195,4788 @@ var SchedulerService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Schedule",
 			Handler:    _SchedulerService_Schedule_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/job/job.proto",
+}
+
+const (
+	ServiceService_JobFinished_FullMethodName                      = "/job.ServiceService/JobFinished"
+	ServiceService_OnBind_FullMethodName                           = "/job.ServiceService/OnBind"
+	ServiceService_OnNetworkChanged_FullMethodName                 = "/job.ServiceService/OnNetworkChanged"
+	ServiceService_OnStartJob_FullMethodName                       = "/job.ServiceService/OnStartJob"
+	ServiceService_OnStopJob_FullMethodName                        = "/job.ServiceService/OnStopJob"
+	ServiceService_SetNotification_FullMethodName                  = "/job.ServiceService/SetNotification"
+	ServiceService_UpdateEstimatedNetworkBytes4_FullMethodName     = "/job.ServiceService/UpdateEstimatedNetworkBytes4"
+	ServiceService_UpdateEstimatedNetworkBytes3_1_FullMethodName   = "/job.ServiceService/UpdateEstimatedNetworkBytes3_1"
+	ServiceService_UpdateTransferredNetworkBytes4_FullMethodName   = "/job.ServiceService/UpdateTransferredNetworkBytes4"
+	ServiceService_UpdateTransferredNetworkBytes3_1_FullMethodName = "/job.ServiceService/UpdateTransferredNetworkBytes3_1"
+)
+
+// ServiceServiceClient is the client API for ServiceService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ServiceServiceClient interface {
+	JobFinished(ctx context.Context, in *JobFinishedRequest, opts ...grpc.CallOption) (*JobFinishedResponse, error)
+	OnBind(ctx context.Context, in *OnBindRequest, opts ...grpc.CallOption) (*OnBindResponse, error)
+	OnNetworkChanged(ctx context.Context, in *OnNetworkChangedRequest, opts ...grpc.CallOption) (*OnNetworkChangedResponse, error)
+	OnStartJob(ctx context.Context, in *OnStartJobRequest, opts ...grpc.CallOption) (*OnStartJobResponse, error)
+	OnStopJob(ctx context.Context, in *OnStopJobRequest, opts ...grpc.CallOption) (*OnStopJobResponse, error)
+	SetNotification(ctx context.Context, in *SetNotificationRequest, opts ...grpc.CallOption) (*SetNotificationResponse, error)
+	UpdateEstimatedNetworkBytes4(ctx context.Context, in *UpdateEstimatedNetworkBytes4Request, opts ...grpc.CallOption) (*UpdateEstimatedNetworkBytes4Response, error)
+	UpdateEstimatedNetworkBytes3_1(ctx context.Context, in *UpdateEstimatedNetworkBytes3_1Request, opts ...grpc.CallOption) (*UpdateEstimatedNetworkBytes3_1Response, error)
+	UpdateTransferredNetworkBytes4(ctx context.Context, in *UpdateTransferredNetworkBytes4Request, opts ...grpc.CallOption) (*UpdateTransferredNetworkBytes4Response, error)
+	UpdateTransferredNetworkBytes3_1(ctx context.Context, in *UpdateTransferredNetworkBytes3_1Request, opts ...grpc.CallOption) (*UpdateTransferredNetworkBytes3_1Response, error)
+}
+
+type serviceServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewServiceServiceClient(cc grpc.ClientConnInterface) ServiceServiceClient {
+	return &serviceServiceClient{cc}
+}
+
+func (c *serviceServiceClient) JobFinished(ctx context.Context, in *JobFinishedRequest, opts ...grpc.CallOption) (*JobFinishedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(JobFinishedResponse)
+	err := c.cc.Invoke(ctx, ServiceService_JobFinished_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceServiceClient) OnBind(ctx context.Context, in *OnBindRequest, opts ...grpc.CallOption) (*OnBindResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnBindResponse)
+	err := c.cc.Invoke(ctx, ServiceService_OnBind_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceServiceClient) OnNetworkChanged(ctx context.Context, in *OnNetworkChangedRequest, opts ...grpc.CallOption) (*OnNetworkChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnNetworkChangedResponse)
+	err := c.cc.Invoke(ctx, ServiceService_OnNetworkChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceServiceClient) OnStartJob(ctx context.Context, in *OnStartJobRequest, opts ...grpc.CallOption) (*OnStartJobResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnStartJobResponse)
+	err := c.cc.Invoke(ctx, ServiceService_OnStartJob_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceServiceClient) OnStopJob(ctx context.Context, in *OnStopJobRequest, opts ...grpc.CallOption) (*OnStopJobResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnStopJobResponse)
+	err := c.cc.Invoke(ctx, ServiceService_OnStopJob_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceServiceClient) SetNotification(ctx context.Context, in *SetNotificationRequest, opts ...grpc.CallOption) (*SetNotificationResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetNotificationResponse)
+	err := c.cc.Invoke(ctx, ServiceService_SetNotification_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceServiceClient) UpdateEstimatedNetworkBytes4(ctx context.Context, in *UpdateEstimatedNetworkBytes4Request, opts ...grpc.CallOption) (*UpdateEstimatedNetworkBytes4Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateEstimatedNetworkBytes4Response)
+	err := c.cc.Invoke(ctx, ServiceService_UpdateEstimatedNetworkBytes4_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceServiceClient) UpdateEstimatedNetworkBytes3_1(ctx context.Context, in *UpdateEstimatedNetworkBytes3_1Request, opts ...grpc.CallOption) (*UpdateEstimatedNetworkBytes3_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateEstimatedNetworkBytes3_1Response)
+	err := c.cc.Invoke(ctx, ServiceService_UpdateEstimatedNetworkBytes3_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceServiceClient) UpdateTransferredNetworkBytes4(ctx context.Context, in *UpdateTransferredNetworkBytes4Request, opts ...grpc.CallOption) (*UpdateTransferredNetworkBytes4Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateTransferredNetworkBytes4Response)
+	err := c.cc.Invoke(ctx, ServiceService_UpdateTransferredNetworkBytes4_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceServiceClient) UpdateTransferredNetworkBytes3_1(ctx context.Context, in *UpdateTransferredNetworkBytes3_1Request, opts ...grpc.CallOption) (*UpdateTransferredNetworkBytes3_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateTransferredNetworkBytes3_1Response)
+	err := c.cc.Invoke(ctx, ServiceService_UpdateTransferredNetworkBytes3_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ServiceServiceServer is the server API for ServiceService service.
+// All implementations must embed UnimplementedServiceServiceServer
+// for forward compatibility.
+type ServiceServiceServer interface {
+	JobFinished(context.Context, *JobFinishedRequest) (*JobFinishedResponse, error)
+	OnBind(context.Context, *OnBindRequest) (*OnBindResponse, error)
+	OnNetworkChanged(context.Context, *OnNetworkChangedRequest) (*OnNetworkChangedResponse, error)
+	OnStartJob(context.Context, *OnStartJobRequest) (*OnStartJobResponse, error)
+	OnStopJob(context.Context, *OnStopJobRequest) (*OnStopJobResponse, error)
+	SetNotification(context.Context, *SetNotificationRequest) (*SetNotificationResponse, error)
+	UpdateEstimatedNetworkBytes4(context.Context, *UpdateEstimatedNetworkBytes4Request) (*UpdateEstimatedNetworkBytes4Response, error)
+	UpdateEstimatedNetworkBytes3_1(context.Context, *UpdateEstimatedNetworkBytes3_1Request) (*UpdateEstimatedNetworkBytes3_1Response, error)
+	UpdateTransferredNetworkBytes4(context.Context, *UpdateTransferredNetworkBytes4Request) (*UpdateTransferredNetworkBytes4Response, error)
+	UpdateTransferredNetworkBytes3_1(context.Context, *UpdateTransferredNetworkBytes3_1Request) (*UpdateTransferredNetworkBytes3_1Response, error)
+	mustEmbedUnimplementedServiceServiceServer()
+}
+
+// UnimplementedServiceServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedServiceServiceServer struct{}
+
+func (UnimplementedServiceServiceServer) JobFinished(context.Context, *JobFinishedRequest) (*JobFinishedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method JobFinished not implemented")
+}
+func (UnimplementedServiceServiceServer) OnBind(context.Context, *OnBindRequest) (*OnBindResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnBind not implemented")
+}
+func (UnimplementedServiceServiceServer) OnNetworkChanged(context.Context, *OnNetworkChangedRequest) (*OnNetworkChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnNetworkChanged not implemented")
+}
+func (UnimplementedServiceServiceServer) OnStartJob(context.Context, *OnStartJobRequest) (*OnStartJobResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnStartJob not implemented")
+}
+func (UnimplementedServiceServiceServer) OnStopJob(context.Context, *OnStopJobRequest) (*OnStopJobResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnStopJob not implemented")
+}
+func (UnimplementedServiceServiceServer) SetNotification(context.Context, *SetNotificationRequest) (*SetNotificationResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetNotification not implemented")
+}
+func (UnimplementedServiceServiceServer) UpdateEstimatedNetworkBytes4(context.Context, *UpdateEstimatedNetworkBytes4Request) (*UpdateEstimatedNetworkBytes4Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method UpdateEstimatedNetworkBytes4 not implemented")
+}
+func (UnimplementedServiceServiceServer) UpdateEstimatedNetworkBytes3_1(context.Context, *UpdateEstimatedNetworkBytes3_1Request) (*UpdateEstimatedNetworkBytes3_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method UpdateEstimatedNetworkBytes3_1 not implemented")
+}
+func (UnimplementedServiceServiceServer) UpdateTransferredNetworkBytes4(context.Context, *UpdateTransferredNetworkBytes4Request) (*UpdateTransferredNetworkBytes4Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method UpdateTransferredNetworkBytes4 not implemented")
+}
+func (UnimplementedServiceServiceServer) UpdateTransferredNetworkBytes3_1(context.Context, *UpdateTransferredNetworkBytes3_1Request) (*UpdateTransferredNetworkBytes3_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method UpdateTransferredNetworkBytes3_1 not implemented")
+}
+func (UnimplementedServiceServiceServer) mustEmbedUnimplementedServiceServiceServer() {}
+func (UnimplementedServiceServiceServer) testEmbeddedByValue()                        {}
+
+// UnsafeServiceServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ServiceServiceServer will
+// result in compilation errors.
+type UnsafeServiceServiceServer interface {
+	mustEmbedUnimplementedServiceServiceServer()
+}
+
+func RegisterServiceServiceServer(s grpc.ServiceRegistrar, srv ServiceServiceServer) {
+	// If the following call panics, it indicates UnimplementedServiceServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ServiceService_ServiceDesc, srv)
+}
+
+func _ServiceService_JobFinished_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(JobFinishedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServiceServer).JobFinished(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceService_JobFinished_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServiceServer).JobFinished(ctx, req.(*JobFinishedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceService_OnBind_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnBindRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServiceServer).OnBind(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceService_OnBind_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServiceServer).OnBind(ctx, req.(*OnBindRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceService_OnNetworkChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnNetworkChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServiceServer).OnNetworkChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceService_OnNetworkChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServiceServer).OnNetworkChanged(ctx, req.(*OnNetworkChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceService_OnStartJob_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnStartJobRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServiceServer).OnStartJob(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceService_OnStartJob_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServiceServer).OnStartJob(ctx, req.(*OnStartJobRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceService_OnStopJob_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnStopJobRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServiceServer).OnStopJob(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceService_OnStopJob_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServiceServer).OnStopJob(ctx, req.(*OnStopJobRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceService_SetNotification_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetNotificationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServiceServer).SetNotification(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceService_SetNotification_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServiceServer).SetNotification(ctx, req.(*SetNotificationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceService_UpdateEstimatedNetworkBytes4_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateEstimatedNetworkBytes4Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServiceServer).UpdateEstimatedNetworkBytes4(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceService_UpdateEstimatedNetworkBytes4_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServiceServer).UpdateEstimatedNetworkBytes4(ctx, req.(*UpdateEstimatedNetworkBytes4Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceService_UpdateEstimatedNetworkBytes3_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateEstimatedNetworkBytes3_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServiceServer).UpdateEstimatedNetworkBytes3_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceService_UpdateEstimatedNetworkBytes3_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServiceServer).UpdateEstimatedNetworkBytes3_1(ctx, req.(*UpdateEstimatedNetworkBytes3_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceService_UpdateTransferredNetworkBytes4_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateTransferredNetworkBytes4Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServiceServer).UpdateTransferredNetworkBytes4(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceService_UpdateTransferredNetworkBytes4_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServiceServer).UpdateTransferredNetworkBytes4(ctx, req.(*UpdateTransferredNetworkBytes4Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceService_UpdateTransferredNetworkBytes3_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateTransferredNetworkBytes3_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServiceServer).UpdateTransferredNetworkBytes3_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceService_UpdateTransferredNetworkBytes3_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServiceServer).UpdateTransferredNetworkBytes3_1(ctx, req.(*UpdateTransferredNetworkBytes3_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ServiceService_ServiceDesc is the grpc.ServiceDesc for ServiceService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ServiceService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "job.ServiceService",
+	HandlerType: (*ServiceServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "JobFinished",
+			Handler:    _ServiceService_JobFinished_Handler,
+		},
+		{
+			MethodName: "OnBind",
+			Handler:    _ServiceService_OnBind_Handler,
+		},
+		{
+			MethodName: "OnNetworkChanged",
+			Handler:    _ServiceService_OnNetworkChanged_Handler,
+		},
+		{
+			MethodName: "OnStartJob",
+			Handler:    _ServiceService_OnStartJob_Handler,
+		},
+		{
+			MethodName: "OnStopJob",
+			Handler:    _ServiceService_OnStopJob_Handler,
+		},
+		{
+			MethodName: "SetNotification",
+			Handler:    _ServiceService_SetNotification_Handler,
+		},
+		{
+			MethodName: "UpdateEstimatedNetworkBytes4",
+			Handler:    _ServiceService_UpdateEstimatedNetworkBytes4_Handler,
+		},
+		{
+			MethodName: "UpdateEstimatedNetworkBytes3_1",
+			Handler:    _ServiceService_UpdateEstimatedNetworkBytes3_1_Handler,
+		},
+		{
+			MethodName: "UpdateTransferredNetworkBytes4",
+			Handler:    _ServiceService_UpdateTransferredNetworkBytes4_Handler,
+		},
+		{
+			MethodName: "UpdateTransferredNetworkBytes3_1",
+			Handler:    _ServiceService_UpdateTransferredNetworkBytes3_1_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/job/job.proto",
+}
+
+const (
+	PendingJobReasonsInfoService_NewPendingJobReasonsInfo_FullMethodName = "/job.PendingJobReasonsInfoService/NewPendingJobReasonsInfo"
+	PendingJobReasonsInfoService_DescribeContents_FullMethodName         = "/job.PendingJobReasonsInfoService/DescribeContents"
+	PendingJobReasonsInfoService_GetPendingJobReasons_FullMethodName     = "/job.PendingJobReasonsInfoService/GetPendingJobReasons"
+	PendingJobReasonsInfoService_GetTimestampMillis_FullMethodName       = "/job.PendingJobReasonsInfoService/GetTimestampMillis"
+	PendingJobReasonsInfoService_WriteToParcel_FullMethodName            = "/job.PendingJobReasonsInfoService/WriteToParcel"
+)
+
+// PendingJobReasonsInfoServiceClient is the client API for PendingJobReasonsInfoService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type PendingJobReasonsInfoServiceClient interface {
+	NewPendingJobReasonsInfo(ctx context.Context, in *NewPendingJobReasonsInfoRequest, opts ...grpc.CallOption) (*NewPendingJobReasonsInfoResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetPendingJobReasons(ctx context.Context, in *PendingJobReasonsInfoGetPendingJobReasonsRequest, opts ...grpc.CallOption) (*GetPendingJobReasonsResponse, error)
+	GetTimestampMillis(ctx context.Context, in *GetTimestampMillisRequest, opts ...grpc.CallOption) (*GetTimestampMillisResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type pendingJobReasonsInfoServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewPendingJobReasonsInfoServiceClient(cc grpc.ClientConnInterface) PendingJobReasonsInfoServiceClient {
+	return &pendingJobReasonsInfoServiceClient{cc}
+}
+
+func (c *pendingJobReasonsInfoServiceClient) NewPendingJobReasonsInfo(ctx context.Context, in *NewPendingJobReasonsInfoRequest, opts ...grpc.CallOption) (*NewPendingJobReasonsInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewPendingJobReasonsInfoResponse)
+	err := c.cc.Invoke(ctx, PendingJobReasonsInfoService_NewPendingJobReasonsInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *pendingJobReasonsInfoServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, PendingJobReasonsInfoService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *pendingJobReasonsInfoServiceClient) GetPendingJobReasons(ctx context.Context, in *PendingJobReasonsInfoGetPendingJobReasonsRequest, opts ...grpc.CallOption) (*GetPendingJobReasonsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPendingJobReasonsResponse)
+	err := c.cc.Invoke(ctx, PendingJobReasonsInfoService_GetPendingJobReasons_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *pendingJobReasonsInfoServiceClient) GetTimestampMillis(ctx context.Context, in *GetTimestampMillisRequest, opts ...grpc.CallOption) (*GetTimestampMillisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTimestampMillisResponse)
+	err := c.cc.Invoke(ctx, PendingJobReasonsInfoService_GetTimestampMillis_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *pendingJobReasonsInfoServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, PendingJobReasonsInfoService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// PendingJobReasonsInfoServiceServer is the server API for PendingJobReasonsInfoService service.
+// All implementations must embed UnimplementedPendingJobReasonsInfoServiceServer
+// for forward compatibility.
+type PendingJobReasonsInfoServiceServer interface {
+	NewPendingJobReasonsInfo(context.Context, *NewPendingJobReasonsInfoRequest) (*NewPendingJobReasonsInfoResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetPendingJobReasons(context.Context, *PendingJobReasonsInfoGetPendingJobReasonsRequest) (*GetPendingJobReasonsResponse, error)
+	GetTimestampMillis(context.Context, *GetTimestampMillisRequest) (*GetTimestampMillisResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedPendingJobReasonsInfoServiceServer()
+}
+
+// UnimplementedPendingJobReasonsInfoServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedPendingJobReasonsInfoServiceServer struct{}
+
+func (UnimplementedPendingJobReasonsInfoServiceServer) NewPendingJobReasonsInfo(context.Context, *NewPendingJobReasonsInfoRequest) (*NewPendingJobReasonsInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewPendingJobReasonsInfo not implemented")
+}
+func (UnimplementedPendingJobReasonsInfoServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedPendingJobReasonsInfoServiceServer) GetPendingJobReasons(context.Context, *PendingJobReasonsInfoGetPendingJobReasonsRequest) (*GetPendingJobReasonsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPendingJobReasons not implemented")
+}
+func (UnimplementedPendingJobReasonsInfoServiceServer) GetTimestampMillis(context.Context, *GetTimestampMillisRequest) (*GetTimestampMillisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTimestampMillis not implemented")
+}
+func (UnimplementedPendingJobReasonsInfoServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedPendingJobReasonsInfoServiceServer) mustEmbedUnimplementedPendingJobReasonsInfoServiceServer() {
+}
+func (UnimplementedPendingJobReasonsInfoServiceServer) testEmbeddedByValue() {}
+
+// UnsafePendingJobReasonsInfoServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to PendingJobReasonsInfoServiceServer will
+// result in compilation errors.
+type UnsafePendingJobReasonsInfoServiceServer interface {
+	mustEmbedUnimplementedPendingJobReasonsInfoServiceServer()
+}
+
+func RegisterPendingJobReasonsInfoServiceServer(s grpc.ServiceRegistrar, srv PendingJobReasonsInfoServiceServer) {
+	// If the following call panics, it indicates UnimplementedPendingJobReasonsInfoServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&PendingJobReasonsInfoService_ServiceDesc, srv)
+}
+
+func _PendingJobReasonsInfoService_NewPendingJobReasonsInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewPendingJobReasonsInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PendingJobReasonsInfoServiceServer).NewPendingJobReasonsInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PendingJobReasonsInfoService_NewPendingJobReasonsInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PendingJobReasonsInfoServiceServer).NewPendingJobReasonsInfo(ctx, req.(*NewPendingJobReasonsInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PendingJobReasonsInfoService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PendingJobReasonsInfoServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PendingJobReasonsInfoService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PendingJobReasonsInfoServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PendingJobReasonsInfoService_GetPendingJobReasons_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PendingJobReasonsInfoGetPendingJobReasonsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PendingJobReasonsInfoServiceServer).GetPendingJobReasons(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PendingJobReasonsInfoService_GetPendingJobReasons_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PendingJobReasonsInfoServiceServer).GetPendingJobReasons(ctx, req.(*PendingJobReasonsInfoGetPendingJobReasonsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PendingJobReasonsInfoService_GetTimestampMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTimestampMillisRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PendingJobReasonsInfoServiceServer).GetTimestampMillis(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PendingJobReasonsInfoService_GetTimestampMillis_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PendingJobReasonsInfoServiceServer).GetTimestampMillis(ctx, req.(*GetTimestampMillisRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PendingJobReasonsInfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PendingJobReasonsInfoServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PendingJobReasonsInfoService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PendingJobReasonsInfoServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// PendingJobReasonsInfoService_ServiceDesc is the grpc.ServiceDesc for PendingJobReasonsInfoService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var PendingJobReasonsInfoService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "job.PendingJobReasonsInfoService",
+	HandlerType: (*PendingJobReasonsInfoServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewPendingJobReasonsInfo",
+			Handler:    _PendingJobReasonsInfoService_NewPendingJobReasonsInfo_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _PendingJobReasonsInfoService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetPendingJobReasons",
+			Handler:    _PendingJobReasonsInfoService_GetPendingJobReasons_Handler,
+		},
+		{
+			MethodName: "GetTimestampMillis",
+			Handler:    _PendingJobReasonsInfoService_GetTimestampMillis_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _PendingJobReasonsInfoService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/job/job.proto",
+}
+
+const (
+	ServiceEngineService_GetBinder_FullMethodName                     = "/job.ServiceEngineService/GetBinder"
+	ServiceEngineService_JobFinished_FullMethodName                   = "/job.ServiceEngineService/JobFinished"
+	ServiceEngineService_OnNetworkChanged_FullMethodName              = "/job.ServiceEngineService/OnNetworkChanged"
+	ServiceEngineService_OnStartJob_FullMethodName                    = "/job.ServiceEngineService/OnStartJob"
+	ServiceEngineService_OnStopJob_FullMethodName                     = "/job.ServiceEngineService/OnStopJob"
+	ServiceEngineService_SetNotification_FullMethodName               = "/job.ServiceEngineService/SetNotification"
+	ServiceEngineService_UpdateEstimatedNetworkBytes_FullMethodName   = "/job.ServiceEngineService/UpdateEstimatedNetworkBytes"
+	ServiceEngineService_UpdateTransferredNetworkBytes_FullMethodName = "/job.ServiceEngineService/UpdateTransferredNetworkBytes"
+)
+
+// ServiceEngineServiceClient is the client API for ServiceEngineService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ServiceEngineServiceClient interface {
+	GetBinder(ctx context.Context, in *GetBinderRequest, opts ...grpc.CallOption) (*GetBinderResponse, error)
+	JobFinished(ctx context.Context, in *JobFinishedRequest, opts ...grpc.CallOption) (*JobFinishedResponse, error)
+	OnNetworkChanged(ctx context.Context, in *OnNetworkChangedRequest, opts ...grpc.CallOption) (*OnNetworkChangedResponse, error)
+	OnStartJob(ctx context.Context, in *OnStartJobRequest, opts ...grpc.CallOption) (*OnStartJobResponse, error)
+	OnStopJob(ctx context.Context, in *OnStopJobRequest, opts ...grpc.CallOption) (*OnStopJobResponse, error)
+	SetNotification(ctx context.Context, in *SetNotificationRequest, opts ...grpc.CallOption) (*SetNotificationResponse, error)
+	UpdateEstimatedNetworkBytes(ctx context.Context, in *UpdateEstimatedNetworkBytesRequest, opts ...grpc.CallOption) (*UpdateEstimatedNetworkBytesResponse, error)
+	UpdateTransferredNetworkBytes(ctx context.Context, in *UpdateTransferredNetworkBytesRequest, opts ...grpc.CallOption) (*UpdateTransferredNetworkBytesResponse, error)
+}
+
+type serviceEngineServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewServiceEngineServiceClient(cc grpc.ClientConnInterface) ServiceEngineServiceClient {
+	return &serviceEngineServiceClient{cc}
+}
+
+func (c *serviceEngineServiceClient) GetBinder(ctx context.Context, in *GetBinderRequest, opts ...grpc.CallOption) (*GetBinderResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetBinderResponse)
+	err := c.cc.Invoke(ctx, ServiceEngineService_GetBinder_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceEngineServiceClient) JobFinished(ctx context.Context, in *JobFinishedRequest, opts ...grpc.CallOption) (*JobFinishedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(JobFinishedResponse)
+	err := c.cc.Invoke(ctx, ServiceEngineService_JobFinished_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceEngineServiceClient) OnNetworkChanged(ctx context.Context, in *OnNetworkChangedRequest, opts ...grpc.CallOption) (*OnNetworkChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnNetworkChangedResponse)
+	err := c.cc.Invoke(ctx, ServiceEngineService_OnNetworkChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceEngineServiceClient) OnStartJob(ctx context.Context, in *OnStartJobRequest, opts ...grpc.CallOption) (*OnStartJobResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnStartJobResponse)
+	err := c.cc.Invoke(ctx, ServiceEngineService_OnStartJob_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceEngineServiceClient) OnStopJob(ctx context.Context, in *OnStopJobRequest, opts ...grpc.CallOption) (*OnStopJobResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnStopJobResponse)
+	err := c.cc.Invoke(ctx, ServiceEngineService_OnStopJob_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceEngineServiceClient) SetNotification(ctx context.Context, in *SetNotificationRequest, opts ...grpc.CallOption) (*SetNotificationResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetNotificationResponse)
+	err := c.cc.Invoke(ctx, ServiceEngineService_SetNotification_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceEngineServiceClient) UpdateEstimatedNetworkBytes(ctx context.Context, in *UpdateEstimatedNetworkBytesRequest, opts ...grpc.CallOption) (*UpdateEstimatedNetworkBytesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateEstimatedNetworkBytesResponse)
+	err := c.cc.Invoke(ctx, ServiceEngineService_UpdateEstimatedNetworkBytes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceEngineServiceClient) UpdateTransferredNetworkBytes(ctx context.Context, in *UpdateTransferredNetworkBytesRequest, opts ...grpc.CallOption) (*UpdateTransferredNetworkBytesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateTransferredNetworkBytesResponse)
+	err := c.cc.Invoke(ctx, ServiceEngineService_UpdateTransferredNetworkBytes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ServiceEngineServiceServer is the server API for ServiceEngineService service.
+// All implementations must embed UnimplementedServiceEngineServiceServer
+// for forward compatibility.
+type ServiceEngineServiceServer interface {
+	GetBinder(context.Context, *GetBinderRequest) (*GetBinderResponse, error)
+	JobFinished(context.Context, *JobFinishedRequest) (*JobFinishedResponse, error)
+	OnNetworkChanged(context.Context, *OnNetworkChangedRequest) (*OnNetworkChangedResponse, error)
+	OnStartJob(context.Context, *OnStartJobRequest) (*OnStartJobResponse, error)
+	OnStopJob(context.Context, *OnStopJobRequest) (*OnStopJobResponse, error)
+	SetNotification(context.Context, *SetNotificationRequest) (*SetNotificationResponse, error)
+	UpdateEstimatedNetworkBytes(context.Context, *UpdateEstimatedNetworkBytesRequest) (*UpdateEstimatedNetworkBytesResponse, error)
+	UpdateTransferredNetworkBytes(context.Context, *UpdateTransferredNetworkBytesRequest) (*UpdateTransferredNetworkBytesResponse, error)
+	mustEmbedUnimplementedServiceEngineServiceServer()
+}
+
+// UnimplementedServiceEngineServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedServiceEngineServiceServer struct{}
+
+func (UnimplementedServiceEngineServiceServer) GetBinder(context.Context, *GetBinderRequest) (*GetBinderResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetBinder not implemented")
+}
+func (UnimplementedServiceEngineServiceServer) JobFinished(context.Context, *JobFinishedRequest) (*JobFinishedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method JobFinished not implemented")
+}
+func (UnimplementedServiceEngineServiceServer) OnNetworkChanged(context.Context, *OnNetworkChangedRequest) (*OnNetworkChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnNetworkChanged not implemented")
+}
+func (UnimplementedServiceEngineServiceServer) OnStartJob(context.Context, *OnStartJobRequest) (*OnStartJobResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnStartJob not implemented")
+}
+func (UnimplementedServiceEngineServiceServer) OnStopJob(context.Context, *OnStopJobRequest) (*OnStopJobResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnStopJob not implemented")
+}
+func (UnimplementedServiceEngineServiceServer) SetNotification(context.Context, *SetNotificationRequest) (*SetNotificationResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetNotification not implemented")
+}
+func (UnimplementedServiceEngineServiceServer) UpdateEstimatedNetworkBytes(context.Context, *UpdateEstimatedNetworkBytesRequest) (*UpdateEstimatedNetworkBytesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UpdateEstimatedNetworkBytes not implemented")
+}
+func (UnimplementedServiceEngineServiceServer) UpdateTransferredNetworkBytes(context.Context, *UpdateTransferredNetworkBytesRequest) (*UpdateTransferredNetworkBytesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UpdateTransferredNetworkBytes not implemented")
+}
+func (UnimplementedServiceEngineServiceServer) mustEmbedUnimplementedServiceEngineServiceServer() {}
+func (UnimplementedServiceEngineServiceServer) testEmbeddedByValue()                              {}
+
+// UnsafeServiceEngineServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ServiceEngineServiceServer will
+// result in compilation errors.
+type UnsafeServiceEngineServiceServer interface {
+	mustEmbedUnimplementedServiceEngineServiceServer()
+}
+
+func RegisterServiceEngineServiceServer(s grpc.ServiceRegistrar, srv ServiceEngineServiceServer) {
+	// If the following call panics, it indicates UnimplementedServiceEngineServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ServiceEngineService_ServiceDesc, srv)
+}
+
+func _ServiceEngineService_GetBinder_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetBinderRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceEngineServiceServer).GetBinder(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceEngineService_GetBinder_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceEngineServiceServer).GetBinder(ctx, req.(*GetBinderRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceEngineService_JobFinished_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(JobFinishedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceEngineServiceServer).JobFinished(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceEngineService_JobFinished_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceEngineServiceServer).JobFinished(ctx, req.(*JobFinishedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceEngineService_OnNetworkChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnNetworkChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceEngineServiceServer).OnNetworkChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceEngineService_OnNetworkChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceEngineServiceServer).OnNetworkChanged(ctx, req.(*OnNetworkChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceEngineService_OnStartJob_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnStartJobRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceEngineServiceServer).OnStartJob(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceEngineService_OnStartJob_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceEngineServiceServer).OnStartJob(ctx, req.(*OnStartJobRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceEngineService_OnStopJob_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnStopJobRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceEngineServiceServer).OnStopJob(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceEngineService_OnStopJob_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceEngineServiceServer).OnStopJob(ctx, req.(*OnStopJobRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceEngineService_SetNotification_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetNotificationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceEngineServiceServer).SetNotification(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceEngineService_SetNotification_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceEngineServiceServer).SetNotification(ctx, req.(*SetNotificationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceEngineService_UpdateEstimatedNetworkBytes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateEstimatedNetworkBytesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceEngineServiceServer).UpdateEstimatedNetworkBytes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceEngineService_UpdateEstimatedNetworkBytes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceEngineServiceServer).UpdateEstimatedNetworkBytes(ctx, req.(*UpdateEstimatedNetworkBytesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceEngineService_UpdateTransferredNetworkBytes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateTransferredNetworkBytesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceEngineServiceServer).UpdateTransferredNetworkBytes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceEngineService_UpdateTransferredNetworkBytes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceEngineServiceServer).UpdateTransferredNetworkBytes(ctx, req.(*UpdateTransferredNetworkBytesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ServiceEngineService_ServiceDesc is the grpc.ServiceDesc for ServiceEngineService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ServiceEngineService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "job.ServiceEngineService",
+	HandlerType: (*ServiceEngineServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetBinder",
+			Handler:    _ServiceEngineService_GetBinder_Handler,
+		},
+		{
+			MethodName: "JobFinished",
+			Handler:    _ServiceEngineService_JobFinished_Handler,
+		},
+		{
+			MethodName: "OnNetworkChanged",
+			Handler:    _ServiceEngineService_OnNetworkChanged_Handler,
+		},
+		{
+			MethodName: "OnStartJob",
+			Handler:    _ServiceEngineService_OnStartJob_Handler,
+		},
+		{
+			MethodName: "OnStopJob",
+			Handler:    _ServiceEngineService_OnStopJob_Handler,
+		},
+		{
+			MethodName: "SetNotification",
+			Handler:    _ServiceEngineService_SetNotification_Handler,
+		},
+		{
+			MethodName: "UpdateEstimatedNetworkBytes",
+			Handler:    _ServiceEngineService_UpdateEstimatedNetworkBytes_Handler,
+		},
+		{
+			MethodName: "UpdateTransferredNetworkBytes",
+			Handler:    _ServiceEngineService_UpdateTransferredNetworkBytes_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/job/job.proto",
+}
+
+const (
+	InfoService_DescribeContents_FullMethodName                 = "/job.InfoService/DescribeContents"
+	InfoService_Equals_FullMethodName                           = "/job.InfoService/Equals"
+	InfoService_GetBackoffPolicy_FullMethodName                 = "/job.InfoService/GetBackoffPolicy"
+	InfoService_GetClipData_FullMethodName                      = "/job.InfoService/GetClipData"
+	InfoService_GetClipGrantFlags_FullMethodName                = "/job.InfoService/GetClipGrantFlags"
+	InfoService_GetEstimatedNetworkDownloadBytes_FullMethodName = "/job.InfoService/GetEstimatedNetworkDownloadBytes"
+	InfoService_GetEstimatedNetworkUploadBytes_FullMethodName   = "/job.InfoService/GetEstimatedNetworkUploadBytes"
+	InfoService_GetExtras_FullMethodName                        = "/job.InfoService/GetExtras"
+	InfoService_GetFlexMillis_FullMethodName                    = "/job.InfoService/GetFlexMillis"
+	InfoService_GetId_FullMethodName                            = "/job.InfoService/GetId"
+	InfoService_GetInitialBackoffMillis_FullMethodName          = "/job.InfoService/GetInitialBackoffMillis"
+	InfoService_GetIntervalMillis_FullMethodName                = "/job.InfoService/GetIntervalMillis"
+	InfoService_GetMaxExecutionDelayMillis_FullMethodName       = "/job.InfoService/GetMaxExecutionDelayMillis"
+	InfoService_GetMinLatencyMillis_FullMethodName              = "/job.InfoService/GetMinLatencyMillis"
+	InfoService_GetMinimumNetworkChunkBytes_FullMethodName      = "/job.InfoService/GetMinimumNetworkChunkBytes"
+	InfoService_GetNetworkType_FullMethodName                   = "/job.InfoService/GetNetworkType"
+	InfoService_GetPriority_FullMethodName                      = "/job.InfoService/GetPriority"
+	InfoService_GetRequiredNetwork_FullMethodName               = "/job.InfoService/GetRequiredNetwork"
+	InfoService_GetService_FullMethodName                       = "/job.InfoService/GetService"
+	InfoService_GetTraceTag_FullMethodName                      = "/job.InfoService/GetTraceTag"
+	InfoService_GetTransientExtras_FullMethodName               = "/job.InfoService/GetTransientExtras"
+	InfoService_GetTriggerContentMaxDelay_FullMethodName        = "/job.InfoService/GetTriggerContentMaxDelay"
+	InfoService_GetTriggerContentUpdateDelay_FullMethodName     = "/job.InfoService/GetTriggerContentUpdateDelay"
+	InfoService_GetTriggerContentUris_FullMethodName            = "/job.InfoService/GetTriggerContentUris"
+	InfoService_HashCode_FullMethodName                         = "/job.InfoService/HashCode"
+	InfoService_IsExpedited_FullMethodName                      = "/job.InfoService/IsExpedited"
+	InfoService_IsImportantWhileForeground_FullMethodName       = "/job.InfoService/IsImportantWhileForeground"
+	InfoService_IsPeriodic_FullMethodName                       = "/job.InfoService/IsPeriodic"
+	InfoService_IsPersisted_FullMethodName                      = "/job.InfoService/IsPersisted"
+	InfoService_IsPrefetch_FullMethodName                       = "/job.InfoService/IsPrefetch"
+	InfoService_IsRequireBatteryNotLow_FullMethodName           = "/job.InfoService/IsRequireBatteryNotLow"
+	InfoService_IsRequireCharging_FullMethodName                = "/job.InfoService/IsRequireCharging"
+	InfoService_IsRequireDeviceIdle_FullMethodName              = "/job.InfoService/IsRequireDeviceIdle"
+	InfoService_IsRequireStorageNotLow_FullMethodName           = "/job.InfoService/IsRequireStorageNotLow"
+	InfoService_IsUserInitiated_FullMethodName                  = "/job.InfoService/IsUserInitiated"
+	InfoService_ToString_FullMethodName                         = "/job.InfoService/ToString"
+	InfoService_WriteToParcel_FullMethodName                    = "/job.InfoService/WriteToParcel"
+	InfoService_GetMinFlexMillis_FullMethodName                 = "/job.InfoService/GetMinFlexMillis"
+	InfoService_GetMinPeriodMillis_FullMethodName               = "/job.InfoService/GetMinPeriodMillis"
+)
+
+// InfoServiceClient is the client API for InfoService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type InfoServiceClient interface {
+	DescribeContents(ctx context.Context, in *InfoDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetBackoffPolicy(ctx context.Context, in *GetBackoffPolicyRequest, opts ...grpc.CallOption) (*GetBackoffPolicyResponse, error)
+	GetClipData(ctx context.Context, in *GetClipDataRequest, opts ...grpc.CallOption) (*GetClipDataResponse, error)
+	GetClipGrantFlags(ctx context.Context, in *GetClipGrantFlagsRequest, opts ...grpc.CallOption) (*GetClipGrantFlagsResponse, error)
+	GetEstimatedNetworkDownloadBytes(ctx context.Context, in *InfoGetEstimatedNetworkDownloadBytesRequest, opts ...grpc.CallOption) (*GetEstimatedNetworkDownloadBytesResponse, error)
+	GetEstimatedNetworkUploadBytes(ctx context.Context, in *InfoGetEstimatedNetworkUploadBytesRequest, opts ...grpc.CallOption) (*GetEstimatedNetworkUploadBytesResponse, error)
+	GetExtras(ctx context.Context, in *InfoGetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error)
+	GetFlexMillis(ctx context.Context, in *GetFlexMillisRequest, opts ...grpc.CallOption) (*GetFlexMillisResponse, error)
+	GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error)
+	GetInitialBackoffMillis(ctx context.Context, in *GetInitialBackoffMillisRequest, opts ...grpc.CallOption) (*GetInitialBackoffMillisResponse, error)
+	GetIntervalMillis(ctx context.Context, in *GetIntervalMillisRequest, opts ...grpc.CallOption) (*GetIntervalMillisResponse, error)
+	GetMaxExecutionDelayMillis(ctx context.Context, in *GetMaxExecutionDelayMillisRequest, opts ...grpc.CallOption) (*GetMaxExecutionDelayMillisResponse, error)
+	GetMinLatencyMillis(ctx context.Context, in *GetMinLatencyMillisRequest, opts ...grpc.CallOption) (*GetMinLatencyMillisResponse, error)
+	GetMinimumNetworkChunkBytes(ctx context.Context, in *InfoGetMinimumNetworkChunkBytesRequest, opts ...grpc.CallOption) (*GetMinimumNetworkChunkBytesResponse, error)
+	GetNetworkType(ctx context.Context, in *GetNetworkTypeRequest, opts ...grpc.CallOption) (*GetNetworkTypeResponse, error)
+	GetPriority(ctx context.Context, in *GetPriorityRequest, opts ...grpc.CallOption) (*GetPriorityResponse, error)
+	GetRequiredNetwork(ctx context.Context, in *GetRequiredNetworkRequest, opts ...grpc.CallOption) (*GetRequiredNetworkResponse, error)
+	GetService(ctx context.Context, in *GetServiceRequest, opts ...grpc.CallOption) (*GetServiceResponse, error)
+	GetTraceTag(ctx context.Context, in *GetTraceTagRequest, opts ...grpc.CallOption) (*GetTraceTagResponse, error)
+	GetTransientExtras(ctx context.Context, in *GetTransientExtrasRequest, opts ...grpc.CallOption) (*GetTransientExtrasResponse, error)
+	GetTriggerContentMaxDelay(ctx context.Context, in *GetTriggerContentMaxDelayRequest, opts ...grpc.CallOption) (*GetTriggerContentMaxDelayResponse, error)
+	GetTriggerContentUpdateDelay(ctx context.Context, in *GetTriggerContentUpdateDelayRequest, opts ...grpc.CallOption) (*GetTriggerContentUpdateDelayResponse, error)
+	GetTriggerContentUris(ctx context.Context, in *GetTriggerContentUrisRequest, opts ...grpc.CallOption) (*GetTriggerContentUrisResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	IsExpedited(ctx context.Context, in *IsExpeditedRequest, opts ...grpc.CallOption) (*IsExpeditedResponse, error)
+	IsImportantWhileForeground(ctx context.Context, in *IsImportantWhileForegroundRequest, opts ...grpc.CallOption) (*IsImportantWhileForegroundResponse, error)
+	IsPeriodic(ctx context.Context, in *IsPeriodicRequest, opts ...grpc.CallOption) (*IsPeriodicResponse, error)
+	IsPersisted(ctx context.Context, in *IsPersistedRequest, opts ...grpc.CallOption) (*IsPersistedResponse, error)
+	IsPrefetch(ctx context.Context, in *IsPrefetchRequest, opts ...grpc.CallOption) (*IsPrefetchResponse, error)
+	IsRequireBatteryNotLow(ctx context.Context, in *IsRequireBatteryNotLowRequest, opts ...grpc.CallOption) (*IsRequireBatteryNotLowResponse, error)
+	IsRequireCharging(ctx context.Context, in *IsRequireChargingRequest, opts ...grpc.CallOption) (*IsRequireChargingResponse, error)
+	IsRequireDeviceIdle(ctx context.Context, in *IsRequireDeviceIdleRequest, opts ...grpc.CallOption) (*IsRequireDeviceIdleResponse, error)
+	IsRequireStorageNotLow(ctx context.Context, in *IsRequireStorageNotLowRequest, opts ...grpc.CallOption) (*IsRequireStorageNotLowResponse, error)
+	IsUserInitiated(ctx context.Context, in *IsUserInitiatedRequest, opts ...grpc.CallOption) (*IsUserInitiatedResponse, error)
+	ToString(ctx context.Context, in *InfoToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *InfoWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+	GetMinFlexMillis(ctx context.Context, in *GetMinFlexMillisRequest, opts ...grpc.CallOption) (*GetMinFlexMillisResponse, error)
+	GetMinPeriodMillis(ctx context.Context, in *GetMinPeriodMillisRequest, opts ...grpc.CallOption) (*GetMinPeriodMillisResponse, error)
+}
+
+type infoServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewInfoServiceClient(cc grpc.ClientConnInterface) InfoServiceClient {
+	return &infoServiceClient{cc}
+}
+
+func (c *infoServiceClient) DescribeContents(ctx context.Context, in *InfoDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, InfoService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, InfoService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoServiceClient) GetBackoffPolicy(ctx context.Context, in *GetBackoffPolicyRequest, opts ...grpc.CallOption) (*GetBackoffPolicyResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetBackoffPolicyResponse)
+	err := c.cc.Invoke(ctx, InfoService_GetBackoffPolicy_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoServiceClient) GetClipData(ctx context.Context, in *GetClipDataRequest, opts ...grpc.CallOption) (*GetClipDataResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetClipDataResponse)
+	err := c.cc.Invoke(ctx, InfoService_GetClipData_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoServiceClient) GetClipGrantFlags(ctx context.Context, in *GetClipGrantFlagsRequest, opts ...grpc.CallOption) (*GetClipGrantFlagsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetClipGrantFlagsResponse)
+	err := c.cc.Invoke(ctx, InfoService_GetClipGrantFlags_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoServiceClient) GetEstimatedNetworkDownloadBytes(ctx context.Context, in *InfoGetEstimatedNetworkDownloadBytesRequest, opts ...grpc.CallOption) (*GetEstimatedNetworkDownloadBytesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEstimatedNetworkDownloadBytesResponse)
+	err := c.cc.Invoke(ctx, InfoService_GetEstimatedNetworkDownloadBytes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoServiceClient) GetEstimatedNetworkUploadBytes(ctx context.Context, in *InfoGetEstimatedNetworkUploadBytesRequest, opts ...grpc.CallOption) (*GetEstimatedNetworkUploadBytesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEstimatedNetworkUploadBytesResponse)
+	err := c.cc.Invoke(ctx, InfoService_GetEstimatedNetworkUploadBytes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoServiceClient) GetExtras(ctx context.Context, in *InfoGetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetExtrasResponse)
+	err := c.cc.Invoke(ctx, InfoService_GetExtras_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoServiceClient) GetFlexMillis(ctx context.Context, in *GetFlexMillisRequest, opts ...grpc.CallOption) (*GetFlexMillisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFlexMillisResponse)
+	err := c.cc.Invoke(ctx, InfoService_GetFlexMillis_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoServiceClient) GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetIdResponse)
+	err := c.cc.Invoke(ctx, InfoService_GetId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoServiceClient) GetInitialBackoffMillis(ctx context.Context, in *GetInitialBackoffMillisRequest, opts ...grpc.CallOption) (*GetInitialBackoffMillisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetInitialBackoffMillisResponse)
+	err := c.cc.Invoke(ctx, InfoService_GetInitialBackoffMillis_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoServiceClient) GetIntervalMillis(ctx context.Context, in *GetIntervalMillisRequest, opts ...grpc.CallOption) (*GetIntervalMillisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetIntervalMillisResponse)
+	err := c.cc.Invoke(ctx, InfoService_GetIntervalMillis_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoServiceClient) GetMaxExecutionDelayMillis(ctx context.Context, in *GetMaxExecutionDelayMillisRequest, opts ...grpc.CallOption) (*GetMaxExecutionDelayMillisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMaxExecutionDelayMillisResponse)
+	err := c.cc.Invoke(ctx, InfoService_GetMaxExecutionDelayMillis_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoServiceClient) GetMinLatencyMillis(ctx context.Context, in *GetMinLatencyMillisRequest, opts ...grpc.CallOption) (*GetMinLatencyMillisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMinLatencyMillisResponse)
+	err := c.cc.Invoke(ctx, InfoService_GetMinLatencyMillis_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoServiceClient) GetMinimumNetworkChunkBytes(ctx context.Context, in *InfoGetMinimumNetworkChunkBytesRequest, opts ...grpc.CallOption) (*GetMinimumNetworkChunkBytesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMinimumNetworkChunkBytesResponse)
+	err := c.cc.Invoke(ctx, InfoService_GetMinimumNetworkChunkBytes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoServiceClient) GetNetworkType(ctx context.Context, in *GetNetworkTypeRequest, opts ...grpc.CallOption) (*GetNetworkTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetNetworkTypeResponse)
+	err := c.cc.Invoke(ctx, InfoService_GetNetworkType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoServiceClient) GetPriority(ctx context.Context, in *GetPriorityRequest, opts ...grpc.CallOption) (*GetPriorityResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPriorityResponse)
+	err := c.cc.Invoke(ctx, InfoService_GetPriority_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoServiceClient) GetRequiredNetwork(ctx context.Context, in *GetRequiredNetworkRequest, opts ...grpc.CallOption) (*GetRequiredNetworkResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRequiredNetworkResponse)
+	err := c.cc.Invoke(ctx, InfoService_GetRequiredNetwork_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoServiceClient) GetService(ctx context.Context, in *GetServiceRequest, opts ...grpc.CallOption) (*GetServiceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetServiceResponse)
+	err := c.cc.Invoke(ctx, InfoService_GetService_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoServiceClient) GetTraceTag(ctx context.Context, in *GetTraceTagRequest, opts ...grpc.CallOption) (*GetTraceTagResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTraceTagResponse)
+	err := c.cc.Invoke(ctx, InfoService_GetTraceTag_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoServiceClient) GetTransientExtras(ctx context.Context, in *GetTransientExtrasRequest, opts ...grpc.CallOption) (*GetTransientExtrasResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTransientExtrasResponse)
+	err := c.cc.Invoke(ctx, InfoService_GetTransientExtras_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoServiceClient) GetTriggerContentMaxDelay(ctx context.Context, in *GetTriggerContentMaxDelayRequest, opts ...grpc.CallOption) (*GetTriggerContentMaxDelayResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTriggerContentMaxDelayResponse)
+	err := c.cc.Invoke(ctx, InfoService_GetTriggerContentMaxDelay_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoServiceClient) GetTriggerContentUpdateDelay(ctx context.Context, in *GetTriggerContentUpdateDelayRequest, opts ...grpc.CallOption) (*GetTriggerContentUpdateDelayResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTriggerContentUpdateDelayResponse)
+	err := c.cc.Invoke(ctx, InfoService_GetTriggerContentUpdateDelay_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoServiceClient) GetTriggerContentUris(ctx context.Context, in *GetTriggerContentUrisRequest, opts ...grpc.CallOption) (*GetTriggerContentUrisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTriggerContentUrisResponse)
+	err := c.cc.Invoke(ctx, InfoService_GetTriggerContentUris_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, InfoService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoServiceClient) IsExpedited(ctx context.Context, in *IsExpeditedRequest, opts ...grpc.CallOption) (*IsExpeditedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsExpeditedResponse)
+	err := c.cc.Invoke(ctx, InfoService_IsExpedited_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoServiceClient) IsImportantWhileForeground(ctx context.Context, in *IsImportantWhileForegroundRequest, opts ...grpc.CallOption) (*IsImportantWhileForegroundResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsImportantWhileForegroundResponse)
+	err := c.cc.Invoke(ctx, InfoService_IsImportantWhileForeground_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoServiceClient) IsPeriodic(ctx context.Context, in *IsPeriodicRequest, opts ...grpc.CallOption) (*IsPeriodicResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsPeriodicResponse)
+	err := c.cc.Invoke(ctx, InfoService_IsPeriodic_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoServiceClient) IsPersisted(ctx context.Context, in *IsPersistedRequest, opts ...grpc.CallOption) (*IsPersistedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsPersistedResponse)
+	err := c.cc.Invoke(ctx, InfoService_IsPersisted_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoServiceClient) IsPrefetch(ctx context.Context, in *IsPrefetchRequest, opts ...grpc.CallOption) (*IsPrefetchResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsPrefetchResponse)
+	err := c.cc.Invoke(ctx, InfoService_IsPrefetch_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoServiceClient) IsRequireBatteryNotLow(ctx context.Context, in *IsRequireBatteryNotLowRequest, opts ...grpc.CallOption) (*IsRequireBatteryNotLowResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsRequireBatteryNotLowResponse)
+	err := c.cc.Invoke(ctx, InfoService_IsRequireBatteryNotLow_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoServiceClient) IsRequireCharging(ctx context.Context, in *IsRequireChargingRequest, opts ...grpc.CallOption) (*IsRequireChargingResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsRequireChargingResponse)
+	err := c.cc.Invoke(ctx, InfoService_IsRequireCharging_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoServiceClient) IsRequireDeviceIdle(ctx context.Context, in *IsRequireDeviceIdleRequest, opts ...grpc.CallOption) (*IsRequireDeviceIdleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsRequireDeviceIdleResponse)
+	err := c.cc.Invoke(ctx, InfoService_IsRequireDeviceIdle_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoServiceClient) IsRequireStorageNotLow(ctx context.Context, in *IsRequireStorageNotLowRequest, opts ...grpc.CallOption) (*IsRequireStorageNotLowResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsRequireStorageNotLowResponse)
+	err := c.cc.Invoke(ctx, InfoService_IsRequireStorageNotLow_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoServiceClient) IsUserInitiated(ctx context.Context, in *IsUserInitiatedRequest, opts ...grpc.CallOption) (*IsUserInitiatedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsUserInitiatedResponse)
+	err := c.cc.Invoke(ctx, InfoService_IsUserInitiated_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoServiceClient) ToString(ctx context.Context, in *InfoToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, InfoService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoServiceClient) WriteToParcel(ctx context.Context, in *InfoWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, InfoService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoServiceClient) GetMinFlexMillis(ctx context.Context, in *GetMinFlexMillisRequest, opts ...grpc.CallOption) (*GetMinFlexMillisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMinFlexMillisResponse)
+	err := c.cc.Invoke(ctx, InfoService_GetMinFlexMillis_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoServiceClient) GetMinPeriodMillis(ctx context.Context, in *GetMinPeriodMillisRequest, opts ...grpc.CallOption) (*GetMinPeriodMillisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMinPeriodMillisResponse)
+	err := c.cc.Invoke(ctx, InfoService_GetMinPeriodMillis_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// InfoServiceServer is the server API for InfoService service.
+// All implementations must embed UnimplementedInfoServiceServer
+// for forward compatibility.
+type InfoServiceServer interface {
+	DescribeContents(context.Context, *InfoDescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetBackoffPolicy(context.Context, *GetBackoffPolicyRequest) (*GetBackoffPolicyResponse, error)
+	GetClipData(context.Context, *GetClipDataRequest) (*GetClipDataResponse, error)
+	GetClipGrantFlags(context.Context, *GetClipGrantFlagsRequest) (*GetClipGrantFlagsResponse, error)
+	GetEstimatedNetworkDownloadBytes(context.Context, *InfoGetEstimatedNetworkDownloadBytesRequest) (*GetEstimatedNetworkDownloadBytesResponse, error)
+	GetEstimatedNetworkUploadBytes(context.Context, *InfoGetEstimatedNetworkUploadBytesRequest) (*GetEstimatedNetworkUploadBytesResponse, error)
+	GetExtras(context.Context, *InfoGetExtrasRequest) (*GetExtrasResponse, error)
+	GetFlexMillis(context.Context, *GetFlexMillisRequest) (*GetFlexMillisResponse, error)
+	GetId(context.Context, *GetIdRequest) (*GetIdResponse, error)
+	GetInitialBackoffMillis(context.Context, *GetInitialBackoffMillisRequest) (*GetInitialBackoffMillisResponse, error)
+	GetIntervalMillis(context.Context, *GetIntervalMillisRequest) (*GetIntervalMillisResponse, error)
+	GetMaxExecutionDelayMillis(context.Context, *GetMaxExecutionDelayMillisRequest) (*GetMaxExecutionDelayMillisResponse, error)
+	GetMinLatencyMillis(context.Context, *GetMinLatencyMillisRequest) (*GetMinLatencyMillisResponse, error)
+	GetMinimumNetworkChunkBytes(context.Context, *InfoGetMinimumNetworkChunkBytesRequest) (*GetMinimumNetworkChunkBytesResponse, error)
+	GetNetworkType(context.Context, *GetNetworkTypeRequest) (*GetNetworkTypeResponse, error)
+	GetPriority(context.Context, *GetPriorityRequest) (*GetPriorityResponse, error)
+	GetRequiredNetwork(context.Context, *GetRequiredNetworkRequest) (*GetRequiredNetworkResponse, error)
+	GetService(context.Context, *GetServiceRequest) (*GetServiceResponse, error)
+	GetTraceTag(context.Context, *GetTraceTagRequest) (*GetTraceTagResponse, error)
+	GetTransientExtras(context.Context, *GetTransientExtrasRequest) (*GetTransientExtrasResponse, error)
+	GetTriggerContentMaxDelay(context.Context, *GetTriggerContentMaxDelayRequest) (*GetTriggerContentMaxDelayResponse, error)
+	GetTriggerContentUpdateDelay(context.Context, *GetTriggerContentUpdateDelayRequest) (*GetTriggerContentUpdateDelayResponse, error)
+	GetTriggerContentUris(context.Context, *GetTriggerContentUrisRequest) (*GetTriggerContentUrisResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	IsExpedited(context.Context, *IsExpeditedRequest) (*IsExpeditedResponse, error)
+	IsImportantWhileForeground(context.Context, *IsImportantWhileForegroundRequest) (*IsImportantWhileForegroundResponse, error)
+	IsPeriodic(context.Context, *IsPeriodicRequest) (*IsPeriodicResponse, error)
+	IsPersisted(context.Context, *IsPersistedRequest) (*IsPersistedResponse, error)
+	IsPrefetch(context.Context, *IsPrefetchRequest) (*IsPrefetchResponse, error)
+	IsRequireBatteryNotLow(context.Context, *IsRequireBatteryNotLowRequest) (*IsRequireBatteryNotLowResponse, error)
+	IsRequireCharging(context.Context, *IsRequireChargingRequest) (*IsRequireChargingResponse, error)
+	IsRequireDeviceIdle(context.Context, *IsRequireDeviceIdleRequest) (*IsRequireDeviceIdleResponse, error)
+	IsRequireStorageNotLow(context.Context, *IsRequireStorageNotLowRequest) (*IsRequireStorageNotLowResponse, error)
+	IsUserInitiated(context.Context, *IsUserInitiatedRequest) (*IsUserInitiatedResponse, error)
+	ToString(context.Context, *InfoToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *InfoWriteToParcelRequest) (*WriteToParcelResponse, error)
+	GetMinFlexMillis(context.Context, *GetMinFlexMillisRequest) (*GetMinFlexMillisResponse, error)
+	GetMinPeriodMillis(context.Context, *GetMinPeriodMillisRequest) (*GetMinPeriodMillisResponse, error)
+	mustEmbedUnimplementedInfoServiceServer()
+}
+
+// UnimplementedInfoServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedInfoServiceServer struct{}
+
+func (UnimplementedInfoServiceServer) DescribeContents(context.Context, *InfoDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedInfoServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedInfoServiceServer) GetBackoffPolicy(context.Context, *GetBackoffPolicyRequest) (*GetBackoffPolicyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetBackoffPolicy not implemented")
+}
+func (UnimplementedInfoServiceServer) GetClipData(context.Context, *GetClipDataRequest) (*GetClipDataResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetClipData not implemented")
+}
+func (UnimplementedInfoServiceServer) GetClipGrantFlags(context.Context, *GetClipGrantFlagsRequest) (*GetClipGrantFlagsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetClipGrantFlags not implemented")
+}
+func (UnimplementedInfoServiceServer) GetEstimatedNetworkDownloadBytes(context.Context, *InfoGetEstimatedNetworkDownloadBytesRequest) (*GetEstimatedNetworkDownloadBytesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEstimatedNetworkDownloadBytes not implemented")
+}
+func (UnimplementedInfoServiceServer) GetEstimatedNetworkUploadBytes(context.Context, *InfoGetEstimatedNetworkUploadBytesRequest) (*GetEstimatedNetworkUploadBytesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEstimatedNetworkUploadBytes not implemented")
+}
+func (UnimplementedInfoServiceServer) GetExtras(context.Context, *InfoGetExtrasRequest) (*GetExtrasResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetExtras not implemented")
+}
+func (UnimplementedInfoServiceServer) GetFlexMillis(context.Context, *GetFlexMillisRequest) (*GetFlexMillisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFlexMillis not implemented")
+}
+func (UnimplementedInfoServiceServer) GetId(context.Context, *GetIdRequest) (*GetIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetId not implemented")
+}
+func (UnimplementedInfoServiceServer) GetInitialBackoffMillis(context.Context, *GetInitialBackoffMillisRequest) (*GetInitialBackoffMillisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInitialBackoffMillis not implemented")
+}
+func (UnimplementedInfoServiceServer) GetIntervalMillis(context.Context, *GetIntervalMillisRequest) (*GetIntervalMillisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetIntervalMillis not implemented")
+}
+func (UnimplementedInfoServiceServer) GetMaxExecutionDelayMillis(context.Context, *GetMaxExecutionDelayMillisRequest) (*GetMaxExecutionDelayMillisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMaxExecutionDelayMillis not implemented")
+}
+func (UnimplementedInfoServiceServer) GetMinLatencyMillis(context.Context, *GetMinLatencyMillisRequest) (*GetMinLatencyMillisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMinLatencyMillis not implemented")
+}
+func (UnimplementedInfoServiceServer) GetMinimumNetworkChunkBytes(context.Context, *InfoGetMinimumNetworkChunkBytesRequest) (*GetMinimumNetworkChunkBytesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMinimumNetworkChunkBytes not implemented")
+}
+func (UnimplementedInfoServiceServer) GetNetworkType(context.Context, *GetNetworkTypeRequest) (*GetNetworkTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetNetworkType not implemented")
+}
+func (UnimplementedInfoServiceServer) GetPriority(context.Context, *GetPriorityRequest) (*GetPriorityResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPriority not implemented")
+}
+func (UnimplementedInfoServiceServer) GetRequiredNetwork(context.Context, *GetRequiredNetworkRequest) (*GetRequiredNetworkResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRequiredNetwork not implemented")
+}
+func (UnimplementedInfoServiceServer) GetService(context.Context, *GetServiceRequest) (*GetServiceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetService not implemented")
+}
+func (UnimplementedInfoServiceServer) GetTraceTag(context.Context, *GetTraceTagRequest) (*GetTraceTagResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTraceTag not implemented")
+}
+func (UnimplementedInfoServiceServer) GetTransientExtras(context.Context, *GetTransientExtrasRequest) (*GetTransientExtrasResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTransientExtras not implemented")
+}
+func (UnimplementedInfoServiceServer) GetTriggerContentMaxDelay(context.Context, *GetTriggerContentMaxDelayRequest) (*GetTriggerContentMaxDelayResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTriggerContentMaxDelay not implemented")
+}
+func (UnimplementedInfoServiceServer) GetTriggerContentUpdateDelay(context.Context, *GetTriggerContentUpdateDelayRequest) (*GetTriggerContentUpdateDelayResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTriggerContentUpdateDelay not implemented")
+}
+func (UnimplementedInfoServiceServer) GetTriggerContentUris(context.Context, *GetTriggerContentUrisRequest) (*GetTriggerContentUrisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTriggerContentUris not implemented")
+}
+func (UnimplementedInfoServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedInfoServiceServer) IsExpedited(context.Context, *IsExpeditedRequest) (*IsExpeditedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsExpedited not implemented")
+}
+func (UnimplementedInfoServiceServer) IsImportantWhileForeground(context.Context, *IsImportantWhileForegroundRequest) (*IsImportantWhileForegroundResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsImportantWhileForeground not implemented")
+}
+func (UnimplementedInfoServiceServer) IsPeriodic(context.Context, *IsPeriodicRequest) (*IsPeriodicResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsPeriodic not implemented")
+}
+func (UnimplementedInfoServiceServer) IsPersisted(context.Context, *IsPersistedRequest) (*IsPersistedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsPersisted not implemented")
+}
+func (UnimplementedInfoServiceServer) IsPrefetch(context.Context, *IsPrefetchRequest) (*IsPrefetchResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsPrefetch not implemented")
+}
+func (UnimplementedInfoServiceServer) IsRequireBatteryNotLow(context.Context, *IsRequireBatteryNotLowRequest) (*IsRequireBatteryNotLowResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsRequireBatteryNotLow not implemented")
+}
+func (UnimplementedInfoServiceServer) IsRequireCharging(context.Context, *IsRequireChargingRequest) (*IsRequireChargingResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsRequireCharging not implemented")
+}
+func (UnimplementedInfoServiceServer) IsRequireDeviceIdle(context.Context, *IsRequireDeviceIdleRequest) (*IsRequireDeviceIdleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsRequireDeviceIdle not implemented")
+}
+func (UnimplementedInfoServiceServer) IsRequireStorageNotLow(context.Context, *IsRequireStorageNotLowRequest) (*IsRequireStorageNotLowResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsRequireStorageNotLow not implemented")
+}
+func (UnimplementedInfoServiceServer) IsUserInitiated(context.Context, *IsUserInitiatedRequest) (*IsUserInitiatedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsUserInitiated not implemented")
+}
+func (UnimplementedInfoServiceServer) ToString(context.Context, *InfoToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedInfoServiceServer) WriteToParcel(context.Context, *InfoWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedInfoServiceServer) GetMinFlexMillis(context.Context, *GetMinFlexMillisRequest) (*GetMinFlexMillisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMinFlexMillis not implemented")
+}
+func (UnimplementedInfoServiceServer) GetMinPeriodMillis(context.Context, *GetMinPeriodMillisRequest) (*GetMinPeriodMillisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMinPeriodMillis not implemented")
+}
+func (UnimplementedInfoServiceServer) mustEmbedUnimplementedInfoServiceServer() {}
+func (UnimplementedInfoServiceServer) testEmbeddedByValue()                     {}
+
+// UnsafeInfoServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to InfoServiceServer will
+// result in compilation errors.
+type UnsafeInfoServiceServer interface {
+	mustEmbedUnimplementedInfoServiceServer()
+}
+
+func RegisterInfoServiceServer(s grpc.ServiceRegistrar, srv InfoServiceServer) {
+	// If the following call panics, it indicates UnimplementedInfoServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&InfoService_ServiceDesc, srv)
+}
+
+func _InfoService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(InfoDescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoServiceServer).DescribeContents(ctx, req.(*InfoDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoService_GetBackoffPolicy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetBackoffPolicyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoServiceServer).GetBackoffPolicy(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoService_GetBackoffPolicy_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoServiceServer).GetBackoffPolicy(ctx, req.(*GetBackoffPolicyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoService_GetClipData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetClipDataRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoServiceServer).GetClipData(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoService_GetClipData_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoServiceServer).GetClipData(ctx, req.(*GetClipDataRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoService_GetClipGrantFlags_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetClipGrantFlagsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoServiceServer).GetClipGrantFlags(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoService_GetClipGrantFlags_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoServiceServer).GetClipGrantFlags(ctx, req.(*GetClipGrantFlagsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoService_GetEstimatedNetworkDownloadBytes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(InfoGetEstimatedNetworkDownloadBytesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoServiceServer).GetEstimatedNetworkDownloadBytes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoService_GetEstimatedNetworkDownloadBytes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoServiceServer).GetEstimatedNetworkDownloadBytes(ctx, req.(*InfoGetEstimatedNetworkDownloadBytesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoService_GetEstimatedNetworkUploadBytes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(InfoGetEstimatedNetworkUploadBytesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoServiceServer).GetEstimatedNetworkUploadBytes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoService_GetEstimatedNetworkUploadBytes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoServiceServer).GetEstimatedNetworkUploadBytes(ctx, req.(*InfoGetEstimatedNetworkUploadBytesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoService_GetExtras_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(InfoGetExtrasRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoServiceServer).GetExtras(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoService_GetExtras_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoServiceServer).GetExtras(ctx, req.(*InfoGetExtrasRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoService_GetFlexMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFlexMillisRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoServiceServer).GetFlexMillis(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoService_GetFlexMillis_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoServiceServer).GetFlexMillis(ctx, req.(*GetFlexMillisRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoService_GetId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoServiceServer).GetId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoService_GetId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoServiceServer).GetId(ctx, req.(*GetIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoService_GetInitialBackoffMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetInitialBackoffMillisRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoServiceServer).GetInitialBackoffMillis(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoService_GetInitialBackoffMillis_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoServiceServer).GetInitialBackoffMillis(ctx, req.(*GetInitialBackoffMillisRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoService_GetIntervalMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIntervalMillisRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoServiceServer).GetIntervalMillis(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoService_GetIntervalMillis_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoServiceServer).GetIntervalMillis(ctx, req.(*GetIntervalMillisRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoService_GetMaxExecutionDelayMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMaxExecutionDelayMillisRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoServiceServer).GetMaxExecutionDelayMillis(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoService_GetMaxExecutionDelayMillis_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoServiceServer).GetMaxExecutionDelayMillis(ctx, req.(*GetMaxExecutionDelayMillisRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoService_GetMinLatencyMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMinLatencyMillisRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoServiceServer).GetMinLatencyMillis(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoService_GetMinLatencyMillis_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoServiceServer).GetMinLatencyMillis(ctx, req.(*GetMinLatencyMillisRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoService_GetMinimumNetworkChunkBytes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(InfoGetMinimumNetworkChunkBytesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoServiceServer).GetMinimumNetworkChunkBytes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoService_GetMinimumNetworkChunkBytes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoServiceServer).GetMinimumNetworkChunkBytes(ctx, req.(*InfoGetMinimumNetworkChunkBytesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoService_GetNetworkType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetNetworkTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoServiceServer).GetNetworkType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoService_GetNetworkType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoServiceServer).GetNetworkType(ctx, req.(*GetNetworkTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoService_GetPriority_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPriorityRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoServiceServer).GetPriority(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoService_GetPriority_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoServiceServer).GetPriority(ctx, req.(*GetPriorityRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoService_GetRequiredNetwork_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRequiredNetworkRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoServiceServer).GetRequiredNetwork(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoService_GetRequiredNetwork_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoServiceServer).GetRequiredNetwork(ctx, req.(*GetRequiredNetworkRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoService_GetService_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetServiceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoServiceServer).GetService(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoService_GetService_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoServiceServer).GetService(ctx, req.(*GetServiceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoService_GetTraceTag_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTraceTagRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoServiceServer).GetTraceTag(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoService_GetTraceTag_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoServiceServer).GetTraceTag(ctx, req.(*GetTraceTagRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoService_GetTransientExtras_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTransientExtrasRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoServiceServer).GetTransientExtras(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoService_GetTransientExtras_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoServiceServer).GetTransientExtras(ctx, req.(*GetTransientExtrasRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoService_GetTriggerContentMaxDelay_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTriggerContentMaxDelayRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoServiceServer).GetTriggerContentMaxDelay(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoService_GetTriggerContentMaxDelay_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoServiceServer).GetTriggerContentMaxDelay(ctx, req.(*GetTriggerContentMaxDelayRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoService_GetTriggerContentUpdateDelay_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTriggerContentUpdateDelayRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoServiceServer).GetTriggerContentUpdateDelay(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoService_GetTriggerContentUpdateDelay_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoServiceServer).GetTriggerContentUpdateDelay(ctx, req.(*GetTriggerContentUpdateDelayRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoService_GetTriggerContentUris_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTriggerContentUrisRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoServiceServer).GetTriggerContentUris(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoService_GetTriggerContentUris_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoServiceServer).GetTriggerContentUris(ctx, req.(*GetTriggerContentUrisRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoService_IsExpedited_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsExpeditedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoServiceServer).IsExpedited(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoService_IsExpedited_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoServiceServer).IsExpedited(ctx, req.(*IsExpeditedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoService_IsImportantWhileForeground_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsImportantWhileForegroundRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoServiceServer).IsImportantWhileForeground(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoService_IsImportantWhileForeground_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoServiceServer).IsImportantWhileForeground(ctx, req.(*IsImportantWhileForegroundRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoService_IsPeriodic_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsPeriodicRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoServiceServer).IsPeriodic(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoService_IsPeriodic_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoServiceServer).IsPeriodic(ctx, req.(*IsPeriodicRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoService_IsPersisted_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsPersistedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoServiceServer).IsPersisted(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoService_IsPersisted_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoServiceServer).IsPersisted(ctx, req.(*IsPersistedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoService_IsPrefetch_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsPrefetchRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoServiceServer).IsPrefetch(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoService_IsPrefetch_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoServiceServer).IsPrefetch(ctx, req.(*IsPrefetchRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoService_IsRequireBatteryNotLow_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsRequireBatteryNotLowRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoServiceServer).IsRequireBatteryNotLow(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoService_IsRequireBatteryNotLow_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoServiceServer).IsRequireBatteryNotLow(ctx, req.(*IsRequireBatteryNotLowRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoService_IsRequireCharging_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsRequireChargingRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoServiceServer).IsRequireCharging(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoService_IsRequireCharging_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoServiceServer).IsRequireCharging(ctx, req.(*IsRequireChargingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoService_IsRequireDeviceIdle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsRequireDeviceIdleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoServiceServer).IsRequireDeviceIdle(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoService_IsRequireDeviceIdle_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoServiceServer).IsRequireDeviceIdle(ctx, req.(*IsRequireDeviceIdleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoService_IsRequireStorageNotLow_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsRequireStorageNotLowRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoServiceServer).IsRequireStorageNotLow(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoService_IsRequireStorageNotLow_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoServiceServer).IsRequireStorageNotLow(ctx, req.(*IsRequireStorageNotLowRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoService_IsUserInitiated_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsUserInitiatedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoServiceServer).IsUserInitiated(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoService_IsUserInitiated_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoServiceServer).IsUserInitiated(ctx, req.(*IsUserInitiatedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(InfoToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoServiceServer).ToString(ctx, req.(*InfoToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(InfoWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoServiceServer).WriteToParcel(ctx, req.(*InfoWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoService_GetMinFlexMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMinFlexMillisRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoServiceServer).GetMinFlexMillis(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoService_GetMinFlexMillis_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoServiceServer).GetMinFlexMillis(ctx, req.(*GetMinFlexMillisRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoService_GetMinPeriodMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMinPeriodMillisRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoServiceServer).GetMinPeriodMillis(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoService_GetMinPeriodMillis_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoServiceServer).GetMinPeriodMillis(ctx, req.(*GetMinPeriodMillisRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// InfoService_ServiceDesc is the grpc.ServiceDesc for InfoService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var InfoService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "job.InfoService",
+	HandlerType: (*InfoServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _InfoService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _InfoService_Equals_Handler,
+		},
+		{
+			MethodName: "GetBackoffPolicy",
+			Handler:    _InfoService_GetBackoffPolicy_Handler,
+		},
+		{
+			MethodName: "GetClipData",
+			Handler:    _InfoService_GetClipData_Handler,
+		},
+		{
+			MethodName: "GetClipGrantFlags",
+			Handler:    _InfoService_GetClipGrantFlags_Handler,
+		},
+		{
+			MethodName: "GetEstimatedNetworkDownloadBytes",
+			Handler:    _InfoService_GetEstimatedNetworkDownloadBytes_Handler,
+		},
+		{
+			MethodName: "GetEstimatedNetworkUploadBytes",
+			Handler:    _InfoService_GetEstimatedNetworkUploadBytes_Handler,
+		},
+		{
+			MethodName: "GetExtras",
+			Handler:    _InfoService_GetExtras_Handler,
+		},
+		{
+			MethodName: "GetFlexMillis",
+			Handler:    _InfoService_GetFlexMillis_Handler,
+		},
+		{
+			MethodName: "GetId",
+			Handler:    _InfoService_GetId_Handler,
+		},
+		{
+			MethodName: "GetInitialBackoffMillis",
+			Handler:    _InfoService_GetInitialBackoffMillis_Handler,
+		},
+		{
+			MethodName: "GetIntervalMillis",
+			Handler:    _InfoService_GetIntervalMillis_Handler,
+		},
+		{
+			MethodName: "GetMaxExecutionDelayMillis",
+			Handler:    _InfoService_GetMaxExecutionDelayMillis_Handler,
+		},
+		{
+			MethodName: "GetMinLatencyMillis",
+			Handler:    _InfoService_GetMinLatencyMillis_Handler,
+		},
+		{
+			MethodName: "GetMinimumNetworkChunkBytes",
+			Handler:    _InfoService_GetMinimumNetworkChunkBytes_Handler,
+		},
+		{
+			MethodName: "GetNetworkType",
+			Handler:    _InfoService_GetNetworkType_Handler,
+		},
+		{
+			MethodName: "GetPriority",
+			Handler:    _InfoService_GetPriority_Handler,
+		},
+		{
+			MethodName: "GetRequiredNetwork",
+			Handler:    _InfoService_GetRequiredNetwork_Handler,
+		},
+		{
+			MethodName: "GetService",
+			Handler:    _InfoService_GetService_Handler,
+		},
+		{
+			MethodName: "GetTraceTag",
+			Handler:    _InfoService_GetTraceTag_Handler,
+		},
+		{
+			MethodName: "GetTransientExtras",
+			Handler:    _InfoService_GetTransientExtras_Handler,
+		},
+		{
+			MethodName: "GetTriggerContentMaxDelay",
+			Handler:    _InfoService_GetTriggerContentMaxDelay_Handler,
+		},
+		{
+			MethodName: "GetTriggerContentUpdateDelay",
+			Handler:    _InfoService_GetTriggerContentUpdateDelay_Handler,
+		},
+		{
+			MethodName: "GetTriggerContentUris",
+			Handler:    _InfoService_GetTriggerContentUris_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _InfoService_HashCode_Handler,
+		},
+		{
+			MethodName: "IsExpedited",
+			Handler:    _InfoService_IsExpedited_Handler,
+		},
+		{
+			MethodName: "IsImportantWhileForeground",
+			Handler:    _InfoService_IsImportantWhileForeground_Handler,
+		},
+		{
+			MethodName: "IsPeriodic",
+			Handler:    _InfoService_IsPeriodic_Handler,
+		},
+		{
+			MethodName: "IsPersisted",
+			Handler:    _InfoService_IsPersisted_Handler,
+		},
+		{
+			MethodName: "IsPrefetch",
+			Handler:    _InfoService_IsPrefetch_Handler,
+		},
+		{
+			MethodName: "IsRequireBatteryNotLow",
+			Handler:    _InfoService_IsRequireBatteryNotLow_Handler,
+		},
+		{
+			MethodName: "IsRequireCharging",
+			Handler:    _InfoService_IsRequireCharging_Handler,
+		},
+		{
+			MethodName: "IsRequireDeviceIdle",
+			Handler:    _InfoService_IsRequireDeviceIdle_Handler,
+		},
+		{
+			MethodName: "IsRequireStorageNotLow",
+			Handler:    _InfoService_IsRequireStorageNotLow_Handler,
+		},
+		{
+			MethodName: "IsUserInitiated",
+			Handler:    _InfoService_IsUserInitiated_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _InfoService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _InfoService_WriteToParcel_Handler,
+		},
+		{
+			MethodName: "GetMinFlexMillis",
+			Handler:    _InfoService_GetMinFlexMillis_Handler,
+		},
+		{
+			MethodName: "GetMinPeriodMillis",
+			Handler:    _InfoService_GetMinPeriodMillis_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/job/job.proto",
+}
+
+const (
+	InfoBuilderService_AddDebugTag_FullMethodName                  = "/job.InfoBuilderService/AddDebugTag"
+	InfoBuilderService_AddTriggerContentUri_FullMethodName         = "/job.InfoBuilderService/AddTriggerContentUri"
+	InfoBuilderService_Build_FullMethodName                        = "/job.InfoBuilderService/Build"
+	InfoBuilderService_RemoveDebugTag_FullMethodName               = "/job.InfoBuilderService/RemoveDebugTag"
+	InfoBuilderService_SetBackoffCriteria_FullMethodName           = "/job.InfoBuilderService/SetBackoffCriteria"
+	InfoBuilderService_SetClipData_FullMethodName                  = "/job.InfoBuilderService/SetClipData"
+	InfoBuilderService_SetEstimatedNetworkBytes_FullMethodName     = "/job.InfoBuilderService/SetEstimatedNetworkBytes"
+	InfoBuilderService_SetExpedited_FullMethodName                 = "/job.InfoBuilderService/SetExpedited"
+	InfoBuilderService_SetExtras_FullMethodName                    = "/job.InfoBuilderService/SetExtras"
+	InfoBuilderService_SetImportantWhileForeground_FullMethodName  = "/job.InfoBuilderService/SetImportantWhileForeground"
+	InfoBuilderService_SetMinimumLatency_FullMethodName            = "/job.InfoBuilderService/SetMinimumLatency"
+	InfoBuilderService_SetMinimumNetworkChunkBytes_FullMethodName  = "/job.InfoBuilderService/SetMinimumNetworkChunkBytes"
+	InfoBuilderService_SetOverrideDeadline_FullMethodName          = "/job.InfoBuilderService/SetOverrideDeadline"
+	InfoBuilderService_SetPeriodic1_FullMethodName                 = "/job.InfoBuilderService/SetPeriodic1"
+	InfoBuilderService_SetPeriodic2_1_FullMethodName               = "/job.InfoBuilderService/SetPeriodic2_1"
+	InfoBuilderService_SetPersisted_FullMethodName                 = "/job.InfoBuilderService/SetPersisted"
+	InfoBuilderService_SetPrefetch_FullMethodName                  = "/job.InfoBuilderService/SetPrefetch"
+	InfoBuilderService_SetPriority_FullMethodName                  = "/job.InfoBuilderService/SetPriority"
+	InfoBuilderService_SetRequiredNetwork_FullMethodName           = "/job.InfoBuilderService/SetRequiredNetwork"
+	InfoBuilderService_SetRequiredNetworkType_FullMethodName       = "/job.InfoBuilderService/SetRequiredNetworkType"
+	InfoBuilderService_SetRequiresBatteryNotLow_FullMethodName     = "/job.InfoBuilderService/SetRequiresBatteryNotLow"
+	InfoBuilderService_SetRequiresCharging_FullMethodName          = "/job.InfoBuilderService/SetRequiresCharging"
+	InfoBuilderService_SetRequiresDeviceIdle_FullMethodName        = "/job.InfoBuilderService/SetRequiresDeviceIdle"
+	InfoBuilderService_SetRequiresStorageNotLow_FullMethodName     = "/job.InfoBuilderService/SetRequiresStorageNotLow"
+	InfoBuilderService_SetTraceTag_FullMethodName                  = "/job.InfoBuilderService/SetTraceTag"
+	InfoBuilderService_SetTransientExtras_FullMethodName           = "/job.InfoBuilderService/SetTransientExtras"
+	InfoBuilderService_SetTriggerContentMaxDelay_FullMethodName    = "/job.InfoBuilderService/SetTriggerContentMaxDelay"
+	InfoBuilderService_SetTriggerContentUpdateDelay_FullMethodName = "/job.InfoBuilderService/SetTriggerContentUpdateDelay"
+	InfoBuilderService_SetUserInitiated_FullMethodName             = "/job.InfoBuilderService/SetUserInitiated"
+)
+
+// InfoBuilderServiceClient is the client API for InfoBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type InfoBuilderServiceClient interface {
+	AddDebugTag(ctx context.Context, in *AddDebugTagRequest, opts ...grpc.CallOption) (*AddDebugTagResponse, error)
+	AddTriggerContentUri(ctx context.Context, in *AddTriggerContentUriRequest, opts ...grpc.CallOption) (*AddTriggerContentUriResponse, error)
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	RemoveDebugTag(ctx context.Context, in *RemoveDebugTagRequest, opts ...grpc.CallOption) (*RemoveDebugTagResponse, error)
+	SetBackoffCriteria(ctx context.Context, in *SetBackoffCriteriaRequest, opts ...grpc.CallOption) (*SetBackoffCriteriaResponse, error)
+	SetClipData(ctx context.Context, in *SetClipDataRequest, opts ...grpc.CallOption) (*SetClipDataResponse, error)
+	SetEstimatedNetworkBytes(ctx context.Context, in *SetEstimatedNetworkBytesRequest, opts ...grpc.CallOption) (*SetEstimatedNetworkBytesResponse, error)
+	SetExpedited(ctx context.Context, in *SetExpeditedRequest, opts ...grpc.CallOption) (*SetExpeditedResponse, error)
+	SetExtras(ctx context.Context, in *SetExtrasRequest, opts ...grpc.CallOption) (*SetExtrasResponse, error)
+	SetImportantWhileForeground(ctx context.Context, in *SetImportantWhileForegroundRequest, opts ...grpc.CallOption) (*SetImportantWhileForegroundResponse, error)
+	SetMinimumLatency(ctx context.Context, in *SetMinimumLatencyRequest, opts ...grpc.CallOption) (*SetMinimumLatencyResponse, error)
+	SetMinimumNetworkChunkBytes(ctx context.Context, in *SetMinimumNetworkChunkBytesRequest, opts ...grpc.CallOption) (*SetMinimumNetworkChunkBytesResponse, error)
+	SetOverrideDeadline(ctx context.Context, in *SetOverrideDeadlineRequest, opts ...grpc.CallOption) (*SetOverrideDeadlineResponse, error)
+	SetPeriodic1(ctx context.Context, in *SetPeriodic1Request, opts ...grpc.CallOption) (*SetPeriodic1Response, error)
+	SetPeriodic2_1(ctx context.Context, in *SetPeriodic2_1Request, opts ...grpc.CallOption) (*SetPeriodic2_1Response, error)
+	SetPersisted(ctx context.Context, in *SetPersistedRequest, opts ...grpc.CallOption) (*SetPersistedResponse, error)
+	SetPrefetch(ctx context.Context, in *SetPrefetchRequest, opts ...grpc.CallOption) (*SetPrefetchResponse, error)
+	SetPriority(ctx context.Context, in *SetPriorityRequest, opts ...grpc.CallOption) (*SetPriorityResponse, error)
+	SetRequiredNetwork(ctx context.Context, in *SetRequiredNetworkRequest, opts ...grpc.CallOption) (*SetRequiredNetworkResponse, error)
+	SetRequiredNetworkType(ctx context.Context, in *SetRequiredNetworkTypeRequest, opts ...grpc.CallOption) (*SetRequiredNetworkTypeResponse, error)
+	SetRequiresBatteryNotLow(ctx context.Context, in *SetRequiresBatteryNotLowRequest, opts ...grpc.CallOption) (*SetRequiresBatteryNotLowResponse, error)
+	SetRequiresCharging(ctx context.Context, in *SetRequiresChargingRequest, opts ...grpc.CallOption) (*SetRequiresChargingResponse, error)
+	SetRequiresDeviceIdle(ctx context.Context, in *SetRequiresDeviceIdleRequest, opts ...grpc.CallOption) (*SetRequiresDeviceIdleResponse, error)
+	SetRequiresStorageNotLow(ctx context.Context, in *SetRequiresStorageNotLowRequest, opts ...grpc.CallOption) (*SetRequiresStorageNotLowResponse, error)
+	SetTraceTag(ctx context.Context, in *SetTraceTagRequest, opts ...grpc.CallOption) (*SetTraceTagResponse, error)
+	SetTransientExtras(ctx context.Context, in *SetTransientExtrasRequest, opts ...grpc.CallOption) (*SetTransientExtrasResponse, error)
+	SetTriggerContentMaxDelay(ctx context.Context, in *SetTriggerContentMaxDelayRequest, opts ...grpc.CallOption) (*SetTriggerContentMaxDelayResponse, error)
+	SetTriggerContentUpdateDelay(ctx context.Context, in *SetTriggerContentUpdateDelayRequest, opts ...grpc.CallOption) (*SetTriggerContentUpdateDelayResponse, error)
+	SetUserInitiated(ctx context.Context, in *SetUserInitiatedRequest, opts ...grpc.CallOption) (*SetUserInitiatedResponse, error)
+}
+
+type infoBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewInfoBuilderServiceClient(cc grpc.ClientConnInterface) InfoBuilderServiceClient {
+	return &infoBuilderServiceClient{cc}
+}
+
+func (c *infoBuilderServiceClient) AddDebugTag(ctx context.Context, in *AddDebugTagRequest, opts ...grpc.CallOption) (*AddDebugTagResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddDebugTagResponse)
+	err := c.cc.Invoke(ctx, InfoBuilderService_AddDebugTag_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoBuilderServiceClient) AddTriggerContentUri(ctx context.Context, in *AddTriggerContentUriRequest, opts ...grpc.CallOption) (*AddTriggerContentUriResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddTriggerContentUriResponse)
+	err := c.cc.Invoke(ctx, InfoBuilderService_AddTriggerContentUri_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, InfoBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoBuilderServiceClient) RemoveDebugTag(ctx context.Context, in *RemoveDebugTagRequest, opts ...grpc.CallOption) (*RemoveDebugTagResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RemoveDebugTagResponse)
+	err := c.cc.Invoke(ctx, InfoBuilderService_RemoveDebugTag_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoBuilderServiceClient) SetBackoffCriteria(ctx context.Context, in *SetBackoffCriteriaRequest, opts ...grpc.CallOption) (*SetBackoffCriteriaResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetBackoffCriteriaResponse)
+	err := c.cc.Invoke(ctx, InfoBuilderService_SetBackoffCriteria_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoBuilderServiceClient) SetClipData(ctx context.Context, in *SetClipDataRequest, opts ...grpc.CallOption) (*SetClipDataResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetClipDataResponse)
+	err := c.cc.Invoke(ctx, InfoBuilderService_SetClipData_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoBuilderServiceClient) SetEstimatedNetworkBytes(ctx context.Context, in *SetEstimatedNetworkBytesRequest, opts ...grpc.CallOption) (*SetEstimatedNetworkBytesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetEstimatedNetworkBytesResponse)
+	err := c.cc.Invoke(ctx, InfoBuilderService_SetEstimatedNetworkBytes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoBuilderServiceClient) SetExpedited(ctx context.Context, in *SetExpeditedRequest, opts ...grpc.CallOption) (*SetExpeditedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetExpeditedResponse)
+	err := c.cc.Invoke(ctx, InfoBuilderService_SetExpedited_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoBuilderServiceClient) SetExtras(ctx context.Context, in *SetExtrasRequest, opts ...grpc.CallOption) (*SetExtrasResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetExtrasResponse)
+	err := c.cc.Invoke(ctx, InfoBuilderService_SetExtras_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoBuilderServiceClient) SetImportantWhileForeground(ctx context.Context, in *SetImportantWhileForegroundRequest, opts ...grpc.CallOption) (*SetImportantWhileForegroundResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetImportantWhileForegroundResponse)
+	err := c.cc.Invoke(ctx, InfoBuilderService_SetImportantWhileForeground_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoBuilderServiceClient) SetMinimumLatency(ctx context.Context, in *SetMinimumLatencyRequest, opts ...grpc.CallOption) (*SetMinimumLatencyResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetMinimumLatencyResponse)
+	err := c.cc.Invoke(ctx, InfoBuilderService_SetMinimumLatency_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoBuilderServiceClient) SetMinimumNetworkChunkBytes(ctx context.Context, in *SetMinimumNetworkChunkBytesRequest, opts ...grpc.CallOption) (*SetMinimumNetworkChunkBytesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetMinimumNetworkChunkBytesResponse)
+	err := c.cc.Invoke(ctx, InfoBuilderService_SetMinimumNetworkChunkBytes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoBuilderServiceClient) SetOverrideDeadline(ctx context.Context, in *SetOverrideDeadlineRequest, opts ...grpc.CallOption) (*SetOverrideDeadlineResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetOverrideDeadlineResponse)
+	err := c.cc.Invoke(ctx, InfoBuilderService_SetOverrideDeadline_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoBuilderServiceClient) SetPeriodic1(ctx context.Context, in *SetPeriodic1Request, opts ...grpc.CallOption) (*SetPeriodic1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetPeriodic1Response)
+	err := c.cc.Invoke(ctx, InfoBuilderService_SetPeriodic1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoBuilderServiceClient) SetPeriodic2_1(ctx context.Context, in *SetPeriodic2_1Request, opts ...grpc.CallOption) (*SetPeriodic2_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetPeriodic2_1Response)
+	err := c.cc.Invoke(ctx, InfoBuilderService_SetPeriodic2_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoBuilderServiceClient) SetPersisted(ctx context.Context, in *SetPersistedRequest, opts ...grpc.CallOption) (*SetPersistedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetPersistedResponse)
+	err := c.cc.Invoke(ctx, InfoBuilderService_SetPersisted_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoBuilderServiceClient) SetPrefetch(ctx context.Context, in *SetPrefetchRequest, opts ...grpc.CallOption) (*SetPrefetchResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetPrefetchResponse)
+	err := c.cc.Invoke(ctx, InfoBuilderService_SetPrefetch_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoBuilderServiceClient) SetPriority(ctx context.Context, in *SetPriorityRequest, opts ...grpc.CallOption) (*SetPriorityResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetPriorityResponse)
+	err := c.cc.Invoke(ctx, InfoBuilderService_SetPriority_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoBuilderServiceClient) SetRequiredNetwork(ctx context.Context, in *SetRequiredNetworkRequest, opts ...grpc.CallOption) (*SetRequiredNetworkResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetRequiredNetworkResponse)
+	err := c.cc.Invoke(ctx, InfoBuilderService_SetRequiredNetwork_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoBuilderServiceClient) SetRequiredNetworkType(ctx context.Context, in *SetRequiredNetworkTypeRequest, opts ...grpc.CallOption) (*SetRequiredNetworkTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetRequiredNetworkTypeResponse)
+	err := c.cc.Invoke(ctx, InfoBuilderService_SetRequiredNetworkType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoBuilderServiceClient) SetRequiresBatteryNotLow(ctx context.Context, in *SetRequiresBatteryNotLowRequest, opts ...grpc.CallOption) (*SetRequiresBatteryNotLowResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetRequiresBatteryNotLowResponse)
+	err := c.cc.Invoke(ctx, InfoBuilderService_SetRequiresBatteryNotLow_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoBuilderServiceClient) SetRequiresCharging(ctx context.Context, in *SetRequiresChargingRequest, opts ...grpc.CallOption) (*SetRequiresChargingResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetRequiresChargingResponse)
+	err := c.cc.Invoke(ctx, InfoBuilderService_SetRequiresCharging_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoBuilderServiceClient) SetRequiresDeviceIdle(ctx context.Context, in *SetRequiresDeviceIdleRequest, opts ...grpc.CallOption) (*SetRequiresDeviceIdleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetRequiresDeviceIdleResponse)
+	err := c.cc.Invoke(ctx, InfoBuilderService_SetRequiresDeviceIdle_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoBuilderServiceClient) SetRequiresStorageNotLow(ctx context.Context, in *SetRequiresStorageNotLowRequest, opts ...grpc.CallOption) (*SetRequiresStorageNotLowResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetRequiresStorageNotLowResponse)
+	err := c.cc.Invoke(ctx, InfoBuilderService_SetRequiresStorageNotLow_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoBuilderServiceClient) SetTraceTag(ctx context.Context, in *SetTraceTagRequest, opts ...grpc.CallOption) (*SetTraceTagResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetTraceTagResponse)
+	err := c.cc.Invoke(ctx, InfoBuilderService_SetTraceTag_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoBuilderServiceClient) SetTransientExtras(ctx context.Context, in *SetTransientExtrasRequest, opts ...grpc.CallOption) (*SetTransientExtrasResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetTransientExtrasResponse)
+	err := c.cc.Invoke(ctx, InfoBuilderService_SetTransientExtras_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoBuilderServiceClient) SetTriggerContentMaxDelay(ctx context.Context, in *SetTriggerContentMaxDelayRequest, opts ...grpc.CallOption) (*SetTriggerContentMaxDelayResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetTriggerContentMaxDelayResponse)
+	err := c.cc.Invoke(ctx, InfoBuilderService_SetTriggerContentMaxDelay_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoBuilderServiceClient) SetTriggerContentUpdateDelay(ctx context.Context, in *SetTriggerContentUpdateDelayRequest, opts ...grpc.CallOption) (*SetTriggerContentUpdateDelayResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetTriggerContentUpdateDelayResponse)
+	err := c.cc.Invoke(ctx, InfoBuilderService_SetTriggerContentUpdateDelay_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoBuilderServiceClient) SetUserInitiated(ctx context.Context, in *SetUserInitiatedRequest, opts ...grpc.CallOption) (*SetUserInitiatedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetUserInitiatedResponse)
+	err := c.cc.Invoke(ctx, InfoBuilderService_SetUserInitiated_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// InfoBuilderServiceServer is the server API for InfoBuilderService service.
+// All implementations must embed UnimplementedInfoBuilderServiceServer
+// for forward compatibility.
+type InfoBuilderServiceServer interface {
+	AddDebugTag(context.Context, *AddDebugTagRequest) (*AddDebugTagResponse, error)
+	AddTriggerContentUri(context.Context, *AddTriggerContentUriRequest) (*AddTriggerContentUriResponse, error)
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	RemoveDebugTag(context.Context, *RemoveDebugTagRequest) (*RemoveDebugTagResponse, error)
+	SetBackoffCriteria(context.Context, *SetBackoffCriteriaRequest) (*SetBackoffCriteriaResponse, error)
+	SetClipData(context.Context, *SetClipDataRequest) (*SetClipDataResponse, error)
+	SetEstimatedNetworkBytes(context.Context, *SetEstimatedNetworkBytesRequest) (*SetEstimatedNetworkBytesResponse, error)
+	SetExpedited(context.Context, *SetExpeditedRequest) (*SetExpeditedResponse, error)
+	SetExtras(context.Context, *SetExtrasRequest) (*SetExtrasResponse, error)
+	SetImportantWhileForeground(context.Context, *SetImportantWhileForegroundRequest) (*SetImportantWhileForegroundResponse, error)
+	SetMinimumLatency(context.Context, *SetMinimumLatencyRequest) (*SetMinimumLatencyResponse, error)
+	SetMinimumNetworkChunkBytes(context.Context, *SetMinimumNetworkChunkBytesRequest) (*SetMinimumNetworkChunkBytesResponse, error)
+	SetOverrideDeadline(context.Context, *SetOverrideDeadlineRequest) (*SetOverrideDeadlineResponse, error)
+	SetPeriodic1(context.Context, *SetPeriodic1Request) (*SetPeriodic1Response, error)
+	SetPeriodic2_1(context.Context, *SetPeriodic2_1Request) (*SetPeriodic2_1Response, error)
+	SetPersisted(context.Context, *SetPersistedRequest) (*SetPersistedResponse, error)
+	SetPrefetch(context.Context, *SetPrefetchRequest) (*SetPrefetchResponse, error)
+	SetPriority(context.Context, *SetPriorityRequest) (*SetPriorityResponse, error)
+	SetRequiredNetwork(context.Context, *SetRequiredNetworkRequest) (*SetRequiredNetworkResponse, error)
+	SetRequiredNetworkType(context.Context, *SetRequiredNetworkTypeRequest) (*SetRequiredNetworkTypeResponse, error)
+	SetRequiresBatteryNotLow(context.Context, *SetRequiresBatteryNotLowRequest) (*SetRequiresBatteryNotLowResponse, error)
+	SetRequiresCharging(context.Context, *SetRequiresChargingRequest) (*SetRequiresChargingResponse, error)
+	SetRequiresDeviceIdle(context.Context, *SetRequiresDeviceIdleRequest) (*SetRequiresDeviceIdleResponse, error)
+	SetRequiresStorageNotLow(context.Context, *SetRequiresStorageNotLowRequest) (*SetRequiresStorageNotLowResponse, error)
+	SetTraceTag(context.Context, *SetTraceTagRequest) (*SetTraceTagResponse, error)
+	SetTransientExtras(context.Context, *SetTransientExtrasRequest) (*SetTransientExtrasResponse, error)
+	SetTriggerContentMaxDelay(context.Context, *SetTriggerContentMaxDelayRequest) (*SetTriggerContentMaxDelayResponse, error)
+	SetTriggerContentUpdateDelay(context.Context, *SetTriggerContentUpdateDelayRequest) (*SetTriggerContentUpdateDelayResponse, error)
+	SetUserInitiated(context.Context, *SetUserInitiatedRequest) (*SetUserInitiatedResponse, error)
+	mustEmbedUnimplementedInfoBuilderServiceServer()
+}
+
+// UnimplementedInfoBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedInfoBuilderServiceServer struct{}
+
+func (UnimplementedInfoBuilderServiceServer) AddDebugTag(context.Context, *AddDebugTagRequest) (*AddDebugTagResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddDebugTag not implemented")
+}
+func (UnimplementedInfoBuilderServiceServer) AddTriggerContentUri(context.Context, *AddTriggerContentUriRequest) (*AddTriggerContentUriResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddTriggerContentUri not implemented")
+}
+func (UnimplementedInfoBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedInfoBuilderServiceServer) RemoveDebugTag(context.Context, *RemoveDebugTagRequest) (*RemoveDebugTagResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RemoveDebugTag not implemented")
+}
+func (UnimplementedInfoBuilderServiceServer) SetBackoffCriteria(context.Context, *SetBackoffCriteriaRequest) (*SetBackoffCriteriaResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetBackoffCriteria not implemented")
+}
+func (UnimplementedInfoBuilderServiceServer) SetClipData(context.Context, *SetClipDataRequest) (*SetClipDataResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetClipData not implemented")
+}
+func (UnimplementedInfoBuilderServiceServer) SetEstimatedNetworkBytes(context.Context, *SetEstimatedNetworkBytesRequest) (*SetEstimatedNetworkBytesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetEstimatedNetworkBytes not implemented")
+}
+func (UnimplementedInfoBuilderServiceServer) SetExpedited(context.Context, *SetExpeditedRequest) (*SetExpeditedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetExpedited not implemented")
+}
+func (UnimplementedInfoBuilderServiceServer) SetExtras(context.Context, *SetExtrasRequest) (*SetExtrasResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetExtras not implemented")
+}
+func (UnimplementedInfoBuilderServiceServer) SetImportantWhileForeground(context.Context, *SetImportantWhileForegroundRequest) (*SetImportantWhileForegroundResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetImportantWhileForeground not implemented")
+}
+func (UnimplementedInfoBuilderServiceServer) SetMinimumLatency(context.Context, *SetMinimumLatencyRequest) (*SetMinimumLatencyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetMinimumLatency not implemented")
+}
+func (UnimplementedInfoBuilderServiceServer) SetMinimumNetworkChunkBytes(context.Context, *SetMinimumNetworkChunkBytesRequest) (*SetMinimumNetworkChunkBytesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetMinimumNetworkChunkBytes not implemented")
+}
+func (UnimplementedInfoBuilderServiceServer) SetOverrideDeadline(context.Context, *SetOverrideDeadlineRequest) (*SetOverrideDeadlineResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetOverrideDeadline not implemented")
+}
+func (UnimplementedInfoBuilderServiceServer) SetPeriodic1(context.Context, *SetPeriodic1Request) (*SetPeriodic1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetPeriodic1 not implemented")
+}
+func (UnimplementedInfoBuilderServiceServer) SetPeriodic2_1(context.Context, *SetPeriodic2_1Request) (*SetPeriodic2_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetPeriodic2_1 not implemented")
+}
+func (UnimplementedInfoBuilderServiceServer) SetPersisted(context.Context, *SetPersistedRequest) (*SetPersistedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetPersisted not implemented")
+}
+func (UnimplementedInfoBuilderServiceServer) SetPrefetch(context.Context, *SetPrefetchRequest) (*SetPrefetchResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetPrefetch not implemented")
+}
+func (UnimplementedInfoBuilderServiceServer) SetPriority(context.Context, *SetPriorityRequest) (*SetPriorityResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetPriority not implemented")
+}
+func (UnimplementedInfoBuilderServiceServer) SetRequiredNetwork(context.Context, *SetRequiredNetworkRequest) (*SetRequiredNetworkResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetRequiredNetwork not implemented")
+}
+func (UnimplementedInfoBuilderServiceServer) SetRequiredNetworkType(context.Context, *SetRequiredNetworkTypeRequest) (*SetRequiredNetworkTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetRequiredNetworkType not implemented")
+}
+func (UnimplementedInfoBuilderServiceServer) SetRequiresBatteryNotLow(context.Context, *SetRequiresBatteryNotLowRequest) (*SetRequiresBatteryNotLowResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetRequiresBatteryNotLow not implemented")
+}
+func (UnimplementedInfoBuilderServiceServer) SetRequiresCharging(context.Context, *SetRequiresChargingRequest) (*SetRequiresChargingResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetRequiresCharging not implemented")
+}
+func (UnimplementedInfoBuilderServiceServer) SetRequiresDeviceIdle(context.Context, *SetRequiresDeviceIdleRequest) (*SetRequiresDeviceIdleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetRequiresDeviceIdle not implemented")
+}
+func (UnimplementedInfoBuilderServiceServer) SetRequiresStorageNotLow(context.Context, *SetRequiresStorageNotLowRequest) (*SetRequiresStorageNotLowResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetRequiresStorageNotLow not implemented")
+}
+func (UnimplementedInfoBuilderServiceServer) SetTraceTag(context.Context, *SetTraceTagRequest) (*SetTraceTagResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetTraceTag not implemented")
+}
+func (UnimplementedInfoBuilderServiceServer) SetTransientExtras(context.Context, *SetTransientExtrasRequest) (*SetTransientExtrasResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetTransientExtras not implemented")
+}
+func (UnimplementedInfoBuilderServiceServer) SetTriggerContentMaxDelay(context.Context, *SetTriggerContentMaxDelayRequest) (*SetTriggerContentMaxDelayResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetTriggerContentMaxDelay not implemented")
+}
+func (UnimplementedInfoBuilderServiceServer) SetTriggerContentUpdateDelay(context.Context, *SetTriggerContentUpdateDelayRequest) (*SetTriggerContentUpdateDelayResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetTriggerContentUpdateDelay not implemented")
+}
+func (UnimplementedInfoBuilderServiceServer) SetUserInitiated(context.Context, *SetUserInitiatedRequest) (*SetUserInitiatedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetUserInitiated not implemented")
+}
+func (UnimplementedInfoBuilderServiceServer) mustEmbedUnimplementedInfoBuilderServiceServer() {}
+func (UnimplementedInfoBuilderServiceServer) testEmbeddedByValue()                            {}
+
+// UnsafeInfoBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to InfoBuilderServiceServer will
+// result in compilation errors.
+type UnsafeInfoBuilderServiceServer interface {
+	mustEmbedUnimplementedInfoBuilderServiceServer()
+}
+
+func RegisterInfoBuilderServiceServer(s grpc.ServiceRegistrar, srv InfoBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedInfoBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&InfoBuilderService_ServiceDesc, srv)
+}
+
+func _InfoBuilderService_AddDebugTag_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddDebugTagRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoBuilderServiceServer).AddDebugTag(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoBuilderService_AddDebugTag_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoBuilderServiceServer).AddDebugTag(ctx, req.(*AddDebugTagRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoBuilderService_AddTriggerContentUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddTriggerContentUriRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoBuilderServiceServer).AddTriggerContentUri(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoBuilderService_AddTriggerContentUri_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoBuilderServiceServer).AddTriggerContentUri(ctx, req.(*AddTriggerContentUriRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoBuilderService_RemoveDebugTag_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RemoveDebugTagRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoBuilderServiceServer).RemoveDebugTag(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoBuilderService_RemoveDebugTag_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoBuilderServiceServer).RemoveDebugTag(ctx, req.(*RemoveDebugTagRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoBuilderService_SetBackoffCriteria_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetBackoffCriteriaRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoBuilderServiceServer).SetBackoffCriteria(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoBuilderService_SetBackoffCriteria_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoBuilderServiceServer).SetBackoffCriteria(ctx, req.(*SetBackoffCriteriaRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoBuilderService_SetClipData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetClipDataRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoBuilderServiceServer).SetClipData(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoBuilderService_SetClipData_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoBuilderServiceServer).SetClipData(ctx, req.(*SetClipDataRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoBuilderService_SetEstimatedNetworkBytes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetEstimatedNetworkBytesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoBuilderServiceServer).SetEstimatedNetworkBytes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoBuilderService_SetEstimatedNetworkBytes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoBuilderServiceServer).SetEstimatedNetworkBytes(ctx, req.(*SetEstimatedNetworkBytesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoBuilderService_SetExpedited_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetExpeditedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoBuilderServiceServer).SetExpedited(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoBuilderService_SetExpedited_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoBuilderServiceServer).SetExpedited(ctx, req.(*SetExpeditedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoBuilderService_SetExtras_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetExtrasRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoBuilderServiceServer).SetExtras(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoBuilderService_SetExtras_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoBuilderServiceServer).SetExtras(ctx, req.(*SetExtrasRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoBuilderService_SetImportantWhileForeground_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetImportantWhileForegroundRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoBuilderServiceServer).SetImportantWhileForeground(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoBuilderService_SetImportantWhileForeground_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoBuilderServiceServer).SetImportantWhileForeground(ctx, req.(*SetImportantWhileForegroundRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoBuilderService_SetMinimumLatency_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetMinimumLatencyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoBuilderServiceServer).SetMinimumLatency(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoBuilderService_SetMinimumLatency_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoBuilderServiceServer).SetMinimumLatency(ctx, req.(*SetMinimumLatencyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoBuilderService_SetMinimumNetworkChunkBytes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetMinimumNetworkChunkBytesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoBuilderServiceServer).SetMinimumNetworkChunkBytes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoBuilderService_SetMinimumNetworkChunkBytes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoBuilderServiceServer).SetMinimumNetworkChunkBytes(ctx, req.(*SetMinimumNetworkChunkBytesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoBuilderService_SetOverrideDeadline_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetOverrideDeadlineRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoBuilderServiceServer).SetOverrideDeadline(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoBuilderService_SetOverrideDeadline_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoBuilderServiceServer).SetOverrideDeadline(ctx, req.(*SetOverrideDeadlineRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoBuilderService_SetPeriodic1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetPeriodic1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoBuilderServiceServer).SetPeriodic1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoBuilderService_SetPeriodic1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoBuilderServiceServer).SetPeriodic1(ctx, req.(*SetPeriodic1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoBuilderService_SetPeriodic2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetPeriodic2_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoBuilderServiceServer).SetPeriodic2_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoBuilderService_SetPeriodic2_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoBuilderServiceServer).SetPeriodic2_1(ctx, req.(*SetPeriodic2_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoBuilderService_SetPersisted_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetPersistedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoBuilderServiceServer).SetPersisted(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoBuilderService_SetPersisted_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoBuilderServiceServer).SetPersisted(ctx, req.(*SetPersistedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoBuilderService_SetPrefetch_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetPrefetchRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoBuilderServiceServer).SetPrefetch(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoBuilderService_SetPrefetch_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoBuilderServiceServer).SetPrefetch(ctx, req.(*SetPrefetchRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoBuilderService_SetPriority_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetPriorityRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoBuilderServiceServer).SetPriority(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoBuilderService_SetPriority_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoBuilderServiceServer).SetPriority(ctx, req.(*SetPriorityRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoBuilderService_SetRequiredNetwork_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetRequiredNetworkRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoBuilderServiceServer).SetRequiredNetwork(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoBuilderService_SetRequiredNetwork_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoBuilderServiceServer).SetRequiredNetwork(ctx, req.(*SetRequiredNetworkRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoBuilderService_SetRequiredNetworkType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetRequiredNetworkTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoBuilderServiceServer).SetRequiredNetworkType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoBuilderService_SetRequiredNetworkType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoBuilderServiceServer).SetRequiredNetworkType(ctx, req.(*SetRequiredNetworkTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoBuilderService_SetRequiresBatteryNotLow_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetRequiresBatteryNotLowRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoBuilderServiceServer).SetRequiresBatteryNotLow(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoBuilderService_SetRequiresBatteryNotLow_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoBuilderServiceServer).SetRequiresBatteryNotLow(ctx, req.(*SetRequiresBatteryNotLowRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoBuilderService_SetRequiresCharging_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetRequiresChargingRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoBuilderServiceServer).SetRequiresCharging(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoBuilderService_SetRequiresCharging_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoBuilderServiceServer).SetRequiresCharging(ctx, req.(*SetRequiresChargingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoBuilderService_SetRequiresDeviceIdle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetRequiresDeviceIdleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoBuilderServiceServer).SetRequiresDeviceIdle(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoBuilderService_SetRequiresDeviceIdle_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoBuilderServiceServer).SetRequiresDeviceIdle(ctx, req.(*SetRequiresDeviceIdleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoBuilderService_SetRequiresStorageNotLow_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetRequiresStorageNotLowRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoBuilderServiceServer).SetRequiresStorageNotLow(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoBuilderService_SetRequiresStorageNotLow_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoBuilderServiceServer).SetRequiresStorageNotLow(ctx, req.(*SetRequiresStorageNotLowRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoBuilderService_SetTraceTag_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetTraceTagRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoBuilderServiceServer).SetTraceTag(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoBuilderService_SetTraceTag_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoBuilderServiceServer).SetTraceTag(ctx, req.(*SetTraceTagRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoBuilderService_SetTransientExtras_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetTransientExtrasRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoBuilderServiceServer).SetTransientExtras(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoBuilderService_SetTransientExtras_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoBuilderServiceServer).SetTransientExtras(ctx, req.(*SetTransientExtrasRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoBuilderService_SetTriggerContentMaxDelay_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetTriggerContentMaxDelayRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoBuilderServiceServer).SetTriggerContentMaxDelay(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoBuilderService_SetTriggerContentMaxDelay_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoBuilderServiceServer).SetTriggerContentMaxDelay(ctx, req.(*SetTriggerContentMaxDelayRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoBuilderService_SetTriggerContentUpdateDelay_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetTriggerContentUpdateDelayRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoBuilderServiceServer).SetTriggerContentUpdateDelay(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoBuilderService_SetTriggerContentUpdateDelay_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoBuilderServiceServer).SetTriggerContentUpdateDelay(ctx, req.(*SetTriggerContentUpdateDelayRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoBuilderService_SetUserInitiated_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetUserInitiatedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoBuilderServiceServer).SetUserInitiated(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoBuilderService_SetUserInitiated_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoBuilderServiceServer).SetUserInitiated(ctx, req.(*SetUserInitiatedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// InfoBuilderService_ServiceDesc is the grpc.ServiceDesc for InfoBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var InfoBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "job.InfoBuilderService",
+	HandlerType: (*InfoBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "AddDebugTag",
+			Handler:    _InfoBuilderService_AddDebugTag_Handler,
+		},
+		{
+			MethodName: "AddTriggerContentUri",
+			Handler:    _InfoBuilderService_AddTriggerContentUri_Handler,
+		},
+		{
+			MethodName: "Build",
+			Handler:    _InfoBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "RemoveDebugTag",
+			Handler:    _InfoBuilderService_RemoveDebugTag_Handler,
+		},
+		{
+			MethodName: "SetBackoffCriteria",
+			Handler:    _InfoBuilderService_SetBackoffCriteria_Handler,
+		},
+		{
+			MethodName: "SetClipData",
+			Handler:    _InfoBuilderService_SetClipData_Handler,
+		},
+		{
+			MethodName: "SetEstimatedNetworkBytes",
+			Handler:    _InfoBuilderService_SetEstimatedNetworkBytes_Handler,
+		},
+		{
+			MethodName: "SetExpedited",
+			Handler:    _InfoBuilderService_SetExpedited_Handler,
+		},
+		{
+			MethodName: "SetExtras",
+			Handler:    _InfoBuilderService_SetExtras_Handler,
+		},
+		{
+			MethodName: "SetImportantWhileForeground",
+			Handler:    _InfoBuilderService_SetImportantWhileForeground_Handler,
+		},
+		{
+			MethodName: "SetMinimumLatency",
+			Handler:    _InfoBuilderService_SetMinimumLatency_Handler,
+		},
+		{
+			MethodName: "SetMinimumNetworkChunkBytes",
+			Handler:    _InfoBuilderService_SetMinimumNetworkChunkBytes_Handler,
+		},
+		{
+			MethodName: "SetOverrideDeadline",
+			Handler:    _InfoBuilderService_SetOverrideDeadline_Handler,
+		},
+		{
+			MethodName: "SetPeriodic1",
+			Handler:    _InfoBuilderService_SetPeriodic1_Handler,
+		},
+		{
+			MethodName: "SetPeriodic2_1",
+			Handler:    _InfoBuilderService_SetPeriodic2_1_Handler,
+		},
+		{
+			MethodName: "SetPersisted",
+			Handler:    _InfoBuilderService_SetPersisted_Handler,
+		},
+		{
+			MethodName: "SetPrefetch",
+			Handler:    _InfoBuilderService_SetPrefetch_Handler,
+		},
+		{
+			MethodName: "SetPriority",
+			Handler:    _InfoBuilderService_SetPriority_Handler,
+		},
+		{
+			MethodName: "SetRequiredNetwork",
+			Handler:    _InfoBuilderService_SetRequiredNetwork_Handler,
+		},
+		{
+			MethodName: "SetRequiredNetworkType",
+			Handler:    _InfoBuilderService_SetRequiredNetworkType_Handler,
+		},
+		{
+			MethodName: "SetRequiresBatteryNotLow",
+			Handler:    _InfoBuilderService_SetRequiresBatteryNotLow_Handler,
+		},
+		{
+			MethodName: "SetRequiresCharging",
+			Handler:    _InfoBuilderService_SetRequiresCharging_Handler,
+		},
+		{
+			MethodName: "SetRequiresDeviceIdle",
+			Handler:    _InfoBuilderService_SetRequiresDeviceIdle_Handler,
+		},
+		{
+			MethodName: "SetRequiresStorageNotLow",
+			Handler:    _InfoBuilderService_SetRequiresStorageNotLow_Handler,
+		},
+		{
+			MethodName: "SetTraceTag",
+			Handler:    _InfoBuilderService_SetTraceTag_Handler,
+		},
+		{
+			MethodName: "SetTransientExtras",
+			Handler:    _InfoBuilderService_SetTransientExtras_Handler,
+		},
+		{
+			MethodName: "SetTriggerContentMaxDelay",
+			Handler:    _InfoBuilderService_SetTriggerContentMaxDelay_Handler,
+		},
+		{
+			MethodName: "SetTriggerContentUpdateDelay",
+			Handler:    _InfoBuilderService_SetTriggerContentUpdateDelay_Handler,
+		},
+		{
+			MethodName: "SetUserInitiated",
+			Handler:    _InfoBuilderService_SetUserInitiated_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/job/job.proto",
+}
+
+const (
+	InfoTriggerContentUriService_DescribeContents_FullMethodName = "/job.InfoTriggerContentUriService/DescribeContents"
+	InfoTriggerContentUriService_Equals_FullMethodName           = "/job.InfoTriggerContentUriService/Equals"
+	InfoTriggerContentUriService_GetFlags_FullMethodName         = "/job.InfoTriggerContentUriService/GetFlags"
+	InfoTriggerContentUriService_GetUri_FullMethodName           = "/job.InfoTriggerContentUriService/GetUri"
+	InfoTriggerContentUriService_HashCode_FullMethodName         = "/job.InfoTriggerContentUriService/HashCode"
+	InfoTriggerContentUriService_WriteToParcel_FullMethodName    = "/job.InfoTriggerContentUriService/WriteToParcel"
+)
+
+// InfoTriggerContentUriServiceClient is the client API for InfoTriggerContentUriService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type InfoTriggerContentUriServiceClient interface {
+	DescribeContents(ctx context.Context, in *InfoTriggerContentUriDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetFlags(ctx context.Context, in *GetFlagsRequest, opts ...grpc.CallOption) (*GetFlagsResponse, error)
+	GetUri(ctx context.Context, in *GetUriRequest, opts ...grpc.CallOption) (*GetUriResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	WriteToParcel(ctx context.Context, in *InfoTriggerContentUriWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type infoTriggerContentUriServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewInfoTriggerContentUriServiceClient(cc grpc.ClientConnInterface) InfoTriggerContentUriServiceClient {
+	return &infoTriggerContentUriServiceClient{cc}
+}
+
+func (c *infoTriggerContentUriServiceClient) DescribeContents(ctx context.Context, in *InfoTriggerContentUriDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, InfoTriggerContentUriService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoTriggerContentUriServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, InfoTriggerContentUriService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoTriggerContentUriServiceClient) GetFlags(ctx context.Context, in *GetFlagsRequest, opts ...grpc.CallOption) (*GetFlagsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFlagsResponse)
+	err := c.cc.Invoke(ctx, InfoTriggerContentUriService_GetFlags_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoTriggerContentUriServiceClient) GetUri(ctx context.Context, in *GetUriRequest, opts ...grpc.CallOption) (*GetUriResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetUriResponse)
+	err := c.cc.Invoke(ctx, InfoTriggerContentUriService_GetUri_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoTriggerContentUriServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, InfoTriggerContentUriService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoTriggerContentUriServiceClient) WriteToParcel(ctx context.Context, in *InfoTriggerContentUriWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, InfoTriggerContentUriService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// InfoTriggerContentUriServiceServer is the server API for InfoTriggerContentUriService service.
+// All implementations must embed UnimplementedInfoTriggerContentUriServiceServer
+// for forward compatibility.
+type InfoTriggerContentUriServiceServer interface {
+	DescribeContents(context.Context, *InfoTriggerContentUriDescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetFlags(context.Context, *GetFlagsRequest) (*GetFlagsResponse, error)
+	GetUri(context.Context, *GetUriRequest) (*GetUriResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	WriteToParcel(context.Context, *InfoTriggerContentUriWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedInfoTriggerContentUriServiceServer()
+}
+
+// UnimplementedInfoTriggerContentUriServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedInfoTriggerContentUriServiceServer struct{}
+
+func (UnimplementedInfoTriggerContentUriServiceServer) DescribeContents(context.Context, *InfoTriggerContentUriDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedInfoTriggerContentUriServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedInfoTriggerContentUriServiceServer) GetFlags(context.Context, *GetFlagsRequest) (*GetFlagsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFlags not implemented")
+}
+func (UnimplementedInfoTriggerContentUriServiceServer) GetUri(context.Context, *GetUriRequest) (*GetUriResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetUri not implemented")
+}
+func (UnimplementedInfoTriggerContentUriServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedInfoTriggerContentUriServiceServer) WriteToParcel(context.Context, *InfoTriggerContentUriWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedInfoTriggerContentUriServiceServer) mustEmbedUnimplementedInfoTriggerContentUriServiceServer() {
+}
+func (UnimplementedInfoTriggerContentUriServiceServer) testEmbeddedByValue() {}
+
+// UnsafeInfoTriggerContentUriServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to InfoTriggerContentUriServiceServer will
+// result in compilation errors.
+type UnsafeInfoTriggerContentUriServiceServer interface {
+	mustEmbedUnimplementedInfoTriggerContentUriServiceServer()
+}
+
+func RegisterInfoTriggerContentUriServiceServer(s grpc.ServiceRegistrar, srv InfoTriggerContentUriServiceServer) {
+	// If the following call panics, it indicates UnimplementedInfoTriggerContentUriServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&InfoTriggerContentUriService_ServiceDesc, srv)
+}
+
+func _InfoTriggerContentUriService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(InfoTriggerContentUriDescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoTriggerContentUriServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoTriggerContentUriService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoTriggerContentUriServiceServer).DescribeContents(ctx, req.(*InfoTriggerContentUriDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoTriggerContentUriService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoTriggerContentUriServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoTriggerContentUriService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoTriggerContentUriServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoTriggerContentUriService_GetFlags_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFlagsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoTriggerContentUriServiceServer).GetFlags(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoTriggerContentUriService_GetFlags_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoTriggerContentUriServiceServer).GetFlags(ctx, req.(*GetFlagsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoTriggerContentUriService_GetUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUriRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoTriggerContentUriServiceServer).GetUri(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoTriggerContentUriService_GetUri_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoTriggerContentUriServiceServer).GetUri(ctx, req.(*GetUriRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoTriggerContentUriService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoTriggerContentUriServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoTriggerContentUriService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoTriggerContentUriServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoTriggerContentUriService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(InfoTriggerContentUriWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoTriggerContentUriServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoTriggerContentUriService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoTriggerContentUriServiceServer).WriteToParcel(ctx, req.(*InfoTriggerContentUriWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// InfoTriggerContentUriService_ServiceDesc is the grpc.ServiceDesc for InfoTriggerContentUriService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var InfoTriggerContentUriService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "job.InfoTriggerContentUriService",
+	HandlerType: (*InfoTriggerContentUriServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _InfoTriggerContentUriService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _InfoTriggerContentUriService_Equals_Handler,
+		},
+		{
+			MethodName: "GetFlags",
+			Handler:    _InfoTriggerContentUriService_GetFlags_Handler,
+		},
+		{
+			MethodName: "GetUri",
+			Handler:    _InfoTriggerContentUriService_GetUri_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _InfoTriggerContentUriService_HashCode_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _InfoTriggerContentUriService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/job/job.proto",
+}
+
+const (
+	ParametersService_CompleteWork_FullMethodName                   = "/job.ParametersService/CompleteWork"
+	ParametersService_DequeueWork_FullMethodName                    = "/job.ParametersService/DequeueWork"
+	ParametersService_DescribeContents_FullMethodName               = "/job.ParametersService/DescribeContents"
+	ParametersService_GetClipData_FullMethodName                    = "/job.ParametersService/GetClipData"
+	ParametersService_GetClipGrantFlags_FullMethodName              = "/job.ParametersService/GetClipGrantFlags"
+	ParametersService_GetExtras_FullMethodName                      = "/job.ParametersService/GetExtras"
+	ParametersService_GetJobId_FullMethodName                       = "/job.ParametersService/GetJobId"
+	ParametersService_GetJobNamespace_FullMethodName                = "/job.ParametersService/GetJobNamespace"
+	ParametersService_GetNetwork_FullMethodName                     = "/job.ParametersService/GetNetwork"
+	ParametersService_GetStopReason_FullMethodName                  = "/job.ParametersService/GetStopReason"
+	ParametersService_GetTransientExtras_FullMethodName             = "/job.ParametersService/GetTransientExtras"
+	ParametersService_GetTriggeredContentAuthorities_FullMethodName = "/job.ParametersService/GetTriggeredContentAuthorities"
+	ParametersService_GetTriggeredContentUris_FullMethodName        = "/job.ParametersService/GetTriggeredContentUris"
+	ParametersService_IsExpeditedJob_FullMethodName                 = "/job.ParametersService/IsExpeditedJob"
+	ParametersService_IsOverrideDeadlineExpired_FullMethodName      = "/job.ParametersService/IsOverrideDeadlineExpired"
+	ParametersService_IsUserInitiatedJob_FullMethodName             = "/job.ParametersService/IsUserInitiatedJob"
+	ParametersService_WriteToParcel_FullMethodName                  = "/job.ParametersService/WriteToParcel"
+)
+
+// ParametersServiceClient is the client API for ParametersService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ParametersServiceClient interface {
+	CompleteWork(ctx context.Context, in *CompleteWorkRequest, opts ...grpc.CallOption) (*CompleteWorkResponse, error)
+	DequeueWork(ctx context.Context, in *DequeueWorkRequest, opts ...grpc.CallOption) (*DequeueWorkResponse, error)
+	DescribeContents(ctx context.Context, in *ParametersDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetClipData(ctx context.Context, in *GetClipDataRequest, opts ...grpc.CallOption) (*GetClipDataResponse, error)
+	GetClipGrantFlags(ctx context.Context, in *GetClipGrantFlagsRequest, opts ...grpc.CallOption) (*GetClipGrantFlagsResponse, error)
+	GetExtras(ctx context.Context, in *ParametersGetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error)
+	GetJobId(ctx context.Context, in *GetJobIdRequest, opts ...grpc.CallOption) (*GetJobIdResponse, error)
+	GetJobNamespace(ctx context.Context, in *GetJobNamespaceRequest, opts ...grpc.CallOption) (*GetJobNamespaceResponse, error)
+	GetNetwork(ctx context.Context, in *GetNetworkRequest, opts ...grpc.CallOption) (*GetNetworkResponse, error)
+	GetStopReason(ctx context.Context, in *GetStopReasonRequest, opts ...grpc.CallOption) (*GetStopReasonResponse, error)
+	GetTransientExtras(ctx context.Context, in *GetTransientExtrasRequest, opts ...grpc.CallOption) (*GetTransientExtrasResponse, error)
+	GetTriggeredContentAuthorities(ctx context.Context, in *GetTriggeredContentAuthoritiesRequest, opts ...grpc.CallOption) (*GetTriggeredContentAuthoritiesResponse, error)
+	GetTriggeredContentUris(ctx context.Context, in *GetTriggeredContentUrisRequest, opts ...grpc.CallOption) (*GetTriggeredContentUrisResponse, error)
+	IsExpeditedJob(ctx context.Context, in *IsExpeditedJobRequest, opts ...grpc.CallOption) (*IsExpeditedJobResponse, error)
+	IsOverrideDeadlineExpired(ctx context.Context, in *IsOverrideDeadlineExpiredRequest, opts ...grpc.CallOption) (*IsOverrideDeadlineExpiredResponse, error)
+	IsUserInitiatedJob(ctx context.Context, in *IsUserInitiatedJobRequest, opts ...grpc.CallOption) (*IsUserInitiatedJobResponse, error)
+	WriteToParcel(ctx context.Context, in *ParametersWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type parametersServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewParametersServiceClient(cc grpc.ClientConnInterface) ParametersServiceClient {
+	return &parametersServiceClient{cc}
+}
+
+func (c *parametersServiceClient) CompleteWork(ctx context.Context, in *CompleteWorkRequest, opts ...grpc.CallOption) (*CompleteWorkResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CompleteWorkResponse)
+	err := c.cc.Invoke(ctx, ParametersService_CompleteWork_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *parametersServiceClient) DequeueWork(ctx context.Context, in *DequeueWorkRequest, opts ...grpc.CallOption) (*DequeueWorkResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DequeueWorkResponse)
+	err := c.cc.Invoke(ctx, ParametersService_DequeueWork_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *parametersServiceClient) DescribeContents(ctx context.Context, in *ParametersDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, ParametersService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *parametersServiceClient) GetClipData(ctx context.Context, in *GetClipDataRequest, opts ...grpc.CallOption) (*GetClipDataResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetClipDataResponse)
+	err := c.cc.Invoke(ctx, ParametersService_GetClipData_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *parametersServiceClient) GetClipGrantFlags(ctx context.Context, in *GetClipGrantFlagsRequest, opts ...grpc.CallOption) (*GetClipGrantFlagsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetClipGrantFlagsResponse)
+	err := c.cc.Invoke(ctx, ParametersService_GetClipGrantFlags_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *parametersServiceClient) GetExtras(ctx context.Context, in *ParametersGetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetExtrasResponse)
+	err := c.cc.Invoke(ctx, ParametersService_GetExtras_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *parametersServiceClient) GetJobId(ctx context.Context, in *GetJobIdRequest, opts ...grpc.CallOption) (*GetJobIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetJobIdResponse)
+	err := c.cc.Invoke(ctx, ParametersService_GetJobId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *parametersServiceClient) GetJobNamespace(ctx context.Context, in *GetJobNamespaceRequest, opts ...grpc.CallOption) (*GetJobNamespaceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetJobNamespaceResponse)
+	err := c.cc.Invoke(ctx, ParametersService_GetJobNamespace_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *parametersServiceClient) GetNetwork(ctx context.Context, in *GetNetworkRequest, opts ...grpc.CallOption) (*GetNetworkResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetNetworkResponse)
+	err := c.cc.Invoke(ctx, ParametersService_GetNetwork_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *parametersServiceClient) GetStopReason(ctx context.Context, in *GetStopReasonRequest, opts ...grpc.CallOption) (*GetStopReasonResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStopReasonResponse)
+	err := c.cc.Invoke(ctx, ParametersService_GetStopReason_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *parametersServiceClient) GetTransientExtras(ctx context.Context, in *GetTransientExtrasRequest, opts ...grpc.CallOption) (*GetTransientExtrasResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTransientExtrasResponse)
+	err := c.cc.Invoke(ctx, ParametersService_GetTransientExtras_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *parametersServiceClient) GetTriggeredContentAuthorities(ctx context.Context, in *GetTriggeredContentAuthoritiesRequest, opts ...grpc.CallOption) (*GetTriggeredContentAuthoritiesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTriggeredContentAuthoritiesResponse)
+	err := c.cc.Invoke(ctx, ParametersService_GetTriggeredContentAuthorities_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *parametersServiceClient) GetTriggeredContentUris(ctx context.Context, in *GetTriggeredContentUrisRequest, opts ...grpc.CallOption) (*GetTriggeredContentUrisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTriggeredContentUrisResponse)
+	err := c.cc.Invoke(ctx, ParametersService_GetTriggeredContentUris_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *parametersServiceClient) IsExpeditedJob(ctx context.Context, in *IsExpeditedJobRequest, opts ...grpc.CallOption) (*IsExpeditedJobResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsExpeditedJobResponse)
+	err := c.cc.Invoke(ctx, ParametersService_IsExpeditedJob_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *parametersServiceClient) IsOverrideDeadlineExpired(ctx context.Context, in *IsOverrideDeadlineExpiredRequest, opts ...grpc.CallOption) (*IsOverrideDeadlineExpiredResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsOverrideDeadlineExpiredResponse)
+	err := c.cc.Invoke(ctx, ParametersService_IsOverrideDeadlineExpired_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *parametersServiceClient) IsUserInitiatedJob(ctx context.Context, in *IsUserInitiatedJobRequest, opts ...grpc.CallOption) (*IsUserInitiatedJobResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsUserInitiatedJobResponse)
+	err := c.cc.Invoke(ctx, ParametersService_IsUserInitiatedJob_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *parametersServiceClient) WriteToParcel(ctx context.Context, in *ParametersWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, ParametersService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ParametersServiceServer is the server API for ParametersService service.
+// All implementations must embed UnimplementedParametersServiceServer
+// for forward compatibility.
+type ParametersServiceServer interface {
+	CompleteWork(context.Context, *CompleteWorkRequest) (*CompleteWorkResponse, error)
+	DequeueWork(context.Context, *DequeueWorkRequest) (*DequeueWorkResponse, error)
+	DescribeContents(context.Context, *ParametersDescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetClipData(context.Context, *GetClipDataRequest) (*GetClipDataResponse, error)
+	GetClipGrantFlags(context.Context, *GetClipGrantFlagsRequest) (*GetClipGrantFlagsResponse, error)
+	GetExtras(context.Context, *ParametersGetExtrasRequest) (*GetExtrasResponse, error)
+	GetJobId(context.Context, *GetJobIdRequest) (*GetJobIdResponse, error)
+	GetJobNamespace(context.Context, *GetJobNamespaceRequest) (*GetJobNamespaceResponse, error)
+	GetNetwork(context.Context, *GetNetworkRequest) (*GetNetworkResponse, error)
+	GetStopReason(context.Context, *GetStopReasonRequest) (*GetStopReasonResponse, error)
+	GetTransientExtras(context.Context, *GetTransientExtrasRequest) (*GetTransientExtrasResponse, error)
+	GetTriggeredContentAuthorities(context.Context, *GetTriggeredContentAuthoritiesRequest) (*GetTriggeredContentAuthoritiesResponse, error)
+	GetTriggeredContentUris(context.Context, *GetTriggeredContentUrisRequest) (*GetTriggeredContentUrisResponse, error)
+	IsExpeditedJob(context.Context, *IsExpeditedJobRequest) (*IsExpeditedJobResponse, error)
+	IsOverrideDeadlineExpired(context.Context, *IsOverrideDeadlineExpiredRequest) (*IsOverrideDeadlineExpiredResponse, error)
+	IsUserInitiatedJob(context.Context, *IsUserInitiatedJobRequest) (*IsUserInitiatedJobResponse, error)
+	WriteToParcel(context.Context, *ParametersWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedParametersServiceServer()
+}
+
+// UnimplementedParametersServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedParametersServiceServer struct{}
+
+func (UnimplementedParametersServiceServer) CompleteWork(context.Context, *CompleteWorkRequest) (*CompleteWorkResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CompleteWork not implemented")
+}
+func (UnimplementedParametersServiceServer) DequeueWork(context.Context, *DequeueWorkRequest) (*DequeueWorkResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DequeueWork not implemented")
+}
+func (UnimplementedParametersServiceServer) DescribeContents(context.Context, *ParametersDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedParametersServiceServer) GetClipData(context.Context, *GetClipDataRequest) (*GetClipDataResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetClipData not implemented")
+}
+func (UnimplementedParametersServiceServer) GetClipGrantFlags(context.Context, *GetClipGrantFlagsRequest) (*GetClipGrantFlagsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetClipGrantFlags not implemented")
+}
+func (UnimplementedParametersServiceServer) GetExtras(context.Context, *ParametersGetExtrasRequest) (*GetExtrasResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetExtras not implemented")
+}
+func (UnimplementedParametersServiceServer) GetJobId(context.Context, *GetJobIdRequest) (*GetJobIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetJobId not implemented")
+}
+func (UnimplementedParametersServiceServer) GetJobNamespace(context.Context, *GetJobNamespaceRequest) (*GetJobNamespaceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetJobNamespace not implemented")
+}
+func (UnimplementedParametersServiceServer) GetNetwork(context.Context, *GetNetworkRequest) (*GetNetworkResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetNetwork not implemented")
+}
+func (UnimplementedParametersServiceServer) GetStopReason(context.Context, *GetStopReasonRequest) (*GetStopReasonResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetStopReason not implemented")
+}
+func (UnimplementedParametersServiceServer) GetTransientExtras(context.Context, *GetTransientExtrasRequest) (*GetTransientExtrasResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTransientExtras not implemented")
+}
+func (UnimplementedParametersServiceServer) GetTriggeredContentAuthorities(context.Context, *GetTriggeredContentAuthoritiesRequest) (*GetTriggeredContentAuthoritiesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTriggeredContentAuthorities not implemented")
+}
+func (UnimplementedParametersServiceServer) GetTriggeredContentUris(context.Context, *GetTriggeredContentUrisRequest) (*GetTriggeredContentUrisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTriggeredContentUris not implemented")
+}
+func (UnimplementedParametersServiceServer) IsExpeditedJob(context.Context, *IsExpeditedJobRequest) (*IsExpeditedJobResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsExpeditedJob not implemented")
+}
+func (UnimplementedParametersServiceServer) IsOverrideDeadlineExpired(context.Context, *IsOverrideDeadlineExpiredRequest) (*IsOverrideDeadlineExpiredResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsOverrideDeadlineExpired not implemented")
+}
+func (UnimplementedParametersServiceServer) IsUserInitiatedJob(context.Context, *IsUserInitiatedJobRequest) (*IsUserInitiatedJobResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsUserInitiatedJob not implemented")
+}
+func (UnimplementedParametersServiceServer) WriteToParcel(context.Context, *ParametersWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedParametersServiceServer) mustEmbedUnimplementedParametersServiceServer() {}
+func (UnimplementedParametersServiceServer) testEmbeddedByValue()                           {}
+
+// UnsafeParametersServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ParametersServiceServer will
+// result in compilation errors.
+type UnsafeParametersServiceServer interface {
+	mustEmbedUnimplementedParametersServiceServer()
+}
+
+func RegisterParametersServiceServer(s grpc.ServiceRegistrar, srv ParametersServiceServer) {
+	// If the following call panics, it indicates UnimplementedParametersServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ParametersService_ServiceDesc, srv)
+}
+
+func _ParametersService_CompleteWork_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CompleteWorkRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ParametersServiceServer).CompleteWork(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ParametersService_CompleteWork_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ParametersServiceServer).CompleteWork(ctx, req.(*CompleteWorkRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ParametersService_DequeueWork_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DequeueWorkRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ParametersServiceServer).DequeueWork(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ParametersService_DequeueWork_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ParametersServiceServer).DequeueWork(ctx, req.(*DequeueWorkRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ParametersService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ParametersDescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ParametersServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ParametersService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ParametersServiceServer).DescribeContents(ctx, req.(*ParametersDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ParametersService_GetClipData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetClipDataRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ParametersServiceServer).GetClipData(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ParametersService_GetClipData_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ParametersServiceServer).GetClipData(ctx, req.(*GetClipDataRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ParametersService_GetClipGrantFlags_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetClipGrantFlagsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ParametersServiceServer).GetClipGrantFlags(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ParametersService_GetClipGrantFlags_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ParametersServiceServer).GetClipGrantFlags(ctx, req.(*GetClipGrantFlagsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ParametersService_GetExtras_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ParametersGetExtrasRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ParametersServiceServer).GetExtras(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ParametersService_GetExtras_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ParametersServiceServer).GetExtras(ctx, req.(*ParametersGetExtrasRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ParametersService_GetJobId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetJobIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ParametersServiceServer).GetJobId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ParametersService_GetJobId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ParametersServiceServer).GetJobId(ctx, req.(*GetJobIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ParametersService_GetJobNamespace_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetJobNamespaceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ParametersServiceServer).GetJobNamespace(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ParametersService_GetJobNamespace_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ParametersServiceServer).GetJobNamespace(ctx, req.(*GetJobNamespaceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ParametersService_GetNetwork_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetNetworkRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ParametersServiceServer).GetNetwork(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ParametersService_GetNetwork_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ParametersServiceServer).GetNetwork(ctx, req.(*GetNetworkRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ParametersService_GetStopReason_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStopReasonRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ParametersServiceServer).GetStopReason(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ParametersService_GetStopReason_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ParametersServiceServer).GetStopReason(ctx, req.(*GetStopReasonRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ParametersService_GetTransientExtras_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTransientExtrasRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ParametersServiceServer).GetTransientExtras(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ParametersService_GetTransientExtras_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ParametersServiceServer).GetTransientExtras(ctx, req.(*GetTransientExtrasRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ParametersService_GetTriggeredContentAuthorities_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTriggeredContentAuthoritiesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ParametersServiceServer).GetTriggeredContentAuthorities(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ParametersService_GetTriggeredContentAuthorities_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ParametersServiceServer).GetTriggeredContentAuthorities(ctx, req.(*GetTriggeredContentAuthoritiesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ParametersService_GetTriggeredContentUris_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTriggeredContentUrisRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ParametersServiceServer).GetTriggeredContentUris(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ParametersService_GetTriggeredContentUris_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ParametersServiceServer).GetTriggeredContentUris(ctx, req.(*GetTriggeredContentUrisRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ParametersService_IsExpeditedJob_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsExpeditedJobRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ParametersServiceServer).IsExpeditedJob(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ParametersService_IsExpeditedJob_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ParametersServiceServer).IsExpeditedJob(ctx, req.(*IsExpeditedJobRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ParametersService_IsOverrideDeadlineExpired_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsOverrideDeadlineExpiredRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ParametersServiceServer).IsOverrideDeadlineExpired(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ParametersService_IsOverrideDeadlineExpired_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ParametersServiceServer).IsOverrideDeadlineExpired(ctx, req.(*IsOverrideDeadlineExpiredRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ParametersService_IsUserInitiatedJob_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsUserInitiatedJobRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ParametersServiceServer).IsUserInitiatedJob(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ParametersService_IsUserInitiatedJob_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ParametersServiceServer).IsUserInitiatedJob(ctx, req.(*IsUserInitiatedJobRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ParametersService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ParametersWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ParametersServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ParametersService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ParametersServiceServer).WriteToParcel(ctx, req.(*ParametersWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ParametersService_ServiceDesc is the grpc.ServiceDesc for ParametersService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ParametersService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "job.ParametersService",
+	HandlerType: (*ParametersServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "CompleteWork",
+			Handler:    _ParametersService_CompleteWork_Handler,
+		},
+		{
+			MethodName: "DequeueWork",
+			Handler:    _ParametersService_DequeueWork_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _ParametersService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetClipData",
+			Handler:    _ParametersService_GetClipData_Handler,
+		},
+		{
+			MethodName: "GetClipGrantFlags",
+			Handler:    _ParametersService_GetClipGrantFlags_Handler,
+		},
+		{
+			MethodName: "GetExtras",
+			Handler:    _ParametersService_GetExtras_Handler,
+		},
+		{
+			MethodName: "GetJobId",
+			Handler:    _ParametersService_GetJobId_Handler,
+		},
+		{
+			MethodName: "GetJobNamespace",
+			Handler:    _ParametersService_GetJobNamespace_Handler,
+		},
+		{
+			MethodName: "GetNetwork",
+			Handler:    _ParametersService_GetNetwork_Handler,
+		},
+		{
+			MethodName: "GetStopReason",
+			Handler:    _ParametersService_GetStopReason_Handler,
+		},
+		{
+			MethodName: "GetTransientExtras",
+			Handler:    _ParametersService_GetTransientExtras_Handler,
+		},
+		{
+			MethodName: "GetTriggeredContentAuthorities",
+			Handler:    _ParametersService_GetTriggeredContentAuthorities_Handler,
+		},
+		{
+			MethodName: "GetTriggeredContentUris",
+			Handler:    _ParametersService_GetTriggeredContentUris_Handler,
+		},
+		{
+			MethodName: "IsExpeditedJob",
+			Handler:    _ParametersService_IsExpeditedJob_Handler,
+		},
+		{
+			MethodName: "IsOverrideDeadlineExpired",
+			Handler:    _ParametersService_IsOverrideDeadlineExpired_Handler,
+		},
+		{
+			MethodName: "IsUserInitiatedJob",
+			Handler:    _ParametersService_IsUserInitiatedJob_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _ParametersService_WriteToParcel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

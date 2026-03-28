@@ -21,6 +21,412 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
+	DeviceService_DescribeContents_FullMethodName       = "/virtual.DeviceService/DescribeContents"
+	DeviceService_GetDeviceId_FullMethodName            = "/virtual.DeviceService/GetDeviceId"
+	DeviceService_GetDisplayIds_FullMethodName          = "/virtual.DeviceService/GetDisplayIds"
+	DeviceService_GetDisplayName_FullMethodName         = "/virtual.DeviceService/GetDisplayName"
+	DeviceService_GetName_FullMethodName                = "/virtual.DeviceService/GetName"
+	DeviceService_GetPersistentDeviceId_FullMethodName  = "/virtual.DeviceService/GetPersistentDeviceId"
+	DeviceService_HasCustomSensorSupport_FullMethodName = "/virtual.DeviceService/HasCustomSensorSupport"
+	DeviceService_ToString_FullMethodName               = "/virtual.DeviceService/ToString"
+	DeviceService_WriteToParcel_FullMethodName          = "/virtual.DeviceService/WriteToParcel"
+)
+
+// DeviceServiceClient is the client API for DeviceService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type DeviceServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetDeviceId(ctx context.Context, in *GetDeviceIdRequest, opts ...grpc.CallOption) (*GetDeviceIdResponse, error)
+	GetDisplayIds(ctx context.Context, in *GetDisplayIdsRequest, opts ...grpc.CallOption) (*GetDisplayIdsResponse, error)
+	GetDisplayName(ctx context.Context, in *GetDisplayNameRequest, opts ...grpc.CallOption) (*GetDisplayNameResponse, error)
+	GetName(ctx context.Context, in *GetNameRequest, opts ...grpc.CallOption) (*GetNameResponse, error)
+	GetPersistentDeviceId(ctx context.Context, in *GetPersistentDeviceIdRequest, opts ...grpc.CallOption) (*GetPersistentDeviceIdResponse, error)
+	HasCustomSensorSupport(ctx context.Context, in *HasCustomSensorSupportRequest, opts ...grpc.CallOption) (*HasCustomSensorSupportResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type deviceServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewDeviceServiceClient(cc grpc.ClientConnInterface) DeviceServiceClient {
+	return &deviceServiceClient{cc}
+}
+
+func (c *deviceServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, DeviceService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceServiceClient) GetDeviceId(ctx context.Context, in *GetDeviceIdRequest, opts ...grpc.CallOption) (*GetDeviceIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDeviceIdResponse)
+	err := c.cc.Invoke(ctx, DeviceService_GetDeviceId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceServiceClient) GetDisplayIds(ctx context.Context, in *GetDisplayIdsRequest, opts ...grpc.CallOption) (*GetDisplayIdsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDisplayIdsResponse)
+	err := c.cc.Invoke(ctx, DeviceService_GetDisplayIds_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceServiceClient) GetDisplayName(ctx context.Context, in *GetDisplayNameRequest, opts ...grpc.CallOption) (*GetDisplayNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDisplayNameResponse)
+	err := c.cc.Invoke(ctx, DeviceService_GetDisplayName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceServiceClient) GetName(ctx context.Context, in *GetNameRequest, opts ...grpc.CallOption) (*GetNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetNameResponse)
+	err := c.cc.Invoke(ctx, DeviceService_GetName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceServiceClient) GetPersistentDeviceId(ctx context.Context, in *GetPersistentDeviceIdRequest, opts ...grpc.CallOption) (*GetPersistentDeviceIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPersistentDeviceIdResponse)
+	err := c.cc.Invoke(ctx, DeviceService_GetPersistentDeviceId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceServiceClient) HasCustomSensorSupport(ctx context.Context, in *HasCustomSensorSupportRequest, opts ...grpc.CallOption) (*HasCustomSensorSupportResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HasCustomSensorSupportResponse)
+	err := c.cc.Invoke(ctx, DeviceService_HasCustomSensorSupport_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, DeviceService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, DeviceService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// DeviceServiceServer is the server API for DeviceService service.
+// All implementations must embed UnimplementedDeviceServiceServer
+// for forward compatibility.
+type DeviceServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetDeviceId(context.Context, *GetDeviceIdRequest) (*GetDeviceIdResponse, error)
+	GetDisplayIds(context.Context, *GetDisplayIdsRequest) (*GetDisplayIdsResponse, error)
+	GetDisplayName(context.Context, *GetDisplayNameRequest) (*GetDisplayNameResponse, error)
+	GetName(context.Context, *GetNameRequest) (*GetNameResponse, error)
+	GetPersistentDeviceId(context.Context, *GetPersistentDeviceIdRequest) (*GetPersistentDeviceIdResponse, error)
+	HasCustomSensorSupport(context.Context, *HasCustomSensorSupportRequest) (*HasCustomSensorSupportResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedDeviceServiceServer()
+}
+
+// UnimplementedDeviceServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedDeviceServiceServer struct{}
+
+func (UnimplementedDeviceServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedDeviceServiceServer) GetDeviceId(context.Context, *GetDeviceIdRequest) (*GetDeviceIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDeviceId not implemented")
+}
+func (UnimplementedDeviceServiceServer) GetDisplayIds(context.Context, *GetDisplayIdsRequest) (*GetDisplayIdsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDisplayIds not implemented")
+}
+func (UnimplementedDeviceServiceServer) GetDisplayName(context.Context, *GetDisplayNameRequest) (*GetDisplayNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDisplayName not implemented")
+}
+func (UnimplementedDeviceServiceServer) GetName(context.Context, *GetNameRequest) (*GetNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetName not implemented")
+}
+func (UnimplementedDeviceServiceServer) GetPersistentDeviceId(context.Context, *GetPersistentDeviceIdRequest) (*GetPersistentDeviceIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPersistentDeviceId not implemented")
+}
+func (UnimplementedDeviceServiceServer) HasCustomSensorSupport(context.Context, *HasCustomSensorSupportRequest) (*HasCustomSensorSupportResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HasCustomSensorSupport not implemented")
+}
+func (UnimplementedDeviceServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedDeviceServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedDeviceServiceServer) mustEmbedUnimplementedDeviceServiceServer() {}
+func (UnimplementedDeviceServiceServer) testEmbeddedByValue()                       {}
+
+// UnsafeDeviceServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to DeviceServiceServer will
+// result in compilation errors.
+type UnsafeDeviceServiceServer interface {
+	mustEmbedUnimplementedDeviceServiceServer()
+}
+
+func RegisterDeviceServiceServer(s grpc.ServiceRegistrar, srv DeviceServiceServer) {
+	// If the following call panics, it indicates UnimplementedDeviceServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&DeviceService_ServiceDesc, srv)
+}
+
+func _DeviceService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceService_GetDeviceId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDeviceIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceServiceServer).GetDeviceId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceService_GetDeviceId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceServiceServer).GetDeviceId(ctx, req.(*GetDeviceIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceService_GetDisplayIds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDisplayIdsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceServiceServer).GetDisplayIds(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceService_GetDisplayIds_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceServiceServer).GetDisplayIds(ctx, req.(*GetDisplayIdsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceService_GetDisplayName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDisplayNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceServiceServer).GetDisplayName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceService_GetDisplayName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceServiceServer).GetDisplayName(ctx, req.(*GetDisplayNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceService_GetName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceServiceServer).GetName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceService_GetName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceServiceServer).GetName(ctx, req.(*GetNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceService_GetPersistentDeviceId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPersistentDeviceIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceServiceServer).GetPersistentDeviceId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceService_GetPersistentDeviceId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceServiceServer).GetPersistentDeviceId(ctx, req.(*GetPersistentDeviceIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceService_HasCustomSensorSupport_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HasCustomSensorSupportRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceServiceServer).HasCustomSensorSupport(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceService_HasCustomSensorSupport_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceServiceServer).HasCustomSensorSupport(ctx, req.(*HasCustomSensorSupportRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// DeviceService_ServiceDesc is the grpc.ServiceDesc for DeviceService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var DeviceService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "virtual.DeviceService",
+	HandlerType: (*DeviceServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _DeviceService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetDeviceId",
+			Handler:    _DeviceService_GetDeviceId_Handler,
+		},
+		{
+			MethodName: "GetDisplayIds",
+			Handler:    _DeviceService_GetDisplayIds_Handler,
+		},
+		{
+			MethodName: "GetDisplayName",
+			Handler:    _DeviceService_GetDisplayName_Handler,
+		},
+		{
+			MethodName: "GetName",
+			Handler:    _DeviceService_GetName_Handler,
+		},
+		{
+			MethodName: "GetPersistentDeviceId",
+			Handler:    _DeviceService_GetPersistentDeviceId_Handler,
+		},
+		{
+			MethodName: "HasCustomSensorSupport",
+			Handler:    _DeviceService_HasCustomSensorSupport_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _DeviceService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _DeviceService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/virtual/virtual.proto",
+}
+
+const (
 	DeviceManagerService_GetVirtualDevice_FullMethodName                = "/virtual.DeviceManagerService/GetVirtualDevice"
 	DeviceManagerService_RegisterVirtualDeviceListener_FullMethodName   = "/virtual.DeviceManagerService/RegisterVirtualDeviceListener"
 	DeviceManagerService_UnregisterVirtualDeviceListener_FullMethodName = "/virtual.DeviceManagerService/UnregisterVirtualDeviceListener"

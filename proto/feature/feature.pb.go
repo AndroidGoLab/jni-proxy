@@ -12,6 +12,7 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -22,16 +23,401 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type EqualsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EqualsRequest) Reset() {
+	*x = EqualsRequest{}
+	mi := &file_proto_feature_feature_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EqualsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EqualsRequest) ProtoMessage() {}
+
+func (x *EqualsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_feature_feature_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EqualsRequest.ProtoReflect.Descriptor instead.
+func (*EqualsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_feature_feature_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *EqualsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type EqualsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EqualsResponse) Reset() {
+	*x = EqualsResponse{}
+	mi := &file_proto_feature_feature_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EqualsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EqualsResponse) ProtoMessage() {}
+
+func (x *EqualsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_feature_feature_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EqualsResponse.ProtoReflect.Descriptor instead.
+func (*EqualsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_feature_feature_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *EqualsResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type HashCodeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HashCodeRequest) Reset() {
+	*x = HashCodeRequest{}
+	mi := &file_proto_feature_feature_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HashCodeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HashCodeRequest) ProtoMessage() {}
+
+func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_feature_feature_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HashCodeRequest.ProtoReflect.Descriptor instead.
+func (*HashCodeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_feature_feature_proto_rawDescGZIP(), []int{2}
+}
+
+type HashCodeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HashCodeResponse) Reset() {
+	*x = HashCodeResponse{}
+	mi := &file_proto_feature_feature_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HashCodeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HashCodeResponse) ProtoMessage() {}
+
+func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_feature_feature_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HashCodeResponse.ProtoReflect.Descriptor instead.
+func (*HashCodeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_feature_feature_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *HashCodeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type IsCapableRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsCapableRequest) Reset() {
+	*x = IsCapableRequest{}
+	mi := &file_proto_feature_feature_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsCapableRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsCapableRequest) ProtoMessage() {}
+
+func (x *IsCapableRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_feature_feature_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsCapableRequest.ProtoReflect.Descriptor instead.
+func (*IsCapableRequest) Descriptor() ([]byte, []int) {
+	return file_proto_feature_feature_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *IsCapableRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type IsCapableResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsCapableResponse) Reset() {
+	*x = IsCapableResponse{}
+	mi := &file_proto_feature_feature_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsCapableResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsCapableResponse) ProtoMessage() {}
+
+func (x *IsCapableResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_feature_feature_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsCapableResponse.ProtoReflect.Descriptor instead.
+func (*IsCapableResponse) Descriptor() ([]byte, []int) {
+	return file_proto_feature_feature_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *IsCapableResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type ToStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringRequest) Reset() {
+	*x = ToStringRequest{}
+	mi := &file_proto_feature_feature_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringRequest) ProtoMessage() {}
+
+func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_feature_feature_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringRequest.ProtoReflect.Descriptor instead.
+func (*ToStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_feature_feature_proto_rawDescGZIP(), []int{6}
+}
+
+type ToStringResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringResponse) Reset() {
+	*x = ToStringResponse{}
+	mi := &file_proto_feature_feature_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringResponse) ProtoMessage() {}
+
+func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_feature_feature_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringResponse.ProtoReflect.Descriptor instead.
+func (*ToStringResponse) Descriptor() ([]byte, []int) {
+	return file_proto_feature_feature_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *ToStringResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
 var File_proto_feature_feature_proto protoreflect.FileDescriptor
 
 const file_proto_feature_feature_proto_rawDesc = "" +
 	"\n" +
-	"\x1bproto/feature/feature.proto\x12\afeatureB1Z/github.com/AndroidGoLab/jni-proxy/proto/featureb\x06proto3"
+	"\x1bproto/feature/feature.proto\x12\afeature\"#\n" +
+	"\rEqualsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"(\n" +
+	"\x0eEqualsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x11\n" +
+	"\x0fHashCodeRequest\"*\n" +
+	"\x10HashCodeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"&\n" +
+	"\x10IsCapableRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"+\n" +
+	"\x11IsCapableResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x11\n" +
+	"\x0fToStringRequest\"*\n" +
+	"\x10ToStringResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result2\xa7\x02\n" +
+	"$MmTelFeatureMmTelCapabilitiesService\x129\n" +
+	"\x06Equals\x12\x16.feature.EqualsRequest\x1a\x17.feature.EqualsResponse\x12?\n" +
+	"\bHashCode\x12\x18.feature.HashCodeRequest\x1a\x19.feature.HashCodeResponse\x12B\n" +
+	"\tIsCapable\x12\x19.feature.IsCapableRequest\x1a\x1a.feature.IsCapableResponse\x12?\n" +
+	"\bToString\x12\x18.feature.ToStringRequest\x1a\x19.feature.ToStringResponseB1Z/github.com/AndroidGoLab/jni-proxy/proto/featureb\x06proto3"
 
-var file_proto_feature_feature_proto_goTypes = []any{}
+var (
+	file_proto_feature_feature_proto_rawDescOnce sync.Once
+	file_proto_feature_feature_proto_rawDescData []byte
+)
+
+func file_proto_feature_feature_proto_rawDescGZIP() []byte {
+	file_proto_feature_feature_proto_rawDescOnce.Do(func() {
+		file_proto_feature_feature_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_proto_feature_feature_proto_rawDesc), len(file_proto_feature_feature_proto_rawDesc)))
+	})
+	return file_proto_feature_feature_proto_rawDescData
+}
+
+var file_proto_feature_feature_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
+var file_proto_feature_feature_proto_goTypes = []any{
+	(*EqualsRequest)(nil),     // 0: feature.EqualsRequest
+	(*EqualsResponse)(nil),    // 1: feature.EqualsResponse
+	(*HashCodeRequest)(nil),   // 2: feature.HashCodeRequest
+	(*HashCodeResponse)(nil),  // 3: feature.HashCodeResponse
+	(*IsCapableRequest)(nil),  // 4: feature.IsCapableRequest
+	(*IsCapableResponse)(nil), // 5: feature.IsCapableResponse
+	(*ToStringRequest)(nil),   // 6: feature.ToStringRequest
+	(*ToStringResponse)(nil),  // 7: feature.ToStringResponse
+}
 var file_proto_feature_feature_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
+	0, // 0: feature.MmTelFeatureMmTelCapabilitiesService.Equals:input_type -> feature.EqualsRequest
+	2, // 1: feature.MmTelFeatureMmTelCapabilitiesService.HashCode:input_type -> feature.HashCodeRequest
+	4, // 2: feature.MmTelFeatureMmTelCapabilitiesService.IsCapable:input_type -> feature.IsCapableRequest
+	6, // 3: feature.MmTelFeatureMmTelCapabilitiesService.ToString:input_type -> feature.ToStringRequest
+	1, // 4: feature.MmTelFeatureMmTelCapabilitiesService.Equals:output_type -> feature.EqualsResponse
+	3, // 5: feature.MmTelFeatureMmTelCapabilitiesService.HashCode:output_type -> feature.HashCodeResponse
+	5, // 6: feature.MmTelFeatureMmTelCapabilitiesService.IsCapable:output_type -> feature.IsCapableResponse
+	7, // 7: feature.MmTelFeatureMmTelCapabilitiesService.ToString:output_type -> feature.ToStringResponse
+	4, // [4:8] is the sub-list for method output_type
+	0, // [0:4] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
 	0, // [0:0] is the sub-list for extension extendee
 	0, // [0:0] is the sub-list for field type_name
@@ -48,12 +434,13 @@ func file_proto_feature_feature_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_feature_feature_proto_rawDesc), len(file_proto_feature_feature_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   8,
 			NumExtensions: 0,
-			NumServices:   0,
+			NumServices:   1,
 		},
 		GoTypes:           file_proto_feature_feature_proto_goTypes,
 		DependencyIndexes: file_proto_feature_feature_proto_depIdxs,
+		MessageInfos:      file_proto_feature_feature_proto_msgTypes,
 	}.Build()
 	File_proto_feature_feature_proto = out.File
 	file_proto_feature_feature_proto_goTypes = nil

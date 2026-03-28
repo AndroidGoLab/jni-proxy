@@ -12,6 +12,7 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -22,19 +23,5220 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type NewAudioRecordRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int32                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	Arg4          int32                  `protobuf:"varint,5,opt,name=arg4,proto3" json:"arg4,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewAudioRecordRequest) Reset() {
+	*x = NewAudioRecordRequest{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewAudioRecordRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewAudioRecordRequest) ProtoMessage() {}
+
+func (x *NewAudioRecordRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewAudioRecordRequest.ProtoReflect.Descriptor instead.
+func (*NewAudioRecordRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *NewAudioRecordRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *NewAudioRecordRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *NewAudioRecordRequest) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *NewAudioRecordRequest) GetArg3() int32 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+func (x *NewAudioRecordRequest) GetArg4() int32 {
+	if x != nil {
+		return x.Arg4
+	}
+	return 0
+}
+
+type NewAudioRecordResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewAudioRecordResponse) Reset() {
+	*x = NewAudioRecordResponse{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewAudioRecordResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewAudioRecordResponse) ProtoMessage() {}
+
+func (x *NewAudioRecordResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewAudioRecordResponse.ProtoReflect.Descriptor instead.
+func (*NewAudioRecordResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *NewAudioRecordResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetActiveRecordingConfigurationRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetActiveRecordingConfigurationRequest) Reset() {
+	*x = GetActiveRecordingConfigurationRequest{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetActiveRecordingConfigurationRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetActiveRecordingConfigurationRequest) ProtoMessage() {}
+
+func (x *GetActiveRecordingConfigurationRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetActiveRecordingConfigurationRequest.ProtoReflect.Descriptor instead.
+func (*GetActiveRecordingConfigurationRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *GetActiveRecordingConfigurationRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetActiveRecordingConfigurationResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetActiveRecordingConfigurationResponse) Reset() {
+	*x = GetActiveRecordingConfigurationResponse{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetActiveRecordingConfigurationResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetActiveRecordingConfigurationResponse) ProtoMessage() {}
+
+func (x *GetActiveRecordingConfigurationResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetActiveRecordingConfigurationResponse.ProtoReflect.Descriptor instead.
+func (*GetActiveRecordingConfigurationResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *GetActiveRecordingConfigurationResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetAudioFormatRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAudioFormatRequest) Reset() {
+	*x = GetAudioFormatRequest{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAudioFormatRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAudioFormatRequest) ProtoMessage() {}
+
+func (x *GetAudioFormatRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAudioFormatRequest.ProtoReflect.Descriptor instead.
+func (*GetAudioFormatRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *GetAudioFormatRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetAudioFormatResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAudioFormatResponse) Reset() {
+	*x = GetAudioFormatResponse{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAudioFormatResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAudioFormatResponse) ProtoMessage() {}
+
+func (x *GetAudioFormatResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAudioFormatResponse.ProtoReflect.Descriptor instead.
+func (*GetAudioFormatResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *GetAudioFormatResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetAudioSessionIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAudioSessionIdRequest) Reset() {
+	*x = GetAudioSessionIdRequest{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAudioSessionIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAudioSessionIdRequest) ProtoMessage() {}
+
+func (x *GetAudioSessionIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAudioSessionIdRequest.ProtoReflect.Descriptor instead.
+func (*GetAudioSessionIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *GetAudioSessionIdRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetAudioSessionIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAudioSessionIdResponse) Reset() {
+	*x = GetAudioSessionIdResponse{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAudioSessionIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAudioSessionIdResponse) ProtoMessage() {}
+
+func (x *GetAudioSessionIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAudioSessionIdResponse.ProtoReflect.Descriptor instead.
+func (*GetAudioSessionIdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *GetAudioSessionIdResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetAudioSourceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAudioSourceRequest) Reset() {
+	*x = GetAudioSourceRequest{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAudioSourceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAudioSourceRequest) ProtoMessage() {}
+
+func (x *GetAudioSourceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAudioSourceRequest.ProtoReflect.Descriptor instead.
+func (*GetAudioSourceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *GetAudioSourceRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetAudioSourceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAudioSourceResponse) Reset() {
+	*x = GetAudioSourceResponse{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAudioSourceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAudioSourceResponse) ProtoMessage() {}
+
+func (x *GetAudioSourceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAudioSourceResponse.ProtoReflect.Descriptor instead.
+func (*GetAudioSourceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *GetAudioSourceResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetBufferSizeInFramesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBufferSizeInFramesRequest) Reset() {
+	*x = GetBufferSizeInFramesRequest{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBufferSizeInFramesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBufferSizeInFramesRequest) ProtoMessage() {}
+
+func (x *GetBufferSizeInFramesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBufferSizeInFramesRequest.ProtoReflect.Descriptor instead.
+func (*GetBufferSizeInFramesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *GetBufferSizeInFramesRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetBufferSizeInFramesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBufferSizeInFramesResponse) Reset() {
+	*x = GetBufferSizeInFramesResponse{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBufferSizeInFramesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBufferSizeInFramesResponse) ProtoMessage() {}
+
+func (x *GetBufferSizeInFramesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBufferSizeInFramesResponse.ProtoReflect.Descriptor instead.
+func (*GetBufferSizeInFramesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *GetBufferSizeInFramesResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetChannelConfigurationRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetChannelConfigurationRequest) Reset() {
+	*x = GetChannelConfigurationRequest{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetChannelConfigurationRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetChannelConfigurationRequest) ProtoMessage() {}
+
+func (x *GetChannelConfigurationRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetChannelConfigurationRequest.ProtoReflect.Descriptor instead.
+func (*GetChannelConfigurationRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *GetChannelConfigurationRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetChannelConfigurationResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetChannelConfigurationResponse) Reset() {
+	*x = GetChannelConfigurationResponse{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetChannelConfigurationResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetChannelConfigurationResponse) ProtoMessage() {}
+
+func (x *GetChannelConfigurationResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetChannelConfigurationResponse.ProtoReflect.Descriptor instead.
+func (*GetChannelConfigurationResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *GetChannelConfigurationResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetChannelCountRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetChannelCountRequest) Reset() {
+	*x = GetChannelCountRequest{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetChannelCountRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetChannelCountRequest) ProtoMessage() {}
+
+func (x *GetChannelCountRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetChannelCountRequest.ProtoReflect.Descriptor instead.
+func (*GetChannelCountRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{14}
+}
+
+func (x *GetChannelCountRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetChannelCountResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetChannelCountResponse) Reset() {
+	*x = GetChannelCountResponse{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetChannelCountResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetChannelCountResponse) ProtoMessage() {}
+
+func (x *GetChannelCountResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetChannelCountResponse.ProtoReflect.Descriptor instead.
+func (*GetChannelCountResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *GetChannelCountResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetFormatRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetFormatRequest) Reset() {
+	*x = GetFormatRequest{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetFormatRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetFormatRequest) ProtoMessage() {}
+
+func (x *GetFormatRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetFormatRequest.ProtoReflect.Descriptor instead.
+func (*GetFormatRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{16}
+}
+
+func (x *GetFormatRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetFormatResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetFormatResponse) Reset() {
+	*x = GetFormatResponse{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetFormatResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetFormatResponse) ProtoMessage() {}
+
+func (x *GetFormatResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetFormatResponse.ProtoReflect.Descriptor instead.
+func (*GetFormatResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *GetFormatResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetLogSessionIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLogSessionIdRequest) Reset() {
+	*x = GetLogSessionIdRequest{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLogSessionIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLogSessionIdRequest) ProtoMessage() {}
+
+func (x *GetLogSessionIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLogSessionIdRequest.ProtoReflect.Descriptor instead.
+func (*GetLogSessionIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{18}
+}
+
+func (x *GetLogSessionIdRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetLogSessionIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLogSessionIdResponse) Reset() {
+	*x = GetLogSessionIdResponse{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLogSessionIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLogSessionIdResponse) ProtoMessage() {}
+
+func (x *GetLogSessionIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLogSessionIdResponse.ProtoReflect.Descriptor instead.
+func (*GetLogSessionIdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *GetLogSessionIdResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetMetricsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMetricsRequest) Reset() {
+	*x = GetMetricsRequest{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMetricsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMetricsRequest) ProtoMessage() {}
+
+func (x *GetMetricsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMetricsRequest.ProtoReflect.Descriptor instead.
+func (*GetMetricsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{20}
+}
+
+func (x *GetMetricsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetMetricsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMetricsResponse) Reset() {
+	*x = GetMetricsResponse{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMetricsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMetricsResponse) ProtoMessage() {}
+
+func (x *GetMetricsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMetricsResponse.ProtoReflect.Descriptor instead.
+func (*GetMetricsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{21}
+}
+
+func (x *GetMetricsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetNotificationMarkerPositionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNotificationMarkerPositionRequest) Reset() {
+	*x = GetNotificationMarkerPositionRequest{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNotificationMarkerPositionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNotificationMarkerPositionRequest) ProtoMessage() {}
+
+func (x *GetNotificationMarkerPositionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNotificationMarkerPositionRequest.ProtoReflect.Descriptor instead.
+func (*GetNotificationMarkerPositionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{22}
+}
+
+func (x *GetNotificationMarkerPositionRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetNotificationMarkerPositionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNotificationMarkerPositionResponse) Reset() {
+	*x = GetNotificationMarkerPositionResponse{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNotificationMarkerPositionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNotificationMarkerPositionResponse) ProtoMessage() {}
+
+func (x *GetNotificationMarkerPositionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNotificationMarkerPositionResponse.ProtoReflect.Descriptor instead.
+func (*GetNotificationMarkerPositionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{23}
+}
+
+func (x *GetNotificationMarkerPositionResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPositionNotificationPeriodRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPositionNotificationPeriodRequest) Reset() {
+	*x = GetPositionNotificationPeriodRequest{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPositionNotificationPeriodRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPositionNotificationPeriodRequest) ProtoMessage() {}
+
+func (x *GetPositionNotificationPeriodRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPositionNotificationPeriodRequest.ProtoReflect.Descriptor instead.
+func (*GetPositionNotificationPeriodRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{24}
+}
+
+func (x *GetPositionNotificationPeriodRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetPositionNotificationPeriodResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPositionNotificationPeriodResponse) Reset() {
+	*x = GetPositionNotificationPeriodResponse{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPositionNotificationPeriodResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPositionNotificationPeriodResponse) ProtoMessage() {}
+
+func (x *GetPositionNotificationPeriodResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPositionNotificationPeriodResponse.ProtoReflect.Descriptor instead.
+func (*GetPositionNotificationPeriodResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{25}
+}
+
+func (x *GetPositionNotificationPeriodResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPreferredDeviceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPreferredDeviceRequest) Reset() {
+	*x = GetPreferredDeviceRequest{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[26]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPreferredDeviceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPreferredDeviceRequest) ProtoMessage() {}
+
+func (x *GetPreferredDeviceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[26]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPreferredDeviceRequest.ProtoReflect.Descriptor instead.
+func (*GetPreferredDeviceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{26}
+}
+
+func (x *GetPreferredDeviceRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetPreferredDeviceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPreferredDeviceResponse) Reset() {
+	*x = GetPreferredDeviceResponse{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[27]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPreferredDeviceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPreferredDeviceResponse) ProtoMessage() {}
+
+func (x *GetPreferredDeviceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[27]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPreferredDeviceResponse.ProtoReflect.Descriptor instead.
+func (*GetPreferredDeviceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{27}
+}
+
+func (x *GetPreferredDeviceResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetRecordingStateRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRecordingStateRequest) Reset() {
+	*x = GetRecordingStateRequest{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[28]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRecordingStateRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRecordingStateRequest) ProtoMessage() {}
+
+func (x *GetRecordingStateRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[28]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRecordingStateRequest.ProtoReflect.Descriptor instead.
+func (*GetRecordingStateRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{28}
+}
+
+func (x *GetRecordingStateRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetRecordingStateResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRecordingStateResponse) Reset() {
+	*x = GetRecordingStateResponse{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[29]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRecordingStateResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRecordingStateResponse) ProtoMessage() {}
+
+func (x *GetRecordingStateResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[29]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRecordingStateResponse.ProtoReflect.Descriptor instead.
+func (*GetRecordingStateResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{29}
+}
+
+func (x *GetRecordingStateResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetRoutedDeviceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRoutedDeviceRequest) Reset() {
+	*x = GetRoutedDeviceRequest{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[30]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRoutedDeviceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRoutedDeviceRequest) ProtoMessage() {}
+
+func (x *GetRoutedDeviceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[30]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRoutedDeviceRequest.ProtoReflect.Descriptor instead.
+func (*GetRoutedDeviceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{30}
+}
+
+func (x *GetRoutedDeviceRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetRoutedDeviceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRoutedDeviceResponse) Reset() {
+	*x = GetRoutedDeviceResponse{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[31]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRoutedDeviceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRoutedDeviceResponse) ProtoMessage() {}
+
+func (x *GetRoutedDeviceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[31]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRoutedDeviceResponse.ProtoReflect.Descriptor instead.
+func (*GetRoutedDeviceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{31}
+}
+
+func (x *GetRoutedDeviceResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSampleRateRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSampleRateRequest) Reset() {
+	*x = GetSampleRateRequest{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[32]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSampleRateRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSampleRateRequest) ProtoMessage() {}
+
+func (x *GetSampleRateRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[32]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSampleRateRequest.ProtoReflect.Descriptor instead.
+func (*GetSampleRateRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{32}
+}
+
+func (x *GetSampleRateRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetSampleRateResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSampleRateResponse) Reset() {
+	*x = GetSampleRateResponse{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[33]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSampleRateResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSampleRateResponse) ProtoMessage() {}
+
+func (x *GetSampleRateResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[33]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSampleRateResponse.ProtoReflect.Descriptor instead.
+func (*GetSampleRateResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{33}
+}
+
+func (x *GetSampleRateResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetStateRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetStateRequest) Reset() {
+	*x = GetStateRequest{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[34]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetStateRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetStateRequest) ProtoMessage() {}
+
+func (x *GetStateRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[34]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetStateRequest.ProtoReflect.Descriptor instead.
+func (*GetStateRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{34}
+}
+
+func (x *GetStateRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetStateResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetStateResponse) Reset() {
+	*x = GetStateResponse{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[35]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetStateResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetStateResponse) ProtoMessage() {}
+
+func (x *GetStateResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[35]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetStateResponse.ProtoReflect.Descriptor instead.
+func (*GetStateResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{35}
+}
+
+func (x *GetStateResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetTimestampRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTimestampRequest) Reset() {
+	*x = GetTimestampRequest{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[36]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTimestampRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTimestampRequest) ProtoMessage() {}
+
+func (x *GetTimestampRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[36]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTimestampRequest.ProtoReflect.Descriptor instead.
+func (*GetTimestampRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{36}
+}
+
+func (x *GetTimestampRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetTimestampRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *GetTimestampRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type GetTimestampResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTimestampResponse) Reset() {
+	*x = GetTimestampResponse{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[37]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTimestampResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTimestampResponse) ProtoMessage() {}
+
+func (x *GetTimestampResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[37]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTimestampResponse.ProtoReflect.Descriptor instead.
+func (*GetTimestampResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{37}
+}
+
+func (x *GetTimestampResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type IsPrivacySensitiveRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsPrivacySensitiveRequest) Reset() {
+	*x = IsPrivacySensitiveRequest{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[38]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsPrivacySensitiveRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsPrivacySensitiveRequest) ProtoMessage() {}
+
+func (x *IsPrivacySensitiveRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[38]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsPrivacySensitiveRequest.ProtoReflect.Descriptor instead.
+func (*IsPrivacySensitiveRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{38}
+}
+
+func (x *IsPrivacySensitiveRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type IsPrivacySensitiveResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsPrivacySensitiveResponse) Reset() {
+	*x = IsPrivacySensitiveResponse{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[39]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsPrivacySensitiveResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsPrivacySensitiveResponse) ProtoMessage() {}
+
+func (x *IsPrivacySensitiveResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[39]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsPrivacySensitiveResponse.ProtoReflect.Descriptor instead.
+func (*IsPrivacySensitiveResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{39}
+}
+
+func (x *IsPrivacySensitiveResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type Read3Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Read3Request) Reset() {
+	*x = Read3Request{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[40]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Read3Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Read3Request) ProtoMessage() {}
+
+func (x *Read3Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[40]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Read3Request.ProtoReflect.Descriptor instead.
+func (*Read3Request) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{40}
+}
+
+func (x *Read3Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *Read3Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *Read3Request) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *Read3Request) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type Read3Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Read3Response) Reset() {
+	*x = Read3Response{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[41]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Read3Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Read3Response) ProtoMessage() {}
+
+func (x *Read3Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[41]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Read3Response.ProtoReflect.Descriptor instead.
+func (*Read3Response) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{41}
+}
+
+func (x *Read3Response) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type Read4_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int32                  `protobuf:"varint,5,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Read4_1Request) Reset() {
+	*x = Read4_1Request{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[42]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Read4_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Read4_1Request) ProtoMessage() {}
+
+func (x *Read4_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[42]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Read4_1Request.ProtoReflect.Descriptor instead.
+func (*Read4_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{42}
+}
+
+func (x *Read4_1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *Read4_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *Read4_1Request) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *Read4_1Request) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *Read4_1Request) GetArg3() int32 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+type Read4_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Read4_1Response) Reset() {
+	*x = Read4_1Response{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[43]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Read4_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Read4_1Response) ProtoMessage() {}
+
+func (x *Read4_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[43]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Read4_1Response.ProtoReflect.Descriptor instead.
+func (*Read4_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{43}
+}
+
+func (x *Read4_1Response) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type Read4_2Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int32                  `protobuf:"varint,5,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Read4_2Request) Reset() {
+	*x = Read4_2Request{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[44]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Read4_2Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Read4_2Request) ProtoMessage() {}
+
+func (x *Read4_2Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[44]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Read4_2Request.ProtoReflect.Descriptor instead.
+func (*Read4_2Request) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{44}
+}
+
+func (x *Read4_2Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *Read4_2Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *Read4_2Request) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *Read4_2Request) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *Read4_2Request) GetArg3() int32 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+type Read4_2Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Read4_2Response) Reset() {
+	*x = Read4_2Response{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[45]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Read4_2Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Read4_2Response) ProtoMessage() {}
+
+func (x *Read4_2Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[45]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Read4_2Response.ProtoReflect.Descriptor instead.
+func (*Read4_2Response) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{45}
+}
+
+func (x *Read4_2Response) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type Read3_3Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Read3_3Request) Reset() {
+	*x = Read3_3Request{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[46]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Read3_3Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Read3_3Request) ProtoMessage() {}
+
+func (x *Read3_3Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[46]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Read3_3Request.ProtoReflect.Descriptor instead.
+func (*Read3_3Request) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{46}
+}
+
+func (x *Read3_3Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *Read3_3Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *Read3_3Request) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *Read3_3Request) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type Read3_3Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Read3_3Response) Reset() {
+	*x = Read3_3Response{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[47]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Read3_3Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Read3_3Response) ProtoMessage() {}
+
+func (x *Read3_3Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[47]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Read3_3Response.ProtoReflect.Descriptor instead.
+func (*Read3_3Response) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{47}
+}
+
+func (x *Read3_3Response) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type Read4_4Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int32                  `protobuf:"varint,5,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Read4_4Request) Reset() {
+	*x = Read4_4Request{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[48]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Read4_4Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Read4_4Request) ProtoMessage() {}
+
+func (x *Read4_4Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[48]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Read4_4Request.ProtoReflect.Descriptor instead.
+func (*Read4_4Request) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{48}
+}
+
+func (x *Read4_4Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *Read4_4Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *Read4_4Request) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *Read4_4Request) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *Read4_4Request) GetArg3() int32 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+type Read4_4Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Read4_4Response) Reset() {
+	*x = Read4_4Response{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[49]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Read4_4Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Read4_4Response) ProtoMessage() {}
+
+func (x *Read4_4Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[49]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Read4_4Response.ProtoReflect.Descriptor instead.
+func (*Read4_4Response) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{49}
+}
+
+func (x *Read4_4Response) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type RegisterAudioRecordingCallbackRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RegisterAudioRecordingCallbackRequest) Reset() {
+	*x = RegisterAudioRecordingCallbackRequest{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[50]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RegisterAudioRecordingCallbackRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RegisterAudioRecordingCallbackRequest) ProtoMessage() {}
+
+func (x *RegisterAudioRecordingCallbackRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[50]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RegisterAudioRecordingCallbackRequest.ProtoReflect.Descriptor instead.
+func (*RegisterAudioRecordingCallbackRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{50}
+}
+
+func (x *RegisterAudioRecordingCallbackRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *RegisterAudioRecordingCallbackRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *RegisterAudioRecordingCallbackRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type RegisterAudioRecordingCallbackResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RegisterAudioRecordingCallbackResponse) Reset() {
+	*x = RegisterAudioRecordingCallbackResponse{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[51]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RegisterAudioRecordingCallbackResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RegisterAudioRecordingCallbackResponse) ProtoMessage() {}
+
+func (x *RegisterAudioRecordingCallbackResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[51]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RegisterAudioRecordingCallbackResponse.ProtoReflect.Descriptor instead.
+func (*RegisterAudioRecordingCallbackResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{51}
+}
+
+type ReleaseRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ReleaseRequest) Reset() {
+	*x = ReleaseRequest{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[52]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ReleaseRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ReleaseRequest) ProtoMessage() {}
+
+func (x *ReleaseRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[52]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ReleaseRequest.ProtoReflect.Descriptor instead.
+func (*ReleaseRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{52}
+}
+
+func (x *ReleaseRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type ReleaseResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ReleaseResponse) Reset() {
+	*x = ReleaseResponse{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[53]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ReleaseResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ReleaseResponse) ProtoMessage() {}
+
+func (x *ReleaseResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[53]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ReleaseResponse.ProtoReflect.Descriptor instead.
+func (*ReleaseResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{53}
+}
+
+type RemoveOnRoutingChangedListener1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RemoveOnRoutingChangedListener1Request) Reset() {
+	*x = RemoveOnRoutingChangedListener1Request{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[54]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RemoveOnRoutingChangedListener1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemoveOnRoutingChangedListener1Request) ProtoMessage() {}
+
+func (x *RemoveOnRoutingChangedListener1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[54]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemoveOnRoutingChangedListener1Request.ProtoReflect.Descriptor instead.
+func (*RemoveOnRoutingChangedListener1Request) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{54}
+}
+
+func (x *RemoveOnRoutingChangedListener1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *RemoveOnRoutingChangedListener1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type RemoveOnRoutingChangedListener1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RemoveOnRoutingChangedListener1Response) Reset() {
+	*x = RemoveOnRoutingChangedListener1Response{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[55]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RemoveOnRoutingChangedListener1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemoveOnRoutingChangedListener1Response) ProtoMessage() {}
+
+func (x *RemoveOnRoutingChangedListener1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[55]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemoveOnRoutingChangedListener1Response.ProtoReflect.Descriptor instead.
+func (*RemoveOnRoutingChangedListener1Response) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{55}
+}
+
+type RemoveOnRoutingChangedListener1_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RemoveOnRoutingChangedListener1_1Request) Reset() {
+	*x = RemoveOnRoutingChangedListener1_1Request{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[56]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RemoveOnRoutingChangedListener1_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemoveOnRoutingChangedListener1_1Request) ProtoMessage() {}
+
+func (x *RemoveOnRoutingChangedListener1_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[56]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemoveOnRoutingChangedListener1_1Request.ProtoReflect.Descriptor instead.
+func (*RemoveOnRoutingChangedListener1_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{56}
+}
+
+func (x *RemoveOnRoutingChangedListener1_1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *RemoveOnRoutingChangedListener1_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type RemoveOnRoutingChangedListener1_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RemoveOnRoutingChangedListener1_1Response) Reset() {
+	*x = RemoveOnRoutingChangedListener1_1Response{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[57]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RemoveOnRoutingChangedListener1_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemoveOnRoutingChangedListener1_1Response) ProtoMessage() {}
+
+func (x *RemoveOnRoutingChangedListener1_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[57]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemoveOnRoutingChangedListener1_1Response.ProtoReflect.Descriptor instead.
+func (*RemoveOnRoutingChangedListener1_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{57}
+}
+
+type SetLogSessionIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetLogSessionIdRequest) Reset() {
+	*x = SetLogSessionIdRequest{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[58]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetLogSessionIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetLogSessionIdRequest) ProtoMessage() {}
+
+func (x *SetLogSessionIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[58]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetLogSessionIdRequest.ProtoReflect.Descriptor instead.
+func (*SetLogSessionIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{58}
+}
+
+func (x *SetLogSessionIdRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetLogSessionIdRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetLogSessionIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetLogSessionIdResponse) Reset() {
+	*x = SetLogSessionIdResponse{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[59]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetLogSessionIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetLogSessionIdResponse) ProtoMessage() {}
+
+func (x *SetLogSessionIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[59]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetLogSessionIdResponse.ProtoReflect.Descriptor instead.
+func (*SetLogSessionIdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{59}
+}
+
+type SetNotificationMarkerPositionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetNotificationMarkerPositionRequest) Reset() {
+	*x = SetNotificationMarkerPositionRequest{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[60]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetNotificationMarkerPositionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetNotificationMarkerPositionRequest) ProtoMessage() {}
+
+func (x *SetNotificationMarkerPositionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[60]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetNotificationMarkerPositionRequest.ProtoReflect.Descriptor instead.
+func (*SetNotificationMarkerPositionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{60}
+}
+
+func (x *SetNotificationMarkerPositionRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetNotificationMarkerPositionRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetNotificationMarkerPositionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetNotificationMarkerPositionResponse) Reset() {
+	*x = SetNotificationMarkerPositionResponse{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[61]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetNotificationMarkerPositionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetNotificationMarkerPositionResponse) ProtoMessage() {}
+
+func (x *SetNotificationMarkerPositionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[61]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetNotificationMarkerPositionResponse.ProtoReflect.Descriptor instead.
+func (*SetNotificationMarkerPositionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{61}
+}
+
+func (x *SetNotificationMarkerPositionResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetPositionNotificationPeriodRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPositionNotificationPeriodRequest) Reset() {
+	*x = SetPositionNotificationPeriodRequest{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[62]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPositionNotificationPeriodRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPositionNotificationPeriodRequest) ProtoMessage() {}
+
+func (x *SetPositionNotificationPeriodRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[62]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPositionNotificationPeriodRequest.ProtoReflect.Descriptor instead.
+func (*SetPositionNotificationPeriodRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{62}
+}
+
+func (x *SetPositionNotificationPeriodRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetPositionNotificationPeriodRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetPositionNotificationPeriodResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPositionNotificationPeriodResponse) Reset() {
+	*x = SetPositionNotificationPeriodResponse{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[63]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPositionNotificationPeriodResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPositionNotificationPeriodResponse) ProtoMessage() {}
+
+func (x *SetPositionNotificationPeriodResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[63]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPositionNotificationPeriodResponse.ProtoReflect.Descriptor instead.
+func (*SetPositionNotificationPeriodResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{63}
+}
+
+func (x *SetPositionNotificationPeriodResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetPreferredDeviceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPreferredDeviceRequest) Reset() {
+	*x = SetPreferredDeviceRequest{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[64]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPreferredDeviceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPreferredDeviceRequest) ProtoMessage() {}
+
+func (x *SetPreferredDeviceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[64]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPreferredDeviceRequest.ProtoReflect.Descriptor instead.
+func (*SetPreferredDeviceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{64}
+}
+
+func (x *SetPreferredDeviceRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetPreferredDeviceRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetPreferredDeviceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPreferredDeviceResponse) Reset() {
+	*x = SetPreferredDeviceResponse{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[65]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPreferredDeviceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPreferredDeviceResponse) ProtoMessage() {}
+
+func (x *SetPreferredDeviceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[65]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPreferredDeviceResponse.ProtoReflect.Descriptor instead.
+func (*SetPreferredDeviceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{65}
+}
+
+func (x *SetPreferredDeviceResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type SetPreferredMicrophoneDirectionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPreferredMicrophoneDirectionRequest) Reset() {
+	*x = SetPreferredMicrophoneDirectionRequest{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[66]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPreferredMicrophoneDirectionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPreferredMicrophoneDirectionRequest) ProtoMessage() {}
+
+func (x *SetPreferredMicrophoneDirectionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[66]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPreferredMicrophoneDirectionRequest.ProtoReflect.Descriptor instead.
+func (*SetPreferredMicrophoneDirectionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{66}
+}
+
+func (x *SetPreferredMicrophoneDirectionRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetPreferredMicrophoneDirectionRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetPreferredMicrophoneDirectionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPreferredMicrophoneDirectionResponse) Reset() {
+	*x = SetPreferredMicrophoneDirectionResponse{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[67]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPreferredMicrophoneDirectionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPreferredMicrophoneDirectionResponse) ProtoMessage() {}
+
+func (x *SetPreferredMicrophoneDirectionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[67]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPreferredMicrophoneDirectionResponse.ProtoReflect.Descriptor instead.
+func (*SetPreferredMicrophoneDirectionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{67}
+}
+
+func (x *SetPreferredMicrophoneDirectionResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type SetPreferredMicrophoneFieldDimensionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          float32                `protobuf:"fixed32,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPreferredMicrophoneFieldDimensionRequest) Reset() {
+	*x = SetPreferredMicrophoneFieldDimensionRequest{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[68]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPreferredMicrophoneFieldDimensionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPreferredMicrophoneFieldDimensionRequest) ProtoMessage() {}
+
+func (x *SetPreferredMicrophoneFieldDimensionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[68]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPreferredMicrophoneFieldDimensionRequest.ProtoReflect.Descriptor instead.
+func (*SetPreferredMicrophoneFieldDimensionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{68}
+}
+
+func (x *SetPreferredMicrophoneFieldDimensionRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetPreferredMicrophoneFieldDimensionRequest) GetArg0() float32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetPreferredMicrophoneFieldDimensionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPreferredMicrophoneFieldDimensionResponse) Reset() {
+	*x = SetPreferredMicrophoneFieldDimensionResponse{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[69]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPreferredMicrophoneFieldDimensionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPreferredMicrophoneFieldDimensionResponse) ProtoMessage() {}
+
+func (x *SetPreferredMicrophoneFieldDimensionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[69]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPreferredMicrophoneFieldDimensionResponse.ProtoReflect.Descriptor instead.
+func (*SetPreferredMicrophoneFieldDimensionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{69}
+}
+
+func (x *SetPreferredMicrophoneFieldDimensionResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type SetRecordPositionUpdateListenerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetRecordPositionUpdateListenerRequest) Reset() {
+	*x = SetRecordPositionUpdateListenerRequest{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[70]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetRecordPositionUpdateListenerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetRecordPositionUpdateListenerRequest) ProtoMessage() {}
+
+func (x *SetRecordPositionUpdateListenerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[70]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetRecordPositionUpdateListenerRequest.ProtoReflect.Descriptor instead.
+func (*SetRecordPositionUpdateListenerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{70}
+}
+
+func (x *SetRecordPositionUpdateListenerRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetRecordPositionUpdateListenerRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetRecordPositionUpdateListenerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetRecordPositionUpdateListenerResponse) Reset() {
+	*x = SetRecordPositionUpdateListenerResponse{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[71]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetRecordPositionUpdateListenerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetRecordPositionUpdateListenerResponse) ProtoMessage() {}
+
+func (x *SetRecordPositionUpdateListenerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[71]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetRecordPositionUpdateListenerResponse.ProtoReflect.Descriptor instead.
+func (*SetRecordPositionUpdateListenerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{71}
+}
+
+type StartRecording0Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *StartRecording0Request) Reset() {
+	*x = StartRecording0Request{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[72]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *StartRecording0Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StartRecording0Request) ProtoMessage() {}
+
+func (x *StartRecording0Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[72]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StartRecording0Request.ProtoReflect.Descriptor instead.
+func (*StartRecording0Request) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{72}
+}
+
+func (x *StartRecording0Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type StartRecording0Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *StartRecording0Response) Reset() {
+	*x = StartRecording0Response{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[73]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *StartRecording0Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StartRecording0Response) ProtoMessage() {}
+
+func (x *StartRecording0Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[73]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StartRecording0Response.ProtoReflect.Descriptor instead.
+func (*StartRecording0Response) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{73}
+}
+
+type StartRecording1_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *StartRecording1_1Request) Reset() {
+	*x = StartRecording1_1Request{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[74]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *StartRecording1_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StartRecording1_1Request) ProtoMessage() {}
+
+func (x *StartRecording1_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[74]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StartRecording1_1Request.ProtoReflect.Descriptor instead.
+func (*StartRecording1_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{74}
+}
+
+func (x *StartRecording1_1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *StartRecording1_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type StartRecording1_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *StartRecording1_1Response) Reset() {
+	*x = StartRecording1_1Response{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[75]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *StartRecording1_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StartRecording1_1Response) ProtoMessage() {}
+
+func (x *StartRecording1_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[75]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StartRecording1_1Response.ProtoReflect.Descriptor instead.
+func (*StartRecording1_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{75}
+}
+
+type StopRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *StopRequest) Reset() {
+	*x = StopRequest{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[76]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *StopRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StopRequest) ProtoMessage() {}
+
+func (x *StopRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[76]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StopRequest.ProtoReflect.Descriptor instead.
+func (*StopRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{76}
+}
+
+func (x *StopRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type StopResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *StopResponse) Reset() {
+	*x = StopResponse{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[77]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *StopResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StopResponse) ProtoMessage() {}
+
+func (x *StopResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[77]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StopResponse.ProtoReflect.Descriptor instead.
+func (*StopResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{77}
+}
+
+type UnregisterAudioRecordingCallbackRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UnregisterAudioRecordingCallbackRequest) Reset() {
+	*x = UnregisterAudioRecordingCallbackRequest{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[78]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UnregisterAudioRecordingCallbackRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UnregisterAudioRecordingCallbackRequest) ProtoMessage() {}
+
+func (x *UnregisterAudioRecordingCallbackRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[78]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UnregisterAudioRecordingCallbackRequest.ProtoReflect.Descriptor instead.
+func (*UnregisterAudioRecordingCallbackRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{78}
+}
+
+func (x *UnregisterAudioRecordingCallbackRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *UnregisterAudioRecordingCallbackRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type UnregisterAudioRecordingCallbackResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UnregisterAudioRecordingCallbackResponse) Reset() {
+	*x = UnregisterAudioRecordingCallbackResponse{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[79]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UnregisterAudioRecordingCallbackResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UnregisterAudioRecordingCallbackResponse) ProtoMessage() {}
+
+func (x *UnregisterAudioRecordingCallbackResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[79]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UnregisterAudioRecordingCallbackResponse.ProtoReflect.Descriptor instead.
+func (*UnregisterAudioRecordingCallbackResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{79}
+}
+
+type GetMinBufferSizeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMinBufferSizeRequest) Reset() {
+	*x = GetMinBufferSizeRequest{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[80]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMinBufferSizeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMinBufferSizeRequest) ProtoMessage() {}
+
+func (x *GetMinBufferSizeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[80]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMinBufferSizeRequest.ProtoReflect.Descriptor instead.
+func (*GetMinBufferSizeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{80}
+}
+
+func (x *GetMinBufferSizeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetMinBufferSizeRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *GetMinBufferSizeRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *GetMinBufferSizeRequest) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type GetMinBufferSizeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMinBufferSizeResponse) Reset() {
+	*x = GetMinBufferSizeResponse{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[81]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMinBufferSizeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMinBufferSizeResponse) ProtoMessage() {}
+
+func (x *GetMinBufferSizeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[81]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMinBufferSizeResponse.ProtoReflect.Descriptor instead.
+func (*GetMinBufferSizeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{81}
+}
+
+func (x *GetMinBufferSizeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type BuildRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BuildRequest) Reset() {
+	*x = BuildRequest{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[82]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BuildRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BuildRequest) ProtoMessage() {}
+
+func (x *BuildRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[82]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BuildRequest.ProtoReflect.Descriptor instead.
+func (*BuildRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{82}
+}
+
+type BuildResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BuildResponse) Reset() {
+	*x = BuildResponse{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[83]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BuildResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BuildResponse) ProtoMessage() {}
+
+func (x *BuildResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[83]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BuildResponse.ProtoReflect.Descriptor instead.
+func (*BuildResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{83}
+}
+
+func (x *BuildResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetAudioFormatRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetAudioFormatRequest) Reset() {
+	*x = SetAudioFormatRequest{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[84]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetAudioFormatRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetAudioFormatRequest) ProtoMessage() {}
+
+func (x *SetAudioFormatRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[84]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetAudioFormatRequest.ProtoReflect.Descriptor instead.
+func (*SetAudioFormatRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{84}
+}
+
+func (x *SetAudioFormatRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetAudioFormatResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetAudioFormatResponse) Reset() {
+	*x = SetAudioFormatResponse{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[85]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetAudioFormatResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetAudioFormatResponse) ProtoMessage() {}
+
+func (x *SetAudioFormatResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[85]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetAudioFormatResponse.ProtoReflect.Descriptor instead.
+func (*SetAudioFormatResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{85}
+}
+
+func (x *SetAudioFormatResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetAudioPlaybackCaptureConfigRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetAudioPlaybackCaptureConfigRequest) Reset() {
+	*x = SetAudioPlaybackCaptureConfigRequest{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[86]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetAudioPlaybackCaptureConfigRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetAudioPlaybackCaptureConfigRequest) ProtoMessage() {}
+
+func (x *SetAudioPlaybackCaptureConfigRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[86]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetAudioPlaybackCaptureConfigRequest.ProtoReflect.Descriptor instead.
+func (*SetAudioPlaybackCaptureConfigRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{86}
+}
+
+func (x *SetAudioPlaybackCaptureConfigRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetAudioPlaybackCaptureConfigResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetAudioPlaybackCaptureConfigResponse) Reset() {
+	*x = SetAudioPlaybackCaptureConfigResponse{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[87]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetAudioPlaybackCaptureConfigResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetAudioPlaybackCaptureConfigResponse) ProtoMessage() {}
+
+func (x *SetAudioPlaybackCaptureConfigResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[87]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetAudioPlaybackCaptureConfigResponse.ProtoReflect.Descriptor instead.
+func (*SetAudioPlaybackCaptureConfigResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{87}
+}
+
+func (x *SetAudioPlaybackCaptureConfigResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetAudioSourceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetAudioSourceRequest) Reset() {
+	*x = SetAudioSourceRequest{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[88]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetAudioSourceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetAudioSourceRequest) ProtoMessage() {}
+
+func (x *SetAudioSourceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[88]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetAudioSourceRequest.ProtoReflect.Descriptor instead.
+func (*SetAudioSourceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{88}
+}
+
+func (x *SetAudioSourceRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetAudioSourceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetAudioSourceResponse) Reset() {
+	*x = SetAudioSourceResponse{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[89]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetAudioSourceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetAudioSourceResponse) ProtoMessage() {}
+
+func (x *SetAudioSourceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[89]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetAudioSourceResponse.ProtoReflect.Descriptor instead.
+func (*SetAudioSourceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{89}
+}
+
+func (x *SetAudioSourceResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetBufferSizeInBytesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetBufferSizeInBytesRequest) Reset() {
+	*x = SetBufferSizeInBytesRequest{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[90]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetBufferSizeInBytesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetBufferSizeInBytesRequest) ProtoMessage() {}
+
+func (x *SetBufferSizeInBytesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[90]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetBufferSizeInBytesRequest.ProtoReflect.Descriptor instead.
+func (*SetBufferSizeInBytesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{90}
+}
+
+func (x *SetBufferSizeInBytesRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetBufferSizeInBytesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetBufferSizeInBytesResponse) Reset() {
+	*x = SetBufferSizeInBytesResponse{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[91]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetBufferSizeInBytesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetBufferSizeInBytesResponse) ProtoMessage() {}
+
+func (x *SetBufferSizeInBytesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[91]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetBufferSizeInBytesResponse.ProtoReflect.Descriptor instead.
+func (*SetBufferSizeInBytesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{91}
+}
+
+func (x *SetBufferSizeInBytesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetContextRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetContextRequest) Reset() {
+	*x = SetContextRequest{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[92]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetContextRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetContextRequest) ProtoMessage() {}
+
+func (x *SetContextRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[92]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetContextRequest.ProtoReflect.Descriptor instead.
+func (*SetContextRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{92}
+}
+
+func (x *SetContextRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetContextResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetContextResponse) Reset() {
+	*x = SetContextResponse{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[93]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetContextResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetContextResponse) ProtoMessage() {}
+
+func (x *SetContextResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[93]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetContextResponse.ProtoReflect.Descriptor instead.
+func (*SetContextResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{93}
+}
+
+func (x *SetContextResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetPrivacySensitiveRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPrivacySensitiveRequest) Reset() {
+	*x = SetPrivacySensitiveRequest{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[94]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPrivacySensitiveRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPrivacySensitiveRequest) ProtoMessage() {}
+
+func (x *SetPrivacySensitiveRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[94]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPrivacySensitiveRequest.ProtoReflect.Descriptor instead.
+func (*SetPrivacySensitiveRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{94}
+}
+
+func (x *SetPrivacySensitiveRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetPrivacySensitiveResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPrivacySensitiveResponse) Reset() {
+	*x = SetPrivacySensitiveResponse{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[95]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPrivacySensitiveResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPrivacySensitiveResponse) ProtoMessage() {}
+
+func (x *SetPrivacySensitiveResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[95]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPrivacySensitiveResponse.ProtoReflect.Descriptor instead.
+func (*SetPrivacySensitiveResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{95}
+}
+
+func (x *SetPrivacySensitiveResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OnMarkerReachedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnMarkerReachedRequest) Reset() {
+	*x = OnMarkerReachedRequest{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[96]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnMarkerReachedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnMarkerReachedRequest) ProtoMessage() {}
+
+func (x *OnMarkerReachedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[96]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnMarkerReachedRequest.ProtoReflect.Descriptor instead.
+func (*OnMarkerReachedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{96}
+}
+
+func (x *OnMarkerReachedRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnMarkerReachedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnMarkerReachedResponse) Reset() {
+	*x = OnMarkerReachedResponse{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[97]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnMarkerReachedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnMarkerReachedResponse) ProtoMessage() {}
+
+func (x *OnMarkerReachedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[97]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnMarkerReachedResponse.ProtoReflect.Descriptor instead.
+func (*OnMarkerReachedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{97}
+}
+
+type OnPeriodicNotificationRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnPeriodicNotificationRequest) Reset() {
+	*x = OnPeriodicNotificationRequest{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[98]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnPeriodicNotificationRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnPeriodicNotificationRequest) ProtoMessage() {}
+
+func (x *OnPeriodicNotificationRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[98]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnPeriodicNotificationRequest.ProtoReflect.Descriptor instead.
+func (*OnPeriodicNotificationRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{98}
+}
+
+func (x *OnPeriodicNotificationRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnPeriodicNotificationResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnPeriodicNotificationResponse) Reset() {
+	*x = OnPeriodicNotificationResponse{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[99]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnPeriodicNotificationResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnPeriodicNotificationResponse) ProtoMessage() {}
+
+func (x *OnPeriodicNotificationResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[99]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnPeriodicNotificationResponse.ProtoReflect.Descriptor instead.
+func (*OnPeriodicNotificationResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{99}
+}
+
+type OnRoutingChangedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnRoutingChangedRequest) Reset() {
+	*x = OnRoutingChangedRequest{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[100]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnRoutingChangedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnRoutingChangedRequest) ProtoMessage() {}
+
+func (x *OnRoutingChangedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[100]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnRoutingChangedRequest.ProtoReflect.Descriptor instead.
+func (*OnRoutingChangedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{100}
+}
+
+func (x *OnRoutingChangedRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnRoutingChangedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnRoutingChangedResponse) Reset() {
+	*x = OnRoutingChangedResponse{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[101]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnRoutingChangedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnRoutingChangedResponse) ProtoMessage() {}
+
+func (x *OnRoutingChangedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[101]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnRoutingChangedResponse.ProtoReflect.Descriptor instead.
+func (*OnRoutingChangedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{101}
+}
+
 var File_proto_audiorecord_audiorecord_proto protoreflect.FileDescriptor
 
 const file_proto_audiorecord_audiorecord_proto_rawDesc = "" +
 	"\n" +
-	"#proto/audiorecord/audiorecord.proto\x12\vaudiorecordB5Z3github.com/AndroidGoLab/jni-proxy/proto/audiorecordb\x06proto3"
+	"#proto/audiorecord/audiorecord.proto\x12\vaudiorecord\"{\n" +
+	"\x15NewAudioRecordRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x05R\x04arg3\x12\x12\n" +
+	"\x04arg4\x18\x05 \x01(\x05R\x04arg4\"0\n" +
+	"\x16NewAudioRecordResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"@\n" +
+	"&GetActiveRecordingConfigurationRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"A\n" +
+	"'GetActiveRecordingConfigurationResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"/\n" +
+	"\x15GetAudioFormatRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"0\n" +
+	"\x16GetAudioFormatResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"2\n" +
+	"\x18GetAudioSessionIdRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"3\n" +
+	"\x19GetAudioSessionIdResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"/\n" +
+	"\x15GetAudioSourceRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"0\n" +
+	"\x16GetAudioSourceResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"6\n" +
+	"\x1cGetBufferSizeInFramesRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"7\n" +
+	"\x1dGetBufferSizeInFramesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"8\n" +
+	"\x1eGetChannelConfigurationRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"9\n" +
+	"\x1fGetChannelConfigurationResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"0\n" +
+	"\x16GetChannelCountRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"1\n" +
+	"\x17GetChannelCountResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"*\n" +
+	"\x10GetFormatRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"+\n" +
+	"\x11GetFormatResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"0\n" +
+	"\x16GetLogSessionIdRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"1\n" +
+	"\x17GetLogSessionIdResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"+\n" +
+	"\x11GetMetricsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\",\n" +
+	"\x12GetMetricsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\">\n" +
+	"$GetNotificationMarkerPositionRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"?\n" +
+	"%GetNotificationMarkerPositionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\">\n" +
+	"$GetPositionNotificationPeriodRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"?\n" +
+	"%GetPositionNotificationPeriodResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"3\n" +
+	"\x19GetPreferredDeviceRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"4\n" +
+	"\x1aGetPreferredDeviceResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"2\n" +
+	"\x18GetRecordingStateRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"3\n" +
+	"\x19GetRecordingStateResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"0\n" +
+	"\x16GetRoutedDeviceRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"1\n" +
+	"\x17GetRoutedDeviceResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\".\n" +
+	"\x14GetSampleRateRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"/\n" +
+	"\x15GetSampleRateResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\")\n" +
+	"\x0fGetStateRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
+	"\x10GetStateResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"U\n" +
+	"\x13GetTimestampRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\".\n" +
+	"\x14GetTimestampResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"3\n" +
+	"\x19IsPrivacySensitiveRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"4\n" +
+	"\x1aIsPrivacySensitiveResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"b\n" +
+	"\fRead3Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x05R\x04arg2\"'\n" +
+	"\rRead3Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"x\n" +
+	"\x0eRead4_1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x05R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x05 \x01(\x05R\x04arg3\")\n" +
+	"\x0fRead4_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"x\n" +
+	"\x0eRead4_2Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x05R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x05 \x01(\x05R\x04arg3\")\n" +
+	"\x0fRead4_2Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"d\n" +
+	"\x0eRead3_3Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x05R\x04arg2\")\n" +
+	"\x0fRead3_3Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"x\n" +
+	"\x0eRead4_4Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x05R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x05 \x01(\x05R\x04arg3\")\n" +
+	"\x0fRead4_4Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"g\n" +
+	"%RegisterAudioRecordingCallbackRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"(\n" +
+	"&RegisterAudioRecordingCallbackResponse\"(\n" +
+	"\x0eReleaseRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x11\n" +
+	"\x0fReleaseResponse\"T\n" +
+	"&RemoveOnRoutingChangedListener1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\")\n" +
+	"'RemoveOnRoutingChangedListener1Response\"V\n" +
+	"(RemoveOnRoutingChangedListener1_1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"+\n" +
+	")RemoveOnRoutingChangedListener1_1Response\"D\n" +
+	"\x16SetLogSessionIdRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x19\n" +
+	"\x17SetLogSessionIdResponse\"R\n" +
+	"$SetNotificationMarkerPositionRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"?\n" +
+	"%SetNotificationMarkerPositionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"R\n" +
+	"$SetPositionNotificationPeriodRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"?\n" +
+	"%SetPositionNotificationPeriodResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"G\n" +
+	"\x19SetPreferredDeviceRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"4\n" +
+	"\x1aSetPreferredDeviceResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"T\n" +
+	"&SetPreferredMicrophoneDirectionRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"A\n" +
+	"'SetPreferredMicrophoneDirectionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"Y\n" +
+	"+SetPreferredMicrophoneFieldDimensionRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x02R\x04arg0\"F\n" +
+	",SetPreferredMicrophoneFieldDimensionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"T\n" +
+	"&SetRecordPositionUpdateListenerRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\")\n" +
+	"'SetRecordPositionUpdateListenerResponse\"0\n" +
+	"\x16StartRecording0Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x19\n" +
+	"\x17StartRecording0Response\"F\n" +
+	"\x18StartRecording1_1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x1b\n" +
+	"\x19StartRecording1_1Response\"%\n" +
+	"\vStopRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x0e\n" +
+	"\fStopResponse\"U\n" +
+	"'UnregisterAudioRecordingCallbackRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"*\n" +
+	"(UnregisterAudioRecordingCallbackResponse\"m\n" +
+	"\x17GetMinBufferSizeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x05R\x04arg2\"2\n" +
+	"\x18GetMinBufferSizeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x0e\n" +
+	"\fBuildRequest\"'\n" +
+	"\rBuildResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"+\n" +
+	"\x15SetAudioFormatRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"0\n" +
+	"\x16SetAudioFormatResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\":\n" +
+	"$SetAudioPlaybackCaptureConfigRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"?\n" +
+	"%SetAudioPlaybackCaptureConfigResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"+\n" +
+	"\x15SetAudioSourceRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"0\n" +
+	"\x16SetAudioSourceResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"1\n" +
+	"\x1bSetBufferSizeInBytesRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"6\n" +
+	"\x1cSetBufferSizeInBytesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"'\n" +
+	"\x11SetContextRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\",\n" +
+	"\x12SetContextResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"0\n" +
+	"\x1aSetPrivacySensitiveRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"5\n" +
+	"\x1bSetPrivacySensitiveResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\",\n" +
+	"\x16OnMarkerReachedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x19\n" +
+	"\x17OnMarkerReachedResponse\"3\n" +
+	"\x1dOnPeriodicNotificationRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\" \n" +
+	"\x1eOnPeriodicNotificationResponse\"-\n" +
+	"\x17OnRoutingChangedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x1a\n" +
+	"\x18OnRoutingChangedResponse2\xc0!\n" +
+	"\x12AudioRecordService\x12Y\n" +
+	"\x0eNewAudioRecord\x12\".audiorecord.NewAudioRecordRequest\x1a#.audiorecord.NewAudioRecordResponse\x12\x8c\x01\n" +
+	"\x1fGetActiveRecordingConfiguration\x123.audiorecord.GetActiveRecordingConfigurationRequest\x1a4.audiorecord.GetActiveRecordingConfigurationResponse\x12Y\n" +
+	"\x0eGetAudioFormat\x12\".audiorecord.GetAudioFormatRequest\x1a#.audiorecord.GetAudioFormatResponse\x12b\n" +
+	"\x11GetAudioSessionId\x12%.audiorecord.GetAudioSessionIdRequest\x1a&.audiorecord.GetAudioSessionIdResponse\x12Y\n" +
+	"\x0eGetAudioSource\x12\".audiorecord.GetAudioSourceRequest\x1a#.audiorecord.GetAudioSourceResponse\x12n\n" +
+	"\x15GetBufferSizeInFrames\x12).audiorecord.GetBufferSizeInFramesRequest\x1a*.audiorecord.GetBufferSizeInFramesResponse\x12t\n" +
+	"\x17GetChannelConfiguration\x12+.audiorecord.GetChannelConfigurationRequest\x1a,.audiorecord.GetChannelConfigurationResponse\x12\\\n" +
+	"\x0fGetChannelCount\x12#.audiorecord.GetChannelCountRequest\x1a$.audiorecord.GetChannelCountResponse\x12J\n" +
+	"\tGetFormat\x12\x1d.audiorecord.GetFormatRequest\x1a\x1e.audiorecord.GetFormatResponse\x12\\\n" +
+	"\x0fGetLogSessionId\x12#.audiorecord.GetLogSessionIdRequest\x1a$.audiorecord.GetLogSessionIdResponse\x12M\n" +
+	"\n" +
+	"GetMetrics\x12\x1e.audiorecord.GetMetricsRequest\x1a\x1f.audiorecord.GetMetricsResponse\x12\x86\x01\n" +
+	"\x1dGetNotificationMarkerPosition\x121.audiorecord.GetNotificationMarkerPositionRequest\x1a2.audiorecord.GetNotificationMarkerPositionResponse\x12\x86\x01\n" +
+	"\x1dGetPositionNotificationPeriod\x121.audiorecord.GetPositionNotificationPeriodRequest\x1a2.audiorecord.GetPositionNotificationPeriodResponse\x12e\n" +
+	"\x12GetPreferredDevice\x12&.audiorecord.GetPreferredDeviceRequest\x1a'.audiorecord.GetPreferredDeviceResponse\x12b\n" +
+	"\x11GetRecordingState\x12%.audiorecord.GetRecordingStateRequest\x1a&.audiorecord.GetRecordingStateResponse\x12\\\n" +
+	"\x0fGetRoutedDevice\x12#.audiorecord.GetRoutedDeviceRequest\x1a$.audiorecord.GetRoutedDeviceResponse\x12V\n" +
+	"\rGetSampleRate\x12!.audiorecord.GetSampleRateRequest\x1a\".audiorecord.GetSampleRateResponse\x12G\n" +
+	"\bGetState\x12\x1c.audiorecord.GetStateRequest\x1a\x1d.audiorecord.GetStateResponse\x12S\n" +
+	"\fGetTimestamp\x12 .audiorecord.GetTimestampRequest\x1a!.audiorecord.GetTimestampResponse\x12e\n" +
+	"\x12IsPrivacySensitive\x12&.audiorecord.IsPrivacySensitiveRequest\x1a'.audiorecord.IsPrivacySensitiveResponse\x12>\n" +
+	"\x05Read3\x12\x19.audiorecord.Read3Request\x1a\x1a.audiorecord.Read3Response\x12D\n" +
+	"\aRead4_1\x12\x1b.audiorecord.Read4_1Request\x1a\x1c.audiorecord.Read4_1Response\x12D\n" +
+	"\aRead4_2\x12\x1b.audiorecord.Read4_2Request\x1a\x1c.audiorecord.Read4_2Response\x12D\n" +
+	"\aRead3_3\x12\x1b.audiorecord.Read3_3Request\x1a\x1c.audiorecord.Read3_3Response\x12D\n" +
+	"\aRead4_4\x12\x1b.audiorecord.Read4_4Request\x1a\x1c.audiorecord.Read4_4Response\x12\x89\x01\n" +
+	"\x1eRegisterAudioRecordingCallback\x122.audiorecord.RegisterAudioRecordingCallbackRequest\x1a3.audiorecord.RegisterAudioRecordingCallbackResponse\x12D\n" +
+	"\aRelease\x12\x1b.audiorecord.ReleaseRequest\x1a\x1c.audiorecord.ReleaseResponse\x12\x8c\x01\n" +
+	"\x1fRemoveOnRoutingChangedListener1\x123.audiorecord.RemoveOnRoutingChangedListener1Request\x1a4.audiorecord.RemoveOnRoutingChangedListener1Response\x12\x92\x01\n" +
+	"!RemoveOnRoutingChangedListener1_1\x125.audiorecord.RemoveOnRoutingChangedListener1_1Request\x1a6.audiorecord.RemoveOnRoutingChangedListener1_1Response\x12\\\n" +
+	"\x0fSetLogSessionId\x12#.audiorecord.SetLogSessionIdRequest\x1a$.audiorecord.SetLogSessionIdResponse\x12\x86\x01\n" +
+	"\x1dSetNotificationMarkerPosition\x121.audiorecord.SetNotificationMarkerPositionRequest\x1a2.audiorecord.SetNotificationMarkerPositionResponse\x12\x86\x01\n" +
+	"\x1dSetPositionNotificationPeriod\x121.audiorecord.SetPositionNotificationPeriodRequest\x1a2.audiorecord.SetPositionNotificationPeriodResponse\x12e\n" +
+	"\x12SetPreferredDevice\x12&.audiorecord.SetPreferredDeviceRequest\x1a'.audiorecord.SetPreferredDeviceResponse\x12\x8c\x01\n" +
+	"\x1fSetPreferredMicrophoneDirection\x123.audiorecord.SetPreferredMicrophoneDirectionRequest\x1a4.audiorecord.SetPreferredMicrophoneDirectionResponse\x12\x9b\x01\n" +
+	"$SetPreferredMicrophoneFieldDimension\x128.audiorecord.SetPreferredMicrophoneFieldDimensionRequest\x1a9.audiorecord.SetPreferredMicrophoneFieldDimensionResponse\x12\x8c\x01\n" +
+	"\x1fSetRecordPositionUpdateListener\x123.audiorecord.SetRecordPositionUpdateListenerRequest\x1a4.audiorecord.SetRecordPositionUpdateListenerResponse\x12\\\n" +
+	"\x0fStartRecording0\x12#.audiorecord.StartRecording0Request\x1a$.audiorecord.StartRecording0Response\x12b\n" +
+	"\x11StartRecording1_1\x12%.audiorecord.StartRecording1_1Request\x1a&.audiorecord.StartRecording1_1Response\x12;\n" +
+	"\x04Stop\x12\x18.audiorecord.StopRequest\x1a\x19.audiorecord.StopResponse\x12\x8f\x01\n" +
+	" UnregisterAudioRecordingCallback\x124.audiorecord.UnregisterAudioRecordingCallbackRequest\x1a5.audiorecord.UnregisterAudioRecordingCallbackResponse\x12_\n" +
+	"\x10GetMinBufferSize\x12$.audiorecord.GetMinBufferSizeRequest\x1a%.audiorecord.GetMinBufferSizeResponse2\xc0\x05\n" +
+	"\x19AudioRecordBuilderService\x12>\n" +
+	"\x05Build\x12\x19.audiorecord.BuildRequest\x1a\x1a.audiorecord.BuildResponse\x12Y\n" +
+	"\x0eSetAudioFormat\x12\".audiorecord.SetAudioFormatRequest\x1a#.audiorecord.SetAudioFormatResponse\x12\x86\x01\n" +
+	"\x1dSetAudioPlaybackCaptureConfig\x121.audiorecord.SetAudioPlaybackCaptureConfigRequest\x1a2.audiorecord.SetAudioPlaybackCaptureConfigResponse\x12Y\n" +
+	"\x0eSetAudioSource\x12\".audiorecord.SetAudioSourceRequest\x1a#.audiorecord.SetAudioSourceResponse\x12k\n" +
+	"\x14SetBufferSizeInBytes\x12(.audiorecord.SetBufferSizeInBytesRequest\x1a).audiorecord.SetBufferSizeInBytesResponse\x12M\n" +
+	"\n" +
+	"SetContext\x12\x1e.audiorecord.SetContextRequest\x1a\x1f.audiorecord.SetContextResponse\x12h\n" +
+	"\x13SetPrivacySensitive\x12'.audiorecord.SetPrivacySensitiveRequest\x1a(.audiorecord.SetPrivacySensitiveResponse2\x83\x02\n" +
+	"0AudioRecordOnRecordPositionUpdateListenerService\x12\\\n" +
+	"\x0fOnMarkerReached\x12#.audiorecord.OnMarkerReachedRequest\x1a$.audiorecord.OnMarkerReachedResponse\x12q\n" +
+	"\x16OnPeriodicNotification\x12*.audiorecord.OnPeriodicNotificationRequest\x1a+.audiorecord.OnPeriodicNotificationResponse2\x8d\x01\n" +
+	"*AudioRecordOnRoutingChangedListenerService\x12_\n" +
+	"\x10OnRoutingChanged\x12$.audiorecord.OnRoutingChangedRequest\x1a%.audiorecord.OnRoutingChangedResponseB5Z3github.com/AndroidGoLab/jni-proxy/proto/audiorecordb\x06proto3"
 
-var file_proto_audiorecord_audiorecord_proto_goTypes = []any{}
+var (
+	file_proto_audiorecord_audiorecord_proto_rawDescOnce sync.Once
+	file_proto_audiorecord_audiorecord_proto_rawDescData []byte
+)
+
+func file_proto_audiorecord_audiorecord_proto_rawDescGZIP() []byte {
+	file_proto_audiorecord_audiorecord_proto_rawDescOnce.Do(func() {
+		file_proto_audiorecord_audiorecord_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_proto_audiorecord_audiorecord_proto_rawDesc), len(file_proto_audiorecord_audiorecord_proto_rawDesc)))
+	})
+	return file_proto_audiorecord_audiorecord_proto_rawDescData
+}
+
+var file_proto_audiorecord_audiorecord_proto_msgTypes = make([]protoimpl.MessageInfo, 102)
+var file_proto_audiorecord_audiorecord_proto_goTypes = []any{
+	(*NewAudioRecordRequest)(nil),                        // 0: audiorecord.NewAudioRecordRequest
+	(*NewAudioRecordResponse)(nil),                       // 1: audiorecord.NewAudioRecordResponse
+	(*GetActiveRecordingConfigurationRequest)(nil),       // 2: audiorecord.GetActiveRecordingConfigurationRequest
+	(*GetActiveRecordingConfigurationResponse)(nil),      // 3: audiorecord.GetActiveRecordingConfigurationResponse
+	(*GetAudioFormatRequest)(nil),                        // 4: audiorecord.GetAudioFormatRequest
+	(*GetAudioFormatResponse)(nil),                       // 5: audiorecord.GetAudioFormatResponse
+	(*GetAudioSessionIdRequest)(nil),                     // 6: audiorecord.GetAudioSessionIdRequest
+	(*GetAudioSessionIdResponse)(nil),                    // 7: audiorecord.GetAudioSessionIdResponse
+	(*GetAudioSourceRequest)(nil),                        // 8: audiorecord.GetAudioSourceRequest
+	(*GetAudioSourceResponse)(nil),                       // 9: audiorecord.GetAudioSourceResponse
+	(*GetBufferSizeInFramesRequest)(nil),                 // 10: audiorecord.GetBufferSizeInFramesRequest
+	(*GetBufferSizeInFramesResponse)(nil),                // 11: audiorecord.GetBufferSizeInFramesResponse
+	(*GetChannelConfigurationRequest)(nil),               // 12: audiorecord.GetChannelConfigurationRequest
+	(*GetChannelConfigurationResponse)(nil),              // 13: audiorecord.GetChannelConfigurationResponse
+	(*GetChannelCountRequest)(nil),                       // 14: audiorecord.GetChannelCountRequest
+	(*GetChannelCountResponse)(nil),                      // 15: audiorecord.GetChannelCountResponse
+	(*GetFormatRequest)(nil),                             // 16: audiorecord.GetFormatRequest
+	(*GetFormatResponse)(nil),                            // 17: audiorecord.GetFormatResponse
+	(*GetLogSessionIdRequest)(nil),                       // 18: audiorecord.GetLogSessionIdRequest
+	(*GetLogSessionIdResponse)(nil),                      // 19: audiorecord.GetLogSessionIdResponse
+	(*GetMetricsRequest)(nil),                            // 20: audiorecord.GetMetricsRequest
+	(*GetMetricsResponse)(nil),                           // 21: audiorecord.GetMetricsResponse
+	(*GetNotificationMarkerPositionRequest)(nil),         // 22: audiorecord.GetNotificationMarkerPositionRequest
+	(*GetNotificationMarkerPositionResponse)(nil),        // 23: audiorecord.GetNotificationMarkerPositionResponse
+	(*GetPositionNotificationPeriodRequest)(nil),         // 24: audiorecord.GetPositionNotificationPeriodRequest
+	(*GetPositionNotificationPeriodResponse)(nil),        // 25: audiorecord.GetPositionNotificationPeriodResponse
+	(*GetPreferredDeviceRequest)(nil),                    // 26: audiorecord.GetPreferredDeviceRequest
+	(*GetPreferredDeviceResponse)(nil),                   // 27: audiorecord.GetPreferredDeviceResponse
+	(*GetRecordingStateRequest)(nil),                     // 28: audiorecord.GetRecordingStateRequest
+	(*GetRecordingStateResponse)(nil),                    // 29: audiorecord.GetRecordingStateResponse
+	(*GetRoutedDeviceRequest)(nil),                       // 30: audiorecord.GetRoutedDeviceRequest
+	(*GetRoutedDeviceResponse)(nil),                      // 31: audiorecord.GetRoutedDeviceResponse
+	(*GetSampleRateRequest)(nil),                         // 32: audiorecord.GetSampleRateRequest
+	(*GetSampleRateResponse)(nil),                        // 33: audiorecord.GetSampleRateResponse
+	(*GetStateRequest)(nil),                              // 34: audiorecord.GetStateRequest
+	(*GetStateResponse)(nil),                             // 35: audiorecord.GetStateResponse
+	(*GetTimestampRequest)(nil),                          // 36: audiorecord.GetTimestampRequest
+	(*GetTimestampResponse)(nil),                         // 37: audiorecord.GetTimestampResponse
+	(*IsPrivacySensitiveRequest)(nil),                    // 38: audiorecord.IsPrivacySensitiveRequest
+	(*IsPrivacySensitiveResponse)(nil),                   // 39: audiorecord.IsPrivacySensitiveResponse
+	(*Read3Request)(nil),                                 // 40: audiorecord.Read3Request
+	(*Read3Response)(nil),                                // 41: audiorecord.Read3Response
+	(*Read4_1Request)(nil),                               // 42: audiorecord.Read4_1Request
+	(*Read4_1Response)(nil),                              // 43: audiorecord.Read4_1Response
+	(*Read4_2Request)(nil),                               // 44: audiorecord.Read4_2Request
+	(*Read4_2Response)(nil),                              // 45: audiorecord.Read4_2Response
+	(*Read3_3Request)(nil),                               // 46: audiorecord.Read3_3Request
+	(*Read3_3Response)(nil),                              // 47: audiorecord.Read3_3Response
+	(*Read4_4Request)(nil),                               // 48: audiorecord.Read4_4Request
+	(*Read4_4Response)(nil),                              // 49: audiorecord.Read4_4Response
+	(*RegisterAudioRecordingCallbackRequest)(nil),        // 50: audiorecord.RegisterAudioRecordingCallbackRequest
+	(*RegisterAudioRecordingCallbackResponse)(nil),       // 51: audiorecord.RegisterAudioRecordingCallbackResponse
+	(*ReleaseRequest)(nil),                               // 52: audiorecord.ReleaseRequest
+	(*ReleaseResponse)(nil),                              // 53: audiorecord.ReleaseResponse
+	(*RemoveOnRoutingChangedListener1Request)(nil),       // 54: audiorecord.RemoveOnRoutingChangedListener1Request
+	(*RemoveOnRoutingChangedListener1Response)(nil),      // 55: audiorecord.RemoveOnRoutingChangedListener1Response
+	(*RemoveOnRoutingChangedListener1_1Request)(nil),     // 56: audiorecord.RemoveOnRoutingChangedListener1_1Request
+	(*RemoveOnRoutingChangedListener1_1Response)(nil),    // 57: audiorecord.RemoveOnRoutingChangedListener1_1Response
+	(*SetLogSessionIdRequest)(nil),                       // 58: audiorecord.SetLogSessionIdRequest
+	(*SetLogSessionIdResponse)(nil),                      // 59: audiorecord.SetLogSessionIdResponse
+	(*SetNotificationMarkerPositionRequest)(nil),         // 60: audiorecord.SetNotificationMarkerPositionRequest
+	(*SetNotificationMarkerPositionResponse)(nil),        // 61: audiorecord.SetNotificationMarkerPositionResponse
+	(*SetPositionNotificationPeriodRequest)(nil),         // 62: audiorecord.SetPositionNotificationPeriodRequest
+	(*SetPositionNotificationPeriodResponse)(nil),        // 63: audiorecord.SetPositionNotificationPeriodResponse
+	(*SetPreferredDeviceRequest)(nil),                    // 64: audiorecord.SetPreferredDeviceRequest
+	(*SetPreferredDeviceResponse)(nil),                   // 65: audiorecord.SetPreferredDeviceResponse
+	(*SetPreferredMicrophoneDirectionRequest)(nil),       // 66: audiorecord.SetPreferredMicrophoneDirectionRequest
+	(*SetPreferredMicrophoneDirectionResponse)(nil),      // 67: audiorecord.SetPreferredMicrophoneDirectionResponse
+	(*SetPreferredMicrophoneFieldDimensionRequest)(nil),  // 68: audiorecord.SetPreferredMicrophoneFieldDimensionRequest
+	(*SetPreferredMicrophoneFieldDimensionResponse)(nil), // 69: audiorecord.SetPreferredMicrophoneFieldDimensionResponse
+	(*SetRecordPositionUpdateListenerRequest)(nil),       // 70: audiorecord.SetRecordPositionUpdateListenerRequest
+	(*SetRecordPositionUpdateListenerResponse)(nil),      // 71: audiorecord.SetRecordPositionUpdateListenerResponse
+	(*StartRecording0Request)(nil),                       // 72: audiorecord.StartRecording0Request
+	(*StartRecording0Response)(nil),                      // 73: audiorecord.StartRecording0Response
+	(*StartRecording1_1Request)(nil),                     // 74: audiorecord.StartRecording1_1Request
+	(*StartRecording1_1Response)(nil),                    // 75: audiorecord.StartRecording1_1Response
+	(*StopRequest)(nil),                                  // 76: audiorecord.StopRequest
+	(*StopResponse)(nil),                                 // 77: audiorecord.StopResponse
+	(*UnregisterAudioRecordingCallbackRequest)(nil),      // 78: audiorecord.UnregisterAudioRecordingCallbackRequest
+	(*UnregisterAudioRecordingCallbackResponse)(nil),     // 79: audiorecord.UnregisterAudioRecordingCallbackResponse
+	(*GetMinBufferSizeRequest)(nil),                      // 80: audiorecord.GetMinBufferSizeRequest
+	(*GetMinBufferSizeResponse)(nil),                     // 81: audiorecord.GetMinBufferSizeResponse
+	(*BuildRequest)(nil),                                 // 82: audiorecord.BuildRequest
+	(*BuildResponse)(nil),                                // 83: audiorecord.BuildResponse
+	(*SetAudioFormatRequest)(nil),                        // 84: audiorecord.SetAudioFormatRequest
+	(*SetAudioFormatResponse)(nil),                       // 85: audiorecord.SetAudioFormatResponse
+	(*SetAudioPlaybackCaptureConfigRequest)(nil),         // 86: audiorecord.SetAudioPlaybackCaptureConfigRequest
+	(*SetAudioPlaybackCaptureConfigResponse)(nil),        // 87: audiorecord.SetAudioPlaybackCaptureConfigResponse
+	(*SetAudioSourceRequest)(nil),                        // 88: audiorecord.SetAudioSourceRequest
+	(*SetAudioSourceResponse)(nil),                       // 89: audiorecord.SetAudioSourceResponse
+	(*SetBufferSizeInBytesRequest)(nil),                  // 90: audiorecord.SetBufferSizeInBytesRequest
+	(*SetBufferSizeInBytesResponse)(nil),                 // 91: audiorecord.SetBufferSizeInBytesResponse
+	(*SetContextRequest)(nil),                            // 92: audiorecord.SetContextRequest
+	(*SetContextResponse)(nil),                           // 93: audiorecord.SetContextResponse
+	(*SetPrivacySensitiveRequest)(nil),                   // 94: audiorecord.SetPrivacySensitiveRequest
+	(*SetPrivacySensitiveResponse)(nil),                  // 95: audiorecord.SetPrivacySensitiveResponse
+	(*OnMarkerReachedRequest)(nil),                       // 96: audiorecord.OnMarkerReachedRequest
+	(*OnMarkerReachedResponse)(nil),                      // 97: audiorecord.OnMarkerReachedResponse
+	(*OnPeriodicNotificationRequest)(nil),                // 98: audiorecord.OnPeriodicNotificationRequest
+	(*OnPeriodicNotificationResponse)(nil),               // 99: audiorecord.OnPeriodicNotificationResponse
+	(*OnRoutingChangedRequest)(nil),                      // 100: audiorecord.OnRoutingChangedRequest
+	(*OnRoutingChangedResponse)(nil),                     // 101: audiorecord.OnRoutingChangedResponse
+}
 var file_proto_audiorecord_audiorecord_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	0,   // 0: audiorecord.AudioRecordService.NewAudioRecord:input_type -> audiorecord.NewAudioRecordRequest
+	2,   // 1: audiorecord.AudioRecordService.GetActiveRecordingConfiguration:input_type -> audiorecord.GetActiveRecordingConfigurationRequest
+	4,   // 2: audiorecord.AudioRecordService.GetAudioFormat:input_type -> audiorecord.GetAudioFormatRequest
+	6,   // 3: audiorecord.AudioRecordService.GetAudioSessionId:input_type -> audiorecord.GetAudioSessionIdRequest
+	8,   // 4: audiorecord.AudioRecordService.GetAudioSource:input_type -> audiorecord.GetAudioSourceRequest
+	10,  // 5: audiorecord.AudioRecordService.GetBufferSizeInFrames:input_type -> audiorecord.GetBufferSizeInFramesRequest
+	12,  // 6: audiorecord.AudioRecordService.GetChannelConfiguration:input_type -> audiorecord.GetChannelConfigurationRequest
+	14,  // 7: audiorecord.AudioRecordService.GetChannelCount:input_type -> audiorecord.GetChannelCountRequest
+	16,  // 8: audiorecord.AudioRecordService.GetFormat:input_type -> audiorecord.GetFormatRequest
+	18,  // 9: audiorecord.AudioRecordService.GetLogSessionId:input_type -> audiorecord.GetLogSessionIdRequest
+	20,  // 10: audiorecord.AudioRecordService.GetMetrics:input_type -> audiorecord.GetMetricsRequest
+	22,  // 11: audiorecord.AudioRecordService.GetNotificationMarkerPosition:input_type -> audiorecord.GetNotificationMarkerPositionRequest
+	24,  // 12: audiorecord.AudioRecordService.GetPositionNotificationPeriod:input_type -> audiorecord.GetPositionNotificationPeriodRequest
+	26,  // 13: audiorecord.AudioRecordService.GetPreferredDevice:input_type -> audiorecord.GetPreferredDeviceRequest
+	28,  // 14: audiorecord.AudioRecordService.GetRecordingState:input_type -> audiorecord.GetRecordingStateRequest
+	30,  // 15: audiorecord.AudioRecordService.GetRoutedDevice:input_type -> audiorecord.GetRoutedDeviceRequest
+	32,  // 16: audiorecord.AudioRecordService.GetSampleRate:input_type -> audiorecord.GetSampleRateRequest
+	34,  // 17: audiorecord.AudioRecordService.GetState:input_type -> audiorecord.GetStateRequest
+	36,  // 18: audiorecord.AudioRecordService.GetTimestamp:input_type -> audiorecord.GetTimestampRequest
+	38,  // 19: audiorecord.AudioRecordService.IsPrivacySensitive:input_type -> audiorecord.IsPrivacySensitiveRequest
+	40,  // 20: audiorecord.AudioRecordService.Read3:input_type -> audiorecord.Read3Request
+	42,  // 21: audiorecord.AudioRecordService.Read4_1:input_type -> audiorecord.Read4_1Request
+	44,  // 22: audiorecord.AudioRecordService.Read4_2:input_type -> audiorecord.Read4_2Request
+	46,  // 23: audiorecord.AudioRecordService.Read3_3:input_type -> audiorecord.Read3_3Request
+	48,  // 24: audiorecord.AudioRecordService.Read4_4:input_type -> audiorecord.Read4_4Request
+	50,  // 25: audiorecord.AudioRecordService.RegisterAudioRecordingCallback:input_type -> audiorecord.RegisterAudioRecordingCallbackRequest
+	52,  // 26: audiorecord.AudioRecordService.Release:input_type -> audiorecord.ReleaseRequest
+	54,  // 27: audiorecord.AudioRecordService.RemoveOnRoutingChangedListener1:input_type -> audiorecord.RemoveOnRoutingChangedListener1Request
+	56,  // 28: audiorecord.AudioRecordService.RemoveOnRoutingChangedListener1_1:input_type -> audiorecord.RemoveOnRoutingChangedListener1_1Request
+	58,  // 29: audiorecord.AudioRecordService.SetLogSessionId:input_type -> audiorecord.SetLogSessionIdRequest
+	60,  // 30: audiorecord.AudioRecordService.SetNotificationMarkerPosition:input_type -> audiorecord.SetNotificationMarkerPositionRequest
+	62,  // 31: audiorecord.AudioRecordService.SetPositionNotificationPeriod:input_type -> audiorecord.SetPositionNotificationPeriodRequest
+	64,  // 32: audiorecord.AudioRecordService.SetPreferredDevice:input_type -> audiorecord.SetPreferredDeviceRequest
+	66,  // 33: audiorecord.AudioRecordService.SetPreferredMicrophoneDirection:input_type -> audiorecord.SetPreferredMicrophoneDirectionRequest
+	68,  // 34: audiorecord.AudioRecordService.SetPreferredMicrophoneFieldDimension:input_type -> audiorecord.SetPreferredMicrophoneFieldDimensionRequest
+	70,  // 35: audiorecord.AudioRecordService.SetRecordPositionUpdateListener:input_type -> audiorecord.SetRecordPositionUpdateListenerRequest
+	72,  // 36: audiorecord.AudioRecordService.StartRecording0:input_type -> audiorecord.StartRecording0Request
+	74,  // 37: audiorecord.AudioRecordService.StartRecording1_1:input_type -> audiorecord.StartRecording1_1Request
+	76,  // 38: audiorecord.AudioRecordService.Stop:input_type -> audiorecord.StopRequest
+	78,  // 39: audiorecord.AudioRecordService.UnregisterAudioRecordingCallback:input_type -> audiorecord.UnregisterAudioRecordingCallbackRequest
+	80,  // 40: audiorecord.AudioRecordService.GetMinBufferSize:input_type -> audiorecord.GetMinBufferSizeRequest
+	82,  // 41: audiorecord.AudioRecordBuilderService.Build:input_type -> audiorecord.BuildRequest
+	84,  // 42: audiorecord.AudioRecordBuilderService.SetAudioFormat:input_type -> audiorecord.SetAudioFormatRequest
+	86,  // 43: audiorecord.AudioRecordBuilderService.SetAudioPlaybackCaptureConfig:input_type -> audiorecord.SetAudioPlaybackCaptureConfigRequest
+	88,  // 44: audiorecord.AudioRecordBuilderService.SetAudioSource:input_type -> audiorecord.SetAudioSourceRequest
+	90,  // 45: audiorecord.AudioRecordBuilderService.SetBufferSizeInBytes:input_type -> audiorecord.SetBufferSizeInBytesRequest
+	92,  // 46: audiorecord.AudioRecordBuilderService.SetContext:input_type -> audiorecord.SetContextRequest
+	94,  // 47: audiorecord.AudioRecordBuilderService.SetPrivacySensitive:input_type -> audiorecord.SetPrivacySensitiveRequest
+	96,  // 48: audiorecord.AudioRecordOnRecordPositionUpdateListenerService.OnMarkerReached:input_type -> audiorecord.OnMarkerReachedRequest
+	98,  // 49: audiorecord.AudioRecordOnRecordPositionUpdateListenerService.OnPeriodicNotification:input_type -> audiorecord.OnPeriodicNotificationRequest
+	100, // 50: audiorecord.AudioRecordOnRoutingChangedListenerService.OnRoutingChanged:input_type -> audiorecord.OnRoutingChangedRequest
+	1,   // 51: audiorecord.AudioRecordService.NewAudioRecord:output_type -> audiorecord.NewAudioRecordResponse
+	3,   // 52: audiorecord.AudioRecordService.GetActiveRecordingConfiguration:output_type -> audiorecord.GetActiveRecordingConfigurationResponse
+	5,   // 53: audiorecord.AudioRecordService.GetAudioFormat:output_type -> audiorecord.GetAudioFormatResponse
+	7,   // 54: audiorecord.AudioRecordService.GetAudioSessionId:output_type -> audiorecord.GetAudioSessionIdResponse
+	9,   // 55: audiorecord.AudioRecordService.GetAudioSource:output_type -> audiorecord.GetAudioSourceResponse
+	11,  // 56: audiorecord.AudioRecordService.GetBufferSizeInFrames:output_type -> audiorecord.GetBufferSizeInFramesResponse
+	13,  // 57: audiorecord.AudioRecordService.GetChannelConfiguration:output_type -> audiorecord.GetChannelConfigurationResponse
+	15,  // 58: audiorecord.AudioRecordService.GetChannelCount:output_type -> audiorecord.GetChannelCountResponse
+	17,  // 59: audiorecord.AudioRecordService.GetFormat:output_type -> audiorecord.GetFormatResponse
+	19,  // 60: audiorecord.AudioRecordService.GetLogSessionId:output_type -> audiorecord.GetLogSessionIdResponse
+	21,  // 61: audiorecord.AudioRecordService.GetMetrics:output_type -> audiorecord.GetMetricsResponse
+	23,  // 62: audiorecord.AudioRecordService.GetNotificationMarkerPosition:output_type -> audiorecord.GetNotificationMarkerPositionResponse
+	25,  // 63: audiorecord.AudioRecordService.GetPositionNotificationPeriod:output_type -> audiorecord.GetPositionNotificationPeriodResponse
+	27,  // 64: audiorecord.AudioRecordService.GetPreferredDevice:output_type -> audiorecord.GetPreferredDeviceResponse
+	29,  // 65: audiorecord.AudioRecordService.GetRecordingState:output_type -> audiorecord.GetRecordingStateResponse
+	31,  // 66: audiorecord.AudioRecordService.GetRoutedDevice:output_type -> audiorecord.GetRoutedDeviceResponse
+	33,  // 67: audiorecord.AudioRecordService.GetSampleRate:output_type -> audiorecord.GetSampleRateResponse
+	35,  // 68: audiorecord.AudioRecordService.GetState:output_type -> audiorecord.GetStateResponse
+	37,  // 69: audiorecord.AudioRecordService.GetTimestamp:output_type -> audiorecord.GetTimestampResponse
+	39,  // 70: audiorecord.AudioRecordService.IsPrivacySensitive:output_type -> audiorecord.IsPrivacySensitiveResponse
+	41,  // 71: audiorecord.AudioRecordService.Read3:output_type -> audiorecord.Read3Response
+	43,  // 72: audiorecord.AudioRecordService.Read4_1:output_type -> audiorecord.Read4_1Response
+	45,  // 73: audiorecord.AudioRecordService.Read4_2:output_type -> audiorecord.Read4_2Response
+	47,  // 74: audiorecord.AudioRecordService.Read3_3:output_type -> audiorecord.Read3_3Response
+	49,  // 75: audiorecord.AudioRecordService.Read4_4:output_type -> audiorecord.Read4_4Response
+	51,  // 76: audiorecord.AudioRecordService.RegisterAudioRecordingCallback:output_type -> audiorecord.RegisterAudioRecordingCallbackResponse
+	53,  // 77: audiorecord.AudioRecordService.Release:output_type -> audiorecord.ReleaseResponse
+	55,  // 78: audiorecord.AudioRecordService.RemoveOnRoutingChangedListener1:output_type -> audiorecord.RemoveOnRoutingChangedListener1Response
+	57,  // 79: audiorecord.AudioRecordService.RemoveOnRoutingChangedListener1_1:output_type -> audiorecord.RemoveOnRoutingChangedListener1_1Response
+	59,  // 80: audiorecord.AudioRecordService.SetLogSessionId:output_type -> audiorecord.SetLogSessionIdResponse
+	61,  // 81: audiorecord.AudioRecordService.SetNotificationMarkerPosition:output_type -> audiorecord.SetNotificationMarkerPositionResponse
+	63,  // 82: audiorecord.AudioRecordService.SetPositionNotificationPeriod:output_type -> audiorecord.SetPositionNotificationPeriodResponse
+	65,  // 83: audiorecord.AudioRecordService.SetPreferredDevice:output_type -> audiorecord.SetPreferredDeviceResponse
+	67,  // 84: audiorecord.AudioRecordService.SetPreferredMicrophoneDirection:output_type -> audiorecord.SetPreferredMicrophoneDirectionResponse
+	69,  // 85: audiorecord.AudioRecordService.SetPreferredMicrophoneFieldDimension:output_type -> audiorecord.SetPreferredMicrophoneFieldDimensionResponse
+	71,  // 86: audiorecord.AudioRecordService.SetRecordPositionUpdateListener:output_type -> audiorecord.SetRecordPositionUpdateListenerResponse
+	73,  // 87: audiorecord.AudioRecordService.StartRecording0:output_type -> audiorecord.StartRecording0Response
+	75,  // 88: audiorecord.AudioRecordService.StartRecording1_1:output_type -> audiorecord.StartRecording1_1Response
+	77,  // 89: audiorecord.AudioRecordService.Stop:output_type -> audiorecord.StopResponse
+	79,  // 90: audiorecord.AudioRecordService.UnregisterAudioRecordingCallback:output_type -> audiorecord.UnregisterAudioRecordingCallbackResponse
+	81,  // 91: audiorecord.AudioRecordService.GetMinBufferSize:output_type -> audiorecord.GetMinBufferSizeResponse
+	83,  // 92: audiorecord.AudioRecordBuilderService.Build:output_type -> audiorecord.BuildResponse
+	85,  // 93: audiorecord.AudioRecordBuilderService.SetAudioFormat:output_type -> audiorecord.SetAudioFormatResponse
+	87,  // 94: audiorecord.AudioRecordBuilderService.SetAudioPlaybackCaptureConfig:output_type -> audiorecord.SetAudioPlaybackCaptureConfigResponse
+	89,  // 95: audiorecord.AudioRecordBuilderService.SetAudioSource:output_type -> audiorecord.SetAudioSourceResponse
+	91,  // 96: audiorecord.AudioRecordBuilderService.SetBufferSizeInBytes:output_type -> audiorecord.SetBufferSizeInBytesResponse
+	93,  // 97: audiorecord.AudioRecordBuilderService.SetContext:output_type -> audiorecord.SetContextResponse
+	95,  // 98: audiorecord.AudioRecordBuilderService.SetPrivacySensitive:output_type -> audiorecord.SetPrivacySensitiveResponse
+	97,  // 99: audiorecord.AudioRecordOnRecordPositionUpdateListenerService.OnMarkerReached:output_type -> audiorecord.OnMarkerReachedResponse
+	99,  // 100: audiorecord.AudioRecordOnRecordPositionUpdateListenerService.OnPeriodicNotification:output_type -> audiorecord.OnPeriodicNotificationResponse
+	101, // 101: audiorecord.AudioRecordOnRoutingChangedListenerService.OnRoutingChanged:output_type -> audiorecord.OnRoutingChangedResponse
+	51,  // [51:102] is the sub-list for method output_type
+	0,   // [0:51] is the sub-list for method input_type
+	0,   // [0:0] is the sub-list for extension type_name
+	0,   // [0:0] is the sub-list for extension extendee
+	0,   // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_proto_audiorecord_audiorecord_proto_init() }
@@ -48,12 +5250,13 @@ func file_proto_audiorecord_audiorecord_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_audiorecord_audiorecord_proto_rawDesc), len(file_proto_audiorecord_audiorecord_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   102,
 			NumExtensions: 0,
-			NumServices:   0,
+			NumServices:   4,
 		},
 		GoTypes:           file_proto_audiorecord_audiorecord_proto_goTypes,
 		DependencyIndexes: file_proto_audiorecord_audiorecord_proto_depIdxs,
+		MessageInfos:      file_proto_audiorecord_audiorecord_proto_msgTypes,
 	}.Build()
 	File_proto_audiorecord_audiorecord_proto = out.File
 	file_proto_audiorecord_audiorecord_proto_goTypes = nil

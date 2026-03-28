@@ -28,8 +28,19 @@ message UnregisterAdvancedProtectionCallbackRequest {
 message UnregisterAdvancedProtectionCallbackResponse {
 }
 
+message OnAdvancedProtectionChangedRequest {
+  bool arg0 = 1;
+}
+
+message OnAdvancedProtectionChangedResponse {
+}
+
 service AdvancedProtectionManagerService {
   rpc IsAdvancedProtectionEnabled (IsAdvancedProtectionEnabledRequest) returns (IsAdvancedProtectionEnabledResponse);
   rpc RegisterAdvancedProtectionCallback (RegisterAdvancedProtectionCallbackRequest) returns (RegisterAdvancedProtectionCallbackResponse);
   rpc UnregisterAdvancedProtectionCallback (UnregisterAdvancedProtectionCallbackRequest) returns (UnregisterAdvancedProtectionCallbackResponse);
+}
+
+service AdvancedProtectionManagerCallbackService {
+  rpc OnAdvancedProtectionChanged (OnAdvancedProtectionChangedRequest) returns (OnAdvancedProtectionChangedResponse);
 }

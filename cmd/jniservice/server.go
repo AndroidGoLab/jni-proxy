@@ -25,6 +25,7 @@ import (
 	"crypto/tls"
 	"crypto/x509"
 	"crypto/x509/pkix"
+	"errors"
 	"fmt"
 	"math/big"
 	"net"
@@ -149,6 +150,63 @@ func runServer(cvm *C.JavaVM) {
 	// This makes the Context handle available for Android API calls.
 	appContextHandle := initAndroidContext(vm, handles)
 
+	// Set Binder calling identity to system_server (uid 1000) so that
+	// Android API calls made from this process (running as root / uid 0)
+	// are seen as originating from system_server. Without this,
+	// LocationManager and other security-sensitive services reject calls
+	// with "invalid package for uid 0".
+	//
+	// Plain clearCallingIdentity() is insufficient: it sets getCallingUid()
+	// to the process uid (still 0 for root). We forge a token with uid 1000
+	// and restore it, so getCallingUid() returns 1000 (system_server).
+	//
+	// We set this once on the main thread; the per-RPC Binder interceptor
+	// repeats it on each gRPC worker thread.
+	if err := vm.Do(func(env *jni.Env) error {
+		binderCls, err := env.FindClass("android/os/Binder")
+		if err != nil {
+			return fmt.Errorf("find Binder class: %w", err)
+		}
+		clearMID, err := env.GetStaticMethodID(binderCls, "clearCallingIdentity", "()J")
+		if err != nil {
+			return fmt.Errorf("get clearCallingIdentity: %w", err)
+		}
+		currentToken, err := env.CallStaticLongMethod(binderCls, clearMID)
+		if err != nil {
+			return fmt.Errorf("clearCallingIdentity: %w", err)
+		}
+
+		// Extract pid from lower 32 bits, forge token with uid 1000.
+		pid := currentToken & 0xFFFFFFFF
+		const systemServerUID = 1000
+		forgedToken := (int64(systemServerUID) << 32) | pid
+
+		restoreMID, err := env.GetStaticMethodID(binderCls, "restoreCallingIdentity", "(J)V")
+		if err != nil {
+			return fmt.Errorf("get restoreCallingIdentity: %w", err)
+		}
+		if err := env.CallStaticVoidMethod(binderCls, restoreMID, jni.LongValue(forgedToken)); err != nil {
+			return fmt.Errorf("restoreCallingIdentity: %w", err)
+		}
+		fmt.Fprintf(os.Stderr, "jniservice: set Binder identity to system_server (uid=1000, token=%d)\n", forgedToken)
+		return nil
+	}); err != nil {
+		fmt.Fprintf(os.Stderr, "jniservice: WARNING: Binder identity setup failed: %v\n", err)
+	}
+
+	// Grant location AppOps to uid 0 so that LocationManager calls
+	// succeed. Even with the com.android.shell package context, some
+	// Android versions require explicit AppOps grants for uid 0.
+	// Explicitly allowing the location ops for uid 0 via setUidMode
+	// ensures the AppOps mode check passes.
+	if os.Getuid() == 0 && appContextHandle != 0 {
+		if ctxObj := handles.Get(appContextHandle); ctxObj != nil {
+			if err := grantLocationOpsForRoot(vm, ctxObj); err != nil {
+				fmt.Fprintf(os.Stderr, "jniservice: WARNING: grant location ops for root: %v\n", err)
+			}
+		}
+	}
+
 	// Determine data directory. Try the APK's files dir first (writable by the
 	// app process), fall back to /data/adb/jniservice (writable by root in
 	// app_process/Magisk mode). JNISERVICE_DATA_DIR env var overrides both.
@@ -156,7 +214,9 @@ func runServer(cvm *C.JavaVM) {
 	if dataDir == "" {
 		candidates := []string{
 			"/data/data/center.dx.jni.jniservice/files/jniservice",
-			"/data/adb/jniservice",
+			"/data/adb/modules/jniservice/data",
+			"/data/adb/jniservice/data",
+			"/data/local/tmp/jniservice/data",
 		}
 		for _, dir := range candidates {
 			if err := os.MkdirAll(dir, 0700); err == nil {
@@ -211,20 +271,31 @@ func runServer(cvm *C.JavaVM) {
 	}
 
 	auth := server.ACLAuth{Store: aclStore}
+
+	// Build the interceptor chains. The Looper interceptor runs first
+	// (pins the goroutine to an OS thread and attaches to the JVM).
+	// When running as root (uid 0), the Binder interceptor sets the
+	// calling identity to system_server (uid 1000) on each gRPC worker
+	// thread so Android API calls pass CallerIdentity checks. Auth runs
+	// last.
+	unaryInterceptors := []grpc.UnaryServerInterceptor{
+		server.UnaryLooperInterceptor(vm),
+	}
+	streamInterceptors := []grpc.StreamServerInterceptor{
+		server.StreamLooperInterceptor(vm),
+	}
+	if os.Getuid() == 0 {
+		unaryInterceptors = append(unaryInterceptors, server.UnaryBinderInterceptor(vm))
+		streamInterceptors = append(streamInterceptors, server.StreamBinderInterceptor(vm))
+		fmt.Fprintf(os.Stderr, "jniservice: running as root; Binder interceptor enabled\n")
+	}
+	unaryInterceptors = append(unaryInterceptors, server.UnaryAuthInterceptor(auth))
+	streamInterceptors = append(streamInterceptors, server.StreamAuthInterceptor(auth))
+
 	opts := []grpc.ServerOption{
 		grpc.Creds(credentials.NewTLS(tlsConfig)),
-		// Looper interceptor runs first: pins the goroutine to an OS thread
-		// and calls Looper.prepare() if needed. Services like InputMethodManager
-		// and WindowManager create Handler(Looper.myLooper()) internally, which
-		// NPEs if the thread has no Looper.
-		grpc.ChainUnaryInterceptor(
-			server.UnaryLooperInterceptor(vm),
-			server.UnaryAuthInterceptor(auth),
-		),
-		grpc.ChainStreamInterceptor(
-			server.StreamLooperInterceptor(vm),
-			server.StreamAuthInterceptor(auth),
-		),
+		grpc.ChainUnaryInterceptor(unaryInterceptors...),
+		grpc.ChainStreamInterceptor(streamInterceptors...),
 		grpc.MaxRecvMsgSize(maxGRPCMsgSize),
 		grpc.MaxSendMsgSize(maxGRPCMsgSize),
 	}
@@ -423,6 +494,8 @@ func initAndroidContext(vm *jni.VM, handles *handlestore.HandleStore) int64 {
 				}
 			}
 
+			// Use ActivityThread.systemMain() to create the system context,
+			// then create a shell-attributed package context for API access.
 			systemMainMID, err := env.GetStaticMethodID(atCls, "systemMain", "()Landroid/app/ActivityThread;")
 			if err != nil {
 				return fmt.Errorf("get systemMain: %w", err)
@@ -439,13 +512,35 @@ func initAndroidContext(vm *jni.VM, handles *handlestore.HandleStore) int64 {
 			if err != nil {
 				return fmt.Errorf("get getSystemContext: %w", err)
 			}
-			ctxObj, err := env.CallObjectMethod(atObj, getCtxMID)
+			sysCtx, err := env.CallObjectMethod(atObj, getCtxMID)
 			if err != nil {
 				return fmt.Errorf("getSystemContext: %w", err)
 			}
-			if ctxObj == nil || ctxObj.Ref() == 0 {
+			if sysCtx == nil || sysCtx.Ref() == 0 {
 				return fmt.Errorf("getSystemContext returned null")
 			}
+
+			// Create a com.android.shell package context for API access.
+			// Both root and non-root modes need this: security-sensitive
+			// Android APIs (LocationManager, CameraManager, etc.) validate
+			// that the caller's package name belongs to the caller's UID.
+			// The system context has package name "android", which is not
+			// a valid package for uid 2000 (shell).
+			// Using com.android.shell as the package context works because:
+			// - For root (uid 0): the Binder interceptor sets the calling
+			//   identity to uid 1000 (system_server), for which "android"
+			//   is valid. The shell context provides a fallback identity.
+			// - For non-root (uid 2000/shell): the uid/package match.
+			var ctxObj *jni.Object
+			var shellErr error
+			ctxObj, shellErr = createShellPackageContext(env, sysCtx)
+			if shellErr != nil {
+				fmt.Fprintf(os.Stderr, "jniservice: WARNING: createPackageContext(com.android.shell) failed (%v), using system context\n", shellErr)
+				ctxObj = sysCtx
+			} else {
+				fmt.Fprintf(os.Stderr, "jniservice: using com.android.shell package context (uid=%d)\n", os.Getuid())
+			}
+
 			contextHandle = handles.Put(env, ctxObj)
 		}
 
@@ -457,6 +552,226 @@ func initAndroidContext(vm *jni.VM, handles *handlestore.HandleStore) int64 {
 	}
 	fmt.Fprintf(os.Stderr, "jniservice: android context initialized (handle=%d)\n", contextHandle)
 	return contextHandle
+}
+
+// overrideProcessPackageName uses reflection to set the ActivityThread's
+// bound application's processName and packageName to the given package.
+// This makes Binder-based services (CameraService, etc.) see the correct
+// package identity instead of "android".
+func overrideProcessPackageName(env *jni.Env, activityThread *jni.Object, packageName string) error {
+
+	// Get the bound application info: ActivityThread.mBoundApplication.appInfo
+	// via reflection since these are private fields.
+	// Use Java reflection to access ActivityThread's private
+	// mBoundApplication field and override the package name.
+	// This makes Binder-based services see the correct package.
+	jPkgName, err := env.NewStringUTF(packageName)
+	if err != nil {
+		return fmt.Errorf("create package name string: %w", err)
+	}
+
+	// Get ActivityThread class and find mBoundApplication field via reflection.
+	classCls, err := env.FindClass("java/lang/Class")
+	if err != nil {
+		return fmt.Errorf("find Class: %w", err)
+	}
+	getDeclaredFieldMID, err := env.GetMethodID(classCls, "getDeclaredField", "(Ljava/lang/String;)Ljava/lang/reflect/Field;")
+	if err != nil {
+		return fmt.Errorf("get getDeclaredField: %w", err)
+	}
+	fieldCls, err := env.FindClass("java/lang/reflect/Field")
+	if err != nil {
+		return fmt.Errorf("find Field: %w", err)
+	}
+	setAccessibleMID, err := env.GetMethodID(fieldCls, "setAccessible", "(Z)V")
+	if err != nil {
+		return fmt.Errorf("get setAccessible: %w", err)
+	}
+	getMID, err := env.GetMethodID(fieldCls, "get", "(Ljava/lang/Object;)Ljava/lang/Object;")
+	if err != nil {
+		return fmt.Errorf("get Field.get: %w", err)
+	}
+
+	atClassObj := env.GetObjectClass(activityThread)
+
+	// Get mBoundApplication field
+	boundAppFieldName, _ := env.NewStringUTF("mBoundApplication")
+	boundAppField, err := env.CallObjectMethod(&atClassObj.Object, getDeclaredFieldMID, jni.ObjectValue(&boundAppFieldName.Object))
+	if err != nil {
+		return fmt.Errorf("getDeclaredField(mBoundApplication): %w", err)
+	}
+	if err := env.CallVoidMethod(boundAppField, setAccessibleMID, jni.BooleanValue(1)); err != nil {
+		return fmt.Errorf("setAccessible(mBoundApplication): %w", err)
+	}
+	boundApp, err := env.CallObjectMethod(boundAppField, getMID, jni.ObjectValue(activityThread))
+	if err != nil || boundApp == nil || boundApp.Ref() == 0 {
+		return fmt.Errorf("mBoundApplication is null (systemMain mode has no bound app): %w", err)
+	}
+
+	// Get appInfo field from AppBindData
+	boundAppCls := env.GetObjectClass(boundApp)
+	appInfoFieldName, _ := env.NewStringUTF("appInfo")
+	appInfoField, err := env.CallObjectMethod(&boundAppCls.Object, getDeclaredFieldMID, jni.ObjectValue(&appInfoFieldName.Object))
+	if err != nil {
+		return fmt.Errorf("getDeclaredField(appInfo): %w", err)
+	}
+	if err := env.CallVoidMethod(appInfoField, setAccessibleMID, jni.BooleanValue(1)); err != nil {
+		return fmt.Errorf("setAccessible(appInfo): %w", err)
+	}
+	appInfo, err := env.CallObjectMethod(appInfoField, getMID, jni.ObjectValue(boundApp))
+	if err != nil || appInfo == nil || appInfo.Ref() == 0 {
+		return fmt.Errorf("appInfo is null: %w", err)
+	}
+
+	// Set appInfo.packageName
+	appInfoCls, err := env.FindClass("android/content/pm/ApplicationInfo")
+	if err != nil {
+		return fmt.Errorf("find ApplicationInfo: %w", err)
+	}
+	pkgNameFID, err := env.GetFieldID(appInfoCls, "packageName", "Ljava/lang/String;")
+	if err != nil {
+		return fmt.Errorf("get packageName field: %w", err)
+	}
+	env.SetObjectField(appInfo, pkgNameFID, &jPkgName.Object)
+
+	// Also set processName
+	processNameFID, err := env.GetFieldID(appInfoCls, "processName", "Ljava/lang/String;")
+	if err == nil {
+		env.SetObjectField(appInfo, processNameFID, &jPkgName.Object)
+	}
+
+	fmt.Fprintf(os.Stderr, "jniservice: overrode process package name to %q\n", packageName)
+	return nil
+}
+
+// grantLocationOpsForRoot grants fine and coarse location AppOps to uid 0
+// and uid 1000 (system_server).
+//
+// Even though we now use the com.android.shell package context (instead of
+// the system context with package "android"), some Android versions still
+// require explicit AppOps grants to pass the mode check.
+//
+// We grant for uid 0 (the actual process uid) AND uid 1000 (the forged
+// Binder identity used by the interceptor) so that AppOps checks pass
+// regardless of which uid the system sees.
+//
+// Calling AppOpsManager.setUidMode(opStr, uid, MODE_ALLOWED) explicitly
+// grants the operation.
+func grantLocationOpsForRoot(vm *jni.VM, context *jni.Object) error {
+	return vm.Do(func(env *jni.Env) error {
+		// context.getSystemService("appops") -> AppOpsManager
+		ctxCls, err := env.FindClass("android/content/Context")
+		if err != nil {
+			return fmt.Errorf("find Context class: %w", err)
+		}
+		gssMID, err := env.GetMethodID(
+			ctxCls,
+			"getSystemService",
+			"(Ljava/lang/String;)Ljava/lang/Object;",
+		)
+		if err != nil {
+			return fmt.Errorf("get getSystemService: %w", err)
+		}
+		svcName, err := env.NewStringUTF("appops")
+		if err != nil {
+			return fmt.Errorf("create appops string: %w", err)
+		}
+		appOps, err := env.CallObjectMethod(
+			context, gssMID,
+			jni.ObjectValue(&svcName.Object),
+		)
+		if err != nil {
+			return fmt.Errorf("getSystemService(appops): %w", err)
+		}
+		if appOps == nil || appOps.Ref() == 0 {
+			return fmt.Errorf("AppOpsManager is null")
+		}
+
+		// AppOpsManager.setUidMode(String, int, int)
+		appOpsCls, err := env.FindClass("android/app/AppOpsManager")
+		if err != nil {
+			return fmt.Errorf("find AppOpsManager: %w", err)
+		}
+		setUidModeMID, err := env.GetMethodID(
+			appOpsCls,
+			"setUidMode",
+			"(Ljava/lang/String;II)V",
+		)
+		if err != nil {
+			return fmt.Errorf("get setUidMode: %w", err)
+		}
+
+		const modeAllowed = 0
+
+		ops := []string{
+			"android:fine_location",
+			"android:coarse_location",
+			"android:mock_location",
+		}
+
+		// Grant for both uid 0 (process uid) and uid 1000 (system_server,
+		// the forged Binder identity).
+		uids := []int32{0, 1000}
+
+		var errs []error
+		for _, op := range ops {
+			opStr, err := env.NewStringUTF(op)
+			if err != nil {
+				errs = append(errs, fmt.Errorf("create %s string: %w", op, err))
+				continue
+			}
+			for _, uid := range uids {
+				if err := env.CallVoidMethod(
+					appOps, setUidModeMID,
+					jni.ObjectValue(&opStr.Object),
+					jni.IntValue(uid),
+					jni.IntValue(modeAllowed),
+				); err != nil {
+					errs = append(errs, fmt.Errorf("setUidMode(%s, uid=%d): %w", op, uid, err))
+					continue
+				}
+				fmt.Fprintf(os.Stderr, "jniservice: granted %s for uid %d\n", op, uid)
+			}
+		}
+
+		if len(errs) > 0 {
+			return fmt.Errorf("some ops failed: %w", errors.Join(errs...))
+		}
+		return nil
+	})
+}
+
+// createShellPackageContext creates a Context attributed to com.android.shell.
+// This gives the jniservice a real package identity that security-sensitive
+// Android APIs (location, camera, microphone) accept.
+// CONTEXT_INCLUDE_CODE | CONTEXT_IGNORE_SECURITY = 1 | 2 = 3
+func createShellPackageContext(env *jni.Env, sysCtx *jni.Object) (*jni.Object, error) {
+	contextCls, err := env.FindClass("android/content/Context")
+	if err != nil {
+		return nil, fmt.Errorf("find Context class: %w", err)
+	}
+
+	createPkgCtxMID, err := env.GetMethodID(contextCls, "createPackageContext",
+		"(Ljava/lang/String;I)Landroid/content/Context;")
+	if err != nil {
+		return nil, fmt.Errorf("get createPackageContext: %w", err)
+	}
+
+	pkgName, err := env.NewStringUTF("com.android.shell")
+	if err != nil {
+		return nil, fmt.Errorf("create package name string: %w", err)
+	}
+
+	pkgCtx, err := env.CallObjectMethod(sysCtx, createPkgCtxMID, jni.ObjectValue(&pkgName.Object), jni.IntValue(3))
+	if err != nil {
+		return nil, fmt.Errorf("createPackageContext: %w", err)
+	}
+	if pkgCtx == nil || pkgCtx.Ref() == 0 {
+		return nil, fmt.Errorf("createPackageContext returned null")
+	}
+
+	fmt.Fprintf(os.Stderr, "jniservice: using com.android.shell package context\n")
+	return pkgCtx, nil
 }
 
 // launchPermissionDialog starts the PermissionDialogActivity via an Intent,

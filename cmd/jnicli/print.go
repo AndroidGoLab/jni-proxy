@@ -12,6 +12,423 @@ var printCmd = &cobra.Command{
 	Short: "print service operations",
 }
 
+var printDocumentAdapterCmd = &cobra.Command{
+	Use:   "document-adapter",
+	Short: "DocumentAdapterService operations",
+}
+
+var printDocumentAdapterOnFinishCmd = &cobra.Command{
+	Use:   "on-finish",
+	Short: "OnFinish RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDocumentAdapterServiceClient(grpcConn)
+		req := &pb.OnFinishRequest{}
+		resp, err := client.OnFinish(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printDocumentAdapterOnLayoutCmd = &cobra.Command{
+	Use:   "on-layout",
+	Short: "OnLayout RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDocumentAdapterServiceClient(grpcConn)
+		req := &pb.OnLayoutRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.OnLayout(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printDocumentAdapterOnStartCmd = &cobra.Command{
+	Use:   "on-start",
+	Short: "OnStart RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDocumentAdapterServiceClient(grpcConn)
+		req := &pb.OnStartRequest{}
+		resp, err := client.OnStart(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printDocumentAdapterOnWriteCmd = &cobra.Command{
+	Use:   "on-write",
+	Short: "OnWrite RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDocumentAdapterServiceClient(grpcConn)
+		req := &pb.OnWriteRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.OnWrite(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printDocumentAdapterLayoutResultCallbackCmd = &cobra.Command{
+	Use:   "document-adapter-layout-result-callback",
+	Short: "DocumentAdapterLayoutResultCallbackService operations",
+}
+
+var printDocumentAdapterLayoutResultCallbackOnLayoutCancelledCmd = &cobra.Command{
+	Use:   "on-layout-cancelled",
+	Short: "OnLayoutCancelled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDocumentAdapterLayoutResultCallbackServiceClient(grpcConn)
+		req := &pb.OnLayoutCancelledRequest{}
+		resp, err := client.OnLayoutCancelled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printDocumentAdapterLayoutResultCallbackOnLayoutFailedCmd = &cobra.Command{
+	Use:   "on-layout-failed",
+	Short: "OnLayoutFailed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDocumentAdapterLayoutResultCallbackServiceClient(grpcConn)
+		req := &pb.OnLayoutFailedRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnLayoutFailed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printDocumentAdapterLayoutResultCallbackOnLayoutFinishedCmd = &cobra.Command{
+	Use:   "on-layout-finished",
+	Short: "OnLayoutFinished RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDocumentAdapterLayoutResultCallbackServiceClient(grpcConn)
+		req := &pb.OnLayoutFinishedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnLayoutFinished(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printDocumentAdapterWriteResultCallbackCmd = &cobra.Command{
+	Use:   "document-adapter-write-result-callback",
+	Short: "DocumentAdapterWriteResultCallbackService operations",
+}
+
+var printDocumentAdapterWriteResultCallbackOnWriteCancelledCmd = &cobra.Command{
+	Use:   "on-write-cancelled",
+	Short: "OnWriteCancelled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDocumentAdapterWriteResultCallbackServiceClient(grpcConn)
+		req := &pb.OnWriteCancelledRequest{}
+		resp, err := client.OnWriteCancelled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printDocumentAdapterWriteResultCallbackOnWriteFailedCmd = &cobra.Command{
+	Use:   "on-write-failed",
+	Short: "OnWriteFailed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDocumentAdapterWriteResultCallbackServiceClient(grpcConn)
+		req := &pb.OnWriteFailedRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnWriteFailed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printDocumentAdapterWriteResultCallbackOnWriteFinishedCmd = &cobra.Command{
+	Use:   "on-write-finished",
+	Short: "OnWriteFinished RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDocumentAdapterWriteResultCallbackServiceClient(grpcConn)
+		req := &pb.OnWriteFinishedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnWriteFinished(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printJobCmd = &cobra.Command{
+	Use:   "job",
+	Short: "JobService operations",
+}
+
+var printJobCancelCmd = &cobra.Command{
+	Use:   "cancel",
+	Short: "Cancel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewJobServiceClient(grpcConn)
+		req := &pb.CancelRequest{}
+		resp, err := client.Cancel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printJobEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewJobServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printJobGetIdCmd = &cobra.Command{
+	Use:   "get-id",
+	Short: "GetId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewJobServiceClient(grpcConn)
+		req := &pb.GetIdRequest{}
+		resp, err := client.GetId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printJobGetInfoCmd = &cobra.Command{
+	Use:   "get-info",
+	Short: "GetInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewJobServiceClient(grpcConn)
+		req := &pb.GetInfoRequest{}
+		resp, err := client.GetInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printJobHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewJobServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printJobIsBlockedCmd = &cobra.Command{
+	Use:   "is-blocked",
+	Short: "IsBlocked RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewJobServiceClient(grpcConn)
+		req := &pb.IsBlockedRequest{}
+		resp, err := client.IsBlocked(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printJobIsCancelledCmd = &cobra.Command{
+	Use:   "is-cancelled",
+	Short: "IsCancelled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewJobServiceClient(grpcConn)
+		req := &pb.IsCancelledRequest{}
+		resp, err := client.IsCancelled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printJobIsCompletedCmd = &cobra.Command{
+	Use:   "is-completed",
+	Short: "IsCompleted RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewJobServiceClient(grpcConn)
+		req := &pb.IsCompletedRequest{}
+		resp, err := client.IsCompleted(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printJobIsFailedCmd = &cobra.Command{
+	Use:   "is-failed",
+	Short: "IsFailed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewJobServiceClient(grpcConn)
+		req := &pb.IsFailedRequest{}
+		resp, err := client.IsFailed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printJobIsQueuedCmd = &cobra.Command{
+	Use:   "is-queued",
+	Short: "IsQueued RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewJobServiceClient(grpcConn)
+		req := &pb.IsQueuedRequest{}
+		resp, err := client.IsQueued(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printJobIsStartedCmd = &cobra.Command{
+	Use:   "is-started",
+	Short: "IsStarted RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewJobServiceClient(grpcConn)
+		req := &pb.IsStartedRequest{}
+		resp, err := client.IsStarted(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printJobRestartCmd = &cobra.Command{
+	Use:   "restart",
+	Short: "Restart RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewJobServiceClient(grpcConn)
+		req := &pb.RestartRequest{}
+		resp, err := client.Restart(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var printManagerCmd = &cobra.Command{
 	Use:   "manager",
 	Short: "ManagerService operations",
@@ -61,7 +478,2303 @@ var printManagerPrintCmd = &cobra.Command{
 	},
 }
 
+var printJobIdCmd = &cobra.Command{
+	Use:   "job-id",
+	Short: "JobIdService operations",
+}
+
+var printJobIdDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewJobIdServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printJobIdEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewJobIdServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printJobIdHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewJobIdServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printJobIdWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewJobIdServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printPageRangeCmd = &cobra.Command{
+	Use:   "page-range",
+	Short: "PageRangeService operations",
+}
+
+var printPageRangeNewPageRangeCmd = &cobra.Command{
+	Use:   "new-page-range",
+	Short: "NewPageRange RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPageRangeServiceClient(grpcConn)
+		req := &pb.NewPageRangeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewPageRange(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printPageRangeDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPageRangeServiceClient(grpcConn)
+		req := &pb.PageRangeDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printPageRangeEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPageRangeServiceClient(grpcConn)
+		req := &pb.PageRangeEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printPageRangeGetEndCmd = &cobra.Command{
+	Use:   "get-end",
+	Short: "GetEnd RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPageRangeServiceClient(grpcConn)
+		req := &pb.GetEndRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetEnd(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printPageRangeGetStartCmd = &cobra.Command{
+	Use:   "get-start",
+	Short: "GetStart RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPageRangeServiceClient(grpcConn)
+		req := &pb.GetStartRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetStart(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printPageRangeHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPageRangeServiceClient(grpcConn)
+		req := &pb.PageRangeHashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printPageRangeToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPageRangeServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printPageRangeWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPageRangeServiceClient(grpcConn)
+		req := &pb.PageRangeWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printErIdCmd = &cobra.Command{
+	Use:   "er-id",
+	Short: "ErIdService operations",
+}
+
+var printErIdDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewErIdServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printErIdEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewErIdServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printErIdGetLocalIdCmd = &cobra.Command{
+	Use:   "get-local-id",
+	Short: "GetLocalId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewErIdServiceClient(grpcConn)
+		req := &pb.GetLocalIdRequest{}
+		resp, err := client.GetLocalId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printErIdHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewErIdServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printErIdToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewErIdServiceClient(grpcConn)
+		req := &pb.ErIdToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printErIdWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewErIdServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printJobInfoCmd = &cobra.Command{
+	Use:   "job-info",
+	Short: "JobInfoService operations",
+}
+
+var printJobInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewJobInfoServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printJobInfoGetAdvancedIntOptionCmd = &cobra.Command{
+	Use:   "get-advanced-int-option",
+	Short: "GetAdvancedIntOption RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewJobInfoServiceClient(grpcConn)
+		req := &pb.GetAdvancedIntOptionRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetAdvancedIntOption(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printJobInfoGetAdvancedStringOptionCmd = &cobra.Command{
+	Use:   "get-advanced-string-option",
+	Short: "GetAdvancedStringOption RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewJobInfoServiceClient(grpcConn)
+		req := &pb.GetAdvancedStringOptionRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetAdvancedStringOption(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printJobInfoGetAttributesCmd = &cobra.Command{
+	Use:   "get-attributes",
+	Short: "GetAttributes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewJobInfoServiceClient(grpcConn)
+		req := &pb.GetAttributesRequest{}
+		resp, err := client.GetAttributes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printJobInfoGetCopiesCmd = &cobra.Command{
+	Use:   "get-copies",
+	Short: "GetCopies RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewJobInfoServiceClient(grpcConn)
+		req := &pb.GetCopiesRequest{}
+		resp, err := client.GetCopies(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printJobInfoGetCreationTimeCmd = &cobra.Command{
+	Use:   "get-creation-time",
+	Short: "GetCreationTime RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewJobInfoServiceClient(grpcConn)
+		req := &pb.GetCreationTimeRequest{}
+		resp, err := client.GetCreationTime(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printJobInfoGetIdCmd = &cobra.Command{
+	Use:   "get-id",
+	Short: "GetId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewJobInfoServiceClient(grpcConn)
+		req := &pb.GetIdRequest{}
+		resp, err := client.GetId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printJobInfoGetLabelCmd = &cobra.Command{
+	Use:   "get-label",
+	Short: "GetLabel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewJobInfoServiceClient(grpcConn)
+		req := &pb.GetLabelRequest{}
+		resp, err := client.GetLabel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printJobInfoGetPagesCmd = &cobra.Command{
+	Use:   "get-pages",
+	Short: "GetPages RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewJobInfoServiceClient(grpcConn)
+		req := &pb.GetPagesRequest{}
+		resp, err := client.GetPages(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printJobInfoGetPrinterIdCmd = &cobra.Command{
+	Use:   "get-printer-id",
+	Short: "GetPrinterId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewJobInfoServiceClient(grpcConn)
+		req := &pb.GetPrinterIdRequest{}
+		resp, err := client.GetPrinterId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printJobInfoGetStateCmd = &cobra.Command{
+	Use:   "get-state",
+	Short: "GetState RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewJobInfoServiceClient(grpcConn)
+		req := &pb.GetStateRequest{}
+		resp, err := client.GetState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printJobInfoHasAdvancedOptionCmd = &cobra.Command{
+	Use:   "has-advanced-option",
+	Short: "HasAdvancedOption RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewJobInfoServiceClient(grpcConn)
+		req := &pb.HasAdvancedOptionRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.HasAdvancedOption(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printJobInfoToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewJobInfoServiceClient(grpcConn)
+		req := &pb.JobInfoToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printJobInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewJobInfoServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printJobInfoBuilderCmd = &cobra.Command{
+	Use:   "job-info-builder",
+	Short: "JobInfoBuilderService operations",
+}
+
+var printJobInfoBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewJobInfoBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printJobInfoBuilderPutAdvancedOption2Cmd = &cobra.Command{
+	Use:   "put-advanced-option2",
+	Short: "PutAdvancedOption2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewJobInfoBuilderServiceClient(grpcConn)
+		req := &pb.PutAdvancedOption2Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.PutAdvancedOption2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printJobInfoBuilderPutAdvancedOption2_1Cmd = &cobra.Command{
+	Use:   "put-advanced-option2_1",
+	Short: "PutAdvancedOption2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewJobInfoBuilderServiceClient(grpcConn)
+		req := &pb.PutAdvancedOption2_1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.PutAdvancedOption2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printJobInfoBuilderSetAttributesCmd = &cobra.Command{
+	Use:   "set-attributes",
+	Short: "SetAttributes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewJobInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetAttributesRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetAttributes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printJobInfoBuilderSetCopiesCmd = &cobra.Command{
+	Use:   "set-copies",
+	Short: "SetCopies RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewJobInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetCopiesRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetCopies(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printJobInfoBuilderSetPagesCmd = &cobra.Command{
+	Use:   "set-pages",
+	Short: "SetPages RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewJobInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetPagesRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetPages(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printAttributesCmd = &cobra.Command{
+	Use:   "attributes",
+	Short: "AttributesService operations",
+}
+
+var printAttributesDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAttributesServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printAttributesEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAttributesServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printAttributesGetColorModeCmd = &cobra.Command{
+	Use:   "get-color-mode",
+	Short: "GetColorMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAttributesServiceClient(grpcConn)
+		req := &pb.GetColorModeRequest{}
+		resp, err := client.GetColorMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printAttributesGetDuplexModeCmd = &cobra.Command{
+	Use:   "get-duplex-mode",
+	Short: "GetDuplexMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAttributesServiceClient(grpcConn)
+		req := &pb.GetDuplexModeRequest{}
+		resp, err := client.GetDuplexMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printAttributesGetMediaSizeCmd = &cobra.Command{
+	Use:   "get-media-size",
+	Short: "GetMediaSize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAttributesServiceClient(grpcConn)
+		req := &pb.GetMediaSizeRequest{}
+		resp, err := client.GetMediaSize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printAttributesGetMinMarginsCmd = &cobra.Command{
+	Use:   "get-min-margins",
+	Short: "GetMinMargins RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAttributesServiceClient(grpcConn)
+		req := &pb.GetMinMarginsRequest{}
+		resp, err := client.GetMinMargins(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printAttributesGetResolutionCmd = &cobra.Command{
+	Use:   "get-resolution",
+	Short: "GetResolution RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAttributesServiceClient(grpcConn)
+		req := &pb.GetResolutionRequest{}
+		resp, err := client.GetResolution(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printAttributesHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAttributesServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printAttributesToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAttributesServiceClient(grpcConn)
+		req := &pb.AttributesToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printAttributesWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAttributesServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printAttributesBuilderCmd = &cobra.Command{
+	Use:   "attributes-builder",
+	Short: "AttributesBuilderService operations",
+}
+
+var printAttributesBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAttributesBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printAttributesBuilderSetColorModeCmd = &cobra.Command{
+	Use:   "set-color-mode",
+	Short: "SetColorMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAttributesBuilderServiceClient(grpcConn)
+		req := &pb.SetColorModeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetColorMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printAttributesBuilderSetDuplexModeCmd = &cobra.Command{
+	Use:   "set-duplex-mode",
+	Short: "SetDuplexMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAttributesBuilderServiceClient(grpcConn)
+		req := &pb.SetDuplexModeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDuplexMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printAttributesBuilderSetMediaSizeCmd = &cobra.Command{
+	Use:   "set-media-size",
+	Short: "SetMediaSize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAttributesBuilderServiceClient(grpcConn)
+		req := &pb.SetMediaSizeRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetMediaSize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printAttributesBuilderSetMinMarginsCmd = &cobra.Command{
+	Use:   "set-min-margins",
+	Short: "SetMinMargins RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAttributesBuilderServiceClient(grpcConn)
+		req := &pb.SetMinMarginsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetMinMargins(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printAttributesBuilderSetResolutionCmd = &cobra.Command{
+	Use:   "set-resolution",
+	Short: "SetResolution RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAttributesBuilderServiceClient(grpcConn)
+		req := &pb.SetResolutionRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetResolution(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printAttributesMarginsCmd = &cobra.Command{
+	Use:   "attributes-margins",
+	Short: "AttributesMarginsService operations",
+}
+
+var printAttributesMarginsEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAttributesMarginsServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printAttributesMarginsGetBottomMilsCmd = &cobra.Command{
+	Use:   "get-bottom-mils",
+	Short: "GetBottomMils RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAttributesMarginsServiceClient(grpcConn)
+		req := &pb.GetBottomMilsRequest{}
+		resp, err := client.GetBottomMils(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printAttributesMarginsGetLeftMilsCmd = &cobra.Command{
+	Use:   "get-left-mils",
+	Short: "GetLeftMils RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAttributesMarginsServiceClient(grpcConn)
+		req := &pb.GetLeftMilsRequest{}
+		resp, err := client.GetLeftMils(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printAttributesMarginsGetRightMilsCmd = &cobra.Command{
+	Use:   "get-right-mils",
+	Short: "GetRightMils RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAttributesMarginsServiceClient(grpcConn)
+		req := &pb.GetRightMilsRequest{}
+		resp, err := client.GetRightMils(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printAttributesMarginsGetTopMilsCmd = &cobra.Command{
+	Use:   "get-top-mils",
+	Short: "GetTopMils RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAttributesMarginsServiceClient(grpcConn)
+		req := &pb.GetTopMilsRequest{}
+		resp, err := client.GetTopMils(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printAttributesMarginsHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAttributesMarginsServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printAttributesMarginsToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAttributesMarginsServiceClient(grpcConn)
+		req := &pb.AttributesMarginsToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printAttributesMediaSizeCmd = &cobra.Command{
+	Use:   "attributes-media-size",
+	Short: "AttributesMediaSizeService operations",
+}
+
+var printAttributesMediaSizeAsLandscapeCmd = &cobra.Command{
+	Use:   "as-landscape",
+	Short: "AsLandscape RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAttributesMediaSizeServiceClient(grpcConn)
+		req := &pb.AsLandscapeRequest{}
+		resp, err := client.AsLandscape(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printAttributesMediaSizeAsPortraitCmd = &cobra.Command{
+	Use:   "as-portrait",
+	Short: "AsPortrait RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAttributesMediaSizeServiceClient(grpcConn)
+		req := &pb.AsPortraitRequest{}
+		resp, err := client.AsPortrait(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printAttributesMediaSizeEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAttributesMediaSizeServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printAttributesMediaSizeGetHeightMilsCmd = &cobra.Command{
+	Use:   "get-height-mils",
+	Short: "GetHeightMils RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAttributesMediaSizeServiceClient(grpcConn)
+		req := &pb.GetHeightMilsRequest{}
+		resp, err := client.GetHeightMils(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printAttributesMediaSizeGetIdCmd = &cobra.Command{
+	Use:   "get-id",
+	Short: "GetId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAttributesMediaSizeServiceClient(grpcConn)
+		req := &pb.GetIdRequest{}
+		resp, err := client.GetId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printAttributesMediaSizeGetLabelCmd = &cobra.Command{
+	Use:   "get-label",
+	Short: "GetLabel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAttributesMediaSizeServiceClient(grpcConn)
+		req := &pb.AttributesMediaSizeGetLabelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetLabel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printAttributesMediaSizeGetWidthMilsCmd = &cobra.Command{
+	Use:   "get-width-mils",
+	Short: "GetWidthMils RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAttributesMediaSizeServiceClient(grpcConn)
+		req := &pb.GetWidthMilsRequest{}
+		resp, err := client.GetWidthMils(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printAttributesMediaSizeHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAttributesMediaSizeServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printAttributesMediaSizeIsPortraitCmd = &cobra.Command{
+	Use:   "is-portrait",
+	Short: "IsPortrait RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAttributesMediaSizeServiceClient(grpcConn)
+		req := &pb.IsPortraitRequest{}
+		resp, err := client.IsPortrait(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printAttributesMediaSizeToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAttributesMediaSizeServiceClient(grpcConn)
+		req := &pb.AttributesMediaSizeToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printAttributesResolutionCmd = &cobra.Command{
+	Use:   "attributes-resolution",
+	Short: "AttributesResolutionService operations",
+}
+
+var printAttributesResolutionEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAttributesResolutionServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printAttributesResolutionGetHorizontalDpiCmd = &cobra.Command{
+	Use:   "get-horizontal-dpi",
+	Short: "GetHorizontalDpi RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAttributesResolutionServiceClient(grpcConn)
+		req := &pb.GetHorizontalDpiRequest{}
+		resp, err := client.GetHorizontalDpi(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printAttributesResolutionGetIdCmd = &cobra.Command{
+	Use:   "get-id",
+	Short: "GetId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAttributesResolutionServiceClient(grpcConn)
+		req := &pb.GetIdRequest{}
+		resp, err := client.GetId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printAttributesResolutionGetLabelCmd = &cobra.Command{
+	Use:   "get-label",
+	Short: "GetLabel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAttributesResolutionServiceClient(grpcConn)
+		req := &pb.GetLabelRequest{}
+		resp, err := client.GetLabel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printAttributesResolutionGetVerticalDpiCmd = &cobra.Command{
+	Use:   "get-vertical-dpi",
+	Short: "GetVerticalDpi RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAttributesResolutionServiceClient(grpcConn)
+		req := &pb.GetVerticalDpiRequest{}
+		resp, err := client.GetVerticalDpi(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printAttributesResolutionHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAttributesResolutionServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printAttributesResolutionToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAttributesResolutionServiceClient(grpcConn)
+		req := &pb.AttributesResolutionToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printErInfoCmd = &cobra.Command{
+	Use:   "er-info",
+	Short: "ErInfoService operations",
+}
+
+var printErInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewErInfoServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printErInfoEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewErInfoServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printErInfoGetCapabilitiesCmd = &cobra.Command{
+	Use:   "get-capabilities",
+	Short: "GetCapabilities RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewErInfoServiceClient(grpcConn)
+		req := &pb.GetCapabilitiesRequest{}
+		resp, err := client.GetCapabilities(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printErInfoGetDescriptionCmd = &cobra.Command{
+	Use:   "get-description",
+	Short: "GetDescription RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewErInfoServiceClient(grpcConn)
+		req := &pb.GetDescriptionRequest{}
+		resp, err := client.GetDescription(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printErInfoGetIdCmd = &cobra.Command{
+	Use:   "get-id",
+	Short: "GetId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewErInfoServiceClient(grpcConn)
+		req := &pb.GetIdRequest{}
+		resp, err := client.GetId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printErInfoGetNameCmd = &cobra.Command{
+	Use:   "get-name",
+	Short: "GetName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewErInfoServiceClient(grpcConn)
+		req := &pb.GetNameRequest{}
+		resp, err := client.GetName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printErInfoGetStatusCmd = &cobra.Command{
+	Use:   "get-status",
+	Short: "GetStatus RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewErInfoServiceClient(grpcConn)
+		req := &pb.GetStatusRequest{}
+		resp, err := client.GetStatus(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printErInfoHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewErInfoServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printErInfoToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewErInfoServiceClient(grpcConn)
+		req := &pb.ErInfoToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printErInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewErInfoServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printErInfoBuilderCmd = &cobra.Command{
+	Use:   "er-info-builder",
+	Short: "ErInfoBuilderService operations",
+}
+
+var printErInfoBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewErInfoBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printErInfoBuilderSetCapabilitiesCmd = &cobra.Command{
+	Use:   "set-capabilities",
+	Short: "SetCapabilities RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewErInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetCapabilitiesRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetCapabilities(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printErInfoBuilderSetDescriptionCmd = &cobra.Command{
+	Use:   "set-description",
+	Short: "SetDescription RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewErInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetDescriptionRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDescription(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printErInfoBuilderSetHasCustomPrinterIconCmd = &cobra.Command{
+	Use:   "set-has-custom-printer-icon",
+	Short: "SetHasCustomPrinterIcon RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewErInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetHasCustomPrinterIconRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetHasCustomPrinterIcon(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printErInfoBuilderSetIconResourceIdCmd = &cobra.Command{
+	Use:   "set-icon-resource-id",
+	Short: "SetIconResourceId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewErInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetIconResourceIdRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetIconResourceId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printErInfoBuilderSetInfoIntentCmd = &cobra.Command{
+	Use:   "set-info-intent",
+	Short: "SetInfoIntent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewErInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetInfoIntentRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetInfoIntent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printErInfoBuilderSetNameCmd = &cobra.Command{
+	Use:   "set-name",
+	Short: "SetName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewErInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetNameRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printErInfoBuilderSetStatusCmd = &cobra.Command{
+	Use:   "set-status",
+	Short: "SetStatus RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewErInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetStatusRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetStatus(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printDocumentInfoCmd = &cobra.Command{
+	Use:   "document-info",
+	Short: "DocumentInfoService operations",
+}
+
+var printDocumentInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDocumentInfoServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printDocumentInfoEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDocumentInfoServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printDocumentInfoGetContentTypeCmd = &cobra.Command{
+	Use:   "get-content-type",
+	Short: "GetContentType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDocumentInfoServiceClient(grpcConn)
+		req := &pb.GetContentTypeRequest{}
+		resp, err := client.GetContentType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printDocumentInfoGetDataSizeCmd = &cobra.Command{
+	Use:   "get-data-size",
+	Short: "GetDataSize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDocumentInfoServiceClient(grpcConn)
+		req := &pb.GetDataSizeRequest{}
+		resp, err := client.GetDataSize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printDocumentInfoGetNameCmd = &cobra.Command{
+	Use:   "get-name",
+	Short: "GetName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDocumentInfoServiceClient(grpcConn)
+		req := &pb.GetNameRequest{}
+		resp, err := client.GetName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printDocumentInfoGetPageCountCmd = &cobra.Command{
+	Use:   "get-page-count",
+	Short: "GetPageCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDocumentInfoServiceClient(grpcConn)
+		req := &pb.GetPageCountRequest{}
+		resp, err := client.GetPageCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printDocumentInfoHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDocumentInfoServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printDocumentInfoToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDocumentInfoServiceClient(grpcConn)
+		req := &pb.DocumentInfoToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printDocumentInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDocumentInfoServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printDocumentInfoBuilderCmd = &cobra.Command{
+	Use:   "document-info-builder",
+	Short: "DocumentInfoBuilderService operations",
+}
+
+var printDocumentInfoBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDocumentInfoBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printDocumentInfoBuilderSetContentTypeCmd = &cobra.Command{
+	Use:   "set-content-type",
+	Short: "SetContentType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDocumentInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetContentTypeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetContentType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printDocumentInfoBuilderSetPageCountCmd = &cobra.Command{
+	Use:   "set-page-count",
+	Short: "SetPageCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDocumentInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetPageCountRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetPageCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printErCapabilitiesInfoCmd = &cobra.Command{
+	Use:   "er-capabilities-info",
+	Short: "ErCapabilitiesInfoService operations",
+}
+
+var printErCapabilitiesInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewErCapabilitiesInfoServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printErCapabilitiesInfoEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewErCapabilitiesInfoServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printErCapabilitiesInfoGetColorModesCmd = &cobra.Command{
+	Use:   "get-color-modes",
+	Short: "GetColorModes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewErCapabilitiesInfoServiceClient(grpcConn)
+		req := &pb.GetColorModesRequest{}
+		resp, err := client.GetColorModes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printErCapabilitiesInfoGetDefaultsCmd = &cobra.Command{
+	Use:   "get-defaults",
+	Short: "GetDefaults RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewErCapabilitiesInfoServiceClient(grpcConn)
+		req := &pb.GetDefaultsRequest{}
+		resp, err := client.GetDefaults(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printErCapabilitiesInfoGetDuplexModesCmd = &cobra.Command{
+	Use:   "get-duplex-modes",
+	Short: "GetDuplexModes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewErCapabilitiesInfoServiceClient(grpcConn)
+		req := &pb.GetDuplexModesRequest{}
+		resp, err := client.GetDuplexModes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printErCapabilitiesInfoGetMinMarginsCmd = &cobra.Command{
+	Use:   "get-min-margins",
+	Short: "GetMinMargins RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewErCapabilitiesInfoServiceClient(grpcConn)
+		req := &pb.GetMinMarginsRequest{}
+		resp, err := client.GetMinMargins(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printErCapabilitiesInfoHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewErCapabilitiesInfoServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printErCapabilitiesInfoToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewErCapabilitiesInfoServiceClient(grpcConn)
+		req := &pb.ErCapabilitiesInfoToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printErCapabilitiesInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewErCapabilitiesInfoServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printErCapabilitiesInfoBuilderCmd = &cobra.Command{
+	Use:   "er-capabilities-info-builder",
+	Short: "ErCapabilitiesInfoBuilderService operations",
+}
+
+var printErCapabilitiesInfoBuilderAddMediaSizeCmd = &cobra.Command{
+	Use:   "add-media-size",
+	Short: "AddMediaSize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewErCapabilitiesInfoBuilderServiceClient(grpcConn)
+		req := &pb.AddMediaSizeRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.AddMediaSize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printErCapabilitiesInfoBuilderAddResolutionCmd = &cobra.Command{
+	Use:   "add-resolution",
+	Short: "AddResolution RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewErCapabilitiesInfoBuilderServiceClient(grpcConn)
+		req := &pb.AddResolutionRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.AddResolution(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printErCapabilitiesInfoBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewErCapabilitiesInfoBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printErCapabilitiesInfoBuilderSetColorModesCmd = &cobra.Command{
+	Use:   "set-color-modes",
+	Short: "SetColorModes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewErCapabilitiesInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetColorModesRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetColorModes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printErCapabilitiesInfoBuilderSetDuplexModesCmd = &cobra.Command{
+	Use:   "set-duplex-modes",
+	Short: "SetDuplexModes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewErCapabilitiesInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetDuplexModesRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetDuplexModes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printErCapabilitiesInfoBuilderSetMinMarginsCmd = &cobra.Command{
+	Use:   "set-min-margins",
+	Short: "SetMinMargins RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewErCapabilitiesInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetMinMarginsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetMinMargins(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 func init() {
+	printDocumentAdapterCmd.AddCommand(printDocumentAdapterOnFinishCmd)
+	printDocumentAdapterOnLayoutCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	printDocumentAdapterOnLayoutCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	printDocumentAdapterOnLayoutCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	printDocumentAdapterOnLayoutCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	printDocumentAdapterOnLayoutCmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	printDocumentAdapterCmd.AddCommand(printDocumentAdapterOnLayoutCmd)
+	printDocumentAdapterCmd.AddCommand(printDocumentAdapterOnStartCmd)
+	printDocumentAdapterOnWriteCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	printDocumentAdapterOnWriteCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	printDocumentAdapterOnWriteCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	printDocumentAdapterOnWriteCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	printDocumentAdapterCmd.AddCommand(printDocumentAdapterOnWriteCmd)
+	printCmd.AddCommand(printDocumentAdapterCmd)
+	printDocumentAdapterLayoutResultCallbackCmd.AddCommand(printDocumentAdapterLayoutResultCallbackOnLayoutCancelledCmd)
+	printDocumentAdapterLayoutResultCallbackOnLayoutFailedCmd.Flags().String("arg0", "", "arg0 (string)")
+	printDocumentAdapterLayoutResultCallbackCmd.AddCommand(printDocumentAdapterLayoutResultCallbackOnLayoutFailedCmd)
+	printDocumentAdapterLayoutResultCallbackOnLayoutFinishedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	printDocumentAdapterLayoutResultCallbackOnLayoutFinishedCmd.Flags().Bool("arg1", false, "arg1 (bool)")
+	printDocumentAdapterLayoutResultCallbackCmd.AddCommand(printDocumentAdapterLayoutResultCallbackOnLayoutFinishedCmd)
+	printCmd.AddCommand(printDocumentAdapterLayoutResultCallbackCmd)
+	printDocumentAdapterWriteResultCallbackCmd.AddCommand(printDocumentAdapterWriteResultCallbackOnWriteCancelledCmd)
+	printDocumentAdapterWriteResultCallbackOnWriteFailedCmd.Flags().String("arg0", "", "arg0 (string)")
+	printDocumentAdapterWriteResultCallbackCmd.AddCommand(printDocumentAdapterWriteResultCallbackOnWriteFailedCmd)
+	printDocumentAdapterWriteResultCallbackOnWriteFinishedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	printDocumentAdapterWriteResultCallbackCmd.AddCommand(printDocumentAdapterWriteResultCallbackOnWriteFinishedCmd)
+	printCmd.AddCommand(printDocumentAdapterWriteResultCallbackCmd)
+	printJobCmd.AddCommand(printJobCancelCmd)
+	printJobEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	printJobCmd.AddCommand(printJobEqualsCmd)
+	printJobCmd.AddCommand(printJobGetIdCmd)
+	printJobCmd.AddCommand(printJobGetInfoCmd)
+	printJobCmd.AddCommand(printJobHashCodeCmd)
+	printJobCmd.AddCommand(printJobIsBlockedCmd)
+	printJobCmd.AddCommand(printJobIsCancelledCmd)
+	printJobCmd.AddCommand(printJobIsCompletedCmd)
+	printJobCmd.AddCommand(printJobIsFailedCmd)
+	printJobCmd.AddCommand(printJobIsQueuedCmd)
+	printJobCmd.AddCommand(printJobIsStartedCmd)
+	printJobCmd.AddCommand(printJobRestartCmd)
+	printCmd.AddCommand(printJobCmd)
 	printManagerIsPrintServiceEnabledCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	printManagerCmd.AddCommand(printManagerIsPrintServiceEnabledCmd)
 	printManagerPrintCmd.Flags().String("arg0", "", "arg0 (string)")
@@ -69,5 +2782,213 @@ func init() {
 	printManagerPrintCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
 	printManagerCmd.AddCommand(printManagerPrintCmd)
 	printCmd.AddCommand(printManagerCmd)
+	printJobIdCmd.AddCommand(printJobIdDescribeContentsCmd)
+	printJobIdEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	printJobIdCmd.AddCommand(printJobIdEqualsCmd)
+	printJobIdCmd.AddCommand(printJobIdHashCodeCmd)
+	printJobIdWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	printJobIdWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	printJobIdCmd.AddCommand(printJobIdWriteToParcelCmd)
+	printCmd.AddCommand(printJobIdCmd)
+	printPageRangeNewPageRangeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	printPageRangeNewPageRangeCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	printPageRangeCmd.AddCommand(printPageRangeNewPageRangeCmd)
+	printPageRangeDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	printPageRangeCmd.AddCommand(printPageRangeDescribeContentsCmd)
+	printPageRangeEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	printPageRangeEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	printPageRangeCmd.AddCommand(printPageRangeEqualsCmd)
+	printPageRangeGetEndCmd.Flags().Int64("handle", 0, "handle (int64)")
+	printPageRangeCmd.AddCommand(printPageRangeGetEndCmd)
+	printPageRangeGetStartCmd.Flags().Int64("handle", 0, "handle (int64)")
+	printPageRangeCmd.AddCommand(printPageRangeGetStartCmd)
+	printPageRangeHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	printPageRangeCmd.AddCommand(printPageRangeHashCodeCmd)
+	printPageRangeToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	printPageRangeCmd.AddCommand(printPageRangeToStringCmd)
+	printPageRangeWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	printPageRangeWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	printPageRangeWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	printPageRangeCmd.AddCommand(printPageRangeWriteToParcelCmd)
+	printCmd.AddCommand(printPageRangeCmd)
+	printErIdCmd.AddCommand(printErIdDescribeContentsCmd)
+	printErIdEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	printErIdCmd.AddCommand(printErIdEqualsCmd)
+	printErIdCmd.AddCommand(printErIdGetLocalIdCmd)
+	printErIdCmd.AddCommand(printErIdHashCodeCmd)
+	printErIdCmd.AddCommand(printErIdToStringCmd)
+	printErIdWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	printErIdWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	printErIdCmd.AddCommand(printErIdWriteToParcelCmd)
+	printCmd.AddCommand(printErIdCmd)
+	printJobInfoCmd.AddCommand(printJobInfoDescribeContentsCmd)
+	printJobInfoGetAdvancedIntOptionCmd.Flags().String("arg0", "", "arg0 (string)")
+	printJobInfoCmd.AddCommand(printJobInfoGetAdvancedIntOptionCmd)
+	printJobInfoGetAdvancedStringOptionCmd.Flags().String("arg0", "", "arg0 (string)")
+	printJobInfoCmd.AddCommand(printJobInfoGetAdvancedStringOptionCmd)
+	printJobInfoCmd.AddCommand(printJobInfoGetAttributesCmd)
+	printJobInfoCmd.AddCommand(printJobInfoGetCopiesCmd)
+	printJobInfoCmd.AddCommand(printJobInfoGetCreationTimeCmd)
+	printJobInfoCmd.AddCommand(printJobInfoGetIdCmd)
+	printJobInfoCmd.AddCommand(printJobInfoGetLabelCmd)
+	printJobInfoCmd.AddCommand(printJobInfoGetPagesCmd)
+	printJobInfoCmd.AddCommand(printJobInfoGetPrinterIdCmd)
+	printJobInfoCmd.AddCommand(printJobInfoGetStateCmd)
+	printJobInfoHasAdvancedOptionCmd.Flags().String("arg0", "", "arg0 (string)")
+	printJobInfoCmd.AddCommand(printJobInfoHasAdvancedOptionCmd)
+	printJobInfoCmd.AddCommand(printJobInfoToStringCmd)
+	printJobInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	printJobInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	printJobInfoCmd.AddCommand(printJobInfoWriteToParcelCmd)
+	printCmd.AddCommand(printJobInfoCmd)
+	printJobInfoBuilderCmd.AddCommand(printJobInfoBuilderBuildCmd)
+	printJobInfoBuilderPutAdvancedOption2Cmd.Flags().String("arg0", "", "arg0 (string)")
+	printJobInfoBuilderPutAdvancedOption2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	printJobInfoBuilderCmd.AddCommand(printJobInfoBuilderPutAdvancedOption2Cmd)
+	printJobInfoBuilderPutAdvancedOption2_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	printJobInfoBuilderPutAdvancedOption2_1Cmd.Flags().String("arg1", "", "arg1 (string)")
+	printJobInfoBuilderCmd.AddCommand(printJobInfoBuilderPutAdvancedOption2_1Cmd)
+	printJobInfoBuilderSetAttributesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	printJobInfoBuilderCmd.AddCommand(printJobInfoBuilderSetAttributesCmd)
+	printJobInfoBuilderSetCopiesCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	printJobInfoBuilderCmd.AddCommand(printJobInfoBuilderSetCopiesCmd)
+	printJobInfoBuilderSetPagesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	printJobInfoBuilderCmd.AddCommand(printJobInfoBuilderSetPagesCmd)
+	printCmd.AddCommand(printJobInfoBuilderCmd)
+	printAttributesCmd.AddCommand(printAttributesDescribeContentsCmd)
+	printAttributesEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	printAttributesCmd.AddCommand(printAttributesEqualsCmd)
+	printAttributesCmd.AddCommand(printAttributesGetColorModeCmd)
+	printAttributesCmd.AddCommand(printAttributesGetDuplexModeCmd)
+	printAttributesCmd.AddCommand(printAttributesGetMediaSizeCmd)
+	printAttributesCmd.AddCommand(printAttributesGetMinMarginsCmd)
+	printAttributesCmd.AddCommand(printAttributesGetResolutionCmd)
+	printAttributesCmd.AddCommand(printAttributesHashCodeCmd)
+	printAttributesCmd.AddCommand(printAttributesToStringCmd)
+	printAttributesWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	printAttributesWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	printAttributesCmd.AddCommand(printAttributesWriteToParcelCmd)
+	printCmd.AddCommand(printAttributesCmd)
+	printAttributesBuilderCmd.AddCommand(printAttributesBuilderBuildCmd)
+	printAttributesBuilderSetColorModeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	printAttributesBuilderCmd.AddCommand(printAttributesBuilderSetColorModeCmd)
+	printAttributesBuilderSetDuplexModeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	printAttributesBuilderCmd.AddCommand(printAttributesBuilderSetDuplexModeCmd)
+	printAttributesBuilderSetMediaSizeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	printAttributesBuilderCmd.AddCommand(printAttributesBuilderSetMediaSizeCmd)
+	printAttributesBuilderSetMinMarginsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	printAttributesBuilderCmd.AddCommand(printAttributesBuilderSetMinMarginsCmd)
+	printAttributesBuilderSetResolutionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	printAttributesBuilderCmd.AddCommand(printAttributesBuilderSetResolutionCmd)
+	printCmd.AddCommand(printAttributesBuilderCmd)
+	printAttributesMarginsEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	printAttributesMarginsCmd.AddCommand(printAttributesMarginsEqualsCmd)
+	printAttributesMarginsCmd.AddCommand(printAttributesMarginsGetBottomMilsCmd)
+	printAttributesMarginsCmd.AddCommand(printAttributesMarginsGetLeftMilsCmd)
+	printAttributesMarginsCmd.AddCommand(printAttributesMarginsGetRightMilsCmd)
+	printAttributesMarginsCmd.AddCommand(printAttributesMarginsGetTopMilsCmd)
+	printAttributesMarginsCmd.AddCommand(printAttributesMarginsHashCodeCmd)
+	printAttributesMarginsCmd.AddCommand(printAttributesMarginsToStringCmd)
+	printCmd.AddCommand(printAttributesMarginsCmd)
+	printAttributesMediaSizeCmd.AddCommand(printAttributesMediaSizeAsLandscapeCmd)
+	printAttributesMediaSizeCmd.AddCommand(printAttributesMediaSizeAsPortraitCmd)
+	printAttributesMediaSizeEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	printAttributesMediaSizeCmd.AddCommand(printAttributesMediaSizeEqualsCmd)
+	printAttributesMediaSizeCmd.AddCommand(printAttributesMediaSizeGetHeightMilsCmd)
+	printAttributesMediaSizeCmd.AddCommand(printAttributesMediaSizeGetIdCmd)
+	printAttributesMediaSizeGetLabelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	printAttributesMediaSizeCmd.AddCommand(printAttributesMediaSizeGetLabelCmd)
+	printAttributesMediaSizeCmd.AddCommand(printAttributesMediaSizeGetWidthMilsCmd)
+	printAttributesMediaSizeCmd.AddCommand(printAttributesMediaSizeHashCodeCmd)
+	printAttributesMediaSizeCmd.AddCommand(printAttributesMediaSizeIsPortraitCmd)
+	printAttributesMediaSizeCmd.AddCommand(printAttributesMediaSizeToStringCmd)
+	printCmd.AddCommand(printAttributesMediaSizeCmd)
+	printAttributesResolutionEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	printAttributesResolutionCmd.AddCommand(printAttributesResolutionEqualsCmd)
+	printAttributesResolutionCmd.AddCommand(printAttributesResolutionGetHorizontalDpiCmd)
+	printAttributesResolutionCmd.AddCommand(printAttributesResolutionGetIdCmd)
+	printAttributesResolutionCmd.AddCommand(printAttributesResolutionGetLabelCmd)
+	printAttributesResolutionCmd.AddCommand(printAttributesResolutionGetVerticalDpiCmd)
+	printAttributesResolutionCmd.AddCommand(printAttributesResolutionHashCodeCmd)
+	printAttributesResolutionCmd.AddCommand(printAttributesResolutionToStringCmd)
+	printCmd.AddCommand(printAttributesResolutionCmd)
+	printErInfoCmd.AddCommand(printErInfoDescribeContentsCmd)
+	printErInfoEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	printErInfoCmd.AddCommand(printErInfoEqualsCmd)
+	printErInfoCmd.AddCommand(printErInfoGetCapabilitiesCmd)
+	printErInfoCmd.AddCommand(printErInfoGetDescriptionCmd)
+	printErInfoCmd.AddCommand(printErInfoGetIdCmd)
+	printErInfoCmd.AddCommand(printErInfoGetNameCmd)
+	printErInfoCmd.AddCommand(printErInfoGetStatusCmd)
+	printErInfoCmd.AddCommand(printErInfoHashCodeCmd)
+	printErInfoCmd.AddCommand(printErInfoToStringCmd)
+	printErInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	printErInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	printErInfoCmd.AddCommand(printErInfoWriteToParcelCmd)
+	printCmd.AddCommand(printErInfoCmd)
+	printErInfoBuilderCmd.AddCommand(printErInfoBuilderBuildCmd)
+	printErInfoBuilderSetCapabilitiesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	printErInfoBuilderCmd.AddCommand(printErInfoBuilderSetCapabilitiesCmd)
+	printErInfoBuilderSetDescriptionCmd.Flags().String("arg0", "", "arg0 (string)")
+	printErInfoBuilderCmd.AddCommand(printErInfoBuilderSetDescriptionCmd)
+	printErInfoBuilderSetHasCustomPrinterIconCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	printErInfoBuilderCmd.AddCommand(printErInfoBuilderSetHasCustomPrinterIconCmd)
+	printErInfoBuilderSetIconResourceIdCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	printErInfoBuilderCmd.AddCommand(printErInfoBuilderSetIconResourceIdCmd)
+	printErInfoBuilderSetInfoIntentCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	printErInfoBuilderCmd.AddCommand(printErInfoBuilderSetInfoIntentCmd)
+	printErInfoBuilderSetNameCmd.Flags().String("arg0", "", "arg0 (string)")
+	printErInfoBuilderCmd.AddCommand(printErInfoBuilderSetNameCmd)
+	printErInfoBuilderSetStatusCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	printErInfoBuilderCmd.AddCommand(printErInfoBuilderSetStatusCmd)
+	printCmd.AddCommand(printErInfoBuilderCmd)
+	printDocumentInfoCmd.AddCommand(printDocumentInfoDescribeContentsCmd)
+	printDocumentInfoEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	printDocumentInfoCmd.AddCommand(printDocumentInfoEqualsCmd)
+	printDocumentInfoCmd.AddCommand(printDocumentInfoGetContentTypeCmd)
+	printDocumentInfoCmd.AddCommand(printDocumentInfoGetDataSizeCmd)
+	printDocumentInfoCmd.AddCommand(printDocumentInfoGetNameCmd)
+	printDocumentInfoCmd.AddCommand(printDocumentInfoGetPageCountCmd)
+	printDocumentInfoCmd.AddCommand(printDocumentInfoHashCodeCmd)
+	printDocumentInfoCmd.AddCommand(printDocumentInfoToStringCmd)
+	printDocumentInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	printDocumentInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	printDocumentInfoCmd.AddCommand(printDocumentInfoWriteToParcelCmd)
+	printCmd.AddCommand(printDocumentInfoCmd)
+	printDocumentInfoBuilderCmd.AddCommand(printDocumentInfoBuilderBuildCmd)
+	printDocumentInfoBuilderSetContentTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	printDocumentInfoBuilderCmd.AddCommand(printDocumentInfoBuilderSetContentTypeCmd)
+	printDocumentInfoBuilderSetPageCountCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	printDocumentInfoBuilderCmd.AddCommand(printDocumentInfoBuilderSetPageCountCmd)
+	printCmd.AddCommand(printDocumentInfoBuilderCmd)
+	printErCapabilitiesInfoCmd.AddCommand(printErCapabilitiesInfoDescribeContentsCmd)
+	printErCapabilitiesInfoEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	printErCapabilitiesInfoCmd.AddCommand(printErCapabilitiesInfoEqualsCmd)
+	printErCapabilitiesInfoCmd.AddCommand(printErCapabilitiesInfoGetColorModesCmd)
+	printErCapabilitiesInfoCmd.AddCommand(printErCapabilitiesInfoGetDefaultsCmd)
+	printErCapabilitiesInfoCmd.AddCommand(printErCapabilitiesInfoGetDuplexModesCmd)
+	printErCapabilitiesInfoCmd.AddCommand(printErCapabilitiesInfoGetMinMarginsCmd)
+	printErCapabilitiesInfoCmd.AddCommand(printErCapabilitiesInfoHashCodeCmd)
+	printErCapabilitiesInfoCmd.AddCommand(printErCapabilitiesInfoToStringCmd)
+	printErCapabilitiesInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	printErCapabilitiesInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	printErCapabilitiesInfoCmd.AddCommand(printErCapabilitiesInfoWriteToParcelCmd)
+	printCmd.AddCommand(printErCapabilitiesInfoCmd)
+	printErCapabilitiesInfoBuilderAddMediaSizeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	printErCapabilitiesInfoBuilderAddMediaSizeCmd.Flags().Bool("arg1", false, "arg1 (bool)")
+	printErCapabilitiesInfoBuilderCmd.AddCommand(printErCapabilitiesInfoBuilderAddMediaSizeCmd)
+	printErCapabilitiesInfoBuilderAddResolutionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	printErCapabilitiesInfoBuilderAddResolutionCmd.Flags().Bool("arg1", false, "arg1 (bool)")
+	printErCapabilitiesInfoBuilderCmd.AddCommand(printErCapabilitiesInfoBuilderAddResolutionCmd)
+	printErCapabilitiesInfoBuilderCmd.AddCommand(printErCapabilitiesInfoBuilderBuildCmd)
+	printErCapabilitiesInfoBuilderSetColorModesCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	printErCapabilitiesInfoBuilderSetColorModesCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	printErCapabilitiesInfoBuilderCmd.AddCommand(printErCapabilitiesInfoBuilderSetColorModesCmd)
+	printErCapabilitiesInfoBuilderSetDuplexModesCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	printErCapabilitiesInfoBuilderSetDuplexModesCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	printErCapabilitiesInfoBuilderCmd.AddCommand(printErCapabilitiesInfoBuilderSetDuplexModesCmd)
+	printErCapabilitiesInfoBuilderSetMinMarginsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	printErCapabilitiesInfoBuilderCmd.AddCommand(printErCapabilitiesInfoBuilderSetMinMarginsCmd)
+	printCmd.AddCommand(printErCapabilitiesInfoBuilderCmd)
 	rootCmd.AddCommand(printCmd)
 }

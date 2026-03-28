@@ -5,3 +5,902 @@ syntax = "proto3";
 package voice;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/voice";
+
+message OnBindRequest {
+  int64 arg0 = 1;
+}
+
+message OnBindResponse {
+  int64 result = 1;
+}
+
+message OnConfigurationChangedRequest {
+  int64 arg0 = 1;
+}
+
+message OnConfigurationChangedResponse {
+}
+
+message OnCreateRequest {
+}
+
+message OnCreateResponse {
+}
+
+message OnLowMemoryRequest {
+}
+
+message OnLowMemoryResponse {
+}
+
+message OnNewSessionRequest {
+  int64 arg0 = 1;
+}
+
+message OnNewSessionResponse {
+  int64 result = 1;
+}
+
+message OnTrimMemoryRequest {
+  int32 arg0 = 1;
+}
+
+message OnTrimMemoryResponse {
+}
+
+message NewInteractionSessionRequest {
+  int64 arg0 = 1;
+}
+
+message NewInteractionSessionResponse {
+  int64 result = 1;
+}
+
+message CloseSystemDialogsRequest {
+  int64 handle = 1;
+}
+
+message CloseSystemDialogsResponse {
+}
+
+message DumpRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  int64 arg1 = 3;
+  int64 arg2 = 4;
+  int64 arg3 = 5;
+}
+
+message DumpResponse {
+}
+
+message FinishRequest {
+  int64 handle = 1;
+}
+
+message FinishResponse {
+}
+
+message GetContextRequest {
+  int64 handle = 1;
+}
+
+message GetContextResponse {
+  int64 result = 1;
+}
+
+message GetDisabledShowContextRequest {
+  int64 handle = 1;
+}
+
+message GetDisabledShowContextResponse {
+  int32 result = 1;
+}
+
+message GetLayoutInflaterRequest {
+  int64 handle = 1;
+}
+
+message GetLayoutInflaterResponse {
+  int64 result = 1;
+}
+
+message GetUserDisabledShowContextRequest {
+  int64 handle = 1;
+}
+
+message GetUserDisabledShowContextResponse {
+  int32 result = 1;
+}
+
+message GetWindowRequest {
+  int64 handle = 1;
+}
+
+message GetWindowResponse {
+  int64 result = 1;
+}
+
+message HideRequest {
+  int64 handle = 1;
+}
+
+message HideResponse {
+}
+
+message OnAssistStructureFailureRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OnAssistStructureFailureResponse {
+}
+
+message OnBackPressedRequest {
+  int64 handle = 1;
+}
+
+message OnBackPressedResponse {
+}
+
+message OnCancelRequestRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OnCancelRequestResponse {
+}
+
+message OnCloseSystemDialogsRequest {
+  int64 handle = 1;
+}
+
+message OnCloseSystemDialogsResponse {
+}
+
+message OnComputeInsetsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OnComputeInsetsResponse {
+}
+
+message InteractionSessionOnConfigurationChangedRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message InteractionSessionOnCreateRequest {
+  int64 handle = 1;
+}
+
+message OnCreateContentViewRequest {
+  int64 handle = 1;
+}
+
+message OnCreateContentViewResponse {
+  int64 result = 1;
+}
+
+message OnDestroyRequest {
+  int64 handle = 1;
+}
+
+message OnDestroyResponse {
+}
+
+message OnDirectActionsInvalidatedRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OnDirectActionsInvalidatedResponse {
+}
+
+message OnGetSupportedCommandsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OnGetSupportedCommandsResponse {
+  int64 result = 1;
+}
+
+message OnHandleAssist3Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message OnHandleAssist3Response {
+}
+
+message OnHandleAssist1_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OnHandleAssist1_1Response {
+}
+
+message OnHandleAssistSecondaryRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int64 arg2 = 4;
+  int32 arg3 = 5;
+  int32 arg4 = 6;
+}
+
+message OnHandleAssistSecondaryResponse {
+}
+
+message OnHandleScreenshotRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OnHandleScreenshotResponse {
+}
+
+message OnHideRequest {
+  int64 handle = 1;
+}
+
+message OnHideResponse {
+}
+
+message OnKeyDownRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message OnKeyDownResponse {
+  bool result = 1;
+}
+
+message OnKeyLongPressRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message OnKeyLongPressResponse {
+  bool result = 1;
+}
+
+message OnKeyMultipleRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message OnKeyMultipleResponse {
+  bool result = 1;
+}
+
+message OnKeyUpRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message OnKeyUpResponse {
+  bool result = 1;
+}
+
+message OnLockscreenShownRequest {
+  int64 handle = 1;
+}
+
+message OnLockscreenShownResponse {
+}
+
+message InteractionSessionOnLowMemoryRequest {
+  int64 handle = 1;
+}
+
+message OnPrepareShowRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message OnPrepareShowResponse {
+}
+
+message OnRequestAbortVoiceRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OnRequestAbortVoiceResponse {
+}
+
+message OnRequestCommandRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OnRequestCommandResponse {
+}
+
+message OnRequestCompleteVoiceRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OnRequestCompleteVoiceResponse {
+}
+
+message OnRequestConfirmationRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OnRequestConfirmationResponse {
+}
+
+message OnRequestPickOptionRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OnRequestPickOptionResponse {
+}
+
+message OnShowRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message OnShowResponse {
+}
+
+message OnTaskFinishedRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message OnTaskFinishedResponse {
+}
+
+message OnTaskStartedRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message OnTaskStartedResponse {
+}
+
+message InteractionSessionOnTrimMemoryRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message RegisterVisibleActivityCallbackRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message RegisterVisibleActivityCallbackResponse {
+}
+
+message SetContentViewRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetContentViewResponse {
+}
+
+message SetDisabledShowContextRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetDisabledShowContextResponse {
+}
+
+message SetKeepAwakeRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetKeepAwakeResponse {
+}
+
+message SetThemeRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetThemeResponse {
+}
+
+message SetUiEnabledRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetUiEnabledResponse {
+}
+
+message ShowRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message ShowResponse {
+}
+
+message StartAssistantActivity1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message StartAssistantActivity1Response {
+}
+
+message StartAssistantActivity2_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message StartAssistantActivity2_1Response {
+}
+
+message StartVoiceActivityRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message StartVoiceActivityResponse {
+}
+
+message UnregisterVisibleActivityCallbackRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message UnregisterVisibleActivityCallbackResponse {
+}
+
+message GetMessageRequest {
+}
+
+message GetMessageResponse {
+  int64 result = 1;
+}
+
+message GetVoicePromptRequest {
+}
+
+message GetVoicePromptResponse {
+  int64 result = 1;
+}
+
+message SendAbortResultRequest {
+  int64 arg0 = 1;
+}
+
+message SendAbortResultResponse {
+}
+
+message EqualsRequest {
+  int64 arg0 = 1;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message HashCodeRequest {
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message GetActivityIdRequest {
+}
+
+message GetActivityIdResponse {
+  int64 result = 1;
+}
+
+message GetAssistContentRequest {
+}
+
+message GetAssistContentResponse {
+  int64 result = 1;
+}
+
+message GetAssistDataRequest {
+}
+
+message GetAssistDataResponse {
+  int64 result = 1;
+}
+
+message GetAssistStructureRequest {
+}
+
+message GetAssistStructureResponse {
+  int64 result = 1;
+}
+
+message GetCountRequest {
+}
+
+message GetCountResponse {
+  int32 result = 1;
+}
+
+message GetIndexRequest {
+}
+
+message GetIndexResponse {
+  int32 result = 1;
+}
+
+message IsFocusedRequest {
+}
+
+message IsFocusedResponse {
+  bool result = 1;
+}
+
+message GetCommandRequest {
+}
+
+message GetCommandResponse {
+  string result = 1;
+}
+
+message SendIntermediateResultRequest {
+  int64 arg0 = 1;
+}
+
+message SendIntermediateResultResponse {
+}
+
+message SendResultRequest {
+  int64 arg0 = 1;
+}
+
+message SendResultResponse {
+}
+
+message SendCompleteResultRequest {
+  int64 arg0 = 1;
+}
+
+message SendCompleteResultResponse {
+}
+
+message GetPromptRequest {
+}
+
+message GetPromptResponse {
+  int64 result = 1;
+}
+
+message SendConfirmationResultRequest {
+  bool arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SendConfirmationResultResponse {
+}
+
+message GetOptionsRequest {
+}
+
+message GetOptionsResponse {
+  int64 result = 1;
+}
+
+message SendIntermediatePickOptionResultRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SendIntermediatePickOptionResultResponse {
+}
+
+message SendPickOptionResultRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SendPickOptionResultResponse {
+}
+
+message CancelRequest {
+}
+
+message CancelResponse {
+}
+
+message GetCallingPackageRequest {
+}
+
+message GetCallingPackageResponse {
+  string result = 1;
+}
+
+message GetCallingUidRequest {
+}
+
+message GetCallingUidResponse {
+  int32 result = 1;
+}
+
+message GetExtrasRequest {
+}
+
+message GetExtrasResponse {
+  int64 result = 1;
+}
+
+message IsActiveRequest {
+}
+
+message IsActiveResponse {
+  bool result = 1;
+}
+
+message ToStringRequest {
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message NewInteractionServiceRequest {
+}
+
+message NewInteractionServiceResponse {
+  int64 result = 1;
+}
+
+message InteractionServiceOnBindRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OnLaunchVoiceAssistFromKeyguardRequest {
+  int64 handle = 1;
+}
+
+message OnLaunchVoiceAssistFromKeyguardResponse {
+}
+
+message OnPrepareToShowSessionRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message OnPrepareToShowSessionResponse {
+}
+
+message OnReadyRequest {
+  int64 handle = 1;
+}
+
+message OnReadyResponse {
+}
+
+message OnShowSessionFailedRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OnShowSessionFailedResponse {
+}
+
+message OnShutdownRequest {
+  int64 handle = 1;
+}
+
+message OnShutdownResponse {
+}
+
+message SetUiHintsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetUiHintsResponse {
+}
+
+message ShowSessionRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message ShowSessionResponse {
+}
+
+message IsActiveServiceRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message IsActiveServiceResponse {
+  bool result = 1;
+}
+
+message DescribeContentsRequest {
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteToParcelResponse {
+}
+
+service InteractionSessionServiceService {
+  rpc OnBind (OnBindRequest) returns (OnBindResponse);
+  rpc OnConfigurationChanged (OnConfigurationChangedRequest) returns (OnConfigurationChangedResponse);
+  rpc OnCreate (OnCreateRequest) returns (OnCreateResponse);
+  rpc OnLowMemory (OnLowMemoryRequest) returns (OnLowMemoryResponse);
+  rpc OnNewSession (OnNewSessionRequest) returns (OnNewSessionResponse);
+  rpc OnTrimMemory (OnTrimMemoryRequest) returns (OnTrimMemoryResponse);
+}
+
+service InteractionSessionService {
+  rpc NewInteractionSession (NewInteractionSessionRequest) returns (NewInteractionSessionResponse);
+  rpc CloseSystemDialogs (CloseSystemDialogsRequest) returns (CloseSystemDialogsResponse);
+  rpc Dump (DumpRequest) returns (DumpResponse);
+  rpc Finish (FinishRequest) returns (FinishResponse);
+  rpc GetContext (GetContextRequest) returns (GetContextResponse);
+  rpc GetDisabledShowContext (GetDisabledShowContextRequest) returns (GetDisabledShowContextResponse);
+  rpc GetLayoutInflater (GetLayoutInflaterRequest) returns (GetLayoutInflaterResponse);
+  rpc GetUserDisabledShowContext (GetUserDisabledShowContextRequest) returns (GetUserDisabledShowContextResponse);
+  rpc GetWindow (GetWindowRequest) returns (GetWindowResponse);
+  rpc Hide (HideRequest) returns (HideResponse);
+  rpc OnAssistStructureFailure (OnAssistStructureFailureRequest) returns (OnAssistStructureFailureResponse);
+  rpc OnBackPressed (OnBackPressedRequest) returns (OnBackPressedResponse);
+  rpc OnCancelRequest (OnCancelRequestRequest) returns (OnCancelRequestResponse);
+  rpc OnCloseSystemDialogs (OnCloseSystemDialogsRequest) returns (OnCloseSystemDialogsResponse);
+  rpc OnComputeInsets (OnComputeInsetsRequest) returns (OnComputeInsetsResponse);
+  rpc OnConfigurationChanged (InteractionSessionOnConfigurationChangedRequest) returns (OnConfigurationChangedResponse);
+  rpc OnCreate (InteractionSessionOnCreateRequest) returns (OnCreateResponse);
+  rpc OnCreateContentView (OnCreateContentViewRequest) returns (OnCreateContentViewResponse);
+  rpc OnDestroy (OnDestroyRequest) returns (OnDestroyResponse);
+  rpc OnDirectActionsInvalidated (OnDirectActionsInvalidatedRequest) returns (OnDirectActionsInvalidatedResponse);
+  rpc OnGetSupportedCommands (OnGetSupportedCommandsRequest) returns (OnGetSupportedCommandsResponse);
+  rpc OnHandleAssist3 (OnHandleAssist3Request) returns (OnHandleAssist3Response);
+  rpc OnHandleAssist1_1 (OnHandleAssist1_1Request) returns (OnHandleAssist1_1Response);
+  rpc OnHandleAssistSecondary (OnHandleAssistSecondaryRequest) returns (OnHandleAssistSecondaryResponse);
+  rpc OnHandleScreenshot (OnHandleScreenshotRequest) returns (OnHandleScreenshotResponse);
+  rpc OnHide (OnHideRequest) returns (OnHideResponse);
+  rpc OnKeyDown (OnKeyDownRequest) returns (OnKeyDownResponse);
+  rpc OnKeyLongPress (OnKeyLongPressRequest) returns (OnKeyLongPressResponse);
+  rpc OnKeyMultiple (OnKeyMultipleRequest) returns (OnKeyMultipleResponse);
+  rpc OnKeyUp (OnKeyUpRequest) returns (OnKeyUpResponse);
+  rpc OnLockscreenShown (OnLockscreenShownRequest) returns (OnLockscreenShownResponse);
+  rpc OnLowMemory (InteractionSessionOnLowMemoryRequest) returns (OnLowMemoryResponse);
+  rpc OnPrepareShow (OnPrepareShowRequest) returns (OnPrepareShowResponse);
+  rpc OnRequestAbortVoice (OnRequestAbortVoiceRequest) returns (OnRequestAbortVoiceResponse);
+  rpc OnRequestCommand (OnRequestCommandRequest) returns (OnRequestCommandResponse);
+  rpc OnRequestCompleteVoice (OnRequestCompleteVoiceRequest) returns (OnRequestCompleteVoiceResponse);
+  rpc OnRequestConfirmation (OnRequestConfirmationRequest) returns (OnRequestConfirmationResponse);
+  rpc OnRequestPickOption (OnRequestPickOptionRequest) returns (OnRequestPickOptionResponse);
+  rpc OnShow (OnShowRequest) returns (OnShowResponse);
+  rpc OnTaskFinished (OnTaskFinishedRequest) returns (OnTaskFinishedResponse);
+  rpc OnTaskStarted (OnTaskStartedRequest) returns (OnTaskStartedResponse);
+  rpc OnTrimMemory (InteractionSessionOnTrimMemoryRequest) returns (OnTrimMemoryResponse);
+  rpc RegisterVisibleActivityCallback (RegisterVisibleActivityCallbackRequest) returns (RegisterVisibleActivityCallbackResponse);
+  rpc SetContentView (SetContentViewRequest) returns (SetContentViewResponse);
+  rpc SetDisabledShowContext (SetDisabledShowContextRequest) returns (SetDisabledShowContextResponse);
+  rpc SetKeepAwake (SetKeepAwakeRequest) returns (SetKeepAwakeResponse);
+  rpc SetTheme (SetThemeRequest) returns (SetThemeResponse);
+  rpc SetUiEnabled (SetUiEnabledRequest) returns (SetUiEnabledResponse);
+  rpc Show (ShowRequest) returns (ShowResponse);
+  rpc StartAssistantActivity1 (StartAssistantActivity1Request) returns (StartAssistantActivity1Response);
+  rpc StartAssistantActivity2_1 (StartAssistantActivity2_1Request) returns (StartAssistantActivity2_1Response);
+  rpc StartVoiceActivity (StartVoiceActivityRequest) returns (StartVoiceActivityResponse);
+  rpc UnregisterVisibleActivityCallback (UnregisterVisibleActivityCallbackRequest) returns (UnregisterVisibleActivityCallbackResponse);
+}
+
+service InteractionSessionAbortVoiceRequestService {
+  rpc GetMessage (GetMessageRequest) returns (GetMessageResponse);
+  rpc GetVoicePrompt (GetVoicePromptRequest) returns (GetVoicePromptResponse);
+  rpc SendAbortResult (SendAbortResultRequest) returns (SendAbortResultResponse);
+}
+
+service InteractionSessionActivityIdService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service InteractionSessionAssistStateService {
+  rpc GetActivityId (GetActivityIdRequest) returns (GetActivityIdResponse);
+  rpc GetAssistContent (GetAssistContentRequest) returns (GetAssistContentResponse);
+  rpc GetAssistData (GetAssistDataRequest) returns (GetAssistDataResponse);
+  rpc GetAssistStructure (GetAssistStructureRequest) returns (GetAssistStructureResponse);
+  rpc GetCount (GetCountRequest) returns (GetCountResponse);
+  rpc GetIndex (GetIndexRequest) returns (GetIndexResponse);
+  rpc IsFocused (IsFocusedRequest) returns (IsFocusedResponse);
+}
+
+service InteractionSessionCommandRequestService {
+  rpc GetCommand (GetCommandRequest) returns (GetCommandResponse);
+  rpc SendIntermediateResult (SendIntermediateResultRequest) returns (SendIntermediateResultResponse);
+  rpc SendResult (SendResultRequest) returns (SendResultResponse);
+}
+
+service InteractionSessionCompleteVoiceRequestService {
+  rpc GetMessage (GetMessageRequest) returns (GetMessageResponse);
+  rpc GetVoicePrompt (GetVoicePromptRequest) returns (GetVoicePromptResponse);
+  rpc SendCompleteResult (SendCompleteResultRequest) returns (SendCompleteResultResponse);
+}
+
+service InteractionSessionConfirmationRequestService {
+  rpc GetPrompt (GetPromptRequest) returns (GetPromptResponse);
+  rpc GetVoicePrompt (GetVoicePromptRequest) returns (GetVoicePromptResponse);
+  rpc SendConfirmationResult (SendConfirmationResultRequest) returns (SendConfirmationResultResponse);
+}
+
+service InteractionSessionPickOptionRequestService {
+  rpc GetOptions (GetOptionsRequest) returns (GetOptionsResponse);
+  rpc GetPrompt (GetPromptRequest) returns (GetPromptResponse);
+  rpc GetVoicePrompt (GetVoicePromptRequest) returns (GetVoicePromptResponse);
+  rpc SendIntermediatePickOptionResult (SendIntermediatePickOptionResultRequest) returns (SendIntermediatePickOptionResultResponse);
+  rpc SendPickOptionResult (SendPickOptionResultRequest) returns (SendPickOptionResultResponse);
+}
+
+service InteractionSessionRequestService {
+  rpc Cancel (CancelRequest) returns (CancelResponse);
+  rpc GetCallingPackage (GetCallingPackageRequest) returns (GetCallingPackageResponse);
+  rpc GetCallingUid (GetCallingUidRequest) returns (GetCallingUidResponse);
+  rpc GetExtras (GetExtrasRequest) returns (GetExtrasResponse);
+  rpc IsActive (IsActiveRequest) returns (IsActiveResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service InteractionServiceService {
+  rpc NewInteractionService (NewInteractionServiceRequest) returns (NewInteractionServiceResponse);
+  rpc GetDisabledShowContext (GetDisabledShowContextRequest) returns (GetDisabledShowContextResponse);
+  rpc OnBind (InteractionServiceOnBindRequest) returns (OnBindResponse);
+  rpc OnLaunchVoiceAssistFromKeyguard (OnLaunchVoiceAssistFromKeyguardRequest) returns (OnLaunchVoiceAssistFromKeyguardResponse);
+  rpc OnPrepareToShowSession (OnPrepareToShowSessionRequest) returns (OnPrepareToShowSessionResponse);
+  rpc OnReady (OnReadyRequest) returns (OnReadyResponse);
+  rpc OnShowSessionFailed (OnShowSessionFailedRequest) returns (OnShowSessionFailedResponse);
+  rpc OnShutdown (OnShutdownRequest) returns (OnShutdownResponse);
+  rpc SetDisabledShowContext (SetDisabledShowContextRequest) returns (SetDisabledShowContextResponse);
+  rpc SetUiHints (SetUiHintsRequest) returns (SetUiHintsResponse);
+  rpc ShowSession (ShowSessionRequest) returns (ShowSessionResponse);
+  rpc IsActiveService (IsActiveServiceRequest) returns (IsActiveServiceResponse);
+}
+
+service VisibleActivityInfoService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetActivityId (GetActivityIdRequest) returns (GetActivityIdResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}

@@ -21,6 +21,1036 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
+	OnAccountsUpdateListenerService_OnAccountsUpdated_FullMethodName = "/accounts.OnAccountsUpdateListenerService/OnAccountsUpdated"
+)
+
+// OnAccountsUpdateListenerServiceClient is the client API for OnAccountsUpdateListenerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type OnAccountsUpdateListenerServiceClient interface {
+	OnAccountsUpdated(ctx context.Context, in *OnAccountsUpdatedRequest, opts ...grpc.CallOption) (*OnAccountsUpdatedResponse, error)
+}
+
+type onAccountsUpdateListenerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewOnAccountsUpdateListenerServiceClient(cc grpc.ClientConnInterface) OnAccountsUpdateListenerServiceClient {
+	return &onAccountsUpdateListenerServiceClient{cc}
+}
+
+func (c *onAccountsUpdateListenerServiceClient) OnAccountsUpdated(ctx context.Context, in *OnAccountsUpdatedRequest, opts ...grpc.CallOption) (*OnAccountsUpdatedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnAccountsUpdatedResponse)
+	err := c.cc.Invoke(ctx, OnAccountsUpdateListenerService_OnAccountsUpdated_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// OnAccountsUpdateListenerServiceServer is the server API for OnAccountsUpdateListenerService service.
+// All implementations must embed UnimplementedOnAccountsUpdateListenerServiceServer
+// for forward compatibility.
+type OnAccountsUpdateListenerServiceServer interface {
+	OnAccountsUpdated(context.Context, *OnAccountsUpdatedRequest) (*OnAccountsUpdatedResponse, error)
+	mustEmbedUnimplementedOnAccountsUpdateListenerServiceServer()
+}
+
+// UnimplementedOnAccountsUpdateListenerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedOnAccountsUpdateListenerServiceServer struct{}
+
+func (UnimplementedOnAccountsUpdateListenerServiceServer) OnAccountsUpdated(context.Context, *OnAccountsUpdatedRequest) (*OnAccountsUpdatedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnAccountsUpdated not implemented")
+}
+func (UnimplementedOnAccountsUpdateListenerServiceServer) mustEmbedUnimplementedOnAccountsUpdateListenerServiceServer() {
+}
+func (UnimplementedOnAccountsUpdateListenerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeOnAccountsUpdateListenerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to OnAccountsUpdateListenerServiceServer will
+// result in compilation errors.
+type UnsafeOnAccountsUpdateListenerServiceServer interface {
+	mustEmbedUnimplementedOnAccountsUpdateListenerServiceServer()
+}
+
+func RegisterOnAccountsUpdateListenerServiceServer(s grpc.ServiceRegistrar, srv OnAccountsUpdateListenerServiceServer) {
+	// If the following call panics, it indicates UnimplementedOnAccountsUpdateListenerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&OnAccountsUpdateListenerService_ServiceDesc, srv)
+}
+
+func _OnAccountsUpdateListenerService_OnAccountsUpdated_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnAccountsUpdatedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OnAccountsUpdateListenerServiceServer).OnAccountsUpdated(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OnAccountsUpdateListenerService_OnAccountsUpdated_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OnAccountsUpdateListenerServiceServer).OnAccountsUpdated(ctx, req.(*OnAccountsUpdatedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// OnAccountsUpdateListenerService_ServiceDesc is the grpc.ServiceDesc for OnAccountsUpdateListenerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var OnAccountsUpdateListenerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "accounts.OnAccountsUpdateListenerService",
+	HandlerType: (*OnAccountsUpdateListenerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnAccountsUpdated",
+			Handler:    _OnAccountsUpdateListenerService_OnAccountsUpdated_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/accounts/accounts.proto",
+}
+
+const (
+	AccountService_NewAccount_FullMethodName       = "/accounts.AccountService/NewAccount"
+	AccountService_DescribeContents_FullMethodName = "/accounts.AccountService/DescribeContents"
+	AccountService_Equals_FullMethodName           = "/accounts.AccountService/Equals"
+	AccountService_HashCode_FullMethodName         = "/accounts.AccountService/HashCode"
+	AccountService_ToString_FullMethodName         = "/accounts.AccountService/ToString"
+	AccountService_WriteToParcel_FullMethodName    = "/accounts.AccountService/WriteToParcel"
+)
+
+// AccountServiceClient is the client API for AccountService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AccountServiceClient interface {
+	NewAccount(ctx context.Context, in *NewAccountRequest, opts ...grpc.CallOption) (*NewAccountResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type accountServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAccountServiceClient(cc grpc.ClientConnInterface) AccountServiceClient {
+	return &accountServiceClient{cc}
+}
+
+func (c *accountServiceClient) NewAccount(ctx context.Context, in *NewAccountRequest, opts ...grpc.CallOption) (*NewAccountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewAccountResponse)
+	err := c.cc.Invoke(ctx, AccountService_NewAccount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *accountServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, AccountService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *accountServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, AccountService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *accountServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, AccountService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *accountServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, AccountService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *accountServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, AccountService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AccountServiceServer is the server API for AccountService service.
+// All implementations must embed UnimplementedAccountServiceServer
+// for forward compatibility.
+type AccountServiceServer interface {
+	NewAccount(context.Context, *NewAccountRequest) (*NewAccountResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedAccountServiceServer()
+}
+
+// UnimplementedAccountServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedAccountServiceServer struct{}
+
+func (UnimplementedAccountServiceServer) NewAccount(context.Context, *NewAccountRequest) (*NewAccountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewAccount not implemented")
+}
+func (UnimplementedAccountServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedAccountServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedAccountServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedAccountServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedAccountServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedAccountServiceServer) mustEmbedUnimplementedAccountServiceServer() {}
+func (UnimplementedAccountServiceServer) testEmbeddedByValue()                        {}
+
+// UnsafeAccountServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AccountServiceServer will
+// result in compilation errors.
+type UnsafeAccountServiceServer interface {
+	mustEmbedUnimplementedAccountServiceServer()
+}
+
+func RegisterAccountServiceServer(s grpc.ServiceRegistrar, srv AccountServiceServer) {
+	// If the following call panics, it indicates UnimplementedAccountServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&AccountService_ServiceDesc, srv)
+}
+
+func _AccountService_NewAccount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewAccountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AccountServiceServer).NewAccount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AccountService_NewAccount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AccountServiceServer).NewAccount(ctx, req.(*NewAccountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AccountService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AccountServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AccountService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AccountServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AccountService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AccountServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AccountService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AccountServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AccountService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AccountServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AccountService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AccountServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AccountService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AccountServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AccountService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AccountServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AccountService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AccountServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AccountService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AccountServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AccountService_ServiceDesc is the grpc.ServiceDesc for AccountService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AccountService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "accounts.AccountService",
+	HandlerType: (*AccountServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewAccount",
+			Handler:    _AccountService_NewAccount_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _AccountService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _AccountService_Equals_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _AccountService_HashCode_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _AccountService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _AccountService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/accounts/accounts.proto",
+}
+
+const (
+	AbstractAccountAuthenticatorService_AddAccount_FullMethodName                      = "/accounts.AbstractAccountAuthenticatorService/AddAccount"
+	AbstractAccountAuthenticatorService_AddAccountFromCredentials_FullMethodName       = "/accounts.AbstractAccountAuthenticatorService/AddAccountFromCredentials"
+	AbstractAccountAuthenticatorService_ConfirmCredentials_FullMethodName              = "/accounts.AbstractAccountAuthenticatorService/ConfirmCredentials"
+	AbstractAccountAuthenticatorService_EditProperties_FullMethodName                  = "/accounts.AbstractAccountAuthenticatorService/EditProperties"
+	AbstractAccountAuthenticatorService_FinishSession_FullMethodName                   = "/accounts.AbstractAccountAuthenticatorService/FinishSession"
+	AbstractAccountAuthenticatorService_GetAccountCredentialsForCloning_FullMethodName = "/accounts.AbstractAccountAuthenticatorService/GetAccountCredentialsForCloning"
+	AbstractAccountAuthenticatorService_GetAccountRemovalAllowed_FullMethodName        = "/accounts.AbstractAccountAuthenticatorService/GetAccountRemovalAllowed"
+	AbstractAccountAuthenticatorService_GetAuthToken_FullMethodName                    = "/accounts.AbstractAccountAuthenticatorService/GetAuthToken"
+	AbstractAccountAuthenticatorService_GetAuthTokenLabel_FullMethodName               = "/accounts.AbstractAccountAuthenticatorService/GetAuthTokenLabel"
+	AbstractAccountAuthenticatorService_GetIBinder_FullMethodName                      = "/accounts.AbstractAccountAuthenticatorService/GetIBinder"
+	AbstractAccountAuthenticatorService_HasFeatures_FullMethodName                     = "/accounts.AbstractAccountAuthenticatorService/HasFeatures"
+	AbstractAccountAuthenticatorService_IsCredentialsUpdateSuggested_FullMethodName    = "/accounts.AbstractAccountAuthenticatorService/IsCredentialsUpdateSuggested"
+	AbstractAccountAuthenticatorService_StartAddAccountSession_FullMethodName          = "/accounts.AbstractAccountAuthenticatorService/StartAddAccountSession"
+	AbstractAccountAuthenticatorService_StartUpdateCredentialsSession_FullMethodName   = "/accounts.AbstractAccountAuthenticatorService/StartUpdateCredentialsSession"
+	AbstractAccountAuthenticatorService_UpdateCredentials_FullMethodName               = "/accounts.AbstractAccountAuthenticatorService/UpdateCredentials"
+)
+
+// AbstractAccountAuthenticatorServiceClient is the client API for AbstractAccountAuthenticatorService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AbstractAccountAuthenticatorServiceClient interface {
+	AddAccount(ctx context.Context, in *AddAccountRequest, opts ...grpc.CallOption) (*AddAccountResponse, error)
+	AddAccountFromCredentials(ctx context.Context, in *AddAccountFromCredentialsRequest, opts ...grpc.CallOption) (*AddAccountFromCredentialsResponse, error)
+	ConfirmCredentials(ctx context.Context, in *ConfirmCredentialsRequest, opts ...grpc.CallOption) (*ConfirmCredentialsResponse, error)
+	EditProperties(ctx context.Context, in *EditPropertiesRequest, opts ...grpc.CallOption) (*EditPropertiesResponse, error)
+	FinishSession(ctx context.Context, in *FinishSessionRequest, opts ...grpc.CallOption) (*FinishSessionResponse, error)
+	GetAccountCredentialsForCloning(ctx context.Context, in *GetAccountCredentialsForCloningRequest, opts ...grpc.CallOption) (*GetAccountCredentialsForCloningResponse, error)
+	GetAccountRemovalAllowed(ctx context.Context, in *GetAccountRemovalAllowedRequest, opts ...grpc.CallOption) (*GetAccountRemovalAllowedResponse, error)
+	GetAuthToken(ctx context.Context, in *GetAuthTokenRequest, opts ...grpc.CallOption) (*GetAuthTokenResponse, error)
+	GetAuthTokenLabel(ctx context.Context, in *GetAuthTokenLabelRequest, opts ...grpc.CallOption) (*GetAuthTokenLabelResponse, error)
+	GetIBinder(ctx context.Context, in *GetIBinderRequest, opts ...grpc.CallOption) (*GetIBinderResponse, error)
+	HasFeatures(ctx context.Context, in *HasFeaturesRequest, opts ...grpc.CallOption) (*HasFeaturesResponse, error)
+	IsCredentialsUpdateSuggested(ctx context.Context, in *IsCredentialsUpdateSuggestedRequest, opts ...grpc.CallOption) (*IsCredentialsUpdateSuggestedResponse, error)
+	StartAddAccountSession(ctx context.Context, in *StartAddAccountSessionRequest, opts ...grpc.CallOption) (*StartAddAccountSessionResponse, error)
+	StartUpdateCredentialsSession(ctx context.Context, in *StartUpdateCredentialsSessionRequest, opts ...grpc.CallOption) (*StartUpdateCredentialsSessionResponse, error)
+	UpdateCredentials(ctx context.Context, in *UpdateCredentialsRequest, opts ...grpc.CallOption) (*UpdateCredentialsResponse, error)
+}
+
+type abstractAccountAuthenticatorServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAbstractAccountAuthenticatorServiceClient(cc grpc.ClientConnInterface) AbstractAccountAuthenticatorServiceClient {
+	return &abstractAccountAuthenticatorServiceClient{cc}
+}
+
+func (c *abstractAccountAuthenticatorServiceClient) AddAccount(ctx context.Context, in *AddAccountRequest, opts ...grpc.CallOption) (*AddAccountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddAccountResponse)
+	err := c.cc.Invoke(ctx, AbstractAccountAuthenticatorService_AddAccount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *abstractAccountAuthenticatorServiceClient) AddAccountFromCredentials(ctx context.Context, in *AddAccountFromCredentialsRequest, opts ...grpc.CallOption) (*AddAccountFromCredentialsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddAccountFromCredentialsResponse)
+	err := c.cc.Invoke(ctx, AbstractAccountAuthenticatorService_AddAccountFromCredentials_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *abstractAccountAuthenticatorServiceClient) ConfirmCredentials(ctx context.Context, in *ConfirmCredentialsRequest, opts ...grpc.CallOption) (*ConfirmCredentialsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ConfirmCredentialsResponse)
+	err := c.cc.Invoke(ctx, AbstractAccountAuthenticatorService_ConfirmCredentials_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *abstractAccountAuthenticatorServiceClient) EditProperties(ctx context.Context, in *EditPropertiesRequest, opts ...grpc.CallOption) (*EditPropertiesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EditPropertiesResponse)
+	err := c.cc.Invoke(ctx, AbstractAccountAuthenticatorService_EditProperties_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *abstractAccountAuthenticatorServiceClient) FinishSession(ctx context.Context, in *FinishSessionRequest, opts ...grpc.CallOption) (*FinishSessionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(FinishSessionResponse)
+	err := c.cc.Invoke(ctx, AbstractAccountAuthenticatorService_FinishSession_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *abstractAccountAuthenticatorServiceClient) GetAccountCredentialsForCloning(ctx context.Context, in *GetAccountCredentialsForCloningRequest, opts ...grpc.CallOption) (*GetAccountCredentialsForCloningResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAccountCredentialsForCloningResponse)
+	err := c.cc.Invoke(ctx, AbstractAccountAuthenticatorService_GetAccountCredentialsForCloning_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *abstractAccountAuthenticatorServiceClient) GetAccountRemovalAllowed(ctx context.Context, in *GetAccountRemovalAllowedRequest, opts ...grpc.CallOption) (*GetAccountRemovalAllowedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAccountRemovalAllowedResponse)
+	err := c.cc.Invoke(ctx, AbstractAccountAuthenticatorService_GetAccountRemovalAllowed_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *abstractAccountAuthenticatorServiceClient) GetAuthToken(ctx context.Context, in *GetAuthTokenRequest, opts ...grpc.CallOption) (*GetAuthTokenResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAuthTokenResponse)
+	err := c.cc.Invoke(ctx, AbstractAccountAuthenticatorService_GetAuthToken_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *abstractAccountAuthenticatorServiceClient) GetAuthTokenLabel(ctx context.Context, in *GetAuthTokenLabelRequest, opts ...grpc.CallOption) (*GetAuthTokenLabelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAuthTokenLabelResponse)
+	err := c.cc.Invoke(ctx, AbstractAccountAuthenticatorService_GetAuthTokenLabel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *abstractAccountAuthenticatorServiceClient) GetIBinder(ctx context.Context, in *GetIBinderRequest, opts ...grpc.CallOption) (*GetIBinderResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetIBinderResponse)
+	err := c.cc.Invoke(ctx, AbstractAccountAuthenticatorService_GetIBinder_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *abstractAccountAuthenticatorServiceClient) HasFeatures(ctx context.Context, in *HasFeaturesRequest, opts ...grpc.CallOption) (*HasFeaturesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HasFeaturesResponse)
+	err := c.cc.Invoke(ctx, AbstractAccountAuthenticatorService_HasFeatures_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *abstractAccountAuthenticatorServiceClient) IsCredentialsUpdateSuggested(ctx context.Context, in *IsCredentialsUpdateSuggestedRequest, opts ...grpc.CallOption) (*IsCredentialsUpdateSuggestedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsCredentialsUpdateSuggestedResponse)
+	err := c.cc.Invoke(ctx, AbstractAccountAuthenticatorService_IsCredentialsUpdateSuggested_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *abstractAccountAuthenticatorServiceClient) StartAddAccountSession(ctx context.Context, in *StartAddAccountSessionRequest, opts ...grpc.CallOption) (*StartAddAccountSessionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(StartAddAccountSessionResponse)
+	err := c.cc.Invoke(ctx, AbstractAccountAuthenticatorService_StartAddAccountSession_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *abstractAccountAuthenticatorServiceClient) StartUpdateCredentialsSession(ctx context.Context, in *StartUpdateCredentialsSessionRequest, opts ...grpc.CallOption) (*StartUpdateCredentialsSessionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(StartUpdateCredentialsSessionResponse)
+	err := c.cc.Invoke(ctx, AbstractAccountAuthenticatorService_StartUpdateCredentialsSession_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *abstractAccountAuthenticatorServiceClient) UpdateCredentials(ctx context.Context, in *UpdateCredentialsRequest, opts ...grpc.CallOption) (*UpdateCredentialsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateCredentialsResponse)
+	err := c.cc.Invoke(ctx, AbstractAccountAuthenticatorService_UpdateCredentials_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AbstractAccountAuthenticatorServiceServer is the server API for AbstractAccountAuthenticatorService service.
+// All implementations must embed UnimplementedAbstractAccountAuthenticatorServiceServer
+// for forward compatibility.
+type AbstractAccountAuthenticatorServiceServer interface {
+	AddAccount(context.Context, *AddAccountRequest) (*AddAccountResponse, error)
+	AddAccountFromCredentials(context.Context, *AddAccountFromCredentialsRequest) (*AddAccountFromCredentialsResponse, error)
+	ConfirmCredentials(context.Context, *ConfirmCredentialsRequest) (*ConfirmCredentialsResponse, error)
+	EditProperties(context.Context, *EditPropertiesRequest) (*EditPropertiesResponse, error)
+	FinishSession(context.Context, *FinishSessionRequest) (*FinishSessionResponse, error)
+	GetAccountCredentialsForCloning(context.Context, *GetAccountCredentialsForCloningRequest) (*GetAccountCredentialsForCloningResponse, error)
+	GetAccountRemovalAllowed(context.Context, *GetAccountRemovalAllowedRequest) (*GetAccountRemovalAllowedResponse, error)
+	GetAuthToken(context.Context, *GetAuthTokenRequest) (*GetAuthTokenResponse, error)
+	GetAuthTokenLabel(context.Context, *GetAuthTokenLabelRequest) (*GetAuthTokenLabelResponse, error)
+	GetIBinder(context.Context, *GetIBinderRequest) (*GetIBinderResponse, error)
+	HasFeatures(context.Context, *HasFeaturesRequest) (*HasFeaturesResponse, error)
+	IsCredentialsUpdateSuggested(context.Context, *IsCredentialsUpdateSuggestedRequest) (*IsCredentialsUpdateSuggestedResponse, error)
+	StartAddAccountSession(context.Context, *StartAddAccountSessionRequest) (*StartAddAccountSessionResponse, error)
+	StartUpdateCredentialsSession(context.Context, *StartUpdateCredentialsSessionRequest) (*StartUpdateCredentialsSessionResponse, error)
+	UpdateCredentials(context.Context, *UpdateCredentialsRequest) (*UpdateCredentialsResponse, error)
+	mustEmbedUnimplementedAbstractAccountAuthenticatorServiceServer()
+}
+
+// UnimplementedAbstractAccountAuthenticatorServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedAbstractAccountAuthenticatorServiceServer struct{}
+
+func (UnimplementedAbstractAccountAuthenticatorServiceServer) AddAccount(context.Context, *AddAccountRequest) (*AddAccountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddAccount not implemented")
+}
+func (UnimplementedAbstractAccountAuthenticatorServiceServer) AddAccountFromCredentials(context.Context, *AddAccountFromCredentialsRequest) (*AddAccountFromCredentialsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddAccountFromCredentials not implemented")
+}
+func (UnimplementedAbstractAccountAuthenticatorServiceServer) ConfirmCredentials(context.Context, *ConfirmCredentialsRequest) (*ConfirmCredentialsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ConfirmCredentials not implemented")
+}
+func (UnimplementedAbstractAccountAuthenticatorServiceServer) EditProperties(context.Context, *EditPropertiesRequest) (*EditPropertiesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method EditProperties not implemented")
+}
+func (UnimplementedAbstractAccountAuthenticatorServiceServer) FinishSession(context.Context, *FinishSessionRequest) (*FinishSessionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method FinishSession not implemented")
+}
+func (UnimplementedAbstractAccountAuthenticatorServiceServer) GetAccountCredentialsForCloning(context.Context, *GetAccountCredentialsForCloningRequest) (*GetAccountCredentialsForCloningResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAccountCredentialsForCloning not implemented")
+}
+func (UnimplementedAbstractAccountAuthenticatorServiceServer) GetAccountRemovalAllowed(context.Context, *GetAccountRemovalAllowedRequest) (*GetAccountRemovalAllowedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAccountRemovalAllowed not implemented")
+}
+func (UnimplementedAbstractAccountAuthenticatorServiceServer) GetAuthToken(context.Context, *GetAuthTokenRequest) (*GetAuthTokenResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAuthToken not implemented")
+}
+func (UnimplementedAbstractAccountAuthenticatorServiceServer) GetAuthTokenLabel(context.Context, *GetAuthTokenLabelRequest) (*GetAuthTokenLabelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAuthTokenLabel not implemented")
+}
+func (UnimplementedAbstractAccountAuthenticatorServiceServer) GetIBinder(context.Context, *GetIBinderRequest) (*GetIBinderResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetIBinder not implemented")
+}
+func (UnimplementedAbstractAccountAuthenticatorServiceServer) HasFeatures(context.Context, *HasFeaturesRequest) (*HasFeaturesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HasFeatures not implemented")
+}
+func (UnimplementedAbstractAccountAuthenticatorServiceServer) IsCredentialsUpdateSuggested(context.Context, *IsCredentialsUpdateSuggestedRequest) (*IsCredentialsUpdateSuggestedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsCredentialsUpdateSuggested not implemented")
+}
+func (UnimplementedAbstractAccountAuthenticatorServiceServer) StartAddAccountSession(context.Context, *StartAddAccountSessionRequest) (*StartAddAccountSessionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method StartAddAccountSession not implemented")
+}
+func (UnimplementedAbstractAccountAuthenticatorServiceServer) StartUpdateCredentialsSession(context.Context, *StartUpdateCredentialsSessionRequest) (*StartUpdateCredentialsSessionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method StartUpdateCredentialsSession not implemented")
+}
+func (UnimplementedAbstractAccountAuthenticatorServiceServer) UpdateCredentials(context.Context, *UpdateCredentialsRequest) (*UpdateCredentialsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UpdateCredentials not implemented")
+}
+func (UnimplementedAbstractAccountAuthenticatorServiceServer) mustEmbedUnimplementedAbstractAccountAuthenticatorServiceServer() {
+}
+func (UnimplementedAbstractAccountAuthenticatorServiceServer) testEmbeddedByValue() {}
+
+// UnsafeAbstractAccountAuthenticatorServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AbstractAccountAuthenticatorServiceServer will
+// result in compilation errors.
+type UnsafeAbstractAccountAuthenticatorServiceServer interface {
+	mustEmbedUnimplementedAbstractAccountAuthenticatorServiceServer()
+}
+
+func RegisterAbstractAccountAuthenticatorServiceServer(s grpc.ServiceRegistrar, srv AbstractAccountAuthenticatorServiceServer) {
+	// If the following call panics, it indicates UnimplementedAbstractAccountAuthenticatorServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&AbstractAccountAuthenticatorService_ServiceDesc, srv)
+}
+
+func _AbstractAccountAuthenticatorService_AddAccount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddAccountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AbstractAccountAuthenticatorServiceServer).AddAccount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AbstractAccountAuthenticatorService_AddAccount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AbstractAccountAuthenticatorServiceServer).AddAccount(ctx, req.(*AddAccountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AbstractAccountAuthenticatorService_AddAccountFromCredentials_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddAccountFromCredentialsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AbstractAccountAuthenticatorServiceServer).AddAccountFromCredentials(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AbstractAccountAuthenticatorService_AddAccountFromCredentials_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AbstractAccountAuthenticatorServiceServer).AddAccountFromCredentials(ctx, req.(*AddAccountFromCredentialsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AbstractAccountAuthenticatorService_ConfirmCredentials_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ConfirmCredentialsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AbstractAccountAuthenticatorServiceServer).ConfirmCredentials(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AbstractAccountAuthenticatorService_ConfirmCredentials_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AbstractAccountAuthenticatorServiceServer).ConfirmCredentials(ctx, req.(*ConfirmCredentialsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AbstractAccountAuthenticatorService_EditProperties_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EditPropertiesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AbstractAccountAuthenticatorServiceServer).EditProperties(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AbstractAccountAuthenticatorService_EditProperties_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AbstractAccountAuthenticatorServiceServer).EditProperties(ctx, req.(*EditPropertiesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AbstractAccountAuthenticatorService_FinishSession_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FinishSessionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AbstractAccountAuthenticatorServiceServer).FinishSession(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AbstractAccountAuthenticatorService_FinishSession_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AbstractAccountAuthenticatorServiceServer).FinishSession(ctx, req.(*FinishSessionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AbstractAccountAuthenticatorService_GetAccountCredentialsForCloning_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAccountCredentialsForCloningRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AbstractAccountAuthenticatorServiceServer).GetAccountCredentialsForCloning(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AbstractAccountAuthenticatorService_GetAccountCredentialsForCloning_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AbstractAccountAuthenticatorServiceServer).GetAccountCredentialsForCloning(ctx, req.(*GetAccountCredentialsForCloningRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AbstractAccountAuthenticatorService_GetAccountRemovalAllowed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAccountRemovalAllowedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AbstractAccountAuthenticatorServiceServer).GetAccountRemovalAllowed(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AbstractAccountAuthenticatorService_GetAccountRemovalAllowed_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AbstractAccountAuthenticatorServiceServer).GetAccountRemovalAllowed(ctx, req.(*GetAccountRemovalAllowedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AbstractAccountAuthenticatorService_GetAuthToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAuthTokenRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AbstractAccountAuthenticatorServiceServer).GetAuthToken(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AbstractAccountAuthenticatorService_GetAuthToken_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AbstractAccountAuthenticatorServiceServer).GetAuthToken(ctx, req.(*GetAuthTokenRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AbstractAccountAuthenticatorService_GetAuthTokenLabel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAuthTokenLabelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AbstractAccountAuthenticatorServiceServer).GetAuthTokenLabel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AbstractAccountAuthenticatorService_GetAuthTokenLabel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AbstractAccountAuthenticatorServiceServer).GetAuthTokenLabel(ctx, req.(*GetAuthTokenLabelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AbstractAccountAuthenticatorService_GetIBinder_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIBinderRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AbstractAccountAuthenticatorServiceServer).GetIBinder(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AbstractAccountAuthenticatorService_GetIBinder_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AbstractAccountAuthenticatorServiceServer).GetIBinder(ctx, req.(*GetIBinderRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AbstractAccountAuthenticatorService_HasFeatures_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HasFeaturesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AbstractAccountAuthenticatorServiceServer).HasFeatures(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AbstractAccountAuthenticatorService_HasFeatures_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AbstractAccountAuthenticatorServiceServer).HasFeatures(ctx, req.(*HasFeaturesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AbstractAccountAuthenticatorService_IsCredentialsUpdateSuggested_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsCredentialsUpdateSuggestedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AbstractAccountAuthenticatorServiceServer).IsCredentialsUpdateSuggested(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AbstractAccountAuthenticatorService_IsCredentialsUpdateSuggested_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AbstractAccountAuthenticatorServiceServer).IsCredentialsUpdateSuggested(ctx, req.(*IsCredentialsUpdateSuggestedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AbstractAccountAuthenticatorService_StartAddAccountSession_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StartAddAccountSessionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AbstractAccountAuthenticatorServiceServer).StartAddAccountSession(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AbstractAccountAuthenticatorService_StartAddAccountSession_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AbstractAccountAuthenticatorServiceServer).StartAddAccountSession(ctx, req.(*StartAddAccountSessionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AbstractAccountAuthenticatorService_StartUpdateCredentialsSession_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StartUpdateCredentialsSessionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AbstractAccountAuthenticatorServiceServer).StartUpdateCredentialsSession(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AbstractAccountAuthenticatorService_StartUpdateCredentialsSession_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AbstractAccountAuthenticatorServiceServer).StartUpdateCredentialsSession(ctx, req.(*StartUpdateCredentialsSessionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AbstractAccountAuthenticatorService_UpdateCredentials_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateCredentialsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AbstractAccountAuthenticatorServiceServer).UpdateCredentials(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AbstractAccountAuthenticatorService_UpdateCredentials_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AbstractAccountAuthenticatorServiceServer).UpdateCredentials(ctx, req.(*UpdateCredentialsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AbstractAccountAuthenticatorService_ServiceDesc is the grpc.ServiceDesc for AbstractAccountAuthenticatorService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AbstractAccountAuthenticatorService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "accounts.AbstractAccountAuthenticatorService",
+	HandlerType: (*AbstractAccountAuthenticatorServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "AddAccount",
+			Handler:    _AbstractAccountAuthenticatorService_AddAccount_Handler,
+		},
+		{
+			MethodName: "AddAccountFromCredentials",
+			Handler:    _AbstractAccountAuthenticatorService_AddAccountFromCredentials_Handler,
+		},
+		{
+			MethodName: "ConfirmCredentials",
+			Handler:    _AbstractAccountAuthenticatorService_ConfirmCredentials_Handler,
+		},
+		{
+			MethodName: "EditProperties",
+			Handler:    _AbstractAccountAuthenticatorService_EditProperties_Handler,
+		},
+		{
+			MethodName: "FinishSession",
+			Handler:    _AbstractAccountAuthenticatorService_FinishSession_Handler,
+		},
+		{
+			MethodName: "GetAccountCredentialsForCloning",
+			Handler:    _AbstractAccountAuthenticatorService_GetAccountCredentialsForCloning_Handler,
+		},
+		{
+			MethodName: "GetAccountRemovalAllowed",
+			Handler:    _AbstractAccountAuthenticatorService_GetAccountRemovalAllowed_Handler,
+		},
+		{
+			MethodName: "GetAuthToken",
+			Handler:    _AbstractAccountAuthenticatorService_GetAuthToken_Handler,
+		},
+		{
+			MethodName: "GetAuthTokenLabel",
+			Handler:    _AbstractAccountAuthenticatorService_GetAuthTokenLabel_Handler,
+		},
+		{
+			MethodName: "GetIBinder",
+			Handler:    _AbstractAccountAuthenticatorService_GetIBinder_Handler,
+		},
+		{
+			MethodName: "HasFeatures",
+			Handler:    _AbstractAccountAuthenticatorService_HasFeatures_Handler,
+		},
+		{
+			MethodName: "IsCredentialsUpdateSuggested",
+			Handler:    _AbstractAccountAuthenticatorService_IsCredentialsUpdateSuggested_Handler,
+		},
+		{
+			MethodName: "StartAddAccountSession",
+			Handler:    _AbstractAccountAuthenticatorService_StartAddAccountSession_Handler,
+		},
+		{
+			MethodName: "StartUpdateCredentialsSession",
+			Handler:    _AbstractAccountAuthenticatorService_StartUpdateCredentialsSession_Handler,
+		},
+		{
+			MethodName: "UpdateCredentials",
+			Handler:    _AbstractAccountAuthenticatorService_UpdateCredentials_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/accounts/accounts.proto",
+}
+
+const (
 	AccountManagerService_AddAccountExplicitly_FullMethodName            = "/accounts.AccountManagerService/AddAccountExplicitly"
 	AccountManagerService_BlockingGetAuthToken_FullMethodName            = "/accounts.AccountManagerService/BlockingGetAuthToken"
 	AccountManagerService_ClearPassword_FullMethodName                   = "/accounts.AccountManagerService/ClearPassword"
@@ -876,6 +1906,988 @@ var AccountManagerService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Get",
 			Handler:    _AccountManagerService_Get_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/accounts/accounts.proto",
+}
+
+const (
+	AccountAuthenticatorActivityService_NewAccountAuthenticatorActivity_FullMethodName = "/accounts.AccountAuthenticatorActivityService/NewAccountAuthenticatorActivity"
+	AccountAuthenticatorActivityService_Finish_FullMethodName                          = "/accounts.AccountAuthenticatorActivityService/Finish"
+	AccountAuthenticatorActivityService_SetAccountAuthenticatorResult_FullMethodName   = "/accounts.AccountAuthenticatorActivityService/SetAccountAuthenticatorResult"
+)
+
+// AccountAuthenticatorActivityServiceClient is the client API for AccountAuthenticatorActivityService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AccountAuthenticatorActivityServiceClient interface {
+	NewAccountAuthenticatorActivity(ctx context.Context, in *NewAccountAuthenticatorActivityRequest, opts ...grpc.CallOption) (*NewAccountAuthenticatorActivityResponse, error)
+	Finish(ctx context.Context, in *FinishRequest, opts ...grpc.CallOption) (*FinishResponse, error)
+	SetAccountAuthenticatorResult(ctx context.Context, in *SetAccountAuthenticatorResultRequest, opts ...grpc.CallOption) (*SetAccountAuthenticatorResultResponse, error)
+}
+
+type accountAuthenticatorActivityServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAccountAuthenticatorActivityServiceClient(cc grpc.ClientConnInterface) AccountAuthenticatorActivityServiceClient {
+	return &accountAuthenticatorActivityServiceClient{cc}
+}
+
+func (c *accountAuthenticatorActivityServiceClient) NewAccountAuthenticatorActivity(ctx context.Context, in *NewAccountAuthenticatorActivityRequest, opts ...grpc.CallOption) (*NewAccountAuthenticatorActivityResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewAccountAuthenticatorActivityResponse)
+	err := c.cc.Invoke(ctx, AccountAuthenticatorActivityService_NewAccountAuthenticatorActivity_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *accountAuthenticatorActivityServiceClient) Finish(ctx context.Context, in *FinishRequest, opts ...grpc.CallOption) (*FinishResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(FinishResponse)
+	err := c.cc.Invoke(ctx, AccountAuthenticatorActivityService_Finish_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *accountAuthenticatorActivityServiceClient) SetAccountAuthenticatorResult(ctx context.Context, in *SetAccountAuthenticatorResultRequest, opts ...grpc.CallOption) (*SetAccountAuthenticatorResultResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetAccountAuthenticatorResultResponse)
+	err := c.cc.Invoke(ctx, AccountAuthenticatorActivityService_SetAccountAuthenticatorResult_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AccountAuthenticatorActivityServiceServer is the server API for AccountAuthenticatorActivityService service.
+// All implementations must embed UnimplementedAccountAuthenticatorActivityServiceServer
+// for forward compatibility.
+type AccountAuthenticatorActivityServiceServer interface {
+	NewAccountAuthenticatorActivity(context.Context, *NewAccountAuthenticatorActivityRequest) (*NewAccountAuthenticatorActivityResponse, error)
+	Finish(context.Context, *FinishRequest) (*FinishResponse, error)
+	SetAccountAuthenticatorResult(context.Context, *SetAccountAuthenticatorResultRequest) (*SetAccountAuthenticatorResultResponse, error)
+	mustEmbedUnimplementedAccountAuthenticatorActivityServiceServer()
+}
+
+// UnimplementedAccountAuthenticatorActivityServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedAccountAuthenticatorActivityServiceServer struct{}
+
+func (UnimplementedAccountAuthenticatorActivityServiceServer) NewAccountAuthenticatorActivity(context.Context, *NewAccountAuthenticatorActivityRequest) (*NewAccountAuthenticatorActivityResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewAccountAuthenticatorActivity not implemented")
+}
+func (UnimplementedAccountAuthenticatorActivityServiceServer) Finish(context.Context, *FinishRequest) (*FinishResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Finish not implemented")
+}
+func (UnimplementedAccountAuthenticatorActivityServiceServer) SetAccountAuthenticatorResult(context.Context, *SetAccountAuthenticatorResultRequest) (*SetAccountAuthenticatorResultResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetAccountAuthenticatorResult not implemented")
+}
+func (UnimplementedAccountAuthenticatorActivityServiceServer) mustEmbedUnimplementedAccountAuthenticatorActivityServiceServer() {
+}
+func (UnimplementedAccountAuthenticatorActivityServiceServer) testEmbeddedByValue() {}
+
+// UnsafeAccountAuthenticatorActivityServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AccountAuthenticatorActivityServiceServer will
+// result in compilation errors.
+type UnsafeAccountAuthenticatorActivityServiceServer interface {
+	mustEmbedUnimplementedAccountAuthenticatorActivityServiceServer()
+}
+
+func RegisterAccountAuthenticatorActivityServiceServer(s grpc.ServiceRegistrar, srv AccountAuthenticatorActivityServiceServer) {
+	// If the following call panics, it indicates UnimplementedAccountAuthenticatorActivityServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&AccountAuthenticatorActivityService_ServiceDesc, srv)
+}
+
+func _AccountAuthenticatorActivityService_NewAccountAuthenticatorActivity_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewAccountAuthenticatorActivityRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AccountAuthenticatorActivityServiceServer).NewAccountAuthenticatorActivity(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AccountAuthenticatorActivityService_NewAccountAuthenticatorActivity_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AccountAuthenticatorActivityServiceServer).NewAccountAuthenticatorActivity(ctx, req.(*NewAccountAuthenticatorActivityRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AccountAuthenticatorActivityService_Finish_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FinishRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AccountAuthenticatorActivityServiceServer).Finish(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AccountAuthenticatorActivityService_Finish_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AccountAuthenticatorActivityServiceServer).Finish(ctx, req.(*FinishRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AccountAuthenticatorActivityService_SetAccountAuthenticatorResult_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetAccountAuthenticatorResultRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AccountAuthenticatorActivityServiceServer).SetAccountAuthenticatorResult(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AccountAuthenticatorActivityService_SetAccountAuthenticatorResult_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AccountAuthenticatorActivityServiceServer).SetAccountAuthenticatorResult(ctx, req.(*SetAccountAuthenticatorResultRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AccountAuthenticatorActivityService_ServiceDesc is the grpc.ServiceDesc for AccountAuthenticatorActivityService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AccountAuthenticatorActivityService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "accounts.AccountAuthenticatorActivityService",
+	HandlerType: (*AccountAuthenticatorActivityServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewAccountAuthenticatorActivity",
+			Handler:    _AccountAuthenticatorActivityService_NewAccountAuthenticatorActivity_Handler,
+		},
+		{
+			MethodName: "Finish",
+			Handler:    _AccountAuthenticatorActivityService_Finish_Handler,
+		},
+		{
+			MethodName: "SetAccountAuthenticatorResult",
+			Handler:    _AccountAuthenticatorActivityService_SetAccountAuthenticatorResult_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/accounts/accounts.proto",
+}
+
+const (
+	AccountManagerFutureService_Cancel_FullMethodName      = "/accounts.AccountManagerFutureService/Cancel"
+	AccountManagerFutureService_IsCancelled_FullMethodName = "/accounts.AccountManagerFutureService/IsCancelled"
+	AccountManagerFutureService_IsDone_FullMethodName      = "/accounts.AccountManagerFutureService/IsDone"
+)
+
+// AccountManagerFutureServiceClient is the client API for AccountManagerFutureService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AccountManagerFutureServiceClient interface {
+	Cancel(ctx context.Context, in *CancelRequest, opts ...grpc.CallOption) (*CancelResponse, error)
+	IsCancelled(ctx context.Context, in *IsCancelledRequest, opts ...grpc.CallOption) (*IsCancelledResponse, error)
+	IsDone(ctx context.Context, in *IsDoneRequest, opts ...grpc.CallOption) (*IsDoneResponse, error)
+}
+
+type accountManagerFutureServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAccountManagerFutureServiceClient(cc grpc.ClientConnInterface) AccountManagerFutureServiceClient {
+	return &accountManagerFutureServiceClient{cc}
+}
+
+func (c *accountManagerFutureServiceClient) Cancel(ctx context.Context, in *CancelRequest, opts ...grpc.CallOption) (*CancelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CancelResponse)
+	err := c.cc.Invoke(ctx, AccountManagerFutureService_Cancel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *accountManagerFutureServiceClient) IsCancelled(ctx context.Context, in *IsCancelledRequest, opts ...grpc.CallOption) (*IsCancelledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsCancelledResponse)
+	err := c.cc.Invoke(ctx, AccountManagerFutureService_IsCancelled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *accountManagerFutureServiceClient) IsDone(ctx context.Context, in *IsDoneRequest, opts ...grpc.CallOption) (*IsDoneResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsDoneResponse)
+	err := c.cc.Invoke(ctx, AccountManagerFutureService_IsDone_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AccountManagerFutureServiceServer is the server API for AccountManagerFutureService service.
+// All implementations must embed UnimplementedAccountManagerFutureServiceServer
+// for forward compatibility.
+type AccountManagerFutureServiceServer interface {
+	Cancel(context.Context, *CancelRequest) (*CancelResponse, error)
+	IsCancelled(context.Context, *IsCancelledRequest) (*IsCancelledResponse, error)
+	IsDone(context.Context, *IsDoneRequest) (*IsDoneResponse, error)
+	mustEmbedUnimplementedAccountManagerFutureServiceServer()
+}
+
+// UnimplementedAccountManagerFutureServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedAccountManagerFutureServiceServer struct{}
+
+func (UnimplementedAccountManagerFutureServiceServer) Cancel(context.Context, *CancelRequest) (*CancelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Cancel not implemented")
+}
+func (UnimplementedAccountManagerFutureServiceServer) IsCancelled(context.Context, *IsCancelledRequest) (*IsCancelledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsCancelled not implemented")
+}
+func (UnimplementedAccountManagerFutureServiceServer) IsDone(context.Context, *IsDoneRequest) (*IsDoneResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsDone not implemented")
+}
+func (UnimplementedAccountManagerFutureServiceServer) mustEmbedUnimplementedAccountManagerFutureServiceServer() {
+}
+func (UnimplementedAccountManagerFutureServiceServer) testEmbeddedByValue() {}
+
+// UnsafeAccountManagerFutureServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AccountManagerFutureServiceServer will
+// result in compilation errors.
+type UnsafeAccountManagerFutureServiceServer interface {
+	mustEmbedUnimplementedAccountManagerFutureServiceServer()
+}
+
+func RegisterAccountManagerFutureServiceServer(s grpc.ServiceRegistrar, srv AccountManagerFutureServiceServer) {
+	// If the following call panics, it indicates UnimplementedAccountManagerFutureServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&AccountManagerFutureService_ServiceDesc, srv)
+}
+
+func _AccountManagerFutureService_Cancel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CancelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AccountManagerFutureServiceServer).Cancel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AccountManagerFutureService_Cancel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AccountManagerFutureServiceServer).Cancel(ctx, req.(*CancelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AccountManagerFutureService_IsCancelled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsCancelledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AccountManagerFutureServiceServer).IsCancelled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AccountManagerFutureService_IsCancelled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AccountManagerFutureServiceServer).IsCancelled(ctx, req.(*IsCancelledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AccountManagerFutureService_IsDone_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsDoneRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AccountManagerFutureServiceServer).IsDone(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AccountManagerFutureService_IsDone_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AccountManagerFutureServiceServer).IsDone(ctx, req.(*IsDoneRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AccountManagerFutureService_ServiceDesc is the grpc.ServiceDesc for AccountManagerFutureService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AccountManagerFutureService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "accounts.AccountManagerFutureService",
+	HandlerType: (*AccountManagerFutureServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Cancel",
+			Handler:    _AccountManagerFutureService_Cancel_Handler,
+		},
+		{
+			MethodName: "IsCancelled",
+			Handler:    _AccountManagerFutureService_IsCancelled_Handler,
+		},
+		{
+			MethodName: "IsDone",
+			Handler:    _AccountManagerFutureService_IsDone_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/accounts/accounts.proto",
+}
+
+const (
+	AuthenticatorDescriptionService_NewAuthenticatorDescription_FullMethodName = "/accounts.AuthenticatorDescriptionService/NewAuthenticatorDescription"
+	AuthenticatorDescriptionService_DescribeContents_FullMethodName            = "/accounts.AuthenticatorDescriptionService/DescribeContents"
+	AuthenticatorDescriptionService_Equals_FullMethodName                      = "/accounts.AuthenticatorDescriptionService/Equals"
+	AuthenticatorDescriptionService_HashCode_FullMethodName                    = "/accounts.AuthenticatorDescriptionService/HashCode"
+	AuthenticatorDescriptionService_ToString_FullMethodName                    = "/accounts.AuthenticatorDescriptionService/ToString"
+	AuthenticatorDescriptionService_WriteToParcel_FullMethodName               = "/accounts.AuthenticatorDescriptionService/WriteToParcel"
+	AuthenticatorDescriptionService_NewKey_FullMethodName                      = "/accounts.AuthenticatorDescriptionService/NewKey"
+)
+
+// AuthenticatorDescriptionServiceClient is the client API for AuthenticatorDescriptionService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AuthenticatorDescriptionServiceClient interface {
+	NewAuthenticatorDescription(ctx context.Context, in *NewAuthenticatorDescriptionRequest, opts ...grpc.CallOption) (*NewAuthenticatorDescriptionResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+	NewKey(ctx context.Context, in *NewKeyRequest, opts ...grpc.CallOption) (*NewKeyResponse, error)
+}
+
+type authenticatorDescriptionServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAuthenticatorDescriptionServiceClient(cc grpc.ClientConnInterface) AuthenticatorDescriptionServiceClient {
+	return &authenticatorDescriptionServiceClient{cc}
+}
+
+func (c *authenticatorDescriptionServiceClient) NewAuthenticatorDescription(ctx context.Context, in *NewAuthenticatorDescriptionRequest, opts ...grpc.CallOption) (*NewAuthenticatorDescriptionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewAuthenticatorDescriptionResponse)
+	err := c.cc.Invoke(ctx, AuthenticatorDescriptionService_NewAuthenticatorDescription_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *authenticatorDescriptionServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, AuthenticatorDescriptionService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *authenticatorDescriptionServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, AuthenticatorDescriptionService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *authenticatorDescriptionServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, AuthenticatorDescriptionService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *authenticatorDescriptionServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, AuthenticatorDescriptionService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *authenticatorDescriptionServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, AuthenticatorDescriptionService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *authenticatorDescriptionServiceClient) NewKey(ctx context.Context, in *NewKeyRequest, opts ...grpc.CallOption) (*NewKeyResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewKeyResponse)
+	err := c.cc.Invoke(ctx, AuthenticatorDescriptionService_NewKey_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AuthenticatorDescriptionServiceServer is the server API for AuthenticatorDescriptionService service.
+// All implementations must embed UnimplementedAuthenticatorDescriptionServiceServer
+// for forward compatibility.
+type AuthenticatorDescriptionServiceServer interface {
+	NewAuthenticatorDescription(context.Context, *NewAuthenticatorDescriptionRequest) (*NewAuthenticatorDescriptionResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	NewKey(context.Context, *NewKeyRequest) (*NewKeyResponse, error)
+	mustEmbedUnimplementedAuthenticatorDescriptionServiceServer()
+}
+
+// UnimplementedAuthenticatorDescriptionServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedAuthenticatorDescriptionServiceServer struct{}
+
+func (UnimplementedAuthenticatorDescriptionServiceServer) NewAuthenticatorDescription(context.Context, *NewAuthenticatorDescriptionRequest) (*NewAuthenticatorDescriptionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewAuthenticatorDescription not implemented")
+}
+func (UnimplementedAuthenticatorDescriptionServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedAuthenticatorDescriptionServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedAuthenticatorDescriptionServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedAuthenticatorDescriptionServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedAuthenticatorDescriptionServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedAuthenticatorDescriptionServiceServer) NewKey(context.Context, *NewKeyRequest) (*NewKeyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewKey not implemented")
+}
+func (UnimplementedAuthenticatorDescriptionServiceServer) mustEmbedUnimplementedAuthenticatorDescriptionServiceServer() {
+}
+func (UnimplementedAuthenticatorDescriptionServiceServer) testEmbeddedByValue() {}
+
+// UnsafeAuthenticatorDescriptionServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AuthenticatorDescriptionServiceServer will
+// result in compilation errors.
+type UnsafeAuthenticatorDescriptionServiceServer interface {
+	mustEmbedUnimplementedAuthenticatorDescriptionServiceServer()
+}
+
+func RegisterAuthenticatorDescriptionServiceServer(s grpc.ServiceRegistrar, srv AuthenticatorDescriptionServiceServer) {
+	// If the following call panics, it indicates UnimplementedAuthenticatorDescriptionServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&AuthenticatorDescriptionService_ServiceDesc, srv)
+}
+
+func _AuthenticatorDescriptionService_NewAuthenticatorDescription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewAuthenticatorDescriptionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AuthenticatorDescriptionServiceServer).NewAuthenticatorDescription(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AuthenticatorDescriptionService_NewAuthenticatorDescription_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AuthenticatorDescriptionServiceServer).NewAuthenticatorDescription(ctx, req.(*NewAuthenticatorDescriptionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AuthenticatorDescriptionService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AuthenticatorDescriptionServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AuthenticatorDescriptionService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AuthenticatorDescriptionServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AuthenticatorDescriptionService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AuthenticatorDescriptionServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AuthenticatorDescriptionService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AuthenticatorDescriptionServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AuthenticatorDescriptionService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AuthenticatorDescriptionServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AuthenticatorDescriptionService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AuthenticatorDescriptionServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AuthenticatorDescriptionService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AuthenticatorDescriptionServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AuthenticatorDescriptionService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AuthenticatorDescriptionServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AuthenticatorDescriptionService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AuthenticatorDescriptionServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AuthenticatorDescriptionService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AuthenticatorDescriptionServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AuthenticatorDescriptionService_NewKey_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewKeyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AuthenticatorDescriptionServiceServer).NewKey(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AuthenticatorDescriptionService_NewKey_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AuthenticatorDescriptionServiceServer).NewKey(ctx, req.(*NewKeyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AuthenticatorDescriptionService_ServiceDesc is the grpc.ServiceDesc for AuthenticatorDescriptionService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AuthenticatorDescriptionService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "accounts.AuthenticatorDescriptionService",
+	HandlerType: (*AuthenticatorDescriptionServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewAuthenticatorDescription",
+			Handler:    _AuthenticatorDescriptionService_NewAuthenticatorDescription_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _AuthenticatorDescriptionService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _AuthenticatorDescriptionService_Equals_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _AuthenticatorDescriptionService_HashCode_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _AuthenticatorDescriptionService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _AuthenticatorDescriptionService_WriteToParcel_Handler,
+		},
+		{
+			MethodName: "NewKey",
+			Handler:    _AuthenticatorDescriptionService_NewKey_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/accounts/accounts.proto",
+}
+
+const (
+	AccountAuthenticatorResponseService_NewAccountAuthenticatorResponse_FullMethodName = "/accounts.AccountAuthenticatorResponseService/NewAccountAuthenticatorResponse"
+	AccountAuthenticatorResponseService_DescribeContents_FullMethodName                = "/accounts.AccountAuthenticatorResponseService/DescribeContents"
+	AccountAuthenticatorResponseService_OnError_FullMethodName                         = "/accounts.AccountAuthenticatorResponseService/OnError"
+	AccountAuthenticatorResponseService_OnRequestContinued_FullMethodName              = "/accounts.AccountAuthenticatorResponseService/OnRequestContinued"
+	AccountAuthenticatorResponseService_OnResult_FullMethodName                        = "/accounts.AccountAuthenticatorResponseService/OnResult"
+	AccountAuthenticatorResponseService_WriteToParcel_FullMethodName                   = "/accounts.AccountAuthenticatorResponseService/WriteToParcel"
+)
+
+// AccountAuthenticatorResponseServiceClient is the client API for AccountAuthenticatorResponseService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AccountAuthenticatorResponseServiceClient interface {
+	NewAccountAuthenticatorResponse(ctx context.Context, in *NewAccountAuthenticatorResponseRequest, opts ...grpc.CallOption) (*NewAccountAuthenticatorResponseResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	OnError(ctx context.Context, in *OnErrorRequest, opts ...grpc.CallOption) (*OnErrorResponse, error)
+	OnRequestContinued(ctx context.Context, in *OnRequestContinuedRequest, opts ...grpc.CallOption) (*OnRequestContinuedResponse, error)
+	OnResult(ctx context.Context, in *OnResultRequest, opts ...grpc.CallOption) (*OnResultResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type accountAuthenticatorResponseServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAccountAuthenticatorResponseServiceClient(cc grpc.ClientConnInterface) AccountAuthenticatorResponseServiceClient {
+	return &accountAuthenticatorResponseServiceClient{cc}
+}
+
+func (c *accountAuthenticatorResponseServiceClient) NewAccountAuthenticatorResponse(ctx context.Context, in *NewAccountAuthenticatorResponseRequest, opts ...grpc.CallOption) (*NewAccountAuthenticatorResponseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewAccountAuthenticatorResponseResponse)
+	err := c.cc.Invoke(ctx, AccountAuthenticatorResponseService_NewAccountAuthenticatorResponse_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *accountAuthenticatorResponseServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, AccountAuthenticatorResponseService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *accountAuthenticatorResponseServiceClient) OnError(ctx context.Context, in *OnErrorRequest, opts ...grpc.CallOption) (*OnErrorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnErrorResponse)
+	err := c.cc.Invoke(ctx, AccountAuthenticatorResponseService_OnError_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *accountAuthenticatorResponseServiceClient) OnRequestContinued(ctx context.Context, in *OnRequestContinuedRequest, opts ...grpc.CallOption) (*OnRequestContinuedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnRequestContinuedResponse)
+	err := c.cc.Invoke(ctx, AccountAuthenticatorResponseService_OnRequestContinued_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *accountAuthenticatorResponseServiceClient) OnResult(ctx context.Context, in *OnResultRequest, opts ...grpc.CallOption) (*OnResultResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnResultResponse)
+	err := c.cc.Invoke(ctx, AccountAuthenticatorResponseService_OnResult_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *accountAuthenticatorResponseServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, AccountAuthenticatorResponseService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AccountAuthenticatorResponseServiceServer is the server API for AccountAuthenticatorResponseService service.
+// All implementations must embed UnimplementedAccountAuthenticatorResponseServiceServer
+// for forward compatibility.
+type AccountAuthenticatorResponseServiceServer interface {
+	NewAccountAuthenticatorResponse(context.Context, *NewAccountAuthenticatorResponseRequest) (*NewAccountAuthenticatorResponseResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	OnError(context.Context, *OnErrorRequest) (*OnErrorResponse, error)
+	OnRequestContinued(context.Context, *OnRequestContinuedRequest) (*OnRequestContinuedResponse, error)
+	OnResult(context.Context, *OnResultRequest) (*OnResultResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedAccountAuthenticatorResponseServiceServer()
+}
+
+// UnimplementedAccountAuthenticatorResponseServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedAccountAuthenticatorResponseServiceServer struct{}
+
+func (UnimplementedAccountAuthenticatorResponseServiceServer) NewAccountAuthenticatorResponse(context.Context, *NewAccountAuthenticatorResponseRequest) (*NewAccountAuthenticatorResponseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewAccountAuthenticatorResponse not implemented")
+}
+func (UnimplementedAccountAuthenticatorResponseServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedAccountAuthenticatorResponseServiceServer) OnError(context.Context, *OnErrorRequest) (*OnErrorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnError not implemented")
+}
+func (UnimplementedAccountAuthenticatorResponseServiceServer) OnRequestContinued(context.Context, *OnRequestContinuedRequest) (*OnRequestContinuedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnRequestContinued not implemented")
+}
+func (UnimplementedAccountAuthenticatorResponseServiceServer) OnResult(context.Context, *OnResultRequest) (*OnResultResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnResult not implemented")
+}
+func (UnimplementedAccountAuthenticatorResponseServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedAccountAuthenticatorResponseServiceServer) mustEmbedUnimplementedAccountAuthenticatorResponseServiceServer() {
+}
+func (UnimplementedAccountAuthenticatorResponseServiceServer) testEmbeddedByValue() {}
+
+// UnsafeAccountAuthenticatorResponseServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AccountAuthenticatorResponseServiceServer will
+// result in compilation errors.
+type UnsafeAccountAuthenticatorResponseServiceServer interface {
+	mustEmbedUnimplementedAccountAuthenticatorResponseServiceServer()
+}
+
+func RegisterAccountAuthenticatorResponseServiceServer(s grpc.ServiceRegistrar, srv AccountAuthenticatorResponseServiceServer) {
+	// If the following call panics, it indicates UnimplementedAccountAuthenticatorResponseServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&AccountAuthenticatorResponseService_ServiceDesc, srv)
+}
+
+func _AccountAuthenticatorResponseService_NewAccountAuthenticatorResponse_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewAccountAuthenticatorResponseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AccountAuthenticatorResponseServiceServer).NewAccountAuthenticatorResponse(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AccountAuthenticatorResponseService_NewAccountAuthenticatorResponse_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AccountAuthenticatorResponseServiceServer).NewAccountAuthenticatorResponse(ctx, req.(*NewAccountAuthenticatorResponseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AccountAuthenticatorResponseService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AccountAuthenticatorResponseServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AccountAuthenticatorResponseService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AccountAuthenticatorResponseServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AccountAuthenticatorResponseService_OnError_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnErrorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AccountAuthenticatorResponseServiceServer).OnError(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AccountAuthenticatorResponseService_OnError_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AccountAuthenticatorResponseServiceServer).OnError(ctx, req.(*OnErrorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AccountAuthenticatorResponseService_OnRequestContinued_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnRequestContinuedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AccountAuthenticatorResponseServiceServer).OnRequestContinued(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AccountAuthenticatorResponseService_OnRequestContinued_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AccountAuthenticatorResponseServiceServer).OnRequestContinued(ctx, req.(*OnRequestContinuedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AccountAuthenticatorResponseService_OnResult_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnResultRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AccountAuthenticatorResponseServiceServer).OnResult(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AccountAuthenticatorResponseService_OnResult_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AccountAuthenticatorResponseServiceServer).OnResult(ctx, req.(*OnResultRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AccountAuthenticatorResponseService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AccountAuthenticatorResponseServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AccountAuthenticatorResponseService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AccountAuthenticatorResponseServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AccountAuthenticatorResponseService_ServiceDesc is the grpc.ServiceDesc for AccountAuthenticatorResponseService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AccountAuthenticatorResponseService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "accounts.AccountAuthenticatorResponseService",
+	HandlerType: (*AccountAuthenticatorResponseServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewAccountAuthenticatorResponse",
+			Handler:    _AccountAuthenticatorResponseService_NewAccountAuthenticatorResponse_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _AccountAuthenticatorResponseService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "OnError",
+			Handler:    _AccountAuthenticatorResponseService_OnError_Handler,
+		},
+		{
+			MethodName: "OnRequestContinued",
+			Handler:    _AccountAuthenticatorResponseService_OnRequestContinued_Handler,
+		},
+		{
+			MethodName: "OnResult",
+			Handler:    _AccountAuthenticatorResponseService_OnResult_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _AccountAuthenticatorResponseService_WriteToParcel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

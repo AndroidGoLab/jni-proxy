@@ -9,6 +9,231 @@ import (
 	"google.golang.org/grpc"
 )
 
+// SpellCheckerServiceClient wraps the gRPC SpellCheckerServiceService client.
+type SpellCheckerServiceClient struct {
+	svc pb.SpellCheckerServiceServiceClient
+}
+
+// NewSpellCheckerServiceClient creates a new SpellCheckerService client.
+func NewSpellCheckerServiceClient(cc grpc.ClientConnInterface) *SpellCheckerServiceClient {
+	return &SpellCheckerServiceClient{
+		svc: pb.NewSpellCheckerServiceServiceClient(cc),
+	}
+}
+
+// CreateSession calls the CreateSession RPC.
+func (c *SpellCheckerServiceClient) CreateSession(ctx context.Context) (int64, error) {
+	resp, err := c.svc.CreateSession(ctx, &pb.CreateSessionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnBind calls the OnBind RPC.
+func (c *SpellCheckerServiceClient) OnBind(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.OnBind(ctx, &pb.OnBindRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SpellCheckerServiceSessionClient wraps the gRPC SpellCheckerServiceSessionService client.
+type SpellCheckerServiceSessionClient struct {
+	svc pb.SpellCheckerServiceSessionServiceClient
+}
+
+// NewSpellCheckerServiceSessionClient creates a new SpellCheckerServiceSession client.
+func NewSpellCheckerServiceSessionClient(cc grpc.ClientConnInterface) *SpellCheckerServiceSessionClient {
+	return &SpellCheckerServiceSessionClient{
+		svc: pb.NewSpellCheckerServiceSessionServiceClient(cc),
+	}
+}
+
+// GetBundle calls the GetBundle RPC.
+func (c *SpellCheckerServiceSessionClient) GetBundle(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetBundle(ctx, &pb.GetBundleRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLocale calls the GetLocale RPC.
+func (c *SpellCheckerServiceSessionClient) GetLocale(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetLocale(ctx, &pb.GetLocaleRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSupportedAttributes calls the GetSupportedAttributes RPC.
+func (c *SpellCheckerServiceSessionClient) GetSupportedAttributes(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetSupportedAttributes(ctx, &pb.GetSupportedAttributesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnCancel calls the OnCancel RPC.
+func (c *SpellCheckerServiceSessionClient) OnCancel(ctx context.Context) error {
+	_, err := c.svc.OnCancel(ctx, &pb.OnCancelRequest{})
+	return err
+}
+
+// OnClose calls the OnClose RPC.
+func (c *SpellCheckerServiceSessionClient) OnClose(ctx context.Context) error {
+	_, err := c.svc.OnClose(ctx, &pb.OnCloseRequest{})
+	return err
+}
+
+// OnCreate calls the OnCreate RPC.
+func (c *SpellCheckerServiceSessionClient) OnCreate(ctx context.Context) error {
+	_, err := c.svc.OnCreate(ctx, &pb.OnCreateRequest{})
+	return err
+}
+
+// OnGetSentenceSuggestionsMultiple calls the OnGetSentenceSuggestionsMultiple RPC.
+func (c *SpellCheckerServiceSessionClient) OnGetSentenceSuggestionsMultiple(ctx context.Context, arg0 int64, arg1 int32) (int64, error) {
+	resp, err := c.svc.OnGetSentenceSuggestionsMultiple(ctx, &pb.OnGetSentenceSuggestionsMultipleRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnGetSuggestions calls the OnGetSuggestions RPC.
+func (c *SpellCheckerServiceSessionClient) OnGetSuggestions(ctx context.Context, arg0 int64, arg1 int32) (int64, error) {
+	resp, err := c.svc.OnGetSuggestions(ctx, &pb.OnGetSuggestionsRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnGetSuggestionsMultiple calls the OnGetSuggestionsMultiple RPC.
+func (c *SpellCheckerServiceSessionClient) OnGetSuggestionsMultiple(ctx context.Context, arg0 int64, arg1 int32, arg2 bool) (int64, error) {
+	resp, err := c.svc.OnGetSuggestionsMultiple(ctx, &pb.OnGetSuggestionsMultipleRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SuggestionsInfoClient wraps the gRPC SuggestionsInfoService client.
+type SuggestionsInfoClient struct {
+	svc pb.SuggestionsInfoServiceClient
+}
+
+// NewSuggestionsInfoClient creates a new SuggestionsInfo client.
+func NewSuggestionsInfoClient(cc grpc.ClientConnInterface) *SuggestionsInfoClient {
+	return &SuggestionsInfoClient{
+		svc: pb.NewSuggestionsInfoServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *SuggestionsInfoClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCookie calls the GetCookie RPC.
+func (c *SuggestionsInfoClient) GetCookie(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetCookie(ctx, &pb.GetCookieRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSequence calls the GetSequence RPC.
+func (c *SuggestionsInfoClient) GetSequence(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetSequence(ctx, &pb.GetSequenceRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSuggestionAt calls the GetSuggestionAt RPC.
+func (c *SuggestionsInfoClient) GetSuggestionAt(ctx context.Context, handle int64, arg0 int32) (string, error) {
+	resp, err := c.svc.GetSuggestionAt(ctx, &pb.GetSuggestionAtRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSuggestionsAttributes calls the GetSuggestionsAttributes RPC.
+func (c *SuggestionsInfoClient) GetSuggestionsAttributes(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetSuggestionsAttributes(ctx, &pb.GetSuggestionsAttributesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSuggestionsCount calls the GetSuggestionsCount RPC.
+func (c *SuggestionsInfoClient) GetSuggestionsCount(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetSuggestionsCount(ctx, &pb.GetSuggestionsCountRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetCookieAndSequence calls the SetCookieAndSequence RPC.
+func (c *SuggestionsInfoClient) SetCookieAndSequence(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
+	_, err := c.svc.SetCookieAndSequence(ctx, &pb.SetCookieAndSequenceRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *SuggestionsInfoClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
 // TextServicesManagerClient wraps the gRPC TextServicesManagerService client.
 type TextServicesManagerClient struct {
 	svc pb.TextServicesManagerServiceClient
@@ -62,6 +287,564 @@ func (c *TextServicesManagerClient) NewSpellCheckerSession3_1(ctx context.Contex
 	})
 	if err != nil {
 		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SentenceSuggestionsInfoClient wraps the gRPC SentenceSuggestionsInfoService client.
+type SentenceSuggestionsInfoClient struct {
+	svc pb.SentenceSuggestionsInfoServiceClient
+}
+
+// NewSentenceSuggestionsInfoClient creates a new SentenceSuggestionsInfo client.
+func NewSentenceSuggestionsInfoClient(cc grpc.ClientConnInterface) *SentenceSuggestionsInfoClient {
+	return &SentenceSuggestionsInfoClient{
+		svc: pb.NewSentenceSuggestionsInfoServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *SentenceSuggestionsInfoClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLengthAt calls the GetLengthAt RPC.
+func (c *SentenceSuggestionsInfoClient) GetLengthAt(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetLengthAt(ctx, &pb.GetLengthAtRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOffsetAt calls the GetOffsetAt RPC.
+func (c *SentenceSuggestionsInfoClient) GetOffsetAt(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetOffsetAt(ctx, &pb.GetOffsetAtRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSuggestionsCount calls the GetSuggestionsCount RPC.
+func (c *SentenceSuggestionsInfoClient) GetSuggestionsCount(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetSuggestionsCount(ctx, &pb.GetSuggestionsCountRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSuggestionsInfoAt calls the GetSuggestionsInfoAt RPC.
+func (c *SentenceSuggestionsInfoClient) GetSuggestionsInfoAt(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetSuggestionsInfoAt(ctx, &pb.GetSuggestionsInfoAtRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *SentenceSuggestionsInfoClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// TextInfoClient wraps the gRPC TextInfoService client.
+type TextInfoClient struct {
+	svc pb.TextInfoServiceClient
+}
+
+// NewTextInfoClient creates a new TextInfo client.
+func NewTextInfoClient(cc grpc.ClientConnInterface) *TextInfoClient {
+	return &TextInfoClient{
+		svc: pb.NewTextInfoServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *TextInfoClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCharSequence calls the GetCharSequence RPC.
+func (c *TextInfoClient) GetCharSequence(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetCharSequence(ctx, &pb.GetCharSequenceRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCookie calls the GetCookie RPC.
+func (c *TextInfoClient) GetCookie(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetCookie(ctx, &pb.GetCookieRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSequence calls the GetSequence RPC.
+func (c *TextInfoClient) GetSequence(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetSequence(ctx, &pb.GetSequenceRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetText calls the GetText RPC.
+func (c *TextInfoClient) GetText(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetText(ctx, &pb.GetTextRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *TextInfoClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SpellCheckerSubtypeClient wraps the gRPC SpellCheckerSubtypeService client.
+type SpellCheckerSubtypeClient struct {
+	svc pb.SpellCheckerSubtypeServiceClient
+}
+
+// NewSpellCheckerSubtypeClient creates a new SpellCheckerSubtype client.
+func NewSpellCheckerSubtypeClient(cc grpc.ClientConnInterface) *SpellCheckerSubtypeClient {
+	return &SpellCheckerSubtypeClient{
+		svc: pb.NewSpellCheckerSubtypeServiceClient(cc),
+	}
+}
+
+// ContainsExtraValueKey calls the ContainsExtraValueKey RPC.
+func (c *SpellCheckerSubtypeClient) ContainsExtraValueKey(ctx context.Context, handle int64, arg0 string) (bool, error) {
+	resp, err := c.svc.ContainsExtraValueKey(ctx, &pb.ContainsExtraValueKeyRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *SpellCheckerSubtypeClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *SpellCheckerSubtypeClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDisplayName calls the GetDisplayName RPC.
+func (c *SpellCheckerSubtypeClient) GetDisplayName(ctx context.Context, handle int64, arg0 int64, arg1 string, arg2 int64) (int64, error) {
+	resp, err := c.svc.GetDisplayName(ctx, &pb.GetDisplayNameRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExtraValue calls the GetExtraValue RPC.
+func (c *SpellCheckerSubtypeClient) GetExtraValue(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetExtraValue(ctx, &pb.GetExtraValueRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExtraValueOf calls the GetExtraValueOf RPC.
+func (c *SpellCheckerSubtypeClient) GetExtraValueOf(ctx context.Context, handle int64, arg0 string) (string, error) {
+	resp, err := c.svc.GetExtraValueOf(ctx, &pb.GetExtraValueOfRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLanguageTag calls the GetLanguageTag RPC.
+func (c *SpellCheckerSubtypeClient) GetLanguageTag(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetLanguageTag(ctx, &pb.GetLanguageTagRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLocale calls the GetLocale RPC.
+func (c *SpellCheckerSubtypeClient) GetLocale(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetLocale(ctx, &pb.SpellCheckerSubtypeGetLocaleRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNameResId calls the GetNameResId RPC.
+func (c *SpellCheckerSubtypeClient) GetNameResId(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetNameResId(ctx, &pb.GetNameResIdRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *SpellCheckerSubtypeClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *SpellCheckerSubtypeClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SpellCheckerInfoClient wraps the gRPC SpellCheckerInfoService client.
+type SpellCheckerInfoClient struct {
+	svc pb.SpellCheckerInfoServiceClient
+}
+
+// NewSpellCheckerInfoClient creates a new SpellCheckerInfo client.
+func NewSpellCheckerInfoClient(cc grpc.ClientConnInterface) *SpellCheckerInfoClient {
+	return &SpellCheckerInfoClient{
+		svc: pb.NewSpellCheckerInfoServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *SpellCheckerInfoClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.SpellCheckerInfoDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetComponent calls the GetComponent RPC.
+func (c *SpellCheckerInfoClient) GetComponent(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetComponent(ctx, &pb.GetComponentRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetId calls the GetId RPC.
+func (c *SpellCheckerInfoClient) GetId(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPackageName calls the GetPackageName RPC.
+func (c *SpellCheckerInfoClient) GetPackageName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetPackageName(ctx, &pb.GetPackageNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetServiceInfo calls the GetServiceInfo RPC.
+func (c *SpellCheckerInfoClient) GetServiceInfo(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetServiceInfo(ctx, &pb.GetServiceInfoRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSettingsActivity calls the GetSettingsActivity RPC.
+func (c *SpellCheckerInfoClient) GetSettingsActivity(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetSettingsActivity(ctx, &pb.GetSettingsActivityRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSubtypeAt calls the GetSubtypeAt RPC.
+func (c *SpellCheckerInfoClient) GetSubtypeAt(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetSubtypeAt(ctx, &pb.GetSubtypeAtRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSubtypeCount calls the GetSubtypeCount RPC.
+func (c *SpellCheckerInfoClient) GetSubtypeCount(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetSubtypeCount(ctx, &pb.GetSubtypeCountRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// LoadIcon calls the LoadIcon RPC.
+func (c *SpellCheckerInfoClient) LoadIcon(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.LoadIcon(ctx, &pb.LoadIconRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// LoadLabel calls the LoadLabel RPC.
+func (c *SpellCheckerInfoClient) LoadLabel(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.LoadLabel(ctx, &pb.LoadLabelRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *SpellCheckerInfoClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.SpellCheckerInfoWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// SpellCheckerSessionClient wraps the gRPC SpellCheckerSessionService client.
+type SpellCheckerSessionClient struct {
+	svc pb.SpellCheckerSessionServiceClient
+}
+
+// NewSpellCheckerSessionClient creates a new SpellCheckerSession client.
+func NewSpellCheckerSessionClient(cc grpc.ClientConnInterface) *SpellCheckerSessionClient {
+	return &SpellCheckerSessionClient{
+		svc: pb.NewSpellCheckerSessionServiceClient(cc),
+	}
+}
+
+// Cancel calls the Cancel RPC.
+func (c *SpellCheckerSessionClient) Cancel(ctx context.Context) error {
+	_, err := c.svc.Cancel(ctx, &pb.CancelRequest{})
+	return err
+}
+
+// Close calls the Close RPC.
+func (c *SpellCheckerSessionClient) Close(ctx context.Context) error {
+	_, err := c.svc.Close(ctx, &pb.CloseRequest{})
+	return err
+}
+
+// GetSentenceSuggestions calls the GetSentenceSuggestions RPC.
+func (c *SpellCheckerSessionClient) GetSentenceSuggestions(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.GetSentenceSuggestions(ctx, &pb.GetSentenceSuggestionsRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// GetSpellChecker calls the GetSpellChecker RPC.
+func (c *SpellCheckerSessionClient) GetSpellChecker(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSpellChecker(ctx, &pb.GetSpellCheckerRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSuggestions2 calls the GetSuggestions2 RPC.
+func (c *SpellCheckerSessionClient) GetSuggestions2(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.GetSuggestions2(ctx, &pb.GetSuggestions2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// GetSuggestions3_1 calls the GetSuggestions3_1 RPC.
+func (c *SpellCheckerSessionClient) GetSuggestions3_1(ctx context.Context, arg0 int64, arg1 int32, arg2 bool) error {
+	_, err := c.svc.GetSuggestions3_1(ctx, &pb.GetSuggestions3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// IsSessionDisconnected calls the IsSessionDisconnected RPC.
+func (c *SpellCheckerSessionClient) IsSessionDisconnected(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsSessionDisconnected(ctx, &pb.IsSessionDisconnectedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SpellCheckerSessionSpellCheckerSessionListenerClient wraps the gRPC SpellCheckerSessionSpellCheckerSessionListenerService client.
+type SpellCheckerSessionSpellCheckerSessionListenerClient struct {
+	svc pb.SpellCheckerSessionSpellCheckerSessionListenerServiceClient
+}
+
+// NewSpellCheckerSessionSpellCheckerSessionListenerClient creates a new SpellCheckerSessionSpellCheckerSessionListener client.
+func NewSpellCheckerSessionSpellCheckerSessionListenerClient(cc grpc.ClientConnInterface) *SpellCheckerSessionSpellCheckerSessionListenerClient {
+	return &SpellCheckerSessionSpellCheckerSessionListenerClient{
+		svc: pb.NewSpellCheckerSessionSpellCheckerSessionListenerServiceClient(cc),
+	}
+}
+
+// OnGetSentenceSuggestions calls the OnGetSentenceSuggestions RPC.
+func (c *SpellCheckerSessionSpellCheckerSessionListenerClient) OnGetSentenceSuggestions(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnGetSentenceSuggestions(ctx, &pb.OnGetSentenceSuggestionsRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnGetSuggestions calls the OnGetSuggestions RPC.
+func (c *SpellCheckerSessionSpellCheckerSessionListenerClient) OnGetSuggestions(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnGetSuggestions(ctx, &pb.SpellCheckerSessionSpellCheckerSessionListenerOnGetSuggestionsRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SpellCheckerSessionSpellCheckerSessionParamsClient wraps the gRPC SpellCheckerSessionSpellCheckerSessionParamsService client.
+type SpellCheckerSessionSpellCheckerSessionParamsClient struct {
+	svc pb.SpellCheckerSessionSpellCheckerSessionParamsServiceClient
+}
+
+// NewSpellCheckerSessionSpellCheckerSessionParamsClient creates a new SpellCheckerSessionSpellCheckerSessionParams client.
+func NewSpellCheckerSessionSpellCheckerSessionParamsClient(cc grpc.ClientConnInterface) *SpellCheckerSessionSpellCheckerSessionParamsClient {
+	return &SpellCheckerSessionSpellCheckerSessionParamsClient{
+		svc: pb.NewSpellCheckerSessionSpellCheckerSessionParamsServiceClient(cc),
+	}
+}
+
+// GetExtras calls the GetExtras RPC.
+func (c *SpellCheckerSessionSpellCheckerSessionParamsClient) GetExtras(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetExtras(ctx, &pb.GetExtrasRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLocale calls the GetLocale RPC.
+func (c *SpellCheckerSessionSpellCheckerSessionParamsClient) GetLocale(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetLocale(ctx, &pb.SpellCheckerSessionSpellCheckerSessionParamsGetLocaleRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSupportedAttributes calls the GetSupportedAttributes RPC.
+func (c *SpellCheckerSessionSpellCheckerSessionParamsClient) GetSupportedAttributes(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetSupportedAttributes(ctx, &pb.GetSupportedAttributesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ShouldReferToSpellCheckerLanguageSettings calls the ShouldReferToSpellCheckerLanguageSettings RPC.
+func (c *SpellCheckerSessionSpellCheckerSessionParamsClient) ShouldReferToSpellCheckerLanguageSettings(ctx context.Context) (bool, error) {
+	resp, err := c.svc.ShouldReferToSpellCheckerLanguageSettings(ctx, &pb.ShouldReferToSpellCheckerLanguageSettingsRequest{})
+	if err != nil {
+		return false, err
 	}
 	return resp.GetResult(), nil
 }

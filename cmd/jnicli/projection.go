@@ -12,6 +12,132 @@ var projectionCmd = &cobra.Command{
 	Short: "projection service operations",
 }
 
+var projectionMediaProjectionConfigCmd = &cobra.Command{
+	Use:   "media-projection-config",
+	Short: "MediaProjectionConfigService operations",
+}
+
+var projectionMediaProjectionConfigDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMediaProjectionConfigServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var projectionMediaProjectionConfigEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMediaProjectionConfigServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var projectionMediaProjectionConfigHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMediaProjectionConfigServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var projectionMediaProjectionConfigToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMediaProjectionConfigServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var projectionMediaProjectionConfigWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMediaProjectionConfigServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var projectionMediaProjectionConfigCreateConfigForDefaultDisplayCmd = &cobra.Command{
+	Use:   "create-config-for-default-display",
+	Short: "CreateConfigForDefaultDisplay RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMediaProjectionConfigServiceClient(grpcConn)
+		req := &pb.CreateConfigForDefaultDisplayRequest{}
+		resp, err := client.CreateConfigForDefaultDisplay(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var projectionMediaProjectionConfigCreateConfigForUserChoiceCmd = &cobra.Command{
+	Use:   "create-config-for-user-choice",
+	Short: "CreateConfigForUserChoice RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMediaProjectionConfigServiceClient(grpcConn)
+		req := &pb.CreateConfigForUserChoiceRequest{}
+		resp, err := client.CreateConfigForUserChoice(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var projectionMediaProjectionManagerCmd = &cobra.Command{
 	Use:   "media-projection-manager",
 	Short: "MediaProjectionManagerService operations",
@@ -74,7 +200,305 @@ var projectionMediaProjectionManagerGetMediaProjectionCmd = &cobra.Command{
 	},
 }
 
+var projectionMediaProjectionCmd = &cobra.Command{
+	Use:   "media-projection",
+	Short: "MediaProjectionService operations",
+}
+
+var projectionMediaProjectionStopCmd = &cobra.Command{
+	Use:   "stop",
+	Short: "Stop RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMediaProjectionServiceClient(grpcConn)
+		req := &pb.StopRequest{}
+		resp, err := client.Stop(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var projectionMediaProjectionUnregisterCallbackCmd = &cobra.Command{
+	Use:   "unregister-callback",
+	Short: "UnregisterCallback RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMediaProjectionServiceClient(grpcConn)
+		req := &pb.UnregisterCallbackRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.UnregisterCallback(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var projectionMediaProjectionCallbackCmd = &cobra.Command{
+	Use:   "media-projection-callback",
+	Short: "MediaProjectionCallbackService operations",
+}
+
+var projectionMediaProjectionCallbackOnCapturedContentResizeCmd = &cobra.Command{
+	Use:   "on-captured-content-resize",
+	Short: "OnCapturedContentResize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMediaProjectionCallbackServiceClient(grpcConn)
+		req := &pb.OnCapturedContentResizeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnCapturedContentResize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var projectionMediaProjectionCallbackOnCapturedContentVisibilityChangedCmd = &cobra.Command{
+	Use:   "on-captured-content-visibility-changed",
+	Short: "OnCapturedContentVisibilityChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMediaProjectionCallbackServiceClient(grpcConn)
+		req := &pb.OnCapturedContentVisibilityChangedRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnCapturedContentVisibilityChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var projectionMediaProjectionCallbackOnStopCmd = &cobra.Command{
+	Use:   "on-stop",
+	Short: "OnStop RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMediaProjectionCallbackServiceClient(grpcConn)
+		req := &pb.OnStopRequest{}
+		resp, err := client.OnStop(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var projectionVirtualDisplayCmd = &cobra.Command{
+	Use:   "virtual-display",
+	Short: "VirtualDisplayService operations",
+}
+
+var projectionVirtualDisplayGetDisplayCmd = &cobra.Command{
+	Use:   "get-display",
+	Short: "GetDisplay RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVirtualDisplayServiceClient(grpcConn)
+		req := &pb.GetDisplayRequest{}
+		resp, err := client.GetDisplay(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var projectionVirtualDisplayGetSurfaceCmd = &cobra.Command{
+	Use:   "get-surface",
+	Short: "GetSurface RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVirtualDisplayServiceClient(grpcConn)
+		req := &pb.GetSurfaceRequest{}
+		resp, err := client.GetSurface(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var projectionVirtualDisplayReleaseCmd = &cobra.Command{
+	Use:   "release",
+	Short: "Release RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVirtualDisplayServiceClient(grpcConn)
+		req := &pb.ReleaseRequest{}
+		resp, err := client.Release(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var projectionVirtualDisplayResizeCmd = &cobra.Command{
+	Use:   "resize",
+	Short: "Resize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVirtualDisplayServiceClient(grpcConn)
+		req := &pb.ResizeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Resize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var projectionVirtualDisplaySetRotationCmd = &cobra.Command{
+	Use:   "set-rotation",
+	Short: "SetRotation RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVirtualDisplayServiceClient(grpcConn)
+		req := &pb.SetRotationRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetRotation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var projectionVirtualDisplaySetSurfaceCmd = &cobra.Command{
+	Use:   "set-surface",
+	Short: "SetSurface RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVirtualDisplayServiceClient(grpcConn)
+		req := &pb.SetSurfaceRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSurface(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var projectionVirtualDisplayToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVirtualDisplayServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var projectionVirtualDisplayCallbackCmd = &cobra.Command{
+	Use:   "virtual-display-callback",
+	Short: "VirtualDisplayCallbackService operations",
+}
+
+var projectionVirtualDisplayCallbackOnPausedCmd = &cobra.Command{
+	Use:   "on-paused",
+	Short: "OnPaused RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVirtualDisplayCallbackServiceClient(grpcConn)
+		req := &pb.OnPausedRequest{}
+		resp, err := client.OnPaused(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var projectionVirtualDisplayCallbackOnResumedCmd = &cobra.Command{
+	Use:   "on-resumed",
+	Short: "OnResumed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVirtualDisplayCallbackServiceClient(grpcConn)
+		req := &pb.OnResumedRequest{}
+		resp, err := client.OnResumed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var projectionVirtualDisplayCallbackOnStoppedCmd = &cobra.Command{
+	Use:   "on-stopped",
+	Short: "OnStopped RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVirtualDisplayCallbackServiceClient(grpcConn)
+		req := &pb.OnStoppedRequest{}
+		resp, err := client.OnStopped(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 func init() {
+	projectionMediaProjectionConfigCmd.AddCommand(projectionMediaProjectionConfigDescribeContentsCmd)
+	projectionMediaProjectionConfigEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	projectionMediaProjectionConfigCmd.AddCommand(projectionMediaProjectionConfigEqualsCmd)
+	projectionMediaProjectionConfigCmd.AddCommand(projectionMediaProjectionConfigHashCodeCmd)
+	projectionMediaProjectionConfigCmd.AddCommand(projectionMediaProjectionConfigToStringCmd)
+	projectionMediaProjectionConfigWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	projectionMediaProjectionConfigWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	projectionMediaProjectionConfigCmd.AddCommand(projectionMediaProjectionConfigWriteToParcelCmd)
+	projectionMediaProjectionConfigCmd.AddCommand(projectionMediaProjectionConfigCreateConfigForDefaultDisplayCmd)
+	projectionMediaProjectionConfigCmd.AddCommand(projectionMediaProjectionConfigCreateConfigForUserChoiceCmd)
+	projectionCmd.AddCommand(projectionMediaProjectionConfigCmd)
 	projectionMediaProjectionManagerCmd.AddCommand(projectionMediaProjectionManagerCreateScreenCaptureIntent0Cmd)
 	projectionMediaProjectionManagerCreateScreenCaptureIntent1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	projectionMediaProjectionManagerCmd.AddCommand(projectionMediaProjectionManagerCreateScreenCaptureIntent1_1Cmd)
@@ -82,5 +506,33 @@ func init() {
 	projectionMediaProjectionManagerGetMediaProjectionCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	projectionMediaProjectionManagerCmd.AddCommand(projectionMediaProjectionManagerGetMediaProjectionCmd)
 	projectionCmd.AddCommand(projectionMediaProjectionManagerCmd)
+	projectionMediaProjectionCmd.AddCommand(projectionMediaProjectionStopCmd)
+	projectionMediaProjectionUnregisterCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	projectionMediaProjectionCmd.AddCommand(projectionMediaProjectionUnregisterCallbackCmd)
+	projectionCmd.AddCommand(projectionMediaProjectionCmd)
+	projectionMediaProjectionCallbackOnCapturedContentResizeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	projectionMediaProjectionCallbackOnCapturedContentResizeCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	projectionMediaProjectionCallbackCmd.AddCommand(projectionMediaProjectionCallbackOnCapturedContentResizeCmd)
+	projectionMediaProjectionCallbackOnCapturedContentVisibilityChangedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	projectionMediaProjectionCallbackCmd.AddCommand(projectionMediaProjectionCallbackOnCapturedContentVisibilityChangedCmd)
+	projectionMediaProjectionCallbackCmd.AddCommand(projectionMediaProjectionCallbackOnStopCmd)
+	projectionCmd.AddCommand(projectionMediaProjectionCallbackCmd)
+	projectionVirtualDisplayCmd.AddCommand(projectionVirtualDisplayGetDisplayCmd)
+	projectionVirtualDisplayCmd.AddCommand(projectionVirtualDisplayGetSurfaceCmd)
+	projectionVirtualDisplayCmd.AddCommand(projectionVirtualDisplayReleaseCmd)
+	projectionVirtualDisplayResizeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	projectionVirtualDisplayResizeCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	projectionVirtualDisplayResizeCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	projectionVirtualDisplayCmd.AddCommand(projectionVirtualDisplayResizeCmd)
+	projectionVirtualDisplaySetRotationCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	projectionVirtualDisplayCmd.AddCommand(projectionVirtualDisplaySetRotationCmd)
+	projectionVirtualDisplaySetSurfaceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	projectionVirtualDisplayCmd.AddCommand(projectionVirtualDisplaySetSurfaceCmd)
+	projectionVirtualDisplayCmd.AddCommand(projectionVirtualDisplayToStringCmd)
+	projectionCmd.AddCommand(projectionVirtualDisplayCmd)
+	projectionVirtualDisplayCallbackCmd.AddCommand(projectionVirtualDisplayCallbackOnPausedCmd)
+	projectionVirtualDisplayCallbackCmd.AddCommand(projectionVirtualDisplayCallbackOnResumedCmd)
+	projectionVirtualDisplayCallbackCmd.AddCommand(projectionVirtualDisplayCallbackOnStoppedCmd)
+	projectionCmd.AddCommand(projectionVirtualDisplayCallbackCmd)
 	rootCmd.AddCommand(projectionCmd)
 }

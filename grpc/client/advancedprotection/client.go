@@ -46,3 +46,23 @@ func (c *AdvancedProtectionManagerClient) UnregisterAdvancedProtectionCallback(c
 	})
 	return err
 }
+
+// AdvancedProtectionManagerCallbackClient wraps the gRPC AdvancedProtectionManagerCallbackService client.
+type AdvancedProtectionManagerCallbackClient struct {
+	svc pb.AdvancedProtectionManagerCallbackServiceClient
+}
+
+// NewAdvancedProtectionManagerCallbackClient creates a new AdvancedProtectionManagerCallback client.
+func NewAdvancedProtectionManagerCallbackClient(cc grpc.ClientConnInterface) *AdvancedProtectionManagerCallbackClient {
+	return &AdvancedProtectionManagerCallbackClient{
+		svc: pb.NewAdvancedProtectionManagerCallbackServiceClient(cc),
+	}
+}
+
+// OnAdvancedProtectionChanged calls the OnAdvancedProtectionChanged RPC.
+func (c *AdvancedProtectionManagerCallbackClient) OnAdvancedProtectionChanged(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.OnAdvancedProtectionChanged(ctx, &pb.OnAdvancedProtectionChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}

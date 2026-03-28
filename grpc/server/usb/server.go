@@ -190,3 +190,125 @@ func (s *ManagerServer) RequestPermission2_1(_ context.Context, req *pb.RequestP
 	}
 	return &pb.RequestPermission2_1Response{}, nil
 }
+
+// RequestServer implements pb.RequestServiceServer.
+type RequestServer struct {
+	pb.UnimplementedRequestServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *RequestServer) NewRequest(_ context.Context, req *pb.NewRequestRequest) (*pb.NewRequestResponse, error) {
+	obj, err := jnipkg.NewRequest(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewRequestResponse{Result: handle}, nil
+}
+
+func (s *RequestServer) Cancel(_ context.Context, req *pb.CancelRequest) (*pb.CancelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Request{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Cancel()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.CancelResponse{Result: result}, nil
+}
+
+func (s *RequestServer) Close(_ context.Context, req *pb.CloseRequest) (*pb.CloseResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Request{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Close(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.CloseResponse{}, nil
+}
+
+func (s *RequestServer) GetClientData(_ context.Context, req *pb.GetClientDataRequest) (*pb.GetClientDataResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Request{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetClientData()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetClientDataResponse{Result: handle}, nil
+}
+
+func (s *RequestServer) GetEndpoint(_ context.Context, req *pb.RequestGetEndpointRequest) (*pb.GetEndpointResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Request{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetEndpoint()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetEndpointResponse{Result: handle}, nil
+}
+
+func (s *RequestServer) Initialize(_ context.Context, req *pb.InitializeRequest) (*pb.InitializeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Request{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Initialize(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.InitializeResponse{Result: result}, nil
+}
+
+func (s *RequestServer) SetClientData(_ context.Context, req *pb.SetClientDataRequest) (*pb.SetClientDataResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Request{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetClientData(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetClientDataResponse{}, nil
+}

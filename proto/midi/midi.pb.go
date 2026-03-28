@@ -23,6 +23,1822 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type DescribeContentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DescribeContentsRequest) Reset() {
+	*x = DescribeContentsRequest{}
+	mi := &file_proto_midi_midi_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DescribeContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DescribeContentsRequest) ProtoMessage() {}
+
+func (x *DescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*DescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{0}
+}
+
+type DescribeContentsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DescribeContentsResponse) Reset() {
+	*x = DescribeContentsResponse{}
+	mi := &file_proto_midi_midi_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DescribeContentsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DescribeContentsResponse) ProtoMessage() {}
+
+func (x *DescribeContentsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DescribeContentsResponse.ProtoReflect.Descriptor instead.
+func (*DescribeContentsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *DescribeContentsResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type EqualsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EqualsRequest) Reset() {
+	*x = EqualsRequest{}
+	mi := &file_proto_midi_midi_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EqualsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EqualsRequest) ProtoMessage() {}
+
+func (x *EqualsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EqualsRequest.ProtoReflect.Descriptor instead.
+func (*EqualsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *EqualsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type EqualsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EqualsResponse) Reset() {
+	*x = EqualsResponse{}
+	mi := &file_proto_midi_midi_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EqualsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EqualsResponse) ProtoMessage() {}
+
+func (x *EqualsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EqualsResponse.ProtoReflect.Descriptor instead.
+func (*EqualsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *EqualsResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type GetDefaultProtocolRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDefaultProtocolRequest) Reset() {
+	*x = GetDefaultProtocolRequest{}
+	mi := &file_proto_midi_midi_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDefaultProtocolRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDefaultProtocolRequest) ProtoMessage() {}
+
+func (x *GetDefaultProtocolRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDefaultProtocolRequest.ProtoReflect.Descriptor instead.
+func (*GetDefaultProtocolRequest) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{4}
+}
+
+type GetDefaultProtocolResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDefaultProtocolResponse) Reset() {
+	*x = GetDefaultProtocolResponse{}
+	mi := &file_proto_midi_midi_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDefaultProtocolResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDefaultProtocolResponse) ProtoMessage() {}
+
+func (x *GetDefaultProtocolResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDefaultProtocolResponse.ProtoReflect.Descriptor instead.
+func (*GetDefaultProtocolResponse) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *GetDefaultProtocolResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetIdRequest) Reset() {
+	*x = GetIdRequest{}
+	mi := &file_proto_midi_midi_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetIdRequest) ProtoMessage() {}
+
+func (x *GetIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetIdRequest.ProtoReflect.Descriptor instead.
+func (*GetIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{6}
+}
+
+type GetIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetIdResponse) Reset() {
+	*x = GetIdResponse{}
+	mi := &file_proto_midi_midi_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetIdResponse) ProtoMessage() {}
+
+func (x *GetIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetIdResponse.ProtoReflect.Descriptor instead.
+func (*GetIdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *GetIdResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetInputPortCountRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetInputPortCountRequest) Reset() {
+	*x = GetInputPortCountRequest{}
+	mi := &file_proto_midi_midi_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetInputPortCountRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetInputPortCountRequest) ProtoMessage() {}
+
+func (x *GetInputPortCountRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetInputPortCountRequest.ProtoReflect.Descriptor instead.
+func (*GetInputPortCountRequest) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{8}
+}
+
+type GetInputPortCountResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetInputPortCountResponse) Reset() {
+	*x = GetInputPortCountResponse{}
+	mi := &file_proto_midi_midi_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetInputPortCountResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetInputPortCountResponse) ProtoMessage() {}
+
+func (x *GetInputPortCountResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetInputPortCountResponse.ProtoReflect.Descriptor instead.
+func (*GetInputPortCountResponse) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *GetInputPortCountResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetOutputPortCountRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetOutputPortCountRequest) Reset() {
+	*x = GetOutputPortCountRequest{}
+	mi := &file_proto_midi_midi_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetOutputPortCountRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetOutputPortCountRequest) ProtoMessage() {}
+
+func (x *GetOutputPortCountRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetOutputPortCountRequest.ProtoReflect.Descriptor instead.
+func (*GetOutputPortCountRequest) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{10}
+}
+
+type GetOutputPortCountResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetOutputPortCountResponse) Reset() {
+	*x = GetOutputPortCountResponse{}
+	mi := &file_proto_midi_midi_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetOutputPortCountResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetOutputPortCountResponse) ProtoMessage() {}
+
+func (x *GetOutputPortCountResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetOutputPortCountResponse.ProtoReflect.Descriptor instead.
+func (*GetOutputPortCountResponse) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *GetOutputPortCountResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPortsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPortsRequest) Reset() {
+	*x = GetPortsRequest{}
+	mi := &file_proto_midi_midi_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPortsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPortsRequest) ProtoMessage() {}
+
+func (x *GetPortsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPortsRequest.ProtoReflect.Descriptor instead.
+func (*GetPortsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{12}
+}
+
+type GetPortsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPortsResponse) Reset() {
+	*x = GetPortsResponse{}
+	mi := &file_proto_midi_midi_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPortsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPortsResponse) ProtoMessage() {}
+
+func (x *GetPortsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPortsResponse.ProtoReflect.Descriptor instead.
+func (*GetPortsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *GetPortsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPropertiesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPropertiesRequest) Reset() {
+	*x = GetPropertiesRequest{}
+	mi := &file_proto_midi_midi_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPropertiesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPropertiesRequest) ProtoMessage() {}
+
+func (x *GetPropertiesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPropertiesRequest.ProtoReflect.Descriptor instead.
+func (*GetPropertiesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{14}
+}
+
+type GetPropertiesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPropertiesResponse) Reset() {
+	*x = GetPropertiesResponse{}
+	mi := &file_proto_midi_midi_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPropertiesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPropertiesResponse) ProtoMessage() {}
+
+func (x *GetPropertiesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPropertiesResponse.ProtoReflect.Descriptor instead.
+func (*GetPropertiesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *GetPropertiesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTypeRequest) Reset() {
+	*x = GetTypeRequest{}
+	mi := &file_proto_midi_midi_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTypeRequest) ProtoMessage() {}
+
+func (x *GetTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTypeRequest.ProtoReflect.Descriptor instead.
+func (*GetTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{16}
+}
+
+type GetTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTypeResponse) Reset() {
+	*x = GetTypeResponse{}
+	mi := &file_proto_midi_midi_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTypeResponse) ProtoMessage() {}
+
+func (x *GetTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTypeResponse.ProtoReflect.Descriptor instead.
+func (*GetTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *GetTypeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type HashCodeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HashCodeRequest) Reset() {
+	*x = HashCodeRequest{}
+	mi := &file_proto_midi_midi_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HashCodeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HashCodeRequest) ProtoMessage() {}
+
+func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HashCodeRequest.ProtoReflect.Descriptor instead.
+func (*HashCodeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{18}
+}
+
+type HashCodeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HashCodeResponse) Reset() {
+	*x = HashCodeResponse{}
+	mi := &file_proto_midi_midi_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HashCodeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HashCodeResponse) ProtoMessage() {}
+
+func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HashCodeResponse.ProtoReflect.Descriptor instead.
+func (*HashCodeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *HashCodeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type IsPrivateRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsPrivateRequest) Reset() {
+	*x = IsPrivateRequest{}
+	mi := &file_proto_midi_midi_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsPrivateRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsPrivateRequest) ProtoMessage() {}
+
+func (x *IsPrivateRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsPrivateRequest.ProtoReflect.Descriptor instead.
+func (*IsPrivateRequest) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{20}
+}
+
+type IsPrivateResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsPrivateResponse) Reset() {
+	*x = IsPrivateResponse{}
+	mi := &file_proto_midi_midi_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsPrivateResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsPrivateResponse) ProtoMessage() {}
+
+func (x *IsPrivateResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsPrivateResponse.ProtoReflect.Descriptor instead.
+func (*IsPrivateResponse) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{21}
+}
+
+func (x *IsPrivateResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type ToStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringRequest) Reset() {
+	*x = ToStringRequest{}
+	mi := &file_proto_midi_midi_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringRequest) ProtoMessage() {}
+
+func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringRequest.ProtoReflect.Descriptor instead.
+func (*ToStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{22}
+}
+
+type ToStringResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringResponse) Reset() {
+	*x = ToStringResponse{}
+	mi := &file_proto_midi_midi_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringResponse) ProtoMessage() {}
+
+func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringResponse.ProtoReflect.Descriptor instead.
+func (*ToStringResponse) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{23}
+}
+
+func (x *ToStringResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type WriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WriteToParcelRequest) Reset() {
+	*x = WriteToParcelRequest{}
+	mi := &file_proto_midi_midi_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WriteToParcelRequest) ProtoMessage() {}
+
+func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*WriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{24}
+}
+
+func (x *WriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *WriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type WriteToParcelResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WriteToParcelResponse) Reset() {
+	*x = WriteToParcelResponse{}
+	mi := &file_proto_midi_midi_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WriteToParcelResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WriteToParcelResponse) ProtoMessage() {}
+
+func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WriteToParcelResponse.ProtoReflect.Descriptor instead.
+func (*WriteToParcelResponse) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{25}
+}
+
+type GetNameRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNameRequest) Reset() {
+	*x = GetNameRequest{}
+	mi := &file_proto_midi_midi_proto_msgTypes[26]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNameRequest) ProtoMessage() {}
+
+func (x *GetNameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[26]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNameRequest.ProtoReflect.Descriptor instead.
+func (*GetNameRequest) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{26}
+}
+
+type GetNameResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNameResponse) Reset() {
+	*x = GetNameResponse{}
+	mi := &file_proto_midi_midi_proto_msgTypes[27]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNameResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNameResponse) ProtoMessage() {}
+
+func (x *GetNameResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[27]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNameResponse.ProtoReflect.Descriptor instead.
+func (*GetNameResponse) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{27}
+}
+
+func (x *GetNameResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetPortNumberRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPortNumberRequest) Reset() {
+	*x = GetPortNumberRequest{}
+	mi := &file_proto_midi_midi_proto_msgTypes[28]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPortNumberRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPortNumberRequest) ProtoMessage() {}
+
+func (x *GetPortNumberRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[28]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPortNumberRequest.ProtoReflect.Descriptor instead.
+func (*GetPortNumberRequest) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{28}
+}
+
+type GetPortNumberResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPortNumberResponse) Reset() {
+	*x = GetPortNumberResponse{}
+	mi := &file_proto_midi_midi_proto_msgTypes[29]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPortNumberResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPortNumberResponse) ProtoMessage() {}
+
+func (x *GetPortNumberResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[29]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPortNumberResponse.ProtoReflect.Descriptor instead.
+func (*GetPortNumberResponse) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{29}
+}
+
+func (x *GetPortNumberResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type CloseRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CloseRequest) Reset() {
+	*x = CloseRequest{}
+	mi := &file_proto_midi_midi_proto_msgTypes[30]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CloseRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CloseRequest) ProtoMessage() {}
+
+func (x *CloseRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[30]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CloseRequest.ProtoReflect.Descriptor instead.
+func (*CloseRequest) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{30}
+}
+
+type CloseResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CloseResponse) Reset() {
+	*x = CloseResponse{}
+	mi := &file_proto_midi_midi_proto_msgTypes[31]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CloseResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CloseResponse) ProtoMessage() {}
+
+func (x *CloseResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[31]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CloseResponse.ProtoReflect.Descriptor instead.
+func (*CloseResponse) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{31}
+}
+
+type OnFlushRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnFlushRequest) Reset() {
+	*x = OnFlushRequest{}
+	mi := &file_proto_midi_midi_proto_msgTypes[32]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnFlushRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnFlushRequest) ProtoMessage() {}
+
+func (x *OnFlushRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[32]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnFlushRequest.ProtoReflect.Descriptor instead.
+func (*OnFlushRequest) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{32}
+}
+
+type OnFlushResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnFlushResponse) Reset() {
+	*x = OnFlushResponse{}
+	mi := &file_proto_midi_midi_proto_msgTypes[33]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnFlushResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnFlushResponse) ProtoMessage() {}
+
+func (x *OnFlushResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[33]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnFlushResponse.ProtoReflect.Descriptor instead.
+func (*OnFlushResponse) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{33}
+}
+
+type OnSendRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int64                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnSendRequest) Reset() {
+	*x = OnSendRequest{}
+	mi := &file_proto_midi_midi_proto_msgTypes[34]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnSendRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnSendRequest) ProtoMessage() {}
+
+func (x *OnSendRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[34]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnSendRequest.ProtoReflect.Descriptor instead.
+func (*OnSendRequest) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{34}
+}
+
+func (x *OnSendRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnSendRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *OnSendRequest) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *OnSendRequest) GetArg3() int64 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+type OnSendResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnSendResponse) Reset() {
+	*x = OnSendResponse{}
+	mi := &file_proto_midi_midi_proto_msgTypes[35]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnSendResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnSendResponse) ProtoMessage() {}
+
+func (x *OnSendResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[35]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnSendResponse.ProtoReflect.Descriptor instead.
+func (*OnSendResponse) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{35}
+}
+
+type FlushRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FlushRequest) Reset() {
+	*x = FlushRequest{}
+	mi := &file_proto_midi_midi_proto_msgTypes[36]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FlushRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FlushRequest) ProtoMessage() {}
+
+func (x *FlushRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[36]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FlushRequest.ProtoReflect.Descriptor instead.
+func (*FlushRequest) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{36}
+}
+
+type FlushResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FlushResponse) Reset() {
+	*x = FlushResponse{}
+	mi := &file_proto_midi_midi_proto_msgTypes[37]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FlushResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FlushResponse) ProtoMessage() {}
+
+func (x *FlushResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[37]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FlushResponse.ProtoReflect.Descriptor instead.
+func (*FlushResponse) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{37}
+}
+
+type GetMaxMessageSizeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMaxMessageSizeRequest) Reset() {
+	*x = GetMaxMessageSizeRequest{}
+	mi := &file_proto_midi_midi_proto_msgTypes[38]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMaxMessageSizeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMaxMessageSizeRequest) ProtoMessage() {}
+
+func (x *GetMaxMessageSizeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[38]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMaxMessageSizeRequest.ProtoReflect.Descriptor instead.
+func (*GetMaxMessageSizeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{38}
+}
+
+type GetMaxMessageSizeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMaxMessageSizeResponse) Reset() {
+	*x = GetMaxMessageSizeResponse{}
+	mi := &file_proto_midi_midi_proto_msgTypes[39]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMaxMessageSizeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMaxMessageSizeResponse) ProtoMessage() {}
+
+func (x *GetMaxMessageSizeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[39]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMaxMessageSizeResponse.ProtoReflect.Descriptor instead.
+func (*GetMaxMessageSizeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{39}
+}
+
+func (x *GetMaxMessageSizeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type Send3Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Send3Request) Reset() {
+	*x = Send3Request{}
+	mi := &file_proto_midi_midi_proto_msgTypes[40]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Send3Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Send3Request) ProtoMessage() {}
+
+func (x *Send3Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[40]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Send3Request.ProtoReflect.Descriptor instead.
+func (*Send3Request) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{40}
+}
+
+func (x *Send3Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *Send3Request) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *Send3Request) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type Send3Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Send3Response) Reset() {
+	*x = Send3Response{}
+	mi := &file_proto_midi_midi_proto_msgTypes[41]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Send3Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Send3Response) ProtoMessage() {}
+
+func (x *Send3Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[41]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Send3Response.ProtoReflect.Descriptor instead.
+func (*Send3Response) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{41}
+}
+
+type Send4_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int64                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Send4_1Request) Reset() {
+	*x = Send4_1Request{}
+	mi := &file_proto_midi_midi_proto_msgTypes[42]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Send4_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Send4_1Request) ProtoMessage() {}
+
+func (x *Send4_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[42]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Send4_1Request.ProtoReflect.Descriptor instead.
+func (*Send4_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{42}
+}
+
+func (x *Send4_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *Send4_1Request) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *Send4_1Request) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *Send4_1Request) GetArg3() int64 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+type Send4_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Send4_1Response) Reset() {
+	*x = Send4_1Response{}
+	mi := &file_proto_midi_midi_proto_msgTypes[43]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Send4_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Send4_1Response) ProtoMessage() {}
+
+func (x *Send4_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[43]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Send4_1Response.ProtoReflect.Descriptor instead.
+func (*Send4_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{43}
+}
+
 type GetDevicesRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
@@ -31,7 +1847,7 @@ type GetDevicesRequest struct {
 
 func (x *GetDevicesRequest) Reset() {
 	*x = GetDevicesRequest{}
-	mi := &file_proto_midi_midi_proto_msgTypes[0]
+	mi := &file_proto_midi_midi_proto_msgTypes[44]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -43,7 +1859,7 @@ func (x *GetDevicesRequest) String() string {
 func (*GetDevicesRequest) ProtoMessage() {}
 
 func (x *GetDevicesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_midi_midi_proto_msgTypes[0]
+	mi := &file_proto_midi_midi_proto_msgTypes[44]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -56,7 +1872,7 @@ func (x *GetDevicesRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDevicesRequest.ProtoReflect.Descriptor instead.
 func (*GetDevicesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_midi_midi_proto_rawDescGZIP(), []int{0}
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{44}
 }
 
 type GetDevicesResponse struct {
@@ -68,7 +1884,7 @@ type GetDevicesResponse struct {
 
 func (x *GetDevicesResponse) Reset() {
 	*x = GetDevicesResponse{}
-	mi := &file_proto_midi_midi_proto_msgTypes[1]
+	mi := &file_proto_midi_midi_proto_msgTypes[45]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -80,7 +1896,7 @@ func (x *GetDevicesResponse) String() string {
 func (*GetDevicesResponse) ProtoMessage() {}
 
 func (x *GetDevicesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_midi_midi_proto_msgTypes[1]
+	mi := &file_proto_midi_midi_proto_msgTypes[45]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -93,7 +1909,7 @@ func (x *GetDevicesResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDevicesResponse.ProtoReflect.Descriptor instead.
 func (*GetDevicesResponse) Descriptor() ([]byte, []int) {
-	return file_proto_midi_midi_proto_rawDescGZIP(), []int{1}
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{45}
 }
 
 func (x *GetDevicesResponse) GetResult() int64 {
@@ -114,7 +1930,7 @@ type RegisterDeviceCallbackRequest struct {
 
 func (x *RegisterDeviceCallbackRequest) Reset() {
 	*x = RegisterDeviceCallbackRequest{}
-	mi := &file_proto_midi_midi_proto_msgTypes[2]
+	mi := &file_proto_midi_midi_proto_msgTypes[46]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -126,7 +1942,7 @@ func (x *RegisterDeviceCallbackRequest) String() string {
 func (*RegisterDeviceCallbackRequest) ProtoMessage() {}
 
 func (x *RegisterDeviceCallbackRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_midi_midi_proto_msgTypes[2]
+	mi := &file_proto_midi_midi_proto_msgTypes[46]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -139,7 +1955,7 @@ func (x *RegisterDeviceCallbackRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RegisterDeviceCallbackRequest.ProtoReflect.Descriptor instead.
 func (*RegisterDeviceCallbackRequest) Descriptor() ([]byte, []int) {
-	return file_proto_midi_midi_proto_rawDescGZIP(), []int{2}
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{46}
 }
 
 func (x *RegisterDeviceCallbackRequest) GetArg0() int32 {
@@ -171,7 +1987,7 @@ type RegisterDeviceCallbackResponse struct {
 
 func (x *RegisterDeviceCallbackResponse) Reset() {
 	*x = RegisterDeviceCallbackResponse{}
-	mi := &file_proto_midi_midi_proto_msgTypes[3]
+	mi := &file_proto_midi_midi_proto_msgTypes[47]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -183,7 +1999,7 @@ func (x *RegisterDeviceCallbackResponse) String() string {
 func (*RegisterDeviceCallbackResponse) ProtoMessage() {}
 
 func (x *RegisterDeviceCallbackResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_midi_midi_proto_msgTypes[3]
+	mi := &file_proto_midi_midi_proto_msgTypes[47]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -196,7 +2012,7 @@ func (x *RegisterDeviceCallbackResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RegisterDeviceCallbackResponse.ProtoReflect.Descriptor instead.
 func (*RegisterDeviceCallbackResponse) Descriptor() ([]byte, []int) {
-	return file_proto_midi_midi_proto_rawDescGZIP(), []int{3}
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{47}
 }
 
 type UnregisterDeviceCallbackRequest struct {
@@ -208,7 +2024,7 @@ type UnregisterDeviceCallbackRequest struct {
 
 func (x *UnregisterDeviceCallbackRequest) Reset() {
 	*x = UnregisterDeviceCallbackRequest{}
-	mi := &file_proto_midi_midi_proto_msgTypes[4]
+	mi := &file_proto_midi_midi_proto_msgTypes[48]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -220,7 +2036,7 @@ func (x *UnregisterDeviceCallbackRequest) String() string {
 func (*UnregisterDeviceCallbackRequest) ProtoMessage() {}
 
 func (x *UnregisterDeviceCallbackRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_midi_midi_proto_msgTypes[4]
+	mi := &file_proto_midi_midi_proto_msgTypes[48]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -233,7 +2049,7 @@ func (x *UnregisterDeviceCallbackRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UnregisterDeviceCallbackRequest.ProtoReflect.Descriptor instead.
 func (*UnregisterDeviceCallbackRequest) Descriptor() ([]byte, []int) {
-	return file_proto_midi_midi_proto_rawDescGZIP(), []int{4}
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{48}
 }
 
 func (x *UnregisterDeviceCallbackRequest) GetArg0() int64 {
@@ -251,7 +2067,7 @@ type UnregisterDeviceCallbackResponse struct {
 
 func (x *UnregisterDeviceCallbackResponse) Reset() {
 	*x = UnregisterDeviceCallbackResponse{}
-	mi := &file_proto_midi_midi_proto_msgTypes[5]
+	mi := &file_proto_midi_midi_proto_msgTypes[49]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -263,7 +2079,7 @@ func (x *UnregisterDeviceCallbackResponse) String() string {
 func (*UnregisterDeviceCallbackResponse) ProtoMessage() {}
 
 func (x *UnregisterDeviceCallbackResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_midi_midi_proto_msgTypes[5]
+	mi := &file_proto_midi_midi_proto_msgTypes[49]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -276,14 +2092,1727 @@ func (x *UnregisterDeviceCallbackResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UnregisterDeviceCallbackResponse.ProtoReflect.Descriptor instead.
 func (*UnregisterDeviceCallbackResponse) Descriptor() ([]byte, []int) {
-	return file_proto_midi_midi_proto_rawDescGZIP(), []int{5}
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{49}
+}
+
+type OnDeviceAddedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnDeviceAddedRequest) Reset() {
+	*x = OnDeviceAddedRequest{}
+	mi := &file_proto_midi_midi_proto_msgTypes[50]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnDeviceAddedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnDeviceAddedRequest) ProtoMessage() {}
+
+func (x *OnDeviceAddedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[50]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnDeviceAddedRequest.ProtoReflect.Descriptor instead.
+func (*OnDeviceAddedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{50}
+}
+
+func (x *OnDeviceAddedRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnDeviceAddedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnDeviceAddedResponse) Reset() {
+	*x = OnDeviceAddedResponse{}
+	mi := &file_proto_midi_midi_proto_msgTypes[51]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnDeviceAddedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnDeviceAddedResponse) ProtoMessage() {}
+
+func (x *OnDeviceAddedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[51]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnDeviceAddedResponse.ProtoReflect.Descriptor instead.
+func (*OnDeviceAddedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{51}
+}
+
+type OnDeviceRemovedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnDeviceRemovedRequest) Reset() {
+	*x = OnDeviceRemovedRequest{}
+	mi := &file_proto_midi_midi_proto_msgTypes[52]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnDeviceRemovedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnDeviceRemovedRequest) ProtoMessage() {}
+
+func (x *OnDeviceRemovedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[52]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnDeviceRemovedRequest.ProtoReflect.Descriptor instead.
+func (*OnDeviceRemovedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{52}
+}
+
+func (x *OnDeviceRemovedRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnDeviceRemovedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnDeviceRemovedResponse) Reset() {
+	*x = OnDeviceRemovedResponse{}
+	mi := &file_proto_midi_midi_proto_msgTypes[53]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnDeviceRemovedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnDeviceRemovedResponse) ProtoMessage() {}
+
+func (x *OnDeviceRemovedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[53]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnDeviceRemovedResponse.ProtoReflect.Descriptor instead.
+func (*OnDeviceRemovedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{53}
+}
+
+type OnDeviceStatusChangedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnDeviceStatusChangedRequest) Reset() {
+	*x = OnDeviceStatusChangedRequest{}
+	mi := &file_proto_midi_midi_proto_msgTypes[54]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnDeviceStatusChangedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnDeviceStatusChangedRequest) ProtoMessage() {}
+
+func (x *OnDeviceStatusChangedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[54]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnDeviceStatusChangedRequest.ProtoReflect.Descriptor instead.
+func (*OnDeviceStatusChangedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{54}
+}
+
+func (x *OnDeviceStatusChangedRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnDeviceStatusChangedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnDeviceStatusChangedResponse) Reset() {
+	*x = OnDeviceStatusChangedResponse{}
+	mi := &file_proto_midi_midi_proto_msgTypes[55]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnDeviceStatusChangedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnDeviceStatusChangedResponse) ProtoMessage() {}
+
+func (x *OnDeviceStatusChangedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[55]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnDeviceStatusChangedResponse.ProtoReflect.Descriptor instead.
+func (*OnDeviceStatusChangedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{55}
+}
+
+type OnDeviceOpenedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnDeviceOpenedRequest) Reset() {
+	*x = OnDeviceOpenedRequest{}
+	mi := &file_proto_midi_midi_proto_msgTypes[56]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnDeviceOpenedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnDeviceOpenedRequest) ProtoMessage() {}
+
+func (x *OnDeviceOpenedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[56]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnDeviceOpenedRequest.ProtoReflect.Descriptor instead.
+func (*OnDeviceOpenedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{56}
+}
+
+func (x *OnDeviceOpenedRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnDeviceOpenedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnDeviceOpenedResponse) Reset() {
+	*x = OnDeviceOpenedResponse{}
+	mi := &file_proto_midi_midi_proto_msgTypes[57]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnDeviceOpenedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnDeviceOpenedResponse) ProtoMessage() {}
+
+func (x *OnDeviceOpenedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[57]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnDeviceOpenedResponse.ProtoReflect.Descriptor instead.
+func (*OnDeviceOpenedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{57}
+}
+
+type ConnectRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ConnectRequest) Reset() {
+	*x = ConnectRequest{}
+	mi := &file_proto_midi_midi_proto_msgTypes[58]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ConnectRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ConnectRequest) ProtoMessage() {}
+
+func (x *ConnectRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[58]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ConnectRequest.ProtoReflect.Descriptor instead.
+func (*ConnectRequest) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{58}
+}
+
+func (x *ConnectRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type ConnectResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ConnectResponse) Reset() {
+	*x = ConnectResponse{}
+	mi := &file_proto_midi_midi_proto_msgTypes[59]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ConnectResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ConnectResponse) ProtoMessage() {}
+
+func (x *ConnectResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[59]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ConnectResponse.ProtoReflect.Descriptor instead.
+func (*ConnectResponse) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{59}
+}
+
+type DisconnectRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DisconnectRequest) Reset() {
+	*x = DisconnectRequest{}
+	mi := &file_proto_midi_midi_proto_msgTypes[60]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DisconnectRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DisconnectRequest) ProtoMessage() {}
+
+func (x *DisconnectRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[60]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DisconnectRequest.ProtoReflect.Descriptor instead.
+func (*DisconnectRequest) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{60}
+}
+
+func (x *DisconnectRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type DisconnectResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DisconnectResponse) Reset() {
+	*x = DisconnectResponse{}
+	mi := &file_proto_midi_midi_proto_msgTypes[61]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DisconnectResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DisconnectResponse) ProtoMessage() {}
+
+func (x *DisconnectResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[61]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DisconnectResponse.ProtoReflect.Descriptor instead.
+func (*DisconnectResponse) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{61}
+}
+
+type OnConnectRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnConnectRequest) Reset() {
+	*x = OnConnectRequest{}
+	mi := &file_proto_midi_midi_proto_msgTypes[62]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnConnectRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnConnectRequest) ProtoMessage() {}
+
+func (x *OnConnectRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[62]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnConnectRequest.ProtoReflect.Descriptor instead.
+func (*OnConnectRequest) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{62}
+}
+
+func (x *OnConnectRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnConnectResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnConnectResponse) Reset() {
+	*x = OnConnectResponse{}
+	mi := &file_proto_midi_midi_proto_msgTypes[63]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnConnectResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnConnectResponse) ProtoMessage() {}
+
+func (x *OnConnectResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[63]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnConnectResponse.ProtoReflect.Descriptor instead.
+func (*OnConnectResponse) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{63}
+}
+
+type OnDisconnectRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnDisconnectRequest) Reset() {
+	*x = OnDisconnectRequest{}
+	mi := &file_proto_midi_midi_proto_msgTypes[64]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnDisconnectRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnDisconnectRequest) ProtoMessage() {}
+
+func (x *OnDisconnectRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[64]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnDisconnectRequest.ProtoReflect.Descriptor instead.
+func (*OnDisconnectRequest) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{64}
+}
+
+func (x *OnDisconnectRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnDisconnectResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnDisconnectResponse) Reset() {
+	*x = OnDisconnectResponse{}
+	mi := &file_proto_midi_midi_proto_msgTypes[65]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnDisconnectResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnDisconnectResponse) ProtoMessage() {}
+
+func (x *OnDisconnectResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[65]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnDisconnectResponse.ProtoReflect.Descriptor instead.
+func (*OnDisconnectResponse) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{65}
+}
+
+type GetDeviceInfoRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDeviceInfoRequest) Reset() {
+	*x = GetDeviceInfoRequest{}
+	mi := &file_proto_midi_midi_proto_msgTypes[66]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDeviceInfoRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDeviceInfoRequest) ProtoMessage() {}
+
+func (x *GetDeviceInfoRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[66]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDeviceInfoRequest.ProtoReflect.Descriptor instead.
+func (*GetDeviceInfoRequest) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{66}
+}
+
+type GetDeviceInfoResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDeviceInfoResponse) Reset() {
+	*x = GetDeviceInfoResponse{}
+	mi := &file_proto_midi_midi_proto_msgTypes[67]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDeviceInfoResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDeviceInfoResponse) ProtoMessage() {}
+
+func (x *GetDeviceInfoResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[67]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDeviceInfoResponse.ProtoReflect.Descriptor instead.
+func (*GetDeviceInfoResponse) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{67}
+}
+
+func (x *GetDeviceInfoResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OnBindRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnBindRequest) Reset() {
+	*x = OnBindRequest{}
+	mi := &file_proto_midi_midi_proto_msgTypes[68]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnBindRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnBindRequest) ProtoMessage() {}
+
+func (x *OnBindRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[68]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnBindRequest.ProtoReflect.Descriptor instead.
+func (*OnBindRequest) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{68}
+}
+
+func (x *OnBindRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnBindResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnBindResponse) Reset() {
+	*x = OnBindResponse{}
+	mi := &file_proto_midi_midi_proto_msgTypes[69]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnBindResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnBindResponse) ProtoMessage() {}
+
+func (x *OnBindResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[69]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnBindResponse.ProtoReflect.Descriptor instead.
+func (*OnBindResponse) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{69}
+}
+
+func (x *OnBindResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OnCloseRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnCloseRequest) Reset() {
+	*x = OnCloseRequest{}
+	mi := &file_proto_midi_midi_proto_msgTypes[70]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnCloseRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnCloseRequest) ProtoMessage() {}
+
+func (x *OnCloseRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[70]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnCloseRequest.ProtoReflect.Descriptor instead.
+func (*OnCloseRequest) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{70}
+}
+
+type OnCloseResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnCloseResponse) Reset() {
+	*x = OnCloseResponse{}
+	mi := &file_proto_midi_midi_proto_msgTypes[71]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnCloseResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnCloseResponse) ProtoMessage() {}
+
+func (x *OnCloseResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[71]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnCloseResponse.ProtoReflect.Descriptor instead.
+func (*OnCloseResponse) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{71}
+}
+
+type OnCreateRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnCreateRequest) Reset() {
+	*x = OnCreateRequest{}
+	mi := &file_proto_midi_midi_proto_msgTypes[72]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnCreateRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnCreateRequest) ProtoMessage() {}
+
+func (x *OnCreateRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[72]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnCreateRequest.ProtoReflect.Descriptor instead.
+func (*OnCreateRequest) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{72}
+}
+
+type OnCreateResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnCreateResponse) Reset() {
+	*x = OnCreateResponse{}
+	mi := &file_proto_midi_midi_proto_msgTypes[73]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnCreateResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnCreateResponse) ProtoMessage() {}
+
+func (x *OnCreateResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[73]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnCreateResponse.ProtoReflect.Descriptor instead.
+func (*OnCreateResponse) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{73}
+}
+
+type GetOutputPortReceiversRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetOutputPortReceiversRequest) Reset() {
+	*x = GetOutputPortReceiversRequest{}
+	mi := &file_proto_midi_midi_proto_msgTypes[74]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetOutputPortReceiversRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetOutputPortReceiversRequest) ProtoMessage() {}
+
+func (x *GetOutputPortReceiversRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[74]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetOutputPortReceiversRequest.ProtoReflect.Descriptor instead.
+func (*GetOutputPortReceiversRequest) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{74}
+}
+
+type GetOutputPortReceiversResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetOutputPortReceiversResponse) Reset() {
+	*x = GetOutputPortReceiversResponse{}
+	mi := &file_proto_midi_midi_proto_msgTypes[75]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetOutputPortReceiversResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetOutputPortReceiversResponse) ProtoMessage() {}
+
+func (x *GetOutputPortReceiversResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[75]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetOutputPortReceiversResponse.ProtoReflect.Descriptor instead.
+func (*GetOutputPortReceiversResponse) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{75}
+}
+
+func (x *GetOutputPortReceiversResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OnGetInputPortReceiversRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnGetInputPortReceiversRequest) Reset() {
+	*x = OnGetInputPortReceiversRequest{}
+	mi := &file_proto_midi_midi_proto_msgTypes[76]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnGetInputPortReceiversRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnGetInputPortReceiversRequest) ProtoMessage() {}
+
+func (x *OnGetInputPortReceiversRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[76]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnGetInputPortReceiversRequest.ProtoReflect.Descriptor instead.
+func (*OnGetInputPortReceiversRequest) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{76}
+}
+
+type OnGetInputPortReceiversResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnGetInputPortReceiversResponse) Reset() {
+	*x = OnGetInputPortReceiversResponse{}
+	mi := &file_proto_midi_midi_proto_msgTypes[77]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnGetInputPortReceiversResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnGetInputPortReceiversResponse) ProtoMessage() {}
+
+func (x *OnGetInputPortReceiversResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[77]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnGetInputPortReceiversResponse.ProtoReflect.Descriptor instead.
+func (*OnGetInputPortReceiversResponse) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{77}
+}
+
+func (x *OnGetInputPortReceiversResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetOutputPortOpenCountRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetOutputPortOpenCountRequest) Reset() {
+	*x = GetOutputPortOpenCountRequest{}
+	mi := &file_proto_midi_midi_proto_msgTypes[78]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetOutputPortOpenCountRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetOutputPortOpenCountRequest) ProtoMessage() {}
+
+func (x *GetOutputPortOpenCountRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[78]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetOutputPortOpenCountRequest.ProtoReflect.Descriptor instead.
+func (*GetOutputPortOpenCountRequest) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{78}
+}
+
+func (x *GetOutputPortOpenCountRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetOutputPortOpenCountResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetOutputPortOpenCountResponse) Reset() {
+	*x = GetOutputPortOpenCountResponse{}
+	mi := &file_proto_midi_midi_proto_msgTypes[79]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetOutputPortOpenCountResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetOutputPortOpenCountResponse) ProtoMessage() {}
+
+func (x *GetOutputPortOpenCountResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[79]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetOutputPortOpenCountResponse.ProtoReflect.Descriptor instead.
+func (*GetOutputPortOpenCountResponse) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{79}
+}
+
+func (x *GetOutputPortOpenCountResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type IsInputPortOpenRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsInputPortOpenRequest) Reset() {
+	*x = IsInputPortOpenRequest{}
+	mi := &file_proto_midi_midi_proto_msgTypes[80]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsInputPortOpenRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsInputPortOpenRequest) ProtoMessage() {}
+
+func (x *IsInputPortOpenRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[80]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsInputPortOpenRequest.ProtoReflect.Descriptor instead.
+func (*IsInputPortOpenRequest) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{80}
+}
+
+func (x *IsInputPortOpenRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type IsInputPortOpenResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsInputPortOpenResponse) Reset() {
+	*x = IsInputPortOpenResponse{}
+	mi := &file_proto_midi_midi_proto_msgTypes[81]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsInputPortOpenResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsInputPortOpenResponse) ProtoMessage() {}
+
+func (x *IsInputPortOpenResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[81]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsInputPortOpenResponse.ProtoReflect.Descriptor instead.
+func (*IsInputPortOpenResponse) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{81}
+}
+
+func (x *IsInputPortOpenResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type ConnectPortsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ConnectPortsRequest) Reset() {
+	*x = ConnectPortsRequest{}
+	mi := &file_proto_midi_midi_proto_msgTypes[82]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ConnectPortsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ConnectPortsRequest) ProtoMessage() {}
+
+func (x *ConnectPortsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[82]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ConnectPortsRequest.ProtoReflect.Descriptor instead.
+func (*ConnectPortsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{82}
+}
+
+func (x *ConnectPortsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *ConnectPortsRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type ConnectPortsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ConnectPortsResponse) Reset() {
+	*x = ConnectPortsResponse{}
+	mi := &file_proto_midi_midi_proto_msgTypes[83]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ConnectPortsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ConnectPortsResponse) ProtoMessage() {}
+
+func (x *ConnectPortsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[83]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ConnectPortsResponse.ProtoReflect.Descriptor instead.
+func (*ConnectPortsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{83}
+}
+
+func (x *ConnectPortsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetInfoRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetInfoRequest) Reset() {
+	*x = GetInfoRequest{}
+	mi := &file_proto_midi_midi_proto_msgTypes[84]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetInfoRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetInfoRequest) ProtoMessage() {}
+
+func (x *GetInfoRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[84]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetInfoRequest.ProtoReflect.Descriptor instead.
+func (*GetInfoRequest) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{84}
+}
+
+type GetInfoResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetInfoResponse) Reset() {
+	*x = GetInfoResponse{}
+	mi := &file_proto_midi_midi_proto_msgTypes[85]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetInfoResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetInfoResponse) ProtoMessage() {}
+
+func (x *GetInfoResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[85]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetInfoResponse.ProtoReflect.Descriptor instead.
+func (*GetInfoResponse) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{85}
+}
+
+func (x *GetInfoResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OpenInputPortRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OpenInputPortRequest) Reset() {
+	*x = OpenInputPortRequest{}
+	mi := &file_proto_midi_midi_proto_msgTypes[86]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OpenInputPortRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OpenInputPortRequest) ProtoMessage() {}
+
+func (x *OpenInputPortRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[86]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OpenInputPortRequest.ProtoReflect.Descriptor instead.
+func (*OpenInputPortRequest) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{86}
+}
+
+func (x *OpenInputPortRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OpenInputPortResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OpenInputPortResponse) Reset() {
+	*x = OpenInputPortResponse{}
+	mi := &file_proto_midi_midi_proto_msgTypes[87]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OpenInputPortResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OpenInputPortResponse) ProtoMessage() {}
+
+func (x *OpenInputPortResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[87]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OpenInputPortResponse.ProtoReflect.Descriptor instead.
+func (*OpenInputPortResponse) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{87}
+}
+
+func (x *OpenInputPortResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OpenOutputPortRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OpenOutputPortRequest) Reset() {
+	*x = OpenOutputPortRequest{}
+	mi := &file_proto_midi_midi_proto_msgTypes[88]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OpenOutputPortRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OpenOutputPortRequest) ProtoMessage() {}
+
+func (x *OpenOutputPortRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[88]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OpenOutputPortRequest.ProtoReflect.Descriptor instead.
+func (*OpenOutputPortRequest) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{88}
+}
+
+func (x *OpenOutputPortRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OpenOutputPortResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OpenOutputPortResponse) Reset() {
+	*x = OpenOutputPortResponse{}
+	mi := &file_proto_midi_midi_proto_msgTypes[89]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OpenOutputPortResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OpenOutputPortResponse) ProtoMessage() {}
+
+func (x *OpenOutputPortResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_midi_midi_proto_msgTypes[89]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OpenOutputPortResponse.ProtoReflect.Descriptor instead.
+func (*OpenOutputPortResponse) Descriptor() ([]byte, []int) {
+	return file_proto_midi_midi_proto_rawDescGZIP(), []int{89}
+}
+
+func (x *OpenOutputPortResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
 }
 
 var File_proto_midi_midi_proto protoreflect.FileDescriptor
 
 const file_proto_midi_midi_proto_rawDesc = "" +
 	"\n" +
-	"\x15proto/midi/midi.proto\x12\x04midi\"\x13\n" +
+	"\x15proto/midi/midi.proto\x12\x04midi\"\x19\n" +
+	"\x17DescribeContentsRequest\"2\n" +
+	"\x18DescribeContentsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"#\n" +
+	"\rEqualsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"(\n" +
+	"\x0eEqualsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x1b\n" +
+	"\x19GetDefaultProtocolRequest\"4\n" +
+	"\x1aGetDefaultProtocolResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x0e\n" +
+	"\fGetIdRequest\"'\n" +
+	"\rGetIdResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1a\n" +
+	"\x18GetInputPortCountRequest\"3\n" +
+	"\x19GetInputPortCountResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1b\n" +
+	"\x19GetOutputPortCountRequest\"4\n" +
+	"\x1aGetOutputPortCountResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x11\n" +
+	"\x0fGetPortsRequest\"*\n" +
+	"\x10GetPortsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x16\n" +
+	"\x14GetPropertiesRequest\"/\n" +
+	"\x15GetPropertiesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x10\n" +
+	"\x0eGetTypeRequest\")\n" +
+	"\x0fGetTypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x11\n" +
+	"\x0fHashCodeRequest\"*\n" +
+	"\x10HashCodeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x12\n" +
+	"\x10IsPrivateRequest\"+\n" +
+	"\x11IsPrivateResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x11\n" +
+	"\x0fToStringRequest\"*\n" +
+	"\x10ToStringResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\">\n" +
+	"\x14WriteToParcelRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x17\n" +
+	"\x15WriteToParcelResponse\"\x10\n" +
+	"\x0eGetNameRequest\")\n" +
+	"\x0fGetNameResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x16\n" +
+	"\x14GetPortNumberRequest\"/\n" +
+	"\x15GetPortNumberResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x0e\n" +
+	"\fCloseRequest\"\x0f\n" +
+	"\rCloseResponse\"\x10\n" +
+	"\x0eOnFlushRequest\"\x11\n" +
+	"\x0fOnFlushResponse\"_\n" +
+	"\rOnSendRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\"\x10\n" +
+	"\x0eOnSendResponse\"\x0e\n" +
+	"\fFlushRequest\"\x0f\n" +
+	"\rFlushResponse\"\x1a\n" +
+	"\x18GetMaxMessageSizeRequest\"3\n" +
+	"\x19GetMaxMessageSizeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"J\n" +
+	"\fSend3Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\"\x0f\n" +
+	"\rSend3Response\"`\n" +
+	"\x0eSend4_1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\"\x11\n" +
+	"\x0fSend4_1Response\"\x13\n" +
 	"\x11GetDevicesRequest\",\n" +
 	"\x12GetDevicesResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"[\n" +
@@ -294,12 +3823,154 @@ const file_proto_midi_midi_proto_rawDesc = "" +
 	"\x1eRegisterDeviceCallbackResponse\"5\n" +
 	"\x1fUnregisterDeviceCallbackRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\"\n" +
-	" UnregisterDeviceCallbackResponse2\xa1\x02\n" +
+	" UnregisterDeviceCallbackResponse\"*\n" +
+	"\x14OnDeviceAddedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x17\n" +
+	"\x15OnDeviceAddedResponse\",\n" +
+	"\x16OnDeviceRemovedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x19\n" +
+	"\x17OnDeviceRemovedResponse\"2\n" +
+	"\x1cOnDeviceStatusChangedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x1f\n" +
+	"\x1dOnDeviceStatusChangedResponse\"+\n" +
+	"\x15OnDeviceOpenedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x18\n" +
+	"\x16OnDeviceOpenedResponse\"$\n" +
+	"\x0eConnectRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x11\n" +
+	"\x0fConnectResponse\"'\n" +
+	"\x11DisconnectRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x14\n" +
+	"\x12DisconnectResponse\"&\n" +
+	"\x10OnConnectRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x13\n" +
+	"\x11OnConnectResponse\")\n" +
+	"\x13OnDisconnectRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x16\n" +
+	"\x14OnDisconnectResponse\"\x16\n" +
+	"\x14GetDeviceInfoRequest\"/\n" +
+	"\x15GetDeviceInfoResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"#\n" +
+	"\rOnBindRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"(\n" +
+	"\x0eOnBindResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x10\n" +
+	"\x0eOnCloseRequest\"\x11\n" +
+	"\x0fOnCloseResponse\"\x11\n" +
+	"\x0fOnCreateRequest\"\x12\n" +
+	"\x10OnCreateResponse\"\x1f\n" +
+	"\x1dGetOutputPortReceiversRequest\"8\n" +
+	"\x1eGetOutputPortReceiversResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\" \n" +
+	"\x1eOnGetInputPortReceiversRequest\"9\n" +
+	"\x1fOnGetInputPortReceiversResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"3\n" +
+	"\x1dGetOutputPortOpenCountRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"8\n" +
+	"\x1eGetOutputPortOpenCountResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\",\n" +
+	"\x16IsInputPortOpenRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"1\n" +
+	"\x17IsInputPortOpenResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"=\n" +
+	"\x13ConnectPortsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\".\n" +
+	"\x14ConnectPortsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x10\n" +
+	"\x0eGetInfoRequest\")\n" +
+	"\x0fGetInfoResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"*\n" +
+	"\x14OpenInputPortRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"/\n" +
+	"\x15OpenInputPortResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"+\n" +
+	"\x15OpenOutputPortRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"0\n" +
+	"\x16OpenOutputPortResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result2\x90\a\n" +
+	"\x11DeviceInfoService\x12Q\n" +
+	"\x10DescribeContents\x12\x1d.midi.DescribeContentsRequest\x1a\x1e.midi.DescribeContentsResponse\x123\n" +
+	"\x06Equals\x12\x13.midi.EqualsRequest\x1a\x14.midi.EqualsResponse\x12W\n" +
+	"\x12GetDefaultProtocol\x12\x1f.midi.GetDefaultProtocolRequest\x1a .midi.GetDefaultProtocolResponse\x120\n" +
+	"\x05GetId\x12\x12.midi.GetIdRequest\x1a\x13.midi.GetIdResponse\x12T\n" +
+	"\x11GetInputPortCount\x12\x1e.midi.GetInputPortCountRequest\x1a\x1f.midi.GetInputPortCountResponse\x12W\n" +
+	"\x12GetOutputPortCount\x12\x1f.midi.GetOutputPortCountRequest\x1a .midi.GetOutputPortCountResponse\x129\n" +
+	"\bGetPorts\x12\x15.midi.GetPortsRequest\x1a\x16.midi.GetPortsResponse\x12H\n" +
+	"\rGetProperties\x12\x1a.midi.GetPropertiesRequest\x1a\x1b.midi.GetPropertiesResponse\x126\n" +
+	"\aGetType\x12\x14.midi.GetTypeRequest\x1a\x15.midi.GetTypeResponse\x129\n" +
+	"\bHashCode\x12\x15.midi.HashCodeRequest\x1a\x16.midi.HashCodeResponse\x12<\n" +
+	"\tIsPrivate\x12\x16.midi.IsPrivateRequest\x1a\x17.midi.IsPrivateResponse\x129\n" +
+	"\bToString\x12\x15.midi.ToStringRequest\x1a\x16.midi.ToStringResponse\x12H\n" +
+	"\rWriteToParcel\x12\x1a.midi.WriteToParcelRequest\x1a\x1b.midi.WriteToParcelResponse2\xd5\x01\n" +
+	"\x19DeviceInfoPortInfoService\x126\n" +
+	"\aGetName\x12\x14.midi.GetNameRequest\x1a\x15.midi.GetNameResponse\x12H\n" +
+	"\rGetPortNumber\x12\x1a.midi.GetPortNumberRequest\x1a\x1b.midi.GetPortNumberResponse\x126\n" +
+	"\aGetType\x12\x14.midi.GetTypeRequest\x1a\x15.midi.GetTypeResponse2\xfb\x01\n" +
+	"\x10InputPortService\x120\n" +
+	"\x05Close\x12\x12.midi.CloseRequest\x1a\x13.midi.CloseResponse\x12H\n" +
+	"\rGetPortNumber\x12\x1a.midi.GetPortNumberRequest\x1a\x1b.midi.GetPortNumberResponse\x126\n" +
+	"\aOnFlush\x12\x14.midi.OnFlushRequest\x1a\x15.midi.OnFlushResponse\x123\n" +
+	"\x06OnSend\x12\x13.midi.OnSendRequest\x1a\x14.midi.OnSendResponse2\xf0\x02\n" +
+	"\x0fReceiverService\x120\n" +
+	"\x05Flush\x12\x12.midi.FlushRequest\x1a\x13.midi.FlushResponse\x12T\n" +
+	"\x11GetMaxMessageSize\x12\x1e.midi.GetMaxMessageSizeRequest\x1a\x1f.midi.GetMaxMessageSizeResponse\x126\n" +
+	"\aOnFlush\x12\x14.midi.OnFlushRequest\x1a\x15.midi.OnFlushResponse\x123\n" +
+	"\x06OnSend\x12\x13.midi.OnSendRequest\x1a\x14.midi.OnSendResponse\x120\n" +
+	"\x05Send3\x12\x12.midi.Send3Request\x1a\x13.midi.Send3Response\x126\n" +
+	"\aSend4_1\x12\x14.midi.Send4_1Request\x1a\x15.midi.Send4_1Response2\xa1\x02\n" +
 	"\x0eManagerService\x12?\n" +
 	"\n" +
 	"GetDevices\x12\x17.midi.GetDevicesRequest\x1a\x18.midi.GetDevicesResponse\x12c\n" +
 	"\x16RegisterDeviceCallback\x12#.midi.RegisterDeviceCallbackRequest\x1a$.midi.RegisterDeviceCallbackResponse\x12i\n" +
-	"\x18UnregisterDeviceCallback\x12%.midi.UnregisterDeviceCallbackRequest\x1a&.midi.UnregisterDeviceCallbackResponseB.Z,github.com/AndroidGoLab/jni-proxy/proto/midib\x06proto3"
+	"\x18UnregisterDeviceCallback\x12%.midi.UnregisterDeviceCallbackRequest\x1a&.midi.UnregisterDeviceCallbackResponse2\x9a\x02\n" +
+	"\x1cManagerDeviceCallbackService\x12H\n" +
+	"\rOnDeviceAdded\x12\x1a.midi.OnDeviceAddedRequest\x1a\x1b.midi.OnDeviceAddedResponse\x12N\n" +
+	"\x0fOnDeviceRemoved\x12\x1c.midi.OnDeviceRemovedRequest\x1a\x1d.midi.OnDeviceRemovedResponse\x12`\n" +
+	"\x15OnDeviceStatusChanged\x12\".midi.OnDeviceStatusChangedRequest\x1a#.midi.OnDeviceStatusChangedResponse2s\n" +
+	"$ManagerOnDeviceOpenedListenerService\x12K\n" +
+	"\x0eOnDeviceOpened\x12\x1b.midi.OnDeviceOpenedRequest\x1a\x1c.midi.OnDeviceOpenedResponse2\x8d\x02\n" +
+	"\rSenderService\x126\n" +
+	"\aConnect\x12\x14.midi.ConnectRequest\x1a\x15.midi.ConnectResponse\x12?\n" +
+	"\n" +
+	"Disconnect\x12\x17.midi.DisconnectRequest\x1a\x18.midi.DisconnectResponse\x12<\n" +
+	"\tOnConnect\x12\x16.midi.OnConnectRequest\x1a\x17.midi.OnConnectResponse\x12E\n" +
+	"\fOnDisconnect\x12\x19.midi.OnDisconnectRequest\x1a\x1a.midi.OnDisconnectResponse2\xed\x02\n" +
+	"\x17UmpDeviceServiceService\x12H\n" +
+	"\rGetDeviceInfo\x12\x1a.midi.GetDeviceInfoRequest\x1a\x1b.midi.GetDeviceInfoResponse\x123\n" +
+	"\x06OnBind\x12\x13.midi.OnBindRequest\x1a\x14.midi.OnBindResponse\x126\n" +
+	"\aOnClose\x12\x14.midi.OnCloseRequest\x1a\x15.midi.OnCloseResponse\x129\n" +
+	"\bOnCreate\x12\x15.midi.OnCreateRequest\x1a\x16.midi.OnCreateResponse\x12`\n" +
+	"\x15OnDeviceStatusChanged\x12\".midi.OnDeviceStatusChangedRequest\x1a#.midi.OnDeviceStatusChangedResponse2\xb7\x04\n" +
+	"\x14DeviceServiceService\x12H\n" +
+	"\rGetDeviceInfo\x12\x1a.midi.GetDeviceInfoRequest\x1a\x1b.midi.GetDeviceInfoResponse\x12c\n" +
+	"\x16GetOutputPortReceivers\x12#.midi.GetOutputPortReceiversRequest\x1a$.midi.GetOutputPortReceiversResponse\x123\n" +
+	"\x06OnBind\x12\x13.midi.OnBindRequest\x1a\x14.midi.OnBindResponse\x126\n" +
+	"\aOnClose\x12\x14.midi.OnCloseRequest\x1a\x15.midi.OnCloseResponse\x129\n" +
+	"\bOnCreate\x12\x15.midi.OnCreateRequest\x1a\x16.midi.OnCreateResponse\x12`\n" +
+	"\x15OnDeviceStatusChanged\x12\".midi.OnDeviceStatusChangedRequest\x1a#.midi.OnDeviceStatusChangedResponse\x12f\n" +
+	"\x17OnGetInputPortReceivers\x12$.midi.OnGetInputPortReceiversRequest\x1a%.midi.OnGetInputPortReceiversResponse2\x94\x02\n" +
+	"\x11OutputPortService\x120\n" +
+	"\x05Close\x12\x12.midi.CloseRequest\x1a\x13.midi.CloseResponse\x12H\n" +
+	"\rGetPortNumber\x12\x1a.midi.GetPortNumberRequest\x1a\x1b.midi.GetPortNumberResponse\x12<\n" +
+	"\tOnConnect\x12\x16.midi.OnConnectRequest\x1a\x17.midi.OnConnectResponse\x12E\n" +
+	"\fOnDisconnect\x12\x19.midi.OnDisconnectRequest\x1a\x1a.midi.OnDisconnectResponse2\xec\x03\n" +
+	"\x13DeviceStatusService\x12Q\n" +
+	"\x10DescribeContents\x12\x1d.midi.DescribeContentsRequest\x1a\x1e.midi.DescribeContentsResponse\x12H\n" +
+	"\rGetDeviceInfo\x12\x1a.midi.GetDeviceInfoRequest\x1a\x1b.midi.GetDeviceInfoResponse\x12c\n" +
+	"\x16GetOutputPortOpenCount\x12#.midi.GetOutputPortOpenCountRequest\x1a$.midi.GetOutputPortOpenCountResponse\x12N\n" +
+	"\x0fIsInputPortOpen\x12\x1c.midi.IsInputPortOpenRequest\x1a\x1d.midi.IsInputPortOpenResponse\x129\n" +
+	"\bToString\x12\x15.midi.ToStringRequest\x1a\x16.midi.ToStringResponse\x12H\n" +
+	"\rWriteToParcel\x12\x1a.midi.WriteToParcelRequest\x1a\x1b.midi.WriteToParcelResponse2\x92\x03\n" +
+	"\rDeviceService\x120\n" +
+	"\x05Close\x12\x12.midi.CloseRequest\x1a\x13.midi.CloseResponse\x12E\n" +
+	"\fConnectPorts\x12\x19.midi.ConnectPortsRequest\x1a\x1a.midi.ConnectPortsResponse\x126\n" +
+	"\aGetInfo\x12\x14.midi.GetInfoRequest\x1a\x15.midi.GetInfoResponse\x12H\n" +
+	"\rOpenInputPort\x12\x1a.midi.OpenInputPortRequest\x1a\x1b.midi.OpenInputPortResponse\x12K\n" +
+	"\x0eOpenOutputPort\x12\x1b.midi.OpenOutputPortRequest\x1a\x1c.midi.OpenOutputPortResponse\x129\n" +
+	"\bToString\x12\x15.midi.ToStringRequest\x1a\x16.midi.ToStringResponse2O\n" +
+	"\x1bDeviceMidiConnectionService\x120\n" +
+	"\x05Close\x12\x12.midi.CloseRequest\x1a\x13.midi.CloseResponseB.Z,github.com/AndroidGoLab/jni-proxy/proto/midib\x06proto3"
 
 var (
 	file_proto_midi_midi_proto_rawDescOnce sync.Once
@@ -313,27 +3984,237 @@ func file_proto_midi_midi_proto_rawDescGZIP() []byte {
 	return file_proto_midi_midi_proto_rawDescData
 }
 
-var file_proto_midi_midi_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
+var file_proto_midi_midi_proto_msgTypes = make([]protoimpl.MessageInfo, 90)
 var file_proto_midi_midi_proto_goTypes = []any{
-	(*GetDevicesRequest)(nil),                // 0: midi.GetDevicesRequest
-	(*GetDevicesResponse)(nil),               // 1: midi.GetDevicesResponse
-	(*RegisterDeviceCallbackRequest)(nil),    // 2: midi.RegisterDeviceCallbackRequest
-	(*RegisterDeviceCallbackResponse)(nil),   // 3: midi.RegisterDeviceCallbackResponse
-	(*UnregisterDeviceCallbackRequest)(nil),  // 4: midi.UnregisterDeviceCallbackRequest
-	(*UnregisterDeviceCallbackResponse)(nil), // 5: midi.UnregisterDeviceCallbackResponse
+	(*DescribeContentsRequest)(nil),          // 0: midi.DescribeContentsRequest
+	(*DescribeContentsResponse)(nil),         // 1: midi.DescribeContentsResponse
+	(*EqualsRequest)(nil),                    // 2: midi.EqualsRequest
+	(*EqualsResponse)(nil),                   // 3: midi.EqualsResponse
+	(*GetDefaultProtocolRequest)(nil),        // 4: midi.GetDefaultProtocolRequest
+	(*GetDefaultProtocolResponse)(nil),       // 5: midi.GetDefaultProtocolResponse
+	(*GetIdRequest)(nil),                     // 6: midi.GetIdRequest
+	(*GetIdResponse)(nil),                    // 7: midi.GetIdResponse
+	(*GetInputPortCountRequest)(nil),         // 8: midi.GetInputPortCountRequest
+	(*GetInputPortCountResponse)(nil),        // 9: midi.GetInputPortCountResponse
+	(*GetOutputPortCountRequest)(nil),        // 10: midi.GetOutputPortCountRequest
+	(*GetOutputPortCountResponse)(nil),       // 11: midi.GetOutputPortCountResponse
+	(*GetPortsRequest)(nil),                  // 12: midi.GetPortsRequest
+	(*GetPortsResponse)(nil),                 // 13: midi.GetPortsResponse
+	(*GetPropertiesRequest)(nil),             // 14: midi.GetPropertiesRequest
+	(*GetPropertiesResponse)(nil),            // 15: midi.GetPropertiesResponse
+	(*GetTypeRequest)(nil),                   // 16: midi.GetTypeRequest
+	(*GetTypeResponse)(nil),                  // 17: midi.GetTypeResponse
+	(*HashCodeRequest)(nil),                  // 18: midi.HashCodeRequest
+	(*HashCodeResponse)(nil),                 // 19: midi.HashCodeResponse
+	(*IsPrivateRequest)(nil),                 // 20: midi.IsPrivateRequest
+	(*IsPrivateResponse)(nil),                // 21: midi.IsPrivateResponse
+	(*ToStringRequest)(nil),                  // 22: midi.ToStringRequest
+	(*ToStringResponse)(nil),                 // 23: midi.ToStringResponse
+	(*WriteToParcelRequest)(nil),             // 24: midi.WriteToParcelRequest
+	(*WriteToParcelResponse)(nil),            // 25: midi.WriteToParcelResponse
+	(*GetNameRequest)(nil),                   // 26: midi.GetNameRequest
+	(*GetNameResponse)(nil),                  // 27: midi.GetNameResponse
+	(*GetPortNumberRequest)(nil),             // 28: midi.GetPortNumberRequest
+	(*GetPortNumberResponse)(nil),            // 29: midi.GetPortNumberResponse
+	(*CloseRequest)(nil),                     // 30: midi.CloseRequest
+	(*CloseResponse)(nil),                    // 31: midi.CloseResponse
+	(*OnFlushRequest)(nil),                   // 32: midi.OnFlushRequest
+	(*OnFlushResponse)(nil),                  // 33: midi.OnFlushResponse
+	(*OnSendRequest)(nil),                    // 34: midi.OnSendRequest
+	(*OnSendResponse)(nil),                   // 35: midi.OnSendResponse
+	(*FlushRequest)(nil),                     // 36: midi.FlushRequest
+	(*FlushResponse)(nil),                    // 37: midi.FlushResponse
+	(*GetMaxMessageSizeRequest)(nil),         // 38: midi.GetMaxMessageSizeRequest
+	(*GetMaxMessageSizeResponse)(nil),        // 39: midi.GetMaxMessageSizeResponse
+	(*Send3Request)(nil),                     // 40: midi.Send3Request
+	(*Send3Response)(nil),                    // 41: midi.Send3Response
+	(*Send4_1Request)(nil),                   // 42: midi.Send4_1Request
+	(*Send4_1Response)(nil),                  // 43: midi.Send4_1Response
+	(*GetDevicesRequest)(nil),                // 44: midi.GetDevicesRequest
+	(*GetDevicesResponse)(nil),               // 45: midi.GetDevicesResponse
+	(*RegisterDeviceCallbackRequest)(nil),    // 46: midi.RegisterDeviceCallbackRequest
+	(*RegisterDeviceCallbackResponse)(nil),   // 47: midi.RegisterDeviceCallbackResponse
+	(*UnregisterDeviceCallbackRequest)(nil),  // 48: midi.UnregisterDeviceCallbackRequest
+	(*UnregisterDeviceCallbackResponse)(nil), // 49: midi.UnregisterDeviceCallbackResponse
+	(*OnDeviceAddedRequest)(nil),             // 50: midi.OnDeviceAddedRequest
+	(*OnDeviceAddedResponse)(nil),            // 51: midi.OnDeviceAddedResponse
+	(*OnDeviceRemovedRequest)(nil),           // 52: midi.OnDeviceRemovedRequest
+	(*OnDeviceRemovedResponse)(nil),          // 53: midi.OnDeviceRemovedResponse
+	(*OnDeviceStatusChangedRequest)(nil),     // 54: midi.OnDeviceStatusChangedRequest
+	(*OnDeviceStatusChangedResponse)(nil),    // 55: midi.OnDeviceStatusChangedResponse
+	(*OnDeviceOpenedRequest)(nil),            // 56: midi.OnDeviceOpenedRequest
+	(*OnDeviceOpenedResponse)(nil),           // 57: midi.OnDeviceOpenedResponse
+	(*ConnectRequest)(nil),                   // 58: midi.ConnectRequest
+	(*ConnectResponse)(nil),                  // 59: midi.ConnectResponse
+	(*DisconnectRequest)(nil),                // 60: midi.DisconnectRequest
+	(*DisconnectResponse)(nil),               // 61: midi.DisconnectResponse
+	(*OnConnectRequest)(nil),                 // 62: midi.OnConnectRequest
+	(*OnConnectResponse)(nil),                // 63: midi.OnConnectResponse
+	(*OnDisconnectRequest)(nil),              // 64: midi.OnDisconnectRequest
+	(*OnDisconnectResponse)(nil),             // 65: midi.OnDisconnectResponse
+	(*GetDeviceInfoRequest)(nil),             // 66: midi.GetDeviceInfoRequest
+	(*GetDeviceInfoResponse)(nil),            // 67: midi.GetDeviceInfoResponse
+	(*OnBindRequest)(nil),                    // 68: midi.OnBindRequest
+	(*OnBindResponse)(nil),                   // 69: midi.OnBindResponse
+	(*OnCloseRequest)(nil),                   // 70: midi.OnCloseRequest
+	(*OnCloseResponse)(nil),                  // 71: midi.OnCloseResponse
+	(*OnCreateRequest)(nil),                  // 72: midi.OnCreateRequest
+	(*OnCreateResponse)(nil),                 // 73: midi.OnCreateResponse
+	(*GetOutputPortReceiversRequest)(nil),    // 74: midi.GetOutputPortReceiversRequest
+	(*GetOutputPortReceiversResponse)(nil),   // 75: midi.GetOutputPortReceiversResponse
+	(*OnGetInputPortReceiversRequest)(nil),   // 76: midi.OnGetInputPortReceiversRequest
+	(*OnGetInputPortReceiversResponse)(nil),  // 77: midi.OnGetInputPortReceiversResponse
+	(*GetOutputPortOpenCountRequest)(nil),    // 78: midi.GetOutputPortOpenCountRequest
+	(*GetOutputPortOpenCountResponse)(nil),   // 79: midi.GetOutputPortOpenCountResponse
+	(*IsInputPortOpenRequest)(nil),           // 80: midi.IsInputPortOpenRequest
+	(*IsInputPortOpenResponse)(nil),          // 81: midi.IsInputPortOpenResponse
+	(*ConnectPortsRequest)(nil),              // 82: midi.ConnectPortsRequest
+	(*ConnectPortsResponse)(nil),             // 83: midi.ConnectPortsResponse
+	(*GetInfoRequest)(nil),                   // 84: midi.GetInfoRequest
+	(*GetInfoResponse)(nil),                  // 85: midi.GetInfoResponse
+	(*OpenInputPortRequest)(nil),             // 86: midi.OpenInputPortRequest
+	(*OpenInputPortResponse)(nil),            // 87: midi.OpenInputPortResponse
+	(*OpenOutputPortRequest)(nil),            // 88: midi.OpenOutputPortRequest
+	(*OpenOutputPortResponse)(nil),           // 89: midi.OpenOutputPortResponse
 }
 var file_proto_midi_midi_proto_depIdxs = []int32{
-	0, // 0: midi.ManagerService.GetDevices:input_type -> midi.GetDevicesRequest
-	2, // 1: midi.ManagerService.RegisterDeviceCallback:input_type -> midi.RegisterDeviceCallbackRequest
-	4, // 2: midi.ManagerService.UnregisterDeviceCallback:input_type -> midi.UnregisterDeviceCallbackRequest
-	1, // 3: midi.ManagerService.GetDevices:output_type -> midi.GetDevicesResponse
-	3, // 4: midi.ManagerService.RegisterDeviceCallback:output_type -> midi.RegisterDeviceCallbackResponse
-	5, // 5: midi.ManagerService.UnregisterDeviceCallback:output_type -> midi.UnregisterDeviceCallbackResponse
-	3, // [3:6] is the sub-list for method output_type
-	0, // [0:3] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	0,  // 0: midi.DeviceInfoService.DescribeContents:input_type -> midi.DescribeContentsRequest
+	2,  // 1: midi.DeviceInfoService.Equals:input_type -> midi.EqualsRequest
+	4,  // 2: midi.DeviceInfoService.GetDefaultProtocol:input_type -> midi.GetDefaultProtocolRequest
+	6,  // 3: midi.DeviceInfoService.GetId:input_type -> midi.GetIdRequest
+	8,  // 4: midi.DeviceInfoService.GetInputPortCount:input_type -> midi.GetInputPortCountRequest
+	10, // 5: midi.DeviceInfoService.GetOutputPortCount:input_type -> midi.GetOutputPortCountRequest
+	12, // 6: midi.DeviceInfoService.GetPorts:input_type -> midi.GetPortsRequest
+	14, // 7: midi.DeviceInfoService.GetProperties:input_type -> midi.GetPropertiesRequest
+	16, // 8: midi.DeviceInfoService.GetType:input_type -> midi.GetTypeRequest
+	18, // 9: midi.DeviceInfoService.HashCode:input_type -> midi.HashCodeRequest
+	20, // 10: midi.DeviceInfoService.IsPrivate:input_type -> midi.IsPrivateRequest
+	22, // 11: midi.DeviceInfoService.ToString:input_type -> midi.ToStringRequest
+	24, // 12: midi.DeviceInfoService.WriteToParcel:input_type -> midi.WriteToParcelRequest
+	26, // 13: midi.DeviceInfoPortInfoService.GetName:input_type -> midi.GetNameRequest
+	28, // 14: midi.DeviceInfoPortInfoService.GetPortNumber:input_type -> midi.GetPortNumberRequest
+	16, // 15: midi.DeviceInfoPortInfoService.GetType:input_type -> midi.GetTypeRequest
+	30, // 16: midi.InputPortService.Close:input_type -> midi.CloseRequest
+	28, // 17: midi.InputPortService.GetPortNumber:input_type -> midi.GetPortNumberRequest
+	32, // 18: midi.InputPortService.OnFlush:input_type -> midi.OnFlushRequest
+	34, // 19: midi.InputPortService.OnSend:input_type -> midi.OnSendRequest
+	36, // 20: midi.ReceiverService.Flush:input_type -> midi.FlushRequest
+	38, // 21: midi.ReceiverService.GetMaxMessageSize:input_type -> midi.GetMaxMessageSizeRequest
+	32, // 22: midi.ReceiverService.OnFlush:input_type -> midi.OnFlushRequest
+	34, // 23: midi.ReceiverService.OnSend:input_type -> midi.OnSendRequest
+	40, // 24: midi.ReceiverService.Send3:input_type -> midi.Send3Request
+	42, // 25: midi.ReceiverService.Send4_1:input_type -> midi.Send4_1Request
+	44, // 26: midi.ManagerService.GetDevices:input_type -> midi.GetDevicesRequest
+	46, // 27: midi.ManagerService.RegisterDeviceCallback:input_type -> midi.RegisterDeviceCallbackRequest
+	48, // 28: midi.ManagerService.UnregisterDeviceCallback:input_type -> midi.UnregisterDeviceCallbackRequest
+	50, // 29: midi.ManagerDeviceCallbackService.OnDeviceAdded:input_type -> midi.OnDeviceAddedRequest
+	52, // 30: midi.ManagerDeviceCallbackService.OnDeviceRemoved:input_type -> midi.OnDeviceRemovedRequest
+	54, // 31: midi.ManagerDeviceCallbackService.OnDeviceStatusChanged:input_type -> midi.OnDeviceStatusChangedRequest
+	56, // 32: midi.ManagerOnDeviceOpenedListenerService.OnDeviceOpened:input_type -> midi.OnDeviceOpenedRequest
+	58, // 33: midi.SenderService.Connect:input_type -> midi.ConnectRequest
+	60, // 34: midi.SenderService.Disconnect:input_type -> midi.DisconnectRequest
+	62, // 35: midi.SenderService.OnConnect:input_type -> midi.OnConnectRequest
+	64, // 36: midi.SenderService.OnDisconnect:input_type -> midi.OnDisconnectRequest
+	66, // 37: midi.UmpDeviceServiceService.GetDeviceInfo:input_type -> midi.GetDeviceInfoRequest
+	68, // 38: midi.UmpDeviceServiceService.OnBind:input_type -> midi.OnBindRequest
+	70, // 39: midi.UmpDeviceServiceService.OnClose:input_type -> midi.OnCloseRequest
+	72, // 40: midi.UmpDeviceServiceService.OnCreate:input_type -> midi.OnCreateRequest
+	54, // 41: midi.UmpDeviceServiceService.OnDeviceStatusChanged:input_type -> midi.OnDeviceStatusChangedRequest
+	66, // 42: midi.DeviceServiceService.GetDeviceInfo:input_type -> midi.GetDeviceInfoRequest
+	74, // 43: midi.DeviceServiceService.GetOutputPortReceivers:input_type -> midi.GetOutputPortReceiversRequest
+	68, // 44: midi.DeviceServiceService.OnBind:input_type -> midi.OnBindRequest
+	70, // 45: midi.DeviceServiceService.OnClose:input_type -> midi.OnCloseRequest
+	72, // 46: midi.DeviceServiceService.OnCreate:input_type -> midi.OnCreateRequest
+	54, // 47: midi.DeviceServiceService.OnDeviceStatusChanged:input_type -> midi.OnDeviceStatusChangedRequest
+	76, // 48: midi.DeviceServiceService.OnGetInputPortReceivers:input_type -> midi.OnGetInputPortReceiversRequest
+	30, // 49: midi.OutputPortService.Close:input_type -> midi.CloseRequest
+	28, // 50: midi.OutputPortService.GetPortNumber:input_type -> midi.GetPortNumberRequest
+	62, // 51: midi.OutputPortService.OnConnect:input_type -> midi.OnConnectRequest
+	64, // 52: midi.OutputPortService.OnDisconnect:input_type -> midi.OnDisconnectRequest
+	0,  // 53: midi.DeviceStatusService.DescribeContents:input_type -> midi.DescribeContentsRequest
+	66, // 54: midi.DeviceStatusService.GetDeviceInfo:input_type -> midi.GetDeviceInfoRequest
+	78, // 55: midi.DeviceStatusService.GetOutputPortOpenCount:input_type -> midi.GetOutputPortOpenCountRequest
+	80, // 56: midi.DeviceStatusService.IsInputPortOpen:input_type -> midi.IsInputPortOpenRequest
+	22, // 57: midi.DeviceStatusService.ToString:input_type -> midi.ToStringRequest
+	24, // 58: midi.DeviceStatusService.WriteToParcel:input_type -> midi.WriteToParcelRequest
+	30, // 59: midi.DeviceService.Close:input_type -> midi.CloseRequest
+	82, // 60: midi.DeviceService.ConnectPorts:input_type -> midi.ConnectPortsRequest
+	84, // 61: midi.DeviceService.GetInfo:input_type -> midi.GetInfoRequest
+	86, // 62: midi.DeviceService.OpenInputPort:input_type -> midi.OpenInputPortRequest
+	88, // 63: midi.DeviceService.OpenOutputPort:input_type -> midi.OpenOutputPortRequest
+	22, // 64: midi.DeviceService.ToString:input_type -> midi.ToStringRequest
+	30, // 65: midi.DeviceMidiConnectionService.Close:input_type -> midi.CloseRequest
+	1,  // 66: midi.DeviceInfoService.DescribeContents:output_type -> midi.DescribeContentsResponse
+	3,  // 67: midi.DeviceInfoService.Equals:output_type -> midi.EqualsResponse
+	5,  // 68: midi.DeviceInfoService.GetDefaultProtocol:output_type -> midi.GetDefaultProtocolResponse
+	7,  // 69: midi.DeviceInfoService.GetId:output_type -> midi.GetIdResponse
+	9,  // 70: midi.DeviceInfoService.GetInputPortCount:output_type -> midi.GetInputPortCountResponse
+	11, // 71: midi.DeviceInfoService.GetOutputPortCount:output_type -> midi.GetOutputPortCountResponse
+	13, // 72: midi.DeviceInfoService.GetPorts:output_type -> midi.GetPortsResponse
+	15, // 73: midi.DeviceInfoService.GetProperties:output_type -> midi.GetPropertiesResponse
+	17, // 74: midi.DeviceInfoService.GetType:output_type -> midi.GetTypeResponse
+	19, // 75: midi.DeviceInfoService.HashCode:output_type -> midi.HashCodeResponse
+	21, // 76: midi.DeviceInfoService.IsPrivate:output_type -> midi.IsPrivateResponse
+	23, // 77: midi.DeviceInfoService.ToString:output_type -> midi.ToStringResponse
+	25, // 78: midi.DeviceInfoService.WriteToParcel:output_type -> midi.WriteToParcelResponse
+	27, // 79: midi.DeviceInfoPortInfoService.GetName:output_type -> midi.GetNameResponse
+	29, // 80: midi.DeviceInfoPortInfoService.GetPortNumber:output_type -> midi.GetPortNumberResponse
+	17, // 81: midi.DeviceInfoPortInfoService.GetType:output_type -> midi.GetTypeResponse
+	31, // 82: midi.InputPortService.Close:output_type -> midi.CloseResponse
+	29, // 83: midi.InputPortService.GetPortNumber:output_type -> midi.GetPortNumberResponse
+	33, // 84: midi.InputPortService.OnFlush:output_type -> midi.OnFlushResponse
+	35, // 85: midi.InputPortService.OnSend:output_type -> midi.OnSendResponse
+	37, // 86: midi.ReceiverService.Flush:output_type -> midi.FlushResponse
+	39, // 87: midi.ReceiverService.GetMaxMessageSize:output_type -> midi.GetMaxMessageSizeResponse
+	33, // 88: midi.ReceiverService.OnFlush:output_type -> midi.OnFlushResponse
+	35, // 89: midi.ReceiverService.OnSend:output_type -> midi.OnSendResponse
+	41, // 90: midi.ReceiverService.Send3:output_type -> midi.Send3Response
+	43, // 91: midi.ReceiverService.Send4_1:output_type -> midi.Send4_1Response
+	45, // 92: midi.ManagerService.GetDevices:output_type -> midi.GetDevicesResponse
+	47, // 93: midi.ManagerService.RegisterDeviceCallback:output_type -> midi.RegisterDeviceCallbackResponse
+	49, // 94: midi.ManagerService.UnregisterDeviceCallback:output_type -> midi.UnregisterDeviceCallbackResponse
+	51, // 95: midi.ManagerDeviceCallbackService.OnDeviceAdded:output_type -> midi.OnDeviceAddedResponse
+	53, // 96: midi.ManagerDeviceCallbackService.OnDeviceRemoved:output_type -> midi.OnDeviceRemovedResponse
+	55, // 97: midi.ManagerDeviceCallbackService.OnDeviceStatusChanged:output_type -> midi.OnDeviceStatusChangedResponse
+	57, // 98: midi.ManagerOnDeviceOpenedListenerService.OnDeviceOpened:output_type -> midi.OnDeviceOpenedResponse
+	59, // 99: midi.SenderService.Connect:output_type -> midi.ConnectResponse
+	61, // 100: midi.SenderService.Disconnect:output_type -> midi.DisconnectResponse
+	63, // 101: midi.SenderService.OnConnect:output_type -> midi.OnConnectResponse
+	65, // 102: midi.SenderService.OnDisconnect:output_type -> midi.OnDisconnectResponse
+	67, // 103: midi.UmpDeviceServiceService.GetDeviceInfo:output_type -> midi.GetDeviceInfoResponse
+	69, // 104: midi.UmpDeviceServiceService.OnBind:output_type -> midi.OnBindResponse
+	71, // 105: midi.UmpDeviceServiceService.OnClose:output_type -> midi.OnCloseResponse
+	73, // 106: midi.UmpDeviceServiceService.OnCreate:output_type -> midi.OnCreateResponse
+	55, // 107: midi.UmpDeviceServiceService.OnDeviceStatusChanged:output_type -> midi.OnDeviceStatusChangedResponse
+	67, // 108: midi.DeviceServiceService.GetDeviceInfo:output_type -> midi.GetDeviceInfoResponse
+	75, // 109: midi.DeviceServiceService.GetOutputPortReceivers:output_type -> midi.GetOutputPortReceiversResponse
+	69, // 110: midi.DeviceServiceService.OnBind:output_type -> midi.OnBindResponse
+	71, // 111: midi.DeviceServiceService.OnClose:output_type -> midi.OnCloseResponse
+	73, // 112: midi.DeviceServiceService.OnCreate:output_type -> midi.OnCreateResponse
+	55, // 113: midi.DeviceServiceService.OnDeviceStatusChanged:output_type -> midi.OnDeviceStatusChangedResponse
+	77, // 114: midi.DeviceServiceService.OnGetInputPortReceivers:output_type -> midi.OnGetInputPortReceiversResponse
+	31, // 115: midi.OutputPortService.Close:output_type -> midi.CloseResponse
+	29, // 116: midi.OutputPortService.GetPortNumber:output_type -> midi.GetPortNumberResponse
+	63, // 117: midi.OutputPortService.OnConnect:output_type -> midi.OnConnectResponse
+	65, // 118: midi.OutputPortService.OnDisconnect:output_type -> midi.OnDisconnectResponse
+	1,  // 119: midi.DeviceStatusService.DescribeContents:output_type -> midi.DescribeContentsResponse
+	67, // 120: midi.DeviceStatusService.GetDeviceInfo:output_type -> midi.GetDeviceInfoResponse
+	79, // 121: midi.DeviceStatusService.GetOutputPortOpenCount:output_type -> midi.GetOutputPortOpenCountResponse
+	81, // 122: midi.DeviceStatusService.IsInputPortOpen:output_type -> midi.IsInputPortOpenResponse
+	23, // 123: midi.DeviceStatusService.ToString:output_type -> midi.ToStringResponse
+	25, // 124: midi.DeviceStatusService.WriteToParcel:output_type -> midi.WriteToParcelResponse
+	31, // 125: midi.DeviceService.Close:output_type -> midi.CloseResponse
+	83, // 126: midi.DeviceService.ConnectPorts:output_type -> midi.ConnectPortsResponse
+	85, // 127: midi.DeviceService.GetInfo:output_type -> midi.GetInfoResponse
+	87, // 128: midi.DeviceService.OpenInputPort:output_type -> midi.OpenInputPortResponse
+	89, // 129: midi.DeviceService.OpenOutputPort:output_type -> midi.OpenOutputPortResponse
+	23, // 130: midi.DeviceService.ToString:output_type -> midi.ToStringResponse
+	31, // 131: midi.DeviceMidiConnectionService.Close:output_type -> midi.CloseResponse
+	66, // [66:132] is the sub-list for method output_type
+	0,  // [0:66] is the sub-list for method input_type
+	0,  // [0:0] is the sub-list for extension type_name
+	0,  // [0:0] is the sub-list for extension extendee
+	0,  // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_proto_midi_midi_proto_init() }
@@ -347,9 +4228,9 @@ func file_proto_midi_midi_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_midi_midi_proto_rawDesc), len(file_proto_midi_midi_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   6,
+			NumMessages:   90,
 			NumExtensions: 0,
-			NumServices:   1,
+			NumServices:   14,
 		},
 		GoTypes:           file_proto_midi_midi_proto_goTypes,
 		DependencyIndexes: file_proto_midi_midi_proto_depIdxs,

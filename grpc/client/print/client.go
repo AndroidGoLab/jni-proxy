@@ -9,6 +9,238 @@ import (
 	"google.golang.org/grpc"
 )
 
+// DocumentAdapterClient wraps the gRPC DocumentAdapterService client.
+type DocumentAdapterClient struct {
+	svc pb.DocumentAdapterServiceClient
+}
+
+// NewDocumentAdapterClient creates a new DocumentAdapter client.
+func NewDocumentAdapterClient(cc grpc.ClientConnInterface) *DocumentAdapterClient {
+	return &DocumentAdapterClient{
+		svc: pb.NewDocumentAdapterServiceClient(cc),
+	}
+}
+
+// OnFinish calls the OnFinish RPC.
+func (c *DocumentAdapterClient) OnFinish(ctx context.Context) error {
+	_, err := c.svc.OnFinish(ctx, &pb.OnFinishRequest{})
+	return err
+}
+
+// OnLayout calls the OnLayout RPC.
+func (c *DocumentAdapterClient) OnLayout(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64, arg4 int64) error {
+	_, err := c.svc.OnLayout(ctx, &pb.OnLayoutRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// OnStart calls the OnStart RPC.
+func (c *DocumentAdapterClient) OnStart(ctx context.Context) error {
+	_, err := c.svc.OnStart(ctx, &pb.OnStartRequest{})
+	return err
+}
+
+// OnWrite calls the OnWrite RPC.
+func (c *DocumentAdapterClient) OnWrite(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
+	_, err := c.svc.OnWrite(ctx, &pb.OnWriteRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// DocumentAdapterLayoutResultCallbackClient wraps the gRPC DocumentAdapterLayoutResultCallbackService client.
+type DocumentAdapterLayoutResultCallbackClient struct {
+	svc pb.DocumentAdapterLayoutResultCallbackServiceClient
+}
+
+// NewDocumentAdapterLayoutResultCallbackClient creates a new DocumentAdapterLayoutResultCallback client.
+func NewDocumentAdapterLayoutResultCallbackClient(cc grpc.ClientConnInterface) *DocumentAdapterLayoutResultCallbackClient {
+	return &DocumentAdapterLayoutResultCallbackClient{
+		svc: pb.NewDocumentAdapterLayoutResultCallbackServiceClient(cc),
+	}
+}
+
+// OnLayoutCancelled calls the OnLayoutCancelled RPC.
+func (c *DocumentAdapterLayoutResultCallbackClient) OnLayoutCancelled(ctx context.Context) error {
+	_, err := c.svc.OnLayoutCancelled(ctx, &pb.OnLayoutCancelledRequest{})
+	return err
+}
+
+// OnLayoutFailed calls the OnLayoutFailed RPC.
+func (c *DocumentAdapterLayoutResultCallbackClient) OnLayoutFailed(ctx context.Context, arg0 string) error {
+	_, err := c.svc.OnLayoutFailed(ctx, &pb.OnLayoutFailedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnLayoutFinished calls the OnLayoutFinished RPC.
+func (c *DocumentAdapterLayoutResultCallbackClient) OnLayoutFinished(ctx context.Context, arg0 int64, arg1 bool) error {
+	_, err := c.svc.OnLayoutFinished(ctx, &pb.OnLayoutFinishedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// DocumentAdapterWriteResultCallbackClient wraps the gRPC DocumentAdapterWriteResultCallbackService client.
+type DocumentAdapterWriteResultCallbackClient struct {
+	svc pb.DocumentAdapterWriteResultCallbackServiceClient
+}
+
+// NewDocumentAdapterWriteResultCallbackClient creates a new DocumentAdapterWriteResultCallback client.
+func NewDocumentAdapterWriteResultCallbackClient(cc grpc.ClientConnInterface) *DocumentAdapterWriteResultCallbackClient {
+	return &DocumentAdapterWriteResultCallbackClient{
+		svc: pb.NewDocumentAdapterWriteResultCallbackServiceClient(cc),
+	}
+}
+
+// OnWriteCancelled calls the OnWriteCancelled RPC.
+func (c *DocumentAdapterWriteResultCallbackClient) OnWriteCancelled(ctx context.Context) error {
+	_, err := c.svc.OnWriteCancelled(ctx, &pb.OnWriteCancelledRequest{})
+	return err
+}
+
+// OnWriteFailed calls the OnWriteFailed RPC.
+func (c *DocumentAdapterWriteResultCallbackClient) OnWriteFailed(ctx context.Context, arg0 string) error {
+	_, err := c.svc.OnWriteFailed(ctx, &pb.OnWriteFailedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnWriteFinished calls the OnWriteFinished RPC.
+func (c *DocumentAdapterWriteResultCallbackClient) OnWriteFinished(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnWriteFinished(ctx, &pb.OnWriteFinishedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// JobClient wraps the gRPC JobService client.
+type JobClient struct {
+	svc pb.JobServiceClient
+}
+
+// NewJobClient creates a new Job client.
+func NewJobClient(cc grpc.ClientConnInterface) *JobClient {
+	return &JobClient{
+		svc: pb.NewJobServiceClient(cc),
+	}
+}
+
+// Cancel calls the Cancel RPC.
+func (c *JobClient) Cancel(ctx context.Context) error {
+	_, err := c.svc.Cancel(ctx, &pb.CancelRequest{})
+	return err
+}
+
+// Equals calls the Equals RPC.
+func (c *JobClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetId calls the GetId RPC.
+func (c *JobClient) GetId(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInfo calls the GetInfo RPC.
+func (c *JobClient) GetInfo(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetInfo(ctx, &pb.GetInfoRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *JobClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsBlocked calls the IsBlocked RPC.
+func (c *JobClient) IsBlocked(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsBlocked(ctx, &pb.IsBlockedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsCancelled calls the IsCancelled RPC.
+func (c *JobClient) IsCancelled(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsCancelled(ctx, &pb.IsCancelledRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsCompleted calls the IsCompleted RPC.
+func (c *JobClient) IsCompleted(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsCompleted(ctx, &pb.IsCompletedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsFailed calls the IsFailed RPC.
+func (c *JobClient) IsFailed(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsFailed(ctx, &pb.IsFailedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsQueued calls the IsQueued RPC.
+func (c *JobClient) IsQueued(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsQueued(ctx, &pb.IsQueuedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsStarted calls the IsStarted RPC.
+func (c *JobClient) IsStarted(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsStarted(ctx, &pb.IsStartedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Restart calls the Restart RPC.
+func (c *JobClient) Restart(ctx context.Context) error {
+	_, err := c.svc.Restart(ctx, &pb.RestartRequest{})
+	return err
+}
+
 // ManagerClient wraps the gRPC ManagerService client.
 type ManagerClient struct {
 	svc pb.ManagerServiceClient
@@ -38,6 +270,1375 @@ func (c *ManagerClient) Print(ctx context.Context, arg0 string, arg1 int64, arg2
 		Arg0: arg0,
 		Arg1: arg1,
 		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// JobIdClient wraps the gRPC JobIdService client.
+type JobIdClient struct {
+	svc pb.JobIdServiceClient
+}
+
+// NewJobIdClient creates a new JobId client.
+func NewJobIdClient(cc grpc.ClientConnInterface) *JobIdClient {
+	return &JobIdClient{
+		svc: pb.NewJobIdServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *JobIdClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *JobIdClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *JobIdClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *JobIdClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// PageRangeClient wraps the gRPC PageRangeService client.
+type PageRangeClient struct {
+	svc pb.PageRangeServiceClient
+}
+
+// NewPageRangeClient creates a new PageRange client.
+func NewPageRangeClient(cc grpc.ClientConnInterface) *PageRangeClient {
+	return &PageRangeClient{
+		svc: pb.NewPageRangeServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *PageRangeClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.PageRangeDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *PageRangeClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.PageRangeEqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEnd calls the GetEnd RPC.
+func (c *PageRangeClient) GetEnd(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetEnd(ctx, &pb.GetEndRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStart calls the GetStart RPC.
+func (c *PageRangeClient) GetStart(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetStart(ctx, &pb.GetStartRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *PageRangeClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.PageRangeHashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *PageRangeClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *PageRangeClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.PageRangeWriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// ErIdClient wraps the gRPC ErIdService client.
+type ErIdClient struct {
+	svc pb.ErIdServiceClient
+}
+
+// NewErIdClient creates a new erId client.
+func NewErIdClient(cc grpc.ClientConnInterface) *ErIdClient {
+	return &ErIdClient{
+		svc: pb.NewErIdServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ErIdClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *ErIdClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLocalId calls the GetLocalId RPC.
+func (c *ErIdClient) GetLocalId(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetLocalId(ctx, &pb.GetLocalIdRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *ErIdClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *ErIdClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ErIdToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ErIdClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// JobInfoClient wraps the gRPC JobInfoService client.
+type JobInfoClient struct {
+	svc pb.JobInfoServiceClient
+}
+
+// NewJobInfoClient creates a new JobInfo client.
+func NewJobInfoClient(cc grpc.ClientConnInterface) *JobInfoClient {
+	return &JobInfoClient{
+		svc: pb.NewJobInfoServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *JobInfoClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAdvancedIntOption calls the GetAdvancedIntOption RPC.
+func (c *JobInfoClient) GetAdvancedIntOption(ctx context.Context, arg0 string) (int32, error) {
+	resp, err := c.svc.GetAdvancedIntOption(ctx, &pb.GetAdvancedIntOptionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAdvancedStringOption calls the GetAdvancedStringOption RPC.
+func (c *JobInfoClient) GetAdvancedStringOption(ctx context.Context, arg0 string) (string, error) {
+	resp, err := c.svc.GetAdvancedStringOption(ctx, &pb.GetAdvancedStringOptionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAttributes calls the GetAttributes RPC.
+func (c *JobInfoClient) GetAttributes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAttributes(ctx, &pb.GetAttributesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCopies calls the GetCopies RPC.
+func (c *JobInfoClient) GetCopies(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetCopies(ctx, &pb.GetCopiesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCreationTime calls the GetCreationTime RPC.
+func (c *JobInfoClient) GetCreationTime(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetCreationTime(ctx, &pb.GetCreationTimeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetId calls the GetId RPC.
+func (c *JobInfoClient) GetId(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLabel calls the GetLabel RPC.
+func (c *JobInfoClient) GetLabel(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetLabel(ctx, &pb.GetLabelRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPages calls the GetPages RPC.
+func (c *JobInfoClient) GetPages(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPages(ctx, &pb.GetPagesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPrinterId calls the GetPrinterId RPC.
+func (c *JobInfoClient) GetPrinterId(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPrinterId(ctx, &pb.GetPrinterIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetState calls the GetState RPC.
+func (c *JobInfoClient) GetState(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetState(ctx, &pb.GetStateRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasAdvancedOption calls the HasAdvancedOption RPC.
+func (c *JobInfoClient) HasAdvancedOption(ctx context.Context, arg0 string) (bool, error) {
+	resp, err := c.svc.HasAdvancedOption(ctx, &pb.HasAdvancedOptionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *JobInfoClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.JobInfoToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *JobInfoClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// JobInfoBuilderClient wraps the gRPC JobInfoBuilderService client.
+type JobInfoBuilderClient struct {
+	svc pb.JobInfoBuilderServiceClient
+}
+
+// NewJobInfoBuilderClient creates a new JobInfoBuilder client.
+func NewJobInfoBuilderClient(cc grpc.ClientConnInterface) *JobInfoBuilderClient {
+	return &JobInfoBuilderClient{
+		svc: pb.NewJobInfoBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *JobInfoBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PutAdvancedOption2 calls the PutAdvancedOption2 RPC.
+func (c *JobInfoBuilderClient) PutAdvancedOption2(ctx context.Context, arg0 string, arg1 int32) error {
+	_, err := c.svc.PutAdvancedOption2(ctx, &pb.PutAdvancedOption2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// PutAdvancedOption2_1 calls the PutAdvancedOption2_1 RPC.
+func (c *JobInfoBuilderClient) PutAdvancedOption2_1(ctx context.Context, arg0 string, arg1 string) error {
+	_, err := c.svc.PutAdvancedOption2_1(ctx, &pb.PutAdvancedOption2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// SetAttributes calls the SetAttributes RPC.
+func (c *JobInfoBuilderClient) SetAttributes(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetAttributes(ctx, &pb.SetAttributesRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetCopies calls the SetCopies RPC.
+func (c *JobInfoBuilderClient) SetCopies(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetCopies(ctx, &pb.SetCopiesRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetPages calls the SetPages RPC.
+func (c *JobInfoBuilderClient) SetPages(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetPages(ctx, &pb.SetPagesRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// AttributesClient wraps the gRPC AttributesService client.
+type AttributesClient struct {
+	svc pb.AttributesServiceClient
+}
+
+// NewAttributesClient creates a new Attributes client.
+func NewAttributesClient(cc grpc.ClientConnInterface) *AttributesClient {
+	return &AttributesClient{
+		svc: pb.NewAttributesServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *AttributesClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *AttributesClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetColorMode calls the GetColorMode RPC.
+func (c *AttributesClient) GetColorMode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetColorMode(ctx, &pb.GetColorModeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDuplexMode calls the GetDuplexMode RPC.
+func (c *AttributesClient) GetDuplexMode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetDuplexMode(ctx, &pb.GetDuplexModeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMediaSize calls the GetMediaSize RPC.
+func (c *AttributesClient) GetMediaSize(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetMediaSize(ctx, &pb.GetMediaSizeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMinMargins calls the GetMinMargins RPC.
+func (c *AttributesClient) GetMinMargins(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetMinMargins(ctx, &pb.GetMinMarginsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetResolution calls the GetResolution RPC.
+func (c *AttributesClient) GetResolution(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetResolution(ctx, &pb.GetResolutionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *AttributesClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *AttributesClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.AttributesToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *AttributesClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// AttributesBuilderClient wraps the gRPC AttributesBuilderService client.
+type AttributesBuilderClient struct {
+	svc pb.AttributesBuilderServiceClient
+}
+
+// NewAttributesBuilderClient creates a new AttributesBuilder client.
+func NewAttributesBuilderClient(cc grpc.ClientConnInterface) *AttributesBuilderClient {
+	return &AttributesBuilderClient{
+		svc: pb.NewAttributesBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *AttributesBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetColorMode calls the SetColorMode RPC.
+func (c *AttributesBuilderClient) SetColorMode(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetColorMode(ctx, &pb.SetColorModeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetDuplexMode calls the SetDuplexMode RPC.
+func (c *AttributesBuilderClient) SetDuplexMode(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetDuplexMode(ctx, &pb.SetDuplexModeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetMediaSize calls the SetMediaSize RPC.
+func (c *AttributesBuilderClient) SetMediaSize(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetMediaSize(ctx, &pb.SetMediaSizeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetMinMargins calls the SetMinMargins RPC.
+func (c *AttributesBuilderClient) SetMinMargins(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetMinMargins(ctx, &pb.SetMinMarginsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetResolution calls the SetResolution RPC.
+func (c *AttributesBuilderClient) SetResolution(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetResolution(ctx, &pb.SetResolutionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AttributesMarginsClient wraps the gRPC AttributesMarginsService client.
+type AttributesMarginsClient struct {
+	svc pb.AttributesMarginsServiceClient
+}
+
+// NewAttributesMarginsClient creates a new AttributesMargins client.
+func NewAttributesMarginsClient(cc grpc.ClientConnInterface) *AttributesMarginsClient {
+	return &AttributesMarginsClient{
+		svc: pb.NewAttributesMarginsServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *AttributesMarginsClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBottomMils calls the GetBottomMils RPC.
+func (c *AttributesMarginsClient) GetBottomMils(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetBottomMils(ctx, &pb.GetBottomMilsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLeftMils calls the GetLeftMils RPC.
+func (c *AttributesMarginsClient) GetLeftMils(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetLeftMils(ctx, &pb.GetLeftMilsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRightMils calls the GetRightMils RPC.
+func (c *AttributesMarginsClient) GetRightMils(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetRightMils(ctx, &pb.GetRightMilsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTopMils calls the GetTopMils RPC.
+func (c *AttributesMarginsClient) GetTopMils(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetTopMils(ctx, &pb.GetTopMilsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *AttributesMarginsClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *AttributesMarginsClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.AttributesMarginsToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// AttributesMediaSizeClient wraps the gRPC AttributesMediaSizeService client.
+type AttributesMediaSizeClient struct {
+	svc pb.AttributesMediaSizeServiceClient
+}
+
+// NewAttributesMediaSizeClient creates a new AttributesMediaSize client.
+func NewAttributesMediaSizeClient(cc grpc.ClientConnInterface) *AttributesMediaSizeClient {
+	return &AttributesMediaSizeClient{
+		svc: pb.NewAttributesMediaSizeServiceClient(cc),
+	}
+}
+
+// AsLandscape calls the AsLandscape RPC.
+func (c *AttributesMediaSizeClient) AsLandscape(ctx context.Context) (int64, error) {
+	resp, err := c.svc.AsLandscape(ctx, &pb.AsLandscapeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AsPortrait calls the AsPortrait RPC.
+func (c *AttributesMediaSizeClient) AsPortrait(ctx context.Context) (int64, error) {
+	resp, err := c.svc.AsPortrait(ctx, &pb.AsPortraitRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *AttributesMediaSizeClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHeightMils calls the GetHeightMils RPC.
+func (c *AttributesMediaSizeClient) GetHeightMils(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetHeightMils(ctx, &pb.GetHeightMilsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetId calls the GetId RPC.
+func (c *AttributesMediaSizeClient) GetId(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLabel calls the GetLabel RPC.
+func (c *AttributesMediaSizeClient) GetLabel(ctx context.Context, arg0 int64) (string, error) {
+	resp, err := c.svc.GetLabel(ctx, &pb.AttributesMediaSizeGetLabelRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWidthMils calls the GetWidthMils RPC.
+func (c *AttributesMediaSizeClient) GetWidthMils(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetWidthMils(ctx, &pb.GetWidthMilsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *AttributesMediaSizeClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsPortrait calls the IsPortrait RPC.
+func (c *AttributesMediaSizeClient) IsPortrait(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsPortrait(ctx, &pb.IsPortraitRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *AttributesMediaSizeClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.AttributesMediaSizeToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// AttributesResolutionClient wraps the gRPC AttributesResolutionService client.
+type AttributesResolutionClient struct {
+	svc pb.AttributesResolutionServiceClient
+}
+
+// NewAttributesResolutionClient creates a new AttributesResolution client.
+func NewAttributesResolutionClient(cc grpc.ClientConnInterface) *AttributesResolutionClient {
+	return &AttributesResolutionClient{
+		svc: pb.NewAttributesResolutionServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *AttributesResolutionClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHorizontalDpi calls the GetHorizontalDpi RPC.
+func (c *AttributesResolutionClient) GetHorizontalDpi(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetHorizontalDpi(ctx, &pb.GetHorizontalDpiRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetId calls the GetId RPC.
+func (c *AttributesResolutionClient) GetId(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLabel calls the GetLabel RPC.
+func (c *AttributesResolutionClient) GetLabel(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetLabel(ctx, &pb.GetLabelRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVerticalDpi calls the GetVerticalDpi RPC.
+func (c *AttributesResolutionClient) GetVerticalDpi(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetVerticalDpi(ctx, &pb.GetVerticalDpiRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *AttributesResolutionClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *AttributesResolutionClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.AttributesResolutionToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// ErInfoClient wraps the gRPC ErInfoService client.
+type ErInfoClient struct {
+	svc pb.ErInfoServiceClient
+}
+
+// NewErInfoClient creates a new erInfo client.
+func NewErInfoClient(cc grpc.ClientConnInterface) *ErInfoClient {
+	return &ErInfoClient{
+		svc: pb.NewErInfoServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ErInfoClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *ErInfoClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCapabilities calls the GetCapabilities RPC.
+func (c *ErInfoClient) GetCapabilities(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetCapabilities(ctx, &pb.GetCapabilitiesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDescription calls the GetDescription RPC.
+func (c *ErInfoClient) GetDescription(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetDescription(ctx, &pb.GetDescriptionRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetId calls the GetId RPC.
+func (c *ErInfoClient) GetId(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetName calls the GetName RPC.
+func (c *ErInfoClient) GetName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetName(ctx, &pb.GetNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStatus calls the GetStatus RPC.
+func (c *ErInfoClient) GetStatus(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetStatus(ctx, &pb.GetStatusRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *ErInfoClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *ErInfoClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ErInfoToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ErInfoClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ErInfoBuilderClient wraps the gRPC ErInfoBuilderService client.
+type ErInfoBuilderClient struct {
+	svc pb.ErInfoBuilderServiceClient
+}
+
+// NewErInfoBuilderClient creates a new erInfoBuilder client.
+func NewErInfoBuilderClient(cc grpc.ClientConnInterface) *ErInfoBuilderClient {
+	return &ErInfoBuilderClient{
+		svc: pb.NewErInfoBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *ErInfoBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetCapabilities calls the SetCapabilities RPC.
+func (c *ErInfoBuilderClient) SetCapabilities(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetCapabilities(ctx, &pb.SetCapabilitiesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetDescription calls the SetDescription RPC.
+func (c *ErInfoBuilderClient) SetDescription(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetDescription(ctx, &pb.SetDescriptionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetHasCustomPrinterIcon calls the SetHasCustomPrinterIcon RPC.
+func (c *ErInfoBuilderClient) SetHasCustomPrinterIcon(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetHasCustomPrinterIcon(ctx, &pb.SetHasCustomPrinterIconRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetIconResourceId calls the SetIconResourceId RPC.
+func (c *ErInfoBuilderClient) SetIconResourceId(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetIconResourceId(ctx, &pb.SetIconResourceIdRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetInfoIntent calls the SetInfoIntent RPC.
+func (c *ErInfoBuilderClient) SetInfoIntent(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetInfoIntent(ctx, &pb.SetInfoIntentRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetName calls the SetName RPC.
+func (c *ErInfoBuilderClient) SetName(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetName(ctx, &pb.SetNameRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetStatus calls the SetStatus RPC.
+func (c *ErInfoBuilderClient) SetStatus(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetStatus(ctx, &pb.SetStatusRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DocumentInfoClient wraps the gRPC DocumentInfoService client.
+type DocumentInfoClient struct {
+	svc pb.DocumentInfoServiceClient
+}
+
+// NewDocumentInfoClient creates a new DocumentInfo client.
+func NewDocumentInfoClient(cc grpc.ClientConnInterface) *DocumentInfoClient {
+	return &DocumentInfoClient{
+		svc: pb.NewDocumentInfoServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *DocumentInfoClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *DocumentInfoClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetContentType calls the GetContentType RPC.
+func (c *DocumentInfoClient) GetContentType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetContentType(ctx, &pb.GetContentTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDataSize calls the GetDataSize RPC.
+func (c *DocumentInfoClient) GetDataSize(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDataSize(ctx, &pb.GetDataSizeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetName calls the GetName RPC.
+func (c *DocumentInfoClient) GetName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetName(ctx, &pb.GetNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPageCount calls the GetPageCount RPC.
+func (c *DocumentInfoClient) GetPageCount(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetPageCount(ctx, &pb.GetPageCountRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *DocumentInfoClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *DocumentInfoClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.DocumentInfoToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *DocumentInfoClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// DocumentInfoBuilderClient wraps the gRPC DocumentInfoBuilderService client.
+type DocumentInfoBuilderClient struct {
+	svc pb.DocumentInfoBuilderServiceClient
+}
+
+// NewDocumentInfoBuilderClient creates a new DocumentInfoBuilder client.
+func NewDocumentInfoBuilderClient(cc grpc.ClientConnInterface) *DocumentInfoBuilderClient {
+	return &DocumentInfoBuilderClient{
+		svc: pb.NewDocumentInfoBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *DocumentInfoBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetContentType calls the SetContentType RPC.
+func (c *DocumentInfoBuilderClient) SetContentType(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetContentType(ctx, &pb.SetContentTypeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPageCount calls the SetPageCount RPC.
+func (c *DocumentInfoBuilderClient) SetPageCount(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetPageCount(ctx, &pb.SetPageCountRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ErCapabilitiesInfoClient wraps the gRPC ErCapabilitiesInfoService client.
+type ErCapabilitiesInfoClient struct {
+	svc pb.ErCapabilitiesInfoServiceClient
+}
+
+// NewErCapabilitiesInfoClient creates a new erCapabilitiesInfo client.
+func NewErCapabilitiesInfoClient(cc grpc.ClientConnInterface) *ErCapabilitiesInfoClient {
+	return &ErCapabilitiesInfoClient{
+		svc: pb.NewErCapabilitiesInfoServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ErCapabilitiesInfoClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *ErCapabilitiesInfoClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetColorModes calls the GetColorModes RPC.
+func (c *ErCapabilitiesInfoClient) GetColorModes(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetColorModes(ctx, &pb.GetColorModesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDefaults calls the GetDefaults RPC.
+func (c *ErCapabilitiesInfoClient) GetDefaults(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDefaults(ctx, &pb.GetDefaultsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDuplexModes calls the GetDuplexModes RPC.
+func (c *ErCapabilitiesInfoClient) GetDuplexModes(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetDuplexModes(ctx, &pb.GetDuplexModesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMinMargins calls the GetMinMargins RPC.
+func (c *ErCapabilitiesInfoClient) GetMinMargins(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetMinMargins(ctx, &pb.GetMinMarginsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *ErCapabilitiesInfoClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *ErCapabilitiesInfoClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ErCapabilitiesInfoToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ErCapabilitiesInfoClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ErCapabilitiesInfoBuilderClient wraps the gRPC ErCapabilitiesInfoBuilderService client.
+type ErCapabilitiesInfoBuilderClient struct {
+	svc pb.ErCapabilitiesInfoBuilderServiceClient
+}
+
+// NewErCapabilitiesInfoBuilderClient creates a new erCapabilitiesInfoBuilder client.
+func NewErCapabilitiesInfoBuilderClient(cc grpc.ClientConnInterface) *ErCapabilitiesInfoBuilderClient {
+	return &ErCapabilitiesInfoBuilderClient{
+		svc: pb.NewErCapabilitiesInfoBuilderServiceClient(cc),
+	}
+}
+
+// AddMediaSize calls the AddMediaSize RPC.
+func (c *ErCapabilitiesInfoBuilderClient) AddMediaSize(ctx context.Context, arg0 int64, arg1 bool) (int64, error) {
+	resp, err := c.svc.AddMediaSize(ctx, &pb.AddMediaSizeRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddResolution calls the AddResolution RPC.
+func (c *ErCapabilitiesInfoBuilderClient) AddResolution(ctx context.Context, arg0 int64, arg1 bool) (int64, error) {
+	resp, err := c.svc.AddResolution(ctx, &pb.AddResolutionRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Build calls the Build RPC.
+func (c *ErCapabilitiesInfoBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetColorModes calls the SetColorModes RPC.
+func (c *ErCapabilitiesInfoBuilderClient) SetColorModes(ctx context.Context, arg0 int32, arg1 int32) (int64, error) {
+	resp, err := c.svc.SetColorModes(ctx, &pb.SetColorModesRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetDuplexModes calls the SetDuplexModes RPC.
+func (c *ErCapabilitiesInfoBuilderClient) SetDuplexModes(ctx context.Context, arg0 int32, arg1 int32) (int64, error) {
+	resp, err := c.svc.SetDuplexModes(ctx, &pb.SetDuplexModesRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetMinMargins calls the SetMinMargins RPC.
+func (c *ErCapabilitiesInfoBuilderClient) SetMinMargins(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetMinMargins(ctx, &pb.SetMinMarginsRequest{
+		Arg0: arg0,
 	})
 	if err != nil {
 		return 0, err

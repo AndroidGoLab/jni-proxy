@@ -9,6 +9,27 @@ import (
 	"google.golang.org/grpc"
 )
 
+// OnObbStateChangeListenerClient wraps the gRPC OnObbStateChangeListenerService client.
+type OnObbStateChangeListenerClient struct {
+	svc pb.OnObbStateChangeListenerServiceClient
+}
+
+// NewOnObbStateChangeListenerClient creates a new OnObbStateChangeListener client.
+func NewOnObbStateChangeListenerClient(cc grpc.ClientConnInterface) *OnObbStateChangeListenerClient {
+	return &OnObbStateChangeListenerClient{
+		svc: pb.NewOnObbStateChangeListenerServiceClient(cc),
+	}
+}
+
+// OnObbStateChange calls the OnObbStateChange RPC.
+func (c *OnObbStateChangeListenerClient) OnObbStateChange(ctx context.Context, arg0 string, arg1 int32) error {
+	_, err := c.svc.OnObbStateChange(ctx, &pb.OnObbStateChangeRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
 // ManagerClient wraps the gRPC ManagerService client.
 type ManagerClient struct {
 	svc pb.ManagerServiceClient
@@ -258,6 +279,197 @@ func (c *ManagerClient) UnmountObb(ctx context.Context, arg0 string, arg1 bool, 
 func (c *ManagerClient) UnregisterStorageVolumeCallback(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.UnregisterStorageVolumeCallback(ctx, &pb.UnregisterStorageVolumeCallbackRequest{
 		Arg0: arg0,
+	})
+	return err
+}
+
+// ManagerStorageVolumeCallbackClient wraps the gRPC ManagerStorageVolumeCallbackService client.
+type ManagerStorageVolumeCallbackClient struct {
+	svc pb.ManagerStorageVolumeCallbackServiceClient
+}
+
+// NewManagerStorageVolumeCallbackClient creates a new ManagerStorageVolumeCallback client.
+func NewManagerStorageVolumeCallbackClient(cc grpc.ClientConnInterface) *ManagerStorageVolumeCallbackClient {
+	return &ManagerStorageVolumeCallbackClient{
+		svc: pb.NewManagerStorageVolumeCallbackServiceClient(cc),
+	}
+}
+
+// OnStateChanged calls the OnStateChanged RPC.
+func (c *ManagerStorageVolumeCallbackClient) OnStateChanged(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnStateChanged(ctx, &pb.OnStateChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// VolumeClient wraps the gRPC VolumeService client.
+type VolumeClient struct {
+	svc pb.VolumeServiceClient
+}
+
+// NewVolumeClient creates a new Volume client.
+func NewVolumeClient(cc grpc.ClientConnInterface) *VolumeClient {
+	return &VolumeClient{
+		svc: pb.NewVolumeServiceClient(cc),
+	}
+}
+
+// CreateAccessIntent calls the CreateAccessIntent RPC.
+func (c *VolumeClient) CreateAccessIntent(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.CreateAccessIntent(ctx, &pb.CreateAccessIntentRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateOpenDocumentTreeIntent calls the CreateOpenDocumentTreeIntent RPC.
+func (c *VolumeClient) CreateOpenDocumentTreeIntent(ctx context.Context) (int64, error) {
+	resp, err := c.svc.CreateOpenDocumentTreeIntent(ctx, &pb.CreateOpenDocumentTreeIntentRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *VolumeClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *VolumeClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDescription calls the GetDescription RPC.
+func (c *VolumeClient) GetDescription(ctx context.Context, arg0 int64) (string, error) {
+	resp, err := c.svc.GetDescription(ctx, &pb.GetDescriptionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDirectory calls the GetDirectory RPC.
+func (c *VolumeClient) GetDirectory(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDirectory(ctx, &pb.GetDirectoryRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMediaStoreVolumeName calls the GetMediaStoreVolumeName RPC.
+func (c *VolumeClient) GetMediaStoreVolumeName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetMediaStoreVolumeName(ctx, &pb.GetMediaStoreVolumeNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOwner calls the GetOwner RPC.
+func (c *VolumeClient) GetOwner(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetOwner(ctx, &pb.GetOwnerRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetState calls the GetState RPC.
+func (c *VolumeClient) GetState(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetState(ctx, &pb.GetStateRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStorageUuid calls the GetStorageUuid RPC.
+func (c *VolumeClient) GetStorageUuid(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetStorageUuid(ctx, &pb.GetStorageUuidRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUuid calls the GetUuid RPC.
+func (c *VolumeClient) GetUuid(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetUuid(ctx, &pb.GetUuidRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *VolumeClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsEmulated calls the IsEmulated RPC.
+func (c *VolumeClient) IsEmulated(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsEmulated(ctx, &pb.IsEmulatedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsPrimary calls the IsPrimary RPC.
+func (c *VolumeClient) IsPrimary(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsPrimary(ctx, &pb.IsPrimaryRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsRemovable calls the IsRemovable RPC.
+func (c *VolumeClient) IsRemovable(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsRemovable(ctx, &pb.IsRemovableRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *VolumeClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *VolumeClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
 	})
 	return err
 }

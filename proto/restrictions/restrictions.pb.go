@@ -12,6 +12,7 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -22,16 +23,252 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type OnReceiveRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnReceiveRequest) Reset() {
+	*x = OnReceiveRequest{}
+	mi := &file_proto_restrictions_restrictions_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnReceiveRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnReceiveRequest) ProtoMessage() {}
+
+func (x *OnReceiveRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_restrictions_restrictions_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnReceiveRequest.ProtoReflect.Descriptor instead.
+func (*OnReceiveRequest) Descriptor() ([]byte, []int) {
+	return file_proto_restrictions_restrictions_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *OnReceiveRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnReceiveRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type OnReceiveResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnReceiveResponse) Reset() {
+	*x = OnReceiveResponse{}
+	mi := &file_proto_restrictions_restrictions_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnReceiveResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnReceiveResponse) ProtoMessage() {}
+
+func (x *OnReceiveResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_restrictions_restrictions_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnReceiveResponse.ProtoReflect.Descriptor instead.
+func (*OnReceiveResponse) Descriptor() ([]byte, []int) {
+	return file_proto_restrictions_restrictions_proto_rawDescGZIP(), []int{1}
+}
+
+type OnRequestPermissionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          string                 `protobuf:"bytes,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          string                 `protobuf:"bytes,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	Arg4          int64                  `protobuf:"varint,5,opt,name=arg4,proto3" json:"arg4,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnRequestPermissionRequest) Reset() {
+	*x = OnRequestPermissionRequest{}
+	mi := &file_proto_restrictions_restrictions_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnRequestPermissionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnRequestPermissionRequest) ProtoMessage() {}
+
+func (x *OnRequestPermissionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_restrictions_restrictions_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnRequestPermissionRequest.ProtoReflect.Descriptor instead.
+func (*OnRequestPermissionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_restrictions_restrictions_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *OnRequestPermissionRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnRequestPermissionRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *OnRequestPermissionRequest) GetArg2() string {
+	if x != nil {
+		return x.Arg2
+	}
+	return ""
+}
+
+func (x *OnRequestPermissionRequest) GetArg3() string {
+	if x != nil {
+		return x.Arg3
+	}
+	return ""
+}
+
+func (x *OnRequestPermissionRequest) GetArg4() int64 {
+	if x != nil {
+		return x.Arg4
+	}
+	return 0
+}
+
+type OnRequestPermissionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnRequestPermissionResponse) Reset() {
+	*x = OnRequestPermissionResponse{}
+	mi := &file_proto_restrictions_restrictions_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnRequestPermissionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnRequestPermissionResponse) ProtoMessage() {}
+
+func (x *OnRequestPermissionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_restrictions_restrictions_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnRequestPermissionResponse.ProtoReflect.Descriptor instead.
+func (*OnRequestPermissionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_restrictions_restrictions_proto_rawDescGZIP(), []int{3}
+}
+
 var File_proto_restrictions_restrictions_proto protoreflect.FileDescriptor
 
 const file_proto_restrictions_restrictions_proto_rawDesc = "" +
 	"\n" +
-	"%proto/restrictions/restrictions.proto\x12\frestrictionsB6Z4github.com/AndroidGoLab/jni-proxy/proto/restrictionsb\x06proto3"
+	"%proto/restrictions/restrictions.proto\x12\frestrictions\":\n" +
+	"\x10OnReceiveRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x13\n" +
+	"\x11OnReceiveResponse\"\x80\x01\n" +
+	"\x1aOnRequestPermissionRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\tR\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\tR\x04arg3\x12\x12\n" +
+	"\x04arg4\x18\x05 \x01(\x03R\x04arg4\"\x1d\n" +
+	"\x1bOnRequestPermissionResponse2\xcb\x01\n" +
+	"\x0fReceiverService\x12L\n" +
+	"\tOnReceive\x12\x1e.restrictions.OnReceiveRequest\x1a\x1f.restrictions.OnReceiveResponse\x12j\n" +
+	"\x13OnRequestPermission\x12(.restrictions.OnRequestPermissionRequest\x1a).restrictions.OnRequestPermissionResponseB6Z4github.com/AndroidGoLab/jni-proxy/proto/restrictionsb\x06proto3"
 
-var file_proto_restrictions_restrictions_proto_goTypes = []any{}
+var (
+	file_proto_restrictions_restrictions_proto_rawDescOnce sync.Once
+	file_proto_restrictions_restrictions_proto_rawDescData []byte
+)
+
+func file_proto_restrictions_restrictions_proto_rawDescGZIP() []byte {
+	file_proto_restrictions_restrictions_proto_rawDescOnce.Do(func() {
+		file_proto_restrictions_restrictions_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_proto_restrictions_restrictions_proto_rawDesc), len(file_proto_restrictions_restrictions_proto_rawDesc)))
+	})
+	return file_proto_restrictions_restrictions_proto_rawDescData
+}
+
+var file_proto_restrictions_restrictions_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
+var file_proto_restrictions_restrictions_proto_goTypes = []any{
+	(*OnReceiveRequest)(nil),            // 0: restrictions.OnReceiveRequest
+	(*OnReceiveResponse)(nil),           // 1: restrictions.OnReceiveResponse
+	(*OnRequestPermissionRequest)(nil),  // 2: restrictions.OnRequestPermissionRequest
+	(*OnRequestPermissionResponse)(nil), // 3: restrictions.OnRequestPermissionResponse
+}
 var file_proto_restrictions_restrictions_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
+	0, // 0: restrictions.ReceiverService.OnReceive:input_type -> restrictions.OnReceiveRequest
+	2, // 1: restrictions.ReceiverService.OnRequestPermission:input_type -> restrictions.OnRequestPermissionRequest
+	1, // 2: restrictions.ReceiverService.OnReceive:output_type -> restrictions.OnReceiveResponse
+	3, // 3: restrictions.ReceiverService.OnRequestPermission:output_type -> restrictions.OnRequestPermissionResponse
+	2, // [2:4] is the sub-list for method output_type
+	0, // [0:2] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
 	0, // [0:0] is the sub-list for extension extendee
 	0, // [0:0] is the sub-list for field type_name
@@ -48,12 +285,13 @@ func file_proto_restrictions_restrictions_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_restrictions_restrictions_proto_rawDesc), len(file_proto_restrictions_restrictions_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   4,
 			NumExtensions: 0,
-			NumServices:   0,
+			NumServices:   1,
 		},
 		GoTypes:           file_proto_restrictions_restrictions_proto_goTypes,
 		DependencyIndexes: file_proto_restrictions_restrictions_proto_depIdxs,
+		MessageInfos:      file_proto_restrictions_restrictions_proto_msgTypes,
 	}.Build()
 	File_proto_restrictions_restrictions_proto = out.File
 	file_proto_restrictions_restrictions_proto_goTypes = nil

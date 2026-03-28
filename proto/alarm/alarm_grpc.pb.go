@@ -691,3 +691,323 @@ var ManagerService_ServiceDesc = grpc.ServiceDesc{
 	Streams:  []grpc.StreamDesc{},
 	Metadata: "proto/alarm/alarm.proto",
 }
+
+const (
+	ManagerAlarmClockInfoService_DescribeContents_FullMethodName = "/alarm.ManagerAlarmClockInfoService/DescribeContents"
+	ManagerAlarmClockInfoService_GetShowIntent_FullMethodName    = "/alarm.ManagerAlarmClockInfoService/GetShowIntent"
+	ManagerAlarmClockInfoService_GetTriggerTime_FullMethodName   = "/alarm.ManagerAlarmClockInfoService/GetTriggerTime"
+	ManagerAlarmClockInfoService_WriteToParcel_FullMethodName    = "/alarm.ManagerAlarmClockInfoService/WriteToParcel"
+)
+
+// ManagerAlarmClockInfoServiceClient is the client API for ManagerAlarmClockInfoService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ManagerAlarmClockInfoServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetShowIntent(ctx context.Context, in *GetShowIntentRequest, opts ...grpc.CallOption) (*GetShowIntentResponse, error)
+	GetTriggerTime(ctx context.Context, in *GetTriggerTimeRequest, opts ...grpc.CallOption) (*GetTriggerTimeResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type managerAlarmClockInfoServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewManagerAlarmClockInfoServiceClient(cc grpc.ClientConnInterface) ManagerAlarmClockInfoServiceClient {
+	return &managerAlarmClockInfoServiceClient{cc}
+}
+
+func (c *managerAlarmClockInfoServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, ManagerAlarmClockInfoService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerAlarmClockInfoServiceClient) GetShowIntent(ctx context.Context, in *GetShowIntentRequest, opts ...grpc.CallOption) (*GetShowIntentResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetShowIntentResponse)
+	err := c.cc.Invoke(ctx, ManagerAlarmClockInfoService_GetShowIntent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerAlarmClockInfoServiceClient) GetTriggerTime(ctx context.Context, in *GetTriggerTimeRequest, opts ...grpc.CallOption) (*GetTriggerTimeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTriggerTimeResponse)
+	err := c.cc.Invoke(ctx, ManagerAlarmClockInfoService_GetTriggerTime_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerAlarmClockInfoServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, ManagerAlarmClockInfoService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ManagerAlarmClockInfoServiceServer is the server API for ManagerAlarmClockInfoService service.
+// All implementations must embed UnimplementedManagerAlarmClockInfoServiceServer
+// for forward compatibility.
+type ManagerAlarmClockInfoServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetShowIntent(context.Context, *GetShowIntentRequest) (*GetShowIntentResponse, error)
+	GetTriggerTime(context.Context, *GetTriggerTimeRequest) (*GetTriggerTimeResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedManagerAlarmClockInfoServiceServer()
+}
+
+// UnimplementedManagerAlarmClockInfoServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedManagerAlarmClockInfoServiceServer struct{}
+
+func (UnimplementedManagerAlarmClockInfoServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedManagerAlarmClockInfoServiceServer) GetShowIntent(context.Context, *GetShowIntentRequest) (*GetShowIntentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetShowIntent not implemented")
+}
+func (UnimplementedManagerAlarmClockInfoServiceServer) GetTriggerTime(context.Context, *GetTriggerTimeRequest) (*GetTriggerTimeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTriggerTime not implemented")
+}
+func (UnimplementedManagerAlarmClockInfoServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedManagerAlarmClockInfoServiceServer) mustEmbedUnimplementedManagerAlarmClockInfoServiceServer() {
+}
+func (UnimplementedManagerAlarmClockInfoServiceServer) testEmbeddedByValue() {}
+
+// UnsafeManagerAlarmClockInfoServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ManagerAlarmClockInfoServiceServer will
+// result in compilation errors.
+type UnsafeManagerAlarmClockInfoServiceServer interface {
+	mustEmbedUnimplementedManagerAlarmClockInfoServiceServer()
+}
+
+func RegisterManagerAlarmClockInfoServiceServer(s grpc.ServiceRegistrar, srv ManagerAlarmClockInfoServiceServer) {
+	// If the following call panics, it indicates UnimplementedManagerAlarmClockInfoServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ManagerAlarmClockInfoService_ServiceDesc, srv)
+}
+
+func _ManagerAlarmClockInfoService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerAlarmClockInfoServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerAlarmClockInfoService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerAlarmClockInfoServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerAlarmClockInfoService_GetShowIntent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetShowIntentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerAlarmClockInfoServiceServer).GetShowIntent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerAlarmClockInfoService_GetShowIntent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerAlarmClockInfoServiceServer).GetShowIntent(ctx, req.(*GetShowIntentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerAlarmClockInfoService_GetTriggerTime_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTriggerTimeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerAlarmClockInfoServiceServer).GetTriggerTime(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerAlarmClockInfoService_GetTriggerTime_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerAlarmClockInfoServiceServer).GetTriggerTime(ctx, req.(*GetTriggerTimeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerAlarmClockInfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerAlarmClockInfoServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerAlarmClockInfoService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerAlarmClockInfoServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ManagerAlarmClockInfoService_ServiceDesc is the grpc.ServiceDesc for ManagerAlarmClockInfoService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ManagerAlarmClockInfoService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "alarm.ManagerAlarmClockInfoService",
+	HandlerType: (*ManagerAlarmClockInfoServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _ManagerAlarmClockInfoService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetShowIntent",
+			Handler:    _ManagerAlarmClockInfoService_GetShowIntent_Handler,
+		},
+		{
+			MethodName: "GetTriggerTime",
+			Handler:    _ManagerAlarmClockInfoService_GetTriggerTime_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _ManagerAlarmClockInfoService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/alarm/alarm.proto",
+}
+
+const (
+	ManagerOnAlarmListenerService_OnAlarm_FullMethodName = "/alarm.ManagerOnAlarmListenerService/OnAlarm"
+)
+
+// ManagerOnAlarmListenerServiceClient is the client API for ManagerOnAlarmListenerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ManagerOnAlarmListenerServiceClient interface {
+	OnAlarm(ctx context.Context, in *OnAlarmRequest, opts ...grpc.CallOption) (*OnAlarmResponse, error)
+}
+
+type managerOnAlarmListenerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewManagerOnAlarmListenerServiceClient(cc grpc.ClientConnInterface) ManagerOnAlarmListenerServiceClient {
+	return &managerOnAlarmListenerServiceClient{cc}
+}
+
+func (c *managerOnAlarmListenerServiceClient) OnAlarm(ctx context.Context, in *OnAlarmRequest, opts ...grpc.CallOption) (*OnAlarmResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnAlarmResponse)
+	err := c.cc.Invoke(ctx, ManagerOnAlarmListenerService_OnAlarm_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ManagerOnAlarmListenerServiceServer is the server API for ManagerOnAlarmListenerService service.
+// All implementations must embed UnimplementedManagerOnAlarmListenerServiceServer
+// for forward compatibility.
+type ManagerOnAlarmListenerServiceServer interface {
+	OnAlarm(context.Context, *OnAlarmRequest) (*OnAlarmResponse, error)
+	mustEmbedUnimplementedManagerOnAlarmListenerServiceServer()
+}
+
+// UnimplementedManagerOnAlarmListenerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedManagerOnAlarmListenerServiceServer struct{}
+
+func (UnimplementedManagerOnAlarmListenerServiceServer) OnAlarm(context.Context, *OnAlarmRequest) (*OnAlarmResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnAlarm not implemented")
+}
+func (UnimplementedManagerOnAlarmListenerServiceServer) mustEmbedUnimplementedManagerOnAlarmListenerServiceServer() {
+}
+func (UnimplementedManagerOnAlarmListenerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeManagerOnAlarmListenerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ManagerOnAlarmListenerServiceServer will
+// result in compilation errors.
+type UnsafeManagerOnAlarmListenerServiceServer interface {
+	mustEmbedUnimplementedManagerOnAlarmListenerServiceServer()
+}
+
+func RegisterManagerOnAlarmListenerServiceServer(s grpc.ServiceRegistrar, srv ManagerOnAlarmListenerServiceServer) {
+	// If the following call panics, it indicates UnimplementedManagerOnAlarmListenerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ManagerOnAlarmListenerService_ServiceDesc, srv)
+}
+
+func _ManagerOnAlarmListenerService_OnAlarm_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnAlarmRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerOnAlarmListenerServiceServer).OnAlarm(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerOnAlarmListenerService_OnAlarm_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerOnAlarmListenerServiceServer).OnAlarm(ctx, req.(*OnAlarmRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ManagerOnAlarmListenerService_ServiceDesc is the grpc.ServiceDesc for ManagerOnAlarmListenerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ManagerOnAlarmListenerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "alarm.ManagerOnAlarmListenerService",
+	HandlerType: (*ManagerOnAlarmListenerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnAlarm",
+			Handler:    _ManagerOnAlarmListenerService_OnAlarm_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/alarm/alarm.proto",
+}

@@ -5,3 +5,96 @@ syntax = "proto3";
 package build;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/build";
+
+message NewBuildRequest {
+}
+
+message NewBuildResponse {
+  int64 result = 1;
+}
+
+message GetMajorSdkVersionRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetMajorSdkVersionResponse {
+  int32 result = 1;
+}
+
+message GetMinorSdkVersionRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetMinorSdkVersionResponse {
+  int32 result = 1;
+}
+
+message GetRadioVersionRequest {
+  int64 handle = 1;
+}
+
+message GetRadioVersionResponse {
+  string result = 1;
+}
+
+message GetSerialRequest {
+  int64 handle = 1;
+}
+
+message GetSerialResponse {
+  string result = 1;
+}
+
+message EqualsRequest {
+  int64 arg0 = 1;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message GetBuildTimeMillisRequest {
+}
+
+message GetBuildTimeMillisResponse {
+  int64 result = 1;
+}
+
+message GetFingerprintRequest {
+}
+
+message GetFingerprintResponse {
+  string result = 1;
+}
+
+message GetNameRequest {
+}
+
+message GetNameResponse {
+  string result = 1;
+}
+
+message HashCodeRequest {
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+service BuildService {
+  rpc NewBuild (NewBuildRequest) returns (NewBuildResponse);
+  rpc GetMajorSdkVersion (GetMajorSdkVersionRequest) returns (GetMajorSdkVersionResponse);
+  rpc GetMinorSdkVersion (GetMinorSdkVersionRequest) returns (GetMinorSdkVersionResponse);
+  rpc GetRadioVersion (GetRadioVersionRequest) returns (GetRadioVersionResponse);
+  rpc GetSerial (GetSerialRequest) returns (GetSerialResponse);
+}
+
+service PartitionService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetBuildTimeMillis (GetBuildTimeMillisRequest) returns (GetBuildTimeMillisResponse);
+  rpc GetFingerprint (GetFingerprintRequest) returns (GetFingerprintResponse);
+  rpc GetName (GetNameRequest) returns (GetNameResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}

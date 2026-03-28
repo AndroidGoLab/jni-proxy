@@ -5,3 +5,455 @@ syntax = "proto3";
 package gsm;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/gsm";
+
+message NewSmsMessageRequest {
+}
+
+message NewSmsMessageResponse {
+  int64 result = 1;
+}
+
+message GetDisplayMessageBodyRequest {
+  int64 handle = 1;
+}
+
+message GetDisplayMessageBodyResponse {
+  string result = 1;
+}
+
+message GetDisplayOriginatingAddressRequest {
+  int64 handle = 1;
+}
+
+message GetDisplayOriginatingAddressResponse {
+  string result = 1;
+}
+
+message GetEmailBodyRequest {
+  int64 handle = 1;
+}
+
+message GetEmailBodyResponse {
+  string result = 1;
+}
+
+message GetEmailFromRequest {
+  int64 handle = 1;
+}
+
+message GetEmailFromResponse {
+  string result = 1;
+}
+
+message GetIndexOnSimRequest {
+  int64 handle = 1;
+}
+
+message GetIndexOnSimResponse {
+  int32 result = 1;
+}
+
+message GetMessageBodyRequest {
+  int64 handle = 1;
+}
+
+message GetMessageBodyResponse {
+  string result = 1;
+}
+
+message GetMessageClassRequest {
+  int64 handle = 1;
+}
+
+message GetMessageClassResponse {
+  int64 result = 1;
+}
+
+message GetOriginatingAddressRequest {
+  int64 handle = 1;
+}
+
+message GetOriginatingAddressResponse {
+  string result = 1;
+}
+
+message GetPduRequest {
+  int64 handle = 1;
+}
+
+message GetPduResponse {
+  int64 result = 1;
+}
+
+message GetProtocolIdentifierRequest {
+  int64 handle = 1;
+}
+
+message GetProtocolIdentifierResponse {
+  int32 result = 1;
+}
+
+message GetPseudoSubjectRequest {
+  int64 handle = 1;
+}
+
+message GetPseudoSubjectResponse {
+  string result = 1;
+}
+
+message GetServiceCenterAddressRequest {
+  int64 handle = 1;
+}
+
+message GetServiceCenterAddressResponse {
+  string result = 1;
+}
+
+message GetStatusRequest {
+  int64 handle = 1;
+}
+
+message GetStatusResponse {
+  int32 result = 1;
+}
+
+message GetStatusOnSimRequest {
+  int64 handle = 1;
+}
+
+message GetStatusOnSimResponse {
+  int32 result = 1;
+}
+
+message GetTimestampMillisRequest {
+  int64 handle = 1;
+}
+
+message GetTimestampMillisResponse {
+  int64 result = 1;
+}
+
+message GetUserDataRequest {
+  int64 handle = 1;
+}
+
+message GetUserDataResponse {
+  int64 result = 1;
+}
+
+message IsCphsMwiMessageRequest {
+  int64 handle = 1;
+}
+
+message IsCphsMwiMessageResponse {
+  bool result = 1;
+}
+
+message IsEmailRequest {
+  int64 handle = 1;
+}
+
+message IsEmailResponse {
+  bool result = 1;
+}
+
+message IsMWIClearMessageRequest {
+  int64 handle = 1;
+}
+
+message IsMWIClearMessageResponse {
+  bool result = 1;
+}
+
+message IsMWISetMessageRequest {
+  int64 handle = 1;
+}
+
+message IsMWISetMessageResponse {
+  bool result = 1;
+}
+
+message IsMwiDontStoreRequest {
+  int64 handle = 1;
+}
+
+message IsMwiDontStoreResponse {
+  bool result = 1;
+}
+
+message IsReplaceRequest {
+  int64 handle = 1;
+}
+
+message IsReplaceResponse {
+  bool result = 1;
+}
+
+message IsReplyPathPresentRequest {
+  int64 handle = 1;
+}
+
+message IsReplyPathPresentResponse {
+  bool result = 1;
+}
+
+message IsStatusReportMessageRequest {
+  int64 handle = 1;
+}
+
+message IsStatusReportMessageResponse {
+  bool result = 1;
+}
+
+message CalculateLength2Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  bool arg1 = 3;
+}
+
+message CalculateLength2Response {
+  int64 result = 1;
+}
+
+message CalculateLength2_1Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  bool arg1 = 3;
+}
+
+message CalculateLength2_1Response {
+  int64 result = 1;
+}
+
+message CreateFromPduRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message CreateFromPduResponse {
+  int64 result = 1;
+}
+
+message GetSubmitPdu4Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  string arg1 = 3;
+  string arg2 = 4;
+  bool arg3 = 5;
+}
+
+message GetSubmitPdu4Response {
+  int64 result = 1;
+}
+
+message GetSubmitPdu5_1Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  string arg1 = 3;
+  int32 arg2 = 4;
+  int64 arg3 = 5;
+  bool arg4 = 6;
+}
+
+message GetSubmitPdu5_1Response {
+  int64 result = 1;
+}
+
+message GetTPLayerLengthForPDURequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message GetTPLayerLengthForPDUResponse {
+  int32 result = 1;
+}
+
+message ValuesRequest {
+}
+
+message ValuesResponse {
+  int64 result = 1;
+}
+
+message ValueOfRequest {
+  string arg0 = 1;
+}
+
+message ValueOfResponse {
+  int64 result = 1;
+}
+
+message ToStringRequest {
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message SendDataMessageRequest {
+  string arg0 = 1;
+  string arg1 = 2;
+  int32 arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+  int64 arg5 = 6;
+}
+
+message SendDataMessageResponse {
+}
+
+message SendTextMessageRequest {
+  string arg0 = 1;
+  string arg1 = 2;
+  string arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+}
+
+message SendTextMessageResponse {
+}
+
+message GetDefaultRequest {
+}
+
+message GetDefaultResponse {
+  int64 result = 1;
+}
+
+message NewCellLocationRequest {
+}
+
+message NewCellLocationResponse {
+  int64 result = 1;
+}
+
+message EqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message FillInNotifierBundleRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message FillInNotifierBundleResponse {
+}
+
+message GetCidRequest {
+  int64 handle = 1;
+}
+
+message GetCidResponse {
+  int32 result = 1;
+}
+
+message GetLacRequest {
+  int64 handle = 1;
+}
+
+message GetLacResponse {
+  int32 result = 1;
+}
+
+message GetPscRequest {
+  int64 handle = 1;
+}
+
+message GetPscResponse {
+  int32 result = 1;
+}
+
+message HashCodeRequest {
+  int64 handle = 1;
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message SetLacAndCidRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message SetLacAndCidResponse {
+}
+
+message SetStateInvalidRequest {
+  int64 handle = 1;
+}
+
+message SetStateInvalidResponse {
+}
+
+message CellLocationToStringRequest {
+  int64 handle = 1;
+}
+
+service SmsMessageService {
+  rpc NewSmsMessage (NewSmsMessageRequest) returns (NewSmsMessageResponse);
+  rpc GetDisplayMessageBody (GetDisplayMessageBodyRequest) returns (GetDisplayMessageBodyResponse);
+  rpc GetDisplayOriginatingAddress (GetDisplayOriginatingAddressRequest) returns (GetDisplayOriginatingAddressResponse);
+  rpc GetEmailBody (GetEmailBodyRequest) returns (GetEmailBodyResponse);
+  rpc GetEmailFrom (GetEmailFromRequest) returns (GetEmailFromResponse);
+  rpc GetIndexOnSim (GetIndexOnSimRequest) returns (GetIndexOnSimResponse);
+  rpc GetMessageBody (GetMessageBodyRequest) returns (GetMessageBodyResponse);
+  rpc GetMessageClass (GetMessageClassRequest) returns (GetMessageClassResponse);
+  rpc GetOriginatingAddress (GetOriginatingAddressRequest) returns (GetOriginatingAddressResponse);
+  rpc GetPdu (GetPduRequest) returns (GetPduResponse);
+  rpc GetProtocolIdentifier (GetProtocolIdentifierRequest) returns (GetProtocolIdentifierResponse);
+  rpc GetPseudoSubject (GetPseudoSubjectRequest) returns (GetPseudoSubjectResponse);
+  rpc GetServiceCenterAddress (GetServiceCenterAddressRequest) returns (GetServiceCenterAddressResponse);
+  rpc GetStatus (GetStatusRequest) returns (GetStatusResponse);
+  rpc GetStatusOnSim (GetStatusOnSimRequest) returns (GetStatusOnSimResponse);
+  rpc GetTimestampMillis (GetTimestampMillisRequest) returns (GetTimestampMillisResponse);
+  rpc GetUserData (GetUserDataRequest) returns (GetUserDataResponse);
+  rpc IsCphsMwiMessage (IsCphsMwiMessageRequest) returns (IsCphsMwiMessageResponse);
+  rpc IsEmail (IsEmailRequest) returns (IsEmailResponse);
+  rpc IsMWIClearMessage (IsMWIClearMessageRequest) returns (IsMWIClearMessageResponse);
+  rpc IsMWISetMessage (IsMWISetMessageRequest) returns (IsMWISetMessageResponse);
+  rpc IsMwiDontStore (IsMwiDontStoreRequest) returns (IsMwiDontStoreResponse);
+  rpc IsReplace (IsReplaceRequest) returns (IsReplaceResponse);
+  rpc IsReplyPathPresent (IsReplyPathPresentRequest) returns (IsReplyPathPresentResponse);
+  rpc IsStatusReportMessage (IsStatusReportMessageRequest) returns (IsStatusReportMessageResponse);
+  rpc CalculateLength2 (CalculateLength2Request) returns (CalculateLength2Response);
+  rpc CalculateLength2_1 (CalculateLength2_1Request) returns (CalculateLength2_1Response);
+  rpc CreateFromPdu (CreateFromPduRequest) returns (CreateFromPduResponse);
+  rpc GetSubmitPdu4 (GetSubmitPdu4Request) returns (GetSubmitPdu4Response);
+  rpc GetSubmitPdu5_1 (GetSubmitPdu5_1Request) returns (GetSubmitPdu5_1Response);
+  rpc GetTPLayerLengthForPDU (GetTPLayerLengthForPDURequest) returns (GetTPLayerLengthForPDUResponse);
+}
+
+service SmsMessageMessageClassService {
+  rpc Values (ValuesRequest) returns (ValuesResponse);
+  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
+}
+
+service SmsMessageSubmitPduService {
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service SmsManagerService {
+  rpc SendDataMessage (SendDataMessageRequest) returns (SendDataMessageResponse);
+  rpc SendTextMessage (SendTextMessageRequest) returns (SendTextMessageResponse);
+  rpc GetDefault (GetDefaultRequest) returns (GetDefaultResponse);
+}
+
+service CellLocationService {
+  rpc NewCellLocation (NewCellLocationRequest) returns (NewCellLocationResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc FillInNotifierBundle (FillInNotifierBundleRequest) returns (FillInNotifierBundleResponse);
+  rpc GetCid (GetCidRequest) returns (GetCidResponse);
+  rpc GetLac (GetLacRequest) returns (GetLacResponse);
+  rpc GetPsc (GetPscRequest) returns (GetPscResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc SetLacAndCid (SetLacAndCidRequest) returns (SetLacAndCidResponse);
+  rpc SetStateInvalid (SetStateInvalidRequest) returns (SetStateInvalidResponse);
+  rpc ToString (CellLocationToStringRequest) returns (ToStringResponse);
+}

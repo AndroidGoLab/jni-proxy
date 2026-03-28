@@ -5,3 +5,396 @@ syntax = "proto3";
 package tech;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/tech";
+
+message CloseRequest {
+}
+
+message CloseResponse {
+}
+
+message ConnectRequest {
+}
+
+message ConnectResponse {
+}
+
+message GetManufacturerRequest {
+}
+
+message GetManufacturerResponse {
+  int64 result = 1;
+}
+
+message GetMaxTransceiveLengthRequest {
+}
+
+message GetMaxTransceiveLengthResponse {
+  int32 result = 1;
+}
+
+message GetSystemCodeRequest {
+}
+
+message GetSystemCodeResponse {
+  int64 result = 1;
+}
+
+message GetTagRequest {
+}
+
+message GetTagResponse {
+  int64 result = 1;
+}
+
+message GetTimeoutRequest {
+}
+
+message GetTimeoutResponse {
+  int32 result = 1;
+}
+
+message IsConnectedRequest {
+}
+
+message IsConnectedResponse {
+  bool result = 1;
+}
+
+message SetTimeoutRequest {
+  int32 arg0 = 1;
+}
+
+message SetTimeoutResponse {
+}
+
+message TransceiveRequest {
+  int64 arg0 = 1;
+}
+
+message TransceiveResponse {
+  int64 result = 1;
+}
+
+message GetRequest {
+  int64 arg0 = 1;
+}
+
+message GetResponse {
+  int64 result = 1;
+}
+
+message GetTypeRequest {
+}
+
+message GetTypeResponse {
+  int32 result = 1;
+}
+
+message ReadPagesRequest {
+  int32 arg0 = 1;
+}
+
+message ReadPagesResponse {
+  int64 result = 1;
+}
+
+message WritePageRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message WritePageResponse {
+}
+
+message GetApplicationDataRequest {
+}
+
+message GetApplicationDataResponse {
+  int64 result = 1;
+}
+
+message GetProtocolInfoRequest {
+}
+
+message GetProtocolInfoResponse {
+  int64 result = 1;
+}
+
+message GetDsfIdRequest {
+}
+
+message GetDsfIdResponse {
+  uint32 result = 1;
+}
+
+message GetResponseFlagsRequest {
+}
+
+message GetResponseFlagsResponse {
+  uint32 result = 1;
+}
+
+message AuthenticateSectorWithKeyARequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message AuthenticateSectorWithKeyAResponse {
+  bool result = 1;
+}
+
+message AuthenticateSectorWithKeyBRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message AuthenticateSectorWithKeyBResponse {
+  bool result = 1;
+}
+
+message BlockToSectorRequest {
+  int32 arg0 = 1;
+}
+
+message BlockToSectorResponse {
+  int32 result = 1;
+}
+
+message DecrementRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message DecrementResponse {
+}
+
+message GetBlockCountRequest {
+}
+
+message GetBlockCountResponse {
+  int32 result = 1;
+}
+
+message GetBlockCountInSectorRequest {
+  int32 arg0 = 1;
+}
+
+message GetBlockCountInSectorResponse {
+  int32 result = 1;
+}
+
+message GetSectorCountRequest {
+}
+
+message GetSectorCountResponse {
+  int32 result = 1;
+}
+
+message GetSizeRequest {
+}
+
+message GetSizeResponse {
+  int32 result = 1;
+}
+
+message IncrementRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message IncrementResponse {
+}
+
+message ReadBlockRequest {
+  int32 arg0 = 1;
+}
+
+message ReadBlockResponse {
+  int64 result = 1;
+}
+
+message RestoreRequest {
+  int32 arg0 = 1;
+}
+
+message RestoreResponse {
+}
+
+message SectorToBlockRequest {
+  int32 arg0 = 1;
+}
+
+message SectorToBlockResponse {
+  int32 result = 1;
+}
+
+message TransferRequest {
+  int32 arg0 = 1;
+}
+
+message TransferResponse {
+}
+
+message WriteBlockRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message WriteBlockResponse {
+}
+
+message FormatRequest {
+  int64 arg0 = 1;
+}
+
+message FormatResponse {
+}
+
+message FormatReadOnlyRequest {
+  int64 arg0 = 1;
+}
+
+message FormatReadOnlyResponse {
+}
+
+message GetAtqaRequest {
+}
+
+message GetAtqaResponse {
+  int64 result = 1;
+}
+
+message GetSakRequest {
+}
+
+message GetSakResponse {
+  int32 result = 1;
+}
+
+message GetBarcodeRequest {
+}
+
+message GetBarcodeResponse {
+  int64 result = 1;
+}
+
+service NfcFService {
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc Connect (ConnectRequest) returns (ConnectResponse);
+  rpc GetManufacturer (GetManufacturerRequest) returns (GetManufacturerResponse);
+  rpc GetMaxTransceiveLength (GetMaxTransceiveLengthRequest) returns (GetMaxTransceiveLengthResponse);
+  rpc GetSystemCode (GetSystemCodeRequest) returns (GetSystemCodeResponse);
+  rpc GetTag (GetTagRequest) returns (GetTagResponse);
+  rpc GetTimeout (GetTimeoutRequest) returns (GetTimeoutResponse);
+  rpc IsConnected (IsConnectedRequest) returns (IsConnectedResponse);
+  rpc SetTimeout (SetTimeoutRequest) returns (SetTimeoutResponse);
+  rpc Transceive (TransceiveRequest) returns (TransceiveResponse);
+  rpc Get (GetRequest) returns (GetResponse);
+}
+
+service MifareUltralightService {
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc Connect (ConnectRequest) returns (ConnectResponse);
+  rpc GetMaxTransceiveLength (GetMaxTransceiveLengthRequest) returns (GetMaxTransceiveLengthResponse);
+  rpc GetTag (GetTagRequest) returns (GetTagResponse);
+  rpc GetTimeout (GetTimeoutRequest) returns (GetTimeoutResponse);
+  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
+  rpc IsConnected (IsConnectedRequest) returns (IsConnectedResponse);
+  rpc ReadPages (ReadPagesRequest) returns (ReadPagesResponse);
+  rpc SetTimeout (SetTimeoutRequest) returns (SetTimeoutResponse);
+  rpc Transceive (TransceiveRequest) returns (TransceiveResponse);
+  rpc WritePage (WritePageRequest) returns (WritePageResponse);
+  rpc Get (GetRequest) returns (GetResponse);
+}
+
+service NfcBService {
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc Connect (ConnectRequest) returns (ConnectResponse);
+  rpc GetApplicationData (GetApplicationDataRequest) returns (GetApplicationDataResponse);
+  rpc GetMaxTransceiveLength (GetMaxTransceiveLengthRequest) returns (GetMaxTransceiveLengthResponse);
+  rpc GetProtocolInfo (GetProtocolInfoRequest) returns (GetProtocolInfoResponse);
+  rpc GetTag (GetTagRequest) returns (GetTagResponse);
+  rpc IsConnected (IsConnectedRequest) returns (IsConnectedResponse);
+  rpc Transceive (TransceiveRequest) returns (TransceiveResponse);
+  rpc Get (GetRequest) returns (GetResponse);
+}
+
+service NfcVService {
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc Connect (ConnectRequest) returns (ConnectResponse);
+  rpc GetDsfId (GetDsfIdRequest) returns (GetDsfIdResponse);
+  rpc GetMaxTransceiveLength (GetMaxTransceiveLengthRequest) returns (GetMaxTransceiveLengthResponse);
+  rpc GetResponseFlags (GetResponseFlagsRequest) returns (GetResponseFlagsResponse);
+  rpc GetTag (GetTagRequest) returns (GetTagResponse);
+  rpc IsConnected (IsConnectedRequest) returns (IsConnectedResponse);
+  rpc Transceive (TransceiveRequest) returns (TransceiveResponse);
+  rpc Get (GetRequest) returns (GetResponse);
+}
+
+service MifareClassicService {
+  rpc AuthenticateSectorWithKeyA (AuthenticateSectorWithKeyARequest) returns (AuthenticateSectorWithKeyAResponse);
+  rpc AuthenticateSectorWithKeyB (AuthenticateSectorWithKeyBRequest) returns (AuthenticateSectorWithKeyBResponse);
+  rpc BlockToSector (BlockToSectorRequest) returns (BlockToSectorResponse);
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc Connect (ConnectRequest) returns (ConnectResponse);
+  rpc Decrement (DecrementRequest) returns (DecrementResponse);
+  rpc GetBlockCount (GetBlockCountRequest) returns (GetBlockCountResponse);
+  rpc GetBlockCountInSector (GetBlockCountInSectorRequest) returns (GetBlockCountInSectorResponse);
+  rpc GetMaxTransceiveLength (GetMaxTransceiveLengthRequest) returns (GetMaxTransceiveLengthResponse);
+  rpc GetSectorCount (GetSectorCountRequest) returns (GetSectorCountResponse);
+  rpc GetSize (GetSizeRequest) returns (GetSizeResponse);
+  rpc GetTag (GetTagRequest) returns (GetTagResponse);
+  rpc GetTimeout (GetTimeoutRequest) returns (GetTimeoutResponse);
+  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
+  rpc Increment (IncrementRequest) returns (IncrementResponse);
+  rpc IsConnected (IsConnectedRequest) returns (IsConnectedResponse);
+  rpc ReadBlock (ReadBlockRequest) returns (ReadBlockResponse);
+  rpc Restore (RestoreRequest) returns (RestoreResponse);
+  rpc SectorToBlock (SectorToBlockRequest) returns (SectorToBlockResponse);
+  rpc SetTimeout (SetTimeoutRequest) returns (SetTimeoutResponse);
+  rpc Transceive (TransceiveRequest) returns (TransceiveResponse);
+  rpc Transfer (TransferRequest) returns (TransferResponse);
+  rpc WriteBlock (WriteBlockRequest) returns (WriteBlockResponse);
+  rpc Get (GetRequest) returns (GetResponse);
+}
+
+service NdefFormatableService {
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc Connect (ConnectRequest) returns (ConnectResponse);
+  rpc Format (FormatRequest) returns (FormatResponse);
+  rpc FormatReadOnly (FormatReadOnlyRequest) returns (FormatReadOnlyResponse);
+  rpc GetTag (GetTagRequest) returns (GetTagResponse);
+  rpc IsConnected (IsConnectedRequest) returns (IsConnectedResponse);
+  rpc Get (GetRequest) returns (GetResponse);
+}
+
+service NfcAService {
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc Connect (ConnectRequest) returns (ConnectResponse);
+  rpc GetAtqa (GetAtqaRequest) returns (GetAtqaResponse);
+  rpc GetMaxTransceiveLength (GetMaxTransceiveLengthRequest) returns (GetMaxTransceiveLengthResponse);
+  rpc GetSak (GetSakRequest) returns (GetSakResponse);
+  rpc GetTag (GetTagRequest) returns (GetTagResponse);
+  rpc GetTimeout (GetTimeoutRequest) returns (GetTimeoutResponse);
+  rpc IsConnected (IsConnectedRequest) returns (IsConnectedResponse);
+  rpc SetTimeout (SetTimeoutRequest) returns (SetTimeoutResponse);
+  rpc Transceive (TransceiveRequest) returns (TransceiveResponse);
+  rpc Get (GetRequest) returns (GetResponse);
+}
+
+service NfcBarcodeService {
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc Connect (ConnectRequest) returns (ConnectResponse);
+  rpc GetBarcode (GetBarcodeRequest) returns (GetBarcodeResponse);
+  rpc GetTag (GetTagRequest) returns (GetTagResponse);
+  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
+  rpc IsConnected (IsConnectedRequest) returns (IsConnectedResponse);
+  rpc Get (GetRequest) returns (GetResponse);
+}
+
+service TagTechnologyService {
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc Connect (ConnectRequest) returns (ConnectResponse);
+  rpc GetTag (GetTagRequest) returns (GetTagResponse);
+  rpc IsConnected (IsConnectedRequest) returns (IsConnectedResponse);
+}
